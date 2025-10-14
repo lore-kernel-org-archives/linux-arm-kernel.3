@@ -4,85 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF520CCD192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 10:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37167CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 10:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=THAYM86a8lGfJC89oRqulnlUSAmMtqdsc6KSglKPv6Q=; b=1TsSw0OdV6mC/oA0k6695FI229
-	Mkf63WmKarRVzT6XsmQt7fOcPebTlGc+1m7SDQkC72VphB1U4f2iOMwOmjlSupeHgm/avEiddGe9H
-	Dwnvu9ZYkRk4KckHAmp5ZrOlZ6IvWCRQkYQYPxbN4SQgj0c/9XrvtDs9tsU9D/GDXpNhQyEIAY5/f
-	ZeShXGB43n/kTx/UUa+rMdvbbRlfKEAe4Sn2wcB2NW/r6kvHKuECOCFXXQIqfp5j15Zzk5+ILmVNe
-	OmU50XsU2PjSOepgLQiRqn9JEeZJNV/233mHzbpzUBLIWV0H3sSsv+GIdCJUCKz3/HDWnYYek9bYf
-	m/XBEgqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9oi5CZpumOfRO5UxrA3d1k5hJRdlXZM8E6FYaZHFNcA=; b=p/TPi+IHbCkgA8yITrPjEcOMM3
+	AglN7Ea597ank4GMRL6tmQeoj8B/KioqupOz++a7H9uZXmn66OZ6zkRXCM3MvzFuNIwTPZ6WoovBd
+	+FfNbs0CHV/HxSLc1tPL3aDlUSg8oFYJUI7UjMWGEdOlyXnM9sZt+dtBu1Od20l670gu2ntHra0Hf
+	5kZyBWNTl9nbnE/2EHnkEsoS+k5AdGUyLXblGQlmg8HYmvztMwfkZxcdBEYQo0u3DaiLfNJWQ2y87
+	EHqjk/hCV+/Bd5BO7UvjjEDRd8mjOxtzj5DqapFm2ZdaneSrSFgoCkHIHzJsFd35CLBh3YypegFBB
+	jqwz/KhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8cWB-0000000Fwy7-18S5;
-	Tue, 14 Oct 2025 10:44:35 +0000
-Received: from mail-yx1-xb12d.google.com ([2607:f8b0:4864:20::b12d])
+	id 1v8cbq-0000000FxPv-31pk;
+	Tue, 14 Oct 2025 10:50:26 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8cW9-0000000Fwxk-0e6K
+	id 1v8cbo-0000000FxPY-2jJl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 10:44:34 +0000
-Received: by mail-yx1-xb12d.google.com with SMTP id 956f58d0204a3-6354a4b4871so6588631d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 03:44:31 -0700 (PDT)
+	Tue, 14 Oct 2025 10:50:25 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-46e61ebddd6so55862545e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 03:50:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760438670; x=1761043470; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=THAYM86a8lGfJC89oRqulnlUSAmMtqdsc6KSglKPv6Q=;
-        b=I/6A22pfnt0jhmzJqjY3UTKnIvxXRvny/xil98SsC2lU/RRWNJFLpuKkeE2l4ZOL6K
-         265VpdiW6nGuRieXW05MJPUgwsYRutDXV6MOrQ1oZof0DFTKDiEl3CQpwNypaYfKu6c1
-         Gg5IY4X4ndBQ4Ik04mK7/4VpgpQlQ7H1cl4ZhQobQsXanEJ6v32JQDgTQY9kQQldzrZC
-         UnLycRJSkAimdcG3Xz2Sso3QE04c2WyHLCbjPfMAZhVA7cE26+lvPJ6FsTxqVW4/uJyq
-         mSo+bQoF4TQD1zKmwIZuKy/OGf4Hdagu0D1bom9pcwS5tVYvaCrUKv2RwChcLFBQ9ymv
-         uVjg==
+        d=gmail.com; s=20230601; t=1760439022; x=1761043822; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=9oi5CZpumOfRO5UxrA3d1k5hJRdlXZM8E6FYaZHFNcA=;
+        b=KYYm+WXCeX8V3Wg5NYNSltp+zpkmWh2KcScQjvbXsZqV0tNo92wQiacc834ePIbPfY
+         FJzo0Vusf0IVVqQMh9KEWwIrZOaIF8rbMvnLMrT2NEpXp+V+iAwG/pn2zFaMzl1hM9GL
+         Mc/6hN1dX/IpKinybYOv1af62efdPUqA+X2w0P6azuzJe+OXKq0YoORY7+Iff/YSL6j2
+         lJKuSVVw+pqKraolUCx7VFRceValhP2dbj/cIFfGrHUSj+ouek/D3BYMR3Sz6MY4yIbN
+         +QIVDk2u6tjdOwLqTCe4ZcIPelQHaPZNDhO4LQhMzqB/NQtohuF2X1J1+7aTPzg0J7kP
+         lXAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760438670; x=1761043470;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=THAYM86a8lGfJC89oRqulnlUSAmMtqdsc6KSglKPv6Q=;
-        b=W+03FUjnHNzhlMflAJE7mqfiTFrf1bdpZQBXloLMPJejRnNxWbYhFGia1bBE0f/sxK
-         Am8h8vSqpT7becny3+zZDv+W1a8oFtz7uYbLC8onRPMl6LZM4isEJCWNqRT40cjndrVJ
-         bp5JAK1kjmyXMvH+leeqANRPZD8wohiISIrzcdtm7x8OKjQ+TWKI0LaKP+6/WWw6eCRS
-         Cwiq0Ugh3V0+jd3uuaHR1XZW07oJEBfmqOZyhXrn/xteVn11jbMFvdB1kDS4fW3nYqZC
-         H3OfR6zkZ83ciTtWvf2VUO5hICkw4evaDrtnPxtVKRMTXunai4TD///lDWXY5tXkdoia
-         ZvTw==
-X-Forwarded-Encrypted: i=1; AJvYcCUI/zpZczQlzjLaSWSPKaUTnbzvkAyd4x7KCXcDqFB2lvLvhN+kkFgfJyjE9QT3+O1kS60BSF2i8RaFdv/45iTY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yws+KGjBpNHHJUPNT+A8EFCjNG5XGQxjKLotH2zxlFqP1TUpHMK
-	UHsEnxI7iq6xf5vmr25R8he6OLK6K9rYK+2xn5P+xnki3eDUzjGTG64QsErQqz+F86Z0kjrRFEm
-	PktcnEPvAksja8BglFe/fPSl8pvyk3CcckyH1/EFN2Q==
-X-Gm-Gg: ASbGncvUCiySdI6Gqc3WC2hHCOC/jawKrXQFoAW2Qxm+T0RlI0IGFVSBkkJpoCc+dV7
-	bbXVnv58rn1h/YOefg5xwKBqLLJ4OdRp6UhRexTF7bFrr1r28cpvYCAOt20ADV/2CMmYZTE1FGW
-	P1pAaZhMTaPtvJtxG+THbd9ctJHWtodx3PJS+gx3Rr27+M4oFIrW3zBx4U7fR1fxwFAl6bC/hV6
-	9ejgL6j3yVGJg1SFXvJCx4maxey3Q==
-X-Google-Smtp-Source: AGHT+IFp4+6M8ipAZ5PvzMBFmhPMOi8dNCbnfx7iCHUB+I0mJ3szARsJfZuBKpYg4FajfdIRV8gYXT4SlaoN9/M/6LQ=
-X-Received: by 2002:a05:690e:182:b0:63c:f5a7:400 with SMTP id
- 956f58d0204a3-63cf5a70a44mr7374154d50.68.1760438670439; Tue, 14 Oct 2025
- 03:44:30 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760439022; x=1761043822;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9oi5CZpumOfRO5UxrA3d1k5hJRdlXZM8E6FYaZHFNcA=;
+        b=J0tcXirwrybiAiBipETHB2AKLgG9rdDNnnQ1ZmZWE5ebBOkXPXwSeKio5dM4IlE1C6
+         80MjiNCl43MrdaRvPn2CCSh7cx1Sa58QLgvvZpvGn607p41zW3iwOUa3jVHBP2b8gHg0
+         3LXjASsaGm1tZnR5Jx8EYW72I9K6Pn01QsTSAOUCnaNZuhvAvWkAHjW2rcm0X27dbkxC
+         F0LNdJhLLCgK9CVisWFPnEML5XmaAuPzYjkZIlRVtFeXwiH2F2T572rSWk6I1p1ZXYbR
+         DRlw65vaDDRDoY5y6FrVbljIoDbU2JqF2IdcEERxOzEb1xYXcBlz56GUcJBN26Sai5eR
+         CxuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWkEB5PjFuho/kQrUopQU7eNN79WJF1ZnYDbswydY6/CeI0Ak7JrfbZDw8w0K57/TlcFKubhxoc+ZXDvv3QNdyC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzn2hJCwg4s+z66Kkx7a9r53ARTni52w1DtuFs+fTCZPJ6SJ947
+	MWrBMS6V94WYPWv9bp8elsP2Tn7EAOPIrUYTlayMJOoOrl8ol8aSeeDp7J7zYg==
+X-Gm-Gg: ASbGncse68A45OBn4WwYNP+yjtdAAAuBkZ1fah8uErWKCTA8GuxqUYCOntmLZnft91Q
+	ymb9pXK9w6IMxkPNQZ721tsaiRg6rHge+ZSd06Mgw2/ccprM4HIQcRgvf/1VXhh2ZPyRAFUoHJ2
+	JC+v9BHI4ZLR6bK7nq3W5UtRnGTFeEsKt8scO3hxvfDEu0G5N/WFlcX6LthCeZtjkNpk9ZpJHpY
+	exOHOr7AGzQDPaK2lx9XSdumTEP5u9vsEtC3eqO68iElc652VnVamdzQfQMl8O5HQ/gWgpN0FV8
+	5mE/+KDY/II5/NZeVG2+l3BCCof32dXQtSOTVu9VuNyuXftrzTtdQL4nVvA7a31FLkR+fHM9VAM
+	GV6CFJtWsZP15A25YWWVfgBmEM0X8/nqmPyem18K4ZICaxeffJWw6buNkQ85BsGPBYuec8raR1y
+	2RFWrTt43WH4GhvT/WhK3LAxCkGBIcUZ/Qq1muSyg=
+X-Google-Smtp-Source: AGHT+IHvthsh5d4gJ2f4pjbU+SaIy+7Qg5DdE7atHEiRKh31T49BVgFbO+XVGKpTwhTDtvlqb5L5oQ==
+X-Received: by 2002:a05:600c:4e01:b0:46e:37fe:f0e6 with SMTP id 5b1f17b1804b1-46fa9b090d0mr198199315e9.30.1760439021936;
+        Tue, 14 Oct 2025 03:50:21 -0700 (PDT)
+Received: from orome (p200300e41f28f500f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:f500:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fb49be017sm230015965e9.13.2025.10.14.03.50.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Oct 2025 03:50:20 -0700 (PDT)
+Date: Tue, 14 Oct 2025 12:50:18 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, linux-tegra@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: IRQ thread timeouts and affinity
+Message-ID: <6hb5vyl5xxsxfcwk4v3xpq277wusj5jq4tubdpjocpjc5smj3w@wx574kluhedj>
+References: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
+ <86qzvcxi3j.wl-maz@kernel.org>
+ <loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
+ <86o6qgxayt.wl-maz@kernel.org>
+ <86ms60x7w7.wl-maz@kernel.org>
+ <us2hfdn7jpfepdmwk2p62w64p7xagaeoemg3hdt2vm54emtwlv@m6fkuti7hvfa>
+ <86bjmeyh5m.wl-maz@kernel.org>
+ <graeplkpsgbolpnnq2pndpdb7fymyy7zvm37osbdtre347tns2@mjbgzwterefv>
+ <87sefpoj10.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20251014015712.2922237-1-gary.yang@cixtech.com> <20251014015712.2922237-2-gary.yang@cixtech.com>
-In-Reply-To: <20251014015712.2922237-2-gary.yang@cixtech.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 14 Oct 2025 12:44:15 +0200
-X-Gm-Features: AS18NWAu8xsDVfGUGNQZd3TKgpRR7nZFuc-hAgCzcqzNK32irDscIbUpkUaITw8
-Message-ID: <CACRpkda-2BNj+Pt2kS9u_bbr41bsWGRGDqNd3EXVnys-xSqg0g@mail.gmail.com>
-Subject: Re: [PATCH v3 1/3] dt-bindings: pinctrl: Add cix,sky1-pinctrl
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	cix-kernel-upstream@cixtech.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2s53ukplucxdxja3"
+Content-Disposition: inline
+In-Reply-To: <87sefpoj10.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_034433_245303_414ACDA8 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20251014_035024_735503_5AD74C10 
+X-CRM114-Status: GOOD (  30.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,71 +107,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gary,
 
-thanks for your patch!
+--2s53ukplucxdxja3
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: IRQ thread timeouts and affinity
+MIME-Version: 1.0
 
-On Tue, Oct 14, 2025 at 3:57=E2=80=AFAM Gary Yang <gary.yang@cixtech.com> w=
-rote:
+On Sat, Oct 11, 2025 at 11:00:11AM +0100, Marc Zyngier wrote:
+> On Fri, 10 Oct 2025 16:03:01 +0100,
+> Thierry Reding <thierry.reding@gmail.com> wrote:
+> >=20
+> > On Fri, Oct 10, 2025 at 03:18:13PM +0100, Marc Zyngier wrote:
+> > >=20
+> > > CPU hotplug is the main area of concern, and I'm pretty sure it breaks
+> > > this distribution mechanism (or the other way around). Another thing
+> > > is that if firmware isn't aware that 1:N interrupts can (or should)
+> > > wake-up a CPU from sleep, bad things will happen. Given that nobody
+> > > uses 1:N, you can bet that any bit of privileged SW (TF-A,
+> > > hypervisors) is likely to be buggy (I've already spotted bugs in KVM
+> > > around this).
+> >=20
+> > Okay, I can find out if CPU hotplug is a common use-case on these
+> > devices, or if we can run some tests with that.
+>=20
+> It's not so much whether CPU hotplug is of any use to your particular
+> box, but whether this has any detrimental impact on *any* machine
+> doing CPU hotplug.
+>=20
+> To be clear, this stuff doesn't go in if something breaks, no matter
+> how small.
 
+Of course. I do want to find a way to move forward with this, so I'm
+trying to find ways to check what impact this would have in conjunction
+with CPU hotplug.
 
-> +# Client device subnode's properties
-> +patternProperties:
-> +  'pins$':
-> +    type: object
-> +    additionalProperties: false
-> +    patternProperties:
-> +      '(^pins|pins?$)':
-> +        type: object
-> +        additionalProperties: false
-> +        description:
-> +          A pinctrl node should contain at least one subnodes representi=
-ng the
-> +          pinctrl groups available on the machine. Each subnode will lis=
-t the
-> +          pins it needs, and how they should be configured, with regard =
-to muxer
-> +          configuration, pullups, and drive strength.
-> +
-> +        properties:
-> +          pinmux:
-> +            description:
-> +              Values are constructed from pin number and mux setting and=
- are
-> +              defined as macros in arch/arm64/boot/dts/cix/sky1-pinfunc.=
-h directly.
-> +
-> +          bias-disable: true
-> +
-> +          bias-pull-up: true
-> +
-> +          bias-pull-down: true
-> +
-> +          drive-strength:
-> +            description:
-> +              Can support 15 levels, from DS_LEVEL1 to DS_LEVEL15.
-> +              defined as macros in arch/arm64/boot/dts/cix/sky1-pinfunc.=
-h.
-> +
-> +        required:
-> +          - pinmux
+I've done some minimal testing on a Tegra264 device where we have less
+CPUs. With your patch applied, I see that most interrupts are nicely
+distributed across CPUs. I'm going to use the serial interrupt as an
+example since it reliably triggers when I test on a system. Here's an
+extract after boot:
 
-Can't you just include both pinmux-node.yaml and pincfg-node.yaml
-to get validation from the generic schemas?
+	# cat /proc/interrupts
+	           CPU0       CPU1       CPU2       CPU3       CPU4       CPU5    =
+   CPU6       CPU7
+	 25:         42         44         41         29         37         36    =
+     39         36    GICv3 547 Level     c4e0000.serial
 
-'pins$':
-  type: object
-  additionalProperties: false
-  patternProperties:
-    '(^pins|pins?$)':
-      type: object
-      $ref: /schemas/pinctrl/pinmux-node.yaml
-      $ref: /schemas/pinctrl/pincfg-node.yaml
-      additionalProperties: false
+I then took CPU 1 offline:
 
-Something like this, I never get this right before actually testcompiling..=
-.
+	# echo 0 > /sys/devices/system/cpu/cpu1/online
 
-Yours,
-Linus Walleij
+After that it looks like the GIC automatically reverts to using the
+first CPU, since after a little while:
+
+	# cat /proc/interrupts
+	           CPU0       CPU2       CPU3       CPU4       CPU5       CPU6    =
+   CPU7
+	 25:        186         66         52         64         58         67    =
+     62    GICv3 547 Level     c4e0000.serial
+
+The interrupt count for CPUs 2-7 no longer increments after taking CPU 1
+offline. Interestingly, bringing CPU 1 back online doesn't have an
+impact, so it doesn't go back to enabling 1:N mode.
+
+Nothing did seem to break. Obviously this doesn't show anything about
+the performance yet, but it looks like at least things don't crash and
+burn.
+
+Anything else that you think I can test? Do we have a way of restoring
+1:N when all CPUs are back online?
+
+Thierry
+
+--2s53ukplucxdxja3
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmjuKuYACgkQ3SOs138+
+s6GjZxAAh0EtrqoNH2ELSK/goEd24inBc3Eoe37rgmkFvxq4QmjXZaEktcd2MVKQ
+PpYu00CutOwfzM202AXfZRem5KI2hg8pOLu9ZE/Y0GLaZsMyY9KmefuYNbRpuFFY
+ls/pYtncY0xRPfzF1KpSg/y3UhIt9l67KXjrTLcIgem/RXFhhIVGBbuabbcA0b8N
++3SD9lEqdVWByEB0skf4okYqSZK0aXN4gxBrm8G03fYDuuVtM/w5nvYLJTUMgTJh
+qMS0kNvVX3JOjaXvYt4HGZIcIi6cHLgK3PHAydGQ0A+rBdSRbSycXBF6hGpOViuY
+Cna1CRTsu1X/CPwmKyVRyxx+jfWMV25WEs4wr+LKMePNvcQswJep6jc3eTUEBGCV
+bD10EcJUNKz7jUs+Du7fc5zMY5NNzYmI7PGFGpfOIRr/Fjzwq3KbWIQNfBca5QBr
+aixPjI57v4Z9y58nPt1IDY4mk6jlMzB9p6FfhzRY5VyBChrjS8gnukhs7Heq7l5H
+uwhfVeYjB74NRns+V0Pcb3fKtt8xd6vx3w5U0oZQmhezfs9TITmJc7U3JQkgRNp2
+wApK8ECbCcA56N07U1jB5ihAsS3u/bbqWONgIAg6ldIBOYmBjuGvkNF02E9xNEu/
+SVcGFetyr9+PkcKbDfpVaKfxZPMtUxune9hno2u3QO9bylAQw/0=
+=QFps
+-----END PGP SIGNATURE-----
+
+--2s53ukplucxdxja3--
 
