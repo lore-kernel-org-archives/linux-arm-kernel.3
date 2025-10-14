@@ -4,87 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DF3CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:34:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33525CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AKUCHW/MBIZsUc3ODKKtWIaDlEQsfe7hY3IvRmB8i8o=; b=ipEcXyfm0uj1FEdKyKBA8bCT3n
-	9Rijb+cOODB+kcJhTLkfmhRnJU8SEsmVoVMT5xvaYTVtEDwnG8OETie1J7BH99xjGLvuapxX/c5Ga
-	JOcIHI18l6bDqwoiYpGDsuYGYbZO6R9SxbF1IULIqatIl0FWhPQuY2y9iRf3b3gPXPKnUz5BNZ0U+
-	5jogVNc/7MSrMjDKFj/SMD+up6vs8rvTCNPWNA2/SxFUCM9ad4gtlfEs2+GSYohtfv7IBNZsXoh+J
-	lC7v8V4oxBJHf0nFaDYRAoeF33VKxsYPZl194MlNGHgkiKnyGHTLy3noKfzZ5gcAoC3Mz/lphZS0W
-	LmyPpiAg==;
+	bh=LJSSO4opn67AmxAlbg/fcji5MqiidXlUjILTzkntaEI=; b=sJ+E5zK1ckxcxnzSRyxYQOvz+P
+	aeFN5GtVJTfoEeUMi5Fn+K8aUTmlq7ICFSw4GiYziS4a4SrwP00b/wsEAWw6la+GDTnXRrMNAAKJm
+	810lVhOYaVmLDLpcsfxadFOv/GpkH55H9Q9MylST7Itfnd2xkcqxT4CLzovySGuLEwF/Ew/k4GSPv
+	2OgwlUW7oKdHbjjDZbOd6uyqfdKcMwS1xI3R7FHqfpDXBIJwWjAqgSfjH9E1DeMXkcuUExJj9vObl
+	X9yxI2UEiNpY1sV7T/dwUFbCW8G6Y7rE53N7ooBgAUqrpcQlft+Rf3HEDRKiZhWsRJ9/pFXqlxN7l
+	v6/IeuQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8aU2-0000000FcqO-3Wxs;
-	Tue, 14 Oct 2025 08:34:14 +0000
-Received: from mail-ed1-f43.google.com ([209.85.208.43])
+	id 1v8aUo-0000000Fd3I-0Slm;
+	Tue, 14 Oct 2025 08:35:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8aU1-0000000FcpI-0UxZ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 08:34:14 +0000
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-637dbabdb32so9995048a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 01:34:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760430851; x=1761035651;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AKUCHW/MBIZsUc3ODKKtWIaDlEQsfe7hY3IvRmB8i8o=;
-        b=MqDC/JUXnxngqhNKiKNPLZkqU15VyxErJDwLH9A9BW80WAe84A7yhLUd4SnwfBwUyk
-         AiKbdRGPr1fXP0ItOuMl3OTJj1QGGEeVJ52JBX0KSwHShTthyNbnOGB4fwrtYVPrIXSA
-         FDgg8Ao4kXJ2Fld68Mxth7s2NxEZGdTU05yX8qRve5Qi1lhMa5yIWwGpBV41wXvZEAl7
-         cR+SNPeTkNcVGlwsaa+pFehmzMW7IcyMTpmxSPVvkGrKaQk0tGGAwXuLybLxGMX6/8t1
-         gSyO5Nqda5XDZYPcTCjmA1SwdPD/UFYExk74xJDZC2pgFbGAY+y8Tk9iA92+WGtangGe
-         GDHg==
-X-Forwarded-Encrypted: i=1; AJvYcCUX+wBwPJGFvY7+6QoBBhPDJP+Q9CS2l63xvwBmD62kU8pajEs9w8OAI5CSUVQgpr13MUjuebgQgBX7SuuufTgz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEBG+nNfH/guJKgWs29kTo5+kTcEXxoz7GW01dJkfbszR4Kwse
-	meBtChq5VgXZsM3rELsJcPiZqgU/ph8G6eDYyjjS561Nc8V1svCUaMMo
-X-Gm-Gg: ASbGncuHFoTg+vGSiBwrDEk38//oELL0dTSno0nVkp55k8RWVjbSdt4HgSAjAxSfFva
-	szhBdAk//OFOF2L642I+5MsQoMfAGfjrDfVAAc1jnaoxDmiNJVyGdtvY91ggbZZ/C3gY8mGSS8o
-	2Dw1hVli7YL0BeAmXtIgV7SINpJDcmq3lwgPHgCq7YXFmvPayWMkvgLtFMqVVgj162GdQLxebJ3
-	nrHuw7f5AIFV/XuSSL1njn6uqyAL5WAihUsCsasIqMKURpiFfSmuIm5XSTIi0Eo3zdkPrHdBZTD
-	n98Y38a8MPGZDvpt9E8+3QczX8t2bJXMSw2ZzEu8+KSRx1hb0SZ2eLRKywEDx5Dsp0xK25oksm4
-	eB8BirYShhjQWpdu21tO4KD6u+7yHKKPGADAr
-X-Google-Smtp-Source: AGHT+IH9yDBhkiPY34+r8L4QfGlETNuwKEKExxU3npIvUrJ6TVQTuSdRSJEPMfeufN3cm41sP9BTrQ==
-X-Received: by 2002:a05:6402:50c6:b0:632:930c:ed60 with SMTP id 4fb4d7f45d1cf-639d5c57a9cmr20902180a12.30.1760430850785;
-        Tue, 14 Oct 2025 01:34:10 -0700 (PDT)
-Received: from gmail.com ([2a03:2880:30ff:70::])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63a5c322e91sm10304155a12.45.2025.10.14.01.34.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Oct 2025 01:34:10 -0700 (PDT)
-Date: Tue, 14 Oct 2025 01:34:07 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Pratyush Yadav <pratyush@kernel.org>
-Cc: Changyuan Lyu <changyuanl@google.com>, rppt@kernel.org, 
-	akpm@linux-foundation.org, linux-kernel@vger.kernel.org, anthony.yznaga@oracle.com, 
-	arnd@arndb.de, ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
-	catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com, 
-	devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com, 
-	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org, krzk@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org, 
-	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com, pbonzini@redhat.com, 
-	peterz@infradead.org, robh@kernel.org, rostedt@goodmis.org, saravanak@google.com, 
-	skinsburskii@linux.microsoft.com, tglx@linutronix.de, thomas.lendacky@amd.com, will@kernel.org, 
-	x86@kernel.org
-Subject: Re: [PATCH v8 01/17] memblock: add MEMBLOCK_RSRV_KERN flag
-Message-ID: <2ege2jfbevtunhxsnutbzde7cqwgu5qbj4bbuw2umw7ke7ogcn@5wtskk4exzsi>
-References: <20250509074635.3187114-1-changyuanl@google.com>
- <20250509074635.3187114-2-changyuanl@google.com>
- <ef6wfr72set5wa5el3wbbu4yd5tnc4p2rhtjpb5kpmncv3xs5d@i3c5v3ciioi3>
- <mafs0wm4yluej.fsf@kernel.org>
- <mafs0h5w2lpqu.fsf@kernel.org>
+	id 1v8aUn-0000000Fd2T-1VVd;
+	Tue, 14 Oct 2025 08:35:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B169862209;
+	Tue, 14 Oct 2025 08:35:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E38A8C4CEE7;
+	Tue, 14 Oct 2025 08:34:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760430900;
+	bh=gGnn14nn19buRMsFjRJqbyXn30qMIF3FN4EV6y6JEeU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tHIx0SgodJOeDzujA35S/7ES7yp8Uk7ESghpMUhqxByViRCSIo/KXvI42CANg9ojV
+	 x5iuVbl3u8GQtJdgi6aO169pFVNI4XcitOjhjh0+fphsg5qYezqLGl5mNiA1IOWGlA
+	 41yekkmBZA3g0d6LSK/wCe1sQwe8UHBn9THRA5oa3IG0b3t7XSs0at/YJgplO0hwlc
+	 /74/GdNCXcKlwOmOLWqca9l4E5ZwMuCNZ1BMz9q5pJ5CSJYp3fs4nVbzqX+I6Coery
+	 7WXQYedgVZGYfhgyL+B5MfjgGpLwvOL5tfiaDkLa4D4H8IxBK6/SAHOp1p6qHf2hjJ
+	 uk6KpDJfrDgxw==
+Date: Tue, 14 Oct 2025 09:34:55 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next v3 2/3] net: airoha: npu: Add
+ airoha_npu_soc_data struct
+Message-ID: <aO4LL8racazLjjzk@horms.kernel.org>
+References: <20251013-airoha-npu-7583-v3-0-00f748b5a0c7@kernel.org>
+ <20251013-airoha-npu-7583-v3-2-00f748b5a0c7@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <mafs0h5w2lpqu.fsf@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_013413_171085_DF8D3FE5 
-X-CRM114-Status: GOOD (  22.73  )
+In-Reply-To: <20251013-airoha-npu-7583-v3-2-00f748b5a0c7@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,43 +76,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Pratyush,
+On Mon, Oct 13, 2025 at 03:58:50PM +0200, Lorenzo Bianconi wrote:
 
-On Mon, Oct 13, 2025 at 06:40:09PM +0200, Pratyush Yadav wrote:
-> On Mon, Oct 13 2025, Pratyush Yadav wrote:
-> >
-> > I suppose this would be useful. I think enabling memblock debug prints
-> > would also be helpful (using the "memblock=debug" commandline parameter)
-> > if it doesn't impact your production environment too much.
-> 
-> Actually, I think "memblock=debug" is going to be the more useful thing
-> since it would also show what function allocated the overlapping range
-> and the flags it was allocated with.
-> 
-> On my qemu VM with KVM, this results in around 70 prints from memblock.
-> So it adds a bit of extra prints but nothing that should be too
-> disrupting I think. Plus, only at boot so the worst thing you get is
-> slightly slower boot times.
+...
 
-Unfortunately this issue is happening on production systems, and I don't
-have an easy way to reproduce it _yet_.
+> @@ -182,49 +192,53 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+>  	return ret;
+>  }
+>  
+> -static int airoha_npu_run_firmware(struct device *dev, void __iomem *base,
+> -				   struct resource *res)
+> +static int airoha_npu_load_firmware(struct device *dev, void __iomem *addr,
+> +				    const struct airoha_npu_fw *fw_info)
+>  {
+>  	const struct firmware *fw;
+> -	void __iomem *addr;
+>  	int ret;
+>  
+> -	ret = request_firmware(&fw, NPU_EN7581_FIRMWARE_RV32, dev);
+> +	ret = request_firmware(&fw, fw_info->name, dev);
+>  	if (ret)
+>  		return ret == -ENOENT ? -EPROBE_DEFER : ret;
+>  
+> -	if (fw->size > NPU_EN7581_FIRMWARE_RV32_MAX_SIZE) {
+> +	if (fw->size > fw_info->max_size) {
+>  		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
+> -			NPU_EN7581_FIRMWARE_RV32, fw->size);
+> +			fw_info->name, fw->size);
+>  		ret = -E2BIG;
+>  		goto out;
+>  	}
+>  
+> -	addr = devm_ioremap_resource(dev, res);
+> -	if (IS_ERR(addr)) {
+> -		ret = PTR_ERR(addr);
+> -		goto out;
+> -	}
+> -
+>  	memcpy_toio(addr, fw->data, fw->size);
+> +out:
+>  	release_firmware(fw);
+>  
+> -	ret = request_firmware(&fw, NPU_EN7581_FIRMWARE_DATA, dev);
+> -	if (ret)
+> -		return ret == -ENOENT ? -EPROBE_DEFER : ret;
+> +	return ret;
+> +}
+>  
+> -	if (fw->size > NPU_EN7581_FIRMWARE_DATA_MAX_SIZE) {
+> -		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
+> -			NPU_EN7581_FIRMWARE_DATA, fw->size);
+> -		ret = -E2BIG;
+> -		goto out;
+> -	}
+> +static int airoha_npu_run_firmware(struct device *dev, void __iomem *base,
+> +				   struct resource *res)
+> +{
+> +	const struct airoha_npu_soc_data *soc;
+> +	void __iomem *addr;
+> +	int ret;
+>  
+> -	memcpy_toio(base + REG_NPU_LOCAL_SRAM, fw->data, fw->size);
+> -out:
+> -	release_firmware(fw);
+> +	soc = of_device_get_match_data(dev);
+> +	if (!soc)
+> +		return -EINVAL;
+>  
+> -	return ret;
+> +	addr = devm_ioremap_resource(dev, res);
+> +	if (IS_ERR(addr))
+> +		return PTR_ERR(addr);
+> +
+> +	/* Load rv32 npu firmware */
+> +	ret = airoha_npu_load_firmware(dev, addr, &soc->fw_rv32);
+> +	if (ret)
+> +		return ret;
+> +
+> +	/* Load data npu firmware */
+> +	return airoha_npu_load_firmware(dev, base + REG_NPU_LOCAL_SRAM,
+> +					&soc->fw_data);
 
-At the same time, "memblock=debug" has two problems:
+Hi Lorenzo,
 
- 1) It slows the boot time as you suggested. Boot time at large
-    environments is SUPER critical and time sensitive. It is a bit
-    weird, but it is common for machines in production to kexec
-    _thousands_ of times, and kexecing is considered downtime.
+There are two calls to airoha_npu_load_firmware() above.
+And, internally, airoha_npu_load_firmware() will call release_firmware()
+if an error is encountered.
 
-    This would be useful if I find some hosts getting this issue, and
-    then I can easily enable the extra information to collect what
-    I need, but, this didn't pan out because the hosts I got
-    `memblock=debug` didn't collaborate.
+But should release_firmware() be called for the firmware requested
+by the first call to airoha_npu_load_firmware() if the second call fails?
+Such clean-up seems to have been the case prior to this patch.
 
- 2) "memblock=debug" is verbose for all cases, which also not necessary
-    the desired behaviour. I am more interested in only being verbose
-    when there is a known problem.
+Also, not strictly related. Should release_firmware() be called (twice)
+when the driver is removed?
 
-That said, my suggestion is to only dump extra information when something goes
-wrong, not affecting the boot time neither boot verbosity.
+>  }
+>  
+>  static irqreturn_t airoha_npu_mbox_handler(int irq, void *npu_instance)
+
+...
 
