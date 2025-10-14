@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CDC8CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 17:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3479CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 17:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VZuzQ0vfYo67YZ87oaUHAzzbmOUfmnTfkoYeXMCcF+8=; b=T7RC9xTeLkgKukjk7dc8v6YdmA
-	JCJw/KGoz2zoBOPBawTfYqVVDCF93sA15/C7fMbpPTDphss8xvRIBDHaSwFqrULgbxS+hdkP7/Fx3
-	v/wBEWOUZanKm/k5F0ioa0c0m34U/SkUQm2WQFFq2Sm31hNqEYNpotIwgoS4/DTxd1Dmju1tWN/Vn
-	VLPy0VGHX5gcAYdI5oycVuHza4TwirQRcZplRyUoKkCQxFiKadio6ztKluKVFteKa8fz4ikhtW3kX
-	08HnUr//i+n2Y+jm0jCcF49h6QJf4VHq3l1JWcV+5LIXC5fIS5pflh0TkTj2Lx6qxtYwUXtdoyUsD
-	f8iTRcSw==;
+	bh=HiHVPkmJ4kLt15rZlOliv30WPQ7D2hyc8KjNSWJr6fo=; b=w1j7spkmTm6jR/LmcRZyUTANsF
+	GYEdi/igs6zFCE2yQT19Ii1/oIuaotIw0aPz4d5dO75iEcAsI1OUrbOzPyd1OcGqD4boSabXj6qIr
+	4O5NaXRSr8Dv2DdJShv9VkU4dJi7IkasEzOCtFqyKNy4Fns15NbgrN5knimO4cwCjJvSlnK99pcMs
+	FfrzuCX2I1j0Q6wX/f1GSdJ+5v2TcaA5p1NrRiGh2MbLmoasVfXjL/8wxGXOA66bp0aBqcah1jFXG
+	ybWu5L5466D7mJFD0Wv/RrbMKgeNcJTbaJBx1WobVlWPwBvfucJB/Djv82eI9t9ZuATtnW0ckfUs+
+	Q6oCou7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8j6r-0000000H6e9-3oyL;
-	Tue, 14 Oct 2025 17:46:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v8jIW-0000000H7zj-3QZW;
+	Tue, 14 Oct 2025 17:58:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8j6q-0000000H6dv-1mX2
+	id 1v8jIU-0000000H7zO-0VwE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 17:46:52 +0000
+	Tue, 14 Oct 2025 17:58:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D153A6237F;
-	Tue, 14 Oct 2025 17:46:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 886DAC4CEE7;
-	Tue, 14 Oct 2025 17:46:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C680443CBF;
+	Tue, 14 Oct 2025 17:58:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0128C4CEE7;
+	Tue, 14 Oct 2025 17:58:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760464011;
-	bh=REAJKHktfM5uhBrHBHX1IL3/GQ/UWwWriUYpZT5i0i0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=XlXcBMMJmLFepolcAl1W6bVqaq58HD498ZbWBeybAD42nc9rMQLs5p9VvaHyTBcPo
-	 9DGEcIdTrGRw7egfcDmil9IEBQxq7nMTU5O2qfbpjrbfgvChGy+2GFp57FeO2lb+Zo
-	 Ed4LeSDr1dAsue6PCdN/xo6t3bgEQbfV1tIkuo1NxeAe0DP39qtrc1hb46Gwu6MaEh
-	 e5ZOAcnKaX2ZGw/fy/geGx1MBZjJyHhooKCNTRux0OLOh55GZXmm51j70H2dKyhzdf
-	 63RB7Kjiha84VMK7NBMNrr/YMZoUzPgjg63dmC4hT0JkNcbK9ram5YmxIBDTa/hHRr
-	 Sy8lWgc5pa1NA==
-Received: from 82-132-215-36.dab.02.net ([82.132.215.36] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v8j6n-0000000DxEH-0qIj;
-	Tue, 14 Oct 2025 17:46:49 +0000
-Date: Tue, 14 Oct 2025 18:46:40 +0100
-Message-ID: <87cy6pxtof.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	linux-tegra@vger.kernel.org,
+	s=k20201202; t=1760464733;
+	bh=XDE6Yxeh5XTmulB/+mdNcqgIXS4uoK/1f8lE5Ir5Ezg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bu/eZlsz44HxEbI47lj8muJJ1DeQ5g63sPU/8wR/cfumSftjo+mx1WWB7eCjqTgxm
+	 mj2N1DKHcHqc9qcyJM+Mme3ktfwcJLpWKUH4l8ExKtww8bTqPCLqgnTqnFZf82fs3C
+	 asYvnH6Q/I+Cn6GCWxIDT4B7nijvusMAZ7Mm21vCTz8n6c8KAPw1BYFvf1x6W2I/+d
+	 sMGLcrwHMvbNwdKCDHhl7Wl6U39+xof8+9+4vuTPnf6gNjtzPyrt+8BTOeYvA80/e3
+	 7HxvHGN1n5aaPHGiwOmDZ4gJWs0n5Y4+NpVa82qK1vqUhAG5ZvkA8tZdDr3xDqqWgV
+	 ywhKGFc5I6vkw==
+Date: Tue, 14 Oct 2025 18:58:49 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Gary Yang <gary.yang@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: IRQ thread timeouts and affinity
-In-Reply-To: <wosxizbb5z3goikqglsdbrgmshith62upwnavnbqeq5dndfau3@bna46rg3w2ak>
-References: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
-	<86qzvcxi3j.wl-maz@kernel.org>
-	<loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
-	<86o6qgxayt.wl-maz@kernel.org>
-	<86ms60x7w7.wl-maz@kernel.org>
-	<us2hfdn7jpfepdmwk2p62w64p7xagaeoemg3hdt2vm54emtwlv@m6fkuti7hvfa>
-	<86bjmeyh5m.wl-maz@kernel.org>
-	<graeplkpsgbolpnnq2pndpdb7fymyy7zvm37osbdtre347tns2@mjbgzwterefv>
-	<87sefpoj10.wl-maz@kernel.org>
-	<6hb5vyl5xxsxfcwk4v3xpq277wusj5jq4tubdpjocpjc5smj3w@wx574kluhedj>
-	<wosxizbb5z3goikqglsdbrgmshith62upwnavnbqeq5dndfau3@bna46rg3w2ak>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.215.36
-X-SA-Exim-Rcpt-To: thierry.reding@gmail.com, tglx@linutronix.de, linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	cix-kernel-upstream@cixtech.com
+Subject: Re: [PATCH v3 1/3] dt-bindings: pinctrl: Add cix,sky1-pinctrl
+Message-ID: <20251014-backyard-parted-572627bfc540@spud>
+References: <20251014015712.2922237-1-gary.yang@cixtech.com>
+ <20251014015712.2922237-2-gary.yang@cixtech.com>
+ <CACRpkda-2BNj+Pt2kS9u_bbr41bsWGRGDqNd3EXVnys-xSqg0g@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="r7QY2DKFaWvZjWwF"
+Content-Disposition: inline
+In-Reply-To: <CACRpkda-2BNj+Pt2kS9u_bbr41bsWGRGDqNd3EXVnys-xSqg0g@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251014_105854_226168_08A61CEF 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,50 +77,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Oct 2025 12:08:22 +0100,
-Thierry Reding <thierry.reding@gmail.com> wrote:
->
 
-[...]
+--r7QY2DKFaWvZjWwF
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> > The interrupt count for CPUs 2-7 no longer increments after taking CPU 1
-> > offline. Interestingly, bringing CPU 1 back online doesn't have an
-> > impact, so it doesn't go back to enabling 1:N mode.
-> 
-> Looks like that is because gic_set_affinity() gets called with the new
-> CPU mask when the CPU goes offline, but it's *not* called when the CPU
-> comes back online.
+On Tue, Oct 14, 2025 at 12:44:15PM +0200, Linus Walleij wrote:
+> Hi Gary,
+>=20
+> thanks for your patch!
+>=20
+> On Tue, Oct 14, 2025 at 3:57=E2=80=AFAM Gary Yang <gary.yang@cixtech.com>=
+ wrote:
+>=20
+>=20
+> > +# Client device subnode's properties
+> > +patternProperties:
+> > +  'pins$':
+> > +    type: object
+> > +    additionalProperties: false
+> > +    patternProperties:
+> > +      '(^pins|pins?$)':
+> > +        type: object
+> > +        additionalProperties: false
+> > +        description:
+> > +          A pinctrl node should contain at least one subnodes represen=
+ting the
+> > +          pinctrl groups available on the machine. Each subnode will l=
+ist the
+> > +          pins it needs, and how they should be configured, with regar=
+d to muxer
+> > +          configuration, pullups, and drive strength.
+> > +
+> > +        properties:
+> > +          pinmux:
+> > +            description:
+> > +              Values are constructed from pin number and mux setting a=
+nd are
+> > +              defined as macros in arch/arm64/boot/dts/cix/sky1-pinfun=
+c.h directly.
+> > +
+> > +          bias-disable: true
+> > +
+> > +          bias-pull-up: true
+> > +
+> > +          bias-pull-down: true
+> > +
+> > +          drive-strength:
+> > +            description:
+> > +              Can support 15 levels, from DS_LEVEL1 to DS_LEVEL15.
+> > +              defined as macros in arch/arm64/boot/dts/cix/sky1-pinfun=
+c.h.
 
-Indeed, because there is no need to change the affinity as far as the
-kernel is concerned -- the interrupt is on an online CPU and all is
-well.
+Isn't this wrong?
+drive-strength is in mA but you're just shoving register values in here.
+pw-bot: changes-requested
 
-I think that's the point where a per-interrupt flag (let's call it
-IRQ_BCAST for the sake of argument) is required to decide what to
-do. Ideally, IRQ_BCAST would replace any notion of affinity, and you'd
-get the scatter-gun behaviour all the time. Which means no adjustment
-to the affinity on a CPU going offline (everything still works).
+> > +
+> > +        required:
+> > +          - pinmux
+>=20
+> Can't you just include both pinmux-node.yaml and pincfg-node.yaml
+> to get validation from the generic schemas?
+>=20
+> 'pins$':
+>   type: object
+>   additionalProperties: false
+>   patternProperties:
+>     '(^pins|pins?$)':
 
-But that's assumes a bunch of other things:
+Why does this pattern allow foopin but not pinfoo?
+Also seems overkill to have both suffix and prefix options, instead of
+just sticking to one!
 
-- when going offline, at least DPG1NS gets set to make sure this CPU
-  is not a target anymore if not going completely dead (still running
-  secure code, for example). The kernel could do it, but...
+>       type: object
+>       $ref: /schemas/pinctrl/pinmux-node.yaml
+>       $ref: /schemas/pinctrl/pincfg-node.yaml
+>       additionalProperties: false
+>=20
+> Something like this, I never get this right before actually testcompiling=
+=2E..
 
-- when going idle, should this CPU still be a target of 1:N
-  interrupts? That's a firmware decision what could severely impact
-  power on battery-bound machines if not carefully managed...
+spacemit,k1-pinctrl has a node of this type, that can be copied from
+Gary. Essentially, you need an allOf: for the two references.
 
-- and should a CPU wake up from such an interrupt? Again, that's a
-  firmware decision, and I don't know how existing implementation deal
-  with that stuff.
+--r7QY2DKFaWvZjWwF
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Someone needs to investigate these things, and work out all of the
-above. That will give us a set of conditions under which we could do
-something.
+-----BEGIN PGP SIGNATURE-----
 
-	M.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaO6PWQAKCRB4tDGHoIJi
+0pbcAQDMSqerReJ65uUM71ikHTc6L6kMQSFvvRzk3Z2gSbEsQQEAxn/UVVjIsZKM
+A4ol0es58WdnPRa/MXvsm6KKAtTLrwk=
+=9CrM
+-----END PGP SIGNATURE-----
 
--- 
-Jazz isn't dead. It just smells funny.
+--r7QY2DKFaWvZjWwF--
 
