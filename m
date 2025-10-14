@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ED45CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 06:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE11CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 07:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gzKL1XMF2X7NDYIZWTFtjqhUAQB7pXraoI6fG4GLHS4=; b=ueNX55CAAlH27Y3RsikV3KvXRr
-	vzprkNpxXg6T/lqAMtDXIbt9yWpfV0YXdRTGDSJyx7plKVGQEW7FV2FMg/7mXvjjzG4m5xrFcw4A1
-	UnAZRpiSv0FPdF2QU8aCf8x2VmO8lBhgCPn7CNb4XNZRr2i0i7pt6BcbFbcizUIUxek52BgJxk++C
-	69bLUXYqqQwwdm3BAKS6GHxucg7YjVaXZ3O1Bw1PHV313JLSEipnnW+f4MAnoT6XaMOTTAAZ94K6R
-	QapHcbw0b+acdAuQChy0bafRi2DRM7DnrvHVS840hJCzryCb2LDty5WHAj4UIJ4i4/UMvIksXYZsd
-	vDVqxkZA==;
+	bh=1rQPGkIVi3ODkc5CC6srqTaTWUcBBf3OLgjQBFg0e8Q=; b=Opmo9TbppnyLRd97e3jqux2l7J
+	CS9/XsgVcaGSUvy2OOP63CnnXjs8e6vFrnlqsa7ykvSd1rvgqDiEekh/nQ1VVrRH/w07ce0/c+ZI0
+	zqFkXRq15rpXaA87BJsWYxyQsz6U25IHH8/NvKixt4qYjFJdkIUIIgKXldqoOIDBNmO3oMxUmxQLk
+	0LnwdQgDJGcQ5iHEHaly6Nb1zI8oYhmBpkYhHzKPO0eM+7hgQifWA9BFSTz1zhqt1RqlLItQ9rlFp
+	01YPC8xpwvZaQFLTn++0DiB3zqooKsfAjHCIgijUieu8CFDYFY5crOIVuPzWL31NlHxzMKAXFZFFE
+	DdHHfYIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Z0U-0000000FOFL-0jke;
-	Tue, 14 Oct 2025 06:59:38 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1v8ZEV-0000000FPYn-3eK1;
+	Tue, 14 Oct 2025 07:14:07 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Z0R-0000000FOEa-2A2i
+	id 1v8ZES-0000000FPUV-0M1M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 06:59:37 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=gzKL1XMF2X7NDYIZWTFtjqhUAQB7pXraoI6fG4GLHS4=;
-	b=zw/KdMpAFTlf5zt4yJ0H+Z74xhTR52zV2PQrKVuVm98Z773lfrOGRba1Yj9GOKjTkkzmylSo6
-	sqPOPOe8lIi5/hEPkvdMbeJaWNvk+aNRhZ3P7P/IUcjcs8cdoSbYm2pGsUHZ8aOksWkNtMPJhmL
-	T8z+XFFt6TsZ+NPqTAMbln8=
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4cm4nm3kwZz1K97v;
-	Tue, 14 Oct 2025 14:59:08 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6FBB4140135;
-	Tue, 14 Oct 2025 14:59:27 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Oct 2025 14:59:26 +0800
-Subject: Re: [PATCH] KVM: arm64: selftests: Sync ID_AA64PFR1, MPIDR, CLIDR in
- guest
-To: Ben Horgan <ben.horgan@arm.com>
-CC: Zenghui Yu <zenghui.yu@linux.dev>, <kvmarm@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <maz@kernel.org>,
-	<oliver.upton@linux.dev>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>
-References: <20251012154352.61133-1-zenghui.yu@linux.dev>
- <25a19af8-2026-45b6-8d0f-42c371c8ff95@arm.com>
- <75f13087-80fa-45cb-9327-aa85522203e0@arm.com>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <f71d620a-87c9-7cd3-425b-e6052a38e268@huawei.com>
-Date: Tue, 14 Oct 2025 14:59:21 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	Tue, 14 Oct 2025 07:14:07 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 398441A135F;
+	Tue, 14 Oct 2025 07:14:00 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 09945606EC;
+	Tue, 14 Oct 2025 07:14:00 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B48C7102F224B;
+	Tue, 14 Oct 2025 09:13:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1760426038; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=1rQPGkIVi3ODkc5CC6srqTaTWUcBBf3OLgjQBFg0e8Q=;
+	b=ZZvdEf6IsnbwHKU53mCP/OJVvqaMjPPYJ6LVInAyhJAnoY5WHLT0aiiBaULt3scVtTDLfT
+	MrlZ2yAeFbtlptpU58fw1BkWZsNgWzGhTJ53QT8KpCGw2yl/YYNSD3Q3ufDZmne+1ywRl5
+	+7gNdp6rf94tvaKq84k92Xn+G5h3/XhB46xtaTO8T9w0Ln60XmksgF7Zne+VIN0SHmaltX
+	Lm1J8uJKhiwBAJqKn7WReaj1cst9KJkCySbLwSdL0TEiEPXatY3WzkjuFpipKViGtJ+T1E
+	NAcTO+x1RMvIk/TYApPpC2NoR5ozDBKtwvAZuoI/B9y6QBNHphj6Q6YLHYrMmQ==
+Message-ID: <72d9b0f3-da27-4e30-b07b-d85be23b1407@bootlin.com>
+Date: Tue, 14 Oct 2025 09:13:43 +0200
 MIME-Version: 1.0
-In-Reply-To: <75f13087-80fa-45cb-9327-aa85522203e0@arm.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk200017.china.huawei.com (7.202.194.83)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 14/15] dt-bindings: mtd: sunxi: Add H616 compatible
+To: Conor Dooley <conor@kernel.org>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Wentao Liang <vulab@iscas.ac.cn>, Johan Hovold <johan@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20251013152645.1119308-1-richard.genoud@bootlin.com>
+ <20251013152645.1119308-15-richard.genoud@bootlin.com>
+ <20251013-parrot-sandpaper-4e31d2d1a6b3@spud>
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Content-Language: en-US, fr
+Organization: Bootlin
+In-Reply-To: <20251013-parrot-sandpaper-4e31d2d1a6b3@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_235935_996758_8B0E4550 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20251014_001404_380150_8F44CF73 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,62 +90,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/10/14 0:14, Ben Horgan wrote:
+Le 13/10/2025 à 21:44, Conor Dooley a écrit :
+> On Mon, Oct 13, 2025 at 05:26:44PM +0200, Richard Genoud wrote:
+>> The H616 NAND controller is quite different from the A10 and A23 ones,
+>> some registers offset changed, and some new one are introduced.
+>> Also, the DMA handling is different (it uses chained descriptors)
+>>
+>> So, introduce a new compatible to represent this version of the IP.
+>>
+>> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+>> ---
+>>   .../mtd/allwinner,sun4i-a10-nand.yaml         | 57 ++++++++++++++++---
+>>   1 file changed, 48 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml b/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml
+>> index 054b6b8bf9b9..4b82de9fae17 100644
+>> --- a/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml
+>> +++ b/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml
+>> @@ -6,9 +6,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+>>   
+>>   title: Allwinner A10 NAND Controller
+>>   
+>> -allOf:
+>> -  - $ref: nand-controller.yaml
+>> -
+>>   maintainers:
+>>     - Chen-Yu Tsai <wens@csie.org>
+>>     - Maxime Ripard <mripard@kernel.org>
+>> @@ -18,6 +15,8 @@ properties:
+>>       enum:
+>>         - allwinner,sun4i-a10-nand
+>>         - allwinner,sun8i-a23-nand-controller
+>> +      - allwinner,sun50i-h616-nand-controller
+>> +
+>>     reg:
+>>       maxItems: 1
+>>   
+>> @@ -25,14 +24,12 @@ properties:
+>>       maxItems: 1
+>>   
+>>     clocks:
+>> -    items:
+>> -      - description: Bus Clock
+>> -      - description: Module Clock
+>> +    minItems: 2
+>> +    maxItems: 4
+>>   
+>>     clock-names:
+>> -    items:
+>> -      - const: ahb
+>> -      - const: mod
+>> +    minItems: 2
+>> +    maxItems: 4
 > 
-> 
-> On 10/13/25 13:20, Ben Horgan wrote:
-> > Hi Zenghui,
-> >
-> > On 10/12/25 16:43, Zenghui Yu wrote:
-> > > We forgot to sync several registers (ID_AA64PFR1, MPIDR, CLIDR) in guest to
-> > > make sure that the guest had seen the written value.
-> > >
-> > > Add them to the list.
-> > >
-> > > Signed-off-by: Zenghui Yu <zenghui.yu@linux.dev>
-> > > ---
-> > >  tools/testing/selftests/kvm/arm64/set_id_regs.c | 3 +++
-> > >  1 file changed, 3 insertions(+)
-> > >
-> > > diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> > > index 8ff1e853f7f8..5e24f77868b5 100644
-> > > --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> > > +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> > > @@ -249,11 +249,14 @@ static void guest_code(void)
-> > >  	GUEST_REG_SYNC(SYS_ID_AA64ISAR2_EL1);
-> > >  	GUEST_REG_SYNC(SYS_ID_AA64ISAR3_EL1);
-> > >  	GUEST_REG_SYNC(SYS_ID_AA64PFR0_EL1);
-> > > +	GUEST_REG_SYNC(SYS_ID_AA64PFR1_EL1);
-> > >  	GUEST_REG_SYNC(SYS_ID_AA64MMFR0_EL1);
-> > >  	GUEST_REG_SYNC(SYS_ID_AA64MMFR1_EL1);
-> > >  	GUEST_REG_SYNC(SYS_ID_AA64MMFR2_EL1);
-> > >  	GUEST_REG_SYNC(SYS_ID_AA64MMFR3_EL1);
-> > >  	GUEST_REG_SYNC(SYS_ID_AA64ZFR0_EL1);
-> > > +	GUEST_REG_SYNC(SYS_MPIDR_EL1);
-> > > +	GUEST_REG_SYNC(SYS_CLIDR_EL1);
-> >
-> > Why did you choose this position in the list for these 2?
+> The clock descriptions and names should remain out here, with your new
+> min/max constraints, since they're identical at indices 0 and 1 to for
+> both types of device. The if/then should only set the min to 4 for the
+> new device and the max to 2 for the existing ones.
 
-Technically there are no restrictions on the order. I just want it to
-look consistent with test_reset_preserves_id_regs().
-
-> >
-> >>  	GUEST_REG_SYNC(SYS_CTR_EL0);
-> >>  	GUEST_REG_SYNC(SYS_MIDR_EL1);
-> >>  	GUEST_REG_SYNC(SYS_REVIDR_EL1);
-> >
-> > Looks good to me.
-> >
-> > Reviewed-By: Ben Horgan <ben.horgan@arm.com>
+Indeed.
 
 Thanks!
 
-> On running this, I note test_guest_reg_read() doesn't announce its
-> presence. How about adding a ksft_test_result_pass("%s\n", __func__) and
-> bumping the number of tests?
+> 
+> Cheers,
+> Conor.
+> 
+> pw-bot: changes-requested
+> 
+>>   
+>>     resets:
+>>       maxItems: 1
+>> @@ -85,6 +82,48 @@ required:
+>>   
+>>   unevaluatedProperties: false
+>>   
+>> +allOf:
+>> +  - $ref: nand-controller.yaml
+>> +
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - allwinner,sun4i-a10-nand
+>> +              - allwinner,sun8i-a23-nand-controller
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          items:
+>> +            - description: Bus Clock
+>> +            - description: Module Clock
+>> +        clock-names:
+>> +          items:
+>> +            - const: ahb
+>> +            - const: mod
+>> +
+>> +  - if:
+>> +      properties:
+>> +        compatible:
+>> +          contains:
+>> +            enum:
+>> +              - allwinner,sun50i-h616-nand-controller
+>> +    then:
+>> +      properties:
+>> +        clocks:
+>> +          items:
+>> +            - description: Bus Clock
+>> +            - description: Module Clock
+>> +            - description: ECC Clock
+>> +            - description: MBus Clock
+>> +        clock-names:
+>> +          items:
+>> +            - const: ahb
+>> +            - const: mod
+>> +            - const: ecc
+>> +            - const: mbus
+>> +
+>>   examples:
+>>     - |
+>>       #include <dt-bindings/interrupt-controller/arm-gic.h>
 
-Yup, I agreed.
 
-Thanks,
-Zenghui
+-- 
+Richard Genoud, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
