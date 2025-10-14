@@ -4,100 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58598CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 04:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA4ACCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 04:55:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6IWAevNcHXjFvzpaRr8LOfdvjd37W/dKCFMhW8BIdjo=; b=nPMwYE8G0kgQu30G67Q3TWD2rb
-	9r0qYF7r+Vx1psFZ5SGCEltlL7vmJSzRKEIwrZtT5ezEE5T6l7LZb2M54Jv8ncxvi4LHXG3ijYuF/
-	flYEdU8jrmUQaCrDdnQv/9EPsV5BoXDTs8utqO8fir060VznIhKychgxCWeqwki/nm/WB4bVAWq+p
-	8535fjYWU4WgUoou47wirSwN9NGF25T0TcUxDyLg22saSbVHV/VknkkfQlMAhtbCbZWpbJup3SurE
-	2uOR4L2XTHbA1v8yAZdKMaapqtzMzie3a4oif4O9FcF2OTBK8IfI1RGW2DqV9O7d2s/VH6VO1NUmw
-	gVizhDdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TJfzR5OBwiYyQMlSKPtLS03aNcuEN0/tXq3+C0AeqcY=; b=sv2NXyY0pFoeTVPXmXrOOTNADc
+	yAN9aFjFKBM8cTEUaIE32r5+diMldLi7diTUT8VkrCBVzWudFVMsWyiBtm0XChoH0r8vWwoq6xDZ9
+	fuqD8XJ2pWbU5F7kWEQz/RVlGF2MQgZzmKYEtSPCqDeGYFL98pswMNKZokC09V4AlfFFQrtT/IQvr
+	yvWlb1TKrsZuxnMIYzgs8jW9IEqLEaXEO2Kp+pjsUcwoFG/QicfjCFnYQmpddOY63qVGe8OLxtjDP
+	H05uBk1Nk7zi+AKIquZb8yssrhp7VcQSj8vH/bCzOEP4go8lC3XNZQtgJ2CI+jVvBJ3yVGBiSVWKp
+	LM5egKvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Wuu-0000000F8Hr-0qfU;
-	Tue, 14 Oct 2025 04:45:44 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1v8X41-0000000F913-1vNU;
+	Tue, 14 Oct 2025 04:55:09 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Wus-0000000F8H7-0Ega
+	id 1v8X3x-0000000F8zO-2bki
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 04:45:43 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3306d3ab2e4so4859701a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 21:45:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760417141; x=1761021941; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=6IWAevNcHXjFvzpaRr8LOfdvjd37W/dKCFMhW8BIdjo=;
-        b=KqmQp72Sts9AZYGpxEXt+qBYVJJzPluUwVuAJbD5iOphysc0W5Tsch5xQJQROyrJgm
-         olmUX+4PELsQYwcCO9CvWdzc67QFxAH4kvMcrTHUu8JHht7enc0WAgnBnu5Il40+B6Qj
-         rH5kjgs9/mec/XG1Tgdi8Mmz4DSMpobApAOElPPLi/Og3DcW+Dte5GbKgAWHYz+qMkcS
-         EwDTKrKpinazw14wmPx2X6LnQTcOZBQbNMuGBCAp8pIaZQsHZbDjXY9rL4gbS8sYtuxT
-         fLSlSoCTIUmEXMnEu4C8imiieHCmGFps/XpI2+iQlwcOElm+tqXNPpLF90iMreHj/5Px
-         0SEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760417141; x=1761021941;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=6IWAevNcHXjFvzpaRr8LOfdvjd37W/dKCFMhW8BIdjo=;
-        b=w1DlTZC/5FRQ+Y+Tq+ATDai/zjzyJ2egigWFnFYHne7gB7BcTtf1aRC8Ax/8CteJKk
-         51bihElebONCxXFUi3ZIKPr0mabmwJjT9whVo2NZWN1dqrO3kTvPGLCmPsvsyG0F7qxq
-         KasKk/U33+VLWZvjwISWRMdTdxQ4uxEeH2aLnc0gsY3kUDBHHlXGurK037Kz2e/d+7Ky
-         IiEwaKFe8PO9ZsXJVfJ6itWlE/Acf5gffZP8BATwQQR/K/32YgYfgMv6A0SXACb+aRkL
-         0D+0Xj6+EvkPimZn13RbcQT1oZx3oXDMxy3kGdb0VS06r9NQXlJs3QGc5Ij8lFyjdr+G
-         k9Hw==
-X-Forwarded-Encrypted: i=1; AJvYcCXxZJ5rKbdTViLdjw3H4x2Q1J36uqea+catSQtqyO9r9LbCCBjcqS+MAQNp3dmJAaOsvPxhXQ30jl/OZYHO6Ufe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy37lp0lYkl4zEwa1Wg5nXl0KJ2aSustIHJnJGb2hFIrO8+KbZl
-	qIfABwNx/Z8IOr7vG2Xqv1vgtTQtckkY/fcKdsKuYi61YZK/PPC3dDPd
-X-Gm-Gg: ASbGnctPlz4l+W4F+U86p26Rc295bXfha51s01alVHqLxILBFoR+BMu3rj2M8ZaNpdf
-	k1r9rHZSudiSg5v+uC7rZbhJv0rtn+/yprzVvdIzfoCR9Tro/3YIVTFjwxVnUpciOa8fOYB9Zf6
-	cP2FOti52MHOJNlUg1YWNj+sMGD5jC7O6BfQ0Fs82rRzpVM15oFTEZ4gWE/v6YWeZtQPS2Nzw2c
-	Ct/sCNcXy0+mbj/ugolrl7EavKqaiLqyPh5NfTIAC+2rT003qIdvm3+6VhOtcpV/zbJt0duHFb3
-	/VrIH+HKU5JfKUH2raS4HdwEbcmNhGbzHXi5KU2VF99bWJ4gF4vrIVODR5HeUSdTO7oKmSjRabn
-	gxHej9ls7HoT//aiClK20nwGiQdTzWJwx0HffbTy6m0T5V2i09yurFMUl/4WRt++5w2Tiwate6g
-	==
-X-Google-Smtp-Source: AGHT+IFpInrQ3BK2IUoEdZQ4XEmHh6tIaVzcz4A5h+n6G2cV7PgK4L9/NeRbvXUR10GkJ9cgViH1AA==
-X-Received: by 2002:a17:90b:1b41:b0:32e:6019:5d19 with SMTP id 98e67ed59e1d1-33b513bdffdmr29320243a91.34.1760417141038;
-        Mon, 13 Oct 2025 21:45:41 -0700 (PDT)
-Received: from fedora (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33b626d15e2sm14122596a91.21.2025.10.13.21.45.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Oct 2025 21:45:40 -0700 (PDT)
-Date: Mon, 13 Oct 2025 21:45:38 -0700
-From: Tao Ren <rentao.bupt@gmail.com>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>, Tao Ren <taoren@meta.com>
-Subject: Re: [PATCH v4 11/13] ARM: dts: aspeed: facebook-fuji: Include
- facebook-fuji-data64.dts
-Message-ID: <aO3VcnvDgtYLLjoI@fedora>
-References: <20250728055618.61616-1-rentao.bupt@gmail.com>
- <20250728055618.61616-12-rentao.bupt@gmail.com>
- <79ddc7b9-ef26-4959-9a16-aa4e006eb145@roeck-us.net>
- <aO2kLyxGlGt12sKD@fedora>
- <e3dc7aee-c8af-4276-84e5-0f0c7926be05@roeck-us.net>
- <054cf209-61af-4d21-9a3b-d0f6dd24ee3b@roeck-us.net>
- <aO3M90Ycp2DWyFuk@fedora>
- <04dbdd20-69c1-48fe-9bc7-7e9ffaedbe9a@roeck-us.net>
+	Tue, 14 Oct 2025 04:55:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ItX/hCTkWP6UntTzDo9iAar3QD70OJfuAqBnwBbJA/pg+r3Z+QBnS9+KhXCgE28ZUh4YgnbNUQ9uk2w8+EcNLhIBwTEhwnC1yhJJIu3LZtBv/NGVaTKq95x7/JyODyNePSOpdIjAjSrrZbCCu+oew2VFU5L5NCxOvhtmcH19ioH3WO8JISpz2Q6Ja0oH95YiWZSerGYwG9Zqti7exi+VOqVi4c8FPSdIZlG0V6jc0UOyKiuKiaosp0urrlJON5ODhojHPoHXGpMQQfpUYJaUoXsv5GSzrzEGNgGxvxz7WRzh48OFI3clc9FfvnGHyBVrqcEZSwHyCmuoPm34+tCKeg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TJfzR5OBwiYyQMlSKPtLS03aNcuEN0/tXq3+C0AeqcY=;
+ b=LWT01DHMNQDk3bT9/8L1BMoASRL4fb6ruO99teEXCX4gGoTycq4Qd1HD9HHZ93sU1ekEFgMjG1qmOdfp5h56w8XNFGAhrFRGGXOwuFBxOrFd3IuyVol7g9L+pyB41CmOPhGtZz8ZAu3mYDNdtABLcrWQTUfuAElIgPSCcoqoBCXNIssrMWDLLhLaDKUE/yC2bHZLRE6W0P7M00dSqsJwdMdGc3I8UjnfctpFwjs/CD+gIuOvlgiM/OAGLFuFUR8/zDlMhhdRrgCq1BMBEzgfi8cogRISyPR3kiM+HNyWx+k+zO5ofoRVWUX2pH0sSZjnagRewOngQNmVaCfYR6MW9A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TJfzR5OBwiYyQMlSKPtLS03aNcuEN0/tXq3+C0AeqcY=;
+ b=BESm+cOd4ALOYc6h6XG9b+JHaWiVK2lLXtIfb/uk6YXjzXRvWRlmubhkcpkEN+M2NF9SCkYhsAGnn3f/RhSlpi/fNjPMsURECzeeL7Pg3iTJD3+PsT871cqTJgj6t2qBu1vEW91yrSKtnO9n9PV3LSulLeAX8oPDQ5UqXDB/4BTpM+Zm5GTh9cNXhA7WkeDwKrN9+6pO+3TG73vyHq/I++JhjIOd5bsD9/JaaVNdGQwdLShe7N8bkM3Hps4a6JZVj6oL0AE/zehAOadpLm3PA/gyGjfHOsDKH9XJ4o0/NaMj0H3wsVF6ZF+GwwfK7S0v6ZG76KVa5431ugFQfKdTTA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PAWPR04MB9838.eurprd04.prod.outlook.com (2603:10a6:102:380::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.12; Tue, 14 Oct
+ 2025 04:54:55 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9203.009; Tue, 14 Oct 2025
+ 04:54:55 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH 0/8] firmware: imx: scu: Misc update
+Date: Tue, 14 Oct 2025 12:54:37 +0800
+Message-Id: <20251014-imx-firmware-v1-0-ba00220613ca@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAI3X7WgC/x3MPQqAMAxA4auUzAbaqINeRRyqpprBH1LQgvTuF
+ sdveO+FyCocoTcvKN8S5TwKXGVg3vyxMspSDGSpddYRyp4wiO6PV8amo8l3VFsOBCW5lIOkfze
+ MOX/XaspiXgAAAA==
+X-Change-ID: 20251012-imx-firmware-492ba9230ef2
+To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>, 
+ Dong Aisheng <aisheng.dong@nxp.com>
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760417688; l=1239;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=/c9OdGZKXcwcVWguXXs8XNofY+vlYCTCBIbdEdmhQN8=;
+ b=VvOIEFt7uE77YZzyJCRBzALeVdwYbw/hhtWCn5P8PVoh9M0K+TvIK7ElU5w5P0byCDvEAsxbV
+ Q27TfWC7NnlBdR1SDe/f7FqUx851KJI1qZFtrEJqfqkAy7jnp3ZfdFK
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SI1PR02CA0014.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::9) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <04dbdd20-69c1-48fe-9bc7-7e9ffaedbe9a@roeck-us.net>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PAWPR04MB9838:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6ca91d11-2d71-4e57-22a7-08de0addd18a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RTZmU1dWZGI1QVdoZEk2LzZXdEpZVUd0bTNpQUZ6ekE1aW5OWXlyNzFSYm1B?=
+ =?utf-8?B?d0dybE5HTGNmWVkvNnVTRzQxdGNVMDJQNVR2cjNMNEpaSEJESEJqUVFMNUVX?=
+ =?utf-8?B?Zm1zWVhDV3BtZFk3YXJmUDVPTDNXNDFrQXlGQUZVMXVoNi9WRU5USlFVMEF0?=
+ =?utf-8?B?TzFFVlFsbnhURXA4M2loRDlPd0FDdXZZN2x3OXRia0xHZFJUbTF2Q1N3YXhO?=
+ =?utf-8?B?bytvSDNKak1wSE9KUUVNaHhWTDZaVFEwNDgyNHE2ZGdld3lBak1DTkJRSGxM?=
+ =?utf-8?B?UFlmY1RZbUprcWpMODN1YVVWQ3JQTXlnUWNrNVovNmdpWmluQlZLcUFiSDUy?=
+ =?utf-8?B?ZUlvWE9IVGUrUWdpck1vVUxOaXVHTnpZZlhpamtkQzUwaGUvcURVbmlVcjMw?=
+ =?utf-8?B?aVR6MjV0Q3ZKQ05aQ2N0R0JObm9sVkZaWEthTkQ2ekRhbWwzVTlucWhHT2cv?=
+ =?utf-8?B?alZocWRTT3pLRWJTVzVla0VPTVZsaWRNek9qUmd6RStBTUFVVG5aclJXMFlt?=
+ =?utf-8?B?ZXQxbGxvK2tmL2hLcDBDTjJiV1VuRzIrbWZhYUpOSUsvVHh6V2grS2xxSi9R?=
+ =?utf-8?B?RnRqeXNHUjhuRU5ycEh3aVllQTFtUVU4czNnK1BkWGFuVDBIalBDbjM4L290?=
+ =?utf-8?B?bUNxZDZQdGg1RytBUFB6MTlqdEVBQnQ2V2dBVTJyeHV2VE1HRWNhU1l3d2dI?=
+ =?utf-8?B?RWluUFZOb2J2KzRDa2p5dk9JOForNXVYRUMrTDVNbmY1NEtxOXNPSUIrRThs?=
+ =?utf-8?B?cEJTT2JVQ0w1cm9lZHlGZy9XNGFaMWRsWkZ0QlJUcUFvSnh5MEo0QThWTENT?=
+ =?utf-8?B?VnRwVEttQmNvakpnSzJnay9td0VNTFE5WTFrU1dWemFyY3J1ZnJMOFcvQmVo?=
+ =?utf-8?B?WWRvYjljbkNINFBJdTE3N0Vja0JocXNHdGtJKzN2eklVUXRPdXZmWjJWbWt1?=
+ =?utf-8?B?MzJFeWROU1hPcmlCTG4yOENRdEpJck05MnhGYnVXK2w5SGxJbTZSSWZ3TWIw?=
+ =?utf-8?B?M252b1BEUTA1QWp2MHV2UmZQUHNnREVRcXpDY1NMQXB4dDVkZytTaVczUHRU?=
+ =?utf-8?B?K0hEMnhJd2dCVFdGWmVwZ2wva01oaTh1WWNvcXFGSTVzRFY2cGhPTm1pSEpm?=
+ =?utf-8?B?bWlGby91YWcyYkx1dmtsRFRrTjJRME5Nbll2MU9qYkFnKzFkemtGT25mYmFw?=
+ =?utf-8?B?UlFXZnZiNEVIV013UXhxTnMyNy9iNldxb1NwVC96ZlpoL0t2TWg4U3ArR0lv?=
+ =?utf-8?B?M1F4Q0Y5dEZqby9sRjJuTFd2V0RZYy9Fb2MvNndFMmZTeEZiMHkrNjgvd2ww?=
+ =?utf-8?B?VGVRUnRtZlJjUEVacXRpd1Y0aU0xYjJpeUNSOWdzdEFNTENrNWZLOTR3VnY3?=
+ =?utf-8?B?U3JucDdLMGo3d3ZudmR5RXZYQzl0UlJtbStVczJiZ2M5OXdtcFJ0WnB0cnBr?=
+ =?utf-8?B?OEhKbXI5Q0srVVFMMnFINEJrdUZCQ1ZIUHdnaDVDUjhYR29remFHVkJIazBk?=
+ =?utf-8?B?YzR6Uy9UdjVNRlhLWjNTSmdqV1BscEszS2YzZDFib3U2UmpqRklnMlcyM1F5?=
+ =?utf-8?B?UTFHU3prZHFveTVscVpaSWxYRlhFZ0VYVG1hUFk5Vll6amRvelY4RDBYT2pE?=
+ =?utf-8?B?QlNZM1EyUktNNHBGcXRxYTlvallqeFYzTHZCaGVQWjUwdDkvSmhxVnNrRHQy?=
+ =?utf-8?B?MW54ZjFaLzBCc1JzbXN2aHpVejlhQWVxQUxVOUdXclpqOEh2dHNFVTR3b2dI?=
+ =?utf-8?B?Qi9ZdGZuUldPclVwOGN0SW5PKzZ4UlYwbHhuckFkSVVUN0cxYzh5d3hhZDgy?=
+ =?utf-8?B?TGJ0c0FYaFdUbXhkUHg3MHNDZ3FzNlc5cWZ4clAyVDdnd2ZBbFlGV1g1cWF1?=
+ =?utf-8?B?RTBXT21MZ0pjS3UySWRybW1SaVE3cW5ncjZ3YjJibzdRaG9FN0JGZ3J4eEpR?=
+ =?utf-8?B?RThMbXU5UVBkRjA1MGhyL2N3ZFNaRi90alp5V2dDWEMyb1hST3ArQVNQZ1lI?=
+ =?utf-8?B?TUErdFVUeTdPN0tWODVpUTVlNzVsMzVsR29iQWNoQUFqRVlESUhNbFlTQktD?=
+ =?utf-8?Q?hXtXlu?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N2UyaWVlM3A0OTVGajVXUWJpMWFCNzdkNTV3VU5vUUdvV294YzlOTUZpNDQw?=
+ =?utf-8?B?R045MVNqR3lLcWI2QzBycWQ2STI0b3VIdHEvSFdob0FJdVl2ZFpMNElVdHdz?=
+ =?utf-8?B?U3ZHeEROcDh1eVAwellmRC9rUjVpSEt1TEltZEsyME5mWjVBL1RZbTdyZk1P?=
+ =?utf-8?B?SXBQQlNiUlNNc3Y5Yyt3bStHK2JaN1hGNEZhVFR5aHlkUmRTSXdKZVNlWEw3?=
+ =?utf-8?B?Qmh1STdoRStkK2dldDBkUis4SGdFLzFlZUp0aUNTSUF0eHh6d2hRWGRXZEdV?=
+ =?utf-8?B?dk5GdzEvMlcvenVMeG1FWWNwQVMrd3dRcjd0ZHA4TWVpZ2RNNEgzS1dzaVRq?=
+ =?utf-8?B?ZlVvOXp4UUFnOStGMml5QmgwZ016Z3d6WnIrQzBXdi90WGsxYU5SZU9uOFZi?=
+ =?utf-8?B?L1RXUjV2YVNtVEd3Kzk4bk8vS3VNcGFwSVpodzA1N0xubHNnbU9NNXNONUN6?=
+ =?utf-8?B?SU1laXdpNzdkd3FBSUo1RDdlZ21MOGVLY3FhTGhyT0IyZ3kraVlvZzZ2b2Qr?=
+ =?utf-8?B?Y09IdWI3M1FHVnpaWWJnZk5UTDFia0I4Ukk5eFFwRVJjVnhSRURneDZBSzJv?=
+ =?utf-8?B?KzRDY1dtTmhRcDQ3MjFzcSsxbUlxR2ZxNVBRSFhoQUJFZWlCYmczVjlSTkt6?=
+ =?utf-8?B?aFRtYkV0ZlBIa0lkN1Y3L1BLUDExaHdTQldXZWJYYnhDNTFpYkhVQ0ZaWEtl?=
+ =?utf-8?B?enQ4eVlCZ0hKODYvdkM3NitoRUp6TGVwczhPNFpGMEFLTDJkckdDcmtISXBr?=
+ =?utf-8?B?a3VZUVNjdk1QNEo0UGoxV3lLWlBvYXF3N001RitmRGp3WHl5YjYyazlDUnU3?=
+ =?utf-8?B?LzRzRnNaOXFDR3g2T1BkRVFDQi9JM2cxODBWVFRiZVgzRmJvZ01Xdjc4NlBx?=
+ =?utf-8?B?WkJnOW96Q2xwTVkxS25HWWs1VUhxalFjOEQzUS9jU1RMQnBVMjNSa2NBU2pC?=
+ =?utf-8?B?YWVva3Y1MkVGTEg5Mk5YRHo0ZWhSb0pDdGdwVC9tQXdVVnV3YkdadFdzTlAx?=
+ =?utf-8?B?aGRYVWljZVVVY2RZdEcvbS9YY1dZR25IZEprcmtUNFBFZG03Y0xCTGhkOFk3?=
+ =?utf-8?B?SVBjeEFwTFJNVHNLdldNaFd2VlZGRWkyRXZaNDJUODB0NmNYWmJicFR4OHZM?=
+ =?utf-8?B?R0x6ODlxeGI2dGZzNjYvSVB0V0NiUDB1RmozQkFjN3VzbGgxS2pyc1VLVXFq?=
+ =?utf-8?B?S3E3RUNoVU9pY1JkOWVLTnFORlVuTm1VeWo5WENrcStNSldiWlJJVFdwdm5r?=
+ =?utf-8?B?VFF6UHl5YjZjS0tkUWQwaGtMUXBLZE9IMWlTTzJmMFpreEFIeUVPaTg1ZGFP?=
+ =?utf-8?B?ZTNXK1dXUUlTVUZsVVlvWGlyVGFYOE9hLzdWVjZkMkFsMUM1eU5WV211MWRv?=
+ =?utf-8?B?NWtKZWQxUVdkdnVBK0xiSWdqTVNqOGhaOTR6eTNmTXE4Zkw4by9ydlU1NUtl?=
+ =?utf-8?B?N3RIa01qRlNtcWFreVlKT1BRUGswenVaY2NLQlZoTmZGM0p6MmNmMWR1L0N3?=
+ =?utf-8?B?ajVuc2k5UGZyd3A4ekY0M0JubjlwM1VoZHE2dENMQ1oraHVkb0ZLRHhkQ014?=
+ =?utf-8?B?UFFPOTVacmwyUk5zYVQ4RHVUeUo2d2pDV1g3aDlFdHBRcEJYNFBTMXY3emU4?=
+ =?utf-8?B?ZEFuQk1xNXc5V1JoZkJSS0Y3WDhrWXhxeFhtNlJBaGdRQy9LbUthUmN2RkFt?=
+ =?utf-8?B?ZGFBaVFTVklHSFJQb3FnUHlkNG9PUEY3N21memkrZ2FSYlY2U1g1eEI2aHlp?=
+ =?utf-8?B?bEsyaUlYK1ZpVUhRcC9ucVZwWUFxZWpTajV5UjJwU0I3REdYN3NTNzJrVjBj?=
+ =?utf-8?B?Q0JUdm1wdmFDb1oyTFIvMVpqckxzeHVSbTlLY012bGV5NG1rRXNtV0lyZ2tp?=
+ =?utf-8?B?Lzc4S0dhNEFxMllmL21tcTRnTWVZWG5rSjBRNzg1YzhNZDJPQ1ZoNTNzZ2F6?=
+ =?utf-8?B?bDRqUWdWeUFGK3ZXZWduRmQ3MXNMOWl3UDRlbFc2R0djSGJabk92UUtYMUdM?=
+ =?utf-8?B?dWRkbHdNUXpDdmxRcUR1SDgvZmFGOWIzUk1kK01LYTd2MUxURUc3enQ0OUpK?=
+ =?utf-8?B?RDdOdVNtczBCaEFIclNOb1dtTWs4TGJOWDdFaGhDWmhOcWpPSENZaExWN2lt?=
+ =?utf-8?Q?ro33Lu25LqNRyMdjlWCDOzOx/?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6ca91d11-2d71-4e57-22a7-08de0addd18a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2025 04:54:55.4289
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mab3WZpkjIoXNNiUsqpHSFZ6qc70jOsGvc1VPze3a/gOE47aMFMB9G09aS9Z3pF5iFQ2yV3/5moy+WubRpkinQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9838
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_214542_107433_5C3CE033 
-X-CRM114-Status: GOOD (  38.31  )
+X-CRM114-CacheID: sfid-20251013_215505_656545_F76D3085 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,103 +188,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025 at 09:35:43PM -0700, Guenter Roeck wrote:
-> On 10/13/25 21:09, Tao Ren wrote:
-> > Hi Guenter,
-> > 
-> > On Mon, Oct 13, 2025 at 08:44:17PM -0700, Guenter Roeck wrote:
-> > > On 10/13/25 20:20, Guenter Roeck wrote:
-> > > > On 10/13/25 18:15, Tao Ren wrote:
-> > > > > Hi Guenter,
-> > > > > 
-> > > > > On Mon, Oct 13, 2025 at 05:20:57PM -0700, Guenter Roeck wrote:
-> > > > > > Hi,
-> > > > > > 
-> > > > > > On Sun, Jul 27, 2025 at 10:56:13PM -0700, rentao.bupt@gmail.com wrote:
-> > > > > > > From: Tao Ren <rentao.bupt@gmail.com>
-> > > > > > > 
-> > > > > > > Include "facebook-fuji-data64.dts" in facebook-fuji dts to avoid
-> > > > > > > duplicated code.
-> > > > > > > 
-> > > > > > > Fuji-data64 and Fuji are identical except the BMC flash layout.
-> > > > > > > 
-> > > > > > > Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
-> > > > > > 
-> > > > > > With this patch in the mainline kernel, the Ethernet interface I use for
-> > > > > > testing does not come online when loading fuji-bmc in qemu.
-> > > > > > 
-> > > > > > Reverting this patch fixes the problem.
-> > > > > > 
-> > > > > > Looking into this patch,
-> > > > > > 
-> > > > > > > -
-> > > > > > > -#include <dt-bindings/leds/common.h>
-> > > > > > > -#include "ast2600-facebook-netbmc-common.dtsi"
-> > > > > > > +#include "aspeed-bmc-facebook-fuji-data64.dts"
-> > > > > > ...
-> > > > > > > -&mac3 {
-> > > > > > > -    status = "okay";
-> > > > > > > -    phy-mode = "rgmii";
-> > > > > > > -    phy-handle = <&ethphy3>;
-> > > > > > > -    pinctrl-names = "default";
-> > > > > > > -    pinctrl-0 = <&pinctrl_rgmii4_default>;
-> > > > > > > -};
-> > > > > > 
-> > > > > > I don't see this in aspeed-bmc-facebook-fuji-data64.dts, meaning that
-> > > > > > interface is now disabled. Adding it back in fixes the problem.
-> > > > > > Also, MAC3 is explicitly enabled for fuji-bmc in qemu.
-> > > > > > 
-> > > > > > Was the interface disabled on purpose ?
-> > > > > > 
-> > > > > > Thanks,
-> > > > > > Guenter
-> > > > > 
-> > > > > The mac3 interface was removed in the latest patch (v4) per Andrew Lunn's
-> > > > > feedback, because the rgmii setting is incorrect.
-> > > > > 
-> > > > > I was planning to add mac3 back as soon as rgmii support is properly
-> > > > > handled in aspeed mac driver, but kindly let me know if you have other
-> > > > > suggestions.
-> > > > > 
-> > > > 
-> > > > All I can say is that it worked just fine with the qemu emulation,
-> > > > and that it is broken now. Since it was broken on purpose I guess I'll
-> > > > have to find a workaround or stop testing network interfaces with
-> > > > that emulation entirely.
-> > > > 
-> > > 
-> > > Ah, I see that mac3 was the only enabled Ethernet interface on that system,
-> > > so you effectively disabled networking on it.
-> > > 
-> > > I don't claim to understand the logic (how can anyone continue to use this bmc
-> > > without network interface ?) but I guess it is what it is. I'll stop testing it.
-> > > 
-> > > Guenter
-> > 
-> > Sorry for the inconvenience.. I have to take a local patch to enable
-> > mac3 in my environment, because as you said, it's not useful without
-> > network interface.
-> > 
-> > Meanwhile, I will need to work with ASPEED to enable rgmii delay support
-> > in the ASPEED MAC driver so I can add mac3 back to the dts. If you are
-> > looking for a similar platform for testing, you could consider elbert.
-> > 
-> 
-> AFAICS aspeed-bmc-facebook-elbert.dtb does not work with the fuji-bmc machine.
-> The console interface or wiring seems to be different.
+various misc update for imx-scu.c and imx-scu-irq.c.
+Patch 1 is a bug fix, but not critical.
+For other patches, there is no real issue reported, I just reviewed
+the code again and see some potential risk, so patch 2-4 is to
+avoid potential issues. Other patches are misc patches, regarding
+error code update, use devm_x API, suppress bind attr.
 
-Oh you are right (the console settings are different).
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+Peng Fan (8):
+      firmware: imx: scu-irq: fix OF node leak in
+      firmware: imx: scu-irq: Free mailbox client on failure
+      firmware: imx: scu-irq: Init workqueue before request mbox channel
+      firmware: imx: scu-irq: Set mu_resource_id before get handle
+      firmware: imx: scu-irq: Remove unused export of imx_scu_enable_general_irq_channel
+      firmware: imx: scu: Update error code
+      firmware: imx: scu: Suppress bind attrs
+      firmware: imx: scu: Use devm_mutex_init
 
- 
-> As I said, I'll stop testing the network interface on fuji-bmc. That reduces
-> test coverage, but there is nothing I can do about that. I already made the
-> necessary changes in my testbed, so from my perspective the issue is closed.
+ drivers/firmware/imx/imx-scu-irq.c | 28 +++++++++++++++-------------
+ drivers/firmware/imx/imx-scu.c     | 11 +++++++----
+ 2 files changed, 22 insertions(+), 17 deletions(-)
+---
+base-commit: 2b763d4652393c90eaa771a5164502ec9dd965ae
+change-id: 20251012-imx-firmware-492ba9230ef2
 
-Got it. I will drop you a message when I add mac3 back (if you feel it's
-helpful).
+Best regards,
+-- 
+Peng Fan <peng.fan@nxp.com>
 
-
-Thanks,
-
-Tao
 
