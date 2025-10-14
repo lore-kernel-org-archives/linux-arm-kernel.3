@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38BB0CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D46CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vWowQ5QX/OOxHa8vEg4j0wTIcyU/NF/w6QRhH8XGonQ=; b=NyjSSjiL929fHkB7qDBb557FRO
-	esfuDIauxr7n+TlTetC9ewYhrQ0bZrFGeI88ksckwNG5QrzGzfTgghiiQ6Dsod3tMlt8hQVZaHZG5
-	9772AcFOBvBeRd1WYsQwQBixZ8fOW3AqhQnFuWUr7h8ezFMxDYJqq+X6i09mGtgCC7y1zrSbTKqVS
-	SZCVwELIRGvKNiOaQG7WQ/RGNUU7YZCEVM7PeXrNo8rZCZ+ALmW8rWirX7SWuvozuNJ1NABgbprh2
-	MjJFWd4wVxa8r59ta8wa4V3KpQ0LmyDcVKKk8tCFNmei44O7Lk0aGdQ1b8CsTBMP1/YSbVt+ocxNe
-	djjNYIVg==;
+	bh=Hd2PoIE+rPMCr6jd3OwU3he0uZl4CmPgrMZ61+ge710=; b=uL6B6GS0Q4+lvszSMwwcIWnuJv
+	sfiJYKMHkeafvq/69bA/nZa/q2NHb6e9MQPl7T4l/B9BHY1Azfui4mR3ksqkj3IJNd65d2kidWCVc
+	0EolZQRo5A32hMbaYoYfYkzTbXpfqLAfPv2+TK7N5pbnf6aBTPHcAxjViM6w5+LRdUmR9R2JMotaM
+	yaKdxWg933H/uAcOyyrbkaYLoz0lFrtYm+Kk2pLxqXm46DX3YAZzEWgWtJ0hoMV3/TbK0m+xWPPnK
+	mY5EO0DFqLV2VB7sXvHuKasUC82cN22nXfyLFiQ8GeI4NDLIdLpD5jcWRBGFVXeZpthzbC8NfoDek
+	6Abs8+zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dJf-0000000G7aw-2sgm;
-	Tue, 14 Oct 2025 11:35:43 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v8dP3-0000000G83W-2sqG;
+	Tue, 14 Oct 2025 11:41:17 +0000
+Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dJd-0000000G7a6-0L11;
-	Tue, 14 Oct 2025 11:35:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760441738;
-	bh=h4RfT8BW5uglHP1wgDRzO4OhIAmDCeHY9g1PjPS2PTQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VVabfhq7ySgeQWE5YFVpMC15pBUMza3xxclEaC8rofCUOdhDa1fPFMXSahF59tAt/
-	 PlscaPeGH6puZRXSh6XtUdnz+6CF9Foificw1MOmFKh4t3a4oTta5+rOFKdNhW3H+Q
-	 XUaAdk+wzy5wenoOHpkJhmM5eZ70dpnkv4bCgV3LN459Q+UWo/+TGav8F5A4WOsx/S
-	 8dkoYVDPd0mQ+K3sv2RhVKBxsTdmrTyQsqw/GltdW4EFW9qQY1OT+ehE2YAkxfW/M2
-	 4E7JHPGCHYOr1A6gBUY6KCGgy4uWUVGuo0rGLqJlv8f7eswHLugQuJw1fo7qIn4pL+
-	 IF5aEfRAvMyFA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1FB2517E055D;
-	Tue, 14 Oct 2025 13:35:38 +0200 (CEST)
-Message-ID: <ac809179-7192-4218-8b13-86b9252652f4@collabora.com>
-Date: Tue, 14 Oct 2025 13:35:37 +0200
+	id 1v8dOz-0000000G81S-48Uy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Oct 2025 11:41:16 +0000
+Message-ID: <096168a6-8687-4dae-a774-0741d3e5a891@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1760442070;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Hd2PoIE+rPMCr6jd3OwU3he0uZl4CmPgrMZ61+ge710=;
+	b=VK9bY4LuIi4ji669KYN12TIOH35WJDu8pKASGIJSdi9qQhdHcSOS9ZOqAwGKpQPsCsa/MC
+	Any8FgOqFuOI1eRpcwlhhwocJFbU9rKLsGQh3WYropHOaMHnqd5PxuOYzCW6qqbWxTyanS
+	cCDvtJaYV62OHRnEZ5m/iARM6dBj9oQ=
+Date: Tue, 14 Oct 2025 19:40:58 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 4/9] regulator: Add support for MediaTek MT6363 SPMI
- PMIC Regulators
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- linux-mediatek@lists.infradead.org
-Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, lgirdwood@gmail.com, broonie@kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- wenst@chromium.org, igor.belwon@mentallysanemainliners.org
-References: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
- <20251003091158.26748-5-angelogioacchino.delregno@collabora.com>
- <5635636.31r3eYUQgx@workhorse>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: =?UTF-8?B?UmU6IFvlpJbpg6jpgq7ku7ZdIFJlOiBbUEFUQ0hdW3YzXSBodW5nX3Rh?=
+ =?UTF-8?Q?sk=3A_Panic_after_fixed_number_of_hung_tasks?=
 Content-Language: en-US
-In-Reply-To: <5635636.31r3eYUQgx@workhorse>
+To: "Li,Rongqing" <lirongqing@baidu.com>, Petr Mladek <pmladek@suse.com>
+Cc: "wireguard@lists.zx2c4.com" <wireguard@lists.zx2c4.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+ David Hildenbrand <david@redhat.com>, Randy Dunlap <rdunlap@infradead.org>,
+ Stanislav Fomichev <sdf@fomichev.me>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>,
+ Russell King <linux@armlinux.org.uk>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Shuah Khan <shuah@kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Jonathan Corbet <corbet@lwn.net>,
+ Joel Granados <joel.granados@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, Phil Auld <pauld@redhat.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+ Simon Horman <horms@kernel.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Florian Westphal <fw@strlen.de>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ "Paul E . McKenney" <paulmck@kernel.org>,
+ Feng Tang <feng.tang@linux.alibaba.com>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>
+References: <20251012115035.2169-1-lirongqing@baidu.com>
+ <588c1935-835f-4cab-9679-f31c1e903a9a@linux.dev>
+ <aO4boXFaIb0_Wiif@pathway.suse.cz>
+ <3acdcd15-7e52-4a9a-9492-a434ed609dcc@linux.dev>
+ <38af4922ca44433fa7cd168f7c520dc9@baidu.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <38af4922ca44433fa7cd168f7c520dc9@baidu.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_043541_330002_E23E1485 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20251014_044114_171525_1549E954 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,109 +98,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 09/10/25 16:41, Nicolas Frattaroli ha scritto:
-> On Friday, 3 October 2025 11:11:53 Central European Summer Time AngeloGioacchino Del Regno wrote:
->> Add a driver for the regulators found on the MT6363 PMIC, fully
->> controlled by SPMI interface.
->> This PMIC regulates voltage with an input range of 2.6-5.0V, and
->> features 10 buck converters and 26 LDOs.
+
+
+On 2025/10/14 19:18, Li,Rongqing wrote:
+>>>>> Currently, when 'hung_task_panic' is enabled, the kernel panics
+>>>>> immediately upon detecting the first hung task. However, some hung
+>>>>> tasks are transient and the system can recover, while others are
+>>>>> persistent and may accumulate progressively.
+>>>
+>>> My understanding is that this patch wanted to do:
+>>>
+>>>      + report even temporary stalls
+>>>      + panic only when the stall was much longer and likely persistent
+>>>
+>>> Which might make some sense. But the code does something else.
 >>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/regulator/Kconfig                  |  10 +
->>   drivers/regulator/Makefile                 |   1 +
->>   drivers/regulator/mt6363-regulator.c       | 935 +++++++++++++++++++++
->>   include/linux/regulator/mt6363-regulator.h | 330 ++++++++
->>   4 files changed, 1276 insertions(+)
->>   create mode 100644 drivers/regulator/mt6363-regulator.c
->>   create mode 100644 include/linux/regulator/mt6363-regulator.h
+>> Cool. Sounds good to me!
 >>
->> [...]
->> diff --git a/drivers/regulator/mt6363-regulator.c b/drivers/regulator/mt6363-regulator.c
->> new file mode 100644
->> index 000000000000..812775072eb5
->> --- /dev/null
->> +++ b/drivers/regulator/mt6363-regulator.c
->> [...]
->> +
->> +static int mt6363_regulator_set_mode(struct regulator_dev *rdev,
->> +				     unsigned int mode)
->> +{
->> +	struct mt6363_regulator_info *info = rdev_get_drvdata(rdev);
->> +	struct regmap *regmap = rdev->regmap;
->> +	int cur_mode, ret;
->> +
->> +	if (!info->modeset_reg && mode == REGULATOR_MODE_FAST)
->> +		return -EOPNOTSUPP;
->> +
->> +	switch (mode) {
->> +	case REGULATOR_MODE_FAST:
->> +		ret = mt6363_buck_unlock(regmap, true);
->> +		if (ret)
->> +			break;
->> +
->> +		ret = regmap_set_bits(regmap, info->modeset_reg, info->modeset_mask);
->> +
->> +		mt6363_buck_unlock(regmap, false);
->> +		break;
->> +	case REGULATOR_MODE_NORMAL:
->> +		cur_mode = mt6363_regulator_get_mode(rdev);
->> +		if (cur_mode < 0) {
->> +			ret = cur_mode;
->> +			break;
->> +		}
->> +
->> +		if (cur_mode == REGULATOR_MODE_FAST) {
->> +			ret = mt6363_buck_unlock(regmap, true);
->> +			if (ret)
->> +				break;
->> +
->> +			ret = regmap_clear_bits(regmap, info->modeset_reg, info->modeset_mask);
->> +
->> +			mt6363_buck_unlock(regmap, false);
->> +			break;
->> +		} else if (cur_mode == REGULATOR_MODE_IDLE) {
->> +			ret = regmap_clear_bits(regmap, info->lp_mode_reg, info->lp_mode_mask);
->> +			if (ret == 0)
->> +				usleep_range(100, 200);
->> +		} else {
->> +			ret = 0;
+>>>
+>>>>> --- a/kernel/hung_task.c
+>>>>> +++ b/kernel/hung_task.c
+>>>>> @@ -229,9 +232,11 @@ static void check_hung_task(struct task_struct
+>> *t, unsigned long timeout)
+>>>>>     	 */
+>>>>>     	sysctl_hung_task_detect_count++;
+>>>>> +	total_hung_task = sysctl_hung_task_detect_count -
+>>>>> +prev_detect_count;
+>>>>>     	trace_sched_process_hang(t);
+>>>>> -	if (sysctl_hung_task_panic) {
+>>>>> +	if (sysctl_hung_task_panic &&
+>>>>> +			(total_hung_task >= sysctl_hung_task_panic)) {
+>>>>>     		console_verbose();
+>>>>>     		hung_task_show_lock = true;
+>>>>>     		hung_task_call_panic = true;
+>>>
+>>> I would expect that this patch added another counter, similar to
+>>> sysctl_hung_task_detect_count. It would be incremented only once per
+>>> check when a hung task was detected. And it would be cleared (reset)
+>>> when no hung task was found.
+>>
+>> Much cleaner. We could add an internal counter for that, yeah. No need to
+>> expose it to userspace ;)
+>>
+>> Petr's suggestion seems to align better with the goal of panicking on
+>> persistent hangs, IMHO. Panic after N consecutive checks with hung tasks.
+>>
+>> @RongQing does that work for you?
 > 
-> Just initialise ret to 0 at the start of the function scope when
-> you declare it. You've already missed an uninitialised use once,
-> and playing these branch games is just asking for more trouble
-> in the future. There's no micro-optimisation you're doing here,
-> clang produces the same assembly for both zero initialised and
-> the else branch version you're doing here.
 > 
+> In my opinion, a single task hang is not a critical issue, fatal hangs—such as those caused by I/O hangs, network card failures, or hangs while holding locks—will inevitably lead to multiple tasks being hung. In such scenarios, users cannot even log in to the machine, making it extremely difficult to investigate the root cause. Therefore, I believe the current approach is sound. What's your opinion?
 
-It's not about micro-optimization. Double initialization is a bad coding practice.
-
-Cheers,
-Angelo
-
->> +		}
->> +		break;
->> +	case REGULATOR_MODE_IDLE:
->> +		ret = regmap_set_bits(regmap, info->lp_mode_reg, info->lp_mode_mask);
->> +		break;
->> +	default:
->> +		ret = -EINVAL;
->> +	}
->> +
->> +	if (ret) {
->> +		dev_err(&rdev->dev, "Failed to set mode %u: %d\n", mode, ret);
->> +		return ret;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> [...]
-> 
-> Kind regards,
-> Nicolas Frattaroli
-> 
-> 
+Thanks! I'm fine with either approach. Let's hear what the other folks 
+think ;)
 
 
