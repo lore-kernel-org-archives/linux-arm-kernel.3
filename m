@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 367AACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 13:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93143CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 13:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mWoybU01LfNTNVBL24BLghy2cThgG8ghbcyR+RUNYRs=; b=GdSybcWR1UJoDFXFxfs0ronlWG
-	9kBkS5PLb4F8ythaSrBbpRWki1NQ26lrbGjeHT2Z5r5hynAUcUZ8INr5yddcmlz0yD/SPrdV/pdQ4
-	D/5TGaX8xCKZNaomw8mTdNkIzIPIR4hs0wDDmTntiiWV377Bn1IBtJ4XOyvlXwqdigKYExEbJtbBg
-	giC5Yk+JtnKOqVbFCDE3xTgbWgOTk3Z/GSZPM6vapjsNY4+91o5+L3qPKhH9OOBAetboaNtAqimRa
-	ULk9z81+ZAc/3gQNsjCeUgjW7Mprg8IdHuX/DA6TadOgmc7mtaAcec8M99foBFgFacE4qPO0p6/HA
-	v+uTF/Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5OyVUTCl3mA/IpHFPIB2uENQCkK3x5bzk0a2B6mBcQ4=; b=EjKMkMXFqx7SYso6I4kQ2nrK3/
+	uYaSYWszb/7P8Upbi2GePe8tEL2AjvHI375xVUf9Eau3K5dJnNRJ/g+fBGL0W0mdpdk+hqXhyT9ZR
+	5QFPgeUtzE5XOso6rz44MVlUmBQ7YQh9pvO0puONJJ0/6jA9eqY1yhy4q7k8RRlBXbPEdqdwQpZc3
+	lR14oLNXVFgSZOc8XVrBQl7jvxKFrwHzBML0ReRx1v5o3YP/rKG9I3+VT13rH8OZagfFaNSlOL0aC
+	/+iR8NIl55srjGGfAAgGlJyASeLbJa5u8fKQKfLPNGqFPjW4fLv6KHyLfF/2dDTDclRMmN/+nYqFc
+	To9uqrEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8f5p-0000000GUVf-14qv;
-	Tue, 14 Oct 2025 13:29:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v8f5t-0000000GUY3-1O4l;
+	Tue, 14 Oct 2025 13:29:37 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8f5n-0000000GUV7-3GC4
+	id 1v8f5q-0000000GUUo-1pK0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 13:29:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1CCEB621A1;
-	Tue, 14 Oct 2025 13:29:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 564C9C113D0;
-	Tue, 14 Oct 2025 13:29:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760448570;
-	bh=Vg5hluxE4jCCEKtMhxwm3cx1UysoRr/cxkURNh3znqg=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=e0NaH3DxFaURk5yTU0k0rsDhqc+CFbdAzfr6JQlfZy5pazZjUrZTA0U3HsAyG7kGP
-	 3MuMJNqjGc4WdsfkFv0ez9YNP59tv/BK8ndmF57iJqkFROG2/MBvZMQNouIA+QLC97
-	 OZe7VNGDZNPeVqTc//a5ERRgZRzNAld0A5X+2XyWHt8h6IOfINFeYjCKZ2FwdLdvwj
-	 +eADY7pJUc+E/0jCe452kZcfPSgHF3Punq66YijBVWCBkWRyZANStZ1ngf6s4q3oF/
-	 GacQKjTgdCk96aFVL16nvNOjytCEM588G9bKfDw6a5hbuv9pgJLj/C1IHR1Hu8tsN6
-	 cJVJ+Hi25bs2g==
-Date: Tue, 14 Oct 2025 08:29:29 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 14 Oct 2025 13:29:36 +0000
+Received: from mail.maildlp.com (unknown [172.19.93.142])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4cmFRM4QFQzYQtpy
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 21:28:47 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id ABCE01A0F09
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 21:29:28 +0800 (CST)
+Received: from [10.67.111.176] (unknown [10.67.111.176])
+	by APP2 (Coremail) with SMTP id Syh0CgBnCUI3UO5o6+FkAQ--.29891S2;
+	Tue, 14 Oct 2025 21:29:28 +0800 (CST)
+Message-ID: <b94f6159-a280-4890-a02a-f19ff808de5b@huaweicloud.com>
+Date: Tue, 14 Oct 2025 21:29:25 +0800
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
- alim.akhtar@samsung.com, andi.shyti@kernel.org, krzk+dt@kernel.org, 
- linux-samsung-soc@vger.kernel.org, pritam.sutar@samsung.com, 
- rosa.pila@samsung.com, linux-i2c@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- dev.tailor@samsung.com
-To: Faraz Ata <faraz.ata@samsung.com>
-In-Reply-To: <20251014112338.2023223-1-faraz.ata@samsung.com>
-References: <CGME20251014111455epcas5p30731028365023e101dad3b9ba1f90bec@epcas5p3.samsung.com>
- <20251014112338.2023223-1-faraz.ata@samsung.com>
-Message-Id: <176044840242.3094524.6549941972513295895.robh@kernel.org>
-Subject: Re: [PATCH v2] arm64: dts: exynosautov920: Add DT node for all I2C
- ports
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/33] cpuset: Provide lockdep check for cpuset lock held
+To: Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
+ <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+ Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+ linux-mm@kvack.org, linux-pci@vger.kernel.org, netdev@vger.kernel.org
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-12-frederic@kernel.org>
+Content-Language: en-US
+From: Chen Ridong <chenridong@huaweicloud.com>
+In-Reply-To: <20251013203146.10162-12-frederic@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: Syh0CgBnCUI3UO5o6+FkAQ--.29891S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7WFW3Jw18tw15JFWUWw1fXrb_yoW8XFyxpF
+	90krWrG3yFvr4Uua9rGw17ur1vgw4kWF1UKFn8Kr1rXa42vFn2vr1q9FnIqr10q397Gw40
+	qF9xWa1Y9rWDArDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvYb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8
+	Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
+	CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
+	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07
+	j6a0PUUUUU=
+X-CM-SenderInfo: hfkh02xlgr0w46kxt4xhlfz01xgou0bp/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251014_062934_781576_7ABFCC34 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,807 +107,60 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 14 Oct 2025 16:53:38 +0530, Faraz Ata wrote:
-> Universal Serial Interface (USI) supports three serial protocol
-> like uart, i2c and spi. ExynosAutov920 has 18 instances of USI.
-> Add i2c nodes for all the instances.
+
+On 2025/10/14 4:31, Frederic Weisbecker wrote:
+> cpuset modifies partitions, including isolated, while holding the cpuset
+> mutex.
 > 
-> Signed-off-by: Faraz Ata <faraz.ata@samsung.com>
+> This means that holding the cpuset mutex is safe to synchronize against
+> housekeeping cpumask changes.
+> 
+> Provide a lockdep check to validate that.
+> 
+> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 > ---
-> Changes in v2:
-> - Added link to bindings in change-log as pointed out by Krzysztof[1]
-> - Link to bindings : https://lore.kernel.org/linux-samsung-soc/20250904072844.358759-1-faraz.ata@samsung.com/
-> - Link to v1: https://patchwork.kernel.org/project/linux-samsung-soc/patch/20250905092452.1782227-1-faraz.ata@samsung.com/
-> - Reference: [1] https://lore.kernel.org/linux-samsung-soc/4a03bec1-34e2-444e-acb8-cae72dcbe6c2@kernel.org/
+>  include/linux/cpuset.h | 2 ++
+>  kernel/cgroup/cpuset.c | 7 +++++++
+>  2 files changed, 9 insertions(+)
 > 
->  .../arm64/boot/dts/exynos/exynosautov920.dtsi | 845 ++++++++++++++++++
->  1 file changed, 845 insertions(+)
-> 
+> diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
+> index 2ddb256187b5..051d36fec578 100644
+> --- a/include/linux/cpuset.h
+> +++ b/include/linux/cpuset.h
+> @@ -18,6 +18,8 @@
+>  #include <linux/mmu_context.h>
+>  #include <linux/jump_label.h>
+>  
+> +extern bool lockdep_is_cpuset_held(void);
+> +
+>  #ifdef CONFIG_CPUSETS
+>  
+>  /*
+> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+> index 8595f1eadf23..aa1ac7bcf2ea 100644
+> --- a/kernel/cgroup/cpuset.c
+> +++ b/kernel/cgroup/cpuset.c
+> @@ -279,6 +279,13 @@ void cpuset_full_unlock(void)
+>  	cpus_read_unlock();
+>  }
+>  
+> +#ifdef CONFIG_LOCKDEP
+> +bool lockdep_is_cpuset_held(void)
+> +{
+> +	return lockdep_is_held(&cpuset_mutex);
+> +}
+> +#endif
+> +
+>  static DEFINE_SPINLOCK(callback_lock);
+>  
+>  void cpuset_callback_lock_irq(void)
 
+Is the lockdep_is_cpuset_held function actually being used?
+If CONFIG_LOCKDEP is disabled, compilation would fail with an "undefined reference to
+lockdep_is_cpuset_held" error.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/v6.18-rc1-3-g2bb07378bae9 (exact match)
- Base: tags/v6.18-rc1-3-g2bb07378bae9 (use --merge-base to override)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20251014112338.2023223-1-faraz.ata@samsung.com:
-
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@108800c0 (samsung,exynosautov920-usi): i2c@10880000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10880000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@108800c0/i2c@10880000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@108900c0 (samsung,exynosautov920-usi): i2c@10890000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10890000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@108900c0/i2c@10890000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@108a00c0 (samsung,exynosautov920-usi): i2c@108a0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@108a0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@108a00c0/i2c@108a0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@108b00c0 (samsung,exynosautov920-usi): i2c@108b0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@108b0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@108b00c0/i2c@108b0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@108c00c0 (samsung,exynosautov920-usi): i2c@108c0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@108c0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@108c00c0/i2c@108c0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@108d00c0 (samsung,exynosautov920-usi): i2c@108d0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@108d0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@108d00c0/i2c@108d0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@108e00c0 (samsung,exynosautov920-usi): i2c@108e0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@108e0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@108e00c0/i2c@108e0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@108f00c0 (samsung,exynosautov920-usi): i2c@108f0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@108f0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@108f00c0/i2c@108f0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@109000c0 (samsung,exynosautov920-usi): i2c@10900000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10900000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@109000c0/i2c@10900000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@109100c0 (samsung,exynosautov920-usi): i2c@10910000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10910000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@109100c0/i2c@10910000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@109200c0 (samsung,exynosautov920-usi): i2c@10920000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10920000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@109200c0/i2c@10920000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@109300c0 (samsung,exynosautov920-usi): i2c@10930000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10930000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@109300c0/i2c@10930000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@109400c0 (samsung,exynosautov920-usi): i2c@10940000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10940000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@109400c0/i2c@10940000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@109500c0 (samsung,exynosautov920-usi): i2c@10950000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10950000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@109500c0/i2c@10950000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@109600c0 (samsung,exynosautov920-usi): i2c@10960000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10960000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@109600c0/i2c@10960000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@109700c0 (samsung,exynosautov920-usi): i2c@10970000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10970000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@109700c0/i2c@10970000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@109800c0 (samsung,exynosautov920-usi): i2c@10980000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10980000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@109800c0/i2c@10980000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@109900c0 (samsung,exynosautov920-usi): i2c@10990000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10990000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@109900c0/i2c@10990000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10c800c0 (samsung,exynosautov920-usi): i2c@10c80000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10c80000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10c800c0/i2c@10c80000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10c900c0 (samsung,exynosautov920-usi): i2c@10c90000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10c90000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10c900c0/i2c@10c90000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10ca00c0 (samsung,exynosautov920-usi): i2c@10ca0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10ca0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10ca00c0/i2c@10ca0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10cb00c0 (samsung,exynosautov920-usi): i2c@10cb0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10cb0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10cb00c0/i2c@10cb0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10cc00c0 (samsung,exynosautov920-usi): i2c@10cc0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10cc0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10cc00c0/i2c@10cc0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10cd00c0 (samsung,exynosautov920-usi): i2c@10cd0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10cd0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10cd00c0/i2c@10cd0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10ce00c0 (samsung,exynosautov920-usi): i2c@10ce0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10ce0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10ce00c0/i2c@10ce0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10cf00c0 (samsung,exynosautov920-usi): i2c@10cf0000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10cf0000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10cf00c0/i2c@10cf0000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10d000c0 (samsung,exynosautov920-usi): i2c@10d00000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10d00000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10d000c0/i2c@10d00000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10d100c0 (samsung,exynosautov920-usi): i2c@10d10000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10d10000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10d100c0/i2c@10d10000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10d200c0 (samsung,exynosautov920-usi): i2c@10d20000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10d20000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10d200c0/i2c@10d20000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10d300c0 (samsung,exynosautov920-usi): i2c@10d30000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10d30000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10d300c0/i2c@10d30000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10d400c0 (samsung,exynosautov920-usi): i2c@10d40000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10d40000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10d400c0/i2c@10d40000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10d500c0 (samsung,exynosautov920-usi): i2c@10d50000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10d50000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10d500c0/i2c@10d50000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10d600c0 (samsung,exynosautov920-usi): i2c@10d60000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10d60000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10d600c0/i2c@10d60000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10d700c0 (samsung,exynosautov920-usi): i2c@10d70000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10d70000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10d700c0/i2c@10d70000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10d800c0 (samsung,exynosautov920-usi): i2c@10d80000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10d80000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10d800c0/i2c@10d80000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: usi@10d900c0 (samsung,exynosautov920-usi): i2c@10d90000:compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/soc/samsung/exynos-usi.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: i2c@10d90000 (samsung,exynosautov920-hsi2c): compatible: 'oneOf' conditional failed, one must be fixed:
-	['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c'] is too long
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5250-hsi2c', 'samsung,exynos5260-hsi2c', 'samsung,exynos7-hsi2c', 'samsung,exynos8895-hsi2c', 'samsung,exynosautov9-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos5433-hsi2c', 'samsung,exynos7870-hsi2c', 'tesla,fsd-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['samsung,exynos8890-hsi2c']
-	'samsung,exynosautov920-hsi2c' is not one of ['google,gs101-hsi2c', 'samsung,exynos2200-hsi2c', 'samsung,exynos850-hsi2c', 'samsung,exynos990-hsi2c']
-	'samsung,exynos5-hsi2c' was expected
-	'samsung,exynos7-hsi2c' was expected
-	'samsung,exynos8895-hsi2c' was expected
-	from schema $id: http://devicetree.org/schemas/i2c/i2c-exynos5.yaml#
-arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb: /soc@0/usi@10d900c0/i2c@10d90000: failed to match any schema with compatible: ['samsung,exynosautov920-hsi2c', 'samsung,exynosautov9-hsi2c']
-
-
-
-
+-- 
+Best regards,
+Ridong
 
 
