@@ -4,148 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9129CCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 16:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC531CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 16:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U0zwenFR3i16G3324C1bVaUaxAmsHjXcsj26LueBeTk=; b=3/UqngOzc+IrxWt2fVHcwahFw7
-	XTK5zgBZoLHvy6zHlWrmEBy+B0omnCr2lIsYZ3U23coeok4rt2grzU2O1Sp9ZKT+rZsSfWzhK2v2O
-	NMCoNxIdEnfnKlJcsVpMSYldYspoXId0wTH4D/RFOCktpOFEJ75qwIFCKs4lbJbd5xpLHLEE2gmsN
-	LIcdEiWNwuNbSmJTuZx0HLd3JhcZee3mpEv7SpXhnQmNEytBLEuWIRP766WSjmXxqKwqhjrhXJ7M2
-	IN/vlz2GxZiv7DNWK5if42YjGp09QrLKcDCNpV8OEZX9qEaZ709uVesZAgXVER/sRnjuFkpKO7BzK
-	gwNP3pTw==;
+	bh=RIDTlMFsrNFSupa3j2HpAaCjj/tHU19+vRKipgxflMY=; b=elz64smsB2xgsmm/1+UDJaMXrE
+	tVl/GjLIIKKkjlG1uQPK+qNKL+Ktcevdv43C/xJfxvvmT+jptGNOwY7Ccoq1VBh5C0vknJOztTuxB
+	N1lwfXBpQisAq7RRU72Za3tVw/cTK7aA9QB0r3UP4XzDFfxlxRpGpqm74gsBu+zyMhB07kGY2+LYu
+	q6LT0tM3nyjGiRiNrHV70HWiNTx2zUBBAp7S4mTYkxpTKnQ3FqMuwTaecnto/NNgUpzYaRC3RpA+h
+	vU2118dPBubFWUWdQs08PInTFDQqt0+aeAa13wLXsGocQoiXHac6B4G+mITCMLbN1oXeGcIdlMhg1
+	IXSk2cqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8hSP-0000000GwAd-3qNy;
-	Tue, 14 Oct 2025 16:01:02 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1v8hTh-0000000GwVj-2eyD;
+	Tue, 14 Oct 2025 16:02:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8hSN-0000000Gw9J-0nQ5
+	id 1v8hTd-0000000GwUg-2JR1
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 14 Oct 2025 16:02:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=RIDTlMFsrNFSupa3j2HpAaCjj/tHU19+vRKipgxflMY=; b=XkNjyYS7nV5Isp6NLnRGBBiMR/
+	wQX6iMKtLL5AghM/m3RLpMNNpgTIBd+LSrj1Ak3Zml2PmzCtl9SsvwzqYIX1HnFXnMEKD1W658s6q
+	GOH4sP1s5bSO95CpekygbGnzTWo/6+9rMggdCSXAgbbUhJ7pT+bhNUapeQsoQNozpphz0B5mX67tK
+	+3xkRJSuzSvWCVPInJf5cf5iGlR7OZHmwiKkkD71zh9rztH3q8Ka1ja0vY1DOQPcaHHYTKbO/FyCD
+	GhI5H2lGqCKB7BKO6at/Pehlv6+dq66cSmOP4deMSrZoA7Aisxv4WIjQVw0VXKHj4yd7x9tS7xeJZ
+	yL4+c0KA==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8hTZ-00000005IR7-3oS7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 16:01:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DgtgYE04Yyo2aAkhBQnLVsWw8usn98EF82adduPPe8VIfcI5mjGH8C0dxY5v0Nd6qP9Toefw69bK7qdeIY/GTlmvx8cOn0X8sYxCA3ItntgAminFVnpjeQIPLGvlRyg17nPQiiHrDxwXWCdsHYt7gnD9huFae8szxJ4d45BGwdXg2BqzXLXO2iaRzdXljtRz524moVyCBLtEowBpU+bsuKadZF/QrQUyp+XUS9k6bNPi+l6DQuWQ2JG25Q+vJXnUWgp//7RMtBcjiWebANKsXsmaypyc2C77FTwiLQSkugcZFNR+j2IfeHDoRTKWLVnve4AzKXnIVSgGRzECmQoHdg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U0zwenFR3i16G3324C1bVaUaxAmsHjXcsj26LueBeTk=;
- b=Abz3AKyDMM0VULkNJ0IqWM/LUliySfrRjP734EQlEeYHO0WWNEWwBjvxGUIwZ+uBF/w+60kLfKtE2BHLnpafWOi1A0J7oRgvAcIWTu0UBUE8IPEhwYoV8QboHSQMRzXxfzFLPGZxJqAd/9jxzjvLMZ8rzUslQ2E3Lfy4JpIqv475/NlCDkdDN3mYw+y4djIjdLMXKyu3yRwgIjj5de6jRM/suV06xFznTB2Bvrb81tRD+Oka3Gn16GEamW6QTcIueedhjzQVHz+oHG2vkxCBnpCWAdxXT/NKwpeGiiBzs6Ao13EncYg9WC7I7E/t2gGwcDYNAvitZAGfjokomk97FA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U0zwenFR3i16G3324C1bVaUaxAmsHjXcsj26LueBeTk=;
- b=NKvB688120On3fvag2B/+tUN1vcL2zK1uP3exKhU/kD5+kPX2fYFg5fbjp06D1n4S6SwvgrqpN8p0SQShZbaUECw44gaOaFGr1MI84AXZjJhZJmuvvULqzdrM8wnVbiLQqIAkupXgDsA21toTH49oiflOzxj+MklMe70ZCYIxcetRb0beQxmLAiTQITUpT+ifdyVhxFuwLzHOaZdTurIPVANUg1k6csybKC4r6MjHx26qfRRqU5InhGQW9Xj4Jp+C2PFSCdicIRuAoSQCUnM40XpuMJEexv088Nqooe604y1UTfHf7ODWn8L7Be2jfbfkls4CRsGSTuAhADvwkyjJg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by VI0PR04MB11538.eurprd04.prod.outlook.com (2603:10a6:800:2ca::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.10; Tue, 14 Oct
- 2025 16:00:54 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9203.009; Tue, 14 Oct 2025
- 16:00:54 +0000
-Date: Tue, 14 Oct 2025 12:00:47 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 6/8] firmware: imx: scu: Update error code
-Message-ID: <aO5zr3LnuZ9LHs9x@lizhi-Precision-Tower-5810>
-References: <20251014-imx-firmware-v1-0-ba00220613ca@nxp.com>
- <20251014-imx-firmware-v1-6-ba00220613ca@nxp.com>
+	Tue, 14 Oct 2025 16:02:16 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59EFD1bb008997
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 16:02:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=RIDTlMFsrNFSupa3j2HpAaCj
+	j/tHU19+vRKipgxflMY=; b=D8d+RoYv2SKec5D8jKbm7NuvfVXZqqaa/GwmQ6aE
+	sUgom710S9UPY91JnZdhu3MV9uSMm7AezppNgUxr0sD0+wKthsX8t/xVCYuuO9HB
+	c/ao4tPKCqAN9pH5EkcXtF2/HDyp5mUDgg10c9t/lS45bDxmoVTu6fM9j1gF/3h3
+	wgZLO5bjaX3fUvnyvjtLsxeQEyGkgI1seNX8Mv/sq3Di5lY44x4IaY+IXGbpLnUn
+	d05SqnZ7V9IPxRJpmkcyFgUPztYt7C3c/wh+CK0fs2c2r6YfaZg60K5bhz5GxMsd
+	0JvL1tSl/fTL7+enHjFpn3JGDeFi+43/fL3dB5L4oLLzCg==
+Received: from mail-ua1-f72.google.com (mail-ua1-f72.google.com [209.85.222.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qfm5h5u7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 16:02:08 +0000 (GMT)
+Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-8f7f2a191ccso51190241.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 09:02:08 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760457728; x=1761062528;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RIDTlMFsrNFSupa3j2HpAaCjj/tHU19+vRKipgxflMY=;
+        b=GzLdWbikHkCkzSAgo9MTYjXG5xLOyNel+7Zx2NFRKBGpqWcsu5hX2wUNX4TyBmlgPm
+         mbLNOtk+/xWfUNz+EsMTYoHlBaBXo9kjCkqvKJIRK0xN/y5S707Ts2Fl7sO6Nwgq9yqy
+         0ZL4hfaS9/fBY17kNf7hPP8evmSEgmHZRCg6HmSQozq68rRlXAgE3Mf5+NAFogKEM1Mq
+         pYcihnRO8UnOIRD5az5UUFVRJZMR+QzpKgbxiYW4J8+6y9iztGWmcb++GP5rxw8ZXNFU
+         ZYsAGwGrwyn2YYpOlrOr8z+FaXbCB/G1XvuzUWsm136FTXq21RegnQNUPsjAeqxyntK0
+         xN0A==
+X-Forwarded-Encrypted: i=1; AJvYcCVEOaqMWgh7COcDsVFww5HTnXX6U9wThyaMmE56xGydmtwyH59iCbtpk1x9vzFTbt9iIJYzmj5wFl4llV75E2R6@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAbf3uWXpLio6r+dwaijTNVEEMRd7uOEXiCskc4hihI3tLdYP9
+	eubStjORBhwncjZ/RGBp0DwJP6yAazaDmw5mPaguxUbUgzxQOHMtBs8X9b7I3ab4TrKBAEMlIaC
+	xVw8am072vVLmhzBtoTBGukYzXE9O1GTOj0VQY7IAi4bd9pOTgjtOmnCniOGdOB6SHOd/yBFp1b
+	nQMA==
+X-Gm-Gg: ASbGncttfnHb2uOnSG+VMgmQGTHmURXdEKidr8xoWcTydPYsvXi31P/4L1hDoZUggHD
+	Y9B1EXTXPOiEiRuNGYdQ23ESA9j2qot0XnuUODC92E6T6zenjPEFwcy6v9Ebf4yC0i5BdeVE+Sz
+	F8yQd58aukIgwfLXEmb1h4fxEyRVBROSfAjvYQm/wjG9i52JZkO4NU++3E71Q1J1j0cSRUBsFF1
+	Nag/k8BKkPb6nbg3fl4HNVbOmQLZYBHa1QTio/qZs8SSfaONKuD+dN3C2nlvveIjK+BUAxTdtYL
+	AMkJUXKKgQHncv9MpWThkgEelrBE1eqWS9EHhJPMsRjc3OQaHmqVaNZm10WDdue8+DYXfrlHDhS
+	stScI6BrWcMY3HJrlrxRolZ+bNfmW9P96TNFsyEFlBS17+aQNjrwp
+X-Received: by 2002:a05:6122:e1db:b0:554:e726:7818 with SMTP id 71dfb90a1353d-554e726a88bmr2893402e0c.2.1760457727459;
+        Tue, 14 Oct 2025 09:02:07 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGiPVWLHJ62y1HXmozGHeu5tMGTb4MD+todBa4lunYFYoGko1Yp2FhdNfFEHzjjvK5KiwAUsg==
+X-Received: by 2002:a05:6122:e1db:b0:554:e726:7818 with SMTP id 71dfb90a1353d-554e726a88bmr2893311e0c.2.1760457726794;
+        Tue, 14 Oct 2025 09:02:06 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-591c8779e8dsm60095e87.10.2025.10.14.09.02.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Oct 2025 09:02:05 -0700 (PDT)
+Date: Tue, 14 Oct 2025 19:02:03 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Sandy Huang <hjc@rock-chips.com>,
+        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
+        Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
+        Samuel Holland <samuel@sholland.org>,
+        Dave Stevenson <dave.stevenson@raspberrypi.com>,
+        =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+        Liu Ying <victor.liu@nxp.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+        Daniel Stone <daniels@collabora.com>
+Subject: Re: [PATCH v4 01/10] drm/connector: let drivers declare infoframes
+ as unsupported
+Message-ID: <ez6y7q4lgbwt7kpnlpausjpznckr3yyejrwtxm7o6qw6wlhqoj@6iypzdhfthzy>
+References: <20250909-drm-limit-infoframes-v4-0-53fd0a65a4a2@oss.qualcomm.com>
+ <20250909-drm-limit-infoframes-v4-1-53fd0a65a4a2@oss.qualcomm.com>
+ <20250910-furry-singing-axolotl-9aceac@houat>
+ <z333ysst5ifakomo35jtbpydj44epqwwn4da76rcnsq4are62m@32gsmgx2pcdi>
+ <20250925-didactic-spiked-lobster-fefabe@penduick>
+ <jfxtcvh4l5kzyv74llmzz3bbt6m4mhzhhwl6lh5kfeqgqhkrhi@jzfvtxpedmyf>
+ <20251003-primitive-sepia-griffin-cfca55@houat>
+ <54a06852-4897-4dae-ab9c-330d99f3bf42@oss.qualcomm.com>
+ <5cc5l2dihgdbgnwyugelwrklpaiiy5yaczqllu4bi6asvlt354@kib3flskh34g>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251014-imx-firmware-v1-6-ba00220613ca@nxp.com>
-X-ClientProxiedBy: SJ0PR03CA0138.namprd03.prod.outlook.com
- (2603:10b6:a03:33c::23) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|VI0PR04MB11538:EE_
-X-MS-Office365-Filtering-Correlation-Id: d372aad1-b9d4-4e30-a496-08de0b3adb2e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?D3M4YRAX5y/iKcbJx3ia9xViby8nidkD/J6ii5touZ7tEPAJa1tbz6nFTGde?=
- =?us-ascii?Q?W8NQUpDLxAPSvQPqRdTvRV71gdc9AN+x8Q7oQRJwnuAFgSueJ6Ai5vd+lMIh?=
- =?us-ascii?Q?UBS+rh7qPJLW6OvMqykC8uldVUCHvhYWEtur6a/5SvNjquSVhITcnWdLe0X6?=
- =?us-ascii?Q?tlONlVl/WXm3hXbpvf/jI4wtXC4tlLVm55XvPDi75v4iYxTqiLxYiQ06Uzv1?=
- =?us-ascii?Q?p14KgpKvZK+e0USK0NpH1RRpOFz7hfyhUOioTi8KaYUyS8VVhZHFn276oe/r?=
- =?us-ascii?Q?20CauVDFoGYqqy8gOMggpUJIatClyHMaSYya0jIXTiUMynppoHQFpnRQGukr?=
- =?us-ascii?Q?wzLCNoKjsr8z8X74t4ziTNL5+HDXwsqvxIhzMq49cXuGuNqtxiN0meiME4E6?=
- =?us-ascii?Q?aSMkUOME5SpLtVQQrayMgH/VCl4M5a5qO0uankR96ckorj2HtyYLCdpBUVvG?=
- =?us-ascii?Q?1oj54b/ktn8WOWwh5/n+sb2TVDtFMph1iIDCJ4lsEcILzvSjBalsxFEHYyns?=
- =?us-ascii?Q?Jo3T3/mdNTu3lzgq0U7LjsFFKVOAlsR3koDqzxNTLRqmtOv4lBmRlRRt5U5H?=
- =?us-ascii?Q?ks1Naz8iUlcpkY1R3DrodcXmtBYl3O0KQwcI8ICteEUHhTZVBN8iov0nSEmG?=
- =?us-ascii?Q?6JRzAVSr1oJvUIK709+Mqv/2vIoR1kNk2E4rr52EopbyaktDWrsW6NGCPCne?=
- =?us-ascii?Q?UiCd6ySGi23a9kp9jMVwM122XC6o60gIcRpKCi75k56gB4/KOxFqtrVbblKZ?=
- =?us-ascii?Q?or+rne0wRF4/FFwPaRmq7DA+/NHWtFKM/peV74447c1l17K7sJHTt0fkc8o/?=
- =?us-ascii?Q?JqZij8zHaajhQJIS7mr9AHPajC8fIHoArpi2y1sG4Q7ukPDZjGQzt3xDIpdN?=
- =?us-ascii?Q?XUEqocD2WhUWJ9hlyc3NxCRAwnuwZ4UXawj9ex3n/6y2dHbujCGUeOkKyYqa?=
- =?us-ascii?Q?U1nMZjqYxGXed/pTMR0rQlf6RHoAviOMRq+CLf9kA+KNmV/DeJhxxqeqYuuX?=
- =?us-ascii?Q?YquwUtqtKdQCoztJ1iMbIy8o3/16cw7X6y91EV0k35FFvTlF5PwEHrFItHVl?=
- =?us-ascii?Q?v+j5oUKKjvAS3rL5Xn4kXLLIUb0yaBjri/WlharOYhYMievyqecJ3qHHLQT4?=
- =?us-ascii?Q?+r6UB6INf5gdsXpeTGEr/7cYw78U+H/UNAdXU1hs0hNJsMKgH+sEo5zMIy9L?=
- =?us-ascii?Q?qqHluM/v5ArI1i6BVVHOxKvhwzbyPc1D2Ri5L2ScEq5JZL7w54EqfEAk/OPY?=
- =?us-ascii?Q?P0/aih/ifUhooaCyfG1wp+Z+adWHxt6EvtaUbKdv87niZ5lWDlwixpWFGqz6?=
- =?us-ascii?Q?DQUyV++MttiZLLtkjdDfJ+ttRCY+I9CybBUuz2/Zzi8VgtnvKfo0P7wT4q88?=
- =?us-ascii?Q?VWwaygrEg4pNq0LK3ziXGhQcokQvy+tB1en505FewxApovIdup59F8bVzkiS?=
- =?us-ascii?Q?72S0LYazpC7uvGrdwNd0mDAELYftWsecifgN+52PjmJaj/mPx5gALDlJbxA6?=
- =?us-ascii?Q?Y3RJ/5SyAsFO/oi1ZZUTK5lsrEgApqXWKYhu?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?g9c3QzL7t8YXwhUfxUNNAxl85yb4PHgurJ0veo9482WiAbwkghaB+9hWm63J?=
- =?us-ascii?Q?1tfO9Z2WvR1v7kYLcN1H2XqPza2Sjv2WDImA1aaWZzVmgLkh/ToTN7auicjO?=
- =?us-ascii?Q?N79CAyi1sv01B76TqX6X5ujc0tu+YFeSFa8y70wo+2/3xYr3+/4gMr67OZ5k?=
- =?us-ascii?Q?huJEsx0AgD5uf8PtVzpC3e3uyZRcBUFBYHlbQf2qBF03sAme1iELbEW6utO1?=
- =?us-ascii?Q?V/XmjnrL8HUG6E+ztHGjcQC0vn0PG+g9eTgJaROVo9ZOo0TzyHbf+l7bOG6t?=
- =?us-ascii?Q?gGuDH86IFAgNF0+esPymXK6tbV2uoun/HDomt0SQm4+7fqLTzhnVq5DDt3Jc?=
- =?us-ascii?Q?Amj4qwaG5pEAdg6+UCCYqx346aji4em3A1iQeUevGILA6XcoLA2t5bO63rlA?=
- =?us-ascii?Q?0z0E8qNm7mtW+j9VJ/zRBAJde0Lal2G29pzn32Nx3QEef8xhs7P1JOaatTeJ?=
- =?us-ascii?Q?MBsEc3x0Rkkf2IZX6+k9LI0C8IH/dT5EDlJmOnSXbfgr2DfGESOAgdLawCYG?=
- =?us-ascii?Q?JaDLg9xmYgFGLZUBS5AYyj+NXCBz/oRp4f5pBbyw4hrQApcqYdto/mVwnEnL?=
- =?us-ascii?Q?59rMpYWlzEEF7f82zblZ5BMARu6lJIXCcdiujSb/5JShQUJne/R79qhEDq8O?=
- =?us-ascii?Q?leCQrlnPkHxabhK7Ihb5IdFpRtkLo+WXPOhtPmP1ZOddss5f4xUiQ5gf2qAK?=
- =?us-ascii?Q?7scCK0rOgQRg2C3KJ6YbPZguX49mBO+JWYw2dkG2jIbP9+qKTaaryzBt1yKa?=
- =?us-ascii?Q?t0mtYYrmRj+b+KvEkx1uttdjJ2MwGe4Es5BRjWKxi4Sk34lCpTZu0hN9GTyp?=
- =?us-ascii?Q?kCFl3kZI+zsp/n1AIP41KNGR0415mrMJlGEcnj1S6zaZOEKszanEu9PTc8TA?=
- =?us-ascii?Q?4c9eL6mhhIsAPZJVyt26vqoQZlhUeqyqbKCIUkO+jG/m/EwVdOKl5NlFqRNf?=
- =?us-ascii?Q?cvKVpgB1Ui8ZuqjnurcaKUtG9S+5CYrdEySZqPQDQy4q+svdPVhP1KZ5ig8T?=
- =?us-ascii?Q?EX/OvWtukJPIo66HSH3QiwzQJI5N98dq8uE/gb5vqUKS71B6OGwHwTunb71N?=
- =?us-ascii?Q?8wMSw+IZGQ0uKjz07XGFP7YErNCblGObAEpmL6bBzrMfQGLjjXi55TKJAooy?=
- =?us-ascii?Q?lKtihg346jwJ1+cIS/WvX9MfIllBjvDaFoSRGpdE2iCUmJvnnG9FEvEqznvC?=
- =?us-ascii?Q?81Ebkr1GT7Ph0ojoer1mysgh5Bnsqp/9dNoVGpl7vK/Xy2JyK7TwjtMvvgxt?=
- =?us-ascii?Q?oWK/8Z9dIF1GkYzi1QuZO+v5gKVffirEgUn5BD0qltS8QVTIun6OBcR1pBKw?=
- =?us-ascii?Q?2coSN0AU4q4le12KSCAKZj1/xgsA5ShBBIlLMyIhu4HtDN2JVrViZeNBn3+r?=
- =?us-ascii?Q?HnGty9plVSt7M5EYTlhwz+ti2AgvP6Kx1ttO+Cxcai+m5WlV2crgSHZUp/LX?=
- =?us-ascii?Q?weT+VUJHYb3updeDDbFWvo6kU2R2MOipEF3mHvqrXJ4OMnGRZ1wk+gSsUqZy?=
- =?us-ascii?Q?7Ttbmb8Iu/uzcioIEIRLwzhOUatRg4pkyRbIfvvd0rxffLucqBRSvsEu9L8Z?=
- =?us-ascii?Q?6xmZlAZkxTDgWt9rl4FUhU5sqE+0AW+mJZHb+CXw?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d372aad1-b9d4-4e30-a496-08de0b3adb2e
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2025 16:00:54.7759
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gUh0GUDvImT/89I+Ra5BoPP//FKFz/CKL6faFbUTedPzU7RKKH6vQUNiU9wkt7ZZ7yD1tvXNGOegusmNWGCIaQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11538
+In-Reply-To: <5cc5l2dihgdbgnwyugelwrklpaiiy5yaczqllu4bi6asvlt354@kib3flskh34g>
+X-Proofpoint-GUID: cYBVvDq7Tk0ayn2HgFbFG_Lfm7q-6Rn_
+X-Proofpoint-ORIG-GUID: cYBVvDq7Tk0ayn2HgFbFG_Lfm7q-6Rn_
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAyMCBTYWx0ZWRfX/sl4UX8zU/rB
+ eFHkXxy2IWYFfHujJpDs8yz8lCmTods2IITyDNMtJWpoxmnKoH1QNHcnRCYXotxlZOAsGKUys51
+ wpQqemBuGYKZPRZgHizVPmc3b051/M2Ta6SWIkpXLeX9fynFY/2yMkFWO9xjQJs7FX6reKsJCmL
+ unHT4gYCPvkruEaTWSQw3j5GCGjyw4FaFavCqfKSLo1DCnU/+DOKroUbAVTmxuUB7Ipp68A67uy
+ ivuaeiVex/gIL5Hk6jSZi+WtxzC6UsXVHMhI+2t7gp/vDrYcNV7LuqMW/RcqJQ2U8cI5y7DEOVh
+ rDdY3o8L/YpYqI0fz5aNp7C3equgFCvYaVxwr8T6/+d/Op+C2iqX+FVic8JfitoMTZsuyPmPtjC
+ GwYecvthCHBy+/PuGcp4/cBwbZ/4sQ==
+X-Authority-Analysis: v=2.4 cv=V71wEOni c=1 sm=1 tr=0 ts=68ee7400 cx=c_pps
+ a=ULNsgckmlI/WJG3HAyAuOQ==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=6RWEyACVIll58Qch3D4A:9
+ a=CjuIK1q_8ugA:10 a=1WsBpfsz9X-RYQiigVTh:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-14_03,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 malwarescore=0 spamscore=0 adultscore=0 suspectscore=0
+ impostorscore=0 phishscore=0 clxscore=1015 lowpriorityscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
+ definitions=main-2510110020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_090059_242750_7B4A1DA6 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20251014_170214_296311_9C5B0614 
+X-CRM114-Status: GOOD (  56.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,38 +178,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 12:54:43PM +0800, Peng Fan wrote:
-> IMX_SC_ERR_NOTFOUND should map with -ENOENT, not -EEXIST. -ENODEV makes
-> more sense for IMX_SC_ERR_NOPOWER, and -ECOMM makes more sense for
-> IMX_SC_ERR_IPC.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
+On Tue, Oct 14, 2025 at 02:43:58PM +0200, Maxime Ripard wrote:
+> On Fri, Oct 03, 2025 at 06:41:58PM +0300, Dmitry Baryshkov wrote:
+> > On 03/10/2025 17:23, Maxime Ripard wrote:
+> > > On Thu, Sep 25, 2025 at 05:55:06PM +0300, Dmitry Baryshkov wrote:
+> > > > > > As we will be getting more and more features, some of the InfoFrames
+> > > > > > or data packets will be 'good to have, but not required'.
+> > > > > 
+> > > > > And drivers would be free to ignore those.
+> > > > > 
+> > > > > > > So, no, sorry. That's still a no for me. Please stop sending that patch
+> > > > > > 
+> > > > > > Oops :-)
+> > > > > > 
+> > > > > > > unless we have a discussion about it and you convince me that it's
+> > > > > > > actually something that we'd need.
+> > > > > > 
+> > > > > > My main concern is that the drivers should not opt-out of the features.
+> > > > > > E.g. if we start supporting ISRC packets or MPEG or NTSC VBI InfoFrames
+> > > > > > (yes, stupid examples), it should not be required to go through all the
+> > > > > > drivers, making sure that they disable those. Instead the DRM framework
+> > > > > > should be able to make decisions like:
+> > > > > > 
+> > > > > > - The driver supports SPD and the VSDB defines SPD, enable this
+> > > > > >    InfoFrame (BTW, this needs to be done anyway, we should not be sending
+> > > > > >    SPD if it's not defined in VSDB, if I read it correctly).
+> > > > > > 
+> > > > > > - The driver hints that the pixel data has only 10 meaninful bits of
+> > > > > >    data per component (e.g. out of 12 for DeepColor 36), the Sink has
+> > > > > >    HF-VSDB, send HF-VSIF.
+> > > > > > 
+> > > > > > - The driver has enabled 3D stereo mode, but it doesn't declare support
+> > > > > >    for HF-VSIF. Send only H14b-VSIF.
+> > > > > > 
+> > > > > > Similarly (no, I don't have these on my TODO list, these are just
+> > > > > > examples):
+> > > > > > - The driver defines support for NTSC VBI, register a VBI device.
+> > > > > > 
+> > > > > > - The driver defines support for ISRC packets, register ISRC-related
+> > > > > >    properties.
+> > > > > > 
+> > > > > > - The driver defines support for MPEG Source InfoFrame, provide a way
+> > > > > >    for media players to report frame type and bit rate.
+> > > > > > 
+> > > > > > - The driver provides limited support for Extended HDR DM InfoFrames,
+> > > > > >    select the correct frame type according to driver capabilities.
+> > > > > > 
+> > > > > > Without the 'supported' information we should change atomic_check()
+> > > > > > functions to set infoframe->set to false for all unsupported InfoFrames
+> > > > > > _and_ go through all the drivers again each time we add support for a
+> > > > > > feature (e.g. after adding HF-VSIF support).
+> > > > > 
+> > > > >  From what you described here, I think we share a similar goal and have
+> > > > > somewhat similar concerns (thanks, btw, it wasn't obvious to me before),
+> > > > > we just disagree on the trade-offs and ideal solution :)
+> > > > > 
+> > > > > I agree that we need to sanity check the drivers, and I don't want to go
+> > > > > back to the situation we had before where drivers could just ignore
+> > > > > infoframes and take the easy way out.
+> > > > > 
+> > > > > It should be hard, and easy to catch during review.
+> > > > > 
+> > > > > I don't think bitflag are a solution because, to me, it kind of fails
+> > > > > both.
+> > > > > 
+> > > > > What if, just like the debugfs discussion, we split write_infoframe into
+> > > > > write_avi_infoframe (mandatory), write_spd_infoframe (optional),
+> > > > > write_audio_infoframe (checked by drm_connector_hdmi_audio_init?) and
+> > > > > write_hdr_infoframe (checked in drmm_connector_hdmi_init if max_bpc > 8)
+> > > > > 
+> > > > > How does that sound?
+> > > > 
+> > > > I'd say, I really like the single function to be called for writing the
+> > > > infoframes. It makes it much harder for drivers to misbehave or to skip
+> > > > something.
+> > > 
+> > >  From a driver PoV, I believe we should still have that single function
+> > > indeed. It would be drm_atomic_helper_connector_hdmi_update_infoframes's
+> > > job to fan out and call the multiple callbacks, not the drivers.
+> > 
+> > I like this idea, however it stops at the drm_bridge_connector abstraction.
+> > The only way to handle this I can foresee is to make individual bridges
+> > provide struct drm_connector_hdmi_funcs implementation (which I'm fine with)
+> > and store void *data or struct drm_bridge *hdmi_bridge somewhere inside
+> > struct drm_connector_hdmi in order to let bridge drivers find their data.
+> 
+> Does it change anything? The last HDMI bridge should implement all the
+> infoframes it supports. I don't think we should take care of one bridge
+> with one infoframe type and some other with another?
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Note: I wrote about the _data_. So far the connector's write_infoframe /
+clear_infoframe callbacks get drm_connector as an arg. The fact that
+there is a drm_bridge which implements a callback is hidden well inside
+drm_bridge_connector (and only it knows the bridge_hdmi pointer).
+Otherwise, the bridge, trying to implement drm_connector_hdmi_funcs has
+no way to go from drm_connector to drm_bridge.
 
->  drivers/firmware/imx/imx-scu.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/firmware/imx/imx-scu.c b/drivers/firmware/imx/imx-scu.c
-> index 8c28e25ddc8a650d2d191c40193cf1fb5e70bc35..6046156bc3c9abcd8f62b46f04571b1a9decc0eb 100644
-> --- a/drivers/firmware/imx/imx-scu.c
-> +++ b/drivers/firmware/imx/imx-scu.c
-> @@ -73,9 +73,9 @@ static int imx_sc_linux_errmap[IMX_SC_ERR_LAST] = {
->  	-EACCES, /* IMX_SC_ERR_NOACCESS */
->  	-EACCES, /* IMX_SC_ERR_LOCKED */
->  	-ERANGE, /* IMX_SC_ERR_UNAVAILABLE */
-> -	-EEXIST, /* IMX_SC_ERR_NOTFOUND */
-> -	-EPERM,	 /* IMX_SC_ERR_NOPOWER */
-> -	-EPIPE,	 /* IMX_SC_ERR_IPC */
-> +	-ENOENT, /* IMX_SC_ERR_NOTFOUND */
-> +	-ENODEV, /* IMX_SC_ERR_NOPOWER */
-> +	-ECOMM,	 /* IMX_SC_ERR_IPC */
->  	-EBUSY,	 /* IMX_SC_ERR_BUSY */
->  	-EIO,	 /* IMX_SC_ERR_FAIL */
->  };
->
-> --
-> 2.37.1
->
+The only possible solution would be to introduce something like
+drm_connector_hdmi::data (either void* or drm_bridge*) and use it
+internally. But for me this looks like a bit loose abstraction. Though,
+if it looks good from your POV, I agree, it would solve enough of
+issues.
+
+-- 
+With best wishes
+Dmitry
 
