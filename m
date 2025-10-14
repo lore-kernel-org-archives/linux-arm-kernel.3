@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA5E1CCD18C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 06:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BE6BCCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 06:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uwthaOGY1VLvaz+koev4FhKg8AeyDPmuh05iyUl1cmc=; b=4mwA82JNHeN/N7KF6GnkJdP1hg
-	k6Ukb1uw3PJHVes6aqHg3PU8JRPYoxX6ZMO8x1zHQ0h0Xsc05EUWPqonkNmsUQQns/6QSc7bg4OTO
-	pCIo/bwz0o25Zupr8l9NOqinacEcdZvmEjkZqNqmveiX79M9ICFdxCp7U/GUPH9apQaUVkhOBuydk
-	zJsrPXFygB1AJGeKpCQikwrEeCEiUKCxi1gWee57qOvfYFOddHASfktQt56hFLWpKaIOzvvwICQxf
-	MqwxxV3f7dN7xecXCWRVRKqVzQqh8f6oQ0Oy6GXul8owlRl83P8KSZrRntrCUoWd9K9znTh0QlW72
-	CKWDGNLQ==;
+	bh=iK+MuStgP9LYq96Rw1QlhWknm6Ic3/FbgcY09qE0/8Q=; b=n5Uy0WB4AtR52EMdrDKUoNFkSC
+	Ld72ORnq43akhPcGqm34x0BKEDj05dBVvkn8LYLng5+XMLjka1celGhNtNSrNOhW3+nGJFwhOrZTX
+	WpVq/nDtw+N3IC3+4Z1Yj5wTCPAMGpRUN250F5cMkcQVurgKy5IisE+EVJvUw1hw3+0uaL+Dh5uCu
+	pddBKOmNlpjDlON61owGB6koID1qgEuTERXOvrdlSICJ4xhKfowd2Q6Q9FZUliR70mV5Ggr/nCI6i
+	lM2NQM+STsKeZsKXhcWuUKLGBJEC1JAqhD8Ikoh+NLQrmRXVID+jW+Tx3P1Y8cO0wZSMoXr1RQIix
+	dCY23wFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Yqy-0000000FKJt-1XTE;
-	Tue, 14 Oct 2025 06:49:48 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1v8Yqv-0000000FKEo-3YV0;
+	Tue, 14 Oct 2025 06:49:45 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Yqc-0000000FJju-2LgW
+	id 1v8Yqb-0000000FJhl-0Iz8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 06:49:28 +0000
+	Tue, 14 Oct 2025 06:49:26 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760424562;
+	s=2020; t=1760424561;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=uwthaOGY1VLvaz+koev4FhKg8AeyDPmuh05iyUl1cmc=;
-	b=r0cS0sTRrNL77WmBrtChDtD2Wke+kaBBWEeANxute2VZ4pF7wUrxdVRXd7ew1JQu4RySYw
-	vphu5OS8xl2WWKNoME6n9VcxAR1TjgC7WT6ZVBaA0SwfgW7HWcGwOhNY4Ss8ygJlVw0CNI
-	suKfuCyXVo19oaUdnQcJumBm3BTMT9DXMOW5YrhvtDIgajpd972UXN3gNOkMPe8p84atrs
-	viDMD3DqY3cOqNA7aCAgF50FtT9ejbWigeDd0S85XXpTr/45hxsCrslpx1YqCbe7cWvgVe
-	MIGO6cNWbSoRYrgdP5s+Lulzut4TED4vu/+aeOvZFav/Z+ChjEg7tdcUpKlRdw==
+	bh=iK+MuStgP9LYq96Rw1QlhWknm6Ic3/FbgcY09qE0/8Q=;
+	b=dva6KHun4SHZO3CF0DWTyYjZwdzjdid0XSRCDNGvJUWgCdmeGxbOsrxLhNX3UbIBShWuqi
+	wkV0v7v3WdjaVC3aO6ViYdnY+bPmRdZ2Kp6+30TTx2Xc0DA4jrZqvAEN/9WmEVLe1mpeRB
+	Rte2dFCf1AvS+QkU8CSjrMPiILunOoWeBxlYuaMFL+dHEkvNvtLoJmMxdqvapC0bdfHWed
+	arFPykJD8FkOqyoPJOeSzvxgOLxpymV61rc2KQ2e6tD04xR+3ie46qNUoo91lAigZnxL8M
+	LSSBXSvQ3BJZ6SpuPEQi6psL140j+xMxWwaBcTNkhu23yipVJ+F7XBDXriU2Qg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760424562;
+	s=2020e; t=1760424561;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=uwthaOGY1VLvaz+koev4FhKg8AeyDPmuh05iyUl1cmc=;
-	b=DC2kCZtnoRHDhHxzOn7BuLwY96Nb5Q0Rn8XgchhVTV5WldgLonnN7NV5ny9Gy5+E1QKBGC
-	Z1PhFbe9MpT99CBg==
-Date: Tue, 14 Oct 2025 08:49:11 +0200
-Subject: [PATCH v4 25/35] sparc64: vdso: Link with -z noexecstack
+	bh=iK+MuStgP9LYq96Rw1QlhWknm6Ic3/FbgcY09qE0/8Q=;
+	b=CePrGsnF1VwArn9P+Buz8BoLT1mEbMIt82mCzQVb8ECz0JqgNWwt/DxTO1p3wduT/t2KdA
+	galRONxNndh6qKBA==
+Date: Tue, 14 Oct 2025 08:49:09 +0200
+Subject: [PATCH v4 23/35] vdso/datastore: Map pages through struct page
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251014-vdso-sparc64-generic-2-v4-25-e0607bf49dea@linutronix.de>
+Message-Id: <20251014-vdso-sparc64-generic-2-v4-23-e0607bf49dea@linutronix.de>
 References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
 In-Reply-To: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -82,18 +82,17 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
- Arnd Bergmann <arnd@kernel.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760424546; l=1559;
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760424546; l=3383;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=i+D0m1xzFKLn45sG3YvmSAccyUMoIH83lYmvGLk5jvY=;
- b=Jw7XxXdt2/x1RqZIyg4gZB08VRDxJluhd1LlWMdXrtJGp9ncd1JR8OCq1zwGyz4vuI482GqCx
- ycDmPRnXt1VAD+QnyySctQIcyb7mQ+xF5HiQEHEy/aRxrVZornj0B0d
+ bh=GlpQP2ovZSCDOGxS8s5nj5uE5YbM4kkpY+anU8ERtBk=;
+ b=9srfjekW0ACLWEnnbN460RbJBa5iFjAY5gkDai4i+4epl7bSlqGXV5PRxJsd46eKGlWW/VJSD
+ 0c+mk+hSEp3Dt2g0aBiJd9xPp6FwZoqr3G3E388Uc7M0MdIDPabWt/m
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_234926_795469_33A48037 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20251013_234925_272559_4E519C79 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,35 +107,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vDSO stack does not need to be executable. Prevent the linker from
-creating executable. For more background see commit ffcf9c5700e4 ("x86:
-link vdso and boot with -z noexecstack --no-warn-rwx-segments").
+An upcoming change will allocate the datapages dynamically instead of as
+part of the kernel image. Such pages can only be mapped through
+'struct page' and not through PFNs.
 
-Also prevent the following warning from the linker:
-sparc64-linux-ld: warning: arch/sparc/vdso/vdso-note.o: missing .note.GNU-stack section implies executable stack
-sparc64-linux-ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+Prepare for the dynamic allocation by mapping through 'struct page'.
 
-Suggested-by: Arnd Bergmann <arnd@kernel.org>
-Link: https://lore.kernel.org/lkml/20250707144726.4008707-1-arnd@kernel.org/
-Fixes: 9a08862a5d2e ("vDSO for sparc")
+VM_MIXEDMAP is necessary for the call to vmf_insert_page() in the timens
+prefault path to work.
+
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 Tested-by: Andreas Larsson <andreas@gaisler.com>
 Reviewed-by: Andreas Larsson <andreas@gaisler.com>
-Acked-by: Andreas Larsson <andreas@gaisler.com>
 ---
- arch/sparc/vdso/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ lib/vdso/datastore.c | 24 +++++++++++++-----------
+ 1 file changed, 13 insertions(+), 11 deletions(-)
 
-diff --git a/arch/sparc/vdso/Makefile b/arch/sparc/vdso/Makefile
-index 1a4e585c91d7d03d8444cc2e4914fd10cd078fb8..2e911ccc9db71b2888ffc432d75ac8815ecce0f7 100644
---- a/arch/sparc/vdso/Makefile
-+++ b/arch/sparc/vdso/Makefile
-@@ -107,4 +107,4 @@ quiet_cmd_vdso = VDSO    $@
- 		       $(VDSO_LDFLAGS) $(VDSO_LDFLAGS_$(filter %.lds,$(^F))) \
- 		       -T $(filter %.lds,$^) $(filter %.o,$^)
+diff --git a/lib/vdso/datastore.c b/lib/vdso/datastore.c
+index 7377fcb6e1dfe31d02ffcae371fdf9da069ae4c1..6e5feb4a95b85f5a1cbdced7cdeddc593fcbad40 100644
+--- a/lib/vdso/datastore.c
++++ b/lib/vdso/datastore.c
+@@ -39,14 +39,15 @@ struct vdso_arch_data *vdso_k_arch_data = &vdso_arch_data_store.data;
+ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
+ 			     struct vm_area_struct *vma, struct vm_fault *vmf)
+ {
+-	struct page *timens_page = find_timens_vvar_page(vma);
+-	unsigned long pfn;
++	struct page *page, *timens_page;
++
++	timens_page = find_timens_vvar_page(vma);
  
--VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 -Bsymbolic --no-undefined
-+VDSO_LDFLAGS = -shared --hash-style=both --build-id=sha1 -Bsymbolic --no-undefined -z noexecstack
+ 	switch (vmf->pgoff) {
+ 	case VDSO_TIME_PAGE_OFFSET:
+ 		if (!IS_ENABLED(CONFIG_GENERIC_GETTIMEOFDAY))
+ 			return VM_FAULT_SIGBUS;
+-		pfn = __phys_to_pfn(__pa_symbol(vdso_k_time_data));
++		page = virt_to_page(vdso_k_time_data);
+ 		if (timens_page) {
+ 			/*
+ 			 * Fault in VVAR page too, since it will be accessed
+@@ -56,10 +57,10 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
+ 			vm_fault_t err;
+ 
+ 			addr = vmf->address + VDSO_TIMENS_PAGE_OFFSET * PAGE_SIZE;
+-			err = vmf_insert_pfn(vma, addr, pfn);
++			err = vmf_insert_page(vma, addr, page);
+ 			if (unlikely(err & VM_FAULT_ERROR))
+ 				return err;
+-			pfn = page_to_pfn(timens_page);
++			page = timens_page;
+ 		}
+ 		break;
+ 	case VDSO_TIMENS_PAGE_OFFSET:
+@@ -72,24 +73,25 @@ static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
+ 		 */
+ 		if (!IS_ENABLED(CONFIG_TIME_NS) || !timens_page)
+ 			return VM_FAULT_SIGBUS;
+-		pfn = __phys_to_pfn(__pa_symbol(vdso_k_time_data));
++		page = virt_to_page(vdso_k_time_data);
+ 		break;
+ 	case VDSO_RNG_PAGE_OFFSET:
+ 		if (!IS_ENABLED(CONFIG_VDSO_GETRANDOM))
+ 			return VM_FAULT_SIGBUS;
+-		pfn = __phys_to_pfn(__pa_symbol(vdso_k_rng_data));
++		page = virt_to_page(vdso_k_rng_data);
+ 		break;
+ 	case VDSO_ARCH_PAGES_START ... VDSO_ARCH_PAGES_END:
+ 		if (!IS_ENABLED(CONFIG_ARCH_HAS_VDSO_ARCH_DATA))
+ 			return VM_FAULT_SIGBUS;
+-		pfn = __phys_to_pfn(__pa_symbol(vdso_k_arch_data)) +
+-			vmf->pgoff - VDSO_ARCH_PAGES_START;
++		page = virt_to_page(vdso_k_arch_data) + vmf->pgoff - VDSO_ARCH_PAGES_START;
+ 		break;
+ 	default:
+ 		return VM_FAULT_SIGBUS;
+ 	}
+ 
+-	return vmf_insert_pfn(vma, vmf->address, pfn);
++	get_page(page);
++	vmf->page = page;
++	return 0;
+ }
+ 
+ const struct vm_special_mapping vdso_vvar_mapping = {
+@@ -101,7 +103,7 @@ struct vm_area_struct *vdso_install_vvar_mapping(struct mm_struct *mm, unsigned
+ {
+ 	return _install_special_mapping(mm, addr, VDSO_NR_PAGES * PAGE_SIZE,
+ 					VM_READ | VM_MAYREAD | VM_IO | VM_DONTDUMP |
+-					VM_PFNMAP | VM_SEALED_SYSMAP,
++					VM_MIXEDMAP | VM_SEALED_SYSMAP,
+ 					&vdso_vvar_mapping);
+ }
+ 
 
 -- 
 2.51.0
