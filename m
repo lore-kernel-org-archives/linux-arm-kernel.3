@@ -4,74 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3641CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59B86CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ajkqAPAGtZiGLSW/gfRly6gsVWXDLKcxvYjMA7UtiVg=; b=Iq7PrDZ7B3kH2rV5bxLBmqPcQP
-	FZqr/KWCLPHCflFtQlfrcHO56tsExMwaX7Bjwijl80XTe14pBS997FdJkbwPaNeV4PQA2zd+8Qnbz
-	Fdd0TW7gFarRmKLNcaorSUWieXptfQGdFTxGlxvPSfln7k8ERMAXQUfRR365AIAqKMAE0C8ilyZZV
-	Gz6NLZ0YyYUOzu8Y/p2O4NSZ8BbROHgnj2JNl2Wcp3BcvmjuJJT+DGRBAnuXrnxQlWvVqnnb4Tr5E
-	M70kSI8ltw81u7KOPtmV/k/3mlJ+np7FxVT3DUl0mpOkhzq96D31W9ZHyJZWXfEFaTDBJvqFb0PiZ
-	BvzVBFBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ofkJNulQu/wtU9ucbaTHhfLlEv5BRzrjhZDncPD/y2M=; b=p7aHVTecUdbNZ5/E4XZeMwCT3T
+	muuCjvvXHs9/+1PfetCSIORUMtdF1OJKp6yC4iF2Zwd4F2UdOhxiAZvDfnAYxpw0aaZMT9xNuNqGq
+	hagfnn9XS97zbGKHJajYNzJKMzQfpfs6+B64H52K8xw1EuKG/168k6VCBKR+CbwGudmkszP9qbT+E
+	Y4fCVzhEBlmlWcBL029pJ5p9sFZnmDNDFayTKbTTl5dwhaaDcuzkNsLcWE32V/gG2QSjd6xMIAvxf
+	DwAyXtQM20uGO1E0YrNEvcpgumr06mlkOAmJssD9W8B2UCkV8yWQaa6KKfuOVPDzyrtFMcBZBEb2J
+	o63lPtjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dFc-0000000G6Gl-3i6C;
-	Tue, 14 Oct 2025 11:31:32 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1v8dFx-0000000G6Rk-0xVx;
+	Tue, 14 Oct 2025 11:31:53 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dFZ-0000000G6DY-3RTY
+	id 1v8dFv-0000000G6Pq-0IO0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 11:31:31 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 437EDC09F85;
-	Tue, 14 Oct 2025 11:31:00 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 488B8606EC;
-	Tue, 14 Oct 2025 11:31:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A8601102F2291;
-	Tue, 14 Oct 2025 13:31:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760441478; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ajkqAPAGtZiGLSW/gfRly6gsVWXDLKcxvYjMA7UtiVg=;
-	b=EKoSCROOnzz9cFlAp+jg0Ckb5AMcN2ktPeidsHBVYlRmMbpwY4wKojKI1XwJHHx29ndHDW
-	Zt17i1b3gys3m155gnHJ7s/KTH/8yjO24sXTYesUSUYO0YUTfG0f7cqoRgB7gpzPMZWx0s
-	Qa5jew9uo0x/DxoB07+JMa26lGkHdyGfO7yGkFvl7rSuX07mxpvDLyfWfHoajiDx6DDFD/
-	U19mp2/RfERuhRuS2rWAiX75JbYceqSMA79JfB7DsxYQtCAF/zgo5IFb2a76goA8kSnWxV
-	Ketk3uAd6AauihB2UYcsPFArH9CN8XdWC4N7A8C5G9Xl6T4OI7EmT9SXDo9e3Q==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 14 Oct 2025 13:30:51 +0200
-Subject: [PATCH 1/2] drm/imx: parallel-display: convert to
- devm_drm_bridge_alloc() API
+	Tue, 14 Oct 2025 11:31:52 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3ed20bdfdffso4526128f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 04:31:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760441509; x=1761046309; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ofkJNulQu/wtU9ucbaTHhfLlEv5BRzrjhZDncPD/y2M=;
+        b=M43GP4F28JQCBdn0nUIJiA7Tszff9BoHL+q2Qsc2cxSKLlpY38QQE6nw0g2ECrlx8Z
+         oG4JkmGdKfzQU2IpQU9AoyYGRrRRMUYbWyIjPYLHIo5vAUpvc3m8YnrdgaA/C1PFdIvE
+         toaD2BqSoO0Izo+RZANyl+TEZPSE7IWBny2VP9AloValoqsNOTb8UehoKmJyAQvYmemj
+         NSmQBPR2R537epzSjAX4iIlH8RcoLYHfLfJZgQYuapyoeLBmq0anK/OHAdlIwz2jbBoE
+         AKkfvPuM8bovA6BFCx+s0GOhyvnbd8Foz15x0rHVnPbX1CP63kCIccyMvX0l3v0w2tzO
+         NVMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760441509; x=1761046309;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ofkJNulQu/wtU9ucbaTHhfLlEv5BRzrjhZDncPD/y2M=;
+        b=RAEgaASBhi1LOws2Bo3GlHcgWWDpGiaevnISqy+/R35e6DdNOF8CxMpQkJWQcTDUwS
+         QW/EW2nkRO8WV9prHu2b6ieWvK6iFDWbBNSoeCGnc8In/B2NNUJy+WmsZsQzqMMdF19E
+         UFtowwY7BFo5v4pj5F3eqLTAfAPfKiuVUrgf9J434OC7jE3LB71Yb8TLxd0PIebfvF74
+         eIswFofGJ3DTMDMxPwwFT5QnhNbd4McK4IiQatHsK0DnQGzA9bmUV9YIHOJGh+4eppT5
+         jLVU7fI6Ua5tqlx+1IuDqt9CJMe9tBIDo477WeJ3pgdX/0r/I0ORCYz/qzffA5L+e/HM
+         op2A==
+X-Forwarded-Encrypted: i=1; AJvYcCURHdLcqsjYZbMBQfQ7d0/FyBx/HWp4yNozgK2EJxblgDkGGkgiE1aZGo2FVBSAfunf/sPaFx+wqCa+Fi7gpqv1@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywb3HzGWHxOR+Vj8awGbnDjNLksy9GZnsesK0+QaFZZlQ2YDGxu
+	XTAdWp3gmfZsCBGjpbmgSQCiPf9gPDTzCaCYFdXyRUOkmklEvTdfbtOKVMQCdTaH8kA=
+X-Gm-Gg: ASbGnctGj/h0PuKXiAbGHRTF7FalTXJxBbwsx0RMVyjrisljwxjxcXry1qg9B+TVFlw
+	LddL37I2AuW5zl5KLtqr+jQep7sINoM8Q60wspo15OcMjyfmk/BPytK54sJPHMtGSHxTY6UkKjV
+	1AlD3FmTe10xSAkOC7n3m9cymY8k9OuXO4x3sGXTcEjMKJEz3qsYEcja2GYag8I+k7PJmPhtsLf
+	vtYzF+IWrQplDO7Gd68VoaAQqFKcOdQNBnkbhfUqVnLna3exQRI5ai/t4kwK7OSeAIF4roVXrHl
+	p1zUHj9YJGPGAP94qsssqgtEj5YeakPs2dnWeP4S4htrJbXXCWBzC63E5JcrokM6TfNd5BIU3VB
+	QO4oUZHDmUKD/vaCSbOab/igO3Go4PH1N1SEgwBQMxlCpIvt+uQM=
+X-Google-Smtp-Source: AGHT+IE7JRJVgX/0XRZqqgOQ0IMTJn2bfv2E4RS1BB14d24blTgxq9Or2UqVDIrAHI/wbElOafShvQ==
+X-Received: by 2002:a05:6000:43c7:20b0:426:f355:7c9a with SMTP id ffacd0b85a97d-426f3557ce6mr628338f8f.25.1760441509084;
+        Tue, 14 Oct 2025 04:31:49 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-46fb49c4027sm234419565e9.17.2025.10.14.04.31.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Oct 2025 04:31:48 -0700 (PDT)
+Date: Tue, 14 Oct 2025 14:31:45 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: oe-kbuild@lists.linux.dev, Peng Fan <peng.fan@nxp.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Andrew Davis <afd@ti.com>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, lkp@intel.com,
+	oe-kbuild-all@lists.linux.dev, linux-remoteproc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/7] remoteproc: core: Use cleanup.h macros to
+ simplify lock handling
+Message-ID: <aO40oQkj9sT78bMV@stanley.mountain>
+References: <20251010-remoteproc-cleanup-v2-4-7cecf1bfd81c@nxp.com>
+ <202510121908.7aduLIkw-lkp@intel.com>
+ <20251014104511.GA14479@nxa18884-linux.ap.freescale.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251014-drm-bridge-alloc-imx-ipuv3-v1-1-a1bb1dcbff50@bootlin.com>
-References: <20251014-drm-bridge-alloc-imx-ipuv3-v1-0-a1bb1dcbff50@bootlin.com>
-In-Reply-To: <20251014-drm-bridge-alloc-imx-ipuv3-v1-0-a1bb1dcbff50@bootlin.com>
-To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.14.2
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251014104511.GA14479@nxa18884-linux.ap.freescale.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_043130_039171_EEE431D2 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20251014_043151_129635_389C254D 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,88 +110,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the new API for allocating DRM bridges.
+On Tue, Oct 14, 2025 at 06:45:11PM +0800, Peng Fan wrote:
+> Hi Dan,
+> 
+> I am not sure, Is this false alarm?
+> 
+> On Tue, Oct 14, 2025 at 11:39:41AM +0300, Dan Carpenter wrote:
+> >Hi Peng,
+> >
+> >
+> >vim +/ret +1841 drivers/remoteproc/remoteproc_core.c
+> >
+> >70b85ef83ce3523 Fernando Guzman Lugo 2012-08-30  1829  int rproc_trigger_recovery(struct rproc *rproc)
+> >70b85ef83ce3523 Fernando Guzman Lugo 2012-08-30  1830  {
+> >7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1831  	struct device *dev = &rproc->dev;
+> >7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1832  	int ret;
+> >7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1833  
+> >c42baf6f84c7694 Peng Fan             2025-10-10  1834  	ACQUIRE(mutex_intr, lock)(&rproc->lock);
+> >c42baf6f84c7694 Peng Fan             2025-10-10  1835  	ret = ACQUIRE_ERR(mutex_intr, &lock);
+> >7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1836  	if (ret)
+> >7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1837  		return ret;
+> >7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1838  
+> >0b145574b6cd2b3 Alex Elder           2020-02-28  1839  	/* State could have changed before we got the mutex */
+> >0b145574b6cd2b3 Alex Elder           2020-02-28  1840  	if (rproc->state != RPROC_CRASHED)
+> >c42baf6f84c7694 Peng Fan             2025-10-10 @1841  		return ret;
+> >
+> >Please change this to either "return 0;" or "return -ERRORCODE;"
+> 
+> ACQUIRE_ERR should already returns 0. This change does not change the
+> assignment to ret as my understanding. Please help to see if this is false
+> alarm or I miss something?
+> 
 
-This conversion was missed during the initial conversion of all bridges to
-the new API. Thus all kernels with commit 94d50c1a2ca3 ("drm/bridge:
-get/put the bridge reference in drm_bridge_attach/detach()") and using this
-driver now warn due to drm_bridge_attach() incrementing the refcount, which
-is not initialized without using devm_drm_bridge_alloc() for allocation.
+I guess if this was already merged then it's fine.  But "return ret" looks
+like an error path where "return 0;" is obvious.  This code will always
+trigger a Smatch warning, and I always tell people that old code has been
+reviewed so all the warnings are false positives, still someone will
+eventually change this to "return -EINVAL;" because it looks so much like
+a mistake.
 
-To make the conversion simple and straightforward without messing up with
-the drmm_simple_encoder_alloc(), move the struct drm_bridge from struct
-imx_parallel_display_encoder to struct imx_parallel_display.
-
-Also remove the 'struct imx_parallel_display *pd' from struct
-imx_parallel_display_encoder, not needed anymore.
-
-Fixes: 94d50c1a2ca3 ("drm/bridge: get/put the bridge reference in drm_bridge_attach/detach()")
-Reported-by: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
-Closes: https://lore.kernel.org/all/hlf4wdopapxnh4rekl5s3kvoi6egaga3lrjfbx6r223ar3txri@3ik53xw5idyh/
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
----
- drivers/gpu/drm/imx/ipuv3/parallel-display.c | 16 +++++++---------
- 1 file changed, 7 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/gpu/drm/imx/ipuv3/parallel-display.c b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
-index 6d8325c766979aa3ba98970f00806e99c139d3c3..3d0de9c6e925978b7532b6d13caf6909cc343dd7 100644
---- a/drivers/gpu/drm/imx/ipuv3/parallel-display.c
-+++ b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
-@@ -25,19 +25,18 @@
- 
- struct imx_parallel_display_encoder {
- 	struct drm_encoder encoder;
--	struct drm_bridge bridge;
--	struct imx_parallel_display *pd;
- };
- 
- struct imx_parallel_display {
- 	struct device *dev;
- 	u32 bus_format;
- 	struct drm_bridge *next_bridge;
-+	struct drm_bridge bridge;
- };
- 
- static inline struct imx_parallel_display *bridge_to_imxpd(struct drm_bridge *b)
- {
--	return container_of(b, struct imx_parallel_display_encoder, bridge)->pd;
-+	return container_of(b, struct imx_parallel_display, bridge);
- }
- 
- static const u32 imx_pd_bus_fmts[] = {
-@@ -195,15 +194,13 @@ static int imx_pd_bind(struct device *dev, struct device *master, void *data)
- 	if (IS_ERR(imxpd_encoder))
- 		return PTR_ERR(imxpd_encoder);
- 
--	imxpd_encoder->pd = imxpd;
- 	encoder = &imxpd_encoder->encoder;
--	bridge = &imxpd_encoder->bridge;
-+	bridge = &imxpd->bridge;
- 
- 	ret = imx_drm_encoder_parse_of(drm, encoder, imxpd->dev->of_node);
- 	if (ret)
- 		return ret;
- 
--	bridge->funcs = &imx_pd_bridge_funcs;
- 	drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
- 
- 	connector = drm_bridge_connector_init(drm, encoder);
-@@ -228,9 +225,10 @@ static int imx_pd_probe(struct platform_device *pdev)
- 	u32 bus_format = 0;
- 	const char *fmt;
- 
--	imxpd = devm_kzalloc(dev, sizeof(*imxpd), GFP_KERNEL);
--	if (!imxpd)
--		return -ENOMEM;
-+	imxpd = devm_drm_bridge_alloc(dev, struct imx_parallel_display, bridge,
-+				      &imx_pd_bridge_funcs);
-+	if (IS_ERR(imxpd))
-+		return PTR_ERR(imxpd);
- 
- 	/* port@1 is the output port */
- 	imxpd->next_bridge = devm_drm_of_get_bridge(dev, np, 1, 0);
-
--- 
-2.51.0
+regards,
+dan carpenter
 
 
