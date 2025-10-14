@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08892CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 06:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C16DBCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 06:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nYjHCuW3ZXlc6zM24pgVvQhnKhBaDHM/f7Xd1AFH00Q=; b=L/b1LFE8TZUEJmdJDfnzP7zyOm
-	1Owir5VH3TEPz3hR4iPYOiZmOiGh3qZIBBNXl7rRmvZN+xfg8XUJAAs55xuEhigff3FC27IPiF+cb
-	vFA85I+xlw/pVXhpmYf733AYc5cVRO0gQGolPVkp35aUd5IDe2f1PViGMnvSRzL6SY4scRRZrjrkC
-	q9t7FrHgJ3H2yEe0k+ldWifq1X2sPtFgq+07nCOMAEx/SA1aXEljco7Kld759R4jGWbSvB6sWPCoK
-	PceBMwbnc4MA7KTYjmsylQIkUTiMl9FRcFvovWhcwJ9jb5XBKBxdgRUKNZJ22fp0DrSdV5RR/Ia5Y
-	VgmmnT8Q==;
+	bh=zITwWc4LhpB6MTMFwwJ6zmjgQYWiyWcgw0BJYatvoIY=; b=zZFmLOGAgUYlurD/fGpD1V3JZG
+	6T0voKEbKzlFXLxEMh9T3gFyAGMoJp/sMnJyTV3mRmamp1gK6Q3iznCVB20uSsvDZUHwhP3p9z7So
+	ebVEIZCL47362cGy/At/HGc/z4G2Gel/lGOyoHp8xzYS2yYI28U7/auFIn3Inab6nmLkBewZlAq36
+	yXgqNTHwbBsK1wjhyXHITQV/NaHqR7kRsqh+swz8QtXWBd0TJZZnY2Dy0D4669IHXQCJ9SzWfLWFV
+	t2fW6qJFM4gJsvC+u5g7U4erEF8mvMLBU73crdrnr+dmQU3LqubKZT12t7C9V2fcPnF7PsprR5vvZ
+	QlHCTJKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8YqP-0000000FJTb-2M0g;
-	Tue, 14 Oct 2025 06:49:13 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1v8Yqe-0000000FJoT-2P16;
+	Tue, 14 Oct 2025 06:49:28 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8YqM-0000000FJQJ-11ew
+	id 1v8YqQ-0000000FJSz-0iZY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 06:49:11 +0000
+	Tue, 14 Oct 2025 06:49:15 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760424548;
+	s=2020; t=1760424552;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=nYjHCuW3ZXlc6zM24pgVvQhnKhBaDHM/f7Xd1AFH00Q=;
-	b=MAjI36Y283+dXlEtxfAzdph4Pel6t8l6YGuCTP11JXsg6aRhE3b1AGwDIAlpF+lyqIfx9C
-	s+cjFOIjmmGXokhUxf3My7SWWEQIZDhoFAdnbPXThWMEhyjkFHw1AkRTSkrGb2Xnfw0vYM
-	b+v1yG8xrAgrkauiQ01otJY+jwE6oBiXwGa1qssi9iN3J94OQZyLobIrdOroNzi729VPPY
-	kyyXhR+GDsc7mJPRD/qfgNDcL7W4mjs+UQiEX1Jy1T/gpmYw5uXtaiE4UHJoS1pRy0eL7h
-	m7CWx7ZIxnNb+nQQGhN6wwJU2/zMncnoNLl2+CKasi6iBnZzIyyI3Vaa8nl9TA==
+	bh=zITwWc4LhpB6MTMFwwJ6zmjgQYWiyWcgw0BJYatvoIY=;
+	b=YN4gIsI1Z/oljgc8R1VVwBWVdq/OT7wpPE3QRHf92bTsE2QwoKrJ+/xm2KMVBbzqENEqLo
+	C/xU1um3icbAfFezuMhm81CF01vy7dJMdDWpR0r0oYNaANs6HFfQt9MEUSJK0ucGl3LC4b
+	0o8C008GeBdq+U6GjwcFNZx2cwdfBf4Gjs1AYahR4WTSc0Zp3OP1NVwSq78BEOaIjDYSCh
+	4ih3hUPRApk6HzI/184q7bBYa9yUvV0lXvRCJ3ou9mp6CD3Xdgw0INJEWCKowdy+WnhSsJ
+	qWVjvqHcu3DBJ0Jzk3JgCF+LaFcmtdChTB4C/6fVFRHahr/wuPeXyb/YS6SsCQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760424548;
+	s=2020e; t=1760424552;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=nYjHCuW3ZXlc6zM24pgVvQhnKhBaDHM/f7Xd1AFH00Q=;
-	b=JUFmi/+tfhZ3CvW1S/ZCTu9YNZePfk1cYGvLNKTIafHWUzOiKAJXrC7eqzNJ9w6d/YqwDg
-	2RqTYE9cSuJamaCA==
-Date: Tue, 14 Oct 2025 08:48:48 +0200
-Subject: [PATCH v4 02/35] arm64: vDSO: getrandom: Explicitly include
- asm/alternative.h
+	bh=zITwWc4LhpB6MTMFwwJ6zmjgQYWiyWcgw0BJYatvoIY=;
+	b=fl1A0GnC0Jq38747LWXOwUQYW3xD+eXnnSe7Ry0vvMAvRqEuVsEsajDKXKdQcUUrOFvtL7
+	cRQPgZMTujcvYyBw==
+Date: Tue, 14 Oct 2025 08:48:55 +0200
+Subject: [PATCH v4 09/35] MIPS: vdso: Add include guard to asm/vdso/vdso.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251014-vdso-sparc64-generic-2-v4-2-e0607bf49dea@linutronix.de>
+Message-Id: <20251014-vdso-sparc64-generic-2-v4-9-e0607bf49dea@linutronix.de>
 References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
 In-Reply-To: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -84,17 +83,16 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760424546; l=1038;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760424546; l=1073;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=/RM2+eho8hCHlVVsxMDHxgwRFdNnaqJNQrWh/y7GNvw=;
- b=rjBCL/3dN6qPvUJmeUf+7JAVFBhUTYgdMTkfrSYQKsl+OmAQA2K02NnEfLgFpDeniiYgrvOsH
- uAKOAyqPBSxAYX8qmNwl563gDjmeysj+ss0ST5F/ep57HRa/GwRbvHk
+ bh=mn0D+ppD5Vc5LKBIM4oGC50cwygKOdY5SYRBUbfzmNA=;
+ b=5EMj4F3WZRtPCKmcSGH7fuQt0AgKBANfnf/X1TcLXHg6jA8Lbi8JS+dNDQ4qPDNh4Kq52QZUU
+ yOUyWxcREMrD5gjq3j+dUpybDWQ5KSD/XVJ9FxJnq1++1P97SAxHFry
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_234910_458887_04C4C833 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251013_234914_354572_08CA4928 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,32 +107,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The call to alternative_has_cap_likely(ARM64_HAS_FPSIMD) requires symbols
-from asm/alternative.h. Currently this header is included transitively, but
-that transitive inclusion is about to go away.
+An upcomming patch will lead to the header file being included multiple
+times from the same source file.
 
-Explicitly include the header.
+Add an include guard so this is possible.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 Tested-by: Andreas Larsson <andreas@gaisler.com>
 Reviewed-by: Andreas Larsson <andreas@gaisler.com>
 ---
- arch/arm64/kernel/vdso/vgetrandom.c | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/mips/include/asm/vdso/vdso.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm64/kernel/vdso/vgetrandom.c b/arch/arm64/kernel/vdso/vgetrandom.c
-index 832fe195292b34e2029f593ea170347c98e06dac..0aef124c90899dc0c8956b0f32f54992aa3acf0b 100644
---- a/arch/arm64/kernel/vdso/vgetrandom.c
-+++ b/arch/arm64/kernel/vdso/vgetrandom.c
-@@ -2,6 +2,8 @@
+diff --git a/arch/mips/include/asm/vdso/vdso.h b/arch/mips/include/asm/vdso/vdso.h
+index 6889e0f2e5db950c3ee8b4f12c15466e76a09a42..ef50d33f3439aa4c8486758012a1e9e71fa38fc4 100644
+--- a/arch/mips/include/asm/vdso/vdso.h
++++ b/arch/mips/include/asm/vdso/vdso.h
+@@ -4,6 +4,9 @@
+  * Author: Alex Smith <alex.smith@imgtec.com>
+  */
  
- #include <uapi/asm-generic/errno.h>
- 
-+#include <asm/alternative.h>
++#ifndef __ASM_VDSO_VDSO_H
++#define __ASM_VDSO_VDSO_H
 +
- typeof(__cvdso_getrandom) __kernel_getrandom;
+ #include <asm/sgidefs.h>
+ #include <vdso/page.h>
  
- ssize_t __kernel_getrandom(void *buffer, size_t len, unsigned int flags, void *opaque_state, size_t opaque_len)
+@@ -70,3 +73,5 @@ static inline void __iomem *get_gic(const struct vdso_time_data *data)
+ #endif /* CONFIG_CLKSRC_MIPS_GIC */
+ 
+ #endif /* __ASSEMBLER__ */
++
++#endif /* __ASM_VDSO_VDSO_H */
 
 -- 
 2.51.0
