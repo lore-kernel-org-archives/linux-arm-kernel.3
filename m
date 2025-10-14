@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07700CCD18D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 05:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5388DCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 05:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h5pJYct9yVXw0oCIW3UzRkZKmjOaGJ9oUwhyyYxVEys=; b=QPpYJhxJWjvBlu5aMzKTluaA5L
-	TfHEDFXn8pxZCFpxSd2upZCDWLx9RpxScMj0BU6zAges8b+BBIqZkFF80OJ4xf4ZqefXel9xYMb7N
-	+2lv/Gr7gLQPhJX9YvF/di50ymHLzFArWxnBhJPc2F++bU9t3zak2T2bl5lFWn2jR8k6c9OQJGkTg
-	mJQC4Dx7srS5cP2y5GL+IciKdYqJg0wepEVgzNBQOitSMXvpmNLG/EklRNjqiQxbWphqXmzQgSS2R
-	KTHmKyMp9YGgAUko4L0tL9JIQThVEJcinvaEat/HKCEI+iT7jX5L3nCE1EZuC6e+cy70K83Kzc2Dh
-	Lf9Nmu/w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r8OhPkz1QMasSzFJcM2SsPKD0i5kQ3GIw9/NmjM3cWc=; b=NHTEIMC+aOVLggbc9FiF5sNzfE
+	NBOyse15AlKdGZcVcSp2kczPKjCUsIeTYwCvHyCn7HPA7G8K/olfzyQQarunfTlFdtUIzu2C/DYSs
+	cm5hxbtrrM9X00vEWk969TCpKbmZo4WwpfXA+i78fb9Cc1lQUUy3Xw/JYLaE300cGktLXEIvVV8GS
+	Xa7ikMgyftRKw5cc8RetgIWDbreZ3B6gzob+KAhJ1QNM94PWYOT2EUkyI6ga7lqgE9xu1whXtCCfe
+	0aTLO4tq+RZFrumfQNKoJLrizIIIxs85wwGqJlCI8WlrFWTZkxKixvZF2pjUS7A6W2vT3bDpuvIl1
+	dZrOW94g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8XLX-0000000FAzv-0yMV;
-	Tue, 14 Oct 2025 05:13:15 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1v8XLb-0000000FB1s-3UeD;
+	Tue, 14 Oct 2025 05:13:19 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8XLU-0000000FAzF-11sK
+	id 1v8XLZ-0000000FB0c-2FUU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 05:13:13 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-76e2ea933b7so4701918b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 22:13:11 -0700 (PDT)
+	Tue, 14 Oct 2025 05:13:18 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-33255011eafso5198362a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 22:13:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760418791; x=1761023591; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=h5pJYct9yVXw0oCIW3UzRkZKmjOaGJ9oUwhyyYxVEys=;
-        b=U8/QU/H+Q0556SiGOjSK0+akuRKWExaL7K8LdvJSi+uG1i+9hS6s4PQmWCffW6ybWJ
-         beNgmkzakDdo79m34TVABVK1ViURA5NeJqwZLRBR5TQNM0euTnbBJdHp6qbBaGmiMdJZ
-         4jIhzpKGb7w3KcNKctBfapIs20ZATOAezHDORBUlYUZ0uE7d4M3kIJnQgfRmUc31tSU+
-         5MquOkcsubX5wHwFJPMO5MGJBt0MMFKRhnOt75h2HUbqwqanQDndTiV4T/iby5Iix7sD
-         Wpiz0yBJRYRFSa8pkuZj++Shon1i+tMa5D48VyBcBruUwGge731OoFZo/8bWTlpjx+oW
-         DmzQ==
+        d=gmail.com; s=20230601; t=1760418797; x=1761023597; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=r8OhPkz1QMasSzFJcM2SsPKD0i5kQ3GIw9/NmjM3cWc=;
+        b=Pf4vaqrfup+J4EhprfkENX0XnT7eksY/9cJlVSmjJCkujO4gOI4PqgCMD+wGW0UpUi
+         tQJlXeei/tmzyQh8vFAnm4LoVFVV/g6PkWzMSJ5d5RoGj3aE9qr72Jj3bebBpuvMdcNc
+         wC8xTTE0cZnztTskfByttTMSzpPWFS3WndSOkRMXscClseNyCouVg72I0+lFKk0NsYLG
+         NvpdfLuiMQOWcTUYO+r7GYjnkcpdGV+k628MH/p7rs+Q8YmA+6psHpgiPYKNy8S3G12l
+         R5L+Y9fJ6NEBHzP7wDpIlhhNliyGvEohgJO4LaqYACZxcBkDKwekA/bmnLeXoYANtjTW
+         dDmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760418791; x=1761023591;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h5pJYct9yVXw0oCIW3UzRkZKmjOaGJ9oUwhyyYxVEys=;
-        b=DIfgJbE1s5yFUDIbXyKuXBM65TevPoBsqZUQeET0ZrAPJvfdhtuusInF1aSUeCFvMI
-         aZG09IqcYn15GMgDzoafyEIoyYhAdbuEIeAPNyausnhnX+O4IE3tIfdghyTwvHvaJQIR
-         XeppQqorCM4tNuPNGJZv/Nui7/JSz/VlpEgVNqfpEPGjntByqTgInM7JgHcdlm16DwT8
-         XQFO64DXqT/nUG2SKl9mEwisDr+SqL3lcJ18zbP3YsFpmX2+k9wNFjwVUfsbN8+VzjtQ
-         15rlV/h7IgqFdc4n3IgvJaF/igzpfdKkMlQOsyQlt7r8aUA7wsQBdGrrTbvCD4oscm/y
-         RrXA==
-X-Forwarded-Encrypted: i=1; AJvYcCWOkghXO5xZnArYalBToHzwz2AhCd0/2MtusRHn1MK2sFzDP9qc0i58EFBYBVm2Uy4z07Brx2xxcje7KrxNicL3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5u8d6ar24u4CQxpU+8cudhof0X3xp75fa4bYDiuul9/A46YhW
-	kzfQqOkbX0N5pvsqSC7TqHOpgy4vnzo8TowvvNCVoCuOxTPzQno8nZGd
-X-Gm-Gg: ASbGncuzhXfqIlQ1sdBH1SSV8eSCTPmwoE5MatVYzySgRR2U9YvdVx5YiASXIa2gPfj
-	y2433dFQTtPXzB88rqTcYzdPTLjlbg4J5UnsaBkO5KMLwjidtGBCkYL+fFniqLq9RlDLK7evppA
-	Ylt+11B7ZoZIt+2HRi6/TGIDw+IPojK+Uo0cB8UXjqmxshPfVnYSGY+vf8FBaX3A6kPc1eXpEUk
-	HvzTH5Z80u1ANb8pJheOPw23OyeqfrEipGaAOcvQpNiI4pUGLwDqCxcAdrEDueQGvI+Y6smoLWP
-	i8MIV+4IrRYK7qLHD9/oeNIPKhu1LOE9osdKEWsY4DOh9hSmSDMpatrJdV9YBHSKt6mRX++hZWY
-	G4DV3xONp0nF5Huj7Pg07EUQh17BBlTK6D8IeA9Mnd8CDMz+Kk92X72/2T8VPccYeOQ==
-X-Google-Smtp-Source: AGHT+IEFCzkkgshVwSNP2mRUNWEuhHD3ijpyLH4r7whNKouoX3vJnv6qHBbE3m/mtSLuTYRMhWSgqw==
-X-Received: by 2002:a05:6a20:72a5:b0:2af:65aa:4efa with SMTP id adf61e73a8af0-32d96db58d4mr34629174637.8.1760418791214;
-        Mon, 13 Oct 2025 22:13:11 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760418797; x=1761023597;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=r8OhPkz1QMasSzFJcM2SsPKD0i5kQ3GIw9/NmjM3cWc=;
+        b=i4mN9GsKWiHgAYK8wChFT/yjfBL9NV3acdUQlxbCOAJ9wXU4CJXFThWLXknTPS0qHi
+         XM3K3cv2Sk9ils0NCKxFm2dqnTt22znFNR90O3A8y0zTZwuQtKofZgzCeRqdyK1NKpQ3
+         qo6fbNzy4OD1czUFU0WT+cMfAxOQ4A9JQfWO9caitYHrmeYKWKZk4nhyzoT7/Sj0JHdB
+         KV3FlsVbwlQMTp1k2V44n5YZoO0jP7SksHLHv9U7KUl2/KmU4NbmAbZenTvxVbGxIP7A
+         iynS1U+QdI7jDIZRs4HPg7F4tgeqWFlaOZvr6voK7KwdgQzTS5zN1FUG9XWl676bxWOO
+         PjiA==
+X-Forwarded-Encrypted: i=1; AJvYcCXRlkTSuIhAeoxz6pqwPsp0UiybjRAnm1bWiDlHqYxjo5dirFzGQeptzCG9rjYqKyxZj2tRjzLLCynFwsTUxa2N@lists.infradead.org
+X-Gm-Message-State: AOJu0YzL/lWm/lrdZZKQOJbfD2WBIVy3bwNeIczxPU30dmFfvsTS5Lau
+	yDohmohN8I0QzVEybg46gQDt9eJeGXyU8oaAxGzXa8i4vv2lh1gex4Id
+X-Gm-Gg: ASbGncuBiSDiukklGgShmPce/cjjY1PzEd9S4DCFzNHqNVBEq/BHyIbge504S8sFB16
+	Ta/PDWPYC164UnJi0v1gOHxMeHX9l/V+NBtlsUJ5ousQQZTZhuVdoddV6Pl0BDZnRu9J5PiZviH
+	unZfTQJ+ra8/thMWjvXTZQlqs94gLU9oWb2/QXMwWtuAI9ZQXFCAJPQmYjE9UTgUBqCw91QU/0Z
+	ctCpIZg+mFrpQrrMF9S7dcFsEzpA1paaFEBAaRhMhhSj67j8NvA6HD610Anj42LVzbP040M7ONP
+	2bQOmE1DRVo08tD48OTrdYJjGPfhl1M2EHvfcgBUNue/X/mIdDZcrdqHvVLGxH2WQPYcahsrFvY
+	+SLp/09i5MjOy4dxukTwHmctWJ9DDV6YpqUFlxKunKyx2JDTUjEpp4k7YBrthRqaGWw==
+X-Google-Smtp-Source: AGHT+IH97JkKWq6pRYrkp4vvzMtmr+mAWYEE+sx6Tl0wnrhQDndiVYomTi6Q/s8WM6+VsXjBNCVvUQ==
+X-Received: by 2002:a17:90b:38cc:b0:329:e2b1:def3 with SMTP id 98e67ed59e1d1-33b51168d95mr31720007a91.10.1760418796529;
+        Mon, 13 Oct 2025 22:13:16 -0700 (PDT)
 Received: from localhost.localdomain ([223.74.108.51])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b678ddce4b6sm10902353a12.13.2025.10.13.22.13.05
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b678ddce4b6sm10902353a12.13.2025.10.13.22.13.11
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 13 Oct 2025 22:13:10 -0700 (PDT)
+        Mon, 13 Oct 2025 22:13:16 -0700 (PDT)
 From: Liangbin Lian <jjm2473@gmail.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -91,16 +92,20 @@ To: robh@kernel.org,
 Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 0/3] arm64: dts: rockchip: introduce LinkEase EasePi R1
-Date: Tue, 14 Oct 2025 13:12:23 +0800
-Message-ID: <20251014051226.64255-1-jjm2473@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v6 1/3] dt-bindings: vendor-prefixes: Document LinkEase
+Date: Tue, 14 Oct 2025 13:12:24 +0800
+Message-ID: <20251014051226.64255-2-jjm2473@gmail.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251014051226.64255-1-jjm2473@gmail.com>
+References: <20251014051226.64255-1-jjm2473@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_221312_356462_14D78EB0 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20251013_221317_574584_7914EE5C 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,69 +120,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LinkEase EasePi R1 [1] is a high-performance mini router.
+LinkEase is a company focusing on the research and development of
+network equipment and related software and hardware from Shenzhen.
 
-Specification:
-- Rockchip RK3568
-- 2GB/4GB LPDDR4 RAM
-- 16GB on-board eMMC
-- 1x M.2 key for 2280 NVMe (PCIe 3.0)
-- 1x USB 3.0 Type-A
-- 1x USB 2.0 Type-C (for USB flashing)
-- 2x 1000 Base-T (native, RTL8211F)
-- 2x 2500 Base-T (PCIe, RTL8125B)
-- 1x HDMI 2.0 Output
-- 12v DC Jack
-- 1x Power key connected to PMIC
-- 2x LEDs (one static power supplied, one GPIO controlled)
+Add vendor prefix for it.
 
-[1] https://doc.linkease.com/zh/guide/easepi-r1/hardware.html
-
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
 ---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Changes in v2:
-- Change deprecated "rockchip,system-power-controller" to "system-power-controller"
-- Link to v1: https://lore.kernel.org/r/20250925055906.83375-1-jjm2473@gmail.com/
-
-Changes in v3:
-- Fix typo ('status = "disable"' -> 'status = "disabled"') found by kernel test robot https://lore.kernel.org/all/202509261328.Grjhp029-lkp@intel.com/
-- Link to v2: https://lore.kernel.org/r/20250925092037.13582-1-jjm2473@gmail.com/
-
-Changes in v4:
-- Fix missing "Acked-by" message in patch 1/3 and 2/3
-- Link to v3: https://lore.kernel.org/r/20250929065714.27741-1-jjm2473@gmail.com/
-
-Changes in v5:
-- Change gmac phy-mode to 'rgmii-id' and remove {tx|rx}_delay as suggested by Andrew Lunn <andrew@lunn.ch>
-- Fix comments ('not mounted' -> 'not populated') for unpopulated devices as suggested by Andrew Lunn <andrew@lunn.ch>
-- Link to v4: https://lore.kernel.org/r/20250930055017.67610-1-jjm2473@gmail.com/
-
-Changes in v6:
-- Fix missing 'vpcie3v3-supply' property for PCIe nodes found by Chukun Pan <amadeus@jmu.edu.cn>
-- Nodes and properties are sorted alphabetically as requested by Chukun Pan <amadeus@jmu.edu.cn>
-- Remove unpopulated devices (sdmmc0, sdmmc2) as suggested by Chukun Pan <amadeus@jmu.edu.cn> and Andrew Lunn <andrew@lunn.ch>
-- Remove 'combphy0' node which is unused
-- Remove 'clock_in_out' property in gmac nodes as suggested by Russell King (Oracle) <linux@armlinux.org.uk>
-- Remove deprecated 'label' property in gpio-leds node as requested by Chukun Pan <amadeus@jmu.edu.cn>
-- Link to v5: https://lore.kernel.org/r/20251009084416.45542-1-jjm2473@gmail.com/
-
----
-
-Liangbin Lian (3):
-  dt-bindings: vendor-prefixes: Document LinkEase
-  dt-bindings: arm: rockchip: Add LinkEase EasePi R1
-  arm64: dts: rockchip: add LinkEase EasePi R1
-
- .../devicetree/bindings/arm/rockchip.yaml     |   5 +
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../boot/dts/rockchip/rk3568-easepi-r1.dts    | 624 ++++++++++++++++++
- 4 files changed, 632 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts
-
-
-base-commit: 30d4efb2f5a515a60fe6b0ca85362cbebea21e2f
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 9ec8947dfcad..db496416b250 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -873,6 +873,8 @@ patternProperties:
+     description: Lincoln Technology Solutions
+   "^lineartechnology,.*":
+     description: Linear Technology
++  "^linkease,.*":
++    description: Shenzhen LinkEase Network Technology Co., Ltd.
+   "^linksprite,.*":
+     description: LinkSprite Technologies, Inc.
+   "^linksys,.*":
 -- 
 2.51.0
 
