@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32599CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 09:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E4DDCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 09:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/PXy34aVbH2cOCBybVkIgwC7LUDqbkxQ3ENtY6H23zA=; b=EsrsagZ2hzkNnq/EpCYogEUBWo
-	owyV03v2tzQkw8BAEefcQgGhBAvLdxhTmeogb+s7Ql8Gv2yMHgpkhCgjIk4JoKYlBSbC8hdVEu9Bo
-	3nXRBJ/hfrYozr0/0wyUBmFcAeBpCb2XkD3OBlxZxi7l/7RwHG1qnHXNQ8Xq9Zc5RDtoOyh3CEgLe
-	MlWWgETtZblGwosDd3pwZYmExaaL1MgnIukB2QA/As4EiP+N+9bxXnpFLy6foE2OJcoSvqU9Ma/+M
-	5MFklCaKTEKhWJfh7BY3z3dJJs1s6wvbFWyh5rxpi4V8rBDbWHy426N/435c10jkvNUHd1WsK7iEM
-	g4l1WCLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=juZD7qPlFNPrZBo5nIhRej6WrFZIUY5prg9h7+Bs/nA=; b=Iuh0Ko9LOSMsFo1wD/83fk8781
+	EEziX2NHI8OFGWm/2Tn/M6gwJTH1MGY80MQKmubFzvEVlAwmgF5+8ztG9jw82bYRrA766xEq6nQn7
+	mqv5IPFzM5yM54Te0L8ThbVLJvAoFayA8oG1zSiQ5YLixdXj9Gh/+mRozxy15tHr8PPsq+8qcvuTx
+	92hMfjc/eg2hlR5e9hOyHPVYtxrck7wxNtrEyGoXDYBwtbVlJRCmGjKgu9jcUqwx1hAplD+FpXjBv
+	qQgwimZNBYdCLNspaVH9pvVqjK6uNaTNjmx/z95XB3Wn9liPKbAQJTZ3qEknRf3Bls07Z5xvQjQY0
+	GX4EgX6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8bFv-0000000FkFL-354c;
-	Tue, 14 Oct 2025 09:23:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v8bHo-0000000FkXz-217f;
+	Tue, 14 Oct 2025 09:25:40 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8bFt-0000000FkDs-0OyH;
-	Tue, 14 Oct 2025 09:23:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 92FC6405A8;
-	Tue, 14 Oct 2025 09:23:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AEAEC113D0;
-	Tue, 14 Oct 2025 09:23:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760433820;
-	bh=8UMDWUKXnpdCQC7p8eOw9etMN6k4kyh9pwqfBIRJJR4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OxijG8Ee2g5+wVQnN1qVAuG8VcAY4HRVLn8vhSjOM7j7u/qSgp3Y1jBaIy50zEbUr
-	 3UmR+WU+NNvFUBOoKX6jegmuW9xrZ8b3jTnCKA0LccwLcM2WJIhKjzkQzokmU4GCFT
-	 p1C4gatH3OkYEwhVTUhG1+NaJsdWUZ6u4LIBleck60/q1eijpfs6FEBPl83NKAHsC+
-	 hb+6Zyq4fTx4ghfJ8XGh0t4prBJwWp5HAK7oJ5X35ixzuIz3ouRm6F9xM23i35s67o
-	 jW1aP4lFTsRyNPTSqQOGbBsTROYsZh7oszs1QwFMgghXEnRl9odRaf3Kl12TqZ48Z8
-	 3NVfLEmJjjzkg==
-Date: Tue, 14 Oct 2025 11:23:37 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v3 2/3] net: airoha: npu: Add
- airoha_npu_soc_data struct
-Message-ID: <aO4WmeuoAcZLFSBo@lore-desk>
-References: <20251013-airoha-npu-7583-v3-0-00f748b5a0c7@kernel.org>
- <20251013-airoha-npu-7583-v3-2-00f748b5a0c7@kernel.org>
- <aO4LL8racazLjjzk@horms.kernel.org>
+	id 1v8bHl-0000000FkXE-3Gcl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Oct 2025 09:25:39 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59E9PTNW1114817;
+	Tue, 14 Oct 2025 04:25:29 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1760433929;
+	bh=juZD7qPlFNPrZBo5nIhRej6WrFZIUY5prg9h7+Bs/nA=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=azZNFzNkYdWFRBvfHbXBKWRfdXruCNPaS08gn7i/xOLsiGUeV9wAHVLW4J7/LKYfp
+	 1Od47Qd1vJS9m2ONmm0iviys3MDm9qJd91bnjLkCl57MbyyjD+Khz7fWoXNtxWysdt
+	 l9PhgTKqCVBcd87QH6d5MsQJkD5ClEKWS3KniTlE=
+Received: from DLEE205.ent.ti.com (dlee205.ent.ti.com [157.170.170.85])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59E9PTBA3906283
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 14 Oct 2025 04:25:29 -0500
+Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 14 Oct
+ 2025 04:25:29 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE207.ent.ti.com
+ (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 14 Oct 2025 04:25:29 -0500
+Received: from [10.24.69.13] (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59E9PPQB3335218;
+	Tue, 14 Oct 2025 04:25:26 -0500
+Message-ID: <c8821c7e-b551-4a1b-9bb1-33d0eb05eb4c@ti.com>
+Date: Tue, 14 Oct 2025 14:55:24 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RC3OzpSHrP3UiKaL"
-Content-Disposition: inline
-In-Reply-To: <aO4LL8racazLjjzk@horms.kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: ti: icssg-prueth: Fix fdb hash size
+ configuration
+To: Simon Horman <horms@kernel.org>
+CC: <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
+        <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+References: <20251013085925.1391999-1-m-malladi@ti.com>
+ <aOzqMj1TbzJCZrRk@horms.kernel.org>
+Content-Language: en-US
+From: Meghana Malladi <m-malladi@ti.com>
+In-Reply-To: <aOzqMj1TbzJCZrRk@horms.kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_022341_175052_B0033B25 
-X-CRM114-Status: GOOD (  22.89  )
+X-CRM114-CacheID: sfid-20251014_022537_990926_FD02A3E3 
+X-CRM114-Status: GOOD (  26.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,146 +91,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---RC3OzpSHrP3UiKaL
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> On Mon, Oct 13, 2025 at 03:58:50PM +0200, Lorenzo Bianconi wrote:
->=20
-> ...
->=20
-> > @@ -182,49 +192,53 @@ static int airoha_npu_send_msg(struct airoha_npu =
-*npu, int func_id,
-> >  	return ret;
-> >  }
-> > =20
-> > -static int airoha_npu_run_firmware(struct device *dev, void __iomem *b=
-ase,
-> > -				   struct resource *res)
-> > +static int airoha_npu_load_firmware(struct device *dev, void __iomem *=
-addr,
-> > +				    const struct airoha_npu_fw *fw_info)
-> >  {
-> >  	const struct firmware *fw;
-> > -	void __iomem *addr;
-> >  	int ret;
-> > =20
-> > -	ret =3D request_firmware(&fw, NPU_EN7581_FIRMWARE_RV32, dev);
-> > +	ret =3D request_firmware(&fw, fw_info->name, dev);
-> >  	if (ret)
-> >  		return ret =3D=3D -ENOENT ? -EPROBE_DEFER : ret;
-> > =20
-> > -	if (fw->size > NPU_EN7581_FIRMWARE_RV32_MAX_SIZE) {
-> > +	if (fw->size > fw_info->max_size) {
-> >  		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
-> > -			NPU_EN7581_FIRMWARE_RV32, fw->size);
-> > +			fw_info->name, fw->size);
-> >  		ret =3D -E2BIG;
-> >  		goto out;
-> >  	}
-> > =20
-> > -	addr =3D devm_ioremap_resource(dev, res);
-> > -	if (IS_ERR(addr)) {
-> > -		ret =3D PTR_ERR(addr);
-> > -		goto out;
-> > -	}
-> > -
-> >  	memcpy_toio(addr, fw->data, fw->size);
-> > +out:
-> >  	release_firmware(fw);
-> > =20
-> > -	ret =3D request_firmware(&fw, NPU_EN7581_FIRMWARE_DATA, dev);
-> > -	if (ret)
-> > -		return ret =3D=3D -ENOENT ? -EPROBE_DEFER : ret;
-> > +	return ret;
-> > +}
-> > =20
-> > -	if (fw->size > NPU_EN7581_FIRMWARE_DATA_MAX_SIZE) {
-> > -		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
-> > -			NPU_EN7581_FIRMWARE_DATA, fw->size);
-> > -		ret =3D -E2BIG;
-> > -		goto out;
-> > -	}
-> > +static int airoha_npu_run_firmware(struct device *dev, void __iomem *b=
-ase,
-> > +				   struct resource *res)
-> > +{
-> > +	const struct airoha_npu_soc_data *soc;
-> > +	void __iomem *addr;
-> > +	int ret;
-> > =20
-> > -	memcpy_toio(base + REG_NPU_LOCAL_SRAM, fw->data, fw->size);
-> > -out:
-> > -	release_firmware(fw);
-> > +	soc =3D of_device_get_match_data(dev);
-> > +	if (!soc)
-> > +		return -EINVAL;
-> > =20
-> > -	return ret;
-> > +	addr =3D devm_ioremap_resource(dev, res);
-> > +	if (IS_ERR(addr))
-> > +		return PTR_ERR(addr);
-> > +
-> > +	/* Load rv32 npu firmware */
-> > +	ret =3D airoha_npu_load_firmware(dev, addr, &soc->fw_rv32);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	/* Load data npu firmware */
-> > +	return airoha_npu_load_firmware(dev, base + REG_NPU_LOCAL_SRAM,
-> > +					&soc->fw_data);
->=20
-> Hi Lorenzo,
-
 Hi Simon,
 
->=20
-> There are two calls to airoha_npu_load_firmware() above.
-> And, internally, airoha_npu_load_firmware() will call release_firmware()
-> if an error is encountered.
->=20
-> But should release_firmware() be called for the firmware requested
-> by the first call to airoha_npu_load_firmware() if the second call fails?
-> Such clean-up seems to have been the case prior to this patch.
+On 10/13/25 17:31, Simon Horman wrote:
+> On Mon, Oct 13, 2025 at 02:29:25PM +0530, Meghana Malladi wrote:
+>> The ICSSG driver does the initial FDB configuration which
+>> includes setting the control registers. Other run time
+>> management like learning is managed by the PRU's. The default
+>> FDB hash size used by the firmware is 512 slots which is not
+>> aligned with the driver's configuration. Update the driver
+>> FDB config to fix it.
+>>
+>> Fixes: abd5576b9c57f ("net: ti: icssg-prueth: Add support for ICSSG switch firmware")
+>> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+>> ---
+>>
+>> Please refer trm [1] 6.4.14.12.17 section
+>> on how the FDB config register gets configured.
+>>
+>> [1]: https://www.ti.com/lit/pdf/spruim2
+> 
+> Thanks for the link!
+> And thanks to TI for publishing this document.
+> 
+>>
+>>   drivers/net/ethernet/ti/icssg/icssg_config.c | 7 +++++++
+>>   1 file changed, 7 insertions(+)
+>>
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.c b/drivers/net/ethernet/ti/icssg/icssg_config.c
+>> index da53eb04b0a4..3f8237c17d09 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_config.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.c
+>> @@ -66,6 +66,9 @@
+>>   #define FDB_GEN_CFG1		0x60
+>>   #define SMEM_VLAN_OFFSET	8
+>>   #define SMEM_VLAN_OFFSET_MASK	GENMASK(25, 8)
+>> +#define FDB_HASH_SIZE_MASK	GENMASK(6, 3)
+>> +#define FDB_HASH_SIZE_SHIFT	3
+>> +#define FDB_HASH_SIZE		3
+> 
+> I am slightly confused about this.
+> 
+> The patch description says "The default FDB hash size used by the firmware
+> is 512 slots which is not aligned with the driver's configuration."
+> And above FDB_HASH_SIZE is 3, which is the value that the driver will
+> now set hash size to.
+> 
+> But table 6-1404 (on page 4049) of [1] describes 3 as setting
+> the FDB hash size to 512 slots. I would have expected a different
+> value based on my understanding of the patch description.
+> 
 
-release_firmware() is intended to release the resources allocated by the
-corresponding call to request_firmware() in airoha_npu_load_firmware().
-According to my understanding we always run release_firmware() in
-airoha_npu_load_firmware() before returning to the caller. Even before this
-patch we run release_firmware() on the 'first' firmware image before reques=
-ting
-the second one. Am I missing something?
+Yes you are right. But if you re-check the same table 6-1404, there is
+a reset field for FDB_HAS_SIZE which is 4, meaning 1024 slots.
+Currently the driver is not updating this reset value from 4(1024 slots) 
+to 3(512 slots), which is why the driver is not aligned with the 
+firmware. This patch fixes this by updating the reset value to 512 slots.
 
->=20
-> Also, not strictly related. Should release_firmware() be called (twice)
-> when the driver is removed?
+Let me know if the commit message is not clear enough to convey this 
+correctly. I will update it accordingly.
 
-For the above reasons, it is not important to call release_firmware() remov=
-ing
-the module. Agree?
+>>   
+>>   #define FDB_GEN_CFG2		0x64
+>>   #define FDB_VLAN_EN		BIT(6)
+>> @@ -463,6 +466,8 @@ void icssg_init_emac_mode(struct prueth *prueth)
+>>   	/* Set VLAN TABLE address base */
+>>   	regmap_update_bits(prueth->miig_rt, FDB_GEN_CFG1, SMEM_VLAN_OFFSET_MASK,
+>>   			   addr <<  SMEM_VLAN_OFFSET);
+>> +	regmap_update_bits(prueth->miig_rt, FDB_GEN_CFG1, FDB_HASH_SIZE_MASK,
+>> +			   FDB_HASH_SIZE << FDB_HASH_SIZE_SHIFT);
+>>   	/* Set enable VLAN aware mode, and FDBs for all PRUs */
+>>   	regmap_write(prueth->miig_rt, FDB_GEN_CFG2, (FDB_PRU0_EN | FDB_PRU1_EN | FDB_HOST_EN));
+>>   	prueth->vlan_tbl = (struct prueth_vlan_tbl __force *)(prueth->shram.va +
+>> @@ -484,6 +489,8 @@ void icssg_init_fw_offload_mode(struct prueth *prueth)
+>>   	/* Set VLAN TABLE address base */
+>>   	regmap_update_bits(prueth->miig_rt, FDB_GEN_CFG1, SMEM_VLAN_OFFSET_MASK,
+>>   			   addr <<  SMEM_VLAN_OFFSET);
+>> +	regmap_update_bits(prueth->miig_rt, FDB_GEN_CFG1, FDB_HASH_SIZE_MASK,
+>> +			   FDB_HASH_SIZE << FDB_HASH_SIZE_SHIFT);
+>>   	/* Set enable VLAN aware mode, and FDBs for all PRUs */
+>>   	regmap_write(prueth->miig_rt, FDB_GEN_CFG2, FDB_EN_ALL);
+>>   	prueth->vlan_tbl = (struct prueth_vlan_tbl __force *)(prueth->shram.va +
+>>
+>> base-commit: 68a052239fc4b351e961f698b824f7654a346091
+>> -- 
+>> 2.43.0
+>>
 
-Regards,
-Lorenzo
-
->=20
-> >  }
-> > =20
-> >  static irqreturn_t airoha_npu_mbox_handler(int irq, void *npu_instance)
->=20
-> ...
-
---RC3OzpSHrP3UiKaL
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaO4WmQAKCRA6cBh0uS2t
-rMoTAP9HdqSplLptTvESowj2txGAcrb/gc17fXY3RbXV9I2MoQEAokKGOUSeg9My
-inH68eZk4H3dQS+CcqdVfpLwtEramQU=
-=2u0A
------END PGP SIGNATURE-----
-
---RC3OzpSHrP3UiKaL--
 
