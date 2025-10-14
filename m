@@ -4,94 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28389CCD18F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C7CCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=YFWOuvnUfMwybXOtMoOd4svMVvGqzTx63g0iMz9e+aA=; b=oHZA4uJTKRj7vu
-	p7K5rAkBALJbGcnbkiu+feFv/stjOyJRnwF1oi1S1ZFz2LaNB9a70Vh0Qyn0uHmfavyya9ih92VNw
-	/3gB9xKfdJ2bxANx3c5nYa6t6lc5rs2nao/Qk1gtqm22UPAUG8vzLh0CcThMPZmk/AfgHnYXgTxNS
-	pQMtfnzmmgTspqLvGx22SYpeU4cVuqtvJ2sP9EFQfJHAv2Uds0tHAm7d+IomPaO1Yu4DNYCyJqQkn
-	GfxY6dYNgQ+lTz7bAzF3P6/wI6Wn13SlKhLL3UAbQ5KrbFwF5HG+6g7Ux6ztdx/F7y7VUY8DbGNEN
-	qZKJikIpjW/9f+oS1rVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1gYCE6nAYGsVm7cTeIShV2vLwnNtrBFIhKxS0/Lhzy0=; b=zY2zc5RkFqZhR7EGtiyGjJB5E+
+	7DhJZKr4MbWfQQ210lS493ZReEpdsuHdjL7+DmPrlijbMzWV/Gt6PZCVBPM/9XBnTnwDWwh0TIuV/
+	mXTsYVkTAeAi0Q2mf3vK4mcZUbN1oLSfAo+aHVCxzJToaIuUZ35uVUK2t1Tx+l+MEFv6qSKnpMpiH
+	Fb90tWPwYmT1uh5dxy7jUeqgGX1MpRkQ47pPUySUO0whixHlaPKuLo8jwYdI4bQyXt5CF+QH0gEg6
+	gFT4SPY/Dodu9DgTlo/NGDjjyVWNzZE1+i8wSbeeCqEnMfNj03wdxSrNsF6ibroIr7/rohjU/WQO5
+	hSE2XWFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8aZS-0000000FdvR-0Yk3;
-	Tue, 14 Oct 2025 08:39:50 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8aZP-0000000Fdv5-3Q9o
+	id 1v8adK-0000000FeYu-13hP;
+	Tue, 14 Oct 2025 08:43:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8adH-0000000FeYX-421s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 08:39:49 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3ee13baf2e1so3658478f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 01:39:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760431186; x=1761035986; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YFWOuvnUfMwybXOtMoOd4svMVvGqzTx63g0iMz9e+aA=;
-        b=OmxAJKzxmTLtIQGhd5Fk/H6te2wASiTFJK0JERo/xYIFp2RUJ/TpUtIIadrY9TOWb9
-         MxLHPD3e3/EpLV2kjn52xT0qC/Mb5J/9xv2DIO41XmG689SXMw7Nb86ITfrFTuthAL0m
-         2K7EsMw1aYwFZrwKdeFIQy3HqSwR6RZ+ue4D1chRlDxXB6HMXVp7bvz71ypT57EJ+/ZY
-         YfRDsm5YRFtgYjRkguazjwegwyQ54S/4wCNA0jDJ5mKSu68qviKAJUXsO3BcQPZlSEpc
-         yxGznqII24dZLBgd6noWtnHnxR2OCgdgJHMuAqO6TY/bHrjkT9V0pmoGsVVEcJhe0MQ8
-         /jMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760431186; x=1761035986;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YFWOuvnUfMwybXOtMoOd4svMVvGqzTx63g0iMz9e+aA=;
-        b=U6w4xQXgFWw0RB5CDMMZUdgPvUCljeCdwrDCe56/xmoubd6QSFP8uPF5zQXSaF8zLU
-         oArRN4gdbQmGeUfdEmit1cn9GZdDdYkNAtUb6Kd7JcXJ2iuwim5Wk5r87okRccDtDbNQ
-         KFGxtKTzNnGYXYvFo+XJsVRT/8FAizPyWivfQx4PcEfUVOsht/VSvQn/jiSorBePzTcV
-         umgw7ygJNJkhRYFb+GgmkdnptLyYg+aP7l+H5i8rJCeFaQrPT9d/H+j/6dNv48Cn/zyM
-         /CFN5qv+CLXw+xfeejiJoZHdythNd345FeleAnQcwZPg0RlCnw9OYyThNzZVQCg/ACe3
-         d+uw==
-X-Forwarded-Encrypted: i=1; AJvYcCUr1po/1qs7YrBj/6VThOgkQDlxOY/p+SC2RI090zKM59vsEOfY0bo+dflLkIIdX+uZ54r+/uSRJ2ZdfRpWxemQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgJUL5+m+ZIqrHrbKUAVa2/ziUzP/WtxF+sVLEleNl14HsAIkc
-	ToihGqKtXV4qAmxbLU7lV9YwKozlM9aJWOE+RHdt2v9Psi39IIEu/dTBjOJzd74AMZw=
-X-Gm-Gg: ASbGncuHUMLE6gwqRNjG57YJDFCs4BsfaLl/XdV2JNVUbtpP9Qlm9U2dEU4fyU50vMi
-	0SSk/C4A/Lx4PjQp0yWYg6+qIlJ+86bPx+z7pVx0Gq0Oi0vF4QmzSUSBT968RcouSWdU0XK68Km
-	gDTlKXL69xPCnbwu1oe3bD5W2EZYFHqatSKsz9auSv2gG8rVE1dQZdX2e3pq1MS1Sp2hMlsoj9Z
-	RxpPO2dwObO/Sy4hIWhBAXia7Wg9EcvAFC7nvIsLBk9S0ig8TY6qqJzbW3LTyrfR2U7L5DgFX8H
-	XkxusM53Xr7TorpWEJ3d4EpCB17wmvqNt+hVSxIdmXOI4o3cXmsHAI/vJgiFowXYDt+pL4EvaJj
-	QlIXnxQOLqzttaxKL8JmDxrR2crt3SxiNPjX08xApxhslWuncwvLK6hC3I0qO9Q==
-X-Google-Smtp-Source: AGHT+IFDjuNxGsj9w5KIK44evH4nW82BXa1kd591GncY0F3Cb/1CX97GoQ+hu6emUu0ZcgJJ0c1fpA==
-X-Received: by 2002:a05:6000:40da:b0:3f8:8aa7:465d with SMTP id ffacd0b85a97d-4266e7d4580mr13949163f8f.30.1760431185690;
-        Tue, 14 Oct 2025 01:39:45 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-426ce5e8a06sm22476317f8f.55.2025.10.14.01.39.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Oct 2025 01:39:45 -0700 (PDT)
-Date: Tue, 14 Oct 2025 11:39:41 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: oe-kbuild@lists.linux.dev, Peng Fan <peng.fan@nxp.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Andrew Davis <afd@ti.com>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2 4/7] remoteproc: core: Use cleanup.h macros to
- simplify lock handling
-Message-ID: <202510121908.7aduLIkw-lkp@intel.com>
+	Tue, 14 Oct 2025 08:43:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D6A61A9A;
+	Tue, 14 Oct 2025 01:43:39 -0700 (PDT)
+Received: from [10.57.83.223] (unknown [10.57.83.223])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D4CFD3F6A8;
+	Tue, 14 Oct 2025 01:43:45 -0700 (PDT)
+Message-ID: <91f6da2f-1968-4c23-a534-20b463463faf@arm.com>
+Date: Tue, 14 Oct 2025 09:43:43 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251010-remoteproc-cleanup-v2-4-7cecf1bfd81c@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: mm: show direct mapping use in /proc/meminfo
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, cl@gentwo.org,
+ catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251013235118.3072941-1-yang@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20251013235118.3072941-1-yang@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_013947_915676_939DA451 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20251014_014348_081812_E4A7473F 
+X-CRM114-Status: GOOD (  34.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,104 +64,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+On 14/10/2025 00:51, Yang Shi wrote:
+> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
+> rodata=full"), the direct mapping may be split on some machines instead
+> keeping static since boot. It makes more sense to show the direct mapping
+> use in /proc/meminfo than before.
 
-kernel test robot noticed the following build warnings:
+It's possible to divine this information from
+/sys/kernel/debug/kernel_page_tables. Dev even has a script to post-process that
+to provide summary stats on how much memory is mapped by each block size.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Peng-Fan/remoteproc-core-Drop-redundant-initialization-of-ret-in-rproc_shutdown/20251010-202737
-base:   3b9b1f8df454caa453c7fb07689064edb2eda90a
-patch link:    https://lore.kernel.org/r/20251010-remoteproc-cleanup-v2-4-7cecf1bfd81c%40nxp.com
-patch subject: [PATCH v2 4/7] remoteproc: core: Use cleanup.h macros to simplify lock handling
-config: i386-randconfig-141-20251012 (https://download.01.org/0day-ci/archive/20251012/202510121908.7aduLIkw-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+Admittedly, this file is in debugfs and is not usually enabled for production
+builds, but Dev's patch Commit fa93b45fd397 ("arm64: Enable vmalloc-huge with
+ptdump"), merged for v6.18-rc1 gives us a path to enabling by default I think?
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202510121908.7aduLIkw-lkp@intel.com/
+But I can see the benefits of having this easily available, and I notice that
+other arches are already doing this. So I guess it makes sense to be consistent.
 
-smatch warnings:
-drivers/remoteproc/remoteproc_core.c:1841 rproc_trigger_recovery() warn: missing error code? 'ret'
-drivers/remoteproc/remoteproc_core.c:1993 rproc_shutdown() warn: missing error code? 'ret'
+> This patch will make /proc/meminfo show the direct mapping use like the
+> below (4K base page size):
+> DirectMap4K:	   94792 kB
+> DirectMap64K:	  134208 kB
+> DirectMap2M:	 1173504 kB
+> DirectMap32M:	 5636096 kB
+> DirectMap1G:	529530880 kB
 
-vim +/ret +1841 drivers/remoteproc/remoteproc_core.c
+nit: x86, s390 and powerpc use a lower case "k" for DirectMap4k; perhaps we
+should follow suit? (despite being ugly). Although I think that's usually used
+to denote base-10 (i.e. 1000 bytes)? That's not the case here, we want base-2.
 
-70b85ef83ce3523 Fernando Guzman Lugo 2012-08-30  1829  int rproc_trigger_recovery(struct rproc *rproc)
-70b85ef83ce3523 Fernando Guzman Lugo 2012-08-30  1830  {
-7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1831  	struct device *dev = &rproc->dev;
-7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1832  	int ret;
-7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1833  
-c42baf6f84c7694 Peng Fan             2025-10-10  1834  	ACQUIRE(mutex_intr, lock)(&rproc->lock);
-c42baf6f84c7694 Peng Fan             2025-10-10  1835  	ret = ACQUIRE_ERR(mutex_intr, &lock);
-7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1836  	if (ret)
-7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1837  		return ret;
-7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1838  
-0b145574b6cd2b3 Alex Elder           2020-02-28  1839  	/* State could have changed before we got the mutex */
-0b145574b6cd2b3 Alex Elder           2020-02-28  1840  	if (rproc->state != RPROC_CRASHED)
-c42baf6f84c7694 Peng Fan             2025-10-10 @1841  		return ret;
+> 
+> Although just the machines which support BBML2_NOABORT can split the
+> direct mapping, show it on all machines regardless of BBML2_NOABORT so
+> that the users have consistent view in order to avoid confusion.
+> 
+> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+> ---
+>  arch/arm64/mm/mmu.c | 93 ++++++++++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 91 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index b8d37eb037fc..e5da0f521e58 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -29,6 +29,7 @@
+>  #include <linux/mm_inline.h>
+>  #include <linux/pagewalk.h>
+>  #include <linux/stop_machine.h>
+> +#include <linux/proc_fs.h>
+>  
+>  #include <asm/barrier.h>
+>  #include <asm/cputype.h>
+> @@ -51,6 +52,17 @@
+>  
+>  DEFINE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
+>  
+> +enum direct_map_type {
+> +	PTE,
+> +	CONT_PTE,
+> +	PMD,
+> +	CONT_PMD,
+> +	PUD,
+> +	NR_DIRECT_MAP_TYPE,
+> +};
+> +
+> +unsigned long direct_map_cnt[NR_DIRECT_MAP_TYPE];
 
-Please change this to either "return 0;" or "return -ERRORCODE;"
+I wonder if it would be cleaner to store this in bytes rather than blocks? Then
+in the code you can just add PAGE_SIZE, CONT_PTE_SIZE, PMD_SIZE, etc as
+appropriate, then the reporting function becomes simpler; everything is just
+shifted by 10 to get kB; no need for the shift array.
 
-0b145574b6cd2b3 Alex Elder           2020-02-28  1842  
-0b145574b6cd2b3 Alex Elder           2020-02-28  1843  	dev_err(dev, "recovering %s\n", rproc->name);
-0b145574b6cd2b3 Alex Elder           2020-02-28  1844  
-ba194232edc032b Peng Fan             2022-09-28  1845  	if (rproc_has_feature(rproc, RPROC_FEAT_ATTACH_ON_RECOVERY))
-ba194232edc032b Peng Fan             2022-09-28  1846  		ret = rproc_attach_recovery(rproc);
-ba194232edc032b Peng Fan             2022-09-28  1847  	else
-ba194232edc032b Peng Fan             2022-09-28  1848  		ret = rproc_boot_recovery(rproc);
-7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1849  
-7e83cab824a8670 Sarangdhar Joshi     2017-05-26  1850  	return ret;
-70b85ef83ce3523 Fernando Guzman Lugo 2012-08-30  1851  }
+> +
+>  u64 kimage_voffset __ro_after_init;
+>  EXPORT_SYMBOL(kimage_voffset);
+>  
+> @@ -171,6 +183,60 @@ static void init_clear_pgtable(void *table)
+>  	dsb(ishst);
+>  }
+>  
+> +void arch_report_meminfo(struct seq_file *m)
+> +{
+> +	char *size[NR_DIRECT_MAP_TYPE];
+> +	unsigned int shift[NR_DIRECT_MAP_TYPE];
+> +
+> +#if defined(CONFIG_ARM64_4K_PAGES)
+> +	size[PTE] = "4K";
+> +	size[CONT_PTE] = "64K";
+> +	size[PMD] = "2M";
+> +	size[CONT_PMD] = "32M";
+> +	size[PUD] = "1G";
+> +
+> +	shift[PTE] = 2;
+> +	shift[CONT_PTE] = 6;
+> +	shift[PMD] = 11;
+> +	shift[CONT_PMD] = 15;
+> +	shift[PUD] = 20;
+> +#elif defined(CONFIG_ARM64_16K_PAGES)
+> +	size[PTE] = "16K";
+> +	size[CONT_PTE] = "2M";
+> +	size[PMD] = "32M";
+> +	size[CONT_PMD] = "1G";
+> +
+> +	shift[PTE] = 4;
+> +	shift[CONT_PTE] = 11;
+> +	shift[PMD] = 15;
+> +	shift[CONT_PMD] = 20;
+> +#elif defined(CONFIG_ARM64_64K_PAGES)
+> +	size[PTE] = "64K";
+> +	size[CONT_PTE] = "2M";
+> +	size[PMD] = "512M";
+> +	size[CONT_PMD] = "16G";
+> +
+> +	shift[PTE] = 6;
+> +	shift[CONT_PTE] = 11;
+> +	shift[PMD] = 19;
+> +	shift[CONT_PMD] = 24;
+> +#endif
 
-[ snip ]
+The ifdeffery is quite ugly. I think we can get rid of the shift array as per
+above. I was hoping there might be a kernel function that we could pass
+PAGE_SIZE, PMD_SIZE, etc to and it would give us an appropriate string but I
+can't find anything. I guess keping the ifdef for size[] is the most pragmatic.
 
-c13b780c4597e1e Suman Anna           2022-02-13  1976  int rproc_shutdown(struct rproc *rproc)
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1977  {
-b5ab5e24e960b9f Ohad Ben-Cohen       2012-05-30  1978  	struct device *dev = &rproc->dev;
-ee3d85da617a065 Peng Fan             2025-10-10  1979  	int ret;
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1980  
-c42baf6f84c7694 Peng Fan             2025-10-10  1981  	ACQUIRE(mutex_intr, lock)(&rproc->lock);
-c42baf6f84c7694 Peng Fan             2025-10-10  1982  	ret = ACQUIRE_ERR(mutex_intr, &lock);
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1983  	if (ret) {
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1984  		dev_err(dev, "can't lock rproc %s: %d\n", rproc->name, ret);
-c13b780c4597e1e Suman Anna           2022-02-13  1985  		return ret;
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1986  	}
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1987  
-c42baf6f84c7694 Peng Fan             2025-10-10  1988  	if (rproc->state != RPROC_RUNNING && rproc->state != RPROC_ATTACHED)
-c42baf6f84c7694 Peng Fan             2025-10-10  1989  		return -EINVAL;
-5e6a0e05270e3a4 Shengjiu Wang        2022-03-28  1990  
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1991  	/* if the remote proc is still needed, bail out */
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1992  	if (!atomic_dec_and_test(&rproc->power))
-c42baf6f84c7694 Peng Fan             2025-10-10 @1993  		return ret;
+> +
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[PTE], direct_map_cnt[PTE] << shift[PTE]);
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[CONT_PTE],
+> +			direct_map_cnt[CONT_PTE] << shift[CONT_PTE]);
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[PMD], direct_map_cnt[PMD] << shift[PMD]);
+> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[CONT_PMD],
+> +			direct_map_cnt[CONT_PMD] << shift[CONT_PMD]);
+> +	if (pud_sect_supported())
+> +		seq_printf(m, "DirectMap%s:	%8lu kB\n",
+> +			size[PUD], direct_map_cnt[PUD] << shift[PUD]);
+> +}
+> +
+>  static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+>  		     phys_addr_t phys, pgprot_t prot)
+>  {
+> @@ -183,6 +249,9 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+>  		 */
+>  		__set_pte_nosync(ptep, pfn_pte(__phys_to_pfn(phys), prot));
+>  
+> +		if (!(pgprot_val(prot) & PTE_CONT))
+> +			direct_map_cnt[PTE]++;
 
-Same.
+If adding size in bytes, you could just always add PAGE_SIZE here, but select
+the bucket based on PTE_CONT?
 
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1994  
-fcd58037f28bf70 Arnaud Pouliquen     2018-04-10  1995  	ret = rproc_stop(rproc, false);
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1996  	if (ret) {
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1997  		atomic_inc(&rproc->power);
-c42baf6f84c7694 Peng Fan             2025-10-10  1998  		return ret;
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  1999  	}
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  2000  
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  2001  	/* clean up all acquired resources */
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  2002  	rproc_resource_cleanup(rproc);
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  2003  
-33467ac3c8dc805 Loic Pallardy        2020-04-16  2004  	/* release HW resources if needed */
-33467ac3c8dc805 Loic Pallardy        2020-04-16  2005  	rproc_unprepare_device(rproc);
-33467ac3c8dc805 Loic Pallardy        2020-04-16  2006  
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  2007  	rproc_disable_iommu(rproc);
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  2008  
-988d204cdaf604c Bjorn Andersson      2016-08-11  2009  	/* Free the copy of the resource table */
-a0c10687ec9506b Bjorn Andersson      2016-12-30  2010  	kfree(rproc->cached_table);
-a0c10687ec9506b Bjorn Andersson      2016-12-30  2011  	rproc->cached_table = NULL;
-988d204cdaf604c Bjorn Andersson      2016-08-11  2012  	rproc->table_ptr = NULL;
-c42baf6f84c7694 Peng Fan             2025-10-10  2013  
-c13b780c4597e1e Suman Anna           2022-02-13  2014  	return ret;
-400e64df6b237eb Ohad Ben-Cohen       2011-10-20  2015  }
+> +
+>  		/*
+>  		 * After the PTE entry has been populated once, we
+>  		 * only allow updates to the permission attributes.
+> @@ -229,8 +298,10 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+>  
+>  		/* use a contiguous mapping if the range is suitably aligned */
+>  		if ((((addr | next | phys) & ~CONT_PTE_MASK) == 0) &&
+> -		    (flags & NO_CONT_MAPPINGS) == 0)
+> +		    (flags & NO_CONT_MAPPINGS) == 0) {
+>  			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+> +			direct_map_cnt[CONT_PTE]++;
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Then you don't need this.
+
+> +		}
+>  
+>  		init_pte(ptep, addr, next, phys, __prot);
+>  
+> @@ -262,6 +333,9 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+>  			pmd_set_huge(pmdp, phys, prot);
+>  
+> +			if (!(pgprot_val(prot) & PTE_CONT))
+> +				direct_map_cnt[PMD]++;
+
+Same here...
+
+> +
+>  			/*
+>  			 * After the PMD entry has been populated once, we
+>  			 * only allow updates to the permission attributes.
+> @@ -317,8 +391,10 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+>  
+>  		/* use a contiguous mapping if the range is suitably aligned */
+>  		if ((((addr | next | phys) & ~CONT_PMD_MASK) == 0) &&
+> -		    (flags & NO_CONT_MAPPINGS) == 0)
+> +		    (flags & NO_CONT_MAPPINGS) == 0) {
+>  			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+> +			direct_map_cnt[CONT_PMD]++;
+
+Then this can go too.
+
+> +		}
+>  
+>  		init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
+>  
+> @@ -368,6 +444,7 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>  		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+>  			pud_set_huge(pudp, phys, prot);
+>  
+> +			direct_map_cnt[PUD]++;
+>  			/*
+>  			 * After the PUD entry has been populated once, we
+>  			 * only allow updates to the permission attributes.
+> @@ -532,9 +609,13 @@ static void split_contpte(pte_t *ptep)
+>  {
+>  	int i;
+>  
+> +	direct_map_cnt[CONT_PTE]--;
+> +
+>  	ptep = PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * CONT_PTES);
+>  	for (i = 0; i < CONT_PTES; i++, ptep++)
+>  		__set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
+> +
+> +	direct_map_cnt[PTE] += CONT_PTES;
+>  }
+>  
+>  static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
+> @@ -559,8 +640,10 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
+>  	if (to_cont)
+>  		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+>  
+> +	direct_map_cnt[PMD]--;
+>  	for (i = 0; i < PTRS_PER_PTE; i++, ptep++, pfn++)
+>  		__set_pte(ptep, pfn_pte(pfn, prot));
+> +	direct_map_cnt[CONT_PTE] += PTRS_PER_PTE / CONT_PTES;
+>  
+>  	/*
+>  	 * Ensure the pte entries are visible to the table walker by the time
+> @@ -576,9 +659,13 @@ static void split_contpmd(pmd_t *pmdp)
+>  {
+>  	int i;
+>  
+> +	direct_map_cnt[CONT_PMD]--;
+> +
+>  	pmdp = PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS);
+>  	for (i = 0; i < CONT_PMDS; i++, pmdp++)
+>  		set_pmd(pmdp, pmd_mknoncont(pmdp_get(pmdp)));
+> +
+> +	direct_map_cnt[PMD] += CONT_PMDS;
+>  }
+>  
+>  static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
+> @@ -604,8 +691,10 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
+>  	if (to_cont)
+>  		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+>  
+> +	direct_map_cnt[PUD]--;
+>  	for (i = 0; i < PTRS_PER_PMD; i++, pmdp++, pfn += step)
+>  		set_pmd(pmdp, pfn_pmd(pfn, prot));
+> +	direct_map_cnt[CONT_PMD] += PTRS_PER_PMD/CONT_PMDS;
+>  
+>  	/*
+>  	 * Ensure the pmd entries are visible to the table walker by the time
 
 
