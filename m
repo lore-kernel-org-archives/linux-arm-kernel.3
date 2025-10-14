@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C390CCD192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 14:05:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A954CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 14:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAYcgQYNbbDmvz8bN2QzLJ+JysyoW5LOY2/FsKfJiGw=; b=yq4YWcoACUkJCqDP5z+cticXPV
-	w9qxr1+U2MkpkHVqK8jeSqD7Bwf997Si501rc0K18lHw3xZntcVgrkmclshO9xLyPRmw8ZoKn4lAE
-	5pq43FwbEcWHs93tPpDZJUfieZ2rpFFTa8apNuD0WA2aAIusx6Vf2I+1vVNPSbEvQnDWXsxxo0CfX
-	XQSJSOr7CNFXwWTfv0kJpZ1KxioacAAwRu5eHxo9Cq3Q2vFeajYYGlJ68ZYx93t+xqJ4ObPu7MAK4
-	Ky3vxDReIdWJA8w1cJvnP6dP+eGBEsY2XdTzzOdKFQ6amhE2YKMCR+JXXroi6bqptWiXn/UCMgrti
-	rYmHRxSQ==;
+	bh=SQM1PPlRQ0zgoenMOf2cd/wwkqZzcH4uHSmvD7moZAA=; b=L9Ig0jFP/9xD5h3OIqvCMPKjGJ
+	cI4APS0N8sqQPvBj6o76kt+Jnr3DuVWZ1SqlOYXnf/dOQr5QzQfVwqjgcZbHloNuuybquFZrddzot
+	+M8wtl0zM5389MwXFXhwrF4BVGjdMP/SzBknfCgN0uJxKhKXO5Otmk0tb5t5QlbfgW3b8pq/3ZpKe
+	8zktBNNUBRrnNmrUx6JpIOZT0KbnQBwn3p7mDPK2CzpTbGJvfOcC64Newun/UzHZgcyH7ig4vfHdN
+	bNuS6Htj6aScbyPm9WIqjVw5dG1N0iA4lgqj1wy9sZQoc0nbXvGdHZsfX5eus3HbRKMfNbgklvUr1
+	KaJXjtOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8fef-0000000GYcG-3Kdx;
-	Tue, 14 Oct 2025 14:05:33 +0000
+	id 1v8fes-0000000GYm9-2CCf;
+	Tue, 14 Oct 2025 14:05:46 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8feY-0000000GYRm-1lFs
+	id 1v8feY-0000000GYRS-0EeF
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 14 Oct 2025 14:05:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=AAYcgQYNbbDmvz8bN2QzLJ+JysyoW5LOY2/FsKfJiGw=; b=i8UhgBr9LDfKMSNbVZ7+y+rdgk
-	eoN0Rm1kEjpDA8hb/hmE/+3qnFpBENqmYQx1G0jcDD5m4NG5Sf+iSZsbsbxyJftc22aXHqk0bJYNf
-	dkuuoPwn9llFk5SBSYmoq8RxN6MJEjjzGb64eKs4lDcUuSX5B3QOXov3Y+MBayRWzDpdasvxEnVUd
-	UI1rTzYHJwNDJKJyIpobFaeLojI7FkMPsqAjCeeZ0M/bPPt7yijupLBBK7eFYVsD4bFBMSpK15A09
-	/SETcJbZL7w0rKshD6ZsoEU9Zzw5XyUzgN2AKbXuB+BEgPjun7/gqOsyIVv+bIgkCD0YNQO4lR8s1
-	ypnocOTQ==;
+	bh=SQM1PPlRQ0zgoenMOf2cd/wwkqZzcH4uHSmvD7moZAA=; b=M9thAwuStXT8NTItGBK8RRd/wc
+	GY6qc4xxdpyTKiiODrjOq3BLOvKqfIfWKmTRtfX/Qydt+r4TVB7jSRtHf1CdisRY5teYzKGOTt1Km
+	CqXRwgeGU4Zf5zCHQr67ByO20/PjHx68Tbkgn0xHYHR/e12DMsPwRcAhyfM2GZrE2k1J8NxLpyLJE
+	YIDkBgbOJlr3d204pF1vfGnUqI8gkcRPK5FE1YmGtSTgvY/pMzel1y8jHaVl+UG6ToDrAiPohOoR9
+	RxAZBeuYnEEw0CGwJQ7m5/SF0wI7RTL8nxkMihCBhbYdzJRTXKGWsGs6mYrxziPPQswfY9xWjIHHB
+	fRsT0sOA==;
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8feS-00000005EKf-48O3
+	id 1v8feT-00000005EKi-1KN4
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 14 Oct 2025 14:05:24 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59EDIudu005757;
-	Tue, 14 Oct 2025 16:05:07 +0200
-Received: from du2pr03cu002.outbound.protection.outlook.com (mail-northeuropeazon11011008.outbound.protection.outlook.com [52.101.65.8])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 49rynhdr9g-1
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59EDIou4014398;
+	Tue, 14 Oct 2025 16:05:05 +0200
+Received: from gvxpr05cu001.outbound.protection.outlook.com (mail-swedencentralazon11013062.outbound.protection.outlook.com [52.101.83.62])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 49qfe64nhn-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 14 Oct 2025 16:05:07 +0200 (MEST)
+	Tue, 14 Oct 2025 16:05:04 +0200 (MEST)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WtntsN/kEZSBCFMAswMCOBI2VBo7UXchKMOpLSN70Rh+KdtxyuPpHlCx5sG2UTXHcUo+kF7v4jRB+r9O4SJ69cVcqw3x5gpLPMWobt0SXM1CSWC6NJLwZl1agFqMkKFasfA47rulHNVKNRj8w4q3NQ1DV+KmdBl/lUkIxnMHU/lQmtQ2EKJWdizUrNPNa7pKyH3IlfCm73n8u4zX11GqJaofjFD9rinGVrZs4/GnCuR5kJfvjUw0jLlOSec7tcob7OnXuUxHxa0sKN447BNGX3RzYJnxTsG7tNVBQx5ABEge+NzSzBuri+NT3jedt4ZqyHqv2CiwBxf6BWxirh2o7A==
+ b=MWoZRDTZ6GYsbQlsZXHvFBfR6MRE5lK3KBs9NuLMU2X/3SRGS3GrMRp93mwi0FcY/N/GbaxiBPKQtCX8q8chEY3SoJvOmGMDIANn2D7nNEM+eu7u6bvqLcrfmGXXr8cyMzagoizXQgYTEoVJn1TdxxrpI8E+mvqGOCeWEfmh/cJUIkk3XuNKoogmRcOZFnY8MZQ4fbC5CRVL3THHPrQrvBeX1Kb03gWs/JceYgVVNDAosjeNkWULHAfNi0aOHZnj8GOJKv4bis8JyDR+hKuy//hFhAwqWNmK2dmc7O1LSs0s/+Zrcrf6fgC7iFLf+g04zm44NujQHcHTgy5UIuOQVA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AAYcgQYNbbDmvz8bN2QzLJ+JysyoW5LOY2/FsKfJiGw=;
- b=i1d3SQ6I/RiRxyvWSirlpQB23+QzLMKF1VTiLWqVGQHeOx9mDzAEkk+nR+4sI9cIzIo6FbksTPlX09vog8ZxsFmr7wone26LkEkbmCDAVxyE2wlmEX7O3xFYPpKmv+Dte8/kd0tjdllMS1ATnCr2yjbbBO/+dEg8J/byvo/5/KzR5EbmjICGC4iBdRt+phKnm6ghl+5KcvgW8GVxBY/b2zmaTDBk1TI+TZyhPVwGpl47tj69VKIlabbW3gvP56J49oSdZK7GpOzCv86cXuFAOvjEGAKHlNxnbVl82i0vUM3Za0liy4cHZPfiFAs+vGcTmk0LnpRKXbk/UDLshPffOw==
+ bh=SQM1PPlRQ0zgoenMOf2cd/wwkqZzcH4uHSmvD7moZAA=;
+ b=nlKhtf0s2ekyIOiG2dFxu7nMTBQtQ4b/LR03WcPP2giI0vGprhlSK01oJVp0Vp/fkYhV31Hj4O5fmboMbTXJ1TYKjzbc3NUd+Hiort7I3inIzdaJGwxWYborUNToi6xV5PE9djOphZ+QmPFp6NyE5tUAl9MwWDef04dZHkX5no8hF36toBmypRseKXL6B9OjDofe+w4IpV38HtiHAryubKXqwRhbMynFuxGR8IhsUjYNLTo7Qi0vwJ6dX0lfiPo0ehMxmI9uifBqO4zbpgNFNS7l+9l3olf1B/1VVcALUcWmqylZfxrxCpDOklNY6ccyWpBXk3ln3vTHqBb9DNuOqQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  164.130.1.44) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
  dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
@@ -63,17 +63,17 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AAYcgQYNbbDmvz8bN2QzLJ+JysyoW5LOY2/FsKfJiGw=;
- b=AR+k1h/cnrc7fi8QKmKtQtiqYtrwtDEXodfqzj7Nt20wqiHtJPZg+581GwmEXFVzL7rkUGSSH753O84VSjkHy4sF2vLk7RcBsVwm6IDeLVLFp3rP/64leJxIbGiblEtQDxTgzbTR6eN4B6J3KaMhkpdaNy9XaSI4xwm2qBGAlr1xg+3DRcWJdAK/hmUNZ/nEiOwHTWHAJ4HKJkwyfAG/3trdliADqtG4+4iB+6IMv4jQm0TbD3FaDqnq25gy9DL29iLNd1YZFYuKZzs3lZ5UHfCWu8Dt2ahiWOJMmOzdjEhihG51qBewbwy+kOJcqisZIsnrPPUKezkRP+WuooR6yw==
-Received: from AS9PR0301CA0050.eurprd03.prod.outlook.com
- (2603:10a6:20b:469::19) by AM0PR10MB3123.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:208:18b::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.10; Tue, 14 Oct
- 2025 14:05:01 +0000
+ bh=SQM1PPlRQ0zgoenMOf2cd/wwkqZzcH4uHSmvD7moZAA=;
+ b=Q+XTietDaLaqsKWgDKujFUIrs88auQ6Mb3d6euXnXrHktuD74Z74x8SQShmXaygWi4zAwCuyWvZi1gfO5NabU1DfTYfhCHSvMqDH4YCFlAaZX3D/XnqKA35PsmANaMfRfglZ9SNtNa30BJFhSTnPuw6tjq5x48FTVunBxWMzewoCgOjHZetMwB38BqYuF4CBmY6TXqbL+6XJEIREQ+e0YVizQQEawSNi8bgEdgdrwd1KM/Eh5G3cRhG1liXbXOOBy6+m93EwvGm7SKhixOBHhgFwTR9w9LplNdiqEkCf8DmBz3nM/44B9HsX5106uCvzUedeIcOScRC70GlL64zGsQ==
+Received: from AS9PR0301CA0047.eurprd03.prod.outlook.com
+ (2603:10a6:20b:469::27) by DU4PR10MB8723.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:10:55c::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.13; Tue, 14 Oct
+ 2025 14:05:02 +0000
 Received: from AM4PEPF00027A6A.eurprd04.prod.outlook.com
- (2603:10a6:20b:469:cafe::bd) by AS9PR0301CA0050.outlook.office365.com
- (2603:10a6:20b:469::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9203.13 via Frontend Transport; Tue,
+ (2603:10a6:20b:469:cafe::e7) by AS9PR0301CA0047.outlook.office365.com
+ (2603:10a6:20b:469::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9203.12 via Frontend Transport; Tue,
  14 Oct 2025 14:05:01 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
  smtp.mailfrom=foss.st.com; dkim=none (message not signed)
@@ -84,15 +84,15 @@ Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
 Received: from smtpO365.st.com (164.130.1.44) by
  AM4PEPF00027A6A.mail.protection.outlook.com (10.167.16.88) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9228.7 via Frontend Transport; Tue, 14 Oct 2025 14:05:00 +0000
+ 15.20.9228.7 via Frontend Transport; Tue, 14 Oct 2025 14:05:02 +0000
 Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
  (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 14 Oct
- 2025 15:57:55 +0200
+ 2025 15:57:57 +0200
 Received: from localhost (10.48.86.11) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 14 Oct
- 2025 16:05:00 +0200
+ 2025 16:05:01 +0200
 From: Antonio Borneo <antonio.borneo@foss.st.com>
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -110,9 +110,9 @@ CC: Antonio Borneo <antonio.borneo@foss.st.com>,
         Fabien Dessenne
 	<fabien.dessenne@foss.st.com>,
         Valentin Caron <valentin.caron@foss.st.com>
-Subject: [PATCH v3 07/10] pinctrl: stm32: Support I/O synchronization parameters
-Date: Tue, 14 Oct 2025 16:04:48 +0200
-Message-ID: <20251014140451.1009969-8-antonio.borneo@foss.st.com>
+Subject: [PATCH v3 09/10] dt-bindings: pinctrl: stm32: Support I/O synchronization parameters
+Date: Tue, 14 Oct 2025 16:04:50 +0200
+Message-ID: <20251014140451.1009969-10-antonio.borneo@foss.st.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251014140451.1009969-1-antonio.borneo@foss.st.com>
 References: <20251014140451.1009969-1-antonio.borneo@foss.st.com>
@@ -124,76 +124,75 @@ X-ClientProxiedBy: SAFCAS1NODE1.st.com (10.75.90.11) To SHFDAG1NODE1.st.com
  (10.75.129.69)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM4PEPF00027A6A:EE_|AM0PR10MB3123:EE_
-X-MS-Office365-Filtering-Correlation-Id: d30fb084-c5ec-44e9-9dac-08de0b2aaa5d
+X-MS-TrafficTypeDiagnostic: AM4PEPF00027A6A:EE_|DU4PR10MB8723:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6d9c6220-e4c5-4bea-9c58-08de0b2aab36
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|36860700013|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qNLG++mEgDPMi7XLd5pHe2Qe3hoOYjvU/z65GaCF3wxBJZWyI4bpjFRZ0Qyf?=
- =?us-ascii?Q?GIxbB+snu3Q62o4NIbpioDWfwHBRlkkmj051cTrZDWq5NVhsYx0fU4EXJERI?=
- =?us-ascii?Q?MaQcm9iv6n6FysndJRhf0RuDc9yZ/k/gOlM8dKm1O7p29x6Io27M7cehgrjf?=
- =?us-ascii?Q?pQqsZK3hvNUdAQSYVqzmkIUAFBgJ5ljIaAQKulfqRWlavEeCr0Q5ENccTnLR?=
- =?us-ascii?Q?0sj0Lp0tDwRa+vD3SM3Ig5yHTbWWdGGdhUGtq2XOGMF/85f8nE5ujZzYCu9q?=
- =?us-ascii?Q?Ke57pQj7SbRMkhudEdnmsuYIgelWIAzmh7AfpDn8/dF4jYfrZIAzwDQnTsE3?=
- =?us-ascii?Q?UbuEs0TUlvjp86qejRu64omiEuUy6aVOm7BK/zAmD+OvMQeAqgYbeeb9LBpe?=
- =?us-ascii?Q?9mUjE4eqOYZnr75un69f8cRMN+t2LFi3CnJAZg8k6ob+BC9OyDyK9t+f1g9X?=
- =?us-ascii?Q?8HrmwBiPOqFozR5hgicn+1p0h/yKsugmSpjpVKa2kak0g7pQg1BqKQoVDcUT?=
- =?us-ascii?Q?lT/2NAg1MVsjLwunrgV3GzzxrVTY0qQKi1u+qfneXXuCBuosTUxxjue0hkAj?=
- =?us-ascii?Q?GzFnKS1tGYPzhibfLL2MU9DDuvqmF/AMV9fBt/7XciGeScgNAb0CQUHcLmNz?=
- =?us-ascii?Q?IPe1xSv2ExIR1d6YFilJekRBXVmafO8m+yJaQwwzvR6Lu2Jx9VrwN2jGj7/4?=
- =?us-ascii?Q?Sctd9Aa5yxSymPnskt/rj94npdUc7kDZZq+A93VqwqCSld6WKRQWrV6W1iBq?=
- =?us-ascii?Q?Cv1S/bxtXuCmhDdVnEf0NXW1yzTID59XEpnASDX6bFKNB6InD0dWHkxmLEDJ?=
- =?us-ascii?Q?DVJGs5aJZ7eHA9e5QDZerB7k/y3RxSlfmGEzthY6Ylgx1Lq3BXqimffrHBi/?=
- =?us-ascii?Q?MkAXLJPXvF6QtuF7rXQAwqOFcbaWDIMM9iYHJtf1YvZGKUVUhz78eenicm4W?=
- =?us-ascii?Q?MCDNmu9E1KIV3Q4gaXqID7GjVF53geDLFL48a2JFqXFIGHS7jWJp5E6CZink?=
- =?us-ascii?Q?9S/fW4j7PGwKqN8UngRgGz4TyTe4YK4rmym+F50v6D9WPOjxfBNTn5KxKAgS?=
- =?us-ascii?Q?bOhL4fyo7kk4CNrgAIYjO0ewQfmdaZ2dJu9EyYK/L2dVUctAtLiJenf/c1mT?=
- =?us-ascii?Q?kljxipy00E7iYbbRVdCuh71zN8JO7gTpU0Tyod7AcJesZcsP8u+NRzTTe7x2?=
- =?us-ascii?Q?mxcRXqsxHiCtqUVJKxXEvHdOoLZm48UBldzfAyZRG05LqLJVCeTxhyHj1EgV?=
- =?us-ascii?Q?sx2KRWxzCAcvudhug4JD2NVFbn6GI0FwPV8shggqGWy9w/rzvutxQxOgmLNE?=
- =?us-ascii?Q?DnDU06NYtTuk2BATA0YZXH75TLuwCKgaWKL/hFh7eul1RcuDPtwVNWenil9V?=
- =?us-ascii?Q?2TfE07o3tUrkn6HBmYPJOtxrEDogAxAPZ18SNOWR9U7UhF/NvCaj/giwwsov?=
- =?us-ascii?Q?pWRYdV6T2RLmndk+Zv1IVIXWcVV4i/gYYxTIyvWydjeurFpLd4u+jAF86xB9?=
- =?us-ascii?Q?t7L1oxlUvER6EAt2zVA59nQx3uSN6sYPu6o5NcJxJ91T3L/1UGfp4dLAdsvW?=
- =?us-ascii?Q?o2562i+Jt/GHpw6S3o0lzDQZhi9cwh+rVswPoFq+?=
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Xna9hT3xx0lkIWzluGpoqyhVRFA3d0HGCqllZ0dbx/FiHmIHDXIIFI8R879K?=
+ =?us-ascii?Q?WfMnRKbf/P9jikjcj1H9nN7RdqwGbFY42Hxu29eyptNS02YfzPnbeZaRP8EX?=
+ =?us-ascii?Q?RnUQ+y4xERk+yTidv9G5tuZoALQtuhhMdLYrwedmqMdq/bSPesFrNDhIvXeQ?=
+ =?us-ascii?Q?NJ2xWCAPKnKxb7xQPSVRQcHCJraI8/3D87Tgp/n0WBgGcHH2z/68qdowSyD3?=
+ =?us-ascii?Q?8p+3aspbbWyDX21uXaowNvNXX93QtzbPtnNjYgjsuUkwHRAGZ0yWmCU3kquo?=
+ =?us-ascii?Q?efDAmNYtEQJAjo1ELAujBRbtOC00Brmmk8mbjLRZo1kTcmmX83q3bkGcsA84?=
+ =?us-ascii?Q?VEOyTqisvURVXUanvtNtioPfHxKEGSM15RG7eqNcFLfH7atwdhwZFnBWWAsI?=
+ =?us-ascii?Q?1np78kNZPB3V0w5zIKH9sRvzxsZFYAQ2oeqrRrfrGrIXklpPQ6a5+hh72uYq?=
+ =?us-ascii?Q?ryYZV3FrurXPJHkvM8OE8OSCN2IA+Qnhv3zrYgVNyJigKi2fTPqi/AS3ZnpL?=
+ =?us-ascii?Q?q33ycAZ5yNxtOncvK8/Vq6uBKDqf5DsuYzc3mBR8dUDffa2HKMDMJzRAUzNn?=
+ =?us-ascii?Q?+FrQFgKaow6l1tzb7ToBUZX4O5MWPWVzByesqhpnjBj7rxLTuE025sT57fyT?=
+ =?us-ascii?Q?1o+opNDLfvWR6XGwLpQVq1Ll90nA5cCgWbOGgIVwaicheLssY3Z8PtgvrMo0?=
+ =?us-ascii?Q?2iJfAgsoioOM17vithfYNmI/AOlnfEZtteXcJIyvqGYmZAAxCALGZNeERGl3?=
+ =?us-ascii?Q?ZqmfgDqgN1DvT9EzLm1MG2ljTWLAUXu0zg2w3lNZJIWj7sNU+dLtOweXKyTD?=
+ =?us-ascii?Q?DEFFFLIUDmuwz/Sceis1bL5I0SKw4tXS5JvCYvbp52n4m4QIhtnWvtNeDFGU?=
+ =?us-ascii?Q?RrbPGmzV/kk2XsYw6dzY3l1Z/vzC2ZjFUjKqiTNMjmTB+anofRK+40hIys8A?=
+ =?us-ascii?Q?DiacZYWXDj2s/rRkpd8B6UdRpb+kxcYUTySZrFwDJ7qYgy8AGyF4tyQvaqIP?=
+ =?us-ascii?Q?n5O2ZruDe/ZyhjGqQLn/1PiS74uquVGZ7eDepVhTJ/nE92rVe0AxYBmrFbrX?=
+ =?us-ascii?Q?P9bmFhPwi3neTFgoKA6r2k4hA644zPwdCSzI8tzyXq7oPKUR4VwcuIXVz0QH?=
+ =?us-ascii?Q?opIOp93Cx8lvngxDFaF0vDqG4Slx3kvhb/EQywIToIrYwODcxNr0RRzTl7yG?=
+ =?us-ascii?Q?ozNLmBefibvlOxbUbBYLiac+1Wojnjo2RV34TCHC5u9RpPGUDNTqllee+TmD?=
+ =?us-ascii?Q?dNwthO6SeBFrKaX99mLD5hrOBuVBQS8J0CaOZnVEdOERVAL5titBQckrPg35?=
+ =?us-ascii?Q?/l/5jkaTJJB718DNmwZL87z2p2gE8PuO3zdT/jKMJVRwQxzBMTz1s5BWiJ+d?=
+ =?us-ascii?Q?45TN+Y5L/9v1lZfXX73ySS2llBE/6kG/4X2GGLx1YZk+iF1YOP0A+G614br3?=
+ =?us-ascii?Q?WhIWAXVDg8vzWWQtqzU7AfZ2Y7DqYDiIKMZOgYF0IGHufWuzevAe+jFKN3Cv?=
+ =?us-ascii?Q?Tyf5FXHqmAqvqw+q/nPAxj1tp6cl/ne4L9IrJilOlYaLw3exT2V03jjs01X9?=
+ =?us-ascii?Q?xvKlaHVlBEDtDdH/DIYb9SQfQjQUZ/PxsE6GKXUX?=
 X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(36860700013)(921020);DIR:OUT;SFP:1101;
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2025 14:05:00.7134
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2025 14:05:02.1380
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d30fb084-c5ec-44e9-9dac-08de0b2aaa5d
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6d9c6220-e4c5-4bea-9c58-08de0b2aab36
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
 X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A6A.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB3123
-X-Proofpoint-GUID: yMikEBZEjow67USuVd6TRxfy7op-Vk2n
-X-Proofpoint-ORIG-GUID: yMikEBZEjow67USuVd6TRxfy7op-Vk2n
-X-Authority-Analysis: v=2.4 cv=TtPrRTXh c=1 sm=1 tr=0 ts=68ee5893 cx=c_pps
- a=sfN2xSSYXAWEoTbWCh/xAg==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR10MB8723
+X-Proofpoint-GUID: zDcvjtBYjjp_yew0ATDM-gi3TxKSTYXC
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxOCBTYWx0ZWRfXyRp3nkvMqecD
+ O/xUqSBU4XAKDTuI05pl7olYobuL3nKuu21WVdH4vEXr6nNng92N/9r9vdu7NsORkmCpi0R1WHo
+ ofhGd69SMJU41m6sbQcIjAKXP7cijXa6sveXBjuxkFJdh016uJcEPTrAzpMefXvwdNvht8pcH9r
+ /iUe1zTE1HP2qoliLFLTL5Qh2bCtHWOgmuvEoH5mGUNzY3HBX4cIxXGp7dB7T1D74ZJbKh6r35Q
+ t6iP6Q5UczQXfu3TlMacOdgvTlf569kBFedaD7l4/fcti9IhXc6+h6/OidDBY3C2StEGggOxJI+
+ y9/k7gqB7hYexoQZYVG8nmwATmAzOV44B5e/0j3ok7NNOcOcycQBI6hhXF8fGs3TODADScwu3e6
+ KZ0Kky8z49RPafKHIN/8gaiP1w/Kww==
+X-Authority-Analysis: v=2.4 cv=NfvrFmD4 c=1 sm=1 tr=0 ts=68ee5890 cx=c_pps
+ a=RtmOKfXeDbbZjWwzFrWVdg==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=y9YUpebZf6kA:10 a=x6icFKpwvdMA:10
  a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=8b9GpE9nAAAA:8 a=GcfiOUnl-Qwgb4vcQAQA:9 a=T3LWEMljR5ZiDmsYVIUa:22
+ a=8b9GpE9nAAAA:8 a=Y3uBLxUxZlyhwTEa0a0A:9 a=T3LWEMljR5ZiDmsYVIUa:22
  a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDEzMDA0OCBTYWx0ZWRfXyxae++E8wzfu
- i4+i7RpKF/lh34YWTW1dcq7xzYaRbEucUZOkVwq0h2QyYCy8L+o6lB/Rh+DkmVQ/jGx12ZvGf9P
- wwzH9rRFJUP/D9h8+MJ3IW+q19HqVs5VLguIFCAk3guDYFweh2FdgBc3g139OZPQCcxFmAchPHq
- xZWaDZXYuEZgMGvu/XEJZzuWo1yR1+wHJcSsa8Z7G6g+Vk9tH6/Fg5dsK/6mm+UbGoLg+4WCsPw
- fHJ2JkCKnKs1scE7+arWvdg+l9WKbM9aEmB1OUfyig8u+iQpPgFgQi/YZvaNobmc/0/vUraLOHZ
- 8cL/BryxPWAHgdiROojnB72EYQop707FBmH9oCRAS81JXU921CFPkhQUO1t8xVwd9+OlTvzXEjB
- 3Qxc8Mi/QDW25pM8JO9jKk4j1HB1jw==
+X-Proofpoint-ORIG-GUID: zDcvjtBYjjp_yew0ATDM-gi3TxKSTYXC
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-10-14_03,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
- priorityscore=1501 spamscore=0 impostorscore=0 phishscore=0
- lowpriorityscore=0 bulkscore=0 suspectscore=0 malwarescore=0 adultscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
- definitions=main-2510130048
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 impostorscore=0
+ lowpriorityscore=0 priorityscore=1501 spamscore=0 phishscore=0 adultscore=0
+ clxscore=1015 bulkscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510110018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_150521_668460_C758439A 
-X-CRM114-Status: GOOD (  19.03  )
+X-CRM114-CacheID: sfid-20251014_150521_591544_088F32C2 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -208,399 +207,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Devices in the stm32mp2xx family include an I/O synchronization
-block on each pin that is used to fine tune and improve the I/O
-timing margins of high speed synchronous interfaces.
-It can be configured to provide independently for each pin:
-- skew rate on input direction or latch delay on output direction;
-- inversion of clock signals or re-sampling of data signals.
-
-Add support for the generic properties:
+Document the support of the I/O synchronization parameters:
 - skew-delay-input;
-- skew-delay-output.
+- skew-delay-output;
+- st,io-sync.
 
-Add support for the property 'st,io-sync' to configure clock
-inversion or data re-sampling mode.
+Forbid 'skew-delay-input' and 'skew-delay-output' to be both
+present on the same pin.
+Allow the new properties only with compatibles that support them.
+Add an example that uses the new properties.
 
-Show the new parameters on debugfs pinconf-pins.
-
-Enable it for the stm32mp257 pinctrl driver.
-
-Co-developed-by: Valentin Caron <valentin.caron@foss.st.com>
-Signed-off-by: Valentin Caron <valentin.caron@foss.st.com>
 Co-developed-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
 Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
 Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
 ---
- drivers/pinctrl/stm32/pinctrl-stm32.c      | 241 +++++++++++++++++++++
- drivers/pinctrl/stm32/pinctrl-stm32.h      |   1 +
- drivers/pinctrl/stm32/pinctrl-stm32mp257.c |   2 +
- 3 files changed, 244 insertions(+)
+ .../bindings/pinctrl/st,stm32-pinctrl.yaml    | 98 +++++++++++++++++++
+ 1 file changed, 98 insertions(+)
 
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
-index ac64cb7f86d74..1f024390e0c2f 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-@@ -51,9 +51,20 @@
- #define STM32_GPIO_AFRL		0x20
- #define STM32_GPIO_AFRH		0x24
- #define STM32_GPIO_SECCFGR	0x30
-+#define STM32_GPIO_DELAYRL	0x40
-+#define STM32_GPIO_ADVCFGRL	0x48
- #define STM32_GPIO_CIDCFGR(x)	(0x50 + (0x8 * (x)))
- #define STM32_GPIO_SEMCR(x)	(0x54 + (0x8 * (x)))
+diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+index 2df141ed7222d..0010762127c05 100644
+--- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+@@ -220,12 +220,89 @@ patternProperties:
+             minimum: 0
+             maximum: 3
  
-+#define STM32_GPIO_ADVCFGR_DLYPATH_MASK		BIT(0)
-+#define STM32_GPIO_ADVCFGR_DE_MASK		BIT(1)
-+#define STM32_GPIO_ADVCFGR_INVCLK_MASK		BIT(2)
-+#define STM32_GPIO_ADVCFGR_RET_MASK		BIT(3)
-+#define STM32_GPIO_ADVCFGR_IO_SYNC_MASK		\
-+	(STM32_GPIO_ADVCFGR_DE_MASK		\
-+	 | STM32_GPIO_ADVCFGR_INVCLK_MASK	\
-+	 | STM32_GPIO_ADVCFGR_RET_MASK)
++          skew-delay-input:
++            description: |
++              IO synchronization skew rate applied to the input path
++              0: No delay
++              1: Delay 0.30 ns
++              2: Delay 0.50 ns
++              3: Delay 0.75 ns
++              4: Delay 1.00 ns
++              5: Delay 1.25 ns
++              6: Delay 1.50 ns
++              7: Delay 1.75 ns
++              8: Delay 2.00 ns
++              9: Delay 2.25 ns
++              10: Delay 2.50 ns
++              11: Delay 2.75 ns
++              12: Delay 3.00 ns
++              13: Delay 3.25 ns
++            minimum: 0
++            maximum: 13
 +
- #define STM32_GPIO_CIDCFGR_CFEN		BIT(0)
- #define STM32_GPIO_CIDCFGR_SEMEN	BIT(1)
- #define STM32_GPIO_CIDCFGR_SCID_MASK	GENMASK(5, 4)
-@@ -67,6 +78,9 @@
++          skew-delay-output:
++            description: |
++              IO synchronization latch delay applied to the output path
++              0: No delay
++              1: Delay 0.30 ns
++              2: Delay 0.50 ns
++              3: Delay 0.75 ns
++              4: Delay 1.00 ns
++              5: Delay 1.25 ns
++              6: Delay 1.50 ns
++              7: Delay 1.75 ns
++              8: Delay 2.00 ns
++              9: Delay 2.25 ns
++              10: Delay 2.50 ns
++              11: Delay 2.75 ns
++              12: Delay 3.00 ns
++              13: Delay 3.25 ns
++            minimum: 0
++            maximum: 13
++
++          st,io-sync:
++            description: |
++              IO synchronization through re-sampling or inversion
++              0: data or clock GPIO pass-through
++              1: clock GPIO inverted
++              2: data GPIO re-sampled on clock rising edge
++              3: data GPIO re-sampled on clock falling edge
++              4: data GPIO re-sampled on both clock edges
++            $ref: /schemas/types.yaml#/definitions/uint32
++            enum: [0, 1, 2, 3, 4]
++
+         required:
+           - pinmux
  
- #define SYSCFG_IRQMUX_MASK GENMASK(3, 0)
++        # Not allowed both skew-delay-input and skew-delay-output
++        if:
++          required:
++            - skew-delay-input
++        then:
++          properties:
++            skew-delay-output: false
++
+ allOf:
+   - $ref: pinctrl.yaml#
  
-+/* Vendor specific pin configurations */
-+#define STM32_GPIO_PIN_CONFIG_IO_SYNC	(PIN_CONFIG_END + 1)
++  - if:
++      not:
++        properties:
++          compatible:
++            contains:
++              enum:
++                - st,stm32mp257-pinctrl
++                - st,stm32mp257-z-pinctrl
++    then:
++      patternProperties:
++        '-[0-9]*$':
++          patternProperties:
++            '^pins':
++              properties:
++                skew-delay-input: false
++                skew-delay-output: false
++                st,io-sync: false
 +
- #define gpio_range_to_bank(chip) \
- 		container_of(chip, struct stm32_gpio_bank, range)
+ required:
+   - compatible
+   - '#address-cells'
+@@ -306,4 +383,25 @@ examples:
+                 pinctrl-names = "default";
+     };
  
-@@ -82,6 +96,23 @@ static const char * const stm32_gpio_functions[] = {
- 	"reserved",
- };
- 
-+static const struct pinconf_generic_params stm32_gpio_bindings[] = {
-+	{"st,io-sync", STM32_GPIO_PIN_CONFIG_IO_SYNC, 0},
-+};
++  - |
++    #include <dt-bindings/pinctrl/stm32-pinfunc.h>
++    //Example 4 skew-delay and st,io-sync
++      pinctrl: pinctrl@44240000 {
++              compatible = "st,stm32mp257-pinctrl";
++              #address-cells = <1>;
++              #size-cells = <1>;
++              ranges = <0 0x44240000 0xa0400>;
 +
-+static u8 io_sync_2_advcfgr[] = {
-+	/* data or clock GPIO pass-through */
-+	[0] = 0,
-+	/* clock GPIO inverted */
-+	[1] = STM32_GPIO_ADVCFGR_INVCLK_MASK,
-+	/* data GPIO re-sampled on clock rising edge */
-+	[2] = STM32_GPIO_ADVCFGR_RET_MASK,
-+	/* data GPIO re-sampled on clock falling edge */
-+	[3] = STM32_GPIO_ADVCFGR_RET_MASK | STM32_GPIO_ADVCFGR_INVCLK_MASK,
-+	/* data GPIO re-sampled on both clock edges */
-+	[4] = STM32_GPIO_ADVCFGR_RET_MASK | STM32_GPIO_ADVCFGR_DE_MASK,
-+};
++              eth3_rgmii_pins_a: eth3-rgmii-0 {
++                      pins1 {
++                              pinmux = <STM32_PINMUX('A', 6, AF14)>;
++                              st,io-sync = <4>;
++                      };
++                      pins2 {
++                              pinmux = <STM32_PINMUX('H', 2, AF14)>;
++                              skew-delay-output = <2>;
++                      };
++              };
++      };
 +
- struct stm32_pinctrl_group {
- 	const char *name;
- 	unsigned long config;
-@@ -95,6 +126,8 @@ struct stm32_pin_backup {
- 	unsigned int speed:2;
- 	unsigned int drive:1;
- 	unsigned int value:1;
-+	unsigned int advcfg:4;
-+	unsigned int skew_delay:4;
- };
- 
- struct stm32_gpio_bank {
-@@ -110,6 +143,7 @@ struct stm32_gpio_bank {
- 	struct stm32_pin_backup pin_backup[STM32_GPIO_PINS_PER_BANK];
- 	u8 irq_type[STM32_GPIO_PINS_PER_BANK];
- 	bool secure_control;
-+	bool io_sync_control;
- 	bool rif_control;
- };
- 
-@@ -201,6 +235,21 @@ static void stm32_gpio_backup_bias(struct stm32_gpio_bank *bank, u32 offset,
- 	bank->pin_backup[offset].bias = bias;
- }
- 
-+static void stm32_gpio_backup_advcfg(struct stm32_gpio_bank *bank, u32 offset, u32 mask, u32 value)
-+{
-+	u32 val;
-+
-+	val = bank->pin_backup[offset].advcfg;
-+	val &= ~mask;
-+	val |= value & mask;
-+	bank->pin_backup[offset].advcfg = val;
-+}
-+
-+static void stm32_gpio_backup_skew_delay(struct stm32_gpio_bank *bank, u32 offset, u32 delay)
-+{
-+	bank->pin_backup[offset].skew_delay = delay;
-+}
-+
- /* RIF functions */
- 
- static bool stm32_gpio_rif_valid(struct stm32_gpio_bank *bank, unsigned int gpio_nr)
-@@ -1145,6 +1194,155 @@ static u32 stm32_pconf_get_bias(struct stm32_gpio_bank *bank,
- 	return (val >> (offset * 2));
- }
- 
-+static void
-+stm32_pconf_set_advcfgr_nolock(struct stm32_gpio_bank *bank, int offset, u32 mask, u32 value)
-+{
-+	int advcfgr_offset = STM32_GPIO_ADVCFGRL + (offset / 8) * 4;
-+	int advcfgr_shift = (offset % 8) * 4;
-+	u32 val;
-+
-+	val = readl_relaxed(bank->base + advcfgr_offset);
-+	val &= ~(mask << advcfgr_shift);
-+	val |= (value & mask) << advcfgr_shift;
-+	writel_relaxed(val, bank->base + advcfgr_offset);
-+
-+	stm32_gpio_backup_advcfg(bank, offset, mask, value);
-+}
-+
-+static int stm32_pconf_set_advcfgr(struct stm32_gpio_bank *bank, int offset, u32 mask, u32 value)
-+{
-+	struct stm32_pinctrl *pctl = dev_get_drvdata(bank->gpio_chip.parent);
-+	unsigned long flags;
-+	int err = 0;
-+
-+	if (!bank->io_sync_control)
-+		return -ENOTSUPP;
-+
-+	spin_lock_irqsave(&bank->lock, flags);
-+
-+	if (pctl->hwlock) {
-+		err = hwspin_lock_timeout_in_atomic(pctl->hwlock, HWSPNLCK_TIMEOUT);
-+		if (err) {
-+			dev_err(pctl->dev, "Can't get hwspinlock\n");
-+			goto unlock;
-+		}
-+	}
-+
-+	stm32_pconf_set_advcfgr_nolock(bank, offset, mask, value);
-+
-+	if (pctl->hwlock)
-+		hwspin_unlock_in_atomic(pctl->hwlock);
-+
-+unlock:
-+	spin_unlock_irqrestore(&bank->lock, flags);
-+
-+	return err;
-+}
-+
-+static u32 stm32_pconf_get_advcfgr(struct stm32_gpio_bank *bank, int offset, u32 mask)
-+{
-+	int advcfgr_offset = STM32_GPIO_ADVCFGRL + (offset / 8) * 4;
-+	int advcfgr_shift = (offset % 8) * 4;
-+	u32 val;
-+
-+	if (!bank->io_sync_control)
-+		return 0;
-+
-+	val = readl_relaxed(bank->base + advcfgr_offset);
-+	val >>= advcfgr_shift;
-+
-+	return val & mask;
-+}
-+
-+static int stm32_pconf_set_io_sync(struct stm32_gpio_bank *bank, int offset, u32 io_sync)
-+{
-+	if (io_sync >= ARRAY_SIZE(io_sync_2_advcfgr))
-+		return -EINVAL;
-+
-+	return stm32_pconf_set_advcfgr(bank, offset, STM32_GPIO_ADVCFGR_IO_SYNC_MASK,
-+		io_sync_2_advcfgr[io_sync]);
-+}
-+
-+static const char *stm32_pconf_get_io_sync_str(struct stm32_gpio_bank *bank, int offset)
-+{
-+	u32 io_sync = stm32_pconf_get_advcfgr(bank, offset, STM32_GPIO_ADVCFGR_IO_SYNC_MASK);
-+
-+	if (io_sync & STM32_GPIO_ADVCFGR_RET_MASK) {
-+		if (io_sync & STM32_GPIO_ADVCFGR_DE_MASK)
-+			return "data GPIO re-sampled on both clock edges";
-+
-+		if (io_sync & STM32_GPIO_ADVCFGR_INVCLK_MASK)
-+			return "data GPIO re-sampled on clock falling edge";
-+
-+		return "data GPIO re-sampled on clock rising edge";
-+	}
-+
-+	if (io_sync & STM32_GPIO_ADVCFGR_INVCLK_MASK)
-+		return "clock GPIO inverted";
-+
-+	return NULL;
-+}
-+
-+static int
-+stm32_pconf_set_skew_delay(struct stm32_gpio_bank *bank, int offset, u32 delay, bool is_dir_input)
-+{
-+	struct stm32_pinctrl *pctl = dev_get_drvdata(bank->gpio_chip.parent);
-+	int delay_offset = STM32_GPIO_DELAYRL + (offset / 8) * 4;
-+	int delay_shift = (offset % 8) * 4;
-+	unsigned long flags;
-+	int err = 0;
-+	u32 val;
-+
-+	if (!bank->io_sync_control)
-+		return -ENOTSUPP;
-+
-+	spin_lock_irqsave(&bank->lock, flags);
-+
-+	if (pctl->hwlock) {
-+		err = hwspin_lock_timeout_in_atomic(pctl->hwlock, HWSPNLCK_TIMEOUT);
-+		if (err) {
-+			dev_err(pctl->dev, "Can't get hwspinlock\n");
-+			goto unlock;
-+		}
-+	}
-+
-+	val = readl_relaxed(bank->base + delay_offset);
-+	val &= ~GENMASK(delay_shift + 3, delay_shift);
-+	val |= (delay << delay_shift);
-+	writel_relaxed(val, bank->base + delay_offset);
-+
-+	stm32_gpio_backup_skew_delay(bank, offset, delay);
-+
-+	stm32_pconf_set_advcfgr_nolock(bank, offset, STM32_GPIO_ADVCFGR_DLYPATH_MASK,
-+				       is_dir_input ? STM32_GPIO_ADVCFGR_DLYPATH_MASK : 0);
-+
-+	if (pctl->hwlock)
-+		hwspin_unlock_in_atomic(pctl->hwlock);
-+
-+unlock:
-+	spin_unlock_irqrestore(&bank->lock, flags);
-+
-+	return err;
-+}
-+
-+static u32 stm32_pconf_get_skew_delay_val(struct stm32_gpio_bank *bank, int offset)
-+{
-+	int delay_offset = STM32_GPIO_DELAYRL + (offset / 8) * 4;
-+	int delay_shift = (offset % 8) * 4;
-+	u32 val;
-+
-+	val = readl_relaxed(bank->base + delay_offset);
-+	val &= GENMASK(delay_shift + 3, delay_shift);
-+
-+	return val >> delay_shift;
-+}
-+
-+static const char *stm32_pconf_get_skew_dir_str(struct stm32_gpio_bank *bank, int offset)
-+{
-+	return stm32_pconf_get_advcfgr(bank, offset, STM32_GPIO_ADVCFGR_DLYPATH_MASK) ?
-+		"input" : "output";
-+}
-+
- static bool stm32_pconf_get(struct stm32_gpio_bank *bank,
- 	unsigned int offset, bool dir)
- {
-@@ -1207,6 +1405,15 @@ static int stm32_pconf_parse_conf(struct pinctrl_dev *pctldev,
- 		__stm32_gpio_set(bank, offset, arg);
- 		ret = stm32_pmx_gpio_set_direction(pctldev, range, pin, false);
- 		break;
-+	case PIN_CONFIG_SKEW_DELAY_INPUT:
-+		ret = stm32_pconf_set_skew_delay(bank, offset, arg, true);
-+		break;
-+	case PIN_CONFIG_SKEW_DELAY_OUTPUT:
-+		ret = stm32_pconf_set_skew_delay(bank, offset, arg, false);
-+		break;
-+	case STM32_GPIO_PIN_CONFIG_IO_SYNC:
-+		ret = stm32_pconf_set_io_sync(bank, offset, arg);
-+		break;
- 	default:
- 		ret = -ENOTSUPP;
- 	}
-@@ -1349,6 +1556,22 @@ static void stm32_pconf_dbg_show(struct pinctrl_dev *pctldev,
- 	case 3:
- 		break;
- 	}
-+
-+	if (bank->io_sync_control) {
-+		const char *io_sync_str, *skew_dir_str;
-+		u32 skew_delay;
-+
-+		io_sync_str = stm32_pconf_get_io_sync_str(bank, offset);
-+		skew_dir_str = stm32_pconf_get_skew_dir_str(bank, offset);
-+		skew_delay = stm32_pconf_get_skew_delay_val(bank, offset);
-+
-+		if (io_sync_str)
-+			seq_printf(s, " - IO-sync: %s", io_sync_str);
-+
-+		if (skew_delay)
-+			seq_printf(s, " - Skew-delay: %u (%u ps) %s", skew_delay, skew_delay * 250,
-+				   skew_dir_str);
-+	}
- }
- 
- static const struct pinconf_ops stm32_pconf_ops = {
-@@ -1441,6 +1664,7 @@ static int stm32_gpiolib_register_bank(struct stm32_pinctrl *pctl, struct fwnode
- 	bank->bank_nr = bank_nr;
- 	bank->bank_ioport_nr = bank_ioport_nr;
- 	bank->secure_control = pctl->match_data->secure_control;
-+	bank->io_sync_control = pctl->match_data->io_sync_control;
- 	bank->rif_control = pctl->match_data->rif_control;
- 	spin_lock_init(&bank->lock);
- 
-@@ -1683,6 +1907,8 @@ int stm32_pctl_probe(struct platform_device *pdev)
- 	pctl->pctl_desc.confops = &stm32_pconf_ops;
- 	pctl->pctl_desc.pctlops = &stm32_pctrl_ops;
- 	pctl->pctl_desc.pmxops = &stm32_pmx_ops;
-+	pctl->pctl_desc.num_custom_params = ARRAY_SIZE(stm32_gpio_bindings);
-+	pctl->pctl_desc.custom_params = stm32_gpio_bindings;
- 	pctl->dev = &pdev->dev;
- 
- 	pctl->pctl_dev = devm_pinctrl_register(&pdev->dev, &pctl->pctl_desc,
-@@ -1804,6 +2030,21 @@ static int __maybe_unused stm32_pinctrl_restore_gpio_regs(
- 	if (ret)
- 		return ret;
- 
-+	if (bank->io_sync_control) {
-+		bool is_input = bank->pin_backup[offset].advcfg & STM32_GPIO_ADVCFGR_DLYPATH_MASK;
-+
-+		ret = stm32_pconf_set_skew_delay(bank, offset,
-+						 bank->pin_backup[offset].skew_delay,
-+						 is_input);
-+		if (ret)
-+			return ret;
-+
-+		ret = stm32_pconf_set_advcfgr(bank, offset, STM32_GPIO_ADVCFGR_IO_SYNC_MASK,
-+					      bank->pin_backup[offset].advcfg);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	if (pin_is_irq)
- 		regmap_field_write(pctl->irqmux[offset], bank->bank_ioport_nr);
- 
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.h b/drivers/pinctrl/stm32/pinctrl-stm32.h
-index b98a4141bf2c0..d17cbdbba4482 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.h
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.h
-@@ -64,6 +64,7 @@ struct stm32_pinctrl_match_data {
- 	const struct stm32_desc_pin *pins;
- 	const unsigned int npins;
- 	bool secure_control;
-+	bool io_sync_control;
- 	bool rif_control;
- };
- 
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32mp257.c b/drivers/pinctrl/stm32/pinctrl-stm32mp257.c
-index d226de524bfc1..6709bddd97186 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32mp257.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32mp257.c
-@@ -2543,6 +2543,7 @@ static const struct stm32_desc_pin stm32mp257_z_pins[] = {
- static struct stm32_pinctrl_match_data stm32mp257_match_data = {
- 	.pins = stm32mp257_pins,
- 	.npins = ARRAY_SIZE(stm32mp257_pins),
-+	.io_sync_control = true,
- 	.secure_control = true,
- 	.rif_control = true,
- };
-@@ -2550,6 +2551,7 @@ static struct stm32_pinctrl_match_data stm32mp257_match_data = {
- static struct stm32_pinctrl_match_data stm32mp257_z_match_data = {
- 	.pins = stm32mp257_z_pins,
- 	.npins = ARRAY_SIZE(stm32mp257_z_pins),
-+	.io_sync_control = true,
- 	.secure_control = true,
- 	.rif_control = true,
- };
+ ...
 -- 
 2.34.1
 
