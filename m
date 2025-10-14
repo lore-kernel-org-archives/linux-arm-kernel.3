@@ -4,119 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2402CCD192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 15:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962C3CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 15:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BPklb6K1+lkU1jV8UO4c/obMd20v1vJ9fV4tt0H1zPw=; b=ql/5jk/+2TDEk73l8dWQXZXdWh
-	N1xKF/1/9s+KFX1SNI8fi2QwcLI8PHCNxG5+HZZvNuVDPM4c53TdlBHhCo1tczv635tXj8S1KPOed
-	v2PRvTc4ggxRx1BMyJPsnqbLBumICgPMN6T4bTal6Vq1mAPe9spwPyMVxGKWhpPN//Xf+1nRM73/V
-	NSQc5kQeCY3TmWCtqW1SDNaRKKVaoJIddfoBwxgm77CBiofGo6C34iJUsPICzSzCxO0glemyI5G9D
-	lJyhY6WK9InA3+OVpOaccVQ6WrVVwheEDcWtwDh5FKpE/ybg2oVLWqndsAwtCjJP4NueGt44DCHJ4
-	la7zXT3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WJ3wgMAYUBjmffEpxEcFsRtBghftLqNL1ylvJ36Y1bw=; b=atd0dXYq6qdb9kDE+/3VyJGuvy
+	2ci/7PXCs5RRpUU5EBpUviEpX+mFM3OwUbdRmo0MKrYXCm2cDvt/asUSKcOnziqsoz6l+Gv6KS3C+
+	02mUY787i6wKgFC+p062v873NumWWmiiVYIQqm5RMe29Mm+eUMJl1YcRTXEzF34pbxb0r/6Rt0LRR
+	t7002ki0pDOe/i3F1eucNDG1UXc9uPdnA0q2aFXAN9hBmbgKPwJGSzHQx2SGqwfWZ4HA+lPfd5fXx
+	P8OcPtuAwCNhAR+dEAniQLBtoZWl/3gY6bnKptWSjRWgOcjYbofyuCVsIGK/cDQQ17TJ7WbYPBW0W
+	E19jwPmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8guq-0000000GpcE-10YN;
-	Tue, 14 Oct 2025 15:26:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1v8gyJ-0000000GqSY-3T6E;
+	Tue, 14 Oct 2025 15:29:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8guk-0000000GpZJ-1Yxd
+	id 1v8gyI-0000000GqRk-0szu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 15:26:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760455573;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BPklb6K1+lkU1jV8UO4c/obMd20v1vJ9fV4tt0H1zPw=;
-	b=eNnFI59PLn/+wqhTTgbfZqG5Kz1ZR6W9z/SSjNbGSnSULLqwGqse39dygoyOUZE59gzj8g
-	pvKr84S4veGO03JHOoF+0Hgd2n8N+lUTD+UVtMAppnIbb+r6bpr2XqMGiMQTZdKghC04Qz
-	utBp88WczpnPKuOzGroW0Q/MxpHeWv8=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-678-nSUJkrI_Ooed8f-LaaT9XQ-1; Tue, 14 Oct 2025 11:26:08 -0400
-X-MC-Unique: nSUJkrI_Ooed8f-LaaT9XQ-1
-X-Mimecast-MFC-AGG-ID: nSUJkrI_Ooed8f-LaaT9XQ_1760455567
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-46e3ef2dd66so36601725e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 08:26:07 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760455567; x=1761060367;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=BPklb6K1+lkU1jV8UO4c/obMd20v1vJ9fV4tt0H1zPw=;
-        b=Ho0aEy1iNzvuYJMavgT6AJXGu6s0Qt5hq3K/cXuR81K7QJ/3zqOxuhjeMHsCvuFPI7
-         8GkkN+Cyg39dybLZJamRfs85cQAVisPMUuNW0CnAAIMkIVHPlEjBZ4SKgRrWDz/PBGBv
-         bsBFbzanBHb3vo0jVpvYTKUOKMWoRKhBNBb70QUgZPVQM+B72rh9jNjd8E6i7GjgpF36
-         AMAPYNhyMqBpgtIiUFCVtzCoTJJANVffEKWC3Qr4bKVD4+hWOkxgOsldGbSLXjv2UIjV
-         s9rIoevWq3LWu13+tskvRquU9262IREtgxDYArySOTaOJ01WiRxR8RqCrLjl3B84Udty
-         L5XQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUl9LsthU/QsxS5cu2cpYmtzgro311Di3GeMehLtPlrcSZ5OmmkagVKZcQqNyGR7Mj+DH+FPIcJYMoCARtQZmWp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKD/9QU/61/Hev4QQNAfn09ealQXTru/QWOg5qseHNZT7LkVs2
-	UR7BBsgSzx85ZRIr4ZoJ9xsbmWEYo7OvGGylMCgMXaH/Ggd6lqSlHS965FMWx1bTd1QgAot3LyD
-	ysBlZeUYHjO0cW1s93lfOLajXLDeEFj1MLMx7JTQoL0UGIA3eNUjrm08xo6VOu2EJLI6oSz9MGy
-	Y8
-X-Gm-Gg: ASbGncupiHQvjvKmrqYOXoRTefyl8zFa1kDxfGnnzn9LbeQQXr0w9CklechuIJgP39X
-	i23V60xgAzfR/ODb3vabxC4ZpCZrHSMW0CcqJPIzsG4m1M6XK+ivUH05k5Ks4IGkdrQQN2NmmTb
-	0JIRWn552WiOA4a+qDeBjwEFi1mVrKKp+4h6h3NI2fJn8nEm4iSvRkr3bhutAYmR/zGTarSkDax
-	b4R4ZUvib8pu4mgfQugJa907pGp/3GuDuKEqYpejgxPofgsSD4PHXfNEN6ITe4HlksCN36qCkTr
-	LjSuPtMiFd5rXDLgZ+C5/Griig+p5XXr/gBCWI1ajC7gVrC7xQWN5C4bI6Kl4twAj6tv0386qyY
-	o6zxi/fi+SUssl4WkcpWxsRWCkw==
-X-Received: by 2002:a05:600c:8115:b0:46e:711c:efe9 with SMTP id 5b1f17b1804b1-46fa9ec7556mr181898865e9.13.1760455566792;
-        Tue, 14 Oct 2025 08:26:06 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHW593XOgtaLpqw6H4D31qH5lmbNbujonLfE4h+J4hQ9AwSFy0g3uK3ztnKvCXj4YJKI0uSVg==
-X-Received: by 2002:a05:600c:8115:b0:46e:711c:efe9 with SMTP id 5b1f17b1804b1-46fa9ec7556mr181898575e9.13.1760455566403;
-        Tue, 14 Oct 2025 08:26:06 -0700 (PDT)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426ce57d3b9sm24483884f8f.11.2025.10.14.08.26.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Oct 2025 08:26:05 -0700 (PDT)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Juri Lelli <juri.lelli@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
- x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H.
- Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
- <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini
- <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
- <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason
- Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard
- Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
- "David S. Miller" <davem@davemloft.net>, Neeraj Upadhyay
- <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
- Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
- Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
- Morton <akpm@linux-foundation.org>, Masahiro Yamada
- <masahiroy@kernel.org>, Han Shen <shenhan@google.com>, Rik van Riel
- <riel@surriel.com>, Jann Horn <jannh@google.com>, Dan Carpenter
- <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, Clark
- Williams <williams@redhat.com>, Yair Podemsky <ypodemsk@redhat.com>,
- Marcelo Tosatti <mtosatti@redhat.com>, Daniel Wagner <dwagner@suse.de>,
- Petr Tesarik <ptesarik@suse.com>
-Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
- user->kernel transition
-In-Reply-To: <aO5I2WGtXqSPYFmH@jlelli-thinkpadt14gen4.remote.csb>
-References: <20251010153839.151763-1-vschneid@redhat.com>
- <aO5I2WGtXqSPYFmH@jlelli-thinkpadt14gen4.remote.csb>
-Date: Tue, 14 Oct 2025 17:26:04 +0200
-Message-ID: <xhsmhzf9tld2r.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	Tue, 14 Oct 2025 15:29:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 85CDC6230A;
+	Tue, 14 Oct 2025 15:29:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F40A1C4CEE7;
+	Tue, 14 Oct 2025 15:29:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760455793;
+	bh=zYExi83W0RHyJrqMwtyqJRZDpbfqUykmcag8kOhkVUI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=eMkaAH4VUyJhLA+HEJG27I9pneelGaB8Y6DWmSQOO2qeeoZXmbHeHdaRSz/LHr53U
+	 JPYOf98BlNoLSMpffIHQoztBZpWlMtYt//Z+NMY0C8lTN6IkgBtGj+7sZaFBKvazQK
+	 E9CtgO2JZrsSYLEub6xnkVsKyOp4AhLYEisIjvdpRIP1O2+7+P2jkRaUBf1tzHqlfH
+	 Od4tZLfPZ1AKRu1RegKMPhC2hGkEE4jilFtA7C3oxCdksozbgdtDOoVcIe2rNQvbih
+	 2H4v9pDdDYwYpxfza+OAhd/gDcolFANkctu1tFo+4aYdsjhR+LX7aiqEH1EE3GDS1/
+	 ocRhZ/HwW3phw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Corey Minyard <corey@minyard.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: openipmi-developer@lists.sourceforge.net,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: ipmi: Convert aspeed,ast2400-ibt-bmc to DT schema
+Date: Tue, 14 Oct 2025 10:29:47 -0500
+Message-ID: <20251014152948.3782738-1-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: xf7Xu5i6K65dUltDpgPWG3o0Bh6snSjeb5O5u2tsdHM_1760455567
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_082616_712315_5F178D22 
-X-CRM114-Status: GOOD (  17.44  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,48 +73,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/10/25 14:58, Juri Lelli wrote:
->> Noise
->> +++++
->>
->> Xeon E5-2699 system with SMToff, NOHZ_FULL, isolated CPUs.
->> RHEL10 userspace.
->>
->> Workload is using rteval (kernel compilation + hackbench) on housekeeping CPUs
->> and a dummy stay-in-userspace loop on the isolated CPUs. The main invocation is:
->>
->> $ trace-cmd record -e "ipi_send_cpumask" -f "cpumask & CPUS{$ISOL_CPUS}" \
->>                 -e "ipi_send_cpu"     -f "cpu & CPUS{$ISOL_CPUS}" \
->>                 rteval --onlyload --loads-cpulist=$HK_CPUS \
->>                 --hackbench-runlowmem=True --duration=$DURATION
->>
->> This only records IPIs sent to isolated CPUs, so any event there is interference
->> (with a bit of fuzz at the start/end of the workload when spawning the
->> processes). All tests were done with a duration of 6 hours.
->>
->> v6.17
->> o ~5400 IPIs received, so about ~200 interfering IPI per isolated CPU
->> o About one interfering IPI just shy of every 2 minutes
->>
->> v6.17 + patches
->> o Zilch!
->
-> Nice. :)
->
-> About performance, can we assume housekeeping CPUs are not affected by
-> the change (they don't seem to use the trick anyway) or do we want/need
-> to collect some numbers on them as well just in case (maybe more
-> throughput oriented)?
->
+Convert the aspeed,ast2400-ibt-bmc binding to DT schema format. It's a
+straight-forward conversion.
 
-So for the text_poke IPI yes, because this is all done through
-context_tracking which doesn't imply housekeeping CPUs.
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/ipmi/aspeed,ast2400-ibt-bmc.txt  | 28 ------------
+ .../bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml | 44 +++++++++++++++++++
+ 2 files changed, 44 insertions(+), 28 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt
+ create mode 100644 Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
 
-For the TLB flush faff the HK CPUs get two extra writes per kernel entry
-cycle (one at entry and one at exit, for that stupid signal) which I expect
-to be noticeable but small-ish. I can definitely go and measure that.
-
-> Thanks,
-> Juri
+diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt
+deleted file mode 100644
+index 25f86da804b7..000000000000
+--- a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.txt
++++ /dev/null
+@@ -1,28 +0,0 @@
+-* Aspeed BT (Block Transfer) IPMI interface
+-
+-The Aspeed SOCs (AST2400 and AST2500) are commonly used as BMCs
+-(BaseBoard Management Controllers) and the BT interface can be used to
+-perform in-band IPMI communication with their host.
+-
+-Required properties:
+-
+-- compatible : should be one of
+-	"aspeed,ast2400-ibt-bmc"
+-	"aspeed,ast2500-ibt-bmc"
+-	"aspeed,ast2600-ibt-bmc"
+-- reg: physical address and size of the registers
+-- clocks: clock for the device
+-
+-Optional properties:
+-
+-- interrupts: interrupt generated by the BT interface. without an
+-  interrupt, the driver will operate in poll mode.
+-
+-Example:
+-
+-	ibt@1e789140 {
+-		compatible = "aspeed,ast2400-ibt-bmc";
+-		reg = <0x1e789140 0x18>;
+-		interrupts = <8>;
+-		clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
+-	};
+diff --git a/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
+new file mode 100644
+index 000000000000..c4f7cdbbe16b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/ipmi/aspeed,ast2400-ibt-bmc.yaml
+@@ -0,0 +1,44 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-ibt-bmc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Aspeed Block Transfer (BT) IPMI interface
++
++maintainers:
++  - Joel Stanley <joel@jms.id.au>
++
++properties:
++  compatible:
++    enum:
++      - aspeed,ast2400-ibt-bmc
++      - aspeed,ast2500-ibt-bmc
++      - aspeed,ast2600-ibt-bmc
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/aspeed-clock.h>
++
++    bt@1e789140 {
++        compatible = "aspeed,ast2400-ibt-bmc";
++        reg = <0x1e789140 0x18>;
++        interrupts = <8>;
++        clocks = <&syscon ASPEED_CLK_GATE_LCLK>;
++    };
+-- 
+2.51.0
 
 
