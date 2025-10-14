@@ -4,72 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4081ACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 18:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D452CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 19:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Hp58YBIxOjlfnNSmdvsXZHMTX0K0zv6wg6UMas852A=; b=Gxkwux+YR8BF5kRDB48FAUrdsB
-	2KXJcidDrvnSmm0jR57xOzmJBGBUKnOd9fJM9wubGn65IG9gwtvF3Qi8oF9xCeYc8EzkTw4vd30Ji
-	GPRaSsM00XMhPU4fkVsDUkVKqVAp/hbNvyaRB+bJTpBUXmC3zbnO4sAlFIfVSp2WxY6ae4wBgPzZJ
-	Zhf8tnpDCQl7afgxINZpMaoz1IArGOYjsk5sl8b3itThbcIhU6lE/3NUoLYcqurNyOP+obRTHQ8sa
-	en+f3OfSoZzQgRhLWV03fM8YG33mZxkfuWrz1iRRyCL0vfwEM0QL0WyscT20rjnZvT9Dn9qVzuL+P
-	bGDbh0lQ==;
+	bh=NJxlV+oNDwXk+z+h9rw/7gmtAEVoUIc/lNQpO7FKflY=; b=Tk7Uxo37r41KyE41ocOBWDAhME
+	xE8izSB0nKooI8GANe0D0LSwqgRuLorvM4PhQspclrmXW1sGYWheIyL9LOsqfbon4k7qGZujihlQS
+	VIt232JhT1MlmBbiO4at8Wmcpd2qTfzmdwN+cQ2lIK/pZm23SVrZb+1nAgDjlMxjmmplu+LG5dm2b
+	EJ4ahbub4/8GQWs2pHxNR/P5waZqLXNTS9m+6sFa6ulmV16dypB1w2+qu5FZlA0lN8ZxWb6j5atHb
+	iwK0l12xB2XEJguEhQkZbgyUODMl35VrOOsZpWd27bJo5gW0MSk7sde2f71toHlHfCN57PLsMcmXo
+	dGRtbpaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8jTn-0000000HABH-49uZ;
-	Tue, 14 Oct 2025 18:10:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8kM1-0000000HED4-4Az3;
+	Tue, 14 Oct 2025 19:06:38 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8jTl-0000000HAAs-1HbV
+	id 1v8kLz-0000000HEC7-1Q1a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 18:10:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EBE6040AAB;
-	Tue, 14 Oct 2025 18:10:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFFC1C4CEE7;
-	Tue, 14 Oct 2025 18:10:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760465432;
-	bh=BSoSmYgtZ9AesO3u1tMwafkyE42czTGEgpGza7+Fu6M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aKKRJ/OUsXrUymQ+jPoIkuuywzRbnANEGOkO+8SUH2NBHJhdK3DIWqvEJh7B/xlYh
-	 c9dbXKOmi07TLXV1prDdV+tJYlBPwcpnpsnNDmd6PRakAOQepQGh8gMqOdeFr6U9UJ
-	 jGEjNCeEHQRWHynn2za/1jqV3NS5yVqNDnJdSqpqzRKKh2s/Yrk5EkV2NBy2rHPAbB
-	 3JYHSvpHYnYSOqEP6s3ztEWE5wGCTuSUlOiXjHwn+xZCCvBQ81SZEBMGZ9e26vNUKW
-	 C+dEmmRQ3OF95jC25AhTpbO0J1c8/E+YmAkqkZSN+fyUVV5iIaIevxdSYh+hYZRgm9
-	 8pvR8xuTKQXzw==
-Date: Tue, 14 Oct 2025 19:10:27 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Antonio Borneo <antonio.borneo@foss.st.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Roullier <christophe.roullier@foss.st.com>,
-	Fabien Dessenne <fabien.dessenne@foss.st.com>,
-	Valentin Caron <valentin.caron@foss.st.com>
-Subject: Re: [PATCH v3 09/10] dt-bindings: pinctrl: stm32: Support I/O
- synchronization parameters
-Message-ID: <20251014-affection-voltage-8b1764273a06@spud>
-References: <20251014140451.1009969-1-antonio.borneo@foss.st.com>
- <20251014140451.1009969-10-antonio.borneo@foss.st.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="WUAPWDm9VxqWJrOr"
-Content-Disposition: inline
-In-Reply-To: <20251014140451.1009969-10-antonio.borneo@foss.st.com>
+	Tue, 14 Oct 2025 19:06:36 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-339d5dbf58aso22048150a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 12:06:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1760468794; x=1761073594; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NJxlV+oNDwXk+z+h9rw/7gmtAEVoUIc/lNQpO7FKflY=;
+        b=U5XuV1LhwRkTe9ppD6r0OFDMom+rixPke0afIqJ4Zqk/tQ5UR+4cHhr78XEewcyWuf
+         6j9cJPpQVy1JpbHSvbxPj+SKalMpifrc9rrMEv+Hp2asNQtjMQFKj6Ve9TpYIUFfM5JG
+         lLHkSsHL1cTc1u6XcZavTaYsk4YKm+i6whYHOjq7X4I4Lni0EBO5GFsdJeWyOHl4BJdM
+         GP7m86IM96VIyiK7S7TJEYISh+WRwDEonDTXsDtMZsJeJefmzu1463wMtMtB94+ezqIc
+         Fy4LhAwaHMxvTjzfLE5hWwulU+ytRqKhA42zGEj1Rhg8gYHvqVoNvss/SgqbwcN2UHcE
+         HFoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760468794; x=1761073594;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NJxlV+oNDwXk+z+h9rw/7gmtAEVoUIc/lNQpO7FKflY=;
+        b=Ohpf9qK26OdGBVGfQNSeaKk4SjtFpEUZQUAyHUDWTqwVcntovQUBuaRcx1fguQYHoh
+         TPUHcuStJT3ojKHhQos3vnMH5qSiKAity6qZ66+MTRBLt+sGG8Utv19dLZXoscUD+Djh
+         gCDCF01xn2DgWBpXULcjYE/2TGrevNg5U4nwrTgQqNutcwVTD8OTdxZge0b1s9E7mz0d
+         0xukYJ28Ji/TByyf89jBUJZ0w0AC/AYx3jweiUK455I+g4MMcr7V5MYC/dZ/M+9T13T+
+         Q7JQAfwZqSK/dw1m4yNOqxPYarvQZev2oSoOp+OosgNbe/uZMbRkURQB7pvrlLO3P0fX
+         PnWw==
+X-Forwarded-Encrypted: i=1; AJvYcCWmKM+Bw7uYx6kEFXi86pKGXTHcrZLojHKe4gPKov9QflEwHi3Fo2dHmmVISDXuzlnoPOpwUwaGxauk2pEHRcwa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzByyy5ewPgrmZTnXFRX2Ern67uLwoGZv5X3d+kuH1zmc1qmwda
+	hYBknF9NuN4miMS4mRoVdAzOR1W1dR6hhoo+JgY3zgJpM5OvJL+CXnK9YHNzFAmCySMqYiTZ2UJ
+	LKFw3fQ==
+X-Google-Smtp-Source: AGHT+IG9Zd3t+86XRNhfr6MOl3z2x5n36Sr6uReq0nGSm2P7jNviBzkfzWGC0x9bWFlsxNGdGfsNX6JxluA=
+X-Received: from pjuj14.prod.google.com ([2002:a17:90a:d00e:b0:32b:95bb:dbc])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3ec5:b0:327:e018:204a
+ with SMTP id 98e67ed59e1d1-33b50f85081mr35201870a91.0.1760468794156; Tue, 14
+ Oct 2025 12:06:34 -0700 (PDT)
+Date: Tue, 14 Oct 2025 12:06:32 -0700
+In-Reply-To: <xhsmhwm4xpwyt.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+Mime-Version: 1.0
+References: <20251010153839.151763-1-vschneid@redhat.com> <20251010153839.151763-20-vschneid@redhat.com>
+ <aO2S3oZwOW_UgAci@google.com> <xhsmhwm4xpwyt.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+Message-ID: <aO6fOM-XydknM6NJ@google.com>
+Subject: Re: [PATCH v6 19/29] KVM: VMX: Mark vmx_l1d_should flush and
+ vmx_l1d_flush_cond keys as allowed in .noinstr
+From: Sean Christopherson <seanjc@google.com>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org, 
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Frederic Weisbecker <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Jason Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ard Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
+	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, 
+	Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>, Jann Horn <jannh@google.com>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, 
+	Juri Lelli <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, 
+	Yair Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>, 
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_111033_413257_E171CDCE 
-X-CRM114-Status: GOOD (  20.54  )
+X-CRM114-CacheID: sfid-20251014_120635_379558_3CD1766B 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,174 +109,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Oct 14, 2025, Valentin Schneider wrote:
+> On 13/10/25 17:01, Sean Christopherson wrote:
+> > On Fri, Oct 10, 2025, Valentin Schneider wrote:
+> >> Later commits will cause objtool to warn about static keys being used in
+> >> .noinstr sections in order to safely defer instruction patching IPIs
+> >> targeted at NOHZ_FULL CPUs.
+> >>
+> >> These keys are used in .noinstr code, and can be modified at runtime
+> >> (/proc/kernel/vmx* write). However it is not expected that they will be
+> >> flipped during latency-sensitive operations, and thus shouldn't be a source
+> >> of interference wrt the text patching IPI.
+> >>
+> >> Mark it to let objtool know not to warn about it.
+> >
+> > Can you elaborate in the changelog on what will happen if the key is toggle?
+> > IIUC, smp_text_poke_batch_finish() will force IPIs if noinstr code is being
+> > patched.
+> 
+> Right!
+> 
+> > Even just a small footnote like this:
+> >
+> >   Note, smp_text_poke_batch_finish() never defers IPIs if noinstr code is
+> >   being patched, i.e. this is purely about silencing objtool warnings.
+> >
+> > to make it clear that there's no bug/race being introduced.
+> 
+> Good point. How about:
+> 
+> """
+> Later commits will cause objtool to warn about static keys being used in
+> .noinstr sections in order to safely defer instruction patching IPIs
+> targeted at NOHZ_FULL CPUs.
+> 
+> The VMX keys are used in .noinstr code, and can be modified at runtime
+> (/proc/kernel/vmx* write). However it is not expected that they will be
+> flipped during latency-sensitive operations, and thus shouldn't be a source
+> of interference for NOHZ_FULL CPUs wrt the text patching IPI.
+> 
+> Note, smp_text_poke_batch_finish() never defers IPIs if noinstr code is
+> being patched, i.e. this is purely to tell objtool we're okay with updates
+> to that key causing IPIs and to silence the associated objtool warning.
+> """
 
---WUAPWDm9VxqWJrOr
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+LGTM.  With the updated changelog,
 
-On Tue, Oct 14, 2025 at 04:04:50PM +0200, Antonio Borneo wrote:
-> Document the support of the I/O synchronization parameters:
-> - skew-delay-input;
-> - skew-delay-output;
-> - st,io-sync.
->=20
-> Forbid 'skew-delay-input' and 'skew-delay-output' to be both
-> present on the same pin.
-> Allow the new properties only with compatibles that support them.
-> Add an example that uses the new properties.
->=20
-> Co-developed-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
-> Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
-> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
-> ---
->  .../bindings/pinctrl/st,stm32-pinctrl.yaml    | 98 +++++++++++++++++++
->  1 file changed, 98 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.y=
-aml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-> index 2df141ed7222d..0010762127c05 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
-> @@ -220,12 +220,89 @@ patternProperties:
->              minimum: 0
->              maximum: 3
-> =20
-> +          skew-delay-input:
-> +            description: |
-> +              IO synchronization skew rate applied to the input path
-> +              0: No delay
-> +              1: Delay 0.30 ns
-> +              2: Delay 0.50 ns
-> +              3: Delay 0.75 ns
-> +              4: Delay 1.00 ns
-> +              5: Delay 1.25 ns
-> +              6: Delay 1.50 ns
-> +              7: Delay 1.75 ns
-> +              8: Delay 2.00 ns
-> +              9: Delay 2.25 ns
-> +              10: Delay 2.50 ns
-> +              11: Delay 2.75 ns
-> +              12: Delay 3.00 ns
-> +              13: Delay 3.25 ns
-> +            minimum: 0
-> +            maximum: 13
-> +
-> +          skew-delay-output:
-> +            description: |
-> +              IO synchronization latch delay applied to the output path
-> +              0: No delay
-> +              1: Delay 0.30 ns
-> +              2: Delay 0.50 ns
-> +              3: Delay 0.75 ns
-> +              4: Delay 1.00 ns
-> +              5: Delay 1.25 ns
-> +              6: Delay 1.50 ns
-> +              7: Delay 1.75 ns
-> +              8: Delay 2.00 ns
-> +              9: Delay 2.25 ns
-> +              10: Delay 2.50 ns
-> +              11: Delay 2.75 ns
-> +              12: Delay 3.00 ns
-> +              13: Delay 3.25 ns
-> +            minimum: 0
-> +            maximum: 13
-
-Same comments here as on the earlier patch. I would like to see times
-used natively.
-pw-bot: changes-requested
-
-> +
-> +          st,io-sync:
-> +            description: |
-> +              IO synchronization through re-sampling or inversion
-> +              0: data or clock GPIO pass-through
-> +              1: clock GPIO inverted
-> +              2: data GPIO re-sampled on clock rising edge
-> +              3: data GPIO re-sampled on clock falling edge
-> +              4: data GPIO re-sampled on both clock edges
-> +            $ref: /schemas/types.yaml#/definitions/uint32
-> +            enum: [0, 1, 2, 3, 4]
-
-I really don't like this kinds of properties that lead to "random"
-numbers in devicetree. I'd much rather see a string list here.
-
-> +
->          required:
->            - pinmux
-> =20
-> +        # Not allowed both skew-delay-input and skew-delay-output
-> +        if:
-> +          required:
-> +            - skew-delay-input
-> +        then:
-> +          properties:
-> +            skew-delay-output: false
-> +
->  allOf:
->    - $ref: pinctrl.yaml#
-> =20
-> +  - if:
-> +      not:
-> +        properties:
-> +          compatible:
-> +            contains:
-> +              enum:
-> +                - st,stm32mp257-pinctrl
-> +                - st,stm32mp257-z-pinctrl
-> +    then:
-> +      patternProperties:
-> +        '-[0-9]*$':
-> +          patternProperties:
-> +            '^pins':
-> +              properties:
-> +                skew-delay-input: false
-> +                skew-delay-output: false
-> +                st,io-sync: false
-> +
->  required:
->    - compatible
->    - '#address-cells'
-> @@ -306,4 +383,25 @@ examples:
->                  pinctrl-names =3D "default";
->      };
-> =20
-> +  - |
-> +    #include <dt-bindings/pinctrl/stm32-pinfunc.h>
-> +    //Example 4 skew-delay and st,io-sync
-> +      pinctrl: pinctrl@44240000 {
-> +              compatible =3D "st,stm32mp257-pinctrl";
-> +              #address-cells =3D <1>;
-> +              #size-cells =3D <1>;
-> +              ranges =3D <0 0x44240000 0xa0400>;
-> +
-> +              eth3_rgmii_pins_a: eth3-rgmii-0 {
-> +                      pins1 {
-> +                              pinmux =3D <STM32_PINMUX('A', 6, AF14)>;
-> +                              st,io-sync =3D <4>;
-> +                      };
-> +                      pins2 {
-> +                              pinmux =3D <STM32_PINMUX('H', 2, AF14)>;
-> +                              skew-delay-output =3D <2>;
-> +                      };
-> +              };
-> +      };
-> +
->  ...
-> --=20
-> 2.34.1
->=20
-
---WUAPWDm9VxqWJrOr
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaO6SEwAKCRB4tDGHoIJi
-0jCsAPwLkMNVF458mbc2zWVRT6LxatpnJfRRuZJlEdA05pbWEAEAz4z8RejXvyPP
-ECXLoXPiLCdURtPzFPKuEqQ4nRt+HQw=
-=CNDr
------END PGP SIGNATURE-----
-
---WUAPWDm9VxqWJrOr--
+Acked-by: Sean Christopherson <seanjc@google.com>
 
