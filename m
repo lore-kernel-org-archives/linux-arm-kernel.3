@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE27ECCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3641CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=51CzKYDEx2a9yVAc768Na++IHptYoF7LDAE19Kl4+7I=; b=Yq7l1Gr4qOOcsTnRMThZODbdLb
-	sO9MbrUrY+5R0C4wHJIYDp5PgJpf2bnMqcZLMTpTJPZQHQk7KGE7cpJ2jBBUNegTtsxVZ/W+19ahO
-	/eF9mb6W0b9z0UGw7FluYVHiCnAuvP91WO+PIBslAUE5jEyhoRYV+OndOzOrwvuZ+FgNizqEhtDJE
-	AX/4rratgTWTYL+sc6uH4mg0XBOZS1K6+YBKklTf1IQp9KRzfxvVDyCfqt5ORStJRfM/KAe6qb641
-	/gMS8msnlGLfXf6SZQTfW61opEbPjpIm4RbEGW/ZveFNy8QZRWvbGRRLb4I46unIZOcGUGmt0q8T1
-	duFlmU1Q==;
+	bh=ajkqAPAGtZiGLSW/gfRly6gsVWXDLKcxvYjMA7UtiVg=; b=Iq7PrDZ7B3kH2rV5bxLBmqPcQP
+	FZqr/KWCLPHCflFtQlfrcHO56tsExMwaX7Bjwijl80XTe14pBS997FdJkbwPaNeV4PQA2zd+8Qnbz
+	Fdd0TW7gFarRmKLNcaorSUWieXptfQGdFTxGlxvPSfln7k8ERMAXQUfRR365AIAqKMAE0C8ilyZZV
+	Gz6NLZ0YyYUOzu8Y/p2O4NSZ8BbROHgnj2JNl2Wcp3BcvmjuJJT+DGRBAnuXrnxQlWvVqnnb4Tr5E
+	M70kSI8ltw81u7KOPtmV/k/3mlJ+np7FxVT3DUl0mpOkhzq96D31W9ZHyJZWXfEFaTDBJvqFb0PiZ
+	BvzVBFBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dFY-0000000G6EW-2FhR;
-	Tue, 14 Oct 2025 11:31:28 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1v8dFc-0000000G6Gl-3i6C;
+	Tue, 14 Oct 2025 11:31:32 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dFU-0000000G6BZ-03kA
+	id 1v8dFZ-0000000G6DY-3RTY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 11:31:25 +0000
+	Tue, 14 Oct 2025 11:31:31 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B99A74E4108E;
-	Tue, 14 Oct 2025 11:31:21 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 437EDC09F85;
+	Tue, 14 Oct 2025 11:31:00 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8DD46606EC;
-	Tue, 14 Oct 2025 11:31:21 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9AD5D102F2298;
-	Tue, 14 Oct 2025 13:31:18 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 488B8606EC;
+	Tue, 14 Oct 2025 11:31:19 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A8601102F2291;
+	Tue, 14 Oct 2025 13:31:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760441480; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1760441478; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=51CzKYDEx2a9yVAc768Na++IHptYoF7LDAE19Kl4+7I=;
-	b=Qr6AoFSxr32F6mDxxdYbBXAVT1ujiJP11N7z44icP/Q/PhLiq34zX+VKaBACkajgO2Qh52
-	3ZwUKEzfQNxycfhwM+xsCRcoF7nALRDLf91eUj1BWm8asG5Om8Cov7twUwCernFzfA4sBU
-	pE8Fk4Poj1I1SlLMbSddA9snbZn0rv0sMg/kWEzmYnoAv4AyfcS1V+N5+mQHI1oUzC/AEO
-	IqY3dYgeZZ/rmPLxrRLNr33Y2if9OaHrPfZq+2ThmtGwPpaJ7KANXaSxhVB42XifeODsVr
-	eq8gkI7zyqYMn9OeSURX9WmtWIJJjO2qy5QG4psRL5BSYBJLqK1nK09QvWS6iQ==
+	bh=ajkqAPAGtZiGLSW/gfRly6gsVWXDLKcxvYjMA7UtiVg=;
+	b=EKoSCROOnzz9cFlAp+jg0Ckb5AMcN2ktPeidsHBVYlRmMbpwY4wKojKI1XwJHHx29ndHDW
+	Zt17i1b3gys3m155gnHJ7s/KTH/8yjO24sXTYesUSUYO0YUTfG0f7cqoRgB7gpzPMZWx0s
+	Qa5jew9uo0x/DxoB07+JMa26lGkHdyGfO7yGkFvl7rSuX07mxpvDLyfWfHoajiDx6DDFD/
+	U19mp2/RfERuhRuS2rWAiX75JbYceqSMA79JfB7DsxYQtCAF/zgo5IFb2a76goA8kSnWxV
+	Ketk3uAd6AauihB2UYcsPFArH9CN8XdWC4N7A8C5G9Xl6T4OI7EmT9SXDo9e3Q==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 14 Oct 2025 13:30:52 +0200
-Subject: [PATCH 2/2] drm/imx: parallel-display: add the bridge before
- attaching it
+Date: Tue, 14 Oct 2025 13:30:51 +0200
+Subject: [PATCH 1/2] drm/imx: parallel-display: convert to
+ devm_drm_bridge_alloc() API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251014-drm-bridge-alloc-imx-ipuv3-v1-2-a1bb1dcbff50@bootlin.com>
+Message-Id: <20251014-drm-bridge-alloc-imx-ipuv3-v1-1-a1bb1dcbff50@bootlin.com>
 References: <20251014-drm-bridge-alloc-imx-ipuv3-v1-0-a1bb1dcbff50@bootlin.com>
 In-Reply-To: <20251014-drm-bridge-alloc-imx-ipuv3-v1-0-a1bb1dcbff50@bootlin.com>
 To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>, 
@@ -70,9 +70,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
 X-Mailer: b4 0.14.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_043124_191651_015FF3D1 
-X-CRM114-Status: UNSURE (   8.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251014_043130_039171_EEE431D2 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,33 +86,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Invoking drm_bridge_add() is good practice, so add it to this driver.
+This is the new API for allocating DRM bridges.
 
-Link: https://lore.kernel.org/all/DDHZ5GO9MPF0.CGYTVBI74FOZ@bootlin.com
+This conversion was missed during the initial conversion of all bridges to
+the new API. Thus all kernels with commit 94d50c1a2ca3 ("drm/bridge:
+get/put the bridge reference in drm_bridge_attach/detach()") and using this
+driver now warn due to drm_bridge_attach() incrementing the refcount, which
+is not initialized without using devm_drm_bridge_alloc() for allocation.
+
+To make the conversion simple and straightforward without messing up with
+the drmm_simple_encoder_alloc(), move the struct drm_bridge from struct
+imx_parallel_display_encoder to struct imx_parallel_display.
+
+Also remove the 'struct imx_parallel_display *pd' from struct
+imx_parallel_display_encoder, not needed anymore.
+
+Fixes: 94d50c1a2ca3 ("drm/bridge: get/put the bridge reference in drm_bridge_attach/detach()")
+Reported-by: Ernest Van Hoecke <ernestvanhoecke@gmail.com>
+Closes: https://lore.kernel.org/all/hlf4wdopapxnh4rekl5s3kvoi6egaga3lrjfbx6r223ar3txri@3ik53xw5idyh/
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
 ---
-
-Note: there is a proposal to make drm_bridge_add() mandatory before
-drm_bridge_attach():
-https://lore.kernel.org/lkml/20251003-b4-drm-bridge-alloc-add-before-attach-v1-3-92fb40d27704@bootlin.com/
----
- drivers/gpu/drm/imx/ipuv3/parallel-display.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/imx/ipuv3/parallel-display.c | 16 +++++++---------
+ 1 file changed, 7 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/gpu/drm/imx/ipuv3/parallel-display.c b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
-index 3d0de9c6e925978b7532b6d13caf6909cc343dd7..7fc6af7033078eef6be0672ff0d1c7bddda88ba1 100644
+index 6d8325c766979aa3ba98970f00806e99c139d3c3..3d0de9c6e925978b7532b6d13caf6909cc343dd7 100644
 --- a/drivers/gpu/drm/imx/ipuv3/parallel-display.c
 +++ b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
-@@ -256,6 +256,8 @@ static int imx_pd_probe(struct platform_device *pdev)
+@@ -25,19 +25,18 @@
  
- 	platform_set_drvdata(pdev, imxpd);
+ struct imx_parallel_display_encoder {
+ 	struct drm_encoder encoder;
+-	struct drm_bridge bridge;
+-	struct imx_parallel_display *pd;
+ };
  
-+	devm_drm_bridge_add(dev, &imxpd->bridge);
-+
- 	return component_add(dev, &imx_pd_ops);
+ struct imx_parallel_display {
+ 	struct device *dev;
+ 	u32 bus_format;
+ 	struct drm_bridge *next_bridge;
++	struct drm_bridge bridge;
+ };
+ 
+ static inline struct imx_parallel_display *bridge_to_imxpd(struct drm_bridge *b)
+ {
+-	return container_of(b, struct imx_parallel_display_encoder, bridge)->pd;
++	return container_of(b, struct imx_parallel_display, bridge);
  }
  
+ static const u32 imx_pd_bus_fmts[] = {
+@@ -195,15 +194,13 @@ static int imx_pd_bind(struct device *dev, struct device *master, void *data)
+ 	if (IS_ERR(imxpd_encoder))
+ 		return PTR_ERR(imxpd_encoder);
+ 
+-	imxpd_encoder->pd = imxpd;
+ 	encoder = &imxpd_encoder->encoder;
+-	bridge = &imxpd_encoder->bridge;
++	bridge = &imxpd->bridge;
+ 
+ 	ret = imx_drm_encoder_parse_of(drm, encoder, imxpd->dev->of_node);
+ 	if (ret)
+ 		return ret;
+ 
+-	bridge->funcs = &imx_pd_bridge_funcs;
+ 	drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 
+ 	connector = drm_bridge_connector_init(drm, encoder);
+@@ -228,9 +225,10 @@ static int imx_pd_probe(struct platform_device *pdev)
+ 	u32 bus_format = 0;
+ 	const char *fmt;
+ 
+-	imxpd = devm_kzalloc(dev, sizeof(*imxpd), GFP_KERNEL);
+-	if (!imxpd)
+-		return -ENOMEM;
++	imxpd = devm_drm_bridge_alloc(dev, struct imx_parallel_display, bridge,
++				      &imx_pd_bridge_funcs);
++	if (IS_ERR(imxpd))
++		return PTR_ERR(imxpd);
+ 
+ 	/* port@1 is the output port */
+ 	imxpd->next_bridge = devm_drm_of_get_bridge(dev, np, 1, 0);
 
 -- 
 2.51.0
