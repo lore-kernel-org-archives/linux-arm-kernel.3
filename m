@@ -4,97 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AAE8CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 00:03:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEE8CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 00:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gbMLU0DBTTE4ZUI3tpJtNUcx/FkgYHD5aLH5yKQ0ecU=; b=lP2Xtn94e7ZTeMvIkTLxKa8vVJ
-	xk8ngt0Im2Y6Vv4EkHbhyRLRuzAAPc16BJNtAYvTWkWJzcYLPNC/QpLhVrHOHn732wnYIR6DY8eZQ
-	dCsvGtERjQF/SZbKcQRzuZPOUimuw/jFfTiNaolUPlwohuV53FrsGiEq6nCLHdfOuBHsamrbs/7ZH
-	DUBeYZBpjttbv8nvpMUgPzDBL0L5iTAsg60T6znGNBFDs8WrNMW+NqZ5sYGdfwaDv3oX2YWQiShom
-	ErgEX93KFmhYfmVabzrrL1RQEusGrV3aESjvvzjwNHrjVwwOt7YPAhdokBuL9SN8f3KKbVGr2x6Xm
-	1MKEpxFg==;
+	bh=FapHoBZSBBgkeAPgfh0/hnIRZ5RySUGbBwY1QHLC79Q=; b=pqjxHg8kHu8vePnb+iGmL4Jtbd
+	Kp9aGvaWw0JUFo2rQxvGyBy10YkWwd232lPajoWK+Dptp7uAVwrXAanFGfHIwwlqr5luNDJwOJatJ
+	mg1yVhSGbfvQnkeNRgMN5W3sBFkqIy902sGvJKWWfbFv5sPaYzZW7VhSGGQF7LQErXNCvIYGLx3tw
+	7t8WR3Fg+AGw88XdsVUPJK7uiMdfaQ35/GuLGCWFSuVduU9NkEtHyuZwHpjh9RfUFrJBiox8I4/22
+	abHQUzEPNpwsNuwzEfQEATYDyZp2lMxnRSlYV6+c3N+fc9852mrG3s+lJ6q3c9m2Khg4S5lg6KkSz
+	Rnxpz0tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8SVB-0000000Eo7x-4AiU;
-	Tue, 14 Oct 2025 00:02:53 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1v8Smk-0000000EpSU-0fZz;
+	Tue, 14 Oct 2025 00:21:02 +0000
+Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8SV9-0000000Eo6g-2Jsc
+	id 1v8Smi-0000000EpS8-0pzq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 00:02:52 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33428befc5bso10734360a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 17:02:50 -0700 (PDT)
+	Tue, 14 Oct 2025 00:21:01 +0000
+Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b67684e2904so2616352a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 17:20:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760400170; x=1761004970; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gbMLU0DBTTE4ZUI3tpJtNUcx/FkgYHD5aLH5yKQ0ecU=;
-        b=wY6OcDhyiJ6wfd1LeAESA7WvDRtXZdFky0wtR9GIr1zqmcvf5f+KToUixS0/nmwPkT
-         hZYif4+Zfq7w2fmU7U5EGWXkQHHPpj2Zgh196ogjUtdbUizLxbvuvMBhiEWroumPtdCO
-         0r+8aDEiEqSvpy5DWTZ422ojNwuIRBFzLDk1+klm6LK7ggf0hU6Wsd6b70YcLnrYjWve
-         6FrJgesMAPkYSipj115S4cIDTa2Efzzv8iYKx7GExN3MFh57nxFFYlgZrpMMEw8//muh
-         8hNvVE7Dg47e6mmouia063zJFg+BtmLhaPNcQofsi8LvmqjX//VtxJNnNL9VMWmzhLHJ
-         urAQ==
+        d=gmail.com; s=20230601; t=1760401259; x=1761006059; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FapHoBZSBBgkeAPgfh0/hnIRZ5RySUGbBwY1QHLC79Q=;
+        b=hTOkyHORYv4deeaHLBoqn+9tH33//lUYW7twvydScZABXjBdBHkuPZrqvtOtRS7N1z
+         G69Z/5zTO0l3HjG41kNKOvMXGSqwNwx7F2hgq0d83r/SKAs1n1T72wlYZG0DqC2KHJYe
+         t60Aa9hDiq3UJt78+kSWxhfW8y8YQkjc8Ypue9B1nlUB0ak244hPWFkfat9fxmZbdyxl
+         aY7uOlm9EuqINYhaijivPhzEf0jLRx1WHAosT+2ncOS3TKSL7Js2Kd0FPBjDwE6GyH5S
+         8aoZi1bzDtS4JbxEaUFDWUZYth3G3NPzUeI7WTNuOPyi2Zl9bVb6vEI9URuc6dIyyApu
+         bRPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760400170; x=1761004970;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gbMLU0DBTTE4ZUI3tpJtNUcx/FkgYHD5aLH5yKQ0ecU=;
-        b=YDQQ4YLUkqC15/XY9r8cxyytrIm2a0LPKyp+L+saBdQZkEoiC9qm3ZFi/XznAC6VMt
-         aX7DzzsF5zXcCIayIJAs0Lef1bssoITF/KTccQgYCzKJiZripxmfuAXb0HpXmh/2lcTE
-         szFDD1QoNJlhAbwE3kfqZLZqHUDjXBWCJW8PSkYvj6JOYP9bGdB1xXq8EMxk9S4tyFlO
-         cv20zJh8aGsOO+/9oW6uDYsEjPn718tmv4DOGuXFOqay3wjtjtUqvSP13BKC04wPubHA
-         xlNCh2N39g32sCwsikJzwtowpT+DjZtyCA9mWvgBAY11gzz24jSoHLN2LYiK1nOAii4q
-         p1Hw==
-X-Forwarded-Encrypted: i=1; AJvYcCUhok8afzo4hzwAiTEFRGpupEGJoHoC/gQiGgmORELJnvsCry+GxV4GuUX+RpxV7vauupvgQ0BzeDGgfaEwLZUm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5qCELZDjfBJkWrqhBnX+qulHCQ62RWN/+LTg3HnGfTLORhUxd
-	e1pnc2PbCzh1NvcAi+as2/w975+YL2ZexHgZbBgTYzrMhLsve1ynafgY23quJEriuvyELWvIYzm
-	AbZpPvQ==
-X-Google-Smtp-Source: AGHT+IFj7XEk3dTkPnLos5082VprjEOkbmDHEla6HA+8/jfX0ozELV9F0rEtoGCDSVNCkEzGlN6/hN7WXyk=
-X-Received: from pjzm8.prod.google.com ([2002:a17:90b:688:b0:33b:51fe:1a75])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4c89:b0:321:9366:5865
- with SMTP id 98e67ed59e1d1-33b513b4afemr31472790a91.33.1760400170137; Mon, 13
- Oct 2025 17:02:50 -0700 (PDT)
-Date: Mon, 13 Oct 2025 17:02:48 -0700
-In-Reply-To: <20251010153839.151763-17-vschneid@redhat.com>
-Mime-Version: 1.0
-References: <20251010153839.151763-1-vschneid@redhat.com> <20251010153839.151763-17-vschneid@redhat.com>
-Message-ID: <aO2TKOY5JV9OoRUg@google.com>
-Subject: Re: [PATCH v6 16/29] KVM: VMX: Mark __kvm_is_using_evmcs static key
- as __ro_after_init
-From: Sean Christopherson <seanjc@google.com>
-To: Valentin Schneider <vschneid@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org, 
-	x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Frederic Weisbecker <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Jason Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Ard Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
-	"David S. Miller" <davem@davemloft.net>, Neeraj Upadhyay <neeraj.upadhyay@kernel.org>, 
-	Joel Fernandes <joelagnelf@nvidia.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, Uladzislau Rezki <urezki@gmail.com>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, 
-	Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>, Jann Horn <jannh@google.com>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, 
-	Juri Lelli <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, 
-	Yair Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>, 
-	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20230601; t=1760401259; x=1761006059;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FapHoBZSBBgkeAPgfh0/hnIRZ5RySUGbBwY1QHLC79Q=;
+        b=c5NAm+BUCKNdM7VlZpFM5UROXLoYnzQFRtqbP7MVOVYs01Ke6qi5TvnKziAo737Zyy
+         9JdXn8A/EZBcA5PtDmibFgVELaV0gkyEUou/x56ZBlL6M55/kwdJvLdOv91B5cpY/AgI
+         EG0Vucf6pbr5qIxp3wWLUtIrpa1UruPvrXP4qfAOXRQAYKDQULmjiz6iAxKl+U4SKVg6
+         mA4RcM28yUXYyoUft3SuuvQOPIX/pCkxEwtFW5vuaM4Y+0ByZpbOzXT3CeuksC0enVqb
+         2SrQuvGbCs82ifO94OrA1n9me2kvXUqx2oQLejUjSCvVuN3ThKDMdlR2psl9G840W0pn
+         eyIg==
+X-Forwarded-Encrypted: i=1; AJvYcCWMN0ZPxQVXPFhf2oVZOoZnMKy9jYG9b3qIunbQ+82FbtqwehW5sdoV3eD0Oe03c2C9idbLto5k/FZxJdwvDH7E@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQZ+Y2AxDu6pBVWmh2hyDxxNubfGvjofRbNyezaE3LFu570Zgq
+	ibuzVG4QrUAliuVtrVfyEvHaDfEi3B9wHyugg73RnLPNcb1eRBfPNvNh
+X-Gm-Gg: ASbGncsECIbyjhLzwC1uU3yXYVqUkKNGOEXXOEDVqJkDO44ygEkOCGeMYxJQ5Q5xwZh
+	mv5lY7d68qVd7MLq6AiVmyhV2nV1k38HwHYoIZp61GACatLeaX5/qkFwgZzAcOrQdIfCldQ5HR1
+	yM7IHc1pxtGyFv+3LbhWasLVmdhyCQPfMf3yLQzcF3Rbe8hq2v7WYF6bKtMZncnBSwfDXnj798m
+	EdCsoexkL8cQl7MqgnqC+y7hYva4jGd4wWLJGYdfKpXMHMCPzOdyuTyJElxvyIQ70V6DC/qA0jB
+	pGuYe1XWZdnFrQdqWLdsKLNHewMfoWzVj3cTCVjWRo0T5aBaD+Jus/o+T5xRtji+ZL3O4xEWELm
+	cVMvHCt/9/CCjym6EVNtLN3MR8BS64vVgxE/95oyiE5VVhT9sznL8hEVvlTSmJHSO
+X-Google-Smtp-Source: AGHT+IF8IIF9dA+nUndexMgc/HlI7FOKBRCbLWHhmSyCq1fdJ7LM7JOtkUdL7gTzQp9WcaLBJmQIJw==
+X-Received: by 2002:a17:903:8cc:b0:27d:69cc:990 with SMTP id d9443c01a7336-29027402f43mr305469345ad.49.1760401258830;
+        Mon, 13 Oct 2025 17:20:58 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034de6c7bsm145479255ad.3.2025.10.13.17.20.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Oct 2025 17:20:58 -0700 (PDT)
+Date: Mon, 13 Oct 2025 17:20:57 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: rentao.bupt@gmail.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	Andrew Lunn <andrew@lunn.ch>, Tao Ren <taoren@meta.com>
+Subject: Re: [PATCH v4 11/13] ARM: dts: aspeed: facebook-fuji: Include
+ facebook-fuji-data64.dts
+Message-ID: <79ddc7b9-ef26-4959-9a16-aa4e006eb145@roeck-us.net>
+References: <20250728055618.61616-1-rentao.bupt@gmail.com>
+ <20250728055618.61616-12-rentao.bupt@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250728055618.61616-12-rentao.bupt@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_170251_582857_5A1C0C7A 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20251013_172100_282566_AE61B385 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,19 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 10, 2025, Valentin Schneider wrote:
-> The static key is only ever enabled in
-> 
->   __init hv_init_evmcs()
-> 
-> so mark it appropriately as __ro_after_init.
-> 
-> Reported-by: Sean Christopherson <seanjc@google.com>
-> Signed-off-by: Valentin Schneider <vschneid@redhat.com>
-> ---
+Hi,
 
-Acked-by: Sean Christopherson <seanjc@google.com>
+On Sun, Jul 27, 2025 at 10:56:13PM -0700, rentao.bupt@gmail.com wrote:
+> From: Tao Ren <rentao.bupt@gmail.com>
+> 
+> Include "facebook-fuji-data64.dts" in facebook-fuji dts to avoid
+> duplicated code.
+> 
+> Fuji-data64 and Fuji are identical except the BMC flash layout.
+> 
+> Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
 
-Holler if you want me to grab this for 6.19.  I assume the plan is to try and
-take the whole series through tip?
+With this patch in the mainline kernel, the Ethernet interface I use for
+testing does not come online when loading fuji-bmc in qemu.
+
+Reverting this patch fixes the problem.
+
+Looking into this patch,
+
+> -
+> -#include <dt-bindings/leds/common.h>
+> -#include "ast2600-facebook-netbmc-common.dtsi"
+> +#include "aspeed-bmc-facebook-fuji-data64.dts"
+>  
+...
+> -&mac3 {
+> -	status = "okay";
+> -	phy-mode = "rgmii";
+> -	phy-handle = <&ethphy3>;
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&pinctrl_rgmii4_default>;
+> -};
+
+I don't see this in aspeed-bmc-facebook-fuji-data64.dts, meaning that
+interface is now disabled. Adding it back in fixes the problem.
+Also, MAC3 is explicitly enabled for fuji-bmc in qemu.
+
+Was the interface disabled on purpose ?
+
+Thanks,
+Guenter
 
