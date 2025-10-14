@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E6FDCCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 20:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96B7CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 20:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=1mt7hrsHnt06SvjuPDDWU079eVk0nFE4tzseKt8Vbpk=; b=urncyu7Qh6vh1x
-	n81qTUGQrF9A2y81wn9kbzrapOqhC21oQEI9GvV2f6BplkqekxAtQ5KIIznIKmQky9en4lANKrc4H
-	XGAPflh2ulapsxjg/G/ENx1Wda/o5zmIr87fRZGI0Mp/ncyjPwNofBYEKdSpleEciTlUya5E8Fgxh
-	LXNCzUBijpSx2Hsi4X9IZvrdv6QRkxPgpqujBXyk8DjrGT3nQlu8CiX06xl6OExRfG5W7Jiy1gxA3
-	DorPADF0Ng0lWDUfc1/1EPtd39j5OoxX7pUPKP4w0Ij6G2W+A+W+Tt+Nlc4W+y5vm15YWvsEMZp+k
-	RP0ePLG+sxd2g+C3HVEg==;
+	List-Owner; bh=elgpkSHi7oRAKLl42GPYSQRGs0aJD3woXeve17j9/bk=; b=3ACna08Akr7Wjp
+	EFJCxPKNNK20AMULsFKTFYG7dpMgsl/CzcbncKfQ5Mr6izCB6PVYxqKYv6+K+rF046Btfnt0iM20o
+	mc3tDvPTMl0EakMxhr+RESTOaOrPravUvs8WAsobHZYyGuthGFAfxi0n4J169QfqkYBOiXR4tCpHk
+	LmNopodBr06gy9ErZUzgCBZm5ZFF+E2JB5H174W+kUYVwcUqFPLTnr1Z94Rx0KEA6hK5sEa3CVThs
+	Q3HXCzSlxzMf3Pys1i1umwn6EqlU87HnzvTL92bLFRXmmtGxjFcl8dmURQ/1vjzUgx2a3rHsAw5Yh
+	fK8MbHHPOnzQ0u5MMJ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8lyi-0000000HODm-0bh5;
-	Tue, 14 Oct 2025 20:50:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8m1G-0000000HOb5-0r4r;
+	Tue, 14 Oct 2025 20:53:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8lye-0000000HOBR-3T8i
+	id 1v8m1E-0000000HOaX-1Lmu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 20:50:38 +0000
+	Tue, 14 Oct 2025 20:53:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 95BB940A85;
-	Tue, 14 Oct 2025 20:50:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45767C4CEE7;
-	Tue, 14 Oct 2025 20:50:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4AA70623FC;
+	Tue, 14 Oct 2025 20:53:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D21D6C4CEF9;
+	Tue, 14 Oct 2025 20:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760475035;
-	bh=5rxoTWolHOm4oraQzi00YA/zUXuac4iY3HiED5t3UAw=;
+	s=k20201202; t=1760475195;
+	bh=n/LR/VOVuEOFCI8XhFHTE8VhAsveYLysbT1xUiVBRoQ=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=axsarSWx827Fh8I2C7WoflR8ZEe8mbgEs9R6CNEb6ECRF5VzvbWJ7lxhJgY29BVla
-	 00hCz190I4TJB55vPEw8SOgjqeKIwZNiDizKvjrSRahk1tH4/0AZQwjEGe6AFvBQW7
-	 KMeLDw8WmfkNZa/bigvyqkE8GtU9qkyFABpYhCWiuxdm4ZxzvEPywsTf5N66DmsQpT
-	 OK747OQH2ZOYXfuDc5kNybLckElodrxrtoImcUoDyIeBQJ3xD4cAtL9fAycICL2Oeo
-	 VVEnQeIDZi1UX4ffYitoGKZ/qhA4CW0Ud24/ggKohRDgxpn3zp1xwRgHW83PZ6s3pf
-	 Cz5dN01+ANVYw==
-Date: Tue, 14 Oct 2025 15:50:34 -0500
+	b=swyR28pypyBnRwl4m3DigwMj3bUrxOd00mzjuGD5aTN0FjLn8NZloGgLtoSm4EWF6
+	 U+OQrImhcyFW1VE+1XOf7gsl+Z6u33VL59B3ZFGSMdhSCKfE10SSPf7PmGdnejwJFG
+	 4W7sgMSd47UsSs4bbQQC0m2b54v2j6riWSO3ueU6abtrZ6v3Z1APYa4Dz7eg+oMj1c
+	 E6GAg/xVIOaSHdCbI1G5jNYk9cUVlMAQIS1+cIiZKnhohliyM8TIACP4GiEgzG7+ha
+	 7oSYLyFf2hw0TAj9/uWSaVineqdRxAJldC0oB4sXW5a4J7HK8JAuGF/KcmG4Gk36Tb
+	 fkRsty8PnFzAw==
+Date: Tue, 14 Oct 2025 15:53:13 -0500
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Frederic Weisbecker <frederic@kernel.org>
 Cc: LKML <linux-kernel@vger.kernel.org>,
@@ -72,16 +72,13 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
 	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
 	linux-mm@kvack.org, linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: Re: [PATCH 16/33] PCI: Flush PCI probe workqueue on cpuset isolated
- partition change
-Message-ID: <20251014205034.GA906667@bhelgaas>
+Subject: Re: [PATCH 01/33] PCI: Prepare to protect against concurrent
+ isolated cpuset change
+Message-ID: <20251014205313.GA906793@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251013203146.10162-17-frederic@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_135036_888580_820383FE 
-X-CRM114-Status: GOOD (  11.02  )
+In-Reply-To: <20251013203146.10162-2-frederic@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,21 +93,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025 at 10:31:29PM +0200, Frederic Weisbecker wrote:
-> The HK_TYPE_DOMAIN housekeeping cpumask is now modifyable at runtime. In
-> order to synchronize against PCI probe works and make sure that no
-> asynchronous probing is still pending or executing on a newly made
-> isolated CPU, the housekeeping susbsystem must flush the PCI probe
-> works.
+On Mon, Oct 13, 2025 at 10:31:14PM +0200, Frederic Weisbecker wrote:
+> HK_TYPE_DOMAIN will soon integrate cpuset isolated partitions and
+> therefore be made modifyable at runtime. Synchronize against the cpumask
+> update using RCU.
 > 
-> However the PCI probe works can't be flushed easily since they are
-> queued to the main per-CPU workqueue pool.
+> The RCU locked section includes both the housekeeping CPU target
+> election for the PCI probe work and the work enqueue.
 > 
-> Solve this with creating a PCI probe specific pool and provide and use
-> the appropriate flushing API.
+> This way the housekeeping update side will simply need to flush the
+> pending related works after updating the housekeeping mask in order to
+> make sure that no PCI work ever executes on an isolated CPU. This part
+> will be handled in a subsequent patch.
 
-s/modifyable/modifiable/
-s/newly made isolated/newly isolated/
-s/susbsystem/subsystem/
-s/PCI probe specific pool/PCI probe-specific pool/
+s/modifyable/modifiable/ (also in several other commit logs)
 
