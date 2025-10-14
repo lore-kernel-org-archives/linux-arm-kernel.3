@@ -4,70 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B83CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DF3CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lOAp+5UR+SK7oAZ3rWSUse+h2e6ToNaMpOEv6uQIYMs=; b=LXCFlzHxA7cpbpaMsKC3rC6ud7
-	LXWf/pFiMlwN2eP5tT0xyQG+uyOrFmk1mgaXKGmw1ylVRS6ucVsS3+NvDeaoKbgsnzeyf/bqOlxdk
-	4NgyEnXi75c97aq6uFDW8E4Buv5nXybSIAndwb+Y+XlermY/gm4d1mxLBjaELt+8ZACqYKxZO42/K
-	7c71g6cO79e/85RQqW1gms4GinGFD+jaxKL+16uT8I4LqAT5srA2e+FamFj4e7rHQFJkPvNREn9f8
-	E4vb6JegF80/bi3hcnWPirrVO3s1VqFUmYXmK7kXjmGbY5bPLNXJBGumJDfKIPo0xNgbJiJ+FFjCu
-	b3GJGE5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AKUCHW/MBIZsUc3ODKKtWIaDlEQsfe7hY3IvRmB8i8o=; b=ipEcXyfm0uj1FEdKyKBA8bCT3n
+	9Rijb+cOODB+kcJhTLkfmhRnJU8SEsmVoVMT5xvaYTVtEDwnG8OETie1J7BH99xjGLvuapxX/c5Ga
+	JOcIHI18l6bDqwoiYpGDsuYGYbZO6R9SxbF1IULIqatIl0FWhPQuY2y9iRf3b3gPXPKnUz5BNZ0U+
+	5jogVNc/7MSrMjDKFj/SMD+up6vs8rvTCNPWNA2/SxFUCM9ad4gtlfEs2+GSYohtfv7IBNZsXoh+J
+	lC7v8V4oxBJHf0nFaDYRAoeF33VKxsYPZl194MlNGHgkiKnyGHTLy3noKfzZ5gcAoC3Mz/lphZS0W
+	LmyPpiAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8aS6-0000000FcWL-3VsV;
-	Tue, 14 Oct 2025 08:32:14 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1v8aU2-0000000FcqO-3Wxs;
+	Tue, 14 Oct 2025 08:34:14 +0000
+Received: from mail-ed1-f43.google.com ([209.85.208.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8aS3-0000000FcVa-2btY
+	id 1v8aU1-0000000FcpI-0UxZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 08:32:13 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 16B1BC09F84;
-	Tue, 14 Oct 2025 08:31:47 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 130B4606EC;
-	Tue, 14 Oct 2025 08:32:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A2858102F224B;
-	Tue, 14 Oct 2025 10:32:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760430725; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=lOAp+5UR+SK7oAZ3rWSUse+h2e6ToNaMpOEv6uQIYMs=;
-	b=kRhb9m4+5/rK0ib7LkwRPXBXX5JbTjywCIc/43t3hP1ekvAL1NlGcABwX0r7CbpK5f+WUx
-	EmQGmVLXwdGUEFr+v73EEcGSnibLG9hH7XO8rp0FheSKQLeR6w9tM+gGdY8w6cFpnI/Qar
-	twM/oCya+dQJtUtd/oeV8ogLokDKbisWwHXJPzyPO13StgyIAclGaDaTefDs//1qv+lAfH
-	Lj3txHXwTv9jjRmyWOXmGmg7P6i3zVcvsZ0Q3QilDoW/EkXSZJ/+kbprNmsDI3t+r9wcm/
-	nkwFNrcUOSU1V5tHH+UQpugEK0USIeoneterp6tn8e4JnUpKu1/YNWJMOD0JPQ==
-From: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
-Date: Tue, 14 Oct 2025 10:31:47 +0200
-Subject: [PATCH] firmware: ti_sci: set IO Isolation only if the firmware is
- capable
+	Tue, 14 Oct 2025 08:34:14 +0000
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-637dbabdb32so9995048a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 01:34:12 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760430851; x=1761035651;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AKUCHW/MBIZsUc3ODKKtWIaDlEQsfe7hY3IvRmB8i8o=;
+        b=MqDC/JUXnxngqhNKiKNPLZkqU15VyxErJDwLH9A9BW80WAe84A7yhLUd4SnwfBwUyk
+         AiKbdRGPr1fXP0ItOuMl3OTJj1QGGEeVJ52JBX0KSwHShTthyNbnOGB4fwrtYVPrIXSA
+         FDgg8Ao4kXJ2Fld68Mxth7s2NxEZGdTU05yX8qRve5Qi1lhMa5yIWwGpBV41wXvZEAl7
+         cR+SNPeTkNcVGlwsaa+pFehmzMW7IcyMTpmxSPVvkGrKaQk0tGGAwXuLybLxGMX6/8t1
+         gSyO5Nqda5XDZYPcTCjmA1SwdPD/UFYExk74xJDZC2pgFbGAY+y8Tk9iA92+WGtangGe
+         GDHg==
+X-Forwarded-Encrypted: i=1; AJvYcCUX+wBwPJGFvY7+6QoBBhPDJP+Q9CS2l63xvwBmD62kU8pajEs9w8OAI5CSUVQgpr13MUjuebgQgBX7SuuufTgz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEBG+nNfH/guJKgWs29kTo5+kTcEXxoz7GW01dJkfbszR4Kwse
+	meBtChq5VgXZsM3rELsJcPiZqgU/ph8G6eDYyjjS561Nc8V1svCUaMMo
+X-Gm-Gg: ASbGncuHFoTg+vGSiBwrDEk38//oELL0dTSno0nVkp55k8RWVjbSdt4HgSAjAxSfFva
+	szhBdAk//OFOF2L642I+5MsQoMfAGfjrDfVAAc1jnaoxDmiNJVyGdtvY91ggbZZ/C3gY8mGSS8o
+	2Dw1hVli7YL0BeAmXtIgV7SINpJDcmq3lwgPHgCq7YXFmvPayWMkvgLtFMqVVgj162GdQLxebJ3
+	nrHuw7f5AIFV/XuSSL1njn6uqyAL5WAihUsCsasIqMKURpiFfSmuIm5XSTIi0Eo3zdkPrHdBZTD
+	n98Y38a8MPGZDvpt9E8+3QczX8t2bJXMSw2ZzEu8+KSRx1hb0SZ2eLRKywEDx5Dsp0xK25oksm4
+	eB8BirYShhjQWpdu21tO4KD6u+7yHKKPGADAr
+X-Google-Smtp-Source: AGHT+IH9yDBhkiPY34+r8L4QfGlETNuwKEKExxU3npIvUrJ6TVQTuSdRSJEPMfeufN3cm41sP9BTrQ==
+X-Received: by 2002:a05:6402:50c6:b0:632:930c:ed60 with SMTP id 4fb4d7f45d1cf-639d5c57a9cmr20902180a12.30.1760430850785;
+        Tue, 14 Oct 2025 01:34:10 -0700 (PDT)
+Received: from gmail.com ([2a03:2880:30ff:70::])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63a5c322e91sm10304155a12.45.2025.10.14.01.34.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Oct 2025 01:34:10 -0700 (PDT)
+Date: Tue, 14 Oct 2025 01:34:07 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Pratyush Yadav <pratyush@kernel.org>
+Cc: Changyuan Lyu <changyuanl@google.com>, rppt@kernel.org, 
+	akpm@linux-foundation.org, linux-kernel@vger.kernel.org, anthony.yznaga@oracle.com, 
+	arnd@arndb.de, ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
+	catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com, 
+	devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com, 
+	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org, krzk@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org, 
+	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com, pbonzini@redhat.com, 
+	peterz@infradead.org, robh@kernel.org, rostedt@goodmis.org, saravanak@google.com, 
+	skinsburskii@linux.microsoft.com, tglx@linutronix.de, thomas.lendacky@amd.com, will@kernel.org, 
+	x86@kernel.org
+Subject: Re: [PATCH v8 01/17] memblock: add MEMBLOCK_RSRV_KERN flag
+Message-ID: <2ege2jfbevtunhxsnutbzde7cqwgu5qbj4bbuw2umw7ke7ogcn@5wtskk4exzsi>
+References: <20250509074635.3187114-1-changyuanl@google.com>
+ <20250509074635.3187114-2-changyuanl@google.com>
+ <ef6wfr72set5wa5el3wbbu4yd5tnc4p2rhtjpb5kpmncv3xs5d@i3c5v3ciioi3>
+ <mafs0wm4yluej.fsf@kernel.org>
+ <mafs0h5w2lpqu.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251014-ti-sci-io-isolation-v1-1-67c7ce5d1b63@bootlin.com>
-X-B4-Tracking: v=1; b=H4sIAHIK7mgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDA0Nj3ZJM3eLkTN3MfN3M4vycxBKgel0z40SLpOQUyxSTVEsloM6CotS
- 0zAqwqdGxtbUAMDH+oWUAAAA=
-X-Change-ID: 20251013-ti-sci-io-isolation-63a8bcd9d4e9
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
- Santosh Shilimkar <ssantosh@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Gregory CLEMENT <gregory.clement@bootlin.com>, 
- Richard Genoud <richard.genoud@bootlin.com>, Udit Kumar <u-kumar1@ti.com>, 
- Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
-X-Mailer: b4 0.14.2
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <mafs0h5w2lpqu.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_013212_036617_39E69735 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20251014_013413_171085_DF8D3FE5 
+X-CRM114-Status: GOOD (  22.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,92 +99,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the IO_ISOLATION firmware capability, and set IO Isolation during
-suspend only if the firmware is capable.
+Hello Pratyush,
 
-Fixes: ec24643bdd62 ("firmware: ti_sci: Add system suspend and resume call")
-Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
----
- drivers/firmware/ti_sci.c | 21 +++++++++++++--------
- drivers/firmware/ti_sci.h |  2 ++
- 2 files changed, 15 insertions(+), 8 deletions(-)
+On Mon, Oct 13, 2025 at 06:40:09PM +0200, Pratyush Yadav wrote:
+> On Mon, Oct 13 2025, Pratyush Yadav wrote:
+> >
+> > I suppose this would be useful. I think enabling memblock debug prints
+> > would also be helpful (using the "memblock=debug" commandline parameter)
+> > if it doesn't impact your production environment too much.
+> 
+> Actually, I think "memblock=debug" is going to be the more useful thing
+> since it would also show what function allocated the overlapping range
+> and the flags it was allocated with.
+> 
+> On my qemu VM with KVM, this results in around 70 prints from memblock.
+> So it adds a bit of extra prints but nothing that should be too
+> disrupting I think. Plus, only at boot so the worst thing you get is
+> slightly slower boot times.
 
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index 49fd2ae01055d0f425062147422471f0fd49e4bd..8d96a3c12b36a908097805b44dc3343172fbbfec 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -3751,9 +3751,11 @@ static int __maybe_unused ti_sci_suspend_noirq(struct device *dev)
- 	struct ti_sci_info *info = dev_get_drvdata(dev);
- 	int ret = 0;
- 
--	ret = ti_sci_cmd_set_io_isolation(&info->handle, TISCI_MSG_VALUE_IO_ENABLE);
--	if (ret)
--		return ret;
-+	if (info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION) {
-+		ret = ti_sci_cmd_set_io_isolation(&info->handle, TISCI_MSG_VALUE_IO_ENABLE);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	return 0;
- }
-@@ -3767,9 +3769,11 @@ static int __maybe_unused ti_sci_resume_noirq(struct device *dev)
- 	u8 pin;
- 	u8 mode;
- 
--	ret = ti_sci_cmd_set_io_isolation(&info->handle, TISCI_MSG_VALUE_IO_DISABLE);
--	if (ret)
--		return ret;
-+	if (info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION) {
-+		ret = ti_sci_cmd_set_io_isolation(&info->handle, TISCI_MSG_VALUE_IO_DISABLE);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	ret = ti_sci_msg_cmd_lpm_wake_reason(&info->handle, &source, &time, &pin, &mode);
- 	/* Do not fail to resume on error as the wake reason is not critical */
-@@ -3928,11 +3932,12 @@ static int ti_sci_probe(struct platform_device *pdev)
- 	}
- 
- 	ti_sci_msg_cmd_query_fw_caps(&info->handle, &info->fw_caps);
--	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s\n",
-+	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s\n",
- 		info->fw_caps & MSG_FLAG_CAPS_GENERIC ? "Generic" : "",
- 		info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO ? " Partial-IO" : "",
- 		info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED ? " DM-Managed" : "",
--		info->fw_caps & MSG_FLAG_CAPS_LPM_ABORT ? " LPM-Abort" : ""
-+		info->fw_caps & MSG_FLAG_CAPS_LPM_ABORT ? " LPM-Abort" : "",
-+		info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION ? " IO-Isolation" : ""
- 	);
- 
- 	ti_sci_setup_ops(info);
-diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
-index 701c416b2e78f8ef20ce6741a88ffa6fd4853b2d..7559cde17b6ccfeeb1bc357fce5c5767c3f75c54 100644
---- a/drivers/firmware/ti_sci.h
-+++ b/drivers/firmware/ti_sci.h
-@@ -149,6 +149,7 @@ struct ti_sci_msg_req_reboot {
-  *		MSG_FLAG_CAPS_LPM_PARTIAL_IO: Partial IO in LPM
-  *		MSG_FLAG_CAPS_LPM_DM_MANAGED: LPM can be managed by DM
-  *		MSG_FLAG_CAPS_LPM_ABORT: Abort entry to LPM
-+ *		MSG_FLAG_CAPS_IO_ISOLATION: IO Isolation support
-  *
-  * Response to a generic message with message type TI_SCI_MSG_QUERY_FW_CAPS
-  * providing currently available SOC/firmware capabilities. SoC that don't
-@@ -160,6 +161,7 @@ struct ti_sci_msg_resp_query_fw_caps {
- #define MSG_FLAG_CAPS_LPM_PARTIAL_IO	TI_SCI_MSG_FLAG(4)
- #define MSG_FLAG_CAPS_LPM_DM_MANAGED	TI_SCI_MSG_FLAG(5)
- #define MSG_FLAG_CAPS_LPM_ABORT		TI_SCI_MSG_FLAG(9)
-+#define MSG_FLAG_CAPS_IO_ISOLATION	TI_SCI_MSG_FLAG(7)
- #define MSG_MASK_CAPS_LPM		GENMASK_ULL(4, 1)
- 	u64 fw_caps;
- } __packed;
+Unfortunately this issue is happening on production systems, and I don't
+have an easy way to reproduce it _yet_.
 
----
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-change-id: 20251013-ti-sci-io-isolation-63a8bcd9d4e9
+At the same time, "memblock=debug" has two problems:
 
-Best regards,
--- 
-Thomas Richard (TI.com) <thomas.richard@bootlin.com>
+ 1) It slows the boot time as you suggested. Boot time at large
+    environments is SUPER critical and time sensitive. It is a bit
+    weird, but it is common for machines in production to kexec
+    _thousands_ of times, and kexecing is considered downtime.
 
+    This would be useful if I find some hosts getting this issue, and
+    then I can easily enable the extra information to collect what
+    I need, but, this didn't pan out because the hosts I got
+    `memblock=debug` didn't collaborate.
+
+ 2) "memblock=debug" is verbose for all cases, which also not necessary
+    the desired behaviour. I am more interested in only being verbose
+    when there is a known problem.
+
+That said, my suggestion is to only dump extra information when something goes
+wrong, not affecting the boot time neither boot verbosity.
 
