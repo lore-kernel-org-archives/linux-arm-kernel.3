@@ -4,169 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8EECCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 03:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6115CCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 04:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=85w3OvvTFE8wa2dpTDYlqbebjbN1qOt3fEFsjt7sGa4=; b=Cjr5InDH/TpNMCXjFakmcZGAv2
-	9pKwcQjsqXKG6hXudcJMFl2NebkUGNinUJmQNXlTna8DPjTzSjQ0vWVieGicfM/qr79h4QqPYxD4q
-	kIt1pIppXEOedOtNxzV0pMb+Fb1sCe7uBdoP1WsEY9VwB9jZtYGdN1pmaAlI6mq8aR/44XoiObeN7
-	7weEDddGH9DKBHLRuqJ5EypQlS9WcLFXDaJM5gFoTOSvw+j66IeizYtsKJ2LOh9O/h0FNMDnK/1Pj
-	3LUvSyTtrAN/6wvg4IW/XRam+5h8BL8gT8SWxTyCUDDFBrRmEQ0+S4xjVS838W87ujuZ+oW9NTBJT
-	nqLSuLtA==;
+	bh=T0FUz4z1xFNwCgvQPUMrt9kZD59yR5IRPj9qAd263rQ=; b=ZxMU3WHYPdcVulj1cQQob2ZiQj
+	yt0WL35n9LM7LZT3IbTdzp6vov9ehR2WnL57cRCZsC5dliGZbEDindGlNOsS570UFjKGak/nVXl1Z
+	ZEorIM91jKWt02o/WDvz1Cho4mgXum05ob76qbgPTQXG21p8aLfcmiVN/WRGS6QL1LlIvUmENVp22
+	5OKIITF3oemuiMw2ty/nocMplHqLACv2gHg4YC1VtabcWpT7h1qtVkAshWh7OulBH6aR5J4gEe8da
+	ga+dMYTnrou8Uek07r51WDOs31luOD0utDxNoCgQgRzLXt9KxN0wntE+G8fUrpACLxtaJ3sC/iJh1
+	zzYiGYoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8W8a-0000000F4rd-1rk5;
-	Tue, 14 Oct 2025 03:55:48 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1v8WLt-0000000F5Ij-34fA;
+	Tue, 14 Oct 2025 04:09:33 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8W8Y-0000000F4r9-0uOD
+	id 1v8WLr-0000000F5IM-1Tqe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 03:55:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NGt4uSfXCrThrOt5KDqmJ/CTVN5kPLd9JvQK7du2H2MvFKiSXQbyqiAB1KuANHocjroSObVdB5JuZ9VxgDIXye793rQ7pS9nEXPB+P3F8Sbf+U6hJzU9QB8GieBpOoRQRyKoFlX7d9pXcSCns7bwuYakvZYZ6cVNNhl4nmiVyUJwh/6aZqOhfzYxG55MC4kU2/mGBuanYDjhIgeALr98tmWhrqEKwivUQdPXhKPqgePQwXXwMFt0zhGLqqL6MOsbVvLRbCpepuzdxosXHaKyqayOSsq3Cz0SVnQFF+FCo+iAA478XBkGMvEo/+h68GVHo+xM8VhAtZU67p4ZPyR/6Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=85w3OvvTFE8wa2dpTDYlqbebjbN1qOt3fEFsjt7sGa4=;
- b=eyggfoGLKe3gzhfL2aIQ04318qQZzIWB7wpKXsGLJz1yZdzPKGk/Abts+wCebxMP2WqDnrVgn98AhIj5jAMe0+XPSt+NNRay5rKJIG6B/FLPdKWQllGqUE/Ku7m2YZXdqwUY19H04Ao5mIDGUMlh3Ad0Jca6ZTcGYvyOL5GAkxP4aUyQbqNxIaqV9HYY3YuLTEsw60EF9bbKcAiqRy0hWSbpbZCG6gIL79zRtpWgrruBAcHh28ooh8p1IkpnNG1IVtbzA5Qvk12mBXkdP13tZSkehPfkqhGjXUgCb+/5buDNi4u/7HBkg3Jw7JSxW3XJg46v/AK0S9WJ+q3g6SwSlw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=85w3OvvTFE8wa2dpTDYlqbebjbN1qOt3fEFsjt7sGa4=;
- b=hBTb01cvbuVdbsxV9o3wtxZQnDb34QLZV0IMAUjvW+YDUoWMyc05kc+WA6IUCSJ/GLFeWesrhn4C1j4Tniotwn0Azkz4jl5Jl3QrOr2Y8fPF/l3GOjT6KFiCwCEFt8H/mZsliTTg0XyCwounKwl53UYMfsF5uSY34ZXG61tPLTAyigRORKfZajeIP4U11YQx9SSR/caOUqfg2VkMuGgBEroMhLREnYTLkTh87aFVYXo51vSsd4BBAJnYcZ9qw7Wl+0IjRAGgWmvEN+O+o6DVTx9/sx6nC7UUih9KEtJx5HmpuG/CVt+gAWkIRQygLbvF10Up7LPSPdKT1K7vVaZWkw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by VI0PR04MB11867.eurprd04.prod.outlook.com (2603:10a6:800:31e::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.12; Tue, 14 Oct
- 2025 03:55:37 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9203.009; Tue, 14 Oct 2025
- 03:55:37 +0000
-Message-ID: <239e8b99-0416-4708-9548-043d56ac88d2@nxp.com>
-Date: Tue, 14 Oct 2025 11:55:59 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v4 2/3] dt-bindings: lcdif: Expand the
- imx6sl/imx6sll fallbacks
-To: Fabio Estevam <festevam@gmail.com>
-Cc: marex@denx.de, stefan@agner.ch, airlied@gmail.com, simona@ffwll.ch,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- shawnguo@kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Ahmad Fatoum
- <a.fatoum@pengutronix.de>, Frank Li <Frank.Li@nxp.com>
-References: <20251013205155.1187947-1-festevam@gmail.com>
- <20251013205155.1187947-2-festevam@gmail.com>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20251013205155.1187947-2-festevam@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5PR01CA0140.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1b9::9) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Tue, 14 Oct 2025 04:09:32 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b57bf560703so3125782a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 21:09:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760414970; x=1761019770; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=T0FUz4z1xFNwCgvQPUMrt9kZD59yR5IRPj9qAd263rQ=;
+        b=AN27T1sSrAUKB3jDE/kK1GI80yDzEmDFLYDi8UmfeYhqcZ0VhxnS26cA7295MKDRWV
+         9EGYh2FFcqV9if4FR7IoR2s+1vNglLQ+igU3DFh84nUq2W4tfeuRoRivcYfhDgwjlpCO
+         8aHC2gOccP20cb66Utr5oRwlJbur/6FSwnN3UyIaDk/RjYZxUy7v4FDzhEQd/rM7+GEd
+         lpVrNFWL+J8e/syL2CFl2X1jvaSjKyqt8douEtOJP8yznwIK9BCDSbPbqiE/SXuzBYQG
+         IhNm32utTCLA1wqlKZUUd8GEix5ee6obbKQS3rx+ZJfdhUFt6gekf+j3DmXT20jMDrRv
+         WUgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760414970; x=1761019770;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=T0FUz4z1xFNwCgvQPUMrt9kZD59yR5IRPj9qAd263rQ=;
+        b=as+G2ZTpv9RrSKOKpIuwMVDC/l5gkt4NRH+zeVYRI/vvOQ5CE0xIIbkIa/x+c2jwCs
+         peE3uqcQchWJkkp+Oytb+LIZLeKXb+L4sVLFYrnzzTmH7Nkria9Co/YjaC8UbwwXMsLH
+         844lA+TY3P8G7+vbfF/4tqGFb0elEkpvgjMpdn46qJkB9crAz+6ewY2LiKUtNPtOpsUV
+         3kZ6vxgpEdGUCphL/TKTCcBVVtoCl4OHWR5OcIbFSSJyjmuk3HSGDAtQRaOhHh+aiv+y
+         eXq6BKethpzNApy5kk2aHDhAfnm5AWkzyH+mLcm5BlVCTFPGkD3C0SritetadZ+AjNnP
+         oJUg==
+X-Forwarded-Encrypted: i=1; AJvYcCWfv47xQZKAkx6w5Q2tVBIWzUwWBXBVVBXdPigydwP5p/DRs8/1JQHWmlHf7S6/tLu9k7LiJvBAPIJUqU7sa2MW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhA/nojtWnt68Jbn+EDqjBjRb9GQRNJcrqLWFKhCpmlJmiTd7H
+	c3lOWy3ApF5ip3kK1hEBmK6p9LBtYALlgE3r0DEJUCVUTbcpo2s13P3Q
+X-Gm-Gg: ASbGnctXh94LWgwB7ruphSabORM2AcphFr2uhvouLvu47vw8jjDh8LB3KIG0azroafJ
+	Bbg18GFmOwjmOS4GxQ9PUFb8VbX8FDstZVMbsrTzipt3lmfqwSC8+6ghxrRK1XGxyszNCiCTOi5
+	5aLtgWxcvJZUMpsMU88vYpc+VYZdhtOlWz/FEAhQU0JS9+KdYFcO9vzuZxj3nYwZiZHrktD0e6w
+	EJOJOkKGTnTLiXMIKdjQr9YMyWVJwdhpmiGaZ8uOlNRiLpnc5MAaCGqO3XYP6x/ExSBKRTxv4Wk
+	dK3k+3MZ9UP8wgSonAnMKf2uEDzz89jyBNyidkTVPy3CE/xWJ85B6999cccrp4wrq1CU7KvCEcC
+	ou6rmGhyLE7Z9KfyN74cwgTo7r8dYclX74wVou/7IzC1SgexpNflGtWkQZ0eoCtPlF1eT9OxoB7
+	APTke1neu8TmKVX6f64xw=
+X-Google-Smtp-Source: AGHT+IEr20kAH+dfqBTsSZfMO0yg/OwD4bgTloNhcSIQWl/DGKL1nIf9DZfEY5q5FY5iCmPtfo18vw==
+X-Received: by 2002:a17:902:e806:b0:261:6d61:f28d with SMTP id d9443c01a7336-290273ffe94mr274157815ad.50.1760414970372;
+        Mon, 13 Oct 2025 21:09:30 -0700 (PDT)
+Received: from fedora (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034de5dbfsm149146305ad.20.2025.10.13.21.09.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Oct 2025 21:09:29 -0700 (PDT)
+Date: Mon, 13 Oct 2025 21:09:27 -0700
+From: Tao Ren <rentao.bupt@gmail.com>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	Andrew Lunn <andrew@lunn.ch>, Tao Ren <taoren@meta.com>
+Subject: Re: [PATCH v4 11/13] ARM: dts: aspeed: facebook-fuji: Include
+ facebook-fuji-data64.dts
+Message-ID: <aO3M90Ycp2DWyFuk@fedora>
+References: <20250728055618.61616-1-rentao.bupt@gmail.com>
+ <20250728055618.61616-12-rentao.bupt@gmail.com>
+ <79ddc7b9-ef26-4959-9a16-aa4e006eb145@roeck-us.net>
+ <aO2kLyxGlGt12sKD@fedora>
+ <e3dc7aee-c8af-4276-84e5-0f0c7926be05@roeck-us.net>
+ <054cf209-61af-4d21-9a3b-d0f6dd24ee3b@roeck-us.net>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI0PR04MB11867:EE_
-X-MS-Office365-Filtering-Correlation-Id: b0b40c93-411d-40b4-f172-08de0ad588b9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WjZrNFJNM3dleFVjeGkvUnBIZ0xMK2xFOGJKUUg2QS9Od2tqVlB3bi9qc1Vj?=
- =?utf-8?B?bUlSckNZUnA0Q0xaS1BaQ29pdlFnSTRUUU5VZnBsRDQyaXBEdUptZlhmblY0?=
- =?utf-8?B?WG1YU3hqY0c2ak9hU2lFN0RGbDM2ZVVCanNDZDdmMXh0T3VlYzRXVzF0cEFL?=
- =?utf-8?B?YzkyK2RvYWdOZlZDc21ENGdZMjM2dmRuajVkNnl0YXlwY1AvNHNySnVpYmFy?=
- =?utf-8?B?MDdTN2hBd29EWE1ENlgxNk1JN0hFS29veG5pZVIxdU1pMnRFbHFrbVVJMy8r?=
- =?utf-8?B?NkJhQlFhR0FpUUtteHZLVC9pNUdiaGJlZlRaN0gxejdIazdRTldCdWJQREk1?=
- =?utf-8?B?NHYxVmR1N0hTS0NyZlpBV1cvQ3VoSDk5V1ExNFl1bE5YM0ZrWGdoSi91cTJJ?=
- =?utf-8?B?MEt5eTlHenBWN3NKeFJFZTNxRGdUa1p4RWZSdUNyMUp3OUNraTRrUWtzbEsw?=
- =?utf-8?B?MlJvMWxwdW1CRCtJTVNNdCtNL3dYa0tVV0FsQzVENlk0OW5iUENyQ2ZRZVlz?=
- =?utf-8?B?aXNwbTV0ajlPVzR3akpHVDNWZnhyWkMxRDdMWk9rMTBvU2I5b3o3SmMrbG5P?=
- =?utf-8?B?OWxYeTdiby81NWYzUDBqckNDV0dKMHhOYTdzS0RmUlBkL29HeThJcjdkTThq?=
- =?utf-8?B?ekJhWXBZYXlYc3c0b0hHUlp0WTgyWTAxTmNma1l3dWtTRUdRMThOL25acXE0?=
- =?utf-8?B?aHBRMktVa0ZQd2FtT0ptT0pzZGwxbHZsOWxwMlUxRG0rcHRoTDEzZ0ZldkdB?=
- =?utf-8?B?ZXZNNjd2ZVV5aXJYYXBtSkJxZG5kakVDVG96VzZEV3JNUGZwSHlMNHRiWDd4?=
- =?utf-8?B?R0wxLy82UlVmZDFtb1dMUVhjYWpWVk5Ndm1SUVU4cndwSmlXdzA5K25Eb0hY?=
- =?utf-8?B?YUtvM0RRTW0zZTUxSmNnM3VSMzVGa2I5cWsxd2VSNXRJMkdNbXBOMnU4eFZU?=
- =?utf-8?B?UHpLd2Z6MitiaUlQWGg3dG9iUGgrWFJXTTdZME5xbW5KdVBNeGwwdDhJbENs?=
- =?utf-8?B?RmtBY3EyTEFnLzhvcGw0Vkp2NXZEQlhHcEdnQUhZaHFKY2k0Q3lOSkh5SFE3?=
- =?utf-8?B?alZnQUkyeVNDa21CSEVBWkRXNnFMYkNQWWg4clpQd3htYTNBYmNwQU1zekg4?=
- =?utf-8?B?WnNqaWVINmliaWJnWmNTOHBLaTZKRDZ2N2dkSGNKVUlrWnZkNHRqVkorR0tF?=
- =?utf-8?B?V2hIKzlUU2RGUVZrakNIZDE2YktCQmUvanJlVW41TjRGSkhNU1FJN0FOVmcx?=
- =?utf-8?B?dG5QMEY0aS9XMFczMkMreWJ2SjRPZmVQUXFoeVNTY1dta1FvK3hYWTZRMTNL?=
- =?utf-8?B?dldhYm1XdTc5RkN5OEV0d2hsTklxczMwNis4c3g3TWlleEVvUzhPa3dKTVdP?=
- =?utf-8?B?U0JnQzBtckhreTN0bFBkbEVEUG4vVkRVWHkyT204Mk5TK010RFVxTVlqK3Z3?=
- =?utf-8?B?U3ZTbnpwOXlUNVc0K1NTTzhlOEVreHpoVFZPYXFPRGJGRHduT2NNbDU5ZUcw?=
- =?utf-8?B?cVozQmcvYXB5MHhEUWV4S2d0KzNvSU92Mnp3YnlLY1lHZmdEWnE4T2EvNXRF?=
- =?utf-8?B?MUR2aDVCeE8yUDFvbGRVUmEzQUlOSVBPSVFEaFl0dHRrdmlCeXVqbktFWmFL?=
- =?utf-8?B?b3d4bVd5UUIvNTh1d2Y2V1BITE9JNTk0QkhUazIrZ2w2QVBIdWVyWExtTVRP?=
- =?utf-8?B?WmgrQlVDQkt2UEtLc0wxczJWeDhjNHpwYmovRiswdTVaVHpuS2VsRDFDNWVj?=
- =?utf-8?B?RkthY1ppcVJtdlgrTzA4NnFKUyt5RVd2M0dsVHNlcXhGSjNQcDlJZ3BDZUlQ?=
- =?utf-8?B?RVVSdTJBWXpHRHJ2VEJnajl4NmJqU2s3NkQrR0c1QXJxTVJMcmRrMFVGT1Q5?=
- =?utf-8?B?RnQyMFNnSnp4QXJrRzNEVEt5YjBkMkc0Y2ZYNERHeTN2RkJJaHRUVzFURmJr?=
- =?utf-8?Q?S8sYWLpemoyuJ5KXafZ/2funPxxDhMDr?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Mi9hZkxxNVN4V0ZrL09GR3Q1bDZDRVRxS2lMclVBbVdUY3l6L3B5NENUd3RW?=
- =?utf-8?B?cER6eVhTME5mSnNmZG5ucklKTFVjM0JwS2liOW5mM0dqVWtEblFhdDJYQnpF?=
- =?utf-8?B?V1ozNm94dUV6T3M0bVBoM2VuaHdNc2V2RnZGaUdKOGZvZSszL1dhVHdBZnhx?=
- =?utf-8?B?ZnQ0aFprUzVsTENUS1JrS3N6bTMxNG41bHptZElmZEg4T3hyQit4cjZQMk5H?=
- =?utf-8?B?WlVMN0pxQWkweWpYa08yVHlsUHNpeFhpZ2NmcmlyOUdsYTE2NFhMZDFYRzJO?=
- =?utf-8?B?eTZkR0k0YnN5VmwyMDFiZFhZZjJ1T3FsR2N1NFhMd3cxZU15enJTa1dKdDhl?=
- =?utf-8?B?OUhQdHp1dFRRejd6ckgzN295ajlvUlhYVDMrTDZmTGxWYUYvRkhlN0tYMnZ0?=
- =?utf-8?B?MU40bkVNeTRlelAzcU1yTEdQZ0w2STNka0FqSDkreVJaTTdmQmozSUN6RHFD?=
- =?utf-8?B?eWZtYmF5cjFBUW5XdkoycGc4eVNQblhBb3pwcXB6U2IrVmFJR0k5eEk3TkFu?=
- =?utf-8?B?eVZyVEhMazlwbjdBdUp0Y0N4eDlTbm9vd1RaMGMzMVVTemVJM3pSbXVFaDBt?=
- =?utf-8?B?UHcvRWwyZFJqWnRUcDVLNndOZk45NnlSODNBZ0dadUlRUkNPeTFiQy9OWi9v?=
- =?utf-8?B?aU5IbmZab2tpVmNlMm9LaFVNVHJWUmx6eTVoRDk2NVpjUmQ4S1JwamZHUURD?=
- =?utf-8?B?eFRDeDJZV2Z2anBuMkU1bTd5MXJPWk92RmpRUUNtSm9mNURKRE90T24waGRz?=
- =?utf-8?B?RTZLTFA3TGZoNkxFZzFwWjVyem5mUjlRczN6K1c3TmdhVGtET1I3RWE0VVpC?=
- =?utf-8?B?OTFxVHU5NHM2R0VJNHdPMENBWi80STc0VUpzS1pUT0Z5c2dRZWVvR2lSQngy?=
- =?utf-8?B?TDRYdjZOcUtyVzVraWc3LzlyQUprWkZyTytoU1MrcE5UNnFRRzlnalFNMEtW?=
- =?utf-8?B?elpJK0k2K3d2UXNwNUlreDcyQUwxQVFmdzFHcG0rSkFpandjVHNnYW9QQ0R3?=
- =?utf-8?B?SWpwRmhoY3VBcVZhTjJXRXhJZjJaaEY1VWc5dldhT2xYd1ZIQkhEZjcxWHZa?=
- =?utf-8?B?NFJ2R1hWeWxBVVZidzUrOGt4ZXdGc1RlRi9DOWVFdFdmc2VoRlB4YklmVVJW?=
- =?utf-8?B?c291cFNvaTdpbTBUUmpWRzFuSThYNDlJc3laOVhzcnFYWmV4bVFUOUh4MFlw?=
- =?utf-8?B?NUNrVTlvRVNqZDdYV28xVjJiSERoVmdXeXp1eU95NjVldllOUHBXUmdhMHNG?=
- =?utf-8?B?OWJVQVRqK2k4NDd4cHQ3eENLbEhQWlBRNkJYcU00cjNhNzNCbmpRZlA4cHIw?=
- =?utf-8?B?TUhwampnT0w1enFlMmJuQUlpeUxPd3JaWVhEdHhxUHJjemdXM21LbGIrWlg0?=
- =?utf-8?B?a0JCVzJ1eWdnb2wyU0JWTFlhY0dwRUdWdnB5emNEOEV1RWtlQVJYNldnZmtt?=
- =?utf-8?B?Q1Zvb0x4aUg1a3Fuc2FVbzBQUmhteFdzK0kzNGMyV0RoUVJOQ0d4L3RBNHZ0?=
- =?utf-8?B?SWJaNmdnSjI3SnROZzBPM3I0czNER0RrRXlYTTlRVjZ4c3lsK0tIRk51U0c2?=
- =?utf-8?B?QmhHeUwvcUlEZ3htRmZJQ0s1NUZNeGZGV2RLTnJoallDWGQ4L2g2OXVsc3lD?=
- =?utf-8?B?U3poT09Fd3BQd29UZGdnc3FKSzZYR1lWN0RObDdZS3h5U2hibjc2aEcyaUlo?=
- =?utf-8?B?Y3NDRUs4VEtobnJtVjR3SmlqQmt5ZHpNV2JoR0xIS1pRaXhaMVdRbnVGbHlt?=
- =?utf-8?B?eFlXaTBSWjlGS2dwYkpHQWdOWS9Gc3hWaDVzY1ppZVQ3QWJ6cHNrODVnbkZT?=
- =?utf-8?B?ZitpSlJrMHVoMXJSdUhVWk5iV09BeDBzd1dzYnlxcW1tWU55WkE1N3N3TWNw?=
- =?utf-8?B?NWI4dy9uQXE3ZzhzRzhFbklXdmoxR2R6OW9FWlpjUVd4YmRtQ0d4bXRQZnc5?=
- =?utf-8?B?TXdDMzRWQmxheDZHUE1hWHhZc1g5azc0WG5xd1NMb0RBMVltZmoxRkJQRzFZ?=
- =?utf-8?B?aWswUTVXd29YK1NwUzFsZ1kwSWhLci80ajhBd3E5Rlp3S2hCNWJzMEJIdDlX?=
- =?utf-8?B?dzRHR3lwZmJXR3laTTJsY1V4QXVYRDA4YSs3ZC9NaE9Fb3F2djQ2dmhEeE9l?=
- =?utf-8?Q?TcyGQz2/ZiFJ5IndtiQI716ho?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b0b40c93-411d-40b4-f172-08de0ad588b9
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2025 03:55:37.3564
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: V1/PIIwFxGG3xG04vTdcc64VV8cKN5eh+hPpGnPepzonxILOPaJ4kazPBBoNsP11GKavYgAFohuI/b+GW1jaLw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11867
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <054cf209-61af-4d21-9a3b-d0f6dd24ee3b@roeck-us.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_205546_285464_62AF9517 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20251013_210931_422339_A4CF7811 
+X-CRM114-Status: GOOD (  33.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,77 +110,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/13/2025, Fabio Estevam wrote:
-> mx6sl.dtsi and imx6sll.dtsi have the following lcdif entries:
-> 
-> compatible = "fsl,imx6sl-lcdif", "fsl,imx28-lcdif";
-> 
-> This causes dt-schema warnings as the current binding only
-> allow 'fsl,imx6sx-lcdif' as fallback.
-> 
-> ['fsl,imx6sl-lcdif', 'fsl,imx28-lcdif'] is too long
-> ['fsl,imx6sll-lcdif', 'fsl,imx28-lcdif'] is too long
-> 
-> The imx6sx-lcdif programming model has more advanced features, such
-> as overlay plane and the CRC32 support than the imx28-lcdif IP.
+Hi Guenter,
 
-Sorry for the late comment, but the LCDIF chapter in i.MX28 TRM contains
-the CRC register too, though I agree that i.MX6SX LCDIF supports overlay
-plane while i.MX28 LCDIF doesn't.
-
+On Mon, Oct 13, 2025 at 08:44:17PM -0700, Guenter Roeck wrote:
+> On 10/13/25 20:20, Guenter Roeck wrote:
+> > On 10/13/25 18:15, Tao Ren wrote:
+> > > Hi Guenter,
+> > > 
+> > > On Mon, Oct 13, 2025 at 05:20:57PM -0700, Guenter Roeck wrote:
+> > > > Hi,
+> > > > 
+> > > > On Sun, Jul 27, 2025 at 10:56:13PM -0700, rentao.bupt@gmail.com wrote:
+> > > > > From: Tao Ren <rentao.bupt@gmail.com>
+> > > > > 
+> > > > > Include "facebook-fuji-data64.dts" in facebook-fuji dts to avoid
+> > > > > duplicated code.
+> > > > > 
+> > > > > Fuji-data64 and Fuji are identical except the BMC flash layout.
+> > > > > 
+> > > > > Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
+> > > > 
+> > > > With this patch in the mainline kernel, the Ethernet interface I use for
+> > > > testing does not come online when loading fuji-bmc in qemu.
+> > > > 
+> > > > Reverting this patch fixes the problem.
+> > > > 
+> > > > Looking into this patch,
+> > > > 
+> > > > > -
+> > > > > -#include <dt-bindings/leds/common.h>
+> > > > > -#include "ast2600-facebook-netbmc-common.dtsi"
+> > > > > +#include "aspeed-bmc-facebook-fuji-data64.dts"
+> > > > ...
+> > > > > -&mac3 {
+> > > > > -    status = "okay";
+> > > > > -    phy-mode = "rgmii";
+> > > > > -    phy-handle = <&ethphy3>;
+> > > > > -    pinctrl-names = "default";
+> > > > > -    pinctrl-0 = <&pinctrl_rgmii4_default>;
+> > > > > -};
+> > > > 
+> > > > I don't see this in aspeed-bmc-facebook-fuji-data64.dts, meaning that
+> > > > interface is now disabled. Adding it back in fixes the problem.
+> > > > Also, MAC3 is explicitly enabled for fuji-bmc in qemu.
+> > > > 
+> > > > Was the interface disabled on purpose ?
+> > > > 
+> > > > Thanks,
+> > > > Guenter
+> > > 
+> > > The mac3 interface was removed in the latest patch (v4) per Andrew Lunn's
+> > > feedback, because the rgmii setting is incorrect.
+> > > 
+> > > I was planning to add mac3 back as soon as rgmii support is properly
+> > > handled in aspeed mac driver, but kindly let me know if you have other
+> > > suggestions.
+> > > 
+> > 
+> > All I can say is that it worked just fine with the qemu emulation,
+> > and that it is broken now. Since it was broken on purpose I guess I'll
+> > have to find a workaround or stop testing network interfaces with
+> > that emulation entirely.
+> > 
 > 
-> Expand the imx6sl/imx6sll lcdif fallbacks to accept a less specific
-> fsl,imx28-lcdif fallback:
+> Ah, I see that mac3 was the only enabled Ethernet interface on that system,
+> so you effectively disabled networking on it.
 > 
-> compatible = "fsl,imx6sl-lcdif", "fsl,imx6sx-lcdif", "fsl,imx28-lcdif";
-
-Looking at i.MX6SL TRM, I don't find any register to control overlay plane
-in LCDIF chapter, so I don't think i.MX6SL LCDIF supports overlay plane
-like i.MX6SX LCDIF does.  So, why not make the DT binding allow
-"compatible = "fsl,imx6sl-lcdif", "fsl,imx28-lcdif";" instead?
-
-I'm assuming i.MX6SL LCDIF and i.MX6SLL LCDIF are exactly the same.
-
+> I don't claim to understand the logic (how can anyone continue to use this bmc
+> without network interface ?) but I guess it is what it is. I'll stop testing it.
 > 
-> This helps keeping DT compatibility as well as using the more advanced
-> lcdif features found on imx6sl and imx6sll.
-> 
-> Signed-off-by: Fabio Estevam <festevam@gmail.com>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  Documentation/devicetree/bindings/display/fsl,lcdif.yaml | 8 ++++++--
->  1 file changed, 6 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-> index ce31b873fb95..d665f3241e97 100644
-> --- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-> +++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
-> @@ -23,14 +23,18 @@ properties:
->            - fsl,imx93-lcdif
->        - items:
->            - enum:
-> -              - fsl,imx6sl-lcdif
-> -              - fsl,imx6sll-lcdif
->                - fsl,imx6ul-lcdif
->                - fsl,imx7d-lcdif
->                - fsl,imx8mm-lcdif
->                - fsl,imx8mn-lcdif
->                - fsl,imx8mq-lcdif
->            - const: fsl,imx6sx-lcdif
-> +      - items:
-> +          - enum:
-> +              - fsl,imx6sl-lcdif
-> +              - fsl,imx6sll-lcdif
-> +          - const: fsl,imx6sx-lcdif
-> +          - const: fsl,imx28-lcdif
->        - items:
->            - enum:
->                - fsl,imx6sx-lcdif
+> Guenter
+
+Sorry for the inconvenience.. I have to take a local patch to enable
+mac3 in my environment, because as you said, it's not useful without
+network interface.
+
+Meanwhile, I will need to work with ASPEED to enable rgmii delay support
+in the ASPEED MAC driver so I can add mac3 back to the dts. If you are
+looking for a similar platform for testing, you could consider elbert.
 
 
--- 
-Regards,
-Liu Ying
+Thanks,
+
+Tao
 
