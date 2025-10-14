@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9133BCCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:35:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4787CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yJRi0HibOeKtbgfq4iDcVBuMVTWuMio4cjtfayeTuVk=; b=aG0UB3fuLU7a/rFlucMXPVZ2ZT
-	uoNB5lIaHEnEK2zNG9tj+io+uLniaHsJgtezoVAOOO30LtWf/QiAJULa1ZD6eh8KiH4IIInNl3Ywh
-	Z6YnktnuAEj946oznJiqnhcu/AE+eimHHKVW49olc9umNlHT2+dB5gcYVS5mPcsB0fbLKyLIc43L2
-	olB7NmgDyYmSCcVbo6EBQ7eLAwruywIqQmHdB4gZ4Njul014cZkxD9G9y7bFSLwTdMHAHzuvsooW/
-	Tf9OFLC4ngTkshuxqY/P+v3xRpoIkqCQJL5WByg8YXAFJFZir1T8U8v/wcwofLIWt2G5aQ54iIdr9
-	VEfqSyww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TRai4cVyjGy/v6uWoHz4lYyQ5z+kahgBJhjVCyIcJe4=; b=jyvSTvGUMELg0aFIFHMokm9iGb
+	THMWg3MFhKBynlEVBK8o6Aq6WeZhkFq06sEkEScZ6SQC+AtcyqF9cVpbImNWSY51rccuknK/2ZpD/
+	eGyFO/gYrOR4l9Qz/vwn6i6nohhD9/ncx0Ka+GuRLTVH6Nmn6ZrHh73w9c/0iJhCJ+i7ku9oggKkH
+	WhGRsyqkRiAF+SmhyHg8KIy/hdNWL3GuZjHnmw6qGKMAjJtlzgnPitMzLEprr8WZYQ6wLTNKDZN0t
+	fezrZWVRlJrybZ5rThRfQGFbomBwF9ZIGfL77QHb3blae8iH9LaD+GhTzAtGmb3eCAfPacTJ+S6oW
+	G0CJVXAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8aVN-0000000FdHG-2bQy;
-	Tue, 14 Oct 2025 08:35:37 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1v8aVb-0000000FdNF-3ttU;
+	Tue, 14 Oct 2025 08:35:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8aVL-0000000FdGh-0vve
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 08:35:36 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id D51834E4108E;
-	Tue, 14 Oct 2025 08:35:31 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id AC137606EC;
-	Tue, 14 Oct 2025 08:35:31 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D15DB102F224B;
-	Tue, 14 Oct 2025 10:35:28 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760430931; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=yJRi0HibOeKtbgfq4iDcVBuMVTWuMio4cjtfayeTuVk=;
-	b=zIBBSoBj/QJlk2scYqbB71RnzLWlY5113OOtGVaFYxyk4bdGnYR1o668Xdlf3xvEx9gQyF
-	bNGmo82EZuCtSHe5PYbvTX9GiQvU/bgoOgrn+DeciQq7AthyT9XDl4F8SaWUHBUXX6z5E9
-	P79Q0oai2nwpPvtI4nRQIvaI/f55wy/OF2Gr4EcfE1y4KmxBTi5CLKZK0HfNHMUiHjYLIz
-	mbxyPiNDJmlcocGXIjVrlaS/XC6RaDO1n13oj6lQVIQ2nu72++EBXvNrEYU+jgAki57v5C
-	z6BEUDpXkHYTMiWnQ+zeypTatRqw060jLixGeJoHQ3wHyjflGuXL0E5z4mRurQ==
-From: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
-Date: Tue, 14 Oct 2025 10:35:23 +0200
-Subject: [PATCH] firmware: ti_sci: replace ifdeffery by pm_sleep_ptr()
- macro
+	id 1v8aVY-0000000FdLL-3dDA;
+	Tue, 14 Oct 2025 08:35:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3D256443DB;
+	Tue, 14 Oct 2025 08:35:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2A2CC4CEE7;
+	Tue, 14 Oct 2025 08:35:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760430947;
+	bh=oIVvBDJ/3Y6oHKEA/tnipAXLIxVldUvt/b92nJT1Fy0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DV0LB6QEef72tfYVDZxGyT+02KnMDyVQ8tAEpyXdjnvqyuMH32hD9tYpE9roWV1Ur
+	 goCnXs1/x6bHx2NIFnN8Y3VF/gTJsyF4SEXn2x8jnznMKBo8mbxsUvPgHZ385hGFWs
+	 YD13rJzyzooBmDtAs3yVEOLmiv4zyvipeyogpXO0zQdN2ciOk70HAip9zlDc1gU2Q5
+	 S/P9MLqN55pnfSjSwtxangJoeQFvKAdzOQvdcpgrrXvCSbW73WXunJD0jqmgzKEpDP
+	 /4I4hem1GSrWmSm3ArcGwbaxaKTlDA5tmsYKY8RNaW1vwE99kVc61CndW33t45tGpq
+	 FIkyrsLiDi7Tg==
+Date: Tue, 14 Oct 2025 09:35:42 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next v3 3/3] net: airoha: npu: Add 7583 SoC support
+Message-ID: <aO4LXqpL8dVQ-QG6@horms.kernel.org>
+References: <20251013-airoha-npu-7583-v3-0-00f748b5a0c7@kernel.org>
+ <20251013-airoha-npu-7583-v3-3-00f748b5a0c7@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251014-ti-sci-pm-ops-cleanup-v1-1-70b50b73ac85@bootlin.com>
-X-B4-Tracking: v=1; b=H4sIAEoL7mgC/x3MSwqAMAwA0atI1gasHwSvIi5sTDWgtTQqgnh3i
- 8u3mHlAOQordNkDkS9R2X2CyTOgZfQzo0zJUBZlYwpT4yGoJBg23IMirTz6M6CxLbvK1RVZgtS
- GyE7u/9sP7/sB4QCI1mcAAAA=
-X-Change-ID: 20251014-ti-sci-pm-ops-cleanup-1b7ef3f43cbc
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
- Santosh Shilimkar <ssantosh@kernel.org>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Gregory CLEMENT <gregory.clement@bootlin.com>, 
- Richard Genoud <richard.genoud@bootlin.com>, Udit Kumar <u-kumar1@ti.com>, 
- Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
-X-Mailer: b4 0.14.2
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251013-airoha-npu-7583-v3-3-00f748b5a0c7@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_013535_396509_8658D815 
-X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-CacheID: sfid-20251014_013548_924497_91A305E1 
+X-CRM114-Status: UNSURE (   7.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,78 +79,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using pm_sleep_ptr() macro allows to remove ifdeffery and '__maybe_unused'
-annotations.
+On Mon, Oct 13, 2025 at 03:58:51PM +0200, Lorenzo Bianconi wrote:
+> Introduce support for Airoha 7583 SoC NPU selecting proper firmware images.
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
----
- drivers/firmware/ti_sci.c | 18 ++++++++----------
- 1 file changed, 8 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index 49fd2ae01055d0f425062147422471f0fd49e4bd..99a2e0e2960f463918950fef8829409ec365ce70 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -3706,7 +3706,7 @@ static int ti_sci_prepare_system_suspend(struct ti_sci_info *info)
- 	}
- }
- 
--static int __maybe_unused ti_sci_suspend(struct device *dev)
-+static int ti_sci_suspend(struct device *dev)
- {
- 	struct ti_sci_info *info = dev_get_drvdata(dev);
- 	struct device *cpu_dev, *cpu_dev_max = NULL;
-@@ -3746,7 +3746,7 @@ static int __maybe_unused ti_sci_suspend(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused ti_sci_suspend_noirq(struct device *dev)
-+static int ti_sci_suspend_noirq(struct device *dev)
- {
- 	struct ti_sci_info *info = dev_get_drvdata(dev);
- 	int ret = 0;
-@@ -3758,7 +3758,7 @@ static int __maybe_unused ti_sci_suspend_noirq(struct device *dev)
- 	return 0;
- }
- 
--static int __maybe_unused ti_sci_resume_noirq(struct device *dev)
-+static int ti_sci_resume_noirq(struct device *dev)
- {
- 	struct ti_sci_info *info = dev_get_drvdata(dev);
- 	int ret = 0;
-@@ -3780,7 +3780,7 @@ static int __maybe_unused ti_sci_resume_noirq(struct device *dev)
- 	return 0;
- }
- 
--static void __maybe_unused ti_sci_pm_complete(struct device *dev)
-+static void ti_sci_pm_complete(struct device *dev)
- {
- 	struct ti_sci_info *info = dev_get_drvdata(dev);
- 
-@@ -3791,12 +3791,10 @@ static void __maybe_unused ti_sci_pm_complete(struct device *dev)
- }
- 
- static const struct dev_pm_ops ti_sci_pm_ops = {
--#ifdef CONFIG_PM_SLEEP
--	.suspend = ti_sci_suspend,
--	.suspend_noirq = ti_sci_suspend_noirq,
--	.resume_noirq = ti_sci_resume_noirq,
--	.complete = ti_sci_pm_complete,
--#endif
-+	.suspend = pm_sleep_ptr(ti_sci_suspend),
-+	.suspend_noirq = pm_sleep_ptr(ti_sci_suspend_noirq),
-+	.resume_noirq = pm_sleep_ptr(ti_sci_resume_noirq),
-+	.complete = pm_sleep_ptr(ti_sci_pm_complete),
- };
- 
- /* Description for K2G */
-
----
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-change-id: 20251014-ti-sci-pm-ops-cleanup-1b7ef3f43cbc
-
-Best regards,
--- 
-Thomas Richard (TI.com) <thomas.richard@bootlin.com>
+Reviewed-by: Simon Horman <horms@kernel.org>
 
 
