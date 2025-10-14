@@ -4,115 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4AB0CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 07:35:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E1C3CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 07:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aA7JCiuVVRCy3V30ThlamZSn/80oafKR6lFslO98isQ=; b=EAxTZmnCYtLPzaz4H4ACa8Bc7V
-	rQH4GtXdpQVhyx7xtYBqEjOZfYwl7ViJWD2yoZPUD3NVnwsek7f4ixOiDTUogXxdKSlJaXbwbny9c
-	rkr3G1ITXvyvNUJvHDr1AizhVl6H3Eekg3eK+HLuKMyg8csM6sb5JHGF/YhiyQ38ivTZ+l0QwalmR
-	3T7JBNxNIyvAXNdfs++h4wjj+A6CK1Ca/iP8B+4l4GaOjOPqaS+xg2KKza9LDrTCdtrM9CqWOtrRu
-	B9G966qSRKrgHZgCLq8doSfHBqub9RiL1Nc4jpp266qh2m7IUq7OgyyO3QX+gZjPdsHzx/fAlIJgC
-	PTO0CGYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G48HKJVzL8dTW4kaeY/LLaqNNNbhyIm3tvzX/esIS8Q=; b=POJxdezb646aN8S9EkmgKPEt8D
+	W5eYi+3TZYXXDbqwuapqP3/MVjPCRJxa6FtM2vurBYWOLAYak10QLpBOpLukmrR+FRMNn+IvN/N94
+	MQbpvBH6UF7D7c9BGqP5m4zmV2OJjS2Su70jU+RpvgPtLn26QKzB+O0q8FMZ+T0ESEvx5NYQPzHb2
+	mATLmzH+3GzuL8+Yj6AxjjqmJH8bMLGvz69wl2tbGrda9mo/uNbIDuwkg66J402auOIW9rTgpU7t8
+	dnOZorkoqdOuhuhcr4GI68ts/tRtuE9x9COMRfv7hmAJzG8BvbU7pdmmW7SK5efBzl7EN1VKL4ySR
+	qb65lSAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ZZN-0000000FTPf-3AaJ;
-	Tue, 14 Oct 2025 07:35:41 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v8ZiH-0000000FUTW-0beQ;
+	Tue, 14 Oct 2025 07:44:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ZZL-0000000FTPC-2t0j
+	id 1v8ZiE-0000000FUSw-2OpP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 07:35:40 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59E6aP3x003051
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 07:35:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=aA7JCiuVVRCy3V30ThlamZSn/80oafKR6lF
-	slO98isQ=; b=YxJx0KAxO2DqDO8I0IKd7HJf3ZDdKG0xzvCT/lLqkhtagBriu9E
-	qR42JQe0OQhY2Nke4Vpeh9pTtdbGcOAVVfNmtg+l2gTL5Q9iWQAoBlQFET1Wiere
-	cY+l05G5XIiXa8S1mE4DhMJ9Lqhgir+iR2ftCKJUGRcUOJjKDRmL9mQaJ+qfRwEd
-	6fILSLEHu+Cwag/8EcpfEgRIB06tWg7Bm6J9U9gWDisWxCXc3W4cn7sJz0ssCohl
-	2JRGe6Jph4NnrktfzmOxvVOoxqVGEsRTdCHbT/QAGbbWy9MyEAUVGjnszAi7uIdv
-	WkBaRAjf0QALrxwJ6CXxZJn89NMjzq1BobA==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qff0qj9d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 07:35:38 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-339ee7532b9so25147912a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 00:35:38 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760427337; x=1761032137;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aA7JCiuVVRCy3V30ThlamZSn/80oafKR6lFslO98isQ=;
-        b=V0izn3pviWvHKFsZRRHJelWEsMHO8JdIfIMNYiHvG2wvQ7iCoWtIknUG6oved6ROQY
-         1JAAvpGnJiTXM31iqQF26PoJqbmWnNYVwNEYTJg9BYozB5mvwuqZrY3f15A3T24CtZf0
-         tOi8dFh2Y9WqpFe5GPjsOfoNrs+00/aID0NncHfikWKbyK0Ygc5P+wDU0SwillHpIas4
-         bt4ZIYsSZ/IRXqL4k3V1yzzjJfeB9BwQTOakGHPdk8Sq2VAs00CogxDWw1E6RLgdUu7S
-         AFaif/AxcT897QPD3XYkrX5ryA5qduaJyaJH/waLY6foEKDE4/9doia9sJkRug0tkinH
-         MAhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVjcN6rgEjOq4E+VwP7Ib6WJWzVC7QJYQVnT3Zd120TX5bBfNqpYqgw+p4rd98pWk490EbisjUvejUUOy9Zr7M7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8oo0hOhwDwv3MlXoemxWfBPvJlQwEUc3AkRqTEIsp/9ugbBsm
-	C6kpH/K0UnWuAnvFIiAzteQSyRo9iA4dtjABO5bKn/cPWw8q0TSjY/IW38PAxmsZyvqFoSJ+jCu
-	kb1bJfw+WXMidd56wyjM9rzvqciCuPYDmxK6vg6J4Sg6ZNrgtSBwJiUTpeFs6Ubk1xiB16kli7s
-	965g==
-X-Gm-Gg: ASbGnctBMXFSr0vRVc2igwHrZthHX8bXcNE/Rcmu+5xRn6sigN5zZyqTsSwZ4brn6Cd
-	/lgtPU2gOWX4Hki3Mkq6XtWoO3CQo8nYDhdn40nk3sY+Q0kRAgz3RTmuVCRkwy7fohfE+i/+38D
-	yTCQa7jYTTaprGulqv8eWtsY3G0nbm55sHfqyYGnjCxeA22gWSIeTr8pfZJZGdtXV6I0H4XALRU
-	4nXxUh6/FEoJWeZjcZBnF8FY64M+uXWpXjekllrlYNYkI5lucu2+V7M8Eatsm8sX/nVodJuJ/Ln
-	y8Su7v4WDYLI4/RwABqXhunyXyKUoaVhMGkqSqUREmtfpEpumO2dyu2W5/BQNLdDr/RUt2NGXal
-	ANbEZ2icTa1ogzn1W6HE=
-X-Received: by 2002:a17:903:2acc:b0:264:ee2:c40f with SMTP id d9443c01a7336-2902730237dmr320265085ad.52.1760427337280;
-        Tue, 14 Oct 2025 00:35:37 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEOxdIo88Y+BDPv1KzmWMec2XJ9wxExeRxOPDZ/MXxz4c5ZQPBmyG0bxZVL0yu6B0smPV2waQ==
-X-Received: by 2002:a17:903:2acc:b0:264:ee2:c40f with SMTP id d9443c01a7336-2902730237dmr320264835ad.52.1760427336782;
-        Tue, 14 Oct 2025 00:35:36 -0700 (PDT)
-Received: from hu-viveka-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034f93b66sm156070585ad.124.2025.10.14.00.35.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Oct 2025 00:35:36 -0700 (PDT)
-From: Vivek Aknurwar <vivek.aknurwar@oss.qualcomm.com>
-To: sudeep.holla@arm.com, cristian.marussi@arm.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, mike.tipton@oss.qualcomm.com,
-        Vivek Aknurwar <vivek.aknurwar@oss.qualcomm.com>
-Subject: [PATCH 1/1] firmware: arm_scmi: Increase MAX_OPPS to 64
-Date: Tue, 14 Oct 2025 00:34:54 -0700
-Message-Id: <20251014073454.461999-1-vivek.aknurwar@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxOCBTYWx0ZWRfX13e4iBAlUEK2
- lis5SLr9s5eY9n6nt7LwTzszJc2+KCg584tCVh/yuYD+C0LvATzBOohhVHiapxPyYxNq2aIxs6r
- 00wtepZBBjCQocuNGRb/SCceoaFs5ZeVkt9Y1ZVbILXKsW41pnmcO8NT6tHIdRMD2ZZqRtg9Xsf
- UnpDQQVFDRV9DrHnvlpOu9uy8uIlWu0i6nXVhz7xEVK93V+4FwWaw6+mzG9avpcDWRV00qCl7DW
- NOk1YXLtxGVQyhrt9RSOEiAc2qFmLb22Z0gNl72Ks3Jf12tL/39gxcxv5UtipFK254dRdHY8h6d
- EQzESWxnpmXpMVzmBx5H/I2Xfv0YTYKUd4hC897V7f1j7FCltuDLUd+HBkxZKapUT/sbpUmvJJT
- pH65C+ne1dLYaJqmqrF4EKG8bjdkTg==
-X-Proofpoint-GUID: s1rLeiPneMKrxCrKHHxv5Ed1ervKZPV6
-X-Authority-Analysis: v=2.4 cv=PriergM3 c=1 sm=1 tr=0 ts=68edfd4a cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8
- a=5ooIImjpSQmp0NYUP-EA:9 a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-ORIG-GUID: s1rLeiPneMKrxCrKHHxv5Ed1ervKZPV6
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-14_02,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 clxscore=1011 bulkscore=0 phishscore=0
- lowpriorityscore=0 spamscore=0 suspectscore=0 impostorscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
- definitions=main-2510110018
+	Tue, 14 Oct 2025 07:44:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ED5A8450CE;
+	Tue, 14 Oct 2025 07:44:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D51C4CEE7;
+	Tue, 14 Oct 2025 07:44:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760427886;
+	bh=GEkGrg3Y0VhrFhcKMRkq11hTlEvauEQquaSWcnzJ2As=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=knN0Nlal0qGpn0gVor3cxe/sP0hRTASA/uIaFLJk46TcHV+pVlOchbu6SjRGOqipg
+	 4WR2WFQSiayBmptuiRmAxZrnN0bZBFeRBQ4lMb7tNl9BkoNumTYm/2lpFPTe5Vldxa
+	 0/k8086WoVNPqYR7h3xBYqHsBmkc6fC28D27qcmFEWW/k4o7wIChCNsJcuCekXqXnq
+	 gaXjCtDMrJCMvYQalZ19hkyfzbgoWrC2McKT7M/X/g/IFYuuxVL2d8KgGbwacBskpi
+	 OfH3tRbcN5EUowOP+dV8EcbQPGQ4SjO1lO0VCCM5HFYgLa6wpXWTGrKfB/YgnHT0lo
+	 i37S9spB2Xl4g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v8Zi7-0000000Dlpg-1i61;
+	Tue, 14 Oct 2025 07:44:43 +0000
+Date: Tue, 14 Oct 2025 08:44:42 +0100
+Message-ID: <864is2x6z9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Peter Maydell <peter.maydell@linaro.org>
+Cc: salil.mehta@opnsrc.net,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	salil.mehta@huawei.com,
+	jonathan.cameron@huawei.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	james.morse@arm.com,
+	sudeep.holla@arm.com,
+	lpieralisi@kernel.org,
+	jean-philippe@linaro.org,
+	tglx@linutronix.de,
+	oliver.upton@linux.dev,
+	richard.henderson@linaro.org,
+	andrew.jones@linux.dev,
+	mst@redhat.com,
+	david@redhat.com,
+	philmd@linaro.org,
+	ardb@kernel.org,
+	borntraeger@linux.ibm.com,
+	alex.bennee@linaro.org,
+	gustavo.romero@linaro.org,
+	npiggin@gmail.com,
+	linux@armlinux.org.uk,
+	karl.heubaum@oracle.com,
+	miguel.luis@oracle.com,
+	darren@os.amperecomputing.com,
+	ilkka@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com,
+	gankulkarni@os.amperecomputing.com,
+	wangyanan55@huawei.com,
+	wangzhou1@hisilicon.com,
+	linuxarm@huawei.com
+Subject: Re: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow lockless read when ready
+In-Reply-To: <CAFEAcA8FhgcaM_OsHKB3+3Z7B_oZJqU4LHX_j9p-ZQrHfWGX7g@mail.gmail.com>
+References: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
+	<86v7koxk1z.wl-maz@kernel.org>
+	<CAFEAcA8=yhQ-ygoA-fqxzwg69OkdW2nBM0O9X3Lmww4eXuVMWA@mail.gmail.com>
+	<867bwzxe9r.wl-maz@kernel.org>
+	<CAFEAcA8FhgcaM_OsHKB3+3Z7B_oZJqU4LHX_j9p-ZQrHfWGX7g@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: peter.maydell@linaro.org, salil.mehta@opnsrc.net, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, salil.mehta@huawei.com, jonathan.cameron@huawei.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, james.morse@arm.com, sudeep.holla@arm.com, lpieralisi@kernel.org, jean-philippe@linaro.org, tglx@linutronix.de, oliver.upton@linux.dev, richard.henderson@linaro.org, andrew.jones@linux.dev, mst@redhat.com, david@redhat.com, philmd@linaro.org, ardb@kernel.org, borntraeger@linux.ibm.com, alex.bennee@linaro.org, gustavo.romero@linaro.org, npiggin@gmail.com, linux@armlinux.org.uk, karl.heubaum@oracle.com, miguel.luis@oracle.com, darren@os.amperecomputing.com, ilkka@os.amperecomputing.com, vishnu@os.amperecomputing.com, gankulkarni@os.amperecomputing.com, wangyanan55@huawei.com, wangzhou1@hisilicon.com, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_003539_726277_A916781B 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20251014_004450_653464_CA40A65C 
+X-CRM114-Status: GOOD (  56.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,29 +119,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some upcoming SoCs define more than 32 operating performance points (OPPs),
-exceeding the current SCMI protocol limit. Increase MAX_OPPS to 64
-(next power of 2) to support these configurations.
+On Mon, 13 Oct 2025 17:48:44 +0100,
+Peter Maydell <peter.maydell@linaro.org> wrote:
+> 
+> On Mon, 13 Oct 2025 at 11:55, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > On Mon, 13 Oct 2025 09:42:58 +0100,
+> > Peter Maydell <peter.maydell@linaro.org> wrote:
+> > >
+> > > On Thu, 9 Oct 2025 at 14:48, Marc Zyngier <maz@kernel.org> wrote:
+> > > >
+> > > > On Wed, 08 Oct 2025 21:19:55 +0100,
+> > > > salil.mehta@opnsrc.net wrote:
+> > > > >
+> > > > > From: Salil Mehta <salil.mehta@huawei.com>
+> > > > >
+> > > > > [A rough illustration of the problem and the probable solution]
+> > > > >
+> > > > > Userspace reads of ICC_CTLR_EL1 via KVM device attributes currently takes a slow
+> > > > > path that may acquire all vCPU locks. Under workloads that exercise userspace
+> > > > > PSCI CPU_ON flows or frequent vCPU resets, this can cause vCPU lock contention
+> > > > > in KVM and, in the worst cases, -EBUSY returns to userspace.
+> > > > >
+> > > > > When PSCI CPU_ON and CPU_OFF calls are handled entirely in KVM, these operations
+> > > > > are executed under KVM vCPU locks in the host kernel (EL1) and appear atomic to
+> > > > > other vCPU threads. In this context, system register accesses are serialized
+> > > > > under KVM vCPU locks, ensuring atomicity with respect to other vCPUs. After
+> > > > > SMCCC filtering was introduced, PSCI CPU_ON and CPU_OFF calls can now exit to
+> > > > > userspace (QEMU). During the handling of PSCI CPU_ON call in userspace, a
+> > > > > cpu_reset() is exerted which reads ICC_CTLR_EL1 through KVM device attribute
+> > > > > IOCTLs. To avoid transient inconsistency and -EBUSY errors, QEMU is forced to
+> > > > > pause all vCPUs before issuing these IOCTLs.
+> > > >
+> > > > I'm going to repeat in public what I already said in private.
+> > > >
+> > > > Why does QEMU need to know this? I don't see how this is related to
+> > > > PSCI, and outside of save/restore, there is no reason why QEMU should
+> > > > poke at this. If QEMU needs fixing, please fix QEMU.
+> > >
+> > > I don't know the background here, but generally speaking,
+> > > when we do a CPU reset that includes writing all the CPU state
+> > > of the "this is freshly reset from userspace's point of view" vcpu
+> > > back to the kernel. More generally, userspace should be able to
+> > > read and write sysregs for a vcpu any time it likes, and not
+> > > arbitrarily get back -EBUSY. What does the kernel expect
+> > > userspace to do with an errno like that?
+> >
+> > The main issue here is that GICv3 is modelled as a device, just like
+> > GICv2, and that all the sysregs that are relevant to the GIC have the
+> > same status as the MMIO registers: they can only be accessed when the
+> > vcpus are not running.
+> >
+> > These sysregs are not visible through the normal ONE_REG API, and
+> > therefore not subjected to the "do whatever you want" rule.
+> 
+> Ah, I'd forgotten that. But the cpuif registers are still
+> per-cpu, and they do still need to be reset on vcpu reset,
+> and that might still happen for a single vcpu when the VM
+> as a whole is still running.
+> 
+> That said, QEMU's current code for this could be refactored
+> to avoid the reset-time read of ICC_CTLR_EL1 from the kernel.
+> We do this so we can set the userspace struct field for this
+> register to the right value. But we could ask the kernel for
+> that value once on VM startup since it's not going to change mid-run.
 
-Signed-off-by: Vivek Aknurwar <vivek.aknurwar@oss.qualcomm.com>
----
- drivers/firmware/arm_scmi/perf.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The reset value is indeed cast in stone once the GIC has been created.
 
-diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
-index 683fd9b85c5c..2249ef7fe790 100644
---- a/drivers/firmware/arm_scmi/perf.c
-+++ b/drivers/firmware/arm_scmi/perf.c
-@@ -27,7 +27,7 @@
- /* Updated only after ALL the mandatory features for that version are merged */
- #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x40000
- 
--#define MAX_OPPS		32
-+#define MAX_OPPS		64
- 
- enum scmi_performance_protocol_cmd {
- 	PERF_DOMAIN_ATTRIBUTES = 0x3,
+> That would bring ICC_CTLR_EL1 into line with the other cpuif
+> registers, where QEMU assumes it knows what the kernel's
+> reset value of them is (mostly "0") and doesn't bother to ask.
+> This is different from how we handle ONE_REG sysregs, where
+> I'm pretty sure we do ask the kernel the value of all of them
+> on a vcpu reset. (And then write the values back again, which
+> is a bit silly but nobody's ever said it was a performance
+> problem for them :-))
+>
+> > Should we have done something else when the GICv3 save/restore API was
+> > introduced and agreed upon with the QEMU people? Probably. Can we
+> > change it now? Probably not. The only thing we could relax is the
+> > scope of the lock when accessing a sysreg, so that we only mandate
+> > that the targeted vcpu is not running instead of the whole VM.
+> >
+> > And finally, if you object to this API, why should we do for GICv5,
+> > which is so far implemented by following the exact same principles?
+> 
+> I don't object to the API inherently (I don't care whether we
+> do these register reads via a dev ioctl or something else,
+> from userspace's point of view it's just "do some syscall,
+> get a value") -- I'm just objecting to the kernel's
+> implementation of it where it might return EBUSY :-)
+
+To me, EBUSY has a clear meaning: you're otherwise using the resource,
+and you need to relinquish it first, while EINVAL indicates that the
+kernel doesn't understand what you want.
+
+As I said, I'm happy to look at reducing the locking to only the
+target vcpu in the case of a sysreg being accessed, but EBUSY will
+stay.
+
+> 
+> (Also, if the kernel had failed EINVAL unconditionally for
+> an attempt to do this on a not-stopped VM then we'd probably
+> have found this mismatch in understanding about how the
+> API should work years ago. "Mostly works but sometimes fails
+> EBUSY" is the worst of all worlds.)
+> 
+> I haven't yet got as far as thinking about the KVM interface
+> for GICv5 yet...
+
+I guess that for the time being, we'll assume that GICv3 is the
+reference.
+
+Thanks,
+
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
