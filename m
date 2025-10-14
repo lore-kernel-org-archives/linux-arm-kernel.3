@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A18A6CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2682CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zp3zFYP65rNUfjUBaEgVLi4YFY+m2MhquIYF5ckz4yc=; b=3LPG4qpoRgMLc4AEP0aeO1glW9
-	Sc3S9GSr48HTAivB2IZV27K0+Dv1CU3hgsVkUuT4t91PrOGjfZtiIxE61Qp2DH+Yf4yXf7THDC5Ui
-	fPh32e1WBXDXex4DxxqMzKjKYKPDlhGHzLH6RY7J303Calg+21409zg3NCkYAckkmTMMo4gvcQ3C2
-	gKgW+KDhha1L7AP434UEK7hdwn7b3mLVIcxetUqrYhfmEAABZdWu1OA+0BKiQkkPLH0+c/2GNtBKZ
-	YfAd5pUs13SBLmUw1CcsKJ0IAc7aeKz6z1Y76KiubI6dfeWCOHYq9zSjHwD6d1T6EBvdmG5zOjKJW
-	msBDHLcg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h0C3j15Yugc04L5diekbYBCyapTdq2v/4isDBpQOj5g=; b=cOwxMq2UyBed/NXJAn02aBoKf6
+	6Pfulb5r5O6MpAA2QTqHj0ZkLC7HtnIZTXw5dV3OorIv10vcG1JjDdrVtepSekAHtoo4XqP9Nv5bx
+	NSwe57R7KqvBfBkk5/4/71O1xibbaMe4Z5thIlRSDFp4LMzk0DSsPjbtfEsBV0UMxrTCuroC5Newt
+	HATv5Eskx++Ju1ZWwa/9wI1DbokLjwnDrN/Kcfp+mI/s1Zcp+p7FaMocfHmPT2HL9b/QmOcejgVrl
+	AJCtyfXfLKOCHfwhb5cW/pVOWU71x+Z6IQkrxynUlLPliXz4+VT7k9ofzW0trxud21sT2/jn+MTYV
+	cVsZrzWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dGT-0000000G6fB-2RlZ;
-	Tue, 14 Oct 2025 11:32:25 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v8dGn-0000000G6qN-2v0m;
+	Tue, 14 Oct 2025 11:32:45 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dGR-0000000G6dL-3mgY;
-	Tue, 14 Oct 2025 11:32:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760441541;
-	bh=8juqZChkhVdJOJOqCmRgkPRBnkr1y8NTqdNQbKSKwVM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nnBFVhMUh/1GaQxtOa7WgGzBInvLUnfBP0ZJ5exU29pIvQPutfuF6d55LhieayC9S
-	 l7wVqv9cR+57AUhZyHQUAGTmHtMQ422yyfQGUxKKhVWVAzrBb7j9RcuzO3IVE5PLWR
-	 b1Jpg72ulzl2e4LCz6NHabdLV3QrZcRhBfLq437V5Ww5+Gx2kfh0y08rUNeNx2QEb3
-	 Ng/U4TIXz7za7kOR9lnK/kRAtD6MBcMIMp83Q75easNYWXalVYVvWj8KSeABQ0uyIk
-	 ezJ0BGUtTbRcp7i/KvzO8BXHOD+uBPk3Zryq9vVtNLnsREVPIjWlMbc6JeQIx0RyIa
-	 oHXqlalgkD+ag==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 05DF517E1292;
-	Tue, 14 Oct 2025 13:32:20 +0200 (CEST)
-Message-ID: <87489f92-7bc0-4494-8532-f8f2d220bd27@collabora.com>
-Date: Tue, 14 Oct 2025 13:32:20 +0200
+	id 1v8dGl-0000000G6pY-2zvB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Oct 2025 11:32:45 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-32eb45ab7a0so5595994a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 04:32:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760441562; x=1761046362; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=h0C3j15Yugc04L5diekbYBCyapTdq2v/4isDBpQOj5g=;
+        b=hfAVmKVnRPu3UCrY1l0fdTAz41vd+z7Nop8QuiSQv4nEQ0V0kp9Z8F4yi1/vjtES2N
+         4Jv/hyIflZ31Efv2sysE9sFc41hIxzXsLj37J19Lr8PwSs7NKOiESFkL6tWD6NzWxwyl
+         /AuBdW4saqb8uFTChhx3897hHdF0HmW/CJtEsZQ3ELDKu9OyQf0i2ME+fPxpe8wfOfgL
+         P58XR3n8huDu5ZJw0WCxHxrGlkFbBN5ZJ3DDWI1A2uUzVPaCsOxVaUt8zIx0uU+OvpYE
+         05J1OczN3UoUDv/byRjMDiIuWDTLtU6Y56vkqjF+MeN6bijCWZX9RlWfJzBs6/+mHPKN
+         8jyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760441562; x=1761046362;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=h0C3j15Yugc04L5diekbYBCyapTdq2v/4isDBpQOj5g=;
+        b=nqu6z9Uj+D17a1RUuklxSS0HLM0ze0sD/DKSbZJmV5zre0Q7uRxYfKY3/rUHhrHmK3
+         z0KpW/N/13U7XQtH4bKbZuhCQe9o5LgTwlxBh/0abNbQsnnCdE8jDNxO8Y5RqZ58Vaed
+         eV0Jv5R+NKyo+B9svX2HLjoWlCkAF/A9DjeLjgn0U2KfEMwt6metfmqBCep/Tsnz2HBJ
+         z/yf4jsVAW5nKKCBKuDMbbR2mQTF0OmPBxlmjqNLHdv5P9NKZP5DsJSSGwwQRQSobW2P
+         fyE5u60w7SjtWkDlcDefA9rKmUJh+LFfhGx7BpyWmQjsk1zcKSIvIUghrC8uuQsHEpUm
+         kwfA==
+X-Forwarded-Encrypted: i=1; AJvYcCXgiGEzUtokYX8qNvEZuSVSGfckGWfoK17S9OErsB94AMbPBhpCXcZloxCvuHoIp2oP4VRq/MPPHBss67wXGel5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzR/xZb4itCbru1iOwrWhXh/hf8nsFw5dBveKhwa77ZeVs2mvu5
+	7T1ZdMZKJyvr+vj8BPgOWTRBA4etuX/iu/kGO6R60/LPsEyg2X1HmyhU
+X-Gm-Gg: ASbGncvuxucAU2LOVJuBOHhkEjrAe7WmyYv0DUdUAYLQovRBDYRkRDlQsZbmiNBLeof
+	/4Y8TZBxYYtealcemqf9Y8KLD21xKY5FAy9zu/zwEIRyuLT8eulrIdWnbcQ42Ql+0jHt5+xqRTf
+	fMsab1WfzZouDOxso84AfEAL5Jxv2FUoRg9pDyINrXJDJ9iz6u1yCvlJ3b3qlmhZ0DasQPMdsCi
+	xhvPVkCiiDDyaxtXG3hlL9j1eU48WcMEPAVuSDebB3X9a4FUYQ1UVMOZVuGTI5HnuLy0TiPIx7o
+	M4qPtxc+K5Xo3J6s+jbto55WmAEH65WxQygX3Q8glIQPsVWWJOiRBhALbcC5113UpipcZYQT7hx
+	DkRL9o8oW+8GT9/NuQM4LlXtRwZJL3CsJVi6jGic=
+X-Google-Smtp-Source: AGHT+IFOXw7annfzhh83UINHXYFo00qKcPjKDkiEC3wElyWcHBIp7o3ZfuqFZw3zUefrPIrk44z91w==
+X-Received: by 2002:a17:90b:1652:b0:32d:d4fa:4c3 with SMTP id 98e67ed59e1d1-33b513cd9damr31858712a91.31.1760441562336;
+        Tue, 14 Oct 2025 04:32:42 -0700 (PDT)
+Received: from rockpi-5b ([45.112.0.108])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0965c3sm14871383b3a.52.2025.10.14.04.32.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Oct 2025 04:32:41 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	linux-omap@vger.kernel.org (open list:PCI DRIVER FOR TI DRA7XX/J721E),
+	linux-pci@vger.kernel.org (open list:PCI DRIVER FOR TI DRA7XX/J721E),
+	linux-arm-kernel@lists.infradead.org (moderated list:PCI DRIVER FOR TI DRA7XX/J721E),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v1 0/3] PCI: j721e: A couple of cleanups
+Date: Tue, 14 Oct 2025 17:02:26 +0530
+Message-ID: <20251014113234.44418-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 10/20] soc: mediatek: mtk-cmdq: Add new APIs to replace
- cmdq_pkt_write() and cmdq_pkt_write_mask()
-To: =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>, =?UTF-8?B?Q0sgSHUgKOiDoeS/ig==?=
- =?UTF-8?B?5YWJKQ==?= <ck.hu@mediatek.com>
-Cc: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- =?UTF-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
- =?UTF-8?B?TW91ZHkgSG8gKOS9leWul+WOnyk=?= <Moudy.Ho@mediatek.com>,
- =?UTF-8?B?WGlhbmRvbmcgV2FuZyAo546L5YWI5YasKQ==?=
- <Xiandong.Wang@mediatek.com>, "nicolas@ndufresne.ca" <nicolas@ndufresne.ca>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- =?UTF-8?B?UGF1bC1wbCBDaGVuICjpmbPmn4/pnJYp?= <Paul-pl.Chen@mediatek.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "fshao@chromium.org" <fshao@chromium.org>,
- =?UTF-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
- =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
- "wenst@chromium.org" <wenst@chromium.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
-References: <20250827114006.3310175-1-jason-jh.lin@mediatek.com>
- <20250827114006.3310175-11-jason-jh.lin@mediatek.com>
- <b2335fd9296bc6f3511f8139870f0c34db1be62a.camel@mediatek.com>
- <fa46fec3f7ca25532c39e6e864ea692e19b7f5bb.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <fa46fec3f7ca25532c39e6e864ea692e19b7f5bb.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_043224_087100_12C35307 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20251014_043243_759781_69D97F04 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,125 +104,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 13/10/25 11:50, Jason-JH Lin (林睿祥) ha scritto:
-> On Fri, 2025-09-05 at 09:41 +0000, CK Hu (胡俊光) wrote:
->> On Wed, 2025-08-27 at 19:37 +0800, Jason-JH Lin wrote:
->>> To support generating GCE write instructions using both pa_base and
->>> subsys, the original cmdq_pkt_write() and cmdq_pkt_write_mask()
->>> have
->>> been expanded into four new APIs:
->>> - Replaced cmdq_pkt_write() to cmdq_pkt_write_pa() and
->>>    cmdq_pkt_write_subsys().
->>> - Replaced cmdq_pkt_write_mask() to cmdq_pkt_write_mask_pa() and
->>>    cmdq_pkt_write_mask_subsys().
->>>
->>> The original cmdq_pkt_write() and cmdq_pkt_write_mask() will be
->>> removed
->>> after all CMDQ users have migrated to the new APIs.
->>>
->>> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
->>> ---
->>>   drivers/soc/mediatek/mtk-cmdq-helper.c | 41 +++++++++++++
->>>   include/linux/soc/mediatek/mtk-cmdq.h  | 79
->>> ++++++++++++++++++++++++++
->>>   2 files changed, 120 insertions(+)
->>>
->>> diff --git a/drivers/soc/mediatek/mtk-cmdq-helper.c
->>> b/drivers/soc/mediatek/mtk-cmdq-helper.c
->>> index 41e1997cdd53..7e86299213d8 100644
->>> --- a/drivers/soc/mediatek/mtk-cmdq-helper.c
->>> +++ b/drivers/soc/mediatek/mtk-cmdq-helper.c
->>> @@ -213,6 +213,26 @@ int cmdq_pkt_write(struct cmdq_pkt *pkt, u8
->>> subsys, u16 offset, u32 value)
->>>   }
->>>   EXPORT_SYMBOL(cmdq_pkt_write);
->>>   
->>> +int cmdq_pkt_write_pa(struct cmdq_pkt *pkt, u8 subsys /*unused*/,
->>> u32 pa_base,
->>> +		      u16 offset, u32 value)
->>
->> subsys is useless. Drop it.
->>
->>> +{
->>> +	int err;
->>> +
->>> +	err = cmdq_pkt_assign(pkt, CMDQ_THR_SPR_IDX0,
->>> CMDQ_ADDR_HIGH(pa_base));
->>> +	if (err < 0)
->>> +		return err;
->>> +
->>> +	return cmdq_pkt_write_s_value(pkt, CMDQ_THR_SPR_IDX0,
->>> CMDQ_ADDR_LOW(offset), value);
->>> +}
->>> +EXPORT_SYMBOL(cmdq_pkt_write_pa);
->>> +
->>> +int cmdq_pkt_write_subsys(struct cmdq_pkt *pkt, u8 subsys, u32
->>> pa_base /*unused*/,
->>> +			  u16 offset, u32 value)
->>
->> pa_base is useless. Drop it.
->>
->>> +{
->>> +	return cmdq_pkt_write(pkt, subsys, offset, value);
->>> +}
->>> +EXPORT_SYMBOL(cmdq_pkt_write_subsys);
->>> +
->>>   int cmdq_pkt_write_mask(struct cmdq_pkt *pkt, u8 subsys,
->>>   			u16 offset, u32 value, u32 mask)
->>>   {
->>> @@ -230,6 +250,27 @@ int cmdq_pkt_write_mask(struct cmdq_pkt *pkt,
->>> u8 subsys,
->>>   }
->>>   EXPORT_SYMBOL(cmdq_pkt_write_mask);
->>>   
->>> +int cmdq_pkt_write_mask_pa(struct cmdq_pkt *pkt, u8 subsys
->>> /*unused*/, u32 pa_base,
->>> +			   u16 offset, u32 value, u32 mask)
->>
->> subsys is useless. Drop it.
->>
->>> +{
->>> +	int err;
->>> +
->>> +	err = cmdq_pkt_assign(pkt, CMDQ_THR_SPR_IDX0,
->>> CMDQ_ADDR_HIGH(pa_base));
->>> +	if (err < 0)
->>> +		return err;
->>> +
->>> +	return cmdq_pkt_write_s_mask_value(pkt, CMDQ_THR_SPR_IDX0,
->>> +					   CMDQ_ADDR_LOW(offset),
->>> value, mask);
->>> +}
->>> +EXPORT_SYMBOL(cmdq_pkt_write_mask_pa);
->>> +
->>> +int cmdq_pkt_write_mask_subsys(struct cmdq_pkt *pkt, u8 subsys,
->>> u32 pa_base /*unused*/,
->>> +			       u16 offset, u32 value, u32 mask)
->>
->> pa_base is useless. Drop it.
->>
->>> +{
->>> +	return cmdq_pkt_write_mask(pkt, subsys, offset, value,
->>> mask);
->>> +}
->>> +EXPORT_SYMBOL(cmdq_pkt_write_mask_subsys);
->>> +
-> 
-> Hi CK,
-> 
-> I'll drop the unused parameters.
-> Thanks for the reviews.
+Refactor the J721e probe function to use devres helpers for resource
+management. This replaces manual clock handling with
+devm_clk_get_optional_enabled() and assigns the reset GPIO directly
+to the struct members, eliminating unnecessary local variables.
 
-It's unused, but if we want to use function pointers we do need those.
+These patches have been compile-tested only, as I do not have access
+to the hardware for runtime verification.
 
-Unless you want to use one variable for both things, which then becomes
-kind of janky and unreadable.
+Changes
+   Add new patch for dev_err_probe return.
+   dropped unsesary clk_disable_unprepare as its handle by
+   devm_clk_get_optional_enabled.
+    
+RFC v1: https://lore.kernel.org/all/20251013101727.129260-1-linux.amoon@gmail.com/
 
-Cheers,
-Angelo
+Thanks
+-Anand
 
-> 
-> Regards,
-> Jason-JH Lin
+Anand Moon (3):
+  PCI: j721e: Propagate dev_err_probe return value
+  PCI: j721e: Use devm_clk_get_optional_enabled() to get the clock
+  PCI: j721e: Use inline reset GPIO assignment and drop local variable
+
+ drivers/pci/controller/cadence/pci-j721e.c | 39 ++++++++--------------
+ 1 file changed, 14 insertions(+), 25 deletions(-)
+
+
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+-- 
+2.50.1
 
 
