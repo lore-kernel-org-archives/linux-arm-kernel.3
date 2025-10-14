@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ABC3CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 03:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02404CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 03:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h9mILizSboCplYbQmD86FAClfic5oRmsIwqr8yhg9y0=; b=rmY3IDOdZbfCbc2Ocw5JHd8eN3
-	Fb6q2ZxE/mStne06hGXDeXwxDWtFVLkV6fVUHTHLyLa/6sA6W9SizadE0zpgaMJ+c6lW58LtjZ2fE
-	9s6086ti/T8THsbjMpLY/EzWyy2Uu3gG1K+nrMXXHT8HD+OYfcOcoEM6AEnLmLBkevlbrZaf9Op6v
-	c9wPY1jlFgIxLvbi13i1RUVs3iWwuCxj5tSsHBs7Q88b3ooMIRizrGoDwW6Pu7TdTUngeXoHIoPfv
-	F3xUQHsUxfYCCMxTlP0HJcpmEL34kw3ttp0etC7fuKRWyTCXpN/ZPYCwj5yUy3yUyAoJGIYFF4dxg
-	5XTCbCUA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6P8xZEQeIO5H4AzeXprUKU3oEf9nN+exJfE8nbRaRqY=; b=U98zXSVvjUCNB9kgB2hLlTgh3Y
+	aKOq38eoF8UuIUgLBp9H9WO7VZY3Ju4jk51US463Ui7Dmmf4ZplWgSBreeYlhBhWJKwBw23eYskXx
+	QiaXWnLbsaOJUTKNIaSxA5Q0VAruPwPy6qpzKmKeDfAMFRtrgq00hdw+bwt6CGVjR+3Ds1HItBlY8
+	YGAnQakdMboVtkzWn1IEErxTF62klsI0M0qSTp7cIOYRVbfJb0lcfloiqEcK6a02ThlpL4s5jdokV
+	HLtBBD7GU4XGk86bbHe70kd1l9AuwJ4jNyDiZ2PMGG2bl+u0TAK+YVrKuBvVycW2SI/0pXxnahL9e
+	hmcNPY+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VV2-0000000F2FJ-3rWQ;
-	Tue, 14 Oct 2025 03:14:56 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1v8VVK-0000000F2Ou-32ZO;
+	Tue, 14 Oct 2025 03:15:14 +0000
+Received: from mail-pl1-f170.google.com ([209.85.214.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VUz-0000000F2EO-3Xrs
+	id 1v8VVH-0000000F2M2-2hYw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 03:14:55 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-269af38418aso57170605ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 20:14:50 -0700 (PDT)
+	Tue, 14 Oct 2025 03:15:12 +0000
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-27eec33b737so73549735ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 20:15:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1760411690; x=1761016490; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=h9mILizSboCplYbQmD86FAClfic5oRmsIwqr8yhg9y0=;
-        b=BWUPZgbrr1peQujD1YFG/DSVpBLXagouB/rWK9JvvLcMUZ0gqm1s350a39AeIINlB4
-         D3otxhlk0/NJk65aF1QnXpmHVHLN6v91mMZ6D2pbajBUU+2kj2YhTm8VrZ52bKLe1H6x
-         djtbBmyG7U0pd5zAQ0DzcJ0IVO+u3IKkVaYHJKC7gDOEC2Itcn7iNoAAyJxjFYcn7mUT
-         3POvgDN3OZsz654fPdp6QfWc7GZUtqTTuUWv1oqYimHFD5dqgTdfeiZt5g8bwHXPtCy8
-         miQtA/GI8fBctMcczuws3FpJUsYqEt/dk0BtdG4nkDhf0v5a1A8faxYyoKChT/ANK+s/
-         2nbA==
+        d=bytedance.com; s=google; t=1760411711; x=1761016511; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6P8xZEQeIO5H4AzeXprUKU3oEf9nN+exJfE8nbRaRqY=;
+        b=j8T6oRZ4e/EEadN2F8EaAkreA/jyJqoVuJdmlLtyoy/dgqGAWsYWjTfzz5EH8LqQ42
+         183uNoi/f7YgsmShkDMkqmcEdt1tBtLtFWR2sWmnVAirVdYv4rBFsT+HMUxqKkxQNZXz
+         hExacsO+pjYFybT410m9kFSLsIA1gng87V3YETyCnpJRPCu69lftB6bTqAmLTrUKOO1k
+         iyw8emOnDEizEvzyKAiyt3sMWbMcuNGFW+YO5/75vjQ1j9nVWUrFWbIQSao1+iL2Xll+
+         DkH0LuJdinr33UKWt5PoUiS/QBKtK7dK+S0ViB4iJH8b9su3M/cdPQmaq8zZ2W6cJC/E
+         azPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760411690; x=1761016490;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=h9mILizSboCplYbQmD86FAClfic5oRmsIwqr8yhg9y0=;
-        b=HR4TrnLqxbwMWcqo4HTe9DTKOyE6qKnsgLboerQhbjJWyU9V2+07cPh8QaqDDO79Ff
-         O7RNJzaFAaTrC7ipCQ+K3X017ZonM26RjrefMPU03W4RI4ZuN/PTh2/H4Xkqhs6w5nW4
-         lppecprMBq0vlNuYQGOLiM56pWHDsrOhciiYsOD+xiJ+RozTWXJBDPUBvOUTzuMv3Jzp
-         trR0PI4Dv0fkqv8KHN/8HXuX4Y4s8A1yT1jQlcwR4LEEqdf+lH39mxuwc8aGM+X9dFUs
-         8O3Nb+wwnyk9gJKbFZPmTpkvfPU9NYc7rpLERaiC+bek4S9bTdOd5t6EI4SBb9pnljLB
-         m63g==
-X-Forwarded-Encrypted: i=1; AJvYcCW+H/+EOC6aGLpvcLyimzYxLQGoVVA2lAtUQjZZt4xn/uj1p0Qk+M0Ow466FZp2jnZA/qMf2rEgA57WRsQKJpb0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2l+tYkOcYZufWbAAwyvJAvAxUQoCJbGC+biCp9mCrMJ1F7lRY
-	H8swU1Efi3+81jFfZlztkuCQxBAi+5kybT1NRZXtrq7TDaLu0DxwX1We/2OBb/rwmoE=
-X-Gm-Gg: ASbGncsJGR1zxKu6xN6tBLKQXFUcLDYq9GhAZg6ZLriyOhLBL7iUJorbCSbGLPlmQ1i
-	K2HDGBFJKLHVHFPeQ1bNy/5GoxI85sliMM652zEU7J63I6laXyq+twiw8KuJYUKZyp3V3ufqjAF
-	jwSXbZ+91/xe+iqL4kql3bAEBV0vRPIiegJNcb7aXsMuzW6vQhhktFyN4/XrJ3m9QH99dzcKrIu
-	0z9QvgMV1JL2mJRQn/yJtfF/XTXliTSDkeeEpdvM0N/INph70TJ55U0yQO3jbvUXeyUJCqsCs0E
-	x47xoAkiAzpq1pFUcI6ylaFMshTkWB55o9FBvwiigVXjrWQlVW4DPH30KSoyzW3m417Ecni3Bn1
-	QQB6P6gLKLTXRzuyz9CbDLbLV0usGpYMovnNrUyxz2eglzqcjnude/8SCTWUlFjC/jgaHuhS+BG
-	TRxAWq9g==
-X-Google-Smtp-Source: AGHT+IEI3jpH2kWAbzu7oGE0nlZT9oIWVCOT7IZNd6Yq9DFB9XEbqH5fgzxf/doWGth7+r0MSrD5Aw==
-X-Received: by 2002:a17:903:37c3:b0:269:a4ed:13c9 with SMTP id d9443c01a7336-290273ee214mr291664165ad.30.1760411690202;
-        Mon, 13 Oct 2025 20:14:50 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760411711; x=1761016511;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6P8xZEQeIO5H4AzeXprUKU3oEf9nN+exJfE8nbRaRqY=;
+        b=j0cor6aeZExp9RLfES1PZxjqKYnyCdtCUrUcJzQnmXBnBFIFoaiTXWdNQMFscSCAmK
+         +S6lXCP9tcECZhk9jh8sSXRc81muD/5uI6i0hK4c6Smv3m1Hxkrku3N80t2Dhf8APsKn
+         C8SNIWjTSCNctYla02qKwbcaBkpsL5RFBzOKkiDzXbMRVIaAO6+vwCY6CT07gjjYV3Z3
+         1JBTfHXApEb1jV+Xcjyksr3K0qzYC8fwbybo1zcdYe0dxjB1utg7pq2qCH4sEQEBYmg4
+         0zPGdDkTx26i4YrgO63z36KZL2MMUhHC3KXXNpCKd6Ik4UwC/9Luf1ZG/wtWOkbqnc/8
+         Z+nA==
+X-Forwarded-Encrypted: i=1; AJvYcCWmFQdJH8LE+9hQoTm9CMh5/OwZmYHWFUiTRV761H4RUZ4tjydITQ1XINJaoGI+/E/7yQdjLccWhsOPaTS471a2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz27EoNh6+F4zV5rNIng2I/ULBRoKpHnPsQfAsczak7CbMSOY06
+	G5pLKHjBAuk9pGffZxgHVcp2cgmD9fV1Uu8S4g7Cn7zfZexAPbj2FIuiOw6Q/YrDqgA=
+X-Gm-Gg: ASbGncunQ2RtTK/ykWBvM6ASLEnVyBiHdVnTxRx3bpLp3l5zx7ArY+zbBxWdnFwl/f1
+	+uX/58NFnmie45NtiAje0ueCg2d3n+b/it9NMwJRMLvitm6E2N01iqlQakkOE1ISoK3sKc2A1Hp
+	vVpAUMMXwdYw4CYXi1siBsone21CZ/IQ6rM50q3H+zXj0Xl++yUWwObVBs46MXYTSHhNMLiB851
+	Y85y/ozEk73MC5ZR4wQPSbPXi8PsNMViRqXo0avJxfvQTD6lQvvIbjWhSWrn91c3TTQGEfKeAmv
+	AIA8XTPlbUlMlgtccySXAPKPyeoRoPLlNet8pXZN/1pRzQx94k9/6+8HmGr9ReqOsnVWjmh+RnJ
+	JwNY3nEOyvJiOQUy4Ed2Q7RyVlFz4RqKO5J63oNRzwbj250+opsRPsyrGABHVr//AW/oIt0QhqA
+	CfT9C/aWuNrblIiwqBXv6sRi0Sv2k=
+X-Google-Smtp-Source: AGHT+IEnhbhgD5wvfXgKIYQpP+Lfyce302o3Owp60kynW6BbE9VY04c0yKjSZIvlB5ornO/n4cUtAg==
+X-Received: by 2002:a17:902:ef07:b0:269:82a5:fa19 with SMTP id d9443c01a7336-290272e3adcmr281603745ad.45.1760411710696;
+        Mon, 13 Oct 2025 20:15:10 -0700 (PDT)
 Received: from L6YN4KR4K9.bytedance.net ([139.177.225.226])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034f3de4asm148315845ad.92.2025.10.13.20.14.40
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034f3de4asm148315845ad.92.2025.10.13.20.15.00
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 13 Oct 2025 20:14:49 -0700 (PDT)
+        Mon, 13 Oct 2025 20:15:10 -0700 (PDT)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: akpm@linux-foundation.org,
 	alex@ghiti.fr,
@@ -96,15 +98,18 @@ To: akpm@linux-foundation.org,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 0/2] Add HARDLOCKUP_DETECTOR_PERF support for RISC-V
-Date: Tue, 14 Oct 2025 11:14:23 +0800
-Message-Id: <20251014031425.93284-1-cuiyunhui@bytedance.com>
+Cc: Paul Walmsley <pjw@kernel.org>
+Subject: [PATCH v4 2/2] riscv: add HARDLOCKUP_DETECTOR_PERF support
+Date: Tue, 14 Oct 2025 11:14:25 +0800
+Message-Id: <20251014031425.93284-3-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+In-Reply-To: <20251014031425.93284-1-cuiyunhui@bytedance.com>
+References: <20251014031425.93284-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_201453_884245_BECD88BF 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20251013_201511_713250_979DF35E 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,42 +124,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After discussion [1],[2], hardlockup_perf cannot be completely replaced by
-the hardlockup_buddy approach, so this patch is still being submitted.
+Enable the HARDLOCKUP_DETECTOR_PERF function based on RISC-V SSE.
 
-v1->v2:
-The contents of arch/arm64/watchdog_hld.c are directly consolidated into
-kernel/watchdog_perf.c.
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+Reviewed-by: Douglas Anderson <dianders@chromium.org>
+Acked-by: Paul Walmsley <pjw@kernel.org>
+---
+ arch/riscv/Kconfig           |  3 +++
+ drivers/perf/riscv_pmu_sbi.c | 10 ++++++++++
+ 2 files changed, 13 insertions(+)
 
-
-v2->v3:
-Add CONFIG_WATCHDOG_PERF_ADJUST_PERIOD to enclose the period update logic,
-select it by default on arm64 and riscv, without affecting other arches
-like x86 and PPC.
-
-v3->v4:
-Place the line "select WATCHDOG_PERF_ADJUST_PERIOD if HARDLOCKUP_DETECTOR_PERF && CPU_FREQ"
-in the Kconfig files for arm64 and riscv in one line, with no line breaks.
-
-Link: https://lore.kernel.org/all/CAD=FV=UEhVCD6JehQi1wor2sSmtTLDyf=37xfo-DOTK1=u1xzA@mail.gmail.com/ [1]
-Link: https://lore.kernel.org/all/20250916145122.416128-1-wangjinchao600@gmail.com/ [2]
-
-Yunhui Cui (2):
-  watchdog: move arm64 watchdog_hld into common code
-  riscv: add HARDLOCKUP_DETECTOR_PERF support
-
- arch/arm64/Kconfig               |  1 +
- arch/arm64/kernel/Makefile       |  1 -
- arch/arm64/kernel/watchdog_hld.c | 94 --------------------------------
- arch/riscv/Kconfig               |  3 +
- drivers/perf/arm_pmu.c           | 10 +++-
- drivers/perf/riscv_pmu_sbi.c     | 10 ++++
- include/linux/perf/arm_pmu.h     |  2 -
- kernel/watchdog_perf.c           | 83 ++++++++++++++++++++++++++++
- lib/Kconfig.debug                |  8 +++
- 9 files changed, 114 insertions(+), 98 deletions(-)
- delete mode 100644 arch/arm64/kernel/watchdog_hld.c
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index badbb2b366946..0ae3291b303f9 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -186,6 +186,9 @@ config RISCV
+ 	select HAVE_PAGE_SIZE_4KB
+ 	select HAVE_PCI
+ 	select HAVE_PERF_EVENTS
++	select HAVE_PERF_EVENTS_NMI if RISCV_PMU_SBI_SSE
++	select HAVE_HARDLOCKUP_DETECTOR_PERF if PERF_EVENTS && HAVE_PERF_EVENTS_NMI
++	select WATCHDOG_PERF_ADJUST_PERIOD if HARDLOCKUP_DETECTOR_PERF && CPU_FREQ
+ 	select HAVE_PERF_REGS
+ 	select HAVE_PERF_USER_STACK_DUMP
+ 	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index c852f64a50221..0c7c5924687c9 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -22,6 +22,7 @@
+ #include <linux/sched/clock.h>
+ #include <linux/soc/andes/irq.h>
+ #include <linux/workqueue.h>
++#include <linux/nmi.h>
+ 
+ #include <asm/errata_list.h>
+ #include <asm/sbi.h>
+@@ -1192,6 +1193,13 @@ static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
+ }
+ #endif
+ 
++#ifdef CONFIG_HARDLOCKUP_DETECTOR_PERF
++bool arch_perf_nmi_is_available(void)
++{
++	return IS_ENABLED(CONFIG_RISCV_PMU_SBI_SSE);
++}
++#endif
++
+ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ {
+ 	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
+@@ -1618,6 +1626,8 @@ static int __init pmu_sbi_devinit(void)
+ 	/* Notify legacy implementation that SBI pmu is available*/
+ 	riscv_pmu_legacy_skip_init();
+ 
++	lockup_detector_retry_init();
++
+ 	return ret;
+ }
+ device_initcall(pmu_sbi_devinit)
 -- 
 2.39.5
 
