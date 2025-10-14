@@ -4,71 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D19DCCD192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 14:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DADD0CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 14:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-ID:CC:To:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aW0vtNY+80ANt8g8vBvYcKAPWFdtwqr1pnE2CY5Stqs=; b=kexWAHFZx6e9rkMdPBpW6k70A0
-	QZb8IcOxKRcPOuG+w3YM8TDO/gj5Xp1P3K1misBQorC5EvOYCx4jpaU+ZPOY1Gd76IjiqXKH47I1W
-	jv91UN7lL2x5VHfQhjPMDTyNK1Qd4jUP4Z8RxyVXrvwD9RZGUMibLrzinoNuOIgZLeofA99VFMl4x
-	lNNPfLlsfRoksfxe4mLMtnKlVKKWIcI1o15FiCJo5cIOewkPL3eTdRgNPcBJcJnHnR9QWSQAT0HHW
-	U8nq7ORDvvzUREmaP1GZha2HRqekAdwHt8QLez/sKyLwsAqdSJ78aHCCXLebX+jg9vOgtcauhSGHC
-	3m63vFtg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZxB5Gk9hhGuxtZPAkXmc7kN/kuX5RoHRjz2MuznwXGI=; b=SCkhCFaFkMFsHnVFbecpzGhKGt
+	fdPqOp8atWmbnsyKRdsdj6I18N+/WdL6cO/JJAINqfb77M8dp6CVx8KgWLL6CcDO6zeHuxFQpDjwe
+	wr+nSJy8f8NS0xpCU1YAN+8lz7V5jew5c4eqwmp0NBaBbcMGIYYCxKioEu+w7f8k5CdCiPqmvzFii
+	aXaQm9CCWaXYOF2cUK9v5/OqKdHWK8I1Y3BbESKWjtXqIS4oB9oExiug1O4Ldfnthg6KU3cxoIa3k
+	k31k8rMtfAf9YQ4t/XjF+8f8zcZE0kQVpovunOiQZBREs+N49sI+AdhpZNRQmyRp4pjCA3M2nTIAJ
+	icACl7JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8gHi-0000000GfZX-0M47;
-	Tue, 14 Oct 2025 14:45:54 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1v8gJO-0000000Gfyo-2Yae;
+	Tue, 14 Oct 2025 14:47:38 +0000
+Received: from mail-ua1-f43.google.com ([209.85.222.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8gHe-0000000GfX6-1RPY
+	id 1v8gJL-0000000Gfxp-3WWd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 14:45:53 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=aW0vtNY+80ANt8g8vBvYcKAPWFdtwqr1pnE2CY5Stqs=;
-	b=dro/0FNxZxUiay6DtOjZwbwDtlcfnS0Fs+LJ/+ezGGoyQ3bZYjhpRO1l7q8uIfrpgGDlB0flo
-	seuAzsXwSbYnxP+sCAr8CSTYCdkLPb6FgEMF/cmrKjs7olLxbMlAR1KTENuyDdBCgd95HwIZTsb
-	VL4GVyWC3PRBi0a3NFj1k18=
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4cmH7f56K8zRhR7;
-	Tue, 14 Oct 2025 22:45:18 +0800 (CST)
-Received: from kwepemh200008.china.huawei.com (unknown [7.202.181.115])
-	by mail.maildlp.com (Postfix) with ESMTPS id AD6821402DA;
-	Tue, 14 Oct 2025 22:45:38 +0800 (CST)
-Received: from [10.174.176.125] (10.174.176.125) by
- kwepemh200008.china.huawei.com (7.202.181.115) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Oct 2025 22:45:37 +0800
-From: Kunkun Jiang <jiangkunkun@huawei.com>
-Subject: [Question] Received vtimer interrupt but ISTATUS is 0
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, Joey
- Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-CC: "moderated list:KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)"
-	<linux-arm-kernel@lists.infradead.org>, "open list:KERNEL VIRTUAL MACHINE FOR
- ARM64 (KVM/arm64)" <kvmarm@lists.linux.dev>, open list
-	<linux-kernel@vger.kernel.org>, "wanghaibin.wang@huawei.com"
-	<wanghaibin.wang@huawei.com>, Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <14b30b59-12bb-fc69-8447-aae86fcafcd1@huawei.com>
-Date: Tue, 14 Oct 2025 22:45:37 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+	Tue, 14 Oct 2025 14:47:36 +0000
+Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-89019079fbeso1326701241.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 07:47:35 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760453254; x=1761058054;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZxB5Gk9hhGuxtZPAkXmc7kN/kuX5RoHRjz2MuznwXGI=;
+        b=jnjd0tA3XEPKoq6Uwx1LKqOAxiO4LSuqCm+m3FkLIdyra3rUeTTJMNcYXXRxxlUis3
+         GPF01MOdXzLgoZr0vA0uwrhFcard0ExiXg4SacZ5Ed7xfYdID0ad84ZkO0bhQe7XiqMQ
+         STgs7VjeHjhdQWEceuxAIY9kkAcRQB4uXW+bRQ07mqR1P8yapheI1v++rLvhMZexGhOq
+         sIvGPOsLiWiJBkGPA0z2QmTM+SMgQH2bEomZIf4BzQSn7c2LFcUOaCU8e3cUB0B2/nIb
+         NZsuQEtG8NWXgN+GQuxkacHYgfTj0ghnxKnsSyBQci8nLRueO1Jb6xYXZ+hC93U52yEc
+         cvpA==
+X-Forwarded-Encrypted: i=1; AJvYcCWxuoGwAvHr2aPbgs/y/Knw5fe3Y2+IhUjZt1HdqnG4NULMrA9imSO4dYWAh0TXLdRQzOgX8P0s5RLGyYPfZu9q@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywvhb+SqMVTEQS6dZUf2AFheTxUB9bd4qG8/bH+CNKeoAXfwvos
+	5iQF4KSRoLlvxTcB53Rq/KPzyYr2jXq8doED1bP7ENAwO8HRHKW+E37AISkj4gxt
+X-Gm-Gg: ASbGncvpnnZZYYPoRw3tzQxz6IcVdnTY1wxo/McvcNTnMaoD35yFp5FUXzsrHtQEH16
+	qzx0n2n5pYbrrELUcIGSvwrxtiP/Gr40MQXYk1XNMVdnYuB7rB4RFtCkcw2N1w/2K+vHah20mpV
+	4w+4oUhTHs+CK8U21fw4tViSN9ZtRCATYR02znhgwksDL5SK/7gQRL4L6YBCpLbGGn+szvl+Xka
+	o3OC7mBMJvhMPpzQ97RksVhStV8qhPZLotn/i8iTU5PFB9bLkkvxc9VpPVTrlYXBT0aGFY0Va0B
+	rzzCJZjJSp2DgaJZSPEk12loFSfrzUl+YvZdcJZMEPJ6skTvwTwbUiHVzIY0DiCpXpaCVtw4cp9
+	65TnBZRRzP81Nd8snhIK520RR6GO9Y4VyGyjy0kgb2JbzwHlAI0YtwSXWdkzSh88IxAfKYnbs0k
+	wV/ihRybo=
+X-Google-Smtp-Source: AGHT+IFQ7YiL9/LFiIANxbEB6IHhSgO63LTNZbNduI6WTy/CESUKxgpkrygEi006hE10updrEFRotw==
+X-Received: by 2002:a05:6102:b0f:b0:521:27b:bea4 with SMTP id ada2fe7eead31-5d5e2216207mr7631578137.6.1760453253773;
+        Tue, 14 Oct 2025 07:47:33 -0700 (PDT)
+Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com. [209.85.217.50])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5d5fc4e9e4csm4486625137.0.2025.10.14.07.47.33
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 14 Oct 2025 07:47:33 -0700 (PDT)
+Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-5d758dba570so169080137.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 07:47:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWsG7VpEkwhsWHZGlVM/7vJBO21vRzjBw/O8joGq2nSs4n7h61QlmHazhiYOoqgZySRDftkQqgufyuh9VEgkm1l@lists.infradead.org
+X-Received: by 2002:a05:6102:5a96:b0:5a3:acb7:55c7 with SMTP id
+ ada2fe7eead31-5d5e2371937mr8292663137.18.1760453253223; Tue, 14 Oct 2025
+ 07:47:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.176.125]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemh200008.china.huawei.com (7.202.181.115)
+References: <87freu5jxf.wl-kuninori.morimoto.gx@renesas.com>
+ <CAMuHMdV=60U2n7iK1rCX=MecLw9M+afN8cap5GUL-apF49i-rw@mail.gmail.com>
+ <877bzr97no.wl-kuninori.morimoto.gx@renesas.com> <CAMuHMdUbi7iRsXoYCwz_=Jt7ARGbeL-oG597swmsGODO8rLsqQ@mail.gmail.com>
+ <b80f879b-1f5b-4289-9cc3-075642d110ed@app.fastmail.com> <CAMuHMdVWwUZg5i9oRr9pLWav=aygEjqurGKBqtTKtaBZObQ+zg@mail.gmail.com>
+In-Reply-To: <CAMuHMdVWwUZg5i9oRr9pLWav=aygEjqurGKBqtTKtaBZObQ+zg@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 14 Oct 2025 16:47:22 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXXiDM4AMyXxaxGv-JYNpZ0CD75v4tAa5C3RmFy4m0GtQ@mail.gmail.com>
+X-Gm-Features: AS18NWAdAI3uUCtRiqwsaIgYniB0TZsmKwRVGOVmQ3ce35c5DMgdYKKV27fxfg0
+Message-ID: <CAMuHMdXXiDM4AMyXxaxGv-JYNpZ0CD75v4tAa5C3RmFy4m0GtQ@mail.gmail.com>
+Subject: Re: [issue report] ARM: compile error of frame size
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	Russell King <rmk+kernel@armlinux.org.uk>, Russell King <linux@armlinux.org.uk>, 
+	linux-arm-kernel@lists.infradead.org, Marek Vasut <marek.vasut@mailbox.org>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_074551_551461_BD718121 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20251014_074735_884246_93C454AE 
+X-CRM114-Status: GOOD (  31.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,60 +101,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+Hi Arnd,
 
-I'm having a very strange problem that can be simplified to a vtimer 
-interrupt being received but ISTATUS is 0. Why dose this happen? 
-According to analysis, it may be the timer condition is met and the 
-interrupt is generated. Maybe some actions(cancel timer?) are done in 
-the VM, ISTATUS becomes 0 and he hardware needs to clear the interrupt. 
-But the clear command is sent too slowly, the OS has already read the 
-ICC_IAR_EL1. So hypervisor executed kvm_arch_timer_handler but ISTATUS is 0.
-The code flow is as follows:
-kvm_arch_timer_handler
-     ->if (kvm_timer_should_fire)
-         ->the value of SYS_CNTV_CTL is 0b001(ISTATUS=0,IMASK=0,ENABLE=1)
-     ->return IRQ_HANDLED
+On Tue, 29 Jul 2025 at 09:49, Geert Uytterhoeven <geert@linux-m68k.org> wro=
+te:
+> On Tue, 29 Jul 2025 at 09:27, Arnd Bergmann <arnd@arndb.de> wrote:
+> > On Tue, Jul 29, 2025, at 09:15, Geert Uytterhoeven wrote:
+> > > On Tue, 29 Jul 2025 at 02:12, Kuninori Morimoto
+> > > <kuninori.morimoto.gx@renesas.com> wrote:
+> > >> > >         > grep CONFIG_FRAME_WARN .config
+> > >> > >         CONFIG_FRAME_WARN=3D2040
+> > >> > >
+> > >> > >         > git diff
+> > >> > >         diff --git a/arch/arm/boot/compressed/Makefile b/arch/ar=
+m/boot/compressed/Makefile
+> > >> > >         index d61369b1eabe..c5173bd82380 100644
+> > >> > >         --- a/arch/arm/boot/compressed/Makefile
+> > >> > >         +++ b/arch/arm/boot/compressed/Makefile
+> > >> > >         @@ -80,7 +80,7 @@ libfdt_objs :=3D fdt_rw.o fdt_ro.o fdt=
+_wip.o fdt.o
+> > >> > >
+> > >> > >          ifeq ($(CONFIG_ARM_ATAG_DTB_COMPAT),y)
+> > >> > >          CFLAGS_REMOVE_atags_to_fdt.o +=3D -Wframe-larger-than=
+=3D${CONFIG_FRAME_WARN}
+> > >> > > -        CFLAGS_atags_to_fdt.o +=3D -Wframe-larger-than=3D1280
+> > >> > > +        CFLAGS_atags_to_fdt.o +=3D -Wframe-larger-than=3D2040
+> > >> > >          OBJS   +=3D $(libfdt_objs) atags_to_fdt.o
+> > >> > >          endif
+> > >> > >          ifeq ($(CONFIG_USE_OF),y)
+> > >> (snip)
+> > >> > Yes it is.  And it is hard to fix, according to the maple_tree mai=
+ntainer:
+> > >>
+> > >> Hmm...
+> > >> Actually I have tried to same solution (=3D remove or fix the big no=
+de), but
+> > >> noticed there are many such code. My suggested was very simple solut=
+ion
+> > >> I guess, but I'm not sure detail of ARM limitation, and/or it can so=
+lve all
+> > >> cases, etc...
+> > >>
+> > >> But other CPU (like ARM64) doesn't have this issue, so we can follow=
+ same
+> > >> way (=3D allow large frame) I guess.
+> > >
+> > > I do see it in one my arm64 builds, it depends on your kernel config:
+> > >
+> > >     lib/maple_tree.c: In function =E2=80=98mas_wr_spanning_store=E2=
+=80=99:
+> > >     lib/maple_tree.c:3812:1: warning: the frame size of 1040 bytes is
+> > > larger than 1024 bytes [-Wframe-larger-than=3D] 3812 | }
+> > >
+> > > I guess Arnd has seen it in his randconfig builds, too...
+> > >
+> > >> Does ARM has some reason which can't use large frame ? If not, do yo=
+u think
+> > >> we can allow to use it on ARM ?
+> > >
+> > > (stacked) Large frames may cause kernel stack overflow.
+> >
+> > The version below works around the warning for arm, arm64 and x86
+> > on both gcc and clang.
+>
+> Thanks, that indeed works for my arm64 config that triggered it before.
 
-Because ISTATUS is 0, kvm_timer_update_irq will not be executed to 
-inject this interrupt into the VM. Since EOImode is 1 and the vtimer 
-interrupt has IRQD_FORWARDED_TO_VCPU flag, hypervisor will not write 
-ICC_DIR_EL1 to deactivate the interrupt. This interrupt remains in 
-active state, blocking subsequent interrupt from being process. 
-Fortunately, in kvm_timer_vcpu_load it will be determined again whether 
-an interrupt needs to be injected into the VM. But the delay will 
-definitely increase.
+Unfortunately it no longer helps for my rbxt4927 build...
 
-What I want to discuss is the solution to this problem. My solution is 
-to add a deactivation action:
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index dbd74e4885e2..46baba531d51 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -228,8 +228,13 @@ static irqreturn_t kvm_arch_timer_handler(int irq, 
-void *dev_id)
-         else
-                 ctx = map.direct_ptimer;
+Gr{oetje,eeting}s,
 
--       if (kvm_timer_should_fire(ctx))
-+       if (kvm_timer_should_fire(ctx)) {
-                 kvm_timer_update_irq(vcpu, true, ctx);
-+       } else {
-+               struct vgic_irq *irq;
-+               irq = vgic_get_vcpu_irq(vcpu, timer_irq(timer_ctx));
-+               gic_write_dir(irq->hwintid);
-+       }
+                        Geert
 
-         if (userspace_irqchip(vcpu->kvm) &&
-             !static_branch_unlikely(&has_gic_active_state))
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
 
-If you have any new ideas or other solutions to this problem, please let 
-me know.
-
-Looking forward to your reply.
-
-Kunkun Jiang
-
-
-
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
