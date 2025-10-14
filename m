@@ -4,80 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57E60CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 15:11:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66495CCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 15:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7jkM8YOO8pprHHZutGv60L6EyLB0fCheY+VPh3UUMEs=; b=TidBQyawuivHVZTqZg7u83CPUY
-	Wbc84p1Z1hom8DUqoVtQ3PpnVvA9gvBqMAaXUDmAWuXxVO8bnlFY5k62fKxIi+SXOSxMhPQIJKg3f
-	2Zy1rctogyMHkmWEQ3lG2wi3MsndwqXmwF/b1AU/9rtkYcJdXqSeRFCxFMYxKM5raMbHtvNGoHiy4
-	KPIvMqyTNM/gDgGtVUTvVMhLlVq+UyRr73oRciR7gT6SG1GcbvRRuNR7Kit8+yKfSbsxSSC2s1y7a
-	TC8GD/yvaZmSthN+yTURU7G+P+iuX7mbWrPbfCGCDPwmPIy+77ljWSUHwIATYzBNV7YEGb6XZ/2N0
-	UrlFkxyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=37Nmg2NVeBxxzfJbfuXsD1Mwnh3yE228KQ/4hDiITzo=; b=oX/STW2adDd0gU3YhiC8WG8ZOq
+	4H6x2a+tw7aiKL61JWoBweH2FvcfF6bTJWAiCiV7w7TQjwU8/XSxN3ywwB0TE+4bUDyAJzk6x5FGA
+	n+TI3Xx+FRWxcWGV8UISU7BCQGgtJk2+cDqdLrNZ3VNNhnUY3NixlMkjdjCkGMfdjftydaPaNRFVF
+	t/12eXEsYycZk3YinvlmVpvb5ywWu4NZTA4+QQOqA6MA3eQK6d9E/MwTKsuzFvafGsHbrwUx/qxhk
+	e5iEkPhEdB6dbZnGWiNMezIunZZui8jOwQ5we34ocuhAc1AmxFeL5nfL7N27hl1x9Ks4r/gTakBG5
+	9XbUZaCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ggB-0000000GlXT-1Vkg;
-	Tue, 14 Oct 2025 15:11:11 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v8ggp-0000000Glt8-1RoP;
+	Tue, 14 Oct 2025 15:11:51 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8gg2-0000000GlSE-37A7;
-	Tue, 14 Oct 2025 15:11:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1760454652; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=CiuqWR2ZZlUhRzSdVwTeRuN3iwz5IpWLxexEnP8fiGfANThuTjYNGS2X6TpNQsU99z8iBxva7mnh5dSNM8OF8DPk6kwwNkRjnjBtirMEE7EcOTaxkkbdeDKiFl/e8xQJMnq+ecOynYhSeNynF/umnlE7x2FhRBKelahog71qeVQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1760454652; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=7jkM8YOO8pprHHZutGv60L6EyLB0fCheY+VPh3UUMEs=; 
-	b=Z4GCPKO5LrA8hscwHINGC1AvqSn9Ry8P/pbxZ5ChU73Wd69TqA4Fj2dCJn5UHkKKUZXYdoOlpyZ6d5MvsZL+2vxaPvqlF27xo8f+szdbqB1Xgw0KjonPWf4wAgPO4OzM7ePFFYPBXin6WA3kRoZWnJyiH9nC1CyOz5ZPUy4mv94=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760454652;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=7jkM8YOO8pprHHZutGv60L6EyLB0fCheY+VPh3UUMEs=;
-	b=d9GVtVENKD3dzplgKPP92f8YaZg0NVzqreE1ArmQK2JoLprb8kKbYTT5s8UUv2ek
-	98DErOnDVOPPPOZfSqpOx05MOiCsaR3dEKSkp37AbmKtDOgIjiy/PQfiIg++TQYTOfe
-	bNAUD+RS8dIWGfElvqK+PwYmBDljeqkL2noxKbCQ=
-Received: by mx.zohomail.com with SMTPS id 1760454650860592.8317711169478;
-	Tue, 14 Oct 2025 08:10:50 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 14 Oct 2025 17:10:09 +0200
-Subject: [PATCH 5/5] scsi: ufs: mediatek: Rework resets
+	id 1v8ggm-0000000Glqb-2BA0
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Oct 2025 15:11:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=37Nmg2NVeBxxzfJbfuXsD1Mwnh3yE228KQ/4hDiITzo=; b=dPNOZ9MPtW2WVRmqQR3u2LpP6L
+	uptROoyNGK69M2qy303wCSQ08YH58U2pV6nabHmV4yubRoZo3KZwD6KYU4wT/PC7p9jIp5x/zyLnv
+	my7lTuyeVrrF2PsuULGhQHqYtNq+z+4Dw8VxhlwXeNUGZkU2qbO4Wukrq7DxsDDbN+P0=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1v8ggM-00AvfK-Pb; Tue, 14 Oct 2025 17:11:22 +0200
+Date: Tue, 14 Oct 2025 17:11:22 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Tao Ren <rentao.bupt@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	Tao Ren <taoren@meta.com>
+Subject: Re: [PATCH v4 11/13] ARM: dts: aspeed: facebook-fuji: Include
+ facebook-fuji-data64.dts
+Message-ID: <f801a4cb-3d27-439c-82f2-d5ee5aa0d810@lunn.ch>
+References: <20250728055618.61616-1-rentao.bupt@gmail.com>
+ <20250728055618.61616-12-rentao.bupt@gmail.com>
+ <79ddc7b9-ef26-4959-9a16-aa4e006eb145@roeck-us.net>
+ <aO2kLyxGlGt12sKD@fedora>
+ <ea64d3c1-e517-4bd8-9a2e-56432f286347@lunn.ch>
+ <4e099ead-e6df-4489-a775-1730bc852dcf@roeck-us.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251014-mt8196-ufs-v1-5-195dceb83bc8@collabora.com>
-References: <20251014-mt8196-ufs-v1-0-195dceb83bc8@collabora.com>
-In-Reply-To: <20251014-mt8196-ufs-v1-0-195dceb83bc8@collabora.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>, 
- Avri Altman <avri.altman@wdc.com>, Bart Van Assche <bvanassche@acm.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Stanley Chu <stanley.chu@mediatek.com>, 
- Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
- "Martin K. Petersen" <martin.petersen@oracle.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
- kernel@collabora.com, linux-scsi@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-phy@lists.infradead.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4e099ead-e6df-4489-a775-1730bc852dcf@roeck-us.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_081108_118633_361C4E8E 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20251014_081148_578000_8AE62535 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,165 +78,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rework the reset control getting in the driver's probe function to use
-the "_optional" function instead of defaulting to NULL on IS_ERR, so
-that actual real errors (as opposed to missing resets) can be handled as
-errors in the probe function.
+> > If it is already in mainline, i don't care too much if it is wrong. We
+> > don't want to cause regressions.
+> > 
+> > I only object when adding new nodes which are wrong. If we keep adding
+> > broken nodes, there is no incentive to fix the broken driver to do the
+> 
+> This wasn't adding an allegedly (sorry, it worked for me) broken node,
+> it was removing one that worked for me all along. Obviously I do not know
+> if it worked (or if it is even used) on real hardware, but it worked for
+> the fuji-bmc qemu emulation.
 
-Also move the MPHY reset into the PHY driver, where it should live, and
-remove all remnants of it ever having been in this driver.
+It probably does work on real hardware, because it is one of those
+"two wrongs makes a right" cases. So i see this as a regression. The
+node should not be removed. It should hopefully get corrected sometime
+in the future when somebody actually fixes the aspeed driver, and
+fixes both wrongs.
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/ufs/host/ufs-mediatek-sip.h |  8 -----
- drivers/ufs/host/ufs-mediatek.c     | 67 +++++++++++++++++++++----------------
- drivers/ufs/host/ufs-mediatek.h     |  1 -
- 3 files changed, 38 insertions(+), 38 deletions(-)
-
-diff --git a/drivers/ufs/host/ufs-mediatek-sip.h b/drivers/ufs/host/ufs-mediatek-sip.h
-index d627dfb4a766..256598cc3b5b 100644
---- a/drivers/ufs/host/ufs-mediatek-sip.h
-+++ b/drivers/ufs/host/ufs-mediatek-sip.h
-@@ -31,11 +31,6 @@ enum ufs_mtk_vcc_num {
- 	UFS_VCC_MAX
- };
- 
--enum ufs_mtk_mphy_op {
--	UFS_MPHY_BACKUP = 0,
--	UFS_MPHY_RESTORE
--};
--
- /*
-  * SMC call wrapper function
-  */
-@@ -84,9 +79,6 @@ static inline void _ufs_mtk_smc(struct ufs_mtk_smc_arg s)
- #define ufs_mtk_device_pwr_ctrl(on, ufs_version, res) \
- 	ufs_mtk_smc(UFS_MTK_SIP_DEVICE_PWR_CTRL, &(res), on, ufs_version)
- 
--#define ufs_mtk_mphy_ctrl(op, res) \
--	ufs_mtk_smc(UFS_MTK_SIP_MPHY_CTRL, &(res), op)
--
- #define ufs_mtk_mtcmos_ctrl(op, res) \
- 	ufs_mtk_smc(UFS_MTK_SIP_MTCMOS_CTRL, &(res), op)
- 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 758a393a9de1..ac40d4a3a800 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -204,49 +204,60 @@ static void ufs_mtk_crypto_enable(struct ufs_hba *hba)
- static void ufs_mtk_host_reset(struct ufs_hba *hba)
- {
- 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
--	struct arm_smccc_res res;
-+	int ret;
- 
- 	reset_control_assert(host->hci_reset);
- 	reset_control_assert(host->crypto_reset);
- 	reset_control_assert(host->unipro_reset);
--	reset_control_assert(host->mphy_reset);
- 
--	usleep_range(100, 110);
-+	ret = phy_reset(host->mphy);
-+
-+	/*
-+	 * Only sleep if MPHY doesn't have a reset implemented (which already
-+	 * sleeps) or the PHY reset function failed somehow, just to be safe
-+	 */
-+	if (ret) {
-+		usleep_range(100, 110);
-+		if (ret != -EOPNOTSUPP)
-+			dev_warn(hba->dev, "PHY reset failed: %pe\n", ERR_PTR(ret));
-+	}
- 
- 	reset_control_deassert(host->unipro_reset);
- 	reset_control_deassert(host->crypto_reset);
- 	reset_control_deassert(host->hci_reset);
--	reset_control_deassert(host->mphy_reset);
--
--	/* restore mphy setting aftre mphy reset */
--	if (host->mphy_reset)
--		ufs_mtk_mphy_ctrl(UFS_MPHY_RESTORE, res);
- }
- 
--static void ufs_mtk_init_reset_control(struct ufs_hba *hba,
--				       struct reset_control **rc,
--				       char *str)
-+static int ufs_mtk_init_reset_control(struct ufs_hba *hba,
-+				      struct reset_control **rc,
-+				      const char *str)
- {
--	*rc = devm_reset_control_get(hba->dev, str);
-+	*rc = devm_reset_control_get_optional(hba->dev, str);
- 	if (IS_ERR(*rc)) {
--		dev_info(hba->dev, "Failed to get reset control %s: %ld\n",
--			 str, PTR_ERR(*rc));
--		*rc = NULL;
-+		dev_err(hba->dev, "Failed to get reset control %s: %pe\n", str, *rc);
-+		return PTR_ERR(*rc);
- 	}
-+
-+	return 0;
- }
- 
--static void ufs_mtk_init_reset(struct ufs_hba *hba)
-+static int ufs_mtk_init_reset(struct ufs_hba *hba)
- {
- 	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
-+	int ret;
-+
-+	ret = ufs_mtk_init_reset_control(hba, &host->hci_reset, "hci_rst");
-+	if (ret)
-+		return ret;
-+
-+	ret = ufs_mtk_init_reset_control(hba, &host->unipro_reset, "unipro_rst");
-+	if (ret)
-+		return ret;
-+
-+	ret = ufs_mtk_init_reset_control(hba, &host->crypto_reset, "crypto_rst");
-+	if (ret)
-+		return ret;
- 
--	ufs_mtk_init_reset_control(hba, &host->hci_reset,
--				   "hci_rst");
--	ufs_mtk_init_reset_control(hba, &host->unipro_reset,
--				   "unipro_rst");
--	ufs_mtk_init_reset_control(hba, &host->crypto_reset,
--				   "crypto_rst");
--	ufs_mtk_init_reset_control(hba, &host->mphy_reset,
--				   "mphy_rst");
-+	return 0;
- }
- 
- static int ufs_mtk_hce_enable_notify(struct ufs_hba *hba,
-@@ -1238,11 +1249,9 @@ static int ufs_mtk_init(struct ufs_hba *hba)
- 	if (err)
- 		goto out_variant_clear;
- 
--	ufs_mtk_init_reset(hba);
--
--	/* backup mphy setting if mphy can reset */
--	if (host->mphy_reset)
--		ufs_mtk_mphy_ctrl(UFS_MPHY_BACKUP, res);
-+	err = ufs_mtk_init_reset(hba);
-+	if (err)
-+		goto out_variant_clear;
- 
- 	/* Enable runtime autosuspend */
- 	hba->caps |= UFSHCD_CAP_RPM_AUTOSUSPEND;
-diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
-index dfbf78bd8664..4a8a8dc2ab1e 100644
---- a/drivers/ufs/host/ufs-mediatek.h
-+++ b/drivers/ufs/host/ufs-mediatek.h
-@@ -174,7 +174,6 @@ struct ufs_mtk_host {
- 	struct reset_control *hci_reset;
- 	struct reset_control *unipro_reset;
- 	struct reset_control *crypto_reset;
--	struct reset_control *mphy_reset;
- 	struct ufs_hba *hba;
- 	struct ufs_mtk_crypt_cfg *crypt;
- 	struct ufs_mtk_clk mclk;
-
--- 
-2.51.0
-
+   Andrew
 
