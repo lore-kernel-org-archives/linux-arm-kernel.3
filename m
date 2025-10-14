@@ -4,98 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 327CDCCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 03:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ABC3CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 03:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J2+vB/o5Z0HvxSwF1pxo/ZbmkiIAbTdDIfPLcr8sr0E=; b=3+/6LnBChFAXkri5gf3y5Ji2f8
-	QnKJ06GiY67KRnrk4ckiadISW6ZsJL1b/SvHnjYkIZd3lRoFYkWPqRqRT1Ptqn86z9yDyUlGVNv5j
-	XRqyurehIO3QtzqFS2Xv/JRMimn5sxfkbpSbElmtv6oXVRCFL7nXUtSZaCylxum9i/9fcrVEtawqP
-	BS4V+bCzJEsMzT1lkeM+/1/iGmpfgVOLpnBmVIm437duzrQh2yC/KZ5cinFzr84Vf74aL94dybkGl
-	dHrD3BpCEZjia9ntdBJSzfdIkVTxFTLIkTa6XpZMaKfY3vqPOkWDG1SpkiWwJqlIjWBa1gD1/xaLQ
-	O+L8+QaA==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h9mILizSboCplYbQmD86FAClfic5oRmsIwqr8yhg9y0=; b=rmY3IDOdZbfCbc2Ocw5JHd8eN3
+	Fb6q2ZxE/mStne06hGXDeXwxDWtFVLkV6fVUHTHLyLa/6sA6W9SizadE0zpgaMJ+c6lW58LtjZ2fE
+	9s6086ti/T8THsbjMpLY/EzWyy2Uu3gG1K+nrMXXHT8HD+OYfcOcoEM6AEnLmLBkevlbrZaf9Op6v
+	c9wPY1jlFgIxLvbi13i1RUVs3iWwuCxj5tSsHBs7Q88b3ooMIRizrGoDwW6Pu7TdTUngeXoHIoPfv
+	F3xUQHsUxfYCCMxTlP0HJcpmEL34kw3ttp0etC7fuKRWyTCXpN/ZPYCwj5yUy3yUyAoJGIYFF4dxg
+	5XTCbCUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VJU-0000000F0mt-0tPV;
-	Tue, 14 Oct 2025 03:03:00 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1v8VV2-0000000F2FJ-3rWQ;
+	Tue, 14 Oct 2025 03:14:56 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8VJR-0000000F0mY-1YoA
+	id 1v8VUz-0000000F2EO-3Xrs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 03:02:58 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-36f13d00674so3226678fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 20:02:56 -0700 (PDT)
+	Tue, 14 Oct 2025 03:14:55 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-269af38418aso57170605ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 20:14:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=opnsrc.net; s=google; t=1760410976; x=1761015776; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=J2+vB/o5Z0HvxSwF1pxo/ZbmkiIAbTdDIfPLcr8sr0E=;
-        b=Gd2GQqVKk57Ub9pddSKIjBjfBoKn3rVKriD/pkewO34D5xsLWre+IW4PcxwbhqMlqJ
-         bd9vkrjix9ZdCz8lr+uODY8KMhmxiZENwqlSq7ExK20hELO9hk8PJ7pG1aOIbWxaYyXH
-         mdKRd1x/ivav5dNmKBykFaYuHz+Gny1YmcOKTxjVq6xM1ClPr+oqllY1As9+ZRlwX9wk
-         5EK0XuKEMUrcld//npzZH66uFGXWrWENOGg3ntHBFhh9FOyQDOQZ7viSxYYfUJVqH31j
-         YUnWHeEJ8R1/hb+RBiaFcGIS3nPnsfLQgDBw982epdeAzYPMZ+9WNO2v03HUYDsNsc9Q
-         7VAQ==
+        d=bytedance.com; s=google; t=1760411690; x=1761016490; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=h9mILizSboCplYbQmD86FAClfic5oRmsIwqr8yhg9y0=;
+        b=BWUPZgbrr1peQujD1YFG/DSVpBLXagouB/rWK9JvvLcMUZ0gqm1s350a39AeIINlB4
+         D3otxhlk0/NJk65aF1QnXpmHVHLN6v91mMZ6D2pbajBUU+2kj2YhTm8VrZ52bKLe1H6x
+         djtbBmyG7U0pd5zAQ0DzcJ0IVO+u3IKkVaYHJKC7gDOEC2Itcn7iNoAAyJxjFYcn7mUT
+         3POvgDN3OZsz654fPdp6QfWc7GZUtqTTuUWv1oqYimHFD5dqgTdfeiZt5g8bwHXPtCy8
+         miQtA/GI8fBctMcczuws3FpJUsYqEt/dk0BtdG4nkDhf0v5a1A8faxYyoKChT/ANK+s/
+         2nbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760410976; x=1761015776;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=J2+vB/o5Z0HvxSwF1pxo/ZbmkiIAbTdDIfPLcr8sr0E=;
-        b=bi261+ZAULzrQ/3vqTzoinBN0Bn0bbMWNAyf9p9zQCSa+R7shmNWvUhATd97wjnTkW
-         rsRzvuACUeGEh6h9+uTEV2HUovOfW1jNKIhWCTZkEf851l8LAyZ0oOYKp4Q0ONo0gs30
-         IsShRYUDgRLFhrUKuuBncMaXXRBdKRYi1vb6GIM/LFwdcmwigAQl5XXplkP/QOJGo4nr
-         UyFtIoCbM/fpx/B/ZJjTAMlmA6AZmq8UF+oxF87+nxxZQiBAIbeQiYNvpvdcd3dFeVL8
-         z8evVPC/E7+bG+2xwlNyhQTsOPCc6dAFsv0uDxq9rN538pa9IiXD8EIm2xYyfyTzyaRk
-         U7TQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXLoKDJHocOvo2PYjUNoUAO9LY+Aq+SKsLJ5xCiIG310SoqHGgaJNsiIP26TgaE6ov4dRumA18ZQH++seGsPohz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzveJKuCYFnByZyykUCq+IWVh7/ce9OpOveKpC5Oh8CDVy4Hkz4
-	9YanaCafZI+Cm4Qqqu2HrOVUpGyLU9iVVptiFH2Q0+XdtFKL/1ZlR/COi3BvZBXpdJuWcY0eLT9
-	RQfrFQZ+tpR5ypV3pfsxwWwKc65AQAxo2vLe9PshYy3829MyEdCw6dgqXBWbP
-X-Gm-Gg: ASbGncvjCZZzx1ODj4flNdcvLHv0C+nVDmapPKU7FNs/XRLvowCH0xd68sZXZqtUvjY
-	lz0ueyDxtxdbi8bbp1Onr3qSTl5JxAWpXKuNexWDW1ea7NY+CqMVq8MlSlq+NFsbQRXRllMTwGi
-	2P6vBWzZ7py52w3gl2U8UTs9a32vWBO95oWZaV0X2gnF4v1KcD9PSb74NpzrHkc/8cQ9xqWoDOf
-	0337lAJl4SP2WLPaaCpsHRS/5Dyqz+3yy95XzQJOdppbbvxdGm+8oWsB6ZqpHQObVKxGX5FFm3J
-	1WDBZHa+4XiDtiYuxtBzE7jcxyfp
-X-Google-Smtp-Source: AGHT+IFuo9BWRk6hYpcALRtWhZkhOZuiJf6QVGwEIxc2I01tkH6J6hjL6coCCzYE7o+uwNX4Z00eSk3vCmxMBTvNOjk=
-X-Received: by 2002:a05:6870:e38b:b0:322:2712:c89d with SMTP id
- 586e51a60fabf-3c0f66f6f29mr9665301fac.11.1760410975986; Mon, 13 Oct 2025
- 20:02:55 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760411690; x=1761016490;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=h9mILizSboCplYbQmD86FAClfic5oRmsIwqr8yhg9y0=;
+        b=HR4TrnLqxbwMWcqo4HTe9DTKOyE6qKnsgLboerQhbjJWyU9V2+07cPh8QaqDDO79Ff
+         O7RNJzaFAaTrC7ipCQ+K3X017ZonM26RjrefMPU03W4RI4ZuN/PTh2/H4Xkqhs6w5nW4
+         lppecprMBq0vlNuYQGOLiM56pWHDsrOhciiYsOD+xiJ+RozTWXJBDPUBvOUTzuMv3Jzp
+         trR0PI4Dv0fkqv8KHN/8HXuX4Y4s8A1yT1jQlcwR4LEEqdf+lH39mxuwc8aGM+X9dFUs
+         8O3Nb+wwnyk9gJKbFZPmTpkvfPU9NYc7rpLERaiC+bek4S9bTdOd5t6EI4SBb9pnljLB
+         m63g==
+X-Forwarded-Encrypted: i=1; AJvYcCW+H/+EOC6aGLpvcLyimzYxLQGoVVA2lAtUQjZZt4xn/uj1p0Qk+M0Ow466FZp2jnZA/qMf2rEgA57WRsQKJpb0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2l+tYkOcYZufWbAAwyvJAvAxUQoCJbGC+biCp9mCrMJ1F7lRY
+	H8swU1Efi3+81jFfZlztkuCQxBAi+5kybT1NRZXtrq7TDaLu0DxwX1We/2OBb/rwmoE=
+X-Gm-Gg: ASbGncsJGR1zxKu6xN6tBLKQXFUcLDYq9GhAZg6ZLriyOhLBL7iUJorbCSbGLPlmQ1i
+	K2HDGBFJKLHVHFPeQ1bNy/5GoxI85sliMM652zEU7J63I6laXyq+twiw8KuJYUKZyp3V3ufqjAF
+	jwSXbZ+91/xe+iqL4kql3bAEBV0vRPIiegJNcb7aXsMuzW6vQhhktFyN4/XrJ3m9QH99dzcKrIu
+	0z9QvgMV1JL2mJRQn/yJtfF/XTXliTSDkeeEpdvM0N/INph70TJ55U0yQO3jbvUXeyUJCqsCs0E
+	x47xoAkiAzpq1pFUcI6ylaFMshTkWB55o9FBvwiigVXjrWQlVW4DPH30KSoyzW3m417Ecni3Bn1
+	QQB6P6gLKLTXRzuyz9CbDLbLV0usGpYMovnNrUyxz2eglzqcjnude/8SCTWUlFjC/jgaHuhS+BG
+	TRxAWq9g==
+X-Google-Smtp-Source: AGHT+IEI3jpH2kWAbzu7oGE0nlZT9oIWVCOT7IZNd6Yq9DFB9XEbqH5fgzxf/doWGth7+r0MSrD5Aw==
+X-Received: by 2002:a17:903:37c3:b0:269:a4ed:13c9 with SMTP id d9443c01a7336-290273ee214mr291664165ad.30.1760411690202;
+        Mon, 13 Oct 2025 20:14:50 -0700 (PDT)
+Received: from L6YN4KR4K9.bytedance.net ([139.177.225.226])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034f3de4asm148315845ad.92.2025.10.13.20.14.40
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 13 Oct 2025 20:14:49 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: akpm@linux-foundation.org,
+	alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	catalin.marinas@arm.com,
+	cuiyunhui@bytedance.com,
+	dianders@chromium.org,
+	johannes@sipsolutions.net,
+	lihuafei1@huawei.com,
+	mark.rutland@arm.com,
+	masahiroy@kernel.org,
+	maz@kernel.org,
+	mingo@kernel.org,
+	nicolas.schier@linux.dev,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	suzuki.poulose@arm.com,
+	thorsten.blum@linux.dev,
+	wangjinchao600@gmail.com,
+	will@kernel.org,
+	yangyicong@hisilicon.com,
+	zhanjie9@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4 0/2] Add HARDLOCKUP_DETECTOR_PERF support for RISC-V
+Date: Tue, 14 Oct 2025 11:14:23 +0800
+Message-Id: <20251014031425.93284-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 MIME-Version: 1.0
-References: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
- <86v7koxk1z.wl-maz@kernel.org> <CAFEAcA8=yhQ-ygoA-fqxzwg69OkdW2nBM0O9X3Lmww4eXuVMWA@mail.gmail.com>
- <867bwzxe9r.wl-maz@kernel.org> <CAFEAcA8FhgcaM_OsHKB3+3Z7B_oZJqU4LHX_j9p-ZQrHfWGX7g@mail.gmail.com>
-In-Reply-To: <CAFEAcA8FhgcaM_OsHKB3+3Z7B_oZJqU4LHX_j9p-ZQrHfWGX7g@mail.gmail.com>
-From: Salil Mehta <salil.mehta@opnsrc.net>
-Date: Tue, 14 Oct 2025 03:02:44 +0000
-X-Gm-Features: AS18NWCHVyfmTyyU2mlQmmXG_PQvjHWpMLxJ42vucNDZHSZthXnK7-j7Wv1f-mw
-Message-ID: <CAJ7pxebGOj5Z1iW6VPjzj73eY1hZFjS5uXMkee8XCm09DtFcKQ@mail.gmail.com>
-Subject: Re: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow
- lockless read when ready
-To: Peter Maydell <peter.maydell@linaro.org>
-Cc: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, salil.mehta@huawei.com, 
-	jonathan.cameron@huawei.com, will@kernel.org, catalin.marinas@arm.com, 
-	mark.rutland@arm.com, james.morse@arm.com, sudeep.holla@arm.com, 
-	lpieralisi@kernel.org, jean-philippe@linaro.org, tglx@linutronix.de, 
-	oliver.upton@linux.dev, richard.henderson@linaro.org, andrew.jones@linux.dev, 
-	mst@redhat.com, david@redhat.com, philmd@linaro.org, ardb@kernel.org, 
-	borntraeger@linux.ibm.com, alex.bennee@linaro.org, gustavo.romero@linaro.org, 
-	npiggin@gmail.com, linux@armlinux.org.uk, karl.heubaum@oracle.com, 
-	miguel.luis@oracle.com, darren@os.amperecomputing.com, 
-	ilkka@os.amperecomputing.com, vishnu@os.amperecomputing.com, 
-	gankulkarni@os.amperecomputing.com, wangyanan55@huawei.com, 
-	wangzhou1@hisilicon.com, linuxarm@huawei.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_200257_549533_0B85B2F9 
-X-CRM114-Status: GOOD (  50.84  )
+X-CRM114-CacheID: sfid-20251013_201453_884245_BECD88BF 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,128 +119,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peter
+After discussion [1],[2], hardlockup_perf cannot be completely replaced by
+the hardlockup_buddy approach, so this patch is still being submitted.
 
-On Mon, Oct 13, 2025 at 4:48=E2=80=AFPM Peter Maydell <peter.maydell@linaro=
-.org> wrote:
->
-> On Mon, 13 Oct 2025 at 11:55, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > On Mon, 13 Oct 2025 09:42:58 +0100,
-> > Peter Maydell <peter.maydell@linaro.org> wrote:
-> > >
-> > > On Thu, 9 Oct 2025 at 14:48, Marc Zyngier <maz@kernel.org> wrote:
-> > > >
-> > > > On Wed, 08 Oct 2025 21:19:55 +0100,
-> > > > salil.mehta@opnsrc.net wrote:
-> > > > >
-> > > > > From: Salil Mehta <salil.mehta@huawei.com>
-> > > > >
-> > > > > [A rough illustration of the problem and the probable solution]
-> > > > >
-> > > > > Userspace reads of ICC_CTLR_EL1 via KVM device attributes current=
-ly takes a slow
-> > > > > path that may acquire all vCPU locks. Under workloads that exerci=
-se userspace
-> > > > > PSCI CPU_ON flows or frequent vCPU resets, this can cause vCPU lo=
-ck contention
-> > > > > in KVM and, in the worst cases, -EBUSY returns to userspace.
-> > > > >
-> > > > > When PSCI CPU_ON and CPU_OFF calls are handled entirely in KVM, t=
-hese operations
-> > > > > are executed under KVM vCPU locks in the host kernel (EL1) and ap=
-pear atomic to
-> > > > > other vCPU threads. In this context, system register accesses are=
- serialized
-> > > > > under KVM vCPU locks, ensuring atomicity with respect to other vC=
-PUs. After
-> > > > > SMCCC filtering was introduced, PSCI CPU_ON and CPU_OFF calls can=
- now exit to
-> > > > > userspace (QEMU). During the handling of PSCI CPU_ON call in user=
-space, a
-> > > > > cpu_reset() is exerted which reads ICC_CTLR_EL1 through KVM devic=
-e attribute
-> > > > > IOCTLs. To avoid transient inconsistency and -EBUSY errors, QEMU =
-is forced to
-> > > > > pause all vCPUs before issuing these IOCTLs.
-> > > >
-> > > > I'm going to repeat in public what I already said in private.
-> > > >
-> > > > Why does QEMU need to know this? I don't see how this is related to
-> > > > PSCI, and outside of save/restore, there is no reason why QEMU shou=
-ld
-> > > > poke at this. If QEMU needs fixing, please fix QEMU.
-> > >
-> > > I don't know the background here, but generally speaking,
-> > > when we do a CPU reset that includes writing all the CPU state
-> > > of the "this is freshly reset from userspace's point of view" vcpu
-> > > back to the kernel. More generally, userspace should be able to
-> > > read and write sysregs for a vcpu any time it likes, and not
-> > > arbitrarily get back -EBUSY. What does the kernel expect
-> > > userspace to do with an errno like that?
-> >
-> > The main issue here is that GICv3 is modelled as a device, just like
-> > GICv2, and that all the sysregs that are relevant to the GIC have the
-> > same status as the MMIO registers: they can only be accessed when the
-> > vcpus are not running.
-> >
-> > These sysregs are not visible through the normal ONE_REG API, and
-> > therefore not subjected to the "do whatever you want" rule.
->
-> Ah, I'd forgotten that. But the cpuif registers are still
-> per-cpu, and they do still need to be reset on vcpu reset,
-> and that might still happen for a single vcpu when the VM
-> as a whole is still running.
->
-> That said, QEMU's current code for this could be refactored
-> to avoid the reset-time read of ICC_CTLR_EL1 from the kernel.
-> We do this so we can set the userspace struct field for this
-> register to the right value. But we could ask the kernel for
-> that value once on VM startup since it's not going to change mid-run.
->
-> That would bring ICC_CTLR_EL1 into line with the other cpuif
-> registers, where QEMU assumes it knows what the kernel's
-> reset value of them is (mostly "0") and doesn't bother to ask.
-> This is different from how we handle ONE_REG sysregs, where
-> I'm pretty sure we do ask the kernel the value of all of them
-> on a vcpu reset. (And then write the values back again, which
-> is a bit silly but nobody's ever said it was a performance
-> problem for them :-))
+v1->v2:
+The contents of arch/arm64/watchdog_hld.c are directly consolidated into
+kernel/watchdog_perf.c.
 
 
-This is effectively what the mentioned patch in the commit-log is doing.
-Pasting here again:
+v2->v3:
+Add CONFIG_WATCHDOG_PERF_ADJUST_PERIOD to enclose the period update logic,
+select it by default on arm64 and riscv, without affecting other arches
+like x86 and PPC.
 
-https://lore.kernel.org/qemu-devel/20251001010127.3092631-22-salil.mehta@op=
-nsrc.net/
+v3->v4:
+Place the line "select WATCHDOG_PERF_ADJUST_PERIOD if HARDLOCKUP_DETECTOR_PERF && CPU_FREQ"
+in the Kconfig files for arm64 and riscv in one line, with no line breaks.
 
-Can this patch be accepted independently then?
+Link: https://lore.kernel.org/all/CAD=FV=UEhVCD6JehQi1wor2sSmtTLDyf=37xfo-DOTK1=u1xzA@mail.gmail.com/ [1]
+Link: https://lore.kernel.org/all/20250916145122.416128-1-wangjinchao600@gmail.com/ [2]
 
+Yunhui Cui (2):
+  watchdog: move arm64 watchdog_hld into common code
+  riscv: add HARDLOCKUP_DETECTOR_PERF support
 
->
-> > Should we have done something else when the GICv3 save/restore API was
-> > introduced and agreed upon with the QEMU people? Probably. Can we
-> > change it now? Probably not. The only thing we could relax is the
-> > scope of the lock when accessing a sysreg, so that we only mandate
-> > that the targeted vcpu is not running instead of the whole VM.
-> >
-> > And finally, if you object to this API, why should we do for GICv5,
-> > which is so far implemented by following the exact same principles?
->
-> I don't object to the API inherently (I don't care whether we
-> do these register reads via a dev ioctl or something else,
-> from userspace's point of view it's just "do some syscall,
-> get a value") -- I'm just objecting to the kernel's
-> implementation of it where it might return EBUSY :-)
->
-> (Also, if the kernel had failed EINVAL unconditionally for
-> an attempt to do this on a not-stopped VM then we'd probably
-> have found this mismatch in understanding about how the
-> API should work years ago. "Mostly works but sometimes fails
-> EBUSY" is the worst of all worlds.)
->
-> I haven't yet got as far as thinking about the KVM interface
-> for GICv5 yet...
->
-> -- PMM
+ arch/arm64/Kconfig               |  1 +
+ arch/arm64/kernel/Makefile       |  1 -
+ arch/arm64/kernel/watchdog_hld.c | 94 --------------------------------
+ arch/riscv/Kconfig               |  3 +
+ drivers/perf/arm_pmu.c           | 10 +++-
+ drivers/perf/riscv_pmu_sbi.c     | 10 ++++
+ include/linux/perf/arm_pmu.h     |  2 -
+ kernel/watchdog_perf.c           | 83 ++++++++++++++++++++++++++++
+ lib/Kconfig.debug                |  8 +++
+ 9 files changed, 114 insertions(+), 98 deletions(-)
+ delete mode 100644 arch/arm64/kernel/watchdog_hld.c
+
+-- 
+2.39.5
+
 
