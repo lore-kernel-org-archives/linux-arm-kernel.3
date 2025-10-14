@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888E5CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 21:55:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D2EACCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 21:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9qsCHmQm23GPn/cG59MJ4JfonH9UflykkMpsA/9h5+U=; b=Gf3Jl3YbFdKB8cWW6XK4siMRkL
-	7uGOfBGqbAq96Uj9qd2gdqUBeYByoZ4ELRTmzYGpM7PopMOUNanLfy2Yq6Nu1NBFwg+3Or+4oZcI2
-	wLR8yRa+LNWh8uNFIE5j1GYAW1K4bmWV+vYFVZUyuxnV5YyOjRc5yON9pyJnJweb9J4abmtt/LAgS
-	VMHI7ElODAwtpgpeQaE+zRJFMA1nKoT3053IiKnDwh5OMvBeHt9Z8BByG01G3hPtufp2og5QOEQVz
-	/HQ3uZyrz+pJi4QpUltYWqvVBbsPs6z6dIHN4UU1dj1IJRU3t9biir9aUfUNwE+zdjCmpjzLTN63A
-	6eldS2vA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XxnfDRKN9o/tjcf4e+ZHTtKwkTd93J07pUeKthYb3wQ=; b=DnAA5b5XWoH1kLJMmYQCZockk5
+	+5mw2oQlsk8gNcGVfEiFP9wMe8B+HXsc2HNz4wrIjaLOmerq50F+l0/n+lmvtWKMheQMNfcuwOtrq
+	mx0M3moKHUxHdUN+lAz/b9jOTNGAlPknWOHLJ6rdjYIptGREkyzU49c2qpSL0c3G/dcpwjbWf9FUN
+	dKwVSRQg8IYkD6lNjp+Kamgc27fDMS0jkRTYe2q9HpvtX/ALTyiR23jLVWr7xmFJMC/sGwWcwdgci
+	CCYSJS3vA2OISpAk04sMvDqGUyfvP+XFwYMP46HsRFCw13HFGLcPyWjP2HS+ai7MWyYJCQ85P5zxo
+	ZQ8EiONw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8mzA-0000000HUEd-1S4S;
-	Tue, 14 Oct 2025 21:55:12 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1v8n29-0000000HV06-3kFC;
+	Tue, 14 Oct 2025 21:58:17 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8mz7-0000000HUDV-3bDJ
+	id 1v8n27-0000000HUzk-1x1j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 21:55:11 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cmSgX0LS2z9scN;
-	Tue, 14 Oct 2025 23:55:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760478904;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9qsCHmQm23GPn/cG59MJ4JfonH9UflykkMpsA/9h5+U=;
-	b=grqoShQbarkUu+JNCjKd1ngaaduN1W8QkyWxCFT21XmmD0en2MOwzWmQOlZJgMa/tOnsE2
-	CQRTMCBcMnrOWlKjn6Syi00F/DGLRTvYex0Jl8ajknpA13RMSY215A1L8dti8YHy0l8f1M
-	HaHPHcpbhfU+XhQFIoVKKgnjl/NNoEKk0Yyg9SEfKz6NnLZkR8oVEnrtiDpC85h+A1qEdM
-	5ybQyhqL03hRsAwR/xfCHo0SpgXgwebhe7RcYwKxHzrcgPPu5HFWhaD6OhYRxU1B4an47p
-	fIGjqUQ2bBAwRetsNh+/bv0jkfI/AMbDmCLzyD27tytEt31e4jW1iRUg9cZZIQ==
-Message-ID: <2c4a42eb-8c49-4ba3-baa3-921ec52f730d@mailbox.org>
-Date: Tue, 14 Oct 2025 23:55:00 +0200
+	Tue, 14 Oct 2025 21:58:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=XxnfDRKN9o/tjcf4e+ZHTtKwkTd93J07pUeKthYb3wQ=; b=T7hq7VxWOOfvkWkFQtmY0Wi8lC
+	7cGsW2sWrEp7Besg9hJxrhHAmHGlNPU7c8OdSAPZ7WIOBSfsT6ywKvyJWn2JEpBCnOj+J+8OFIUhT
+	T7RQnD/y1wjhUC7/IPOXi7IFJGczARkhsurkAGgFagHvjaRakqbZWLil8b9GKZbkSYH8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1v8n1w-00AxMX-4b; Tue, 14 Oct 2025 23:58:04 +0200
+Date: Tue, 14 Oct 2025 23:58:04 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Parvathi Pudi <parvathi@couthit.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, danishanwar@ti.com,
+	rogerq@kernel.org, pmohan@couthit.com, basharath@couthit.com,
+	afd@ti.com, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, pratheesh@ti.com,
+	prajith@ti.com, vigneshr@ti.com, praneeth@ti.com, srk@ti.com,
+	rogerq@ti.com, krishna@couthit.com, mohan@couthit.com
+Subject: Re: [PATCH net-next v3 1/3] net: ti: icssm-prueth: Adds helper
+ functions to configure and maintain FDB
+Message-ID: <ff651c3d-108b-48f8-b69b-fb0b522edd4e@lunn.ch>
+References: <20251014124018.1596900-1-parvathi@couthit.com>
+ <20251014124018.1596900-2-parvathi@couthit.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 00/39] Add i.MX95 DPU/DSI/LVDS support
-To: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org
-Cc: Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <174ec43e-4cac-4452-a77b-e2e3b8413d05@nxp.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <174ec43e-4cac-4452-a77b-e2e3b8413d05@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: 5nog4wp8xydqygcq8su1oi7hrnzmbrpa
-X-MBO-RS-ID: fa85b4e7819b77388bb
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251014124018.1596900-2-parvathi@couthit.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_145510_063011_B2147EB3 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20251014_145815_528499_296B339F 
+X-CRM114-Status: GOOD (  24.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,53 +74,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/14/25 10:51 AM, Liu Ying wrote:
-> Hi Marek,
+> +void icssm_prueth_sw_fdb_tbl_init(struct prueth *prueth)
+> +{
+> +	struct fdb_tbl *t = prueth->fdb_tbl;
+> +
+> +	t->index_a = (struct fdb_index_array_t *)((__force const void *)
+> +			prueth->mem[V2_1_FDB_TBL_LOC].va +
+> +			V2_1_FDB_TBL_OFFSET);
 
-Hi,
+We have
 
-> On 10/11/2025, Marek Vasut wrote:
->> This large series adds support for the i.MX95 display pipeline, including
->> DPU, DSI and LVDS support. Most of the components extend existin drivers,
->> DPU is added into DC driver, DSI into iMX93 DSI driver, LVDS into iMX8MP
->> LDB. Pixel link and pixel interleaver drivers are reworked to work as two
->> independent channels, since there seems to be no dependency between their
->> two channels. The i.MX95 DTSI changes are also included.
->>
->> Since the DPU chapter is missing from the i.MX95 RM, this is based on the
->> NXP downstream kernel fork code and there might be issues.
->>
->> Majority of this series are DPU patches on top of the DC driver, I tried
->> to keep them separate and easy to review. Later part adds LVDS and DSI
->> support, this can be split into separate series.
-> 
-> Like you said that this patch series is large, please split it.
-> Also, make sure proper maintainers are in TO or CC lists for each patch(b4
-> tool should do that automatically for you), e.g., patch 37 should be sent
-> to Thomas Gleixner <tglx@linutronix.de> according to MAINTAINERS.
+> +#define V2_1_FDB_TBL_LOC          PRUETH_MEM_SHARED_RAM
 
-I had to trim down the CC list for this series, it was enormous.
+and existing code like:
 
-I wanted to put this whole thing on the list first, before I start 
-splitting it up.
+void __iomem *sram_base = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
 
-For starters, I think I can send these separately:
+so it seems like
 
-- drm/imx: dc: Use bulk clock
-- drm/imx: dc: Rework dc_subdev_get_id() to drop ARRAY_SIZE() use
-- drm/imx: dc: Rename i.MX8QXP specific Link IDs
-- drm/imx: Add more RGB swizzling options
-- dt-bindings: interrupt-controller: fsl,irqsteer: Add i.MX95 support
+t->index_a = sram_base + V2_1_FDB_TBL_OFFSET;
 
-Then in second round, probably all these clean ups:
+with no needs for any casts, since sram_base is a void * so can be
+assigned to any pointer type.
 
-- drm/imx: dc: *: Pass struct dc_*_subdev_match_data via OF match data
+And there are lots of cascading defines like:
 
-And then rest afterward.
+/* 4 queue descriptors for port 0 (host receive). 32 bytes */
+#define HOST_QUEUE_DESC_OFFSET          (HOST_QUEUE_SIZE_ADDR + 16)
 
-What do you think ?
+/* table offset for queue size:
+ * 3 ports * 4 Queues * 1 byte offset = 12 bytes
+ */
+#define HOST_QUEUE_SIZE_ADDR            (HOST_QUEUE_OFFSET_ADDR + 8)
+/* table offset for queue:
+ * 4 Queues * 2 byte offset = 8 bytes
+ */
+#define HOST_QUEUE_OFFSET_ADDR          (HOST_QUEUE_DESCRIPTOR_OFFSET_ADDR + 8)
+/* table offset for Host queue descriptors:
+ * 1 ports * 4 Queues * 2 byte offset = 8 bytes
+ */
+#define HOST_QUEUE_DESCRIPTOR_OFFSET_ADDR       (HOST_Q4_RX_CONTEXT_OFFSET + 8)
 
--- 
-Best regards,
-Marek Vasut
+allowing code like:
+
+	sram = sram_base + HOST_QUEUE_SIZE_ADDR;
+	sram = sram_base + HOST_Q1_RX_CONTEXT_OFFSET;
+	sram = sram_base + HOST_QUEUE_OFFSET_ADDR;
+	sram = sram_base + HOST_QUEUE_DESCRIPTOR_OFFSET_ADDR;
+	sram = sram_base + HOST_QUEUE_DESC_OFFSET;
+
+> +	t->mac_tbl_a = (struct fdb_mac_tbl_array_t *)((__force const void *)
+> +			t->index_a + FDB_INDEX_TBL_MAX_ENTRIES *
+> +			sizeof(struct fdb_index_tbl_entry_t));
+
+So i think this could follow the same pattern, also allowing some of
+these casts to be removed.
+
+I just don't like casts, they suggest bad design.
+
+> +static u8 icssm_pru_lock_done(struct fdb_tbl *fdb_tbl)
+> +{
+> +	return readb((u8 __iomem *)&fdb_tbl->locks->pru_locks);
+
+And maybe the __iomem attribute can be added to struct, either per
+member, or at the top level? It is all iomem, so we want sparse to be
+able to check all accesses.
+
+> +static int icssm_prueth_sw_fdb_spin_lock(struct fdb_tbl *fdb_tbl)
+> +{
+> +	u8 done;
+> +	int ret;
+> +
+> +	/* Take the host lock */
+> +	writeb(1, (u8 __iomem *)&fdb_tbl->locks->host_lock);
+> +
+> +	/* Wait for the PRUs to release their locks */
+> +	ret = read_poll_timeout(icssm_pru_lock_done, done, done == 0,
+> +				1, 10, false, fdb_tbl);
+> +	if (ret)
+> +		return -ETIMEDOUT;
+> +
+> +	return 0;
+
+Documentation says:
+
+ * Returns: 0 on success and -ETIMEDOUT upon a timeout.
+
+So no need for the if statement.
+
+
+> +static s16
+> +icssm_prueth_sw_fdb_search(struct fdb_mac_tbl_array_t *mac_tbl,
+> +			   struct fdb_index_tbl_entry_t *bucket_info,
+> +			   const u8 *mac)
+> +{
+> +	u8 mac_tbl_idx = bucket_info->bucket_idx;
+> +	int i;
+> +
+> +	for (i = 0; i < bucket_info->bucket_entries; i++, mac_tbl_idx++) {
+> +		if (ether_addr_equal(mac,
+> +				     mac_tbl->mac_tbl_entry[mac_tbl_idx].mac))
+> +			return mac_tbl_idx;
+> +	}
+> +
+> +	return -ENODATA;
+
+It is traditional to return errno in an int. But i don't see why a s16
+cannot be used.
+
+> +icssm_prueth_sw_fdb_find_bucket_insert_point(struct fdb_tbl *fdb,
+> +					     struct fdb_index_tbl_entry_t
+> +					     *bkt_info,
+> +					     const u8 *mac, const u8 port)
+> +{
+> +	struct fdb_mac_tbl_array_t *mac_tbl = fdb->mac_tbl_a;
+> +	struct fdb_mac_tbl_entry_t *e;
+> +	u8 mac_tbl_idx;
+> +	int i, ret;
+> +	s8 cmp;
+> +
+> +	mac_tbl_idx = bkt_info->bucket_idx;
+> +
+> +	for (i = 0; i < bkt_info->bucket_entries; i++, mac_tbl_idx++) {
+> +		e = &mac_tbl->mac_tbl_entry[mac_tbl_idx];
+> +		cmp = memcmp(mac, e->mac, ETH_ALEN);
+> +		if (cmp < 0) {
+> +			return mac_tbl_idx;
+> +		} else if (cmp == 0) {
+> +			if (e->port != port) {
+> +				/* MAC is already in FDB, only port is
+> +				 * different. So just update the port.
+> +				 * Note: total_entries and bucket_entries
+> +				 * remain the same.
+> +				 */
+> +				ret = icssm_prueth_sw_fdb_spin_lock(fdb);
+> +				if (ret) {
+> +					pr_err("PRU lock timeout\n");
+> +					return -ETIMEDOUT;
+> +				}
+
+icssm_prueth_sw_fdb_spin_lock() returns an errno. Don't replace it.
+
+Also, pr_err() is bad practice and probably checkpatch is telling you
+this. Ideally you want to indicate which device has an error, so you
+should be using dev_err(), or maybe netdev_err().
+
+> +	if (left > 0) {
+> +		hash_prev =
+> +			icssm_prueth_sw_fdb_hash
+> +			(FDB_MAC_TBL_ENTRY(left - 1)->mac);
+> +	}
+
+> +		empty_slot_idx =
+> +			icssm_prueth_sw_fdb_check_empty_slot_right(mt, mti);
+
+There are a couple of odd indentations like this. I wounder if it
+makes sense to shorten the prefix? Do you really need all of
+icssm_prueth_sw_fdb_ ?
+
+	Andrew
 
