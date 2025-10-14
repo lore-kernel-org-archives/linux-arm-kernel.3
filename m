@@ -4,71 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04FBACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 13:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84DFACCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 14:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SCohG/Y/vn47OyyqdNFIC8e2DykRzRGIMwtADytc7xM=; b=yeWHKUhEgRFhbTrabEo+XhFtJG
-	xfcHYi+xi6B7xU43qCGCv7MC/8U/mTSjCMXj2m9KMEuZZLgceaDWK6ej6HtnRlVx8RdRsvBScU1CR
-	/+6OPm0ylNrCIT60JJuwK9pNBeQt2+Zm/ueQUi4mPEd10u+bah9asQl1fsRu7p9r0LYnNvnAew1sL
-	6SpM2sW5eK3B+VuFSBTjEQycdLWtH2TNAsTOmkuRhgwnlrSArwJS6wwor98FYxgWm2Av86bCx9C9O
-	J0s3T6dwV4p2szC+N7x75rIoBPv7c6aqote6PxozyIo8hdZSk4kM66kmDT/h9SQT+evIDJo7FebI2
-	MAuoBOsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yCyb2ibX28AxJ/J6U5+s4yIqyUkd+qFW22qoG96WL28=; b=4QJwHSppGhDjFzd2fa8HZsi1aE
+	6er/8EVNqUT6UaJSaAyRCqk6TfBvBeWayLk7ZXIH/cadGKTRd4S0swuFnH7dQkaemVFjaeWg781UI
+	aSDZFbCws7Y8ygVwvyCdwdQ5Okyy4YaoVkm8tbCSxpRX4eH2u2b6VDRUZOoNg+nwvpTvPbCL0keCn
+	Py8lfPAzURcb0ilnwVydPI5+A+48QR5FJ7Pr9s+5NjG4o1MCR+2UAzbJ9+LipB28nYMuSE4oa+KsF
+	fEx6afnk0j4xaGnBMUbG9EwmVizLtfURF9l+vuhkClKbfgGX2QI52pgz5iL/7BIgnPQUGSn6k7Mex
+	hfhTkRbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8fSJ-0000000GXGG-0i5O;
-	Tue, 14 Oct 2025 13:52:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8fd1-0000000GYAP-2V77;
+	Tue, 14 Oct 2025 14:03:51 +0000
+Received: from mout-p-202.mailbox.org ([80.241.56.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8fSG-0000000GXFr-0hkv;
-	Tue, 14 Oct 2025 13:52:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B96D7405D3;
-	Tue, 14 Oct 2025 13:52:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2079DC113D0;
-	Tue, 14 Oct 2025 13:52:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760449963;
-	bh=ssjsTqzEfEBT1gonGkyIguCeeCG6cNnHwZVkHgfQfPo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gyKslMt/Re73fKUgxWghdCYgF6656EvZDcTyasrTDRkn8ySxcPMqGtip7mgtwyOZ0
-	 FBo4JuZ9fy5ala5yvrDcQuEkonoIDKOCSj8lE+Ag4AWeLpMAQpFalh0gKb8q7/a34C
-	 vxiDUQ1U4Gre0vU3WwCZYwSLOxM2vA88recW2Bpuz7V3TqhG7mGf/rRtCAdNm4BulP
-	 e88nzCKJhaQUBhAgvvYO9r6PGnWwacWNgraqXc3k6ZW1gJAQ1iYaNlZ/p1LNk7doo1
-	 zZx9NatAG/BSJCKF8FktW7e9mWnbxyHFIuAKr3xFrh58dahsuoie4ygFDpZY/Iejop
-	 AbnYJlcQZk04g==
-Date: Tue, 14 Oct 2025 15:52:40 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v3 2/3] net: airoha: npu: Add
- airoha_npu_soc_data struct
-Message-ID: <aO5VqDegyOY9fVEK@lore-desk>
-References: <20251013-airoha-npu-7583-v3-0-00f748b5a0c7@kernel.org>
- <20251013-airoha-npu-7583-v3-2-00f748b5a0c7@kernel.org>
- <aO4LL8racazLjjzk@horms.kernel.org>
- <aO4WmeuoAcZLFSBo@lore-desk>
- <20251014134609.GA3239414@horms.kernel.org>
+	id 1v8fcz-0000000GY9S-1a0K
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Oct 2025 14:03:50 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cmGCf6pgSz9tSv;
+	Tue, 14 Oct 2025 16:03:42 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760450623;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yCyb2ibX28AxJ/J6U5+s4yIqyUkd+qFW22qoG96WL28=;
+	b=N0KCt+9H1/tPccmwN4tQFcvZaZaUwKMvPrSwOqzEqQTRikWBpGXYOorSBJYLR404EtnYLM
+	7K8Bqrte59xBIChslWPL4Yo4fbKTjrN2G2JwmZEpLHvdcwcgA2ESK1nV/vucswU9WsHy8Y
+	fCRMBNsPqyA/wrTyyRel1EGx2Ya8u5lQ/7H5t+V0BXsTXQs570Kf+HHeaBEOOPkTXXefGC
+	R91u0UhOcPXqWYRL3tC6K9WyKQpEFRFk2GbMqk8mKqSJmFnTIdNqjDonbDSyjaEHD02G2n
+	zxLreKd0N783qBZEZmq0BzOr4ekY1OuuKlX6WWgu+O7VROvyrgd8u7PTu9NncQ==
+Message-ID: <c7fee270-f3ff-402f-8266-0ffbb5077a61@mailbox.org>
+Date: Tue, 14 Oct 2025 16:03:37 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="PckbZYlHLnwOdPvs"
-Content-Disposition: inline
-In-Reply-To: <20251014134609.GA3239414@horms.kernel.org>
+Subject: Re: [PATCH 05/39] drm/imx: dc: Rework dc_subdev_get_id() to drop
+ ARRAY_SIZE() use
+To: Frank Li <Frank.li@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Liu Ying <victor.liu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
+ Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+ <20251011170213.128907-6-marek.vasut@mailbox.org>
+ <aO0vLbkpXejre2Ta@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <aO0vLbkpXejre2Ta@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 593cda8ecce9591adfa
+X-MBO-RS-META: rdmw869wa3nhjapcf1653gyr3tf5in1e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_065244_494549_B77F4E28 
-X-CRM114-Status: GOOD (  33.83  )
+X-CRM114-CacheID: sfid-20251014_070349_578384_BD271BC0 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,161 +89,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/13/25 6:56 PM, Frank Li wrote:
+> On Sat, Oct 11, 2025 at 06:51:20PM +0200, Marek Vasut wrote:
+>> Rework dc_subdev_get_id() to drop ARRAY_SIZE() use and use empty trailing
+>> entry in each ID look up array instead. This allows passing of those arrays
+>> around as OF match data, which will be useful when using this pipeline on
+>> i.MX95, which has different address-to-ID mapping.
+>>
+>> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+> 
+> This change is okay. but my questions is why need map register to id.
 
---PckbZYlHLnwOdPvs
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Oct 14, Simon Horman wrote:
-> On Tue, Oct 14, 2025 at 11:23:37AM +0200, Lorenzo Bianconi wrote:
-> > > On Mon, Oct 13, 2025 at 03:58:50PM +0200, Lorenzo Bianconi wrote:
-> > >=20
-> > > ...
-> > >=20
-> > > > @@ -182,49 +192,53 @@ static int airoha_npu_send_msg(struct airoha_=
-npu *npu, int func_id,
-> > > >  	return ret;
-> > > >  }
-> > > > =20
-> > > > -static int airoha_npu_run_firmware(struct device *dev, void __iome=
-m *base,
-> > > > -				   struct resource *res)
-> > > > +static int airoha_npu_load_firmware(struct device *dev, void __iom=
-em *addr,
-> > > > +				    const struct airoha_npu_fw *fw_info)
-> > > >  {
-> > > >  	const struct firmware *fw;
-> > > > -	void __iomem *addr;
-> > > >  	int ret;
-> > > > =20
-> > > > -	ret =3D request_firmware(&fw, NPU_EN7581_FIRMWARE_RV32, dev);
-> > > > +	ret =3D request_firmware(&fw, fw_info->name, dev);
-> > > >  	if (ret)
-> > > >  		return ret =3D=3D -ENOENT ? -EPROBE_DEFER : ret;
-> > > > =20
-> > > > -	if (fw->size > NPU_EN7581_FIRMWARE_RV32_MAX_SIZE) {
-> > > > +	if (fw->size > fw_info->max_size) {
-> > > >  		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
-> > > > -			NPU_EN7581_FIRMWARE_RV32, fw->size);
-> > > > +			fw_info->name, fw->size);
-> > > >  		ret =3D -E2BIG;
-> > > >  		goto out;
-> > > >  	}
-> > > > =20
-> > > > -	addr =3D devm_ioremap_resource(dev, res);
-> > > > -	if (IS_ERR(addr)) {
-> > > > -		ret =3D PTR_ERR(addr);
-> > > > -		goto out;
-> > > > -	}
-> > > > -
-> > > >  	memcpy_toio(addr, fw->data, fw->size);
-> > > > +out:
-> > > >  	release_firmware(fw);
-> > > > =20
-> > > > -	ret =3D request_firmware(&fw, NPU_EN7581_FIRMWARE_DATA, dev);
-> > > > -	if (ret)
-> > > > -		return ret =3D=3D -ENOENT ? -EPROBE_DEFER : ret;
-> > > > +	return ret;
-> > > > +}
-> > > > =20
-> > > > -	if (fw->size > NPU_EN7581_FIRMWARE_DATA_MAX_SIZE) {
-> > > > -		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
-> > > > -			NPU_EN7581_FIRMWARE_DATA, fw->size);
-> > > > -		ret =3D -E2BIG;
-> > > > -		goto out;
-> > > > -	}
-> > > > +static int airoha_npu_run_firmware(struct device *dev, void __iome=
-m *base,
-> > > > +				   struct resource *res)
-> > > > +{
-> > > > +	const struct airoha_npu_soc_data *soc;
-> > > > +	void __iomem *addr;
-> > > > +	int ret;
-> > > > =20
-> > > > -	memcpy_toio(base + REG_NPU_LOCAL_SRAM, fw->data, fw->size);
-> > > > -out:
-> > > > -	release_firmware(fw);
-> > > > +	soc =3D of_device_get_match_data(dev);
-> > > > +	if (!soc)
-> > > > +		return -EINVAL;
-> > > > =20
-> > > > -	return ret;
-> > > > +	addr =3D devm_ioremap_resource(dev, res);
-> > > > +	if (IS_ERR(addr))
-> > > > +		return PTR_ERR(addr);
-> > > > +
-> > > > +	/* Load rv32 npu firmware */
-> > > > +	ret =3D airoha_npu_load_firmware(dev, addr, &soc->fw_rv32);
-> > > > +	if (ret)
-> > > > +		return ret;
-> > > > +
-> > > > +	/* Load data npu firmware */
-> > > > +	return airoha_npu_load_firmware(dev, base + REG_NPU_LOCAL_SRAM,
-> > > > +					&soc->fw_data);
-> > >=20
-> > > Hi Lorenzo,
-> >=20
-> > Hi Simon,
-> >=20
-> > >=20
-> > > There are two calls to airoha_npu_load_firmware() above.
-> > > And, internally, airoha_npu_load_firmware() will call release_firmwar=
-e()
-> > > if an error is encountered.
-> > >=20
-> > > But should release_firmware() be called for the firmware requested
-> > > by the first call to airoha_npu_load_firmware() if the second call fa=
-ils?
-> > > Such clean-up seems to have been the case prior to this patch.
-> >=20
-> > release_firmware() is intended to release the resources allocated by the
-> > corresponding call to request_firmware() in airoha_npu_load_firmware().
-> > According to my understanding we always run release_firmware() in
-> > airoha_npu_load_firmware() before returning to the caller. Even before =
-this
-> > patch we run release_firmware() on the 'first' firmware image before re=
-questing
-> > the second one. Am I missing something?
-> >=20
-> > >=20
-> > > Also, not strictly related. Should release_firmware() be called (twic=
-e)
-> > > when the driver is removed?
-> >=20
-> > For the above reasons, it is not important to call release_firmware() r=
-emoving
-> > the module. Agree?
->=20
-> Thanks, agreed.
->=20
-> For some reason I missed that release_firmware() is called in
-> airoha_npu_load_firmware() regardless of error - I thought it was only
-> in error paths for some reason.
->=20
-> So I agree that the firmware is always released by the time
-> airoha_npu_load_firmware() is returned. As thus there is never
-> a need to release it afterwards.
->=20
-> Reviewed-by: Simon Horman <horms@kernel.org>
->=20
->=20
-
-ack, thx for the review.
-
-Regards,
-Lorenzo
-
---PckbZYlHLnwOdPvs
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHQEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaO5VqAAKCRA6cBh0uS2t
-rKOOAQDpkKyXdtPwflpBidM62ACL3W06z3Xjas/GK4+Y4rraYgD4+VvRgWRlYY8L
-iT7Okq7FVtyyot/ZH4Lpb3VEMvSlCg==
-=CTji
------END PGP SIGNATURE-----
-
---PckbZYlHLnwOdPvs--
+This seems to be a recurring pattern in the driver, where some 
+components need to find other components to link with them. The mapping 
+is fixed, and since the DT does not encode link IDs, the resolution of 
+the mapping has to happen by mapping the component base addresses to the 
+IDs first.
 
