@@ -4,54 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF88ACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 17:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CDC8CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 17:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UEjPypUORKhRws139RZAuUi3dI0fiBWn7RnjShoZxVY=; b=KI2uV5QWVdns5jZOs4HiETuqSq
-	jF4JNmCY0yGLT6ExG4WEqdBkjn+yGxc7mfpMHlNuypiQ8g6O7jeo+mLh0QQH1+3+jeZZsGBRgVdCX
-	VQfSCrmw4bZjt2BV7gtGB2gtVzCWCvPvX2mw9/s2CZx4BkV36FVt/wx6RVZN0GhKfCZvxMwXInEXS
-	IT+2g0p/0rcKVre3hAm4ILaLvjwvibT2t+g0QzIVcJSjnuo/8iVUuCrzqmf9dXqyHlivHFfcG1Niz
-	NzvolugRGcky2pdiUFTbc80aSeldzOGpkbbvHOmDxJfezcTmRKL8kV/XMxnus7vucpksYdsuJJjPo
-	2rSPTJEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VZuzQ0vfYo67YZ87oaUHAzzbmOUfmnTfkoYeXMCcF+8=; b=T7RC9xTeLkgKukjk7dc8v6YdmA
+	JCJw/KGoz2zoBOPBawTfYqVVDCF93sA15/C7fMbpPTDphss8xvRIBDHaSwFqrULgbxS+hdkP7/Fx3
+	v/wBEWOUZanKm/k5F0ioa0c0m34U/SkUQm2WQFFq2Sm31hNqEYNpotIwgoS4/DTxd1Dmju1tWN/Vn
+	VLPy0VGHX5gcAYdI5oycVuHza4TwirQRcZplRyUoKkCQxFiKadio6ztKluKVFteKa8fz4ikhtW3kX
+	08HnUr//i+n2Y+jm0jCcF49h6QJf4VHq3l1JWcV+5LIXC5fIS5pflh0TkTj2Lx6qxtYwUXtdoyUsD
+	f8iTRcSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ixq-0000000H5gp-2TMg;
-	Tue, 14 Oct 2025 17:37:34 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v8j6r-0000000H6e9-3oyL;
+	Tue, 14 Oct 2025 17:46:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ixn-0000000H5fr-1SmC
+	id 1v8j6q-0000000H6dv-1mX2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 17:37:32 +0000
-Received: from pendragon.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1B5A1741;
-	Tue, 14 Oct 2025 19:35:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1760463348;
-	bh=HiHxgPNFAWSB/iS1Eg4H0inrzfOnWi/it/DJfDndziA=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=q9jTq4a6Wd81pLyp1VGc5fLh85ad6D3pNvVulfbdw6nNHMFfwQHZ+9YodjLIwb/tf
-	 OFUJHqcDSVDA1RGICzlwOuLLW8Jd6hpeXuJzD5A1yLJzUAHXvb1WykyTG/aJt3UuBv
-	 yDqmkZJeiY5Z5R4V1MVbHtD4AkP2IQSy9vXuIVUs=
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250916144710.1285650-1-kieran.bingham@ideasonboard.com>
-References: <20250916144710.1285650-1-kieran.bingham@ideasonboard.com>
-Subject: Re: [PATCH] arm64: dts: freescale: debix-som-a-bmb-08: Enable HDMI output
-From: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Shawn Guo <shawnguo2@yeah.net>, Marco Felsch <m.felsch@pengutronix.de>
-To: Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Tue, 14 Oct 2025 18:37:23 +0100
-Message-ID: <176046344348.1246375.13335893574135284814@ping.linuxembedded.co.uk>
-User-Agent: alot/0.9.1
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_103731_527721_CD1749F1 
-X-CRM114-Status: GOOD (  13.82  )
+	Tue, 14 Oct 2025 17:46:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D153A6237F;
+	Tue, 14 Oct 2025 17:46:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 886DAC4CEE7;
+	Tue, 14 Oct 2025 17:46:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760464011;
+	bh=REAJKHktfM5uhBrHBHX1IL3/GQ/UWwWriUYpZT5i0i0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=XlXcBMMJmLFepolcAl1W6bVqaq58HD498ZbWBeybAD42nc9rMQLs5p9VvaHyTBcPo
+	 9DGEcIdTrGRw7egfcDmil9IEBQxq7nMTU5O2qfbpjrbfgvChGy+2GFp57FeO2lb+Zo
+	 Ed4LeSDr1dAsue6PCdN/xo6t3bgEQbfV1tIkuo1NxeAe0DP39qtrc1hb46Gwu6MaEh
+	 e5ZOAcnKaX2ZGw/fy/geGx1MBZjJyHhooKCNTRux0OLOh55GZXmm51j70H2dKyhzdf
+	 63RB7Kjiha84VMK7NBMNrr/YMZoUzPgjg63dmC4hT0JkNcbK9ram5YmxIBDTa/hHRr
+	 Sy8lWgc5pa1NA==
+Received: from 82-132-215-36.dab.02.net ([82.132.215.36] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v8j6n-0000000DxEH-0qIj;
+	Tue, 14 Oct 2025 17:46:49 +0000
+Date: Tue, 14 Oct 2025 18:46:40 +0100
+Message-ID: <87cy6pxtof.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: IRQ thread timeouts and affinity
+In-Reply-To: <wosxizbb5z3goikqglsdbrgmshith62upwnavnbqeq5dndfau3@bna46rg3w2ak>
+References: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
+	<86qzvcxi3j.wl-maz@kernel.org>
+	<loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
+	<86o6qgxayt.wl-maz@kernel.org>
+	<86ms60x7w7.wl-maz@kernel.org>
+	<us2hfdn7jpfepdmwk2p62w64p7xagaeoemg3hdt2vm54emtwlv@m6fkuti7hvfa>
+	<86bjmeyh5m.wl-maz@kernel.org>
+	<graeplkpsgbolpnnq2pndpdb7fymyy7zvm37osbdtre347tns2@mjbgzwterefv>
+	<87sefpoj10.wl-maz@kernel.org>
+	<6hb5vyl5xxsxfcwk4v3xpq277wusj5jq4tubdpjocpjc5smj3w@wx574kluhedj>
+	<wosxizbb5z3goikqglsdbrgmshith62upwnavnbqeq5dndfau3@bna46rg3w2ak>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.215.36
+X-SA-Exim-Rcpt-To: thierry.reding@gmail.com, tglx@linutronix.de, linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,122 +92,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
-
-Quoting Kieran Bingham (2025-09-16 15:47:09)
-> Enable the HDMI output on the Debix SOM A board, using the HDMI encoder
-> present in the i.MX8MP SoC.
->=20
-> Enable and configure all nodes required for the HDMI port usage.
->=20
-> Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
-
-One review tag at https://lore.kernel.org/all/20250925171744.5eyhqjlqp7skes=
-qi@pengutronix.de/
-
-Could anyone be able to review / collect / apply this one please?
-
---
-Regards
-
-Kieran
-
-
-> ---
->=20
-> This replicates 4880ee1c9046 ("arm64: dts: imx8mp-debix-model-a: Enable
-> HDMI output") to support the Debix SOM as well.
->=20
->=20
->  .../freescale/imx8mp-debix-som-a-bmb-08.dts   | 47 +++++++++++++++++++
->  1 file changed, 47 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-debix-som-a-bmb-08.dts =
-b/arch/arm64/boot/dts/freescale/imx8mp-debix-som-a-bmb-08.dts
-> index d241db3743a9..04619a722906 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-debix-som-a-bmb-08.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-debix-som-a-bmb-08.dts
-> @@ -22,6 +22,18 @@ chosen {
->                 stdout-path =3D &uart2;
->         };
-> =20
-> +       hdmi-connector {
-> +               compatible =3D "hdmi-connector";
-> +               label =3D "hdmi";
-> +               type =3D "a";
-> +
-> +               port {
-> +                       hdmi_connector_in: endpoint {
-> +                               remote-endpoint =3D <&hdmi_tx_out>;
-> +                       };
-> +               };
-> +       };
-> +
->         reg_baseboard_vdd3v3: regulator-baseboard-vdd3v3 {
->                 compatible =3D "regulator-fixed";
->                 regulator-min-microvolt =3D <3300000>;
-> @@ -222,6 +234,28 @@ flash: flash@0 {
->         };
->  };
-> =20
-> +&hdmi_pvi {
-> +       status =3D "okay";
-> +};
-> +
-> +&hdmi_tx {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&pinctrl_hdmi>;
-> +       status =3D "okay";
-> +
-> +       ports {
-> +               port@1 {
-> +                       hdmi_tx_out: endpoint {
-> +                               remote-endpoint =3D <&hdmi_connector_in>;
-> +                       };
-> +               };
-> +       };
-> +};
-> +
-> +&hdmi_tx_phy {
-> +       status =3D "okay";
-> +};
-> +
->  &i2c4 {
->         expander0: gpio@20 {
->                 compatible =3D "nxp,pca9535";
-> @@ -276,6 +310,10 @@ ethmac2: mac-address@c {
->         };
->  };
-> =20
-> +&lcdif3 {
-> +       status =3D "okay";
-> +};
-> +
->  &snvs_pwrkey {
->         status =3D "okay";
->  };
-> @@ -430,6 +468,15 @@ MX8MP_IOMUXC_NAND_DATA03__FLEXSPI_A_DATA03      0x82
->                 >;
->         };
-> =20
-> +       pinctrl_hdmi: hdmigrp {
-> +               fsl,pins =3D <
-> +                       MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL     0=
-x1c3
-> +                       MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA     0=
-x1c3
-> +                       MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD         0=
-x19
-> +                       MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC         0=
-x19
-> +               >;
-> +       };
-> +
->         pinctrl_i2c1: i2c1grp {
->                 fsl,pins =3D <
->                         MX8MP_IOMUXC_I2C1_SCL__I2C1_SCL                 0=
-x400001c2
-> --=20
-> 2.50.1
+On Tue, 14 Oct 2025 12:08:22 +0100,
+Thierry Reding <thierry.reding@gmail.com> wrote:
 >
+
+[...]
+
+> > The interrupt count for CPUs 2-7 no longer increments after taking CPU 1
+> > offline. Interestingly, bringing CPU 1 back online doesn't have an
+> > impact, so it doesn't go back to enabling 1:N mode.
+> 
+> Looks like that is because gic_set_affinity() gets called with the new
+> CPU mask when the CPU goes offline, but it's *not* called when the CPU
+> comes back online.
+
+Indeed, because there is no need to change the affinity as far as the
+kernel is concerned -- the interrupt is on an online CPU and all is
+well.
+
+I think that's the point where a per-interrupt flag (let's call it
+IRQ_BCAST for the sake of argument) is required to decide what to
+do. Ideally, IRQ_BCAST would replace any notion of affinity, and you'd
+get the scatter-gun behaviour all the time. Which means no adjustment
+to the affinity on a CPU going offline (everything still works).
+
+But that's assumes a bunch of other things:
+
+- when going offline, at least DPG1NS gets set to make sure this CPU
+  is not a target anymore if not going completely dead (still running
+  secure code, for example). The kernel could do it, but...
+
+- when going idle, should this CPU still be a target of 1:N
+  interrupts? That's a firmware decision what could severely impact
+  power on battery-bound machines if not carefully managed...
+
+- and should a CPU wake up from such an interrupt? Again, that's a
+  firmware decision, and I don't know how existing implementation deal
+  with that stuff.
+
+Someone needs to investigate these things, and work out all of the
+above. That will give us a set of conditions under which we could do
+something.
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
