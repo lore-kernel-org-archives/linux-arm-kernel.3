@@ -4,77 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92001CCD192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 15:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A2BECCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 15:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7WPvMXyfk7VBI7X+mRHiQYyAv5fXTtHFceQzolFSsXk=; b=J9nFbYvB1pb1Xo9fgC0r6SZOqe
-	pRkgNiRgXAX7FkcKbzN5eOycizoS5wLolVRb8S8eaSOsN7RHIphS7Svvsgxj5Kj1q1r5ENPFdzJVp
-	DvEri5esWhK5wBNPzjQQ3IxMXXTAN2C9c0hA3JZMKjZ9iw59LqBIVx0FSSx2PcORdM1few7lpEGbV
-	4EarFdIcck0fTaArLP7QgwvcppVcWHFlT7zkEDxldAfDzVfG9ZADUxX9EVCxCUKcJH2Tw6SsZDBaP
-	8lvganK7MYMhQliZY/U89SDYCSbOi2Atj2CtS1rcFOCWq0LvoZdOMdoTzeMlCpY4caO60CgwcBesB
-	InljUmmA==;
+	bh=J+wunxS/PRXIt9J2y/OeCTS3McBzWrnL/lgi7Mj14G4=; b=yP3Ycdd77iQN8IbPzyZUQ5PN0s
+	Re/6VykS4oKBOOH7v/El8At93WmdB85+VFJfTcJ7BFUf0YkbClWRLSJZjqHHHfNJUqKGYDZ3oDFu7
+	B5j4lf7yaeGQJFwGcNMEi9xSRcTY4GHj/kp4ZJLXDbEBG7EDdcUeMrEj5PuDk5FaL5zUKsgojjWKK
+	+2Iwoqwd9KmFkpawU9aQPU9iGpTciPC3AjLZ1ptQE/qmsTXiwWxSTM1MzAwcQ1MoqGarLUahByMr5
+	18VGYcMW5wAXZ/viMgqJUVz1CzRphfp3l9ddzKLRY48gQRska1I+caQvObunBmnghLvuc5ljdvD+j
+	7cDKSkNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8gkQ-0000000GmzY-1xyy;
-	Tue, 14 Oct 2025 15:15:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v8gnv-0000000Gnsu-2G1o;
+	Tue, 14 Oct 2025 15:19:11 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8gkG-0000000Gmwk-49b7;
-	Tue, 14 Oct 2025 15:15:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760454922;
-	bh=Gc9gPNIGe4cVGaM7/VR1c6hckG2H84TGLOzGhxUKmtc=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=HvPyWdV1wxFBvZyKYK3CZn8nC/VkI2tIysn96BCFz5XzMqZhqLF+EJYt7bYehfEYF
-	 yoK6MX1lb1DKoZuGGqne34tIlvIzbxtWvWg7ZgmL/EjLEDMr4uH4ByWdnp1fG6D+kL
-	 SkqJl7/hrQVERBOne8VnHDTO/rJ60WLoqN4s4xRmW9GKRS6lDrlEPTt2R3VOFhi7RT
-	 /MjiGfjUPQcPqxuiAE2GaL1wMQdU/7Q12PEJO2+BKIQCrbyHKgcv18UOk8cYCNgWK1
-	 OC0djV0mm7rNaUwhdSSmq+Ucvrwkyl9b42aA0bjK8m1zowDBSVA/WzCVsmqbORV0Fo
-	 F+pDy1WCE3STg==
-Received: from [192.168.1.90] (unknown [82.79.138.145])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C878F17E1292;
-	Tue, 14 Oct 2025 17:15:21 +0200 (CEST)
-Message-ID: <37c99206-4bd2-40e5-95f6-71c109bd031c@collabora.com>
-Date: Tue, 14 Oct 2025 18:15:21 +0300
+	id 1v8gnt-0000000Gnrr-2S5O
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Oct 2025 15:19:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BGcnmyl3Hqa/9WT23nd1lBXdbq0tgkJN1xaTuhT29chi/slho+3KpYET0T5oOOal9wdLgRMYYWMfWCGYeQ2sHsIsV3FrGsOWam4DOYQ78JYAbQaL1cycFR/WnQNjFa34v7fLXUmYYZTLdueXDa5Xjbyy2FdiO2x/ufanZS2LoKcRhC5KMuB9fWdczg/JJc2znLl9PdQOilRAOpreGwc2MxHvKcvs0PkwZVQQNCvmfq6lt86eliibCI8tKr0zUpBuMFaGojAfkxUeDwmgF3Xv+Az8ntX9wO/3qpkljJD6WuS8IIf6FPjuGfQT91GA52TfDnQAwu/ma3czaRf06/2qYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5CeuSpryyPLgvTzVZ4OIJ0Wb8LXC0CyBe4d1HXrVifQ=;
+ b=drcwx4OgQJgSADR+Dl100X79s9CkAhZA+5gf6arIG++tIKeYbo+c255NSBaFybYSD/7bAMQnd98U5N8ABFr9mClqHQ5mwDhktlDxzIhyJGKWEo2fzzDg2cnDwOh6mmu/gsKXrnQ6JCcgocQyjwRHfctvxW51bhdRm0Ru+YXayFwfL0w5av7YG9OdZf9B/uqaJPeRJRK6sRzn/+1GcfIhpMVSv5Ql0LZBYqT5G7765GPgHSzBRTDrbOQP94BBN9n6AoHCUa6mcBfnsBVJ0thHDrCbqNsPdRSmu8R1ud4rgdszle8JFCJXaIUIARDSHOiGkkf6aHd82cg8HmzlkJGfJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5CeuSpryyPLgvTzVZ4OIJ0Wb8LXC0CyBe4d1HXrVifQ=;
+ b=fKECmIlkK4g/9gwVaN1WFNkpHnZnvU8SkrbO5OCBTzkKQtYXtCHeIG0dCz0kago19eoLJsx7flHyb2c/rRID79aKThEzqvNL2KkWQW5/wM6p56DoBfu7QmaLuRGMMjQ3VHCVXQzHCAOi83OKMjUrwFhOiw1vCEIj+JHLIsTw1uFE2Se++ZTwijFOVqQvo20Vd1Q57qU1c6t6dbAJjOMZxiYvZHj7TEc7BE06PE9TfvMpabXHu3AWaR/fnpN/R7R9Kw2ySZIbnn4/mpJmx0hqL4MqYDtbYka4rC5bVBlSs0/HhWzovlht5viLqpRNjXgX66GDUrWulyDnNsF13JWMUQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by AM9PR04MB8745.eurprd04.prod.outlook.com (2603:10a6:20b:43e::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.13; Tue, 14 Oct
+ 2025 15:19:02 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9203.009; Tue, 14 Oct 2025
+ 15:19:02 +0000
+Date: Tue, 14 Oct 2025 11:18:54 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: =?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <jpaulo.silvagoncalves@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>
+Subject: Re: [PATCH v1] arm64: dts: imx8-ss-img: Avoid gpio0_mipi_csi GPIOs
+ being deferred
+Message-ID: <aO5p3hSnnOv+evtk@lizhi-Precision-Tower-5810>
+References: <20251014-imx8-gpio-csi-deferred-probe-v1-1-62dd1b949731@toradex.com>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251014-imx8-gpio-csi-deferred-probe-v1-1-62dd1b949731@toradex.com>
+X-ClientProxiedBy: PH8P221CA0061.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:349::17) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/6] Add HDMI CEC support to Rockchip RK3588/RK3576
- SoCs
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Algea Cao <algea.cao@rock-chips.com>,
- Derek Foreman <derek.foreman@collabora.com>,
- Daniel Stone <daniels@collabora.com>
-References: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
- <e030bed8-58d5-4a19-b81c-45193cb900d8@collabora.com>
-Content-Language: en-US
-In-Reply-To: <e030bed8-58d5-4a19-b81c-45193cb900d8@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AM9PR04MB8745:EE_
+X-MS-Office365-Filtering-Correlation-Id: 40a024c4-d81e-4f52-f80a-08de0b350175
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?TlNf4SuynQHOrWxN7p7NhzQm9IaVumvP2k7nxYFBF6E+5GxYAsCHfiSigC?=
+ =?iso-8859-1?Q?88JzDie89rCwXjuFyfF7maRmL87xynpxOFNdiqf5gWFNRfPno4flLpyAmH?=
+ =?iso-8859-1?Q?UI+YVqi2+9j5wdKPpKQI7chovYqyrS2J4cPMHmTZdohLaJxOD9rU6ssr7R?=
+ =?iso-8859-1?Q?/umEl07/e1A4n4us+yZS64YVFFBVQtvZaTg0R8aNlyg0m8Qk/zIzfacmD3?=
+ =?iso-8859-1?Q?szh6VitTH7ywJu/k1foEU5z0REaTOrxik5paiZ1z+IdHhDkVJ06NgbP8bs?=
+ =?iso-8859-1?Q?GGOiVybbljkFC6zJtncgW8qbffMMQBxKdDXeY7OoMEdmYFlBOhj1yK9+BX?=
+ =?iso-8859-1?Q?SyddvAFtgfVs6ECc1kv6b+CG/r94+VMBr6Rq0TAHRxz8R9ws0plw6a4yJO?=
+ =?iso-8859-1?Q?uIjLVKSQ81xXn15x8EYR9MF5U9X51eSg0DNIk/RN+hbgh/GcxynNb6Ra/m?=
+ =?iso-8859-1?Q?KuPpYvMZk/IFgiy7lritu9b8u73TEv5gDHB3JgsM+71nCUchxL2aOhX/m+?=
+ =?iso-8859-1?Q?m3tPLqx7KqADxIByO+GyMkpFPV98MQwDPvfzNdA9sq6vy36KxB1FhoL7DH?=
+ =?iso-8859-1?Q?GrDjLTf0EATlCuIvwqgjxLJ6AcC9isJekpotXsmlokmY2r7xV+YabxMMSg?=
+ =?iso-8859-1?Q?0+Hv5jtyZhHrvJU6kCcKHf4InVuaj4CxhvuKCrkEdKPLbIxuqOkMo5WmAr?=
+ =?iso-8859-1?Q?jwT27xN8MM1F6gvKBu34tIbxcmSLktzJlM7LXr9gzxvVIIkW5mYr1z9LqT?=
+ =?iso-8859-1?Q?NxeqFynFImRFNSiQarBfwCokfMTj0T89yLt0ywX7ozdgYgNJzL3hXqvFk5?=
+ =?iso-8859-1?Q?PKBZRkezqtYHRT6crVbRxTAsykFSK76CanxsSQSYa0fi0FFCt0MMliql4r?=
+ =?iso-8859-1?Q?U8shz+lvQ30F9yTGcNCOEj1xArdDc90AQHeBYalp3DC2rEF+ayDdWDQuCT?=
+ =?iso-8859-1?Q?u/PPJw/CGdwqPNQJLrczw1FYJ8B2kri7NjvCOIkqcmd/e0YkD598qvBivg?=
+ =?iso-8859-1?Q?ovQS190lVOINI0b7K6qryTm2C1GqzwYcZV/ekLDXO17S1RzYrjV7V/1RPJ?=
+ =?iso-8859-1?Q?NsDmlgknOqqUp+noccfxqX4nsb/DMNQJaCl0qXRVd6QYI52acibcOwVV18?=
+ =?iso-8859-1?Q?j8rVZX25uJHMl2dzVXuwEt+hfY0eUNRSjSulFmMkWzgov52XNoXDKerD/I?=
+ =?iso-8859-1?Q?kRu0Xr2LHJc8u8XuYzEs+10yLHIMpzUGQWYp06Sw6Kr40nJ/L3Non4RSy6?=
+ =?iso-8859-1?Q?xbs5CmeVd7v6QyuMGHam9fCaVv30ZbzecgUsytiDvzEO30ZznN9cBzYr3b?=
+ =?iso-8859-1?Q?rYLtPsEeT67VaMDgU+MmwgP/f5Skc16iFNJvtzgA95fLrQWHKujr6GoNQJ?=
+ =?iso-8859-1?Q?Z5w1dooc/6CIk9YzkUu1ItFR2ssNaoX3zzus6z0osre8Z0n/GDAkGyTlfm?=
+ =?iso-8859-1?Q?QrN0u5Cg1bduu4LY6eTYznRR221ZVO9EGlxHYEGSQXZOHEBQOMFKMEIrUl?=
+ =?iso-8859-1?Q?q25VgP8SffI+fTnxR60f2CRRiEasY1tikFZoZs6AlHBCiyvtsE9zvIsXvI?=
+ =?iso-8859-1?Q?2rIJ5SMXOe48gJ82BxpnlobYzTW8?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?IcZnhHPjvaQuB9sqzRqYW91ot70z+8nDTwpJYeFRenhAkmSgF49FiurVz8?=
+ =?iso-8859-1?Q?WdzTqWS03ZUgmo5cx/PZU4gT9ictlBZyMIKVkPLCRk4un4+AQYvutxR91L?=
+ =?iso-8859-1?Q?O1AW8KdZ06BJXIdQzOp0f/tbMAuL3WVxXb0ApeJJEiuRXR1ILSdjaPgFlu?=
+ =?iso-8859-1?Q?RW4K6SHVz0hDxIg7FVxbbK/TRj4/Y2xfRLqRGh76t8K0B5jboAqwxac4r+?=
+ =?iso-8859-1?Q?7UqUaHLRzMv7/Sd3oLREtDuMdpngjmdu4ijW4lIiG+Uu0jfYCloHIlY+EQ?=
+ =?iso-8859-1?Q?4IdVYJiMlxZCgj8QNfSBxx+Lo9/MdiQh2qmsPJHYB0Kc4W4VWXMEsNM49S?=
+ =?iso-8859-1?Q?4HjInylRfaqWuIRE3lsjeIxn9JiOT/pIp6/YRXXtobSDEFoMstyc8aRqQX?=
+ =?iso-8859-1?Q?QGaaNuEXVSNuAJzGbHOKdjQSUKv+49d9w9D2TGUAXVIL7JnpRgT46+aPvW?=
+ =?iso-8859-1?Q?DVF0rHYgNO/56qpFEGFS/pFoREebXmRGYFIXheVxaRUpSCEpP9dcKqYGLB?=
+ =?iso-8859-1?Q?h26NVTwicSZQwsnu03dnq+F7u01lrlGPYgklOLM4JgY9JjD0exAAalR6en?=
+ =?iso-8859-1?Q?S2is9Xgik5oyw+G2SBsBzWwZIjHh+arjVL/z3VQSAYtXu2b+7CF2zfz67o?=
+ =?iso-8859-1?Q?3Nqnz2U6NH0cS26g1Q5c1KvJsVVbgL/RaMZhgeWMsyFS++uh6ndszFgmqU?=
+ =?iso-8859-1?Q?gf6ynOB2BH25FL4LxIkU3pFQhwvaQ9olu1hep+HM5YzTwcc5/acMbNeb0/?=
+ =?iso-8859-1?Q?qHk9QttAR/xbtn+3U4vc+d0/NV5SEIaq3+4oE7LPe0lRUnb9J8/TL1z9qF?=
+ =?iso-8859-1?Q?d00Eibbr3OPVJ3UtIfR7EJ6VeTgK/xiFi2VA8sNLhCIVeDrUic7X5jLYrh?=
+ =?iso-8859-1?Q?ZXRFveEYjQzeKfKmgx13RRDAwr271sQufHcXxLMJC+TOgy8wP0UR02amab?=
+ =?iso-8859-1?Q?bs3eAtXpS/ccM8ttSN56MQk3yvhP6S30DDPBW5xs7lhufvL4UO+II9zn0Y?=
+ =?iso-8859-1?Q?bPEOJOqHYcomutMz78eXGpYr090Ohk4qnkCxLOsttmJaxx8Vg/LfzKzEVO?=
+ =?iso-8859-1?Q?+JswzDfLdHNPlWRdDxubdiYsod5XFOzVtmurHlYM25xzuptoUyinNPZHue?=
+ =?iso-8859-1?Q?yH8s58Q4JYz8ncIi3R8xKBwRFHyCIwGT/CmPurw1AA/8lRnHGPvhV3CDaV?=
+ =?iso-8859-1?Q?TQUhyqDvPmC3KaqODIKfkJNmF1ptCqSCwlF6xWeg5lbzt+bQ0ZM7YWQq0q?=
+ =?iso-8859-1?Q?R3X3gcPZN4f/mfnSWLLiwLryEs05Iyfj0+WwxpFewnGVlYz5kLsW/GbMo6?=
+ =?iso-8859-1?Q?mnLDnbScC2vqGF1urijuiBbXGsZGoLQ5p5djQEf5+/OYzh/geWU10fXyz9?=
+ =?iso-8859-1?Q?TzhnQ94HVwPIoyAtnDDzcfHTw5tGMs67Q3GUnuvKuRMsH3UU75meqZDnhp?=
+ =?iso-8859-1?Q?ouqLTqETLRvoDamJFcCzg1KasXLiotjp0l31VvxiPakMu2xL7QEWpTao3Y?=
+ =?iso-8859-1?Q?HydePdw5+oOnVEp0+S+WrVTsWBDL62ft3DB8t01C7PPtNGWWpPtewBuTGp?=
+ =?iso-8859-1?Q?Tsa3oW4x57D0sAF7xQTL2CmJQp6f/4H7dY2jnA6SQpOeLsqL7jYmx/TLji?=
+ =?iso-8859-1?Q?BqnNC8QgUFXX1NWZa9dAO4Wb8va62EVJsp?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 40a024c4-d81e-4f52-f80a-08de0b350175
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2025 15:19:02.1753
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3FnGcrQOyCS55cdqR0MegotNIG7F7UxN/TdtZQNnbCQKnvyiGJsvqpjv0390Kta7L57HlM8GvHhYNQjgd73QuA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8745
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_081532_212939_8A307256 
-X-CRM114-Status: GOOD (  24.30  )
+X-CRM114-CacheID: sfid-20251014_081909_624938_7AF6B82E 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,66 +166,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, Oct 14, 2025 at 09:56:43AM -0300, João Paulo Gonçalves wrote:
+> From: João Paulo Gonçalves <joao.goncalves@toradex.com>
+>
+> The gpio0_mipi_csi DT nodes are enabled by default, but they are
+> dependent on the irqsteer_csi nodes, which are not enabled. This causes
+> the gpio0_mipi_csi GPIOs to be probe deferred. Since these GPIOs can be
+> used independently of the CSI controller, enable irqsteer_csi by default
+> too to prevent them from being deferred and to ensure they work out of
+> the box.
 
-On 9/3/25 10:52 PM, Cristian Ciocaltea wrote:
-> Hello Heiko,
-> 
-> On 9/3/25 9:50 PM, Cristian Ciocaltea wrote:
->> The first patch in the series implements the CEC capability of the
->> Synopsys DesignWare HDMI QP TX controller found in RK3588 & RK3576 Socs.
->> This is based on the downstream code, but rewritten on top of the CEC
->> helpers added recently to the DRM HDMI connector framework.
->>
->> The second patch is needed for RK3576 in order to fixup the timer base
->> setup according to the actual reference clock rate, which differs
->> slightly from RK3588.
->>
->> The following three patches setup platform data with the new information
->> expected by the HDMI QP transmitter library, while improving the error
->> handling in the probe path.
->>
->> Please note the CEC helpers were affected by a resource deallocation
->> issue which could crash the kernel and freeze the system under certain
->> test conditions.  This has been already fixed in v6.17-rc1 via commit
->> 19920ab98e17 ("drm/display: hdmi-cec-helper: Fix adapter
->> unregistration").
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->> Changes in v4:
->> - Fixed the bisect-related issues reported by Daniel by implementing
->>   the following operations in dw_hdmi_qp_bind():
->>   * Disable CEC support when the related IRQ is not available
->>   * Set ref_clk_rate to vendor default in case it was not provided by
->>     the platform driver
->>   * In both scenarios, also print a warning message to highlight the
->>     need for fixing the platform driver
->> - Simplified dw_hdmi_qp_cec_init() a bit
->>   * Removed the now obsolete cec->irq validation test
->>   * Removed the superfluous error checking and logging around
->>     devm_request_threaded_irq() call (it already handles all that)
->> - Collected R-b tags from Daniel
->> - Rebased series onto next-20250903
-> 
-> I forgot to mention that luckily there are no conflicts with the patches
-> introducing the hw-specific bitfield operations in next-20250903, which this
-> revision is based on.
-> 
-> I verified the series still applies cleanly onto drm-misc-next, while commit
-> ad24f6e10a5f ("drm/rockchip: dw_hdmi_qp: switch to FIELD_PREP_WM16 macro")
-> responsible for the macro conversion can be further cherry-picked without
-> issues on top of all that.  The resulting file content of
-> drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c is identical to what's
-> expected after applying this patch set onto next-20250903.
+If enable irqsteer_csi[0,1] default, all &irqsteer_csi in board file can
+be cleanup.
 
-Could we get this merged, please? This would unblock some other patchsets
-conflicting with it.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-I've just checked and it applies cleanly on top of v6.18-rc1. Also seems to work
-fine, at least I haven't noticed any regressions so far.
-
-Thanks,
-Cristian
-
+>
+> Fixes: 2217f8243714 ("arm64: dts: imx8: add capture controller for i.MX8's img subsystem")
+> Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi | 2 --
+>  1 file changed, 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi b/arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi
+> index 2cf0f7208350a416d77b11140279d2f66f41498f..a72b2f1c4a1b2ef26196c810b33ecfdebdbc1675 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi
+> @@ -67,7 +67,6 @@ irqsteer_csi0: irqsteer@58220000 {
+>  		power-domains = <&pd IMX_SC_R_CSI_0>;
+>  		fsl,channel = <0>;
+>  		fsl,num-irqs = <32>;
+> -		status = "disabled";
+>  	};
+>
+>  	gpio0_mipi_csi0: gpio@58222000 {
+> @@ -144,7 +143,6 @@ irqsteer_csi1: irqsteer@58240000 {
+>  		power-domains = <&pd IMX_SC_R_CSI_1>;
+>  		fsl,channel = <0>;
+>  		fsl,num-irqs = <32>;
+> -		status = "disabled";
+>  	};
+>
+>  	gpio0_mipi_csi1: gpio@58242000 {
+>
+> ---
+> base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+> change-id: 20251009-imx8-gpio-csi-deferred-probe-eef6c56a35aa
+>
+> Best regards,
+> --
+> João Paulo Gonçalves <joao.goncalves@toradex.com>
+>
 
