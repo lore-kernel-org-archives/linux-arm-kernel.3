@@ -4,75 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64966CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 05:24:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73717CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 05:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rpX3fKP+qE+Cx5wSUCGxJKl073ySrCz333lfcH4KD3U=; b=fKqK9dtO2DgCWzoPpGjoKB3tZw
-	zmFqiZWdvNtblrocNUFkKet2vA+OTfQM4mARxRPJ2cLV/7pLa+HUMwEa7nM2KmKzgFn4y5FZCUTyP
-	pY/r5OqSQrThURmz1nP8ssmw2WyqCcuiWMvaKAXAiGraEhQZhtTD7Z6FupcklttJIoPHuTWyif+Ko
-	GPF8GtXUMrp9RqqYt3u+FAXQ5NUhxPtzsBZ1vH3wW1K6LzpNVw52nEW1ATpeKiO9iWD7fgm0qjKW7
-	lh5PgQrCFrfEqpfb6v/gpD3zYjn+EX0wkkg27co/2HXfkXa4V+SGnPuLbBZCmtKtkf4cmG0cywyBe
-	XEaK3fpw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=H/kOwDFzfm3IalvPOezvdeJs36K8vMFT5gBD1NEeb8I=; b=Q/JjD4UyQrLFBoDHx7irRJUi/3
+	3JXnmGuV6v2EqIMYdFWlPvSr8KRznYDC+HFWUoFFQBHntyegGH9IKmjnHZZ2Plo5MBHD4LsQsfm5H
+	H1op1YzU3Xt6yIgMXPCbeqQGPuP6YaN2ZUF6hiinyJFt19pxEbWYOi4D1yTFm/ZavddWNgHPiW0hx
+	y4VDhnneAGu7zKEwa4muC3PYbwwp3AOlVUqSwkTPRoj3ruCJ/zqBcLen5C1tKvS3U5199WiHOInpv
+	rrun2SxN1sb76iFFwIT4mX2yC7J77JH64NC0X2MAbC6A9OIOfdH3d2ITExkNsasByVFKL3ciNSbc+
+	2a/tTOyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8XWE-0000000FCZR-0XYZ;
-	Tue, 14 Oct 2025 05:24:18 +0000
-Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
+	id 1v8XwD-0000000FErm-0ver;
+	Tue, 14 Oct 2025 05:51:09 +0000
+Received: from mx-relay47-hz3.antispameurope.com ([94.100.134.236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8XWB-0000000FCZ4-0b04
+	id 1v8Xw6-0000000FErQ-3znR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 05:24:16 +0000
-Message-ID: <588c1935-835f-4cab-9679-f31c1e903a9a@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1760419449;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rpX3fKP+qE+Cx5wSUCGxJKl073ySrCz333lfcH4KD3U=;
-	b=p8leib+/+Uzn8bRajg1xnIwVcJSrt3m0lLnVFEIkwQAkMvKJQmbU9EGJUvpUGsXfHbBKMz
-	ViA1mGiVwlTmDegFHZtPQpjF1hQMZ/LGvEipWPUwAW24TAK7NbpWInZInaEKhsMcGnXez2
-	/yS+HTRDNOUcLHOMcRQGei7svVjH4HY=
-Date: Tue, 14 Oct 2025 13:23:58 +0800
+	Tue, 14 Oct 2025 05:51:08 +0000
+ARC-Authentication-Results: i=1; mx-gate47-hz3.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=H/kOwDFzfm3IalvPOezvdeJs36K8vMFT5gBD1NEeb8I=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1760421047;
+ b=PEMCfuyJvCoSIU+22t05n4ZU46Yuf5tvphbLDcK54b5V2EybKvSHHQ4lcVw0YeC+d8xgQkor
+ ccojF70Cp389Q8KczIWhlwk1rf7JXH/nKE4VtLbx1gYtq8XIesfc1MtXMPW7L5URpwF2OjCDtHw
+ +e4OPxb9C1isg+6gt4BN6eFpIp/5azw4Q9JGEsUGq/nCdiCZqAok2qhyzpz3dkHThB+ZJgis/sj
+ 6BNpuD6i5OEbuVU9fp04tpevZq1D25YYBrnrE/iu4nGwny9nooTGIjCr5UU/bsYpWTLdmyGuZ25
+ VyWnvaX+O9FeVbvxIqHxWy//FSykXFCpcdEb6OT9mCa1Q==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1760421048;
+ b=nmz3RKIr+CS8uDKyJz83yrlCUJowf/cISWNmz74EAzHTSVa/5V4BhiGyW47Q2qx1NUXFHaWL
+ ZcwfCfehFxNa+kmMLLC6a9i5/T2xU9kQZywB085ZZy+37/TyZHBdLN8tDt/sddQzF7ORTq7aZLl
+ aUH+rcbuAKVn2SXAiGl7uZD9vxM8or68Puhvohuk7bIhsejA6yDx1R4y2WXSxTkPbyw9d40W+vU
+ b5vN0DkgArGNrpHZscUpeELUNNr/1L6Gkj61jzPjcO7SPGn4zZB7LoaO7FKdNGQkWMJUo2YwXJW
+ cO7F56NBQUW4fDUvKzH6fayGE/fX1c5FTUVA+rpWrDJdw==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay47-hz3.antispameurope.com;
+ Tue, 14 Oct 2025 07:50:47 +0200
+Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 0231ECC0DE1;
+	Tue, 14 Oct 2025 07:50:35 +0200 (CEST)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Lizhi Hou <lizhi.hou@amd.com>,
+	Brian Xu <brian.xu@amd.com>,
+	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Michal Simek <michal.simek@amd.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/1] dmaengine: xilinx: xdma: Add regmap register ranges
+Date: Tue, 14 Oct 2025 07:50:33 +0200
+Message-ID: <20251014055034.274596-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Subject: Re: [PATCH][v3] hung_task: Panic after fixed number of hung tasks
-Content-Language: en-US
-To: lirongqing <lirongqing@baidu.com>
-References: <20251012115035.2169-1-lirongqing@baidu.com>
-Cc: wireguard@lists.zx2c4.com, linux-arm-kernel@lists.infradead.org,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>, linux-doc@vger.kernel.org,
- David Hildenbrand <david@redhat.com>, Randy Dunlap <rdunlap@infradead.org>,
- Stanislav Fomichev <sdf@fomichev.me>, linux-aspeed@lists.ozlabs.org,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>,
- Russell King <linux@armlinux.org.uk>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Shuah Khan <shuah@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Jonathan Corbet <corbet@lwn.net>,
- Petr Mladek <pmladek@suse.com>, Joel Granados <joel.granados@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Phil Auld <pauld@redhat.com>,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- Masami Hiramatsu <mhiramat@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
- Simon Horman <horms@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Florian Westphal <fw@strlen.de>, netdev@vger.kernel.org,
- Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- "Paul E . McKenney" <paulmck@kernel.org>,
- Feng Tang <feng.tang@linux.alibaba.com>,
- "Jason A . Donenfeld" <Jason@zx2c4.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <20251012115035.2169-1-lirongqing@baidu.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay47-hz3.antispameurope.com with 4cm3Gh401Pz4MZvT
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 68dca67b7eb0fd836cb29e646ce2f625
+X-cloud-security: scantime:2.704
+DKIM-Signature: a=rsa-sha256;
+ bh=H/kOwDFzfm3IalvPOezvdeJs36K8vMFT5gBD1NEeb8I=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1760421047; v=1;
+ b=BjEmECd9p2nVYqt5R/vKFKTRvElgla+fx54VNriK9zPjSfET7NXxQTlLbPE/c73aqSbbrMdN
+ dCgS8OAGKAFcmm5+FAS8Ltf8SWX1vknK+4MAoHgG4Fudbc9r0meL1BbNOrv+cjfkGNywTD6QwlX
+ reqPf2ivTsAS67HuN+3oVDcAzULzuMCn+6kqGw5vttyfNPs2AdB1wgmZi2xYr3n9Hb/QIiPkIIF
+ +hGYQqCtYg0pHcChNtgNr95zW5O6YTGPYk0xerr4iLvrVUFzpMZylOE1EjsvCcNYNL6PUaJ6+kK
+ he5gtqGTaEjIdAAwpuU4HoE0j/U1CP3eqIAHgRAaG/xJg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_222415_735297_1C4A6F5C 
-X-CRM114-Status: GOOD (  40.38  )
+X-CRM114-CacheID: sfid-20251013_225103_554267_9D38F85D 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,240 +107,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the patch!
+The XDMA bar is 64KiB, way too much for debugfs dump. Add register range
+definitions for all defined registers in PG195. As this is PCIe memory
+range all readable registers are marked as volatile.
 
-I noticed the implementation panics only when N tasks are detected
-within a single scan, because total_hung_task is reset for each
-check_hung_uninterruptible_tasks() run.
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+Although the change itself is independent, this patch context depends on
+[1].
 
-So some suggestions to align the documentation with the code's
-behavior below :)
+[1] https://lore.kernel.org/all/20251013-xdma-max-reg-v5-1-83efeedce19d@amarulasolutions.com/
 
-On 2025/10/12 19:50, lirongqing wrote:
-> From: Li RongQing <lirongqing@baidu.com>
-> 
-> Currently, when 'hung_task_panic' is enabled, the kernel panics
-> immediately upon detecting the first hung task. However, some hung
-> tasks are transient and the system can recover, while others are
-> persistent and may accumulate progressively.
-> 
-> This patch extends the 'hung_task_panic' sysctl to allow specifying
-> the number of hung tasks that must be detected before triggering
-> a kernel panic. This provides finer control for environments where
-> transient hangs may occur but persistent hangs should still be fatal.
-> 
-> The sysctl can be set to:
-> - 0: disabled (never panic)
-> - 1: original behavior (panic on first hung task)
-> - N: panic when N hung tasks are detected
-> 
-> This maintains backward compatibility while providing more flexibility
-> for handling different hang scenarios.
-> 
-> Signed-off-by: Li RongQing <lirongqing@baidu.com>
-> ---
-> Diff with v2: not add new sysctl, extend hung_task_panic
-> 
->   Documentation/admin-guide/kernel-parameters.txt      | 20 +++++++++++++-------
->   Documentation/admin-guide/sysctl/kernel.rst          |  3 ++-
->   arch/arm/configs/aspeed_g5_defconfig                 |  2 +-
->   kernel/configs/debug.config                          |  2 +-
->   kernel/hung_task.c                                   | 16 +++++++++++-----
->   lib/Kconfig.debug                                    | 10 ++++++----
->   tools/testing/selftests/wireguard/qemu/kernel.config |  2 +-
->   7 files changed, 35 insertions(+), 20 deletions(-)
-> 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index a51ab46..7d9a8ee 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -1992,14 +1992,20 @@
->   			the added memory block itself do not be affected.
->   
->   	hung_task_panic=
-> -			[KNL] Should the hung task detector generate panics.
-> -			Format: 0 | 1
-> +			[KNL] Number of hung tasks to trigger kernel panic.
-> +			Format: <int>
-> +
-> +			Set this to the number of hung tasks that must be
-> +			detected before triggering a kernel panic.
-> +
-> +			0: don't panic
-> +			1: panic immediately on first hung task
-> +			N: panic after N hung tasks are detect
+ drivers/dma/xilinx/xdma.c | 89 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 89 insertions(+)
 
-The description should be more specific :)
-
-N: panic after N hung tasks are detected in a single scan
-
-Would it be better and cleaner?
-
->   
-> -			A value of 1 instructs the kernel to panic when a
-> -			hung task is detected. The default value is controlled
-> -			by the CONFIG_BOOTPARAM_HUNG_TASK_PANIC build-time
-> -			option. The value selected by this boot parameter can
-> -			be changed later by the kernel.hung_task_panic sysctl.
-> +			The default value is controlled by the
-> +			CONFIG_BOOTPARAM_HUNG_TASK_PANIC build-time option. The value
-> +			selected by this boot parameter can be changed later by the
-> +			kernel.hung_task_panic sysctl.
->   
->   	hvc_iucv=	[S390]	Number of z/VM IUCV hypervisor console (HVC)
->   				terminal devices. Valid values: 0..8
-> diff --git a/Documentation/admin-guide/sysctl/kernel.rst b/Documentation/admin-guide/sysctl/kernel.rst
-> index f3ee807..0a8dfab 100644
-> --- a/Documentation/admin-guide/sysctl/kernel.rst
-> +++ b/Documentation/admin-guide/sysctl/kernel.rst
-> @@ -397,7 +397,8 @@ a hung task is detected.
->   hung_task_panic
->   ===============
->   
-> -Controls the kernel's behavior when a hung task is detected.
-> +When set to a non-zero value, a kernel panic will be triggered if the
-> +number of detected hung tasks reaches this value
-
-Hmm... that is also ambiguous ...
-
-+When set to a non-zero value, a kernel panic will be triggered if the
-+number of hung tasks found during a single scan reaches this value.
-
->   This file shows up if ``CONFIG_DETECT_HUNG_TASK`` is enabled.
->   
->   = =================================================
-> diff --git a/arch/arm/configs/aspeed_g5_defconfig b/arch/arm/configs/aspeed_g5_defconfig
-> index 61cee1e..c3b0d5f 100644
-> --- a/arch/arm/configs/aspeed_g5_defconfig
-> +++ b/arch/arm/configs/aspeed_g5_defconfig
-> @@ -308,7 +308,7 @@ CONFIG_PANIC_ON_OOPS=y
->   CONFIG_PANIC_TIMEOUT=-1
->   CONFIG_SOFTLOCKUP_DETECTOR=y
->   CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=y
-> -CONFIG_BOOTPARAM_HUNG_TASK_PANIC=y
-> +CONFIG_BOOTPARAM_HUNG_TASK_PANIC=1
->   CONFIG_WQ_WATCHDOG=y
->   # CONFIG_SCHED_DEBUG is not set
->   CONFIG_FUNCTION_TRACER=y
-> diff --git a/kernel/configs/debug.config b/kernel/configs/debug.config
-> index e81327d..9f6ab7d 100644
-> --- a/kernel/configs/debug.config
-> +++ b/kernel/configs/debug.config
-> @@ -83,7 +83,7 @@ CONFIG_SLUB_DEBUG_ON=y
->   #
->   # Debug Oops, Lockups and Hangs
->   #
-> -# CONFIG_BOOTPARAM_HUNG_TASK_PANIC is not set
-> +CONFIG_BOOTPARAM_HUNG_TASK_PANIC=0
->   # CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC is not set
->   CONFIG_DEBUG_ATOMIC_SLEEP=y
->   CONFIG_DETECT_HUNG_TASK=y
-> diff --git a/kernel/hung_task.c b/kernel/hung_task.c
-> index b2c1f14..3929ed9 100644
-> --- a/kernel/hung_task.c
-> +++ b/kernel/hung_task.c
-> @@ -81,7 +81,7 @@ static unsigned int __read_mostly sysctl_hung_task_all_cpu_backtrace;
->    * hung task is detected:
->    */
->   static unsigned int __read_mostly sysctl_hung_task_panic =
-> -	IS_ENABLED(CONFIG_BOOTPARAM_HUNG_TASK_PANIC);
-> +	CONFIG_BOOTPARAM_HUNG_TASK_PANIC;
->   
->   static int
->   hung_task_panic(struct notifier_block *this, unsigned long event, void *ptr)
-> @@ -218,8 +218,11 @@ static inline void debug_show_blocker(struct task_struct *task, unsigned long ti
->   }
->   #endif
->   
-> -static void check_hung_task(struct task_struct *t, unsigned long timeout)
-> +static void check_hung_task(struct task_struct *t, unsigned long timeout,
-> +		unsigned long prev_detect_count)
->   {
-> +	unsigned long total_hung_task;
-> +
->   	if (!task_is_hung(t, timeout))
->   		return;
->   
-> @@ -229,9 +232,11 @@ static void check_hung_task(struct task_struct *t, unsigned long timeout)
->   	 */
->   	sysctl_hung_task_detect_count++;
->   
-> +	total_hung_task = sysctl_hung_task_detect_count - prev_detect_count;
->   	trace_sched_process_hang(t);
->   
-> -	if (sysctl_hung_task_panic) {
-> +	if (sysctl_hung_task_panic &&
-> +			(total_hung_task >= sysctl_hung_task_panic)) {
->   		console_verbose();
->   		hung_task_show_lock = true;
->   		hung_task_call_panic = true;
-> @@ -300,6 +305,7 @@ static void check_hung_uninterruptible_tasks(unsigned long timeout)
->   	int max_count = sysctl_hung_task_check_count;
->   	unsigned long last_break = jiffies;
->   	struct task_struct *g, *t;
-> +	unsigned long prev_detect_count = sysctl_hung_task_detect_count;
->   
->   	/*
->   	 * If the system crashed already then all bets are off,
-> @@ -320,7 +326,7 @@ static void check_hung_uninterruptible_tasks(unsigned long timeout)
->   			last_break = jiffies;
->   		}
->   
-> -		check_hung_task(t, timeout);
-> +		check_hung_task(t, timeout, prev_detect_count);
->   	}
->    unlock:
->   	rcu_read_unlock();
-> @@ -389,7 +395,7 @@ static const struct ctl_table hung_task_sysctls[] = {
->   		.mode		= 0644,
->   		.proc_handler	= proc_dointvec_minmax,
->   		.extra1		= SYSCTL_ZERO,
-> -		.extra2		= SYSCTL_ONE,
-> +		.extra2		= SYSCTL_INT_MAX,
->   	},
->   	{
->   		.procname	= "hung_task_check_count",
-> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-> index 3034e294..077b9e4 100644
-> --- a/lib/Kconfig.debug
-> +++ b/lib/Kconfig.debug
-> @@ -1258,12 +1258,14 @@ config DEFAULT_HUNG_TASK_TIMEOUT
->   	  Keeping the default should be fine in most cases.
->   
->   config BOOTPARAM_HUNG_TASK_PANIC
-> -	bool "Panic (Reboot) On Hung Tasks"
-> +	int "Number of hung tasks to trigger kernel panic"
->   	depends on DETECT_HUNG_TASK
-> +	default 0
->   	help
-> -	  Say Y here to enable the kernel to panic on "hung tasks",
-> -	  which are bugs that cause the kernel to leave a task stuck
-> -	  in uninterruptible "D" state.
-> +	  The number of hung tasks must be detected to trigger kernel panic.
-> +
-> +	  - 0: Don't trigger panic
-> +	  - N: Panic when N hung tasks are detected
-
-+	  - N: Panic when N hung tasks are detected in a single scan
-
-With these documentation changes, this patch would accurately describe 
-its behavior, IMHO.
-
->   
->   	  The panic can be used in combination with panic_timeout,
->   	  to cause the system to reboot automatically after a
-> diff --git a/tools/testing/selftests/wireguard/qemu/kernel.config b/tools/testing/selftests/wireguard/qemu/kernel.config
-> index 936b18b..0504c11 100644
-> --- a/tools/testing/selftests/wireguard/qemu/kernel.config
-> +++ b/tools/testing/selftests/wireguard/qemu/kernel.config
-> @@ -81,7 +81,7 @@ CONFIG_WQ_WATCHDOG=y
->   CONFIG_DETECT_HUNG_TASK=y
->   CONFIG_BOOTPARAM_HARDLOCKUP_PANIC=y
->   CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=y
-> -CONFIG_BOOTPARAM_HUNG_TASK_PANIC=y
-> +CONFIG_BOOTPARAM_HUNG_TASK_PANIC=1
->   CONFIG_PANIC_TIMEOUT=-1
->   CONFIG_STACKTRACE=y
->   CONFIG_EARLY_PRINTK=y
+diff --git a/drivers/dma/xilinx/xdma.c b/drivers/dma/xilinx/xdma.c
+index 5ecf8223c112e..3d9e92bbc9bb0 100644
+--- a/drivers/dma/xilinx/xdma.c
++++ b/drivers/dma/xilinx/xdma.c
+@@ -33,12 +33,101 @@
+ #include "../virt-dma.h"
+ #include "xdma-regs.h"
+ 
++static const struct regmap_range xdma_wr_ranges[] = {
++	/* H2C channel registers */
++	regmap_reg_range(0x0004, 0x000c),
++	regmap_reg_range(0x0040, 0x0040),
++	regmap_reg_range(0x0088, 0x0098),
++	regmap_reg_range(0x00c0, 0x00c0),
++	/* C2H channel registers */
++	regmap_reg_range(0x1004, 0x100c),
++	regmap_reg_range(0x1040, 0x1040),
++	regmap_reg_range(0x1088, 0x1098),
++	regmap_reg_range(0x10c0, 0x10c0),
++	/* IRQ Block registers */
++	regmap_reg_range(0x2004, 0x2018),
++	regmap_reg_range(0x2080, 0x208c),
++	regmap_reg_range(0x20a0, 0x20a4),
++	/* Config Block registers */
++	regmap_reg_range(0x301c, 0x301c),
++	regmap_reg_range(0x3040, 0x3044),
++	regmap_reg_range(0x3060, 0x3060),
++	/* H2C SGDMA registers */
++	regmap_reg_range(0x4080, 0x408c),
++	/* C2H SGDMA registers */
++	regmap_reg_range(0x5080, 0x508c),
++	/* SGDMA Common registers */
++	regmap_reg_range(0x6010, 0x6018),
++	regmap_reg_range(0x6020, 0x6028),
++	/* MSI-X Vector Table and PBA */
++	regmap_reg_range(0x8000, 0x81fc),
++	regmap_reg_range(0x8fe0, 0x8fe0),
++};
++static const struct regmap_range xdma_rd_ranges[] = {
++	/* H2C channel registers */
++	regmap_reg_range(0x0000, 0x0004),
++	regmap_reg_range(0x0040, 0x004c),
++	regmap_reg_range(0x0088, 0x0090),
++	regmap_reg_range(0x00c0, 0x00d0),
++	/* C2H channel registers */
++	regmap_reg_range(0x1000, 0x1004),
++	regmap_reg_range(0x1040, 0x104c),
++	regmap_reg_range(0x1088, 0x1090),
++	regmap_reg_range(0x10c0, 0x10d0),
++	/* IRQ Block registers */
++	regmap_reg_range(0x2000, 0x2004),
++	regmap_reg_range(0x2010, 0x2010),
++	regmap_reg_range(0x2040, 0x204c),
++	regmap_reg_range(0x2080, 0x208c),
++	regmap_reg_range(0x20a0, 0x20a4),
++	/* Config Block registers */
++	regmap_reg_range(0x3000, 0x301c),
++	regmap_reg_range(0x3040, 0x3044),
++	regmap_reg_range(0x3060, 0x3060),
++	/* H2C SGDMA registers */
++	regmap_reg_range(0x4000, 0x4000),
++	regmap_reg_range(0x4080, 0x408c),
++	/* C2H SGDMA registers */
++	regmap_reg_range(0x5000, 0x5000),
++	regmap_reg_range(0x5080, 0x508c),
++	/* SGDMA Common registers */
++	regmap_reg_range(0x6000, 0x6000),
++	regmap_reg_range(0x6010, 0x6010),
++	regmap_reg_range(0x6020, 0x6020),
++	/* MSI-X Vector Table and PBA */
++	regmap_reg_range(0x8000, 0x81fc),
++	regmap_reg_range(0x8fe0, 0x8fe0),
++};
++static const struct regmap_range xdma_precious_ranges[] = {
++	/* H2C channel registers */
++	regmap_reg_range(0x0044, 0x0044),
++	/* C2H channel registers */
++	regmap_reg_range(0x1044, 0x1044),
++};
++static const struct regmap_access_table xdma_wr_table = {
++	.yes_ranges = xdma_wr_ranges,
++	.n_yes_ranges = ARRAY_SIZE(xdma_wr_ranges),
++};
++static const struct regmap_access_table xdma_rd_table = {
++	.yes_ranges = xdma_rd_ranges,
++	.n_yes_ranges = ARRAY_SIZE(xdma_rd_ranges),
++};
++static const struct regmap_access_table xdma_precious_table = {
++	.yes_ranges = xdma_precious_ranges,
++	.n_yes_ranges = ARRAY_SIZE(xdma_precious_ranges),
++};
++
+ /* mmio regmap config for all XDMA registers */
+ static const struct regmap_config xdma_regmap_config = {
+ 	.reg_bits = 32,
+ 	.val_bits = 32,
+ 	.reg_stride = 4,
+ 	.max_register = XDMA_MAX_REG_OFFSET,
++	.wr_table = &xdma_wr_table,
++	.rd_table = &xdma_rd_table,
++	.volatile_table = &xdma_rd_table,
++	.precious_table = &xdma_precious_table,
++	.cache_type = REGCACHE_NONE,
+ };
+ 
+ /**
+-- 
+2.43.0
 
 
