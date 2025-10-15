@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EBCCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 12:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9AA7CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 12:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f3OimdfZgjfY9/HT+h0JoDDZq5EDc2SRALwvB4NSvXE=; b=mRU2p0AYEiHvCeK9f2zzED9IOj
-	T9Nn4KbN49hmGxB2QIva/PjQ8FMS94qSHVFOV9XeNxbLTb1RYlbcitHm7ZfCtNNQqfnLRWSo8CK9B
-	8nXA64EEDy+qon6Zev96XKzPBCIxX3s4m12V+VUmuUm622RKdORbkk1YWJzA38psR6/1ZRPtvoVZ1
-	t+vo7m3itfhb+JHloB7TygR1PVmBaw+yJFGayKT1Rai7rAunTuQGrmY6J7Kob2roKIAmmAq4cqyh6
-	aEbiy0I65JIAEbza/anmesAt/m/9TMnZnDx0cjCq/dWppoOpbaGJyrMhSrLWKUJt9Lp3Cda7ZvlBs
-	PSVURr/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2OkkNCfu4YnFSj7smPfoU7koyJr+GcXCwTUxoqvzw+Q=; b=R0ynnXx0X+hIwfRw6MhLnqwKFB
+	IZ/q6oTX0S7s4IwmBe3LaNgGgjHyllpSomzyrwCqkjvTbvq9QsfJeKQrxFy2rNLy9JhXTlq0GUDYB
+	YClrrVWNHlDm9HmWyzI7Imi8L17Nf5YB7x+nzf19mOvzdNK2Eczq9H+KSV+hXG7f4VsUPRJan0d3O
+	N38+tOMMadPImkHApSsYBHkAKRXSROlTkNQE8zQxWqgv0UK0o50vjMezwVVC/i5jjW41Fgp32NdGD
+	xIJIo1lE8qHPmIW5vpNpS8VcmssqDtO5m3U8yP4iKYoXjsybUhdEWY7J/uTzKEKAgb5XgcRwqZKJd
+	VskdCvrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v90OO-00000001WA5-3idN;
-	Wed, 15 Oct 2025 12:14:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v90PJ-00000001WNV-14Vx;
+	Wed, 15 Oct 2025 12:15:05 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v90OL-00000001W9e-0eiQ
+	id 1v90PG-00000001WMR-2RQP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 12:14:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF27845140;
-	Wed, 15 Oct 2025 12:14:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F30FBC116B1;
-	Wed, 15 Oct 2025 12:14:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760530444;
-	bh=U0qBfTAoLQ2lXuxhHDpAiZcucUrXqzfYam7mxeAjgzM=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=o/X8KPLmQwvaZ/4jk3aNbggMUsmUtSiTRQlSMl2XJzeWcdxeAHYCVUEkxd4xyQRUM
-	 lm9j3UxOz9eAQqeEiw4KJtqK6D9JhqFpzt824g1F5aOEiD9IDRQTb4jnryGTQEKfOs
-	 iAlvzz2RFp1CxWICKQO4xi1XyoRewABj3vRnEl7xWHSRMxzN0SpSnDF43LOvksIYR3
-	 ACtYefsh+xgYcs1L5mX2EWAr4I/iNRCtLcWAjJJMe7vdTvlm8DBDul72BwYuelziYo
-	 OjknTg03VXAm8mwyc8gDIxE4bHcrkdHE7kiuKHSn2QefE+Gc9U5X0I+y7ygwupdVFi
-	 /eyOx9e5W702g==
-From: Mark Brown <broonie@kernel.org>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- joel@jms.id.au, andrew@codeconstruct.com.au, clg@kaod.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- openbmc@lists.ozlabs.org, linux-spi@vger.kernel.org, BMC-SW@aspeedtech.com, 
- Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-In-Reply-To: <20251001112605.1130723-1-chin-ting_kuo@aspeedtech.com>
-References: <20251001112605.1130723-1-chin-ting_kuo@aspeedtech.com>
-Subject: Re: [PATCH 0/6] spi: aspeed: Improve clock, timing and address
- decoding logic
-Message-Id: <176053044168.105519.1540910122531672579.b4-ty@kernel.org>
-Date: Wed, 15 Oct 2025 13:14:01 +0100
+	Wed, 15 Oct 2025 12:15:03 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59FCEs301313169;
+	Wed, 15 Oct 2025 07:14:54 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1760530494;
+	bh=2OkkNCfu4YnFSj7smPfoU7koyJr+GcXCwTUxoqvzw+Q=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=mp/u9j+qM8SGyPJRAIYEryWwjOZQHt6KJB6YWdyGwKb3jPB6PWHrWT3SHrYFQNA24
+	 sN2G2zAEgOS4ZMfMZJhmXr9dm38adp+cCLbC1qYS3cLHaaG4LA3+HVTfeoL5CtNZCT
+	 qFUGsP559oVqrekDfEbDMjB4KUIHLu/PmJdcyblY=
+Received: from DLEE212.ent.ti.com (dlee212.ent.ti.com [157.170.170.114])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59FCEs4E392056
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 15 Oct 2025 07:14:54 -0500
+Received: from DLEE201.ent.ti.com (157.170.170.76) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 15 Oct
+ 2025 07:14:53 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE201.ent.ti.com
+ (157.170.170.76) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 15 Oct 2025 07:14:53 -0500
+Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59FCEqFo1878736;
+	Wed, 15 Oct 2025 07:14:53 -0500
+Date: Wed, 15 Oct 2025 17:44:52 +0530
+From: Dhruva Gole <d-gole@ti.com>
+To: Bryan Brattlof <bb@ti.com>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Andrew
+ Davis <afd@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Tony
+ Lindgren <tony@atomide.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Sascha Hauer
+	<s.hauer@pengutronix.de>,
+        <linux-gpio@vger.kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v6 1/4] dt-bindings: arm: ti: Add binding for AM62L SoCs
+Message-ID: <20251015121452.7cmsi4tceezroxsa@lcpd911>
+References: <20250912-am62lx-v6-0-29d5a6c60512@ti.com>
+ <20250912-am62lx-v6-1-29d5a6c60512@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-96507
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250912-am62lx-v6-1-29d5a6c60512@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_051405_222006_E4781E03 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20251015_051502_715499_C3E58AB2 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +98,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Oct 2025 19:25:59 +0800, Chin-Ting Kuo wrote:
-> This patch series introduces several improvements to the
-> ASPEED SPI driver, targeting better stability, compatibility
-> and, flexibility across multiple ASPEED platforms.
+On Sep 12, 2025 at 10:40:40 -0500, Bryan Brattlof wrote:
+> Add the binding for TI's AM62L family of devices.
 > 
-> Key changes include:
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Bryan Brattlof <bb@ti.com>
+> ---
+> Changes in v1:
+>  - separated out devicetree bindings
+> ---
+>  Documentation/devicetree/bindings/arm/ti/k3.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-> * Clock selection strategy update
->   Improves fallback logic when timing calibration is skipped or
->   fails, ensuring reliable boot behavior.
-> 
-> [...]
+> diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> index e80c653fa4382acef964e182ecc4ae5445088936..d916c627eb619d16124772df5aacac9354126808 100644
+> --- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> +++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+> @@ -37,6 +37,12 @@ properties:
+>            - const: phytec,am62a-phycore-som
+>            - const: ti,am62a7
+>  
+> +      - description: K3 AM62L3 SoC and Boards
+> +        items:
+> +          - enum:
+> +              - ti,am62l3-evm
+> +          - const: ti,am62l3
+> +
+>        - description: K3 AM62P5 SoC and Boards
 
-Applied to
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-
-Thanks!
-
-[1/6] spi: aspeed: Update clock selection strategy
-      commit: 31dcc7e1f8a9377d8fd9f967f84c121c5ba8f89c
-[2/6] spi: aspeed: Improve timing calibration algorithm for AST2600 platform
-      commit: efb79de36e947d136517bac14c139d494fcc72fa
-[3/6] spi: aspeed: Force default address decoding range assignment for each CS
-      commit: 630a185fd06109193574d10f38b29812986c21de
-[4/6] spi: aspeed: Centralize address decoding region management
-      commit: b546e0023a203e7edf9377ac8f4f490a6965afd6
-[5/6] spi: aspeed: Add per-platform adjust_window callback for decoding range
-      commit: 0586b53d4a0c7c5a132629f99da934cc674ea4cd
-[6/6] spi: aspeed: Only map necessary address window region
-      commit: 64d87ccfae3326a9561fe41dc6073064a083e0df
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+-- 
+Best regards,
+Dhruva Gole
+Texas Instruments Incorporated
 
