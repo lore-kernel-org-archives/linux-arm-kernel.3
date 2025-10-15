@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BFB6CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A87DECCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f0Qm9GmXmPTfl8/lOJNmzat3l7Ktm3MkjPP/mQJHA9A=; b=AXKKt3S+BSqw0OoZdZT77v71yP
-	HctIi4x8VRWiSCZ97+0A5GcrK1k/eXUga6u5vL0W8poKVJ8JvfY4/OUSF7Y1xG13P9/y24F7qudKh
-	MlQbisN5zwPb4se1Nru3Wf+RDiTb3flo2TGKUBSy4NF0+JLhpYW7hdOwKPbs7HAPLKUj9ZY2BkJ3R
-	wXdDnQygKSvFnZDJCZNv1X679UlVtdC6f2IVWq16K5Mw22cgqxCrukzrGklfPj5IDPZQrWI9KBv12
-	ns1Bc4FOMKmU2Bm5ADf9BMclihJcDzW1YNkdb5vpuF6VT//SxPjWAQV3aeJqTdMEFNcx6RNCz4NqS
-	y2JMjYNw==;
+	bh=D/dlViwVVP8x4K75oGAAcSX3+OT9pxb8TPjtGRafsIc=; b=zQEnrN8qoDvJK/uepcs8s9x6Dd
+	+5IGV73rUSIoQ89w3zq0FI4NRiq2QPMxkc5cFRLD10vSsI8rrnSDPu8TjGC6XY95noio+TVam5LuO
+	qHtYiasRmbhriB0H0ruSNcj70I4be3HvEnhu6xigRWzT5MKBQ2A6T227ZJiYT2A9Ia1RJGCtePtnB
+	SsGP+7qCmzoAbMYcsDdGHAAYA/p93O2NPg9BnOHFTggnl+NTy/IwLWio/CAf3ee8+APMHrfkg0sUF
+	TpKwCyFdjV6mchQFui0yTFbiCJ6M4yasxZ/ZEummULJtS9d9dYChf8M8nBZE/ymfee4a0+ItDAm40
+	lhr7l8kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92Sk-00000001rwx-07II;
-	Wed, 15 Oct 2025 14:26:46 +0000
+	id 1v92TM-00000001s4O-1TeP;
+	Wed, 15 Oct 2025 14:27:24 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92Sh-00000001rwZ-0Fz7
+	id 1v92TJ-00000001s2S-1QEz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 14:26:44 +0000
+	Wed, 15 Oct 2025 14:27:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=f0Qm9GmXmPTfl8/lOJNmzat3l7Ktm3MkjPP/mQJHA9A=; b=Zv9xL+XccvPX/H+IKNAChYiYfQ
-	j85a4Kads8j0Yu+6hXnslH3+ikorH2pQcZoLAdPDa61CJLcjIYgM3OqQmHHrYWq0ZsKHQoQ0VwX4k
-	iAgG6iB5ZbDptZIdRs3xJukWqNaP01ISaWX40M/GAEG9qFBlBbBFY9xRAZBeFx53eNMZsx6Qrq41k
-	/frVIyyx5SPvoTOJh/heo7iwidA/oi/EtYA9bmcRsCYaicDcqibKEEhb0uUaPUUG4ouAF/V69/LOs
-	LTRA9G2493vkmk/uq+TNgq1eCFDCmDctf97q/rSXIC89/IE81L15i8tPhTzAUn4xyHK7eccfI6kEh
-	ZNdS3X5A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:46052 helo=rmk-PC.armlinux.org.uk)
+	bh=D/dlViwVVP8x4K75oGAAcSX3+OT9pxb8TPjtGRafsIc=; b=qefi2QJlHAWJDn7ElUM4xLxpYx
+	L68yqxPf25EXZc1mHvloiIiACiP4nPZum5ofE9+T0H+LdtNcBvBQ8W63jusfxVGUDWtpzK6KZzKAv
+	TJY0y9gicQtdmSDKTDh7e9sBJEsQPclmFPDZXItZ4ipYwIj1jRAHYdzAuwqfzDJG68laPkZXuOvzW
+	L6BveQZHHVv0KbrhnCDSZKosCxTAIZUzr9Co9yV6UF2jpcVIT0z905oSHvLSlJI+PIdmbE+aulBAt
+	fqcWXsUzfD7HDMn/71aRDdgVYxKgMVXkzv/jYSGCUHofpLG7kHHPLWQ3I/lkfdutv55oTYI+mT2y7
+	u4tec1Ew==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:46518 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1v92NA-000000004gn-0VAy;
-	Wed, 15 Oct 2025 15:21:00 +0100
+	id 1v92NK-000000004hA-2UNZ;
+	Wed, 15 Oct 2025 15:21:11 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1v92N3-0000000AmHQ-4Bm2;
-	Wed, 15 Oct 2025 15:20:54 +0100
+	id 1v92N9-0000000AmHV-0WAA;
+	Wed, 15 Oct 2025 15:20:59 +0100
 In-Reply-To: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
 References: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -96,17 +96,17 @@ Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Vladimir Oltean <vladimir.oltean@nxp.com>,
 	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: [PATCH net-next 11/14] net: stmmac: do not require snps,ps-speed for
- SGMII
+Subject: [PATCH net-next 12/14] net: stmmac: only call stmmac_pcs_ctrl_ane()
+ for integrated SGMII PCS
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1v92N3-0000000AmHQ-4Bm2@rmk-PC.armlinux.org.uk>
-Date: Wed, 15 Oct 2025 15:20:53 +0100
+Message-Id: <E1v92N9-0000000AmHV-0WAA@rmk-PC.armlinux.org.uk>
+Date: Wed, 15 Oct 2025 15:20:59 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_072643_118476_5CC6DBBE 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20251015_072721_374293_4F60D618 
+X-CRM114-Status: GOOD (  12.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,36 +121,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGMII mode does not require port-speed to be specified; this only
-switches SGMII to use the MAC configuration register speed settings
-and the actual value is irrelevant when the link comes up.
+The internal PCS registers only exist if the core is synthesized with
+SGMII, TBI or RTBI support. They have no relevance for RGMII.
 
-As it seems the intention was to support "reverse SGMII" with this
-setting, but the code didn't actually configure that due to a typo,
-the warning and bad DT binding documentation has led people to
-specify snps,ps-speed in their DT files inappropriately.
-
-If mac_port_sel_speed is zero, then don't complain that the speed
-is invalid, as this means we're using "normal" SGMII.
+However, priv->hw->pcs contains a STMMAC_PCS_RGMII flag, which is set
+if a PCS has been synthesized but we are operating in RGMII mode. As
+the register has no effect for RGMII, there is no point calling
+stmmac_pcs_ctrl_ane() in this case. Add a comment describing this
+and make it conditional on STMMAC_PCS_SGMII.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 8f08366c25a4..79d09b40dbcc 100644
+index 79d09b40dbcc..c3633baf5180 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1101,6 +1101,8 @@ static void stmmac_check_pcs_mode(struct stmmac_priv *priv)
- 
- 		default:
- 			dev_warn(priv->device, "invalid port speed\n");
-+			fallthrough;
-+		case 0:
- 			priv->hw->reverse_sgmii_enable = false;
- 			break;
+@@ -3487,7 +3487,11 @@ static int stmmac_hw_setup(struct net_device *dev)
  		}
+ 	}
+ 
+-	if (priv->hw->pcs)
++	/* The PCS control register is only relevant for SGMII, TBI and RTBI
++	 * modes. We no longer support TBI or RTBI, so only configure this
++	 * register when operating in SGMII mode with the integrated PCS.
++	 */
++	if (priv->hw->pcs & STMMAC_PCS_SGMII)
+ 		stmmac_pcs_ctrl_ane(priv, 1, priv->hw->reverse_sgmii_enable);
+ 
+ 	/* set TX and RX rings length */
 -- 
 2.47.3
 
