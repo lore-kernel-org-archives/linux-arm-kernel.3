@@ -4,74 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB6DCCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 20:00:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6E5CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 20:17:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UyAyBxkXaApDM4KsfpCB8GHoJifPSp90vnbMpVzBWEA=; b=lnZNq/qfV8EUV3LoHdQVk6adMN
-	xk1wPGDVTir85cMj1chLuw4Y6ZJ/jfXoUUDvBf2YyeZtiFYH+09YRnKSsC+Wg/2DMyhAJTFzqubeN
-	0LFcO04k7afE6RXFPxl/KaBUjJPsU+DIBmvUiSQlNMkn/45If/E6rvAQTUyaoB7SsKp65W7il7J3e
-	4u9kr4n3yvCnbMAvrJTVqffdRSxReKuWcGGPIlLryoOONm1mR3Ywsv2KxpTrqLY7r3b6VUIBOqhVy
-	LIS+fqihH3hV4jB/c9bKvMFNg1ielBcacdX8Q5cD/g1IdXjGCGkTqPPTLpgh4HH8rnKg9o+V060v+
-	GbAPjP5w==;
+	bh=xa4/849R/xgwcMPIoCI3VbUeCA0k6/U4Rsg5ROqBma4=; b=F66kmoup1042tpLw15cFBlMpoT
+	f+yp2boGALQ/BiFem1JLyLySVhczDjvMKhxzgChras97jld7aI41KTuM7vOhk6pfTMsIXagS46aDu
+	hxEMcJv0UuliKrYi/zd34PTBKVduEVixom5Mc0lnDMeM9IAFE5Qoab6KR3G4WZrV6r/pWo5nkCO5+
+	Fs4arDLsArseLaHUz5YbjIfUfaqz9EFxNR4jhUY29cwHJoqL9vGuLjsNi56QB+lAn0H/W60H5d93E
+	aWrxC9mxKixA52rdV6sw5ofrKMV8YzjUI7iVjvXaAeJtZ9ZPcc6QcHpbKLDsPtWt1vIIWw/38ma+d
+	t0+txhmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v97fg-00000002oVC-3qc3;
-	Wed, 15 Oct 2025 20:00:28 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1v97vd-00000002pd4-1QBL;
+	Wed, 15 Oct 2025 20:16:57 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v97fe-00000002oUq-2qAj
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 20:00:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=UyAyBxkXaApDM4KsfpCB8GHoJifPSp90vnbMpVzBWEA=; b=C74SUiMaBsN6Ewv2nuaqrHGEsU
-	c1hiR0wYJ8u5oCxQwvULH0b+wZtnM9GjcGti8ITX0XWijY0Bqbeh76Vkl8YbGLqaZRxTHx33RBuCa
-	djChBbayFMyi70dLEFMeB9fqbF7zbphGAipQYyd77oIzUIp1Mwfz9xRc012+Nh7M+OK+3q/RrDYSX
-	1ba5A17DFmcUFir0f+ojyJ6F0cfaFQ98EJD1Ot95cJEZuOvtr4+NZV4Q2+RPK/zNbD+bY8Un62t4v
-	pJqgJMRA6Ptm/eGXQGB0W/6/y24XgaMM0PV1cnHfT/zDCyuoskFQdW2tuuGhR/7BavrLjCCsCbt2t
-	yH0kUZJA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47970)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1v97fV-000000005Mj-2ToV;
-	Wed, 15 Oct 2025 21:00:17 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1v97fT-000000002ZM-3Uh3;
-	Wed, 15 Oct 2025 21:00:15 +0100
-Date: Wed, 15 Oct 2025 21:00:15 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 02/11] ARM: dts: imx6: rename touch-thermal0 to
- touch-0-thermal
-Message-ID: <aO_9Tw1s7VcHauNh@shell.armlinux.org.uk>
-References: <20251015-imx6_dts_cleanup-v2-0-41a7281b98c6@nxp.com>
- <20251015-imx6_dts_cleanup-v2-2-41a7281b98c6@nxp.com>
+	id 1v97va-00000002pcO-3EYn;
+	Wed, 15 Oct 2025 20:16:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1760559415; x=1792095415;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gmAXAdcyfH/0YqbR2yiAskUEQSqfMryfD6kCU4fsFsI=;
+  b=BZ7Wlev3HhQ6yunHxpw4IN5vCpjs4sCASoU8n/5y043721WYEnzLiDEX
+   qo1z7E2FUjtWlJzPg5OCA3wMusUvgNRDCQc1w0LYF7+nByk2XhBK4Runo
+   ewwYclDstBdvFOo1jOmKrFIqUHZq0OcsVKKCXW4Tta77aW7NAy/5Gl2sy
+   2xLGmio1BZzkb2OBRFtRJhF+WHJXRg85c41TMhL2a6kufnt/Fa3/b8XCg
+   38tQmeGV8SaNzEzh/i7A6hqU92+2FNhbJuk6gzbtIADKxcRoIBOHM2gBR
+   uH2N1hjNCgcST7sKOiBTJSIr+Mr7N3QilzovxSn6O1dsxiqdIaPNvtnp4
+   A==;
+X-CSE-ConnectionGUID: nLI8OrhWSJOvYO34Fgy7lw==
+X-CSE-MsgGUID: Ou0fArL4RDakeT2E/wki3Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11583"; a="66396403"
+X-IronPort-AV: E=Sophos;i="6.19,232,1754982000"; 
+   d="scan'208";a="66396403"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 13:16:54 -0700
+X-CSE-ConnectionGUID: ZjXlA3GRQj2NR/oq7bHOIA==
+X-CSE-MsgGUID: 5BXCaKU+S5CLdi38pkLjpA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,232,1754982000"; 
+   d="scan'208";a="219416270"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa001.jf.intel.com with ESMTP; 15 Oct 2025 13:16:48 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v97vD-0004CF-0w;
+	Wed, 15 Oct 2025 20:16:34 +0000
+Date: Thu, 16 Oct 2025 04:16:10 +0800
+From: kernel test robot <lkp@intel.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Boris Brezillon <bbrezillon@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+	Steven Price <steven.price@arm.com>,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>
+Cc: oe-kbuild-all@lists.linux.dev, kernel@collabora.com,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-hardening@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: Re: [PATCH v7 5/5] pmdomain: mediatek: Add support for MFlexGraphics
+Message-ID: <202510160411.BLpQNEHZ-lkp@intel.com>
+References: <20251015-mt8196-gpufreq-v7-5-0a6435da2080@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251015-imx6_dts_cleanup-v2-2-41a7281b98c6@nxp.com>
+In-Reply-To: <20251015-mt8196-gpufreq-v7-5-0a6435da2080@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_130026_740193_A2CCE75E 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251015_131654_866325_A9D72555 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,28 +107,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 12:44:27PM -0400, Frank Li wrote:
-> -		touch-thermal0 {
-> +		touch0-thermal {
-...
-> -		touch-thermal1 {
-> +		touch1-thermal {
-...
-> -		touch-thermal0 {
-> +		touch-0-thermal {
-...
-> -		touch-thermal1 {
-> +		touch-1-thermal {
-...
-> -		touch-thermal0 {
-> +		touch-0-thermal {
-...
-> -		touch-thermal1 {
-> +		touch-1-thermal {
+Hi Nicolas,
 
-Is it touch-N-thermal or touchN-thermal?
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on 40a3abb0f3e5229996c8ef0498fc8d8a0c2bd64f]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Nicolas-Frattaroli/dt-bindings-gpu-mali-valhall-csf-add-mediatek-mt8196-mali-variant/20251015-165256
+base:   40a3abb0f3e5229996c8ef0498fc8d8a0c2bd64f
+patch link:    https://lore.kernel.org/r/20251015-mt8196-gpufreq-v7-5-0a6435da2080%40collabora.com
+patch subject: [PATCH v7 5/5] pmdomain: mediatek: Add support for MFlexGraphics
+config: arm64-randconfig-003-20251016 (https://download.01.org/0day-ci/archive/20251016/202510160411.BLpQNEHZ-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 10.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251016/202510160411.BLpQNEHZ-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510160411.BLpQNEHZ-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   In file included from include/linux/clk-provider.h:9,
+                    from drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c:10:
+   drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c: In function 'mtk_mfg_probe':
+>> include/linux/of.h:138:51: warning: 'shmem' is used uninitialized in this function [-Wuninitialized]
+     138 | DEFINE_FREE(device_node, struct device_node *, if (_T) of_node_put(_T))
+         |                                                   ^
+   drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c:877:22: note: 'shmem' was declared here
+     877 |  struct device_node *shmem __free(device_node);
+         |                      ^~~~~
+
+
+vim +/shmem +138 include/linux/of.h
+
+0829f6d1f69e4f2 Pantelis Antoniou 2013-12-13  126  
+0f22dd395fc473c Grant Likely      2012-02-15  127  #ifdef CONFIG_OF_DYNAMIC
+0f22dd395fc473c Grant Likely      2012-02-15  128  extern struct device_node *of_node_get(struct device_node *node);
+0f22dd395fc473c Grant Likely      2012-02-15  129  extern void of_node_put(struct device_node *node);
+0f22dd395fc473c Grant Likely      2012-02-15  130  #else /* CONFIG_OF_DYNAMIC */
+3ecdd0515287afb Rob Herring       2011-12-13  131  /* Dummy ref counting routines - to be implemented later */
+3ecdd0515287afb Rob Herring       2011-12-13  132  static inline struct device_node *of_node_get(struct device_node *node)
+3ecdd0515287afb Rob Herring       2011-12-13  133  {
+3ecdd0515287afb Rob Herring       2011-12-13  134  	return node;
+3ecdd0515287afb Rob Herring       2011-12-13  135  }
+0f22dd395fc473c Grant Likely      2012-02-15  136  static inline void of_node_put(struct device_node *node) { }
+0f22dd395fc473c Grant Likely      2012-02-15  137  #endif /* !CONFIG_OF_DYNAMIC */
+9448e55d032d99a Jonathan Cameron  2024-02-25 @138  DEFINE_FREE(device_node, struct device_node *, if (_T) of_node_put(_T))
+3ecdd0515287afb Rob Herring       2011-12-13  139  
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
