@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB1A7CCD190
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 07:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3315FCCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 07:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LwNszBP1CblYPQyS6wvl/0aWNG1eRDimrOv3Ss/EvjY=; b=P/CVNCvU08HYwyvlq/C7X9l6Hv
-	HNpyt4ygLMdil/ti3rDGyrLaTmTa2h+aGbFoMguPdXbSyAa+jeD7srybl2Lioesnj2R/fOHR39L1V
-	NCazO+YgnSyrsEA3W/GaEAzgXtyQ4H/xyuu2Xn/ciwxz3jVqq+coGJfirKAq3fCtmtYQXIF7RvW3T
-	wrpQDPEGSrFuhgfdRCn+c2YyAvvGYQf6IHgs+iixUhXL1ix9EqwkRsW+53+1sylPXTR2dVjaaEMnX
-	stDlMeM0inVNKYNCukoaPnEANOtfPQVwTP/kwsz2IAshkfwgpZ1s9zHuve1HpFBpxNC9aJwb1SOc3
-	2ykpPEyg==;
+	bh=HwcQLm0WgGh0gtSw8tMU5pScJIRXeeZyiXsWYCjApS0=; b=zj3dg1BvPDlgZAQnf7wgSj4GWv
+	nOp7AWSjVlljO8XkHkYTxCUyLlQMTBQfVBtLwZC74bNjMdXrRxZt1qOflQ0Kr7HA6FjzuioALfuRZ
+	big63rDtp+FvWaNmCfEgxZ2Oj12sfYWsGyMXk5l+UL4ldyh8gH49u6TSNa0PI+kxpkAbJqqS3DiwJ
+	aJ6/7SF/B41EujmnUncfRewaKJEYHvYQZYm6KRACKJwAKAIJMEBvUcbd5NhH5gyJG4WyKOn314ujR
+	/01SzMfrzTsPjInTr3UuUI7rzpt8owIUufGuaCkshnqC/u3cghyQaFYMNFi6FLcQnvOU9x+v5qF4X
+	iFy81K9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8wLI-00000000p3b-2xSK;
-	Wed, 15 Oct 2025 07:54:40 +0000
+	id 1v8wLL-00000000p6t-1kl8;
+	Wed, 15 Oct 2025 07:54:43 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8wLG-00000000ozA-0cTw;
-	Wed, 15 Oct 2025 07:54:39 +0000
+	id 1v8wLH-00000000p1R-3y6Y
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Oct 2025 07:54:41 +0000
 Received: from pendragon.ideasonboard.com (87-94-110-32.bb.dnainternet.fi [87.94.110.32])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 91491190D;
-	Wed, 15 Oct 2025 09:52:57 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 94234162B;
+	Wed, 15 Oct 2025 09:52:59 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1760514777;
-	bh=APf+o1EB+8Y+xNYzSvnwoyhc4elOahLrs0+JLOUypAA=;
+	s=mail; t=1760514779;
+	bh=vHIS+X/E2gwQu1VSEmM8K+NCq8ZotuMJmBLuRCNeq9U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m86t6wiQLdIms3WRcFe8sPhq/JDAxlQhZJaFtri0x8oxLz8rjyREdhbjRHdlV6PyW
-	 RJ8QEaKcNARsRryIFZHPWAA6wrNpVXRi/czuXu99dWqibZmetsd4FmsyQtydOYWFN3
-	 0E9jDG/T7ns/Kq8QvZ4KOVDRfsMvXN/kHtjJW76I=
+	b=KittMIf9UtTziwhMevIH54STwV1PDNH/F8ZfujYTXKFzMHj7Vm58zhVrn3iP/a2nf
+	 H1FCXtu605Czbo7sVOs6s1a1rvrOiGsoSxB3XGrVd9vBmjelIFGGl4QyDGE5+2jvH1
+	 rhRMXQrNTt70dFsRkzu8bPzWRBQUxhuCG/Bqkn7o=
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
+To: linux-arm-kernel@lists.infradead.org,
+	linux-media@vger.kernel.org
 Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Jacob Chen <jacob-chen@iotwrt.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH v2 19/25] media: platform: rga: Drop unneeded v4l2_m2m_get_vq() NULL check
-Date: Wed, 15 Oct 2025 10:53:42 +0300
-Message-ID: <20251015075353.22625-20-laurent.pinchart@ideasonboard.com>
+	=?UTF-8?q?=C5=81ukasz=20Stelmach?= <l.stelmach@samsung.com>
+Subject: [PATCH v2 20/25] media: samsung: s5p-g2d: Drop unneeded v4l2_m2m_get_vq() NULL check
+Date: Wed, 15 Oct 2025 10:53:43 +0300
+Message-ID: <20251015075353.22625-21-laurent.pinchart@ideasonboard.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251015075353.22625-1-laurent.pinchart@ideasonboard.com>
 References: <20251015075353.22625-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_005438_328551_06B745E4 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20251015_005440_123624_E303E2C1 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +76,26 @@ return value check and, as the return value is not used for other
 purposes and the function has no side effect, the function call as well.
 
 Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: Łukasz Stelmach <l.stelmach@samsung.com>
 ---
- drivers/media/platform/rockchip/rga/rga.c | 4 ----
+ drivers/media/platform/samsung/s5p-g2d/g2d.c | 4 ----
  1 file changed, 4 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 776046de979a..eb9c556a105c 100644
---- a/drivers/media/platform/rockchip/rga/rga.c
-+++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -463,12 +463,8 @@ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+diff --git a/drivers/media/platform/samsung/s5p-g2d/g2d.c b/drivers/media/platform/samsung/s5p-g2d/g2d.c
+index ffb9bee6cb9d..e765dfcc2830 100644
+--- a/drivers/media/platform/samsung/s5p-g2d/g2d.c
++++ b/drivers/media/platform/samsung/s5p-g2d/g2d.c
+@@ -308,12 +308,8 @@ static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fmtdesc *f
+ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
  {
- 	struct v4l2_pix_format_mplane *pix_fmt = &f->fmt.pix_mp;
- 	struct rga_ctx *ctx = file_to_rga_ctx(file);
+ 	struct g2d_ctx *ctx = file2ctx(file);
 -	struct vb2_queue *vq;
- 	struct rga_frame *frm;
+ 	struct g2d_frame *frm;
  
 -	vq = v4l2_m2m_get_vq(ctx->fh.m2m_ctx, f->type);
 -	if (!vq)
 -		return -EINVAL;
- 	frm = rga_get_frame(ctx, f->type);
+ 	frm = get_frame(ctx, f->type);
  	if (IS_ERR(frm))
  		return PTR_ERR(frm);
 -- 
