@@ -4,83 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD377CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 11:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FDC3CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 11:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PNqQFxzErpdB5ae66ApuoXV6EW7P9F3bfwLUd31zWXQ=; b=tlof/hdfyWMNLxcUyIQCI7k0Ut
-	CV+QjAyWQRemTP5qrveSc95BaPzeKfX+e9bhWgFO9/oI/bYCBNa3QzTuZRuxKr7F15QDFjlGnFRL/
-	GGWjSdh/BMWtcUwE6S0d1AMjtnKUsIXmLbJOeUCc2SbIYbDjbvNQR6yHLWszg14TJLxD+E1Mo8D0k
-	DjTQ71uJ4UyxueFFgO+tNkrdrriJnkH8zwVKxBWEN6e1ZquPXW7HHr+caeSKC8u7yYxYtiyxquCF1
-	ReVEXVhkWtj5AyxAKcDfB/lXLnoQO49VwPbp7Qqf1pxkYdqc5L1wS5u6vSThRFS2dIj4EfF+rySd8
-	6aA56tfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uTdask+kSDsq4BsLn5+bvWIPsEIBRsmUFlBxjORxCeg=; b=fbhwCvRVQ3SK+WrnQqX/q+j09T
+	s49Q+eyFQOyq8gWt0mHx5mLS0ZOSv3XAAyuKzA1rVPP8w0KsoAyLrGcrHWgbw1z90RxkF4y+ZWiu7
+	IrMBHvm/6CWImygVgnea5xU6JZ8NOilmDKCPy2NY+MhlFC3WBnZOIgj3Gw7CX3M9pUsDByMsmLdmG
+	aR4Q+KkUC3BK57eKWybV7VthbFamzXk7/ROUzKmDt5+Hnbqru9NsuGzaifOn8s3ATe+WkBUYN/FIx
+	rMX83TvrX7Gz7TJHgv5cWjdAlnD8myzvnVnkI9a99H1WauRhnb0qMokG2aY1YwRqni8jnJj+/qRPF
+	/G0vltZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8zs4-00000001Rkj-1NzQ;
-	Wed, 15 Oct 2025 11:40:44 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8zs1-00000001Rjk-02nW;
-	Wed, 15 Oct 2025 11:40:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760528441; x=1792064441;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=wDHNh4uY8xD9ebnDG2xoy5T2v6V+iqaappaYjVR+kyw=;
-  b=lhSvgptJaX8FQNTOtwuSmtrYS/Bqq49ggH2RRj2Qy9fLsPbiUCQoyDeY
-   l3oIhhTlxlDYbmyI33YQWfhYPwQqsJr62qth4++oLZvTU/BnWbZnlpEh2
-   /aBkuJchzgh2uG/vVJi9j/rYZIHYmz+t3evBLi1wPaS7YFvkHqE1DLh14
-   fq93yH9K+wvCDPmiXgBMwvES1+ygoKdMASwtb5T9Nm9ap6P3PZboaftvo
-   Bofh4XPJeZnBY6WXzQTPgyN9tWkZ7yvbfkXAAQBFNougFK+0wO/nZR0/e
-   xkV6lN8G4rZm/zZSr4NvQ7nLhEkaC/o80PRdX0vebzIls5e9Dz5KyHBDt
-   g==;
-X-CSE-ConnectionGUID: WXuKPPcdQZ+2ucCbSUmDcQ==
-X-CSE-MsgGUID: oeUD9y3TSU278uisr68tPQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11582"; a="66353843"
-X-IronPort-AV: E=Sophos;i="6.19,231,1754982000"; 
-   d="scan'208";a="66353843"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 04:40:40 -0700
-X-CSE-ConnectionGUID: 6d611QceSMCabPeGf4aKYQ==
-X-CSE-MsgGUID: EgvxbpLISJarCc7NEnJ4Rw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,231,1754982000"; 
-   d="scan'208";a="212757525"
-Received: from rvuia-mobl.ger.corp.intel.com (HELO mdjait-mobl) ([10.245.245.114])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 04:40:34 -0700
-Date: Wed, 15 Oct 2025 13:40:25 +0200
-From: Mehdi Djait <mehdi.djait@linux.intel.com>
-To: michael.riesch@collabora.com
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	=?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Gerald Loacker <gerald.loacker@wolfvision.net>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
-	Markus Elfring <Markus.Elfring@web.de>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Kever Yang <kever.yang@rock-chips.com>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Collabora Kernel Team <kernel@collabora.com>, Paul Kocialkowski <paulk@sys-base.io>, 
-	Alexander Shiyan <eagle.alexander923@gmail.com>, Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v12 09/18] media: rockchip: rkcif: add abstraction for
- dma blocks
-Message-ID: <gzh4rpbkrp6vkc3mimhwhgfgxm74iw2bw6zhlzdtqenrbp6yhr@ekjpefq7wege>
-References: <20240220-rk3568-vicap-v12-0-c6dbece6bb98@collabora.com>
- <20240220-rk3568-vicap-v12-9-c6dbece6bb98@collabora.com>
+	id 1v8zsO-00000001RsW-2Z1m;
+	Wed, 15 Oct 2025 11:41:04 +0000
+Received: from sgoci-sdnproxy-4.icoremail.net ([129.150.39.64])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8zsL-00000001RqS-0ZdM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Oct 2025 11:41:03 +0000
+Received: from E0005182LT.eswin.cn (unknown [10.12.96.155])
+	by app2 (Coremail) with SMTP id TQJkCgCXKZM6iO9oKxMLAQ--.63803S2;
+	Wed, 15 Oct 2025 19:40:45 +0800 (CST)
+From: weishangjuan@eswincomputing.com
+To: devicetree@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	yong.liang.choong@linux.intel.com,
+	vladimir.oltean@nxp.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	weishangjuan@eswincomputing.com,
+	jan.petrous@oss.nxp.com,
+	inochiama@gmail.com,
+	jszhang@kernel.org,
+	0x1207@gmail.com,
+	boon.khai.ng@altera.com,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	lizhi2@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v8 1/2] dt-bindings: ethernet: eswin: Document for EIC7700 SoC
+Date: Wed, 15 Oct 2025 19:40:41 +0800
+Message-Id: <20251015114041.1166-1-weishangjuan@eswincomputing.com>
+X-Mailer: git-send-email 2.31.1.windows.1
+In-Reply-To: <20251015113751.1114-1-weishangjuan@eswincomputing.com>
+References: <20251015113751.1114-1-weishangjuan@eswincomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20240220-rk3568-vicap-v12-9-c6dbece6bb98@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: TQJkCgCXKZM6iO9oKxMLAQ--.63803S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCw1DtF1kCFyrZFyrZFyfXrb_yoWrGFy8pa
+	97CrWDJr4fXr1fXa18tF10kFn3tanrCr1Ykrn7J3Waq390qas0qw1ayFy5Ga43Cr47ZFW5
+	WFWYvay8A3Wjk3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBm14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
+	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
+	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
+	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_Gr1U
+	MIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I
+	8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRimiiDUUUU
+X-CM-SenderInfo: pzhl2xxdqjy31dq6v25zlqu0xpsx3x1qjou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_044041_083790_744F1EEB 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20251015_044101_631276_441EE7F2 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,26 +101,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
+From: Shangjuan Wei <weishangjuan@eswincomputing.com>
 
-Thank you for the patches!
+Add ESWIN EIC7700 Ethernet controller, supporting clock
+configuration, delay adjustment and speed adaptive functions.
 
-On Tue, Oct 14, 2025 at 03:01:55PM +0200, Michael Riesch via B4 Relay wrote:
-> From: Michael Riesch <michael.riesch@collabora.com>
-> 
-> Add an abstraction for the DMA parts and the ping-pong scheme (a
-> double-buffering mechanism) of the different CIF variants. Each
-> stream is represented as V4L2 device whose corresponding media
-> entity has one sink pad. This sink pad is connected to an instance
-> of the INTERFACE/CROP abstraction.
-> 
-> Tested-by: Gerald Loacker <gerald.loacker@wolfvision.net>
-> Reviewed-by: Gerald Loacker <gerald.loacker@wolfvision.net>
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+Signed-off-by: Shangjuan Wei <weishangjuan@eswincomputing.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ .../bindings/net/eswin,eic7700-eth.yaml       | 127 ++++++++++++++++++
+ 1 file changed, 127 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
 
-Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
-
+diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+new file mode 100644
+index 000000000000..9ddbfe219ae2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+@@ -0,0 +1,127 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/eswin,eic7700-eth.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Eswin EIC7700 SOC Eth Controller
++
++maintainers:
++  - Shuang Liang <liangshuang@eswincomputing.com>
++  - Zhi Li <lizhi2@eswincomputing.com>
++  - Shangjuan Wei <weishangjuan@eswincomputing.com>
++
++description:
++  Platform glue layer implementation for STMMAC Ethernet driver.
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - eswin,eic7700-qos-eth
++  required:
++    - compatible
++
++allOf:
++  - $ref: snps,dwmac.yaml#
++
++properties:
++  compatible:
++    items:
++      - const: eswin,eic7700-qos-eth
++      - const: snps,dwmac-5.20
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-names:
++    const: macirq
++
++  clocks:
++    items:
++      - description: AXI clock
++      - description: Configuration clock
++      - description: GMAC main clock
++      - description: Tx clock
++
++  clock-names:
++    items:
++      - const: axi
++      - const: cfg
++      - const: stmmaceth
++      - const: tx
++
++  resets:
++    maxItems: 1
++
++  reset-names:
++    items:
++      - const: stmmaceth
++
++  rx-internal-delay-ps:
++    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
++
++  tx-internal-delay-ps:
++    enum: [0, 200, 600, 1200, 1600, 1800, 2000, 2200, 2400]
++
++  eswin,hsp-sp-csr:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    items:
++      - description: Phandle to HSP(High-Speed Peripheral) device
++      - description: Offset of phy control register for internal
++                     or external clock selection
++      - description: Offset of AXI clock controller Low-Power request
++                     register
++      - description: Offset of register controlling TX/RX clock delay
++    description: |
++      High-Speed Peripheral device needed to configure clock selection,
++      clock low-power mode and clock delay.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interrupts
++  - interrupt-names
++  - phy-mode
++  - resets
++  - reset-names
++  - rx-internal-delay-ps
++  - tx-internal-delay-ps
++  - eswin,hsp-sp-csr
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    ethernet@50400000 {
++        compatible = "eswin,eic7700-qos-eth", "snps,dwmac-5.20";
++        reg = <0x50400000 0x10000>;
++        clocks = <&d0_clock 186>, <&d0_clock 171>, <&d0_clock 40>,
++                <&d0_clock 193>;
++        clock-names = "axi", "cfg", "stmmaceth", "tx";
++        interrupt-parent = <&plic>;
++        interrupts = <61>;
++        interrupt-names = "macirq";
++        phy-mode = "rgmii-id";
++        phy-handle = <&phy0>;
++        resets = <&reset 95>;
++        reset-names = "stmmaceth";
++        rx-internal-delay-ps = <200>;
++        tx-internal-delay-ps = <200>;
++        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118>;
++        snps,axi-config = <&stmmac_axi_setup>;
++        snps,aal;
++        snps,fixed-burst;
++        snps,tso;
++        stmmac_axi_setup: stmmac-axi-config {
++            snps,blen = <0 0 0 0 16 8 4>;
++            snps,rd_osr_lmt = <2>;
++            snps,wr_osr_lmt = <2>;
++        };
++    };
 --
-Kind Regards
-Mehdi Djait
+2.17.1
+
 
