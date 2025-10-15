@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04ECFCCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 08:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57FD8CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 08:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IkN50nBkgSebj548LGCCzvvVXEx9gzZ5iJgbdU3R13Y=; b=x3swCBKJywBLBWhVrK9VP57p9D
-	AGRkoV0I8HeB9CDLq3MehWalJWjrJGdq1zViSV/XFurU/IQzA9B9do1W2cOd4r6EI9uKrlmr9YL/v
-	4q5oipW+cavQImPe9dQTuWzlD/qdvwdOmXTMP6jkud8l9DVHoGF8+GCEpIPSTTwwt4w/ektMnda/1
-	IYE+OkcYr2jwX5zl9z41SrAXX4oXNsDMfApTCgj6TF75rTXj7TIzuSsuErQ52Yi7m+AHwuiKyjhMa
-	WEds19q8RBz6p8ipWt6qpEClsFm/NCoVzrybfLGYIGrt2Wlb1h7U5eIbZuwle7ZFkhp4XT7wE+YHu
-	3LnoDvHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vN1LEfAFOswtHugzu9XIYq8P3c19bQGK8wW45PsaC+4=; b=cBM360B4ezRhhBFYbqHnUgZ9Ki
+	x3F+ZH/GXO42H8ll0c1FM35y0IPTKNC1iW/HwFl48vpw6fg68LVolXnYRreRZ6NDgO9zjLVNg0Tvw
+	1HUwPALpYnsi12fj9xklHO4P7bIvZemLgAYb+S4Q3ONE9EbpKlslJ1Hgarj5MOUpvVF9CT2e7VtJ1
+	Z69YutN2reEbwIeFy73fOQGxyuw+BC2SVdgvD+BGTJ4UibTpsaKwyPqVrqovSQq+7aK8OpsNCzjQK
+	tS1OuBe1U2+n0SmeQGLpsxUf2PL66/ocktiW6kcHil5IPS+NhXkc63csqtbtFHbsi48UEQMvdJEQl
+	qz6ZDkbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8x4N-00000000xqt-1yny;
-	Wed, 15 Oct 2025 08:41:15 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1v8x6V-00000000yFP-0c1T;
+	Wed, 15 Oct 2025 08:43:27 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8x4K-00000000xq3-287M;
-	Wed, 15 Oct 2025 08:41:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760517670;
-	bh=kR6/KdiaTWKCxxOavj8of+mL1hKW3b416j+YBrUpGWQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=N0eXyqja0v+Co8k0lr4IboExscq9FB89iIKZhunISadTeac1usfo4/jbvjBab5UHu
-	 3NBn+AhszjbXsgPB0muh9DT8fNOqFD+puaFwquqXCaBBioqwMISmNdEk6H42yED01i
-	 ysQEC2Nop7S0AL7ffLHfSeYLFQ5eIbHxSX4OospjFqSxsVR+sHqYDWlBvTUdfMGOP0
-	 4uKN99XIwOPyM7i/kHy/giq06Z4JPQafpL6PYgzO9+ZvgDIgNpUtT0cQ81RBxEhUZS
-	 RNTUwLZ6YgVxDXU8BjTrghmxX+XHAX62GEbhvbNiJz5WO/oVAH5Dzq0QSSOMGzuPNw
-	 X/5ZnqvJ+/Q6A==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D77B617E055D;
-	Wed, 15 Oct 2025 10:41:09 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-remoteproc@vger.kernel.org
-Cc: arnd@arndb.de,
-	andersson@kernel.org,
-	mathieu.poirier@linaro.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	wenst@chromium.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH v2] remoteproc: mtk_scp: Construct FW path if firmware-name not present
-Date: Wed, 15 Oct 2025 10:41:03 +0200
-Message-ID: <20251015084103.10737-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.51.0
+	id 1v8x6R-00000000yDf-0EiE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Oct 2025 08:43:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1760517798; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=vN1LEfAFOswtHugzu9XIYq8P3c19bQGK8wW45PsaC+4=;
+	b=jF5VVwGBZSa+7aFnjbNhR71v09VL1UO4UmZfyQIkB2kmvJaGh+xbzpd07MzEZy9DNPzNJURDkQzKemvsORFC94VMjQy2dlDLs5N946DP3ARyPyPx01bnGdylAscbAkd+Zycf/uPJFkZ7HMwHinJc7r6+IRW3EyH5cT0w8+/zNTw=
+Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WqFjWUn_1760517795 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 15 Oct 2025 16:43:16 +0800
+From: "Huang, Ying" <ying.huang@linux.alibaba.com>
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,  David Hildenbrand
+ <david@redhat.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
+ <will@kernel.org>,  Andrew Morton <akpm@linux-foundation.org>,  Vlastimil
+ Babka <vbabka@suse.cz>,  Zi Yan <ziy@nvidia.com>,  Baolin Wang
+ <baolin.wang@linux.alibaba.com>,  Ryan Roberts <ryan.roberts@arm.com>,
+  Yang Shi <yang@os.amperecomputing.com>,  "Christoph Lameter (Ampere)"
+ <cl@gentwo.org>,  Dev Jain <dev.jain@arm.com>,  Barry Song
+ <baohua@kernel.org>,  Anshuman Khandual <anshuman.khandual@arm.com>,
+  Yicong Yang <yangyicong@hisilicon.com>,  Kefeng Wang
+ <wangkefeng.wang@huawei.com>,  Kevin Brodsky <kevin.brodsky@arm.com>,  Yin
+ Fengwei <fengwei_yin@linux.alibaba.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  linux-mm@kvack.org
+Subject: Re: [PATCH -v2 1/2] mm: add spurious fault fixing support for huge pmd
+In-Reply-To: <4c453dcc-2837-4f1a-905b-3462270f5e31@lucifer.local> (Lorenzo
+	Stoakes's message of "Tue, 14 Oct 2025 15:21:33 +0100")
+References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
+	<20251013092038.6963-2-ying.huang@linux.alibaba.com>
+	<4c453dcc-2837-4f1a-905b-3462270f5e31@lucifer.local>
+Date: Wed, 15 Oct 2025 16:43:14 +0800
+Message-ID: <87ldlcpnbx.fsf@DESKTOP-5N7EMDA>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=ascii
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_014112_875985_BB45426A 
-X-CRM114-Status: GOOD (  22.21  )
+X-CRM114-CacheID: sfid-20251015_014323_879601_396F4594 
+X-CRM114-Status: GOOD (  56.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,159 +78,266 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After a reply on the mailing lists [1] it emerged that the DT
-property "firmware-name" should not be relied on because of
-possible issues with firmware versions.
-For MediaTek SCP, there has never been any firmware version vs
-driver version desync issue but, regardless, the firmwares are
-always using the same name and they're always located in a path
-with a specific pattern.
+Hi, Lorenzo,
 
-Instead of unconditionally always relying on the firmware-name
-devicetree property to get a path to the SCP FW file, drivers
-should construct a name based on what firmware it knows and
-what hardware it is running on.
+Thanks for comments!
 
-In order to do that, add a `scp_get_default_fw_path()` function
-that constructs the path and filename based on two of the infos
-that the driver can get:
- 1. The compatible string with the highest priority (so, the
-    first one at index 0); and
- 2. The type of SCP HW - single-core or multi-core.
+Lorenzo Stoakes <lorenzo.stoakes@oracle.com> writes:
 
-This means that the default firmware path is generated as:
- - Single core SCP: mediatek/(soc_model)/scp.img
-   for example:     mediatek/mt8183/scp.img;
+> On Mon, Oct 13, 2025 at 05:20:37PM +0800, Huang Ying wrote:
+>> In the current kernel, there is spurious fault fixing support for pte,
+>> but not for huge pmd because no architectures need it. But in the
+>> next patch in the series, we will change the write protection fault
+>> handling logic on arm64, so that some stale huge pmd entries may
+>> remain in the TLB. These entries need to be flushed via the huge pmd
+>> spurious fault fixing mechanism.
+>>
+>> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
+>
+> Right now the PTE level spurious fault handling is dealt with in
+> handle_pte_fault() when ptep_set_access_flags() returns false.
+>
+> Now you're updating touch_pmd() which is invoked by follow_huge_pmd() and
+> huge_pmd_set_accessed().
+>
+> 1 - Why are you not adding handling to GUP?
+>
+> 2 - Is this the correct level of abstraction? It's really not obvious but
+>     huge_pmd_set_accessed() is invoked by __handle_mm_fault() on a non-WP,
+>     non-NUMA hint huge page fault where a page table entry already exists
+>     but we are faulting anyway (e.g. non-present or read-only writable).
+>
+> You don't mention any of this in the commit message, which you need to do
+> and really need to explain how spurious faults can arise, why you can only
+> do this at the point of abstraction you do (if you are unable to put it in
+> actual fault handing-code), and you need to add a bunch more comments to
+> explain this.
 
- - Multi core SCP:  mediatek/(soc_model)/scp_c(core_number).img
-   for example:     mediatek/mt8188/scp_c0.img for Core 0, and
-                    mediatek/mt8188/scp_c1.img for Core 1.
+This patch adds the spurious PMD page fault fixing based on the spurious
+PTE page fault fixing.  So, I assumed that the spurious page fault
+fixing has been documented already.  But you are right, nothing prevents
+us from improving it further.  Let's try to do that.
 
-Note that the generated firmware path is being used only if the
-"firmware-name" devicetree property is not present in the SCP
-node or in the SCP Core node(s).
+The page faults may be spurious because of the racy access to the page
+table.  For example, a non-populated virtual page is accessed on 2 CPUs
+simultaneously, thus the page faults are triggered on both CPUs.
+However, it's possible that one CPU (say CPU A) cannot find the reason
+for the page fault if the other CPU (say CPU B) has changed the page
+table before the PTE is checked on CPU A.  Most of the time, the
+spurious page faults can be ignored safely.  However, if the page fault
+is for the write access, it's possible that a stale read-only TLB entry
+exists in the local CPU and needs to be flushed on some architectures.
+This is called the spurious page fault fixing.
 
-[1 - Reply regarding firmware-name property]
-Link: https://lore.kernel.org/all/7e8718b0-df78-44a6-a102-89529d6abcce@app.fastmail.com/
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+The spurious page fault fixing only makes sense during page fault
+handling, so we don't need to do it for GUP.  In fact, I plan to avoid
+it in all GUP paths in another followup patch.
+
+As for where to put the spurious PMD page fault fixing code, because
+it's THP related code, I thought that we should put it in huge_memory.c,
+so I implemented it in huge_pmd_set_accessed().  If we follow the design
+of the spurious PTE page fault fixing, we can call the unified
+implementation in __handle_mm_fault() after huge_pmd_set_accessed()
+reports nothing has been changed.
+
+> Otherwise this just ends up being a lot of open-coded + confusing 'you have
+> to go look it up/just know' type stuff that we have too much of in mm :)
+>
+> So please update commit message/comments, confirm whether this is the
+> correct level of abstraction, and address other comments below, thanks!
+>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Andrew Morton <akpm@linux-foundation.org>
+>> Cc: David Hildenbrand <david@redhat.com>
+>> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+>> Cc: Vlastimil Babka <vbabka@suse.cz>
+>> Cc: Zi Yan <ziy@nvidia.com>
+>> Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
+>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>> Cc: Yang Shi <yang@os.amperecomputing.com>
+>> Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+>> Cc: Dev Jain <dev.jain@arm.com>
+>> Cc: Barry Song <baohua@kernel.org>
+>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+>> Cc: Yicong Yang <yangyicong@hisilicon.com>
+>> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+>> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
+>> Cc: Yin Fengwei <fengwei_yin@linux.alibaba.com>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Cc: linux-mm@kvack.org
+>> ---
+>>  include/linux/pgtable.h |  4 ++++
+>>  mm/huge_memory.c        | 22 +++++++++++++++++-----
+>>  mm/internal.h           |  4 ++--
+>>  3 files changed, 23 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>> index 32e8457ad535..341622ec80e4 100644
+>> --- a/include/linux/pgtable.h
+>> +++ b/include/linux/pgtable.h
+>> @@ -1232,6 +1232,10 @@ static inline void arch_swap_restore(swp_entry_t entry, struct folio *folio)
+>>  #define flush_tlb_fix_spurious_fault(vma, address, ptep) flush_tlb_page(vma, address)
+>>  #endif
+>>
+>> +#ifndef flush_tlb_fix_spurious_fault_pmd
+>> +#define flush_tlb_fix_spurious_fault_pmd(vma, address, ptep) do { } while (0)
+>> +#endif
+>
+> flush_tlb_fix_spurious_fault(), when the arch doesn't declare it, defaults to
+> flush_tlb_page() - why do we just do nothing in this case here?
+
+Because all architectures do nothing for the spurious PMD page fault
+fixing until the [2/2] of this series.  Where, we make it necessary to
+flush the local TLB for spurious PMD page fault fixing on arm64
+architecture.
+
+If we follow the design of flush_tlb_fix_spurious_fault(), we need to
+change all architecture implementation to do nothing in this patch to
+keep the current behavior.  I don't think that it's a good idea.  Do
+you agree?
+
+>> +
+>>  /*
+>>   * When walking page tables, get the address of the next boundary,
+>>   * or the end address of the range if that comes earlier.  Although no
+>> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+>> index 1b81680b4225..8533457c52b7 100644
+>> --- a/mm/huge_memory.c
+>> +++ b/mm/huge_memory.c
+>> @@ -1641,17 +1641,22 @@ vm_fault_t vmf_insert_folio_pud(struct vm_fault *vmf, struct folio *folio,
+>>  EXPORT_SYMBOL_GPL(vmf_insert_folio_pud);
+>>  #endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
+>>
+>> -void touch_pmd(struct vm_area_struct *vma, unsigned long addr,
+>> -	       pmd_t *pmd, bool write)
+>> +/* Returns whether the PMD entry is changed */
+>
+> Could we have a kernel doc description here?
+
+Sure.
+
+>> +int touch_pmd(struct vm_area_struct *vma, unsigned long addr,
+>
+> It's 2025 can we use bool please :)
+
+Sure.
+
+>> +	      pmd_t *pmd, bool write)
+>>  {
+>> +	int changed;
+>>  	pmd_t _pmd;
+>
+> While we're here can we rename this horrible parameter name to e.g. entry? We're
+> significantly altering this function anyway so it isn't much more
+
+Sure.
+
+>>
+>>  	_pmd = pmd_mkyoung(*pmd);
+>>  	if (write)
+>>  		_pmd = pmd_mkdirty(_pmd);
+>> -	if (pmdp_set_access_flags(vma, addr & HPAGE_PMD_MASK,
+>> -				  pmd, _pmd, write))
+>> +	changed = pmdp_set_access_flags(vma, addr & HPAGE_PMD_MASK,
+>> +					pmd, _pmd, write);
+>> +	if (changed)
+>>  		update_mmu_cache_pmd(vma, addr, pmd);
+>
+> We can make this simpler, e.g.:
+>
+> 	if (pmdp_set_access_flags(vma, addr & HPAGE_PMD_MASK,
+> 				  pmd, entry, write)) {
+> 		update_mmu_cache_pmd(vma, addr, pmd);
+> 		return true;
+> 	}
+>
+> 	return false;
+
+No problem.  As long as David is OK with this.
+
+>> +
+>> +	return changed;
+>>  }
+>>
+>>  int copy_huge_pmd(struct mm_struct *dst_mm, struct mm_struct *src_mm,
+>> @@ -1849,7 +1854,14 @@ void huge_pmd_set_accessed(struct vm_fault *vmf)
+>>  	if (unlikely(!pmd_same(*vmf->pmd, vmf->orig_pmd)))
+>>  		goto unlock;
+>>
+>> -	touch_pmd(vmf->vma, vmf->address, vmf->pmd, write);
+>> +	if (!touch_pmd(vmf->vma, vmf->address, vmf->pmd, write)) {
+>> +		/* See corresponding comments in handle_pte_fault(). */
+>
+> What are the 'corresponding' comments? How can a reader of this code know what
+> they are? This isn't a very helpful comment. Also those comments might be
+> moved in future...
+>
+> Presumably it's:
+>
+> 		/* Skip spurious TLB flush for retried page fault */
+> 		if (vmf->flags & FAULT_FLAG_TRIED)
+> 			goto unlock;
+> 		/*
+> 		 * This is needed only for protection faults but the arch code
+> 		 * is not yet telling us if this is a protection fault or not.
+> 		 * This still avoids useless tlb flushes for .text page faults
+> 		 * with threads.
+> 		 */
+> 		if (vmf->flags & FAULT_FLAG_WRITE)
+> 			flush_tlb_fix_spurious_fault(vmf->vma, vmf->address,
+> 						     vmf->pte);
+>
+>
+> So I don't see why it's so egregious to have the equivalent here, or actually
+> ideally to abstract the code entirely.
+>
+> In commit b22cc9a9c7ff ("mm/rmap: convert "enum rmap_level" to "enum
+> pgtable_level"") David introduced:
+>
+> 	enum pgtable_level {
+> 		PGTABLE_LEVEL_PTE = 0,
+> 		PGTABLE_LEVEL_PMD,
+> 		PGTABLE_LEVEL_PUD,
+> 		PGTABLE_LEVEL_P4D,
+> 		PGTABLE_LEVEL_PGD,
+> 	};
+>
+> Which allows for sensible abstraction.
+
+Sure.  Based on your discussion with David on this, I will add a
+function to do the spurious page fault fixing for the PTE and PMD fault.
+
+>> +		if (vmf->flags & FAULT_FLAG_TRIED)
+>> +			goto unlock;
+>> +		if (vmf->flags & FAULT_FLAG_WRITE)
+>> +			flush_tlb_fix_spurious_fault_pmd(vmf->vma, vmf->address,
+>> +							 vmf->pmd);
+>> +	}
+>>
+>>  unlock:
+>>  	spin_unlock(vmf->ptl);
+>> diff --git a/mm/internal.h b/mm/internal.h
+>> index 1561fc2ff5b8..8b58ab00a7cd 100644
+>> --- a/mm/internal.h
+>> +++ b/mm/internal.h
+>> @@ -1402,8 +1402,8 @@ int __must_check try_grab_folio(struct folio *folio, int refs,
+>>   */
+>>  void touch_pud(struct vm_area_struct *vma, unsigned long addr,
+>>  	       pud_t *pud, bool write);
+>> -void touch_pmd(struct vm_area_struct *vma, unsigned long addr,
+>> -	       pmd_t *pmd, bool write);
+>> +int touch_pmd(struct vm_area_struct *vma, unsigned long addr,
+>> +	      pmd_t *pmd, bool write);
+>>
+>>  /*
+>>   * Parses a string with mem suffixes into its order. Useful to parse kernel
+>> --
+>> 2.39.5
+>>
+
 ---
-
-Changes in v2:
- - Removed initialization of scp_fw_file[7] char array (or string if you prefer)
-
- drivers/remoteproc/mtk_scp.c | 65 ++++++++++++++++++++++++++++++++----
- 1 file changed, 59 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-index 8206a1766481..10e3f9eb8cd2 100644
---- a/drivers/remoteproc/mtk_scp.c
-+++ b/drivers/remoteproc/mtk_scp.c
-@@ -16,6 +16,7 @@
- #include <linux/remoteproc.h>
- #include <linux/remoteproc/mtk_scp.h>
- #include <linux/rpmsg/mtk_rpmsg.h>
-+#include <linux/string.h>
- 
- #include "mtk_common.h"
- #include "remoteproc_internal.h"
-@@ -1093,22 +1094,74 @@ static void scp_remove_rpmsg_subdev(struct mtk_scp *scp)
- 	}
- }
- 
-+/**
-+ * scp_get_default_fw_path() - Get default SCP firmware path
-+ * @dev:     SCP Device
-+ * @core_id: SCP Core number
-+ *
-+ * This function generates a path based on the following format:
-+ *     mediatek/(soc_model)/scp(_cX).img; for multi-core or
-+ *     mediatek/(soc_model)/scp.img for single core SCP HW
-+ *
-+ * Return: A devm allocated string containing the full path to
-+ *         a SCP firmware or an error pointer
-+ */
-+static const char *scp_get_default_fw_path(struct device *dev, int core_id)
-+{
-+	struct device_node *np = core_id < 0 ? dev->of_node : dev->parent->of_node;
-+	const char *compatible, *soc;
-+	char scp_fw_file[7];
-+	int ret;
-+
-+	/* Use only the first compatible string */
-+	ret = of_property_read_string_index(np, "compatible", 0, &compatible);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	/* If the compatible string's length is implausible bail out early */
-+	if (strlen(compatible) < strlen("mediatek,mtXXXX-scp"))
-+		return ERR_PTR(-EINVAL);
-+
-+	/* If the compatible string starts with "mediatek,mt" assume that it's ok */
-+	if (!str_has_prefix(compatible, "mediatek,mt"))
-+		return ERR_PTR(-EINVAL);
-+
-+	if (core_id >= 0)
-+		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id);
-+	else
-+		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp");
-+	if (ret <= 0)
-+		return ERR_PTR(ret);
-+
-+	/* Not using strchr here, as strlen of a const gets optimized by compiler */
-+	soc = &compatible[strlen("mediatek,")];
-+
-+	return devm_kasprintf(dev, GFP_KERNEL, "mediatek/%.*s/%s.img",
-+			      (int)strlen("mtXXXX"), soc, scp_fw_file);
-+}
-+
- static struct mtk_scp *scp_rproc_init(struct platform_device *pdev,
- 				      struct mtk_scp_of_cluster *scp_cluster,
--				      const struct mtk_scp_of_data *of_data)
-+				      const struct mtk_scp_of_data *of_data,
-+				      int core_id)
- {
- 	struct device *dev = &pdev->dev;
- 	struct device_node *np = dev->of_node;
- 	struct mtk_scp *scp;
- 	struct rproc *rproc;
- 	struct resource *res;
--	const char *fw_name = "scp.img";
-+	const char *fw_name;
- 	int ret, i;
- 	const struct mtk_scp_sizes_data *scp_sizes;
- 
- 	ret = rproc_of_parse_firmware(dev, 0, &fw_name);
--	if (ret < 0 && ret != -EINVAL)
--		return ERR_PTR(ret);
-+	if (ret) {
-+		fw_name = scp_get_default_fw_path(dev, core_id);
-+		if (IS_ERR(fw_name)) {
-+			dev_err(dev, "Cannot get firmware path: %ld\n", PTR_ERR(fw_name));
-+			return ERR_CAST(fw_name);
-+		}
-+	}
- 
- 	rproc = devm_rproc_alloc(dev, np->name, &scp_ops, fw_name, sizeof(*scp));
- 	if (!rproc) {
-@@ -1212,7 +1265,7 @@ static int scp_add_single_core(struct platform_device *pdev,
- 	struct mtk_scp *scp;
- 	int ret;
- 
--	scp = scp_rproc_init(pdev, scp_cluster, of_device_get_match_data(dev));
-+	scp = scp_rproc_init(pdev, scp_cluster, of_device_get_match_data(dev), -1);
- 	if (IS_ERR(scp))
- 		return PTR_ERR(scp);
- 
-@@ -1259,7 +1312,7 @@ static int scp_add_multi_core(struct platform_device *pdev,
- 			goto init_fail;
- 		}
- 
--		scp = scp_rproc_init(cpdev, scp_cluster, cluster_of_data[core_id]);
-+		scp = scp_rproc_init(cpdev, scp_cluster, cluster_of_data[core_id], core_id);
- 		put_device(&cpdev->dev);
- 		if (IS_ERR(scp)) {
- 			ret = PTR_ERR(scp);
--- 
-2.51.0
-
+Best Regards,
+Huang, Ying
 
