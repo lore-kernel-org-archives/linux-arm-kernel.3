@@ -4,42 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7691CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 20:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84AB4CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 20:34:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fLl6q1Y+72vHxOIMF4slDKrUf5187PWqHxWI44dG6yE=; b=BiK4sQNzTW1dru0GR75coby2ER
-	PUfdmOA83N9XLIyLYf+231x315G8xJB6pnkX8pzJ1bxdchIfvZtnimEKubGMYRNCA+R6pMWVUA134
-	CoLwyDZPE1ecJXSWg0nUIcySeQUKEArMVkUyJmpGzQ924JgLrHOMPI65YnFaZIMfRXWq7kQNV2+gj
-	wRXDVGUvZYuLRTBs+ramwxxao0YPzf+6nZ4yqI1KEpoxwDLf14Hvv9d2R9MuMVNxBr9deCv5dFaod
-	eJJh0SOO2bKrrOpnc+ABTxZepeMtYTyrz93bfE66dGh+358j9zl0o10e/S2VJCLuaVF6jEgTZXi7f
-	yjgHKv7w==;
+	bh=oLA31juQGoiGMUFqFzO9vTxSXS7E8CLrzp7upb7S4y4=; b=jL7rhgzsTNdEEW52gLAjEhMa8k
+	pX1AyQw1PyEEcqXSOr9a8nTmDPsPwCS/je1yoW+Tcntdn4UYLFNwL9Q/EmtA7JpI16qGQY8Vh6VrH
+	LZstaqzUUHWCM3mjtPDq0aXUPWu/f5wA2sQRFrzf62ohrryYwTwzCKfOkPhrj/N9fN08x0oEKe1eJ
+	7mqC8E6yhe/p1p98MzJHGw5Xra9XAM/AL1CJRRHdAekT1Y5xusO3OoUFwED5Sgm86L9JYLhVKV8j7
+	1YgaFI5AY+64UPB3BenWEkwry6P2fgBPz0UwWJJPDKNXO3Fz9XZS6+1DFDWBfSq1jxA05WtDWNtSZ
+	mPMr7VWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98Ao-00000002qb1-1f7I;
-	Wed, 15 Oct 2025 20:32:38 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1v98Cy-00000002qoS-0LUZ;
+	Wed, 15 Oct 2025 20:34:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98Al-00000002qaX-3DJR;
-	Wed, 15 Oct 2025 20:32:37 +0000
+	id 1v98Cw-00000002qny-0AjB;
+	Wed, 15 Oct 2025 20:34:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=oLA31juQGoiGMUFqFzO9vTxSXS7E8CLrzp7upb7S4y4=; b=RE/bb2wsWC0jFPZ0LnXOCzGckA
+	MSSGJQAdCT0bNdMy2vS/bI1cV+TseWvApROuIScugMXMH3KmH3GSuOyHcghxkjxg/GawZtAMfqV77
+	fNWaUlKUB9ZpgL2864hrTB7NvzodbvaK5XdHINIs5ouvPnIM2SHsCe/4DEQQCjqTNCPWfUw8YepfM
+	0htiYe6MfpCEcfHecLu/8/3R3zszcjTy+sJEKgD9Wzd9Wu2i9OrQHYUZe/V6kHiStVfYeNe+vVgn0
+	peXx4wSWY79Ydj4qw8XhW02ljHsWpZnrxTrP6L2A+QrgmEGwT8pWJt7+qgzTywCmLUMjyrKQQVtpa
+	RSqKBVgA==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v98Ce-00000006Egi-0z28;
+	Wed, 15 Oct 2025 20:34:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=fLl6q1Y+72vHxOIMF4slDKrUf5187PWqHxWI44dG6yE=; b=Yfz7vK+9g3WW7BmyFBFji3dkMU
-	UevXDzFQ4ydupk++uQA9CA0Kni3han+FwzAvwR1aU2BFfJ6pKsTFz8BXw/B4dY28bnusWTOcilWIq
-	c5tT3UCH41N0TqRuXgZYdT1jnvonWs1mYI7vkq0kQ53SMjy0hakUfxwHDXc6KMNHe2sdPT8guKzGV
-	SLDjaMJm2Ce7EM6fEw9FapvU2XaIlLVoyFSK+kWCiYyyJ1aWdU2lTKwtizn8jxC/H2TXSuQkufMLK
-	JS0q3ff+QkqkfAJCiLHiCrCMGVMhAJ6y5nElRZXCJt86E9KkViyTeu9wmkejJwNgyfRqhE2eDurvE
-	8f/4GNWA==;
+	bh=oLA31juQGoiGMUFqFzO9vTxSXS7E8CLrzp7upb7S4y4=; b=rzJavV87hAgCX95iHRI8ObRfv3
+	wEp+Pc0pnwzuAcaIiVvZGyZXJuiKY5TIr0dvGQsZ55qp1R0ec/kDZMhUoiCYl3Ddk3YRCukg1tIXk
+	zjfH50xfAm98qHeof2rRjjna6bPfZPlEmUQ0D843Lm9jdubu/3lN7Mx1krASzz/75FztfB0DrtIXA
+	gdo338yTXvbipLWJZslBzbEN3hTKnmE9h6rs94OoKUvIJKfLBbVosU+CGe8pn7rMreD62EIE5OZIa
+	JLBcqXCcw3i53sP+GIEZ57MjjAXVL9VC55b3ZK5+aSFfJVntsR42Ttet1+vztxHTzRiI+DgFlpDh9
+	OkHOY6qQ==;
 Received: from i53875a40.versanet.de ([83.135.90.64] helo=localhost.localdomain)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1v98AD-0002OA-JH; Wed, 15 Oct 2025 22:32:01 +0200
+	id 1v98C8-0002Qp-Oa; Wed, 15 Oct 2025 22:34:00 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: Sandy Huang <hjc@rock-chips.com>,
 	Andy Yan <andy.yan@rock-chips.com>,
@@ -68,8 +82,8 @@ Cc: Heiko Stuebner <heiko@sntech.de>,
 	Derek Foreman <derek.foreman@collabora.com>,
 	Daniel Stone <daniels@collabora.com>
 Subject: Re: (subset) [PATCH v4 0/6] Add HDMI CEC support to Rockchip RK3588/RK3576 SoCs
-Date: Wed, 15 Oct 2025 22:31:51 +0200
-Message-ID: <176056029579.2036456.8048983695806935631.b4-ty@sntech.de>
+Date: Wed, 15 Oct 2025 22:33:50 +0200
+Message-ID: <176056042470.2037566.16932540958621144492.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
 References: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
@@ -77,8 +91,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_133235_851189_3A6CF2CF 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20251015_213435_058148_D8BD651B 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,16 +122,8 @@ On Wed, 03 Sep 2025 21:50:58 +0300, Cristian Ciocaltea wrote:
 
 Applied, thanks!
 
-[1/6] drm/bridge: dw-hdmi-qp: Add CEC support
-      commit: e4a2d54a2f1a9c9a1971651832c8f0ad9d3782c4
-[2/6] drm/bridge: dw-hdmi-qp: Fixup timer base setup
-      commit: f7a1de0d86221000dc0699a8b48ad3a848e766d9
-[3/6] drm/rockchip: dw_hdmi_qp: Improve error handling with dev_err_probe()
-      commit: b6736a4ea3fa68524074a18334f344a34a05bee8
-[4/6] drm/rockchip: dw_hdmi_qp: Provide CEC IRQ in dw_hdmi_qp_plat_data
-      commit: 9baa02327adf2b1e919e95af23036102cfd0133f
-[5/6] drm/rockchip: dw_hdmi_qp: Provide ref clock rate in dw_hdmi_qp_plat_data
-      commit: 33ea4d520fbda505e2cfe5b36ebf522de1f3f5e9
+[6/6] arm64: defconfig: Enable DW HDMI QP CEC support
+      commit: ae753d769a5f63cddd483ec50067ec61eef5489d
 
 Best regards,
 -- 
