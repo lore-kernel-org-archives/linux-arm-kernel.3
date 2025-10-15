@@ -4,94 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFCB4CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 15:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6119CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 15:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ILwpaE+T5XpzmGXk5vDJm+k5n9Pb/8cfvXWouFnzCso=; b=TKghwEjns5TY+7QR1PqnxO90Dh
-	AUEIrjJH6m2vgj71+lOb4Se0dEwVHKx1QUSdm5+6CLIbm+lrkGa9BfAOEA5gvhmJwOfLFRtWutwXl
-	nnMrqS3OLrmT9lXcDuF8wA5hAfri7/EFEg5DeBHvpaqXjhulNnZQD+dYFD8ynUsTzEWkmNhY0OCsC
-	hPX+GKyH+C2cc0BU9Jb9rLyg8fzwo9CnibB/9fAEKvMUW15qBMoYOkoaLJY7DrwLAn/+fkplX+UjA
-	aGNtDV70NHCPbrTznmufz1BSLgzEMwcYbcoOuchcCQXCzYblk620fW/xz2PZVj2Hta6cISdM185a3
-	GRGH+2FQ==;
+	bh=6dUT2aqA1jAvoeooAc2ZpehL8Qek8bypoSCOPoN+1y8=; b=AwwLjV4ZxUMpg53DchjNKRexzW
+	L4+YPzVE5+1P6qgfZvGYRixvCzN/+9KlSN6LthskqSg7GPMNJpsuZdnYIGnt5Hizd2NJbHRuKfxQN
+	BCAUOcxuypr0ju/Bj8RIT+z2tVrQNX5sg7zfn6LIXMohFR0cRS2tsCqyagqVoP/rwfdttpdh9lq1/
+	ivJmyUIcdDxGAqIOpRUQyyP0u+eV5UbyE/XCo3hIVwAXxNn2ScleuzDSbCIJjGvFFPDWVpfOgevdW
+	nqPUGhpOmRH7thdJOhAz/xr1xCc93YegU/Wv+iaBmapoez/AmMMP7cS09RuGfmEfy9yDOo/zYnfdL
+	jUATVSyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v938j-000000022ws-1AGZ;
-	Wed, 15 Oct 2025 15:10:09 +0000
-Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
+	id 1v93A7-000000023Cd-2qf9;
+	Wed, 15 Oct 2025 15:11:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v938g-000000022wQ-1Y17
+	id 1v93A4-000000023Bn-2V1O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 15:10:07 +0000
-Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-7960d69f14bso53265596d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 08:10:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1760541003; x=1761145803; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ILwpaE+T5XpzmGXk5vDJm+k5n9Pb/8cfvXWouFnzCso=;
-        b=k7geZ5KCcSRoq50E9KwiSQoIKAaSfRPlr/E3wuVctIaKeUKYMgvdoBrjzT0iCPFl29
-         oLRa/RuqYn3UGf7ikqYSgtg9y5LIDbxVcL1tT/unSU9foZAc/CHFEdSsQRcfb1Tj8exu
-         A5hogDQhOS6+0ESMuRgi/j1R6WowYXMFIqSzPB5/hzJnxCbOADwjfj1XLCpJFPuXuDoH
-         ENIw1ugkZfjDwQ3am782XCTPMJocvgpIXxBGFJH6+NQWiRuYzyP1JKb/Wme9Ig7n/B+B
-         vaxzJSh8cnlowoDy5RouJUU/06feIVa6+OcUE7jrpFnXFfyPRnXM5RaZ0CXS0eqF4YXt
-         hYIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760541003; x=1761145803;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ILwpaE+T5XpzmGXk5vDJm+k5n9Pb/8cfvXWouFnzCso=;
-        b=H0T70ILaGVIrwr8SvvhaY2daEMmJALx7PLdUFtlG5ib92drbWrWLyKcT3D1csg3DCU
-         CTBVnGTtVYwOMrL7+3YppHkVt17be6dPLNmDHi/FDSxgZ9yeZqMb6y7ETn7+4BKtiukD
-         EOFihR6yehPSbdo643+XbVQptPXXPDAaUG/L6dRXcTDGgRGVKUwZVfX8UHjtkFw3wdgD
-         RZKzJb+SHkplhfNSHk76SvWGvr3KBvNqBKLce8qqoBqfOZotOjtdFEvc/fKzrR8d31JD
-         Jl/ZtNuni5VwsIrwC+1iGPF+0WWvBwDHycbAevEP3WdFiCR5IwJJir6oMx2WYndIeeLW
-         4OYg==
-X-Forwarded-Encrypted: i=1; AJvYcCW9EkI4m6iq6uh2ogej2/H/TLmgbw3B2K7xRp6RtKS9bn19fIZdr/qAOlP8Sb3fOntzqzsvkhkxpwDN+1MpyAa/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTqjejycNF/1tGv9sEpzcA/8NjqBtBBnmz4BFj4V6WFnXz1vMf
-	GPBSrG1joWZLE+zsiN4BqTvvju+BJ8pAN5UHfoElo42xbGxeIfroPJlqdu8TnfX6OkQ=
-X-Gm-Gg: ASbGncsqy6/4um+ZNW2pIqMNYwId+Hpw/DHRY5aZ4fLtO9J9LZtz84zuRa5te7DpkYk
-	lSYAwjd+99p+yqLwvaNDz+l7ZTxbUtS/ERpiNUFAEV1mQqnYq/GK4HQM0BvtHmgxHWaTGOhPBtX
-	fHY7oy3Vb0DZRn8GpvLqUdbWQytuZbrgXDmTPylFyooMXBk3UZryjOUTp2KQ1X3SpcPTOvA/q/o
-	ElzxhAjN+djlZMY2ybfXe33wyZU4nuOWtBgx/s87uZgGQNQHsaoKDrLbKziAyuZQK1f2DNGMfHh
-	ozqBTZuHEOcRBymnC4SJnVTU8wbGdBJgpP0DHLNfuVmHCS4xDbLhLaatrkFNPwY/6EgGk8cYKMe
-	axCqe2m5Uu3GBH+g=
-X-Google-Smtp-Source: AGHT+IGT/kELmEXYXPGlJfuB2PbHSRRnqIl4KI4SjW2i78+LYVAn+gH5X+YwxfAWjMG/wVMJe0rtQQ==
-X-Received: by 2002:ac8:5885:0:b0:4b7:9581:a211 with SMTP id d75a77b69052e-4e6eace7e6cmr385756551cf.24.1760541003496;
-        Wed, 15 Oct 2025 08:10:03 -0700 (PDT)
-Received: from ziepe.ca ([130.41.10.202])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4e881c577e6sm20528841cf.7.2025.10.15.08.10.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Oct 2025 08:10:03 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1v938c-0000000HRP6-0a8o;
-	Wed, 15 Oct 2025 12:10:02 -0300
-Date: Wed, 15 Oct 2025 12:10:02 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	will@kernel.org, joro@8bytes.org, praan@google.com
-Subject: Re: [PATCH v5 4/4] iommu/io-pgtable-arm-selftests: Use KUnit
-Message-ID: <20251015151002.GH3938986@ziepe.ca>
-References: <20250929155001.3287719-1-smostafa@google.com>
- <20250929155001.3287719-5-smostafa@google.com>
- <86ca3918-4992-41a2-894f-f1fd8ce4121f@arm.com>
- <aO9vI1aEhnyZx1PL@google.com>
- <b48193a4-a37b-41ba-b4ba-8b5c67d812bd@arm.com>
+	Wed, 15 Oct 2025 15:11:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=6dUT2aqA1jAvoeooAc2ZpehL8Qek8bypoSCOPoN+1y8=; b=O9P3uEZDSbhAxPmFpIlgHjg83i
+	FMzJkqmt2nbJ7Gjjw0Lzr2XfcDpUItAhPTIxfq2Ugm/HOwAxpOMq8VyBl7gyJkFrbcFS5zpPI7xbi
+	GOZtS0TXl+skDQcp3esrKHleiI/XNyoJkAGqrGFSeQ/KFtf51G6mE5h/Lj9B72i+epQyvl00m1LvG
+	a6wFwulnPrvh8gMGF9j8mjEXahKXpnmKPov2c0PTcWxolwJTLFgr5M8jjNQA8g5VjuGzeQ9AwhbGr
+	EMzpvDGZUhhQ6HmmrpJECbQ08YQI56mR5UseCDov+U5I0PCYyC0hlLEA24biynd4ZgJBPFZwVngtb
+	KoQgsyxA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42702)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v939e-000000004ww-0mbL;
+	Wed, 15 Oct 2025 16:11:06 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v939V-000000002Mf-1caB;
+	Wed, 15 Oct 2025 16:10:57 +0100
+Date: Wed, 15 Oct 2025 16:10:57 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexis Lothore <alexis.lothore@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
+	Furong Xu <0x1207@gmail.com>, Inochi Amaoto <inochiama@gmail.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Kees Cook <kees@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthew Gerlach <matthew.gerlach@altera.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
+	netdev@vger.kernel.org, Oleksij Rempel <o.rempel@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rohan G Thomas <rohan.g.thomas@altera.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Simon Horman <horms@kernel.org>,
+	Song Yoong Siang <yoong.siang.song@intel.com>,
+	Swathi K S <swathi.ks@samsung.com>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>, Vinod Koul <vkoul@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: Re: [PATCH net-next 00/14] net: stmmac: phylink PCS conversion
+Message-ID: <aO-5gVqBV-2Nl7lr@shell.armlinux.org.uk>
+References: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <b48193a4-a37b-41ba-b4ba-8b5c67d812bd@arm.com>
+In-Reply-To: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_081006_434024_72310F56 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20251015_081132_632342_65B0DD38 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,38 +113,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 02:51:15PM +0100, Robin Murphy wrote:
-> On 2025-10-15 10:53 am, Mostafa Saleh wrote:
-> > > Conversely, this is infrastructure, not an actual test of expected
-> > > io-pgtable behaviour, so I think just:
-> > > 
-> > > 	cfg.iommu_dev = kunit_device_register(test, "io-pgtable-test");
-> > > 	if (IS_ERR(cfg.iommu_dev))
-> > > 		return;
-> > > 
-> > > (it doesn't return NULLs either)
-> > > 
-> > 
-> > Yes, I was not sure about this one, when checking the code base, every test
-> > handles kunit_device_register() failure differently, this seemed the
-> > most strict one so I used it, I will update that in the next version.
-> 
-> Yeah, my impression is that those have likely been copied from the
-> lib/kunit/ code where it is actually testing its own API. I've now sent a
-> patch for the example in the docs...
+On Wed, Oct 15, 2025 at 03:19:25PM +0100, Russell King (Oracle) wrote:
+> Changes since RFC:
+> - new patch (7) to remove RGMII "pcs" mode
+> - new patch (8) to move reverse "pcs" mode to stmmac_check_pcs_mode()
+> - new patch (9) to simplify the code moved in the previous patch
+> - new patch (10) to rename the confusing hw->ps to something more
+>   understandable.
+> - new patch (11) to shut up inappropriate complaints about
+>   "snps,ps-speed" being invalid.
+> - new patch (13) to add a MAC .pcs_init method, which will only be
+>   called when core has PCS present.
+> - modify patch 14 to use this new pcs_init method.
 
-I think any failure to run the test should be reported, either with an
-err or a skip. Tests that didn't do anything and silently report
-success are not a good design.
+I've just noticed I sent out RFC v2.. completely forgot about that,
+sorry. This is a subset of RFC v2, but with patches 13 and 14
+reversed.
 
-Looking at the existing users I see alot are in init functions, so
-they propogate an error code and fail the init.
-
-And the rest inside tests do something like this:
-
-	dev = kunit_device_register(test, dev_name);			
-	KUNIT_ASSERT_FALSE_MSG(test, IS_ERR(dev);
-			       "Cannot register test device\n");
-
-Jason
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
