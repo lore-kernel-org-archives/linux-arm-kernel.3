@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75878CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 10:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7551CCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 10:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8qGWfDBGHqSPGWJIrWnQN9/sHI+wC3nVrrOc3hb1m0A=; b=zK+fB1tD3+4EucG71Fy7WYShqF
-	USJegLeOUpvdaTwuL6OheecoZstiW3UfC2AD+08v01h40CxJTv7xDiXvRjadYdH7ZLZddSy08+uAl
-	zSu9MVqPVW/E69H8ECJEHmwlUPLVsHvo51QJ9/IgcO+3nsLxHCjUHEDTEuPZO8p3jv0ih9zX/EY0U
-	r42VR1bB2UnKvvvVntYJAx1mkOGKB4Tlo9IdyZ/6jP4H+iYzYaJA1xqImpJsHlOIe9kUF4znVdAew
-	e8mpn99veX7iecnp3XCVF9k3UuhTlg4NmndvltHtpzxqPvfSRGU80qJyLJfw6dQcUAV09R25xyf3f
-	7SbASPxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iG/85AKKwbDJJtWYd8SFvrYHgR+gi32zwu4a1JLq+qM=; b=ZICGAlL2m5ESCsyUelNW8CwUib
+	RQU1tmxwTKvJnmrlj3aorT/8FFaMOlCVGDS0eeA1UbXLBONnMgAO6hZEbEdnT3Bgi6aVzVdWG9+UX
+	ez5LTU64cviJXVx43b3fRnG+h5Irl07tTQjkMXQqBFrbMXVUiqhtLUS9PdVWqWLxae/AgzTI+8eS7
+	jntU+xxQQBfqT3qZZlmwip303UPnhM4nrzk1J0BoAsrA7VszL5CCXA/W9ZH8WX0ZtpZJkixc3XkLv
+	BehxQEGDbVtFH9ocW+hlGGKrfi4UKMI2Qtmm5HhKopJ50CPoBeoEoNDbVmH5t+g+eJ6baoYn/zl1e
+	DxCN9J/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8yjl-00000001H6J-1jaT;
-	Wed, 15 Oct 2025 10:28:05 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1v8yuW-00000001Ir4-0khm;
+	Wed, 15 Oct 2025 10:39:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8yjg-00000001H2V-2O5u
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 10:28:01 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 85927C09FB1;
-	Wed, 15 Oct 2025 10:27:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9971F606FA;
-	Wed, 15 Oct 2025 10:27:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 40124102F22B6;
-	Wed, 15 Oct 2025 12:27:56 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760524077; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=8qGWfDBGHqSPGWJIrWnQN9/sHI+wC3nVrrOc3hb1m0A=;
-	b=24j3kz+TZBypam4eIYin2oaU8ga44Eb8szSPoPzfttkiNc1sKGA141nc2k50UTsxeDCz81
-	79OVEr6ivEuhso/lXvKdjzzQ26imcDA2VyVIFWJc7F5D2/OhaicI1qtW9P5HfMgb7XZx9/
-	6tmoA7teAreB/HUcPLDy2IWD47ahrhuKETwxrZtaw4rh8Uho4/T0UkkGbRKsCYCs7KZtjJ
-	O01MsgiqKnVANuvlhNENUlQBbfdTWGFRptTcmI5+JeR1AkNZQLqyh8jOWxnVBYyzwRMAib
-	X80psGjtblFuZ1kLqAzVUcKXSpFpTxHqZOm8EvV3jLhRgNFMjDzhgQGe/O2fKA==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 3/3] net: ethtool: tsconfig: Re-configure hwtstamp upon provider change
-Date: Wed, 15 Oct 2025 12:27:23 +0200
-Message-ID: <20251015102725.1297985-4-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
-References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
-MIME-Version: 1.0
+	id 1v8yuU-00000001Iqu-3x3Z;
+	Wed, 15 Oct 2025 10:39:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 46C9463C73;
+	Wed, 15 Oct 2025 10:39:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D136AC4CEF8;
+	Wed, 15 Oct 2025 10:39:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760524750;
+	bh=fkV88xzNOBxhiJYAzo+vp0/1S65ulX6h08+Utw4UAHY=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=r1kbWUUTOfxyTdTPwOXpt39Rpr8e7g1k8pMwRkH/8bBKDHa484BEmKPOB9VengnP3
+	 NeS4SFddmrPG/QoJT+QgM7+3MeA+MkssTYBKum/xlh86P4T8kPaFkvqLu57S5BrA7/
+	 TNNcd6rXOIPuj6tvTXizxjjtkmH6XNyA3PtSBfp66sQkcY+WowJMWwA2Z2AAwnqu7q
+	 ZKqsKyLrj+tG/Vni9KON3tR0GmyvuAp7PPn7lFRhEkqDTlMNxSq7noeisouuPY1CVJ
+	 jIAXSEDUUM8Pta6qec8WdaUs5TZIOs/jzhoK7itDGZqd0f6WxHJxTiYAu7X05u/pRz
+	 pfEloxPhWVd6A==
+Date: Wed, 15 Oct 2025 05:39:08 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_032800_796794_2074F227 
-X-CRM114-Status: GOOD (  12.01  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: huangtao@rock-chips.com, mturquette@baylibre.com, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, heiko@sntech.de, linux-kernel@vger.kernel.org, 
+ sboyd@kernel.org, linux-rockchip@lists.infradead.org, 
+ sugar.zhang@rock-chips.com, krzysztof.kozlowski+dt@linaro.org, 
+ conor+dt@kernel.org
+To: Elaine Zhang <zhangqing@rock-chips.com>
+In-Reply-To: <20251015091325.71333-5-zhangqing@rock-chips.com>
+References: <20251015091325.71333-1-zhangqing@rock-chips.com>
+ <20251015091325.71333-5-zhangqing@rock-chips.com>
+Message-Id: <176052474812.2747948.16094630687510808403.robh@kernel.org>
+Subject: Re: [PATCH v1 4/5] dt-bindings: clock: Add support for rockchip
+ pvtpll
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,33 +73,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a hwprov timestamping source is changed, but without updating the
-timestamping parameters, we may want to reconfigure the timestamping
-source to enable the new provider.
 
-This is especially important if the same HW unit implements 2 providers,
-a precise and an approx one. In this case, we need to make sure we call
-the hwtstamp_set operation for the newly selected provider.
+On Wed, 15 Oct 2025 17:13:24 +0800, Elaine Zhang wrote:
+> Add pvtpll documentation for rockchip.
+> 
+> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+> ---
+>  .../bindings/clock/rockchip,clk-pvtpll.yaml   | 100 ++++++++++++++++++
+>  1 file changed, 100 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,clk-pvtpll.yaml
+> 
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- net/ethtool/tsconfig.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/net/ethtool/tsconfig.c b/net/ethtool/tsconfig.c
-index 169b413b31fc..e8333452926d 100644
---- a/net/ethtool/tsconfig.c
-+++ b/net/ethtool/tsconfig.c
-@@ -416,7 +416,7 @@ static int ethnl_set_tsconfig(struct ethnl_req_info *req_base,
- 			kfree_rcu(__hwprov, rcu_head);
- 	}
- 
--	if (config_mod) {
-+	if (config_mod || hwprov_mod) {
- 		ret = dev_set_hwtstamp_phylib(dev, &hwtst_config,
- 					      info->extack);
- 		if (ret < 0)
--- 
-2.49.0
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Lexical error: Documentation/devicetree/bindings/clock/rockchip,clk-pvtpll.example.dts:21.26-32 Unexpected 'ARMCLK'
+Lexical error: Documentation/devicetree/bindings/clock/rockchip,clk-pvtpll.example.dts:117.26-35 Unexpected 'ACLK_RKNN'
+FATAL ERROR: Syntax error parsing input tree
+make[2]: *** [scripts/Makefile.dtbs:132: Documentation/devicetree/bindings/clock/rockchip,clk-pvtpll.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1525: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251015091325.71333-5-zhangqing@rock-chips.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
