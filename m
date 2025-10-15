@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66396CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 02:10:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72610CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 02:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XsK65i3LwGs3tae90tjFNrWeGw+iqQHiFA31OY0PHFg=; b=MEP6c30a+F7zbmmoP9F9cvD+Ep
-	Jw3UvLDrfVv0MkzWoNLqYrOfQQuLflfIe+tdll8aWDAKZB8WGkXrAqvdqNl1zJ3FbNFdgBRoqyLYx
-	SOHqd9qftU9AQU5l8BRHWJeBFYhItvYnihclw7CQhGZLE833bCOlaq9Aq2P1ZHeYi8BGDjIIBd5Vr
-	GS+/stQZcc6/gZX8koU0E6WFcarITJC2DesFU5wRZER9BHGNM+J2XU7w26M0ariI3u4gazsnQSxyE
-	Bu4XRHKEjY8/gCZSgGR74mZXBWjmjZuBJGaag2k/44sfnxCDLctsWjTpUsHGYYAMH44L0/aCrNou1
-	bksPzXwg==;
+	bh=Wtsl0ZUy9+FjGz3bOCtKxLHU4fboPLGc7A+Rl50kstc=; b=Jqr644ySLe+udhU0FpiEZiGfFN
+	f5uj7RCBI50YB+ui8frMLoQ8Mz5zd9d8aQxWW7r1tn3FVRmQqgX6znJKXyIvyxLdMRU0pdSdf2DC9
+	Gm0KkUIKJpc9qoMw/g1I9+Hy6BIyFpTjcU+LuPJ30EXJh4V8jgRLVmgNelpLRCTjbGsd3sWaEsPK1
+	95csOEIoGJeI91uPH8L+08BCDHsrzCsbf/UV9nnSmig9GDK8LR618YurWwQMpLv6qkstt9A+lIzvX
+	1Z8Ezzxj+j/fXde1i0snIa92POQY+dURDyIcXTdmR0uA54yT8KQjQ3xK98ZUIWRsXJIzVF+qj/yTZ
+	L9D2qt6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8qyK-00000000Dzf-38vL;
-	Wed, 15 Oct 2025 02:10:36 +0000
+	id 1v8rND-00000000FXH-3CaK;
+	Wed, 15 Oct 2025 02:36:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8qyH-00000000Dyr-11nl
+	id 1v8rNC-00000000FWt-06mn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 02:10:34 +0000
+	Wed, 15 Oct 2025 02:36:19 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B25F1A32;
-	Tue, 14 Oct 2025 19:10:24 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51AE21A32;
+	Tue, 14 Oct 2025 19:36:08 -0700 (PDT)
 Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DD4833F738;
-	Tue, 14 Oct 2025 19:10:30 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3119B3F738;
+	Tue, 14 Oct 2025 19:36:15 -0700 (PDT)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Cc: ryan.roberts@arm.com,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64/mm: Drop cpu_set_[default|idmap]_tcr_t0sz()
-Date: Wed, 15 Oct 2025 03:10:24 +0100
-Message-Id: <20251015021024.366722-1-anshuman.khandual@arm.com>
+Subject: [PATCH] arm64/mm: Drop redundant extern declaration for rodata_full
+Date: Wed, 15 Oct 2025 03:36:09 +0100
+Message-Id: <20251015023609.427911-1-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_191033_317791_DEEAD33A 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20251014_193618_108955_E2241341 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,9 +63,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These TCR_El1 helpers don't have any other callers. Drop these redundant
-indirections completely thus making this code more compact and readable.
-No functional change.
+Drop the redundant extern declaration 'rodata_full' which can be included
+via the header <asm/setup.h> after moving exiting declaration outside the
+function arch_parse_debug_rodata(). While here also drop 'rodata_enabled'
+which is anyways available via the generic header <linux/init.h>.
 
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
@@ -73,53 +74,41 @@ Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/arm64/include/asm/mmu_context.h | 12 ++----------
- 1 file changed, 2 insertions(+), 10 deletions(-)
+ arch/arm64/include/asm/mmu_context.h | 2 --
+ arch/arm64/include/asm/setup.h       | 4 +---
+ 2 files changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-index 1b4ac7b23e18..0375ca3162ff 100644
+index 0375ca3162ff..e4b3563e1d96 100644
 --- a/arch/arm64/include/asm/mmu_context.h
 +++ b/arch/arm64/include/asm/mmu_context.h
-@@ -61,11 +61,6 @@ static inline void cpu_switch_mm(pgd_t *pgd, struct mm_struct *mm)
- 	cpu_do_switch_mm(virt_to_phys(pgd),mm);
- }
+@@ -26,8 +26,6 @@
+ #include <asm/sysreg.h>
+ #include <asm/tlbflush.h>
  
--/*
-- * TCR.T0SZ value to use when the ID map is active.
-- */
--#define idmap_t0sz	TCR_T0SZ(IDMAP_VA_BITS)
+-extern bool rodata_full;
 -
- /*
-  * Ensure TCR.T0SZ is set to the provided value.
-  */
-@@ -82,9 +77,6 @@ static inline void __cpu_set_tcr_t0sz(unsigned long t0sz)
- 	isb();
- }
- 
--#define cpu_set_default_tcr_t0sz()	__cpu_set_tcr_t0sz(TCR_T0SZ(vabits_actual))
--#define cpu_set_idmap_tcr_t0sz()	__cpu_set_tcr_t0sz(idmap_t0sz)
--
- /*
-  * Remove the idmap from TTBR0_EL1 and install the pgd of the active mm.
-  *
-@@ -103,7 +95,7 @@ static inline void cpu_uninstall_idmap(void)
- 
- 	cpu_set_reserved_ttbr0();
- 	local_flush_tlb_all();
--	cpu_set_default_tcr_t0sz();
-+	__cpu_set_tcr_t0sz(TCR_T0SZ(vabits_actual));
- 
- 	if (mm != &init_mm && !system_uses_ttbr0_pan())
- 		cpu_switch_mm(mm->pgd, mm);
-@@ -113,7 +105,7 @@ static inline void cpu_install_idmap(void)
+ static inline void contextidr_thread_switch(struct task_struct *next)
  {
- 	cpu_set_reserved_ttbr0();
- 	local_flush_tlb_all();
--	cpu_set_idmap_tcr_t0sz();
-+	__cpu_set_tcr_t0sz(TCR_T0SZ(IDMAP_VA_BITS));
+ 	if (!IS_ENABLED(CONFIG_PID_IN_CONTEXTIDR))
+diff --git a/arch/arm64/include/asm/setup.h b/arch/arm64/include/asm/setup.h
+index 3d96dde4d214..902f1aab520f 100644
+--- a/arch/arm64/include/asm/setup.h
++++ b/arch/arm64/include/asm/setup.h
+@@ -12,12 +12,10 @@
+  */
+ extern phys_addr_t __fdt_pointer __initdata;
+ extern u64 __cacheline_aligned boot_args[4];
++extern bool rodata_full;
  
- 	cpu_switch_mm(lm_alias(idmap_pg_dir), &init_mm);
- }
+ static inline bool arch_parse_debug_rodata(char *arg)
+ {
+-	extern bool rodata_enabled;
+-	extern bool rodata_full;
+-
+ 	if (!arg)
+ 		return false;
+ 
 -- 
 2.30.2
 
