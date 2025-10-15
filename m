@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB225CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EDFCCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eplxvysfx85LPhdZ5hWcUUD0i0J3w274wHdDz18TaWo=; b=KLQZdfpSfBJ/Ewqcc7BVBo8YoJ
-	x2gGxyO2AjnjD9UmLiYbARSjAfg6XRiXohIzP0agkcKBIK4LeMWNiZlJtEPhel+z0OKilKg83nwd8
-	2n/Xv7Rv8y8cr223jkPwIG2HAofLSG1/PjE2lT81dJOHwKwDwHJjniGFTMJ/H2s25LNOaYO3425qJ
-	MCh1TzhKJGCBoNZveqk00bCdhTMj7/Q5r9UulAjyfXDUa8+6sBBzALTWoa59f4H8XMTjs4nwFJNpH
-	51o/GtrIVbuBQIqG7oJnphb54yo8eK7y3Z4xMVxIj8sn4vnbkSNJN9WPrnBG3LTS3jSZZ5pYGhmot
-	ACEIxoCQ==;
+	bh=+RAcB1KnTu10/U/5AH7wLJv4yw422htNmPqwtIjsMk4=; b=2lgKPana8wdo0/VK+sRni2EGE6
+	5Vo7QXIwUqXRbJW8Lsr4fcYYIGwBSTbtXC0Bcm/IXH/XwXzuLEwWPBWE1tCVB8EQGwddV5rfMQ/JD
+	HrF7SR7O166+yR1WENsen3EZ/P5+z45oVn1ZhNFqpFlCPyLdThTmWatotf4XHlzXmk+OrKgnqNGlr
+	qgAckEoU9oemnT5pcXu1MJrFb9uu05jpVgnelBXq4siXy4FlSypad5vr5QDbtnu9VpFUIJ/L+LMdm
+	unGiQZk5mLcf3de3XIbJukqGpqlPzmbHktN6TpFgcf2H4L3PWwZVm5n+4l7zmP9AlHfrSpilaTKgZ
+	f/P1GdAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v945r-00000002FQK-1bTe;
-	Wed, 15 Oct 2025 16:11:15 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1v94D0-00000002GeF-0xfZ;
+	Wed, 15 Oct 2025 16:18:38 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v945o-00000002FM0-0SCy
+	id 1v94Cx-00000002Gdc-1y7L
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 16:11:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=eplxvysfx85LPhdZ5hWcUUD0i0J3w274wHdDz18TaWo=; b=HMbUq3eIlPgCK522VNy2nopUYq
-	bQGaUVC9JCVn8ftCRCvjxzbPLuQVr0BInbCKKAINI9eipgUEdzA1LAJ4Ak9GXzR4Gvc5YGjufyWIT
-	WuSyNHpllPjvr9KXB4GDd/rQOpVNDYr75tlRHAc1YPiajIzKp7IcrzsDRAVtUAzBIDUZkcwd6KLo0
-	UR/ghtOA18pTwvk0u/0zSO6cxDIJBbPwqaNp1VN00Usvt0kbsloAe4HPQG4BM27zjSzDyopkcYcNj
-	JWcpXCi3QT0vw19qmqOp+R2ivohoAbvoNgn1tSVfu2v3AiX5ynLyg4EtXfQUX8NyCh/wu/PKgYbod
-	BCXzzslg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42348 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1v945g-000000005Ar-3gCO;
-	Wed, 15 Oct 2025 17:11:05 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1v945d-0000000Ameh-3Bs7;
-	Wed, 15 Oct 2025 17:11:01 +0100
-In-Reply-To: <aO_HIwT_YvxkDS8D@shell.armlinux.org.uk>
-References: <aO_HIwT_YvxkDS8D@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 5/5] net: stmmac: rename stmmac_phy_setup() to
- include phylink
+	Wed, 15 Oct 2025 16:18:37 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cmx8k3hfSz9spd;
+	Wed, 15 Oct 2025 18:18:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760545110;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+RAcB1KnTu10/U/5AH7wLJv4yw422htNmPqwtIjsMk4=;
+	b=V1Gj3UXlTfbAXXf5H8fENfL7wuosE2RSQoMBoCz53MsTllEkLuoeDDji6805ZHRW/Gw2o0
+	Xu+HELzQrpUOJ4rxjwCf0hYN+hyML3uTegapcoIlXOoLI25GNkOeBr85BaF976a60WtRex
+	aOjTyjwPhdras7ObxUNPbMgCA/y5MfJPz+G5148y3bXilFNgAZFtArFRjUA3aq0/Sw8eGq
+	xoNLrI70eJJzv70Rxl8IVKoG2unPNxQZZWlxubfp++LOdQPT/f/Wz+9U6Zq7qJwowPxn9k
+	DG2C8guxzonxJujbwt0iuMaFLr19G69W9/ZMo/0Q+roji0ksHOC2+vvHviKJww==
+Message-ID: <e0507800-7e86-4fbb-95cb-e64d8cca1e49@mailbox.org>
+Date: Wed, 15 Oct 2025 18:18:25 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1v945d-0000000Ameh-3Bs7@rmk-PC.armlinux.org.uk>
-Date: Wed, 15 Oct 2025 17:11:01 +0100
+Subject: Re: [PATCH 00/39] Add i.MX95 DPU/DSI/LVDS support
+To: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org
+Cc: Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+ <174ec43e-4cac-4452-a77b-e2e3b8413d05@nxp.com>
+ <2c4a42eb-8c49-4ba3-baa3-921ec52f730d@mailbox.org>
+ <92d928cc-d9df-4c9c-8571-da39001b91a7@nxp.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <92d928cc-d9df-4c9c-8571-da39001b91a7@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 03ff7b3109451a21313
+X-MBO-RS-META: kx1epfwft5um1jo7qw14sxkpbgi5h5ht
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_091112_150583_805D3BC5 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20251015_091836_072770_FE996797 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +87,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_phy_setup() does not set up any PHY, but does setup phylink.
-Rename this function to stmmac_phylink_setup() to reflect more what
-it is doing.
+On 10/15/25 12:00 PM, Liu Ying wrote:
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Hi,
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 500cfd19e6b5..c9fa965c8566 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1185,7 +1185,7 @@ static int stmmac_init_phy(struct net_device *dev)
- 	return 0;
- }
- 
--static int stmmac_phy_setup(struct stmmac_priv *priv)
-+static int stmmac_phylink_setup(struct stmmac_priv *priv)
- {
- 	struct stmmac_mdio_bus_data *mdio_bus_data;
- 	struct phylink_config *config;
-@@ -7642,7 +7642,7 @@ int stmmac_dvr_probe(struct device *device,
- 	if (ret)
- 		goto error_pcs_setup;
- 
--	ret = stmmac_phy_setup(priv);
-+	ret = stmmac_phylink_setup(priv);
- 	if (ret) {
- 		netdev_err(ndev, "failed to setup phy (%d)\n", ret);
- 		goto error_phy_setup;
--- 
-2.47.3
+>> I wanted to put this whole thing on the list first, before I start splitting it up.
+>>
+>> For starters, I think I can send these separately:
+> 
+> Before discussing how to split, a bigger question is that is it fine to
+> support both i.MX8qxp DC and i.MX95 DC in the same imx8_dc_drm module?
+> Separate modules look more reasonable to me, considering the fact that
+> there are quite a lot difference between the two DCs.
 
+(maybe I do not quite understand your suggestion with "separate module", 
+I assume this means entirely duplicate driver, is that correct? I 
+operate with that assumption in the text below.)
+
+This series indicates that the functional units in the DC are basically 
+identical, with the majority of changes being register base addresses of 
+the whole DC and an odd bit or register offset here and there. Most of 
+the code can be reused, as can be seen in the first half of the series.
+
+The addition of iMX95 into the iMX8QXP DC also does not seem to be 
+making the driver in any way more complicated.
+
+What would be the benefit of having duplicate driver for IP that is 
+basically identical, for i.MX95 ?
+
+[...]
+
+>> - drm/imx: dc: Rename i.MX8QXP specific Link IDs
+> 
+> TBH, I'm not a big fan of adding LINK_ID_x_MXy to enum dc_link_id, since
+> the members may have the same value and it's kind of a mess considering
+> future SoCs.
+
+I am open to a better suggestion which does not involve duplicate driver.
+
+>> - drm/imx: Add more RGB swizzling options
+> 
+> This one seems ok.
+
+I can send that one separately. Can you test that on MX8QXP ? I don't 
+have a board with that SoC, sorry.
+
+[...]
+
+> I kind of opt to separate modules.  Maybe, to save some code, an additional
+> module can be introduced to wrap common part as helpers, plus some callback
+> magics, like fg->dc_fg_cfg_videomode().
+Let me ask for clarification here -- by separate modules, do you mean 
+two totally separate drivers ?
 
