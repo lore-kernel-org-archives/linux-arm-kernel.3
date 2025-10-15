@@ -4,66 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57FD8CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 08:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0EC2CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 08:45:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vN1LEfAFOswtHugzu9XIYq8P3c19bQGK8wW45PsaC+4=; b=cBM360B4ezRhhBFYbqHnUgZ9Ki
-	x3F+ZH/GXO42H8ll0c1FM35y0IPTKNC1iW/HwFl48vpw6fg68LVolXnYRreRZ6NDgO9zjLVNg0Tvw
-	1HUwPALpYnsi12fj9xklHO4P7bIvZemLgAYb+S4Q3ONE9EbpKlslJ1Hgarj5MOUpvVF9CT2e7VtJ1
-	Z69YutN2reEbwIeFy73fOQGxyuw+BC2SVdgvD+BGTJ4UibTpsaKwyPqVrqovSQq+7aK8OpsNCzjQK
-	tS1OuBe1U2+n0SmeQGLpsxUf2PL66/ocktiW6kcHil5IPS+NhXkc63csqtbtFHbsi48UEQMvdJEQl
-	qz6ZDkbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tT4lZcR4ZBn0xrtO1ZVUt8Qt1hpqfjpfEUFhsYPVrd4=; b=E87piEF39uKP0zVo9v68Bs2Hl/
+	saRUYbehltQacvaNuwONvWf9TruxS4I/p5gauXE8ybOBIclxXAcB9qsARSHhnOy/npN8NfP1WGJe2
+	37EGmoyFsiwfWYSJEPPCUXJYoMKLtgr5zGm03zlaNDm589qbNRZLmzNqXFxnQRvkw1rrKIR9UI6+a
+	L8LwheOa82oDyvL+xix0wjnza0p6iqQSGrks2ZrH7IbqX0MKpyTV4v2Au+zpRBrNrnf3U2FodY3I5
+	3C0YDwgtgDflEfoBCFAjSboNyDQ5kkdfaMWVjOQwumDPoHO3t7+3xX0K4iFPXOkinfQKmOvyq0prx
+	NcDEmqTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8x6V-00000000yFP-0c1T;
-	Wed, 15 Oct 2025 08:43:27 +0000
-Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
+	id 1v8x8l-00000000yVp-16DK;
+	Wed, 15 Oct 2025 08:45:47 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8x6R-00000000yDf-0EiE
+	id 1v8x8i-00000000yV6-1pZJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 08:43:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1760517798; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=vN1LEfAFOswtHugzu9XIYq8P3c19bQGK8wW45PsaC+4=;
-	b=jF5VVwGBZSa+7aFnjbNhR71v09VL1UO4UmZfyQIkB2kmvJaGh+xbzpd07MzEZy9DNPzNJURDkQzKemvsORFC94VMjQy2dlDLs5N946DP3ARyPyPx01bnGdylAscbAkd+Zycf/uPJFkZ7HMwHinJc7r6+IRW3EyH5cT0w8+/zNTw=
-Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WqFjWUn_1760517795 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 15 Oct 2025 16:43:16 +0800
-From: "Huang, Ying" <ying.huang@linux.alibaba.com>
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,  David Hildenbrand
- <david@redhat.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
- <will@kernel.org>,  Andrew Morton <akpm@linux-foundation.org>,  Vlastimil
- Babka <vbabka@suse.cz>,  Zi Yan <ziy@nvidia.com>,  Baolin Wang
- <baolin.wang@linux.alibaba.com>,  Ryan Roberts <ryan.roberts@arm.com>,
-  Yang Shi <yang@os.amperecomputing.com>,  "Christoph Lameter (Ampere)"
- <cl@gentwo.org>,  Dev Jain <dev.jain@arm.com>,  Barry Song
- <baohua@kernel.org>,  Anshuman Khandual <anshuman.khandual@arm.com>,
-  Yicong Yang <yangyicong@hisilicon.com>,  Kefeng Wang
- <wangkefeng.wang@huawei.com>,  Kevin Brodsky <kevin.brodsky@arm.com>,  Yin
- Fengwei <fengwei_yin@linux.alibaba.com>,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  linux-mm@kvack.org
-Subject: Re: [PATCH -v2 1/2] mm: add spurious fault fixing support for huge pmd
-In-Reply-To: <4c453dcc-2837-4f1a-905b-3462270f5e31@lucifer.local> (Lorenzo
-	Stoakes's message of "Tue, 14 Oct 2025 15:21:33 +0100")
-References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
-	<20251013092038.6963-2-ying.huang@linux.alibaba.com>
-	<4c453dcc-2837-4f1a-905b-3462270f5e31@lucifer.local>
-Date: Wed, 15 Oct 2025 16:43:14 +0800
-Message-ID: <87ldlcpnbx.fsf@DESKTOP-5N7EMDA>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Wed, 15 Oct 2025 08:45:45 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59F2sEGu002648
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 08:45:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	tT4lZcR4ZBn0xrtO1ZVUt8Qt1hpqfjpfEUFhsYPVrd4=; b=IURcAa4OWNIyJpVU
+	dkvIYnvv9CxyWyiPfN1Ayf/7fdLEaBNrnnowSgk+6ysNQV+QAvov8bdIXdv0dlia
+	OAy1vdwUHRlVqVzzY9eM7n2lZxup9Vp+xuTt3/oomYvLT5lQ3V5TMv0OUTzZtrBV
+	Hjdayh/XwxnLQEtxIiUyN1F5M7JTVPcxQOK44/+Jj/KcKkVdCQbKJJfTJYuL15Ko
+	ONaEosj0SVOYB2TWVJMG3xDith2hfUicyMOFBFVnDcicT8ECuoyp0yPWki/qzjqd
+	YjBdA+V7mci9/R6qI3utMV5s0JFCBGZZ3cfz5xKgCOwSMT1XCvjqD/Rj376uPaLX
+	bZ+D+Q==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qfd93spn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 08:45:43 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-286a252bfbfso249909175ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 01:45:43 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760517943; x=1761122743;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tT4lZcR4ZBn0xrtO1ZVUt8Qt1hpqfjpfEUFhsYPVrd4=;
+        b=TreBewzNUCfdB6aDXwaQwA0lXWq8elUWDxrDa6WBW2nnqHoSOZJBMkEHR9GjMGtpzq
+         cKYusJbHh8qZ0UYmNhTP3phLrw2AAwqH06WwofsHRarelruJXf2qCJwNJWYTK1KxFKY+
+         7CX65D17GCnxqzfFar8Un0I5M25BJQycvidEkBhY9B7AgSjMUN4ZH++BrTo3d7ql4/dC
+         GEsoNZVSk3WxoFUFE9+SouZTQIQYf2XTAWsSLJF2VxHR3hX5c0fV4vgAtz3qjjWbnih9
+         33kvWfCuSy81UDHoMrVMWBrwGTOx56tuPCYlHZUFmBkvKhbBUwAScQUn5LCwFPvDO1oL
+         8y4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW8EsJObPLQYPWJrFKJM6itJ7g4+ozB4qTwEuMh7ZAFZ1aRj0aaMFRYDU+p9bCZMNaZIG/bXfMJMPzDU4qDLMBq@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywd0tZHHtOCqCCe1fks/8EI/uMJjsJwIaHIeQRoGVIsKv+vGE7s
+	ejm75ro13g5MneqpZh9VIvgo78TcoPyewGGJ4hWd8y57ojUCgbXQHTfGwy1xPWP37wAW031F/k+
+	g0+yM9CHoDgVEUycL9Plm7qwjXVnJ/cF66IVEDUQFkW0U3AgQWd74XzXL9B3/efbOPtMoOgz1f8
+	mSWg==
+X-Gm-Gg: ASbGncvtL8jpwideFE8jrM14J4cXI7Ui+/kHSnDp8qw/JA+PFpd4yLl82uX6phSa2V2
+	Ih9BrKitn7T/OlrG2z08bmk0FAe/fce6cK3Z+BEVXW9mvkfh73+deIWsCKkhZFc2SFmvRqJEolL
+	oF1IeXV/Yfx91H5+jG8ae9PlrJAzpRg1ATlbErO9TNMwx/52RLPM0vRzPhxmh6HWJLIVOkg+n+t
+	66XZ3ac1rhylS/X/qeY8Wipub/EmjRR7Gp0QkJYjdXgBfoNdhK2I16t6ZjeAArufQFWs6huNYBe
+	sgem/Vp6nKG+IFEpp1OiUap8PxtnQ6cUnKaGAbCVThQULTLg5wf2BpP1vRdNYPxbhu4qyjw=
+X-Received: by 2002:a17:903:4b46:b0:27d:6f49:febc with SMTP id d9443c01a7336-290272159d1mr366508425ad.1.1760517942809;
+        Wed, 15 Oct 2025 01:45:42 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGU68B7KHWBtJSF6bpxGSTAtxK+b0Uk28zSKf6ArLdpmJzPhB1kHcmTwbavGcRZRkHHk+Bc9w==
+X-Received: by 2002:a17:903:4b46:b0:27d:6f49:febc with SMTP id d9443c01a7336-290272159d1mr366508125ad.1.1760517942284;
+        Wed, 15 Oct 2025 01:45:42 -0700 (PDT)
+Received: from [10.92.210.195] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034f07741sm189006475ad.61.2025.10.15.01.45.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Oct 2025 01:45:41 -0700 (PDT)
+Message-ID: <f44083bf-a54b-415c-8650-a57b3b482572@oss.qualcomm.com>
+Date: Wed, 15 Oct 2025 14:15:29 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ascii
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 05/14] power: reset: reboot-mode: Expose sysfs for
+ registered reboot_modes
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
+        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Stephen Boyd <swboyd@chromium.org>,
+        Andre Draszik
+ <andre.draszik@linaro.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org,
+        Elliot Berman <quic_eberman@quicinc.com>,
+        Srinivas Kandagatla <srini@kernel.org>
+References: <20251015-arm-psci-system_reset2-vendor-reboots-v16-0-b98aedaa23ee@oss.qualcomm.com>
+ <20251015-arm-psci-system_reset2-vendor-reboots-v16-5-b98aedaa23ee@oss.qualcomm.com>
+Content-Language: en-US
+From: Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
+In-Reply-To: <20251015-arm-psci-system_reset2-vendor-reboots-v16-5-b98aedaa23ee@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: VE_du3_dcLFB0tlHNA6dnivFV8iBk24D
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxOCBTYWx0ZWRfX+rQggF+fEoZ7
+ jbWOY1lAUaSG3Ys+FgKRKrHbxVt8qKkOM/BiQEog+hQ9NJvJq+aKzrpoDGVeiBouIfu81ObGhpb
+ Wh5WiwZ5Ma5GdazfiyUXDjk8A6Mk3F1Fj2bVDQncI7dhVLcZr3H840/MCQpBTlhwGMiC3eoD6Hk
+ AKQwPtj3H+DLq9MDiplVB8VTgKSuIE5tbTp9etACo0y4kBrBksLhilvmR4hC5zlwcuow1IYJ1sW
+ HpDyEDNfv9XqF71FGldE8sCultRVF9v/j7lfVz5kX1AGEzD6akitN4eB4QbsQs6hLBvHZVk6Mx4
+ E7uq+Duv3vgGLeVfLCTKoh7aVSOoThVufMmiwM4QjhB2bOBKgGGvJPVBavHRPQwQYJuZvf8g62R
+ 0O+9dn1M7EdQkcc9ku6+BqxuYe6iyA==
+X-Proofpoint-GUID: VE_du3_dcLFB0tlHNA6dnivFV8iBk24D
+X-Authority-Analysis: v=2.4 cv=PdTyRyhd c=1 sm=1 tr=0 ts=68ef5f37 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=EUspDBNiAAAA:8 a=obQkJn2dBRx5tTod4cUA:9 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-15_04,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 bulkscore=0 clxscore=1015 adultscore=0
+ lowpriorityscore=0 impostorscore=0 priorityscore=1501 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
+ definitions=main-2510110018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_014323_879601_396F4594 
-X-CRM114-Status: GOOD (  56.93  )
+X-CRM114-CacheID: sfid-20251015_014544_502935_1FA0F4BF 
+X-CRM114-Status: GOOD (  20.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,266 +162,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Lorenzo,
 
-Thanks for comments!
+On 10/15/2025 10:08 AM, Shivendra Pratap wrote:
+> Currently, there is no standardized mechanism for userspace to
+> discover which reboot-modes are supported on a given platform.
+> This limitation forces tools and scripts to rely on hardcoded
+> assumptions about the supported reboot-modes.
+>
+> Create a class 'reboot-mode' and a device under it to expose a
+> sysfs interface to show the available reboot mode arguments to
+> userspace. Use the driver_name field of the struct
+> reboot_mode_driver to create the device. For device-based
+> drivers, configure the device driver name as driver_name.
+>
+> This results in the creation of:
+>    /sys/class/reboot-mode/<driver>/reboot_modes
+>
+> This read-only sysfs file will exposes the list of supported
+> reboot modes arguments provided by the driver, enabling userspace
+> to query the list of arguments.
+>
+> Align the clean up path to maintain backward compatibility for
+> existing reboot-mode based drivers.
+>
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
+>   drivers/power/reset/reboot-mode.c | 127 ++++++++++++++++++++++++++++++--------
+>   include/linux/reboot-mode.h       |   2 +
+>   2 files changed, 103 insertions(+), 26 deletions(-)
+Reviewed-by: Nirmesh Kumar Singh <nirmesh.singh@oss.qualcomm.com>
 
-Lorenzo Stoakes <lorenzo.stoakes@oracle.com> writes:
-
-> On Mon, Oct 13, 2025 at 05:20:37PM +0800, Huang Ying wrote:
->> In the current kernel, there is spurious fault fixing support for pte,
->> but not for huge pmd because no architectures need it. But in the
->> next patch in the series, we will change the write protection fault
->> handling logic on arm64, so that some stale huge pmd entries may
->> remain in the TLB. These entries need to be flushed via the huge pmd
->> spurious fault fixing mechanism.
->>
->> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
->
-> Right now the PTE level spurious fault handling is dealt with in
-> handle_pte_fault() when ptep_set_access_flags() returns false.
->
-> Now you're updating touch_pmd() which is invoked by follow_huge_pmd() and
-> huge_pmd_set_accessed().
->
-> 1 - Why are you not adding handling to GUP?
->
-> 2 - Is this the correct level of abstraction? It's really not obvious but
->     huge_pmd_set_accessed() is invoked by __handle_mm_fault() on a non-WP,
->     non-NUMA hint huge page fault where a page table entry already exists
->     but we are faulting anyway (e.g. non-present or read-only writable).
->
-> You don't mention any of this in the commit message, which you need to do
-> and really need to explain how spurious faults can arise, why you can only
-> do this at the point of abstraction you do (if you are unable to put it in
-> actual fault handing-code), and you need to add a bunch more comments to
-> explain this.
-
-This patch adds the spurious PMD page fault fixing based on the spurious
-PTE page fault fixing.  So, I assumed that the spurious page fault
-fixing has been documented already.  But you are right, nothing prevents
-us from improving it further.  Let's try to do that.
-
-The page faults may be spurious because of the racy access to the page
-table.  For example, a non-populated virtual page is accessed on 2 CPUs
-simultaneously, thus the page faults are triggered on both CPUs.
-However, it's possible that one CPU (say CPU A) cannot find the reason
-for the page fault if the other CPU (say CPU B) has changed the page
-table before the PTE is checked on CPU A.  Most of the time, the
-spurious page faults can be ignored safely.  However, if the page fault
-is for the write access, it's possible that a stale read-only TLB entry
-exists in the local CPU and needs to be flushed on some architectures.
-This is called the spurious page fault fixing.
-
-The spurious page fault fixing only makes sense during page fault
-handling, so we don't need to do it for GUP.  In fact, I plan to avoid
-it in all GUP paths in another followup patch.
-
-As for where to put the spurious PMD page fault fixing code, because
-it's THP related code, I thought that we should put it in huge_memory.c,
-so I implemented it in huge_pmd_set_accessed().  If we follow the design
-of the spurious PTE page fault fixing, we can call the unified
-implementation in __handle_mm_fault() after huge_pmd_set_accessed()
-reports nothing has been changed.
-
-> Otherwise this just ends up being a lot of open-coded + confusing 'you have
-> to go look it up/just know' type stuff that we have too much of in mm :)
->
-> So please update commit message/comments, confirm whether this is the
-> correct level of abstraction, and address other comments below, thanks!
->
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Andrew Morton <akpm@linux-foundation.org>
->> Cc: David Hildenbrand <david@redhat.com>
->> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
->> Cc: Vlastimil Babka <vbabka@suse.cz>
->> Cc: Zi Yan <ziy@nvidia.com>
->> Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
->> Cc: Ryan Roberts <ryan.roberts@arm.com>
->> Cc: Yang Shi <yang@os.amperecomputing.com>
->> Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
->> Cc: Dev Jain <dev.jain@arm.com>
->> Cc: Barry Song <baohua@kernel.org>
->> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
->> Cc: Yicong Yang <yangyicong@hisilicon.com>
->> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
->> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
->> Cc: Yin Fengwei <fengwei_yin@linux.alibaba.com>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> Cc: linux-mm@kvack.org
->> ---
->>  include/linux/pgtable.h |  4 ++++
->>  mm/huge_memory.c        | 22 +++++++++++++++++-----
->>  mm/internal.h           |  4 ++--
->>  3 files changed, 23 insertions(+), 7 deletions(-)
->>
->> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->> index 32e8457ad535..341622ec80e4 100644
->> --- a/include/linux/pgtable.h
->> +++ b/include/linux/pgtable.h
->> @@ -1232,6 +1232,10 @@ static inline void arch_swap_restore(swp_entry_t entry, struct folio *folio)
->>  #define flush_tlb_fix_spurious_fault(vma, address, ptep) flush_tlb_page(vma, address)
->>  #endif
->>
->> +#ifndef flush_tlb_fix_spurious_fault_pmd
->> +#define flush_tlb_fix_spurious_fault_pmd(vma, address, ptep) do { } while (0)
->> +#endif
->
-> flush_tlb_fix_spurious_fault(), when the arch doesn't declare it, defaults to
-> flush_tlb_page() - why do we just do nothing in this case here?
-
-Because all architectures do nothing for the spurious PMD page fault
-fixing until the [2/2] of this series.  Where, we make it necessary to
-flush the local TLB for spurious PMD page fault fixing on arm64
-architecture.
-
-If we follow the design of flush_tlb_fix_spurious_fault(), we need to
-change all architecture implementation to do nothing in this patch to
-keep the current behavior.  I don't think that it's a good idea.  Do
-you agree?
-
->> +
->>  /*
->>   * When walking page tables, get the address of the next boundary,
->>   * or the end address of the range if that comes earlier.  Although no
->> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
->> index 1b81680b4225..8533457c52b7 100644
->> --- a/mm/huge_memory.c
->> +++ b/mm/huge_memory.c
->> @@ -1641,17 +1641,22 @@ vm_fault_t vmf_insert_folio_pud(struct vm_fault *vmf, struct folio *folio,
->>  EXPORT_SYMBOL_GPL(vmf_insert_folio_pud);
->>  #endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
->>
->> -void touch_pmd(struct vm_area_struct *vma, unsigned long addr,
->> -	       pmd_t *pmd, bool write)
->> +/* Returns whether the PMD entry is changed */
->
-> Could we have a kernel doc description here?
-
-Sure.
-
->> +int touch_pmd(struct vm_area_struct *vma, unsigned long addr,
->
-> It's 2025 can we use bool please :)
-
-Sure.
-
->> +	      pmd_t *pmd, bool write)
->>  {
->> +	int changed;
->>  	pmd_t _pmd;
->
-> While we're here can we rename this horrible parameter name to e.g. entry? We're
-> significantly altering this function anyway so it isn't much more
-
-Sure.
-
->>
->>  	_pmd = pmd_mkyoung(*pmd);
->>  	if (write)
->>  		_pmd = pmd_mkdirty(_pmd);
->> -	if (pmdp_set_access_flags(vma, addr & HPAGE_PMD_MASK,
->> -				  pmd, _pmd, write))
->> +	changed = pmdp_set_access_flags(vma, addr & HPAGE_PMD_MASK,
->> +					pmd, _pmd, write);
->> +	if (changed)
->>  		update_mmu_cache_pmd(vma, addr, pmd);
->
-> We can make this simpler, e.g.:
->
-> 	if (pmdp_set_access_flags(vma, addr & HPAGE_PMD_MASK,
-> 				  pmd, entry, write)) {
-> 		update_mmu_cache_pmd(vma, addr, pmd);
-> 		return true;
-> 	}
->
-> 	return false;
-
-No problem.  As long as David is OK with this.
-
->> +
->> +	return changed;
->>  }
->>
->>  int copy_huge_pmd(struct mm_struct *dst_mm, struct mm_struct *src_mm,
->> @@ -1849,7 +1854,14 @@ void huge_pmd_set_accessed(struct vm_fault *vmf)
->>  	if (unlikely(!pmd_same(*vmf->pmd, vmf->orig_pmd)))
->>  		goto unlock;
->>
->> -	touch_pmd(vmf->vma, vmf->address, vmf->pmd, write);
->> +	if (!touch_pmd(vmf->vma, vmf->address, vmf->pmd, write)) {
->> +		/* See corresponding comments in handle_pte_fault(). */
->
-> What are the 'corresponding' comments? How can a reader of this code know what
-> they are? This isn't a very helpful comment. Also those comments might be
-> moved in future...
->
-> Presumably it's:
->
-> 		/* Skip spurious TLB flush for retried page fault */
-> 		if (vmf->flags & FAULT_FLAG_TRIED)
-> 			goto unlock;
-> 		/*
-> 		 * This is needed only for protection faults but the arch code
-> 		 * is not yet telling us if this is a protection fault or not.
-> 		 * This still avoids useless tlb flushes for .text page faults
-> 		 * with threads.
-> 		 */
-> 		if (vmf->flags & FAULT_FLAG_WRITE)
-> 			flush_tlb_fix_spurious_fault(vmf->vma, vmf->address,
-> 						     vmf->pte);
->
->
-> So I don't see why it's so egregious to have the equivalent here, or actually
-> ideally to abstract the code entirely.
->
-> In commit b22cc9a9c7ff ("mm/rmap: convert "enum rmap_level" to "enum
-> pgtable_level"") David introduced:
->
-> 	enum pgtable_level {
-> 		PGTABLE_LEVEL_PTE = 0,
-> 		PGTABLE_LEVEL_PMD,
-> 		PGTABLE_LEVEL_PUD,
-> 		PGTABLE_LEVEL_P4D,
-> 		PGTABLE_LEVEL_PGD,
-> 	};
->
-> Which allows for sensible abstraction.
-
-Sure.  Based on your discussion with David on this, I will add a
-function to do the spurious page fault fixing for the PTE and PMD fault.
-
->> +		if (vmf->flags & FAULT_FLAG_TRIED)
->> +			goto unlock;
->> +		if (vmf->flags & FAULT_FLAG_WRITE)
->> +			flush_tlb_fix_spurious_fault_pmd(vmf->vma, vmf->address,
->> +							 vmf->pmd);
->> +	}
->>
->>  unlock:
->>  	spin_unlock(vmf->ptl);
->> diff --git a/mm/internal.h b/mm/internal.h
->> index 1561fc2ff5b8..8b58ab00a7cd 100644
->> --- a/mm/internal.h
->> +++ b/mm/internal.h
->> @@ -1402,8 +1402,8 @@ int __must_check try_grab_folio(struct folio *folio, int refs,
->>   */
->>  void touch_pud(struct vm_area_struct *vma, unsigned long addr,
->>  	       pud_t *pud, bool write);
->> -void touch_pmd(struct vm_area_struct *vma, unsigned long addr,
->> -	       pmd_t *pmd, bool write);
->> +int touch_pmd(struct vm_area_struct *vma, unsigned long addr,
->> +	      pmd_t *pmd, bool write);
->>
->>  /*
->>   * Parses a string with mem suffixes into its order. Useful to parse kernel
->> --
->> 2.39.5
->>
-
----
-Best Regards,
-Huang, Ying
+Thanks,
+Nirmesh
 
