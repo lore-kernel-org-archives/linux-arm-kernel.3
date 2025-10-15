@@ -4,56 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B4A2CCD19B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7455BCCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xk516/QVrxuwjs7axdDVi7lUljmJGQgSYUHZ/TY826I=; b=5AyXWCpUiHDKgvQLrDa/dQKeop
-	GNyXj7lr5c8Fl1XqqZsL0EPNUtKVA/KhqxlY4gmlRFG3bYazbfkOPDV6WDK5tiIBrsUiUyL7fmlSz
-	RApQHT/wHA34hv8mAX00B4kSUkp2uBhH1rKglAMaocNm09ytvPYDKOL1HsjlxusHzSkwPbNJ/bCPD
-	k7jypDWf0kLT3S8dLiNFyXVTOie8HY2jFB8BzSX5yFvhQi9h39zcapao5q5S4yPIYxRBplvUeND3O
-	Ux9Uu/CYVCAxOtskG6ELG8IAekhMpCB/sGnIvbbBjGNjJIXq7tvOs8n+1KGxFF2jZJpaAtbSligF+
-	C9dZQldw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vdr12008jjTPdPcoqBWhvg8ZAbui2kkcZRJcxxShjO8=; b=AhpVoCALbuQA5ukveBwRI5lBNO
+	Pt2F9GgaOsto3SXS1UdPt+QJBSC3RNrGHAgLnlsR0982rjHYyRxYje1mv8GqW+nbNrqD0AJFjdJBl
+	FcsTo8edHSfxciwI8COUx1BsSeAH2r9KonHb6JyWf0Q8wz0Xk6J9ykEbrAfBYgqr8Hl4+4u+UKcji
+	SnAy+xbZ+V5PpGC8/R4NiNX0LRqGEo5nmf/8ExOREov6soa/cX5g8Ckpq58ex4P1mclZfGjaIyYGs
+	DXNiqRMcxqwaC1hC3vj/zh3LwbuJd45f8YT3zHrqhufR1qvrWVuf3F//CAvc484+1UIPZMyWOf8/h
+	Diuo1J2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92vb-00000001yNx-31Y4;
-	Wed, 15 Oct 2025 14:56:35 +0000
+	id 1v92vW-00000001yGF-2qPN;
+	Wed, 15 Oct 2025 14:56:30 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92vV-00000001yEZ-1wSX;
-	Wed, 15 Oct 2025 14:56:29 +0000
+	id 1v92vU-00000001yDf-2dM1;
+	Wed, 15 Oct 2025 14:56:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8439F6265C;
-	Wed, 15 Oct 2025 14:56:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BBF1CC2BCB9;
+	by tor.source.kernel.org (Postfix) with ESMTP id B7E1B60141;
+	Wed, 15 Oct 2025 14:56:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 510FCC116C6;
 	Wed, 15 Oct 2025 14:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1760540187;
-	bh=bBhc5vmnIuwAFeXYB7uG31VWJkkGWEf7NITyazo8YK8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=ibj8I8sF7eMQ1zKiIrqfOxVuFJeJGEba0d4hRXCDCxCpYlLBQMefAvEOdxXTEv1x7
-	 23p1fvN8T/RsrXuxztP0TlDDGkK6C9Vosk7W4ApPwbanrYc2XWt+YoSL+UfbzmoRaE
-	 W3IMdCcOs5Us4gwXGMXjGqoOhQQLBuAJzv2zO58aqfkcxWrTC5YBsBHDZy4bXkPa7r
-	 uQs8GLpXIxY3Mbw855pjDUsBQmr4ZaQ09QXbILcY84eGxYHM/16YQzi1mMHRNtssGX
-	 31mR6/DMXMtD8svS9O3Lb805GfHL43zsCPJlQ4X4lnRhQj3gPmQPpA7uVfOfvjOnej
-	 6gPvm9zO7Fagg==
+	bh=xAsjgLYcj0kpQbCESX5ZsGy4k/qZLXOOasMw1VV3gvo=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=BJ7Tpxpd3VYV6wGu7DmeDyTOzy2z5Ll5mnSTbtiej+DizfbCMJ0D8J1B1OGm/S3Vy
+	 nP/LdsQB6lBLYIXmUie+ORsvLYaf1fYrm5dPmo2FyTPhi7OnV2qD1dpxewLFNufu5b
+	 kJSMcOpaqMxvC19rQgaKxDTkZw8BqKu+o2wKBXw2gMM9CeMhS2oVmzvSzP3kOZ6a+W
+	 0eUaHUkx+C/6JJbg1b3ySXtxaoA3fC7otIReAmcpd+IunoINSXiA8iYuSIHwGRyDUO
+	 vbL0+dwg5JAYDteFIFJx2Bfq9w8hzJJ5ss/POycDsJUPXTrZWZT+dEhFepWmC4V05l
+	 1PpzhCjX0Le1Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id ACBE3CCD199;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C399CCD192;
 	Wed, 15 Oct 2025 14:56:27 +0000 (UTC)
 From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Wed, 15 Oct 2025 16:56:29 +0200
-Subject: [PATCH v13 06/18] media: rockchip: add driver for the rockchip
- mipi csi-2 receiver
+Subject: [PATCH v13 00/18] media: rockchip: add a driver for the rockchip
+ camera interface
+Date: Wed, 15 Oct 2025 16:56:23 +0200
+Message-Id: <20240220-rk3568-vicap-v13-0-da164b4918fe@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20240220-rk3568-vicap-v13-6-da164b4918fe@collabora.com>
-References: <20240220-rk3568-vicap-v13-0-da164b4918fe@collabora.com>
-In-Reply-To: <20240220-rk3568-vicap-v13-0-da164b4918fe@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIABe272gC/33SzW7bMAwH8FcpfJ4KkvqwtFPfY+iBkqhFWBoHd
+ uBuKPLuk1tsXQbFR0rg70+BehsWmassw9eHt2GWtS51OrUC9ZeHIR349F1Uze1gICADRKDmH9o
+ 6r9aa+KxiiLqEQLYYM7SWyIuoOPMpHbamFznkqlbU2915llJ/vmd9e271oS6Xaf71Hr3idvoZs
+ jrl1WU613Sbt6ICRc4DY2FnID69TsfyMfbjSS7DBq/0F0PC8T5GDYuYjfclJci6i+k/mAUCdx/
+ TDXMhY8EgNhnoYuYfDMN9zDRMAjgHwKJjH7OfmN6bzDastDxLVpuiUxdztwu4FVwTMhVboghai
+ 09pOh45TjM/punlAxj3gLEBo/VYcnCsNfcAvwf4BoQcUkwmWjK5B4Q9IDSAk2DbTTLsqQcg7Ak
+ I24Ypex4jQYimS+AusX1fLiCc2Rqx3Wcg7RLbp00uR0niYgz+f+J6vf4GKPoZitYDAAA=
 To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
  Maxime Chevallier <maxime.chevallier@bootlin.com>, 
  =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
@@ -78,13 +83,16 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, 
  Michael Riesch <michael.riesch@collabora.com>, 
- Michael Riesch <michael.riesch@collabora.com>
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Mehdi Djait <mehdi.djait@bootlin.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Bryan O'Donoghue <bod@kernel.org>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760540185; l=22704;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760540185; l=12133;
  i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=d6qOf6NkEdVXmdzOSE31hn0iEQ6ALjGbKNrbJroHDqE=;
- b=t19TmakUA4euhgXGMVAMAQogwAqImKQUltQSevXxYQzhmbNdISc+83G1ASniPxZZVfzEouhuc
- QVygeA/zatwDJLlA13W+dukbOBB3e2snndTBbEUNasPpx2Y2XXiyKdM
+ bh=xAsjgLYcj0kpQbCESX5ZsGy4k/qZLXOOasMw1VV3gvo=;
+ b=He+rpkV+Ffjbwj8xSVYkzRAei++RZRoXnoddzVRgCS3E0eli0yJXSozREgyv702JD4uGJWfzX
+ 7aSv81j6K4XA51K7N/D68uEZIh2bpGN9cwLou6v2x83zkvnHqHAj5Zh
 X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
  pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
 X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
@@ -105,843 +113,256 @@ Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Riesch <michael.riesch@collabora.com>
+Habidere,
 
-The Rockchip RK3568 MIPI CSI-2 Receiver is a CSI-2 bridge with one
-input port and one output port. It receives the data with the help
-of an external MIPI PHY (C-PHY or D-PHY) and passes it to the
-Rockchip RK3568 Video Capture (VICAP) block.
+This series introduces support for the Rockchip Camera Interface (CIF),
+which is featured in many Rockchip SoCs in different variations.
+For example, the PX30 Video Input Processor (VIP) is able to receive
+video data via the Digital Video Port (DVP, a parallel data interface)
+and transfer it into system memory using a double-buffering mechanism
+called ping-pong mode.
+The RK3568 Video Capture (VICAP) unit, on the other hand, features a
+DVP and a MIPI CSI-2 receiver that can receive video data independently
+(both using the ping-pong scheme).
+The different variants may have additional features, such as scaling
+and/or cropping.
+Finally, the RK3588 VICAP unit constitutes an essential piece of the
+camera interface with one DVP, six MIPI CSI-2 receivers, scale/crop
+units, and a data path multiplexer (to scaler units, to ISP, ...).
 
-Add a V4L2 subdevice driver for this unit.
+The v13 of the series adds a media controller centric V4L2 device driver
+for the Rockchip CIF with
+ - support for the PX30 VIP (not tested, though, due to the lack of HW)
+ - support for the RK3568 VICAP, including
+    - capturing frames from the DVP
+    - capturing frames from the MIPI CSI-2 receiver
+ - abstraction for the ping-pong scheme to allow for future extensions
+ - abstraction for the INTERFACE and CROP parts to allow for future
+   extensions
+ - initial support for different virtual channels (not tested, though,
+   due to the lack of HW)
+and a V4L2 subdevice driver for the Rockchip MIPI CSI-2 Receiver.
 
+The RK3568 DVP has been tested by Gerald on a WolfVision PF5 hardware,
+the RK3568 MIPI CSI-2 have been tested by me on a Radxa ROCK 3A + Radxa
+Camera 8M.
+
+The driver can be readily extended to provide support for the RK3588
+VICAP variant. In order to keep things simple, however, this extension
+shall be submitted separately.
+
+Looking forward to your comments!
+
+To: Mehdi Djait <mehdi.djait@linux.intel.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Théo Lebrun <theo.lebrun@bootlin.com>
+To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+To: Gerald Loacker <gerald.loacker@wolfvision.net>
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+To: Markus Elfring <Markus.Elfring@web.de>
+To: Sakari Ailus <sakari.ailus@iki.fi>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Rob Herring <robh+dt@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+To: Kever Yang <kever.yang@rock-chips.com>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Collabora Kernel Team <kernel@collabora.com>
+To: Paul Kocialkowski <paulk@sys-base.io>
+To: Alexander Shiyan <eagle.alexander923@gmail.com>
+To: Val Packett <val@packett.cool>
+To: Rob Herring <robh@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-media@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
 Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+
+Changes in v13:
+- fixed interrupt names in CSI-2 reciever bindings example (Rob's bot)
+- revised Radxa Camera 8M device tree overlay
+- Link to v12: https://lore.kernel.org/r/20240220-rk3568-vicap-v12-0-c6dbece6bb98@collabora.com
+
+Changes in v12:
+- added Radxa Camera 8M device tree overlay
+- rebased onto v6.18-rc1
+- fixed IOMMU pagefaults caused by wrong VLW (Mehdi)
+- fixed indentation of register defines in -regs.h (Sakari)
+- renamed CSI-2 receiver interrupts (Rob)
+- added MEDIA_BUS_TYPE_* as comments in DT bindings (Bryan)
+- added newline in rkcif-dev.c (Bryan)
+- Link to v11: https://lore.kernel.org/r/20240220-rk3568-vicap-v11-0-af0eada54e5d@collabora.com
+
+Changes in v11:
+- rkcif: split large driver patch (6/13 of v10) into smaller
+  patches (6-11/17 of v11) (Bryan)
+- rkcsi: replaced devm_reset_control_array_get_exclusive with 
+  devm_reset_control_get_exclusive (Philipp)
+- Link to v10: https://lore.kernel.org/r/20240220-rk3568-vicap-v10-0-62d8a7b209b4@collabora.com
+
+Changes in v10:
+- rkcsi: fixed error handling in rkcsi_start (Bryan)
+- rkcsi: fixed interrupt references in device tree and bindings
+  (Rob's bot)
+- added missing call to rkcif_mipi_stop_streaming from rkcif_mipi_isr
+  (Mehdi)
+- renamed remaining instances "cif_" -> "rkcif_" in functions
+- Link to v9: https://lore.kernel.org/r/20240220-rk3568-vicap-v9-0-ace1e5cc4a82@collabora.com
+
+Changes in v9:
+- added compatible for RK3588 MIPI CSI-2 receiver, thus dropped
+  Krzysztof's R-b
+- added interrupts to rkcsi DT binding and RK356x DT
+- added variant specific callback to rkcif-capture-mipi that puts
+  together the CTRL0 register content (which varies between RK3568
+  and RK3588)
+- fixed v4l2_fill_pixfmt_mp() return value handling (Mehdi)
+- Link to v8: https://lore.kernel.org/r/20240220-rk3568-vicap-v8-0-9d9cbc4b524d@collabora.com
+
+Changes in v8:
+- rebased onto v6.16-rc1
+- fixed RKCIF_MIPI_MAX value in rkcif-common.h
+- fixed rkcsi Kconfig (kernel test robot)
+- sorted rkcsi DT bindings document properly, completed example
+  (Krzysztof)
+- squashed the defconfig patches (Krzysztof), dropped Bryan's R-b
+- Link to v7: https://lore.kernel.org/r/20240220-rk3568-vicap-v7-0-7581fd96a33a@collabora.com
+
+Changes in v7:
+- moved MIPI CSI-2 receiver driver into separate directory (Laurent)
+- rkcsi: fixed return values (Bryan)
+- rkcsi: fixed v4l2_get_link_freq to use pad instead of control
+  handler (Sakari)
+- rkcsi: added data-lanes property (Mehdi)
+- rkcif: fixed formatting (Bryan)
+- fixed "int" -> "unsigned int" in all for loops (Sakari)
+- rkcif-stream: fixed minimum number of required buffers (Mehdi)
+- rkcif-stream: used guards for the spinlock (Markus and Mehdi)
+- rkcif-stream: made driver less noisy with dev_dbg (Mehdi)
+- rkcif-stream: fixed issues detected by v4l2-compliance (Mehdi)
+- rkcif-dvp-capture: fixed return value propagation in _register()
+  (Mehdi)
+- removed stray "phy-names" from required properties (Rob's bot)
+- Link to v6: https://lore.kernel.org/r/20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com
+
+Changes in v6:
+- rebased onto v6.15-rc1
+- renamed "MIPI CSI HOST" -> "MIPI CSI RECEIVER" (Laurent)
+- s/@wolfvision.net/@collabora.com where appropriate
+- renamed DVP delay property and moved it to the endpoint (Sakari)
+- implemented DT review comments (Krzysztof and Sakari)
+- implemented driver review comments (Sakari)
+- fixed issues raised by media-ci (yet again)
+- added documentation including a RK3568 topology (new patch 1)
+  (Sakari)
+- added patch that enables rkcif in the defconfig (new patch 9)
+- Link to v5: https://lore.kernel.org/r/20250306-v6-8-topic-rk3568-vicap-v5-0-f02152534f3c@wolfvision.net
+
+Changes in v5:
+- fixed issues raised by media-ci
+- fixed dt bindings (comments by Rob and Sakari)
+- fixed probe on systems with no DVP in DT (comment by Alexander)
+- fixed error path in register offset calculation
+- split off MIPI CSI host driver into separate module (comment
+  by Mehdi)
+- added MODULE_DEVICE_TABLE() for both drivers (comment by Mehdi)
+- Link to v4: https://lore.kernel.org/r/20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net
+
+Changes in v4:
+- added support for the MIPI CSI-2 receiver (new patches 4, 6, 7, 10)
+- fixed asserts on stream stop
+- fixed register address lookup
+- fixed link validiation callback
+- fixed issues raised by Rob's bot, kernel test robot, and media-ci
+- Link to v3: https://lore.kernel.org/r/20250206-v6-8-topic-rk3568-vicap-v3-0-69d1f19e5c40@wolfvision.net
+
+Changes in v3:
+- renamed the driver "cif" -> "rkcif"
+- rebased onto v6.14-rc1
+- abstracted the generic INTERFACE+CROP part
+- addressed comments by Rob and Sakari
+- added V4L2 MPLANE formats to DVP
+- added patch that enables the RK3568 VICAP DVP on PF5 IO Expander
+- fixed formatting issues raised by media-ci bot
+- Link to v2: https://lore.kernel.org/r/20241217-v6-8-topic-rk3568-vicap-v2-0-b1d488fcc0d3@wolfvision.net
+
+Changes in v2:
+- merged with Mehdi's v13
+- refactored the complete driver towards a media controller centric driver
+- abstracted the generic ping-pong stream (can be used for DVP as well as for CSI-2)
+- switched to MPLANE API
+- added support for notifications
+- Link to v1: https://lore.kernel.org/r/20240220-v6-8-topic-rk3568-vicap-v1-0-2680a1fa640b@wolfvision.net
+
 ---
- MAINTAINERS                                    |   1 +
- drivers/media/platform/rockchip/Kconfig        |   1 +
- drivers/media/platform/rockchip/Makefile       |   1 +
- drivers/media/platform/rockchip/rkcsi/Kconfig  |  16 +
- drivers/media/platform/rockchip/rkcsi/Makefile |   3 +
- drivers/media/platform/rockchip/rkcsi/rkcsi.c  | 742 +++++++++++++++++++++++++
- 6 files changed, 764 insertions(+)
+Mehdi Djait (2):
+      media: dt-bindings: add rockchip px30 vip
+      arm64: dts: rockchip: add the vip node to px30
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 6d79fded8e3d..d7c3f5ad50ad 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -22250,6 +22250,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
- L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
-+F:	drivers/media/platform/rockchip/rkcsi/
- 
- ROCKCHIP RK3568 RANDOM NUMBER GENERATOR SUPPORT
- M:	Daniel Golle <daniel@makrotopia.org>
-diff --git a/drivers/media/platform/rockchip/Kconfig b/drivers/media/platform/rockchip/Kconfig
-index 9bbeec4996aa..2f6f77afecfc 100644
---- a/drivers/media/platform/rockchip/Kconfig
-+++ b/drivers/media/platform/rockchip/Kconfig
-@@ -3,5 +3,6 @@
- comment "Rockchip media platform drivers"
- 
- source "drivers/media/platform/rockchip/rga/Kconfig"
-+source "drivers/media/platform/rockchip/rkcsi/Kconfig"
- source "drivers/media/platform/rockchip/rkisp1/Kconfig"
- source "drivers/media/platform/rockchip/rkvdec/Kconfig"
-diff --git a/drivers/media/platform/rockchip/Makefile b/drivers/media/platform/rockchip/Makefile
-index 286dc5c53f7e..33e24b47735c 100644
---- a/drivers/media/platform/rockchip/Makefile
-+++ b/drivers/media/platform/rockchip/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0-only
- obj-y += rga/
-+obj-y += rkcsi/
- obj-y += rkisp1/
- obj-y += rkvdec/
-diff --git a/drivers/media/platform/rockchip/rkcsi/Kconfig b/drivers/media/platform/rockchip/rkcsi/Kconfig
-new file mode 100644
-index 000000000000..d8004198c386
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkcsi/Kconfig
-@@ -0,0 +1,16 @@
-+config VIDEO_ROCKCHIP_CSI
-+	tristate "Rockchip MIPI CSI-2 Receiver"
-+	depends on VIDEO_DEV
-+	depends on ARCH_ROCKCHIP || COMPILE_TEST
-+	depends on V4L_PLATFORM_DRIVERS
-+	depends on PM && COMMON_CLK
-+	select MEDIA_CONTROLLER
-+	select V4L2_FWNODE
-+	select VIDEO_V4L2_SUBDEV_API
-+	help
-+	  This is a driver for Rockchip MIPI CSI-2 Receiver. It is featured
-+	  in various Rockchips SoCs, usually in combination with a Video
-+	  Capture (VICAP) unit (see Rockchip Camera Interface (CIF) driver).
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called rockchip-mipi-csi.
-diff --git a/drivers/media/platform/rockchip/rkcsi/Makefile b/drivers/media/platform/rockchip/rkcsi/Makefile
-new file mode 100644
-index 000000000000..147712cbb68a
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkcsi/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_VIDEO_ROCKCHIP_CSI) += rockchip-mipi-csi.o
-+rockchip-mipi-csi-objs += rkcsi.o
-diff --git a/drivers/media/platform/rockchip/rkcsi/rkcsi.c b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
-new file mode 100644
-index 000000000000..fc950060b81a
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkcsi/rkcsi.c
-@@ -0,0 +1,742 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Rockchip MIPI CSI-2 Receiver Driver
-+ *
-+ * Copyright (C) 2019 Rockchip Electronics Co., Ltd.
-+ * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
-+ * Copyright (C) 2025 Collabora, Ltd.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_graph.h>
-+#include <linux/of_platform.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/reset.h>
-+
-+#include <media/mipi-csi2.h>
-+#include <media/v4l2-ctrls.h>
-+#include <media/v4l2-fwnode.h>
-+#include <media/v4l2-subdev.h>
-+
-+#define CSI2HOST_N_LANES     0x04
-+#define CSI2HOST_CSI2_RESETN 0x10
-+#define CSI2HOST_PHY_STATE   0x14
-+#define CSI2HOST_ERR1	     0x20
-+#define CSI2HOST_ERR2	     0x24
-+#define CSI2HOST_MSK1	     0x28
-+#define CSI2HOST_MSK2	     0x2c
-+#define CSI2HOST_CONTROL     0x40
-+
-+#define SW_CPHY_EN(x)	     ((x) << 0)
-+#define SW_DSI_EN(x)	     ((x) << 4)
-+#define SW_DATATYPE_FS(x)    ((x) << 8)
-+#define SW_DATATYPE_FE(x)    ((x) << 14)
-+#define SW_DATATYPE_LS(x)    ((x) << 20)
-+#define SW_DATATYPE_LE(x)    ((x) << 26)
-+
-+#define RKCSI_CLKS_MAX	     1
-+
-+enum {
-+	RKCSI_PAD_SINK,
-+	RKCSI_PAD_SRC,
-+	RKCSI_PAD_MAX,
-+};
-+
-+struct rkcsi_format {
-+	u32 code;
-+	u8 depth;
-+	u8 csi_dt;
-+};
-+
-+struct rkcsi_device {
-+	struct device *dev;
-+
-+	void __iomem *base_addr;
-+	struct clk_bulk_data *clks;
-+	unsigned int clks_num;
-+	struct phy *phy;
-+	struct reset_control *reset;
-+
-+	const struct rkcsi_format *formats;
-+	unsigned int formats_num;
-+
-+	struct media_pad pads[RKCSI_PAD_MAX];
-+	struct v4l2_async_notifier notifier;
-+	struct v4l2_fwnode_endpoint vep;
-+	struct v4l2_subdev sd;
-+
-+	struct v4l2_subdev *source_sd;
-+	u32 source_pad;
-+};
-+
-+static const struct v4l2_mbus_framefmt default_format = {
-+	.width = 3840,
-+	.height = 2160,
-+	.code = MEDIA_BUS_FMT_SRGGB10_1X10,
-+	.field = V4L2_FIELD_NONE,
-+	.colorspace = V4L2_COLORSPACE_RAW,
-+	.ycbcr_enc = V4L2_YCBCR_ENC_601,
-+	.quantization = V4L2_QUANTIZATION_FULL_RANGE,
-+	.xfer_func = V4L2_XFER_FUNC_NONE,
-+};
-+
-+static const struct rkcsi_format formats[] = {
-+	/* YUV formats */
-+	{
-+		.code = MEDIA_BUS_FMT_YUYV8_1X16,
-+		.depth = 16,
-+		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_UYVY8_1X16,
-+		.depth = 16,
-+		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_YVYU8_1X16,
-+		.depth = 16,
-+		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_VYUY8_1X16,
-+		.depth = 16,
-+		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
-+	},
-+	/* RGB formats */
-+	{
-+		.code = MEDIA_BUS_FMT_RGB888_1X24,
-+		.depth = 24,
-+		.csi_dt = MIPI_CSI2_DT_RGB888,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_BGR888_1X24,
-+		.depth = 24,
-+		.csi_dt = MIPI_CSI2_DT_RGB888,
-+	},
-+	/* Bayer formats */
-+	{
-+		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
-+		.depth = 8,
-+		.csi_dt = MIPI_CSI2_DT_RAW8,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
-+		.depth = 8,
-+		.csi_dt = MIPI_CSI2_DT_RAW8,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
-+		.depth = 8,
-+		.csi_dt = MIPI_CSI2_DT_RAW8,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
-+		.depth = 8,
-+		.csi_dt = MIPI_CSI2_DT_RAW8,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
-+		.depth = 10,
-+		.csi_dt = MIPI_CSI2_DT_RAW10,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
-+		.depth = 10,
-+		.csi_dt = MIPI_CSI2_DT_RAW10,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
-+		.depth = 10,
-+		.csi_dt = MIPI_CSI2_DT_RAW10,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
-+		.depth = 10,
-+		.csi_dt = MIPI_CSI2_DT_RAW10,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
-+		.depth = 12,
-+		.csi_dt = MIPI_CSI2_DT_RAW12,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
-+		.depth = 12,
-+		.csi_dt = MIPI_CSI2_DT_RAW12,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
-+		.depth = 12,
-+		.csi_dt = MIPI_CSI2_DT_RAW12,
-+	},
-+	{
-+		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
-+		.depth = 12,
-+		.csi_dt = MIPI_CSI2_DT_RAW12,
-+	},
-+};
-+
-+static inline struct rkcsi_device *to_rkcsi(struct v4l2_subdev *sd)
-+{
-+	return container_of(sd, struct rkcsi_device, sd);
-+}
-+
-+static inline __maybe_unused void rkcsi_write(struct rkcsi_device *csi_dev,
-+					      unsigned int addr, u32 val)
-+{
-+	writel(val, csi_dev->base_addr + addr);
-+}
-+
-+static inline __maybe_unused u32 rkcsi_read(struct rkcsi_device *csi_dev,
-+					    unsigned int addr)
-+{
-+	return readl(csi_dev->base_addr + addr);
-+}
-+
-+static const struct rkcsi_format *
-+rkcsi_find_format(struct rkcsi_device *csi_dev, u32 mbus_code)
-+{
-+	const struct rkcsi_format *format;
-+
-+	WARN_ON(csi_dev->formats_num == 0);
-+
-+	for (int i = 0; i < csi_dev->formats_num; i++) {
-+		format = &csi_dev->formats[i];
-+		if (format->code == mbus_code)
-+			return format;
-+	}
-+
-+	return NULL;
-+}
-+
-+static int rkcsi_start(struct rkcsi_device *csi_dev)
-+{
-+	struct media_pad *source_pad =
-+		&csi_dev->source_sd->entity.pads[csi_dev->source_pad];
-+	enum v4l2_mbus_type bus_type = csi_dev->vep.bus_type;
-+	union phy_configure_opts opts;
-+	s64 link_freq;
-+	u32 lanes = csi_dev->vep.bus.mipi_csi2.num_data_lanes;
-+	u32 control = 0;
-+	int ret;
-+
-+	if (lanes < 1 || lanes > 4)
-+		return -EINVAL;
-+
-+	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
-+	link_freq = v4l2_get_link_freq(source_pad, 0, 0);
-+	if (link_freq <= 0)
-+		return -EINVAL;
-+
-+	if (bus_type == V4L2_MBUS_CSI2_DPHY) {
-+		struct phy_configure_opts_mipi_dphy *cfg = &opts.mipi_dphy;
-+
-+		ret = phy_mipi_dphy_get_default_config_for_hsclk(link_freq * 2,
-+								 lanes, cfg);
-+		if (ret)
-+			return ret;
-+
-+		ret = phy_set_mode(csi_dev->phy, PHY_MODE_MIPI_DPHY);
-+		if (ret)
-+			return ret;
-+
-+		ret = phy_configure(csi_dev->phy, &opts);
-+		if (ret)
-+			return ret;
-+
-+		control |= SW_CPHY_EN(0);
-+
-+	} else if (bus_type == V4L2_MBUS_CSI2_CPHY) {
-+		/* TODO: implement CPHY configuration */
-+		return -EOPNOTSUPP;
-+	} else {
-+		return -EINVAL;
-+	}
-+
-+	control |= SW_DATATYPE_FS(0x00) | SW_DATATYPE_FE(0x01) |
-+		   SW_DATATYPE_LS(0x02) | SW_DATATYPE_LE(0x03);
-+
-+	rkcsi_write(csi_dev, CSI2HOST_N_LANES, lanes - 1);
-+	rkcsi_write(csi_dev, CSI2HOST_CONTROL, control);
-+	rkcsi_write(csi_dev, CSI2HOST_CSI2_RESETN, 1);
-+
-+	ret = phy_power_on(csi_dev->phy);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static void rkcsi_stop(struct rkcsi_device *csi_dev)
-+{
-+	phy_power_off(csi_dev->phy);
-+
-+	rkcsi_write(csi_dev, CSI2HOST_CSI2_RESETN, 0);
-+	rkcsi_write(csi_dev, CSI2HOST_MSK1, ~0);
-+	rkcsi_write(csi_dev, CSI2HOST_MSK2, ~0);
-+}
-+
-+static const struct media_entity_operations rkcsi_media_ops = {
-+	.link_validate = v4l2_subdev_link_validate,
-+};
-+
-+static int rkcsi_enum_mbus_code(struct v4l2_subdev *sd,
-+				struct v4l2_subdev_state *sd_state,
-+				struct v4l2_subdev_mbus_code_enum *code)
-+{
-+	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-+
-+	if (code->pad == RKCSI_PAD_SRC) {
-+		const struct v4l2_mbus_framefmt *sink_fmt;
-+
-+		if (code->index)
-+			return -EINVAL;
-+
-+		sink_fmt = v4l2_subdev_state_get_format(sd_state,
-+							RKCSI_PAD_SINK);
-+		code->code = sink_fmt->code;
-+
-+		return 0;
-+	} else if (code->pad == RKCSI_PAD_SINK) {
-+		if (code->index > csi_dev->formats_num)
-+			return -EINVAL;
-+
-+		code->code = csi_dev->formats[code->index].code;
-+		return 0;
-+	}
-+
-+	return -EINVAL;
-+}
-+
-+static int rkcsi_set_fmt(struct v4l2_subdev *sd,
-+			 struct v4l2_subdev_state *state,
-+			 struct v4l2_subdev_format *format)
-+{
-+	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-+	const struct rkcsi_format *fmt;
-+	struct v4l2_mbus_framefmt *sink, *src;
-+
-+	/* the format on the source pad always matches the sink pad */
-+	if (format->pad == RKCSI_PAD_SRC)
-+		return v4l2_subdev_get_fmt(sd, state, format);
-+
-+	sink = v4l2_subdev_state_get_format(state, format->pad, format->stream);
-+	if (!sink)
-+		return -EINVAL;
-+
-+	fmt = rkcsi_find_format(csi_dev, format->format.code);
-+	if (fmt)
-+		*sink = format->format;
-+	else
-+		*sink = default_format;
-+
-+	/* propagate the format to the source pad */
-+	src = v4l2_subdev_state_get_opposite_stream_format(state, format->pad,
-+							   format->stream);
-+	if (!src)
-+		return -EINVAL;
-+
-+	*src = *sink;
-+
-+	return 0;
-+}
-+
-+static int rkcsi_set_routing(struct v4l2_subdev *sd,
-+			     struct v4l2_subdev_state *state,
-+			     enum v4l2_subdev_format_whence which,
-+			     struct v4l2_subdev_krouting *routing)
-+{
-+	int ret;
-+
-+	ret = v4l2_subdev_routing_validate(sd, routing,
-+					   V4L2_SUBDEV_ROUTING_ONLY_1_TO_1);
-+	if (ret)
-+		return ret;
-+
-+	ret = v4l2_subdev_set_routing_with_fmt(sd, state, routing,
-+					       &default_format);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static int rkcsi_enable_streams(struct v4l2_subdev *sd,
-+				struct v4l2_subdev_state *state, u32 pad,
-+				u64 streams_mask)
-+{
-+	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-+	struct v4l2_subdev *remote_sd;
-+	struct media_pad *sink_pad, *remote_pad;
-+	struct device *dev = csi_dev->dev;
-+	u64 mask;
-+	int ret;
-+
-+	sink_pad = &sd->entity.pads[RKCSI_PAD_SINK];
-+	remote_pad = media_pad_remote_pad_first(sink_pad);
-+	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-+
-+	mask = v4l2_subdev_state_xlate_streams(state, RKCSI_PAD_SINK,
-+					       RKCSI_PAD_SRC, &streams_mask);
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
-+		goto err;
-+
-+	ret = rkcsi_start(csi_dev);
-+	if (ret) {
-+		dev_err(dev, "failed to enable CSI hardware\n");
-+		goto err_pm_runtime_put;
-+	}
-+
-+	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, mask);
-+	if (ret)
-+		goto err_csi_stop;
-+
-+	return 0;
-+
-+err_csi_stop:
-+	rkcsi_stop(csi_dev);
-+err_pm_runtime_put:
-+	pm_runtime_put_sync(dev);
-+err:
-+	return ret;
-+}
-+
-+static int rkcsi_disable_streams(struct v4l2_subdev *sd,
-+				 struct v4l2_subdev_state *state, u32 pad,
-+				 u64 streams_mask)
-+{
-+	struct rkcsi_device *csi_dev = to_rkcsi(sd);
-+	struct v4l2_subdev *remote_sd;
-+	struct media_pad *sink_pad, *remote_pad;
-+	struct device *dev = csi_dev->dev;
-+	u64 mask;
-+	int ret;
-+
-+	sink_pad = &sd->entity.pads[RKCSI_PAD_SINK];
-+	remote_pad = media_pad_remote_pad_first(sink_pad);
-+	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-+
-+	mask = v4l2_subdev_state_xlate_streams(state, RKCSI_PAD_SINK,
-+					       RKCSI_PAD_SRC, &streams_mask);
-+
-+	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
-+
-+	rkcsi_stop(csi_dev);
-+
-+	pm_runtime_mark_last_busy(dev);
-+	pm_runtime_put_autosuspend(dev);
-+
-+	return ret;
-+}
-+
-+static const struct v4l2_subdev_pad_ops rkcsi_pad_ops = {
-+	.enum_mbus_code = rkcsi_enum_mbus_code,
-+	.get_fmt = v4l2_subdev_get_fmt,
-+	.set_fmt = rkcsi_set_fmt,
-+	.set_routing = rkcsi_set_routing,
-+	.enable_streams = rkcsi_enable_streams,
-+	.disable_streams = rkcsi_disable_streams,
-+};
-+
-+static const struct v4l2_subdev_ops rkcsi_ops = {
-+	.pad = &rkcsi_pad_ops,
-+};
-+
-+static int rkcsi_init_state(struct v4l2_subdev *sd,
-+			    struct v4l2_subdev_state *state)
-+{
-+	struct v4l2_subdev_route routes[] = {
-+		{
-+			.sink_pad = RKCSI_PAD_SINK,
-+			.sink_stream = 0,
-+			.source_pad = RKCSI_PAD_SRC,
-+			.source_stream = 0,
-+			.flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE,
-+		},
-+	};
-+	struct v4l2_subdev_krouting routing = {
-+		.len_routes = ARRAY_SIZE(routes),
-+		.num_routes = ARRAY_SIZE(routes),
-+		.routes = routes,
-+	};
-+	int ret;
-+
-+	ret = v4l2_subdev_set_routing_with_fmt(sd, state, &routing,
-+					       &default_format);
-+
-+	return ret;
-+}
-+
-+static const struct v4l2_subdev_internal_ops rkcsi_internal_ops = {
-+	.init_state = rkcsi_init_state,
-+};
-+
-+static int rkcsi_notifier_bound(struct v4l2_async_notifier *notifier,
-+				struct v4l2_subdev *sd,
-+				struct v4l2_async_connection *asd)
-+{
-+	struct rkcsi_device *csi_dev =
-+		container_of(notifier, struct rkcsi_device, notifier);
-+	int source_pad;
-+
-+	source_pad = media_entity_get_fwnode_pad(&sd->entity, sd->fwnode,
-+						 MEDIA_PAD_FL_SOURCE);
-+	if (source_pad < 0) {
-+		dev_err(csi_dev->dev, "failed to find source pad for %s\n",
-+			sd->name);
-+		return source_pad;
-+	}
-+
-+	csi_dev->source_sd = sd;
-+	csi_dev->source_pad = source_pad;
-+
-+	return media_create_pad_link(&sd->entity, source_pad,
-+				     &csi_dev->sd.entity, RKCSI_PAD_SINK,
-+				     MEDIA_LNK_FL_ENABLED);
-+}
-+
-+static const struct v4l2_async_notifier_operations rkcsi_notifier_ops = {
-+	.bound = rkcsi_notifier_bound,
-+};
-+
-+static int rkcsi_register_notifier(struct rkcsi_device *csi_dev)
-+{
-+	struct v4l2_async_connection *asd;
-+	struct v4l2_async_notifier *ntf = &csi_dev->notifier;
-+	struct v4l2_fwnode_endpoint *vep = &csi_dev->vep;
-+	struct v4l2_subdev *sd = &csi_dev->sd;
-+	struct device *dev = csi_dev->dev;
-+	struct fwnode_handle *ep;
-+	int ret = 0;
-+
-+	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
-+	if (!ep)
-+		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
-+
-+	vep->bus_type = V4L2_MBUS_UNKNOWN;
-+	ret = v4l2_fwnode_endpoint_parse(ep, vep);
-+	if (ret) {
-+		ret = dev_err_probe(dev, ret, "failed to parse endpoint\n");
-+		goto out;
-+	}
-+
-+	if (vep->bus_type != V4L2_MBUS_CSI2_DPHY &&
-+	    vep->bus_type != V4L2_MBUS_CSI2_CPHY) {
-+		ret = dev_err_probe(dev, -EINVAL,
-+				    "invalid bus type of endpoint\n");
-+		goto out;
-+	}
-+
-+	v4l2_async_subdev_nf_init(ntf, sd);
-+	ntf->ops = &rkcsi_notifier_ops;
-+
-+	asd = v4l2_async_nf_add_fwnode_remote(ntf, ep,
-+					      struct v4l2_async_connection);
-+	if (IS_ERR(asd)) {
-+		ret = PTR_ERR(asd);
-+		goto err_nf_cleanup;
-+	}
-+
-+	ret = v4l2_async_nf_register(ntf);
-+	if (ret) {
-+		ret = dev_err_probe(dev, ret, "failed to register notifier\n");
-+		goto err_nf_cleanup;
-+	}
-+
-+	goto out;
-+
-+err_nf_cleanup:
-+	v4l2_async_nf_cleanup(ntf);
-+out:
-+	fwnode_handle_put(ep);
-+	return ret;
-+}
-+
-+static int rkcsi_register(struct rkcsi_device *csi_dev)
-+{
-+	struct media_pad *pads = csi_dev->pads;
-+	struct v4l2_subdev *sd = &csi_dev->sd;
-+	int ret;
-+
-+	ret = rkcsi_register_notifier(csi_dev);
-+	if (ret)
-+		goto err;
-+
-+	v4l2_subdev_init(sd, &rkcsi_ops);
-+	sd->dev = csi_dev->dev;
-+	sd->entity.ops = &rkcsi_media_ops;
-+	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
-+	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
-+	sd->internal_ops = &rkcsi_internal_ops;
-+	sd->owner = THIS_MODULE;
-+	snprintf(sd->name, sizeof(sd->name), "rockchip-mipi-csi %s",
-+		 dev_name(csi_dev->dev));
-+
-+	pads[RKCSI_PAD_SINK].flags = MEDIA_PAD_FL_SINK |
-+				     MEDIA_PAD_FL_MUST_CONNECT;
-+	pads[RKCSI_PAD_SRC].flags = MEDIA_PAD_FL_SOURCE;
-+	ret = media_entity_pads_init(&sd->entity, RKCSI_PAD_MAX, pads);
-+	if (ret)
-+		goto err_notifier_unregister;
-+
-+	ret = v4l2_subdev_init_finalize(sd);
-+	if (ret)
-+		goto err_entity_cleanup;
-+
-+	ret = v4l2_async_register_subdev(sd);
-+	if (ret) {
-+		dev_err(sd->dev, "failed to register CSI subdev\n");
-+		goto err_subdev_cleanup;
-+	}
-+
-+	return 0;
-+
-+err_subdev_cleanup:
-+	v4l2_subdev_cleanup(sd);
-+err_entity_cleanup:
-+	media_entity_cleanup(&sd->entity);
-+err_notifier_unregister:
-+	v4l2_async_nf_unregister(&csi_dev->notifier);
-+	v4l2_async_nf_cleanup(&csi_dev->notifier);
-+err:
-+	return ret;
-+}
-+
-+static void rkcsi_unregister(struct rkcsi_device *csi_dev)
-+{
-+	struct v4l2_subdev *sd = &csi_dev->sd;
-+
-+	v4l2_async_unregister_subdev(sd);
-+	v4l2_subdev_cleanup(sd);
-+	media_entity_cleanup(&sd->entity);
-+	v4l2_async_nf_unregister(&csi_dev->notifier);
-+	v4l2_async_nf_cleanup(&csi_dev->notifier);
-+}
-+
-+static const struct of_device_id rkcsi_of_match[] = {
-+	{
-+		.compatible = "rockchip,rk3568-mipi-csi",
-+	},
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, rkcsi_of_match);
-+
-+static int rkcsi_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct rkcsi_device *csi_dev;
-+	int ret;
-+
-+	csi_dev = devm_kzalloc(dev, sizeof(*csi_dev), GFP_KERNEL);
-+	if (!csi_dev)
-+		return -ENOMEM;
-+	csi_dev->dev = dev;
-+	dev_set_drvdata(dev, csi_dev);
-+
-+	csi_dev->base_addr = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(csi_dev->base_addr))
-+		return PTR_ERR(csi_dev->base_addr);
-+
-+	ret = devm_clk_bulk_get_all(dev, &csi_dev->clks);
-+	if (ret != RKCSI_CLKS_MAX)
-+		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
-+	csi_dev->clks_num = ret;
-+
-+	csi_dev->phy = devm_phy_get(dev, NULL);
-+	if (IS_ERR(csi_dev->phy))
-+		return dev_err_probe(dev, PTR_ERR(csi_dev->phy),
-+				     "failed to get MIPI CSI PHY\n");
-+
-+	csi_dev->reset = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(csi_dev->reset))
-+		return dev_err_probe(dev, PTR_ERR(csi_dev->reset),
-+				     "failed to get reset\n");
-+
-+	csi_dev->formats = formats;
-+	csi_dev->formats_num = ARRAY_SIZE(formats);
-+
-+	pm_runtime_enable(dev);
-+
-+	ret = phy_init(csi_dev->phy);
-+	if (ret) {
-+		ret = dev_err_probe(dev, ret,
-+				    "failed to initialize MIPI CSI PHY\n");
-+		goto err_pm_runtime_disable;
-+	}
-+
-+	ret = rkcsi_register(csi_dev);
-+	if (ret)
-+		goto err_phy_exit;
-+
-+	return 0;
-+
-+err_phy_exit:
-+	phy_exit(csi_dev->phy);
-+err_pm_runtime_disable:
-+	pm_runtime_disable(dev);
-+	return ret;
-+}
-+
-+static void rkcsi_remove(struct platform_device *pdev)
-+{
-+	struct rkcsi_device *csi_dev = platform_get_drvdata(pdev);
-+	struct device *dev = &pdev->dev;
-+
-+	rkcsi_unregister(csi_dev);
-+	phy_exit(csi_dev->phy);
-+	pm_runtime_disable(dev);
-+}
-+
-+static int rkcsi_runtime_suspend(struct device *dev)
-+{
-+	struct rkcsi_device *csi_dev = dev_get_drvdata(dev);
-+
-+	clk_bulk_disable_unprepare(csi_dev->clks_num, csi_dev->clks);
-+
-+	return 0;
-+}
-+
-+static int rkcsi_runtime_resume(struct device *dev)
-+{
-+	struct rkcsi_device *csi_dev = dev_get_drvdata(dev);
-+	int ret;
-+
-+	reset_control_assert(csi_dev->reset);
-+	udelay(5);
-+	reset_control_deassert(csi_dev->reset);
-+
-+	ret = clk_bulk_prepare_enable(csi_dev->clks_num, csi_dev->clks);
-+	if (ret) {
-+		dev_err(dev, "failed to enable clocks\n");
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct dev_pm_ops rkcsi_pm_ops = {
-+	.runtime_suspend = rkcsi_runtime_suspend,
-+	.runtime_resume = rkcsi_runtime_resume,
-+};
-+
-+static struct platform_driver rkcsi_drv = {
-+	.driver = {
-+		   .name = "rockchip-mipi-csi",
-+		   .of_match_table = rkcsi_of_match,
-+		   .pm = &rkcsi_pm_ops,
-+	},
-+	.probe = rkcsi_probe,
-+	.remove = rkcsi_remove,
-+};
-+module_platform_driver(rkcsi_drv);
-+
-+MODULE_DESCRIPTION("Rockchip MIPI CSI-2 Receiver platform driver");
-+MODULE_LICENSE("GPL");
+Michael Riesch (16):
+      Documentation: admin-guide: media: add rockchip camera interface
+      media: dt-bindings: video-interfaces: add defines for sampling modes
+      media: dt-bindings: add rockchip rk3568 vicap
+      media: dt-bindings: add rockchip rk3568 mipi csi-2 receiver
+      media: rockchip: add driver for the rockchip mipi csi-2 receiver
+      media: rockchip: add driver for the rockchip camera interface
+      media: rockchip: rkcif: add abstraction for interface and crop blocks
+      media: rockchip: rkcif: add abstraction for dma blocks
+      media: rockchip: rkcif: add support for px30 vip dvp capture
+      media: rockchip: rkcif: add support for rk3568 vicap dvp capture
+      media: rockchip: rkcif: add support for rk3568 vicap mipi capture
+      arm64: defconfig: enable rockchip camera interface and mipi csi-2 receiver
+      arm64: dts: rockchip: add vicap node to rk356x
+      arm64: dts: rockchip: add mipi csi-2 receiver node to rk356x
+      arm64: dts: rockchip: enable vicap dvp on wolfvision pf5 io expander
+      arm64: dts: rockchip: add radxa camera 8m on rock 3a csi port
 
+ .../admin-guide/media/rkcif-rk3568-vicap.dot       |  21 +
+ Documentation/admin-guide/media/rkcif.rst          |  83 ++
+ Documentation/admin-guide/media/v4l-drivers.rst    |   1 +
+ .../bindings/media/rockchip,px30-vip.yaml          | 124 +++
+ .../bindings/media/rockchip,rk3568-mipi-csi.yaml   | 146 ++++
+ .../bindings/media/rockchip,rk3568-vicap.yaml      | 172 ++++
+ MAINTAINERS                                        |  17 +
+ arch/arm64/boot/dts/rockchip/Makefile              |   5 +
+ arch/arm64/boot/dts/rockchip/px30.dtsi             |  12 +
+ .../dts/rockchip/rk3568-rock-3a-radxa-cam8m.dtso   | 103 +++
+ .../rk3568-wolfvision-pf5-io-expander.dtso         |  20 +
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |  78 ++
+ arch/arm64/configs/defconfig                       |   2 +
+ drivers/media/platform/rockchip/Kconfig            |   2 +
+ drivers/media/platform/rockchip/Makefile           |   2 +
+ drivers/media/platform/rockchip/rkcif/Kconfig      |  18 +
+ drivers/media/platform/rockchip/rkcif/Makefile     |   8 +
+ .../platform/rockchip/rkcif/rkcif-capture-dvp.c    | 865 +++++++++++++++++++++
+ .../platform/rockchip/rkcif/rkcif-capture-dvp.h    |  25 +
+ .../platform/rockchip/rkcif/rkcif-capture-mipi.c   | 777 ++++++++++++++++++
+ .../platform/rockchip/rkcif/rkcif-capture-mipi.h   |  23 +
+ .../media/platform/rockchip/rkcif/rkcif-common.h   | 250 ++++++
+ drivers/media/platform/rockchip/rkcif/rkcif-dev.c  | 303 ++++++++
+ .../platform/rockchip/rkcif/rkcif-interface.c      | 426 ++++++++++
+ .../platform/rockchip/rkcif/rkcif-interface.h      |  31 +
+ drivers/media/platform/rockchip/rkcif/rkcif-regs.h | 153 ++++
+ .../media/platform/rockchip/rkcif/rkcif-stream.c   | 638 +++++++++++++++
+ .../media/platform/rockchip/rkcif/rkcif-stream.h   |  32 +
+ drivers/media/platform/rockchip/rkcsi/Kconfig      |  16 +
+ drivers/media/platform/rockchip/rkcsi/Makefile     |   3 +
+ drivers/media/platform/rockchip/rkcsi/rkcsi.c      | 742 ++++++++++++++++++
+ include/dt-bindings/media/video-interfaces.h       |   4 +
+ 32 files changed, 5102 insertions(+)
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20240220-rk3568-vicap-b9b3f9925f44
+
+Best regards,
 -- 
-2.39.5
+Michael Riesch <michael.riesch@collabora.com>
 
 
 
