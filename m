@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C8BCCD196
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 13:27:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED1E3CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 13:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EFu78uXLNhhYEH7SVSyRI1WHuG5g54Ao3mQfyxG+tcA=; b=rN9rk/JjWoEcpvzUPSYSrQ9SBv
-	EVgZqbVE7rdqV2/CIfwddJ43YUFi/oYtNNlwjcpTu1RYKcMIAVL6AbX7c5fy0O8eFWcy2AcB5xaFr
-	8faekBfqHtQ0geDram6QjJHgQwcEaAO7W598I2KFXVQGAR123/pSdk0ZvAJH641uV9c+J3hOl/GGc
-	5GS7ms9ZV/QAbEcWGnXN+EiMG6QVr7k8kJuQ4p1wQhq3FrtpWKAIrs/RrZ6zVMtDHbHTftjRNdrEk
-	gNFW4i5t4I8VlM91L2/A9w2pAetn2IwoRp6K5v+YrFeXGYn6y7OSZ0LN0yNfFrvU7DWyt7+HErWUY
-	Q/vJGNaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vS3mjcoHw8qIUxXCnOrDzk3YjU4JM/GYmhM3Hd6fsfY=; b=FZ4Qv80yxataqDhsAe5ghlqU1U
+	Gy/FU4nB+l2kVRZO9K5gwifvnLWKLhnlzLxsGbSLgUQkIBI98ULZbQaHeW3d60ckHRuAppQzt52WO
+	1yDM8sFh5g25TOIDHaEjCek/txIB0nkLUzhS+GKK/QVx+CGFH76xDmZkl86NOvd6M24fYCzOSVgwf
+	VcuoXlWcOAS5uO30Pk6SUOXCTcuNvjilWAYz3ZbdTlB+qMLvgmK5uH/72zxtVvbUSdPvaf+SCzpIr
+	gZ3o3VZ8JTJ07hA8yRamIyu/O4dxfiivU3DptC4ngsLMu52NuXmqdQL9WEg3rgIiWAnqHCQkT7OlA
+	2rVw9jGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v91XJ-00000001hyg-2iIJ;
-	Wed, 15 Oct 2025 13:27:25 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1v91aD-00000001iKe-20bw;
+	Wed, 15 Oct 2025 13:30:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v91XH-00000001hwm-0eho;
-	Wed, 15 Oct 2025 13:27:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=EFu78uXLNhhYEH7SVSyRI1WHuG5g54Ao3mQfyxG+tcA=; b=tWVdwD3BvmoVph276K/6AP4+qH
-	FOgl0YNA7jJdbhOWcHJU/rnlh1YeNzgB9WF4tJPvuZKylLCkTWCzzR5K/D0I8cpazCXWYylTCdo7Z
-	CJYaFUS7GccbUgcRUhX4T9cy/WFZ6RiFo6LexaXZpK6XVNPlissl69o1kRlu7mI8qYHBuKZ/5Rdya
-	4BAA8eEnVsoY8kve7J9ddgxVXZbwAWfyUZIiEIvXV/ib2DyzjHnNWKJIvC34fzk0KH4N2bjYtWdvX
-	GCb9B0oBFseQS66XDAw8YFoR+YhZJXBi1kUgasdPvWT17hTspcUsJFwPHgfcXGc/d1NGMro/KJFIu
-	MairWdyQ==;
-Received: from i53875a40.versanet.de ([83.135.90.64] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1v91X6-0007hd-Ux; Wed, 15 Oct 2025 15:27:12 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, zhangqing@rock-chips.com,
- sebastian.reichel@collabora.com, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] clk: rockchip: rk3588: Don't change PLL rates when setting
- dclk_vop2_src
-Date: Wed, 15 Oct 2025 15:27:12 +0200
-Message-ID: <2749454.BddDVKsqQX@diego>
-In-Reply-To: <6677ebf9-50bd-4df0-806c-9698f2256a8d@cherry.de>
-References: <20251008133135.3745785-1-heiko@sntech.de>
- <6677ebf9-50bd-4df0-806c-9698f2256a8d@cherry.de>
+	id 1v91aB-00000001iKC-1PvN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Oct 2025 13:30:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C3E824908F;
+	Wed, 15 Oct 2025 13:30:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B283CC4CEFE;
+	Wed, 15 Oct 2025 13:30:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760535022;
+	bh=A4j7EyyUEQAH/++sFjjOscr7TYVqFzYtv6RZBE5pQNE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=b6ci1stXqNKhV16bQZUz2RKyXZlZu/XYFYpCzaE+LYx/QRiRt9Jy59YuGmxqUoF/i
+	 sZQjJcJaIvwIy+xtYGruCM2hrR7Yzju5OJqzfVb/Q62yi6S5kJXs2GmmxDsPicrq80
+	 z78Vm4Ikoezi+QIy4EMXK/VXJxVqC/p8oDMGG6sdPBDrbS8AEelVtc8aPNJoNgEy5x
+	 srfEllTzNfWkG8OB/UFi7ZlQwxeoD+KdQUhR/rDUMaIBvEZhRfYKbEH6G/DWBmMl+w
+	 SO98xbxHlaLZk4RMMSiNRAoHeYExrixS5LTfTnnMvizdwz6Qa9nAaMBFTz1VKDXMbv
+	 fEhG9pPWVdb1g==
+Message-ID: <9adec627-e3f5-4664-881c-9e93f029e189@kernel.org>
+Date: Wed, 15 Oct 2025 14:30:16 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2] dt-bindings: media: qcom,qcs8300-camss: Add
+ missing power supplies
+To: Vikram Sharma <quic_vikramsa@quicinc.com>, mchehab@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+ cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+References: <20251015130130.2790829-1-quic_vikramsa@quicinc.com>
+ <20251015130130.2790829-2-quic_vikramsa@quicinc.com>
+From: Bryan O'Donoghue <bod@kernel.org>
+Content-Language: en-US
+In-Reply-To: <20251015130130.2790829-2-quic_vikramsa@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_062723_232352_026DCA01 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20251015_063023_425236_05A41BF2 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,46 +80,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 15. Oktober 2025, 14:58:46 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb Quentin Schulz:
-> Hi Heiko,
->=20
-> On 10/8/25 3:31 PM, Heiko Stuebner wrote:
-> > dclk_vop2_src currently has CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPAR=
-ENT
-> > flags set, which is vastly different than dclk_vop0_src or dclk_vop1_sr=
-c,
-> > which have none of those.
-> >=20
-> > With these flags in dclk_vop2_src, actually setting the clock then resu=
-lts
-> > in a lot of other peripherals breaking, because setting the rate results
-> > in the PLL source getting changed:
-> >=20
-> > [   14.898718] clk_core_set_rate_nolock: setting rate for dclk_vop2 to =
-152840000
-> > [   15.155017] clk_change_rate: setting rate for pll_gpll to 1680000000
-> > [ clk adjusting every gpll user ]
-> >=20
-> > This includes possibly the other vops, i2s, spdif and even the uarts.
-> > Among other possible things, this breaks the uart console on a board
-> > I use. Sometimes it recovers later on, but there will be a big block
->=20
-> I can reproduce on the same board as yours and this fixes the issue=20
-> indeed (note I can only reproduce for now when display the modetest=20
-> pattern, otherwise after boot the console seems fine to me).
+On 15/10/2025 14:01, Vikram Sharma wrote:
+> Add support for vdda-phy-supply and vdda-pll-supply in the QCS8300
+> CAMSS binding to reflect camera sensor hardware requirements.
+> 
+> Co-developed-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> ---
+>   .../bindings/media/qcom,qcs8300-camss.yaml          | 13 +++++++++++++
+>   1 file changed, 13 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/qcom,qcs8300-camss.yaml b/Documentation/devicetree/bindings/media/qcom,qcs8300-camss.yaml
+> index 80a4540a22dc..dce0a1fcb10c 100644
+> --- a/Documentation/devicetree/bindings/media/qcom,qcs8300-camss.yaml
+> +++ b/Documentation/devicetree/bindings/media/qcom,qcs8300-camss.yaml
+> @@ -120,6 +120,14 @@ properties:
+>       items:
+>         - const: top
+>   
+> +  vdda-phy-supply:
+> +    description:
+> +      Phandle to a regulator supply to PHY core block.
+> +
+> +  vdda-pll-supply:
+> +    description:
+> +      Phandle to 1.8V regulator supply to PHY refclk pll block.
+> +
+>     ports:
+>       $ref: /schemas/graph.yaml#/properties/ports
+>   
+> @@ -160,6 +168,8 @@ required:
+>     - power-domains
+>     - power-domain-names
+>     - ports
+> +  - vdda-phy-supply
+> +  - vdda-pll-supply
+>   
+>   additionalProperties: false
+>   
+> @@ -328,6 +338,9 @@ examples:
+>               power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
+>               power-domain-names = "top";
+>   
+> +            vdda-phy-supply = <&vreg_l4a_0p88>;
+> +            vdda-pll-supply = <&vreg_l1c_1p2>;
+> +
+>               ports {
+>                   #address-cells = <1>;
+>                   #size-cells = <0>;
 
-I boot into a Debian rootfs with fbcon on my system, and the serial
-console produces garbled output when the vop adjusts the clock
+This needs a Fixes: tag
 
-Sometimes it recovers after a bit, but other times it doesn't
-
-> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
-> Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Tiger w/=20
-> DP carrierboard
-
-Thanks for testing
-Heiko
-
-
+---
+bod
 
