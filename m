@@ -4,97 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0547ACCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1A8CCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/GGPPAy1fHT4f0hgkyN0lKffg2M7YAAILDfIXtiBKFM=; b=4GrVpG+07TZ2A+GLuI1SQXz7TN
-	JIJUZw++oJggVf2jFxCpdgvAeCs+DmSCllHa/kTqMYjEobYvhkZyxib+iWk9qn+312C2xGNZHrdVa
-	LI8Cmmynn6oHZjF8QGXDayNiek2QsWEN+1sc0E0mG0MRyUsttrHjGy2Vb5LlMCp7vYlLaDdUdgkQu
-	vMeZ1jjTV5NLbgG4s0I0E3783tQoPwoJasiwn4wjB/F2UBXH7cJ145RoyF/PTVk96t4o5jD2zgoWR
-	Uyyd9Gulj0BIBDiYJNsOwQFpRt1lxyMryt28pg12mptfoAq0gXgBuQ2eDtFJDGhGappFV/VG4NStY
-	ZLsTAuzQ==;
+	bh=z0ePBLBbjLy+uCt0Tc4Axavwd1Tc0eNB+6T2liF8URo=; b=IQJN/KDwMvSA2yo5clYZJxGgdH
+	hwsFHFiF5627IUsOTMie4RzdpWaoEiRqGrEDSMiqN8YZN0xIdlEr0sPsIfYKokyats8MEyk6qEFX6
+	EKT5QtWDeDlC16Hz/Nv8JZLr4LkhL1SznlM79k8cIXidRCnzBR4J7Av0NIiZbqWzSA8apq65S1c/r
+	ZoGUse98rQyTiD8DvYXLaiOUAQqaXyNhq8Ozx+MXdH5h2To89b8JY4Hpi4FQ/we1JoNybw9mphzSq
+	sOcx3ZSdhzkaWdl5/D1mxJHMrwSgMxqbqob9RnOWCbPL+z7t6bCAWh9XwQiZSbQY1ROfaQm338Owl
+	3Irgc+mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92Y5-00000001tmO-4Bb8;
-	Wed, 15 Oct 2025 14:32:18 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1v92YW-00000001twa-1RWL;
+	Wed, 15 Oct 2025 14:32:44 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92Y2-00000001tke-2BoX
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 14:32:16 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b3d5088259eso976350566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 07:32:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760538732; x=1761143532; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=/GGPPAy1fHT4f0hgkyN0lKffg2M7YAAILDfIXtiBKFM=;
-        b=sOBgW0ksFD3Pv9qVpPYn9zobFw0ewLd6Hc9l8h80h/tFaN9dWPiBBeKTKToIvUscEm
-         UNToRuRM6Eq8a/XHC3I3s9JYdQdyIN6UQoaloBLM7YpfMo5P7rl+tL8KvzL3pF/g/Rwa
-         Ns2bW3gt3ofj/e2OzG6b87AYDMLEY7D5/dozEdjY1K3zcMuGGNyTOixZ5Ncs76sbumQH
-         RGBYVvhfH/CxDVQmnB3iCcNN4UAxZsKqdRKgRAJ3ePgzTZ1XFpLT0l6gooUjQ1ssHdI0
-         cXbigomyWjpa85tSEF6+b+jieSHRrv+eRpxYOQjyQuxHeABI3CtZiD+7P1LEW7XJKGLa
-         T+iw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760538732; x=1761143532;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/GGPPAy1fHT4f0hgkyN0lKffg2M7YAAILDfIXtiBKFM=;
-        b=oYooNBy8ClkGkBRIbYEUkh9Fi5blf5P/aMfQQP3LZLcbb4/J7VVram8aacbkImEb1W
-         JJvory8E1RP3eHrm1fkwB161CZx7TxMUgFWasT4kLvOUPlTMdbx2p8YQCMk7oixpGtyl
-         yVVl24ksnqv4fgMGZ7JaEkq2RWv0WBMafBfqsXT4IwiddKM6GlO2Utjn5KZz3W3jIgq8
-         EBb1ua7s0ynolmFoLxwC+HrCaiFJ475MSAnp+G0Z756SfVl1I5JM/dYhpSb754zbp3gA
-         S5AoR2uKtHgkbky2b/vD8zChzIMIUaBYB4BMrZt7YuU449S8vD1kGWtBce9/f7mdtayO
-         n/SA==
-X-Forwarded-Encrypted: i=1; AJvYcCUaNgC9Vd2hJyzX5ZDqf8xlzaNfYfzDSDH+tRAhcWWyWA+TIp78OsehQGA+WGQlBEbJJ6R+obntb3iycByxK6VT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXjY7JBRoW/KC6nJoFONSGaCPq38VtiBFzYntWOWQaw87ETwia
-	5C3Mym1h+4cEidflrHXuhiBldpqM7+AXwwA5vi2kswCFbWXvl1Np9sFgKPSex9pXubTH47V2iW1
-	+4XJGOZmDlCOD/jFw1w7PZ4qPbSksVDuXHHtcEEbtHQ==
-X-Gm-Gg: ASbGncvPoV2SCAL76BusBPRMgcAe/2tgZbw2vSRD8XMkOaSQMUmqd24ZBhdQpgqYoSN
-	r/PXMdVGdYd2DXPr91aPTBEo58GQoOZUdu2g0zD/r3SmJQ4gsCoACoAgAOs5+84KiqBFUpkQX9G
-	Nv2TNz3bwLvfnrjaPozOoWPeZxibBIVZfybMzHVmrwhu+bMGiEZc/x7xnkSrmj1iPsVS78t68pZ
-	DJUbbX3Nf850YR1d6NBdft70i2r/1kp6P9/yaLgOeLPako5EKIR7gf4bNVAXGGRrhKMWEVz
-X-Google-Smtp-Source: AGHT+IGvbF9vBWEbG0yxHrHoIRF115LWGGkIrcNil1qvyPeGnU0jWQdwZ6i5CqfPgqW4PnBPT+plyU0IoAr45ong62E=
-X-Received: by 2002:a17:907:9448:b0:b40:a71b:151f with SMTP id
- a640c23a62f3a-b50ac1c4e7cmr3318624966b.30.1760538732189; Wed, 15 Oct 2025
- 07:32:12 -0700 (PDT)
+	id 1v92YU-00000001tuD-0JZP;
+	Wed, 15 Oct 2025 14:32:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MwGjJKOrF4wSLKOOD+DLWb1FMHCcHKnoj+YtKvydvPNRBnd5FAaDGwNq3X3uKc+BeW+29wPgiKKyPJw7hgf+TB2KjeKdti1xzPj8ixgLnsVSmwOLnI1rkeHrQUKNmB0IyVAnUQReYPxg8viNVnFzQEaQs8H6WHnQKlvr9htDwtN2giiPbafoWRU7tSPZNxkSgtHsDrPX5rf3T6nrTOKD77RLI9fjuAVSWTfDkBUnJFV1wdCMCLwz+eCijit+LNf4YxTxcHElJ2ogcofUDUXRkL8jJpEcUfJ9//eWu1UpSaBVMfy0LSza981k6Rf+T43kLzamHfRQo/h1/hM6obBbcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z0ePBLBbjLy+uCt0Tc4Axavwd1Tc0eNB+6T2liF8URo=;
+ b=VEm3pt/tsH0zxnI7AIqBniDXK3cNDLaUNI7ysDEqF+WlUnvuNV7a+Zw4OfMkEJ45TgWeqlddofHwHmrZBPIrlhvNUGah+vdhw1EMBXlLIPVcHcZidGxi4hZShJ/+09tyMCucLrperCRsxDiWpwLQHo3jhZ4hQ4Ph+oflxnI8aYJL3BA+oFtgv9cu/68pF6F3fTWrweQAph/f2BOXYv5zMOamzd/NI1U0OYGrpgBsRsw5gJkXuJWbzdjf9TPn1zJvEexyO1sxmdBzFPE5+IWvnCVGuMG7epigNpa3kwKFonfU35lRqjcHtMkP6bRBw+BD2IW9YHxrcEJ7piKuWay3AQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z0ePBLBbjLy+uCt0Tc4Axavwd1Tc0eNB+6T2liF8URo=;
+ b=Xm14qIj6qE0rSydWIxGBO21BTUZmgKcJKSXeFTnloX3IA279EAoyMijq1/+26T0xyMEwPmnaKocCsAVLm2LQlx/Z5dx0vE3PjK825epgqlhH6SD6cOs/b847IRjcSfXmCUOlRQH+1lXh7oOiS4VdOhUyvy7wfPfcPDHvcxlCVoI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by DBAPR04MB7238.eurprd04.prod.outlook.com (2603:10a6:10:1aa::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.9; Wed, 15 Oct
+ 2025 14:32:34 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::5ee:7297:93b4:a8d1]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::5ee:7297:93b4:a8d1%6]) with mapi id 15.20.9203.009; Wed, 15 Oct 2025
+ 14:32:34 +0000
+Message-ID: <9772ae76-7a92-4d45-b4f8-d1bb07dbb886@cherry.de>
+Date: Wed, 15 Oct 2025 16:32:32 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: rockchip: add RK3588 DP carrier from
+ Theobroma Systems
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ damon.ding@rock-chips.com, Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20251009225050.88192-1-heiko@sntech.de>
+ <20251009225050.88192-3-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20251009225050.88192-3-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR3P281CA0198.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:a5::20) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
-References: <20251015-arm-psci-system_reset2-vendor-reboots-v16-0-b98aedaa23ee@oss.qualcomm.com>
- <20251015-arm-psci-system_reset2-vendor-reboots-v16-1-b98aedaa23ee@oss.qualcomm.com>
-In-Reply-To: <20251015-arm-psci-system_reset2-vendor-reboots-v16-1-b98aedaa23ee@oss.qualcomm.com>
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Date: Wed, 15 Oct 2025 16:32:01 +0200
-X-Gm-Features: AS18NWDYlSPyX3_l7fQSeSlc4Ni_BqTNtU4UYXiSbDcs8VqP7UVRqIDp11dg6gU
-Message-ID: <CACMJSeu_Y2Rra8x22kWN0B38jKZEwq7=B9C75zH18QdjDHAWqg@mail.gmail.com>
-Subject: Re: [PATCH v16 01/14] power: reset: reboot-mode: Synchronize list traversal
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andy Yan <andy.yan@rock-chips.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org, 
-	Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Moritz Fischer <moritz.fischer@ettus.com>, John Stultz <john.stultz@linaro.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Stephen Boyd <swboyd@chromium.org>, 
-	Andre Draszik <andre.draszik@linaro.org>, 
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	Elliot Berman <quic_eberman@quicinc.com>, Srinivas Kandagatla <srini@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|DBAPR04MB7238:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5950e1a6-217c-4c35-f4c4-08de0bf7adb7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WitMSFVlYnRCSUF5LzArK21BQUpYSmxNZzQ3akllRUJmV1pSSHdWQm9LbC96?=
+ =?utf-8?B?VjNRUytDVFYzZ096RmRuTm9Tc0pKZW5Uc2JxOWJtb1RjZXNRY2NTY1J0ajgy?=
+ =?utf-8?B?cGc5cWJPbWlGUG5RT05EdjJwbmxOcHVrMVp4Q0s3S1RvQktQTjJxYUdVY0tH?=
+ =?utf-8?B?YzB4cEtzeExJcGRlZVpCeUZKY2dXRkx2NmNvTFArR1NWSGpPN0lnaVVoRDli?=
+ =?utf-8?B?SjdRTFBGVWI5VHZ0dGFLemJ0UmdaeG42eTVNcS8wUjRCeEVaSUZZSWxTbjVB?=
+ =?utf-8?B?aWZaTzU1MVlraFRGR3BEMFRWeHFPb1BjVTlmNmRFV0l0UDdnMWxtV01LTWs2?=
+ =?utf-8?B?OW91TXNBb3V2eFJLM3g5TW1MNFpLbmFWZkRoTGoyUFY4aHdac2VSbXp4ZVFl?=
+ =?utf-8?B?OEEvbUFtRjZycmFTT3ZqOEg1ZEFBTGttNGtBR2M5NjY2QUt0ancrSXJFbTlo?=
+ =?utf-8?B?T29JY2oybys5RnV4b1BWUTc0WDRKT0xYb094bi9DZktGajc2UlE4TTdTdkho?=
+ =?utf-8?B?d3B4QjAweXJyWERxampQem5OZi8yNUZ0MlU3MlZ0RThkaDNUMGF3ZTVtdHVW?=
+ =?utf-8?B?OVJuMUJ4RTlGeThzUmFWU1Rra1p5S0tqQnZVNTFYOHQwUjZ4Wm84anFkNWd3?=
+ =?utf-8?B?QmYyUUprY2VVWTJoa3BKTzdZZmY2RlNuWjNWc3Vwcm9NTVlERFJmU3AwL2Y1?=
+ =?utf-8?B?aDhzOE5VWUFPN2lZemZ2cHRqbFJtYTM5cEJQVlJWRWlTZDFTVnNhc04vK2s3?=
+ =?utf-8?B?UDRKWVRERmZTMG10MzdnanpaUk4vbnljeDZiZ2ZjbEJUVmVRb2Jya0QxWEl5?=
+ =?utf-8?B?MW9YT2FGZVlQWFBtZVgxc3QwMHVpeGI1Um8xNkt5MWsvZlp1bHAyWW0wSDk0?=
+ =?utf-8?B?Vk4yMUVPVk9VNzNLRUs4TGdocGZqeDN3T1YwOVJrZEIrR1VibXVITzJBUlFw?=
+ =?utf-8?B?cGZ3cjhtYStKUU9DaEt6M1JVWFErTUQ1aFVLOFhiZEpoYjNrelpFekZRRS9h?=
+ =?utf-8?B?NEVvQmlQSnRMVllFTnhkOTVCN0pIbTJ5akRqM1J0aWphNWxYbUFFbkwxM0hN?=
+ =?utf-8?B?WGFwUXBJUWNoeHNIM2drYmdRdDdpL3VneVVBMUVTZmJXb1pBSHQwUHFaWld2?=
+ =?utf-8?B?anJGL3BWU245ZWhjVjZMR0NkdFZuUGFNa0pkTjlsVWlGdW05ODMvZDRiRTFE?=
+ =?utf-8?B?UjQvY0ViMjdPK2xIdlZnZVllRUtVamQ0c24vUTVTUlk5eUkvTGZlNnlpU0Vv?=
+ =?utf-8?B?eXlydXB2V2o0Z21RaXRCZ0JqKzA5VEo0U0tabTYvbXJNRG9rNVJzV0d1L0p1?=
+ =?utf-8?B?WjdhTVhhbXNMeENORTB2VkJ1aDlzY2dnTE15bTdpVFVnS1FDUmxSU0JQL2Vm?=
+ =?utf-8?B?azZrazlBbDk2cVNBRkNpV1ZSaUNWeWZXa3hNRUh4MXREUEI3WFlwSzJNd2hP?=
+ =?utf-8?B?MmhTTWdzckRKbGFoaUpWanRIaFpTZSsvRFNGSzA2dWIvbGliQUVpZ0pKbW9Q?=
+ =?utf-8?B?aVNJSDBKSTk1V3BFOTBvMHZSTmdaWXUxQXlHZWF3MTk0Z2lLSXAzK1dLQThn?=
+ =?utf-8?B?ZGlVdG5CRkFwam5KcDE4SVQ5eUdOWXhtN00xM0YrU2VzSndiMjJ0eXhpbFRZ?=
+ =?utf-8?B?OHl1N3E0aUpzaFhiNnlXaGxRN3RWNXdlS0Rkc25wN3gwOEx4YjVJZ0U5Wlha?=
+ =?utf-8?B?S1kzaHlqQ0hQMnRPWjdscXRKN3RsQXo5d3c3Z0pSKys2U3ZValNQYngwRS9T?=
+ =?utf-8?B?a3R4c1BQZG12Uy9INWlUZ2hPMHoyZkFld21lWTBiQWZMditBaWdRVDZVeTJr?=
+ =?utf-8?B?c0gxZTQzWkNVQldONjlqMVJpUVlydUJCK3lKbHhsSHJNUmRYU1RGUjR5SzR6?=
+ =?utf-8?B?Wmw2RzJKVUxuMzFRVitHTjM3L2hiSGNJd2wvd3NEa1BwQ2toUmlSVmpDRDhp?=
+ =?utf-8?Q?XhG3AefjBTAn2C4UFJS9D6/X3M1KFoxd?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cjBXTmxvRjU0UVBtQjBHYjdpSG1IMGQrVWMyNG1IOWp1eWtFbUtjc2k1RVQw?=
+ =?utf-8?B?akVGVTdCcE5aSUdER01VTVdCaHRqK0hoS0ZNbmg2QkR4VmpYVEg5cUN3d0Rs?=
+ =?utf-8?B?YU5rSTI1Vys3VXZPRUVaVGdnUDJ5RllCTjViNFdoL3pnN0UwQ2tJUTJVQW5K?=
+ =?utf-8?B?Qm5DcXNHYU1xR0hNNWwzYXF5Q0lpTTFoRGZmZ1FVRmlpQW9nNDQvQ2pFLzdO?=
+ =?utf-8?B?b0UyNFdYSmg4QStEMlljRVU0SURlelk1L1ZlNkxNanNkK01OTWV3RjBhWjdO?=
+ =?utf-8?B?NjhkNmU4d0hNVjMyTWhzbEhZelFHTmFDTXR4cGpUTGp1dHFDRXpUV0ZWb0NL?=
+ =?utf-8?B?Ny9oNkpKenkzTGN5Yy9sNG1xeWZiYlM1ajBBbEFaVzE1dFpYYzVlbFoyS3Ey?=
+ =?utf-8?B?UHpVdzZxTTVtdlpJaklTaldUbEFQdjkyM29Bb3FKMi83ZFo0ZnU5bTBmT1Ux?=
+ =?utf-8?B?eER3bUJRd1JBZ0Z5QXhXT21vN1ZjRVIrcmxyZjRmZVhSZzRGVmxhRHoxeHds?=
+ =?utf-8?B?dkhJdGtGQ3V1SU83cGFCQjVLMUtrazVTMjVTUVZLWFNMMUI0RXp5b0hPbEdP?=
+ =?utf-8?B?OVlsMUtReHVpVjE5VjFYN1Q5a0pCVXlHS0k0czN4WU1ITjNqcGdNMkdMOGsy?=
+ =?utf-8?B?U1pMYW53MWVDN2RLbGxLK2FSeG90VE5BK212SzZwblA4Y3liM05TRm9mS20x?=
+ =?utf-8?B?dDVLb00xeTMvcnlBZm5BZXB3T3ZzbE5XR1IvSzUzOTBuLzI1bjFCd2s0cFdx?=
+ =?utf-8?B?UVNYT1UzWE9JY3lCRTZacS9hNVZQNTZwekYyNkRLZ1JSRXMxakVPRWMzaFlE?=
+ =?utf-8?B?YXdTaFFxeTcxOGJZcm5DMWlLb05CY29aMjBIZ0ZibnRsODZuYm5lWk9MMHFD?=
+ =?utf-8?B?ODlMVFdmZjFreXQrRFk0c0F4VGhFKzQ0MFVOMm0wLzBLQkhUUi9DYkkzcUhi?=
+ =?utf-8?B?Vk1xbmRmN1FoTGZ5SzNDM25UdnlDZ016MmtGYU9IMXE3U2RjNmYxRlZmUkRQ?=
+ =?utf-8?B?bHRUbFN3V21XRXZySE1Rdjl6QWpiRUl5RDU2Z0ErWEllVmZ6MVdTOFllbmQz?=
+ =?utf-8?B?TENWelhyL2twVTg1a1M4Wkx5SDNsblcybVMzcnNxNkhPakpUN2pVZTR1cXdO?=
+ =?utf-8?B?MCtjNWRXUWpySDhuU1N5ZjQyTkNXVWEySFlrNHh3bWUveFRESHVvaGw2T2E0?=
+ =?utf-8?B?SlVjOERUTEcwNnRodStZN283WHFZdFRtYk9ya1FVbjJTazQ4cUlZUEtlTE01?=
+ =?utf-8?B?K2ZEa0MyZ05JNkVjd0N6ZzkrR3diWUN2STdqQ25CNFYrTmlvOWJGenJiVUhJ?=
+ =?utf-8?B?b2hwdnZpSHg3dzF0SDA5Tyt0MmlIZmtCeitUaXQ3QU5ObDgySWpwOGpSMGxr?=
+ =?utf-8?B?SG5tZ01KYTdsM2NZTUVvNzd0T05WcGV3RXRQSUhQc1hTR0lGU1pTMWF5LzFt?=
+ =?utf-8?B?K1ZyUnZIaUg3a0FVaXgxZmF5MU9mT1o3bi9HbkJsR3lLa1VFMk5vc2NsOGsx?=
+ =?utf-8?B?S2dGM0FhMC9DVGE1SlRBanIwSkd0N3UwTHlrbjFZNzNadHYyZ29lU1VRUkF6?=
+ =?utf-8?B?M0ZrZmFuMUpWYklYRGtVbkVwdm8rbVlZcWdWak1WdmExZlhEZlhFdEdoM3dM?=
+ =?utf-8?B?OWhMRjRQR2hYVmtnKzhVVDBhVm5ycVpVVTdWdmxNeGhUUkhCZm5HcTdacnJN?=
+ =?utf-8?B?bFloTndSQjUwMnJ2R2R4bzVnYkcvYXQwZEdsMng0aE9HVlRGNGZsUEFnZExl?=
+ =?utf-8?B?djcrMHg5OE1MdkE1djBFVEM2ZkphYlJUWVB5MGhSeWlEallXZWFZblRkc0RE?=
+ =?utf-8?B?VlRzTUg5L2hZTEUxTkNCVkZSMkg1NGp3YlN3OHkwbGFLUFdHcks4bldxcE1J?=
+ =?utf-8?B?TjFQbElBUEtMTEJ2S09hbWs1dDROM3pGNWpqWWZtbE5oT08wanFjZmpjbDdX?=
+ =?utf-8?B?RXY2R2R3MXc5Q3RRQ3BsU2tRUDUwSEVMdk5EeVZzU3RaMTMzT0l3NzE3cjQ0?=
+ =?utf-8?B?UmhHdFVmaGIyNEYvM2c4dE5qTWlVT2s0NWd4RGhRTEtEcmFkelM1Wk9DbFh4?=
+ =?utf-8?B?anFMQXpzTStpc0hubHIva0t6QWh4aitncm5QbmxFWExJM0ttd1N1K1hOYUVP?=
+ =?utf-8?Q?AMUAcSLYPrMrt3u2IjyWd0Lu1?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5950e1a6-217c-4c35-f4c4-08de0bf7adb7
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2025 14:32:34.0200
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JAzsXiV1ka3zGN3i3yEIGpt1Cr0R6whHXanNK+4+q405wmXQGPDfmk3T4l69HGvoAN0W5BpV+oPhfL07FQumdOsLv7Gx8OBnQpskXdky5k4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7238
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_073214_608798_5ECF1620 
-X-CRM114-Status: GOOD (  25.13  )
+X-CRM114-CacheID: sfid-20251015_073242_127609_BEC29108 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,190 +178,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Oct 2025 at 06:38, Shivendra Pratap
-<shivendra.pratap@oss.qualcomm.com> wrote:
->
-> List traversals must be synchronized to prevent race conditions
-> and data corruption. The reboot-mode list is not protected by a
-> lock currently, which can lead to concurrent access and race.
->
-> Introduce a mutex lock to guard all operations on the reboot-mode
-> list and ensure thread-safe access. The change prevents unsafe
-> concurrent access on reboot-mode list.
->
-> Fixes: 4fcd504edbf7 ("power: reset: add reboot mode driver")
-> Fixes: ca3d2ea52314 ("power: reset: reboot-mode: better compatibility with DT (replace ' ,/')")
->
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> ---
->  drivers/power/reset/reboot-mode.c | 96 +++++++++++++++++++++------------------
->  include/linux/reboot-mode.h       |  4 ++
->  2 files changed, 57 insertions(+), 43 deletions(-)
->
-> diff --git a/drivers/power/reset/reboot-mode.c b/drivers/power/reset/reboot-mode.c
-> index fba53f638da04655e756b5f8b7d2d666d1379535..8fc3e14638ea757c8dc3808c240ff569cbd74786 100644
-> --- a/drivers/power/reset/reboot-mode.c
-> +++ b/drivers/power/reset/reboot-mode.c
-> @@ -29,9 +29,11 @@ static unsigned int get_reboot_mode_magic(struct reboot_mode_driver *reboot,
->         if (!cmd)
->                 cmd = normal;
->
-> -       list_for_each_entry(info, &reboot->head, list)
-> -               if (!strcmp(info->mode, cmd))
-> -                       return info->magic;
-> +       scoped_guard(mutex, &reboot->rb_lock) {
-> +               list_for_each_entry(info, &reboot->head, list)
-> +                       if (!strcmp(info->mode, cmd))
-> +                               return info->magic;
-> +       }
->
->         /* try to match again, replacing characters impossible in DT */
->         if (strscpy(cmd_, cmd, sizeof(cmd_)) == -E2BIG)
-> @@ -41,9 +43,11 @@ static unsigned int get_reboot_mode_magic(struct reboot_mode_driver *reboot,
->         strreplace(cmd_, ',', '-');
->         strreplace(cmd_, '/', '-');
->
-> -       list_for_each_entry(info, &reboot->head, list)
-> -               if (!strcmp(info->mode, cmd_))
-> -                       return info->magic;
-> +       scoped_guard(mutex, &reboot->rb_lock) {
-> +               list_for_each_entry(info, &reboot->head, list)
-> +                       if (!strcmp(info->mode, cmd_))
-> +                               return info->magic;
-> +       }
->
->         return 0;
->  }
-> @@ -78,46 +82,50 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
->
->         INIT_LIST_HEAD(&reboot->head);
->
-> -       for_each_property_of_node(np, prop) {
-> -               if (strncmp(prop->name, PREFIX, len))
-> -                       continue;
-> -
-> -               info = devm_kzalloc(reboot->dev, sizeof(*info), GFP_KERNEL);
-> -               if (!info) {
-> -                       ret = -ENOMEM;
-> -                       goto error;
-> -               }
-> -
-> -               if (of_property_read_u32(np, prop->name, &info->magic)) {
-> -                       dev_err(reboot->dev, "reboot mode %s without magic number\n",
-> -                               info->mode);
-> -                       devm_kfree(reboot->dev, info);
-> -                       continue;
-> -               }
-> -
-> -               info->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
-> -               if (!info->mode) {
-> -                       ret =  -ENOMEM;
-> -                       goto error;
-> -               } else if (info->mode[0] == '\0') {
-> -                       kfree_const(info->mode);
-> -                       ret = -EINVAL;
-> -                       dev_err(reboot->dev, "invalid mode name(%s): too short!\n",
-> -                               prop->name);
-> -                       goto error;
-> +       mutex_init(&reboot->rb_lock);
-> +
-> +       scoped_guard(mutex, &reboot->rb_lock) {
-> +               for_each_property_of_node(np, prop) {
-> +                       if (strncmp(prop->name, PREFIX, len))
-> +                               continue;
-> +
-> +                       info = devm_kzalloc(reboot->dev, sizeof(*info), GFP_KERNEL);
-> +                       if (!info) {
-> +                               ret = -ENOMEM;
-> +                               goto error;
-> +                       }
-> +
-> +                       if (of_property_read_u32(np, prop->name, &info->magic)) {
-> +                               dev_err(reboot->dev, "reboot mode %s without magic number\n",
-> +                                       info->mode);
-> +                               devm_kfree(reboot->dev, info);
-> +                               continue;
-> +                       }
-> +
-> +                       info->mode = kstrdup_const(prop->name + len, GFP_KERNEL);
-> +                       if (!info->mode) {
-> +                               ret =  -ENOMEM;
-> +                               goto error;
-> +                       } else if (info->mode[0] == '\0') {
-> +                               kfree_const(info->mode);
-> +                               ret = -EINVAL;
-> +                               dev_err(reboot->dev, "invalid mode name(%s): too short!\n",
-> +                                       prop->name);
-> +                               goto error;
-> +                       }
-> +
-> +                       list_add_tail(&info->list, &reboot->head);
+Hi Heiko,
 
-This seems to be the only call that actually needs synchronization.
-All of the above can be run outside the critical section.
+On 10/10/25 12:50 AM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> The DisplayPort carrier is a very simple baseboard only providing serial,
+> ethernet and a displayport output.
+> 
+> But its main functionality is that it routes the Analogix eDP controller
+> to this DisplayPort output, which allows to test that controller simply
+> by hooking it up to a suitable monitor.
+> 
+> The Analogix-DP controller supports eDP 1.3 and DP 1.2, so can drive
+> both eDP displays as well as full DP monitors. It does not support DP+
+> so passive DP-to-HDMI adapters won't work.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> Link: https://lore.kernel.org/r/20250723190904.37792-3-heiko@sntech.de
 
->                 }
->
-> -               list_add_tail(&info->list, &reboot->head);
-> -       }
-> -
-> -       reboot->reboot_notifier.notifier_call = reboot_mode_notify;
-> -       register_reboot_notifier(&reboot->reboot_notifier);
-> +               reboot->reboot_notifier.notifier_call = reboot_mode_notify;
-> +               register_reboot_notifier(&reboot->reboot_notifier);
->
-> -       return 0;
-> +               return 0;
->
->  error:
-> -       list_for_each_entry(info, &reboot->head, list)
-> -               kfree_const(info->mode);
-> +               list_for_each_entry(info, &reboot->head, list)
-> +                       kfree_const(info->mode);
-> +       }
->
->         return ret;
->  }
-> @@ -133,8 +141,10 @@ int reboot_mode_unregister(struct reboot_mode_driver *reboot)
->
->         unregister_reboot_notifier(&reboot->reboot_notifier);
->
-> -       list_for_each_entry(info, &reboot->head, list)
-> -               kfree_const(info->mode);
-> +       scoped_guard(mutex, &reboot->rb_lock) {
-> +               list_for_each_entry(info, &reboot->head, list)
-> +                       kfree_const(info->mode);
-> +       }
+Please remove the Link trailer for v5 (if there's one) :)
 
-Please destroy the mutex here.
+I only have one remark: the device is stuck when shutting down or 
+rebooting after this one line in the logs (can be shown by adding 
+initcall_debug to the kernel command line)
 
-Bart
+[   21.973452] arm-smmu-v3 fc900000.iommu: shutdown
 
->
->         return 0;
->  }
-> diff --git a/include/linux/reboot-mode.h b/include/linux/reboot-mode.h
-> index 4a2abb38d1d612ec0fdf05eb18c98b210f631b7f..b73f80708197677db8dc2e43affc519782b7146e 100644
-> --- a/include/linux/reboot-mode.h
-> +++ b/include/linux/reboot-mode.h
-> @@ -2,11 +2,15 @@
->  #ifndef __REBOOT_MODE_H__
->  #define __REBOOT_MODE_H__
->
-> +#include <linux/mutex.h>
-> +
->  struct reboot_mode_driver {
->         struct device *dev;
->         struct list_head head;
->         int (*write)(struct reboot_mode_driver *reboot, unsigned int magic);
->         struct notifier_block reboot_notifier;
-> +       /*Protects access to reboot mode list*/
-> +       struct mutex rb_lock;
->  };
->
->  int reboot_mode_register(struct reboot_mode_driver *reboot);
->
-> --
-> 2.34.1
->
+It only reboots by chance, after ~1m30s, because the watchdog is started 
+before rebooting and never triggered again.
+
+If I add:
+
+&mmu600_pcie {
+         status = "disabled";
+};
+
+then the device reboots just fine. So we either temporarily disable it 
+or we try to fix the origin of the issue.
+
+As reported to Damon today on the v2 of this series, I tested with
+https://lore.kernel.org/all/20250930090920.131094-1-damon.ding@rock-chips.com/
+https://lore.kernel.org/all/20250930094251.131314-1-damon.ding@rock-chips.com/ 
+(patches 14-18 of the previous thread)
+https://lore.kernel.org/all/20251009193028.4952-1-heiko@sntech.de/
+https://lore.kernel.org/linux-rockchip/20251008133135.3745785-1-heiko@sntech.de/
+
+and DP works as expected (minus some (I deem to be) minor issues).
+
+Cheers,
+Quentin
 
