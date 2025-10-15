@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD3F8CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:07:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A410CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:07:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wkVCVcSpGhoASFpSYOayYIERNxNi9iwqZqN0/hTf7po=; b=P9q2gw41ibVRnUtVT0HBYZmWnB
-	tAJBwAqkf7Ju3XLTqua/xdODswwVp5PTXqP6WBMsbu2+Q0759t0NQS/DZY0y1rvCO7EVoKDIxXTb7
-	XzbNGl0W0eqg6pt2Hwd+/Slx0WRA7lAVdEpKpu0/dZcW7m4UiSGmvP+jUTws1rz5EropW9KsWCVAR
-	kXA3A6OAtYSmheXQUsBOX1NFeU7ag/dFU5UuLgJ1iAWxEtjJrT0EgwIyCHy6U1Z/cQct0wcev5sJi
-	iNisuuIGsBedw7Ho2E9VxSx2AqFsmQKQ6VmZ+S5seNhIDwm8o5nKzJ8baxiezLTLFwIDTIFcBDvPr
-	sfWhjo7g==;
+	bh=pmMePLo1OcdaTVq/IZIskCrUN/yQDZXwUBcfSi+M95o=; b=yj7Cb1YIy12ysfAxodrlgjNcLG
+	Ntc/vmBjxnnLTzFcEiYsL/30lyJ7J7lQ/8SpRsoBlyM9dmveB62IO74Kd780wvRppnMdhhWBXJyeZ
+	kcclxUTVHy4u83J5GmKpcmwukpo5Tn41fBemdjQGclsB/WlrO2c7vS7pSykYinEkvk427JiWQ9iRa
+	Xz8wnWxVPMJopRULwhco508Tz68TjKAASYxZ+R/M+SQki29zJ57AncHhOeaAOyo1ti6G67kk0zYlL
+	62bQqmcFxez7UVF32zSOLW1pJ6p1tBR4W9qtBFWz2/jcUU19jwNaLljkLcLcbzpHLqDqcx7jsNJN1
+	z02Q+9LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v942G-00000002DpI-0ntz;
-	Wed, 15 Oct 2025 16:07:32 +0000
+	id 1v942Y-00000002Dxk-1KjF;
+	Wed, 15 Oct 2025 16:07:50 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v942D-00000002Dnm-1lPL;
-	Wed, 15 Oct 2025 16:07:30 +0000
+	id 1v942V-00000002Dwi-22kY;
+	Wed, 15 Oct 2025 16:07:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B8A243622;
-	Wed, 15 Oct 2025 16:07:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 532F7C4CEF8;
-	Wed, 15 Oct 2025 16:07:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A9EB43AE6;
+	Wed, 15 Oct 2025 16:07:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E877C4CEF8;
+	Wed, 15 Oct 2025 16:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760544449;
-	bh=vW+sUqrp42QvWqx+pFlrtwbxBhUYUL98Q1Hm7OK3wwU=;
+	s=k20201202; t=1760544467;
+	bh=/xgC0Foj4sRECkkeujgbfojixypoYlfCwdvcLyXmOGg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=t9lNOVsOfjmvGhrXJ4X7cwbwUH7x5nW0C/MWkNdc11xqCnZ1nv3gpWEOFbqodRCuo
-	 tkpOP3XyDb7qVRzYCdM6BPa3MhqkCXMADNBnSy0Hr8/cGrShlq5lThwaxrKhATWc7r
-	 DtPxQXKfK0roluCy1CT2cJVJKEPzJse8cC6lF4+anD/NG21rBzD3SXF1Dy0K85vHxi
-	 x6h+sVahinXaLnJuKV1293SZBrBqHEqGDY1MP1FFgHXAJ6oREC1m4LAsBAh8jeKBdY
-	 NsoD8UHMdey+moNo2jqKhdZrIGw/K0VuDQy2Op85id/m5kctpjjVkkdAmIZy7v8CeG
-	 +Nu7LsFurf7hQ==
-Date: Wed, 15 Oct 2025 17:07:24 +0100
+	b=T6ELbrhnqgx/bgNPJVFXQQnGtJXQNt64zVKMLbiQ1yDXdUH0v473aMU2NKwLUp3Q0
+	 BW4Mz8sfSBfLQ/SkpimKPbwOS6GzekcSPu4zZ8UstXuwTEqXWrMVs1GxWzricTm9Q1
+	 bCMyry0l022vMXY6zb1NF/R/ciexvFsNw2eWfqkr3QDb6lvEvctoBLR9tIMDpMQGse
+	 3lJ+/f2jpl47KhA1jvDGM4oameGuRkJX5+2gX6m+SuAM3CM/hW302BQ460g5g/bEFZ
+	 LLwFz7fG2roW/2HZ9QAHFIUV+sBlg7SKKsSA+c81WGVI96trF98K+29z4yYAjdwT1p
+	 4KQTcUFi2qV4A==
+Date: Wed, 15 Oct 2025 17:07:42 +0100
 From: Simon Horman <horms@kernel.org>
 To: Lorenzo Bianconi <lorenzo@kernel.org>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -55,18 +55,18 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next 06/12] net: airoha: ppe: Move PPE memory info in
- airoha_eth_soc_data struct
-Message-ID: <aO_GvFhcfw39Y1He@horms.kernel.org>
+Subject: Re: [PATCH net-next 07/12] net: airoha: ppe: Remove
+ airoha_ppe_is_enabled() where not necessary
+Message-ID: <aO_GzldXUvN0gN5s@horms.kernel.org>
 References: <20251015-an7583-eth-support-v1-0-064855f05923@kernel.org>
- <20251015-an7583-eth-support-v1-6-064855f05923@kernel.org>
+ <20251015-an7583-eth-support-v1-7-064855f05923@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251015-an7583-eth-support-v1-6-064855f05923@kernel.org>
+In-Reply-To: <20251015-an7583-eth-support-v1-7-064855f05923@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_090729_478964_4B0EB29A 
-X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-CacheID: sfid-20251015_090747_540908_64A1139F 
+X-CRM114-Status: UNSURE (   9.07  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,10 +82,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 09:15:06AM +0200, Lorenzo Bianconi wrote:
-> AN7583 SoC runs a single PPE device while EN7581 runs two of them.
-> Moreover PPE SRAM in AN7583 SoC is reduced to 8K (while SRAM is 16K on
-> EN7581). Take into account PPE memory layout during PPE configuration.
+On Wed, Oct 15, 2025 at 09:15:07AM +0200, Lorenzo Bianconi wrote:
+> Now each PPE has always PPE_STATS_NUM_ENTRIES entries so we do not need
+> to run airoha_ppe_is_enabled routine to check if the hash refers to
+> PPE1 or PPE2.
 > 
 > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
