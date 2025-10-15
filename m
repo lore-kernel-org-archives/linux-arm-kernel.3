@@ -4,176 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29027CCD195
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920BECCD196
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 09:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UZrxxGI3KmLwlppHUmEApuSuioKy3TyjBhwDUlICoF4=; b=jC5B/EcHMjuw0AnuCQNSkSnbPr
-	nqZFPwmJygYvVqWe9KcvDUnYey3myEqU6650jWWlbWNI4chueBzFVhjycLGFtQTRbu6YiPh2HPShU
-	hDAItoLP1Jk/PtzhK5jgG4H4rmZ9pu64Rz05YF2czsfVmfLPeYt+p/mDjcIt8HKDqgnkXewFMfu6u
-	ZiGdtLYQ5AzrZFJrHQdcEjsgipsXeW0BCrH5GBquBv70HB1PVSl714JYwUWZBnSzndEOVY6q2fIDM
-	guqsw0Qb9yLGaIK9n4FhRusGendFNAehGjyzOqVAsxGd9QAskQVlPe0YNnz3LFgq3pF1Mg9B/dQZq
-	DiDSpzpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TJlRyQ1VJm/K2tuHDToeDl7+QCmOoL3L7U1K1RQjuyw=; b=m61K777ZzYADk8CLCsfzvvFpUL
+	qMohO7ZYGHVCGoqhTH6MtjuGXaLBIJWI+OrOmayK39PbiVOXdAN4VuvMGk24Q9RQUy7tgdoYpY/SN
+	FBMafQYvsCazAjdT0FWTLUslzWXRbLBnps31uKPc+cLfBtWDruPNayfZ51SRUiwzkR+2J7AcwTukN
+	y8+Z/VuGRAzSMbp/VBjPpB9y/nf1cKu9NtkBMfJWpsoUA5tigLg3jKRdylvmw5Kd/SsSHhR60vcBK
+	lQPcgyYaVnwnEQGIjXcYwNEzjOiGbrYeMXu3fU7/xYaBXYdYvHEtWTwmaa0S7D8diEmO9anI7/JaR
+	6elxmm+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8xa1-000000014yy-1l0b;
-	Wed, 15 Oct 2025 09:13:57 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1v8xZy-000000014te-44wW;
+	Wed, 15 Oct 2025 09:13:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8xZs-000000014fK-0EYA
+	id 1v8xZp-000000014dp-1xiI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 09:13:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SvgdiA+iMvnwH2div74MqW9jqBlTAoOgx5cS07JDIRlFhIfoXC1IfwRLOfxS7xSoubSuly/FfU47t+XIGk6Kx3pNAxVkYi6NiLjD2qbm1XlGUFwbKkhOsZOaUsAu+bLGCM1DhiXtT3eYTBx1/u2Us3NNFnnWhMIHEPKLzs2KdTT5kOZOhc9YAxahZLscJN67Xd6l2jWWk32r56qj4BLAf8mOqKdWIp2GkB268m6FGLQ8aIbs76X0cSbHUOxVJvGebtQDzRoqPBV2IJP9s5GJy3Dfq9lH3PUpnLDnp6yhXjgz0SswRTf+T6RIqLuCJvBivYwYxCBU0GO0wpdGAlebzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UZrxxGI3KmLwlppHUmEApuSuioKy3TyjBhwDUlICoF4=;
- b=GD7EsTQMSMO/LCypNr0c9w6p/LSfRyRXVlPGIXn2d4zfIqbbo+aWZq8n44gk7AgavUcQWHoHlBdjWCLSVqwoDYgeeOs8bO2TyNFWn+b4eRQ7PJdlPQEYU4qCgOFmANZhlL3MUi3ASuPWH9JKfAktK+EH3ruG9bG3yQrqOaRd4m7Zzyoo8czdETVHQg8HjMtDimSWZMJ6IjZPfH11WMMNAzjJ+TomDwX06f8rA5IK3sanaCwWOjHkkpAYOpYjKAHyXKrlV19pPufhEdk1/104UQyQGU9BEmssq9OHzA0lpNwjNufgr5p16cDdqTP7lv5xyQNH60JxMAr9tb6bj2VjYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UZrxxGI3KmLwlppHUmEApuSuioKy3TyjBhwDUlICoF4=;
- b=STlq5bT201Hzaf4zw4TsQ8mKYJlt4S8bV8X94FvWCaFqNEyipeA9qVn0zao6JHSshgaahNmnvVCikGGkClpuCiHJFE832s19QUVSJZoqbgZO2s5KBSCgBoOsD2pWmtiuldTiCMxbU/0UCAfyJdZ/EJNNpqMx4R+xRKJucdRh0cGl1hcali3bskz45/dWC363qEYpOhskfI0Z9yM+xAQmdWbVIRewENh5ZSvhV7TGmy9W7uvGRIV0mXqqgjPB4lJzLsmCmTlKoE0lcW/TR3e121ehkuPckLZ2fpNFg7Rj0/2cBh8mQiw7CWJ9oIfKlHbNzShY0xTpXZfx6h5XOzCoGQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by AM9PR04MB9004.eurprd04.prod.outlook.com (2603:10a6:20b:40b::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.10; Wed, 15 Oct
- 2025 09:13:39 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9228.009; Wed, 15 Oct 2025
- 09:13:39 +0000
-Message-ID: <be6bc134-1dfc-4cd5-8f1b-cd5431828eb3@nxp.com>
-Date: Wed, 15 Oct 2025 17:14:02 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/39] drm/imx: dc: Rework dc_subdev_get_id() to drop
- ARRAY_SIZE() use
-To: Marek Vasut <marek.vasut@mailbox.org>, Frank Li <Frank.li@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <20251011170213.128907-6-marek.vasut@mailbox.org>
- <aO0vLbkpXejre2Ta@lizhi-Precision-Tower-5810>
- <c7fee270-f3ff-402f-8266-0ffbb5077a61@mailbox.org>
- <aO5oKe14GLp3diGH@lizhi-Precision-Tower-5810>
- <43e3e005-5d30-4450-8dbc-8c6b5a0fa951@mailbox.org>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <43e3e005-5d30-4450-8dbc-8c6b5a0fa951@mailbox.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2PR06CA0190.apcprd06.prod.outlook.com (2603:1096:4:1::22)
- To AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+	Wed, 15 Oct 2025 09:13:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 86F3C63BF7;
+	Wed, 15 Oct 2025 09:13:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 833DCC4CEFE;
+	Wed, 15 Oct 2025 09:13:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760519624;
+	bh=VJMEonbngsbL6IpijrzIYHbjAMBroRqSUu3lz2uAAqo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KczTkmrb6bYU8Tg9j49OYe6YFKsv5pKXc/7hhZGsvcfW/wQgfV3qMC+lUeGrd2hUc
+	 5zpPw/ZMjilS2KzneKF6/BHue7NxPjjRokSrqt0egj3uQim/5oLmDLiV18WAxxuXRH
+	 AwmUbgF2eCa2HLDg30cM/Zq+hYSEmp9m66qrcC2r5aS2bBcWr+scUqtrtFkAz3ayhK
+	 jdrrQUkifKtfJkBj8o4umhVpXAysn34TBn3haaSXGmxtbq7dyLZthT2Arkgqqtnhit
+	 lpWDHniY0RhzMRDC1by7nUOQ3eiURectjDf0dLDCPYQvbXTMlwDVSffrfvAqOW7G12
+	 S0FUxgeWE1dDA==
+From: Leon Romanovsky <leon@kernel.org>
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Juergen Gross <jgross@suse.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Geoff Levand <geoff@infradead.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>
+Cc: iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	xen-devel@lists.xenproject.org,
+	linux-alpha@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org
+Subject: [PATCH v5 11/14] sparc: Use physical address DMA mapping
+Date: Wed, 15 Oct 2025 12:12:57 +0300
+Message-ID: <20251015-remove-map-page-v5-11-3bbfe3a25cdf@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251015-remove-map-page-v5-0-3bbfe3a25cdf@kernel.org>
+References: <20251015-remove-map-page-v5-0-3bbfe3a25cdf@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AM9PR04MB9004:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8de24c49-648c-4ca4-7ba5-08de0bcb20f4
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aGVzRkc5ZGNKNkFFbVRUUnlRWUtMM1hGSklRNDl0NXJjTmtmTXNwcENpUTMz?=
- =?utf-8?B?SWZ3clZRUWRKQVNkODNDRXBJZFJwUFdlSno0bE9XcngxWXlPV2VoU0lTQWl0?=
- =?utf-8?B?SzVsNG4wNW5YRVYrNEkvcGIxeUd1UUhUYTNQR2trbG1RNFY2WGZKNCtKY2lx?=
- =?utf-8?B?TjZDdWI1MWpkS21uN1V1QTBBTkxjcUZjNmhwUlZFcFdWeERDRXZneXdVOGhN?=
- =?utf-8?B?bjM1eTdrdmtZa0N6UWlhbUtCcDdWTHdZekhCTk5SR2lmTXU5UDIvZ1gvT1ZC?=
- =?utf-8?B?VjVQLy82K0RSRGNxaXVFK1krL1RQc2U2VDRNRkJFUFRGOXV3YkpzVENRVndD?=
- =?utf-8?B?cG1tQStXaWE3ZW4xVGJGL0xaZW5VNU9OVTFCM0N0RjllS0NBSzdLbytvVmFQ?=
- =?utf-8?B?ZGNOaUZ5ZVVxcEloeUN3eDFmOXM2eWtnMVFWWEpjamtOc2doa1p4dStkOUZI?=
- =?utf-8?B?dnBDY1IrNHFIcUtQOXJpR3hmTy9lTW42aWlFR1Jac0RRZUZudzIzRmpVQnZR?=
- =?utf-8?B?S053Z1R2T01QY1FlM0YxRkxBQzZJQWZTUGZuamQvbVY5ZHRIcVMyMGlpQTZ0?=
- =?utf-8?B?Q1REYWJPbEU0REROYkYrM0FHaGhzb3ZaSEc0VGJYTlZDODhoTFRDeEt6NnBn?=
- =?utf-8?B?SjRsRDZEZVd5bkkxUmNESm9rWjUzN2k1dXJMSUxqK296OFpPQmlPK29BUlFz?=
- =?utf-8?B?Uk1oQ3NFZDl1Q051SlJERW14VnFEQWdFZC9ULzZIcExQR0dTRFU3N0VlY1lB?=
- =?utf-8?B?SXpaM3NoN1JQcmNNNkJDSi95RnhWUzhEYStyWlRFZER6V3dMZVBCdHdjMHRK?=
- =?utf-8?B?dG9xSTljSjc2Z1BvYm1DMExpZm42R2Zoc3lYS3dsQ2lTbWxmVG5oS2dwTzlH?=
- =?utf-8?B?Z25ZczM2VlNYNyswTTl4Nm0rdGVXZnB1aDYzU05BQUU1alN0aDZsTDhtd0NP?=
- =?utf-8?B?WjFjODhrZGtoSmZOY09TNWpjN2xqck1UM21aVFZYUVF5MFd3bmpQemVPVFU3?=
- =?utf-8?B?bHVTdXBITWc4eEgwdDlBcW9WTXZ6clVTNVd5a3VSNmpvRFljVkwrT1BGaXFN?=
- =?utf-8?B?aHVBNTk0ZUJYbmJ3QkNmVWRKMG9JZW9WNElUUWhCWktjUzFubXZ6dFc4cUlt?=
- =?utf-8?B?SHdCb0tyenFhNWQxL0hoaFd4OW55OHdYUW92WmNpVWc1cXpFZnNieitTbE5U?=
- =?utf-8?B?KzBGbjJONFBXZmhMbnQvZ3AvcEd5WUxVZU0yc0RJUnl6VkdyeFlmc0ZQdGE1?=
- =?utf-8?B?cDJwdVFhVmVFampINjM0L05ERXk5MWRjTUxPYXpXSG1YZEx0dUo2RUNJOTdU?=
- =?utf-8?B?anhueUQ0Z2RKejlyeFNMSWs2czRCTVU2RHNoY1NiRU5ZbW9SSHZ1QURYVEEv?=
- =?utf-8?B?MDEvU2xJRmdiYlI4SmZINkhaSGl5U3JKWnJqQ0lhdVZ3UXRKTXpydUE2OEMx?=
- =?utf-8?B?SklzeTExY1hoYkJUb3lncjdzTVZ5dmdSRUMrdWN0NnhRa1NOckorNFQ5c2NH?=
- =?utf-8?B?ZVZFQWpLTUpKWWNnbFd0Y05LNzlMcTgvOXdOaEUzL3llYXpLaHZNTDR1eVBL?=
- =?utf-8?B?RnhTWDNJazBaTkdidVNxdFhnM2YybDZ3Q0FKRTA0b3VudlhFaHhPK3RFanFY?=
- =?utf-8?B?RVBGWnI4akI5VVIwQk83aHp2eUsweG1OZlZreVNGaGlIWjB3cGhsQ1Nlajd2?=
- =?utf-8?B?ZjNQNnMwWlIzZW1FNmdjTVEvd1l2SDJidm9XTStDYkFnVTFJakM5ZlhpZXlX?=
- =?utf-8?B?NWUwbmp5NXZ3RGVCd2NZYXZMNlR3bElFV2todkEvalNQdGVYem5QRTl3UVBD?=
- =?utf-8?B?TjFiZTAwaStlSUtMZTAzWVRjdEtoUG9sRkl1R3RyWi84ZCt2NUY0ck1MNmY1?=
- =?utf-8?B?bzRuWnNvNWRxT0Q3U2RQRElrVzNxTWFyY3ExdHlSQmoyM2M4NStSOHY0cDV3?=
- =?utf-8?Q?hgehn3GtOmKTF51EQ57Qc2p8o+U8mFAR?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cW01VWxKcHVUa1lKMlJoczRUS2lrand6NStxR0VHQ0k3MGZncUdGaG1KT0Nv?=
- =?utf-8?B?SWpnMkY1eGs2ZjlKNURxUkVocnJac0NNMDlwRFFqK2R3MVFzWEJrbEFBbXgv?=
- =?utf-8?B?bS95WERrQ0VqYVRaRTZuTFQ3YVhLMUNlSC9MTEZRWGxSTmJpM3N1OGo4Ukcr?=
- =?utf-8?B?UWNPUXRvcS9QVWhOWFRIOWkwQWE5RXp0QWZhVlArZjY2UG5ROVF0elVjajBz?=
- =?utf-8?B?dDdTZEtZNDc3S2J1dFlUNXRjUjVid010OVMzUkZJc1N1YUo5Nkt4dndmZGcy?=
- =?utf-8?B?K1dINys2dlhLYnpZRlJjeXZyajByRHNWcTJwanhMcS9MdW0xNHowR2xmWEJD?=
- =?utf-8?B?M2lscU5VbGtTaU42RCtxK1o5aVRGUUdWeWNha0dnUnRhOUoxYVRoOHNJVjFL?=
- =?utf-8?B?TUh6bEMvbzlNTEIweDdpVXBWaHdONndUMTgzUTdUdHVCZHJ2WWJ6cmxOWmFH?=
- =?utf-8?B?MW1iWDlRVkh5blBjaFErMHNlVFk0Z3MreGduUEphYTREYXhROFdpVEtUbHJs?=
- =?utf-8?B?dEVCejJCbEdsNjM0emdwcVhHMWI2QzVmZVllb1pWSEJxTmkvemJaOHNPazdo?=
- =?utf-8?B?TTg3SVdWQ3NMVWdZWWJ3VC9QOENlcW5vTGtSQWFVcFF1OHkvaFJlZFhabGRV?=
- =?utf-8?B?QlpFdXAxRmwvMGNVYXBTVVpyamRHTTFtWWxCRkN5dFhNclJ6TXNWSmJCbkRS?=
- =?utf-8?B?YzkxY3VkeVRwNG9ZbE9ILy9wL0gzWE1paGxMTGFTZXgvOGJYMmUveUNtZU96?=
- =?utf-8?B?VTdZNXg4NklYR1NBekg2Qm1uYVcySGdLTkswUHRlTkxNcEZ6RDFRcERQdmdC?=
- =?utf-8?B?dE5wMzF6ODJBcDFnK295NVJhSUw5T3JxaGlUWkM2V1BzZVd0QzZvZ0VkUEcz?=
- =?utf-8?B?cnhvYnhkcG52Nk96SUtoNHdZcFJac1c1MzVKdXUwL0IxOHNmNG9udXdIZkI3?=
- =?utf-8?B?Y0J2UmJwM29sbVEzS3dCQWY5YUFsSUhPZkJKbXBtZlFqOHNHdVI3WFI3VXo4?=
- =?utf-8?B?OEZPTzNzaUJtRVp3Nzd3MXZ0NWlrZjN4V2VhbnUxdUNtb1Z6aVRjVjY3aHBl?=
- =?utf-8?B?UFlkeS81cmZNMjE4SkJwNkMxWHl2S0ljSGxhajZQSFh2TklzcXhKMDZSS2RG?=
- =?utf-8?B?dGVCUVpGQ2Y3cVBKbjlhdHRxeEcvRUVCS1BPclFuak5nQ0lLZnJZZXhZb09o?=
- =?utf-8?B?T0dMcElsbGtPa25CNUEvOG96ZTlpcVFITDhqMzdhSnZsMG56QzliUmJ4a2d3?=
- =?utf-8?B?eVRzemFaK1VUTVFsa1hCNWJmWEY5RWRUNlFTNHUzcWZOa1grOFFlQ1pDd05F?=
- =?utf-8?B?WG5HL2xxNU10YkZ1MkhUbnFqVUdFTG05TzlhVGNNSHlIbXkrb3A0bThTQlNT?=
- =?utf-8?B?aDRPTW0rN1duTm43bDhhM0ZKZFo5dUNEdjJrRmJpRjJocTFZTlBLMlgrbmJ6?=
- =?utf-8?B?a0dVemRRdERyVncxa2NNZ1RnR3VrVjlUUjY0bEpZNmFha0x1ZVhYRTNKS3pV?=
- =?utf-8?B?WGI4M0s3RXhVaVdPOTFqUVd2cm5VdWxDREpVSDFpMSs5bTBEUk9aYWVkWmdI?=
- =?utf-8?B?YjZSOWkvVU8reE8rbi9ucUFyemwwTERhQzkxNWJwbElnL29zbmZIT3p0OEJk?=
- =?utf-8?B?eS9oNHB6VXZCZjk4YUVsU1lTc2liVWRteThBVTBORFY4eEdweTJ1YlBDR0JL?=
- =?utf-8?B?bWhJZ2gxNldYWmhOSFJwUk5SbENPQTF6YzhQZ2duSHd3bGk5WWQzbXpHRVU3?=
- =?utf-8?B?MU9xUWlqWkpnZVdueWRUeE5FeXpHVEhvYmhML3Znd2M0bm55aXhNS3BLYUdo?=
- =?utf-8?B?SStjWWJtdXFJMkdpUDlMaHllbjBpSzFPdzVZQmFRa3JhWE1uVEcxVkZ1RGd4?=
- =?utf-8?B?aVlQbzkxVjQrT0Z2WlM4MlpPMStjTGNKaldCZE96cGI1cXE3eG1QbTVKS0pQ?=
- =?utf-8?B?dmFkOUJGK1Yycmx0UjZVdDFvT1J6VW01eU8vMTZqNDV2K2UyVngzWCtQWjZY?=
- =?utf-8?B?aHZzNTRhSlFsLzlMQy9VL05TMFdVZm5FQ0dYMFk0bWw3RVhTVDlmaWVqWHlm?=
- =?utf-8?B?d3BFcGV3UWVuNFhjc3FESysvV3hOK2YwS2dLdUVlNlBvM2pRY3BSc1hWRkwz?=
- =?utf-8?Q?0xW+5Ra/K5C8dqRPcreqpb7EA?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8de24c49-648c-4ca4-7ba5-08de0bcb20f4
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2025 09:13:39.4581
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gEfC/hgutro91o/h8hW2dklfhFgESDIFkLsBsgR/A+JqGEc/V1gsbuWDVaE9gtlGCmV6AfuM99pd0+h/PAqm+w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB9004
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_021348_221278_1B7DC567 
-X-CRM114-Status: GOOD (  17.73  )
+Content-Type: text/plain; charset="utf-8"
+X-Mailer: b4 0.15-dev
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,41 +100,420 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/14/2025, Marek Vasut wrote:
-> On 10/14/25 5:11 PM, Frank Li wrote:
->> On Tue, Oct 14, 2025 at 04:03:37PM +0200, Marek Vasut wrote:
->>> On 10/13/25 6:56 PM, Frank Li wrote:
->>>> On Sat, Oct 11, 2025 at 06:51:20PM +0200, Marek Vasut wrote:
->>>>> Rework dc_subdev_get_id() to drop ARRAY_SIZE() use and use empty trailing
->>>>> entry in each ID look up array instead. This allows passing of those arrays
->>>>> around as OF match data, which will be useful when using this pipeline on
->>>>> i.MX95, which has different address-to-ID mapping.
->>>>>
->>>>> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
->>>>
->>>> This change is okay. but my questions is why need map register to id.
->>>
->>> This seems to be a recurring pattern in the driver, where some components
->>> need to find other components to link with them. The mapping is fixed, and
->>> since the DT does not encode link IDs, the resolution of the mapping has to
->>> happen by mapping the component base addresses to the IDs first.
->>
->> In graphic link, port@<n>, n should be id? why not use it?
-> I suspect you could model the relationships between the DC blocks using OF
-> graph, yes. I also suspect that description would be very complex in
-> DT, considering the amount of blocks and links this device contains. I
-> suspect this is why there is no such DT description using OF graph.
+From: Leon Romanovsky <leonro@nvidia.com>
 
-Yes.  The design decision was made to avoid using OF graph to describe
-links between DC blocks due to the complexity.
+Convert sparc architecture DMA code to use .map_phys callback.
 
-> 
-> I think it might also be good to talk to Liu directly about the original design
-> decision and why this id mapping was done the way it was done,
-> they should know better than me.
+Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
+---
+ arch/sparc/kernel/iommu.c     | 30 +++++++++++++++++-----------
+ arch/sparc/kernel/pci_sun4v.c | 31 ++++++++++++++++++-----------
+ arch/sparc/mm/io-unit.c       | 38 ++++++++++++++++++-----------------
+ arch/sparc/mm/iommu.c         | 46 ++++++++++++++++++++++---------------------
+ 4 files changed, 82 insertions(+), 63 deletions(-)
 
+diff --git a/arch/sparc/kernel/iommu.c b/arch/sparc/kernel/iommu.c
+index da0363692528..46ef88bc9c26 100644
+--- a/arch/sparc/kernel/iommu.c
++++ b/arch/sparc/kernel/iommu.c
+@@ -260,26 +260,35 @@ static void dma_4u_free_coherent(struct device *dev, size_t size,
+ 		free_pages((unsigned long)cpu, order);
+ }
+ 
+-static dma_addr_t dma_4u_map_page(struct device *dev, struct page *page,
+-				  unsigned long offset, size_t sz,
+-				  enum dma_data_direction direction,
++static dma_addr_t dma_4u_map_phys(struct device *dev, phys_addr_t phys,
++				  size_t sz, enum dma_data_direction direction,
+ 				  unsigned long attrs)
+ {
+ 	struct iommu *iommu;
+ 	struct strbuf *strbuf;
+ 	iopte_t *base;
+ 	unsigned long flags, npages, oaddr;
+-	unsigned long i, base_paddr, ctx;
++	unsigned long i, ctx;
+ 	u32 bus_addr, ret;
+ 	unsigned long iopte_protection;
+ 
++	if (unlikely(attrs & DMA_ATTR_MMIO))
++		/*
++		 * This check is included because older versions of the code
++		 * lacked MMIO path support, and my ability to test this path
++		 * is limited. However, from a software technical standpoint,
++		 * there is no restriction, as the following code operates
++		 * solely on physical addresses.
++		 */
++		goto bad_no_ctx;
++
+ 	iommu = dev->archdata.iommu;
+ 	strbuf = dev->archdata.stc;
+ 
+ 	if (unlikely(direction == DMA_NONE))
+ 		goto bad_no_ctx;
+ 
+-	oaddr = (unsigned long)(page_address(page) + offset);
++	oaddr = (unsigned long)(phys_to_virt(phys));
+ 	npages = IO_PAGE_ALIGN(oaddr + sz) - (oaddr & IO_PAGE_MASK);
+ 	npages >>= IO_PAGE_SHIFT;
+ 
+@@ -296,7 +305,6 @@ static dma_addr_t dma_4u_map_page(struct device *dev, struct page *page,
+ 	bus_addr = (iommu->tbl.table_map_base +
+ 		    ((base - iommu->page_table) << IO_PAGE_SHIFT));
+ 	ret = bus_addr | (oaddr & ~IO_PAGE_MASK);
+-	base_paddr = __pa(oaddr & IO_PAGE_MASK);
+ 	if (strbuf->strbuf_enabled)
+ 		iopte_protection = IOPTE_STREAMING(ctx);
+ 	else
+@@ -304,8 +312,8 @@ static dma_addr_t dma_4u_map_page(struct device *dev, struct page *page,
+ 	if (direction != DMA_TO_DEVICE)
+ 		iopte_protection |= IOPTE_WRITE;
+ 
+-	for (i = 0; i < npages; i++, base++, base_paddr += IO_PAGE_SIZE)
+-		iopte_val(*base) = iopte_protection | base_paddr;
++	for (i = 0; i < npages; i++, base++, phys += IO_PAGE_SIZE)
++		iopte_val(*base) = iopte_protection | phys;
+ 
+ 	return ret;
+ 
+@@ -383,7 +391,7 @@ static void strbuf_flush(struct strbuf *strbuf, struct iommu *iommu,
+ 		       vaddr, ctx, npages);
+ }
+ 
+-static void dma_4u_unmap_page(struct device *dev, dma_addr_t bus_addr,
++static void dma_4u_unmap_phys(struct device *dev, dma_addr_t bus_addr,
+ 			      size_t sz, enum dma_data_direction direction,
+ 			      unsigned long attrs)
+ {
+@@ -753,8 +761,8 @@ static int dma_4u_supported(struct device *dev, u64 device_mask)
+ static const struct dma_map_ops sun4u_dma_ops = {
+ 	.alloc			= dma_4u_alloc_coherent,
+ 	.free			= dma_4u_free_coherent,
+-	.map_page		= dma_4u_map_page,
+-	.unmap_page		= dma_4u_unmap_page,
++	.map_phys		= dma_4u_map_phys,
++	.unmap_phys		= dma_4u_unmap_phys,
+ 	.map_sg			= dma_4u_map_sg,
+ 	.unmap_sg		= dma_4u_unmap_sg,
+ 	.sync_single_for_cpu	= dma_4u_sync_single_for_cpu,
+diff --git a/arch/sparc/kernel/pci_sun4v.c b/arch/sparc/kernel/pci_sun4v.c
+index b720b21ccfbd..791f0a76665f 100644
+--- a/arch/sparc/kernel/pci_sun4v.c
++++ b/arch/sparc/kernel/pci_sun4v.c
+@@ -352,9 +352,8 @@ static void dma_4v_free_coherent(struct device *dev, size_t size, void *cpu,
+ 		free_pages((unsigned long)cpu, order);
+ }
+ 
+-static dma_addr_t dma_4v_map_page(struct device *dev, struct page *page,
+-				  unsigned long offset, size_t sz,
+-				  enum dma_data_direction direction,
++static dma_addr_t dma_4v_map_phys(struct device *dev, phys_addr_t phys,
++				  size_t sz, enum dma_data_direction direction,
+ 				  unsigned long attrs)
+ {
+ 	struct iommu *iommu;
+@@ -362,18 +361,27 @@ static dma_addr_t dma_4v_map_page(struct device *dev, struct page *page,
+ 	struct iommu_map_table *tbl;
+ 	u64 mask;
+ 	unsigned long flags, npages, oaddr;
+-	unsigned long i, base_paddr;
+-	unsigned long prot;
++	unsigned long i, prot;
+ 	dma_addr_t bus_addr, ret;
+ 	long entry;
+ 
++	if (unlikely(attrs & DMA_ATTR_MMIO))
++		/*
++		 * This check is included because older versions of the code
++		 * lacked MMIO path support, and my ability to test this path
++		 * is limited. However, from a software technical standpoint,
++		 * there is no restriction, as the following code operates
++		 * solely on physical addresses.
++		 */
++		goto bad;
++
+ 	iommu = dev->archdata.iommu;
+ 	atu = iommu->atu;
+ 
+ 	if (unlikely(direction == DMA_NONE))
+ 		goto bad;
+ 
+-	oaddr = (unsigned long)(page_address(page) + offset);
++	oaddr = (unsigned long)(phys_to_virt(phys));
+ 	npages = IO_PAGE_ALIGN(oaddr + sz) - (oaddr & IO_PAGE_MASK);
+ 	npages >>= IO_PAGE_SHIFT;
+ 
+@@ -391,7 +399,6 @@ static dma_addr_t dma_4v_map_page(struct device *dev, struct page *page,
+ 
+ 	bus_addr = (tbl->table_map_base + (entry << IO_PAGE_SHIFT));
+ 	ret = bus_addr | (oaddr & ~IO_PAGE_MASK);
+-	base_paddr = __pa(oaddr & IO_PAGE_MASK);
+ 	prot = HV_PCI_MAP_ATTR_READ;
+ 	if (direction != DMA_TO_DEVICE)
+ 		prot |= HV_PCI_MAP_ATTR_WRITE;
+@@ -403,8 +410,8 @@ static dma_addr_t dma_4v_map_page(struct device *dev, struct page *page,
+ 
+ 	iommu_batch_start(dev, prot, entry);
+ 
+-	for (i = 0; i < npages; i++, base_paddr += IO_PAGE_SIZE) {
+-		long err = iommu_batch_add(base_paddr, mask);
++	for (i = 0; i < npages; i++, phys += IO_PAGE_SIZE) {
++		long err = iommu_batch_add(phys, mask);
+ 		if (unlikely(err < 0L))
+ 			goto iommu_map_fail;
+ 	}
+@@ -426,7 +433,7 @@ static dma_addr_t dma_4v_map_page(struct device *dev, struct page *page,
+ 	return DMA_MAPPING_ERROR;
+ }
+ 
+-static void dma_4v_unmap_page(struct device *dev, dma_addr_t bus_addr,
++static void dma_4v_unmap_phys(struct device *dev, dma_addr_t bus_addr,
+ 			      size_t sz, enum dma_data_direction direction,
+ 			      unsigned long attrs)
+ {
+@@ -686,8 +693,8 @@ static int dma_4v_supported(struct device *dev, u64 device_mask)
+ static const struct dma_map_ops sun4v_dma_ops = {
+ 	.alloc				= dma_4v_alloc_coherent,
+ 	.free				= dma_4v_free_coherent,
+-	.map_page			= dma_4v_map_page,
+-	.unmap_page			= dma_4v_unmap_page,
++	.map_phys			= dma_4v_map_phys,
++	.unmap_phys			= dma_4v_unmap_phys,
+ 	.map_sg				= dma_4v_map_sg,
+ 	.unmap_sg			= dma_4v_unmap_sg,
+ 	.dma_supported			= dma_4v_supported,
+diff --git a/arch/sparc/mm/io-unit.c b/arch/sparc/mm/io-unit.c
+index d8376f61b4d0..d409cb450de4 100644
+--- a/arch/sparc/mm/io-unit.c
++++ b/arch/sparc/mm/io-unit.c
+@@ -94,13 +94,14 @@ static int __init iounit_init(void)
+ subsys_initcall(iounit_init);
+ 
+ /* One has to hold iounit->lock to call this */
+-static unsigned long iounit_get_area(struct iounit_struct *iounit, unsigned long vaddr, int size)
++static dma_addr_t iounit_get_area(struct iounit_struct *iounit,
++				  phys_addr_t phys, int size)
+ {
+ 	int i, j, k, npages;
+ 	unsigned long rotor, scan, limit;
+ 	iopte_t iopte;
+ 
+-        npages = ((vaddr & ~PAGE_MASK) + size + (PAGE_SIZE-1)) >> PAGE_SHIFT;
++	npages = (offset_in_page(phys) + size + (PAGE_SIZE - 1)) >> PAGE_SHIFT;
+ 
+ 	/* A tiny bit of magic ingredience :) */
+ 	switch (npages) {
+@@ -109,7 +110,7 @@ static unsigned long iounit_get_area(struct iounit_struct *iounit, unsigned long
+ 	default: i = 0x0213; break;
+ 	}
+ 	
+-	IOD(("iounit_get_area(%08lx,%d[%d])=", vaddr, size, npages));
++	IOD(("%s(%pa,%d[%d])=", __func__, &phys, size, npages));
+ 	
+ next:	j = (i & 15);
+ 	rotor = iounit->rotor[j - 1];
+@@ -124,7 +125,8 @@ nexti:	scan = find_next_zero_bit(iounit->bmap, limit, scan);
+ 		}
+ 		i >>= 4;
+ 		if (!(i & 15))
+-			panic("iounit_get_area: Couldn't find free iopte slots for (%08lx,%d)\n", vaddr, size);
++			panic("iounit_get_area: Couldn't find free iopte slots for (%pa,%d)\n",
++			      &phys, size);
+ 		goto next;
+ 	}
+ 	for (k = 1, scan++; k < npages; k++)
+@@ -132,30 +134,29 @@ nexti:	scan = find_next_zero_bit(iounit->bmap, limit, scan);
+ 			goto nexti;
+ 	iounit->rotor[j - 1] = (scan < limit) ? scan : iounit->limit[j - 1];
+ 	scan -= npages;
+-	iopte = MKIOPTE(__pa(vaddr & PAGE_MASK));
+-	vaddr = IOUNIT_DMA_BASE + (scan << PAGE_SHIFT) + (vaddr & ~PAGE_MASK);
++	iopte = MKIOPTE(phys & PAGE_MASK);
++	phys = IOUNIT_DMA_BASE + (scan << PAGE_SHIFT) + offset_in_page(phys);
+ 	for (k = 0; k < npages; k++, iopte = __iopte(iopte_val(iopte) + 0x100), scan++) {
+ 		set_bit(scan, iounit->bmap);
+ 		sbus_writel(iopte_val(iopte), &iounit->page_table[scan]);
+ 	}
+-	IOD(("%08lx\n", vaddr));
+-	return vaddr;
++	IOD(("%pa\n", &phys));
++	return phys;
+ }
+ 
+-static dma_addr_t iounit_map_page(struct device *dev, struct page *page,
+-		unsigned long offset, size_t len, enum dma_data_direction dir,
+-		unsigned long attrs)
++static dma_addr_t iounit_map_phys(struct device *dev, phys_addr_t phys,
++		size_t len, enum dma_data_direction dir, unsigned long attrs)
+ {
+-	void *vaddr = page_address(page) + offset;
+ 	struct iounit_struct *iounit = dev->archdata.iommu;
+-	unsigned long ret, flags;
++	unsigned long flags;
++	dma_addr_t ret;
+ 	
+ 	/* XXX So what is maxphys for us and how do drivers know it? */
+ 	if (!len || len > 256 * 1024)
+ 		return DMA_MAPPING_ERROR;
+ 
+ 	spin_lock_irqsave(&iounit->lock, flags);
+-	ret = iounit_get_area(iounit, (unsigned long)vaddr, len);
++	ret = iounit_get_area(iounit, phys, len);
+ 	spin_unlock_irqrestore(&iounit->lock, flags);
+ 	return ret;
+ }
+@@ -171,14 +172,15 @@ static int iounit_map_sg(struct device *dev, struct scatterlist *sgl, int nents,
+ 	/* FIXME: Cache some resolved pages - often several sg entries are to the same page */
+ 	spin_lock_irqsave(&iounit->lock, flags);
+ 	for_each_sg(sgl, sg, nents, i) {
+-		sg->dma_address = iounit_get_area(iounit, (unsigned long) sg_virt(sg), sg->length);
++		sg->dma_address =
++			iounit_get_area(iounit, sg_phys(sg), sg->length);
+ 		sg->dma_length = sg->length;
+ 	}
+ 	spin_unlock_irqrestore(&iounit->lock, flags);
+ 	return nents;
+ }
+ 
+-static void iounit_unmap_page(struct device *dev, dma_addr_t vaddr, size_t len,
++static void iounit_unmap_phys(struct device *dev, dma_addr_t vaddr, size_t len,
+ 		enum dma_data_direction dir, unsigned long attrs)
+ {
+ 	struct iounit_struct *iounit = dev->archdata.iommu;
+@@ -279,8 +281,8 @@ static const struct dma_map_ops iounit_dma_ops = {
+ 	.alloc			= iounit_alloc,
+ 	.free			= iounit_free,
+ #endif
+-	.map_page		= iounit_map_page,
+-	.unmap_page		= iounit_unmap_page,
++	.map_phys		= iounit_map_phys,
++	.unmap_phys		= iounit_unmap_phys,
+ 	.map_sg			= iounit_map_sg,
+ 	.unmap_sg		= iounit_unmap_sg,
+ };
+diff --git a/arch/sparc/mm/iommu.c b/arch/sparc/mm/iommu.c
+index 5a5080db800f..f48adf62724a 100644
+--- a/arch/sparc/mm/iommu.c
++++ b/arch/sparc/mm/iommu.c
+@@ -181,18 +181,20 @@ static void iommu_flush_iotlb(iopte_t *iopte, unsigned int niopte)
+ 	}
+ }
+ 
+-static dma_addr_t __sbus_iommu_map_page(struct device *dev, struct page *page,
+-		unsigned long offset, size_t len, bool per_page_flush)
++static dma_addr_t __sbus_iommu_map_phys(struct device *dev, phys_addr_t paddr,
++		size_t len, bool per_page_flush, unsigned long attrs)
+ {
+ 	struct iommu_struct *iommu = dev->archdata.iommu;
+-	phys_addr_t paddr = page_to_phys(page) + offset;
+-	unsigned long off = paddr & ~PAGE_MASK;
++	unsigned long off = offset_in_page(paddr);
+ 	unsigned long npages = (off + len + PAGE_SIZE - 1) >> PAGE_SHIFT;
+ 	unsigned long pfn = __phys_to_pfn(paddr);
+ 	unsigned int busa, busa0;
+ 	iopte_t *iopte, *iopte0;
+ 	int ioptex, i;
+ 
++	if (unlikely(attrs & DMA_ATTR_MMIO))
++		return DMA_MAPPING_ERROR;
++
+ 	/* XXX So what is maxphys for us and how do drivers know it? */
+ 	if (!len || len > 256 * 1024)
+ 		return DMA_MAPPING_ERROR;
+@@ -202,10 +204,10 @@ static dma_addr_t __sbus_iommu_map_page(struct device *dev, struct page *page,
+ 	 * XXX Is this a good assumption?
+ 	 * XXX What if someone else unmaps it here and races us?
+ 	 */
+-	if (per_page_flush && !PageHighMem(page)) {
++	if (per_page_flush && !PhysHighMem(paddr)) {
+ 		unsigned long vaddr, p;
+ 
+-		vaddr = (unsigned long)page_address(page) + offset;
++		vaddr = (unsigned long)phys_to_virt(paddr);
+ 		for (p = vaddr & PAGE_MASK; p < vaddr + len; p += PAGE_SIZE)
+ 			flush_page_for_dma(p);
+ 	}
+@@ -231,19 +233,19 @@ static dma_addr_t __sbus_iommu_map_page(struct device *dev, struct page *page,
+ 	return busa0 + off;
+ }
+ 
+-static dma_addr_t sbus_iommu_map_page_gflush(struct device *dev,
+-		struct page *page, unsigned long offset, size_t len,
+-		enum dma_data_direction dir, unsigned long attrs)
++static dma_addr_t sbus_iommu_map_phys_gflush(struct device *dev,
++		phys_addr_t phys, size_t len, enum dma_data_direction dir,
++		unsigned long attrs)
+ {
+ 	flush_page_for_dma(0);
+-	return __sbus_iommu_map_page(dev, page, offset, len, false);
++	return __sbus_iommu_map_phys(dev, phys, len, false, attrs);
+ }
+ 
+-static dma_addr_t sbus_iommu_map_page_pflush(struct device *dev,
+-		struct page *page, unsigned long offset, size_t len,
+-		enum dma_data_direction dir, unsigned long attrs)
++static dma_addr_t sbus_iommu_map_phys_pflush(struct device *dev,
++		phys_addr_t phys, size_t len, enum dma_data_direction dir,
++		unsigned long attrs)
+ {
+-	return __sbus_iommu_map_page(dev, page, offset, len, true);
++	return __sbus_iommu_map_phys(dev, phys, len, true, attrs);
+ }
+ 
+ static int __sbus_iommu_map_sg(struct device *dev, struct scatterlist *sgl,
+@@ -254,8 +256,8 @@ static int __sbus_iommu_map_sg(struct device *dev, struct scatterlist *sgl,
+ 	int j;
+ 
+ 	for_each_sg(sgl, sg, nents, j) {
+-		sg->dma_address =__sbus_iommu_map_page(dev, sg_page(sg),
+-				sg->offset, sg->length, per_page_flush);
++		sg->dma_address = __sbus_iommu_map_phys(dev, sg_phys(sg),
++				sg->length, per_page_flush, attrs);
+ 		if (sg->dma_address == DMA_MAPPING_ERROR)
+ 			return -EIO;
+ 		sg->dma_length = sg->length;
+@@ -277,7 +279,7 @@ static int sbus_iommu_map_sg_pflush(struct device *dev, struct scatterlist *sgl,
+ 	return __sbus_iommu_map_sg(dev, sgl, nents, dir, attrs, true);
+ }
+ 
+-static void sbus_iommu_unmap_page(struct device *dev, dma_addr_t dma_addr,
++static void sbus_iommu_unmap_phys(struct device *dev, dma_addr_t dma_addr,
+ 		size_t len, enum dma_data_direction dir, unsigned long attrs)
+ {
+ 	struct iommu_struct *iommu = dev->archdata.iommu;
+@@ -303,7 +305,7 @@ static void sbus_iommu_unmap_sg(struct device *dev, struct scatterlist *sgl,
+ 	int i;
+ 
+ 	for_each_sg(sgl, sg, nents, i) {
+-		sbus_iommu_unmap_page(dev, sg->dma_address, sg->length, dir,
++		sbus_iommu_unmap_phys(dev, sg->dma_address, sg->length, dir,
+ 				attrs);
+ 		sg->dma_address = 0x21212121;
+ 	}
+@@ -426,8 +428,8 @@ static const struct dma_map_ops sbus_iommu_dma_gflush_ops = {
+ 	.alloc			= sbus_iommu_alloc,
+ 	.free			= sbus_iommu_free,
+ #endif
+-	.map_page		= sbus_iommu_map_page_gflush,
+-	.unmap_page		= sbus_iommu_unmap_page,
++	.map_phys		= sbus_iommu_map_phys_gflush,
++	.unmap_phys		= sbus_iommu_unmap_phys,
+ 	.map_sg			= sbus_iommu_map_sg_gflush,
+ 	.unmap_sg		= sbus_iommu_unmap_sg,
+ };
+@@ -437,8 +439,8 @@ static const struct dma_map_ops sbus_iommu_dma_pflush_ops = {
+ 	.alloc			= sbus_iommu_alloc,
+ 	.free			= sbus_iommu_free,
+ #endif
+-	.map_page		= sbus_iommu_map_page_pflush,
+-	.unmap_page		= sbus_iommu_unmap_page,
++	.map_phys		= sbus_iommu_map_phys_pflush,
++	.unmap_phys		= sbus_iommu_unmap_phys,
+ 	.map_sg			= sbus_iommu_map_sg_pflush,
+ 	.unmap_sg		= sbus_iommu_unmap_sg,
+ };
 
 -- 
-Regards,
-Liu Ying
+2.51.0
+
 
