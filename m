@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AA1CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 15:44:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E591CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 15:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z3Pe//Qk7uVwriRUdY4wfxnM3En9QGZArVfkpKWTETw=; b=fOT2VMUdaP2NSMdFOQMmb0fVB4
-	aET2X/TPv/g9yOE74/CgewKWImY6OLeS9JOWLLBfb06W4Zu8MHG67MgrGUKUFOSKnJBBZRSJmsbgg
-	lbGJaTuUMMYJ/EO4t66Bdmj09ACfFcFj+QqdtszhI1JmPCYXXQe/xrnVCcPZLDn2FvUa4F0wPf0Bm
-	pQdXeRVN2/jhkxsPK4g0TO6o5KYtXLMPkwIZjgeX6huaKoFOZweM/yRmo9GXJMekPBVJgKXd/Zbug
-	/A7m/PaNPyXUSzpRt2v1ZfJm+MVjPpVOtJkK+9PkzmP0ByictwjgBO0grWgBiygFgO7yfBJH6S+ux
-	DJQFFGoA==;
+	bh=vYjBf9y971X3wpsTmeQ8L2XweQgFkUNSGCrxO3zreok=; b=eN7WnKcPnvkZG1dDVmTNSBo8CG
+	a02xEDhSLFlB0ze92TZyk9uU9CAAuzwDXCoNUbDTJzttB0+FEnNnRmASHGCXddFFMa2tPKjqTz1ky
+	CqJp7NWC3U17Zh7t/1Px69vF5qq0UrY/QS0l1q+rNIUnUOpJ0+LJ2ynuIo1Uv+AdT7d/iPzQ8BZOf
+	arGMwyzlJixQxiUwstdZqtbH3h94KNID3ZNnB9OVdB4HiYyMm/ejCve4ojZvgbK21wn4261VTMJSU
+	c3uzAowyybEKf95eUB1DkCcA1P7T8eeTPH9gQfkWSRWGaBw0mddazfBxcb+WFwFx4vXp0KF9CY9sa
+	KFiWFdPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v93g6-000000029ED-2va3;
-	Wed, 15 Oct 2025 15:44:38 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1v93j4-00000002AP2-0DMI;
+	Wed, 15 Oct 2025 15:47:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v93g4-000000029DY-2lhR;
-	Wed, 15 Oct 2025 15:44:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Z3Pe//Qk7uVwriRUdY4wfxnM3En9QGZArVfkpKWTETw=; b=VT7Jvr/JW5SCZv7ZUvwOgcbo/g
-	2x2kVvVveSt62dZgaSzTtz/ZFXzdFZ+IsI0zH/pXxedf0xetmuqojHfkO8pNYhQlFsAEorXt0WzHv
-	OIelmGR8D9Ez1vEk+XTrL444HjScJR1LEjc2DrsVf+T+FfPKX4zx93he2kOpYKQRx8F2vZSjq0FRW
-	iEmh+xDa2o0twA3Wm6o8fMubNruHKE3XQ3Abf767QyBwY9aYjXAGASi4Jy0tJgSid5t0HP2HYtdCb
-	9tHuH5aH4kwG6+WjbDuk+kVdcN1/is0dZwZk9Zo9uIaAeSVFm5JMwYX9I7IuDMl8h2MNlPpSKmYWJ
-	pQSvBPpw==;
-Received: from i53875a40.versanet.de ([83.135.90.64] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1v93fX-0000Ye-0q; Wed, 15 Oct 2025 17:44:03 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/6] drm/bridge: dw-hdmi-qp: Fixup timer base setup
-Date: Wed, 15 Oct 2025 17:44:01 +0200
-Message-ID: <2753758.X9hSmTKtgW@diego>
-In-Reply-To: <20250903-rk3588-hdmi-cec-v4-2-fa25163c4b08@collabora.com>
-References: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
- <20250903-rk3588-hdmi-cec-v4-2-fa25163c4b08@collabora.com>
+	id 1v93j1-00000002ANV-1q8C;
+	Wed, 15 Oct 2025 15:47:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A903E4A425;
+	Wed, 15 Oct 2025 15:47:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD489C4CEF9;
+	Wed, 15 Oct 2025 15:47:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760543258;
+	bh=7SSKvHAijSlWofXaTTSRV6RFLX2i1LcCrhGDKzWlQ20=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oGH0xtdSIVA/HLIi76/6tLihtexifn5/54YloqXYWip65ngHLQGryac6RYlBgpG4e
+	 HoTJwhinxEre29f3obZE9DuhzfKqbkzarHV6a2pbH8uONhgDyT5NSoSEa1GqQ5Tkci
+	 pMC/ntF1HlI1keUJDF12UQvI3jGdpDQCeSNwWbDbtsj6cKzmaEDQBYM87d0znGg1lY
+	 3ial0Zih5TGRkkfb6e6wHK5VV9eSJRmE/iiJp1D2e/2Y2aho2V0hgfAd3KA2BnEfOa
+	 HFcpgCORI2M8wWfslJQTMWYPWn/Ma2F0WXHIDpxwYxlLGTp8dlwj10e2UoVVeg9j3I
+	 xc0QomtzAgiEg==
+Date: Wed, 15 Oct 2025 16:47:33 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next 08/12] net: airoha: ppe: Configure SRAM PPE
+ entries via the cpu
+Message-ID: <aO_CFRYy6vXCQIS2@horms.kernel.org>
+References: <20251015-an7583-eth-support-v1-0-064855f05923@kernel.org>
+ <20251015-an7583-eth-support-v1-8-064855f05923@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251015-an7583-eth-support-v1-8-064855f05923@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_084436_732866_3F6295D4 
-X-CRM114-Status: GOOD (  23.73  )
+X-CRM114-CacheID: sfid-20251015_084739_498318_FE2D5E60 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,101 +81,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 3. September 2025, 20:51:00 Mitteleurop=C3=A4ische Sommerzeit =
-schrieb Cristian Ciocaltea:
-> Currently the TIMER_BASE_CONFIG0 register gets initialized to a fixed
-> value as initially found in vendor driver code supporting the RK3588
-> SoC.  As a matter of fact the value matches the rate of the HDMI TX
-> reference clock, which is roughly 428.57 MHz.
->=20
-> However, on RK3576 SoC that rate is slightly lower, i.e. 396.00 MHz, and
-> the incorrect register configuration breaks CEC functionality.
->=20
-> Set the timer base according to the actual reference clock rate that
-> shall be provided by the platform driver.  Otherwise fallback to the
-> vendor default.
->=20
-> While at it, also drop the unnecessary empty lines in
-> dw_hdmi_qp_init_hw().
->=20
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-
-This _does_ look ok to me, but as that touches the main bridge, could
-we get a 2nd set of eyes?
-
-Thanks
-Heiko
-
+On Wed, Oct 15, 2025 at 09:15:08AM +0200, Lorenzo Bianconi wrote:
+> Introduce airoha_ppe_foe_commit_sram_entry routine in order to configure
+> the SRAM PPE entries directly via the CPU instead of using the NPU APIs.
+> This is a preliminary patch to enable netfilter flowtable hw offload for
+> AN7583 SoC.
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 > ---
->  drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 12 +++++++++---
->  include/drm/bridge/dw_hdmi_qp.h              |  1 +
->  2 files changed, 10 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/d=
-rm/bridge/synopsys/dw-hdmi-qp.c
-> index fc98953672b6fb388d05201e280d24b8f214498a..4ba7b339eff62592aa748429a=
-3bfca82494679d1 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> @@ -161,6 +161,7 @@ struct dw_hdmi_qp {
->  		void *data;
->  	} phy;
-> =20
-> +	unsigned long ref_clk_rate;
->  	struct regmap *regm;
-> =20
->  	unsigned long tmds_char_rate;
-> @@ -1210,13 +1211,11 @@ static void dw_hdmi_qp_init_hw(struct dw_hdmi_qp =
-*hdmi)
->  {
->  	dw_hdmi_qp_write(hdmi, 0, MAINUNIT_0_INT_MASK_N);
->  	dw_hdmi_qp_write(hdmi, 0, MAINUNIT_1_INT_MASK_N);
-> -	dw_hdmi_qp_write(hdmi, 428571429, TIMER_BASE_CONFIG0);
-> +	dw_hdmi_qp_write(hdmi, hdmi->ref_clk_rate, TIMER_BASE_CONFIG0);
-> =20
->  	/* Software reset */
->  	dw_hdmi_qp_write(hdmi, 0x01, I2CM_CONTROL0);
-> -
->  	dw_hdmi_qp_write(hdmi, 0x085c085c, I2CM_FM_SCL_CONFIG0);
-> -
->  	dw_hdmi_qp_mod(hdmi, 0, I2CM_FM_EN, I2CM_INTERFACE_CONTROL0);
-> =20
->  	/* Clear DONE and ERROR interrupts */
-> @@ -1262,6 +1261,13 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform=
-_device *pdev,
->  	hdmi->phy.ops =3D plat_data->phy_ops;
->  	hdmi->phy.data =3D plat_data->phy_data;
-> =20
-> +	if (plat_data->ref_clk_rate) {
-> +		hdmi->ref_clk_rate =3D plat_data->ref_clk_rate;
-> +	} else {
-> +		hdmi->ref_clk_rate =3D 428571429;
-> +		dev_warn(dev, "Set ref_clk_rate to vendor default\n");
-> +	}
+>  drivers/net/ethernet/airoha/airoha_ppe.c | 30 +++++++++++++++++++++++-------
+>  1 file changed, 23 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+> index fcfd2d8826a9c2f8f94f1962c2b2a69f67f7f598..0ee2e41489aaa9de9c1e99d242ee0bec11549750 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -662,6 +662,27 @@ static bool airoha_ppe_foe_compare_entry(struct airoha_flow_table_entry *e,
+>  	return !memcmp(&e->data.d, &hwe->d, len - sizeof(hwe->ib1));
+>  }
+>  
+> +static int airoha_ppe_foe_commit_sram_entry(struct airoha_ppe *ppe, u32 hash)
+> +{
+> +	struct airoha_foe_entry *hwe = ppe->foe + hash * sizeof(*hwe);
+> +	bool ppe2 = hash >= PPE_SRAM_NUM_ENTRIES;
+> +	u32 *ptr = (u32 *)hwe, val;
+> +	int i;
 > +
->  	dw_hdmi_qp_init_hw(hdmi);
-> =20
->  	ret =3D devm_request_threaded_irq(dev, plat_data->main_irq,
-> diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi=
-_qp.h
-> index b4a9b739734ec7b67013b683fe6017551aa19172..76ecf31301997718604a05f70=
-ce9eab8695e26b5 100644
-> --- a/include/drm/bridge/dw_hdmi_qp.h
-> +++ b/include/drm/bridge/dw_hdmi_qp.h
-> @@ -24,6 +24,7 @@ struct dw_hdmi_qp_plat_data {
->  	void *phy_data;
->  	int main_irq;
->  	int cec_irq;
-> +	unsigned long ref_clk_rate;
->  };
-> =20
->  struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
->=20
->=20
+> +	for (i = 0; i < sizeof(*hwe) / 4; i++)
+> +		airoha_fe_wr(ppe->eth, REG_PPE_RAM_ENTRY(ppe2, i), ptr[i]);
 
+I realise that a similar pattern it is already used elsewhere,
+but '4' seems somewhat magic here.
 
-
-
+...
 
