@@ -4,83 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 869C3CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:57:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA94CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 17:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CbYRjcxiLRGKL2LIFUGAiQXkDS5QuVlAtEitSDKwgNo=; b=FxWQPK9XlXoQ00vtU9jrYm3dvy
-	q38gxIzZkRMOoKHEGUVmCfpiR6uZDV4PshmGuo84+BM4q4SckaZjDWpe40NHh/8qe2AVDsr5w5Qnk
-	2EFRdPvy12K1lvdv2DhM8mnoF5caF8akOayVXgT8biDKiLyFvDYqmf+Usz8VaiHzV5kULEOqvmovM
-	cD7DGv4ziGTU3hClAzAqniwOtefDP3VnJCXCaB6lL6ys5hQFUZz2LEtY+xmqtspHCfBYALRrEAhJu
-	hiiVt1VYY59KMUJp55psrH6IzS4zkBCbRFEhe5yUFSoFP7DJtacK62sEHDDFLenkBLG48HqjkCgru
-	r0i2s7kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zTmCve7ow8KUe86m2S+D+TMV8DrrT745aVc8Mr0EBG4=; b=kUPpd480algTDeqcSuHEktiyhU
+	WHUumUhINbvveOHhasRcYtiM9lwrcuDo6ANReMPgqolVa2wV/qRFmJWpy07eUVTgqLM1exCUa6RL0
+	oYdWlddzWLap8b3y3uuWKabETN2ethy/9yTxc7imOViaq42wB8OX6qhamrjPuC9i+V9PYAxOGmyQP
+	Q7h3hOLeBarU2ks4tzhkbsHT1LdXZnxk6VcP1gqYVd4nBI9ruWSP2J3TKEkF7Ll49O/3duYyVG7Sv
+	l1P8FYKrP7B3ldWwQbEMjDlDg6YhuIL6ZAggdjcyI6P9lR7GjpP1pGmZvy4AUN8C9OnyFQ3P9veFW
+	nJtTcttg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v94oA-00000002Nfo-06mz;
-	Wed, 15 Oct 2025 16:57:02 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1v954U-00000002PBy-2Zgv;
+	Wed, 15 Oct 2025 17:13:55 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v94o7-00000002Ner-0Aiq
+	id 1v954R-00000002PBC-3woR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 16:57:00 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3305c08d975so10413920a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 09:56:58 -0700 (PDT)
+	Wed, 15 Oct 2025 17:13:53 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b553412a19bso4363747a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 10:13:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760547417; x=1761152217; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CbYRjcxiLRGKL2LIFUGAiQXkDS5QuVlAtEitSDKwgNo=;
-        b=Fx9LwSV0PElMMQKnhr1h09uKFqOrPjMsYnI4/6rMPK5KzYpBKrJafaob3z5spUTz+L
-         nG4F1EAPy22RFcaUq1aqCFTTbiDvTdXrmll3HHg6nDEIDRE2NpcTNFW3k8M8T16a4Z/6
-         IpxV0D193VOmCPRLGlWtjlghu+SM2C/Lt3aFgPKWRhKVwyJNeX/zagePyYQ8tNYYk5sm
-         Pf3EXbZku2LorQh+R2RQvYX2AbeBSeP+D3/Xqg4oL/iJpZTZ0p94W3mPLtOkwV8R7XAt
-         cLcuRGwxn66awiAsbubUGL0CiFwlSnbYuJ8B6hLtXwAWpWCjJnFP4/W/eHBNkg6qK6cC
-         R6/w==
+        d=google.com; s=20230601; t=1760548430; x=1761153230; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zTmCve7ow8KUe86m2S+D+TMV8DrrT745aVc8Mr0EBG4=;
+        b=Wos3OGAmLYn3And97f8Km07YHGO2DdTsuuQpWSlu/zJhrXDd1cDnbbKCHNOdHEGnpS
+         DO60JS4bIMMqac4MEItimetg+K6je+Hi88txN0XMcPf2V+uHJEH5Xd5u8RbAR/oVaP/M
+         kJ7T2vROGra/5/rssStx0nCozYEFyqOk/4kXzcKoxW8Jt5OFPOPWHph4uAefiOeMIdHj
+         KpmlyIWHT6PTSqXEo5ljunRPzzXywUt8ohdZhIJX5LGNpI9m08BZb4o2w+7/ymJmws/N
+         q41jlnr/dMoPJBBjhe2ySLp33uZl+bhjHUN7qy9rfQ6cUGmPTGH8cHxcQr5hDo4vZyZm
+         bZrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760547417; x=1761152217;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CbYRjcxiLRGKL2LIFUGAiQXkDS5QuVlAtEitSDKwgNo=;
-        b=p8DiNJWduyTGbWj1+FG9FHOhs2hqI1c3Le6t8bl5XukQQvHBIBx9or/r7s6pB2S+rd
-         kFuCvzkyBmLG4sieEy0g4fbxXqdG4/mbHYgp+yWkSdgEVKaVQHtB33MO/q6qanX7Bhuq
-         7MQLmlHeEUzjhKbig5iIfOabcR5P3hemEzDccgGa1FdnOVLsLsFpNWi2a+KNq7j974Nd
-         W+PtY0zqEugrnDg8j7Y3M/BtzXE8QDX1rcCP75QT4zEomYKR+IyOF7MaHnP9FAoYPq0+
-         4BwmLWWFU4jTJV9zLiBt82V7SE2JQZRuhk5Iu+9bvt126MUKe42u0mYah2VXlrnoKIqu
-         TOug==
-X-Forwarded-Encrypted: i=1; AJvYcCX8F4Jp3bMB+WGttF+QndrE9vl7ame83zcfl2sealWdjzd/aa77Xcc/ntSeo3wBzq6EXuZRQdsxHH5ijUxs5B1u@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3yhxbHZuuB2FR3TJLXLevHYnuPcnbVQt8WsN0P+6vPBcCnObp
-	9EwzKd5EqQ4qfjK8YggC0wGPo5tP8pzay/qiSShxo9sif44p0BSv0wYNvWFhegYjZUr+LfnFSzw
-	CWaSFeg==
-X-Google-Smtp-Source: AGHT+IE8G6rCUXSY9kLglvAN1OT5mVOTch4nfQN3hIBfcNRFcG0ozBsKIivfelaBWpgamTPWwCFJi/Lz678=
-X-Received: from pjbgj15.prod.google.com ([2002:a17:90b:108f:b0:330:72b8:fcc0])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3843:b0:330:bca5:13d9
- with SMTP id 98e67ed59e1d1-33b513b4c9cmr36865790a91.32.1760547417511; Wed, 15
- Oct 2025 09:56:57 -0700 (PDT)
-Date: Wed, 15 Oct 2025 09:56:55 -0700
-In-Reply-To: <diqzv7kmfmio.fsf@google.com>
-Mime-Version: 1.0
-References: <20251007221420.344669-1-seanjc@google.com> <20251007221420.344669-6-seanjc@google.com>
- <diqzo6qfhgc9.fsf@google.com> <e9bd02ba-ff0e-47a3-a12e-9a53717dde9b@amd.com>
- <aOltikRvKzCy1DXN@google.com> <diqzv7kmfmio.fsf@google.com>
-Message-ID: <aO_SV0ee6h8rK9dZ@google.com>
-Subject: Re: [PATCH v12 05/12] KVM: guest_memfd: Enforce NUMA mempolicy using
- shared policy
-From: Sean Christopherson <seanjc@google.com>
-To: Ackerley Tng <ackerleytng@google.com>
-Cc: Shivank Garg <shivankg@amd.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, Ashish Kalra <ashish.kalra@amd.com>, 
-	Vlastimil Babka <vbabka@suse.cz>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20230601; t=1760548430; x=1761153230;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zTmCve7ow8KUe86m2S+D+TMV8DrrT745aVc8Mr0EBG4=;
+        b=qW9aCzwNOY4vDOd6/yMFY/O4ar+g/b9nnSsDUnKDDc5j1hJ+RUQmAHaRX0+81beWn0
+         PvwGHqBaMktMovDEeT/y/IYWbX8aIjx374QjlacA96FiklQ6yvDARv/yTHLh/iYCVAko
+         YQSTVOWSR7KQbhhfphCdoEL4s0hSXLXzh3hcymbQVq7OfMFi+hzYqFcbLc/e8g6AEgzh
+         YU8R6xRL2NiLoqf31lCnsJgmsroAVFsqFoiSRPdx6KAvPko07bv3a0ODZm1Zix0o45wO
+         MU3TDw3mE1Zy81xZ/k9xDQ3+r9vZKfhdmK0i7dDOCTDGSiHolonyUr8i6D0L/EHSK4M+
+         +8oQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV+YGD3HiYgrj6hyno286VBaDISSse/9BV8EFl1msKlBNbrxemRZSO8dQUwDJeSCLCD3SXttg3+uajoeYcPQm+O@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZFfUGnrZ06p5FS0GlMB7pYybSWDBxHESm2X/c19ZCYuMlL16F
+	Yx/TFrWyMxX4hlx1eois1W2l1vgSIrCg8FTfKugcmolJGawnMDUN+L2TuPL5TfotejyDy6FXtSX
+	j37WHjJiAZB1xmjRroEVHNoej71sxBPXCG2REaUOy
+X-Gm-Gg: ASbGncuxDnnZ5MOpEmC/7h/Gz9sfpFQ262g1VuUACLPAFYKM/mitWsCR8Ey2mfpRbrW
+	M/U5aQN2rkavROfnza/lAQZBR8i3wHA5TibeYQwC0uVXcIQ97pZgUwzFxlL6K8aurveTAzu4Fkk
+	UzscC3Z3DKxauCZPpfBcrpo0ZnPhW2zWTzWSd7C3gnmC5qTmTRczyNjrrXhJ6nlmBZD6LSAxUvp
+	4CIROKds9W15gqf0avNUcjOkeg+z/iMIPfOtHNYzPa/P3jjB0vSUujR5XlcDR4q4X0oPVmxov7j
+X-Google-Smtp-Source: AGHT+IG7xm/DEDbS/nNDrpe7ReteweNLIKFfyokAzWV7zMp350kRJ3eICS85Rhzn8PDxA9SglM5C/lh1HX9E/pJg4Bg=
+X-Received: by 2002:a17:902:f650:b0:276:305b:14a7 with SMTP id
+ d9443c01a7336-290273ef0ebmr363338475ad.33.1760548429863; Wed, 15 Oct 2025
+ 10:13:49 -0700 (PDT)
+MIME-Version: 1.0
+References: <20251010201607.1190967-1-royluo@google.com> <20251010201607.1190967-2-royluo@google.com>
+ <066a9598-ad30-4327-be68-87299bba6fda@kernel.org> <CA+zupgwc7b51pNRLWRy2CX=n4=FTm=AP7J0dRP2RLjyK5LxGtw@mail.gmail.com>
+ <b7b3de64-c656-4a84-8ba4-2d5c7eda9783@kernel.org> <CA+zupgzo9zRO2GHR2Np0Tm4M5_h8y0GF2JGGqE_S0BxSR_ZbqQ@mail.gmail.com>
+ <20251015-backlash-overtime-4c636f12b165@spud>
+In-Reply-To: <20251015-backlash-overtime-4c636f12b165@spud>
+From: Roy Luo <royluo@google.com>
+Date: Wed, 15 Oct 2025 10:13:13 -0700
+X-Gm-Features: AS18NWCEm2YS-Sip7tv4iMJuDS6bNEhHmOhmHYieVj8y_mcbM2tH_CjtqCUTPM4
+Message-ID: <CA+zupgyKsnp5D9kW-AeoAsweODXx4BXLr7fVnB+J9tzYRbM_fg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/4] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
+To: Conor Dooley <conor@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Joy Chakraborty <joychakr@google.com>, 
+	Naveen Kumar <mnkumar@google.com>, Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_095659_083717_E290D84F 
-X-CRM114-Status: GOOD (  40.03  )
+X-CRM114-CacheID: sfid-20251015_101351_978457_5FD34BEE 
+X-CRM114-Status: GOOD (  56.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,110 +107,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 10, 2025, Ackerley Tng wrote:
-> Sean Christopherson <seanjc@google.com> writes:
-> 
-> > On Fri, Oct 10, 2025, Shivank Garg wrote:
-> >> >> @@ -112,6 +114,19 @@ static int kvm_gmem_prepare_folio(struct kvm *kvm, struct kvm_memory_slot *slot,
-> >> >>  	return r;
-> >> >>  }
-> >> >>  
-> >> >> +static struct mempolicy *kvm_gmem_get_folio_policy(struct gmem_inode *gi,
-> >> >> +						   pgoff_t index)
-> >> > 
-> >> > How about kvm_gmem_get_index_policy() instead, since the policy is keyed
-> >> > by index?
+On Wed, Oct 15, 2025 at 1:59=E2=80=AFAM Conor Dooley <conor@kernel.org> wro=
+te:
+>
+> On Tue, Oct 14, 2025 at 05:50:17PM -0700, Roy Luo wrote:
+> > On Tue, Oct 14, 2025 at 1:22=E2=80=AFAM Krzysztof Kozlowski <krzk@kerne=
+l.org> wrote:
+> > >
+> > > On 14/10/2025 03:40, Roy Luo wrote:
+> > > > On Fri, Oct 10, 2025 at 5:09=E2=80=AFPM Krzysztof Kozlowski <krzk@k=
+ernel.org> wrote:
+> > > >>
+> > > >> On 10/10/2025 22:16, Roy Luo wrote:
+> > > >>> Document the device tree bindings for the DWC3 USB controller fou=
+nd in
+> > > >>> Google Tensor SoCs, starting with the G5 generation.
+> > > >>>
+> > > >>> The Tensor G5 silicon represents a complete architectural departu=
+re from
+> > > >>> previous generations (like gs101), including entirely new clock/r=
+eset
+> > > >>> schemes, top-level wrapper and register interface. Consequently,
+> > > >>> existing Samsung/Exynos DWC3 USB bindings are incompatible, neces=
+sitating
+> > > >>> this new device tree binding.
+> > > >>>
+> > > >>> The USB controller on Tensor G5 is based on Synopsys DWC3 IP and =
+features
+> > > >>> Dual-Role Device single port with hibernation support.
+> > > >>
+> > > >> You still mix, completely unnecessarily, subsystems. For Greg this=
+ is
+> > > >> actually even undesired, but regardless don't do this for any case=
+s
+> > > >> because it just makes everything slower or more difficult to apply=
+.
+> > > >>
+> > > >> Really, think how maintainers should deal with your patches.
+> > > >>
+> > > >
+> > > > Understood, I will separate the patches into two distinct series: o=
+ne for
+> > > > the controller and one for the PHY.
+> > > > Appreciate the feedback and the explanation.
+> > > >
+> > > >>>
+> > > >>> Signed-off-by: Roy Luo <royluo@google.com>
+> > > >>> ---
+> > > >>>  .../bindings/usb/google,gs5-dwc3.yaml         | 141 ++++++++++++=
+++++++
+> > > >>>  1 file changed, 141 insertions(+)
+> > > >>>  create mode 100644 Documentation/devicetree/bindings/usb/google,=
+gs5-dwc3.yaml
+> > > >>>
+> > > >>> diff --git a/Documentation/devicetree/bindings/usb/google,gs5-dwc=
+3.yaml b/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
+> > > >>> new file mode 100644
+> > > >>> index 000000000000..6fadea7f41e8
+> > > >>> --- /dev/null
+> > > >>> +++ b/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
+> > > >>> @@ -0,0 +1,141 @@
+> > > >>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > > >>> +# Copyright (c) 2025, Google LLC
+> > > >>> +%YAML 1.2
+> > > >>> +---
+> > > >>> +$id: http://devicetree.org/schemas/usb/google,gs5-dwc3.yaml#
+> > > >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > >>> +
+> > > >>> +title: Google Tensor Series (G5+) DWC3 USB SoC Controller
+> > > >>> +
+> > > >>> +maintainers:
+> > > >>> +  - Roy Luo <royluo@google.com>
+> > > >>> +
+> > > >>> +description:
+> > > >>> +  Describes the DWC3 USB controller block implemented on Google =
+Tensor SoCs,
+> > > >>> +  starting with the G5 generation. Based on Synopsys DWC3 IP, th=
+e controller
+> > > >>> +  features Dual-Role Device single port with hibernation add-on.
+> > > >>> +
+> > > >>> +properties:
+> > > >>> +  compatible:
+> > > >>> +    const: google,gs5-dwc3
+> > > >>> +
+> > > >>> +  reg:
+> > > >>> +    items:
+> > > >>> +      - description: Core DWC3 IP registers.
+> > > >>> +      - description: USB host controller configuration registers=
+.
+> > > >>> +      - description: USB custom interrrupts control registers.
+> > > >>> +
+> > > >>> +  reg-names:
+> > > >>> +    items:
+> > > >>> +      - const: dwc3_core
+> > > >>> +      - const: host_cfg
+> > > >>> +      - const: usbint_cfg
+> > > >>> +
+> > > >>> +  interrupts:
+> > > >>> +    items:
+> > > >>> +      - description: Core DWC3 interrupt.
+> > > >>> +      - description: High speed power management event for remot=
+e wakeup from hibernation.
+> > > >>> +      - description: Super speed power management event for remo=
+te wakeup from hibernation.
+> > > >>
+> > > >> Wrap at 80 (see coding style) or just shorten these.
+> > > >
+> > > > Ack, will fix it in the next patch.
+> > > >
+> > > >>
+> > > >>> +
+> > > >>> +  interrupt-names:
+> > > >>> +    items:
+> > > >>> +      - const: dwc_usb3
+> > > >>
+> > > >> So just "core"?
+> > > >
+> > > > I'd prefer to stick to "dwc_usb3" as that's
+> > > > 1. more expressive by referring to the underlying IP name,
+> > >
+> > >
+> > > But that's completely redundant name.
+> > >
+> > > > 2. consistent with established dwc3 bindings such as
+> > > >     Documentation/devicetree/bindings/usb/snps,dwc3.yaml,
+> > >
+> > > If you use only one interrupt. You don't use one interrupt here.
 > >
-> > But isn't the policy tied to the folio?  I assume/hope that something will split
-> > folios if they have different policies for their indices when a folio contains
-> > more than one page.  In other words, how will this work when hugepage support
-> > comes along?
+> > After looking into it further, I found that the interrupt name "dwc_usb=
+3"
+> > must be used here to adhere to the interrupt naming defined in
+> > "snps,dwc3.yaml".
+>
+> Did you just chose to not read what Krzysztof said here? It must be used
+> only when that's the sole interrupt, which he stated is not the case for
+> your platform.
+>
+> > This requirement stems from the device's corresponding glue driver
+> > utilizing a so-called "flattened" model (see [1] for context). This mod=
+el
+> > causes the glue driver to probe an underlying "snps,dwc3" device.
+> > Consequently, the core DWC3 interrupt defined here is consumed by
+> > the driver handling the "snps,dwc3" device, making it mandatory to
+> > follow the interrupt naming established in "snps,dwc3.yaml".
+>
+> I look at the binding and noticed that interrupt-names isn't even a
+> required property by snps,dwc3.yaml, and this comment about driver
+> behaviour likely isn't accurate given that the code in for host mode
+> (and the others are identical) is written so that it will grab the first
+> interrupt if the specific names it looks for are absent:
+> | static int dwc3_host_get_irq(struct dwc3 *dwc)
+> | {
+> |       struct platform_device  *dwc3_pdev =3D to_platform_device(dwc->de=
+v);
+> |       int irq;
+> |
+> |       irq =3D platform_get_irq_byname_optional(dwc3_pdev, "host");
+> |       if (irq > 0) {
+> |               dwc3_host_fill_xhci_irq_res(dwc, irq, "host");
+> |               goto out;
+> |       }
+> |
+> |       if (irq =3D=3D -EPROBE_DEFER)
+> |               goto out;
+> |
+> |       irq =3D platform_get_irq_byname_optional(dwc3_pdev, "dwc_usb3");
+> |       if (irq > 0) {
+> |               dwc3_host_fill_xhci_irq_res(dwc, irq, "dwc_usb3");
+> |               goto out;
+> |       }
+> |
+> |       if (irq =3D=3D -EPROBE_DEFER)
+> |               goto out;
+> |
+> |       irq =3D platform_get_irq(dwc3_pdev, 0);
+> |       if (irq > 0)
+> |               dwc3_host_fill_xhci_irq_res(dwc, irq, NULL);
+> |
+> | out:
+> |       return irq;
+> | }
+>
+> Since it grabs the first interrupt, as a fallback, in order to support
+> not having the interrupt-names property, the name of the first interrupt
+> ultimately doesn't matter at all to this driver (and likely any other
+> driver written in compliance with the bindings for the dwc3 core).
+>
+> I'm not here to argue about what the name for the single interrupt
+> should be (keeping consistency with other devices might actually be
+> good), but ignoring what a maintainer says and the seemingly providing
+> an incorrect analysis is annoying. Did you perform the analysis on this
+> yourself, or did it perhaps come from Gemini?
+>
+> Thanks,
+> Conor.
+
+Hi Conor,
+
+My apologies for the incorrect analysis. I misinterpreted the code,
+which was a big mistake. I can assure you that I do value your
+feedback and take every comment seriously.
+Thanks for pointing out the error and raising your concern.
+This won't happen again.
+
+Thanks,
+Roy Luo
+
+>
+> > Essentially, the interrupts defined here are a mix of vendor specific
+> > implementation (like "hs_pme", "ss_pme") and the DWC3 core in
+> > "snps,dwc3.yaml" ("dwc_usb3").
 > >
-> > So yeah, I agree that the lookup is keyed on the index, but conceptually aren't
-> > we getting the policy for the folio?  The index is a means to an end.
+> > I don't know if there's a better way to express this implicit dependenc=
+y
+> > of the core DWC3 interrupt except for documenting it in the binding
+> > description. Any advice would be welcome.
 > >
-> 
-> I think the policy is tied to the index.
-> 
-> When we mmap(), there may not be a folio at this index yet, so any folio
-> that gets allocated for this index then is taken from the right NUMA
-> node based on the policy.
-> 
-> If the folio is later truncated, the folio just goes back to the NUMA
-> node, but the memory policy remains for the next folio to be allocated
-> at this index.
-
-Right.  Though thinking about this more, there's no reason to have "index" in
-the name, kvm_gmem_get_policy() is sufficient.  E.g. we don't have "index" in
-the name for things like kvm_get_vcpu().
-
-Luckily, it's all made moot by Shivank's fixup :-)
-
-> >> >> +{
-> >> >> +#ifdef CONFIG_NUMA
-> >> >> +	struct mempolicy *mpol;
-> >> >> +
-> >> >> +	mpol = mpol_shared_policy_lookup(&gi->policy, index);
-> >> >> +	return mpol ? mpol : get_task_policy(current);
-> >> > 
-> >> > Should we be returning NULL if no shared policy was defined?
-> >> > 
-> >> > By returning NULL, __filemap_get_folio_mpol() can handle the case where
-> >> > cpuset_do_page_mem_spread().
-> >> > 
-> >> > If we always return current's task policy, what if the user wants to use
-> >> > cpuset_do_page_mem_spread()?
-> >> > 
-> >> 
-> >> I initially followed shmem's approach here.
-> >> I agree that returning NULL maintains consistency with the current default
-> >> behavior of cpuset_do_page_mem_spread(), regardless of CONFIG_NUMA.
-> >> 
-> >> I'm curious what could be the practical implications of cpuset_do_page_mem_spread()
-> >> v/s get_task_policy() as the fallback?
+> > [1] https://lore.kernel.org/all/20250414-dwc3-refactor-v7-0-f015b358722=
+d@oss.qualcomm.com/
 > >
-> > Userspace could enable page spreading on the task that triggers guest_memfd
-> > allocation.  I can't conjure up a reason to do that, but I've been surprised
-> > more than once by KVM setups.
+> > Thanks,
+> > Roy Luo
 > >
-> >> Which is more appropriate for guest_memfd when no policy is explicitly set
-> >> via mbind()?
-> >
-> > I don't think we need to answer that question?  Userspace _has_ set a policy,
-> > just through cpuset, not via mbind().  So while I can't imagine there's a sane
-> > use case for cpuset_do_page_mem_spread() with guest_memfd, I also don't see a
-> > reason why KVM should effectively disallow it.
-> >
-> > And unless I'm missing something, allocation will eventually fallback to
-> > get_task_policy() (in alloc_frozen_pages_noprof()), so by explicitly getting the
-> > task policy in guest_memfd, KVM is doing _more_ work than necessary _and_ is
-> > unnecessarily restricting usersepace.
-> >
-> > Add in that returning NULL would align this code with the ->get_policy hook (and
-> > could be shared again, I assume), and my vote is definitely to return NULL and
-> > not get in the way.
-> 
-> ... although if we are going to return NULL then we can directly use
-> mpol_shared_policy_lookup(), so the first discussion is moot.
-
-Ha!  Great minds think alike, right!!?!
-
-> Though looking slightly into the future, shareability (aka memory
-> attributes or shared/private state within guest_memfd inodes) are also
-> keyed by index, and is a property of the index and not the folio (since
-> shared/private state is defined even before folios are allocated for a
-> given index.
-
-Yeah, which further reinforces that having "index" in the function name is
-superfluous (and potentially confusing), e.g. IMO the proposed helpers:
-
-  kvm_gmem_get_attributes()
-  kvm_gmem_is_private_mem()
-  kvm_gmem_is_shared_mem()
-
-are far better than e.g.:
-
-  kvm_gmem_get_index_attributes()
-  kvm_gmem_is_index_private_mem()
-  kvm_gmem_is_index_shared_mem()
+> > >
+> > > >     Documentation/devicetree/bindings/usb/qcom,snps-dwc3.yaml,
+> > > > unless you have a strong preference for the alternative naming.
+> > >
+> > > Such namings are discouraged, because they tell absolutely nothing.
+> > > Also, schematics or datasheets usually do not use them, either.
+> > >
+> > >
+> > > Best regards,
+> > > Krzysztof
 
