@@ -4,165 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9766FCCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 18:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D92ACCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 18:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1zpA8Qmoox28oZX7oEPIRHD5WQvom1pEzWIwcXp3o+4=; b=QzPrRZbxFQIaruYwynLbXSHAf2
-	TuXgZaU9DvFy0UrWBLrSz5h5FS/SqPWYy0ohelxTuG0d4RUhc971CLrlo+7poJ/qdYNJP70ftMVOo
-	8aQWOEtaNVJL5EaZNr5q2KaDyL1pu/V8RXL7hyIu15ppA8CLCcGUaV5x6qCIgCVV1wzblt5aWWTUC
-	9euewwH/khhuVzqYZhYr3LBtYd7fHFvVuuJLtSMtCpM8Iv+PMdJOYmvdYokqhI4HDKnK0p20OruxC
-	NA+bIhmG6zEBszOkeCQVkB2al9NCrV0pFx0rvDGmdUTnvqu28pEzaazhr5Qnl4A9ZVukxyb+Hv6NX
-	YwlPe/oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IzWJncyHzn0swQi7I4nmNemTnnfZkUzy+RF1ph+lVak=; b=gKBEuEQfnrivQDVkcjOPTfK6B1
+	a0rB6QTrrqD1PH9v4Pf+vv5g7fVZH3IjlJ64w3ubf4fWBLi2Ale2riaALcn9ZFj6Dz2X4wzF1tWqv
+	sqPc9LbLPh/1XNKRM/AZShzfT8nXLqwOtupzMZyK/Ktyd5WA3KX9+5A3hQizO253PVDXgPSMEe+kW
+	pazwCkus/OCSY4wAga62UZ8Pu888blyU9ioY1EzfzkHuOkAqpKANw8SqBIoHtLowTyoQb0c94bSou
+	ye0ol5cHYnXc9AbnxVUe0N50F0q0iLOcjXq2b2awOd6OAAyluQe8yc7hntzv/wYdACFu8xtguOg1G
+	wYcgU2wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v96Yr-00000002eMY-3Jru;
-	Wed, 15 Oct 2025 18:49:21 +0000
+	id 1v96ZC-00000002eV0-3dgV;
+	Wed, 15 Oct 2025 18:49:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v96Yq-00000002eKz-09IM
+	id 1v96ZB-00000002eUD-1ene
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 15 Oct 2025 18:49:20 +0000
+	Wed, 15 Oct 2025 18:49:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=1zpA8Qmoox28oZX7oEPIRHD5WQvom1pEzWIwcXp3o+4=; b=E+Ue06nrJzqRUdWdE+tccV9Qbv
-	X0jvMczfxuBS4NdswHBB36dxfNAd8cG8kML+NjWUyPlMyuZ0ntuNO27fWtFLLwkWBep8CnsO/67X9
-	W8DqeOiukm1lVn+mi1ZTSbjjMHGY9jzbt1OT+yb0Vvvob68AqUxmmpI8Ddn9yb/XuS7NfkI43ZWa7
-	swfbrlfs1lmj1NxCUAKQjqrxg1XTM008xR/UTbEa+gPhaglPzv4hotD3xdoOrF7SEWN1MunZGhK8a
-	TL1vpuliJChFK33wZ4010Vw8RSZgHXcOFiUxqjRAQdbJWKqGU+SaRaQ1CfT1lt0Eb5YBjpVPlt3yh
-	2hh5rZpA==;
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=IzWJncyHzn0swQi7I4nmNemTnnfZkUzy+RF1ph+lVak=; b=Fo2+QXiVZWLzhaTWFJlt42Vhuw
+	/dXEYFZVTJ/5xTyPf50kKdk93astYjy5j/PXOQXFU5L5REn6E3FaSQTy+OvZ/mwNemSafiR6b1OKX
+	KpqakGJ8O3DiRSaM8f9L/JxFE7Zdlj4m+EPi16ZyGbRsEZoB4ykj7/9XsffKMtAIk1NPrNnFu/Yyb
+	xCW/tXMaSxTiqoostIID6KpxkK92iUrYTDUtU3F1RCVhv9vWfALXGQ1jwBK6GLjuyOKPe9w11iOVz
+	sJjJCDcEsgIScNa9fJAVzi1MVSzjRky1Grjau8N/OvZGUMmUtD2NS9Qq1fkAHzrusx08j/HLCzHxc
+	LKeNN86w==;
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v96Yj-00000006926-3wlE
+	id 1v96Z0-0000000694Y-1AI5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 18:49:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Zk5dk5QVttCMCbSE6ObH+8DpWiCLFcwwJZv7gSEFeQ7cHDK1N/mk7xFaLqHVnmy7HkCJNSGAanK6nTXmdsdm8MbYP37XUTxpW4eUuKTNoxFzDdYuwgKUzw1Tf6BWL4RBQ1gBhohyQeyC/V4JV40G+bTQPMkBV8tFcgjIMeC+Y5LjVJE+b34Qc5EYT47ulnjTQWfNxrNIdrzjJzDDW8aMEUxo4AahknzPDw1iYzLEOWO01Y2UBH4c+GsLaJacq+VRVPtEJ/TtPAmfrC4jxFd36WzU5FmOu99dgmGZqRujVGg1sohihI9jrljtq3SfwheSIDJxwbyOaEVnsufgLwGyqg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1zpA8Qmoox28oZX7oEPIRHD5WQvom1pEzWIwcXp3o+4=;
- b=T3d+IyjTz1UD1TcqERrMReIneFwPlxthBH9LK20wnUSpW8NfyUFc7ex3j3RnQOnPXVYa0W/ggV6idk6roP8fLkV08mGodlWWnYU5CUDVZxVndbzAGM2vN2caY51yPhMIg4FRzuiGpDCbesppAZfZAzu5EeQsnGZ3Jx14F6Pi30hJymIWVELgY5FTfte+86JYuZqZR/Ae7rd2fpiAZ/zUz+y5Wlmoascw++T5tBfoZOE2W12M8IAXYl6Zheyr71IpcxnF4vClR6OYiX6eCWUnrZXNa5hfrgQSYJe1R35lopNIWQBr0dE+0QK9Ib9tp64RXQbj6AlanaFHG63HbVdy+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1zpA8Qmoox28oZX7oEPIRHD5WQvom1pEzWIwcXp3o+4=;
- b=PGnqVhHvLQK9it7+ZkYOt/yw1F0ryl4FOnIjQYfziBlBHSKAxBz8EF+Xwe9vuh4Lml2nxNHdEKmyKzHmrO49d2r2gSNgHBpCOzhNTk9f8GytimhQqF+QBYJ6VrRPtW8lw1JJbl0uXLdALQSbfJ53qEU9nRW/PQEbhu5MDieGSeewMCmsTJPydkXGtT84OKdrTqkkYhpVkFb21hT11AWll24r/Jo+/zV+OJGYxFL7DjFXrqOWzbI0f6wymoTBeUShgPL5XAt6vc6VoeBUFV0ecl6JOL8bZ15ADYVvscfr/P+muU2zSnVhMK0SbqRzoK0BnfGjd3059HsZs7XElVkVrg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by FRWPR04MB11150.eurprd04.prod.outlook.com (2603:10a6:d10:173::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.11; Wed, 15 Oct
- 2025 18:49:01 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9228.010; Wed, 15 Oct 2025
- 18:49:01 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/LPC32XX SOC SUPPORT),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [RESEND v2 1/1] dt-bindings: arm: lpc: add missed lpc43xx board
-Date: Wed, 15 Oct 2025 14:48:45 -0400
-Message-Id: <20251015184846.2509016-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CH5P222CA0002.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:610:1ee::22) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Wed, 15 Oct 2025 18:49:35 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-57b35d221e2so1132966e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 11:49:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760554165; x=1761158965; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IzWJncyHzn0swQi7I4nmNemTnnfZkUzy+RF1ph+lVak=;
+        b=IZ77R3rqak+ZPoudv6oQNMThlLLs+i02HvHVXUavsA0vsybKIanT3SlD2Y8hOrpNbN
+         TEdwBfCL+a4R1bGL57VZjdZohxu+RvSDcfCUf5WXMGU1ZuJ/966ZN8FZHrfWFVhwazsA
+         lxMZA5260bdTlk6a3fHFvNczE6B5Xfg7f4iiT2ZgYJRbhfT34PAHKF5U5Zpe1E+5zXL6
+         OFIRtKNgtjiwhU6+s5z12hs2JX9ZXHGsEoMd36gnQ3hK2SdEAdatHGLPTa0GUHdAecNz
+         Mym0N/yvl3ULn1bkCMYvWd+smA9KxC/YEYwStqZLPjBJhsV39vyGIHJjJga1qAubC1p5
+         36lQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760554165; x=1761158965;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=IzWJncyHzn0swQi7I4nmNemTnnfZkUzy+RF1ph+lVak=;
+        b=YQEiupYh4NvknW8dv/3cUCSnkNARX3S3DLF6vGUf8ccDR9Sa/LijSMIm55FDcFUusE
+         xRR8byiywieAt3h+n5vHbhYKe3OCNpZATxdFACP5UGD//f7MNrTx6DHKHTkqb26u07Lw
+         2nnoPSo7qJY2ujeR9e0DFSCXOqrpw/Gidt4mxdAi6mFzYNDkf0GuXqSQtuhqO4t36ttD
+         TGHgp6rQCxJ45K19wlUnUczbzFJAHmqaGJ6lHQNF/B4tWQSoR05uevRV+VFjn7R1uOJs
+         xFmRQ+2bsxqMudHFXOmyGirZlexHE8m81azaQeortM2uIQmx7Jo/0mzfcZYBN1krIJsV
+         0dTA==
+X-Gm-Message-State: AOJu0YxltsgQZwCgJXyB3fRcNCtj/K/oaM815bCgaTcZxbBp0cl3pB3c
+	F0xSMp2a9g4/k78Q4BvGgI9+dpGb4I8mWkG2tCjeUAOFa7/IjzhdBl3dwvXMtC29e5M=
+X-Gm-Gg: ASbGnctKOSPjoyVpSxsTfCcs2JsrgDKHrQRApcTVayJlAQAIb6p8KHYD4fucXQk+O4V
+	4UnmGSrpRYGyWb2Kuifg4RuxWbDmVBEn71JNDNH7W7gSMaUDvij9LFqL/fH+1qD1BzbgWbWHSuE
+	OxiYZJsMZ4HyFB6zTuYjpspBNI+nyHwUHebLGgwonNHoVwt5mkJuH87YGUByRWWgynTDfAidFhC
+	OOuNbP1xY1gNvl0lSHdzzvvzDP4YyaIvA1ZLS/y2pb26aL3j5UOQHkfc2XCH5bht41VIzzTuyu4
+	w4zgoTJBTjEa+PPuI3r1faLQ1huOUZDWJmFn2u19+sJSkNq7ZwqcBaWoudWa4QeWhtedEmEbHL5
+	fDjnqODEzTRwcc4hyf4sPstj+I5EhVWHLk9csj15kDN4ylPuNDh1/UzsguMuCPtLBf7NVW780KX
+	NeKiG7oEDMsEQ+Nh6Mf7PK3LT3xJb4N9R08SCBkrOxRMcPhJAA707Q/S2827fvo7YP3WFEqvD4H
+	9sRC/sZ
+X-Google-Smtp-Source: AGHT+IEZp9j24Q6VxXUOyr7mVBGBzy2hOIza1xmN7Uf+Xn9oo37+2SzKCXeek/w8Yj5QVPavcLsMqA==
+X-Received: by 2002:a05:6512:1054:b0:57f:5f3e:84bd with SMTP id 2adb3069b0e04-5906db0ccfdmr4378907e87.8.1760554164814;
+        Wed, 15 Oct 2025 11:49:24 -0700 (PDT)
+Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-591c2bcc26asm1728266e87.46.2025.10.15.11.49.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Oct 2025 11:49:23 -0700 (PDT)
+Message-ID: <b4207e22-8d9c-4223-8b28-272d2650661f@linaro.org>
+Date: Wed, 15 Oct 2025 21:49:21 +0300
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|FRWPR04MB11150:EE_
-X-MS-Office365-Filtering-Correlation-Id: e7286fee-a807-4105-6b35-08de0c1b81bd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gHEJhou0v9QR5wZfiQ0B4NcH7l0nJXvznF7kkFX+vmwCOcrW4vjQUtUodo8D?=
- =?us-ascii?Q?lDz0mpN3Nn3WIEWicVUJgAYqljPGT1tyeDP+MpOnH4jtmzOvmLYN/coCo448?=
- =?us-ascii?Q?82fdHE4Fb/U7dbCl9WUKoXQzJs0/4WR3xY7oM+qF7htaqa6Hy4NYefIFf+g+?=
- =?us-ascii?Q?WeZ9T4nnA81c5w4fJBtCUvpBUSKrEzFAHiHFQFCxenazQ+dwIzsqIxM2so/8?=
- =?us-ascii?Q?x68X9lJdEoXT41dkmk+DPYqxqLfZTSsrjTjJos6kw+vZX/oPRMHoNd0DROGB?=
- =?us-ascii?Q?iCtx8NXbEhDdrGdwQqAfi7IK3uIduwFLk5Rs801nV1B1E45ricIbF3JnV4TX?=
- =?us-ascii?Q?l7KKlTx93Z229zzOxmboNJM78/nJI4srx9BhutaqXsrEddFmQnP/39CMT4DZ?=
- =?us-ascii?Q?tniUs+SLaEi7SlgtXmS83prDGuieUu+XFu38wfnw7r1FmSK7+GSynuyAeW9L?=
- =?us-ascii?Q?Uy0+IiZuoJDgicFgmoJpHcVygfJM8esKA91TaHDb21bms2qyCc/+YbHz4Krb?=
- =?us-ascii?Q?Kj+M4ewF8SdYn9Hqs9hKd44SbMJtfGY0ke6liPqx4ad4gUUXz38pyuFz0rz9?=
- =?us-ascii?Q?ggitLXrM+Tgoz7GRUwfEHvKVI6eAX3WWmYys5fz8kLw7+QW6AiDAPFgAWhzG?=
- =?us-ascii?Q?Wcg+B5gf+sNCCPr9M0l8BalXvj6Gbby4S0WUwVu5hViKYyx1rUfFevrfYD/F?=
- =?us-ascii?Q?5prMjdBdqtgV3mlfNRbrttLROEQxD1cWBRHYJDUJdpiye4PBPAAdXInHgXts?=
- =?us-ascii?Q?TXH6yFMKmseHe72D591rqvNbylQVYE2vPoMH0L8imQF49Co64DHiOa/dxvYi?=
- =?us-ascii?Q?MvjLfrKj/YVQZC+SyATwZttRY3NxrMfOohLa53h96O6d/Yi8+mLbj6WtCbUG?=
- =?us-ascii?Q?hub3fKPHAeBrnaOSGf9HSlHwEntPQHKpL7aeH9rKTITzHwPiQORcbdoDsfSy?=
- =?us-ascii?Q?2OB4+vYZ6sxHFQaW843ThsZ3Es74IvvyhH7i+sWkf48EiACs0gnBuv+Mb2zD?=
- =?us-ascii?Q?lU/SJzgId4EgUG1A+J6jWkbi51EHYT9KMUc434+MHODzSAvIImgH6Vwuv3fr?=
- =?us-ascii?Q?pt28QNM354AjFxyv7CarDtS8TKGr7ajHaFSY3g49KGO8pc0gL9j2lvWNWAkb?=
- =?us-ascii?Q?idsbcZEvEi8kGzr1ywXz4biJW08T4qX1bGa3PBkdk0xsptA15ULewfGDm+E8?=
- =?us-ascii?Q?0jCzgUzqI2g8fy/HsOYN3mfCtR7anHnmP3XyNilnMTSRdzHZHZ3jn+w3czml?=
- =?us-ascii?Q?rX4fGnCIXFTexw+y8lMtX2UnrVeHD5kbDLdgz5S8uGmVA5IzzI3P77NdSNJf?=
- =?us-ascii?Q?gCPvdEoTm0zpihL5F+fCWlOG99HBZwpNlvjndSonuWEXbzxVMxXFx2jDx0lU?=
- =?us-ascii?Q?HS2UyBCGu3pSytQMyQ7KRSyzMt+vXBHjqslBo/Cb0Iur45y6VlV1U+jmQUfl?=
- =?us-ascii?Q?Yu5lPQuu/n0Q/As7cHcm+kIysNHP/+a4xxFAY0ZgDkIld08O9tRicCHZQe4q?=
- =?us-ascii?Q?9/QcPi6c11ckfcuH+r7Svja/XJrxe4kk08xV?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EKmCVMyosF2Jkat32dMpL6P9bIhjxns3LnpsNf1sIkPBrS18EnK/ihhklYWV?=
- =?us-ascii?Q?AOs9KhBzLwzW3i8f3bE8Rd+EZefaDiOW9WXTObBwLqRnJVsa+F/DtqXyOvMc?=
- =?us-ascii?Q?61lmYqCSm4Tqr2SxFRXXGB5Ik0ZI0bYD4fTTjWwjjUX6mSJrUsx6cQZj4qeM?=
- =?us-ascii?Q?vlF7wAUWjgEj6cnIoTjIi3BhJ1CQfxJlIBDz36moSrDYVa+SyNtmQNldmm4w?=
- =?us-ascii?Q?ixpbaY/bFYcyGpNozDTQuaSa2A/5RafLdVDQUYEmERuGuRj2S35A3tzx4nc1?=
- =?us-ascii?Q?BZpfwetdPVSfl1Ur1ku3w6UJTGKfDXGFNWGRfh9WGbKyuVUg8x+r5yRO2MUo?=
- =?us-ascii?Q?QAfrnpZSbVCGW2CxVPwLFwh4J2svpfBzTTFe7eE22N0dCl3c76Cx9uQdo2wT?=
- =?us-ascii?Q?ljgp9rZ3qpOpfuswPFJIOhfkjqqRBxojL+LShDQUjNDqOEqPRhYNVHrE0gqb?=
- =?us-ascii?Q?Mg3qCIYyYGtztwCUfFeSNY+rFLF6leuOjNAPmYSFBOV5IkJM1lrrAqZDT9bI?=
- =?us-ascii?Q?SLGsjrxkBcMA2KukSPguyO9N23eiAt2EhqXLoeQamsZGXmaBrokYeTGSacA5?=
- =?us-ascii?Q?ehh4/CrA6E4uNmHkFbBNs8ZxL06uPogJWCrtqIx0oL0tLQfnTlDkWBD5ZDuI?=
- =?us-ascii?Q?M2GFpxyyq7Qvr7OsSf087DPrc18KjqbYV4EwI2ZFzlMuDbLyKUq2ZEgQvNGx?=
- =?us-ascii?Q?LAIbHWXMdbtuuH1VnAG1H2soLK++HVY66mhO0wKrnSXj65z+Ev9e31udd1XZ?=
- =?us-ascii?Q?ypIewA/XLqdiHnBH991s2+kz5JxV6rdCSRK0ZSzqsGtg3J58FPvzktxulEAa?=
- =?us-ascii?Q?0Up47hCFxi8C2esLNrLZSJD51n7zDjsIrF1kOz3B4dIbQyIZlWdb0yrrU+Fw?=
- =?us-ascii?Q?HWS+WohGOYSh+gh1K5DY2CNb26RuRcpjbLTyMdC1vcwW2ERO07G8eNt5ZznS?=
- =?us-ascii?Q?2Ev2GvUXjXJ3UwgzcbkZ3mc0Tuwft72QSudoY11v3LjJY6rT8z0190JTZRpH?=
- =?us-ascii?Q?5Qu6rlsAAH0LN86DM1cS90IUwJXUE/SAwRG/FTJGSGCyO/SjZPGC2rbTHlCM?=
- =?us-ascii?Q?HBDwrMJnrel++vCkZORmqogCiD7c5PnVDFdDXy3dkMD8ompkPcpHMSpPDSEM?=
- =?us-ascii?Q?9svqvW0z2QbSuNmyWOodBEaHj3oA8obUnKAuBxgp8b4xtuNKylu/Kfs4uDPw?=
- =?us-ascii?Q?5DPagNt9Ip9w+RJWJprEiPGjWl4fbF3bUowcxpR6gCdnwY+7U0zoUCFfwYRs?=
- =?us-ascii?Q?B0MbLq1etJ3tEDHtlZ+6Jujd2UwVzhC96GIyiuZVVNNFJuZgJia8PB4aiaqE?=
- =?us-ascii?Q?t1RGREYVrLTOIPTlFUWWhTfCfBTJzp3rAR0ABsOuf2XPWtifLNIAiJjW9MVK?=
- =?us-ascii?Q?8doEtIdeZXwOL10Ut9tEQlYjP3aBzq3PzINTM/2e0HAc3j+mfB6BdanYL9d5?=
- =?us-ascii?Q?icOlLCys3w4kY1P6vvXP5OFxbZB0U3ZXj8KTX/7x/zENmAYJBB2TVesjHV2D?=
- =?us-ascii?Q?a2AbDCRKaBVKolcMsqeNOPICP3lXLe8KuEeAWriF7QhQLDy2tHsfAcEhYhDO?=
- =?us-ascii?Q?t7ULGMsyZgChA7qRt2M87iyA+qxDWXR8+8OzGCnB?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e7286fee-a807-4105-6b35-08de0c1b81bd
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2025 18:49:01.5540
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RE5yTvyquOBjfxXEGgdaLZXmzDRSTTh01zRKGSnBb3idtPPHVm2bxMAS0LXDaYKmbOLU2YJDxkniu55ssxZfGg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11150
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add support for camss
+To: Vikram Sharma <quic_vikramsa@quicinc.com>, mchehab@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+ cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, bryan.odonoghue@linaro.org
+References: <20251015130130.2790829-1-quic_vikramsa@quicinc.com>
+ <20251015130130.2790829-3-quic_vikramsa@quicinc.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <20251015130130.2790829-3-quic_vikramsa@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_194915_785065_CA7FE9BC 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251015_194932_884571_BEF7CCAF 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,57 +121,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missed legancy lpc43xx board compatible string to fix below CHECK_DTB
-warnings:
-arch/arm/boot/dts/nxp/lpc/lpc4337-ciaa.dtb: /: failed to match any schema with compatible: ['ciaa,lpc4337', 'nxp,lpc4337', 'nxp,lpc4350']
+On 10/15/25 16:01, Vikram Sharma wrote:
+> Add changes to support the camera subsystem on the QCS8300.
+> 
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> ---
+>   arch/arm64/boot/dts/qcom/qcs8300.dtsi | 171 ++++++++++++++++++++++++++
+>   1 file changed, 171 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/qcs8300.dtsi b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+> index 8d78ccac411e..acd475555115 100644
+> --- a/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+> @@ -4769,6 +4769,177 @@ videocc: clock-controller@abf0000 {
+>   			#power-domain-cells = <1>;
+>   		};
+>   
+> +		camss: isp@ac78000 {
+> +			compatible = "qcom,qcs8300-camss";
+> +
+> +			reg = <0x0 0xac78000 0x0 0x1000>,
+> +			      <0x0 0xac7a000 0x0 0xf00>,
+> +			      <0x0 0xac7c000 0x0 0xf00>,
+> +			      <0x0 0xac84000 0x0 0xf00>,
+> +			      <0x0 0xac88000 0x0 0xf00>,
+> +			      <0x0 0xac8c000 0x0 0xf00>,
+> +			      <0x0 0xac90000 0x0 0xf00>,
+> +			      <0x0 0xac94000 0x0 0xf00>,
+> +			      <0x0 0xac9c000 0x0 0x2000>,
+> +			      <0x0 0xac9e000 0x0 0x2000>,
+> +			      <0x0 0xaca0000 0x0 0x2000>,
+> +			      <0x0 0xacac000 0x0 0x400>,
+> +			      <0x0 0xacad000 0x0 0x400>,
+> +			      <0x0 0xacae000 0x0 0x400>,
+> +			      <0x0 0xac4d000 0x0 0xf000>,
+> +			      <0x0 0xac60000 0x0 0xf000>,
+> +			      <0x0 0xac85000 0x0 0xd00>,
+> +			      <0x0 0xac89000 0x0 0xd00>,
+> +			      <0x0 0xac8d000 0x0 0xd00>,
+> +			      <0x0 0xac91000 0x0 0xd00>,
+> +			      <0x0 0xac95000 0x0 0xd00>;
+> +			reg-names = "csid_wrapper",
+> +				    "csid0",
 
-Reviewed-by: Vladimir Zapolskiy <vz@mleia.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-Resend
-- colloect R-b tags.
+The list of 'reg-names' is not alphanumerically sorted, this is a newly
+introduced sorting order pattern of CAMSS 'reg' property values.
 
-change in v2
-- move to nxp lpc32xx.yaml
-- fix ea,lpc4357-developers-kit include lpc4337
----
- .../devicetree/bindings/arm/nxp/lpc32xx.yaml  | 22 +++++++++++++++++++
- 1 file changed, 22 insertions(+)
+> +				    "csid1",
+> +				    "csid_lite0",
+> +				    "csid_lite1",
+> +				    "csid_lite2",
+> +				    "csid_lite3",
+> +				    "csid_lite4",
+> +				    "csiphy0",
+> +				    "csiphy1",
+> +				    "csiphy2",
+> +				    "tpg0",
+> +				    "tpg1",
+> +				    "tpg2",
+> +				    "vfe0",
+> +				    "vfe1",
+> +				    "vfe_lite0",
+> +				    "vfe_lite1",
+> +				    "vfe_lite2",
+> +				    "vfe_lite3",
+> +				    "vfe_lite4";
+> +
+> +			clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
+> +				 <&camcc CAM_CC_CORE_AHB_CLK>,
+> +				 <&camcc CAM_CC_CPAS_AHB_CLK>,
+> +				 <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
+> +				 <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
+> +				 <&camcc CAM_CC_CPAS_IFE_0_CLK>,
+> +				 <&camcc CAM_CC_CPAS_IFE_1_CLK>,
+> +				 <&camcc CAM_CC_CSID_CLK>,
+> +				 <&camcc CAM_CC_CSIPHY0_CLK>,
+> +				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
+> +				 <&camcc CAM_CC_CSIPHY1_CLK>,
+> +				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
+> +				 <&camcc CAM_CC_CSIPHY2_CLK>,
+> +				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
+> +				 <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
+> +				 <&gcc GCC_CAMERA_HF_AXI_CLK>,
+> +				 <&gcc GCC_CAMERA_SF_AXI_CLK>,
+> +				 <&camcc CAM_CC_ICP_AHB_CLK>,
+> +				 <&camcc CAM_CC_IFE_0_CLK>,
+> +				 <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
+> +				 <&camcc CAM_CC_IFE_1_CLK>,
+> +				 <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
+> +				 <&camcc CAM_CC_IFE_LITE_CLK>,
+> +				 <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
+> +				 <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
+> +				 <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
+> +			clock-names = "camnoc_axi",
+> +				      "core_ahb",
+> +				      "cpas_ahb",
+> +				      "cpas_fast_ahb_clk",
+> +				      "cpas_vfe_lite",
+> +				      "cpas_vfe0",
+> +				      "cpas_vfe1",
+> +				      "csid",
+> +				      "csiphy0",
+> +				      "csiphy0_timer",
+> +				      "csiphy1",
+> +				      "csiphy1_timer",
+> +				      "csiphy2",
+> +				      "csiphy2_timer",
+> +				      "csiphy_rx",
+> +				      "gcc_axi_hf",
+> +				      "gcc_axi_sf",
+> +				      "icp_ahb",
 
-diff --git a/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml b/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
-index 6b7f5e6f99cfb..1e290f16a7a50 100644
---- a/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
-+++ b/Documentation/devicetree/bindings/arm/nxp/lpc32xx.yaml
-@@ -22,5 +22,27 @@ properties:
-               - phytec,phy3250
-           - const: nxp,lpc3250
- 
-+      - items:
-+          - enum:
-+              - ea,lpc4357-developers-kit
-+          - const: nxp,lpc4357
-+          - const: nxp,lpc4350
-+
-+      - items:
-+          - enum:
-+              - ciaa,lpc4337
-+          - const: nxp,lpc4337
-+          - const: nxp,lpc4350
-+
-+      - items:
-+          - enum:
-+              - hitex,lpc4350-eval-board
-+          - const: nxp,lpc4350
-+
-+      - items:
-+          - enum:
-+              - myir,myd-lpc4357
-+          - const: nxp,lpc4357
-+
- additionalProperties: true
- ...
+Please remove the ICP clock, it has no users in the driver, and if needed,
+it will be added later on.
+
+> +				      "vfe0",
+> +				      "vfe0_fast_ahb",
+> +				      "vfe1",
+> +				      "vfe1_fast_ahb",
+> +				      "vfe_lite",
+> +				      "vfe_lite_ahb",
+> +				      "vfe_lite_cphy_rx",
+> +				      "vfe_lite_csid";
+> +
+> +			interrupts = <GIC_SPI 565 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 564 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 759 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 758 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 604 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 545 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 546 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 547 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 761 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 760 IRQ_TYPE_EDGE_RISING>,
+> +				     <GIC_SPI 605 IRQ_TYPE_EDGE_RISING>;
+> +			interrupt-names = "csid0",
+> +					  "csid1",
+> +					  "csid_lite0",
+> +					  "csid_lite1",
+> +					  "csid_lite2",
+> +					  "csid_lite3",
+> +					  "csid_lite4",
+> +					  "csiphy0",
+> +					  "csiphy1",
+> +					  "csiphy2",
+> +					  "tpg0",
+> +					  "tpg1",
+> +					  "tpg2",
+> +					  "vfe0",
+> +					  "vfe1",
+> +					  "vfe_lite0",
+> +					  "vfe_lite1",
+> +					  "vfe_lite2",
+> +					  "vfe_lite3",
+> +					  "vfe_lite4";
+> +
+> +			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
+> +					 &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
+> +					<&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
+> +					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
+> +			interconnect-names = "ahb",
+> +					     "hf_0";
+> +
+> +			iommus = <&apps_smmu 0x2400 0x20>;
+> +
+> +			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
+> +			power-domain-names = "top";
+
+'power-domain-names' property is redundant, since there is just one power domain.
+
+> +
+> +			status = "disabled";
+
+There should be no empty lines between proprties.
+
+> +
+> +			ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				port@0 {
+
+There shall be an empty line before a subnode declaration.
+
+> +					reg = <0>;
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +				};
+> +
+> +				port@2 {
+> +					reg = <2>;
+> +				};
+> +			};
+> +		};
+> +
+>   		camcc: clock-controller@ade0000 {
+>   			compatible = "qcom,qcs8300-camcc";
+>   			reg = <0x0 0x0ade0000 0x0 0x20000>;
+
 -- 
-2.34.1
-
+Best wishes,
+Vladimir
 
