@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D163CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 15:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF33CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 15:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WALWGBujqpuz8lR80FyOJBIEDnbfCjtWd9uM0KYO5Yw=; b=UagL5EUD0JpVslzsbFJ4z19FNH
-	GBlrMhNuhLKxPwecegyEWrDhpwAfhnOuesIjr6EHTmrIArEMkjLViYlOGGWJMLmD+68WLi/ar+KuS
-	ugrilsuItkom6/MSA2g+dPf1pRYw6aiDRw133LozzYymVdjNGp7rZfi09qnVJrvAgEij/oIlULtxG
-	9FTnV1XWBmzMArdkKdh6jcMm5+D/xMBtqdGzpC0sbAWMyMfiEV+itP5tgZC7Y0VUy5nlf6z0VPXRx
-	DQkc85ZZYB4Jn0PYt3Lb3nProinTwWG88FVESMZpYdX6c1txQ8kPO+HZFwr+BIFQPZx+MZNsFT7Jv
-	cV+Zi0dw==;
+	bh=cdEqLcBLcu0rrR/SWYch0sIhMvB4hwBcLPY53w3Zt94=; b=A1qDEls/A+/IV3q0Ok3wcWGqWb
+	3c9vvfhQUc3O3ikhDKBHsHKiITlVU6pLC5kD9B6nX2S82gUvy02LVmCi+H9dDFqA5bsnMfiPX+6jF
+	Ac+kHygSUd2FWmENkji5ndSwrmcohcO99WdQtnwusBBJ+aqD5G0cSeTCxk6f6Q2Hk9okYUZ3Ochjs
+	3AoV0ja9OsFG2FFm50SYMnnXmtDA8Ci3kD/6gXmW4X4rPouyG32zbkNzKeCXiqQnFX5Ox0qYKFMhf
+	rWS6E68TvBmJBRzWbF0l+Lu3oS8bjWG0S0uBVRXj2NRZIaIy6P0TefkxkrPZ5J6tcIDSCDdi5lRGg
+	PoK3OXtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v93cT-000000027wP-17Ho;
-	Wed, 15 Oct 2025 15:40:53 +0000
-Received: from mout-p-103.mailbox.org ([80.241.56.161])
+	id 1v93cl-0000000285q-2XHn;
+	Wed, 15 Oct 2025 15:41:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v93cQ-000000027rJ-2tak
+	id 1v93ck-00000002842-2dZ3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 15:40:51 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cmwK12bwPz9tgG;
-	Wed, 15 Oct 2025 17:40:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760542837;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WALWGBujqpuz8lR80FyOJBIEDnbfCjtWd9uM0KYO5Yw=;
-	b=ts5+XU4E9uoeHP5aS64D51GHt/43rxLYhmiO+ceTFAlILlRkBOW4nuwRPhS/QoDBsMaYaU
-	KCPIayrqg7nsW4oZQ3S9IwE8p6SPMTeujQ53CjnBgInPF8bGhU18qcM+ONY4/fSACDfUIC
-	lyL2BBOcApE3N6w+6rrmWUEpuBOLXSx2EMk1pj8YC62TU9FyeLXpfAd7DlAQe92R1qwpZz
-	X1QZWMvhZq6ufUFICtCqXXkrmGFmqZEEmw1Ots7KGfwz7atEJspdd7Oa6pgngD4RLsMMLh
-	57lt4tIyRcWKeA7UoMItrjtW2bKKVWuxMW0RIj63wpCSCES1kmXIyIYBkKNKcQ==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760542835;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WALWGBujqpuz8lR80FyOJBIEDnbfCjtWd9uM0KYO5Yw=;
-	b=Ox3W2JtanoRnnGjuRU71a1yZIYIdVPzwidldeUfyJ8Rh7BK1YGGrheGYY5oeSM6oDNZgzb
-	bKsUn0gaex8TUY18GUGxZzMGPp5oNStT8JzPJKvff3p2YuFpnnso5FT+QdLPNFpEcUNl8m
-	9CYL84WwKmJA+5rOq2keXj1PfIAm0jW8P4wt/aBNRNtx+3bCfe/wgyrU9r8GwjK/c4AU4K
-	8LBEvA/Kax3eUKobLyaNjylwj0E3tJbzAofHE5Mzh0GkeSgN36I5dlwhmibhG/zLAWkfI6
-	K5+pC3s652vYmuAtLZVngCxQ7JdGKXJhJF1YBE1fx1zlilWdFXCgFBnmu/Y9KQ==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	=?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
-	Adam Ford <aford173@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Frank Binns <frank.binns@imgtec.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Matt Coster <matt.coster@imgtec.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 3/3] arm64: dts: renesas: r8a77961: Add GX6250 GPU node
-Date: Wed, 15 Oct 2025 17:38:58 +0200
-Message-ID: <20251015153952.185249-3-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20251015153952.185249-1-marek.vasut+renesas@mailbox.org>
-References: <20251015153952.185249-1-marek.vasut+renesas@mailbox.org>
+	Wed, 15 Oct 2025 15:41:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D807B62670;
+	Wed, 15 Oct 2025 15:41:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7FC48C4CEF9;
+	Wed, 15 Oct 2025 15:41:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760542869;
+	bh=1msbnw19IZ4ZHbNE1uvoShSsPtMAyhJKh5i9EIHWbqU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=DM5PC09cOpAw/OkwZysLUDgkYwR4cLoLHgaya5FeN5uKfFVoI8739VjpU7Ju8MiEF
+	 LPYwi9Sr+oA+c7SywRsRGuFYJf+ZJQqw2fxe4HQRFId0Go2ysHVXbJhvrWM+eOA1mu
+	 ySXfyPk+6IfqJ1n3Vjqi2z2bBJLdgGPGo54VRQMy4qBhyFqpozuLKJ+r4Nr05Lqt/L
+	 68KdZBYr4RqoKUl8Hy43AelM32djaPsvBFdsX585fKYehibkmIQFCmkATkVaGihxZX
+	 dXArLzJ1R91OQTyKB2UaPPtBPkppEobjpfwk00pph56b3py2VwkqtVDwjBIt1XNHix
+	 Xt4w0S45fv6zw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 76B2ACCD185;
+	Wed, 15 Oct 2025 15:41:09 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Date: Wed, 15 Oct 2025 15:40:42 +0000
+Subject: [PATCH usb-next v2 2/5] usb: dwc3:
+ dwc3_power_off_all_roothub_ports: Use ioremap_np when required
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: e2ada218b4f0bf9902c
-X-MBO-RS-META: xes7cftrux7je99qpochttto5be99b3u
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_084050_885833_0AAF6C31 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251015-b4-aplpe-dwc3-v2-2-cbd65a2d511a@kernel.org>
+References: <20251015-b4-aplpe-dwc3-v2-0-cbd65a2d511a@kernel.org>
+In-Reply-To: <20251015-b4-aplpe-dwc3-v2-0-cbd65a2d511a@kernel.org>
+To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sven Peter <sven@kernel.org>, 
+ stable@kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1424; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=1msbnw19IZ4ZHbNE1uvoShSsPtMAyhJKh5i9EIHWbqU=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ8b7A31sSjEtDvUzzR5N+yvqwxrwkdNxxVX+gO2x53NWL
+ TZT6WToKGVhEONgkBVTZNm+3970ycM3gks3XXoPM4eVCWQIAxenANzkQIY/vFbmLtp2ixbxnQqK
+ ZAgqYN1yvj68SVhMtC4uWay5iPshw//kQuufIYo5OT9S1l188z6RM2W6ToLFYQaHqg/zPdM/neM
+ DAA==
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,65 +91,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe Imagination Technologies PowerVR Rogue GX6250 BNVC 4.45.2.58
-present in Renesas R-Car R8A77961 M3-W+ SoC.
+On Apple Silicon machines we can't use ioremap() / Device-nGnRE to map most
+regions but must use ioremap_np() / Device-nGnRnE whenever
+IORESOURCE_MEM_NONPOSTED is set. Make sure this is also done inside
+dwc3_power_off_all_roothub_ports to prevent SErrors.
 
-Reviewed-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Fixes: 2d2a3349521d ("usb: dwc3: Add workaround for host mode VBUS glitch when boot")
+Cc: stable@kernel.org
+Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Sven Peter <sven@kernel.org>
 ---
-Cc: Adam Ford <aford173@gmail.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: David Airlie <airlied@gmail.com>
-Cc: Frank Binns <frank.binns@imgtec.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Matt Coster <matt.coster@imgtec.com>
-Cc: Maxime Ripard <mripard@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Simona Vetter <simona@ffwll.ch>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: devicetree@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-renesas-soc@vger.kernel.org
----
-V2: - Add RB from Niklas
-    - Fix up power-domains = <&sysc R8A77961_PD_3DG_B>; for 77961
-    - Fill in all three clock and two power domains
----
- arch/arm64/boot/dts/renesas/r8a77961.dtsi | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/usb/dwc3/host.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a77961.dtsi b/arch/arm64/boot/dts/renesas/r8a77961.dtsi
-index 12435ad9adc04..aa7f5de61e787 100644
---- a/arch/arm64/boot/dts/renesas/r8a77961.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a77961.dtsi
-@@ -2455,6 +2455,22 @@ gic: interrupt-controller@f1010000 {
- 			resets = <&cpg 408>;
- 		};
+diff --git a/drivers/usb/dwc3/host.c b/drivers/usb/dwc3/host.c
+index 1c513bf8002ec9ec91b41bfd096cbd0da1dd2d2e..e77fd86d09cf0a36161c20ad3c83f10e67099775 100644
+--- a/drivers/usb/dwc3/host.c
++++ b/drivers/usb/dwc3/host.c
+@@ -37,7 +37,10 @@ static void dwc3_power_off_all_roothub_ports(struct dwc3 *dwc)
  
-+		gpu: gpu@fd000000 {
-+			compatible = "renesas,r8a77961-gpu",
-+				     "img,img-gx6250",
-+				     "img,img-rogue";
-+			reg = <0 0xfd000000 0 0x40000>;
-+			interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg CPG_CORE R8A77961_CLK_ZG>,
-+				 <&cpg CPG_CORE R8A77961_CLK_S2D1>,
-+				 <&cpg CPG_MOD 112>;
-+			clock-names = "core", "mem", "sys";
-+			power-domains = <&sysc R8A77961_PD_3DG_A>,
-+					<&sysc R8A77961_PD_3DG_B>;
-+			power-domain-names = "a", "b";
-+			resets = <&cpg 112>;
-+		};
-+
- 		pciec0: pcie@fe000000 {
- 			compatible = "renesas,pcie-r8a77961",
- 				     "renesas,pcie-rcar-gen3";
+ 	/* xhci regs are not mapped yet, do it temporarily here */
+ 	if (dwc->xhci_resources[0].start) {
+-		xhci_regs = ioremap(dwc->xhci_resources[0].start, DWC3_XHCI_REGS_END);
++		if (dwc->xhci_resources[0].flags & IORESOURCE_MEM_NONPOSTED)
++			xhci_regs = ioremap_np(dwc->xhci_resources[0].start, DWC3_XHCI_REGS_END);
++		else
++			xhci_regs = ioremap(dwc->xhci_resources[0].start, DWC3_XHCI_REGS_END);
+ 		if (!xhci_regs) {
+ 			dev_err(dwc->dev, "Failed to ioremap xhci_regs\n");
+ 			return;
+
 -- 
-2.51.0
+2.34.1
+
 
 
