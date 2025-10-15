@@ -4,58 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DA89CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E809ACCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WJBerh8Yj/4z2zrYhmh0chjw+l0sx+DRz1ztXndJfss=; b=vhDyg8l9jsgaGp5I302DBqyX6z
-	+gAm/9PBUnMHZZBFcB+71ozJuT0WUOfFIrUeZ9+NAfBei4mMkIAAZmlsrJnBwAHLoJ8wUbqI7z0C5
-	44xswagNC7OuyL+uKZLle0Li+ANcDfHw8r5FmANdd2LLcDDVPR9CjErbTVo0urhOoNZLPfcZzsAtg
-	Hyl0Ohbw79QlAJ4B/t4xN19ugGAlXTyE5ehSqawoQ62wM8+jSAtoqfpJB2U6+EgZLIiVRv9vWnC0z
-	AtgTRZQ+U6oS98Ty9oS3Ba4oBcYOfOBZE7PzYGoe2niKC2p4yOa6ppdelYgmcOl09xlLBs812NJQ0
-	650Ga2OQ==;
+	bh=/UUBwbfmVL4sGFj/GLilqDN9Jt7D7NF8Dxz8jPhNnLs=; b=Vvqk9gMEhNO+dUIIN6DiRwV57V
+	NvC8z5ZCQ19eU8NG262lxmsSJp7No76OccD5MdMZsqsoxXsSwG6c9LrGXTiIaNo1fs9/kcVOMOyEh
+	xnYmOkpdN7iA3h0heUtVXcCQ2PYBHO2Hi7Hy0XXQFxaJ1HIj6Fk0m/P5RQIS/ayU0HbfluEE8cXVi
+	VvZXJUposBb0SMisSTzkKMSQALpsUwaziq6bdYYle0u0JmLzAPK05+py9bBc+z8vFd5EKdcGE/rAO
+	iQr2eHAQ8in26qeUqj2XCNrwhUw/5YXYpIhD1xAFOSU4BYWzrV4GUESvCUfXVVB/hqJh75nL6CaO1
+	ILZOEbZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v996F-00000002wnL-3EuM;
-	Wed, 15 Oct 2025 21:31:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v996u-00000002wxZ-3mE4;
+	Wed, 15 Oct 2025 21:32:40 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v996E-00000002wn1-1acW
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 15 Oct 2025 21:31:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=WJBerh8Yj/4z2zrYhmh0chjw+l0sx+DRz1ztXndJfss=; b=Yqp9E12OfFmeAb9f51OoXPOYa/
-	NFH7FQBLFtuDNAYD2/1Gk1xtdjN3QZISvHbJk7HPeP29ItbSw08X5Jdh9IKlVWWlT5JEev0xmNm6M
-	j3yIByeu3AOUC58gdpTnKPe29wqlqZozFW/4VEaFZS0vkp+uoGKQHPSPsL/GwKXnG9OF1nVowxtS6
-	d9iC6lcV8PdsXNQsHFp400BVdFpDAbHD3l3FOcCDZ++aAQvRKBi/gEol4WHwY4PxknObEfpXMJTti
-	xOOUGqHlgCrJWhbRV1iARpexlKyaYkZ3OftjUTOrxBeGcL9TE7YdoXu7UThNdIerxBELmBQeIO9gj
-	8c5RbtZw==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v996B-00000006Hg9-07Vh
+	id 1v996s-00000002wwV-3Qet
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 21:31:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=WJBerh8Yj/4z2zrYhmh0chjw+l0sx+DRz1ztXndJfss=; b=kmvD/htcIJrGnf6Y10JoV2hAxa
-	zpLD6vqRZQ5OTUgpVbr+EJI1EAS2FWDMEr6Xw7mHVH6qAJBuXDg19h/2SMaujY1aLfVBJBsBFDSiu
-	I+oiO2Pii7sentVQCnIOAjkn+k/JYeaO+bAjkp0nQJRpPIwy/T9Cm7AT/O3A/bjlQI/Q=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1v995t-00B4xr-Te; Wed, 15 Oct 2025 23:31:37 +0200
-Date: Wed, 15 Oct 2025 23:31:37 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+	Wed, 15 Oct 2025 21:32:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=/UUBwbfmVL4sGFj/GLilqDN9Jt7D7NF8Dxz8jPhNnLs=; b=WqREv1Qgfd1EfNtd3ps7chdP4O
+	14bpo7XvjBgl19XBh0KGb9l/6IYCvd8J0N5Zu4zQLmhTEmG8zqMqg7b5rNKHLeAq0qMhXXbtVBk7R
+	JIVUJX0x5SSq625vF4eG3diKV7Wj5OG+hmcqr7Sz45THbuxb8j1nSH+MLMS6XmR+cpJyLoDgOaT6A
+	Db4Ml2a25jbY92ennRKu6tzEtMcXpZCumdbIHQdB4HS1c7qSEzBtim0BSicLK2h8Z/FOSNNLObTib
+	WN7+r9Xgi+rdlFuq3V1czeIA2pRU6j54BFGoPjoUd+lLux6ykjBlhPRunR0ZGL/3kB8Ald8Z3UZh3
+	Nl6ISwfQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50056)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v996R-000000005TK-4AjF;
+	Wed, 15 Oct 2025 22:32:12 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v996G-000000002cV-1O1R;
+	Wed, 15 Oct 2025 22:32:00 +0100
+Date: Wed, 15 Oct 2025 22:32:00 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	Abhishek Chauhan <quic_abchauha@quicinc.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
@@ -94,19 +90,19 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Vladimir Oltean <vladimir.oltean@nxp.com>,
 	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: Re: [PATCH net-next 14/14] net: stmmac: convert to phylink PCS
- support
-Message-ID: <040a2f29-4c95-4561-87c0-2a70308d3f00@lunn.ch>
+Subject: Re: [PATCH net-next 13/14] net: stmmac: provide PCS initialisation
+ hook
+Message-ID: <aPAS0J32l2ueVhcK@shell.armlinux.org.uk>
 References: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
- <E1v92NJ-0000000AmHi-1ZGJ@rmk-PC.armlinux.org.uk>
+ <E1v92NE-0000000AmHd-15fv@rmk-PC.armlinux.org.uk>
+ <96842284-8d92-46b8-8b28-2b20755c3523@lunn.ch>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1v92NJ-0000000AmHi-1ZGJ@rmk-PC.armlinux.org.uk>
+In-Reply-To: <96842284-8d92-46b8-8b28-2b20755c3523@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_223155_509983_6CDBCF81 
-X-CRM114-Status: UNSURE (   6.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251015_143238_856253_79A99D30 
+X-CRM114-Status: GOOD (  14.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,11 +117,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> - create stmmac_pcs.c, which contains the phylink_pcs_ops structure, a
->   dummy .pcs_get_state() method which always reports link-down
+On Wed, Oct 15, 2025 at 11:11:22PM +0200, Andrew Lunn wrote:
+> > +	/* Unimplemented PCS init (as indicated by stmmac_do_callback()
+> > +	 * perversely returning -EINVAL) is non-fatal.
+> > +	 */
+> > +	ret = stmmac_mac_pcs_init(priv);
+> > +	if (ret != -EINVAL)
+> > +		return ret;
+> 
+> Oh, that's ugly.
 
-I've not followed the PCS code too closely. Why always report link
-down? Why is a dummy method needed?
+Yes, I completely agree, and...
 
-	Andrew
+> which added this, i don't actually see a user of the returned EINVAL.
+> EOPNOTSUPP would of been better. But changing it now will need quite a
+> bit of review work :-(
+
+Yes. Maybe at some point in the future it can be addressed - it will
+become an issue if we end up with an implementation of these methods
+that returns -EINVAL to really mean failure.
+
+However, it's a non-zero chunk of work to go through every single
+caller of numerous methods to make the change. It may be possible to
+introduce a new base-helper that returns -EOPNOTSUPP and switch
+groups of methods... but given my present backlog, it's not something
+I'm going to rush to do!
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
