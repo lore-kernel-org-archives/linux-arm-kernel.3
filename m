@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC1ECCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D625ECCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dl7DSFNXrvgC8fPiu6fPIF6OEEmMKscydyxcv7oyMcM=; b=NH8MK5zagP1AvXwu7vRfI0eMeq
-	xBbHKOb6hq+ronxBzpWMvUqypH5fq8l0pBma0+0rJrp30lNqVemY6YWWkQ8o/6MXXbOsAbXfuur39
-	v3W4T6vdKbCXkDqdp11Hfvw1in/GM0KM2KE4mWeyFVXTfDt33BrQqIopFdt0IHVCByoTk1sUeLe0M
-	DNr0AJycrhYE+87cKItZV9tF5MOUz7YDH6VI9ns+//4ojYi+zGCC7AW3pRCSbPdbOharlcaSRAJ6Y
-	Lujn4Uwox3PfFK0MhlcBVyuzmpSQxbSY2UzEEQXEPZC1YwBh67qXkWYhbw5K/ZvxY+Cab1s/kz5Cx
-	NAhoNASw==;
+	bh=19SuM8BkFU86AdrsVL9he5wmDJI8XYP735e24p7BzJE=; b=bMIK+i3qJeImykUUEiz8m6psjC
+	koj8FFuDtguocvAHLUVbhxmtNlin4rdgj+BstyzE8Z3HKuGcMTDYNUPeFLxOd25t1EHlcaVMnRJrK
+	5GVxzgGfvGP0k9Z+t/r51wbLqUZQ8aAdJ/IkKeeECwg+phrtSqPYgTr6oCtFcFGIaiexvZRR/p0wr
+	OJ4SGv75NbUQlJIyhvs/OEAvwRH2dKvP+2cAH5rl1HZOZl9/+tDjpDj0rsl7mKGRz/YBoFIeVw95X
+	dXh1+QkFWDsFk34m6SlDWrTjuf4rMc7qeiHGm0o7bI2g8VJ/B4bozEgjJ7GG4L28wkEpIz8ik9MIb
+	x/0BELBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98cY-00000002tke-47RR;
-	Wed, 15 Oct 2025 21:01:19 +0000
+	id 1v98cf-00000002tp9-1OJJ;
+	Wed, 15 Oct 2025 21:01:25 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98cX-00000002tif-1Eva
+	id 1v98ca-00000002tll-3OGe
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 15 Oct 2025 21:01:17 +0000
+	Wed, 15 Oct 2025 21:01:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=dl7DSFNXrvgC8fPiu6fPIF6OEEmMKscydyxcv7oyMcM=; b=hwM6LOfv+GJEYpsdvQPQRxBgl8
-	aXKatE7yIb+c/HiWb303jUjvTypKhOmSZ49OTBipM+LJKJ4xf0g6n3VlRzROzHD6Uo61mchUdhHEd
-	wGuB0ybs+KINb6+HI2dM0IgKd6R6avEE3tXJAz1b4y1mMZ2QOxCovFFkF5cFlK4ypal0VfmZMlXuo
-	izE6m0zEjHG8+4FCj/6qXg3uca9QPng+RNmW/Gcc2UT3Eh5NcBTQxbCPkJsoW3qp/jX6RMFNA2TCT
-	Nl9fug8euKcWOM6peDLDCtrug8FcRF8LR57T469KTCOfsr+XjDIWre4FsXI6u2i1agxv2YWhaZN5l
-	izXf8apw==;
-Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
+	bh=19SuM8BkFU86AdrsVL9he5wmDJI8XYP735e24p7BzJE=; b=jEATrkOGtVfnWeHUon25p3S41R
+	G3umtbkXBHyEu8mW5tA4GfBBVM6lZ0OnmjPo2NqXEQ953pBwgBNbREWLamTRaUmECLUD3J65XNpN5
+	HBLDCpunuWgyj990RnYIaLJrrN1Tal5UmaGnIAXUh8GSsCLOVOGz7pUs+G2YegNPiP4VV44LekNi+
+	N9yocA4AjOK375O0aQ8d5DZC4zCcDzAmPvPGYRpp1w2EBnF5R+RYS9Fuf9BtkXMQ9/EbMkckNR/eO
+	HPSgKaQtYRTgLFQjP4DRQ1fyPi6EOxYdv34dLEkIvO995rjMJhj6RfmVbffaMqK++mdk+NXQcDyKR
+	47VWx9Fg==;
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98cQ-00000006G8Z-3Gpi
+	id 1v98cS-00000006G8p-1tmK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 21:01:14 +0000
-Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b5ffd44fcc0so1596866b.1
+	Wed, 15 Oct 2025 21:01:16 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-40fd1b17d2bso17901f8f.1
         for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 14:01:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760562065; x=1761166865; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1760562066; x=1761166866; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dl7DSFNXrvgC8fPiu6fPIF6OEEmMKscydyxcv7oyMcM=;
-        b=q1bKxyhK/XpVgPgSFQ8uizaG3DoHJyY8/vpJ9tPAV6B1sBQXibsW6pSYCFwbQtksns
-         nDpPoIl9wpBVt1oO9ppz2PO2Uo3wHMkOpYQ8bnSOl5RE2DxW4f7iLW4IN+qsV6v2Fttj
-         auqXspbLKJFCz72dpK1FpWKo0qfwJRLccBTDSm1ZK1JOUAhZqLa5lxez8PBQ/8y9cM4X
-         +fkmUbnccU6pcItoLC5UJ9MlROe6fbX2YqywDxPnBnQ7nHbYWSB4bwZb6jM2faEJf2tN
-         DVSIGf6jwDzH5yyinYW5hiy7jgKIQC3gSgF5EhhuNmW2L+tBkOzoA/MotNghhqSFEYU0
-         6vjg==
+        bh=19SuM8BkFU86AdrsVL9he5wmDJI8XYP735e24p7BzJE=;
+        b=UBfgJhUFfyctTfsQk+3e6yKG0ZAHcVJP2GFV/sP/bWV+tyxZ9n01sV2MeCp1pzta1Y
+         koEWX20YHwxgYoevFpk5VZAOCjPe1c8VoHYyPIHwwEj0vGt9aVFSMdkemlu4pVTxDq0W
+         VqrNEnDCKs/sqfN1MtGoUZ2ILVPU0JFDuOxqlR78SnfmmCcgKp6Ko+Kba9YHgBttzC2F
+         unNExhsyh8vf6rLCKsTh+qN/pyKu4gvnV7arXVAHvX/fT6DLB8YjODsT7j/8wPDsELc4
+         Cjq5+NeDdQb72nv+ejL6S9iqJ8SATM8IczVSrYgQ91lBooBy4puzqzvNsdaaEbyqn/CC
+         DcFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760562065; x=1761166865;
+        d=1e100.net; s=20230601; t=1760562066; x=1761166866;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=dl7DSFNXrvgC8fPiu6fPIF6OEEmMKscydyxcv7oyMcM=;
-        b=I0nPM2BHAdO6o2ZrXcYyoR9Zu1JqFxtHJOjN/oILYSCsAUmNpWEurF6Yzn80in60rB
-         buDjYDXy6dOlL5or1JYtYCzN6uVQObBt2JmqI7hAICHi6Oe0jWU92fzuvzxH8UirwuCT
-         1cAkfyIBzak1+6x7sGdbMa6nHfoFdYRd4i5sPy99EpD9aT8DlrLhLd4aoPLATVVj+WLr
-         KQl0mNVKTzGyYIPGN5fhzHBRXCbLOf3+yNn6Tw4itWYagj6fBkvI/8qk24p+hCRI9pu4
-         gzPO5/hCqkMesRt43IU7QMMDxHnHajtEwFK3mAUon3oUhk8g3PG2YfS7466kIHWHGJu1
-         L63w==
-X-Forwarded-Encrypted: i=1; AJvYcCU81Rd+bcYwSCYn0bIltTMWFQ4cVSYr4L+bj41dKDlwPx17d+gB9Rs5bkdKeBoSPMu5m4hFfeCRCz/lXLKEhosd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7JlwFuBn1b05FlrbvaTJGuJGcOUTMw7vcSfcPLXNWz8U2fWiW
-	RI99RszlQFsYZoXpPe+xJwdoeA9iSIPB9KWfYPgN7iAt6Czf6vhCkZFUzyYdKIKslJ/MqxXuSw=
+        bh=19SuM8BkFU86AdrsVL9he5wmDJI8XYP735e24p7BzJE=;
+        b=PLyXkCBjZpN8762gzmXd9X7YGf7NogQeGvYLb0QWXToQUT/AtbOwuy8Xc84YvoYL3v
+         JbgbdQEBPbfVu6PThoVYLQGXvFYRugRJcYI8hsx+NUwwKFfUo8E5psjrNUlbTxvnMB11
+         thNnq3vFx3UFxT4IppJq6O1i4TxxdY1JdSQ+4clgtuv6fk0t8ZsxcRYvuV6cMaV+aOwv
+         XuEurDJ3KcY9j5yw6gHm/6lXswGV0a4dwmWIyZgpQcgjyG9jrN4dwtpi3R4AbTTKp4GE
+         HdgQrF/fxEBl8vgmrmBvQ13GfMQsKVURlxhqlOpnMshPYTZvqoU85zGiGjJYiLo+on1h
+         1e3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW2SAnF5fqo3BIV2NtfXxfStiVx5cypz58G9JwpQC7EcgKMLiOVbZZpQZ4Vp7yylNlb4yJ7edxvUSTPUWD47ksR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzk4M7v84tbQaO7Gj2i8190i5Kgh0XtMFnJvXmgbdKM7+wekald
+	mTKRxkG2BmTCC+Msfct2cPYw/wNey7+UXYKPoL/yvbTfXGSSvLigUDa5HznTipp1l3FcbKcJ7Q=
 	=
-X-Google-Smtp-Source: AGHT+IFbnpDjbsGYz+B5RZXbbX+lQAERWey19YRdHXPDBHHjm8WsWQOtc3beJ3/VDPI6WGbFnSNWq6W+
-X-Received: from ejkf21.prod.google.com ([2002:a17:906:60d5:b0:b3e:d65b:d781])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:980f:b0:b42:9840:eac5
- with SMTP id a640c23a62f3a-b50acb0e645mr3264235166b.61.1760562064831; Wed, 15
- Oct 2025 14:01:04 -0700 (PDT)
-Date: Wed, 15 Oct 2025 22:56:38 +0200
+X-Google-Smtp-Source: AGHT+IFQpVg2U3+T4NvaCVGg+3jjnpHjurMn96RVhjpcDm7JJIbQd5n2ckQZklYZZG14FZbDn1HXPBda
+X-Received: from wmbjn22.prod.google.com ([2002:a05:600c:6b16:b0:46f:aa50:d718])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:1a8b:b0:425:8bd1:fbb4
+ with SMTP id ffacd0b85a97d-4266e7df95cmr20229304f8f.50.1760562065972; Wed, 15
+ Oct 2025 14:01:05 -0700 (PDT)
+Date: Wed, 15 Oct 2025 22:56:39 +0200
 In-Reply-To: <20251015205634.3820870-9-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20251015205634.3820870-9-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=901; i=ardb@kernel.org;
- h=from:subject; bh=3k3eAeRzb5JtIy3mWW+ubq7svhGC8mUZQWnX3o9AW0Q=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIeMDV/tegTVS5dfXu18UWPjk1eM+1663m/bMeRC4e7bqM
- +23r1njOkpZGMS4GGTFFFkEZv99t/P0RKla51myMHNYmUCGMHBxCsBEmOwZ/oqnmq6ITeacf2jG
- mnnzLl0RqJGM0Df8/FlHNOxjasSsf5MZ/qc/KH/84UNLpdyBY1qtf2/cjU7fssu6aWcD8x4784P vOjkB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3253; i=ardb@kernel.org;
+ h=from:subject; bh=FjAcGhb6VYi+vJfe2JpmxvHhAqT8SyzVHt/xzyd0TNw=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIeMDV8ejrsz6he2dwTNnrNr5LD+tP1yqof/ebabW69esX
+ 2+PX2/SUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACaSYsHw369KU8vDXsfq9TfP
+ xX7nJbPk247V5Kkv/vbC8eOWHEUvJUaGa8++1bypTZXk3J6btGcxy4fcT2o31pZyl61w259wpsW RBwA=
 X-Mailer: git-send-email 2.51.0.869.ge66316f041-goog
-Message-ID: <20251015205634.3820870-12-ardb+git@google.com>
-Subject: [PATCH v4 resend 3/7] arm64/fpsimd: Don't warn when EFI execution
- context is preemptible
+Message-ID: <20251015205634.3820870-13-ardb+git@google.com>
+Subject: [PATCH v4 resend 4/7] arm64/fpsimd: Permit kernel mode NEON with IRQs off
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-efi@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -98,8 +97,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Pierre Gondois <Pierre.Gondois@arm.com>, Sami Mujawar <Sami.Mujawar@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_220112_880183_478DC17B 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20251015_220114_428841_051A1E44 
+X-CRM114-Status: GOOD (  20.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,34 +115,92 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Kernel mode FP/SIMD no longer requires preemption to be disabled, so
-only warn on uses of FP/SIMD from preemptible context if the fallback
-path is taken for cases where kernel mode NEON would not be allowed
-otherwise.
+Currently, may_use_simd() will return false when called from a context
+where IRQs are disabled. One notable case where this happens is when
+calling the ResetSystem() EFI runtime service from the reboot/poweroff
+code path. For this case alone, there is a substantial amount of FP/SIMD
+support code to handle the corner case where a EFI runtime service is
+invoked with IRQs disabled.
 
+The only reason kernel mode SIMD is not allowed when IRQs are disabled
+is that re-enabling softirqs in this case produces a noisy diagnostic
+when lockdep is enabled. The warning is valid, in the sense that
+delivering pending softirqs over the back of the call to
+local_bh_enable() is problematic when IRQs are disabled.
+
+While the API lacks a facility to simply mask and unmask softirqs
+without triggering their delivery, disabling softirqs is not needed to
+begin with when IRQs are disabled, given that softirqs are only every
+taken asynchronously over the back of a hard IRQ.
+
+So dis/enable softirq processing conditionally, based on whether IRQs
+are enabled, and relax the check in may_use_simd().
+
+Acked-by: Will Deacon <will@kernel.org>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/kernel/fpsimd.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/simd.h |  2 +-
+ arch/arm64/kernel/fpsimd.c    | 25 +++++++++++++++-----
+ 2 files changed, 20 insertions(+), 7 deletions(-)
 
+diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
+index 8e86c9e70e48..abd642c92f86 100644
+--- a/arch/arm64/include/asm/simd.h
++++ b/arch/arm64/include/asm/simd.h
+@@ -29,7 +29,7 @@ static __must_check inline bool may_use_simd(void)
+ 	 */
+ 	return !WARN_ON(!system_capabilities_finalized()) &&
+ 	       system_supports_fpsimd() &&
+-	       !in_hardirq() && !irqs_disabled() && !in_nmi();
++	       !in_hardirq() && !in_nmi();
+ }
+ 
+ #else /* ! CONFIG_KERNEL_MODE_NEON */
 diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index e3f8f51748bc..3d848c89604e 100644
+index 3d848c89604e..6d956ed23bd2 100644
 --- a/arch/arm64/kernel/fpsimd.c
 +++ b/arch/arm64/kernel/fpsimd.c
-@@ -1934,11 +1934,11 @@ void __efi_fpsimd_begin(void)
- 	if (!system_supports_fpsimd())
- 		return;
+@@ -225,10 +225,21 @@ static void fpsimd_bind_task_to_cpu(void);
+  */
+ static void get_cpu_fpsimd_context(void)
+ {
+-	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+-		local_bh_disable();
+-	else
++	if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
++		/*
++		 * The softirq subsystem lacks a true unmask/mask API, and
++		 * re-enabling softirq processing using local_bh_enable() will
++		 * not only unmask softirqs, it will also result in immediate
++		 * delivery of any pending softirqs.
++		 * This is undesirable when running with IRQs disabled, but in
++		 * that case, there is no need to mask softirqs in the first
++		 * place, so only bother doing so when IRQs are enabled.
++		 */
++		if (!irqs_disabled())
++			local_bh_disable();
++	} else {
+ 		preempt_disable();
++	}
+ }
  
--	WARN_ON(preemptible());
--
- 	if (may_use_simd()) {
- 		kernel_neon_begin();
- 	} else {
-+		WARN_ON(preemptible());
-+
- 		/*
- 		 * If !efi_sve_state, SVE can't be in use yet and doesn't need
- 		 * preserving:
+ /*
+@@ -240,10 +251,12 @@ static void get_cpu_fpsimd_context(void)
+  */
+ static void put_cpu_fpsimd_context(void)
+ {
+-	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+-		local_bh_enable();
+-	else
++	if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
++		if (!irqs_disabled())
++			local_bh_enable();
++	} else {
+ 		preempt_enable();
++	}
+ }
+ 
+ unsigned int task_get_vl(const struct task_struct *task, enum vec_type type)
 -- 
 2.51.0.869.ge66316f041-goog
 
