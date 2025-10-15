@@ -4,75 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE90DCCD19E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 22:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C98CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 23:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8hp4rymi/w615rS86fSx8eu95VzsthQfrxaFKltfQSA=; b=x5Oqn8xUpfXwQ/G9OtS9ZQiCul
-	XsvwAQeveyGqID7tX/cX/YjHwou9s4NB7XBCXE8nI81zLrEzEOBHOBmt0+gzJZRpkNALqk3zxLxuW
-	BiXxwdXKGcwZdywYXkujyCatnErg68Ww2ZiVzF74pcBNh9G2C6IkGiqCYjRB3/XHRe358+EhbSp/y
-	Fg0UuCGvSa0YFwcHquGGKpEPzr0MwVjTSKSthRLnr9h0FR6IPEV1yC+dNmBweQDM7Yf0+6r+9zxjK
-	LEK61dZnU2nqh1IkhT0/qmLSoikdMvyJue7lID/Yi1K7xxWilbecHmJfpI4Tu0mLb8k6j7LyEPvsZ
-	DLwLNZVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Hq+Jl+EGizHPiqSUm0bAF8oZIokc/PvWYk1e5jSSDGA=; b=s8dwJWFE/QPNahaLLvcSPpdBVS
+	Lkz1B5izR2pNhRlfnrQ3jEtAELlC1Ud1ZAk04fV+9FkYXQju8W+wSJgTu+HbircMnKz7191pX35jP
+	Nqe6pMc8lcbmiU8iOmy5R8/HxPj5qHA4zsu0peJT0OKm2aZPd7HVyr1sNUSrvU8E8EWbJuBsnowRv
+	4rTBh3Hb40dW2AYtFAzIPWUgCqqFdEGcVGjLkctVpinhJRGbAjfy4tgS1Bd8oIA9hTOHqrn8J7XDJ
+	okPs79e7K2XofLaCUUBIWKQabJYUMCGpwc1qRtXuOIvTPElZ0EE8EiJ3O/P5thw6kB32p0HEvCutD
+	6JRSwxJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ARE-000000032xr-0BAH;
-	Wed, 15 Oct 2025 22:57:44 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v9AnQ-000000034VG-0haS;
+	Wed, 15 Oct 2025 23:20:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ARB-000000032wt-050S;
-	Wed, 15 Oct 2025 22:57:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1760569050; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GUB2FVD69r/C01TsJxSij78wbWAgk4fStSZLc+yMKt9QZnxEXzfsrQiBxTuHERQstCf7itkNtro0ijH0FFENa1LcaIJnw/RQ8gvh3tM4nklpRji2BI2uCQsvNSQKCCEWidgthRQ/xMJAfYgBj0bctYil9ihVt1X8zjc5YwY2el8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1760569050; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8hp4rymi/w615rS86fSx8eu95VzsthQfrxaFKltfQSA=; 
-	b=F6efgJMTyhdEKP5OOmHpd08VBn461J90YfwLnoLuDMI80vhNMk2/pQ8WzwPubMXgvyS9nNMi7IW2JeXo8t11OpYVcwLnxxaeS/own8po3F/+ozBfzJco3u9qNBM0EwuK6cdqgiIoXQPnhmozdSH9ANVI4Hw/jwvv2gk3XrCnTR0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760569050;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=8hp4rymi/w615rS86fSx8eu95VzsthQfrxaFKltfQSA=;
-	b=fUy67HWtPlTYQoadjcOVmkQ3gCyUYgPxPJzhOm7QiXAQbNxwAdcmRwaaLmK6aCSS
-	UrHsTOYABL5QjHW7JHcHCgUDJDfdvz+mmvRScevB3Kl4cMBL1owRCSrAmJa5At6YvnG
-	IN+P4Pe7l0Oh8dx296uW7EtAATDDPldJhrVTEs00=
-Received: by mx.zohomail.com with SMTPS id 1760569047390251.2858506578142;
-	Wed, 15 Oct 2025 15:57:27 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 7A320184DBC; Thu, 16 Oct 2025 00:57:15 +0200 (CEST)
-Date: Thu, 16 Oct 2025 00:57:15 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
-Cc: Quentin Schulz <quentin.schulz@cherry.de>, mturquette@baylibre.com, 
-	sboyd@kernel.org, zhangqing@rock-chips.com, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org, Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH] clk: rockchip: rk3588: Don't change PLL rates when
- setting dclk_vop2_src
-Message-ID: <eumxn7lvp34si2gik33hcavcrsstqqoxixiznjbertxars7zcx@xsycorjhj3id>
-References: <20251008133135.3745785-1-heiko@sntech.de>
- <6677ebf9-50bd-4df0-806c-9698f2256a8d@cherry.de>
- <2749454.BddDVKsqQX@diego>
+	id 1v9AnN-000000034Uj-24Q3;
+	Wed, 15 Oct 2025 23:20:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 20B8A444F1;
+	Wed, 15 Oct 2025 23:20:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F227C4CEF8;
+	Wed, 15 Oct 2025 23:20:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760570437;
+	bh=wUAFBOW8IXbdwk0K9YsjD/7Dr5tNv62XPJ/pUj8ycoM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=PQv0NUEIzWp9sCry1ho3owbBWN9hwPuIsuUSENMERX6kCfFPoMYQvm4yZziF2cMis
+	 oD3oteGQePDkMi6ZeV8pE970ahnc/fM9Bi5Tc4IC3a1iy7+d9wNHQU+hQ3vIAyIubt
+	 lO8qivfyfdEtj6+HmEbW6GDvTfnDAMaly2QCHR1UTNaIH0HmfEMJxFC7WaqHIfZs1x
+	 G38JnX1+WgtsTaGnizU8Pvo1ElPa8ALFl8iv3oEMfugGXPOAUi+GqAZjW1u73BslYF
+	 hzHYQ3YjJIj7SQpiCwXJr6PdZ0tv7WAanSNisEwM6VoVxHFCuPwThfaQ3QVdR7HlL5
+	 Y6oJu/p7SwySg==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Tony Lindgren <tony@atomide.com>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-iio@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-phy@lists.infradead.org
+Subject: [PATCH] dt-bindings: Fix inconsistent quoting
+Date: Wed, 15 Oct 2025 18:16:24 -0500
+Message-ID: <20251015232015.846282-1-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fwgcdh6ni2fyyeru"
-Content-Disposition: inline
-In-Reply-To: <2749454.BddDVKsqQX@diego>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.3/260.518.91
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_155741_087364_D89D15E5 
-X-CRM114-Status: GOOD (  23.86  )
+X-CRM114-CacheID: sfid-20251015_162037_598236_BE4F4ABB 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,87 +113,697 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+yamllint has gained a new check which checks for inconsistent quoting
+(mixed " and ' quotes within a file). Fix all the cases yamllint found
+so we can enable the check (once the check is in a release). Use
+whichever quoting is dominate in the file.
 
---fwgcdh6ni2fyyeru
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] clk: rockchip: rk3588: Don't change PLL rates when
- setting dclk_vop2_src
-MIME-Version: 1.0
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../arm/altera/socfpga-clk-manager.yaml       |  4 ++--
+ .../bindings/clock/nvidia,tegra124-car.yaml   |  8 ++++----
+ .../bindings/clock/nvidia,tegra20-car.yaml    |  6 +++---
+ .../devicetree/bindings/gpio/gpio-mxs.yaml    |  9 +++++----
+ .../bindings/gpio/snps,dw-apb-gpio.yaml       |  4 ++--
+ .../bindings/iio/temperature/adi,ltc2983.yaml | 20 +++++++++----------
+ .../mailbox/qcom,apcs-kpss-global.yaml        | 16 +++++++--------
+ .../mailbox/xlnx,zynqmp-ipi-mailbox.yaml      |  2 +-
+ .../bindings/media/fsl,imx6q-vdoa.yaml        |  2 +-
+ .../devicetree/bindings/mfd/aspeed-lpc.yaml   |  4 ++--
+ .../devicetree/bindings/mfd/ti,twl.yaml       |  4 ++--
+ .../bindings/net/ethernet-switch.yaml         |  2 +-
+ .../pci/plda,xpressrich3-axi-common.yaml      |  2 +-
+ .../bindings/phy/motorola,cpcap-usb-phy.yaml  |  4 ++--
+ .../pinctrl/microchip,sparx5-sgpio.yaml       | 12 +++++------
+ .../bindings/pinctrl/qcom,pmic-gpio.yaml      | 10 +++++-----
+ .../bindings/pinctrl/qcom,pmic-mpp.yaml       |  6 +++---
+ .../bindings/pinctrl/renesas,pfc.yaml         |  4 ++--
+ .../bindings/pinctrl/renesas,rza1-ports.yaml  |  2 +-
+ .../pinctrl/renesas,rzg2l-pinctrl.yaml        |  2 +-
+ .../pinctrl/renesas,rzv2m-pinctrl.yaml        |  2 +-
+ .../bindings/power/renesas,sysc-rmobile.yaml  |  4 ++--
+ .../soc/microchip/atmel,at91rm9200-tcb.yaml   |  8 ++++----
+ .../soc/tegra/nvidia,tegra20-pmc.yaml         | 12 +++++------
+ 24 files changed, 75 insertions(+), 74 deletions(-)
 
-Hi,
+diff --git a/Documentation/devicetree/bindings/arm/altera/socfpga-clk-manager.yaml b/Documentation/devicetree/bindings/arm/altera/socfpga-clk-manager.yaml
+index a758f4bb2bb3..275554bfedce 100644
+--- a/Documentation/devicetree/bindings/arm/altera/socfpga-clk-manager.yaml
++++ b/Documentation/devicetree/bindings/arm/altera/socfpga-clk-manager.yaml
+@@ -39,7 +39,7 @@ properties:
+ 
+       "^[a-z0-9,_]+(clk|pll|clk_gate|clk_divided)(@[a-f0-9]+)?$":
+         type: object
+-        $ref: '#/$defs/clock-props'
++        $ref: "#/$defs/clock-props"
+         unevaluatedProperties: false
+ 
+         properties:
+@@ -67,7 +67,7 @@ properties:
+         patternProperties:
+           "^[a-z0-9,_]+(clk|pll)(@[a-f0-9]+)?$":
+             type: object
+-            $ref: '#/$defs/clock-props'
++            $ref: "#/$defs/clock-props"
+             unevaluatedProperties: false
+ 
+             properties:
+diff --git a/Documentation/devicetree/bindings/clock/nvidia,tegra124-car.yaml b/Documentation/devicetree/bindings/clock/nvidia,tegra124-car.yaml
+index a9ba21144a56..13bb616249a1 100644
+--- a/Documentation/devicetree/bindings/clock/nvidia,tegra124-car.yaml
++++ b/Documentation/devicetree/bindings/clock/nvidia,tegra124-car.yaml
+@@ -37,7 +37,7 @@ properties:
+   '#clock-cells':
+     const: 1
+ 
+-  "#reset-cells":
++  '#reset-cells':
+     const: 1
+ 
+   nvidia,external-memory-controller:
+@@ -46,7 +46,7 @@ properties:
+       phandle of the external memory controller node
+ 
+ patternProperties:
+-  "^emc-timings-[0-9]+$":
++  '^emc-timings-[0-9]+$':
+     type: object
+     properties:
+       nvidia,ram-code:
+@@ -56,7 +56,7 @@ patternProperties:
+           this timing set is used for
+ 
+     patternProperties:
+-      "^timing-[0-9]+$":
++      '^timing-[0-9]+$':
+         type: object
+         properties:
+           clock-frequency:
+@@ -94,7 +94,7 @@ required:
+   - compatible
+   - reg
+   - '#clock-cells'
+-  - "#reset-cells"
++  - '#reset-cells'
+ 
+ additionalProperties: false
+ 
+diff --git a/Documentation/devicetree/bindings/clock/nvidia,tegra20-car.yaml b/Documentation/devicetree/bindings/clock/nvidia,tegra20-car.yaml
+index bee2dd4b29bf..73cccc0df424 100644
+--- a/Documentation/devicetree/bindings/clock/nvidia,tegra20-car.yaml
++++ b/Documentation/devicetree/bindings/clock/nvidia,tegra20-car.yaml
+@@ -39,11 +39,11 @@ properties:
+   '#clock-cells':
+     const: 1
+ 
+-  "#reset-cells":
++  '#reset-cells':
+     const: 1
+ 
+ patternProperties:
+-  "^(sclk)|(pll-[cem])$":
++  '^(sclk)|(pll-[cem])$':
+     type: object
+     properties:
+       compatible:
+@@ -76,7 +76,7 @@ required:
+   - compatible
+   - reg
+   - '#clock-cells'
+-  - "#reset-cells"
++  - '#reset-cells'
+ 
+ additionalProperties: false
+ 
+diff --git a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+index aaf97124803f..4b5b8e794613 100644
+--- a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
++++ b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
+@@ -26,9 +26,10 @@ properties:
+       # Devices. Keep it as it to be compatible existed dts files.
+       - const: simple-bus
+ 
+-  '#address-cells':
++  "#address-cells":
+     const: 1
+-  '#size-cells':
++
++  "#size-cells":
+     const: 0
+ 
+   reg:
+@@ -132,8 +133,8 @@ patternProperties:
+ required:
+   - compatible
+   - reg
+-  - '#address-cells'
+-  - '#size-cells'
++  - "#address-cells"
++  - "#size-cells"
+ 
+ additionalProperties: false
+ 
+diff --git a/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml b/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
+index ab2afc0e4153..bba6f5b6606f 100644
+--- a/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
++++ b/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
+@@ -111,8 +111,8 @@ additionalProperties: false
+ required:
+   - compatible
+   - reg
+-  - "#address-cells"
+-  - "#size-cells"
++  - '#address-cells'
++  - '#size-cells'
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/iio/temperature/adi,ltc2983.yaml b/Documentation/devicetree/bindings/iio/temperature/adi,ltc2983.yaml
+index 312febeeb3bb..ee0b558bb866 100644
+--- a/Documentation/devicetree/bindings/iio/temperature/adi,ltc2983.yaml
++++ b/Documentation/devicetree/bindings/iio/temperature/adi,ltc2983.yaml
+@@ -88,7 +88,7 @@ properties:
+     const: 0
+ 
+ patternProperties:
+-  "^thermocouple@":
++  '^thermocouple@':
+     $ref: '#/$defs/sensor-node'
+     unevaluatedProperties: false
+ 
+@@ -146,7 +146,7 @@ patternProperties:
+           required:
+             - adi,custom-thermocouple
+ 
+-  "^diode@":
++  '^diode@':
+     $ref: '#/$defs/sensor-node'
+     unevaluatedProperties: false
+ 
+@@ -191,7 +191,7 @@ patternProperties:
+         $ref: /schemas/types.yaml#/definitions/uint32
+         default: 0
+ 
+-  "^rtd@":
++  '^rtd@':
+     $ref: '#/$defs/sensor-node'
+     unevaluatedProperties: false
+     description: RTD sensor.
+@@ -280,7 +280,7 @@ patternProperties:
+               type: boolean
+ 
+           dependencies:
+-            adi,current-rotate: [ "adi,rsense-share" ]
++            adi,current-rotate: [ 'adi,rsense-share' ]
+ 
+       - if:
+           properties:
+@@ -290,7 +290,7 @@ patternProperties:
+           required:
+             - adi,custom-rtd
+ 
+-  "^thermistor@":
++  '^thermistor@':
+     $ref: '#/$defs/sensor-node'
+     unevaluatedProperties: false
+     description: Thermistor sensor.
+@@ -364,7 +364,7 @@ patternProperties:
+       - adi,rsense-handle
+ 
+     dependencies:
+-      adi,current-rotate: [ "adi,rsense-share" ]
++      adi,current-rotate: [ 'adi,rsense-share' ]
+ 
+     allOf:
+       - if:
+@@ -392,7 +392,7 @@ patternProperties:
+           required:
+             - adi,custom-thermistor
+ 
+-  "^adc@":
++  '^adc@':
+     $ref: '#/$defs/sensor-node'
+     unevaluatedProperties: false
+     description: Direct ADC sensor.
+@@ -407,7 +407,7 @@ patternProperties:
+         description: Whether the sensor is single-ended.
+         type: boolean
+ 
+-  "^temp@":
++  '^temp@':
+     $ref: '#/$defs/sensor-node'
+     unevaluatedProperties: false
+     description: Active analog temperature sensor.
+@@ -437,7 +437,7 @@ patternProperties:
+     required:
+       - adi,custom-temp
+ 
+-  "^rsense@":
++  '^rsense@':
+     $ref: '#/$defs/sensor-node'
+     unevaluatedProperties: false
+     description: Sense resistor sensor.
+@@ -476,7 +476,7 @@ allOf:
+               - adi,ltc2984
+     then:
+       patternProperties:
+-        "^temp@": false
++        '^temp@': false
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml b/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
+index 615ed103b7e6..f40dc9048327 100644
+--- a/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
++++ b/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
+@@ -187,10 +187,10 @@ allOf:
+             enum:
+               - qcom,msm8916-apcs-kpss-global
+     then:
+-      $ref: "#/$defs/msm8916-apcs-clock-controller"
++      $ref: '#/$defs/msm8916-apcs-clock-controller'
+       properties:
+         clock-controller:
+-          $ref: "#/$defs/msm8916-apcs-clock-controller"
++          $ref: '#/$defs/msm8916-apcs-clock-controller'
+ 
+   - if:
+       properties:
+@@ -199,10 +199,10 @@ allOf:
+             enum:
+               - qcom,msm8939-apcs-kpss-global
+     then:
+-      $ref: "#/$defs/msm8939-apcs-clock-controller"
++      $ref: '#/$defs/msm8939-apcs-clock-controller'
+       properties:
+         clock-controller:
+-          $ref: "#/$defs/msm8939-apcs-clock-controller"
++          $ref: '#/$defs/msm8939-apcs-clock-controller'
+ 
+   - if:
+       properties:
+@@ -211,10 +211,10 @@ allOf:
+             enum:
+               - qcom,sdx55-apcs-gcc
+     then:
+-      $ref: "#/$defs/sdx55-apcs-clock-controller"
++      $ref: '#/$defs/sdx55-apcs-clock-controller'
+       properties:
+         clock-controller:
+-          $ref: "#/$defs/sdx55-apcs-clock-controller"
++          $ref: '#/$defs/sdx55-apcs-clock-controller'
+ 
+   - if:
+       properties:
+@@ -223,10 +223,10 @@ allOf:
+             enum:
+               - qcom,ipq6018-apcs-apps-global
+     then:
+-      $ref: "#/$defs/ipq6018-apcs-clock-controller"
++      $ref: '#/$defs/ipq6018-apcs-clock-controller'
+       properties:
+         clock-controller:
+-          $ref: "#/$defs/ipq6018-apcs-clock-controller"
++          $ref: '#/$defs/ipq6018-apcs-clock-controller'
+ 
+   - if:
+       properties:
+diff --git a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
+index fe83b5cb1278..04d6473d666f 100644
+--- a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
++++ b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
+@@ -142,7 +142,7 @@ patternProperties:
+       - compatible
+       - reg
+       - reg-names
+-      - "#mbox-cells"
++      - '#mbox-cells'
+       - xlnx,ipi-id
+ 
+ required:
+diff --git a/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml b/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
+index 511ac0d67a7f..988a5b3a62bd 100644
+--- a/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
++++ b/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
+@@ -16,7 +16,7 @@ maintainers:
+ 
+ properties:
+   compatible:
+-    const: "fsl,imx6q-vdoa"
++    const: fsl,imx6q-vdoa
+ 
+   reg:
+     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/mfd/aspeed-lpc.yaml b/Documentation/devicetree/bindings/mfd/aspeed-lpc.yaml
+index f329223cec07..0adfeef149e7 100644
+--- a/Documentation/devicetree/bindings/mfd/aspeed-lpc.yaml
++++ b/Documentation/devicetree/bindings/mfd/aspeed-lpc.yaml
+@@ -111,12 +111,12 @@ patternProperties:
+       reg:
+         maxItems: 1
+ 
+-      '#reset-cells':
++      "#reset-cells":
+         const: 1
+ 
+     required:
+       - compatible
+-      - '#reset-cells'
++      - "#reset-cells"
+ 
+   "^lpc-snoop@[0-9a-f]+$":
+     type: object
+diff --git a/Documentation/devicetree/bindings/mfd/ti,twl.yaml b/Documentation/devicetree/bindings/mfd/ti,twl.yaml
+index 776b04e182cb..1611b1581a8e 100644
+--- a/Documentation/devicetree/bindings/mfd/ti,twl.yaml
++++ b/Documentation/devicetree/bindings/mfd/ti,twl.yaml
+@@ -400,7 +400,7 @@ properties:
+       - '#pwm-cells'
+ 
+ patternProperties:
+-  "^regulator-":
++  '^regulator-':
+     type: object
+     unevaluatedProperties: false
+     $ref: /schemas/regulator/regulator.yaml
+@@ -429,7 +429,7 @@ required:
+   - reg
+   - interrupts
+   - interrupt-controller
+-  - "#interrupt-cells"
++  - '#interrupt-cells'
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/net/ethernet-switch.yaml b/Documentation/devicetree/bindings/net/ethernet-switch.yaml
+index b3b7e1a1b127..03001ba40e0f 100644
+--- a/Documentation/devicetree/bindings/net/ethernet-switch.yaml
++++ b/Documentation/devicetree/bindings/net/ethernet-switch.yaml
+@@ -72,7 +72,7 @@ additionalProperties: true
+ $defs:
+   ethernet-ports:
+     description: An ethernet switch without any extra port properties
+-    $ref: '#'
++    $ref: "#"
+ 
+     patternProperties:
+       "^(ethernet-)?ports$":
+diff --git a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+index 039eecdbd6aa..fe2e8beb5bab 100644
+--- a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
++++ b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
+@@ -72,7 +72,7 @@ required:
+   - reg-names
+   - interrupts
+   - msi-controller
+-  - "#interrupt-cells"
++  - '#interrupt-cells'
+   - interrupt-map-mask
+   - interrupt-map
+ 
+diff --git a/Documentation/devicetree/bindings/phy/motorola,cpcap-usb-phy.yaml b/Documentation/devicetree/bindings/phy/motorola,cpcap-usb-phy.yaml
+index 0febd04a61f4..dd345cbd0a0b 100644
+--- a/Documentation/devicetree/bindings/phy/motorola,cpcap-usb-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/motorola,cpcap-usb-phy.yaml
+@@ -67,8 +67,8 @@ properties:
+   mode-gpios:
+     description: Optional GPIOs for configuring alternate modes
+     items:
+-      - description: "mode selection GPIO #0"
+-      - description: "mode selection GPIO #1"
++      - description: mode selection GPIO#0
++      - description: mode selection GPIO#1
+ 
+ required:
+   - compatible
+diff --git a/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml b/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml
+index 0df4e114fdd6..fa47732d7cef 100644
+--- a/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml
+@@ -18,7 +18,7 @@ description: |
+ 
+ properties:
+   $nodename:
+-    pattern: "^gpio@[0-9a-f]+$"
++    pattern: '^gpio@[0-9a-f]+$'
+ 
+   compatible:
+     enum:
+@@ -26,10 +26,10 @@ properties:
+       - mscc,ocelot-sgpio
+       - mscc,luton-sgpio
+ 
+-  "#address-cells":
++  '#address-cells':
+     const: 1
+ 
+-  "#size-cells":
++  '#size-cells':
+     const: 0
+ 
+   reg:
+@@ -76,7 +76,7 @@ properties:
+       - const: switch
+ 
+ patternProperties:
+-  "^gpio@[0-1]$":
++  '^gpio@[0-1]$':
+     type: object
+     properties:
+       compatible:
+@@ -132,8 +132,8 @@ required:
+   - reg
+   - clocks
+   - microchip,sgpio-port-ranges
+-  - "#address-cells"
+-  - "#size-cells"
++  - '#address-cells'
++  - '#size-cells'
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/pinctrl/qcom,pmic-gpio.yaml b/Documentation/devicetree/bindings/pinctrl/qcom,pmic-gpio.yaml
+index 5e6dfcc3fe9b..6632bcd037ba 100644
+--- a/Documentation/devicetree/bindings/pinctrl/qcom,pmic-gpio.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/qcom,pmic-gpio.yaml
+@@ -424,13 +424,13 @@ allOf:
+ patternProperties:
+   '-state$':
+     oneOf:
+-      - $ref: "#/$defs/qcom-pmic-gpio-state"
++      - $ref: '#/$defs/qcom-pmic-gpio-state'
+       - patternProperties:
+-          "(pinconf|-pins)$":
+-            $ref: "#/$defs/qcom-pmic-gpio-state"
++          '(pinconf|-pins)$':
++            $ref: '#/$defs/qcom-pmic-gpio-state'
+         additionalProperties: false
+ 
+-  "-hog(-[0-9]+)?$":
++  '-hog(-[0-9]+)?$':
+     type: object
+     required:
+       - gpio-hog
+@@ -503,7 +503,7 @@ $defs:
+                  - gpio1-gpio12 for pmxr2230
+ 
+         items:
+-          pattern: "^gpio([0-9]+)$"
++          pattern: '^gpio([0-9]+)$'
+ 
+       function:
+         items:
+diff --git a/Documentation/devicetree/bindings/pinctrl/qcom,pmic-mpp.yaml b/Documentation/devicetree/bindings/pinctrl/qcom,pmic-mpp.yaml
+index 9364ae05f3e6..daf4c1c03712 100644
+--- a/Documentation/devicetree/bindings/pinctrl/qcom,pmic-mpp.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/qcom,pmic-mpp.yaml
+@@ -74,10 +74,10 @@ required:
+ patternProperties:
+   '-state$':
+     oneOf:
+-      - $ref: "#/$defs/qcom-pmic-mpp-state"
++      - $ref: '#/$defs/qcom-pmic-mpp-state'
+       - patternProperties:
+           '-pins$':
+-            $ref: "#/$defs/qcom-pmic-mpp-state"
++            $ref: '#/$defs/qcom-pmic-mpp-state'
+         additionalProperties: false
+ 
+ $defs:
+@@ -100,7 +100,7 @@ $defs:
+                  - mpp1-mpp4 for pma8084
+ 
+         items:
+-          pattern: "^mpp([0-9]+)$"
++          pattern: '^mpp([0-9]+)$'
+ 
+       function:
+         items:
+diff --git a/Documentation/devicetree/bindings/pinctrl/renesas,pfc.yaml b/Documentation/devicetree/bindings/pinctrl/renesas,pfc.yaml
+index cfe004573366..ab1cfe9dcde5 100644
+--- a/Documentation/devicetree/bindings/pinctrl/renesas,pfc.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/renesas,pfc.yaml
+@@ -129,7 +129,7 @@ additionalProperties:
+ 
+     - type: object
+       additionalProperties:
+-        $ref: "#/additionalProperties/anyOf/0"
++        $ref: '#/additionalProperties/anyOf/0'
+ 
+ examples:
+   - |
+@@ -190,7 +190,7 @@ examples:
+ 
+             sdhi0_pins: sd0 {
+                     groups = "sdhi0_data4", "sdhi0_ctrl";
+-                    function = "sdhi0";
++                    function = "sdhi0';
+                     power-source = <3300>;
+             };
+     };
+diff --git a/Documentation/devicetree/bindings/pinctrl/renesas,rza1-ports.yaml b/Documentation/devicetree/bindings/pinctrl/renesas,rza1-ports.yaml
+index 2bd7d47d0fdb..737eb4e14090 100644
+--- a/Documentation/devicetree/bindings/pinctrl/renesas,rza1-ports.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/renesas,rza1-ports.yaml
+@@ -118,7 +118,7 @@ additionalProperties:
+ 
+     - type: object
+       additionalProperties:
+-        $ref: "#/additionalProperties/anyOf/0"
++        $ref: '#/additionalProperties/anyOf/0'
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
+index 5156d54b240b..00c05243b9a4 100644
+--- a/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
+@@ -135,7 +135,7 @@ additionalProperties:
+ 
+     - type: object
+       additionalProperties:
+-        $ref: "#/additionalProperties/anyOf/0"
++        $ref: '#/additionalProperties/anyOf/0'
+ 
+ allOf:
+   - $ref: pinctrl.yaml#
+diff --git a/Documentation/devicetree/bindings/pinctrl/renesas,rzv2m-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/renesas,rzv2m-pinctrl.yaml
+index 5fa5d31f8866..88b2fa5e684d 100644
+--- a/Documentation/devicetree/bindings/pinctrl/renesas,rzv2m-pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/renesas,rzv2m-pinctrl.yaml
+@@ -88,7 +88,7 @@ additionalProperties:
+ 
+     - type: object
+       additionalProperties:
+-        $ref: "#/additionalProperties/anyOf/0"
++        $ref: '#/additionalProperties/anyOf/0'
+ 
+ allOf:
+   - $ref: pinctrl.yaml#
+diff --git a/Documentation/devicetree/bindings/power/renesas,sysc-rmobile.yaml b/Documentation/devicetree/bindings/power/renesas,sysc-rmobile.yaml
+index fba6914ec40d..948a9da111df 100644
+--- a/Documentation/devicetree/bindings/power/renesas,sysc-rmobile.yaml
++++ b/Documentation/devicetree/bindings/power/renesas,sysc-rmobile.yaml
+@@ -45,7 +45,7 @@ properties:
+         const: 0
+ 
+     additionalProperties:
+-      $ref: "#/$defs/pd-node"
++      $ref: '#/$defs/pd-node'
+ 
+ required:
+   - compatible
+@@ -83,7 +83,7 @@ $defs:
+       - '#power-domain-cells'
+ 
+     additionalProperties:
+-      $ref: "#/$defs/pd-node"
++      $ref: '#/$defs/pd-node'
+ 
+ examples:
+   - |
+diff --git a/Documentation/devicetree/bindings/soc/microchip/atmel,at91rm9200-tcb.yaml b/Documentation/devicetree/bindings/soc/microchip/atmel,at91rm9200-tcb.yaml
+index 2c7275c4503b..abf1adca0773 100644
+--- a/Documentation/devicetree/bindings/soc/microchip/atmel,at91rm9200-tcb.yaml
++++ b/Documentation/devicetree/bindings/soc/microchip/atmel,at91rm9200-tcb.yaml
+@@ -57,7 +57,7 @@ properties:
+     const: 0
+ 
+ patternProperties:
+-  "^timer@[0-2]$":
++  '^timer@[0-2]$':
+     description: The timer block channels that are used as timers or counters.
+     type: object
+     additionalProperties: false
+@@ -80,7 +80,7 @@ patternProperties:
+       - compatible
+       - reg
+ 
+-  "^pwm@[0-2]$":
++  '^pwm@[0-2]$':
+     description: The timer block channels that are used as PWMs.
+     $ref: /schemas/pwm/pwm.yaml#
+     type: object
+@@ -92,7 +92,7 @@ patternProperties:
+           TCB channel to use for this PWM.
+         enum: [ 0, 1, 2 ]
+ 
+-      "#pwm-cells":
++      '#pwm-cells':
+         description:
+           The only third cell flag supported by this binding is
+           PWM_POLARITY_INVERTED.
+@@ -101,7 +101,7 @@ patternProperties:
+     required:
+       - compatible
+       - reg
+-      - "#pwm-cells"
++      - '#pwm-cells'
+ 
+     additionalProperties: false
+ 
+diff --git a/Documentation/devicetree/bindings/soc/tegra/nvidia,tegra20-pmc.yaml b/Documentation/devicetree/bindings/soc/tegra/nvidia,tegra20-pmc.yaml
+index 7140c312d898..f516960dbbef 100644
+--- a/Documentation/devicetree/bindings/soc/tegra/nvidia,tegra20-pmc.yaml
++++ b/Documentation/devicetree/bindings/soc/tegra/nvidia,tegra20-pmc.yaml
+@@ -133,12 +133,12 @@ properties:
+           property. The supported-hw is a bitfield indicating SoC speedo or
+           process ID mask.
+ 
+-      "#power-domain-cells":
++      '#power-domain-cells':
+         const: 0
+ 
+     required:
+       - operating-points-v2
+-      - "#power-domain-cells"
++      - '#power-domain-cells'
+ 
+   i2c-thermtrip:
+     type: object
+@@ -220,7 +220,7 @@ properties:
+         xusbc    USB Partition C               Tegra114/124/210
+ 
+     patternProperties:
+-      "^[a-z0-9]+$":
++      '^[a-z0-9]+$':
+         type: object
+         additionalProperties: false
+         properties:
+@@ -365,9 +365,9 @@ allOf:
+ additionalProperties: false
+ 
+ dependencies:
+-  nvidia,suspend-mode: ["nvidia,core-pwr-off-time", "nvidia,cpu-pwr-off-time"]
+-  nvidia,core-pwr-off-time: ["nvidia,core-pwr-good-time"]
+-  nvidia,cpu-pwr-off-time: ["nvidia,cpu-pwr-good-time"]
++  nvidia,suspend-mode: ['nvidia,core-pwr-off-time', 'nvidia,cpu-pwr-off-time']
++  nvidia,core-pwr-off-time: ['nvidia,core-pwr-good-time']
++  nvidia,cpu-pwr-off-time: ['nvidia,cpu-pwr-good-time']
+ 
+ examples:
+   - |
+-- 
+2.51.0
 
-On Wed, Oct 15, 2025 at 03:27:12PM +0200, Heiko St=FCbner wrote:
-> Am Mittwoch, 15. Oktober 2025, 14:58:46 Mitteleurop=E4ische Sommerzeit sc=
-hrieb Quentin Schulz:
-> > Hi Heiko,
-> >=20
-> > On 10/8/25 3:31 PM, Heiko Stuebner wrote:
-> > > dclk_vop2_src currently has CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REP=
-ARENT
-> > > flags set, which is vastly different than dclk_vop0_src or dclk_vop1_=
-src,
-> > > which have none of those.
-> > >=20
-> > > With these flags in dclk_vop2_src, actually setting the clock then re=
-sults
-> > > in a lot of other peripherals breaking, because setting the rate resu=
-lts
-> > > in the PLL source getting changed:
-> > >=20
-> > > [   14.898718] clk_core_set_rate_nolock: setting rate for dclk_vop2 t=
-o 152840000
-> > > [   15.155017] clk_change_rate: setting rate for pll_gpll to 16800000=
-00
-> > > [ clk adjusting every gpll user ]
-> > >=20
-> > > This includes possibly the other vops, i2s, spdif and even the uarts.
-> > > Among other possible things, this breaks the uart console on a board
-> > > I use. Sometimes it recovers later on, but there will be a big block
-> >=20
-> > I can reproduce on the same board as yours and this fixes the issue=20
-> > indeed (note I can only reproduce for now when display the modetest=20
-> > pattern, otherwise after boot the console seems fine to me).
->=20
-> I boot into a Debian rootfs with fbcon on my system, and the serial
-> console produces garbled output when the vop adjusts the clock
->=20
-> Sometimes it recovers after a bit, but other times it doesn't
->=20
-> > Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
-> > Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Tiger w/D=
-P carrierboard
-
-I'm pretty sure I've seen this while playing with USB-C DP AltMode
-on Rock 5B. So far I had no time to investigate further.
-
-What I'm missing in the commit message is the impact on VOP. Also
-it might be a good idea to have Andy in Cc, so I've added him.
-
-Greetings,
-
--- Sebastian
-
---fwgcdh6ni2fyyeru
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmjwJsgACgkQ2O7X88g7
-+pq1kg//XaEftjAulYritpGVJ9ktfx9Y37CPdTrs+MBY0C3e9t9e0jf9WPWkREY3
-Dc/cX8SmQzSsVqvEfS06mxZwZ1d8Gz/4Q/XrqwKZZusoFz/gvKzOSMqd6knBBMKc
-9U2zLzjgXmzg4BSH/mVhp1gDEk++djQzknyzb6giTwft4Mgdo7q6Ft1OUoxtfOuc
-q5X+gS/QHLkehiu4eQMc02QQqa+abOYZhcZsRmH1rxDmYLoCfuADqWrTrS1RbtwG
-Ln8n9/0XCxzQZG8a28IndGwkm5jVr74TldJdT16Z2UKaIT3c96sSL7ot7dE7pd5t
-WP05P6HqQCiEpqKmlOEpGBsmwUmpThN3QmNVzKSsjUuyXwkcZNHp2MT6RzmiDUzn
-HGuXTIl84Bj/fO7/67VEbvstO6sUDC74Wkri34I6QRoXBmlWRE9aijsB6arOqgC5
-i106vm3KrV5auXKX4qRylzW+v8BIvxCFd2rXLCnUOZXSw4MXFyFwxlq0R8bPPVNj
-GmpsIBC4QA60H4SPr7v2G1tua7TWurLa+lPiyZW0zqImbqZopzzNG3+/HgfnoXg7
-SvNI3LYzN1hnY64brkZeLpc41ckQEg9nxRHrr6uP16N7HI65n8Bw6Bt478p1NFMs
-zcgTuKGwzO2xSvNRMT2N+iflMikysLHQ8zqssgGFtbMur0vgPvM=
-=+w2d
------END PGP SIGNATURE-----
-
---fwgcdh6ni2fyyeru--
 
