@@ -4,96 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB5B7CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C4E8CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KoAAYwwSkct1dybDxwgNyk2Rm0SbhKgSXVNFxBcKatM=; b=DMoANHhJFygAcea5LPkZ47v1WG
-	z6BgIzZ9pym6QJ45Qfkj/jteHzaxOR78axAZCmDcoJmaKmIvRDOaqGBBZClpMa67oFP/A0W0U3A2g
-	JsGa6XJnqkTJRSGJ/BSyx/pKDiYN/K7ybYe2dgWT5syRRGnfyE/pFdz5dfoH+wwaYfEuLXtviUnO4
-	I7NEzEQsZ8zNSuP5fQHJb9z9AM2al5Gx0fDil4qU190KuA0GRqE/E7z7YLgA3ca7py5LUpdn4Ut5v
-	Yj5i+awlvJwn6rte6TAhwRTwerEpR033gF02pnKcvUg8GrQkrTR9tbIDeNz54P0LQerrEVJA96axH
-	FyXm3cyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CQlnQCZTcQjCMg9gXM5j/h/j9QBEe/QKt7u0yZHQbQE=; b=gussVcAsYfG0B39maK60CvSW2G
+	tPLlmNYZAaJSfWRaJ7d1yfvysJZcrgZqG6rF14m6BbNDfCYwz8a2iIU0Q/8sbhNoSTJjGHXVIV6rU
+	P9IMlw21d/ODAbDx8Jpx+M06thvWbODMCMBYi8b0FVlM7guapFqVPts9pA0E7XuK7miBg3bZGjqdt
+	1jB0iLp4tU4s2nuXsI9cRJ8Hf1PUNpZF4a+hJKhwhglvBGeOuD+uoMTiea3ipd8qyJbfYY/hCwWj1
+	TIYL991M1NX9RLjnbkuzsbWo1RGYwNQK3Y5mnrq5PZZ8aFgt7tYi/ebQD78/BpNvBuIEGzTTJlOgY
+	iEi4h5Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92ZP-00000001uQ8-2KQw;
-	Wed, 15 Oct 2025 14:33:39 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1v92bi-00000001v4V-1hpa;
+	Wed, 15 Oct 2025 14:36:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92ZM-00000001uMZ-1xlU
+	id 1v92bf-00000001v3j-1OqQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 14:33:38 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cmtqd6zFXz9tTj;
-	Wed, 15 Oct 2025 16:33:33 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760538814;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KoAAYwwSkct1dybDxwgNyk2Rm0SbhKgSXVNFxBcKatM=;
-	b=I2lRGJfqsloGT2SHdY2M8bMV7/q4Pr59f484nUVBeklXjYgpLKNPtR3atxbCXVW/1M6/d1
-	//HA5XXVaNuD2b6Enca6KnfDPJxqBmUJVqa4NOLPhPFCNkGxeddmE1IsXzMp3cd3fDxZa9
-	4Wf2yOBB5cqHG01UPn+ngvQ1D/DdhFnwzrgHDLLlrUCNHJ2+CF+eucPncmiU2dFK1Xd5zj
-	1bqiFG5NNt+0uzUK50KJiBMdN5ZwIGz4mp4wdPyVgLVCJat/0ddlHGrXzVsca75CD+dH9o
-	jexbeP8s6jXf3KHK5o6c3HwCeYSfw964x6dFHgdaUjHVmUad+JjZ9p3epDuIHA==
-Message-ID: <78249155-c90a-4c33-8caa-d79d83171551@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760538811;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KoAAYwwSkct1dybDxwgNyk2Rm0SbhKgSXVNFxBcKatM=;
-	b=I/FcsianBv0Nxyf1djQKC/ndDM6D04GOPsXWCbJsRR8sd9AASeOicPZ6iFlUcdZQ5lOzOD
-	Ja5w1TTbFN+8hn/CISsFQbHxB7aDwsVIp1/ltJEvascotKjnWLppiDSkL0ALI5UeGqpeDJ
-	VjQca0ofS305cN2uQPwlJRtSOCiviTS/QR5G0ui17dOZgAUEzdgfYD5NVntVYPWcw21Pz1
-	6LzaB30f84Cgzsz1dU5n4QmbfXG9yQpY+e8Jtp/H2lEvSCoD+car8jueuek8SJfo4QkP1S
-	Yqi8gLvqHlDHg9MF2IAX9amcKfIRtY0TXLBtsfkM2aIM04bBzGFYS5+lLWccYA==
-Date: Wed, 15 Oct 2025 16:32:24 +0200
+	Wed, 15 Oct 2025 14:36:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 08EC644471;
+	Wed, 15 Oct 2025 14:35:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5A66C4CEF8;
+	Wed, 15 Oct 2025 14:35:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760538958;
+	bh=CQlnQCZTcQjCMg9gXM5j/h/j9QBEe/QKt7u0yZHQbQE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=V1u6Wi/bA8yzs2VzytUSKwlOdJY627sho9aV934PlC9av+KzwXYa2BrrFU9y6Ptwo
+	 J+TUilM0Y8GtatWIY8ATBQIDQwY9kOqNlj344/MlQSTKbJywS1GziAxbxbP9w61X+9
+	 A3TSqCq6Yo5Tf/TYyPlYvL0pajqjSFWDamK27jsbDrPDxmEqidk9uRAslM99epdfbh
+	 dERs70VvRyfwG7Lez+yG8I2jkm1DQgffLXYES6OtZBxrEGN9KBqYSIg0MKAAG1/igN
+	 GjfCspVtrmiKyau0OERse5FwxKji55mnzZwUn3IZ5zfNdpuPYNhdc8/qQS79azJjVh
+	 Pxjs2x59J2QEQ==
+Date: Wed, 15 Oct 2025 15:35:53 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Fabien Dessenne <fabien.dessenne@foss.st.com>,
+	Valentin Caron <valentin.caron@foss.st.com>
+Subject: Re: [PATCH v3 09/10] dt-bindings: pinctrl: stm32: Support I/O
+ synchronization parameters
+Message-ID: <20251015-headstand-impulse-95aa736e7633@spud>
+References: <20251014140451.1009969-1-antonio.borneo@foss.st.com>
+ <20251014140451.1009969-10-antonio.borneo@foss.st.com>
+ <20251014-affection-voltage-8b1764273a06@spud>
+ <b4eca95eaa0e6f27fc07479d5eab2131d20eb270.camel@foss.st.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 2/3] arm64: dts: renesas: r8a77960: Add GX6250 GPU node
-To: Matt Coster <Matt.Coster@imgtec.com>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: Adam Ford <aford173@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
- David Airlie <airlied@gmail.com>, Frank Binns <Frank.Binns@imgtec.com>,
- Alessio Belle <Alessio.Belle@imgtec.com>,
- Alexandru Dadu <Alexandru.Dadu@imgtec.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
- Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>
-References: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
- <20251013190210.142436-2-marek.vasut+renesas@mailbox.org>
- <d4ec2cc2-882a-4842-ad8c-42033ceb2bc7@imgtec.com>
- <e93779e7-026b-4b48-9d9b-dfef3d953749@mailbox.org>
- <dd7e09c7-995f-4ef9-a5bc-ff6c8be64ae1@imgtec.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <dd7e09c7-995f-4ef9-a5bc-ff6c8be64ae1@imgtec.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: c1dy1jmb5s88yb7q9s43rwqiniopzzh7
-X-MBO-RS-ID: fb5ef80d27592a90e0c
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="RrT1Ouiw7gUB6N03"
+Content-Disposition: inline
+In-Reply-To: <b4eca95eaa0e6f27fc07479d5eab2131d20eb270.camel@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_073336_707732_85479993 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20251015_073559_408424_65A69668 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,42 +86,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/15/25 12:55 PM, Matt Coster wrote:
 
-Hello Matt,
+--RrT1Ouiw7gUB6N03
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->>> I see this pattern used throughout
->>> the Renesas dts, but I'm just thinking how this will interact with the
->>> powervr driver. The reset line is optional since some hardware
->>> integrations manage it for us during the power-up/down sequences, which
->>> appears to be the case here with the MSTP control (from my brief dig
->>> through the Renesas TRM).
->>
->> As far as I can tell, the pvr_power.c toggles the IP reset after the
->> IP clock were already enabled, so the IP should be correctly reset.
->> What kind of problem do you expect ?
-> 
-> I think I'm just being paranoid about the weirdness (to me at least) of
-> having one device be treated as both clock and reset line. Assuming this
-> is tested as working, I'm okay with it, especially as it seems to be the
-> norm for Renesas.
+On Wed, Oct 15, 2025 at 02:56:56PM +0200, Antonio Borneo wrote:
+> On Tue, 2025-10-14 at 19:10 +0100, Conor Dooley wrote:
+> > On Tue, Oct 14, 2025 at 04:04:50PM +0200, Antonio Borneo wrote:
 
-The combined clock/reset IP is not limited to renesas SoCs, there are 
-other SoCs which do the same thing (Allwinner "ccu", Marvell PXA 
-"soc_clocks" , nVidia Tegra "car", Qualcomm "gcc", Rockchip "cru", to 
-name a few). Usually the registers which control clock and resets are 
-shared in the same IP, but they control different (possibly related) 
-signals in the SoC.
+> >=20
+> > > +
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 st,io-sync:
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 description: |
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 IO synchronization through r=
+e-sampling or inversion
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 0: data or clock GPIO pass-t=
+hrough
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 1: clock GPIO inverted
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 2: data GPIO re-sampled on c=
+lock rising edge
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 3: data GPIO re-sampled on c=
+lock falling edge
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 4: data GPIO re-sampled on b=
+oth clock edges
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 $ref: /schemas/types.yaml#/definit=
+ions/uint32
+> > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 enum: [0, 1, 2, 3, 4]
+> >=20
+> > I really don't like this kinds of properties that lead to "random"
+> > numbers in devicetree. I'd much rather see a string list here.
+>=20
+> Agree!
+> I just need to figure out some reasonably short but still meaningful
+> string for them.
 
->>> Related, see my comments on the bindings patch (P1/3) about how clocks
->>> are wired up in this SoC.
->> I tried to reply to that one, hopefully it makes some sense.
-> 
-> Looks like we've figured it out there, thanks for your comments!
+pass-through
+inverted
+rising-edge
+falling-edge
+both-edges
 
-Likewise, thank you for sharing the clocking details.
+perhaps?
 
--- 
-Best regards,
-Marek Vasut
+--RrT1Ouiw7gUB6N03
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaO+xRgAKCRB4tDGHoIJi
+0lfAAP9Wmew99Hvt1yhCWck5hvyNjlO7jQxH+64gBF5XK6BLXgEAjBA58Y45RCl0
+7cO7Pj2cMcMbSBMMf8uhGjNZlOnz5Qs=
+=XBKe
+-----END PGP SIGNATURE-----
+
+--RrT1Ouiw7gUB6N03--
 
