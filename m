@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B58CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:26:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8355CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AeSpn5dmCh2ZrJI87Q98dccP35CokF88J3n3w+4pfgg=; b=LjQN5Be9mtL3Xi7VCQjow7Y214
-	EITja0tYlwYLPsFbGEWzRTUDy9sDv1zQq4Qyxryeiaw2lWge0nsLBvAGhr68ilaOhD/C8xua0LGT4
-	NZ5RTKJzB9r2b76csy5paTdm8fuos4W4G9XCsuDrvxVaOO4oh3kEIB/+unH0hUnCZpSBzhjwcEEU4
-	yMlbrm8YLZJuQIj2qhAvj5gQ4k9mzeip6gaas2Ih4xzSgk7McGv0v8MTfeF1AyHPblgaulgQZbFbn
-	y+8ZdCcX6deiOaZB4YpOkim+9h/9+hon6nQHMACF7apB6uvZ/v1Ev/L0vRLZmQJrgAVI9DLEp+7Ca
-	egkZBbXA==;
+	bh=AGNZ6BnW7rDeS6xIFWWg/LtSXEvcJ9kKWvp8uKo+oqA=; b=4vVTm4ESi0bOromhvM1XuqP+8m
+	mO253Tyu+MAH1JxHBxtgXCRJGuDH1H4MwEqRwlvaSnhjB6i1lMdongKOOIl5KP4kAsUpcPLpBIyJs
+	QL7+a9wb/U3TFPVYNvM3DHYYiJ4bIjyUAhLZPK+0NoCwp5PgOe24XkucK2r44tyFJrFXxKZ1x3wHq
+	Um+clKY3TfeiYYaa1krsJ9Nw1M8sPzLKXyLLuWP0NpLgCjQnoSU8JoCQwezZ8yD4RzqSNz7uwbPCN
+	tY2k4tt63xbMq8WC2ZTHhrNQIVIY1YOZmJcGeRaIkvX+dhLIWx74PYPWUuna8aAY1SgaGScpXwOE6
+	HVsfR/XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v990r-00000002wJg-32aa;
-	Wed, 15 Oct 2025 21:26:25 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1v991f-00000002wPJ-0JM2;
+	Wed, 15 Oct 2025 21:27:15 +0000
+Received: from pandora.armlinux.org.uk ([78.32.30.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v990p-00000002wJ2-1RLE
+	id 1v991c-00000002wOJ-1lJY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 21:26:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=AeSpn5dmCh2ZrJI87Q98dccP35CokF88J3n3w+4pfgg=; b=QdVmQ4Q0A4e4xTXnZnZp/kE7Vc
-	N9Zc8qsSt9FhFe6cc3yhjViA8VtT+K5XsIpAYnKUA2JQU52vv6Y4ltuivAVb1QAoaldEe1ignSyHL
-	rW+3zg/WtbPedbXhPxqdoxL+qjna+quTcM07UF3yNH5mFy6Bf3COJZlBCtR9IsoyApEQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1v990V-00B4vR-ES; Wed, 15 Oct 2025 23:26:03 +0200
-Date: Wed, 15 Oct 2025 23:26:03 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Abhishek Chauhan <quic_abchauha@quicinc.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexis Lothore <alexis.lothore@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Furong Xu <0x1207@gmail.com>, Inochi Amaoto <inochiama@gmail.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Kees Cook <kees@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Matthew Gerlach <matthew.gerlach@altera.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
-	netdev@vger.kernel.org, Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rohan G Thomas <rohan.g.thomas@altera.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Simon Horman <horms@kernel.org>,
-	Song Yoong Siang <yoong.siang.song@intel.com>,
-	Swathi K S <swathi.ks@samsung.com>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>, Vinod Koul <vkoul@kernel.org>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: Re: [PATCH net-next 11/14] net: stmmac: do not require snps,ps-speed
- for SGMII
-Message-ID: <15ea57e0-d127-4722-b752-4989d5a443c0@lunn.ch>
-References: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
- <E1v92N3-0000000AmHQ-4Bm2@rmk-PC.armlinux.org.uk>
+	Wed, 15 Oct 2025 21:27:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=AGNZ6BnW7rDeS6xIFWWg/LtSXEvcJ9kKWvp8uKo+oqA=; b=uokyPi/pdGzl7esJWjMXLznKWD
+	Xh8ANLAQ3j/YYuKO/QDwcdjjA5LzS2ydgQlncrmo6rg2+3/3owLO+lQT6+w2PKicRlxWRA08L5hB3
+	flhkYz0tYu8t8pkzqzpbW+aY6ULd4DfeIKTtX/OmtTBtIlcqN4rd0LSS27wtWlDzwEdR0lkFOSgLD
+	dJ2Gzg49La+Q730WbMPlUeFL1sXF5IME+Uu8UlPh5t4H5E+4EKNaYXg+SUkkej2VjHfzwMhpkgGpO
+	IzoIpUEIoiBbL2FqIqB8+W9q/XpbQbbxdiPQrh3UGALGAmh7cHr6dZmyu2DUyejo2ap+XnQ0amvES
+	66vxG8dQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47068)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v991M-000000005So-2bPW;
+	Wed, 15 Oct 2025 22:26:56 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v991K-000000002cN-3eca;
+	Wed, 15 Oct 2025 22:26:54 +0100
+Date: Wed, 15 Oct 2025 22:26:54 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 02/11] ARM: dts: imx6: rename touch-thermal0 to
+ touch-0-thermal
+Message-ID: <aPARnldAwAYvT0YQ@shell.armlinux.org.uk>
+References: <20251015-imx6_dts_cleanup-v2-0-41a7281b98c6@nxp.com>
+ <20251015-imx6_dts_cleanup-v2-2-41a7281b98c6@nxp.com>
+ <aO_9Tw1s7VcHauNh@shell.armlinux.org.uk>
+ <aPAFWuJCfvTcK8hz@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1v92N3-0000000AmHQ-4Bm2@rmk-PC.armlinux.org.uk>
+In-Reply-To: <aPAFWuJCfvTcK8hz@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_142623_402170_E098DE8B 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20251015_142712_460053_8D4698C8 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,18 +87,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 03:20:53PM +0100, Russell King (Oracle) wrote:
-> SGMII mode does not require port-speed to be specified; this only
-> switches SGMII to use the MAC configuration register speed settings
-> and the actual value is irrelevant when the link comes up.
+On Wed, Oct 15, 2025 at 04:34:34PM -0400, Frank Li wrote:
+> On Wed, Oct 15, 2025 at 09:00:15PM +0100, Russell King (Oracle) wrote:
+> > On Wed, Oct 15, 2025 at 12:44:27PM -0400, Frank Li wrote:
+> > > -		touch-thermal0 {
+> > > +		touch0-thermal {
+> > ...
+> > > -		touch-thermal1 {
+> > > +		touch1-thermal {
+> > ...
+> > > -		touch-thermal0 {
+> > > +		touch-0-thermal {
+> > ...
+> > > -		touch-thermal1 {
+> > > +		touch-1-thermal {
+> > ...
+> > > -		touch-thermal0 {
+> > > +		touch-0-thermal {
+> > ...
+> > > -		touch-thermal1 {
+> > > +		touch-1-thermal {
+> >
+> > Is it touch-N-thermal or touchN-thermal?
 > 
-> As it seems the intention was to support "reverse SGMII" with this
-> setting, but the code didn't actually configure that due to a typo,
-> the warning and bad DT binding documentation has led people to
-> specify snps,ps-speed in their DT files inappropriately.
+> What's difference? I suppose both naming should be okay.
 
-I know you hit the patch limit. Do you have a patch in the next series
-which updates the binding?
+Surely you'd want to be consistent with the node naming? Otherwise
+state in the commit message why you're using two different names
+where the originals had the same name.
 
-      Andrew
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
