@@ -4,106 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B914CCD192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 13:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41668CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 13:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dZIz1JVvXwwCvQ5KmmtLT9pXfGy/6Pb9v1cxXYgaiGo=; b=1ExfTlquQuBVCORHnJv3oD92ny
-	VhNvOCAzOFwQU44LUrLh4wLOp/uy95XciQ1JieVO4f9eEne2gzqWcKADCeKS33XD0B3Xz3Mxlbus1
-	caRUwdtpng05f60MQUsEr5upKYcnS9/X8V3lcQBckrT/fBuwies94t0d3cXI0aRt8k7NpideGRx9t
-	+HUv83TWGfmPvDEPQFEuEkk588iLnGlGKantCQGi4sSnRgtidMUKzbAvl7s00on4V7DHEoFi8U2d3
-	eVQSWsi2GYNIpi2npJuUMDSU46DEmJW9cibgdPICFhYzt2cyIsZyFlcwjUwcv8nyDTd7VJF6HKafs
-	vIeO5UIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yD6dvIl7J8wWJkas/YONpCBWDBu3WvjIWx4zsxh951U=; b=sO1j9C30zbSlU06BWbsTEk/X57
+	wYFgGKgaeLXNICr56cTmgzkfLMkpMfdqd43Yeq12tfiuWbME9wtROsDwC8CIjuRJNqiRi+a7B8ikN
+	lY0G5bvOnr+ZtQVjdtHJGzJyvBZOHFrEL5IjaHqOBqCnQj3swD22/ao86/kRhoxinI7DDl3BumJWX
+	hx6OPmQHHpLDwSN9DEWhyuB+MmBbsF9nhVVgvJzGTlogJ3r6h+EPcFKB3GkW2JC0y8dCSO/R/3rFf
+	nAo7AQ8Zc9iXLN2VolEF3KlFRP22tPeolmYvdOB9VG/6J/KXSfkG8x1e/T9j9AEJk3IHBftlG2F7T
+	dG/SgNXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v91KB-00000001frr-18OC;
-	Wed, 15 Oct 2025 13:13:51 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v91Mi-00000001gTt-0NPs;
+	Wed, 15 Oct 2025 13:16:28 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v91K9-00000001fqj-21GS
+	id 1v91Me-00000001gRL-315Z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 13:13:50 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59FAtknE016695;
-	Wed, 15 Oct 2025 13:13:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	dZIz1JVvXwwCvQ5KmmtLT9pXfGy/6Pb9v1cxXYgaiGo=; b=UZrwIeigukCkICpv
-	gW8W0ayLXyX3LglAXPodoI7Bk06HujuedD5HbqcdBOG8ilOwu7lrQftbD4Ap9wbn
-	njZ9VJRcd7EgYdDDKBghYDebdWc2MC/ATzDTkjI4xx5kmTsNsCV8HqYv7RavmEsQ
-	ED9zuw0OsNOO/dIgccu9P0Wb8WNSvMHIvQebj6ONS7G2NDZTjb9+D6CzuCxO5mto
-	8HkWzArKMOdTA51mxjlYy8h56QVv4nouHUkPpW7tdOW/XgqvmK6ujIcnvhOzNacR
-	uswejXa8Mea2R2CcWXjaW7ErgG++ISndliEpxTxctwtlm5NPmhsalmzHGWdwaBk3
-	luYdkg==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49rtrt9e4q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 15 Oct 2025 13:13:41 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 59FDDeRN013407
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 15 Oct 2025 13:13:40 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.24; Wed, 15 Oct 2025 06:13:34 -0700
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <bryan.odonoghue@linaro.org>, <mchehab@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_svankada@quicinc.com>,
-        <quic_vikramsa@quicinc.com>, <quic_nihalkum@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Ravi Shankar
-	<quic_rshankar@quicinc.com>,
-        Vishal Verma <quic_vishverm@quicinc.com>
-Subject: [PATCH v4 3/3] arm64: dts: qcom: monaco-evk-camera: Add DT overlay
-Date: Wed, 15 Oct 2025 18:43:03 +0530
-Message-ID: <20251015131303.2797800-4-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20251015131303.2797800-1-quic_vikramsa@quicinc.com>
-References: <20251015131303.2797800-1-quic_vikramsa@quicinc.com>
+	Wed, 15 Oct 2025 13:16:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1760534182;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=yD6dvIl7J8wWJkas/YONpCBWDBu3WvjIWx4zsxh951U=;
+	b=WCuN46obkcXO1LZdnnfLQ1G8dMenUUbvJpyaZXvoXSxMUlQ62kBQszMdsfmKMc9JMhm1AA
+	yVEgRBEgMpJtjwFwGZQMhOGQTSJBvy9mQPe39QsJv7Y7PyVPQ+S5XUqRVT3rMPUcReYYVT
+	qGtrprHbt3DPSDAnU7VaBB2p0KQdCGA=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-610-uHPKdMZuMm2y50EVBOyeiw-1; Wed, 15 Oct 2025 09:16:18 -0400
+X-MC-Unique: uHPKdMZuMm2y50EVBOyeiw-1
+X-Mimecast-MFC-AGG-ID: uHPKdMZuMm2y50EVBOyeiw_1760534177
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-42421b15185so4547119f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 06:16:18 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760534177; x=1761138977;
+        h=content-transfer-encoding:mime-version:message-id:date:references
+         :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yD6dvIl7J8wWJkas/YONpCBWDBu3WvjIWx4zsxh951U=;
+        b=wuC9LGkPr0MUH2Z/sFxg+PoTDXHh+aQQNAyoqrHSXemgrPUc9uKZzY+jy7Z/W1BX3f
+         1Bh+QoXq0hX7dEuYrlrz25M3MfL70AaL15eJtAbuz1zrJZvO2ojNll2GXyq1OtT3e90c
+         AfqRjbAO5VwatpSI6Y2mWHBFImactBzx8tLHyAVfA5JBjBSTkA4HvZ/qzomZYTrbKHXg
+         4LAboXKKK3uVRZHQ0wkpCJW+UyTwEM5D+pBsqI2AdrYIVMZLDH7QoqYrgfnRPVt5G29d
+         chSWUAhBS8HrTyUYjWEjaM+R/hizcjAvFs4qTNmxz8FrZqZqLnTgZqhoHg36xh+DB2sJ
+         11/w==
+X-Forwarded-Encrypted: i=1; AJvYcCVjElUHdGgqTL9vR6LxQOZfx5MtVmUWvXUL1SGCXqurRNskTPs2AnMsyHv8C9gblCYfXXQnatc+7WQ4tbDAc6V1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRlUz1uOJGYC80c/I0m83pNOG2NMSWTgQYvLYusxutD304IG6J
+	m3yDeqdrHfmKj6+Qqc7+SC/MfOOsQuxKw2SYliKchM1Jh26248CqfwiaCZvdqWYfeVG2mhgndvs
+	8iwnlaQngRdKkJVaxPo4hz7Xm2uP0UoMW3sedeUQMrilHKzzGElXdvOtZrYzZzUog9J4/gcbUO0
+	WO
+X-Gm-Gg: ASbGnctgLZgWR+5JR+r2gQS5MhimPqPNxcUQbRnI5Fg0sovlwdH78BGsM51RGapSNl7
+	GhXtftboFxF8M30MS/nxvy0OiioinNuFtQfsr6VHva4Y9e7ggP8B8UyLYOGuQAgX0DelJp128ac
+	6VJ2soNkLufuTn93+yAXn+gSgKI4xJDJ0o29x6HBBp2BQYDf3SzqIbll3KRRMhcKDOA7zgGzVgk
+	N0ZiJMHPmpSKQCKV8ftdyT1E3Sy+FtERoBWGA5HKF7HQXW50qGHMvAIs2bnqgpm6wgzgCA0nHxI
+	dv70UF22U7QcMmuSSTUSv2oXiAdtAMIgHOrFyVNrCWQ2cSVNJaLM4a5Q2r+7d5cnhPNzOVik5tN
+	8X5K9zvaK72pR2FLSAxJjdsjGFw==
+X-Received: by 2002:a05:6000:248a:b0:3f2:dc6e:6a89 with SMTP id ffacd0b85a97d-4266e8e4c29mr18416343f8f.57.1760534177128;
+        Wed, 15 Oct 2025 06:16:17 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHcUjf8Yi428dP9FWOn2X364zzJqp12CDvIxSjruyz4UDGZF5I3K12BFelQ7PlgEZWXYUZIhg==
+X-Received: by 2002:a05:6000:248a:b0:3f2:dc6e:6a89 with SMTP id ffacd0b85a97d-4266e8e4c29mr18416272f8f.57.1760534176503;
+        Wed, 15 Oct 2025 06:16:16 -0700 (PDT)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426ce57ccb1sm28976327f8f.8.2025.10.15.06.16.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Oct 2025 06:16:15 -0700 (PDT)
+From: Valentin Schneider <vschneid@redhat.com>
+To: Juri Lelli <juri.lelli@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+ x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Thomas
+ Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "H.
+ Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Peter
+ Zijlstra <peterz@infradead.org>, Arnaldo Carvalho de Melo
+ <acme@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
+ <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason
+ Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard
+ Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
+ "David S. Miller" <davem@davemloft.net>, Neeraj Upadhyay
+ <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
+ Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
+ Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>,
+ Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>, Jann Horn
+ <jannh@google.com>, Dan Carpenter <dan.carpenter@linaro.org>, Oleg
+ Nesterov <oleg@redhat.com>, Clark
+ Williams <williams@redhat.com>, Yair Podemsky <ypodemsk@redhat.com>,
+ Marcelo Tosatti <mtosatti@redhat.com>, Daniel Wagner <dwagner@suse.de>,
+ Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
+In-Reply-To: <xhsmhzf9tld2r.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <aO5I2WGtXqSPYFmH@jlelli-thinkpadt14gen4.remote.csb>
+ <xhsmhzf9tld2r.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+Date: Wed, 15 Oct 2025 15:16:13 +0200
+Message-ID: <xhsmhwm4wl2zm.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: hnyg7KFWbtCdR_EydHRivDyf7_7Idtwt
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDEzMDAyMiBTYWx0ZWRfXxbyBOQW/ywM0
- +oUqfrkt8ifeyQrTQqX8o/VkoPvWb4fk2xpyybvzGGs8Pr9DHqER7CfIjK8Kiq+e04Wd2nv1D5Z
- xz8URiXZ3ymEh7mHnnJJhA+ccobx83/t3my0DVgmuakbUY3uGsF1+98zULTK+pfwDqYHk1nOwMQ
- a45KrMuY34pNLxwCM4766MM7TVI74C5d+JNdU6IIxEGS6E7DonGeH1AUHjtIj7ouBm4mZHAOUa7
- ZUV5ZDGo+3Z/A/6lSRbdSKu4+sU449fh7yTtdVz91tiVkBuP4Uox3uxlBeTGWndXg2DqdCP6olK
- DiAXvMLFbqPsKoKPqTetsHZyEr8xApk8EsqVvM+tJgs1vGvP1BXohY/cTgs003Vnb5qt7ThrICt
- BmLzRf1PGfXP8Z7oZBEzBQuPL79U9g==
-X-Authority-Analysis: v=2.4 cv=SfD6t/Ru c=1 sm=1 tr=0 ts=68ef9e05 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=COk6AnOGAAAA:8 a=1o0OAiIl6arAuPHRMUsA:9 a=TjNXssC_j7lpFel5tvFf:22
- a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-GUID: hnyg7KFWbtCdR_EydHRivDyf7_7Idtwt
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-15_05,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1015 adultscore=0 phishscore=0 lowpriorityscore=0
- bulkscore=0 impostorscore=0 priorityscore=1501 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510130022
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 7Kq16cO3ecxFrAJcnRpSNj1u7ohPp_sUG9CoqdRE9AY_1760534177
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_061349_641949_BF92B9CA 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20251015_061624_821025_2793376F 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,156 +135,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+On 14/10/25 17:26, Valentin Schneider wrote:
+> On 14/10/25 14:58, Juri Lelli wrote:
+>>> Noise
+>>> +++++
+>>>
+>>> Xeon E5-2699 system with SMToff, NOHZ_FULL, isolated CPUs.
+>>> RHEL10 userspace.
+>>>
+>>> Workload is using rteval (kernel compilation + hackbench) on housekeepi=
+ng CPUs
+>>> and a dummy stay-in-userspace loop on the isolated CPUs. The main invoc=
+ation is:
+>>>
+>>> $ trace-cmd record -e "ipi_send_cpumask" -f "cpumask & CPUS{$ISOL_CPUS}=
+" \
+>>>                 -e "ipi_send_cpu"     -f "cpu & CPUS{$ISOL_CPUS}" \
+>>>                 rteval --onlyload --loads-cpulist=3D$HK_CPUS \
+>>>                 --hackbench-runlowmem=3DTrue --duration=3D$DURATION
+>>>
+>>> This only records IPIs sent to isolated CPUs, so any event there is int=
+erference
+>>> (with a bit of fuzz at the start/end of the workload when spawning the
+>>> processes). All tests were done with a duration of 6 hours.
+>>>
+>>> v6.17
+>>> o ~5400 IPIs received, so about ~200 interfering IPI per isolated CPU
+>>> o About one interfering IPI just shy of every 2 minutes
+>>>
+>>> v6.17 + patches
+>>> o Zilch!
+>>
+>> Nice. :)
+>>
+>> About performance, can we assume housekeeping CPUs are not affected by
+>> the change (they don't seem to use the trick anyway) or do we want/need
+>> to collect some numbers on them as well just in case (maybe more
+>> throughput oriented)?
+>>
+>
+> So for the text_poke IPI yes, because this is all done through
+> context_tracking which doesn't imply housekeeping CPUs.
+>
+> For the TLB flush faff the HK CPUs get two extra writes per kernel entry
+> cycle (one at entry and one at exit, for that stupid signal) which I expe=
+ct
+> to be noticeable but small-ish. I can definitely go and measure that.
+>
 
-Monaco EVK board does not include a camera sensor in its default hardware
-configuration. Introducing a device tree overlay to support optional
-integration of the IMX577 sensor via CSIPHY1.
+On that same Xeon E5-2699 system with the same tuning, the average time
+taken for 300M gettid syscalls on housekeeping CPUs is
+  v6.17:          698.64ns =C2=B1 2.35ns
+  v6.17 + series: 702.60ns =C2=B1 3.43ns
 
-Camera reset is handled through an I2C expander, and power is enabled
-via TLMM GPIO74.
+So noticeable (~.6% worse) but not horrible?
 
-An example media-ctl pipeline for the imx577 is:
-
-media-ctl --reset
-media-ctl -V '"imx577 3-001a":0[fmt:SRGGB10/4056x3040 field:none]'
-media-ctl -V '"msm_csiphy1":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -l '"msm_csiphy1":1->"msm_csid0":0[1]'
-media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video1
-
-Co-developed-by: Ravi Shankar <quic_rshankar@quicinc.com>
-Signed-off-by: Ravi Shankar <quic_rshankar@quicinc.com>
-Co-developed-by: Vishal Verma <quic_vishverm@quicinc.com>
-Signed-off-by: Vishal Verma <quic_vishverm@quicinc.com>
-Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
----
- arch/arm64/boot/dts/qcom/Makefile             |  4 +
- .../dts/qcom/monaco-evk-camera-imx577.dtso    | 96 +++++++++++++++++++
- 2 files changed, 100 insertions(+)
- create mode 100644 arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 296688f7cb26..4df3044639a4 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -36,6 +36,10 @@ lemans-evk-camera-csi1-imx577-dtbs	:= lemans-evk.dtb lemans-evk-camera-csi1-imx5
- 
- dtb-$(CONFIG_ARCH_QCOM)	+= lemans-evk-camera-csi1-imx577.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= monaco-evk.dtb
-+
-+monaco-evk-camera-imx577-dtbs	:= monaco-evk.dtb monaco-evk-camera-imx577.dtbo
-+dtb-$(CONFIG_ARCH_QCOM)	+= monaco-evk-camera-imx577.dtb
-+
- dtb-$(CONFIG_ARCH_QCOM)	+= msm8216-samsung-fortuna3g.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-acer-a1-724.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-alcatel-idol347.dtb
-diff --git a/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso b/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-new file mode 100644
-index 000000000000..2237f0fc4a14
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-@@ -0,0 +1,96 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/qcom,sa8775p-camcc.h>
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&{/} {
-+	vreg_cam1_2p8: vreg-cam1-2p8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vreg_cam1_2p8";
-+		startup-delay-us = <10000>;
-+		enable-active-high;
-+		gpio = <&tlmm 74 GPIO_ACTIVE_HIGH>;
-+	};
-+};
-+
-+&camss {
-+	vdda-phy-supply = <&vreg_l4a>;
-+	vdda-pll-supply = <&vreg_l5a>;
-+
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			csiphy1_ep: endpoint {
-+				clock-lanes = <7>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&imx577_ep1>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci1 {
-+	pinctrl-0 = <&cci1_i2c0_default>;
-+	pinctrl-1 = <&cci1_i2c0_sleep>;
-+
-+	status = "okay";
-+};
-+
-+&cci1_i2c0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	camera@1a {
-+		compatible = "sony,imx577";
-+		reg = <0x1a>;
-+
-+		reset-gpios = <&expander2 1 GPIO_ACTIVE_LOW>;
-+		pinctrl-0 = <&cam1_default>;
-+		pinctrl-names = "default";
-+
-+		clocks = <&camcc CAM_CC_MCLK1_CLK>;
-+		assigned-clocks = <&camcc CAM_CC_MCLK1_CLK>;
-+		assigned-clock-rates = <24000000>;
-+
-+		avdd-supply = <&vreg_cam1_2p8>;
-+
-+		port {
-+			imx577_ep1: endpoint {
-+				clock-lanes = <7>;
-+				link-frequencies = /bits/ 64 <600000000>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&csiphy1_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&tlmm {
-+	cam1_default: cam1-default-state {
-+		mclk-pins {
-+			pins = "gpio68";
-+			function = "cam_mclk";
-+			drive-strength = <2>;
-+			bias-disable;
-+		};
-+
-+		ldo-avdd-pins {
-+			pins = "gpio74";
-+			function = "gpio";
-+			drive-strength = <2>;
-+			bias-disable;
-+		};
-+	};
-+};
--- 
-2.34.1
+>> Thanks,
+>> Juri
 
 
