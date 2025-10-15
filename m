@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A03B8CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 18:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 231A7CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 18:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wjcJ38Q7QlBCb42desheCijSJlWiudzve42WEdCNTGE=; b=0gcZ5gR+d91qAv4F9TXLKtomkw
-	Tu2XrT/VCFfznJ/LECK2+7pFRRE+kau/zrNVudvFGd+hi9PzaCjxeZHDuzna03kX8BYqmWNmBL2eG
-	JmzsJlUQ41g7mD745tMOYX1WTSpeOus9RMQc0y7NC6/hXQpss3spCiBXggX5lnUUf81x+7NCa1F2y
-	pcByJlMvsx4X77eTTu2o46gMVCPKieQVg/qdNrvgnpcYUFvL6lik5YFyNOgvxtBgjEacRzH3PuTMl
-	UQywNL9fDa42q3oIGCHp6zqXui94VvlMEGoj4l2MIPqqQ/OWq9Da39WHPQXPT2f53J11Gk5NN+dUJ
-	ALEJw1hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rb/WZJVRBUvBZWFtxnTKOgoU4EDPO4UL2tHcxFlpBQQ=; b=WTxuVIqQ9GIGszAi+qHglpc1bn
+	frxJ4l2+Mr/d0I69A7E+smzbWxcHsWDnN04+5BnSpPatc63a10uyVqfPWFFznPYn5e9wasEmpAGve
+	pjf5H9ANcURdRzYClpj5V4S4npHHdMSZRwRI5ESF048qNwek+OUUaDRYZhvgvP9QznOa2QSCPjl33
+	ffFSFto6gLPQZwTLuAxQ09lKv+PpMK6T7wFLSTcVm7VlxQnBvQ6SvgnrUQ2TtFnGHzr80GEsA+pXW
+	C2BOEfdaV7QO4p/mseyMTMjwOlCz/0oD4qNwKw9E+i6sAUlKekhGq42iE4r4Ry8Fs6lj36MQvBwQz
+	5HH2J8Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v96AK-00000002bN5-08DU;
-	Wed, 15 Oct 2025 18:24:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v96AH-00000002bMD-1Suc
+	id 1v96I2-00000002cCr-42rG;
+	Wed, 15 Oct 2025 18:31:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v96I0-00000002cC4-2lRv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 18:23:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 40C241688;
-	Wed, 15 Oct 2025 11:23:48 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 024083F66E;
-	Wed, 15 Oct 2025 11:23:54 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Wed, 15 Oct 2025 19:23:37 +0100
-Subject: [PATCH] perf: arm_spe: Ensure trace is disabled when TRUNCATED
- flag is set
+	Wed, 15 Oct 2025 18:31:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 207B44456A;
+	Wed, 15 Oct 2025 18:31:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCEA9C4CEF8;
+	Wed, 15 Oct 2025 18:31:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760553116;
+	bh=745IEqjMLPClb39Tf9d1zUU3SvdsnRvc6cJCVLlU9Bo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=by9wpcsvmDWWfdyRKF3SXdvPNP6Bhdym/3/NdTCz+DyPQGXuqijjPP9dxLllX8bW4
+	 L6CPRD8ggleEOHq4Bm1DIN+EJfxqTo3CY1TXfPDTjBYM+D7a14ucyyXIRfF+Ri4L7z
+	 KDGwJtLMaMl5lI60NlVw95oztEumktHRXN1ZS+AJxJWcCVW26sLGqhc5eFE09kOd/V
+	 k7SlQIvAJpwv2ivP13t54yOsh15++RJB04QN+uaiBf8dIpWcRf5fv9ooVVBjqzG5HM
+	 lYVNpswqVeXzoCN007ZfAC5OCPwusPDBFPLGpSIe66whJRI3/qb79NLzcHVjEcnUmR
+	 CYh6y/3MrFWOg==
+Date: Wed, 15 Oct 2025 13:31:53 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	Sam Protsenko <semen.protsenko@linaro.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Will McVicker <willmcvicker@google.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	kernel-team@android.com, linux-kernel@vger.kernel.org,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Michael Turquette <mturquette@baylibre.com>
+Subject: Re: [PATCH 1/9] dt-bindings: soc: samsung: exynos-sysreg: add gs101
+ hsi0 and misc compatibles
+Message-ID: <176055311249.179333.13160204351428508138.robh@kernel.org>
+References: <20251013-automatic-clocks-v1-0-72851ee00300@linaro.org>
+ <20251013-automatic-clocks-v1-1-72851ee00300@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251015-arm_spe_fix_truncated_flag-v1-1-555e328cba05@arm.com>
-X-B4-Tracking: v=1; b=H4sIAKjm72gC/x3MQQqAIBBA0avErBPUsEVXiZCxphooi7EiiO6et
- Hzw+Q8kEqYETfGA0MWJt5hhygL6GeNEiodssNo6o41TKKtPO/mRb3/IGXs8aPDjgpMy6EJVW40
- VBsiDXShX/7zt3vcD6uwxF2wAAAA=
-X-Change-ID: 20251015-arm_spe_fix_truncated_flag-1a5b3620a3ab
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexandru Elisei <alexandru.elisei@arm.com>, 
- James Clark <james.clark@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760552634; l=1992;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=hobg/DGsST/n4PHeoRQSc4GShXGVL6XzTZGQU8Mhvt8=;
- b=5Ia7UVEN++q+1LfrKDFKIJROBP5XWebRE+b9jgrDT+esrW89DjFTQCwQZX3URbk6tVUAjN1h3
- vAAGHyUEVfaBzs1Y1ClAKHn85pKjW+H4VEmLft4Z/TtmWEJ8TDFUIM3
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251013-automatic-clocks-v1-1-72851ee00300@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_112357_449982_57F49E77 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20251015_113156_717351_8FDA61D2 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,63 +89,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TRUNCATED flag can be set in the following cases:
 
- 1. When data loss is detected (PMBSR_EL1.DL == 0b1).
- 2. When arm_spe_perf_aux_output_begin() fails to find a valid limit
-    because it runs out of free space.
+On Mon, 13 Oct 2025 21:51:30 +0100, Peter Griffin wrote:
+> Add dedicated compatibles for gs101 hsi0 and misc sysreg controllers to the
+> documentation.
+> 
+> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> ---
+>  .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml        | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
 
-Currently, only the first case invokes irq_work_run() to execute the
-event disable callback, while the second case does not.
-
-Move the call to irq_work_run() later with checking the TRUNCATED flag,
-so that both cases are handled and redundant calls are avoided.
-
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/perf/arm_spe_pmu.c | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index fa50645feddadbea5dc1e404f80f62cf5aa96fd4..05ba977f75d607a1d524f68694db9ea18a6ef20c 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -731,12 +731,6 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
- 	if (act == SPE_PMU_BUF_FAULT_ACT_SPURIOUS)
- 		return IRQ_NONE;
- 
--	/*
--	 * Ensure perf callbacks have completed, which may disable the
--	 * profiling buffer in response to a TRUNCATION flag.
--	 */
--	irq_work_run();
--
- 	switch (act) {
- 	case SPE_PMU_BUF_FAULT_ACT_FATAL:
- 		/*
-@@ -765,6 +759,15 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
- 		break;
- 	}
- 
-+	/*
-+	 * The TRUNCATED flag is set when data loss is detected by PMBSR_EL1.DL,
-+	 * or arm_spe_perf_aux_output_begin() sets the flag if runs out of free
-+	 * space. Ensure that all perf callbacks have completed for disabling
-+	 * the profiling buffer.
-+	 */
-+	if (handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)
-+		irq_work_run();
-+
- 	/* The buffer pointers are now sane, so resume profiling. */
- 	write_sysreg_s(0, SYS_PMBSR_EL1);
- 	return IRQ_HANDLED;
-
----
-base-commit: 1f4a222b0e334540343fbb5d3eac4584a6bfe180
-change-id: 20251015-arm_spe_fix_truncated_flag-1a5b3620a3ab
-
-Best regards,
--- 
-Leo Yan <leo.yan@arm.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
