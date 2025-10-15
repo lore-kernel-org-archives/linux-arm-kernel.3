@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 698CDCCD192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 13:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AC0CCCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 13:13:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L9FZVV8ifs53cNZY1ESFco2sDL4YiPzh0mjjUAVy2tI=; b=xXuwoJcBXdAPd1T3YY0aex5sU2
-	0UN8MkK/U6cZTwTsVfwTQ5pBLkKQwsHRNjLV2zPSbaNcR+y6Om/fnqeKOToFeuIRfwWWLYuvvIgwP
-	HMs/cz7lA0LKC8r0Mhpc/ebDRVcY8xfUTLcIkDCX+R25V/Yik3w7Uh1cFrKNO1N8XbEb8OCE/hSOP
-	eYmLMcQ8Asr9ngaQ2/aLQEfPk5O9J6lpROkeSieAvISp2UCVsWyJGxdVu2IAB0EqavD0gzjoL8xEs
-	cIpIxG8yC/SX6Q2zF2XIBZkaQFhAeOqMwVQFl40FF43POCrSgqO6knhtO9QQD8ApXtpMTYf7PyaCX
-	P9b5WPpA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CI/090gSC0NTuHfVAhb5eoKhHpV1yacyXpcBOsxYpDU=; b=a2snsPNM0k6jEeFGaOnrB9EExn
+	BG4HYtUjst9deHFepUeGCMFOSBuN5fNN2fR7oCe3uqyEtkHn9mMAvrVIPu70PIAV1M5VBDeB6DUwJ
+	XyG7a/U9iwT+bhZkUkxhEz4KWDCp/U2fE09nbegCU+ouFgA599SXwEh2z0cFNrbie3NPXnKkjFh20
+	jWP2yG9OWjGfbMQYDHvj3w7GrGsB8Dc8ZM0Fup3YRwvgdNe+mK+vaGfJQAtKN6emhLnp7o3DSK4Hy
+	ufWlIzD7ut1XqvOohAsBS69ySRqJqPvU5o/E0eI8uJQaU99/1P1pkr93naKf+F2sZwlMkt8aGZ2Yx
+	g0Zatd9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v91Ju-00000001fjQ-3YEL;
-	Wed, 15 Oct 2025 13:13:34 +0000
+	id 1v91Jz-00000001fl9-0esK;
+	Wed, 15 Oct 2025 13:13:39 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v91Jr-00000001fiv-2T5M
+	id 1v91Jx-00000001fjx-05Wx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 13:13:32 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59FAoGS2003541;
-	Wed, 15 Oct 2025 13:13:24 GMT
+	Wed, 15 Oct 2025 13:13:38 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59FBBZcQ015803;
+	Wed, 15 Oct 2025 13:13:30 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=L9FZVV8ifs53cNZY1ESFco
-	2sDL4YiPzh0mjjUAVy2tI=; b=UCuH9aswW28wybTqAB1WOE4kU3YUtW1z2UWTFT
-	7/Rbv/ZZYa4zacJVJdkF1H4e82Uq+73gMzSI1fpk0kz0+tF37UDLUdckv/zsYiXs
-	wxOqmUiH5JZ2gWS2+S+oUyG+wqN1lIhfmY3VYOKdobyUVbj0j19NNLO1NqPpM5vE
-	pLz2+rY8tNEs2p11fr2BqN9yg3zgCtuwOVRKToKqisWFJ//qsUcoUPpwAiil1LfX
-	N8hqie9dCTcbJ7hnielRqcadiFrV3SY+tIF6uL0uhGbgR6xdw1c0zjUoe0++JhF/
-	QlvXW+sdpaUg2wrJagUuBgoYNfP2LEkvYfa0X/UAzMW6RGyg==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49sua8k3cy-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	CI/090gSC0NTuHfVAhb5eoKhHpV1yacyXpcBOsxYpDU=; b=Yujg7KvjQ4xiwLt5
+	yJ7V/lTxREtrahXxLZuTdxm1/SPHILfuGOv91UbJUQUVlPRsyqBdNuwLqk9s7bRW
+	4L/lYbfX8C+EVuSY8jnn+2HEmJdPUbu3sJde7V7vcwZ3NMYy0fasxBdoqYZeHAwu
+	fCZbc7cwqBR2nCJzg9Q899OyhvdAGuS5ukhn2xWVv5Invqy90YDxr9/8T80XH3Wh
+	KsV+qZQTtai+vu6qYdNZjo2joy+iP0L5Kk5TJfAhH6KeQiI1lW//o7TcIDnPkKiX
+	AHHOdtN1+KQRZEzTdv4FaS7WXZ0538G61uxGWwAZYYdJBmbH7pKxh/bEuB0oh9Va
+	GCBOKw==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qfm5mkem-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 15 Oct 2025 13:13:24 +0000 (GMT)
+	Wed, 15 Oct 2025 13:13:29 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 59FDDNFt004956
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 59FDDSfk013166
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 15 Oct 2025 13:13:23 GMT
+	Wed, 15 Oct 2025 13:13:28 GMT
 Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.24; Wed, 15 Oct 2025 06:13:18 -0700
+ 15.2.1748.24; Wed, 15 Oct 2025 06:13:23 -0700
 From: Vikram Sharma <quic_vikramsa@quicinc.com>
 To: <bryan.odonoghue@linaro.org>, <mchehab@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andersson@kernel.org>,
@@ -61,10 +62,12 @@ CC: <linux-arm-kernel@lists.infradead.org>, <quic_svankada@quicinc.com>,
         <quic_vikramsa@quicinc.com>, <quic_nihalkum@quicinc.com>,
         <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v4 0/3] Add CCI and imx577 sensor support for monaco evk
-Date: Wed, 15 Oct 2025 18:43:00 +0530
-Message-ID: <20251015131303.2797800-1-quic_vikramsa@quicinc.com>
+Subject: [PATCH v4 1/3] dt-bindings: i2c: qcom-cci: Document qcs8300 compatible
+Date: Wed, 15 Oct 2025 18:43:01 +0530
+Message-ID: <20251015131303.2797800-2-quic_vikramsa@quicinc.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20251015131303.2797800-1-quic_vikramsa@quicinc.com>
+References: <20251015131303.2797800-1-quic_vikramsa@quicinc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -73,32 +76,32 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: wEWTZE-niR1qI16psjOeZ6KVFFqdoMVd
-X-Authority-Analysis: v=2.4 cv=e5MLiKp/ c=1 sm=1 tr=0 ts=68ef9df4 cx=c_pps
+X-Proofpoint-GUID: Beugbd9VNU_hfIPFlVYPEdGT4Sev8iww
+X-Proofpoint-ORIG-GUID: Beugbd9VNU_hfIPFlVYPEdGT4Sev8iww
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAyMCBTYWx0ZWRfXwKbz+oxJDidY
+ AohjJlfZmKvx4NrrTbWYaE2uIJO0cJA9mAv2JGqbObq7JoHkMQzJbEgHZdbaFxqN7PKUs3eiM+e
+ durjp7/eXBNjZ9TpXsXBjJjhZG0bjHoFm/jt2COYiwzygbtWWpFoT6E0rPW0pGzmxDdeTViH2nO
+ Cih8TduD5A1IMGiZPDzwxLMEGhH0k5GB+IY15MR0VeNml32+IiPlc3A7t5JSuGGYwFSIrGBkpwH
+ awqKvC/NHmAcz48jZ3roUMpyjA+ySaIRJPAwcYKby8TblcWOZxQavwpPo4Dmi9ehR8e5Oc1Qe6G
+ iB1LeVBUsK4fmZDjhA6XkdkCdTDBQjgsfgCyyRLX6PSbnppuwUhbWWS0MloLu70WrMKydvg6RbO
+ J82EWZh9v3QpRsVG5+pMwti0PVXN6g==
+X-Authority-Analysis: v=2.4 cv=V71wEOni c=1 sm=1 tr=0 ts=68ef9df9 cx=c_pps
  a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
  a=GEpy-HfZoHoA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=RVIg9llbwysgEqpyqKEA:9
- a=TjNXssC_j7lpFel5tvFf:22 a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE0MDEzNCBTYWx0ZWRfX6wigO97PcB51
- Ge8XW3keTS7UxsaTGO3UPw4vjE4YDrBhMVg7kG4vAUgZx2cl/mkgk7w68cHnu0J41K7eZ81Ur4X
- 0Y1djEBGAQU+XwL01thuihc3J/S9p0NNYGKbThar15YiprocGP4BqCwk0cA0u/agxagUd+yzQsI
- lR8m8am7TEDacdz5i0gYIEtYoOTHCOP/AGlyzXBenZgXjurrr4+rGRgjobFid/tBVHaleoBn0uB
- wzWx6WJ1SXZX1u4LkIJbNckbxBToSHAQzuUp0o6Olg1DhIHUsJGuEdADKIteCXD79z7tk7xfE01
- 9b1kK03eLosvaSSsW3FB5qTbaYeFJvjd9HBND2Iz/DBxcKpA+T1o4SvhBf3mLE7yN76GG1GO8XH
- 5I8x03bnTKUVDLrcnuOEBxJmD3CibQ==
-X-Proofpoint-ORIG-GUID: wEWTZE-niR1qI16psjOeZ6KVFFqdoMVd
+ a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=VwQbUJbxAAAA:8 a=phzA4CzYhpZqrDFsW3YA:9
+ a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22 a=cPQSjfK2_nFv0Q5t_7PE:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-10-15_05,2025-10-13_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 suspectscore=0 spamscore=0 adultscore=0 clxscore=1015
- priorityscore=1501 impostorscore=0 malwarescore=0 bulkscore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ bulkscore=0 malwarescore=0 spamscore=0 adultscore=0 suspectscore=0
+ impostorscore=0 phishscore=0 clxscore=1015 lowpriorityscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
- definitions=main-2510140134
+ definitions=main-2510110020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_061331_742251_5D3A7A64 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20251015_061337_170499_8E348A9D 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,72 +116,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nihal Kumar Gupta <nihalkum@qti.qualcomm.com>
+From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
 
-Monaco EVK is a single-board computer based on the Qualcomm QCS8300 SoC.
-It lacks a camera sensor in its default configuration.
-This series adds CCI support and enables the IMX577 sensor via CSIPHY1
-through device tree overlay.
+The three instances of CCI found on the QCS8300 are functionally the same
+as on a number of existing Qualcomm SoCs.
 
-We have tested IMX577 Sensor on CCI1 with following commands:
-- media-ctl --reset
-- media-ctl -V '"imx577 3-001a":0[fmt:SRGGB10/4056x3040 field:none]'
-- media-ctl -V '"msm_csiphy1":0[fmt:SRGGB10/4056x3040]'
-- media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-- media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-- media-ctl -l '"msm_csiphy1":1->"msm_csid0":0[1]'
-- media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-- yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video1
----
-
-This patch series depends on patch series:
-https://lore.kernel.org/all/20251015130130.2790829-1-quic_vikramsa@quicinc.com
-
-Bindings for Supplies are added by below patch:
-https://lore.kernel.org/all/20251015130130.2790829-1-quic_vikramsa@quicinc.com
-
-Changes in v4:
-- Remove the AXI source clock from the CCI node - Konrad
-- Updated the qcs8300-camss device tree binding.
-- Link to v3:
-  https://lore.kernel.org/all/20250917130647.1701883-1-quic_vikramsa@quicinc.com
-
-Changes in v3:
-- Updated and Wrapped commit messages for [PATCH v2 1/3] and [PATCH v2 2/3] - Rob
-- Link to v2:
-  https://lore.kernel.org/all/20250912141134.2799078-1-quic_vikramsa@quicinc.com
-
-Changes in v2:
-- Remove the patch that adds PHY supply documentation in the qcs8300 CAMSS. 
-  bindings. This change should be submitted together with the qcs8300 bindings patch.
-- Fix indentation and regulator node name - Krzysztof.
-- Update commit message as suggested - Dmitry.
-- Link to v1:
-  https://lore.kernel.org/lkml/20250909114241.840842-1-quic_vikramsa@quicinc.com
-
-Used following tools for the sanity check of these changes.
-- make -j32 W=1
-- checkpatch.pl
-- make DT_CHECKER_FLAGS=-m W=1 DT_SCHEMA_FILES=i2c/qcom,i2c-cci.yaml dt_binding_check
-- make CHECK_DTBS=y W=1 DT_SCHEMA_FILES=i2c/qcom,i2c-cci.yaml
-- make DT_CHECKER_FLAGS=-m W=1 DT_SCHEMA_FILES=media/qcom,qcs8300-camss.yaml dt_binding_check
-- make CHECK_DTBS=y W=1 DT_SCHEMA_FILES=media/qcom,qcs8300-camss.yaml
+Introduce a new SoC-specific compatible string "qcom,qcs8300-cci" with a
+common fallback.
 
 Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
 Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Nihal Kumar Gupta (3):
-  dt-bindings: i2c: qcom-cci: Document qcs8300 compatible
-  arm64: dts: qcom: qcs8300: Add CCI definitions
-  arm64: dts: qcom: monaco-evk-camera: Add DT overlay
-
- .../devicetree/bindings/i2c/qcom,i2c-cci.yaml |   2 +
- arch/arm64/boot/dts/qcom/Makefile             |   4 +
- .../dts/qcom/monaco-evk-camera-imx577.dtso    |  96 ++++++
- arch/arm64/boot/dts/qcom/qcs8300.dtsi         | 303 ++++++++++++++++++
- 4 files changed, 405 insertions(+)
- create mode 100644 arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-
+diff --git a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml b/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
+index 9bc99d736343..ef6af05f7585 100644
+--- a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
++++ b/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
+@@ -26,6 +26,7 @@ properties:
+       - items:
+           - enum:
+               - qcom,qcm2290-cci
++              - qcom,qcs8300-cci
+               - qcom,sa8775p-cci
+               - qcom,sc7280-cci
+               - qcom,sc8280xp-cci
+@@ -129,6 +130,7 @@ allOf:
+           contains:
+             enum:
+               - qcom,qcm2290-cci
++              - qcom,qcs8300-cci
+     then:
+       properties:
+         clocks:
 -- 
 2.34.1
 
