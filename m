@@ -4,96 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3750CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 18:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5DDCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 18:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hukg1h3ozHOZYYKzu8a9q8XV+g6fS+oS92fdsP1ACq0=; b=FtrF4X449ryEMfSsoZA+8z4BJW
-	MbR20qXcr8TNqdKy9wEkcNI4oOaB65028xhP8ynklveMc0pnnFELN6jV8SvF0NySxQ2doLhj+9lUf
-	s/T5xBdi9gBDhT6yQMmjYiBespAbkJCtpmjoUlh8UgDSDcVxXrwqiI0zibneI3UqFTH28QlzX9voz
-	fp3C4kQ9EkERCiGQu/JN6CzpfC8nAtEhJU9wMuERdWO465INwIHnbd+HOUt3oeYYizZkx50UReMba
-	fRnWOZz9eBPqfp5d74MH96spkTjDickA/4MortGm4CHWqoS7Mgqk/LEi/U4LM56/0HjsSjPfnhT/8
-	iUiRPyVA==;
+	bh=hMSfqTFOOxz3BI5gxHBbzrsmx6UX56DPc5IdGmMbF48=; b=QwFFswfL8XjkKioohqMfDp63wY
+	9gY0rTN3C13NXuG2hksifjApaVIxUE/YUnxVCIveiTWm2xOhGJ5uk6JbbWVzBYggO6oNahw0wfjZq
+	HD5r4PIfqAn/apt3mq5IKGyDr0+YE4BcUp/sdtqpR0MyF9SNqxt1OClqQJMjZFTx9Og18T5hgyiHO
+	zJFvgEPyi1JBOmLrbC+jjscIVxxy7yh9bu/Wc6gn1mFPUAElUJENKztEueoMc3pLMjTqzUMJnI0sD
+	1tvrJuti2c382/lmiNdIN/N2fYehP7AHG+YxT5gWh+q9stZzfLTfZKKFSEMq6nVZ7loxZJpgxmhdb
+	PZ4dQGZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v96aF-00000002ejP-0xBb;
-	Wed, 15 Oct 2025 18:50:47 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1v96cz-00000002fCU-0ZsP;
+	Wed, 15 Oct 2025 18:53:37 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v96aC-00000002eij-3CO2
+	id 1v96cw-00000002fBQ-3T0b
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 18:50:45 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-591b99cb0c4so475728e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 11:50:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760554243; x=1761159043; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hukg1h3ozHOZYYKzu8a9q8XV+g6fS+oS92fdsP1ACq0=;
-        b=iFxrttn+zaCn7MdRWxBebTIkkDANq0PUGe0WN0u9katlHMTbMQY1LeU+5dNsfLjfkm
-         xNLQiWIHAe7Jv18KkTbl5hQZhGFXyNOADiqOC4cVFjACi/MbFR00UzcEV/4M5H2Vkj/k
-         ROx6Gff3X3pBpSJJgGFbmMkMSKHvANkwgvpoogHvGhS0vUqor0L6P4FpM+al2TwppIpp
-         zTuv788gXi/Zzsd8tw3j8JGAIpDo2C+PivvuNVpe1J8M9Lq/r2H7WPh/M9CRZSXq9GX1
-         j6QH+2ETNY5AJZW+q5n4QiYsdLHVkrJcFNcdPNHFAJRHy+AyMA4sQgRUfM07XESm7amo
-         oqTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760554243; x=1761159043;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=hukg1h3ozHOZYYKzu8a9q8XV+g6fS+oS92fdsP1ACq0=;
-        b=fY7mDWZNhA2pRxlw0+ktNTqd8QDuKE0ep2Fy7gYLbJQxS5t2T8miVFm7Z4rFXt/uoS
-         2ZM3u6WKmcTmyCR2ehgtC1Sap+iZ7lDc69K9h0DM1KkVpxRiz8b+7KlhT3F7tDE7LBDJ
-         1fdVUd7xcdowZltI+QxHgfBKcd4Bm0fIV+v4x/+4jGaCyURhhlqQ+YGjFIa4LEQClW0i
-         0gKFkSBD48defmoTjyMFC2o+TWNPzwFjaxyh6CovSdo7blQs7tme9kQxqg98jVZE/+MF
-         AhUmR4jBUif3UOBVX4wWvlWmQv8xrFf71V4+1ZZEeA6jbdqUKGq2ps57b95C2wggVXAV
-         ztjQ==
-X-Gm-Message-State: AOJu0YyP52nCteQl17z0us8q2yCFUi5jJHCINbk1Dsf5q2GAxwloPTgz
-	ESvqLD0z7V/t6Mw8RT1f/SDPp+fCGrZyX905GvKfLpwp/5bg3hXSQkHgRxbgil+N3OY=
-X-Gm-Gg: ASbGnctIwm1UpLAz0KogWbeiaYeO4lqTBSY+JIiBJC/1ZNL+SJ6y75ZpNNo/p6jLgsQ
-	/vit66BMhMUfLXmYMfrSIH5+qSyfj2DVeUBFIbv4jIs02t3Ti1ThWVE145Z+2bmtELkJdXggkZ6
-	hU/h8WQnCCwhMMbjD69XvQUq56yPvpMHMVfgzzKYQkBrM5s8rEAbTAEBclUvYDDATCO3nvyU/Fd
-	A9jb5PHAIjP989KrsXWxRZexRHbeWdCFlylzQJ9PqsNe0Ex+8kcN2bTLoKWLxJA1QzmxhEiY7HS
-	R353BHwKKDQJg15NW0p+V5Yyax+aVLYt4fkoYmZ/YFRReW9sPiRS+iV28lr2F7uCCx1WgQSXgTI
-	8S0NUwU+u4JkEdhXSX/KLDYnqxgFxJdp+vNAI/XWKgotDGEuEeJ3eoxcFx4AgznxYLCWZFPtpHF
-	EeKlxH8utaudMwYR9MJBuT5+PUlLgoqZL2PwU=
-X-Google-Smtp-Source: AGHT+IG+0JkONJK7diPS9LC4IMA7PvSE07P+bqP1KzE0xk93DSkWmTXn5VqwKTon3a4GXj+CVo91gA==
-X-Received: by 2002:a05:6512:3b14:b0:581:9295:1b10 with SMTP id 2adb3069b0e04-591c9017360mr816502e87.5.1760554242641;
-        Wed, 15 Oct 2025 11:50:42 -0700 (PDT)
-Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-590881e4e09sm6425776e87.23.2025.10.15.11.50.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Oct 2025 11:50:42 -0700 (PDT)
-Message-ID: <365d2e55-8ed8-432a-964c-b57601fd2385@linaro.org>
-Date: Wed, 15 Oct 2025 21:50:41 +0300
+	Wed, 15 Oct 2025 18:53:36 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4cn0Gk6R2wz9tcL;
+	Wed, 15 Oct 2025 20:38:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760553534;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hMSfqTFOOxz3BI5gxHBbzrsmx6UX56DPc5IdGmMbF48=;
+	b=L0YA6qK/+qwqyGzdmlgNk9FFQ/Hnb30IjR7tRRMximVvgg8VhA4sTDV6Nci0YOF699BdSC
+	HDytgme2wZ2JXtAD9NWTiMd86orRY8X7a/nrqGilUlGTMrbetzClPpeW6qKoMQrB2A6hD+
+	Ucr6cRe6ObD5btBmRxX/k1fdxaXR/Ij3a/fAkQH393hfKW36BvNqG8GyD2vCikswdNPLdC
+	AjJIyxzmVw2UQ+N3ajYT0E7IYyqFOhiO1F3HXrOfSMKOo51THGMQ6iGkY0br+JrGsABUrd
+	uB/ICQVefSai09vHfMT5dHwfGsn+BHAdMV7LoXlXFucGwyFSUCDlpVi40PZvTg==
+Message-ID: <cf7ebf8a-01e5-44fb-920b-5e21c05e568a@mailbox.org>
+Date: Wed, 15 Oct 2025 20:38:47 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] dt-bindings: i2c: qcom-cci: Document qcs8300
- compatible
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, bryan.odonoghue@linaro.org,
- mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andersson@kernel.org, konradybcio@kernel.org,
- hverkuil-cisco@xs4all.nl, cros-qcom-dts-watchers@chromium.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
- quic_nihalkum@quicinc.com, linux-media@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20251015131303.2797800-1-quic_vikramsa@quicinc.com>
- <20251015131303.2797800-2-quic_vikramsa@quicinc.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20251015131303.2797800-2-quic_vikramsa@quicinc.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: gpu: img,powervr-rogue: Document
+ GX6250 GPU in Renesas R-Car M3-W/M3-W+
+To: Matt Coster <Matt.Coster@imgtec.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, Adam Ford
+ <aford173@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
+ David Airlie <airlied@gmail.com>, Frank Binns <Frank.Binns@imgtec.com>,
+ Alessio Belle <Alessio.Belle@imgtec.com>,
+ Alexandru Dadu <Alexandru.Dadu@imgtec.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
+ Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>
+References: <20251015153952.185249-1-marek.vasut+renesas@mailbox.org>
+ <807d4d4d-f1dd-4776-9543-2e8d997071e1@imgtec.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <807d4d4d-f1dd-4776-9543-2e8d997071e1@imgtec.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: bx97qrbn6yau3qh7ddkjtc6pytrq343p
+X-MBO-RS-ID: 98685ba3c8924c321a2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_115044_815138_FA2E6140 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251015_115335_008167_A6881990 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,23 +94,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/15/25 16:13, Vikram Sharma wrote:
-> From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-> 
-> The three instances of CCI found on the QCS8300 are functionally the same
-> as on a number of existing Qualcomm SoCs.
-> 
-> Introduce a new SoC-specific compatible string "qcom,qcs8300-cci" with a
-> common fallback.
-> 
-> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+On 10/15/25 6:50 PM, Matt Coster wrote:
 
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+Hello Matt,
 
--- 
-Best wishes,
-Vladimir
+> Would you mind splitting this conditional block up? We already have a
+> constraint for 2 power-domains (see img,img-bxs-4-64), which should be
+> applied to the entire img,img-gx6250 compatible.
+
+I will add a patch into V3 which splits the allOf section up such, that 
+clocks and power-domains limits are limited separately. That will make 
+this addition of GX6250 easy.
+
+> As for the clocks, for the currently supported GPUs, we have "mem" and
+> "sys" clocks that are optional at integration time, so those
+> conditionals are based on the vendor compatible strings (ti,... etc).
+> However, these older GPUs always require all three clocks, so it
+> probably makes sense to create the properties:clock{,-name}s:minItems:3
+> constraint on the img,img-gx6250 compatible as well, rather than the
+> renesas,r8... ones.
+
+OK
+
+> You shouldn't need to explicit list the power-domain descriptions at the
+> constraint level at all; if there's a build warning that they're missing
+> I guess the correct place to add them would be on the top-level
+> power-domains entry, but I don't really think they contribute anything
+> meaningful.
+The descriptions basically emulate minItems/maxItems: 2 here. I can also 
+just set minItems:2 ?
+
+I have one more question -- does GX6250 _always_ have two power domains, 
+i.e. the constrains always set minItems:2 for "img,img-gx6250" 
+"power-domains" property ?
 
