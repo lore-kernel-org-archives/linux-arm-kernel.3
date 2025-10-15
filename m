@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98443CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 15:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFCB4CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 15:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i8WH71db750jps9WxI3z1NEUJwkE3VXRhtPG7iUgTWY=; b=jgojj8mlwSrl//GUdTiSNCKWro
-	v0UgyFw4Pftk2+EEMLvKRMAgde6obuMYeWxGJ1TchonQDPj7sqBau09Tn444wXqSTli/hizisCiF2
-	khSibREL1fEbLRMT3HofZ/Me/vNzaFiXxFEzkIa5bt6ciRv2iPaz7HHivCfO8U3mt/7aMZ0UI842K
-	oTpdRv+YWoYEA5K/IbW6yCCfLsELO69envFI4/WkGbalJXbKUBUIz67HmV8nicyyoghpWPuJXCPJ8
-	5vELnmzG9X+8+HSYIGtXLbgUgFWdkRE72Ki8DWJEyoX/i0YOAdAr1iAL0FQeyyIroQopNe19k0vhO
-	wA4KWmDQ==;
+	bh=ILwpaE+T5XpzmGXk5vDJm+k5n9Pb/8cfvXWouFnzCso=; b=TKghwEjns5TY+7QR1PqnxO90Dh
+	AUEIrjJH6m2vgj71+lOb4Se0dEwVHKx1QUSdm5+6CLIbm+lrkGa9BfAOEA5gvhmJwOfLFRtWutwXl
+	nnMrqS3OLrmT9lXcDuF8wA5hAfri7/EFEg5DeBHvpaqXjhulNnZQD+dYFD8ynUsTzEWkmNhY0OCsC
+	hPX+GKyH+C2cc0BU9Jb9rLyg8fzwo9CnibB/9fAEKvMUW15qBMoYOkoaLJY7DrwLAn/+fkplX+UjA
+	aGNtDV70NHCPbrTznmufz1BSLgzEMwcYbcoOuchcCQXCzYblk620fW/xz2PZVj2Hta6cISdM185a3
+	GRGH+2FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v935i-000000022Xi-2jsL;
-	Wed, 15 Oct 2025 15:07:02 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1v938j-000000022ws-1AGZ;
+	Wed, 15 Oct 2025 15:10:09 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v935g-000000022Wu-1vng
+	id 1v938g-000000022wQ-1Y17
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 15:07:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=i8WH71db750jps9WxI3z1NEUJwkE3VXRhtPG7iUgTWY=; b=04hQz4eK43+AW/wKb5wdQbpX7W
-	9qjxEPcOHoILOsxV1PI8IytNEk84VUOiE3we1jZwRHbOWnulNKUJp706hKrMypx3oAeFgwVnxQJp1
-	7NcBfL3w49o/pLRiGOLUQIQ/mWRC0KCTP8+VfDs1dsu+lXWJju+rDn+BWTwR/+t0mRP2hDyld2Iy+
-	Y+3njCB/O24OWRDwUd5m5IiCMsrA2qo8dBfgqnXLAfyzO2XLKOXq0hFkLwNxW1dEVY+Dz3X9mnDRT
-	2VTa9nPxpngzLSATgjGK+7eSuRfEQT3c4w5Fc5pxwzaBcGyASUd1jlsNEB+d8MwZ634P3VQG8TnLz
-	W4C0Q8HQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37834)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1v935W-000000004wH-29yk;
-	Wed, 15 Oct 2025 16:06:50 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1v935S-000000002Le-3AO4;
-	Wed, 15 Oct 2025 16:06:46 +0100
-Date: Wed, 15 Oct 2025 16:06:46 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 1/3] net: stmmac: Move subsecond increment
- configuration in dedicated helper
-Message-ID: <aO-4hnUINpQ0JORE@shell.armlinux.org.uk>
-References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
- <20251015102725.1297985-2-maxime.chevallier@bootlin.com>
+	Wed, 15 Oct 2025 15:10:07 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-7960d69f14bso53265596d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 08:10:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1760541003; x=1761145803; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ILwpaE+T5XpzmGXk5vDJm+k5n9Pb/8cfvXWouFnzCso=;
+        b=k7geZ5KCcSRoq50E9KwiSQoIKAaSfRPlr/E3wuVctIaKeUKYMgvdoBrjzT0iCPFl29
+         oLRa/RuqYn3UGf7ikqYSgtg9y5LIDbxVcL1tT/unSU9foZAc/CHFEdSsQRcfb1Tj8exu
+         A5hogDQhOS6+0ESMuRgi/j1R6WowYXMFIqSzPB5/hzJnxCbOADwjfj1XLCpJFPuXuDoH
+         ENIw1ugkZfjDwQ3am782XCTPMJocvgpIXxBGFJH6+NQWiRuYzyP1JKb/Wme9Ig7n/B+B
+         vaxzJSh8cnlowoDy5RouJUU/06feIVa6+OcUE7jrpFnXFfyPRnXM5RaZ0CXS0eqF4YXt
+         hYIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760541003; x=1761145803;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ILwpaE+T5XpzmGXk5vDJm+k5n9Pb/8cfvXWouFnzCso=;
+        b=H0T70ILaGVIrwr8SvvhaY2daEMmJALx7PLdUFtlG5ib92drbWrWLyKcT3D1csg3DCU
+         CTBVnGTtVYwOMrL7+3YppHkVt17be6dPLNmDHi/FDSxgZ9yeZqMb6y7ETn7+4BKtiukD
+         EOFihR6yehPSbdo643+XbVQptPXXPDAaUG/L6dRXcTDGgRGVKUwZVfX8UHjtkFw3wdgD
+         RZKzJb+SHkplhfNSHk76SvWGvr3KBvNqBKLce8qqoBqfOZotOjtdFEvc/fKzrR8d31JD
+         Jl/ZtNuni5VwsIrwC+1iGPF+0WWvBwDHycbAevEP3WdFiCR5IwJJir6oMx2WYndIeeLW
+         4OYg==
+X-Forwarded-Encrypted: i=1; AJvYcCW9EkI4m6iq6uh2ogej2/H/TLmgbw3B2K7xRp6RtKS9bn19fIZdr/qAOlP8Sb3fOntzqzsvkhkxpwDN+1MpyAa/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTqjejycNF/1tGv9sEpzcA/8NjqBtBBnmz4BFj4V6WFnXz1vMf
+	GPBSrG1joWZLE+zsiN4BqTvvju+BJ8pAN5UHfoElo42xbGxeIfroPJlqdu8TnfX6OkQ=
+X-Gm-Gg: ASbGncsqy6/4um+ZNW2pIqMNYwId+Hpw/DHRY5aZ4fLtO9J9LZtz84zuRa5te7DpkYk
+	lSYAwjd+99p+yqLwvaNDz+l7ZTxbUtS/ERpiNUFAEV1mQqnYq/GK4HQM0BvtHmgxHWaTGOhPBtX
+	fHY7oy3Vb0DZRn8GpvLqUdbWQytuZbrgXDmTPylFyooMXBk3UZryjOUTp2KQ1X3SpcPTOvA/q/o
+	ElzxhAjN+djlZMY2ybfXe33wyZU4nuOWtBgx/s87uZgGQNQHsaoKDrLbKziAyuZQK1f2DNGMfHh
+	ozqBTZuHEOcRBymnC4SJnVTU8wbGdBJgpP0DHLNfuVmHCS4xDbLhLaatrkFNPwY/6EgGk8cYKMe
+	axCqe2m5Uu3GBH+g=
+X-Google-Smtp-Source: AGHT+IGT/kELmEXYXPGlJfuB2PbHSRRnqIl4KI4SjW2i78+LYVAn+gH5X+YwxfAWjMG/wVMJe0rtQQ==
+X-Received: by 2002:ac8:5885:0:b0:4b7:9581:a211 with SMTP id d75a77b69052e-4e6eace7e6cmr385756551cf.24.1760541003496;
+        Wed, 15 Oct 2025 08:10:03 -0700 (PDT)
+Received: from ziepe.ca ([130.41.10.202])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4e881c577e6sm20528841cf.7.2025.10.15.08.10.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Oct 2025 08:10:03 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1v938c-0000000HRP6-0a8o;
+	Wed, 15 Oct 2025 12:10:02 -0300
+Date: Wed, 15 Oct 2025 12:10:02 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	will@kernel.org, joro@8bytes.org, praan@google.com
+Subject: Re: [PATCH v5 4/4] iommu/io-pgtable-arm-selftests: Use KUnit
+Message-ID: <20251015151002.GH3938986@ziepe.ca>
+References: <20250929155001.3287719-1-smostafa@google.com>
+ <20250929155001.3287719-5-smostafa@google.com>
+ <86ca3918-4992-41a2-894f-f1fd8ce4121f@arm.com>
+ <aO9vI1aEhnyZx1PL@google.com>
+ <b48193a4-a37b-41ba-b4ba-8b5c67d812bd@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251015102725.1297985-2-maxime.chevallier@bootlin.com>
+In-Reply-To: <b48193a4-a37b-41ba-b4ba-8b5c67d812bd@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_080700_497687_2FA21BE8 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20251015_081006_434024_72310F56 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,29 +106,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 12:27:21PM +0200, Maxime Chevallier wrote:
-> +static void stmmac_update_subsecond_increment(struct stmmac_priv *priv)
-> +{
-> +	bool xmac = priv->plat->has_gmac4 || priv->plat->has_xgmac;
+On Wed, Oct 15, 2025 at 02:51:15PM +0100, Robin Murphy wrote:
+> On 2025-10-15 10:53 am, Mostafa Saleh wrote:
+> > > Conversely, this is infrastructure, not an actual test of expected
+> > > io-pgtable behaviour, so I think just:
+> > > 
+> > > 	cfg.iommu_dev = kunit_device_register(test, "io-pgtable-test");
+> > > 	if (IS_ERR(cfg.iommu_dev))
+> > > 		return;
+> > > 
+> > > (it doesn't return NULLs either)
+> > > 
+> > 
+> > Yes, I was not sure about this one, when checking the code base, every test
+> > handles kunit_device_register() failure differently, this seemed the
+> > most strict one so I used it, I will update that in the next version.
+> 
+> Yeah, my impression is that those have likely been copied from the
+> lib/kunit/ code where it is actually testing its own API. I've now sent a
+> patch for the example in the docs...
 
-Just to say that I have patches that get rid of these has_xxx flags for
-the cores, and these changes (and the additional platform glue patches
-that have been posted) will conflict with them.
+I think any failure to run the test should be reported, either with an
+err or a skip. Tests that didn't do anything and silently report
+success are not a good design.
 
-Given the rate of change in stmmac, at some point we're going to have
-to work out some way of stopping stmmac development to get such an
-invasive cleanup change merged - but with my variability and pressures
-on the time I can spend even submitting patches, I've no idea how that
-will work... I was going to send them right at the start of this
-cycle, but various appointments on Monday and Tuesday this week plus
-work pressures prevented that happening.
+Looking at the existing users I see alot are in init functions, so
+they propogate an error code and fail the init.
 
-So, I decided instead to send out the first stmmac PCS series... which
-means I now need to wait for that to be merged before I can think about
-sending out anything else stmmac-related. (and there's more PCS patches
-to come beyond the 14 I sent today.)
+And the rest inside tests do something like this:
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+	dev = kunit_device_register(test, dev_name);			
+	KUNIT_ASSERT_FALSE_MSG(test, IS_ERR(dev);
+			       "Cannot register test device\n");
+
+Jason
 
