@@ -4,156 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CD38CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:01:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A33CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ELM8vq6K8xwAcNwDTiifXEdILBz/t2El5jqYV+bG0Rg=; b=v5NITPW6J8tixkFBZYhuBgkZFi
-	FCfake3aorjBnhUuTerZ4SYNcnyx2MV05B9NafShSmvP/90FvkHPI6jLmZRL99nlogG2JYKrP+WUP
-	1Cwxkt31IjB2HWEyhcdraC8OTbfZ885uDUvPNkBb16NmvwTKMXxODlKm00B76ErEmov2N07iEi3Ay
-	uyQcesjVfM1uo5uibhXqh+XneDlfh5SMxRCOT9+e2X8WbeU5qbxL8SrgmL51GgVX++yKiqQERSY6H
-	zTimmLdqajWE67TKozgSpY/jrTUHDzltNRRMKnB6+7HR0BV3pMRnlUFDMAtktXP26tBM0rg3zjLnv
-	c41MpDJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5opmQQrcs+iQAYIWBtfey0J/RoSdwtl4mYe2y0r2Ztg=; b=EZT39qL2F5RNAJ3LivQkHNGLL6
+	/QMuJNYUb/naNj1vS/hRlAXVJdSju+16DIt3PRer+nzkzSAFAqhstUnMwg6bkn2xDVMlfmQ378tpK
+	a55+THu9FOxHrI7B8SUoQSdXjElzCON1GppD4rPzVQYvlq4tR4QuybNeQ1UKKxfbXgXaYrpUVeb3P
+	7Jqr3Ibk7CJdmqP9Inui3Qkf1MrhRgkF0LLVdl8xo5E4d/udGdR3R/dw79EOdFhYDsN56dL8OU1QC
+	bi3/+YUvgF7UB6f++jFREqVQ3pBfzP+ZEHC+wRKIRm1vfPxGIAzFM1ajS80HIih4TlvYqQZsjHvmH
+	+bxKVDGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v93wm-00000002CJm-22ft;
-	Wed, 15 Oct 2025 16:01:52 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1v93zb-00000002CrZ-27YE;
+	Wed, 15 Oct 2025 16:04:47 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v93wj-00000002CIc-2kPf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 16:01:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qa67wBwlEbk4aV9pcxb40lHa+DKtjb0MWAbgyRrS6nSJeZRHkmI6HW0n8JRStCWY+Itu6unbsc8W5dF0Iz6wvIfBQVhUoJg/DwcnoV9gOJgHtKdkBiux93/jkXAtD6EMSOqOYZTUfWJne7OnWOXCsBe2flGDPXGR96yQQS1cfRlBuTVXtQTxOGdO7N4goqwFRfRn2Nh55e7MrP5ZwweI82aP6NJrUOCqxUyZP9sBsU9c2jaacyCxKSYNbtjyvM637IdMBH77kPiUgV7C4lKmCR12a2zo/WImPL2VYFj0iUDccCZrfWk2MxGpcjd+UyApdVq0SsLo8TSMJUVyDtlPsg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ELM8vq6K8xwAcNwDTiifXEdILBz/t2El5jqYV+bG0Rg=;
- b=btT2/KtO1DxJ3omIjEPjvJ7+Y5ZCzNgZNhswbQNoC4UiokLvWRqfcqixftkHlnQursFPPKzzpJsXcx76Ne02rLJjQ9hJ8ezeeZYL97Ej9jkKha1CsziuzNG7tTPIj3RgnxoNRuU7L6vVHGEmYFTmTmzZ6gzmo/t5nvTAxwqcuXgVCBIxiaYLlrLVsUe1QM5PtMOEciOx2Jypu0l/Czkg9YQJ9ktvAYWWFN9aNcWBFOW/M2LXT4MfF1P0P8uCAYg1BstWvmmGTn06HlTwqjpxOH9TEPLrdIS963aVExQtLO93q8oBsGqKlFrEDJRevsmXv7oKDB/I0M/v1GwG8Vm+2g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ELM8vq6K8xwAcNwDTiifXEdILBz/t2El5jqYV+bG0Rg=;
- b=nIKRVBQQKN+UqKd7lZLYA37RaPZd+cFJrILBjtav5PkXoDk3YOQ5HJeXamX6LKlbM9TFqhJEMz96gV06x/pe2CDq7lr/Oy12h+ocoYJENRk5tnCBDHxTl++WLXmYBXSBFpn4zU9BxKbfsRazFJr8zegDCwPKe/8MUNZ9uIyr/Xfc++PgnEcHWRZJ1b4zIAKNyZP5GKJ+qG+JJ6VeiOF79RDJMPjFP1jAEzj/XTcGpO7Wlixo43/MJspdZalZ8OsRZcErvbuhDthhwpvEBkxzWNRGe7E0B4Nki3LTl6MRUs6RjI7MKmr0Z5JrQJBuXfvzuBpNwQYuZgCtxNPLyaWb3Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AM8PR04MB7860.eurprd04.prod.outlook.com (2603:10a6:20b:245::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.10; Wed, 15 Oct
- 2025 16:01:39 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9228.010; Wed, 15 Oct 2025
- 16:01:39 +0000
-Date: Wed, 15 Oct 2025 12:01:31 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH v2 2/4] of/irq: Fix OF node refcount in
- of_msi_get_domain()
-Message-ID: <aO/FWzJggZ16maGr@lizhi-Precision-Tower-5810>
-References: <20251014095845.1310624-1-lpieralisi@kernel.org>
- <20251014095845.1310624-3-lpieralisi@kernel.org>
- <aO7Mx11tWFbDX8u1@lizhi-Precision-Tower-5810>
- <aO9VYGkCq7MDCcNn@lpieralisi>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aO9VYGkCq7MDCcNn@lpieralisi>
-X-ClientProxiedBy: PH7PR02CA0026.namprd02.prod.outlook.com
- (2603:10b6:510:33d::35) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	id 1v93zZ-00000002Cr9-2CNF;
+	Wed, 15 Oct 2025 16:04:46 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59FDhs4b001980;
+	Wed, 15 Oct 2025 16:02:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=5opmQQ
+	rcs+iQAYIWBtfey0J/RoSdwtl4mYe2y0r2Ztg=; b=DTMYRDGbbruCsK1hiGXePi
+	NbuXJV52I8gbDdNY9W5EKuZLmSAQBDEHUcH2r6peMBVF2Oh/kCdqsMc6mxNJQeGk
+	Aw/B6GpRKQu9tbPPJPJ5RcRbuXlQxkNIz3azQRk3KPsJdXHGfHlzxPt5XjgVOFvx
+	BQ0/nhlzIIbQQbXnf7MtSdlfo00TmjjfcvDlThYf6U71fY5o3fDsIjTJh+vcOdIU
+	dYavP4hNgCW5L+atWQrgXhGeac0cJhNwANNxfuvecdQnBk3x2YFd+dKpK2iMiVYX
+	HZrFxNrwGZjChtL00YRH1UN34CxwbVQLSiBfOUaLpbw6E+d0LxTAOcF+Z6tH/v8Q
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49rfp80e96-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 15 Oct 2025 16:02:30 +0000 (GMT)
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 59FFxv93008767;
+	Wed, 15 Oct 2025 16:02:29 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49rfp80e90-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 15 Oct 2025 16:02:29 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59FDu6dv003626;
+	Wed, 15 Oct 2025 16:02:27 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 49r1xy1a38-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 15 Oct 2025 16:02:27 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59FG2Pc631261170
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 15 Oct 2025 16:02:25 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3D48E200E6;
+	Wed, 15 Oct 2025 16:02:25 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 34465200DB;
+	Wed, 15 Oct 2025 16:02:11 +0000 (GMT)
+Received: from [9.124.218.242] (unknown [9.124.218.242])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 15 Oct 2025 16:02:10 +0000 (GMT)
+Message-ID: <9901f2e8-653e-42f4-9344-03b2f70846bb@linux.ibm.com>
+Date: Wed, 15 Oct 2025 21:32:10 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AM8PR04MB7860:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6598de56-d2a6-466d-9013-08de0c042026
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|19092799006|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gswYsyjUNNMEIJqYeJc8SGjNM3dAxLzEvIjwwEeLlwU6bZmvkJhOaH4YwMBJ?=
- =?us-ascii?Q?ErGG9rdW3y3V52w1n1XyYidcY7gAl6LvzzIZHGzIf1j/OGQHBGdGZw0BDxwt?=
- =?us-ascii?Q?YAzVTCGF2mXhh5jyGnA9ohQyyt+sfEZpuRrsPQ9KKP2pbGSWPkc5nZMq98gv?=
- =?us-ascii?Q?JQBT0WSJSlmYboDjSG3QTorzZ+gpe5vKadG2mlhDXcDHHeidr8nBG/s809J3?=
- =?us-ascii?Q?U+/ZYZBsUx72Syjuk96mBmRdGtVqu/ES3pGgYRtmqYYu8V47kiFKgOCjgSnQ?=
- =?us-ascii?Q?XDQ0Habd3Z1Z0EQu62uS/3YiC1ANRphRjfTAk0KX5ZzJQCUwNwnHbUdWh/Hk?=
- =?us-ascii?Q?c8HdoOJNPfOTOmlEXlj68xTYWDBoXte6egcwju8YTeoXjwxtGtOnbMha+NGH?=
- =?us-ascii?Q?5fUOlUc0akEpn4ODpfkAew8xWmOg6Qo4SY4g+8KFyl6ztxTGRYgttfjDpUOL?=
- =?us-ascii?Q?sAFIalAHi7YfaOJv+1E+BETnQ5JYWcBlcnRf9oe6gcUOxsQd1FcBwDgUtRTG?=
- =?us-ascii?Q?M4CJ34MRyH9rHWi+kGemcbGSRBMRCiu8eTt9Cy+BAPMeMlpCm0RollsvFuFJ?=
- =?us-ascii?Q?VO3Tjyv0ChXyTtreBowB79Zi3UFatJAxs2PrlfyidngKtmkvw9gfQq97bCfY?=
- =?us-ascii?Q?yef+Q7FvqETuPxGWdQ+Z7zCI0qoTtpluag/ElwKE4Vbgxv2KBY46zZkLon+/?=
- =?us-ascii?Q?GIfFXekXnZVzNgyu8v3NSt6K7EiPqTuRpKMiKwSS2UBJAyzBcJDsPVjZuPzt?=
- =?us-ascii?Q?JKZ61XE+vbk/cUrmIRgNsGBw9vBA2sVHnO+PSOqlcHYrOaWlQpJbzaEWMQgj?=
- =?us-ascii?Q?5P4yKECVCz3pMhadjuOHvtpxVXR002FsFfOCNIPdxKPH8OjZ40bOawRphiDJ?=
- =?us-ascii?Q?Fpn4vv+iVHH+4b0LiFInzIy5fUIINr0igdWnz71GQsvEOuJpnzW1xThgtdYp?=
- =?us-ascii?Q?7OQNO2jRhYiny8oo7wKLCgPMwk3NysMyP93qCo9sM+3E6j/70YLGQaoLGfei?=
- =?us-ascii?Q?hlfxcTRgxaevMfYe009y84mKhg3LrdA0pKMrtPSkPmmIdHKGprt7n5MzvLbJ?=
- =?us-ascii?Q?xFU1yFkPu43u1VXkbmp2sqafFPz5tJ6GNKTD12AarqrddvLgcrUlIiq2T/Y8?=
- =?us-ascii?Q?TR/SN2NFKNu1FWywzaYhiLHvHYuPnBBJJuGmj0wgGa9VcCBzwjO3xgFokASD?=
- =?us-ascii?Q?5FSdBe0blH0jOXUnijDqtR7U935RiN4DFKWjk0yYPviPbYNZoa9WI981AuE8?=
- =?us-ascii?Q?deKcqNEowu/7FeG5CHwW6BNldXhsmS4PlkmZkpzwjuIgsSsXeLeUJq5KdlIf?=
- =?us-ascii?Q?uXAcG02/L6Q8z0PjANJUF3Ys5ioimBcY0u4MJUaU0wI1o31m07jVSy+GVXkx?=
- =?us-ascii?Q?pPQVtPCG2Cul2r24WOWb/AWShoAvzwXPc3KGssZKiVREp/j8ajx7taCZfUzh?=
- =?us-ascii?Q?G+Ap1qRRAheSgei0cdIHEczhKYncM5Ktj8y3OAFXS6EorZ820j9eduR/F/FW?=
- =?us-ascii?Q?FM5XD5/1pfhzd2bT+p0SRLMWjurcemiBxQk2?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?c967Bz7NY3SorILu5mCGVtgU1drAmA+1Cy74GB6oxB/iOh01BBbaDkeUIlYi?=
- =?us-ascii?Q?9Z4pv8oYrMLFRFjhfRA8QGjemsTJ9kdp2J5kWArO+WarU3eofqVsnYvyQhlK?=
- =?us-ascii?Q?ulA1cctzHv1tklOAwxleey48hIRODHewG6OrCnf0xAmEmzFwfzqqXdv3Q9ZA?=
- =?us-ascii?Q?n3g91ZARo2kwj+zV4PdgqVkRi+7VWdV0+RxaMuHjO4TjmvG1KA4RUbwshoFr?=
- =?us-ascii?Q?OvJomSFZWntOz3/10B6CIzCaqqtk8hcyaaxkHB/7axVd1iiS9p/oxj5bCFNM?=
- =?us-ascii?Q?N+Lh5k7ymv6ZJ6XwElrNTnKN8vj8Fd19ztgYYcwUsWGVi6gpV21sXt9o5LAQ?=
- =?us-ascii?Q?uFRj5g+ijzWnHbo4YW/R0nkimScIp3XoD3+L1XeuxI9zCmOYDn01HcjB4mQT?=
- =?us-ascii?Q?eRBXoWoN2r8eZj5TM1yDsggyjXDbovzhaNKlmY96/LRseAh7gs1DE4ZGhAZy?=
- =?us-ascii?Q?oynYJ5iMwCaklEOVWrPCW2FVVF0UHvv658X8wTuyw35uphUDb+J5ZH4Ftj/c?=
- =?us-ascii?Q?Lr9hdAdXOzRbdLrnCPlHv8K8//4yiwTMpu/Z2NQf0Mv52ouwzf8XwZyUakcE?=
- =?us-ascii?Q?9tok3CiTol4oEO7/iRYwh8ns8tpqs10JC28XMMgT75VtDBZPjH+9+of68G0c?=
- =?us-ascii?Q?r+3e7ftHzvF/zoufknc78m8u4P55dgpiJtxuv27pP2GBn1swxAkyZjLtdOOz?=
- =?us-ascii?Q?GfRWJz+0TTbnVxZLjr/XgNzYEI2KTOOFjfxLUlRTCc3Uwru/W49JAUChFoat?=
- =?us-ascii?Q?Q2SosnORlSslwHYIz3jSp3zQuzPOTbTyefIzKFAO8SXU8FztmfCK8l8HZ0E9?=
- =?us-ascii?Q?cPUj/cNDPoeYKzczpqmun1UQCFkWCricsXNrGqiI9GdYlvTl99R2ziCifNSq?=
- =?us-ascii?Q?XkTQq8r8/RArGp1YKQk38u6Blps83QJeBqnLEbEwR9rsaZPCE/FeVICB8ptD?=
- =?us-ascii?Q?QWknnVy2N8uTvGWOp4gPzRFVHUQdZDoE1HbpzGd0h+IGUssXiNivVkE5lUWr?=
- =?us-ascii?Q?g3WEW57h9BUaaxC4zdYYpfrjAIygiWrcVN/3shPQMl/KLCBXUYdtlDjeu7Z7?=
- =?us-ascii?Q?LsPA4Qr4dGQs+zxKuH8Byzzj45sbPRU6lYGDaVkq88/VZOoQNi6BMGicDoP/?=
- =?us-ascii?Q?BDPA0SKjORqIxSED0RL4Dd/XLFStNK8Dsag98fknRLItkLqbcTx/BzwZWIG+?=
- =?us-ascii?Q?pHknlQqiZZsn7y0L0XcDw/s44A7fSjNf4iXThEN9WIFCymngw9LVhUthWmVM?=
- =?us-ascii?Q?cnkv7KK4fk/8EZ7GP/qhBfKPSxrz2MyZWE+EEEzIHXYCWfJhLoXR9bxwEqoe?=
- =?us-ascii?Q?Bft3FHFXxYUa8DWkPP+tKYfx+Db8XUJMaMO5mwf6cjPz/jtJKKiEjGLdP35s?=
- =?us-ascii?Q?BbhJR9OI56E9AOKDokepj79UHtw048Qi/Mtu0jIWiZ4zuj9P9ugkYdn5CvHZ?=
- =?us-ascii?Q?ZaFambDkoCnNksORx++LMAdhFt9vtbhAp/5MjOafkWY9X0obutePky4wzqLN?=
- =?us-ascii?Q?CzlR3hVlGWTUhanYkvp/tShr3dtSbku2/Wg8n2a3astEOAHMuDO5keSBbeAZ?=
- =?us-ascii?Q?zabQVWMdxhX+64oPQPE=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6598de56-d2a6-466d-9013-08de0c042026
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2025 16:01:39.4729
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: G+A6WshyCouCVud56RbUb/qiwoQ/w42Fe2KEv3XxKr58PBYl3AmCpIPDjywDrf0XsceUBLf6fWi6QrqwAhzyTg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7860
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 05/21] paravirt: Remove asm/paravirt_api_clock.h
+To: Juergen Gross <jgross@suse.com>
+Cc: Ajay Kaher <ajay.kaher@broadcom.com>,
+        Alexey Makhalov <alexey.makhalov@broadcom.com>,
+        Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+        Russell King
+ <linux@armlinux.org.uk>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+        WANG Xuerui <kernel@xen0n.name>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "H. Peter Anvin" <hpa@zytor.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Juri Lelli <juri.lelli@redhat.com>,
+        Vincent Guittot <vincent.guittot@linaro.org>,
+        Dietmar Eggemann <dietmar.eggemann@arm.com>,
+        Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
+        Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        x86@kernel.org, virtualization@lists.linux.dev,
+        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org
+References: <20251006074606.1266-1-jgross@suse.com>
+ <20251006074606.1266-6-jgross@suse.com>
+Content-Language: en-US
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+In-Reply-To: <20251006074606.1266-6-jgross@suse.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: 9ZUK4UeNEA3M63-5xIUdjnNRJmI9KQSO
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDEyMDA4NCBTYWx0ZWRfX90a/KFqHOFA4
+ 3LTXuANmdsGxWyQx7Ukevm3RyFSkQJ9pXc2oVr8K5uv/q7SJflj3vhk6rgQPg5a2e4JMHRcokhT
+ E+w6CfzUtDgCzNqO7x7Qz0iPi2Udyp1mB5qOlV79KYdYo8wEkzexJTGI0NvxBMb9zp2anqktjy6
+ x7dXmTESXxwuIWmKuQwlY9VJQdv5AweqVNhod++KR+c5UndqULhfyI4H+V7In+JTOm9GWN4E92e
+ bZgooNZopePk7kVmv+pt2VQaWzIRRgwHx3+Ivefade+IPstSVao1M49g8pQuFBZku8ozOWBjVco
+ XGxbdE4m67DWVP6wWkyIRV4aUp8gC4N6DdEGT4oMISQu4RWJ20yslN8ham/g8aBzCSTrxBcUSHp
+ 17smtvjqfZzcfkxRb2PzijiKsYbetw==
+X-Proofpoint-GUID: dV8tQT4HDH7j4wsc4MFx6qXJyZuneU1L
+X-Authority-Analysis: v=2.4 cv=af5sXBot c=1 sm=1 tr=0 ts=68efc596 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=iox4zFpeAAAA:8 a=JfrnYn6hAAAA:8 a=VnNF1IyMAAAA:8 a=RR7mTWzPQ-4l2d7n_HwA:9
+ a=QEXdDO2ut3YA:10 a=WzC6qhA0u3u7Ye7llzcV:22 a=1CNFftbPRP8L7MoqJWF3:22
+ a=DXsff8QfwkrTrK3sU8N1:22 a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-15_06,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0
+ bulkscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510120084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_090149_697411_0AC47C72 
-X-CRM114-Status: GOOD (  30.95  )
+X-CRM114-CacheID: sfid-20251015_090445_561172_01D36B00 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,70 +153,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 10:03:44AM +0200, Lorenzo Pieralisi wrote:
-> On Tue, Oct 14, 2025 at 06:20:55PM -0400, Frank Li wrote:
-> > On Tue, Oct 14, 2025 at 11:58:43AM +0200, Lorenzo Pieralisi wrote:
-> > > In of_msi_get_domain() if the iterator loop stops early because an
-> > > irq_domain match is detected, an of_node_put() on the iterator node is
-> > > needed to keep the OF node refcount in sync.
-> > >
-> > > Add it.
-> > >
-> > > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > > Cc: Rob Herring <robh@kernel.org>
-> > > ---
-> >
-> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> >
-> > After go though of_for_each_phandle, I understand why need of_node_put()
-> > at break branch.
-> >
-> > It will be nice if add of_for_each_phandle_scoped() help macro.
->
-> Yes because this fix is not the end of it AFAICS.
->
-> Please review and test patch (4) as well since I slightly change
-> the existing logic there, I don't want to break the EP mapping code you
-> added in f1680d9081e1 (by the way, I don't get that commit logic, if the
-> msi-parent loop would match it could just return and we could have
-> removed the
->
-> if (ret)
->
-> guarding of_map_id(), correct ?).
->
-> That's what I did in patch (4), please have a look.
 
-It looks correct. PCIE-EP use msi-map. There are comments from Marc Zyngier.
-Suppose you will update new version. I will test after new version posted.
 
-Frank
->
-> Thanks,
-> Lorenzo
->
-> >
-> >
-> > >  drivers/of/irq.c | 4 +++-
-> > >  1 file changed, 3 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-> > > index e67b2041e73b..9f6cd5abba76 100644
-> > > --- a/drivers/of/irq.c
-> > > +++ b/drivers/of/irq.c
-> > > @@ -773,8 +773,10 @@ struct irq_domain *of_msi_get_domain(struct device *dev,
-> > >
-> > >  	of_for_each_phandle(&it, err, np, "msi-parent", "#msi-cells", 0) {
-> > >  		d = irq_find_matching_host(it.node, token);
-> > > -		if (d)
-> > > +		if (d) {
-> > > +			of_node_put(it.node);
-> > >  			return d;
-> > > +		}
-> > >  	}
-> > >
-> > >  	return NULL;
-> > > --
-> > > 2.50.1
-> > >
+On 10/6/25 1:15 PM, Juergen Gross wrote:
+> All architectures supporting CONFIG_PARAVIRT share the same contents
+> of asm/paravirt_api_clock.h:
+> 
+>    #include <asm/paravirt.h>
+> 
+> So remove all incarnations of asm/paravirt_api_clock.h and remove the
+> only place where it is included, as there asm/paravirt.h is included
+> anyway.
+> 
+> Signed-off-by: Juergen Gross <jgross@suse.com>
+> Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> ---
+>   arch/arm/include/asm/paravirt_api_clock.h       | 1 -
+>   arch/arm64/include/asm/paravirt_api_clock.h     | 1 -
+>   arch/loongarch/include/asm/paravirt_api_clock.h | 1 -
+>   arch/powerpc/include/asm/paravirt_api_clock.h   | 2 --
+>   arch/riscv/include/asm/paravirt_api_clock.h     | 1 -
+>   arch/x86/include/asm/paravirt_api_clock.h       | 1 -
+>   kernel/sched/sched.h                            | 1 -
+>   7 files changed, 8 deletions(-)
+>   delete mode 100644 arch/arm/include/asm/paravirt_api_clock.h
+>   delete mode 100644 arch/arm64/include/asm/paravirt_api_clock.h
+>   delete mode 100644 arch/loongarch/include/asm/paravirt_api_clock.h
+>   delete mode 100644 arch/powerpc/include/asm/paravirt_api_clock.h
+>   delete mode 100644 arch/riscv/include/asm/paravirt_api_clock.h
+>   delete mode 100644 arch/x86/include/asm/paravirt_api_clock.h
+> 
+
+For powerpc, scheduler bits
+
+Reviewed-by: Shrikanth Hegde <sshegde@linux.ibm.com>
 
