@@ -4,152 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD4ECCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 07:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2619DCCD190
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 07:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3wzEuS4KgwUf/si4HCRP4Xjfg9FTP53VK8rld0Pt2hw=; b=VycI6SuuBH4nPt93+ERnlVMjeV
-	gx/jeqLLXI1S5/UbK9zOe8uy1CJPGa7237B5jaDRqS5CIK3CxWcS7xHup4lnPUZYr0hRH2AfxWqT7
-	ah43bWvRIFJdZQW9CQ0nkFprfnwugD82sIpId6hpmrHmnlFcxb8vRxqC+XjQj1wtk+2ruuygHNtXD
-	DbZ+QGZYPvTO8aA0KTwCTKz6+Q22Ai2y/ot9YC96kK0/egDV4ZXcruqK6/IoVON74cyEK5pj/inLs
-	ZCG7n5ArknZa88zDGCmGhflNUVjw6b0sVDJnBEGSj0VuuPqSfU1owIpT5lUP8yLY069V/FHa2YRAn
-	mEZ+uPXQ==;
+	bh=hNYCsh4ACCDXc4G8bRdplbcprbg3mmVtRScw7seYMhk=; b=v4hQQOSLXL3Y2NWmvSQJhIBe9L
+	6mIrDa+U0U/3fLpYzqdUmyTlNmrYj/NzlpHnRQ+MS3yWVmSK57gKAEk9o8XyZdX5amMer2MgeMjOZ
+	w8jKU8p5BfPr2tZNVVQU6rGvKivWmSpx8MRlRqqs9G7PqMAfmtSB9ZICetduj/W475jRimAXyAAlQ
+	eLO1izf1+RA8e5c9jHGvEBvLYniiedn1ntwvTaShxfyNzU1geHaWefJSD1YURzK8mGX6SBT54sKe/
+	QwBVrX2MNle7XJZYCqPNAxD0BeI/gDDQ5qSaSZG7cdU7/AN3seSFyFy3hvwPAFlZLD+oP7ASt5fOM
+	8RODoBOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8wEU-00000000no7-1twO;
-	Wed, 15 Oct 2025 07:47:38 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v8wKq-00000000obh-0o2K;
+	Wed, 15 Oct 2025 07:54:12 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8wER-00000000nml-0Oqa
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 07:47:36 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59F2s7Gn014715
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 07:47:34 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	3wzEuS4KgwUf/si4HCRP4Xjfg9FTP53VK8rld0Pt2hw=; b=GTGvq6sc6JxH0BRj
-	ATrPrb5KfpdAAosrchw3H6kaMELoxGWp3yqbmmH/y8D0AjUvLOxzprSudsU1bZ+Q
-	TxBCCCTKBjaI+EbGlJyNHNMwPGIDwH5Yq/0K58KY45PtKXZtRE0EtZUy/BiR9bdB
-	7RfKDLwEGUEoLtyTJztloXRJp5obqdVQWiYMSUyr4qsnc+iyh27XpAyRk+n6bbBf
-	i99KG671HDGIGK8V9oiQ+AFQo2ieOzwDQVXf+HCFcS/uAtIJR/bLuJCyUVulwGCF
-	iWatMZCyif/690rRFP6oj6A8romXj3CPAjlRaWDSVFR1BzUDFyvbObTo1uhbBSub
-	m8pakw==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qfbj3jmp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 07:47:34 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-27ee41e062cso141978845ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 00:47:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760514453; x=1761119253;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3wzEuS4KgwUf/si4HCRP4Xjfg9FTP53VK8rld0Pt2hw=;
-        b=kka/G/2GnFvkwGQ+4Uz/t1G+xxVu558lCmyajs0ojw6NW1zIJzutigeSTA7/d/tdgF
-         0hQWp2OgwNXXQdMe+sEsNe3h+u9HOvRFoBBdqILLLViBOVWQA9llpxWM9X7QXIVDg/cA
-         DT3QKHXn+FmDC5huFjdB83mRwr3vcgauoyfGYW8MaXaulRY/JvdtbQJM/crpB1Ve/B9e
-         i7iHu5jFKHdtnEsEK8oUkRD3F6itU8zUou1Ovh5vKSH/kiPRufEQfbLDdeozOxRGJL2l
-         LVpEx/SgZVWoGpHkyBDDrpbDAeRu1OZzhkVrNmTJIE8967INt3vbYs6gMhq0vZ2so9bA
-         R6mQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVDeTVGqIrUhlggtA0Zj3a5u8ZUZUVda92nuiWltfWtVaF/SJh58sdO81o0Y/eIg4DRLof89kwFXCztOK7E/0w4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0y9vWQguQ4YiPrU+3KbkhsAy4z5RvzDdy0Yyvv5CRcRn0tnsK
-	NIk/khIb4Uke4LszNvudSMeKSrBX1jqhZzxXBYo1voU8sQlkqBBVDoTz+mH6c6mX9TNCZIgCEQ0
-	3ky4vZWfz5Rp81QOq4iQgJYyCCGJfATvcUIQh5kSX5yadFe9Hy6CYjAUx12YJkf+D3/3IeF1vfj
-	V8mQ==
-X-Gm-Gg: ASbGncs1BXyk9OMkRIXat0kK4hEOeY3YRCsywK+Kc5Np2OWR7ogTt0K/1RcklNgvUi6
-	1UtCusLYf6W5tfpeY3YJI7Wx6Kv2LC4DJ+ezLlMWwfuZNUg0USJZf07KOaSZj5B0y6ifCEg4P1g
-	U18IPLeNaOjLrmhF5x73Ixowdy2dJRi2ADjNRHRge/HX1ASTMMjIYnn8FCELx7kmdzruYArlZCi
-	Z8Q1TFWacqgcQPmYzs/AJ3wSisC6UqON4qc4nUKUoCt+PAwlxWVxF91uus5u+h/gQd63LlWylLU
-	cZPHLmI7ZCeeJR1I6698CjF04yz8C28alos5dPgb73ErvrQh1pTAfdNX1Q7xzv0TRHnaasEKBg=
-	=
-X-Received: by 2002:a17:903:2343:b0:248:fc2d:3a21 with SMTP id d9443c01a7336-29027290194mr277067175ad.4.1760514452605;
-        Wed, 15 Oct 2025 00:47:32 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGhzyOtK2t73BdHuEH9yQdQ6LRCYOnKx0D9BJpdqWj+pdvXaadxnVohWazYDT43ZnK/Q6nPCw==
-X-Received: by 2002:a17:903:2343:b0:248:fc2d:3a21 with SMTP id d9443c01a7336-29027290194mr277066685ad.4.1760514451980;
-        Wed, 15 Oct 2025 00:47:31 -0700 (PDT)
-Received: from [10.216.0.133] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034de658bsm187706535ad.22.2025.10.15.00.47.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Oct 2025 00:47:31 -0700 (PDT)
-Message-ID: <1bf62073-fae9-dd49-c908-193c06cdda84@oss.qualcomm.com>
-Date: Wed, 15 Oct 2025 13:17:01 +0530
+	id 1v8wKm-00000000oZN-3nMS;
+	Wed, 15 Oct 2025 07:54:10 +0000
+Received: from pendragon.ideasonboard.com (87-94-110-32.bb.dnainternet.fi [87.94.110.32])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 5ADAB190D;
+	Wed, 15 Oct 2025 09:52:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1760514748;
+	bh=Uxgf1oxP9kkN4+H9BmWzXKT3e8oWnSdrgQRWaAUajUs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=IiRPjPZiLYusQGUslHhwVs6tUuPrcEjK1qqsG1VQeEFunGEJC5YWvwOu0YQFgOygg
+	 k2cdkMolsljfitcQAuNJ+Yxsr4UKYgE1YGdenBeR0gcEl5r9nzKZQhttDLXEfsKhFD
+	 DkNingh/dABrDaHjSlyo/zYM+ByoMqa9MKHlsjJg=
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: linux-media@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Subject: [PATCH v2 03/25] media: meson-g2d: Drop unneeded v4l2_m2m_get_vq() NULL check
+Date: Wed, 15 Oct 2025 10:53:26 +0300
+Message-ID: <20251015075353.22625-4-laurent.pinchart@ideasonboard.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251015075353.22625-1-laurent.pinchart@ideasonboard.com>
+References: <20251015075353.22625-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v16 07/14] firmware: psci: Implement vendor-specific
- resets as reboot-mode
-Content-Language: en-US
-To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik
- <andre.draszik@linaro.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Umang Chheda <umang.chheda@oss.qualcomm.com>
-References: <20251015-arm-psci-system_reset2-vendor-reboots-v16-0-b98aedaa23ee@oss.qualcomm.com>
- <20251015-arm-psci-system_reset2-vendor-reboots-v16-7-b98aedaa23ee@oss.qualcomm.com>
- <3978e740-0589-4872-8f2f-1162084d3818@quicinc.com>
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <3978e740-0589-4872-8f2f-1162084d3818@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxOCBTYWx0ZWRfX9wkA6jLfORmB
- i+ebbD301z0jgS7NhW9uJDYBhYMW3GrI8zuXZKsR/u08ZqsZGII5murXQKSkFrtMll8k57hmSb8
- 8edEuGmet9bwPxtYUYQ4DzyV8FBACtch3ekpIr3S9AbBulPL5wz9NSARc8/1PumNIbEAl6tPIoK
- 8xiLuL1yHvOa1qWToll2Quyt/yAKQE9fYUNefEaiR4CpvCc/5cqZxzLnHZY3kPQFiMl3FSoyPYZ
- fQw4Cp36uiLMTwFA5cCmFsGTCQlYGv8HDPcC5ZWMoM1tgODAXGMuRWDBOXLTJDLJTmzu6cC8Mb5
- 7aywG+2DITUGsyXKtllRtvcH5g/eTLFG4B6v7uB0OgCYzPCNwBavXbGz7GbGV1iXhkL0xmec7+a
- cVTB6ar/yjQjCNdFSLp/GHHFpqKE+Q==
-X-Proofpoint-ORIG-GUID: 3HVPVBA57HXEXcKx8TyR75EKjeksGBe5
-X-Authority-Analysis: v=2.4 cv=bodBxUai c=1 sm=1 tr=0 ts=68ef5196 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=R8NOTgI61i89tWg-cvsA:9 a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-GUID: 3HVPVBA57HXEXcKx8TyR75EKjeksGBe5
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-15_03,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 adultscore=0 impostorscore=0 suspectscore=0
- bulkscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510110018
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_004735_251573_885872CC 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20251015_005409_082917_A2F6D275 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,53 +70,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The v4l2_m2m_get_vq() function never returns NULL. The check was
+probably intended to catch invalid format types, but that's not needed
+as the V4L2 core picks the appropriate VIDIOC_G_FMT ioctl handler based
+on the format type, so the type can't be incorrect. Drop the unneeded
+return value check and, as the return value is not used for other
+purposes and the function has no side effect, the function call as well.
 
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+---
+ drivers/media/platform/amlogic/meson-ge2d/ge2d.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
-On 10/15/2025 12:25 PM, Pavan Kondeti wrote:
-> On Wed, Oct 15, 2025 at 10:08:22AM +0530, Shivendra Pratap wrote:
->> +static int __init psci_init_vendor_reset(void)
->> +{
->> +	struct reboot_mode_driver *reboot;
->> +	struct device_node *psci_np;
->> +	struct device_node *np;
->> +	int ret;
->> +
->> +	if (!psci_system_reset2_supported)
->> +		return -EINVAL;
->> +
->> +	psci_np = of_find_compatible_node(NULL, NULL, "arm,psci-1.0");
->> +	if (!psci_np)
->> +		return -ENODEV;
->> +
->> +	np = of_find_node_by_name(psci_np, "reboot-mode");
->> +	if (!np) {
->> +		of_node_put(psci_np);
->> +		return -ENODEV;
->> +	}
->> +
->> +	ret = atomic_notifier_chain_register(&panic_notifier_list, &psci_panic_block);
->> +	if (ret)
->> +		goto err_notifier;
->> +
->> +	reboot = kzalloc(sizeof(*reboot), GFP_KERNEL);
->> +	if (!reboot) {
->> +		ret = -ENOMEM;
->> +		goto err_kzalloc;
->> +	}
->> +
->> +	reboot->write = psci_set_vendor_sys_reset2;
->> +	reboot->driver_name = "psci";
->> +
->> +	ret = reboot_mode_register(reboot, of_fwnode_handle(np));
->> +	if (ret)
->> +		goto err_register;
->> +
-> 
-> minor nit: np and psci_np reference must be dropped since we are done
-> using it.
+diff --git a/drivers/media/platform/amlogic/meson-ge2d/ge2d.c b/drivers/media/platform/amlogic/meson-ge2d/ge2d.c
+index 5744853a4003..c51c6f4e41dc 100644
+--- a/drivers/media/platform/amlogic/meson-ge2d/ge2d.c
++++ b/drivers/media/platform/amlogic/meson-ge2d/ge2d.c
+@@ -632,13 +632,8 @@ static int vidioc_s_fmt_cap(struct file *file, void *priv, struct v4l2_format *f
+ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ {
+ 	struct ge2d_ctx *ctx = file_to_ge2d_ctx(file);
+-	struct vb2_queue *vq;
+ 	struct ge2d_frame *frm;
+ 
+-	vq = v4l2_m2m_get_vq(ctx->fh.m2m_ctx, f->type);
+-	if (!vq)
+-		return -EINVAL;
+-
+ 	frm = get_frame(ctx, f->type);
+ 
+ 	f->fmt.pix = frm->pix_fmt;
+-- 
+Regards,
 
-Ack. Sure. thanks. Will update this.
+Laurent Pinchart
 
-thanks,
-Shivendra
 
