@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EE1CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EFBECCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mf2YweQa1RNMSfzptNEFCt+FG2nffbQxA90unWGKtSU=; b=hLuTFMi2Ues0uPbvxYAWmi3yob
-	xgNVQ5yAKsToIS21nTVqVOCNhPCZjZ6x9NnChZg8vMT+/gH0ilgJIbxKGYyxOHnvCO4bXXpGg5Ssm
-	7wJ0LdH+sLBwTrQIjomPPsoHW6CmSlcX5IfGAvFDbnLFCK+d6Te8n1gp5l1OnA/d9lGPV4txQ04V8
-	mHU+yHYsq8ciQMF3AHScJjfEwktwtfJYHB1ZDd2kNC2RBoAw1mJ6NWLjhOQi2imlkSEhZITjEcF3u
-	hl7ugZWG2drnGEoa7KxG3FjflZh55cTevaZxD8MsLDvxt7QI8I2dv7E+9JAdxmfxGHeKuKdw5MJ92
-	vrAHhGaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hHdcX9woxvWg0GW813srJ8cI5KiLIIt+I/jJXM5Z1Vs=; b=Lvgt20lMmYyxKiaLK/PrBF1nCR
+	fCbHGYb84fRWmvW4zq6l7o6X4nODsrU/smyYvmmMad7ry1PuJHgJ9hL+cEElDfegMOJ6oSkMcIgWI
+	hKtLgE/fpI6nQRNaoEBZJuokt84IO9DRq7YdDet0/bmin1IrnUGuKnvWq7NjPtH2lZRxrIaSxHShD
+	JcbSAoT1pKuXVLHVl7Gfgx4jQ0sHkqnxAdA526bEvmxe73rSCEeCo1Vw99T50PPxoItDUIP6e18+O
+	wNZVvuhdPFfzzRubToSja+7ty3iBpDdeAxFLwQjvMPNgwgR4mN8Q1FSkRMQCDPfUsiL8l23hRWDFW
+	HX86OqHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92xd-000000020aU-1YND;
-	Wed, 15 Oct 2025 14:58:41 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v92xu-000000020h7-42HX;
+	Wed, 15 Oct 2025 14:58:58 +0000
+Received: from mail-vs1-f45.google.com ([209.85.217.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92xZ-000000020Z0-45IO;
-	Wed, 15 Oct 2025 14:58:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760540314;
-	bh=fDOmNPkc8pzUUHIPZufp/adQkxap2A2ApP7//urC4X8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jCLw79ygkzloTeEZD5dC8uB5ZcSc4KljWGAySBYCDiPK4BM3N8J65Odjs2n4qQS3C
-	 GieJ458Pa6vGj7dM+AE4nHV59H8xb7mUSVndmIbtj4WzQKhshO9YIsx2MK/NkBhLgi
-	 pEoS5cxtbItV7+t3UbIX05yzIqIQqjzwe6gT07bgX7+UmC7Pckw8yOBGDONIxiql/p
-	 hvxBsKIkUDk5/0axuKto//arbq2E7B2QaOznaTiEd2XgFQWQxfBjNFdw5PdXr+VSMm
-	 5XX4ZO45S0Op7fPwfBJxNDk3+ks4faSW2kmafT4CTVOlEC/uCXIlC7xboCvWITYpun
-	 oDorU67v0Frbw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7F61E17E00A3;
-	Wed, 15 Oct 2025 16:58:34 +0200 (CEST)
-Message-ID: <c7a2bf5f-a4e7-4b2b-94c7-b39bd69b78ba@collabora.com>
-Date: Wed, 15 Oct 2025 16:58:33 +0200
+	id 1v92xt-000000020gC-0vlO
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Oct 2025 14:58:58 +0000
+Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-5838680e242so1968590137.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 07:58:56 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760540335; x=1761145135;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hHdcX9woxvWg0GW813srJ8cI5KiLIIt+I/jJXM5Z1Vs=;
+        b=hlxT2sQ/60DfAIMiO448JumyYmDKNvkUzoE9ACWd/bgMIU0W2tcwlku+KdporYmjKC
+         qeptdcwhwwHAtmgyt5bzb9cTHHhqbsOnSjrF9ZXSOJeF8l5iY2KsbO1aBVhNsZrcWnMf
+         fSPFtFxMtu/lTeFMzta/F9mHWq/LtVn8R5IvD5ZVlYsxn3vzWFVNNoHzjzj4AxsG99MQ
+         +T8ft3bY4Z5I2iHPZvUw5Ce0RGnGNR8NlWbXik8GQBlZsgAu2NWIxmIVh8xPpxKcYDi1
+         seni3GpspXsdMH3LPYSwjkWwm3EyY5pmv6CUfKJQzIETLug9ADhzpB4BsrUced5PPHeE
+         7pvw==
+X-Forwarded-Encrypted: i=1; AJvYcCUO0I6ALYb0JEYbwmUN81LIGjvJDB36bstH0e75FdgGpaJ7MpVQ5QlwXTP3e8GM4v/y3gyalVEJGpMY9eiFbyHV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3G6xGgcB2jztYrnf1MoY9rR/jD9kACgPaUoxLBj+tPEN9wxAc
+	GUdPGz8yM/E0KV5soE6Ztf/ppdTKjYOCrHKUz7cu990wtg/kuBpqtYl9dvv0Z2ka
+X-Gm-Gg: ASbGnct32r8hDRpF21PHcNmu4BWls3N8IdQDnJ1xq3Bbr1uucRE29B2oxynluq8n+ud
+	KhmZ2Pn0FGnoxWBf3jovrY4oUpqxEKxYoTznhJhoy11D6QmPmerequW7uDayTzUZCxA7iBfx4+z
+	jQPBDtc3nLD/AyYPt3l6p7CuxnE6xYH88ebso/cQzIOxkipDxiSlHUUqE2VseRxAvt2aRncawIm
+	spqoi4JMUcVyZZFoaHy2+a+kMeup6y7pBQRRKh8+sbGvkomxxFPsi9KCskNumbORg4sGigSzZeE
+	nDmWSkYW4zf815Kbc0+PsVdyTx3EGM1oYeA/Zg0MwPlKrel5n4JFno4vsiDYuTdFUXg4bkRFl3l
+	rLu7XH7CopbQIlMCeS0zk+LUhtX5mkfnkPotPYaIajan0VIcJJXuM5/o7m1YyLi8X4c32g/hSbR
+	ivylo=
+X-Google-Smtp-Source: AGHT+IGcOi0/ALJGbt1ot0RWIyvpb3jKME9RKjGO4u8N9I3jXWIGnQFYFOlFuk4gWlla1jKZ5fTy2A==
+X-Received: by 2002:a05:6102:26d3:b0:5d7:bcc7:cbaa with SMTP id ada2fe7eead31-5d7bcc7d58emr1334473137.2.1760540335121;
+        Wed, 15 Oct 2025 07:58:55 -0700 (PDT)
+Received: from mail-vs1-f42.google.com (mail-vs1-f42.google.com. [209.85.217.42])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-930bf78d14csm4519530241.16.2025.10.15.07.58.54
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Oct 2025 07:58:54 -0700 (PDT)
+Received: by mail-vs1-f42.google.com with SMTP id ada2fe7eead31-5d6266f1a33so1181973137.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 07:58:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVQKOx/7jpY4KIDnyMB+nT52yDFiIuv+t4WYWb30cWp1r1GMTqR0ZRvILjnIfHNXSmamH5N017gqRi5kVtXdqtn@lists.infradead.org
+X-Received: by 2002:a05:6102:952:b0:5d5:ff84:a9f3 with SMTP id
+ ada2fe7eead31-5d5ff84aaa6mr7439748137.28.1760540334134; Wed, 15 Oct 2025
+ 07:58:54 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mailbox: mtk-gpueb: Add missing 'static' to mailbox ops
- struct
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Jassi Brar <jassisinghbrar@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, Chia-I Wu <olvaffe@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, kernel@collabora.com,
- kernel test robot <lkp@intel.com>
-References: <20251013-mt8196-gpueb-mbox-fix-v1-1-d7de0cb20c36@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251013-mt8196-gpueb-mbox-fix-v1-1-d7de0cb20c36@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <87freu5jxf.wl-kuninori.morimoto.gx@renesas.com>
+ <CAMuHMdV=60U2n7iK1rCX=MecLw9M+afN8cap5GUL-apF49i-rw@mail.gmail.com>
+ <877bzr97no.wl-kuninori.morimoto.gx@renesas.com> <CAMuHMdUbi7iRsXoYCwz_=Jt7ARGbeL-oG597swmsGODO8rLsqQ@mail.gmail.com>
+ <b80f879b-1f5b-4289-9cc3-075642d110ed@app.fastmail.com> <CAMuHMdVWwUZg5i9oRr9pLWav=aygEjqurGKBqtTKtaBZObQ+zg@mail.gmail.com>
+ <CAMuHMdXXiDM4AMyXxaxGv-JYNpZ0CD75v4tAa5C3RmFy4m0GtQ@mail.gmail.com>
+ <ax626myd63skmkpb6zleyncggclkivpox2mdvnhcccsplh6gcp@scfguuubd2yp>
+ <CAMuHMdVqOR2kPy7V+N5oCFrKZA0R7JHC_+QsjFc5c43F1KFFiw@mail.gmail.com> <b3b13e21-ae54-4499-a569-0442bb9cfc8f@app.fastmail.com>
+In-Reply-To: <b3b13e21-ae54-4499-a569-0442bb9cfc8f@app.fastmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 15 Oct 2025 16:58:43 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVD+YocwQJduG9rALL26Uh8ue8WLFXVSV1y1ZfrMG=JbA@mail.gmail.com>
+X-Gm-Features: AS18NWCDnwYUNSr7v-N6i614F_NQiauQxEbXjLBqKpDDHBsnlnxmHrWRAToFd4A
+Message-ID: <CAMuHMdVD+YocwQJduG9rALL26Uh8ue8WLFXVSV1y1ZfrMG=JbA@mail.gmail.com>
+Subject: Re: [issue report] ARM: compile error of frame size
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	Russell King <rmk+kernel@armlinux.org.uk>, Russell King <linux@armlinux.org.uk>, 
+	linux-arm-kernel@lists.infradead.org, Marek Vasut <marek.vasut@mailbox.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_075838_164724_7E7C74FA 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251015_075857_268224_4893E835 
+X-CRM114-Status: GOOD (  30.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,20 +103,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 13/10/25 10:09, Nicolas Frattaroli ha scritto:
-> mtk_gpueb_mbox_ops should be declared static. However, due to its const
-> nature, this specifier was missed, as it compiled fine without it and
-> with no warning by the compiler.
-> 
-> arc-linux-gcc (GCC) 12.5.0 doesn't seem to like it however, so add the
-> static to fix that.
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202510100629.3nGvrhEU-lkp@intel.com/
-> Fixes: dbca0eabb821 ("mailbox: add MediaTek GPUEB IPI mailbox")
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Hi Arnd,
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+On Wed, 15 Oct 2025 at 13:03, Arnd Bergmann <arnd@arndb.de> wrote:
+> On Wed, Oct 15, 2025, at 12:07, Geert Uytterhoeven wrote:
+> > On Tue, 14 Oct 2025 at 18:53, Liam R. Howlett <Liam.Howlett@oracle.com> wrote:
+> >> It is odd that this only shows up in certain cases though.  Is there a
+> >> particular config option that is needed to cause the size to grow beyond
+> >> 1024?
+> >
+> > And of course there is: I still had a few 64-bit .configs that were
+> > derived from older 32-bit .configs, and thus still had
+> > CONFIG_FRAME_WARN=1024 :-(
+> > Changing them to match the recommended default fixed the issue:
+> >
+> >     config FRAME_WARN
+> >             int "Warn for stack frames larger than"
+> >             ...
+> >             default 1024 if !64BIT
+> >             default 2048 if 64BIT
+> >
+> > Sorry for the noise...
+>
+> I have a series that reduces the default warning limit for 64-bit,
+> but adds some slack for certain options such as KASAN that
+> are known to cause larger stacks throughout.
+>
+> MIPS does have larger stack usage than most other architectures
+> here, and I do account for that with an architecture specific
+> base value as well, but in order to catch actual bugs in newly
+> written code, this has to be as small as possible.
+>
+> What is the stack usage you observe in your configuration?
 
+1056 bytes on arm64, 1040 on mips64, i.e. just above the "32-bit"
+default of 1024, but far from the "64-bit" default of 2048.
 
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
