@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A78CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 18:05:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A03B8CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 18:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YEscpRiAZP09a2JQp/IONW4mb8MPlVCjQKLrshEfpIA=; b=CfmEskgfNpCaoQtLrqsCAncQwW
-	QtVHGf6VEUr7sEQssmfiDSKASCdZxo9ZKPAhfoC81kFQpUwaetGz8pR8U9L+AQn1GSexe4gLWKEIG
-	A87dE2AiG0QhTrDpq/vxm0TtIy7REVFVJkSLuoehkj+tMxc0bdf7O1ndpvpyns4OSu0mOZ8+D0lK5
-	vj9UcO4ekvTb8JD+DpF4YiriDGpwiE4dq7SzGzeRFO1ipzwyEUB/rZ8jH7glQBUMfV6vn4k9Eqaj8
-	7dGZm9vxtt/Or02ZhPEJWlHQbrIb+V8rExvoElhCtv/bx8Ko+dRT4PZ5bLIDNIiuXX3k6ARfvwj08
-	eU0h96dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wjcJ38Q7QlBCb42desheCijSJlWiudzve42WEdCNTGE=; b=0gcZ5gR+d91qAv4F9TXLKtomkw
+	Tu2XrT/VCFfznJ/LECK2+7pFRRE+kau/zrNVudvFGd+hi9PzaCjxeZHDuzna03kX8BYqmWNmBL2eG
+	JmzsJlUQ41g7mD745tMOYX1WTSpeOus9RMQc0y7NC6/hXQpss3spCiBXggX5lnUUf81x+7NCa1F2y
+	pcByJlMvsx4X77eTTu2o46gMVCPKieQVg/qdNrvgnpcYUFvL6lik5YFyNOgvxtBgjEacRzH3PuTMl
+	UQywNL9fDa42q3oIGCHp6zqXui94VvlMEGoj4l2MIPqqQ/OWq9Da39WHPQXPT2f53J11Gk5NN+dUJ
+	ALEJw1hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v95rw-00000002VIe-3wuC;
-	Wed, 15 Oct 2025 18:05:00 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v95ru-00000002VIH-3b0f
+	id 1v96AK-00000002bN5-08DU;
+	Wed, 15 Oct 2025 18:24:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v96AH-00000002bMD-1Suc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 18:05:00 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-77f5d497692so8345380b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 11:04:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760551498; x=1761156298; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YEscpRiAZP09a2JQp/IONW4mb8MPlVCjQKLrshEfpIA=;
-        b=UsiVtTpLzK4VwWH7hJaHkD+leZBIb/4KKhTkeKJrFOwoLZ/OaCcr5p6XQ1eA9DyPz9
-         OlVE7Jsm22YDgzp27r6EaDGpMeg6cFWIHi+eLMkBQt1e/e7TvGwMQvWY4KxGJ7Z1GL6r
-         /URXYr1nXAJjBMZSNlGaQoBRmWQCRXII7AK8mfGtkY5OOQZcWjBt3KQ0xkiFaFdABo7w
-         jp0pk/nLtPSQS+3ymephD3WVUHuuAAITW6fV0oZF7ldm601n87iaomN+/eZ06dn7kYGV
-         uPNquOPE8UVBMYR5rd86mUlKi9xabCFCi+8+FVV4hUAYfajmsPugAkwjxubPzxCqqL7t
-         c22w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760551498; x=1761156298;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YEscpRiAZP09a2JQp/IONW4mb8MPlVCjQKLrshEfpIA=;
-        b=MvGevF5BIQK9wRY2w26b+kSioflXD0rjaAgqFAGhFBqoSBxo21Mih0oy1hXci3ZmmO
-         okgB6r//Mx810xGahgQIiF+HlLCyWI82aAtb5nfYAAEq+h6A+YpTRpc3cEwXG1bp5NCZ
-         Lfq7RDpdU9sSl+acHFMPaV7002p06+98NdKw/+IROxOSi4qrKZgr5awBze66ygzprHzk
-         7YLN36ONPMUoKmAvwIY35yGRAM1UmG/ghZL4+/T9TJEuDViyoX0GTkil/DKDS0LV2sg3
-         RSP8jZZftbHaeQe4rD0o2gW1HV2Vp56+Z6kAnEefxdP+8XMYRzb/O/9OiS5KeSXw+l/1
-         BQHg==
-X-Gm-Message-State: AOJu0YyuGMxgr7gNiRn1WPgr98uuYQaIN9+Rc3UOWS5mVS5riUMWvmbj
-	pQCVKuCJnqJ5Lo7MSpTHnXXlblYGE7bUK2eimceEeDGBoBhpxoymeiGS
-X-Gm-Gg: ASbGnctfz/3IRJuCEon8+ShuNpIVvfr4KRU/V4g4jNIAmy6TE0eneSdXxfn9L90YgQL
-	zSS3zLr8n3Ylpe6HrLeiJTK6z/jQKCne2WKLlUQJdHqiQaSjq5Fr6j67PKWWewdGK8ifjcSTE9O
-	kevfkPdgLWdR5c5qOPF5eWnD0oeFquE3kl4JV5zLfMTzjUh8LwfZUQyrjNV7yS1Qf/IOrOH2AgA
-	2vUHxCANCqVicWiT2hlgf28DCcK1eBEkIMiYyIUuCNnINAB6rSYf8YSDlmS7F9VXprJYZmKiyJx
-	ls34nOUz0NkeCYe4Ao7QUdzRT+EpgvnGfaUf4kRoRCTiT8JDG2lqD0dRPPxAVBLB5QrRajZcRmw
-	kb61N7PFeuOICD9W/dGgnsWeIhtbKR32QEtiQ8xNiWuPqLcmpd4E/7dgQau2yKcwz
-X-Google-Smtp-Source: AGHT+IE3JywhTW/hBqgapIqK/3OTonypN3JXftjp40udV4Uca3H7ZxC7Dvrc/BK+cWjLzKDvb/Bqww==
-X-Received: by 2002:a05:6a20:729c:b0:2f3:f59b:3ae6 with SMTP id adf61e73a8af0-32da80c2d32mr37829511637.11.1760551497771;
-        Wed, 15 Oct 2025 11:04:57 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6a22b7bbc7sm252011a12.22.2025.10.15.11.04.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Oct 2025 11:04:57 -0700 (PDT)
-Date: Wed, 15 Oct 2025 11:04:56 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, arm-scmi@vger.kernel.org,
-	linux-hwmon@vger.kernel.org
-Subject: Re: [PATCH] hwmon: (scmi) Enable sensors to assure they can be read
-Message-ID: <9191914e-9bd3-4760-a6d7-74c858ea1984@roeck-us.net>
-References: <20251015114953.148706-1-marek.vasut@mailbox.org>
+	Wed, 15 Oct 2025 18:23:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 40C241688;
+	Wed, 15 Oct 2025 11:23:48 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 024083F66E;
+	Wed, 15 Oct 2025 11:23:54 -0700 (PDT)
+From: Leo Yan <leo.yan@arm.com>
+Date: Wed, 15 Oct 2025 19:23:37 +0100
+Subject: [PATCH] perf: arm_spe: Ensure trace is disabled when TRUNCATED
+ flag is set
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251015114953.148706-1-marek.vasut@mailbox.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251015-arm_spe_fix_truncated_flag-v1-1-555e328cba05@arm.com>
+X-B4-Tracking: v=1; b=H4sIAKjm72gC/x3MQQqAIBBA0avErBPUsEVXiZCxphooi7EiiO6et
+ Hzw+Q8kEqYETfGA0MWJt5hhygL6GeNEiodssNo6o41TKKtPO/mRb3/IGXs8aPDjgpMy6EJVW40
+ VBsiDXShX/7zt3vcD6uwxF2wAAAA=
+X-Change-ID: 20251015-arm_spe_fix_truncated_flag-1a5b3620a3ab
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexandru Elisei <alexandru.elisei@arm.com>, 
+ James Clark <james.clark@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760552634; l=1992;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=hobg/DGsST/n4PHeoRQSc4GShXGVL6XzTZGQU8Mhvt8=;
+ b=5Ia7UVEN++q+1LfrKDFKIJROBP5XWebRE+b9jgrDT+esrW89DjFTQCwQZX3URbk6tVUAjN1h3
+ vAAGHyUEVfaBzs1Y1ClAKHn85pKjW+H4VEmLft4Z/TtmWEJ8TDFUIM3
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_110458_915638_5ED04056 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20251015_112357_449982_57F49E77 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,17 +75,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 01:49:28PM +0200, Marek Vasut wrote:
-> The SCMI specification states that SENSOR_CONFIG_SET is used to
-> enable/disable the sensors. The sensors can be disabled by default,
-> which is the case at least on NXP i.MX95. Explicitly trigger the
-> SENSOR_CONFIG_SET to enable the sensors, otherwise sensor read may
-> fail and won't return valid data.
-> 
-> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+The TRUNCATED flag can be set in the following cases:
 
-Applied.
+ 1. When data loss is detected (PMBSR_EL1.DL == 0b1).
+ 2. When arm_spe_perf_aux_output_begin() fails to find a valid limit
+    because it runs out of free space.
 
-Thanks,
-Guenter
+Currently, only the first case invokes irq_work_run() to execute the
+event disable callback, while the second case does not.
+
+Move the call to irq_work_run() later with checking the TRUNCATED flag,
+so that both cases are handled and redundant calls are avoided.
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ drivers/perf/arm_spe_pmu.c | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index fa50645feddadbea5dc1e404f80f62cf5aa96fd4..05ba977f75d607a1d524f68694db9ea18a6ef20c 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -731,12 +731,6 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+ 	if (act == SPE_PMU_BUF_FAULT_ACT_SPURIOUS)
+ 		return IRQ_NONE;
+ 
+-	/*
+-	 * Ensure perf callbacks have completed, which may disable the
+-	 * profiling buffer in response to a TRUNCATION flag.
+-	 */
+-	irq_work_run();
+-
+ 	switch (act) {
+ 	case SPE_PMU_BUF_FAULT_ACT_FATAL:
+ 		/*
+@@ -765,6 +759,15 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+ 		break;
+ 	}
+ 
++	/*
++	 * The TRUNCATED flag is set when data loss is detected by PMBSR_EL1.DL,
++	 * or arm_spe_perf_aux_output_begin() sets the flag if runs out of free
++	 * space. Ensure that all perf callbacks have completed for disabling
++	 * the profiling buffer.
++	 */
++	if (handle->aux_flags & PERF_AUX_FLAG_TRUNCATED)
++		irq_work_run();
++
+ 	/* The buffer pointers are now sane, so resume profiling. */
+ 	write_sysreg_s(0, SYS_PMBSR_EL1);
+ 	return IRQ_HANDLED;
+
+---
+base-commit: 1f4a222b0e334540343fbb5d3eac4584a6bfe180
+change-id: 20251015-arm_spe_fix_truncated_flag-1a5b3620a3ab
+
+Best regards,
+-- 
+Leo Yan <leo.yan@arm.com>
+
 
