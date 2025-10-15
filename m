@@ -4,84 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA93CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 11:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA25CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 11:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0992u7vgICnO1NdsO/eTd/pHfpQZSJGYyWihgfFSCww=; b=ox0aFk79yxdVSwxQrUB0ZTv7aA
-	2OyiYjRjMjlhwqytxce6um/TmGVYMvWXPa/nA1hkCUlM272Aea550kw1Ld8hrRl6uBGOKivmh9s3C
-	aenPqwFjqteElNTU/dyinqQHoHBlFd1wuUyMeB4YQYK9XE/ajBWeYOwd/PvPCgx9pYMGuAxY9/0B5
-	0cv+F8I0ZFU4gl0cz11w/WhbDUN5C/ylvxzDTM4+GVTjKd2Htcw6S6tkeKD2XLbgcV/dbz69pRoiA
-	cq5qiJpenXZmYTBa2Y7zWR1HRFDW0bEzHOqIGqRH9OAI4t3ODpDxP7pg6tTzAdSKoCpqEfSXSXuCX
-	x7LgKMzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TIFO4yfLHgq5ckjg2uDB2Daft94lZqpaYBGMWJ0nnlQ=; b=31XxSR2fCXVMQJBK4szlwvxkKr
+	28GHcPFLn3vjU4PEMrY3bgS1f682q/9rjWy2p6YqKu53wr4tgdS7NHATIGai0jUzfMdVdLyDXDhKa
+	eZq3wjRZ2vtYbHtHjZQ8AiTUkf9D/wz3hVBOrCWX+fkNXCJd0wCZ4EKQe6TtctUCaahuX+vIZTfUJ
+	+zmEDRu7o+fLUs2lHLVd17QExAKxNtMQiUYR33g/vpvHjpYrzyYaqLp0yf1nMEXGmrJ59j1AyNwzf
+	XPo5M8M5yVOoD2WzZZ1j2Au74FwzPw7U6UYlcRw6KH7ttCoV1r8GuMEo7laicZmYyuGSzcTeJpep9
+	uZozgxew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8zy3-00000001T3A-29LZ;
-	Wed, 15 Oct 2025 11:46:55 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1v901c-00000001TVL-1Ze3;
+	Wed, 15 Oct 2025 11:50:36 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8zy0-00000001T2h-23cd;
-	Wed, 15 Oct 2025 11:46:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760528813; x=1792064813;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0992u7vgICnO1NdsO/eTd/pHfpQZSJGYyWihgfFSCww=;
-  b=XPzj8Z/eT7o4GGeCHal6La38H/Xp62ANMlPoVduHEUhC8taARBMqGQkj
-   V13C6pMCwJ1dN2A06ZK+yqSUe0Vq0C+twblTgyFbozYPOae7an36WeyCi
-   l5nIr2hZB18QTAYFDOhxp5PlRU9MAFJSVPZbS/vhM3PjqR30zZvggDKOf
-   CJZnzmiCeFnfiVS4cp8unID5aUkngo8zU23NzyNta46DwlNBwmmnUzIOd
-   7Z7JV9DJwSNhFr8k+Z+zbP50OgK//VpIBcoyUxX9k+fVfB9FBhhOEoLBw
-   y1BDfM78qfJG74NtHerhkXLqDuAbOQe5ig+NYRxLdOqBADGJii0GNW6gR
-   g==;
-X-CSE-ConnectionGUID: nidxLn5RS1SEx9PJZ4iUkA==
-X-CSE-MsgGUID: 4zl0qkPWSJaN3H5akIOYdA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11582"; a="73804167"
-X-IronPort-AV: E=Sophos;i="6.19,231,1754982000"; 
-   d="scan'208";a="73804167"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 04:46:52 -0700
-X-CSE-ConnectionGUID: 0qrU/XBMSn6HNPStha/rVg==
-X-CSE-MsgGUID: 3FOlRQVPSq+vzNyDn9U/wA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,231,1754982000"; 
-   d="scan'208";a="181706203"
-Received: from rvuia-mobl.ger.corp.intel.com (HELO mdjait-mobl) ([10.245.245.114])
-  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 04:46:45 -0700
-Date: Wed, 15 Oct 2025 13:46:37 +0200
-From: Mehdi Djait <mehdi.djait@linux.intel.com>
-To: michael.riesch@collabora.com
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	=?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Gerald Loacker <gerald.loacker@wolfvision.net>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
-	Markus Elfring <Markus.Elfring@web.de>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Kever Yang <kever.yang@rock-chips.com>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Collabora Kernel Team <kernel@collabora.com>, Paul Kocialkowski <paulk@sys-base.io>, 
-	Alexander Shiyan <eagle.alexander923@gmail.com>, Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	Mehdi Djait <mehdi.djait@bootlin.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Bryan O'Donoghue <bod@kernel.org>
-Subject: Re: [PATCH v12 00/18] media: rockchip: add a driver for the rockchip
- camera interface
-Message-ID: <idp5tujavppw6ng5sl4e6ffdtzogbnw4rdadytbt5iaxsdhfyg@rs7fq5fawluh>
-References: <20240220-rk3568-vicap-v12-0-c6dbece6bb98@collabora.com>
+	id 1v901a-00000001TSE-0H8Z
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Oct 2025 11:50:35 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4cmqCG2jmGz9tgD;
+	Wed, 15 Oct 2025 13:50:18 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760529018;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=TIFO4yfLHgq5ckjg2uDB2Daft94lZqpaYBGMWJ0nnlQ=;
+	b=rzOC4DhrKJl8FPRu6EF8M+uSRwJYcWe8B9lcR648jbDpoShgWlkGpLceFB2yW3hJgi808e
+	C57hpwm3XEP+Q0CzTk2GbLkJpokbLFOIP3eP58wtnjl5cctD+F/X3mogw5lbh/8xbAM1Zx
+	KC3gYGo1v7P5QhgZk0Oe6xM7pkxBq4ArD1KiAK5m3P645liz+Ccqs9DeMX8NZD2obECPfr
+	+CPW/vOyD23D7amouR0VnTyi/zQR6XMOBZgUYgV0/V0oqWuUY0nDdgeWQ92CHZMeSbdY2M
+	18bSzHddz+HI9l3BPVsiHZOE6oW0U4SZn2Qes+GlaSwyy8qHG4ahcywlLrFxtg==
+From: Marek Vasut <marek.vasut@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760529016;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=TIFO4yfLHgq5ckjg2uDB2Daft94lZqpaYBGMWJ0nnlQ=;
+	b=Vnx4eutGKI+nVuhkVOgTveMI/5X2TGggNzkMGnf/yTcO3kTedqJwZCTur2JgvseoimsTUj
+	CuozjKNMDe4ZXlumC7XHFQ5NYYtsUjQylAkzpQSQHPuclwgBwHG9WncpQ0Ht7YEAAZyN7q
+	gBpFD5koggaRN4jW9ZkBuVJuAKj5elyzw1FVuMoDSKQv+cbqSMBKYHpuQ0fu7JU/o0CIs3
+	dsxipy6P8/UuNPspSe5UqbbbICcQOzXPfzfQpbz4CIByUSEsbHRz8X1vtARXOrhpPNjEtf
+	sPUjLbhdfldsvaoPgX1aJq7BpgbmsXOhGWp3HfvJ6zxHbjnmyFGUQjUyhlqDQA==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut@mailbox.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	arm-scmi@vger.kernel.org,
+	linux-hwmon@vger.kernel.org
+Subject: [PATCH] hwmon: (scmi) Enable sensors to assure they can be read
+Date: Wed, 15 Oct 2025 13:49:28 +0200
+Message-ID: <20251015114953.148706-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20240220-rk3568-vicap-v12-0-c6dbece6bb98@collabora.com>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: qi87ebe64zs1csghmf895uygn83dqjin
+X-MBO-RS-ID: a65e4f3a777492cff53
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_044652_592296_123ADABE 
-X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-CacheID: sfid-20251015_045034_244472_101C01E1 
+X-CRM114-Status: UNSURE (   8.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,28 +88,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
+The SCMI specification states that SENSOR_CONFIG_SET is used to
+enable/disable the sensors. The sensors can be disabled by default,
+which is the case at least on NXP i.MX95. Explicitly trigger the
+SENSOR_CONFIG_SET to enable the sensors, otherwise sensor read may
+fail and won't return valid data.
 
-On Tue, Oct 14, 2025 at 03:01:46PM +0200, Michael Riesch via B4 Relay wrote:
+Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+---
+Cc: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Guenter Roeck <linux@roeck-us.net>
+Cc: Sudeep Holla <sudeep.holla@arm.com>
+Cc: arm-scmi@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-hwmon@vger.kernel.org
+---
+ drivers/hwmon/scmi-hwmon.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-[..]
+diff --git a/drivers/hwmon/scmi-hwmon.c b/drivers/hwmon/scmi-hwmon.c
+index 364199b332c0a..eec223d174c07 100644
+--- a/drivers/hwmon/scmi-hwmon.c
++++ b/drivers/hwmon/scmi-hwmon.c
+@@ -240,6 +240,8 @@ static int scmi_hwmon_probe(struct scmi_device *sdev)
+ 	const struct hwmon_channel_info **ptr_scmi_ci;
+ 	const struct scmi_handle *handle = sdev->handle;
+ 	struct scmi_protocol_handle *ph;
++	u32 sensor_config = FIELD_PREP(SCMI_SENS_CFG_SENSOR_ENABLED_MASK,
++				       SCMI_SENS_CFG_SENSOR_ENABLE);
+ 
+ 	if (!handle)
+ 		return -ENODEV;
+@@ -339,6 +341,13 @@ static int scmi_hwmon_probe(struct scmi_device *sdev)
+ 		if (!sensor)
+ 			continue;
+ 
++		ret = sensor_ops->config_set(ph, i, sensor_config);
++		if (ret) {
++			dev_err(dev, "Error enabling sensor %s. err=%d\n",
++				sensor->name, ret);
++			continue;
++		}
++
+ 		/*
+ 		 * Warn on any misconfiguration related to thermal zones but
+ 		 * bail out of probing only on memory errors.
+-- 
+2.51.0
 
-> Changes in v12:
-> - added Radxa Camera 8M device tree overlay
-> - rebased onto v6.18-rc1
-> - fixed IOMMU pagefaults caused by wrong VLW (Mehdi)
-
-Yes, I confirm it is fixed :)
-
-Thank you for working on this!
-
-> - fixed indentation of register defines in -regs.h (Sakari)
-> - renamed CSI-2 receiver interrupts (Rob)
-> - added MEDIA_BUS_TYPE_* as comments in DT bindings (Bryan)
-> - added newline in rkcif-dev.c (Bryan)
-> - Link to v11: https://lore.kernel.org/r/20240220-rk3568-vicap-v11-0-af0eada54e5d@collabora.com
-
---
-Kind Regards
-Mehdi Djait
 
