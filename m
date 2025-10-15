@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EDFCCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:18:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3168CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+RAcB1KnTu10/U/5AH7wLJv4yw422htNmPqwtIjsMk4=; b=2lgKPana8wdo0/VK+sRni2EGE6
-	5Vo7QXIwUqXRbJW8Lsr4fcYYIGwBSTbtXC0Bcm/IXH/XwXzuLEwWPBWE1tCVB8EQGwddV5rfMQ/JD
-	HrF7SR7O166+yR1WENsen3EZ/P5+z45oVn1ZhNFqpFlCPyLdThTmWatotf4XHlzXmk+OrKgnqNGlr
-	qgAckEoU9oemnT5pcXu1MJrFb9uu05jpVgnelBXq4siXy4FlSypad5vr5QDbtnu9VpFUIJ/L+LMdm
-	unGiQZk5mLcf3de3XIbJukqGpqlPzmbHktN6TpFgcf2H4L3PWwZVm5n+4l7zmP9AlHfrSpilaTKgZ
-	f/P1GdAg==;
+	bh=JJ6rH+xzmRM4qbGD1O8szCgtSQ2QdUeo9drcU82TAhs=; b=VkhUT8A2dfXGO5yWGOUwdm9adG
+	SDFPb+S0aE9EUc429DmmpDCvHcpWtqFUA7jz2bIoeKfhEG+Aj8xkCUJ0NlSGFQnaIYm7Ert+1y4pS
+	enyvCTrakz5PqKQqbLXAk3yo1MuLSr8O6ohlygTd7G2YQ2VZkaeeWcaWdwOFx4rDTW8BHcoyF8f6o
+	dquE3Sx9Xe9R9XI67tya77GQ8shFuGhEEl3uFIU8/h8cm9179m+QKFX+44oDYvV42ALggMbxtMEEh
+	Q5GjjTU32WwvIpW5YegP+TOgXfInaLKtUtAO+GJ016bnP3Hnk/W32LXpKBioijdYjuIKvjP2IJsDs
+	vzbChNVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v94D0-00000002GeF-0xfZ;
-	Wed, 15 Oct 2025 16:18:38 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1v94Es-00000002GwS-2kbk;
+	Wed, 15 Oct 2025 16:20:34 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v94Cx-00000002Gdc-1y7L
+	id 1v94En-00000002GuQ-2J4X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 16:18:37 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cmx8k3hfSz9spd;
-	Wed, 15 Oct 2025 18:18:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760545110;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+RAcB1KnTu10/U/5AH7wLJv4yw422htNmPqwtIjsMk4=;
-	b=V1Gj3UXlTfbAXXf5H8fENfL7wuosE2RSQoMBoCz53MsTllEkLuoeDDji6805ZHRW/Gw2o0
-	Xu+HELzQrpUOJ4rxjwCf0hYN+hyML3uTegapcoIlXOoLI25GNkOeBr85BaF976a60WtRex
-	aOjTyjwPhdras7ObxUNPbMgCA/y5MfJPz+G5148y3bXilFNgAZFtArFRjUA3aq0/Sw8eGq
-	xoNLrI70eJJzv70Rxl8IVKoG2unPNxQZZWlxubfp++LOdQPT/f/Wz+9U6Zq7qJwowPxn9k
-	DG2C8guxzonxJujbwt0iuMaFLr19G69W9/ZMo/0Q+roji0ksHOC2+vvHviKJww==
-Message-ID: <e0507800-7e86-4fbb-95cb-e64d8cca1e49@mailbox.org>
-Date: Wed, 15 Oct 2025 18:18:25 +0200
+	Wed, 15 Oct 2025 16:20:32 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 82D1C1A1361;
+	Wed, 15 Oct 2025 16:20:20 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 487D560673;
+	Wed, 15 Oct 2025 16:20:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 138CA102F22DF;
+	Wed, 15 Oct 2025 18:20:05 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1760545219; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=JJ6rH+xzmRM4qbGD1O8szCgtSQ2QdUeo9drcU82TAhs=;
+	b=wtHq3Gd0pQyjV6eyAK7fkRd9w/l0K0lC4FEfqkfWEo6k637Nboqx9312H1X9fnaRV/2wfb
+	QaZ6QKn/SgxEG7NppA04nggZ69c6MQyB2QdfPZpPZs7aRKxHJD8eY66Gr283U2WCMTmDak
+	88guPcGFdZVaksfpnPKksUJJnae0T4LLkdX0RllszUHzwp8koW7AkW3d42+ZT82a7iuP7G
+	nDuOFOMUrmu/iMcqebvj3mX2x8m7+8+umoL7QjmNGO4Lxs1r06oZx9uCz+/jpvM07WporL
+	jqoVHJIuWENfI7kHqcyASHjuMNN1yYfK86sc1rke62SvxbTpWJvvR1KIZpJ/0g==
+Message-ID: <27800f8c-eb0d-41c2-9e45-b45cf1767c23@bootlin.com>
+Date: Wed, 15 Oct 2025 18:20:03 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH 00/39] Add i.MX95 DPU/DSI/LVDS support
-To: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org
-Cc: Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <174ec43e-4cac-4452-a77b-e2e3b8413d05@nxp.com>
- <2c4a42eb-8c49-4ba3-baa3-921ec52f730d@mailbox.org>
- <92d928cc-d9df-4c9c-8571-da39001b91a7@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/3] net: stmmac: Move subsecond increment
+ configuration in dedicated helper
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
+ =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
+ <20251015102725.1297985-2-maxime.chevallier@bootlin.com>
+ <aO-4hnUINpQ0JORE@shell.armlinux.org.uk>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <92d928cc-d9df-4c9c-8571-da39001b91a7@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <aO-4hnUINpQ0JORE@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 03ff7b3109451a21313
-X-MBO-RS-META: kx1epfwft5um1jo7qw14sxkpbgi5h5ht
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_091836_072770_FE996797 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20251015_092029_899429_95BAA053 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +88,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/15/25 12:00 PM, Liu Ying wrote:
+Hi Russell,
 
-Hi,
-
->> I wanted to put this whole thing on the list first, before I start splitting it up.
->>
->> For starters, I think I can send these separately:
+On 15/10/2025 17:06, Russell King (Oracle) wrote:
+> On Wed, Oct 15, 2025 at 12:27:21PM +0200, Maxime Chevallier wrote:
+>> +static void stmmac_update_subsecond_increment(struct stmmac_priv *priv)
+>> +{
+>> +	bool xmac = priv->plat->has_gmac4 || priv->plat->has_xgmac;
 > 
-> Before discussing how to split, a bigger question is that is it fine to
-> support both i.MX8qxp DC and i.MX95 DC in the same imx8_dc_drm module?
-> Separate modules look more reasonable to me, considering the fact that
-> there are quite a lot difference between the two DCs.
+> Just to say that I have patches that get rid of these has_xxx flags for
+> the cores, and these changes (and the additional platform glue patches
+> that have been posted) will conflict with them.
 
-(maybe I do not quite understand your suggestion with "separate module", 
-I assume this means entirely duplicate driver, is that correct? I 
-operate with that assumption in the text below.)
+Fair, I was in your position not so long ago :)
 
-This series indicates that the functional units in the DC are basically 
-identical, with the majority of changes being register base addresses of 
-the whole DC and an odd bit or register offset here and there. Most of 
-the code can be reused, as can be seen in the first half of the series.
+For this particular series, it should be straightforward to fix the
+conflict, but for the pending new glue divers we'll have to
+find the sweet spot for these changes.
 
-The addition of iMX95 into the iMX8QXP DC also does not seem to be 
-making the driver in any way more complicated.
+Maybe send it as an RFC so that people can see what to expect ?
 
-What would be the benefit of having duplicate driver for IP that is 
-basically identical, for i.MX95 ?
+> Given the rate of change in stmmac, at some point we're going to have
+> to work out some way of stopping stmmac development to get such an
+> invasive cleanup change merged
 
-[...]
+Agreed.
 
->> - drm/imx: dc: Rename i.MX8QXP specific Link IDs
-> 
-> TBH, I'm not a big fan of adding LINK_ID_x_MXy to enum dc_link_id, since
-> the members may have the same value and it's kind of a mess considering
-> future SoCs.
+ - but with my variability and pressures
+> on the time I can spend even submitting patches, I've no idea how that
+> will work... I was going to send them right at the start of this
+> cycle, but various appointments on Monday and Tuesday this week plus
+> work pressures prevented that happening.
 
-I am open to a better suggestion which does not involve duplicate driver.
+To give your more visibility, that's the only work I plan to do on
+stmmac for that cycle, the rest is going to be phy_port,
+and probably some netdevsim-phy.
 
->> - drm/imx: Add more RGB swizzling options
-> 
-> This one seems ok.
+> So, I decided instead to send out the first stmmac PCS series... which
+> means I now need to wait for that to be merged before I can think about
+> sending out anything else stmmac-related. (and there's more PCS patches
+> to come beyond the 14 I sent today.)
 
-I can send that one separately. Can you test that on MX8QXP ? I don't 
-have a board with that SoC, sorry.
+Do you plan to send the next round of PCS stuff next, or the cleanups
+for the has_xxx flags you were mentioning ?
 
-[...]
+In any case, I'll be happy to help testing :)
 
-> I kind of opt to separate modules.  Maybe, to save some code, an additional
-> module can be introduced to wrap common part as helpers, plus some callback
-> magics, like fg->dc_fg_cfg_videomode().
-Let me ask for clarification here -- by separate modules, do you mean 
-two totally separate drivers ?
+Maxime
 
