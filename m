@@ -4,141 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A33CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D13CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5opmQQrcs+iQAYIWBtfey0J/RoSdwtl4mYe2y0r2Ztg=; b=EZT39qL2F5RNAJ3LivQkHNGLL6
-	/QMuJNYUb/naNj1vS/hRlAXVJdSju+16DIt3PRer+nzkzSAFAqhstUnMwg6bkn2xDVMlfmQ378tpK
-	a55+THu9FOxHrI7B8SUoQSdXjElzCON1GppD4rPzVQYvlq4tR4QuybNeQ1UKKxfbXgXaYrpUVeb3P
-	7Jqr3Ibk7CJdmqP9Inui3Qkf1MrhRgkF0LLVdl8xo5E4d/udGdR3R/dw79EOdFhYDsN56dL8OU1QC
-	bi3/+YUvgF7UB6f++jFREqVQ3pBfzP+ZEHC+wRKIRm1vfPxGIAzFM1ajS80HIih4TlvYqQZsjHvmH
-	+bxKVDGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PA1o6oE0F9zZwdMce+o8anbD6M7oOwlVqzhsMPXWt28=; b=qCVt0gJhGNdp1dTbDsTWxUg1z9
+	gSIOuHAAMOaxwhbfJJURPWJ6ytbQgcyHJcbCZoeSiWeIXKs/IbzuXr51QnVc9Z9x8w8RhJGd9Xf9u
+	TempI6izeY/dQirQKlCFAHeOQpumnk9sDTOf717zP1G003j+hZIE9azM+kzm8t4uW19nBPQ4rYs1z
+	/8CgiyT2zHa+Gzvqfx1D2loBcNK9LfbamutCHkQz2SePXFmiYg2144oUIS32znZAi6JczGtjZrK9Q
+	X9PYqwokXuqqvfAntx33lWgwD80PtlBApIbFuIh5VdYaB+DKAJVpkfP7+QbG1talO3Ai26JVVoXf3
+	MeQJGSEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v93zb-00000002CrZ-27YE;
-	Wed, 15 Oct 2025 16:04:47 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1v940B-00000002D1F-0t1v;
+	Wed, 15 Oct 2025 16:05:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v93zZ-00000002Cr9-2CNF;
-	Wed, 15 Oct 2025 16:04:46 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59FDhs4b001980;
-	Wed, 15 Oct 2025 16:02:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=5opmQQ
-	rcs+iQAYIWBtfey0J/RoSdwtl4mYe2y0r2Ztg=; b=DTMYRDGbbruCsK1hiGXePi
-	NbuXJV52I8gbDdNY9W5EKuZLmSAQBDEHUcH2r6peMBVF2Oh/kCdqsMc6mxNJQeGk
-	Aw/B6GpRKQu9tbPPJPJ5RcRbuXlQxkNIz3azQRk3KPsJdXHGfHlzxPt5XjgVOFvx
-	BQ0/nhlzIIbQQbXnf7MtSdlfo00TmjjfcvDlThYf6U71fY5o3fDsIjTJh+vcOdIU
-	dYavP4hNgCW5L+atWQrgXhGeac0cJhNwANNxfuvecdQnBk3x2YFd+dKpK2iMiVYX
-	HZrFxNrwGZjChtL00YRH1UN34CxwbVQLSiBfOUaLpbw6E+d0LxTAOcF+Z6tH/v8Q
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49rfp80e96-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 15 Oct 2025 16:02:30 +0000 (GMT)
-Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 59FFxv93008767;
-	Wed, 15 Oct 2025 16:02:29 GMT
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49rfp80e90-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 15 Oct 2025 16:02:29 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59FDu6dv003626;
-	Wed, 15 Oct 2025 16:02:27 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 49r1xy1a38-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 15 Oct 2025 16:02:27 +0000
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59FG2Pc631261170
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 15 Oct 2025 16:02:25 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3D48E200E6;
-	Wed, 15 Oct 2025 16:02:25 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 34465200DB;
-	Wed, 15 Oct 2025 16:02:11 +0000 (GMT)
-Received: from [9.124.218.242] (unknown [9.124.218.242])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 15 Oct 2025 16:02:10 +0000 (GMT)
-Message-ID: <9901f2e8-653e-42f4-9344-03b2f70846bb@linux.ibm.com>
-Date: Wed, 15 Oct 2025 21:32:10 +0530
+	id 1v9408-00000002D09-0hv0;
+	Wed, 15 Oct 2025 16:05:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7354549303;
+	Wed, 15 Oct 2025 16:05:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C6BBC4CEF8;
+	Wed, 15 Oct 2025 16:05:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760544317;
+	bh=Gsi0Fb9yJJuxxwo7bA+daxNM2dy6o/NwoPi7kEACJ2Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Y6kMa/ayePxi1R4uhvRso+pLhDsSDr7/y+656DaWuAAcdzjq+77FB/unoNtlJVmHQ
+	 8wrtyDoKeyyuXFgZ/mXhpgxqpRH1Jpa9MWK4k25urSaOA71bO+7Lm6Qk312TrprH8Z
+	 6W8wJUA9GoIpCa9QY5A0FPn/q4VTsJyfGq4ST+11/NaftwpZA1lyWV2eJ8WTdy67jk
+	 r73KZ/f7EA3uzNhojBetEkCg6mIq/K0e/uqVQc+LbEQmDhgAgo04/i3VHoLzn++4fJ
+	 IS/RupSu/bj2YhAnh88z1bAWooGetsSA4ffktLsFXYoWAcyfpRxTUcFT3zide8xuZI
+	 yA2udmQwI/PYA==
+Date: Wed, 15 Oct 2025 17:05:12 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next 11/12] net: airoha: Refactor src port
+ configuration in airhoha_set_gdm2_loopback
+Message-ID: <aO_GOE0jPMlcP-VR@horms.kernel.org>
+References: <20251015-an7583-eth-support-v1-0-064855f05923@kernel.org>
+ <20251015-an7583-eth-support-v1-11-064855f05923@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 05/21] paravirt: Remove asm/paravirt_api_clock.h
-To: Juergen Gross <jgross@suse.com>
-Cc: Ajay Kaher <ajay.kaher@broadcom.com>,
-        Alexey Makhalov <alexey.makhalov@broadcom.com>,
-        Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
-        Russell King
- <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-        WANG Xuerui <kernel@xen0n.name>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        "H. Peter Anvin" <hpa@zytor.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Juri Lelli <juri.lelli@redhat.com>,
-        Vincent Guittot <vincent.guittot@linaro.org>,
-        Dietmar Eggemann <dietmar.eggemann@arm.com>,
-        Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
-        Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        x86@kernel.org, virtualization@lists.linux.dev,
-        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org
-References: <20251006074606.1266-1-jgross@suse.com>
- <20251006074606.1266-6-jgross@suse.com>
-Content-Language: en-US
-From: Shrikanth Hegde <sshegde@linux.ibm.com>
-In-Reply-To: <20251006074606.1266-6-jgross@suse.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 9ZUK4UeNEA3M63-5xIUdjnNRJmI9KQSO
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDEyMDA4NCBTYWx0ZWRfX90a/KFqHOFA4
- 3LTXuANmdsGxWyQx7Ukevm3RyFSkQJ9pXc2oVr8K5uv/q7SJflj3vhk6rgQPg5a2e4JMHRcokhT
- E+w6CfzUtDgCzNqO7x7Qz0iPi2Udyp1mB5qOlV79KYdYo8wEkzexJTGI0NvxBMb9zp2anqktjy6
- x7dXmTESXxwuIWmKuQwlY9VJQdv5AweqVNhod++KR+c5UndqULhfyI4H+V7In+JTOm9GWN4E92e
- bZgooNZopePk7kVmv+pt2VQaWzIRRgwHx3+Ivefade+IPstSVao1M49g8pQuFBZku8ozOWBjVco
- XGxbdE4m67DWVP6wWkyIRV4aUp8gC4N6DdEGT4oMISQu4RWJ20yslN8ham/g8aBzCSTrxBcUSHp
- 17smtvjqfZzcfkxRb2PzijiKsYbetw==
-X-Proofpoint-GUID: dV8tQT4HDH7j4wsc4MFx6qXJyZuneU1L
-X-Authority-Analysis: v=2.4 cv=af5sXBot c=1 sm=1 tr=0 ts=68efc596 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=iox4zFpeAAAA:8 a=JfrnYn6hAAAA:8 a=VnNF1IyMAAAA:8 a=RR7mTWzPQ-4l2d7n_HwA:9
- a=QEXdDO2ut3YA:10 a=WzC6qhA0u3u7Ye7llzcV:22 a=1CNFftbPRP8L7MoqJWF3:22
- a=DXsff8QfwkrTrK3sU8N1:22 a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-15_06,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0
- bulkscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510120084
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251015-an7583-eth-support-v1-11-064855f05923@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_090445_561172_01D36B00 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20251015_090520_244931_DC11C1F6 
+X-CRM114-Status: GOOD (  24.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,38 +81,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/6/25 1:15 PM, Juergen Gross wrote:
-> All architectures supporting CONFIG_PARAVIRT share the same contents
-> of asm/paravirt_api_clock.h:
+On Wed, Oct 15, 2025 at 09:15:11AM +0200, Lorenzo Bianconi wrote:
+> AN7583 chipset relies on different definitions for source-port
+> identifier used for hw offloading. In order to support hw offloading
+> in AN7583 controller, refactor src port configuration in
+> airhoha_set_gdm2_loopback routine and introduce get_src_port_id
+> callback.
 > 
->    #include <asm/paravirt.h>
-> 
-> So remove all incarnations of asm/paravirt_api_clock.h and remove the
-> only place where it is included, as there asm/paravirt.h is included
-> anyway.
-> 
-> Signed-off-by: Juergen Gross <jgross@suse.com>
-> Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 > ---
->   arch/arm/include/asm/paravirt_api_clock.h       | 1 -
->   arch/arm64/include/asm/paravirt_api_clock.h     | 1 -
->   arch/loongarch/include/asm/paravirt_api_clock.h | 1 -
->   arch/powerpc/include/asm/paravirt_api_clock.h   | 2 --
->   arch/riscv/include/asm/paravirt_api_clock.h     | 1 -
->   arch/x86/include/asm/paravirt_api_clock.h       | 1 -
->   kernel/sched/sched.h                            | 1 -
->   7 files changed, 8 deletions(-)
->   delete mode 100644 arch/arm/include/asm/paravirt_api_clock.h
->   delete mode 100644 arch/arm64/include/asm/paravirt_api_clock.h
->   delete mode 100644 arch/loongarch/include/asm/paravirt_api_clock.h
->   delete mode 100644 arch/powerpc/include/asm/paravirt_api_clock.h
->   delete mode 100644 arch/riscv/include/asm/paravirt_api_clock.h
->   delete mode 100644 arch/x86/include/asm/paravirt_api_clock.h
+>  drivers/net/ethernet/airoha/airoha_eth.c  | 75 +++++++++++++++++++++----------
+>  drivers/net/ethernet/airoha/airoha_eth.h  | 11 +++--
+>  drivers/net/ethernet/airoha/airoha_regs.h |  5 +--
+>  3 files changed, 60 insertions(+), 31 deletions(-)
 > 
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 5f6b5ab52e0265f7bb56b008ca653d64e04ff2d2..76c82750b3ae89a9fa81c64d3b7c3578b369480c 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -1682,11 +1682,14 @@ static int airoha_dev_set_macaddr(struct net_device *dev, void *p)
+>  	return 0;
+>  }
+>  
+> -static void airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+> +static int airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+>  {
+>  	u32 pse_port = port->id == 3 ? FE_PSE_PORT_GDM3 : FE_PSE_PORT_GDM4;
+>  	struct airoha_eth *eth = port->qdma->eth;
+>  	u32 chan = port->id == 3 ? 4 : 0;
+> +	/* XXX: handle XSI_USB_PORT and XSI_PCE1_PORT */
+> +	u32 nbq = port->id == 3 ? 4 : 0;
+> +	int src_port;
 
-For powerpc, scheduler bits
+I think this code could benefit for names (defines) for port ids.
+It's a bit clearer in airoha_en7581_get_src_port_id(). But the
+numbers seem kind of magic in this function.
 
-Reviewed-by: Shrikanth Hegde <sshegde@linux.ibm.com>
+>  
+>  	/* Forward the traffic to the proper GDM port */
+>  	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(2), pse_port);
+> @@ -1709,29 +1712,23 @@ static void airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+>  	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(2));
+>  	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(2));
+>  
+> -	if (port->id == 3) {
+> -		/* FIXME: handle XSI_PCE1_PORT */
+> -		airoha_fe_rmw(eth, REG_FE_WAN_PORT,
+> -			      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
+> -			      FIELD_PREP(WAN0_MASK, HSGMII_LAN_PCIE0_SRCPORT));
+> -		airoha_fe_rmw(eth,
+> -			      REG_SP_DFT_CPORT(HSGMII_LAN_PCIE0_SRCPORT >> 3),
+> -			      SP_CPORT_PCIE0_MASK,
+> -			      FIELD_PREP(SP_CPORT_PCIE0_MASK,
+> -					 FE_PSE_PORT_CDM2));
+> -	} else {
+> -		/* FIXME: handle XSI_USB_PORT */
+> +	src_port = eth->soc->ops.get_src_port_id(port, nbq);
+> +	if (src_port < 0)
+> +		return src_port;
+> +
+> +	airoha_fe_rmw(eth, REG_FE_WAN_PORT,
+> +		      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
+> +		      FIELD_PREP(WAN0_MASK, src_port));
+> +	airoha_fe_rmw(eth, REG_SP_DFT_CPORT(src_port >> 3),
+> +		      SP_CPORT_MASK(src_port & 0x7),
+> +		      FE_PSE_PORT_CDM2 << __ffs(SP_CPORT_MASK(src_port & 0x7)));
+
+Likewise, 3 and 0x7 a bit magical here.
+
+> +
+> +	if (port->id != 3)
+>  		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6,
+>  			      FC_ID_OF_SRC_PORT24_MASK,
+>  			      FIELD_PREP(FC_ID_OF_SRC_PORT24_MASK, 2));
+
+... and 2 here.
+
+> -		airoha_fe_rmw(eth, REG_FE_WAN_PORT,
+> -			      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
+> -			      FIELD_PREP(WAN0_MASK, HSGMII_LAN_ETH_SRCPORT));
+> -		airoha_fe_rmw(eth,
+> -			      REG_SP_DFT_CPORT(HSGMII_LAN_ETH_SRCPORT >> 3),
+> -			      SP_CPORT_ETH_MASK,
+> -			      FIELD_PREP(SP_CPORT_ETH_MASK, FE_PSE_PORT_CDM2));
+> -	}
+> +
+> +	return 0;
+>  }
+
+...
+
+> @@ -3055,11 +3057,38 @@ static const char * const en7581_xsi_rsts_names[] = {
+>  	"xfp-mac",
+>  };
+>  
+> +static int airoha_en7581_get_src_port_id(struct airoha_gdm_port *port, int nbq)
+> +{
+> +	switch (port->id) {
+> +	case 3:
+> +		/* 7581 SoC supports PCIe serdes on GDM3 port */
+> +		if (nbq == 4)
+> +			return HSGMII_LAN_7581_PCIE0_SRCPORT;
+> +		if (nbq == 5)
+> +			return HSGMII_LAN_7581_PCIE1_SRCPORT;
+> +		break;
+> +	case 4:
+> +		/* 7581 SoC supports eth and usb serdes on GDM4 port */
+> +		if (!nbq)
+> +			return HSGMII_LAN_7581_ETH_SRCPORT;
+> +		if (nbq == 1)
+> +			return HSGMII_LAN_7581_USB_SRCPORT;
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return -EINVAL;
+> +}
+
+...
 
