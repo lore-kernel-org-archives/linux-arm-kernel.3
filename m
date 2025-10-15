@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15D53CCD190
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225E5CCD18E
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 07:15:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cw5orlo4lvKPoXIqcfP6/PGaGftlky/Kn7uTCFtJTG8=; b=HHLA0kriVEAmO6yJ92YIPZxqtf
-	lBYtHbneefkm3Kki8hdSUUVMgAiFbhY0/CZVeLZnoTbou4BB9kFHsfBE6rlTovk0wf5IFKWpkspvO
-	S0vUl+FTppbX1msCwzJnmZqH+0JDRLHYKGsWH9CJbxWbf/ob0DXG477wF7hXbalXSeTABnFImLAiL
-	cCcKb9QkJXkHkbeMM6LBxWEesaSZMXz3RfszNwFQnDnYuasHU/sxBPPJaqgAdJ/IvxXni4ggCqgpR
-	dTHYMW458Xqfmgc6d4NK6lr7NtnaNHE13x2SwzZnmHoKH92sybtt0WhyGdgsD6kt4+9uTvFvdATI9
-	njWAbvIw==;
+	bh=tiFwqsNpk7ih6STJlDrnUTCS4y8aLy4TRwSYnYUhN9o=; b=Lm1XI182WFkDVQUHPJpvAVnHxo
+	bnxSv9TxSxI3EekYIqWXKHZTv1eYmJNYJxdlEH/GH9v7W5LTS5diIv7cjRUPq6tzYhKDqSt+Mo1+L
+	FV7KVmZrLOw0/yTsfUyOhW1Etl6OE1prnde/F6MSlJDrHcFIGfE3bsu/W8sk/F/QjuRS5dZZ+w0vG
+	HeiNCeCcV2FweUM45qJSdVXPEtFSVG0wiy/eBlfYQqtcXDutCCg0uzApvVPk/9iE+u6nLv2HO3vhF
+	IognED1cKeQDdtObd0NdSYotXOTSHIR70KLxgUWNfRNmB5z9E5cIixGjjb3YR4uzY6uMg9iTkLmNH
+	4ibdAXgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8vjb-00000000gSL-34ND;
-	Wed, 15 Oct 2025 07:15:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v8vjc-00000000gSa-0JZF;
+	Wed, 15 Oct 2025 07:15:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8vja-00000000gQf-1PwN;
+	id 1v8vja-00000000gQd-2PZi;
 	Wed, 15 Oct 2025 07:15:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=tiFwqsNpk7ih6STJlDrnUTCS4y8aLy4TRwSYnYUhN9o=; b=Xnin8mpqdms1DV+28LNYAG2AUR
+	3KSkjuGSwR3Dyi4PGBoOe/yBhQjTUZXKBAahFV6/qrn4OFGxJW7gAG2FLGazWwpQI3tw4ZyNzxlG3
+	FoSujCANnc4/JLcBXd3OtnC5S9k3CF02ORkvl3RliUjMmuf6RgOMfmn1S91LD4FMfTF9sdyO+3BJb
+	9+Ep4k/Y1Ftz0q9V4wbrrPrdY7FprHdHWzcIWRfKbC9/vuxiJ7CllKlEAPDqT6F6ZVriFOOAktZDC
+	DVN4r1qcp34xfFs9/GeiZq1PdVnKbTtKP57kyQ198Ud/5X11LShtOjjVNT+nN8IajhdeBsBw+kpLi
+	nyVrT7OQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8vjX-00000005lWC-0Gtt;
+	Wed, 15 Oct 2025 07:15:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BF430624E1;
-	Wed, 15 Oct 2025 07:15:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 250BEC4CEF8;
-	Wed, 15 Oct 2025 07:15:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8797043829;
+	Wed, 15 Oct 2025 07:15:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9356C4CEFE;
+	Wed, 15 Oct 2025 07:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760512541;
-	bh=Ytp39hw63jXTJnCsXV9bBFGBpvPA2tM+uzC7VuneJro=;
+	s=k20201202; t=1760512536;
+	bh=Evnl21vrZtWSZfim1BEaHg8W/MkovgamjiTZHLmL3Ac=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZXE/0qbYshID5ISmwR7hfRynixtKZHtxJAz/0jB6PQttgvBPdOUa5p0NWkik/bbBY
-	 uCguWbc53chNCiBYofzLNzeP2wnX6uzyZUTgNKLcSvh008zrkhJ/90K2wJH6K0NYd5
-	 kVICzGuzIlwWf2rrRMmhTrt2bEabGeI/8AjGoSB0XP4lEu1bXeM2Hut6UF96vGMLep
-	 4GXn5z+oWrrghR34jYoDRBdQfW0OniTrh36teJW7xrciF7GIz/ylFdpYfOirTNFDjh
-	 KnzmaS78xglGyQE4WalUOOSEbHcnH81/coW5ii+ugoFsjKAyNRuh7Ri7tItJyBeWAY
-	 Dq3g5dFb2Wc6A==
+	b=CQ3+j/rLKZX6EdUpqOj0pJ8BZJu0ds7t+t4UYbbfuVYfoCrGpBHFcFP1j0y+RN/xI
+	 93GiMblJhmoDqMoo8HuF33pi/hZv0opHnzE2G3EmXcudD+gW/nPtKX8HGajNZY2VB6
+	 yd0ad6zK5orMrBRn6paDPl9bquQ3NqBt6e4TRpTXfCMBPl7zrB8S1tFPJ0lYx2LZFa
+	 +hupH/gRbNgdU6qlGoGlzrtYgawSoiv8hGYu0Onb2FtdU61Oolz+A7Cuk3/AYpMgCF
+	 Y8bF54HUn3AdHrExyHMDko8Zj3BXV6m9wv6zhRYHtnkross5n1CrW6EJMGFlvRSUAJ
+	 0OCR+yHVirPTg==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 15 Oct 2025 09:15:04 +0200
-Subject: [PATCH net-next 04/12] net: airoha: Add airoha_eth_soc_data struct
+Date: Wed, 15 Oct 2025 09:15:02 +0200
+Subject: [PATCH net-next 02/12] net: airoha: ppe: Dynamically allocate
+ foe_check_time array in airoha_ppe struct
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251015-an7583-eth-support-v1-4-064855f05923@kernel.org>
+Message-Id: <20251015-an7583-eth-support-v1-2-064855f05923@kernel.org>
 References: <20251015-an7583-eth-support-v1-0-064855f05923@kernel.org>
 In-Reply-To: <20251015-an7583-eth-support-v1-0-064855f05923@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -58,8 +73,11 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
  Lorenzo Bianconi <lorenzo@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, Christian Marangi <ansuelsmth@gmail.com>
+ devicetree@vger.kernel.org
 X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251015_081539_875045_A7C69385 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,154 +92,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce airoha_eth_soc_data struct to contain differences between
-various SoC. Move XSI reset names in airoha_eth_soc_data. This is a
-preliminary patch to enable AN7583 ethernet controller support in
-airoha-eth driver.
+This is a preliminary patch to properly enable PPE support for AN7583
+SoC.
 
-Co-developed-by: Christian Marangi <ansuelsmth@gmail.com>
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 42 +++++++++++++++++++++++++-------
- drivers/net/ethernet/airoha/airoha_eth.h | 17 +++++++++++--
- 2 files changed, 48 insertions(+), 11 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.h | 2 +-
+ drivers/net/ethernet/airoha/airoha_ppe.c | 5 +++++
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 6effdda64380bf72ce3c5b6b2f551f560f2ee097..32015c41b58df68a0fe87bb026ee0a6d44ea6ec9 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1387,8 +1387,7 @@ static int airoha_hw_init(struct platform_device *pdev,
- 	int err, i;
- 
- 	/* disable xsi */
--	err = reset_control_bulk_assert(ARRAY_SIZE(eth->xsi_rsts),
--					eth->xsi_rsts);
-+	err = reset_control_bulk_assert(eth->soc->num_xsi_rsts, eth->xsi_rsts);
- 	if (err)
- 		return err;
- 
-@@ -2908,6 +2907,7 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 
- static int airoha_probe(struct platform_device *pdev)
- {
-+	struct reset_control_bulk_data *xsi_rsts;
- 	struct device_node *np;
- 	struct airoha_eth *eth;
- 	int i, err;
-@@ -2916,6 +2916,10 @@ static int airoha_probe(struct platform_device *pdev)
- 	if (!eth)
- 		return -ENOMEM;
- 
-+	eth->soc = of_device_get_match_data(&pdev->dev);
-+	if (!eth->soc)
-+		return -EINVAL;
-+
- 	eth->dev = &pdev->dev;
- 
- 	err = dma_set_mask_and_coherent(eth->dev, DMA_BIT_MASK(32));
-@@ -2940,13 +2944,18 @@ static int airoha_probe(struct platform_device *pdev)
- 		return err;
- 	}
- 
--	eth->xsi_rsts[0].id = "xsi-mac";
--	eth->xsi_rsts[1].id = "hsi0-mac";
--	eth->xsi_rsts[2].id = "hsi1-mac";
--	eth->xsi_rsts[3].id = "hsi-mac";
--	eth->xsi_rsts[4].id = "xfp-mac";
-+	xsi_rsts = devm_kzalloc(eth->dev,
-+				eth->soc->num_xsi_rsts * sizeof(*xsi_rsts),
-+				GFP_KERNEL);
-+	if (err)
-+		return err;
-+
-+	eth->xsi_rsts = xsi_rsts;
-+	for (i = 0; i < eth->soc->num_xsi_rsts; i++)
-+		eth->xsi_rsts[i].id = eth->soc->xsi_rsts_names[i];
-+
- 	err = devm_reset_control_bulk_get_exclusive(eth->dev,
--						    ARRAY_SIZE(eth->xsi_rsts),
-+						    eth->soc->num_xsi_rsts,
- 						    eth->xsi_rsts);
- 	if (err) {
- 		dev_err(eth->dev, "failed to get bulk xsi reset lines\n");
-@@ -3034,8 +3043,23 @@ static void airoha_remove(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, NULL);
- }
- 
-+static const char * const en7581_xsi_rsts_names[] = {
-+	"xsi-mac",
-+	"hsi0-mac",
-+	"hsi1-mac",
-+	"hsi-mac",
-+	"xfp-mac",
-+};
-+
-+static const struct airoha_eth_soc_data en7581_soc_data = {
-+	.version = 0x7581,
-+	.xsi_rsts_names = en7581_xsi_rsts_names,
-+	.num_xsi_rsts = ARRAY_SIZE(en7581_xsi_rsts_names),
-+	.num_ppe = 2,
-+};
-+
- static const struct of_device_id of_airoha_match[] = {
--	{ .compatible = "airoha,en7581-eth" },
-+	{ .compatible = "airoha,en7581-eth", .data = &en7581_soc_data },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, of_airoha_match);
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 1f7e34a5f457ca2200e9c81dd05dc03cd7c5eb77..cb7e198e40eeb2f44bd6e035cc7b583f47441d59 100644
+index cd13c1c1224f64b63d455b24ce722c33c2fa7125..4330b672d99e1e190efa5ad75d13fb35e77d070e 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.h
 +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -21,7 +21,6 @@
- #define AIROHA_MAX_NUM_IRQ_BANKS	4
- #define AIROHA_MAX_DSA_PORTS		7
- #define AIROHA_MAX_NUM_RSTS		3
--#define AIROHA_MAX_NUM_XSI_RSTS		5
- #define AIROHA_MAX_MTU			9216
- #define AIROHA_MAX_PACKET_SIZE		2048
- #define AIROHA_NUM_QOS_CHANNELS		4
-@@ -556,9 +555,18 @@ struct airoha_ppe {
- 	struct dentry *debugfs_dir;
- };
+@@ -554,7 +554,7 @@ struct airoha_ppe {
+ 	struct rhashtable l2_flows;
  
-+struct airoha_eth_soc_data {
-+	u16 version;
-+	const char * const *xsi_rsts_names;
-+	int num_xsi_rsts;
-+	int num_ppe;
-+};
+ 	struct hlist_head *foe_flow;
+-	u16 foe_check_time[PPE_NUM_ENTRIES];
++	u16 *foe_check_time;
+ 
+ 	struct airoha_foe_stats *foe_stats;
+ 	dma_addr_t foe_stats_dma;
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 691361b254075555549ee80a4ed358c52e8e00b2..8d1dceadce0becb2b1ce656d64ab77bd3c2f914a 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -1440,6 +1440,11 @@ int airoha_ppe_init(struct airoha_eth *eth)
+ 			return -ENOMEM;
+ 	}
+ 
++	ppe->foe_check_time = devm_kzalloc(eth->dev, PPE_NUM_ENTRIES,
++					   GFP_KERNEL);
++	if (!ppe->foe_check_time)
++		return -ENOMEM;
 +
- struct airoha_eth {
- 	struct device *dev;
- 
-+	const struct airoha_eth_soc_data *soc;
-+
- 	unsigned long state;
- 	void __iomem *fe_regs;
- 
-@@ -568,7 +576,7 @@ struct airoha_eth {
- 	struct rhashtable flow_table;
- 
- 	struct reset_control_bulk_data rsts[AIROHA_MAX_NUM_RSTS];
--	struct reset_control_bulk_data xsi_rsts[AIROHA_MAX_NUM_XSI_RSTS];
-+	struct reset_control_bulk_data *xsi_rsts;
- 
- 	struct net_device *napi_dev;
- 
-@@ -611,6 +619,11 @@ static inline bool airhoa_is_lan_gdm_port(struct airoha_gdm_port *port)
- 	return port->id == 1;
- }
- 
-+static inline bool airoha_is_7581(struct airoha_eth *eth)
-+{
-+	return eth->soc->version == 0x7581;
-+}
-+
- bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- 			      struct airoha_gdm_port *port);
- 
+ 	err = rhashtable_init(&eth->flow_table, &airoha_flow_table_params);
+ 	if (err)
+ 		return err;
 
 -- 
 2.51.0
