@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FF1CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 15:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98443CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 15:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6MhaH4wP9uy7gR4mHUOKLySeYpHpu/1WB4KjOxe2eeI=; b=2CqyQzyYayq1SQDFm7KdTQV9xN
-	9W/XcsiUVUbWqYl9A7F4EB/Ilnm6GwLBiDf9JBvtt00ZmDAgWLw7rwYg7mw+7Nkdhv1jhl3YHCQI2
-	nXgBAVeiROPJGnzB8gixpY/4CfhrcvG1DUXFh7vEGIWwSgvPs/FhiMp50330g+H93zb91UjPYjkIm
-	komz4fBRq+ZRQYfnaPqptgGY1BHKVUB7OOJt8DueltxKE6WqoooeA1eUlirqGm6M2wFLd3xy6gnNN
-	BPpEJ31GS0Jqcebpzedo7BB6DaH28Me3kH7Af2srnTGqF6d4TpKYRD/QjjKmqyQsLng50AfzHsGD+
-	zeuURpkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i8WH71db750jps9WxI3z1NEUJwkE3VXRhtPG7iUgTWY=; b=jgojj8mlwSrl//GUdTiSNCKWro
+	v0UgyFw4Pftk2+EEMLvKRMAgde6obuMYeWxGJ1TchonQDPj7sqBau09Tn444wXqSTli/hizisCiF2
+	khSibREL1fEbLRMT3HofZ/Me/vNzaFiXxFEzkIa5bt6ciRv2iPaz7HHivCfO8U3mt/7aMZ0UI842K
+	oTpdRv+YWoYEA5K/IbW6yCCfLsELO69envFI4/WkGbalJXbKUBUIz67HmV8nicyyoghpWPuJXCPJ8
+	5vELnmzG9X+8+HSYIGtXLbgUgFWdkRE72Ki8DWJEyoX/i0YOAdAr1iAL0FQeyyIroQopNe19k0vhO
+	wA4KWmDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v931w-000000021oB-3BLv;
-	Wed, 15 Oct 2025 15:03:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v931u-000000021n9-31zu
+	id 1v935i-000000022Xi-2jsL;
+	Wed, 15 Oct 2025 15:07:02 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v935g-000000022Wu-1vng
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 15:03:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 12F1A1655;
-	Wed, 15 Oct 2025 08:02:58 -0700 (PDT)
-Received: from [10.1.38.178] (XHFQ2J9959.cambridge.arm.com [10.1.38.178])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7C073F738;
-	Wed, 15 Oct 2025 08:03:03 -0700 (PDT)
-Message-ID: <dc1d3d1f-4d72-41b0-a9a5-9d2b7e2784b1@arm.com>
-Date: Wed, 15 Oct 2025 16:03:02 +0100
+	Wed, 15 Oct 2025 15:07:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=i8WH71db750jps9WxI3z1NEUJwkE3VXRhtPG7iUgTWY=; b=04hQz4eK43+AW/wKb5wdQbpX7W
+	9qjxEPcOHoILOsxV1PI8IytNEk84VUOiE3we1jZwRHbOWnulNKUJp706hKrMypx3oAeFgwVnxQJp1
+	7NcBfL3w49o/pLRiGOLUQIQ/mWRC0KCTP8+VfDs1dsu+lXWJju+rDn+BWTwR/+t0mRP2hDyld2Iy+
+	Y+3njCB/O24OWRDwUd5m5IiCMsrA2qo8dBfgqnXLAfyzO2XLKOXq0hFkLwNxW1dEVY+Dz3X9mnDRT
+	2VTa9nPxpngzLSATgjGK+7eSuRfEQT3c4w5Fc5pxwzaBcGyASUd1jlsNEB+d8MwZ634P3VQG8TnLz
+	W4C0Q8HQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37834)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v935W-000000004wH-29yk;
+	Wed, 15 Oct 2025 16:06:50 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v935S-000000002Le-3AO4;
+	Wed, 15 Oct 2025 16:06:46 +0100
+Date: Wed, 15 Oct 2025 16:06:46 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 1/3] net: stmmac: Move subsecond increment
+ configuration in dedicated helper
+Message-ID: <aO-4hnUINpQ0JORE@shell.armlinux.org.uk>
+References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
+ <20251015102725.1297985-2-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] arm64/mm: Rename try_pgd_pgtable_alloc_init_mm
-Content-Language: en-GB
-To: Linu Cherian <linu.cherian@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Zhenhua Huang <quic_zhenhuah@quicinc.com>, Dev Jain <dev.jain@arm.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Yang Shi <yang@os.amperecomputing.com>
-References: <20251015112758.2701604-1-linu.cherian@arm.com>
- <20251015112758.2701604-3-linu.cherian@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20251015112758.2701604-3-linu.cherian@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251015102725.1297985-2-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_080306_804853_76080C51 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20251015_080700_497687_2FA21BE8 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,67 +90,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/10/2025 12:27, Linu Cherian wrote:
-> With BUG_ON in pgd_pgtable_alloc_init_mm moved up to higher layer,
-> gfp flags is the only difference between try_pgd_pgtable_alloc_init_mm
-> and pgd_pgtable_alloc_init_mm. Hence rename the "try" version
-> to pgd_pgtable_alloc_init_mm_gfp.
-> 
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+On Wed, Oct 15, 2025 at 12:27:21PM +0200, Maxime Chevallier wrote:
+> +static void stmmac_update_subsecond_increment(struct stmmac_priv *priv)
+> +{
+> +	bool xmac = priv->plat->has_gmac4 || priv->plat->has_xgmac;
 
-LGTM:
+Just to say that I have patches that get rid of these has_xxx flags for
+the cores, and these changes (and the additional platform glue patches
+that have been posted) will conflict with them.
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Given the rate of change in stmmac, at some point we're going to have
+to work out some way of stopping stmmac development to get such an
+invasive cleanup change merged - but with my variability and pressures
+on the time I can spend even submitting patches, I've no idea how that
+will work... I was going to send them right at the start of this
+cycle, but various appointments on Monday and Tuesday this week plus
+work pressures prevented that happening.
 
-> ---
-> Changelog
-> v3:
-> * Update  pgd_pgtable_alloc_init_mm to make use of 
->   pgd_pgtable_alloc_init_mm_gfp
-> 
->  arch/arm64/mm/mmu.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 638cb4df31a9..80786d3167e7 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -559,7 +559,7 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
->  }
->  
->  static phys_addr_t
-> -try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type, gfp_t gfp)
-> +pgd_pgtable_alloc_init_mm_gfp(enum pgtable_type pgtable_type, gfp_t gfp)
->  {
->  	return __pgd_pgtable_alloc(&init_mm, gfp, pgtable_type);
->  }
-> @@ -567,7 +567,7 @@ try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type, gfp_t gfp)
->  static phys_addr_t __maybe_unused
->  pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
->  {
-> -	return __pgd_pgtable_alloc(&init_mm, GFP_PGTABLE_KERNEL, pgtable_type);
-> +	return pgd_pgtable_alloc_init_mm_gfp(pgtable_type, GFP_PGTABLE_KERNEL);
->  }
->  
->  static phys_addr_t
-> @@ -594,7 +594,7 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
->  	pte_t *ptep;
->  	int i;
->  
-> -	pte_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PTE, gfp);
-> +	pte_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PTE, gfp);
->  	if (pte_phys == INVALID_PHYS_ADDR)
->  		return -ENOMEM;
->  	ptep = (pte_t *)phys_to_virt(pte_phys);
-> @@ -639,7 +639,7 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
->  	pmd_t *pmdp;
->  	int i;
->  
-> -	pmd_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PMD, gfp);
-> +	pmd_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PMD, gfp);
->  	if (pmd_phys == INVALID_PHYS_ADDR)
->  		return -ENOMEM;
->  	pmdp = (pmd_t *)phys_to_virt(pmd_phys);
+So, I decided instead to send out the first stmmac PCS series... which
+means I now need to wait for that to be merged before I can think about
+sending out anything else stmmac-related. (and there's more PCS patches
+to come beyond the 14 I sent today.)
 
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
