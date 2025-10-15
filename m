@@ -4,98 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5579CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 08:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BDDCCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 08:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kYmPJ6r7KmFHWtiLUTbtWuCWMRTotHkS2m3cSns0zQ0=; b=hbxG7pHfcAGaNOOK+sft9+cpOI
-	+MhMnf3T2fTZvYkg6zje2lPAW0GirXioggIrt7vBg/VfSIWnaQxKTL5flbCU2NZdLXCd1IJWX1GXd
-	Uz/Izm8YBoOBFMQydZPve7ShbP9fL/hy2nyOGwQT/J3sFtA/nd62hjGrNb2skcF34H1gFke3t5Yaf
-	+K7fFV3n/xI7Mi/yso6SPq06puUEbEAH8B5JI3sLxM2qcS/Dw/VKsQmeoZHdk11nPLpSdsxu3ND24
-	iWYGTSwZUtQ7tpIpahXL/zQVMLNxVkMnA+oDYxdbPXSoxS322HdQeP3vofWivAuIPiL+yV+NDM98W
-	v2ABl6sA==;
+	bh=s0z0m5I3iTOnk1uia32ngawtgAW75JmI5fNRgQhQ4w8=; b=lBF9WWvCWBhfQoKw4oDAH7XLie
+	hWVDwYjByAYfNWb9XZNJW9TdoJNKfvdUnO9hX05yC8UT8TBtobYJUV4Xy5OLMTrAgoe8qdpxx3LUn
+	fPJ8w4RW8qGdhojIAQsIyoT04ptkvJKpQX8EEj6XSbIXoPR2sXMoa1oDNh5HtZNXkGNAt6Z8y4RVU
+	DP5taAGOpnN5avCDG74lLUMkdbGwsw38cUIhN9X97CT0359uJFOyj90BiC/5L/RgK4z38TJSSpUdp
+	oeZ2LegDJdmstv+9GPl4ensJ8WN7uvf5IpZyM7qbLuk6aeZPiQZ7WQAI8Y6iJs1CpOHvwM4B9qsbH
+	hBVyJU9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8wsY-00000000vak-2Aql;
-	Wed, 15 Oct 2025 08:29:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v8wvQ-00000000wfC-2EoR;
+	Wed, 15 Oct 2025 08:32:00 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8wsW-00000000vWv-2jtD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 15 Oct 2025 08:29:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=kYmPJ6r7KmFHWtiLUTbtWuCWMRTotHkS2m3cSns0zQ0=; b=nMuvy+vZ3FelIwRrXb14c86AmK
-	g9R5Yuh9zILO4w+dbHxkvOISeuAQtJMuw62D57Omi3X0byCBHIu9oXoUq4vdybUFYylYcz+mYgy3g
-	2bxIL4Nm0V5bOP1djZ6lu8tDQIGn44a3NsoAqXmWtWVBYrpP9sY0Il9ZmnMEbLck8ELscJJF/kk3v
-	wxSACCB6IAGYUFLt0SgvTIT0+wJOY0XnlYGoXfkv2+vFUOnabrD03ibYnoreYoAANtiu7lEk70ZsX
-	DDuvkNKFGd0PwDpBM2rEm4hE7VvPGVIXnwNBUN/xYZMWhWxU+YWcAOmUDhHn432Px3yaj+IWaE/Ak
-	va4eQn/A==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8wsJ-00000005nue-1LyH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 08:28:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2EB672364;
-	Wed, 15 Oct 2025 01:28:34 -0700 (PDT)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2ADB43F66E;
-	Wed, 15 Oct 2025 01:28:37 -0700 (PDT)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jann Horn <jannh@google.com>,
-	Juergen Gross <jgross@suse.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Will Deacon <will@kernel.org>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	xen-devel@lists.xenproject.org,
-	x86@kernel.org
-Subject: [PATCH v3 11/13] x86/xen: use lazy_mmu_state when context-switching
-Date: Wed, 15 Oct 2025 09:27:25 +0100
-Message-ID: <20251015082727.2395128-12-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20251015082727.2395128-1-kevin.brodsky@arm.com>
-References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
+	id 1v8wvO-00000000wdm-1eGu;
+	Wed, 15 Oct 2025 08:31:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1760517116;
+	bh=LHvokEjTG+iDmfz8a8WfH/PVU55uP938bDrAF617h6w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jY0a7noLy0Ijmfc07CX9yvvjDHr2vYhPF3q8f6Aha3qmLYOxBY6vIrMInS8LyZeES
+	 izl/cj/MvnDWiStvIciy/WJhbwNmZ6XqpiRQkfF94+/V7AieqHP0BuhI0BYzMbTdZz
+	 8a/D/cCkjP3L5dHAI265xVfDYQI/6L7f2qsPzV/je7U8jNe5Rkk3D1202aygwPA4X5
+	 M4E2/DEuZgpXL6Qj4tbxFfjH2hTG9CfenYzj/7dpzjHQhirDz5WZJoKToToEXn3ZJ2
+	 hBcXz6xssGykPw6nhIPtNRuRjsl/209YZLJrk0rzKuTH7GIyR/wS2M9+FG/XJXpy8w
+	 pCNlIVNOtiUGA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 076EE17E00A3;
+	Wed, 15 Oct 2025 10:31:55 +0200 (CEST)
+Message-ID: <f613c223-a2ae-4092-8361-0396ace8df99@collabora.com>
+Date: Wed, 15 Oct 2025 10:31:55 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: mediatek: mt8188-geralt: Enable first SCP
+ core
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Fei Shao <fshao@chromium.org>
+References: <20250814092510.211672-1-wenst@chromium.org>
+ <b20a1c7d-0da5-433b-987c-f55a5a229bed@collabora.com>
+ <CAGXv+5EPd5hLSNTFYkBWPCL1Bq4CJN4R7v5ZWtoRMYSi9+TeCA@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAGXv+5EPd5hLSNTFYkBWPCL1Bq4CJN4R7v5ZWtoRMYSi9+TeCA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_092854_338751_3E9F058C 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20251015_013158_583221_DF8D90F1 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,65 +79,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently set a TIF flag when scheduling out a task that is in
-lazy MMU mode, in order to restore it when the task is scheduled
-again.
+Il 15/10/25 09:31, Chen-Yu Tsai ha scritto:
+> On Tue, Oct 14, 2025 at 9:27 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> Il 14/08/25 11:25, Chen-Yu Tsai ha scritto:
+>>> The first SCP core is used to drive the video decoder and encoders.
+>>>
+>>> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+>>> ---
+>>> Changes since v1:
+>>> - Added SCP vreq pin
+>>> ---
+>>>    .../boot/dts/mediatek/mt8188-geralt.dtsi      | 25 +++++++++++++++++++
+>>>    1 file changed, 25 insertions(+)
+>>>
+>>> diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+>>> index c5254ae0bb99..7fedbacdac44 100644
+>>> --- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+>>> +++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+>>> @@ -164,6 +164,12 @@ reserved_memory: reserved-memory {
+>>>                #size-cells = <2>;
+>>>                ranges;
+>>>
+>>> +             scp_mem_reserved: memory@50000000 {
+>>> +                     compatible = "shared-dma-pool";
+>>> +                     reg = <0 0x50000000 0 0x800000>;
+>>> +                     no-map;
+>>> +             };
+>>> +
+>>>                apu_mem: memory@55000000 {
+>>>                        compatible = "shared-dma-pool";
+>>>                        reg = <0 0x55000000 0 0x1400000>;
+>>> @@ -1077,6 +1083,13 @@ pins-bus {
+>>>                };
+>>>        };
+>>>
+>>> +     scp_pins: scp-pins {
+>>> +             pins-scp-vreq {
+>>> +                     pinmux = <PINMUX_GPIO98__FUNC_O_SCP_VREQ_VAO>;
+>>> +                     bias-disable;
+>>> +             };
+>>> +     };
+>>> +
+>>>        spi0_pins: spi0-pins {
+>>>                pins-bus {
+>>>                        pinmux = <PINMUX_GPIO69__FUNC_O_SPIM0_CSB>,
+>>> @@ -1146,6 +1159,18 @@ &postmask0_out {
+>>>        remote-endpoint = <&dither0_in>;
+>>>    };
+>>>
+>>> +&scp_cluster {
+>>> +     status = "okay";
+>>> +};
+>>> +
+>>> +&scp_c0 {
+>>> +     pinctrl-names = "default";
+>>> +     pinctrl-0 = <&scp_pins>;
+>>> +     firmware-name = "mediatek/mt8188/scp.img";
+>>
+>> After a (very brief) discussion with Arnd last time, turns out we decided to avoid
+>> using the firmware-name property, including for mtk-scp.
+>>
+>> Please resend without firmware-name.
+>>
+>> P.S.: there's a patch to construct the firmware name from compatible...
+>> https://lore.kernel.org/r/20250911140043.190801-1-angelogioacchino.delregno@collabora.com
+> 
+> I'm aware of the patch, but did that get merged?
 
-The generic lazy_mmu layer now tracks whether a task is in lazy MMU
-mode in task_struct::lazy_mmu_state. We can therefore check that
-state when switching to the new task, instead of using a separate
-TIF flag.
+Not yet.
 
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/x86/include/asm/thread_info.h | 4 +---
- arch/x86/xen/enlighten_pv.c        | 3 +--
- 2 files changed, 2 insertions(+), 5 deletions(-)
+ >> If not then this would
+> cause it to default to just /lib/firmware/scp.img?
 
-diff --git a/arch/x86/include/asm/thread_info.h b/arch/x86/include/asm/thread_info.h
-index e71e0e8362ed..0067684afb5b 100644
---- a/arch/x86/include/asm/thread_info.h
-+++ b/arch/x86/include/asm/thread_info.h
-@@ -100,8 +100,7 @@ struct thread_info {
- #define TIF_FORCED_TF		24	/* true if TF in eflags artificially */
- #define TIF_SINGLESTEP		25	/* reenable singlestep on user return*/
- #define TIF_BLOCKSTEP		26	/* set when we want DEBUGCTLMSR_BTF */
--#define TIF_LAZY_MMU_UPDATES	27	/* task is updating the mmu lazily */
--#define TIF_ADDR32		28	/* 32-bit address space on 64 bits */
-+#define TIF_ADDR32		27	/* 32-bit address space on 64 bits */
- 
- #define _TIF_SSBD		BIT(TIF_SSBD)
- #define _TIF_SPEC_IB		BIT(TIF_SPEC_IB)
-@@ -114,7 +113,6 @@ struct thread_info {
- #define _TIF_FORCED_TF		BIT(TIF_FORCED_TF)
- #define _TIF_BLOCKSTEP		BIT(TIF_BLOCKSTEP)
- #define _TIF_SINGLESTEP		BIT(TIF_SINGLESTEP)
--#define _TIF_LAZY_MMU_UPDATES	BIT(TIF_LAZY_MMU_UPDATES)
- #define _TIF_ADDR32		BIT(TIF_ADDR32)
- 
- /* flags to check in __switch_to() */
-diff --git a/arch/x86/xen/enlighten_pv.c b/arch/x86/xen/enlighten_pv.c
-index 4806cc28d7ca..9fabe83e7546 100644
---- a/arch/x86/xen/enlighten_pv.c
-+++ b/arch/x86/xen/enlighten_pv.c
-@@ -426,7 +426,6 @@ static void xen_start_context_switch(struct task_struct *prev)
- 
- 	if (this_cpu_read(xen_lazy_mode) == XEN_LAZY_MMU) {
- 		arch_leave_lazy_mmu_mode();
--		set_ti_thread_flag(task_thread_info(prev), TIF_LAZY_MMU_UPDATES);
- 	}
- 	enter_lazy(XEN_LAZY_CPU);
- }
-@@ -437,7 +436,7 @@ static void xen_end_context_switch(struct task_struct *next)
- 
- 	xen_mc_flush();
- 	leave_lazy(XEN_LAZY_CPU);
--	if (test_and_clear_ti_thread_flag(task_thread_info(next), TIF_LAZY_MMU_UPDATES))
-+	if (next->lazy_mmu_state.enabled)
- 		arch_enter_lazy_mmu_mode();
- }
- 
--- 
-2.47.0
+Yes... but there's no way around it, we can't add firmware-name to devicetrees.
+
+> 
+> ChenYu
+> 
+>> Cheers,
+>> Angelo
+>>
+>>> +     memory-region = <&scp_mem_reserved>;
+>>> +     status = "okay";
+>>> +};
+>>> +
+>>>    &sound {
+>>>        pinctrl-names = "aud_etdm_hp_on", "aud_etdm_hp_off",
+>>>                        "aud_etdm_spk_on", "aud_etdm_spk_off",
+>>
+>>
+
 
 
