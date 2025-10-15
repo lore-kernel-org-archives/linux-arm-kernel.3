@@ -4,82 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFB9CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:05:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954E8CCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z4DiBH4L2zFebqfEoDk29CwM1Bc3n2gl1Oz2cKH7YPo=; b=ZSkHqTcQnYdfOgqnfo3rA/57xa
-	AEpOoOJU8g5HFtphTN6+VhEWRKL9yJ2gNSOwQP64CRdQ//JQJP5usovyk/0Gc4HEfTbxZ9Jtb9BtY
-	H+wvAxij548xQ47Haj9AQGyX5mMR3zseV939YKMBIlOgTpF/teO830TaAX2AbRKnB91gICh+ZxMas
-	N1byhMKfLpUMo+wtL2Uum9JGlHh5cReX/iXJMc7flnL36gVT8u3HrVPs4B3P4xaJfkX61iCQ0xHb7
-	KAosqGmRwmjYcU3KVayFA98+sSgt8DGStvJp1tYczbZH1KXmnsFb4W7GJF1GH9Dr91keJy9xNAFSM
-	8fiw9SuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Cd+vnc5+2R6vO0E42gKoeqL/Lm72sDaXvug1pdMXk+E=; b=xs1fc/36PbUJehrJVSgv/cDFr5
+	u+ESNkV03DNiLzbqpdJDIDPy7RswqaClxPYJ0aU4jPPaKvFph+pIClU9YuC93ILbZMUbKMu7hfkU4
+	d5NHeCiYo0wLyw+hQJth2M3r0jdfpam3s7cZlgtyhiZzd3xc2kMbBWB6lo8FbwR84HuVd0P4VApcI
+	k52uDT4X1LQa1EEad4WIl5HN4D/kPGibgAGKkzpPzq9zTAU3iXmrQBHMSfjt3/anvek59dE9OvJQP
+	JAc6FunwvuIJLGVsXGm1aypCVSGE6M754wyIfJMx6VFfbRbgFsDMm2MaQvQUA2Esv4cae7dxYMxSu
+	QrXxROLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v927d-00000001oHR-0FXM;
-	Wed, 15 Oct 2025 14:04:57 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1v92MU-00000001qWV-3VOV;
+	Wed, 15 Oct 2025 14:20:18 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v927a-00000001oFZ-1LQw
+	id 1v92MS-00000001qUM-38t5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 14:04:55 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3352a336ee1so21957450a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 07:04:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760537093; x=1761141893; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z4DiBH4L2zFebqfEoDk29CwM1Bc3n2gl1Oz2cKH7YPo=;
-        b=srwr5nMWfo8sxODBrh/7rIt0S603EUFDe8w8elXwF8WEGU6ju5dc2se9BgPCowpiSR
-         qePedg2ZMpHL+0YgTbRAIAL6OL0jBrcsF1zlgWLhJyW3xFvs7zTAV4Eq73GatQnCkL3q
-         2ppo7FOPh7h1zHUlGkUKu/APbP+mYCDsVScgmWkzBMFEFpk0LEVBQNFqxqHIfptVtgfu
-         1V6NKVVpO4zi3KKBLAYh2OaRjNG6door8q6Yrg7aiy3FiqHrNG7mEQXbGgx7FwvG17+J
-         d0JlFIL6Rojn1fOH+dK3avhcd1GsCF708vARZFG1NfGk0Wy20/SApcsJ4Bwqcr+ffEYn
-         eDKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760537093; x=1761141893;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z4DiBH4L2zFebqfEoDk29CwM1Bc3n2gl1Oz2cKH7YPo=;
-        b=rWZXNxdeY1Mk8jLdP/6n1K0IFymnbP7SkwT0Z7Da9TsVX1PuDdh8x9IyBSzw7ACSa8
-         BMF3UmZhZ5cAdD90M9kJIyiAJix81wNZb3paSDuvXzqq+gOi+ImMtWyJRsGRFmfEc8LS
-         hSkmZ6355zQvkWATz4bwmIoQ4aYelZqRV7PKB8/KH/64c1uNHV9U9AdVJrpWhotn2Eb1
-         pLifv1JsHihno8EYJ94nOqiQ0PdobSF8gxVwdUJ+D45MS9UxZ+DyVDh3xGjA+BnT7DyH
-         3qsa2/u5LB2JUF9+lYQw47yOVw4Bw6HgB2EEOQjkQ4zmKW/hs5D0JJhKIroCX5eYYpQJ
-         MB0g==
-X-Forwarded-Encrypted: i=1; AJvYcCVg1nL1fN7LBgf0h14cx1ZO63KAWoNYyCEIXnLzTg5QGXlRVYKywMMCgkkEuuMDzakxSc3OTl4M5Sh5zIDHAgzn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuPL7ejYosrkgNBWIKeuGw5VoMTYya0afF1w9h4LAsX7ZI5Jp/
-	Pc8rpi/AfIf+tIhDtb6i4NhBstCESPxdtZS6dPD4cb9fpOhoM6OuQhoykVD37POxGZdJaf835Ia
-	zL8G3XA==
-X-Google-Smtp-Source: AGHT+IE1+td5soWF05Hoahm6Hvpema7mHvLUqdyQlzOJZyQi5z9/sZLyyXRWNTOg3FlzXOK9GExt35QwxNQ=
-X-Received: from pjbkx5.prod.google.com ([2002:a17:90b:2285:b0:327:c20a:364])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3ec4:b0:32e:d16c:a8c6
- with SMTP id 98e67ed59e1d1-33b5111bd79mr42350202a91.16.1760537092984; Wed, 15
- Oct 2025 07:04:52 -0700 (PDT)
-Date: Wed, 15 Oct 2025 07:04:51 -0700
-In-Reply-To: <81af1654-5cb1-405a-bd42-670058dd22b6@redhat.com>
-Mime-Version: 1.0
-References: <20251014122857.1250976-1-maz@kernel.org> <81af1654-5cb1-405a-bd42-670058dd22b6@redhat.com>
-Message-ID: <aO-qA0oz5PyqPtGj@google.com>
-Subject: Re: [GIT PULL] KVM/arm64 fixes for 6.18, take #1
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Jan Kotas <jank@cadence.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, 
-	Naresh Kamboju <naresh.kamboju@linaro.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Osama Abdelkader <osama.abdelkader@gmail.com>, Sascha Bischoff <sascha.bischoff@arm.com>, 
-	Sebastian Ott <sebott@redhat.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Zenghui Yu <zenghui.yu@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+	Wed, 15 Oct 2025 14:20:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Cd+vnc5+2R6vO0E42gKoeqL/Lm72sDaXvug1pdMXk+E=; b=bleYCwZ6e9k8KI/AZUcw/0mN5x
+	XDEE8vjEzTMt/+6uSPa63ftpsRMY4htwHlql8pMUz3+0VZozXUAOT4QGKpTq9ehE+hYDvYe7UKWqP
+	WVur47biWXiBt6sotW/N8jLKOnSTG44pE0v2eVLpQn7pqpokXPgo+5L9wm7DTbh3A2a8fCaseTcfY
+	TilXzGcq+cFtkzIlSC0/Sq1vbVEpaK+6FCQ3vle5P5vt4eHebtdYOTnsA8v47tU8Ivf9z0hsShO+i
+	XXSefj6hPUCwC52GpDDetTntyxCgyYqC2KkDIHvDnSfkNW3es1lc+KNIrSx9sqi8jv8N3JAdzjFnB
+	rx0X6IIA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58174)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v92Lq-000000004dh-3LdE;
+	Wed, 15 Oct 2025 15:19:38 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v92Ld-000000002KU-2IwM;
+	Wed, 15 Oct 2025 15:19:25 +0100
+Date: Wed, 15 Oct 2025 15:19:25 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexis Lothore <alexis.lothore@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
+	Furong Xu <0x1207@gmail.com>, Inochi Amaoto <inochiama@gmail.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Kees Cook <kees@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthew Gerlach <matthew.gerlach@altera.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
+	netdev@vger.kernel.org, Oleksij Rempel <o.rempel@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rohan G Thomas <rohan.g.thomas@altera.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Simon Horman <horms@kernel.org>,
+	Song Yoong Siang <yoong.siang.song@intel.com>,
+	Swathi K S <swathi.ks@samsung.com>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>, Vinod Koul <vkoul@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: [PATCH net-next 00/14] net: stmmac: phylink PCS conversion
+Message-ID: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_070454_359495_BD0EB258 
-X-CRM114-Status: GOOD (  24.27  )
+X-CRM114-CacheID: sfid-20251015_072016_961544_D2561AF1 
+X-CRM114-Status: GOOD (  27.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,36 +111,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025, Paolo Bonzini wrote:
-> On 10/14/25 14:28, Marc Zyngier wrote:
-> > You will notice that, just like I did with the main pull request, I'm
-> > adding message-ids to the tag instead of putting them into the
-> > individual patches. It looks rubbish, but I don't have a good
-> > alternative, and I'm not prepared to remove provenance information
-> > from the stuff I ferry upstream.
-> > 
-> > I'd welcome any guidance that would make things suck less for people
-> > reporting bugs and backporting stuff, despite the "Link: is bad"
-> > nonsense. Preferably something that we can adopt across architectures
-> > supporting KVM.
-> Because you're already unusually meticulous in tracking tags, I'm going to
-> say whatever floats your boat.  If you want to add it to each patch, I'm
-> certainly not going to be the one to complain, and/or to make your life
-> harder, because of something like "Link".
-> 
-> Personally I think that there's a different between adding something
-> mindlessly as a cargo cult, and adding it *unconditionally*.  Link is the
-> latter, it's unconditional because it may be needed *later*.  In some cases
-> it may not be strictly necessary (for example the tip bot used it to send
-> replies, and that is served by notes just fine), but overall I don't get the
-> hate either.
-> 
-> In fact, I'm very adamant about *needing* Link trailers for each patch in
-> the RISC-V pull requests, which are the ones I look at most closely since
-> the code is still in relative infancy.
+This series is radical - it takes the brave step of ripping out much of
+the existing PCS support code and throwing it all away.
 
-FWIW, adding Link to every commit is a hill I'll die on (and Paolo has confirmed
-that he doesn't object), it's simply far too valuable.  And as Paolo has mentioned
-off-list, I don't think Linus will ever notice, so long as we don't send him
-garbage and thus give him cause to see what lies behind the Link.
+I have discussed the introduction of the STMMAC_FLAG_HAS_INTEGRATED_PCS
+flag with Bartosz Golaszewski, and the conclusion I came to is that
+this is to workaround the breakage that I've been going on about
+concerning the phylink conversion for the last five or six years.
+
+The problem is that the stmmac PCS code manipulates the netif carrier
+state, which confuses phylink.
+
+There is a way of testing this out on the Jetson Xavier NX platform as
+the "PCS" code paths can be exercised while in RGMII mode - because
+RGMII also has in-band status and the status register is shared with
+SGMII. Testing this out confirms my long held theory: the interrupt
+handler manipulates the netif carrier state before phylink gets a
+look-in, which means that the mac_link_up() and mac_link_down() methods
+are never called, resulting in the device being non-functional.
+
+Moreover, on dwmac4 cores, ethtool reports incorrect information -
+despite having a full-duplex link, ethtool reports that it is
+half-dupex.
+
+Thus, this code is completely broken - anyone using it will not have
+a functional platform, and thus it doesn't deserve to live any longer,
+especially as it's a thorn in phylink.
+
+Rip all this out, leaving just the bare bones initialisation in place.
+
+However, this is not the last of what's broken. We have this hw->ps
+integer which is really not descriptive, and the DT property from
+which it comes from does little to help understand what's going on.
+Putting all the clues together:
+
+- early configuration of the GMAC configuration register for the
+  speed.
+- setting the SGMII rate adapter layer to take its speed from the
+  GMAC configuration register.
+
+Lastly, setting the transmit enable (TE) bit, which is a typo that puts
+the nail in the coffin of this code. It should be the transmit
+configuration (TC) bit. Given that when the link comes up, phylink
+will call mac_link_up() which will overwrite the speed in the GMAC
+configuration register, the only part of this that is functional is
+changing where the SGMII rate adapter layer gets its speed from,
+which is a boolean.
+
+From what I've found so far, everyone who sets the snps,ps-speed
+property which configures this mode also configures a fixed link,
+so the pre-configuration is unnecessary - the link will come up
+anyway.
+
+So, this series rips that out the preconfiguration as well, and
+replaces hw->ps with a boolean hw->reverse_sgmii_enable flag.
+
+We then move the sole PCS configuration into a phylink_pcs instance,
+which configures the PCS control register in the same way as is done
+during the probe function.
+
+Thus, we end up with much easier and simpler conversion to phylink PCS
+than previous attempts.
+
+Even so, this still results in inband mode always being enabled at the
+moment in the new .pcs_config() method to reflect what the probe
+function was doing. The next stage will be to change that to allow
+phylink to correctly configure the PCS. This needs fixing to allow
+platform glue maintainers who are currently blocked to progress.
+
+Please note, however, that this has not been tested with any SGMII
+platform.
+
+I've tried to get as many people into the Cc list with get_maintainers,
+I hope that's sufficient to get enough eyeballs on this.
+
+Changes since RFC:
+- new patch (7) to remove RGMII "pcs" mode
+- new patch (8) to move reverse "pcs" mode to stmmac_check_pcs_mode()
+- new patch (9) to simplify the code moved in the previous patch
+- new patch (10) to rename the confusing hw->ps to something more
+  understandable.
+- new patch (11) to shut up inappropriate complaints about
+  "snps,ps-speed" being invalid.
+- new patch (13) to add a MAC .pcs_init method, which will only be
+  called when core has PCS present.
+- modify patch 14 to use this new pcs_init method.
+
+Despite getting a couple of responses to the RFC series posted in
+September, I have had nothing testing this on hardware. I have tested
+this on the Jetson Xavier NX, which included trial runs with enabling
+the RGMII "pcs" mode, hence the new patches that rip out this mode. I
+have come to the conclusion that the only way to get stmmac changes
+tested is to get them merged into net-next, thereby forcing people to
+have to run with them... and we'll deal with any fallout later.
+
+ drivers/net/ethernet/stmicro/stmmac/Makefile       |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/common.h       |  5 +-
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    |  6 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000.h    |  6 +-
+ .../net/ethernet/stmicro/stmmac/dwmac1000_core.c   | 65 ++-------------------
+ drivers/net/ethernet/stmicro/stmmac/dwmac4.h       |  3 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  | 66 ++-------------------
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_core.c    | 25 +-------
+ drivers/net/ethernet/stmicro/stmmac/hwif.h         |  4 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       |  4 ++
+ .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c   | 68 +---------------------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 24 ++++----
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c   | 47 +++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h   | 23 ++++++--
+ include/linux/stmmac.h                             |  1 -
+ 15 files changed, 104 insertions(+), 245 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
