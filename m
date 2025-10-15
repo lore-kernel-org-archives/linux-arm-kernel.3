@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2FDCCCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 12:35:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF814CCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 12:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KrFpUsYhF7LFTIwuP8wMAhoYm5BXEQy9J5a/OGusu9w=; b=KKyy4tAUZXTKIP92zASE2CFM3M
-	Xs7NGzo5/zWq5fmxTFP2+1EXGCwAukM1g09rl83rlQWmECUuyrJ6qBhMPqzr+NGw42HfGFEWvyA2X
-	wHp5TQQL3Sd6tccT2g5bBd9NwBtqrXaqpCC8GEgKBlkzZNDM+bAs0709odRxmDWpBTnYTyTecmaVA
-	csv5vSGzaN8cNsY7ylteREWQY54Ps8HFJy3L5q/Rv6ZoZhNaaIg2BhADqgpJgVbKWZpSZh5bmtnEH
-	2ZxixxFcIOxwh4vE9aNcNZt501CTPXZY1v5WwJVXFEC2OfjEKMLPCCHUPYIe9gIvqQr41X0dtbTKd
-	oPPZcTbQ==;
+	bh=FCzysB2PP/ptDx3tP/4JcOcfRh43sgPZpbfU/iP6tzM=; b=mJ8LUyKqMDW8Jm2kIRflszYxVM
+	afAdynu4FWQeaUiVHD1jpdbLoWLZMKjD/KxPvyZuIRYgtqtf34AsL6Deej9GwI8fSxvuu3P+0S8VH
+	0OV6l8vjOFTfOJK1MGLoJ0MbaDQXwvu7R+ukJXmefludnj8EqdkCyef4xTS7ZZ+dZs2wTYxV9mVp4
+	keUT/HlbyxPcO0Nw/Ax+slK2V4/zMEWxX7E++EmVEORhdMkD3vTqURzHc5q3cnDbCybU5Fwd34xlM
+	9MuVYzIhEjF/ZiPnoVzzOGFxeSTsMGVCb0aLV5Gz8K8sedY5HfNm0WItN4PrpA2sebjwWX1VfH8hd
+	9sNqiReg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v90jL-00000001Z9h-1acv;
-	Wed, 15 Oct 2025 12:35:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v90mv-00000001ZoF-1Ref;
+	Wed, 15 Oct 2025 12:39:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v90jJ-00000001Z8r-1ukJ;
-	Wed, 15 Oct 2025 12:35:46 +0000
+	id 1v90mt-00000001Znp-0VWC
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Oct 2025 12:39:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1409D45185;
-	Wed, 15 Oct 2025 12:35:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96BA7C4CEF8;
-	Wed, 15 Oct 2025 12:35:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 841B6625B1;
+	Wed, 15 Oct 2025 12:39:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AF81C4CEF8;
+	Wed, 15 Oct 2025 12:39:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760531744;
-	bh=JBha8IM0AxTjIHZho/VaVOPs4WZJhD7HiSM3gEnMxw8=;
+	s=k20201202; t=1760531966;
+	bh=O4vy5PSXyIGPiDBPil6snETDgyGJ9ca0rxgId+YGngw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h8mWfXGZW8dgoUk6CSJzFlBT5ekUzQeHNObU3HJQURWD+RFCS/NdsPZne7YpA0nsK
-	 oac66oDiHi4y+Rthue2fGbNXz2OZQTOpTv8N68Zch+tPSZRrKJOJnYvcmjD/SDG6c6
-	 /e0Ukex6rio4LT1HbHX2/3fYq6FL6e3HdyhaG6Z7bpeiHp5lzAOeylb3CVSyeqpoZX
-	 x4XYBqvveuXh7T/HAFdCQipp0Ecfygr/uBh8sJjfTow1qC4EOufnZBUK/UYierVa6w
-	 JxHGAQSytV+eZ1QaE0mE1lDUe266jJUjvRKHHhVyZyD4lzxH3ZYIiEFVlwkyLB8eXw
-	 9K5WFHt58p0+g==
-Date: Wed, 15 Oct 2025 14:35:38 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Simon Xue <xxm@rock-chips.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>
-Cc: Damien Le Moal <dlemoal@kernel.org>, Dragan Simic <dsimic@manjaro.org>,
-	FUKAUMI Naoki <naoki@radxa.com>, stable@vger.kernel.org,
-	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] PCI: dw-rockchip: Disable L1 substates
-Message-ID: <aO-VGnz67TMzqdiX@ryzen>
-References: <20251015123142.392274-2-cassel@kernel.org>
+	b=aADQLKwn0O0etKEqQQ+te27f5Oajw9gR9Exbma95Xn1NrWBIo/sS40/JhgBFHYNPq
+	 zuJi90mAD3JBoVaZWRht4dAbJvomp0Ynmh/1RwE4PtotlI9jDhsdDEv1JEMlbcpFnf
+	 Geo6XGPmXHW1prv+ZSjTV3NAJYD2YoMYT0f4SI2wRAe/3ykfGrtKEhEVKTTtXlFnyb
+	 XXv955yEJKhW5MqOUKOpmD3U5LoiTcNHisZrU9fStcr0ZtunBhk9kvqRSEZXsxHME7
+	 oNmbA1ZXd87mLoyJ8aIgfeCrSoDcx7VhNgdOg7pv5sVvtAYaDZv5rz75Xcl59zPy/2
+	 OOgbiVL/zBA6g==
+Date: Wed, 15 Oct 2025 07:39:24 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+Cc: linux-watchdog@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
+	andrew@codeconstruct.com.au, krzk+dt@kernel.org, linux@roeck-us.net,
+	wim@linux-watchdog.org, linux-kernel@vger.kernel.org,
+	joel@jms.id.au, linux-arm-kernel@lists.infradead.org,
+	BMC-SW@aspeedtech.com, conor+dt@kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: watchdog: aspeed,ast2400-wdt: Add
+ support for AST2700
+Message-ID: <176053196354.3197283.4565101517229903275.robh@kernel.org>
+References: <20251010080315.816628-1-chin-ting_kuo@aspeedtech.com>
+ <20251010080315.816628-2-chin-ting_kuo@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251015123142.392274-2-cassel@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_053545_530205_D024D7CF 
-X-CRM114-Status: GOOD (  23.95  )
+In-Reply-To: <20251010080315.816628-2-chin-ting_kuo@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,61 +74,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 02:31:43PM +0200, Niklas Cassel wrote:
-> The L1 substates support requires additional steps to work, see e.g.
-> section '11.6.6.4 L1 Substate' in the RK3588 TRM V1.0.
+
+On Fri, 10 Oct 2025 16:03:13 +0800, Chin-Ting Kuo wrote:
+> Add support for the AST2700 SoC in the ASPEED watchdog device tree
+> bindings. This includes:
 > 
-> These steps are currently missing from the driver.
+> - Adding "aspeed,ast2700-wdt" to the compatible string list.
+> - Extending the "aspeed,reset-mask" property description for AST2700.
+> - Defining AST2700-specific reset mask bits in aspeed-wdt.h,
+>   covering RESET1 to RESET5.
 > 
-> While this has always been a problem when using e.g.
-> CONFIG_PCIEASPM_POWER_SUPERSAVE=y, the problem became more apparent after
-> commit f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for
-> devicetree platforms"), which enabled ASPM also for
-> CONFIG_PCIEASPM_DEFAULT=y.
-> 
-> Disable L1 substates until proper support is added.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host controller driver")
-> Fixes: f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for devicetree platforms")
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
+> Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
 > ---
->  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 22 +++++++++++++++++++
->  1 file changed, 22 insertions(+)
+>  .../bindings/watchdog/aspeed,ast2400-wdt.yaml |   8 +-
+>  include/dt-bindings/watchdog/aspeed-wdt.h     | 138 ++++++++++++++++++
+>  2 files changed, 144 insertions(+), 2 deletions(-)
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 3e2752c7dd09..28e0fffe2542 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -200,6 +200,26 @@ static bool rockchip_pcie_link_up(struct dw_pcie *pci)
->  	return FIELD_GET(PCIE_LINKUP_MASK, val) == PCIE_LINKUP;
->  }
->  
-> +/*
-> + * See e.g. section '11.6.6.4 L1 Substate' in the RK3588 TRM V1.0 for the steps
-> + * needed to support L1 substates. Currently, not a single rockchip platform
-> + * performs these steps, so disable L1 substates until there is proper support.
-> + */
-> +static void rockchip_pcie_disable_l1sub(struct dw_pcie *pci)
-> +{
-> +	u32 cap, l1subcap;
-> +
-> +	cap = dw_pcie_find_ext_capability(pci, PCI_EXT_CAP_ID_L1SS);
-> +	if (cap) {
-> +		l1subcap = dw_pcie_readl_dbi(pci, cap + PCI_L1SS_CAP);
-> +		l1subcap &= ~(PCI_L1SS_CAP_L1_PM_SS | PCI_L1SS_CAP_ASPM_L1_1 |
-> +			      PCI_L1SS_CAP_ASPM_L1_2 | PCI_L1SS_CAP_PCIPM_L1_1 |
-> +			      PCI_L1SS_CAP_PCIPM_L1_2);
-> +		dw_pcie_writel_dbi(pci, cap + PCI_L1SS_CAP, l1subcap);
-> +		l1subcap = dw_pcie_readl_dbi(pci, cap + PCI_L1SS_CAP);
 
-Sorry, this extra dw_pcie_readl_dbi() was left over from debugging.
-Tell me if I should respin or if you can fix up when applying.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-I've verified that the patch works using an NVMe drive on v6.18-rc1,
-which is working after this patch, but was not working before this patch.
-
-
-Kind regards,
-Niklas
 
