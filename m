@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55300CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1037CCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZTSdOvDlbsuQj/667Lv/041NU1iVeaPF8hOZogCvbXQ=; b=btpNAdLcUZWD/LAuQG/Ujiim+n
-	kRA+EgJWpMrJmR/C2NwQO7v/26wP7MRJaw/7V/4dKQGhqFxqVRQIud6xICac8NavyIh75kJrEjxyv
-	NCGlgA9f6375DEH8ZGA8WtL/4Dj9jgbO58Eu2fiGmCXUMzDCl3bDuHF9yn9wdMfULEROG85XjXuIu
-	GZPP2UGzZnqsPUefQEKQVtt+icYpUUf0qcir361XfBUB7KTVTkNrxD93uznJ3s5wD+FVktXjmX7m/
-	U7EDp947LPjc1r0UghempvVk2LVcDY0VXh/V0TBZSy8RSKDbCSXqrNf3FDD1m81dmKiAvs3rCXWX1
-	M10fJKLQ==;
+	bh=w4Vhb+pWajT1Ug9vm6p2q425XInEco8nPyGgnsCFC6I=; b=IO2le4NpMZDkWUkmpcn5USsAWy
+	fgU5lBCGKlmKvWCHTTiyWmttuoR4j/mpWL9wmibOZjBXD71dOa3quQxPRWwtoVCwZbCrOJYypOLMk
+	ftl5iYDNA/X4dRmIv51cCsNkZibfocZ3hH6DeR6xIruAVCzvGgmEXRdG1s4qaqJR4Ggw+LSJO5vUX
+	8ozGmbdtPKfNzE6SUmAPHMkhCENLeMbg0tf+K1RyU+9SYgABqft/5wvaR7Jj9Pb0DDDEAZSo8ybyL
+	ZZ4uqTdEK4YbjkZAqeBBj19iT3QPDaqOqmXo5Xi/H2x3oCbJITE3dHNcKjU6d9dpY5eoIY8WTbM0a
+	ytuaAdsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v99Mc-00000002yG0-1BRU;
-	Wed, 15 Oct 2025 21:48:54 +0000
+	id 1v99V6-00000002yuQ-23Qq;
+	Wed, 15 Oct 2025 21:57:40 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v99Ma-00000002yFY-0y7G
+	id 1v99V3-00000002yu5-1tG5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 21:48:53 +0000
+	Wed, 15 Oct 2025 21:57:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ZTSdOvDlbsuQj/667Lv/041NU1iVeaPF8hOZogCvbXQ=; b=YuylOvSujLmb3kYb3oa3KZhd1o
-	wcivn+oEGR5jMG+fLOcoNiGMQFOKlJReF4ZhQCgW6UNgwmkI7KBv/Rwe7BlB8vQBvcxbkJM/FS25R
-	nbkiY2chbvHiaGiXJbu3uf20ojRKMuT53zFf1J2Vf4jui+7wXJdVEhEPIEYB3on4i4Z/ijLr3qM2t
-	5pMpZA4Bg/QIYfx62+RbxJ00uIQTNyetpbTjGOrPLJvbE8pLkT9GtmaUtTSoyx3s3qK8bSjc+uYNQ
-	aJ4+ULCk2sB3TksqCuRGzjct29p90b4FiKHUhV0wbNIgFvMGQR+yHmUjhLcpll5Gzf3Tl7vYPHTBd
-	Oxs7DzZQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50176)
+	bh=w4Vhb+pWajT1Ug9vm6p2q425XInEco8nPyGgnsCFC6I=; b=mn7QF/uGABpKN3xNzZQhmz2z8B
+	o11ld6ctbXR/ky2Bzy9GmguS3MZrXnF1v2rYnkjP5YhUCZo59ImkCcNqhMFbUqqZQngxwTgx92ZgP
+	uUcm3aQsK5C3oeuTJBBTA4Gjy7CdOrDM7lZERKde429KjydqJBEKRvmUAlv4qS4lv/4CxMntHi6Ri
+	B4m95goSjEKH1jPj2ZEIvSgu3K+3K8pRLhYL5jP6gUIBKXXpuBTVy5nhRltxZuXFPSEphg8trRGUe
+	DyxHgnVYT6D5oWp5MRGliTSF6l4qTUbUxfZn86zYEQT44SrSmakBSNxf9lqsMxS+akwDPJ+7/yJjR
+	NxC1+iNw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33366)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1v99MA-000000005Ut-17h0;
-	Wed, 15 Oct 2025 22:48:26 +0100
+	id 1v99Uh-000000005Vv-0ZMi;
+	Wed, 15 Oct 2025 22:57:15 +0100
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1v99M1-000000002dZ-0S6N;
-	Wed, 15 Oct 2025 22:48:17 +0100
-Date: Wed, 15 Oct 2025 22:48:16 +0100
+	id 1v99Ua-000000002di-3k6X;
+	Wed, 15 Oct 2025 22:57:08 +0100
+Date: Wed, 15 Oct 2025 22:57:08 +0100
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Andrew Lunn <andrew@lunn.ch>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
@@ -90,19 +90,19 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Vladimir Oltean <vladimir.oltean@nxp.com>,
 	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: Re: [PATCH net-next 11/14] net: stmmac: do not require snps,ps-speed
- for SGMII
-Message-ID: <aPAWoDGVgeRFV95b@shell.armlinux.org.uk>
+Subject: Re: [PATCH net-next 14/14] net: stmmac: convert to phylink PCS
+ support
+Message-ID: <aPAYtHPcF5bes7Xi@shell.armlinux.org.uk>
 References: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
- <E1v92N3-0000000AmHQ-4Bm2@rmk-PC.armlinux.org.uk>
- <15ea57e0-d127-4722-b752-4989d5a443c0@lunn.ch>
+ <E1v92NJ-0000000AmHi-1ZGJ@rmk-PC.armlinux.org.uk>
+ <040a2f29-4c95-4561-87c0-2a70308d3f00@lunn.ch>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <15ea57e0-d127-4722-b752-4989d5a443c0@lunn.ch>
+In-Reply-To: <040a2f29-4c95-4561-87c0-2a70308d3f00@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_144852_268844_E793BC0A 
-X-CRM114-Status: GOOD (  26.12  )
+X-CRM114-CacheID: sfid-20251015_145737_508856_505F5E77 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,49 +117,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 11:26:03PM +0200, Andrew Lunn wrote:
-> On Wed, Oct 15, 2025 at 03:20:53PM +0100, Russell King (Oracle) wrote:
-> > SGMII mode does not require port-speed to be specified; this only
-> > switches SGMII to use the MAC configuration register speed settings
-> > and the actual value is irrelevant when the link comes up.
-> > 
-> > As it seems the intention was to support "reverse SGMII" with this
-> > setting, but the code didn't actually configure that due to a typo,
-> > the warning and bad DT binding documentation has led people to
-> > specify snps,ps-speed in their DT files inappropriately.
+On Wed, Oct 15, 2025 at 11:31:37PM +0200, Andrew Lunn wrote:
+> > - create stmmac_pcs.c, which contains the phylink_pcs_ops structure, a
+> >   dummy .pcs_get_state() method which always reports link-down
 > 
-> I know you hit the patch limit. Do you have a patch in the next series
-> which updates the binding?
+> I've not followed the PCS code too closely. Why always report link
+> down? Why is a dummy method needed?
 
-I don't at present, and I'm not sure what the point of updating it
-would actually be, because this is another thing that's just broken.
+If phylink is put into inband mode, and a PCS is supplied to phylink
+where this method left NULL, the kernel will oops.
 
-The purpose of this property is to allow DT to specify the operating
-speed of the link when acting as if it were a PHY on the end of a
-SGMII (or RGMII) link using in-band signalling. However, because the
-code mixes up GMAC_CONTROL_TE instead of GMAC_CONTROL_TC, when this
-is set, the _transmit enable_ is set, rather than the _transmit
-configuration_ bit, meaning the core doesn't actually send the
-inband status as if it were a PHY.
+As the code stands today in mainline, if phylink were to be put into
+inband mode with the integrated PCS, then there will be no phylink PCS,
+and so phylink_mac_pcs_get_state() will fall into the "else" path of:
 
-So, the whole thing is pointless, it's never worked from what I can
-see, and lastly... this property should not even be specifying a
-speed at all, because that's what we have the fixed-link stuff for.
-At best, this should have triggered a discussion about PHY
-interface modes such as reverse-SGMII and reverse-RGMII that we've
-recently had where the MAC is acting as if it were a PHY.
+        pcs = pl->pcs;
+        if (pcs)
+                pcs->ops->pcs_get_state(pcs, pl->pcs_neg_mode, state);
+        else
+                state->link = 0;
 
-We can't get rid of it because doing so would break existing DTS
-files. We can't fix it to work, because given the vagueness of the
-current definition, people have added this property even when they
-do not want to be operating in reverse mode.
+and force the link down.
 
-Hence, I would like this property a slow and painful^h^h^hfree death.
-Maybe mark the property deprecated, and remove all explanation of it
-apart from stating that it's obsolete after this patch series has
-been merged and we've proven that it's never been useful.
-
-IMHO, it's a property that should never have existed.
+So, adding this method keeps the status quo - not oopsing the kernel
+and not allowing the link to come up. No unintended behavioural
+change in this regard from how it would behave today. :)
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
