@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93BFCCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 08:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3699CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 09:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q4LvI2waynL2DD1AFdZShli+sFYc/wO33GP7jeNZzh8=; b=BtJfw5CtvenK5l/9IlyiQ67lN8
-	sIPGx1wN2ze9LF6joZKRcrOoF+nCR3Ljt6fECPjWMW5LJZ93mN2/zLHiRCGZC0GE/9hpSF8yDDILX
-	zFBwX6dOAQvM21vHBlGi0ADmHgrtrisWEuLhurxNon4bISdmDWuWmFuNyD8+Gn3udtmjUjNDN8bKk
-	kRswZbFuE09Sq5MQWMRUvuHw9Gq3FiQTtLhbuPwBnJzNC+zw1vcBA0wzyTBsTO2Rew8fWnA5FEL3i
-	FtBOcSSx6NthNQ4o/GKxat9eswCWu+gFY+MNErq2dcxt49g3FedC+Yp0W0OByr3qDiHKGF69ZgSPZ
-	iS0FbcCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v54lCkZaDqlFCcH302UrfaefVMpcSxNOJrGx418qcEA=; b=oo3Pt/hC/0eeHThuCMJPfMjnCc
+	lfcDLYwcYrHhG8X0a4RJAs2amEUo82i8UulqXnGmU/aDYCycteqDuCjWyHzFTOAmZY6Jzd8lDoXN8
+	m3K/06VOOmDpvh4Q8cHJKDxC4ioT2qIfhhquA+SiDermC976OEgu10pCyd1ON6MlquXcuZbEJeQF7
+	6671fArhT96+FHa0PzN+aQGh7CtiFMkIbLfc9oCCyR2mmiZCqW6EFmYFfx+JH6JfQ2on5cu20PX1H
+	O8X+WRDDW75xAi30FqzkR5/wcXKL+oBr9iD+wyZyf8GNWYoC1Yng7ywaK3oFCpWCmK0pKHcPAq7XZ
+	j04I8uog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8xMN-0000000123Z-1K2f;
-	Wed, 15 Oct 2025 08:59:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8xTU-0000000139N-2IjV;
+	Wed, 15 Oct 2025 09:07:12 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8xMK-0000000122E-3o4A;
-	Wed, 15 Oct 2025 08:59:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8E21143560;
-	Wed, 15 Oct 2025 08:59:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76509C4CEF8;
-	Wed, 15 Oct 2025 08:59:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760518788;
-	bh=b72yY1PK+jIL1N/cKVYxRui1EV7j6kK8mEYVXgh6uVw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TjjiJX898s20GcskSIqZJfXo95ZoDiXORjsJRp4b2UqJKaNt6jPmyVFCWZS0d6hF6
-	 msHBUbbO6aJvxjUvCHYBOGy1JYPT39S51lFIozEWtGRKONLjj9dOnUglWZX9rfUFqi
-	 //1OdMoA+rKOQkFnAfPtBvSkCqXS0Tfr0L2mqrtmZAujWpOQkHuWd78SjQCRVh2f81
-	 wQuEr+dU9M33ddnZVtrV4CIANa189VxaTvxC8/dlPV4uFQrAB/cyaz1A5Ye0YLDOZd
-	 YDZh6FlAQ/EzCS/lv8dSQanRNVphn4i6CPNpuxcCxXM1fkuoX7cFlLhdI959KmjN9T
-	 SOLvLrKGNTDNg==
-Date: Wed, 15 Oct 2025 09:59:42 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Roy Luo <royluo@google.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Joy Chakraborty <joychakr@google.com>,
-	Naveen Kumar <mnkumar@google.com>,
-	Badhri Jagan Sridharan <badhri@google.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	id 1v8xTR-0000000138z-3kY1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Oct 2025 09:07:11 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b633b54d05dso4111953a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 02:07:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1760519229; x=1761124029; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=v54lCkZaDqlFCcH302UrfaefVMpcSxNOJrGx418qcEA=;
+        b=iB3480uf5VOw+394jgtjx1rEolG1WzVEk1VvE0phER2KKwZEFYZjO/5kisdo0F4nkB
+         6vVkevGaGdLTbEs0/K7gJymUJ0iFe2OfzusBdTInWgjfv03ZZ3bynbryk4QNYDkTGMiw
+         fD+US0ablGs/7MbYx/2OrjMT0CJ1z7EgnwBM8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760519229; x=1761124029;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=v54lCkZaDqlFCcH302UrfaefVMpcSxNOJrGx418qcEA=;
+        b=Euy+kWHQ6b/K86Nmieeuw//5Jx7B5uJHsA9tDMmKAgPE2sf3c/nly5N5T/Ag6PQOGI
+         P4dERBqs9WyKJUy3tSjOTiG9THgdrl3r88w4OjHP+gECUscPYrJKT5RmestUE4mMpQ0f
+         qNQLQwEQ7qJvL7pdbJW9aOx94P1qz/N758zxt2Q0A7kJK6m33AA0xrVJVQWrsFTRPBOR
+         xuPD5S2PPnpWDjdUzKqnmxQIaXw8CB03Jm5t8SGteorGQoSif8D/aIHUb0y7gHMRnt4f
+         GUVYPML/Y292tPvDjhRNRn8cUQDhAUqIp+6Vejxq1FubH7HV/LMNt5C55fr/LTp/X44I
+         ocxw==
+X-Forwarded-Encrypted: i=1; AJvYcCXTyL1yvg0vZVeejYka5nsvuOExmmjevEvXesNoHjlTcY78JBOVwGT+PFxJgEHL/cpA1Y6RZkufIIhk9KXbhOto@lists.infradead.org
+X-Gm-Message-State: AOJu0YykMpuRd2qmY9gpjspMz7wKHV7wpXIcenXeAL/3ytQrfgXli0xt
+	NQiJTWYb7hG5vDxlEp9tIM18C4wGBI8mpkLjmmcZ+tme1kxtDeZ7yDL5lt3b1Q03Fw==
+X-Gm-Gg: ASbGnctihgS0vr16K6wXQy2a82SWnNZ6ZVBdlAmJIATvskBQ7gCEgrdM0QfBMVT+9dP
+	mbPCCOJ2GNIscGoaGQdbporLFA23Z61qLF1xoYCSq+1hRt084eb56qo5aJvvUS7v3ijwjUUYhuo
+	DHfu1SX+WsTW0+lc/ry4yFXas8tWYleKvkbRCDyR7aVJbraEGtu3VtQH624w2JxhVEXUVFDnSDn
+	PdetSQqBsP+2Jiuzu+ZURfDPrmJk4xRb/P28UHjm8GIt41EMyb8D8AFkiF8ze3oYwDz9683/5aQ
+	n0fRlGeXCiugLyE1MbEaS4+RdOCdZXBiCa+niUsA1gynrr5tH2vx94u/DOVy2hv8XQ2lwD8uEML
+	M9jWp2iTsQ5pTdvSu4slp3sgB/vVdz4URSgBHWDBll61EuS/dG3phvDCcNkBwofeK3uHwE35BY0
+	qQTWfC/aqoMKj+Jdb04xHUbqIiO6IXlD6k
+X-Google-Smtp-Source: AGHT+IHlL0oIuISBopxFJ5LX7OHcqdJOEAXBYDDnEYLkTxGptox99BOIpt/UkQRjt+HPN1uykPtDLA==
+X-Received: by 2002:a17:903:3807:b0:269:8d16:42d1 with SMTP id d9443c01a7336-290272e1e24mr316691295ad.50.1760519228878;
+        Wed, 15 Oct 2025 02:07:08 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:1a1f:d7c1:704a:3e83])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b678df233cfsm14389395a12.28.2025.10.15.02.07.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Oct 2025 02:07:08 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v3 1/4] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
-Message-ID: <20251015-backlash-overtime-4c636f12b165@spud>
-References: <20251010201607.1190967-1-royluo@google.com>
- <20251010201607.1190967-2-royluo@google.com>
- <066a9598-ad30-4327-be68-87299bba6fda@kernel.org>
- <CA+zupgwc7b51pNRLWRy2CX=n4=FTm=AP7J0dRP2RLjyK5LxGtw@mail.gmail.com>
- <b7b3de64-c656-4a84-8ba4-2d5c7eda9783@kernel.org>
- <CA+zupgzo9zRO2GHR2Np0Tm4M5_h8y0GF2JGGqE_S0BxSR_ZbqQ@mail.gmail.com>
+	linux-kernel@vger.kernel.org,
+	Brian Masney <bmasney@redhat.com>
+Subject: [PATCH v2] clk: tests: Add tests for clk lookup by name
+Date: Wed, 15 Oct 2025 17:06:59 +0800
+Message-ID: <20251015090701.2049164-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.51.0.788.g6d19910ace-goog
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="GW92FK5a5G6ntc0U"
-Content-Disposition: inline
-In-Reply-To: <CA+zupgzo9zRO2GHR2Np0Tm4M5_h8y0GF2JGGqE_S0BxSR_ZbqQ@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_015948_993148_26B98F1B 
-X-CRM114-Status: GOOD (  49.04  )
+X-CRM114-CacheID: sfid-20251015_020709_982752_1E0286BD 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,232 +96,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Clk lookup (by name) recently gained some performance improvements at
+the expense of more complexity within the lookup code.
 
---GW92FK5a5G6ntc0U
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+To make sure that this works as intended and doesn't break, add some
+basic tests for this part of the CCF.
 
-On Tue, Oct 14, 2025 at 05:50:17PM -0700, Roy Luo wrote:
-> On Tue, Oct 14, 2025 at 1:22=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.=
-org> wrote:
-> >
-> > On 14/10/2025 03:40, Roy Luo wrote:
-> > > On Fri, Oct 10, 2025 at 5:09=E2=80=AFPM Krzysztof Kozlowski <krzk@ker=
-nel.org> wrote:
-> > >>
-> > >> On 10/10/2025 22:16, Roy Luo wrote:
-> > >>> Document the device tree bindings for the DWC3 USB controller found=
- in
-> > >>> Google Tensor SoCs, starting with the G5 generation.
-> > >>>
-> > >>> The Tensor G5 silicon represents a complete architectural departure=
- from
-> > >>> previous generations (like gs101), including entirely new clock/res=
-et
-> > >>> schemes, top-level wrapper and register interface. Consequently,
-> > >>> existing Samsung/Exynos DWC3 USB bindings are incompatible, necessi=
-tating
-> > >>> this new device tree binding.
-> > >>>
-> > >>> The USB controller on Tensor G5 is based on Synopsys DWC3 IP and fe=
-atures
-> > >>> Dual-Role Device single port with hibernation support.
-> > >>
-> > >> You still mix, completely unnecessarily, subsystems. For Greg this is
-> > >> actually even undesired, but regardless don't do this for any cases
-> > >> because it just makes everything slower or more difficult to apply.
-> > >>
-> > >> Really, think how maintainers should deal with your patches.
-> > >>
-> > >
-> > > Understood, I will separate the patches into two distinct series: one=
- for
-> > > the controller and one for the PHY.
-> > > Appreciate the feedback and the explanation.
-> > >
-> > >>>
-> > >>> Signed-off-by: Roy Luo <royluo@google.com>
-> > >>> ---
-> > >>>  .../bindings/usb/google,gs5-dwc3.yaml         | 141 ++++++++++++++=
-++++
-> > >>>  1 file changed, 141 insertions(+)
-> > >>>  create mode 100644 Documentation/devicetree/bindings/usb/google,gs=
-5-dwc3.yaml
-> > >>>
-> > >>> diff --git a/Documentation/devicetree/bindings/usb/google,gs5-dwc3.=
-yaml b/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
-> > >>> new file mode 100644
-> > >>> index 000000000000..6fadea7f41e8
-> > >>> --- /dev/null
-> > >>> +++ b/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
-> > >>> @@ -0,0 +1,141 @@
-> > >>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > >>> +# Copyright (c) 2025, Google LLC
-> > >>> +%YAML 1.2
-> > >>> +---
-> > >>> +$id: http://devicetree.org/schemas/usb/google,gs5-dwc3.yaml#
-> > >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > >>> +
-> > >>> +title: Google Tensor Series (G5+) DWC3 USB SoC Controller
-> > >>> +
-> > >>> +maintainers:
-> > >>> +  - Roy Luo <royluo@google.com>
-> > >>> +
-> > >>> +description:
-> > >>> +  Describes the DWC3 USB controller block implemented on Google Te=
-nsor SoCs,
-> > >>> +  starting with the G5 generation. Based on Synopsys DWC3 IP, the =
-controller
-> > >>> +  features Dual-Role Device single port with hibernation add-on.
-> > >>> +
-> > >>> +properties:
-> > >>> +  compatible:
-> > >>> +    const: google,gs5-dwc3
-> > >>> +
-> > >>> +  reg:
-> > >>> +    items:
-> > >>> +      - description: Core DWC3 IP registers.
-> > >>> +      - description: USB host controller configuration registers.
-> > >>> +      - description: USB custom interrrupts control registers.
-> > >>> +
-> > >>> +  reg-names:
-> > >>> +    items:
-> > >>> +      - const: dwc3_core
-> > >>> +      - const: host_cfg
-> > >>> +      - const: usbint_cfg
-> > >>> +
-> > >>> +  interrupts:
-> > >>> +    items:
-> > >>> +      - description: Core DWC3 interrupt.
-> > >>> +      - description: High speed power management event for remote =
-wakeup from hibernation.
-> > >>> +      - description: Super speed power management event for remote=
- wakeup from hibernation.
-> > >>
-> > >> Wrap at 80 (see coding style) or just shorten these.
-> > >
-> > > Ack, will fix it in the next patch.
-> > >
-> > >>
-> > >>> +
-> > >>> +  interrupt-names:
-> > >>> +    items:
-> > >>> +      - const: dwc_usb3
-> > >>
-> > >> So just "core"?
-> > >
-> > > I'd prefer to stick to "dwc_usb3" as that's
-> > > 1. more expressive by referring to the underlying IP name,
-> >
-> >
-> > But that's completely redundant name.
-> >
-> > > 2. consistent with established dwc3 bindings such as
-> > >     Documentation/devicetree/bindings/usb/snps,dwc3.yaml,
-> >
-> > If you use only one interrupt. You don't use one interrupt here.
->=20
-> After looking into it further, I found that the interrupt name "dwc_usb3"
-> must be used here to adhere to the interrupt naming defined in
-> "snps,dwc3.yaml".
+A new "clk_hw_lookup()" function is added purely for running kunit
+tests.
 
-Did you just chose to not read what Krzysztof said here? It must be used
-only when that's the sole interrupt, which he stated is not the case for
-your platform.
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
-> This requirement stems from the device's corresponding glue driver
-> utilizing a so-called "flattened" model (see [1] for context). This model
-> causes the glue driver to probe an underlying "snps,dwc3" device.
-> Consequently, the core DWC3 interrupt defined here is consumed by
-> the driver handling the "snps,dwc3" device, making it mandatory to
-> follow the interrupt naming established in "snps,dwc3.yaml".
+---
+Changes since v1:
+- Added missing prepare lock/unlock
+- Switched to EXPORT_SYMBOL_IF_KUNIT and VISIBLE_IF_KUNIT kunit
+  visibility macros for consistency (Brian)
+  This probably doesn't make much difference except that the symbol is
+  now in the EXPORT_SYMBOL_IF_KUNIT namespace
+---
+ drivers/clk/clk.c      | 18 ++++++++++++
+ drivers/clk/clk.h      |  4 +++
+ drivers/clk/clk_test.c | 67 +++++++++++++++++++++++++++++++++++++++++-
+ 3 files changed, 88 insertions(+), 1 deletion(-)
 
-I look at the binding and noticed that interrupt-names isn't even a
-required property by snps,dwc3.yaml, and this comment about driver
-behaviour likely isn't accurate given that the code in for host mode
-(and the others are identical) is written so that it will grab the first
-interrupt if the specific names it looks for are absent:
-| static int dwc3_host_get_irq(struct dwc3 *dwc)
-| {
-| 	struct platform_device	*dwc3_pdev =3D to_platform_device(dwc->dev);
-| 	int irq;
-|=20
-| 	irq =3D platform_get_irq_byname_optional(dwc3_pdev, "host");
-| 	if (irq > 0) {
-| 		dwc3_host_fill_xhci_irq_res(dwc, irq, "host");
-| 		goto out;
-| 	}
-|=20
-| 	if (irq =3D=3D -EPROBE_DEFER)
-| 		goto out;
-|=20
-| 	irq =3D platform_get_irq_byname_optional(dwc3_pdev, "dwc_usb3");
-| 	if (irq > 0) {
-| 		dwc3_host_fill_xhci_irq_res(dwc, irq, "dwc_usb3");
-| 		goto out;
-| 	}
-|=20
-| 	if (irq =3D=3D -EPROBE_DEFER)
-| 		goto out;
-|=20
-| 	irq =3D platform_get_irq(dwc3_pdev, 0);
-| 	if (irq > 0)
-| 		dwc3_host_fill_xhci_irq_res(dwc, irq, NULL);
-|=20
-| out:
-| 	return irq;
-| }
+diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+index 85d2f2481acf..b39ad8944a06 100644
+--- a/drivers/clk/clk.c
++++ b/drivers/clk/clk.c
+@@ -10,6 +10,7 @@
+ #include <linux/clkdev.h>
+ #include <linux/clk.h>
+ #include <linux/clk-provider.h>
++#include <linux/compiler_attributes.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/hashtable.h>
+@@ -25,6 +26,8 @@
+ #include <linux/string.h>
+ #include <linux/stringhash.h>
+ 
++#include <kunit/visibility.h>
++
+ #include "clk.h"
+ 
+ static DEFINE_SPINLOCK(enable_lock);
+@@ -778,6 +781,21 @@ struct clk *__clk_lookup(const char *name)
+ 	return !core ? NULL : core->hw->clk;
+ }
+ 
++/* This is only provided for kunit tests to test the core lookup functions. */
++#if IS_ENABLED(CONFIG_CLK_KUNIT_TEST)
++VISIBLE_IF_KUNIT struct clk_hw * __maybe_unused __must_check clk_hw_lookup(const char *name)
++{
++	struct clk_core *core;
++
++	clk_prepare_lock();
++	core = clk_core_lookup(name);
++	clk_prepare_unlock();
++
++	return !core ? NULL : core->hw;
++}
++EXPORT_SYMBOL_IF_KUNIT(clk_hw_lookup);
++#endif
++
+ static void clk_core_get_boundaries(struct clk_core *core,
+ 				    unsigned long *min_rate,
+ 				    unsigned long *max_rate)
+diff --git a/drivers/clk/clk.h b/drivers/clk/clk.h
+index 2d801900cad5..a8ed54f5b572 100644
+--- a/drivers/clk/clk.h
++++ b/drivers/clk/clk.h
+@@ -8,6 +8,10 @@ struct clk_hw;
+ struct device;
+ struct of_phandle_args;
+ 
++#if IS_ENABLED(CONFIG_CLK_KUNIT_TEST)
++struct clk_hw *clk_hw_lookup(const char *name);
++#endif
++
+ #if defined(CONFIG_OF) && defined(CONFIG_COMMON_CLK)
+ struct clk_hw *of_clk_get_hw(struct device_node *np,
+ 				    int index, const char *con_id);
+diff --git a/drivers/clk/clk_test.c b/drivers/clk/clk_test.c
+index a268d7b5d4cb..a8989566946b 100644
+--- a/drivers/clk/clk_test.c
++++ b/drivers/clk/clk_test.c
+@@ -175,6 +175,8 @@ static const struct clk_ops clk_multiple_parents_no_reparent_mux_ops = {
+ 	.set_parent = clk_multiple_parents_mux_set_parent,
+ };
+ 
++#define DUMMY_CLK_NAME	"test_dummy_rate"
++
+ static int clk_test_init_with_ops(struct kunit *test, const struct clk_ops *ops)
+ {
+ 	struct clk_dummy_context *ctx;
+@@ -187,7 +189,7 @@ static int clk_test_init_with_ops(struct kunit *test, const struct clk_ops *ops)
+ 	ctx->rate = DUMMY_CLOCK_INIT_RATE;
+ 	test->priv = ctx;
+ 
+-	init.name = "test_dummy_rate";
++	init.name = DUMMY_CLK_NAME;
+ 	init.ops = ops;
+ 	ctx->hw.init = &init;
+ 
+@@ -3541,6 +3543,67 @@ static struct kunit_suite clk_hw_get_dev_of_node_test_suite = {
+ 	.test_cases = clk_hw_get_dev_of_node_test_cases,
+ };
+ 
++/*
++ * Test that clk lookup with a name that is not registered returns NULL.
++ */
++static void clk_lookup_not_registered_clk_returns_NULL(struct kunit *test)
++{
++	KUNIT_EXPECT_PTR_EQ(test, NULL, clk_hw_lookup(DUMMY_CLK_NAME));
++}
++
++/*
++ * Test that clk lookup with a name that is registered returns the clk.
++ */
++static void clk_lookup_registered_clk_returns_clk(struct kunit *test)
++{
++	struct clk_hw *hw;
++	struct clk_init_data init = {
++		.name = DUMMY_CLK_NAME,
++		.ops = &empty_clk_ops,
++	};
++
++	hw = kunit_kzalloc(test, sizeof(*hw), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, hw);
++
++	hw->init = &init;
++	KUNIT_ASSERT_EQ(test, 0, clk_hw_register_kunit(test, NULL, hw));
++
++	KUNIT_EXPECT_PTR_EQ(test, hw, clk_hw_lookup(DUMMY_CLK_NAME));
++}
++
++/*
++ * Test that clk lookup with a name that was unregistered returns NULL.
++ */
++static void clk_lookup_unregistered_clk_returns_NULL(struct kunit *test)
++{
++	struct clk_hw *hw;
++	struct clk_init_data init = {
++		.name = DUMMY_CLK_NAME,
++		.ops = &empty_clk_ops,
++	};
++
++	hw = kunit_kzalloc(test, sizeof(*hw), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, hw);
++
++	hw->init = &init;
++	KUNIT_ASSERT_FALSE(test, clk_hw_register(NULL, hw));
++
++	clk_hw_unregister(hw);
++
++	KUNIT_EXPECT_PTR_EQ(test, NULL, clk_hw_lookup(DUMMY_CLK_NAME));
++}
++
++static struct kunit_case clk_lookup_test_cases[] = {
++	KUNIT_CASE(clk_lookup_not_registered_clk_returns_NULL),
++	KUNIT_CASE(clk_lookup_registered_clk_returns_clk),
++	KUNIT_CASE(clk_lookup_unregistered_clk_returns_NULL),
++	{}
++};
++
++static struct kunit_suite clk_lookup_test_suite = {
++	.name = "clk-lookup",
++	.test_cases = clk_lookup_test_cases,
++};
+ 
+ kunit_test_suites(
+ 	&clk_assigned_rates_suite,
+@@ -3560,6 +3623,8 @@ kunit_test_suites(
+ 	&clk_register_clk_parent_data_device_suite,
+ 	&clk_single_parent_mux_test_suite,
+ 	&clk_uncached_test_suite,
++	&clk_lookup_test_suite,
+ );
+ MODULE_DESCRIPTION("Kunit tests for clk framework");
++MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
+ MODULE_LICENSE("GPL v2");
+-- 
+2.51.0.788.g6d19910ace-goog
 
-Since it grabs the first interrupt, as a fallback, in order to support
-not having the interrupt-names property, the name of the first interrupt
-ultimately doesn't matter at all to this driver (and likely any other
-driver written in compliance with the bindings for the dwc3 core).
-
-I'm not here to argue about what the name for the single interrupt
-should be (keeping consistency with other devices might actually be
-good), but ignoring what a maintainer says and the seemingly providing
-an incorrect analysis is annoying. Did you perform the analysis on this
-yourself, or did it perhaps come from Gemini?
-
-Thanks,
-Conor.
-
-> Essentially, the interrupts defined here are a mix of vendor specific
-> implementation (like "hs_pme", "ss_pme") and the DWC3 core in
-> "snps,dwc3.yaml" ("dwc_usb3").
->=20
-> I don't know if there's a better way to express this implicit dependency
-> of the core DWC3 interrupt except for documenting it in the binding
-> description. Any advice would be welcome.
->=20
-> [1] https://lore.kernel.org/all/20250414-dwc3-refactor-v7-0-f015b358722d@=
-oss.qualcomm.com/
->=20
-> Thanks,
-> Roy Luo
->=20
-> >
-> > >     Documentation/devicetree/bindings/usb/qcom,snps-dwc3.yaml,
-> > > unless you have a strong preference for the alternative naming.
-> >
-> > Such namings are discouraged, because they tell absolutely nothing.
-> > Also, schematics or datasheets usually do not use them, either.
-> >
-> >
-> > Best regards,
-> > Krzysztof
-
---GW92FK5a5G6ntc0U
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaO9ifQAKCRB4tDGHoIJi
-0i2hAP0TeU5yK0ZKtGdyM4A4+ajUuovxmP76kUHcH5gsiw86HgD9F18E184P1/vt
-6JU4iU71rnWcvBNCCfV+EKIyRKVw9wM=
-=0mtw
------END PGP SIGNATURE-----
-
---GW92FK5a5G6ntc0U--
 
