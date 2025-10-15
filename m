@@ -4,109 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8C6CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 20:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7691CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 20:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5dRX/Dq/tvmvSBjrG81RvC5n4dT7aVwhE5qaAjLShcg=; b=GevA5nFxqTt2RLtOncTvz2699L
-	hubO7zCK5o6nu4iw7OnsO1T8jIidsAkntvv6nv3c+dJ/DL8Isw1E8R1rlMixaD75Hgt6mb4xWIgYa
-	P1UFyc5d53H4d7/j+CWIV85bsioNORqbFHZPDU+CrO53j/r8+fR6Q9yTDnll5dntjzoF3glmavPyS
-	/PRHxq7w3B0onJ8MHfhtBHbH7dwkeAy4ofQOD5aR4BbxAnYBxQxTzBXb5ciKu/ZPAXa3HErN108C8
-	ba+royFrDLYza1Ei4rBZMaobKku7fMkPWt5Q/SmU6CpvmICCxynhGe2G4BPZwr97y65FpxXFPyyf1
-	voSzJ0/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fLl6q1Y+72vHxOIMF4slDKrUf5187PWqHxWI44dG6yE=; b=BiK4sQNzTW1dru0GR75coby2ER
+	PUfdmOA83N9XLIyLYf+231x315G8xJB6pnkX8pzJ1bxdchIfvZtnimEKubGMYRNCA+R6pMWVUA134
+	CoLwyDZPE1ecJXSWg0nUIcySeQUKEArMVkUyJmpGzQ924JgLrHOMPI65YnFaZIMfRXWq7kQNV2+gj
+	wRXDVGUvZYuLRTBs+ramwxxao0YPzf+6nZ4yqI1KEpoxwDLf14Hvv9d2R9MuMVNxBr9deCv5dFaod
+	eJJh0SOO2bKrrOpnc+ABTxZepeMtYTyrz93bfE66dGh+358j9zl0o10e/S2VJCLuaVF6jEgTZXi7f
+	yjgHKv7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v97w6-00000002pka-1yss;
-	Wed, 15 Oct 2025 20:17:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v98Ao-00000002qb1-1f7I;
+	Wed, 15 Oct 2025 20:32:38 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v97w5-00000002pkE-17ki;
-	Wed, 15 Oct 2025 20:17:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=5dRX/Dq/tvmvSBjrG81RvC5n4dT7aVwhE5qaAjLShcg=; b=kKegNSrnbfzdQ2eFD0YPQ+TUoB
-	l8BuYXriQ6+hOhSBM+49z97xzBd41ADBZPY9F4hSBhE88sKeGRXdSvYvheqVACAVM4IOn7wjrqULC
-	ZbtGxLW23OQj4XpGA234wOtOxNccByX4ExsVDIAXSnYD5YxTTkeLd6VSIJ8zq/Vc/VIJGyU93i5Xk
-	66PcLs1zjcFrdOQ1BHM6JG2TL9I5yUrsTsaJo6YeCp5EOr3OH7fzjxsOkVAofxtSVCtUz/0/ADIuy
-	ya5miPoEg7E5j9cNavp4dsNuzMIwd1W6ePBChrLX0Dmu6PyufXsq7BhmC8cqvpNIkuuVV6eo2SpZZ
-	m1aNA57A==;
-Received: from mgamail.intel.com ([198.175.65.15])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v97vt-00000006E1s-3UEf;
-	Wed, 15 Oct 2025 20:17:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760559434; x=1792095434;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0v6EnKffs2NEkIH+eVz0aqecvPBLBrK+UWbvYlBHsO4=;
-  b=j1Wq6ptCTHkolf9iTYmwMjbdF8zgeP4y6dN7se5cFvqgK4T7kingx/N3
-   VD0x2QYmLnpRCNJWTGw2npgARyWpnYeF2AkLg174E3ZNp3QZru81YFYew
-   Olutee96QKiTp5OCUnRmQqHExnbMi39M5u9LiErSCgpIPDF8gSQd+yjcg
-   8dBUMVfMqELSPG1mRzZj3ppQr/55M+vZHBoVjebOdfa1qKpMyFK/Y3HEg
-   uW/JAxKmeB2qpE44U5EJ88rq/p0zlUgAzBzMQ5msjwz/q0iPkuCwo26So
-   7b4zrYIXaUGE6pqzDA+yDVnNvbyMhVV7MCwIu1GnnBk1t8Z8YIqDu+b+k
-   w==;
-X-CSE-ConnectionGUID: lERXDg74S4+2BlbCxQ5qZQ==
-X-CSE-MsgGUID: HvuiOrx8QlCqKf8lYxgODA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11583"; a="66396430"
-X-IronPort-AV: E=Sophos;i="6.19,232,1754982000"; 
-   d="scan'208";a="66396430"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 13:17:05 -0700
-X-CSE-ConnectionGUID: RPhexlMERmWcmPSSBcmGhw==
-X-CSE-MsgGUID: 6M4kJJQaRH+ciw5Js1Ynag==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,232,1754982000"; 
-   d="scan'208";a="219416290"
-Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
-  by orviesa001.jf.intel.com with ESMTP; 15 Oct 2025 13:16:59 -0700
-Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v97vQ-0004CH-29;
-	Wed, 15 Oct 2025 20:16:49 +0000
-Date: Thu, 16 Oct 2025 04:16:19 +0800
-From: kernel test robot <lkp@intel.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Boris Brezillon <bbrezillon@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
-	Steven Price <steven.price@arm.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
+	id 1v98Al-00000002qaX-3DJR;
+	Wed, 15 Oct 2025 20:32:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=fLl6q1Y+72vHxOIMF4slDKrUf5187PWqHxWI44dG6yE=; b=Yfz7vK+9g3WW7BmyFBFji3dkMU
+	UevXDzFQ4ydupk++uQA9CA0Kni3han+FwzAvwR1aU2BFfJ6pKsTFz8BXw/B4dY28bnusWTOcilWIq
+	c5tT3UCH41N0TqRuXgZYdT1jnvonWs1mYI7vkq0kQ53SMjy0hakUfxwHDXc6KMNHe2sdPT8guKzGV
+	SLDjaMJm2Ce7EM6fEw9FapvU2XaIlLVoyFSK+kWCiYyyJ1aWdU2lTKwtizn8jxC/H2TXSuQkufMLK
+	JS0q3ff+QkqkfAJCiLHiCrCMGVMhAJ6y5nElRZXCJt86E9KkViyTeu9wmkejJwNgyfRqhE2eDurvE
+	8f/4GNWA==;
+Received: from i53875a40.versanet.de ([83.135.90.64] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1v98AD-0002OA-JH; Wed, 15 Oct 2025 22:32:01 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>
-Cc: oe-kbuild-all@lists.linux.dev, kernel@collabora.com,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-hardening@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH v7 5/5] pmdomain: mediatek: Add support for MFlexGraphics
-Message-ID: <202510160419.8PPrVXUl-lkp@intel.com>
-References: <20251015-mt8196-gpufreq-v7-5-0a6435da2080@collabora.com>
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	kernel@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Algea Cao <algea.cao@rock-chips.com>,
+	Derek Foreman <derek.foreman@collabora.com>,
+	Daniel Stone <daniels@collabora.com>
+Subject: Re: (subset) [PATCH v4 0/6] Add HDMI CEC support to Rockchip RK3588/RK3576 SoCs
+Date: Wed, 15 Oct 2025 22:31:51 +0200
+Message-ID: <176056029579.2036456.8048983695806935631.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
+References: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251015-mt8196-gpufreq-v7-5-0a6435da2080@collabora.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_211720_172002_3273D78B 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20251015_133235_851189_3A6CF2CF 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,64 +93,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
 
-kernel test robot noticed the following build warnings:
+On Wed, 03 Sep 2025 21:50:58 +0300, Cristian Ciocaltea wrote:
+> The first patch in the series implements the CEC capability of the
+> Synopsys DesignWare HDMI QP TX controller found in RK3588 & RK3576 Socs.
+> This is based on the downstream code, but rewritten on top of the CEC
+> helpers added recently to the DRM HDMI connector framework.
+> 
+> The second patch is needed for RK3576 in order to fixup the timer base
+> setup according to the actual reference clock rate, which differs
+> slightly from RK3588.
+> 
+> [...]
 
-[auto build test WARNING on 40a3abb0f3e5229996c8ef0498fc8d8a0c2bd64f]
+Applied, thanks!
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Nicolas-Frattaroli/dt-bindings-gpu-mali-valhall-csf-add-mediatek-mt8196-mali-variant/20251015-165256
-base:   40a3abb0f3e5229996c8ef0498fc8d8a0c2bd64f
-patch link:    https://lore.kernel.org/r/20251015-mt8196-gpufreq-v7-5-0a6435da2080%40collabora.com
-patch subject: [PATCH v7 5/5] pmdomain: mediatek: Add support for MFlexGraphics
-config: arm64-randconfig-002-20251016 (https://download.01.org/0day-ci/archive/20251016/202510160419.8PPrVXUl-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 13.4.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251016/202510160419.8PPrVXUl-lkp@intel.com/reproduce)
+[1/6] drm/bridge: dw-hdmi-qp: Add CEC support
+      commit: e4a2d54a2f1a9c9a1971651832c8f0ad9d3782c4
+[2/6] drm/bridge: dw-hdmi-qp: Fixup timer base setup
+      commit: f7a1de0d86221000dc0699a8b48ad3a848e766d9
+[3/6] drm/rockchip: dw_hdmi_qp: Improve error handling with dev_err_probe()
+      commit: b6736a4ea3fa68524074a18334f344a34a05bee8
+[4/6] drm/rockchip: dw_hdmi_qp: Provide CEC IRQ in dw_hdmi_qp_plat_data
+      commit: 9baa02327adf2b1e919e95af23036102cfd0133f
+[5/6] drm/rockchip: dw_hdmi_qp: Provide ref clock rate in dw_hdmi_qp_plat_data
+      commit: 33ea4d520fbda505e2cfe5b36ebf522de1f3f5e9
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510160419.8PPrVXUl-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from include/linux/preempt.h:11,
-                    from include/linux/spinlock.h:56,
-                    from include/linux/swait.h:7,
-                    from include/linux/completion.h:12,
-                    from drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c:8:
-   In function '__free_device_node',
-       inlined from 'mtk_mfg_probe' at drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c:877:22:
->> include/linux/of.h:138:51: warning: 'shmem' is used uninitialized [-Wuninitialized]
-     138 | DEFINE_FREE(device_node, struct device_node *, if (_T) of_node_put(_T))
-         |                                                   ^
-   include/linux/cleanup.h:211:78: note: in definition of macro 'DEFINE_FREE'
-     211 |         static inline void __free_##_name(void *p) { _type _T = *(_type *)p; _free; }
-         |                                                                              ^~~~~
-   drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c: In function 'mtk_mfg_probe':
-   drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c:877:29: note: 'shmem' was declared here
-     877 |         struct device_node *shmem __free(device_node);
-         |                             ^~~~~
-
-
-vim +/shmem +138 include/linux/of.h
-
-0829f6d1f69e4f Pantelis Antoniou 2013-12-13  126  
-0f22dd395fc473 Grant Likely      2012-02-15  127  #ifdef CONFIG_OF_DYNAMIC
-0f22dd395fc473 Grant Likely      2012-02-15  128  extern struct device_node *of_node_get(struct device_node *node);
-0f22dd395fc473 Grant Likely      2012-02-15  129  extern void of_node_put(struct device_node *node);
-0f22dd395fc473 Grant Likely      2012-02-15  130  #else /* CONFIG_OF_DYNAMIC */
-3ecdd0515287af Rob Herring       2011-12-13  131  /* Dummy ref counting routines - to be implemented later */
-3ecdd0515287af Rob Herring       2011-12-13  132  static inline struct device_node *of_node_get(struct device_node *node)
-3ecdd0515287af Rob Herring       2011-12-13  133  {
-3ecdd0515287af Rob Herring       2011-12-13  134  	return node;
-3ecdd0515287af Rob Herring       2011-12-13  135  }
-0f22dd395fc473 Grant Likely      2012-02-15  136  static inline void of_node_put(struct device_node *node) { }
-0f22dd395fc473 Grant Likely      2012-02-15  137  #endif /* !CONFIG_OF_DYNAMIC */
-9448e55d032d99 Jonathan Cameron  2024-02-25 @138  DEFINE_FREE(device_node, struct device_node *, if (_T) of_node_put(_T))
-3ecdd0515287af Rob Herring       2011-12-13  139  
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Heiko Stuebner <heiko@sntech.de>
 
