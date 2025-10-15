@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E2ECCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 02:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF56CCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 02:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=awK8T53rvm3JtUI0otLj6zux7hpJFSpVbJLW34F+bWs=; b=46VZaKiT3uQCiROFak2p43nit3
-	ZeTNXQ3Nas5JDsvqR99McV5nlC+5P6oZQrGysLA7MM2X57khNiJ0aKaQ8FGbjeZusB2/Kqpqvmg/4
-	RD2+SdOnXfu+y4uSHIqdhlmN9TvQ/FDDSPcJAq1gPzggIMQgp2tN7CM73+de6LH88QGoc5HfgBJ+e
-	5700DAcOhWoCDR7Dz9o9aKNO+lq9hSmQgrisurfoEvI/0fmhCI8cdwEUF597PktzYkHCnFzJ9fMba
-	UA8bhSWPXIdTvejQOOn+em/DaRy+H96ZOyc/mdltwnHWQUjuVbWWXTQdFJtyF6mWqtMAW8qLzb0/s
-	7FteDBZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IonQ67/0P81sD3b1rsD6Zg4yb1nyuYJKORa0YmbOvrw=; b=XeopN08FU0Uz16xIgrH1OBqZOb
+	w53hZ+uOxAYXsqm/MrQ9eZXMyCdRN++74tNYc7L1tHkvCeuwwiCSWQcccpaO7oQF/6kjLii5Jp15h
+	sQcrYDrjynxxbh9O5l2F4+UJLycTy+GGYmbFjlY3J7ubU/HePn6mRYhi6PQH206DmL8XHFht/ipXZ
+	Zn+e6YNMfQvphOIcw+rRwLqXInTqY4VpaFFpm6Lu986a80vkNtkzltuAVbHW/A7mimup2eJLCtZSa
+	SDmklEWAth0dourK641d1mGYV1hK8TL5ZRHiTVXBwyW4QRz/5a+hTXsfXVtKh/KcXr/fVdcqAl7NL
+	C3KRknYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8rPW-00000000FmO-0mFI;
-	Wed, 15 Oct 2025 02:38:42 +0000
-Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
+	id 1v8rat-00000000Guq-3Lq1;
+	Wed, 15 Oct 2025 02:50:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8rPT-00000000Fkp-1yJM
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 02:38:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1760495914; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=awK8T53rvm3JtUI0otLj6zux7hpJFSpVbJLW34F+bWs=;
-	b=kOOXYRYIOTzZuQf+qFTy2xg5diLxSaHlHC8XKLeAzOBB0RGWE9x+NP6/Q/u8z4/Ijm6QajSGjtanzG3FGBL0/SLUL1Ktyynsyy7eSuUSSyF4W0U25kW3tej8ZHVtzkdqe7QWkRUkItkUIDM7ZT77Rrd9zbYKIbgTqyidm6i7a+8=
-Received: from localhost.localdomain(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WqEOUxe_1760495898 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 15 Oct 2025 10:38:29 +0800
-From: Huang Ying <ying.huang@linux.alibaba.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Huang Ying <ying.huang@linux.alibaba.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64, mm: avoid always making PTE dirty in pte_mkwrite()
-Date: Wed, 15 Oct 2025 10:37:12 +0800
-Message-Id: <20251015023712.46598-1-ying.huang@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.5
+	id 1v8rar-00000000GuQ-1X37;
+	Wed, 15 Oct 2025 02:50:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 204C5451A6;
+	Wed, 15 Oct 2025 02:50:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA646C4CEE7;
+	Wed, 15 Oct 2025 02:50:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760496624;
+	bh=1q0iAqm9oGtdCGI/z0cRfOHf5UFan2MXjLyPKCbObnM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=eZelpvA/c239nHrPz2U5s0GWgcVmhHivsuLdhUdtvk2YKlFr23YPfIv8SLv6ov2Dt
+	 1nxOUrStjPMIkTOGnq1lrYqo1TQJNS/TOGAYB1SBI4qrXqyFfa8K02rlZRkgbtpguC
+	 9+Qscs3AODCCKO9sUbfDuMqcZVmKQ35iNeWqhEDwLQn4lGUhyeLlasUcfvaoVCswp/
+	 bN9Cg2AithAcDcCAfOykNxdZBnoqoK7SGyhzqNobb6Q1t/yJEsLcE+DOzfqt/j5AgQ
+	 5CnzbLmeNGLR8RZpIb/kMa5F+mBqpoS1Ja/gHPK7ZlDt7baMzQG4g95TxzrvDKuciQ
+	 EhiN+PRFE/U/w==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33CB4380CEDD;
+	Wed, 15 Oct 2025 02:50:10 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/2] net: airoha: Add some new ethtool bits
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176049660901.197015.7658108803610807679.git-patchwork-notify@kernel.org>
+Date: Wed, 15 Oct 2025 02:50:09 +0000
+References: <20251013-airoha-ethtool-improvements-v1-0-fdd1c6fc9be1@kernel.org>
+In-Reply-To: <20251013-airoha-ethtool-improvements-v1-0-fdd1c6fc9be1@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_193839_990416_91074CB1 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20251014_195025_440705_27A79789 
+X-CRM114-Status: UNSURE (   7.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,64 +75,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current pte_mkwrite_novma() makes PTE dirty unconditionally.  This may
-mark some pages that are never written dirty wrongly.  For example,
-do_swap_page() may map the exclusive pages with writable and clean PTEs
-if the VMA is writable and the page fault is for read access.
-However, current pte_mkwrite_novma() implementation always dirties the
-PTE.  This may cause unnecessary disk writing if the pages are
-never written before being reclaimed.
+Hello:
 
-So, change pte_mkwrite_novma() to clear the PTE_RDONLY bit only if the
-PTE_DIRTY bit is set to make it possible to make the PTE writable and
-clean.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-The current behavior was introduced in commit 73e86cb03cf2 ("arm64:
-Move PTE_RDONLY bit handling out of set_pte_at()").  Before that,
-pte_mkwrite() only sets the PTE_WRITE bit, while set_pte_at() only
-clears the PTE_RDONLY bit if both the PTE_WRITE and the PTE_DIRTY bits
-are set.
+On Mon, 13 Oct 2025 16:29:40 +0200 you wrote:
+> - add missing stats to ethtool ethtool_eth_mac_stats struct
+> - set get_link ethtool callback to ethtool_op_get_link routine
+> 
+> ---
+> Lorenzo Bianconi (2):
+>       net: airoha: Add missing stats to ethtool_eth_mac_stats
+>       net: airoha: Add get_link ethtool callback
+> 
+> [...]
 
-To test the performance impact of the patch, on an arm64 server
-machine, run 16 redis-server processes on socket 1 and 16
-memtier_benchmark processes on socket 0 with mostly get
-transactions (that is, redis-server will mostly read memory only).
-The memory footprint of redis-server is larger than the available
-memory, so swap out/in will be triggered.  Test results show that the
-patch can avoid most swapping out because the pages are mostly clean.
-And the benchmark throughput improves ~23.9% in the test.
+Here is the summary with links:
+  - [net-next,1/2] net: airoha: Add missing stats to ethtool_eth_mac_stats
+    https://git.kernel.org/netdev/net-next/c/331f8a8bea22
+  - [net-next,2/2] net: airoha: Add get_link ethtool callback
+    https://git.kernel.org/netdev/net-next/c/fc4fed9054ef
 
-Fixes: 73e86cb03cf2 ("arm64: Move PTE_RDONLY bit handling out of set_pte_at()")
-Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Gavin Shan <gshan@redhat.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
-Cc: Yicong Yang <yangyicong@hisilicon.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
----
- arch/arm64/include/asm/pgtable.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index aa89c2e67ebc..0944e296dd4a 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -293,7 +293,8 @@ static inline pmd_t set_pmd_bit(pmd_t pmd, pgprot_t prot)
- static inline pte_t pte_mkwrite_novma(pte_t pte)
- {
- 	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
--	pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
-+	if (pte_sw_dirty(pte))
-+		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
- 	return pte;
- }
- 
+You are awesome, thank you!
 -- 
-2.39.5
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
