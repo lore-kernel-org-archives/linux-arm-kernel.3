@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AA2CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 12:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52399CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 12:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oyluTmVOjpA44Vi8KdA6vKtr2fcyRpaqShI7dHAkNZ0=; b=K8PQfriQfYhMrGygBNSwksNw/M
-	cPjIfS10js9avr55vnJHCDOiE5APY8dNUhToBRROvxTxKq1m4B4fBlj3kbj9TC++AtOfc0paEJMNP
-	/jXDNyJo9jv7LAcr6zVIZ1x2iWkwLytqR9Zc+T/Ib9C9ZUyZaY9fEFB9pcVXrPgAmZQLh2tuiTT5n
-	ZzDbp48aSqtqtguMHq4INhdcTPBGYfKUzMVoRAK+z8RXan+LbdHJKwxvItyfR9+dTntf8XIsNNFcK
-	N8l3/JHdcItxuSPQqJRRYOwf/V7hITQ5Qb9cxJuSvyqwEVdu1jVmPB3l3o4Dw1uAka+ytcLAtaZbV
-	w4MMmHmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T/PeCLteuTZCtCAousugNZqWbsmGG2vzpEufPHA/fY8=; b=2hShL+C/hWSkhrtVFN8HKtO3oP
+	u3EjH9P33LfXZi8vlZAK6E0AajBFJ3IEt/9XpIMrWmtQWt16W3QvDKVYyRnW/zxR7YEgf16zpNVsn
+	nFgvizTC1Ot+wrnH8Xz/2cwJYgrdvj0oMJiTWpPWNe/vAIpXoRJsqyfidCRw2CEanR1IuZtZYJyeH
+	7+FCUzc7GCe9V1Bu2eUZ5jv8FDNWkfgl3CMN7q/+RgPr3akGS2W6Ay8wmRgy8IQw5MSnUJZnmNgYA
+	LwGYf3N6zSoEsuRoK+Md3LB1PkMHkooaMBiLCd+n5aMa5JpfOcqb0cy09bnCeCH2lYU2e8p10Y1+Z
+	qEV+NdnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v90tF-00000001ael-41bk;
-	Wed, 15 Oct 2025 12:46:01 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1v90zZ-00000001b8k-3EhB;
+	Wed, 15 Oct 2025 12:52:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v90tC-00000001aeL-1gaS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 12:46:00 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 55AD1C09FBF;
-	Wed, 15 Oct 2025 12:45:34 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4ADC3606F9;
-	Wed, 15 Oct 2025 12:45:53 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 88507102F2252;
-	Wed, 15 Oct 2025 14:45:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760532352; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=oyluTmVOjpA44Vi8KdA6vKtr2fcyRpaqShI7dHAkNZ0=;
-	b=uf5OI0MGetOb0yLq/o0Hrj9if0UYaWuuRvl/XfHi7z1c/2zzDnOBk161QDUw362+f9uT3J
-	8NmyDeF5b4hVyS0bEFjYgXbtki537VbDNz9tD8WqLTK8K7lpuI4AK7+4dCC7dWCoz+XV4R
-	vi0/hrCBJsgUd3SnIEfqrFmcoh0UKLBHNxoxneuSHJCb/mNZmHeJUsKaIZ6boTu/93U6NQ
-	zRQP1Dt6jYhRCY1jYZu26T3dAb34DNrYR1gfsTKuYarTxG9CaOqp2zYU9PU6BT9lSvsf4j
-	6/kcn6hDYQ3BOd0xEDwlwYFGIjgv3SQenJi3iboJomEX65QA9lNjhfIJM7lSbA==
-Date: Wed, 15 Oct 2025 14:45:26 +0200
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
- <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Richard Cochran <richardcochran@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
- <alexis.lothore@bootlin.com>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 3/3] net: ethtool: tsconfig: Re-configure
- hwtstamp upon provider change
-Message-ID: <20251015144526.23e55ee0@kmaincent-XPS-13-7390>
-In-Reply-To: <20251015102725.1297985-4-maxime.chevallier@bootlin.com>
-References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
-	<20251015102725.1297985-4-maxime.chevallier@bootlin.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+	id 1v90zX-00000001b8Z-48Mv;
+	Wed, 15 Oct 2025 12:52:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 34EF2625B1;
+	Wed, 15 Oct 2025 12:52:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F712C4CEF8;
+	Wed, 15 Oct 2025 12:52:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760532750;
+	bh=4DK8NsHpOSDw78JlpzEJiBRJK0MDuJa00sse3sDOyDs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=t8o3nVisN7MqQBJeLDOFcbTRf67htnjR8DcPwRhAq4aev4tsHgIkoMlwuWCeCa59R
+	 jlqIcNRknLKlRb10gzt5joFkL1eEy7qb+mt/Q3pSm6LISI5M1QcmNxEwCRuQhkjFVy
+	 GjM39Goe0J/dWh2Lj3mWdO8BnpWZB64sG2Dhtmlcf+AtuYFim9Tm5oXfgMHB3oJU4G
+	 a0cGFDrFaJdrgVy5ES42Knl7f2I61yFf6tVgGI5i1bD8NaBUtayoom8W8zWj5doLaW
+	 9hWYFmzDkaKeDlv5b3NJmcOqRRuKGz2S8nNWATw5VeH3PKNyK2f7GDL6cTTEwJFi4G
+	 zEuQ9KR/cNgKw==
+Date: Wed, 15 Oct 2025 13:52:26 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next 03/12] net: airoha: Add
+ airoha_ppe_get_num_stats_entries() and
+ airoha_ppe_get_num_total_stats_entries()
+Message-ID: <aO-ZCqsvPQ6Pqjpg@horms.kernel.org>
+References: <20251015-an7583-eth-support-v1-0-064855f05923@kernel.org>
+ <20251015-an7583-eth-support-v1-3-064855f05923@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_054558_825506_52D84E9E 
-X-CRM114-Status: GOOD (  11.58  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251015-an7583-eth-support-v1-3-064855f05923@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +79,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Oct 2025 12:27:23 +0200
-Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+On Wed, Oct 15, 2025 at 09:15:03AM +0200, Lorenzo Bianconi wrote:
+> Introduce airoha_ppe_get_num_stats_entries and
+> airoha_ppe_get_num_total_stats_entries routines in order to make the
+> code more readable controlling if CONFIG_NET_AIROHA_FLOW_STATS is
+> enabled or disabled.
+> Modify airoha_ppe_foe_get_flow_stats_index routine signature relying on
+> airoha_ppe_get_num_total_stats_entries().
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.h |  10 +--
+>  drivers/net/ethernet/airoha/airoha_ppe.c | 103 +++++++++++++++++++++++++------
+>  2 files changed, 86 insertions(+), 27 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+> index 4330b672d99e1e190efa5ad75d13fb35e77d070e..1f7e34a5f457ca2200e9c81dd05dc03cd7c5eb77 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -50,15 +50,9 @@
+>  
+>  #define PPE_NUM				2
+>  #define PPE1_SRAM_NUM_ENTRIES		(8 * 1024)
+> -#define PPE_SRAM_NUM_ENTRIES		(2 * PPE1_SRAM_NUM_ENTRIES)
+> -#ifdef CONFIG_NET_AIROHA_FLOW_STATS
+> +#define PPE_SRAM_NUM_ENTRIES		(PPE_NUM * PPE1_SRAM_NUM_ENTRIES)
+>  #define PPE1_STATS_NUM_ENTRIES		(4 * 1024)
+> -#else
+> -#define PPE1_STATS_NUM_ENTRIES		0
+> -#endif /* CONFIG_NET_AIROHA_FLOW_STATS */
+> -#define PPE_STATS_NUM_ENTRIES		(2 * PPE1_STATS_NUM_ENTRIES)
+> -#define PPE1_SRAM_NUM_DATA_ENTRIES	(PPE1_SRAM_NUM_ENTRIES - PPE1_STATS_NUM_ENTRIES)
+> -#define PPE_SRAM_NUM_DATA_ENTRIES	(2 * PPE1_SRAM_NUM_DATA_ENTRIES)
+> +#define PPE_STATS_NUM_ENTRIES		(PPE_NUM * PPE1_STATS_NUM_ENTRIES)
+>  #define PPE_DRAM_NUM_ENTRIES		(16 * 1024)
+>  #define PPE_NUM_ENTRIES			(PPE_SRAM_NUM_ENTRIES + PPE_DRAM_NUM_ENTRIES)
+>  #define PPE_HASH_MASK			(PPE_NUM_ENTRIES - 1)
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+> index 8d1dceadce0becb2b1ce656d64ab77bd3c2f914a..303d31e1da4b723023ee0cc1ca5f6038c16966cd 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -32,6 +32,30 @@ static const struct rhashtable_params airoha_l2_flow_table_params = {
+>  	.automatic_shrinking = true,
+>  };
+>  
+> +static int airoha_ppe_get_num_stats_entries(struct airoha_ppe *ppe,
+> +					    u32 *num_stats)
+> +{
+> +#ifdef CONFIG_NET_AIROHA_FLOW_STATS
+> +	*num_stats = PPE1_STATS_NUM_ENTRIES;
+> +	return 0;
+> +#else
+> +	return -EOPNOTSUPP;
+> +#endif /* CONFIG_NET_AIROHA_FLOW_STATS */
+> +}
 
-> When a hwprov timestamping source is changed, but without updating the
-> timestamping parameters, we may want to reconfigure the timestamping
-> source to enable the new provider.
->=20
-> This is especially important if the same HW unit implements 2 providers,
-> a precise and an approx one. In this case, we need to make sure we call
-> the hwtstamp_set operation for the newly selected provider.
+Hi Lorenzo,
 
-This is a design choice.
-Do we want to preserve the hwtstamp config if only the hwtstamp source is
-changed from ethtool?
-If we want to configure the new source to the old source config we will also
-need to remove this condition:
-https://elixir.bootlin.com/linux/v6.17.1/source/net/ethtool/tsconfig.c#L339=
-=20
+I think that in general using IS_ENABLED is preferred over #ifdef
+in cases where the former can be used. For one thing it improves compile
+coverage.
 
-I do not really have a strong opinion on this, let's discuss which behavior=
- we
-prefer.
+That does seem applicable here, so I'm wondering if
+we can do something like the following.
+(Compile tested only!)
 
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+static int airoha_ppe_get_num_stats_entries(struct airoha_ppe *ppe,
+                                            u32 *num_stats)
+{
+        if (!IS_ENABLED(CONFIG_NET_AIROHA_FLOW_STATS))
+                return -EOPNOTSUPP;
+
+        *num_stats = PPE1_STATS_NUM_ENTRIES;
+        return 0;
+}
+
+Also, very subjectively, I might have returned num_stats as
+a positive return value. I'm assuming it's value will never overflow an int.
+Likewise elsewhere.
+
+But that's just my idea. Feel free to stick with the current scheme.
+
+...
 
