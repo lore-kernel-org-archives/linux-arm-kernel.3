@@ -4,62 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D80CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 07:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ACCECCD190
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 07:55:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1reG8NbwqVu37BfRsUBLebpB1OLbXQE5xdHnrkCpDDU=; b=H3VrO53UZTQsWTSoyuZqLMtiuH
-	Ntqx0QsOvNf45FX8LpD+L41jfBN6po7H4U3IdlEe/+xVxmrxmKHbcrTaqs5ukCOROC3OdyJhNqurI
-	4QJAw+iEVXG3CnI8Mg55Rdkmv1290qBcYx9i8AgQTvDrIqQ0n8llgSFojjQVp6cmxMPmE16mPwXrc
-	6Y05fN4JwrK2lOpVtvi2EkWPXdX2vPMRnD/0nhfgoOtgyeko+5XvRrNZd3hoYksMhR1WxvQDIBDOH
-	zaxuFT0x3jxhRVHb2wPBmk0Urw3EmTqhcdlk9bVBFn6I8/e3KjM8X8fR1amecg09wG8bn/eNo2fMz
-	KP8XrUNw==;
+	bh=t+HZgDzRdpaVTxvZqJl2rTn2R8LelhY8vbHUCgBN35M=; b=XHcoYDqRL2tzOUQU5fJ6dCJTLS
+	14N2VLwo6cdFSC9jU78tZtdqeGYB9CG0XK14XG1ofYmQRP2lRZuuiWEB1hQo1i9upsykOZTjUTTTT
+	K5jDRlBA8swVzBys+cuqMBEsdKaC/rRMPOvqJCStIblsLRZZpGP0TSacH/UPsVKOoPtuapYX93tnd
+	IPvElZ/qoEB1lIqUV+ebNX5hCnFoNqb+MXxdd31sudxFLy6ULIkCvQWr13u/1aP3BVmu6NGF4H7U9
+	jWUp82OnXBqX8tiaAhEpBjy6bxVlBJTbinR/+T4Yylkxz4AiU79l/RnVJ4UebRXqW4LDssNFntNjB
+	ODTUuxmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8wLQ-00000000pCo-1faq;
-	Wed, 15 Oct 2025 07:54:48 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v8wLf-00000000pTY-1kOG;
+	Wed, 15 Oct 2025 07:55:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8wLL-00000000p5s-32t8
+	id 1v8wLd-00000000pQm-2x9M
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 07:54:45 +0000
-Received: from pendragon.ideasonboard.com (87-94-110-32.bb.dnainternet.fi [87.94.110.32])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 50099E92;
-	Wed, 15 Oct 2025 09:53:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1760514783;
-	bh=CwTElZLs4bPxkRmOwkt0UmU404lXkx8MOBZz7ohhI+I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rJGFkmn1kKN24nB2M+W2y4AIRNkExAH8h+nRq/ZxqF0B3xoB6HbzVwGREl78Dl2D/
-	 PhpxcvDB8y6dHm1eeI1i4y0MBN1bilwaDMoh3/UXmCO20p/AsZO9Q1HGRGa8Zmfe2k
-	 JJL1AM50DjZRqhXckDfWJhLRjyQmYGWspZcP2uek=
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: linux-media@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Jiasheng Jiang <jiashengjiangcool@gmail.com>
-Subject: [PATCH v2 22/25] media: stm32: dma2d: Drop unneeded v4l2_m2m_get_vq() NULL check
-Date: Wed, 15 Oct 2025 10:53:45 +0300
-Message-ID: <20251015075353.22625-23-laurent.pinchart@ideasonboard.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251015075353.22625-1-laurent.pinchart@ideasonboard.com>
-References: <20251015075353.22625-1-laurent.pinchart@ideasonboard.com>
+	Wed, 15 Oct 2025 07:55:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1760514900;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=t+HZgDzRdpaVTxvZqJl2rTn2R8LelhY8vbHUCgBN35M=;
+	b=NzM5BtOu3qmEnGdS7HT7FCh58w2etqg6Ofu1cTOqcQAgpLq6nx9dEiGWiHA8b7ZBf17bAR
+	Jhi4mFTdxBwG2f8xsHz0kDnc0ed/+KVTb0RWYj2PD4SfC7A95R+ND1suNdN9/w69rKIXGH
+	TpJ7Mv3kplyPrHuZI7dU75vCgnxGBtg=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-18-xNe3cA87NbmAnqPN8TliRw-1; Wed, 15 Oct 2025 03:53:20 -0400
+X-MC-Unique: xNe3cA87NbmAnqPN8TliRw-1
+X-Mimecast-MFC-AGG-ID: xNe3cA87NbmAnqPN8TliRw_1760514799
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-47105bfcf15so1432695e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 00:53:20 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760514799; x=1761119599;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=t+HZgDzRdpaVTxvZqJl2rTn2R8LelhY8vbHUCgBN35M=;
+        b=D0yP+ikwkRDX5xpDseYNSmTT1quYadq5wFRGdCAGBco30ihPi5VBQ36O1lAifX1qge
+         ORyQ3PnueJyg1oyCRhoU5MVa9Ej2aZ8buzMWR4chQYb1mi2FyffiCupVlJna9qHbJuni
+         TNi6iV0VuX4vfBvTWLCWOuqEMryaSqFrr781hlbutDGEuGjBn2Jjxd4XnioRzFFszqFO
+         QyW8LJWdHPBPT+SRh79dMc3LTQSwfGosVmMpgZp2WeyxDq56GYHMsJoA8M4kSQETzjon
+         hMldk0SnURqGah1Qx5xYd/XW8vuK29Qm1LjX3RIlEn8XXaY4avECNMA+pmS+AclzI5I7
+         Y1sw==
+X-Forwarded-Encrypted: i=1; AJvYcCXRK8PoZZmRLdqRggmPUHttwwd/V/nFtkiDulhiUTr+0oqo0jcum2KhDxcbHciky0TzkGzrnf1cAkrEshlAf68w@lists.infradead.org
+X-Gm-Message-State: AOJu0YzH7qszme5e+7LLGbIiE4qkK52EGzbtBzfG455Ck49j2+JQBte2
+	JGPWkwg+ByWLJTnOKftS3UDjSgJyNnSgo64NcWYSoAnOiIHjHdju2nQZ4DFu6BoQkg/CShTT2Yg
+	tQr00zinXVEHVSwD71Fv6iBH4+hBap/uslV8S3S7AsX4ep7Gv0kpMV5f2Jd1oaL1CptU17eok/E
+	am
+X-Gm-Gg: ASbGncsjPze+DQoIU3jyW2mzIYalzsLxGdMfa1l6tdIHRvQ/7XkpzauLoTT+F0EEgfA
+	pSowgVJWlH0oCXM508N7Pc9qQXMdaoQD9N+3hvpVFJvmz28Z9jSd8ERvNV6LC91o9KUNtO+Q92m
+	qCVvCR2dFj2MeawxM83m45GlfY2vs9pfn0WLhGA0dN9hefnQphOQDUK/5VsEzoFQWq1WTKTxETA
+	so2dKWsAykMRZeLycATFN+lz+14lgPbcqAE7W4JR5SyiTyQO+Oi/FMjdedvcihFE/v0bTfIAF4K
+	JvnizoJhnUgdyAG2R/Bdsw2py24HJE4nCJGPeiNtzwusn24JLtoZgkX/2/5skQkfEaENaPbG06v
+	MisFP
+X-Received: by 2002:a05:600c:1e28:b0:45b:47e1:ef6d with SMTP id 5b1f17b1804b1-46fa9b11746mr202661405e9.36.1760514799493;
+        Wed, 15 Oct 2025 00:53:19 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEZf7d9TK63edfjPsh4LrX74Y6wRlhtOgKLsjlyk6mKGtY9U4BbM1bQ2mcLbjosAJUslcGWjg==
+X-Received: by 2002:a05:600c:1e28:b0:45b:47e1:ef6d with SMTP id 5b1f17b1804b1-46fa9b11746mr202661265e9.36.1760514799084;
+        Wed, 15 Oct 2025 00:53:19 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:c:37e0:8998:e0cf:68cc:1b62? ([2a01:e0a:c:37e0:8998:e0cf:68cc:1b62])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47101c21805sm14875785e9.10.2025.10.15.00.53.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Oct 2025 00:53:18 -0700 (PDT)
+Message-ID: <c256b8d9-ec9e-4841-9136-1198ad2d590a@redhat.com>
+Date: Wed, 15 Oct 2025 09:53:15 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] drm/log: Add free callback
+To: Thomas Zimmermann <tzimmermann@suse.de>, javierm@redhat.com,
+ mripard@kernel.org, maarten.lankhorst@linux.intel.com
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, intel-gfx@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org, linux-arm-msm@vger.kernel.org,
+ freedreno@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
+ linux-tegra@vger.kernel.org
+References: <20251009132006.45834-1-tzimmermann@suse.de>
+ <20251009132006.45834-4-tzimmermann@suse.de>
+From: Jocelyn Falempe <jfalempe@redhat.com>
+In-Reply-To: <20251009132006.45834-4-tzimmermann@suse.de>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: lHYdmIAkupPxkxYwhJzafncvl4-XuntqJ3BHd-nCRLc_1760514799
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US, fr
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_005443_927260_2BEE8337 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20251015_005501_825499_586B7314 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,39 +116,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The v4l2_m2m_get_vq() function never returns NULL. The check was
-probably intended to catch invalid format types, but that's not needed
-as the V4L2 core picks the appropriate VIDIOC_G_FMT ioctl handler based
-on the format type, so the type can't be incorrect. Drop the unneeded
-return value check and, as the return value is not used for other
-purposes and the function has no side effect, the function call as well.
+On 09/10/2025 15:16, Thomas Zimmermann wrote:
+> Free the client memory in the client free callback. Also move the
+> debugging output into the free callback: drm_client_release() puts
+> the reference on the DRM device, so pointers to the device should
+> be considered dangling afterwards.
 
-Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
----
- drivers/media/platform/st/stm32/dma2d/dma2d.c | 5 -----
- 1 file changed, 5 deletions(-)
+Thanks, it looks good to me.
 
-diff --git a/drivers/media/platform/st/stm32/dma2d/dma2d.c b/drivers/media/platform/st/stm32/dma2d/dma2d.c
-index 468c247ba328..30544ceca42c 100644
---- a/drivers/media/platform/st/stm32/dma2d/dma2d.c
-+++ b/drivers/media/platform/st/stm32/dma2d/dma2d.c
-@@ -355,13 +355,8 @@ static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fmtdesc *f
- static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
- {
- 	struct dma2d_ctx *ctx = file2ctx(file);
--	struct vb2_queue *vq;
- 	struct dma2d_frame *frm;
- 
--	vq = v4l2_m2m_get_vq(ctx->fh.m2m_ctx, f->type);
--	if (!vq)
--		return -EINVAL;
--
- 	frm = get_frame(ctx, f->type);
- 	f->fmt.pix.width		= frm->width;
- 	f->fmt.pix.height		= frm->height;
--- 
-Regards,
-
-Laurent Pinchart
+Reviewed-by: Jocelyn Falempe <jfalempe@redhat.com>>
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> ---
+>   drivers/gpu/drm/clients/drm_log.c | 14 +++++++++++---
+>   1 file changed, 11 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/clients/drm_log.c b/drivers/gpu/drm/clients/drm_log.c
+> index 116e0ef9ae5d..470df4148e96 100644
+> --- a/drivers/gpu/drm/clients/drm_log.c
+> +++ b/drivers/gpu/drm/clients/drm_log.c
+> @@ -293,19 +293,26 @@ static void drm_log_free_scanout(struct drm_client_dev *client)
+>   	}
+>   }
+>   
+> -static void drm_log_client_unregister(struct drm_client_dev *client)
+> +static void drm_log_client_free(struct drm_client_dev *client)
+>   {
+>   	struct drm_log *dlog = client_to_drm_log(client);
+>   	struct drm_device *dev = client->dev;
+>   
+> +	kfree(dlog);
+> +
+> +	drm_dbg(dev, "Unregistered with drm log\n");
+> +}
+> +
+> +static void drm_log_client_unregister(struct drm_client_dev *client)
+> +{
+> +	struct drm_log *dlog = client_to_drm_log(client);
+> +
+>   	unregister_console(&dlog->con);
+>   
+>   	mutex_lock(&dlog->lock);
+>   	drm_log_free_scanout(client);
+>   	mutex_unlock(&dlog->lock);
+>   	drm_client_release(client);
+> -	kfree(dlog);
+> -	drm_dbg(dev, "Unregistered with drm log\n");
+>   }
+>   
+>   static int drm_log_client_hotplug(struct drm_client_dev *client)
+> @@ -339,6 +346,7 @@ static int drm_log_client_resume(struct drm_client_dev *client, bool _console_lo
+>   
+>   static const struct drm_client_funcs drm_log_client_funcs = {
+>   	.owner		= THIS_MODULE,
+> +	.free		= drm_log_client_free,
+>   	.unregister	= drm_log_client_unregister,
+>   	.hotplug	= drm_log_client_hotplug,
+>   	.suspend	= drm_log_client_suspend,
 
 
