@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C4BCCD192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 13:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ABF5CCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oHXBuqaRnLu9UqsNLGv8ihfOtoiq+ld9+oH+hd8QAm4=; b=lu3Y0Ac5fqg6Qd9g4jYXKpeLLU
-	YvlABmuXn5F4s0dk20vVEFFfUcjNcFrJaIPu+qIuL7tmqN5ehyJAwyohMNXbuMxNaUrz8jFsbMHLY
-	D2xcmSfcClP17ureO8zRlwMLsRFOVtNRXZnBZ80PkYD0UMzamTJ1q3/glRM6DMiJ8yeHYz+jgKTgt
-	E/ibLTGGp0tBRm/gBTijP9a6kEeyhGdGX7LXLbud5+kyX0QrJ4b7pHBuCg7B1DlKK+6S+c5Tyjx50
-	AF3bk9kLXMDnxDX2CPDn+XblLpLNX+83d6KJX0ukUxmXKChrmGXGzifxA8BGtSos+IyOxaHJxSU5x
-	EcdkNgEw==;
+	bh=hzPhcfyTVed5i2/5J3fH5vGgzo/8dwaRQsCbVy8PMo4=; b=yCTfDOwc6H3/E+0y+Sq/vrWLcc
+	4saYLBBgQJNgdgmIpuZQH6bvLdpP7E+geEQVCsDJsO3cdPd+HxKgmadAQD+NyTvENDOv2XvtfB2ND
+	XGvGNTFyvj2Z3M+aV5+2j9+eAOd35XDV1VBhPtLx9PNfcQOYSk0qbSgS+4NcCLzNcmYk43zZi6MET
+	83aaTAiD1TDBeWvPpvd2KTBxT7i02y11lojHwyJBl3y0ODSQiYUCwnpL9/FSrZMuz/dN9pE71/b5u
+	onnJUeyclggJFUAJv+64YqXYLTOQ3pNgyCCvXIlfhopkDYTSgTuppuMxDf0N6Ocyuz6iWX4vSGMpe
+	kSOtj41w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v922Z-00000001n0h-0nDW;
-	Wed, 15 Oct 2025 13:59:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v9238-00000001nAb-3Fvu;
+	Wed, 15 Oct 2025 14:00:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v922W-00000001n0G-060p;
-	Wed, 15 Oct 2025 13:59:41 +0000
+	id 1v9236-00000001nAK-36U1;
+	Wed, 15 Oct 2025 14:00:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A7FC2416F1;
-	Wed, 15 Oct 2025 13:59:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F20AC4CEF8;
-	Wed, 15 Oct 2025 13:59:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 308EB625E2;
+	Wed, 15 Oct 2025 14:00:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C8C2C4CEF8;
+	Wed, 15 Oct 2025 14:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760536779;
-	bh=DwUHoZqWcYMyz1nussrz3FQ3Rsn+co8/zERGpsHFIEQ=;
+	s=k20201202; t=1760536815;
+	bh=CFCf1jlvWWOR/a6zkgwqZYSPmfb3AShgDFzbIXQWQOk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R9i78eep6JNFh+dgLuDlH5N5/XKr7p8sX9bdlHGb5p84TEWW/KHf6y4gPJ/+pSDAG
-	 jX//HgZzYp7+gI4qlRNXZZHMTsK44rlSr6m4/q5mq6s1H86Ifo7126uS/LyyO8apTw
-	 sV5uRoUjUJtIrz/1FdXmRQgBeOZ6w/mvj+ij6SRXuTKfait1Dz0CgjpIYJR033Yy79
-	 B2CfEoZ2ilfxIDuJ5mHK7kW29ZvLTVTWhIJYAm7QvnXpSsr7GVoRXWGidQT2bPOc6X
-	 0d5zfxS3obmsutrDBfpq6hEAsWba+gs+4IorVyAMbFH0XyW+pFGzPsHCx6KIpNNO98
-	 +CQ6h501WN8SA==
-Date: Wed, 15 Oct 2025 08:59:36 -0500
+	b=NxRVPNxTJEZrwlxkuY1eKTFhrZhKXnwRscbJ7VUzY9GgzJ+PQebmlbNSTi15ZBt9U
+	 xoDvIxMLiw6q1SUpss4Ae4UReY0SCbP3RUaDRJe4XhBemugb8m2gcy1+XWOpZW9zay
+	 Ii2jX7rVmR1IV/0HIM+QPn3kmfdUdtAWHrr2a3jOwoTmp5rGalA8ADoLmYFd3I1INe
+	 oTOS/zZBinBbqRbrOY3yrUE5Zj8KthPA7pGenTEKmJkRlmijzicanovCH69HkImXSh
+	 0feFCF2t43Of1zEgQ3lFk8H2Q+Zh0KGLSH5v3m08GXkHyMKQQZzpODL6enQq/4jsGw
+	 ST8ahiKMsFP3A==
+Date: Wed, 15 Oct 2025 09:00:13 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-pci@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
 	linux-mediatek@lists.infradead.org,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, upstream@airoha.com,
-	linux-pci@vger.kernel.org,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, upstream@airoha.com,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
 	Jianjun Wang <jianjun.wang@mediatek.com>,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v5 2/5] dt-bindings: PCI: mediatek: Convert to YAML schema
-Message-ID: <176053677610.3299416.10324456171470635844.robh@kernel.org>
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 3/5] dt-bindings: PCI: mediatek: Add support for
+ Airoha AN7583
+Message-ID: <176053681339.3300147.17032986972081820170.robh@kernel.org>
 References: <20251012205900.5948-1-ansuelsmth@gmail.com>
- <20251012205900.5948-3-ansuelsmth@gmail.com>
+ <20251012205900.5948-4-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251012205900.5948-3-ansuelsmth@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_065940_083296_3366FC35 
-X-CRM114-Status: GOOD (  11.30  )
+In-Reply-To: <20251012205900.5948-4-ansuelsmth@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,27 +81,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 12 Oct 2025 22:56:56 +0200, Christian Marangi wrote:
-> Convert the PCI mediatek Documentation to YAML schema to enable
-> validation of the supported GEN1/2 Mediatek PCIe controller.
+On Sun, 12 Oct 2025 22:56:57 +0200, Christian Marangi wrote:
+> Introduce Airoha AN7583 SoC compatible in mediatek PCIe controller
+> binding.
 > 
-> While converting, lots of cleanup were done from the .txt with better
-> specifying what is supported by the various PCIe controller variant and
-> drop of redundant info that are part of the standard PCIe Host Bridge
-> schema.
-> 
-> To reduce schema complexity the .txt is split in 2 YAML, one for
-> mt7623/mt2701 and the other for every other compatible.
+> Similar to GEN3, the Airoha AN7583 GEN2 PCIe controller require the
+> PBUS csr property to permit the correct functionality of the PCIe
+> controller.
 > 
 > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 > ---
->  .../bindings/pci/mediatek-pcie-mt7623.yaml    | 164 +++++++++
->  .../devicetree/bindings/pci/mediatek-pcie.txt | 289 ----------------
->  .../bindings/pci/mediatek-pcie.yaml           | 318 ++++++++++++++++++
->  3 files changed, 482 insertions(+), 289 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/pci/mediatek-pcie-mt7623.yaml
->  delete mode 100644 Documentation/devicetree/bindings/pci/mediatek-pcie.txt
->  create mode 100644 Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
+>  .../bindings/pci/mediatek-pcie.yaml           | 120 ++++++++++++++++++
+>  1 file changed, 120 insertions(+)
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
