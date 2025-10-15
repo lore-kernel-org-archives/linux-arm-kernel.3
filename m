@@ -4,52 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE2D7CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 18:34:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE532CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 18:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NpiHHmNZ3CKrpnq8ff0dqLJz3CN0dXqqF6DUzMJ5KB0=; b=3U5mD7o/tubBsVTlg5RcYh2X8M
-	fWPRCoqNj5U4bQ/n9ofPPpiL4g44ueG/aKT0JXgG5HfK091FHR3izl04LejmcHh1AycThzyi8vzgp
-	v5TTzahuUNUfho+jpP7BLirQSheYKrP5IBIbKloSNJEOzQrR1uW8wxqk7VA3KnBpKEoLzJIYdP5EU
-	QRAAQ+NoId1XMnH79dTcp9fmYDKgP74Runl3Mk/xgsF87o2Dkvv6QIaov5Box9tx5MuWT41nYVupf
-	J9LIW1bzLkWapJFZ17eaV1qKqio8HLkbC2RgvvR0pVeHNAVkIeh/+2BcrySHFjv9srAHmkER+bV80
-	TnNBvywA==;
+	bh=jbqMKZ1UqmRu9AOkndVBKY+83bjZGIhAPtyAxESApoI=; b=p4eq8B15w6+H3RkTVfhXAm+7d7
+	gzADv7OsOuU++WAchdfBiD7AnNGOCH0UoVTVs8fppUv0EH3WPaqjtevuiRKP9I8WKxgcTXqPAWZS2
+	TXwWnFbCsYBV1HpILdIZ3uiIOxxCQS6dcRB1qH0U0EjsAaIPz5+b0zA/BFwjNv2Dtck3n/7h6xd15
+	4jbMye2MoEBZFmg+4rPBWsLo0b1/OYU+b/e3FR3QnVEoUA2t1Bst5IOH8tkt95yqKf9utV59T41iK
+	hzn8yQxUlP2+TDOzTMSOo4EoSoC1hjtbejwrmvruyxFy7bYXIkLtY3Kblyo/la0wRiXBMQUrxtsta
+	MBkCWxoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v96KB-00000002caL-3SKk;
-	Wed, 15 Oct 2025 18:34:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v96KN-00000002cgG-0fbh;
+	Wed, 15 Oct 2025 18:34:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v96K7-00000002cXs-2cLr
+	id 1v96KM-00000002cfl-2oJR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 15 Oct 2025 18:34:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=jbqMKZ1UqmRu9AOkndVBKY+83bjZGIhAPtyAxESApoI=; b=anE/m6oL9A/RHYU/lK5wo8PeX2
+	H1Bmwpk5eOnuJ9TPVmMTfc04NEaXsCICm6guKS7rAursdYAO9x0uI2g8aCLmMjvurck2TI3eoe6Rw
+	kN9Y5pOw5/Rx0wDHNM6H6nSLTiHF1JD3PXNSHDba7zudvS0nDyndf3I3aTWdtAci1JCLBxaOfAEdF
+	ATFLOwrksnqd3zw/r2LTMkq4AF0F9WeH0Olq0nmBAIwRRqe7YFPfQx//QUrHmKbR4dN5wMZ3KfibU
+	81wBkwDlRw97pXxyKZGOosAeqZIwew06ueH8mHKdVLrZ0ZAvitnKgXEz76lN7AACvwtvQs8xOBVnm
+	U+VHS5wg==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v96KE-000000068I1-3ruZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 18:34:07 +0000
+	Wed, 15 Oct 2025 18:34:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D4EE263D6E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 09FEE447F9;
+	Wed, 15 Oct 2025 18:34:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37C68C4CEF8;
 	Wed, 15 Oct 2025 18:34:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC578C116B1;
-	Wed, 15 Oct 2025 18:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760553246;
-	bh=Xv6yHCpNjzsH8/JCHYEyM4n96nFPTL8HY23YJ+yYWPM=;
+	s=k20201202; t=1760553249;
+	bh=UYiRQSvgs+jqwo1HIyxcSuFqSwz8wIVukPHpImMwyIA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=VHP4U2l5loyGV8ALU7Ia2R6/40D6LmhS6xILEBqjXewj3GySfW0t1tVXzNP61zHVW
-	 sXHbk88fLJrMna5/0AwBTIvnRdO7Sm9Ae6SDtj9lh+8R4cgvRUaTRUXNXaqxt6JtxZ
-	 +skunpbXlJNBkTcvH6TcYAOXjYQD93rvadMk46aZHznN5HGSWxotRtv0qsTpkBXU39
-	 PKZqSN/kDgG+IvDZDblSuRgkv5gQiyfLxaMG18eH7/sb0gEb9h82JY56PbMRdy7cc2
-	 KHvc06/ic1N9xypP/ENWi9sRiGgAQDddwoInJjW2lRx/QXc+uclV2v0g174eZBsWAX
-	 zP/N0kMhDV36w==
+	b=JOEDk1TKOjy+sC4x4jD08sMX/9cOzdUAu2Drq6EqtlqtkOXstKVfDB3o1we/whMWc
+	 NYuCMn5I5HwyzfBwDCkpx+eAR7TCllmtTVbSGyeBTvghTNqiIb35VmH/iFlaOkHxnw
+	 /o14sS8HvwFWWx6aE1cB/SqXmMJAjhPotn2E3o9Qd8iCctD9xNtcMnw25OqLesbHdf
+	 bFE+KISodttgwOsCT4rEK0o38x06cmfw7n0NfaqvQCUo2UOYqm2lWjAL9jVWLPkZMf
+	 8Ha1ZwQ7XsYExqR+70kRUYkoGFBx+9A79cE9ZZ8aRJy5qZeENg+MGhD+l3iAgZlogf
+	 RIA24f459PU9A==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 15 Oct 2025 18:56:37 +0100
-Subject: [PATCH v2 2/3] kselftst/arm64: Test NT_ARM_SVE FPSIMD format
- writes on non-SVE systems
+Date: Wed, 15 Oct 2025 18:56:38 +0100
+Subject: [PATCH v2 3/3] kselftest/arm64: Cover disabling streaming mode
+ without SVE in fp-ptrace
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251015-arm64-sme-ptrace-sme-only-v2-2-33c7b2f27cbf@kernel.org>
+Message-Id: <20251015-arm64-sme-ptrace-sme-only-v2-3-33c7b2f27cbf@kernel.org>
 References: <20251015-arm64-sme-ptrace-sme-only-v2-0-33c7b2f27cbf@kernel.org>
 In-Reply-To: <20251015-arm64-sme-ptrace-sme-only-v2-0-33c7b2f27cbf@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -63,17 +78,20 @@ Cc: Mark Rutland <mark.rutland@arm.com>,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-2a268
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2876; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Xv6yHCpNjzsH8/JCHYEyM4n96nFPTL8HY23YJ+yYWPM=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBo7+kTtExQl2fALYDooDYk+IBi3sFFozHENC+hJ
- 2suVYsiBFGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaO/pEwAKCRAk1otyXVSH
- 0BOvB/98hVKg3ztxRIYwgaH9DWjipCXQnv+FYob/1LS82o5N10ru8M1jnZVp9eHnHhMoSYCxDmz
- aMhbTxD1AOQKxn4FqpEuwTv1hiC+5++THVw11uZZDcqrtzbCsxT6a0TZD7YuiNupitSSuI1mnUS
- 6k6U8qNWOIIdjIBJYCZasj5TRCZhgkw7nzVD4gKDSZ9jvefU9fIdNsQMCsR5mh2LZVT7pE7Hn7d
- R7Wv8vG+xA6VcqUTK/6Ra10mIHNzQE7Vg74wHvRzd4xj7n7qNDf+dfMa3vShssHdNCtpTmmG8ow
- ybRqI/4CpbvjZthTLw/L7XCxGGddlgnVwkm8aeTNVfrL0SW7
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1409; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=UYiRQSvgs+jqwo1HIyxcSuFqSwz8wIVukPHpImMwyIA=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBo7+kUW7mFnAgXj0oaG5JSKhdvIsEUwyyPyt8j1
+ wi+2EsZtxCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaO/pFAAKCRAk1otyXVSH
+ 0DQbB/976gT7Mug2JIPAZ1WwQXFgHP1WlsQ7C2JzCVbO6aQakwbYHMPhSyqLJm9LVSIr3iTdhu9
+ O/xfa/bTdYTIXC3Cadu/kSL4Gd/eM5q9Sf5qyxIIv9T9ox4hq/XunynZMyX+8JbvopLCor1qaQX
+ yCWVTuIzBf8esBtIy8tObX/pKuU9T1YxJy8LMtGmA1QSDtF5OzrWIcb6TLzwu4XJxS3L96bTYo3
+ Gsj5FhAnm5gA12AH2E3ekO5mpyBgquSV3/XTHKiXiV9ewXGtEsvqCKoTTegojjICtY0JGkZVybZ
+ DtksaYcL99KTtZ9Ht+3IElE4WC2qeczhQ9cX+pwXIIbAmv4Q
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251015_193417_427825_6F9F2C5E 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,96 +106,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to allow exiting streaming mode on systems with SME but not SVE
-we allow writes of FPSIMD format data via NT_ARM_SVE even when SVE is not
-supported, add a test case that covers this to sve-ptrace.
-
-We do not support reads.
+On a system which support SME but not SVE we can now disable streaming mode
+via ptrace by writing FPSIMD formatted data through NT_ARM_SVE with a VL of
+0. Extend fp-ptrace to cover rather than skip these cases, relax the check
+for SVE writes of FPSIMD format data to not skip if SME is supported and
+accept 0 as the VL when performing the ptrace write.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- tools/testing/selftests/arm64/fp/sve-ptrace.c | 61 +++++++++++++++++++++++++++
- 1 file changed, 61 insertions(+)
+ tools/testing/selftests/arm64/fp/fp-ptrace.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/fp/sve-ptrace.c b/tools/testing/selftests/arm64/fp/sve-ptrace.c
-index e0fc3a001e28..f44d44618575 100644
---- a/tools/testing/selftests/arm64/fp/sve-ptrace.c
-+++ b/tools/testing/selftests/arm64/fp/sve-ptrace.c
-@@ -394,6 +394,58 @@ static void ptrace_sve_fpsimd(pid_t child, const struct vec_type *type)
- 	free(svebuf);
- }
+diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace.c b/tools/testing/selftests/arm64/fp/fp-ptrace.c
+index a85c19e9524e..0114108ab25f 100644
+--- a/tools/testing/selftests/arm64/fp/fp-ptrace.c
++++ b/tools/testing/selftests/arm64/fp/fp-ptrace.c
+@@ -1071,7 +1071,7 @@ static bool sve_write_supported(struct test_config *config)
  
-+/* Write the FPSIMD registers via the SVE regset when SVE is not supported */
-+static void ptrace_sve_fpsimd_no_sve(pid_t child)
-+{
-+	void *svebuf;
-+	struct user_sve_header *sve;
-+	struct user_fpsimd_state *fpsimd, new_fpsimd;
-+	unsigned int i, j;
-+	unsigned char *p;
-+	int ret;
-+
-+	svebuf = malloc(SVE_PT_SIZE(0, SVE_PT_REGS_FPSIMD));
-+	if (!svebuf) {
-+		ksft_test_result_fail("Failed to allocate FPSIMD buffer\n");
-+		return;
-+	}
-+
-+	/* On a system without SVE the VL should be set to 0 */
-+	memset(svebuf, 0, SVE_PT_SIZE(0, SVE_PT_REGS_FPSIMD));
-+	sve = svebuf;
-+	sve->flags = SVE_PT_REGS_FPSIMD;
-+	sve->size = SVE_PT_SIZE(0, SVE_PT_REGS_FPSIMD);
-+	sve->vl = 0;
-+
-+	/* Try to set a known FPSIMD state via PT_REGS_SVE */
-+	fpsimd = (struct user_fpsimd_state *)((char *)sve +
-+					      SVE_PT_FPSIMD_OFFSET);
-+	for (i = 0; i < 32; ++i) {
-+		p = (unsigned char *)&fpsimd->vregs[i];
-+
-+		for (j = 0; j < sizeof(fpsimd->vregs[i]); ++j)
-+			p[j] = j;
-+	}
-+
-+	ret = set_sve(child, &vec_types[0], sve);
-+	ksft_test_result(ret == 0, "FPSIMD write via SVE\n");
-+	if (ret) {
-+		ksft_test_result_skip("Verify FPSIMD write via SVE\n");
-+		goto out;
-+	}
-+
-+	/* Verify via the FPSIMD regset */
-+	if (get_fpsimd(child, &new_fpsimd)) {
-+		ksft_test_result_skip("Verify FPSIMD write via SVE\n");
-+		goto out;
-+	}
-+	ksft_test_result(memcmp(fpsimd, &new_fpsimd, sizeof(*fpsimd)) == 0,
-+			 "Verify FPSIMD write via SVE\n");
-+
-+out:
-+	free(svebuf);
-+}
-+
- /* Validate attempting to set SVE data and read SVE data */
- static void ptrace_set_sve_get_sve_data(pid_t child,
- 					const struct vec_type *type,
-@@ -826,6 +878,15 @@ static int do_parent(pid_t child)
- 		}
- 	}
+ static bool sve_write_fpsimd_supported(struct test_config *config)
+ {
+-	if (!sve_supported())
++	if (!sve_supported() && !sme_supported())
+ 		return false;
  
-+	/* We support SVE writes of FPSMID format on SME only systems */
-+	if (!(getauxval(AT_HWCAP) & HWCAP_SVE) &&
-+	    (getauxval(AT_HWCAP2) & HWCAP2_SME)) {
-+		ptrace_sve_fpsimd_no_sve(child);
-+	} else {
-+		ksft_test_result_skip("FPSIMD write via SVE\n");
-+		ksft_test_result_skip("Verify FPSIMD write via SVE\n");
-+	}
-+
- 	ret = EXIT_SUCCESS;
+ 	if ((config->svcr_in & SVCR_ZA) != (config->svcr_expected & SVCR_ZA))
+@@ -1231,9 +1231,6 @@ static void sve_write_fpsimd(pid_t child, struct test_config *config)
+ 	vl = vl_expected(config);
+ 	vq = __sve_vq_from_vl(vl);
  
- error:
+-	if (!vl)
+-		return;
+-
+ 	iov.iov_len = SVE_PT_SIZE(vq, SVE_PT_REGS_FPSIMD);
+ 	iov.iov_base = malloc(iov.iov_len);
+ 	if (!iov.iov_base) {
 
 -- 
 2.47.2
