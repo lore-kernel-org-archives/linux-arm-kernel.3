@@ -4,96 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CA4CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 19:58:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB6DCCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 20:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X93ngL5NMyRYdgDq3leVhpEnsjXz8ZNeGovlsQr2X3w=; b=JM/UIyu+fzBlhe66VTrfpFKr+j
-	ey0npRlkNGYTyBcsF9TjzPB+YGrOCCjjTl/Fk6HW3HV/JFZ2uSpzV6BOTfNuiXzOYG5Yr2KQoEIHf
-	da4wi4bJOeYxCFbOo3QRWA7/OcBBVoeOi7hvkbVMPXgOTTLWvPVuvrq0IacJw/07v4VUtd52cioCj
-	mlUkV9yzUQ/HyeYBsoOGLXp8uye3OsKoLjHLG+KS4HK877JxvQtpsh+3YyodLnoSFy8wtt2/zS1FW
-	AJpC12Xmyofkyh+qeRPtla7cvg0/tiKrckrk7Jq6f7SaxF6pQ/ipXa8UyhT/Ae56GBSNj/Es/jUfl
-	p0R4vMHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UyAyBxkXaApDM4KsfpCB8GHoJifPSp90vnbMpVzBWEA=; b=lnZNq/qfV8EUV3LoHdQVk6adMN
+	xk1wPGDVTir85cMj1chLuw4Y6ZJ/jfXoUUDvBf2YyeZtiFYH+09YRnKSsC+Wg/2DMyhAJTFzqubeN
+	0LFcO04k7afE6RXFPxl/KaBUjJPsU+DIBmvUiSQlNMkn/45If/E6rvAQTUyaoB7SsKp65W7il7J3e
+	4u9kr4n3yvCnbMAvrJTVqffdRSxReKuWcGGPIlLryoOONm1mR3Ywsv2KxpTrqLY7r3b6VUIBOqhVy
+	LIS+fqihH3hV4jB/c9bKvMFNg1ielBcacdX8Q5cD/g1IdXjGCGkTqPPTLpgh4HH8rnKg9o+V060v+
+	GbAPjP5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v97dO-00000002o3u-1eG4;
-	Wed, 15 Oct 2025 19:58:06 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1v97fg-00000002oVC-3qc3;
+	Wed, 15 Oct 2025 20:00:28 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v97dL-00000002o3C-3FEd
+	id 1v97fe-00000002oUq-2qAj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 19:58:05 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6364eb29e74so12312599a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 12:58:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760558282; x=1761163082; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=X93ngL5NMyRYdgDq3leVhpEnsjXz8ZNeGovlsQr2X3w=;
-        b=sL+AS9hd61w2400UebobYYKbT7h22WAWJYk0ZNgjUdv5NSbuCfOCp8lBip2pwUReID
-         WkCIV9KulKMy0/fOhV6gKX+kq+RHatHxCy0O9N/37d1jlcgDHHzjikoL5CkXn8+E/3NB
-         V1tivYJSV7sq1wvOGda3gObreQTYqaJ7RMax2CHTVaxz7y/cQ1sMVKjKqEUsDqnhgaVE
-         zzAC+ciZbUR88ly9kuaao2NgX26DdT12FvBCNemymqojQx6GQT+pBPvXy4r9w/YBkdnj
-         tG6JHo5KlTj+wz4vhln7QlX0Nj+xwzHKth+kE+XQpE4gQHjIzTQ55D3b3CXX/6VlmhfO
-         M49A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760558282; x=1761163082;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=X93ngL5NMyRYdgDq3leVhpEnsjXz8ZNeGovlsQr2X3w=;
-        b=tUteZHkQsbnDvYBkmkUWXA9cPuINoGmumIoGqRUmoRWVr4ePDQIt/Jt6fLuhs7ScR6
-         mi/vgi7+8jfS1ewNitYAbYw+7F2grn3IlnolNGmebPfymaUKjaELgRMwe8l+d1RQGimo
-         ZWh0IlbtfqCeKvGvI8QClA7JQzfVSpv0b3VkgHKq+INFCnFBlXZsC0GIGDPChCAzf7mv
-         MRe4Ec03pVxl56Q7FemMNYZyR52wYDmdtCD/CSVG0h3mrtvl3HhkpGBqma/0o3BOlalw
-         SsR337U/rM/ATApVPKB5BQWAOBh+KW/XG3aHbxWlh4DBIhYZ7TDRAJxoPO4y5VCcuO6z
-         7wKg==
-X-Gm-Message-State: AOJu0YxzdWG+OzdpJOU4Jfvf5Xz2kE6ngEFmymtLDX8IxIakQuC7mpgJ
-	EYjodeMc/MnSHDtevun1vQbF0CtRA72xF6LyL/IM6+WM0LzEA9coiHVGKEbVG5PgF6s=
-X-Gm-Gg: ASbGnctys27Lg+ET51QK490XE9hJHXLc8m3KUXs7NjOb6nDOojzuZhnzjB0eP/muZSW
-	MsnslX9whlGvP8XB6KVCtjKNZXF0sr3MrH0KIz24l6SFHVP0GUJS3PrMdKMX4UkfLslIqhwGFGR
-	QAbN/2xKp//lmwnyyg/XpvLTqjJY/61DZnpWPRFul+ea32bp8fYkEzQV77QXptzA4fR3jOkFGkl
-	Fx3OvLtXavG/7lnNNptPMQcGQQoX3NmAgTWI4zpGr+R0IzHyCH+Jg0DUwnYfL/WAbm4q5btlw7q
-	F28upoj9J0Ve1sKzmt1vDMEv8QzY8NHGhpM39gMM6mx3PeiOMg53SKZbdPcAcOy6sUrJ1T8BwCb
-	EwgKQuiqT5GD4R++LppdH/doAauS667E1KpQ0/8km2DVIo+udAIt+KAJmhIyTyD0xwNPMucPfVk
-	8/vjFziAtDeUrShXrrwK6vzQ==
-X-Google-Smtp-Source: AGHT+IHf2Th1L2XYSlYRjMvRiaQwEPPv0rm4KoRAruPpObpOgoCaczpFuMinqPxSmwcgVKfFpOWD/w==
-X-Received: by 2002:a05:6402:23c9:b0:634:c03f:c605 with SMTP id 4fb4d7f45d1cf-639d5c75dbfmr27308818a12.36.1760558282021;
-        Wed, 15 Oct 2025 12:58:02 -0700 (PDT)
-Received: from [192.168.0.19] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63a52b71443sm13887338a12.26.2025.10.15.12.58.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Oct 2025 12:58:01 -0700 (PDT)
-Message-ID: <ca8189d0-a518-4716-8b28-e36571cbba5a@linaro.org>
-Date: Wed, 15 Oct 2025 20:58:00 +0100
+	Wed, 15 Oct 2025 20:00:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=UyAyBxkXaApDM4KsfpCB8GHoJifPSp90vnbMpVzBWEA=; b=C74SUiMaBsN6Ewv2nuaqrHGEsU
+	c1hiR0wYJ8u5oCxQwvULH0b+wZtnM9GjcGti8ITX0XWijY0Bqbeh76Vkl8YbGLqaZRxTHx33RBuCa
+	djChBbayFMyi70dLEFMeB9fqbF7zbphGAipQYyd77oIzUIp1Mwfz9xRc012+Nh7M+OK+3q/RrDYSX
+	1ba5A17DFmcUFir0f+ojyJ6F0cfaFQ98EJD1Ot95cJEZuOvtr4+NZV4Q2+RPK/zNbD+bY8Un62t4v
+	pJqgJMRA6Ptm/eGXQGB0W/6/y24XgaMM0PV1cnHfT/zDCyuoskFQdW2tuuGhR/7BavrLjCCsCbt2t
+	yH0kUZJA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47970)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v97fV-000000005Mj-2ToV;
+	Wed, 15 Oct 2025 21:00:17 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v97fT-000000002ZM-3Uh3;
+	Wed, 15 Oct 2025 21:00:15 +0100
+Date: Wed, 15 Oct 2025 21:00:15 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 02/11] ARM: dts: imx6: rename touch-thermal0 to
+ touch-0-thermal
+Message-ID: <aO_9Tw1s7VcHauNh@shell.armlinux.org.uk>
+References: <20251015-imx6_dts_cleanup-v2-0-41a7281b98c6@nxp.com>
+ <20251015-imx6_dts_cleanup-v2-2-41a7281b98c6@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add support for camss
-To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
- Vikram Sharma <quic_vikramsa@quicinc.com>, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20251015130130.2790829-1-quic_vikramsa@quicinc.com>
- <20251015130130.2790829-3-quic_vikramsa@quicinc.com>
- <b4207e22-8d9c-4223-8b28-272d2650661f@linaro.org>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Content-Language: en-US
-In-Reply-To: <b4207e22-8d9c-4223-8b28-272d2650661f@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251015-imx6_dts_cleanup-v2-2-41a7281b98c6@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_125803_819140_D8D5DAB9 
-X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-CacheID: sfid-20251015_130026_740193_A2CCE75E 
+X-CRM114-Status: UNSURE (   8.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,15 +86,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/10/2025 19:49, Vladimir Zapolskiy wrote:
->> +            power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
->> +            power-domain-names = "top";
-> 
-> 'power-domain-names' property is redundant, since there is just one 
-> power domain.
+On Wed, Oct 15, 2025 at 12:44:27PM -0400, Frank Li wrote:
+> -		touch-thermal0 {
+> +		touch0-thermal {
+...
+> -		touch-thermal1 {
+> +		touch1-thermal {
+...
+> -		touch-thermal0 {
+> +		touch-0-thermal {
+...
+> -		touch-thermal1 {
+> +		touch-1-thermal {
+...
+> -		touch-thermal0 {
+> +		touch-0-thermal {
+...
+> -		touch-thermal1 {
+> +		touch-1-thermal {
 
-Its a required property of the yaml.
+Is it touch-N-thermal or touchN-thermal?
 
----
-bod
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
