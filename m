@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25AB9CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 20:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C55B3CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 20:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=miSN4rlKUgCWAlbCo57+h/BOIBFPc1jMqJBjW7cTDek=; b=jyGeOmRzy0gyxr+9KPjP84zQls
-	R7JrenqDcq39UrJg3Tgep8zrG3b5AglBVogYrFYDMk/yyWr+Jv2CjdwzzyBRHW/aOlyGxzm5XIrh2
-	Y1eyB5YQZF2bEQZoIVLVTPz2S+mU4BYMexYd4+s8ZIKuNXIzYxLDLhc5e+8u64GgimbzE/MKj5oSr
-	xZrcpEBhKexYR86ELcsFxi6rjP6BdNmhLNyeQTInPxwRCeNG6oBHfTCMco9EZBpruir0YCrF3VIlF
-	VY3ViqN56GPxjbyhjfqwNBBbbsXbLKyOS6ZPg+b3cqr4aR2Z1elgvMzpU++Es0WT7It/cmb2tCMX7
-	qrK5A+RQ==;
+	bh=rYViK2r1T71M2+Mis9SxRUmDdzKfk6SqvpEWpgz3kvo=; b=ZTKHEhyfNVChd0c3Dv8LPZrj1o
+	73ZJWJrcXoF1opOJ6GRV7j72fvou3SvoUDuoh+GPoNv8mNxDeQkTfsGzyhvM/U/gp+4/PP89qjxYt
+	J7AQJsa36ufQF9fSF7nGkogg6R85drHwz1zGT6eacEf77eTP2Ojzl2sCuwNd7Jv+SIwzXaaIOPEhj
+	RVyWO9OhJ/JcacO9GDOjvry+SOqSv47qMzFnUwEc19Du0Vx/hjGNhq75fUU/QG9BTDSuXi4Kz6lcA
+	FesFsITRL6e5pgU7MQi4ildzFD6gK8zue7ipFigZZ+PL9TFe4YZl3BTnV9cUo9eO5ZnGTEoado6Cl
+	swG/483A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98YE-00000002t4T-0MRW;
-	Wed, 15 Oct 2025 20:56:50 +0000
+	id 1v98ZR-00000002tLr-3FXi;
+	Wed, 15 Oct 2025 20:58:05 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98YC-00000002t43-0sd2
+	id 1v98ZQ-00000002tLZ-0oG5
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 15 Oct 2025 20:56:48 +0000
+	Wed, 15 Oct 2025 20:58:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=miSN4rlKUgCWAlbCo57+h/BOIBFPc1jMqJBjW7cTDek=; b=Vh6NQ0U2aftDWQhT/jerkQgXhU
-	n6iN9Tdnwb+eitzTL8S/pc0nnBjESp8i24aS3nGzNtY7vi4KxLJO269qSum7XUQtgaRk7vgnmOkfD
-	CrlizdZgXil9ELgcbygPlssk0D/v4WCOLapJSAU4q3v4PDQ0rhoW9pJbLIUKGoBR3I7JqocP8xkHf
-	opGHDn1zVgi2zk+o10h6gGOHtaXPPzrxv4b2bcpQYBSlanfb1YXXDaH8zz0ZCWGurlkrRAInbuPtH
-	kknoWe3xd+EcNiyIOev7Sc/6U0Z/nAxYGhDZUUzURydfO6pwcV+vVyewF5hSrWmvRFQtNSfJdKDBH
-	7eT2S1YQ==;
+	bh=rYViK2r1T71M2+Mis9SxRUmDdzKfk6SqvpEWpgz3kvo=; b=MPiXImLyDBw99dIuuAAa5+OPpe
+	JnCGW25J6CNystRJTw0gx9i3kKIO3Y5njQDBqkCqaD1l57EaSLfFox7RFs0kEe4t4GKPWiDjGGYb5
+	7Ttpv29RE2MyFUJDjS5zSqKGqvoOmBswfx8X6fxDJPB3giJKfcKE8M+uoGSGh7ytqIsg1YJCLHxOv
+	eZpCQBo/bg37JK+8TRogbwer2RTFjSAuEiPM8frt/UTEgRrX9ZRWM7CihARohX/uPRbABTUcETP/s
+	liwra/PEfONrX9NvRvCgM4w4hNl+k8GIzfYrH3uoLmC1jOtMQoQdKhbeQmM/fXQeItwzP2VjloAql
+	RC0pOsuw==;
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98Xr-00000006Fvj-3oOf
+	id 1v98ZD-00000006FzZ-2WUU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 20:56:38 +0000
+	Wed, 15 Oct 2025 20:57:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=miSN4rlKUgCWAlbCo57+h/BOIBFPc1jMqJBjW7cTDek=; b=47bPOZlGji//bLdUAphIYibQKe
-	mvhy0m4KZUpAdmhvRkDwDuUJBbFUY8ZHNdJtNLwWenlcNsha7Qle2POHj/rXoTzh17lCq5KoxClLR
-	SbOqNgWziFPJO0dUC/Le6JOBAM1kXrhKbZdPpFNI/qoxdvNFDKZv9Kv3sT7lOU+sfYeU=;
+	bh=rYViK2r1T71M2+Mis9SxRUmDdzKfk6SqvpEWpgz3kvo=; b=zVHiGGVy0h3E/jEQbeDIh6RSqN
+	90BHubtm5Z/mgcH8PheoZp3NsoVzWp1atu16K3T917zee7OvdjkD3yE+3NMVj0+QMnaQ4o0KRLSwr
+	ug5KHEXooK6EKbrGPbLNhhlS8+R6izPxhgsVsG0JHGy8PHJJJMYRLeYe7nno4tg3nhyk=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1v98Xb-00B4im-6n; Wed, 15 Oct 2025 22:56:11 +0200
-Date: Wed, 15 Oct 2025 22:56:11 +0200
+	id 1v98Z0-00B4kS-2a; Wed, 15 Oct 2025 22:57:38 +0200
+Date: Wed, 15 Oct 2025 22:57:38 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
@@ -94,19 +94,18 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Vladimir Oltean <vladimir.oltean@nxp.com>,
 	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: Re: [PATCH net-next 09/14] net: stmmac: simplify
- stmmac_check_pcs_mode()
-Message-ID: <d5c0005c-31c6-42a7-b671-a51519c36733@lunn.ch>
+Subject: Re: [PATCH net-next 10/14] net: stmmac: hw->ps becomes
+ hw->reverse_sgmii_enable
+Message-ID: <7a935c07-4e1b-40c8-bf9f-00576fb465e7@lunn.ch>
 References: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
- <E1v92Mt-0000000AmHF-3AQR@rmk-PC.armlinux.org.uk>
+ <E1v92My-0000000AmHJ-3chv@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1v92Mt-0000000AmHF-3AQR@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1v92My-0000000AmHJ-3chv@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_215636_145028_A60B25BA 
-X-CRM114-Status: UNSURE (   6.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251015_215757_593089_5842F0E1 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,8 +120,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 03:20:43PM +0100, Russell King (Oracle) wrote:
-> Now that we only support one mode, simplify stmmac_check_pcs_mode().
+On Wed, Oct 15, 2025 at 03:20:48PM +0100, Russell King (Oracle) wrote:
+> After a lot of digging, it seems that the oddly named hw->ps member
+> is all about setting the core into reverse SGMII speed. When set to
+> a non-zero value, it:
+> 
+> 1. Configures the MAC at initialisation time to operate at a specific
+>    speed.
+> 2. It _incorrectly_ enables the transmitter (GMAC_CONFIG_TE) which
+>    makes no sense, rather than enabling the "transmit configuration"
+>    bit (GMAC_CONFIG_TC).
+> 3. It configures the SGMII rate adapter layer to retrieve its speed
+>    setting from the MAC configuration register rather than the PHY.
+> 
+> In the previous commit, we removed (1) and (2) as phylink overwrites
+> the configuration set at that step.
+> 
+> Thus, the only functional aspect is (3), which is a boolean operation.
+> This means there is no need to store the actual speed, and just have a
+> boolean flag.
+> 
+> Convert the priv->ps member to a boolean, and rename it to
+> priv->reverse_sgmii_enable to make it more understandable.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
