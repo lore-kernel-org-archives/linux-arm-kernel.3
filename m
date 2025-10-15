@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AEACCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 07:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AAEBCCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 07:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=86GBFqWZ9XQcT8JR/6UrK/RsEWpvQoVsTOl37wT3+RU=; b=fegWY2ZBkaDtkKBmPUrC/czGuM
-	i5Hk1JavWN4Y8kfyK6fBoKNPwd02ncVF1AqAdxo2teStUti1YRKo579xyZ6p265Bx/LT8Dg7yOuRd
-	vUlf/ct/jjPGELBb4/yYnEBGiNuGvTziw6nFUiOHsWHVP0hcjX5U44OQClUiCdiAytTgbVCGKUadx
-	Dz9CeC7dzNyv89vjPz34akiG4KFqUsCRieC1Y4iukRFYR0tE0kCsrLkYrNZJie0FtvsnHbqlGWPu/
-	rWjk1oFSrzAkNC3nfNF35NoWA9nby41bN3gPHBRn0f9wPG1DlfPGCY0/k0ML5GDLdilTexjDEW8S5
-	Pcyxr9WQ==;
+	bh=8BOKrldhzYmG3bHimJ60jaR/beM+0hshn7u1LiiCp9E=; b=RurSPPiIdtR0rjqveA6fWJi/HR
+	Zah8y5IfRStw8XAHF3RUClT7UaPSvgSxgDM2SJu3OedVwDTS4KDjmpKSarXOl0zW7YF/c18ZYWv54
+	M45EWac2c/ylnJ+FeUDpBoe+G/4vxyX3ce18BdSnq1uI7IexqXMsxob6sTH8tGxVXXxoBcHUpxZKC
+	wuSdwdhpI6L5fco6Vw/jEbdLc8/3pbQNCGKCUNVDV2pi1g0taI1eUD05Uf716aSiTb5HTFH9cPA7z
+	3Ep14JR705aIOqL0lOfiA6t7X7RYWfpxHmymsg06V7LihWzYK1JUrigM0UBi7UpjEnDS1tR5WvqJ6
+	eloYL/Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8wL4-00000000onC-0LJz;
-	Wed, 15 Oct 2025 07:54:26 +0000
+	id 1v8wLB-00000000ovu-2Rli;
+	Wed, 15 Oct 2025 07:54:33 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8wL1-00000000ojQ-1hWJ
+	id 1v8wL3-00000000okc-0cEe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 07:54:24 +0000
+	Wed, 15 Oct 2025 07:54:26 +0000
 Received: from pendragon.ideasonboard.com (87-94-110-32.bb.dnainternet.fi [87.94.110.32])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 0A43C190D;
-	Wed, 15 Oct 2025 09:52:42 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id B43861A8F;
+	Wed, 15 Oct 2025 09:52:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1760514763;
-	bh=gIVjToJ4dGZYaDyjxYRQsimGYclfW6IBnWQW9t0yb8A=;
+	s=mail; t=1760514765;
+	bh=GyN5dO2q8CNnA8mbshQ6j2DDwtQzZldeYpp1do0QZpA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nzLLp2cKiShbVVIBhAaqqOAQnggH9sCWuM5VZd6mqv20ctqHgLbOWqvJDDnVA1H1O
-	 Y0yAUg5pFc39zA7mX31Nrhlq/pjibSwtNy8V6sq0+iPsDCJxPOecDlCyXk8i8ZKzT7
-	 MXP3LDdMwciRuZMGwFrC0f2daHJsbMghZqYkXoTs=
+	b=S57TxcW3dbK975VLRiYnG8xeJTNAWYQKdgUVfFfieeDokkdXkuL1Dpm92ojA+sM5Q
+	 W5YM7WkvjAPX61ovLj6IpfTKdVTnWTmfuixqOLJqR3iV8HPSn/OYFblmIUm6mbHRTV
+	 z2ZDpeSNnLJ2W/VAPrVZg9y1CB0ZlEqXFkQtyx3U=
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
+To: linux-media@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
 Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Mirela Rabulea <mirela.rabulea@nxp.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v2 11/25] media: imx-jpeg: Drop unneeded v4l2_m2m_get_vq() NULL check
-Date: Wed, 15 Oct 2025 10:53:34 +0300
-Message-ID: <20251015075353.22625-12-laurent.pinchart@ideasonboard.com>
+Subject: [PATCH v2 12/25] media: imx-pxp: Drop unneeded v4l2_m2m_get_vq() NULL check
+Date: Wed, 15 Oct 2025 10:53:35 +0300
+Message-ID: <20251015075353.22625-13-laurent.pinchart@ideasonboard.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251015075353.22625-1-laurent.pinchart@ideasonboard.com>
 References: <20251015075353.22625-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_005423_894008_01132BF5 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251015_005425_323008_7FC8F1E4 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,40 +72,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The v4l2_m2m_get_vq() function never returns NULL. The check may have
-been intended to catch invalid format types, but that's not needed as
-the V4L2 core picks the appropriate VIDIOC_S_FMT ioctl handler based on
-the format type, so the type can't be incorrect. Drop the unneeded
-return value check.
+The v4l2_m2m_get_vq() function never returns NULL.
+
+In the set format handler, the check may have been intended to catch
+invalid format types, but that's not needed as the V4L2 core picks the
+appropriate VIDIOC_S_FMT ioctl handler based on the format type, so the
+type can't be incorrect.
+
+In the get format handler, the return value is not used for any purpose
+other than the NULL check, which was therefore probably intended to
+catch invalid format types. That's not needed for the same reason as in
+the set format handler.
+
+Drop the unneeded return value checks and, as the function has no side
+effect, the unneeded function call as well.
 
 Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 ---
- drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c | 4 ----
- 1 file changed, 4 deletions(-)
+ drivers/media/platform/nxp/imx-pxp.c | 7 -------
+ 1 file changed, 7 deletions(-)
 
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-index df3ccdf767ba..d41fa4c3139b 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-@@ -2491,8 +2491,6 @@ static int mxc_jpeg_s_fmt(struct mxc_jpeg_ctx *ctx,
- 	struct mxc_jpeg_dev *jpeg = ctx->mxc_jpeg;
+diff --git a/drivers/media/platform/nxp/imx-pxp.c b/drivers/media/platform/nxp/imx-pxp.c
+index 6cc9b07ea53a..3f9a67a6bd4d 100644
+--- a/drivers/media/platform/nxp/imx-pxp.c
++++ b/drivers/media/platform/nxp/imx-pxp.c
+@@ -1180,13 +1180,8 @@ static int pxp_enum_fmt_vid_out(struct file *file, void *priv,
+ 
+ static int pxp_g_fmt(struct pxp_ctx *ctx, struct v4l2_format *f)
+ {
+-	struct vb2_queue *vq;
+ 	struct pxp_q_data *q_data;
+ 
+-	vq = v4l2_m2m_get_vq(ctx->fh.m2m_ctx, f->type);
+-	if (!vq)
+-		return -EINVAL;
+-
+ 	q_data = get_q_data(ctx, f->type);
+ 
+ 	f->fmt.pix.width	= q_data->width;
+@@ -1329,8 +1324,6 @@ static int pxp_s_fmt(struct pxp_ctx *ctx, struct v4l2_format *f)
+ 	struct vb2_queue *vq;
  
  	vq = v4l2_m2m_get_vq(ctx->fh.m2m_ctx, f->type);
 -	if (!vq)
 -		return -EINVAL;
  
- 	if (vb2_is_busy(vq)) {
- 		v4l2_err(&jpeg->v4l2_dev, "queue busy\n");
-@@ -2528,8 +2526,6 @@ static int mxc_jpeg_s_fmt_vid_out(struct file *file, void *priv,
- 		return 0;
- 
- 	dst_vq = v4l2_m2m_get_vq(ctx->fh.m2m_ctx, cap_type);
--	if (!dst_vq)
--		return -EINVAL;
- 
- 	if (vb2_is_busy(dst_vq))
- 		return 0;
+ 	q_data = get_q_data(ctx, f->type);
+ 	if (!q_data)
 -- 
 Regards,
 
