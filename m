@@ -4,80 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E934CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 17:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA82CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 17:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N6aNZCIcI2zN3R1/BCJoGwM/7sTPHIJJPl1PJ4HpJBE=; b=vv2Qn4lkOpqESRGN3HsGBnq/V3
-	PshJLnuvWrd9DgOQUCBgmFSK+38ynS8W3m3hpkvA06ryF6daFXqwm9zKJFeDt+xXrZCsvvs7E+ep1
-	O+TUFhcSTOhLYUwnDDZN4UvV4ZrTjLZJqPkLuSmBylIJNQQb98t9OLVWUbUHFHcYqjfNqJXDfsUWr
-	lEg5Bqj4NV93/EVYl99+k2qRWoe5aCD7f2iBOvkHG6+YeQAPsFAAj6m1nqP5TUEUfZO4NP78l9cc1
-	C+6iEpeI7BQL34UrW5WMsCMfUJ4hWjeFRNj1/vK6nXXgqIzTNNx4uyV9D6XeT33NkM+fdMVmqVk5g
-	lZUiAEww==;
+	bh=Ym5KXypVXoWNGKcpOctEcTYQtwndUzaCFTGYBCx9F9A=; b=IQuMDWqU8Lu+yWJ2RUuaXHuZBR
+	ziJ+LOyHoOrQixHGODZSIq6pD45ZgDxi4nKiqIueqTUrO7elMMlAhgLA5jB8UTIY+BnX8+owtvR3b
+	0Bgl3ij6vpfGymV4h6INnq9lzTScfoTFHgDEZ/wHgE+8LV0Ly8s/vNSF9zYNZa7Yq48BzIJxImhnO
+	Yrq/fxuciwVeea/wWQyFo65LSRLtZYzTWWrD5uiNws2vtjMG/oc1ZDBsEhw+KT2RdN1kcVLItXMdA
+	oVEkTF2R4o8eV9BxG3czAH3Gx1NiHG8smrZRxnolvGBzpmH80hJZxQuDN5xTrRLisKIhXTrM1pHKC
+	BOK2iSGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v95BO-00000002Ptu-2k19;
-	Wed, 15 Oct 2025 17:21:02 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1v95Py-00000002Rr3-0ens;
+	Wed, 15 Oct 2025 17:36:06 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v95BL-00000002Pt6-2Iz6
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 17:21:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=N6aNZCIcI2zN3R1/BCJoGwM/7sTPHIJJPl1PJ4HpJBE=; b=ESET1QWNsqJm/GD1mJtk4L3OD+
-	OXmTrnMQv+PAWuxEh9Ta/Wij7meIB2/sHARKmpQq3g9Kyj5C29OuLWc9niG5RrzQDnlsru6vMVECW
-	X2wNF+Ds/0F4bn1vTpVjApZu7e8vEpesWB3e2subPPAFivrKyA2mA7KNcUPleqCl9B7sS7IFRu2C/
-	kNaGX59mFWpcqwzYs1XmRjzfucorGGk61pSh9tcapwwY4pmbHvF7US7TwWRrG5wfU35PWTO/thLNf
-	iI0AggyCB4fbWGSJAb5HxTvQNz/O0p0GM2+nqTZheEr2O+LzU6YzL7ogAuKmt8S1ki5v5Fd+of3Io
-	K5dLpsEg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47568)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1v95B7-000000005Fe-34CR;
-	Wed, 15 Oct 2025 18:20:45 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1v95B2-000000002RJ-3ZAm;
-	Wed, 15 Oct 2025 18:20:40 +0100
-Date: Wed, 15 Oct 2025 18:20:40 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 1/3] net: stmmac: Move subsecond increment
- configuration in dedicated helper
-Message-ID: <aO_X6Hv2R_mgpOXR@shell.armlinux.org.uk>
-References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
- <20251015102725.1297985-2-maxime.chevallier@bootlin.com>
- <aO-4hnUINpQ0JORE@shell.armlinux.org.uk>
- <27800f8c-eb0d-41c2-9e45-b45cf1767c23@bootlin.com>
+	id 1v95Ps-00000002RoD-3kSa;
+	Wed, 15 Oct 2025 17:36:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m4rd/8UneRUiYtebjgd3VqKK4G6zO/W3kvMSLh7/OGqiZA/e1mP4XaE23Lkf1b5bM7BUkipPLRCrTy4EsyGEC7uCjBOSv+hhKof1yqXqC+2GARYuCt/AcgLyKJ7Q7r8UG+z2jFd2UGlrB4WY+NZAONf9ZzXB0aZU2VWXVtutgfh28qvxHQMT4gHrh7ivNHgEQKl3+QqyVp3TIy4goBxi4+R/EhzH94OIwK7wAUf/C9ujHFyOrq9+J87N/R4qNFyu6msK1TroITWxYjDghw8ZEfFJFuY0sf2+fl9fQeHBn5kihcIDsRY/n2Z19ceGuLmyOr3yyKzSQJRHyplLHG2Ogg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ym5KXypVXoWNGKcpOctEcTYQtwndUzaCFTGYBCx9F9A=;
+ b=bzdvdM+WbMkQxpwkFfo3oyuoSO/jpYw/hkfK3Vvos2bfMmofn2U6bntE51bsrArkBzKJqHBYtivuq0+jEV/zIk0v5XOj2jqGE7f8vbzbKPmIuenp3NqdctmdTY0mCvGzbzVDdzZ0jm6F+KmZ1xtsbOlq8rtBSyiZ4SXX8mTkjJ/5wn4WpE/bWEQ++MGRmVYHnhHgzVQc3bj831eYPtHBAIYkL20bKuoN+dh7Y8Fj7kTxcguWX9S5Br/i59Z5ss5C9rkkpVgBnqJasWZFfM8D6PA/HX9jcdCwuwFL8YAM0iavLmpk2081qJm4KD4/Gs0W0kcRst7Zw2YqAtKw7GtAjw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=8bytes.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ym5KXypVXoWNGKcpOctEcTYQtwndUzaCFTGYBCx9F9A=;
+ b=VjgmJgDJDGZCflKhKF9R6yn1mbUf7i9hGa7Th0jq/K/9kGnTaxfCoQHkxHixrsr3SBasLfQM6B/BjrfsUB21CYVYjEmOGco9ClJrnm72EnrzKbk9W4NkI7yvWSQTXgdaYQ9V37Wr+Ge+m2mCF1Ri3+b1P5NMgcSR+e5KLdp1wnTi9UDkuy0Yye9ALZF0308YjfxrwBGfEcbZpj3euryV/m9ej55MtpKTb32a+NKUM+fVtNbCGYydQsCGhSHf1m5GSAnyYvDbBgLeUk3zLmUYzPhlbgALMW4yoLxfc+KmO6lDS6NzxwwD3wYZmZl32WCrci2qr1HEOjcloPwb2jKlNg==
+Received: from BY3PR10CA0025.namprd10.prod.outlook.com (2603:10b6:a03:255::30)
+ by DS5PPF884E1ABEC.namprd12.prod.outlook.com (2603:10b6:f:fc00::658) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.10; Wed, 15 Oct
+ 2025 17:35:35 +0000
+Received: from SJ5PEPF000001F6.namprd05.prod.outlook.com
+ (2603:10b6:a03:255:cafe::cf) by BY3PR10CA0025.outlook.office365.com
+ (2603:10b6:a03:255::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9228.10 via Frontend Transport; Wed,
+ 15 Oct 2025 17:35:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SJ5PEPF000001F6.mail.protection.outlook.com (10.167.242.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9228.7 via Frontend Transport; Wed, 15 Oct 2025 17:35:35 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 15 Oct
+ 2025 10:35:19 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Wed, 15 Oct 2025 10:35:18 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 15 Oct 2025 10:35:17 -0700
+Date: Wed, 15 Oct 2025 10:35:15 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <joro@8bytes.org>, <jgg@nvidia.com>, <kevin.tian@intel.com>
+CC: <suravee.suthikulpanit@amd.com>, <will@kernel.org>,
+	<robin.murphy@arm.com>, <sven@kernel.org>, <j@jannau.net>,
+	<robin.clark@oss.qualcomm.com>, <m.szyprowski@samsung.com>,
+	<krzk@kernel.org>, <dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
+	<yong.wu@mediatek.com>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <tjeznach@rivosinc.com>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<heiko@sntech.de>, <schnelle@linux.ibm.com>, <mjrosato@linux.ibm.com>,
+	<orsonzhai@gmail.com>, <baolin.wang@linux.alibaba.com>, <wens@csie.org>,
+	<jernej.skrabec@gmail.com>, <samuel@sholland.org>,
+	<thierry.reding@gmail.com>, <jonathanh@nvidia.com>,
+	<jean-philippe@linaro.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <asahi@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
+	<linux-tegra@vger.kernel.org>, <virtualization@lists.linux.dev>,
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v1 6/6] iommu: Pass in old domain to attach_dev callback
+ functions
+Message-ID: <aO/bU6IFUBpo2iz/@Asurada-Nvidia>
+References: <cover.1760312540.git.nicolinc@nvidia.com>
+ <53e12066ebcaa1bb5a3f4ed1657e088f3d8e8464.1760312540.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <27800f8c-eb0d-41c2-9e45-b45cf1767c23@bootlin.com>
+In-Reply-To: <53e12066ebcaa1bb5a3f4ed1657e088f3d8e8464.1760312540.git.nicolinc@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F6:EE_|DS5PPF884E1ABEC:EE_
+X-MS-Office365-Filtering-Correlation-Id: 98c03e62-0894-4e66-8494-08de0c113f85
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7hdTfa0JClrud6ghuQBWY+EiQx+m2L6DjbnnI2eDrzRJ/zkDVzBpbotKUls5?=
+ =?us-ascii?Q?32j7srKXh1k7BHRGglhjkRg3F+fjHdNuzqjKEal5ALo1f17GLbtOqW4j9gLe?=
+ =?us-ascii?Q?NI2854Y5XlrQ8Gq6lEUisT18pYZhAn9zvbyKXjgHCGDnaQD+xO10zZWxl33+?=
+ =?us-ascii?Q?mreU7n8IXxoRp7WinKvA/VA9AbuRygAzdIuzTt/dlD9pzz6ptExFnjdwwsEX?=
+ =?us-ascii?Q?4ZyvVRGfeFmHND611J6xgrxWtKW4uPW9a0qbFqSYcMVMvx7bxBqIM2PiHyuX?=
+ =?us-ascii?Q?vGUCO2XCLs5J+rfRR/l0okbHNURRDk4AtT55izrBVkBA8WWEczuI1Nre3xzs?=
+ =?us-ascii?Q?JEiI8PshwjnMkcDb7F0rPFrT5oZ86iaCL+InFaYyzErxd0uNmss7x7pJ6ssB?=
+ =?us-ascii?Q?pF4uMZytqOCsR4wC3lQh9Mdkhf/Lu9EVmINvjbw+FQJoXMy8Kt8Pxtac/3RG?=
+ =?us-ascii?Q?YerFM1bL4WGCjDy2X5kQHkarTCMyk0Zdjx/GjJQOtiu9NFUrv1Gfic3J8gTM?=
+ =?us-ascii?Q?an3HvX5PNhiZgoDlzACC0Wk1Mbj5dQvT1YQS/sAYCDuWE8k2e/GTt+0gl1W+?=
+ =?us-ascii?Q?rjv0Wx7fdN69lFRfsMskvU1JZ5USM4Cg+6kwww4BAV0D9fHVVtLJDQB0pNTi?=
+ =?us-ascii?Q?fWJUG4J6Hlh+xC1f39WyWXQwe6xPmh3JKWvddgrLRyGTqxhx0Yy02KUg6ryX?=
+ =?us-ascii?Q?ePMUNo2ezQa+UR/tFART6tkhN+m7tUksH8cGrGiEus1sFMqAtC/e1w3ABkMM?=
+ =?us-ascii?Q?NRYxeqGusrgBdK5wTO1g5tTM3Z+8uUqg62jmmt97fsxfUT8F8G+cjPCcFR70?=
+ =?us-ascii?Q?WScGMnZL0n7ePLYUA0vp20czAkiBJffbHbzvMVfMLa6yKNrZLTUJf3ohh0e8?=
+ =?us-ascii?Q?00GHRshzg6UgoAEvTK1qxD0CxnlSZGB0ckSJli1aMKq05fwpK/ECJ8mXGYdr?=
+ =?us-ascii?Q?QFQEb6ON93ffF20ob4dqJR3vLrSj87JaNpODjU8iWPN/qRL3N0G7kxZ5QdbB?=
+ =?us-ascii?Q?tbGNrgTpMMqoiJqS8uKd7Yf/8EuoXA4Fs0canAdGhBBrlw6z9OWzxlziFtQt?=
+ =?us-ascii?Q?UHRzILlQRigryajET3vgfeEmtCOrX8Qpp/VxwvxjltReGiPXthzc7F8xc0+R?=
+ =?us-ascii?Q?wo7QIsZGXQFJ+J9suxdLWEC4YShpntykGqc73j71XbfpAfjjUIG8M5H0f9Fu?=
+ =?us-ascii?Q?89Vd9sTNPJtGXZKF/Q1a24L2rwNGI/cei84mUh5EHQ82YrrTu1m0X/ApiJ4e?=
+ =?us-ascii?Q?Ja0eLj1Qk9VwtGbO4ZbpgkNU7NGNTt6wzYeBfagZG3UZW+OkHEdmqRkgbm5Z?=
+ =?us-ascii?Q?WafXM59vzueKpOdqGMfQGBrtANxGayPRy1iRlQTdPrwX1oApE/Vkqzh/U+Tv?=
+ =?us-ascii?Q?85LzbTW9nClRHYCyVCVb+EvlQkoJyP2Ve666jpkx5ba7gktcCaCGDjMEMeWB?=
+ =?us-ascii?Q?2u/NwN9nSSVuF/9jPREUIcpkgG53+SpKQfk8UOBYYseq/vgQ+paSj/ElpTYQ?=
+ =?us-ascii?Q?mXp9kzwzvXR8gJnxRtI73gZR74Zo6BcJPgPB0oQX11ZpoEDLlSFe3QYzTG+K?=
+ =?us-ascii?Q?XW0X09jPQsCnUUupNCw=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2025 17:35:35.2391
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 98c03e62-0894-4e66-8494-08de0c113f85
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F6.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF884E1ABEC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_102059_901070_380DC70B 
-X-CRM114-Status: GOOD (  38.44  )
+X-CRM114-CacheID: sfid-20251015_103600_929423_31468547 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,100 +168,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 06:20:03PM +0200, Maxime Chevallier wrote:
-> Hi Russell,
-> 
-> On 15/10/2025 17:06, Russell King (Oracle) wrote:
-> > On Wed, Oct 15, 2025 at 12:27:21PM +0200, Maxime Chevallier wrote:
-> >> +static void stmmac_update_subsecond_increment(struct stmmac_priv *priv)
-> >> +{
-> >> +	bool xmac = priv->plat->has_gmac4 || priv->plat->has_xgmac;
-> > 
-> > Just to say that I have patches that get rid of these has_xxx flags for
-> > the cores, and these changes (and the additional platform glue patches
-> > that have been posted) will conflict with them.
-> 
-> Fair, I was in your position not so long ago :)
-> 
-> For this particular series, it should be straightforward to fix the
-> conflict, but for the pending new glue divers we'll have to
-> find the sweet spot for these changes.
-> 
-> Maybe send it as an RFC so that people can see what to expect ?
+On Sun, Oct 12, 2025 at 04:57:42PM -0700, Nicolin Chen wrote:
+> diff --git a/drivers/iommu/s390-iommu.c b/drivers/iommu/s390-iommu.c
+> index aa576736d60ba..366e47978ac07 100644
+> --- a/drivers/iommu/s390-iommu.c
+> +++ b/drivers/iommu/s390-iommu.c
+> @@ -670,7 +670,8 @@ int zpci_iommu_register_ioat(struct zpci_dev *zdev, u8 *status)
+>  }
+>  
+>  static int blocking_domain_attach_device(struct iommu_domain *domain,
+> -					 struct device *dev)
+> +					 struct device *dev,
+> +					 struct iommu_domain *old)
+>  {
+>  	struct zpci_dev *zdev = to_zpci_dev(dev);
+>  	struct s390_domain *s390_domain;
+> @@ -694,7 +695,8 @@ static int blocking_domain_attach_device(struct iommu_domain *domain,
+>  }
+>  
+>  static int s390_iommu_attach_device(struct iommu_domain *domain,
+> -				    struct device *dev)
+> +				    struct device *dev,
+> +				    struct iommu_domain *old)
+>  {
+>  	struct s390_domain *s390_domain = to_s390_domain(domain);
+>  	struct zpci_dev *zdev = to_zpci_dev(dev);
+> @@ -1131,7 +1133,8 @@ static int __init s390_iommu_init(void)
+>  subsys_initcall(s390_iommu_init);
+>  
+>  static int s390_attach_dev_identity(struct iommu_domain *domain,
+> -				    struct device *dev)
+> +				    struct device *dev,
+> +				    struct iommu_domain *old)
+>  {
+>  	struct zpci_dev *zdev = to_zpci_dev(dev);
+>  	u8 status;
 
-My experience of sending RFCs is the engagement is sadly low to non-
-existent, leading to the question of whether sending RFCs has any
-use at all. I'm pretty fed up with the whole mainline kernel process,
-trying to get engagement from people, that I question why I bother
-most of the time.
+kernel test robot complains a build break..
 
-> > Given the rate of change in stmmac, at some point we're going to have
-> > to work out some way of stopping stmmac development to get such an
-> > invasive cleanup change merged
-> 
-> Agreed.
-> 
->  - but with my variability and pressures
-> > on the time I can spend even submitting patches, I've no idea how that
-> > will work... I was going to send them right at the start of this
-> > cycle, but various appointments on Monday and Tuesday this week plus
-> > work pressures prevented that happening.
-> 
-> To give your more visibility, that's the only work I plan to do on
-> stmmac for that cycle, the rest is going to be phy_port,
-> and probably some netdevsim-phy.
+Both s390_iommu_attach_device and s390_attach_dev_identity calls
+the updated blocking_domain_attach_device function but are not
+updated.
 
-I'd prefer that my five patch series I've just sent out is merged
-(the patches I'm talking about w.r.t. has_xxx follow immediately
-after these in my queue.) However, I don't think there's any
-conflicts between the five I've sent out and these changes looking
-at their overall diffs. That said, pushing out loads of patches in
-one day isn't helpful to the already overworked reviewers.
+I will fix and send v2.
 
-> Do you plan to send the next round of PCS stuff next, or the cleanups
-> for the has_xxx flags you were mentioning ?
-
-It depends whether there's any conflicting changes. I have such a
-backlog that I'm trying to send out as many non-conflicting netdev
-related topics as I can to get the maximum merged when I have the
-opportunity, even if the topics end up touching the same files.
-I just totalled up the backlog - it's around 120 stmmac related
-patches (including adding the phylink core WoL support), plus about
-20 for marvell PTP. Eek! :/
-
-When one has so many patches, "what to send out next" becomes a major
-decision, and really depends on previous patch set progress.
-
-As you explicitly ask about the PCS stuff and cleanups, I've sent
-the first batch (which is the bulk) of PCS stuff today, and non-
-overlapping cleanup changes.  If the cleanup changes go in, then
-the next tranch of cleanups will have the has_xxx change in.
-
-If the PCS changes go in, then I'll send out the next two patches
-which move the PCS interrupt control over to phylink. After that
-comes the potentially regression inducing change - making stmmac's
-PCS follow what phylink requests of it. I'm expecting that to cause
-trouble, but I have no confidence that it'll get enough testing to
-uncover issues before being merged. This change really needs testing
-on those platforms that use the DWMAC integrated PCS (not xpcs).
-
-If all goes well with the patches I've sent today, then I'm expecting
-them to be merged over this coming weekend. That means the next patches
-will be sent early next week.
-
-So... if your changes can be merged before or around the time that my
-5-patch cleanup gets merged, I can rebase my changes on top, but if
-your patch set needs re-posting, I suggest we have another discussion
-how we proceed.
-
-As mentioned, I'm aware that there are other patches that have already
-been submitted that add platform glue that reference the has_xxx stuff,
-so if these get merged, a rebase is going to be required. (annoyingly,
-this will be high-risk because of getting the compile coverage to
-catch every reference.. unless I remember to grep for them after
-rebasing.)
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Thanks
+Nicolin
 
