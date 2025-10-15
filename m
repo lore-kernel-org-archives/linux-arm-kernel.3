@@ -4,94 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B77E1CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 18:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CC77CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 19:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fRwPKnk8qfrHFphbSwARuokxhcbVBpznEGtVMYZ7BTU=; b=IVNv49BevHcAuEuX0aRF3zNRqz
-	JHX5UgUz7Tuw/TMF8ji9uqrOYjSmvgmiGIpjBlNydf/VmcC7mLVMji3qWtC14WRzniY+g2Km4Hi6d
-	aHv2Bw8EzYEogsLalT58bpAdaRbuOTf83kuOZHiC5IRv83B6//6lKE6wkdfgOS5tu4kEbjgUheItT
-	4Hn8pnr1TBHSZVJ6A4Hol8tHOqosTYQJymghyeMqGaxdCBDazjL9V+HGakwfR1aY2USA1cTjO79EK
-	EvtS9AJ6InivUJ+h4Jy2LUEZWnUEKiwqGTYCmWJAiCSgdLpPdtMlmfGZgy+kDb39dI7qofBYl5kAp
-	nMHkfM2g==;
+	bh=zX0FQJMNOkesxTSiczvMscK9aHeUEgUhQXWADwrmqhs=; b=Wefcyv+X0UgGGYaJbrSXcb7QDf
+	fE9G6OufXjq+u2+4Poc8iwCbaIpecmdghZgM875Ra1vsDqiszsLuVXSGmt8tqnwc228R8LB4z0j/r
+	T//wF9p2DHqdH3YJeMOKyfvPGNp+SHPgO1HgoUJRuhwRWgIw53vPLHBoDUasZczIaA9FN/mSLQ5Tg
+	yjH7G4rOOh9FcriuHJTiovlAjZ9E8GxOjIhZSEMcUSjdUUuh2zczXZD5EnmlrkOP8fMqYUzU1rdYK
+	JG8hLvlybJWvyPVtNbkA7wvblKNi5Lvt75kt3T5Lls+R5T1al/B/tUNxpBkO1V2q90rZMi8yNpXBL
+	SI8sVXtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v96hj-00000002fa2-30B0;
-	Wed, 15 Oct 2025 18:58:31 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1v96vE-00000002h2w-0N5C;
+	Wed, 15 Oct 2025 19:12:28 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v96hg-00000002fZ7-2oMP
+	id 1v96vB-00000002h2J-37D7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 18:58:29 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2897522a1dfso64913485ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 11:58:28 -0700 (PDT)
+	Wed, 15 Oct 2025 19:12:26 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-46e6a689bd0so52332935e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 12:12:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760554708; x=1761159508; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fRwPKnk8qfrHFphbSwARuokxhcbVBpznEGtVMYZ7BTU=;
-        b=U7sGp2lgB4ndQVYYAVtm3l7xfCLKqHD4e4pNp1gupWPEso31KcDskhbJ0wnoh4DKjf
-         NvTun1vj1/YvXGwg7rooBt49l+IXKylAwSNCZ0zAm/vbD4SgO0cznE9mGcySY5xtrn50
-         h8FK13pL8Knu5BqCNYu5B9hxWmv/XkGgd5FJE6PHJSX4NL7Xw5/G8l+WjWfWsZWBxnxt
-         RfJEqulVrckRNyIdbh38RJmrZRzLmJEBOI40uRBuE5Q6ztwEgNLhSiRxmP/PiRJCxpeV
-         l4byNdpcdODBQirAEh/7kUz/76Um4nuWE7KXMYoWb4rIySCs2urAOVIy+mw1KOjc3XQn
-         8NiQ==
+        d=linaro.org; s=google; t=1760555544; x=1761160344; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zX0FQJMNOkesxTSiczvMscK9aHeUEgUhQXWADwrmqhs=;
+        b=nnKzjHGMwvBzBqXXRcQyumF9Q0gcm4yVk8sphI6UBgTYMtSkA/MLoowsHp2mILgetg
+         oNmpZTcM77q9vhXPT0oMAeVrKyWNBPPdEKy+fZ5QB/5t09rgcLokObU1BNfDbAE7GAsO
+         IpEVAVMQT1h4vstSEKS/sfmUgxlM4DPCLzl0+8h37e9FCsN0NZ0d6fiVvhwwbvUOD7Za
+         MipPpUBVuVvoF1FA+M3jU34o+zxEjl15X4iJM4xd23wKFwhGL9P0j6pp7oR3ggDO8E0K
+         Z/EGlUm7KOkcquS4YvypnYsRrAxndCuoA3LxodZTVgCBu8rgy3z3RakV53NmxIa1DST6
+         7YpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760554708; x=1761159508;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fRwPKnk8qfrHFphbSwARuokxhcbVBpznEGtVMYZ7BTU=;
-        b=DX/mYphXzNpb0FqyurL4Og0hhOcmjNIF851wlgh2X30EWCYBXs2xKLCHnmM7uitxy1
-         Y6NpoCmnD3/yoJa7QLq6GHRadpn0Lvx//VcTjXIg4gUwL9n3vZp1ezAZeSCubxO/qBrR
-         IDcRPRvTBFuw1LuteGVoiqwlvHDfRZ9BC6aWb8jMPZSHbQjFtfqzoPmJiSP6zTIwXSO3
-         JQa6YrE4XYetQmVs2/dxuUFu5oOYoCtEW4FNXYLq6XWmavVQEyx1bjevNCAaw4IJN17k
-         bINl5BQU3V0GZTDyc4usWivBd+Ef0yDdNzT7LzPLSFUSO9O2qwiy81icgIid7hRhvXb+
-         YWdw==
-X-Forwarded-Encrypted: i=1; AJvYcCUJwg9AAmH2p+n+dcVsAARLIvFJOLmulyp45h5kZpa391Vh33Ot1eV2MP4coaLBL7N6OHirN8qPgt8tXv+a/ku+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbRC4Kxp9fPjYMTwTOtv81L+HmeGZc+7uAo/73GgyulD7X7hhw
-	SMdJHnrrtKSyevvSezpO3NHsoDakW5NGnIn+nbOVuiGO/kFmWw1bVyIoUWwYj7IA4IngnExginJ
-	508NQ3dFv9V59GmSvzr150YJ6inImQurCMDbMGhE5
-X-Gm-Gg: ASbGncv6spzaazlOcOyRWiaVKbLtCa1r0fhEjD+FthqvhXdAW2Qzpd+ZNLKeDvSu/tn
-	YTI6gzTDWido3/vk8DVyeW6aSQmsnVh4dThcvebzuegrVn6IPgQ1WauZpaAF8+9wTANdNQ9YHYK
-	Zgf0itG/F4vAYFCEtE/qiLrUh7YRd5mP7cCgRDYtwMyb/AwwYWNONPLApNkCxeUvbGpGQqCq2nX
-	zcDeN3imrLDIcDkCIcrminJ3crsCcRCdpVFO8sxW2aAYT9TNv0mLWnZQl0webiX0to6x5uMUtfQ
-	Jc5U+8Ui2iZTw9Q2FjzhIHFD
-X-Google-Smtp-Source: AGHT+IFnYsW3w1gFetllx0+5CiL7Rf74v6cd4M6iTK6ClRMgKt3X+k4ZS1SInKpJctWdDoRuk+7QXEWu/txY1MI7yL0=
-X-Received: by 2002:a17:903:37c7:b0:275:b1cf:6dd9 with SMTP id
- d9443c01a7336-290272f80dfmr360656995ad.52.1760554707274; Wed, 15 Oct 2025
- 11:58:27 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760555544; x=1761160344;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zX0FQJMNOkesxTSiczvMscK9aHeUEgUhQXWADwrmqhs=;
+        b=WyJYLS7gi94eGPIwQK7MhYAXPAiaB1gsNvh18WACyAIc21SXFmpTORGej1LGnPQcjX
+         02HEAtkuhzNTOGRv9CdfUw1l0YrbgktIKIOCl3VujWDGjwP0MBJTni/w0obVR/a8UBR/
+         aPaZRxBU+3qbllHLKgFq5bGBKhwlkqcJp8PZNhmSmiTdCyrRNmcJvTdWqaIGW9YxKRC4
+         mljQ28e4ZHCfiFLSkqNc02o6fYYR7yDLWKXKZ9LoxfkPp+x+Lt+zi2wffIxd7GuU5PIZ
+         4XsUeC0LntKiT/x1V6+kRu1qyeTdvVFOc+usiXiQhQ5FMEkYVI0LDp2gWwVzCuHFm/ZB
+         0n8g==
+X-Gm-Message-State: AOJu0Yyzg5Bh/GK4jaOonSJPPFDdHjKd1t12nopwMGDTqJH2PZoVUczU
+	+Sigu+fcTdBy+t/6icf2a31vhO0mqdYYWLhitipsUH6ASgjH1SdfmGuqFIpYGBmvhp4=
+X-Gm-Gg: ASbGncvOS5Gs+rDioB3JaXpVGCBswz9XnEshQHYD9oNsgd8kIDcm/PigAnwXf/io/i2
+	geNm/Ra+Cx3TPHfBiwqFjR8K1KC8w53CJCGcERXlBd/gljoMnlimGI4dToKNSwaBUDlyR+r6yuQ
+	CqMFBnepvMyPl784xX63xwgSDHby524xFxYkP/bm4DmlHWZfzlngeTYYeW9nkN5GTRQiew1mc/z
+	95WEzMFQ8er0OMLaBEbM4UQtPVAd0pbx8CUY2UVP3Ph/ja2iW5dFWbbNpv6lDcaF2am69DRVtPb
+	DkKYhwilJLsrnWyWwMTnMRIW+3fwiLVpeRKrVVvQ5wtnKcRs7HSO4iQZIhSHgJDOBI9K01Szv/h
+	yIKB475ZxYcpclqyBMLq6O2S8sbg8TzzyOO98v0SsmsQZRq0t4yA/o93TfEIUXMJnSvMoNUX9uy
+	LdryXJX20quGIZkNJ13HaI1A==
+X-Google-Smtp-Source: AGHT+IHbd0cW44W3/gflLhZW99H6UzVn2a320v+osYcGxzgftCt49JmvdlRHRiYyZeC4FCtJAzNpwA==
+X-Received: by 2002:a05:600c:6383:b0:465:a51d:d4 with SMTP id 5b1f17b1804b1-46fa9a8b48dmr229438345e9.6.1760555543790;
+        Wed, 15 Oct 2025 12:12:23 -0700 (PDT)
+Received: from [192.168.0.19] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426ce57d49bsm32016093f8f.10.2025.10.15.12.12.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Oct 2025 12:12:23 -0700 (PDT)
+Message-ID: <15b35191-eaff-4971-bae5-2d5a8cb9f864@linaro.org>
+Date: Wed, 15 Oct 2025 20:12:21 +0100
 MIME-Version: 1.0
-References: <20251010201607.1190967-1-royluo@google.com> <20251010201607.1190967-4-royluo@google.com>
- <75756635-b374-4441-8526-175210e01163@kernel.org> <CA+zupgwHFpP5GEwGxOksmLJBU7+Kr_o0p50Pad1NmwNB0AxcGA@mail.gmail.com>
- <20251015130538.GA3214399-robh@kernel.org>
-In-Reply-To: <20251015130538.GA3214399-robh@kernel.org>
-From: Roy Luo <royluo@google.com>
-Date: Wed, 15 Oct 2025 11:57:50 -0700
-X-Gm-Features: AS18NWDABi6Rc7VHdjUz_InyfGjFdsf7Veklfegj5HRf0gGUj-mD1x86yUCd9pU
-Message-ID: <CA+zupgxAhErw4i0Q13hyXE2_sQSowzDgZ4Yv8o1tcZQS7G7a-Q@mail.gmail.com>
-Subject: Re: [PATCH v3 3/4] dt-bindings: phy: google: Add Google Tensor G5 USB PHY
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Joy Chakraborty <joychakr@google.com>, 
-	Naveen Kumar <mnkumar@google.com>, Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/2] dt-bindings: media: qcom,qcs8300-camss: Add
+ missing power supplies
+To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+ Vikram Sharma <quic_vikramsa@quicinc.com>, mchehab@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+ cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+References: <20251015130130.2790829-1-quic_vikramsa@quicinc.com>
+ <20251015130130.2790829-2-quic_vikramsa@quicinc.com>
+ <bfa0d4f2-45c6-463e-8afc-d90edcf8cf2f@linaro.org>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Content-Language: en-US
+In-Reply-To: <bfa0d4f2-45c6-463e-8afc-d90edcf8cf2f@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_115828_713936_0E4E9C57 
-X-CRM114-Status: GOOD (  32.33  )
+X-CRM114-CacheID: sfid-20251015_121225_798700_61057466 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,145 +109,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 6:05=E2=80=AFAM Rob Herring <robh@kernel.org> wrote=
-:
->
-> On Mon, Oct 13, 2025 at 06:46:39PM -0700, Roy Luo wrote:
-> > On Fri, Oct 10, 2025 at 5:11=E2=80=AFPM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> > >
-> > > On 10/10/2025 22:16, Roy Luo wrote:
-> > > > +  reg:
-> > > > +    items:
-> > > > +      - description: USB2 PHY configuration registers.
-> > > > +      - description: DisplayPort top-level registers.
-> > > > +      - description: USB top-level configuration registers.
-> > > > +
-> > > > +  reg-names:
-> > > > +    items:
-> > > > +      - const: u2phy_cfg
-> > > > +      - const: dp_top
-> > > > +      - const: usb_top_cfg
-> > > > +
-> > > > +  "#phy-cells":
-> > > > +    const: 1
-> > > > +
-> > > > +  clocks:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  resets:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  power-domains:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  orientation-switch:
-> > > > +    type: boolean
-> > > > +    description:
-> > > > +      Indicates the PHY as a handler of USB Type-C orientation cha=
-nges
-> > > > +
-> > > > +required:
-> > > > +  - compatible
-> > > > +  - reg
-> > > > +  - reg-names
-> > > > +  - "#phy-cells"
-> > > > +  - clocks
-> > > > +  - resets
-> > > > +  - power-domains
-> > > > +  - orientation-switch
-> > > > +
-> > > > +additionalProperties: false
-> > > > +
-> > > > +examples:
-> > > > +  - |
-> > > > +    soc {
-> > > > +        #address-cells =3D <2>;
-> > > > +        #size-cells =3D <2>;
-> > > > +
-> > > > +        usb_phy: usb_phy@c410000 {
-> > > > +            compatible =3D "google,gs5-usb-phy";
-> > > > +            reg =3D <0 0x0c450014 0 0xc>,
-> > > > +                  <0 0x0c637000 0 0xa0>,
-> > >
-> > > You probably miss DP support and this does not belong here.
-> >
-> > This register space isn't solely for DP operation, a significant portio=
-n
-> > manages the custom combo PHY. Consequently, this space is essential
-> > even for USB-only operation. We can expect more registers in the space
-> > to be utilized when DP support is added.
-> >
-> > While I acknowledge the current name is confusing, it directly reflects
-> > the hardware documentation. We can either adhere to the hardware
-> > documentation's naming or propose a more descriptive alternative.
-> > What's your preference?
-> >
-> > >
-> > > > +                  <0 0x0c45002c 0 0x4>;
-> > >
-> > > That's not a separate address space. I really, really doubt that
-> > > hardware engineers came with address spaces of one word long.
-> >
-> > I initially created this space to access the usb2only mode register,
-> > which must be programmed when the controller operates in high-speed
-> > only mode without the USB3 PHY initialized. Upon review, I now
-> > believe the controller driver is the better location for this configura=
-tion,
-> > as the register logically belongs there and the controller can tell
-> > whether usb3 phy is going to be initialized.
-> >
-> > That is, I'm removing this register space in the next patch.
->
-> You are missing the point. What exists from 0x0c450020-2c and
-> 0x0c450000-0x14 for that matter? Hardware blocks don't just start on
-> unaligned boundaries like 0x14 or 0x2c. DT describes the h/w blocks, not
+On 15/10/2025 19:41, Vladimir Zapolskiy wrote:
+> On 10/15/25 16:01, Vikram Sharma wrote:
+>> Add support for vdda-phy-supply and vdda-pll-supply in the QCS8300
+>> CAMSS binding to reflect camera sensor hardware requirements.
+> 
+> What are "camera sensor hardware requirements"? You do add properties
+> to the ISP.
+> 
+>>
+>> Co-developed-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+>> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+>> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+>> ---
+>>   .../bindings/media/qcom,qcs8300-camss.yaml          | 13 +++++++++++++
+>>   1 file changed, 13 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/media/qcom,qcs8300- 
+>> camss.yaml b/Documentation/devicetree/bindings/media/qcom,qcs8300- 
+>> camss.yaml
+>> index 80a4540a22dc..dce0a1fcb10c 100644
+>> --- a/Documentation/devicetree/bindings/media/qcom,qcs8300-camss.yaml
+>> +++ b/Documentation/devicetree/bindings/media/qcom,qcs8300-camss.yaml
+>> @@ -120,6 +120,14 @@ properties:
+>>       items:
+>>         - const: top
+>> +  vdda-phy-supply:
+>> +    description:
+>> +      Phandle to a regulator supply to PHY core block.
+> 
+> What is "PHY core block" here?
 
-Rob,
+I mean come on, I think the meaning is clear.
 
-Thanks for chiming in. Let me elaborate the register layout here:
-The register space 0x0c450000 - 0x00450043 is supposed to
-be assigned to the USB controller. However, the USB phy has
-to access a small portion of it, i.e. 0x0c450014 - 0x0c450020,
-in order to initialize usb2 phy. This is really unfortunate and
-makes things more complicated than it should've been.
+>> +
+>> +  vdda-pll-supply:
+>> +    description:
+>> +      Phandle to 1.8V regulator supply to PHY refclk pll block.
+> 
+> This is a copy-paste example of a known to be wrong pattern.
 
-The current patch is addressing it by splitting the register space:
-- USB phy: <0 0x0c450014 0 0xc>
-- USB controller: <0 0x0c450000 0 0x14>, <0 0x0c450020 0 0x23>
+You're right about the name, please align with this commit
 
-> just nodes of what a driver needs. So if the 0x2c register needs to be
-> accessed by the USB driver, that's fine, but the register doesn't go in
-> the USB controller node 'reg'. A property with a phandle to the node
-> defining all the 0x0c450000 registers and an offset (if needed) is
-> typically what we do there. Or you can just find that node by
-> compatible.
+git show cba308979b012664c7fe7c5baa818fcb68e86363
 
-Just to make sure we're on the same page, are you suggesting
-making the register space a syscon node [1]? something like this:
+Thanks for spotting.
 
-usb_cfg_csr: usb_cfg_csr@c450000 {
-  compatible =3D "syscon";
-  reg =3D <0 0x0c450000 0x0 0x43>;
-};
-
-usb@c400000 {
-  ...
-  usb-cfg-syscon =3D <&usb_cfg_csr>;
-  ...
-};
-
-usb_phy@c637000 {
-  ...
-  usb-cfg-syscon =3D <&usb_cfg_csr>;
-  ...
-}
-
-[1] Documentation/devicetree/bindings/mfd/syscon.yaml
-
-Thanks,
-Roy Luo
-
->
-> Rob
+---
+bod
 
