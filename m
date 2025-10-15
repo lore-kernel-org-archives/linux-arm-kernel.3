@@ -4,90 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D625ECCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67CA1CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=19SuM8BkFU86AdrsVL9he5wmDJI8XYP735e24p7BzJE=; b=bMIK+i3qJeImykUUEiz8m6psjC
-	koj8FFuDtguocvAHLUVbhxmtNlin4rdgj+BstyzE8Z3HKuGcMTDYNUPeFLxOd25t1EHlcaVMnRJrK
-	5GVxzgGfvGP0k9Z+t/r51wbLqUZQ8aAdJ/IkKeeECwg+phrtSqPYgTr6oCtFcFGIaiexvZRR/p0wr
-	OJ4SGv75NbUQlJIyhvs/OEAvwRH2dKvP+2cAH5rl1HZOZl9/+tDjpDj0rsl7mKGRz/YBoFIeVw95X
-	dXh1+QkFWDsFk34m6SlDWrTjuf4rMc7qeiHGm0o7bI2g8VJ/B4bozEgjJ7GG4L28wkEpIz8ik9MIb
-	x/0BELBw==;
+	bh=moTm52zNGwrt++YsXPE2KY3jx72epI/Bj7ns6GGNFCU=; b=Rdq5HVcR53juNk4GuBoTjHVKzl
+	k54AR4zQpAdKgEGpw1/6OhWy2Vo6Uw7cksI3EHRwmvLp4VkTTZTnbPn8JeGEAkJuaGWakAi0bksiN
+	TfB471qtIkm6wP/f7LGlT8f9makxRZ0uxijyk4XjUdrPEgJFVljamfVBxQxf/uzD57Am9PrngzXH6
+	y8/NJj/yh0wpu0AqufeolwNm9OJj9VU6A0LromrbaWeKZJ0naqZZnWbCFKPbMMFA26LfSNhWMG/vH
+	jErdVptk5SJF4lydpzVJLEWjg8D/p1H1/rXUHhFW1RPsZPh5++K9j+haHu2PHvG2lhmUPdUYgCwVm
+	wOw0qFDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98cf-00000002tp9-1OJJ;
-	Wed, 15 Oct 2025 21:01:25 +0000
+	id 1v98ch-00000002trH-4A16;
+	Wed, 15 Oct 2025 21:01:27 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98ca-00000002tll-3OGe
+	id 1v98cg-00000002tpD-29Tu
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 15 Oct 2025 21:01:20 +0000
+	Wed, 15 Oct 2025 21:01:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=19SuM8BkFU86AdrsVL9he5wmDJI8XYP735e24p7BzJE=; b=jEATrkOGtVfnWeHUon25p3S41R
-	G3umtbkXBHyEu8mW5tA4GfBBVM6lZ0OnmjPo2NqXEQ953pBwgBNbREWLamTRaUmECLUD3J65XNpN5
-	HBLDCpunuWgyj990RnYIaLJrrN1Tal5UmaGnIAXUh8GSsCLOVOGz7pUs+G2YegNPiP4VV44LekNi+
-	N9yocA4AjOK375O0aQ8d5DZC4zCcDzAmPvPGYRpp1w2EBnF5R+RYS9Fuf9BtkXMQ9/EbMkckNR/eO
-	HPSgKaQtYRTgLFQjP4DRQ1fyPi6EOxYdv34dLEkIvO995rjMJhj6RfmVbffaMqK++mdk+NXQcDyKR
-	47VWx9Fg==;
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	bh=moTm52zNGwrt++YsXPE2KY3jx72epI/Bj7ns6GGNFCU=; b=Bom20v7hWTA/fOmhbENybApAgn
+	bh0ELJyCR5h59ESVdjXgeCZnRKA9ShkyyviYLKhsaTk7qQVxc+d8IOzi/iMiDeSrnGXO3FJ1Mg+l3
+	8TuDMTY0yKBI6bOOmeCB/c51mwp/wsBuVx9PDYI40Wl3eqw/Pt3nWLC/bw+PUUIbgvCczt9ti9MwV
+	Zhsx5HBv1atty82UaI5bzS0JM3DO+UKnyEZCsO3f91jZscS3/j2nrkDJYbdEOOeVBDgh18gZNe/OW
+	LCiiVGV4r+rMze5Irvb4B/ivKjMu1opI9wYpXe8gCrum26p8Mo2GZSeA33h5M45VlhiSXa1oelyGJ
+	nfQ3GDRw==;
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98cS-00000006G8p-1tmK
+	id 1v98cV-00000006G96-418Y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 21:01:16 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-40fd1b17d2bso17901f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 14:01:06 -0700 (PDT)
+	Wed, 15 Oct 2025 21:01:20 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-46eee58d405so118175e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 14:01:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760562066; x=1761166866; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1760562067; x=1761166867; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=19SuM8BkFU86AdrsVL9he5wmDJI8XYP735e24p7BzJE=;
-        b=UBfgJhUFfyctTfsQk+3e6yKG0ZAHcVJP2GFV/sP/bWV+tyxZ9n01sV2MeCp1pzta1Y
-         koEWX20YHwxgYoevFpk5VZAOCjPe1c8VoHYyPIHwwEj0vGt9aVFSMdkemlu4pVTxDq0W
-         VqrNEnDCKs/sqfN1MtGoUZ2ILVPU0JFDuOxqlR78SnfmmCcgKp6Ko+Kba9YHgBttzC2F
-         unNExhsyh8vf6rLCKsTh+qN/pyKu4gvnV7arXVAHvX/fT6DLB8YjODsT7j/8wPDsELc4
-         Cjq5+NeDdQb72nv+ejL6S9iqJ8SATM8IczVSrYgQ91lBooBy4puzqzvNsdaaEbyqn/CC
-         DcFg==
+        bh=moTm52zNGwrt++YsXPE2KY3jx72epI/Bj7ns6GGNFCU=;
+        b=sSaL/QTogvK1OQKdJ99j/+hlz+l7i21ntCR669fu2fFGm78r/mWOLs8sKc2igW6oj1
+         lzZo6qZyn095h0MQ87UuAfe52rAJUyJucNM8DhXIJWTaEW8dNtFeCTAK38Wnffcu+PPp
+         0ouk89esZ9evMSjZ6endhKOEnFRmwTYX9nYzAJsie0uTYKV+duefFLJSY1d/cGjti93y
+         LSfSs13khVfYxpT53PDNor6+rQrvM9u32+sAGLlGnWs2dIUu5mNzb2H7Y73Haen1mQqc
+         QwZCnbXgtZhWkVSgCYU0zheQFHHGLoV6xljaDtqeeibchf52y9Rto9GAyNpkJ7XdiX/b
+         Tp6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760562066; x=1761166866;
+        d=1e100.net; s=20230601; t=1760562067; x=1761166867;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=19SuM8BkFU86AdrsVL9he5wmDJI8XYP735e24p7BzJE=;
-        b=PLyXkCBjZpN8762gzmXd9X7YGf7NogQeGvYLb0QWXToQUT/AtbOwuy8Xc84YvoYL3v
-         JbgbdQEBPbfVu6PThoVYLQGXvFYRugRJcYI8hsx+NUwwKFfUo8E5psjrNUlbTxvnMB11
-         thNnq3vFx3UFxT4IppJq6O1i4TxxdY1JdSQ+4clgtuv6fk0t8ZsxcRYvuV6cMaV+aOwv
-         XuEurDJ3KcY9j5yw6gHm/6lXswGV0a4dwmWIyZgpQcgjyG9jrN4dwtpi3R4AbTTKp4GE
-         HdgQrF/fxEBl8vgmrmBvQ13GfMQsKVURlxhqlOpnMshPYTZvqoU85zGiGjJYiLo+on1h
-         1e3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW2SAnF5fqo3BIV2NtfXxfStiVx5cypz58G9JwpQC7EcgKMLiOVbZZpQZ4Vp7yylNlb4yJ7edxvUSTPUWD47ksR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzk4M7v84tbQaO7Gj2i8190i5Kgh0XtMFnJvXmgbdKM7+wekald
-	mTKRxkG2BmTCC+Msfct2cPYw/wNey7+UXYKPoL/yvbTfXGSSvLigUDa5HznTipp1l3FcbKcJ7Q=
+        bh=moTm52zNGwrt++YsXPE2KY3jx72epI/Bj7ns6GGNFCU=;
+        b=fxlzlf7NQc9ykcivF66z0RNRYKqROAQsXnp9T0mmmhzdp6GyOIVO3y3Gn0tu9QdUm1
+         c7v73JE+bVR2sDQduB7wOK4Xki6MlNu7DPorMw5vgx1oMfsH6JVQwvGc8bg9YmUUpwug
+         hH361fvd5d6uIHjLB/n26vY/5Ha7SOsQM4IzqAEmaudflZZ9Czio14erEkp9YordzgKZ
+         Ql/fHF0E7uNMLLlVJInAbK2HCBxs2loxw7YSCUMsZs1BeFDsBfIndMENwPryM7voenVw
+         AeiRFFn228wQjz+3LP0WOFl/UPp/Ed1lihpN1nPiwoshprfMZ+/8T4arJnLAvjUaLKeZ
+         bW4w==
+X-Forwarded-Encrypted: i=1; AJvYcCXvM5eDn8bs+lBR/pPY5FV9Bj1lnhZfkFuk6fdh8fHuT99iKGLU5zvz+pSzoYd/y2oUv6V/z9Cnb/m1cBJ5rKkS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz65jgeFoztkNjUQvfI/ORv5OFh+z3A7gNAY7ZcMatmnOMYZhJ9
+	isVICqcVfZEy+IRYkIGbCKuT1bhGb/VRAm+PG8WlJX8i8mIEQmXdPkFdagMuVaT4P8wARtzJQA=
 	=
-X-Google-Smtp-Source: AGHT+IFQpVg2U3+T4NvaCVGg+3jjnpHjurMn96RVhjpcDm7JJIbQd5n2ckQZklYZZG14FZbDn1HXPBda
-X-Received: from wmbjn22.prod.google.com ([2002:a05:600c:6b16:b0:46f:aa50:d718])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:1a8b:b0:425:8bd1:fbb4
- with SMTP id ffacd0b85a97d-4266e7df95cmr20229304f8f.50.1760562065972; Wed, 15
- Oct 2025 14:01:05 -0700 (PDT)
-Date: Wed, 15 Oct 2025 22:56:39 +0200
+X-Google-Smtp-Source: AGHT+IHH59sy7BRWjY21dGoKX4xtSPPUT5SSUEKeDj8aOzwiGGO++q5eu2jsvFIaGupUZgFYbR/j27IV
+X-Received: from wmbz7.prod.google.com ([2002:a05:600c:c087:b0:45d:d60a:8d7e])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4745:b0:46d:cfc9:1d0f
+ with SMTP id 5b1f17b1804b1-46fa9af30e5mr238090085e9.19.1760562066912; Wed, 15
+ Oct 2025 14:01:06 -0700 (PDT)
+Date: Wed, 15 Oct 2025 22:56:40 +0200
 In-Reply-To: <20251015205634.3820870-9-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20251015205634.3820870-9-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3253; i=ardb@kernel.org;
- h=from:subject; bh=FjAcGhb6VYi+vJfe2JpmxvHhAqT8SyzVHt/xzyd0TNw=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIeMDV8ejrsz6he2dwTNnrNr5LD+tP1yqof/ebabW69esX
- 2+PX2/SUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACaSYsHw369KU8vDXsfq9TfP
- xX7nJbPk247V5Kkv/vbC8eOWHEUvJUaGa8++1bypTZXk3J6btGcxy4fcT2o31pZyl61w259wpsW RBwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1252; i=ardb@kernel.org;
+ h=from:subject; bh=oVK+oBrwb79YVKXaSmfzPNI2/YhF6t6CcaRgcjvBZKg=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIeMDV1f3/5ul8hNbKh+8Zbsj80cisndue7zrlEc6PtOnT
+ QpiddjXUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACYit52RYZ4Qs+dJc9XZnP4n
+ frR4rXqa5Ma+X6v4iZ38lyaPotjSK4wMX9/J+1/oEZxeKK1ySNHzvbd/MssT0+t819wvfLoxnVW bDwA=
 X-Mailer: git-send-email 2.51.0.869.ge66316f041-goog
-Message-ID: <20251015205634.3820870-13-ardb+git@google.com>
-Subject: [PATCH v4 resend 4/7] arm64/fpsimd: Permit kernel mode NEON with IRQs off
+Message-ID: <20251015205634.3820870-14-ardb+git@google.com>
+Subject: [PATCH v4 resend 5/7] arm64/efi: Drop efi_rt_lock spinlock from EFI
+ arch wrapper
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-efi@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -97,8 +98,8 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Pierre Gondois <Pierre.Gondois@arm.com>, Sami Mujawar <Sami.Mujawar@arm.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_220114_428841_051A1E44 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20251015_220119_065968_5E950804 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,92 +116,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Currently, may_use_simd() will return false when called from a context
-where IRQs are disabled. One notable case where this happens is when
-calling the ResetSystem() EFI runtime service from the reboot/poweroff
-code path. For this case alone, there is a substantial amount of FP/SIMD
-support code to handle the corner case where a EFI runtime service is
-invoked with IRQs disabled.
+Since commit
 
-The only reason kernel mode SIMD is not allowed when IRQs are disabled
-is that re-enabling softirqs in this case produces a noisy diagnostic
-when lockdep is enabled. The warning is valid, in the sense that
-delivering pending softirqs over the back of the call to
-local_bh_enable() is problematic when IRQs are disabled.
+  5894cf571e14 ("acpi/prmt: Use EFI runtime sandbox to invoke PRM handlers")
 
-While the API lacks a facility to simply mask and unmask softirqs
-without triggering their delivery, disabling softirqs is not needed to
-begin with when IRQs are disabled, given that softirqs are only every
-taken asynchronously over the back of a hard IRQ.
+all EFI runtime calls on arm64 are routed via the EFI runtime wrappers,
+which are serialized using the efi_runtime_lock semaphore.
 
-So dis/enable softirq processing conditionally, based on whether IRQs
-are enabled, and relax the check in may_use_simd().
+This means the efi_rt_lock spinlock in the arm64 arch wrapper code has
+become redundant, and can be dropped. For robustness, replace it with an
+assert that the EFI runtime lock is in fact held by 'current'.
 
-Acked-by: Will Deacon <will@kernel.org>
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/include/asm/simd.h |  2 +-
- arch/arm64/kernel/fpsimd.c    | 25 +++++++++++++++-----
- 2 files changed, 20 insertions(+), 7 deletions(-)
+ arch/arm64/kernel/efi.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
-index 8e86c9e70e48..abd642c92f86 100644
---- a/arch/arm64/include/asm/simd.h
-+++ b/arch/arm64/include/asm/simd.h
-@@ -29,7 +29,7 @@ static __must_check inline bool may_use_simd(void)
- 	 */
- 	return !WARN_ON(!system_capabilities_finalized()) &&
- 	       system_supports_fpsimd() &&
--	       !in_hardirq() && !irqs_disabled() && !in_nmi();
-+	       !in_hardirq() && !in_nmi();
+diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
+index 6c371b158b99..0094f5938ba6 100644
+--- a/arch/arm64/kernel/efi.c
++++ b/arch/arm64/kernel/efi.c
+@@ -165,19 +165,16 @@ asmlinkage efi_status_t efi_handle_corrupted_x18(efi_status_t s, const char *f)
+ 	return s;
  }
  
- #else /* ! CONFIG_KERNEL_MODE_NEON */
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index 3d848c89604e..6d956ed23bd2 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -225,10 +225,21 @@ static void fpsimd_bind_task_to_cpu(void);
-  */
- static void get_cpu_fpsimd_context(void)
+-static DEFINE_RAW_SPINLOCK(efi_rt_lock);
+-
+ void arch_efi_call_virt_setup(void)
  {
--	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
--		local_bh_disable();
--	else
-+	if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
-+		/*
-+		 * The softirq subsystem lacks a true unmask/mask API, and
-+		 * re-enabling softirq processing using local_bh_enable() will
-+		 * not only unmask softirqs, it will also result in immediate
-+		 * delivery of any pending softirqs.
-+		 * This is undesirable when running with IRQs disabled, but in
-+		 * that case, there is no need to mask softirqs in the first
-+		 * place, so only bother doing so when IRQs are enabled.
-+		 */
-+		if (!irqs_disabled())
-+			local_bh_disable();
-+	} else {
- 		preempt_disable();
-+	}
++	efi_runtime_assert_lock_held();
+ 	efi_virtmap_load();
+-	raw_spin_lock(&efi_rt_lock);
+ 	__efi_fpsimd_begin();
  }
  
- /*
-@@ -240,10 +251,12 @@ static void get_cpu_fpsimd_context(void)
-  */
- static void put_cpu_fpsimd_context(void)
+ void arch_efi_call_virt_teardown(void)
  {
--	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
--		local_bh_enable();
--	else
-+	if (!IS_ENABLED(CONFIG_PREEMPT_RT)) {
-+		if (!irqs_disabled())
-+			local_bh_enable();
-+	} else {
- 		preempt_enable();
-+	}
+ 	__efi_fpsimd_end();
+-	raw_spin_unlock(&efi_rt_lock);
+ 	efi_virtmap_unload();
  }
  
- unsigned int task_get_vl(const struct task_struct *task, enum vec_type type)
 -- 
 2.51.0.869.ge66316f041-goog
 
