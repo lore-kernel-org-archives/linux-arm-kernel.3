@@ -4,93 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C74CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 09:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AAEDCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 09:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/sMLccLPuipTIQIq+QGkG1/Qfpgp7OHUnhyOy5PjXZo=; b=bi4+9P5KF/UNVsT4lQf7zo4/+3
-	V0lvD3z0S4xrEvbZ+Cf7dZXbyn2GzPZHcD7KnrwRVFAoRzdz3rcxo0t6TzLKUQtRippr891KN/qcm
-	KLqdD2rAKmNzBqkAOeJr3+/9gOZLMA3jmtVdOl2OWWv2IpwuDSREc8yLOM07uPnNBCWiomUk2YjhX
-	/XHvymBPaMsOivUKRdkU5/wrvKHP4056Vah+3lplQPA3Nc1ETuOBsdFgsRb0A/bEjN3FhO119X7fL
-	AYYDIh6JaQ6ByuW9DJAgZW9BCrdffYZSMElBshCYV1jSyp6m0S7qb+9a4okQ8eTrSfnplBl5uBAQE
-	AoO1Tb9w==;
+	bh=tJmRJlu9H8wURlz4KPU2uyoao6Y2zyTwzoAnkPT6lmM=; b=qWG4JhkRLuF5EOwI/Lx2WEQKoR
+	9OG7GXMNYHMQd35S+RD+O+MOW6+6o0pwCPnXAK4WCR7aBe3BEUlA3pqjfHmNiQCXPNhKFEUnpGPEL
+	2gH7mCFv+WGvoLt+BkpPsJ0EAP/GmTfUZ2LJfQeETveVjlK1W+OPOAf/FSL3p2rZKZV+QLbol97W5
+	zegV1ZSbmjjX4M+UUsCPYN0I5uT1WrXzLKl9B3+56QuF9+KxQot7R5bfXfC/4G212f7HPKssqjD4t
+	vKSfaOb3eoLMvVhR2VlywGiyaQV6pxzz5QB2evBGOAvp6hDYI4wX+/bE6819FHPaRjQTJlmrn84ly
+	kRpgkmbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8xaF-000000015Hs-0tUY;
-	Wed, 15 Oct 2025 09:14:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8xd3-000000016l2-0v0l;
+	Wed, 15 Oct 2025 09:17:05 +0000
+Received: from mail-oa1-f49.google.com ([209.85.160.49])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8xZz-000000014ti-117h
+	id 1v8xd1-000000016k7-1WTB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 09:13:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D02CE417E5;
-	Wed, 15 Oct 2025 09:13:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CE55C19424;
-	Wed, 15 Oct 2025 09:13:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760519634;
-	bh=SfEJhe+EnkJnefkh97fPmSPXkeIOd3xlETD9YgBQ46Y=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VjKEdt2mxlWT6w6IHTqoZRpMLcMuI77UbOT5L24qqSlM5/DRGv3AcjxM4yMGcf+EA
-	 z3mSEYZ6gFFWrxSO7HRPPBIgkFJ2KK8npgJULFQ3REwzcltzHG0visRTUD4RkVR8p2
-	 iVTzUpaitF9orJXdg7vwdxwmxOVT299ieYtlvyB/8fvGgyB/AQShYv0rnCdNMAXe9R
-	 ZB3OwN86eHCPctYuE8Jsplg/jEev2Xxs2kFERH9JQ4NIoTovdwTglFTYtRMQcmdBAV
-	 BE5Q3ZMOHIBzXlABIk4k32PRk815Smbd9I+JsegH2figO4R/XC82Wkl31Ze4zN26de
-	 GcSuYHdBLk/jA==
-From: Leon Romanovsky <leon@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Geoff Levand <geoff@infradead.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>
-Cc: iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org,
-	linux-alpha@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Jason Gunthorpe <jgg@nvidia.com>
-Subject: [PATCH v5 09/14] parisc: Convert DMA map_page to map_phys interface
-Date: Wed, 15 Oct 2025 12:12:55 +0300
-Message-ID: <20251015-remove-map-page-v5-9-3bbfe3a25cdf@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251015-remove-map-page-v5-0-3bbfe3a25cdf@kernel.org>
-References: <20251015-remove-map-page-v5-0-3bbfe3a25cdf@kernel.org>
+	Wed, 15 Oct 2025 09:17:04 +0000
+Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-364bd7cce53so4453391fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 02:17:02 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760519822; x=1761124622;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tJmRJlu9H8wURlz4KPU2uyoao6Y2zyTwzoAnkPT6lmM=;
+        b=baHL7uLwLsZYZkmRxYOS8NNV7Jk0G+p7UkPoj2PTDbHZvhRDFKPz5XnrqZYAldxsN6
+         7jeHLxKDXSoDUP3R6m/emq5OsAB2i7xOtoYmFBjpyGv22DlpwbEklHXXNO8yAY9L6mxS
+         aYH3zbF81SDOqN5ypuknVtLI9wiJMijQYX17ENmlYjVByXCYuFOq1jqP4vkgL37UzVRk
+         32bfbNmqbn0jD6JAZyCtyc4v61x84bh2Wglt2kPe22ehlMZSfXuxAHUdO/mH1xTdQBE1
+         iIN5gJdN8eGZ31KZXG+e4dDDnjua+9xR39EtPivp8gwR/K2pQS9BkDyioiDFf+ZRyPRH
+         I5bA==
+X-Forwarded-Encrypted: i=1; AJvYcCUhl5vcgsjCOu5hIqbLCm0kQ2MSoPkOuUs+EURGqTUcpnHJrS4jyJ1lBYh3wG2n+20NGYkBk8cQU25Itn11lMZ0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzcrj12xCUZyJFNaFJYkrfjYarU4G7bKIyCPBgc5vP6vVblt//+
+	/Qbifue+c+xZKxkBr2YHZ6z4idLf6N0y/0pL33NE52FaJnjJrz1+v0X1u9Pc9/hN
+X-Gm-Gg: ASbGncuaCnmSSwQe8WfFeI4qS2G27txJpjoWWK04FNXV0rE9bWIfC+Un9jDRJzDuCIZ
+	1HGLpd90xf5veP5P2SfLaLadDpnaWmXK+Lx9Yx5uWHvRiqupSfAd9/xfmqVNSaL9IDopKYBqqad
+	c+MGBeQoQptRXdr7wuPZ+V3dBRns+9JBZTxv++9/DJ8uPcipUT5yqM4WO1m/0E5yvMpZF0qdOg+
+	ecoyCSEyjdRK/Vbd0ycGzm3QEeam3slu5Is5lwZee0aaMk3lii7tChAnpcYAXkFufJVi8k//JQW
+	WO8GR0TdhErvgkdU9g+tSa91NtX1EIFLwP5YABjynpfMZ1XUhi+ALSKzI24ooNrAHhyR0tu8bUP
+	La2SEDvHZKLTLKg09maXmkOwnqMqZ0NfXOCgH1ZSOB7p/bxGlGF0YKoViO0BJYNp8zrv/Jjtpt6
+	EA5s7RVJnjNCAV8A==
+X-Google-Smtp-Source: AGHT+IEh0vuepuH7/yiMsIVaJJss2RrNJx4jfVUenjKlPMyZqtyER4DWa15vNVyYUZ5A9pOpg8m0MA==
+X-Received: by 2002:a05:6870:c189:b0:315:a259:ca5a with SMTP id 586e51a60fabf-3c0f0b2c436mr14214322fac.0.1760519821741;
+        Wed, 15 Oct 2025 02:17:01 -0700 (PDT)
+Received: from mail-ot1-f51.google.com (mail-ot1-f51.google.com. [209.85.210.51])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-3c8cc4d3f55sm5062078fac.3.2025.10.15.02.17.01
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Oct 2025 02:17:01 -0700 (PDT)
+Received: by mail-ot1-f51.google.com with SMTP id 46e09a7af769-7b6d6a1e4e4so4109736a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 02:17:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVb0U/hi55l/XejiPJUlaM55YbieFFC0lvrHGRHmzflhbWGJHh0e8OJOvSRbs3ov85LIW35gohQBSrGDNGBAEwW@lists.infradead.org
+X-Received: by 2002:a05:6102:54a7:b0:5d6:df4:4a9c with SMTP id
+ ada2fe7eead31-5d60df44b27mr3945077137.38.1760519422390; Wed, 15 Oct 2025
+ 02:10:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Mailer: b4 0.15-dev
-Content-Transfer-Encoding: 8bit
+References: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
+ <c65950f5-010a-4d5d-88d9-60697eeddb46@imgtec.com> <f4e1897c-7073-4ab0-92b3-6f7d69382825@mailbox.org>
+In-Reply-To: <f4e1897c-7073-4ab0-92b3-6f7d69382825@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 15 Oct 2025 11:10:10 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVpb-0TJ4AoqjAGbdErw65193+j1-HbXCyvvwf8MT6yLQ@mail.gmail.com>
+X-Gm-Features: AS18NWC0NtvnYK5U9YXJyT8uG9UQFbJEFgUG9T-bnGHWW0_GW4mwUzABObId4Tc
+Message-ID: <CAMuHMdVpb-0TJ4AoqjAGbdErw65193+j1-HbXCyvvwf8MT6yLQ@mail.gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: gpu: img,powervr-rogue: Document GX6250
+ GPU in Renesas R-Car M3-W/M3-W+
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Matt Coster <Matt.Coster@imgtec.com>, Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Adam Ford <aford173@gmail.com>, Conor Dooley <conor+dt@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Frank Binns <Frank.Binns@imgtec.com>, 
+	Alessio Belle <Alessio.Belle@imgtec.com>, Alexandru Dadu <Alexandru.Dadu@imgtec.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Magnus Damm <magnus.damm@gmail.com>, 
+	Maxime Ripard <mripard@kernel.org>, Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_021355_385772_A6EE45C6 
-X-CRM114-Status: GOOD (  22.29  )
+X-CRM114-CacheID: sfid-20251015_021703_402248_18E7C311 
+X-CRM114-Status: GOOD (  38.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,399 +109,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Leon Romanovsky <leonro@nvidia.com>
+Hi Marek,
 
-Perform mechanical conversion from .map_page to .map_phys callback.
+On Wed, 15 Oct 2025 at 00:48, Marek Vasut <marek.vasut@mailbox.org> wrote:
+> On 10/14/25 1:52 PM, Matt Coster wrote:
+> >> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.y=
+aml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> >> index c87d7bece0ecd..c9680a2560114 100644
+> >> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> >> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+> >> @@ -13,6 +13,12 @@ maintainers:
+> >>   properties:
+> >>     compatible:
+> >>       oneOf:
+> >> +      - items:
+> >> +          - enum:
+> >> +              - renesas,r8a77960-gpu
+> >> +              - renesas,r8a77961-gpu
+> >
+> > I think this can just be renesas,r8a7796-gpu; most of the devices in th=
+e
+> > dts for these SoCs appear to use the same pattern and the GPU is the
+> > same in both.
+>
+> Not really, the 77960 and 77961 are different SoCs, that is why they
+> each have different specific compatible. Of course, most drivers match
+> on fallback compatible, since the IPs are mostly identical, see this:
+>
+> $ git grep compatible.*7796 arch/arm64/boot/dts/renesas/r8a77961.dtsi
+> arch/arm64/boot/dts/renesas/r8a77961.dtsi:      compatible =3D
+> "renesas,r8a77961";
+> arch/arm64/boot/dts/renesas/r8a77961.dtsi:
+> compatible =3D "renesas,r8a77961-wdt",
+> arch/arm64/boot/dts/renesas/r8a77961.dtsi:
+> compatible =3D "renesas,gpio-r8a77961",
+> ...
+>
+> $  git grep compatible.*7796 arch/arm64/boot/dts/renesas/r8a77960.dtsi
+> arch/arm64/boot/dts/renesas/r8a77960.dtsi:      compatible =3D
+> "renesas,r8a7796";
+> arch/arm64/boot/dts/renesas/r8a77960.dtsi:
+> compatible =3D "renesas,r8a7796-wdt",
+> arch/arm64/boot/dts/renesas/r8a77960.dtsi:
+> compatible =3D "renesas,gpio-r8a7796",
+> arch/arm64/boot/dts/renesas/r8a77960.dtsi:
+> compatible =3D "renesas,gpio-r8a7796",
+>
+> I can turn the first entry into renesas,r8a7796-gpu to be consistent
+> with the legacy 7796 name for 77960.
+>
+> Geert ?
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
----
- drivers/parisc/ccio-dma.c      | 54 ++++++++++++++++++++++--------------------
- drivers/parisc/iommu-helpers.h | 10 ++++----
- drivers/parisc/sba_iommu.c     | 54 ++++++++++++++++++++----------------------
- 3 files changed, 59 insertions(+), 59 deletions(-)
+Please use "renesas,r8a7796-gpu" for R-Car M3-W, and
+"renesas,r8a77961-gpu" for R-Car M3-W+.
 
-diff --git a/drivers/parisc/ccio-dma.c b/drivers/parisc/ccio-dma.c
-index feef537257d0..4e7071714356 100644
---- a/drivers/parisc/ccio-dma.c
-+++ b/drivers/parisc/ccio-dma.c
-@@ -517,10 +517,10 @@ static u32 hint_lookup[] = {
-  * ccio_io_pdir_entry - Initialize an I/O Pdir.
-  * @pdir_ptr: A pointer into I/O Pdir.
-  * @sid: The Space Identifier.
-- * @vba: The virtual address.
-+ * @pba: The physical address.
-  * @hints: The DMA Hint.
-  *
-- * Given a virtual address (vba, arg2) and space id, (sid, arg1),
-+ * Given a physical address (pba, arg2) and space id, (sid, arg1),
-  * load the I/O PDIR entry pointed to by pdir_ptr (arg0). Each IO Pdir
-  * entry consists of 8 bytes as shown below (MSB == bit 0):
-  *
-@@ -543,7 +543,7 @@ static u32 hint_lookup[] = {
-  * index are bits 12:19 of the value returned by LCI.
-  */ 
- static void
--ccio_io_pdir_entry(__le64 *pdir_ptr, space_t sid, unsigned long vba,
-+ccio_io_pdir_entry(__le64 *pdir_ptr, space_t sid, phys_addr_t pba,
- 		   unsigned long hints)
- {
- 	register unsigned long pa;
-@@ -557,7 +557,7 @@ ccio_io_pdir_entry(__le64 *pdir_ptr, space_t sid, unsigned long vba,
- 	** "hints" parm includes the VALID bit!
- 	** "dep" clobbers the physical address offset bits as well.
- 	*/
--	pa = lpa(vba);
-+	pa = pba;
- 	asm volatile("depw  %1,31,12,%0" : "+r" (pa) : "r" (hints));
- 	((u32 *)pdir_ptr)[1] = (u32) pa;
- 
-@@ -582,7 +582,7 @@ ccio_io_pdir_entry(__le64 *pdir_ptr, space_t sid, unsigned long vba,
- 	** Grab virtual index [0:11]
- 	** Deposit virt_idx bits into I/O PDIR word
- 	*/
--	asm volatile ("lci %%r0(%1), %0" : "=r" (ci) : "r" (vba));
-+	asm volatile ("lci %%r0(%1), %0" : "=r" (ci) : "r" (phys_to_virt(pba)));
- 	asm volatile ("extru %1,19,12,%0" : "+r" (ci) : "r" (ci));
- 	asm volatile ("depw  %1,15,12,%0" : "+r" (pa) : "r" (ci));
- 
-@@ -704,14 +704,14 @@ ccio_dma_supported(struct device *dev, u64 mask)
- /**
-  * ccio_map_single - Map an address range into the IOMMU.
-  * @dev: The PCI device.
-- * @addr: The start address of the DMA region.
-+ * @addr: The physical address of the DMA region.
-  * @size: The length of the DMA region.
-  * @direction: The direction of the DMA transaction (to/from device).
-  *
-  * This function implements the pci_map_single function.
-  */
- static dma_addr_t 
--ccio_map_single(struct device *dev, void *addr, size_t size,
-+ccio_map_single(struct device *dev, phys_addr_t addr, size_t size,
- 		enum dma_data_direction direction)
- {
- 	int idx;
-@@ -730,7 +730,7 @@ ccio_map_single(struct device *dev, void *addr, size_t size,
- 	BUG_ON(size <= 0);
- 
- 	/* save offset bits */
--	offset = ((unsigned long) addr) & ~IOVP_MASK;
-+	offset = offset_in_page(addr);
- 
- 	/* round up to nearest IOVP_SIZE */
- 	size = ALIGN(size + offset, IOVP_SIZE);
-@@ -746,15 +746,15 @@ ccio_map_single(struct device *dev, void *addr, size_t size,
- 
- 	pdir_start = &(ioc->pdir_base[idx]);
- 
--	DBG_RUN("%s() %px -> %#lx size: %zu\n",
--		__func__, addr, (long)(iovp | offset), size);
-+	DBG_RUN("%s() %pa -> %#lx size: %zu\n",
-+		__func__, &addr, (long)(iovp | offset), size);
- 
- 	/* If not cacheline aligned, force SAFE_DMA on the whole mess */
--	if((size % L1_CACHE_BYTES) || ((unsigned long)addr % L1_CACHE_BYTES))
-+	if ((size % L1_CACHE_BYTES) || (addr % L1_CACHE_BYTES))
- 		hint |= HINT_SAFE_DMA;
- 
- 	while(size > 0) {
--		ccio_io_pdir_entry(pdir_start, KERNEL_SPACE, (unsigned long)addr, hint);
-+		ccio_io_pdir_entry(pdir_start, KERNEL_SPACE, addr, hint);
- 
- 		DBG_RUN(" pdir %p %08x%08x\n",
- 			pdir_start,
-@@ -773,17 +773,18 @@ ccio_map_single(struct device *dev, void *addr, size_t size,
- 
- 
- static dma_addr_t
--ccio_map_page(struct device *dev, struct page *page, unsigned long offset,
--		size_t size, enum dma_data_direction direction,
--		unsigned long attrs)
-+ccio_map_phys(struct device *dev, phys_addr_t phys, size_t size,
-+	      enum dma_data_direction direction, unsigned long attrs)
- {
--	return ccio_map_single(dev, page_address(page) + offset, size,
--			direction);
-+	if (unlikely(attrs & DMA_ATTR_MMIO))
-+		return DMA_MAPPING_ERROR;
-+
-+	return ccio_map_single(dev, phys, size, direction);
- }
- 
- 
- /**
-- * ccio_unmap_page - Unmap an address range from the IOMMU.
-+ * ccio_unmap_phys - Unmap an address range from the IOMMU.
-  * @dev: The PCI device.
-  * @iova: The start address of the DMA region.
-  * @size: The length of the DMA region.
-@@ -791,7 +792,7 @@ ccio_map_page(struct device *dev, struct page *page, unsigned long offset,
-  * @attrs: attributes
-  */
- static void 
--ccio_unmap_page(struct device *dev, dma_addr_t iova, size_t size,
-+ccio_unmap_phys(struct device *dev, dma_addr_t iova, size_t size,
- 		enum dma_data_direction direction, unsigned long attrs)
- {
- 	struct ioc *ioc;
-@@ -853,7 +854,8 @@ ccio_alloc(struct device *dev, size_t size, dma_addr_t *dma_handle, gfp_t flag,
- 
- 	if (ret) {
- 		memset(ret, 0, size);
--		*dma_handle = ccio_map_single(dev, ret, size, DMA_BIDIRECTIONAL);
-+		*dma_handle = ccio_map_single(dev, virt_to_phys(ret), size,
-+					      DMA_BIDIRECTIONAL);
- 	}
- 
- 	return ret;
-@@ -873,7 +875,7 @@ static void
- ccio_free(struct device *dev, size_t size, void *cpu_addr,
- 		dma_addr_t dma_handle, unsigned long attrs)
- {
--	ccio_unmap_page(dev, dma_handle, size, 0, 0);
-+	ccio_unmap_phys(dev, dma_handle, size, 0, 0);
- 	free_pages((unsigned long)cpu_addr, get_order(size));
- }
- 
-@@ -920,7 +922,7 @@ ccio_map_sg(struct device *dev, struct scatterlist *sglist, int nents,
- 	/* Fast path single entry scatterlists. */
- 	if (nents == 1) {
- 		sg_dma_address(sglist) = ccio_map_single(dev,
--				sg_virt(sglist), sglist->length,
-+				sg_phys(sglist), sglist->length,
- 				direction);
- 		sg_dma_len(sglist) = sglist->length;
- 		return 1;
-@@ -1004,7 +1006,7 @@ ccio_unmap_sg(struct device *dev, struct scatterlist *sglist, int nents,
- #ifdef CCIO_COLLECT_STATS
- 		ioc->usg_pages += sg_dma_len(sglist) >> PAGE_SHIFT;
- #endif
--		ccio_unmap_page(dev, sg_dma_address(sglist),
-+		ccio_unmap_phys(dev, sg_dma_address(sglist),
- 				  sg_dma_len(sglist), direction, 0);
- 		++sglist;
- 		nents--;
-@@ -1017,8 +1019,8 @@ static const struct dma_map_ops ccio_ops = {
- 	.dma_supported =	ccio_dma_supported,
- 	.alloc =		ccio_alloc,
- 	.free =			ccio_free,
--	.map_page =		ccio_map_page,
--	.unmap_page =		ccio_unmap_page,
-+	.map_phys =		ccio_map_phys,
-+	.unmap_phys =		ccio_unmap_phys,
- 	.map_sg =		ccio_map_sg,
- 	.unmap_sg =		ccio_unmap_sg,
- 	.get_sgtable =		dma_common_get_sgtable,
-@@ -1072,7 +1074,7 @@ static int ccio_proc_info(struct seq_file *m, void *p)
- 			   ioc->msingle_calls, ioc->msingle_pages,
- 			   (int)((ioc->msingle_pages * 1000)/ioc->msingle_calls));
- 
--		/* KLUGE - unmap_sg calls unmap_page for each mapped page */
-+		/* KLUGE - unmap_sg calls unmap_phys for each mapped page */
- 		min = ioc->usingle_calls - ioc->usg_calls;
- 		max = ioc->usingle_pages - ioc->usg_pages;
- 		seq_printf(m, "pci_unmap_single: %8ld calls  %8ld pages (avg %d/1000)\n",
-diff --git a/drivers/parisc/iommu-helpers.h b/drivers/parisc/iommu-helpers.h
-index c43f1a212a5c..0691884f5095 100644
---- a/drivers/parisc/iommu-helpers.h
-+++ b/drivers/parisc/iommu-helpers.h
-@@ -14,7 +14,7 @@
- static inline unsigned int
- iommu_fill_pdir(struct ioc *ioc, struct scatterlist *startsg, int nents, 
- 		unsigned long hint,
--		void (*iommu_io_pdir_entry)(__le64 *, space_t, unsigned long,
-+		void (*iommu_io_pdir_entry)(__le64 *, space_t, phys_addr_t,
- 					    unsigned long))
- {
- 	struct scatterlist *dma_sg = startsg;	/* pointer to current DMA */
-@@ -28,7 +28,7 @@ iommu_fill_pdir(struct ioc *ioc, struct scatterlist *startsg, int nents,
- 	 dma_sg--;
- 
- 	while (nents-- > 0) {
--		unsigned long vaddr;
-+		phys_addr_t paddr;
- 		long size;
- 
- 		DBG_RUN_SG(" %d : %08lx %p/%05x\n", nents,
-@@ -67,7 +67,7 @@ iommu_fill_pdir(struct ioc *ioc, struct scatterlist *startsg, int nents,
- 		
- 		BUG_ON(pdirp == NULL);
- 		
--		vaddr = (unsigned long)sg_virt(startsg);
-+		paddr = sg_phys(startsg);
- 		sg_dma_len(dma_sg) += startsg->length;
- 		size = startsg->length + dma_offset;
- 		dma_offset = 0;
-@@ -76,8 +76,8 @@ iommu_fill_pdir(struct ioc *ioc, struct scatterlist *startsg, int nents,
- #endif
- 		do {
- 			iommu_io_pdir_entry(pdirp, KERNEL_SPACE, 
--					    vaddr, hint);
--			vaddr += IOVP_SIZE;
-+					    paddr, hint);
-+			paddr += IOVP_SIZE;
- 			size -= IOVP_SIZE;
- 			pdirp++;
- 		} while(unlikely(size > 0));
-diff --git a/drivers/parisc/sba_iommu.c b/drivers/parisc/sba_iommu.c
-index fc3863c09f83..a6eb6bffa5ea 100644
---- a/drivers/parisc/sba_iommu.c
-+++ b/drivers/parisc/sba_iommu.c
-@@ -532,7 +532,7 @@ typedef unsigned long space_t;
-  * sba_io_pdir_entry - fill in one IO PDIR entry
-  * @pdir_ptr:  pointer to IO PDIR entry
-  * @sid: process Space ID - currently only support KERNEL_SPACE
-- * @vba: Virtual CPU address of buffer to map
-+ * @pba: Physical address of buffer to map
-  * @hint: DMA hint set to use for this mapping
-  *
-  * SBA Mapping Routine
-@@ -569,20 +569,17 @@ typedef unsigned long space_t;
-  */
- 
- static void
--sba_io_pdir_entry(__le64 *pdir_ptr, space_t sid, unsigned long vba,
-+sba_io_pdir_entry(__le64 *pdir_ptr, space_t sid, phys_addr_t pba,
- 		  unsigned long hint)
- {
--	u64 pa; /* physical address */
- 	register unsigned ci; /* coherent index */
- 
--	pa = lpa(vba);
--	pa &= IOVP_MASK;
-+	asm("lci 0(%1), %0" : "=r" (ci) : "r" (phys_to_virt(pba)));
-+	pba &= IOVP_MASK;
-+	pba |= (ci >> PAGE_SHIFT) & 0xff;  /* move CI (8 bits) into lowest byte */
- 
--	asm("lci 0(%1), %0" : "=r" (ci) : "r" (vba));
--	pa |= (ci >> PAGE_SHIFT) & 0xff;  /* move CI (8 bits) into lowest byte */
--
--	pa |= SBA_PDIR_VALID_BIT;	/* set "valid" bit */
--	*pdir_ptr = cpu_to_le64(pa);	/* swap and store into I/O Pdir */
-+	pba |= SBA_PDIR_VALID_BIT;	/* set "valid" bit */
-+	*pdir_ptr = cpu_to_le64(pba);	/* swap and store into I/O Pdir */
- 
- 	/*
- 	 * If the PDC_MODEL capabilities has Non-coherent IO-PDIR bit set
-@@ -707,7 +704,7 @@ static int sba_dma_supported( struct device *dev, u64 mask)
-  * See Documentation/core-api/dma-api-howto.rst
-  */
- static dma_addr_t
--sba_map_single(struct device *dev, void *addr, size_t size,
-+sba_map_single(struct device *dev, phys_addr_t addr, size_t size,
- 	       enum dma_data_direction direction)
- {
- 	struct ioc *ioc;
-@@ -722,7 +719,7 @@ sba_map_single(struct device *dev, void *addr, size_t size,
- 		return DMA_MAPPING_ERROR;
- 
- 	/* save offset bits */
--	offset = ((dma_addr_t) (long) addr) & ~IOVP_MASK;
-+	offset = offset_in_page(addr);
- 
- 	/* round up to nearest IOVP_SIZE */
- 	size = (size + offset + ~IOVP_MASK) & IOVP_MASK;
-@@ -739,13 +736,13 @@ sba_map_single(struct device *dev, void *addr, size_t size,
- 	pide = sba_alloc_range(ioc, dev, size);
- 	iovp = (dma_addr_t) pide << IOVP_SHIFT;
- 
--	DBG_RUN("%s() 0x%p -> 0x%lx\n",
--		__func__, addr, (long) iovp | offset);
-+	DBG_RUN("%s() 0x%pa -> 0x%lx\n",
-+		__func__, &addr, (long) iovp | offset);
- 
- 	pdir_start = &(ioc->pdir_base[pide]);
- 
- 	while (size > 0) {
--		sba_io_pdir_entry(pdir_start, KERNEL_SPACE, (unsigned long) addr, 0);
-+		sba_io_pdir_entry(pdir_start, KERNEL_SPACE, addr, 0);
- 
- 		DBG_RUN("	pdir 0x%p %02x%02x%02x%02x%02x%02x%02x%02x\n",
- 			pdir_start,
-@@ -778,17 +775,18 @@ sba_map_single(struct device *dev, void *addr, size_t size,
- 
- 
- static dma_addr_t
--sba_map_page(struct device *dev, struct page *page, unsigned long offset,
--		size_t size, enum dma_data_direction direction,
--		unsigned long attrs)
-+sba_map_phys(struct device *dev, phys_addr_t phys, size_t size,
-+		enum dma_data_direction direction, unsigned long attrs)
- {
--	return sba_map_single(dev, page_address(page) + offset, size,
--			direction);
-+	if (unlikely(attrs & DMA_ATTR_MMIO))
-+		return DMA_MAPPING_ERROR;
-+
-+	return sba_map_single(dev, phys, size, direction);
- }
- 
- 
- /**
-- * sba_unmap_page - unmap one IOVA and free resources
-+ * sba_unmap_phys - unmap one IOVA and free resources
-  * @dev: instance of PCI owned by the driver that's asking.
-  * @iova:  IOVA of driver buffer previously mapped.
-  * @size:  number of bytes mapped in driver buffer.
-@@ -798,7 +796,7 @@ sba_map_page(struct device *dev, struct page *page, unsigned long offset,
-  * See Documentation/core-api/dma-api-howto.rst
-  */
- static void
--sba_unmap_page(struct device *dev, dma_addr_t iova, size_t size,
-+sba_unmap_phys(struct device *dev, dma_addr_t iova, size_t size,
- 		enum dma_data_direction direction, unsigned long attrs)
- {
- 	struct ioc *ioc;
-@@ -893,7 +891,7 @@ static void *sba_alloc(struct device *hwdev, size_t size, dma_addr_t *dma_handle
- 
- 	if (ret) {
- 		memset(ret, 0, size);
--		*dma_handle = sba_map_single(hwdev, ret, size, 0);
-+		*dma_handle = sba_map_single(hwdev, virt_to_phys(ret), size, 0);
- 	}
- 
- 	return ret;
-@@ -914,7 +912,7 @@ static void
- sba_free(struct device *hwdev, size_t size, void *vaddr,
- 		    dma_addr_t dma_handle, unsigned long attrs)
- {
--	sba_unmap_page(hwdev, dma_handle, size, 0, 0);
-+	sba_unmap_phys(hwdev, dma_handle, size, 0, 0);
- 	free_pages((unsigned long) vaddr, get_order(size));
- }
- 
-@@ -962,7 +960,7 @@ sba_map_sg(struct device *dev, struct scatterlist *sglist, int nents,
- 
- 	/* Fast path single entry scatterlists. */
- 	if (nents == 1) {
--		sg_dma_address(sglist) = sba_map_single(dev, sg_virt(sglist),
-+		sg_dma_address(sglist) = sba_map_single(dev, sg_phys(sglist),
- 						sglist->length, direction);
- 		sg_dma_len(sglist)     = sglist->length;
- 		return 1;
-@@ -1061,7 +1059,7 @@ sba_unmap_sg(struct device *dev, struct scatterlist *sglist, int nents,
- 
- 	while (nents && sg_dma_len(sglist)) {
- 
--		sba_unmap_page(dev, sg_dma_address(sglist), sg_dma_len(sglist),
-+		sba_unmap_phys(dev, sg_dma_address(sglist), sg_dma_len(sglist),
- 				direction, 0);
- #ifdef SBA_COLLECT_STATS
- 		ioc->usg_pages += ((sg_dma_address(sglist) & ~IOVP_MASK) + sg_dma_len(sglist) + IOVP_SIZE - 1) >> PAGE_SHIFT;
-@@ -1085,8 +1083,8 @@ static const struct dma_map_ops sba_ops = {
- 	.dma_supported =	sba_dma_supported,
- 	.alloc =		sba_alloc,
- 	.free =			sba_free,
--	.map_page =		sba_map_page,
--	.unmap_page =		sba_unmap_page,
-+	.map_phys =		sba_map_phys,
-+	.unmap_phys =		sba_unmap_phys,
- 	.map_sg =		sba_map_sg,
- 	.unmap_sg =		sba_unmap_sg,
- 	.get_sgtable =		dma_common_get_sgtable,
+> >> +          - const: img,img-gx6250
+> >> +          - const: img,img-rogue
+> >>         - items:
+> >>             - enum:
+> >>                 - ti,am62-gpu
+> >
+> > You also need to add img,img-gx6250 to the appropriate conditional
+> > blocks below here for the number of power domains (in this case, 2) and
+> > clocks (that's more complicated).
+> >
+> > These older GPUs always require three clocks (core, mem and sys), but
+> > it's not immediately clear from the Renesas TRM how these are hooked up=
+.
+> > I can see three "clocks" connected (fig 23.2 in my copy, clock details
+> > from fig 8.1b):
+>
+> Which revision of the RM is that ? There should be some Rev.M.NP at the
+> bottom of each page.
 
--- 
-2.51.0
+Rev.2.40.
 
+> >   - Clock ZG=CF=86: Appears to be a core clock for the GPU (3DGE). That=
+ would
+> >     make it our "core" clock.
+>
+> This should be 600-700 MHz clock on M3-W , so that sounds like a GPU
+> core clock.
+
+Agreed.
+
+>
+> >   - Clock S2D1=CF=86: Appears to be a core clock used on the AXI bus, m=
+aking
+> >     it our "sys" clock.
+>
+> This should be 400 MHz AXI clock, but wouldn't that make it "mem" clock
+> ? I think this might be the clock which drives the AXI bus, used by the
+> GPU to access data in DRAM ?
+
+Agreed.
+
+> >   - MSTP ST112: Appears to be a whole module on/off control of some
+> >     description, and definitely doesn't align with the missing "mem"
+> >     clock.
+>
+> Maybe this is the "sys" clock, since it toggles the register interface
+> clock on/off ?
+
+Probably.
+
+Note that both ZG=CF=86 and S2D1=CF=86 are always-on.
+MSTP ST112 is the only gateable clock, and it is controlled through
+the PM Domain and Runtime PM.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
