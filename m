@@ -4,61 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7455BCCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67C92CCD19B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 14:56:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vdr12008jjTPdPcoqBWhvg8ZAbui2kkcZRJcxxShjO8=; b=AhpVoCALbuQA5ukveBwRI5lBNO
-	Pt2F9GgaOsto3SXS1UdPt+QJBSC3RNrGHAgLnlsR0982rjHYyRxYje1mv8GqW+nbNrqD0AJFjdJBl
-	FcsTo8edHSfxciwI8COUx1BsSeAH2r9KonHb6JyWf0Q8wz0Xk6J9ykEbrAfBYgqr8Hl4+4u+UKcji
-	SnAy+xbZ+V5PpGC8/R4NiNX0LRqGEo5nmf/8ExOREov6soa/cX5g8Ckpq58ex4P1mclZfGjaIyYGs
-	DXNiqRMcxqwaC1hC3vj/zh3LwbuJd45f8YT3zHrqhufR1qvrWVuf3F//CAvc484+1UIPZMyWOf8/h
-	Diuo1J2g==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QOI1LUFBfNYw8toj5kYYcCV1EfMtnpXSvd4xIRyTRXc=; b=DkVGU6pT7D0Rhgz2VUkmBI1eUK
+	Wdp6Y/mG7n/vF3jT6xuFBawZTOJc3HGxpMVnCVyeo9c7Tkj6iUjj2GksB02VIGX2fRoF12Mi6PaAv
+	rni4yzTwev3aypq6I+0d7nojTYRO/FaAoe9ltu9pWGVQ5Ld1GU+uuXiOdzmAVxCm9JXmUrPCpUMCz
+	BkyRGylfPoGj4Abd+eEb9n67Vaer34KqQRUxjlm7wUJem2+/SrlIOpQguaDp8T0po8ZYbhkQ+B30a
+	PUY9J3hq3PCHhUYpnTN9zB5OY7uItd8E8wnOg06cMW8cTPtbywyLxFVc0khRsIrWwP6SsbSRgYplm
+	K7/WHblg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92vW-00000001yGF-2qPN;
-	Wed, 15 Oct 2025 14:56:30 +0000
+	id 1v92vh-00000001yWs-2zix;
+	Wed, 15 Oct 2025 14:56:41 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v92vU-00000001yDf-2dM1;
-	Wed, 15 Oct 2025 14:56:28 +0000
+	id 1v92vV-00000001yEZ-39yV;
+	Wed, 15 Oct 2025 14:56:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B7E1B60141;
-	Wed, 15 Oct 2025 14:56:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 510FCC116C6;
-	Wed, 15 Oct 2025 14:56:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 18F7563D47;
+	Wed, 15 Oct 2025 14:56:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 9EB1BC4AF15;
+	Wed, 15 Oct 2025 14:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760540187;
-	bh=xAsjgLYcj0kpQbCESX5ZsGy4k/qZLXOOasMw1VV3gvo=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=BJ7Tpxpd3VYV6wGu7DmeDyTOzy2z5Ll5mnSTbtiej+DizfbCMJ0D8J1B1OGm/S3Vy
-	 nP/LdsQB6lBLYIXmUie+ORsvLYaf1fYrm5dPmo2FyTPhi7OnV2qD1dpxewLFNufu5b
-	 kJSMcOpaqMxvC19rQgaKxDTkZw8BqKu+o2wKBXw2gMM9CeMhS2oVmzvSzP3kOZ6a+W
-	 0eUaHUkx+C/6JJbg1b3ySXtxaoA3fC7otIReAmcpd+IunoINSXiA8iYuSIHwGRyDUO
-	 vbL0+dwg5JAYDteFIFJx2Bfq9w8hzJJ5ss/POycDsJUPXTrZWZT+dEhFepWmC4V05l
-	 1PpzhCjX0Le1Q==
+	s=k20201202; t=1760540188;
+	bh=cbLEkvJeCgSCfAv9tPFINBb5ggoFvww0kpeGffJo/0Y=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=sNW3JIb81Cg/bXv1qd4JiAhWiyCkVL9l1F0PPxq/HJ6BHdJbhbRsTetE/UvGavf8T
+	 fDaZClq8O//6BE2/ecaUEgMAZwC4Gk0hlETeez1Ey0FAcOAT1lV9TFnku4pLXobgTe
+	 nxc4Y1aDJ+9mMhAk+rhe9o2aCk7FRioiqQ18EV7YbzlmE0BGdkd9PJ/iesasM/+hG+
+	 XF3Bg/Gyh+pdoDLWCbJcRdtJmJRckoDnuDbZFIuejGwzQ+jFhkFe4FNmyDE4CUd2Ei
+	 bF7s+HIboLZGWgO9jkwzKnoxiks0xoMLkF0HE1VlhmirZW2QOXmEYyqiHzHrhAL2ad
+	 J4B00nC9QtrsA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C399CCD192;
-	Wed, 15 Oct 2025 14:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7F4D3CCD19A;
+	Wed, 15 Oct 2025 14:56:28 +0000 (UTC)
 From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Subject: [PATCH v13 00/18] media: rockchip: add a driver for the rockchip
- camera interface
-Date: Wed, 15 Oct 2025 16:56:23 +0200
-Message-Id: <20240220-rk3568-vicap-v13-0-da164b4918fe@collabora.com>
+Date: Wed, 15 Oct 2025 16:56:39 +0200
+Subject: [PATCH v13 16/18] arm64: dts: rockchip: add mipi csi-2 receiver
+ node to rk356x
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIABe272gC/33SzW7bMAwH8FcpfJ4KkvqwtFPfY+iBkqhFWBoHd
- uBuKPLuk1tsXQbFR0rg70+BehsWmassw9eHt2GWtS51OrUC9ZeHIR349F1Uze1gICADRKDmH9o
- 6r9aa+KxiiLqEQLYYM7SWyIuoOPMpHbamFznkqlbU2915llJ/vmd9e271oS6Xaf71Hr3idvoZs
- jrl1WU613Sbt6ICRc4DY2FnID69TsfyMfbjSS7DBq/0F0PC8T5GDYuYjfclJci6i+k/mAUCdx/
- TDXMhY8EgNhnoYuYfDMN9zDRMAjgHwKJjH7OfmN6bzDastDxLVpuiUxdztwu4FVwTMhVboghai
- 09pOh45TjM/punlAxj3gLEBo/VYcnCsNfcAvwf4BoQcUkwmWjK5B4Q9IDSAk2DbTTLsqQcg7Ak
- I24Ypex4jQYimS+AusX1fLiCc2Rqx3Wcg7RLbp00uR0niYgz+f+J6vf4GKPoZitYDAAA=
+Content-Transfer-Encoding: 7bit
+Message-Id: <20240220-rk3568-vicap-v13-16-da164b4918fe@collabora.com>
+References: <20240220-rk3568-vicap-v13-0-da164b4918fe@collabora.com>
+In-Reply-To: <20240220-rk3568-vicap-v13-0-da164b4918fe@collabora.com>
 To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
  Maxime Chevallier <maxime.chevallier@bootlin.com>, 
  =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
@@ -83,16 +78,13 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, 
  Michael Riesch <michael.riesch@collabora.com>, 
- Michael Riesch <michael.riesch@collabora.com>, 
- Mehdi Djait <mehdi.djait@bootlin.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Bryan O'Donoghue <bod@kernel.org>
+ Michael Riesch <michael.riesch@collabora.com>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760540185; l=12133;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760540185; l=1704;
  i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=xAsjgLYcj0kpQbCESX5ZsGy4k/qZLXOOasMw1VV3gvo=;
- b=He+rpkV+Ffjbwj8xSVYkzRAei++RZRoXnoddzVRgCS3E0eli0yJXSozREgyv702JD4uGJWfzX
- 7aSv81j6K4XA51K7N/D68uEZIh2bpGN9cwLou6v2x83zkvnHqHAj5Zh
+ bh=jgd8PGtinPHV73owMQCyysIiMO5uNpYF0qMpM09delI=;
+ b=NIPdroaGCbe7viVEtGoBm63cPZdvqH/Xj4BX0krQN5C8PzLoRFgtS8OFSMtOe3bvHq4H1LfTC
+ Bnf9tRslIGyCjjeOdMdLs+P0wLYqt9r198OvEcP0+8xbGRAummES/jJ
 X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
  pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
 X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
@@ -113,256 +105,72 @@ Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Habidere,
+From: Michael Riesch <michael.riesch@collabora.com>
 
-This series introduces support for the Rockchip Camera Interface (CIF),
-which is featured in many Rockchip SoCs in different variations.
-For example, the PX30 Video Input Processor (VIP) is able to receive
-video data via the Digital Video Port (DVP, a parallel data interface)
-and transfer it into system memory using a double-buffering mechanism
-called ping-pong mode.
-The RK3568 Video Capture (VICAP) unit, on the other hand, features a
-DVP and a MIPI CSI-2 receiver that can receive video data independently
-(both using the ping-pong scheme).
-The different variants may have additional features, such as scaling
-and/or cropping.
-Finally, the RK3588 VICAP unit constitutes an essential piece of the
-camera interface with one DVP, six MIPI CSI-2 receivers, scale/crop
-units, and a data path multiplexer (to scaler units, to ISP, ...).
+Add the device tree node for the RK356x MIPI CSI-2 Receiver.
 
-The v13 of the series adds a media controller centric V4L2 device driver
-for the Rockchip CIF with
- - support for the PX30 VIP (not tested, though, due to the lack of HW)
- - support for the RK3568 VICAP, including
-    - capturing frames from the DVP
-    - capturing frames from the MIPI CSI-2 receiver
- - abstraction for the ping-pong scheme to allow for future extensions
- - abstraction for the INTERFACE and CROP parts to allow for future
-   extensions
- - initial support for different virtual channels (not tested, though,
-   due to the lack of HW)
-and a V4L2 subdevice driver for the Rockchip MIPI CSI-2 Receiver.
-
-The RK3568 DVP has been tested by Gerald on a WolfVision PF5 hardware,
-the RK3568 MIPI CSI-2 have been tested by me on a Radxa ROCK 3A + Radxa
-Camera 8M.
-
-The driver can be readily extended to provide support for the RK3588
-VICAP variant. In order to keep things simple, however, this extension
-shall be submitted separately.
-
-Looking forward to your comments!
-
-To: Mehdi Djait <mehdi.djait@linux.intel.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Théo Lebrun <theo.lebrun@bootlin.com>
-To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-To: Gerald Loacker <gerald.loacker@wolfvision.net>
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-To: Markus Elfring <Markus.Elfring@web.de>
-To: Sakari Ailus <sakari.ailus@iki.fi>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-To: Rob Herring <robh+dt@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-To: Kever Yang <kever.yang@rock-chips.com>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Collabora Kernel Team <kernel@collabora.com>
-To: Paul Kocialkowski <paulk@sys-base.io>
-To: Alexander Shiyan <eagle.alexander923@gmail.com>
-To: Val Packett <val@packett.cool>
-To: Rob Herring <robh@kernel.org>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
 Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-
-Changes in v13:
-- fixed interrupt names in CSI-2 reciever bindings example (Rob's bot)
-- revised Radxa Camera 8M device tree overlay
-- Link to v12: https://lore.kernel.org/r/20240220-rk3568-vicap-v12-0-c6dbece6bb98@collabora.com
-
-Changes in v12:
-- added Radxa Camera 8M device tree overlay
-- rebased onto v6.18-rc1
-- fixed IOMMU pagefaults caused by wrong VLW (Mehdi)
-- fixed indentation of register defines in -regs.h (Sakari)
-- renamed CSI-2 receiver interrupts (Rob)
-- added MEDIA_BUS_TYPE_* as comments in DT bindings (Bryan)
-- added newline in rkcif-dev.c (Bryan)
-- Link to v11: https://lore.kernel.org/r/20240220-rk3568-vicap-v11-0-af0eada54e5d@collabora.com
-
-Changes in v11:
-- rkcif: split large driver patch (6/13 of v10) into smaller
-  patches (6-11/17 of v11) (Bryan)
-- rkcsi: replaced devm_reset_control_array_get_exclusive with 
-  devm_reset_control_get_exclusive (Philipp)
-- Link to v10: https://lore.kernel.org/r/20240220-rk3568-vicap-v10-0-62d8a7b209b4@collabora.com
-
-Changes in v10:
-- rkcsi: fixed error handling in rkcsi_start (Bryan)
-- rkcsi: fixed interrupt references in device tree and bindings
-  (Rob's bot)
-- added missing call to rkcif_mipi_stop_streaming from rkcif_mipi_isr
-  (Mehdi)
-- renamed remaining instances "cif_" -> "rkcif_" in functions
-- Link to v9: https://lore.kernel.org/r/20240220-rk3568-vicap-v9-0-ace1e5cc4a82@collabora.com
-
-Changes in v9:
-- added compatible for RK3588 MIPI CSI-2 receiver, thus dropped
-  Krzysztof's R-b
-- added interrupts to rkcsi DT binding and RK356x DT
-- added variant specific callback to rkcif-capture-mipi that puts
-  together the CTRL0 register content (which varies between RK3568
-  and RK3588)
-- fixed v4l2_fill_pixfmt_mp() return value handling (Mehdi)
-- Link to v8: https://lore.kernel.org/r/20240220-rk3568-vicap-v8-0-9d9cbc4b524d@collabora.com
-
-Changes in v8:
-- rebased onto v6.16-rc1
-- fixed RKCIF_MIPI_MAX value in rkcif-common.h
-- fixed rkcsi Kconfig (kernel test robot)
-- sorted rkcsi DT bindings document properly, completed example
-  (Krzysztof)
-- squashed the defconfig patches (Krzysztof), dropped Bryan's R-b
-- Link to v7: https://lore.kernel.org/r/20240220-rk3568-vicap-v7-0-7581fd96a33a@collabora.com
-
-Changes in v7:
-- moved MIPI CSI-2 receiver driver into separate directory (Laurent)
-- rkcsi: fixed return values (Bryan)
-- rkcsi: fixed v4l2_get_link_freq to use pad instead of control
-  handler (Sakari)
-- rkcsi: added data-lanes property (Mehdi)
-- rkcif: fixed formatting (Bryan)
-- fixed "int" -> "unsigned int" in all for loops (Sakari)
-- rkcif-stream: fixed minimum number of required buffers (Mehdi)
-- rkcif-stream: used guards for the spinlock (Markus and Mehdi)
-- rkcif-stream: made driver less noisy with dev_dbg (Mehdi)
-- rkcif-stream: fixed issues detected by v4l2-compliance (Mehdi)
-- rkcif-dvp-capture: fixed return value propagation in _register()
-  (Mehdi)
-- removed stray "phy-names" from required properties (Rob's bot)
-- Link to v6: https://lore.kernel.org/r/20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com
-
-Changes in v6:
-- rebased onto v6.15-rc1
-- renamed "MIPI CSI HOST" -> "MIPI CSI RECEIVER" (Laurent)
-- s/@wolfvision.net/@collabora.com where appropriate
-- renamed DVP delay property and moved it to the endpoint (Sakari)
-- implemented DT review comments (Krzysztof and Sakari)
-- implemented driver review comments (Sakari)
-- fixed issues raised by media-ci (yet again)
-- added documentation including a RK3568 topology (new patch 1)
-  (Sakari)
-- added patch that enables rkcif in the defconfig (new patch 9)
-- Link to v5: https://lore.kernel.org/r/20250306-v6-8-topic-rk3568-vicap-v5-0-f02152534f3c@wolfvision.net
-
-Changes in v5:
-- fixed issues raised by media-ci
-- fixed dt bindings (comments by Rob and Sakari)
-- fixed probe on systems with no DVP in DT (comment by Alexander)
-- fixed error path in register offset calculation
-- split off MIPI CSI host driver into separate module (comment
-  by Mehdi)
-- added MODULE_DEVICE_TABLE() for both drivers (comment by Mehdi)
-- Link to v4: https://lore.kernel.org/r/20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net
-
-Changes in v4:
-- added support for the MIPI CSI-2 receiver (new patches 4, 6, 7, 10)
-- fixed asserts on stream stop
-- fixed register address lookup
-- fixed link validiation callback
-- fixed issues raised by Rob's bot, kernel test robot, and media-ci
-- Link to v3: https://lore.kernel.org/r/20250206-v6-8-topic-rk3568-vicap-v3-0-69d1f19e5c40@wolfvision.net
-
-Changes in v3:
-- renamed the driver "cif" -> "rkcif"
-- rebased onto v6.14-rc1
-- abstracted the generic INTERFACE+CROP part
-- addressed comments by Rob and Sakari
-- added V4L2 MPLANE formats to DVP
-- added patch that enables the RK3568 VICAP DVP on PF5 IO Expander
-- fixed formatting issues raised by media-ci bot
-- Link to v2: https://lore.kernel.org/r/20241217-v6-8-topic-rk3568-vicap-v2-0-b1d488fcc0d3@wolfvision.net
-
-Changes in v2:
-- merged with Mehdi's v13
-- refactored the complete driver towards a media controller centric driver
-- abstracted the generic ping-pong stream (can be used for DVP as well as for CSI-2)
-- switched to MPLANE API
-- added support for notifications
-- Link to v1: https://lore.kernel.org/r/20240220-v6-8-topic-rk3568-vicap-v1-0-2680a1fa640b@wolfvision.net
-
 ---
-Mehdi Djait (2):
-      media: dt-bindings: add rockchip px30 vip
-      arm64: dts: rockchip: add the vip node to px30
+ arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 34 +++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-Michael Riesch (16):
-      Documentation: admin-guide: media: add rockchip camera interface
-      media: dt-bindings: video-interfaces: add defines for sampling modes
-      media: dt-bindings: add rockchip rk3568 vicap
-      media: dt-bindings: add rockchip rk3568 mipi csi-2 receiver
-      media: rockchip: add driver for the rockchip mipi csi-2 receiver
-      media: rockchip: add driver for the rockchip camera interface
-      media: rockchip: rkcif: add abstraction for interface and crop blocks
-      media: rockchip: rkcif: add abstraction for dma blocks
-      media: rockchip: rkcif: add support for px30 vip dvp capture
-      media: rockchip: rkcif: add support for rk3568 vicap dvp capture
-      media: rockchip: rkcif: add support for rk3568 vicap mipi capture
-      arm64: defconfig: enable rockchip camera interface and mipi csi-2 receiver
-      arm64: dts: rockchip: add vicap node to rk356x
-      arm64: dts: rockchip: add mipi csi-2 receiver node to rk356x
-      arm64: dts: rockchip: enable vicap dvp on wolfvision pf5 io expander
-      arm64: dts: rockchip: add radxa camera 8m on rock 3a csi port
+diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+index e0e4dc85a3a9..36365e6998dc 100644
+--- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
+@@ -564,6 +564,36 @@ gpu: gpu@fde60000 {
+ 		status = "disabled";
+ 	};
+ 
++	csi: csi@fdfb0000 {
++		compatible = "rockchip,rk3568-mipi-csi";
++		reg = <0x0 0xfdfb0000 0x0 0x10000>;
++		interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 9 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "err1", "err2";
++		clocks = <&cru PCLK_CSI2HOST1>;
++		phys = <&csi_dphy>;
++		power-domains = <&power RK3568_PD_VI>;
++		resets = <&cru SRST_P_CSI2HOST1>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			csi_in: port@0 {
++				reg = <0>;
++			};
++
++			csi_out: port@1 {
++				reg = <1>;
++
++				csi_output: endpoint {
++					remote-endpoint = <&vicap_mipi_input>;
++				};
++			};
++		};
++	};
++
+ 	vicap: video-capture@fdfe0000 {
+ 		compatible = "rockchip,rk3568-vicap";
+ 		reg = <0x0 0xfdfe0000 0x0 0x200>;
+@@ -592,6 +622,10 @@ vicap_dvp: port@0 {
+ 
+ 			vicap_mipi: port@1 {
+ 				reg = <1>;
++
++				vicap_mipi_input: endpoint {
++					remote-endpoint = <&csi_output>;
++				};
+ 			};
+ 		};
+ 	};
 
- .../admin-guide/media/rkcif-rk3568-vicap.dot       |  21 +
- Documentation/admin-guide/media/rkcif.rst          |  83 ++
- Documentation/admin-guide/media/v4l-drivers.rst    |   1 +
- .../bindings/media/rockchip,px30-vip.yaml          | 124 +++
- .../bindings/media/rockchip,rk3568-mipi-csi.yaml   | 146 ++++
- .../bindings/media/rockchip,rk3568-vicap.yaml      | 172 ++++
- MAINTAINERS                                        |  17 +
- arch/arm64/boot/dts/rockchip/Makefile              |   5 +
- arch/arm64/boot/dts/rockchip/px30.dtsi             |  12 +
- .../dts/rockchip/rk3568-rock-3a-radxa-cam8m.dtso   | 103 +++
- .../rk3568-wolfvision-pf5-io-expander.dtso         |  20 +
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |  78 ++
- arch/arm64/configs/defconfig                       |   2 +
- drivers/media/platform/rockchip/Kconfig            |   2 +
- drivers/media/platform/rockchip/Makefile           |   2 +
- drivers/media/platform/rockchip/rkcif/Kconfig      |  18 +
- drivers/media/platform/rockchip/rkcif/Makefile     |   8 +
- .../platform/rockchip/rkcif/rkcif-capture-dvp.c    | 865 +++++++++++++++++++++
- .../platform/rockchip/rkcif/rkcif-capture-dvp.h    |  25 +
- .../platform/rockchip/rkcif/rkcif-capture-mipi.c   | 777 ++++++++++++++++++
- .../platform/rockchip/rkcif/rkcif-capture-mipi.h   |  23 +
- .../media/platform/rockchip/rkcif/rkcif-common.h   | 250 ++++++
- drivers/media/platform/rockchip/rkcif/rkcif-dev.c  | 303 ++++++++
- .../platform/rockchip/rkcif/rkcif-interface.c      | 426 ++++++++++
- .../platform/rockchip/rkcif/rkcif-interface.h      |  31 +
- drivers/media/platform/rockchip/rkcif/rkcif-regs.h | 153 ++++
- .../media/platform/rockchip/rkcif/rkcif-stream.c   | 638 +++++++++++++++
- .../media/platform/rockchip/rkcif/rkcif-stream.h   |  32 +
- drivers/media/platform/rockchip/rkcsi/Kconfig      |  16 +
- drivers/media/platform/rockchip/rkcsi/Makefile     |   3 +
- drivers/media/platform/rockchip/rkcsi/rkcsi.c      | 742 ++++++++++++++++++
- include/dt-bindings/media/video-interfaces.h       |   4 +
- 32 files changed, 5102 insertions(+)
----
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-change-id: 20240220-rk3568-vicap-b9b3f9925f44
-
-Best regards,
 -- 
-Michael Riesch <michael.riesch@collabora.com>
+2.39.5
 
 
 
