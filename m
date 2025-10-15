@@ -4,90 +4,232 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3703CCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 10:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2AD2CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 10:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MWYP/aNgjRCGts/VbNNkjNc+sdGx7l/0S3TJEsCEcjM=; b=4kRK5eTTCZ5sUfuWRpNq1wbE0h
-	s/+6K7M3PQWQQVGkCCUoHawLNwsf7iAFMlkKCiRN5/Mfe7njrjJD5AKLGVXBzyuM+D355xnKJhBf6
-	6+HJuVSScD7edwXPWZu1c0ZGXk2VGNJila8ptLK7RAfXfBBWunSRzH54hn4l8C9NciIm+0ZGXi8/3
-	JPmHvE6Kr7ZmT2m3AMLHVp+oSqcT9yUNQb82EVRs9IAM9RlF0vEBPHVqcoCm3GyNt6KSHo7oZBup6
-	tJSmnvid4vDNeQ/xIAd4BkJCUaOJaWxlcbHaNjIDD9MeFwCLTC7jg1yZLuJ1DWsoyes/8NS6ejfIi
-	e9pj285w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HOo+gSN7/s4tjR57QPQcClScLqVV7lOepu8Y4twy7yE=; b=Ue/Z6Htrvy/9mpTp0kM3VdSL6p
+	bZJji7FieYSNnsO3kz5S7BXpKPvh6qwycpYYe8fdyODLKCuelj5fqHHgMNiCfWf4wKlCIaAlmIlFs
+	Rb+83ilxZ0DYL7KbF8cabbPIkP5tAPxlf2rvjT/OnoiFx/Xln9ZxX5HkuoMzADumbnShyAddbRoZp
+	BiNq2ilsghYtJ9miYVVSnbYT+cVr/6R6tB/YTeu5g6TrMUwnf5MXY4HcGhhpAn9NlzcngzaajCHTl
+	TmGbdcHAAeoOwCBgDEZQXTVUJ2b35rqnIa8HLCtP6/lzAblgoaUUxpedqVKG51/MP/Wp/rIohgb/H
+	AyM1NakA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8yuy-00000001Ixv-36fr;
-	Wed, 15 Oct 2025 10:39:40 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v8z7S-00000001Jlz-2f3x;
+	Wed, 15 Oct 2025 10:52:34 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8yuv-00000001IxK-03MJ;
-	Wed, 15 Oct 2025 10:39:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1760524738; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=FUTfp5yum/Vfn1bQxCyxoujMyXoz/BRrgcgqPflteJdELRMjoSs2n2LMyl9nuHWucZPCMeKSIY0pDJQyEFap6vBvMli6fFu6GPEZZa2/uNJiSQmD9IdF16aZCBLwXqRKple6s2Oq94ZfKrQg+JSNlDyVWaGGttr6eJqYiwpg4cY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1760524738; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=MWYP/aNgjRCGts/VbNNkjNc+sdGx7l/0S3TJEsCEcjM=; 
-	b=K9LCJ+e1KR5qM4SuvF1xvukR4TDhyGVtgXpsbtgtVNZ/hk6LiKQLchvz/gTGXmrb28e877ieC8KCvRvYZAyDkUbEh2vVnDAFYIXPHexLPlNsw04gG5POL90YIn16Q7tc9BZC3pPqx835I0Gua6mZcAlE2eBp2q4634zHxthcodA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760524738;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=MWYP/aNgjRCGts/VbNNkjNc+sdGx7l/0S3TJEsCEcjM=;
-	b=CX9ucnqODsrtBjMjeVD9Ye6NRJ10OMkJMf/ZQnTV2o3n5zbqmJ8WXgHSVgQ/Wfci
-	4NQoSVRr9uO4OqhHeRKOytbGQhxuuNkZyuO8RJs3saK2tPhFi0Pna6FCvRbvOd48i8c
-	sAovLovalIs3CSY3iv7aDmgn3cFku+AbztQ9BqvQ=
-Received: by mx.zohomail.com with SMTPS id 1760524735523797.9819794035571;
-	Wed, 15 Oct 2025 03:38:55 -0700 (PDT)
-Message-ID: <c430ab36-7c49-4486-864d-7cf53dc2a723@collabora.com>
-Date: Wed, 15 Oct 2025 12:38:47 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] media: v4l2-mem2mem: Don't copy frame flags in
- v4l2_m2m_buf_copy_metadata()
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org,
- imx@lists.linux.dev, linux-rockchip@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev,
- linux-staging@lists.linux.dev
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, Bin Liu
- <bin.liu@mediatek.com>, Chen-Yu Tsai <wens@csie.org>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Devarsh Thakkar <devarsht@ti.com>, Dmitry Osipenko <digetx@gmail.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Hans Verkuil <hverkuil@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Jacob Chen <jacob-chen@iotwrt.com>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Maxime Ripard <mripard@kernel.org>,
- Michael Tretter <m.tretter@pengutronix.de>, Ming Qian <ming.qian@nxp.com>,
- Mirela Rabulea <mirela.rabulea@nxp.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Paul Kocialkowski <paulk@sys-base.io>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Steve Longerbeam <slongerbeam@gmail.com>,
- Tiffany Lin <tiffany.lin@mediatek.com>,
- Xavier Roumegue <xavier.roumegue@oss.nxp.com>,
- Yunfei Dong <yunfei.dong@mediatek.com>, Zhou Peng <eagle.zhou@nxp.com>
-References: <20251015100118.8755-1-laurent.pinchart@ideasonboard.com>
+	id 1v8z7P-00000001Jjv-0mhH
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Oct 2025 10:52:32 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 59F61VHk2709269;
+	Wed, 15 Oct 2025 11:52:15 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=dk201812; bh=HOo+gSN7/s4tjR57QPQcClScL
+	qVV7lOepu8Y4twy7yE=; b=Nes6tojpARmxv5sZyDqxKiGT+OhPKELH6Kv5MrvHj
+	9YZ8rHTke4EstFfCvJwVF/BH312n/3vcogXTiHMmqE9ITSpKD3V5i2VoWVMsuq06
+	1JKpfF721fgt6HyU09dwzjA6jwDEs9Q0cD1VcqDxfra1HKsOOxM8xvriTS6EuCKo
+	uoS53MtwZBh1738+Kg5vDtHUL7hYGyJhPogQ/RWjdx+H825xaNudWMS8ih5F+Oq7
+	B4r7P+1qt6ns99jjL8BHiWbmf3vNv9+VGxPaOzc5mozdHRQtLvv/ZmfqIb+rK56b
+	nu8YcRSmT+Ob8na+LrmnaBtC7vz+HdZKTSLvYn1quh9WA==
+Received: from cwxp265cu008.outbound.protection.outlook.com (mail-ukwestazon11020079.outbound.protection.outlook.com [52.101.195.79])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 49qdgn3vxs-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 15 Oct 2025 11:52:13 +0100 (BST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uUYld9DBdEGm3NSAeQLQbLy+w9hndUiwZJBAzZqSMoeQy54zVQi/fKW3Szp2/Kt36cbXUv46QKW0V9tDwfnMhxXR9gIDufcEh/rvNazCB3fjsHIz1G1efX+KY8SoWucNwIMzNfEslanPuwlWO1cq3I1Og8YzNCIsWCc+4J4nfFBN8HYtorArPWE6wNGEBowEaUJm79zmwWoiJ0+LckPkonHeQ6VjZAWwRfV0K1yOzNy3wU2jKzQ9gknUKsJrepdhcnahF5QBjMIk5NeNfrgtUOl90MI7YbKn5g6zmjSENV/Nr8U/ZPxaJScnyTLkvObPqB1VLaak7NS1o6GN0Y1UkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HOo+gSN7/s4tjR57QPQcClScLqVV7lOepu8Y4twy7yE=;
+ b=VN0lfaEg+aFvPW1AdJVv36HLT07Bd55htJLFbTtfoWx3bjYByBT93QMefTONjoMbVYnieYtO/zmqHInoMcnVDurbuJ2UgdZzP8vQh1kV0oFNtf3vrbV/VbiS6puPVhV8XP/zk7HBjsJayTfTdMwPaT1kHy/5T6rOUhB/vm9I/NMWTO5zPU6kgH9lTLiNUp98jEpNoRGyJadp1OjDiG98xPqqPr7zA19n2jr13ulfaO1JgU/fbfCclAXI/avgwftka0TXJ7H/4tTjJWcX7FpUjU8EYQaaz3Z/QPVcEUZRGShwmYJUch3Y6biBjEzkSSDmFdQo3fN3PT50A2qoOV1Nvw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=imgtec.com; dmarc=pass action=none header.from=imgtec.com;
+ dkim=pass header.d=imgtec.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=IMGTecCRM.onmicrosoft.com; s=selector2-IMGTecCRM-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HOo+gSN7/s4tjR57QPQcClScLqVV7lOepu8Y4twy7yE=;
+ b=NKQok/5kYw12oORSb5beP1QSAUkVMtb3IQ2TFmquTMY/k61JXNmaBx6/6gKsci/cR6RFXY/LfgSOwOmmtwerc3lpynSsTCUo/9cwdMLvuvG/U6tJ7jnVNNJfXdWYa5sVYv7G/nBBTHPfno/nKXUJ3Jba3pvbQjyTSoszeGah33E=
+Received: from CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:e7::8) by
+ LO3P265MB1898.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:b3::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9160.9; Wed, 15 Oct 2025 10:52:11 +0000
+Received: from CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::8e9d:6b2f:9881:1e15]) by CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::8e9d:6b2f:9881:1e15%5]) with mapi id 15.20.9228.010; Wed, 15 Oct 2025
+ 10:52:10 +0000
+From: Matt Coster <Matt.Coster@imgtec.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+        Marek Vasut
+	<marek.vasut@mailbox.org>
+CC: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+        Adam Ford
+	<aford173@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
+        David Airlie
+	<airlied@gmail.com>,
+        Frank Binns <Frank.Binns@imgtec.com>,
+        Alessio Belle
+	<Alessio.Belle@imgtec.com>,
+        Alexandru Dadu <Alexandru.Dadu@imgtec.com>,
+        Geert
+ Uytterhoeven <geert+renesas@glider.be>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Magnus Damm
+	<magnus.damm@gmail.com>,
+        Maxime Ripard <mripard@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Simona Vetter <simona@ffwll.ch>,
+        Thomas Zimmermann
+	<tzimmermann@suse.de>,
+        "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>,
+        "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-renesas-soc@vger.kernel.org"
+	<linux-renesas-soc@vger.kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: gpu: img,powervr-rogue: Document GX6250
+ GPU in Renesas R-Car M3-W/M3-W+
+Thread-Topic: [PATCH 1/3] dt-bindings: gpu: img,powervr-rogue: Document GX6250
+ GPU in Renesas R-Car M3-W/M3-W+
+Thread-Index: AQHcPcHBk90JKUhyHEK8NGulGuffcA==
+Date: Wed, 15 Oct 2025 10:52:09 +0000
+Message-ID: <b5b47ad5-b3e4-4213-84e9-9e649a250237@imgtec.com>
+References: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
+ <c65950f5-010a-4d5d-88d9-60697eeddb46@imgtec.com>
+ <f4e1897c-7073-4ab0-92b3-6f7d69382825@mailbox.org>
+ <CAMuHMdVpb-0TJ4AoqjAGbdErw65193+j1-HbXCyvvwf8MT6yLQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdVpb-0TJ4AoqjAGbdErw65193+j1-HbXCyvvwf8MT6yLQ@mail.gmail.com>
+Accept-Language: en-GB, en-US
 Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20251015100118.8755-1-laurent.pinchart@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CWXP265MB3397:EE_|LO3P265MB1898:EE_
+x-ms-office365-filtering-correlation-id: b3f12dbb-f7f9-4acb-450c-08de0bd8e40a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|38070700021|4053099003;
+x-microsoft-antispam-message-info: =?utf-8?B?VzhGdTlITlZkblRlTTM1V0MwZ05pT3djSmJsQWdJclJHUkdqUHBWU3ljaGw2?=
+ =?utf-8?B?bkovQWlXUVVST2YzSHFwUHpwL1Via05IbVRTeXFoRS9mZUxRSVl5NExIczRV?=
+ =?utf-8?B?TXFDRUhXZTlOMjdEN1JSMldkaG9DeVp1a0ZIMXFYZ2I2VVZFb2J1Zk9PUHBq?=
+ =?utf-8?B?NHdhclo5MGxFdW9lajVPMzUzN3psYzBqMnFGZEpZQTZZbkY4eXBOVjhJbXZ6?=
+ =?utf-8?B?bVd1b0xCRk9DN0F4NEpQTGtGMWIzUHMyUjJlQ1V1Zk4yL0plTkRzUzNCZkNs?=
+ =?utf-8?B?NkZVckRvbGE2WnVtRnVXZDhPVlROK0NSbk4vWllqeDdHTnhxSWpOV3QwVFlP?=
+ =?utf-8?B?WWtDb2dDMzM0M216bStBQzF0Wm1WV2NHRHMwdEVWR2YvU3Irblc0RkVpa1ow?=
+ =?utf-8?B?KzZJd2h4RE95TWtBei9LVVlYMHBZSk1NQUZ2bTdiNndyQ3Y4RXdMdkVuZEE0?=
+ =?utf-8?B?a0VzUWNXS2ZMYzFQT1V6NjNRYzQzck1yempsYXJFZkZKb1IyZW5CU2RJUTFx?=
+ =?utf-8?B?NDFhckRQTUN6ek1WSTdERDhmaDFZR2VhZ2E1aWNDVXUxVjdtaHdBUEVvdDlN?=
+ =?utf-8?B?V0haWWdOcHp4STI1NjdnVlZSVldvNDdhRWJOR0ZQc3FIMFpWZDBJYUU1WXpr?=
+ =?utf-8?B?amFXWG9rdjhiQTh3RXZTWC9zSjdFbmFTWVhPRlRvZmpuMHZrNFY1M0prbE55?=
+ =?utf-8?B?cGRGQldxancrbzlJUFk5bWdwbGZnZEVNRHVXMEtCcUc5OUw5dVNqUlFFZ2Ri?=
+ =?utf-8?B?cnJUNi80UDRTc1U2WnZGeWFXdlI1SGFTVU15L3cwT3phaW1lUnZ2cEpMbGhz?=
+ =?utf-8?B?RlNXbmJlUW5ESFlIaGN3Uy9HakhtbzJVVVdiRWxvWGEyaUdaMURZeTNDdnRC?=
+ =?utf-8?B?RkRKeXlzZWMyNm9qZ1ZIK0NJMVdJQWtraXV3TXlVbDRWK0YxaklGY1E3R09q?=
+ =?utf-8?B?dGJKRFduTFA0eXFTMmY4dEQzbUo5UmNjT3NMR3ZYd0FVNitVU0MvTjNYME5j?=
+ =?utf-8?B?ek5uS3BZWnBQTWRUWWgyblZZeTVHeXQ5OFJ5cGpRMEdGNGNkaDg1ZnpkVWpB?=
+ =?utf-8?B?S3dJMmxXZlhsbTF6UnlteDcyb01qYmMwSytXZEJnS3hlZmV6L2ErR3E3ZG96?=
+ =?utf-8?B?OWd3c1lLM3JrZGZDNnltYm1WN1VjWE5uM0hpRTc1MFhRaGd3VEJZOHcvZWp4?=
+ =?utf-8?B?MjhaeWhJNFpZQ0FPdUtvWkRibUh0eXFONEErcVVQemZqTk5yRGl0NHZORjlr?=
+ =?utf-8?B?RmhlRlVzYXNUMzljWHQ0WnA1bzNqNmRFMEZMYTA5ZkxsWW9udHVLVlErTWl1?=
+ =?utf-8?B?cCtqNHNUTjE3ei9GYWFHTExMMnM2WnpZRnlIZFZ1bUd2bmx6K3BsVys5M3FJ?=
+ =?utf-8?B?eDV2RlRUUm1sU0llblZlZkpTYWdHTzhBd2ZXdGZBc3RFazkyS2V6QW85eEp2?=
+ =?utf-8?B?R0VuQjNMNVI4OFRhNmNTdU55Q293YktBRWg1Y2RtNlliS1llWnNOUDVYTWNM?=
+ =?utf-8?B?TjM1TlB1c2VBekw1cXdWbHNXR1J6WWl2cUFTWU5jMVdrOFJmeWZoZVNYUzUy?=
+ =?utf-8?B?Q0EwcnZ0SW9LdFZLT2VGUXF2UkVZdGVUT1IwaHJWbWFqdWdoM09sTnJPTklx?=
+ =?utf-8?B?RUpDREI5WVRNY2l2RVpKWnlkR1o0WWRpZzdMckUzWVJnOVVMc0R0eXNkandm?=
+ =?utf-8?B?ZFZJbVlWdFMwYUdvMW43MGNhVGNOeWxLYTFlY2ZDa2tPTXFvS2hmYVl0SUdm?=
+ =?utf-8?B?WjNFSGdqM0lEWDlUNDBmTklNS3BCYW9vYXU0WHRwUGFZaVlUL0VOTHZpd01q?=
+ =?utf-8?B?bTlFYU5YWEpabldidGNIRkd6SFRGMjJTUitHM3hYWDEyeStTSWwzQlZrRTcy?=
+ =?utf-8?B?RU9MTWsveXB0Q1plcUxqYXpYVUV0MldJYmVIRkRUSXpzSklTaVkxQ0lOUDNX?=
+ =?utf-8?B?N0dEdG14bVVKSzlHZ0tvL1p4eVh2dXl4STY1bEVpMUlkcXd3NEJxODR4QUNC?=
+ =?utf-8?B?dUtHMllYM3JlM0RzYlUyK3Brbkl3R1NHbXkxWjlwK2M1UTV4cU53WXg3Qktn?=
+ =?utf-8?Q?qkwbH2?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(38070700021)(4053099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UUFxZm5Yb2ExbmhqWHNCbzV2K1VuYno1RFAzQnczRHU3UjliS2FKM3hJdHpn?=
+ =?utf-8?B?SmpOQVpGaG5STnk3aldLNGNkaEtBNUd2QkU5OUtrWGk3aEpnclRRTHZwdnNW?=
+ =?utf-8?B?YktmKzc3T25meFNrNTlFbUwrQ1dzVGgxa0M5RFE1UU5icVljb3BIaXlnZFdu?=
+ =?utf-8?B?OGpFQkhHemNFcEZxZWI1RHZid0hMSEF6byt0b21oT2NQeUh6blNLaGJ3eGgr?=
+ =?utf-8?B?STg4WUtQN1dLQ2F3NjA0bWhaRmx2STZRMDJLUm11d05IVmxIaGNuUUdPbk00?=
+ =?utf-8?B?SGRiSm1MQWZFaGVjWWdkeHgwQmNRMFBLZzhLb0tyOEhrL0dOQkI5L1lEU3JR?=
+ =?utf-8?B?cFpCUGZsNzBUTG1nQzVYOUFWQWtRbEEvS0lGUkdxdFN3eG9IUVNvd01ZdXFy?=
+ =?utf-8?B?RWNYMnZVMVZvVi9WYlFuVUhpdDl0Y0lFTmRSeVprTDZKRnk2ZHlHRzY1VS8v?=
+ =?utf-8?B?eTEwRjhEWnZvZWdHVlkrVVk2NU0rd2JFWEtVK1huVmZLY2E0K3BNNjhXeWtr?=
+ =?utf-8?B?Ui93bE5FMGYwbGJ5aEJnVUt5UTNERTRpT2czRi9rTVBUdnVFU1hMMmd5QlRu?=
+ =?utf-8?B?TkVwRWpheE9rSC9SZThYcDNxK3hNdVFFMWJYRCtIdmFFN1hSQW5kU1JUUzdX?=
+ =?utf-8?B?ZW5oWjZHS29TZHZqWktvbXg2dllkaWhzY2JiTDlwR0lEZC9ZeDZNWGcrbTY5?=
+ =?utf-8?B?RFBycnFoYTQ5VWZmNHZlMzU5cFFmV3JXUmw3bHkyVW1JR1dUdkpNRlVBVzBZ?=
+ =?utf-8?B?ZTNkbHp5ckVaQWFpRU83Z3QvUVZZemlxYTE3dTZBbmNrNnU3MUMxcjk1aWdo?=
+ =?utf-8?B?RncxOWFSZ2pCQ0FSajhlRitkb3oybUx5Z0JPbUcxZnN1Ryt4emNkNkhtMkVj?=
+ =?utf-8?B?a1pTWkI0Z2dZTVdabUJNakVYZStnU05NeHFzakQ5VWxvYTRuWFZZMFpHbWZG?=
+ =?utf-8?B?eDJGcC9SSHN2cTFGTGNybnpEZjFOSW05aDBJR2hkUG44cHFuZFNKUTlSTFdl?=
+ =?utf-8?B?WlE2UnMwMmEraXpQb2o2WXA1OHl3Z1BEOTJ0YmFKYXBSQVFtdmVkZTNqT0dr?=
+ =?utf-8?B?L1ZHUmo1d2dkcVhrcVg4RERtcWMxMzk4TThwVHArS2Y1VzNjRlZKTkRBOXA4?=
+ =?utf-8?B?N0orUnl2czlFOXdDVVduMjV5N1VoZU5pdjF4d1dJSG1MUU1FZTU2UWw3Q3Nq?=
+ =?utf-8?B?Y1FKMXlYb3BRN2FnSndHNFUyRzRVdGFFUUFlSWtHTkJ0L21GMlBoY3dITm1t?=
+ =?utf-8?B?bG9tWHFNeFFhZGtUc09sQVkxUEx0c2xkSXVKbWYyaFhrb0EzcmRqSFdtMGdj?=
+ =?utf-8?B?dHh3WEE3NXBsRnpMUGJTWkRSb0R5M2JqcnVpL0paNVArNm9HdnBqcDRTRXdq?=
+ =?utf-8?B?LzAzTEJGRWxxRkRIb2gybHZVQjVGMUxJc01jRkUzQTYzWGkzWXliazFyLzlo?=
+ =?utf-8?B?Z1JMdFZhZnBKYnRsQmxqSU5wL2tISWNtSzdTWFVEcGRkSk5vRUpsR1lzbThD?=
+ =?utf-8?B?NER6c0cvY20zYkwxeCt2TFM2Y3VmOTg0TTlXa0hSNmEyb2QxUUVFY2k4dk1k?=
+ =?utf-8?B?MjZYSEVVaUxZQmhQVEliWGVFSURyZE9JVlhNYnQ5anZ2eXRxcGNRSTFEUkhV?=
+ =?utf-8?B?Y0I4UkRmdkFQV251VTZFVi8vTDc1Mk9GdEl5Y2czcGJLZ3FoMnp1K29aSmdK?=
+ =?utf-8?B?Uit0aTUwNWFwVzFuWFJiZUkxWkxSamFmd3VUVzRia0sxRTFOV0xpRHRCWlFi?=
+ =?utf-8?B?QmJhZjVDQ2d5TFNKU0NjVVVwUU0yK2JZRWRsMkY2Q0Y5bTRoQzNFOTF6MSs5?=
+ =?utf-8?B?TG5VL0YrVzcxTTdNRVZOYnkzMkxJMXZhdWl3YzZ1MGJzVEFMV3VTRXFlOWhm?=
+ =?utf-8?B?cWZ5TWtPOVU5Qy90YkZQQkt5enlIQ0NxbWowQkNrck9GN3gvUnR4UDJGcmx0?=
+ =?utf-8?B?UU9Yb0trWFI4clRpQlk3RmJXUHR2dm1aUmZCeWN5VlE5ZXlSMWR1Mloza3JW?=
+ =?utf-8?B?KzlmRzZlZW4vU0RuR3NvNStjWFM3L3NVNlBHVVpmSmJCZXoybit3cFRjL1Yz?=
+ =?utf-8?B?SFZTZS9DNnVrc3dUVVgrYUNwQWxoVlhCMC9vWWIyRlBCTE16d0lOY1ZXSW9Q?=
+ =?utf-8?B?dTdqeDU2emJsZ3l1ZUdCMDduOHpxb1Y2Zk5GTzQ1Rm1Fb04vU25rMlN4MmVZ?=
+ =?utf-8?B?UHc9PQ==?=
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature";
+	boundary="------------8ClYvuas0r2xxcD1fuOfoNI2"
+MIME-Version: 1.0
+X-OriginatorOrg: imgtec.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3f12dbb-f7f9-4acb-450c-08de0bd8e40a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Oct 2025 10:52:09.9476
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0d5fd8bb-e8c2-4e0a-8dd5-2c264f7140fe
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: gpqn9HFQr8q+0zJzVBpF6aqqdb0CrFA6HzowUUwj0TtEIDo9hgbILzV4bfTk3LPi1hSOKBdyntGUfWI8Ox41pg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO3P265MB1898
+X-Proofpoint-ORIG-GUID: uM3KnWkUC6yXFjij3tdgoMS8ayC6nvWi
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE1MDA4NCBTYWx0ZWRfX742Fq9HnoIdD
+ 0jMUxIqAOyKbCvyfZnj5e+SrX8h/z6smZjFf/ZFinhSB1C8pVmvtq5X1AUNT4ICcEGMPLUzG9OL
+ /P9QbuO8GDVz82UQpNfBh81hAEEYWCKtPB0sddVgRNRxArHbadswxLMTILFBrC/nd0H+DzhPjxh
+ UHGJcE0gFspSRz17uytSXBMh9Hgd14uNXauR92+Z7HSG0Y8USCTEjaPaxwjuHYZQ0HnHYyE5f80
+ cEtj+4wUhGrg7bNrRvrLOyK5nHEPSMFHTcNRI5FmFLfbo3ECpggJohHTurEHhjI6rd6SnGtHHxN
+ ZkHBSfdEcKqH0jTUpgpto/fSE7yuzkczsDqaei9k9GTgFCvgzcD7J7jJLs6DPUGI2ugvn+tkIIE
+ GoTIanUFz6u61JDAF8eqGCMtrgqmhw==
+X-Authority-Analysis: v=2.4 cv=H5PWAuYi c=1 sm=1 tr=0 ts=68ef7cdf cx=c_pps
+ a=e0JUR8hJ9jH4KmauMmA2cA==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=x6icFKpwvdMA:10
+ a=NgoYpvdbvlAA:10 a=VkNPw1HP01LnGYTKEx00:22 a=b3CbU_ItAAAA:8 a=r_1tXGB3AAAA:8
+ a=vGZ9WZSlCGPvlxs3FY0A:9 a=QEXdDO2ut3YA:10 a=5Xx2JvFwn3kT6zIZwiMA:9
+ a=FfaGCDsud1wA:10 a=Rv2g8BkzVjQTVhhssdqe:22 a=t8nPyN_e6usw4ciXM-Pk:22
+ a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-GUID: uM3KnWkUC6yXFjij3tdgoMS8ayC6nvWi
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_033937_119873_6D54A56E 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20251015_035231_512331_6A54E0D1 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,659 +244,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--------------8ClYvuas0r2xxcD1fuOfoNI2
+Content-Type: multipart/mixed; boundary="------------N2AKETDTt7oPe1joDhfliaeQ";
+ protected-headers="v1"
+From: Matt Coster <matt.coster@imgtec.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Marek Vasut <marek.vasut@mailbox.org>
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ Adam Ford <aford173@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
+ David Airlie <airlied@gmail.com>, Frank Binns <Frank.Binns@imgtec.com>,
+ Alessio Belle <Alessio.Belle@imgtec.com>,
+ Alexandru Dadu <Alexandru.Dadu@imgtec.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
+ Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>,
+ Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org
+Message-ID: <b5b47ad5-b3e4-4213-84e9-9e649a250237@imgtec.com>
+Subject: Re: [PATCH 1/3] dt-bindings: gpu: img,powervr-rogue: Document GX6250
+ GPU in Renesas R-Car M3-W/M3-W+
+References: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
+ <c65950f5-010a-4d5d-88d9-60697eeddb46@imgtec.com>
+ <f4e1897c-7073-4ab0-92b3-6f7d69382825@mailbox.org>
+ <CAMuHMdVpb-0TJ4AoqjAGbdErw65193+j1-HbXCyvvwf8MT6yLQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdVpb-0TJ4AoqjAGbdErw65193+j1-HbXCyvvwf8MT6yLQ@mail.gmail.com>
 
-Le 15/10/2025 à 12:01, Laurent Pinchart a écrit :
-> The v4l2_m2m_buf_copy_metadata() function takes a boolean
-> copy_frame_flags argument. When true, it causes the function to copy the
-> V4L2_BUF_FLAG_KEYFRAME, V4L2_BUF_FLAG_BFRAME and V4L2_BUF_FLAG_PFRAME
-> flags from the output buffer to the capture buffer.
->
-> There is no use cases in any upstream driver for copying the flags.
-> KEY/P/B frames are properties of the bitstream buffer in some formats.
-> Once decoded, this is no longer a property of the video frame and should
-> be discarded.
->
-> It was considered useful to know if an uncompressed frame was decoded
-> from a KEY/P/B compressed frame, and to preserve that information if
-> that same uncompressed frame was passed through another M2M device (e.g.
-> a scaler). However, the V4L2 documentation makes it clear that the flags
-> are meant for compressed frames only.
->
-> Drop the copy_frame_flags argument from v4l2_m2m_buf_copy_metadata().
-> The change to drivers was performed with the following Coccinelle
-> semantic patch:
->
-> @@
-> expression src;
-> expression dst;
-> expression flag;
-> @@
-> -       v4l2_m2m_buf_copy_metadata(src, dst, flag);
-> +       v4l2_m2m_buf_copy_metadata(src, dst);
->
-> include/media/v4l2-mem2mem.h and drivers/media/v4l2-core/v4l2-mem2mem.c
-> have been updated manually.
->
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+--------------N2AKETDTt7oPe1joDhfliaeQ
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Hi Geert, Marek:
 
-> ---
->   drivers/media/platform/allegro-dvt/allegro-core.c  |  2 +-
->   drivers/media/platform/amphion/vdec.c              |  2 +-
->   drivers/media/platform/amphion/venc.c              |  2 +-
->   drivers/media/platform/chips-media/coda/coda-bit.c |  2 +-
->   .../media/platform/chips-media/coda/coda-jpeg.c    |  4 ++--
->   .../media/platform/imagination/e5010-jpeg-enc.c    |  2 +-
->   .../media/platform/mediatek/jpeg/mtk_jpeg_core.c   |  4 ++--
->   .../media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c |  4 ++--
->   .../media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c |  4 ++--
->   .../media/platform/mediatek/mdp3/mtk-mdp3-m2m.c    |  2 +-
->   .../vcodec/decoder/vdec/vdec_av1_req_lat_if.c      |  4 ++--
->   .../vcodec/decoder/vdec/vdec_h264_req_if.c         |  2 +-
->   .../vcodec/decoder/vdec/vdec_h264_req_multi_if.c   | 14 ++++++++------
->   .../vcodec/decoder/vdec/vdec_hevc_req_multi_if.c   |  5 +++--
->   .../mediatek/vcodec/decoder/vdec/vdec_vp8_req_if.c |  2 +-
->   .../vcodec/decoder/vdec/vdec_vp9_req_lat_if.c      |  6 +++---
->   drivers/media/platform/nvidia/tegra-vde/h264.c     |  2 +-
->   drivers/media/platform/nxp/dw100/dw100.c           |  2 +-
->   drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c     |  2 +-
->   drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c |  2 +-
->   drivers/media/platform/rockchip/rga/rga.c          |  2 +-
->   drivers/media/platform/rockchip/rkvdec/rkvdec.c    |  2 +-
->   drivers/media/platform/st/stm32/dma2d/dma2d.c      |  2 +-
->   drivers/media/platform/sunxi/sun8i-di/sun8i-di.c   |  2 +-
->   .../platform/sunxi/sun8i-rotate/sun8i_rotate.c     |  2 +-
->   drivers/media/platform/verisilicon/hantro_drv.c    |  2 +-
->   drivers/media/test-drivers/vicodec/vicodec-core.c  |  4 ++--
->   drivers/media/test-drivers/vim2m.c                 |  2 +-
->   drivers/media/test-drivers/visl/visl-dec.c         |  2 +-
->   drivers/media/v4l2-core/v4l2-mem2mem.c             |  9 ++-------
->   drivers/staging/media/imx/imx-media-csc-scaler.c   |  2 +-
->   drivers/staging/media/sunxi/cedrus/cedrus_dec.c    |  2 +-
->   include/media/v4l2-mem2mem.h                       | 12 +++---------
->   33 files changed, 53 insertions(+), 61 deletions(-)
->
-> diff --git a/drivers/media/platform/allegro-dvt/allegro-core.c b/drivers/media/platform/allegro-dvt/allegro-core.c
-> index 510c3c9661d9..0b8766a7b560 100644
-> --- a/drivers/media/platform/allegro-dvt/allegro-core.c
-> +++ b/drivers/media/platform/allegro-dvt/allegro-core.c
-> @@ -2124,7 +2124,7 @@ static void allegro_channel_finish_frame(struct allegro_channel *channel,
->   
->   	state = VB2_BUF_STATE_DONE;
->   
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, false);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   	if (msg->is_idr)
->   		dst_buf->flags |= V4L2_BUF_FLAG_KEYFRAME;
->   	else
-> diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platform/amphion/vdec.c
-> index 32eef2fd1f2a..1f303b9b4e60 100644
-> --- a/drivers/media/platform/amphion/vdec.c
-> +++ b/drivers/media/platform/amphion/vdec.c
-> @@ -823,7 +823,7 @@ static int vdec_frame_decoded(struct vpu_inst *inst, void *arg)
->   	vbuf = &vpu_buf->m2m_buf.vb;
->   	src_buf = vdec_get_src_buffer(inst, info->consumed_count);
->   	if (src_buf) {
-> -		v4l2_m2m_buf_copy_metadata(src_buf, vbuf, true);
-> +		v4l2_m2m_buf_copy_metadata(src_buf, vbuf);
->   		if (info->consumed_count) {
->   			v4l2_m2m_src_buf_remove(inst->fh.m2m_ctx);
->   			vpu_set_buffer_state(src_buf, VPU_BUF_STATE_IDLE);
-> diff --git a/drivers/media/platform/amphion/venc.c b/drivers/media/platform/amphion/venc.c
-> index c5c1f1fbaa80..2e4708a878fc 100644
-> --- a/drivers/media/platform/amphion/venc.c
-> +++ b/drivers/media/platform/amphion/venc.c
-> @@ -790,7 +790,7 @@ static int venc_get_one_encoded_frame(struct vpu_inst *inst,
->   
->   	src_buf = vpu_find_buf_by_sequence(inst, inst->out_format.type, frame->info.frame_id);
->   	if (src_buf) {
-> -		v4l2_m2m_buf_copy_metadata(src_buf, vbuf, true);
-> +		v4l2_m2m_buf_copy_metadata(src_buf, vbuf);
->   		vpu_set_buffer_state(src_buf, VPU_BUF_STATE_IDLE);
->   		v4l2_m2m_src_buf_remove_by_buf(inst->fh.m2m_ctx, src_buf);
->   		v4l2_m2m_buf_done(src_buf, VB2_BUF_STATE_DONE);
-> diff --git a/drivers/media/platform/chips-media/coda/coda-bit.c b/drivers/media/platform/chips-media/coda/coda-bit.c
-> index 84ded154adfe..fa6b72c3bd93 100644
-> --- a/drivers/media/platform/chips-media/coda/coda-bit.c
-> +++ b/drivers/media/platform/chips-media/coda/coda-bit.c
-> @@ -1685,7 +1685,7 @@ static void coda_finish_encode(struct coda_ctx *ctx)
->   		dst_buf->flags |= V4L2_BUF_FLAG_PFRAME;
->   	dst_buf->flags |= src_buf->flags & V4L2_BUF_FLAG_LAST;
->   
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, false);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   
->   	v4l2_m2m_buf_done(src_buf, VB2_BUF_STATE_DONE);
->   
-> diff --git a/drivers/media/platform/chips-media/coda/coda-jpeg.c b/drivers/media/platform/chips-media/coda/coda-jpeg.c
-> index 5746892658b1..fb150b87c773 100644
-> --- a/drivers/media/platform/chips-media/coda/coda-jpeg.c
-> +++ b/drivers/media/platform/chips-media/coda/coda-jpeg.c
-> @@ -1245,7 +1245,7 @@ static void coda9_jpeg_finish_encode(struct coda_ctx *ctx)
->   	dst_buf->flags |= V4L2_BUF_FLAG_KEYFRAME;
->   	dst_buf->flags |= src_buf->flags & V4L2_BUF_FLAG_LAST;
->   
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, false);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   
->   	v4l2_m2m_buf_done(src_buf, VB2_BUF_STATE_DONE);
->   	coda_m2m_buf_done(ctx, dst_buf, err_mb ? VB2_BUF_STATE_ERROR :
-> @@ -1472,7 +1472,7 @@ static void coda9_jpeg_finish_decode(struct coda_ctx *ctx)
->   	dst_buf->flags |= V4L2_BUF_FLAG_KEYFRAME;
->   	dst_buf->flags |= src_buf->flags & V4L2_BUF_FLAG_LAST;
->   
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, false);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   
->   	q_data_dst = get_q_data(ctx, V4L2_BUF_TYPE_VIDEO_CAPTURE);
->   	vb2_set_plane_payload(&dst_buf->vb2_buf, 0, q_data_dst->sizeimage);
-> diff --git a/drivers/media/platform/imagination/e5010-jpeg-enc.c b/drivers/media/platform/imagination/e5010-jpeg-enc.c
-> index c4e0097cb8b7..cc8c746626c4 100644
-> --- a/drivers/media/platform/imagination/e5010-jpeg-enc.c
-> +++ b/drivers/media/platform/imagination/e5010-jpeg-enc.c
-> @@ -1358,7 +1358,7 @@ static void e5010_device_run(void *priv)
->   	s_vb->sequence = ctx->out_queue.sequence++;
->   	d_vb->sequence = ctx->cap_queue.sequence++;
->   
-> -	v4l2_m2m_buf_copy_metadata(s_vb, d_vb, false);
-> +	v4l2_m2m_buf_copy_metadata(s_vb, d_vb);
->   
->   	if (ctx != e5010->last_context_run || ctx->update_qp) {
->   		dprintk(e5010, 1, "ctx updated: 0x%p -> 0x%p, updating qp tables\n",
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> index 6268d651bdcf..dc492b5072a3 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> @@ -1625,7 +1625,7 @@ static void mtk_jpegenc_worker(struct work_struct *work)
->   	if (!dst_buf)
->   		goto getbuf_fail;
->   
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, true);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   
->   	mtk_jpegenc_set_hw_param(ctx, hw_id, src_buf, dst_buf);
->   	ret = pm_runtime_get_sync(comp_jpeg[hw_id]->dev);
-> @@ -1721,7 +1721,7 @@ static void mtk_jpegdec_worker(struct work_struct *work)
->   	if (!dst_buf)
->   		goto getbuf_fail;
->   
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, true);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   	jpeg_src_buf = mtk_jpeg_vb2_to_srcbuf(&src_buf->vb2_buf);
->   	jpeg_dst_buf = mtk_jpeg_vb2_to_srcbuf(&dst_buf->vb2_buf);
->   
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> index e78e1d11093c..32372781daf5 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> @@ -530,7 +530,7 @@ static void mtk_jpegdec_timeout_work(struct work_struct *work)
->   
->   	src_buf = cjpeg->hw_param.src_buffer;
->   	dst_buf = cjpeg->hw_param.dst_buffer;
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, true);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   
->   	mtk_jpeg_dec_reset(cjpeg->reg_base);
->   	clk_disable_unprepare(cjpeg->jdec_clk.clks->clk);
-> @@ -560,7 +560,7 @@ static irqreturn_t mtk_jpegdec_hw_irq_handler(int irq, void *priv)
->   	ctx = jpeg->hw_param.curr_ctx;
->   	src_buf = jpeg->hw_param.src_buffer;
->   	dst_buf = jpeg->hw_param.dst_buffer;
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, true);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   
->   	irq_status = mtk_jpeg_dec_get_int_status(jpeg->reg_base);
->   	dec_irq_ret = mtk_jpeg_dec_enum_result(irq_status);
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> index 9ab27aee302a..b6f5b2249f1f 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> @@ -261,7 +261,7 @@ static void mtk_jpegenc_timeout_work(struct work_struct *work)
->   
->   	src_buf = cjpeg->hw_param.src_buffer;
->   	dst_buf = cjpeg->hw_param.dst_buffer;
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, true);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   
->   	mtk_jpeg_enc_reset(cjpeg->reg_base);
->   	clk_disable_unprepare(cjpeg->venc_clk.clks->clk);
-> @@ -289,7 +289,7 @@ static irqreturn_t mtk_jpegenc_hw_irq_handler(int irq, void *priv)
->   	ctx = jpeg->hw_param.curr_ctx;
->   	src_buf = jpeg->hw_param.src_buffer;
->   	dst_buf = jpeg->hw_param.dst_buffer;
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, true);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   
->   	irq_status = readl(jpeg->reg_base + JPEG_ENC_INT_STS) &
->   		JPEG_ENC_INT_STATUS_MASK_ALLIRQ;
-> diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c
-> index 9ef956b565a7..44140987cf5f 100644
-> --- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c
-> +++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-m2m.c
-> @@ -51,7 +51,7 @@ static void mdp_m2m_process_done(void *priv, int vb_state)
->   	ctx->curr_param.frame_no = ctx->frame_count[MDP_M2M_SRC];
->   	src_vbuf->sequence = ctx->frame_count[MDP_M2M_SRC]++;
->   	dst_vbuf->sequence = ctx->frame_count[MDP_M2M_DST]++;
-> -	v4l2_m2m_buf_copy_metadata(src_vbuf, dst_vbuf, true);
-> +	v4l2_m2m_buf_copy_metadata(src_vbuf, dst_vbuf);
->   
->   	v4l2_m2m_buf_done(src_vbuf, vb_state);
->   	v4l2_m2m_buf_done(dst_vbuf, vb_state);
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av1_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av1_req_lat_if.c
-> index bf21f2467a0f..bca3156607d2 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av1_req_lat_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_av1_req_lat_if.c
-> @@ -1073,7 +1073,7 @@ static int vdec_av1_slice_setup_lat_from_src_buf(struct vdec_av1_slice_instance
->   
->   	lat_buf->src_buf_req = src->vb2_buf.req_obj.req;
->   	dst = &lat_buf->ts_info;
-> -	v4l2_m2m_buf_copy_metadata(src, dst, true);
-> +	v4l2_m2m_buf_copy_metadata(src, dst);
->   	vsi->frame.cur_ts = dst->vb2_buf.timestamp;
->   
->   	return 0;
-> @@ -1780,7 +1780,7 @@ static int vdec_av1_slice_setup_core_to_dst_buf(struct vdec_av1_slice_instance *
->   	if (!dst)
->   		return -EINVAL;
->   
-> -	v4l2_m2m_buf_copy_metadata(&lat_buf->ts_info, dst, true);
-> +	v4l2_m2m_buf_copy_metadata(&lat_buf->ts_info, dst);
->   
->   	return 0;
->   }
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_if.c
-> index 1e1b32faac77..b9a5ea7887d3 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_if.c
-> @@ -367,7 +367,7 @@ static int vdec_h264_slice_decode(void *h_vdec, struct mtk_vcodec_mem *bs,
->   	inst->vsi_ctx.dec.vdec_fb_va = (u64)(uintptr_t)fb;
->   
->   	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb,
-> -				   &dst_buf_info->m2m_buf.vb, true);
-> +				   &dst_buf_info->m2m_buf.vb);
->   	err = get_vdec_decode_parameters(inst);
->   	if (err)
->   		goto err_free_fb_out;
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
-> index 5b25e1679b51..9a9dc2f88d6e 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_h264_req_multi_if.c
-> @@ -570,7 +570,7 @@ static int vdec_h264_slice_setup_core_buffer_ext(struct vdec_h264_slice_inst *in
->   	}
->   
->   	vb2_v4l2 = v4l2_m2m_next_dst_buf(ctx->m2m_ctx);
-> -	v4l2_m2m_buf_copy_metadata(&lat_buf->ts_info, vb2_v4l2, true);
-> +	v4l2_m2m_buf_copy_metadata(&lat_buf->ts_info, vb2_v4l2);
->   
->   	return 0;
->   }
-> @@ -674,7 +674,7 @@ static int vdec_h264_slice_core_decode(struct vdec_lat_buf *lat_buf)
->   	}
->   
->   	vb2_v4l2 = v4l2_m2m_next_dst_buf(ctx->m2m_ctx);
-> -	v4l2_m2m_buf_copy_metadata(&lat_buf->ts_info, vb2_v4l2, true);
-> +	v4l2_m2m_buf_copy_metadata(&lat_buf->ts_info, vb2_v4l2);
->   
->   	vdec_h264_slice_fill_decode_reflist(inst, &inst->vsi_core->h264_slice_params,
->   					    share_info);
-> @@ -768,7 +768,8 @@ static int vdec_h264_slice_lat_decode_ext(void *h_vdec, struct mtk_vcodec_mem *b
->   	src_buf_info = container_of(bs, struct mtk_video_dec_buf, bs_buffer);
->   
->   	lat_buf->src_buf_req = src_buf_info->m2m_buf.vb.vb2_buf.req_obj.req;
-> -	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb, &lat_buf->ts_info, true);
-> +	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb,
-> +				   &lat_buf->ts_info);
->   
->   	err = vdec_h264_slice_fill_decode_parameters(inst, share_info,
->   						     &inst->vsi_ext->h264_slice_params);
-> @@ -900,7 +901,8 @@ static int vdec_h264_slice_lat_decode(void *h_vdec, struct mtk_vcodec_mem *bs,
->   
->   	inst->vsi->dec.nal_info = buf[nal_start_idx];
->   	lat_buf->src_buf_req = src_buf_info->m2m_buf.vb.vb2_buf.req_obj.req;
-> -	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb, &lat_buf->ts_info, true);
-> +	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb,
-> +				   &lat_buf->ts_info);
->   
->   	err = vdec_h264_slice_fill_decode_parameters(inst, share_info,
->   						     &inst->vsi->h264_slice_params);
-> @@ -1039,7 +1041,7 @@ static int vdec_h264_slice_single_decode_ext(void *h_vdec, struct mtk_vcodec_mem
->   	inst->vsi_ctx_ext.dec.vdec_fb_va = (u64)(uintptr_t)fb;
->   
->   	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb,
-> -				   &dst_buf_info->m2m_buf.vb, true);
-> +				   &dst_buf_info->m2m_buf.vb);
->   	err = get_vdec_sig_decode_parameters(inst);
->   	if (err)
->   		goto err_free_fb_out;
-> @@ -1135,7 +1137,7 @@ static int vdec_h264_slice_single_decode(void *h_vdec, struct mtk_vcodec_mem *bs
->   	inst->vsi_ctx.dec.vdec_fb_va = (u64)(uintptr_t)fb;
->   
->   	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb,
-> -				   &dst_buf_info->m2m_buf.vb, true);
-> +				   &dst_buf_info->m2m_buf.vb);
->   	err = get_vdec_sig_decode_parameters(inst);
->   	if (err)
->   		goto err_free_fb_out;
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c
-> index 2725db882e5b..88eca50c2017 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_hevc_req_multi_if.c
-> @@ -742,7 +742,8 @@ static int vdec_hevc_slice_setup_lat_buffer(struct vdec_hevc_slice_inst *inst,
->   
->   	src_buf_info = container_of(bs, struct mtk_video_dec_buf, bs_buffer);
->   	lat_buf->src_buf_req = src_buf_info->m2m_buf.vb.vb2_buf.req_obj.req;
-> -	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb, &lat_buf->ts_info, true);
-> +	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb,
-> +				   &lat_buf->ts_info);
->   
->   	*res_chg = inst->resolution_changed;
->   	if (inst->resolution_changed) {
-> @@ -847,7 +848,7 @@ static int vdec_hevc_slice_setup_core_buffer(struct vdec_hevc_slice_inst *inst,
->   	}
->   
->   	vb2_v4l2 = v4l2_m2m_next_dst_buf(ctx->m2m_ctx);
-> -	v4l2_m2m_buf_copy_metadata(&lat_buf->ts_info, vb2_v4l2, true);
-> +	v4l2_m2m_buf_copy_metadata(&lat_buf->ts_info, vb2_v4l2);
->   
->   	return 0;
->   }
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp8_req_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp8_req_if.c
-> index 232ef3bd246a..e1d4960553f2 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp8_req_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp8_req_if.c
-> @@ -358,7 +358,7 @@ static int vdec_vp8_slice_decode(void *h_vdec, struct mtk_vcodec_mem *bs,
->   		       y_fb_dma, c_fb_dma);
->   
->   	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb,
-> -				   &dst_buf_info->m2m_buf.vb, true);
-> +				   &dst_buf_info->m2m_buf.vb);
->   
->   	err = vdec_vp8_slice_get_decode_parameters(inst);
->   	if (err)
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-> index 47c302745c1d..eeaff3f8e3e0 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_lat_if.c
-> @@ -706,7 +706,7 @@ int vdec_vp9_slice_setup_single_from_src_to_dst(struct vdec_vp9_slice_instance *
->   	if (!dst)
->   		return -EINVAL;
->   
-> -	v4l2_m2m_buf_copy_metadata(src, dst, true);
-> +	v4l2_m2m_buf_copy_metadata(src, dst);
->   
->   	return 0;
->   }
-> @@ -724,7 +724,7 @@ static int vdec_vp9_slice_setup_lat_from_src_buf(struct vdec_vp9_slice_instance
->   	lat_buf->src_buf_req = src->vb2_buf.req_obj.req;
->   
->   	dst = &lat_buf->ts_info;
-> -	v4l2_m2m_buf_copy_metadata(src, dst, true);
-> +	v4l2_m2m_buf_copy_metadata(src, dst);
->   	return 0;
->   }
->   
-> @@ -1652,7 +1652,7 @@ static int vdec_vp9_slice_setup_core_to_dst_buf(struct vdec_vp9_slice_instance *
->   	if (!dst)
->   		return -EINVAL;
->   
-> -	v4l2_m2m_buf_copy_metadata(&lat_buf->ts_info, dst, true);
-> +	v4l2_m2m_buf_copy_metadata(&lat_buf->ts_info, dst);
->   	return 0;
->   }
->   
-> diff --git a/drivers/media/platform/nvidia/tegra-vde/h264.c b/drivers/media/platform/nvidia/tegra-vde/h264.c
-> index 45f8f6904867..2a2211671fd9 100644
-> --- a/drivers/media/platform/nvidia/tegra-vde/h264.c
-> +++ b/drivers/media/platform/nvidia/tegra-vde/h264.c
-> @@ -776,7 +776,7 @@ static int tegra_vde_h264_setup_frames(struct tegra_ctx *ctx,
->   	 * If userspace doesn't tell us frame's type, then we will try decode
->   	 * as-is.
->   	 */
-> -	v4l2_m2m_buf_copy_metadata(src, dst, true);
-> +	v4l2_m2m_buf_copy_metadata(src, dst);
->   
->   	if (h->decode_params->flags & V4L2_H264_DECODE_PARAM_FLAG_BFRAME)
->   		tb->b_frame = true;
-> diff --git a/drivers/media/platform/nxp/dw100/dw100.c b/drivers/media/platform/nxp/dw100/dw100.c
-> index 97744c7b7c03..1299b4b852f3 100644
-> --- a/drivers/media/platform/nxp/dw100/dw100.c
-> +++ b/drivers/media/platform/nxp/dw100/dw100.c
-> @@ -1437,7 +1437,7 @@ static void dw100_start(struct dw100_ctx *ctx, struct vb2_v4l2_buffer *in_vb,
->   				V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE),
->   		in_vb->sequence, out_vb->sequence);
->   
-> -	v4l2_m2m_buf_copy_metadata(in_vb, out_vb, true);
-> +	v4l2_m2m_buf_copy_metadata(in_vb, out_vb);
->   
->   	/* Now, let's deal with hardware ... */
->   	dw100_hw_master_bus_disable(dw_dev);
-> diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> index df3ccdf767ba..64cb06cf479f 100644
-> --- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> +++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-> @@ -1537,7 +1537,7 @@ static void mxc_jpeg_device_run(void *priv)
->   	src_buf->sequence = q_data_out->sequence++;
->   	dst_buf->sequence = q_data_cap->sequence++;
->   
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, true);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   
->   	jpeg_src_buf = vb2_to_mxc_buf(&src_buf->vb2_buf);
->   	if (q_data_cap->fmt->mem_planes != dst_buf->vb2_buf.num_planes) {
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> index 00afcbfbdde4..20fc5347c2d0 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> @@ -107,7 +107,7 @@ static void mxc_isi_m2m_frame_write_done(struct mxc_isi_pipe *pipe, u32 status)
->   	src_vbuf = v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
->   	dst_vbuf = v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
->   
-> -	v4l2_m2m_buf_copy_metadata(src_vbuf, dst_vbuf, false);
-> +	v4l2_m2m_buf_copy_metadata(src_vbuf, dst_vbuf);
->   
->   	src_vbuf->sequence = ctx->queues.out.sequence++;
->   	dst_vbuf->sequence = ctx->queues.cap.sequence++;
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-> index 776046de979a..b5196880fea8 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -75,7 +75,7 @@ static irqreturn_t rga_isr(int irq, void *prv)
->   		WARN_ON(!src);
->   		WARN_ON(!dst);
->   
-> -		v4l2_m2m_buf_copy_metadata(src, dst, true);
-> +		v4l2_m2m_buf_copy_metadata(src, dst);
->   
->   		dst->sequence = ctx->csequence++;
->   
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> index 6e606d73ff51..cb02c6988602 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> @@ -783,7 +783,7 @@ void rkvdec_run_preamble(struct rkvdec_ctx *ctx, struct rkvdec_run *run)
->   	if (src_req)
->   		v4l2_ctrl_request_setup(src_req, &ctx->ctrl_hdl);
->   
-> -	v4l2_m2m_buf_copy_metadata(run->bufs.src, run->bufs.dst, true);
-> +	v4l2_m2m_buf_copy_metadata(run->bufs.src, run->bufs.dst);
->   }
->   
->   void rkvdec_run_postamble(struct rkvdec_ctx *ctx, struct rkvdec_run *run)
-> diff --git a/drivers/media/platform/st/stm32/dma2d/dma2d.c b/drivers/media/platform/st/stm32/dma2d/dma2d.c
-> index 468c247ba328..baf5939677f1 100644
-> --- a/drivers/media/platform/st/stm32/dma2d/dma2d.c
-> +++ b/drivers/media/platform/st/stm32/dma2d/dma2d.c
-> @@ -490,7 +490,7 @@ static void device_run(void *prv)
->   
->   	src->sequence = frm_out->sequence++;
->   	dst->sequence = frm_cap->sequence++;
-> -	v4l2_m2m_buf_copy_metadata(src, dst, true);
-> +	v4l2_m2m_buf_copy_metadata(src, dst);
->   
->   	if (clk_enable(dev->gate))
->   		goto end;
-> diff --git a/drivers/media/platform/sunxi/sun8i-di/sun8i-di.c b/drivers/media/platform/sunxi/sun8i-di/sun8i-di.c
-> index eb519afb30ca..7c4dd1ac772d 100644
-> --- a/drivers/media/platform/sunxi/sun8i-di/sun8i-di.c
-> +++ b/drivers/media/platform/sunxi/sun8i-di/sun8i-di.c
-> @@ -71,7 +71,7 @@ static void deinterlace_device_run(void *priv)
->   	src = v4l2_m2m_next_src_buf(ctx->fh.m2m_ctx);
->   	dst = v4l2_m2m_next_dst_buf(ctx->fh.m2m_ctx);
->   
-> -	v4l2_m2m_buf_copy_metadata(src, dst, true);
-> +	v4l2_m2m_buf_copy_metadata(src, dst);
->   
->   	deinterlace_write(dev, DEINTERLACE_MOD_ENABLE,
->   			  DEINTERLACE_MOD_ENABLE_EN);
-> diff --git a/drivers/media/platform/sunxi/sun8i-rotate/sun8i_rotate.c b/drivers/media/platform/sunxi/sun8i-rotate/sun8i_rotate.c
-> index 89992feaab60..2deab920884a 100644
-> --- a/drivers/media/platform/sunxi/sun8i-rotate/sun8i_rotate.c
-> +++ b/drivers/media/platform/sunxi/sun8i-rotate/sun8i_rotate.c
-> @@ -70,7 +70,7 @@ static void rotate_device_run(void *priv)
->   	src = v4l2_m2m_next_src_buf(ctx->fh.m2m_ctx);
->   	dst = v4l2_m2m_next_dst_buf(ctx->fh.m2m_ctx);
->   
-> -	v4l2_m2m_buf_copy_metadata(src, dst, true);
-> +	v4l2_m2m_buf_copy_metadata(src, dst);
->   
->   	val = ROTATE_GLB_CTL_MODE(ROTATE_MODE_COPY_ROTATE);
->   	if (ctx->hflip)
-> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-> index e0c11fe8b55c..60b95b5d8565 100644
-> --- a/drivers/media/platform/verisilicon/hantro_drv.c
-> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
-> @@ -183,7 +183,7 @@ static void device_run(void *priv)
->   	if (ret)
->   		goto err_cancel_job;
->   
-> -	v4l2_m2m_buf_copy_metadata(src, dst, true);
-> +	v4l2_m2m_buf_copy_metadata(src, dst);
->   
->   	if (ctx->codec_ops->run(ctx))
->   		goto err_cancel_job;
-> diff --git a/drivers/media/test-drivers/vicodec/vicodec-core.c b/drivers/media/test-drivers/vicodec/vicodec-core.c
-> index a3df3a33237e..f1fffc4ecb6a 100644
-> --- a/drivers/media/test-drivers/vicodec/vicodec-core.c
-> +++ b/drivers/media/test-drivers/vicodec/vicodec-core.c
-> @@ -421,7 +421,7 @@ static void device_run(void *priv)
->   	else
->   		dst_buf->sequence = q_dst->sequence++;
->   	dst_buf->flags &= ~V4L2_BUF_FLAG_LAST;
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, false);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   
->   	spin_lock(ctx->lock);
->   	if (!ctx->comp_has_next_frame &&
-> @@ -555,7 +555,7 @@ static void set_last_buffer(struct vb2_v4l2_buffer *dst_buf,
->   	vb2_set_plane_payload(&dst_buf->vb2_buf, 0, 0);
->   	dst_buf->sequence = q_dst->sequence++;
->   
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, !ctx->is_enc);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   	dst_buf->flags |= V4L2_BUF_FLAG_LAST;
->   	v4l2_m2m_buf_done(dst_buf, VB2_BUF_STATE_DONE);
->   }
-> diff --git a/drivers/media/test-drivers/vim2m.c b/drivers/media/test-drivers/vim2m.c
-> index 86c32699111a..2e75adb372d0 100644
-> --- a/drivers/media/test-drivers/vim2m.c
-> +++ b/drivers/media/test-drivers/vim2m.c
-> @@ -477,7 +477,7 @@ static int device_process(struct vim2m_ctx *ctx,
->   
->   	out_vb->sequence = q_data_out->sequence++;
->   	in_vb->sequence = q_data_in->sequence++;
-> -	v4l2_m2m_buf_copy_metadata(in_vb, out_vb, true);
-> +	v4l2_m2m_buf_copy_metadata(in_vb, out_vb);
->   
->   	if (ctx->mode & MEM2MEM_VFLIP) {
->   		start = height - 1;
-> diff --git a/drivers/media/test-drivers/visl/visl-dec.c b/drivers/media/test-drivers/visl/visl-dec.c
-> index 6a9639bd4d61..d90b79de8384 100644
-> --- a/drivers/media/test-drivers/visl/visl-dec.c
-> +++ b/drivers/media/test-drivers/visl/visl-dec.c
-> @@ -572,7 +572,7 @@ void visl_device_run(void *priv)
->   	if (src_req)
->   		v4l2_ctrl_request_setup(src_req, &ctx->hdl);
->   
-> -	v4l2_m2m_buf_copy_metadata(run.src, run.dst, true);
-> +	v4l2_m2m_buf_copy_metadata(run.src, run.dst);
->   	run.dst->sequence = ctx->q_data[V4L2_M2M_DST].sequence++;
->   	run.src->sequence = ctx->q_data[V4L2_M2M_SRC].sequence++;
->   	run.dst->field = ctx->decoded_fmt.fmt.pix.field;
-> diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l2-core/v4l2-mem2mem.c
-> index 21acd9bc8607..137f502ed59d 100644
-> --- a/drivers/media/v4l2-core/v4l2-mem2mem.c
-> +++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
-> @@ -1296,14 +1296,9 @@ void v4l2_m2m_buf_queue(struct v4l2_m2m_ctx *m2m_ctx,
->   EXPORT_SYMBOL_GPL(v4l2_m2m_buf_queue);
->   
->   void v4l2_m2m_buf_copy_metadata(const struct vb2_v4l2_buffer *out_vb,
-> -				struct vb2_v4l2_buffer *cap_vb,
-> -				bool copy_frame_flags)
-> +				struct vb2_v4l2_buffer *cap_vb)
->   {
-> -	u32 mask = V4L2_BUF_FLAG_TIMECODE | V4L2_BUF_FLAG_TSTAMP_SRC_MASK;
-> -
-> -	if (copy_frame_flags)
-> -		mask |= V4L2_BUF_FLAG_KEYFRAME | V4L2_BUF_FLAG_PFRAME |
-> -			V4L2_BUF_FLAG_BFRAME;
-> +	const u32 mask = V4L2_BUF_FLAG_TIMECODE | V4L2_BUF_FLAG_TSTAMP_SRC_MASK;
->   
->   	cap_vb->vb2_buf.timestamp = out_vb->vb2_buf.timestamp;
->   
-> diff --git a/drivers/staging/media/imx/imx-media-csc-scaler.c b/drivers/staging/media/imx/imx-media-csc-scaler.c
-> index 1869c5792ecb..0a27330f9790 100644
-> --- a/drivers/staging/media/imx/imx-media-csc-scaler.c
-> +++ b/drivers/staging/media/imx/imx-media-csc-scaler.c
-> @@ -99,7 +99,7 @@ static void ipu_ic_pp_complete(struct ipu_image_convert_run *run, void *_ctx)
->   	src_buf = v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
->   	dst_buf = v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
->   
-> -	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, true);
-> +	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf);
->   
->   	src_buf->sequence = ctx->sequence++;
->   	dst_buf->sequence = src_buf->sequence;
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_dec.c b/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
-> index fbbf9e6f0f50..9f8b0555b7dc 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
-> @@ -90,7 +90,7 @@ void cedrus_device_run(void *priv)
->   		break;
->   	}
->   
-> -	v4l2_m2m_buf_copy_metadata(run.src, run.dst, true);
-> +	v4l2_m2m_buf_copy_metadata(run.src, run.dst);
->   
->   	cedrus_dst_format_set(dev, &ctx->dst_fmt);
->   
-> diff --git a/include/media/v4l2-mem2mem.h b/include/media/v4l2-mem2mem.h
-> index 500f81f399df..c79373595f4e 100644
-> --- a/include/media/v4l2-mem2mem.h
-> +++ b/include/media/v4l2-mem2mem.h
-> @@ -842,19 +842,13 @@ v4l2_m2m_dst_buf_remove_by_idx(struct v4l2_m2m_ctx *m2m_ctx, unsigned int idx)
->    *
->    * @out_vb: the output buffer that is the source of the metadata.
->    * @cap_vb: the capture buffer that will receive the metadata.
-> - * @copy_frame_flags: copy the KEY/B/PFRAME flags as well.
->    *
->    * This helper function copies the timestamp, timecode (if the TIMECODE
-> - * buffer flag was set), field and the TIMECODE, KEYFRAME, BFRAME, PFRAME
-> - * and TSTAMP_SRC_MASK flags from @out_vb to @cap_vb.
-> - *
-> - * If @copy_frame_flags is false, then the KEYFRAME, BFRAME and PFRAME
-> - * flags are not copied. This is typically needed for encoders that
-> - * set this bits explicitly.
-> + * buffer flag was set), field, and the TIMECODE and TSTAMP_SRC_MASK flags from
-> + * @out_vb to @cap_vb.
->    */
->   void v4l2_m2m_buf_copy_metadata(const struct vb2_v4l2_buffer *out_vb,
-> -				struct vb2_v4l2_buffer *cap_vb,
-> -				bool copy_frame_flags);
-> +				struct vb2_v4l2_buffer *cap_vb);
->   
->   /* v4l2 request helper */
->   
->
-> base-commit: 082b86919b7a94de01d849021b4da820a6cb89dc
+On 15/10/2025 10:10, Geert Uytterhoeven wrote:
+> Hi Marek,
+>=20
+> On Wed, 15 Oct 2025 at 00:48, Marek Vasut <marek.vasut@mailbox.org> wro=
+te:
+>> On 10/14/25 1:52 PM, Matt Coster wrote:
+>>>> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue=
+=2Eyaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+>>>> index c87d7bece0ecd..c9680a2560114 100644
+>>>> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+>>>> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+>>>> @@ -13,6 +13,12 @@ maintainers:
+>>>>   properties:
+>>>>     compatible:
+>>>>       oneOf:
+>>>> +      - items:
+>>>> +          - enum:
+>>>> +              - renesas,r8a77960-gpu
+>>>> +              - renesas,r8a77961-gpu
+>>>
+>>> I think this can just be renesas,r8a7796-gpu; most of the devices in =
+the
+>>> dts for these SoCs appear to use the same pattern and the GPU is the
+>>> same in both.
+>>
+>> Not really, the 77960 and 77961 are different SoCs, that is why they
+>> each have different specific compatible. Of course, most drivers match=
+
+>> on fallback compatible, since the IPs are mostly identical, see this:
+>>
+>> $ git grep compatible.*7796 arch/arm64/boot/dts/renesas/r8a77961.dtsi
+>> arch/arm64/boot/dts/renesas/r8a77961.dtsi:      compatible =3D
+>> "renesas,r8a77961";
+>> arch/arm64/boot/dts/renesas/r8a77961.dtsi:
+>> compatible =3D "renesas,r8a77961-wdt",
+>> arch/arm64/boot/dts/renesas/r8a77961.dtsi:
+>> compatible =3D "renesas,gpio-r8a77961",
+>> ...
+>>
+>> $  git grep compatible.*7796 arch/arm64/boot/dts/renesas/r8a77960.dtsi=
+
+>> arch/arm64/boot/dts/renesas/r8a77960.dtsi:      compatible =3D
+>> "renesas,r8a7796";
+>> arch/arm64/boot/dts/renesas/r8a77960.dtsi:
+>> compatible =3D "renesas,r8a7796-wdt",
+>> arch/arm64/boot/dts/renesas/r8a77960.dtsi:
+>> compatible =3D "renesas,gpio-r8a7796",
+>> arch/arm64/boot/dts/renesas/r8a77960.dtsi:
+>> compatible =3D "renesas,gpio-r8a7796",
+>>
+>> I can turn the first entry into renesas,r8a7796-gpu to be consistent
+>> with the legacy 7796 name for 77960.
+>>
+>> Geert ?
+>=20
+> Please use "renesas,r8a7796-gpu" for R-Car M3-W, and
+> "renesas,r8a77961-gpu" for R-Car M3-W+.
+
+Works for me. I mistook the non-0 version as a generic name for both,
+not realising it was just a legacy thing. My bad!
+
+>=20
+>>>> +          - const: img,img-gx6250
+>>>> +          - const: img,img-rogue
+>>>>         - items:
+>>>>             - enum:
+>>>>                 - ti,am62-gpu
+>>>
+>>> You also need to add img,img-gx6250 to the appropriate conditional
+>>> blocks below here for the number of power domains (in this case, 2) a=
+nd
+>>> clocks (that's more complicated).
+>>>
+>>> These older GPUs always require three clocks (core, mem and sys), but=
+
+>>> it's not immediately clear from the Renesas TRM how these are hooked =
+up.
+>>> I can see three "clocks" connected (fig 23.2 in my copy, clock detail=
+s
+>>> from fig 8.1b):
+>>
+>> Which revision of the RM is that ? There should be some Rev.M.NP at th=
+e
+>> bottom of each page.
+>=20
+> Rev.2.40.
+
+Yes, that's the version I have too.
+
+>=20
+>>>   - Clock ZG=CF=86: Appears to be a core clock for the GPU (3DGE). Th=
+at would
+>>>     make it our "core" clock.
+>>
+>> This should be 600-700 MHz clock on M3-W , so that sounds like a GPU
+>> core clock.
+>=20
+> Agreed.
+>=20
+>>
+>>>   - Clock S2D1=CF=86: Appears to be a core clock used on the AXI bus,=
+ making
+>>>     it our "sys" clock.
+>>
+>> This should be 400 MHz AXI clock, but wouldn't that make it "mem" cloc=
+k
+>> ? I think this might be the clock which drives the AXI bus, used by th=
+e
+>> GPU to access data in DRAM ?
+>=20
+> Agreed.
+>=20
+>>>   - MSTP ST112: Appears to be a whole module on/off control of some
+>>>     description, and definitely doesn't align with the missing "mem"
+>>>     clock.
+>>
+>> Maybe this is the "sys" clock, since it toggles the register interface=
+
+>> clock on/off ?
+>=20
+> Probably.
+
+Yes, this is probably correct. I got my AXI interfaces mixed up =E2=80=93=
+ we
+have both a manager interface for accessing memory (using the mem clock)
+and a subordinate interface to expose to our registers (using the sys
+clock). Here's the summary table from our system integration document:
+
+   +-------+-------------------------+------------------------+
+   | Clock | Modules Clocked         | Dependencies           |
+   +-------+-------------------------+------------------------+
+   | mem   | SLC / AXI Manager       | Run for all operations |
+   | sys   | SOCIF / AXI Subordinate | Run for all operations |
+   | core  | All                     | Run for all operations |
+   +-------+-------------------------+------------------------+
+
+Cheers,
+Matt
+
+>=20
+> Note that both ZG=CF=86 and S2D1=CF=86 are always-on.
+> MSTP ST112 is the only gateable clock, and it is controlled through
+> the PM Domain and Runtime PM.
+>=20
+> Gr{oetje,eeting}s,
+>=20
+>                         Geert
+>=20
+
+--=20
+Matt Coster
+E: matt.coster@imgtec.com
+
+--------------N2AKETDTt7oPe1joDhfliaeQ--
+
+--------------8ClYvuas0r2xxcD1fuOfoNI2
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wnsEABYIACMWIQS4qDmoJvwmKhjY+nN5vBnz2d5qsAUCaO982QUDAAAAAAAKCRB5vBnz2d5qsIEL
+AQCWq8pFRurOvNSr+zCGcxsOWOwgDdloNi9TvHRndL8x+gD/f2a8ED/0Z7yST1JMvbr2WEWsLVBE
+4S6EG7z4hkFX/wk=
+=+BS2
+-----END PGP SIGNATURE-----
+
+--------------8ClYvuas0r2xxcD1fuOfoNI2--
 
