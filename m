@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA25CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 11:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EBCCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 12:14:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TIFO4yfLHgq5ckjg2uDB2Daft94lZqpaYBGMWJ0nnlQ=; b=31XxSR2fCXVMQJBK4szlwvxkKr
-	28GHcPFLn3vjU4PEMrY3bgS1f682q/9rjWy2p6YqKu53wr4tgdS7NHATIGai0jUzfMdVdLyDXDhKa
-	eZq3wjRZ2vtYbHtHjZQ8AiTUkf9D/wz3hVBOrCWX+fkNXCJd0wCZ4EKQe6TtctUCaahuX+vIZTfUJ
-	+zmEDRu7o+fLUs2lHLVd17QExAKxNtMQiUYR33g/vpvHjpYrzyYaqLp0yf1nMEXGmrJ59j1AyNwzf
-	XPo5M8M5yVOoD2WzZZ1j2Au74FwzPw7U6UYlcRw6KH7ttCoV1r8GuMEo7laicZmYyuGSzcTeJpep9
-	uZozgxew==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f3OimdfZgjfY9/HT+h0JoDDZq5EDc2SRALwvB4NSvXE=; b=mRU2p0AYEiHvCeK9f2zzED9IOj
+	T9Nn4KbN49hmGxB2QIva/PjQ8FMS94qSHVFOV9XeNxbLTb1RYlbcitHm7ZfCtNNQqfnLRWSo8CK9B
+	8nXA64EEDy+qon6Zev96XKzPBCIxX3s4m12V+VUmuUm622RKdORbkk1YWJzA38psR6/1ZRPtvoVZ1
+	t+vo7m3itfhb+JHloB7TygR1PVmBaw+yJFGayKT1Rai7rAunTuQGrmY6J7Kob2roKIAmmAq4cqyh6
+	aEbiy0I65JIAEbza/anmesAt/m/9TMnZnDx0cjCq/dWppoOpbaGJyrMhSrLWKUJt9Lp3Cda7ZvlBs
+	PSVURr/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v901c-00000001TVL-1Ze3;
-	Wed, 15 Oct 2025 11:50:36 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	id 1v90OO-00000001WA5-3idN;
+	Wed, 15 Oct 2025 12:14:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v901a-00000001TSE-0H8Z
+	id 1v90OL-00000001W9e-0eiQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 11:50:35 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4cmqCG2jmGz9tgD;
-	Wed, 15 Oct 2025 13:50:18 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760529018;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=TIFO4yfLHgq5ckjg2uDB2Daft94lZqpaYBGMWJ0nnlQ=;
-	b=rzOC4DhrKJl8FPRu6EF8M+uSRwJYcWe8B9lcR648jbDpoShgWlkGpLceFB2yW3hJgi808e
-	C57hpwm3XEP+Q0CzTk2GbLkJpokbLFOIP3eP58wtnjl5cctD+F/X3mogw5lbh/8xbAM1Zx
-	KC3gYGo1v7P5QhgZk0Oe6xM7pkxBq4ArD1KiAK5m3P645liz+Ccqs9DeMX8NZD2obECPfr
-	+CPW/vOyD23D7amouR0VnTyi/zQR6XMOBZgUYgV0/V0oqWuUY0nDdgeWQ92CHZMeSbdY2M
-	18bSzHddz+HI9l3BPVsiHZOE6oW0U4SZn2Qes+GlaSwyy8qHG4ahcywlLrFxtg==
-From: Marek Vasut <marek.vasut@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760529016;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=TIFO4yfLHgq5ckjg2uDB2Daft94lZqpaYBGMWJ0nnlQ=;
-	b=Vnx4eutGKI+nVuhkVOgTveMI/5X2TGggNzkMGnf/yTcO3kTedqJwZCTur2JgvseoimsTUj
-	CuozjKNMDe4ZXlumC7XHFQ5NYYtsUjQylAkzpQSQHPuclwgBwHG9WncpQ0Ht7YEAAZyN7q
-	gBpFD5koggaRN4jW9ZkBuVJuAKj5elyzw1FVuMoDSKQv+cbqSMBKYHpuQ0fu7JU/o0CIs3
-	dsxipy6P8/UuNPspSe5UqbbbICcQOzXPfzfQpbz4CIByUSEsbHRz8X1vtARXOrhpPNjEtf
-	sPUjLbhdfldsvaoPgX1aJq7BpgbmsXOhGWp3HfvJ6zxHbjnmyFGUQjUyhlqDQA==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut@mailbox.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	arm-scmi@vger.kernel.org,
-	linux-hwmon@vger.kernel.org
-Subject: [PATCH] hwmon: (scmi) Enable sensors to assure they can be read
-Date: Wed, 15 Oct 2025 13:49:28 +0200
-Message-ID: <20251015114953.148706-1-marek.vasut@mailbox.org>
+	Wed, 15 Oct 2025 12:14:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BF27845140;
+	Wed, 15 Oct 2025 12:14:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F30FBC116B1;
+	Wed, 15 Oct 2025 12:14:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760530444;
+	bh=U0qBfTAoLQ2lXuxhHDpAiZcucUrXqzfYam7mxeAjgzM=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=o/X8KPLmQwvaZ/4jk3aNbggMUsmUtSiTRQlSMl2XJzeWcdxeAHYCVUEkxd4xyQRUM
+	 lm9j3UxOz9eAQqeEiw4KJtqK6D9JhqFpzt824g1F5aOEiD9IDRQTb4jnryGTQEKfOs
+	 iAlvzz2RFp1CxWICKQO4xi1XyoRewABj3vRnEl7xWHSRMxzN0SpSnDF43LOvksIYR3
+	 ACtYefsh+xgYcs1L5mX2EWAr4I/iNRCtLcWAjJJMe7vdTvlm8DBDul72BwYuelziYo
+	 OjknTg03VXAm8mwyc8gDIxE4bHcrkdHE7kiuKHSn2QefE+Gc9U5X0I+y7ygwupdVFi
+	 /eyOx9e5W702g==
+From: Mark Brown <broonie@kernel.org>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ joel@jms.id.au, andrew@codeconstruct.com.au, clg@kaod.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, linux-spi@vger.kernel.org, BMC-SW@aspeedtech.com, 
+ Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+In-Reply-To: <20251001112605.1130723-1-chin-ting_kuo@aspeedtech.com>
+References: <20251001112605.1130723-1-chin-ting_kuo@aspeedtech.com>
+Subject: Re: [PATCH 0/6] spi: aspeed: Improve clock, timing and address
+ decoding logic
+Message-Id: <176053044168.105519.1540910122531672579.b4-ty@kernel.org>
+Date: Wed, 15 Oct 2025 13:14:01 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: qi87ebe64zs1csghmf895uygn83dqjin
-X-MBO-RS-ID: a65e4f3a777492cff53
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-96507
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_045034_244472_101C01E1 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251015_051405_222006_E4781E03 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +76,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI specification states that SENSOR_CONFIG_SET is used to
-enable/disable the sensors. The sensors can be disabled by default,
-which is the case at least on NXP i.MX95. Explicitly trigger the
-SENSOR_CONFIG_SET to enable the sensors, otherwise sensor read may
-fail and won't return valid data.
+On Wed, 01 Oct 2025 19:25:59 +0800, Chin-Ting Kuo wrote:
+> This patch series introduces several improvements to the
+> ASPEED SPI driver, targeting better stability, compatibility
+> and, flexibility across multiple ASPEED platforms.
+> 
+> Key changes include:
+> 
+> * Clock selection strategy update
+>   Improves fallback logic when timing calibration is skipped or
+>   fails, ensuring reliable boot behavior.
+> 
+> [...]
 
-Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
----
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Guenter Roeck <linux@roeck-us.net>
-Cc: Sudeep Holla <sudeep.holla@arm.com>
-Cc: arm-scmi@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-hwmon@vger.kernel.org
----
- drivers/hwmon/scmi-hwmon.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+Applied to
 
-diff --git a/drivers/hwmon/scmi-hwmon.c b/drivers/hwmon/scmi-hwmon.c
-index 364199b332c0a..eec223d174c07 100644
---- a/drivers/hwmon/scmi-hwmon.c
-+++ b/drivers/hwmon/scmi-hwmon.c
-@@ -240,6 +240,8 @@ static int scmi_hwmon_probe(struct scmi_device *sdev)
- 	const struct hwmon_channel_info **ptr_scmi_ci;
- 	const struct scmi_handle *handle = sdev->handle;
- 	struct scmi_protocol_handle *ph;
-+	u32 sensor_config = FIELD_PREP(SCMI_SENS_CFG_SENSOR_ENABLED_MASK,
-+				       SCMI_SENS_CFG_SENSOR_ENABLE);
- 
- 	if (!handle)
- 		return -ENODEV;
-@@ -339,6 +341,13 @@ static int scmi_hwmon_probe(struct scmi_device *sdev)
- 		if (!sensor)
- 			continue;
- 
-+		ret = sensor_ops->config_set(ph, i, sensor_config);
-+		if (ret) {
-+			dev_err(dev, "Error enabling sensor %s. err=%d\n",
-+				sensor->name, ret);
-+			continue;
-+		}
-+
- 		/*
- 		 * Warn on any misconfiguration related to thermal zones but
- 		 * bail out of probing only on memory errors.
--- 
-2.51.0
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+
+Thanks!
+
+[1/6] spi: aspeed: Update clock selection strategy
+      commit: 31dcc7e1f8a9377d8fd9f967f84c121c5ba8f89c
+[2/6] spi: aspeed: Improve timing calibration algorithm for AST2600 platform
+      commit: efb79de36e947d136517bac14c139d494fcc72fa
+[3/6] spi: aspeed: Force default address decoding range assignment for each CS
+      commit: 630a185fd06109193574d10f38b29812986c21de
+[4/6] spi: aspeed: Centralize address decoding region management
+      commit: b546e0023a203e7edf9377ac8f4f490a6965afd6
+[5/6] spi: aspeed: Add per-platform adjust_window callback for decoding range
+      commit: 0586b53d4a0c7c5a132629f99da934cc674ea4cd
+[6/6] spi: aspeed: Only map necessary address window region
+      commit: 64d87ccfae3326a9561fe41dc6073064a083e0df
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
