@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E0CCCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 11:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A45CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 11:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+s5ufsbM4de2ozJVwmJOUwsTUW4s0vdVuHE3vQrGIk=; b=tnRjNHwQiW82zbDePqcDxIxg8+
-	bjjEKipJe70u+tM4Ax27z3A+rJnRl9Cj/x23TzKvfA2F1wn8il1ChDgejNhjeNWz8joV3pgMsRkLs
-	4R2X9qTafR2mdUVFHvTTD+5fgE6/uyucV96Uw8txZvAGzN5SWotsS8FpqkxOkWg5O4RSCl7Byu7Ib
-	2nDmjCGp+TbeZtuB2ZoHRN3pu0x7fS6GWPZ/ILg9Ny38I6QGCo+LC1SXn7YRPEM2+ysPCkhgIBeRO
-	IEMRfQFwywf4TveKCDHTo6K0IlfIxPrKZLjR3dyTNZvA2/rsrCPc//GYpY4coJMlYfg6/TLGQjaly
-	/GXDNIjA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=b7JiK8Qm1019qOvccQAM6vd3YrX733NvJa6pwVmgHUQ=; b=e662qehCfb3KszP984sxIbXPAz
+	sJLnzFu9KvYj5Qs8Il9Joda3Ewi5FcBmEtL/e6nor6VxlLwzloJTeRbUa1Ijyrzwgc6NdKWJchm1D
+	kj2K3GYLCw2ZSvN2biRyitRVnTjXcoOR46gh74zcDNCepovUpBYI2r3AWsd09K9+DYvuo9k2X6hlV
+	OG+xzoARU4r3OwtEdxaXERJwmNZqdKuas+KWIvenvphIePn7LPvxKj8AFBV2ZqN8bi6V8yK/S8324
+	RXoapJqSontjll3bDkH2FigzcbfFwo2TzPNN87Lk0BXeN2w5VQ40QYGp23MUdHHXv/D8yekXjTHbi
+	tLBQ2o9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8zdy-00000001Ph8-0TP5;
-	Wed, 15 Oct 2025 11:26:10 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8zdv-00000001PgX-3DDb
+	id 1v8zg2-00000001PpP-2Iz7;
+	Wed, 15 Oct 2025 11:28:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8zfz-00000001Pp4-3QO4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 11:26:09 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=c+s5ufsbM4de2ozJVwmJOUwsTUW4s0vdVuHE3vQrGIk=;
-	b=Y/IowBSLSq1NO6xzjp4FJbgZWy3bRzxWhz1135maJH5D9nfbyxW+QshoKMYXdTuSwBZPdWIyw
-	5QvEtL1EzRpBmce/b4EtbQndkHfMSyNsG5XcbAUxsdT3eRDaqttTCO1QJV8V0jkG+ohU9GZdd/Y
-	oJsFdXg3XxXgcAg8jQyOXmY=
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4cmpfG1K9Dz12LFd;
-	Wed, 15 Oct 2025 19:25:10 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4130D180B72;
-	Wed, 15 Oct 2025 19:25:55 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 15 Oct 2025 19:25:54 +0800
-Subject: Re: [PATCH] arm64: defconfig: Remove the redundent SCHED_MC/SCHED_SMT
-To: Huang Shijie <shijie@os.amperecomputing.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>,
-	<patches@amperecomputing.com>, <cl@linux.com>,
-	<Shubhang@os.amperecomputing.com>, <linux-arm-kernel@lists.infradead.org>,
-	<krzysztof.kozlowski@linaro.org>, <geert+renesas@glider.be>, <arnd@arndb.de>,
-	<linux-kernel@vger.kernel.org>, <peterz@infradead.org>
-References: <20251014023158.500932-1-shijie@os.amperecomputing.com>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <8dff1052-d524-5702-6f58-bbe192d80672@huawei.com>
-Date: Wed, 15 Oct 2025 19:25:53 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	Wed, 15 Oct 2025 11:28:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E6A5339;
+	Wed, 15 Oct 2025 04:28:06 -0700 (PDT)
+Received: from a079125.blr.arm.com (a079125.arm.com [10.164.21.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 372F53F66E;
+	Wed, 15 Oct 2025 04:28:09 -0700 (PDT)
+From: Linu Cherian <linu.cherian@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Linu Cherian <linu.cherian@arm.com>
+Subject: [PATCH v3 0/2]  arm64/mm: prevent panic on -ENOMEM in arch_add_memory()
+Date: Wed, 15 Oct 2025 16:57:56 +0530
+Message-ID: <20251015112758.2701604-1-linu.cherian@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-In-Reply-To: <20251014023158.500932-1-shijie@os.amperecomputing.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemk200017.china.huawei.com (7.202.194.83)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_042608_295532_C7B6EEFD 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20251015_042815_892740_A611D34C 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +70,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/10/14 10:31, Huang Shijie wrote:
-> The patch "7bd291abe2d sched: Unify the SCHED_{SMT,CLUSTER,MC} Kconfig"
-> has enabled the SCHED_MC/SCHED_SMT by default for arm64.
-> 
-> So remove the redundent code in defconfig.
+arch_add_memory() acts as a means to hotplug memory into a system. It
+invokes __create_pgd_mapping() which further unwinds to call
+pgtable_alloc(). Initially, this path was only invoked during early boot
+and therefore it made sense to BUG_ON() in case pgtable_alloc() failed.
+Now however, we risk running into a kernel crash if we try to hotplug
+memory into a system that is already extremely tight on available
+memory. This is undesirable and hence __create_pgd_mapping() and it's
+helpers are reworked to be able to propagate the error from
+pgtable_alloc() allowing the system to fail gracefully.
 
-s/redundent/redundant/
+Keeping in mind that it is still essential to BUG_ON()/panic if
+pgtable_alloc() encounters failure at the time of boot, a wrapper is
+created around __create_pgd_mapping() which is designed to panic() if
+it encounters a non-zero return value. This wrapper is then invoked from
+the init functions instead of __create_pgd_mapping(), thereby keeping the
+original functionality intact.
 
-> 
-> Signed-off-by: Huang Shijie <shijie@os.amperecomputing.com>
-> ---
->  arch/arm64/configs/defconfig | 2 --
->  1 file changed, 2 deletions(-)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index e3a2d37bd104..f089ec615b90 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -82,8 +82,6 @@ CONFIG_ARCH_VEXPRESS=y
->  CONFIG_ARCH_VISCONTI=y
->  CONFIG_ARCH_XGENE=y
->  CONFIG_ARCH_ZYNQMP=y
-> -CONFIG_SCHED_MC=y
-> -CONFIG_SCHED_SMT=y
->  CONFIG_NUMA=y
->  CONFIG_XEN=y
->  CONFIG_COMPAT=y
+This theoretical bug was identified by Ryan Roberts<ryan.roberts@arm.com>
+as a part of code review of the following series[1].
 
-Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
+[1] https://lore.kernel.org/linux-arm-kernel/20250304222018.615808-4-yang@os.amperecomputing.com/
 
-Thanks,
-Zenghui
+
+Changelog
+
+v3:
+* Added a Fixes tag to patch 1 and CCed to stable
+* Fixed a maybe-uninitialized case in alloc_init_pud
+* Update  pgd_pgtable_alloc_init_mm to make use of 
+  pgd_pgtable_alloc_init_mm_gfp 
+* Few other trivial cleanups
+
+v2:
+* With cleanup merged as part of, "arm64: mm: Move KPTI helpers to mmu.c"
+  changes in patch 2(v1) got much simplified and squashed to patch 1 itself.
+* Patch 2 now does a trivial renaming for better readability 
+* Make use of INVALID_PHYS_ADDR for error checks instead of 0.  
+* Do early function return where we do not have any
+  common cleanup in return path
+* Remove redundant variable initialization
+* Changed BUG_ON to panic
+* Renamed ___create_pgd_mapping to early_create_pgd_mapping  
+
+
+Chaitanya S Prakash (1):
+  arm64/mm: Allow __create_pgd_mapping() to propagate pgtable_alloc()
+    errors
+
+Linu Cherian (1):
+  arm64/mm: Rename try_pgd_pgtable_alloc_init_mm
+
+ arch/arm64/mm/mmu.c | 216 +++++++++++++++++++++++++++-----------------
+ 1 file changed, 135 insertions(+), 81 deletions(-)
+
+-- 
+2.43.0
+
 
