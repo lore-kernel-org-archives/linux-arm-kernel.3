@@ -4,87 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA6AACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 01:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4159ECCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 01:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SF1+BEsNOzQgzGJmQ2xiCzdWx4Tc3uG144Bo44k0SGc=; b=qp6KKFheLM0Rw5gtEu62PsDJTz
-	I2cleFDKrXKia34k0PR03IgC96EiJAh5ftY0Ce87sfnVmd01zdZtWXnVL67fHDnELoesdHvdheFkS
-	iDLYMhCzAvpwi+Diu3kJIfmDtSP2HOkbO/nPrQ5bhdUTcLgsFOHaOYaiUvAFRde+Pi4Xq1PJaSISn
-	SuC/bapJuVSUtmuBdISWz9WsSko+vXlOq7k+TFiUfNtRDXosgZ/suLahO6yehi/NIOjYsp1e0SGhm
-	vdVxtXqL8kgFbm31k1Ey9Ku8eOkqi4k98xsTL0x9wviisamUlQVd9EzaT8NNqf8WKMB0W1NUY7SPv
-	fnqDTjww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ma0kkQqoObc5IOqN2zbw1hPjdkC0wOlHJpLIsO7Wz7A=; b=NS0JLSiX5nX7ym82uD/8sZ1dZX
+	gnBSiQ7FN15p4Zm7l6jIn/LFmldChcZ3fxtjXJe5kUSRJWkE+7KVBUXJDaSK+GlNL7U9E/EoBGFTm
+	o6FKZZESbIjQsge1lU/ku0dac36WuIjSYrzshd3uJoFIcAfeoHjxuDARruawf9f5Ntj3f3uxpYKix
+	uaXlnO5eVROjg5gJ6MyYbhK0btKEOK+aAbm4qtSegbhf/EzGqE1rAoFJBICeF2w/0LGOM5ZygjvJH
+	dpwXYPqTNUuATfsexTS5FrtxUTNmil34wsC2ZPkUE2m83hlmJzs4cehme9n0Zk2ecUdZ+RcZJwGdX
+	HVcdsedQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8qKL-000000009hf-3QYZ;
-	Wed, 15 Oct 2025 01:29:17 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1v8qQf-00000000AAh-3rxR;
+	Wed, 15 Oct 2025 01:35:49 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8qK9-000000009gO-13z3
+	id 1v8qQc-00000000A9O-2n45
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 01:29:16 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-421851bcb25so2788167f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 18:29:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760491743; x=1761096543; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=SF1+BEsNOzQgzGJmQ2xiCzdWx4Tc3uG144Bo44k0SGc=;
-        b=IfcQ/S0NZEKSWpEaFJIPbuXr6YyAsZX1xyrCy8WceIe3azKF+IasZfyRBk6CvQwn1h
-         89EL3G//bUnb1Y45tjQSpDc7rZTIy6j6x5m3ryZAH0X+Le85+CjNGaS1tMWnprIU31BM
-         vNQIN8W60O/ugJ7Ug280geXHx2ANwHodjJBGK/g7Ffg2WvGTKMjkEs1fhlQ+zs461ZG/
-         3WiU2nD1QYZLy36y5QUp3uMw1kRa+4RsMU0fAXM2Z4niNnS7D0gIetqgUBCE76eA/Oh+
-         pG+lFyejOZvSXGH6+Fp4rzNbiDTs7KTYALo4cBERFnwLkGcJ7XPGrnSI0w8Om5pOlIMS
-         Mz/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760491743; x=1761096543;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SF1+BEsNOzQgzGJmQ2xiCzdWx4Tc3uG144Bo44k0SGc=;
-        b=je1UrOYvylN+N+eEMBuhmSbKwRvIMxZa/BXVugXjCu7HYlbrlUA3THb9Rs1byoWVyp
-         pNu+W0qSCKb6FNeh+KuHAUgXztnysMYonKn7B40faymEQGLgQxi0zcPMDNNtfDBRP0wr
-         57Xcj06ybwlbESDIl0v1Vam9ioPmX3U71QuNcceridwSF6o2CkT5opXsWrK3ftSB4XSX
-         +XsMMfDi7ff32QjrrOdqxNuj/E6fbi8iVq/K/5JOCCOq7xwcfUm0hxILX+rJ1VY4ag+i
-         uZm2pLwSQnZ6ehB65JINIjke1MAiUIZS5IVlGo97ext/1hpySR7I3NxxhcCgNufFeLxZ
-         IYTg==
-X-Forwarded-Encrypted: i=1; AJvYcCX9V80LvyjLsPzi+yrJffOSPqIoDWbN6+HJd3Ttgt07c3PClHBsVNgmk0ncfK0mCXO0uITbjv2TjISgpLEzKceJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUUKQSxWP2xehFP4NmXXomBi4y0C+NKzDva9prqQYnkERKGTmR
-	a/q9KnDRSq2dMqkcf9drorezf6kzqvUmvfkrrcTh1gGugeYWt6HlsUVs
-X-Gm-Gg: ASbGncu4jAhTFsMRjfi1uhEKtgCfRjmz5gZ/+Af1c7XyzBkkHCddNNnRrZ72eE3ds2q
-	i9LBTJH6uJERB/yNxMtrF5uMUtaOB830Yzh8IOSDKfVQ7T98RyRm1SzC+aJqeU4BnSWJh8rtOoH
-	Qv9I4nnKsZCTWiNCANGzEDsFiw1E0He9m4I77M0Q7QBZd2ivI1DitJRFunv1Dviy/f7Ii/Uobyi
-	GAffEBcT1zj6tGHnCeMhE4V1a6vL20SAMVz+/t6U6Y3KzgPN/D4Z+GyoAkZCT8yKdl4dei/xMg5
-	hSyqD+mbRfdmartRoS/zWAAoqpbAjhkTuZYTaezZl9Zw7Hj6EQF5FPM2UXdOSv2jw1zmkKPd0Xh
-	3t/CkF7mnKq0OJvwQZ3LpxsvtHF5DNFk8sYRa/B2h4cY93e61Rz+BTTv1Gdbd4HZgB4V6iG9rT6
-	DIaRR/n9pP
-X-Google-Smtp-Source: AGHT+IH5erbNqww3yq2+VW/UxJWa7wKRzocUwRoXRc+riZWFenDvBHBj3MNHHCi9ZMB3JWA1mD1oPg==
-X-Received: by 2002:a5d:584b:0:b0:3e7:610b:85f6 with SMTP id ffacd0b85a97d-4266e8d8908mr20527410f8f.39.1760491742716;
-        Tue, 14 Oct 2025 18:29:02 -0700 (PDT)
-Received: from Ansuel-XPS24 (93-34-92-177.ip49.fastwebnet.it. [93.34.92.177])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-470ffc994e2sm2571185e9.5.2025.10.14.18.29.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Oct 2025 18:29:02 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	upstream@airoha.com
-Subject: [RFC PATCH] phy: airoha: Add support for Airoha AN7583 USB PHY
-Date: Wed, 15 Oct 2025 03:28:20 +0200
-Message-ID: <20251015012849.12535-1-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.51.0
+	Wed, 15 Oct 2025 01:35:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PU9XA7572BRvkl4Y6O2A3YyxHJXE2g2cPfOOErgc/qRg8CxnAtO04SPCYNKEgs5nizladDM5oMZ9oUQItKe9L+M+on4s/e0S5/6iYDsLlVLkWo6pZFTtvN+39CNoKj5rUcoiVXpXQCgyD0c5d+a4iGhtK9hoXkx/UvXVjqYczU784LEDDdJgvmaYNCYpz7uZvem8L1tcT6HCWREjdml45w1m4sc+rH4LkJ4dqlIOfqtCCseGk7Jgop0CplWTSfsxex2UQ5AH9tABNmdrl2LrLFklteXbA1S5JvgdGa4kFPLuCyAfbDLJRnb9GKU0F+PqsmnZ5Pa7ygbnimqAZkGexA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ma0kkQqoObc5IOqN2zbw1hPjdkC0wOlHJpLIsO7Wz7A=;
+ b=N4pxfMnaUp1G2qIyS9Y5RN3nqVXjN/pZDERUW7q4fFyZ2el9Kc7sdWsH88KFpeGt7LcEiDWVsAtKL0XLBe/HKoi04mdb2SzMInTC7ct99Z1j0FqmkHzRM6blNjMPmy5sIarZa5jwZ4GEj/4LbIS2D1yuRQwfvuSmxqSnhMqwj7qsNK0c8CfXlSn21pad9B6+stFkPkDxKJhp/3tDYCkHTJTBiUPmN1Mv+24eS+ONC6h7lgmQ2Ywz096y+kHdvbefp4AbaMKbCrS8Ta0+T5JGyGqkil9mtDR6x65+nYr+jaY7oDgX1a+9rnlcxUlEmCL0Wj7nP5quEuoezzvUYyiM+w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ma0kkQqoObc5IOqN2zbw1hPjdkC0wOlHJpLIsO7Wz7A=;
+ b=WG9rGlU7jrN6eDoGv+TtCOMmxdp5HQlZRPvnWq3JW3WC+8cEKJzOChHj7Epp1+zEl8XIrMcoJ+yFh8F3p7aP2Xcm2tlEm/wkZ27NXA5yrB5+x0KiPzxupoQYFKWmyUJSw0Dh/dKWQGzNO66CY66DUdadWsx16HdSTaSk6tOpmRfliWYu04wQUWk0PEKNnnaO3iIL5TnxA6wQicI5NSk0gVnxaaQQAJwW6/cjosW5IhpvYrJdwHjbgxM4r53zJlvk3AAhixo5OTTig1RAvY0m8gn4LKfoQGGeF2RuccOPzk/DsVhjAEO91cKcbQSUKZYN5lK+XVoRI4oDPXTIRPCE9w==
+Received: from TYZPR06MB6568.apcprd06.prod.outlook.com (2603:1096:400:45f::6)
+ by TYSPR06MB6389.apcprd06.prod.outlook.com (2603:1096:400:42b::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.13; Wed, 15 Oct
+ 2025 01:35:27 +0000
+Received: from TYZPR06MB6568.apcprd06.prod.outlook.com
+ ([fe80::72b8:dce5:355b:e84b]) by TYZPR06MB6568.apcprd06.prod.outlook.com
+ ([fe80::72b8:dce5:355b:e84b%3]) with mapi id 15.20.9228.009; Wed, 15 Oct 2025
+ 01:35:26 +0000
+From: Jammy Huang <jammy_huang@aspeedtech.com>
+To: Hans Verkuil <hverkuil+cisco@kernel.org>, "eajames@linux.ibm.com"
+	<eajames@linux.ibm.com>, "mchehab@kernel.org" <mchehab@kernel.org>,
+	"joel@jms.id.au" <joel@jms.id.au>, "andrew@aj.id.au" <andrew@aj.id.au>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v10 1/1] media: aspeed: Allow to capture from SoC display
+ (GFX)
+Thread-Topic: [PATCH v10 1/1] media: aspeed: Allow to capture from SoC display
+ (GFX)
+Thread-Index: AQHcPB5llf4P0zFTGEqJXB30NbrH/LTCbzvA
+Date: Wed, 15 Oct 2025 01:35:26 +0000
+Message-ID: <TYZPR06MB6568E80E2040C97222EFB466F1E8A@TYZPR06MB6568.apcprd06.prod.outlook.com>
+References: <20250829035301.2697535-1-jammy_huang@aspeedtech.com>
+ <20250829035301.2697535-2-jammy_huang@aspeedtech.com>
+ <5cccc4c7-80bb-4e79-9c48-8eb6e2eeef74@kernel.org>
+In-Reply-To: <5cccc4c7-80bb-4e79-9c48-8eb6e2eeef74@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYZPR06MB6568:EE_|TYSPR06MB6389:EE_
+x-ms-office365-filtering-correlation-id: 72b54422-197d-4ed3-ad90-08de0b8b1e2d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|921020|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?L2l3dWJpeEJtR01OdG02eDNFTXRuWmowUDlkWnl6cHpEQ09sbzlFcGRPdkxX?=
+ =?utf-8?B?RDJMTG03M2hQYnUxZkJQTC83VzdMa0Fobm5uU2FEK1M1RWI5TlE4eVMxVFA3?=
+ =?utf-8?B?aWVVVVZUUmM3d3YrbFVQd2x3UmJZb3NXQk5NN1FNT1NHNkE3UmNEb1NRQmhW?=
+ =?utf-8?B?VlZneHJiZS8xa2VmTS9PdFZ6ODdod01sMWdOZHNxNDBkSGM0UHludjlpTHkw?=
+ =?utf-8?B?dUhreGlmMlV1SDduN21vaUJzVklOVTZ0L2hNL3hrUjJJTUFMK3pMK0FoVE8w?=
+ =?utf-8?B?cENVK2M4Rm15eFR0UHFkZTkwTmtqcW5OanNWbDdyd3VKeXR1ekJVRjNMbWhR?=
+ =?utf-8?B?WmRTYVJ4VzRFUTZaWlJLR3ZERFNMM3V3WmtJbVRkcXdxR2JWZHFQSTlhS1FJ?=
+ =?utf-8?B?MGxGVUZXdFowTHhpNmU4Q3h2L0k4UEJ1V0Y4RGN0bmdFRnUzVXh1WGZrYzUz?=
+ =?utf-8?B?NFloaTNpN2RPbmdVRXRJUFhCLzV4K21hejAzcFZsTlBFZ0ljQ3h1WnBzaTAr?=
+ =?utf-8?B?eWtVUVV5Vk52VXdCa2hWTCt4bkpKZDh1bWZrOC85bktNWGpxMmM1bGlwbkRG?=
+ =?utf-8?B?Q2JCakN4OG0zVFF0RXZUYzJMc2JDMjUyTnFhSU1ZTVNVRmdrbDIwMGUrRytl?=
+ =?utf-8?B?SnBzU1JBOGZBd0dHWXlWd0ZXT3pwcW1KaGRXWFhhOGQrYmpnRjBWMXU4MHND?=
+ =?utf-8?B?WnNCMm1EQXZTM2NUUk5ZcVdhZE1qTVpoL3VxZVowNEhXT0VzUjB3OVBpWjBB?=
+ =?utf-8?B?V2hxQ1dOUTdWVGxsNk0xdDZ1eDQxZ21vNmpSV1dyQjdTM0wrM1haVDZzaW1n?=
+ =?utf-8?B?MEZqZ0hReTkyY05DZlR6UXNIQWZRVHRlcHE3a1h0Z3g4S09JdTBTM3o1TXRU?=
+ =?utf-8?B?V21Vai9zQTErNlRGcVhOc2wwSlpmZWNVQmNjSW8zY29kbGlhKytranExMFZY?=
+ =?utf-8?B?YjNhUmR2ZHlUenZiM3BFT0hrWHJpYTlCSm9aRHlvOEI0K3pTWS91NnQyMGJx?=
+ =?utf-8?B?MVQyUjJoRDZpYmdIK2J6b1ZTUnYzQmdKOTJna0x4ODllTFBXNFBLRm9BSGpy?=
+ =?utf-8?B?UHVPckt4L05yY1QzaldCMnhPa203Y1B4elloSzczelk4bW96NDJRY2JacEJi?=
+ =?utf-8?B?NVlVQ3pTUHZlK2RJall3UlZRV0tYL09KZHVLQkI2eG5XQXUzTWUwcEtUSVlE?=
+ =?utf-8?B?NkxUZ25saExjNzFtajZxSTJXQlYvZ3Y3aWJMNGY5SCttK3dLMlhjVjB6cTJo?=
+ =?utf-8?B?d0NTZW56VXNQQ3hLQnJ1Q09nTEpSWElROHRvRG1nbmprUkFDUWd2djBjdkM2?=
+ =?utf-8?B?cjdQRXVYcHd6T0JNMDF4aElIaDArb3BzZ2xvMFlUR2hrTitZUFJyazRQdEtN?=
+ =?utf-8?B?eWUwVEJHUzFRRy9PWURaL1UrcXE0b3VJN2RKZ1dqcXlpZnlNaDlUNkozbm9s?=
+ =?utf-8?B?b0dmS3FSeWJGZDVTQ2syUC9vblhKc3Z1aklSWVNuZFhQVHVRYmQvUFovNURs?=
+ =?utf-8?B?N1lWaFBWWUVjTE16YVh2QW1NUm9NMjJKRms3TkpnR3owOE9HTWxWWXRnWThM?=
+ =?utf-8?B?QVRiSGVHa01xd3RvRmM5VGtCTDRxdmdQaUxiTEJVYUdOWEVxaHdPb3pZN25I?=
+ =?utf-8?B?NW5tbSt2Smx1VWFYY0UrTjZxNzJqTFNQSnZWMU1seEtYTllBMVJCdk9qNWEv?=
+ =?utf-8?B?ZWRWS1NNd2xkRXFKS2k5YUZSeGd5QjVveTMzK1h5ZlVnNkVzSm00UGRpUkFm?=
+ =?utf-8?B?aEtxSnIzLzY0cytzUUNZVE4vTk5jMTJmR1Yxc0RDNjQ0OHFjWXdOckZQa0Ew?=
+ =?utf-8?B?Y0ZlMzdTUE5DRFZHUk44VGZmRlRiMWV6RGhLLzZzK3EwdzNza0UwaCtGMzNJ?=
+ =?utf-8?B?QmJUNHdwcU9Ud3UxeEFYdWkwNW9zKzV3NFJkOFZQbUdkOUR1bDQ1cE0vYXl2?=
+ =?utf-8?B?YmNnazBNOFltUVcxdXh0a0E2ZlhWWFlLa1M1WDdPc3Q2aFJJUS9iOWRsMUln?=
+ =?utf-8?B?ei8wWnJyL2hXSC9uU2tnSlA0d2hoVlBYRWZGbkZGdXdNSUN5REdxditIRFF4?=
+ =?utf-8?B?U2FHVkJNM0dLTzQrRHU0aUk3TWhrbklGRk1Fdz09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB6568.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(921020)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?cjNPODVKWVZWbnI4akdLUGJBODRnOXZpemRRTTB3VlNPSnhtTVk0dVNHcmU1?=
+ =?utf-8?B?VkhkNy9Qb1FrTjhPV2c1QnZ4U1FGekNmYWlaenFVT2NydFgzTFNYbjVRRWEr?=
+ =?utf-8?B?K0g5Rml4bEptVFFNQTRTQnhUVU1jb1V6S0VBTUsxN1YwNldFd09vS3hKbW5Z?=
+ =?utf-8?B?MEZEdUxPWXFVWnpKWDViZCt4S2lzbGlPMm1tZi9uSWVmSGNtZE1tdnRLYkRs?=
+ =?utf-8?B?amczZ25GU2lqSUdpSXFGWGQyTERZWnMycDdpTWpPTWJOUCs2N1FTSVR2aXVY?=
+ =?utf-8?B?R1pBcmVKSk9BdUwvRFdTZWVhamVSSHFzUndmSUNVTEhVbjZXMEtMQzJHZEZM?=
+ =?utf-8?B?NmtGUFk4NldRQjh2TXBUWkpFRDk3Vmw2YXN0NzRuVnZvWXlyYklpRkFXa1Rj?=
+ =?utf-8?B?VVFBZFRnVit1aDBKcUdDRDdCNUliNHBOMG5KeUtNWjJxTXN2RysxWUZRVjll?=
+ =?utf-8?B?aTBBdWhWdUVLSlhnVkpMSWk5RDZCMmVSeWdqQ3NZdXNFMXNSSXBJQmxpT2dN?=
+ =?utf-8?B?Z1hxT0FDcUlYTGw2UjAwRWpyRTJMVi9YRHBTTXFiVVJMN1dvVmZldnRkVEgx?=
+ =?utf-8?B?RVRRbDJrSkp1V3g4aEd0a3V6citCMjNhRXhPSGR0QkhJTm90UENaRlBMWWEw?=
+ =?utf-8?B?em1zRVZvaGlIWWt4NmIzRG9RMk5Xc3lrMmhnU3BOUTFnTk5SM0VoaG5xUEtK?=
+ =?utf-8?B?a2JJejhlUFlieVZJNGRMUjZNakZKREorQ0VjWVpsY3ZwUkR6NDluRERPYlFJ?=
+ =?utf-8?B?TWg0VEp1dmlwSUl5dWk5SXVYY1ZVVjg5NklwSHQ0eGJVaTNhZVlGVkVMOWpH?=
+ =?utf-8?B?QTY4Yjlqb2N2SGlEb21ZNlBXWHFSZmdaWkp2dlVraWhZMncyQ3BtaXVQL3JO?=
+ =?utf-8?B?cGV4a2oxeEtON1ZmSkZTNmpYRnNhNzFOU29oVnlsMlF0YXJVVkZYcEtwQ3lw?=
+ =?utf-8?B?TUFFSXFvWUpiUHhwM2RwTDl6d3ZWaGJGdldEUllvM2hrMjFJZ3F4c2ZUdTg4?=
+ =?utf-8?B?ZndwZnBTTS9tY21VZW5qdTNwUjlzOUdiYkVQVHFWdkgyVDQ2a05HNkpWc3o2?=
+ =?utf-8?B?Y09kenZoaVJZaWNad2JnWXhxZzlqMVRXTEtrbkl6L0xJQUVPNXBGeXlRZ0ln?=
+ =?utf-8?B?NENDaUpnRGoyMGxQYzFOazh6amNrSkdnb0ZtUEt2NStCNUtsMnB5ODBhTmdv?=
+ =?utf-8?B?NG1lMDlFaGx2T0xZQW1DQ3lDM2lXM2V1enY5Zy9Zb1BHZ3pLTExvRTZLNUU2?=
+ =?utf-8?B?Q201dTJBWG5Va2pVMUwxNmYvMFFlKzIyTmZpYkppNmtGYld3cjlYbllWaDdh?=
+ =?utf-8?B?YzVxcHF5Q1daenBuc2pOc0ZWRk1DSC9keWJaeXJvNmhtclNqQjN5WXhhZzI5?=
+ =?utf-8?B?TXNHeHpIdTJUVW9vbjFYdXBLd0RzUDVwdEdKZTBvTkpnNzVqbHpCUDJzakhh?=
+ =?utf-8?B?RkVycUVqTjhQdHdhNzFrbmwwNnFBWGcvUzkzYk8xTlRLU3VLNTQ3TVE0MEZk?=
+ =?utf-8?B?dkVUOUZGQ3VzQU5BdlRQck96amQrMHU5K2tuWUliZ1BYUFkvQk9KcGFqcms1?=
+ =?utf-8?B?cmROY3g3a3JqUVg0QlRmQkhrWVJRcEpvb0t0aTQzUDNLU1V3NGxjdjNjc3Zs?=
+ =?utf-8?B?eFJLRExSVzJhMDlsN04wWHlDa0Vpc0laTVRDRk5QV1NzZU5ZZjVYWXpDZ1Qv?=
+ =?utf-8?B?VmUzWXB0YUxHbklBRXFPRVhEbmx6eXRoNVRlOWVqU0cxNzFBdkJEazUvVGs4?=
+ =?utf-8?B?aTYyS0VZN055dmpVdHJXUjFYSENFL0JwcnRDVXEvNU1oSTlVODNpSVRSV2Ix?=
+ =?utf-8?B?OHFKbnFMMFE3YkxDdExpUUFBMFlRUmFNSmptWHpqZG41WmVDRFRzU0hBSUNH?=
+ =?utf-8?B?RGhLd3BkRTRCRGJXS0JIQlhPOFZOdGdNMmt0VVZnVjlqOGd5MW9NWkx4WDI5?=
+ =?utf-8?B?dlRxQnVIU3FtVGVROEdqMnlQRW5saGlVQ2NhUkRIMklTMG9Ua0FyUXppMlla?=
+ =?utf-8?B?WGhaOS9FM2YzV2NHUUw1YjBHUEJmUlRncFEyRDYyTkVIWVBsQW5WdytFYnVt?=
+ =?utf-8?B?SkFnSlBaZzJGMzBqbzdQdVV1bXJubHAvRGNVUjJxRjZHNEZyTGQ4T0U2SnNF?=
+ =?utf-8?B?QTNzMndPMWhycjh3TmwyWkNxbGpWM1F3Ymp5SVRGS0tQOEVLTFlKVVNtSTdJ?=
+ =?utf-8?B?R2c9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB6568.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 72b54422-197d-4ed3-ad90-08de0b8b1e2d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Oct 2025 01:35:26.7633
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: jRKzybJ+PJlrIFOukRG6oEzYaRBRXtLxgzmbamjdHZI3c6FjODbqXwq5ldXGAy0vcr4O0BPaomiGY/LpDpPPHf2i4lu5MGR87yWvpyMKkaU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6389
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_182905_578005_381B4D5D 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20251014_183546_889424_92980011 
+X-CRM114-Status: GOOD (  26.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,1257 +189,334 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for USB PHY for Airoha AN7583 SoC, this share some U2 init
-from AN7581 but use a totally different init phase for PLL and
-calibration for U3.
-
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- drivers/phy/airoha/Kconfig                    |   16 +-
- drivers/phy/airoha/Makefile                   |    3 +-
- ...y-airoha-usb.c => phy-airoha-an7581-usb.c} |    0
- drivers/phy/airoha/phy-airoha-an7583-usb.c    | 1185 +++++++++++++++++
- 4 files changed, 1200 insertions(+), 4 deletions(-)
- rename drivers/phy/airoha/{phy-airoha-usb.c => phy-airoha-an7581-usb.c} (100%)
- create mode 100644 drivers/phy/airoha/phy-airoha-an7583-usb.c
-
-diff --git a/drivers/phy/airoha/Kconfig b/drivers/phy/airoha/Kconfig
-index 0675d8f2f9d1..98859d41c4db 100644
---- a/drivers/phy/airoha/Kconfig
-+++ b/drivers/phy/airoha/Kconfig
-@@ -12,12 +12,22 @@ config PHY_AIROHA_PCIE
- 	  This driver create the basic PHY instance and provides initialize
- 	  callback for PCIe GEN3 port.
- 
--config PHY_AIROHA_USB
--	tristate "Airoha USB PHY Driver"
-+config PHY_AIROHA_AN7581_USB
-+	tristate "Airoha AN7581 USB PHY Driver"
- 	depends on ARCH_AIROHA || COMPILE_TEST
- 	depends on OF
- 	select GENERIC_PHY
- 	help
--	  Say 'Y' here to add support for Airoha USB PHY driver.
-+	  Say 'Y' here to add support for Airoha AN7581 USB PHY driver.
-+	  This driver create the basic PHY instance and provides initialize
-+	  callback for USB port.
-+
-+config PHY_AIROHA_AN7583_USB
-+	tristate "Airoha AN7583 USB PHY Driver"
-+	depends on ARCH_AIROHA || COMPILE_TEST
-+	depends on OF
-+	select GENERIC_PHY
-+	help
-+	  Say 'Y' here to add support for Airoha AN7583 USB PHY driver.
- 	  This driver create the basic PHY instance and provides initialize
- 	  callback for USB port.
-diff --git a/drivers/phy/airoha/Makefile b/drivers/phy/airoha/Makefile
-index fd188d08c412..2424bf36872c 100644
---- a/drivers/phy/airoha/Makefile
-+++ b/drivers/phy/airoha/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- 
- obj-$(CONFIG_PHY_AIROHA_PCIE)		+= phy-airoha-pcie.o
--obj-$(CONFIG_PHY_AIROHA_USB)		+= phy-airoha-usb.o
-+obj-$(CONFIG_PHY_AIROHA_AN7581_USB)	+= phy-airoha-an7581-usb.o
-+obj-$(CONFIG_PHY_AIROHA_AN7583_USB)	+= phy-airoha-an7583-usb.o
-diff --git a/drivers/phy/airoha/phy-airoha-usb.c b/drivers/phy/airoha/phy-airoha-an7581-usb.c
-similarity index 100%
-rename from drivers/phy/airoha/phy-airoha-usb.c
-rename to drivers/phy/airoha/phy-airoha-an7581-usb.c
-diff --git a/drivers/phy/airoha/phy-airoha-an7583-usb.c b/drivers/phy/airoha/phy-airoha-an7583-usb.c
-new file mode 100644
-index 000000000000..a699476d207f
---- /dev/null
-+++ b/drivers/phy/airoha/phy-airoha-an7583-usb.c
-@@ -0,0 +1,1185 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Author: Christian Marangi <ansuelsmth@gmail.com>
-+ */
-+
-+#include <dt-bindings/phy/phy.h>
-+#include <dt-bindings/soc/airoha,scu-ssr.h>
-+#include <linux/bitfield.h>
-+#include <linux/math.h>
-+#include <linux/module.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/soc/airoha/airoha-scu-ssr.h>
-+
-+/* PHY */
-+#define AIROHA_USB_PHY_FMCR0			0x100
-+#define   AIROHA_USB_PHY_MONCLK_SEL		GENMASK(27, 26)
-+#define   AIROHA_USB_PHY_MONCLK_SEL0		FIELD_PREP_CONST(AIROHA_USB_PHY_MONCLK_SEL, 0x0)
-+#define   AIROHA_USB_PHY_MONCLK_SEL1		FIELD_PREP_CONST(AIROHA_USB_PHY_MONCLK_SEL, 0x1)
-+#define   AIROHA_USB_PHY_MONCLK_SEL2		FIELD_PREP_CONST(AIROHA_USB_PHY_MONCLK_SEL, 0x2)
-+#define   AIROHA_USB_PHY_MONCLK_SEL3		FIELD_PREP_CONST(AIROHA_USB_PHY_MONCLK_SEL, 0x3)
-+#define   AIROHA_USB_PHY_FREQDET_EN		BIT(24)
-+#define   AIROHA_USB_PHY_CYCLECNT		GENMASK(23, 0)
-+#define AIROHA_USB_PHY_FMMONR0			0x10c
-+#define   AIROHA_USB_PHY_USB_FM_OUT		GENMASK(31, 0)
-+#define AIROHA_USB_PHY_FMMONR1			0x110
-+#define   AIROHA_USB_PHY_FRCK_EN		BIT(8)
-+
-+#define AIROHA_USB_PHY_USBPHYACR2		0x308
-+#define   AIROHA_USB_PHY_SIFSLV_MAC_BANDGAP_EN	BIT(17)
-+#define AIROHA_USB_PHY_USBPHYACR4		0x310
-+#define   AIROHA_USB_PHY_USB20_FS_CR		GENMASK(10, 8)
-+#define   AIROHA_USB_PHY_USB20_FS_CR_MAX	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_FS_CR, 0x0)
-+#define   AIROHA_USB_PHY_USB20_FS_CR_NORMAL	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_FS_CR, 0x2)
-+#define   AIROHA_USB_PHY_USB20_FS_CR_SMALLER	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_FS_CR, 0x4)
-+#define   AIROHA_USB_PHY_USB20_FS_CR_MIN	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_FS_CR, 0x6)
-+#define   AIROHA_USB_PHY_USB20_FS_SR		GENMASK(2, 0)
-+#define   AIROHA_USB_PHY_USB20_FS_SR_MAX	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_FS_SR, 0x0)
-+#define   AIROHA_USB_PHY_USB20_FS_SR_NORMAL	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_FS_SR, 0x2)
-+#define   AIROHA_USB_PHY_USB20_FS_SR_SMALLER	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_FS_SR, 0x4)
-+#define   AIROHA_USB_PHY_USB20_FS_SR_MIN	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_FS_SR, 0x6)
-+#define AIROHA_USB_PHY_USBPHYACR5		0x314
-+#define   AIROHA_USB_PHY_USB20_DISC_FIT_EN	BIT(28)
-+#define   AIROHA_USB_PHY_USB20_HSTX_SRCAL_EN	BIT(15)
-+#define   AIROHA_USB_PHY_USB20_HSTX_SRCTRL	GENMASK(14, 12)
-+#define AIROHA_USB_PHY_USBPHYACR6		0x318
-+#define   AIROHA_USB_PHY_USB20_BC11_SW_EN	BIT(23)
-+#define   AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL	 GENMASK(10, 9)
-+#define   AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL_ENPLL \
-+	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL, 0x0)
-+#define   AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL_IDLEB_RCV_EN \
-+	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL, 0x1)
-+#define   AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL_NO_ENPLL_FS_BIAS_EN \
-+	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL, 0x2)
-+#define   AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL_USB20_HSRX_TMODE_EN \
-+	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL, 0x3)
-+#define   AIROHA_USB_PHY_USB20_DISCTH		GENMASK(7, 4)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_400	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0x0)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_420	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0x1)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_440	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0x2)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_460	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0x3)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_480	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0x4)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_500	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0x5)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_520	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0x6)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_540	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0x7)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_560	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0x8)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_580	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0x9)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_600	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0xa)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_620	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0xb)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_640	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0xc)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_660	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0xd)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_680	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0xe)
-+#define   AIROHA_USB_PHY_USB20_DISCTH_700	FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_DISCTH, 0xf)
-+#define   AIROHA_USB_PHY_USB20_SQTH		GENMASK(3, 0)
-+#define   AIROHA_USB_PHY_USB20_SQTH_85		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0x0)
-+#define   AIROHA_USB_PHY_USB20_SQTH_90		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0x1)
-+#define   AIROHA_USB_PHY_USB20_SQTH_95		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0x2)
-+#define   AIROHA_USB_PHY_USB20_SQTH_100		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0x3)
-+#define   AIROHA_USB_PHY_USB20_SQTH_105		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0x4)
-+#define   AIROHA_USB_PHY_USB20_SQTH_110		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0x5)
-+#define   AIROHA_USB_PHY_USB20_SQTH_115		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0x6)
-+#define   AIROHA_USB_PHY_USB20_SQTH_120		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0x7)
-+#define   AIROHA_USB_PHY_USB20_SQTH_125		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0x8)
-+#define   AIROHA_USB_PHY_USB20_SQTH_130		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0x9)
-+#define   AIROHA_USB_PHY_USB20_SQTH_135		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0xa)
-+#define   AIROHA_USB_PHY_USB20_SQTH_140		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0xb)
-+#define   AIROHA_USB_PHY_USB20_SQTH_145		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0xc)
-+#define   AIROHA_USB_PHY_USB20_SQTH_150		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0xd)
-+#define   AIROHA_USB_PHY_USB20_SQTH_155		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0xe)
-+#define   AIROHA_USB_PHY_USB20_SQTH_160		FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_SQTH, 0xf)
-+
-+#define AIROHA_USB_PHY_U2PHYACR3		0x31c
-+#define   AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE	GENMASK(25, 24)
-+#define   AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE_TOGGLE FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE, 0x0)
-+#define   AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE_HS_TERM FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE, 0x1)
-+#define   AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE_FORCE_DISABLE FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE, 0x2)
-+#define   AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE_FORCE_ENABLE FIELD_PREP_CONST(AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE, 0x3)
-+#define   AIROHA_USB_PHY_USB20_USB11_TMODE_EN	BIT(19)
-+#define   AIROHA_USB_PHY_USB20_TMODE_FS_LS_TX_EN BIT(18)
-+#define   AIROHA_USB_PHY_USB20_PUPD_BIST_EN	BIT(12)
-+#define AIROHA_USB_PHY_U2PHYDTM0		0x368
-+#define   AIROHA_USB_PHY_FORCE_XCVRSEL		BIT(19)
-+#define   AIROHA_USB_PHY_FORCE_SUSPENDDM	BIT(18)
-+#define   AIROHA_USB_PHY_FORCE_TERMSEL		BIT(17)
-+#define   AIROHA_USB_PHY_XCVRSEL		GENMASK(5, 4)
-+#define   AIROHA_USB_PHY_TERMSEL		BIT(2)
-+#define AIROHA_USB_PHY_U2PHYDTM1		0x36c
-+#define   AIROHA_USB_PHY_FORCE_IDDIG		BIT(9)
-+#define   AIROHA_USB_PHY_IDDIG			BIT(1)
-+
-+#define AIROHA_USB_PHY_GPIO_CTLD		0x80c
-+#define   AIROHA_USB_PHY_C60802_GPIO_CTLD	GENMASK(31, 0)
-+#define     AIROHA_USB_PHY_SSUSB_IP_SW_RST	BIT(31)
-+#define     AIROHA_USB_PHY_MCU_BUS_CK_GATE_EN	BIT(30)
-+#define     AIROHA_USB_PHY_FORCE_SSUSB_IP_SW_RST BIT(29)
-+#define     AIROHA_USB_PHY_SSUSB_SW_RST		BIT(28)
-+
-+#define AIROHA_USB_PHY_U3_PHYA_REG0		0xb00
-+#define   AIROHA_USB_PHY_SSUSB_BG_DIV		GENMASK(29, 28)
-+#define   AIROHA_USB_PHY_SSUSB_BG_DIV_2		FIELD_PREP_CONST(AIROHA_USB_PHY_SSUSB_BG_DIV, 0x0)
-+#define   AIROHA_USB_PHY_SSUSB_BG_DIV_4		FIELD_PREP_CONST(AIROHA_USB_PHY_SSUSB_BG_DIV, 0x1)
-+#define   AIROHA_USB_PHY_SSUSB_BG_DIV_8		FIELD_PREP_CONST(AIROHA_USB_PHY_SSUSB_BG_DIV, 0x2)
-+#define   AIROHA_USB_PHY_SSUSB_BG_DIV_16	FIELD_PREP_CONST(AIROHA_USB_PHY_SSUSB_BG_DIV, 0x3)
-+#define AIROHA_USB_PHY_U3_PHYA_REG1		0xb04
-+#define   AIROHA_USB_PHY_SSUSB_XTAL_TOP_RESERVE	GENMASK(25, 10)
-+#define AIROHA_USB_PHY_U3_PHYA_REG6		0xb18
-+#define   AIROHA_USB_PHY_SSUSB_CDR_RESERVE	GENMASK(31, 24)
-+#define AIROHA_USB_PHY_U3_PHYA_REG8		0xb20
-+#define   AIROHA_USB_PHY_SSUSB_CDR_RST_DLY	GENMASK(7, 6)
-+#define   AIROHA_USB_PHY_SSUSB_CDR_RST_DLY_32	FIELD_PREP_CONST(AIROHA_USB_PHY_SSUSB_CDR_RST_DLY, 0x0)
-+#define   AIROHA_USB_PHY_SSUSB_CDR_RST_DLY_64	FIELD_PREP_CONST(AIROHA_USB_PHY_SSUSB_CDR_RST_DLY, 0x1)
-+#define   AIROHA_USB_PHY_SSUSB_CDR_RST_DLY_128	FIELD_PREP_CONST(AIROHA_USB_PHY_SSUSB_CDR_RST_DLY, 0x2)
-+#define   AIROHA_USB_PHY_SSUSB_CDR_RST_DLY_216	FIELD_PREP_CONST(AIROHA_USB_PHY_SSUSB_CDR_RST_DLY, 0x3)
-+
-+#define AIROHA_USB_PHY_U3_PHYA_DA_REG19		0xc38
-+#define   AIROHA_USB_PHY_SSUSB_PLL_SSC_DELTA1_U3 GENMASK(15, 0)
-+
-+/* ANA */
-+
-+#define AIROHA_USB_ANA_RXAFE_RESERVE		0x4
-+#define   AIROHA_USB_ANA_CDR_PD_10B_EN		BIT(11)
-+#define   AIROHA_USB_ANA_CDR_PD_EDGE_DIS	BIT(10)
-+#define AIROHA_USB_ANA_CDR_LPF_MJV_LIM		0xc
-+#define   AIROHA_USB_ANA_CDR_LPF_RATIO		GENMASK(5, 4)
-+#define AIROHA_USB_ANA_CDR_PR_CKREF_DIV1	0x18
-+#define   AIROHA_USB_ANA_CDR_PR_KBAND_DIV	GENMASK(26, 24)
-+#define   AIROHA_USB_ANA_CDR_PR_DAC_BAND	GENMASK(12, 8)
-+#define AIROHA_USB_ANA_CDR_PR_KBAND_DIV_PCIE_REG 0x1c
-+#define   AIROHA_USB_ANA_CDR_PR_XFICK_EN	BIT(30)
-+#define   AIROHA_USB_ANA_CDR_PR_KBAND_PCIE_MODE	BIT(6)
-+#define   AIROHA_USB_ANA_CDR_PR_KBAND_DIV_PCIE	GENMASK(5, 0)
-+#define AIROHA_USB_ANA_CDR_FORCE_IBANDLPF_R_OFF	0x20
-+#define   AIROHA_USB_ANA_CDR_PHYCK_RSTB		BIT(13)
-+#define AIROHA_USB_ANA_QP_TX_MODE_16B_EN	0x28
-+#define   AIROHA_USB_ANA_TX_RESERVE_8		BIT(24)
-+#define AIROHA_USB_ANA_RXLBTX_EN		0x2c
-+#define   AIROHA_USB_ANA_TX_DMEDGEGEN_EN	BIT(27)
-+#define   AIROHA_USB_ANA_TX_RXDET_METHOD	BIT(25)
-+#define AIROHA_USB_ANA_SSUSB_BGR_EN		0x30
-+#define   AIROHA_USB_ANA_BIAS_V2V_CAL		GENMASK(26, 21)
-+#define   AIROHA_USB_ANA_SSUSB_BG_DIV		GENMASK(3, 2)
-+#define   AIROHA_USB_ANA_SSUSB_CHPEN		BIT(1)
-+#define AIROHA_USB_ANA_TDC_FT_CK_EN		0x38
-+#define   AIROHA_USB_ANA_PLL_DEBUG_SEL		BIT(19)
-+#define   AIROHA_USB_ANA_VUSB10_ON		BIT(8)
-+#define AIROHA_USB_ANA_PLL_IPLL_DIG_PWR_SEL	0x3c
-+#define   AIROHA_USB_ANA_PLL_PREDIV		GENMASK(26, 25)
-+#define   AIROHA_USB_ANA_PLL_OSCAL_ENB		BIT(19)
-+#define   AIROHA_USB_ANA_PLL_MON_LDO_SEL	GENMASK(18, 16)
-+#define   AIROHA_USB_ANA_PLL_MONVC_EN		BIT(14)
-+#define   AIROHA_USB_ANA_PLL_LDOLPF_VSEL	GENMASK(6, 5)
-+#define AIROHA_USB_ANA_PLL_SDM_ORD		0x40
-+#define   AIROHA_USB_ANA_PLL_SSC_TRI_EN		BIT(4)
-+#define   AIROHA_USB_ANA_PLL_SSC_PHASE_INI	BIT(3)
-+
-+/* PMA */
-+#define AIROHA_USB_PMA_TX_DA_CTRL_0		0x0
-+#define   AIROHA_USB_PMA_RXDET_RD_WAIT_TIMER	GENMASK(15, 12)
-+#define   AIROHA_USB_PMA_RXDET_EN_WINDOW	GENMASK(9, 4)
-+#define AIROHA_USB_PMA_TX_DA_CTRL_3		0xc
-+#define   AIROHA_USB_PMA_TX_DATA_RATE_SEL	GENMASK(30, 28)
-+#define AIROHA_USB_PMA_PON_RXFEDIG_CTRL_0	0x100
-+#define   AIROHA_USB_PMA_EQ_RX500M_CK_SEL	BIT(12)
-+#define AIROHA_USB_PMA_SS_LCPLL_PWCTL_SETTING_2	0x208
-+#define   AIROHA_USB_PMA_NCPO_ANA_MSB		GENMASK(17, 16)
-+#define AIROHA_USB_PMA_SS_LCPLL_TDC_FLT_2	0x230
-+#define   AIROHA_USB_PMA_LCPLL_NCPO_VALUE	GENMASK(30, 0)
-+#define AIROHA_USB_PMA_SS_LCPLL_TDC_PCW_1	0x248
-+#define   AIROHA_USB_PMA_LCPLL_PON_HRDDS_PCW_NCPO_GPON GENMASK(30, 0)
-+#define AIROHA_USB_PMA_INTF_CTRL_5		0x314
-+#define   AIROHA_USB_PMA_RX_HZ_SEL		BIT(5)
-+#define   AIROHA_USB_PMA_RX_HZ_FORCE		BIT(4)
-+#define AIROHA_USB_PMA_INTF_CTRL_6		0x318
-+#define   AIROHA_USB_PMA_TX_DATA_EN_SEL		BIT(13)
-+#define   AIROHA_USB_PMA_TX_DATA_EN_FORCE	BIT(12)
-+#define AIROHA_USB_PMA_INTF_CTRL_7		0x31c
-+#define   AIROHA_USB_PMA_PLL_EN_SEL		BIT(5)
-+#define   AIROHA_USB_PMA_PLL_EN_FORCE		BIT(4)
-+#define AIROHA_USB_PMA_INTF_CTRL_8		0x320
-+#define   AIROHA_USB_PMA_XTAL_EXT_EN_SEL	BIT(13)
-+#define   AIROHA_USB_PMA_XTAL_EXT_EN_FORCE	GENMASK(12, 11)
-+#define AIROHA_USB_PMA_INTF_STS_9		0x364
-+#define   AIROHA_USB_PMA_ADDR_INTF_STS_PLL_VCOCAL GENMASK(23, 16)
-+#define AIROHA_USB_PMA_PLL_CTRL_0		0x400
-+#define   AIROHA_USB_PMA_AUTO_INIT		BIT(0)
-+#define AIROHA_USB_PMA_PLL_CTRL_1		0x404
-+#define   AIROHA_USB_PMA_PLL_SSC_EN		BIT(30)
-+#define AIROHA_USB_PMA_PLL_CTRL_2		0x408
-+#define   AIROHA_USB_PMA_PLL_SDM_IFM_INTF	BIT(30)
-+#define   AIROHA_USB_PMA_PLL_RICO_SEL_INTF	BIT(29)
-+#define   AIROHA_USB_PMA_PLL_PHY_CK_EN_INTF	BIT(27)
-+#define   AIROHA_USB_PMA_PLL_PCK_SEL_INTF	BIT(22)
-+#define   AIROHA_USB_PMA_PLL_KBAND_PREDIV_INTF	GENMASK(21, 20)
-+#define   AIROHA_USB_PMA_PLL_IR_INTF		GENMASK(19, 16)
-+#define   AIROHA_USB_PMA_PLL_ICOIQ_EN_INTF	BIT(14)
-+#define   AIROHA_USB_PMA_PLL_FBKSEL_INTF	GENMASK(13, 12)
-+#define   AIROHA_USB_PMA_PLL_BPB_INTF		GENMASK(7, 6)
-+#define   AIROHA_USB_PMA_PLL_BPA_INTF		GENMASK(4, 2)
-+#define   AIROHA_USB_PMA_PLL_BC_INTF		GENMASK(1, 0)
-+#define AIROHA_USB_PMA_PLL_CTRL_3		0x40c
-+#define   AIROHA_USB_PMA_PLL_SSC_PERIOD_INTF	GENMASK(31, 16)
-+#define   AIROHA_USB_PMA_PLL_SSC_DELTA_INTF	GENMASK(15, 0)
-+#define AIROHA_USB_PMA_PLL_CTRL_4		0x410
-+#define   AIROHA_USB_PMA_PLL_SDM_HREN_INTF	GENMASK(4, 3)
-+#define   AIROHA_USB_PMA_PLL_ICOLP_EN_INTF	BIT(2)
-+#define AIROHA_USB_PMA_PLL_CK_CTRL_1		0x418
-+#define   AIROHA_USB_PMA_PLL_FORCE_UNSTABLE	BIT(19)
-+#define   AIROHA_USB_PMA_PLL_FORCE_STABLE	BIT(18)
-+#define AIROHA_USB_PMA_PLL_CK_CTRL_2		0x41c
-+#define   AIROHA_USB_PMA_PCIE_MODE_PLL_AUTO_OFF_EN BIT(2)
-+#define   AIROHA_USB_PMA_PCIE_MODE_PLL_AUTO_ON_EN BIT(1)
-+#define   AIROHA_USB_PMA_PCIE_MODE_PLL_AUTO_EN	BIT(0)
-+#define AIROHA_USB_PMA_RX_SYS_CTRL_0		0x600
-+#define   AIROHA_USB_PMA_ROC_CK_EN		BIT(1)
-+#define AIROHA_USB_PMA_RX_DLY_0			0x614
-+#define   AIROHA_USB_PMA_RX_PI_CAL_EN_H_DLY	GENMASK(7, 0)
-+#define AIROHA_USB_PMA_RX_CTRL_2		0x630
-+#define   AIROHA_USB_PMA_RX_EQ_EN_H_DLY		GENMASK(28, 16)
-+#define AIROHA_USB_PMA_RX_CTRL_5		0x63c
-+#define   AIROHA_USB_PMA_FREDET_CHK_CYCLE	GENMASK(29, 10)
-+#define AIROHA_USB_PMA_RX_CTRL_6		0x640
-+#define   AIROHA_USB_PMA_FREDET_GOLDEN_CYCLE	GENMASK(19, 0)
-+#define AIROHA_USB_PMA_RX_CTRL_7		0x644
-+#define   AIROHA_USB_PMA_FREDET_TOLERATE_CYCLE	GENMASK(19, 0)
-+#define AIROHA_USB_PMA_RX_CTRL_11		0x654
-+#define   AIROHA_USB_PMA_FORCE_SIGDET_5G	BIT(19)
-+#define AIROHA_USB_PMA_RX_CTRL_36		0x6b8
-+#define   AIROHA_USB_PMA_PCIE_USB_SYSTEM	BIT(26)
-+#define   AIROHA_USB_PMA_LCK2DATA_DLY_TIME	GENMASK(23, 16)
-+#define AIROHA_USB_PMA_RX_CTRL_38		0x6C0
-+#define   AIROHA_USB_PMA_RESERVE_3		GENMASK(31, 24)
-+#define AIROHA_USB_PMA_RX_CTRL_45		0x6dc
-+#define   AIROHA_USB_PMA_EQ_EN_DLY		GENMASK(12, 0)
-+#define AIROHA_USB_PMA_RX_CTRL_46		0x6e0
-+#define   AIROHA_USB_PMA_PCIE_USB_BYPASS_EQ_P3_TO_P0_EN	BIT(29)
-+#define   AIROHA_USB_PMA_PCIE_USB_BYPASS_EQ_P2_TO_P0_EN	BIT(28)
-+#define   AIROHA_USB_PMA_PCIE_USB_BYPASS_EQ_P1_TO_P0_EN	BIT(27)
-+#define   AIROHA_USB_PMA_REBACK_P0_LCK2REF_EN	BIT(26)
-+#define AIROHA_USB_PMA_RX_CTRL_49		0x6ec
-+#define   AIROHA_USB_PMA_LFPS_FINISH_TIME	GENMASK(31, 21)
-+#define AIROHA_USB_PMA_RX_CTRL_50		0x6f0
-+#define   AIROHA_USB_PMA_P3_TO_P0_DO_EQ_USB	BIT(28)
-+#define   AIROHA_USB_PMA_P2_TO_P0_DO_EQ_USB	BIT(27)
-+#define   AIROHA_USB_PMA_P1_TO_P0_DO_EQ_USB	BIT(26)
-+#define   AIROHA_USB_PMA_EQ_EN_DLY_SHORT	GENMASK(25, 13)
-+#define   AIROHA_USB_PMA_RX_EQ_EN_H_DLY_SHORT	GENMASK(12, 0)
-+
-+/* DIG */
-+#define AIROHA_USB_DIG_CK_RST_CTRL_3		0x30c
-+#define   AIROHA_USB_DIG_NS_CK_DIV_SEL		BIT(25)
-+#define   AIROHA_USB_DIG_US_CK_DIV_SEL		BIT(24)
-+#define AIROHA_USB_DIG_CK_RST_CTRL_7		0x340
-+#define   AIROHA_USB_DIG_MULTI_USB2P5_EN	BIT(26)
-+#define   AIROHA_USB_DIG_MULTI_USB5_EN		BIT(25)
-+#define   AIROHA_USB_DIG_MULTI_PHY_USB_EN	BIT(24)
-+
-+#define AIROHA_USB_PHY_U2_FM_DET_CYCLE_CNT	1024
-+#define AIROHA_USB_PHY_REF_CK			20
-+#define AIROHA_USB_PHY_U2_SR_COEF		28
-+#define AIROHA_USB_PHY_U2_SR_COEF_DIVISOR	1000
-+
-+#define AIROHA_USB_PHY_FREQDET_SLEEP		1000 /* 1ms */
-+#define AIROHA_USB_PHY_FREQDET_TIMEOUT		(AIROHA_USB_PHY_FREQDET_SLEEP * 10)
-+
-+#define AIROHA_USB_PHY_U3_MAX_CALIB_TRY		50
-+#define AIROHA_USB_PHY_MAX_INSTANCE		2
-+
-+struct airoha_usb_phy_instance {
-+	struct phy *phy;
-+	u32 type;
-+};
-+
-+struct airoha_usb_phy_priv {
-+	struct device *dev;
-+
-+	struct regmap *map;
-+	struct regmap *map_ana;
-+	struct regmap *map_pma;
-+	struct regmap *map_dig;
-+
-+	unsigned int id;
-+
-+	struct airoha_usb_phy_instance *phys[AIROHA_USB_PHY_MAX_INSTANCE];
-+};
-+
-+static int airoha_usb_phy_u2_slew_rate_calibration(struct airoha_usb_phy_priv *priv)
-+{
-+	u32 fm_out;
-+	u32 srctrl;
-+
-+	/* Enable HS TX SR calibration */
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_USBPHYACR5,
-+			AIROHA_USB_PHY_USB20_HSTX_SRCAL_EN);
-+
-+	usleep_range(1000, 1500);
-+
-+	/* Enable Free run clock */
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_FMMONR1,
-+			AIROHA_USB_PHY_FRCK_EN);
-+
-+	/* Select Monitor Clock */
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_FMCR0,
-+			   AIROHA_USB_PHY_MONCLK_SEL,
-+			   priv->id == 0 ? AIROHA_USB_PHY_MONCLK_SEL0 :
-+					   AIROHA_USB_PHY_MONCLK_SEL1);
-+
-+	/* Set cyclecnt */
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_FMCR0,
-+			   AIROHA_USB_PHY_CYCLECNT,
-+			   FIELD_PREP(AIROHA_USB_PHY_CYCLECNT,
-+				      AIROHA_USB_PHY_U2_FM_DET_CYCLE_CNT));
-+
-+	/* Enable Frequency meter */
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_FMCR0,
-+			AIROHA_USB_PHY_FREQDET_EN);
-+
-+	/* Timeout can happen and we will apply workaround at the end */
-+	regmap_read_poll_timeout(priv->map, AIROHA_USB_PHY_FMMONR0, fm_out,
-+				 fm_out, AIROHA_USB_PHY_FREQDET_SLEEP,
-+				 AIROHA_USB_PHY_FREQDET_TIMEOUT);
-+
-+	/* Disable Frequency meter */
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_FMCR0,
-+			  AIROHA_USB_PHY_FREQDET_EN);
-+
-+	/* Disable Free run clock */
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_FMMONR1,
-+			  AIROHA_USB_PHY_FRCK_EN);
-+
-+	/* Disable HS TX SR calibration */
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_USBPHYACR5,
-+			  AIROHA_USB_PHY_USB20_HSTX_SRCAL_EN);
-+
-+	usleep_range(1000, 1500);
-+
-+	/* Frequency was not detected, use default SR calibration value */
-+	if (!fm_out) {
-+		srctrl = 0x5;
-+		dev_err(priv->dev, "Frequency not detected, using default SR calibration.\n");
-+	/* (1024 / FM_OUT) * REF_CK * U2_SR_COEF (round to the nearest digits) */
-+	} else {
-+		srctrl = AIROHA_USB_PHY_REF_CK * AIROHA_USB_PHY_U2_SR_COEF;
-+		srctrl = (srctrl * AIROHA_USB_PHY_U2_FM_DET_CYCLE_CNT) / fm_out;
-+		srctrl = DIV_ROUND_CLOSEST(srctrl, AIROHA_USB_PHY_U2_SR_COEF_DIVISOR);
-+		dev_dbg(priv->dev, "SR calibration applied: %x\n", srctrl);
-+	}
-+
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_USBPHYACR5,
-+			   AIROHA_USB_PHY_USB20_HSTX_SRCTRL,
-+			   FIELD_PREP(AIROHA_USB_PHY_USB20_HSTX_SRCTRL, srctrl));
-+
-+	return 0;
-+}
-+
-+static bool airoha_usb_phy_u3_kband_is_calibrated(struct airoha_usb_phy_priv *priv)
-+{
-+	u32 val, res;
-+
-+	mdelay(50); /* TODO */
-+
-+	/* Default ICO setting */
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CTRL_4,
-+			  AIROHA_USB_PMA_PLL_ICOLP_EN_INTF);
-+
-+	regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_SSUSB_BGR_EN,
-+			   AIROHA_USB_ANA_BIAS_V2V_CAL,
-+			   FIELD_PREP(AIROHA_USB_ANA_BIAS_V2V_CAL, 0x15));
-+
-+	regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_PLL_IPLL_DIG_PWR_SEL,
-+			   AIROHA_USB_ANA_PLL_OSCAL_ENB |
-+			   AIROHA_USB_ANA_PLL_LDOLPF_VSEL,
-+			   AIROHA_USB_ANA_PLL_OSCAL_ENB |
-+			   FIELD_PREP(AIROHA_USB_ANA_PLL_LDOLPF_VSEL, 0x1));
-+
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CTRL_2,
-+			AIROHA_USB_PMA_PLL_RICO_SEL_INTF);
-+
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_8,
-+			  AIROHA_USB_PMA_XTAL_EXT_EN_SEL |
-+			  AIROHA_USB_PMA_XTAL_EXT_EN_FORCE);
-+
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CTRL_2,
-+			AIROHA_USB_PMA_PLL_ICOIQ_EN_INTF);
-+
-+	/* Read KBand */
-+	regmap_set_bits(priv->map_ana, AIROHA_USB_ANA_TDC_FT_CK_EN,
-+			AIROHA_USB_ANA_PLL_DEBUG_SEL);
-+
-+	mdelay(5);
-+
-+	regmap_read(priv->map_pma, AIROHA_USB_PMA_INTF_STS_9, &val);
-+	res = FIELD_GET(AIROHA_USB_PMA_ADDR_INTF_STS_PLL_VCOCAL, val) << 4;
-+
-+	regmap_set_bits(priv->map_ana, AIROHA_USB_ANA_TDC_FT_CK_EN,
-+			AIROHA_USB_ANA_PLL_DEBUG_SEL);
-+
-+	mdelay(5);
-+
-+	regmap_read(priv->map_pma, AIROHA_USB_PMA_INTF_STS_9, &val);
-+	res |= val;
-+
-+	/*
-+	 * KBand is calibrated if KBand Code is NOT 0xfff and
-+	 * KBand Done is set.
-+	 */
-+	return res != 0xfff && res & 0x800;
-+}
-+
-+static int airoha_usb_phy_u2_init(struct airoha_usb_phy_priv *priv)
-+{
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_USBPHYACR4,
-+			   AIROHA_USB_PHY_USB20_FS_CR,
-+			   AIROHA_USB_PHY_USB20_FS_CR_MIN);
-+
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_USBPHYACR4,
-+			   AIROHA_USB_PHY_USB20_FS_SR,
-+			   AIROHA_USB_PHY_USB20_FS_SR_NORMAL);
-+
-+	/* FIXME: evaluate if needed */
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_USBPHYACR6,
-+			   AIROHA_USB_PHY_USB20_SQTH,
-+			   AIROHA_USB_PHY_USB20_SQTH_130);
-+
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_USBPHYACR6,
-+			   AIROHA_USB_PHY_USB20_DISCTH,
-+			   AIROHA_USB_PHY_USB20_DISCTH_600);
-+
-+	/* Enable the USB port and then disable after calibration */
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_USBPHYACR6,
-+			  AIROHA_USB_PHY_USB20_BC11_SW_EN);
-+
-+	airoha_usb_phy_u2_slew_rate_calibration(priv);
-+
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_USBPHYACR6,
-+			AIROHA_USB_PHY_USB20_BC11_SW_EN);
-+
-+	usleep_range(1000, 1500);
-+
-+	return 0;
-+}
-+
-+/*
-+ * USB 3.0 mode can only work if USB serdes is correctly set.
-+ * This is validated in xLate function.
-+ */
-+static int airoha_usb_phy_u3_init(struct airoha_usb_phy_priv *priv)
-+{
-+	/* Digital CLK trigger reverse */
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_PON_RXFEDIG_CTRL_0,
-+			  AIROHA_USB_PMA_EQ_RX500M_CK_SEL);
-+
-+	/* RX USB PCIE enable */
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_36,
-+			AIROHA_USB_PMA_PCIE_USB_SYSTEM);
-+
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_RX_SYS_CTRL_0,
-+			  AIROHA_USB_PMA_ROC_CK_EN);
-+
-+	/* 50MHz XTAL */
-+	regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_SSUSB_BGR_EN,
-+			   AIROHA_USB_ANA_SSUSB_BG_DIV |
-+			   AIROHA_USB_ANA_SSUSB_CHPEN,
-+			   FIELD_PREP(AIROHA_USB_ANA_SSUSB_BG_DIV, 0x1) |
-+			   AIROHA_USB_ANA_SSUSB_CHPEN);
-+
-+	regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_PLL_IPLL_DIG_PWR_SEL,
-+			   AIROHA_USB_ANA_PLL_PREDIV,
-+			   FIELD_PREP(AIROHA_USB_ANA_PLL_PREDIV, 0x1));
-+
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CTRL_4,
-+			AIROHA_USB_PMA_PLL_ICOLP_EN_INTF);
-+
-+	regmap_clear_bits(priv->map_dig, AIROHA_USB_DIG_CK_RST_CTRL_7,
-+			  AIROHA_USB_DIG_MULTI_USB2P5_EN |
-+			  AIROHA_USB_DIG_MULTI_USB5_EN);
-+
-+	regmap_set_bits(priv->map_dig, AIROHA_USB_DIG_CK_RST_CTRL_7,
-+			AIROHA_USB_DIG_MULTI_USB2P5_EN |
-+			AIROHA_USB_DIG_MULTI_USB5_EN |
-+			AIROHA_USB_DIG_MULTI_PHY_USB_EN);
-+
-+	/* PLL */
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CTRL_2,
-+			   AIROHA_USB_PMA_PLL_PHY_CK_EN_INTF |
-+			   AIROHA_USB_PMA_PLL_PCK_SEL_INTF |
-+			   AIROHA_USB_PMA_PLL_KBAND_PREDIV_INTF |
-+			   AIROHA_USB_PMA_PLL_IR_INTF |
-+			   AIROHA_USB_PMA_PLL_ICOIQ_EN_INTF |
-+			   AIROHA_USB_PMA_PLL_FBKSEL_INTF |
-+			   AIROHA_USB_PMA_PLL_BPB_INTF |
-+			   AIROHA_USB_PMA_PLL_BPA_INTF |
-+			   AIROHA_USB_PMA_PLL_BC_INTF,
-+			   AIROHA_USB_PMA_PLL_PHY_CK_EN_INTF |
-+			   AIROHA_USB_PMA_PLL_PCK_SEL_INTF |
-+			   FIELD_PREP(AIROHA_USB_PMA_PLL_KBAND_PREDIV_INTF, 0x0) |
-+			   FIELD_PREP(AIROHA_USB_PMA_PLL_IR_INTF, 0x4) |
-+			   AIROHA_USB_PMA_PLL_ICOIQ_EN_INTF |
-+			   FIELD_PREP(AIROHA_USB_PMA_PLL_FBKSEL_INTF, 0x0) |
-+			   FIELD_PREP(AIROHA_USB_PMA_PLL_BPB_INTF, 0x1) |
-+			   FIELD_PREP(AIROHA_USB_PMA_PLL_BPA_INTF, 0x5) |
-+			   FIELD_PREP(AIROHA_USB_PMA_PLL_BC_INTF, 0x3));
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CTRL_4,
-+			   AIROHA_USB_PMA_PLL_SDM_HREN_INTF,
-+			   FIELD_PREP(AIROHA_USB_PMA_PLL_SDM_HREN_INTF, 0x1));
-+
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CTRL_2,
-+			AIROHA_USB_PMA_PLL_SDM_IFM_INTF);
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CTRL_3,
-+			   AIROHA_USB_PMA_PLL_SSC_PERIOD_INTF |
-+			   AIROHA_USB_PMA_PLL_SSC_DELTA_INTF,
-+			   FIELD_PREP(AIROHA_USB_PMA_PLL_SSC_PERIOD_INTF, 0x18c) |
-+			   FIELD_PREP(AIROHA_USB_PMA_PLL_SSC_DELTA_INTF, 0x21e));
-+
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CTRL_1,
-+			AIROHA_USB_PMA_PLL_SSC_EN);
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_SS_LCPLL_TDC_PCW_1,
-+			   AIROHA_USB_PMA_LCPLL_PON_HRDDS_PCW_NCPO_GPON,
-+			   FIELD_PREP(AIROHA_USB_PMA_LCPLL_PON_HRDDS_PCW_NCPO_GPON, 0x48000000));
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_SS_LCPLL_PWCTL_SETTING_2,
-+			   AIROHA_USB_PMA_NCPO_ANA_MSB,
-+			   FIELD_PREP(AIROHA_USB_PMA_NCPO_ANA_MSB, 0x1));
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_SS_LCPLL_TDC_FLT_2,
-+			   AIROHA_USB_PMA_LCPLL_NCPO_VALUE,
-+			   FIELD_PREP(AIROHA_USB_PMA_LCPLL_NCPO_VALUE, 0x48000000));
-+
-+	/* RX 5G */
-+	regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_CDR_LPF_MJV_LIM,
-+			   AIROHA_USB_ANA_CDR_LPF_RATIO,
-+			   FIELD_PREP(AIROHA_USB_ANA_CDR_LPF_RATIO, 0x0));
-+
-+	regmap_set_bits(priv->map_ana, AIROHA_USB_ANA_RXAFE_RESERVE,
-+			AIROHA_USB_ANA_CDR_PD_10B_EN);
-+
-+	regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_CDR_PR_CKREF_DIV1,
-+			   AIROHA_USB_ANA_CDR_PR_DAC_BAND,
-+			   FIELD_PREP(AIROHA_USB_ANA_CDR_PR_DAC_BAND, 0xc));
-+
-+	regmap_clear_bits(priv->map_ana, AIROHA_USB_ANA_CDR_FORCE_IBANDLPF_R_OFF,
-+			  AIROHA_USB_ANA_CDR_PHYCK_RSTB);
-+
-+	regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_CDR_PR_KBAND_DIV_PCIE_REG,
-+			   AIROHA_USB_ANA_CDR_PR_XFICK_EN |
-+			   AIROHA_USB_ANA_CDR_PR_KBAND_PCIE_MODE,
-+			   AIROHA_USB_ANA_CDR_PR_KBAND_PCIE_MODE);
-+
-+	regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_CDR_PR_CKREF_DIV1,
-+			   AIROHA_USB_ANA_CDR_PR_KBAND_DIV,
-+			   FIELD_PREP(AIROHA_USB_ANA_CDR_PR_KBAND_DIV, 0x3));
-+
-+	regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_CDR_PR_KBAND_DIV_PCIE_REG,
-+			   AIROHA_USB_ANA_CDR_PR_KBAND_DIV_PCIE,
-+			   FIELD_PREP(AIROHA_USB_ANA_CDR_PR_KBAND_DIV_PCIE, 0x19));
-+
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_46,
-+			AIROHA_USB_PMA_REBACK_P0_LCK2REF_EN);
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_49,
-+			   AIROHA_USB_PMA_LFPS_FINISH_TIME,
-+			   FIELD_PREP(AIROHA_USB_PMA_LFPS_FINISH_TIME, 0x1f0));
-+
-+	/* EQ all */
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_50,
-+			  AIROHA_USB_PMA_P3_TO_P0_DO_EQ_USB |
-+			  AIROHA_USB_PMA_P2_TO_P0_DO_EQ_USB |
-+			  AIROHA_USB_PMA_P1_TO_P0_DO_EQ_USB);
-+
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_46,
-+			AIROHA_USB_PMA_PCIE_USB_BYPASS_EQ_P3_TO_P0_EN |
-+			AIROHA_USB_PMA_PCIE_USB_BYPASS_EQ_P2_TO_P0_EN |
-+			AIROHA_USB_PMA_PCIE_USB_BYPASS_EQ_P1_TO_P0_EN);
-+
-+	/* FIXME: ask Airoha why reserve7 is at 6c4 NOT 6c0 */
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_38,
-+			  FIELD_PREP(AIROHA_USB_PMA_RESERVE_3, BIT(7)));
-+
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_11,
-+			AIROHA_USB_PMA_FORCE_SIGDET_5G);
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_36,
-+			   AIROHA_USB_PMA_LCK2DATA_DLY_TIME,
-+			   FIELD_PREP(AIROHA_USB_PMA_LCK2DATA_DLY_TIME, 0x2));
-+
-+	/* PI Cal */
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_RX_DLY_0,
-+			   AIROHA_USB_PMA_RX_PI_CAL_EN_H_DLY,
-+			   FIELD_PREP(AIROHA_USB_PMA_RX_PI_CAL_EN_H_DLY, 0x10));
-+
-+	regmap_set_bits(priv->map_ana, AIROHA_USB_ANA_PLL_SDM_ORD,
-+			AIROHA_USB_ANA_PLL_SSC_TRI_EN |
-+			AIROHA_USB_ANA_PLL_SSC_PHASE_INI);
-+
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_TX_DA_CTRL_3,
-+			  AIROHA_USB_PMA_TX_DATA_RATE_SEL);
-+
-+	regmap_clear_bits(priv->map_ana, AIROHA_USB_ANA_RXAFE_RESERVE,
-+			  AIROHA_USB_ANA_CDR_PD_EDGE_DIS);
-+
-+	/* Common Setting */
-+	regmap_set_bits(priv->map_dig, AIROHA_USB_DIG_CK_RST_CTRL_3,
-+			AIROHA_USB_DIG_NS_CK_DIV_SEL |
-+			AIROHA_USB_DIG_US_CK_DIV_SEL);
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_TX_DA_CTRL_0,
-+			   AIROHA_USB_PMA_RXDET_RD_WAIT_TIMER |
-+			   AIROHA_USB_PMA_RXDET_EN_WINDOW,
-+			   FIELD_PREP(AIROHA_USB_PMA_RXDET_RD_WAIT_TIMER, 0x4) |
-+			   FIELD_PREP(AIROHA_USB_PMA_RXDET_EN_WINDOW, 0xa));
-+
-+	regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_RXLBTX_EN,
-+			   AIROHA_USB_ANA_TX_DMEDGEGEN_EN |
-+			   AIROHA_USB_ANA_TX_RXDET_METHOD,
-+			   AIROHA_USB_ANA_TX_DMEDGEGEN_EN);
-+
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CK_CTRL_2,
-+			AIROHA_USB_PMA_PCIE_MODE_PLL_AUTO_OFF_EN |
-+			AIROHA_USB_PMA_PCIE_MODE_PLL_AUTO_ON_EN |
-+			AIROHA_USB_PMA_PCIE_MODE_PLL_AUTO_EN);
-+
-+	/* RX Speed Up */
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_5,
-+			   AIROHA_USB_PMA_FREDET_CHK_CYCLE,
-+			   FIELD_PREP(AIROHA_USB_PMA_FREDET_CHK_CYCLE, 0x28));
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_6,
-+			   AIROHA_USB_PMA_FREDET_GOLDEN_CYCLE,
-+			   FIELD_PREP(AIROHA_USB_PMA_FREDET_GOLDEN_CYCLE, 0x64));
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_7,
-+			   AIROHA_USB_PMA_FREDET_TOLERATE_CYCLE,
-+			   FIELD_PREP(AIROHA_USB_PMA_FREDET_TOLERATE_CYCLE, 0x2710));
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_2,
-+			   AIROHA_USB_PMA_RX_EQ_EN_H_DLY,
-+			   FIELD_PREP(AIROHA_USB_PMA_RX_EQ_EN_H_DLY, 0x9c4));
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_45,
-+			   AIROHA_USB_PMA_EQ_EN_DLY,
-+			   FIELD_PREP(AIROHA_USB_PMA_EQ_EN_DLY, 0x9c4));
-+
-+	regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_RX_CTRL_50,
-+			   AIROHA_USB_PMA_EQ_EN_DLY_SHORT |
-+			   AIROHA_USB_PMA_RX_EQ_EN_H_DLY_SHORT,
-+			   FIELD_PREP(AIROHA_USB_PMA_EQ_EN_DLY_SHORT, 0x9c4) |
-+			   FIELD_PREP(AIROHA_USB_PMA_RX_EQ_EN_H_DLY_SHORT, 0x9c4));
-+
-+	/* TCL avoid LT noice impact */
-+	regmap_set_bits(priv->map_ana, AIROHA_USB_ANA_QP_TX_MODE_16B_EN,
-+			AIROHA_USB_ANA_TX_RESERVE_8);
-+
-+	/* PLL auto init */
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CK_CTRL_2,
-+			AIROHA_USB_PMA_AUTO_INIT);
-+
-+	usleep_range(100, 300);
-+
-+	regmap_clear_bits(priv->map_ana, AIROHA_USB_ANA_RXAFE_RESERVE,
-+			  AIROHA_USB_PMA_PCIE_MODE_PLL_AUTO_EN);
-+
-+	/* TODO BAND */
-+	if (!airoha_usb_phy_u3_kband_is_calibrated(priv)) {
-+		int i;
-+
-+		/* TX Force Disable */
-+		regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_6,
-+				   AIROHA_USB_PMA_TX_DATA_EN_SEL |
-+				   AIROHA_USB_PMA_TX_DATA_EN_FORCE,
-+				   AIROHA_USB_PMA_TX_DATA_EN_SEL);
-+
-+		/* PLL Force Unstable */
-+		regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CK_CTRL_1,
-+				AIROHA_USB_PMA_PLL_FORCE_UNSTABLE);
-+
-+		for (i = 0; i < AIROHA_USB_PHY_U3_MAX_CALIB_TRY; i++) {
-+			/* PLL Disable */
-+			regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_8,
-+					   AIROHA_USB_PMA_XTAL_EXT_EN_SEL |
-+					   AIROHA_USB_PMA_XTAL_EXT_EN_FORCE,
-+					   AIROHA_USB_PMA_XTAL_EXT_EN_SEL |
-+					   FIELD_PREP(AIROHA_USB_PMA_XTAL_EXT_EN_FORCE, 0x3));
-+
-+			regmap_update_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_7,
-+					   AIROHA_USB_PMA_PLL_EN_SEL |
-+					   AIROHA_USB_PMA_PLL_EN_FORCE,
-+					   AIROHA_USB_PMA_PLL_EN_SEL);
-+
-+			/* PLL Config for CPR */
-+			regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CTRL_4,
-+					AIROHA_USB_PMA_PLL_ICOLP_EN_INTF);
-+
-+			regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_SSUSB_BGR_EN,
-+					   AIROHA_USB_ANA_BIAS_V2V_CAL,
-+					   FIELD_PREP(AIROHA_USB_ANA_BIAS_V2V_CAL, 0x0));
-+
-+			regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_PLL_IPLL_DIG_PWR_SEL,
-+					   AIROHA_USB_ANA_PLL_OSCAL_ENB |
-+					   AIROHA_USB_ANA_PLL_LDOLPF_VSEL,
-+					   FIELD_PREP(AIROHA_USB_ANA_PLL_LDOLPF_VSEL, 0x3));
-+
-+			regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CTRL_2,
-+					  AIROHA_USB_PMA_PLL_RICO_SEL_INTF |
-+					  AIROHA_USB_PMA_PLL_ICOIQ_EN_INTF);
-+
-+			regmap_update_bits(priv->map_ana, AIROHA_USB_ANA_PLL_IPLL_DIG_PWR_SEL,
-+					   AIROHA_USB_ANA_PLL_MON_LDO_SEL |
-+					   AIROHA_USB_ANA_PLL_MONVC_EN,
-+					   FIELD_PREP(AIROHA_USB_ANA_PLL_MON_LDO_SEL, 0x3) |
-+					   AIROHA_USB_ANA_PLL_MONVC_EN);
-+
-+			/* PLL Enable */
-+			regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_7,
-+					AIROHA_USB_PMA_PLL_EN_SEL |
-+					AIROHA_USB_PMA_PLL_EN_FORCE);
-+
-+			/* Exit as sson as we manage to calibrate */
-+			if (airoha_usb_phy_u3_kband_is_calibrated(priv))
-+				break;
-+		}
-+	}
-+
-+	/* PLL to default */
-+	regmap_clear_bits(priv->map_ana, AIROHA_USB_ANA_PLL_IPLL_DIG_PWR_SEL,
-+			  AIROHA_USB_ANA_PLL_MON_LDO_SEL |
-+			  AIROHA_USB_ANA_PLL_MONVC_EN);
-+
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_7,
-+			  AIROHA_USB_PMA_PLL_EN_SEL |
-+			  AIROHA_USB_PMA_PLL_EN_FORCE);
-+
-+	/* PLL force stable to Auto mode */
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CK_CTRL_1,
-+			AIROHA_USB_PMA_PLL_FORCE_UNSTABLE);
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CK_CTRL_1,
-+			AIROHA_USB_PMA_PLL_FORCE_STABLE);
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CK_CTRL_1,
-+			  AIROHA_USB_PMA_PLL_FORCE_UNSTABLE);
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_PLL_CK_CTRL_1,
-+			  AIROHA_USB_PMA_PLL_FORCE_STABLE);
-+
-+	/* PLL force enable to Auto mode */
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_6,
-+			AIROHA_USB_PMA_TX_DATA_EN_FORCE);
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_6,
-+			  AIROHA_USB_PMA_TX_DATA_EN_SEL);
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_6,
-+			  AIROHA_USB_PMA_TX_DATA_EN_FORCE);
-+
-+	return !airoha_usb_phy_u3_kband_is_calibrated(priv) ? -EINVAL : 0;
-+}
-+
-+static int airoha_usb_phy_init(struct phy *phy)
-+{
-+	struct airoha_usb_phy_instance *instance = phy_get_drvdata(phy);
-+	struct airoha_usb_phy_priv *priv = dev_get_drvdata(phy->dev.parent);
-+
-+	if (instance->type == PHY_TYPE_USB2)
-+		return airoha_usb_phy_u2_init(priv);
-+
-+	return airoha_usb_phy_u3_init(priv);
-+}
-+
-+static int airoha_usb_phy_exit(struct phy *phy)
-+{
-+	return 0;
-+}
-+
-+static int airoha_usb_phy_u2_power_on(struct airoha_usb_phy_priv *priv)
-+{
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_USBPHYACR6,
-+			  AIROHA_USB_PHY_USB20_BC11_SW_EN);
-+
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_USBPHYACR2,
-+			AIROHA_USB_PHY_SIFSLV_MAC_BANDGAP_EN);
-+
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_U2PHYACR3,
-+			   AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE,
-+			   AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE_TOGGLE);
-+
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_U2PHYDTM0,
-+			  AIROHA_USB_PHY_FORCE_XCVRSEL |
-+			  AIROHA_USB_PHY_XCVRSEL);
-+
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_USBPHYACR6,
-+			   AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL,
-+			   AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL_NO_ENPLL_FS_BIAS_EN);
-+
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_USBPHYACR5,
-+			AIROHA_USB_PHY_USB20_DISC_FIT_EN);
-+
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_U2PHYDTM0,
-+			  AIROHA_USB_PHY_FORCE_SUSPENDDM);
-+
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_U2PHYACR3,
-+			  AIROHA_USB_PHY_USB20_USB11_TMODE_EN);
-+
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_U2PHYACR3,
-+			AIROHA_USB_PHY_USB20_TMODE_FS_LS_TX_EN);
-+
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_U2PHYDTM0,
-+			  AIROHA_USB_PHY_FORCE_TERMSEL |
-+			  AIROHA_USB_PHY_TERMSEL);
-+
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_U2PHYACR3,
-+			  AIROHA_USB_PHY_USB20_PUPD_BIST_EN);
-+
-+	return 0;
-+}
-+
-+static int airoha_usb_phy_u3_power_on(struct airoha_usb_phy_priv *priv)
-+{
-+	regmap_set_bits(priv->map_ana, AIROHA_USB_ANA_TDC_FT_CK_EN,
-+			AIROHA_USB_ANA_VUSB10_ON);
-+
-+	usleep_range(1000, 1500);
-+
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_GPIO_CTLD,
-+			  AIROHA_USB_PHY_SSUSB_IP_SW_RST);
-+
-+	usleep_range(1000, 1500);
-+
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_GPIO_CTLD,
-+			  AIROHA_USB_PHY_FORCE_SSUSB_IP_SW_RST);
-+
-+	usleep_range(1000, 1500);
-+
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_5,
-+			  AIROHA_USB_PMA_RX_HZ_FORCE);
-+
-+	usleep_range(1000, 1500);
-+
-+	regmap_clear_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_5,
-+			  AIROHA_USB_PMA_RX_HZ_SEL);
-+
-+	return 0;
-+}
-+
-+static int airoha_usb_phy_power_on(struct phy *phy)
-+{
-+	struct airoha_usb_phy_instance *instance = phy_get_drvdata(phy);
-+	struct airoha_usb_phy_priv *priv = dev_get_drvdata(phy->dev.parent);
-+
-+	if (instance->type == PHY_TYPE_USB2)
-+		return airoha_usb_phy_u2_power_on(priv);
-+
-+	return airoha_usb_phy_u3_power_on(priv);
-+}
-+
-+static int airoha_usb_phy_u2_power_off(struct airoha_usb_phy_priv *priv)
-+{
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_U2PHYACR3,
-+			AIROHA_USB_PHY_USB20_PUPD_BIST_EN);
-+
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_U2PHYDTM0,
-+			AIROHA_USB_PHY_FORCE_TERMSEL |
-+			AIROHA_USB_PHY_TERMSEL);
-+
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_U2PHYACR3,
-+			  AIROHA_USB_PHY_USB20_TMODE_FS_LS_TX_EN);
-+
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_U2PHYACR3,
-+			AIROHA_USB_PHY_USB20_USB11_TMODE_EN);
-+
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_U2PHYDTM0,
-+			AIROHA_USB_PHY_FORCE_SUSPENDDM);
-+
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_USBPHYACR5,
-+			  AIROHA_USB_PHY_USB20_DISC_FIT_EN);
-+
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_USBPHYACR6,
-+			   AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL,
-+			   AIROHA_USB_PHY_USB20_HSRX_BIAS_EN_SEL_USB20_HSRX_TMODE_EN);
-+
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_U2PHYDTM0,
-+			   AIROHA_USB_PHY_FORCE_XCVRSEL |
-+			   AIROHA_USB_PHY_XCVRSEL,
-+			   AIROHA_USB_PHY_FORCE_XCVRSEL |
-+			   FIELD_PREP(AIROHA_USB_PHY_XCVRSEL, 0x1));
-+
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_U2PHYACR3,
-+			   AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE,
-+			   AIROHA_USB_PHY_USB20_HSTX_I_EN_MODE_FORCE_DISABLE);
-+
-+	regmap_clear_bits(priv->map, AIROHA_USB_PHY_USBPHYACR2,
-+			  AIROHA_USB_PHY_SIFSLV_MAC_BANDGAP_EN);
-+
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_USBPHYACR6,
-+			AIROHA_USB_PHY_USB20_BC11_SW_EN);
-+
-+	return 0;
-+}
-+
-+static int airoha_usb_phy_u3_power_off(struct airoha_usb_phy_priv *priv)
-+{
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_GPIO_CTLD,
-+			AIROHA_USB_PHY_FORCE_SSUSB_IP_SW_RST);
-+
-+	usleep_range(1000, 1500);
-+
-+	regmap_set_bits(priv->map, AIROHA_USB_PHY_GPIO_CTLD,
-+			AIROHA_USB_PHY_SSUSB_IP_SW_RST);
-+
-+	usleep_range(1000, 1500);
-+
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_5,
-+			AIROHA_USB_PMA_RX_HZ_FORCE);
-+
-+	usleep_range(1000, 1500);
-+
-+	regmap_set_bits(priv->map_pma, AIROHA_USB_PMA_INTF_CTRL_5,
-+			AIROHA_USB_PMA_RX_HZ_SEL);
-+
-+	usleep_range(1000, 1500);
-+
-+	regmap_clear_bits(priv->map_ana, AIROHA_USB_ANA_TDC_FT_CK_EN,
-+			  AIROHA_USB_ANA_VUSB10_ON);
-+
-+	return 0;
-+}
-+
-+static int airoha_usb_phy_power_off(struct phy *phy)
-+{
-+	struct airoha_usb_phy_instance *instance = phy_get_drvdata(phy);
-+	struct airoha_usb_phy_priv *priv = dev_get_drvdata(phy->dev.parent);
-+
-+	if (instance->type == PHY_TYPE_USB2)
-+		return airoha_usb_phy_u2_power_off(priv);
-+
-+	return airoha_usb_phy_u3_power_off(priv);
-+}
-+
-+static int airoha_usb_phy_u2_set_mode(struct airoha_usb_phy_priv *priv,
-+				      enum phy_mode mode)
-+{
-+	u32 val = 0;
-+
-+	/*
-+	 * For Device and Host mode, enable force IDDIG.
-+	 * For Device set IDDIG, for Host clear IDDIG.
-+	 * For OTG disable force and clear IDDIG bit while at it.
-+	 */
-+	switch (mode) {
-+	case PHY_MODE_USB_DEVICE:
-+		val |= AIROHA_USB_PHY_IDDIG;
-+		fallthrough;
-+	case PHY_MODE_USB_HOST:
-+		val |= AIROHA_USB_PHY_FORCE_IDDIG;
-+		break;
-+	case PHY_MODE_USB_OTG:
-+		break;
-+	default:
-+		return 0;
-+	}
-+
-+	regmap_update_bits(priv->map, AIROHA_USB_PHY_U2PHYDTM1,
-+			   AIROHA_USB_PHY_FORCE_IDDIG |
-+			   AIROHA_USB_PHY_IDDIG, val);
-+
-+	return 0;
-+}
-+
-+static int airoha_usb_phy_set_mode(struct phy *phy, enum phy_mode mode, int submode)
-+{
-+	struct airoha_usb_phy_instance *instance = phy_get_drvdata(phy);
-+	struct airoha_usb_phy_priv *priv = dev_get_drvdata(phy->dev.parent);
-+
-+	if (instance->type == PHY_TYPE_USB2)
-+		return airoha_usb_phy_u2_set_mode(priv, mode);
-+
-+	return 0;
-+}
-+
-+static struct phy *airoha_usb_phy_xlate(struct device *dev,
-+					struct of_phandle_args *args)
-+{
-+	struct airoha_usb_phy_priv *priv = dev_get_drvdata(dev);
-+	struct airoha_usb_phy_instance *instance = NULL;
-+	struct device_node *phy_np = args->np;
-+	int index;
-+
-+	if (args->args_count != 1) {
-+		dev_err(dev, "invalid number of cells in 'phy' property\n");
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	for (index = 0; index < AIROHA_USB_PHY_MAX_INSTANCE; index++)
-+		if (phy_np == priv->phys[index]->phy->dev.of_node) {
-+			instance = priv->phys[index];
-+			break;
-+		}
-+
-+	if (!instance) {
-+		dev_err(dev, "failed to find appropriate phy\n");
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	instance->type = args->args[0];
-+	if (!(instance->type == PHY_TYPE_USB2 || instance->type == PHY_TYPE_USB3)) {
-+		dev_err(dev, "unsupported device type: %d\n", instance->type);
-+		return ERR_PTR(-EINVAL);
-+	}
-+
-+	/* Validate Serdes for USB 3.0 */
-+	if (instance->type == PHY_TYPE_USB3) {
-+		enum airoha_scu_serdes_port serdes_port;
-+		int serdes_mode, expcted_mode;
-+
-+		switch (priv->id) {
-+		case 0:
-+			serdes_port = AIROHA_SCU_SERDES_USB1;
-+			expcted_mode = AIROHA_SCU_SSR_USB1_USB;
-+			break;
-+		case 1:
-+			serdes_port = AIROHA_SCU_SERDES_USB2;
-+			expcted_mode = AIROHA_SCU_SSR_USB2_USB;
-+			break;
-+		default: /* Impossible already validated */
-+			return ERR_PTR(-EINVAL);
-+		}
-+
-+		serdes_mode = airoha_scu_ssr_get_serdes_mode(dev, serdes_port);
-+		if (serdes_mode < 0) {
-+			dev_err(dev, "failed validating serdes mode for port %d: %d\n",
-+				priv->id, serdes_mode);
-+			return ERR_PTR(serdes_mode);
-+		}
-+
-+		if (serdes_mode != expcted_mode) {
-+			dev_err(dev, "wrong serdes mode for port %d\n",
-+				priv->id);
-+			return ERR_PTR(-EINVAL);
-+		}
-+	}
-+
-+	return instance->phy;
-+}
-+
-+static const struct phy_ops airoha_phy = {
-+	.init		= airoha_usb_phy_init,
-+	.exit		= airoha_usb_phy_exit,
-+	.power_on	= airoha_usb_phy_power_on,
-+	.power_off	= airoha_usb_phy_power_off,
-+	.set_mode	= airoha_usb_phy_set_mode,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static const struct regmap_config airoha_usb_phy_regmap_config = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+};
-+
-+static int airoha_usb_phy_probe(struct platform_device *pdev)
-+{
-+	struct phy_provider *phy_provider;
-+	struct airoha_usb_phy_priv *priv;
-+	struct device *dev = &pdev->dev;
-+	struct device_node *child_np;
-+	void *base;
-+	int port;
-+	int ret;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->dev = dev;
-+
-+	ret = of_property_read_u32(dev->of_node, "airoha,port-id", &priv->id);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "port ID is mandatory for USB PHY calibration.\n");
-+
-+	if (priv->id > 1)
-+		return dev_err_probe(dev, -EINVAL, "only 2 USB port are supported on the SoC.\n");
-+
-+	base = devm_platform_ioremap_resource_byname(pdev, "phy");
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	priv->map = devm_regmap_init_mmio(dev, base, &airoha_usb_phy_regmap_config);
-+	if (IS_ERR(priv->map))
-+		return PTR_ERR(priv->map);
-+
-+	base = devm_platform_ioremap_resource_byname(pdev, "ana");
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	priv->map_ana = devm_regmap_init_mmio(dev, base, &airoha_usb_phy_regmap_config);
-+	if (IS_ERR(priv->map_ana))
-+		return PTR_ERR(priv->map_ana);
-+
-+	base = devm_platform_ioremap_resource_byname(pdev, "phy");
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	priv->map_pma = devm_regmap_init_mmio(dev, base, &airoha_usb_phy_regmap_config);
-+	if (IS_ERR(priv->map_pma))
-+		return PTR_ERR(priv->map_pma);
-+
-+	base = devm_platform_ioremap_resource_byname(pdev, "phy");
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	priv->map_dig = devm_regmap_init_mmio(dev, base, &airoha_usb_phy_regmap_config);
-+	if (IS_ERR(priv->map_dig))
-+		return PTR_ERR(priv->map_dig);
-+
-+	platform_set_drvdata(pdev, priv);
-+
-+	port = 0;
-+	for_each_child_of_node(dev->of_node, child_np) {
-+		struct airoha_usb_phy_instance  *instance;
-+
-+		instance = devm_kzalloc(dev, sizeof(*instance), GFP_KERNEL);
-+		if (!instance) {
-+			ret = -ENOMEM;
-+			goto put_child;
-+		}
-+
-+		priv->phys[port] = instance;
-+
-+		instance->phy = devm_phy_create(dev, child_np, &airoha_phy);
-+		if (IS_ERR(instance->phy)) {
-+			dev_err_probe(dev, PTR_ERR(instance->phy), "failed to create phy\n");
-+			ret = PTR_ERR(instance->phy);
-+			goto put_child;
-+		}
-+
-+		phy_set_drvdata(instance->phy, instance);
-+
-+		port++;
-+	}
-+
-+	phy_provider = devm_of_phy_provider_register(&pdev->dev, airoha_usb_phy_xlate);
-+
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+
-+put_child:
-+	of_node_put(child_np);
-+	return ret;
-+}
-+
-+static const struct of_device_id airoha_phy_id_table[] = {
-+	{ .compatible = "airoha,an7583-usb-phy" },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, airoha_phy_id_table);
-+
-+static struct platform_driver airoha_usb_driver = {
-+	.probe		= airoha_usb_phy_probe,
-+	.driver		= {
-+		.name	= "airoha-usb-phy",
-+		.of_match_table = airoha_phy_id_table,
-+	},
-+};
-+
-+module_platform_driver(airoha_usb_driver);
-+
-+MODULE_AUTHOR("Christian Marangi <ansuelsmth@gmail.com>");
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("Airoha USB PHY driver");
--- 
-2.51.0
-
+SGkgSGFucywNCg0KWWVzLCB2OCBpcyBhY2NlcHRlZCBhbmQgbWVyZ2VkLCBSZWZzOiB2Ni4xNy1y
+YzEtMjA4LWcwMzliOTMwMmQ2NGUuDQpTbyB2OS92MTAgcGF0Y2ggaXMgbm90IG5lZWRlZC4NClRo
+YW5rcyBmb3IgaGVscC4NCg0KUmVnYXJkcw0KSmFtbXkNCg0KPiANCj4gSGkgSmFtbXksDQo+IA0K
+PiBJIHRoaW5rIGFuIG9sZGVyIHZlcnNpb24gb2YgdGhpcyBwYXRjaCAodjggb3Igc28/KSB3YXMg
+bWVyZ2VkLiBDYW4geW91IGNoZWNrDQo+IHdoYXQncyBpbiB2Ni4xOC1yYzEgYWdhaW5zdCB5b3Vy
+IGxhdGVzdCBwYXRjaCB0byBzZWUgaWYgYSBmb2xsb3ctdXAgcGF0Y2ggaXMNCj4gbmVlZGVkPw0K
+PiANCj4gUmVnYXJkcywNCj4gDQo+IAlIYW5zDQo+IA0KPiBPbiAyOS8wOC8yMDI1IDA1OjUzLCBK
+YW1teSBIdWFuZyB3cm90ZToNCj4gPiBBU1BFRUQgQk1DIElDIGhhcyAyIGRpZmZlcmVudCBkaXNw
+bGF5IGVuZ2luZXMuIFBsZWFzZSBmaW5kIEFTVDI2MDAncw0KPiA+IGRhdGFzaGVldCB0byBnZXQg
+ZGV0YWlsZWQgaW5mb3JtYXRpb24uDQo+ID4NCj4gPiAxLiBWR0Egb24gUENJZQ0KPiA+IDIuIFNv
+QyBEaXNwbGF5IChHRlgpDQo+ID4NCj4gPiBCeSBkZWZhdWx0LCB2aWRlbyBlbmdpbmUgKFZFKSB3
+aWxsIGNhcHR1cmUgdmlkZW8gZnJvbSBWR0EuIFRoaXMgcGF0Y2gNCj4gPiBhZGRzIGFuIG9wdGlv
+biB0byBjYXB0dXJlIHZpZGVvIGZyb20gR0ZYIHdpdGggc3RhbmRhcmQgaW9jdGwsDQo+ID4gdmlk
+aW9jX3NfaW5wdXQuDQo+ID4NCj4gPiBBbiBlbnVtLCBhc3BlZWRfdmlkZW9faW5wdXQsIGlzIGFk
+ZGVkIGZvciB0aGlzIHB1cnBvc2UuDQo+ID4gZW51bSBhc3BlZWRfdmlkZW9faW5wdXQgew0KPiA+
+IAlWSURFT19JTlBVVF9WR0EgPSAwLA0KPiA+IAlWSURFT19JTlBVVF9HRlgsDQo+ID4gCVZJREVP
+X0lOUFVUX01BWA0KPiA+IH07DQo+ID4NCj4gPiBUbyB0ZXN0IHRoaXMgZmVhdHVyZSwgeW91IHdp
+bGwgbmVlZCB0byBlbmFibGUgR0ZYIGZpcnN0LiBQbGVhc2UgcmVmZXINCj4gPiB0byBBU1BFRUQn
+cyBTREtfVXNlcl9HdWlkZSwgNi4zLnggU29jIERpc3BsYXkgZHJpdmVyLCBmb3IgbW9yZSBpbmZv
+cm1hdGlvbi4NCj4gPiBJbiB5b3VyIGFwcGxpY2F0aW9uLCB5b3Ugd2lsbCBuZWVkIHRvIHVzZSB2
+NGwyIGlvY3RsLCBWSURJT0NfU19JTlBVVCwNCj4gPiBhcyBiZWxvdyB0byBzZWxlY3QgYmVmb3Jl
+IHN0YXJ0IHN0cmVhbWluZy4NCj4gPg0KPiA+IGludCByYzsNCj4gPiBzdHJ1Y3QgdjRsMl9pbnB1
+dCBpbnB1dDsNCj4gPg0KPiA+IGlucHV0LmluZGV4ID0gVklERU9fSU5QVVRfR0ZYOw0KPiA+IHJj
+ID0gaW9jdGwoZmQsIFZJRElPQ19TX0lOUFVULCAmaW5wdXQpOyBpZiAocmMgPCAwKSB7DQo+ID4g
+CS4uLg0KPiA+IH0NCj4gPg0KPiA+IExpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9Bc3BlZWRUZWNo
+LUJNQy9vcGVuYm1jL3JlbGVhc2VzDQo+ID4gU2lnbmVkLW9mZi1ieTogSmFtbXkgSHVhbmcgPGph
+bW15X2h1YW5nQGFzcGVlZHRlY2guY29tPg0KPiA+IC0tLQ0KPiA+ICB2MTAgY2hhbmdlczoNCj4g
+PiAgIC0gRml4IGFsaWdubWVudCBjaGVjay4NCj4gPiAgdjkgY2hhbmdlczoNCj4gPiAgIC0gRml4
+IGxpbmUgbGVuZ3RoIFdBUk5JTkcuDQo+ID4gIHY4IGNoYW5nZXM6DQo+ID4gICAtIEFkZCBjaGVj
+ayBpbiBhc3BlZWRfdmlkZW9fc2V0X2lucHV0KCkuDQo+ID4gIHY1IGNoYW5nZXM6DQo+ID4gICAt
+IFNpbXBsaWZ5IGFzcGVlZF9yZWdtYXBfbG9va3VwLg0KPiA+ICB2NCBjaGFuZ2VzOg0KPiA+ICAg
+LSBVc2Ugc2NvcGVkL2NsZWFudXAgdG8gbWFrZSBhc3BlZWRfcmVnbWFwX2xvb2t1cCBzaW1wbGVy
+Lg0KPiA+ICB2MyBjaGFuZ2VzOg0KPiA+ICAgLSBVcGRhdGUgZm9yIGVudW1faW5wdXQuDQo+ID4g
+LS0tDQo+ID4gIGRyaXZlcnMvbWVkaWEvcGxhdGZvcm0vYXNwZWVkL2FzcGVlZC12aWRlby5jIHwg
+MTk5DQo+ICsrKysrKysrKysrKysrKystLS0NCj4gPiAgaW5jbHVkZS91YXBpL2xpbnV4L2FzcGVl
+ZC12aWRlby5oICAgICAgICAgICAgfCAgIDcgKw0KPiA+ICAyIGZpbGVzIGNoYW5nZWQsIDE3OCBp
+bnNlcnRpb25zKCspLCAyOCBkZWxldGlvbnMoLSkNCj4gPg0KPiA+IGRpZmYgLS1naXQgYS9kcml2
+ZXJzL21lZGlhL3BsYXRmb3JtL2FzcGVlZC9hc3BlZWQtdmlkZW8uYw0KPiA+IGIvZHJpdmVycy9t
+ZWRpYS9wbGF0Zm9ybS9hc3BlZWQvYXNwZWVkLXZpZGVvLmMNCj4gPiBpbmRleCA1NGNhZTBkYTlh
+Y2EuLmI4M2U0MzI0NTI3NyAxMDA2NDQNCj4gPiAtLS0gYS9kcml2ZXJzL21lZGlhL3BsYXRmb3Jt
+L2FzcGVlZC9hc3BlZWQtdmlkZW8uYw0KPiA+ICsrKyBiL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0v
+YXNwZWVkL2FzcGVlZC12aWRlby5jDQo+ID4gQEAgLTQsNiArNCw3IEBADQo+ID4NCj4gPiAgI2lu
+Y2x1ZGUgPGxpbnV4L2F0b21pYy5oPg0KPiA+ICAjaW5jbHVkZSA8bGludXgvYml0ZmllbGQuaD4N
+Cj4gPiArI2luY2x1ZGUgPGxpbnV4L2NsZWFudXAuaD4NCj4gPiAgI2luY2x1ZGUgPGxpbnV4L2Ns
+ay5oPg0KPiA+ICAjaW5jbHVkZSA8bGludXgvZGVsYXkuaD4NCj4gPiAgI2luY2x1ZGUgPGxpbnV4
+L2RldmljZS5oPg0KPiA+IEBAIC0yNSw2ICsyNiw4IEBADQo+ID4gICNpbmNsdWRlIDxsaW51eC93
+b3JrcXVldWUuaD4NCj4gPiAgI2luY2x1ZGUgPGxpbnV4L2RlYnVnZnMuaD4NCj4gPiAgI2luY2x1
+ZGUgPGxpbnV4L2t0aW1lLmg+DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9yZWdtYXAuaD4NCj4gPiAr
+I2luY2x1ZGUgPGxpbnV4L21mZC9zeXNjb24uaD4NCj4gPiAgI2luY2x1ZGUgPG1lZGlhL3Y0bDIt
+Y3RybHMuaD4NCj4gPiAgI2luY2x1ZGUgPG1lZGlhL3Y0bDItZGV2Lmg+DQo+ID4gICNpbmNsdWRl
+IDxtZWRpYS92NGwyLWRldmljZS5oPg0KPiA+IEBAIC0yMDMsNiArMjA2LDI1IEBADQo+ID4gICNk
+ZWZpbmUgVkVfTUVNX1JFU1RSSUNUX1NUQVJUCQkweDMxMA0KPiA+ICAjZGVmaW5lIFZFX01FTV9S
+RVNUUklDVF9FTkQJCTB4MzE0DQo+ID4NCj4gPiArLyogU0NVJ3MgcmVnaXN0ZXJzICovDQo+ID4g
+KyNkZWZpbmUgU0NVX01JU0NfQ1RSTAkJCTB4QzANCj4gPiArI2RlZmluZSAgU0NVX0RQTExfU09V
+UkNFCQlCSVQoMjApDQo+ID4gKw0KPiA+ICsvKiBHRlgncyByZWdpc3RlcnMgKi8NCj4gPiArI2Rl
+ZmluZSBHRlhfQ1RSTAkJCTB4NjANCj4gPiArI2RlZmluZSAgR0ZYX0NUUkxfRU5BQkxFCQlCSVQo
+MCkNCj4gPiArI2RlZmluZSAgR0ZYX0NUUkxfRk1UCQkJR0VOTUFTSyg5LCA3KQ0KPiA+ICsNCj4g
+PiArI2RlZmluZSBHRlhfSF9ESVNQTEFZCQkJMHg3MA0KPiA+ICsjZGVmaW5lICBHRlhfSF9ESVNQ
+TEFZX0RFCQlHRU5NQVNLKDI4LCAxNikNCj4gPiArI2RlZmluZSAgR0ZYX0hfRElTUExBWV9UT1RB
+TAkJR0VOTUFTSygxMiwgMCkNCj4gPiArDQo+ID4gKyNkZWZpbmUgR0ZYX1ZfRElTUExBWQkJCTB4
+NzgNCj4gPiArI2RlZmluZSAgR0ZYX1ZfRElTUExBWV9ERQkJR0VOTUFTSygyNywgMTYpDQo+ID4g
+KyNkZWZpbmUgIEdGWF9WX0RJU1BMQVlfVE9UQUwJCUdFTk1BU0soMTEsIDApDQo+ID4gKw0KPiA+
+ICsjZGVmaW5lIEdGWF9ESVNQTEFZX0FERFIJCTB4ODANCj4gPiArDQo+ID4gIC8qDQo+ID4gICAq
+IFZJREVPX01PREVfREVURUNUX0RPTkU6CWEgZmxhZyByYWlzZWQgaWYgc2lnbmFsIGxvY2sNCj4g
+PiAgICogVklERU9fUkVTX0NIQU5HRToJCWEgZmxhZyByYWlzZWQgaWYgcmVzX2NoYW5nZSB3b3Jr
+IG9uLWdvaW5nDQo+ID4gQEAgLTI2Miw2ICsyODQsNyBAQCBzdHJ1Y3QgYXNwZWVkX3ZpZGVvX3Bl
+cmYgew0KPiA+ICAvKg0KPiA+ICAgKiBzdHJ1Y3QgYXNwZWVkX3ZpZGVvIC0gZHJpdmVyIGRhdGEN
+Cj4gPiAgICoNCj4gPiArICogdmVyc2lvbjoJCWhvbGRzIHRoZSB2ZXJzaW9uIG9mIGFzcGVlZCBT
+b0MNCj4gPiAgICogcmVzX3dvcms6CQlob2xkcyB0aGUgZGVsYXllZF93b3JrIGZvciByZXMtZGV0
+ZWN0aW9uIGlmIHVubG9jaw0KPiA+ICAgKiBidWZmZXJzOgkJaG9sZHMgdGhlIGxpc3Qgb2YgYnVm
+ZmVyIHF1ZXVlZCBmcm9tIHVzZXINCj4gPiAgICogZmxhZ3M6CQlob2xkcyB0aGUgc3RhdGUgb2Yg
+dmlkZW8NCj4gPiBAQCAtMjczLDYgKzI5Niw3IEBAIHN0cnVjdCBhc3BlZWRfdmlkZW9fcGVyZiB7
+DQo+ID4gICAqIHl1djQyMDoJCWEgZmxhZyByYWlzZWQgaWYgSlBFRyBzdWJzYW1wbGluZyBpcyA0
+MjANCj4gPiAgICogZm9ybWF0OgkJaG9sZHMgdGhlIHZpZGVvIGZvcm1hdA0KPiA+ICAgKiBocV9t
+b2RlOgkJYSBmbGFnIHJhaXNlZCBpZiBIUSBpcyBlbmFibGVkLiBPbmx5IGZvcg0KPiBWSURFT19G
+TVRfQVNQRUVEDQo+ID4gKyAqIGlucHV0OgkJaG9sZHMgdGhlIHZpZGVvIGlucHV0DQo+ID4gICAq
+IGZyYW1lX3JhdGU6CQlob2xkcyB0aGUgZnJhbWVfcmF0ZQ0KPiA+ICAgKiBqcGVnX3F1YWxpdHk6
+CWhvbGRzIGpwZXEncyBxdWFsaXR5ICgwfjExKQ0KPiA+ICAgKiBqcGVnX2hxX3F1YWxpdHk6CWhv
+bGRzIGhxJ3MgcXVhbGl0eSAoMX4xMikgb25seSBpZiBocV9tb2RlIGVuYWJsZWQNCj4gPiBAQCAt
+Mjk4LDYgKzMyMiw5IEBAIHN0cnVjdCBhc3BlZWRfdmlkZW8gew0KPiA+ICAJc3RydWN0IHZpZGVv
+X2RldmljZSB2ZGV2Ow0KPiA+ICAJc3RydWN0IG11dGV4IHZpZGVvX2xvY2s7CS8qIHY0bDIgYW5k
+IHZpZGVvYnVmMiBsb2NrICovDQo+ID4NCj4gPiArCXN0cnVjdCByZWdtYXAgKnNjdTsNCj4gPiAr
+CXN0cnVjdCByZWdtYXAgKmdmeDsNCj4gPiArCXUzMiB2ZXJzaW9uOw0KPiA+ICAJdTMyIGpwZWdf
+bW9kZTsNCj4gPiAgCXUzMiBjb21wX3NpemVfcmVhZDsNCj4gPg0KPiA+IEBAIC0zMTYsNiArMzQz
+LDcgQEAgc3RydWN0IGFzcGVlZF92aWRlbyB7DQo+ID4gIAlib29sIHl1djQyMDsNCj4gPiAgCWVu
+dW0gYXNwZWVkX3ZpZGVvX2Zvcm1hdCBmb3JtYXQ7DQo+ID4gIAlib29sIGhxX21vZGU7DQo+ID4g
+KwllbnVtIGFzcGVlZF92aWRlb19pbnB1dCBpbnB1dDsNCj4gPiAgCXVuc2lnbmVkIGludCBmcmFt
+ZV9yYXRlOw0KPiA+ICAJdW5zaWduZWQgaW50IGpwZWdfcXVhbGl0eTsNCj4gPiAgCXVuc2lnbmVk
+IGludCBqcGVnX2hxX3F1YWxpdHk7DQo+ID4gQEAgLTMzMSwyMSArMzU5LDI1IEBAIHN0cnVjdCBh
+c3BlZWRfdmlkZW8geyAgI2RlZmluZQ0KPiA+IHRvX2FzcGVlZF92aWRlbyh4KSBjb250YWluZXJf
+b2YoKHgpLCBzdHJ1Y3QgYXNwZWVkX3ZpZGVvLCB2NGwyX2RldikNCj4gPg0KPiA+ICBzdHJ1Y3Qg
+YXNwZWVkX3ZpZGVvX2NvbmZpZyB7DQo+ID4gKwl1MzIgdmVyc2lvbjsNCj4gPiAgCXUzMiBqcGVn
+X21vZGU7DQo+ID4gIAl1MzIgY29tcF9zaXplX3JlYWQ7DQo+ID4gIH07DQo+ID4NCj4gPiAgc3Rh
+dGljIGNvbnN0IHN0cnVjdCBhc3BlZWRfdmlkZW9fY29uZmlnIGFzdDI0MDBfY29uZmlnID0gew0K
+PiA+ICsJLnZlcnNpb24gPSA0LA0KPiA+ICAJLmpwZWdfbW9kZSA9IEFTVDI0MDBfVkVfU0VRX0NU
+UkxfSlBFR19NT0RFLA0KPiA+ICAJLmNvbXBfc2l6ZV9yZWFkID0gQVNUMjQwMF9WRV9DT01QX1NJ
+WkVfUkVBRF9CQUNLLCAgfTsNCj4gPg0KPiA+ICBzdGF0aWMgY29uc3Qgc3RydWN0IGFzcGVlZF92
+aWRlb19jb25maWcgYXN0MjUwMF9jb25maWcgPSB7DQo+ID4gKwkudmVyc2lvbiA9IDUsDQo+ID4g
+IAkuanBlZ19tb2RlID0gQVNUMjUwMF9WRV9TRVFfQ1RSTF9KUEVHX01PREUsDQo+ID4gIAkuY29t
+cF9zaXplX3JlYWQgPSBBU1QyNDAwX1ZFX0NPTVBfU0laRV9SRUFEX0JBQ0ssICB9Ow0KPiA+DQo+
+ID4gIHN0YXRpYyBjb25zdCBzdHJ1Y3QgYXNwZWVkX3ZpZGVvX2NvbmZpZyBhc3QyNjAwX2NvbmZp
+ZyA9IHsNCj4gPiArCS52ZXJzaW9uID0gNiwNCj4gPiAgCS5qcGVnX21vZGUgPSBBU1QyNTAwX1ZF
+X1NFUV9DVFJMX0pQRUdfTU9ERSwNCj4gPiAgCS5jb21wX3NpemVfcmVhZCA9IEFTVDI2MDBfVkVf
+Q09NUF9TSVpFX1JFQURfQkFDSywgIH07IEBADQo+IC00ODUsNg0KPiA+ICs1MTcsNyBAQCBzdGF0
+aWMgY29uc3Qgc3RydWN0IHY0bDJfZHZfdGltaW5nc19jYXANCj4gPiBhc3BlZWRfdmlkZW9fdGlt
+aW5nc19jYXAgPSB7DQo+ID4NCj4gPiAgc3RhdGljIGNvbnN0IGNoYXIgKiBjb25zdCBmb3JtYXRf
+c3RyW10gPSB7IlN0YW5kYXJkIEpQRUciLA0KPiA+ICAJIkFzcGVlZCBKUEVHIn07DQo+ID4gK3N0
+YXRpYyBjb25zdCBjaGFyICogY29uc3QgaW5wdXRfc3RyW10gPSB7IkhPU1QgVkdBIiwgIkJNQyBH
+RlgifTsNCj4gPg0KPiA+ICBzdGF0aWMgdW5zaWduZWQgaW50IGRlYnVnOw0KPiA+DQo+ID4gQEAg
+LTYwOSw2ICs2NDIsMTQgQEAgc3RhdGljIGludCBhc3BlZWRfdmlkZW9fc3RhcnRfZnJhbWUoc3Ry
+dWN0DQo+IGFzcGVlZF92aWRlbyAqdmlkZW8pDQo+ID4gIAkJYXNwZWVkX3ZpZGVvX2ZyZWVfYnVm
+KHZpZGVvLCAmdmlkZW8tPmJjZCk7DQo+ID4gIAl9DQo+ID4NCj4gPiArCWlmICh2aWRlby0+aW5w
+dXQgPT0gVklERU9fSU5QVVRfR0ZYKSB7DQo+ID4gKwkJdTMyIHZhbDsNCj4gPiArDQo+ID4gKwkJ
+Ly8gdXBkYXRlIGlucHV0IGJ1ZmZlciBhZGRyZXNzIGFzIGdmeCdzDQo+ID4gKwkJcmVnbWFwX3Jl
+YWQodmlkZW8tPmdmeCwgR0ZYX0RJU1BMQVlfQUREUiwgJnZhbCk7DQo+ID4gKwkJYXNwZWVkX3Zp
+ZGVvX3dyaXRlKHZpZGVvLCBWRV9UR1NfMCwgdmFsKTsNCj4gPiArCX0NCj4gPiArDQo+ID4gIAlz
+cGluX2xvY2tfaXJxc2F2ZSgmdmlkZW8tPmxvY2ssIGZsYWdzKTsNCj4gPiAgCWJ1ZiA9IGxpc3Rf
+Zmlyc3RfZW50cnlfb3JfbnVsbCgmdmlkZW8tPmJ1ZmZlcnMsDQo+ID4gIAkJCQkgICAgICAgc3Ry
+dWN0IGFzcGVlZF92aWRlb19idWZmZXIsIGxpbmspOyBAQCAtMTAyNiw5DQo+ICsxMDY3LDIzIEBA
+DQo+ID4gc3RhdGljIHZvaWQgYXNwZWVkX3ZpZGVvX2dldF90aW1pbmdzKHN0cnVjdCBhc3BlZWRf
+dmlkZW8gKnYsDQo+ID4gIAl9DQo+ID4gIH0NCj4gPg0KPiA+ICtzdGF0aWMgdm9pZCBhc3BlZWRf
+dmlkZW9fZ2V0X3Jlc29sdXRpb25fZ2Z4KHN0cnVjdCBhc3BlZWRfdmlkZW8gKnZpZGVvLA0KPiA+
+ICsJCQkJCSAgICBzdHJ1Y3QgdjRsMl9idF90aW1pbmdzICpkZXQpIHsNCj4gPiArCXUzMiBoX3Zh
+bCwgdl92YWw7DQo+ID4gKw0KPiA+ICsJcmVnbWFwX3JlYWQodmlkZW8tPmdmeCwgR0ZYX0hfRElT
+UExBWSwgJmhfdmFsKTsNCj4gPiArCXJlZ21hcF9yZWFkKHZpZGVvLT5nZngsIEdGWF9WX0RJU1BM
+QVksICZ2X3ZhbCk7DQo+ID4gKw0KPiA+ICsJZGV0LT53aWR0aCA9IEZJRUxEX0dFVChHRlhfSF9E
+SVNQTEFZX0RFLCBoX3ZhbCkgKyAxOw0KPiA+ICsJZGV0LT5oZWlnaHQgPSBGSUVMRF9HRVQoR0ZY
+X1ZfRElTUExBWV9ERSwgdl92YWwpICsgMTsNCj4gPiArCXZpZGVvLT52NGwyX2lucHV0X3N0YXR1
+cyA9IDA7DQo+ID4gK30NCj4gPiArDQo+ID4gICNkZWZpbmUgcmVzX2NoZWNrKHYpIHRlc3RfYW5k
+X2NsZWFyX2JpdChWSURFT19NT0RFX0RFVEVDVF9ET05FLA0KPiA+ICYodiktPmZsYWdzKQ0KPiA+
+DQo+ID4gLXN0YXRpYyB2b2lkIGFzcGVlZF92aWRlb19nZXRfcmVzb2x1dGlvbihzdHJ1Y3QgYXNw
+ZWVkX3ZpZGVvICp2aWRlbykNCj4gPiArc3RhdGljIHZvaWQgYXNwZWVkX3ZpZGVvX2dldF9yZXNv
+bHV0aW9uX3ZnYShzdHJ1Y3QgYXNwZWVkX3ZpZGVvICp2aWRlbywNCj4gPiArCQkJCQkgICAgc3Ry
+dWN0IHY0bDJfYnRfdGltaW5ncyAqZGV0KQ0KPiA+ICB7DQo+ID4gIAlib29sIGludmFsaWRfcmVz
+b2x1dGlvbiA9IHRydWU7DQo+ID4gIAlpbnQgcmM7DQo+ID4gQEAgLTEwMzYsNyArMTA5MSw2IEBA
+IHN0YXRpYyB2b2lkIGFzcGVlZF92aWRlb19nZXRfcmVzb2x1dGlvbihzdHJ1Y3QNCj4gYXNwZWVk
+X3ZpZGVvICp2aWRlbykNCj4gPiAgCXUzMiBtZHM7DQo+ID4gIAl1MzIgc3JjX2xyX2VkZ2U7DQo+
+ID4gIAl1MzIgc3JjX3RiX2VkZ2U7DQo+ID4gLQlzdHJ1Y3QgdjRsMl9idF90aW1pbmdzICpkZXQg
+PSAmdmlkZW8tPmRldGVjdGVkX3RpbWluZ3M7DQo+ID4NCj4gPiAgCWRldC0+d2lkdGggPSBNSU5f
+V0lEVEg7DQo+ID4gIAlkZXQtPmhlaWdodCA9IE1JTl9IRUlHSFQ7DQo+ID4gQEAgLTExMTMsMTQg
+KzExNjcsMjAgQEAgc3RhdGljIHZvaWQgYXNwZWVkX3ZpZGVvX2dldF9yZXNvbHV0aW9uKHN0cnVj
+dA0KPiA+IGFzcGVlZF92aWRlbyAqdmlkZW8pDQo+ID4NCj4gPiAgCWFzcGVlZF92aWRlb19nZXRf
+dGltaW5ncyh2aWRlbywgZGV0KTsNCj4gPg0KPiA+IC0JLyoNCj4gPiAtCSAqIEVuYWJsZSBtb2Rl
+LWRldGVjdCB3YXRjaGRvZywgcmVzb2x1dGlvbi1jaGFuZ2Ugd2F0Y2hkb2cgYW5kDQo+ID4gLQkg
+KiBhdXRvbWF0aWMgY29tcHJlc3Npb24gYWZ0ZXIgZnJhbWUgY2FwdHVyZS4NCj4gPiAtCSAqLw0K
+PiA+ICsJLyogRW5hYmxlIG1vZGUtZGV0ZWN0IHdhdGNoZG9nLCByZXNvbHV0aW9uLWNoYW5nZSB3
+YXRjaGRvZyAqLw0KPiA+ICAJYXNwZWVkX3ZpZGVvX3VwZGF0ZSh2aWRlbywgVkVfSU5URVJSVVBU
+X0NUUkwsIDAsDQo+ID4gIAkJCSAgICBWRV9JTlRFUlJVUFRfTU9ERV9ERVRFQ1RfV0QpOw0KPiA+
+IC0JYXNwZWVkX3ZpZGVvX3VwZGF0ZSh2aWRlbywgVkVfU0VRX0NUUkwsIDAsDQo+ID4gLQkJCSAg
+ICBWRV9TRVFfQ1RSTF9BVVRPX0NPTVAgfA0KPiBWRV9TRVFfQ1RSTF9FTl9XQVRDSERPRyk7DQo+
+ID4gKwlhc3BlZWRfdmlkZW9fdXBkYXRlKHZpZGVvLCBWRV9TRVFfQ1RSTCwgMCwNCj4gVkVfU0VR
+X0NUUkxfRU5fV0FUQ0hET0cpOw0KPiA+ICt9DQo+ID4gKw0KPiA+ICtzdGF0aWMgdm9pZCBhc3Bl
+ZWRfdmlkZW9fZ2V0X3Jlc29sdXRpb24oc3RydWN0IGFzcGVlZF92aWRlbyAqdmlkZW8pIHsNCj4g
+PiArCXN0cnVjdCB2NGwyX2J0X3RpbWluZ3MgKmRldCA9ICZ2aWRlby0+ZGV0ZWN0ZWRfdGltaW5n
+czsNCj4gPiArDQo+ID4gKwlpZiAodmlkZW8tPmlucHV0ID09IFZJREVPX0lOUFVUX0dGWCkNCj4g
+PiArCQlhc3BlZWRfdmlkZW9fZ2V0X3Jlc29sdXRpb25fZ2Z4KHZpZGVvLCBkZXQpOw0KPiA+ICsJ
+ZWxzZQ0KPiA+ICsJCWFzcGVlZF92aWRlb19nZXRfcmVzb2x1dGlvbl92Z2EodmlkZW8sIGRldCk7
+DQo+ID4NCj4gPiAgCXY0bDJfZGJnKDEsIGRlYnVnLCAmdmlkZW8tPnY0bDJfZGV2LCAiR290IHJl
+c29sdXRpb246ICVkeCVkXG4iLA0KPiA+ICAJCSBkZXQtPndpZHRoLCBkZXQtPmhlaWdodCk7DQo+
+ID4gQEAgLTExNTYsNyArMTIxNiw3IEBAIHN0YXRpYyB2b2lkIGFzcGVlZF92aWRlb19zZXRfcmVz
+b2x1dGlvbihzdHJ1Y3QNCj4gYXNwZWVkX3ZpZGVvICp2aWRlbykNCj4gPiAgCWFzcGVlZF92aWRl
+b193cml0ZSh2aWRlbywgVkVfU1JDX1NDQU5MSU5FX09GRlNFVCwgYWN0LT53aWR0aCAqIDQpOw0K
+PiA+DQo+ID4gIAkvKiBEb24ndCB1c2UgZGlyZWN0IG1vZGUgYmVsb3cgMTAyNCB4IDc2OCAoaXJx
+cyBkb24ndCBmaXJlKSAqLw0KPiA+IC0JaWYgKHNpemUgPCBESVJFQ1RfRkVUQ0hfVEhSRVNIT0xE
+KSB7DQo+ID4gKwlpZiAodmlkZW8tPmlucHV0ID09IFZJREVPX0lOUFVUX1ZHQSAmJiBzaXplIDwN
+Cj4gPiArRElSRUNUX0ZFVENIX1RIUkVTSE9MRCkgew0KPiA+ICAJCXY0bDJfZGJnKDEsIGRlYnVn
+LCAmdmlkZW8tPnY0bDJfZGV2LCAiQ2FwdHVyZTogU3luYyBNb2RlXG4iKTsNCj4gPiAgCQlhc3Bl
+ZWRfdmlkZW9fd3JpdGUodmlkZW8sIFZFX1RHU18wLA0KPiA+ICAJCQkJICAgRklFTERfUFJFUChW
+RV9UR1NfRklSU1QsDQo+ID4gQEAgLTExNzEsMTAgKzEyMzEsMjAgQEAgc3RhdGljIHZvaWQgYXNw
+ZWVkX3ZpZGVvX3NldF9yZXNvbHV0aW9uKHN0cnVjdA0KPiBhc3BlZWRfdmlkZW8gKnZpZGVvKQ0K
+PiA+ICAJCQkJICAgIFZFX0NUUkxfSU5UX0RFIHwgVkVfQ1RSTF9ESVJFQ1RfRkVUQ0gsDQo+ID4g
+IAkJCQkgICAgVkVfQ1RSTF9JTlRfREUpOw0KPiA+ICAJfSBlbHNlIHsNCj4gPiArCQl1MzIgY3Ry
+bCwgdmFsLCBicHA7DQo+ID4gKw0KPiA+ICAJCXY0bDJfZGJnKDEsIGRlYnVnLCAmdmlkZW8tPnY0
+bDJfZGV2LCAiQ2FwdHVyZTogRGlyZWN0IE1vZGVcbiIpOw0KPiA+ICsJCWN0cmwgPSBWRV9DVFJM
+X0RJUkVDVF9GRVRDSDsNCj4gPiArCQlpZiAodmlkZW8tPmlucHV0ID09IFZJREVPX0lOUFVUX0dG
+WCkgew0KPiA+ICsJCQlyZWdtYXBfcmVhZCh2aWRlby0+Z2Z4LCBHRlhfQ1RSTCwgJnZhbCk7DQo+
+ID4gKwkJCWJwcCA9IEZJRUxEX0dFVChHRlhfQ1RSTF9GTVQsIHZhbCkgPyAzMiA6IDE2Ow0KPiA+
+ICsJCQlpZiAoYnBwID09IDE2KQ0KPiA+ICsJCQkJY3RybCB8PSBWRV9DVFJMX0lOVF9ERTsNCj4g
+PiArCQkJYXNwZWVkX3ZpZGVvX3dyaXRlKHZpZGVvLCBWRV9UR1NfMSwgYWN0LT53aWR0aCAqIChi
+cHAgPj4gMykpOw0KPiA+ICsJCX0NCj4gPiAgCQlhc3BlZWRfdmlkZW9fdXBkYXRlKHZpZGVvLCBW
+RV9DVFJMLA0KPiA+ICAJCQkJICAgIFZFX0NUUkxfSU5UX0RFIHwgVkVfQ1RSTF9ESVJFQ1RfRkVU
+Q0gsDQo+ID4gLQkJCQkgICAgVkVfQ1RSTF9ESVJFQ1RfRkVUQ0gpOw0KPiA+ICsJCQkJICAgIGN0
+cmwpOw0KPiA+ICAJfQ0KPiA+DQo+ID4gIAlzaXplICo9IDQ7DQo+ID4gQEAgLTEyMDcsNiArMTI3
+NywyMiBAQCBzdGF0aWMgdm9pZCBhc3BlZWRfdmlkZW9fc2V0X3Jlc29sdXRpb24oc3RydWN0DQo+
+IGFzcGVlZF92aWRlbyAqdmlkZW8pDQo+ID4gIAkJYXNwZWVkX3ZpZGVvX2ZyZWVfYnVmKHZpZGVv
+LCAmdmlkZW8tPnNyY3NbMF0pOyAgfQ0KPiA+DQo+ID4gKy8qDQo+ID4gKyAqIFVwZGF0ZSByZWxh
+dGl2ZSBwYXJhbWV0ZXJzIHdoZW4gdGltaW5nIGNoYW5nZWQuDQo+ID4gKyAqDQo+ID4gKyAqIEB2
+aWRlbzogdGhlIHN0cnVjdCBvZiBhc3BlZWRfdmlkZW8NCj4gPiArICogQHRpbWluZ3M6IHRoZSBu
+ZXcgdGltaW5ncw0KPiA+ICsgKi8NCj4gPiArc3RhdGljIHZvaWQgYXNwZWVkX3ZpZGVvX3VwZGF0
+ZV90aW1pbmdzKHN0cnVjdCBhc3BlZWRfdmlkZW8gKnZpZGVvLA0KPiA+ICtzdHJ1Y3QgdjRsMl9i
+dF90aW1pbmdzICp0aW1pbmdzKSB7DQo+ID4gKwl2aWRlby0+YWN0aXZlX3RpbWluZ3MgPSAqdGlt
+aW5nczsNCj4gPiArCWFzcGVlZF92aWRlb19zZXRfcmVzb2x1dGlvbih2aWRlbyk7DQo+ID4gKw0K
+PiA+ICsJdmlkZW8tPnBpeF9mbXQud2lkdGggPSB0aW1pbmdzLT53aWR0aDsNCj4gPiArCXZpZGVv
+LT5waXhfZm10LmhlaWdodCA9IHRpbWluZ3MtPmhlaWdodDsNCj4gPiArCXZpZGVvLT5waXhfZm10
+LnNpemVpbWFnZSA9IHZpZGVvLT5tYXhfY29tcHJlc3NlZF9zaXplOyB9DQo+ID4gKw0KPiA+ICBz
+dGF0aWMgdm9pZCBhc3BlZWRfdmlkZW9fdXBkYXRlX3JlZ3Moc3RydWN0IGFzcGVlZF92aWRlbyAq
+dmlkZW8pICB7DQo+ID4gIAl1OCBqcGVnX2hxX3F1YWxpdHkgPSBjbGFtcCgoaW50KXZpZGVvLT5q
+cGVnX2hxX3F1YWxpdHkgLSAxLCAwLCBAQA0KPiA+IC0xMjE5LDYgKzEzMDUsOCBAQCBzdGF0aWMg
+dm9pZCBhc3BlZWRfdmlkZW9fdXBkYXRlX3JlZ3Moc3RydWN0DQo+IGFzcGVlZF92aWRlbyAqdmlk
+ZW8pDQo+ID4gIAl1MzIgY3RybCA9IDA7DQo+ID4gIAl1MzIgc2VxX2N0cmwgPSAwOw0KPiA+DQo+
+ID4gKwl2NGwyX2RiZygxLCBkZWJ1ZywgJnZpZGVvLT52NGwyX2RldiwgImlucHV0KCVzKVxuIiwN
+Cj4gPiArCQkgaW5wdXRfc3RyW3ZpZGVvLT5pbnB1dF0pOw0KPiA+ICAJdjRsMl9kYmcoMSwgZGVi
+dWcsICZ2aWRlby0+djRsMl9kZXYsICJmcmFtZXJhdGUoJWQpXG4iLA0KPiA+ICAJCSB2aWRlby0+
+ZnJhbWVfcmF0ZSk7DQo+ID4gIAl2NGwyX2RiZygxLCBkZWJ1ZywgJnZpZGVvLT52NGwyX2Rldiwg
+ImpwZWcgZm9ybWF0KCVzKQ0KPiA+IHN1YnNhbXBsZSglcylcbiIsIEBAIC0xMjM0LDYgKzEzMjIs
+OSBAQCBzdGF0aWMgdm9pZA0KPiBhc3BlZWRfdmlkZW9fdXBkYXRlX3JlZ3Moc3RydWN0IGFzcGVl
+ZF92aWRlbyAqdmlkZW8pDQo+ID4gIAllbHNlDQo+ID4gIAkJYXNwZWVkX3ZpZGVvX3VwZGF0ZSh2
+aWRlbywgVkVfQkNEX0NUUkwsIFZFX0JDRF9DVFJMX0VOX0JDRCwNCj4gMCk7DQo+ID4NCj4gPiAr
+CWlmICh2aWRlby0+aW5wdXQgPT0gVklERU9fSU5QVVRfVkdBKQ0KPiA+ICsJCWN0cmwgfD0gVkVf
+Q1RSTF9BVVRPX09SX0NVUlNPUjsNCj4gPiArDQo+ID4gIAlpZiAodmlkZW8tPmZyYW1lX3JhdGUp
+DQo+ID4gIAkJY3RybCB8PSBGSUVMRF9QUkVQKFZFX0NUUkxfRlJDLCB2aWRlby0+ZnJhbWVfcmF0
+ZSk7DQo+ID4NCj4gPiBAQCAtMTI1Miw3ICsxMzQzLDkgQEAgc3RhdGljIHZvaWQgYXNwZWVkX3Zp
+ZGVvX3VwZGF0ZV9yZWdzKHN0cnVjdA0KPiBhc3BlZWRfdmlkZW8gKnZpZGVvKQ0KPiA+ICAJYXNw
+ZWVkX3ZpZGVvX3VwZGF0ZSh2aWRlbywgVkVfU0VRX0NUUkwsDQo+ID4gIAkJCSAgICB2aWRlby0+
+anBlZ19tb2RlIHwgVkVfU0VRX0NUUkxfWVVWNDIwLA0KPiA+ICAJCQkgICAgc2VxX2N0cmwpOw0K
+PiA+IC0JYXNwZWVkX3ZpZGVvX3VwZGF0ZSh2aWRlbywgVkVfQ1RSTCwgVkVfQ1RSTF9GUkMsIGN0
+cmwpOw0KPiA+ICsJYXNwZWVkX3ZpZGVvX3VwZGF0ZSh2aWRlbywgVkVfQ1RSTCwNCj4gPiArCQkJ
+ICAgIFZFX0NUUkxfRlJDIHwgVkVfQ1RSTF9BVVRPX09SX0NVUlNPUiB8DQo+ID4gKwkJCSAgICBW
+RV9DVFJMX1NPVVJDRSwgY3RybCk7DQo+ID4gIAlhc3BlZWRfdmlkZW9fdXBkYXRlKHZpZGVvLCBW
+RV9DT01QX0NUUkwsDQo+ID4gIAkJCSAgICBWRV9DT01QX0NUUkxfRENUX0xVTSB8IFZFX0NPTVBf
+Q1RSTF9EQ1RfQ0hSIHwNCj4gPiAgCQkJICAgIFZFX0NPTVBfQ1RSTF9FTl9IUSB8DQo+IFZFX0NP
+TVBfQ1RSTF9IUV9EQ1RfTFVNIHwgQEAgLTEyODAsNg0KPiA+ICsxMzczLDcgQEAgc3RhdGljIHZv
+aWQgYXNwZWVkX3ZpZGVvX2luaXRfcmVncyhzdHJ1Y3QgYXNwZWVkX3ZpZGVvICp2aWRlbykNCj4g
+PiAgCWFzcGVlZF92aWRlb193cml0ZSh2aWRlbywgVkVfSlBFR19BRERSLCB2aWRlby0+anBlZy5k
+bWEpOw0KPiA+DQo+ID4gIAkvKiBTZXQgY29udHJvbCByZWdpc3RlcnMgKi8NCj4gPiArCWFzcGVl
+ZF92aWRlb193cml0ZSh2aWRlbywgVkVfU0VRX0NUUkwsIFZFX1NFUV9DVFJMX0FVVE9fQ09NUCk7
+DQo+ID4gIAlhc3BlZWRfdmlkZW9fd3JpdGUodmlkZW8sIFZFX0NUUkwsIGN0cmwpOw0KPiA+ICAJ
+YXNwZWVkX3ZpZGVvX3dyaXRlKHZpZGVvLCBWRV9DT01QX0NUUkwsIFZFX0NPTVBfQ1RSTF9SU1ZE
+KTsNCj4gPg0KPiA+IEBAIC0xMzExLDEyICsxNDA1LDcgQEAgc3RhdGljIHZvaWQgYXNwZWVkX3Zp
+ZGVvX3N0YXJ0KHN0cnVjdA0KPiBhc3BlZWRfdmlkZW8gKnZpZGVvKQ0KPiA+ICAJYXNwZWVkX3Zp
+ZGVvX2dldF9yZXNvbHV0aW9uKHZpZGVvKTsNCj4gPg0KPiA+ICAJLyogU2V0IHRpbWluZ3Mgc2lu
+Y2UgdGhlIGRldmljZSBpcyBiZWluZyBvcGVuZWQgZm9yIHRoZSBmaXJzdCB0aW1lICovDQo+ID4g
+LQl2aWRlby0+YWN0aXZlX3RpbWluZ3MgPSB2aWRlby0+ZGV0ZWN0ZWRfdGltaW5nczsNCj4gPiAt
+CWFzcGVlZF92aWRlb19zZXRfcmVzb2x1dGlvbih2aWRlbyk7DQo+ID4gLQ0KPiA+IC0JdmlkZW8t
+PnBpeF9mbXQud2lkdGggPSB2aWRlby0+YWN0aXZlX3RpbWluZ3Mud2lkdGg7DQo+ID4gLQl2aWRl
+by0+cGl4X2ZtdC5oZWlnaHQgPSB2aWRlby0+YWN0aXZlX3RpbWluZ3MuaGVpZ2h0Ow0KPiA+IC0J
+dmlkZW8tPnBpeF9mbXQuc2l6ZWltYWdlID0gdmlkZW8tPm1heF9jb21wcmVzc2VkX3NpemU7DQo+
+ID4gKwlhc3BlZWRfdmlkZW9fdXBkYXRlX3RpbWluZ3ModmlkZW8sICZ2aWRlby0+ZGV0ZWN0ZWRf
+dGltaW5ncyk7DQo+ID4gIH0NCj4gPg0KPiA+ICBzdGF0aWMgdm9pZCBhc3BlZWRfdmlkZW9fc3Rv
+cChzdHJ1Y3QgYXNwZWVkX3ZpZGVvICp2aWRlbykgQEAgLTE0MDEsMTANCj4gPiArMTQ5MCwxMCBA
+QCBzdGF0aWMgaW50IGFzcGVlZF92aWRlb19lbnVtX2lucHV0KHN0cnVjdCBmaWxlICpmaWxlLCB2
+b2lkDQo+ID4gKmZoLCAgew0KPiA+ICAJc3RydWN0IGFzcGVlZF92aWRlbyAqdmlkZW8gPSB2aWRl
+b19kcnZkYXRhKGZpbGUpOw0KPiA+DQo+ID4gLQlpZiAoaW5wLT5pbmRleCkNCj4gPiArCWlmIChp
+bnAtPmluZGV4ID49IFZJREVPX0lOUFVUX01BWCkNCj4gPiAgCQlyZXR1cm4gLUVJTlZBTDsNCj4g
+Pg0KPiA+IC0Jc3Ryc2NweShpbnAtPm5hbWUsICJIb3N0IFZHQSBjYXB0dXJlIiwgc2l6ZW9mKGlu
+cC0+bmFtZSkpOw0KPiA+ICsJc3ByaW50ZihpbnAtPm5hbWUsICIlcyBjYXB0dXJlIiwgaW5wdXRf
+c3RyW2lucC0+aW5kZXhdKTsNCj4gPiAgCWlucC0+dHlwZSA9IFY0TDJfSU5QVVRfVFlQRV9DQU1F
+UkE7DQo+ID4gIAlpbnAtPmNhcGFiaWxpdGllcyA9IFY0TDJfSU5fQ0FQX0RWX1RJTUlOR1M7DQo+
+ID4gIAlpbnAtPnN0YXR1cyA9IHZpZGVvLT52NGwyX2lucHV0X3N0YXR1czsgQEAgLTE0MTQsMTYg
+KzE1MDMsNTcgQEANCj4gPiBzdGF0aWMgaW50IGFzcGVlZF92aWRlb19lbnVtX2lucHV0KHN0cnVj
+dCBmaWxlICpmaWxlLCB2b2lkICpmaCwNCj4gPg0KPiA+ICBzdGF0aWMgaW50IGFzcGVlZF92aWRl
+b19nZXRfaW5wdXQoc3RydWN0IGZpbGUgKmZpbGUsIHZvaWQgKmZoLA0KPiA+IHVuc2lnbmVkIGlu
+dCAqaSkgIHsNCj4gPiAtCSppID0gMDsNCj4gPiArCXN0cnVjdCBhc3BlZWRfdmlkZW8gKnZpZGVv
+ID0gdmlkZW9fZHJ2ZGF0YShmaWxlKTsNCj4gPiArDQo+ID4gKwkqaSA9IHZpZGVvLT5pbnB1dDsN
+Cj4gPg0KPiA+ICAJcmV0dXJuIDA7DQo+ID4gIH0NCj4gPg0KPiA+ICBzdGF0aWMgaW50IGFzcGVl
+ZF92aWRlb19zZXRfaW5wdXQoc3RydWN0IGZpbGUgKmZpbGUsIHZvaWQgKmZoLA0KPiA+IHVuc2ln
+bmVkIGludCBpKSAgew0KPiA+IC0JaWYgKGkpDQo+ID4gKwlzdHJ1Y3QgYXNwZWVkX3ZpZGVvICp2
+aWRlbyA9IHZpZGVvX2RydmRhdGEoZmlsZSk7DQo+ID4gKw0KPiA+ICsJaWYgKGkgPj0gVklERU9f
+SU5QVVRfTUFYKQ0KPiA+ICAJCXJldHVybiAtRUlOVkFMOw0KPiA+DQo+ID4gKwlpZiAoaSA9PSB2
+aWRlby0+aW5wdXQpDQo+ID4gKwkJcmV0dXJuIDA7DQo+ID4gKw0KPiA+ICsJaWYgKHZiMl9pc19i
+dXN5KCZ2aWRlby0+cXVldWUpKQ0KPiA+ICsJCXJldHVybiAtRUJVU1k7DQo+ID4gKw0KPiA+ICsJ
+aWYgKElTX0VSUih2aWRlby0+c2N1KSkgew0KPiA+ICsJCXY0bDJfZGJnKDEsIGRlYnVnLCAmdmlk
+ZW8tPnY0bDJfZGV2LA0KPiA+ICsJCQkgIiVzOiBzY3UgaXNuJ3QgcmVhZHkgZm9yIGlucHV0LWNv
+bnRyb2xcbiIsIF9fZnVuY19fKTsNCj4gPiArCQlyZXR1cm4gLUVJTlZBTDsNCj4gPiArCX0NCj4g
+PiArDQo+ID4gKwlpZiAoSVNfRVJSKHZpZGVvLT5nZngpICYmIGkgPT0gVklERU9fSU5QVVRfR0ZY
+KSB7DQo+ID4gKwkJdjRsMl9kYmcoMSwgZGVidWcsICZ2aWRlby0+djRsMl9kZXYsDQo+ID4gKwkJ
+CSAiJXM6IGdmeCBpc24ndCByZWFkeSBmb3IgR0ZYIGlucHV0XG4iLCBfX2Z1bmNfXyk7DQo+ID4g
+KwkJcmV0dXJuIC1FSU5WQUw7DQo+ID4gKwl9DQo+ID4gKw0KPiA+ICsJdmlkZW8tPmlucHV0ID0g
+aTsNCj4gPiArDQo+ID4gKwlpZiAodmlkZW8tPnZlcnNpb24gPT0gNikgew0KPiA+ICsJCS8qIG1v
+ZGlmeSBkcGxsIHNvdXJjZSBwZXIgY3VycmVudCBpbnB1dCAqLw0KPiA+ICsJCWlmICh2aWRlby0+
+aW5wdXQgPT0gVklERU9fSU5QVVRfVkdBKQ0KPiA+ICsJCQlyZWdtYXBfdXBkYXRlX2JpdHModmlk
+ZW8tPnNjdSwgU0NVX01JU0NfQ1RSTCwNCj4gPiArCQkJCQkgICBTQ1VfRFBMTF9TT1VSQ0UsIDAp
+Ow0KPiA+ICsJCWVsc2UNCj4gPiArCQkJcmVnbWFwX3VwZGF0ZV9iaXRzKHZpZGVvLT5zY3UsIFND
+VV9NSVNDX0NUUkwsDQo+ID4gKwkJCQkJICAgU0NVX0RQTExfU09VUkNFLCBTQ1VfRFBMTF9TT1VS
+Q0UpOw0KPiA+ICsJfQ0KPiA+ICsNCj4gPiArCWFzcGVlZF92aWRlb191cGRhdGVfcmVncyh2aWRl
+byk7DQo+ID4gKw0KPiA+ICsJLyogdXBkYXRlIHNpZ25hbCBzdGF0dXMgKi8NCj4gPiArCWFzcGVl
+ZF92aWRlb19nZXRfcmVzb2x1dGlvbih2aWRlbyk7DQo+ID4gKwlpZiAoIXZpZGVvLT52NGwyX2lu
+cHV0X3N0YXR1cykNCj4gPiArCQlhc3BlZWRfdmlkZW9fdXBkYXRlX3RpbWluZ3ModmlkZW8sICZ2
+aWRlby0+ZGV0ZWN0ZWRfdGltaW5ncyk7DQo+ID4gKw0KPiA+ICAJcmV0dXJuIDA7DQo+ID4gIH0N
+Cj4gPg0KPiA+IEBAIC0xNTI3LDEzICsxNjU3LDcgQEAgc3RhdGljIGludCBhc3BlZWRfdmlkZW9f
+c2V0X2R2X3RpbWluZ3Moc3RydWN0DQo+IGZpbGUgKmZpbGUsIHZvaWQgKmZoLA0KPiA+ICAJaWYg
+KHZiMl9pc19idXN5KCZ2aWRlby0+cXVldWUpKQ0KPiA+ICAJCXJldHVybiAtRUJVU1k7DQo+ID4N
+Cj4gPiAtCXZpZGVvLT5hY3RpdmVfdGltaW5ncyA9IHRpbWluZ3MtPmJ0Ow0KPiA+IC0NCj4gPiAt
+CWFzcGVlZF92aWRlb19zZXRfcmVzb2x1dGlvbih2aWRlbyk7DQo+ID4gLQ0KPiA+IC0JdmlkZW8t
+PnBpeF9mbXQud2lkdGggPSB0aW1pbmdzLT5idC53aWR0aDsNCj4gPiAtCXZpZGVvLT5waXhfZm10
+LmhlaWdodCA9IHRpbWluZ3MtPmJ0LmhlaWdodDsNCj4gPiAtCXZpZGVvLT5waXhfZm10LnNpemVp
+bWFnZSA9IHZpZGVvLT5tYXhfY29tcHJlc3NlZF9zaXplOw0KPiA+ICsJYXNwZWVkX3ZpZGVvX3Vw
+ZGF0ZV90aW1pbmdzKHZpZGVvLCAmdGltaW5ncy0+YnQpOw0KPiA+DQo+ID4gIAl0aW1pbmdzLT50
+eXBlID0gVjRMMl9EVl9CVF82NTZfMTEyMDsNCj4gPg0KPiA+IEBAIC0xOTA5LDYgKzIwMzMsNyBA
+QCBzdGF0aWMgaW50IGFzcGVlZF92aWRlb19kZWJ1Z2ZzX3Nob3coc3RydWN0DQo+IHNlcV9maWxl
+ICpzLCB2b2lkICpkYXRhKQ0KPiA+ICAJdmFsMDggPSBhc3BlZWRfdmlkZW9fcmVhZCh2LCBWRV9D
+VFJMKTsNCj4gPiAgCWlmIChGSUVMRF9HRVQoVkVfQ1RSTF9ESVJFQ1RfRkVUQ0gsIHZhbDA4KSkg
+ew0KPiA+ICAJCXNlcV9wcmludGYocywgIiAgJS0yMHM6XHREaXJlY3QgZmV0Y2hcbiIsICJNb2Rl
+Iik7DQo+ID4gKwkJc2VxX3ByaW50ZihzLCAiICAlLTIwczpcdCVzXG4iLCAiSW5wdXQiLCBpbnB1
+dF9zdHJbdi0+aW5wdXRdKTsNCj4gPiAgCQlzZXFfcHJpbnRmKHMsICIgICUtMjBzOlx0JXNcbiIs
+ICJWR0EgYnBwIG1vZGUiLA0KPiA+ICAJCQkgICBGSUVMRF9HRVQoVkVfQ1RSTF9JTlRfREUsIHZh
+bDA4KSA/ICIxNiIgOiAiMzIiKTsNCj4gPiAgCX0gZWxzZSB7DQo+ID4gQEAgLTIwNjgsMTIgKzIx
+OTMsMjkgQEAgc3RhdGljIGludCBhc3BlZWRfdmlkZW9fc2V0dXBfdmlkZW8oc3RydWN0DQo+IGFz
+cGVlZF92aWRlbyAqdmlkZW8pDQo+ID4gIAlyZXR1cm4gMDsNCj4gPiAgfQ0KPiA+DQo+ID4gKy8q
+DQo+ID4gKyAqIEdldCByZWdtYXAgd2l0aG91dCBjaGVja2luZyByZXMsIHN1Y2ggYXMgY2xrL3Jl
+c2V0LCB0aGF0IGNvdWxkDQo+ID4gK2xlYWQgdG8NCj4gPiArICogY29uZmxpY3QuDQo+ID4gKyAq
+Lw0KPiA+ICtzdGF0aWMgc3RydWN0IHJlZ21hcCAqYXNwZWVkX3JlZ21hcF9sb29rdXAoc3RydWN0
+IGRldmljZV9ub2RlICpucCwNCj4gPiArY29uc3QgY2hhciAqcHJvcGVydHkpIHsNCj4gPiArCXN0
+cnVjdCBkZXZpY2Vfbm9kZSAqc3lzY29uX25wIF9fZnJlZShkZXZpY2Vfbm9kZSkgPQ0KPiA+ICtv
+Zl9wYXJzZV9waGFuZGxlKG5wLCBwcm9wZXJ0eSwgMCk7DQo+ID4gKw0KPiA+ICsJaWYgKCFzeXNj
+b25fbnApDQo+ID4gKwkJcmV0dXJuIEVSUl9QVFIoLUVOT0RFVik7DQo+ID4gKw0KPiA+ICsJcmV0
+dXJuIGRldmljZV9ub2RlX3RvX3JlZ21hcChzeXNjb25fbnApOyB9DQo+ID4gKw0KPiA+ICBzdGF0
+aWMgaW50IGFzcGVlZF92aWRlb19pbml0KHN0cnVjdCBhc3BlZWRfdmlkZW8gKnZpZGVvKSAgew0K
+PiA+ICAJaW50IGlycTsNCj4gPiAgCWludCByYzsNCj4gPiAgCXN0cnVjdCBkZXZpY2UgKmRldiA9
+IHZpZGVvLT5kZXY7DQo+ID4NCj4gPiArCXZpZGVvLT5zY3UgPSBhc3BlZWRfcmVnbWFwX2xvb2t1
+cChkZXYtPm9mX25vZGUsICJhc3BlZWQsc2N1Iik7DQo+ID4gKwl2aWRlby0+Z2Z4ID0gYXNwZWVk
+X3JlZ21hcF9sb29rdXAoZGV2LT5vZl9ub2RlLCAiYXNwZWVkLGdmeCIpOw0KPiA+ICsNCj4gPiAg
+CWlycSA9IGlycV9vZl9wYXJzZV9hbmRfbWFwKGRldi0+b2Zfbm9kZSwgMCk7DQo+ID4gIAlpZiAo
+IWlycSkgew0KPiA+ICAJCWRldl9lcnIoZGV2LCAiVW5hYmxlIHRvIGZpbmQgSVJRXG4iKTsgQEAg
+LTIxNjUsNiArMjMwNyw3IEBADQo+IHN0YXRpYw0KPiA+IGludCBhc3BlZWRfdmlkZW9fcHJvYmUo
+c3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikNCj4gPiAgCWlmICghY29uZmlnKQ0KPiA+ICAJ
+CXJldHVybiAtRU5PREVWOw0KPiA+DQo+ID4gKwl2aWRlby0+dmVyc2lvbiA9IGNvbmZpZy0+dmVy
+c2lvbjsNCj4gPiAgCXZpZGVvLT5qcGVnX21vZGUgPSBjb25maWctPmpwZWdfbW9kZTsNCj4gPiAg
+CXZpZGVvLT5jb21wX3NpemVfcmVhZCA9IGNvbmZpZy0+Y29tcF9zaXplX3JlYWQ7DQo+ID4NCj4g
+PiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS91YXBpL2xpbnV4L2FzcGVlZC12aWRlby5oDQo+ID4gYi9p
+bmNsdWRlL3VhcGkvbGludXgvYXNwZWVkLXZpZGVvLmgNCj4gPiBpbmRleCA2NTg2YTY1NTQ4YzQu
+LjE1MTY4ZThjOTMxZSAxMDA2NDQNCj4gPiAtLS0gYS9pbmNsdWRlL3VhcGkvbGludXgvYXNwZWVk
+LXZpZGVvLmgNCj4gPiArKysgYi9pbmNsdWRlL3VhcGkvbGludXgvYXNwZWVkLXZpZGVvLmgNCj4g
+PiBAQCAtOCw2ICs4LDEzIEBADQo+ID4NCj4gPiAgI2luY2x1ZGUgPGxpbnV4L3Y0bDItY29udHJv
+bHMuaD4NCj4gPg0KPiA+ICsvKiBhc3BlZWQgdmlkZW8ncyBpbnB1dCB0eXBlcyAqLw0KPiA+ICtl
+bnVtIGFzcGVlZF92aWRlb19pbnB1dCB7DQo+ID4gKwlWSURFT19JTlBVVF9WR0EgPSAwLA0KPiA+
+ICsJVklERU9fSU5QVVRfR0ZYLA0KPiA+ICsJVklERU9fSU5QVVRfTUFYDQo+ID4gK307DQo+ID4g
+Kw0KPiA+ICAjZGVmaW5lIFY0TDJfQ0lEX0FTUEVFRF9IUV9NT0RFDQo+IAkoVjRMMl9DSURfVVNF
+Ul9BU1BFRURfQkFTRSAgKyAxKQ0KPiA+ICAjZGVmaW5lIFY0TDJfQ0lEX0FTUEVFRF9IUV9KUEVH
+X1FVQUxJVFkNCj4gCShWNEwyX0NJRF9VU0VSX0FTUEVFRF9CQVNFICArIDIpDQo+ID4NCg0K
 
