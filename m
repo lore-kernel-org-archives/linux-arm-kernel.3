@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C203FCCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 09:13:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D87CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 09:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UkOLY0bMOAegRX2PLwNVc1xekduhJqcvNYaejGV6Jnk=; b=ZKNKmCuXTEQuP1MuGIABVKNnX0
-	WtE6jTjmhbMFiSXkvMn58J7R6lxGrWu4khGorsLlQqK8gFhQ5dRTlOb+bqr0giLMPi+fyx7Bt/nJ+
-	NgbLDFq0kSeJVYA6E8NZWVFY1zU4Or667gIC5PXostaOUS9WpQJxHgj0lpakP94/7+gk6qcV6/xGy
-	itzadfT28y+R1GKwuQ1s4XiZBiNxXWDI0xbx41i249Wp7j6KDA/wv0Zb2j/7ZBvqG0cI/fjGOrSiS
-	088FYze7iQXI/3j9EFNzRHh111CVHA5ecct/R68C4gwbay5r1zVBmhh++qmkWOZG7ikWT6VKCozqU
-	IwI/0Unw==;
+	bh=oB3+p/Mv9QvTJS4rOTeBrLOF3LEDsZyakK2v4O50YlY=; b=Hw0uItImkAPyJjpJpVtVLyd4S+
+	/noSBqt1z4H9Cr1whtA4tAAut7rzlPGrjcGj0KaCLfGlrLwlb0nqua34RlhdXuQpDUUsLXx3ehcBM
+	gQwflu2DZBmDn6SDyksBCsuWX5T03FpzWO3f+fpJ22uc0LlPUsiIyXlmKYB6IdNEmB/ZYW4QKpwE/
+	1ZGw+GvII0ffexE7TPSDy/IqwHyvgNyYpwIPNWwTJKxj4AjPHdpIqVvk0ShFp+sKRULKIUkbaBR3B
+	dhjILig6WsGP6MY+E7obh7gnai82ftVDGXYu+SSz9WZeFz1uxVtyS5vaKHcWKHG2CPHDeV0Lgnh/+
+	O+56nHgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8xZV-000000014DN-45hc;
-	Wed, 15 Oct 2025 09:13:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v8xZZ-000000014H9-3vaE;
+	Wed, 15 Oct 2025 09:13:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8xZT-0000000149Y-1Z1y
+	id 1v8xZY-000000014F8-2OZ0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 09:13:25 +0000
+	Wed, 15 Oct 2025 09:13:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EFF4940246;
-	Wed, 15 Oct 2025 09:13:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27DE5C19421;
-	Wed, 15 Oct 2025 09:13:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B57B563BF2;
+	Wed, 15 Oct 2025 09:13:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6168C4CEF8;
+	Wed, 15 Oct 2025 09:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760519602;
-	bh=VnMG1AI6BvgRLCN60ENFie/apQCA7LYrL0xFWoo7RpM=;
+	s=k20201202; t=1760519606;
+	bh=8N5ZxsYLVcDZve6x5HHk+A1JboM5EKxL5gdSKO7Ns2A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qIrMBqnuHuFqyNXyGEUvjAWSrGuP7BHKNjv3W6RybkmzvAtE/8s4IA/VJ9GgZGWEB
-	 7bm6DuwWphduE+9B2nQ+hsAaoABhi1mvrnEwifkp0w0oOcXl5GDl8SFAl/4Hsn2XU3
-	 qHwmOdQ7pqCuYsn/djnTr4K19DmpdZaqVnSDdvaMvNqskBH0ZJwkuOQDubU0sCtpq5
-	 W+VFnqQwdlPVM8EnzBLjjI3VgMDfGi1EtCEG8d7wYwOwwWXwNpe/pcGzB9IKEGu2uL
-	 HHQzw8zSVXRKXjzRor9TvOjzpRxPPnksJzz0TpmzYizTMT+05dps2oNMrK/FjdOH2y
-	 mqyatvpalS22Q==
+	b=JiSeBjBUKhVwymer3tPYHzwIFC7GJm10nXZ/10XtCNi51kg88RJS1w18W4pvJ7NeM
+	 3OwVmb0T1vu2KwfDWjx1io+HgFyPxO0MgtEwlMotfiJ179Y1QgqMPkRKjDJqt5Ao/+
+	 VjZfp9uISkci3ImI/5C8oEZdlj4Z+oNMqJTyULPa769DD302IN/VxJv7rJehAO4LNe
+	 KeIuGfTQFzyYPb83xzSoo0Sz6I9iQ3Uy0TnyhPQrAye6SrySQGjy96frRmnA4dlk+5
+	 xWdb7xuNoLeNJ5dtzrtaGqkyWLhMMmZy2qZFkbs1eHx+/CfxBpfdsutxVsk+ta+jCH
+	 50a30dGZYCtdA==
 From: Leon Romanovsky <leon@kernel.org>
 To: Marek Szyprowski <m.szyprowski@samsung.com>,
 	Robin Murphy <robin.murphy@arm.com>,
@@ -78,9 +78,9 @@ Cc: iommu@lists.linux.dev,
 	sparclinux@vger.kernel.org,
 	Jason Gunthorpe <jgg@ziepe.ca>,
 	Jason Gunthorpe <jgg@nvidia.com>
-Subject: [PATCH v5 05/14] xen: swiotlb: Switch to physical address mapping callbacks
-Date: Wed, 15 Oct 2025 12:12:51 +0300
-Message-ID: <20251015-remove-map-page-v5-5-3bbfe3a25cdf@kernel.org>
+Subject: [PATCH v5 06/14] dma-mapping: remove unused mapping resource callbacks
+Date: Wed, 15 Oct 2025 12:12:52 +0300
+Message-ID: <20251015-remove-map-page-v5-6-3bbfe3a25cdf@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251015-remove-map-page-v5-0-3bbfe3a25cdf@kernel.org>
 References: <20251015-remove-map-page-v5-0-3bbfe3a25cdf@kernel.org>
@@ -88,9 +88,6 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 X-Mailer: b4 0.15-dev
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_021323_466906_557EC2B3 
-X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,145 +104,80 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Leon Romanovsky <leonro@nvidia.com>
 
-Combine resource and page mappings routines to one function
-and remove .map_resource/.unmap_resource callbacks completely.
+After ARM and XEN conversions to use physical addresses for the mapping,
+there are no in-kernel users for map_resource/unmap_resource callbacks,
+so remove them.
 
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
 ---
- drivers/xen/swiotlb-xen.c | 63 ++++++++++++++++++++++-------------------------
- 1 file changed, 29 insertions(+), 34 deletions(-)
+ include/linux/dma-map-ops.h |  6 ------
+ kernel/dma/mapping.c        | 16 ++++------------
+ 2 files changed, 4 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/xen/swiotlb-xen.c b/drivers/xen/swiotlb-xen.c
-index dd7747a2de87..ccf25027bec1 100644
---- a/drivers/xen/swiotlb-xen.c
-+++ b/drivers/xen/swiotlb-xen.c
-@@ -200,17 +200,32 @@ xen_swiotlb_free_coherent(struct device *dev, size_t size, void *vaddr,
-  * physical address to use is returned.
-  *
-  * Once the device is given the dma address, the device owns this memory until
-- * either xen_swiotlb_unmap_page or xen_swiotlb_dma_sync_single is performed.
-+ * either xen_swiotlb_unmap_phys or xen_swiotlb_dma_sync_single is performed.
-  */
--static dma_addr_t xen_swiotlb_map_page(struct device *dev, struct page *page,
--				unsigned long offset, size_t size,
--				enum dma_data_direction dir,
-+static dma_addr_t xen_swiotlb_map_phys(struct device *dev, phys_addr_t phys,
-+				size_t size, enum dma_data_direction dir,
- 				unsigned long attrs)
+diff --git a/include/linux/dma-map-ops.h b/include/linux/dma-map-ops.h
+index 79d2a74d4b49..2e98ecc313a3 100644
+--- a/include/linux/dma-map-ops.h
++++ b/include/linux/dma-map-ops.h
+@@ -53,12 +53,6 @@ struct dma_map_ops {
+ 			enum dma_data_direction dir, unsigned long attrs);
+ 	void (*unmap_sg)(struct device *dev, struct scatterlist *sg, int nents,
+ 			enum dma_data_direction dir, unsigned long attrs);
+-	dma_addr_t (*map_resource)(struct device *dev, phys_addr_t phys_addr,
+-			size_t size, enum dma_data_direction dir,
+-			unsigned long attrs);
+-	void (*unmap_resource)(struct device *dev, dma_addr_t dma_handle,
+-			size_t size, enum dma_data_direction dir,
+-			unsigned long attrs);
+ 	void (*sync_single_for_cpu)(struct device *dev, dma_addr_t dma_handle,
+ 			size_t size, enum dma_data_direction dir);
+ 	void (*sync_single_for_device)(struct device *dev,
+diff --git a/kernel/dma/mapping.c b/kernel/dma/mapping.c
+index 4080aebe5deb..32a85bfdf873 100644
+--- a/kernel/dma/mapping.c
++++ b/kernel/dma/mapping.c
+@@ -157,7 +157,7 @@ dma_addr_t dma_map_phys(struct device *dev, phys_addr_t phys, size_t size,
  {
--	phys_addr_t map, phys = page_to_phys(page) + offset;
--	dma_addr_t dev_addr = xen_phys_to_dma(dev, phys);
-+	dma_addr_t dev_addr;
-+	phys_addr_t map;
+ 	const struct dma_map_ops *ops = get_dma_ops(dev);
+ 	bool is_mmio = attrs & DMA_ATTR_MMIO;
+-	dma_addr_t addr;
++	dma_addr_t addr = DMA_MAPPING_ERROR;
  
- 	BUG_ON(dir == DMA_NONE);
-+
-+	if (attrs & DMA_ATTR_MMIO) {
-+		if (unlikely(!dma_capable(dev, phys, size, false))) {
-+			dev_err_once(
-+				dev,
-+				"DMA addr %pa+%zu overflow (mask %llx, bus limit %llx).\n",
-+				&phys, size, *dev->dma_mask,
-+				dev->bus_dma_limit);
-+			WARN_ON_ONCE(1);
-+			return DMA_MAPPING_ERROR;
-+		}
-+		return phys;
-+	}
-+
-+	dev_addr = xen_phys_to_dma(dev, phys);
-+
- 	/*
- 	 * If the address happens to be in the device's DMA window,
- 	 * we can safely return the device addr and not worry about bounce
-@@ -257,13 +272,13 @@ static dma_addr_t xen_swiotlb_map_page(struct device *dev, struct page *page,
+ 	BUG_ON(!valid_dma_direction(dir));
  
- /*
-  * Unmap a single streaming mode DMA translation.  The dma_addr and size must
-- * match what was provided for in a previous xen_swiotlb_map_page call.  All
-+ * match what was provided for in a previous xen_swiotlb_map_phys call.  All
-  * other usages are undefined.
-  *
-  * After this call, reads by the cpu to the buffer are guaranteed to see
-  * whatever the device wrote there.
-  */
--static void xen_swiotlb_unmap_page(struct device *hwdev, dma_addr_t dev_addr,
-+static void xen_swiotlb_unmap_phys(struct device *hwdev, dma_addr_t dev_addr,
- 		size_t size, enum dma_data_direction dir, unsigned long attrs)
- {
- 	phys_addr_t paddr = xen_dma_to_phys(hwdev, dev_addr);
-@@ -325,7 +340,7 @@ xen_swiotlb_sync_single_for_device(struct device *dev, dma_addr_t dma_addr,
+@@ -171,18 +171,13 @@ dma_addr_t dma_map_phys(struct device *dev, phys_addr_t phys, size_t size,
+ 		addr = iommu_dma_map_phys(dev, phys, size, dir, attrs);
+ 	else if (ops->map_phys)
+ 		addr = ops->map_phys(dev, phys, size, dir, attrs);
+-	else if (is_mmio) {
+-		if (!ops->map_resource)
+-			return DMA_MAPPING_ERROR;
+-
+-		addr = ops->map_resource(dev, phys, size, dir, attrs);
+-	} else {
++	else if (!is_mmio && ops->map_page) {
+ 		struct page *page = phys_to_page(phys);
+ 		size_t offset = offset_in_page(phys);
  
- /*
-  * Unmap a set of streaming mode DMA translations.  Again, cpu read rules
-- * concerning calls here are the same as for swiotlb_unmap_page() above.
-+ * concerning calls here are the same as for swiotlb_unmap_phys() above.
-  */
- static void
- xen_swiotlb_unmap_sg(struct device *hwdev, struct scatterlist *sgl, int nelems,
-@@ -337,7 +352,7 @@ xen_swiotlb_unmap_sg(struct device *hwdev, struct scatterlist *sgl, int nelems,
- 	BUG_ON(dir == DMA_NONE);
- 
- 	for_each_sg(sgl, sg, nelems, i)
--		xen_swiotlb_unmap_page(hwdev, sg->dma_address, sg_dma_len(sg),
-+		xen_swiotlb_unmap_phys(hwdev, sg->dma_address, sg_dma_len(sg),
- 				dir, attrs);
- 
- }
-@@ -352,8 +367,8 @@ xen_swiotlb_map_sg(struct device *dev, struct scatterlist *sgl, int nelems,
- 	BUG_ON(dir == DMA_NONE);
- 
- 	for_each_sg(sgl, sg, nelems, i) {
--		sg->dma_address = xen_swiotlb_map_page(dev, sg_page(sg),
--				sg->offset, sg->length, dir, attrs);
-+		sg->dma_address = xen_swiotlb_map_phys(dev, sg_phys(sg),
-+				sg->length, dir, attrs);
- 		if (sg->dma_address == DMA_MAPPING_ERROR)
- 			goto out_unmap;
- 		sg_dma_len(sg) = sg->length;
-@@ -392,25 +407,6 @@ xen_swiotlb_sync_sg_for_device(struct device *dev, struct scatterlist *sgl,
+ 		/*
+ 		 * The dma_ops API contract for ops->map_page() requires
+-		 * kmappable memory, while ops->map_resource() does not.
++		 * kmappable memory.
+ 		 */
+ 		addr = ops->map_page(dev, page, offset, size, dir, attrs);
  	}
- }
- 
--static dma_addr_t xen_swiotlb_direct_map_resource(struct device *dev,
--						  phys_addr_t paddr,
--						  size_t size,
--						  enum dma_data_direction dir,
--						  unsigned long attrs)
--{
--	dma_addr_t dma_addr = paddr;
--
--	if (unlikely(!dma_capable(dev, dma_addr, size, false))) {
--		dev_err_once(dev,
--			     "DMA addr %pad+%zu overflow (mask %llx, bus limit %llx).\n",
--			     &dma_addr, size, *dev->dma_mask, dev->bus_dma_limit);
--		WARN_ON_ONCE(1);
--		return DMA_MAPPING_ERROR;
--	}
--
--	return dma_addr;
--}
--
- /*
-  * Return whether the given device DMA address mask can be supported
-  * properly.  For example, if your device can only drive the low 24-bits
-@@ -437,13 +433,12 @@ const struct dma_map_ops xen_swiotlb_dma_ops = {
- 	.sync_sg_for_device = xen_swiotlb_sync_sg_for_device,
- 	.map_sg = xen_swiotlb_map_sg,
- 	.unmap_sg = xen_swiotlb_unmap_sg,
--	.map_page = xen_swiotlb_map_page,
--	.unmap_page = xen_swiotlb_unmap_page,
-+	.map_phys = xen_swiotlb_map_phys,
-+	.unmap_phys = xen_swiotlb_unmap_phys,
- 	.dma_supported = xen_swiotlb_dma_supported,
- 	.mmap = dma_common_mmap,
- 	.get_sgtable = dma_common_get_sgtable,
- 	.alloc_pages_op = dma_common_alloc_pages,
- 	.free_pages = dma_common_free_pages,
- 	.max_mapping_size = swiotlb_max_mapping_size,
--	.map_resource = xen_swiotlb_direct_map_resource,
- };
+@@ -227,10 +222,7 @@ void dma_unmap_phys(struct device *dev, dma_addr_t addr, size_t size,
+ 		iommu_dma_unmap_phys(dev, addr, size, dir, attrs);
+ 	else if (ops->unmap_phys)
+ 		ops->unmap_phys(dev, addr, size, dir, attrs);
+-	else if (is_mmio) {
+-		if (ops->unmap_resource)
+-			ops->unmap_resource(dev, addr, size, dir, attrs);
+-	} else
++	else
+ 		ops->unmap_page(dev, addr, size, dir, attrs);
+ 	trace_dma_unmap_phys(dev, addr, size, dir, attrs);
+ 	debug_dma_unmap_phys(dev, addr, size, dir);
 
 -- 
 2.51.0
