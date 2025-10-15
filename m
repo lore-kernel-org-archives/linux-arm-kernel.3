@@ -4,89 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B06DACCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 10:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB583CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 10:08:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ic4sNpykiWrxAS8li87QoHA1eP3zqS9hndcMR8zn7Qo=; b=cKfF2aVoMLbXK4akgStyxSxGKn
-	93eBWMuLK9LykfaWe3st35I2E+42A3Mf9eLsWN6hVLvnG63+wVxTSOlkkjJoPPgP3W79HIzZm8uJi
-	BwdN7aaT8nvcblGJjKxGp+kRl0K8W+IRxHt0DkoXml96obeaTKldEff216ZHToPbna6GAs/deFaFn
-	rWmzH8NyZw3xPJimZj7uwD2mfaFc0/fNvVUjTrlCeH3Gk3FvFyJOfe3JJEwxxPimM6pM0Deg2urAf
-	tvqQA2Uy1chgo41xlk6HrBNIpsRJJ1Rf7QicAgP5SxTnEbawpl/59GExyo4e0bhqfP1fo5kBFOMOR
-	eyBsu0oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e2gCNeJndf4x1HJeC8ZCnVzDBbrBAvF9t9ntcRkg+r8=; b=UXFAZotbnuNSLArO2Z9FkqYPfA
+	Uyxw8QDq1HOcekRl6buqHjgzz02bpXq8uM31r7ei+PXA7ZEpAL1JXXqWKF30YcT7LiOowmpQH193i
+	YipgJFvi8sPO7LDD3D88AetjjerfB5XHJWJVi6lPJyNpmLAjLCGh9YCtUl78m7bbpwj2Q3q95qEUI
+	+KB1xEIZ4R+MU0GWGEIjv5qIeZ8zJN6ZO+Hs33O4y9tTjL/78eAuSIipJ9qs6OEpM5+VBy+tqL+ua
+	1FCabJA+xTbAihfELb6GLAq5fZiRQ5s3ECMvi6JrLRjT6MzjNCKVrLNxp0cfeZld+jJLUiBtBytvw
+	Uk2R/bnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8yPd-00000001Duq-1VBW;
-	Wed, 15 Oct 2025 10:07:17 +0000
-Received: from mail-vk1-f173.google.com ([209.85.221.173])
+	id 1v8yQi-00000001E90-33ig;
+	Wed, 15 Oct 2025 10:08:26 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8yPa-00000001DuV-45Ar
+	id 1v8yQc-00000001E5F-3o8O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 10:07:16 +0000
-Received: by mail-vk1-f173.google.com with SMTP id 71dfb90a1353d-54bbe260539so2484829e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 03:07:14 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760522833; x=1761127633;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ic4sNpykiWrxAS8li87QoHA1eP3zqS9hndcMR8zn7Qo=;
-        b=NawIGFD2Ey2aGTMuPN+e7EycKpbgM73dV8CYjljWvwKZbXjOCgmYxQnjMckCmBAFs+
-         S4yuOiRNzECLBhRaJG/fwRCHC8ARCvz3ldorW8likJtTg3PwRNwhUzGSP/pB07zAyZtC
-         gWol1FtNzfOUrHkcq7y4lg+PbVu62A7lM6GHapSR7uYv0P3C+09ACdGd6VO7DW5o3Yym
-         y80AXb0H6ZYfkEWfrmtsJonE/nDI/5h7hahe0EX/cJnu55JEEI4saVcXIfCVWRvoD9OZ
-         JO/4j8YeRBg+kehlH/AAUceiI2pWBOVM2f4rMYjqxtwf12uygoLVQ7Eu1HnqqdlqFaL7
-         j9dw==
-X-Forwarded-Encrypted: i=1; AJvYcCVLEKV+5wss11sK1IZ9XDoqNgMiW0GZIm28JMj5JVhtQ1AiUJs/lyNctcERTNOuCc+heQZdvXtTk7gV3+4ZfNC4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3n9gIKhk1KjBHStck1drpDLnQUDGG57iMMCGrezVYyfTcMGCB
-	+YxJuSixUBi/HFNwN+Htou9blRT83rI/jjG/vp9GcyZd12cJBz4sZY9EwAT3dtQr
-X-Gm-Gg: ASbGncuJyP2QMjbrFMHQ7fS1lFYE+It/2B63MUZku6Wdf7eopO+vwjP+iPPnnQKzdS1
-	/QoS8J/xl26vwRiZW2Od/1Q60/A2+edhYyq9bqfkuNcBkSSGEAyO9rJLF6felyqXPSIjcWIutYD
-	2cYxx12tFmMVyL8doS1QYh9kBKEClTffChDBycMffSSd5C7uaurW2H+9sJz3Y28mnPokaqgdt8s
-	vXGNO0aM3+9R3ya5jb8Nd6bf027ryNn/Xb3y6wE8b8dc/tgAeyHCrnfpkeOeZTfFraD6oi6ibYv
-	zBWUmVCBaPdJNynRdUMhanQO88HujHEzbe/qM1BsM25GZ0KjM7esu5PW+TvqjPyAQ45qUuK7CPP
-	mqPqBPTP04sJyAiSVoN2xm8kL03SrIagK8/5mdKK7/uaK5lR5VVAgPUcxz+Poc64DGqa1hAxQ02
-	FCB1Lzauo6ZjDa+A==
-X-Google-Smtp-Source: AGHT+IFvEV3yj0rJnE+Q+t+9LH0vqwi/5Y0Nm+gKBh7R1URc5xpKr0qpQIoFRvwfqciU+zPtysKzow==
-X-Received: by 2002:a05:6122:16a9:b0:54a:a048:45a4 with SMTP id 71dfb90a1353d-554b8c34b65mr9309024e0c.16.1760522833322;
-        Wed, 15 Oct 2025 03:07:13 -0700 (PDT)
-Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-554f37d2ea8sm3405167e0c.4.2025.10.15.03.07.12
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Oct 2025 03:07:12 -0700 (PDT)
-Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-5d6266f1a33so1056815137.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 03:07:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCURDPQXPc0SKv3MmjLF11KbMB6sX2BWqZjAcBnirrcqJvLMWsp6o6UY1jhTkgyb7R9ysgYAPILf1YDgluTjwDtP@lists.infradead.org
-X-Received: by 2002:a05:6102:c09:b0:5d3:ff03:8f6a with SMTP id
- ada2fe7eead31-5d5e23d364fmr9301330137.30.1760522831841; Wed, 15 Oct 2025
- 03:07:11 -0700 (PDT)
-MIME-Version: 1.0
-References: <87freu5jxf.wl-kuninori.morimoto.gx@renesas.com>
- <CAMuHMdV=60U2n7iK1rCX=MecLw9M+afN8cap5GUL-apF49i-rw@mail.gmail.com>
- <877bzr97no.wl-kuninori.morimoto.gx@renesas.com> <CAMuHMdUbi7iRsXoYCwz_=Jt7ARGbeL-oG597swmsGODO8rLsqQ@mail.gmail.com>
- <b80f879b-1f5b-4289-9cc3-075642d110ed@app.fastmail.com> <CAMuHMdVWwUZg5i9oRr9pLWav=aygEjqurGKBqtTKtaBZObQ+zg@mail.gmail.com>
- <CAMuHMdXXiDM4AMyXxaxGv-JYNpZ0CD75v4tAa5C3RmFy4m0GtQ@mail.gmail.com> <ax626myd63skmkpb6zleyncggclkivpox2mdvnhcccsplh6gcp@scfguuubd2yp>
-In-Reply-To: <ax626myd63skmkpb6zleyncggclkivpox2mdvnhcccsplh6gcp@scfguuubd2yp>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 15 Oct 2025 12:07:00 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVqOR2kPy7V+N5oCFrKZA0R7JHC_+QsjFc5c43F1KFFiw@mail.gmail.com>
-X-Gm-Features: AS18NWC8UOOTh1fwC6Bmp4pngtBq2S14OSatVl25ZQYgJFRgGduMQqsAybLqIhw
-Message-ID: <CAMuHMdVqOR2kPy7V+N5oCFrKZA0R7JHC_+QsjFc5c43F1KFFiw@mail.gmail.com>
-Subject: Re: [issue report] ARM: compile error of frame size
-To: "Liam R. Howlett" <Liam.Howlett@oracle.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
-	Russell King <rmk+kernel@armlinux.org.uk>, Russell King <linux@armlinux.org.uk>, 
-	linux-arm-kernel@lists.infradead.org, Marek Vasut <marek.vasut@mailbox.org>
+	Wed, 15 Oct 2025 10:08:22 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1v8yPu-00057X-NE; Wed, 15 Oct 2025 12:07:34 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1v8yPt-003hk2-23;
+	Wed, 15 Oct 2025 12:07:33 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1v8yPt-000000007Ix-2FwJ;
+	Wed, 15 Oct 2025 12:07:33 +0200
+Message-ID: <6bea63bb14f2be814762fa719d3d7944bad39b6e.camel@pengutronix.de>
+Subject: Re: [PATCH 5/5] scsi: ufs: mediatek: Rework resets
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Alim Akhtar	
+ <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, Bart Van
+ Assche	 <bvanassche@acm.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger	 <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Stanley Chu	
+ <stanley.chu@mediatek.com>, Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod
+ Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Peter
+ Wang	 <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K.
+ Petersen" <martin.petersen@oracle.com>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+	kernel@collabora.com, linux-scsi@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org,
+ linux-phy@lists.infradead.org
+Date: Wed, 15 Oct 2025 12:07:33 +0200
+In-Reply-To: <20251014-mt8196-ufs-v1-5-195dceb83bc8@collabora.com>
+References: <20251014-mt8196-ufs-v1-0-195dceb83bc8@collabora.com>
+	 <20251014-mt8196-ufs-v1-5-195dceb83bc8@collabora.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1 
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_030715_024877_53BA98DE 
-X-CRM114-Status: GOOD (  41.82  )
+X-CRM114-CacheID: sfid-20251015_030819_021307_52FEEA48 
+X-CRM114-Status: GOOD (  26.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,120 +90,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Liam,
+Hi Nicolas,
 
-On Tue, 14 Oct 2025 at 18:53, Liam R. Howlett <Liam.Howlett@oracle.com> wro=
-te:
-> * Geert Uytterhoeven <geert@linux-m68k.org> [251014 10:47]:
-> > On Tue, 29 Jul 2025 at 09:49, Geert Uytterhoeven <geert@linux-m68k.org>=
- wrote:
-> > > On Tue, 29 Jul 2025 at 09:27, Arnd Bergmann <arnd@arndb.de> wrote:
-> > > > On Tue, Jul 29, 2025, at 09:15, Geert Uytterhoeven wrote:
-> > > > > On Tue, 29 Jul 2025 at 02:12, Kuninori Morimoto
-> > > > > <kuninori.morimoto.gx@renesas.com> wrote:
-> > > > >> > >         > grep CONFIG_FRAME_WARN .config
-> > > > >> > >         CONFIG_FRAME_WARN=3D2040
-> > > > >> > >
-> > > > >> > >         > git diff
-> > > > >> > >         diff --git a/arch/arm/boot/compressed/Makefile b/arc=
-h/arm/boot/compressed/Makefile
-> > > > >> > >         index d61369b1eabe..c5173bd82380 100644
-> > > > >> > >         --- a/arch/arm/boot/compressed/Makefile
-> > > > >> > >         +++ b/arch/arm/boot/compressed/Makefile
-> > > > >> > >         @@ -80,7 +80,7 @@ libfdt_objs :=3D fdt_rw.o fdt_ro.o=
- fdt_wip.o fdt.o
-> > > > >> > >
-> > > > >> > >          ifeq ($(CONFIG_ARM_ATAG_DTB_COMPAT),y)
-> > > > >> > >          CFLAGS_REMOVE_atags_to_fdt.o +=3D -Wframe-larger-th=
-an=3D${CONFIG_FRAME_WARN}
-> > > > >> > > -        CFLAGS_atags_to_fdt.o +=3D -Wframe-larger-than=3D12=
-80
-> > > > >> > > +        CFLAGS_atags_to_fdt.o +=3D -Wframe-larger-than=3D20=
-40
-> > > > >> > >          OBJS   +=3D $(libfdt_objs) atags_to_fdt.o
-> > > > >> > >          endif
-> > > > >> > >          ifeq ($(CONFIG_USE_OF),y)
-> > > > >> (snip)
-> > > > >> > Yes it is.  And it is hard to fix, according to the maple_tree=
- maintainer:
-> > > > >>
-> > > > >> Hmm...
-> > > > >> Actually I have tried to same solution (=3D remove or fix the bi=
-g node), but
-> > > > >> noticed there are many such code. My suggested was very simple s=
-olution
-> > > > >> I guess, but I'm not sure detail of ARM limitation, and/or it ca=
-n solve all
-> > > > >> cases, etc...
-> > > > >>
-> > > > >> But other CPU (like ARM64) doesn't have this issue, so we can fo=
-llow same
-> > > > >> way (=3D allow large frame) I guess.
-> > > > >
-> > > > > I do see it in one my arm64 builds, it depends on your kernel con=
-fig:
-> > > > >
-> > > > >     lib/maple_tree.c: In function =E2=80=98mas_wr_spanning_store=
-=E2=80=99:
-> > > > >     lib/maple_tree.c:3812:1: warning: the frame size of 1040 byte=
-s is
-> > > > > larger than 1024 bytes [-Wframe-larger-than=3D] 3812 | }
-> > > > >
-> > > > > I guess Arnd has seen it in his randconfig builds, too...
-> > > > >
-> > > > >> Does ARM has some reason which can't use large frame ? If not, d=
-o you think
-> > > > >> we can allow to use it on ARM ?
-> > > > >
-> > > > > (stacked) Large frames may cause kernel stack overflow.
-> > > >
-> > > > The version below works around the warning for arm, arm64 and x86
-> > > > on both gcc and clang.
-> > >
-> > > Thanks, that indeed works for my arm64 config that triggered it befor=
-e.
-> >
-> > Unfortunately it no longer helps for my rbxt4927 build...
-> >
->
-> I've been working on fixing this for a while and am approaching a point
-> where I'll share my solution.
->
-> The change is non-trivial and is required for expanding node type
-> support.  But with the amount of change this introduces, I do not want
-> to backport the patch set, if possible.
->
-> Considering how close we are here (16 bytes), it may be better to find
-> another solution to avoid the particular troubled builds.
->
-> It is odd that this only shows up in certain cases though.  Is there a
-> particular config option that is needed to cause the size to grow beyond
-> 1024?
+On Di, 2025-10-14 at 17:10 +0200, Nicolas Frattaroli wrote:
+> Rework the reset control getting in the driver's probe function to use
+> the "_optional" function instead of defaulting to NULL on IS_ERR, so
+> that actual real errors (as opposed to missing resets) can be handled as
+> errors in the probe function.
+>=20
+> Also move the MPHY reset into the PHY driver, where it should live, and
+> remove all remnants of it ever having been in this driver.
 
-And of course there is: I still had a few 64-bit .configs that were
-derived from older 32-bit .configs, and thus still had
-CONFIG_FRAME_WARN=3D1024 :-(
-Changing them to match the recommended default fixed the issue:
+Part of that happened in the previous patch.
 
-    config FRAME_WARN
-            int "Warn for stack frames larger than"
-            ...
-            default 1024 if !64BIT
-            default 2048 if 64BIT
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  drivers/ufs/host/ufs-mediatek-sip.h |  8 -----
+>  drivers/ufs/host/ufs-mediatek.c     | 67 +++++++++++++++++++++----------=
+------
+>  drivers/ufs/host/ufs-mediatek.h     |  1 -
+>  3 files changed, 38 insertions(+), 38 deletions(-)
+>=20
+> diff --git a/drivers/ufs/host/ufs-mediatek-sip.h b/drivers/ufs/host/ufs-m=
+ediatek-sip.h
+> index d627dfb4a766..256598cc3b5b 100644
+> --- a/drivers/ufs/host/ufs-mediatek-sip.h
+> +++ b/drivers/ufs/host/ufs-mediatek-sip.h
+> @@ -31,11 +31,6 @@ enum ufs_mtk_vcc_num {
+>  	UFS_VCC_MAX
+>  };
+> =20
+> -enum ufs_mtk_mphy_op {
+> -	UFS_MPHY_BACKUP =3D 0,
+> -	UFS_MPHY_RESTORE
+> -};
+> -
+>  /*
+>   * SMC call wrapper function
+>   */
+> @@ -84,9 +79,6 @@ static inline void _ufs_mtk_smc(struct ufs_mtk_smc_arg =
+s)
+>  #define ufs_mtk_device_pwr_ctrl(on, ufs_version, res) \
+>  	ufs_mtk_smc(UFS_MTK_SIP_DEVICE_PWR_CTRL, &(res), on, ufs_version)
+> =20
+> -#define ufs_mtk_mphy_ctrl(op, res) \
+> -	ufs_mtk_smc(UFS_MTK_SIP_MPHY_CTRL, &(res), op)
+> -
+>  #define ufs_mtk_mtcmos_ctrl(op, res) \
+>  	ufs_mtk_smc(UFS_MTK_SIP_MTCMOS_CTRL, &(res), op)
+> =20
+> diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-media=
+tek.c
+> index 758a393a9de1..ac40d4a3a800 100644
+> --- a/drivers/ufs/host/ufs-mediatek.c
+> +++ b/drivers/ufs/host/ufs-mediatek.c
+> @@ -204,49 +204,60 @@ static void ufs_mtk_crypto_enable(struct ufs_hba *h=
+ba)
+>  static void ufs_mtk_host_reset(struct ufs_hba *hba)
+>  {
+>  	struct ufs_mtk_host *host =3D ufshcd_get_variant(hba);
+> -	struct arm_smccc_res res;
+> +	int ret;
+> =20
+>  	reset_control_assert(host->hci_reset);
+>  	reset_control_assert(host->crypto_reset);
+>  	reset_control_assert(host->unipro_reset);
+> -	reset_control_assert(host->mphy_reset);
+> =20
+> -	usleep_range(100, 110);
+> +	ret =3D phy_reset(host->mphy);
+> +
+> +	/*
+> +	 * Only sleep if MPHY doesn't have a reset implemented (which already
+> +	 * sleeps) or the PHY reset function failed somehow, just to be safe
+> +	 */
+> +	if (ret) {
+> +		usleep_range(100, 110);
+> +		if (ret !=3D -EOPNOTSUPP)
+> +			dev_warn(hba->dev, "PHY reset failed: %pe\n", ERR_PTR(ret));
+> +	}
+> =20
+>  	reset_control_deassert(host->unipro_reset);
+>  	reset_control_deassert(host->crypto_reset);
+>  	reset_control_deassert(host->hci_reset);
+> -	reset_control_deassert(host->mphy_reset);
+> -
+> -	/* restore mphy setting aftre mphy reset */
+> -	if (host->mphy_reset)
+> -		ufs_mtk_mphy_ctrl(UFS_MPHY_RESTORE, res);
+>  }
+> =20
+> -static void ufs_mtk_init_reset_control(struct ufs_hba *hba,
+> -				       struct reset_control **rc,
+> -				       char *str)
+> +static int ufs_mtk_init_reset_control(struct ufs_hba *hba,
+> +				      struct reset_control **rc,
+> +				      const char *str)
+>  {
+> -	*rc =3D devm_reset_control_get(hba->dev, str);
+> +	*rc =3D devm_reset_control_get_optional(hba->dev, str);
 
-Sorry for the noise...
+Please use
 
-Gr{oetje,eeting}s,
+	devm_reset_control_get_optional_exclusive()
 
-                        Geert
+directly, or see below for an alternative suggestion.
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
+>  	if (IS_ERR(*rc)) {
+> -		dev_info(hba->dev, "Failed to get reset control %s: %ld\n",
+> -			 str, PTR_ERR(*rc));
+> -		*rc =3D NULL;
+> +		dev_err(hba->dev, "Failed to get reset control %s: %pe\n", str, *rc);
+> +		return PTR_ERR(*rc);
+>  	}
+> +
+> +	return 0;
+>  }
+> =20
+> -static void ufs_mtk_init_reset(struct ufs_hba *hba)
+> +static int ufs_mtk_init_reset(struct ufs_hba *hba)
+>  {
+>  	struct ufs_mtk_host *host =3D ufshcd_get_variant(hba);
+> +	int ret;
+> +
+> +	ret =3D ufs_mtk_init_reset_control(hba, &host->hci_reset, "hci_rst");
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D ufs_mtk_init_reset_control(hba, &host->unipro_reset, "unipro_rs=
+t");
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret =3D ufs_mtk_init_reset_control(hba, &host->crypto_reset, "crypto_rs=
+t");
+> +	if (ret)
+> +		return ret;
 
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+It looks to me like you could combine these into a
+
+	devm_reset_control_bulk_get_optional_exclusive()
+
+and operate the three resets with reset_control_bulk_assert/deassert().
+
+
+regards
+Philipp
 
