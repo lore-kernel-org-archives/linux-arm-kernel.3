@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1449FCCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:33:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA5DCCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5TVB0JF51SZtYqzdiOCW6IylhkwcFhWMNKiMPXUv89E=; b=Q6305l/ZtyzIGrB46V6rzy4vyy
-	cfu8/38sJgOM7N5SPuaeRr/KzKDxB2XQqmdbiD7e7rv/o/wQi77GxHxNDA0KrxQP01Fj9gMYEVz3n
-	iL18/EgbRVC4BOoNO1sifWFnOJHc82MjH0wXVPbTXNRRoL/TSlpBICfD0RENEWDx/2CD2FFyqR5DG
-	XsUTgytnW9ayjuC/BuNQVBLhoPfXcrhWQNIEVPF2JYuqRwNdDWVgeniWxnkVGcVWcily/qJI/1x+j
-	O+Ac2l5/NhNhXt3Tjl0ElSlrlXLZIdLUUY1pYepm7VW8Hed3sIsphuJXxp+XaIWPr5gSfwR9RcEy2
-	ToqO2w6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EmNyMES08hLl/lZo50ZMyOt0uk2s5aoOzzYmrsTy+X0=; b=zQxRtzGl6bgXBaAOXBiyntWKOx
+	g1Hac1ShC9EaL64PCUNehhArBXrNirhtOKeJt6/fRRgnXc9oJNcAM1VYJhj1BHr0lhkQ2gSNDk73p
+	cM9injdqbkjuXF57wqG1AHXvg1promhmUkeVyjV5NQTmcwICZzMtrN6w2t6fwq9iPzOF6vfY5zTbu
+	LlL+FUoww3/pYtKLIXy/VObL9lyywfJl7JiXVIH5PtXd/nf7fX/u+vaxtDJemoSwCcAzC3LDxvM8j
+	1XHb+C5DU9q4khC9WVzXOMxeyaMl9mpj8y3PffhJTJDDoeXxjXfJEZ6MYkbgOdiFvsQOdlEEXhWjd
+	9AtfYpuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v94Rh-00000002IaL-3oWY;
-	Wed, 15 Oct 2025 16:33:49 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1v94Va-00000002JJY-4BaA;
+	Wed, 15 Oct 2025 16:37:51 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v94Rf-00000002IYW-0McQ
+	id 1v94VY-00000002JIR-3V50
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 16:33:49 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-8572d7b2457so233575385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 09:33:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1760546025; x=1761150825; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5TVB0JF51SZtYqzdiOCW6IylhkwcFhWMNKiMPXUv89E=;
-        b=iYDGAwhkK1qT0eRh1RrGu5VrtcfA9aJ/IwDYm5QaA5O/dY9jrJ+DdXYQd7mLNS8MfK
-         eJyW/98MBT7cVeiUI7khPUjQwr43r0Ik9EqPM6z10Wn/QNxgWDuOscPmgqWPUX4+8fN8
-         vta8g35LgiksLjNdYYXDcR58nNAkpkteRtirRhdmZYVRxT95kZhR94Kj9qLHiwbO9GBf
-         08+QM5WAObwN5KNjEVjiXkAofSIME07akWl30B6rLjL3O47mXnKEAPdgd8WnvNZrceL4
-         zrkHJFAdHqzup51LvAz8kiLgj5BOPFln4pUadOw0AHZyUzENKVR7ud8xSxqJRp3QtGqQ
-         XkdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760546025; x=1761150825;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5TVB0JF51SZtYqzdiOCW6IylhkwcFhWMNKiMPXUv89E=;
-        b=tvIbAcBP/XOAOaLeNobUma5+GBVQls6v1fYecqRoHMlOZ/+rTsXHRVH7EPGLr/53Ij
-         +cz4YlpW0StNoHlDUs5sfX0QXLngzDKXYITHTca863YKg7bTk1/qt2vfFbhqCMF192Zm
-         1ZImoOkZmoMdkHQI3GzMkgLYCPJaj2zRB6y4JjLFh72S47bP7F3rP/teWWOIaVzzjvjM
-         UHcGkrgYno67y8loR1nm4grOTz5CTNJ5QupnIrYg0maJieyLFWEwX8wYquWEnsplrGwB
-         uVvg6PuFmwuqXorhLFI0A0+9IKyA7+AxMevmMb09WQbbX4P6EMamkZxt2Efkf+OGO1VV
-         kxTA==
-X-Forwarded-Encrypted: i=1; AJvYcCWc2bUd6Tt1x9a4rlznhRT22/ZHMOvz+R0Dfi9wW9ZV0VdeM8vGaYcKYi+5UGva6j+rznX2v5EcX0vu2m5Psv5P@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbnS1WRSVvRkLvgjRkJXfyTCJKLEbW01lfUyq5lOppSKnFBTtY
-	fMk7BppKtmS02Olqk3WtxjDOVnOZPku5NItAKo49WH9WiiJNMYdziaSYDt9FNjOpHspOo3+TKLN
-	xlVh+oh2B89S7Ag26nvbjNvnmn2H86jKcL9QpbWTWrg==
-X-Gm-Gg: ASbGncsjDstYrlptHUHtK2ktmqN7KECCqW+LQ9h90fprxce6dMcZ3sb3CGIcTs29MW+
-	b7OfgkKqzOzkvbz1cffyPZPMj1+sQDo3OQ/p2gPd1M918hdktkg6ibc3dxgOs/n4Vr8JokpeHQc
-	SkVWfHXdQs4qkcFvyWG0AD2qBnaPgQQ8oyCuLDvfLzQ58YQEiXUJ/5Z5CXVeS+uFevaoIpdXqmI
-	QjtQ+JJ9eNPrWDrOKukN1o=
-X-Google-Smtp-Source: AGHT+IEWLzmTAJuFvcRpHnhLL3oSxt5DVoapSEF3DOsu9jpTcS07RnjUwC01/MbeqWj+sQer43+GACQfNyCtsVTrhDM=
-X-Received: by 2002:a05:620a:17a5:b0:827:937c:2c2e with SMTP id
- af79cd13be357-88f11537a62mr99337985a.30.1760546025481; Wed, 15 Oct 2025
- 09:33:45 -0700 (PDT)
+	Wed, 15 Oct 2025 16:37:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=EmNyMES08hLl/lZo50ZMyOt0uk2s5aoOzzYmrsTy+X0=; b=3p/AB+nXcfar0/n95hcIl0eb3B
+	sdzT8OKBtQ98To+XFs5Bbtrk+fIwpTM08JgleTkl1NPK6b6w6fZnN6c79KulRIU3jX4kegbCAct57
+	VfTnzyW73zdlmfO1jyJbP3T1oAejXdtoubxWxQpPgm9uFOmnvr7qRN9CgJHbKnhbzwAQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1v94VJ-00B3LR-0W; Wed, 15 Oct 2025 18:37:33 +0200
+Date: Wed, 15 Oct 2025 18:37:32 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Conor Dooley <conor@kernel.org>,
+	Antonio Borneo <antonio.borneo@foss.st.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Fabien Dessenne <fabien.dessenne@foss.st.com>,
+	Valentin Caron <valentin.caron@foss.st.com>
+Subject: Re: [PATCH v3 02/10] dt-bindings: pincfg-node: Add properties
+ 'skew-delay-{in,out}put'
+Message-ID: <c2a0f301-ec5e-42d7-9df9-09a852a199ad@lunn.ch>
+References: <20251014140451.1009969-1-antonio.borneo@foss.st.com>
+ <20251014140451.1009969-3-antonio.borneo@foss.st.com>
+ <20251014-barbecue-crewman-717fe614daa6@spud>
+ <CACRpkdZT20cdH+G6Gjw8PopAkir+gGgMtRR4pkjnXFrmDkdfog@mail.gmail.com>
 MIME-Version: 1.0
-References: <20250903-rk3588-hdmi-cec-v4-0-fa25163c4b08@collabora.com>
- <20250903-rk3588-hdmi-cec-v4-2-fa25163c4b08@collabora.com> <2753758.X9hSmTKtgW@diego>
-In-Reply-To: <2753758.X9hSmTKtgW@diego>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Wed, 15 Oct 2025 17:33:34 +0100
-X-Gm-Features: AS18NWCJkFE5KF2FTR_JnzlOKDLW2oUBf1S94gJ5rVRW2DgSbekEAuXHzCMSdZw
-Message-ID: <CAPj87rPqNw8BH7FCEAQONZWxTY+eUAE9DeWVTyJoTbN7mv=RfA@mail.gmail.com>
-Subject: Re: [PATCH v4 2/6] drm/bridge: dw-hdmi-qp: Fixup timer base setup
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, kernel@collabora.com, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CACRpkdZT20cdH+G6Gjw8PopAkir+gGgMtRR4pkjnXFrmDkdfog@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_093347_226528_FB3FA2CA 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20251015_093748_869711_FE733E20 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,36 +83,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Oct 2025 at 16:44, Heiko St=C3=BCbner <heiko@sntech.de> wrote:
-> Am Mittwoch, 3. September 2025, 20:51:00 Mitteleurop=C3=A4ische Sommerzei=
-t schrieb Cristian Ciocaltea:
-> > Currently the TIMER_BASE_CONFIG0 register gets initialized to a fixed
-> > value as initially found in vendor driver code supporting the RK3588
-> > SoC.  As a matter of fact the value matches the rate of the HDMI TX
-> > reference clock, which is roughly 428.57 MHz.
-> >
-> > However, on RK3576 SoC that rate is slightly lower, i.e. 396.00 MHz, an=
-d
-> > the incorrect register configuration breaks CEC functionality.
-> >
-> > Set the timer base according to the actual reference clock rate that
-> > shall be provided by the platform driver.  Otherwise fallback to the
-> > vendor default.
-> >
-> > While at it, also drop the unnecessary empty lines in
-> > dw_hdmi_qp_init_hw().
-> >
-> > Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
->
-> This _does_ look ok to me, but as that touches the main bridge, could
-> we get a 2nd set of eyes?
+> I don't recall the reason for this way of defining things, but one reason
+> could be that the skew-delay incurred by two inverters is very
+> dependent on the production node of the silicon, and can be
+> nanoseconds or picoseconds, these days mostly picoseconds.
+> Example: Documentation/devicetree/bindings/net/adi,adin.yaml
 
-Sure can.
 
-Reviewed-by: Daniel Stone <daniels@collabora.com>
+I'm missing the big picture here, and i don't see an example of these
+properties being used. However, since you reference an old networking
+example, for RGMII delays....
 
-Cheers,
-Daniel
+adi,rx-internal-delay-ps should be deprecated, we now have the generic
+rx-internal-delay-ps. The point about using -ps is however still
+valid.
+
+However, i would not like to see pinctl DT properties used in place of
+rx-internal-delay-ps. How the Ethernet MAC driver implements
+rx-internal-delay-ps is left open, so calling a pinctl API to set the
+skew is fine by me. And if the real use case has nothing to do with
+networking, then i don't care.
+
+	    Andrew
 
