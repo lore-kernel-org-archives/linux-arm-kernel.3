@@ -4,151 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E126CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 20:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4007ECCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 20:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wm6Yveb7TURE5rbYKACzY/hFToFCMld1KacmyH10qsY=; b=vAxz9Wq11jw0xn80ccLO2jfhM+
-	qIqo9RwT2Dz5Lo9hUQpllTcBS2FSIIJw5m3gyWqz9ZTlot4hn4GJzjJnRfgM6bgc+Nh2baNl5TDXe
-	Cxfp2znCh89N0wtyucmizEh++C60iQGQ2cGIdqybzsKhn5rFHBwzVZb/FwB0icSZvldA4oift0h9o
-	dhji630IsyZBhYqkJb3LmuXysyTDwRYko7Zkf6WfXhdIEOGiETcVes0M6h963ptLSqEdhH4Rpb4ET
-	L4H307eK/T+hckRP2P1YA8//pltxxxA6SYAN2VHq/XOdumYQ6G58KrKeQfoDaHDoOI6y5iKEqtaJC
-	9pAuFm5w==;
+	bh=V4qHh0SKCML66MNRzOdx5c40VzjCCEykcjU71IxLqCM=; b=GjxTmE2KEJMEKj7c5LwBDKp1pg
+	s21FopiPk21HZFKSVFts0ibyBEKIKhWx4wJpXufZghaJxrLrgmcMMqHA37e3qqrb+WS5DWcMYFHsu
+	tPjDAhI+MJu9aiav7hp9URXGbhEOMlFXuZJDWfaFMcLzQecIvStdicZZ8gHYcQpCfhy7USmS027Lt
+	hfyYsKREA4WqeYpdHN2j2JfaBDhGA1KcRS/4y2xaJVJaJttgsYl2p9/3oGPDomEooSuVxH9mTKUjr
+	aByfEMK6Nf8b0DHNhJs1lbbLLCILJpySOJKOJvhoixHrxiSvLQ7uOLFhN77NrOOGJErRZFqIUI2gB
+	/w8Kq8Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98D0-00000002qpu-2jpP;
-	Wed, 15 Oct 2025 20:34:54 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1v98Mp-00000002rur-2dYJ;
+	Wed, 15 Oct 2025 20:45:03 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98Cw-00000002qnt-0VkZ
+	id 1v98Mm-00000002ruA-3bdw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 20:34:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MvSLLJ3hHoK9Qe0O289TBMY8zbcNuDQ5sN89OKe4kazDXo2hnslETantgd4dPUUbG8KO1ssY5JNYUQn/7qBYyu40G8ccpORA+Hfg8wnXTYTJHlDm/DD/mMAz/y09KI6I4GLLkazBAaAURm44X+Zj4nrlA8xoy8Oy+rH1xXH9vNwnHYAEk3Es88vPlMBhkSc2yR7iO62iYGMnmofGB3WYkDDmafEYcWtuIFxJTVf9P57HIJ/E/+1g69XOZPKx3Xf6xS2VLPMkkKRl9ByaRk8OloybRF6Cz+uhF4CXRmXpmZOOvngCfaZSU6UejlTWsEVFVuG5bRxULwJJ/lmrS4/T3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Wm6Yveb7TURE5rbYKACzY/hFToFCMld1KacmyH10qsY=;
- b=Vg+VVYjbAR3etx3QDBAvddZIAaeot+b2IP1Lz0ZM9U5dzB/EEjaPZVlDaUZMnXrB2dM/SUDfhNN9f0sQCwBaSWdyO/uo7LBK6te6TCI51S39qv/fUJPSOMsgaB3rGVq0pCEgDATrU3ZEjYtmMA88ODWyJ0bNlFYeWzAef3HC3HsXGeMqvz5vMtRfH8AKxkMpnEPnUvCRVYHz3rSkib9L0KsSSzT0edWDLYN/g/xb1r8/GA65W7ZftoX3F1R6Iz/60RE35/5g7Q3z6vB3eA7tYGCJhn1w54xChoR8vysF3oUmJthS2wtuYemTnXvJdJ4/BKx+6HciCouyEEUhm7JZCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Wm6Yveb7TURE5rbYKACzY/hFToFCMld1KacmyH10qsY=;
- b=a11Kg6bhwuOAqa2lN9PkfmifXqOYJD5T1kSKPHc832WBTO19w4HHIp50wpCSoZeesuKzvBeqsVSHedvkPQm1kiEZhFw34Go6VYNg8GfENHhqFpJoSz4cpyDkiAp7P/IrDUZs41MAFMvx9TpGP3OZ14a/kRVObV/g7WJY5tlkU5iAv6nJ2330qOjQUf34ZjRjH8Anxprsthl8TzWMn8Y6clhcZHmKT5bG+nCo5sPAW6+q1q6W4w5fwBDHuDLft3qLljHZXOsHajL1dGiweVB/3Jpz+R3IcHG4EuE6Uh4qDdqZnEqISzok0907LoYEUcwJLX6HTQy2+arNxoU0foYgww==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by PAXPR04MB8768.eurprd04.prod.outlook.com (2603:10a6:102:20f::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.11; Wed, 15 Oct
- 2025 20:34:41 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9228.010; Wed, 15 Oct 2025
- 20:34:41 +0000
-Date: Wed, 15 Oct 2025 16:34:34 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 02/11] ARM: dts: imx6: rename touch-thermal0 to
- touch-0-thermal
-Message-ID: <aPAFWuJCfvTcK8hz@lizhi-Precision-Tower-5810>
-References: <20251015-imx6_dts_cleanup-v2-0-41a7281b98c6@nxp.com>
- <20251015-imx6_dts_cleanup-v2-2-41a7281b98c6@nxp.com>
- <aO_9Tw1s7VcHauNh@shell.armlinux.org.uk>
+	Wed, 15 Oct 2025 20:45:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=V4qHh0SKCML66MNRzOdx5c40VzjCCEykcjU71IxLqCM=; b=xZiJDm8GSZk7IPE6k2ZlvGYy09
+	2vvPl1kjspU6dp7WSofd+ttfV/tOvvkYU0hleUAzhJnG4MdCF1qKYKhlnRWxZPpp21fQz70SLMpD6
+	aoTstzQjDMnFX7EdJNElHgwAfEhll5o+xAOQdNgxV7jcAj0HycPphyzyIpxLIcsAFy4I=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1v98MJ-00B4XL-DQ; Wed, 15 Oct 2025 22:44:31 +0200
+Date: Wed, 15 Oct 2025 22:44:31 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Abhishek Chauhan <quic_abchauha@quicinc.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexis Lothore <alexis.lothore@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
+	Furong Xu <0x1207@gmail.com>, Inochi Amaoto <inochiama@gmail.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Kees Cook <kees@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthew Gerlach <matthew.gerlach@altera.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
+	netdev@vger.kernel.org, Oleksij Rempel <o.rempel@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rohan G Thomas <rohan.g.thomas@altera.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Simon Horman <horms@kernel.org>,
+	Song Yoong Siang <yoong.siang.song@intel.com>,
+	Swathi K S <swathi.ks@samsung.com>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>, Vinod Koul <vkoul@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: Re: [PATCH net-next 01/14] net: stmmac: remove broken PCS code
+Message-ID: <26d9cccd-2351-483f-a417-03d484fd25a4@lunn.ch>
+References: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
+ <E1v92ME-0000000AmGD-1VsS@rmk-PC.armlinux.org.uk>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aO_9Tw1s7VcHauNh@shell.armlinux.org.uk>
-X-ClientProxiedBy: PH0PR07CA0014.namprd07.prod.outlook.com
- (2603:10b6:510:5::19) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PAXPR04MB8768:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3312e933-6cd5-431d-cc1c-08de0c2a44db
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|52116014|19092799006|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Uri0J0sBVSlImiQPPCmt7I2i9XeB00467BthiFa1QVwE2MhNqf+JXf28carD?=
- =?us-ascii?Q?KF+fuDHRDVjxOdOF7Tbjo+XSza609Nb4Tl/C/2aUayMluKIxWj8ytH1RTKuJ?=
- =?us-ascii?Q?aYIow5DBjYyj5RS0xM0GQBIyrQspIrRbzj7XNw7zjTmV/yyqUxq4PkZ6eUrm?=
- =?us-ascii?Q?juI5brpFZUzmSFn7Zirb0/B61vnkibH6QSU9DmU9vfAiWHNx/wPxbTPS0t8k?=
- =?us-ascii?Q?vWU93cuxqPJYzwIsL+BHVka3O/Vo8q4Nss8Shz2ocg60bdp6Hd+XdytgAjV0?=
- =?us-ascii?Q?3PKjLZBVNBzUxKs/MAKJyzL/82mUn61DMGipcV6Iyob9Pua9k59xHap72+sx?=
- =?us-ascii?Q?JX4Y776QoGFbFxJn1RTDqcfPUI0RN7U0xCesvYDhKg95SrG2zITwdmVJz3r8?=
- =?us-ascii?Q?dq17khXTWTIdYOtc3l8VFIhdX63qawH0+SuXvN0Zn5ta1r5ayRvuMX6QqQCD?=
- =?us-ascii?Q?aoH6Gwq7dIJekcGiA/WoCRs7jM6llEBBNGaWxif92IYVgzNaf4KjcEQIyC1t?=
- =?us-ascii?Q?FNB6D++1nhNyONufVCFX0jqJLfyaACVPdRucHSO4quaU8Z/utkLbRqNE8hzw?=
- =?us-ascii?Q?sLm/jEL1VUCrbbOXYqbP8Fs72CnzVsm3GDPPtvX40+ylQDm5qhn+oCSBDgSO?=
- =?us-ascii?Q?YwYAbGVwL6UjCQcI1Tk4jKugouc1178kyhYbE0I9NM65FrCDnoqqpwRGhXhN?=
- =?us-ascii?Q?ifgA2C3tNuf5CKzhVX0btO1e2Cz5I1p7ff3ZUtgPzXAW05P13SObYDcvJPf0?=
- =?us-ascii?Q?nWWbCNYhwZCeUeTP+A+F8ICZ91/ZG6eD79ENBD0Afq7wYyB/bPGedV/7bUhV?=
- =?us-ascii?Q?9/3VAVwcXth0p50E5hnQ0OlBKxXVUk8xJSh9rpKN8GR/e98ncbCeR0eXqpHq?=
- =?us-ascii?Q?k3dr7Um4mdqiAOgdDlKblW53UG83acarjo76dgpriFWshUyH6X9cbNPQeT+8?=
- =?us-ascii?Q?Zrb2wgX+MqKA/AqLxnefvHs2wlzYYPfthnbgrtJpWx+yCqkZi5ubt8Jd/39i?=
- =?us-ascii?Q?nxJuZRfPOzTyKY+uZRNm34g/83HuziqKmx5floCYD53iukgMwJ4YBjhPX21R?=
- =?us-ascii?Q?ryeLO7n/Wn/c8VGP6KtRRBXHm0evUf72iXcJB18a9eFzsAGrnbXn29QHfTq2?=
- =?us-ascii?Q?xVsSOJQI0q0ooKff0j5l7zxy9fQFnUExPwGeUXJsmw9zpp0b4CjgoFAjC94I?=
- =?us-ascii?Q?CkIPQQvgxW5bgt0KCaRNl/6at7Yv9ytMdyONSUSG6SnASXZXTHF7PUan2xuY?=
- =?us-ascii?Q?DwMuCjAOLrDUpohvsUkHb5djE2KACtOwHKU45kQb1o+cwEtLukE2Agweb6LC?=
- =?us-ascii?Q?zuitnTzfr7Upz0QUBxukxcmBA9+Cd88Po2RP2Y4Yh2b9iWQVgz0ewfuSfjZx?=
- =?us-ascii?Q?lisYc6a0KMvFni1i3HLGBihODujENym7KrMI3b1lsbh6r+L8JJa9xx0C6YYD?=
- =?us-ascii?Q?sCmuk8vVsKw2Ltf6HXUm+OEWMK22e9vp?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(52116014)(19092799006)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zTx9HGPcnHTy0RcMAsWm4ot+S5pWdi8jKcD02XmIGHIoD25uWHB51tS6q0MF?=
- =?us-ascii?Q?h79KmCkJDvx9zZ+Qwn0YUh8YqwBXHiSLe95UqEycz+nQg59t1MPgg74BaZsd?=
- =?us-ascii?Q?FeNlil4Ta61cSNlEY/nx+0aTvlZ+ND8/AGQmOGaTdJx2a0kubJDhdcBi/aEV?=
- =?us-ascii?Q?3C6gw0afz8269jd/9R62AQ0OCOoOZB7tjNh1glOI8V0OycLd7Is4FKcpmUX5?=
- =?us-ascii?Q?cxziO8oFmF0HgdAtGe6q+zL50Orh0+oxBCx0nvZ5wYYOYGYR7nta38jyvP6h?=
- =?us-ascii?Q?TOumWyEEH+mJw7DwhoH++dvJa2vyWAjVWLujq+sQcPPHTVe8dilVQ1Kj6RMM?=
- =?us-ascii?Q?37MJcpfBTwAJMacYjwVFh6Q7MxFpDculkeLc9sHQ+Pd4Dpp0tTFAd2GrLijW?=
- =?us-ascii?Q?3K+A9LpvUfvECu9QmHjufZn65LqyPv4dXZTJdGr1gWHlpZv2JLAMzkLpy913?=
- =?us-ascii?Q?NdDn3gjK4Zp5LcELxZlZXGXjO/y4cTZ8zIUT+u2wjgL5IOjWUqeK3W44yl/4?=
- =?us-ascii?Q?KwgyRnibnuW9P936LfUeOH6fJ32A+5+nC2vDuB5cCxIGkCf9Fl/EHVi2LeVv?=
- =?us-ascii?Q?pFeejO8qpdH/WNEjwBJb78Zt2C5XUGTJL/iUgkzXXITWC8YobaBCCWfvkjAn?=
- =?us-ascii?Q?JOwZC/O5z+Ql01UnEj/AI86GKIh4f4zBt55Y+s3ZnJdCzN59cEuH2rvrSpTZ?=
- =?us-ascii?Q?Gxsfv9PaYNTQBCEcvcm1+vHt424uUhpo57MpBVi6/xrisIUS+JN9M/LrVELr?=
- =?us-ascii?Q?26VXptRaeIeTPsHNS+TD1jWHOWw/hAeV8ySqtkmVF7QztR2YSowrz2DjAayl?=
- =?us-ascii?Q?p34jAdQcslzLVtlVOtyBY6oA51kBIWAIcUsRpa/BoN1CjXLcJUnFrEljbYt5?=
- =?us-ascii?Q?hW6M6cgNlznwgNedkndrF3DKimUvGGhcgPhIhKPFIaVrtKHOSoM2yUH90JPI?=
- =?us-ascii?Q?hNubSdqbsyHOWnOSTijqpJnDrAHS6jtu1sqfI65o/ZlVAo7Nynx9Kh9BfNix?=
- =?us-ascii?Q?HmO1bEG4ooHl8BxgxfwlXIVvPJu3b+Avo4aG61lSgnwqOjM3/LnCMGVWu7FW?=
- =?us-ascii?Q?IYmC6jxRr/kaJYzAQxoGh+sRMPl3+73MCXuSO1YRPsQx7dQxF10dWqHGOUlj?=
- =?us-ascii?Q?rArRU6ymF3TD/M5iYhLrySq+HlvHSAlxo+C5JkA4ov6p2/E9a0YHzDaKC0iA?=
- =?us-ascii?Q?GZwZSQp2tJGDSlOu80kSUpo07l1dip2i1C9G5s+YX54LExlgrAfiUX4EKWRT?=
- =?us-ascii?Q?9U9YjDVUC1svhlKYtW2QISnV33hfyJ5u+47ovEjD9dzydt6oocPYO8mNHrIi?=
- =?us-ascii?Q?9uo+zIaTrcrH5hoxPO4RGr/iX9JH0Mg1jP6NX73s2mZyt2vzJ4SD7eIQuk4i?=
- =?us-ascii?Q?efs3NeKQnK6Or+lBfRwhdb4PjDS37ucVT1BV9S1s0gd+a/9EPgl0YOw7RYpE?=
- =?us-ascii?Q?uuvNTrunO9MkhHLfoCHPMjlOA1ZLOx8qizncuZZrZ6mMnl0QZYSOYs3QFOxY?=
- =?us-ascii?Q?FcomBRB76GBe588dzCGaReb9X+xlySg2BcqCZtsG+3mXqpZZ/QBrgYvOWM9O?=
- =?us-ascii?Q?fGfl+z8XcJXppdhwrUI=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3312e933-6cd5-431d-cc1c-08de0c2a44db
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2025 20:34:41.7844
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tplKDGgqH7rvbQEK8ssH4ockHEpfnTGqb7ZDNojUQZ4pFVEjhqBBZCbXi5Asg9ivog5m8TvvK5BIgRH36JXJAA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8768
+In-Reply-To: <E1v92ME-0000000AmGD-1VsS@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_133450_568737_81538DA5 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20251015_134501_048090_EA72432E 
+X-CRM114-Status: GOOD (  37.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,33 +104,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 09:00:15PM +0100, Russell King (Oracle) wrote:
-> On Wed, Oct 15, 2025 at 12:44:27PM -0400, Frank Li wrote:
-> > -		touch-thermal0 {
-> > +		touch0-thermal {
-> ...
-> > -		touch-thermal1 {
-> > +		touch1-thermal {
-> ...
-> > -		touch-thermal0 {
-> > +		touch-0-thermal {
-> ...
-> > -		touch-thermal1 {
-> > +		touch-1-thermal {
-> ...
-> > -		touch-thermal0 {
-> > +		touch-0-thermal {
-> ...
-> > -		touch-thermal1 {
-> > +		touch-1-thermal {
->
-> Is it touch-N-thermal or touchN-thermal?
+On Wed, Oct 15, 2025 at 03:20:02PM +0100, Russell King (Oracle) wrote:
+> Changing the netif_carrier_*() state behind phylink's back has always
+> been prohibited because it messes up with phylinks state tracking, and
+> means that phylink no longer guarantees to call the mac_link_down()
+> and mac_link_up() methods at the appropriate times.  This was later
+> documented in the sfp-phylink network driver conversion guide.
+> 
+> stmmac was converted to phylink in 2019, but nothing was done with the
+> "PCS" code. Since then, apart from the updates as part of phylink
+> development, nothing has happened with stmmac to improve its use of
+> phylink, or even to address this point.
+> 
+> A couple of years ago, a has_integrated_pcs boolean was added by Bart,
+> which later became the STMMAC_FLAG_HAS_INTEGRATED_PCS flag, to avoid
+> manipulating the netif_carrier_*() state. This flag is mis-named,
+> because whenever the stmmac is synthesized for its native SGMII, TBI
+> or RTBI interfaces, it has an "integrated PCS". This boolean/flag
+> actually means "ignore the status from the integrated PCS".
+> 
+> Discussing with Bart, the reasons for this are lost to the winds of
+> time (which is why we should always document the reasons in the commit
+> message.)
+> 
+> RGMII also has in-band status, and the dwmac cores and stmmac code
+> supports this but with one bug that saves the day.
+> 
+> When dwmac cores are synthesised for RGMII only, they do not contain
+> an integrated PCS, and so priv->dma_cap.pcs is clear, which prevents
+> (incorrectly) the "RGMII PCS" being used, meaning we don't read the
+> in-band status. However, a core synthesised for RGMII and also SGMII,
+> TBI or RTBI will have this capability bit set, thus making these
+> code paths reachable.
+> 
+> The Jetson Xavier NX uses RGMII mode to talk to its PHY, and removing
+> the incorrect check for priv->dma_cap.pcs reveals the theortical issue
+> with netif_carrier_*() manipulation is real:
+> 
+> dwc-eth-dwmac 2490000.ethernet eth0: Register MEM_TYPE_PAGE_POOL RxQ-0
+> dwc-eth-dwmac 2490000.ethernet eth0: PHY [stmmac-0:00] driver [RTL8211F Gigabit Ethernet] (irq=141)
+> dwc-eth-dwmac 2490000.ethernet eth0: No Safety Features support found
+> dwc-eth-dwmac 2490000.ethernet eth0: IEEE 1588-2008 Advanced Timestamp supported
+> dwc-eth-dwmac 2490000.ethernet eth0: registered PTP clock
+> dwc-eth-dwmac 2490000.ethernet eth0: configuring for phy/rgmii-id link mode
+> 8021q: adding VLAN 0 to HW filter on device eth0
+> dwc-eth-dwmac 2490000.ethernet eth0: Adding VLAN ID 0 is not supported
+> Link is Up - 1000/Full
+> Link is Down
+> Link is Up - 1000/Full
+> 
+> This looks good until one realises that the phylink "Link" status
+> messages are missing, even when the RJ45 cable is reconnected. Nothing
+> one can do results in the interface working. The interrupt handler
+> (which prints those "Link is" messages) always wins over phylink's
+> resolve worker, meaning phylink never calls the mac_link_up() nor
+> mac_link_down() methods.
+> 
+> eth0 also sees no traffic received, and is unable to obtain a DHCP
+> address:
+> 
+> 3: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group defa
+> ult qlen 1000
+>     link/ether e6:d3:6a:e6:92:de brd ff:ff:ff:ff:ff:ff
+>     RX: bytes  packets  errors  dropped overrun mcast
+>     0          0        0       0       0       0
+>     TX: bytes  packets  errors  dropped carrier collsns
+>     27686      149      0       0       0       0
+> 
+> With the STMMAC_FLAG_HAS_INTEGRATED_PCS flag set, which disables the
+> netif_carrier_*() manipulation then stmmac works normally:
+> 
+> dwc-eth-dwmac 2490000.ethernet eth0: Register MEM_TYPE_PAGE_POOL RxQ-0
+> dwc-eth-dwmac 2490000.ethernet eth0: PHY [stmmac-0:00] driver [RTL8211F Gigabit Ethernet] (irq=141)
+> dwc-eth-dwmac 2490000.ethernet eth0: No Safety Features support found
+> dwc-eth-dwmac 2490000.ethernet eth0: IEEE 1588-2008 Advanced Timestamp supported
+> dwc-eth-dwmac 2490000.ethernet eth0: registered PTP clock
+> dwc-eth-dwmac 2490000.ethernet eth0: configuring for phy/rgmii-id link mode
+> 8021q: adding VLAN 0 to HW filter on device eth0
+> dwc-eth-dwmac 2490000.ethernet eth0: Adding VLAN ID 0 is not supported
+> Link is Up - 1000/Full
+> dwc-eth-dwmac 2490000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+> 
+> and packets can be transferred.
+> 
+> This clearly shows that when priv->hw->pcs is set, but
+> STMMAC_FLAG_HAS_INTEGRATED_PCS is clear, the driver reliably fails.
+> 
+> Discovering whether a platform falls into this is impossible as
+> parsing all the dtsi and dts files to find out which use the stmmac
+> driver, whether any of them use RGMII or SGMII and also depends
+> whether an external interface is being used. The kernel likely
+> doesn't contain all dts files either.
+> 
+> The only driver that sets this flag uses the qcom,sa8775p-ethqos
+> compatible, and uses SGMII or 2500BASE-X.
+> 
+> but these are saved from this problem by the incorrect check for
+> priv->dma_cap.pcs.
+> 
+> So, we have to assume that for every other platform that uses SGMII
+> with stmmac is using an external PCS.
+> 
+> Moreover, ethtool output can be incorrect. With the full-duplex link
+> negotiated, ethtool reports:
+> 
+>         Speed: 1000Mb/s
+>         Duplex: Half
+> 
+> because with dwmac4, the full-duplex bit is in bit 16 of the status,
+> priv->xstats.pcs_duplex becomes BIT(16) for full duplex, but the
+> ethtool ksettings duplex member is u8 - so becomes zero. Moreover,
+> the supported, advertised and link partner modes are all "not
+> reported".
+> 
+> Finally, ksettings_set() won't be able to set the advertisement on
+> a PHY if this PCS code is activated, which is incorrect when SGMII
+> is used with a PHY.
+> 
+> Thus, remove:
+> 1. the incorrect netif_carrier_*() manipulation.
+> 2. the broken ethtool ksettings code.
+> 
+> Given that all uses of STMMAC_FLAG_HAS_INTEGRATED_PCS are now gone,
+> remove the flag from stmmac.h and dwmac-qcom-ethqos.c.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-What's difference? I suppose both naming should be okay.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Frank
->
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+    Andrew
 
