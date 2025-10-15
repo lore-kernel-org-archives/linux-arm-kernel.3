@@ -4,95 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA94CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 17:14:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E934CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 17:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zTmCve7ow8KUe86m2S+D+TMV8DrrT745aVc8Mr0EBG4=; b=kUPpd480algTDeqcSuHEktiyhU
-	WHUumUhINbvveOHhasRcYtiM9lwrcuDo6ANReMPgqolVa2wV/qRFmJWpy07eUVTgqLM1exCUa6RL0
-	oYdWlddzWLap8b3y3uuWKabETN2ethy/9yTxc7imOViaq42wB8OX6qhamrjPuC9i+V9PYAxOGmyQP
-	Q7h3hOLeBarU2ks4tzhkbsHT1LdXZnxk6VcP1gqYVd4nBI9ruWSP2J3TKEkF7Ll49O/3duYyVG7Sv
-	l1P8FYKrP7B3ldWwQbEMjDlDg6YhuIL6ZAggdjcyI6P9lR7GjpP1pGmZvy4AUN8C9OnyFQ3P9veFW
-	nJtTcttg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N6aNZCIcI2zN3R1/BCJoGwM/7sTPHIJJPl1PJ4HpJBE=; b=vv2Qn4lkOpqESRGN3HsGBnq/V3
+	PshJLnuvWrd9DgOQUCBgmFSK+38ynS8W3m3hpkvA06ryF6daFXqwm9zKJFeDt+xXrZCsvvs7E+ep1
+	O+TUFhcSTOhLYUwnDDZN4UvV4ZrTjLZJqPkLuSmBylIJNQQb98t9OLVWUbUHFHcYqjfNqJXDfsUWr
+	lEg5Bqj4NV93/EVYl99+k2qRWoe5aCD7f2iBOvkHG6+YeQAPsFAAj6m1nqP5TUEUfZO4NP78l9cc1
+	C+6iEpeI7BQL34UrW5WMsCMfUJ4hWjeFRNj1/vK6nXXgqIzTNNx4uyV9D6XeT33NkM+fdMVmqVk5g
+	lZUiAEww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v954U-00000002PBy-2Zgv;
-	Wed, 15 Oct 2025 17:13:55 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1v95BO-00000002Ptu-2k19;
+	Wed, 15 Oct 2025 17:21:02 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v954R-00000002PBC-3woR
+	id 1v95BL-00000002Pt6-2Iz6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 17:13:53 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-b553412a19bso4363747a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 10:13:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760548430; x=1761153230; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zTmCve7ow8KUe86m2S+D+TMV8DrrT745aVc8Mr0EBG4=;
-        b=Wos3OGAmLYn3And97f8Km07YHGO2DdTsuuQpWSlu/zJhrXDd1cDnbbKCHNOdHEGnpS
-         DO60JS4bIMMqac4MEItimetg+K6je+Hi88txN0XMcPf2V+uHJEH5Xd5u8RbAR/oVaP/M
-         kJ7T2vROGra/5/rssStx0nCozYEFyqOk/4kXzcKoxW8Jt5OFPOPWHph4uAefiOeMIdHj
-         KpmlyIWHT6PTSqXEo5ljunRPzzXywUt8ohdZhIJX5LGNpI9m08BZb4o2w+7/ymJmws/N
-         q41jlnr/dMoPJBBjhe2ySLp33uZl+bhjHUN7qy9rfQ6cUGmPTGH8cHxcQr5hDo4vZyZm
-         bZrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760548430; x=1761153230;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zTmCve7ow8KUe86m2S+D+TMV8DrrT745aVc8Mr0EBG4=;
-        b=qW9aCzwNOY4vDOd6/yMFY/O4ar+g/b9nnSsDUnKDDc5j1hJ+RUQmAHaRX0+81beWn0
-         PvwGHqBaMktMovDEeT/y/IYWbX8aIjx374QjlacA96FiklQ6yvDARv/yTHLh/iYCVAko
-         YQSTVOWSR7KQbhhfphCdoEL4s0hSXLXzh3hcymbQVq7OfMFi+hzYqFcbLc/e8g6AEgzh
-         YU8R6xRL2NiLoqf31lCnsJgmsroAVFsqFoiSRPdx6KAvPko07bv3a0ODZm1Zix0o45wO
-         MU3TDw3mE1Zy81xZ/k9xDQ3+r9vZKfhdmK0i7dDOCTDGSiHolonyUr8i6D0L/EHSK4M+
-         +8oQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV+YGD3HiYgrj6hyno286VBaDISSse/9BV8EFl1msKlBNbrxemRZSO8dQUwDJeSCLCD3SXttg3+uajoeYcPQm+O@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZFfUGnrZ06p5FS0GlMB7pYybSWDBxHESm2X/c19ZCYuMlL16F
-	Yx/TFrWyMxX4hlx1eois1W2l1vgSIrCg8FTfKugcmolJGawnMDUN+L2TuPL5TfotejyDy6FXtSX
-	j37WHjJiAZB1xmjRroEVHNoej71sxBPXCG2REaUOy
-X-Gm-Gg: ASbGncuxDnnZ5MOpEmC/7h/Gz9sfpFQ262g1VuUACLPAFYKM/mitWsCR8Ey2mfpRbrW
-	M/U5aQN2rkavROfnza/lAQZBR8i3wHA5TibeYQwC0uVXcIQ97pZgUwzFxlL6K8aurveTAzu4Fkk
-	UzscC3Z3DKxauCZPpfBcrpo0ZnPhW2zWTzWSd7C3gnmC5qTmTRczyNjrrXhJ6nlmBZD6LSAxUvp
-	4CIROKds9W15gqf0avNUcjOkeg+z/iMIPfOtHNYzPa/P3jjB0vSUujR5XlcDR4q4X0oPVmxov7j
-X-Google-Smtp-Source: AGHT+IG7xm/DEDbS/nNDrpe7ReteweNLIKFfyokAzWV7zMp350kRJ3eICS85Rhzn8PDxA9SglM5C/lh1HX9E/pJg4Bg=
-X-Received: by 2002:a17:902:f650:b0:276:305b:14a7 with SMTP id
- d9443c01a7336-290273ef0ebmr363338475ad.33.1760548429863; Wed, 15 Oct 2025
- 10:13:49 -0700 (PDT)
+	Wed, 15 Oct 2025 17:21:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=N6aNZCIcI2zN3R1/BCJoGwM/7sTPHIJJPl1PJ4HpJBE=; b=ESET1QWNsqJm/GD1mJtk4L3OD+
+	OXmTrnMQv+PAWuxEh9Ta/Wij7meIB2/sHARKmpQq3g9Kyj5C29OuLWc9niG5RrzQDnlsru6vMVECW
+	X2wNF+Ds/0F4bn1vTpVjApZu7e8vEpesWB3e2subPPAFivrKyA2mA7KNcUPleqCl9B7sS7IFRu2C/
+	kNaGX59mFWpcqwzYs1XmRjzfucorGGk61pSh9tcapwwY4pmbHvF7US7TwWRrG5wfU35PWTO/thLNf
+	iI0AggyCB4fbWGSJAb5HxTvQNz/O0p0GM2+nqTZheEr2O+LzU6YzL7ogAuKmt8S1ki5v5Fd+of3Io
+	K5dLpsEg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47568)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v95B7-000000005Fe-34CR;
+	Wed, 15 Oct 2025 18:20:45 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v95B2-000000002RJ-3ZAm;
+	Wed, 15 Oct 2025 18:20:40 +0100
+Date: Wed, 15 Oct 2025 18:20:40 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 1/3] net: stmmac: Move subsecond increment
+ configuration in dedicated helper
+Message-ID: <aO_X6Hv2R_mgpOXR@shell.armlinux.org.uk>
+References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
+ <20251015102725.1297985-2-maxime.chevallier@bootlin.com>
+ <aO-4hnUINpQ0JORE@shell.armlinux.org.uk>
+ <27800f8c-eb0d-41c2-9e45-b45cf1767c23@bootlin.com>
 MIME-Version: 1.0
-References: <20251010201607.1190967-1-royluo@google.com> <20251010201607.1190967-2-royluo@google.com>
- <066a9598-ad30-4327-be68-87299bba6fda@kernel.org> <CA+zupgwc7b51pNRLWRy2CX=n4=FTm=AP7J0dRP2RLjyK5LxGtw@mail.gmail.com>
- <b7b3de64-c656-4a84-8ba4-2d5c7eda9783@kernel.org> <CA+zupgzo9zRO2GHR2Np0Tm4M5_h8y0GF2JGGqE_S0BxSR_ZbqQ@mail.gmail.com>
- <20251015-backlash-overtime-4c636f12b165@spud>
-In-Reply-To: <20251015-backlash-overtime-4c636f12b165@spud>
-From: Roy Luo <royluo@google.com>
-Date: Wed, 15 Oct 2025 10:13:13 -0700
-X-Gm-Features: AS18NWCEm2YS-Sip7tv4iMJuDS6bNEhHmOhmHYieVj8y_mcbM2tH_CjtqCUTPM4
-Message-ID: <CA+zupgyKsnp5D9kW-AeoAsweODXx4BXLr7fVnB+J9tzYRbM_fg@mail.gmail.com>
-Subject: Re: [PATCH v3 1/4] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
-To: Conor Dooley <conor@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Joy Chakraborty <joychakr@google.com>, 
-	Naveen Kumar <mnkumar@google.com>, Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <27800f8c-eb0d-41c2-9e45-b45cf1767c23@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_101351_978457_5FD34BEE 
-X-CRM114-Status: GOOD (  56.77  )
+X-CRM114-CacheID: sfid-20251015_102059_901070_380DC70B 
+X-CRM114-Status: GOOD (  38.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,236 +92,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 1:59=E2=80=AFAM Conor Dooley <conor@kernel.org> wro=
-te:
->
-> On Tue, Oct 14, 2025 at 05:50:17PM -0700, Roy Luo wrote:
-> > On Tue, Oct 14, 2025 at 1:22=E2=80=AFAM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> > >
-> > > On 14/10/2025 03:40, Roy Luo wrote:
-> > > > On Fri, Oct 10, 2025 at 5:09=E2=80=AFPM Krzysztof Kozlowski <krzk@k=
-ernel.org> wrote:
-> > > >>
-> > > >> On 10/10/2025 22:16, Roy Luo wrote:
-> > > >>> Document the device tree bindings for the DWC3 USB controller fou=
-nd in
-> > > >>> Google Tensor SoCs, starting with the G5 generation.
-> > > >>>
-> > > >>> The Tensor G5 silicon represents a complete architectural departu=
-re from
-> > > >>> previous generations (like gs101), including entirely new clock/r=
-eset
-> > > >>> schemes, top-level wrapper and register interface. Consequently,
-> > > >>> existing Samsung/Exynos DWC3 USB bindings are incompatible, neces=
-sitating
-> > > >>> this new device tree binding.
-> > > >>>
-> > > >>> The USB controller on Tensor G5 is based on Synopsys DWC3 IP and =
-features
-> > > >>> Dual-Role Device single port with hibernation support.
-> > > >>
-> > > >> You still mix, completely unnecessarily, subsystems. For Greg this=
- is
-> > > >> actually even undesired, but regardless don't do this for any case=
-s
-> > > >> because it just makes everything slower or more difficult to apply=
-.
-> > > >>
-> > > >> Really, think how maintainers should deal with your patches.
-> > > >>
-> > > >
-> > > > Understood, I will separate the patches into two distinct series: o=
-ne for
-> > > > the controller and one for the PHY.
-> > > > Appreciate the feedback and the explanation.
-> > > >
-> > > >>>
-> > > >>> Signed-off-by: Roy Luo <royluo@google.com>
-> > > >>> ---
-> > > >>>  .../bindings/usb/google,gs5-dwc3.yaml         | 141 ++++++++++++=
-++++++
-> > > >>>  1 file changed, 141 insertions(+)
-> > > >>>  create mode 100644 Documentation/devicetree/bindings/usb/google,=
-gs5-dwc3.yaml
-> > > >>>
-> > > >>> diff --git a/Documentation/devicetree/bindings/usb/google,gs5-dwc=
-3.yaml b/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
-> > > >>> new file mode 100644
-> > > >>> index 000000000000..6fadea7f41e8
-> > > >>> --- /dev/null
-> > > >>> +++ b/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
-> > > >>> @@ -0,0 +1,141 @@
-> > > >>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > > >>> +# Copyright (c) 2025, Google LLC
-> > > >>> +%YAML 1.2
-> > > >>> +---
-> > > >>> +$id: http://devicetree.org/schemas/usb/google,gs5-dwc3.yaml#
-> > > >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > >>> +
-> > > >>> +title: Google Tensor Series (G5+) DWC3 USB SoC Controller
-> > > >>> +
-> > > >>> +maintainers:
-> > > >>> +  - Roy Luo <royluo@google.com>
-> > > >>> +
-> > > >>> +description:
-> > > >>> +  Describes the DWC3 USB controller block implemented on Google =
-Tensor SoCs,
-> > > >>> +  starting with the G5 generation. Based on Synopsys DWC3 IP, th=
-e controller
-> > > >>> +  features Dual-Role Device single port with hibernation add-on.
-> > > >>> +
-> > > >>> +properties:
-> > > >>> +  compatible:
-> > > >>> +    const: google,gs5-dwc3
-> > > >>> +
-> > > >>> +  reg:
-> > > >>> +    items:
-> > > >>> +      - description: Core DWC3 IP registers.
-> > > >>> +      - description: USB host controller configuration registers=
-.
-> > > >>> +      - description: USB custom interrrupts control registers.
-> > > >>> +
-> > > >>> +  reg-names:
-> > > >>> +    items:
-> > > >>> +      - const: dwc3_core
-> > > >>> +      - const: host_cfg
-> > > >>> +      - const: usbint_cfg
-> > > >>> +
-> > > >>> +  interrupts:
-> > > >>> +    items:
-> > > >>> +      - description: Core DWC3 interrupt.
-> > > >>> +      - description: High speed power management event for remot=
-e wakeup from hibernation.
-> > > >>> +      - description: Super speed power management event for remo=
-te wakeup from hibernation.
-> > > >>
-> > > >> Wrap at 80 (see coding style) or just shorten these.
-> > > >
-> > > > Ack, will fix it in the next patch.
-> > > >
-> > > >>
-> > > >>> +
-> > > >>> +  interrupt-names:
-> > > >>> +    items:
-> > > >>> +      - const: dwc_usb3
-> > > >>
-> > > >> So just "core"?
-> > > >
-> > > > I'd prefer to stick to "dwc_usb3" as that's
-> > > > 1. more expressive by referring to the underlying IP name,
-> > >
-> > >
-> > > But that's completely redundant name.
-> > >
-> > > > 2. consistent with established dwc3 bindings such as
-> > > >     Documentation/devicetree/bindings/usb/snps,dwc3.yaml,
-> > >
-> > > If you use only one interrupt. You don't use one interrupt here.
-> >
-> > After looking into it further, I found that the interrupt name "dwc_usb=
-3"
-> > must be used here to adhere to the interrupt naming defined in
-> > "snps,dwc3.yaml".
->
-> Did you just chose to not read what Krzysztof said here? It must be used
-> only when that's the sole interrupt, which he stated is not the case for
-> your platform.
->
-> > This requirement stems from the device's corresponding glue driver
-> > utilizing a so-called "flattened" model (see [1] for context). This mod=
-el
-> > causes the glue driver to probe an underlying "snps,dwc3" device.
-> > Consequently, the core DWC3 interrupt defined here is consumed by
-> > the driver handling the "snps,dwc3" device, making it mandatory to
-> > follow the interrupt naming established in "snps,dwc3.yaml".
->
-> I look at the binding and noticed that interrupt-names isn't even a
-> required property by snps,dwc3.yaml, and this comment about driver
-> behaviour likely isn't accurate given that the code in for host mode
-> (and the others are identical) is written so that it will grab the first
-> interrupt if the specific names it looks for are absent:
-> | static int dwc3_host_get_irq(struct dwc3 *dwc)
-> | {
-> |       struct platform_device  *dwc3_pdev =3D to_platform_device(dwc->de=
-v);
-> |       int irq;
-> |
-> |       irq =3D platform_get_irq_byname_optional(dwc3_pdev, "host");
-> |       if (irq > 0) {
-> |               dwc3_host_fill_xhci_irq_res(dwc, irq, "host");
-> |               goto out;
-> |       }
-> |
-> |       if (irq =3D=3D -EPROBE_DEFER)
-> |               goto out;
-> |
-> |       irq =3D platform_get_irq_byname_optional(dwc3_pdev, "dwc_usb3");
-> |       if (irq > 0) {
-> |               dwc3_host_fill_xhci_irq_res(dwc, irq, "dwc_usb3");
-> |               goto out;
-> |       }
-> |
-> |       if (irq =3D=3D -EPROBE_DEFER)
-> |               goto out;
-> |
-> |       irq =3D platform_get_irq(dwc3_pdev, 0);
-> |       if (irq > 0)
-> |               dwc3_host_fill_xhci_irq_res(dwc, irq, NULL);
-> |
-> | out:
-> |       return irq;
-> | }
->
-> Since it grabs the first interrupt, as a fallback, in order to support
-> not having the interrupt-names property, the name of the first interrupt
-> ultimately doesn't matter at all to this driver (and likely any other
-> driver written in compliance with the bindings for the dwc3 core).
->
-> I'm not here to argue about what the name for the single interrupt
-> should be (keeping consistency with other devices might actually be
-> good), but ignoring what a maintainer says and the seemingly providing
-> an incorrect analysis is annoying. Did you perform the analysis on this
-> yourself, or did it perhaps come from Gemini?
->
-> Thanks,
-> Conor.
+On Wed, Oct 15, 2025 at 06:20:03PM +0200, Maxime Chevallier wrote:
+> Hi Russell,
+> 
+> On 15/10/2025 17:06, Russell King (Oracle) wrote:
+> > On Wed, Oct 15, 2025 at 12:27:21PM +0200, Maxime Chevallier wrote:
+> >> +static void stmmac_update_subsecond_increment(struct stmmac_priv *priv)
+> >> +{
+> >> +	bool xmac = priv->plat->has_gmac4 || priv->plat->has_xgmac;
+> > 
+> > Just to say that I have patches that get rid of these has_xxx flags for
+> > the cores, and these changes (and the additional platform glue patches
+> > that have been posted) will conflict with them.
+> 
+> Fair, I was in your position not so long ago :)
+> 
+> For this particular series, it should be straightforward to fix the
+> conflict, but for the pending new glue divers we'll have to
+> find the sweet spot for these changes.
+> 
+> Maybe send it as an RFC so that people can see what to expect ?
 
-Hi Conor,
+My experience of sending RFCs is the engagement is sadly low to non-
+existent, leading to the question of whether sending RFCs has any
+use at all. I'm pretty fed up with the whole mainline kernel process,
+trying to get engagement from people, that I question why I bother
+most of the time.
 
-My apologies for the incorrect analysis. I misinterpreted the code,
-which was a big mistake. I can assure you that I do value your
-feedback and take every comment seriously.
-Thanks for pointing out the error and raising your concern.
-This won't happen again.
+> > Given the rate of change in stmmac, at some point we're going to have
+> > to work out some way of stopping stmmac development to get such an
+> > invasive cleanup change merged
+> 
+> Agreed.
+> 
+>  - but with my variability and pressures
+> > on the time I can spend even submitting patches, I've no idea how that
+> > will work... I was going to send them right at the start of this
+> > cycle, but various appointments on Monday and Tuesday this week plus
+> > work pressures prevented that happening.
+> 
+> To give your more visibility, that's the only work I plan to do on
+> stmmac for that cycle, the rest is going to be phy_port,
+> and probably some netdevsim-phy.
 
-Thanks,
-Roy Luo
+I'd prefer that my five patch series I've just sent out is merged
+(the patches I'm talking about w.r.t. has_xxx follow immediately
+after these in my queue.) However, I don't think there's any
+conflicts between the five I've sent out and these changes looking
+at their overall diffs. That said, pushing out loads of patches in
+one day isn't helpful to the already overworked reviewers.
 
->
-> > Essentially, the interrupts defined here are a mix of vendor specific
-> > implementation (like "hs_pme", "ss_pme") and the DWC3 core in
-> > "snps,dwc3.yaml" ("dwc_usb3").
-> >
-> > I don't know if there's a better way to express this implicit dependenc=
-y
-> > of the core DWC3 interrupt except for documenting it in the binding
-> > description. Any advice would be welcome.
-> >
-> > [1] https://lore.kernel.org/all/20250414-dwc3-refactor-v7-0-f015b358722=
-d@oss.qualcomm.com/
-> >
-> > Thanks,
-> > Roy Luo
-> >
-> > >
-> > > >     Documentation/devicetree/bindings/usb/qcom,snps-dwc3.yaml,
-> > > > unless you have a strong preference for the alternative naming.
-> > >
-> > > Such namings are discouraged, because they tell absolutely nothing.
-> > > Also, schematics or datasheets usually do not use them, either.
-> > >
-> > >
-> > > Best regards,
-> > > Krzysztof
+> Do you plan to send the next round of PCS stuff next, or the cleanups
+> for the has_xxx flags you were mentioning ?
+
+It depends whether there's any conflicting changes. I have such a
+backlog that I'm trying to send out as many non-conflicting netdev
+related topics as I can to get the maximum merged when I have the
+opportunity, even if the topics end up touching the same files.
+I just totalled up the backlog - it's around 120 stmmac related
+patches (including adding the phylink core WoL support), plus about
+20 for marvell PTP. Eek! :/
+
+When one has so many patches, "what to send out next" becomes a major
+decision, and really depends on previous patch set progress.
+
+As you explicitly ask about the PCS stuff and cleanups, I've sent
+the first batch (which is the bulk) of PCS stuff today, and non-
+overlapping cleanup changes.  If the cleanup changes go in, then
+the next tranch of cleanups will have the has_xxx change in.
+
+If the PCS changes go in, then I'll send out the next two patches
+which move the PCS interrupt control over to phylink. After that
+comes the potentially regression inducing change - making stmmac's
+PCS follow what phylink requests of it. I'm expecting that to cause
+trouble, but I have no confidence that it'll get enough testing to
+uncover issues before being merged. This change really needs testing
+on those platforms that use the DWMAC integrated PCS (not xpcs).
+
+If all goes well with the patches I've sent today, then I'm expecting
+them to be merged over this coming weekend. That means the next patches
+will be sent early next week.
+
+So... if your changes can be merged before or around the time that my
+5-patch cleanup gets merged, I can rebase my changes on top, but if
+your patch set needs re-posting, I suggest we have another discussion
+how we proceed.
+
+As mentioned, I'm aware that there are other patches that have already
+been submitted that add platform glue that reference the has_xxx stuff,
+so if these get merged, a rebase is going to be required. (annoyingly,
+this will be high-risk because of getting the compile coverage to
+catch every reference.. unless I remember to grep for them after
+rebasing.)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
