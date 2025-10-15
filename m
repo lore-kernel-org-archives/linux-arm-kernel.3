@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A410CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:07:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE5ECCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:08:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pmMePLo1OcdaTVq/IZIskCrUN/yQDZXwUBcfSi+M95o=; b=yj7Cb1YIy12ysfAxodrlgjNcLG
-	Ntc/vmBjxnnLTzFcEiYsL/30lyJ7J7lQ/8SpRsoBlyM9dmveB62IO74Kd780wvRppnMdhhWBXJyeZ
-	kcclxUTVHy4u83J5GmKpcmwukpo5Tn41fBemdjQGclsB/WlrO2c7vS7pSykYinEkvk427JiWQ9iRa
-	Xz8wnWxVPMJopRULwhco508Tz68TjKAASYxZ+R/M+SQki29zJ57AncHhOeaAOyo1ti6G67kk0zYlL
-	62bQqmcFxez7UVF32zSOLW1pJ6p1tBR4W9qtBFWz2/jcUU19jwNaLljkLcLcbzpHLqDqcx7jsNJN1
-	z02Q+9LA==;
+	bh=CSzyKNmSYwrutfZc4jyjEPS30JfPjVOdeUjEIQN/4nQ=; b=ON1LLbsKKJcEQ8lWO/a2H3qoLl
+	tUuOLfMSNlsbTODNsvaY960c2c2t77ZP9XgVM4o6uWP/Bbh390o22oxtsw8MS3sSPvsv5x8T9OGh9
+	GCyZNpn0a7jDyEtjgQdgkHS1fh19+LAsZO7eN8Y+DXjSTlPOacxeRv1k1cFoUE4PB5uRctY64zr+K
+	/G7XQ5/Mb6LLHG8EM8X9fKu9w0od+XVS5HPRigksEHr7XImhZA9yLyLWLkTw342Va9vDpMnMaDpxB
+	Gz/DVZUHePBNTsTPkfcoIwYZgL6di9Frk0j4f4b/lxQd5AA9LtViVkybYL2tpCy18hc0SleH6qNgm
+	9c8Wk/Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v942Y-00000002Dxk-1KjF;
-	Wed, 15 Oct 2025 16:07:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v942q-00000002E70-3pVv;
+	Wed, 15 Oct 2025 16:08:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v942V-00000002Dwi-22kY;
-	Wed, 15 Oct 2025 16:07:48 +0000
+	id 1v942q-00000002E6E-18v9;
+	Wed, 15 Oct 2025 16:08:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A9EB43AE6;
-	Wed, 15 Oct 2025 16:07:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E877C4CEF8;
-	Wed, 15 Oct 2025 16:07:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C101626B1;
+	Wed, 15 Oct 2025 16:08:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65015C4CEF8;
+	Wed, 15 Oct 2025 16:08:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760544467;
-	bh=/xgC0Foj4sRECkkeujgbfojixypoYlfCwdvcLyXmOGg=;
+	s=k20201202; t=1760544487;
+	bh=T0y5eIFSjnQ3NKyt3cDPuOjJjEWbutGOBAvGeGBCSuc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T6ELbrhnqgx/bgNPJVFXQQnGtJXQNt64zVKMLbiQ1yDXdUH0v473aMU2NKwLUp3Q0
-	 BW4Mz8sfSBfLQ/SkpimKPbwOS6GzekcSPu4zZ8UstXuwTEqXWrMVs1GxWzricTm9Q1
-	 bCMyry0l022vMXY6zb1NF/R/ciexvFsNw2eWfqkr3QDb6lvEvctoBLR9tIMDpMQGse
-	 3lJ+/f2jpl47KhA1jvDGM4oameGuRkJX5+2gX6m+SuAM3CM/hW302BQ460g5g/bEFZ
-	 LLwFz7fG2roW/2HZ9QAHFIUV+sBlg7SKKsSA+c81WGVI96trF98K+29z4yYAjdwT1p
-	 4KQTcUFi2qV4A==
-Date: Wed, 15 Oct 2025 17:07:42 +0100
+	b=Uv5cY7w/e9ySfXqgSDXDW0M4XcEG/3Qpbf2WAwHBfBEDaEAe3f7qWZKfq5FIXL/de
+	 YG5pyrV6Ep7+T0CYLxR7Wdivvw+qqvWHAOznQ3yu/gQbZym5RfxI4rKT8NPDYw+D6H
+	 fVgicFgDTViffSEB7hnFAWg1Lh395dKjNg33JpXCGG8ctbatA2mMZlKTi4n2AAcby0
+	 kK/wCmppJb/XtHQ5q1QldDx/jZd9f065uML/qZFkAZIAu3gsPCwag3ZN69bRDUJZiy
+	 j6MpyjLJ0H6T3bnvJ+LRREFu8zebDlpJwhyRc1QLhG2Eh5KxnmvLiUUhcEsTrA3p6y
+	 fL+4gPJW7zcWQ==
+Date: Wed, 15 Oct 2025 17:08:02 +0100
 From: Simon Horman <horms@kernel.org>
 To: Lorenzo Bianconi <lorenzo@kernel.org>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -55,19 +55,15 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
 	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next 07/12] net: airoha: ppe: Remove
- airoha_ppe_is_enabled() where not necessary
-Message-ID: <aO_GzldXUvN0gN5s@horms.kernel.org>
+Subject: Re: [PATCH net-next 09/12] net: airoha: ppe: Flush PPE SRAM table
+ during PPE setup
+Message-ID: <aO_G4qCvGhlXq_JS@horms.kernel.org>
 References: <20251015-an7583-eth-support-v1-0-064855f05923@kernel.org>
- <20251015-an7583-eth-support-v1-7-064855f05923@kernel.org>
+ <20251015-an7583-eth-support-v1-9-064855f05923@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251015-an7583-eth-support-v1-7-064855f05923@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_090747_540908_64A1139F 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251015-an7583-eth-support-v1-9-064855f05923@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,10 +78,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 09:15:07AM +0200, Lorenzo Bianconi wrote:
-> Now each PPE has always PPE_STATS_NUM_ENTRIES entries so we do not need
-> to run airoha_ppe_is_enabled routine to check if the hash refers to
-> PPE1 or PPE2.
+On Wed, Oct 15, 2025 at 09:15:09AM +0200, Lorenzo Bianconi wrote:
+> Rely on airoha_ppe_foe_commit_sram_entry routine to flush SRAM PPE table
+> entries. This patch allow moving PPE SRAM flush during PPE setup and
+> avoid dumping uninitialized values via the debugfs if no entries are
+> offloaded yet.
 > 
 > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
