@@ -4,56 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87643CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:02:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CBF4CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 21:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u9Vd50llGKlJUDtO+EduzVWWAqtczGOx8sjS49cA9dk=; b=czmS6LkvyWKqBRSOQIMRHPyLyx
-	6MUXoT1oRepC8HCzkITMLXEhBiudLcRHqYTcnBdz8HCfu5lkMHJFxyuKb1Ox8fBeUJ1wd+U37FODp
-	Igy5pD4xafKuwQa7igi7nntlXLpwlBnVnAyh/S/CIgowK9k63rWpdu2ODCLV2yT8jJ7rDf+5gWUqK
-	sysKt5z2cpmh0EFY+80EjrXrUwcVsuaO/ZpDn2l0PjMdEaR5aVu4wZPG8z0jraWOaH5dVZcs1j+Hm
-	soMTsk7PnUqf+pLWtWtaqeYL+48D0Ejnb2dV2mvY6UQ4DTh1QDS6xv3SUgn+Ea2N7XlOFk8y5Xlki
-	OZlsSh4A==;
+	bh=lU7P2fdQo33lU9CWhezw41R+YVngVYZZxsfcPjczaD8=; b=LQ/qLq0GNMeFk/2gZanZVZ1h9Q
+	y0yyaKXyq4veYM71eKYeqeJ03HlCNFCNMKDPLhUKKGrNAu7158GRf0WOAOEXSJ5jNFn/HOAfo7WIr
+	N7Fdwk5qc2qpWoBgOLX6pTIqu1FTUiGZ8bXe8adpL+sLZQ2Lzye5A7WDxhs43xHeHnVhgwOjnpG7Y
+	p6VCiWUXcmzCDddOkNW+zowHTFA9NzoI4EOOMW76EOSDQKlUrZb+Fpo5mT01BT/3Obbv8c5m9o+ow
+	TWrmrOesKU7WuJy5QYV2nECPlkCsgsPtiMScZJktTEtIJnGsmyoeh78kt/3HbpNj/mgWVg6QBDA+G
+	4plRpUXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98dK-00000002uJa-1CzE;
-	Wed, 15 Oct 2025 21:02:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98dI-00000002uHY-243u
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 15 Oct 2025 21:02:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=u9Vd50llGKlJUDtO+EduzVWWAqtczGOx8sjS49cA9dk=; b=rOLERcnT2PfwMAxaH5FjWK+iSY
-	ePVZqZjn/9HAfP4yVkyT+InUPNwlsuqS8n1mpgrbH3TwnW5NC/Sf4/8fivjTweEpy9SETTw4XUd2P
-	7MmdTR2qD8nlf+iRocgWKn783p6LQJdIpuFczAUDjhKttocbajLapejr6UqCdCE2BKwV4L89Lrtrk
-	VoZnmcEL4viFA1VorNyCNEDYEEnBPQIDtvRnV/UbuKwUbAEACInxX13dhG8g+6/YDRuLEr6OGd/tx
-	gyh3qqwpi9VDU52jERpfiKzLeEnGX5ADU4dV5pqvpFOqxm323BISk4WNONtYC2hBuDZnBuFw8mGs1
-	gq3TVn8g==;
+	id 1v98mc-00000002v1s-0XyK;
+	Wed, 15 Oct 2025 21:11:42 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v98d6-00000006GIb-2X2T
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v98mZ-00000002v1P-3DXr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 21:02:01 +0000
+	Wed, 15 Oct 2025 21:11:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=u9Vd50llGKlJUDtO+EduzVWWAqtczGOx8sjS49cA9dk=; b=lPN1FzPvrEnEGdf/5DGvQidRRO
-	KJ5J8zqk9k3JB5y6fJ14/5mp2e7wWv7356ulG6IYc49OvXw1+rc7IsCUxnOMNW0jrCSAwMv5KTL9J
-	n5pz55iGmNuvnBdS7skj93TFnJjxmMFG6vWzjb/DsgBMNNgo/nn4VPY8j77XEDzXTMyQ=;
+	bh=lU7P2fdQo33lU9CWhezw41R+YVngVYZZxsfcPjczaD8=; b=II9+KuIHljJ6JNDxMUJKU01/u3
+	uxihvz7A22UHG+HrN8nFhiN08qiIE2YtWRxywh6a75ozBXd4Vw3LIgxhASL1ia9K6gG/GS+vhow8h
+	RK362b8jZiT2G1M5x86ohZlL4jW0+caGkcN9BbcCHHUEZIAzIc5392OGlZ1ytEfoTDJo=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1v98cr-00B4oN-8p; Wed, 15 Oct 2025 23:01:37 +0200
-Date: Wed, 15 Oct 2025 23:01:37 +0200
+	id 1v98mI-00B4sb-D1; Wed, 15 Oct 2025 23:11:22 +0200
+Date: Wed, 15 Oct 2025 23:11:22 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
@@ -94,18 +79,19 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Vladimir Oltean <vladimir.oltean@nxp.com>,
 	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: Re: [PATCH net-next 12/14] net: stmmac: only call
- stmmac_pcs_ctrl_ane() for integrated SGMII PCS
-Message-ID: <79822da1-d797-43f5-b0d3-533d5e914b07@lunn.ch>
+Subject: Re: [PATCH net-next 13/14] net: stmmac: provide PCS initialisation
+ hook
+Message-ID: <96842284-8d92-46b8-8b28-2b20755c3523@lunn.ch>
 References: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
- <E1v92N9-0000000AmHV-0WAA@rmk-PC.armlinux.org.uk>
+ <E1v92NE-0000000AmHd-15fv@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1v92N9-0000000AmHV-0WAA@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1v92NE-0000000AmHd-15fv@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_220159_773101_56D65F13 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20251015_141139_824330_5BCCDD9B 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,17 +106,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 03:20:59PM +0100, Russell King (Oracle) wrote:
-> The internal PCS registers only exist if the core is synthesized with
-> SGMII, TBI or RTBI support. They have no relevance for RGMII.
-> 
-> However, priv->hw->pcs contains a STMMAC_PCS_RGMII flag, which is set
-> if a PCS has been synthesized but we are operating in RGMII mode. As
-> the register has no effect for RGMII, there is no point calling
-> stmmac_pcs_ctrl_ane() in this case. Add a comment describing this
-> and make it conditional on STMMAC_PCS_SGMII.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> +	/* Unimplemented PCS init (as indicated by stmmac_do_callback()
+> +	 * perversely returning -EINVAL) is non-fatal.
+> +	 */
+> +	ret = stmmac_mac_pcs_init(priv);
+> +	if (ret != -EINVAL)
+> +		return ret;
+
+Oh, that's ugly.
+
+Looking back at
+
+commit 42de047d60bc5d87e369c36115058b9dacc5683c
+Author: Jose Abreu <Jose.Abreu@synopsys.com>
+Date:   Mon Apr 16 16:08:12 2018 +0100
+
+    net: stmmac: Switch stmmac_desc_ops to generic HW Interface Helpers
+
+which added this, i don't actually see a user of the returned EINVAL.
+EOPNOTSUPP would of been better. But changing it now will need quite a
+bit of review work :-(
 
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
