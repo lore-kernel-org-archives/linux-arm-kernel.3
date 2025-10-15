@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59569CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 13:24:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C8BCCD196
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 13:27:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hsBE60q/zqo892zMCzCegAkvXqdUN52ebGS40OGlI4Y=; b=K2F13JCO/rAq1dpCDJi/ZfQrCH
-	sLSZ+vpTRh0lXEGY6j/usT3YwAdi56mapYqR5fvB/Zhy7Z2DAHZavb2heccl3zMrLSIN5W4MUafVI
-	iAS4d+E8iIUBEOuUMbGnVJ2uBSC6MS6czdaBa4nzKe3XIJG095qs0Z6bXpiuhRnxoeLbzmUOd0p2N
-	eHzIosxTN69jgFiC22UIw8PSBOnX1vLaJbmKvZEnPr5R/KCTmVVE+qMhRgiPoNNdpdTXsqjC6AwSx
-	xfDN0gYHjeXQ0tJN3hOJHs1CZIF+kKT+VBWYelIXCE3wCK8DGN7esgTqqVgoHmkTqDAX6a72pJdDN
-	oh8birPw==;
+	bh=EFu78uXLNhhYEH7SVSyRI1WHuG5g54Ao3mQfyxG+tcA=; b=rN9rk/JjWoEcpvzUPSYSrQ9SBv
+	EVgZqbVE7rdqV2/CIfwddJ43YUFi/oYtNNlwjcpTu1RYKcMIAVL6AbX7c5fy0O8eFWcy2AcB5xaFr
+	8faekBfqHtQ0geDram6QjJHgQwcEaAO7W598I2KFXVQGAR123/pSdk0ZvAJH641uV9c+J3hOl/GGc
+	5GS7ms9ZV/QAbEcWGnXN+EiMG6QVr7k8kJuQ4p1wQhq3FrtpWKAIrs/RrZ6zVMtDHbHTftjRNdrEk
+	gNFW4i5t4I8VlM91L2/A9w2pAetn2IwoRp6K5v+YrFeXGYn6y7OSZ0LN0yNfFrvU7DWyt7+HErWUY
+	Q/vJGNaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v91Ul-00000001hc8-0Itk;
-	Wed, 15 Oct 2025 13:24:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v91XJ-00000001hyg-2iIJ;
+	Wed, 15 Oct 2025 13:27:25 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v91Uj-00000001hb7-1Mpg
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 13:24:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DEFA945440;
-	Wed, 15 Oct 2025 13:24:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C4B7C2BC87;
-	Wed, 15 Oct 2025 13:24:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760534684;
-	bh=+PQNqX6gMuYpsO5dyv6A77vO1jpZNDtI0y4dh0PlVsg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tNH2wHcGLKEopWnn6dtv3Guntm2gDqa28wUfwL7veY1feRvROo/0HdYgMSYoieIYm
-	 3rzdAECnSHKGJ/UXeqdJErE9r3dYGT7BhbpLW+FOXaVBfm/QK0qoOctjLWjZ0HqO9j
-	 7GOT1sxoQ4tHehql3ulZjEYyeKJC2LZlwakqKYeHi8IK0CkWV8dW9iUYlLlTrHG19L
-	 FCbMtJiUgOhcAN+m5h0b+4l+5PNFQYpmkAIGOF4xx8wynBMhRdc8gyde0XgIsLsejY
-	 yyoFXyFQDN38p8XG6KKYnhZrcODRMQ1plSTEghFIteWZHGXdVgAvqlM6w5ov+J1Ww7
-	 KTuthKBgE25Ug==
-Date: Wed, 15 Oct 2025 08:24:42 -0500
-From: Rob Herring <robh@kernel.org>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Liu Ying <victor.liu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH 01/39] dt-bindings: display: imx: Document i.MX95 Display
- Controller DomainBlend
-Message-ID: <20251015132442.GA3241958-robh@kernel.org>
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <20251011170213.128907-2-marek.vasut@mailbox.org>
+	id 1v91XH-00000001hwm-0eho;
+	Wed, 15 Oct 2025 13:27:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=EFu78uXLNhhYEH7SVSyRI1WHuG5g54Ao3mQfyxG+tcA=; b=tWVdwD3BvmoVph276K/6AP4+qH
+	FOgl0YNA7jJdbhOWcHJU/rnlh1YeNzgB9WF4tJPvuZKylLCkTWCzzR5K/D0I8cpazCXWYylTCdo7Z
+	CJYaFUS7GccbUgcRUhX4T9cy/WFZ6RiFo6LexaXZpK6XVNPlissl69o1kRlu7mI8qYHBuKZ/5Rdya
+	4BAA8eEnVsoY8kve7J9ddgxVXZbwAWfyUZIiEIvXV/ib2DyzjHnNWKJIvC34fzk0KH4N2bjYtWdvX
+	GCb9B0oBFseQS66XDAw8YFoR+YhZJXBi1kUgasdPvWT17hTspcUsJFwPHgfcXGc/d1NGMro/KJFIu
+	MairWdyQ==;
+Received: from i53875a40.versanet.de ([83.135.90.64] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1v91X6-0007hd-Ux; Wed, 15 Oct 2025 15:27:12 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Quentin Schulz <quentin.schulz@cherry.de>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, zhangqing@rock-chips.com,
+ sebastian.reichel@collabora.com, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] clk: rockchip: rk3588: Don't change PLL rates when setting
+ dclk_vop2_src
+Date: Wed, 15 Oct 2025 15:27:12 +0200
+Message-ID: <2749454.BddDVKsqQX@diego>
+In-Reply-To: <6677ebf9-50bd-4df0-806c-9698f2256a8d@cherry.de>
+References: <20251008133135.3745785-1-heiko@sntech.de>
+ <6677ebf9-50bd-4df0-806c-9698f2256a8d@cherry.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251011170213.128907-2-marek.vasut@mailbox.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_062445_402453_7FA96CA1 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20251015_062723_232352_026DCA01 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,78 +73,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 11, 2025 at 06:51:16PM +0200, Marek Vasut wrote:
-> i.MX95 Display Controller display engine consists of all processing
-> units that operate in a display clock domain. Document DomainBlend
-> block which is specific to i.MX95 and required to get any display
-> output on that SoC.
-> 
-> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
-> ---
-> Cc: Abel Vesa <abelvesa@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> Cc: Liu Ying <victor.liu@nxp.com>
-> Cc: Lucas Stach <l.stach@pengutronix.de>
-> Cc: Peng Fan <peng.fan@nxp.com>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-clk@vger.kernel.org
-> ---
->  .../display/imx/fsl,imx95-dc-domainblend.yaml | 32 +++++++++++++++++++
->  1 file changed, 32 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx95-dc-domainblend.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx95-dc-domainblend.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx95-dc-domainblend.yaml
-> new file mode 100644
-> index 0000000000000..703f98e3321e8
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/imx/fsl,imx95-dc-domainblend.yaml
-> @@ -0,0 +1,32 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/imx/fsl,imx95-dc-domainblend.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Freescale i.MX95 Display Controller Domain Blend Unit
-> +
-> +description: Combines two input frames to a single output frame.
-> +
-> +maintainers:
-> +  - Marek Vasut <marek.vasut@mailbox.org>
-> +
-> +properties:
-> +  compatible:
-> +    const: fsl,imx95-dc-domainblend
-> +
-> +  reg:
-> +    maxItems: 1
+Am Mittwoch, 15. Oktober 2025, 14:58:46 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb Quentin Schulz:
+> Hi Heiko,
+>=20
+> On 10/8/25 3:31 PM, Heiko Stuebner wrote:
+> > dclk_vop2_src currently has CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPAR=
+ENT
+> > flags set, which is vastly different than dclk_vop0_src or dclk_vop1_sr=
+c,
+> > which have none of those.
+> >=20
+> > With these flags in dclk_vop2_src, actually setting the clock then resu=
+lts
+> > in a lot of other peripherals breaking, because setting the rate results
+> > in the PLL source getting changed:
+> >=20
+> > [   14.898718] clk_core_set_rate_nolock: setting rate for dclk_vop2 to =
+152840000
+> > [   15.155017] clk_change_rate: setting rate for pll_gpll to 1680000000
+> > [ clk adjusting every gpll user ]
+> >=20
+> > This includes possibly the other vops, i2s, spdif and even the uarts.
+> > Among other possible things, this breaks the uart console on a board
+> > I use. Sometimes it recovers later on, but there will be a big block
+>=20
+> I can reproduce on the same board as yours and this fixes the issue=20
+> indeed (note I can only reproduce for now when display the modetest=20
+> pattern, otherwise after boot the console seems fine to me).
 
-No clocks or other resources?
+I boot into a Debian rootfs with fbcon on my system, and the serial
+console produces garbled output when the vop adjusts the clock
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    domainblend@4b6a0000 {
-> +        compatible = "fsl,imx95-dc-domainblend";
-> +        reg = <0x4b6a0000 0x10>;
-> +    };
-> -- 
-> 2.51.0
-> 
+Sometimes it recovers after a bit, but other times it doesn't
+
+> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+> Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Tiger w/=20
+> DP carrierboard
+
+Thanks for testing
+Heiko
+
+
 
