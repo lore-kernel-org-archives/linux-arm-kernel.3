@@ -4,176 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83863CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:45:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC4F0CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 16:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=10eIN9B5ATbGfjwqCdpK0oVg9mZ+w9ks5BHSBlyTF9s=; b=sS8kVw+l3Iot2B9Y9BKJ8N47+g
-	tsRivm09g9PPyYDJYuOeV/iKHpJ0FzY6TRiIAf5tCOdEjY2aBhETEGmRn3Ck+iZTRXkaQQlygg1dg
-	EPc5dUA5jY7Ulw/L5Ued4DcmL9YZWlJL9unzFRqVTteheIo7XCxqam/QYmvgpUbcPqVbBxKz2UfFE
-	bZuGDQ4CMojudkq93W62FUe8E9iu3I0HaJAdaykGswJNYml3wS2QiSOfk8UzUOjQDm4gFhLGCNiHk
-	3H4eO8j55hqwFUWf2GcMaeswQLOf1h/ttBbIy7dJtyfc4p2HLSKQr+IjLoc+XcTduOhjpGHNfhi4G
-	WL3madaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=aajmztmEu5kpXZ4tQxPDkiGaYkJ6bhdQUowTI88s1SM=; b=ommlq9xu0l/ZV8
+	SMIyTyle5gWRQbJViF13kPbUo0h5+TnERw+fuFzvc3m4D4Bwx0HFcmbcb5KM7PxqbsHsORe8I6sGy
+	li7KIGqoE/TPBC3W/dYmlHbFR3ktk0/PRCK3MZ6pLCAtBkq2upDf8ROIrEJMMFU+FkIsOiyuwAKb2
+	v/KeURBCQxNa7V7eMSmV3cuEf9biv7k5GloHgkMOiIW0cfeJrv47eMb3nWyxlq5A54XJrNriKNTkw
+	hTIIFTz+totYEX/Zzj/ns0a8kv230fjpyYbjkb/O3KVGA1L4aW59ezfZAGKgcSJ1ieIDGBp00py6N
+	enfTz2bmH9dEdUSu0jCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v94d8-00000002L3u-0W5u;
-	Wed, 15 Oct 2025 16:45:38 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1v94hv-00000002MKK-2Qlr;
+	Wed, 15 Oct 2025 16:50:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v94d5-00000002Kzk-3Wpe
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 16:45:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HYU+Bb+/vJ9uo13uixhJGO/xsv1aw/BZ6i+xA778jwBOSYoNDekiQHFpRbQxrX7gGOa/Mfv8Up24vEF2rPeCXPGehKbsSICXOVQbfh5OT+MLbt1iHFbD9w1ixWOAJoihDKllaVh1Ok2kKFqzOuOCA3dEr6PE5XbYkImLG0rZ+XQYLB4EVQSbt+vVa8QvQRmgKsGfTi960LA76mz/muuyJcgvMKgp/+Ot6vSP1KbQ3bdURw8iRwGlpV4bl+ggXspfU1TMj+fz5I7igPyUVRJ0M20nyjHAOJgDINhwUyK7G/ZtsyukQzMCKbpdAUmXLjCl23UgX3G91scrw6yZ7lcdTg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=10eIN9B5ATbGfjwqCdpK0oVg9mZ+w9ks5BHSBlyTF9s=;
- b=anLw3CvhkiVBfpRgyiX2kaHTbYQIWXuJpxy7AnUVCc9wGTqoZ8kMpHb+jAvuusOjja6vIj36f2jb8L4MjilhIm4Fu/67PLZt+ajFqz4/bJoTxAeqJtFqvq7e4rlBmXr46wCNt4WRvBsC01o+RMRMG33cY8/bxlVkcUmsLWcMxl3lW9Udqg05QpmvRxjQbfERO1FfhEsPYnmLRqIqgtCqZrfDPvLk+clchMqbe77vbRf0o6wT+rFs/juFHL4KykLrzqUADSaU6PdVDEDEduPn7YCpUicHsoP5B/AeHCUcXDShd7huDX49bKmxCPCngHMG8vEjs4371X2RjzypZsoLLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=10eIN9B5ATbGfjwqCdpK0oVg9mZ+w9ks5BHSBlyTF9s=;
- b=ERbUK55iQbwsLULWVUURPaF6qLM54UqUAVWbXjwlKpot1zdZ1MvNrtYQr50OZzYGfJ/2ThgTLdsYsuqWsHtxFZxWmMYFhts/JLmEejzmnAjJDCclYeCZAfdx00jX6T66jzN+wRm4UotVQjUbgn22I+WFyBoWF7xuT85IZLPz/+3Gvm3GpK/uNnZm9xsHUb5mmOZf5BvYJTsreI4q2mZVTnpScx8gK+TvKn5hMag41F+Tk0Z5z+/QFC74rto7WbABk9N6+H6flN1DU/WBT3R9lLOV9kRtT4A9/5S+MWqXQgjGz2R5PeYutj/CC0bMMVXXuZlLnCnF1HrZ5AYitGKrMg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by PA4PR04MB9248.eurprd04.prod.outlook.com (2603:10a6:102:2a3::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.10; Wed, 15 Oct
- 2025 16:45:23 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9228.010; Wed, 15 Oct 2025
- 16:45:23 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 15 Oct 2025 12:44:36 -0400
-Subject: [PATCH v2 11/11] ARM: dts: imx6qdl-nitrogen6_max: rename i2c<n>mux
- to i2c
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251015-imx6_dts_cleanup-v2-11-41a7281b98c6@nxp.com>
-References: <20251015-imx6_dts_cleanup-v2-0-41a7281b98c6@nxp.com>
-In-Reply-To: <20251015-imx6_dts_cleanup-v2-0-41a7281b98c6@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760546680; l=1176;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=8iUChnDAGpyRnCKC3p1a/l2BH4aQI/W8Jnom8LWPUxs=;
- b=KhqjGxto2gn5587XZqlhCqtEwAVPbquTasy9bSQ+pP7tjphDR0fjOnj4GpQkO9GuR53DI4q4j
- de8coc1kVVZBTb/ArEkdyL5Hbxbuk69UpCZO4z5dIUZv7uVW3EOvJfJ
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR05CA0113.namprd05.prod.outlook.com
- (2603:10b6:a03:334::28) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	id 1v94ht-00000002MJu-17na;
+	Wed, 15 Oct 2025 16:50:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 862A5438EF;
+	Wed, 15 Oct 2025 16:50:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4387EC4CEF8;
+	Wed, 15 Oct 2025 16:50:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760547032;
+	bh=W2YQOFJDU6EhswCniAUJ6nsXXJo0OSK5lKR9QlTpx9k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=PTGKrP8ky0N5uho9RLHOHr4AkzuExjInCzfCOMLJes6F57AaGEKso/qFxziYJJQfm
+	 y7vTZ+2DTps+sz2qgFTHqP7NvhfBy+LYzi9Ee/JtV3sT6NkT2DrC5y7QB0/LE3zoZs
+	 Jg7PgqnElY7Az2is6iEvCIMzvuflao6KO/IfVQt/svk3TiW7dQpAzrF2wpCya042Kr
+	 zXPleFXO4ea43TDXqPZ1sub4OlvuZsUPX7f06wiGp9XeAS3lRC+IY8+XZP0Pnb6Gug
+	 aeRbWnhaWNsk1k2NtYF+d6WuEjsK7vhEztDqIu5xYEk4iZ2ylhSz+OlfOuBlLmXSpP
+	 okVgFisIOhv9g==
+Date: Wed, 15 Oct 2025 11:50:30 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, upstream@airoha.com
+Subject: Re: [PATCH v5 0/5] PCI: mediatek: add support AN7583 + YAML rework
+Message-ID: <20251015165030.GA945420@bhelgaas>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PA4PR04MB9248:EE_
-X-MS-Office365-Filtering-Correlation-Id: e49371b3-7a3b-446a-29fc-08de0c0a3bfc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MWc2WTU4YUFGMTlISHJueVphWTByeVlOWHhXOTUwSTFyODBVMXAwdW1VWFdr?=
- =?utf-8?B?cTJOb3NMYUExQWNua3VFS0d1elcrcm1IZW5Sc2dReUczazA5d1hFOVdQVWFa?=
- =?utf-8?B?Uks5VzFRK0NLQ2lZUFZSV3I4dUFRczhRN3RRMmFHdlpCSjJJa0RaajdveDdF?=
- =?utf-8?B?blVCODFjOWJFaWNFQXREWjJBS3ZDZWZ4MDVVTjhhbE4yR2hDcEhNVUlXUG9M?=
- =?utf-8?B?TzVRd0JzRlVXd3dpZ2NHRWRtRXFLR2FTdVY2dUozNU1nRDNQcC9ZNzdpZVRX?=
- =?utf-8?B?bnRyVXN2MGNPY3RwTis5OFc3STdJZXdCMmlqNzRCU0UzQ3cyajg0R1ZZSWEr?=
- =?utf-8?B?NzJsWGFCYllnT29oN1NDdmZJSjQrRDFsMUF3T3cyMnB4OFg4eTcwbGZmNWhI?=
- =?utf-8?B?NE81UW9IbHY5M0l6UGpjRFVRUmhNOXFWd1JySDFuQ20wbDc5WEF2YzdGK1Qy?=
- =?utf-8?B?NDV3YnJ5YU92NzdjeXB6dFp3Q3JWa2Y1a0pkd01kZVYxam5hMjhYYWJhKy9z?=
- =?utf-8?B?VFZteXJuY0MvMEVja3ZrQ3hMbWdvNVZtYUl4M0tHM1RMeXFqdFlTc3JtUTN0?=
- =?utf-8?B?MzQrSDluR2RQVmE2RDNmaDBUU0tLUlBSZTI0dUdieGZiY3RKMDZKRXFPYjVo?=
- =?utf-8?B?NkFXT29QTFAzenp1MkJrQ29QbU42c1hsczNNOXJNaEZYQWVnYml5NGVXZWVT?=
- =?utf-8?B?NFBhSXA4eDZXNUhCUVhBOHpLN3RhQ3Z6TDlKdVg1SEgvYmlQTlEvZ1JHY2h6?=
- =?utf-8?B?ZDlHbVh2ZmNNM1VlbDR6aDFFZTcxSkgxTElHaGhZMXBDWFdyNlo0SXczUDlD?=
- =?utf-8?B?U3ZGUzY0SE9Yc1dsWkc0VTJTa1lnZHBremVRVU5iMEhMclZoWmoxNlZ5Mk9V?=
- =?utf-8?B?dStlWlUzc0xGc2dua0RaTlA0czBEa3Jjblh4QWw4dzVsY3krRDA5SjJvMFFh?=
- =?utf-8?B?QzVBM2tJZG1QV0x1UmdzTm9ienpUOTFsTnhsd3lHZXRLTmRpN0h1SXRZbDI4?=
- =?utf-8?B?ZG1ieC9WalZqaDQzNjQ2Q2tscEJRWXg0NDJWU0JiYlhGV3kvRmZwVVlrV2cy?=
- =?utf-8?B?aTNKZU9rZEdFak94ZWFDdEN5dStiQjg2Qy9lWFRMZ3BMTTBkdVNRalB2N3Fu?=
- =?utf-8?B?aUF1NkZaUytVVS9hWUFDcDY5dkJQK0o3ZmN0KzZteEpiUTNMQjBTczg2blZ3?=
- =?utf-8?B?YkpGMGRLdm5oNkpvRWhCZVo5QzM1L25naVJJczE4Tit3Q2tVamVUSGErbkJJ?=
- =?utf-8?B?d1o5MU9EelZQUVBRMXhObmMvVXFZbDg1RzdtRkZtR2NJQjZNa0hkR3BtSU90?=
- =?utf-8?B?b1ZvQ2tWUk96U05GKzFlSlg3Q0l0cjZMd1h1R0h0RHBNdTZnb0s4Z1lvZlZI?=
- =?utf-8?B?SFBTUm5yWnZSNVlkVU8wRnIxU3FwVnp5dkRnSHY2Q2NjSnFPSFR5OXZMT3RJ?=
- =?utf-8?B?YW1NVDRTUUFDbGhNc1doc3NyYWc5Umt0ZHVJa2liSXNHcXdEdHJucEFya0ND?=
- =?utf-8?B?OUd0OFZvS2YzdlhVZVRZNDRrL0FNMFlZbDA1Q0ZsZGdzSThsOEZ1ZkNxS1p1?=
- =?utf-8?B?YmVKcTViUHRzMzhLSjBZbG1LTS9BZTE2MG0vOUt6YmJPbWpGTFVFM1hFOEF3?=
- =?utf-8?B?QXQrRnBoaFRVam9NSWRXaWgrWVIycnZsS2x4Q1VPRFduMjVCWndqNkRhRzQz?=
- =?utf-8?B?Vk9yN0RKdy85V0lVWEhvc2FIU2Q1a1FhcFpRVHM2d1hnNkhnT3ZRcnJ3WHpO?=
- =?utf-8?B?cVlyejdaaDg1dTcyTy9PSXF2WVJkc1M5cC9DWThSc2wydjh2M3oxZ0NkLzVW?=
- =?utf-8?B?eWdaK3hXNkY0a2ZsRUhKRVZjK1RjZTZOY2VnT3BhcWdEVllQbXhSTEk2LzQr?=
- =?utf-8?B?YmdrbGcxSWpXWTJVNkw2UWhhdCtaeWFkWCtQQVNoUm9XQ3ZvcjlSUzVnVWsx?=
- =?utf-8?B?NG1aU2VBc1YrM2lhWDZIcTloK1pvZ3Q1WjlTdVJ0QjdrOGRreXM0WXp3bUlp?=
- =?utf-8?B?NTdGYXdiMGZXbFdpYmpYaklKd2lEc2NRM0ZUWW03TzJvRG4zOStwaUZsYkdM?=
- =?utf-8?Q?xy27OB?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QzBuLzVsVVRKVmNmL09DYlMxRnpoeHg0RUZFSjdWc3RjOXRNckdORzNBeXlU?=
- =?utf-8?B?Q09YbG12MVRiMkMvYzZBUjdUenN3RUFwWnkwUkRLU0s2c0ZKcTVjY2l5Qmln?=
- =?utf-8?B?QmVLeldaUWZPSS91WEtPamtWNTFDUDlxYVFRcSsxYS9vS3lCRVpmaXpiQ0Zv?=
- =?utf-8?B?MERCWG5MbUJraExyT1hvTUs1K0JROW1pVDE2d0hucndneHZMSHc1dDlLZ2ow?=
- =?utf-8?B?S3dUY3V1aVVrdDVGSWFtSVYwNWpUcEwwemk2RlVuZjZZR0ROUi9WWExySmMz?=
- =?utf-8?B?cXJ4TnRrMndhK2tiTFZBUHFjMnY1NFZ5aVkvYTJGRDZTTG5HNkczbmVUdXYx?=
- =?utf-8?B?MmFNbEkzN0ZTbG1lQUV0aVB2d0hHZmVNQjhkRHR6NkJmSnRtRHYvaExkOTFz?=
- =?utf-8?B?ME1rclpwN2RhOTU3S1VmNWJjODVGbmVkTFhWaWZFaWJYdTNDRU0zUUt0R2Vi?=
- =?utf-8?B?Q0ptUjhmQ25NelpzK2NNbUFkWGFiVXVuMHlhZVhpUEFjNXc4cGwwOEtIV3Ew?=
- =?utf-8?B?c1ZKbXZvV0pOSExGWmwyeWNwcnorRUFDL0M0cHpSUGVwU08rMDZSY21nc0VK?=
- =?utf-8?B?UnVteExhWnczK2x4eFlnMVlOeC83cFJtcktycm5uR3RtYmhBMHpScW5wdjFu?=
- =?utf-8?B?eUgvazV0Rk9WbC91QjNGQktYcStrWmRXbVJ6NEFFYnVqdFk0N0F2NkRVOUJC?=
- =?utf-8?B?SGRPVEYrbUJCVDhLT1hXUjI2Rmg5MjhOenh2MFVIWURZOWNNTTFUSWlZSmtm?=
- =?utf-8?B?Y0ZDYXBoL0xlZy9PazVMcTJaUzFNOVFmaDhlNVVyL2lMQnZwYTJmYmJuNGZN?=
- =?utf-8?B?WmdIUzZCTEpabkV0VGF6a1dyQ0xCNmV4OENyTisvREs1UytNN2kzc0luQnNG?=
- =?utf-8?B?bS9TeExrVk42MXc0aEJpZ2o5UE9zdDF5b2dJNDdrbHBXTHNPQ3R6em5adHJ0?=
- =?utf-8?B?UHhGWDVMb0ZLczNNd2dOcHRsQUsyODBSS1BNSWlMa0RQYWgrY1RZelVEdDZi?=
- =?utf-8?B?TUFnR1FpdmZnNy81RmE0RzE3QWwySkRlTmFhN2dUaFltbnEzdWppeHFOWGRi?=
- =?utf-8?B?NWk2c3BSdDYzT0ozRG0xdHFxL2ZCMnZJYVB2amVTQXc2eEpIL0dBSVJqeFB5?=
- =?utf-8?B?NlluaDFFWnBRUWxlemdGbFlzcHFOamVtbnF6eHF4Zy8xSmVzeFFXSmNCeDFm?=
- =?utf-8?B?eDFMUXNqM2p0NHFKZFRRVmhYejltMUF5RnpiY0xMRTFpYVhneDNINnhBMDR0?=
- =?utf-8?B?UnZmbURtQzRNb1JLY3dkV3MvUFRQWXdDaSs4MElTMVA4aVNCQVlIT2NabXA1?=
- =?utf-8?B?ay9wc05lS2RuT3ZGQUFxcGovTFdhNVlqT3BQUGVobXBWZlZzZTFsRUpQdHFG?=
- =?utf-8?B?STlVWWVrclNVY2g5Q3NiZE1ITHhHeGYrYTNCZCtLR3orMWp4Y1ZBVU1WUEx6?=
- =?utf-8?B?SktUWWtMRVhwNHhOTUEyNHZlKy9tMTZHeDc0SGpkTUt4YTVkQVZBR3dHQm5R?=
- =?utf-8?B?QXUxZ2dXaWlsQ282WjhwZUhFSWRPeElXK3oxc2E0OWZHbHZHV093dElXc014?=
- =?utf-8?B?RUI3RGtvL3k2c3pGTmJkVjM2YnpMV1RIWUJyaFJSY2pKSmQycHJFQklFdWxl?=
- =?utf-8?B?ZC9OVHRzZ3NYQVpuSWt2bjlUQ3lrSnR3ZE5ZeEdybUY0RVhybEFta3dlRkNZ?=
- =?utf-8?B?WWhveUlSMm1Vam5WbFpZYTBDOVE3Y1JBYVZlVDRTVDQrRE5lRHhEdW9Iaklz?=
- =?utf-8?B?S2xLblpEbExkYmF5K3hIdVBZYWJ6M09xUFJkaHM0dFhZcGVYak95cTlxbyth?=
- =?utf-8?B?U2dhQ2VHRitOUkduNnhVR2g3TDJaa2FmSHdhR1JwNXh0eGdOZm56ck52UW9X?=
- =?utf-8?B?U1p1NjJHVjM5b2VYQ3VaemMxN1FaZ3BkTnNMRWxJYkxaWTNVVEtwanYrd3pj?=
- =?utf-8?B?dFIrR3dHdmdSV2ZBZVhPNFdxUFRSVStMUzFoZXpGQ3huWjAxWTZlL3lDMDE3?=
- =?utf-8?B?djhUNzdWU0ZaeER6ekZiV0ZzSmxHMitxN0hEWHBWK2JQd2tvZ2h4NWRuNENJ?=
- =?utf-8?B?TWE3bW0zdWVjV2R0YWhnYzJ5aFFWRDgzNllKZCsvcG4vdHZxc0dacFZDV21K?=
- =?utf-8?Q?/5hl63JdLuBkrxunnGTAkhnh7?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e49371b3-7a3b-446a-29fc-08de0c0a3bfc
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2025 16:45:23.5138
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mMsO+ZwYqDk6tojDO0rCfVCl06zPSGNWv8nho6azzwl6XhECX4Ow1OJMS2yJlAUb1FAK28BhQZPdqv/LL7RSZQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9248
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251012205900.5948-1-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_094536_021190_F82ED671 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20251015_095033_347597_C13763DE 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,45 +82,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename i2c<n>mux to i2c to fix below CHECK_DTBS warnings:
-arch/arm/boot/dts/nxp/imx/imx6q-nitrogen6_max.dtb: i2c2mux (i2c-mux-gpio): $nodename:0: 'i2c2mux' does not match '^(i2c-?)?mux'
+On Sun, Oct 12, 2025 at 10:56:54PM +0200, Christian Marangi wrote:
+> This little series convert the PCIe GEN2 Documentation to YAML schema
+> and adds support for Airoha AN7583 GEN2 PCIe Controller.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+> Christian Marangi (5):
+>   ARM: dts: mediatek: drop wrong syscon hifsys compatible for
+>     MT2701/7623
+>   dt-bindings: PCI: mediatek: Convert to YAML schema
+>   dt-bindings: PCI: mediatek: Add support for Airoha AN7583
+>   PCI: mediatek: convert bool to single flags entry and bitmap
+>   PCI: mediatek: add support for Airoha AN7583 SoC
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi
-index c727aac257f9c3a1f16dc357fce355ad46a3f699..531110d405d0de9bc2dc926d550c00030d3aaa30 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi
-@@ -135,13 +135,13 @@ i2c-mux-2 {
- 		i2c-parent = <&i2c2>;
- 		idle-state = <0>;
- 
--		i2c2mux@1 {
-+		i2c@1 {
- 			reg = <1>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
- 		};
- 
--		i2c2mux@2 {
-+		i2c@2 {
- 			reg = <2>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -158,7 +158,7 @@ i2c-mux-3 {
- 		i2c-parent = <&i2c3>;
- 		idle-state = <0>;
- 
--		i2c3mux@1 {
-+		i2c@1 {
- 			reg = <1>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
+If you repost,
 
--- 
-2.34.1
+s/convert bool/Convert bool/
+s/add support/Add support/
 
+to match the history (use "git log --oneline
+drivers/pci/controller/pcie-mediatek.c" to see it).
 
