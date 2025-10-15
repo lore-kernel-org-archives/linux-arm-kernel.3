@@ -4,166 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB29CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 11:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 230AACCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 11:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7F3fAkXvEBouXRVat6h/CvK0HsArZUr4OFoF4xdSpoA=; b=SQvkSmNz1VhC2HDg5Nnxqtl+Am
-	bCqicLyrbjUJ9DGbhlDooVbXW/ZqmpDDT3hGS+9B4ubSGWX43n6p1ao/uYeTBgTVVkSh1uCb0RKp/
-	Fj2o/IEM5G47rqnQhm+cK8QvNLRTQAK5sLbC4Rp+500+MD91kbq+unGp+tj2/D3oudJ1YZzWf7+Fc
-	ientotcOHTtqv0qbT65TX06RGYuNIH+mB0xK/E17M4nh3BwogWERghZsuHrcbo5AtMmHXtplXvrWv
-	7t/XeGbSngWbq8oMPdxm8hQu51qE5rFkNwIzRCkpIhuAQTcbMHtte5lRBNprHkffU8UO3zSXpvq2a
-	VERq1DgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FsntGwJK+u1bx93YId7/aEwLX3vg7UlA2rb4wGYzrE8=; b=ueLarxcyBQjZOcjUFK90CWLimx
+	cRhQWJDlcRw73foLD4v1lSA3yU1JMOKddLrMCANNxqKyr/Eh9IAywgl5+h2HLJDhaTqmajh3Wbq7A
+	P20YMFrsWCdN6N60cLaFDelL+Tq5JyQEIxvkMUWT51630I2/EQ4bW/rLg91LBQKJKXxNR/R0PbceT
+	X9vPozGPI4SiC5/FZ06zetmHOw0Uwi0lQsoupeMUjlTUEGTWSI05gvQQBvLp9Tb9j2gLmTgw4mSMx
+	yCVlKP9zZkcGULHuTShoK16XS8ApVEtBbhV4wtTsgnb3n4ex5Ud8qrGyrGplz/hpZs4kfuyAi0yD6
+	w/o82bFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8zPW-00000001Nix-0vpw;
-	Wed, 15 Oct 2025 11:11:14 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1v8zS3-00000001OCa-3MmX;
+	Wed, 15 Oct 2025 11:13:51 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8zPQ-00000001NhC-3rDL;
-	Wed, 15 Oct 2025 11:11:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HmUwWRrdbMzePOZ6y8Qr9DpYi5YW/YhB6dPKByGvKK/cJ1r81pvdHy52eM0ppzSgiH9DVBnjJkRAnH+Q0cA6Rz9u1if8UzBsTGHFEL2mwO+m5dGC3QdJhUrrMZboGQfISwidKgH3jh2Z7Ttk3Rzd+y5GgqHwyAa4L+bRwzkPmxZDQarZ7sdT5SZBQyVeUsNx11X0+6qbVucNUjrn3tspnvdOkxXOz0AyOlocE6YEhrlZ1s02ZTCafXBRR2MyN0WRG4n3cOZCDA3BlxMperlNs8JPMviEnC0z4GhlJkVuIdJjlcPBweMBIIKsXIRqBjgdoQnG5cljZSWtukeW4ZLdVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7F3fAkXvEBouXRVat6h/CvK0HsArZUr4OFoF4xdSpoA=;
- b=A+5cNmAuRI37R5pML8BrSZgIgy9+aa0GoLBmj6d9STZy5YKyS89WoorYw+W3nAJ4NNQfEIJKincYSFgbmsmS0xjbtVdrHBotIlbRUxNa+vOyrVGxMRNZi1LnK80k9eCGPvmOzknSYYibf6LLx2+exL2XTy8lg4mtHei6qIk4dAK//mDu0PvrFi3Pt7AVlrQQO4y8qsKjrmcEnOd+t/419UbTza5vGHf1gQtsPrE8k6R0y5og5eTRudY6sGtt4f5GjutPu4m+IlvM7zy5eu9PS1iLgRuPCMA5uLbGJyXT6hZbQ/V5ZQXXWDyVqWhbrXjGcC7C1FjyD7f3wEkWtqa2Lg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7F3fAkXvEBouXRVat6h/CvK0HsArZUr4OFoF4xdSpoA=;
- b=TlUuN0FSC7c6X1yzYZqxjoUE7eN650RIH6BNSWo8eRyks2d3dgkFaIw1YutvAMH3KRqLDD0y3pS76L9mSczJawscR2t7TmvaoD7Ix1sGaTTqaXD32f98GbRpooLF2QRQstvEDS5snG+v8VonLVeTg5viPLKFzgq+C/rx7pN10Og=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by VI0PR04MB11601.eurprd04.prod.outlook.com (2603:10a6:800:302::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.9; Wed, 15 Oct
- 2025 11:10:53 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::5ee:7297:93b4:a8d1]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::5ee:7297:93b4:a8d1%6]) with mapi id 15.20.9203.009; Wed, 15 Oct 2025
- 11:10:53 +0000
-Message-ID: <136e566c-de4c-4028-a358-87afdaca1083@cherry.de>
-Date: Wed, 15 Oct 2025 13:10:51 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: add RK3588 DP carrier from
- Theobroma Systems
-To: Damon Ding <damon.ding@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20250723190904.37792-1-heiko@sntech.de>
- <20250723190904.37792-3-heiko@sntech.de>
- <0582b7bc-e5b2-4b5e-821e-8d2c4301579f@cherry.de>
- <7a0e519b-40ac-4b43-8b9d-f553f12149ab@rock-chips.com>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <7a0e519b-40ac-4b43-8b9d-f553f12149ab@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FRYP281CA0002.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10::12)
- To AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+	id 1v8zRz-00000001OC1-3bCE
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 15 Oct 2025 11:13:49 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59FBDgRZ1387653;
+	Wed, 15 Oct 2025 06:13:42 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1760526822;
+	bh=FsntGwJK+u1bx93YId7/aEwLX3vg7UlA2rb4wGYzrE8=;
+	h=From:To:CC:Subject:Date;
+	b=SneuFKL5Pp1hWTysHZ9tvaNyHWNuvaOciG8JGyH1/QHLvfTOCMOlrswVK7rfNgBvc
+	 71azxMvn103AaGqDw3HAZyimVW5Cnu3ge3EuKyRXrs/JOMJypXZbCRLQGOnJ6ySOl7
+	 kpFN0Lbs0v5GxcCjwldah21fljaLzthmh3d/8jOs=
+Received: from DLEE209.ent.ti.com (dlee209.ent.ti.com [157.170.170.98])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59FBDf2s1179812
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 15 Oct 2025 06:13:42 -0500
+Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 15 Oct
+ 2025 06:13:41 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 15 Oct 2025 06:13:41 -0500
+Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59FBDbHi1809909;
+	Wed, 15 Oct 2025 06:13:38 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <d.haller@phytec.de>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH v4 0/5] TI-K3-DTS: Cleanup CPSW DT Nodes
+Date: Wed, 15 Oct 2025 16:43:32 +0530
+Message-ID: <20251015111344.3639415-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|VI0PR04MB11601:EE_
-X-MS-Office365-Filtering-Correlation-Id: f8a5a39a-4a1d-4c60-729a-08de0bdb8115
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bUdObkJUNFpPR2pzS2dVcGdOVjhZZEpENTRBOWZXcmNFQ1hvVTBGclpjd3po?=
- =?utf-8?B?RVZ5QzhZS3JjUlNmbTRDK3NVdkF3SEUyRndWTkthSDZZZ3FzSFAzNjRENng0?=
- =?utf-8?B?eUZ4dWNaQVJsTE13OEpodzVZSDVSZEVrcTg0STJCZ0ZGang0Mms1RFhjcGZK?=
- =?utf-8?B?VDJUWkVvU2ljSzJKYnJ0RC9vbkxFV0NTaVNRc0lDUW5LNHBUZEF0K0pGQUdo?=
- =?utf-8?B?TEQ3NXhkdkhMZTNSZE8wS3l2Sk5EQmhqNnRxb09wNHE0NFF6NU85cVZkT3VT?=
- =?utf-8?B?MUs3R3czY3FPT1JwUlhOV3hYZXFsVVF4NDk4aGhJcG5IMk00SHladHR4QlFD?=
- =?utf-8?B?d2pvUjVKcDM5cjNpeWhYM013VnBrK1BHcC91NWlRS3JPaVBqNU1vVHMram1M?=
- =?utf-8?B?Z212dld5emRTbW5pZk84dmZYM0tqSWlRWHNNRnFMNVdPcnhDblBRYlZLSkJE?=
- =?utf-8?B?QllDUGp6dGVoQUo1ZlFtemRaYUExSE9oS2grQ3c3eFBKVGwzR0kwTjVrQm9j?=
- =?utf-8?B?Rnc1L01FaUs1VjdoRk5KTFpYMWw1UWpRSFN1NHRwRzNCemp3dmRzUE5lb1pI?=
- =?utf-8?B?L2hYTEsvNEtTMHNvY1pVVEpud0NxL2I2clBSY001YndQd0NZVnBiTnkrOVdy?=
- =?utf-8?B?VjJFZFBhYThHTzdBbkN6bm5Na0sraVo4amRMK2dtaHNtR3hWejlHNUI0MGd0?=
- =?utf-8?B?NjdmNjNkL2xXaHZaQmhiVndsa3psY0FTS1R5NlpiNjF6Z3VEQ2hqZEdCT1lK?=
- =?utf-8?B?NHFMNXNJZG94N1Bqbm1YVHRHbVlOdjQyeXJsZVlxUGZhT2dZVVNiMjdDOHli?=
- =?utf-8?B?K0RDTzgzdGw2RzVxd28rVkpPcm43N1o3RjhRcDRhTDNONlVmMk9TK2F2M3lQ?=
- =?utf-8?B?Y0RkSG5QTU55STlTVXpjNzdmSTcyRjBYOVl6eTNWRUovb0Fwck5uaWdVWk9M?=
- =?utf-8?B?RjJ4d1grclpwNDNuUUVoWEwrOTlRd0RPQ0NlYmtNd1JyOVFxZ3F1Wmd5UGhB?=
- =?utf-8?B?NWwrcWUycjRvaW5EdlovTUZwbGZaVkprdEdjRVNGTmVXQ25JekFCMUJJZE9F?=
- =?utf-8?B?NjFuWHlmQk11eHl4dDRodGlvNE9hMWl0K2kwcnhwUUtZdjdSWHdSUkkwanFC?=
- =?utf-8?B?Q0h4S2VDMzN3YkczTVB4ZHdtc0U2NHBDRm1nR3VvVzdNZmprMC9IclJyRi9H?=
- =?utf-8?B?K0k3OHpBbThtM2VoZkhuY3NSdkNPV3BTZHBiNTBnVDNEcU55S3VHY1N0RjFn?=
- =?utf-8?B?Vm1iUGcwVFp2SFlGVFlrMmMrYkh4Z0xGMnJ5MlVCTlJLSnVpL01CbHgyaURF?=
- =?utf-8?B?TmxRRnZ3ZDdnc3BLZFdNWjMzeGpNLzB6alUyR0NVWENmbmFZbjBJaVFSK0h2?=
- =?utf-8?B?SmhCMG4ybUgvaFZTanVEZVBjNG5oTWRXNTdkdDkzYk1lR0o2QmJUNnFyYlo0?=
- =?utf-8?B?NC9QdUpjNmU5U1A1RnFGSENLdldYUTUzTjZXbEg3S0kxRmpkYXV6N29pRHdR?=
- =?utf-8?B?Rkg4NEk5dFk0UC9hbFV3U1IyZ2VIOUNQa0wyWXBLS3pmVFkvbEVZK0ZQY2J3?=
- =?utf-8?B?YVBSUnE5R1BTQStWNmZtYnlCN0xrbGxhanJXSUdaRDRKeVg0bDFFL2xIZHpn?=
- =?utf-8?B?b1RPNSt5RDJ1c2JiM0VlSkdpSGRHWEhMUUpXb0V4a3lhYld5Z2lncnNqeENq?=
- =?utf-8?B?ckR3TzVRWkZtNVpWUUl1V1RVQjA4R20rbmcyQzhvMGFzcWliWFNzbzE3c1pp?=
- =?utf-8?B?U1N6K3ZEOW4vVWR0aTRlN3lZaFg5bUdubExtVmJvTGlvRUJSWWpBZU5VdmZN?=
- =?utf-8?B?Z1A3cnhsd3NzbVA2dFBhUkphdHFXZ3dLV1ozNHRvVWw1N0t4SDl3QUg4SXgr?=
- =?utf-8?B?MitiRHBSZWpuYys0clBXdFdZbGMyRlNqVTA2d3BqZlc3R1E9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L204U2NjRlVPZVNBRjZmUFN3UXdDbHkrMzJ6VGdObXd2ZkJVSzhUazlINTRQ?=
- =?utf-8?B?RytZOXB0QVMvbTBTSVVuNzZkbklWcndZcENrUlVPM2ErYnRpYy9abWVaUnl0?=
- =?utf-8?B?NkQzWWdQRjN5cmpqUHhyRmtXM3RIN3dHYWJveWRtbXN4TDc4MUkvTDgzTmhh?=
- =?utf-8?B?S2hINTdJZ2kwZFhyYjVtWUpDa0JRLzMzNE55S3FVamx6Y2lVcUlHRXE5VzZL?=
- =?utf-8?B?VkNoaHlnZngzV1FhSHN3SjNjS3R0ZkRUMHA0RXJ6Rm5MQ3pLdzd3bU5LVkhB?=
- =?utf-8?B?cWJSZjZsNVFkQzlIZjdIU0hZSDRHZmVNWWFGRXFadW5HV0Y0K1EwTGZwMStq?=
- =?utf-8?B?Y3EzeXdOREJXbGlqbTRTOGszR2ZxT1RiZ2RJU3NyQWw1SmVFaVh1MG9DQkpF?=
- =?utf-8?B?Uy84aEZETUNWOEhzZkhGTzhEdDBsRkg3V2YraExpbHJZelFHeWJLaDRLTjJU?=
- =?utf-8?B?ZGhySVliOTdocDNDNktXa3pLMjdEWUVUSzVqTnpzVFFYdDN3UTRBOXcvVlla?=
- =?utf-8?B?bjdEcHhyVDZ1c1pNSkMwSTJVTTl2aGtsaWs4c0w3YXV2S2lGeTlXVXpxMU5E?=
- =?utf-8?B?WW02cVFOQnV5S3loMlNZc2tKRFpnc0xhbURid0ZLMlNBbTd4LzRqTG9hd2Fu?=
- =?utf-8?B?Uk9rS2ZlMVh0WnYzUVZYRkozZmFrYXAwaFVHcnBGWmRZNzZXdGg4aHQzVzRC?=
- =?utf-8?B?Z0tGeDlJaWd5VkJXemljR2JFa3pwRnVQT3UrU2duRDlLOEQyMTlDekdudm53?=
- =?utf-8?B?Y0lsSWM5UThPb0FLYTVXZ0NJdU5NdzJDa1NZSjFUMWRQVmdRcllVTk9IcGR0?=
- =?utf-8?B?L2Q4YkFaMHRtaCtVTmUwUzhYa2RndDJmTk1DSytIaUtXY0pzbWx1dWduaDVL?=
- =?utf-8?B?UjhZUmNvVGhHMVN2djk3U0pJNXNNdlkvK1BMZHE0dTl5OHpOMFlGa1ZSbVZP?=
- =?utf-8?B?U0F5aUF6ZGsxWVpjalVnbUwwMk5tRmZTWGhtN1FUK0cycW12dDB3OURJQ3p0?=
- =?utf-8?B?RTFvdlBuQ3p3RTlWRURKWE0vUVFhbzA5N2pJdTU2VHQxbXBXbWFGcHY1UHI5?=
- =?utf-8?B?a3hzZFc1cmIxZXNvTGlrd011NTZzUkFpZFlEN2IwRnByR1NtZ1Vkdmg1dVIz?=
- =?utf-8?B?NHlFSis5S3MrdVhzNHQ0WXlnRjVxVHUyMVA2bVJram9kbWh0VVA2L2plUVl6?=
- =?utf-8?B?ZXkxMG1PcnpaSlExM1pFODY2RnB6OHJWT0FDOEgvSzJ2eGFBdVVaM00yK1Ey?=
- =?utf-8?B?VDYvUVY1NjJidnAxdjE4MXdVbFYxVHg2dFpJY2cxQUFWTGFUN1NUeEpLcklZ?=
- =?utf-8?B?NHZVeXNuYVZWOVhtWGY3WnF4Z2NaSVFUSlNGVWFOVUtlNWpTdnBEZEJYMHky?=
- =?utf-8?B?R3lRUERFSVhlN0JaUG1ub0w2RWJMY1NBUkNxemV5SEZhWFBPWjZxY3ZOb0xW?=
- =?utf-8?B?QUY1R21GNmRjT2VKNWExSzJ4K05TUmwyM1lHNzhUdzlnN2hYOVpzU1ZxZDN6?=
- =?utf-8?B?RS9TODFyK05nQTBWM2dZbGJTN3VqeWtzQUwwT2R6QnM2NXRwUHRVeXVRSVJ0?=
- =?utf-8?B?bFo4dHo4NEVSRzBIeGF6VWxPc0lzMTlMMGlvSEVSenlXNHFzNGFaWEZHV2Vo?=
- =?utf-8?B?RDY5R0Mrb1lab20rZDZrdGFaTmx5WE5vRVV4dXZFcDhWUW1iQVdvMFJGQm1z?=
- =?utf-8?B?VFR3UHdlcVFRNlhGR0Y2VkJkNzkrUnhUbXJMMVUxMVJMVm5wanF5VnkvTjRT?=
- =?utf-8?B?YzNTbGcrU2tMZ3lrMUpCMGwrR0oxdGdFN0pxQW45M09WaEpsTTgvUXlqVWho?=
- =?utf-8?B?RXRqbmJUY2dhaEZnZVg5RktKUXR5WldDMWpZRUFQRDBLWXhmWUJpM2FiUmxa?=
- =?utf-8?B?ejUzekMwWFBFU21Cdk1Dd25Ka2MvSDVpdW40djhRcFhMYU1QM3pJejd3eVZh?=
- =?utf-8?B?b0w5R1VtKzIxdm56ak1BT0E0MGdxYlk5NE1JMU8zbHAzeWxSZkZkNllYYnQv?=
- =?utf-8?B?ZUZBSTFKVjgvSjUwcGI4cVhsOTR6K0Qzb3o3RWpkOVJFT3dkWmRJbWNjS1Bt?=
- =?utf-8?B?R2NyeUlSUk5zRys3MXQ4Vmt3eWVXNkdwYkRtVFZiV0x2aW9DT0w3S0N5N21v?=
- =?utf-8?Q?zduG6b24HYe5d+zL1glSKLVGm?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: f8a5a39a-4a1d-4c60-729a-08de0bdb8115
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Oct 2025 11:10:53.3655
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9VHRE9wRwQHIXqCA/0TrHOAQNyJeHn5z+9Vk3qX9FfcCnT5gacxvHsxsKWGu67hr8+hzHA5LQCfgHYutjqQbQajDLdiSv3OPSc7SSM8xUSI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11601
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_041109_588365_3E672E8B 
-X-CRM114-Status: GOOD (  26.22  )
+X-CRM114-CacheID: sfid-20251015_041348_003197_FE36CF30 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,226 +83,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Damon,
+Hello,
 
-On 10/11/25 5:05 AM, Damon Ding wrote:
-> Hi Quentin,
-> 
-> On 7/25/2025 8:29 PM, Quentin Schulz wrote:
->> Hi Heiko,
->>
->> On 7/23/25 9:09 PM, Heiko Stuebner wrote:
->>> From: Heiko Stuebner <heiko.stuebner@cherry.de>
->>>
->>> The DisplayPort carrier is a very simple baseboard only providing 
->>> serial,
->>> ethernet and a displayport output.
->>>
->>> But its main functionality is that it routes the Analogix eDP controller
->>> to this DisplayPort output, which allows to test that controller simply
->>> by hooking it up to a suitable monitor.
->>>
->>> The Analogix-DP controller supports eDP 1.3 and DP 1.2, so can drive
->>> both eDP displays as well as full DP monitors. It does not support DP+
->>> so passive DP-to-HDMI adapters won't work.
->>>
->>
->> I tested this on master (2942242dde896) + v2 of the eDP driver as 
->> listed in the cover letter, or with v3 of the eDP driver + 
->> 48f05c3b4b701ae7687fd44d462c88b7ac67e952 and in both cases I have 
->> weird behaviors.
->>
->> First, `reboot` is stuck for a very long time before actually 
->> rebooting. I think you have a stacktrace when you tried yourself, I 
->> don't so cannot send one.
->>
->> Also, I tested on two different DP displays, one has a green tint, the 
->> other one purple. When trying out other resolutions with modetest, the 
->> kernel would often crash (no trace, just nothing on console, SSH 
->> dead). Note that the same HW setup with downstream kernel from 
->> https:// git.theobroma-systems.com/tiger-linux.git/log/?h=linux-6.1- 
->> stan-rkr3.2- tiger works just fine. I would assume this has nothing to 
->> do with this Device Tree patch here but rather the eDP patches missing 
->> some bits maybe?
->>
->> @Damon do you have some idea?
->>
-> 
-> Apologies for the delayed reply. :-)
-> 
-> Since the patch series has been updated to v6, could you please rebase 
-> these patches? I will then conduct further investigation into this issue.
-> 
+This series cleans up the CPSW Device-tree nodes by updating the SoC and
+board files to keep CPSW disabled in the SoC files and enable it only in
+the board files.
 
-OK so I checked with:
-https://lore.kernel.org/all/20250930090920.131094-1-damon.ding@rock-chips.com/
-https://lore.kernel.org/all/20250930094251.131314-1-damon.ding@rock-chips.com/ 
-(patches 14-18 of the previous thread)
-https://lore.kernel.org/linux-rockchip/20251009225050.88192-1-heiko@sntech.de/ 
-(v4 of this series)
-https://lore.kernel.org/all/20251009193028.4952-1-heiko@sntech.de/
-https://lore.kernel.org/linux-rockchip/20251008133135.3745785-1-heiko@sntech.de/
+The following is a summary of the SoCs, CPSW instance and the Boards that
+this series affects:
 
-and I'm happy to report that it looks good now (small issues to follow) 
-on both my displays.
+-----    -------    ----------------  -------------------------------------------------------------
+S.No.      SoC        CPSW Instance                         Board(s) / SOM(s)
+-----    -------    ----------------  -------------------------------------------------------------
+  1.       AM62          CPSW3G           AM625-Beagleplay, AM62-LP-SK, AM62-Phycore-SOM, AM625-SK
+  2.       AM65        MCU CPSW2G         AM654-Base-Board, IOT-2050 Based Boards
+  3.       J7200       MCU CPSW2G         J7200-Common-Processor-Board
+  4.       J721E       MCU CPSW2G         J721E-Common-Processor-Board, J721E-Beagleboneai64, J721E-SK
+  5.       J721S2      MCU CPSW2G         AM68-SK-Base-Board, J721S2-Common-Processor-Board, AM68-Phyboard
 
-I can boot with or without the display attached and it'll show the 
-serial on my display, so that's good.
+Series is based on linux-next tagged next-20251014.
 
-1. When I boot without the display connected and then attach the DP 
-cable I get the following kernel messages (but the console is shown on 
-the display, without artifacts):
+v3 of this series is at:
+https://patchwork.kernel.org/project/linux-arm-kernel/cover/20251014125349.3408784-1-s-vadapalli@ti.com/
+Changes since v3:
+- Rebased series on next-20251014.
+- Based on feedback from Dominik Haller <d.haller@phytec.de> at:
+  https://lore.kernel.org/r/df6acbfe5d30956ed66e2768fa595c36d2ebe98a.camel@phytec.de/
+  the first and fifth patch have been updated to enable cpsw in:
+  k3-am62-phycore-som.dtsi and k3-am68-phyboard-izar.dts respectively.
+- The fourth patch of this series has been updated to enable cpsw in:
+  k3-j721e-beagleboneai64.dts and k3-j721e-sk.dts
 
-[  105.469838] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[  105.476889] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[  105.481646] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[  105.485714] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[  105.490294] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[  105.587544] Console: switching to colour frame buffer device 240x67
-[  105.663754] rockchip-drm display-subsystem: [drm] fb0: rockchipdrmfb 
-frame buffer device
+Test Logs:
+1. AM654-Base-Board:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/168cada897c0e13d5c197b241e336544
+2. AM68-SK-Base-Board:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/b97d65dd9fd1a8a852fc4b55842d5e3c
+4. J721E-Common-Processor-Board:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/0b264562259b8eed349daa36827f7c2c
+5. J721S2-Common-Processor-Board:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/690ca66e8400b966723f4d316ac1db7e
 
-2. All modes reported by my displays work (except one for the Iiyama 
-display, 720x576@50.00 reports "Out of range" on my display). Though 
-some have some "glitch" before showing the modetest pattern. On the 
-Iiyama display, all modes except 1920x1080@60.00 start by a 
-near-pitch-dark pattern except for the location of the bottom left white 
-rectangle (see [1] for expected pattern) where it's now very dark green 
-(almost indistinguishable from pitch dark), this lasts for a fraction of 
-a second and then the modetest pattern shows as expected. On the Dell 
-monitor, it shows something different but it goes too fast for me to be 
-able to describe it, but only for mode 1024x768@75.03.
+Regards,
+Siddharth.
 
-3. For both displays, all modes except #0 make the kernel print the 
-following:
-[ 1059.315123] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[ 1059.329418] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[ 1059.343840] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[ 1059.355668] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[ 1059.366802] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[ 1059.378528] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
+Siddharth Vadapalli (5):
+  arm64: dts: ti: k3-am62: disable "cpsw3g" in SoC file and enable in
+    board file
+  arm64: dts: ti: k3-am65: disable "mcu_cpsw" in SoC file and enable in
+    board file
+  arm64: dts: ti: k3-j7200: disable "mcu_cpsw" in SoC file and enable in
+    board file
+  arm64: dts: ti: k3-j721e: disable "mcu_cpsw" in SoC file and enable it
+    in board file
+  arm64: dts: ti: k3-j721s2: disable "mcu_cpsw" in SoC file and enable
+    in board files
 
-on setting the pattern and
+ arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts               | 4 ++++
+ arch/arm64/boot/dts/ti/k3-am62-main.dtsi               | 2 ++
+ arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi        | 1 +
+ arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts         | 1 +
+ arch/arm64/boot/dts/ti/k3-am625-sk-common.dtsi         | 1 +
+ arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi     | 4 ----
+ arch/arm64/boot/dts/ti/k3-am65-mcu.dtsi                | 2 ++
+ arch/arm64/boot/dts/ti/k3-am654-base-board.dts         | 1 +
+ arch/arm64/boot/dts/ti/k3-am68-phyboard-izar.dts       | 1 +
+ arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts       | 1 +
+ arch/arm64/boot/dts/ti/k3-j7200-common-proc-board.dts  | 1 +
+ arch/arm64/boot/dts/ti/k3-j7200-mcu-wakeup.dtsi        | 2 ++
+ arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts     | 1 +
+ arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts  | 1 +
+ arch/arm64/boot/dts/ti/k3-j721e-mcu-wakeup.dtsi        | 2 ++
+ arch/arm64/boot/dts/ti/k3-j721e-sk.dts                 | 1 +
+ arch/arm64/boot/dts/ti/k3-j721s2-common-proc-board.dts | 1 +
+ arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi       | 2 ++
+ 18 files changed, 25 insertions(+), 4 deletions(-)
 
-[ 1064.602029] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[ 1064.616136] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[ 1064.627958] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[ 1064.639091] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
-[ 1064.650835] rockchip-dp fdec0000.edp: AUX CH error happened: 0x0 (1)
+-- 
+2.51.0
 
-when going back to the console (note that the hex error code is not 
-always the same, but most often is 0x0).
-
-Misc:
-
-- "Script" for testing all modes:
-
-CONNECTOR=$(modetest -M rockchip | grep DP-1 | cut -f 1)
-NMODES=$(modetest -M rockchip -c | grep -E -o "^\s*#[0-9]+" | tail -1 | 
-grep -E -o "[0-9]+")
-for i in $(seq 0 $NMODES); do
-   modetest -M rockchip -s $CONNECTOR:#$i
-done
-
-(modetest is part of libdrm-tests package on Debian)
-
-- Modes for my Iiyama display:
-
-83      82      connected       DP-1            480x270         28      82
-   modes:
-         index name refresh (Hz) hdisp hss hse htot vdisp vss vse vtot
-   #0 1920x1080 60.00 1920 2008 2052 2200 1080 1084 1089 1125 148500 
-flags: phsync, pvsync; type: preferred, driver
-   #1 1920x1080 74.97 1920 1968 2000 2080 1080 1083 1088 1119 174500 
-flags: phsync, nvsync; type: driver
-   #2 1920x1080 59.94 1920 2008 2052 2200 1080 1084 1089 1125 148352 
-flags: phsync, pvsync; type: driver
-   #3 1920x1080 50.00 1920 2448 2492 2640 1080 1084 1089 1125 148500 
-flags: phsync, pvsync; type: driver
-   #4 1600x1200 60.00 1600 1664 1856 2160 1200 1201 1204 1250 162000 
-flags: phsync, pvsync; type: driver
-   #5 1680x1050 59.95 1680 1784 1960 2240 1050 1053 1059 1089 146250 
-flags: nhsync, pvsync; type: driver
-   #6 1280x1024 75.02 1280 1296 1440 1688 1024 1025 1028 1066 135000 
-flags: phsync, pvsync; type: driver
-   #7 1280x1024 60.02 1280 1328 1440 1688 1024 1025 1028 1066 108000 
-flags: phsync, pvsync; type: driver
-   #8 1440x900 74.98 1440 1536 1688 1936 900 903 909 942 136750 flags: 
-nhsync, pvsync; type: driver
-   #9 1440x900 59.89 1440 1520 1672 1904 900 903 909 934 106500 flags: 
-nhsync, pvsync; type: driver
-   #10 1280x960 60.00 1280 1376 1488 1800 960 961 964 1000 108000 flags: 
-phsync, pvsync; type: driver
-   #11 1152x864 75.00 1152 1216 1344 1600 864 865 868 900 108000 flags: 
-phsync, pvsync; type: driver
-   #12 1280x720 60.00 1280 1390 1430 1650 720 725 730 750 74250 flags: 
-phsync, pvsync; type: driver
-   #13 1280x720 59.94 1280 1390 1430 1650 720 725 730 750 74176 flags: 
-phsync, pvsync; type: driver
-   #14 1280x720 50.00 1280 1720 1760 1980 720 725 730 750 74250 flags: 
-phsync, pvsync; type: driver
-   #15 1152x720 59.97 1152 1208 1328 1504 720 721 724 746 67282 flags: 
-nhsync, pvsync; type:
-   #16 1024x768 75.03 1024 1040 1136 1312 768 769 772 800 78750 flags: 
-phsync, pvsync; type: driver
-   #17 1024x768 60.00 1024 1048 1184 1344 768 771 777 806 65000 flags: 
-nhsync, nvsync; type: driver
-   #18 832x624 74.55 832 864 928 1152 624 625 628 667 57284 flags: 
-nhsync, nvsync; type: driver
-   #19 800x600 75.00 800 816 896 1056 600 601 604 625 49500 flags: 
-phsync, pvsync; type: driver
-   #20 800x600 60.32 800 840 968 1056 600 601 605 628 40000 flags: 
-phsync, pvsync; type: driver
-   #21 720x576 50.00 720 732 796 864 576 581 586 625 27000 flags: 
-nhsync, nvsync; type: driver
-   #22 720x480 60.00 720 736 798 858 480 489 495 525 27027 flags: 
-nhsync, nvsync; type: driver
-   #23 720x480 59.94 720 736 798 858 480 489 495 525 27000 flags: 
-nhsync, nvsync; type: driver
-   #24 640x480 75.00 640 656 720 840 480 481 484 500 31500 flags: 
-nhsync, nvsync; type: driver
-   #25 640x480 60.00 640 656 752 800 480 490 492 525 25200 flags: 
-nhsync, nvsync; type: driver
-   #26 640x480 59.94 640 656 752 800 480 490 492 525 25175 flags: 
-nhsync, nvsync; type: driver
-   #27 720x400 70.08 720 738 846 900 400 412 414 449 28320 flags: 
-nhsync, pvsync; type: driver
-
-- Modes for my Dell display:
-83      82      connected       DP-1            510x290         12      82
-   modes:
-         index name refresh (Hz) hdisp hss hse htot vdisp vss vse vtot
-   #0 1920x1080 60.00 1920 2008 2052 2200 1080 1084 1089 1125 148500 
-flags: phsync, pvsync; type: preferred, driver
-   #1 1600x900 60.00 1600 1624 1704 1800 900 901 904 1000 108000 flags: 
-phsync, pvsync; type: driver
-   #2 1280x1024 75.02 1280 1296 1440 1688 1024 1025 1028 1066 135000 
-flags: phsync, pvsync; type: driver
-   #3 1280x1024 60.02 1280 1328 1440 1688 1024 1025 1028 1066 108000 
-flags: phsync, pvsync; type: driver
-   #4 1152x864 75.00 1152 1216 1344 1600 864 865 868 900 108000 flags: 
-phsync, pvsync; type: driver
-   #5 1024x768 75.03 1024 1040 1136 1312 768 769 772 800 78750 flags: 
-phsync, pvsync; type: driver
-   #6 1024x768 60.00 1024 1048 1184 1344 768 771 777 806 65000 flags: 
-nhsync, nvsync; type: driver
-   #7 800x600 75.00 800 816 896 1056 600 601 604 625 49500 flags: 
-phsync, pvsync; type: driver
-   #8 800x600 60.32 800 840 968 1056 600 601 605 628 40000 flags: 
-phsync, pvsync; type: driver
-   #9 640x480 75.00 640 656 720 840 480 481 484 500 31500 flags: nhsync, 
-nvsync; type: driver
-   #10 640x480 59.94 640 656 752 800 480 490 492 525 25175 flags: 
-nhsync, nvsync; type: driver
-   #11 720x400 70.08 720 738 846 900 400 412 414 449 28320 flags: 
-nhsync, pvsync; type: driver
-
-Do we want to continue this discussion on the DP controller patch series 
-instead of here?
-
-[1] 
-https://wiki.luckfox.com/zh/assets/images/modetest-RGB-88cf751fc5f0f148115cf67a7370998a.png
-
-Cheers,
-Quentin
 
