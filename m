@@ -4,96 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D8FDCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 23:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B5E1CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 23:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0B0q4BGZ2XC9IpC6Pjd+pwzTY4I/KdNTGZZcgGIVD2s=; b=MxaaSingOvqJMQtLllTNMoql91
-	jnoPK1sRRygcra49RV2fyJTzhC98+3dMptqMcNCnHGjnvx1r7DNTjVJFfoL3D2RzUSJKi/C/9hsZy
-	t2202f0m3Q4c0WTYXMAPDAhYDULOl8slYPaF9PtCW8mmQKK7Vntv/2eMdQFi8py0BTlrXAkr5JSQc
-	DQ1mBpEoPcv4z5rSnZtwd7lKdOU1YJ3PhlhyLhxMUREdyfZYGiCJFYWyzXek1oC/1Ft/aN6bUSBzQ
-	hTPV7s3lkTK1eWFhyRvIj8Nl8auoRjQ00Z1aj6v57aqW7xtkAqvl/z24Oihgg8/+OpTM580LwroOF
-	JncHqebw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iK6GuNI3fRMzybeSWKAw1V2MEONYtsyZW75mcPhcQ9M=; b=i/OKpx+71ntKb5Mio0UdAacfOE
+	FmlTE/VoVD3+9ZGDvM/0/pBbahhKa+g0vyrkK1hY0VIxt6Nn8YAOCfBYfbWb4mGkK1fg9ONmFXd0R
+	C5m4ttbjO/Dz0AsJ9B3cqvnGvRaeTIIUAIwZifoHf9PP+XdVuGyEJhXqxvZM0C5X4rsSZ6dhMKwt3
+	IG7BoY1S6qDSfmhTBswnRoGGPaCdBKggLQdoQgdycC9vhgCNsyJdwyXmjuPkHjKo6W1XmGlE6ZMhB
+	ALfUi3TcdMfSj3fC3qhn06NHQJ2kdPIu0OA4aJKGMMBDrfy1sRpvazS77dwqpekvXjwTNSWf2Erlm
+	iHu+1csA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9AoH-000000034h7-28cT;
-	Wed, 15 Oct 2025 23:21:33 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1v9B9w-000000036O5-1jnb;
+	Wed, 15 Oct 2025 23:43:56 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9AoF-000000034gd-1a26
+	id 1v9B9t-000000036Ng-1hqR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 23:21:32 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-36bd4bea485so15841fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 16:21:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760570489; x=1761175289; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0B0q4BGZ2XC9IpC6Pjd+pwzTY4I/KdNTGZZcgGIVD2s=;
-        b=JC2OFKokQQ/KNwnyJUuSWCEOZMWZhARr9qDn0eDWLW2KIytNIhoq1n+WjQeqyJk3nO
-         hkIv1IpUmag46kFbA1GRW9tMoPGe9fIUrZY1F0qm6Yy7UYrPtZyMdL8i1BKDnXzSM3ST
-         ybcWzhUYMtD+ALOdtfaG5DcklOFrgvYTnGvwJkBxoKTIisI2B0jPXgYz4x9kUJBHLbsj
-         /4i7YeqJkAW6FREh1LAAjY3ayQAK/ekuaU0Cs5dRsIb1TRWmPmp4WLcEuEJu0N5Edpl8
-         eLnZ46LKQbIpq6PiJn4Kz0D/AEKHb8r4YN3njtDtegP2xnlolWbbyhZjwWnl81xx79x5
-         HVCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760570489; x=1761175289;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=0B0q4BGZ2XC9IpC6Pjd+pwzTY4I/KdNTGZZcgGIVD2s=;
-        b=r3A9G+qOjWG60Mn4APX0GWDhQXIu3nubqZfJTIWBTTvYaimxOePKpi9zpnxthOavpo
-         3O5WZO7iqRYoHjkalWAB0cluEF7VaWhKJZR1ORkzCdA2bFo5WRnAZpvL/pet7YyzIKIw
-         t7qoWvNEWCQzQqdhmypWwIYDB4Ai/Puak0vveDhjwtdrAYdYeYrSwDLzOA3DUVGYJdB9
-         4bNLEovL8eB6ioMXbbVC/wuHERa1ZleIjCNiuU83k1zFlfIchlZuzNWE8o4ssK5QrdNE
-         Wi5ioaF5MuIrG8vJQoiZYnL3EcCpUEnXmD/qc0ydkODd9M+MdLo5LnGDSrPUTVTd596C
-         outQ==
-X-Gm-Message-State: AOJu0YzjVMR4gpW/pEgOK3Z/RiVU7AB1+Kz7m9sHMb/huXsZpUsxgxXB
-	KigEQbDvs2cONIM7UZliqIM0rRYG1U96iXTerIH9LfdVAEaX6W8lXxbUzee5lA7wPAw=
-X-Gm-Gg: ASbGncsSUcU4bNfrLnPT62bs5OeBm6pImch8elZyTaRlCBPIUzS1PejzTdRDID013Dv
-	3n4AuPA8IOHGdGEaLQEGtR5a5T7E0//f7Hy7zt7SO0ZwupSrWoK4RMfxlphn6T376vv19b8GhL7
-	0bR+WJmWdtKIF1gti96NzWVvAS9Vm99S/5oGXB+DzXAxkGK53A83G4IucRzAyKR58pjlNZ6bDQ6
-	iamvj0tIp9BrDSty1eJHgKQ0AKqw0lfOa6KiiUJeL3uMJDh4ZODoN7/URRMRVsdrqh5TSBzKvUX
-	a7dHe7r9wDODkTMO57rrJKiY1YdfLkyhHoZgcwX6r8N3ONPQLcpu9zEXN7b4c/8B4SO9lcctZUY
-	GVuRYheM2srFxgpRMymovEdcUsR3Mx1en0jT0jSKR3pOntozzJUKw/HVvZnbOBs7GFR5XlhlEIm
-	cVA1u1KfJpBgkMsmIpvUjzRoMzlVZQDzHRwebylvOmBipj7e/lL7HfIexyoF0=
-X-Google-Smtp-Source: AGHT+IFsezevTFX7VRsMPmvaC7e3rUHL6zRBQobMDgZpbCMrsMUto/Rrsx7K6ihOpaTOS8S2VJhQLA==
-X-Received: by 2002:a2e:a543:0:b0:372:79e8:ea7f with SMTP id 38308e7fff4ca-37779707285mr8426581fa.7.1760570489271;
-        Wed, 15 Oct 2025 16:21:29 -0700 (PDT)
-Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3762e77ca04sm51213281fa.4.2025.10.15.16.21.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 15 Oct 2025 16:21:28 -0700 (PDT)
-Message-ID: <47b4dc34-ae75-437f-84ce-84558226cdeb@linaro.org>
-Date: Thu, 16 Oct 2025 02:21:26 +0300
+	Wed, 15 Oct 2025 23:43:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1760571833; x=1792107833;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0xdTqDw9WUR1MHTE6JTRUHIGJ2mKZvvcYBTUUih42x4=;
+  b=a5o3gs9AZb8CUFfXSyUmRQfHAoX0vMwZp6q0ZFmaWy1Qx3poVi89VagL
+   u2Acliqsw1/wWSMEUQrTWA9Dmp+oszcf8s3ntcMTfjtetOLInqQ5Ap8d3
+   dtMfRNdbfD7QYmHq5M8AVwx3fgY8UIfJnaSb2BRmY3npSYAth39VrrpdE
+   TEhz/l0/0dSxhTF30dUazvECdqp5m/WXfQpzvptqNvUHg3Typxofd4kLf
+   TR3JEZhhDRJqFhMqbfKV8pI5WmRJjIQGE071inZu0WEGl0tYOyfN3AHvn
+   3j0/zo9wmvYpAIKb3c4hL8qpxPIP+3ApYsjVagd+/321lF2tCKKljl2dg
+   g==;
+X-CSE-ConnectionGUID: HKL9XZ51RlWrC6x2r/si1g==
+X-CSE-MsgGUID: LwaY7BvqTA2DAI/jKf/IXg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11583"; a="74204115"
+X-IronPort-AV: E=Sophos;i="6.19,232,1754982000"; 
+   d="scan'208";a="74204115"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 16:43:52 -0700
+X-CSE-ConnectionGUID: Hso+wECATpWtOfTbPJ+EBQ==
+X-CSE-MsgGUID: NhZgz1k0SL+mUJXovZND2w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,232,1754982000"; 
+   d="scan'208";a="181853552"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa009.jf.intel.com with ESMTP; 15 Oct 2025 16:43:48 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v9B9g-0004Id-38;
+	Wed, 15 Oct 2025 23:43:42 +0000
+Date: Thu, 16 Oct 2025 07:43:07 +0800
+From: kernel test robot <lkp@intel.com>
+To: Lizhe <sensor1010@163.com>, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk, jonas@kwiboo.se,
+	chaoyi.chen@rock-chips.com, david.wu@rock-chips.com
+Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Lizhe <sensor1010@163.com>
+Subject: Re: [PATCH net-next] net: dwmac-rk: No need to check the return
+ value of the phy_power_on()
+Message-ID: <202510160726.OejMgsW0-lkp@intel.com>
+References: <20251015040847.6421-1-sensor1010@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add support for camss
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- Vikram Sharma <quic_vikramsa@quicinc.com>, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20251015130130.2790829-1-quic_vikramsa@quicinc.com>
- <20251015130130.2790829-3-quic_vikramsa@quicinc.com>
- <b4207e22-8d9c-4223-8b28-272d2650661f@linaro.org>
- <ca8189d0-a518-4716-8b28-e36571cbba5a@linaro.org>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <ca8189d0-a518-4716-8b28-e36571cbba5a@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251015040847.6421-1-sensor1010@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_162131_580349_54FC13EA 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20251015_164353_514286_E7F8CA97 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,25 +94,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/15/25 22:58, Bryan O'Donoghue wrote:
-> On 15/10/2025 19:49, Vladimir Zapolskiy wrote:
->>> +            power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
->>> +            power-domain-names = "top";
->>
->> 'power-domain-names' property is redundant, since there is just one
->> power domain.
-> 
-> Its a required property of the yaml.
-> 
+Hi Lizhe,
 
-Technically it is not a property of the yaml, but I think I understand
-what you mean here.
+kernel test robot noticed the following build errors:
 
-As usual since there is no users of the previously written device tree
-node rules, I believe the documentation is still flexible to be updated
-to a better shape.
+[auto build test ERROR on net-next/main]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Lizhe/net-dwmac-rk-No-need-to-check-the-return-value-of-the-phy_power_on/20251015-121214
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20251015040847.6421-1-sensor1010%40163.com
+patch subject: [PATCH net-next] net: dwmac-rk: No need to check the return value of the phy_power_on()
+config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20251016/202510160726.OejMgsW0-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251016/202510160726.OejMgsW0-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510160726.OejMgsW0-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c: In function 'rk_gmac_powerdown':
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1670:9: error: implicit declaration of function 'phy_power_on'; did you mean 'rk_phy_power_on'? [-Wimplicit-function-declaration]
+    1670 |         phy_power_on(gmac, false);
+         |         ^~~~~~~~~~~~
+         |         rk_phy_power_on
+
+
+vim +1670 drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+
+7ad269ea1a2b7d Roger Chen            2014-12-29  1662  
+229666c14c75ae Vincent Palatin       2016-06-15  1663  static void rk_gmac_powerdown(struct rk_priv_data *gmac)
+7ad269ea1a2b7d Roger Chen            2014-12-29  1664  {
+32c7bc0747bbd8 Jonas Karlman         2025-03-19  1665  	if (gmac->integrated_phy && gmac->ops->integrated_phy_powerdown)
+32c7bc0747bbd8 Jonas Karlman         2025-03-19  1666  		gmac->ops->integrated_phy_powerdown(gmac);
+fecd4d7eef8b21 David Wu              2017-08-10  1667  
+8f6503993911f0 Russell King (Oracle  2025-06-16  1668) 	pm_runtime_put_sync(gmac->dev);
+aec3f415f7244b Punit Agrawal         2021-09-29  1669  
+7ad269ea1a2b7d Roger Chen            2014-12-29 @1670  	phy_power_on(gmac, false);
+7ad269ea1a2b7d Roger Chen            2014-12-29  1671  	gmac_clk_enable(gmac, false);
+7ad269ea1a2b7d Roger Chen            2014-12-29  1672  }
+7ad269ea1a2b7d Roger Chen            2014-12-29  1673  
 
 -- 
-Best wishes,
-Vladimir
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
