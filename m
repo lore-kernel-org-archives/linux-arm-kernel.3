@@ -4,61 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A2FCCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 11:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C478CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 15 Oct 2025 11:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PeS/apnn85nX9ng/tt8X2bYGx3sxDnw/yEoxqG10owU=; b=IejKlocoDhSmh/foclOJR7/YnF
-	UJ2FhVJKwzsInPWQHxW3IhOIYauwy4CDzmM0x2M+E1LTOoFghym5RO1KjMlXHN6icGCSaOxSVzVI7
-	OmDQbQxZ8FxiDNXj1N5TNM3/ztVbn/zxlzgGkhSz0zIjOZ1o5+KFWF6IXfP86AMSL9vP8ZsH1USlZ
-	bZjmFHGi7a6oMa83o0GFK0ctoL0B+qqpGcTMDVsCYnhUa7GaT6yRLCzljvqyA58tmfrD/Z6r18zOc
-	8AZ4eQsDzycxuRwpd0Da8AN35SUhz9LzsEh43gOF/Eqsy2e22qhJPGFmXBdh6eb2pi3YQGOcXang0
-	oMgwtb4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QMhycy0ii/sUUxccnHx4Jta5oeilB8JlGG/oyHixMQ4=; b=3CqzkaeG2bo1cL3LhOr2cEowri
+	CidWvtapNf4dLIqR4RXsCjHRgfUy0y7tYTHtOUz4l/6FAuH61GGfifhcjn1tVFMANVUqv5aOaC9ZP
+	iqVs2LOIxrmbCGneGGrB+mQkOBqHauNZYwirXdnWzgZ9IgmCvBCeN3l5wg7my6xNWtUD6Nu7HefiK
+	cQRvMzFeplN6sLj+TIOUAQfejIMwVewgk/98wSv2HDdNiuh5uX421HJz3/kZBu80FSXcFp1VqlBwK
+	B4w9bakgq0kDL2IvXNkYx7iS2Kkd+0iOzl4CsJ7uMPtW2MqlSMsXV+MQwjdSOLcL7jD0NDHJaOeKm
+	+xd9+gdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8zgA-00000001PsJ-2es9;
-	Wed, 15 Oct 2025 11:28:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8zg8-00000001Prd-3S9i
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 15 Oct 2025 11:28:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 522C9339;
-	Wed, 15 Oct 2025 04:28:16 -0700 (PDT)
-Received: from a079125.blr.arm.com (a079125.arm.com [10.164.21.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1ABF43F66E;
-	Wed, 15 Oct 2025 04:28:19 -0700 (PDT)
-From: Linu Cherian <linu.cherian@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Linu Cherian <linu.cherian@arm.com>
-Subject: [PATCH v3 2/2] arm64/mm: Rename try_pgd_pgtable_alloc_init_mm
-Date: Wed, 15 Oct 2025 16:57:58 +0530
-Message-ID: <20251015112758.2701604-3-linu.cherian@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251015112758.2701604-1-linu.cherian@arm.com>
-References: <20251015112758.2701604-1-linu.cherian@arm.com>
+	id 1v8zms-00000001QR9-2dsi;
+	Wed, 15 Oct 2025 11:35:22 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8zmq-00000001QQj-0gtY;
+	Wed, 15 Oct 2025 11:35:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1760528120; x=1792064120;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=N8KTLk2i4j4WLjDJhe9R8PN5ffY5bayo6I0hvYve81g=;
+  b=hcaeKDL6ZpSgomkhqoFuGfP9Ik9ocUfPzSKBZrzmSBzq8gfhaaBfor9E
+   vv+d1Br0s5vxAr0L8lACFTfgBIPGiAS134sJ2AADZWLdq25Vo+fPR5b7j
+   OFfZY2TMjzTOX7hhNPQqPy3FCW7TzxjY9X39UINDFqtsqloqNIqKJLA9M
+   plAUM+16ZacJGKbePWZXbgcYrrIlKj4XwZrA6ZpEUYPFBt0EyBKPLaRul
+   oy0XvHRN37fHqKv+choXQf+pFjjebpExu4m3axs7To+A69jMHrg0ec4vd
+   MEx3ivuIZMVPJN10IT1gjWETne7yLSRFGEkZULmb95nloOfWlbdazdCdI
+   g==;
+X-CSE-ConnectionGUID: kXJGeJsqSnqXJbbrUMax4g==
+X-CSE-MsgGUID: hHhM4Nj0QWaySeYGgWb1Rg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11582"; a="62851836"
+X-IronPort-AV: E=Sophos;i="6.19,231,1754982000"; 
+   d="scan'208";a="62851836"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 04:35:18 -0700
+X-CSE-ConnectionGUID: t14M/OvQQLKxXxjF7/urHw==
+X-CSE-MsgGUID: 99cgwGGKQsu1ghCz7GXPig==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,231,1754982000"; 
+   d="scan'208";a="181952562"
+Received: from rvuia-mobl.ger.corp.intel.com (HELO mdjait-mobl) ([10.245.245.114])
+  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 04:35:11 -0700
+Date: Wed, 15 Oct 2025 13:35:02 +0200
+From: Mehdi Djait <mehdi.djait@linux.intel.com>
+To: michael.riesch@collabora.com
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	=?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Gerald Loacker <gerald.loacker@wolfvision.net>, Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+	Markus Elfring <Markus.Elfring@web.de>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Kever Yang <kever.yang@rock-chips.com>, 
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Collabora Kernel Team <kernel@collabora.com>, Paul Kocialkowski <paulk@sys-base.io>, 
+	Alexander Shiyan <eagle.alexander923@gmail.com>, Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v12 06/18] media: rockchip: add driver for the rockchip
+ mipi csi-2 receiver
+Message-ID: <j2elclqcuwdkz3lan265u4wucwyiyl5xgb5t7mzzunfn2mwjpm@f7ipn4y2uiag>
+References: <20240220-rk3568-vicap-v12-0-c6dbece6bb98@collabora.com>
+ <20240220-rk3568-vicap-v12-6-c6dbece6bb98@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20240220-rk3568-vicap-v12-6-c6dbece6bb98@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_042824_906828_8B721C9A 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251015_043520_285049_31DC32EF 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,63 +95,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With BUG_ON in pgd_pgtable_alloc_init_mm moved up to higher layer,
-gfp flags is the only difference between try_pgd_pgtable_alloc_init_mm
-and pgd_pgtable_alloc_init_mm. Hence rename the "try" version
-to pgd_pgtable_alloc_init_mm_gfp.
+Hi Michael,
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Linu Cherian <linu.cherian@arm.com>
----
-Changelog
-v3:
-* Update  pgd_pgtable_alloc_init_mm to make use of 
-  pgd_pgtable_alloc_init_mm_gfp
+Thank you for the patches!
 
- arch/arm64/mm/mmu.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+On Tue, Oct 14, 2025 at 03:01:52PM +0200, Michael Riesch via B4 Relay wrote:
+> From: Michael Riesch <michael.riesch@collabora.com>
+> 
+> The Rockchip RK3568 MIPI CSI-2 Receiver is a CSI-2 bridge with one
+> input port and one output port. It receives the data with the help
+> of an external MIPI PHY (C-PHY or D-PHY) and passes it to the
+> Rockchip RK3568 Video Capture (VICAP) block.
+> 
+> Add a V4L2 subdevice driver for this unit.
+> 
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 638cb4df31a9..80786d3167e7 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -559,7 +559,7 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
- }
- 
- static phys_addr_t
--try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type, gfp_t gfp)
-+pgd_pgtable_alloc_init_mm_gfp(enum pgtable_type pgtable_type, gfp_t gfp)
- {
- 	return __pgd_pgtable_alloc(&init_mm, gfp, pgtable_type);
- }
-@@ -567,7 +567,7 @@ try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type, gfp_t gfp)
- static phys_addr_t __maybe_unused
- pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
- {
--	return __pgd_pgtable_alloc(&init_mm, GFP_PGTABLE_KERNEL, pgtable_type);
-+	return pgd_pgtable_alloc_init_mm_gfp(pgtable_type, GFP_PGTABLE_KERNEL);
- }
- 
- static phys_addr_t
-@@ -594,7 +594,7 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
- 	pte_t *ptep;
- 	int i;
- 
--	pte_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PTE, gfp);
-+	pte_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PTE, gfp);
- 	if (pte_phys == INVALID_PHYS_ADDR)
- 		return -ENOMEM;
- 	ptep = (pte_t *)phys_to_virt(pte_phys);
-@@ -639,7 +639,7 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
- 	pmd_t *pmdp;
- 	int i;
- 
--	pmd_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PMD, gfp);
-+	pmd_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PMD, gfp);
- 	if (pmd_phys == INVALID_PHYS_ADDR)
- 		return -ENOMEM;
- 	pmdp = (pmd_t *)phys_to_virt(pmd_phys);
--- 
-2.43.0
+Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
 
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+
+--
+Kind Regards
+Mehdi Djait
 
