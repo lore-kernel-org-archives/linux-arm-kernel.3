@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC63CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 22:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5306BCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 23:10:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kmEYRnE9eYaFqXKORkJ+PIJAmcGX5bvGN7hsJdgH+6A=; b=QQKlkwW3Deak6hgpq9Zuh3G0hX
-	a1ZZjk+LdjwbTCbLryF2aPPK+W4q3fpYDU1f5k4poOb1yZZLf4TIfRkots8BD8NQ+trQezvKbnG3a
-	GBMdo6gJmSFd8QR9r3jYyYpi66wK3ptbAm9FgbDeC+eoUjG72qI8bzx7sh9rRKLYTm5vflbWgmQPy
-	Yv50VO7rK2zCS/RVInRhrz1FlVyHHHB4yAmbHe6h09UFEX5Hcxb9uPQGIb2TNiY7ADZQQ1LmipZV0
-	EdB3YdSVy+7rCN3/tSCTi9DKMWUwZhp4QhVCEii3iWgPVTzk8C4drmlQs8Ukgnq3I8YhIH1EJglVR
-	HTffa92Q==;
+	bh=Ci9cQUS4iV6pzMvlfYXWEfvkxrFumijtVmx/FqY0VDc=; b=H5OFlRlBCMekFVo2gfqwNph087
+	RnzUvawASucK7jeeHwy4DXSOQyXsmjgMwugvWssNahUtzx+KuT+Ly3ax/3vxYbG9pO192YAJbCLhm
+	Lz4MSSfdH6qXoDQA/8mfIaRND3mg3hRJ2wMF+zRYgks9qrYElTbaelUM6wWfk/MVcaFN4NFbIzqwt
+	z3qhd4ey5lywD6nEfeZWcyKKH3LfMmF8dQJzMv65w3H4m5orJgGWMSlJx3l7upvR/YlIf0xGtUJ59
+	MCXTbm2gbf5hQOsyF1NiMs5O/IZozVOxxlLyFPigZqMiS8/pOlVifZbBKlpLwJ9J7cj9xcSj+19O9
+	Z5Roh58w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Wob-000000065oa-1Vo3;
-	Thu, 16 Oct 2025 22:51:21 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1v9X79-000000067Bo-1GAp;
+	Thu, 16 Oct 2025 23:10:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9WoZ-000000065nl-1MZc
+	id 1v9X76-000000067BA-3iTl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 22:51:20 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-3652d7800a8so9462981fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 15:51:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760655077; x=1761259877; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kmEYRnE9eYaFqXKORkJ+PIJAmcGX5bvGN7hsJdgH+6A=;
-        b=qC6PO5eGleQlXPe4Wgux0UbL9yxRb8JUwlNID7mE5zFj6G7PXbvKL84lsBSRLSoPUH
-         bvi09cTtNdGVsSIWAkpA0ciuNtTGf4uxSa4Atykg46FO/03etZhEHlptucG5LG/FQYTB
-         qBPGybLUJ03whlIwI98woM7OgR9R97NQkVKfMuGj5LjFosCZ8xFOaQRsVA+Yg+DUlEQv
-         SSMEaIPndeP/sbCrkYv+DPOfErjKFy5BzC+QEriLWMmzlRdUKi9b3pMGAmXlYSxPLKMC
-         HEM4qZ8fQB0xKRKsqA9gcWFNnmbLDJKfqoyRI5AeHXa1gohgz9Sm2wPGENPyq+uV0xe/
-         9kYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760655077; x=1761259877;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kmEYRnE9eYaFqXKORkJ+PIJAmcGX5bvGN7hsJdgH+6A=;
-        b=Mjlr0QYuOC8q4JqrRv2DuZU1HuJDMLWBhwKcoNaQyv6PvMCJOIHDj/6Bb41W7n2RCw
-         aTWjWR0yjx2zIL8e43dZhQ3VgP9qfuW3JQHuBIIBaA5LZdYtP8n3qGf/wyEaN9B50VwH
-         2j9PuJ9ojCPL3E1hSyICcpU+x3Fzg23Z/PoTOYwqiZUBW/hSgZDXlDqzlNWJ6PJaowOc
-         cXNkEP/MZssDgNxecLM2wS8nydnsiK7jBFJsBsM3gbRAQoBmTqSwFtnXQ/06alUr1zgf
-         l1YYmN65tPPiH7krS4U+fSlTCEsnEp4zctPrBQU1O83HXN18iZMbGZF9DnQpd7ESex93
-         ++7A==
-X-Forwarded-Encrypted: i=1; AJvYcCWqg8OuvHHu0FtvyxsIX9dl4f8iX57sGyL/7iqFh/AChuUJpbTU+cZww+19X9Q48efgBbodCRv+ecsgIXVKGf2a@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhEXxPlRjwldGkWwZmhUtA0eYXGZrAYlHexdWthtSzqS0tu5Y3
-	rYgAoxXCSySRhKnE/nonkgnyi9dqp326q/CGjnIXNPO9hQr/P46IcH/5sG17TGtN7oqQW51VY7f
-	tJmkvf+M6fjqkzXT2O31m/Bzcdka58QQFLp45fnSLWiq2Tb3VKgfFADY=
-X-Gm-Gg: ASbGnctsbMDoaxipp35sNg0ancgpFrHKDDmmFBm/uu4f/8BwynlHceGZc4hOve1eCq1
-	+GKYxVo1qDSc6bPXvkLxlDhrDC8BYQsu/LRNg7sUCfD9sz2V/kIEYpArdxdxRzWuUqn7cBRJZgA
-	Vkt0GOHbja0xud9ZmOAq45/7vYGg3r3kSBjoGfFytq/nmWqmSDbtALrAZJcPRQey74bSIH3LTRR
-	XJU3huvDSQFpZy0MNE2IBXomvTIEuxlCHV5QAdN0OLnBukXdoz2xT4iWy2V
-X-Google-Smtp-Source: AGHT+IF2PsArzf82nnnIcXMKJafhbORBWTmQjtEV2MVSW4tFFx2e5kaE7Rul4euIEnksQA36PN7ysUqEvFRBOXSjgk0=
-X-Received: by 2002:a2e:bc85:0:b0:351:8d16:d0bd with SMTP id
- 38308e7fff4ca-3779791150fmr6358721fa.19.1760655077092; Thu, 16 Oct 2025
- 15:51:17 -0700 (PDT)
+	Thu, 16 Oct 2025 23:10:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A58D40192;
+	Thu, 16 Oct 2025 23:10:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2B2AC4CEF1;
+	Thu, 16 Oct 2025 23:10:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760656228;
+	bh=7AUlS/E/OmspYWOQMifKYx2KW7NrQ6lvqhU6h0IwChE=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=q0MLGu9zZFT+dmRt7e4efsxOyKWlLoPYupOEksSgrt8aMxyfl/jbIxtivbj8TNn5O
+	 v6x4BaqC3tPY6C1Io5g9D18XlWWvOvEOekiiTXVYAJxxYUTkRNEBk//Qs99X5kuAf+
+	 D3Fpzw/uA6A25M9e7UeaEWYxD/lBUmsy67+E0DdeE9lRHi31676/i1ZotqS4/XAS6n
+	 HJUrDW/cKNyiWBK36zT7IliROMXrft9r6ehusOKJqlgR1UBYKxyYYDmkuf27N7Bajc
+	 Ex8ez8sOUoMP5Gup9dUJt8ItnPWNV7iUk8SXO5UTbgiWJrV1WraKEANo08DVe4VhDU
+	 UDy5tacS3p/xA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33F553810902;
+	Thu, 16 Oct 2025 23:10:13 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20251014015712.2922237-1-gary.yang@cixtech.com>
- <20251014015712.2922237-3-gary.yang@cixtech.com> <CACRpkdaXW-BFM=HvqLiSY-Mkmhso2ETmkZzOX328aSadUEBdSQ@mail.gmail.com>
- <PUZPR06MB5887BE1631D6D6959067FDA5EFE9A@PUZPR06MB5887.apcprd06.prod.outlook.com>
-In-Reply-To: <PUZPR06MB5887BE1631D6D6959067FDA5EFE9A@PUZPR06MB5887.apcprd06.prod.outlook.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 17 Oct 2025 00:51:06 +0200
-X-Gm-Features: AS18NWAn7wwy003ztU4tRuoGojKRToh6fuepHCkeLH2yGuI4i-eeI2-SuJ4p_pg
-Message-ID: <CACRpkdaOuih=CVuGVgpfwP921g5KSd1Dm5v8oyyYq0pJdrzgHw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] pinctrl: cix: Add pin-controller support for sky1
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/5] net: stmmac: more cleanups
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176065621200.1940287.10394518101609096808.git-patchwork-notify@kernel.org>
+Date: Thu, 16 Oct 2025 23:10:12 +0000
+References: <aO_HIwT_YvxkDS8D@shell.armlinux.org.uk>
+In-Reply-To: <aO_HIwT_YvxkDS8D@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_155119_374709_52958594 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20251016_161028_942402_667B8928 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,25 +77,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 16, 2025 at 7:41=E2=80=AFAM Gary Yang <gary.yang@cixtech.com> w=
-rote:
+Hello:
 
-> GPIO IP on Sky1 is Cadence, not Synopsys designware. We wants to do
-> it when upstream GPIO driver in the future.
-> Are you agree?
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Yes no problem. (I misremembered that it was Cadence, not Synopsys...)
+On Wed, 15 Oct 2025 17:09:07 +0100 you wrote:
+> The subject for the cover message is wearing thin as I've used it a
+> number of times, but the scope for cleaning up the driver continues,
+> and continue it will do, because this is just a small fraction of the
+> queue.
+> 
+> 1. make a better job of one of my previous commits, moving the holding
+>    of the lock into stmmac_mdio.c
+> 
+> [...]
 
-When I look at the Cadence driver I see it needs some modifications
-if it should work properly with GPIO ranges and interoperate with
-pin controllers. It needs to call gpiochip_generic_request() and
-gpiochip_generic_free() from its request/free functions, and
-preferably also gpiochip_generic_config() which will extend
-the gpiolib to call down to the pin controller and take control
-over line properties.
+Here is the summary with links:
+  - [net-next,1/5] net: stmmac: dwc-qos-eth: move MDIO bus locking into stmmac_mdio
+    https://git.kernel.org/netdev/net-next/c/12a7b7bc1427
+  - [net-next,2/5] net: stmmac: place .mac_finish() method more appropriately
+    https://git.kernel.org/netdev/net-next/c/0bc832a54d27
+  - [net-next,3/5] net: stmmac: avoid PHY speed change when configuring MTU
+    https://git.kernel.org/netdev/net-next/c/e82c64be9b45
+  - [net-next,4/5] net: stmmac: rearrange tc_init()
+    https://git.kernel.org/netdev/net-next/c/07d91ec99a8a
+  - [net-next,5/5] net: stmmac: rename stmmac_phy_setup() to include phylink
+    https://git.kernel.org/netdev/net-next/c/4a4094ba7ad2
 
-But let's do that in a separate patch!
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Yours,
-Linus Walleij
+
 
