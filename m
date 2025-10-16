@@ -4,105 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037E7CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 08:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04AB4CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 08:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hOaWu67C1VjWzsEPqOzUQCmn+iSXUetMOVFsDVhAcDg=; b=cZTl4UHBND7Ap2jU6+a1Fa1Te0
-	b/SNF0R3RBDSwEErEyP1yd4Azv+u1vbuWL+69xMA+aRxe9KlkFdCSU3GCTRdJT1bMAjGrZxCGj7f3
-	wdC71SfzUI4IwSTmJm/mWgKI2lM5NvVHkQ5ZnTVsJr4oHbHSAA3kO6XkOeXFbM4bRxGr/tlMcXn1M
-	SWwUw6sFeGKa3UbWPEGIM69x6kkhwdFiGxjcksfnNzoDZrBbriPUcSkfLwpXzXC3UmmKexHqBBXh9
-	KjZCTG+3+5evfFsLh/E5KHxUFoqL+5Upa2atJgszoig+KaEHbZWpjSQypTzjYKwvBg8a9yovieiIc
-	Wn4IrpBw==;
+	bh=jT1Ry3XK2uxvUYqon+pxyvPgFgnqM/4Z+7OBJI7gqgY=; b=N1qV2Ii4xaMrPv5EKh9cPUlSXx
+	KfKHPgRZ8iBxrkxQbWpRbUwxmPd+yYRn3Ilcrr4a0t+PH5/SHJpEyuPojNiLmltrdVNS8nPlArzIM
+	1mr6W3CH/gJf9EBJ9Ai23WpsgD+u5fZxfekLpcQjBthf0aNnsh3cHXlquyOiSBvdc2q3kyonoqL3J
+	CsfWnuy05ueopwwhDOVTBAarL8E1Z9m7M//eLL4v16UV1JGiEkbfpvhwbC3vaB4nmwvTksWKPf9jl
+	s+3vp101l2ytsI3HI0zgo96XHAZsfZ7Nm+l5VSTNwNk3WNYCQt+umpz0kKQtq4zA8bxqqHkViN1UC
+	03rWypkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Izr-00000003rG3-05n6;
-	Thu, 16 Oct 2025 08:06:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v9J4C-00000003rXZ-30CS;
+	Thu, 16 Oct 2025 08:10:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Izp-00000003rFx-33nD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 16 Oct 2025 08:06:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=hOaWu67C1VjWzsEPqOzUQCmn+iSXUetMOVFsDVhAcDg=; b=YXCWrvuPEV2QEbGdJ3kGSrEJx9
-	J27WQnm1/B/JMaMbYXXEE9EiILe1Z8HIWymMWEZ0UcgFGCn6FB0MJulbr3CwmjbOusH38FCvWLNjo
-	W69uArrbtWjHmViwvkLRhhoUx8bCvacJnmBCWHgytIX+uGlhoUG/t2JcYdvH/bUWK0rIPKVYAOyeS
-	53l6SWY7CHnEmE3wIjjuRZHTOo8ym6Qsr02akl2zD2Dl4PkO3QGTLb70bfvtaOF9OJXTDuFcIOQvF
-	z7nUilu8VROj5cpnCp0wuzLVmRlkTImSKvp140b7mW6Owfp8HVBSQMXEPqTCpH19P+RWld7XaiUSx
-	jjF1g31A==;
-Received: from mail-vs1-f52.google.com ([209.85.217.52])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Izg-00000006aQP-0Dw3
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 08:05:55 +0000
-Received: by mail-vs1-f52.google.com with SMTP id ada2fe7eead31-5aa6b7c085aso350585137.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 01:05:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760601949; x=1761206749;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hOaWu67C1VjWzsEPqOzUQCmn+iSXUetMOVFsDVhAcDg=;
-        b=PmHU9c1STojwY7bi/pqxsXmuCOoIdI8QhyiYjbM5DZZSZUlln/0Vkdu+RNUpWiqH1V
-         H88tXeKDH8AWs/sJkeN9eN1PLIQZmV9HZbBzVbB3Q6s5hLzL/S7GczVmtaH4B69ql4i7
-         LnS4dcBJsgwdOuP6Tm62xT5GqbK7FIbY6213ywy2HpjlcJS34/xT4zBNi2MyC7hxrFnL
-         QfZExJ3tVXcCReRbJwMR5OVePKxFrEKuV59msKOdQq/DzyQ1E04utDrjaxNVsb2LdK1C
-         7oseGQF8slnYs/Kzio4TBO54XHDu82d4OHVq0AWILb63Kihq+02mZTU6BPtBIqMj6aRV
-         CuWg==
-X-Gm-Message-State: AOJu0YyLHsIJroZuVFnzeloAMz7ufgJtbUKPcVP1ff/BCE0+FK/qhcSC
-	eN4Nc4KwiVRvsWHLQVXGMia1j7x/ivkGg/XNoluWLS/qO9md/WOn69N3047IwDIc
-X-Gm-Gg: ASbGncuBaG2Ozd1qyjUJKaIynfgzQQRv3tDs4vRjAlnCzjcYcFAD5yIUU2Vs7fq/4y9
-	kD3ZezpGQq6WgrskIgegxacDXPh7KcbZ7W7BEG3UVLU8hb1VnA2dVWxNh5ZLzqLBFuqM/Ahnb84
-	CJ44rua5EwuQcZhhsrqfND9LBsZ+dPZ6hGg7+LlSmD1DJCDnME/zeoQ+il82wkig0X2HRS/6q6u
-	clLhrvZ8ncZnptXeGBDCXANWQDqNTAy2b8ng7kV58fObMdEkawpFgFPk4YJ4wOO73KVTSywfcwE
-	lTJ1wU0rlKE5CUJdfBijlMggqKTjGzIK8380RKtp7jArQppzLzSqx3IFsNY014G5E001LNyjJk+
-	wvRgqL9HdA6II0C4Cx2A19UsYUnf8EgaT0+vtrwoH79tfKniH0dvv6Z+iaPi9hoerw7HMVXhsdL
-	r9GXtLGLnQX6XduLi4AZMP2nsamoI2kfMlpU9uRg==
-X-Google-Smtp-Source: AGHT+IFnrwEoXTq4VWKRI+U7wGoPCXZJQdGdu3pbS/EQX+LxYcdrEmi46TqaJyDRgNcoMSnM2S8Yzg==
-X-Received: by 2002:a05:6102:8357:10b0:5d5:f6ae:38f6 with SMTP id ada2fe7eead31-5d5f6ae3d55mr7216513137.45.1760601948852;
-        Thu, 16 Oct 2025 01:05:48 -0700 (PDT)
-Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-930bf78bee4sm5153229241.13.2025.10.16.01.05.48
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Oct 2025 01:05:48 -0700 (PDT)
-Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-58de3ab1831so298953137.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 01:05:48 -0700 (PDT)
-X-Received: by 2002:a05:6102:5f07:b0:526:db01:5fb2 with SMTP id
- ada2fe7eead31-5d5e23caf40mr12709050137.30.1760601948335; Thu, 16 Oct 2025
- 01:05:48 -0700 (PDT)
+	id 1v9J4B-00000003rXQ-2wgR;
+	Thu, 16 Oct 2025 08:10:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2054660393;
+	Thu, 16 Oct 2025 08:10:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45001C4CEF1;
+	Thu, 16 Oct 2025 08:10:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760602230;
+	bh=BqE165DW1W7QlpVTH7AU/66UVMbPwzOvW0CrLWglYhM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vFAs+/pzVgP+mpwH3riBiHGxPTQFVGQ1SFIFoCFpefs9Ay3Hae3mOTbOb9ANhytly
+	 h8ZZ1HqK+R0kNzc6F/+UIZPZ5RFZ9T5ZCm40F7YU5g3SupREgEsd3rH2UMvj6rqX3+
+	 Y90Lkvkdu6eYglFqR/BXbMaSwcyMr/jZx1kegnulI5CbT9B9O3tZ3QPJ05c6fj0XTv
+	 b9ud1Xm4QhpzMO/lI4giQm35TOECNxN819WRZd/Cy/eUe2uPfrKmpVkG6YRmIkZQCW
+	 O6cBEpXx0bnHzMQ976S4ryGEBcHBnbaFfz63KaSZi59UJlIM7VKXN4B6D0Y14KKYyb
+	 XDdhJeMcFu4mg==
+Date: Thu, 16 Oct 2025 10:10:28 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next 03/12] net: airoha: Add
+ airoha_ppe_get_num_stats_entries() and
+ airoha_ppe_get_num_total_stats_entries()
+Message-ID: <aPCodE0_u94s-w73@lore-desk>
+References: <20251015-an7583-eth-support-v1-0-064855f05923@kernel.org>
+ <20251015-an7583-eth-support-v1-3-064855f05923@kernel.org>
+ <aO-ZCqsvPQ6Pqjpg@horms.kernel.org>
 MIME-Version: 1.0
-References: <20251015153952.185249-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20251015153952.185249-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 16 Oct 2025 10:05:37 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUwaoW97D3HOQHTO=h+-jh8WBXASfMsN_5S19UUEhs5ew@mail.gmail.com>
-X-Gm-Features: AS18NWBojpV8EGtFpRhA4ksx4kN18NVJp94-AwZBKhJOeu5MaqA3XKOopME9Jaw
-Message-ID: <CAMuHMdUwaoW97D3HOQHTO=h+-jh8WBXASfMsN_5S19UUEhs5ew@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] dt-bindings: gpu: img,powervr-rogue: Document
- GX6250 GPU in Renesas R-Car M3-W/M3-W+
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Conor Dooley <conor.dooley@microchip.com>, Adam Ford <aford173@gmail.com>, 
-	Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
-	Frank Binns <frank.binns@imgtec.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Magnus Damm <magnus.damm@gmail.com>, 
-	Matt Coster <matt.coster@imgtec.com>, Maxime Ripard <mripard@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_090553_940930_E6E64B02 
-X-CRM114-Status: GOOD (  21.22  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zgC7fqkmMZN9riIm"
+Content-Disposition: inline
+In-Reply-To: <aO-ZCqsvPQ6Pqjpg@horms.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,90 +81,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
 
-On Wed, 15 Oct 2025 at 17:40, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Document Imagination Technologies PowerVR Rogue GX6250 BNVC 4.45.2.58
-> present in Renesas R-Car R8A77960 M3-W and R8A77961 M3-W+ SoC.
->
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+--zgC7fqkmMZN9riIm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks for the update!
+> On Wed, Oct 15, 2025 at 09:15:03AM +0200, Lorenzo Bianconi wrote:
+> > Introduce airoha_ppe_get_num_stats_entries and
+> > airoha_ppe_get_num_total_stats_entries routines in order to make the
+> > code more readable controlling if CONFIG_NET_AIROHA_FLOW_STATS is
+> > enabled or disabled.
+> > Modify airoha_ppe_foe_get_flow_stats_index routine signature relying on
+> > airoha_ppe_get_num_total_stats_entries().
+> >=20
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> >  drivers/net/ethernet/airoha/airoha_eth.h |  10 +--
+> >  drivers/net/ethernet/airoha/airoha_ppe.c | 103 +++++++++++++++++++++++=
+++------
+> >  2 files changed, 86 insertions(+), 27 deletions(-)
+> >=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/eth=
+ernet/airoha/airoha_eth.h
+> > index 4330b672d99e1e190efa5ad75d13fb35e77d070e..1f7e34a5f457ca2200e9c81=
+dd05dc03cd7c5eb77 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> > @@ -50,15 +50,9 @@
+> > =20
+> >  #define PPE_NUM				2
+> >  #define PPE1_SRAM_NUM_ENTRIES		(8 * 1024)
+> > -#define PPE_SRAM_NUM_ENTRIES		(2 * PPE1_SRAM_NUM_ENTRIES)
+> > -#ifdef CONFIG_NET_AIROHA_FLOW_STATS
+> > +#define PPE_SRAM_NUM_ENTRIES		(PPE_NUM * PPE1_SRAM_NUM_ENTRIES)
+> >  #define PPE1_STATS_NUM_ENTRIES		(4 * 1024)
+> > -#else
+> > -#define PPE1_STATS_NUM_ENTRIES		0
+> > -#endif /* CONFIG_NET_AIROHA_FLOW_STATS */
+> > -#define PPE_STATS_NUM_ENTRIES		(2 * PPE1_STATS_NUM_ENTRIES)
+> > -#define PPE1_SRAM_NUM_DATA_ENTRIES	(PPE1_SRAM_NUM_ENTRIES - PPE1_STATS=
+_NUM_ENTRIES)
+> > -#define PPE_SRAM_NUM_DATA_ENTRIES	(2 * PPE1_SRAM_NUM_DATA_ENTRIES)
+> > +#define PPE_STATS_NUM_ENTRIES		(PPE_NUM * PPE1_STATS_NUM_ENTRIES)
+> >  #define PPE_DRAM_NUM_ENTRIES		(16 * 1024)
+> >  #define PPE_NUM_ENTRIES			(PPE_SRAM_NUM_ENTRIES + PPE_DRAM_NUM_ENTRIES)
+> >  #define PPE_HASH_MASK			(PPE_NUM_ENTRIES - 1)
+> > diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/eth=
+ernet/airoha/airoha_ppe.c
+> > index 8d1dceadce0becb2b1ce656d64ab77bd3c2f914a..303d31e1da4b723023ee0cc=
+1ca5f6038c16966cd 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> > @@ -32,6 +32,30 @@ static const struct rhashtable_params airoha_l2_flow=
+_table_params =3D {
+> >  	.automatic_shrinking =3D true,
+> >  };
+> > =20
+> > +static int airoha_ppe_get_num_stats_entries(struct airoha_ppe *ppe,
+> > +					    u32 *num_stats)
+> > +{
+> > +#ifdef CONFIG_NET_AIROHA_FLOW_STATS
+> > +	*num_stats =3D PPE1_STATS_NUM_ENTRIES;
+> > +	return 0;
+> > +#else
+> > +	return -EOPNOTSUPP;
+> > +#endif /* CONFIG_NET_AIROHA_FLOW_STATS */
+> > +}
+>=20
+> Hi Lorenzo,
 
-> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> @@ -13,6 +13,12 @@ maintainers:
->  properties:
->    compatible:
->      oneOf:
-> +      - items:
-> +          - enum:
-> +              - renesas,r8a7796-gpu
-> +              - renesas,r8a77961-gpu
+Hi Simon,
 
-OK.
+>=20
+> I think that in general using IS_ENABLED is preferred over #ifdef
+> in cases where the former can be used. For one thing it improves compile
+> coverage.
+>=20
+> That does seem applicable here, so I'm wondering if
+> we can do something like the following.
+> (Compile tested only!)
+>=20
+> static int airoha_ppe_get_num_stats_entries(struct airoha_ppe *ppe,
+>                                             u32 *num_stats)
+> {
+>         if (!IS_ENABLED(CONFIG_NET_AIROHA_FLOW_STATS))
+>                 return -EOPNOTSUPP;
+>=20
+>         *num_stats =3D PPE1_STATS_NUM_ENTRIES;
+>         return 0;
+> }
 
-> +          - const: img,img-gx6250
-> +          - const: img,img-rogue
->        - items:
->            - enum:
->                - ti,am62-gpu
-> @@ -146,6 +152,29 @@ allOf:
->          clocks:
->            maxItems: 1
->
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - renesas,r8a7796-gpu
-> +              - renesas,r8a77961-gpu
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 3
-> +        clock-names:
-> +          minItems: 3
-> +        power-domains:
-> +          items:
-> +            - description: Power domain A
-> +            - description: Power domain B
-> +        power-domain-names:
-> +          minItems: 2
+ack, fine. I will fix it in v2.
 
-I think:
+>=20
+> Also, very subjectively, I might have returned num_stats as
+> a positive return value. I'm assuming it's value will never overflow an i=
+nt.
+> Likewise elsewhere.
+>=20
+> But that's just my idea. Feel free to stick with the current scheme.
 
-    clocks:
-        minItems: 3
-    power-domains:
-        minItems: 2
+I guess it is fine. I will fix it in v2.
 
-plus the required below should be sufficient.
+Regards,
+Lorenzo
 
-As Matt said, the power-domain-names are already specified at the top level.
+>=20
+> ...
 
-I guess they should be dropped from the other device-specific
-constraints, and their descriptions moved to the top, too (in a separate patch).
+--zgC7fqkmMZN9riIm
+Content-Type: application/pgp-signature; name=signature.asc
 
-> +      required:
-> +        - power-domains
-> +        - power-domain-names
-> +
->  examples:
->    - |
->      #include <dt-bindings/interrupt-controller/irq.h>
+-----BEGIN PGP SIGNATURE-----
 
-Gr{oetje,eeting}s,
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaPCodAAKCRA6cBh0uS2t
+rOw7AQCrjTRELdN7df/7nasO5hLMxRhlBZzyAL0R8iFX2T/0jAD/Z0pUAE59OW0Z
+Q9RIe4mD8YXtUcw5ym+gnF/sXJKqLgM=
+=3ofA
+-----END PGP SIGNATURE-----
 
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+--zgC7fqkmMZN9riIm--
 
