@@ -4,171 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B95E4CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 02:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B3D0CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 02:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mnLDRSoEw3nq8Nihyks1MNkhSIeQvRxjQrHaIMhUqUY=; b=c3tSApcUf62k4CDA5e3S4wMOgv
-	36pClBFCj59yhRiXtViB/kCXtXnYgYrf3gKMv2KUhN3HXs4tsqMnWa7y8Zip3rWPuCojlCqIAhk95
-	bJVDmE+rnR0Iq/gsIkzppoPdDQpdUBYMWnLGQum+WSrf63abQU6nCsMdCp5+JSNJETxFRZW66vDyR
-	t209dGyhOJPqMhRreahNih2CnFBUngkPojwzuymAXI8eXt+EIfmot43SEDffQGXZO/qOkBoujNq7q
-	8a4+O+bK5awZwoXb7ubC+4xKjH24vJNpyqBZjLSPhptB3eK3H+NDGlHaYeT7qFrbPwtibC8Shzb/L
-	I/jrMc/A==;
+	bh=2iGb4w2CJ/xWobbduV7z9pfLjGzjU59oSShpLUnHZK0=; b=QyW1dFPz/PhbnBeSj6GpDd7N8z
+	OfTZorXRBlfYSG5SkqYWlEbrAiNc5AQZywJSVF/T6MFRoIqOeovBbUGGje/CapXuEEZCi6Lv1Db6V
+	WoZQL0zqCR2vlHYprKS2n5F32p9Vo4aNHHL5UpqR/NDiAGRwbgMX2/r8ZS8lyhAK00tjjixZRgB/s
+	6Pz00fKW67zVuHRDPIrv/qyUZ9rJSuvy/7Ur5P2dngVMOBRr9fVYhpuzNrTwUzqdXOG4bUZSw3n0p
+	vfuYBAMrFWKWn3phy0Hx9T9yk2jb0LkDDL3frMJbcxY2Bms1ffXMjg8NQMSOWtQ+mvSZgqd1CZvwL
+	A/jRh7GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9DOf-00000003Fb1-1X32;
-	Thu, 16 Oct 2025 02:07:17 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1v9Ddx-00000003GRK-0QpV;
+	Thu, 16 Oct 2025 02:23:05 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9DOd-00000003Fa3-0KHH
+	id 1v9Ddu-00000003GQr-3ETN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 02:07:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OqLYRuT9BIow+IPHqShEqq6DOuNX1GhS1ix9d3RdxpG88m54ER7gw38wDArMtDMaU99KemQamduZ15dXn3mcxD9IWwrAkaYPtp4Mfsqwa3xIJeHu8EpJW4lE4b1tsLec47Si/twJYyS+N5a25PQ6cVZLIgI5Bhor4+iPaCBJxcbmHOzCrJRrHlqAZpCwy8AVVylUd49CaLAu/+uK9nxFbsWklK8A83EVXdTerVSn/HhQUL5bV9FGGWDWXc57e2jjN6hVCcdHtxDV3TzTrOorfRt6K3Dl6Hwob7bUrme+FGHfOuZXgtsezIdNytpVmjVkllAzAQ8UegZYNqrdHhdH9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mnLDRSoEw3nq8Nihyks1MNkhSIeQvRxjQrHaIMhUqUY=;
- b=wOGuNSJdM07gHbIsxBgF2J7RWyWj9icsUw905+vCKdfL8ACX3K/PFRiyBlBnr1zgIc9PYUXs1d3N/06rNmOJ6aXRczO/T//IE1XAAVZT5BFN3WXu1qN35AcAAnvNg4P2LX4oX+v2etOhNtnwRrcIdNxqylo7i8qJQRUp0tZozoze+4rUF86fv3aJNxZ+tUNYBz+jcoBUVMRuzbYc7qzyERZcZNLZ9GRbSxj6njKeY0FspvN5/c5SrRuyF6pP0HrezBgdArapFij6Qrw5hklUjPe6yb3xRMLq1dbNaODXhmub5sblua1s7zetViDvEyQ1xCHiLTrNNSqL7HauLy7Ydg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mnLDRSoEw3nq8Nihyks1MNkhSIeQvRxjQrHaIMhUqUY=;
- b=PWwggfW+9SHxQ0o5d5DM+bXbQaiaeI3bwI4eLbFHif//GQA/8UO7J1Ieix/c78kEsKGRM6tuIbUfoMlOu6nwscgeXQDfnQu3qaNv3Dt5odkZB8B8yh/yaSttCyzCVlmbBAP4QhAyK13FxvrbOIe4URXr4AAKigs6wkr8YA3S99+KFIJlmDwkE6Z1VcL8lQet0sE5uhWFOaDtxw6QxwOAqpJGWjPJsOJyBMBrPSYZTi5S8YiJ9L2GqMhZ8ZhUEjP/vomfLPPlt6iVaO7hMKHLRc71b3kUDns67MVEXs9vTAcQRkdSJPHlBxWxfYeSs4pO/CNSjBxmTFzvB0qO4/hGbw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by GV2PR04MB11352.eurprd04.prod.outlook.com (2603:10a6:150:2a2::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.11; Thu, 16 Oct
- 2025 02:07:03 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9228.012; Thu, 16 Oct 2025
- 02:07:03 +0000
-Message-ID: <5c5bb009-3463-4282-946f-3ae93fab11ec@nxp.com>
-Date: Thu, 16 Oct 2025 10:07:26 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/39] dt-bindings: display: imx: Document i.MX95 Display
- Controller DomainBlend
-To: Rob Herring <robh@kernel.org>, Marek Vasut <marek.vasut@mailbox.org>
-Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Shawn Guo <shawnguo@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <20251011170213.128907-2-marek.vasut@mailbox.org>
- <20251015132442.GA3241958-robh@kernel.org>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <20251015132442.GA3241958-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-X-ClientProxiedBy: SI2PR04CA0013.apcprd04.prod.outlook.com
- (2603:1096:4:197::6) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	Thu, 16 Oct 2025 02:23:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1760581380; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=2iGb4w2CJ/xWobbduV7z9pfLjGzjU59oSShpLUnHZK0=;
+	b=WnnVfRxPiTyzLzjSPcsypZI0pLFF0CRHxbgwE2EgmTELXfjYe1tgpVLpJa9DP9TZ1YaAvVjDR+S1z3MPbWzUDdGPf4AHRHgRdndjgiOZ4UzZHytt4yyFkjp16XNONH00ASQ7R6rE9HEah2KPiQvyegAQrQ6STQ9jbpOSNuO5gCg=
+Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WqId6gu_1760581378 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 16 Oct 2025 10:22:59 +0800
+From: "Huang, Ying" <ying.huang@linux.alibaba.com>
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: David Hildenbrand <david@redhat.com>,  Catalin Marinas
+ <catalin.marinas@arm.com>,  Will Deacon <will@kernel.org>,  Andrew Morton
+ <akpm@linux-foundation.org>,  Vlastimil Babka <vbabka@suse.cz>,  Zi Yan
+ <ziy@nvidia.com>,  Baolin Wang <baolin.wang@linux.alibaba.com>,  Ryan
+ Roberts <ryan.roberts@arm.com>,  Yang Shi <yang@os.amperecomputing.com>,
+  "Christoph Lameter (Ampere)" <cl@gentwo.org>,  Dev Jain
+ <dev.jain@arm.com>,  Barry Song <baohua@kernel.org>,  Anshuman Khandual
+ <anshuman.khandual@arm.com>,  Yicong Yang <yangyicong@hisilicon.com>,
+  Kefeng Wang <wangkefeng.wang@huawei.com>,  Kevin Brodsky
+ <kevin.brodsky@arm.com>,  Yin Fengwei <fengwei_yin@linux.alibaba.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  linux-mm@kvack.org
+Subject: Re: [PATCH -v2 1/2] mm: add spurious fault fixing support for huge pmd
+In-Reply-To: <d748bc6b-2aff-4cee-a233-008f4d2555fa@lucifer.local> (Lorenzo
+	Stoakes's message of "Wed, 15 Oct 2025 12:20:30 +0100")
+References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
+	<20251013092038.6963-2-ying.huang@linux.alibaba.com>
+	<4c453dcc-2837-4f1a-905b-3462270f5e31@lucifer.local>
+	<87ldlcpnbx.fsf@DESKTOP-5N7EMDA>
+	<d748bc6b-2aff-4cee-a233-008f4d2555fa@lucifer.local>
+Date: Thu, 16 Oct 2025 10:22:57 +0800
+Message-ID: <87bjm7lh4u.fsf@DESKTOP-5N7EMDA>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|GV2PR04MB11352:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3d746f79-b0a2-473b-c364-08de0c58b2c8
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VHhUQzZNSHMyS1NvSUlLS2ErdVFGK21vVjFTQjlyeEZQdUYrU1JGM0JtT0JR?=
- =?utf-8?B?TmRDeFRVMm9nUnZMRWtvd3JteUFpMktxR0dvOGcvWnlLam14alkxN0pPWXhx?=
- =?utf-8?B?SUw0Vk1mVXg0WHRSOE9wRjd3aEZlK0tqU1RKTjgyWU5aWE8xc1RqZ0NNN3Za?=
- =?utf-8?B?U1FVQ25mQWZ5WllzUVYzdmtGMTRlT2hCMURwT2FCbGFYSFgxYXQ0MkpKc3Z2?=
- =?utf-8?B?VENnQngzRXhkRFM0UWQyczFsMnViaXJCODNiK0ZjaU8zaExLd2tsWG4raDBh?=
- =?utf-8?B?OEhHV2s1cmdjRlAwNkRBalRIdk51Wkx5ZEJLbXZhVUNiTE1wZ2E1SUVmY1dQ?=
- =?utf-8?B?Y3hNQ0w4UGVHczBWYURTcWhadVFHWlR1b2t2bVp6ZEVZZFNnOGg2cHpQcXNw?=
- =?utf-8?B?QS8rTUJnZHdZSzVBbnNzdnpYNFpETWRvTmQrSE9aajAyTFZGUk5FVVZrM1pK?=
- =?utf-8?B?Si9WeFZCaTUwWmk1V2FXZFJjeXBQVFhTMlNJV3FvdUZ0S20vSUVXSkhjSUsw?=
- =?utf-8?B?YmNMNnA0Y3F5d1FiMlZTZ1VMb3dCaURxNFNieGNrU2Z4TzdmRktkNTZQZk92?=
- =?utf-8?B?bFJCbDdFZjF2aVJOcDBRM2ZzV3BQN2NxYjJwam1NRGYvMEw1M2NxUEtUV01a?=
- =?utf-8?B?UEw4WmsxVlpiOENqTTYyZXZiTjFQNTBnU2tlSnFGNm51S0FWeTdLMUk5Rkd2?=
- =?utf-8?B?Qm81UEcwV3FnNk50Z2l0eVIxWGdCZHN4YmZXMGpxMlNCQ2xuMXR5S2FES3R2?=
- =?utf-8?B?Sm1jQjZPakIyNTVjaTczZVBhbTloWE1yMGpYNjhERTkzYzV6TG5zMExMQ2Ju?=
- =?utf-8?B?eGszRndZT3pTd3lHeWM0VEpvWmtaakhBY250NnZmNi9oRkNjd28vMzV3SVNn?=
- =?utf-8?B?RmhOV3hDb0NrSm9wakZIcDJTc0srdkdtamthdmxDNGYzQ092U1NNT1U3Sngy?=
- =?utf-8?B?WDBEa2FaOWQ1U1QrQllST1JrbzhSMUdYSE1XdWZORFR5bGZLa0FQcEpJTmZC?=
- =?utf-8?B?eGEwM2kwSGxwY0Y3QnU1NXVvK2xBSzdEVEcyYzcxMlJrbFBVMlE5VlRHZWl2?=
- =?utf-8?B?MEZlZU9pcXFGNnUyeStHTEpHTWdnMmxhM3A1TjRpQ3d1UmpaaVV2TUoycEtN?=
- =?utf-8?B?SXZnNjBFRXRzTFcyTTdIRXhIbEtMWGlWc25xUFd0NDNpU3RVL0RqSnM0eEdL?=
- =?utf-8?B?MFhtVndzZEpPVWVNQUpaaGRDVmhjN1lJZFZaK0FSQ3VreHZ1TXNaeHl6c1Ez?=
- =?utf-8?B?aWliUWFLaUZJODZ6c2poRjR0QU5aOFNtVTVTb1M4OUdrVmt3L2RGYlFJSE5K?=
- =?utf-8?B?ZXFDR3NKU3pDMnJnQVRIZnA4cVBhZjZWZmpsckxnRHlCd2tzQXFCMUFlU2lv?=
- =?utf-8?B?RElMb29JaFNsdUJ5ZDRZMzAvc2NFU3Yxb1hDMjcweFd3Umo0cTB5c2lsZGZx?=
- =?utf-8?B?NkFWRkpaYnh3enc4U0M1TmVodUVoSEFlSjhvaVZIRkkwV1ZlRDhQSWtuRTFn?=
- =?utf-8?B?NHVZSTFRYVp3dldBMlloSjVRQVV3OU9aWEl2M3VEUXp2NmI0dWxRODJIZjFE?=
- =?utf-8?B?TjloWGR3YnNOeXFod0RsbXZ2Yng1UVMzV2owYnozdTJqUmZvMWE0aFoyMWFa?=
- =?utf-8?B?bDF5TXl2M1VoWU92TFdBdFhSdjBhNVk0QzY0dW96cUdMTHN1L1VocXZsTkk1?=
- =?utf-8?B?YzNMaXhteTdGdHBscldzTFFWMm1pY1RaalZJMGxpMDZrcjlOSGJGcmxjbzc3?=
- =?utf-8?B?eEpTK29pbVJtSURxOUZzbDMxR1ZSd1M0Y0FMSXE5aGR4YmRHSXJQdnNMMlkx?=
- =?utf-8?B?TkpHU2JYa2ZkMUdwZi94VDFyTEhPTThWczJQZERlZTExSDlZR1FPTGcxVHVT?=
- =?utf-8?B?TEcwZEtHMkhMeVgrQWRhNU5zMUZRanR0blNaMWpVcnh0WHc9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RWFkZUFOQ2pFMmcyU2pqOWFUU3pWamR1RnNLVnJ2SVJScTJxNlREaTVoTGhu?=
- =?utf-8?B?YTAzd3gvaTQ5d25YeHVyakt2ODlMTGVQdFdzOTY3ZGFVMTd6d2lJUVlWdjZP?=
- =?utf-8?B?bEV3Q0VsUjMrcTYvaU9XeHIvVmVNOGVZQnpMRkZxaVJLMkRLRkZKT2xqLzJs?=
- =?utf-8?B?cHVUYlpSdXZ0YTdKOFZ5bUEzMDNORkg4b080a0pYeHV4bjVveXpVQ0dEcDQ4?=
- =?utf-8?B?QWRoN0IzSVFFc2Noa09TWTl2U280dVdISkt4dnNSbXp3SVYrUDh4a1ZmTCts?=
- =?utf-8?B?Um1ydHV6cWxpbDJ1UlBMQ2xOU2tqS1VTcER6RkZoWmcvSWNLV0NIZTlZdGgv?=
- =?utf-8?B?WVdDZU5VMUE4M2doczhIdGpMR3c3Qk9PYXdacTgrbEhQL0J6cmxBeFZnUGIx?=
- =?utf-8?B?YlB5TGY4M3c1NDMxT3RHYklGQjlVeFhEUTBGTVhOQk9OOUYyY251ejVPMHhr?=
- =?utf-8?B?UTdzeG5GV05reks5Y0Vnd2tLL0dJZzU3OXk2TkZTOXNJdUpXM0taMHc0WUQ2?=
- =?utf-8?B?Y2JRbFFlaDZvcGFhSW4zSjFtVlFnV0NnRGF3aXZlQXdVbklCQno0QWdraVJK?=
- =?utf-8?B?NUZBVndvYjNiQk5ORDFDVU9zR1ZRM0wyNU9PaVUvSTdMaDROSXhocnJDRHdT?=
- =?utf-8?B?dzQvK1Bqc0hDcTJRTmVQZ0lzVmFRZWVncEtWZ3U2YXpiM21CUE5BdjlDcDBE?=
- =?utf-8?B?OWNqekRpTlhZRi9xa3AzUHYwcGdpKzd1R1RsLzJyaEJiRkFQM2NxbGZxTjdV?=
- =?utf-8?B?bnh6b295ZWc4SGxZK0o0eHUrSkl5WTcya1E2VW0wMVVkbmkrNzB1ZnJ0VzJG?=
- =?utf-8?B?K1NETUE4aDNDVzlwc3hVSXhGZjVsMFJETUlxNDEzL3VMNGpDc3FiOG1QQXBi?=
- =?utf-8?B?SE9sVXNhdmN5MDAwNlRUMzZDdHA4R1hmQkdhd21LekFOQVZoQ2xjTEFIaXE5?=
- =?utf-8?B?Q2pTamRFUGY1QlhlNWxSdUVBd0g0S0s2RkRZY3U0QktjUkpuSzRnQUpJU2xn?=
- =?utf-8?B?dCtqNTVreTdWTlY0bVBjT2wwcGFWdGt1ODEyM21zd091WmwwR3k2VFNyejJl?=
- =?utf-8?B?d0t6NWtBTWhCQ2FOcDBxTG5kSjExdnBwdzRjWlZ4Mk9CZXE4czYyUFdyZTdr?=
- =?utf-8?B?VWNMVFVsbzBSZmpoOUVFTXQ1RVpiRWV5Q1dOZnJwVFN5M0dxTHk5UEVzVDhj?=
- =?utf-8?B?RDBMT3JRMmFTeVJ4RTcvWmdNekJEMC8zUzdKYWdvdEdQVW1kbFZSWDh1Ri85?=
- =?utf-8?B?NldIbjVIVXFmYm5YV1ZqdjZSVlN6SXQ3b3hsODdoZTNMTWhLZnp6d0R0c1BS?=
- =?utf-8?B?d3NQQ2ZlNTduT2x5NDVJYUJxRzBSODlrOGtCQTNyMlVldzF1bFBpVUp2VDcz?=
- =?utf-8?B?ZHNjNXJMeWozSit5SEFPZHdJSGZUNnN3dU84ZTFDbEN5TU82QVhIRFdDOFlI?=
- =?utf-8?B?bzk0czc2ak43bFdrbDhSYm5yb1VzS0dQWGdaalZBWXhTQ1B5cnVySlNtODB6?=
- =?utf-8?B?TnB4bGVMVEVOYnpaZXNFa3dmUitOeUp1MFYzbVBTNUZQV0tpWWJNU3hSWGto?=
- =?utf-8?B?cUZsYjlEMVFsRWlJVjZVcUxuUDU3YWpJcHBERnd1b2NqYVZ2OWpzOVp1TWpz?=
- =?utf-8?B?OFM1ZzdveHhrWjBKVFAzeklrY1JONm1Fa2VaS0R5ZkdISllJYjhCU2N0QjRG?=
- =?utf-8?B?c1ExbzdRaVhmMHFoNFVsdjdUZWlIY3dHRVdqMG5NM0JJcHRVUEpYTEo2TTMy?=
- =?utf-8?B?VlZhTFV0eCtoakJ3SFowdXE0Qk5GMlVvK0huYm9MYlVramplem9ORUlKeDBT?=
- =?utf-8?B?NXk4VXkzek1teW1jS3NwSGRwc1pSdmJlVzNWWFFhVUZ4UHlwWU0rR3lISWVt?=
- =?utf-8?B?WUpmK094WFh4UkFWTEl6eU4zNFNoVGIvNXlaVFVrTmdIeGYyT0hCUk1DZnl5?=
- =?utf-8?B?YXBWaUFMM2Q1cDlrVTFDQUZNZFZCK3VwbGMzd0JyeldhV3QwM2cxelJVanBG?=
- =?utf-8?B?dW54RlFvckwyUmdPNTBPOEU0SWVENzI4b2JVK3JBZHFpaldXYnpOSFB2RXVw?=
- =?utf-8?B?WlRkMHR3TmZ2dmh1TnpxRGFuZ1BjYkVEeWxqRnVCenhTSXlweElkbWgrTkRj?=
- =?utf-8?Q?xQyhnxOsR+h1hOQVD/52Qml9n?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d746f79-b0a2-473b-c364-08de0c58b2c8
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2025 02:07:03.1922
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZEHSHG/D+OmdlA54NIQB9P1Rx94ECYEIslvZ0KrFkRAcqmCvMoaTjvF6wfFTFluQUDJMAI5jmQq6TkpsPsBJDw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11352
+Content-Type: text/plain; charset=ascii
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_190715_114799_1AD93B7F 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20251015_192303_269465_5491D532 
+X-CRM114-Status: GOOD (  41.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,108 +79,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/15/2025, Rob Herring wrote:
-> On Sat, Oct 11, 2025 at 06:51:16PM +0200, Marek Vasut wrote:
->> i.MX95 Display Controller display engine consists of all processing
->> units that operate in a display clock domain. Document DomainBlend
->> block which is specific to i.MX95 and required to get any display
->> output on that SoC.
+Lorenzo Stoakes <lorenzo.stoakes@oracle.com> writes:
+
+> On Wed, Oct 15, 2025 at 04:43:14PM +0800, Huang, Ying wrote:
+>> Hi, Lorenzo,
 >>
->> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
->> ---
->> Cc: Abel Vesa <abelvesa@kernel.org>
->> Cc: Conor Dooley <conor+dt@kernel.org>
->> Cc: Fabio Estevam <festevam@gmail.com>
->> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
->> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
->> Cc: Liu Ying <victor.liu@nxp.com>
->> Cc: Lucas Stach <l.stach@pengutronix.de>
->> Cc: Peng Fan <peng.fan@nxp.com>
->> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
->> Cc: Rob Herring <robh@kernel.org>
->> Cc: Shawn Guo <shawnguo@kernel.org>
->> Cc: Thomas Zimmermann <tzimmermann@suse.de>
->> Cc: devicetree@vger.kernel.org
->> Cc: dri-devel@lists.freedesktop.org
->> Cc: imx@lists.linux.dev
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-clk@vger.kernel.org
->> ---
->>  .../display/imx/fsl,imx95-dc-domainblend.yaml | 32 +++++++++++++++++++
->>  1 file changed, 32 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx95-dc-domainblend.yaml
+>> Thanks for comments!
 >>
->> diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx95-dc-domainblend.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx95-dc-domainblend.yaml
->> new file mode 100644
->> index 0000000000000..703f98e3321e8
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/display/imx/fsl,imx95-dc-domainblend.yaml
->> @@ -0,0 +1,32 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/display/imx/fsl,imx95-dc-domainblend.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Freescale i.MX95 Display Controller Domain Blend Unit
->> +
->> +description: Combines two input frames to a single output frame.
-
-I'd like to comment on patches in split patch serieses(to be sent if needed).
-But, since I provide the below interrupt information, anyway I take the chance
-to comment more:
-
-Add more description about the unit according to i.MX95 DC IP spec:
-The unit operates in four modes:
-- Primary mode: The primary input is used for output.
-- Secondary mode: The secondary input is used for output.
-- Blend mode: Primary and secondary inputs are blended, according to the
-              programmed blending functions.
-- SidebySide mode: Primary and secondary streams are projected side by side,
-                   i.e., primary video on the left side and secondary on the
-		   right.
-
-BTW, I confirm that two Domain Blend Units exist in i.MX95 DC while they don't
-exist in i.MX8qxp/qm DCs.  And, as you can see, this unit supports multiple
-modes, this would impact how an OS implements a display driver a lot, especially
-Blend mode and SidebySide mode.
-
->> +
->> +maintainers:
->> +  - Marek Vasut <marek.vasut@mailbox.org>
->> +
->> +properties:
->> +  compatible:
->> +    const: fsl,imx95-dc-domainblend
->> +
->> +  reg:
->> +    maxItems: 1
-> 
-> No clocks or other resources?
-
-As patch 39 shows, there are 3 interrupts - domainblend{0,1}_shdload,
-domainblend{0,1}_framecomplete and domainblend{0,1}_seqcomplete.
-
-> 
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    domainblend@4b6a0000 {
->> +        compatible = "fsl,imx95-dc-domainblend";
->> +        reg = <0x4b6a0000 0x10>;
->> +    };
->> -- 
->> 2.51.0
+>> Lorenzo Stoakes <lorenzo.stoakes@oracle.com> writes:
 >>
+>> > On Mon, Oct 13, 2025 at 05:20:37PM +0800, Huang Ying wrote:
+>> >> In the current kernel, there is spurious fault fixing support for pte,
+>> >> but not for huge pmd because no architectures need it. But in the
+>> >> next patch in the series, we will change the write protection fault
+>> >> handling logic on arm64, so that some stale huge pmd entries may
+>> >> remain in the TLB. These entries need to be flushed via the huge pmd
+>> >> spurious fault fixing mechanism.
+>> >>
+>> >> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
+>> >
+>> > Right now the PTE level spurious fault handling is dealt with in
+>> > handle_pte_fault() when ptep_set_access_flags() returns false.
+>> >
+>> > Now you're updating touch_pmd() which is invoked by follow_huge_pmd() and
+>> > huge_pmd_set_accessed().
+>> >
+>> > 1 - Why are you not adding handling to GUP?
+>> >
+>> > 2 - Is this the correct level of abstraction? It's really not obvious but
+>> >     huge_pmd_set_accessed() is invoked by __handle_mm_fault() on a non-WP,
+>> >     non-NUMA hint huge page fault where a page table entry already exists
+>> >     but we are faulting anyway (e.g. non-present or read-only writable).
+>> >
+>> > You don't mention any of this in the commit message, which you need to do
+>> > and really need to explain how spurious faults can arise, why you can only
+>> > do this at the point of abstraction you do (if you are unable to put it in
+>> > actual fault handing-code), and you need to add a bunch more comments to
+>> > explain this.
+>>
+>> This patch adds the spurious PMD page fault fixing based on the spurious
+>> PTE page fault fixing.  So, I assumed that the spurious page fault
+>> fixing has been documented already.  But you are right, nothing prevents
+>> us from improving it further.  Let's try to do that.
+>
+> I wouldn't make any kind of assumption like this in the kernel :) sadly our
+> documentation is often incomplete.
+>
+>>
+>> The page faults may be spurious because of the racy access to the page
+>> table.  For example, a non-populated virtual page is accessed on 2 CPUs
+>> simultaneously, thus the page faults are triggered on both CPUs.
+>> However, it's possible that one CPU (say CPU A) cannot find the reason
+>> for the page fault if the other CPU (say CPU B) has changed the page
+>> table before the PTE is checked on CPU A.  Most of the time, the
+>> spurious page faults can be ignored safely.  However, if the page fault
+>> is for the write access, it's possible that a stale read-only TLB entry
+>> exists in the local CPU and needs to be flushed on some architectures.
+>> This is called the spurious page fault fixing.
+>>
+>> The spurious page fault fixing only makes sense during page fault
+>> handling, so we don't need to do it for GUP.  In fact, I plan to avoid
+>> it in all GUP paths in another followup patch.
+>
+> OK this is great, let's put it all in the kdoc for the new shared spurious
+> faulting function! :) and additionally add it to the commit message.
 
+Sure.  Will do it in the next version.
 
--- 
-Regards,
-Liu Ying
+[snip]
+
+>> >>
+>> >> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>> >> index 32e8457ad535..341622ec80e4 100644
+>> >> --- a/include/linux/pgtable.h
+>> >> +++ b/include/linux/pgtable.h
+>> >> @@ -1232,6 +1232,10 @@ static inline void arch_swap_restore(swp_entry_t entry, struct folio *folio)
+>> >>  #define flush_tlb_fix_spurious_fault(vma, address, ptep) flush_tlb_page(vma, address)
+>> >>  #endif
+>> >>
+>> >> +#ifndef flush_tlb_fix_spurious_fault_pmd
+>> >> +#define flush_tlb_fix_spurious_fault_pmd(vma, address, ptep) do { } while (0)
+>> >> +#endif
+>> >
+>> > flush_tlb_fix_spurious_fault(), when the arch doesn't declare it, defaults to
+>> > flush_tlb_page() - why do we just do nothing in this case here?
+>>
+>> Because all architectures do nothing for the spurious PMD page fault
+>> fixing until the [2/2] of this series.  Where, we make it necessary to
+>> flush the local TLB for spurious PMD page fault fixing on arm64
+>> architecture.
+>>
+>> If we follow the design of flush_tlb_fix_spurious_fault(), we need to
+>> change all architecture implementation to do nothing in this patch to
+>> keep the current behavior.  I don't think that it's a good idea.  Do
+>> you agree?
+>
+> Yeah probably we should keep the same behaviour as before, which is
+> obviously, prior to this series, we did nothing.
+>
+> I guess in the PTE case we _always_ want to flush the TLB, whereas in the
+> PMD case we otherwise don't have any need to at the point at which the
+> spurious flush is performed.
+>
+> But from your explanation above re: the stale TLB entry this _only_ needs
+> to be done for architectures which might encounter this problem rather than
+> needing a TLB flush in general.
+>
+> Given we're generalising the code and one case always flushes the TLB and
+> the other doesn't maybe it's worth putting a comment in the generalised
+> function mentioning this?
+
+I'm not sure whether it's a good idea to document architecture behaviors
+in the general code.  The behavior may be changed architecture by
+architecture in the future.
+
+[snip]
+
+---
+Best Regards,
+Huang, Ying
 
