@@ -4,94 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67541CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 14:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE949CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 14:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7OKo+B/N8OpvVSgOheqCo9k1dnTlp+LYue6K4y6i8Mc=; b=cDnBFItYAGRBb8bD1ESEryq4eI
-	yac1pU6mQwihd/1inMRKyiQpwXd3GsdXBOh6zxbBombRJGa+vXOYyt9s+xjafxnAhz/pJm9jcIC+k
-	K1fkLmB4vTOUsxvAAfhhbm6EM2w3nEVJEDT8/ZXN5ShuaGsUieFiA9V4XKb70tVnQtY6Y6nNHWtJq
-	AxehPG2KlAl8y7RA9UahBuuoKNvgmfVKsPfwQn6G3rnYku+CdbCwRIfZmvr8c8Mo81B4tTdXx76Dk
-	2aNXwen2/gQAXcuG7ZVAumw+lqF1/JoMNvmtO3c54zTtL6xDeZ8+yFu2jSl38D6aFSlBzooyg87cl
-	vlqLC32g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fPJtDEet4RE6KaO4E+4C8FkxyWVGuKa6Vq/LffNt8Ik=; b=HseFew6YlmKP9DWHPV9pevihFX
+	cW7OkAxCxFiiE7e3K0gnzcKIzrx9dbJmAUOOZrfBug5nuAvfWofAkDTbZKj3QhSdgDs6MkCkGCXEe
+	+qLyqwpcVV5Yqh2Oy7ze2MzJ/n4gzzXCYrvzYF09no5WpwJPttd3205tGNXM26Ew1Fgz90aVB9vUf
+	ALqvhGOXK3hXDNN87/5Fo8ymQlJIyXFn+X3UfYyepld72caDqqTM5fAK9lPCxQVQo291exB9dsc5L
+	jdYOfAHZEkIyLwcw+IhA61E7G1Wze/ZMY0H9xRU0QJu2Il3/tES+dyPTEZIPIgOXwKjQIqEJw8qGc
+	PB02zpFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9P1f-000000050dS-0L59;
-	Thu, 16 Oct 2025 14:32:19 +0000
-Received: from mail-ua1-f53.google.com ([209.85.222.53])
+	id 1v9P5R-0000000516U-2ykV;
+	Thu, 16 Oct 2025 14:36:13 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9P1c-000000050cX-1dw4
+	id 1v9P5M-0000000515c-1atT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 14:32:17 +0000
-Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-8fb58f2b820so514012241.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 07:32:15 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760625135; x=1761229935;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7OKo+B/N8OpvVSgOheqCo9k1dnTlp+LYue6K4y6i8Mc=;
-        b=pTJ8dFr7yjZq3TQDwnrVNwutb19E54WKOaVykeqxu1EksHja060h5d/zB3VWwj89dj
-         /GnHLwSuc5QIyW9NjW+ZyN+EwQpVgkUBSvLW/xaqeBX+P3R3qwibw/L3e+Kyp4NYE/77
-         IfueDtwGvFDwzgNpvNOlqtpfcOxFM8mdQ7vBtnFkoadEi/8Vo06dffi0BpSnO0KsssqB
-         yg/+d3Xc06Q67EA+IYCQIeplssBlSJSSMAcxBzOTmToWgPOVxrvngB5470bOsGc4BkV0
-         UlW9mpv5VPMtdAMBz+/ABppk4De4PBeRk+J9WLso6AwrEtfFYYoAqy5zH1nctXUDLgBY
-         JOxw==
-X-Forwarded-Encrypted: i=1; AJvYcCXfRc0eBdEiyI2r0/GYxhGUk4pBKCAhxsroSfRUNf/gPRj8g0uxQWqxUZLonEvnz0xi6HPQZeHU6j1qy18IM6jM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZxWLPhU1OAZ4blil7XFo9/L7mrThsNrunZ9k8voEdvmqZ5qzA
-	yDRt/GEPA/yyHIoQQU7f26iTLGiirYkTyhO4mit73kzfwxA1yTlLDuyL5oZJ783H
-X-Gm-Gg: ASbGncssBULXdNnTMgLx/C83Usxp7P4hG0iqc4XQ9EqNNrsssfINkDFH7wgVLTiyYkE
-	6h0HLSHgKQ+RCH8vlKBz/nrJzmnyD5fMvR+lJSvYS9w9ovpIDQyV1xj+1W1eUP6yHs/yMb6Qc3H
-	9mTk5MtQOytgxm7LwRd7meTU2vF0PiJbtai8zDz1vovxkc5NG2VNHqCJR2PJRRk4IJg+QJ6gBn4
-	sPOr/2/6e/2OH5ye/1zcEmemd+vdc2qYQ1ruWsWwlyTHMth2WYKaypLxWFZSgzqojtT4+osqu7W
-	TLT7kScd9GY92AEAXFltcuaABVqbPAEjoHJJzzAHWZ4lVZ+Hy5GhWCv5Bjvex7DxYDfO7+kSwTv
-	EtT9AVCNPaf+olD58SifuIuL7uiic9SccBxEhL+m151YywxJFLW6l8UStUZVgLV42q5n/4simNw
-	ie6GTOi58+Mr7Y9nDtzi9A+BuR0gnI1XvnrT1i6lDOIeRdyW9RQTBsdoeCGFc=
-X-Google-Smtp-Source: AGHT+IG/tAbqSaXpD/sSMfov3OyzN9QgmkLxZ5vLuLx6YqwHh1WYRO0EbwRYdi2v/n8C3cutfSbeew==
-X-Received: by 2002:a05:6102:6cc:b0:5d5:f6ae:38ec with SMTP id ada2fe7eead31-5d7dd7143a6mr215160137.45.1760625134501;
-        Thu, 16 Oct 2025 07:32:14 -0700 (PDT)
-Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5d5fc7126c7sm6448706137.5.2025.10.16.07.32.13
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Oct 2025 07:32:13 -0700 (PDT)
-Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-556f7e21432so544746137.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 07:32:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVmwuuT0qfDQiA4y7NsoJNGt3AUMZn+WLn7ZQUJhEfvSojsjeY5AXSqE0LXbn21dfwuUOzvx8C5ukWn21mP7WRu@lists.infradead.org
-X-Received: by 2002:a05:6102:54aa:b0:5a1:3bcf:a93f with SMTP id
- ada2fe7eead31-5d7dd555922mr220616137.4.1760625133095; Thu, 16 Oct 2025
- 07:32:13 -0700 (PDT)
+	Thu, 16 Oct 2025 14:36:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=fPJtDEet4RE6KaO4E+4C8FkxyWVGuKa6Vq/LffNt8Ik=; b=Mk3o5Xnu0mfRYLBKtACPEes6a+
+	3VEONcD3uGAgNcGuHxPUkokzCoRNJwBQjum9MbMk/RaO9G408ufGkWyq/dY4qtsvlko5X6rIYxygR
+	UJ+vsvGoiyMBMJi1YZkQO9aj07bhYwUpqLtuGP9WFzPfYwOirgrcjpiayEH5UmhBPG4wQav10R9jd
+	25iZmbaQ0dIHkpGlbRpSLbCbPnBjIhQmx97XVSDu047cpAFKzFdG/J71Uxw/7JsKJMjZT8pROJZI+
+	QIIWmdtkTUmSO+Pw6nuJ4AUrguR+GNyKBDEsv7pxW5sRNOyI8PiIgaS96cNv/Mc0UunOPlLT+n5fZ
+	PHWMshLQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33188)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v9P4o-000000006PA-1sUg;
+	Thu, 16 Oct 2025 15:35:34 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v9P4c-000000003LK-0iHI;
+	Thu, 16 Oct 2025 15:35:22 +0100
+Date: Thu, 16 Oct 2025 15:35:22 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexis Lothore <alexis.lothore@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
+	Furong Xu <0x1207@gmail.com>, Inochi Amaoto <inochiama@gmail.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Kees Cook <kees@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthew Gerlach <matthew.gerlach@altera.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
+	netdev@vger.kernel.org, Oleksij Rempel <o.rempel@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rohan G Thomas <rohan.g.thomas@altera.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Simon Horman <horms@kernel.org>,
+	Song Yoong Siang <yoong.siang.song@intel.com>,
+	Swathi K S <swathi.ks@samsung.com>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>, Vinod Koul <vkoul@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: [PATCH net-next v2 00/14] net: stmmac: phylink PCS conversion
+Message-ID: <aPECqg0vZGnBFCbh@shell.armlinux.org.uk>
 MIME-Version: 1.0
-References: <20251015153952.185249-1-marek.vasut+renesas@mailbox.org>
- <20251015153952.185249-2-marek.vasut+renesas@mailbox.org> <CAMuHMdVdW+tMA1=g9D+BQV0fk0kis8FzyQgf7BpN-u=pi5eQfA@mail.gmail.com>
- <51ff107d-126d-4481-b94a-f614f31c7bb8@mailbox.org> <CAMuHMdW+_1NZYdXrGsNcHkuvh_ym9148BRB+d0Wbz1oZrpWCdg@mail.gmail.com>
- <6f29d7af-a2e5-4412-9575-6368621c1178@mailbox.org>
-In-Reply-To: <6f29d7af-a2e5-4412-9575-6368621c1178@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 16 Oct 2025 16:32:02 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdU9xSeFtLB-jUSUnJb1JHxYDXLe91GhZbT7QVGzYCXkRw@mail.gmail.com>
-X-Gm-Features: AS18NWBZ0iJCimoz06t01ILJ3nlCiaOTwnBjpX9tKhkz8DwVN2SfgQuIjQCiZ2I
-Message-ID: <CAMuHMdU9xSeFtLB-jUSUnJb1JHxYDXLe91GhZbT7QVGzYCXkRw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] arm64: dts: renesas: r8a77960: Add GX6250 GPU node
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, linux-arm-kernel@lists.infradead.org, 
-	=?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>, 
-	Adam Ford <aford173@gmail.com>, Conor Dooley <conor+dt@kernel.org>, 
-	David Airlie <airlied@gmail.com>, Frank Binns <frank.binns@imgtec.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Magnus Damm <magnus.damm@gmail.com>, 
-	Matt Coster <matt.coster@imgtec.com>, Maxime Ripard <mripard@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_073216_435338_67EADA9C 
-X-CRM114-Status: GOOD (  31.79  )
+X-CRM114-CacheID: sfid-20251016_073608_580451_0D8105A6 
+X-CRM114-Status: GOOD (  27.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,48 +111,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+This series is radical - it takes the brave step of ripping out much of
+the existing PCS support code and throwing it all away.
 
-On Thu, 16 Oct 2025 at 16:13, Marek Vasut <marek.vasut@mailbox.org> wrote:
-> On 10/16/25 12:14 PM, Geert Uytterhoeven wrote:
-> >> which are also never disabled, do we want to disable the GPU by default
-> >> and enable per-board ?
-> >
-> > Yes please. We do the same with renesas,*-mali GPU nodes.
-> > The board may not even have graphical output.
-> > Or do you envision using the GPU for more general and headless operation?
->
-> The GPU does have GP-GPU compute shader, so even headless system can do
-> compute on the GPU.
+I have discussed the introduction of the STMMAC_FLAG_HAS_INTEGRATED_PCS
+flag with Bartosz Golaszewski, and the conclusion I came to is that
+this is to workaround the breakage that I've been going on about
+concerning the phylink conversion for the last five or six years.
 
-How is this handled on other SoCs?
+The problem is that the stmmac PCS code manipulates the netif carrier
+state, which confuses phylink.
 
-> >> I would argue the GPU should be enabled by default, so the GPU driver
-> >> can do a proper power management of the GPU. If firmware is missing, at
-> >> least power it off on failed probe, if nothing else.
-> >
-> > The *_PD_3DG_* domains are powered down anyway when unused.
->
-> If the driver was bound to the GPU node, then the domain would be surely
-> powered down in control of the Linux kernel driver, without depending on
-> the prior stage to leave it powered down.
->
-> I think it is in fact better to bind the GPU driver to the GPU IP and
-> let the GPU driver power manage the GPU in a well defined manner,
-> instead of depending on the prior stage to leave the GPU in some
-> specific state ?
+There is a way of testing this out on the Jetson Xavier NX platform as
+the "PCS" code paths can be exercised while in RGMII mode - because
+RGMII also has in-band status and the status register is shared with
+SGMII. Testing this out confirms my long held theory: the interrupt
+handler manipulates the netif carrier state before phylink gets a
+look-in, which means that the mac_link_up() and mac_link_down() methods
+are never called, resulting in the device being non-functional.
 
-The domains are powered down by the rcar-sysc PM Domain driver,
-hence the system does not rely on any prior stage taking care of that.
+Moreover, on dwmac4 cores, ethtool reports incorrect information -
+despite having a full-duplex link, ethtool reports that it is
+half-dupex.
 
-Gr{oetje,eeting}s,
+Thus, this code is completely broken - anyone using it will not have
+a functional platform, and thus it doesn't deserve to live any longer,
+especially as it's a thorn in phylink.
 
-                        Geert
+Rip all this out, leaving just the bare bones initialisation in place.
+
+However, this is not the last of what's broken. We have this hw->ps
+integer which is really not descriptive, and the DT property from
+which it comes from does little to help understand what's going on.
+Putting all the clues together:
+
+- early configuration of the GMAC configuration register for the
+  speed.
+- setting the SGMII rate adapter layer to take its speed from the
+  GMAC configuration register.
+
+Lastly, setting the transmit enable (TE) bit, which is a typo that puts
+the nail in the coffin of this code. It should be the transmit
+configuration (TC) bit. Given that when the link comes up, phylink
+will call mac_link_up() which will overwrite the speed in the GMAC
+configuration register, the only part of this that is functional is
+changing where the SGMII rate adapter layer gets its speed from,
+which is a boolean.
+
+From what I've found so far, everyone who sets the snps,ps-speed
+property which configures this mode also configures a fixed link,
+so the pre-configuration is unnecessary - the link will come up
+anyway.
+
+So, this series rips that out the preconfiguration as well, and
+replaces hw->ps with a boolean hw->reverse_sgmii_enable flag.
+
+We then move the sole PCS configuration into a phylink_pcs instance,
+which configures the PCS control register in the same way as is done
+during the probe function.
+
+Thus, we end up with much easier and simpler conversion to phylink PCS
+than previous attempts.
+
+Even so, this still results in inband mode always being enabled at the
+moment in the new .pcs_config() method to reflect what the probe
+function was doing. The next stage will be to change that to allow
+phylink to correctly configure the PCS. This needs fixing to allow
+platform glue maintainers who are currently blocked to progress.
+
+Please note, however, that this has not been tested with any SGMII
+platform.
+
+I've tried to get as many people into the Cc list with get_maintainers,
+I hope that's sufficient to get enough eyeballs on this.
+
+Changes since RFC:
+- new patch (7) to remove RGMII "pcs" mode
+- new patch (8) to move reverse "pcs" mode to stmmac_check_pcs_mode()
+- new patch (9) to simplify the code moved in the previous patch
+- new patch (10) to rename the confusing hw->ps to something more
+  understandable.
+- new patch (11) to shut up inappropriate complaints about
+  "snps,ps-speed" being invalid.
+- new patch (13) to add a MAC .pcs_init method, which will only be
+  called when core has PCS present.
+- modify patch 14 to use this new pcs_init method.
+
+Despite getting a couple of responses to the RFC series posted in
+September, I have had nothing testing this on hardware. I have tested
+this on the Jetson Xavier NX, which included trial runs with enabling
+the RGMII "pcs" mode, hence the new patches that rip out this mode. I
+have come to the conclusion that the only way to get stmmac changes
+tested is to get them merged into net-next, thereby forcing people to
+have to run with them... and we'll deal with any fallout later.
+
+Changes since v1:
+- added Andrew's reviewed-bys
+- added additional comments to patch 3, 11 and 14.
+No code changes.
+
+ drivers/net/ethernet/stmicro/stmmac/Makefile       |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/common.h       |  5 +-
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    |  6 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000.h    |  6 +-
+ .../net/ethernet/stmicro/stmmac/dwmac1000_core.c   | 65 ++-------------------
+ drivers/net/ethernet/stmicro/stmmac/dwmac4.h       |  3 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c  | 66 ++-------------------
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_core.c    | 25 +-------
+ drivers/net/ethernet/stmicro/stmmac/hwif.h         |  4 +-
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       |  4 ++
+ .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c   | 68 +---------------------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 24 ++++----
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c   | 47 +++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.h   | 23 ++++++--
+ include/linux/stmmac.h                             |  1 -
+ 15 files changed, 104 insertions(+), 245 deletions(-)
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
