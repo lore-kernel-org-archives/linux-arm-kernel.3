@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D75CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 02:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CA96CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 02:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1RfAR5qe3fDpGYWfe4IMPee9wlWopj1wjBrVtJQSHJQ=; b=aWgBaDuIXy+NUvPKXXyQb1+ash
-	BjmssGaiQwkhq4PJ8921CH4kOLwGCeHE8C7RBQunOl6ZBga5oW4MTPEAnR5M+ET6M4j3mxPAMybxX
-	PE+z/d3gi3yfaoqIg4ZLvQlwY/+v3fkBq0B5q2HbVCVK+l0iKXlNjtPGFEyh6wwogyW5stus421Bu
-	yc0q3DIYrDNgw/K8gapx4iiXXSZZvskWKpwic/v3Er0PyMCaLLCANzfdLie6FW9ip48TU52CVNOBg
-	W5baOxqM/Lh6xrVtlgefWeqyjwVzdcnJ/7xtnPbtzyhlY2DNchZ1xErEWzLC5vVK00SeTqSldfBiB
-	g3djkTbw==;
+	bh=BuQ4mBEiN+7/ObTTcK+p0KiLMvuXBc9ZgL86oY+Ib4A=; b=Lhcooon+N//or5sa8A1ET0YmvE
+	Nd5ym9ZOqxoR3sILF8iXwjdrfcrNNQ/zE5PMYI/rqm4df3L+iOAs+1pzh2pf0uMbNtBWSjEOkPhmw
+	HA4Is93xiv9+f1OJPJRsUCUxKku58SReuCtdRxEO4oafnjEh5WzKPFtGtr5FLfGrDFuxgX0mJue0W
+	cpYqYHN8EBmhZDmr+aymR2W1QWq+Co8C5QpkrqjBmt9swF70knXzwhAV7uwtoml71SYlHiSk0pzlO
+	6v0X92lRJo2TQHIxGnJfb+l6DcDNSOJj9XMb+fMAj6COBVh+L4wMi82kE3EFUxgvpWGkr1UzvQKxk
+	oROVdNOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Djy-00000003HJK-1vEu;
-	Thu, 16 Oct 2025 02:29:18 +0000
-Received: from smtpbgeu1.qq.com ([52.59.177.22])
+	id 1v9Dk4-00000003HQq-0aix;
+	Thu, 16 Oct 2025 02:29:24 +0000
+Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Djq-00000003GsW-3Ucz;
-	Thu, 16 Oct 2025 02:29:15 +0000
+	id 1v9Djv-00000003Gu4-3XDe;
+	Thu, 16 Oct 2025 02:29:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1760581709;
-	bh=1RfAR5qe3fDpGYWfe4IMPee9wlWopj1wjBrVtJQSHJQ=;
+	s=altu2504; t=1760581702;
+	bh=BuQ4mBEiN+7/ObTTcK+p0KiLMvuXBc9ZgL86oY+Ib4A=;
 	h=From:To:Subject:Date:Message-Id;
-	b=TTm1HCrbqeXq7P1kxCRfSNMPgBplWP2oFJ6+09c/9zfpJsqmf2HLs5191+C++wwJj
-	 4H2Qh48kGKQUoM+GIm/S7UFRMbktUu37uDg0Ubii2SFZHAy7u/MoHESWDjNGa87/iV
-	 X78FLc7P6o9kVyrHWrvCZTT1sT6pr+Vc/+vV6Vzc=
-X-QQ-mid: zesmtpgz1t1760581707te7834fa0
-X-QQ-Originating-IP: fu4+9mqDE3XZAMSCh/z+SENLWrlcpaz7T3n6vsQJy5o=
+	b=G6MI9ONZnta1d4VViTHAH1aDMehrO8wPguCENgicAVypVrxWd7jNo0W9zwx3dz8qm
+	 aofOARI5lgxuCobY4Ats8JMIjXW9vqdnS/m98VT4jCoQaR/Rh1lZItciTRyWKB40IJ
+	 hOgK4VMp+tcsox20cJ+nhg+sTC6EBWELeHcmYwHI=
+X-QQ-mid: zesmtpgz1t1760581700t137f5e57
+X-QQ-Originating-IP: +UfW3lMvNEHII+EXqp/+l4Sn1gYY13VXaXZz79ARNNo=
 Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 16 Oct 2025 10:28:25 +0800 (CST)
+	id ; Thu, 16 Oct 2025 10:28:18 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 18195829153663395563
+X-BIZMAIL-ID: 17802569404537797185
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -73,35 +73,35 @@ Cc: linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	dri-devel@lists.freedesktop.org
-Subject: [PATCH v6 8/8] arm64: dts: rockchip: rk3399-evb-ind: Add support for DisplayPort
-Date: Thu, 16 Oct 2025 10:27:41 +0800
-Message-Id: <20251016022741.91-9-kernel@airkyi.com>
+Subject: [PATCH v6 6/8] drm/rockchip: cdn-dp: Add multiple bridges to support PHY port selection
+Date: Thu, 16 Oct 2025 10:27:39 +0800
+Message-Id: <20251016022741.91-7-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20251016022741.91-1-kernel@airkyi.com>
 References: <20251016022741.91-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
-X-QQ-XMAILINFO: Mdc3TkmnJyI/g46mb2NUghtoATatWDvJeUu+ylsQ8Azc35inUhrIlLpG
-	/b5dzCzBD2otk3ob9sEd9GTgeXbplYioANOCDD8r+wp3P5LAye9/OM5awVe8CGJxR/oqnKm
-	O6+L32+NKMxzUzIduSURMh0vmVPoGVsybycLh40fVl8QArgSLumoP/NQdAGuztGyVUYeiy/
-	lkfiWDi8/xWHgAEysDPoxs/OnkyrIsNUOX7DMzygIIa/omYumH3UTkAc3SHZrUnkn+naH9C
-	lsiaH5Ce1uQKniNQjqqdaEIzRkkvRhiQ41sAmL1OIiWgmQpXu9dfWicppjaIqq2bsDA4Sq0
-	EWELGlFq+xrf2d4i4uvhMUko3CDH9OiX8IrBjZzeziv9XkBrLagl4SjeCqegV5V2nv4vWU8
-	gdOVxfx/Hf9HMiEpoP3CKyEOHBH1C9wD3vANHIQnOdBhaIeGInVyPdBPL1AUQC9zVddojI6
-	14pISv2VwCfpmXYvaSi2EdV05h8Pl/IgfHCtS8Dfpyoyak/br5WHSP2mr4vK1hJh6pKzxhd
-	Y2fk46iBkidEB3P7i70TOKarBGWsxesRHhMU3oaVhYJg6IwQ1q67/CVNHg+QXRr8DuJpSzU
-	WumDQG1NFva4XQ1daiV197a+zxEQzEwReqQxkzi0QYo9ocgG1OQ3c3NqihtXUlWtEoUjrFj
-	P2i8U/5HMSQ+ZKheexjW+YXyRARTl3oMC4xvI29RpGWqU9Gd+x86A3FbR/ZPrBeaNQdGRLQ
-	Mk/FM65T7EOyWJrK6kR9/l1PyDOgH4fu9foxKkiVFaOuhMIKJx+01F/ovgmG8CONFctQk3T
-	1qvUMf7U8uLqeirS3k052r60A7+tilWFa7y5R1qYebaZlXwP/4E6rGLx1baNtYkKYcBz2kl
-	ByXINEbh8/HNnGFcp2ylOCIljE9yYIbGp5HCx5ctP+ysAOFuYKufmWgF/YDzNs9TVZzSh0j
-	PNVjcmN4fDc7D32OuGLlhUmf97ysuZ0digBWqD195g2U9s+/WgWx4amYUIv0SkS6y0FvME6
-	oO+MMmjcoC5GqprmgqsXsIgecnI4RaW4caczAceG30vaUIW7r0
-X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
+X-QQ-XMAILINFO: MwqrwaLzgdebeNtEPaUaaEGBxMNv71ENEtOkB7pUAS9cq37qcJuUQ+5+
+	6ntUc0zoAcmgUQxE7BLDYwDOASogw1sQxKVaiGrnSLWf0akBbIG8EhWbzg7hX5qHgD6IVQb
+	bxA5dJfxLMaKauCiFOxv5D3ioorS58p0DzTFQXEmMI96qkTRigH1wrOozXCoSbK1pJxiuAZ
+	rNU2wkZJXb/S9OT2YrW6MyLLcaytjaopY8k6SNg2dSZMMFk6MzStb0CX1CX7kbB/NO4shg+
+	qZPRL57ISyKtKdooox+I+xyljGcfokbFjtBXCRdlWPebdyvxf5dmgJkyTfapTgxJo5w0ecW
+	ohJ2pbl+o+eFXgcPcwFf3YYCa016jkhm8adO9fMoulsE11Sn9ohzVhxNGBYh+NgUer74tIe
+	XAXrfTCSleelRIQq8yrlKXtAuzyBuafP2zV0vTUyA8yElRn+YfYQXVxtNqP6PCW82lnUPbk
+	55wvUs67TOZBfyejl119E4IxSQXTSCJh81RoeB2fTf+kz1V09TTv27AyT9PriB6ElSwZzrk
+	oQMHlh2TuxJkAw+PYv+jNMpI20IJLA/LZQOgwkQH2Te1FmQ3lCUKo4u2oR81IjJUoV1Xihi
+	Kj+YUAYiLWN154rrNKoI6MrDAhcQkmTCMkE8xCUdP13s19xohrwsxbIDNbUC1W0b5s2hSPu
+	fjIgscGcFdJmd57cXyRZSuezSC4ye8DLmIuJDpJJCObLhUjvu9prprMsSA8ewJV7cEH0p2h
+	uRScCnakzGuu72Ui5LfnSYstSBHGKnchjvIf02KsyTS4LUtnkNNZbgxxeaCiOwaCgMH++nG
+	w09v4e1rO7ZFiOBCa6yIxER7B35RO1/FCVla5KwlU+Cls3LoJXUPamSqblhner2tP7voHTG
+	x8LIwU29jJeDHdlgFq6JZLVkBY6lKPGToG5O52BroHCxihbTys1lGwbQMxBzooddslcxvXP
+	ndYKHfW4Usd6TIRAdej11Q2FUtywHDxBCj7sCoqSldc2VNq0WGhCUzQPXaONKOeqXVCb1Re
+	nvdGGPQS3mthd9kHuDOckFPFSpxJhsoJIJvIqz8FDBuufZgXWh
+X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_192911_510643_089E1C7E 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20251015_192916_342674_B63BD35D 
+X-CRM114-Status: GOOD (  33.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,237 +118,613 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-The RK3399 EVB IND board has a Type-C interface DisplayPort.
-It use fusb302 chip as Type-C controller.
+The RK3399 has two USB/DP combo PHY and one CDN-DP controller. And
+the CDN-DP can be switched to output to one of the PHYs. If both ports
+are plugged into DP, DP will select the first port for output.
 
-fusb302 chip ---> USB/DP PHY0 <----> CDN-DP controller
+This patch adds support for multiple bridges, enabling users to flexibly
+select the output port. For each PHY port, a separate encoder and bridge
+are registered.
+
+The change is based on the DRM AUX HPD bridge, rather than the
+extcon approach. This requires the DT to correctly describe the
+connections between the first bridge in bridge chain and DP
+controller. For example, the bridge chain may be like this:
+
+PHY aux birdge -> fsa4480 analog audio switch bridge ->
+onnn,nb7vpq904m USB reminder bridge -> USB-C controller AUX HPD bridge
+
+In this case, the connection relationships among the PHY aux bridge
+and the DP contorller need to be described in DT.
+
+In addition, the cdn_dp_parse_next_bridge_dt() will parses it and
+determines whether to register one or two bridges.
+
+Since there is only one DP controller, only one of the PHY ports can
+output at a time. The key is how to switch between different PHYs,
+which is handled by cdn_dp_switch_port() and cdn_dp_enable().
+
+There are two cases:
+
+1. Neither bridge is enabled. In this case, both bridges can
+independently read the EDID, and the PHY port may switch before
+reading the EDID.
+
+2. One bridge is already enabled. In this case, other bridges are not
+allowed to read the EDID. So we will try to return the cached EDID.
+
+Since the scenario of two ports plug in at the same time is rare,
+I don't have a board which support two TypeC connector to test this.
+Therefore, I tested forced switching on a single PHY port, as well as
+output using a fake PHY port alongside a real PHY port.
 
 Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 ---
 
-(no changes since v4)
+Changes in v6:
+- Rename some variable names.
+- Attach the DP bridge to the next bridge.
 
-Changes in v3:
-- Fix wrong vdo value.
-- Fix port node in usb-c-connector.
+Changes in v5:
+- By parsing the HPD bridge chain, set the connector's of_node to the
+of_node corresponding to the USB-C connector.
+- Return EDID cache when other port is already enabled.
 
-Changes in v2:
-- Add endpoint to link DP PHY and DP controller.
-- Fix devicetree coding style.
+ drivers/gpu/drm/rockchip/cdn-dp-core.c | 329 ++++++++++++++++++++-----
+ drivers/gpu/drm/rockchip/cdn-dp-core.h |  24 +-
+ 2 files changed, 296 insertions(+), 57 deletions(-)
 
- .../boot/dts/rockchip/rk3399-evb-ind.dts      | 146 ++++++++++++++++++
- 1 file changed, 146 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-index 70aee1ab904c..aeeee6bd2973 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-@@ -4,6 +4,7 @@
-  */
+diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+index 1e27301584a4..5c0e5209d3b8 100644
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+@@ -27,16 +27,17 @@
+ #include "cdn-dp-core.h"
+ #include "cdn-dp-reg.h"
  
- /dts-v1/;
-+#include <dt-bindings/usb/pd.h>
- #include "rk3399.dtsi"
- 
- / {
-@@ -19,6 +20,21 @@ chosen {
- 		stdout-path = "serial2:1500000n8";
- 	};
- 
-+	sound: sound {
-+		compatible = "rockchip,rk3399-gru-sound";
-+		rockchip,cpu = <&i2s0 &spdif>;
-+	};
+-static inline struct cdn_dp_device *bridge_to_dp(struct drm_bridge *bridge)
++static int cdn_dp_switch_port(struct cdn_dp_device *dp, struct cdn_dp_port *prev_port,
++			      struct cdn_dp_port *port);
 +
-+	vbus_typec: regulator-vbus-typec {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio1 RK_PC2 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_typec0_en>;
-+		regulator-name = "vbus_typec";
-+		vin-supply = <&vcc5v0_sys>;
-+	};
++static inline struct cdn_dp_bridge *bridge_to_dp_bridge(struct drm_bridge *bridge)
+ {
+-	return container_of(bridge, struct cdn_dp_device, bridge);
++	return container_of(bridge, struct cdn_dp_bridge, bridge);
+ }
+ 
+-static inline struct cdn_dp_device *encoder_to_dp(struct drm_encoder *encoder)
++static inline struct cdn_dp_device *bridge_to_dp(struct drm_bridge *bridge)
+ {
+-	struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
+-
+-	return container_of(rkencoder, struct cdn_dp_device, encoder);
++	return bridge_to_dp_bridge(bridge)->parent;
+ }
+ 
+ #define GRF_SOC_CON9		0x6224
+@@ -191,14 +192,27 @@ static int cdn_dp_get_sink_count(struct cdn_dp_device *dp, u8 *sink_count)
+ static struct cdn_dp_port *cdn_dp_connected_port(struct cdn_dp_device *dp)
+ {
+ 	struct cdn_dp_port *port;
+-	int i, lanes;
++	int i, lanes[MAX_PHY];
+ 
+ 	for (i = 0; i < dp->ports; i++) {
+ 		port = dp->port[i];
+-		lanes = cdn_dp_get_port_lanes(port);
+-		if (lanes)
++		lanes[i] = cdn_dp_get_port_lanes(port);
++		if (!dp->next_bridge_valid)
+ 			return port;
+ 	}
 +
- 	vcc5v0_sys: regulator-vcc5v0-sys {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
-@@ -31,6 +47,11 @@ vcc5v0_sys: regulator-vcc5v0-sys {
- 	};
++	if (dp->next_bridge_valid) {
++		/* If more than one port is available, pick the last active port */
++		if (dp->active_port > 0 && lanes[dp->active_port])
++			return dp->port[dp->active_port];
++
++		/* If the last active port is not available, pick an available port in order */
++		for (i = 0; i < dp->bridge_count; i++) {
++			if (lanes[i])
++				return dp->port[i];
++		}
++	}
++
+ 	return NULL;
+ }
+ 
+@@ -253,12 +267,45 @@ static const struct drm_edid *
+ cdn_dp_bridge_edid_read(struct drm_bridge *bridge, struct drm_connector *connector)
+ {
+ 	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+-	const struct drm_edid *drm_edid;
++	struct cdn_dp_bridge *dp_bridge = bridge_to_dp_bridge(bridge);
++	struct cdn_dp_port *port = dp->port[dp_bridge->id];
++	struct cdn_dp_port *prev_port;
++	const struct drm_edid *drm_edid = NULL;
++	int i, ret;
+ 
+ 	mutex_lock(&dp->lock);
++
++	/* More than one port is available */
++	if (dp->bridge_count > 1 && !port->phy_enabled) {
++		for (i = 0; i < dp->bridge_count; i++) {
++			/* Another port already enable */
++			if (dp->bridge_list[i] != dp_bridge && dp->bridge_list[i]->enabled)
++				goto get_cache;
++			/* Find already enabled port */
++			if (dp->port[i]->phy_enabled)
++				prev_port = dp->port[i];
++		}
++
++		/* Switch to current port */
++		if (prev_port) {
++			ret = cdn_dp_switch_port(dp, prev_port, port);
++			if (ret)
++				goto get_cache;
++		}
++	}
++
+ 	drm_edid = drm_edid_read_custom(connector, cdn_dp_get_edid_block, dp);
++	/* replace edid cache */
++	if (dp->edid_cache[dp_bridge->id])
++		drm_edid_free(dp->edid_cache[dp_bridge->id]);
++	dp->edid_cache[dp_bridge->id] = drm_edid_dup(drm_edid);
++
+ 	mutex_unlock(&dp->lock);
++	return drm_edid;
+ 
++get_cache:
++	drm_edid = drm_edid_dup(dp->edid_cache[dp_bridge->id]);
++	mutex_unlock(&dp->lock);
+ 	return drm_edid;
+ }
+ 
+@@ -267,12 +314,13 @@ cdn_dp_bridge_mode_valid(struct drm_bridge *bridge,
+ 			 const struct drm_display_info *display_info,
+ 			 const struct drm_display_mode *mode)
+ {
++	struct cdn_dp_bridge *dp_bridge = bridge_to_dp_bridge(bridge);
+ 	struct cdn_dp_device *dp = bridge_to_dp(bridge);
+ 	u32 requested, actual, rate, sink_max, source_max = 0;
+ 	u8 lanes, bpc;
+ 
+ 	/* If DP is disconnected, every mode is invalid */
+-	if (!dp->connected)
++	if (!dp_bridge->connected || !dp->connected)
+ 		return MODE_BAD;
+ 
+ 	switch (display_info->bpc) {
+@@ -550,6 +598,54 @@ static bool cdn_dp_check_link_status(struct cdn_dp_device *dp)
+ 	return drm_dp_channel_eq_ok(link_status, min(port->lanes, sink_lanes));
+ }
+ 
++static int cdn_dp_switch_port(struct cdn_dp_device *dp, struct cdn_dp_port *prev_port,
++			      struct cdn_dp_port *port)
++{
++	int ret;
++
++	if (dp->active)
++		return 0;
++
++	ret = cdn_dp_disable_phy(dp, prev_port);
++	if (ret)
++		goto out;
++	ret = cdn_dp_enable_phy(dp, port);
++	if (ret)
++		goto out;
++
++	ret = cdn_dp_get_sink_capability(dp);
++	if (ret) {
++		cdn_dp_disable_phy(dp, port);
++		goto out;
++	}
++
++	dp->active = true;
++	dp->lanes = port->lanes;
++
++	if (!cdn_dp_check_link_status(dp)) {
++		dev_info(dp->dev, "Connected with sink; re-train link\n");
++
++		ret = cdn_dp_train_link(dp);
++		if (ret) {
++			dev_err(dp->dev, "Training link failed: %d\n", ret);
++			goto out;
++		}
++
++		ret = cdn_dp_set_video_status(dp, CONTROL_VIDEO_IDLE);
++		if (ret) {
++			dev_err(dp->dev, "Failed to idle video %d\n", ret);
++			goto out;
++		}
++
++		ret = cdn_dp_config_video(dp);
++		if (ret)
++			dev_err(dp->dev, "Failed to configure video: %d\n", ret);
++	}
++
++out:
++	return ret;
++}
++
+ static void cdn_dp_display_info_update(struct cdn_dp_device *dp,
+ 				       struct drm_display_info *display_info)
+ {
+@@ -571,6 +667,7 @@ static void cdn_dp_display_info_update(struct cdn_dp_device *dp,
+ static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_atomic_state *state)
+ {
+ 	struct cdn_dp_device *dp = bridge_to_dp(bridge);
++	struct cdn_dp_bridge *dp_bridge = bridge_to_dp_bridge(bridge);
+ 	struct drm_connector *connector;
+ 	int ret, val;
+ 
+@@ -580,7 +677,7 @@ static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_at
+ 
+ 	cdn_dp_display_info_update(dp, &connector->display_info);
+ 
+-	ret = drm_of_encoder_active_endpoint_id(dp->dev->of_node, &dp->encoder.encoder);
++	ret = drm_of_encoder_active_endpoint_id(dp->dev->of_node, &dp_bridge->encoder.encoder);
+ 	if (ret < 0) {
+ 		DRM_DEV_ERROR(dp->dev, "Could not get vop id, %d", ret);
+ 		return;
+@@ -599,6 +696,9 @@ static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_at
+ 
+ 	mutex_lock(&dp->lock);
+ 
++	if (dp->next_bridge_valid)
++		dp->active_port = dp_bridge->id;
++
+ 	ret = cdn_dp_enable(dp);
+ 	if (ret) {
+ 		DRM_DEV_ERROR(dp->dev, "Failed to enable bridge %d\n",
+@@ -631,6 +731,7 @@ static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_at
+ 		goto out;
+ 	}
+ 
++	dp_bridge->enabled = true;
+ out:
+ 	mutex_unlock(&dp->lock);
+ }
+@@ -638,9 +739,11 @@ static void cdn_dp_bridge_atomic_enable(struct drm_bridge *bridge, struct drm_at
+ static void cdn_dp_bridge_atomic_disable(struct drm_bridge *bridge, struct drm_atomic_state *state)
+ {
+ 	struct cdn_dp_device *dp = bridge_to_dp(bridge);
++	struct cdn_dp_bridge *dp_bridge = bridge_to_dp_bridge(bridge);
+ 	int ret;
+ 
+ 	mutex_lock(&dp->lock);
++	dp_bridge->enabled = false;
+ 
+ 	if (dp->active) {
+ 		ret = cdn_dp_disable(dp);
+@@ -827,6 +930,16 @@ static int cdn_dp_audio_mute_stream(struct drm_bridge *bridge,
+ 	return ret;
+ }
+ 
++static void cdn_dp_bridge_hpd_notify(struct drm_bridge *bridge,
++			   enum drm_connector_status status)
++{
++	struct cdn_dp_bridge *dp_bridge = bridge_to_dp_bridge(bridge);
++	struct cdn_dp_device *dp = bridge_to_dp(bridge);
++
++	dp->bridge_list[dp_bridge->id]->connected = status == connector_status_connected;
++	schedule_work(&dp->event_work);
++}
++
+ static const struct drm_bridge_funcs cdn_dp_bridge_funcs = {
+ 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+@@ -837,6 +950,7 @@ static const struct drm_bridge_funcs cdn_dp_bridge_funcs = {
+ 	.atomic_disable = cdn_dp_bridge_atomic_disable,
+ 	.mode_valid = cdn_dp_bridge_mode_valid,
+ 	.mode_set = cdn_dp_bridge_mode_set,
++	.hpd_notify = cdn_dp_bridge_hpd_notify,
+ 
+ 	.dp_audio_prepare = cdn_dp_audio_prepare,
+ 	.dp_audio_mute_stream = cdn_dp_audio_mute_stream,
+@@ -885,7 +999,8 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
+ {
+ 	struct cdn_dp_device *dp = container_of(work, struct cdn_dp_device,
+ 						event_work);
+-	int ret;
++	bool connected;
++	int i, ret;
+ 
+ 	mutex_lock(&dp->lock);
+ 
+@@ -944,9 +1059,12 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
+ 
+ out:
+ 	mutex_unlock(&dp->lock);
+-	drm_bridge_hpd_notify(&dp->bridge,
+-			      dp->connected ? connector_status_connected
+-					    : connector_status_disconnected);
++	for (i = 0; i < dp->bridge_count; i++) {
++		connected = dp->connected && dp->bridge_list[i]->connected;
++		drm_bridge_hpd_notify(&dp->bridge_list[i]->bridge,
++				      connected ? connector_status_connected
++						: connector_status_disconnected);
++	}
+ }
+ 
+ static int cdn_dp_pd_event(struct notifier_block *nb,
+@@ -966,28 +1084,16 @@ static int cdn_dp_pd_event(struct notifier_block *nb,
+ 	return NOTIFY_DONE;
+ }
+ 
+-static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
++static int cdn_bridge_add(struct device *dev,
++			  struct drm_bridge *bridge,
++			  struct drm_bridge *next_bridge,
++			  struct drm_encoder *encoder)
+ {
+ 	struct cdn_dp_device *dp = dev_get_drvdata(dev);
+-	struct drm_encoder *encoder;
++	struct drm_device *drm_dev = dp->drm_dev;
++	struct drm_bridge *last_bridge = NULL;
+ 	struct drm_connector *connector;
+-	struct cdn_dp_port *port;
+-	struct drm_device *drm_dev = data;
+-	int ret, i;
+-
+-	ret = cdn_dp_parse_dt(dp);
+-	if (ret < 0)
+-		return ret;
+-
+-	dp->drm_dev = drm_dev;
+-	dp->connected = false;
+-	dp->active = false;
+-	dp->active_port = -1;
+-	dp->fw_loaded = false;
+-
+-	INIT_WORK(&dp->event_work, cdn_dp_pd_event_work);
+-
+-	encoder = &dp->encoder.encoder;
++	int ret;
+ 
+ 	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm_dev,
+ 							     dev->of_node);
+@@ -1002,26 +1108,38 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ 
+ 	drm_encoder_helper_add(encoder, &cdn_dp_encoder_helper_funcs);
+ 
+-	dp->bridge.ops =
+-			DRM_BRIDGE_OP_DETECT |
+-			DRM_BRIDGE_OP_EDID |
+-			DRM_BRIDGE_OP_HPD |
+-			DRM_BRIDGE_OP_DP_AUDIO;
+-	dp->bridge.of_node = dp->dev->of_node;
+-	dp->bridge.type = DRM_MODE_CONNECTOR_DisplayPort;
+-	dp->bridge.hdmi_audio_dev = dp->dev;
+-	dp->bridge.hdmi_audio_max_i2s_playback_channels = 8;
+-	dp->bridge.hdmi_audio_spdif_playback = 1;
+-	dp->bridge.hdmi_audio_dai_port = -1;
+-
+-	ret = devm_drm_bridge_add(dev, &dp->bridge);
++
++	bridge->ops =
++		DRM_BRIDGE_OP_DETECT |
++		DRM_BRIDGE_OP_EDID |
++		DRM_BRIDGE_OP_HPD |
++		DRM_BRIDGE_OP_DP_AUDIO;
++	bridge->of_node = dp->dev->of_node;
++	bridge->type = DRM_MODE_CONNECTOR_DisplayPort;
++	bridge->hdmi_audio_dev = dp->dev;
++	bridge->hdmi_audio_max_i2s_playback_channels = 8;
++	bridge->hdmi_audio_spdif_playback = 1;
++	bridge->hdmi_audio_dai_port = -1;
++
++	ret = devm_drm_bridge_add(dev, bridge);
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = drm_bridge_attach(encoder, &dp->bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++	ret = drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 	if (ret)
+ 		return ret;
+ 
++	if (next_bridge) {
++		ret = drm_bridge_attach(encoder, next_bridge, bridge,
++					DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++		if (ret)
++			return ret;
++
++		last_bridge = next_bridge;
++		while (drm_bridge_get_next_bridge(last_bridge))
++			last_bridge = drm_bridge_get_next_bridge(last_bridge);
++	}
++
+ 	connector = drm_bridge_connector_init(drm_dev, encoder);
+ 	if (IS_ERR(connector)) {
+ 		ret = PTR_ERR(connector);
+@@ -1029,8 +1147,102 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ 		return ret;
+ 	}
+ 
++	if (last_bridge)
++		connector->fwnode = fwnode_handle_get(of_fwnode_handle(last_bridge->of_node));
++
+ 	drm_connector_attach_encoder(connector, encoder);
+ 
++	return 0;
++}
++
++static int cdn_dp_parse_next_bridge_dt(struct cdn_dp_device *dp)
++{
++	struct device_node *np = dp->dev->of_node;
++	struct device_node *port __free(device_node) = of_graph_get_port_by_id(np, 1);
++	struct drm_bridge *bridge;
++	int count = 0;
++	int ret = 0;
++	int i;
++
++	/* If device use extcon, do not use hpd bridge */
++	for (i = 0; i < dp->ports; i++) {
++		if (dp->port[i]->extcon) {
++			dp->bridge_count = 1;
++			return 0;
++		}
++	}
++
++
++	/* One endpoint may correspond to one next bridge. */
++	for_each_of_graph_port_endpoint(port, dp_ep) {
++		struct device_node *next_bridge_node __free(device_node) =
++			of_graph_get_remote_port_parent(dp_ep);
++
++		bridge = of_drm_find_bridge(next_bridge_node);
++		if (!bridge) {
++			ret = -EPROBE_DEFER;
++			goto out;
++		}
++
++		dp->next_bridge_valid = true;
++		dp->next_bridge_list[count].bridge = bridge;
++		dp->next_bridge_list[count].parent = dp;
++		dp->next_bridge_list[count].id = count;
++		count++;
++	}
++
++out:
++	dp->bridge_count = count ? count : 1;
++	return ret;
++}
++
++static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
++{
++	struct cdn_dp_device *dp = dev_get_drvdata(dev);
++	struct drm_bridge *bridge, *next_bridge;
++	struct drm_encoder *encoder;
++	struct cdn_dp_port *port;
++	struct drm_device *drm_dev = data;
++	struct cdn_dp_bridge *dp_bridge;
++	int ret, i;
++
++	ret = cdn_dp_parse_dt(dp);
++	if (ret < 0)
++		return ret;
++
++	ret = cdn_dp_parse_next_bridge_dt(dp);
++	if (ret)
++		return ret;
++
++	dp->drm_dev = drm_dev;
++	dp->connected = false;
++	dp->active = false;
++	dp->active_port = -1;
++	dp->fw_loaded = false;
++
++	for (i = 0; i < dp->bridge_count; i++) {
++		dp_bridge = devm_drm_bridge_alloc(dev, struct cdn_dp_bridge, bridge,
++						    &cdn_dp_bridge_funcs);
++		if (IS_ERR(dp_bridge))
++			return PTR_ERR(dp_bridge);
++		dp_bridge->id = i;
++		dp_bridge->parent = dp;
++		if (!dp->next_bridge_valid)
++			dp_bridge->connected = true;
++		dp->bridge_list[i] = dp_bridge;
++	}
++
++	for (i = 0; i < dp->bridge_count; i++) {
++		encoder = &dp->bridge_list[i]->encoder.encoder;
++		bridge = &dp->bridge_list[i]->bridge;
++		next_bridge = dp->next_bridge_list[i].bridge;
++		ret = cdn_bridge_add(dev, bridge, next_bridge, encoder);
++		if (ret)
++			return ret;
++	}
++
++	INIT_WORK(&dp->event_work, cdn_dp_pd_event_work);
++
+ 	for (i = 0; i < dp->ports; i++) {
+ 		port = dp->port[i];
+ 
+@@ -1058,10 +1270,17 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ static void cdn_dp_unbind(struct device *dev, struct device *master, void *data)
+ {
+ 	struct cdn_dp_device *dp = dev_get_drvdata(dev);
+-	struct drm_encoder *encoder = &dp->encoder.encoder;
++	struct drm_encoder *encoder;
++	int i;
+ 
+ 	cancel_work_sync(&dp->event_work);
+-	encoder->funcs->destroy(encoder);
++	for (i = 0; i < dp->bridge_count; i++) {
++		encoder = &dp->bridge_list[i]->encoder.encoder;
++		encoder->funcs->destroy(encoder);
++	}
++
++	for (i = 0; i < MAX_PHY; i++)
++		drm_edid_free(dp->edid_cache[i]);
+ 
+ 	pm_runtime_disable(dev);
+ 	if (dp->fw_loaded)
+@@ -1112,10 +1331,10 @@ static int cdn_dp_probe(struct platform_device *pdev)
+ 	int ret;
+ 	int i;
+ 
+-	dp = devm_drm_bridge_alloc(dev, struct cdn_dp_device, bridge,
+-				   &cdn_dp_bridge_funcs);
+-	if (IS_ERR(dp))
+-		return PTR_ERR(dp);
++	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
++	if (!dp)
++		return -ENOMEM;
++
+ 	dp->dev = dev;
+ 
+ 	match = of_match_node(cdn_dp_dt_ids, pdev->dev.of_node);
+diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.h b/drivers/gpu/drm/rockchip/cdn-dp-core.h
+index e9c30b9fd543..ce1707a5c746 100644
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.h
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.h
+@@ -38,6 +38,8 @@ enum vic_pxl_encoding_format {
+ 	Y_ONLY = 0x10,
  };
  
-+&cdn_dp {
-+	phys = <&tcphy0_dp>;
-+	status = "okay";
++struct cdn_dp_device;
++
+ struct video_info {
+ 	bool h_sync_polarity;
+ 	bool v_sync_polarity;
+@@ -63,16 +65,34 @@ struct cdn_dp_port {
+ 	u8 id;
+ };
+ 
++struct cdn_dp_bridge {
++	struct cdn_dp_device *parent;
++	struct drm_bridge bridge;
++	struct rockchip_encoder encoder;
++	bool connected;
++	bool enabled;
++	int id;
 +};
 +
- &cpu_b0 {
- 	cpu-supply = <&vdd_cpu_b>;
- };
-@@ -55,6 +76,12 @@ &cpu_l3 {
- 	cpu-supply = <&vdd_cpu_l>;
- };
- 
-+&dp_out {
-+	dp_controller_output: endpoint {
-+		remote-endpoint = <&dp_phy_in>;
-+	};
++struct cdn_dp_next_bridge {
++	struct cdn_dp_device *parent;
++	struct drm_bridge *bridge;
++	int id;
 +};
 +
- &emmc_phy {
- 	status = "okay";
- };
-@@ -341,6 +368,71 @@ regulator-state-mem {
- 	};
- };
+ struct cdn_dp_device {
+ 	struct device *dev;
+ 	struct drm_device *drm_dev;
+-	struct drm_bridge bridge;
+-	struct rockchip_encoder encoder;
++	int bridge_count;
++	struct cdn_dp_bridge *bridge_list[MAX_PHY];
++	struct cdn_dp_next_bridge next_bridge_list[MAX_PHY];
++	const struct drm_edid *edid_cache[MAX_PHY];
+ 	struct drm_display_mode mode;
+ 	struct platform_device *audio_pdev;
+ 	struct work_struct event_work;
  
-+&i2c4 {
-+	i2c-scl-rising-time-ns = <475>;
-+	i2c-scl-falling-time-ns = <26>;
-+	status = "okay";
-+
-+	usbc0: typec-portc@22 {
-+		compatible = "fcs,fusb302";
-+		reg = <0x22>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <RK_PA2 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&usbc0_int>;
-+		vbus-supply = <&vbus_typec>;
-+
-+		usb_con: connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			data-role = "dual";
-+			power-role = "dual";
-+			try-power-role = "sink";
-+			op-sink-microwatt = <1000000>;
-+			sink-pdos =
-+				<PDO_FIXED(5000, 2500, PDO_FIXED_USB_COMM)>;
-+			source-pdos =
-+				<PDO_FIXED(5000, 1500, PDO_FIXED_USB_COMM)>;
-+
-+			altmodes {
-+				displayport {
-+					svid = /bits/ 16 <0xff01>;
-+					vdo = <0x00001c46>;
-+				};
-+			};
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				port@0 {
-+					reg = <0>;
-+
-+					usbc_hs: endpoint {
-+						remote-endpoint = <&u2phy0_typec_hs>;
-+					};
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+
-+					usbc_ss: endpoint {
-+						remote-endpoint = <&tcphy0_typec_ss>;
-+					};
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+
-+					usbc_dp: endpoint {
-+						remote-endpoint = <&tcphy0_typec_dp>;
-+					};
-+				};
-+			};
-+		};
-+	};
-+};
-+
- &i2s2 {
- 	status = "okay";
- };
-@@ -354,6 +446,16 @@ &io_domains {
- };
- 
- &pinctrl {
-+	usb-typec {
-+		usbc0_int: usbc0-int {
-+			rockchip,pins = <1 RK_PA2 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+
-+		vcc5v0_typec0_en: vcc5v0-typec0-en {
-+			rockchip,pins = <1 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
- 	pmic {
- 		pmic_int_l: pmic-int-l {
- 			rockchip,pins = <1 RK_PC5 RK_FUNC_GPIO &pcfg_pull_up>;
-@@ -400,10 +502,48 @@ &sdmmc {
- 	status = "okay";
- };
- 
-+&sound {
-+	rockchip,codec = <&cdn_dp>;
-+	status = "okay";
-+};
-+
-+&spdif {
-+	status = "okay";
-+};
-+
- &tcphy0 {
- 	status = "okay";
- };
- 
-+&tcphy0_dp {
-+	mode-switch;
-+
-+	port {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		tcphy0_typec_dp: endpoint@0 {
-+			reg = <0>;
-+			remote-endpoint = <&usbc_dp>;
-+		};
-+
-+		dp_phy_in: endpoint@1 {
-+			reg = <1>;
-+			remote-endpoint = <&dp_controller_output>;
-+		};
-+	};
-+};
-+
-+&tcphy0_usb3 {
-+	orientation-switch;
-+
-+	port {
-+		tcphy0_typec_ss: endpoint {
-+			remote-endpoint = <&usbc_ss>;
-+		};
-+	};
-+};
-+
- &tcphy1 {
- 	status = "okay";
- };
-@@ -418,6 +558,12 @@ &tsadc {
- 
- &u2phy0 {
- 	status = "okay";
-+
-+	port {
-+		u2phy0_typec_hs: endpoint {
-+			remote-endpoint = <&usbc_hs>;
-+		};
-+	};
- };
- 
- &u2phy0_host {
+ 	struct mutex lock;
++	bool next_bridge_valid;
+ 	bool connected;
+ 	bool active;
+ 	bool suspended;
 -- 
 2.49.0
 
