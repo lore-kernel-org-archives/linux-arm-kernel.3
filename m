@@ -4,95 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A50CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 13:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE23CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 13:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bTX/SxuL6PMsQdK1U3XWoqoo19lAlZGpcm62kFUrRjY=; b=z6jXk7jmkIjcHyZwUPG+tmhGjL
-	xmeXBPQaUmgfl4QYrmJpLkdaE1VOoKMui2NkBg4F3UOpsKa92i3Rfi57c9MuThdxdY5Lwun+hF5Z8
-	2xk9905crQCtNilAvZ3ZP39b5ITb4rlrMTbG6QQ2kULXt7q+Erty/V0XUdhVuT1xsoKQdvEhDnvng
-	nBARkKbUS12zAeo5sEoM5XHNezHmFxDx4Y8RZV9oOXFN9ShjOz3a1hNPDCEwE1R0/pJFDdUF3riNw
-	KgqLnjI6qGNhe2a8F6zOFGjhLIBLrazwKQ9I0N/nmQBmWFFLWLByEvt0GC8lQ/8U1jx7MWmNN7DHd
-	IA3oIVlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JdflzJnMQthLv2cazH+0O/zsQRo0ZmLpj7kbUNZvQac=; b=SoC+eMNwcmcyx259Xv2KMgy9r5
+	7p8aHISLjHRc850h+eKmt0Q1MtRN2wMzIZOwR24tXdGvFnTzsMNlCjIwwMBQ8TMImNuJNUQx7u3Ls
+	pa/ww804h5tU+ZXOpDrwRDKV/e0Dp0d4APDQNEJPlvnspTw3GRvHkptWUfYv+oLlkEebsQ4V4YSMH
+	nOfRTrX09VE/uBoRkXyld67ltUxMkK8mF9de9BfJLc5trVORcM5NvViN6PyeDAH4vdHEm5ce22oaU
+	oE4EFronYtifBHGTxAufpBCX8xp0oKz13oD+T9s8J/ap+wXPK2V4Tl0dPh6e/unxSzYeuheQBOfuV
+	0rVlflNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9NhW-00000004pdD-14EK;
-	Thu, 16 Oct 2025 13:07:26 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1v9O3a-00000004sVm-0Coe;
+	Thu, 16 Oct 2025 13:30:14 +0000
+Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9NhS-00000004pc1-41rE
+	id 1v9O3X-00000004sUa-3OUK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 13:07:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=bTX/SxuL6PMsQdK1U3XWoqoo19lAlZGpcm62kFUrRjY=; b=1DghSIi6UnO2MhInx1oOB3c3b9
-	eck9TaS3dRL5XiHskCcpj+2DbG3l+ctf/6myn3ZfE5ADVigGhNfjK3I5YYsriwIpWsPIXenOW39Yo
-	0r2H3B1UppJgOz4nK0opSVoSVgY3+vmgdSEeORq3dQIaca/45FCnUwagqURGB2Xsk344=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1v9NhD-00B9VF-En; Thu, 16 Oct 2025 15:07:07 +0200
-Date: Thu, 16 Oct 2025 15:07:07 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Abhishek Chauhan <quic_abchauha@quicinc.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexis Lothore <alexis.lothore@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Furong Xu <0x1207@gmail.com>, Inochi Amaoto <inochiama@gmail.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Kees Cook <kees@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Matthew Gerlach <matthew.gerlach@altera.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
-	netdev@vger.kernel.org, Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rohan G Thomas <rohan.g.thomas@altera.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Simon Horman <horms@kernel.org>,
-	Song Yoong Siang <yoong.siang.song@intel.com>,
-	Swathi K S <swathi.ks@samsung.com>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>, Vinod Koul <vkoul@kernel.org>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: Re: [PATCH net-next 03/14] net: stmmac: remove SGMII/RGMII/SMII
- interrupt handling
-Message-ID: <8e71c26c-49be-435b-8cde-0f2faf5b805e@lunn.ch>
-References: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
- <E1v92MO-0000000AmGP-2hFV@rmk-PC.armlinux.org.uk>
- <51db1103-afd7-430d-9038-7094032347fc@lunn.ch>
- <aPAcRNeFa5heydq7@shell.armlinux.org.uk>
+	Thu, 16 Oct 2025 13:30:13 +0000
+Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-87c11268b97so13323596d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 06:30:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1760621409; x=1761226209; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JdflzJnMQthLv2cazH+0O/zsQRo0ZmLpj7kbUNZvQac=;
+        b=DJSr87uNzXquORB95daseiUVjDHO2j1TmNWH0bUOCSXgADbSgIV9BRiAdc5++j+cTB
+         I62o8ohWiWZ5VPJdkwwhOShd07X6KNQcBFPuhUb87OZlsJlSOBHR4GVJjDwK2qhKA5c9
+         y3DZk2aLKguV9X9R22dAzEZ0ioYEuLnk90YtM=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760621409; x=1761226209;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JdflzJnMQthLv2cazH+0O/zsQRo0ZmLpj7kbUNZvQac=;
+        b=GFMQ1BpQ6fj3x69f8TXWiaUYokwJm34rGdXvmc1OkQc/n83IvtwdqtggYL7OaEbu+m
+         kmL3wr966Infb+oXtPF2dqnPSCYLNXYFZ/aeDCEb0WBCoTd9XORxKU1wj6Qez5iYwyU/
+         3w21AYIAbofsxsq6VmzY0HRpWWB7tLNhmQvhWlnhNFX+ptTQlqakiIpcZNSvJORshFJy
+         fynDvsOXU356ulTVIOIg3rQ2Du/+gH8fVqQdbwY/97VZT5vN5BbLh0qjd/CiidpeM8An
+         oTHLTUYj+SZ3aRi9o1gVpmLEry0kNkRQdVLfRIbeLvIDmB8HH7NJK7eSofp0gmDgaJyr
+         OE1g==
+X-Forwarded-Encrypted: i=1; AJvYcCVoCT36RnPgDC4IP4RvdSQP7Ju5w0dZMIuZz9vESSlfoboJZKcWckHpx9ORh1v4n41NYS8Ow1/sjc3Ti9W9C0uV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHX3blo/29lUwTAlTd5/qcSRjZc7DljAWsKsn/+rY7A4INZy9g
+	xHdwDzEZki/3FvQH0YTckoap67cXwxKOfgMOPoR6dfGbLthZBa1iAsxEM2LV4Wk+qD3366Tf7eR
+	bsBjCAi3wRXni7M5Ybx10pz7TTDMVaPlnR1gpi8461A==
+X-Gm-Gg: ASbGncuDaUjOlUmT8Vp+FzLxA7p3+WY+/xmjLUgQU7Lnyi3yJXykViDEsP3eL95cyou
+	se28h1nA8rrMyXlXvpYlUDs/nOMP2sZPl+Z2dRtqt6QcXCOOSzLSTZmbfxYzacEjsDHnXi6TOSr
+	RACB3mCw+QCogD9dyjIsW5BCGEO0RpBM7KZ7uF5foC/TokkhuXtm1nHfq0O01YaMLdAVYO6oLl0
+	l3nRm+UWZkDhXc9MrBjG6GIr40McTSXMIyz5mEWzhdMNh2J+l66cGytqIgxZiUp0GAW8/yrkIue
+	8GNDNlg5yMpRQdJ8HNAD/QPfc8fphgWMcgIbSRZM8IN0ZRoP+Lfrhej27w==
+X-Google-Smtp-Source: AGHT+IGnXn2OWekqEukP5vHXZxC+ehCPf6mZptuvjHzZezwxi/p2zcouk9xm0TfVXXXAeAsJj++O7TUZcBkL3bdq60Q=
+X-Received: by 2002:ac8:5aca:0:b0:4b5:f7d4:39fa with SMTP id
+ d75a77b69052e-4e89d1fe4f5mr2032761cf.12.1760621408367; Thu, 16 Oct 2025
+ 06:30:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aPAcRNeFa5heydq7@shell.armlinux.org.uk>
+References: <20251013-xdma-max-reg-v5-1-83efeedce19d@amarulasolutions.com> <176061935845.510550.12282030175889296984.b4-ty@kernel.org>
+In-Reply-To: <176061935845.510550.12282030175889296984.b4-ty@kernel.org>
+From: Anthony Brandon <anthony@amarulasolutions.com>
+Date: Thu, 16 Oct 2025 15:29:57 +0200
+X-Gm-Features: AS18NWA-hxbDFlI3b9UTsQcDU75GuNgix6cv9Elfy_HBgLGvJSUA3uP6hd50TSM
+Message-ID: <CAAD-K8bP=cC3Tn9tqqQ74UJSq5YHnkuKNU46kEEr4K4YApqKpw@mail.gmail.com>
+Subject: Re: [PATCH v5] dmaengine: xilinx: xdma: Fix regmap max_register
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Lizhi Hou <lizhi.hou@amd.com>, Brian Xu <brian.xu@amd.com>, 
+	Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>, Michal Simek <michal.simek@amd.com>, 
+	Sonal Santan <sonal.santan@amd.com>, Max Zhen <max.zhen@amd.com>, dmaengine@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, 
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_060723_016927_78735013 
-X-CRM114-Status: UNSURE (   5.68  )
+X-CRM114-CacheID: sfid-20251016_063011_855916_098DE9E8 
+X-CRM114-Status: UNSURE (   7.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,13 +98,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Sadly, it's not quite unused - see dwmac-sun8i.c:
-> 
->         if (v & EMAC_RGMII_STA_INT)
->                 x->irq_rgmii_n++;
+On Thu, Oct 16, 2025 at 2:56=E2=80=AFPM Vinod Koul <vkoul@kernel.org> wrote=
+:
+> Applied, thanks!
+>
+> [1/1] dmaengine: xilinx: xdma: Fix regmap max_register
+>       commit: 81935b90b6fc9cd2dbef823a1fc0a92c00f0c6ea
+>
+> Best regards,
+> --
+> ~Vinod
 
-Ah, i missed that. So yes, it needs to stay.
+Thanks, and thanks everyone for the reviews.
 
-Thanks
-	Andrew
+Regards,
+Anthony
 
