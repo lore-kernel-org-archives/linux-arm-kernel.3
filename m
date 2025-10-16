@@ -4,168 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5010ACCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 18:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9495FCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 18:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SDjVQ9/9sXJHSg8tX3WCI/sr/s1WYBupSUut1x2QOlY=; b=UxoHxiBHGCHgbw6/JFfFa9a8u/
-	eD6MMvPFkC+ewfjdfyH9OiieABM3Qxhcr0CZa7uSjerheGkG9fHLOXkLSkfR4I0QshP2jGPZpO2gN
-	gysihrwm9shds6muH8rE8lLOWz1g0hOw3G70A7tjO8TeK3vtfNLp87e/EoSxPnN/Aw+hMOfPH5iZP
-	IZmE0iCe0768YqZ+Atu/MAHiIcfvLielXRtZAAGpH+nUNIUo/B8pmoyqOrDE465PXCzu40vVlnlB9
-	vUfeYxYA1c4D8lSWIlSqPwUADicQ0xx22vQhmBb3k7uhBEdS2aMkFibixc5QAPikxOqcHFxd7W9R+
-	9XpZRoKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eFHiPMUq4Md01wD5fLIaoTnzLwYa7cZa7iBHCmHZPxk=; b=fv86USKb7j5uuMcHKNzcwjALEq
+	agJCz+t57G2ueEiyw6T2PJSww7IBLM1RaHXGLWVymCqxfdjwfMhuf2XIj6C9ECuXjR0UGzTlBhyCf
+	s8fv4OLz+9tYelig2zMC8ua4ATo850WZOvy4mFv+TdFIQ3X9FWugY/JdLKZpd0v0A7iMjw5JLwh9F
+	iKXlUnXcS/NMOZu9a6UaFQOEAWUAtF2qgTnvecoNNrqi7egA/yUwABF2j53CuPtx9NmeHR4DjEnNW
+	Dp347FgrFWUflDnetUqwL/tl7dHhzp8JpwokHH1/0NbFFBJf2BakHnJxpUdLYV48zSGC582XnKe1o
+	4MQa1VRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9T4F-00000005jKo-46t4;
-	Thu, 16 Oct 2025 18:51:15 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1v9T6S-00000005jek-2WjJ;
+	Thu, 16 Oct 2025 18:53:32 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9T4D-00000005jKR-3Tto
+	id 1v9T6Q-00000005jeD-08GD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 18:51:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QYrQal2XPXtCNQ1A8Kl+eK+6k8QnC6FTaCZl6Qn2AqhJWS4ykSh2uUTigpJr1jxP3etVTQExVtU+VKRxzuTKrBmNjwdTX+F/5L64Ukrq0UAhQP4MlNqgoeGgpv/JOsNIQ9KTsxtR7LFYFP3wCTQizjQISOxo8fX5PGw5fkUJoaVeMona+xWpOE6xoLKkrBChjjacLU+MpqseS8hmfOmCpxwbaccJjsQs3JxHOTFz8d1OAdUPOe++nHtc8c3b7zN9xjVzjl2tmrZpxUlbiLCqXkiEeHrjr0/jIs0xVsRrzXumBauEqNSzpRUPwWqSY0s3WZrC8AikSYCLl5d1DlTYNQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SDjVQ9/9sXJHSg8tX3WCI/sr/s1WYBupSUut1x2QOlY=;
- b=dhNYStzkPk6hlCD6fQkHnxobWCUE/Y9FPnzJ70wo+c35qwyCRu2DVSJ6TWPxpK2pTveaz93MsJyAlGhw8h/fzNALjpKng3pOZpP+IESMTbb/BIleew2RvAz/fgNoubK9KUOG1NXav/+iCRZF6S66MHSSvkYtsHZ8AdbJUTBhtJE94D/b62NY3Qb4C7MFZ/2DAmsNH46wkLogyTXn7+oGkfcjBThlYtUY+qja99cGPUi2zGbbtONhF0foGTqRt/fuoe89Z2AkuwpFbk5j04jLdM1rqyeJ3jHZAI1Buvxmorsj6RbqzZchlGeQ/rVwHQTv4JLBxukL/6RVQzNx5YAxjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SDjVQ9/9sXJHSg8tX3WCI/sr/s1WYBupSUut1x2QOlY=;
- b=HItHdpnaZnmooixGHstzIDADZHPWVHhkAs6y1dGP84/vUNuvlviH5FYFJgivnyPng/83n989x3BmksTs4cKH0i0QYv4uSdmZ9YPsNMiY5J7wJU0hBFiOvZ/QvNiHaBvH75v/1/ARkFYwjHTx/LRJ0/C7LHGJ3FLALg21bVSdnrY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- CYYPR01MB8566.prod.exchangelabs.com (2603:10b6:930:ba::7) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9228.13; Thu, 16 Oct 2025 18:51:03 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9228.012; Thu, 16 Oct 2025
- 18:51:03 +0000
-Message-ID: <05331884-9723-48ff-a3ce-c2ea023bbabd@os.amperecomputing.com>
-Date: Thu, 16 Oct 2025 11:50:59 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: mm: relax VM_ALLOW_HUGE_VMAP if BBML2_NOABORT
- is supported
-To: Dev Jain <dev.jain@arm.com>, ryan.roberts@arm.com, cl@gentwo.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251013232803.3065100-1-yang@os.amperecomputing.com>
- <20251013232803.3065100-3-yang@os.amperecomputing.com>
- <eaa67b0d-e256-4db6-82e7-c4d56df70c09@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <eaa67b0d-e256-4db6-82e7-c4d56df70c09@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY5PR15CA0079.namprd15.prod.outlook.com
- (2603:10b6:930:18::15) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+	Thu, 16 Oct 2025 18:53:31 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59GEeHHQ024790
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 18:53:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=eFHiPMUq4Md01wD5fLIaoT
+	nzLwYa7cZa7iBHCmHZPxk=; b=WQG5y/dbHZrZhhomPGevKA6ey8HuAOK7ka3L8k
+	AK5TnbBydvUMEhxn3JU4wGIUdqPAanNsRqEqgD+jBa+pNjB8gTB1GGKNS2LJqStm
+	cEq64VFtRvmrTAnSC+BwYLytfnjLFWdpY2+SCU+1owd2bF3ct4XKtd4Yy/3IAQdj
+	/rSsy3aXga3WiXxfpFnCemRleMG461ZX4GZHySLS/kdXEvMyP53GUBcMSY1a1sBg
+	HKLvwYB53/nTHHPVCNUSSEbjELIeRVWWVG5BTQaLVmZj1z+Fl/jh/DT4UT15vjUJ
+	Zw76xBrJsNq9zoz25XFOu89sxJNOUBQqnbcxhLpSCxQ7TkRQ==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qff11cfc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 18:53:28 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-77f610f7325so1020857b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 11:53:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760640807; x=1761245607;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=eFHiPMUq4Md01wD5fLIaoTnzLwYa7cZa7iBHCmHZPxk=;
+        b=uxGs/Nfh/u6pNaxE4YhrMri8xGW01Gelm0rmrwHmEkdoragChNk4o7oBfUjU7R6/zw
+         HG+loVDa7lPM9Pq7i2TzfW5yEMn2THsPM1yCpAczHzVuVrWA4cO6jV56SdQhkuL/Cgmm
+         tyd2zk5z3mFX7oqPVSA9E4SHpUIyLL1w1dXHWxdVZ8+fjDIp4sGeffItU6SJm+txZZYV
+         AhzzYAFRlm04CquSQrB5uf2PPZQz+CMAcHwNnL4IHfRMoA9Mov4VXJZ07mxGwR9neCJJ
+         oaaHD900/gFECcv0BjzlHvB9rB0eEouwvVaj6iHi9Zny5n4bWpC5KYJEUrY7b0W6XmhP
+         Vysw==
+X-Gm-Message-State: AOJu0YxXD/HbCwNwgo/VOusYZVDY+dYF5FqhnZVs2dRdlrcB5UXFmx6S
+	W18O1mgvnUmfT+9xnFegsHdYg/HQM7/2ZHd7BKVVLvExOXtLrMNbP6r8MWThb1JCuGp3dh907ub
+	BQH23634vtVwS3bAtnWuafbQU7vaXdxvRl6LDFNLnREAyA4uf8sK1ws9srnXUa8fHz0xrrS06w4
+	qrwvKbPfoiMw==
+X-Gm-Gg: ASbGncuQfrNQUXv6KL0UEABw/rs45zuy2p/Lh7vRIC6JTkdea82kS6vTd978lBcDaZx
+	/tQ8lsYpQ6hMqyiQlzvhkB47GQnW+IqYGBxRcJ8z1cqD72bXjA+b+sQMhgN7gCXPmL1RGBbg24V
+	tht67IuAg5c77I7kWfZ72+jJPhfBw9wFmG90zGqDTNbA+3knjvaGf8+F+D3RUjLxUCJGLSqL0AA
+	2DfOkUSF51k9GD3mlu2PSgR8+Tgd2duAfSC57qhpg6+xvOPyb10SWp4SSKyxn8HrBI4MB7hHsP1
+	ElKoq0DatSprEaPai4QS4ipHKDZZ7a76bgoAyJKLIXKRDL+ywBeYcNJxhNiIyllokMIGd4JvP0w
+	LSeC3b6A844lfyIq+ZImb1TA=
+X-Received: by 2002:a05:6a00:13a0:b0:792:574d:b20 with SMTP id d2e1a72fcca58-7a220aff329mr1132978b3a.25.1760640807530;
+        Thu, 16 Oct 2025 11:53:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHI9YEwO2q4DvEuCB2iTjQevF/8YkUPQABypLhGfV7GQxCNyKDaED8fqQ3J6JkK10r2HG3qzg==
+X-Received: by 2002:a05:6a00:13a0:b0:792:574d:b20 with SMTP id d2e1a72fcca58-7a220aff329mr1132947b3a.25.1760640807047;
+        Thu, 16 Oct 2025 11:53:27 -0700 (PDT)
+Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0e1336sm22897713b3a.59.2025.10.16.11.53.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Oct 2025 11:53:26 -0700 (PDT)
+From: Taniya Das <taniya.das@oss.qualcomm.com>
+Date: Fri, 17 Oct 2025 00:23:15 +0530
+Subject: [PATCH] arm64: defconfig: Change CONFIG_SM_TCSRCC_8750 from m to y
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|CYYPR01MB8566:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd12044e-a174-4a43-16f5-08de0ce4f495
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?azBWTC9yc1ZwTkoxQWUxb3hPblBwQkZIdWdVd1EwU0cxZzk0djZPT3IzQUtT?=
- =?utf-8?B?MUhITEsrZ3VwUERKZ0F1Um9DRHZKZGI3OXpWbERNYzRmTVYvaVRXcEdRbjZD?=
- =?utf-8?B?Uzd5WlpGMEluRmZVYU8yRzRjdnVRR2lBNDFwNnNwazZxY3lSN29FK2JPaklK?=
- =?utf-8?B?YW1ZM2NESkFMa3dlcWdtRFZjbGQwRzd1Y21SOHEzbVFqcUR2cmt2Z0RRSlkr?=
- =?utf-8?B?Vy9ROGpyRlRicmt5N1l5ejVMMVpmaXN0TlVNSm8veEpTSVZNaGRtME1HQ1Fz?=
- =?utf-8?B?Y0JGYzlXdGFmWjhzUzd3dkVQalJhZmhSK1VYMXpDWUdndHZLcEVuU2UxWnVN?=
- =?utf-8?B?MDdaZzRIUVF2aUhML202OEk2dTNZU0NObFROeWlBR04vT1VrNXQ1TUY3cFBL?=
- =?utf-8?B?anc4RDRleTNabGV5QVc1WVlwTTN5OCtnSFpGNGtCMk9Dc1lwdEkvV2tNMHU5?=
- =?utf-8?B?dC84MW9TZjJNblJRSXhaTE85MXFldUhaOEhOc3lQV0JIZkx1K1Y4YjNuTUZk?=
- =?utf-8?B?U3F6eHc4YXBOWTVBYzMzZzFHNVlPOVlZOTZnN1E4ZGVOdThKOWtTRmlFZm1U?=
- =?utf-8?B?ZXQ2SkxZbzgvcXdQMkVLdDdHd1RvdHRUdEVRcGd5ZXpBZ3lYYkZkcS9HYWl6?=
- =?utf-8?B?eVpaNW1rNUhhODhuZFZueVNYS0tSTTNCOXhCOVRjaElIcmRNOGNoS1MrdGpF?=
- =?utf-8?B?YzV2YndudmlpWUZxTEZLcmZkc2lPWHo2Yi80bStyalcwaGFHKytJL0tJeG9Q?=
- =?utf-8?B?Wm9scndER3g0YVdsUHlSTVdYRDRYTVBFWGtPem9Cc0dZakdyZm9IVm4rSXZq?=
- =?utf-8?B?VkkzYkFEd0xQeTJicDkwYk4wUHM1MUgzSEZFRzAzL2RzZ2lsUS9PUkFVWkww?=
- =?utf-8?B?R0F0SGdoMXE3YkJNZnVmVERyM1dFNnpxTnJnL2RzRXdJZDNROURqMzZGS0pj?=
- =?utf-8?B?TjdFek0zODNwc1RsV0l4bHhrWm1uUTFEemlvWEgvRXN1UVpPdUxsejZQc2Yx?=
- =?utf-8?B?b1N3YmpnZnozYmVVaDlkMmhXbjFpQkFFUGxGVU1EVWlDbjBnRGdxY2lKVXBU?=
- =?utf-8?B?M3NWL3FQVEtEb1F4ako1RWV6TFkwMTlvN1JVOGt2ZUQzSS85ZFJ4ZSthMXJZ?=
- =?utf-8?B?NENXSVJNMVpRNWYrZXRtUnZ3VXRhRTFKZjBRMld1UnVOUE1JNHJxamVWZy9T?=
- =?utf-8?B?OEFGQjNXMEJvUzZyenZzb2JYbjQwNklXMnlHazc0ZXR1a3hqMlgwTTFLSlc3?=
- =?utf-8?B?MXJXYnRONGNESFVTSy9INFRrNXFmZFJSLzhwcjNQQmRzbHkvcExPblZITTRh?=
- =?utf-8?B?T2srUEUwem1QQWdwekdqaTAvMEFIYWg0R0NHVmhpMG05eFdoZGpwcXp4blR0?=
- =?utf-8?B?cVpxQytVRmNVVVdERFpzQnR1OGZMbHdlb2JSb0hCTElKN0dVT3hicjBtN3JH?=
- =?utf-8?B?ajA1L0hqZjRjMDJ4Y0VSYTdiM3lTT1NlbHB4MThUd2t0dmJIZ09CeUxQTGc4?=
- =?utf-8?B?MXhFS29td1NQMitaVTNlZWt6WDhtQ0NGRHhRYzdjZE1BMmxvZVlOeFp3UFd6?=
- =?utf-8?B?cGVKdUwwQW9BNmh6d1VlWUc2QTY1WFNKaWFnL1NBTkZvbG5ONy9sYXk4SE9p?=
- =?utf-8?B?SThReGh4YUljNUxGaWJsYWdkTStQT0d6YW1aNUY2SE1HZTBMQ1lldDlzdFg3?=
- =?utf-8?B?ZWhLSzAraUExMFBVWHdKWUR6ZXBrVDVSM0ttSVhTV1dwT2IwUHFxem1GMXlq?=
- =?utf-8?B?N01PUjMrSmxKeVFiY1dCVGhCVTNLc1NjQTdSeXpqWHAzYzQ2ZGsvSjkwd3pE?=
- =?utf-8?B?eGZSUmRLQklXNnNUL3lncm9tS216R3lKM1ZBODZEQjY3Zkp1NVJINlFXRDd0?=
- =?utf-8?B?alVablpSS1NGQVNRT0l0eHY5MlZ4Q2dzcDZnMkxMcVgyUCtaWTZhN3ExSVFH?=
- =?utf-8?Q?yFTNutWSq/XZPjh/q0XtrzL93XBSvuiR?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UktFZ2daSXNvU0FnTlZTNkZpRnVDV2VJZXZuZWFZQTJtVVllR01JWFVVd25Q?=
- =?utf-8?B?Z0c4NlNId1ovSklkYzhpcDV2M3p6R3dqN2VBZzV3OThsUU5GZkJ3MmIraDUy?=
- =?utf-8?B?MFFOT3Exc2tKOFB4Wnc3SUdsdjA5WGQzUFlFQldEM1lmTk5OODZPRHl3Q1JE?=
- =?utf-8?B?bEM3TVphV2RHZndGaU9mcS9oTGJYS01sK1lXZlN1UWFSRDU3RWpTWVJQc1g5?=
- =?utf-8?B?R3pka2loTGlBMXQrNTlOSStLOTQ2endBZkNPaTVEaGM1Yk8ya0c4TEJjOE0x?=
- =?utf-8?B?dWR0V01BY3pOMGN6S2dCMGhvUGVBc1FvVGpodU1JdzF6ejAxWUdGWm4vVkxV?=
- =?utf-8?B?bFRxQ1BDSEVONkN0NFRlcE9xOU5BODZ2b0huUnplaWZRRkZSUGE0S0lCR1ha?=
- =?utf-8?B?dkpsVXdWREdzUjlvR0tDRkZ6WlVhZHdvVmxadldrbDNaOXJLUFpUaGZoN2h6?=
- =?utf-8?B?RFBVaE5PVlRsNms3eW9uZVRlTjdFaW5pWXEyWkJWWFZ3K25zMTg5M3N4Y1pV?=
- =?utf-8?B?eitway9od2s4OVB1dVEyWXpGR0djUkxLUXVOTTRPOHBSV2pSOUNwZ2RZMjdT?=
- =?utf-8?B?Z041Nk9OOXpqS2J6M09tQWJ2WkhFU2ZkWDM5YUJ0R2U4RktDN1NRQkZ1WHJE?=
- =?utf-8?B?dlNpNTFEK2dNQ0k1eWRnMVVQRW5aQkM0VkRQeHBYOTRPb1QrbXpibDJuVlVC?=
- =?utf-8?B?YnJPSDN6eTVxT0ozUnJWSnFUUWRQNmZSaUYxTUljdEppQ2ZZR3NjRzR0Wnhy?=
- =?utf-8?B?Z3QyZFlta1ZyMDlwQUJpUXh6bzZFT01KYVhudVFwV3JWTHZtL3JOdU01Zjh5?=
- =?utf-8?B?MVNFZjRVdDhndEhrM0c0T1NuL1crSmM2ZlNjMEQ3MldGaXJEZm1RV093dUt6?=
- =?utf-8?B?ZkVMc1dJY2xEZE1JellTbVJyQnBXeTVkZHk2dGxReDNRTmVTd3hkTUZBeTFt?=
- =?utf-8?B?aVJGc2QyQ2hKcndBN1pxbHl1RnRXVXlwaUdEbjFwTk1ub1d4eTMydk9xblAv?=
- =?utf-8?B?UXQ2bkVTbGxMdkp3bXFnR3dXWlhTYzFHTUh5R0pBMTI5TU9jc2JldHlzejRN?=
- =?utf-8?B?alIxbFdYeXZVa200UkN5T2xzNUNJa3NPaW1jN0ZZalc0dFlkYzJSbi9nOTkr?=
- =?utf-8?B?eEk2Rk9yVTNTV2lUK2xMVThLd2w4V3U1NnNrSWZMMEM5NnNjUHpQL1FoZ2dr?=
- =?utf-8?B?MjE2TGRZYit5YVlDYUdETHQzZXVJdkJPd3dGUnU1N015MjhoenFuUTZlY293?=
- =?utf-8?B?VmhyRExaeUVyblFyZzZNd0RGSlJMTVpsckxjdGVnY3EycVVEUTkxMi9EV1Nt?=
- =?utf-8?B?RWdaT3h3T2tPM3ZnQVB3cVA4NGl3RDhqMk9BdStjVHU1MDBKenJhUWZaMlpL?=
- =?utf-8?B?aUdwRHFEWXkxS0J3K0VSRUpqS3pWb01odUM1T05vcmdYd2g0cUdFY21uUzcy?=
- =?utf-8?B?L0pKUVprZVoyQXJCT0NiNHdtWFZpcXJwcXN0RFZmbXBxR2lKa1RWR2htVDZC?=
- =?utf-8?B?NmJ1U3AyZlcvWWh6dGMzREZiTDNuSHEwM0ROTWdPZ1VoM2xtby9hWXRsQzdD?=
- =?utf-8?B?QzVaSE5jVlJjUmxvQXg3L2RjSWp0Wk5RT1ZqTzJ5SC96ZXdKQjJVMloyR1JN?=
- =?utf-8?B?V3NkdmZDR0NDNUwrb3NKQ2drT0hjNjFoMnpJZU9MN01DRDczeERWWkkxTldU?=
- =?utf-8?B?N2orS0ZCaytibXEvUXVSMHFadXB1VlRMMGVuNXdRVGZta1ZrbzNkdDh2Yzdv?=
- =?utf-8?B?LzNFSDVtMXVBQTI5M0dpZ0lpZXFhNXNBNkZEekhwR1JOckJrUVZxZStJTU1n?=
- =?utf-8?B?cjh3SDZYY3N2UExKT3dOYkp2VlU4WG5YZkRvT0ZYVitQbzJaQWcyK2dudFk1?=
- =?utf-8?B?Sm5lUE1xWnhBditRR3dLeEtiV1FWV25UMFl0U3dobXYwVERyZkZUaW5PaVFl?=
- =?utf-8?B?UllQbnVwUU5ic0JucVBLdGliMjI4eUluem5FRzY0d0dvVGdDK2NoaG1OUkRM?=
- =?utf-8?B?RCt0Um5IbFoybHBTb3BzV2hHUXlmSm5RWXdWRVFXc3NXZWdGWXlpaEk3QXJM?=
- =?utf-8?B?alVub3NFM1NlWjZJeFZCZ1BHM3RRWDNZSFJDTnBkTm9kT05wS2oyVGUzKzFa?=
- =?utf-8?B?RnQvNm5lTDdQTHhMRFROV3VTMUlUWnZlSDN3VVZFSnVmU3FMblVFRUpRd2h5?=
- =?utf-8?Q?sdHITd7oKerb1xZVRmu5VNA=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd12044e-a174-4a43-16f5-08de0ce4f495
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2025 18:51:02.9853
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KKowPzPKLDJ9F3jGGz4IAen8He7bJaXfrqR/acwqts/1JqhIr63mDEVgShcGbDr5/ydmO0I1OqBSP2Cb+iTl4p0MWGDy9bW9OJXwjjDWiYc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR01MB8566
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251017-update_defconfig_tcsrcc_sm8750-v1-1-34b1b47a0bda@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIABo/8WgC/x3NQQrDIBBA0auEWVfQgDX0KqWIGUc7i2hw0hIIu
+ Xsky7f5/wChxiTwGg5o9GfhWjrMYwD8hpJJceyGUY/WaPNUvzWGjXykhLUkzn5DaYhelslZrSy
+ Si8a62YUAPbI2Srzfg/fnPC86eVtXcAAAAA==
+X-Change-ID: 20251016-update_defconfig_tcsrcc_sm8750-5ce7d157b7aa
+To: Bjorn Andersson <andersson@kernel.org>, linux-arm-msm@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-kernel@vger.kernel.org, Taniya Das <taniya.das@oss.qualcomm.com>
+X-Mailer: b4 0.15-dev-aa3f6
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxOCBTYWx0ZWRfXwRm0mHKT5LQW
+ YmD5WTazet68Vx+VV0K5C4MDXVeBKpHE/0wLVkAxzUSRc7Oj+u95M0TNgzNXpAJjp33Ajo5TljK
+ eesJjdT3+9+0L9T7P+IT2jYNae3PExADqeTY0a00AQ6EJFR1echtm1f3KOxaLxTePFtPt1wrf3X
+ T/eNJzw0qmQDKJesTHNIYKlyOIpGpjWqyUr/9FOKoEzrddiIwQP8ZSvXnSYhMIq0re2axgQlEpJ
+ hbXKXlOC7/mWN8Yoa8nFB3yd1Nib7K+mUUC+IIV4AOGO1YLhgy8P2ApNp9DQAX6s2ShQZQz74bl
+ +vy0/wyKsEwB2nIci/Qcqw9CQbEuIueIl/fsFCV+w==
+X-Proofpoint-GUID: fw8LwyBk7c6AFj1bJqkp5uUG3JjU7P9s
+X-Authority-Analysis: v=2.4 cv=PriergM3 c=1 sm=1 tr=0 ts=68f13f28 cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=EUspDBNiAAAA:8 a=fjpNi09VKJx1qQd3FNAA:9 a=QEXdDO2ut3YA:10
+ a=IoOABgeZipijB_acs4fv:22
+X-Proofpoint-ORIG-GUID: fw8LwyBk7c6AFj1bJqkp5uUG3JjU7P9s
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-16_03,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 adultscore=0 bulkscore=0 phishscore=0 lowpriorityscore=0
+ spamscore=0 suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
+ definitions=main-2510110018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_115113_889361_6DB9CE48 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20251016_115330_076661_42C38524 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,80 +132,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The TCSR clock controller is required  during boot to provide the ref
+clocks to the UFS controller. Setting CONFIG_SM_TCSRCC_8750 to y ensures
+the UFS driver successfully probe and initialize the device.
 
+Without this change, the UFS subsystem fails to mount as a usable file
+system during boot.
 
-On 10/14/25 11:50 PM, Dev Jain wrote:
->
-> On 14/10/25 4:57 am, Yang Shi wrote:
->> When changing permissions for vmalloc area, VM_ALLOW_HUGE_VMAP area is
->> exclueded because kernel can't split the va mapping if it is called on
->> partial range.
->> It is no longer true if the machines support BBML2_NOABORT after commit
->> a166563e7ec3 ("arm64: mm: support large block mapping when 
->> rodata=full").
->> So we can relax this restriction and update the comments accordingly.
->>
->> Fixes: a166563e7ec3 ("arm64: mm: support large block mapping when 
->> rodata=full")
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->> ---
->>   arch/arm64/mm/pageattr.c | 13 +++++++------
->>   1 file changed, 7 insertions(+), 6 deletions(-)
->>
->> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->> index c21a2c319028..b4dcae6273a8 100644
->> --- a/arch/arm64/mm/pageattr.c
->> +++ b/arch/arm64/mm/pageattr.c
->> @@ -157,13 +157,13 @@ static int change_memory_common(unsigned long 
->> addr, int numpages,
->>         /*
->>        * Kernel VA mappings are always live, and splitting live section
->> -     * mappings into page mappings may cause TLB conflicts. This means
->> -     * we have to ensure that changing the permission bits of the range
->> -     * we are operating on does not result in such splitting.
->> +     * mappings into page mappings may cause TLB conflicts on the 
->> machines
->> +     * which don't support BBML2_NOABORT.
->>        *
->>        * Let's restrict ourselves to mappings created by vmalloc (or 
->> vmap).
->> -     * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
->> -     * mappings are updated and splitting is never needed.
->> +     * Disallow VM_ALLOW_HUGE_VMAP mappings if the systems don't 
->> support
->> +     * BBML2_NOABORT to guarantee that only page mappings are 
->> updated and
->> +     * splitting is never needed on those machines.
->>        *
->>        * So check whether the [addr, addr + size) interval is entirely
->>        * covered by precisely one VM area that has the VM_ALLOC flag 
->> set.
->> @@ -171,7 +171,8 @@ static int change_memory_common(unsigned long 
->> addr, int numpages,
->>       area = find_vm_area((void *)addr);
->>       if (!area ||
->>           end > (unsigned long)kasan_reset_tag(area->addr) + 
->> area->size ||
->> -        ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
->> +        !(area->flags & VM_ALLOC) || ((area->flags & 
->> VM_ALLOW_HUGE_VMAP) &&
->> +        !system_supports_bbml2_noabort()))
->>           return -EINVAL;
->>         if (!numpages)
->
-> This will conflict with my upcoming vmalloc-huge series, so best to 
-> leave it to me,
-> I already have this included :)
+Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+---
+ arch/arm64/configs/defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-My point is that I hope this can be merged as a hotfix for 6.18. I have 
-no strong opinion on either the maintainers take this one or from your 
-series. But if this will go into 6.18 as a hotfix, it should be also a 
-prerequisite patch (standalone)  in your series, and the rest of your 
-series should be based on top of it. Of course this argument will not 
-stand if we don't care to have it fixed for 6.18.
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index e3a2d37bd10423b028f59dc40d6e8ee1c610d6b8..85e3afc07598a99cfdf804ce1f320ed76717fcc3 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1449,7 +1449,7 @@ CONFIG_SM_GPUCC_8550=m
+ CONFIG_SM_GPUCC_8650=m
+ CONFIG_SM_TCSRCC_8550=y
+ CONFIG_SM_TCSRCC_8650=y
+-CONFIG_SM_TCSRCC_8750=m
++CONFIG_SM_TCSRCC_8750=y
+ CONFIG_SA_VIDEOCC_8775P=m
+ CONFIG_SM_VIDEOCC_8250=y
+ CONFIG_SM_VIDEOCC_8550=m
 
-Thanks,
-Yang
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20251016-update_defconfig_tcsrcc_sm8750-5ce7d157b7aa
 
+Best regards,
+-- 
+Taniya Das <taniya.das@oss.qualcomm.com>
 
 
