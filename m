@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E888CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 11:54:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D353CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 11:55:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SHTD+AlE1tjHXFS7OlwtbfxpaZrYDJXVVnF6b1Dn+f8=; b=C076wf/V6hJcQqVpHouzFH5Vtq
-	ggLypbWnGgyBszK/PKXOrhtEN3oPQSlAofC5lKch+iVmEB5DnO4EpP9aJNp7COYUkSLChapSjJKzA
-	aqRO4kHzxhIgFgOqo0TJFOD/N8m46uXBWj/se3zuMjfhU59WqQCNl/fQhm5h4i6Du3JwbsNtf5H5k
-	oeD1mImt4jEWaXXvs8aAvPeOSfeq9ZudXaK16/28UiKxCYARrRa9xChDZ0dLS39zlKW1SSAxvf8XK
-	Bn6ulYDwfia5SrQUFLtjnhFbVt15f17P7JG4MqP+Tlun2J2D75PtYpm3K8JNVWxVmKlWDQi8k3ijc
-	KuUSAKzA==;
+	bh=JdJWyTw5grIca2C49Gc8SShAY81xl1ZxjBDpB/TgceY=; b=d9tdEt4XroCaxoODv4KyplpehE
+	T8d18CeO4O0RzAzRya8VNKWvGyQ/HuX6DxACP4ai0QnjjPfUokRjhfJ+pb4nUkDdimlHDuUSduRX7
+	/5WlSTostOjYpbVuNicE7ZM2bQCDTmCX82dzXxzvts/+2gi4XN8sihy6QuSeEZ/956dpdx+SivZVU
+	GFOIYZZrXvwnZkMVsa7xAOFPbnnMjxRbnIAJb8PtkIzOZuBI+L/D/B5xfyklMaUrZ1LMeAVShsbhI
+	aoAmg3GoVEcE8VIpufOWB0eBJz2T953nR67HERBLrJ3P0PetlRA7wOp3LgMdRTpooiZKn8zHvRc0e
+	pGieRpHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MYc-00000004dvz-14Ak;
-	Thu, 16 Oct 2025 11:54:10 +0000
+	id 1v9MZz-00000004eF8-0Zlp;
+	Thu, 16 Oct 2025 11:55:35 +0000
 Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MYY-00000004duz-0xgE
+	id 1v9MZw-00000004eEg-2Vvi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 11:54:07 +0000
+	Thu, 16 Oct 2025 11:55:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
 	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
 	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=SHTD+AlE1tjHXFS7OlwtbfxpaZrYDJXVVnF6b1Dn+f8=; b=jtRDS+uenyWw30ufbo9cAMFbKx
-	4o8/blA4+57TC6/tDWM2CV3tft0GHbARJ9INnI5OYKRbHtvUXg8pkLTEeScbOt7Y1d5ZAdN82scYf
-	sCjbOBGrQ+7+cvnahfszt9mbo3BRbDi00AmnAFYrQo41skEeWAnZXhwIMKnDh6CEQWuWBYEU/Urog
-	otAez/oWoaMk0mVePU89XUHEpZ0tAXud5MolrU714VfaDrAoPXxyGXgjhe6RIDjaXbOI7HjLZhNFY
-	26FcHNjalR1h52A0q1pSFW8Q3n6NpfsvfZ/gUirXHnfu9yFe4iXXNZZclse20cnw+7ZB6eohL6EL+
-	Znc/a6OQ==;
-Received: from [122.175.9.182] (port=62890 helo=zimbra.couthit.local)
+	bh=JdJWyTw5grIca2C49Gc8SShAY81xl1ZxjBDpB/TgceY=; b=CxFPCAnEfus2DAQGC/F0bO5d4C
+	kLTklHkcWcVnvjybleV9p64RbrYZdQFzdDopV8SWnlFMURdQ+kLJVkG3CCo88/fmPtKYEJCRetPP2
+	x3D291Gwuuy+wO6MzV/rFM8lrn+cR8xXn+rWp5dy9ib7ltgJFjD9ojLF3xGnA0H5Vnd2xx9NgfAzN
+	1CRiAstPPcaL5okfp9H4Zc1Gm+LmQx/a0frpnREyqRJ+sdIKSJZfTuUFYze9n8lGWCf23frw1SAEX
+	9HLigBvQkTAhbvLbYJtz9Hkn09mLzS6sYr+oQNAq/9zualqofN/BAq3JyLtqIMr5qfQtr0PI/0HGd
+	6h1M1VXQ==;
+Received: from [122.175.9.182] (port=2029 helo=zimbra.couthit.local)
 	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.1)
 	(envelope-from <parvathi@couthit.com>)
-	id 1v9MYV-000000079bj-3GHn;
-	Thu, 16 Oct 2025 07:54:04 -0400
+	id 1v9MZu-000000079dC-1oBn;
+	Thu, 16 Oct 2025 07:55:30 -0400
 Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id 26A381783FF9;
-	Thu, 16 Oct 2025 17:24:00 +0530 (IST)
+	by zimbra.couthit.local (Postfix) with ESMTPS id C240E1783FF9;
+	Thu, 16 Oct 2025 17:25:26 +0530 (IST)
 Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 12A381783FF4;
-	Thu, 16 Oct 2025 17:24:00 +0530 (IST)
+	by zimbra.couthit.local (Postfix) with ESMTP id B466E1783FF4;
+	Thu, 16 Oct 2025 17:25:26 +0530 (IST)
 Received: from zimbra.couthit.local ([127.0.0.1])
 	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id VIlxZ_53cVMX; Thu, 16 Oct 2025 17:23:59 +0530 (IST)
+	with ESMTP id uJODz3yCZt52; Thu, 16 Oct 2025 17:25:26 +0530 (IST)
 Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id DAF701781C72;
-	Thu, 16 Oct 2025 17:23:59 +0530 (IST)
-Date: Thu, 16 Oct 2025 17:23:59 +0530 (IST)
+	by zimbra.couthit.local (Postfix) with ESMTP id 8BA601781E1F;
+	Thu, 16 Oct 2025 17:25:26 +0530 (IST)
+Date: Thu, 16 Oct 2025 17:25:26 +0530 (IST)
 From: Parvathi Pudi <parvathi@couthit.com>
 To: Andrew Lunn <andrew@lunn.ch>
 Cc: parvathi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
@@ -72,18 +72,18 @@ Cc: parvathi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>,
 	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
 	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
 	krishna <krishna@couthit.com>, mohan <mohan@couthit.com>
-Message-ID: <1336430040.1005.1760615639799.JavaMail.zimbra@couthit.local>
-In-Reply-To: <ff651c3d-108b-48f8-b69b-fb0b522edd4e@lunn.ch>
-References: <20251014124018.1596900-1-parvathi@couthit.com> <20251014124018.1596900-2-parvathi@couthit.com> <ff651c3d-108b-48f8-b69b-fb0b522edd4e@lunn.ch>
-Subject: Re: [PATCH net-next v3 1/3] net: ti: icssm-prueth: Adds helper
- functions to configure and maintain FDB
+Message-ID: <179725937.1046.1760615726437.JavaMail.zimbra@couthit.local>
+In-Reply-To: <ce87a72f-09b3-4615-aab9-2be8648300f8@lunn.ch>
+References: <20251014124018.1596900-1-parvathi@couthit.com> <20251014124018.1596900-3-parvathi@couthit.com> <ce87a72f-09b3-4615-aab9-2be8648300f8@lunn.ch>
+Subject: Re: [PATCH net-next v3 2/3] net: ti: icssm-prueth: Adds switchdev
+ support for icssm_prueth driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.10.10.103]
 X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - GC138 (Linux)/8.8.15_GA_3968)
-Thread-Topic: icssm-prueth: Adds helper functions to configure and maintain FDB
-Thread-Index: n9boZ3kHorfViJim7wqUTYIC+ep2RA==
+Thread-Topic: icssm-prueth: Adds switchdev support for icssm_prueth driver
+Thread-Index: wPaVLJ+dDJYcM1dgRjkmeX50UJ4mnA==
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
 X-AntiAbuse: Primary Hostname - server.couthit.com
 X-AntiAbuse: Original Domain - lists.infradead.org
@@ -95,8 +95,9 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_045406_294724_4502D846 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20251016_045532_666038_8C1332A4 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,194 +114,64 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
->> +void icssm_prueth_sw_fdb_tbl_init(struct prueth *prueth)
+>> +static struct prueth_fw_offsets fw_offsets_v2_1;
+>> +
+>> +static void icssm_prueth_set_fw_offsets(struct prueth *prueth)
 >> +{
->> +=09struct fdb_tbl *t =3D prueth->fdb_tbl;
->> +
->> +=09t->index_a =3D (struct fdb_index_array_t *)((__force const void *)
->> +=09=09=09prueth->mem[V2_1_FDB_TBL_LOC].va +
->> +=09=09=09V2_1_FDB_TBL_OFFSET);
->=20
-> We have
->=20
->> +#define V2_1_FDB_TBL_LOC          PRUETH_MEM_SHARED_RAM
->=20
-> and existing code like:
->=20
-> void __iomem *sram_base =3D prueth->mem[PRUETH_MEM_SHARED_RAM].va;
->=20
-> so it seems like
->=20
-> t->index_a =3D sram_base + V2_1_FDB_TBL_OFFSET;
->=20
-> with no needs for any casts, since sram_base is a void * so can be
-> assigned to any pointer type.
->=20
-> And there are lots of cascading defines like:
->=20
-> /* 4 queue descriptors for port 0 (host receive). 32 bytes */
-> #define HOST_QUEUE_DESC_OFFSET          (HOST_QUEUE_SIZE_ADDR + 16)
->=20
-> /* table offset for queue size:
-> * 3 ports * 4 Queues * 1 byte offset =3D 12 bytes
-> */
-> #define HOST_QUEUE_SIZE_ADDR            (HOST_QUEUE_OFFSET_ADDR + 8)
-> /* table offset for queue:
-> * 4 Queues * 2 byte offset =3D 8 bytes
-> */
-> #define HOST_QUEUE_OFFSET_ADDR          (HOST_QUEUE_DESCRIPTOR_OFFSET_ADD=
-R + 8)
-> /* table offset for Host queue descriptors:
-> * 1 ports * 4 Queues * 2 byte offset =3D 8 bytes
-> */
-> #define HOST_QUEUE_DESCRIPTOR_OFFSET_ADDR       (HOST_Q4_RX_CONTEXT_OFFSE=
-T + 8)
->=20
-> allowing code like:
->=20
->=09sram =3D sram_base + HOST_QUEUE_SIZE_ADDR;
->=09sram =3D sram_base + HOST_Q1_RX_CONTEXT_OFFSET;
->=09sram =3D sram_base + HOST_QUEUE_OFFSET_ADDR;
->=09sram =3D sram_base + HOST_QUEUE_DESCRIPTOR_OFFSET_ADDR;
->=09sram =3D sram_base + HOST_QUEUE_DESC_OFFSET;
->=20
+>> +	/* Set VLAN/Multicast filter control and table offsets */
+>> +	if (PRUETH_IS_EMAC(prueth)) {
+>> +		prueth->fw_offsets->mc_ctrl_byte  =
+>> +			ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_OFFSET;
+>> +		prueth->fw_offsets->mc_filter_mask =
+>> +			ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OFFSET;
+>> +		prueth->fw_offsets->mc_filter_tbl =
+>> +			ICSS_EMAC_FW_MULTICAST_FILTER_TABLE;
+> 
+> I know for some of these SoCs, there can be multiple instances of the
+> hardware blocks. It looks like that will go wrong here, because there
+> is only one fw_offsets_v2_1 ?
+> 
+> Humm, actually, if this are constant, why have fw_offsets_v2_1? Just
+> use ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_OFFSET directly?
+> 
 
-Sure, we will check the feasibility and come back.
+Sure we will evaluate this and address in the next version.
 
-
->> +=09t->mac_tbl_a =3D (struct fdb_mac_tbl_array_t *)((__force const void =
-*)
->> +=09=09=09t->index_a + FDB_INDEX_TBL_MAX_ENTRIES *
->> +=09=09=09sizeof(struct fdb_index_tbl_entry_t));
->=20
-> So i think this could follow the same pattern, also allowing some of
-> these casts to be removed.
->=20
-> I just don't like casts, they suggest bad design.
->=20
-
-Sure, we will check the feasibility and come back.
-
->> +static u8 icssm_pru_lock_done(struct fdb_tbl *fdb_tbl)
+>> +static void icssm_emac_mc_filter_ctrl(struct prueth_emac *emac, bool enable)
 >> +{
->> +=09return readb((u8 __iomem *)&fdb_tbl->locks->pru_locks);
->=20
-> And maybe the __iomem attribute can be added to struct, either per
-> member, or at the top level? It is all iomem, so we want sparse to be
-> able to check all accesses.
->=20
+>> +	struct prueth *prueth = emac->prueth;
+>> +	void __iomem *mc_filter_ctrl;
+>> +	void __iomem *ram;
+>> +	u32 mc_ctrl_byte;
+>> +	u32 reg;
+>> +
+>> +	ram = prueth->mem[emac->dram].va;
+>> +	mc_ctrl_byte = prueth->fw_offsets->mc_ctrl_byte;
+>> +	mc_filter_ctrl = ram + mc_ctrl_byte;
+> 
+> mc_filter_ctrl = ram + ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_OFFSET; ???
+> 
 
-Sure, we will check the feasibility and come back.
+Sure we will evaluate this and address in the next version.
 
->> +static int icssm_prueth_sw_fdb_spin_lock(struct fdb_tbl *fdb_tbl)
+>> +static void icssm_prueth_sw_fdb_work(struct work_struct *work)
 >> +{
->> +=09u8 done;
->> +=09int ret;
+>> +	struct icssm_prueth_sw_fdb_work *fdb_work =
+>> +		container_of(work, struct icssm_prueth_sw_fdb_work, work);
+>> +	struct prueth_emac *emac = fdb_work->emac;
 >> +
->> +=09/* Take the host lock */
->> +=09writeb(1, (u8 __iomem *)&fdb_tbl->locks->host_lock);
+>> +	rtnl_lock();
 >> +
->> +=09/* Wait for the PRUs to release their locks */
->> +=09ret =3D read_poll_timeout(icssm_pru_lock_done, done, done =3D=3D 0,
->> +=09=09=09=091, 10, false, fdb_tbl);
->> +=09if (ret)
->> +=09=09return -ETIMEDOUT;
->> +
->> +=09return 0;
->=20
-> Documentation says:
->=20
-> * Returns: 0 on success and -ETIMEDOUT upon a timeout.
->=20
-> So no need for the if statement.
->=20
->=20
+>> +	/* Interface is not up */
+>> +	if (!emac->prueth->fdb_tbl) {
+>> +		rtnl_unlock();
+>> +		goto free;
+>> +	}
+> 
+> I would probably put the rtnl_unlock() after free: label.
+> 
 
-Sure, we will address this in the next version.
-
->> +static s16
->> +icssm_prueth_sw_fdb_search(struct fdb_mac_tbl_array_t *mac_tbl,
->> +=09=09=09   struct fdb_index_tbl_entry_t *bucket_info,
->> +=09=09=09   const u8 *mac)
->> +{
->> +=09u8 mac_tbl_idx =3D bucket_info->bucket_idx;
->> +=09int i;
->> +
->> +=09for (i =3D 0; i < bucket_info->bucket_entries; i++, mac_tbl_idx++) {
->> +=09=09if (ether_addr_equal(mac,
->> +=09=09=09=09     mac_tbl->mac_tbl_entry[mac_tbl_idx].mac))
->> +=09=09=09return mac_tbl_idx;
->> +=09}
->> +
->> +=09return -ENODATA;
->=20
-> It is traditional to return errno in an int. But i don't see why a s16
-> cannot be used.
->=20
-
-For now we will modify the return type to integer at all applicable places.
-
-
->> +icssm_prueth_sw_fdb_find_bucket_insert_point(struct fdb_tbl *fdb,
->> +=09=09=09=09=09     struct fdb_index_tbl_entry_t
->> +=09=09=09=09=09     *bkt_info,
->> +=09=09=09=09=09     const u8 *mac, const u8 port)
->> +{
->> +=09struct fdb_mac_tbl_array_t *mac_tbl =3D fdb->mac_tbl_a;
->> +=09struct fdb_mac_tbl_entry_t *e;
->> +=09u8 mac_tbl_idx;
->> +=09int i, ret;
->> +=09s8 cmp;
->> +
->> +=09mac_tbl_idx =3D bkt_info->bucket_idx;
->> +
->> +=09for (i =3D 0; i < bkt_info->bucket_entries; i++, mac_tbl_idx++) {
->> +=09=09e =3D &mac_tbl->mac_tbl_entry[mac_tbl_idx];
->> +=09=09cmp =3D memcmp(mac, e->mac, ETH_ALEN);
->> +=09=09if (cmp < 0) {
->> +=09=09=09return mac_tbl_idx;
->> +=09=09} else if (cmp =3D=3D 0) {
->> +=09=09=09if (e->port !=3D port) {
->> +=09=09=09=09/* MAC is already in FDB, only port is
->> +=09=09=09=09 * different. So just update the port.
->> +=09=09=09=09 * Note: total_entries and bucket_entries
->> +=09=09=09=09 * remain the same.
->> +=09=09=09=09 */
->> +=09=09=09=09ret =3D icssm_prueth_sw_fdb_spin_lock(fdb);
->> +=09=09=09=09if (ret) {
->> +=09=09=09=09=09pr_err("PRU lock timeout\n");
->> +=09=09=09=09=09return -ETIMEDOUT;
->> +=09=09=09=09}
->=20
-> icssm_prueth_sw_fdb_spin_lock() returns an errno. Don't replace it.
->=20
-> Also, pr_err() is bad practice and probably checkpatch is telling you
-> this. Ideally you want to indicate which device has an error, so you
-> should be using dev_err(), or maybe netdev_err().
->=20
-
-We=E2=80=99ll return the =E2=80=9Cret=E2=80=9D value and replace the pr_err=
-() with netdev_err()
-so the message shows which device had the error.
-
->> +=09if (left > 0) {
->> +=09=09hash_prev =3D
->> +=09=09=09icssm_prueth_sw_fdb_hash
->> +=09=09=09(FDB_MAC_TBL_ENTRY(left - 1)->mac);
->> +=09}
->=20
->> +=09=09empty_slot_idx =3D
->> +=09=09=09icssm_prueth_sw_fdb_check_empty_slot_right(mt, mti);
->=20
-> There are a couple of odd indentations like this. I wounder if it
-> makes sense to shorten the prefix? Do you really need all of
-> icssm_prueth_sw_fdb_ ?
->=20
-> =09Andrew
-
-The long prefix is to keep the functions names clear, but we will shorten
-it and fix the indentations.
-
+We will address this in the next version.
 
 Thanks and Regards,
 Parvathi.
