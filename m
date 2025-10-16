@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC3ECCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 06:39:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B4DFCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 06:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KUKZVBc+yagrhGDUAe1/TDDDlhJENYT2LJtDHhtfBq4=; b=kdORtbPtYwCeTUCtuiy/TpNYxE
-	J2CjXe93uYtM2uK3K342Gs/1DoV1dGJR0ekREosyF7yfPWC03a4362zDpR4I+Bac5JhEQ/ec85TmE
-	W+Xv/YW2c/HYglElujPApQgna4YEMgcHkuDALKTwn8zcVFj8kLyyvozy7ewB0XjEfnPm7n9EApTki
-	rQ5VEqCcmB3UXlskC1dV6dcWoo4/Jqnd1SmMtXCepBwD1X3I/NLn3TNN62UXQ9x52r88F8sQMdvpA
-	8d7DEUchQFzVuAozRgpjyPGW1aT08z/U6kPoewdXd2FHaLG3OnJde2G7eAiW4WylH9ykdxXzteKde
-	ZM/naHXg==;
+	bh=JPvmUKr4l0GsB3K4bQ+QjzA8F04K8Ko3m1SBMVW6Gc4=; b=0f7EniFlLHtk9yfTQHhfCxxJ24
+	87eZRdcK8udeUT6YvqvBwEu8vPyuHq8u5VwGJa4o1gkxgJnF3XsIF9dtmzVqiD+avl7Ia4LXaqc1a
+	NpiEZmEsgUhyoKMj1W5mdA0j+grq+4NvrEA3+64ljPMtf/6aU/06Pl2xmdKSVGeSRiXxjXce5Z/ir
+	ohJ7DsKfH6nxDPuthC8Xdysgxm83sZI29OESyU8XtjFwVJwXXEvzwgC5mePK0J4P2+PvKxdCq0nRG
+	sCdnOsBlm7UTCPsC5I9Z5fib796GZmq82AvSFgKFGzCbKaPVxzsVELoK/9INCRsvM9XFZ73wPupyH
+	r6DVnKWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9HeS-00000003fif-2U8h;
-	Thu, 16 Oct 2025 06:39:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v9Hfw-00000003fvX-49kG;
+	Thu, 16 Oct 2025 06:41:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9HeR-00000003fiH-3BQO
+	id 1v9Hfu-00000003fvC-2Ufc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 06:39:51 +0000
+	Thu, 16 Oct 2025 06:41:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2D12560374;
-	Thu, 16 Oct 2025 06:39:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3673DC4CEF1;
-	Thu, 16 Oct 2025 06:39:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 454AE490C1;
+	Thu, 16 Oct 2025 06:41:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FA38C4CEF1;
+	Thu, 16 Oct 2025 06:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760596790;
-	bh=qjD4cNX8IC2EA7rEjGiIZKrjj+Tbdm4iYKK470rzebs=;
+	s=k20201202; t=1760596882;
+	bh=hNCwUzObDXztNMtdGpnOAHrjLhO4y8Gdpytl21YeOcg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sEtwsKIbQxNx9uxEWRSNS1A1HpwO/e9Sf+KAGUJ2nnzfN55/pEQNI3s7Oh+iarzpM
-	 toiS9l0IVlzQGbheiIsFVuXu0kh+0GYYJixFN/8MUKfMMTOzH9zcoW0e23dsvsHDXG
-	 ClJF6x9EUaSINcHIwUy7Uk1tLPAgubYhQOdBMoTKUOoYNP0yDUjXwZkzO3kpfAHGYF
-	 lQpaIiy7NuzPrXIRqQnij/a5YOxSC/zeRK5S8+xnA95lCGWZvDO2PdWxGXr9SeCWeg
-	 SimkMkx4CtYvh0NojWiuSuvimqh+i4ZLyDC+TPh6xJnevj9aSK6MVJ4NFGAvjqOCz0
-	 RqX5tipIkE18w==
-Message-ID: <39c07233-e153-4453-ae27-7d6498c9a4f7@kernel.org>
-Date: Thu, 16 Oct 2025 08:39:46 +0200
+	b=fv0n4ZBvrPqmWl9jMqgcuI2AIvduMb+PqWQABbQDH+itpBz+YbQEfRabtviCJdBVG
+	 qBlTBybzGzN/v/mQk2tr9qQkzxCg4/gSPnz4VKsZ77t29EdRyRDJ8yxQSAgVotld7S
+	 oeSoqj/CYJTRZtcaRw43+dCaj3yq7ASGUvRAgLsy88tvg6jXtpvAYBBX8J/dMGEbJH
+	 qoWMoS7ahFl5xDmE1rB2rUl0W/c0OMtcC+ha+cV+my02qd20tcN41i0euzJ3IfMNSB
+	 pQo/4NbE27Wna65XXUVcOh8Pcetm8vqohHOUvTjaNMVWaAYvOUBb4c4xZMbad3lbeW
+	 tAIiA634lpn7Q==
+Message-ID: <04b3271b-3723-4d6e-b39e-31894f9ecc80@kernel.org>
+Date: Thu, 16 Oct 2025 08:41:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 2/7] dt-bindings: media: platform: visconti: Add
- Toshiba Visconti Video Input Interface
+Subject: Re: [PATCH 1/2] dt-bindings: clock: Update identifiers for VIIF on
+ Toshiba Visconti TMPV770x SoC
 To: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>,
- Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251016-visconti-viif-v13-0-ceca656b9194@toshiba.co.jp>
- <20251016-visconti-viif-v13-2-ceca656b9194@toshiba.co.jp>
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20251016013328.303611-1-yuji2.ishikawa@toshiba.co.jp>
+ <20251016013328.303611-2-yuji2.ishikawa@toshiba.co.jp>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,9 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251016-visconti-viif-v13-2-ceca656b9194@toshiba.co.jp>
+In-Reply-To: <20251016013328.303611-2-yuji2.ishikawa@toshiba.co.jp>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251015_234122_699192_AB9D51E5 
+X-CRM114-Status: GOOD (  11.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,13 +122,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/10/2025 04:24, Yuji Ishikawa wrote:
-> Adds the Device Tree binding documentation that allows to describe
-> the Video Input Interface found in Toshiba Visconti SoCs.
+On 16/10/2025 03:33, Yuji Ishikawa wrote:
+> Update identifiers for the clocks and the resets of Video Input Interface
+> in order to reflect the actual architecture of TMPV770x SoC.
 > 
 > Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+> ---
+>  include/dt-bindings/clock/toshiba,tmpv770x.h | 33 +++++++++++++-------
+>  include/dt-bindings/reset/toshiba,tmpv770x.h | 10 +++++-
+>  2 files changed, 31 insertions(+), 12 deletions(-)
+> 
+> diff --git a/include/dt-bindings/clock/toshiba,tmpv770x.h b/include/dt-bindings/clock/toshiba,tmpv770x.h
+> index 5fce713001..2dbd5885c0 100644
+> --- a/include/dt-bindings/clock/toshiba,tmpv770x.h
+> +++ b/include/dt-bindings/clock/toshiba,tmpv770x.h
+> @@ -94,10 +94,10 @@
+>  #define TMPV770X_CLK_DSP2_PBCLK		77
+>  #define TMPV770X_CLK_DSP3_PBCLK		78
+>  #define TMPV770X_CLK_DSVIIF0_APBCLK	79
+> -#define TMPV770X_CLK_VIIF0_APBCLK	80
+> -#define TMPV770X_CLK_VIIF0_CFGCLK	81
+> -#define TMPV770X_CLK_VIIF1_APBCLK	82
+> -#define TMPV770X_CLK_VIIF1_CFGCLK	83
+> +#define TMPV770X_CLK_VIIFBS0_APB	80
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Nope, that's ABI break. These values do not reflect actual architecture,
+that's some non-sense. These are abstract numbers.
+
+NAK
+
+
 
 Best regards,
 Krzysztof
