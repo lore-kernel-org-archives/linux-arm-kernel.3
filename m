@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14712CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 11:42:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6929CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 11:46:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mithuzoIba+tpFJaHJ6NJo7dg8hHv73ayRB5YFixxYg=; b=xoZNrO0+3+jr9u1vJnQ0CqDEoP
-	E9mMvKnJdlivAk5gnyQ74tTndvERhtBoWd5CfUImWYLPDnW9GVn7ibIA8yD7oglFH+XkHvH5tzm91
-	Luh7EJ0hbygv4+QD/LXfN2sEhjuevGVf7isY0oglEnU/xl+bdKkXjuHHLg5TweRjH7DYR0vuU+fSM
-	kN4oN695cP0WwiW+FflW0Ss8ugeVnAmjI53V1MGZKtRxiQqT8uDAUTjYTIt9pTEu5fosdd6zmTAVh
-	umubpq+ITHNerIxJxpF9JK8/itaU9XQeQhC9BkK5LSV8yhXrk06XcZXTWZBmSUbK6+mTghbfIxVmR
-	psfV4SXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E+eT56sr4N/sv6bQK5WCfgylHHqHSL7IFsi0qBO1SJg=; b=SjF7XIQ3hQXOCHOfLbCDuLKutg
+	IyabtVilqpNx1jnin8UeAzihkbd7Ge5t13CSEuU/wTPZ/IMfozkExvc2nCWC0z6HxbzPkj9fzan3m
+	c+JbklvESr7oKL5Fh1xp63MpvvP+TgOAZ5I8OwIGohZ6WXWnCp+4EhOCUWbOJLzCTHABsncGyokSs
+	UoHwjhEcUhlToFP+o1AfZ/DiqKf/Q7si9m0q1bwyDJYLswC8vGfJZc5SGa1P3svioiFDhYzCJY3VC
+	802H1N2EC1TqZnlEUpk49mI3DW6c9o0h6t6Obhsbu33flHdBbj+GbAsDWPOz19A1EhwsoLktWW9Wy
+	akCz9Cqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MNA-00000004cCl-1j2K;
-	Thu, 16 Oct 2025 11:42:20 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1v9MR2-00000004cm8-3gEP;
+	Thu, 16 Oct 2025 11:46:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MN7-00000004cBi-2x0B
+	id 1v9MQz-00000004ckY-0qoH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 11:42:19 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1v9MMi-0002oB-Us; Thu, 16 Oct 2025 13:41:52 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1v9MMi-003sq4-06;
-	Thu, 16 Oct 2025 13:41:52 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1v9MMh-00HQPu-2x;
-	Thu, 16 Oct 2025 13:41:51 +0200
-Date: Thu, 16 Oct 2025 13:41:51 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-doc@vger.kernel.org,
-	Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v19 0/7] firmware: imx: driver for NXP secure-enclave
-Message-ID: <20251016114151.jzmapaecsmmnkpt3@pengutronix.de>
-References: <20250927-imx-se-if-v19-0-d1e7e960c118@nxp.com>
+	Thu, 16 Oct 2025 11:46:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D007B4A8AD
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 11:46:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB6AAC2BC9E
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 11:46:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760615176;
+	bh=PZizulifq2HVUabPYk3xuoVBwllBTb+3Td/PKhrD1JE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=eVASFOd8Ywqe6KQNNwIc5W99wHDhxMRKImkDDotqZhGfqTqo7WZv7EpFgufnGXg98
+	 JH71O97kUeMbKxS8dK8TarWgbulGDPG/N2osi7PB/ojtJuHmlrHJipQhJK1fGQIqx8
+	 op6BUxlQydtozthCzk1GkU+Z3xEyU2pJ07NmKzV3wJgQe358X8/mJd5VrRKTvZKzl+
+	 +9FQpN9xIDocbbmTswT52JCnNKVhQThGt3s6bdIntcRH2MwGnePaTwIuWYel9QlktR
+	 HIEBISbSt0jVuOZKcib3uQCDBxbXZ82Ji+VD8qp8E1NGjRdxSMw+Et1p/mpAswLeL7
+	 3l+fyNXce0nKg==
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-b3e7cc84b82so116883266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 04:46:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXazOVdhbslLx7Hej6ZVKKC00w59V/8qgauTj+gZy0RMDDHhZxkkBkBMmbTxMtMD5Fh+btEsADBca8ZiuHh53ic@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZBtmAGNtvJcUz3pB13LUjkNUpjRERd2vYn+AGPceBZkzXQAIB
+	czv9ct/59uNtbXHeDx8tg/Do19wiilnCPmNQAUUOUPQ+qQ7nrnTbLtsq95SEHt/RC/ilwuMpymc
+	6slgEKUo/9OqxV9IP27GyQHnSu+73Ag==
+X-Google-Smtp-Source: AGHT+IG/cukXQVGNzPUMXsg5+RoCAkU44f3RdQmcvQZOd/ZrFBQ7UEz32fqOhzDQMAOYnE1PB3ZCi0DPIcgQtV+P3zk=
+X-Received: by 2002:a17:907:7e96:b0:b3d:d6be:4cbe with SMTP id
+ a640c23a62f3a-b50aa8a9063mr3962097166b.18.1760615174961; Thu, 16 Oct 2025
+ 04:46:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250927-imx-se-if-v19-0-d1e7e960c118@nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+References: <20251015232015.846282-1-robh@kernel.org> <CAMuHMdVBDN8-gWVs1f=1E2NgD6Dp4=ZFUnyzqHaQj9JWPpZepw@mail.gmail.com>
+In-Reply-To: <CAMuHMdVBDN8-gWVs1f=1E2NgD6Dp4=ZFUnyzqHaQj9JWPpZepw@mail.gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 16 Oct 2025 06:46:02 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqL1KL4CvnxF5eQG2kN2VOxJ2Fh1yBx9=tqJEWOeg0DdzQ@mail.gmail.com>
+X-Gm-Features: AS18NWBW0tx10CGZVgmCxHc_hmn_UbUIH_yG162ZfRbVO05hKCLDAYOsOpbWm_A
+Message-ID: <CAL_JsqL1KL4CvnxF5eQG2kN2VOxJ2Fh1yBx9=tqJEWOeg0DdzQ@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: Fix inconsistent quoting
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, 
+	Jonathan Cameron <jic23@kernel.org>, Andy Shevchenko <andy@kernel.org>, 
+	Jassi Brar <jassisinghbrar@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Lee Jones <lee@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, Andrew Lunn <andrew@lunn.ch>, 
+	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Daire McNamara <daire.mcnamara@microchip.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Tony Lindgren <tony@atomide.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-iio@vger.kernel.org, linux-media@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-phy@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_044217_895013_FAFB032D 
-X-CRM114-Status: GOOD (  50.02  )
+X-CRM114-CacheID: sfid-20251016_044617_293848_1236E84C 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,186 +105,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Oct 16, 2025 at 2:57=E2=80=AFAM Geert Uytterhoeven <geert@linux-m68=
+k.org> wrote:
+>
+> Hi Rob,
+>
+> On Thu, 16 Oct 2025 at 01:20, Rob Herring (Arm) <robh@kernel.org> wrote:
+> > yamllint has gained a new check which checks for inconsistent quoting
+> > (mixed " and ' quotes within a file). Fix all the cases yamllint found
+> > so we can enable the check (once the check is in a release). Use
+> > whichever quoting is dominate in the file.
+> >
+> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+>
+> Thanks for your patch!
+>
+> Since you are mentioning mixed quotes, is one or the other preferred?
 
-On 25-09-27, Pankaj Gupta wrote:
-> Highlight:
-> 
-> There are long discussion at V18 with Marco Felsch.
-> https://lore.kernel.org/imx/AM9PR04MB8604F5A7DD8B1E41FDAD09039501A@AM9PR04MB
-> 8604.eurprd04.prod.outlook.com/
-> 
-> The key point is about using OP-TEE OS. 
-> 
-> Marco's questions:
-> =================
-> Q1. Both MU(s) from each world - Secure & Non-secure, cannot be used
->     simultaneously. Why?
-> A1. ELE FW fix is available, where concurrent access to ELE from both the
->     world is working. This fix is not required for the current patch-set for
->     i.MX8ULP.
+I have a slight preference for single quotes.
 
-According https://github.com/OP-TEE/optee_os/pull/7268/commits/83b516edc0270ca8300ce524a0c3d560e67a0f48#r1955899462
-there is no fix yet. Can you please point me to the fixed version?
+> Shouldn't we try to be consistent across all files?
 
-Also can you please outline why the fix is not required for i.MX8ULP?
-Unfortunately I can't remember.
+I don't particularly care to change 915 files. And if the tools don't
+enforce it, I'm not going to do so in reviews.
 
-> Q2. How is the secure and non-secure world talk to the ELE if there is only
->     one MU?
-> A2. From i.MX9x & onwards, SoC(s) has at least one dedicated ELE MU(s) for
->     each world - Linux(one or more) and OP-TEE OS (one or more). Has updated
->     the commit message of 3/7.
+> > --- a/Documentation/devicetree/bindings/pinctrl/renesas,pfc.yaml
+> > +++ b/Documentation/devicetree/bindings/pinctrl/renesas,pfc.yaml
+> > @@ -129,7 +129,7 @@ additionalProperties:
+> >
+> >      - type: object
+> >        additionalProperties:
+> > -        $ref: "#/additionalProperties/anyOf/0"
+> > +        $ref: '#/additionalProperties/anyOf/0'
+> >
+> >  examples:
+> >    - |
+> > @@ -190,7 +190,7 @@ examples:
+> >
+> >              sdhi0_pins: sd0 {
+> >                      groups =3D "sdhi0_data4", "sdhi0_ctrl";
+> > -                    function =3D "sdhi0";
+> > +                    function =3D "sdhi0';
+>
+> Huh?
 
-Does apply to the i.MX8ULP SoC as well? The NXP name scheme isn't very
-easy to follow.
+One too many search and replace. Fixed.
 
-> Q3. How exactly do the eFuse write access after the device was locked down,
->     will be provided with single path; for the following case? 
->     - For a verified boot setup, you need to burn an eFuse at some point,
->     to tell the bootROM to boot only correct verified firmware images.
->     - After this lockdown, it's no longer possible to burn eFuses from the
->     REE, while the production line setup still requires the support.
-> A3. OP-TEE OS supports read fuses, currently as part of our quarterly release.
->     Write fuse will be in coming release. Please note that the current patch-
->     set does not contain any read/write eFuse feature.
-
-But one of your patches is mention it, right? So there will be still two
-paths.
-
-Also according your IOCTL docuementation you want to expose the whole
-device to the user-space?
-
-| What:          /dev/<se>_mu[0-9]+_ch[0-9]+
-| Date:          Mar 2025
-| KernelVersion: 6.8
-| Contact:       linux-imx@nxp.com, pankaj.gupta@nxp.com
-| Description:
-|                NXP offers multiple hardware IP(s) for secure enclaves like EdgeLock-
-|                Enclave(ELE), SECO. The character device file descriptors
-|                /dev/<se>_mu*_ch* are the interface between userspace NXP's secure-
-|                enclave shared library and the kernel driver.
-| 
-|                The ioctl(2)-based ABI is defined and documented in
-|                [include]<linux/firmware/imx/ele_mu_ioctl.h>.
-|                ioctl(s) are used primarily for:
-|                        - shared memory management
-|                        - allocation of I/O buffers
-|                        - getting mu info
-|                        - setting a dev-ctx as receiver to receive all the commands from FW
-|                        - getting SoC info
-|                        - send command and receive command response
-				^
-This is a rather uncommon approach. The kernel has interfaces to
-abstract hardware. You completely bypass this if you expose everything
-to the userspace.
-
-> Q4. What is the ELE behavior if the secure-world stresses the ELE? Is there
->     a MU priority so the normal-world MU may get blocked (never addressed)
->     or are both MUs scheduled in round-robin?
-> A4. ELE will pick the message from Both MU(s), based on FIFO.
-
-This doesn't answer my question. How gets the FIFO filled? If the one of
-both worlds aways keep the MU busy?
-
-> Q5. Why ELE performance matters?
->     - On i.MX8M, which uses the CAAM (the ELE predecessor), It can be
->     verified that the ARMv8 CE are much faster than the crypto-engine itself.
->     Therefore the CAAM is mostly unused.
-> A5. User looks for both type of implementation based on their usecase:
->     - Certain users still offload to CAAM, to save their ARM CPU cycles for
->     other priority tasks.
-
-I have never seen such designs but okay.
-
->     - While certain customer choose ARM-CE for the crypto offloads for better
->     performance.
->     As far as ELE is concerned, it is not a crypto accelerator like CAAM.
->     Performance hungry crypto-ops are not recommended to be offloaded to ELE.
-
-I don't get this point. So NXP doesn't recommend to use the ELE for
-crypt-ops?
-
-> Q6. For the IOT-cases where real-time encrypted feed from sensors, will take
->     latency hit, Does the ELE support inline en-/decryption?
-> A6. Yes, ELE support Inline Encryption Engine (IEE), starting i.MX95 onwards.
-
-May I ask, how is this connected and which interfaces are connected to
-the IEE? I would have checked it by myself but unfortunately NXP doesn't
-provide a TRM for the i.MX95 yet.
-
-> Marco's Suggestions/NXP response:
-> ================================
-> S1. Below listed ELE access requirements, can be done from OP-TEE OS in all
->     the Life-Cycle states. then Why to use Linux?
->     - eFuse access (done via  OP-TEE OS i.MX specific PTA): OTP eFuse R/W access
->     after doing the LOCK_DOWN fuse is no longer possible without  OP-TEE OS. This
->     involves general purpose (GP) eFuses too.
->     - ELE ping every 1 day (kernel SMC WDG driver, OP-TEE OS wd driver).
->     - HW-RNG (kernel HWRNG driver + OP-TEE OS HWRNG PTA).
-> R1. There are i.MX9* users, that are not using OP-TEE OS, but still want
->     to use ELE features from Linux. So, these users are requesting for this
->     driver in Linux.
-
-Which ELE features?
-
->     As suggested by you, writing to eFuse after life-cycle closed state, the
->     driver in OP-TEE OS is needed.
->     Though there are other OP-TEE OS features too, that needs to be offloaded
->     to HSM, for security reasons, like:
->     - Hardware Unique Key(HUK) getting generated.
->     - OP-TEE OS's ASLR seed generation.
-
-We're talking about features the normal world wants to have access too,
-since you said ".. but still want to use ELE feature from Linux ..". The
-HUK and the TEE ASLR seed is clearly not something Linux wants to have
-access too.
-
-> S2. Having one implementation is beneficial in the following ways:
->     - Multiple paths also requires more maintain- and testing effort.
->     - FW files with having +1 FW for the new i.MX9*, where there are plenty
->       already eg.: bootloader, TF-A, ele-fw, scu-fw (i.MX95), increases the
->       maintenance on both the paths.
->     - TEE code could be reused by other OSes.
->     - TEE is used anyway for new projects due to CRA and friends
-> R2. As conveyed in R1, there are Linux only users, that are dependent on SE
->     Linux kernel driver.
-
-What difference does it make if these Linux-only users get the ELE
-access via OP-TEE? It's just one binary more.
-
-> S3. Having one implementation is beneficial in the following ways:
->     - Adding the support for it to  OP-TEE OS do not requires ELE-FW.
-
-I never said that this requires no ELE FW! I said it requires no ELE-FW
-update! Was the update already rolled out?
-
->     - Concurrent access handling is done by the TEE core.
-> R3. As already mentioned that ELE FW fix is available, for concurrent access.
->     Please note that FW fix is not required for the current patch-set.
-
-Can you provide us a link to the fix please? The fix should fix the
-concurrent normal-world <-> secure-world MU access issue. Why is this
-fix not required if I have a running OP-TEE?
-
-> S4. This series causes more confusions till the ELE FW fix is available to
->     allow concurrent access to ELE from both the worlds.
-> R4. FW fix is already available, and concurrent access is enabled by default
->     in LF Q3'25, release. Please note that FW fix is not required for the
->     current patch-set.
-
-Please provide a link to the new FW and why is the fix nor required for
-this patchset?
-
-> S5. Suggesting to add the  OP-TEE OS support for the required features e.g. eFuses,
->     watchdog, HWRNG. The whole Linux part is mostly in place.
-> R5. Yes, the secure world features like eFuse read/write will be added
->     to OP-TEE OS. Please note that this patch-set does not contain any read/write
->     eFuse feature.
-
-I see, instead it expose the whole ELE to the userspace if I got it
-correct according your IOCTL documentation. This would be even worse.
-
-Regards,
-  Marco
+Rob
 
