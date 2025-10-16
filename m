@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F37CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 08:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55819CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 08:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8DUko89npzL7HZjxZvIBEjnQ7mySr2fGFeLb9bgdOWw=; b=NnSCjhvjBEzeoSASgAXJ6INNgY
-	RbYiznTUHdC9JvQqTq1JQIkwYubMeurDN77uuMt58Ne8I3pnOAr6jvKfm0XCLYqWG/a2VFu/OLp9N
-	Jeplbmncxh11GAN4T8IrRR13BsHBD3NJc9M3ttXhlXo2qbcb54scJl7keOZK+xAQPL6AaBwhBTRrX
-	zL9XAwDvrPijqKI2gRj20caEvtnp9eugc9CsrR7KRlGyy5B0pIvBn3MZ8nFgmRVgZJSfbyEEcVYcP
-	WcuuaJF/F/jpqcUaX3Yo/JS4KOReuEUqJvKijssgvurFIwG8OYUmhrzwrIkmn6MCFohbAtU5sT5Ft
-	6LyI+65A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v1IiUUN9Ud/KHBOb3nqfzYJG0UONQx1yooJ1UPkaeMA=; b=j7zb3ZFNtijF2ISbv7zJEItDYg
+	YcgZfFvITOwxgupS/WEHmDKy3ORnIqz4Z+VRYnLvWWwLQIOTEtEKFu1IIlmJ5KcQkkCh6Zg6XKtZ2
+	Fg+g2S31doLj7ylTMbKMHt0yisaH0MfI21odYU8E1SRgkuFKjs5NLBT7CvUODU6zEzQvlYWBnsdBW
+	A3CnmsJSkhuequL1eR6wibCpEoPsr3CzowC6SEZBv46Y/fCjqVCQWgFQU7I1tMHgqPIlE4gKwyXCH
+	YLdDKsqYPP9L5iC7KUKR4v/fOdzYYktfntkxcWJ3DaU5CGULSf3ROBym3HHvWMGC5Kjkigj26FGd8
+	1jwSxM7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9JNq-00000003wxe-2y9W;
-	Thu, 16 Oct 2025 08:30:51 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1v9JTi-00000003yj5-3L6D;
+	Thu, 16 Oct 2025 08:36:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9JNW-00000003wp8-2Gdb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 08:30:48 +0000
-X-UUID: 5c4481b8aa6a11f0a38c85956e01ac42-20251016
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:11e05e84-edd7-4313-8812-d04bac35b71e,IP:0,UR
-	L:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:a9d874c,CLOUDID:d24af52aa30fd24840d7476069b00f81,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850,TC:nil,Content:0|50,EDM:5,IP:nil
-	,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:
-	1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5c4481b8aa6a11f0a38c85956e01ac42-20251016
-X-User: tanze@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <tanze@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1044116877; Thu, 16 Oct 2025 16:30:23 +0800
-From: tanze <tanze@kylinos.cn>
-To: james.clark@linaro.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	graham.woodward@arm.com,
-	tanze <tanze@kylinos.cn>
-Subject: [PATCH v1] perf arm_spe: Add a macro definition to handle offset value
-Date: Thu, 16 Oct 2025 16:30:19 +0800
-Message-Id: <20251016083019.27935-1-tanze@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1v9JTh-00000003yi6-0Xn3;
+	Thu, 16 Oct 2025 08:36:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8CCA66039A;
+	Thu, 16 Oct 2025 08:36:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8CC6C4CEF1;
+	Thu, 16 Oct 2025 08:36:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760603812;
+	bh=MuVT8F29Xlc5XO/utltXz470EZDUUeT2p+kzo7sBpCc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lSxiCumns7EpzNLOIgT/81hEQX9eA2qS1y/SDwq4SEuMAG5jL16PWcY1aeG8GdOH+
+	 QcclVkiqrcTwaToa4hGCK0J7pXlx1HsGlbj5wBXQLlQ3Ab/o4pTbThi9acFoCR/eLo
+	 65WmTLCEw20m71CvOHv/ZoA19nC1E7uORPjfXxifwEFKC0SVlCgfAVjl3ZuQNkjdc9
+	 m5gILegWqx67jDRS1rqorVr1lthwCEn9rHUNhS4KdtrXH2DojZ+YT+BCTGwFBrYSLR
+	 TD70OsqTNs0/v9YvrtLSrwrmpLX6/tnnXmj8+J22+D3sWTU+KKzkaJkRW8Vdg70GYH
+	 e7htLXVq29SVw==
+Date: Thu, 16 Oct 2025 10:36:49 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next 11/12] net: airoha: Refactor src port
+ configuration in airhoha_set_gdm2_loopback
+Message-ID: <aPCuoR8ukM23d71i@lore-desk>
+References: <20251015-an7583-eth-support-v1-0-064855f05923@kernel.org>
+ <20251015-an7583-eth-support-v1-11-064855f05923@kernel.org>
+ <aO_GOE0jPMlcP-VR@horms.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_013035_322604_3C8152E3 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="njSAvnTeCku01lzf"
+Content-Disposition: inline
+In-Reply-To: <aO_GOE0jPMlcP-VR@horms.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +80,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a macro definition SPE_SYNTH_ID_OFFSET to handle the offset value
-and improve readability.
 
-Signed-off-by: tanze <tanze@kylinos.cn>
----
- tools/perf/util/arm-spe.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+--njSAvnTeCku01lzf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 71be979f5077..645048ac7708 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -36,6 +36,7 @@
- 
- #include "../../arch/arm64/include/asm/cputype.h"
- #define MAX_TIMESTAMP (~0ULL)
-+#define SPE_SYNTH_ID_OFFSET (1000000000ULL)
- 
- #define is_ldst_op(op)		(!!((op) & ARM_SPE_OP_LDST))
- 
-@@ -1732,7 +1733,7 @@ arm_spe_synth_events(struct arm_spe *spe, struct perf_session *session)
- 	attr.sample_period = spe->synth_opts.period;
- 
- 	/* create new id val to be a fixed offset from evsel id */
--	id = evsel->core.id[0] + 1000000000;
-+	id = evsel->core.id[0] + SPE_SYNTH_ID_OFFSET;
- 
- 	if (!id)
- 		id = 1;
--- 
-2.25.1
+> On Wed, Oct 15, 2025 at 09:15:11AM +0200, Lorenzo Bianconi wrote:
+> > AN7583 chipset relies on different definitions for source-port
+> > identifier used for hw offloading. In order to support hw offloading
+> > in AN7583 controller, refactor src port configuration in
+> > airhoha_set_gdm2_loopback routine and introduce get_src_port_id
+> > callback.
+> >=20
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> >  drivers/net/ethernet/airoha/airoha_eth.c  | 75 +++++++++++++++++++++--=
+--------
+> >  drivers/net/ethernet/airoha/airoha_eth.h  | 11 +++--
+> >  drivers/net/ethernet/airoha/airoha_regs.h |  5 +--
+> >  3 files changed, 60 insertions(+), 31 deletions(-)
+> >=20
+> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
+ernet/airoha/airoha_eth.c
+> > index 5f6b5ab52e0265f7bb56b008ca653d64e04ff2d2..76c82750b3ae89a9fa81c64=
+d3b7c3578b369480c 100644
+> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> > @@ -1682,11 +1682,14 @@ static int airoha_dev_set_macaddr(struct net_de=
+vice *dev, void *p)
+> >  	return 0;
+> >  }
+> > =20
+> > -static void airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+> > +static int airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+> >  {
+> >  	u32 pse_port =3D port->id =3D=3D 3 ? FE_PSE_PORT_GDM3 : FE_PSE_PORT_G=
+DM4;
+> >  	struct airoha_eth *eth =3D port->qdma->eth;
+> >  	u32 chan =3D port->id =3D=3D 3 ? 4 : 0;
+> > +	/* XXX: handle XSI_USB_PORT and XSI_PCE1_PORT */
+> > +	u32 nbq =3D port->id =3D=3D 3 ? 4 : 0;
+> > +	int src_port;
+>=20
+> I think this code could benefit for names (defines) for port ids.
+> It's a bit clearer in airoha_en7581_get_src_port_id(). But the
+> numbers seem kind of magic in this function.
 
+ack, I will fix it in v2.
+
+Regards,
+Lorenzo
+
+>=20
+> > =20
+> >  	/* Forward the traffic to the proper GDM port */
+> >  	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(2), pse_port);
+> > @@ -1709,29 +1712,23 @@ static void airhoha_set_gdm2_loopback(struct ai=
+roha_gdm_port *port)
+> >  	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(2));
+> >  	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(2));
+> > =20
+> > -	if (port->id =3D=3D 3) {
+> > -		/* FIXME: handle XSI_PCE1_PORT */
+> > -		airoha_fe_rmw(eth, REG_FE_WAN_PORT,
+> > -			      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
+> > -			      FIELD_PREP(WAN0_MASK, HSGMII_LAN_PCIE0_SRCPORT));
+> > -		airoha_fe_rmw(eth,
+> > -			      REG_SP_DFT_CPORT(HSGMII_LAN_PCIE0_SRCPORT >> 3),
+> > -			      SP_CPORT_PCIE0_MASK,
+> > -			      FIELD_PREP(SP_CPORT_PCIE0_MASK,
+> > -					 FE_PSE_PORT_CDM2));
+> > -	} else {
+> > -		/* FIXME: handle XSI_USB_PORT */
+> > +	src_port =3D eth->soc->ops.get_src_port_id(port, nbq);
+> > +	if (src_port < 0)
+> > +		return src_port;
+> > +
+> > +	airoha_fe_rmw(eth, REG_FE_WAN_PORT,
+> > +		      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
+> > +		      FIELD_PREP(WAN0_MASK, src_port));
+> > +	airoha_fe_rmw(eth, REG_SP_DFT_CPORT(src_port >> 3),
+> > +		      SP_CPORT_MASK(src_port & 0x7),
+> > +		      FE_PSE_PORT_CDM2 << __ffs(SP_CPORT_MASK(src_port & 0x7)));
+>=20
+> Likewise, 3 and 0x7 a bit magical here.
+>=20
+> > +
+> > +	if (port->id !=3D 3)
+> >  		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6,
+> >  			      FC_ID_OF_SRC_PORT24_MASK,
+> >  			      FIELD_PREP(FC_ID_OF_SRC_PORT24_MASK, 2));
+>=20
+> ... and 2 here.
+>=20
+> > -		airoha_fe_rmw(eth, REG_FE_WAN_PORT,
+> > -			      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
+> > -			      FIELD_PREP(WAN0_MASK, HSGMII_LAN_ETH_SRCPORT));
+> > -		airoha_fe_rmw(eth,
+> > -			      REG_SP_DFT_CPORT(HSGMII_LAN_ETH_SRCPORT >> 3),
+> > -			      SP_CPORT_ETH_MASK,
+> > -			      FIELD_PREP(SP_CPORT_ETH_MASK, FE_PSE_PORT_CDM2));
+> > -	}
+> > +
+> > +	return 0;
+> >  }
+>=20
+> ...
+>=20
+> > @@ -3055,11 +3057,38 @@ static const char * const en7581_xsi_rsts_names=
+[] =3D {
+> >  	"xfp-mac",
+> >  };
+> > =20
+> > +static int airoha_en7581_get_src_port_id(struct airoha_gdm_port *port,=
+ int nbq)
+> > +{
+> > +	switch (port->id) {
+> > +	case 3:
+> > +		/* 7581 SoC supports PCIe serdes on GDM3 port */
+> > +		if (nbq =3D=3D 4)
+> > +			return HSGMII_LAN_7581_PCIE0_SRCPORT;
+> > +		if (nbq =3D=3D 5)
+> > +			return HSGMII_LAN_7581_PCIE1_SRCPORT;
+> > +		break;
+> > +	case 4:
+> > +		/* 7581 SoC supports eth and usb serdes on GDM4 port */
+> > +		if (!nbq)
+> > +			return HSGMII_LAN_7581_ETH_SRCPORT;
+> > +		if (nbq =3D=3D 1)
+> > +			return HSGMII_LAN_7581_USB_SRCPORT;
+> > +		break;
+> > +	default:
+> > +		break;
+> > +	}
+> > +
+> > +	return -EINVAL;
+> > +}
+>=20
+> ...
+
+--njSAvnTeCku01lzf
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaPCuoQAKCRA6cBh0uS2t
+rCOOAQDMDIpF364/MbSzib3j8d9uEzbbNEXLxP3luCc3gqQiqwEA742hYnGMwq6H
+kCa9nehAixoGaVR15kULJyL3ZZAxHgc=
+=NNc+
+-----END PGP SIGNATURE-----
+
+--njSAvnTeCku01lzf--
 
