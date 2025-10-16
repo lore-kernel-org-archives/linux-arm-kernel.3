@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0662CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 10:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97787CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 10:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F+Inrmqw00myrXAABuHCDzCK8frcOclwP7NRuFhp1tM=; b=dCQNacfyrXjoMjEL5wBW2afuCo
-	3TywFUvmG4SFP+f+8Z9Mb8pMozDgPiOkweW1WjWS3XSCVhereA8xir2pdy7VKJblCzl93eqQkQ7Uo
-	8P/cBy/dzeEQLnLg6w23Vei3UCeesjo+kqUQWblsvyCptkpV3sZeS+GiigxiQpOXCT4JBEhxAKTes
-	lXlh7Mou5jNEjb7NSRCNWvwsXzuGtWicESoLhHfwVnALOLhApySGNpqfsfP6nXCyao+wh2lTerLys
-	Wlz8yiaoVgh26cymYslLCmWhftvi/kF9L1fk7QvdKiaos0EBOe9YL8azw0IJeoxCxDVtHUfSZlUA4
-	9+SqlHxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eQAoKm37mXHu7Sh3PmvH0KLS4bufT2S2VuK677I477E=; b=D+V5oqfB2Io/acRGiREb56gNGE
+	wKAUDW6RK6xRrg5lJWbL3PEhiIwXCqgbwgJRjOS87Pf71W2MVwSTWXvJGPK2T/8dPlz3cIBEgYKHY
+	dIabPg/CA5CU31UjHfkVGd/SzWIF3CRoKYb5fXHvtjidiHjvpmW6gwXgJcGx3bB9MTlCUEodHDZqZ
+	I5g6X5rKS04tfC23p0gWr9jUkYPrm2IUlYle0Q4+syK21qILrF5hEtQMlCgBbTE85FoXRdPaJsp7E
+	bJh81X2v7CPqJ1OMhbc4pE/nFA7TifoK/eV719hg8xuRGGW7IHOjIq/I9tDNkwAouHR+wAqJLRQuu
+	7gWsn8rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9LU0-00000004TcK-1CIl;
-	Thu, 16 Oct 2025 10:45:20 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1v9LcL-00000004Uwx-15Nq;
+	Thu, 16 Oct 2025 10:53:57 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9LTx-00000004Tbd-0now
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 10:45:18 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1v9LTW-0003LT-FW; Thu, 16 Oct 2025 12:44:50 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1v9LTV-003sP0-11;
-	Thu, 16 Oct 2025 12:44:49 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1v9LTV-000000006MN-0w7x;
-	Thu, 16 Oct 2025 12:44:49 +0200
-Message-ID: <47112ace39ea096242e68659d67a401e931abf3a.camel@pengutronix.de>
-Subject: Re: [PATCH usb-next v2 5/5] usb: dwc3: Add Apple Silicon DWC3 glue
- layer driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa	
- <neal@gompa.dev>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob
- Herring	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley	 <conor+dt@kernel.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Thu, 16 Oct 2025 12:44:49 +0200
-In-Reply-To: <20251015-b4-aplpe-dwc3-v2-5-cbd65a2d511a@kernel.org>
-References: <20251015-b4-aplpe-dwc3-v2-0-cbd65a2d511a@kernel.org>
-	 <20251015-b4-aplpe-dwc3-v2-5-cbd65a2d511a@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1 
+	id 1v9LcI-00000004Uug-3uRj;
+	Thu, 16 Oct 2025 10:53:56 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cnPtG3GQNz6L4xg;
+	Thu, 16 Oct 2025 18:52:38 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0C2D81402A5;
+	Thu, 16 Oct 2025 18:53:43 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 16 Oct
+ 2025 11:53:40 +0100
+Date: Thu, 16 Oct 2025 11:53:39 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Thierry Reding
+	<thierry.reding@gmail.com>, Linus Walleij <linus.walleij@linaro.org>, Bartosz
+ Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, "Fabio Estevam"
+	<festevam@gmail.com>, Nuno =?UTF-8?Q?S=C3=A1?= <nuno.sa@analog.com>,
+	Lars-Peter Clausen <lars@metafoo.de>, "Michael Hennerich"
+	<Michael.Hennerich@analog.com>, Jonathan Cameron <jic23@kernel.org>, Andy
+ Shevchenko <andy@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, Mauro
+ Carvalho Chehab <mchehab@kernel.org>, "Lee Jones" <lee@kernel.org>, Joel
+ Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Andrew Lunn <andrew@lunn.ch>, "Vladimir Oltean" <olteanv@gmail.com>, "David
+ S. Miller" <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, Jakub
+ Kicinski <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, Daire McNamara
+	<daire.mcnamara@microchip.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?UTF-8?Q?Wilczy?= =?UTF-8?Q?=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+	"Bjorn Andersson" <andersson@kernel.org>, Geert Uytterhoeven
+	<geert+renesas@glider.be>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Florian Fainelli <f.fainelli@gmail.com>, "Tony
+ Lindgren" <tony@atomide.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-iio@vger.kernel.org>, <linux-media@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>
+Subject: Re: [PATCH] dt-bindings: Fix inconsistent quoting
+Message-ID: <20251016115339.000047f7@huawei.com>
+In-Reply-To: <20251015232015.846282-1-robh@kernel.org>
+References: <20251015232015.846282-1-robh@kernel.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_034517_226898_F1D1B626 
-X-CRM114-Status: GOOD (  21.88  )
+X-CRM114-CacheID: sfid-20251016_035355_108650_C7789234 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,67 +95,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2025-10-15 at 15:40 +0000, Sven Peter wrote:
-> The dwc3 controller present on Apple Silicon SoCs like the M1 requires
-> a specific order of operations synchronized between its PHY and its
-> Type-C controller. Specifically, the PHY first has to go through initial
-> bringup (which requires knowledge of the lane mode and orientation)
-> before dwc3 itself can be brought up and can then finalize the PHY
-> configuration.
-> Additionally, dwc3 has to be teared down and re-initialized whenever
-> the cable is changed due to hardware quirks that prevent a new device
-> from being recognized and due to the PHY being unable to switch lane
-> mode or orientation while dwc3 is up and running.
->=20
-> These controllers also have a Apple-specific MMIO region after the
-> common dwc3 region where some controls have to be updated. PHY bringup
-> and shutdown also requires SUSPHY to be enabled for the ports to work
-> correctly.
->=20
-> In the future, this driver will also gain support for USB3-via-USB4
-> tunneling which will require additional tweaks.
->=20
-> Add a glue driver that takes of all of these constraints.
->=20
-> Reviewed-by: Neal Gompa <neal@gompa.dev>
-> Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> Signed-off-by: Sven Peter <sven@kernel.org>
+On Wed, 15 Oct 2025 18:16:24 -0500
+"Rob Herring (Arm)" <robh@kernel.org> wrote:
+
+> yamllint has gained a new check which checks for inconsistent quoting
+> (mixed " and ' quotes within a file). Fix all the cases yamllint found
+> so we can enable the check (once the check is in a release). Use
+> whichever quoting is dominate in the file.
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 > ---
->  MAINTAINERS                   |   1 +
->  drivers/usb/dwc3/Kconfig      |  11 +
->  drivers/usb/dwc3/Makefile     |   1 +
->  drivers/usb/dwc3/dwc3-apple.c | 489 ++++++++++++++++++++++++++++++++++++=
-++++++
->  4 files changed, 502 insertions(+)
->=20
-[...]
-> diff --git a/drivers/usb/dwc3/dwc3-apple.c b/drivers/usb/dwc3/dwc3-apple.=
-c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..6e41bd0e34f461b0c3db9b8a6=
-46116458ff816b6
-> --- /dev/null
-> +++ b/drivers/usb/dwc3/dwc3-apple.c
-> @@ -0,0 +1,489 @@
-[...]
-> +static int dwc3_apple_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev =3D &pdev->dev;
-> +	struct dwc3_apple *appledwc;
-> +	int ret;
-> +
-> +	appledwc =3D devm_kzalloc(&pdev->dev, sizeof(*appledwc), GFP_KERNEL);
-> +	if (!appledwc)
-> +		return -ENOMEM;
-> +
-> +	appledwc->dev =3D &pdev->dev;
-> +	mutex_init(&appledwc->lock);
-> +
-> +	appledwc->resets =3D devm_reset_control_array_get_exclusive(dev);
+>  .../arm/altera/socfpga-clk-manager.yaml       |  4 ++--
+>  .../bindings/clock/nvidia,tegra124-car.yaml   |  8 ++++----
+>  .../bindings/clock/nvidia,tegra20-car.yaml    |  6 +++---
+>  .../devicetree/bindings/gpio/gpio-mxs.yaml    |  9 +++++----
+>  .../bindings/gpio/snps,dw-apb-gpio.yaml       |  4 ++--
+>  .../bindings/iio/temperature/adi,ltc2983.yaml | 20 +++++++++----------
+For this one
+Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-Why is this using an array? The bindings say there is only a single
-reset.
-
-regards
-Philipp
 
