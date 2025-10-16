@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBCCDCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 15:46:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DDFBCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 15:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=68bH8lyOwehZ17D+qnzdBHGIHciTVMK4a1YYlxiYL+A=; b=BJ+oola02ExXpw3Y1GPnQ3MePn
-	g1gIGr0zjMCuwJfPNw0UiLc2zmCLTkgqG5zoMK8IlsngWTLfbmrgDpqY72u07yM/XCnLbz+rGFpwE
-	R8cEMVjXjoN3qdZO1bV6P125M34Gp+KdrG5kfgwiB/slSvqrEwDD06Tsd73AxLw0Lhs32URv7yOPi
-	hc9r8nJfQ1cUzsWukvDwJuKm36HKfgAtYFVef2+VK2pCt9qq1mdSufNG8eAy2UU17T7U+CGftiq+q
-	1+txT3StSnK9G/F2g8LL/eEzEol/OyNjKmX/IUdEiXmRJ3WUgjlTU7kUewjWURsMDQL5sdRjilMiN
-	8qf5Sj6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=stG7Pv3NR5XN4u/WZsYTBN5iCP51FwvWX+zqChqTmuE=; b=ZlOMV5MSHONIDQSWMDiHscRm4u
+	AtIkvalidCT5xiyVvSjA8UxX0zh2mwm/HahU8cW7nkUSX+sg0IL2VZbik+IG+54RE0O42I/+duq2S
+	UzKNJBi9/etuFskRh1qBPm+YjxbTk39FutBWI/8ae6OOrRT8IPBSVXUdeAMwsOZ+XwSYOyUqpGr4U
+	dGqOOHARtFqnhXvqHEFpOWLGfUYid7jMjOTIMzUsqMTr4SQA8OQciynY5nGSTRGt3Br0FLYs42nyl
+	fOgfUXoUcFCmbYAu5QtfvIvSsaP3PNjsDhXkPY2l+TDFb7IAUxXshS3OY6QnC1iqy3EmfuQ+CImm0
+	08mBhYFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9QAy-00000005FK4-10lb;
-	Thu, 16 Oct 2025 15:46:00 +0000
-Received: from smtps.ntu.edu.tw ([140.112.2.142])
+	id 1v9QEI-00000005G9Z-0FRH;
+	Thu, 16 Oct 2025 15:49:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9QAt-00000005FIs-4Aem
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 15:45:58 +0000
-Received: from x415ea.. (unknown [49.214.10.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtps.ntu.edu.tw (Postfix) with ESMTPSA id C9EDB32A79;
-	Thu, 16 Oct 2025 23:45:49 +0800 (CST)
-From: Bill Tsui <b10902118@ntu.edu.tw>
-To: oleg@redhat.com,
-	catalin.marinas@arm.com,
-	will@kernel.org
-Cc: nathan@kernel.org,
-	nick.desaulniers+lkml@gmail.com,
-	morbo@google.com,
-	justinstitt@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev,
-	Bill Tsui <b10902118@ntu.edu.tw>
-Subject: [PATCH v3 1/1] arm64: ptrace: fix hw_break_set() to set addr and ctrl together
-Date: Thu, 16 Oct 2025 23:44:01 +0800
-Message-ID: <20251016154401.35799-2-b10902118@ntu.edu.tw>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251016154401.35799-1-b10902118@ntu.edu.tw>
-References: <20250827014113.5852-1-b10902118@ntu.edu.tw>
- <20251016154401.35799-1-b10902118@ntu.edu.tw>
+	id 1v9QEG-00000005G99-1a40;
+	Thu, 16 Oct 2025 15:49:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B2B4660444;
+	Thu, 16 Oct 2025 15:49:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B5BDC4CEF1;
+	Thu, 16 Oct 2025 15:49:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760629763;
+	bh=SA4GVw/nGNJf/qOm9uwEhfvgtPwILVcT7iMh4Nomboc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EYon15nTC1mf/Qvey0ODWWWDCuKPTr+/B27xSXjLWRwifGlrhDcQOgJhEMNqsjziR
+	 eDOiocYrPuTcMiBDfhqjwhqH9hA4sSLXWykN43T5M+Ix8ShIiM79qj+AJGvyo089PX
+	 stOi4BAdKthV2JSsl7fMI1yYGo8J8o5uuKi2kihDTXySBmt0eIJajJLrWVbK7+0jGA
+	 qzWWj00vhlfquMHu8Cdg4TiwBuaginpMBQHcctPHlbwBi42bVHU/M//wtdNHb3AEXf
+	 ReNHOGVbu4I8xxDFWQXcYZtcer8mhUYow8CFKTXY+Y181eNS51IOOuYu5LidalJ0HF
+	 AIpnRMtBHrx4w==
+Date: Thu, 16 Oct 2025 08:49:20 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Huacai Chen <chenhuacai@kernel.org>, 
+	Tiezhu Yang <yangtiezhu@loongson.cn>, loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+Message-ID: <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
+References: <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
+ <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn>
+ <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
+ <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
+ <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
+ <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
+ <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
+ <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
+ <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
+ <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_084556_163651_6AC7909E 
-X-CRM114-Status: GOOD (  17.89  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,107 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch fixes the failure of PTRACE_SETREGSET when setting a hardware
-breakpoint on a non-4-byte aligned address with a valid control to a
-32-bit tracee. The issue was discovered while testing LLDB.
+On Thu, Oct 16, 2025 at 04:52:20PM +0200, Ard Biesheuvel wrote:
+> On Tue, 14 Oct 2025 at 18:47, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
+> > The idea is that libstub code doesn't belong in vmlinux.o because it's
+> > not a part of the kernel proper, and doesn't need to be validated or
+> > modified by objtool for any reason.
+> >
+> 
+> I don't see a reason to change this on architectures that a) do not
+> use objtool and b) link the EFI stub into vmlinux. If LoongArch wants
+> to change this, that is fine, but that still does not mean it needs to
+> change on other architectures too.
+> 
+> EFI related boot errors are a nightmare to debug, and I will be the
+> one getting the reports when this regresses arm64 on hardware that 2
+> people on the planet have access to.
 
-Link: https://github.com/llvm/llvm-project/pull/152284
+The idea was to have more consistency, so vmlinux.o never has libstub,
+regardless of arch, but that's your call.
 
-The failure happens because hw_break_set() checks and sets the breakpoint
-address and control separately. This can result in an check failure when
-it first validates the address to be set with old control.
+I'd still propose we keep the KBUILD_VMLINUX_LIBS_PRELINK mechanism to
+allow other arches to opt in as needed.
 
-For example, the control are initialized with breakpoint length of 4.
-Combining with a non-4-byte aligned address would cross a 4-byte boundary,
-which is invalid. However, the user-provided control may actually specify a
-length of 1, which should be valid.
+And that variable might even be useful for other cases (x86 startup
+code?)
 
-The fix is to set the address and control together. This is supported
-by modify_user_hw_breakpoint(), the function that sets and checks
-breakpoints. The original implementation wrap this function to
-ptrace_hbp_set_addr() and ptrace_hbp_set_ctrl() for 32-bit API
-PTRACE_SETHBPREGS simply because it can only modify one register (address
-or control) per call. For the 64-bit PTRACE_SETREGSET API, this
-restriction does not apply, so a new helper function ptrace_hbp_set() was
-added to set both in a single call to modify_user_hw_breakpoint().
-
-For reference, the check is in
-	arch/arm64/kernel/hw_breakpoint.c:hw_breakpoint_arch_parse()
-which is called via:
-	modify_user_hw_breakpoint()
-	-> modify_user_hw_breakpoint_check()
-	-> hw_breakpoint_parse()
-	-> hw_breakpoint_arch_parse()
-
-Signed-off-by: Bill Tsui <b10902118@ntu.edu.tw>
----
- arch/arm64/kernel/ptrace.c | 36 +++++++++++++++++++++++++++++++-----
- 1 file changed, 31 insertions(+), 5 deletions(-)
-
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 4b001121c..8963f40ba 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -467,6 +467,34 @@ static int ptrace_hbp_set_addr(unsigned int note_type,
- 	return err;
- }
- 
-+/* Set the address and control together for non-compat ptrace */
-+static int ptrace_hbp_set(unsigned int note_type,
-+				   struct task_struct *tsk,
-+				   unsigned long idx,
-+				   u64 addr, u32 uctrl)
-+{
-+	int err;
-+	struct perf_event *bp;
-+	struct perf_event_attr attr;
-+	struct arch_hw_breakpoint_ctrl ctrl;
-+
-+	bp = ptrace_hbp_get_initialised_bp(note_type, tsk, idx);
-+	if (IS_ERR(bp)) {
-+		err = PTR_ERR(bp);
-+		return err;
-+	}
-+
-+	attr = bp->attr;
-+	attr.bp_addr = addr;
-+
-+	decode_ctrl_reg(uctrl, &ctrl);
-+	err = ptrace_hbp_fill_attr_ctrl(note_type, ctrl, &attr);
-+	if (err)
-+		return err;
-+
-+	return modify_user_hw_breakpoint(bp, &attr);
-+}
-+
- #define PTRACE_HBP_ADDR_SZ	sizeof(u64)
- #define PTRACE_HBP_CTRL_SZ	sizeof(u32)
- #define PTRACE_HBP_PAD_SZ	sizeof(u32)
-@@ -524,9 +552,6 @@ static int hw_break_set(struct task_struct *target,
- 			return -EINVAL;
- 		ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &addr,
- 					 offset, offset + PTRACE_HBP_ADDR_SZ);
--		if (ret)
--			return ret;
--		ret = ptrace_hbp_set_addr(note_type, target, idx, addr);
- 		if (ret)
- 			return ret;
- 		offset += PTRACE_HBP_ADDR_SZ;
-@@ -537,10 +562,11 @@ static int hw_break_set(struct task_struct *target,
- 					 offset, offset + PTRACE_HBP_CTRL_SZ);
- 		if (ret)
- 			return ret;
--		ret = ptrace_hbp_set_ctrl(note_type, target, idx, ctrl);
-+		offset += PTRACE_HBP_CTRL_SZ;
-+
-+		ret = ptrace_hbp_set(note_type, target, idx, addr, ctrl);
- 		if (ret)
- 			return ret;
--		offset += PTRACE_HBP_CTRL_SZ;
- 
- 		user_regset_copyin_ignore(&pos, &count, &kbuf, &ubuf,
- 					  offset, offset + PTRACE_HBP_PAD_SZ);
 -- 
-2.51.0
-
+Josh
 
