@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADDFBCCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 12:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8047ECCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 12:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8vmS3EfhUykAvBVymJGJnTFBE7v+DMHYK0Xp3FKpXE8=; b=j4vOmsSZ7jD2DvxpcEiinePEDI
-	d2lbs9xkvV4Tw+8GC3HNGNVMdAYebzQ3XbBO8m30eErWcBP1A7uRg8KzYHNUY9Kd4UbAS61KQYQ1H
-	zucuxdg3ySnxxG2TzglzZYF8PHdYVeKuEmWk2bzbThJ5gceYPnxDE7GVUS3L9dGcI/VFccoobyfVc
-	i146KVIrzZSkQZJDuAZRnkw72ZRuit5RygN/lVlDReJOm72giaoTjC3ihR3X23LJuYvUVnXqwppdu
-	B8W4zVCmz5gAu/xPQtPjr1y0cy3pzTyTJXUtX5hJZvdvzLT3mCVq6DLKUn26Gvf9KzJePVKilQCKS
-	DRr3SiFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dxq839aAHMctLtHNxtYiJDDAjbNWx58BYY8KBjuCdF0=; b=AiSiHtkoVi2F4i
+	UZjdTlgrSPN2m4X4rutORmOl9zCSQTdN9zSl3OPPza69mOtb20UqJizLVGLE1kmMioZ8SrwL1U8xT
+	iscAFKUHbJCR9WALvFCo6aJFIC+G538HsEMRYquFAq860IoT6uMkUAQjzFthQEZBHegF8Z1tvWhXe
+	usV75EBAKRndlTwiET1pjKxH28fWzGcnRdKk34wBKYTEK0fNFIkiaOcJoFixURQJW5XA6AngKDR/r
+	1fVhWfrrl7QHzchiW0FaW7BnBhcJMpA1sQSlw9j377IMGF8YvajZFw0f55wXj8DHNTz++A4EoQ++r
+	dq5RpFwoT9YrMXQW8lTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Ml1-00000004fy7-0Xp9;
-	Thu, 16 Oct 2025 12:06:59 +0000
-Received: from mail-m3281.qiye.163.com ([220.197.32.81])
+	id 1v9MlE-00000004g8M-1uwA;
+	Thu, 16 Oct 2025 12:07:12 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Mky-00000004fsO-1YAr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 12:06:57 +0000
-Received: from albert-OptiPlex-7080.. (unknown [117.184.129.134])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 26265958d;
-	Thu, 16 Oct 2025 20:06:51 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: krzysztof.kozlowski@linaro.org
-Cc: krzk+dt@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	arnd@arndb.de,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	gordon.ge@bst.ai,
-	bst-upstream@bstai.top,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	ulf.hansson@linaro.org,
-	Albert Yang <yangzh0906@thundersoft.com>
-Subject: [PATCH v5 6/6] MAINTAINERS: add Black Sesame Technologies (BST) ARM SoC support
-Date: Thu, 16 Oct 2025 20:05:58 +0800
-Message-ID: <20251016120558.2390960-7-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251016120558.2390960-1-yangzh0906@thundersoft.com>
-References: <20251016120558.2390960-1-yangzh0906@thundersoft.com>
+	id 1v9MlB-00000004g5E-19Zt;
+	Thu, 16 Oct 2025 12:07:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1760616416; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=U/OY09R1Umycf387LhQRQvZWdXv8njqpy4JvwlwOh6P5/txt7dlKHGsnuow2Y6m9+L9GKo98s9rA5t+grQmppVghS9EiN4KCwAdD9YhVf6k8iDQBgoe1eqcplqdE9zHy1WewTUKkq/et05/3VlnsUPaWYX/za3S9HLlNEYnySfU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1760616416; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=dxq839aAHMctLtHNxtYiJDDAjbNWx58BYY8KBjuCdF0=; 
+	b=GVSwdJmw5rqzgD1x5BxRbXFq5txk0HivTAw0atpZziWAxGR4jLn1iNJpe9d42Zxr873dBciobmGOFiKft/T5jfad8+v743K64lW2YEB1AXrueDWZ3XJwx4t5g0JlJDjBMkI/g+U/UqhaXAZrp09jL6trf65XGgWMRiymdVqpyNI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760616416;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=dxq839aAHMctLtHNxtYiJDDAjbNWx58BYY8KBjuCdF0=;
+	b=L/JmjaIh81EMz0o2ijeatci130DJ87NLZ00HdpCWEqdBE18ciO5xVau4hP8l7Xi1
+	LijPfqEiw5sgZuvGhqLPWspEAA6WlW4EO56UdCDxEjaxIXNAqE0IXCimoQHych8Nx16
+	yhISoSHJXWNGWkGHqvImOMv7wzGzbWKqlzm/lipo=
+Received: by mx.zohomail.com with SMTPS id 1760616413675917.2416629138661;
+	Thu, 16 Oct 2025 05:06:53 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH v2 0/5] MediaTek UFS Cleanup and MT8196 Enablement
+Date: Thu, 16 Oct 2025 14:06:42 +0200
+Message-Id: <20251016-mt8196-ufs-v2-0-c373834c4e7a@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a99ecea710e09cckunm98a0ee06128ad
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDSh9IVh5KGBlDTB1OSBlIHlYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
-	tLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=Dk1et/NkrQ7aZ0NPv4CTjrYYp9Tn7qD9pL3NdHP9TihvJ23t/6KWS5WHsoIw/C1r6hNxoQ0nmwWONRXqL0oU50bY52PSCZ00dkos/17xrnh0MwxgDXwuk8q+VDNNacS0fi+rix6sPWFt3xSorapfsrsuSGeKIDza4OnODFXodQw=; s=default; c=relaxed/relaxed; d=thundersoft.com; v=1;
-	bh=8vmS3EfhUykAvBVymJGJnTFBE7v+DMHYK0Xp3FKpXE8=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANLf8GgC/22OQQ6CMBBFr0Jm7RhaQCkr72FYtGWQJkC1LQRDu
+ LsV4s7lm+S9Pyt4coY8VMkKjmbjjR0j8FMCupPjg9A0kYGnvGApy3EIJRMXnFqPmnSuhBRXKjK
+ IwtNRa5Y9dq8PdvSaYjMcR1DSE2o7DCZUyUhLwF8XvkJnfLDuvT8zs934tzszTJGJotGkykzp8
+ qZt30tlnTzHONTbtn0AtFB0eNkAAAA=
+X-Change-ID: 20251014-mt8196-ufs-cec4b9a97e53
+To: Alim Akhtar <alim.akhtar@samsung.com>, 
+ Avri Altman <avri.altman@wdc.com>, Bart Van Assche <bvanassche@acm.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ "Martin K. Petersen" <martin.petersen@oracle.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+ kernel@collabora.com, linux-scsi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-phy@lists.infradead.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_050656_599160_214DDCAA 
-X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-CacheID: sfid-20251016_050709_643938_C8F1AE31 
+X-CRM114-Status: UNSURE (   9.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,51 +95,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a MAINTAINERS entry for Black Sesame Technologies (BST) ARM SoC
-support. This entry covers device tree bindings, drivers, and board files
-for BST SoCs, and platform support.
+In this series, the existing MediaTek UFS binding is expanded and
+completed to correctly describe not just the existing compatibles, but
+also to introduce a new compatible in the from of the MT8196 SoC.
 
-Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
+The resets, which until now were completely absent from both the UFS
+host controller binding and the UFS PHY binding, are introduced to both.
+This also means the driver's undocumented and, in mainline, unused reset
+logic is reworked. In particular, the PHY reset is no longer a reset of
+the host controller node, but of the PHY node.
+
+This means the host controller can reset the PHY through the common PHY
+framework.
+
+The resets remain optional.
+
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
-Change for v5:
-  - Remove MMC driver and dt-bindings entries (MMC patches will be submitted separately)
-  - Change status from "Maintained" to "Supported" based on review feedback
+Changes in v2:
+- Reorder define in mtk_sip_svc.h
+- Use bulk reset APIs in UFS host driver
+- Link to v1: https://lore.kernel.org/r/20251014-mt8196-ufs-v1-0-195dceb83bc8@collabora.com
 
-Change for v4:
-  - Changed file name: sdhci-of-bst-c1200.c to sdhci-of-bst.c
-  - Changed title from "add and consolidate" to just "add"
-  - Simplified commit message description
-  - Removed Signed-off-by line for Ge Gordon
-
-Change for v3:
- - No changes
-
-Change for v2:
- - No changes
 ---
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+Nicolas Frattaroli (5):
+      dt-bindings: ufs: mediatek,ufs: Add mt8196-ufshci variant
+      dt-bindings: phy: Add mediatek,mt8196-ufsphy variant
+      scsi: ufs: mediatek: Move MTK_SIP_UFS_CONTROL to mtk_sip_svc.h
+      phy: mediatek: ufs: Add support for resets
+      scsi: ufs: mediatek: Rework resets
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 46126ce2f968..841d3f055778 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2543,6 +2543,14 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/arm/blaize.yaml
- F:	arch/arm64/boot/dts/blaize/
- 
-+ARM/BST SOC SUPPORT
-+M:	Ge Gordon <gordon.ge@bst.ai>
-+R:	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>
-+L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
-+S:	Supported
-+F:	Documentation/devicetree/bindings/arm/bst.yaml
-+F:	arch/arm64/boot/dts/bst/
-+
- ARM/CALXEDA HIGHBANK ARCHITECTURE
- M:	Andre Przywara <andre.przywara@arm.com>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ .../devicetree/bindings/phy/mediatek,ufs-phy.yaml  |  16 +++
+ .../devicetree/bindings/ufs/mediatek,ufs.yaml      | 134 +++++++++++++++++++--
+ drivers/phy/mediatek/phy-mtk-ufs.c                 |  71 +++++++++++
+ drivers/ufs/host/ufs-mediatek-sip.h                |   9 --
+ drivers/ufs/host/ufs-mediatek.c                    |  78 ++++++------
+ drivers/ufs/host/ufs-mediatek.h                    |   7 +-
+ include/linux/soc/mediatek/mtk_sip_svc.h           |   3 +
+ 7 files changed, 255 insertions(+), 63 deletions(-)
+---
+base-commit: 40a3abb0f3e5229996c8ef0498fc8d8a0c2bd64f
+change-id: 20251014-mt8196-ufs-cec4b9a97e53
+
+Best regards,
 -- 
-2.43.0
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 
