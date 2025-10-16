@@ -4,97 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33AE3CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 09:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E47ACCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 10:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jn4dZoKK26RuIY2MUwW65nuRqIMdpVV2Qu/kLcTzIEE=; b=23RcXs4QSQNPtqwrD+/itFvAfh
-	6zSWpmsbGX0qZUIcI4MpUc45lU3iqJUJySIWEnV5uywgVinoSaRBVeBFqXJqs4GaSZfWp5t8ueTpC
-	YBaB52yWVsl5DY84dwY/Yhp+GBaDvBf2WRTTvRunJ1Z4oaf19HfOLAaGVktTDtKYv9ca7FLsQ27Hl
-	Ei5npLqDFeYRylQ/9lewDtHzNdVv9TYVD7SGQri3nICqkBirMP8OY2SunVp5kqD9/JzLXK39SEoR/
-	JyMLyOhrt5uHF0U4OqgG5CgF2NPUQzHv3beXkw7P+qWiSzdNGdSDk55quFDN+/ajEh5VJzJ2bk3b8
-	dpWh2wzQ==;
+	bh=kN3t/e7sa1Sb2IowRbuDgju83rFZL2AXB/0qfNEujok=; b=cfgvggS0vx4lrDrQod41oJfyDe
+	V/B74gacjxCR7fpL6eLXaPYci1cwpyXvzVJ8k9Ich/jRa6aYa5dRJ0C+JCouyB5bloJeDAaJD1sX2
+	/jeDcjWUP4sIam9npD6jy9uyx3ElOsbhVg+fEZi7auBEzULz0sPdwHpdgA1kOV0MF4/jYxh6pCzGZ
+	LibsnkCQvso9rasvXoFCEet3V2Ok1yYrNNhA4NxrQ2PBaZryBUkTqkkghXx3N6rN+uf2snd2PDbXb
+	WyJqsgxaGva7rDknfiobRITnl3sRzIf/qmj9Fawlgj/VtqFcG8zkmaLLUCpXEcDLYt7CkIakFIc6N
+	NRFmr7+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Kee-00000004Hf2-3j9O;
-	Thu, 16 Oct 2025 09:52:16 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1v9Krf-00000004K4O-0a06;
+	Thu, 16 Oct 2025 10:05:43 +0000
+Received: from mail-m49236.qiye.163.com ([45.254.49.236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Kea-00000004Hc8-3qI5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 09:52:15 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-582067563fcso96387e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 02:52:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760608329; x=1761213129; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jn4dZoKK26RuIY2MUwW65nuRqIMdpVV2Qu/kLcTzIEE=;
-        b=es64AFqGPiNYMA5qd9tGUidMs8Q8FI+H0rWK027MOe17cIWQJ2YHqrBF/fDlPbEWLO
-         McVVzfvUkaQZK8VYKYLui7oWn9nB4MAFpvfBpoqERrMpU0MxPwS0QfnSCx2u5EClmKAJ
-         HqwfIyXPbh9Vb+jk/SBsMNypHyIOpc3aQGqaR7l+KH2+4uYLBHcqT47WSqBAg1Bl7cGl
-         /E1IevNoVkO/M/Foz+iXbv7LcDPh6nRwxL86kBl6/71pPJJBXTxAyxBiLQbthYYWsWhe
-         NX0A5KiunF1SRH6tLP0ZE5mvc4hAnRNPZpGryZ/TZJTPZadtEiUDSpLmdLa6kG39er4L
-         ohlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760608329; x=1761213129;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jn4dZoKK26RuIY2MUwW65nuRqIMdpVV2Qu/kLcTzIEE=;
-        b=fZCBv8dEUerP842m2X2UcGvd/sB+26qs77cNwEYii2eCboo9cxbEMlEplW9OFUoJOz
-         fEncp89zLSMQPGainwYkABosRfGFWOJI0Kcw/Yv/6GUOKbvQ6jRnzdqiVgnvJDAM7Vi3
-         QAV1B8yzLZoptflTJfuZsZKrTO4a9ijnFh3GRqv+MYdpGAWNn9yR1l1zvA0q4td0h8Yr
-         /fMs3zbzMl2lTbttyJ9UaHbepld+Qs0PIeTxiLfGfVLxQ4DH6hEP4RLrsIEy1ccfS2jC
-         tUWO0hwbV2pQytLzXmuxyprHyLFNjfuFUknpsEJR5XD9FU51gURVnRILyjmJrw/nkn7V
-         CPOA==
-X-Gm-Message-State: AOJu0YydzLJr17crecJgt1Iaqvz50cfg/dg5fGy6wjJgs/TvOtnL/sDA
-	+2cOzFdTiswLei6uy50LhDP4jjwFoiYKwkkjlXb+G/8O38URxeODV4lgZHprphfctIM=
-X-Gm-Gg: ASbGncsWBR+zOeZcleEzkaOgJur3OxgN/XVqEi3ePd35gNSkZSU/1cmFXOV/64TJT5d
-	voyW5QZItb7ADxFiF1paQPDBK/UT/9NOmqLZPIMloBGkKn3fdu2XVQ4xrU2zBB9gd3xBjIo1exc
-	QbFcmf1sZhuE6T1t77m9EL52GUqxQBgg6ZQ4EO4Ip9jS2xc+aNuwxhv6Lb022f92F6xrZgWjz7Q
-	FNlH8D7tDCbIj5povoV+Hs99UEr64RCO8rewoKnfmvtsd3NIzflRP1HWAk7sD73RfGtKnlc1hr6
-	lRynXxoIYOEuG/Z7cYOznbcETWrlpjCe7kuvihXUuSNa0HYwCB18kiS8DvuUN+8u6jyLtdpGFoH
-	dWt+CZvkefgtwiCRKep27uA8wIooN+uHovQfogwk30bhmd9oLR5pREsPxlvQ4Ha64xk+n2N1kBN
-	vp29QjXcnEcxsQf11QCnqWFjkOd5edEjaZv/Taw3YRlcFgNgvnQoREgNOcDMk=
-X-Google-Smtp-Source: AGHT+IHGrMqF/SxK/b9Eusc1EmuTMX1oF3LiG7gqz6PSDdypVz3evm0d5vIiv9I+NCKFDiLfXQtkSg==
-X-Received: by 2002:a05:651c:2224:b0:36c:ebb0:820c with SMTP id 38308e7fff4ca-37609e72b63mr40963831fa.7.1760608328682;
-        Thu, 16 Oct 2025 02:52:08 -0700 (PDT)
-Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3762e77ea1fsm54348501fa.3.2025.10.16.02.52.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Oct 2025 02:52:08 -0700 (PDT)
-Message-ID: <ad05ed96-80fb-448a-a264-f4b4befc5d30@linaro.org>
-Date: Thu, 16 Oct 2025 12:52:07 +0300
+	id 1v9Kra-00000004K1w-46i0;
+	Thu, 16 Oct 2025 10:05:40 +0000
+Received: from [172.16.12.129] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 262323a9f;
+	Thu, 16 Oct 2025 18:00:28 +0800 (GMT+08:00)
+Message-ID: <3470351f-88ab-48bb-97af-dde4e6eba938@rock-chips.com>
+Date: Thu, 16 Oct 2025 18:00:24 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add support for camss
-Content-Language: ru-RU
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Vikram Sharma <quic_vikramsa@quicinc.com>, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, bryan.odonoghue@linaro.org
-References: <20251015130130.2790829-1-quic_vikramsa@quicinc.com>
- <20251015130130.2790829-3-quic_vikramsa@quicinc.com>
- <b4207e22-8d9c-4223-8b28-272d2650661f@linaro.org>
- <8966ddaf-9c10-4626-a4cc-36efd3fc93e2@kernel.org>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <8966ddaf-9c10-4626-a4cc-36efd3fc93e2@kernel.org>
+Cc: shawn.lin@rock-chips.com, Damien Le Moal <dlemoal@kernel.org>,
+ Dragan Simic <dsimic@manjaro.org>, FUKAUMI Naoki <naoki@radxa.com>,
+ Diederik de Haas <diederik@cknow-tech.com>, stable@vger.kernel.org,
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2] PCI: dw-rockchip: Disable L1 substates
+To: Niklas Cassel <cassel@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>, Simon Xue <xxm@rock-chips.com>
+References: <20251016090422.451982-2-cassel@kernel.org>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20251016090422.451982-2-cassel@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a99ec76ba4d09cckunmc3027d237c39a4
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkNKTlZJT0hPSE4ZHx9IQ0xWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=Dkg1ccWxhcEzQTOcTY7bf6wuAXYywd+hMTvRqDxRE1vMLe89yV6Etd0r4HtjD7Lib8ucQ/xO9ILeS0kR9IRcb4AfFbQ7Zq1l5oLWraylks88KcjFaIB10gPecPxyug1hiVMXiTxry8XoDnCwbI/lCmmSFioxp53oLomGc7999KY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=kN3t/e7sa1Sb2IowRbuDgju83rFZL2AXB/0qfNEujok=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_025213_016198_4B22C093 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20251016_030539_526300_F9BB544D 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,67 +78,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/16/25 08:59, Krzysztof Kozlowski wrote:
-> On 15/10/2025 20:49, Vladimir Zapolskiy wrote:
->> On 10/15/25 16:01, Vikram Sharma wrote:
->>> Add changes to support the camera subsystem on the QCS8300.
->>>
->>> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
->>> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
->>> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
->>> ---
->>>    arch/arm64/boot/dts/qcom/qcs8300.dtsi | 171 ++++++++++++++++++++++++++
->>>    1 file changed, 171 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/qcom/qcs8300.dtsi b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
->>> index 8d78ccac411e..acd475555115 100644
->>> --- a/arch/arm64/boot/dts/qcom/qcs8300.dtsi
->>> +++ b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
->>> @@ -4769,6 +4769,177 @@ videocc: clock-controller@abf0000 {
->>>    			#power-domain-cells = <1>;
->>>    		};
->>>    
->>> +		camss: isp@ac78000 {
->>> +			compatible = "qcom,qcs8300-camss";
->>> +
->>> +			reg = <0x0 0xac78000 0x0 0x1000>,
->>> +			      <0x0 0xac7a000 0x0 0xf00>,
->>> +			      <0x0 0xac7c000 0x0 0xf00>,
->>> +			      <0x0 0xac84000 0x0 0xf00>,
->>> +			      <0x0 0xac88000 0x0 0xf00>,
->>> +			      <0x0 0xac8c000 0x0 0xf00>,
->>> +			      <0x0 0xac90000 0x0 0xf00>,
->>> +			      <0x0 0xac94000 0x0 0xf00>,
->>> +			      <0x0 0xac9c000 0x0 0x2000>,
->>> +			      <0x0 0xac9e000 0x0 0x2000>,
->>> +			      <0x0 0xaca0000 0x0 0x2000>,
->>> +			      <0x0 0xacac000 0x0 0x400>,
->>> +			      <0x0 0xacad000 0x0 0x400>,
->>> +			      <0x0 0xacae000 0x0 0x400>,
->>> +			      <0x0 0xac4d000 0x0 0xf000>,
->>> +			      <0x0 0xac60000 0x0 0xf000>,
->>> +			      <0x0 0xac85000 0x0 0xd00>,
->>> +			      <0x0 0xac89000 0x0 0xd00>,
->>> +			      <0x0 0xac8d000 0x0 0xd00>,
->>> +			      <0x0 0xac91000 0x0 0xd00>,
->>> +			      <0x0 0xac95000 0x0 0xd00>;
->>> +			reg-names = "csid_wrapper",
->>> +				    "csid0",
->>
->> The list of 'reg-names' is not alphanumerically sorted, this is a newly
->> introduced sorting order pattern of CAMSS 'reg' property values.
+在 2025/10/16 星期四 17:04, Niklas Cassel 写道:
+> The L1 substates support requires additional steps to work, see e.g.
+> section '11.6.6.4 L1 Substate' in the RK3588 TRM V1.0.
 > 
-> Please stop inventing ad-hoc or fake rules. There is no such sorting
-> pattern for this property, which I expressed multiple times. Last time
-> you claimed there is some sorting by "values", now this.
+> These steps are currently missing from the driver.
+
+Yes, we could add them later if concerns about supports-clkreq is fully
+discussed.
+
+> 
+> While this has always been a problem when using e.g.
+> CONFIG_PCIEASPM_POWER_SUPERSAVE=y, the problem became more apparent after
+> commit f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for
+> devicetree platforms"), which enabled ASPM also for
+> CONFIG_PCIEASPM_DEFAULT=y.
+> 
+> Disable L1 substates until proper support is added.
 > 
 
-The sorting order above does not resemble the order present on other CAMSS
-devices, which is the alphanumerical sorting order.
+Thanks for the patch.
 
-The same order is supposed to be kept.
+Acked-by: Shawn Lin <shawn.lin@rock-chips.com>
 
--- 
-Best wishes,
-Vladimir
+> Cc: stable@vger.kernel.org
+> Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host controller driver")
+> Fixes: f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for devicetree platforms")
+> Signed-off-by: Niklas Cassel <cassel@kernel.org>
+> ---
+> Changes since v1:
+> -Remove superfluous dw_pcie_readl_dbi()
+> 
+>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 21 +++++++++++++++++++
+>   1 file changed, 21 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 3e2752c7dd09..84f882abbca5 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -200,6 +200,25 @@ static bool rockchip_pcie_link_up(struct dw_pcie *pci)
+>   	return FIELD_GET(PCIE_LINKUP_MASK, val) == PCIE_LINKUP;
+>   }
+>   
+> +/*
+> + * See e.g. section '11.6.6.4 L1 Substate' in the RK3588 TRM V1.0 for the steps
+> + * needed to support L1 substates. Currently, not a single rockchip platform
+> + * performs these steps, so disable L1 substates until there is proper support.
+> + */
+> +static void rockchip_pcie_disable_l1sub(struct dw_pcie *pci)
+> +{
+> +	u32 cap, l1subcap;
+> +
+> +	cap = dw_pcie_find_ext_capability(pci, PCI_EXT_CAP_ID_L1SS);
+> +	if (cap) {
+> +		l1subcap = dw_pcie_readl_dbi(pci, cap + PCI_L1SS_CAP);
+> +		l1subcap &= ~(PCI_L1SS_CAP_L1_PM_SS | PCI_L1SS_CAP_ASPM_L1_1 |
+> +			      PCI_L1SS_CAP_ASPM_L1_2 | PCI_L1SS_CAP_PCIPM_L1_1 |
+> +			      PCI_L1SS_CAP_PCIPM_L1_2);
+> +		dw_pcie_writel_dbi(pci, cap + PCI_L1SS_CAP, l1subcap);
+> +	}
+> +}
+> +
+>   static void rockchip_pcie_enable_l0s(struct dw_pcie *pci)
+>   {
+>   	u32 cap, lnkcap;
+> @@ -264,6 +283,7 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
+>   	irq_set_chained_handler_and_data(irq, rockchip_pcie_intx_handler,
+>   					 rockchip);
+>   
+> +	rockchip_pcie_disable_l1sub(pci);
+>   	rockchip_pcie_enable_l0s(pci);
+>   
+>   	return 0;
+> @@ -301,6 +321,7 @@ static void rockchip_pcie_ep_init(struct dw_pcie_ep *ep)
+>   	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>   	enum pci_barno bar;
+>   
+> +	rockchip_pcie_disable_l1sub(pci);
+>   	rockchip_pcie_enable_l0s(pci);
+>   	rockchip_pcie_ep_hide_broken_ats_cap_rk3588(ep);
+>   
+
 
