@@ -4,76 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 748A5CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 17:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88967CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 18:08:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rTUmVCjZwM7PQPWvSKdDMN6x4dpJeSnKTI7jgtFLTK4=; b=eMjmtj6XMZqwX6WFTZgzaW5PWj
-	NjpVd7F2XBKFPkljgcdRn/2PP9cXcWNmVIzsvzZfnC/trRVq8kKhzuXn0xbzj/A+bw1ISxIDecc/7
-	QHHGoWC5bcBwIEDF8/KS+7ClV+XkE3pzaBHX8hUAoDlYwXOQbR/5qyVa29/c/VVrXPbF07XFhKzkX
-	qVRZlm+BZpED+TEu+nUAIv9+TBzREkDujwBbnvd11s4UIMOUwAz1OnK1R+JZ4cPPabPkftALlO2yu
-	wzHZJ5gwlfxMqll3ZdZlZi6sukE1Qw1YylrpIsRhnD0IP9muRT5nwPJCaoDN4OO5rrfFBzuIdg0DN
-	B/Tvorsw==;
+	bh=pvdI1tHJ0y9UyYUK8ggKpv8HiCk5nY9MZSyFsaBNsRY=; b=bIvD+o1y4fG7Kx42eBdejDTgY0
+	jw7t+YNOgiXP48Pjt1zVzJSmaEzStOZD0ZIRr3J6OYToCsXBXih8zFtOiMvcxpwIp8NdtmZB42l4K
+	nB8ZT7GfwhQQcUE1oc+3owaX7twg79CPF7qj3VI9uBJSrs1ncGnQ4l1Tpkwh6Zbshds3RdE16qdtc
+	6/0OBvdsWTBtFf0nZVcb9fPdo5LYG1x+aea0ljizu1Uv3UX960wBuXZFvhuwdqY+EVzhhi3mCax5A
+	17PTZjZWhZruqEPhlK+fT6nIRotU+Y0W4CsXgDlPVsA/ndHQQo20LbbbDA1+Jwoh5Xk+XOBmeOdu6
+	Gn1N4JKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9SAc-00000005d6W-1sAu;
-	Thu, 16 Oct 2025 17:53:46 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1v9SP2-00000005fED-3XY3;
+	Thu, 16 Oct 2025 18:08:40 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9SAY-00000005d63-15fJ
+	id 1v9SP0-00000005fDs-2WV5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 17:53:44 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59GHraPw071442;
-	Thu, 16 Oct 2025 12:53:36 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1760637216;
-	bh=rTUmVCjZwM7PQPWvSKdDMN6x4dpJeSnKTI7jgtFLTK4=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=CzDioRcWcP0GJuH1NJhcuSw/ZX0N0Sg3REZFvgB5AlpguzXTaL+wgUnRxNB49xgTQ
-	 E6+77nybuWBm9PSVeaJdXIh7LgTlJOWVAGDa6nTomEYccJSo/GcEoN3uPVhzwSj1i8
-	 ZrZfs7XvTslyYMrAx/vJaT6V4F09942lEy6lFeko=
-Received: from DLEE212.ent.ti.com (dlee212.ent.ti.com [157.170.170.114])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59GHraTY1792417
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 16 Oct 2025 12:53:36 -0500
-Received: from DLEE212.ent.ti.com (157.170.170.114) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 16 Oct
- 2025 12:53:36 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 16 Oct 2025 12:53:36 -0500
-Received: from [128.247.29.251] (dmz007xyy.dhcp.ti.com [128.247.29.251])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59GHraWQ4129879;
-	Thu, 16 Oct 2025 12:53:36 -0500
-Message-ID: <19b16368-9ec8-40d8-9389-1dc48f28dd2a@ti.com>
-Date: Thu, 16 Oct 2025 12:53:36 -0500
+	Thu, 16 Oct 2025 18:08:39 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-26e81c17d60so2003935ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 11:08:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760638117; x=1761242917; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pvdI1tHJ0y9UyYUK8ggKpv8HiCk5nY9MZSyFsaBNsRY=;
+        b=cmflf3KjH0RmoYo8avkTb15pue1OM44GqhxcIKpl44Ql3mfakBnTk0EsJ12gMhLYSC
+         nz9x6F/hdGk614NGIX81kK9FIGC5X0/l89mdZD54k2/Ln1ewCK0NqBHTv5BpqC4e0gOM
+         afXFN7RI7LkXgYMX39tnW/v1Mf3TavU1E9XMQTBRG7f3QKQXnU7r2gK/JhM5n6SaQM1X
+         ChntNkQoKqYqnYoxiDra+6LnN8jpjvpwsD3PyclfU5LMFx5COBZx1h1bhd9ZLUVy12Go
+         M4LAbR2JnfQfRSNjFQNRHJeJ6D31iplNIgf1x3cu9HGZkccD6PvG4mwf1NTSawtuFsOk
+         8IMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760638117; x=1761242917;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pvdI1tHJ0y9UyYUK8ggKpv8HiCk5nY9MZSyFsaBNsRY=;
+        b=uPWgmI+6xF/deKJBO/HyGimCGy1UtW9wJIgAqcrkwa6EwrccNMq3vie4VN5kOJd9J2
+         p/i4YwNdDTUsET7lWABnrkx8or2QYGguB2ER2Bdi94VxFZWt4K1P13Mf90Pt22zZ1zRa
+         sI27yAXuwaOfvEBuvaXunUiXg18M8tP0wYMVgNBeTKAmPocLc7J7rQDDfg5gRG6e6ldT
+         lA5aAyfsUwcIzQTDMf8Ft6Bh3KD4rQOC0l8YnAtcauor1v87Lig51l2ySX12SN9pmcxS
+         FwuZeEipTRZMazWZWNRKxeZjUFCXQAfgdpIqfjZDTSmCbupobmzyxwZSMmLtj3+SQ++P
+         Qs2A==
+X-Forwarded-Encrypted: i=1; AJvYcCVckNK+1yy4/Ki05qT38HWaSF8kCgKu0nGFEq4QPtQ93FZNwDSsmRipIGQMpMgFB4tAv0zpRBedWLL75MdekEZF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrBzqx5TbTyx8LrLdPiDXP3mCM/dMlV4W8BUOD5IIGwG5ggNgd
+	g/FmLDPRRnufrveIt5DhkjCVOiS54fd4SeLs3lrrmixVolqjPiFeCWJySW6rpFvbG+0FUzJujXA
+	lzGlsUXBCcpVeMrKX9IwuWJoa3jXEE5Y=
+X-Gm-Gg: ASbGnct45i5mOGcCEnqgyIuq7Z25DKyyv7UKBu8VjlI7bQLIgUt/Oa/7aUt2eEDDepN
+	agpB50VqunBFSP4joybDHMw1ICDNAMSqtF4i7bLB+AwDCGJkYJmxDr1ct0kk5CVCL5BPKJuayxo
+	X7xlOWfwDCXaSDAZZTmYQPSjuSQ3dt1dXydrYPifrO56y/B9fKjCtpTEVKmQLVlgbkA94u/dNS/
+	hmXVqQnJevUpMW3LBXe0uNU7WlUM+WcmZEHbOAC85wA22ICZEl1WfNRbmrQG01W4/w7yDit8RxJ
+	4i1EsQPQaVhyqK+i8V9/J/EuxdP4Cf9FU2YlfVjxrNuuUPOpbDJlNEAemYrmkihM7bEqHrWTpQA
+	cSDtncYeQZ9VODQ==
+X-Google-Smtp-Source: AGHT+IEoB07YLtvOmgRhJpNg1dneDk3OqPXrwHl8ZjlPvoUL+f8vvKYxA5NW6SB6Z+zvhdKoNNyC5a3rT2Kl6EmYok0=
+X-Received: by 2002:a17:902:e743:b0:264:cda8:7fd3 with SMTP id
+ d9443c01a7336-290cb27ec63mr5305925ad.6.1760638117403; Thu, 16 Oct 2025
+ 11:08:37 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: ti: k3-am62d2-evm: Fix regulator properties
-To: Paresh Bhagat <p-bhagat@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <praneeth@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>
-References: <20250916090736.2299127-1-p-bhagat@ti.com>
-Content-Language: en-US
-From: Shree Ramamoorthy <s-ramamoorthy@ti.com>
-Organization: PMIC
-In-Reply-To: <20250916090736.2299127-1-p-bhagat@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20251016172853.52451-1-seanjc@google.com>
+In-Reply-To: <20251016172853.52451-1-seanjc@google.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Thu, 16 Oct 2025 20:08:25 +0200
+X-Gm-Features: AS18NWA8avJ7AT3gN1GiIIdaHzAYbZXDs9-XkxbnI3nrmWWVp79jjOsrQv3WW6I
+Message-ID: <CANiq72ntKAeXRT_fEGJteUfuQuNUSjobmJCbQOuJWAcNFb1+9w@mail.gmail.com>
+Subject: Re: [PATCH v13 00/12] KVM: guest_memfd: Add NUMA mempolicy support
+To: Sean Christopherson <seanjc@google.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ackerley Tng <ackerleytng@google.com>, Shivank Garg <shivankg@amd.com>, 
+	David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, Ashish Kalra <ashish.kalra@amd.com>, 
+	Vlastimil Babka <vbabka@suse.cz>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_105342_482986_5D81E76E 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20251016_110838_638569_4D43F0F7 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,76 +102,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paresh,
-
-On 9/16/25 4:07 AM, Paresh Bhagat wrote:
-> Fix missing supply for regulators TLV7103318QDSERQ1 and TPS22918DBVR.
-> Correct padconfig and gpio for TLV7103318QDSERQ1.
+On Thu, Oct 16, 2025 at 7:30=E2=80=AFPM Sean Christopherson <seanjc@google.=
+com> wrote:
 >
-> Reference Docs
-> Datasheet - https://www.ti.com/lit/ug/sprujd4/sprujd4.pdf
-> Schematics - https://www.ti.com/lit/zip/sprcal5
->
-> Fixes: 1544bca2f188e ("arm64: dts: ti: Add support for AM62D2-EVM")
-> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
-> ---
->
-> Boot logs
-> https://gist.github.com/paresh-bhagat12/9a4a1aec5119ceedb386743921432c91
+> Miguel, you got pulled in due to a one-line change to add a new iterator
+> macros in .clang-format.
 
-Reviewed-by: Shree Ramamoorthy <s-ramamoorthy@ti.com>
+Thanks!
 
->
-> Tag used
-> next-20250915
->
->   arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 7 +++++--
->   1 file changed, 5 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-> index 83af889e790a..d202484eec3f 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-> @@ -146,6 +146,7 @@ vdd_mmc1: regulator-4 {
->   		regulator-name = "vdd_mmc1";
->   		regulator-min-microvolt = <3300000>;
->   		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&vcc_3v3_sys>;
->   		regulator-boot-on;
->   		enable-active-high;
->   		gpio = <&exp1 3 GPIO_ACTIVE_HIGH>;
-> @@ -165,14 +166,16 @@ vcc_3v3_sys: regulator-5 {
->   	};
->   
->   	vddshv_sdio: regulator-6 {
-> +		/* output of TLV7103318QDSERQ1 */
->   		compatible = "regulator-gpio";
->   		regulator-name = "vddshv_sdio";
->   		pinctrl-names = "default";
->   		pinctrl-0 = <&vddshv_sdio_pins_default>;
->   		regulator-min-microvolt = <1800000>;
->   		regulator-max-microvolt = <3300000>;
-> +		vin-supply = <&vcc_5v0>;
->   		regulator-boot-on;
-> -		gpios = <&main_gpio1 31 GPIO_ACTIVE_HIGH>;
-> +		gpios = <&main_gpio0 59 GPIO_ACTIVE_HIGH>;
->   		states = <1800000 0x0>,
->   			 <3300000 0x1>;
->   		bootph-all;
-> @@ -334,7 +337,7 @@ AM62DX_IOPAD(0x01d4, PIN_INPUT, 7) /* (C15) UART0_RTSn.GPIO1_23 */
->   
->   	vddshv_sdio_pins_default: vddshv-sdio-default-pins {
->   		pinctrl-single,pins = <
-> -			AM62DX_IOPAD(0x1f4, PIN_OUTPUT, 7) /* (M19) GPMC0_CLK.GPIO1_31 */
-> +			AM62DX_IOPAD(0x00f0, PIN_INPUT, 7) /* (Y21) GPIO0_59 */
->   		>;
->   		bootph-all;
->   	};
+The macro is not in `include/`, right? That means that, currently,
+when I rerun the command to update the list it will go away.
 
--- 
-Best,
-Shree Ramamoorthy
-PMIC Software Engineer
+If that is correct, and you want to have it in the list, then we
+should add e.g. `virt/` there or similar, or we could have a few
+separate lines at the top that are independent of the ones generated
+by the command.
 
-
+Cheers,
+Miguel
 
