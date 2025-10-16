@@ -4,77 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B2E8CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 11:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95973CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 11:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kl8wFEk1Rfimj4SuE/d+n0dMIexnSNg7hsR/i17e6MY=; b=ELbX5lBvVwp2+ZTTnIEu93cSv/
-	qj5ecM3scxX1B3Tdtjdz9pJlOzeYTI8PoKHfvW1/xUqKC8PS3+O0ttyyypU213wV5w4V3Fq8a4oH4
-	+yV1lxHiQdN51PigB4XR12h7P5uTOvztWieXWSu83bjL3+o08hx7wobsfCaQsPziU8wwMEen+ew+S
-	TsIS9YwYN65fMzmekogIRsXXoFbIR+eRF/Z9HYhXU/7kZP95tR14LIjoNYCFgieHHYzfgwImJRZm+
-	6sBsaN36hXd9jWvqHiFaA1JJJs2HsktaCIiczeXZjNkVW3TC4/HAwgdkmBipLG1K9Y4ruuo1goMp3
-	1M+dMXOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CFRIIs060aUTE/XtgbE3U9aNP00cbQnhfyqtNtGSsHY=; b=PcCp8d8gwWsSzNPEvvDfhEoFXb
+	aQTAt8g1wcPQfQFwVGRLVYJdpComSx3baaMG3IYkTeZg/zh0rcgfEa2yNZfdRmTGFQKQGsVlLL06r
+	Fbz53c5Jr5nvWOXRHITvIrCSVX6ttQEEQ84NOUcIfjEZB3evCH7wbqWkKEgD9yZizo8kQtHcCWw1S
+	huhdQONRwxemH/bBJODwWbIRodl9i01oVdbphnI0EohOAWjnriwi1KJ6VPca3QuItb9ht7CNGFngQ
+	K1EG5pbbQceo6a9fQy/UGE0BNLyW72Y5GdPWWImu4RAxHFWiBkop7Edl6bMmupGhNK/7O7AS+/ivf
+	kInfl3ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MEc-00000004acc-1lUI;
-	Thu, 16 Oct 2025 11:33:30 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1v9MJL-00000004bhJ-29iV;
+	Thu, 16 Oct 2025 11:38:23 +0000
+Received: from mx-relay28-hz2.antispameurope.com ([94.100.136.228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MEU-00000004aWO-2cji;
-	Thu, 16 Oct 2025 11:33:25 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Kl8wFEk1Rfimj4SuE/d+n0dMIexnSNg7hsR/i17e6MY=;
-	b=UJGB7Q6ViWGahyodIiBXCAq88T0wmr6s2XW5a8KOiGY2DS43aoyAWx2GYUkD71tQE/3aypdjO
-	L02ClGRAWAt0XtsJxALWDX3IfEDdg/P5w6r1gvbBzhE0cv1lFlr6Df+BVX7M8qA7vtcq6lPuOlQ
-	MnmG8B5ppm70Ym2pVG5vDPc=
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4cnQmC5MPzz1T4GB;
-	Thu, 16 Oct 2025 19:32:27 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id B884C140257;
-	Thu, 16 Oct 2025 19:33:13 +0800 (CST)
-Received: from huawei.com (10.50.87.63) by kwepemr500001.china.huawei.com
- (7.202.194.229) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 16 Oct
- 2025 19:33:12 +0800
-From: Yin Tirui <yintirui@huawei.com>
-To: <akpm@linux-foundation.org>, <david@redhat.com>,
-	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <vbabka@suse.cz>,
-	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, <ziy@nvidia.com>,
-	<baolin.wang@linux.alibaba.com>, <npache@redhat.com>, <ryan.roberts@arm.com>,
-	<dev.jain@arm.com>, <baohua@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <anshuman.khandual@arm.com>,
-	<yangyicong@hisilicon.com>, <ardb@kernel.org>, <willy@infradead.org>,
-	<apopple@nvidia.com>, <samuel.holland@sifive.com>,
-	<luxu.kernel@bytedance.com>, <abrestic@rivosinc.com>,
-	<yongxuan.wang@sifive.com>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <wangkefeng.wang@huawei.com>, <chenjun102@huawei.com>,
-	<yintirui@huawei.com>
-Subject: [PATCH RFC 1/2] pgtable: add pte_clrhuge() implementation for arm64 and riscv
-Date: Thu, 16 Oct 2025 19:27:03 +0800
-Message-ID: <20251016112704.179280-2-yintirui@huawei.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251016112704.179280-1-yintirui@huawei.com>
-References: <20251016112704.179280-1-yintirui@huawei.com>
+	id 1v9MJG-00000004bfu-1iEo
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Oct 2025 11:38:22 +0000
+ARC-Authentication-Results: i=1; mx-gate28-hz2.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=CFRIIs060aUTE/XtgbE3U9aNP00cbQnhfyqtNtGSsHY=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1760614684;
+ b=Z5j9tQgqrXt5W8OXBplUyADYEvo3M4efUZTfezrm1bLQwWrtMtK0tIx9tApDxJPDgIk+vMMv
+ PqOVxVOO/pDH1kLzBSQURw5gZKFMBldbAsD4tIyUV+vBH9JTq+5a5/j796g1zM0PPkqM9QdV2xR
+ OkGeKB7QQ2yEMDp3F41XaHHoYFH99FH9SYvHWb4cgLaNq4YNG6sIMneXGsw7pineh1i77MPuSi6
+ yM7bM/r253n3D/msuU2Cx5+wGtYga0kTrwWNeJz7XSpI6AALlZCnZBWg3Od9PN6jgxyVAJK+eGk
+ J6MNmt9WIQMZqVEnMrv0j/g28odg9wThpnZYH4DNk8jyw==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1760614684;
+ b=C/zeiBFStckVJuMTjZqKT+HwiPRsRUBK3k4fs7svu7ZI0fY3yhMP3wpM8yhntGbdTXBKx4e7
+ +YVWyKrm0CkHlA5o+1CsjmKZD9wJuhVRE9/R16gBuIVyvJ9dLTt7+lgaTWP1PFMP2OSfN5axCDV
+ ujy9LtPPkqDrmYUvoWC9d5Sl0nDgLexAWi/qUiggFIxZN551beM5tGPxEyDAcHHaYndCN/plmeJ
+ 9aijWj6dD6nl2T7sWkLXkT1ae5/r7SiWQ2yABj97+6E/5VBQxGMSsKGa03MVevIasMLaSXclOHx
+ 4hhU9TpeRhe9IARoBSN2tVKGl8edQXFVkUl7h76gBODUg==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay28-hz2.antispameurope.com;
+ Thu, 16 Oct 2025 13:38:03 +0200
+Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: matthias.schiffer@ew.tq-group.com)
+	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 3F3EC220BA0;
+	Thu, 16 Oct 2025 13:37:50 +0200 (CEST)
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Fabio Estevam <festevam@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Subject: [PATCH] serial: imx: allow CRTSCTS with RTS/CTS GPIOs
+Date: Thu, 16 Oct 2025 13:37:30 +0200
+Message-ID: <20251016113730.245341-1-matthias.schiffer@ew.tq-group.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.87.63]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+X-cloud-security-sender: matthias.schiffer@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: matthias.schiffer@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay28-hz2.antispameurope.com with 4cnQtQ6zX8z1QNSK
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: a7531a3aefe8095ad0ffc3e1e5a543aa
+X-cloud-security: scantime:2.247
+DKIM-Signature: a=rsa-sha256;
+ bh=CFRIIs060aUTE/XtgbE3U9aNP00cbQnhfyqtNtGSsHY=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1760614683; v=1;
+ b=kRM+aR663C5Osf8RwLaQYs8fEAZyOO8b7FeUWstSubDy1f4vkKscBZh5+yKBCMeIGeevkipM
+ 0sIkktM7tdjkBd5Gpa72ygy0A1evSCGqfY3+kBHNcx7bWbiaOx/4DBaJLk2lZ4gqiywTpTLLSBo
+ jUfReg+wp5fhBZ8xRbUBoh3jge5QFGw3Qu8yi50TT6mpRDGz4k7XI15bgbYxJOX+5zO6ilSctGy
+ aEtoM2JLUYdT8U/51nw2sOh5h2YG18aD9I/QNT91Lxnf1zu+egP3KFyIwkThBExft+mK4Gu53uv
+ 5h276h65uyC2QipDVTfCkdaTJjMoWX+LGfT1BYtc4FnJA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_043323_025334_E78E9559 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251016_043819_046506_A01C205E 
+X-CRM114-Status: GOOD (  17.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,59 +112,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pte_clrhuge() helper function for architectures that enable
-ARCH_SUPPORTS_HUGE_PFNMAP to clear huge page attributes from PTE
-entries.
+The CTS GPIO is only evaluated when the CRTSCTS termios flag is enabled;
+it should be possible to enable the flag when only GPIO and no hardware-
+controlled RTS/CTS are available. UCR2_IRTS is kept enabled in this case,
+so the hardware CTS is ignored.
 
-This function provides the inverse operation of pte_mkhuge() and will
-be needed for upcoming huge page splitting, where PTE entries derived
-from huge page mappings need to have their huge page attributes cleared.
-
-Future work will refactor pfn_pte() to automatically filter huge bits,
-removing the need for pte_clrhuge() across all architectures.
-
-Signed-off-by: Yin Tirui <yintirui@huawei.com>
+Fixes: 58362d5be352 ("serial: imx: implement handshaking using gpios with the mctrl_gpio helper")
+Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
 ---
- arch/arm64/include/asm/pgtable.h | 8 ++++++++
- arch/riscv/include/asm/pgtable.h | 5 +++++
- 2 files changed, 13 insertions(+)
+ drivers/tty/serial/imx.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index abd2dee416b3..244755bad46f 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -366,6 +366,14 @@ static inline pte_t pte_mkinvalid(pte_t pte)
- 	return pte;
- }
+diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
+index 500dfc009d03e..4a54a689a0603 100644
+--- a/drivers/tty/serial/imx.c
++++ b/drivers/tty/serial/imx.c
+@@ -1117,8 +1117,8 @@ static void imx_uart_set_mctrl(struct uart_port *port, unsigned int mctrl)
+ 			ucr2 |= UCR2_CTS;
+ 			/*
+ 			 * UCR2_IRTS is unset if and only if the port is
+-			 * configured for CRTSCTS, so we use inverted UCR2_IRTS
+-			 * to get the state to restore to.
++			 * configured for hardware-controlled CRTSCTS, so we use
++			 * inverted UCR2_IRTS to get the state to restore to.
+ 			 */
+ 			if (!(ucr2 & UCR2_IRTS))
+ 				ucr2 |= UCR2_CTSC;
+@@ -1780,7 +1780,7 @@ imx_uart_set_termios(struct uart_port *port, struct ktermios *termios,
+ 	if ((termios->c_cflag & CSIZE) == CS8)
+ 		ucr2 |= UCR2_WS;
  
-+static inline pte_t pte_clrhuge(pte_t pte)
-+{
-+	pteval_t mask = PTE_TYPE_MASK & ~PTE_VALID;
-+	pteval_t val = PTE_TYPE_PAGE & ~PTE_VALID;
-+
-+	return __pte((pte_val(pte) & ~mask) | val);
-+}
-+
- static inline pmd_t pmd_mkcont(pmd_t pmd)
- {
- 	return __pmd(pmd_val(pmd) | PMD_SECT_CONT);
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 815067742939..b0a20ddf780a 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -455,6 +455,11 @@ static inline pte_t pte_mkhuge(pte_t pte)
- 	return pte;
- }
+-	if (!sport->have_rtscts)
++	if (!sport->have_rtscts && !sport->have_rtsgpio)
+ 		termios->c_cflag &= ~CRTSCTS;
  
-+static inline pte_t pte_clrhuge(pte_t pte)
-+{
-+	return pte;
-+}
-+
- #ifdef CONFIG_RISCV_ISA_SVNAPOT
- #define pte_leaf_size(pte)	(pte_napot(pte) ?				\
- 					napot_cont_size(napot_cont_order(pte)) :\
+ 	if (port->rs485.flags & SER_RS485_ENABLED) {
+@@ -1794,7 +1794,7 @@ imx_uart_set_termios(struct uart_port *port, struct ktermios *termios,
+ 		else
+ 			imx_uart_rts_inactive(sport, &ucr2);
+ 
+-	} else if (termios->c_cflag & CRTSCTS) {
++	} else if ((termios->c_cflag & CRTSCTS) && sport->have_rtscts) {
+ 		/*
+ 		 * Only let receiver control RTS output if we were not requested
+ 		 * to have RTS inactive (which then should take precedence).
+@@ -1803,7 +1803,7 @@ imx_uart_set_termios(struct uart_port *port, struct ktermios *termios,
+ 			ucr2 |= UCR2_CTSC;
+ 	}
+ 
+-	if (termios->c_cflag & CRTSCTS)
++	if ((termios->c_cflag & CRTSCTS) && sport->have_rtscts)
+ 		ucr2 &= ~UCR2_IRTS;
+ 	if (termios->c_cflag & CSTOPB)
+ 		ucr2 |= UCR2_STPB;
 -- 
-2.43.0
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+https://www.tq-group.com/
 
 
