@@ -4,100 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 097B0CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 11:41:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14712CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 11:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XvYgm2ZiEhdQinQKcxWC99AV37HjB6EYaQCw2NitFgg=; b=wCrpWhMZfgpdlRZ4m8FcxpwzIh
-	JQ+syhTqLXyjEPO8wOmgfIeuo/4Q2uqJ3D954vigRE2rF0b1Ghfq3uBhqC/nZHuNQsMu19EBeMTzu
-	3wGLMK6Yb/gS+KGHlaeBWBA31YwvzRyyAOSO6c26r08ZDqUr25AXcTbcYzMMMWVH01d3fyZwyf+La
-	kX+RRcXJ11uzuMvdYSfBafbZXf368lJD68DxsMfAQZph5H8Ypr9KSg6v1/UrfTFtDcNXpARZJ7n/X
-	oDKK1digwsEAWHkYbUb9zbory5vwLtnLodleO9P3gYcgG19tfzoQEM8se5VJVHf1dAMBpMGf5e9fo
-	QAdSyosA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mithuzoIba+tpFJaHJ6NJo7dg8hHv73ayRB5YFixxYg=; b=xoZNrO0+3+jr9u1vJnQ0CqDEoP
+	E9mMvKnJdlivAk5gnyQ74tTndvERhtBoWd5CfUImWYLPDnW9GVn7ibIA8yD7oglFH+XkHvH5tzm91
+	Luh7EJ0hbygv4+QD/LXfN2sEhjuevGVf7isY0oglEnU/xl+bdKkXjuHHLg5TweRjH7DYR0vuU+fSM
+	kN4oN695cP0WwiW+FflW0Ss8ugeVnAmjI53V1MGZKtRxiQqT8uDAUTjYTIt9pTEu5fosdd6zmTAVh
+	umubpq+ITHNerIxJxpF9JK8/itaU9XQeQhC9BkK5LSV8yhXrk06XcZXTWZBmSUbK6+mTghbfIxVmR
+	psfV4SXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MM0-00000004c2v-0BnS;
-	Thu, 16 Oct 2025 11:41:08 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1v9MNA-00000004cCl-1j2K;
+	Thu, 16 Oct 2025 11:42:20 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MLu-00000004bwB-3w0w
+	id 1v9MN7-00000004cBi-2x0B
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 11:41:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=XvYgm2ZiEhdQinQKcxWC99AV37HjB6EYaQCw2NitFgg=; b=ZPwtWfVfmH1BgOVMa3L70j0efc
-	qqsLU2dGGGukihkkq+42UZcMLx8PX2kIvKq2VQScwsWmV3FqzlCOiWcaZ4II38HfGvqEPfD21HNRL
-	kGzjp+NyLq+iH5rvz+NxDEejWy0YpC00XxoIDmHg/USbd8xKEjHt5J4OfvJ8i+676WT2bwZRuWC6p
-	YFdnvdOUsNfsVD476lUnekQErRuvNNG71r6S9nrYXVddVMJqVz1YyY2tMYuSdbeDxui9CS22iAZde
-	8xt8vJRlx4MbKGvSkc1tSeDJaZ9xYanDHGWDeViZI0601YhoSyL46ivOsN10QOcTh8XKpl4WlFCIX
-	NPckYhlA==;
-Received: from [122.175.9.182] (port=17170 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1v9MLE-000000079MT-1SRX;
-	Thu, 16 Oct 2025 07:40:20 -0400
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id E724F1783FF9;
-	Thu, 16 Oct 2025 17:10:15 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id D12ED1783FF4;
-	Thu, 16 Oct 2025 17:10:15 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id GzU_cDNcWiqS; Thu, 16 Oct 2025 17:10:15 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id A72EF1781C72;
-	Thu, 16 Oct 2025 17:10:15 +0530 (IST)
-Date: Thu, 16 Oct 2025 17:10:15 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: parvathi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
-	davem <davem@davemloft.net>, edumazet <edumazet@google.com>, 
-	kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, 
-	danishanwar <danishanwar@ti.com>, rogerq <rogerq@kernel.org>, 
-	pmohan <pmohan@couthit.com>, basharath <basharath@couthit.com>, 
-	afd <afd@ti.com>, linux-kernel <linux-kernel@vger.kernel.org>, 
-	netdev <netdev@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	pratheesh <pratheesh@ti.com>, Prajith Jayarajan <prajith@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
-	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
-	krishna <krishna@couthit.com>, mohan <mohan@couthit.com>
-Message-ID: <1633385931.433.1760614815573.JavaMail.zimbra@couthit.local>
-In-Reply-To: <1e16ab86-ccc1-433a-a482-76d9ba567fb9@lunn.ch>
-References: <20251014124018.1596900-1-parvathi@couthit.com> <20251014124018.1596900-2-parvathi@couthit.com> <1e16ab86-ccc1-433a-a482-76d9ba567fb9@lunn.ch>
-Subject: Re: [PATCH net-next v3 1/3] net: ti: icssm-prueth: Adds helper
- functions to configure and maintain FDB
+	Thu, 16 Oct 2025 11:42:19 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1v9MMi-0002oB-Us; Thu, 16 Oct 2025 13:41:52 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1v9MMi-003sq4-06;
+	Thu, 16 Oct 2025 13:41:52 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1v9MMh-00HQPu-2x;
+	Thu, 16 Oct 2025 13:41:51 +0200
+Date: Thu, 16 Oct 2025 13:41:51 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Pankaj Gupta <pankaj.gupta@nxp.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-doc@vger.kernel.org,
+	Frank Li <Frank.Li@nxp.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v19 0/7] firmware: imx: driver for NXP secure-enclave
+Message-ID: <20251016114151.jzmapaecsmmnkpt3@pengutronix.de>
+References: <20250927-imx-se-if-v19-0-d1e7e960c118@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - GC138 (Linux)/8.8.15_GA_3968)
-Thread-Topic: icssm-prueth: Adds helper functions to configure and maintain FDB
-Thread-Index: XlOBMErJ6hpwpJMWg3cXMXchYoQRVA==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250927-imx-se-if-v19-0-d1e7e960c118@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_044102_999236_020061A6 
-X-CRM114-Status: UNSURE (   5.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251016_044217_895013_FAFB032D 
+X-CRM114-Status: GOOD (  50.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,31 +84,184 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
->> +/* 4 bytes */
->> +struct fdb_index_tbl_entry_t {
->> +	/* Bucket Table index of first Bucket with this MAC address */
->> +	u16 bucket_idx;
->> +	u16 bucket_entries; /* Number of entries in this bucket */
->> +};
+On 25-09-27, Pankaj Gupta wrote:
+> Highlight:
 > 
-> Please drop the _t. That is normally used to indicate a type, but this
-> is actually a struct
->
-
-Sure. We will remove _t from the struct definitions.
-
->> +void icssm_prueth_sw_fdb_tbl_init(struct prueth *prueth)
->> +{
->> +	struct fdb_tbl *t = prueth->fdb_tbl;
->> +
->> +	t->index_a = (struct fdb_index_array_t *)((__force const void *)
->> +			prueth->mem[V2_1_FDB_TBL_LOC].va +
->> +			V2_1_FDB_TBL_OFFSET);
+> There are long discussion at V18 with Marco Felsch.
+> https://lore.kernel.org/imx/AM9PR04MB8604F5A7DD8B1E41FDAD09039501A@AM9PR04MB
+> 8604.eurprd04.prod.outlook.com/
 > 
-> You cast it to a const void * and then a non-const fdb_index_array_t *?
+> The key point is about using OP-TEE OS. 
+> 
+> Marco's questions:
+> =================
+> Q1. Both MU(s) from each world - Secure & Non-secure, cannot be used
+>     simultaneously. Why?
+> A1. ELE FW fix is available, where concurrent access to ELE from both the
+>     world is working. This fix is not required for the current patch-set for
+>     i.MX8ULP.
 
-We will address this and remove the double casting completely.
+According https://github.com/OP-TEE/optee_os/pull/7268/commits/83b516edc0270ca8300ce524a0c3d560e67a0f48#r1955899462
+there is no fix yet. Can you please point me to the fixed version?
 
-Thanks and Regards,
-Parvathi.
+Also can you please outline why the fix is not required for i.MX8ULP?
+Unfortunately I can't remember.
+
+> Q2. How is the secure and non-secure world talk to the ELE if there is only
+>     one MU?
+> A2. From i.MX9x & onwards, SoC(s) has at least one dedicated ELE MU(s) for
+>     each world - Linux(one or more) and OP-TEE OS (one or more). Has updated
+>     the commit message of 3/7.
+
+Does apply to the i.MX8ULP SoC as well? The NXP name scheme isn't very
+easy to follow.
+
+> Q3. How exactly do the eFuse write access after the device was locked down,
+>     will be provided with single path; for the following case? 
+>     - For a verified boot setup, you need to burn an eFuse at some point,
+>     to tell the bootROM to boot only correct verified firmware images.
+>     - After this lockdown, it's no longer possible to burn eFuses from the
+>     REE, while the production line setup still requires the support.
+> A3. OP-TEE OS supports read fuses, currently as part of our quarterly release.
+>     Write fuse will be in coming release. Please note that the current patch-
+>     set does not contain any read/write eFuse feature.
+
+But one of your patches is mention it, right? So there will be still two
+paths.
+
+Also according your IOCTL docuementation you want to expose the whole
+device to the user-space?
+
+| What:          /dev/<se>_mu[0-9]+_ch[0-9]+
+| Date:          Mar 2025
+| KernelVersion: 6.8
+| Contact:       linux-imx@nxp.com, pankaj.gupta@nxp.com
+| Description:
+|                NXP offers multiple hardware IP(s) for secure enclaves like EdgeLock-
+|                Enclave(ELE), SECO. The character device file descriptors
+|                /dev/<se>_mu*_ch* are the interface between userspace NXP's secure-
+|                enclave shared library and the kernel driver.
+| 
+|                The ioctl(2)-based ABI is defined and documented in
+|                [include]<linux/firmware/imx/ele_mu_ioctl.h>.
+|                ioctl(s) are used primarily for:
+|                        - shared memory management
+|                        - allocation of I/O buffers
+|                        - getting mu info
+|                        - setting a dev-ctx as receiver to receive all the commands from FW
+|                        - getting SoC info
+|                        - send command and receive command response
+				^
+This is a rather uncommon approach. The kernel has interfaces to
+abstract hardware. You completely bypass this if you expose everything
+to the userspace.
+
+> Q4. What is the ELE behavior if the secure-world stresses the ELE? Is there
+>     a MU priority so the normal-world MU may get blocked (never addressed)
+>     or are both MUs scheduled in round-robin?
+> A4. ELE will pick the message from Both MU(s), based on FIFO.
+
+This doesn't answer my question. How gets the FIFO filled? If the one of
+both worlds aways keep the MU busy?
+
+> Q5. Why ELE performance matters?
+>     - On i.MX8M, which uses the CAAM (the ELE predecessor), It can be
+>     verified that the ARMv8 CE are much faster than the crypto-engine itself.
+>     Therefore the CAAM is mostly unused.
+> A5. User looks for both type of implementation based on their usecase:
+>     - Certain users still offload to CAAM, to save their ARM CPU cycles for
+>     other priority tasks.
+
+I have never seen such designs but okay.
+
+>     - While certain customer choose ARM-CE for the crypto offloads for better
+>     performance.
+>     As far as ELE is concerned, it is not a crypto accelerator like CAAM.
+>     Performance hungry crypto-ops are not recommended to be offloaded to ELE.
+
+I don't get this point. So NXP doesn't recommend to use the ELE for
+crypt-ops?
+
+> Q6. For the IOT-cases where real-time encrypted feed from sensors, will take
+>     latency hit, Does the ELE support inline en-/decryption?
+> A6. Yes, ELE support Inline Encryption Engine (IEE), starting i.MX95 onwards.
+
+May I ask, how is this connected and which interfaces are connected to
+the IEE? I would have checked it by myself but unfortunately NXP doesn't
+provide a TRM for the i.MX95 yet.
+
+> Marco's Suggestions/NXP response:
+> ================================
+> S1. Below listed ELE access requirements, can be done from OP-TEE OS in all
+>     the Life-Cycle states. then Why to use Linux?
+>     - eFuse access (done via  OP-TEE OS i.MX specific PTA): OTP eFuse R/W access
+>     after doing the LOCK_DOWN fuse is no longer possible without  OP-TEE OS. This
+>     involves general purpose (GP) eFuses too.
+>     - ELE ping every 1 day (kernel SMC WDG driver, OP-TEE OS wd driver).
+>     - HW-RNG (kernel HWRNG driver + OP-TEE OS HWRNG PTA).
+> R1. There are i.MX9* users, that are not using OP-TEE OS, but still want
+>     to use ELE features from Linux. So, these users are requesting for this
+>     driver in Linux.
+
+Which ELE features?
+
+>     As suggested by you, writing to eFuse after life-cycle closed state, the
+>     driver in OP-TEE OS is needed.
+>     Though there are other OP-TEE OS features too, that needs to be offloaded
+>     to HSM, for security reasons, like:
+>     - Hardware Unique Key(HUK) getting generated.
+>     - OP-TEE OS's ASLR seed generation.
+
+We're talking about features the normal world wants to have access too,
+since you said ".. but still want to use ELE feature from Linux ..". The
+HUK and the TEE ASLR seed is clearly not something Linux wants to have
+access too.
+
+> S2. Having one implementation is beneficial in the following ways:
+>     - Multiple paths also requires more maintain- and testing effort.
+>     - FW files with having +1 FW for the new i.MX9*, where there are plenty
+>       already eg.: bootloader, TF-A, ele-fw, scu-fw (i.MX95), increases the
+>       maintenance on both the paths.
+>     - TEE code could be reused by other OSes.
+>     - TEE is used anyway for new projects due to CRA and friends
+> R2. As conveyed in R1, there are Linux only users, that are dependent on SE
+>     Linux kernel driver.
+
+What difference does it make if these Linux-only users get the ELE
+access via OP-TEE? It's just one binary more.
+
+> S3. Having one implementation is beneficial in the following ways:
+>     - Adding the support for it to  OP-TEE OS do not requires ELE-FW.
+
+I never said that this requires no ELE FW! I said it requires no ELE-FW
+update! Was the update already rolled out?
+
+>     - Concurrent access handling is done by the TEE core.
+> R3. As already mentioned that ELE FW fix is available, for concurrent access.
+>     Please note that FW fix is not required for the current patch-set.
+
+Can you provide us a link to the fix please? The fix should fix the
+concurrent normal-world <-> secure-world MU access issue. Why is this
+fix not required if I have a running OP-TEE?
+
+> S4. This series causes more confusions till the ELE FW fix is available to
+>     allow concurrent access to ELE from both the worlds.
+> R4. FW fix is already available, and concurrent access is enabled by default
+>     in LF Q3'25, release. Please note that FW fix is not required for the
+>     current patch-set.
+
+Please provide a link to the new FW and why is the fix nor required for
+this patchset?
+
+> S5. Suggesting to add the  OP-TEE OS support for the required features e.g. eFuses,
+>     watchdog, HWRNG. The whole Linux part is mostly in place.
+> R5. Yes, the secure world features like eFuse read/write will be added
+>     to OP-TEE OS. Please note that this patch-set does not contain any read/write
+>     eFuse feature.
+
+I see, instead it expose the whole ELE to the userspace if I got it
+correct according your IOCTL documentation. This would be even worse.
+
+Regards,
+  Marco
 
