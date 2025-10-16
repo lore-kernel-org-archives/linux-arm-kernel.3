@@ -4,81 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C7ACCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 14:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DD47CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 14:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2hhXFFBAC6Dghr7ghsXSm4g4NtijbwYlB8JCj3oPN+I=; b=NKrJhMjd0AcjkYyc2CTL94KZly
-	Sl6dE0+WknyCHaZu7cn8uXqf2ruG1VN5G/vGcFQDyrJTYisvwxwVBhWmIpxv9GfPbj42s+23BmJ+g
-	WKuzXuasxyQP1aO5B1AT+Y4tktXYpeVZn2NE/PO4kkbEf3dHiDcpuamWjKS0mKmfpxcpfwM6Jcw6P
-	N7GFAuL3OnS07bFjKxnFJ8m7u23xVAU3o5obMSVkZlvTgVwuJlv33Nq+LstobF8/wFTEla+KfQxsD
-	Gx+oCN1S2wkrC46rbgD6ZAKWr5XpB6PUVYPfQilcedBd2AMtDVjTklJt2oU4cLCK8QiLrUJJPKhEN
-	zSrggbLg==;
+	bh=nncZ0AXhmzc7/NiLcTF1jzX+v3g0XKRPuyG12twUDVY=; b=Qg1xBXA0lMES/zcBHAAJQS6WNG
+	fmzRvhNWHATcMtsRuQc9Oae+tiiRK3EP0wsaoguaoXigJepI0HgwN/r3/eZeAvLa1sHVrOGdewqpr
+	xUtHdoMuHuXk0Yugc2sB92Xb13l5+ZZPlJ17TF6GaWUWL1hTf3tZextsgBvPoBCApBfb40DIl1m+m
+	E+C8b3TpQCAh31jhDqzqd75C/c8KzE+6mwMHCeoSvT4ergEZC8lGfaN0hU95rVmDbDz+V3nS2KN9p
+	3USSIi3+585IMzckQl+42DKDvpKn32AjoKHb9kZbwBbrj0z2DUBJzrH3ga0Yoom4RVJn3s51gQy2p
+	/5LI87sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9PLJ-000000054iB-49GF;
-	Thu, 16 Oct 2025 14:52:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v9PRS-000000055vL-1avT;
+	Thu, 16 Oct 2025 14:58:58 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9PLH-000000054gX-1GG3
+	id 1v9PRP-000000055uw-1slE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 14:52:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8AFF743FAA
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 14:52:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68DF4C116B1
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 14:52:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760626354;
-	bh=voMrHrP+eiEHoK6WpJLPwqOvwVd3gpO2XDGHiGYz4fc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=n3uwfPCaa/w1vd11OjrfA6PC4kGDdFzTKBnn5qen7ETEDoSDzLOe4dL96VrMU3pci
-	 M+ryr7peHybHNQhv9WNnBiaxXxH1zGudbRaZhmTIU8oOl0fm4sVK69mxJaca7hxog7
-	 CtmCeiTeGN5t9SvqjQz1oWpeVix1HI1WwP5CKOLhKy+8XxjUr8RzockaMHPHysrQdh
-	 0G1oIukrQaz0icDOKh2tHLang0qnn0O94Bv/EKjSuY6L5Pj74JdsE3v1iz/hkn/Gvw
-	 G5W6CQguRRIR2fms/ppXsiFuRGgWOb68+r4kqC38jMpaz/A8B2roaPEjD4Xwl9iPcX
-	 /W5MvIsfRRDeg==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-57bb7ee3142so1056917e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 07:52:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWmYXeT0Dk5gu9OkNfENUGjIi3OOrQ/+RxkIYPuebzkGH5Mbp1C5sATXIPcr2Hv9Rfpc/DDlooJT/5i9W63KBHI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1fYG5HdG0V8j0ekEWcFl0ZceXK5NwiYgVDKPl9SaNLoOP39KH
-	FJnvD+EPmVS6ZhMrsRhcYu+QW+FYwZjNWjhqbXFxS1UR0klMm6+aECCklAb2BuZ9GtpP0ARwKYY
-	7D4uisimwfdNGy3fN+c0vFOzTbeoOMnI=
-X-Google-Smtp-Source: AGHT+IExXYSyhYvIi8ji93wL4Ay4g8SIGKcbWu0lYZQJZ6G+i03LGkUOD03sda0e8uyyAoxsbSpe9f2IBUycSF0CisI=
-X-Received: by 2002:a05:6512:1113:b0:585:48b2:95aa with SMTP id
- 2adb3069b0e04-591d84feb7amr147281e87.15.1760626352708; Thu, 16 Oct 2025
- 07:52:32 -0700 (PDT)
+	Thu, 16 Oct 2025 14:58:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=nncZ0AXhmzc7/NiLcTF1jzX+v3g0XKRPuyG12twUDVY=; b=C6w//HGXJIo4YeoCwKqlhB0Uzl
+	aHMM2r/jvyPB18t4W8inTpq2Ok6wHSJf3SByTgWGo7mAR6yIuS6TOadke8K8jA/PtpqKctE5IG5Nr
+	UiET2Bk9omHT/0c5K9j03/8krLZFjn9WMSUSF+z2A4xDVLdIJuRvKzpEat/8wPr+h7h6K9XZNCHmL
+	AlnT8acCcfujnqKjy1HUO4wbSsrTD63NSld1Xive3sEAy479GuJwXD2bkmm4snMCThXUQnZXykG8J
+	Ms6Q/WfOMnpD2u/gnlnfEVvts6iM92Xym7sPlHcf/XB7gK9hapgQ+Rl+cx6ED7EIT74RMesZ8RKVM
+	Q6t7/qPA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43238 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1v9P71-000000006S8-17lh;
+	Thu, 16 Oct 2025 15:37:52 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1v9P6n-0000000Aom9-2LuZ;
+	Thu, 16 Oct 2025 15:37:37 +0100
+In-Reply-To: <aPECqg0vZGnBFCbh@shell.armlinux.org.uk>
+References: <aPECqg0vZGnBFCbh@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexis Lothore <alexis.lothore@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Boon Khai Ng <boon.khai.ng@altera.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthew Gerlach <matthew.gerlach@altera.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
+	netdev@vger.kernel.org,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rohan G Thomas <rohan.g.thomas@altera.com>,
+	Shenwei Wang <shenwei.wang@nxp.com>,
+	Simon Horman <horms@kernel.org>,
+	Song Yoong Siang <yoong.siang.song@intel.com>,
+	Swathi K S <swathi.ks@samsung.com>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Vinod Koul <vkoul@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: [PATCH net-next v2 11/14] net: stmmac: do not require snps,ps-speed
+ for SGMII
 MIME-Version: 1.0
-References: <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn>
- <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
- <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
- <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn> <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
- <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
- <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
- <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
- <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com> <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
-In-Reply-To: <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 16 Oct 2025 16:52:20 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
-X-Gm-Features: AS18NWA_66xpVdmKirMeIgw03wHK87OPCcvcMoX2mNDeb8mX8YKeO5fzBX6f5tc
-Message-ID: <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Huacai Chen <chenhuacai@kernel.org>, Tiezhu Yang <yangtiezhu@loongson.cn>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1v9P6n-0000000Aom9-2LuZ@rmk-PC.armlinux.org.uk>
+Date: Thu, 16 Oct 2025 15:37:37 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_075235_377705_63CD50E5 
-X-CRM114-Status: GOOD (  41.47  )
+X-CRM114-CacheID: sfid-20251016_075855_508510_EA44DA1E 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,89 +120,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Oct 2025 at 18:47, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
->
-> On Mon, Oct 13, 2025 at 04:36:49PM +0200, Ard Biesheuvel wrote:
-> > On Mon, 13 Oct 2025 at 16:09, Huacai Chen <chenhuacai@kernel.org> wrote=
-:
-> > > On Sat, Oct 11, 2025 at 11:59=E2=80=AFPM Ard Biesheuvel <ardb@kernel.=
-org> wrote:
-> > > > It is an objtool issue in essence.
-> > > >
-> > > > The generated code looks like this
-> > > >
-> > > > 9000000001743080: ff b7 fe 57   bl      -332 <__efistub_kernel_entr=
-y_address>
-> > > > 9000000001743084: 26 03 c0 28   ld.d    $a2, $s2, 0
-> > > > 9000000001743088: 87 00 15 00   move    $a3, $a0
-> > > > 900000000174308c: 04 04 80 03   ori     $a0, $zero, 1
-> > > > 9000000001743090: c5 02 15 00   move    $a1, $fp
-> > > > 9000000001743094: e1 00 00 4c   jirl    $ra, $a3, 0
-> > > >
-> > > > 9000000001743098 <__efistub_exit_boot_func>:
-> > > > 9000000001743098: 63 c0 ff 02   addi.d  $sp, $sp, -16
-> > > >
-> > > > There is nothing wrong with this code, given that the indirect call=
- is
-> > > > to a __noreturn function, and so the fact that it falls through int=
-o
-> > > > __efistub_exit_boot_func() is not a problem.
-> > > >
-> > > > Even though the compiler does nothing wrong here, it would be nice =
-if
-> > > > it would emit some kind of UD or BRK instruction after such a call,=
- if
-> > > > only to make the backtrace more reliable. But the code is fine, and
-> > > > objtool simply does not have the information it needs to determine
-> > > > that the indirect call is of a variety that never returns.
-> > > So the best way is to fix the objtool?
-> > >
-> >
-> > I think the best solution is to fix the compiler, and ensure that call
-> > instructions are always followed by some undefined or debug/break
-> > opcode. This works around this problem, but it also ensures that the
-> > return address does not point to the wrong function, which may cause
-> > confusion in backtraces.
->
-> I think the compiler folks will say that's working as designed.  The
-> whole point of __noreturn is to eliminate unecessary code after the
-> call.
->
-> Unwinders are already designed to handle that case anyway.
->
-> If you don't want to optimize out the code after the call then just
-> remove the __noreturn annotation from the function pointer.
->
-> > > > So I don't mind fixing it in the code, but only for LoongArch, give=
-n
-> > > > that the problem does not exist on arm64 or RISC-V.
-> > > You believe this problem won't exist even if they add objtool support
-> > > (because their objtool will be sane)?
-> > >
-> >
-> > It depends on the compiler.
->
-> I don't think so, all compilers do this...
->
-> My suggestion (which prompted this v2 patch) was to move the libstub
-> code out of vmlinux.o (but still keep it in vmlinux), to make it
-> consistent with what x86 already does.
->
+SGMII mode does not require port-speed to be specified; this only
+switches SGMII to use the MAC configuration register speed settings
+and the actual value is irrelevant when the link comes up.
 
-This is because x86 links the EFI stub into the decompressor, not into vmli=
-nux.
+As it seems the intention was to support "reverse SGMII" with this
+setting, but the code didn't actually configure that due to a typo,
+the warning and bad DT binding documentation has led people to
+specify snps,ps-speed in their DT files inappropriately.
 
-> The idea is that libstub code doesn't belong in vmlinux.o because it's
-> not a part of the kernel proper, and doesn't need to be validated or
-> modified by objtool for any reason.
->
+If mac_port_sel_speed is zero, then don't complain that the speed
+is invalid, as this means we're using "normal" SGMII.
 
-I don't see a reason to change this on architectures that a) do not
-use objtool and b) link the EFI stub into vmlinux. If LoongArch wants
-to change this, that is fine, but that still does not mean it needs to
-change on other architectures too.
+This does _not_ obsolete snps,ps-speed, nor does it change the
+behaviour of that property, with the exception of not making people
+mistakenly believe that they need to specify this option to use
+normal SGMII. There is no need to modify the binding.
 
-EFI related boot errors are a nightmare to debug, and I will be the
-one getting the reports when this regresses arm64 on hardware that 2
-people on the planet have access to.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+v2: add comment about why there's no requirement to change the DT
+binding.
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 8f08366c25a4..79d09b40dbcc 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1101,6 +1101,8 @@ static void stmmac_check_pcs_mode(struct stmmac_priv *priv)
+ 
+ 		default:
+ 			dev_warn(priv->device, "invalid port speed\n");
++			fallthrough;
++		case 0:
+ 			priv->hw->reverse_sgmii_enable = false;
+ 			break;
+ 		}
+-- 
+2.47.3
+
 
