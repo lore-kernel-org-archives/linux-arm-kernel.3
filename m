@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DD47CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 14:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F10E5CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 14:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nncZ0AXhmzc7/NiLcTF1jzX+v3g0XKRPuyG12twUDVY=; b=Qg1xBXA0lMES/zcBHAAJQS6WNG
-	fmzRvhNWHATcMtsRuQc9Oae+tiiRK3EP0wsaoguaoXigJepI0HgwN/r3/eZeAvLa1sHVrOGdewqpr
-	xUtHdoMuHuXk0Yugc2sB92Xb13l5+ZZPlJ17TF6GaWUWL1hTf3tZextsgBvPoBCApBfb40DIl1m+m
-	E+C8b3TpQCAh31jhDqzqd75C/c8KzE+6mwMHCeoSvT4ergEZC8lGfaN0hU95rVmDbDz+V3nS2KN9p
-	3USSIi3+585IMzckQl+42DKDvpKn32AjoKHb9kZbwBbrj0z2DUBJzrH3ga0Yoom4RVJn3s51gQy2p
-	/5LI87sQ==;
+	bh=MwUEqOLFxWpUzct285C2ApYhavg8AhF7TZo9DSyOqQ4=; b=gkWLm/pDvoUgux2S+nm8zjtXa4
+	b7RHWs2JxNRc+fQ4tLW42qf5KCR3wbboBOGuphxvxEBfjvGF+96cE/DlD+XV3ekasfqQj+u1Ahnn/
+	yrVEbS8IxuZ8oJB8qnlY4UkHbUscy+uglpG7vtn9HlhUepkLuKKKYBfBa90sLngfMX5tlKmfxNUzu
+	vFZkRv2EVMVR9xpHU1sfQAmQMg44fm7jLVUaFNoc/psqegko17TIUdH+vz8EF0MoDq8v6Dk2xDlYU
+	hshSzYqA4kQoqBTEwJn7hT3UdmcnfhT64bBcSG+NDwrXuvgQ7Ne9Atbuhrj352Apm0jFoEuNkIpOf
+	SC0SI9cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9PRS-000000055vL-1avT;
-	Thu, 16 Oct 2025 14:58:58 +0000
+	id 1v9PSD-00000005679-317m;
+	Thu, 16 Oct 2025 14:59:45 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9PRP-000000055uw-1slE
+	id 1v9PSB-0000000566e-2TrY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 14:58:56 +0000
+	Thu, 16 Oct 2025 14:59:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=nncZ0AXhmzc7/NiLcTF1jzX+v3g0XKRPuyG12twUDVY=; b=C6w//HGXJIo4YeoCwKqlhB0Uzl
-	aHMM2r/jvyPB18t4W8inTpq2Ok6wHSJf3SByTgWGo7mAR6yIuS6TOadke8K8jA/PtpqKctE5IG5Nr
-	UiET2Bk9omHT/0c5K9j03/8krLZFjn9WMSUSF+z2A4xDVLdIJuRvKzpEat/8wPr+h7h6K9XZNCHmL
-	AlnT8acCcfujnqKjy1HUO4wbSsrTD63NSld1Xive3sEAy479GuJwXD2bkmm4snMCThXUQnZXykG8J
-	Ms6Q/WfOMnpD2u/gnlnfEVvts6iM92Xym7sPlHcf/XB7gK9hapgQ+Rl+cx6ED7EIT74RMesZ8RKVM
-	Q6t7/qPA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43238 helo=rmk-PC.armlinux.org.uk)
+	bh=MwUEqOLFxWpUzct285C2ApYhavg8AhF7TZo9DSyOqQ4=; b=BKPV3HuRNlEliX0LVe28KRVYhx
+	RjiIUUwxKVARp6XLMajHZ9D/XCISc6HL6n8nSYzRkrMrHdh9nNCncGmMsTQkQ2ufXP9zaBnuPwHVr
+	ddsAw/wtZBSDiEMRBFlI0zMRqUxI1k2t/aQeEoN8KVwF17ciNQ52+OIfAYxlTl8Mn8Z7yW651dZkG
+	4ajxPjuuiv4Sna0kpb69FG+zDGs5HPSlxl1BN++UcRK2F1E+VTPtczWf0KiD4nsJJb7dTkHCHNJSR
+	77ENqOFL2GTxUwwbXE225UalfjVdw+jcXZzypP/nHerYovmVyf6UPL9rHB/sTbJQQE54rjLTI4Q7I
+	l5486IxA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50476 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1v9P71-000000006S8-17lh;
-	Thu, 16 Oct 2025 15:37:52 +0100
+	id 1v9P76-000000006SR-36Mx;
+	Thu, 16 Oct 2025 15:37:56 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1v9P6n-0000000Aom9-2LuZ;
-	Thu, 16 Oct 2025 15:37:37 +0100
+	id 1v9P6x-0000000AomL-3OKd;
+	Thu, 16 Oct 2025 15:37:47 +0100
 In-Reply-To: <aPECqg0vZGnBFCbh@shell.armlinux.org.uk>
 References: <aPECqg0vZGnBFCbh@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -95,17 +95,17 @@ Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Vladimir Oltean <vladimir.oltean@nxp.com>,
 	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: [PATCH net-next v2 11/14] net: stmmac: do not require snps,ps-speed
- for SGMII
+Subject: [PATCH net-next v2 13/14] net: stmmac: provide PCS initialisation
+ hook
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1v9P6n-0000000Aom9-2LuZ@rmk-PC.armlinux.org.uk>
-Date: Thu, 16 Oct 2025 15:37:37 +0100
+Message-Id: <E1v9P6x-0000000AomL-3OKd@rmk-PC.armlinux.org.uk>
+Date: Thu, 16 Oct 2025 15:37:47 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_075855_508510_EA44DA1E 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20251016_075943_632666_74348FA2 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,45 +120,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGMII mode does not require port-speed to be specified; this only
-switches SGMII to use the MAC configuration register speed settings
-and the actual value is irrelevant when the link comes up.
-
-As it seems the intention was to support "reverse SGMII" with this
-setting, but the code didn't actually configure that due to a typo,
-the warning and bad DT binding documentation has led people to
-specify snps,ps-speed in their DT files inappropriately.
-
-If mac_port_sel_speed is zero, then don't complain that the speed
-is invalid, as this means we're using "normal" SGMII.
-
-This does _not_ obsolete snps,ps-speed, nor does it change the
-behaviour of that property, with the exception of not making people
-mistakenly believe that they need to specify this option to use
-normal SGMII. There is no need to modify the binding.
+dwmac cores provide a feature bit to indicate when the PCS block is
+present, but features are only read after the core's setup() function
+has been called, meaning we can't decide whether to initialise the
+integrated PCS in the setup function. Provide a new MAC core hook
+for PCS initialisation, which will be called after the feature
+registers have been read.
 
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-v2: add comment about why there's no requirement to change the DT
-binding.
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/hwif.h        | 4 ++++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 +++++++
+ 2 files changed, 11 insertions(+)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index 7796f5f3c96f..82cfb6bec334 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -313,6 +313,8 @@ enum stmmac_lpi_mode {
+ 
+ /* Helpers to program the MAC core */
+ struct stmmac_ops {
++	/* Initialise any PCS instances */
++	int (*pcs_init)(struct stmmac_priv *priv);
+ 	/* MAC core initialization */
+ 	void (*core_init)(struct mac_device_info *hw, struct net_device *dev);
+ 	/* Update MAC capabilities */
+@@ -413,6 +415,8 @@ struct stmmac_ops {
+ 					u32 pclass);
+ };
+ 
++#define stmmac_mac_pcs_init(__priv) \
++	stmmac_do_callback(__priv, mac, pcs_init, __priv)
+ #define stmmac_core_init(__priv, __args...) \
+ 	stmmac_do_void_callback(__priv, mac, core_init, __args)
+ #define stmmac_mac_update_caps(__priv) \
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 8f08366c25a4..79d09b40dbcc 100644
+index c3633baf5180..35cd881b3496 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1101,6 +1101,8 @@ static void stmmac_check_pcs_mode(struct stmmac_priv *priv)
+@@ -7238,6 +7238,13 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
+ 			 "Enable RX Mitigation via HW Watchdog Timer\n");
+ 	}
  
- 		default:
- 			dev_warn(priv->device, "invalid port speed\n");
-+			fallthrough;
-+		case 0:
- 			priv->hw->reverse_sgmii_enable = false;
- 			break;
- 		}
++	/* Unimplemented PCS init (as indicated by stmmac_do_callback()
++	 * perversely returning -EINVAL) is non-fatal.
++	 */
++	ret = stmmac_mac_pcs_init(priv);
++	if (ret != -EINVAL)
++		return ret;
++
+ 	return 0;
+ }
+ 
 -- 
 2.47.3
 
