@@ -4,95 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1329CCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 06:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B67D6CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 06:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=czokHCTfTPtDbPxXgyLjjpAbneuUswNmdcoNEF/a6oo=; b=gn82fjH2sVrQJ6yZ18feya1xMO
-	VrAd92h9C/o9JHbCA2Y/dD3t4Q25Hl1zb0Rd2/wXgs77yl3L4DfMUGUSj5rGwHB2GcNcT4hed7/B2
-	W8qw8pbeJBcoRgYTp8W5z+RvDfNt93FAkjRPUmDkPFl1Yl6qZdBlpXHZSNe84nj29NeQUJzDJZqZ2
-	apO0l1JaOraik9SLAIZ92fXaDvRgwWzo1Ek2eTL2ORV9jmpwTEggK6C3YxE123JJEmEakrKS+Ziir
-	L2MO+a6bPMcT+L7U/tTlcdMNtAko72zwh07hxvvbike3rB0zcx/eJvQ6lIXUplgCBs9iTCOZE9tw9
-	7WPWhCLg==;
+	bh=uwDaYv5/cMfGnFFRJ90QjTnkksikVmdb3TO2/4Ta+/M=; b=wrvW775YzEaLO45FKmXbzPRWs1
+	zrAvyUpNzeJoGhZxA0s0Ys/A7089EAHRCya0+celd8nPltbBRruAgDbxZSsWFUv1CS4DG3zPTPZDL
+	o7wkibgsWvpMKjOaaN+Ob8ZM2hdJ/R9ke6EuO1WjzpYxEvynuT/Vkx+BaiMLZQKNnJmWfYW8UkcuS
+	1YHIOUHYboUjjqWIUcw3wyp3iJ63lyYNEID1pkXnXmqeEJpVHije5IqnqgYlb5ZndERGp8Ps1Kq7h
+	h836lupVhfD74sWQrhLhYuRmy4/Topd3hbjvzWwD8MsDqtXlSsINHQ5x7RN5gBJDxjRlrB7e7TK40
+	u6hTPQuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9HoF-00000003gr8-17Tt;
-	Thu, 16 Oct 2025 06:49:59 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1v9Hoy-00000003h3n-1rwp;
+	Thu, 16 Oct 2025 06:50:44 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Ho9-00000003gqA-3mur
+	id 1v9How-00000003h2q-0qW6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 06:49:56 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 36D964E410EB;
-	Thu, 16 Oct 2025 06:49:49 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E04396062C;
-	Thu, 16 Oct 2025 06:49:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 034F6102F229A;
-	Thu, 16 Oct 2025 08:49:14 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760597386; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=czokHCTfTPtDbPxXgyLjjpAbneuUswNmdcoNEF/a6oo=;
-	b=jH275lYMg6M6lfZ2QSBDLrVt41RHnmpy52MdGOj22g9ENKx1tP9pTFlUVf0ll0SGU5QESH
-	HH2AsglVyD9Tmp7h6lj9/t8q8PRjaveJLW2hH7hWIRVqKek4yzJOqdt0SQcP7ycxRiw6Xh
-	AxKGxLAequ8fbnTKnpcpl+8CvfWgAT6xSEGSL8qLesP+J6Ianvimpk7GZVuPk7502u2ST5
-	MkIrfCfZQiNWNKUauKkaR7SFpQauSN7d/FwaVwo/3M8e2zTz4+7iYaV+yDKUaEj9jboKWa
-	mBP0144b/bi9XsL8Gu0kPJq9ZodqyLaPAoOS9p8/mlRZvXClg38dL2MH2+CYeQ==
-Date: Thu, 16 Oct 2025 08:49:13 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Lee Jones <lee@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Tony Lindgren <tony@atomide.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
-	netdev@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: Fix inconsistent quoting
-Message-ID: <2025101606491337a4fffe@mail.local>
-References: <20251015232015.846282-1-robh@kernel.org>
+	Thu, 16 Oct 2025 06:50:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VJpbfVvJ6B/ybyjsdQUrK1zp/pMZvDalaegG5jcdDgMrrgdn4THRcjiMQBRn/UOVRmKGq9EfBTCDbDF46CZH8EfN3mer7EjmmXft0RYGHKcthRdG0FslFNBdlmCXK21pz1JM/RBb/xdWkAh0cxL3zysvDt4fvbuUPmHnIM3NhYhfHnm2AIvpDelG7uQEUmJUF4AyDrE5Fi/RNrCSFFbKrjeaWeXTskQh3WZurpM0o5ULct3mvZ2aBS0a6aMc6pOjBkmW8BduUr9owyJ1UkMjnTFfADcIXJZ8XLtoMpAMdSZPXSJBuAzavSh6KSfRXmF+ZnzXwMJmjjcNeVHpXj4NMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uwDaYv5/cMfGnFFRJ90QjTnkksikVmdb3TO2/4Ta+/M=;
+ b=MFfeld67uOOf+vnpmQ7KOPYg6Ih/a/XDVDLpN8DZCYOwJwlc65HaaOQtbPYFoKFuWVvXAQhE0J/zgFbP+Y9qcv91Ma6mKWmPH37PdKg5Jk1TPZu+o1Zpgtp73GlyiZN3CeK2tDza9qNc2RTfS6Icbc+cF8gElnpE1SkTGvOJ5u7YcKGFXAZmPfNaOvSTeHmee7IPXf31t5GXJKLgbjq3TTp1HBBYuceLyxE1GbIJsy6T4LGq04XhCpQPHKCuQFYbbA0fJfEUiyFyR7QqSQKizEg7N49ri5j02bK6eyjmgQc0eXpXEk0tzfctugxG5ASKCJqDJT22hySRFWS4w+CTNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uwDaYv5/cMfGnFFRJ90QjTnkksikVmdb3TO2/4Ta+/M=;
+ b=BnxeO+wBMSoHXb92QweOI7WO2yW5EXN8VBOz1g1tvsPz/RULh2/FJ6I8zzMXyeRbhWvdH7eE/KY/BMxfE6FyhwAsTySNQZY2dC1IdQT2iKHJtpQRdZ3QAEYV10HayNB7z+Ar5i63H81zS91gFa5n4mjluYCTYFMSHPGCWVnU5vI8RzUWY21cbfZWuUBq7xFeBGry4QhSeZoQ7wT0dLvUzVTvgenGpTnTwKQVGAOKnlEesBupozEzZ+9Cb5xJfpujPiWMqf6YiMbK+mBs3zvwQ6/WYOU8XLMgEkygyaHZmCnswWWwrcN3jFF0zBZYaxiCYRI4oVdLxTyp84XcKsdKeQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by DB9PR04MB9964.eurprd04.prod.outlook.com (2603:10a6:10:4c1::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.13; Thu, 16 Oct
+ 2025 06:33:35 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9228.012; Thu, 16 Oct 2025
+ 06:33:35 +0000
+From: Liu Ying <victor.liu@nxp.com>
+Date: Thu, 16 Oct 2025 14:32:29 +0800
+Subject: [PATCH v4 11/14] drm/imx: dc-ed: Drop initial source selection
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251016-imx8-dc-prefetch-v4-11-dfda347cb3c5@nxp.com>
+References: <20251016-imx8-dc-prefetch-v4-0-dfda347cb3c5@nxp.com>
+In-Reply-To: <20251016-imx8-dc-prefetch-v4-0-dfda347cb3c5@nxp.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@mailbox.org>, 
+ Liu Ying <victor.liu@nxp.com>, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SG2PR02CA0133.apcprd02.prod.outlook.com
+ (2603:1096:4:188::18) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251015232015.846282-1-robh@kernel.org>
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|DB9PR04MB9964:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1be4b0a3-1bdd-47b8-b88a-08de0c7deef0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|19092799006|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cmd4aEZ6N05MdXNhcnl6OENDQUU2UE4yN2hDRUFXME1iclFMRjkrNlZhUEZF?=
+ =?utf-8?B?OHBSOEg1cnFTZHltV0lKbnJIUzViMXRGNFNTdUlvVGxEKytxeHFDaDZtd2RM?=
+ =?utf-8?B?Y1A1T3BvaW95Q1ZWQkxobEttR0ExSi8yZjIyd3FpY0xUeCtEYVk2NGNDRDNB?=
+ =?utf-8?B?L2R1TDRtME13NGVMMkc2UU1kM1IwSHlQeGdZejBxR0lBeXhhMm1uOXFrbmlC?=
+ =?utf-8?B?VVRwY09hTzFJdHRmVTJGQjVXUVRrcFQ0aFBaSi9MMGxFd0RmNTZSbkVMUGlJ?=
+ =?utf-8?B?SjkySFlSbCtCLzdaZFdwRDNPWEQ0YVpwRktnSXp0TUdoUmlEWnNNMUdVUEIy?=
+ =?utf-8?B?REEvWW5aUnhKcktBVW9QNWgxRm4yOGFvV2trYVhUOCtYQS8vVFpCWmFUbXhJ?=
+ =?utf-8?B?d0Vjbk1YSFlpZkFJazBEbDZ3Q1NabDFBbUVkazZpZXhBOFdsc2xUSWhUWkVX?=
+ =?utf-8?B?MzJpS3lzakdnWE84S1VlaURxZVp5NU1NTFRMa2IwWFIwUlhVMGcxb3RkTzF4?=
+ =?utf-8?B?ckZ2ellrWjZFUHJZRElLaXgzVk9KY1lYNmYzNGpydXU3U0QyUEsxN2huVDlN?=
+ =?utf-8?B?K0g2cGZXRTZrOWN0WUgxQ0dEWllHeFdwei9TNUZVMWJYYUtGU0lLU25MYUVH?=
+ =?utf-8?B?WEpwVUNIWDVCSld1OEFvYnFmVFZiUzB2SnlLSTZSVE11cURNa2xpZ1FaZS9H?=
+ =?utf-8?B?bHp0a3d4WHdPTUpsZ3hYUlE4R09Za3h2WGlFR0MvWExBc0xQek42Vkc1K3pT?=
+ =?utf-8?B?NmJQRUp5cFZkaGtFYjNnWEVJUDRYc2owMXk2L2g0Q21NOWV2ek9ZdXhJQW1i?=
+ =?utf-8?B?UEtKWGZlRnJlbElMU1ZrblVZb25oajFkYTRMSkZzSHYvWUw3WUF5Ump6THNT?=
+ =?utf-8?B?eHhJOHFxa0pTS0tFQzczeUhOZ2NWZ3JscktzbVlNZm13R1NBMEpaVEVmeXRj?=
+ =?utf-8?B?S1dwOWtaVDl6dW15OHY2WUIydUFLODY5K1NGR1hyU0NSTkJ0NFFBVVNiQmZs?=
+ =?utf-8?B?elhNVENOa05FRkx0MmFDdkRkZktUNm1JL2dvTXdCemVQc2JSNUZpUHRQRkFq?=
+ =?utf-8?B?ZVQ2ODJkQWJtUTFad1k5VnFmSDVObEUrVGZ5YjdrZ3o4dE9Nd1NSVkQzVWQw?=
+ =?utf-8?B?bFNQUmFxeGp2VFdSM1k2MXRxSCtEQmJ1TEtERkl1dnJJUWE5bDNTTmJOSlF0?=
+ =?utf-8?B?SVQvTFZUQ2xyZW4yaXJaWW8rVjFPN2xVZlZXVFBiUkZrSGF3alVjaVRYQ1I3?=
+ =?utf-8?B?UWtkVndBQjhXQi9wT0JMSzdwaHloelhzUGdUZllKUXowOVMrZTdZQ0k3OEc0?=
+ =?utf-8?B?NTZ6SnFDMGVMNVNjTks2NVh3cHRLVnV6MmVzN041cGVpaTQ0am1TNlQvaUhm?=
+ =?utf-8?B?Nk52ejR1NmZkeHduTXNhbFJ0Mm42S1BnaUVTdDF0SW9Xb2g0L1BpTXRNZWF1?=
+ =?utf-8?B?dkpiMWtDeEo4dzJ0Z25LMWxyS0E2TndTNzlYeDExNll2a3VjZ2xjcy9YSDBT?=
+ =?utf-8?B?blhoWXJkNGNmeTgxWHlXWmwrQ3dLK0t4d3JRemt0eEpQSGczcmQydDlySGdM?=
+ =?utf-8?B?N3NOdW1mVEIvV3JUb1htN3U3U1drT2tJQlBFcU1rV1BpTUl4U1BBYzJDTTNC?=
+ =?utf-8?B?NE1yeU8rK0xFQlhWR3FtOHM3b01QbGFrTzRST2xFemVkdjN2d0tBVzZxY2Vr?=
+ =?utf-8?B?ei9EUGQ1b2ttbjlKdHVWNUFuaHFycVkxVTh5dVhKUTIwVVJrR2lBWkx0bDdJ?=
+ =?utf-8?B?SkRUcGdnNUJpMDN2RGNJN3FQUjRHSWZ3TjhkU2U2UHdsTElpb1RacXZzaVg1?=
+ =?utf-8?B?b04yRi83MVlNdVgvR3Y0V3AwSmZKd1o0b3AvbjFFUmN5N3FKZVl2SmdQVk9s?=
+ =?utf-8?B?d0VULzNuL3NVK1ZCS0F0QUNQbm45S3R6Um9hRENTalN0b0ZFL01VSnRuNzRL?=
+ =?utf-8?B?amovZGNESTUxZ2dIeGdYRnYreW5WWnB1WTlmODVTMXpFMVF0M1VxNmtHN3Js?=
+ =?utf-8?B?RDhUbGdUL3hjSGFCUWdoRmVOZjZiV2VKaVloKzFBd2g0L1JPRExhRTBpZ24x?=
+ =?utf-8?B?OTdWS1UvSHhJL0k1VVIxd1dmUjlTV0FmaW1iUT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(19092799006)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dnlzekFUdWE5S0JxaC81RnVIYTB5NzREaXJoTHhuYWZqVXFiMVU3RWRUR3I2?=
+ =?utf-8?B?eE0rVUhJSGs0bmpqbnVmbVpveHNZUVBkdHBRZlJoRTdZOENoWitHNTlab1ds?=
+ =?utf-8?B?M3FwVmpOTFNMclB6UGMvRWFrR0VlYTdycHlURi9XUHp3MWVpUmRMWDRnc1Fk?=
+ =?utf-8?B?eXZMUUhwRTM5emYwOXAwQ29JTlJ1ZlVSdlorcGZ3cFJ3SUNKaktKWDVjQ1VE?=
+ =?utf-8?B?RStZT09vdmVTeFpGTlE3L0xIUkxXOWp2TVkrZzN3d2xUNERwd3NUQXZVMlhv?=
+ =?utf-8?B?S3Z1cXlpYUhLVmhqSEdJK3VRU3FodnpjZlFPSTh1WVhKUlVtZmlIUisvcmNl?=
+ =?utf-8?B?bkdXWmQ4Mnhvc2VNNkdUVDRnbHZmZFhMTnBOU1Z1ZU0ycjRHZENTS2UxVTJY?=
+ =?utf-8?B?cGxVWDBuOVJjNm9KUUdvV3h3eHBmdHlPNDFzb1ZtcTdpMTZQd0l0bjJrb2xk?=
+ =?utf-8?B?M2tkbDhPNzZkWFM1eVFBVlVndXhQaGtVaFhmRndMS1F2cnY4NkZPbStuNlR5?=
+ =?utf-8?B?clVNMUxFOTd1cWlUV3hTeFRHd3FGd3pnaDVUU3FrY1BIbUk1TXBxQmV4MWF2?=
+ =?utf-8?B?NUxVdENpMk1TYmtXK05kSzFFbnh3NlJqRUVMYVNwZWZ6UnNZRmpXSGJmOThK?=
+ =?utf-8?B?c1VTZ2VBWUNGUlIrVjF2TXQ5YXYxZlhWWkQ2ZWpsSk1RclpiVDE1TDVZcmFq?=
+ =?utf-8?B?THlWV3lJeXZyeTFtd0d3QlJaRFFIUWFnQm5JSy9jaXlwRlhOelNUcmFPWEkx?=
+ =?utf-8?B?THI0RzRhKy85MXRrRnVmWFg4cW1wdVJDVS80ZGFheExzalk4eXBVNm1GOUcy?=
+ =?utf-8?B?M2o3NVFZai93aHBtNjhDK2tpaTNvTFc5MHpoZGJtU3V5eEdmSDB6T3pORENY?=
+ =?utf-8?B?enBwUTRGcnBCRXl4bTF3V3hnTVhiMHM5OHZzREc1blRrd085TTd2TExsQnll?=
+ =?utf-8?B?NDhrL2N5TGZFd2wwci8xWmNGMmRTeldBNllDZnlRRzV0blhVY3NISUlOVTFi?=
+ =?utf-8?B?UEtLeG84TjNKcGpkUWdmSW81MU9GU3Ava2NRa2ZqS2o3bjhPb3dqUlhCS0Y1?=
+ =?utf-8?B?R3M5RHJzelZkd2p5Wjl4UExoY1Z6MzZDa1d5TmlnTVVBM00xc1RtRklXSEhp?=
+ =?utf-8?B?SjZDaFEyUWhrVWhvbC9mZWNDWEdmaHVHRldCVU9VUHlISFNJbmpOZHoweXNy?=
+ =?utf-8?B?MEh4ZjdhTElJNlFNTXE5RVUwZVVzcUxORUg3Y1ppaHBReWhVZ3d4YTlQWTFY?=
+ =?utf-8?B?VFc3dWYxK29zc252YXNFc292WFEydmRJQUk2a1pRN0lCNXhjODlhUlVqblox?=
+ =?utf-8?B?cFQ5S3BKekMrbG16QklWN1ZpWUw0T0RURXUzcTNPQXdUb2tjMTJoWmQ5REZF?=
+ =?utf-8?B?NVBhelQzMkVsanlCSUFwbmlYU0dWcHZmV3M3Y0orMGhwOHErNzh3c1VWMU95?=
+ =?utf-8?B?TTZUU3JnQWZ6N0tieGgxVGhzSjNrY0Jna1crMzdhdENFQ1YxQ0R4TWtTQTJ6?=
+ =?utf-8?B?TXliYlJBTU52UXJHQmw2cndyQVhvMVF5WDczeVVRemNKajVlWm0zQ1FOd0dv?=
+ =?utf-8?B?NVFRZkRxUzZzcEF6dHN4d2gzUWtDQ3RIMzhrU1R3QTRDZTk3ZVVhcUVqSWpL?=
+ =?utf-8?B?Sy9wUVdCTUxTTGdYWUZ6N2pEeXRQSk42YVFjR3NHSWdXQkxHNGk0VGlZSm1z?=
+ =?utf-8?B?V3I0eG5LMzJFUkthOXhTNXhQOXlFcE1JcnAyVzVHZS8xTUNTQUpNZDJGNlBv?=
+ =?utf-8?B?eGhiZmlGU0t5M3FQRFM4aEhhbmw4ZTVvckdWZ1JEaCtOTnNOS0U2NnFoY0tl?=
+ =?utf-8?B?ZEEzZTFFbFkzWllnQUs5RzFuZFpma2RxRWNFaWJiT25lcXNMMzlrUThXKzIy?=
+ =?utf-8?B?YlFHT1NSR3VzRW9nUXlBWmtSQ2JMSjlOVW9peko2MW04ckJLTlk3bFl1Mmtr?=
+ =?utf-8?B?NWZqNjBrdFJlWGtPdmxDNW9GZ3JMeHo5dThqT3dsQk1JazdQdnZRZDNabWlM?=
+ =?utf-8?B?VkhJSlpiN0pBM1YxaEZSVW1sTTNqR1h2QisvNkwyUllIeGtxd1hxY3h1UEtT?=
+ =?utf-8?B?cE1yZEZRV0Nkemd4L0Jwekl2blJVMWZRR0JtTHg3eEV0d3c1NHZINXJmRm5u?=
+ =?utf-8?Q?lnP6uBByu9tAHeGfbn0tyGnXJ?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1be4b0a3-1bdd-47b8-b88a-08de0c7deef0
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2025 06:33:35.3639
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: o/AVNFHIxYnanBps19QBTB57H+1rN2vBwrFKFbJmtB8sjYvaKhsL7bnthTPzwEdCrqkVvCXDHtQHxcg3ZUZhrQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9964
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_234954_272253_A55C6F82 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20251015_235042_233798_78CBCEFB 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,707 +185,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/10/2025 18:16:24-0500, Rob Herring (Arm) wrote:
-> yamllint has gained a new check which checks for inconsistent quoting
-> (mixed " and ' quotes within a file). Fix all the cases yamllint found
-> so we can enable the check (once the check is in a release). Use
-> whichever quoting is dominate in the file.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+It's unnecessary to set initial ExtDst source selection because KMS
+driver would do that when doing atomic commits.  Drop the selection.
+This is needed as a preparation for reading ExtDst source selection
+when trying to disable CRTC at boot in an upcoming commit.
 
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
+---
+v2:
+- Collect Frank's R-b tag.
+---
+ drivers/gpu/drm/imx/dc/dc-ed.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-
-> ---
->  .../arm/altera/socfpga-clk-manager.yaml       |  4 ++--
->  .../bindings/clock/nvidia,tegra124-car.yaml   |  8 ++++----
->  .../bindings/clock/nvidia,tegra20-car.yaml    |  6 +++---
->  .../devicetree/bindings/gpio/gpio-mxs.yaml    |  9 +++++----
->  .../bindings/gpio/snps,dw-apb-gpio.yaml       |  4 ++--
->  .../bindings/iio/temperature/adi,ltc2983.yaml | 20 +++++++++----------
->  .../mailbox/qcom,apcs-kpss-global.yaml        | 16 +++++++--------
->  .../mailbox/xlnx,zynqmp-ipi-mailbox.yaml      |  2 +-
->  .../bindings/media/fsl,imx6q-vdoa.yaml        |  2 +-
->  .../devicetree/bindings/mfd/aspeed-lpc.yaml   |  4 ++--
->  .../devicetree/bindings/mfd/ti,twl.yaml       |  4 ++--
->  .../bindings/net/ethernet-switch.yaml         |  2 +-
->  .../pci/plda,xpressrich3-axi-common.yaml      |  2 +-
->  .../bindings/phy/motorola,cpcap-usb-phy.yaml  |  4 ++--
->  .../pinctrl/microchip,sparx5-sgpio.yaml       | 12 +++++------
->  .../bindings/pinctrl/qcom,pmic-gpio.yaml      | 10 +++++-----
->  .../bindings/pinctrl/qcom,pmic-mpp.yaml       |  6 +++---
->  .../bindings/pinctrl/renesas,pfc.yaml         |  4 ++--
->  .../bindings/pinctrl/renesas,rza1-ports.yaml  |  2 +-
->  .../pinctrl/renesas,rzg2l-pinctrl.yaml        |  2 +-
->  .../pinctrl/renesas,rzv2m-pinctrl.yaml        |  2 +-
->  .../bindings/power/renesas,sysc-rmobile.yaml  |  4 ++--
->  .../soc/microchip/atmel,at91rm9200-tcb.yaml   |  8 ++++----
->  .../soc/tegra/nvidia,tegra20-pmc.yaml         | 12 +++++------
->  24 files changed, 75 insertions(+), 74 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/altera/socfpga-clk-manager.yaml b/Documentation/devicetree/bindings/arm/altera/socfpga-clk-manager.yaml
-> index a758f4bb2bb3..275554bfedce 100644
-> --- a/Documentation/devicetree/bindings/arm/altera/socfpga-clk-manager.yaml
-> +++ b/Documentation/devicetree/bindings/arm/altera/socfpga-clk-manager.yaml
-> @@ -39,7 +39,7 @@ properties:
->  
->        "^[a-z0-9,_]+(clk|pll|clk_gate|clk_divided)(@[a-f0-9]+)?$":
->          type: object
-> -        $ref: '#/$defs/clock-props'
-> +        $ref: "#/$defs/clock-props"
->          unevaluatedProperties: false
->  
->          properties:
-> @@ -67,7 +67,7 @@ properties:
->          patternProperties:
->            "^[a-z0-9,_]+(clk|pll)(@[a-f0-9]+)?$":
->              type: object
-> -            $ref: '#/$defs/clock-props'
-> +            $ref: "#/$defs/clock-props"
->              unevaluatedProperties: false
->  
->              properties:
-> diff --git a/Documentation/devicetree/bindings/clock/nvidia,tegra124-car.yaml b/Documentation/devicetree/bindings/clock/nvidia,tegra124-car.yaml
-> index a9ba21144a56..13bb616249a1 100644
-> --- a/Documentation/devicetree/bindings/clock/nvidia,tegra124-car.yaml
-> +++ b/Documentation/devicetree/bindings/clock/nvidia,tegra124-car.yaml
-> @@ -37,7 +37,7 @@ properties:
->    '#clock-cells':
->      const: 1
->  
-> -  "#reset-cells":
-> +  '#reset-cells':
->      const: 1
->  
->    nvidia,external-memory-controller:
-> @@ -46,7 +46,7 @@ properties:
->        phandle of the external memory controller node
->  
->  patternProperties:
-> -  "^emc-timings-[0-9]+$":
-> +  '^emc-timings-[0-9]+$':
->      type: object
->      properties:
->        nvidia,ram-code:
-> @@ -56,7 +56,7 @@ patternProperties:
->            this timing set is used for
->  
->      patternProperties:
-> -      "^timing-[0-9]+$":
-> +      '^timing-[0-9]+$':
->          type: object
->          properties:
->            clock-frequency:
-> @@ -94,7 +94,7 @@ required:
->    - compatible
->    - reg
->    - '#clock-cells'
-> -  - "#reset-cells"
-> +  - '#reset-cells'
->  
->  additionalProperties: false
->  
-> diff --git a/Documentation/devicetree/bindings/clock/nvidia,tegra20-car.yaml b/Documentation/devicetree/bindings/clock/nvidia,tegra20-car.yaml
-> index bee2dd4b29bf..73cccc0df424 100644
-> --- a/Documentation/devicetree/bindings/clock/nvidia,tegra20-car.yaml
-> +++ b/Documentation/devicetree/bindings/clock/nvidia,tegra20-car.yaml
-> @@ -39,11 +39,11 @@ properties:
->    '#clock-cells':
->      const: 1
->  
-> -  "#reset-cells":
-> +  '#reset-cells':
->      const: 1
->  
->  patternProperties:
-> -  "^(sclk)|(pll-[cem])$":
-> +  '^(sclk)|(pll-[cem])$':
->      type: object
->      properties:
->        compatible:
-> @@ -76,7 +76,7 @@ required:
->    - compatible
->    - reg
->    - '#clock-cells'
-> -  - "#reset-cells"
-> +  - '#reset-cells'
->  
->  additionalProperties: false
->  
-> diff --git a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
-> index aaf97124803f..4b5b8e794613 100644
-> --- a/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/gpio-mxs.yaml
-> @@ -26,9 +26,10 @@ properties:
->        # Devices. Keep it as it to be compatible existed dts files.
->        - const: simple-bus
->  
-> -  '#address-cells':
-> +  "#address-cells":
->      const: 1
-> -  '#size-cells':
-> +
-> +  "#size-cells":
->      const: 0
->  
->    reg:
-> @@ -132,8 +133,8 @@ patternProperties:
->  required:
->    - compatible
->    - reg
-> -  - '#address-cells'
-> -  - '#size-cells'
-> +  - "#address-cells"
-> +  - "#size-cells"
->  
->  additionalProperties: false
->  
-> diff --git a/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml b/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
-> index ab2afc0e4153..bba6f5b6606f 100644
-> --- a/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/gpio/snps,dw-apb-gpio.yaml
-> @@ -111,8 +111,8 @@ additionalProperties: false
->  required:
->    - compatible
->    - reg
-> -  - "#address-cells"
-> -  - "#size-cells"
-> +  - '#address-cells'
-> +  - '#size-cells'
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/iio/temperature/adi,ltc2983.yaml b/Documentation/devicetree/bindings/iio/temperature/adi,ltc2983.yaml
-> index 312febeeb3bb..ee0b558bb866 100644
-> --- a/Documentation/devicetree/bindings/iio/temperature/adi,ltc2983.yaml
-> +++ b/Documentation/devicetree/bindings/iio/temperature/adi,ltc2983.yaml
-> @@ -88,7 +88,7 @@ properties:
->      const: 0
->  
->  patternProperties:
-> -  "^thermocouple@":
-> +  '^thermocouple@':
->      $ref: '#/$defs/sensor-node'
->      unevaluatedProperties: false
->  
-> @@ -146,7 +146,7 @@ patternProperties:
->            required:
->              - adi,custom-thermocouple
->  
-> -  "^diode@":
-> +  '^diode@':
->      $ref: '#/$defs/sensor-node'
->      unevaluatedProperties: false
->  
-> @@ -191,7 +191,7 @@ patternProperties:
->          $ref: /schemas/types.yaml#/definitions/uint32
->          default: 0
->  
-> -  "^rtd@":
-> +  '^rtd@':
->      $ref: '#/$defs/sensor-node'
->      unevaluatedProperties: false
->      description: RTD sensor.
-> @@ -280,7 +280,7 @@ patternProperties:
->                type: boolean
->  
->            dependencies:
-> -            adi,current-rotate: [ "adi,rsense-share" ]
-> +            adi,current-rotate: [ 'adi,rsense-share' ]
->  
->        - if:
->            properties:
-> @@ -290,7 +290,7 @@ patternProperties:
->            required:
->              - adi,custom-rtd
->  
-> -  "^thermistor@":
-> +  '^thermistor@':
->      $ref: '#/$defs/sensor-node'
->      unevaluatedProperties: false
->      description: Thermistor sensor.
-> @@ -364,7 +364,7 @@ patternProperties:
->        - adi,rsense-handle
->  
->      dependencies:
-> -      adi,current-rotate: [ "adi,rsense-share" ]
-> +      adi,current-rotate: [ 'adi,rsense-share' ]
->  
->      allOf:
->        - if:
-> @@ -392,7 +392,7 @@ patternProperties:
->            required:
->              - adi,custom-thermistor
->  
-> -  "^adc@":
-> +  '^adc@':
->      $ref: '#/$defs/sensor-node'
->      unevaluatedProperties: false
->      description: Direct ADC sensor.
-> @@ -407,7 +407,7 @@ patternProperties:
->          description: Whether the sensor is single-ended.
->          type: boolean
->  
-> -  "^temp@":
-> +  '^temp@':
->      $ref: '#/$defs/sensor-node'
->      unevaluatedProperties: false
->      description: Active analog temperature sensor.
-> @@ -437,7 +437,7 @@ patternProperties:
->      required:
->        - adi,custom-temp
->  
-> -  "^rsense@":
-> +  '^rsense@':
->      $ref: '#/$defs/sensor-node'
->      unevaluatedProperties: false
->      description: Sense resistor sensor.
-> @@ -476,7 +476,7 @@ allOf:
->                - adi,ltc2984
->      then:
->        patternProperties:
-> -        "^temp@": false
-> +        '^temp@': false
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml b/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
-> index 615ed103b7e6..f40dc9048327 100644
-> --- a/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
-> +++ b/Documentation/devicetree/bindings/mailbox/qcom,apcs-kpss-global.yaml
-> @@ -187,10 +187,10 @@ allOf:
->              enum:
->                - qcom,msm8916-apcs-kpss-global
->      then:
-> -      $ref: "#/$defs/msm8916-apcs-clock-controller"
-> +      $ref: '#/$defs/msm8916-apcs-clock-controller'
->        properties:
->          clock-controller:
-> -          $ref: "#/$defs/msm8916-apcs-clock-controller"
-> +          $ref: '#/$defs/msm8916-apcs-clock-controller'
->  
->    - if:
->        properties:
-> @@ -199,10 +199,10 @@ allOf:
->              enum:
->                - qcom,msm8939-apcs-kpss-global
->      then:
-> -      $ref: "#/$defs/msm8939-apcs-clock-controller"
-> +      $ref: '#/$defs/msm8939-apcs-clock-controller'
->        properties:
->          clock-controller:
-> -          $ref: "#/$defs/msm8939-apcs-clock-controller"
-> +          $ref: '#/$defs/msm8939-apcs-clock-controller'
->  
->    - if:
->        properties:
-> @@ -211,10 +211,10 @@ allOf:
->              enum:
->                - qcom,sdx55-apcs-gcc
->      then:
-> -      $ref: "#/$defs/sdx55-apcs-clock-controller"
-> +      $ref: '#/$defs/sdx55-apcs-clock-controller'
->        properties:
->          clock-controller:
-> -          $ref: "#/$defs/sdx55-apcs-clock-controller"
-> +          $ref: '#/$defs/sdx55-apcs-clock-controller'
->  
->    - if:
->        properties:
-> @@ -223,10 +223,10 @@ allOf:
->              enum:
->                - qcom,ipq6018-apcs-apps-global
->      then:
-> -      $ref: "#/$defs/ipq6018-apcs-clock-controller"
-> +      $ref: '#/$defs/ipq6018-apcs-clock-controller'
->        properties:
->          clock-controller:
-> -          $ref: "#/$defs/ipq6018-apcs-clock-controller"
-> +          $ref: '#/$defs/ipq6018-apcs-clock-controller'
->  
->    - if:
->        properties:
-> diff --git a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
-> index fe83b5cb1278..04d6473d666f 100644
-> --- a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
-> +++ b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
-> @@ -142,7 +142,7 @@ patternProperties:
->        - compatible
->        - reg
->        - reg-names
-> -      - "#mbox-cells"
-> +      - '#mbox-cells'
->        - xlnx,ipi-id
->  
->  required:
-> diff --git a/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml b/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
-> index 511ac0d67a7f..988a5b3a62bd 100644
-> --- a/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
-> +++ b/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
-> @@ -16,7 +16,7 @@ maintainers:
->  
->  properties:
->    compatible:
-> -    const: "fsl,imx6q-vdoa"
-> +    const: fsl,imx6q-vdoa
->  
->    reg:
->      maxItems: 1
-> diff --git a/Documentation/devicetree/bindings/mfd/aspeed-lpc.yaml b/Documentation/devicetree/bindings/mfd/aspeed-lpc.yaml
-> index f329223cec07..0adfeef149e7 100644
-> --- a/Documentation/devicetree/bindings/mfd/aspeed-lpc.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/aspeed-lpc.yaml
-> @@ -111,12 +111,12 @@ patternProperties:
->        reg:
->          maxItems: 1
->  
-> -      '#reset-cells':
-> +      "#reset-cells":
->          const: 1
->  
->      required:
->        - compatible
-> -      - '#reset-cells'
-> +      - "#reset-cells"
->  
->    "^lpc-snoop@[0-9a-f]+$":
->      type: object
-> diff --git a/Documentation/devicetree/bindings/mfd/ti,twl.yaml b/Documentation/devicetree/bindings/mfd/ti,twl.yaml
-> index 776b04e182cb..1611b1581a8e 100644
-> --- a/Documentation/devicetree/bindings/mfd/ti,twl.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/ti,twl.yaml
-> @@ -400,7 +400,7 @@ properties:
->        - '#pwm-cells'
->  
->  patternProperties:
-> -  "^regulator-":
-> +  '^regulator-':
->      type: object
->      unevaluatedProperties: false
->      $ref: /schemas/regulator/regulator.yaml
-> @@ -429,7 +429,7 @@ required:
->    - reg
->    - interrupts
->    - interrupt-controller
-> -  - "#interrupt-cells"
-> +  - '#interrupt-cells'
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/net/ethernet-switch.yaml b/Documentation/devicetree/bindings/net/ethernet-switch.yaml
-> index b3b7e1a1b127..03001ba40e0f 100644
-> --- a/Documentation/devicetree/bindings/net/ethernet-switch.yaml
-> +++ b/Documentation/devicetree/bindings/net/ethernet-switch.yaml
-> @@ -72,7 +72,7 @@ additionalProperties: true
->  $defs:
->    ethernet-ports:
->      description: An ethernet switch without any extra port properties
-> -    $ref: '#'
-> +    $ref: "#"
->  
->      patternProperties:
->        "^(ethernet-)?ports$":
-> diff --git a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
-> index 039eecdbd6aa..fe2e8beb5bab 100644
-> --- a/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
-> +++ b/Documentation/devicetree/bindings/pci/plda,xpressrich3-axi-common.yaml
-> @@ -72,7 +72,7 @@ required:
->    - reg-names
->    - interrupts
->    - msi-controller
-> -  - "#interrupt-cells"
-> +  - '#interrupt-cells'
->    - interrupt-map-mask
->    - interrupt-map
->  
-> diff --git a/Documentation/devicetree/bindings/phy/motorola,cpcap-usb-phy.yaml b/Documentation/devicetree/bindings/phy/motorola,cpcap-usb-phy.yaml
-> index 0febd04a61f4..dd345cbd0a0b 100644
-> --- a/Documentation/devicetree/bindings/phy/motorola,cpcap-usb-phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/motorola,cpcap-usb-phy.yaml
-> @@ -67,8 +67,8 @@ properties:
->    mode-gpios:
->      description: Optional GPIOs for configuring alternate modes
->      items:
-> -      - description: "mode selection GPIO #0"
-> -      - description: "mode selection GPIO #1"
-> +      - description: mode selection GPIO#0
-> +      - description: mode selection GPIO#1
->  
->  required:
->    - compatible
-> diff --git a/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml b/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml
-> index 0df4e114fdd6..fa47732d7cef 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml
-> @@ -18,7 +18,7 @@ description: |
->  
->  properties:
->    $nodename:
-> -    pattern: "^gpio@[0-9a-f]+$"
-> +    pattern: '^gpio@[0-9a-f]+$'
->  
->    compatible:
->      enum:
-> @@ -26,10 +26,10 @@ properties:
->        - mscc,ocelot-sgpio
->        - mscc,luton-sgpio
->  
-> -  "#address-cells":
-> +  '#address-cells':
->      const: 1
->  
-> -  "#size-cells":
-> +  '#size-cells':
->      const: 0
->  
->    reg:
-> @@ -76,7 +76,7 @@ properties:
->        - const: switch
->  
->  patternProperties:
-> -  "^gpio@[0-1]$":
-> +  '^gpio@[0-1]$':
->      type: object
->      properties:
->        compatible:
-> @@ -132,8 +132,8 @@ required:
->    - reg
->    - clocks
->    - microchip,sgpio-port-ranges
-> -  - "#address-cells"
-> -  - "#size-cells"
-> +  - '#address-cells'
-> +  - '#size-cells'
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/pinctrl/qcom,pmic-gpio.yaml b/Documentation/devicetree/bindings/pinctrl/qcom,pmic-gpio.yaml
-> index 5e6dfcc3fe9b..6632bcd037ba 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/qcom,pmic-gpio.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/qcom,pmic-gpio.yaml
-> @@ -424,13 +424,13 @@ allOf:
->  patternProperties:
->    '-state$':
->      oneOf:
-> -      - $ref: "#/$defs/qcom-pmic-gpio-state"
-> +      - $ref: '#/$defs/qcom-pmic-gpio-state'
->        - patternProperties:
-> -          "(pinconf|-pins)$":
-> -            $ref: "#/$defs/qcom-pmic-gpio-state"
-> +          '(pinconf|-pins)$':
-> +            $ref: '#/$defs/qcom-pmic-gpio-state'
->          additionalProperties: false
->  
-> -  "-hog(-[0-9]+)?$":
-> +  '-hog(-[0-9]+)?$':
->      type: object
->      required:
->        - gpio-hog
-> @@ -503,7 +503,7 @@ $defs:
->                   - gpio1-gpio12 for pmxr2230
->  
->          items:
-> -          pattern: "^gpio([0-9]+)$"
-> +          pattern: '^gpio([0-9]+)$'
->  
->        function:
->          items:
-> diff --git a/Documentation/devicetree/bindings/pinctrl/qcom,pmic-mpp.yaml b/Documentation/devicetree/bindings/pinctrl/qcom,pmic-mpp.yaml
-> index 9364ae05f3e6..daf4c1c03712 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/qcom,pmic-mpp.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/qcom,pmic-mpp.yaml
-> @@ -74,10 +74,10 @@ required:
->  patternProperties:
->    '-state$':
->      oneOf:
-> -      - $ref: "#/$defs/qcom-pmic-mpp-state"
-> +      - $ref: '#/$defs/qcom-pmic-mpp-state'
->        - patternProperties:
->            '-pins$':
-> -            $ref: "#/$defs/qcom-pmic-mpp-state"
-> +            $ref: '#/$defs/qcom-pmic-mpp-state'
->          additionalProperties: false
->  
->  $defs:
-> @@ -100,7 +100,7 @@ $defs:
->                   - mpp1-mpp4 for pma8084
->  
->          items:
-> -          pattern: "^mpp([0-9]+)$"
-> +          pattern: '^mpp([0-9]+)$'
->  
->        function:
->          items:
-> diff --git a/Documentation/devicetree/bindings/pinctrl/renesas,pfc.yaml b/Documentation/devicetree/bindings/pinctrl/renesas,pfc.yaml
-> index cfe004573366..ab1cfe9dcde5 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/renesas,pfc.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/renesas,pfc.yaml
-> @@ -129,7 +129,7 @@ additionalProperties:
->  
->      - type: object
->        additionalProperties:
-> -        $ref: "#/additionalProperties/anyOf/0"
-> +        $ref: '#/additionalProperties/anyOf/0'
->  
->  examples:
->    - |
-> @@ -190,7 +190,7 @@ examples:
->  
->              sdhi0_pins: sd0 {
->                      groups = "sdhi0_data4", "sdhi0_ctrl";
-> -                    function = "sdhi0";
-> +                    function = "sdhi0';
->                      power-source = <3300>;
->              };
->      };
-> diff --git a/Documentation/devicetree/bindings/pinctrl/renesas,rza1-ports.yaml b/Documentation/devicetree/bindings/pinctrl/renesas,rza1-ports.yaml
-> index 2bd7d47d0fdb..737eb4e14090 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/renesas,rza1-ports.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/renesas,rza1-ports.yaml
-> @@ -118,7 +118,7 @@ additionalProperties:
->  
->      - type: object
->        additionalProperties:
-> -        $ref: "#/additionalProperties/anyOf/0"
-> +        $ref: '#/additionalProperties/anyOf/0'
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-> index 5156d54b240b..00c05243b9a4 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-> @@ -135,7 +135,7 @@ additionalProperties:
->  
->      - type: object
->        additionalProperties:
-> -        $ref: "#/additionalProperties/anyOf/0"
-> +        $ref: '#/additionalProperties/anyOf/0'
->  
->  allOf:
->    - $ref: pinctrl.yaml#
-> diff --git a/Documentation/devicetree/bindings/pinctrl/renesas,rzv2m-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/renesas,rzv2m-pinctrl.yaml
-> index 5fa5d31f8866..88b2fa5e684d 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/renesas,rzv2m-pinctrl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/renesas,rzv2m-pinctrl.yaml
-> @@ -88,7 +88,7 @@ additionalProperties:
->  
->      - type: object
->        additionalProperties:
-> -        $ref: "#/additionalProperties/anyOf/0"
-> +        $ref: '#/additionalProperties/anyOf/0'
->  
->  allOf:
->    - $ref: pinctrl.yaml#
-> diff --git a/Documentation/devicetree/bindings/power/renesas,sysc-rmobile.yaml b/Documentation/devicetree/bindings/power/renesas,sysc-rmobile.yaml
-> index fba6914ec40d..948a9da111df 100644
-> --- a/Documentation/devicetree/bindings/power/renesas,sysc-rmobile.yaml
-> +++ b/Documentation/devicetree/bindings/power/renesas,sysc-rmobile.yaml
-> @@ -45,7 +45,7 @@ properties:
->          const: 0
->  
->      additionalProperties:
-> -      $ref: "#/$defs/pd-node"
-> +      $ref: '#/$defs/pd-node'
->  
->  required:
->    - compatible
-> @@ -83,7 +83,7 @@ $defs:
->        - '#power-domain-cells'
->  
->      additionalProperties:
-> -      $ref: "#/$defs/pd-node"
-> +      $ref: '#/$defs/pd-node'
->  
->  examples:
->    - |
-> diff --git a/Documentation/devicetree/bindings/soc/microchip/atmel,at91rm9200-tcb.yaml b/Documentation/devicetree/bindings/soc/microchip/atmel,at91rm9200-tcb.yaml
-> index 2c7275c4503b..abf1adca0773 100644
-> --- a/Documentation/devicetree/bindings/soc/microchip/atmel,at91rm9200-tcb.yaml
-> +++ b/Documentation/devicetree/bindings/soc/microchip/atmel,at91rm9200-tcb.yaml
-> @@ -57,7 +57,7 @@ properties:
->      const: 0
->  
->  patternProperties:
-> -  "^timer@[0-2]$":
-> +  '^timer@[0-2]$':
->      description: The timer block channels that are used as timers or counters.
->      type: object
->      additionalProperties: false
-> @@ -80,7 +80,7 @@ patternProperties:
->        - compatible
->        - reg
->  
-> -  "^pwm@[0-2]$":
-> +  '^pwm@[0-2]$':
->      description: The timer block channels that are used as PWMs.
->      $ref: /schemas/pwm/pwm.yaml#
->      type: object
-> @@ -92,7 +92,7 @@ patternProperties:
->            TCB channel to use for this PWM.
->          enum: [ 0, 1, 2 ]
->  
-> -      "#pwm-cells":
-> +      '#pwm-cells':
->          description:
->            The only third cell flag supported by this binding is
->            PWM_POLARITY_INVERTED.
-> @@ -101,7 +101,7 @@ patternProperties:
->      required:
->        - compatible
->        - reg
-> -      - "#pwm-cells"
-> +      - '#pwm-cells'
->  
->      additionalProperties: false
->  
-> diff --git a/Documentation/devicetree/bindings/soc/tegra/nvidia,tegra20-pmc.yaml b/Documentation/devicetree/bindings/soc/tegra/nvidia,tegra20-pmc.yaml
-> index 7140c312d898..f516960dbbef 100644
-> --- a/Documentation/devicetree/bindings/soc/tegra/nvidia,tegra20-pmc.yaml
-> +++ b/Documentation/devicetree/bindings/soc/tegra/nvidia,tegra20-pmc.yaml
-> @@ -133,12 +133,12 @@ properties:
->            property. The supported-hw is a bitfield indicating SoC speedo or
->            process ID mask.
->  
-> -      "#power-domain-cells":
-> +      '#power-domain-cells':
->          const: 0
->  
->      required:
->        - operating-points-v2
-> -      - "#power-domain-cells"
-> +      - '#power-domain-cells'
->  
->    i2c-thermtrip:
->      type: object
-> @@ -220,7 +220,7 @@ properties:
->          xusbc    USB Partition C               Tegra114/124/210
->  
->      patternProperties:
-> -      "^[a-z0-9]+$":
-> +      '^[a-z0-9]+$':
->          type: object
->          additionalProperties: false
->          properties:
-> @@ -365,9 +365,9 @@ allOf:
->  additionalProperties: false
->  
->  dependencies:
-> -  nvidia,suspend-mode: ["nvidia,core-pwr-off-time", "nvidia,cpu-pwr-off-time"]
-> -  nvidia,core-pwr-off-time: ["nvidia,core-pwr-good-time"]
-> -  nvidia,cpu-pwr-off-time: ["nvidia,cpu-pwr-good-time"]
-> +  nvidia,suspend-mode: ['nvidia,core-pwr-off-time', 'nvidia,cpu-pwr-off-time']
-> +  nvidia,core-pwr-off-time: ['nvidia,core-pwr-good-time']
-> +  nvidia,cpu-pwr-off-time: ['nvidia,cpu-pwr-good-time']
->  
->  examples:
->    - |
-> -- 
-> 2.51.0
-> 
+diff --git a/drivers/gpu/drm/imx/dc/dc-ed.c b/drivers/gpu/drm/imx/dc/dc-ed.c
+index c8cd15f9e32de4d86c2acb8764146af1c3663c1d..7ea305e81ad651d4f80a629a62075f80c5a25f58 100644
+--- a/drivers/gpu/drm/imx/dc/dc-ed.c
++++ b/drivers/gpu/drm/imx/dc/dc-ed.c
+@@ -203,7 +203,6 @@ static inline void dc_ed_disable_gamma_apply(struct dc_ed *ed)
+ 
+ void dc_ed_init(struct dc_ed *ed)
+ {
+-	dc_ed_pec_src_sel(ed, LINK_ID_NONE);
+ 	dc_ed_pec_enable_shden(ed);
+ 	dc_ed_pec_poweron(ed);
+ 	dc_ed_pec_sync_mode_single(ed);
 
 -- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.34.1
+
 
