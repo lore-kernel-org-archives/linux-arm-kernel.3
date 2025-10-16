@@ -4,64 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB50CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 21:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29542CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 21:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1XhG846dx3wUP7VIK3jHmWBz5V+euKd+Q9cGqdQ/lxY=; b=UBo3M7Pd5TfQPNfbRcxohpJQ5p
-	t7J/9fUVoSgZfXNppotq8/wcCWdzSGWXcsr6oFSFh3KUj7qywi84PhAoe26q5KKN+Syj8LTd+eP2g
-	/PPBZdgp0TbWel9XkzB5RJvYbDLAApgTRuiCoLgoucc4zvIErXEXE2+IBaSYK3g22xFoyVkLyQYzj
-	XPZTZx6wCJMV5nInUggLSJMazUjIEbUDWb2hc5xSJzlru9wyh7PzC2BPHjIUFDZGtl4DCDAE8u/zi
-	SZuCXLcVGb4j9ScQ/83qavv37Y5fFVI15mtCMBRdWGGBcwJjbwM2T0I0wu+dVr9pIGZiUG3uJGpk4
-	0N5iTgow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mkXzIdQUUxuhiVY6nHw70guxmcPo1I5G7VKvcssMe9g=; b=Od1heKzZl5fj0xLfkoQz++yVNe
+	P2jNe4qLHN1VKM5D+QhvMyDoXC7mR9LYU09ieQcmg0/HROjE/kv0tsZwvW7c6WhAmi97J3iQLtvnM
+	rvmx81Mtzx0ibcQ/GMCExmN6Z800NPwoT54DLCcbP68B8h7DZvK5xwth3LPQa45VCmCs9sddSQqzu
+	t49poWflMcDBYz/jdq+1tCwTl7iZ0YRYENA3fxWmIEqVWHUT2aNFxnh3sME41XoHSX0nosFf0bWRn
+	w6qznus4XV1ucAvwPB0t5mn6xOfm+isMRl9zd+5ZeJTtwcEafy5XzutOjDWhK6tWumOwx2DuJtroO
+	+/kGmQ2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9VGM-00000005xtK-2Ev1;
-	Thu, 16 Oct 2025 21:11:54 +0000
-Received: from smtprelay0011.hostedemail.com ([216.40.44.11] helo=relay.hostedemail.com)
+	id 1v9VaM-00000005zfl-2paN;
+	Thu, 16 Oct 2025 21:32:34 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9VGJ-00000005xsO-2KN2
+	id 1v9VaK-00000005zeD-18hX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 21:11:53 +0000
-Received: from omf14.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay04.hostedemail.com (Postfix) with ESMTP id 09BCB1A0421;
-	Thu, 16 Oct 2025 21:11:47 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf14.hostedemail.com (Postfix) with ESMTPA id 9489E34;
-	Thu, 16 Oct 2025 21:11:44 +0000 (UTC)
-Date: Thu, 16 Oct 2025 17:11:55 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
- linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev,
- joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- jstultz@google.com, qperret@google.com, will@kernel.org,
- aneesh.kumar@kernel.org, kernel-team@android.com,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 14/28] tracing: Add a trace remote module for testing
-Message-ID: <20251016171155.0d871fc3@gandalf.local.home>
-In-Reply-To: <20251016170645.15416c8a@gandalf.local.home>
-References: <20251003133825.2068970-1-vdonnefort@google.com>
-	<20251003133825.2068970-15-vdonnefort@google.com>
-	<20251016170645.15416c8a@gandalf.local.home>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Thu, 16 Oct 2025 21:32:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pIUZVLXV7OL82q5vLyJq3w4GTm7VHD/cIRQkmRGKbPEqLHI8BCpzZP1cT2nzLd8L9ApHPEAXgFL2ITr6orw80GfRQTx80mwQ4FlurdmHoE3zesNm4gUf5zNrx3oq8MUh6uTfsLVxP/aK9pMrv5lcoMMfChjBgEvn2VVMnG9kb2M0xOj8cEmB7SGxsyk+MfD19B/YZpLPwRDHo+jbEZqxnzyM+FxwMM+ZVx8UPwtTRfuZhcZI1m87JtFssOFxpBg/4KmOAdUH6ElhQcfEVZ5RS9fyT2vRapBZyIbEQLTpjedVgO/IWIoxa3a9iuDESHql+6cAwBJD9PYOfTvl7J7KYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mkXzIdQUUxuhiVY6nHw70guxmcPo1I5G7VKvcssMe9g=;
+ b=uL+mKNLhbP04bUQQ15SqFmQwS/DJjyUyCt1qb1VA+oeS/UkU4hC3/DlFDiNuCTFrtcZBBJQrJFkkDcngR+jv24cru3mc+33N+j0EhZl2SyNK/bFwHL7rmw851diwf7H/GH46D9brTX8ZtZuUlBgIQPqlyPOUjr1lFaO76te5km5lsj1SmrHLF8Z9e+tdTYdLcRBd61u6/OMgaS/FGHxBmdtY8FFeP6xDckpG13oMPs9hleN45F9EGP6RRomSaDzYA01QxOX1twFZuop4VTQPDXIWcK1KN+BdBbOhum91+Hz8yDwP9XWTBFap+tt3SgPUs+GGRLSVIm+5cKXioTRXDQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mkXzIdQUUxuhiVY6nHw70guxmcPo1I5G7VKvcssMe9g=;
+ b=g1ewhrn/ChFF5Kicz+Wqig8aEbBEePsRxMa1HLxE/h67nZSIPPwU4G0dIl7YF9h8K2wCZ7a79NQjXkR4X6BfPfw2KHZCIXzJIlNWK3cYxTYkqBweKMsRmxi3XIzg3GulZdAysQPY7OtL9oeWmUXURgoEgtIJW+of2zZpAiQpG7Q6cxwqR8kUhcf+afLJPU4mTy/jkh1a7fn19Z6EtWp+WcVFM1+/LKHMt1u2XbPd0y/MlsV30L2744mW5ld/YAolOmoF7UOUfHryPy99t6sgIZO884nwIWHT7uQj4iuVbVkBFQ8DkEfnH7FLLA3YSKF3+BHvtLqzamqBkTHRuj2HCg==
+Received: from BYAPR21CA0007.namprd21.prod.outlook.com (2603:10b6:a03:114::17)
+ by DS4PR12MB9586.namprd12.prod.outlook.com (2603:10b6:8:27e::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.11; Thu, 16 Oct
+ 2025 21:32:14 +0000
+Received: from MWH0EPF000A6731.namprd04.prod.outlook.com
+ (2603:10b6:a03:114:cafe::d3) by BYAPR21CA0007.outlook.office365.com
+ (2603:10b6:a03:114::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.5 via Frontend Transport; Thu,
+ 16 Oct 2025 21:32:13 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ MWH0EPF000A6731.mail.protection.outlook.com (10.167.249.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9228.7 via Frontend Transport; Thu, 16 Oct 2025 21:32:13 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 16 Oct
+ 2025 14:31:57 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 16 Oct
+ 2025 14:31:56 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 16 Oct 2025 14:31:55 -0700
+Date: Thu, 16 Oct 2025 14:31:54 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>, <jgg@nvidia.com>
+CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<balbirs@nvidia.com>, <miko.lenczewski@arm.com>, <peterz@infradead.org>,
+	<kevin.tian@intel.com>, <praan@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 3/7] iommu/arm-smmu-v3: Introduce a per-domain
+ arm_smmu_invs array
+Message-ID: <aPFkSn9Ta6koq91Q@Asurada-Nvidia>
+References: <cover.1760555863.git.nicolinc@nvidia.com>
+ <345bb7703ebd19992694758b47e371900267fa0e.1760555863.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: 33hbw6rr73jtdzwf8bckjrt5why11rej
-X-Rspamd-Server: rspamout01
-X-Rspamd-Queue-Id: 9489E34
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1+mzqTR6rqbkd1NzU33NlFjpBTX4YYBDpY=
-X-HE-Tag: 1760649104-568230
-X-HE-Meta: U2FsdGVkX18UOnRfo5/M586ViFyUv6tsn+gOTfw2M0Y9noR3McpUrJwpsabHTvpL2/5wzsDCaUL/d12GzAjhNNf2t3Mhh8WD1Kmh+O8qlcvBgcXVf/dnXrigVY66PAvWoi1nhL66TQ68n9IiyyDAd1Yy7C8R2HGrPEXZuNIGll4R/6JVAlCDDccqVf1UpNW9JDuwtJniNcqNR3SLoNhCyIPEGrDKQrN3u9E0qhCgI5ih58GR5+Hc4f3tG6AszSfxvRCkVDTjfUprjZDI6HBrwKxPjK/jMfpJxezYVYWqtgRGBWg4teEiBTVO+M+ApM8vuZHp8FfUOBjYmshmFZTZO3HF5KgmtxNNnnyv6IZZXWwe2EQmzloM3nL1370pPrbXF0lrENiGYgHtfF+Z96qFqQ==
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <345bb7703ebd19992694758b47e371900267fa0e.1760555863.git.nicolinc@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A6731:EE_|DS4PR12MB9586:EE_
+X-MS-Office365-Filtering-Correlation-Id: cd7efca6-7e32-4e0e-cb68-08de0cfb78d9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?as2VSWCP2B/76OglexfsFD3JLG33VszorkJlwFwBAD1utpvSg76K0DEEmVKV?=
+ =?us-ascii?Q?71j/aKeZEal5TSTiMsS8w5Mh9+R4MFFeFtyn2JidBEdF+OBZ7uepV4NNbOTy?=
+ =?us-ascii?Q?2zHjUVrRWXvF7Z0PCooAU53VDbCz9Ov9PCVEmd3/uxF/9ZJbrW4tidV6uroV?=
+ =?us-ascii?Q?YQltC1Id5uR3bl76/Dd36wZt7MMltDdbF93dtcRAZTTGSTgwvegqOujikMV/?=
+ =?us-ascii?Q?oWvOCWsGnfDUKrvtgmcFETVk6R3fKIn8FZUClTJMhaomh7rA4oNCCTi4X7yQ?=
+ =?us-ascii?Q?LSbvjeyAekKKiSnDf0pGaF2aaJozLNQLzSJAMqv6VXJx+dJMcIPOVLKrsmrd?=
+ =?us-ascii?Q?PZSAG+RVsP0y2eLNDpUWxQlYoHeNC8DLNgcXlNJ2XuWqzYrrb4t8cXyhb3B2?=
+ =?us-ascii?Q?MOCR2mDZzJwvyReDNBqhu3Ruq70QfQImFWXWojhO/qwNNsKxIfovmrpFzmwR?=
+ =?us-ascii?Q?4mXLBsMov2wO3FQNDjOpPphk/NccqchtYvX3+0KdKpKMByA+ksqn7Oz8S9ic?=
+ =?us-ascii?Q?khY49dRMLWIkvMHBcfI4dxt9RA6O3Or4xUIPMbdPWucK2N6E36Pyh8cBEGj7?=
+ =?us-ascii?Q?yTxLfcU8wpZTNkJjfngqXdRJcMeRnCwHIOZTbAu7pExkXMYnSinqLizuWtGb?=
+ =?us-ascii?Q?+Ksmx6S9Ot6yLTlW7r+tXoEhxotd8lk+QKerJrXTNXXEDnc8OsTFXwX9973i?=
+ =?us-ascii?Q?QkSbcsqFtxBuCMJ6z0M/e3hnX2z4GQsAXFiMSgrn7MMr1b2Os1EiaQrLFSGd?=
+ =?us-ascii?Q?3MQy17KDfRECVhHBu0CMLpQhLcmpeeshAI4yJ3TqkWdIxCogwgNOHJK4qIrY?=
+ =?us-ascii?Q?sCL/NrqrlwMxJToquXwmJzDqQ8zMt/rdwk8CbXChBLjCRFa1Yp76sHRs9Oyi?=
+ =?us-ascii?Q?adgl5WbaxuFzHJgsT2dbAjhgg8o4tA6sezbz0lmXUG42EhjDEk94DtDim57N?=
+ =?us-ascii?Q?LPTzdHz1s+UPu2yTe+m0tosMKse6Mro2+dxMMbwdOzGKIhraHFvroTd2FwJ7?=
+ =?us-ascii?Q?ZDbsJxdFnF8ivNDZzzLF5+AnouNWjaqugCJU5ckeeW3nIScyBKnP/KQr9Yy0?=
+ =?us-ascii?Q?lu+J7+hc1Jjcxf1qi6JKGK6iPA749T+XkKtUR9ANwHLLoN7e0kiE27THRZvo?=
+ =?us-ascii?Q?CAIFUgNifThJuOsgfNj+rQSeGs6HsY/VJrBiM0f1HvvEQF/2700JVXWrgyBo?=
+ =?us-ascii?Q?lMN/44L4c/hWTiA/Ea/iV6jT7982sqGTos2Tx+nleuYZJhEDJw8TgoZ/xB03?=
+ =?us-ascii?Q?qPNIzurXpXRIGtAu4tG2IX8NpiTxYvrgc2TXp/48zxVmWPhl4p/F6/lMfC9A?=
+ =?us-ascii?Q?XunFEc3YqGtKFgJnRBgjTXMZRjNmbVKE6TH1SYXlcrbDLjmJi+GZIZZROvk1?=
+ =?us-ascii?Q?lbEQeNJmPBU4KYThxuDXK9xVR4XJRU8s5LOdLaXlD4R3TdWLdglpui9ED3wO?=
+ =?us-ascii?Q?CeJo4RXQHdaqFoKgoe+tvVaCh2+9qVBWBSAKwqcv0nw6xVKsFVr1azRb8TXj?=
+ =?us-ascii?Q?SeHNJWDPf7TqwJo5+yv9pQtdDGF5dCoZthOBSxAUwHqr5uHHN1F6hYpymQAN?=
+ =?us-ascii?Q?KScQrZtW7HehZPb1ZL4=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2025 21:32:13.5534
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cd7efca6-7e32-4e0e-cb68-08de0cfb78d9
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6731.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9586
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_141151_674850_2D2DD991 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20251016_143232_333499_2243883B 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,52 +155,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Oct 2025 17:06:45 -0400
-Steven Rostedt <rostedt@goodmis.org> wrote:
+On Wed, Oct 15, 2025 at 12:42:48PM -0700, Nicolin Chen wrote:
+> +size_t arm_smmu_invs_unref(struct arm_smmu_invs *invs,
+> +			   struct arm_smmu_invs *to_unref,
+> +			   void (*flush_fn)(struct arm_smmu_inv *inv))
+> +{
+> +	unsigned long flags;
+> +	size_t num_trashes = 0;
+> +	size_t num_invs = 0;
+> +	size_t i, j;
+> +
+> +	for (i = j = 0; i != invs->num_invs || j != to_unref->num_invs;) {
+> +		int cmp;
+> +
+> +		/* Skip any existing trash entry */
+> +		if (cmp <= 0 && !refcount_read(&invs->inv[i].users)) {
+> +			num_trashes++;
+> +			i++;
+> +			continue;
+> +		}
+> +
+> +		cmp = arm_smmu_invs_cmp(invs, i, to_unref, j);
 
-> On Fri,  3 Oct 2025 14:38:11 +0100
-> Vincent Donnefort <vdonnefort@google.com> wrote:
-> 
-> > diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
-> > index 918afcc1fcaf..52131d89993c 100644
-> > --- a/kernel/trace/Kconfig
-> > +++ b/kernel/trace/Kconfig
-> > @@ -1244,4 +1244,12 @@ config TRACE_REMOTE
-> >  config SIMPLE_RING_BUFFER
-> >  	bool
-> >  
-> > +config TRACE_REMOTE_TEST
-> > +	tristate "Test module for remote tracing"
-> > +	select TRACE_REMOTE
-> > +	select SIMPLE_RING_BUFFER
-> > +	help
-> > +	  This trace remote includes a ring-buffer writer implementation using
-> > +	  "simple_ring_buffer". This is solely intending for testing.
-> > +  
-> 
-> Nit, this should go up a few places so that it's with the other "test module" selections.
+This should be moved upwards to "int cmp" before if.
 
-And when I tried to build it, I hit this:
+Will fix in v4.
 
-  GEN     .vmlinux.objs
-  MODPOST Module.symvers
-ERROR: modpost: "simple_ring_buffer_reserve" [kernel/trace/remote_test.ko] undefined!
-ERROR: modpost: "simple_ring_buffer_commit" [kernel/trace/remote_test.ko] undefined!
-ERROR: modpost: "simple_ring_buffer_unload" [kernel/trace/remote_test.ko] undefined!
-ERROR: modpost: "trace_remote_free_buffer" [kernel/trace/remote_test.ko] undefined!
-ERROR: modpost: "trace_remote_alloc_buffer" [kernel/trace/remote_test.ko] undefined!
-ERROR: modpost: "simple_ring_buffer_init" [kernel/trace/remote_test.ko] undefined!
-ERROR: modpost: "trace_remote_register" [kernel/trace/remote_test.ko] undefined!
-ERROR: modpost: "simple_ring_buffer_reset" [kernel/trace/remote_test.ko] undefined!
-ERROR: modpost: "simple_ring_buffer_swap_reader_page" [kernel/trace/remote_test.ko] undefined!
-ERROR: modpost: "simple_ring_buffer_enable_tracing" [kernel/trace/remote_test.ko] undefined!
-WARNING: modpost: suppressed 1 unresolved symbol warnings because there were too many)
-make[3]: *** [/work/git/linux-trace.git/scripts/Makefile.modpost:147: Module.symvers] Error 1
-make[2]: *** [/work/git/linux-trace.git/Makefile:1960: modpost] Error 2
-make[1]: *** [/work/git/linux-trace.git/Makefile:248: __sub-make] Error 2
-make[1]: Leaving directory '/work/build/nobackup/debiantesting-x86-64'
-make: *** [Makefile:248: __sub-make] Error 2
-
-
--- Steve
+Nicolin
 
