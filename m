@@ -4,133 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35F9CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 05:29:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33A94CCD19E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 05:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EsIbwfCzj0dNaR5ft+o30uFHCIcVib2leoRsIBXOS18=; b=2Jf0V9Boo4boqFuflmL7OqVbUM
-	ddy4EFj1ndOHLUfoMx8mSA4fv/FdkVFxZDZpG29sFI3HjZeLPAtw2tYVkptW702pef0JhpqbBwcIF
-	sY6GSZ8UA5Ce07JXilLUw8k22unxhbyFkzBQzV7dZDn1T5P+zI4Qxfh/9+2TLWHVS7N13mYeDIEeP
-	NtA4ELbkJGkNEv2PPmQUliV7oIhGbMfk/O+UE6UGYUmDSCv8CdKEG3FHvz0MpbcDbquLIRjaecBXK
-	047l3W59ntOcB3CxfDbZQDARwwI1g8eyh0PXeBT1RQm0V3qNyGgDvV4MS4c+S3wNqHpogiKp9jbKV
-	wueq1FfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cZU/PvsO/Y2NbI/2LYXn5EnCITnm++nCSaU9RCrcRDk=; b=HjmT4t/I/LGoCniIQzD0tEW2wO
+	+ajtn7284/2i/1vekKcd2hDRz9KkhKmsdfcsee1m3lr9JNTG33IzMClsziTkiYh9fE3iLe8tAZvrX
+	BZbs8qP/JYNKW8q0YvLLSYzMzyFvEafq3x2pQgkH2zb8tRuwKsFx702yi2ldDchI+EVDeN/82aEdO
+	k5ODT/WuR3w/xoOIXeIaKjiRpW3xZElkaR+i0eJmWylvFt0Kw3EJUR0N5Qqyvo9ZRsOaSNfGk6Pxr
+	JbKOzFuOq2wXqmU7dOY+AiaMLbzXaV80gvfgGL3eYMPIgYoZ+1afoMj9v7/EQsw0ZhfTb0HNZhLj2
+	Uen+7L3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9GXs-00000003V6e-0Jku;
-	Thu, 16 Oct 2025 05:29:00 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1v9GYd-00000003VGE-42gR;
+	Thu, 16 Oct 2025 05:29:48 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9GXp-00000003V5n-0Ytn
+	id 1v9GYb-00000003VFj-2zVk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 05:28:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JWvOTBXy78oOLniZ9WXfK65WuWAPPWch5hcDlaNfJOzo4vLDESbTKxky43hxNKPl9CxE5MT5GxYQbtJllUnJlwuQG/uHxkpvBFSTx83nxpgwTU5kKy0l39luyriyFgFcXaWJDtETKror0xf+OOuFBMZVRVwunxWms1U+RiAjjbauwgsE/kYr6IBOjfX2S17YGM5TwdsELYJ3H2XkpfNPBYjUxd9g63ih9Dchw6kJbnu+/Q7iqLHewNw9aaqnAE/0RWklNvVd0ej85YETOHbaC6MCF/DHOmYQUpUxSSTF1zS2Cw6LYvoUQdu4rOCTVNBkc1i+uPEoIH3i7OCq/d80Dw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EsIbwfCzj0dNaR5ft+o30uFHCIcVib2leoRsIBXOS18=;
- b=wsulDnR0OPxTGbDzEc50FKGoNXvB2NHgC7NoTNJwkwJ5e6EulB06fC6tUcSiFCozUkj9/Jdu8HARidJsxWozczv5vRh4J+G80aewQmNKOF7RnGS+XOwS2oOiA0TUw3awUWlQlGVvVCdnjvCey0uJhPM5Rsg//ivm7kvAFjeoxy+CqUq0RQ6yebsxPcuyVlATY6csCTvfuykpTTkxGSI9rWQu/wrI+HJ+7osligrGGYPRr9umDeCrCEJXJGZ1xT6z989X1aeZcRLYxYntn/6NUFUHSJdrG7mq8IBI+QrrRzHwFmYTPcsp4Aj7QjaV+ffeuNLoHzKx0B1IH1+jp1Cogw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EsIbwfCzj0dNaR5ft+o30uFHCIcVib2leoRsIBXOS18=;
- b=fUTnDuLK3bMMvx5d9DOot06uW9Qfyw5kgjffxo9QBG/UuNvO/8byB6OtQM6IJPuDZ0m5j7QQHs45MoZHNWh3NKoyOSCp6FjbmybI185WK+AgFc+vyiR02qML2YiUwdujVDEqKrp2b34ADrElt/topgRnWZwrBawVzNZ/nvFcWC0=
-Received: from MW4PR03CA0296.namprd03.prod.outlook.com (2603:10b6:303:b5::31)
- by LV2PR12MB5775.namprd12.prod.outlook.com (2603:10b6:408:179::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.10; Thu, 16 Oct
- 2025 05:28:45 +0000
-Received: from CO1PEPF000042AB.namprd03.prod.outlook.com
- (2603:10b6:303:b5:cafe::f1) by MW4PR03CA0296.outlook.office365.com
- (2603:10b6:303:b5::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9228.11 via Frontend Transport; Thu,
- 16 Oct 2025 05:28:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- CO1PEPF000042AB.mail.protection.outlook.com (10.167.243.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9228.7 via Frontend Transport; Thu, 16 Oct 2025 05:28:44 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 15 Oct
- 2025 22:28:43 -0700
-Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Wed, 15 Oct 2025 22:28:40 -0700
-From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-To: <linux-edac@vger.kernel.org>
-CC: <git@amd.com>, <shubhrajyoti.datta@gmail.com>, <dan.carpenter@linaro.org>,
-	Michal Simek <michal.simek@amd.com>, Borislav Petkov <bp@alien8.de>, "Tony
- Luck" <tony.luck@intel.com>, James Morse <james.morse@arm.com>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, Robert Richter <rric@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH] EDAC/versalnet: Refactor memory controller initialization and cleanup
-Date: Thu, 16 Oct 2025 10:58:39 +0530
-Message-ID: <20251016052839.2650517-1-shubhrajyoti.datta@amd.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 16 Oct 2025 05:29:46 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-b67ae7e76abso211205a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 22:29:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760592585; x=1761197385; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=cZU/PvsO/Y2NbI/2LYXn5EnCITnm++nCSaU9RCrcRDk=;
+        b=c0xpW5YAgFfWf/BSyMREZF7yxsVWhwlp9EosvS2nQWhD6KT+hdwadPOFWqTxAqFeR8
+         NNEjsbUW4dS05uGji1vEQK7+fsghzuAYELlRAwigjoHS30dopLIRTQhFzyqnntC6a6WJ
+         VKebTD4SLoxMJN9nI/bhgOJF/uLjqRh3bv8FSZCqmDaX6r//QfP0p3JBbivhHhnHZI3J
+         Ta+Tn9KO5lnHoPvyu56HIALkg6EDtAEb5fbA0ZOK7eFspX6g8ttti/ySKo13T2RXXWQ0
+         RPtsekJ8/RSMK3Xyb+RPXLb/4rdPPwlbQ2CZYxwZoPU/MRcJAjYWxqTjvq/MOWc/P6VI
+         0lnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760592585; x=1761197385;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cZU/PvsO/Y2NbI/2LYXn5EnCITnm++nCSaU9RCrcRDk=;
+        b=dALfvjy4rBKKtgtTdZX/jbnTemUFyeeVhhUMokt3GrfN+5EutXTAQovyHz6dut/4K3
+         G2dyPjnDK6F/Rlw8KAE/Za3Ng8zQUFWNANm6m24UMtB86xX+xXnU1smtVmUHDJ1uaf2z
+         z5jWO24WtEO/T2mdC46wec86vvI5EeGZdiG+I0KAHJkix+xmi9Anq/MI8DKADyHix4SY
+         4Gf/C8AsQL8/tP2GRZim17i7K5jaXFl8ye3F8JE5iwOoJyDBiHQW8h1pAEbCsbA53kf1
+         H2QYoZwvNJ6IrkK1KQHKu7xVbYuGEcP4DAZlKjNumIFxml/fTiXshHhml8/Gyg7kX37F
+         5l/A==
+X-Forwarded-Encrypted: i=1; AJvYcCUth6Ln9dti8mnjk2gFGNQlAEUWr1f3sUZ1GocuYpEEv/fdS+vneeAzXvmQkawtUFiOxArSJ05qWxDaopXfvNln@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2CH5GMSYaO+hmB/Xh0FMviNzxX7cwyK1Nd12Nl+Rc6iSxWqDn
+	F/x/+XT9VD0zdxQRm4YNlsr/+AEdy2KFChqikPZMR92lkSMUNSAMrl5I
+X-Gm-Gg: ASbGnctzshDGzceSXHf5pUylDU7+8q2O4w4/s7TzwT8pr1jqf2vwZ4IPMvqkkf+IN5/
+	I8qWJsfydE2fj/04SlPzrBG6OS1Vsyp9t/Ii/wsM+1qolLTo+MMODm1XUrgKVV5DeJhDafS1yMc
+	Co1XTWWEMCIsuLnEwzBCN6cTeBXmJ1rYTGb0p3NyUkbiGOLZxNa2lY/v5lAonpY3GND4IEfC4cM
+	d8GnZsJ9dBNqv2sWUqtiyLXHpwgU/bzEH7HXiz81YhoaYjlrUV4HU2FeFwRPzP6bZgIPNhK3V+1
+	apGyeyaa0oQHC174RtB92g458dSr0kZoqz0Tng4Leepel4ovfoKqP0fFi+ddm1aZhjuu+QJaosh
+	SxoD3BSk+manDieeoTRBKK8fMSqq+J2xn417883p2D6iGG/TaDaVGUiDYeWro7CRogukAvGTnSh
+	8SxHu6DNODOObPc+94J6IEnldSwC8TuYBk5V2d5hCotkTeAp92CfrGR0LaoUKVcSnVzoEWAHMe0
+	2OG/vFjU0tg0Q4=
+X-Google-Smtp-Source: AGHT+IG6DkPdWX9xJzohk/tu0oSUnnb6SXO1oOB1ejn2LyoFqbU+fIA4QwSqj9cRtFoRS3F/p7/w/w==
+X-Received: by 2002:a17:902:f785:b0:27d:69cc:9a6 with SMTP id d9443c01a7336-290273959b8mr383548325ad.53.1760592584688;
+        Wed, 15 Oct 2025 22:29:44 -0700 (PDT)
+Received: from cosmo-ubuntu-2404.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29099343093sm15742015ad.28.2025.10.15.22.29.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Oct 2025 22:29:44 -0700 (PDT)
+From: Cosmo Chou <chou.cosmo@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joel@jms.id.au,
+	andrew@codeconstruct.com.au
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	cosmo.chou@quantatw.com,
+	Cosmo Chou <chou.cosmo@gmail.com>
+Subject: [PATCH] ARM: dts: aspeed: bletchley: remove WDTRST1 assertion from wdt1
+Date: Thu, 16 Oct 2025 13:27:27 +0800
+Message-ID: <20251016052727.881576-1-chou.cosmo@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000042AB:EE_|LV2PR12MB5775:EE_
-X-MS-Office365-Filtering-Correlation-Id: 81fdeda0-46c4-4ad8-f5d7-08de0c74e00a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|7416014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?He+t2Jveg6Bq+cUfJkceZfSlefMXbPdHEDUjEsOTJ/8p6Idb+fyRXspfoKfH?=
- =?us-ascii?Q?3ki9/nGLPbydT4KQvlVRglI24sFbU36HncUGyA2Fjx2NR2G5HhifN0sy5pkO?=
- =?us-ascii?Q?gDuqFvM3tNEO5Tl31Ajl2h1mFTqkKYEWkdzrdo8EGSFkaZYb+yccmOoB3QOc?=
- =?us-ascii?Q?mXY8vnNanjExlJBWr78OqaUMexvedPur01N6A2r+pgFADvvozCdh+0RN2LxN?=
- =?us-ascii?Q?ec6rlaEesp8lqIAnsQnjHt/EJXFENFlZg0RNZb5WViNhHcxYZpdMbLjty+3b?=
- =?us-ascii?Q?owq4NDqWI0qPjB3MKjrUWEkBdSuGgq1+B3tNFxZVl8G1axf/G1pITYVWapvr?=
- =?us-ascii?Q?Kvz3Lvop3ZAxFMt9Tp+27TJaLOUwYmH8Oy0EK/pJiG/q/Kz3fwtSy+cGth0D?=
- =?us-ascii?Q?JafkJH93RF9lJWKQUKf1d4ez4WlMOo3vbZZWQROYsHQhvZRV+oExUah/CrUw?=
- =?us-ascii?Q?yQ7mFokEweux343WSTdV774HqBevntflMsCa9oDNb3nE3Ig+gERo6EkafHxT?=
- =?us-ascii?Q?X+ypX3iRxQOqdWkTllmwVUciYRdM4DJ9XYOO4rYkfCR5s4HaiQoKRn8jKggs?=
- =?us-ascii?Q?TGQJxNL6YWsJyDeTyipQ41cJQYMjnC656gcM00f7hrLX0gSDQbM+eo2WZKI0?=
- =?us-ascii?Q?c1yQHK5+FjrZCEyZN1+3lpVNTJ5ghgc2AnHNzSs33U+Risyq+pUWKFQXGsow?=
- =?us-ascii?Q?BNGBgKQBo+gpt59RyltR2LiB9Z6MVt4YuY37N+vctg/XM4BElpqZuafEaS7w?=
- =?us-ascii?Q?esdK/y3sYOtM7dt1e+EHNHh6tc3gwi9hai6zfWictpebh+jTYIeWLoQIYdr8?=
- =?us-ascii?Q?EiGvazYbvAhCq01S0lxxFNsKrVN+msiLNmpTamedYzJgbW0l5Irq0/99WPU7?=
- =?us-ascii?Q?YE3QxobIgg/33Dedn3K9QuvnXFXbiRLcciCwy6YWbySKpI/8XpXie0v9ZEu2?=
- =?us-ascii?Q?8WU5K/9zgpBTE1iuiFBAdQtYcnn6wDENKBTov4zIhrhkqynGQYesfrHb98L9?=
- =?us-ascii?Q?8q1Sn9Rd/17FTHeMavOASFT6cosecmh7lcKEQW4j/AqUFGpSTfgreCj2iCvd?=
- =?us-ascii?Q?D/Ifde7sCI9AXije/U+G51WNncyOVLi/PF+bOD1QyhAfg0yd2hv0fQjehLEg?=
- =?us-ascii?Q?+NqtURr2Jz1yZ8wj8VDVIjIWofvA4Cl8Ltjn0kzwNGWeuwHUmdPB+Fsawe0F?=
- =?us-ascii?Q?ko/vAiJaBpb+rqefnWR/ga7CBGjuJu4LJorulTNhHOkbT0117YAKJUzUYBGB?=
- =?us-ascii?Q?wJ5LoiSGJIjAbm4exPZEEwdCa0bT+3Z0nNHHz9NMEx6PrBxDB2MRDjrLVty/?=
- =?us-ascii?Q?c86SfWy+M3fQsUDZlyB4ObEo6liWvmxH0dofkw/QgN/Ctx5vkTb3Hj/icn/i?=
- =?us-ascii?Q?54Ad8C9IQMPG0Fcobyrvf+82Lrv0ivNRgG5OmwP0M3zDUPWXp3GLI7bo08ft?=
- =?us-ascii?Q?ZbRl//psGw+xBBpbRNAMjYTHv+2rqdSvQPzQj/NoqtTZBIw6ANSX/1xxpQZT?=
- =?us-ascii?Q?4n9/QxCS3DwXwdl+C4/bPoq9zqFmSBE3trxfMNFIApOAruE9kGPPGleOBAE7?=
- =?us-ascii?Q?7Y2/VLrZl/hbMAylk+c=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(7416014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2025 05:28:44.6406
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81fdeda0-46c4-4ad8-f5d7-08de0c74e00a
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000042AB.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5775
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_222857_178261_B2F6A4E9 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20251015_222945_749876_1213CD65 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,217 +106,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Simplify the initialization and cleanup flow for Versal Net DDRMC
-controllers in the EDAC driver. Key changes include:
+Remove the external signal configuration from wdt1 to prevent the
+WDTRST1 pin from being asserted during watchdog resets.
 
-* Introduced `init_single_versalnet()` for per-controller setup and
-  `init_versalnet()` for looping through NUM_CONTROLLERS.
-* Added proper rollback logic using `remove_single_versalnet()` when
-  partial initialization fails.
-* Improved readability and maintainability by reducing duplicated code and
-  consolidating error handling.
-
-Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+Signed-off-by: Cosmo Chou <chou.cosmo@gmail.com>
 ---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts | 6 ------
+ 1 file changed, 6 deletions(-)
 
- drivers/edac/versalnet_edac.c | 158 +++++++++++++++++++---------------
- 1 file changed, 87 insertions(+), 71 deletions(-)
-
-diff --git a/drivers/edac/versalnet_edac.c b/drivers/edac/versalnet_edac.c
-index 1ded4c3f0213..fc7e4c43b387 100644
---- a/drivers/edac/versalnet_edac.c
-+++ b/drivers/edac/versalnet_edac.c
-@@ -758,92 +758,111 @@ static void versal_edac_release(struct device *dev)
- 	kfree(dev);
- }
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
+index 24969c82d05e..abdb1562115a 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
+@@ -1080,11 +1080,5 @@ pinctrl_gpiov2_unbiased_default: gpiov2 {
  
--static int init_versalnet(struct mc_priv *priv, struct platform_device *pdev)
-+static void  remove_single_versalnet(struct mc_priv *priv, int i)
-+{
-+	struct mem_ctl_info *mci;
-+
-+	mci = priv->mci[i];
-+	device_unregister(mci->pdev);
-+	edac_mc_del_mc(mci->pdev);
-+	edac_mc_free(mci);
-+}
-+
-+static int init_single_versalnet(struct mc_priv *priv, struct platform_device *pdev, int i)
- {
- 	u32 num_chans, rank, dwidth, config;
--	struct edac_mc_layer layers[2];
- 	struct mem_ctl_info *mci;
-+	struct edac_mc_layer layers[2];
- 	struct device *dev;
- 	enum dev_type dt;
- 	char *name;
--	int rc, i;
-+	int rc;
- 
--	for (i = 0; i < NUM_CONTROLLERS; i++) {
--		config = priv->adec[CONF + i * ADEC_NUM];
--		num_chans = FIELD_GET(MC5_NUM_CHANS_MASK, config);
--		rank = 1 << FIELD_GET(MC5_RANK_MASK, config);
--		dwidth = FIELD_GET(MC5_BUS_WIDTH_MASK, config);
--
--		switch (dwidth) {
--		case XDDR5_BUS_WIDTH_16:
--			dt = DEV_X16;
--			break;
--		case XDDR5_BUS_WIDTH_32:
--			dt = DEV_X32;
--			break;
--		case XDDR5_BUS_WIDTH_64:
--			dt = DEV_X64;
--			break;
--		default:
--			dt = DEV_UNKNOWN;
--		}
-+	config = priv->adec[CONF + i * ADEC_NUM];
-+	num_chans = FIELD_GET(MC5_NUM_CHANS_MASK, config);
-+	rank = 1 << FIELD_GET(MC5_RANK_MASK, config);
-+	dwidth = FIELD_GET(MC5_BUS_WIDTH_MASK, config);
-+
-+	switch (dwidth) {
-+	case XDDR5_BUS_WIDTH_16:
-+		dt = DEV_X16;
-+		break;
-+	case XDDR5_BUS_WIDTH_32:
-+		dt = DEV_X32;
-+		break;
-+	case XDDR5_BUS_WIDTH_64:
-+		dt = DEV_X64;
-+		break;
-+	default:
-+		dt = DEV_UNKNOWN;
-+	}
- 
--		if (dt == DEV_UNKNOWN)
--			continue;
-+	if (dt == DEV_UNKNOWN)
-+		return 0;
- 
--		/* Find the first enabled device and register that one. */
--		layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
--		layers[0].size = rank;
--		layers[0].is_virt_csrow = true;
--		layers[1].type = EDAC_MC_LAYER_CHANNEL;
--		layers[1].size = num_chans;
--		layers[1].is_virt_csrow = false;
-+	/* Find the first enabled device and register that one. */
-+	layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
-+	layers[0].size = rank;
-+	layers[0].is_virt_csrow = true;
-+	layers[1].type = EDAC_MC_LAYER_CHANNEL;
-+	layers[1].size = num_chans;
-+	layers[1].is_virt_csrow = false;
-+
-+	rc = -ENOMEM;
-+	mci = edac_mc_alloc(i, ARRAY_SIZE(layers), layers,
-+			    sizeof(struct mc_priv));
-+	if (!mci) {
-+		edac_printk(KERN_ERR, EDAC_MC, "Failed memory allocation for MC%d\n", i);
-+		return rc;
-+	}
-+	priv->mci[i] = mci;
-+	priv->dwidth = dt;
-+
-+	dev = kzalloc(sizeof(*dev), GFP_KERNEL);
-+	if (!dev)
-+		return rc;
-+	dev->release = versal_edac_release;
-+	name = kmalloc(32, GFP_KERNEL);
-+	sprintf(name, "versal-net-ddrmc5-edac-%d", i);
-+	dev->init_name = name;
-+	rc = device_register(dev);
-+	if (rc)
-+		goto err_mc_free;
- 
--		rc = -ENOMEM;
--		mci = edac_mc_alloc(i, ARRAY_SIZE(layers), layers,
--				    sizeof(struct mc_priv));
--		if (!mci) {
--			edac_printk(KERN_ERR, EDAC_MC, "Failed memory allocation for MC%d\n", i);
--			goto err_alloc;
--		}
-+	mci->pdev = dev;
- 
--		priv->mci[i] = mci;
--		priv->dwidth = dt;
-+	platform_set_drvdata(pdev, priv);
- 
--		dev = kzalloc(sizeof(*dev), GFP_KERNEL);
--		dev->release = versal_edac_release;
--		name = kmalloc(32, GFP_KERNEL);
--		sprintf(name, "versal-net-ddrmc5-edac-%d", i);
--		dev->init_name = name;
--		rc = device_register(dev);
--		if (rc)
--			goto err_alloc;
-+	mc_init(mci, dev);
-+	rc = edac_mc_add_mc(mci);
-+	if (rc) {
-+		edac_printk(KERN_ERR, EDAC_MC, "Failed to register MC%d with EDAC core\n", i);
-+		goto err_unreg;
-+	}
-+	return 0;
-+err_unreg:
-+	device_unregister(mci->pdev);
-+err_mc_free:
-+	edac_mc_free(mci);
-+	return rc;
-+}
- 
--		mci->pdev = dev;
- 
--		platform_set_drvdata(pdev, priv);
-+static int init_versalnet(struct mc_priv *priv, struct platform_device *pdev)
-+{
-+	int rc, i;
- 
--		mc_init(mci, dev);
--		rc = edac_mc_add_mc(mci);
--		if (rc) {
--			edac_printk(KERN_ERR, EDAC_MC, "Failed to register MC%d with EDAC core\n", i);
--			goto err_alloc;
--		}
-+	for (i = 0; i < NUM_CONTROLLERS; i++) {
-+		rc = init_single_versalnet(priv, pdev, i);
-+		if (rc)
-+			goto err_rm_versalnet;
- 	}
- 	return 0;
- 
--err_alloc:
--	while (i--) {
--		mci = priv->mci[i];
--		if (!mci)
--			continue;
--
--		if (mci->pdev) {
--			device_unregister(mci->pdev);
--			edac_mc_del_mc(mci->pdev);
--		}
--
--		edac_mc_free(mci);
-+err_rm_versalnet:
-+	while (i) {
-+		i--;
-+		remove_single_versalnet(priv, i);
- 	}
- 
- 	return rc;
-@@ -857,9 +876,6 @@ static void remove_versalnet(struct mc_priv *priv)
- 	for (i = 0; i < NUM_CONTROLLERS; i++) {
- 		device_unregister(priv->mci[i]->pdev);
- 		mci = edac_mc_del_mc(priv->mci[i]->pdev);
--		if (!mci)
--			return;
--
- 		edac_mc_free(mci);
- 	}
- }
+ &wdt1 {
+ 	status = "okay";
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pinctrl_wdtrst1_default>;
+ 	aspeed,reset-type = "soc";
+-	aspeed,external-signal;
+-	aspeed,ext-push-pull;
+-	aspeed,ext-active-high;
+-	aspeed,ext-pulse-duration = <256>;
+ };
 -- 
-2.34.1
+2.43.0
 
 
