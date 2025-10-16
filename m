@@ -4,67 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B3D0CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 02:23:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6057BCCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 02:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2iGb4w2CJ/xWobbduV7z9pfLjGzjU59oSShpLUnHZK0=; b=QyW1dFPz/PhbnBeSj6GpDd7N8z
-	OfTZorXRBlfYSG5SkqYWlEbrAiNc5AQZywJSVF/T6MFRoIqOeovBbUGGje/CapXuEEZCi6Lv1Db6V
-	WoZQL0zqCR2vlHYprKS2n5F32p9Vo4aNHHL5UpqR/NDiAGRwbgMX2/r8ZS8lyhAK00tjjixZRgB/s
-	6Pz00fKW67zVuHRDPIrv/qyUZ9rJSuvy/7Ur5P2dngVMOBRr9fVYhpuzNrTwUzqdXOG4bUZSw3n0p
-	vfuYBAMrFWKWn3phy0Hx9T9yk2jb0LkDDL3frMJbcxY2Bms1ffXMjg8NQMSOWtQ+mvSZgqd1CZvwL
-	A/jRh7GA==;
+	bh=j2Whk+/NjyAjQStInE1j/PzsTAhufFsXx6nD7f9u3/s=; b=4D0upgvdSzRUQWpVPcUP2EdPPx
+	rh50+ZW7R8aK0ECj/tBp2qVS9njnuzqkpqn7cq9LQ4jbgPEGluSLKxAGjLkU9G+mz7FOgMkRB6Elr
+	xmVNKQACL7yfZgNmKcECoKqYots2Ikc2DV/6zTxWPLAHGiOZNiPf1PiVNO2Nu16EswtSa7CGrQU2u
+	e4kpIMmsVpn4D0qimJgZ9h840/Yo0OfgS+S02PfJ1Vp/3pZ158NDGc//C8k7bRDaERBKXdlUV087I
+	71Up2lXEyPGE/kdk7iOAi5DEnd05wo3C/LIcrm3XU1SeFqUQCt29FcTbWAU5BLcnYn4Y9U4Ynxzif
+	XytCwy6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Ddx-00000003GRK-0QpV;
-	Thu, 16 Oct 2025 02:23:05 +0000
-Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
+	id 1v9Dij-00000003Gh6-0AYr;
+	Thu, 16 Oct 2025 02:28:01 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Ddu-00000003GQr-3ETN
+	id 1v9Dif-00000003GgH-40e6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 02:23:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1760581380; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=2iGb4w2CJ/xWobbduV7z9pfLjGzjU59oSShpLUnHZK0=;
-	b=WnnVfRxPiTyzLzjSPcsypZI0pLFF0CRHxbgwE2EgmTELXfjYe1tgpVLpJa9DP9TZ1YaAvVjDR+S1z3MPbWzUDdGPf4AHRHgRdndjgiOZ4UzZHytt4yyFkjp16XNONH00ASQ7R6rE9HEah2KPiQvyegAQrQ6STQ9jbpOSNuO5gCg=
-Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WqId6gu_1760581378 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 16 Oct 2025 10:22:59 +0800
-From: "Huang, Ying" <ying.huang@linux.alibaba.com>
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: David Hildenbrand <david@redhat.com>,  Catalin Marinas
- <catalin.marinas@arm.com>,  Will Deacon <will@kernel.org>,  Andrew Morton
- <akpm@linux-foundation.org>,  Vlastimil Babka <vbabka@suse.cz>,  Zi Yan
- <ziy@nvidia.com>,  Baolin Wang <baolin.wang@linux.alibaba.com>,  Ryan
- Roberts <ryan.roberts@arm.com>,  Yang Shi <yang@os.amperecomputing.com>,
-  "Christoph Lameter (Ampere)" <cl@gentwo.org>,  Dev Jain
- <dev.jain@arm.com>,  Barry Song <baohua@kernel.org>,  Anshuman Khandual
- <anshuman.khandual@arm.com>,  Yicong Yang <yangyicong@hisilicon.com>,
-  Kefeng Wang <wangkefeng.wang@huawei.com>,  Kevin Brodsky
- <kevin.brodsky@arm.com>,  Yin Fengwei <fengwei_yin@linux.alibaba.com>,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  linux-mm@kvack.org
-Subject: Re: [PATCH -v2 1/2] mm: add spurious fault fixing support for huge pmd
-In-Reply-To: <d748bc6b-2aff-4cee-a233-008f4d2555fa@lucifer.local> (Lorenzo
-	Stoakes's message of "Wed, 15 Oct 2025 12:20:30 +0100")
-References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
-	<20251013092038.6963-2-ying.huang@linux.alibaba.com>
-	<4c453dcc-2837-4f1a-905b-3462270f5e31@lucifer.local>
-	<87ldlcpnbx.fsf@DESKTOP-5N7EMDA>
-	<d748bc6b-2aff-4cee-a233-008f4d2555fa@lucifer.local>
-Date: Thu, 16 Oct 2025 10:22:57 +0800
-Message-ID: <87bjm7lh4u.fsf@DESKTOP-5N7EMDA>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Thu, 16 Oct 2025 02:27:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yJjXPWX2nFE2f9dn1P1T7yOKCQaMRMdvtKHnwfoQTiQHcyVBbRYQXRUE4ovVPXb3d2kXn/dy02HZewqkGdanyceEdqknn/kvS7IBUFZpNRw76yknLxqr0N/9bUtmL3nalb8quqFJQgE5aHm9KGs4NIa4A6ZX94CZPhMqBT/EajHHZXu61vPooOAOglR4FzUMO/7euIpLesl9lR6Kl31FWYtEMWvC7ElLV9id77LB0dLNXlo17AMn5StG/QcFATC8kLFtwQtpdT0UCxEzUTc4ndix52qleSuFWrw6w86U832ljVABaqVQtGNe7gx2a5BRcsFpbVRefhgUhqF0ncAo6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j2Whk+/NjyAjQStInE1j/PzsTAhufFsXx6nD7f9u3/s=;
+ b=eP0T+0Aus9FZx9dkxZex51a5i1dI9OurpwMzVnyI8gDjQQT01cOd8sTWQPium8llEbhgRdh7NXhusvOyjxHLqtYux0PvToJak0WBb7y/yGOisBcrUHMUG/yBN25wrnApwdTzTL36TwYs5NqT6TeIFnHtUf27KRNJOY3N+3EWKf49BbPzgr3nJOqQW37WqYTT5msqD0DuAVlwBA2nEe2u9tVGp5ZqVXsjlfqIcYz1a+VqU8GjRvVn+0zFbrQM4EROJagS88Prn2etCdnCufthdbCAvQnjnlsMZDVzeOa9lGc8L0aL2gVmb9GIr/Kf3MjZX30Rz0oUG7H2G88YFGfWRg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j2Whk+/NjyAjQStInE1j/PzsTAhufFsXx6nD7f9u3/s=;
+ b=msdXfy+EO+c60bspELBz5sU4Zt8xMJtSKBRCCl4DolsOuJ2wgfW7DvmHwr5o6Y1tae7WDBEybwqyL59mogPyzj7sS0P8cOAFAFe6gfu/MNNx3oLX8GxGzN2B4y3fU5zN57ew1kY1k30nVDiANQmZdq53roknHmT27u6g7ElUIztEtvBGfAUIXKWFMgFbVR/WFuc5Xt2dZaOhEswp8uBUfJrmP0vM3XibNC5VNE/uuAWor1xHxuE2w1VRiAYI4ri0qAsK1sFbn+Amds+rTPcEXyrTxXspS8opPUvGy5qTcys9mgGRiUAmLdtG9nJ/k6E49QamPj/243CDQ2dOu+VqqA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by VI1PR04MB9955.eurprd04.prod.outlook.com (2603:10a6:800:1e1::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.12; Thu, 16 Oct
+ 2025 02:27:49 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9228.012; Thu, 16 Oct 2025
+ 02:27:48 +0000
+Message-ID: <a9a9867c-2653-45f0-89a2-39132335aac9@nxp.com>
+Date: Thu, 16 Oct 2025 10:28:08 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/39] dt-bindings: display: imx: Document i.MX95 Display
+ Controller processing units
+To: Marek Vasut <marek.vasut@mailbox.org>, Frank Li <Frank.li@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+ <20251011170213.128907-4-marek.vasut@mailbox.org>
+ <aO0tmUWA5H0J80Ov@lizhi-Precision-Tower-5810>
+ <260b4db1-c02a-48a0-baf8-5e217c729824@mailbox.org>
+ <e3ab9421-61a5-4ab6-8c72-6b0ab340f3a8@nxp.com>
+ <ae9d1289-c0f9-47b9-b6be-e39d170425a2@mailbox.org>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <ae9d1289-c0f9-47b9-b6be-e39d170425a2@mailbox.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2PR01CA0134.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:8f::14) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ascii
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI1PR04MB9955:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1c27723a-f644-40e3-bd20-08de0c5b9711
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|19092799006|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MGpWSDNLM3REMjF0cHIrWE9abHpjeGlOZWtFYkZoTWJ1UlNVK3VVUGFRSCtM?=
+ =?utf-8?B?MDkySVN3Z3lTM0I1QVZwMXIwbGZnTkhLM3gwNFV2VXBUSU1abTVpekkwc0cz?=
+ =?utf-8?B?anVwSGdyelVKYTF2azJ6cG9aSHZtT2VxL2oxSTZ5K3lDbGg1TlRHVWdTNTBB?=
+ =?utf-8?B?NzhTTmhrWkFJUDRhSlc4V3NnVlEzN1MvczFzRnc2OFRWdkFCM0FJTW5PYlJL?=
+ =?utf-8?B?TVBCSVp4TEtCSkE2elovUjM1MUtrcjFxUTRqbzNiMXg4ZExyRTEzdUdwQ1Iv?=
+ =?utf-8?B?Sno4VmozeUtYdEdRNGNacUVwNnpFRXdGSTZEZkVVM240aUgxOTlSVVpuQjFC?=
+ =?utf-8?B?andEa0gyb1k4Z0ZKSVl6UXZoNVBmZTdHbFVKQ3ZVYTBUS0JCb3ZtUVBGSEVv?=
+ =?utf-8?B?cGIzdm51TlZKMlBEYUZDWkEvRzRFZ1BEWFNUWEwwTFZnV1d5WnYyTk5FSStO?=
+ =?utf-8?B?UDVwL1JHZVdHeEt1dVA2eHVGeTM5Q1lFY05xR0l0b2d1WUJCNVdOaGRJaVhL?=
+ =?utf-8?B?M0FvZEx4WFdqbXoxQVpFREVCWnlJT2dNNzZPdDgwS1Rud0U4YkM2bXpnOHNZ?=
+ =?utf-8?B?MUxlZkZRam5yTFFSaGpCN2JZWmw1MWl1QmYwN2VFWlZvb0IxZit1T3g2cUJ5?=
+ =?utf-8?B?R2xZWTlKSVF5akhQYWd1cnJvbkoxc252UnFWY2NyU2FBbUE4a1UxUWNWRzdO?=
+ =?utf-8?B?Ym9UOEU0YXdFUnUydFYxdVV0WWRqWFFuTjJJTzBTRlJpOEovby9FQU54WFhP?=
+ =?utf-8?B?R1c5elJNaVNGT0RzZHFPV012bWNkeGRSVjNsWVFvTyt5Zmt6MzhUQWlwSFFK?=
+ =?utf-8?B?VGhHSlVUbWdTNmZZV0cxRXl1VmM5NmZHMXF6Q25EaXloQzEyV0RSbnA2ekJM?=
+ =?utf-8?B?VWM2czFTdW1uRHlEb0tqNy9FdDJTRFByMXN1WGlIRTZOMzI2VXNZR1F0MkM3?=
+ =?utf-8?B?OVRaa1RxcW1yRG9JaThOOHhiZlNjTldmeGZ4TjRySGZlenkzRzlvWnE5Ynkr?=
+ =?utf-8?B?dndjcVQ3ZC9BSWl2bEM3dTNOVWFrTUdaWk90QVNqOEt1MjdnM2Jqd05LZk1Q?=
+ =?utf-8?B?cW5MdEhPUG80LzFUcElIdHI4R2JJZnB1NmdjR2xyWXVSVysvM1F4Wi9aMzRB?=
+ =?utf-8?B?Q1N5VTRkMGlkYkxqQ2pwWG1GV2ljMWh5Z0ZucERmdHp2cjhmWnVxaFlGc0hp?=
+ =?utf-8?B?WVBhTW9XVVVucnFkd00wT2RCK2FJYXd5K2RPTUgxRDJRekNUU0grMnFVMmoz?=
+ =?utf-8?B?TVUxT0orRTRRQjdLMVc3VWorMzQ2VHZEZStIWWUyYzBDTFdkVjd3VjNlb1JQ?=
+ =?utf-8?B?Y2dyS05NZTduaDlxS2JDcDdxZzhxZFRzZHc2ajc4cHBzdVZBUEg5U01Gd05t?=
+ =?utf-8?B?Rmo2c1RBVlVNbUI2WTFpT3Q4RnhUcy8xY052dFZobm5pVXE4Qjl6MUUyYkVk?=
+ =?utf-8?B?c090TkV1dk9leWs5NFdSbCszVDNZRHArczVyMm5JQ3dmVnFVcG9MUUc4Z3I1?=
+ =?utf-8?B?SjFoclhnZWFnSTFyVERUOWZIREdiWW9iWjVNZUFkUE1ZSHhkZlVSeTdDWVRw?=
+ =?utf-8?B?Z05pam9aeGcrSlg2aFhUNUFibGx3WUxUSGlwVVBHMUkvTjZCNi9IRXo5R3Fo?=
+ =?utf-8?B?cDNIdWR1a1V6cjJTR2xpTzMzOUFPOS9QR0FXZDI3TlV4V0VIWlVUQm9PRk1r?=
+ =?utf-8?B?bVJsdkJnaFJMS05WQjJ4N2UxT09CY29OUnRFdmI5NS9CYyttTnhTUzNGZGp0?=
+ =?utf-8?B?TE9PV0FuSEdiYnNGc1Rva2FtaCtXdWl2R1g1WHY2NnRNOW1UTXBIWEVnUzc0?=
+ =?utf-8?B?dHI0TXNUUmNETzNyUUFVVTdlVllxVlR3Z1c0Ni9DKzc2R2ZDeTFEOTgvZkt4?=
+ =?utf-8?B?SlMrcWg5UmNsSUJBUmovbVovd25CdjlGU2NHa3gwUEZRempRUEIzOUtFTU9r?=
+ =?utf-8?Q?z6C1HzCkBUr5KTgSr75avULIst87ZkSt?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(19092799006)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ODh3cGRRdkVoU2tBeFJrNzhNWC8wcHdySkZCZFJvaTJYT1BpNDJnclVTSGtr?=
+ =?utf-8?B?bHdBelVQRzc5dFE0dEVWdXVtWmh2YkhhOCs3b3grSWozdHhhV3FNRXFpalN6?=
+ =?utf-8?B?UStMMjVBdWJIU1dOZ2U5Z29Yd1g0VnlUbUNPWCs1SExTdXQ2NkNZU0MzNHpq?=
+ =?utf-8?B?MDNGQVZ6Q21Id1NsUU9xR1I0SG9UN1BHdWVlSzlVSXk0Sk9rVy95Skp3emEv?=
+ =?utf-8?B?RVBaOUM5aTNKMG90cVg0ejRKK3FCS0tZQmUwNGtjUzhwOHkrZHdpSXgyV3lB?=
+ =?utf-8?B?NkFhdElJZmZZR0VHTnZwbCtPT3lPQVZLaDZ4WVdITFZrWGY2TXZzZUtKVnBn?=
+ =?utf-8?B?ZnkvSGJ5c3duaVVPYk1RRlY5QVdrN2ZOT0pDc2ttZmhRNXhLQkRud2kySnNB?=
+ =?utf-8?B?UmZ2MGoyaWxjbGVJY3IwRGhZSGhWTEdXVndPTDUzNXE3bmwzekVSUTZ5TStS?=
+ =?utf-8?B?R1dZWmswMjRhOENacHV4NW8yMGpuajQrQkZURG43Z1lFbFU5b2hPRy9zcDQx?=
+ =?utf-8?B?alRGYlhCaEdQQTRUelJjYkR4Q1VMMURyTWhZbXArVFVYV1ozcEorY0l1VVVn?=
+ =?utf-8?B?bUk5d2k5QUU1M3paUldyUDhJM2dmY1JMM25YRkNkS01pWFp6WnRzb0dHSTlF?=
+ =?utf-8?B?VG43cDNNSXhmeEk1WG56Sko4dG9SaU94TWtjTXVSajhoeTlaK3k5TEdIYXdM?=
+ =?utf-8?B?bGp0ZXpjTmRMcm1LMng3MXVBRDVSQjZlS2FYZmhGRmg1ZnpQTk9ZdEZGdnBQ?=
+ =?utf-8?B?RFQvemxmVktrSG9RM0FOcXFIQWJHbFZuNXNOM3U0aVpqZmdpSXVUZEw5a1k3?=
+ =?utf-8?B?bjFXektPVVRKVTRQeWltdDdEMFNKcDVrTzhwSnFZZ2tWTlkyc2hkQnJsNjRQ?=
+ =?utf-8?B?WWd3VUVIcWV5NHdvYU1ESWJqNFFhdVNVc3FSY0VtOEdhNEh2bmxvTk1jcjJ2?=
+ =?utf-8?B?MmRMbnRMUUJTQ0o4bUpFS256c0lYaFVRRW9XalhqeG8zY2NRZm9CZ25uMnBB?=
+ =?utf-8?B?T1N6ellaWEtHSEJDNmFoMW8xQlExUHJDRGtWYjc5RHhoWWZSS01zNi93eGJ3?=
+ =?utf-8?B?Z09QMVEzN3h5MVI2dnBGdExjTDZIVVJYbTk0OWNFZEFKK2NZZm1rTmZGV1lE?=
+ =?utf-8?B?RnFjQ29ZSVRaV0V6Q1cyZkdTL1M2dDFRVHZaSjN1VVBMSWVCRXd4MXJ6dUtn?=
+ =?utf-8?B?VHNGc3J0N0ZPQUp4OSsycHlhSGpCUkMrTTB2eUY0Qm5ETFV0SDRVdlQvalBn?=
+ =?utf-8?B?Y0hDYzV4REdPYnNyYkVCMnFxVi9vczd1MHJ5ZnRCeTRnMnJONmFjNmNsclZL?=
+ =?utf-8?B?WFpxdzlLYmlHVHpXWnovTzVOK2NLaHplZEZlbkVHQUZjbFh1NXVCY0F1a1h2?=
+ =?utf-8?B?RytpS0xkeTluaXEyOC9UTExQd3FTMkUxY1JNeDNCZ3RkUDVMQ01mZ2FLeUc3?=
+ =?utf-8?B?dGNMcVZrUXVkUnE4NWR6TzdJYy9jdnhwSm1ZVU5lNWZzai9mV25pbzh3S1Qr?=
+ =?utf-8?B?V3AwQi9vRjZDOEt3clBBR05tRllsWU5aK0R6Z0U5TkpWOFp6dmlid1JBN2k0?=
+ =?utf-8?B?aTZNLysySjFOdGhyeUdFOVpRVEtYalpnaHM0T0pjcG9IRVgySGk5K1J4ZkNp?=
+ =?utf-8?B?VVZndWY5N3h6MUdKNlhqZVRkVFcyNEgwUGZBRUhMWG02Y2hPQ2JJSENia3hr?=
+ =?utf-8?B?QjBCV3RtM2ROQ3pFWmQ2djdTQzdzUFFJRGFXazNoNVZhTmswdHova1JpWW1V?=
+ =?utf-8?B?SUh5a21UditZMzl1SGZCYUd0Z1dORENKOVRINVNrLzBkc3pkWlE4NGtMTm1q?=
+ =?utf-8?B?d3R5R2w1Sit3c0w4NFJ3SDU2bUIweWJ4blg0bHRibTc4cU9vNlBycDl0VmZj?=
+ =?utf-8?B?MVVBYmpqZ2M0dEJYMmRERDJ1eHhEc0hoV0RoaWhMUVY2YjBqR0NWT3EyR0dz?=
+ =?utf-8?B?OWdTYW1xbnpjak0vZ1hqTEY0SDMwT3pCc0dmd2J5ZDJ1UjVISVR1U2x1cCs2?=
+ =?utf-8?B?aWdKVnpraVo5SWt4QWNXVHVhRUl4VFFtVWY3a3pKMkJwVmQvcmVTTkJuakR2?=
+ =?utf-8?B?Wll2anRHUnRuYmFYWC9PZUIwZ25teVpNTmM2aW1mNEEzY3lCQksyd1pXQ3lN?=
+ =?utf-8?Q?3oV+SWHcsw1CWMAk2LO6J/Nni?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1c27723a-f644-40e3-bd20-08de0c5b9711
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2025 02:27:48.6690
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zvC0hUnsVp/fZ4IrEKLelxApfsX0FfAIRFbBSjZl0mV5SytkTpj/bsKyOtpqbE50pTbpUCiDaAZMbaZaOKgw9w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9955
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_192303_269465_5491D532 
-X-CRM114-Status: GOOD (  41.79  )
+X-CRM114-CacheID: sfid-20251015_192758_003071_0B0BBB28 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,123 +189,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Lorenzo Stoakes <lorenzo.stoakes@oracle.com> writes:
+On 10/15/2025, Marek Vasut wrote:
+> On 10/15/25 10:59 AM, Liu Ying wrote:
+> 
+> Hello Liu,
 
-> On Wed, Oct 15, 2025 at 04:43:14PM +0800, Huang, Ying wrote:
->> Hi, Lorenzo,
->>
->> Thanks for comments!
->>
->> Lorenzo Stoakes <lorenzo.stoakes@oracle.com> writes:
->>
->> > On Mon, Oct 13, 2025 at 05:20:37PM +0800, Huang Ying wrote:
->> >> In the current kernel, there is spurious fault fixing support for pte,
->> >> but not for huge pmd because no architectures need it. But in the
->> >> next patch in the series, we will change the write protection fault
->> >> handling logic on arm64, so that some stale huge pmd entries may
->> >> remain in the TLB. These entries need to be flushed via the huge pmd
->> >> spurious fault fixing mechanism.
->> >>
->> >> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
->> >
->> > Right now the PTE level spurious fault handling is dealt with in
->> > handle_pte_fault() when ptep_set_access_flags() returns false.
->> >
->> > Now you're updating touch_pmd() which is invoked by follow_huge_pmd() and
->> > huge_pmd_set_accessed().
->> >
->> > 1 - Why are you not adding handling to GUP?
->> >
->> > 2 - Is this the correct level of abstraction? It's really not obvious but
->> >     huge_pmd_set_accessed() is invoked by __handle_mm_fault() on a non-WP,
->> >     non-NUMA hint huge page fault where a page table entry already exists
->> >     but we are faulting anyway (e.g. non-present or read-only writable).
->> >
->> > You don't mention any of this in the commit message, which you need to do
->> > and really need to explain how spurious faults can arise, why you can only
->> > do this at the point of abstraction you do (if you are unable to put it in
->> > actual fault handing-code), and you need to add a bunch more comments to
->> > explain this.
->>
->> This patch adds the spurious PMD page fault fixing based on the spurious
->> PTE page fault fixing.  So, I assumed that the spurious page fault
->> fixing has been documented already.  But you are right, nothing prevents
->> us from improving it further.  Let's try to do that.
->
-> I wouldn't make any kind of assumption like this in the kernel :) sadly our
-> documentation is often incomplete.
->
->>
->> The page faults may be spurious because of the racy access to the page
->> table.  For example, a non-populated virtual page is accessed on 2 CPUs
->> simultaneously, thus the page faults are triggered on both CPUs.
->> However, it's possible that one CPU (say CPU A) cannot find the reason
->> for the page fault if the other CPU (say CPU B) has changed the page
->> table before the PTE is checked on CPU A.  Most of the time, the
->> spurious page faults can be ignored safely.  However, if the page fault
->> is for the write access, it's possible that a stale read-only TLB entry
->> exists in the local CPU and needs to be flushed on some architectures.
->> This is called the spurious page fault fixing.
->>
->> The spurious page fault fixing only makes sense during page fault
->> handling, so we don't need to do it for GUP.  In fact, I plan to avoid
->> it in all GUP paths in another followup patch.
->
-> OK this is great, let's put it all in the kdoc for the new shared spurious
-> faulting function! :) and additionally add it to the commit message.
+Hello,
 
-Sure.  Will do it in the next version.
-
-[snip]
-
->> >>
->> >> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->> >> index 32e8457ad535..341622ec80e4 100644
->> >> --- a/include/linux/pgtable.h
->> >> +++ b/include/linux/pgtable.h
->> >> @@ -1232,6 +1232,10 @@ static inline void arch_swap_restore(swp_entry_t entry, struct folio *folio)
->> >>  #define flush_tlb_fix_spurious_fault(vma, address, ptep) flush_tlb_page(vma, address)
->> >>  #endif
->> >>
->> >> +#ifndef flush_tlb_fix_spurious_fault_pmd
->> >> +#define flush_tlb_fix_spurious_fault_pmd(vma, address, ptep) do { } while (0)
->> >> +#endif
->> >
->> > flush_tlb_fix_spurious_fault(), when the arch doesn't declare it, defaults to
->> > flush_tlb_page() - why do we just do nothing in this case here?
+> 
+>>>>> @@ -90,13 +102,15 @@ patternProperties:
+>>>>>          compatible:
+>>>>>            const: fsl,imx8qxp-dc-signature
+>>>>>
+>>>>> -  "^tcon@[0-9a-f]+$":
+>>>>> +  "^tcon(@[0-9a-f]+)?$":
+>>>>
+>>>> why here allow no address unit tcon?
+>>> This might be something Liu can clarify too.
+>>>
+>>> TCON on iMX95 DPU does not seem to exist at all, or at least has no control registers. Hence no address.
 >>
->> Because all architectures do nothing for the spurious PMD page fault
->> fixing until the [2/2] of this series.  Where, we make it necessary to
->> flush the local TLB for spurious PMD page fault fixing on arm64
->> architecture.
->>
->> If we follow the design of flush_tlb_fix_spurious_fault(), we need to
->> change all architecture implementation to do nothing in this patch to
->> keep the current behavior.  I don't think that it's a good idea.  Do
->> you agree?
->
-> Yeah probably we should keep the same behaviour as before, which is
-> obviously, prior to this series, we did nothing.
->
-> I guess in the PTE case we _always_ want to flush the TLB, whereas in the
-> PMD case we otherwise don't have any need to at the point at which the
-> spurious flush is performed.
->
-> But from your explanation above re: the stale TLB entry this _only_ needs
-> to be done for architectures which might encounter this problem rather than
-> needing a TLB flush in general.
->
-> Given we're generalising the code and one case always flushes the TLB and
-> the other doesn't maybe it's worth putting a comment in the generalised
-> function mentioning this?
+>> i.MX95 DC hasn't got TCON so it should not be documented for i.MX95 DC.
+> 
+> What DT node do I attach the pixel-mapper/pixel-interleaver to then ?
 
-I'm not sure whether it's a good idea to document architecture behaviors
-in the general code.  The behavior may be changed architecture by
-architecture in the future.
+It's Dither unit which sits in the last position of an i.MX95 DC display stream.
 
-[snip]
+BTW, i.MX8qxp/qm DCs haven't got any Dither unit.  The existing i.MX8qxp DC
+DT bindings have already documented all units within i.MX8qxp DC(I hope I didn't
+miss any unit). And TCON is the last one for i.MX8qxp/qm DC display stream.
 
----
-Best Regards,
-Huang, Ying
+Have you got i.MX95 DC IP spec?  If no, then it would be difficult for you to
+write DT bindings for all i.MX95 DC units.  Note that this is something
+necessary to do.
+
+And, a bit more information about display pipelines in i.MX95 display domain:
+
+Dither -> pixel interleaver -> pixel link loopback -> camera domain
+                            -> pixel link -> MIPI DSI controller
+                            -> pixel mapper(LDB)
+
+Note that NXP downstream kernel wrongly adds pixel link between pixel
+interleaver and pixel mapper due to ambiguous i.MX95 TRM.
+
+-- 
+Regards,
+Liu Ying
 
