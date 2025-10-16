@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E47ACCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 10:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F592CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 10:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kN3t/e7sa1Sb2IowRbuDgju83rFZL2AXB/0qfNEujok=; b=cfgvggS0vx4lrDrQod41oJfyDe
-	V/B74gacjxCR7fpL6eLXaPYci1cwpyXvzVJ8k9Ich/jRa6aYa5dRJ0C+JCouyB5bloJeDAaJD1sX2
-	/jeDcjWUP4sIam9npD6jy9uyx3ElOsbhVg+fEZi7auBEzULz0sPdwHpdgA1kOV0MF4/jYxh6pCzGZ
-	LibsnkCQvso9rasvXoFCEet3V2Ok1yYrNNhA4NxrQ2PBaZryBUkTqkkghXx3N6rN+uf2snd2PDbXb
-	WyJqsgxaGva7rDknfiobRITnl3sRzIf/qmj9Fawlgj/VtqFcG8zkmaLLUCpXEcDLYt7CkIakFIc6N
-	NRFmr7+A==;
+	bh=Yjvyo09VOpe7GK0lZYnk2UarXtQ0tn0Ftdch+JNCDP8=; b=rnfZ3WQ+pNcbSj/1uotkQXUQoW
+	5hUJTpBGy49DuOSTnm5q+zCKNB7rGBdJ7iRGsEjGYljlsVePgnGyDyRYe5r5EfhgKZF8jLk21Kull
+	4Tq/3XBtg49ORBinIZfT3/XQd8VetgoWYA6jna8tenAf7eXCmavk1B5/RgrIdzBENAHQj0f/n6d6R
+	n6UsEyck6M6XE4kufNPdodzH3YMlcu6RdcAIlQK3Wx3iN4dRo14WD4G2R+yZkLmuoQcp4WGLBHTTs
+	p1IXzupLIwK5r7CCUfxrw89ve3xYuTrcbfuFsD820bJeHJi4tqkZSIENcuxlMy5lf+IGfZ1B8ioHo
+	YlqcKxOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Krf-00000004K4O-0a06;
-	Thu, 16 Oct 2025 10:05:43 +0000
-Received: from mail-m49236.qiye.163.com ([45.254.49.236])
+	id 1v9Kup-00000004Kua-3mRS;
+	Thu, 16 Oct 2025 10:08:59 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Kra-00000004K1w-46i0;
-	Thu, 16 Oct 2025 10:05:40 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 262323a9f;
-	Thu, 16 Oct 2025 18:00:28 +0800 (GMT+08:00)
-Message-ID: <3470351f-88ab-48bb-97af-dde4e6eba938@rock-chips.com>
-Date: Thu, 16 Oct 2025 18:00:24 +0800
+	id 1v9Kum-00000004Ks1-3MKk;
+	Thu, 16 Oct 2025 10:08:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1760609334;
+	bh=DPOaRFuwOoLbPy5eXYRvHIT1zjRLOstWIzlStDl1Vtc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ERa9DvmB5rzvKYvlPsAxSeYaGbRiOabDCdvgj1ncj1WLtXJfHBZAfJ+ZHTQ3PRww0
+	 yHMfZHOss5K9qJ4O9THXNVdsm2S+Oal4JoAZx735VtCJ1M1kz4CikSm3YcJT1ZXkvi
+	 U7k2rtzw7mg+pSjAkXL30AdDsk4oOso9/soVGIBNik/Fap97Ou2+MhVmioLlaNM1sr
+	 pljrRdxgroc1HrqHC48RrmN0etZTS3NX+CjoS1G/8Sun7MdBrtgUyAW/jISLjSQ1qB
+	 obH56TA1sedFHMiNmbtQSBMBgEWFjEOqEJ6oBD7zPVoPkgEVl5SQBP2h3ViecDVnkf
+	 uQR0lk4sGRLeg==
+Received: from beast.luon.net (simons.connected.by.freedominter.net [45.83.240.172])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sjoerd)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0B51117E12BA;
+	Thu, 16 Oct 2025 12:08:54 +0200 (CEST)
+Received: by beast.luon.net (Postfix, from userid 1000)
+	id 9A80610C9C788; Thu, 16 Oct 2025 12:08:53 +0200 (CEST)
+From: Sjoerd Simons <sjoerd@collabora.com>
+Date: Thu, 16 Oct 2025 12:08:40 +0200
+Subject: [PATCH 04/15] dt-bindings: mfd: syscon: Add mt7981-topmisc
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Damien Le Moal <dlemoal@kernel.org>,
- Dragan Simic <dsimic@manjaro.org>, FUKAUMI Naoki <naoki@radxa.com>,
- Diederik de Haas <diederik@cknow-tech.com>, stable@vger.kernel.org,
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2] PCI: dw-rockchip: Disable L1 substates
-To: Niklas Cassel <cassel@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>, Simon Xue <xxm@rock-chips.com>
-References: <20251016090422.451982-2-cassel@kernel.org>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20251016090422.451982-2-cassel@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a99ec76ba4d09cckunmc3027d237c39a4
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkNKTlZJT0hPSE4ZHx9IQ0xWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=Dkg1ccWxhcEzQTOcTY7bf6wuAXYywd+hMTvRqDxRE1vMLe89yV6Etd0r4HtjD7Lib8ucQ/xO9ILeS0kR9IRcb4AfFbQ7Zq1l5oLWraylks88KcjFaIB10gPecPxyug1hiVMXiTxry8XoDnCwbI/lCmmSFioxp53oLomGc7999KY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=kN3t/e7sa1Sb2IowRbuDgju83rFZL2AXB/0qfNEujok=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251016-openwrt-one-network-v1-4-de259719b6f2@collabora.com>
+References: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
+In-Reply-To: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Ryder Lee <ryder.lee@mediatek.com>, 
+ Jianjun Wang <jianjun.wang@mediatek.com>, 
+ Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org, 
+ linux-phy@lists.infradead.org, netdev@vger.kernel.org, 
+ Daniel Golle <daniel@makrotopia.org>, Bryan Hinton <bryan@bryanhinton.com>, 
+ Sjoerd Simons <sjoerd@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_030539_526300_F9BB544D 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20251016_030856_994886_AE4BA86E 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,85 +95,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/10/16 星期四 17:04, Niklas Cassel 写道:
-> The L1 substates support requires additional steps to work, see e.g.
-> section '11.6.6.4 L1 Substate' in the RK3588 TRM V1.0.
-> 
-> These steps are currently missing from the driver.
+This hardware block amongst other things includes a multiplexer for a
+high-speed Combo-Phy. This binding allows exposing the multiplexer
 
-Yes, we could add them later if concerns about supports-clkreq is fully
-discussed.
+Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
+---
+ Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-> 
-> While this has always been a problem when using e.g.
-> CONFIG_PCIEASPM_POWER_SUPERSAVE=y, the problem became more apparent after
-> commit f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for
-> devicetree platforms"), which enabled ASPM also for
-> CONFIG_PCIEASPM_DEFAULT=y.
-> 
-> Disable L1 substates until proper support is added.
-> 
+diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+index 657c38175fba2..51511078c4c3b 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+@@ -193,6 +193,7 @@ properties:
+           - mediatek,mt2701-pctl-a-syscfg
+           - mediatek,mt2712-pctl-a-syscfg
+           - mediatek,mt6397-pctl-pmic-syscfg
++          - mediatek,mt7981-topmisc
+           - mediatek,mt7988-topmisc
+           - mediatek,mt8135-pctl-a-syscfg
+           - mediatek,mt8135-pctl-b-syscfg
 
-Thanks for the patch.
-
-Acked-by: Shawn Lin <shawn.lin@rock-chips.com>
-
-> Cc: stable@vger.kernel.org
-> Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host controller driver")
-> Fixes: f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for devicetree platforms")
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
-> ---
-> Changes since v1:
-> -Remove superfluous dw_pcie_readl_dbi()
-> 
->   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 21 +++++++++++++++++++
->   1 file changed, 21 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 3e2752c7dd09..84f882abbca5 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -200,6 +200,25 @@ static bool rockchip_pcie_link_up(struct dw_pcie *pci)
->   	return FIELD_GET(PCIE_LINKUP_MASK, val) == PCIE_LINKUP;
->   }
->   
-> +/*
-> + * See e.g. section '11.6.6.4 L1 Substate' in the RK3588 TRM V1.0 for the steps
-> + * needed to support L1 substates. Currently, not a single rockchip platform
-> + * performs these steps, so disable L1 substates until there is proper support.
-> + */
-> +static void rockchip_pcie_disable_l1sub(struct dw_pcie *pci)
-> +{
-> +	u32 cap, l1subcap;
-> +
-> +	cap = dw_pcie_find_ext_capability(pci, PCI_EXT_CAP_ID_L1SS);
-> +	if (cap) {
-> +		l1subcap = dw_pcie_readl_dbi(pci, cap + PCI_L1SS_CAP);
-> +		l1subcap &= ~(PCI_L1SS_CAP_L1_PM_SS | PCI_L1SS_CAP_ASPM_L1_1 |
-> +			      PCI_L1SS_CAP_ASPM_L1_2 | PCI_L1SS_CAP_PCIPM_L1_1 |
-> +			      PCI_L1SS_CAP_PCIPM_L1_2);
-> +		dw_pcie_writel_dbi(pci, cap + PCI_L1SS_CAP, l1subcap);
-> +	}
-> +}
-> +
->   static void rockchip_pcie_enable_l0s(struct dw_pcie *pci)
->   {
->   	u32 cap, lnkcap;
-> @@ -264,6 +283,7 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
->   	irq_set_chained_handler_and_data(irq, rockchip_pcie_intx_handler,
->   					 rockchip);
->   
-> +	rockchip_pcie_disable_l1sub(pci);
->   	rockchip_pcie_enable_l0s(pci);
->   
->   	return 0;
-> @@ -301,6 +321,7 @@ static void rockchip_pcie_ep_init(struct dw_pcie_ep *ep)
->   	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
->   	enum pci_barno bar;
->   
-> +	rockchip_pcie_disable_l1sub(pci);
->   	rockchip_pcie_enable_l0s(pci);
->   	rockchip_pcie_ep_hide_broken_ats_cap_rk3588(ep);
->   
+-- 
+2.51.0
 
 
