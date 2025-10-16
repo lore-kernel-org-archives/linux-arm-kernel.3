@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30DF4CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 12:37:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AEAFCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 12:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cxF4Em4dXaaYuu8ttEyg/Hrq7g1rsZMJeJFp3mKDuWk=; b=381uf1s7GWHjLtpc15ZQQ00xsK
-	ibHXq5g56tv6H9svO2eP0b+j8FBi6lwW6EZaYVDBdbD1zl4LP4PJpadF1gsiIeNCFrn+e/pZo4Ljb
-	PC36N80ljYOSiCFhCVO0N5S+VatlAMDfCtTol4/gj1dxgFwY+IGH59eE03nuaPiNhDD/TssE/5r2a
-	D1xnK4rAleK/Ew9+1NNrW4XTYjzTQ0HshzWmsgtVHLWr9OatIx0+hLiC7IbAQRy3u3KZb5yN4c0fl
-	BvpvbEDBl0hMlEzETEvBX1LbeC4w3wecg9HVXuNb/Dw1VeY4iB4YUQI25mVDPx7YDnu004m2RZSzx
-	K2F3ko6A==;
+	bh=RyUtjkO5Dx3bwD3ESxY3owdYu3eKu7j1RTp0Owu07Fc=; b=e8zVUI3p/EIaXr+AC7zVvZ9Hrs
+	FNB8jSQXVJow6+1JRl1Fqks8nBiJGmt1otdZcwHReIViZbsERtzxdJ7c0dgABAGkX1oXT1Yt87wSo
+	u3XKQwkQWqVf7XBWSDhspWGDVMW8IHr2Z1svAHGw5TUshWLdBrGxIvLhLsOAEesvcSty5FgNBBe2a
+	ELSkVQHiNFuPcW1eQY8i383UdEqOpETKz2/PhTD1aaIIEjVIHBNf8wgVeddEujgU1gSEnlFl2CtE4
+	41ocyfOBCe9LJWFdEvAvCBPrfpmO7i7sQiQKh83lcYmTSO8rUFlJOK3UCSMbEYQEl2jLKfnLf6QDy
+	VESOZp1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9NE1-00000004lAq-1Bx4;
-	Thu, 16 Oct 2025 12:36:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v9NG4-00000004lTs-3cdM;
+	Thu, 16 Oct 2025 12:39:04 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9NDy-00000004lAU-44XZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 12:36:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A348943394;
-	Thu, 16 Oct 2025 12:36:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D7D2C113D0;
-	Thu, 16 Oct 2025 12:36:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760618214;
-	bh=rWo5L43Wc3sm+4xT2/uBYLFVmx0bMIQ/PWAvIzOWufU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZwiTDTK0gLGZXQE1l0ADMryUJjR9GTZMa2eNNVrsEHwO61+qcOveY91BrUHlsy3jD
-	 bs+Os5OmP32KJuLwI3/cCeT3bu4jorr2kobS7TZnEeRdfqM6hyb5cBk4k0lq+OlpX+
-	 2vFK9Ss54Cs765ahcx19wfI7VfnAIKuuqZaZOE71YajqeI6PgkU1TdKDrj5ghfT/Vb
-	 PnBn4wvJAFlyVQP1MYmsY9zv+uFM73Y+OyQJ50fxehDvxSqRega70Utmw+S3sCYTkr
-	 WDZzLC+KSXxVsxxeLkEXIHi6VlHruA397fKOorRpSTFoEm3hLJJas9gj123k/GKor+
-	 5dvPxGnSOqlyA==
-Date: Thu, 16 Oct 2025 13:36:48 +0100
-From: Simon Horman <horms@kernel.org>
-To: Lizhe <sensor1010@163.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	jonas@kwiboo.se, chaoyi.chen@rock-chips.com,
-	david.wu@rock-chips.com, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] net: dwmac-rk: No need to check the return
- value of phy_power_on()
-Message-ID: <aPDm4OMiM7Ug9rDf@horms.kernel.org>
-References: <20251015051446.2677-1-sensor1010@163.com>
+	id 1v9NG2-00000004lT8-1DIB;
+	Thu, 16 Oct 2025 12:39:03 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1v9NFk-000000001SH-1ypz;
+	Thu, 16 Oct 2025 12:38:44 +0000
+Date: Thu, 16 Oct 2025 13:38:39 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Sjoerd Simons <sjoerd@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Lee Jones <lee@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+	kernel@collabora.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-phy@lists.infradead.org, netdev@vger.kernel.org,
+	Bryan Hinton <bryan@bryanhinton.com>
+Subject: Re: [PATCH 02/15] arm64: dts: mediatek: mt7981b-openwrt-one:
+ Configure UART0 pinmux
+Message-ID: <aPDnT4tuSzNDzyAE@makrotopia.org>
+References: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
+ <20251016-openwrt-one-network-v1-2-de259719b6f2@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251015051446.2677-1-sensor1010@163.com>
+In-Reply-To: <20251016-openwrt-one-network-v1-2-de259719b6f2@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_053655_028435_247A70A0 
-X-CRM114-Status: GOOD (  24.94  )
+X-CRM114-CacheID: sfid-20251016_053902_323946_F4299B86 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +84,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 10:14:46PM -0700, Lizhe wrote:
-> 'phy_power_on' is a local scope one within the driver, since the
-> return value of the phy_power_on() function is always 0, checking
-> its return value is redundant.
+On Thu, Oct 16, 2025 at 12:08:38PM +0200, Sjoerd Simons wrote:
+> Add explicit pinctrl configuration for UART0 on the OpenWrt One board,
 > 
-> the function name 'phy_power_on()' conflicts with the existing
-> phy_power_on() function in the PHY subsystem. a suitable alternative
-> name would be rk_phy_power_set(), particularly since when the
-> second argument is false, this function actually powers off the PHY
-
-This is two changes. I would lean towards splitting it into
-two patches (in a single patch-set).
-
-> 
-> Signed-off-by: Lizhe <sensor1010@163.com>
-
-Also, in future, please wait 24h between posting revisions of a patchset.
-And note revisions in the subject, like this:
-
-  Subject: [PATCH net-next v2] ...
-
-https://docs.kernel.org/process/maintainer-netdev.html
-
+> Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
 > ---
->  .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 19 +++++--------------
->  1 file changed, 5 insertions(+), 14 deletions(-)
+>  arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> index 51ea0caf16c1..ac3324430b2d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> @@ -1461,23 +1461,18 @@ static int gmac_clk_enable(struct rk_priv_data *bsp_priv, bool enable)
->  	return 0;
->  }
+> diff --git a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+> index 968b91f55bb27..f836059d7f475 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+> +++ b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+> @@ -22,6 +22,17 @@ memory@40000000 {
+>  	};
+>  };
 >  
-> -static int phy_power_on(struct rk_priv_data *bsp_priv, bool enable)
-> +static void rk_phy_power_set(struct rk_priv_data *bsp_priv, bool enable)
->  {
->  	struct regulator *ldo = bsp_priv->regulator;
->  	struct device *dev = bsp_priv->dev;
-> -	int ret;
->  
->  	if (enable) {
-> -		ret = regulator_enable(ldo);
-> -		if (ret)
-> +		if (regulator_enable(ldo))
->  			dev_err(dev, "fail to enable phy-supply\n");
->  	} else {
-> -		ret = regulator_disable(ldo);
-> -		if (ret)
-> +		if (regulator_disable(ldo))
->  			dev_err(dev, "fail to disable phy-supply\n");
+> +&pio {
+> +	uart0_pins: uart0-pins {
+> +		mux {
+> +			function = "uart";
+> +			groups = "uart0";
+> +		};
+> +	};
+> +};
+> +
+>  &uart0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&uart0_pins>;
+>  	status = "okay";
+>  };
 
-The 'ret' changes above don't relate to the patch description.
-I'd leave this be. But if you really want to go this way
-I think it would be a separate patch.
-
->  	}
-> -
-> -	return 0;
->  }
->  
->  static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
-
--- 
-pw-bot: changes-requested
+As there is only a single possible pinctrl configuration for uart0,
+both the pinmux definition as well as the pinctrl properties should go
+into mt7981b.dtsi rather than in the board's dts.
 
