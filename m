@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55819CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 08:37:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F26CBCCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 08:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v1IiUUN9Ud/KHBOb3nqfzYJG0UONQx1yooJ1UPkaeMA=; b=j7zb3ZFNtijF2ISbv7zJEItDYg
-	YcgZfFvITOwxgupS/WEHmDKy3ORnIqz4Z+VRYnLvWWwLQIOTEtEKFu1IIlmJ5KcQkkCh6Zg6XKtZ2
-	Fg+g2S31doLj7ylTMbKMHt0yisaH0MfI21odYU8E1SRgkuFKjs5NLBT7CvUODU6zEzQvlYWBnsdBW
-	A3CnmsJSkhuequL1eR6wibCpEoPsr3CzowC6SEZBv46Y/fCjqVCQWgFQU7I1tMHgqPIlE4gKwyXCH
-	YLdDKsqYPP9L5iC7KUKR4v/fOdzYYktfntkxcWJ3DaU5CGULSf3ROBym3HHvWMGC5Kjkigj26FGd8
-	1jwSxM7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RSvYSPh8ZvpCq9Tn8rRo74pwoQsk+cPXDxtofOd/xlQ=; b=hFL2eS6qgapmTQcwpugmcoqimc
+	qLUmLWd9ctzyh7LTv7s6+wMWc2u/AEiBIfar5+wWmL1EYwUPYAYhJpTBYK/Uwg15Cvv5wLAqJCo8b
+	NtAm5ZX+ZXpSoRUOFf2yVABwqafThXCrKmU/17vAVkHkypGCGVvBwzEmjHjFp8UzxXQmQ3L64uD+9
+	w8bYIYx17kdupYRxCxe6vZwBEBNFTYlHr9UfpeqSfENXPAvY5pQCtP+vsIaPRtoDYKty5jhG5SFo5
+	ht2X0Sf5SjDqDlP4IEHql0ekiC26UBAyStL8iTOldqxvHU1YU5RtGQ8AwaWfRZiV8kCAUjNt3fo0u
+	c76d0WDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9JTi-00000003yj5-3L6D;
-	Thu, 16 Oct 2025 08:36:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v9JWP-00000003zSp-2Flt;
+	Thu, 16 Oct 2025 08:39:41 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9JTh-00000003yi6-0Xn3;
-	Thu, 16 Oct 2025 08:36:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8CCA66039A;
-	Thu, 16 Oct 2025 08:36:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8CC6C4CEF1;
-	Thu, 16 Oct 2025 08:36:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760603812;
-	bh=MuVT8F29Xlc5XO/utltXz470EZDUUeT2p+kzo7sBpCc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lSxiCumns7EpzNLOIgT/81hEQX9eA2qS1y/SDwq4SEuMAG5jL16PWcY1aeG8GdOH+
-	 QcclVkiqrcTwaToa4hGCK0J7pXlx1HsGlbj5wBXQLlQ3Ab/o4pTbThi9acFoCR/eLo
-	 65WmTLCEw20m71CvOHv/ZoA19nC1E7uORPjfXxifwEFKC0SVlCgfAVjl3ZuQNkjdc9
-	 m5gILegWqx67jDRS1rqorVr1lthwCEn9rHUNhS4KdtrXH2DojZ+YT+BCTGwFBrYSLR
-	 TD70OsqTNs0/v9YvrtLSrwrmpLX6/tnnXmj8+J22+D3sWTU+KKzkaJkRW8Vdg70GYH
-	 e7htLXVq29SVw==
-Date: Thu, 16 Oct 2025 10:36:49 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
+	id 1v9JWN-00000003zQm-0R7T;
+	Thu, 16 Oct 2025 08:39:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=RS
+	vYSPh8ZvpCq9Tn8rRo74pwoQsk+cPXDxtofOd/xlQ=; b=IXvHAR7fi2TAsfLHVn
+	2fLAddoDQPJpeHz+Hc0NSWLC+xBmv3zguiE5uAvUltBapI4Q7QDPwqAvtxclmPkb
+	HySd+GNCk9SREAlplFQSf1P2d3GRAx/h2mwx0FMk4yAhZlqMIDPv4A3aCVKxsnZo
+	zaVlOiK6ME/Ndg+TjBzMX2h+Y=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wC3f_8Ur_BoSVKcAg--.8978S2;
+	Thu, 16 Oct 2025 16:38:48 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: dmitry.baryshkov@oss.qualcomm.com,
+	heiko@sntech.de
+Cc: mripard@kernel.org,
+	neil.armstrong@linaro.org,
+	andrzej.hajda@intel.com,
+	jernej.skrabec@gmail.com,
+	jonas@kwiboo.se,
+	Laurent.pinchart@ideasonboard.com,
+	maarten.lankhorst@linux.intel.com,
+	rfoss@kernel.org,
+	simona@ffwll.ch,
+	tzimmermann@suse.de,
+	knaerzche@gmail.com,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next 11/12] net: airoha: Refactor src port
- configuration in airhoha_set_gdm2_loopback
-Message-ID: <aPCuoR8ukM23d71i@lore-desk>
-References: <20251015-an7583-eth-support-v1-0-064855f05923@kernel.org>
- <20251015-an7583-eth-support-v1-11-064855f05923@kernel.org>
- <aO_GOE0jPMlcP-VR@horms.kernel.org>
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v8 0/2] Convert inno hdmi to drm bridge
+Date: Thu, 16 Oct 2025 16:38:30 +0800
+Message-ID: <20251016083843.76675-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="njSAvnTeCku01lzf"
-Content-Disposition: inline
-In-Reply-To: <aO_GOE0jPMlcP-VR@horms.kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wC3f_8Ur_BoSVKcAg--.8978S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7CF4fZw1rGr4xKr48KrWDCFg_yoW8uF4kpa
+	yjyrW5GF47uF1jgFs2kF1fAr1Syan8Jw4S9ryxX34SvFW29F15Aws29F4Yqr9rZr47CFsF
+	yrn7Ja47KFy7ZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jv_M3UUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBEg7oXmjwqwOGzAAAsQ
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251016_013939_440256_F1D3C574 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,156 +86,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Andy Yan <andy.yan@rock-chips.com>
 
---njSAvnTeCku01lzf
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-> On Wed, Oct 15, 2025 at 09:15:11AM +0200, Lorenzo Bianconi wrote:
-> > AN7583 chipset relies on different definitions for source-port
-> > identifier used for hw offloading. In order to support hw offloading
-> > in AN7583 controller, refactor src port configuration in
-> > airhoha_set_gdm2_loopback routine and introduce get_src_port_id
-> > callback.
-> >=20
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >  drivers/net/ethernet/airoha/airoha_eth.c  | 75 +++++++++++++++++++++--=
---------
-> >  drivers/net/ethernet/airoha/airoha_eth.h  | 11 +++--
-> >  drivers/net/ethernet/airoha/airoha_regs.h |  5 +--
-> >  3 files changed, 60 insertions(+), 31 deletions(-)
-> >=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index 5f6b5ab52e0265f7bb56b008ca653d64e04ff2d2..76c82750b3ae89a9fa81c64=
-d3b7c3578b369480c 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -1682,11 +1682,14 @@ static int airoha_dev_set_macaddr(struct net_de=
-vice *dev, void *p)
-> >  	return 0;
-> >  }
-> > =20
-> > -static void airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
-> > +static int airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
-> >  {
-> >  	u32 pse_port =3D port->id =3D=3D 3 ? FE_PSE_PORT_GDM3 : FE_PSE_PORT_G=
-DM4;
-> >  	struct airoha_eth *eth =3D port->qdma->eth;
-> >  	u32 chan =3D port->id =3D=3D 3 ? 4 : 0;
-> > +	/* XXX: handle XSI_USB_PORT and XSI_PCE1_PORT */
-> > +	u32 nbq =3D port->id =3D=3D 3 ? 4 : 0;
-> > +	int src_port;
->=20
-> I think this code could benefit for names (defines) for port ids.
-> It's a bit clearer in airoha_en7581_get_src_port_id(). But the
-> numbers seem kind of magic in this function.
+Convert it to drm bridge driver, it will be convenient for us to
+migrate the connector part to the display driver later.
 
-ack, I will fix it in v2.
+Patches that have already been merged in drm-misc-next are dropped.
 
-Regards,
-Lorenzo
 
->=20
-> > =20
-> >  	/* Forward the traffic to the proper GDM port */
-> >  	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(2), pse_port);
-> > @@ -1709,29 +1712,23 @@ static void airhoha_set_gdm2_loopback(struct ai=
-roha_gdm_port *port)
-> >  	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(2));
-> >  	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(2));
-> > =20
-> > -	if (port->id =3D=3D 3) {
-> > -		/* FIXME: handle XSI_PCE1_PORT */
-> > -		airoha_fe_rmw(eth, REG_FE_WAN_PORT,
-> > -			      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
-> > -			      FIELD_PREP(WAN0_MASK, HSGMII_LAN_PCIE0_SRCPORT));
-> > -		airoha_fe_rmw(eth,
-> > -			      REG_SP_DFT_CPORT(HSGMII_LAN_PCIE0_SRCPORT >> 3),
-> > -			      SP_CPORT_PCIE0_MASK,
-> > -			      FIELD_PREP(SP_CPORT_PCIE0_MASK,
-> > -					 FE_PSE_PORT_CDM2));
-> > -	} else {
-> > -		/* FIXME: handle XSI_USB_PORT */
-> > +	src_port =3D eth->soc->ops.get_src_port_id(port, nbq);
-> > +	if (src_port < 0)
-> > +		return src_port;
-> > +
-> > +	airoha_fe_rmw(eth, REG_FE_WAN_PORT,
-> > +		      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
-> > +		      FIELD_PREP(WAN0_MASK, src_port));
-> > +	airoha_fe_rmw(eth, REG_SP_DFT_CPORT(src_port >> 3),
-> > +		      SP_CPORT_MASK(src_port & 0x7),
-> > +		      FE_PSE_PORT_CDM2 << __ffs(SP_CPORT_MASK(src_port & 0x7)));
->=20
-> Likewise, 3 and 0x7 a bit magical here.
->=20
-> > +
-> > +	if (port->id !=3D 3)
-> >  		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6,
-> >  			      FC_ID_OF_SRC_PORT24_MASK,
-> >  			      FIELD_PREP(FC_ID_OF_SRC_PORT24_MASK, 2));
->=20
-> ... and 2 here.
->=20
-> > -		airoha_fe_rmw(eth, REG_FE_WAN_PORT,
-> > -			      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
-> > -			      FIELD_PREP(WAN0_MASK, HSGMII_LAN_ETH_SRCPORT));
-> > -		airoha_fe_rmw(eth,
-> > -			      REG_SP_DFT_CPORT(HSGMII_LAN_ETH_SRCPORT >> 3),
-> > -			      SP_CPORT_ETH_MASK,
-> > -			      FIELD_PREP(SP_CPORT_ETH_MASK, FE_PSE_PORT_CDM2));
-> > -	}
-> > +
-> > +	return 0;
-> >  }
->=20
-> ...
->=20
-> > @@ -3055,11 +3057,38 @@ static const char * const en7581_xsi_rsts_names=
-[] =3D {
-> >  	"xfp-mac",
-> >  };
-> > =20
-> > +static int airoha_en7581_get_src_port_id(struct airoha_gdm_port *port,=
- int nbq)
-> > +{
-> > +	switch (port->id) {
-> > +	case 3:
-> > +		/* 7581 SoC supports PCIe serdes on GDM3 port */
-> > +		if (nbq =3D=3D 4)
-> > +			return HSGMII_LAN_7581_PCIE0_SRCPORT;
-> > +		if (nbq =3D=3D 5)
-> > +			return HSGMII_LAN_7581_PCIE1_SRCPORT;
-> > +		break;
-> > +	case 4:
-> > +		/* 7581 SoC supports eth and usb serdes on GDM4 port */
-> > +		if (!nbq)
-> > +			return HSGMII_LAN_7581_ETH_SRCPORT;
-> > +		if (nbq =3D=3D 1)
-> > +			return HSGMII_LAN_7581_USB_SRCPORT;
-> > +		break;
-> > +	default:
-> > +		break;
-> > +	}
-> > +
-> > +	return -EINVAL;
-> > +}
->=20
-> ...
+Changes in v8:
+- Rebase on latest drm-misc-next tag: drm-misc-fixes-2025-10-09
+- Link to v7: https://lore.kernel.org/linux-rockchip/20250903110825.776807-1-andyshrk@163.com/
 
---njSAvnTeCku01lzf
-Content-Type: application/pgp-signature; name=signature.asc
+Changes in v7:
+- Rebase on latest drm-misc-next
+- Link to v6: https://lore.kernel.org/linux-rockchip/20250717081344.1355613-1-andyshrk@163.com/
 
------BEGIN PGP SIGNATURE-----
+Changes in v6:
+- Rebase on latest drm-misc-next
+- Link to V5: https://lore.kernel.org/linux-rockchip/20250512124615.2848731-1-andyshrk@163.com/
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaPCuoQAKCRA6cBh0uS2t
-rCOOAQDMDIpF364/MbSzib3j8d9uEzbbNEXLxP3luCc3gqQiqwEA742hYnGMwq6H
-kCa9nehAixoGaVR15kULJyL3ZZAxHgc=
-=NNc+
------END PGP SIGNATURE-----
+Changes in v5:
+- Split cleanup code to seperate patch
+- Switch to devm_drm_bridge_alloc() API
+- Link to V4: https://lore.kernel.org/linux-rockchip/20250422070455.432666-1-andyshrk@163.com/
 
---njSAvnTeCku01lzf--
+Changes in v4:
+- Do not store colorimetry within inno_hdmi struct
+- Link to V3: https://lore.kernel.org/linux-rockchip/20250402123150.238234-1-andyshrk@163.com/
+
+Changes in v3:
+- First included in v3
+- Link to V2: https://lore.kernel.org/dri-devel/20250325132944.171111-1-andyshrk@163.com/
+
+Andy Yan (2):
+  drm/rockchip: inno-hdmi: Convert to drm bridge
+  MAINTAINERS: Add entry for Innosilicon hdmi bridge library
+
+ MAINTAINERS                                   |   8 +
+ drivers/gpu/drm/bridge/Kconfig                |   7 +
+ drivers/gpu/drm/bridge/Makefile               |   1 +
+ .../inno_hdmi.c => bridge/inno-hdmi.c}        | 501 +++++-------------
+ drivers/gpu/drm/rockchip/Kconfig              |   1 +
+ drivers/gpu/drm/rockchip/Makefile             |   2 +-
+ drivers/gpu/drm/rockchip/inno_hdmi-rockchip.c | 189 +++++++
+ include/drm/bridge/inno_hdmi.h                |  33 ++
+ 8 files changed, 375 insertions(+), 367 deletions(-)
+ rename drivers/gpu/drm/{rockchip/inno_hdmi.c => bridge/inno-hdmi.c} (69%)
+ create mode 100644 drivers/gpu/drm/rockchip/inno_hdmi-rockchip.c
+ create mode 100644 include/drm/bridge/inno_hdmi.h
+
+-- 
+2.43.0
+
+base-commit: 21f0c9e6d2835608c3b46ab47d84e341fc7749fc
+branch: rk3036_hdmi_bridge_v8
+
 
