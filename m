@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34CECCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 00:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A0FCCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 00:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qnZIizqmryS73KPHBFvS6qKO1GXXcgajB8w3CzTpiaU=; b=BvXK/fhbvNkEdDfvYa+W/qf1Jy
-	x9tiZWF+thWzcXTEJr4f1UvDOsasgmXkNN9zaVoGXqyISq/OIZkiamoL/XVt3CHefMfYftvOLpreQ
-	0wMQDlEvGsN+yhGz7j0JmBXigB9v3gFMUEprJknD5KpKFvyy58XlFcX+2cndI/eO6BVqE6mFOtSIb
-	2svk03nbTZn2oK2O15C+fnyNg+00FstH4VmhIIo48HR9qaOZ42JMdZS8AlN/yq26W9+6UEe1T2kfA
-	K1VZrmZTDK+P80kMfgthhlKxcFRFGG8H9TwZL5Mgtmu7IW4t5uc7GAKJXLk/qU9zG7XJ2Bx0Cn4nJ
-	irKnqZZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zwV6WfJvvPYpRFeEhioIHa0sDPtNgTdX80XNu9vFO3A=; b=XsrfpvTz6N2wwvYiHVwYTaLb6M
+	Gh6aYEzyBpomcFFdYeNxsHDUdPV6PwDqyuopFNBoX2xuXTjRp60Xpeb348FZ2fOGDtlkgDzWbQVP5
+	RhosEDYhqAkjMu3T/CMd5YM+nJPK/AM8zRMald+NpedAFgb4STqD5VQxnKEz2nMEe8JJ3oVMKR14H
+	VihfqeNUWJyK3MgVjRWnbY1iLwZIwd4KZH8G6B/249H/nAP0MuTLZzZo1YBzImQrtlWZykSs0DZpY
+	MKNJFzmNjobmVlEdj6cAcEBzBRspP0BfsiSHln1hwAjrfNKRt09evZCuQBRLhMuf6iWD6PppW4Cwc
+	q8tnNCoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9BU1-000000037Gx-1unz;
-	Thu, 16 Oct 2025 00:04:41 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1v9BpL-000000038wj-0Enl;
+	Thu, 16 Oct 2025 00:26:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9BTx-000000037Fz-3yVT;
-	Thu, 16 Oct 2025 00:04:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760573078; x=1792109078;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=+JrivgWyUgg+pmx0+52mYBdTXkR4tEzcKUO0ehqXf7s=;
-  b=QvcBuq3wY1Cl1T1klhEt90xTeZT/mspknFP/SmDDRGi8sYmv4bF+n/d8
-   R2PDDAI7bLHb8BFyWwQ/E4z/5tChdE1frjPOIuYj3+3oqNMl0tx+gQLqw
-   Qz91cfrAcCo1O+V0PI7mcF0GFFiajcFuTeSvhVoAyjoWdrpNHoeR7w31j
-   ShlrDu+FGFRBtrxorrioQc6v8XfxZ1+bjnFlJXKDquqa/AJITR08TmMFq
-   +MDxHNtgcHGj5Ol7kZN1RvN4FcrpWYoZkZBA7FJtV4JOqa6DfzLG59JfE
-   kHZsH3xTZHHnY7jOvFYlC0wCvB3NkzCP1M1hqbU58LTTOZ31Oxz20pWXu
-   g==;
-X-CSE-ConnectionGUID: 5+fpaFsxQcqkAsuhKs9DJQ==
-X-CSE-MsgGUID: LTFRNXMiT2ypeKIU8bRbug==
-X-IronPort-AV: E=McAfee;i="6800,10657,11583"; a="85377194"
-X-IronPort-AV: E=Sophos;i="6.19,232,1754982000"; 
-   d="scan'208";a="85377194"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 17:04:36 -0700
-X-CSE-ConnectionGUID: R752COMtRQqyVd5oHvt9WQ==
-X-CSE-MsgGUID: 3PO6qZFiQTmjq3l7JbpGAA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,232,1754982000"; 
-   d="scan'208";a="182097810"
-Received: from unknown (HELO [10.238.2.75]) ([10.238.2.75])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Oct 2025 17:04:29 -0700
-Message-ID: <ea123839-80fd-4555-8da2-adbd060a2082@linux.intel.com>
-Date: Thu, 16 Oct 2025 08:04:26 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 32/44] KVM: x86/pmu: Disable interception of select PMU
- MSRs for mediated vPMUs
-To: Sean Christopherson <seanjc@google.com>
-Cc: Sandipan Das <sandidas@amd.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
- Mingwei Zhang <mizhang@google.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Sandipan Das <sandipan.das@amd.com>
-References: <20250806195706.1650976-1-seanjc@google.com>
- <20250806195706.1650976-33-seanjc@google.com>
- <f896966e-8925-4b4f-8f0d-f1ae8aa197f7@amd.com> <aN1vfykNs8Dmv_g0@google.com>
- <0276af52-c697-46c3-9db8-9284adb6beee@linux.intel.com>
- <aO_slNn8X1A84sI-@google.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <aO_slNn8X1A84sI-@google.com>
-Content-Type: text/plain; charset=UTF-8
+	id 1v9BpJ-000000038w4-0Y0y;
+	Thu, 16 Oct 2025 00:26:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E9D13490C1;
+	Thu, 16 Oct 2025 00:26:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90F7CC4CEF8;
+	Thu, 16 Oct 2025 00:26:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760574399;
+	bh=U28sDA1Foqogqj0EpzymayQ1wgUPbptp/B4nVYhh2VQ=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Dj94XWJV8URBCP7eHQRkGso8jdIVf4yq32iKR936m+qK40hXECoK27b6FucGkMto0
+	 xKqWpYkuWx4UHz/896XaCHoBe6Q1JiK0Kxc00rN7K8h+LuhdBPw9dxd2mNpLuJ/PYx
+	 tzubS/ZUMVIURtzvMmnHMgnXnGMfdlqmgRAfFKecvQdGrHV4o08O4AeT2FvZxs8MR3
+	 S2oBcLETPjUKZ1Z7T+ECLUUDZZ7/de+DlhSPpNl+CJxTWzsD31NPwc+R9Fx7aH5B6+
+	 JSbYHle1X/IxBGUx/oiSimthNjSWELBTTa2mpPBZ3gOWs/hRRYtOhh7vtqt1X+IZ/X
+	 O62U8DSbcPnEw==
+Date: Wed, 15 Oct 2025 19:26:36 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Vladimir Oltean <olteanv@gmail.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, devicetree@vger.kernel.org, 
+ Jakub Kicinski <kuba@kernel.org>, Andy Shevchenko <andy@kernel.org>, 
+ Joel Stanley <joel@jms.id.au>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Lee Jones <lee@kernel.org>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Eric Dumazet <edumazet@google.com>, linux-iio@vger.kernel.org, 
+ Manivannan Sadhasivam <mani@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+ Michael Hennerich <Michael.Hennerich@analog.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
+ Jonathan Cameron <jic23@kernel.org>, linux-phy@lists.infradead.org, 
+ Florian Fainelli <f.fainelli@gmail.com>, netdev@vger.kernel.org, 
+ Paolo Abeni <pabeni@redhat.com>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Stephen Boyd <sboyd@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>, 
+ linux-gpio@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>, 
+ linux-media@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
+ Lars-Peter Clausen <lars@metafoo.de>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ linux-clk@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ linux-pci@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-kernel@vger.kernel.org, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Fabio Estevam <festevam@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Tony Lindgren <tony@atomide.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+In-Reply-To: <20251015232015.846282-1-robh@kernel.org>
+References: <20251015232015.846282-1-robh@kernel.org>
+Message-Id: <176057439666.933167.2958808777480882513.robh@kernel.org>
+Subject: Re: [PATCH] dt-bindings: Fix inconsistent quoting
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_170438_147848_61786440 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20251015_172641_205613_C23E63AA 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,42 +100,68 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 10/16/2025 2:48 AM, Sean Christopherson wrote:
-> On Thu, Oct 09, 2025, Dapeng Mi wrote:
->> On 10/2/2025 2:14 AM, Sean Christopherson wrote:
->>> On Fri, Sep 26, 2025, Sandipan Das wrote:
->>>> On 8/7/2025 1:26 AM, Sean Christopherson wrote:
->>>>> +	return kvm_need_perf_global_ctrl_intercept(vcpu) ||
->>>>>  	       pmu->counter_bitmask[KVM_PMC_GP] != (BIT_ULL(kvm_host_pmu.bit_width_gp) - 1) ||
->>>>>  	       pmu->counter_bitmask[KVM_PMC_FIXED] != (BIT_ULL(kvm_host_pmu.bit_width_fixed) - 1);
->>>>>  }
->>>> There is a case for AMD processors where the global MSRs are absent in the guest
->>>> but the guest still uses the same number of counters as what is advertised by the
->>>> host capabilities. So RDPMC interception is not necessary for all cases where
->>>> global control is unavailable.o
->>> Hmm, I think Intel would be the same?  Ah, no, because the host will have fixed
->>> counters, but the guest will not.  However, that's not directly related to
->>> kvm_pmu_has_perf_global_ctrl(), so I think this would be correct?
->>>
->>> diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
->>> index 4414d070c4f9..4c5b2712ee4c 100644
->>> --- a/arch/x86/kvm/pmu.c
->>> +++ b/arch/x86/kvm/pmu.c
->>> @@ -744,16 +744,13 @@ int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned idx, u64 *data)
->>>         return 0;
->>>  }
->>>  
->>> -bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
->>> +static bool kvm_need_pmc_intercept(struct kvm_vcpu *vcpu)
->> The function name kvm_need_pmc_intercept() seems a little bit misleading
->> and make users think this function is used to check if a certain PMC is
->> intercepted. Maybe we can rename the function to kvm_need_global_intercept().
-> Yeah, I don't love kvm_need_pmc_intercept() either.  But kvm_need_global_intercept()
-> feels too close to kvm_need_perf_global_ctrl_intercept().
->
-> Maybe something like kvm_need_any_pmc_intercept()?
+On Wed, 15 Oct 2025 18:16:24 -0500, Rob Herring (Arm) wrote:
+> yamllint has gained a new check which checks for inconsistent quoting
+> (mixed " and ' quotes within a file). Fix all the cases yamllint found
+> so we can enable the check (once the check is in a release). Use
+> whichever quoting is dominate in the file.
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  .../arm/altera/socfpga-clk-manager.yaml       |  4 ++--
+>  .../bindings/clock/nvidia,tegra124-car.yaml   |  8 ++++----
+>  .../bindings/clock/nvidia,tegra20-car.yaml    |  6 +++---
+>  .../devicetree/bindings/gpio/gpio-mxs.yaml    |  9 +++++----
+>  .../bindings/gpio/snps,dw-apb-gpio.yaml       |  4 ++--
+>  .../bindings/iio/temperature/adi,ltc2983.yaml | 20 +++++++++----------
+>  .../mailbox/qcom,apcs-kpss-global.yaml        | 16 +++++++--------
+>  .../mailbox/xlnx,zynqmp-ipi-mailbox.yaml      |  2 +-
+>  .../bindings/media/fsl,imx6q-vdoa.yaml        |  2 +-
+>  .../devicetree/bindings/mfd/aspeed-lpc.yaml   |  4 ++--
+>  .../devicetree/bindings/mfd/ti,twl.yaml       |  4 ++--
+>  .../bindings/net/ethernet-switch.yaml         |  2 +-
+>  .../pci/plda,xpressrich3-axi-common.yaml      |  2 +-
+>  .../bindings/phy/motorola,cpcap-usb-phy.yaml  |  4 ++--
+>  .../pinctrl/microchip,sparx5-sgpio.yaml       | 12 +++++------
+>  .../bindings/pinctrl/qcom,pmic-gpio.yaml      | 10 +++++-----
+>  .../bindings/pinctrl/qcom,pmic-mpp.yaml       |  6 +++---
+>  .../bindings/pinctrl/renesas,pfc.yaml         |  4 ++--
+>  .../bindings/pinctrl/renesas,rza1-ports.yaml  |  2 +-
+>  .../pinctrl/renesas,rzg2l-pinctrl.yaml        |  2 +-
+>  .../pinctrl/renesas,rzv2m-pinctrl.yaml        |  2 +-
+>  .../bindings/power/renesas,sysc-rmobile.yaml  |  4 ++--
+>  .../soc/microchip/atmel,at91rm9200-tcb.yaml   |  8 ++++----
+>  .../soc/tegra/nvidia,tegra20-pmc.yaml         | 12 +++++------
+>  24 files changed, 75 insertions(+), 74 deletions(-)
+> 
 
-It sounds good to me. Thanks.
+My bot found errors running 'make dt_binding_check' on your patch:
 
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+Error: Documentation/devicetree/bindings/pinctrl/renesas,pfc.example.dts:90.36-37 syntax error
+FATAL ERROR: Unable to parse input tree
+make[2]: *** [scripts/Makefile.dtbs:132: Documentation/devicetree/bindings/pinctrl/renesas,pfc.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1525: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251015232015.846282-1-robh@kernel.org
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
