@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1054ECCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 12:06:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E647ACCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 12:06:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+L+PRoKjfXu5O08x0ZQYLzuN4uifGZ1A2IBkEgBFIlw=; b=HZ+5fpOMweByLEt9JI8V998+w5
-	geSzzuqG2e+OLTIbNXnwYheScF87No/fO0GyANbpf0ToZb6/kD7Q0jQleiAvy2HwEq7GMsFHwzK5g
-	yoNDoXR9hl9DAFvm7zddTpmxGASJjWTbbnqwELS0rgE4i4ORngrtkfDtqORWLLoyWfnmace+QD1TM
-	6WAp4Zl90Z/6K5WQsF+PtH63dPNfthjxcEqpov0BIRDRyKZywZhJmeNJNzrjUu+62zFluqtUoXsDi
-	e5L2KaujZqeXHi2PBXrVyhANpVbhUMiUyC3ufNQXU07MRcePPvh8v4aCZkd8RQQbRbzb1CiCadPka
-	BSBQIIgA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zdMLkxCMdwv/ZcvRRwqvZ+qNQlbpWZA9E5mCTIh0Tkc=; b=NuLlEnhyAFz4/mlnhWeAtPIN5A
+	5AAOfsCgxGhMwgufJSlrqnxwZRJmjmhhPuTuraoUVz5tFfMWzGoEt9JfEjJIyda7yyV694kcV9+3l
+	kMXDudEJZecKKGNMSJbzAItsPMXCmcRdp/3IuvwdpmaPOWe+ySW32yGiRpazkr5Q+tSM3njW0kFYu
+	fBl0aWozDge1G7tQj4FLlCl4OeNgLh3rxkKL1tCKARVperq0wLj/vIKa8seVXJgk56qGQuyyAXghb
+	iOirEgzXprVsTVSrC2QiergM5oUoan4CD+lnvVjQW0Er8cYVzL9t+QbFjaEF0rC/S7ao685ZO9ei3
+	XO2UM8Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Mkc-00000004ffb-2R6B;
-	Thu, 16 Oct 2025 12:06:34 +0000
-Received: from mail-m49208.qiye.163.com ([45.254.49.208])
+	id 1v9Mkg-00000004fiS-3haG;
+	Thu, 16 Oct 2025 12:06:38 +0000
+Received: from mail-m49218.qiye.163.com ([45.254.49.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MkZ-00000004fdT-0rCh
+	id 1v9Mke-00000004ffZ-0axC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 12:06:34 +0000
+	Thu, 16 Oct 2025 12:06:38 +0000
 Received: from albert-OptiPlex-7080.. (unknown [117.184.129.134])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 262659560;
-	Thu, 16 Oct 2025 20:06:26 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 26265956d;
+	Thu, 16 Oct 2025 20:06:32 +0800 (GMT+08:00)
 From: Albert Yang <yangzh0906@thundersoft.com>
 To: krzysztof.kozlowski@linaro.org
 Cc: krzk+dt@kernel.org,
@@ -45,25 +45,28 @@ Cc: krzk+dt@kernel.org,
 	linux-kernel@vger.kernel.org,
 	ulf.hansson@linaro.org,
 	Albert Yang <yangzh0906@thundersoft.com>
-Subject: [PATCH v5 0/6] arm64: introduce Black Sesame Technologies C1200 SoC and CDCU1.0 board
-Date: Thu, 16 Oct 2025 20:05:52 +0800
-Message-ID: <20251016120558.2390960-1-yangzh0906@thundersoft.com>
+Subject: [PATCH v5 1/6] dt-bindings: vendor-prefixes: Add Black Sesame Technologies Co., Ltd.
+Date: Thu, 16 Oct 2025 20:05:53 +0800
+Message-ID: <20251016120558.2390960-2-yangzh0906@thundersoft.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251016120558.2390960-1-yangzh0906@thundersoft.com>
+References: <20251016120558.2390960-1-yangzh0906@thundersoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a99ecea0e4c09cckunm98a0ee0612766
+X-HM-Tid: 0a99ecea25f909cckunm98a0ee06127c2
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZShlOVklLTRpCTh8eQhkZTVYVFAkWGhdVEwETFh
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDGksYVk8eHk1NSUIYSBpIQlYVFAkWGhdVEwETFh
 	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
 	tLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=XSSs7Mr6PYx4lOFgVOBI+ndJ/OoiFwKlflZyM4pJnkAIE6r8HXkWf4oGwrZQFtwq7TMIn/nACuPyYLp4/cZE4kqP/5RZ1GmPn3b88L6M0IZFr3liuQ2T+UIqvXd+fgDv+bcH5SH0yqA0jzurRdueltiEoUzw2admwawxsENwK64=; s=default; c=relaxed/relaxed; d=thundersoft.com; v=1;
-	bh=+L+PRoKjfXu5O08x0ZQYLzuN4uifGZ1A2IBkEgBFIlw=;
+	b=FodpsulKPDCojROvxcmY+iPnfkF4JJ9ME0qd+d0MRzFR3+H6WIgnsH+m2DBgq2v3xZSWruB6bQv3LEHkoTSWKSNyN7qofdkflZrcC3MednsbPRKPtOVE8thuMLi+ZSxsdfg3vR5ge4dUaDs0FwNVGV+2rq91WCU0vCmiZIpnxy0=; s=default; c=relaxed/relaxed; d=thundersoft.com; v=1;
+	bh=zdMLkxCMdwv/ZcvRRwqvZ+qNQlbpWZA9E5mCTIh0Tkc=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_050631_476569_6B8C52AD 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20251016_050636_925002_C8A059F4 
+X-CRM114-Status: UNSURE (   7.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,128 +81,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces platform support for Black Sesame Technologies
-(BST) C1200 SoC and CDCU1.0 ADAS 4C2G board. BST is a leading automotive-grade
-computing SoC provider focusing on intelligent driving, computer vision, and AI
-capabilities for ADAS and autonomous driving applications. You can find more
-information about the SoC and related boards at: https://bst.ai
-
-This series provides the foundational platform enablement including device tree
-bindings, SoC and board device trees, platform configuration, and maintainer
-information. MMC/SDHCI driver support will be submitted in a separate patch series.
-
-The series includes:
-
-Patch 1: dt-bindings: vendor-prefixes: Add Black Sesame Technologies Co., Ltd.
-- Adds BST vendor prefix to device tree vendor prefixes
-- Provides company information and website link
-
-Patch 2: dt-bindings: arm: add Black Sesame Technologies (bst) SoC
-- Adds device tree bindings for BST ARM SoC family
-- Defines compatible strings for C1200 SoC and CDCU1.0 board
-
-Patch 3: arm64: Kconfig: add ARCH_BST for Black Sesame Technologies SoCs
-- Adds ARCH_BST configuration option for BST SoC family
-- Enables platform-specific features and driver dependencies
-
-Patch 4: arm64: dts: bst: add support for Black Sesame Technologies C1200 CDCU1.0 board
-- Complete device tree support for BST C1200 CDCU1.0 ADAS 4C2G board
-- Includes SoC dtsi and board-specific dts files
-- Defines CPU, memory, peripherals, and platform-specific configurations
-
-Patch 5: arm64: defconfig: enable BST platform support
-- Enables CONFIG_ARCH_BST in ARM64 defconfig
-- Provides out-of-box support for BST platforms
-
-Patch 6: MAINTAINERS: add Black Sesame Technologies (BST) ARM SoC support
-- Adds maintainer entry for BST ARM SoC support
-- Covers device tree bindings and board files
-- Sets status as "Supported" based on review feedback
-
-Changes for v5:
-- Remove MMC-related patches (dt-bindings mmc, mmc driver, bounce buffer enhancement)
-  as they will be submitted separately in a dedicated MMC patch series
-- Patch 4 (arm64: dts): Remove MMC node and MMC clock from SoC DTSI completely; remove MMC node override in board DTS (MMC driver and bindings will be submitted separately)
-- Patch 5 (arm64: defconfig): Remove CONFIG_MMC_SDHCI_BST configuration
-- Patch 6 (MAINTAINERS): Remove MMC driver and dt-bindings file entries; change status
-  from "Maintained" to "Supported" based on review feedback
-- Rebase to v6.18-rc1
-
-Changes for v4:
-- Rebase to 6.17-rc5
-- Patch 1 (dt-bindings: vendor-prefixes):
-	- Adjust ^bst to the correct alphabetical order
-	- Adjust Acked-by order
-- Patch 2 (dt-bindings: arm):
-	- Remove Signed-off-by: Ge Gordon
-	- Add Reviewed-by Krzysztof Kozlowski info
-- Patch 3 (arm64: Kconfig):
-	- Remove Signed-off-by: Ge Gordon
-- Patch 4 (arm64: dts):
-	- Remove Signed-off-by line for Ge Gordon
-	- Reorder device tree node properties for better consistency
-	- CPU nodes: move `device_type` before `compatible`, add explicit `reg` values
-	- MMC node: change compatible from `bst,c1200-dwcmshc-sdhci` to `bst,c1200-sdhci`
-	- MMC node: remove `bus-width` and `non-removable` from SoC dtsi, move to board dts
-	- SoC node: reorder properties (`ranges` before address/size cells)
-	- UART node: reorder properties (clock-frequency before interrupts)
-	- GIC node: reorder properties for better readability
-	- Timer node: reorder properties (always-on before interrupt-parent)
-	- Board DTS: add `bus-width = <8>` and `non-removable` to MMC node
-	- Board DTS: reorder MMC and UART node references
-- Patch 5 (arm64: defconfig):
-	- move CONFIG_MMC_SDHCI_BST before CONFIG_MMC_SDHCI_F_SDH30
-	- Remove Signed-off-by line for Ge Gordon
-	- Simplify commit message (remove detailed description about eMMC/SD functionality)
-- Patch 6 (MAINTAINERS):
-	- Changed file name: sdhci-of-bst-c1200.c to sdhci-of-bst.c
-	- Change title from "add and consolidate" to just "add"
-	- Simplify commit message description
-	- Remove Signed-off-by line for Ge Gordon
-
-Changes for v3:
-- Patch 2: Add Signed-off-by: Ge Gordon
-- Patch 3: Reword subject from "for bst silicons" to "for Black Sesame Technologies SoCs"
-	and drop unrelated whitespace hunk
-- Patch 4: Split defconfig enablement out into dedicated patch, refine memory description,
-	adjust node ordering, remove gic mask
-- Patch 5: Also enable CONFIG_ARCH_BST in arm64 defconfig
-
-Changes for v2:
-- Patch 2: Remove unnecessary pipe in description, drop invalid compatible entry,
-	remove root node definition
-- Patch 3: Place configuration entry in correct alphabetical order, use generic family name,
-	follow upstream naming conventions
-- Patch 4: Reorganize memory map, update controller definitions, remove deprecated
-	properties, standardize interrupt definitions, add root compatible string
+Black Sesame Technologies Co., Ltd.s a leading automotive-grade
+computing SoC and SoC-based intelligent vehicle solution provider.
+Link: https://bst.ai/.
 
 Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
+Changes for v4:
+- adjust ^bst to the correct order
+- adjust Acked-by order
+Changes for v3:
+- No changes
 
-Albert Yang (6):
-  dt-bindings: vendor-prefixes: Add Black Sesame Technologies Co., Ltd.
-  dt-bindings: arm: add Black Sesame Technologies (bst) SoC
-  arm64: Kconfig: add ARCH_BST for Black Sesame Technologies SoCs
-  arm64: dts: bst: add support for Black Sesame Technologies C1200
-    CDCU1.0 board
-  arm64: defconfig: enable BST platform support
-  MAINTAINERS: add Black Sesame Technologies (BST) ARM SoC support
+Changes for v2:
+- No changes
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
- .../devicetree/bindings/arm/bst.yaml          | 31 ++++++
- .../devicetree/bindings/vendor-prefixes.yaml  |  2 +
- MAINTAINERS                                   |  8 ++
- arch/arm64/Kconfig.platforms                  |  8 ++
- arch/arm64/boot/dts/Makefile                  |  1 +
- arch/arm64/boot/dts/bst/Makefile              |  2 +
- .../dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts    | 24 +++++
- arch/arm64/boot/dts/bst/bstc1200.dtsi         | 97 +++++++++++++++++++
- arch/arm64/configs/defconfig                  |  1 +
- 9 files changed, 174 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/arm/bst.yaml
- create mode 100644 arch/arm64/boot/dts/bst/Makefile
- create mode 100644 arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
- create mode 100644 arch/arm64/boot/dts/bst/bstc1200.dtsi
-
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index f1d1882009ba..df0a50b5437b 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -251,6 +251,8 @@ patternProperties:
+     description: Shanghai Broadmobi Communication Technology Co.,Ltd.
+   "^bsh,.*":
+     description: BSH Hausgeraete GmbH
++  "^bst,.*":
++    description: Black Sesame Technologies Co., Ltd.
+   "^bticino,.*":
+     description: Bticino International
+   "^buffalo,.*":
 -- 
 2.43.0
 
