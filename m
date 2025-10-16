@@ -4,62 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4582CCCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 10:29:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588DDCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 10:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TNoL+768qLt2jeQMC+NpKKTz85Lm/7ADx0OpGOEWz/U=; b=M0u/GOu9kA8SFnyu7s+uQ+02Uk
-	0+QlFY6FcR0olT5bf0nWRaXU1P+SPmLv8981x9J9j7vOIxQlpBq2/MuEiTvAqlDWFr8t8MKrWNuUT
-	7yrQouo8/wARfk5isHP7tPw0zDythI4nB1kAydzjcaMICIvW0/Q3dL/q2TcFDI3R8Ija0viXg+rLl
-	KzPnYqcy1MxGuIIbsNgx3GBrr2u5LsmVtsc+haRqJcQYHUn52YtdhW7g/oKj+i4iDwgibakwm3zLO
-	8DCKHCTxYYhpoCHiwsg8/Nmuq7Y7p6anqJrhrnK2Pa0JaLLvdlEJ7BJMPQpIbJuCS/ida0UnZmw3h
-	v2+2pUYg==;
+	bh=MIZE/SkYZUU2fl5demjONRxoCZgch3lbc12VdbEwuRs=; b=AILXWVlr3+yxAbExxByK73DpDH
+	GwcDTzZSxqHI8808FsatHmxT7hen9wqumDlHRJwf7WF65UmWtJInZTRX9VZtBGPoqNTElArM2ZUP7
+	OdMjpCG2qwRAA3FzorfWII5SxxZbtFcu/B/B9qVvPuJzXKE0DFujNdk7iBBG14ReZpcIxqncJcaJs
+	MxAKvJGeV4a1itH8DmSQIDcyQcqrlGspK8UBzHKXD5V88rrc+EhUzkHe7Qj611lxXZBxHblLxmWPO
+	rEz75DGw2JsK0BvuTUoabEcoYfW9wJsVBPTeDk3oJD7fvI/g8h8f2RnJu6jdybzc3td2XhiTAzywf
+	7Afk006A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9LEh-00000004QY7-071v;
-	Thu, 16 Oct 2025 10:29:31 +0000
+	id 1v9LOW-00000004SX2-3oAw;
+	Thu, 16 Oct 2025 10:39:40 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9LEP-00000004QKP-1d3l;
-	Thu, 16 Oct 2025 10:29:13 +0000
+	id 1v9LOV-00000004SWZ-21IV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 16 Oct 2025 10:39:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BEE2763EB9;
-	Thu, 16 Oct 2025 10:29:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19907C4CEF1;
-	Thu, 16 Oct 2025 10:29:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DAEED63ECA;
+	Thu, 16 Oct 2025 10:39:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB5E7C4CEF9;
+	Thu, 16 Oct 2025 10:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760610552;
-	bh=V7uKdWh9DL8VLIBAcI157v28Uag8XqY9eeq4Pg3ppWU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=NnHbnSELJYPgY3+ZqM+AKIPbdx9nnJPD8hPo09TKQLtx/x+TdzxgLEPg4r/+9Z/Vw
-	 L6JJj9MefF6oCFkl3C8glAQVkNwaneSuGR15KdqDUP+ObppcqLbC7KkubTC8/oCrfP
-	 61egIgKoOZXuNBlee62ixxrrJDZLnXG23o3sCzIEwFVbvm5aVFf1o5Vrom6/OkqGMY
-	 t1EboGM2kGh0jMlwKaEQuZJrmsVQUsNikiHUPKYjiXtzvIEA3YSCkxe36L5bQ1F/TU
-	 pZTsw9rcWN9Ln/ILlmKFWRQN+gTCaPfCIy1UytIzfV0Qd1nTRf+upUSeTxNp2J1GEq
-	 qbv1ItBFulW0g==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 16 Oct 2025 12:28:27 +0200
-Subject: [PATCH net-next v2 13/13] net: airoha: Add AN7583 SoC support
+	s=k20201202; t=1760611178;
+	bh=6A/4cU9W/5zTIgE22chfzcnwvKLqW2rXf1QX34J4BgE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FlokTebtU9fRECB8/vQOoNiKbJug/ifJbguv7PyTO4U+ixySj+7UXtTXhbGCBcIeG
+	 TNYr9or5ay7tI+ytrTPDsidu6T4RLIHWKI20jyrWY2wW0RAAHDSoU5ZYfvNF91h/cm
+	 awWbpg2FmNqcm4lBC/GdfrwK0R17ofxs2yH8McY/em8KfS0LyIVmsMWq3mhN+HasVD
+	 1U0g4ij3Qqc7NujaoAYSQMl5jRovgSck+l2sAyHQUVbgl6rmUHdt2fo5hwKXswL6Xh
+	 cXhvN6AeW+fO/DomCifXQW6+Tg9gqOsC6kqD+HQfkbcuTgYzahdgH6JLCPZDw+Aerw
+	 B8vJvUS2wqT6A==
+Message-ID: <0aba21da-c193-4604-ab9c-7ec7b7fe92a5@kernel.org>
+Date: Thu, 16 Oct 2025 12:39:31 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add support for camss
+To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+ Vikram Sharma <quic_vikramsa@quicinc.com>, mchehab@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+ cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, bryan.odonoghue@linaro.org
+References: <20251015130130.2790829-1-quic_vikramsa@quicinc.com>
+ <20251015130130.2790829-3-quic_vikramsa@quicinc.com>
+ <b4207e22-8d9c-4223-8b28-272d2650661f@linaro.org>
+ <8966ddaf-9c10-4626-a4cc-36efd3fc93e2@kernel.org>
+ <ad05ed96-80fb-448a-a264-f4b4befc5d30@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <ad05ed96-80fb-448a-a264-f4b4befc5d30@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251016-an7583-eth-support-v2-13-ea6e7e9acbdb@kernel.org>
-References: <20251016-an7583-eth-support-v2-0-ea6e7e9acbdb@kernel.org>
-In-Reply-To: <20251016-an7583-eth-support-v2-0-ea6e7e9acbdb@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org
-X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,191 +123,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce support for AN7583 ethernet controller to airoha-eth dirver.
+On 16/10/2025 11:52, Vladimir Zapolskiy wrote:
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 68 +++++++++++++++++++++++++++++---
- drivers/net/ethernet/airoha/airoha_eth.h | 11 ++++++
- drivers/net/ethernet/airoha/airoha_ppe.c |  3 ++
- 3 files changed, 77 insertions(+), 5 deletions(-)
+> The same order is supposed to be kept.
+> 
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index b9d36b841fe272a302125367a8d1e88e6e5adfbf..79a85ce96d6393fe47d91208068ff20a29862ca7 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1684,10 +1684,8 @@ static int airoha_dev_set_macaddr(struct net_device *dev, void *p)
- 
- static int airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
- {
--	u32 val, pse_port, chan = port->id == AIROHA_GDM3_IDX ? 4 : 0;
- 	struct airoha_eth *eth = port->qdma->eth;
--	/* XXX: handle XSI_USB_PORT and XSI_PCE1_PORT */
--	u32 nbq = port->id == AIROHA_GDM3_IDX ? 4 : 0;
-+	u32 val, pse_port, chan, nbq;
- 	int src_port;
- 
- 	/* Forward the traffic to the proper GDM port */
-@@ -1699,6 +1697,8 @@ static int airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
- 	/* Enable GDM2 loopback */
- 	airoha_fe_wr(eth, REG_GDM_TXCHN_EN(2), 0xffffffff);
- 	airoha_fe_wr(eth, REG_GDM_RXCHN_EN(2), 0xffff);
-+
-+	chan = port->id == AIROHA_GDM3_IDX ? airoha_is_7581(eth) ? 4 : 3 : 0;
- 	airoha_fe_rmw(eth, REG_GDM_LPBK_CFG(2),
- 		      LPBK_CHAN_MASK | LPBK_MODE_MASK | LPBK_EN_MASK,
- 		      FIELD_PREP(LPBK_CHAN_MASK, chan) |
-@@ -1713,6 +1713,8 @@ static int airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
- 	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(2));
- 	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(2));
- 
-+	/* XXX: handle XSI_USB_PORT and XSI_PCE1_PORT */
-+	nbq = port->id == AIROHA_GDM3_IDX && airoha_is_7581(eth) ? 4 : 0;
- 	src_port = eth->soc->ops.get_src_port_id(port, nbq);
- 	if (src_port < 0)
- 		return src_port;
-@@ -1726,7 +1728,7 @@ static int airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
- 		      SP_CPORT_MASK(val),
- 		      FE_PSE_PORT_CDM2 << __ffs(SP_CPORT_MASK(val)));
- 
--	if (port->id != AIROHA_GDM3_IDX)
-+	if (port->id != AIROHA_GDM3_IDX && airoha_is_7581(eth))
- 		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6,
- 			      FC_ID_OF_SRC_PORT24_MASK,
- 			      FIELD_PREP(FC_ID_OF_SRC_PORT24_MASK, 2));
-@@ -1881,6 +1883,22 @@ static u32 airoha_get_dsa_tag(struct sk_buff *skb, struct net_device *dev)
- #endif
- }
- 
-+static int airoha_get_fe_port(struct airoha_gdm_port *port)
-+{
-+	struct airoha_qdma *qdma = port->qdma;
-+	struct airoha_eth *eth = qdma->eth;
-+
-+	switch (eth->soc->version) {
-+	case 0x7583:
-+		return port->id == AIROHA_GDM3_IDX ? FE_PSE_PORT_GDM3
-+						   : port->id;
-+	case 0x7581:
-+	default:
-+		return port->id == AIROHA_GDM4_IDX ? FE_PSE_PORT_GDM4
-+						   : port->id;
-+	}
-+}
-+
- static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 				   struct net_device *dev)
- {
-@@ -1921,7 +1939,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 		}
- 	}
- 
--	fport = port->id == 4 ? FE_PSE_PORT_GDM4 : port->id;
-+	fport = airoha_get_fe_port(port);
- 	msg1 = FIELD_PREP(QDMA_ETH_TXMSG_FPORT_MASK, fport) |
- 	       FIELD_PREP(QDMA_ETH_TXMSG_METER_MASK, 0x7f);
- 
-@@ -3084,6 +3102,35 @@ static int airoha_en7581_get_src_port_id(struct airoha_gdm_port *port, int nbq)
- 	return -EINVAL;
- }
- 
-+static const char * const an7583_xsi_rsts_names[] = {
-+	"xsi-mac",
-+	"hsi0-mac",
-+	"hsi1-mac",
-+	"xfp-mac",
-+};
-+
-+static int airoha_an7583_get_src_port_id(struct airoha_gdm_port *port, int nbq)
-+{
-+	switch (port->id) {
-+	case 3:
-+		/* 7583 SoC supports eth serdes on GDM3 port */
-+		if (!nbq)
-+			return HSGMII_LAN_7583_ETH_SRCPORT;
-+		break;
-+	case 4:
-+		/* 7583 SoC supports PCIe and USB serdes on GDM4 port */
-+		if (!nbq)
-+			return HSGMII_LAN_7583_PCIE_SRCPORT;
-+		if (nbq == 1)
-+			return HSGMII_LAN_7583_USB_SRCPORT;
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	return -EINVAL;
-+}
-+
- static const struct airoha_eth_soc_data en7581_soc_data = {
- 	.version = 0x7581,
- 	.xsi_rsts_names = en7581_xsi_rsts_names,
-@@ -3094,8 +3141,19 @@ static const struct airoha_eth_soc_data en7581_soc_data = {
- 	},
- };
- 
-+static const struct airoha_eth_soc_data an7583_soc_data = {
-+	.version = 0x7583,
-+	.xsi_rsts_names = an7583_xsi_rsts_names,
-+	.num_xsi_rsts = ARRAY_SIZE(an7583_xsi_rsts_names),
-+	.num_ppe = 1,
-+	.ops = {
-+		.get_src_port_id = airoha_an7583_get_src_port_id,
-+	},
-+};
-+
- static const struct of_device_id of_airoha_match[] = {
- 	{ .compatible = "airoha,en7581-eth", .data = &en7581_soc_data },
-+	{ .compatible = "airoha,an7583-eth", .data = &an7583_soc_data },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, of_airoha_match);
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index e09579da8c78a99ef07ee7eef7be3cd6c1b5be76..eb27a4ff51984ef376c6e94607ee2dc1a806488b 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -73,6 +73,12 @@ enum {
- 	HSGMII_LAN_7581_USB_SRCPORT,
- };
- 
-+enum {
-+	HSGMII_LAN_7583_ETH_SRCPORT	= 0x16,
-+	HSGMII_LAN_7583_PCIE_SRCPORT	= 0x18,
-+	HSGMII_LAN_7583_USB_SRCPORT,
-+};
-+
- enum {
- 	XSI_PCIE0_VIP_PORT_MASK	= BIT(22),
- 	XSI_PCIE1_VIP_PORT_MASK	= BIT(23),
-@@ -629,6 +635,11 @@ static inline bool airoha_is_7581(struct airoha_eth *eth)
- 	return eth->soc->version == 0x7581;
- }
- 
-+static inline bool airoha_is_7583(struct airoha_eth *eth)
-+{
-+	return eth->soc->version == 0x7583;
-+}
-+
- bool airoha_is_valid_gdm_port(struct airoha_eth *eth,
- 			      struct airoha_gdm_port *port);
- 
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index eda95107cd1daf6ff00a85abc72313a509ed67e9..c373f21d95f5a610deae365c64bc589c21f5e1a0 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -37,6 +37,9 @@ static int airoha_ppe_get_num_stats_entries(struct airoha_ppe *ppe)
- 	if (!IS_ENABLED(CONFIG_NET_AIROHA_FLOW_STATS))
- 		return -EOPNOTSUPP;
- 
-+	if (airoha_is_7583(ppe->eth))
-+		return -EOPNOTSUPP;
-+
- 	return PPE_STATS_NUM_ENTRIES;
- }
- 
+But you do not ask to keep the same order. You asked to sort it by name.
+That's the problem.
 
--- 
-2.51.0
 
+Best regards,
+Krzysztof
 
