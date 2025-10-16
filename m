@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DDFBCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 15:49:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7664CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 15:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=stG7Pv3NR5XN4u/WZsYTBN5iCP51FwvWX+zqChqTmuE=; b=ZlOMV5MSHONIDQSWMDiHscRm4u
-	AtIkvalidCT5xiyVvSjA8UxX0zh2mwm/HahU8cW7nkUSX+sg0IL2VZbik+IG+54RE0O42I/+duq2S
-	UzKNJBi9/etuFskRh1qBPm+YjxbTk39FutBWI/8ae6OOrRT8IPBSVXUdeAMwsOZ+XwSYOyUqpGr4U
-	dGqOOHARtFqnhXvqHEFpOWLGfUYid7jMjOTIMzUsqMTr4SQA8OQciynY5nGSTRGt3Br0FLYs42nyl
-	fOgfUXoUcFCmbYAu5QtfvIvSsaP3PNjsDhXkPY2l+TDFb7IAUxXshS3OY6QnC1iqy3EmfuQ+CImm0
-	08mBhYFQ==;
+	bh=bpzV9RgmuYA5Ksl/4M2XHkUxmiT+no7vL8lDP6Drqjs=; b=ZBbP2u1/YOZkR94hy8DGugWqnV
+	ncboszHbJHW9mO0UIcsE/oAjhDn+OjwTApI0+BWg9i/xiTtARqOYCirfB6nljry9HAX+oVas8FAzi
+	qbnehCj2W39ZG1AsdotWLt9tCLNNp1RMdw3dwkkPlXBkCBjgn//cJhPlmUDt6e2mlLSZlaej9rmfk
+	YkcE/mk4NUppzorVMrrKlanRZxurHW287q2tT1+Lc2yfUHCn7m/ssrkrpIvBDjgmzM6jZI5pgpn/H
+	AizH32BSmSlJ6GI7pVwVw6kgzq7H4y6jxXmgZf3zOf2+gji6Tj1X99+dClx5Xhtf87inMxHwGnakS
+	U+zjplOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9QEI-00000005G9Z-0FRH;
-	Thu, 16 Oct 2025 15:49:26 +0000
+	id 1v9QIt-00000005HB1-31lB;
+	Thu, 16 Oct 2025 15:54:11 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9QEG-00000005G99-1a40;
-	Thu, 16 Oct 2025 15:49:24 +0000
+	id 1v9QIr-00000005HAD-2a5f;
+	Thu, 16 Oct 2025 15:54:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B2B4660444;
-	Thu, 16 Oct 2025 15:49:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B5BDC4CEF1;
-	Thu, 16 Oct 2025 15:49:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CD66064013;
+	Thu, 16 Oct 2025 15:54:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAD18C4CEFB;
+	Thu, 16 Oct 2025 15:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760629763;
-	bh=SA4GVw/nGNJf/qOm9uwEhfvgtPwILVcT7iMh4Nomboc=;
+	s=k20201202; t=1760630048;
+	bh=MzbQ2BY+xkSQDjQHaiNk2TeebhTVZYDmnm7F8+q9KHo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EYon15nTC1mf/Qvey0ODWWWDCuKPTr+/B27xSXjLWRwifGlrhDcQOgJhEMNqsjziR
-	 eDOiocYrPuTcMiBDfhqjwhqH9hA4sSLXWykN43T5M+Ix8ShIiM79qj+AJGvyo089PX
-	 stOi4BAdKthV2JSsl7fMI1yYGo8J8o5uuKi2kihDTXySBmt0eIJajJLrWVbK7+0jGA
-	 qzWWj00vhlfquMHu8Cdg4TiwBuaginpMBQHcctPHlbwBi42bVHU/M//wtdNHb3AEXf
-	 ReNHOGVbu4I8xxDFWQXcYZtcer8mhUYow8CFKTXY+Y181eNS51IOOuYu5LidalJ0HF
-	 AIpnRMtBHrx4w==
-Date: Thu, 16 Oct 2025 08:49:20 -0700
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Huacai Chen <chenhuacai@kernel.org>, 
-	Tiezhu Yang <yangtiezhu@loongson.cn>, loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-Message-ID: <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
-References: <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
- <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn>
- <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
- <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
- <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
- <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
- <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
- <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
- <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
+	b=ICMMHz+rh+Oy/eceOUktsQjXuWuXOPJuWINTXnkn0zPWMs8d4XlCQF5zPTIwunhfv
+	 suUTNdZdTUg7ztTsPIjyCA/jegFv+M9IJHkb/O0DXAY3kWNIOy+1n1ejALSvWuFZFO
+	 vT1VKA+TjXeh2fkX2EJBTcTFC3NwA+Qwvpjr41Tt2cVY4lH5QCQaIywSn/K2v4vK29
+	 dD1D5MfPVQPUc8VHj5+ahgdXuvzIcPcHLEWyIMKg8A059HUMEjH81sVx690GnTkiFy
+	 ZlKY1arAUEms2HW4jzQYJ5t+WB73ghVMr7A9BWaUMth9kdJ41Z5aaAcUMNJ/35kvWw
+	 zCfhKIeRZ1mMg==
+Date: Thu, 16 Oct 2025 16:54:03 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next v2 08/13] net: airoha: ppe: Configure SRAM PPE
+ entries via the cpu
+Message-ID: <aPEVG0smO9lUek4W@horms.kernel.org>
+References: <20251016-an7583-eth-support-v2-0-ea6e7e9acbdb@kernel.org>
+ <20251016-an7583-eth-support-v2-8-ea6e7e9acbdb@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
+In-Reply-To: <20251016-an7583-eth-support-v2-8-ea6e7e9acbdb@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +78,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 16, 2025 at 04:52:20PM +0200, Ard Biesheuvel wrote:
-> On Tue, 14 Oct 2025 at 18:47, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
-> > The idea is that libstub code doesn't belong in vmlinux.o because it's
-> > not a part of the kernel proper, and doesn't need to be validated or
-> > modified by objtool for any reason.
-> >
+On Thu, Oct 16, 2025 at 12:28:22PM +0200, Lorenzo Bianconi wrote:
+> Introduce airoha_ppe_foe_commit_sram_entry routine in order to configure
+> the SRAM PPE entries directly via the CPU instead of using the NPU APIs.
+> This is a preliminary patch to enable netfilter flowtable hw offload for
+> AN7583 SoC.
 > 
-> I don't see a reason to change this on architectures that a) do not
-> use objtool and b) link the EFI stub into vmlinux. If LoongArch wants
-> to change this, that is fine, but that still does not mean it needs to
-> change on other architectures too.
-> 
-> EFI related boot errors are a nightmare to debug, and I will be the
-> one getting the reports when this regresses arm64 on hardware that 2
-> people on the planet have access to.
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-The idea was to have more consistency, so vmlinux.o never has libstub,
-regardless of arch, but that's your call.
+Reviewed-by: Simon Horman <horms@kernel.org>
 
-I'd still propose we keep the KBUILD_VMLINUX_LIBS_PRELINK mechanism to
-allow other arches to opt in as needed.
-
-And that variable might even be useful for other cases (x86 startup
-code?)
-
--- 
-Josh
 
