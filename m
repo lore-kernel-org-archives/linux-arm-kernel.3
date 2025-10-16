@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 204A0CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 16:46:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACBECCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 16:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o9SbmhQZwiusbuPbqM8RzBz4UGbORFM0qZTqA8aOS0k=; b=HjxyMeP9eDVYnCBdBt0CMSRh4+
-	ooIwIKT6OIc6R/myNs5XIFVCyezPg3riEgathl4+tBq6M2PprtoIzY7I8MFtgQQQf8RBYZuwLzaXH
-	/wMmvb9zEWLd/Nb89MV6X/BQKlmAaUZfR3+Ld3QgfhydoABaIYRdcL/eI3b9Wi985Gr7bdqVNKpqh
-	DRpzkXkkCeVud3bZinFenQV6HLKQyuxeURLTglaVMI0+SsIw0rnpP+DxLlVCMD5GGENpgYPa5KwWR
-	GbpkA4WegKsokhN059CufntvfbJnKuT0FBes0K9pq5FoGPBus8ulr46+67FmfJlkVzzeW0RCKh2BD
-	6PBykYoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z1UWvGCBuMfs/692VBVKpex9XmoBMjwVMGJDbY95QmY=; b=icQsLsDPoFIvgrwwXVKpm2kp0S
+	247Zk1LrWjmTG3DiVwq8VN6ZSdXG52jmaLTFOC3kpN/0ZXb/Xdd5x8dtaxlBs7qCCDCIvDPtap/A5
+	CwarznqSR5kqadzaHMr4dCnKRDl6LXSFn9jOuLxakrgl+5V1S7sTHz2jUu7xWLCuo53/mLB2Bd+Ox
+	vcShn84hd40ZbJIr5bPzk0xJr3FXcGR6sNC4wB+tj8xe9v7Xb5U2vV2Ve3uaVgusE5peRdSqNAwmw
+	FmH+kgl/KVuFMGEip457eMrIQrHB12TavfEjHQWDsrrNEY865IxD1ZYB/frk4m38B/P+NTJj8Hy6S
+	kdHAOY7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9R6y-00000005SgG-2Lfq;
-	Thu, 16 Oct 2025 16:45:56 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1v9R8N-00000005Svv-2Du6;
+	Thu, 16 Oct 2025 16:47:23 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9R6v-00000005Sfm-16jY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 16:45:54 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-471125c8bc1so13429865e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 09:45:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760633151; x=1761237951; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=o9SbmhQZwiusbuPbqM8RzBz4UGbORFM0qZTqA8aOS0k=;
-        b=2rImX+ULXVo38kuWQ4dS5TPfpmaaO4hYjEzyIe7ncsRwdeFgB/R2UJLd99n1dBZptO
-         HrzgvZIBqVr9IjoUgJzl7WcWSG0C+3Os0wMPyi282yiGrIdVgD1GYjHiomqakP9BWBnS
-         Otm+Y0J9U8rbjkKPvW6GuWkvq4Jqqd+ZLdpSrhxnvKqdG/qDuaoVu0b4A2ceRBL50lrT
-         Rl8BSN4F3moWRsK8qUOvE6Khi3KBo/i81jyPpjSDRqHRME3Jw3In+HOHoJIi8k0YY74m
-         hT2cLFerG9ptpFLm7BCuc1ixYTNwNZ12D6d/VZ8TGHH1fHYU8J3e+EIIIzrVcFlB5b0e
-         a63g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760633151; x=1761237951;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=o9SbmhQZwiusbuPbqM8RzBz4UGbORFM0qZTqA8aOS0k=;
-        b=f6ZjdQH5rbdFCZZjlsr3VYHxeSboOCAjvFrbQL+OPuCKAbyRWB0Khp20ph6RS+l4eh
-         K7SVDIVO2VWYWfnlVqDwHNPn8qE7J7mnbW3LyaJxlGUHMug+R4Cdmhvy3QuQw2mNRcoB
-         i7kfwtOSZcUycyS0ntKlWR9vhBBzARFWtjFv7oInTL3DV3Xh52OpIDSW8k1zXyCEs7Cz
-         2n2rhkRe1xuKII1AtBpTOuVqHCqU337Mv2mgb68KEeH8hV6t7tsXtsmogj1tRYedlT6P
-         E6NWCdx5XZm1ClnJkyLypDQ9RhCI+FqLQJ4QupLi9QgF93nmC0Hh7xV+AvvlGM0pyD//
-         Vd/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWNAuHhq5i7BsL3zW+jAxqQFwJ1eZfTB7DdFY8ZTEKm6GREBGLp61719jw+K3EgzDNM4lu3K4iP8F1e0tH7ihiC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQJcIr7a99jEFwf5Ip3NA0LWmRj7XEa7pS6naorelgQpXfEB7p
-	THAogz5lMqcGmLQy4xMjOjm4jm1sLcDMFGjF8HpM6DVP1kTbwStwc3Xh7ZVb4XWS47+CFt6Hkt7
-	AYTjrwADQC3yxFPRkWwQdOA==
-X-Google-Smtp-Source: AGHT+IHO7bMt3ey0cBeCObbuEwgWLkRaJtIUMULZrT5bRJWCOB4Klpu3BVpGfBvD91ceBxusLc/jdHvwsQsn2up0
-X-Received: from wmbh9.prod.google.com ([2002:a05:600c:a109:b0:46e:2121:d406])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3b03:b0:471:6f4:602a with SMTP id 5b1f17b1804b1-471179068f6mr5540055e9.23.1760633151113;
- Thu, 16 Oct 2025 09:45:51 -0700 (PDT)
-Date: Thu, 16 Oct 2025 17:45:41 +0100
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.51.0.869.ge66316f041-goog
-Message-ID: <20251016164541.3771235-1-vdonnefort@google.com>
-Subject: [PATCH v3] KVM: arm64: Check range args for pKVM mem transitions
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org
-Cc: qperret@google.com, sebastianene@google.com, keirf@google.com, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1v9R8K-00000005SuS-2DGW;
+	Thu, 16 Oct 2025 16:47:21 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1v9R89-000000002py-116l;
+	Thu, 16 Oct 2025 16:47:09 +0000
+Date: Thu, 16 Oct 2025 17:47:05 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Sjoerd Simons <sjoerd@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Lee Jones <lee@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+	kernel@collabora.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-phy@lists.infradead.org, netdev@vger.kernel.org,
+	Bryan Hinton <bryan@bryanhinton.com>
+Subject: Re: [PATCH 10/15] arm64: dts: mediatek: mt7981b: Add Ethernet and
+ WiFi offload support
+Message-ID: <aPEhiVdgkVLvF9Et@makrotopia.org>
+References: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
+ <20251016-openwrt-one-network-v1-10-de259719b6f2@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251016-openwrt-one-network-v1-10-de259719b6f2@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_094553_323088_6DA43747 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20251016_094720_720519_5CCFCC25 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,106 +84,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There's currently no verification for host issued ranges in most of the
-pKVM memory transitions. The end boundary might therefore be subject to
-overflow and later checks could be evaded.
+On Thu, Oct 16, 2025 at 12:08:46PM +0200, Sjoerd Simons wrote:
+> Add device tree nodes for the Ethernet subsystem on MT7981B SoC,
+> including:
+> - Ethernet MAC controller with dual GMAC support
+> - Wireless Ethernet Dispatch (WED)
+> - SGMII PHY controllers for high-speed Ethernet interfaces
+> - Reserved memory regions for WiFi offload processor
+> 
+> Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
+> ---
+>  arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 133 ++++++++++++++++++++++++++++++
+>  1 file changed, 133 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+> index 13950fe6e8766..c85fa0ddf2da8 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
+> @@ -2,6 +2,7 @@
+>  
+>  #include <dt-bindings/clock/mediatek,mt7981-clk.h>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/leds/common.h>
+>  #include <dt-bindings/phy/phy.h>
+>  #include <dt-bindings/reset/mt7986-resets.h>
+>  
+> @@ -47,11 +48,36 @@ reserved-memory {
+>  		#size-cells = <2>;
+>  		ranges;
+>  
+> +		wo_boot: wo-boot@15194000 {
+> +			reg = <0 0x15194000 0 0x1000>;
+> +			no-map;
+> +		};
+> +
+> +		wo_ilm0: wo-ilm@151e0000 {
+> +			reg = <0 0x151e0000 0 0x8000>;
+> +			no-map;
+> +		};
+> +
+> +		wo_dlm0: wo-dlm@151e8000 {
+> +			reg = <0 0x151e8000 0 0x2000>;
+> +			no-map;
+> +		};
+> +
+>  		/* 192 KiB reserved for ARM Trusted Firmware (BL31) */
+>  		secmon_reserved: secmon@43000000 {
+>  			reg = <0 0x43000000 0 0x30000>;
+>  			no-map;
+>  		};
+> +
+> +		wo_emi0: wo-emi@47d80000 {
+> +			reg = <0 0x47d80000 0 0x40000>;
+> +			no-map;
+> +		};
+> +
+> +		wo_data: wo-data@47dc0000 {
+> +			reg = <0 0x47dc0000 0 0x240000>;
+> +			no-map;
+> +		};
+>  	};
+>  
+>  	soc {
+> @@ -107,6 +133,18 @@ pwm: pwm@10048000 {
+>  			#pwm-cells = <2>;
+>  		};
+>  
+> +		sgmiisys0: syscon@10060000 {
+> +			compatible = "mediatek,mt7981-sgmiisys_0", "syscon";
+> +			reg = <0 0x10060000 0 0x1000>;
+> +			#clock-cells = <1>;
+> +		};
+> +
+> +		sgmiisys1: syscon@10070000 {
+> +			compatible = "mediatek,mt7981-sgmiisys_1", "syscon";
+> +			reg = <0 0x10070000 0 0x1000>;
+> +			#clock-cells = <1>;
+> +		};
+> +
+>  		uart0: serial@11002000 {
+>  			compatible = "mediatek,mt7981-uart", "mediatek,mt6577-uart";
+>  			reg = <0 0x11002000 0 0x100>;
+> @@ -338,6 +376,10 @@ soc-uuid@140 {
+>  			thermal_calibration: thermal-calib@274 {
+>  				reg = <0x274 0xc>;
+>  			};
+> +
+> +			phy_calibration: phy-calib@8dc {
+> +				reg = <0x8dc 0x10>;
+> +			};
+>  		};
+>  
+>  		ethsys: clock-controller@15000000 {
+> @@ -347,6 +389,97 @@ ethsys: clock-controller@15000000 {
+>  			#reset-cells = <1>;
+>  		};
+>  
+> +		wed: wed@15010000 {
+> +			compatible = "mediatek,mt7981-wed",
+> +				     "syscon";
+> +			reg = <0 0x15010000 0 0x1000>;
+> +			interrupt-parent = <&gic>;
+> +			interrupts = <GIC_SPI 205 IRQ_TYPE_LEVEL_HIGH>;
+> +			memory-region = <&wo_emi0>, <&wo_ilm0>, <&wo_dlm0>,
+> +					<&wo_data>, <&wo_boot>;
+> +			memory-region-names = "wo-emi", "wo-ilm", "wo-dlm",
+> +					      "wo-data", "wo-boot";
+> +			mediatek,wo-ccif = <&wo_ccif0>;
+> +		};
+> +
+> +		eth: ethernet@15100000 {
+> +			compatible = "mediatek,mt7981-eth";
+> +			reg = <0 0x15100000 0 0x40000>;
+> +			assigned-clocks = <&topckgen CLK_TOP_NETSYS_2X_SEL>,
+> +					  <&topckgen CLK_TOP_SGM_325M_SEL>;
+> +			assigned-clock-parents = <&topckgen CLK_TOP_CB_NET2_800M>,
+> +						 <&topckgen CLK_TOP_CB_SGM_325M>;
+> +			clocks = <&ethsys CLK_ETH_FE_EN>,
+> +				 <&ethsys CLK_ETH_GP2_EN>,
+> +				 <&ethsys CLK_ETH_GP1_EN>,
+> +				 <&ethsys CLK_ETH_WOCPU0_EN>,
+> +				 <&topckgen CLK_TOP_SGM_REG>,
+> +				 <&sgmiisys0 CLK_SGM0_TX_EN>,
+> +				 <&sgmiisys0 CLK_SGM0_RX_EN>,
+> +				 <&sgmiisys0 CLK_SGM0_CK0_EN>,
+> +				 <&sgmiisys0 CLK_SGM0_CDR_CK0_EN>,
+> +				 <&sgmiisys1 CLK_SGM1_TX_EN>,
+> +				 <&sgmiisys1 CLK_SGM1_RX_EN>,
+> +				 <&sgmiisys1 CLK_SGM1_CK1_EN>,
+> +				 <&sgmiisys1 CLK_SGM1_CDR_CK1_EN>,
+> +				 <&topckgen CLK_TOP_NETSYS_SEL>,
+> +				 <&topckgen CLK_TOP_NETSYS_500M_SEL>;
+> +			clock-names = "fe", "gp2", "gp1", "wocpu0",
+> +				      "sgmii_ck",
+> +				      "sgmii_tx250m", "sgmii_rx250m",
+> +				      "sgmii_cdr_ref", "sgmii_cdr_fb",
+> +				      "sgmii2_tx250m", "sgmii2_rx250m",
+> +				      "sgmii2_cdr_ref", "sgmii2_cdr_fb",
+> +				      "netsys0", "netsys1";
+> +			interrupts = <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 189 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 191 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "fe0", "fe1", "fe2", "fe3", "pdma0",
+> +					  "pdma1", "pdma2", "pdma3";
+> +			sram = <&eth_sram>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			mediatek,ethsys = <&ethsys>;
+> +			mediatek,sgmiisys = <&sgmiisys0>, <&sgmiisys1>;
+> +			mediatek,infracfg = <&topmisc>;
+> +			mediatek,wed = <&wed>;
+> +			status = "disabled";
+> +
+> +			mdio_bus: mdio-bus {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				int_gbe_phy: ethernet-phy@0 {
+> +					compatible = "ethernet-phy-ieee802.3-c22";
+> +					reg = <0>;
+> +					phy-mode = "gmii";
+> +					phy-is-integrated;
+> +					nvmem-cells = <&phy_calibration>;
+> +					nvmem-cell-names = "phy-cal-data";
 
-Close this loophole with an additional pfn_range_is_valid() check on a
-per public function basis. Once this check has passed, it is safe to
-convert pfn and nr_pages into a phys_addr_t and a size.
+Please also define the two LEDs here with their corresponding (only)
+pinctrl options for each of them, with 'status = "disabled";'. This
+makes it easier for boards to make use of the Ethernet PHY leds by just
+referencing the LED and setting the status to 'okay'.
 
-host_unshare_guest transition is already protected via
-__check_host_shared_guest(), while assert_host_shared_guest() callers
-are already ignoring host checks.
-
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-
----
-
-v2 -> v3: 
-   * Test range against PA-range and make the func phys specific.
-
-v1 -> v2:
-   * Also check for (nr_pages * PAGE_SIZE) overflow. (Quentin)
-   * Rename to check_range_args().
-
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index ddc8beb55eee..49db32f3ddf7 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -367,6 +367,19 @@ static int host_stage2_unmap_dev_all(void)
- 	return kvm_pgtable_stage2_unmap(pgt, addr, BIT(pgt->ia_bits) - addr);
- }
- 
-+/*
-+ * Ensure the PFN range is contained within PA-range.
-+ *
-+ * This check is also robust to overflows and is therefore a requirement before
-+ * using a pfn/nr_pages pair from an untrusted source.
-+ */
-+static bool pfn_range_is_valid(u64 pfn, u64 nr_pages)
-+{
-+	u64 limit = BIT(kvm_phys_shift(&host_mmu.arch.mmu) - PAGE_SHIFT);
-+
-+	return pfn < limit && ((limit - pfn) >= nr_pages);
-+}
-+
- struct kvm_mem_range {
- 	u64 start;
- 	u64 end;
-@@ -776,6 +789,9 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
- 	void *virt = __hyp_va(phys);
- 	int ret;
- 
-+	if (!pfn_range_is_valid(pfn, nr_pages))
-+		return -EINVAL;
-+
- 	host_lock_component();
- 	hyp_lock_component();
- 
-@@ -804,6 +820,9 @@ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages)
- 	u64 virt = (u64)__hyp_va(phys);
- 	int ret;
- 
-+	if (!pfn_range_is_valid(pfn, nr_pages))
-+		return -EINVAL;
-+
- 	host_lock_component();
- 	hyp_lock_component();
- 
-@@ -887,6 +906,9 @@ int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages)
- 	u64 size = PAGE_SIZE * nr_pages;
- 	int ret;
- 
-+	if (!pfn_range_is_valid(pfn, nr_pages))
-+		return -EINVAL;
-+
- 	host_lock_component();
- 	ret = __host_check_page_state_range(phys, size, PKVM_PAGE_OWNED);
- 	if (!ret)
-@@ -902,6 +924,9 @@ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages)
- 	u64 size = PAGE_SIZE * nr_pages;
- 	int ret;
- 
-+	if (!pfn_range_is_valid(pfn, nr_pages))
-+		return -EINVAL;
-+
- 	host_lock_component();
- 	ret = __host_check_page_state_range(phys, size, PKVM_PAGE_SHARED_OWNED);
- 	if (!ret)
-@@ -945,6 +970,9 @@ int __pkvm_host_share_guest(u64 pfn, u64 gfn, u64 nr_pages, struct pkvm_hyp_vcpu
- 	if (prot & ~KVM_PGTABLE_PROT_RWX)
- 		return -EINVAL;
- 
-+	if (!pfn_range_is_valid(pfn, nr_pages))
-+		return -EINVAL;
-+
- 	ret = __guest_check_transition_size(phys, ipa, nr_pages, &size);
- 	if (ret)
- 		return ret;
-
-base-commit: 7ea30958b3054f5e488fa0b33c352723f7ab3a2a
--- 
-2.51.0.869.ge66316f041-goog
-
+> +				};
+> +			};
+> +		};
+> +
+> +		eth_sram: sram@15140000 {
+> +			compatible = "mmio-sram";
+> +			reg = <0 0x15140000 0 0x40000>;
+> +			ranges = <0 0x15140000 0 0x40000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +		};
+> +
+> +		wo_ccif0: syscon@151a5000 {
+> +			compatible = "mediatek,mt7986-wo-ccif", "syscon";
+> +			reg = <0 0x151a5000 0 0x1000>;
+> +			interrupt-parent = <&gic>;
+> +			interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>;
+> +		};
+> +
+>  		wifi: wifi@18000000 {
+>  			compatible = "mediatek,mt7981-wmac";
+>  			reg = <0 0x18000000 0 0x1000000>,
+> 
+> -- 
+> 2.51.0
+> 
 
