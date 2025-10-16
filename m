@@ -4,95 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46667CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 13:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A100CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 13:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7JL0+bGL0quldkyb9VQbHQdNgKSc3xiY2NepKrKb++8=; b=rwIJcDEDkSKsDkOHJuZo6m5hu/
-	2bJxmTzVVl+LTH9b7Tq3cklXcZ2KIdlFw4nljE9qL1yOA7pJIOMvg3/SJuHeABSOSBFdOT2sDhbBc
-	fAcPeFWCSnLZ5Eq4VqDBnnoclkUv3xZrGG2XTnj4mBZVXetLEVlezEGncIjx3VzV9d80TKNsRBNzW
-	jYIJwTVGSqJVLHJLkvtrbu7BBzKSYwy8TbMtYjr19gE0Ed2Hh91LAQAry6/UPstVyFdQ8Hl1/oIFN
-	awDd/sUpGgtvPz7oaGpoO1BqjMljTlAXMOO0wNbqNfJ0fz2DnrR6NzxSC1PvO6bGUb+UhtYBO/skh
-	Z9HRZUjw==;
+	bh=cDmSIVT1Dlh27fx6Z3oaRIn2yzTs9N88S++rC7VCr0M=; b=1eP1gJLzcHqRzs0hqcAeph52ZU
+	xfnGTpeBGbIpwkwcrNMW/tpVTUN9+qzyZGCzgEknHhDuq+CDj0SqlbZkLdEndBtLtKUFONVA+32iX
+	4LVqarN8JHQ+DXKdZRLEHHfcGCYO95yjq4WnHp4wg6AYkkl2YrxjkV3FWEGJAXZJbfwMtvEejIrUQ
+	vaNIhrSFnTsUNuvqVjrs2Lj8v7HUF8ONNSpVmugrMgvtJPHM2dcU1Y/sPCKcw1dapvRkICAdO1+ki
+	i2PfosuBdN9k0GUV0UWMX5mJ0QJUwz7+ELM+j4/oPgitJgusAWDAHR/5JQroiXmRKZJvih5qcisyP
+	3fEDQI6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Nfb-00000004pL0-3GRB;
-	Thu, 16 Oct 2025 13:05:27 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1v9NhW-00000004pdW-2OpX;
+	Thu, 16 Oct 2025 13:07:26 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9NfZ-00000004pKU-3TlA
+	id 1v9NhT-00000004pc2-0xwD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 13:05:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=7JL0+bGL0quldkyb9VQbHQdNgKSc3xiY2NepKrKb++8=; b=PpMxU/p7fUKKQlOiZqqqwDSEji
-	di6xnJgDpt9A/EQjc6G6lZ21lW1ubDumlrkPQ81fdB7bIgY69YC7xNcceeXX/beuXtk5oiTY20wh8
-	fg6X7PzcuVy0PsHdmMJts3ln/HOIspaXYXr+SDGGPX+LsQZJ2Y+OaGTT2J3QFWawmhgo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1v9NfH-00B9TY-Rk; Thu, 16 Oct 2025 15:05:07 +0200
-Date: Thu, 16 Oct 2025 15:05:07 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Abhishek Chauhan <quic_abchauha@quicinc.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexis Lothore <alexis.lothore@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Boon Khai Ng <boon.khai.ng@altera.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Furong Xu <0x1207@gmail.com>, Inochi Amaoto <inochiama@gmail.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Kees Cook <kees@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Ley Foon Tan <leyfoon.tan@starfivetech.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Matthew Gerlach <matthew.gerlach@altera.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
-	netdev@vger.kernel.org, Oleksij Rempel <o.rempel@pengutronix.de>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rohan G Thomas <rohan.g.thomas@altera.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Simon Horman <horms@kernel.org>,
-	Song Yoong Siang <yoong.siang.song@intel.com>,
-	Swathi K S <swathi.ks@samsung.com>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>, Vinod Koul <vkoul@kernel.org>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: Re: [PATCH net-next 14/14] net: stmmac: convert to phylink PCS
- support
-Message-ID: <5f0c7653-30e4-486a-ae5d-9d20d5e7ac43@lunn.ch>
-References: <aO-tbQCVu47R3izM@shell.armlinux.org.uk>
- <E1v92NJ-0000000AmHi-1ZGJ@rmk-PC.armlinux.org.uk>
- <040a2f29-4c95-4561-87c0-2a70308d3f00@lunn.ch>
- <aPAYtHPcF5bes7Xi@shell.armlinux.org.uk>
+	Thu, 16 Oct 2025 13:07:24 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1v9Nge-0006uW-N8; Thu, 16 Oct 2025 15:06:32 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1v9Ngb-003tYQ-0H;
+	Thu, 16 Oct 2025 15:06:29 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1v9Nga-000000009Lu-47nD;
+	Thu, 16 Oct 2025 15:06:28 +0200
+Message-ID: <410ea7ea7980b751289bd603ffab5bf3ee114084.camel@pengutronix.de>
+Subject: Re: [PATCH v2 5/5] scsi: ufs: mediatek: Rework resets
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Alim Akhtar	
+ <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, Bart Van
+ Assche	 <bvanassche@acm.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger	 <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Chunfeng Yun	
+ <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay
+ Abraham I <kishon@kernel.org>, Peter Wang <peter.wang@mediatek.com>,
+ Stanley Jhu <chu.stanley@gmail.com>,  "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
+ <martin.petersen@oracle.com>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+	kernel@collabora.com, linux-scsi@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org,
+ linux-phy@lists.infradead.org
+Date: Thu, 16 Oct 2025 15:06:28 +0200
+In-Reply-To: <20251016-mt8196-ufs-v2-5-c373834c4e7a@collabora.com>
+References: <20251016-mt8196-ufs-v2-0-c373834c4e7a@collabora.com>
+	 <20251016-mt8196-ufs-v2-5-c373834c4e7a@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aPAYtHPcF5bes7Xi@shell.armlinux.org.uk>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_060525_866734_67458F4C 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20251016_060723_287537_316A9E6E 
+X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,35 +91,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 10:57:08PM +0100, Russell King (Oracle) wrote:
-> On Wed, Oct 15, 2025 at 11:31:37PM +0200, Andrew Lunn wrote:
-> > > - create stmmac_pcs.c, which contains the phylink_pcs_ops structure, a
-> > >   dummy .pcs_get_state() method which always reports link-down
-> > 
-> > I've not followed the PCS code too closely. Why always report link
-> > down? Why is a dummy method needed?
-> 
-> If phylink is put into inband mode, and a PCS is supplied to phylink
-> where this method left NULL, the kernel will oops.
-> 
-> As the code stands today in mainline, if phylink were to be put into
-> inband mode with the integrated PCS, then there will be no phylink PCS,
-> and so phylink_mac_pcs_get_state() will fall into the "else" path of:
-> 
->         pcs = pl->pcs;
->         if (pcs)
->                 pcs->ops->pcs_get_state(pcs, pl->pcs_neg_mode, state);
->         else
->                 state->link = 0;
-> 
-> and force the link down.
-> 
-> So, adding this method keeps the status quo - not oopsing the kernel
-> and not allowing the link to come up. No unintended behavioural
-> change in this regard from how it would behave today. :)
+On Do, 2025-10-16 at 14:06 +0200, Nicolas Frattaroli wrote:
+> Rework the reset control getting in the driver's probe function to use
+> the bulk reset APIs. Use the optional variant instead of defaulting to
+> NULL if the resets fail, so that absent resets can be distinguished from
+> erroneous resets.
+>=20
+> Also move all remnants of the MPHY reset ever having lived in this
+> driver.
+>=20
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-O.K. Maybe some of this text could be added to the commit message?
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-Thanks
-	Andrew
+regards
+Philipp
 
