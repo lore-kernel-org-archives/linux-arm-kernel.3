@@ -4,143 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29542CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 21:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D1BCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 21:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mkXzIdQUUxuhiVY6nHw70guxmcPo1I5G7VKvcssMe9g=; b=Od1heKzZl5fj0xLfkoQz++yVNe
-	P2jNe4qLHN1VKM5D+QhvMyDoXC7mR9LYU09ieQcmg0/HROjE/kv0tsZwvW7c6WhAmi97J3iQLtvnM
-	rvmx81Mtzx0ibcQ/GMCExmN6Z800NPwoT54DLCcbP68B8h7DZvK5xwth3LPQa45VCmCs9sddSQqzu
-	t49poWflMcDBYz/jdq+1tCwTl7iZ0YRYENA3fxWmIEqVWHUT2aNFxnh3sME41XoHSX0nosFf0bWRn
-	w6qznus4XV1ucAvwPB0t5mn6xOfm+isMRl9zd+5ZeJTtwcEafy5XzutOjDWhK6tWumOwx2DuJtroO
-	+/kGmQ2Q==;
+	bh=Nt3YEEApJ1YAWi/TYOaj58tpROydGXT1aPp+ivaqfm4=; b=gYJqCryopOHekvIlfu0JfEDsZv
+	uKAix3UJUlKBi8NUSjuNpRQgmck4wtoSf9/W5qjsO601WtSOC87FMOBkur+XbI6M5unps117TtXNH
+	OnITOJm8uqjremAkiWjAGe+5JjLy0YapqX4JugfqaaylPJgTflTiweSuUACvaDPLVl+r/kVfl9Jt1
+	fzbzY0arzz7Db4aP21OLciIQMnZkyAiCH9mySJwvuc1gZSQkAHIeAEYbbkEh7BFcS4LdWdFEldEUQ
+	zcU4ixVDqamGWgZ4GIaZdw5jddy8vLkax3cW/6OesZlFtvYwaBOcN8/X6zIVltr1eJ8XcBQ1bOXWm
+	wZ1vjkGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9VaM-00000005zfl-2paN;
-	Thu, 16 Oct 2025 21:32:34 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1v9VtK-000000060yV-3ZJj;
+	Thu, 16 Oct 2025 21:52:10 +0000
+Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9VaK-00000005zeD-18hX
+	id 1v9VtI-000000060xp-0mib
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 21:32:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pIUZVLXV7OL82q5vLyJq3w4GTm7VHD/cIRQkmRGKbPEqLHI8BCpzZP1cT2nzLd8L9ApHPEAXgFL2ITr6orw80GfRQTx80mwQ4FlurdmHoE3zesNm4gUf5zNrx3oq8MUh6uTfsLVxP/aK9pMrv5lcoMMfChjBgEvn2VVMnG9kb2M0xOj8cEmB7SGxsyk+MfD19B/YZpLPwRDHo+jbEZqxnzyM+FxwMM+ZVx8UPwtTRfuZhcZI1m87JtFssOFxpBg/4KmOAdUH6ElhQcfEVZ5RS9fyT2vRapBZyIbEQLTpjedVgO/IWIoxa3a9iuDESHql+6cAwBJD9PYOfTvl7J7KYQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mkXzIdQUUxuhiVY6nHw70guxmcPo1I5G7VKvcssMe9g=;
- b=uL+mKNLhbP04bUQQ15SqFmQwS/DJjyUyCt1qb1VA+oeS/UkU4hC3/DlFDiNuCTFrtcZBBJQrJFkkDcngR+jv24cru3mc+33N+j0EhZl2SyNK/bFwHL7rmw851diwf7H/GH46D9brTX8ZtZuUlBgIQPqlyPOUjr1lFaO76te5km5lsj1SmrHLF8Z9e+tdTYdLcRBd61u6/OMgaS/FGHxBmdtY8FFeP6xDckpG13oMPs9hleN45F9EGP6RRomSaDzYA01QxOX1twFZuop4VTQPDXIWcK1KN+BdBbOhum91+Hz8yDwP9XWTBFap+tt3SgPUs+GGRLSVIm+5cKXioTRXDQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mkXzIdQUUxuhiVY6nHw70guxmcPo1I5G7VKvcssMe9g=;
- b=g1ewhrn/ChFF5Kicz+Wqig8aEbBEePsRxMa1HLxE/h67nZSIPPwU4G0dIl7YF9h8K2wCZ7a79NQjXkR4X6BfPfw2KHZCIXzJIlNWK3cYxTYkqBweKMsRmxi3XIzg3GulZdAysQPY7OtL9oeWmUXURgoEgtIJW+of2zZpAiQpG7Q6cxwqR8kUhcf+afLJPU4mTy/jkh1a7fn19Z6EtWp+WcVFM1+/LKHMt1u2XbPd0y/MlsV30L2744mW5ld/YAolOmoF7UOUfHryPy99t6sgIZO884nwIWHT7uQj4iuVbVkBFQ8DkEfnH7FLLA3YSKF3+BHvtLqzamqBkTHRuj2HCg==
-Received: from BYAPR21CA0007.namprd21.prod.outlook.com (2603:10b6:a03:114::17)
- by DS4PR12MB9586.namprd12.prod.outlook.com (2603:10b6:8:27e::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.11; Thu, 16 Oct
- 2025 21:32:14 +0000
-Received: from MWH0EPF000A6731.namprd04.prod.outlook.com
- (2603:10b6:a03:114:cafe::d3) by BYAPR21CA0007.outlook.office365.com
- (2603:10b6:a03:114::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.5 via Frontend Transport; Thu,
- 16 Oct 2025 21:32:13 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- MWH0EPF000A6731.mail.protection.outlook.com (10.167.249.23) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9228.7 via Frontend Transport; Thu, 16 Oct 2025 21:32:13 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 16 Oct
- 2025 14:31:57 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 16 Oct
- 2025 14:31:56 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 16 Oct 2025 14:31:55 -0700
-Date: Thu, 16 Oct 2025 14:31:54 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <jgg@nvidia.com>
-CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<balbirs@nvidia.com>, <miko.lenczewski@arm.com>, <peterz@infradead.org>,
-	<kevin.tian@intel.com>, <praan@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v3 3/7] iommu/arm-smmu-v3: Introduce a per-domain
- arm_smmu_invs array
-Message-ID: <aPFkSn9Ta6koq91Q@Asurada-Nvidia>
-References: <cover.1760555863.git.nicolinc@nvidia.com>
- <345bb7703ebd19992694758b47e371900267fa0e.1760555863.git.nicolinc@nvidia.com>
+	Thu, 16 Oct 2025 21:52:09 +0000
+Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
+	by mailflow.phl.internal (Postfix) with ESMTP id 5D91B13800C7;
+	Thu, 16 Oct 2025 17:52:02 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-10.internal (MEProxy); Thu, 16 Oct 2025 17:52:02 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1760651522; x=1760658722; bh=Nt3YEEApJ1
+	YAWi/TYOaj58tpROydGXT1aPp+ivaqfm4=; b=EuwJalI/9CGHoU4az5RKS4oWEc
+	MDg6YtiTnVsLOsjVChto4eqf9EtwTbB/rrU441OVGqqeiDUItb78+cAc00sgHUgh
+	TDLrah7RfBUSSw0yH7TGFSNuDzZc/umF+4qGR9FCtEYvUce5LGUn5Yp+MVY5B2Vt
+	FRq0exhxg5qxdv4iHIsxHqCbeYJxoGCPiepL+ebI9G9uItqM84JoUH6Tp0mTxK0q
+	fVti6T9iOzF5MjcVS2TB1KZN9U875LAaPCmWowuJswA6T7jU7ytGeHkMexHkfJJC
+	aEncznpdwtoGprcHomNd1hu5L6CFHK1ClyaxB0dY2bKATBG3q+cYLhiUl54g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1760651522; x=1760658722; bh=Nt3YEEApJ1YAWi/TYOaj58tpROydGXT1aPp
+	+ivaqfm4=; b=YCfcWXvVXqhWL5Ry8Hfvf6hwsdJvwTOVbeW7WSc4GJj9lxJ4JZc
+	fiVVymEjKgLglHqOu+jcz/K3v+9qO/VjY2iVKW3ROas8Tap6AvkIuhj0LzZRpern
+	Cq0hKAk5DijdRXrhFfIsW7Tfmf1aq5kSfdXu+1saWChCzHKPiYPSLg/rCn2ZAAlR
+	KjPM8H6pEbtuLgDZw75IR5TH0PJMHDAPQJfWnDNxmeVmW4kvkFqvw6I00QqkPXMX
+	YLkKr5IlbXiPkTJPuL86xN5WaW8c+CjpF42+8h5hS2Orh27i5/e5A2UwTcI5ucfo
+	WeLYhaUmcrJa/EBFp4oxQL3anWqlYYnykVw==
+X-ME-Sender: <xms:AWnxaOPz4G6iL0oFZIKQEOUfUDXQJJomnUHw6pfw9vDNBWMMVmzBmg>
+    <xme:AWnxaKIgYhYFkNt23ch7NUS_57m4bYSnQVJwfirkHF8Sb9KZ5rO4_VPj2nvp4NOuk
+    czy5OLtdBCG-fQ_NfpnMk6hHYHN4Id_2v_GZE6KiiBS05RW9Cf-ckI>
+X-ME-Received: <xmr:AWnxaJzpKDrSHWCywCCehIWDVu-oVnn-ZKXFzNfrxumZFd6jPR5r3oS4418jq-l26lzTptaDe3yln5BvqTa1859P6ixumlmYudw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdduvdejgedvucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
+    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
+    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
+    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
+    drnhgvthdpnhgspghrtghpthhtohepvddupdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopehjtggrlhhlihhgvghrohhsleelsehgmhgrihhlrdgtohhmpdhrtghpthhtohepsh
+    hvvghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrlhihshhsrgesrhhoshgvnhii
+    figvihhgrdhiohdprhgtphhtthhopehnvggrlhesghhomhhprgdruggvvhdprhgtphhtth
+    hopehlvggvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghl
+    rdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpth
+    htoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrlhgvgigr
+    nhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhm
+X-ME-Proxy: <xmx:AWnxaK6m5j4PHrZdcnKqTZqsL7756vJiZbJfCyjj4WJ7Od6NUhk3Vg>
+    <xmx:AWnxaHYxH_WfTVfCzVVZqjGihm9dXCcYO9tZJNNIgHuJq0OInS8SlA>
+    <xmx:AWnxaB-6kRfvnVbL1IEsV773eOl9yDltL0HIGH7MFsiQMOLqLMjilA>
+    <xmx:AWnxaJ-10jqp_YayI3Q_4aFBVQFyrX0KzkLZSdCg8hrSp4dvC2H7GA>
+    <xmx:AmnxaJWP145z-ohkuKqxTbleEhNDXJbxI8yGT6HsUPE4j8BXCWXRv0DP>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 16 Oct 2025 17:52:00 -0400 (EDT)
+Date: Thu, 16 Oct 2025 23:51:59 +0200
+From: Janne Grunau <j@jannau.net>
+To: James Calligeros <jcalligeros99@gmail.com>
+Cc: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
+	linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v3 06/13] hwmon: Add Apple Silicon SMC hwmon driver
+Message-ID: <20251016215159.GB897177@robin.jannau.net>
+References: <20251007-macsmc-subdevs-v3-0-d7d3bfd7ae02@gmail.com>
+ <20251007-macsmc-subdevs-v3-6-d7d3bfd7ae02@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <345bb7703ebd19992694758b47e371900267fa0e.1760555863.git.nicolinc@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000A6731:EE_|DS4PR12MB9586:EE_
-X-MS-Office365-Filtering-Correlation-Id: cd7efca6-7e32-4e0e-cb68-08de0cfb78d9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?as2VSWCP2B/76OglexfsFD3JLG33VszorkJlwFwBAD1utpvSg76K0DEEmVKV?=
- =?us-ascii?Q?71j/aKeZEal5TSTiMsS8w5Mh9+R4MFFeFtyn2JidBEdF+OBZ7uepV4NNbOTy?=
- =?us-ascii?Q?2zHjUVrRWXvF7Z0PCooAU53VDbCz9Ov9PCVEmd3/uxF/9ZJbrW4tidV6uroV?=
- =?us-ascii?Q?YQltC1Id5uR3bl76/Dd36wZt7MMltDdbF93dtcRAZTTGSTgwvegqOujikMV/?=
- =?us-ascii?Q?oWvOCWsGnfDUKrvtgmcFETVk6R3fKIn8FZUClTJMhaomh7rA4oNCCTi4X7yQ?=
- =?us-ascii?Q?LSbvjeyAekKKiSnDf0pGaF2aaJozLNQLzSJAMqv6VXJx+dJMcIPOVLKrsmrd?=
- =?us-ascii?Q?PZSAG+RVsP0y2eLNDpUWxQlYoHeNC8DLNgcXlNJ2XuWqzYrrb4t8cXyhb3B2?=
- =?us-ascii?Q?MOCR2mDZzJwvyReDNBqhu3Ruq70QfQImFWXWojhO/qwNNsKxIfovmrpFzmwR?=
- =?us-ascii?Q?4mXLBsMov2wO3FQNDjOpPphk/NccqchtYvX3+0KdKpKMByA+ksqn7Oz8S9ic?=
- =?us-ascii?Q?khY49dRMLWIkvMHBcfI4dxt9RA6O3Or4xUIPMbdPWucK2N6E36Pyh8cBEGj7?=
- =?us-ascii?Q?yTxLfcU8wpZTNkJjfngqXdRJcMeRnCwHIOZTbAu7pExkXMYnSinqLizuWtGb?=
- =?us-ascii?Q?+Ksmx6S9Ot6yLTlW7r+tXoEhxotd8lk+QKerJrXTNXXEDnc8OsTFXwX9973i?=
- =?us-ascii?Q?QkSbcsqFtxBuCMJ6z0M/e3hnX2z4GQsAXFiMSgrn7MMr1b2Os1EiaQrLFSGd?=
- =?us-ascii?Q?3MQy17KDfRECVhHBu0CMLpQhLcmpeeshAI4yJ3TqkWdIxCogwgNOHJK4qIrY?=
- =?us-ascii?Q?sCL/NrqrlwMxJToquXwmJzDqQ8zMt/rdwk8CbXChBLjCRFa1Yp76sHRs9Oyi?=
- =?us-ascii?Q?adgl5WbaxuFzHJgsT2dbAjhgg8o4tA6sezbz0lmXUG42EhjDEk94DtDim57N?=
- =?us-ascii?Q?LPTzdHz1s+UPu2yTe+m0tosMKse6Mro2+dxMMbwdOzGKIhraHFvroTd2FwJ7?=
- =?us-ascii?Q?ZDbsJxdFnF8ivNDZzzLF5+AnouNWjaqugCJU5ckeeW3nIScyBKnP/KQr9Yy0?=
- =?us-ascii?Q?lu+J7+hc1Jjcxf1qi6JKGK6iPA749T+XkKtUR9ANwHLLoN7e0kiE27THRZvo?=
- =?us-ascii?Q?CAIFUgNifThJuOsgfNj+rQSeGs6HsY/VJrBiM0f1HvvEQF/2700JVXWrgyBo?=
- =?us-ascii?Q?lMN/44L4c/hWTiA/Ea/iV6jT7982sqGTos2Tx+nleuYZJhEDJw8TgoZ/xB03?=
- =?us-ascii?Q?qPNIzurXpXRIGtAu4tG2IX8NpiTxYvrgc2TXp/48zxVmWPhl4p/F6/lMfC9A?=
- =?us-ascii?Q?XunFEc3YqGtKFgJnRBgjTXMZRjNmbVKE6TH1SYXlcrbDLjmJi+GZIZZROvk1?=
- =?us-ascii?Q?lbEQeNJmPBU4KYThxuDXK9xVR4XJRU8s5LOdLaXlD4R3TdWLdglpui9ED3wO?=
- =?us-ascii?Q?CeJo4RXQHdaqFoKgoe+tvVaCh2+9qVBWBSAKwqcv0nw6xVKsFVr1azRb8TXj?=
- =?us-ascii?Q?SeHNJWDPf7TqwJo5+yv9pQtdDGF5dCoZthOBSxAUwHqr5uHHN1F6hYpymQAN?=
- =?us-ascii?Q?KScQrZtW7HehZPb1ZL4=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2025 21:32:13.5534
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cd7efca6-7e32-4e0e-cb68-08de0cfb78d9
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6731.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9586
+In-Reply-To: <20251007-macsmc-subdevs-v3-6-d7d3bfd7ae02@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_143232_333499_2243883B 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20251016_145208_787662_1B17ABAC 
+X-CRM114-Status: GOOD (  33.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,31 +123,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 12:42:48PM -0700, Nicolin Chen wrote:
-> +size_t arm_smmu_invs_unref(struct arm_smmu_invs *invs,
-> +			   struct arm_smmu_invs *to_unref,
-> +			   void (*flush_fn)(struct arm_smmu_inv *inv))
+On Tue, Oct 07, 2025 at 09:16:47PM +1000, James Calligeros wrote:
+> The System Management Controller on Apple Silicon devices is responsible
+> for integrating and exposing the data reported by the vast array of
+> hardware monitoring sensors present on these devices. It is also
+> responsible for fan control, and allows users to manually set fan
+> speeds if they so desire. Add a hwmon driver to expose current,
+> power, temperature, and voltage monitoring sensors, as well as
+> fan speed monitoring and control via the SMC on Apple Silicon devices.
+> 
+> The SMC firmware has no consistency between devices, even when they
+> share an SoC. The FourCC keys used to access sensors are almost
+> random. An M1 Mac mini will have different FourCCs for its CPU core
+> temperature sensors to an M1 MacBook Pro, for example. For this
+> reason, the valid sensors for a given device are specified in a
+> child of the SMC Devicetree node. The driver uses this information
+> to determine which sensors to make available at runtime.
+> 
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
+> Co-developed-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
+> ---
+>  Documentation/hwmon/macsmc-hwmon.rst |  71 +++
+>  MAINTAINERS                          |   2 +
+>  drivers/hwmon/Kconfig                |  12 +
+>  drivers/hwmon/Makefile               |   1 +
+>  drivers/hwmon/macsmc-hwmon.c         | 850 +++++++++++++++++++++++++
+>  5 files changed, 936 insertions(+)
+
+...
+
+> --- a/drivers/hwmon/Makefile
+> +++ b/drivers/hwmon/Makefile
+> @@ -148,6 +148,7 @@ obj-$(CONFIG_SENSORS_LTC4260)	+= ltc4260.o
+>  obj-$(CONFIG_SENSORS_LTC4261)	+= ltc4261.o
+>  obj-$(CONFIG_SENSORS_LTC4282)	+= ltc4282.o
+>  obj-$(CONFIG_SENSORS_LTQ_CPUTEMP) += ltq-cputemp.o
+> +obj-$(CONFIG_SENSORS_MACSMC_HWMON)	+= macsmc-hwmon.o
+>  obj-$(CONFIG_SENSORS_MAX1111)	+= max1111.o
+>  obj-$(CONFIG_SENSORS_MAX127)	+= max127.o
+>  obj-$(CONFIG_SENSORS_MAX16065)	+= max16065.o
+> diff --git a/drivers/hwmon/macsmc-hwmon.c b/drivers/hwmon/macsmc-hwmon.c
+> new file mode 100644
+> index 000000000000..342fe3a5ff62
+> --- /dev/null
+> +++ b/drivers/hwmon/macsmc-hwmon.c
+> @@ -0,0 +1,850 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/*
+> + * Apple SMC hwmon driver for Apple Silicon platforms
+> + *
+> + * The System Management Controller on Apple Silicon devices is responsible for
+> + * measuring data from sensors across the SoC and machine. These include power,
+> + * temperature, voltage and current sensors. Some "sensors" actually expose
+> + * derived values. An example of this is the key PHPC, which is an estimate
+> + * of the heat energy being dissipated by the SoC.
+> + *
+> + * While each SoC only has one SMC variant, each platform exposes a different
+> + * set of sensors. For example, M1 MacBooks expose battery telemetry sensors
+> + * which are not present on the M1 Mac mini. For this reason, the available
+> + * sensors for a given platform are described in the device tree in a child
+> + * node of the SMC device. We must walk this list of available sensors and
+> + * populate the required hwmon data structures at runtime.
+> + *
+> + * Originally based on a concept by Jean-Francois Bortolotti <jeff@borto.fr>
+> + *
+> + * Copyright The Asahi Linux Contributors
+> + */
+> +
+
+missing linux/bitfield.h include as noted by kernel robot
+
+> +#include <linux/hwmon.h>
+> +#include <linux/mfd/macsmc.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+
+...
+
+> +static int macsmc_hwmon_probe(struct platform_device *pdev)
 > +{
-> +	unsigned long flags;
-> +	size_t num_trashes = 0;
-> +	size_t num_invs = 0;
-> +	size_t i, j;
+> +	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
+> +	struct macsmc_hwmon *hwmon;
+> +	int ret;
 > +
-> +	for (i = j = 0; i != invs->num_invs || j != to_unref->num_invs;) {
-> +		int cmp;
+> +	/*
+> +	 * The MFD driver will try to probe us unconditionally. Some devices
+> +	 * with the SMC do not have hwmon capabilities. Only probe if we have
+> +	 * a hwmon node.
+> +	 */
+> +	if (!pdev->dev.of_node)
+> +		return -ENODEV;
 > +
-> +		/* Skip any existing trash entry */
-> +		if (cmp <= 0 && !refcount_read(&invs->inv[i].users)) {
-> +			num_trashes++;
-> +			i++;
-> +			continue;
-> +		}
+> +	hwmon = devm_kzalloc(&pdev->dev, sizeof(*hwmon),
+> +			     GFP_KERNEL);
+> +	if (!hwmon)
+> +		return -ENOMEM;
 > +
-> +		cmp = arm_smmu_invs_cmp(invs, i, to_unref, j);
+> +	hwmon->dev = &pdev->dev;
+> +	hwmon->smc = smc;
+> +
+> +	ret = macsmc_hwmon_populate_sensors(hwmon, hwmon->dev->of_node);
+> +	if (ret) {
+> +		dev_err(hwmon->dev, "Could not parse sensors\n");
+> +		return ret;
+> +	}
+> +
+> +	if (!hwmon->curr.count && !hwmon->fan.count &&
+> +	    !hwmon->power.count && !hwmon->temp.count &&
+> +	    !hwmon->volt.count) {
+> +		dev_err(hwmon->dev,
+> +			"No valid sensors found of any supported type\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	ret = macsmc_hwmon_create_infos(hwmon);
+> +	if (ret)
+> +		return ret;
+> +
+> +	hwmon->chip_info.ops = &macsmc_hwmon_ops;
+> +	hwmon->chip_info.info =
+> +		(const struct hwmon_channel_info *const *)&hwmon->channel_infos;
+> +
+> +	hwmon->hwmon_dev = devm_hwmon_device_register_with_info(&pdev->dev,
+> +								"macsmc_hwmon", hwmon,
+> +								&hwmon->chip_info, NULL);
+> +	if (IS_ERR(hwmon->hwmon_dev))
+> +		return dev_err_probe(hwmon->dev, PTR_ERR(hwmon->hwmon_dev),
+> +				     "Probing SMC hwmon device failed\n");
+> +
+> +	dev_info(hwmon->dev, "Registered SMC hwmon device. Sensors:");
+> +	dev_info(hwmon->dev,
 
-This should be moved upwards to "int cmp" before if.
+printing non-errors during probe is strongly discouraged. I also do not
+see much value in this message outside of development so please change
+to dev_dbg().
 
-Will fix in v4.
-
-Nicolin
+Janne
 
