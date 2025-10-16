@@ -4,99 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 404A6CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 13:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1FDCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 13:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c2QdJEetTz7G8fczLPIsJNR1ytZ7zxdk7c3bXt/pSJY=; b=SKRHUA/NS83VedP702qcLYVdyY
-	1A6g/7kFnE1NylElYQF5wG+uytDXME30sDg9TW2bIcpzCVive3RkDuLaTytfmoVl51fbmVInHadBY
-	cy2RAIQ8sRPkP4cuZiROyy0Za63IF9WquhPZTTGf4WFhqKT/LQJ3d/QyaQxNxGtYPXjxTf3+Mpyd1
-	MkZarzlwgPvrsch4adNL4bx7GVD8G9VPrQOrcs88kg8J2xWZmaz0ovotdYtxEpixnCO4FdddT0aXB
-	S1lFJVSYiGav42vwdm//xYmXp8VvIPUz194bKSvXRnVDip6t5uCO8TDHsrG1jiraQxDrA1qd1on+i
-	jJK4ur/g==;
+	bh=DTh7gctk5AI3bDTEHZSUWiFdhA+fv7NuK/ICIUrV96g=; b=ukOEkxf2wZ2GdaHWjMF8Nz+yw3
+	Ck+VtQvyZeIvxrwosP3c+YdZw7zvro5Qd65d9tAGJQqwKSr12YuAncG/Pfa880WXY97RhGDrEkV4z
+	YzXsuVw+f+ntulkvy6u2AYSGEwmpgTlPlYa7ObeVH1xYL9iVr8fOnt+lTkcZkNLEFNbjx2zPLEX5K
+	TlvtiXlyvJllOgS4f5S79v//SDfdp+T2u8Gli+aFTu0UwzhD5gYpcC0L8XcvZSHPCGLptvktkQbx2
+	N3mh/vosqC9TzFi3dKO4F9U+CgPa+e9oIqEVUIGMwh66h+U2zLNJlsdQWvpFKEuUbqUef3yB0vj8T
+	DrXK6Y6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9OGL-00000004uy3-2hZa;
-	Thu, 16 Oct 2025 13:43:26 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1v9OJm-00000004vRe-1o6b;
+	Thu, 16 Oct 2025 13:46:58 +0000
+Received: from mail-m3288.qiye.163.com ([220.197.32.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9OGI-00000004uwS-2aBU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 13:43:24 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-4060b4b1200so689476f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 06:43:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760622200; x=1761227000; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=c2QdJEetTz7G8fczLPIsJNR1ytZ7zxdk7c3bXt/pSJY=;
-        b=xxNk7Ivr5wysD9sCpJMe/4UL07yUSF+rw9t9FinPTkFiHnHivpqzQHgwSPIvvV/wjO
-         awUtPu0VV4mnkuNnik2DGyAq8V5tFrXq5N9YhUsK/VJEJbNQ9C6HC5RnY6WqNzBQNspF
-         vVMnj4ePGiLlpNy/h4qdOns5WiRvjQmI0UTuSMBmgEVnPdtIQHleWDks6QXqOsY4GMP+
-         9lvldqCMtHzHWKpcuLNe6EefrHv8Rt70XpCuCL0zxCFvd6DI1aPjdmvQbUCavB6GpVG9
-         I59vAkT0RnmIMvHx8hqARcKPHwCQWEUNnIDFpdzigScRISU5+d+KNNQMWiZa9KBRQ2L7
-         hVqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760622200; x=1761227000;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=c2QdJEetTz7G8fczLPIsJNR1ytZ7zxdk7c3bXt/pSJY=;
-        b=eScifCISz3gg8avffQ+qbWO7EB0eDnCy+4KzJX9uQBtUC/SC+Bd1gVdTtT1oPpDex3
-         X3mCQ9aRZ55TVJviz5NokxK0Aj+Df38i/yVWIzPyYh9SgjSSnC/8nEeuvTlY+9cJpNPN
-         FDBARkyT7CrWKSP/PCbIvmGXD/3sNxcJ6MHlop+jSiXlUCIeGrgLzqojtQWCLBKl/R+E
-         brTK2Jn7A9/aFvBvcsqJTOjG2skASxu9BxRpJdJuI0xoUjhA9wfMyJ7UFr44WL6L+CIr
-         8he9ywDAlMItVcpPoOA34DiY7QLI2OAE60+hYyTac1JqLxEo5ge6aFRek0SjMUjQ6DaG
-         qCmw==
-X-Gm-Message-State: AOJu0Yx9x7BgybUYTEDKhiWYPUiBWlgxMjiWX6yPRDuIsjNN2ZhpFLug
-	vUfPhW5Iipa271QwUQs+O0StI8ynLrCsXLNXqsTQGB0ttdIVhw/bNywHQCEhi7lxs4c=
-X-Gm-Gg: ASbGnctoDA1pZz+mfFvNnYmeuJuPjW0uwPZ7UnukVgK6KLACIyo6SQM6pr1bBRaHw0+
-	6UanleiK56BUdxch7Wx0F4MOriWwXJcUJi8OSHlW5YuIu0Zgeh5S9/3bGbLM7eVzxjLP5EuVWxe
-	hXkpgU1UZEYGUE+gsGrN+w2eI7sWtDe6kHKc4N0T5Jo/mksxKqk+GBf80BziumVeB//KNOa5TOc
-	/h2cVTvFYNcmA1sioQPJPF2qIH17pgyjkU4VblrLmdvPUCFbMQHskyv7ZpSfCv/HTTOqk7SPElo
-	eWYNFNLy8aCzNMPApWf2Z6/ZSO2hR9zXycqDj7Y8WRBdEezjZpkIggLRWq1zdG2zl6l9m4xGIqe
-	7Me8M1t4JNGUoMOVYtVcXQviQO5y2EesBIi8ZF5EGnZ8sr3SBEJGit3EjzVOZCcmdaVo+A2uxZo
-	PXyA7F9lc59zrLrXcs8ACXMaf+mz+pxFbhk23KmwUlxTa4AgSkJusO+INt
-X-Google-Smtp-Source: AGHT+IFS4bL1OHrvlJ7NauXkhXRppJ+gq5qkliJnQbz4dYw/SqTcv90p5EoSsU8V1stfZIXijs5KTg==
-X-Received: by 2002:a5d:5f46:0:b0:3eb:4e88:585 with SMTP id ffacd0b85a97d-42704d966ddmr122992f8f.29.1760622200498;
-        Thu, 16 Oct 2025 06:43:20 -0700 (PDT)
-Received: from [192.168.0.19] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47114461debsm31418275e9.18.2025.10.16.06.43.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Oct 2025 06:43:20 -0700 (PDT)
-Message-ID: <e7469a02-1159-472c-811f-2004fa7b8c64@linaro.org>
-Date: Thu, 16 Oct 2025 14:43:18 +0100
+	id 1v9OJh-00000004vR1-3rSb;
+	Thu, 16 Oct 2025 13:46:55 +0000
+Received: from xf.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 26283fe3a;
+	Thu, 16 Oct 2025 21:41:48 +0800 (GMT+08:00)
+From: Finley Xiao <finley.xiao@rock-chips.com>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	ulf.hansson@linaro.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	finley.xiao@rock-chips.com,
+	zhangqing@rock-chips.com,
+	sugar.zhang@rock-chips.com,
+	huangtao@rock-chips.com
+Subject: [PATCH v1 2/2] pmdomain: rockchip: Add support for RV1126B
+Date: Thu, 16 Oct 2025 21:41:03 +0800
+Message-ID: <20251016134103.294636-3-finley.xiao@rock-chips.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251016134103.294636-1-finley.xiao@rock-chips.com>
+References: <20251016134103.294636-1-finley.xiao@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] arm64: dts: qcom: qcs8300: Add CCI definitions
-To: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>,
- Vikram Sharma <quic_vikramsa@quicinc.com>, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Ravi Shankar <quic_rshankar@quicinc.com>,
- Vishal Verma <quic_vishverm@quicinc.com>
-References: <20251015131303.2797800-1-quic_vikramsa@quicinc.com>
- <20251015131303.2797800-3-quic_vikramsa@quicinc.com>
- <84f17b74-a3ea-46bd-a6d4-efa79c1cb43a@linaro.org>
- <e0e0fa36-b75f-4d04-b179-772fa4b9d10c@quicinc.com>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Content-Language: en-US
-In-Reply-To: <e0e0fa36-b75f-4d04-b179-772fa4b9d10c@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a99ed415f1503a9kunm0a0c6b9d2865e
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU0ZSlZMH0sZQkhLGk8eQh5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=TbM0Hawm5HzQvXbp+O5LAOEpKQ+D84rvrZ+39BZ+GY4SfM1sMQWUELFfVF6Sblh+ihxiTzaxDWKTEQq5/BB+hGHv/x6kB6KQDqDPLlTrG8XAghhcIED031ObiBE2h9KQTrlIulc6wUzu7rSbDYsRtGT57mGFuNN6jeosKoDIqEA=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=DTh7gctk5AI3bDTEHZSUWiFdhA+fv7NuK/ICIUrV96g=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_064322_667915_63BB2295 
-X-CRM114-Status: UNSURE (   7.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251016_064654_125039_E3691388 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,21 +79,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/10/2025 13:04, Nihal Kumar Gupta wrote:
-> I assume you're referring to update s/lemans/Lemans
-> 
-> Codename for QCS8775P SoC corresponds to Lemans while QCS8300 SoC corresponds to Monaco
-> 
-> https://lore.kernel.org/all/20250923-rename-dts- 
-> v1-0-21888b68c781@oss.qualcomm.com/ 
-> Following the above change,  I will update the commit message from
-> "Qualcomm QCS8300 SoC contains 3 Camera.. " to "Monaco contains three Camera .."
+Add configuration and power domains for RV1126 SoC.
 
-Eh you're right "Lemans" is incidental, you're comparing to not 
-declaring "this is".
-
-Seems not really worth updated text in that context. Feel free to ignore.
-
+Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
 ---
-bod
+ drivers/pmdomain/rockchip/pm-domains.c | 41 ++++++++++++++++++++++++++
+ 1 file changed, 41 insertions(+)
+
+diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
+index 1955c6d453e4..49a01261d13d 100644
+--- a/drivers/pmdomain/rockchip/pm-domains.c
++++ b/drivers/pmdomain/rockchip/pm-domains.c
+@@ -25,6 +25,7 @@
+ #include <soc/rockchip/rockchip_sip.h>
+ #include <dt-bindings/power/px30-power.h>
+ #include <dt-bindings/power/rockchip,rv1126-power.h>
++#include <dt-bindings/power/rockchip,rv1126b-power.h>
+ #include <dt-bindings/power/rk3036-power.h>
+ #include <dt-bindings/power/rk3066-power.h>
+ #include <dt-bindings/power/rk3128-power.h>
+@@ -137,6 +138,20 @@ struct rockchip_pmu {
+ 	.active_wakeup = wakeup,			\
+ }
+ 
++#define DOMAIN_M_G(_name, pwr, status, req, idle, ack, g_mask, wakeup, keepon)	\
++{							\
++	.name = _name,					\
++	.pwr_w_mask = (pwr) << 16,			\
++	.pwr_mask = (pwr),				\
++	.status_mask = (status),			\
++	.req_w_mask = (req) << 16,			\
++	.req_mask = (req),				\
++	.idle_mask = (idle),				\
++	.ack_mask = (ack),				\
++	.clk_ungate_mask = (g_mask),			\
++	.active_wakeup = wakeup,			\
++}
++
+ #define DOMAIN_M_G_SD(_name, pwr, status, req, idle, ack, g_mask, mem, wakeup, keepon)	\
+ {							\
+ 	.name = _name,					\
+@@ -205,6 +220,9 @@ struct rockchip_pmu {
+ #define DOMAIN_RV1126(name, pwr, req, idle, wakeup)		\
+ 	DOMAIN_M(name, pwr, pwr, req, idle, idle, wakeup)
+ 
++#define DOMAIN_RV1126B(name, pwr, req, wakeup)			\
++	DOMAIN_M_G(name, pwr, pwr, req, req, req, req, wakeup, true)
++
+ #define DOMAIN_RK3288(name, pwr, status, req, wakeup)		\
+ 	DOMAIN(name, pwr, status, req, req, (req) << 16, wakeup)
+ 
+@@ -1104,6 +1122,13 @@ static const struct rockchip_domain_info rv1126_pm_domains[] = {
+ 	[RV1126_PD_USB]		= DOMAIN_RV1126("usb", BIT(9), BIT(15), BIT(15),  false),
+ };
+ 
++static const struct rockchip_domain_info rv1126b_pm_domains[] = {
++					      /* name    pwr     req      wakeup */
++	[RV1126B_PD_NPU]	= DOMAIN_RV1126B("npu",  BIT(0), BIT(8),  false),
++	[RV1126B_PD_VDO]	= DOMAIN_RV1126B("vdo",  BIT(1), BIT(9),  false),
++	[RV1126B_PD_AISP]	= DOMAIN_RV1126B("aisp", BIT(2), BIT(10), false),
++};
++
+ static const struct rockchip_domain_info rk3036_pm_domains[] = {
+ 	[RK3036_PD_MSCH]	= DOMAIN_RK3036("msch", BIT(14), BIT(23), BIT(30), true),
+ 	[RK3036_PD_CORE]	= DOMAIN_RK3036("core", BIT(13), BIT(17), BIT(24), false),
+@@ -1516,6 +1541,18 @@ static const struct rockchip_pmu_info rv1126_pmu = {
+ 	.domain_info = rv1126_pm_domains,
+ };
+ 
++static const struct rockchip_pmu_info rv1126b_pmu = {
++	.pwr_offset = 0x210,
++	.status_offset = 0x230,
++	.req_offset = 0x110,
++	.idle_offset = 0x128,
++	.ack_offset = 0x120,
++	.clk_ungate_offset = 0x140,
++
++	.num_domains = ARRAY_SIZE(rv1126b_pm_domains),
++	.domain_info = rv1126b_pm_domains,
++};
++
+ static const struct of_device_id rockchip_pm_domain_dt_match[] = {
+ 	{
+ 		.compatible = "rockchip,px30-power-controller",
+@@ -1585,6 +1622,10 @@ static const struct of_device_id rockchip_pm_domain_dt_match[] = {
+ 		.compatible = "rockchip,rv1126-power-controller",
+ 		.data = (void *)&rv1126_pmu,
+ 	},
++	{
++		.compatible = "rockchip,rv1126b-power-controller",
++		.data = (void *)&rv1126b_pmu,
++	},
+ 	{ /* sentinel */ },
+ };
+ 
+-- 
+2.43.0
+
 
