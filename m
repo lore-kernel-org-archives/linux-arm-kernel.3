@@ -4,100 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DDDCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 05:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 996C7CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 05:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ycztQkvJg+KdGCCiCnENVHtBhwB6Y+p5nrVTPjvpLc=; b=3Ci90a5Ic5nyMvuYUiRIepoevC
-	+QMNcmwV4weAknehHwJFuHfZd69c7/+EN2B0R94kulUkpsoUNI++qm3pQG+iEfnSz22uVHr7hqkHV
-	AQSei3tHNMdO7v9WKNzxtkYGmsWhkgMMp1dGGnl5xHzZqED4oWAK6istMsm80MQj8byrlsDbCfaQX
-	jBfzxEMhItIGB3ZQT5onnAvEGQtU2Jl/pFHkBDuQoh/yGfKh15HsFZSKD4OcVNce4LjVIxPlcLfxd
-	86abH18PLW2/6l5yb44n1dgUwx9TDT2gZC/DLMtgfVO01xlCaDYAPquKJdlYTMPO/x9dXe0YP1IEe
-	d3bwe0NQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zH2ugzxP683voaQgSLdGyqCOGA8yxqXZYuzfOzbl74E=; b=GE2AwxSkzpKDvA4+FHPuxtA5m2
+	HyN+RQxRw2tleVLcmter8EjkxQv9/+0vsoAQnA0L7BN8h7ic6mMUhgfMXuj9YD2oMemc+nWXcIigH
+	OV6iuouf6sqrLU3ts7OxblpSd2RGZHDVxunuvAOZfWVvEBcZsb+GwGtTSE0q1mz40LibCFRVWEEca
+	apW+v5QEU0F1zeWJqlLUeBz9L0IZb0g0GL5ujhZKRX9BH4pJ2U73D8ihwf3HPGlDl3s9cOv0YUAVx
+	PfTuDvltr13CgIkQQfDAygYDWPHilbQbbYnoAiWWRUqshk7JRC8oyzCkPZEjfK6kJGZiwJuHyVv2D
+	Zh8fl2Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9GyE-00000003YHB-46uh;
-	Thu, 16 Oct 2025 05:56:14 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1v9H1e-00000003YZY-2AsZ;
+	Thu, 16 Oct 2025 05:59:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9GyC-00000003YGn-2JoU
+	id 1v9H1c-00000003YZB-0uOR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 05:56:13 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b4f323cf89bso60042466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 22:56:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760594171; x=1761198971; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=6ycztQkvJg+KdGCCiCnENVHtBhwB6Y+p5nrVTPjvpLc=;
-        b=FkPE8CbeD9cpKhW3gc2UJjhlFGfvY1T38nF/i5Fj+r96VQJaszFEdiCumofZ1mgtx/
-         +sH8muICHxfW+QU2ghaQK1dIg0Mf0qI9y7a6KULJbG3nMFf1WWLBYIWR6skPkCDjvbnF
-         7eyjqKwY66kYMOIRwy0MMBVGIB7h7DTr+G4JTUKNynh/eqJD2AuBP2ptQwHKFDPAqKO5
-         9ibsvFmlz5sheI4/WFf2fpY4v/+hQEL2QMg0IQREVKk9zOpMmiUB09oWNIH0ntZoj4Ep
-         Xv/PLIc/lHtobIWS22Wjfp2ursHxpXJz1N7NfR2qB0gFBJ93tpupD21Be0DBI4f/hRAm
-         w56A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760594171; x=1761198971;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6ycztQkvJg+KdGCCiCnENVHtBhwB6Y+p5nrVTPjvpLc=;
-        b=AhpA8wRP1irI9FjupQpf8IruQw6xpg397Fw31ES9H2wiy9k/qx0KNpBFdmlSKe0ji3
-         L6INj8Y6VqWhJ8duquQVCT73dbvJhqM+83+brOpvdDAedLfz9P6KdAKtyo0SrhflHgr3
-         3ykKPPYudcwJz0966Z6C3HQ41/rTxV8dSUlwT1+nTUzQD/r+vomEo4k72yt1jaJ0yT9J
-         YZc2WfqI78ExWK82DrFScySCweBr2FvJzEZhQ468r6I1Hi6CdO/Bz9Ip8vze7DRy2gyv
-         r0BAjnbU+QCsceM9rHoETA+QRpl5wzq3LSQFsMMtwBFYOCI3Ty1iMk1sXu2xYVU8wEPo
-         xS4g==
-X-Forwarded-Encrypted: i=1; AJvYcCXUSVblYS6CPNsplZaajrN9+bKxxvSn+DlsHJ1DdAEnB9OnIju1XbI95i/jDoWucW50USDfWhI4KAKjvyJ8anSI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEWOgf/crBFwtxNPXNom+ROzedotP6qMTnnmA0nceN7SNCasFz
-	UjjADtPqKYeY+100cLH1riNw+5bsEl7PfDpzUmz0AeADb3+iUW8+Mt/5crABIQVmNQY=
-X-Gm-Gg: ASbGnctjhPRMRlInAi8Fngc12JkEOzDtbyB9YqGi2FrUW8XZtCFKn5RfogmMVXjM+IT
-	oags6/2g8DjUsZeLoAPZGRIuG+vJI8X69gJQmsuoBOFHiei+q1de6yk5KpP0PytjuMVJZiTeG9C
-	X+ke/dsFiyzc6J/3LQJcskNDU0gMGqaxR62fDKpjlinXYxBoW7daIdT6FUBb0nwLXiCdS3EV8a9
-	xcMdALkHsXdCl7IHHnI3QzKJrebzsGVXuTe2MABvRcgyHkmna6+1giWap0bJjLqz/ct3qfxb+yu
-	G1JfOH/ScDrZVsqYoAftLeq09O0uNZxQ9pEMcuucSYT+BW2iycXUuQ0cmJZ3fhm7UBoid8N1m7U
-	fgao5C1BA+x5e+AR8lRcmyPZqdjoXVe1hoeue6oUp2ysrKb12znhi1/ZJfI0hyQc+N5T42tNcOh
-	LB3vjtkTVrbnKmvmtFRw==
-X-Google-Smtp-Source: AGHT+IHRn6DJcub987XbIaCnD213XxBVwA1OkaUrOOTFR+bbpHbUgS+RyDdcriH37dmE0TK4LGPTbQ==
-X-Received: by 2002:a17:906:c149:b0:b41:2209:d35d with SMTP id a640c23a62f3a-b50a9d701b3mr3125674866b.1.1760594170719;
-        Wed, 15 Oct 2025 22:56:10 -0700 (PDT)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b5ccccaab18sm419863266b.48.2025.10.15.22.56.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Oct 2025 22:56:10 -0700 (PDT)
-Message-ID: <30a0c50b682b990820d486e536f320c7ea31eabc.camel@linaro.org>
-Subject: Re: [PATCH 3/9] arm64: dts: exynos: gs101: add sysreg_misc and
- sysreg_hsi0 nodes
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
-  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar	 <alim.akhtar@samsung.com>, Tudor
- Ambarus <tudor.ambarus@linaro.org>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Sam Protsenko	
- <semen.protsenko@linaro.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, Krzysztof Kozlowski	
- <krzk@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, Krzysztof
- Kozlowski	 <krzysztof.kozlowski@linaro.org>, kernel-team@android.com
-Date: Thu, 16 Oct 2025 06:56:09 +0100
-In-Reply-To: <20251013-automatic-clocks-v1-3-72851ee00300@linaro.org>
-References: <20251013-automatic-clocks-v1-0-72851ee00300@linaro.org>
-	 <20251013-automatic-clocks-v1-3-72851ee00300@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build3 
+	Thu, 16 Oct 2025 05:59:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D88648E39;
+	Thu, 16 Oct 2025 05:59:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C78EC4CEF1;
+	Thu, 16 Oct 2025 05:59:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760594383;
+	bh=8ciTShZccMAg56b4cQsrmTPZobu4kdKJ+1tp/6jLHrc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=iSUBroB6zN12uj57egK6nYeGXF+APzMzirw5wPgJ4EFDLmuWHTl7djqwdTvR7e9yW
+	 iIomQGcJ7npB5UUXK3wDA4QNY1GwrROFN1kkjByJa0JbmxhMcdoJV41DB9YB6gq6z2
+	 suzIP61mHuV7s927w8JSu3qTiK6TFLYhR+94L01R9WUcPht7GIZz9LyVaJH4A6kXZB
+	 Fi5oJZBcgl/SeXu4tfIa0huFsCHUtN7RcVz3UdNCnplrd6OlaYi9075op5RCbqOdnU
+	 kCev68BHUckZSPlUY65yz/1EfPKcEYu6G1biNv3lav79dbcW818Ee3rrmnAwFekmV+
+	 F6x1fWYerGqAA==
+Message-ID: <8966ddaf-9c10-4626-a4cc-36efd3fc93e2@kernel.org>
+Date: Thu, 16 Oct 2025 07:59:37 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] arm64: dts: qcom: qcs8300: Add support for camss
+To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+ Vikram Sharma <quic_vikramsa@quicinc.com>, mchehab@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+ cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, bryan.odonoghue@linaro.org
+References: <20251015130130.2790829-1-quic_vikramsa@quicinc.com>
+ <20251015130130.2790829-3-quic_vikramsa@quicinc.com>
+ <b4207e22-8d9c-4223-8b28-272d2650661f@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <b4207e22-8d9c-4223-8b28-272d2650661f@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_225612_595626_A9C9C07C 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251015_225944_297183_4C2998BE 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,18 +124,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-10-13 at 21:51 +0100, Peter Griffin wrote:
-> Add syscon DT node for the hsi0 and misc sysreg controllers. These will b=
-e
-> referenced by their respective CMU nodes in future patchs.
+On 15/10/2025 20:49, Vladimir Zapolskiy wrote:
+> On 10/15/25 16:01, Vikram Sharma wrote:
+>> Add changes to support the camera subsystem on the QCS8300.
+>>
+>> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+>> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+>> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+>> ---
+>>   arch/arm64/boot/dts/qcom/qcs8300.dtsi | 171 ++++++++++++++++++++++++++
+>>   1 file changed, 171 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/qcom/qcs8300.dtsi b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+>> index 8d78ccac411e..acd475555115 100644
+>> --- a/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+>> +++ b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
+>> @@ -4769,6 +4769,177 @@ videocc: clock-controller@abf0000 {
+>>   			#power-domain-cells = <1>;
+>>   		};
+>>   
+>> +		camss: isp@ac78000 {
+>> +			compatible = "qcom,qcs8300-camss";
+>> +
+>> +			reg = <0x0 0xac78000 0x0 0x1000>,
+>> +			      <0x0 0xac7a000 0x0 0xf00>,
+>> +			      <0x0 0xac7c000 0x0 0xf00>,
+>> +			      <0x0 0xac84000 0x0 0xf00>,
+>> +			      <0x0 0xac88000 0x0 0xf00>,
+>> +			      <0x0 0xac8c000 0x0 0xf00>,
+>> +			      <0x0 0xac90000 0x0 0xf00>,
+>> +			      <0x0 0xac94000 0x0 0xf00>,
+>> +			      <0x0 0xac9c000 0x0 0x2000>,
+>> +			      <0x0 0xac9e000 0x0 0x2000>,
+>> +			      <0x0 0xaca0000 0x0 0x2000>,
+>> +			      <0x0 0xacac000 0x0 0x400>,
+>> +			      <0x0 0xacad000 0x0 0x400>,
+>> +			      <0x0 0xacae000 0x0 0x400>,
+>> +			      <0x0 0xac4d000 0x0 0xf000>,
+>> +			      <0x0 0xac60000 0x0 0xf000>,
+>> +			      <0x0 0xac85000 0x0 0xd00>,
+>> +			      <0x0 0xac89000 0x0 0xd00>,
+>> +			      <0x0 0xac8d000 0x0 0xd00>,
+>> +			      <0x0 0xac91000 0x0 0xd00>,
+>> +			      <0x0 0xac95000 0x0 0xd00>;
+>> +			reg-names = "csid_wrapper",
+>> +				    "csid0",
+> 
+> The list of 'reg-names' is not alphanumerically sorted, this is a newly
+> introduced sorting order pattern of CAMSS 'reg' property values.
 
-s/patchs/patches :-)
 
->=20
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
-> =C2=A0arch/arm64/boot/dts/exynos/google/gs101.dtsi | 12 ++++++++++++
-> =C2=A01 file changed, 12 insertions(+)
+Please stop inventing ad-hoc or fake rules. There is no such sorting
+pattern for this property, which I expressed multiple times. Last time
+you claimed there is some sorting by "values", now this.
 
-Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+Best regards,
+Krzysztof
 
