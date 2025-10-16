@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC57CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 08:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A80CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 08:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8DUko89npzL7HZjxZvIBEjnQ7mySr2fGFeLb9bgdOWw=; b=A6zNnVAbYquBOuoTCAoI239wjP
-	ywidKTJjAEImcqIa/uVCxNETYbJC6KUGobF73uUGLuk/GYIc6r4ONFl5EAJ5nwXc9oXegiurXRJXI
-	NAn1l3lhYTVJyoFdykp4DePq/6Irvwvo0wSK5DRGokhpXT1yb5vZw2ddoZI/2sWSmY/EHdOQH+ysx
-	8Na2mxcdkifg9IVz8J7qAfSz/YSG31zkL/K3FUm1RVUhfTL2TnXw7U4Kv3HX7Xm1OUHq9nVwOJ8sw
-	gN3XbwarUg7gPBWwk7YLZyB9CAT1UbouHT4cjxnuUnxluSqYL2KNYReIDZEbsxtrkryYpbg/pq7R9
-	cij853IA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N1rZiVWM7zYa7/iOhEFyo6sQl/kIYT8q4flK3hRKByc=; b=y1PEzVvVEToonBrwNJ6zY+O82m
+	AMUZxHhj9M/+gafdhowosK0UPLuOg+ZUZ0wZSczDT5L5pdUEyiQ05+4QKx6Pwcy5fV7g+WNbtQc5p
+	hWrf+S5R3OIbtYqSg7uyp5X3TMEzsfXnwmt95nftWmBGbZ140mgiJDYpr4DEaX2sKzGZ8S/gcGjGD
+	nEtGkOPzAzFgmjCovbBUTf1MvA0nmg2ZB1mGY3XKpYk4QtK+pPt+IY5hphmNb77dRWgppSd1KRwTV
+	lhkqujqe0fQowCyKza9YW7gEL90Vr6QRw5smAnhu8hzIl6mA/oWCCPlSfXKg4FF1jxurJ8hq8YLQp
+	5QUmS+jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9JYN-000000040MF-0KGj;
-	Thu, 16 Oct 2025 08:41:43 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1v9JbL-000000041TJ-2ecO;
+	Thu, 16 Oct 2025 08:44:47 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9JYJ-000000040K5-0bsX
+	id 1v9JbI-000000041QI-1ory
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 08:41:41 +0000
-X-UUID: eb40a756aa6b11f0a38c85956e01ac42-20251016
-X-CID-CACHE: Type:Local,Time:202510161630+08,HitQuantity:1
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:02f42891-db57-43d4-b388-6ed07773c7f2,IP:0,UR
-	L:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:a9d874c,CLOUDID:d24af52aa30fd24840d7476069b00f81,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850,TC:nil,Content:0|50,EDM:5,IP:nil
-	,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:
-	1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: eb40a756aa6b11f0a38c85956e01ac42-20251016
-X-User: tanze@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <tanze@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1931016855; Thu, 16 Oct 2025 16:41:33 +0800
-From: tanze <tanze@kylinos.cn>
-To: james.clark@linaro.org,
-	leo.yan@linux.dev,
-	irogers@google.com,
-	john.g.garry@oracle.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	graham.woodward@arm.com,
-	mike.leach@linaro.org,
-	tanze <tanze@kylinos.cn>
-Subject: [PATCH v1] perf arm_spe: Add a macro definition to handle offset value
-Date: Thu, 16 Oct 2025 16:41:29 +0800
-Message-Id: <20251016084129.30587-1-tanze@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	Thu, 16 Oct 2025 08:44:46 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 51EEE1A140D;
+	Thu, 16 Oct 2025 08:44:42 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 24AAB6062C;
+	Thu, 16 Oct 2025 08:44:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 56753102F22F1;
+	Thu, 16 Oct 2025 10:44:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1760604281; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=N1rZiVWM7zYa7/iOhEFyo6sQl/kIYT8q4flK3hRKByc=;
+	b=HQmM4yprZlilGcaiSB4/XWd0S51BJtvXC4417lCtZL2fcCLWXoIicfoDQFC7COdyPP0d8U
+	sGUm6edEWmgUf3OBpeISB1P1kDAcotG5N0Jnq++reD2L0FyKrqycTTjt7b6aq6DJZRCcC4
+	MYkWwgL8NAqOE61PQINi3sOG5Jx56yvzF2AXr0go6QOjuzk3OANIeriItOuNTML1TK13Za
+	48NEqBqW1wlUbAloKzagYwDULgmqA4Urj/6Uv7VdtM+yoH7C0DSsGkKrZJsfOhog3uYzRV
+	Kolrc5ZfmqkyT8TOXZll5Fe9p88LnOa+7QdJNsG69DX1P3mVF/jiMY1id8+JJw==
+Date: Thu, 16 Oct 2025 10:44:34 +0200
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Richard Cochran <richardcochran@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
+ <alexis.lothore@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 3/3] net: ethtool: tsconfig: Re-configure
+ hwtstamp upon provider change
+Message-ID: <20251016104338.6677e807@kmaincent-XPS-13-7390>
+In-Reply-To: <731e8fa7-465b-4470-9036-c59fea602c07@bootlin.com>
+References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
+	<20251015102725.1297985-4-maxime.chevallier@bootlin.com>
+	<20251015144526.23e55ee0@kmaincent-XPS-13-7390>
+	<731e8fa7-465b-4470-9036-c59fea602c07@bootlin.com>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_014140_760685_C25F9ECD 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251016_014444_603971_68914465 
+X-CRM114-Status: GOOD (  25.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +88,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a macro definition SPE_SYNTH_ID_OFFSET to handle the offset value
-and improve readability.
+On Thu, 16 Oct 2025 10:01:53 +0200
+Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
 
-Signed-off-by: tanze <tanze@kylinos.cn>
----
- tools/perf/util/arm-spe.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> Hi K=C3=B6ry,
+>=20
+> On 15/10/2025 14:45, Kory Maincent wrote:
+> > On Wed, 15 Oct 2025 12:27:23 +0200
+> > Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+> >  =20
+> >> When a hwprov timestamping source is changed, but without updating the
+> >> timestamping parameters, we may want to reconfigure the timestamping
+> >> source to enable the new provider.
+> >>
+> >> This is especially important if the same HW unit implements 2 provider=
+s,
+> >> a precise and an approx one. In this case, we need to make sure we call
+> >> the hwtstamp_set operation for the newly selected provider. =20
+> >=20
+> > This is a design choice.
+> > Do we want to preserve the hwtstamp config if only the hwtstamp source =
+is
+> > changed from ethtool?
+> > If we want to configure the new source to the old source config we will=
+ also
+> > need to remove this condition:
+> > https://elixir.bootlin.com/linux/v6.17.1/source/net/ethtool/tsconfig.c#=
+L339
+> > =20
+>=20
+> What I get from the ethtool output is that the ts config is per-source.
+> Re-applying the old config to the new source may not work if the new one
+> doesn't have the same capabilities.
+>=20
+> >=20
+> > I do not really have a strong opinion on this, let's discuss which beha=
+vior
+> > we prefer. =20
+>=20
+> Well if we want to support different timestamp providers provided by the =
+same
+> HW block (same MAC or even same PHY), then we need a way to notify the
+> provider when the timestamp provider gets selected and unselected.
+>=20
+> Otherwise there's no way for the provider to know it has been re-enabled,
+> unless we perform a config change at the same time.
 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 71be979f5077..645048ac7708 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -36,6 +36,7 @@
- 
- #include "../../arch/arm64/include/asm/cputype.h"
- #define MAX_TIMESTAMP (~0ULL)
-+#define SPE_SYNTH_ID_OFFSET (1000000000ULL)
- 
- #define is_ldst_op(op)		(!!((op) & ARM_SPE_OP_LDST))
- 
-@@ -1732,7 +1733,7 @@ arm_spe_synth_events(struct arm_spe *spe, struct perf_session *session)
- 	attr.sample_period = spe->synth_opts.period;
- 
- 	/* create new id val to be a fixed offset from evsel id */
--	id = evsel->core.id[0] + 1000000000;
-+	id = evsel->core.id[0] + SPE_SYNTH_ID_OFFSET;
- 
- 	if (!id)
- 		id = 1;
--- 
-2.25.1
+Oh right, indeed, we need a call to ndo_hwtstamp_set to tell the provider to
+change the qualifier configured. I missed that.
+This could even be a fix but as it is used nowhere it won't fix anything.
 
+Acked-by: Kory Maincent <kory.maincent@bootlin.com>
+
+Thank you!
+
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
