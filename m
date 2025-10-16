@@ -4,99 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75F1ACCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 05:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7B7CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 05:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h43Lpj0QWKhbWHWyTH/CRqgeEv5tT9Y15JOhJ6HkdJ0=; b=gR0SiddZtbe528cwZj+pRJZPSH
-	GVP04ilDt+uHM9oh56gGdV8If7kI6kNEP2UylnXPzfT/iXTVNQXlOQFIEmT5aVfuWAloPmqIUFyJQ
-	F+Rky94UFApdXeygHIL5StmBFYGP+PfNZJsBkg0w9gE5TNAXyeD0BlvQj2RDh41MNssBsgD8Vm6Bv
-	4YPCP+q9jn9nD0LpJEqwoDLg2v8Xq42QnsS+FNVV/s3Sd3P4gZ0IzWjbbfrS7qh6d+M0QHSGtOGfz
-	AXWUAqgpPmO1cEWwPZJYBV6ITgG1gf5U5IT7a64gKPRHL8WZGXnqIxzbSFE+qxLcRuUcRphdXt41K
-	zpLZ+blg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z2ypzUBcWsUqTIXgsF8JXfZwJi1SAGJzy/+9Dlfy/QU=; b=SGNM4znhuqdGJ6mrM9hGtS7yXp
+	aOx+t8NW+a5JJ3DeZhKADZG+2lNIbZPmWsWQ1e1jlSciBJwyXGu6oJTkkeJt4yJmX7hC9lBnMRPDK
+	eHplgi2J7ubgE8naQr1nzWttlD+fM0tNwJdPHNexkoLJN5607TWOPhstWCHqSAj8rxIuuoOAhRyE3
+	Wa6ciAJHxhOLV1wO2v8gLdaFyAvSWwWgLECKI6r/HJ8pH7SjfVe6TE2ojsUaFzQTeJJI/aDpNjIKk
+	BMyjITDpbInyrOKOd6Em6iiNu8jadHHd5lQDCcrqyxZsl6IkROI/C8v/AsZ3U+4+HDiwwS0ew4q0t
+	jgCPumEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Gvj-00000003Xk6-1LjX;
-	Thu, 16 Oct 2025 05:53:39 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1v9Gw1-00000003Xot-2jX6;
+	Thu, 16 Oct 2025 05:53:57 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Gvh-00000003Xjd-0diR
+	id 1v9Gvv-00000003XlG-1DB2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 05:53:38 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b4f323cf89bso59662266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 22:53:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760594015; x=1761198815; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=h43Lpj0QWKhbWHWyTH/CRqgeEv5tT9Y15JOhJ6HkdJ0=;
-        b=KgWtnLSe7PXl0/K/lxLh7xiwBhENDSJcymO+rLPG1zcxFXOtTIzbMZGOa1CkvsFsV9
-         IE3Efa0u6/3TG8dYX6Q8btSniQZLumuVTwJqYYUAUyLjVUhb8clLLJ95inSjOQ9S1RSg
-         tY8ugRUyALorrhSxiWcA5j90FPq267Gi9J+9/LY8LyNuSRMAcNJZgg10q2OJPwabJamt
-         aRKOYz244u447w811thomMw4GobtnTFgRYkXyBDGaVb6qcpXX+Gf5EFHodKyWod7zUxY
-         2QNs0FONs7fvMpfag16MZZxj97+N500lK3p+SUUFpgnuIIe44cYcJlfc9+nM5fH6F+uP
-         s4/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760594015; x=1761198815;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=h43Lpj0QWKhbWHWyTH/CRqgeEv5tT9Y15JOhJ6HkdJ0=;
-        b=grpaE1SOJX9HWEAy8QBs9E09svQoaOgdLq7p5sfX7K2me40Dk/f5iZ7nv5xuWn941M
-         5v350aASiscbz4AWUHQYZh+Q/ThaU0krt5l2aNoQlX4QEn3L02Tqvf2fi17q5fEu+uih
-         nXh75SBAH/uurw2mEB+KfegmvdfaT73jyyrd6FzWPulaA48yuiGxiw+hf/Ct+4z5yCg+
-         0wNjOhJKhhvBHFiqwa/9YzpSrxH4052kRpv5EPdF19juMZuc+YCZIcqkd9wir6/X1/X9
-         p+fb3Pt0mb3U9pJs7iKiYUtdav3Qq7/XZf6TS6bc+O+13ZMSYTjuKjit0apOkw9aOMYb
-         bIdA==
-X-Forwarded-Encrypted: i=1; AJvYcCUns5hQpXR7QHkk6d9ohQl49Hre6WoMgHATlrATJV3Ef9OPZAz4xKpCWvuWfHKTkH+ig4Y8vKuOFlhoLA1E3mbV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5Udavt9fxQBCYknL4KeMguqv5hkejXDIpxZomySJGTaiQhcPO
-	x/dBnZxTOzZBrgnuv1EPqI3KEmUM7QgBGq1oqQXdxbrlN/fhOe7oUO3nWyorn6velJg=
-X-Gm-Gg: ASbGncv0qdr/FKkg6lQU+/eyYmmhoN04cdYh8daLasvkVWayxB3YHMlHzNRwFB0LfYK
-	5GebbHUnE5VUZ8+xS4arSvgf/bE5CUS2hwXer4/Mu5yK/p3HUWtaAic24+GkOgLJXihsYO0qsuU
-	xFVdGALghfMjWX+LPTksq8rJpV3+E04R7fAYcp5Lj7U0w+NeXdkWH4K+cj3q6tKMep1qDgmM3NF
-	cuuTkR6exQHE5LXsS5XcYIhjHFThkllLJwHlBR1LMKxDrtgGyPglv3wIVGcJtMl3eQ4nqstZTJH
-	k18ZRQtbEMr5jl/4EUZmcsHVfay7oL6SDz4OQflsUGu/IAuqq/1co00Q7ZBt6ERsyJRMw1UcFJu
-	DP6xjk0mWh7N8uCuGqO8/9SlVsTKGT8SFjfIzAJ8haE8Wd7u0nMDIaPO+5wdk9AbGsezf/U90Nt
-	8YxOD/+yzGvw/jIceD4NC+OnOWMBSS
-X-Google-Smtp-Source: AGHT+IG6k82old8Ss2xXFGeUWZ0Z24OHhJFIC1WYkbpaOPTTbKORZrmrrZeZpS+oP1oVNSzs9LZc9A==
-X-Received: by 2002:a17:906:cb85:b0:b54:8670:7c2d with SMTP id a640c23a62f3a-b5486707c37mr2358791766b.55.1760594015284;
-        Wed, 15 Oct 2025 22:53:35 -0700 (PDT)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b5cccdaa0f9sm427529166b.45.2025.10.15.22.53.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Oct 2025 22:53:34 -0700 (PDT)
-Message-ID: <5fa16d95c5b421253135c5ec7974e99b8724f395.camel@linaro.org>
-Subject: Re: [PATCH 2/9] dt-bindings: clock: google,gs101-clock: add
- samsung,sysreg property as required
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
-  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar	 <alim.akhtar@samsung.com>, Tudor
- Ambarus <tudor.ambarus@linaro.org>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Sam Protsenko	
- <semen.protsenko@linaro.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, Krzysztof Kozlowski	
- <krzk@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, Krzysztof
- Kozlowski	 <krzysztof.kozlowski@linaro.org>, kernel-team@android.com
-Date: Thu, 16 Oct 2025 06:53:33 +0100
-In-Reply-To: <20251013-automatic-clocks-v1-2-72851ee00300@linaro.org>
-References: <20251013-automatic-clocks-v1-0-72851ee00300@linaro.org>
-	 <20251013-automatic-clocks-v1-2-72851ee00300@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-User-Agent: Evolution 3.56.2-2+build3 
+	Thu, 16 Oct 2025 05:53:56 +0000
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20251016055341epoutp025ae7df92497a651f7e652868492867b7~u4u9KhdIH0561305613epoutp029
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 05:53:41 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20251016055341epoutp025ae7df92497a651f7e652868492867b7~u4u9KhdIH0561305613epoutp029
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1760594021;
+	bh=z2ypzUBcWsUqTIXgsF8JXfZwJi1SAGJzy/+9Dlfy/QU=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=VmpOb6OVVUaQYzAo0awrm5AOgB7QXefsBoWKwVxcHOwQnUbxCJBwuia7rU9Qf4Sr1
+	 vdcFfXWwGEvzZa7vJ+9ZGUUNE4kvbCDdeWCePXeV8Y8lctxq+YDoYWdHy7IuNzvn5W
+	 Vn3FMqLsTRAzho/ngR1D2oiHc+73irEremZZT9J8=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20251016055341epcas2p2d516a747f9a7b8abb3e6b7b2e1b7314e~u4u8qPRRC2084520845epcas2p2M;
+	Thu, 16 Oct 2025 05:53:41 +0000 (GMT)
+Received: from epcas2p4.samsung.com (unknown [182.195.38.203]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cnHFJ624vz2SSKZ; Thu, 16 Oct
+	2025 05:53:40 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
+	20251016055340epcas2p32ef2561a9a5d91e7deba938cc0726965~u4u7mlIJa2970229702epcas2p3q;
+	Thu, 16 Oct 2025 05:53:40 +0000 (GMT)
+Received: from KORCO115296 (unknown [12.80.207.128]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20251016055339epsmtip116886c713983525e1e5383faeb4afbae~u4u7gq99m2565525655epsmtip1u;
+	Thu, 16 Oct 2025 05:53:39 +0000 (GMT)
+From: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Bartlomiej Zolnierkiewicz'"
+	<bzolnier@gmail.com>, "'Rafael J . Wysocki'" <rafael@kernel.org>, "'Daniel
+ Lezcano'" <daniel.lezcano@linaro.org>, "'Zhang Rui'" <rui.zhang@intel.com>,
+	"'Lukasz	Luba'" <lukasz.luba@arm.com>, "'Rob Herring'" <robh@kernel.org>,
+	"'Conor Dooley'" <conor+dt@kernel.org>, "'Alim Akhtar'"
+	<alim.akhtar@samsung.com>, "'Henrik Grimler'" <henrik@grimler.se>
+Cc: <linux-pm@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+In-Reply-To: <5747ce14-2963-4c5f-b43b-5437807cfb11@kernel.org>
+Subject: RE: [PATCH v6 1/3] dt-bindings: thermal: samsung: Adjust
+ '#thermal-sensor-cells' to 1
+Date: Thu, 16 Oct 2025 14:53:30 +0900
+Message-ID: <001e01dc3e61$38c3fb30$aa4bf190$@samsung.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 15.0
+Thread-Index: AQIjrV0tYij4Y9dxV2JVizj4BALpcQLXJsyWAWfT4LgCVC5cw7QAy2lw
+Content-Language: ko
+X-CMS-MailID: 20251016055340epcas2p32ef2561a9a5d91e7deba938cc0726965
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250930005147epcas2p2622ff5fdbffc045bbd625e3e60db8118
+References: <20250930005139.1424963-1-shin.son@samsung.com>
+	<CGME20250930005147epcas2p2622ff5fdbffc045bbd625e3e60db8118@epcas2p2.samsung.com>
+	<20250930005139.1424963-2-shin.son@samsung.com>
+	<5747ce14-2963-4c5f-b43b-5437807cfb11@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_225337_240166_B74ECAFC 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20251015_225352_767247_518E79F0 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,45 +102,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI1LTEwLTEzIGF0IDIxOjUxICswMTAwLCBQZXRlciBHcmlmZmluIHdyb3RlOgo+
-IFVwZGF0ZSB0aGUgYmluZGluZ3MgZG9jdW1lbnRhdGlvbiBzbyB0aGF0IGFsbCBDTVVzICh3aXRo
-IHRoZSBleGNlcHRpb24gb2YKPiBnczEwMS1jbXUtdG9wKSBoYXZlIHNhbXN1bmcsc3lzcmVnIGFz
-IGEgcmVxdWlyZWQgcHJvcGVydHkuCj4gCj4gU2lnbmVkLW9mZi1ieTogUGV0ZXIgR3JpZmZpbiA8
-cGV0ZXIuZ3JpZmZpbkBsaW5hcm8ub3JnPgo+IC0tLQo+IMKgLi4uL2JpbmRpbmdzL2Nsb2NrL2dv
-b2dsZSxnczEwMS1jbG9jay55YW1swqDCoMKgwqDCoMKgwqDCoCB8IDIzICsrKysrKysrKysrKysr
-KysrKysrKy0KPiDCoDEgZmlsZSBjaGFuZ2VkLCAyMiBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9u
-KC0pCj4gCj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9j
-bG9jay9nb29nbGUsZ3MxMDEtY2xvY2sueWFtbCBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9i
-aW5kaW5ncy9jbG9jay9nb29nbGUsZ3MxMDEtCj4gY2xvY2sueWFtbAo+IGluZGV4IGNhZjQ0MmVh
-ZDI0YmRhNTdlNTMxNDIwZDhhN2Q4ZGU4NzEzMDMyYWUuLjVjZmU5OGQ5YmE4OTVkNTIwN2ZmZmM4
-MmYzZmQ1NWI2MDJiNGEyYmIgMTAwNjQ0Cj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVl
-L2JpbmRpbmdzL2Nsb2NrL2dvb2dsZSxnczEwMS1jbG9jay55YW1sCj4gKysrIGIvRG9jdW1lbnRh
-dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Nsb2NrL2dvb2dsZSxnczEwMS1jbG9jay55YW1sCj4g
-QEAgLTQ5LDYgKzQ5LDExIEBAIHByb3BlcnRpZXM6Cj4gwqDCoCByZWc6Cj4gwqDCoMKgwqAgbWF4
-SXRlbXM6IDEKPiDCoAo+ICvCoCBzYW1zdW5nLHN5c3JlZzoKPiArwqDCoMKgICRyZWY6IC9zY2hl
-bWFzL3R5cGVzLnlhbWwjL2RlZmluaXRpb25zL3BoYW5kbGUKPiArwqDCoMKgIGRlc2NyaXB0aW9u
-Ogo+ICvCoMKgwqDCoMKgIFBoYW5kbGUgdG8gc3lzdGVtIHJlZ2lzdGVycyBpbnRlcmZhY2UuCj4g
-Kwo+IMKgcmVxdWlyZWQ6Cj4gwqDCoCAtIGNvbXBhdGlibGUKPiDCoMKgIC0gIiNjbG9jay1jZWxs
-cyIKPiBAQCAtMTYzLDYgKzE2OCwyMiBAQCBhbGxPZjoKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgLSBjb25zdDogYnVzCj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gY29uc3Q6IGlwCj4g
-wqAKPiArwqAgLSBpZjoKPiArwqDCoMKgwqDCoCBwcm9wZXJ0aWVzOgo+ICvCoMKgwqDCoMKgwqDC
-oCBjb21wYXRpYmxlOgo+ICvCoMKgwqDCoMKgwqDCoMKgwqAgY29udGFpbnM6Cj4gK8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgZW51bToKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBnb29n
-bGUsZ3MxMDEtY211LWFwbQo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGdvb2dsZSxn
-czEwMS1jbXUtbWlzYwo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIGdvb2dsZSxnczEw
-MS1oc2kwCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gZ29vZ2xlLGdzMTAxLWNtdS1o
-c2kyCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC0gZ29vZ2xlLGdzMTAxLWNtdS1wZXJp
-YzAKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBnb29nbGUsZ3MxMDEtY211LXBlcmlj
-MQo+ICsKPiArwqDCoMKgIHRoZW46Cj4gK8KgwqDCoMKgwqAgcmVxdWlyZWQ6Cj4gK8KgwqDCoMKg
-wqDCoMKgIC0gc2Ftc3VuZyxzeXNyZWcKPiArCj4gwqBhZGRpdGlvbmFsUHJvcGVydGllczogZmFs
-c2UKPiDCoAo+IMKgZXhhbXBsZXM6Cj4gQEAgLTE3Miw3ICsxOTMsNyBAQCBleGFtcGxlczoKPiDC
-oAo+IMKgwqDCoMKgIGNtdV90b3A6IGNsb2NrLWNvbnRyb2xsZXJAMWUwODAwMDAgewo+IMKgwqDC
-oMKgwqDCoMKgwqAgY29tcGF0aWJsZSA9ICJnb29nbGUsZ3MxMDEtY211LXRvcCI7Cj4gLcKgwqDC
-oMKgwqDCoMKgIHJlZyA9IDwweDFlMDgwMDAwIDB4ODAwMD47Cj4gK8KgwqDCoMKgwqDCoMKgIHJl
-ZyA9IDwweDFlMDgwMDAwIDB4MTAwMDA+OwoKVGhpcyBzZWVtcyB1bnJlbGF0ZWQsIG9yIGF0IGxl
-YXN0IG5vdCBtZW50aW9uZWQgaW4gdGhlIGNvbW1pdCBtZXNzYWdlLgoKQ2hlZXJzLApBbmRyZScK
-Cj4gwqDCoMKgwqDCoMKgwqDCoCAjY2xvY2stY2VsbHMgPSA8MT47Cj4gwqDCoMKgwqDCoMKgwqDC
-oCBjbG9ja3MgPSA8JmV4dF8yNF81bT47Cj4gwqDCoMKgwqDCoMKgwqDCoCBjbG9jay1uYW1lcyA9
-ICJvc2NjbGsiOwo=
+Hello Krzysztof Kozlowski,
+
+> -----Original Message-----
+> From: Krzysztof Kozlowski [mailto:krzk@kernel.org]
+> Sent: Friday, October 10, 2025 9:44 PM
+> To: Shin Son <shin.son@samsung.com>; Bartlomiej Zolnierkiewicz
+> <bzolnier@gmail.com>; Rafael J . Wysocki <rafael@kernel.org>; Daniel
+> Lezcano <daniel.lezcano@linaro.org>; Zhang Rui <rui.zhang@intel.com>;
+> Lukasz Luba <lukasz.luba@arm.com>; Rob Herring <robh@kernel.org>; Conor
+> Dooley <conor+dt@kernel.org>; Alim Akhtar <alim.akhtar@samsung.com>;
+> Henrik Grimler <henrik@grimler.se>
+> Cc: linux-pm@vger.kernel.org; linux-samsung-soc@vger.kernel.org;
+> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> kernel@vger.kernel.org
+> Subject: Re: [PATCH v6 1/3] dt-bindings: thermal: samsung: Adjust
+> '#thermal-sensor-cells' to 1
+> 
+> On 30/09/2025 02:51, Shin Son wrote:
+> >          reg:
+> >            minItems: 1
+> >            maxItems: 1
+> > +        '#thermal-sensor-cells':
+> > +          const: 0
+> > +
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            const: samsung,exynosautov920-tmu
+> > +    then:
+> > +      properties:
+> > +        clocks:
+> > +          minItems: 1
+> 
+> You can drop minItems. Existing binding has it unnecessarily.
+
+Ok, I'll drop it.
+
+> 
+> > +          maxItems: 1
+> 
+> You also need clock-names restriction, just like clocks or just ": false".
+>
+
+I'll add the clock-names restriction. Thanks.
+
+ 
+> > +        reg:
+> > +          minItems: 1
+> 
+> This also drop.
+
+Ok, I'll also drop it.
+
+ 
+> > +          maxItems: 1
+> > +        '#thermal-sensor-cells':
+> > +          const: 1
+> >
+> 
+> 
+> Rest looks fine, so with changes above:
+> 
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Ok, I'll add the reviewer tag on the patches.
+
+> 
+> 
+> Best regards,
+> Krzysztof
+
+Best regards,
+Shin Son
 
 
