@@ -4,66 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 308C4CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 12:05:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80421CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 12:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+L+PRoKjfXu5O08x0ZQYLzuN4uifGZ1A2IBkEgBFIlw=; b=PQmmr0bKc5vWfd2h1J8WJrOc61
-	T42YRxezxLsC2YlDk+0vqFnfJJLdoTNR5GqRf6LcU8bJjHXOBjsk7QKCOC/VP+ttYO1lPKSfTedVE
-	QW0nGG3mg1N3g+3b0GWC/f3dGF9W/ufIzNTTZo72pED5KmUxenn2JeddRvXqvnJfkg8QiW7Brsmie
-	DukNn46yrYuLTCP8JSmNbVAy5tOx1EC+aD+GyUPNBvUA95XuDn8N/Sm/QJSm4azyVezOqoIMXBJE0
-	HNCEyppqHwdCL/PiqwzsKp8bKfiWOstBkVUW2Ty/NimZuHKpJESHHKQk2147DdemlTy9yHPfeFSpV
-	jnVqaFjA==;
+	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nvoSKz71AeJB3FmDV9/WVI5MlwEGscBdTTKI5p+NKI4=; b=Hsf7BUy4uCk+jRFSxpnh/+gTrv
+	wQ+bFcnkbKONapwyx/NCwkrYNzGvQO+/nLs5/Jv2yNoSVmigo4sYo8SmKuuGD90w+DIHcFTiyI4YC
+	VvUbGlJZGgDKuAhO7L4PszxN8G3Ncteai0ayAJQxFBpJddlQonYKMrvRG1aK4xk4+PmymWorIL2H3
+	mWske2H42ujvVxwZZmSVgb6PvfDxPrGubErI5HOfIelCQfSWAriLFkAevo7ELUDkxVBWsQW42B2H5
+	laVfgmMkkgS64SDTbYd+ZlHeSlYEWDP1184Rm4xlJ6303VrgErnygtAcl1OrjCxEYjVls//ejetF/
+	uQQuRxMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MjJ-00000004fDy-3AK1;
-	Thu, 16 Oct 2025 12:05:13 +0000
-Received: from mail-m1973193.qiye.163.com ([220.197.31.93])
+	id 1v9Mjn-00000004fNx-11tb;
+	Thu, 16 Oct 2025 12:05:43 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MjF-00000004fAw-3q8D
+	id 1v9Mjk-00000004fMe-0Dxd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 12:05:11 +0000
-Received: from albert-OptiPlex-7080.. (unknown [117.184.129.134])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 262625879;
-	Thu, 16 Oct 2025 20:05:01 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: krzysztof.kozlowski@linaro.org
-Cc: krzk+dt@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	arnd@arndb.de,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	gordon.ge@bst.ai,
-	bst-upstream@bstai.top,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	ulf.hansson@linaro.org,
-	Albert Yang <yangzh0906@thundersoft.com>
-Subject: [PATCH v5 0/6] arm64: introduce Black Sesame Technologies C1200 SoC and CDCU1.0 board
-Date: Thu, 16 Oct 2025 20:04:51 +0800
-Message-ID: <20251016120457.2390103-1-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 16 Oct 2025 12:05:41 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59G77sHu005001;
+	Thu, 16 Oct 2025 12:05:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	nvoSKz71AeJB3FmDV9/WVI5MlwEGscBdTTKI5p+NKI4=; b=VoBrqAAmd/yB9cwk
+	aNQcfptnNbVzWU9I82rSCgY+UVr0BaQNF5e6kzqlS7etwXmeHDoQmTrfwEh4Il8D
+	j1G8DMBw9vwzns531Ixw67GVLOfh2eywk0obxkO2UQyBBnd6M35SC4Tv+Z/oxi+n
+	JO3CzqxhHKoJuOUuN69FvNI7qmKxJ2dZuim7MoTu/Kqeqn2qjns/fw9mXaZsdjst
+	NuHsGBdUA/PsRgOBf+s5c3V8F1pabbr3sMfZuu/s31MKnTcXwQ2qaEQ6WFCb6TY8
+	7oX1fPSTLWHQzSEZUg3xGGJ6Stbg61vSIYQmgQhNHKF/7kXpvPi7spQNEvTOMaos
+	Ux5qZw==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49s6mwtg3q-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Oct 2025 12:05:30 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 59GC5UiN021096
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 16 Oct 2025 12:05:30 GMT
+Received: from [10.206.103.106] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Thu, 16 Oct
+ 2025 05:05:24 -0700
+Message-ID: <e0e0fa36-b75f-4d04-b179-772fa4b9d10c@quicinc.com>
+Date: Thu, 16 Oct 2025 17:34:51 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a99ece8c30109cckunm868bd78f12240
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaGk1PVkJMShkdGE8dT09KSlYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
-	tLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=OBiSbEDT6Nfw+lkhVSWVYDmiLAr4O7Op8NZr4+3uzvcc7+5rhQgvmXG6nQoDm73FXJjIIw0WFETyRbqQK6+FdRu6ARa7tl58DvJgCmCZ6nn+y0gTI2axhviQEjDq1P+lRqL25yCYCTa2mgYnsh+yN4WIfBXEA8zH12ElDJXloQQ=; s=default; c=relaxed/relaxed; d=thundersoft.com; v=1;
-	bh=+L+PRoKjfXu5O08x0ZQYLzuN4uifGZ1A2IBkEgBFIlw=;
-	h=date:mime-version:subject:message-id:from;
+User-Agent: Mozilla Thunderbird
+From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+Subject: Re: [PATCH v4 2/3] arm64: dts: qcom: qcs8300: Add CCI definitions
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Vikram Sharma
+	<quic_vikramsa@quicinc.com>, <mchehab@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <andersson@kernel.org>, <konradybcio@kernel.org>,
+        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
+        <catalin.marinas@arm.com>, <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <quic_svankada@quicinc.com>,
+        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Ravi Shankar
+	<quic_rshankar@quicinc.com>,
+        Vishal Verma <quic_vishverm@quicinc.com>
+References: <20251015131303.2797800-1-quic_vikramsa@quicinc.com>
+ <20251015131303.2797800-3-quic_vikramsa@quicinc.com>
+ <84f17b74-a3ea-46bd-a6d4-efa79c1cb43a@linaro.org>
+Content-Language: en-US
+In-Reply-To: <84f17b74-a3ea-46bd-a6d4-efa79c1cb43a@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDEzMDA4MyBTYWx0ZWRfXyC2scQI+afb8
+ 2U6Dfwi2UZ+V9F6Li1agMvVT5qT8ttXozssBmzcYCEwhsP8KOeoHcjy5Y8xkb6s6UgTQmDw09zH
+ YQ97GGOPuadhSCod+XVpM1E7B6U47ZbQ4EynBQD7rliYij+Wnf5bQcb+cY4QBbpRAxnOIEKlTIQ
+ o9gLH/xpvuGP6vkoqn19Nl34xHi1lhm7eLg37+vqD6pHFsci4P95VZPMLdF1bX0kg+lEp+OMoeN
+ UCNxa25CTG4b7VTcbt2X2l37LGkl19v+4bc/CUPzB22xZnbwVukVYL2UimnjizrReQmZb/wnCFh
+ lWlg1rf6i8h+P8u3gS5WK4uXMFgx89kDF2Yn0GaMgUChvX3deIA2Zmo05EzTOOz1vIVWbaBcwD2
+ xgEFTFg97W3TG9wPV02VeQ2t7WkMsw==
+X-Authority-Analysis: v=2.4 cv=Fr4IPmrq c=1 sm=1 tr=0 ts=68f0df8a cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
+ a=KKAkSRfTAAAA:8 a=GvJNRsgozTBLNSz4xL4A:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22 a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-GUID: l8C571CAF8e22iQg4uf-GFBjzsL2r5pL
+X-Proofpoint-ORIG-GUID: l8C571CAF8e22iQg4uf-GFBjzsL2r5pL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-16_02,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 spamscore=0 phishscore=0 malwarescore=0
+ adultscore=0 lowpriorityscore=0 bulkscore=0 suspectscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510130083
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_050510_362328_82BB2943 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20251016_050540_120976_C9136378 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,129 +123,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces platform support for Black Sesame Technologies
-(BST) C1200 SoC and CDCU1.0 ADAS 4C2G board. BST is a leading automotive-grade
-computing SoC provider focusing on intelligent driving, computer vision, and AI
-capabilities for ADAS and autonomous driving applications. You can find more
-information about the SoC and related boards at: https://bst.ai
 
-This series provides the foundational platform enablement including device tree
-bindings, SoC and board device trees, platform configuration, and maintainer
-information. MMC/SDHCI driver support will be submitted in a separate patch series.
 
-The series includes:
+On 15-10-2025 19:12, Bryan O'Donoghue wrote:
+> On 15/10/2025 14:13, Vikram Sharma wrote:
+>> From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+>>
+>> Qualcomm QCS8300 SoC contains 3 Camera Control Interface (CCI). Compared
+>> to lemans, the key difference is in SDA/SCL GPIO assignments and number
+>> of CCIs.
+> 
+> Codename should be "Lemans" and since you need to update the commit log for this it should be "three Camera Control .."
+> 
+> Assuming thats fixed.
+> 
 
-Patch 1: dt-bindings: vendor-prefixes: Add Black Sesame Technologies Co., Ltd.
-- Adds BST vendor prefix to device tree vendor prefixes
-- Provides company information and website link
+I assume you're referring to update s/lemans/Lemans
 
-Patch 2: dt-bindings: arm: add Black Sesame Technologies (bst) SoC
-- Adds device tree bindings for BST ARM SoC family
-- Defines compatible strings for C1200 SoC and CDCU1.0 board
+Codename for QCS8775P SoC corresponds to Lemans while QCS8300 SoC corresponds to Monaco
 
-Patch 3: arm64: Kconfig: add ARCH_BST for Black Sesame Technologies SoCs
-- Adds ARCH_BST configuration option for BST SoC family
-- Enables platform-specific features and driver dependencies
+https://lore.kernel.org/all/20250923-rename-dts-v1-0-21888b68c781@oss.qualcomm.com/ 
+Following the above change,  I will update the commit message from
+"Qualcomm QCS8300 SoC contains 3 Camera.. " to "Monaco contains three Camera .."
 
-Patch 4: arm64: dts: bst: add support for Black Sesame Technologies C1200 CDCU1.0 board
-- Complete device tree support for BST C1200 CDCU1.0 ADAS 4C2G board
-- Includes SoC dtsi and board-specific dts files
-- Defines CPU, memory, peripherals, and platform-specific configurations
-
-Patch 5: arm64: defconfig: enable BST platform support
-- Enables CONFIG_ARCH_BST in ARM64 defconfig
-- Provides out-of-box support for BST platforms
-
-Patch 6: MAINTAINERS: add Black Sesame Technologies (BST) ARM SoC support
-- Adds maintainer entry for BST ARM SoC support
-- Covers device tree bindings and board files
-- Sets status as "Supported" based on review feedback
-
-Changes for v5:
-- Remove MMC-related patches (dt-bindings mmc, mmc driver, bounce buffer enhancement)
-  as they will be submitted separately in a dedicated MMC patch series
-- Patch 4 (arm64: dts): Remove MMC node and MMC clock from SoC DTSI completely; remove MMC node override in board DTS (MMC driver and bindings will be submitted separately)
-- Patch 5 (arm64: defconfig): Remove CONFIG_MMC_SDHCI_BST configuration
-- Patch 6 (MAINTAINERS): Remove MMC driver and dt-bindings file entries; change status
-  from "Maintained" to "Supported" based on review feedback
-- Rebase to v6.18-rc1
-
-Changes for v4:
-- Rebase to 6.17-rc5
-- Patch 1 (dt-bindings: vendor-prefixes):
-	- Adjust ^bst to the correct alphabetical order
-	- Adjust Acked-by order
-- Patch 2 (dt-bindings: arm):
-	- Remove Signed-off-by: Ge Gordon
-	- Add Reviewed-by Krzysztof Kozlowski info
-- Patch 3 (arm64: Kconfig):
-	- Remove Signed-off-by: Ge Gordon
-- Patch 4 (arm64: dts):
-	- Remove Signed-off-by line for Ge Gordon
-	- Reorder device tree node properties for better consistency
-	- CPU nodes: move `device_type` before `compatible`, add explicit `reg` values
-	- MMC node: change compatible from `bst,c1200-dwcmshc-sdhci` to `bst,c1200-sdhci`
-	- MMC node: remove `bus-width` and `non-removable` from SoC dtsi, move to board dts
-	- SoC node: reorder properties (`ranges` before address/size cells)
-	- UART node: reorder properties (clock-frequency before interrupts)
-	- GIC node: reorder properties for better readability
-	- Timer node: reorder properties (always-on before interrupt-parent)
-	- Board DTS: add `bus-width = <8>` and `non-removable` to MMC node
-	- Board DTS: reorder MMC and UART node references
-- Patch 5 (arm64: defconfig):
-	- move CONFIG_MMC_SDHCI_BST before CONFIG_MMC_SDHCI_F_SDH30
-	- Remove Signed-off-by line for Ge Gordon
-	- Simplify commit message (remove detailed description about eMMC/SD functionality)
-- Patch 6 (MAINTAINERS):
-	- Changed file name: sdhci-of-bst-c1200.c to sdhci-of-bst.c
-	- Change title from "add and consolidate" to just "add"
-	- Simplify commit message description
-	- Remove Signed-off-by line for Ge Gordon
-
-Changes for v3:
-- Patch 2: Add Signed-off-by: Ge Gordon
-- Patch 3: Reword subject from "for bst silicons" to "for Black Sesame Technologies SoCs"
-	and drop unrelated whitespace hunk
-- Patch 4: Split defconfig enablement out into dedicated patch, refine memory description,
-	adjust node ordering, remove gic mask
-- Patch 5: Also enable CONFIG_ARCH_BST in arm64 defconfig
-
-Changes for v2:
-- Patch 2: Remove unnecessary pipe in description, drop invalid compatible entry,
-	remove root node definition
-- Patch 3: Place configuration entry in correct alphabetical order, use generic family name,
-	follow upstream naming conventions
-- Patch 4: Reorganize memory map, update controller definitions, remove deprecated
-	properties, standardize interrupt definitions, add root compatible string
-
-Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
----
-
-Albert Yang (6):
-  dt-bindings: vendor-prefixes: Add Black Sesame Technologies Co., Ltd.
-  dt-bindings: arm: add Black Sesame Technologies (bst) SoC
-  arm64: Kconfig: add ARCH_BST for Black Sesame Technologies SoCs
-  arm64: dts: bst: add support for Black Sesame Technologies C1200
-    CDCU1.0 board
-  arm64: defconfig: enable BST platform support
-  MAINTAINERS: add Black Sesame Technologies (BST) ARM SoC support
-
- .../devicetree/bindings/arm/bst.yaml          | 31 ++++++
- .../devicetree/bindings/vendor-prefixes.yaml  |  2 +
- MAINTAINERS                                   |  8 ++
- arch/arm64/Kconfig.platforms                  |  8 ++
- arch/arm64/boot/dts/Makefile                  |  1 +
- arch/arm64/boot/dts/bst/Makefile              |  2 +
- .../dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts    | 24 +++++
- arch/arm64/boot/dts/bst/bstc1200.dtsi         | 97 +++++++++++++++++++
- arch/arm64/configs/defconfig                  |  1 +
- 9 files changed, 174 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/arm/bst.yaml
- create mode 100644 arch/arm64/boot/dts/bst/Makefile
- create mode 100644 arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
- create mode 100644 arch/arm64/boot/dts/bst/bstc1200.dtsi
+> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
 -- 
-2.43.0
+Regards,
+Nihal Kumar Gupta
 
 
