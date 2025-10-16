@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95973CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 11:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 097B0CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 11:41:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CFRIIs060aUTE/XtgbE3U9aNP00cbQnhfyqtNtGSsHY=; b=PcCp8d8gwWsSzNPEvvDfhEoFXb
-	aQTAt8g1wcPQfQFwVGRLVYJdpComSx3baaMG3IYkTeZg/zh0rcgfEa2yNZfdRmTGFQKQGsVlLL06r
-	Fbz53c5Jr5nvWOXRHITvIrCSVX6ttQEEQ84NOUcIfjEZB3evCH7wbqWkKEgD9yZizo8kQtHcCWw1S
-	huhdQONRwxemH/bBJODwWbIRodl9i01oVdbphnI0EohOAWjnriwi1KJ6VPca3QuItb9ht7CNGFngQ
-	K1EG5pbbQceo6a9fQy/UGE0BNLyW72Y5GdPWWImu4RAxHFWiBkop7Edl6bMmupGhNK/7O7AS+/ivf
-	kInfl3ZQ==;
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XvYgm2ZiEhdQinQKcxWC99AV37HjB6EYaQCw2NitFgg=; b=wCrpWhMZfgpdlRZ4m8FcxpwzIh
+	JQ+syhTqLXyjEPO8wOmgfIeuo/4Q2uqJ3D954vigRE2rF0b1Ghfq3uBhqC/nZHuNQsMu19EBeMTzu
+	3wGLMK6Yb/gS+KGHlaeBWBA31YwvzRyyAOSO6c26r08ZDqUr25AXcTbcYzMMMWVH01d3fyZwyf+La
+	kX+RRcXJ11uzuMvdYSfBafbZXf368lJD68DxsMfAQZph5H8Ypr9KSg6v1/UrfTFtDcNXpARZJ7n/X
+	oDKK1digwsEAWHkYbUb9zbory5vwLtnLodleO9P3gYcgG19tfzoQEM8se5VJVHf1dAMBpMGf5e9fo
+	QAdSyosA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MJL-00000004bhJ-29iV;
-	Thu, 16 Oct 2025 11:38:23 +0000
-Received: from mx-relay28-hz2.antispameurope.com ([94.100.136.228])
+	id 1v9MM0-00000004c2v-0BnS;
+	Thu, 16 Oct 2025 11:41:08 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MJG-00000004bfu-1iEo
+	id 1v9MLu-00000004bwB-3w0w
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 11:38:22 +0000
-ARC-Authentication-Results: i=1; mx-gate28-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=CFRIIs060aUTE/XtgbE3U9aNP00cbQnhfyqtNtGSsHY=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1760614684;
- b=Z5j9tQgqrXt5W8OXBplUyADYEvo3M4efUZTfezrm1bLQwWrtMtK0tIx9tApDxJPDgIk+vMMv
- PqOVxVOO/pDH1kLzBSQURw5gZKFMBldbAsD4tIyUV+vBH9JTq+5a5/j796g1zM0PPkqM9QdV2xR
- OkGeKB7QQ2yEMDp3F41XaHHoYFH99FH9SYvHWb4cgLaNq4YNG6sIMneXGsw7pineh1i77MPuSi6
- yM7bM/r253n3D/msuU2Cx5+wGtYga0kTrwWNeJz7XSpI6AALlZCnZBWg3Od9PN6jgxyVAJK+eGk
- J6MNmt9WIQMZqVEnMrv0j/g28odg9wThpnZYH4DNk8jyw==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1760614684;
- b=C/zeiBFStckVJuMTjZqKT+HwiPRsRUBK3k4fs7svu7ZI0fY3yhMP3wpM8yhntGbdTXBKx4e7
- +YVWyKrm0CkHlA5o+1CsjmKZD9wJuhVRE9/R16gBuIVyvJ9dLTt7+lgaTWP1PFMP2OSfN5axCDV
- ujy9LtPPkqDrmYUvoWC9d5Sl0nDgLexAWi/qUiggFIxZN551beM5tGPxEyDAcHHaYndCN/plmeJ
- 9aijWj6dD6nl2T7sWkLXkT1ae5/r7SiWQ2yABj97+6E/5VBQxGMSsKGa03MVevIasMLaSXclOHx
- 4hhU9TpeRhe9IARoBSN2tVKGl8edQXFVkUl7h76gBODUg==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay28-hz2.antispameurope.com;
- Thu, 16 Oct 2025 13:38:03 +0200
-Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: matthias.schiffer@ew.tq-group.com)
-	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 3F3EC220BA0;
-	Thu, 16 Oct 2025 13:37:50 +0200 (CEST)
-From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com,
-	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Subject: [PATCH] serial: imx: allow CRTSCTS with RTS/CTS GPIOs
-Date: Thu, 16 Oct 2025 13:37:30 +0200
-Message-ID: <20251016113730.245341-1-matthias.schiffer@ew.tq-group.com>
-X-Mailer: git-send-email 2.51.0
+	Thu, 16 Oct 2025 11:41:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=XvYgm2ZiEhdQinQKcxWC99AV37HjB6EYaQCw2NitFgg=; b=ZPwtWfVfmH1BgOVMa3L70j0efc
+	qqsLU2dGGGukihkkq+42UZcMLx8PX2kIvKq2VQScwsWmV3FqzlCOiWcaZ4II38HfGvqEPfD21HNRL
+	kGzjp+NyLq+iH5rvz+NxDEejWy0YpC00XxoIDmHg/USbd8xKEjHt5J4OfvJ8i+676WT2bwZRuWC6p
+	YFdnvdOUsNfsVD476lUnekQErRuvNNG71r6S9nrYXVddVMJqVz1YyY2tMYuSdbeDxui9CS22iAZde
+	8xt8vJRlx4MbKGvSkc1tSeDJaZ9xYanDHGWDeViZI0601YhoSyL46ivOsN10QOcTh8XKpl4WlFCIX
+	NPckYhlA==;
+Received: from [122.175.9.182] (port=17170 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1v9MLE-000000079MT-1SRX;
+	Thu, 16 Oct 2025 07:40:20 -0400
+Received: from zimbra.couthit.local (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTPS id E724F1783FF9;
+	Thu, 16 Oct 2025 17:10:15 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id D12ED1783FF4;
+	Thu, 16 Oct 2025 17:10:15 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id GzU_cDNcWiqS; Thu, 16 Oct 2025 17:10:15 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id A72EF1781C72;
+	Thu, 16 Oct 2025 17:10:15 +0530 (IST)
+Date: Thu, 16 Oct 2025 17:10:15 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: parvathi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
+	davem <davem@davemloft.net>, edumazet <edumazet@google.com>, 
+	kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, 
+	danishanwar <danishanwar@ti.com>, rogerq <rogerq@kernel.org>, 
+	pmohan <pmohan@couthit.com>, basharath <basharath@couthit.com>, 
+	afd <afd@ti.com>, linux-kernel <linux-kernel@vger.kernel.org>, 
+	netdev <netdev@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	pratheesh <pratheesh@ti.com>, Prajith Jayarajan <prajith@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
+	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
+	krishna <krishna@couthit.com>, mohan <mohan@couthit.com>
+Message-ID: <1633385931.433.1760614815573.JavaMail.zimbra@couthit.local>
+In-Reply-To: <1e16ab86-ccc1-433a-a482-76d9ba567fb9@lunn.ch>
+References: <20251014124018.1596900-1-parvathi@couthit.com> <20251014124018.1596900-2-parvathi@couthit.com> <1e16ab86-ccc1-433a-a482-76d9ba567fb9@lunn.ch>
+Subject: Re: [PATCH net-next v3 1/3] net: ti: icssm-prueth: Adds helper
+ functions to configure and maintain FDB
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: matthias.schiffer@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: matthias.schiffer@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay28-hz2.antispameurope.com with 4cnQtQ6zX8z1QNSK
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: a7531a3aefe8095ad0ffc3e1e5a543aa
-X-cloud-security: scantime:2.247
-DKIM-Signature: a=rsa-sha256;
- bh=CFRIIs060aUTE/XtgbE3U9aNP00cbQnhfyqtNtGSsHY=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1760614683; v=1;
- b=kRM+aR663C5Osf8RwLaQYs8fEAZyOO8b7FeUWstSubDy1f4vkKscBZh5+yKBCMeIGeevkipM
- 0sIkktM7tdjkBd5Gpa72ygy0A1evSCGqfY3+kBHNcx7bWbiaOx/4DBaJLk2lZ4gqiywTpTLLSBo
- jUfReg+wp5fhBZ8xRbUBoh3jge5QFGw3Qu8yi50TT6mpRDGz4k7XI15bgbYxJOX+5zO6ilSctGy
- aEtoM2JLUYdT8U/51nw2sOh5h2YG18aD9I/QNT91Lxnf1zu+egP3KFyIwkThBExft+mK4Gu53uv
- 5h276h65uyC2QipDVTfCkdaTJjMoWX+LGfT1BYtc4FnJA==
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.103]
+X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - GC138 (Linux)/8.8.15_GA_3968)
+Thread-Topic: icssm-prueth: Adds helper functions to configure and maintain FDB
+Thread-Index: XlOBMErJ6hpwpJMWg3cXMXchYoQRVA==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_043819_046506_A01C205E 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20251016_044102_999236_020061A6 
+X-CRM114-Status: UNSURE (   5.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,63 +112,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CTS GPIO is only evaluated when the CRTSCTS termios flag is enabled;
-it should be possible to enable the flag when only GPIO and no hardware-
-controlled RTS/CTS are available. UCR2_IRTS is kept enabled in this case,
-so the hardware CTS is ignored.
+Hi,
 
-Fixes: 58362d5be352 ("serial: imx: implement handshaking using gpios with the mctrl_gpio helper")
-Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
----
- drivers/tty/serial/imx.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+>> +/* 4 bytes */
+>> +struct fdb_index_tbl_entry_t {
+>> +	/* Bucket Table index of first Bucket with this MAC address */
+>> +	u16 bucket_idx;
+>> +	u16 bucket_entries; /* Number of entries in this bucket */
+>> +};
+> 
+> Please drop the _t. That is normally used to indicate a type, but this
+> is actually a struct
+>
 
-diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-index 500dfc009d03e..4a54a689a0603 100644
---- a/drivers/tty/serial/imx.c
-+++ b/drivers/tty/serial/imx.c
-@@ -1117,8 +1117,8 @@ static void imx_uart_set_mctrl(struct uart_port *port, unsigned int mctrl)
- 			ucr2 |= UCR2_CTS;
- 			/*
- 			 * UCR2_IRTS is unset if and only if the port is
--			 * configured for CRTSCTS, so we use inverted UCR2_IRTS
--			 * to get the state to restore to.
-+			 * configured for hardware-controlled CRTSCTS, so we use
-+			 * inverted UCR2_IRTS to get the state to restore to.
- 			 */
- 			if (!(ucr2 & UCR2_IRTS))
- 				ucr2 |= UCR2_CTSC;
-@@ -1780,7 +1780,7 @@ imx_uart_set_termios(struct uart_port *port, struct ktermios *termios,
- 	if ((termios->c_cflag & CSIZE) == CS8)
- 		ucr2 |= UCR2_WS;
- 
--	if (!sport->have_rtscts)
-+	if (!sport->have_rtscts && !sport->have_rtsgpio)
- 		termios->c_cflag &= ~CRTSCTS;
- 
- 	if (port->rs485.flags & SER_RS485_ENABLED) {
-@@ -1794,7 +1794,7 @@ imx_uart_set_termios(struct uart_port *port, struct ktermios *termios,
- 		else
- 			imx_uart_rts_inactive(sport, &ucr2);
- 
--	} else if (termios->c_cflag & CRTSCTS) {
-+	} else if ((termios->c_cflag & CRTSCTS) && sport->have_rtscts) {
- 		/*
- 		 * Only let receiver control RTS output if we were not requested
- 		 * to have RTS inactive (which then should take precedence).
-@@ -1803,7 +1803,7 @@ imx_uart_set_termios(struct uart_port *port, struct ktermios *termios,
- 			ucr2 |= UCR2_CTSC;
- 	}
- 
--	if (termios->c_cflag & CRTSCTS)
-+	if ((termios->c_cflag & CRTSCTS) && sport->have_rtscts)
- 		ucr2 &= ~UCR2_IRTS;
- 	if (termios->c_cflag & CSTOPB)
- 		ucr2 |= UCR2_STPB;
--- 
-TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht München, HRB 105018
-Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-https://www.tq-group.com/
+Sure. We will remove _t from the struct definitions.
 
+>> +void icssm_prueth_sw_fdb_tbl_init(struct prueth *prueth)
+>> +{
+>> +	struct fdb_tbl *t = prueth->fdb_tbl;
+>> +
+>> +	t->index_a = (struct fdb_index_array_t *)((__force const void *)
+>> +			prueth->mem[V2_1_FDB_TBL_LOC].va +
+>> +			V2_1_FDB_TBL_OFFSET);
+> 
+> You cast it to a const void * and then a non-const fdb_index_array_t *?
+
+We will address this and remove the double casting completely.
+
+Thanks and Regards,
+Parvathi.
 
