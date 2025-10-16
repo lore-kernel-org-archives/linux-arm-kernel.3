@@ -4,59 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B4DFCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 06:41:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78984CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 06:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JPvmUKr4l0GsB3K4bQ+QjzA8F04K8Ko3m1SBMVW6Gc4=; b=0f7EniFlLHtk9yfTQHhfCxxJ24
-	87eZRdcK8udeUT6YvqvBwEu8vPyuHq8u5VwGJa4o1gkxgJnF3XsIF9dtmzVqiD+avl7Ia4LXaqc1a
-	NpiEZmEsgUhyoKMj1W5mdA0j+grq+4NvrEA3+64ljPMtf/6aU/06Pl2xmdKSVGeSRiXxjXce5Z/ir
-	ohJ7DsKfH6nxDPuthC8Xdysgxm83sZI29OESyU8XtjFwVJwXXEvzwgC5mePK0J4P2+PvKxdCq0nRG
-	sCdnOsBlm7UTCPsC5I9Z5fib796GZmq82AvSFgKFGzCbKaPVxzsVELoK/9INCRsvM9XFZ73wPupyH
-	r6DVnKWQ==;
+	bh=PJU7bQ3q3A+VQeD8XP/iy+lr/9DIOhEWIwmQKk8RAio=; b=yl5f4uEYzn33SaiYPkx/hx3Gs+
+	AK6szcbSdl/JSLWEGf9dmVKha4p7QA0eqTwpJsUfJkH+vX1wPRZyuoh8yCO9qELKFCXx6Bg1VhdyM
+	c6QMIcpg5QCcF34IkWKretfzDqJFhKv00jDepc+BNvazhZU4SBiYYD9/S6Rg6p8GgxJyTUAi17MXs
+	dsl1oeyeOSOQSYmbQaX4pm5IZg03+eTTCVNQtA059oF8/ejsU1DwK6D8HbvzyBhyJXVYYjRclSg0G
+	neOi+xeqR8CCLS6NLWo/jupDprVI0bZK/4TbiSeJ8W3U1Eq2SaZe8dY9vgzfy4mJjzS7ty8sFyUzu
+	757fUZMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Hfw-00000003fvX-49kG;
-	Thu, 16 Oct 2025 06:41:25 +0000
+	id 1v9Hgs-00000003g6z-41AE;
+	Thu, 16 Oct 2025 06:42:22 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Hfu-00000003fvC-2Ufc
+	id 1v9Hgq-00000003g6c-37d9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 06:41:23 +0000
+	Thu, 16 Oct 2025 06:42:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 454AE490C1;
-	Thu, 16 Oct 2025 06:41:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FA38C4CEF1;
-	Thu, 16 Oct 2025 06:41:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D85949CEB;
+	Thu, 16 Oct 2025 06:42:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BF7DC4CEF1;
+	Thu, 16 Oct 2025 06:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760596882;
-	bh=hNCwUzObDXztNMtdGpnOAHrjLhO4y8Gdpytl21YeOcg=;
+	s=k20201202; t=1760596940;
+	bh=f65+VI1Gld8M73unDz0Hs4QoNmu1NRlYqp9Eb17gJVE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fv0n4ZBvrPqmWl9jMqgcuI2AIvduMb+PqWQABbQDH+itpBz+YbQEfRabtviCJdBVG
-	 qBlTBybzGzN/v/mQk2tr9qQkzxCg4/gSPnz4VKsZ77t29EdRyRDJ8yxQSAgVotld7S
-	 oeSoqj/CYJTRZtcaRw43+dCaj3yq7ASGUvRAgLsy88tvg6jXtpvAYBBX8J/dMGEbJH
-	 qoWMoS7ahFl5xDmE1rB2rUl0W/c0OMtcC+ha+cV+my02qd20tcN41i0euzJ3IfMNSB
-	 pQo/4NbE27Wna65XXUVcOh8Pcetm8vqohHOUvTjaNMVWaAYvOUBb4c4xZMbad3lbeW
-	 tAIiA634lpn7Q==
-Message-ID: <04b3271b-3723-4d6e-b39e-31894f9ecc80@kernel.org>
-Date: Thu, 16 Oct 2025 08:41:17 +0200
+	b=Ph6IsXqbvh7xIeOrjHoq/e4XWkp8tE9Ows9qa9lci/l6h1o9IgdsShNz9NlzAcyO1
+	 nOUw5H6R0dkDm3D/jbB6bVb7tmlAKmGGqH6j46D6Pz1eqwXJXx40i5DtZdTDx/NlmM
+	 UJb5G2GtKdrWZHpssALhlDvkScOkt1yxhHTsy84OkoCVLjpPqKo1IkUvJIVgfprNSy
+	 IugJW+YwYfxzgbzLkgaM/B6IninBUCmi/kpwXD3x5iQr2R3Hm8r8kjpS9Am4x7LiGl
+	 Dm+yJy634YOiZC7U7h6TceG9Q7bWGSHWen32tkWSIQXPsd2HYAF4Idlkt4i74amjw8
+	 cSxvt8FTfzHdQ==
+Message-ID: <a5dfb28c-1dd8-40b0-a049-7b10712d355f@kernel.org>
+Date: Thu, 16 Oct 2025 08:42:13 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: clock: Update identifiers for VIIF on
- Toshiba Visconti TMPV770x SoC
-To: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+Subject: Re: [PATCH v4 03/14] MAINTAINERS: Add i.MX8qxp prefetch engine DT
+ binding files
+To: Liu Ying <victor.liu@nxp.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20251016013328.303611-1-yuji2.ishikawa@toshiba.co.jp>
- <20251016013328.303611-2-yuji2.ishikawa@toshiba.co.jp>
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Marek Vasut <marek.vasut@mailbox.org>,
+ Frank Li <Frank.Li@nxp.com>
+References: <20251016-imx8-dc-prefetch-v4-0-dfda347cb3c5@nxp.com>
+ <20251016-imx8-dc-prefetch-v4-3-dfda347cb3c5@nxp.com>
+ <51b72003-e9a5-4f34-ad08-249fc24b3041@kernel.org>
+ <ffc12213-db40-4c10-8a6e-57003d85f4df@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,12 +110,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251016013328.303611-2-yuji2.ishikawa@toshiba.co.jp>
+In-Reply-To: <ffc12213-db40-4c10-8a6e-57003d85f4df@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_234122_699192_AB9D51E5 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20251015_234220_827567_956D6592 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,36 +131,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/10/2025 03:33, Yuji Ishikawa wrote:
-> Update identifiers for the clocks and the resets of Video Input Interface
-> in order to reflect the actual architecture of TMPV770x SoC.
+On 16/10/2025 08:38, Liu Ying wrote:
+> On 10/16/2025, Krzysztof Kozlowski wrote:
+>> On 16/10/2025 08:32, Liu Ying wrote:
+>>> Add i.MX8qxp prefetch engine DT binding files to
+>>> 'DRM DRIVERS FOR FREESCALE IMX8 DISPLAY CONTROLLER' section.
+>>>
+>>> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+>>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+>>> ---
+>>> v2:
+>>> - Collect Frank's R-b tag.
+>>
+>> This should be squashed in each respective commit. This MAKES NO SENSE
+>> as separate commit, stop inflating the patchset.
 > 
-> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-> ---
->  include/dt-bindings/clock/toshiba,tmpv770x.h | 33 +++++++++++++-------
->  include/dt-bindings/reset/toshiba,tmpv770x.h | 10 +++++-
->  2 files changed, 31 insertions(+), 12 deletions(-)
-> 
-> diff --git a/include/dt-bindings/clock/toshiba,tmpv770x.h b/include/dt-bindings/clock/toshiba,tmpv770x.h
-> index 5fce713001..2dbd5885c0 100644
-> --- a/include/dt-bindings/clock/toshiba,tmpv770x.h
-> +++ b/include/dt-bindings/clock/toshiba,tmpv770x.h
-> @@ -94,10 +94,10 @@
->  #define TMPV770X_CLK_DSP2_PBCLK		77
->  #define TMPV770X_CLK_DSP3_PBCLK		78
->  #define TMPV770X_CLK_DSVIIF0_APBCLK	79
-> -#define TMPV770X_CLK_VIIF0_APBCLK	80
-> -#define TMPV770X_CLK_VIIF0_CFGCLK	81
-> -#define TMPV770X_CLK_VIIF1_APBCLK	82
-> -#define TMPV770X_CLK_VIIF1_CFGCLK	83
-> +#define TMPV770X_CLK_VIIFBS0_APB	80
+> Sure.  Thanks for pointing this out.
 
-Nope, that's ABI break. These values do not reflect actual architecture,
-that's some non-sense. These are abstract numbers.
-
-NAK
-
-
+Checkpatch already told you that. Run checkpatch.
 
 Best regards,
 Krzysztof
