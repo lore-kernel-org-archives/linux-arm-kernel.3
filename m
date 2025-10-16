@@ -4,90 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF02CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 05:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 159C8CCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 05:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R2ZenOczyNRPh+gBJvOKUiI+2zJ13iDNHmu85jEHTew=; b=4L6HMg0UNo7IknLVBwgox3N1Fp
-	/CMsyAVndsHq1QFv2rI+fg3hYbNWL2u183Sbm272KAufzV4kZgGJZYiKx8QterNdejovYP5ZXntFl
-	uQIjJmmJUTh+fc3n/w0veIniB+wjZAa5ADUsemSugaRaUc9INDeba8O84aI/C6ZKabJescSRCGoO3
-	dD9RoJdVfEpUFZ8mxtNczsGCu/i/wy3DWfzZuTqA6k1mr35yA8sFl3uGqyrSdqVp1/BvIYW3I2Uos
-	8aNDoY7nu/a9lH8+cwoaORessee6TDhwY1nYssfnPt3TzHKQ10iBXcJ26ru9CZALjVHhEpxAGeSAp
-	UqA9xYRw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=I0tZsr+X9rb2BkuKPKohL8wWGapUv709og7lMSnyxu8=; b=ctHNhWyuF4S6nl
+	iYF3KqJQHnX0R5CNWXUg4eMsCGrdcGyjjKnsp7UbbN4Cvb+TZ5M2eLLuYOC2fJxCgBSaIzeidag2g
+	pw3PaSJOqn2pph93kEVYgR23rD32qWlUyEwg+t578aavLb8NGWtcPDSNOnwXWUNZp3YyEkWidQ3mW
+	gSU50vyPJq8YcQ0YjkZlcf6Ora3M+BVhEtrCGLjQdJDfnHTIDwDzjzNntlOLl2sExZYL65B68uOyC
+	a0kJBeEpJ4jsQZ7hQEhRLSUr0JUbv3wc71d6TKuJDHpZKP8sUV0+Dx/GRdg2BY8l50q8MnYaMHrVN
+	RpLY6/duYs3yASiV7dLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Gru-00000003WzZ-2KzQ;
+	id 1v9Gru-00000003Wz0-12uL;
 	Thu, 16 Oct 2025 05:49:42 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Grr-00000003Wxq-3Gg7
+	id 1v9Grr-00000003Wxm-0iDz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 05:49:41 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59G2O83j023169
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 05:49:39 GMT
+	Thu, 16 Oct 2025 05:49:40 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59FK1rZ4015343
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 05:49:37 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	R2ZenOczyNRPh+gBJvOKUiI+2zJ13iDNHmu85jEHTew=; b=Yd67VGBI58dErsGh
-	isd/1zx7yOpKb3m7HkpVF+9HJkwanhUQqM3yBcXDQV/LrkBkq7jZk0l/KCjKCzh3
-	kKjRccqkbEk3KgXbrEqIxDXWn4d2Lsi2gKhkIBbyHfR3hJRwYKtNdFC3griq9xbw
-	oM8gLtFl+vfCQDahH37taNmXBIUdHlWP98Ty8bhlbGeaLPoOXd9/W2WR324LYwDs
-	61Q2yuQfGEbjzxaMDxY4iYsr0Qdlf+8adhxqBjtpr7AII56dASlgx+8JlP7oQ2zf
-	qnZj6+sQjJY5XbYr+4WiocmcZM/F9ib73WDke9TrtOKjXwt41yQ8gQ3CrJssQXc5
-	zfqbHg==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49tqvpgf58-1
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=I0tZsr+X9rb2BkuKPKohL8
+	wWGapUv709og7lMSnyxu8=; b=CnD6QQF8FLP6PSSuQz7seslyPRmsm7yJz2mbfZ
+	d1yESe+nLBhWcj8HvqsIufGA0lUGP8IP7rpHOEpG6zB8vWbnm/HuFu00Q7E5vfhm
+	Zak5EwNKfnh+f33ceb3EJq0Jlu/p+rfpD7RJjHiqIhVqq5UyI/m7cWLUCPVxey8X
+	vKdNO4A97UMdYxdk/JeBgCkQEVcJ+xw6Dg4eVql0ZlKdyNlZzc+LGNFs5Cs0DgxZ
+	veM79BT07k2Nl+slYSJxzOEcZWOlKg/KMb6RMM6J534kpdGx7gWZJvHnIkyofEQr
+	nPwME65qaYAWBQbyoBq8FEJHuAqrJKRCbmmNHOmRmxJaeVeQ==
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qfm5q7en-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 05:49:38 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b6a2409137dso345030a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 22:49:38 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 05:49:37 +0000 (GMT)
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-780d26fb6b4so341728b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 15 Oct 2025 22:49:37 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760593777; x=1761198577;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=R2ZenOczyNRPh+gBJvOKUiI+2zJ13iDNHmu85jEHTew=;
-        b=kEZqbNIxD/CoyyscAW/9TKVC0Z/tOZGpzhtyWK/Mk2kY4+irW0L78LdtfW4H+a3pgA
-         KfVPspmTtvgyyrGjdbdFbMHtMszLFBNJB/q3A5cd69ny8wpzljndKMCzbaUrxJYqd+vd
-         YdUPHUFf7AMXdVRFHsrNiCPLBpIfRD9oKa99MoEfViFbVdmZXeFobRh2IhOcqNvDid0X
-         3JP05w3J70huwVhN77INCgGDlCzsJDpVrj9O3kjX+9GB20pYczEt17JgvLJ+EcaspaNq
-         5aHAlxke18E/z6R7ULJCE/4AcdE0SBYz2H3OKjSBQqMwtz6ovSrfxRnf9WtfbPdHYu4g
-         E1JA==
-X-Forwarded-Encrypted: i=1; AJvYcCULSXbqpwdUIQKNT6ifuJxHMm6g2+F8ZlllIJs2TMMIEDNtXu0QvqeEXBv5xYX5ZHcyDkvSscTcG/EfaHHFcOmk@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfrGVhOYW/9fTD4MuWcfEdb4bSQTUjLne6omR9gdcv2N+spIHC
-	vZ58gaEqAew8FZE9EqllPG5E9Y6ygMF6xZhX5hC8DjrosrLmJ8qIROJIRvolcGoHh3mYVY9Z33M
-	6VKK7k31IU6u62gHpGY0cy9Q/Ea+BzMbDTI63lcyY15rBLN/fkeNni9njxk+NhzE6KH6hwrkM+Q
-	SY0Q==
-X-Gm-Gg: ASbGnctjqnlOPayap98Ooo8vfnEwmmex3AcWs1sEEuuLtNJCokevov7P7melk7apksX
-	WMtt/a1sdYLOns/Zzcnwt8bBD6LnyXYD5lo6SXJc0clal+nuHRzd1O/b9GLTEGKZr1qtyUvVdsy
-	tJuIAvaez69ajkjyIVPAbnI/9cwSEhhKhjaPW6xLlKvgGvI47bOU93CXyMAvmxAlXVQ7ug3Zf3j
-	HvEj4G65+5tR29EWBbKkvUOdkl2nUifOB28aJK6u7iGjYJ+f5S4ct1exCoa+8O9lpQMyItEKeII
-	SObtCofrDx3IdLQBcGRYQTZkbLXrWb9UafkHT9ZVm+StWj5DvXlCIi6xyQO2NCWxvvPafUl4iAV
-	z3ITfEU01nivhcGqrRcibkOhM92fMBSzIEVxvTNutrc5sFHTZwJYgdJK9
-X-Received: by 2002:a05:6a20:918d:b0:334:a261:862f with SMTP id adf61e73a8af0-334a26186b3mr150086637.26.1760593777482;
-        Wed, 15 Oct 2025 22:49:37 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGRjYvscNvn4E0vQBfwvASCV4Pqf0m+pOtdqzRYlI5lGMnrf4heuypJ8w8YWbvPn9A6D3ZaOA==
-X-Received: by 2002:a05:6a20:918d:b0:334:a261:862f with SMTP id adf61e73a8af0-334a26186b3mr150055637.26.1760593777038;
-        Wed, 15 Oct 2025 22:49:37 -0700 (PDT)
-Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0e1336sm20657931b3a.59.2025.10.15.22.49.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        d=1e100.net; s=20230601; t=1760593776; x=1761198576;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=I0tZsr+X9rb2BkuKPKohL8wWGapUv709og7lMSnyxu8=;
+        b=GA15cozi0wv+shCqoWWAT8947XzZx4pE0OYf2zTU5LbU2NwNQX+L4BT8DKwN1v4e4r
+         ZNaZRRgXnw3MlHDcGUtTUzEhB7xt/Xar+Mahovbt6aWIZMvHWMsMUaQ8IsA3i6oqQ1mn
+         vdAYbCQgKYh1i3PVAutjqedLmeJbIPredFkyTOW9T0Bd0nH5q34RehoSFx3uqdw9dO1t
+         IY1CxptFlHIpaxaYSbJg4Qe6kyPdompWbecNDdkswN3e2Hkr3mnOFAmzck7DliNPpN5m
+         j6Yx/dQaq34Pt4XvHXGLy7KJHhGd3+62+rZZTBjicfdqm4XWR82rFNzILBmukAXgkUQf
+         MR9w==
+X-Forwarded-Encrypted: i=1; AJvYcCWmHzobwsqAdfXKD//GTlEXNSIENFZQyDqyE6mmLUxDdWorfzL7tvx/v0PTgCYKC71QWh7lKL7eoX0JjsD37ooS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzddamtH+RizOBsLul/QUIUHr5J3DITNZJzd4nRAG+oIDKpgbZR
+	+kRGQF/jAhUSay+z/GxMSxuhg3WOiZTZLYvMw53I243kdnRdiPnedDM5gCa4CDUPyhYx/OffIVE
+	Wxk7I9usj9YMU0Jp1fV2tL5cmxkJkB7LxA8RiMjH7ByaVq41XMApm6o9xZsL/afO0RUu5GUYK8S
+	/98Q==
+X-Gm-Gg: ASbGnctE/7tI8pVfvzXrro1PPFoMIKxtNIstCNhVs9RLHEDFvMNUQbQPGzmY/Rxc/w2
+	U3tn1hfdM7S/0A6uqvKXupN2mjhEDQJM20ixD71SwBh3XZ/EgpdIqYbpkfKD40AYyRITiHw+joj
+	anka25bJRKd9C55joaYA0B46+S+n0gbbFvUtQYT1wposgm4cjWpDEYaIPAds6aJhtdTT1tMBtRV
+	cq9iN38MIERT9kzaI9ulOrDBlZH7pawLblQsTIDNyDntzuxCqVnnGDLGesuOSReYQyuWAlzYebD
+	5deua3KWH+sTuUDmJGdrpO42KsRGb0qnOcxcJ9EuICc3EWNep0VP/yEQozcctpjWtUFxDaRu5uO
+	SGSK43RTyFo6YxUUdf9QvhVBeYgH9LO9rugobH9x4QWLU/PTyzWax2nKj
+X-Received: by 2002:a05:6a00:1741:b0:781:239d:f2da with SMTP id d2e1a72fcca58-793881ed30emr38449559b3a.31.1760593776125;
         Wed, 15 Oct 2025 22:49:36 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEOEd8rbHYWJ4eDFljVCyqfTRjJpdU/axG94GWTg9wQOR3qSxhEvQY8QQFNQQjxay2ed5LGew==
+X-Received: by 2002:a05:6a00:1741:b0:781:239d:f2da with SMTP id d2e1a72fcca58-793881ed30emr38449528b3a.31.1760593775634;
+        Wed, 15 Oct 2025 22:49:35 -0700 (PDT)
+Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0e1336sm20657931b3a.59.2025.10.15.22.49.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Oct 2025 22:49:35 -0700 (PDT)
 From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Date: Wed, 15 Oct 2025 22:49:30 -0700
-Subject: [PATCH v5 1/3] dt-bindings: arm: qcom: Add Coresight Interconnect
- TNOC
+Subject: [PATCH v5 0/3] coresight-tnoc: Add support for Interconnect TNOC
+Date: Wed, 15 Oct 2025 22:49:29 -0700
+Message-Id: <20251015-itnoc-v5-0-d7ca2b1cc6df@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251015-itnoc-v5-1-d7ca2b1cc6df@oss.qualcomm.com>
-References: <20251015-itnoc-v5-0-d7ca2b1cc6df@oss.qualcomm.com>
-In-Reply-To: <20251015-itnoc-v5-0-d7ca2b1cc6df@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAGmH8GgC/3XM0QrCIBTG8VcZXmfoUTfrqveILpweS2iz5hrF2
+ LvngsGIuhE+Ob//SBJ2ARPZFyPpcAgpxDYPtSmIvZj2jDS4vAkwUExzRUPfRktlyaASjteaWZJ
+ vbx368Px0jqe8LyH1sXt9sgOff78LA6eMlmA1Sl8ZJ+AQU9reH+ZqY9Ns80Pm0ABrvFswZAyOY
+ VmjlAj+DxYrDHrBImPPa6UcmspA9QfLFRZ8wXLGzNcMvQYw6geepukNutT3HVgBAAA=
+X-Change-ID: 20250815-itnoc-460273d1b80c
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Mike Leach <mike.leach@linaro.org>,
         James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
@@ -97,40 +98,42 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
         linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760593774; l=3075;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760593774; l=2209;
  i=yuanfang.zhang@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
- bh=Y867aF4IBjLOR2gpmZC8PqfLpe9/4Juk6DhmSLbLZ8U=;
- b=cliWJQ3cCm/Fg7j1zfG3GF1la0aaPjQALYORA+TGbWnntK956NJJ0g8VbCrYQRc+v5A9cc4jL
- zoeEtsiuSbLAXyvjitBHF6kaYuoH4vz3sV7bCFgyhDTdYSQhvw9uak6
+ bh=tBet7xd9Ix+7i7/6lFaf25DY48b+0wTDWRETSg/THcQ=;
+ b=RnRTpb6h4DuPTqsO4yzM0bLovGuaYSg4CV2VXLkDeCrzyef6OtHsSZnX/b+LiQSpbecFSzirM
+ zZUkt9VJfKVBAN6+piSxOV0Aw0ILK4ICDei1gMGApxtmXJVIvXynMfA
 X-Developer-Key: i=yuanfang.zhang@oss.qualcomm.com; a=ed25519;
  pk=9oS/FoPW5k0CsqSDDrPlnV+kVIOUaAe0O5pr4M1wHgY=
-X-Authority-Analysis: v=2.4 cv=aPD9aL9m c=1 sm=1 tr=0 ts=68f08772 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Proofpoint-GUID: 6ISi5BhpPuncYZJk12WyHtlfK5PY6d1F
+X-Proofpoint-ORIG-GUID: 6ISi5BhpPuncYZJk12WyHtlfK5PY6d1F
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAyMCBTYWx0ZWRfX461jrZa5Dnj9
+ ytonERAdfEWNRZs/G+tGCPpkcaGWqjyr+qOG+96E3AuTb/hWVvmwKuGhqjY14PPCfY677c/8WYG
+ zhsbZEIxPItI5taQqA2DIgjmdUatg/okbtjrNR3O0yWISnBerMlnSilRcMQKcheoys/dSzQruMM
+ dzGgv6bGMnNHhSBILWvcQAuaDpr5b/zNXlVMPK3Zib90zGVxDyDht+KOpNJz3MAo2wUeCaSjSza
+ 3jMMbF6tIqR0oA7hmAy8e+4KlkvyzTyl/1t7PKoEiuUNEhEuhh5jdD3GeRhEqTedLxiq/uuMjrP
+ MMibk3oKOUlAEIUEnBjOIP4gBFW9YIXONnJuxeXzeC2LX4AZaSf2E0AxvZIlBvdeLVsm7zldf4B
+ ZYSFx76Zmx1c2+CSmEKh4lRCRTLx7A==
+X-Authority-Analysis: v=2.4 cv=V71wEOni c=1 sm=1 tr=0 ts=68f08771 cx=c_pps
+ a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=gEfo2CItAAAA:8 a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=-QmmxQN2S_yWG1-YAlkA:9
- a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22 a=sptkURWiP4Gy88Gu7hUp:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE2MDAxNyBTYWx0ZWRfX5BrrJ1Eq+u7n
- PD3ba7fA74UY1nf5vqawxJdg9wsUdUkYhVAaJMffaY/WfL0T98Z+4hTbrFzgMiKqbF64D/paCZb
- TOK9eWzYATY2NRy4SqJz44DG2f1OWMSDrXtttJ8qJKniudTDzC1a8e9FbeJPctwR67+nFLD2cLF
- FMr3uaeBsCATioRl4sv9/A2XYGzyhk8/AAmw6Fr08FwH0sjBULHYSbI2/OyoP/wT/T4bMJDYtli
- ivZMUBuQ/oAXqa11OBqE899L2bS6Vf4HLFeKuoundELQbn+CkoBx2efRkRoufu7a95r+kCWwEev
- fYeanOkJuEKwTF+onVmj9Qht1Lqde9540thWaqkkjjvmNfoNJFmkXjbr/YINnViih87S+Dibgx2
- HFYM7+TqmjwZM3HQaGkrOE16UJX6pg==
-X-Proofpoint-ORIG-GUID: mYiJMPh9Q91t8CkYYd4o9SujqtI_p1SM
-X-Proofpoint-GUID: mYiJMPh9Q91t8CkYYd4o9SujqtI_p1SM
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=G-CQVniXWX8y_UMPSkYA:9 a=QEXdDO2ut3YA:10
+ a=2VI0MkxyNR6bbpdq8BZq:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-10-15_07,2025-10-13_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0 clxscore=1015
- bulkscore=0 suspectscore=0 malwarescore=0 phishscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510160017
+ bulkscore=0 malwarescore=0 spamscore=0 adultscore=0 suspectscore=0
+ impostorscore=0 phishscore=0 clxscore=1015 lowpriorityscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
+ definitions=main-2510110020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_224939_952372_77B77D58 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20251015_224939_355571_BFCCB887 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,115 +148,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree binding for Qualcomm Coresight Interconnect Trace
-Network On Chip (ITNOC). This TNOC acts as a CoreSight
-graph link that forwards trace data from a subsystem to the
-Aggregator TNOC, without aggregation or ATID functionality.
+This patch series adds support for the Qualcomm CoreSight Interconnect TNOC
+(Trace Network On Chip) block, which acts as a CoreSight graph link forwarding
+trace data from subsystems to the Aggregator TNOC. Unlike the Aggregator TNOC,
+this block does not support aggregation or ATID assignment.
 
 Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../bindings/arm/qcom,coresight-itnoc.yaml         | 90 ++++++++++++++++++++++
- 1 file changed, 90 insertions(+)
+Changes in v5:
+- Add the missing review-by tag for patch 3.
+- Link to v4: https://lore.kernel.org/r/20250831-itnoc-v4-0-f0fb0ef822a5@oss.qualcomm.com
 
-diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..8936bb7c3e8ea267ca66e0cc3fc4dac33ba6de30
---- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/qcom,coresight-itnoc.yaml
-@@ -0,0 +1,90 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/qcom,coresight-itnoc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Qualcomm Interconnect Trace Network On Chip - ITNOC
-+
-+maintainers:
-+  - Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-+
-+description:
-+  The Interconnect TNOC is a CoreSight graph link that forwards trace data
-+  from a subsystem to the Aggregator TNOC. Compared to Aggregator TNOC, it
-+  does not have aggregation and ATID functionality.
-+
-+properties:
-+  $nodename:
-+    pattern: "^itnoc(@[0-9a-f]+)?$"
-+
-+  compatible:
-+    const: qcom,coresight-itnoc
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    items:
-+      - const: apb
-+
-+  in-ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    patternProperties:
-+      '^port(@[0-9a-f]{1,2})?$':
-+        description: Input connections from CoreSight Trace Bus
-+        $ref: /schemas/graph.yaml#/properties/port
-+
-+  out-ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+    additionalProperties: false
-+
-+    properties:
-+      port:
-+        description: out connections to aggregator TNOC
-+        $ref: /schemas/graph.yaml#/properties/port
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - in-ports
-+  - out-ports
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    itnoc@109ac000 {
-+        compatible = "qcom,coresight-itnoc";
-+        reg = <0x109ac000 0x1000>;
-+
-+        clocks = <&aoss_qmp>;
-+        clock-names = "apb";
-+
-+        in-ports {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+            port@0 {
-+                reg = <0>;
-+                tn_ic_in_tpdm_dcc: endpoint {
-+                    remote-endpoint = <&tpdm_dcc_out_tn_ic>;
-+                };
-+            };
-+        };
-+
-+        out-ports {
-+            port {
-+                tn_ic_out_tnoc_aggr: endpoint {
-+                    /* to Aggregator TNOC input */
-+                    remote-endpoint = <&tn_ag_in_tn_ic>;
-+                };
-+            };
-+        };
-+    };
-+...
+Changes in v4:
+- Fix unintended blank line removals in trace_noc_enable_hw.
+- Link to v3: https://lore.kernel.org/r/20250828-itnoc-v3-0-f1b55dea7a27@oss.qualcomm.com
 
+Changes in v3:
+- Add detail for changes in V2.
+- Remove '#address-cells' and '#size-cells' properties from in-ports field.
+- Fix comment indentation for packet description.
+- Link to v2: https://lore.kernel.org/r/20250819-itnoc-v2-0-2d0e6be44e2f@oss.qualcomm.com
+
+Changes in v2:
+- Removed the trailing '|' after the description in qcom,coresight-itnoc.yaml.
+- Dropped the 'select' section from the YAML file.
+- Updated node name to use a more generic naming convention.
+- Removed the 'items' property from the compatible field.
+- Deleted the description for the reg property.
+- Dropped clock-names and adjusted the order of clock-names and clocks.
+- Moved additionalProperties to follow the $ref of out-ports.
+- Change "atid" type from u32 to int, set it as "-EOPNOTSUPP" for non-AMBA device.
+- Link to v1: https://lore.kernel.org/r/20250815-itnoc-v1-0-62c8e4f7ad32@oss.qualcomm.com
+
+---
+Yuanfang Zhang (3):
+      dt-bindings: arm: qcom: Add Coresight Interconnect TNOC
+      coresight-tnoc: add platform driver to support Interconnect TNOC
+      coresight-tnoc: Add runtime PM support for Interconnect TNOC
+
+ .../bindings/arm/qcom,coresight-itnoc.yaml         |  90 ++++++++++++++
+ drivers/hwtracing/coresight/coresight-tnoc.c       | 136 +++++++++++++++++++--
+ 2 files changed, 215 insertions(+), 11 deletions(-)
+---
+base-commit: 2b52cf338d39d684a1c6af298e8204902c026aca
+change-id: 20250815-itnoc-460273d1b80c
+
+Best regards,
 -- 
-2.34.1
+Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 
 
