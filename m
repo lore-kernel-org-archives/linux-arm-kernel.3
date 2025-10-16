@@ -4,177 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6057BCCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 02:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 688D1CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 02:29:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j2Whk+/NjyAjQStInE1j/PzsTAhufFsXx6nD7f9u3/s=; b=4D0upgvdSzRUQWpVPcUP2EdPPx
-	rh50+ZW7R8aK0ECj/tBp2qVS9njnuzqkpqn7cq9LQ4jbgPEGluSLKxAGjLkU9G+mz7FOgMkRB6Elr
-	xmVNKQACL7yfZgNmKcECoKqYots2Ikc2DV/6zTxWPLAHGiOZNiPf1PiVNO2Nu16EswtSa7CGrQU2u
-	e4kpIMmsVpn4D0qimJgZ9h840/Yo0OfgS+S02PfJ1Vp/3pZ158NDGc//C8k7bRDaERBKXdlUV087I
-	71Up2lXEyPGE/kdk7iOAi5DEnd05wo3C/LIcrm3XU1SeFqUQCt29FcTbWAU5BLcnYn4Y9U4Ynxzif
-	XytCwy6Q==;
+	bh=i25gNlDAtw8b5HK1jAZXBoV/IQCgdqvoMWGREg/E/KM=; b=wDtPV3OswYf97bT7mMG5Ukbc2Y
+	lSqa9fBJtk7CNZdHAOZ2MRLjMO4nphcka+pa+AseH3z/283xel7g67ADXbV58nypHsbTfHsW5LVGI
+	X6AY2pi+N/CbrvDFb77YaYGhcMWQntHXgQnumb1fvMU4Gy1qCZ1fMTmUOr5fRrEtr2iHlQSYFW18f
+	2rc3ZpDAldrc076f8oAf+lxc7j2vlV+YxHO4SvKiu2eE6W4nyHov4M3jB2+k9ZIfvS6w2ToLJS41q
+	66P1JD8yherTha7/rvE3UwfmDN7xzZ6UiW4DOQNtz3BvGs6y3CuJmfCbb6dfJ+1jvyhSCUP+xdVdL
+	ZnhcIiMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Dij-00000003Gh6-0AYr;
-	Thu, 16 Oct 2025 02:28:01 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1v9Djh-00000003Gy4-42Ak;
+	Thu, 16 Oct 2025 02:29:01 +0000
+Received: from smtpbgjp3.qq.com ([54.92.39.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Dif-00000003GgH-40e6
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 02:27:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yJjXPWX2nFE2f9dn1P1T7yOKCQaMRMdvtKHnwfoQTiQHcyVBbRYQXRUE4ovVPXb3d2kXn/dy02HZewqkGdanyceEdqknn/kvS7IBUFZpNRw76yknLxqr0N/9bUtmL3nalb8quqFJQgE5aHm9KGs4NIa4A6ZX94CZPhMqBT/EajHHZXu61vPooOAOglR4FzUMO/7euIpLesl9lR6Kl31FWYtEMWvC7ElLV9id77LB0dLNXlo17AMn5StG/QcFATC8kLFtwQtpdT0UCxEzUTc4ndix52qleSuFWrw6w86U832ljVABaqVQtGNe7gx2a5BRcsFpbVRefhgUhqF0ncAo6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j2Whk+/NjyAjQStInE1j/PzsTAhufFsXx6nD7f9u3/s=;
- b=eP0T+0Aus9FZx9dkxZex51a5i1dI9OurpwMzVnyI8gDjQQT01cOd8sTWQPium8llEbhgRdh7NXhusvOyjxHLqtYux0PvToJak0WBb7y/yGOisBcrUHMUG/yBN25wrnApwdTzTL36TwYs5NqT6TeIFnHtUf27KRNJOY3N+3EWKf49BbPzgr3nJOqQW37WqYTT5msqD0DuAVlwBA2nEe2u9tVGp5ZqVXsjlfqIcYz1a+VqU8GjRvVn+0zFbrQM4EROJagS88Prn2etCdnCufthdbCAvQnjnlsMZDVzeOa9lGc8L0aL2gVmb9GIr/Kf3MjZX30Rz0oUG7H2G88YFGfWRg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j2Whk+/NjyAjQStInE1j/PzsTAhufFsXx6nD7f9u3/s=;
- b=msdXfy+EO+c60bspELBz5sU4Zt8xMJtSKBRCCl4DolsOuJ2wgfW7DvmHwr5o6Y1tae7WDBEybwqyL59mogPyzj7sS0P8cOAFAFe6gfu/MNNx3oLX8GxGzN2B4y3fU5zN57ew1kY1k30nVDiANQmZdq53roknHmT27u6g7ElUIztEtvBGfAUIXKWFMgFbVR/WFuc5Xt2dZaOhEswp8uBUfJrmP0vM3XibNC5VNE/uuAWor1xHxuE2w1VRiAYI4ri0qAsK1sFbn+Amds+rTPcEXyrTxXspS8opPUvGy5qTcys9mgGRiUAmLdtG9nJ/k6E49QamPj/243CDQ2dOu+VqqA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by VI1PR04MB9955.eurprd04.prod.outlook.com (2603:10a6:800:1e1::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.12; Thu, 16 Oct
- 2025 02:27:49 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9228.012; Thu, 16 Oct 2025
- 02:27:48 +0000
-Message-ID: <a9a9867c-2653-45f0-89a2-39132335aac9@nxp.com>
-Date: Thu, 16 Oct 2025 10:28:08 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/39] dt-bindings: display: imx: Document i.MX95 Display
- Controller processing units
-To: Marek Vasut <marek.vasut@mailbox.org>, Frank Li <Frank.li@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <20251011170213.128907-4-marek.vasut@mailbox.org>
- <aO0tmUWA5H0J80Ov@lizhi-Precision-Tower-5810>
- <260b4db1-c02a-48a0-baf8-5e217c729824@mailbox.org>
- <e3ab9421-61a5-4ab6-8c72-6b0ab340f3a8@nxp.com>
- <ae9d1289-c0f9-47b9-b6be-e39d170425a2@mailbox.org>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <ae9d1289-c0f9-47b9-b6be-e39d170425a2@mailbox.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2PR01CA0134.apcprd01.prod.exchangelabs.com
- (2603:1096:4:8f::14) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|VI1PR04MB9955:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1c27723a-f644-40e3-bd20-08de0c5b9711
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|19092799006|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MGpWSDNLM3REMjF0cHIrWE9abHpjeGlOZWtFYkZoTWJ1UlNVK3VVUGFRSCtM?=
- =?utf-8?B?MDkySVN3Z3lTM0I1QVZwMXIwbGZnTkhLM3gwNFV2VXBUSU1abTVpekkwc0cz?=
- =?utf-8?B?anVwSGdyelVKYTF2azJ6cG9aSHZtT2VxL2oxSTZ5K3lDbGg1TlRHVWdTNTBB?=
- =?utf-8?B?NzhTTmhrWkFJUDRhSlc4V3NnVlEzN1MvczFzRnc2OFRWdkFCM0FJTW5PYlJL?=
- =?utf-8?B?TVBCSVp4TEtCSkE2elovUjM1MUtrcjFxUTRqbzNiMXg4ZExyRTEzdUdwQ1Iv?=
- =?utf-8?B?Sno4VmozeUtYdEdRNGNacUVwNnpFRXdGSTZEZkVVM240aUgxOTlSVVpuQjFC?=
- =?utf-8?B?andEa0gyb1k4Z0ZKSVl6UXZoNVBmZTdHbFVKQ3ZVYTBUS0JCb3ZtUVBGSEVv?=
- =?utf-8?B?cGIzdm51TlZKMlBEYUZDWkEvRzRFZ1BEWFNUWEwwTFZnV1d5WnYyTk5FSStO?=
- =?utf-8?B?UDVwL1JHZVdHeEt1dVA2eHVGeTM5Q1lFY05xR0l0b2d1WUJCNVdOaGRJaVhL?=
- =?utf-8?B?M0FvZEx4WFdqbXoxQVpFREVCWnlJT2dNNzZPdDgwS1Rud0U4YkM2bXpnOHNZ?=
- =?utf-8?B?MUxlZkZRam5yTFFSaGpCN2JZWmw1MWl1QmYwN2VFWlZvb0IxZit1T3g2cUJ5?=
- =?utf-8?B?R2xZWTlKSVF5akhQYWd1cnJvbkoxc252UnFWY2NyU2FBbUE4a1UxUWNWRzdO?=
- =?utf-8?B?Ym9UOEU0YXdFUnUydFYxdVV0WWRqWFFuTjJJTzBTRlJpOEovby9FQU54WFhP?=
- =?utf-8?B?R1c5elJNaVNGT0RzZHFPV012bWNkeGRSVjNsWVFvTyt5Zmt6MzhUQWlwSFFK?=
- =?utf-8?B?VGhHSlVUbWdTNmZZV0cxRXl1VmM5NmZHMXF6Q25EaXloQzEyV0RSbnA2ekJM?=
- =?utf-8?B?VWM2czFTdW1uRHlEb0tqNy9FdDJTRFByMXN1WGlIRTZOMzI2VXNZR1F0MkM3?=
- =?utf-8?B?OVRaa1RxcW1yRG9JaThOOHhiZlNjTldmeGZ4TjRySGZlenkzRzlvWnE5Ynkr?=
- =?utf-8?B?dndjcVQ3ZC9BSWl2bEM3dTNOVWFrTUdaWk90QVNqOEt1MjdnM2Jqd05LZk1Q?=
- =?utf-8?B?cW5MdEhPUG80LzFUcElIdHI4R2JJZnB1NmdjR2xyWXVSVysvM1F4Wi9aMzRB?=
- =?utf-8?B?Q1N5VTRkMGlkYkxqQ2pwWG1GV2ljMWh5Z0ZucERmdHp2cjhmWnVxaFlGc0hp?=
- =?utf-8?B?WVBhTW9XVVVucnFkd00wT2RCK2FJYXd5K2RPTUgxRDJRekNUU0grMnFVMmoz?=
- =?utf-8?B?TVUxT0orRTRRQjdLMVc3VWorMzQ2VHZEZStIWWUyYzBDTFdkVjd3VjNlb1JQ?=
- =?utf-8?B?Y2dyS05NZTduaDlxS2JDcDdxZzhxZFRzZHc2ajc4cHBzdVZBUEg5U01Gd05t?=
- =?utf-8?B?Rmo2c1RBVlVNbUI2WTFpT3Q4RnhUcy8xY052dFZobm5pVXE4Qjl6MUUyYkVk?=
- =?utf-8?B?c090TkV1dk9leWs5NFdSbCszVDNZRHArczVyMm5JQ3dmVnFVcG9MUUc4Z3I1?=
- =?utf-8?B?SjFoclhnZWFnSTFyVERUOWZIREdiWW9iWjVNZUFkUE1ZSHhkZlVSeTdDWVRw?=
- =?utf-8?B?Z05pam9aeGcrSlg2aFhUNUFibGx3WUxUSGlwVVBHMUkvTjZCNi9IRXo5R3Fo?=
- =?utf-8?B?cDNIdWR1a1V6cjJTR2xpTzMzOUFPOS9QR0FXZDI3TlV4V0VIWlVUQm9PRk1r?=
- =?utf-8?B?bVJsdkJnaFJMS05WQjJ4N2UxT09CY29OUnRFdmI5NS9CYyttTnhTUzNGZGp0?=
- =?utf-8?B?TE9PV0FuSEdiYnNGc1Rva2FtaCtXdWl2R1g1WHY2NnRNOW1UTXBIWEVnUzc0?=
- =?utf-8?B?dHI0TXNUUmNETzNyUUFVVTdlVllxVlR3Z1c0Ni9DKzc2R2ZDeTFEOTgvZkt4?=
- =?utf-8?B?SlMrcWg5UmNsSUJBUmovbVovd25CdjlGU2NHa3gwUEZRempRUEIzOUtFTU9r?=
- =?utf-8?Q?z6C1HzCkBUr5KTgSr75avULIst87ZkSt?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(19092799006)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ODh3cGRRdkVoU2tBeFJrNzhNWC8wcHdySkZCZFJvaTJYT1BpNDJnclVTSGtr?=
- =?utf-8?B?bHdBelVQRzc5dFE0dEVWdXVtWmh2YkhhOCs3b3grSWozdHhhV3FNRXFpalN6?=
- =?utf-8?B?UStMMjVBdWJIU1dOZ2U5Z29Yd1g0VnlUbUNPWCs1SExTdXQ2NkNZU0MzNHpq?=
- =?utf-8?B?MDNGQVZ6Q21Id1NsUU9xR1I0SG9UN1BHdWVlSzlVSXk0Sk9rVy95Skp3emEv?=
- =?utf-8?B?RVBaOUM5aTNKMG90cVg0ejRKK3FCS0tZQmUwNGtjUzhwOHkrZHdpSXgyV3lB?=
- =?utf-8?B?NkFhdElJZmZZR0VHTnZwbCtPT3lPQVZLaDZ4WVdITFZrWGY2TXZzZUtKVnBn?=
- =?utf-8?B?ZnkvSGJ5c3duaVVPYk1RRlY5QVdrN2ZOT0pDc2ttZmhRNXhLQkRud2kySnNB?=
- =?utf-8?B?UmZ2MGoyaWxjbGVJY3IwRGhZSGhWTEdXVndPTDUzNXE3bmwzekVSUTZ5TStS?=
- =?utf-8?B?R1dZWmswMjRhOENacHV4NW8yMGpuajQrQkZURG43Z1lFbFU5b2hPRy9zcDQx?=
- =?utf-8?B?alRGYlhCaEdQQTRUelJjYkR4Q1VMMURyTWhZbXArVFVYV1ozcEorY0l1VVVn?=
- =?utf-8?B?bUk5d2k5QUU1M3paUldyUDhJM2dmY1JMM25YRkNkS01pWFp6WnRzb0dHSTlF?=
- =?utf-8?B?VG43cDNNSXhmeEk1WG56Sko4dG9SaU94TWtjTXVSajhoeTlaK3k5TEdIYXdM?=
- =?utf-8?B?bGp0ZXpjTmRMcm1LMng3MXVBRDVSQjZlS2FYZmhGRmg1ZnpQTk9ZdEZGdnBQ?=
- =?utf-8?B?RFQvemxmVktrSG9RM0FOcXFIQWJHbFZuNXNOM3U0aVpqZmdpSXVUZEw5a1k3?=
- =?utf-8?B?bjFXektPVVRKVTRQeWltdDdEMFNKcDVrTzhwSnFZZ2tWTlkyc2hkQnJsNjRQ?=
- =?utf-8?B?WWd3VUVIcWV5NHdvYU1ESWJqNFFhdVNVc3FSY0VtOEdhNEh2bmxvTk1jcjJ2?=
- =?utf-8?B?MmRMbnRMUUJTQ0o4bUpFS256c0lYaFVRRW9XalhqeG8zY2NRZm9CZ25uMnBB?=
- =?utf-8?B?T1N6ellaWEtHSEJDNmFoMW8xQlExUHJDRGtWYjc5RHhoWWZSS01zNi93eGJ3?=
- =?utf-8?B?Z09QMVEzN3h5MVI2dnBGdExjTDZIVVJYbTk0OWNFZEFKK2NZZm1rTmZGV1lE?=
- =?utf-8?B?RnFjQ29ZSVRaV0V6Q1cyZkdTL1M2dDFRVHZaSjN1VVBMSWVCRXd4MXJ6dUtn?=
- =?utf-8?B?VHNGc3J0N0ZPQUp4OSsycHlhSGpCUkMrTTB2eUY0Qm5ETFV0SDRVdlQvalBn?=
- =?utf-8?B?Y0hDYzV4REdPYnNyYkVCMnFxVi9vczd1MHJ5ZnRCeTRnMnJONmFjNmNsclZL?=
- =?utf-8?B?WFpxdzlLYmlHVHpXWnovTzVOK2NLaHplZEZlbkVHQUZjbFh1NXVCY0F1a1h2?=
- =?utf-8?B?RytpS0xkeTluaXEyOC9UTExQd3FTMkUxY1JNeDNCZ3RkUDVMQ01mZ2FLeUc3?=
- =?utf-8?B?dGNMcVZrUXVkUnE4NWR6TzdJYy9jdnhwSm1ZVU5lNWZzai9mV25pbzh3S1Qr?=
- =?utf-8?B?V3AwQi9vRjZDOEt3clBBR05tRllsWU5aK0R6Z0U5TkpWOFp6dmlid1JBN2k0?=
- =?utf-8?B?aTZNLysySjFOdGhyeUdFOVpRVEtYalpnaHM0T0pjcG9IRVgySGk5K1J4ZkNp?=
- =?utf-8?B?VVZndWY5N3h6MUdKNlhqZVRkVFcyNEgwUGZBRUhMWG02Y2hPQ2JJSENia3hr?=
- =?utf-8?B?QjBCV3RtM2ROQ3pFWmQ2djdTQzdzUFFJRGFXazNoNVZhTmswdHova1JpWW1V?=
- =?utf-8?B?SUh5a21UditZMzl1SGZCYUd0Z1dORENKOVRINVNrLzBkc3pkWlE4NGtMTm1q?=
- =?utf-8?B?d3R5R2w1Sit3c0w4NFJ3SDU2bUIweWJ4blg0bHRibTc4cU9vNlBycDl0VmZj?=
- =?utf-8?B?MVVBYmpqZ2M0dEJYMmRERDJ1eHhEc0hoV0RoaWhMUVY2YjBqR0NWT3EyR0dz?=
- =?utf-8?B?OWdTYW1xbnpjak0vZ1hqTEY0SDMwT3pCc0dmd2J5ZDJ1UjVISVR1U2x1cCs2?=
- =?utf-8?B?aWdKVnpraVo5SWt4QWNXVHVhRUl4VFFtVWY3a3pKMkJwVmQvcmVTTkJuakR2?=
- =?utf-8?B?Wll2anRHUnRuYmFYWC9PZUIwZ25teVpNTmM2aW1mNEEzY3lCQksyd1pXQ3lN?=
- =?utf-8?Q?3oV+SWHcsw1CWMAk2LO6J/Nni?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c27723a-f644-40e3-bd20-08de0c5b9711
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Oct 2025 02:27:48.6690
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zvC0hUnsVp/fZ4IrEKLelxApfsX0FfAIRFbBSjZl0mV5SytkTpj/bsKyOtpqbE50pTbpUCiDaAZMbaZaOKgw9w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9955
+	id 1v9Djf-00000003Gmu-2J8V;
+	Thu, 16 Oct 2025 02:29:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1760581696;
+	bh=i25gNlDAtw8b5HK1jAZXBoV/IQCgdqvoMWGREg/E/KM=;
+	h=From:To:Subject:Date:Message-Id;
+	b=PzX2rZEeJaOR8Kzodn1t2LlqwDFnKYRTzDihtkyFqo5lm935YqW4GWN3wlGKuwX47
+	 MJnl8dD5Iv6mUmFaJXC8a32L+DHjuv8TQQVI3shgz8zPB7K0kWNOX2JeeKwKIJ3rDP
+	 wGhIuHHfiQ1c3c5E4gFZ50srlPyb8bYxV8OTAQjg=
+X-QQ-mid: zesmtpgz1t1760581693tcd70b443
+X-QQ-Originating-IP: VcuS+Dxp0BYExURU8Vsw6C9TnS/E0vZwDdscGFf6LgY=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 16 Oct 2025 10:28:11 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 12339062551155621707
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Peter Robinson <pbrobinson@gmail.com>
+Cc: linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	dri-devel@lists.freedesktop.org
+Subject: [PATCH v6 4/8] phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
+Date: Thu, 16 Oct 2025 10:27:37 +0800
+Message-Id: <20251016022741.91-5-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20251016022741.91-1-kernel@airkyi.com>
+References: <20251016022741.91-1-kernel@airkyi.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: NOIkHYnr7Vzd/tMyFT2j8ciywZ261X+hQIvnQM2uC0dM5ONQJz2lFSjy
+	ZrnLXDbs+toVH7ia8uG9VKD3YnggyTWpZX1Hz7tA43ZuR2/3D+qtz6zhE8NliD23lHaXt2D
+	z4W2tYADhrN054I8UFGqN8S2SjfSaI0ODDMigAGfx9kG6E/4Se+8Cd/SrsXULKXsYjW4b7U
+	Eh6LhhcA022/XLey36NZT6WS+PIJRZFvk5FfBZUo/qY02eJ1mY7jVhClZoD/nb3KJ15OyYP
+	EISzW0UUvSKvMkvkP/1awOU5gSKctTbzT411LPlLvOfhuSQvXcQ9v6XmFb+znTt1NxFhu+2
+	tQ1jxcK5u/IPRtFUgNXmFtLtOCrncj8D7jM+CDvx3+7grRzFy/68IowkwW2r4zUegjdW6d9
+	HOtrLxaGMR3aWEuBQkAGXYeGbRTUb+KJAFJ0xU/gJsKZKgUymHyqBtoqBMYywyC7qDZPQIz
+	dT0VGU2aZB/kkwi2rPYhXzJ3Hr7eWFH6rBOs79EUwpRYJGEihzd85HS4V/wr22mn5bxvbAK
+	M0IEqCGe6tZicvtHByS5tMrEo3RoUKvL0WkrQwQBc8mca3860uZ94kb5bONwYrIRxf7mUU3
+	Ba1GGaJ7fD+KrTHK89939WuqUKTIAJtXIdlNLe3bu+BFSedbVSwwIJjM2exxzfP9Kq40V9R
+	eoQaxzNH1sLuhTLCjaRCVPBGXWpsHWnowO0lmiWozQkuAaejhqTJzFecsZxnJv9byWjWwZ0
+	qrM0FVhrUH2gk3jf8Xf3kGM4AFE5yJcWVcMv+L+tTiyGVh1JyspFX7pkcWfHzbJ+gsAnxxQ
+	7AkIFgduUFPy9hwsrq0FwaRXYCz1sq0vdz1fecMke++my12QE7yiX3NOgUA8gN6funamL+3
+	80w6L2NwNQ/IBwNrRfzg4hLzOrK2EYrd7cxjV4feg647lIDXiOO0VB6ZrTm0qr2KRn/Fc2O
+	73JBOcKzH5UqDfumDMF6Hqpgb51odqMUbu5LmqMOkS9fRt0aq3B7M7jqNsLSvvwCwzlZot6
+	+dgruIQQ==
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_192758_003071_0B0BBB28 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20251015_192859_872433_999038CC 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,50 +116,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/15/2025, Marek Vasut wrote:
-> On 10/15/25 10:59 AM, Liu Ying wrote:
-> 
-> Hello Liu,
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Hello,
+Using the DRM_AUX_BRIDGE helper to create the transparent DRM bridge
+device.
 
-> 
->>>>> @@ -90,13 +102,15 @@ patternProperties:
->>>>>          compatible:
->>>>>            const: fsl,imx8qxp-dc-signature
->>>>>
->>>>> -  "^tcon@[0-9a-f]+$":
->>>>> +  "^tcon(@[0-9a-f]+)?$":
->>>>
->>>> why here allow no address unit tcon?
->>> This might be something Liu can clarify too.
->>>
->>> TCON on iMX95 DPU does not seem to exist at all, or at least has no control registers. Hence no address.
->>
->> i.MX95 DC hasn't got TCON so it should not be documented for i.MX95 DC.
-> 
-> What DT node do I attach the pixel-mapper/pixel-interleaver to then ?
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+---
 
-It's Dither unit which sits in the last position of an i.MX95 DC display stream.
+Changes in v6:
+- Fix depend in Kconfig. 
 
-BTW, i.MX8qxp/qm DCs haven't got any Dither unit.  The existing i.MX8qxp DC
-DT bindings have already documented all units within i.MX8qxp DC(I hope I didn't
-miss any unit). And TCON is the last one for i.MX8qxp/qm DC display stream.
+ drivers/phy/rockchip/Kconfig              |  2 +
+ drivers/phy/rockchip/phy-rockchip-typec.c | 52 +++++++++++++++++++++++
+ 2 files changed, 54 insertions(+)
 
-Have you got i.MX95 DC IP spec?  If no, then it would be difficult for you to
-write DT bindings for all i.MX95 DC units.  Note that this is something
-necessary to do.
-
-And, a bit more information about display pipelines in i.MX95 display domain:
-
-Dither -> pixel interleaver -> pixel link loopback -> camera domain
-                            -> pixel link -> MIPI DSI controller
-                            -> pixel mapper(LDB)
-
-Note that NXP downstream kernel wrongly adds pixel link between pixel
-interleaver and pixel mapper due to ambiguous i.MX95 TRM.
-
+diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
+index db4adc7c53da..bcb5476222fc 100644
+--- a/drivers/phy/rockchip/Kconfig
++++ b/drivers/phy/rockchip/Kconfig
+@@ -120,6 +120,8 @@ config PHY_ROCKCHIP_TYPEC
+ 	tristate "Rockchip TYPEC PHY Driver"
+ 	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
+ 	depends on TYPEC || TYPEC=n
++	depends on DRM || DRM=n
++	select DRM_AUX_BRIDGE if DRM_BRIDGE
+ 	select EXTCON
+ 	select GENERIC_PHY
+ 	select RESET_CONTROLLER
+diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rockchip/phy-rockchip-typec.c
+index 1f5b4142cbe4..748a6eb8ad95 100644
+--- a/drivers/phy/rockchip/phy-rockchip-typec.c
++++ b/drivers/phy/rockchip/phy-rockchip-typec.c
+@@ -36,6 +36,7 @@
+  * orientation, false is normal orientation.
+  */
+ 
++#include <linux/auxiliary_bus.h>
+ #include <linux/clk.h>
+ #include <linux/clk-provider.h>
+ #include <linux/delay.h>
+@@ -56,6 +57,7 @@
+ #include <linux/phy/phy.h>
+ #include <linux/usb/typec_dp.h>
+ #include <linux/usb/typec_mux.h>
++#include <drm/bridge/aux-bridge.h>
+ 
+ #define CMN_SSM_BANDGAP			(0x21 << 2)
+ #define CMN_SSM_BIAS			(0x22 << 2)
+@@ -415,6 +417,7 @@ struct rockchip_usb3phy_port_cfg {
+ 
+ struct rockchip_typec_phy {
+ 	struct device *dev;
++	struct auxiliary_device dp_port_dev;
+ 	void __iomem *base;
+ 	struct extcon_dev *extcon;
+ 	struct typec_mux_dev *mux;
+@@ -1299,6 +1302,51 @@ static void tcphy_typec_mux_unregister(void *data)
+ 	typec_mux_unregister(tcphy->mux);
+ }
+ 
++static void tcphy_dp_port_dev_release(struct device *dev)
++{
++	struct auxiliary_device *adev = to_auxiliary_dev(dev);
++
++	of_node_put(adev->dev.of_node);
++}
++
++static void tcphy_dp_port_unregister_adev(void *_adev)
++{
++	struct auxiliary_device *adev = _adev;
++
++	auxiliary_device_delete(adev);
++	auxiliary_device_uninit(adev);
++}
++
++static int tcphy_aux_bridge_register(struct rockchip_typec_phy *tcphy, struct device_node *np)
++{
++	struct auxiliary_device *adev = &tcphy->dp_port_dev;
++	int ret;
++
++	adev->name = "dp_port";
++	adev->dev.parent = tcphy->dev;
++	adev->dev.of_node = of_node_get(np);
++	adev->dev.release = tcphy_dp_port_dev_release;
++
++	ret = auxiliary_device_init(adev);
++
++	if (ret) {
++		of_node_put(adev->dev.of_node);
++		return ret;
++	}
++
++	ret = auxiliary_device_add(adev);
++	if (ret) {
++		auxiliary_device_uninit(adev);
++		return ret;
++	}
++
++	devm_add_action_or_reset(tcphy->dev, tcphy_dp_port_unregister_adev, adev);
++
++	ret = drm_aux_bridge_register(&adev->dev);
++
++	return 0;
++}
++
+ static int tcphy_setup_typec_mux(struct rockchip_typec_phy *tcphy)
+ {
+ 	struct typec_mux_desc mux_desc = {};
+@@ -1312,6 +1360,10 @@ static int tcphy_setup_typec_mux(struct rockchip_typec_phy *tcphy)
+ 	if (!of_property_read_bool(np, "mode-switch"))
+ 		goto put_np;
+ 
++	ret = tcphy_aux_bridge_register(tcphy, np);
++	if (ret)
++		goto put_np;
++
+ 	mux_desc.drvdata = tcphy;
+ 	mux_desc.fwnode = device_get_named_child_node(tcphy->dev, "dp-port");
+ 	mux_desc.set = tcphy_typec_mux_set;
 -- 
-Regards,
-Liu Ying
+2.49.0
+
 
