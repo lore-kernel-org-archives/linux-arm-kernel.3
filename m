@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9E95CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 15:28:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42AFFCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 15:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zf4jeYc3U4bONNuXU0BsbSC15btun+iYy7Ddwdfj74U=; b=njpw9jdCaVSj3lRz8rxkjXSA6x
-	iInzrKXM9MRO3GBjp4DL0EOYY5FY02JvV4vJ0QdkV0v5ac+JWwRX35Wx/9cUYHL7FaI+p2HwdqcUA
-	gQkYqweXDU0I3uVZmdua0j4LpVo/oPVgTqUF1mi2HO0CGnRrF0JD9rmAS9HcDJiVFaWUMSEmnX32G
-	shFd23m9TU0kWfTTqX0iXEs3mNYcxKvuQPXWsbEDUNIFtjDaq+unMGV6cN7yuULyXXjBgab/KaWDO
-	/O9IbJPxA/Z4KnHNadzNv66eTsuwYI8CrvkU7hESuRscQLXyh81ci2hiDjBcrj9NdL0h9vQi7xcAw
-	Op9K36/A==;
+	bh=kY4C/mNlv0GaIKHFI5ucYN9fdxMFUFjShfB09nDueZI=; b=tV4Iu/IhJB23ymwFm/TD7z7pCe
+	to0Nj7AqnNaAkflgFbXtt0p6MdkFBomJmYZ0M07TMZlyzKXwBUSd8oh8QOZ+6Bc9+5LQfJcPfixUF
+	FNC73eILM1TKobvhvNzgJLHQajZOyzVwArE+GhNylxDaiQhxZ4cALUs+S96T2n6bJuuSND/9gYTL8
+	5GHdgjloRe1On958Gsif+aDHoFJCgOPjMo9fe/fawnVP84VmNgMCNEoABD6dhIFKCLf4JFiNEmH+M
+	bS5HV8DKD2J80DjFF3a2bbPY/EvOPMz3SPMrEnXoH8eZQb9+tYfgyxlyM3e8LECPFTenGLliyJcyb
+	vg6gSrGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9PtY-00000005Bi1-2OXu;
-	Thu, 16 Oct 2025 15:28:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v9Pu4-00000005Bsv-1gzy;
+	Thu, 16 Oct 2025 15:28:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9PtW-00000005BhC-0tsJ;
-	Thu, 16 Oct 2025 15:27:59 +0000
+	id 1v9Pu3-00000005Bro-0OCK;
+	Thu, 16 Oct 2025 15:28:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6DAFC416AE;
-	Thu, 16 Oct 2025 15:27:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8377EC4CEF1;
-	Thu, 16 Oct 2025 15:27:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7F09C60434;
+	Thu, 16 Oct 2025 15:28:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57A8CC4CEF1;
+	Thu, 16 Oct 2025 15:28:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760628477;
-	bh=OkslPl/BfgU+xJGaHNwPTb7HL57jgw9At+2ouWVRKQM=;
+	s=k20201202; t=1760628510;
+	bh=vFeX8GTTbE6dDYs0n6rTwcQeVXZ0OwNNC4fiFan0Fx8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z/6ZxPhY+IJgaqAqHS4IHGqJR8EHzqAgmlKKH3OmylShBjDYAJC4YOdSX1W7nPSer
-	 /YpcYNlThilc8xv3hD/XhYJE3PvzUVLFCqpNa61XTEESU38234B4gpuxx1Gn3RJqtB
-	 md44x2aLYUv0QTarqnJ+62MALgYpoUwrJj8KopDSfUAbohnEMW0RSNeYCQAW+iITS3
-	 1NPp00+ffS7+z0VfCASHpzLz9wX5iuT28sKloVVoE+/mKtio5HLphfvVj6Vrim2OzA
-	 t2msJry2Zyz8pu3cdiPw5Wg2jOBDOdBhzxsXXid8xF7qMcI5ev3MADZ6h59X7Izx6B
-	 6m2XKt2uVkSxA==
-Date: Thu, 16 Oct 2025 16:27:49 +0100
+	b=MeVKqESo2MhsXZIcjMHwwMffLOQWAkNNh6YaUV/EbfrOh5M0ehVcze+4kRu4KLTS4
+	 H9nGr90f5odFULfRsetgro7TrYQ2v5fi7HTaVpUCadugAQN7JetX7NAksTrBqeCxu0
+	 d5yFyI/nKpmtcb44KLM/xyDhT22SRgNt1eKk5NJ3hpE52ldX9Yw2zoLVPp1xhr4s4l
+	 SK9AvGtt4AI1SDE2fySpmz0Yjv4RlP+RiYv47m9H8GEnrkj9yG3TMDXTLB/coai2ZH
+	 pF3xorZ5pOCVdLYmkDKCfAqdz+pFq8eAYVP71vIlGDnfB7AGUGPQ3QNIjyPtLzengl
+	 jKKRYiZT676Ig==
+Date: Thu, 16 Oct 2025 16:28:21 +0100
 From: Conor Dooley <conor@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Sjoerd Simons <sjoerd@collabora.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Sjoerd Simons <sjoerd@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Ryder Lee <ryder.lee@mediatek.com>,
 	Jianjun Wang <jianjun.wang@mediatek.com>,
 	Bjorn Helgaas <bhelgaas@google.com>,
@@ -68,20 +68,16 @@ Cc: Sjoerd Simons <sjoerd@collabora.com>, Rob Herring <robh@kernel.org>,
 	linux-phy@lists.infradead.org, netdev@vger.kernel.org,
 	Daniel Golle <daniel@makrotopia.org>,
 	Bryan Hinton <bryan@bryanhinton.com>
-Subject: Re: [PATCH 09/15] dt-bindings: net: mediatek,net: Correct bindings
- for MT7981
-Message-ID: <20251016-squealer-neurology-5bf32360e5bf@spud>
+Subject: Re: [PATCH 06/15] dt-bindings: phy: mediatek,tphy: Add support for
+ MT7981
+Message-ID: <20251016-constant-drinking-a7847adeabac@spud>
 References: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
- <20251016-openwrt-one-network-v1-9-de259719b6f2@collabora.com>
- <a3d6b229-8f33-4e88-8a55-6c5640f688e1@collabora.com>
+ <20251016-openwrt-one-network-v1-6-de259719b6f2@collabora.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="KThuiYHY98QAsVsP"
+	protocol="application/pgp-signature"; boundary="nXHt0JSoCeXXUnko"
 Content-Disposition: inline
-In-Reply-To: <a3d6b229-8f33-4e88-8a55-6c5640f688e1@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_082758_319025_EEF7E5AA 
-X-CRM114-Status: GOOD (  19.42  )
+In-Reply-To: <20251016-openwrt-one-network-v1-6-de259719b6f2@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,110 +93,51 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---KThuiYHY98QAsVsP
+--nXHt0JSoCeXXUnko
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Oct 16, 2025 at 01:29:01PM +0200, AngeloGioacchino Del Regno wrote:
-> Il 16/10/25 12:08, Sjoerd Simons ha scritto:
-> > Different SoCs have different numbers of Wireless Ethernet
-> > Dispatch (WED) units:
-> > - MT7981: Has 1 WED unit
-> > - MT7986: Has 2 WED units
-> > - MT7988: Has 2 WED units
-> >=20
-> > Update the binding to reflect these hardware differences. The MT7981
-> > also uses infracfg for PHY switching, so allow that property.
-> >=20
-> > Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
-> > ---
-> >   Documentation/devicetree/bindings/net/mediatek,net.yaml | 16 ++++++++=
-+++++---
-> >   1 file changed, 13 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/net/mediatek,net.yaml b/=
-Documentation/devicetree/bindings/net/mediatek,net.yaml
-> > index b45f67f92e80d..453e6bb34094a 100644
-> > --- a/Documentation/devicetree/bindings/net/mediatek,net.yaml
-> > +++ b/Documentation/devicetree/bindings/net/mediatek,net.yaml
-> > @@ -112,7 +112,7 @@ properties:
-> >     mediatek,wed:
-> >       $ref: /schemas/types.yaml#/definitions/phandle-array
-> > -    minItems: 2
-> > +    minItems: 1
+On Thu, Oct 16, 2025 at 12:08:42PM +0200, Sjoerd Simons wrote:
+> Add a compatible string for Filogic 820, this chip integrates a MediaTek
+> generic T-PHY version 2
 >=20
-> If minItems is 1 here
->=20
-> >       maxItems: 2
-> >       items:
-> >         maxItems: 1
-> > @@ -338,12 +338,14 @@ allOf:
-> >               - const: netsys0
-> >               - const: netsys1
-> > -        mediatek,infracfg: false
-> > -
-> >           mediatek,sgmiisys:
-> >             minItems: 2
-> >             maxItems: 2
-> > +        mediatek,wed:
-> > +          minItems: 1
->=20
-> You just need maxItems here.
->=20
-> > +          maxItems: 1
-> > +
-> >     - if:
-> >         properties:
-> >           compatible:
-> > @@ -385,6 +387,10 @@ allOf:
-> >             minItems: 2
-> >             maxItems: 2
-> > +        mediatek,wed:
-> > +          minItems: 2
-> > +          maxItems: 2
-> > +
-> >     - if:
-> >         properties:
-> >           compatible:
-> > @@ -429,6 +435,10 @@ allOf:
-> >               - const: xgp2
-> >               - const: xgp3
-> > +        mediatek,wed:
-> > +          minItems: 2
-> > +          maxItems: 2
->=20
-> Analogously, you should be needing just minItems here if I'm not wrong.
+> Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
 
-Yeah, you don't need to duplicate constraints that are copies of the
-outermost one set in the definition. I dunno how it is actually done by
-the schema tools, but I like to think of it that every constraint that's
-possible is applied at the same time.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-pw-bot: changes-requested
-
+> ---
+>  Documentation/devicetree/bindings/phy/mediatek,tphy.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 >=20
-> Cheers,
-> Angelo
+> diff --git a/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml b/D=
+ocumentation/devicetree/bindings/phy/mediatek,tphy.yaml
+> index b2218c1519391..ff5c77ef11765 100644
+> --- a/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml
+> @@ -80,6 +80,7 @@ properties:
+>                - mediatek,mt2712-tphy
+>                - mediatek,mt6893-tphy
+>                - mediatek,mt7629-tphy
+> +              - mediatek,mt7981-tphy
+>                - mediatek,mt7986-tphy
+>                - mediatek,mt8183-tphy
+>                - mediatek,mt8186-tphy
 >=20
-> > +
-> >   patternProperties:
-> >     "^mac@[0-2]$":
-> >       type: object
-> >=20
->=20
+> --=20
+> 2.51.0
 >=20
 
---KThuiYHY98QAsVsP
+--nXHt0JSoCeXXUnko
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPEO9QAKCRB4tDGHoIJi
-0hB8AP0WbwLBXfaFxwsMo5BvlMRztESdk8TuK8HVUS2Q6TWmTgD/WTWk4/gsETsu
-K0xG+ZNiHz8uOyLf4AObjEBnftGY1gA=
-=Hk7g
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPEPFQAKCRB4tDGHoIJi
+0jX+AP0TA17pIR1hJMPQpqSEQHh7sVBT5R0NG998cvCpK5isZQD+LG7nfGpgLlzy
+T0IpdRMx9PsdaHA7MSf4y/3FKHkXvA8=
+=WiNI
 -----END PGP SIGNATURE-----
 
---KThuiYHY98QAsVsP--
+--nXHt0JSoCeXXUnko--
 
