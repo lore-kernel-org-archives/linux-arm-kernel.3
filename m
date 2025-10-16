@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB09CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 06:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC3ECCD194
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 06:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RGrvd1GH1C7PHw6TDNzEooPYqFv8ivHiKoSwGBYQth4=; b=KTLX0192/ziESYpCgGPPpUZyg2
-	c8ODM7qon75c9SQxoaYTyb0CGoZMSmrMKAGImH+6Dx7n3X1r5vmSKUHaIA/ocLnxD9JNbK+/cKPak
-	CHZ2zkmMXKfaW9TsdWl9vszT4ucCTXjg3SIFdRMRUDDJolKQVHv2oOSBnDflqatEOn4FAuUcSKaD2
-	gq6NsvM92uMuOba3UpMy4yKiV/zUIhQF76BBkkyUrUL8hi7VGZ1ScJUnvyCfFhMCDkm8rJ6V+oOm9
-	JX4ux/aFzFM11hJPwjIOHb7hffCeeW5VO0zX+icuhJy+CAByQWTf58OZaxIYfvZ8O4bxy7YPstHvG
-	UuY2a1sA==;
+	bh=KUKZVBc+yagrhGDUAe1/TDDDlhJENYT2LJtDHhtfBq4=; b=kdORtbPtYwCeTUCtuiy/TpNYxE
+	J2CjXe93uYtM2uK3K342Gs/1DoV1dGJR0ekREosyF7yfPWC03a4362zDpR4I+Bac5JhEQ/ec85TmE
+	W+Xv/YW2c/HYglElujPApQgna4YEMgcHkuDALKTwn8zcVFj8kLyyvozy7ewB0XjEfnPm7n9EApTki
+	rQ5VEqCcmB3UXlskC1dV6dcWoo4/Jqnd1SmMtXCepBwD1X3I/NLn3TNN62UXQ9x52r88F8sQMdvpA
+	8d7DEUchQFzVuAozRgpjyPGW1aT08z/U6kPoewdXd2FHaLG3OnJde2G7eAiW4WylH9ykdxXzteKde
+	ZM/naHXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9HdD-00000003fRf-0v99;
-	Thu, 16 Oct 2025 06:38:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v9HeS-00000003fif-2U8h;
+	Thu, 16 Oct 2025 06:39:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Hd8-00000003fP6-3vbF
+	id 1v9HeR-00000003fiH-3BQO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 06:38:32 +0000
+	Thu, 16 Oct 2025 06:39:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 64A32441EE;
-	Thu, 16 Oct 2025 06:38:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6F41C4CEF1;
-	Thu, 16 Oct 2025 06:38:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2D12560374;
+	Thu, 16 Oct 2025 06:39:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3673DC4CEF1;
+	Thu, 16 Oct 2025 06:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760596710;
-	bh=d4dwdfMkD6QgbfdJBxvnNY2nMJrmSg/B16f+uSrBE+c=;
+	s=k20201202; t=1760596790;
+	bh=qjD4cNX8IC2EA7rEjGiIZKrjj+Tbdm4iYKK470rzebs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XMMtEOsZvhXxZcbi+GQKU6+8uyv/vdcv1N7xOmzSBE1AMXpio8pYcx7JwNfL5x6zg
-	 x5pl7juoz30oU/MHKDKGbpJkeByfGm3zacKYcsuluqRrZ3uVO4egDoPYnAgDAu5KKG
-	 WtnzMU1Uqz/piYzKqrIoyA25h2voYwevh0qnpsuHY5YL0H681f73LZyOJU5P+lSG4T
-	 4Uv4U1GsHCKgzK1GtdO83He8fSULxKLhNYDz6ZkN9PegpS8CTGKlYriVasoIc8hN6/
-	 dirWBtMgH+cvzzX9QrbfY0jrGWLUPwW4PQRhls3OPVRI9JimkReZPQ0IDKi8AMdHka
-	 5iP2W0PF6Qywg==
-Message-ID: <97184b19-156c-4c42-ac8a-dc9800ea64af@kernel.org>
-Date: Thu, 16 Oct 2025 08:38:25 +0200
+	b=sEtwsKIbQxNx9uxEWRSNS1A1HpwO/e9Sf+KAGUJ2nnzfN55/pEQNI3s7Oh+iarzpM
+	 toiS9l0IVlzQGbheiIsFVuXu0kh+0GYYJixFN/8MUKfMMTOzH9zcoW0e23dsvsHDXG
+	 ClJF6x9EUaSINcHIwUy7Uk1tLPAgubYhQOdBMoTKUOoYNP0yDUjXwZkzO3kpfAHGYF
+	 lQpaIiy7NuzPrXIRqQnij/a5YOxSC/zeRK5S8+xnA95lCGWZvDO2PdWxGXr9SeCWeg
+	 SimkMkx4CtYvh0NojWiuSuvimqh+i4ZLyDC+TPh6xJnevj9aSK6MVJ4NFGAvjqOCz0
+	 RqX5tipIkE18w==
+Message-ID: <39c07233-e153-4453-ae27-7d6498c9a4f7@kernel.org>
+Date: Thu, 16 Oct 2025 08:39:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 1/7] dt-bindings: media: platform: visconti: Add
- Toshiba Visconti MIPI CSI-2 Receiver
+Subject: Re: [PATCH v13 2/7] dt-bindings: media: platform: visconti: Add
+ Toshiba Visconti Video Input Interface
 To: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>,
  Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
  Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -56,7 +56,7 @@ To: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>,
 Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20251016-visconti-viif-v13-0-ceca656b9194@toshiba.co.jp>
- <20251016-visconti-viif-v13-1-ceca656b9194@toshiba.co.jp>
+ <20251016-visconti-viif-v13-2-ceca656b9194@toshiba.co.jp>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,13 +102,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251016-visconti-viif-v13-1-ceca656b9194@toshiba.co.jp>
+In-Reply-To: <20251016-visconti-viif-v13-2-ceca656b9194@toshiba.co.jp>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251015_233831_029427_95759292 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,37 +121,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On 16/10/2025 04:24, Yuji Ishikawa wrote:
 > Adds the Device Tree binding documentation that allows to describe
-
-"Add".
-
-https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
-
-
-> the MIPI CSI-2 Receiver found in Toshiba Visconti SoCs.
-
-
-...
-
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/toshiba,tmpv770x.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        csi0: csi@1c008000 {
-
-I don't understand why the label appeared. It is not used and it wasn't
-here before. I did not ask to add label, but I only asked to fix the
-node name to match generic names rule.
-
-Drop the label. With these fixes:
+> the Video Input Interface found in Toshiba Visconti SoCs.
+> 
+> Signed-off-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
 
 Best regards,
 Krzysztof
