@@ -4,57 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBEECCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 14:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B3BCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 14:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/r+4hLDzK7rpxQcrliXHmM/g44rz7VYSfVa75d/9g5c=; b=g+RdiZ9gkbz3C4Vj35zlzLS9w6
-	RLS1l0cN6/WfL4E8zfIO5VCxrXSmZzVaUJ99vZkCLRIXEt19ZVgpfdXtCalc3IjKDdzt7sUujlNoX
-	pcb6BsbA7Uiw6YXR1g5dFNzvW+LPxQMm2C4W5gADRDLJJufsF1ZCuGOS5SnKwZPr/dPf2LVeRRZaB
-	MCHEAmeGwY1NqzP0wlVH82NlnRyw7uvxv2nOHcMGpOCT8sqJHLP6wIepfTFiNCFK4aKv4rZ1LpCAz
-	SCVyacwknkQjzqrkWQtHQK7Bnvo3tXuuq00oUlx6GuPbzhKgAnHLi1ONPe7qxMVzYU/1LqpTRVjCv
-	vO8fHheg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=064EnW6wRsuwC06D16WrR/6NcuvmzEHImkz3kDIRc2g=; b=ymT5ALEThF7eq6ynKABo7PRk7z
+	I3HboQgOGWdx3lixbLviaTstv8UpRC7/brB+hldgchwvOq6LZAXjUqNiI6BkheloVlzel9PMX4r/h
+	4gRfvtNnqY4Zc2uEYQ0pFMw8pi2w76IhoOxwNLqztyejS2jtRHiFZmSrtbW70/OEUhbEz+RcSFQ/r
+	VgRcvLdsVQf1pY0vwq0sVst2uX3qsyDwxM7NKWNy4GWWnyvL8JNftSLYDh1UIXBv5ln9uxwc2yZOq
+	0HlqX9BKJOdgD/eH9FqnRpFpyFvlWYqRp4yrGK0FtIIo5q8pIdHm8JatD9TYfvrjV5WETNKiaDM7j
+	YacVdZ0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9OXk-00000004x8p-1Xpt;
-	Thu, 16 Oct 2025 14:01:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9OXh-00000004x7h-2Bao
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 14:01:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 954AF1688;
-	Thu, 16 Oct 2025 07:01:10 -0700 (PDT)
-Received: from [10.57.2.131] (unknown [10.57.2.131])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 61C663F738;
-	Thu, 16 Oct 2025 07:01:16 -0700 (PDT)
-Message-ID: <808b30b8-a85a-4fe3-be49-bf11414cef93@arm.com>
-Date: Thu, 16 Oct 2025 15:01:14 +0100
+	id 1v9OsT-00000004ySx-090o;
+	Thu, 16 Oct 2025 14:22:49 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9OsO-00000004yQs-1mEH;
+	Thu, 16 Oct 2025 14:22:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1760624560;
+	bh=apsk0n9LP0pfN4KmEcA5GNt1BPZ+Gwl5lIX8tFwQFk4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=jWcXD+TgI0b8prmzmR5o52mLGflkFQYM21kVd4cN0VDoyoBi+/06ImudEtMBoyFcB
+	 63UU5/xCd1WICMu6cMEQ3609NGPBELAvGnMj2y3GlBLWDA7D2EpKhBdcTiDPUACqc6
+	 /KThBqkEDxJFS86Thr7fngznymJANAD1NSZSj/C12yFLieLIVL57bbX7XWcMpSiFk3
+	 edV/+rXxIq35ijrNpwCW206/UaWmrW8BHCs/KWaJPm9MgB0XqNV01auyTjuS4/80Kh
+	 kPa5FC/afI7DsG+i4gFfeqrkgE4ePTbb0h1HEO4GAccJ7SSaAzwZqs2fmDn6Dvpjtz
+	 eM1q52t/vcyHA==
+Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:655a:5eaa:d2ad:4ee4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laura.nao)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3490817E0125;
+	Thu, 16 Oct 2025 16:22:39 +0200 (CEST)
+From: Laura Nao <laura.nao@collabora.com>
+To: srini@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	rafael@kernel.org,
+	daniel.lezcano@linaro.org,
+	rui.zhang@intel.com,
+	lukasz.luba@arm.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: nfraprado@collabora.com,
+	arnd@arndb.de,
+	colin.i.king@gmail.com,
+	u.kleine-koenig@baylibre.com,
+	andrew-ct.chen@mediatek.com,
+	lala.lin@mediatek.com,
+	bchihi@baylibre.com,
+	frank-w@public-files.de,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	kernel@collabora.com,
+	Laura Nao <laura.nao@collabora.com>
+Subject: [PATCH RESEND v3 0/9] Add thermal sensor driver support for Mediatek MT8196
+Date: Thu, 16 Oct 2025 16:21:49 +0200
+Message-Id: <20251016142158.740242-1-laura.nao@collabora.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] KVM: arm64: Add pre_fault_memory implementation
-Content-Language: en-GB
-To: Jack Thomson <jackabt.amazon@gmail.com>, maz@kernel.org,
- oliver.upton@linux.dev, pbonzini@redhat.com
-Cc: joey.gouly@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
- will@kernel.org, shuah@kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, isaku.yamahata@intel.com,
- roypat@amazon.co.uk, kalyazin@amazon.co.uk, jackabt@amazon.com
-References: <20251013151502.6679-1-jackabt.amazon@gmail.com>
- <20251013151502.6679-2-jackabt.amazon@gmail.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251013151502.6679-2-jackabt.amazon@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_070121_674596_4AF82AA3 
-X-CRM114-Status: GOOD (  31.74  )
+X-CRM114-CacheID: sfid-20251016_072244_753166_A7952177 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,192 +92,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+This patch series extends the MediaTek LVTS thermal driver to support the
+MT8196 SoC.
 
-On 13/10/2025 16:14, Jack Thomson wrote:
-> From: Jack Thomson <jackabt@amazon.com>
-> 
-> Add kvm_arch_vcpu_pre_fault_memory() for arm64. The implementation hands
-> off the stage-2 faulting logic to either gmem_abort() or
-> user_mem_abort().
-> 
-> Add an optional page_size output parameter to user_mem_abort() to
-> return the VMA page size, which is needed when pre-faulting.
-> 
-> Update the documentation to clarify x86 specific behaviour.
+MT8196 requires a different implementation of the lvts_temp_to_raw()
+function.
 
-Thanks for the patch ! Do we care about faulting beyond the requested 
-range ? I understand this doesn't happen for anything that is not
-backed by gmem (which might change with hugetlbfs support) or normal
-VMs. But for coco VMs this might affect the measurement or even cause
-failure in "pre-faulting" because of the extra security checks.
-(e.g., trying to fault in twice, because the range is backed by say,
-1G page).
+To support this, the series introduces:
 
-Of course these could be addressed via a separate patch, when this
-becomes a real requirement.
+- A new struct lvts_platform_ops to allow platform-specific
+  conversion logic between raw sensor values and temperature
+- A variant of the lvts_temp_to_raw() implementation
+- Platform data and controller definitions for MT8196
 
-One way to solve this could be pass on the "pagesize" as the input
-parameter which could force the backend to limit the vma_pagesize
-that gets used for the stage2 mapping.
+Link to v2: https://lore.kernel.org/all/20250730152128.311109-1-laura.nao@collabora.com/
 
-> 
-> Signed-off-by: Jack Thomson <jackabt@amazon.com>
-> ---
->   Documentation/virt/kvm/api.rst |  3 +-
->   arch/arm64/kvm/Kconfig         |  1 +
->   arch/arm64/kvm/arm.c           |  1 +
->   arch/arm64/kvm/mmu.c           | 73 ++++++++++++++++++++++++++++++++--
->   4 files changed, 73 insertions(+), 5 deletions(-)
-> 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index c17a87a0a5ac..9e8cc4eb505d 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -6461,7 +6461,8 @@ Errors:
->   KVM_PRE_FAULT_MEMORY populates KVM's stage-2 page tables used to map memory
->   for the current vCPU state.  KVM maps memory as if the vCPU generated a
->   stage-2 read page fault, e.g. faults in memory as needed, but doesn't break
-> -CoW.  However, KVM does not mark any newly created stage-2 PTE as Accessed.
-> +CoW.  However, on x86, KVM does not mark any newly created stage-2 PTE as
-> +Accessed.
->   
->   In the case of confidential VM types where there is an initial set up of
->   private guest memory before the guest is 'finalized'/measured, this ioctl
-> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> index bff62e75d681..1ac0605f86cb 100644
-> --- a/arch/arm64/kvm/Kconfig
-> +++ b/arch/arm64/kvm/Kconfig
-> @@ -25,6 +25,7 @@ menuconfig KVM
->   	select HAVE_KVM_CPU_RELAX_INTERCEPT
->   	select KVM_MMIO
->   	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
-> +	select KVM_GENERIC_PRE_FAULT_MEMORY
->   	select KVM_XFER_TO_GUEST_WORK
->   	select KVM_VFIO
->   	select HAVE_KVM_DIRTY_RING_ACQ_REL
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 888f7c7abf54..65654a742864 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -322,6 +322,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   	case KVM_CAP_IRQFD_RESAMPLE:
->   	case KVM_CAP_COUNTER_OFFSET:
->   	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
-> +	case KVM_CAP_PRE_FAULT_MEMORY:
->   		r = 1;
->   		break;
->   	case KVM_CAP_SET_GUEST_DEBUG2:
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index a36426ccd9b5..82f122e4b08c 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1597,8 +1597,8 @@ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   
->   static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   			  struct kvm_s2_trans *nested,
-> -			  struct kvm_memory_slot *memslot, unsigned long hva,
-> -			  bool fault_is_perm)
-> +			  struct kvm_memory_slot *memslot, long *page_size,
-> +			  unsigned long hva, bool fault_is_perm)
->   {
->   	int ret = 0;
->   	bool topup_memcache;
-> @@ -1871,6 +1871,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   	kvm_release_faultin_page(kvm, page, !!ret, writable);
->   	kvm_fault_unlock(kvm);
->   
-> +	if (page_size)
-> +		*page_size = vma_pagesize;
-> +
->   	/* Mark the page dirty only if the fault is handled successfully */
->   	if (writable && !ret)
->   		mark_page_dirty_in_slot(kvm, memslot, gfn);
-> @@ -2069,8 +2072,8 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->   		ret = gmem_abort(vcpu, fault_ipa, nested, memslot,
->   				 esr_fsc_is_permission_fault(esr));
->   	else
-> -		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, hva,
-> -				     esr_fsc_is_permission_fault(esr));
-> +		ret = user_mem_abort(vcpu, fault_ipa, nested, memslot, NULL,
-> +				     hva, esr_fsc_is_permission_fault(esr));
->   	if (ret == 0)
->   		ret = 1;
->   out:
-> @@ -2446,3 +2449,65 @@ void kvm_toggle_cache(struct kvm_vcpu *vcpu, bool was_enabled)
->   
->   	trace_kvm_toggle_cache(*vcpu_pc(vcpu), was_enabled, now_enabled);
->   }
-> +
-> +long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-> +				    struct kvm_pre_fault_memory *range)
-> +{
-> +	int ret, idx;
-> +	hva_t hva;
-> +	phys_addr_t end;
-> +	struct kvm_memory_slot *memslot;
-> +	struct kvm_vcpu_fault_info stored_fault, *fault_info;
-> +
-> +	long page_size = PAGE_SIZE;
-> +	phys_addr_t ipa = range->gpa;
-> +	gfn_t gfn = gpa_to_gfn(range->gpa);
-> +
-> +	idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +
-> +	if (ipa >= kvm_phys_size(vcpu->arch.hw_mmu)) {
-> +		ret = -ENOENT;
-> +		goto out_unlock;
-> +	}
-> +
-> +	memslot = gfn_to_memslot(vcpu->kvm, gfn);
-> +	if (!memslot) {
-> +		ret = -ENOENT;
-> +		goto out_unlock;
-> +	}
-> +
-> +	fault_info = &vcpu->arch.fault;
-> +	stored_fault = *fault_info;
-> +
-> +	/* Generate a synthetic abort for the pre-fault address */
-> +	fault_info->esr_el2 = FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_DABT_CUR);
+Changes in v3:
+- Make ops in struct lvts_data a pointer to const struct lvts_platform_ops
+- Changed mediatek,mt8188-efuse const entry in eFuse binding to an enum
+with mediatek,mt8196-efuse and mediatek,mt8188-efuse, dropped mediatek,mt8196-efuse
+const entry
 
-minor nit: Any reason why we don't use ESR_ELx_EC_DABT_LOW ? We always
-get that for a data abort from the guest. Otherwise, this looks
-good to me.
+Laura Nao (9):
+  dt-bindings: thermal: mediatek: Add LVTS thermal controller support
+    for MT8196
+  thermal/drivers/mediatek/lvts: Make number of calibration offsets
+    configurable
+  thermal/drivers/mediatek/lvts: Guard against zero temp_factor in
+    lvts_raw_to_temp
+  thermal: mediatek: lvts: Add platform ops to support alternative
+    conversion logic
+  thermal/drivers/mediatek/lvts: Add lvts_temp_to_raw variant
+  thermal/drivers/mediatek/lvts: Add support for ATP mode
+  thermal/drivers/mediatek/lvts: Support MSR offset for 16-bit
+    calibration data
+  thermal/drivers/mediatek/lvts_thermal: Add MT8196 support
+  dt-bindings: nvmem: mediatek: efuse: Add support for MT8196
 
-Suzuki
+ .../bindings/nvmem/mediatek,efuse.yaml        |   4 +-
+ .../thermal/mediatek,lvts-thermal.yaml        |   2 +
+ drivers/thermal/mediatek/lvts_thermal.c       | 305 ++++++++++++++++--
+ .../thermal/mediatek,lvts-thermal.h           |  26 ++
+ 4 files changed, 314 insertions(+), 23 deletions(-)
 
-
-> +	fault_info->esr_el2 &= ~ESR_ELx_ISV;
-> +	fault_info->esr_el2 |= ESR_ELx_FSC_FAULT_L(KVM_PGTABLE_LAST_LEVEL);
-> +
-> +	fault_info->hpfar_el2 = HPFAR_EL2_NS |
-> +		FIELD_PREP(HPFAR_EL2_FIPA, ipa >> 12);
-> +
-> +	if (kvm_slot_has_gmem(memslot)) {
-> +		ret = gmem_abort(vcpu, ipa, NULL, memslot, false);
-> +	} else {
-> +		hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
-> +		if (kvm_is_error_hva(hva)) {
-> +			ret = -EFAULT;
-> +			goto out;
-> +		}
-> +		ret = user_mem_abort(vcpu, ipa, NULL, memslot, &page_size, hva,
-> +				     false);
-> +	}
-> +
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	end = (range->gpa & ~(page_size - 1)) + page_size;
-> +	ret = min(range->size, end - range->gpa);
-> +
-> +out:
-> +	*fault_info = stored_fault;
-> +out_unlock:
-> +	srcu_read_unlock(&vcpu->kvm->srcu, idx);
-> +	return ret;
-> +}
-m
+-- 
+2.39.5
 
 
