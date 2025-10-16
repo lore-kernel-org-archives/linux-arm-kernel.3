@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FC8CCD194
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 12:16:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30DF4CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 16 Oct 2025 12:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RoXSHzCj4YzllEn0ikbMVGveVmreJ/pgkk4Ih3+wHXg=; b=xfoPF2eO7g6EIU9jzE9fdiehr+
-	S0bEWcUBphFT54Z4Cgv4WmDwohAW/iJGDGIoCWT64B/hlSxNhv45TitXxGYM7RYrrqJeJ9mUc8JfH
-	BhYhoCtIhbkgIdPgRY6RyKlDHBXejwxg+lC6ylWEsIjKFeOlT2dudt/rHeVIDZTsPrljXRlPEinR9
-	fVPWwxMG8mxNBpOVY8kh2zacyeLESXtKeC5NDw2jQup5MdOmnNrSea9g0unvKeMwrFMBJ8wtGAD0y
-	IT/FgDNPlqeAro6IoMfi+a3mYkBneGRfdIcTm+QVimMqxd7i5Dpawyhf+De+xXrK6oPvD1WoTKFdl
-	byB64IMQ==;
+	bh=cxF4Em4dXaaYuu8ttEyg/Hrq7g1rsZMJeJFp3mKDuWk=; b=381uf1s7GWHjLtpc15ZQQ00xsK
+	ibHXq5g56tv6H9svO2eP0b+j8FBi6lwW6EZaYVDBdbD1zl4LP4PJpadF1gsiIeNCFrn+e/pZo4Ljb
+	PC36N80ljYOSiCFhCVO0N5S+VatlAMDfCtTol4/gj1dxgFwY+IGH59eE03nuaPiNhDD/TssE/5r2a
+	D1xnK4rAleK/Ew9+1NNrW4XTYjzTQ0HshzWmsgtVHLWr9OatIx0+hLiC7IbAQRy3u3KZb5yN4c0fl
+	BvpvbEDBl0hMlEzETEvBX1LbeC4w3wecg9HVXuNb/Dw1VeY4iB4YUQI25mVDPx7YDnu004m2RZSzx
+	K2F3ko6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MuV-00000004itz-0FB3;
-	Thu, 16 Oct 2025 12:16:47 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1v9NE1-00000004lAq-1Bx4;
+	Thu, 16 Oct 2025 12:36:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9MuQ-00000004iqr-1a3G
+	id 1v9NDy-00000004lAU-44XZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 16 Oct 2025 12:16:43 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=RoXSHzCj4YzllEn0ikbMVGveVmreJ/pgkk4Ih3+wHXg=;
-	b=12ilpBKex3IF2LR1HkKpcHAmpRngXHOQ0Jt15KWNFwmO5p7kJDjPuPy4wHUx+eXuQB0QjG3oW
-	AmsZBdDdXTqSucaBcY+IEZVRoBCPRgE+pYZq3wehtU2UjkD/U2jvoceWRpKwGy1jzRxEwwBcmPc
-	x6rD9JJSHxOgAQ+L0tZDe1M=
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4cnRjw0QT4zpSth;
-	Thu, 16 Oct 2025 20:15:32 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 84D73140257;
-	Thu, 16 Oct 2025 20:16:28 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 16 Oct 2025 20:16:27 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <rmk+kernel@armlinux.org.uk>, <linux@armlinux.org.uk>, <rppt@kernel.org>,
-	<vbabka@suse.cz>, <pfalcato@suse.de>, <brauner@kernel.org>,
-	<lorenzo.stoakes@oracle.com>, <kuninori.morimoto.gx@renesas.com>,
-	<tony@atomide.com>, <arnd@arndb.de>, <bigeasy@linutronix.de>,
-	<akpm@linux-foundation.org>, <punitagrawal@gmail.com>, <rjw@rjwysocki.net>,
-	<marc.zyngier@arm.com>
-CC: <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <liaohua4@huawei.com>,
-	<lilinjie8@huawei.com>, <xieyuanbin1@huawei.com>
-Subject: [PATCH v2 RESEND 2/2] ARM: mm: Optimize page_fault to reduce the impact of spectre-v2 bugfix
-Date: Thu, 16 Oct 2025 20:16:22 +0800
-Message-ID: <20251016121622.8957-2-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20251016121622.8957-1-xieyuanbin1@huawei.com>
-References: <20251016121622.8957-1-xieyuanbin1@huawei.com>
+	Thu, 16 Oct 2025 12:36:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A348943394;
+	Thu, 16 Oct 2025 12:36:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D7D2C113D0;
+	Thu, 16 Oct 2025 12:36:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760618214;
+	bh=rWo5L43Wc3sm+4xT2/uBYLFVmx0bMIQ/PWAvIzOWufU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZwiTDTK0gLGZXQE1l0ADMryUJjR9GTZMa2eNNVrsEHwO61+qcOveY91BrUHlsy3jD
+	 bs+Os5OmP32KJuLwI3/cCeT3bu4jorr2kobS7TZnEeRdfqM6hyb5cBk4k0lq+OlpX+
+	 2vFK9Ss54Cs765ahcx19wfI7VfnAIKuuqZaZOE71YajqeI6PgkU1TdKDrj5ghfT/Vb
+	 PnBn4wvJAFlyVQP1MYmsY9zv+uFM73Y+OyQJ50fxehDvxSqRega70Utmw+S3sCYTkr
+	 WDZzLC+KSXxVsxxeLkEXIHi6VlHruA397fKOorRpSTFoEm3hLJJas9gj123k/GKor+
+	 5dvPxGnSOqlyA==
+Date: Thu, 16 Oct 2025 13:36:48 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lizhe <sensor1010@163.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	jonas@kwiboo.se, chaoyi.chen@rock-chips.com,
+	david.wu@rock-chips.com, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next] net: dwmac-rk: No need to check the return
+ value of phy_power_on()
+Message-ID: <aPDm4OMiM7Ug9rDf@horms.kernel.org>
+References: <20251015051446.2677-1-sensor1010@163.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251015051446.2677-1-sensor1010@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_051642_736272_134C715B 
-X-CRM114-Status: GOOD (  27.53  )
+X-CRM114-CacheID: sfid-20251016_053655_028435_247A70A0 
+X-CRM114-Status: GOOD (  24.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,246 +77,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Submitting this optimized performance commit is because of
-last spectre-v2 bugfix, which adds a branch to the hot code path
-and may cause performance degradation.
+On Tue, Oct 14, 2025 at 10:14:46PM -0700, Lizhe wrote:
+> 'phy_power_on' is a local scope one within the driver, since the
+> return value of the phy_power_on() function is always 0, checking
+> its return value is redundant.
+> 
+> the function name 'phy_power_on()' conflicts with the existing
+> phy_power_on() function in the PHY subsystem. a suitable alternative
+> name would be rk_phy_power_set(), particularly since when the
+> second argument is false, this function actually powers off the PHY
 
-It mainly does the following things:
-1. Extract the judgment of user_mode and reduce some redundant branch.
-For example, for user mode, interrupts must be enabled, and
-`(faulthandler_disabled() || !mm)` is impossible. I think some other
-branches can also be optimized, such as `(fsr & FSR_LNX_PF)` and
-`ttbr0_usermode_access_allowed()`, but I'm not sure. Among them,
-`ttbr0_usermode_access_allowed()` is after `perf_sw_event()`, I think
-these two are not dependent. If `ttbr0_usermode_access_allowed()` can be
-placed front, it can also be optimized into the kernel mode branch.
+This is two changes. I would lean towards splitting it into
+two patches (in a single patch-set).
 
-2. Add some like/unlikely.
+> 
+> Signed-off-by: Lizhe <sensor1010@163.com>
 
-3. `__do_user_fault` is cold code path, inlining may lead to negative
-optimization, so add noinline.
-I also want to do this for `__do_kernel_fault`, but it seems that
-`fixup_exception()` in `__do_kernel_fault` is not cold code, which may be
-triggered by `copy_from_user_nofault`.
+Also, in future, please wait 24h between posting revisions of a patchset.
+And note revisions in the subject, like this:
 
-Signed-off-by: Xie Yuanbin <xieyuanbin1@huawei.com>
----
- arch/arm/mm/fault.c | 54 +++++++++++++++++++++++----------------------
- 1 file changed, 28 insertions(+), 26 deletions(-)
+  Subject: [PATCH net-next v2] ...
 
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index e4dc7c2cfe75..09dde89a88ed 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -147,21 +147,21 @@ static void die_kernel_fault(const char *msg, struct mm_struct *mm,
-  * Oops.  The kernel tried to access some page that wasn't present.
-  */
- static void
- __do_kernel_fault(struct mm_struct *mm, unsigned long addr, unsigned int fsr,
- 		  struct pt_regs *regs)
- {
- 	const char *msg;
- 	/*
- 	 * Are we prepared to handle this kernel fault?
- 	 */
--	if (fixup_exception(regs))
-+	if (likely(fixup_exception(regs)))
- 		return;
- 
- 	/*
- 	 * No handler, we'll have to terminate things with extreme prejudice.
- 	 */
- 	if (addr < PAGE_SIZE) {
- 		msg = "NULL pointer dereference";
- 	} else {
- 		if (is_translation_fault(fsr) &&
- 		    kfence_handle_page_fault(addr, is_write_fault(fsr), regs))
-@@ -170,21 +170,21 @@ __do_kernel_fault(struct mm_struct *mm, unsigned long addr, unsigned int fsr,
- 		msg = "paging request";
- 	}
- 
- 	die_kernel_fault(msg, mm, addr, fsr, regs);
- }
- 
- /*
-  * Something tried to access memory that isn't in our memory map..
-  * User mode accesses just cause a SIGSEGV
-  */
--static void
-+static noinline void
- __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
- 		int code, struct pt_regs *regs)
- {
- 	struct task_struct *tsk = current;
- 
- 	if (addr > TASK_SIZE)
- 		harden_branch_predictor();
- 
- #ifdef CONFIG_DEBUG_USER
- 	if (((user_debug & UDBG_SEGV) && (sig == SIGSEGV)) ||
-@@ -265,135 +265,137 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
- 	struct mm_struct *mm = current->mm;
- 	struct vm_area_struct *vma;
- 	int sig, code;
- 	vm_fault_t fault;
- 	unsigned int flags = FAULT_FLAG_DEFAULT;
- 	vm_flags_t vm_flags = VM_ACCESS_FLAGS;
- 
- 	if (kprobe_page_fault(regs, fsr))
- 		return 0;
- 
--#ifdef CONFIG_HARDEN_BRANCH_PREDICTOR
--	if (unlikely(addr > TASK_SIZE) && user_mode(regs)) {
--		fault = 0;
--		code = SEGV_MAPERR;
--		goto bad_area;
--	}
--#endif
-+	if (user_mode(regs)) {
-+		if (IS_ENABLED(CONFIG_HARDEN_BRANCH_PREDICTOR) && unlikely(addr > TASK_SIZE)) {
-+			fault = 0;
-+			code = SEGV_MAPERR;
-+			goto bad_area;
-+		}
- 
--	/* Enable interrupts if they were enabled in the parent context. */
--	if (interrupts_enabled(regs))
-+		/* Enable interrupts if they were enabled in the parent context. */
- 		local_irq_enable();
- 
--	/*
--	 * If we're in an interrupt or have no user
--	 * context, we must not take the fault..
--	 */
--	if (faulthandler_disabled() || !mm)
--		goto no_context;
--
--	if (user_mode(regs))
- 		flags |= FAULT_FLAG_USER;
-+	} else {
-+		/* Enable interrupts if they were enabled in the parent context. */
-+		if (interrupts_enabled(regs))
-+			local_irq_enable();
-+
-+		/*
-+		 * If we're in an interrupt or have no user
-+		 * context, we must not take the fault..
-+		 */
-+		if (faulthandler_disabled() || unlikely(!mm))
-+			goto no_context;
-+	}
- 
- 	if (is_write_fault(fsr)) {
- 		flags |= FAULT_FLAG_WRITE;
- 		vm_flags = VM_WRITE;
- 	}
- 
- 	if (fsr & FSR_LNX_PF) {
- 		vm_flags = VM_EXEC;
- 
--		if (is_permission_fault(fsr) && !user_mode(regs))
-+		if (unlikely(is_permission_fault(fsr)) && !user_mode(regs))
- 			die_kernel_fault("execution of memory",
- 					 mm, addr, fsr, regs);
- 	}
- 
- 	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
- 
- 	/*
- 	 * Privileged access aborts with CONFIG_CPU_TTBR0_PAN enabled are
- 	 * routed via the translation fault mechanism. Check whether uaccess
- 	 * is disabled while in kernel mode.
- 	 */
--	if (!ttbr0_usermode_access_allowed(regs))
-+	if (unlikely(!ttbr0_usermode_access_allowed(regs)))
- 		goto no_context;
- 
- 	if (!(flags & FAULT_FLAG_USER))
- 		goto lock_mmap;
- 
- 	vma = lock_vma_under_rcu(mm, addr);
- 	if (!vma)
- 		goto lock_mmap;
- 
--	if (!(vma->vm_flags & vm_flags)) {
-+	if (unlikely(!(vma->vm_flags & vm_flags))) {
- 		vma_end_read(vma);
- 		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
- 		fault = 0;
- 		code = SEGV_ACCERR;
- 		goto bad_area;
- 	}
- 	fault = handle_mm_fault(vma, addr, flags | FAULT_FLAG_VMA_LOCK, regs);
- 	if (!(fault & (VM_FAULT_RETRY | VM_FAULT_COMPLETED)))
- 		vma_end_read(vma);
- 
- 	if (!(fault & VM_FAULT_RETRY)) {
- 		count_vm_vma_lock_event(VMA_LOCK_SUCCESS);
- 		goto done;
- 	}
- 	count_vm_vma_lock_event(VMA_LOCK_RETRY);
- 	if (fault & VM_FAULT_MAJOR)
- 		flags |= FAULT_FLAG_TRIED;
- 
- 	/* Quick path to respond to signals */
--	if (fault_signal_pending(fault, regs)) {
-+	if (unlikely(fault_signal_pending(fault, regs))) {
- 		if (!user_mode(regs))
- 			goto no_context;
- 		return 0;
- 	}
- lock_mmap:
- 
- retry:
- 	vma = lock_mm_and_find_vma(mm, addr, regs);
- 	if (unlikely(!vma)) {
- 		fault = 0;
- 		code = SEGV_MAPERR;
- 		goto bad_area;
- 	}
- 
- 	/*
- 	 * ok, we have a good vm_area for this memory access, check the
- 	 * permissions on the VMA allow for the fault which occurred.
- 	 */
--	if (!(vma->vm_flags & vm_flags)) {
-+	if (unlikely(!(vma->vm_flags & vm_flags))) {
- 		mmap_read_unlock(mm);
- 		fault = 0;
- 		code = SEGV_ACCERR;
- 		goto bad_area;
- 	}
- 
- 	fault = handle_mm_fault(vma, addr & PAGE_MASK, flags, regs);
- 
- 	/* If we need to retry but a fatal signal is pending, handle the
- 	 * signal first. We do not need to release the mmap_lock because
- 	 * it would already be released in __lock_page_or_retry in
- 	 * mm/filemap.c. */
--	if (fault_signal_pending(fault, regs)) {
-+	if (unlikely(fault_signal_pending(fault, regs))) {
- 		if (!user_mode(regs))
- 			goto no_context;
- 		return 0;
- 	}
- 
- 	/* The fault is fully completed (including releasing mmap lock) */
- 	if (fault & VM_FAULT_COMPLETED)
- 		return 0;
- 
--	if (!(fault & VM_FAULT_ERROR)) {
-+	if (likely(!(fault & VM_FAULT_ERROR))) {
- 		if (fault & VM_FAULT_RETRY) {
- 			flags |= FAULT_FLAG_TRIED;
- 			goto retry;
- 		}
- 	}
- 
- 	mmap_read_unlock(mm);
- done:
- 
- 	/* Handle the "normal" case first */
+https://docs.kernel.org/process/maintainer-netdev.html
+
+> ---
+>  .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 19 +++++--------------
+>  1 file changed, 5 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 51ea0caf16c1..ac3324430b2d 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> @@ -1461,23 +1461,18 @@ static int gmac_clk_enable(struct rk_priv_data *bsp_priv, bool enable)
+>  	return 0;
+>  }
+>  
+> -static int phy_power_on(struct rk_priv_data *bsp_priv, bool enable)
+> +static void rk_phy_power_set(struct rk_priv_data *bsp_priv, bool enable)
+>  {
+>  	struct regulator *ldo = bsp_priv->regulator;
+>  	struct device *dev = bsp_priv->dev;
+> -	int ret;
+>  
+>  	if (enable) {
+> -		ret = regulator_enable(ldo);
+> -		if (ret)
+> +		if (regulator_enable(ldo))
+>  			dev_err(dev, "fail to enable phy-supply\n");
+>  	} else {
+> -		ret = regulator_disable(ldo);
+> -		if (ret)
+> +		if (regulator_disable(ldo))
+>  			dev_err(dev, "fail to disable phy-supply\n");
+
+The 'ret' changes above don't relate to the patch description.
+I'd leave this be. But if you really want to go this way
+I think it would be a separate patch.
+
+>  	}
+> -
+> -	return 0;
+>  }
+>  
+>  static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
+
 -- 
-2.48.1
-
+pw-bot: changes-requested
 
