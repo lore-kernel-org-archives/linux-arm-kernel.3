@@ -4,87 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CC2CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 17:17:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66A50CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 17:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HKk5Ct4m48J0p+XgzVl+8NgR1M6RBJH5RT3BafxFVdU=; b=Huzs3VbgTXZIq/55BoMo0nkIvE
-	5r8gKvWZm7KXDOZQ3jpOTRtBUR3uyFIGV4qGNKETo6PVZoQXzaN/SY6pAfI1aH0glv0/ZU47RQcUd
-	sRAqxDxj/zU6+rhZLIyUYmOBhyx2G+7JaC8jchF+Fs+efJloyZlHLWdF5vB3g4qyqIkgNk21e5B9y
-	S2dPbBO+iZqpGDc+T4zcy/wowBc8itbwTHvxIOA1C5oGh2BZo5gHCjrn4BaHUwIuxfKW9AUmreXk0
-	JjCJrnTdnCV/9qZD8SWX7W9OXCxK5Tqjb+azVEkFM0OxbVTs2voT3dXdYobCFvoMq3ohHZRinTgzt
-	c+pGOsxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hDi+5M2k5Ml1K9ClJ80BwZv3vRmscPjpCQVBDoPQMTA=; b=c+FCOl+FNN+V6EtcUJC27X69um
+	7TQ9ompFp07/WRNVCvtrtmmWNrwexMvViYsFIyJ2k9NJ6bMMjSxOxI2ILGVzMSlWE6bu4Ka6TyXhn
+	wtZbwLjrRT8FmADaCjWJcJEzSY3EisCeKsIwx482DZHfonnJyX62iQzIkM26Sfg/oX00OTui5VTwD
+	6tcR3BIqSGyuca0QGXvE0LjHxYn7O0YfDBVzcVzuwRNrLTc5LO2Nw6NMA8wo1PmQRn2eHjlp2po2Q
+	hZCAAqZEfhhH6+Sz6q/Jw8yJsJfaPq/GezvgAOoEiakdjOJzoDVUWlToy9vzUZcTNd4i0NhK6IeP0
+	tUaNHFpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9o4k-00000008a5C-0okC;
-	Fri, 17 Oct 2025 17:17:10 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1v9oEN-00000008asG-174M;
+	Fri, 17 Oct 2025 17:27:07 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9o4g-00000008a3q-2i6v
+	id 1v9oEL-00000008aru-2TOu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 17:17:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760721426; x=1792257426;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5HWbqOWYvfmFoiG9fvtGtU8661QNVQm7OM6kuBUg2po=;
-  b=PYiHBG0gZfj2Y4F1+dOjDQsEmuo79JHmMMcDW+tiqyZrz1//Z2dxG5gd
-   BCAwGwWGguO5Ku7oU62G9qscsM1M3pW2lLJRG0l1b21gmamvgcPp/OBTN
-   hdPT4/xzWixISkLMZ72CSo5h6DGvFPRd7RLDV4GBKMqeegXpUi7Y3TPgC
-   +azu2VtVwiIhljK7fd3q17lGwA1QK+Nr6QdgFEmQn6bXIaJ9WXKcWpYsE
-   JB+xACUJ2s4L+2PmVQjlGIxSqRwyR0T3LVsPDJKze+nH9OeQkmanBWfLm
-   6szA72Ix4sL4zs2VOSMebk0xEvembTgcBYAzBRHDPswzaFinYdTE15LqH
-   Q==;
-X-CSE-ConnectionGUID: Qh4xB9TKRwGyDjWvoxpchg==
-X-CSE-MsgGUID: SgbvO4CfQq2sZyPcsOOfjg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11585"; a="62984904"
-X-IronPort-AV: E=Sophos;i="6.19,237,1754982000"; 
-   d="scan'208";a="62984904"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Oct 2025 10:17:05 -0700
-X-CSE-ConnectionGUID: e0YFpg1DTJ6ZU84CZtiGig==
-X-CSE-MsgGUID: C+dZUDN6RhW+z4W8B8yqbw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,237,1754982000"; 
-   d="scan'208";a="187878775"
-Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
-  by orviesa005.jf.intel.com with ESMTP; 17 Oct 2025 10:17:01 -0700
-Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v9o4Y-0007bX-2d;
-	Fri, 17 Oct 2025 17:16:58 +0000
-Date: Sat, 18 Oct 2025 01:16:19 +0800
-From: kernel test robot <lkp@intel.com>
-To: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	Rohan G Thomas <rohan.g.thomas@intel.com>,
-	Boon Khai Ng <boon.khai.ng@altera.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Matthew Gerlach <matthew.gerlach@altera.com>
-Subject: Re: [PATCH net v3 2/3] net: stmmac: Consider Tx VLAN offload tag
- length for maxSDU
-Message-ID: <202510180039.zqD7oO26-lkp@intel.com>
-References: <20251017-qbv-fixes-v3-2-d3a42e32646a@altera.com>
+	Fri, 17 Oct 2025 17:27:06 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-57bd04f2e84so2681905e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 10:27:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1760722023; x=1761326823; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hDi+5M2k5Ml1K9ClJ80BwZv3vRmscPjpCQVBDoPQMTA=;
+        b=Mwe6noKSCGE0okFSztpcMCZnXewgCN6AaEz/jgcGfA1h0zyuC5ut9n77YQ3Tx1csbD
+         QrhAJKXwbxOgVQjtgsKjD5YLLWbsHBEee+rsuGP/3Yj++r2OMooeZTt2pFu766PaL40p
+         8b8ogclFSIGJ4e7QVrAg8zSyB22bkRJ6gcINdJ/535Fqa4yWNYFvJrLXMJAwvzJrCHjz
+         4WVvjLwAMgngP/G1wQEnp5UBkoa1SFWxaiTCFQLivqX1lhKIP/VuCqvlTsPeJGyjcQEk
+         WIwCkND8Td/3dqFvAGu9FUIdbdGUh9TNTFwaJqs2XDUw84sPAVBZrTj3W7HjTumaYfdn
+         cFoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760722023; x=1761326823;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hDi+5M2k5Ml1K9ClJ80BwZv3vRmscPjpCQVBDoPQMTA=;
+        b=YUwPEVYqRyyORjRZxMiO9QAG2JkB7fUr53k4JhC8vFjpRUMsp6s/klp6v87edKX3Wn
+         XQoHDxazIYBZZf3lYQfhj7+8L01lNX9lhwiVhkDkLmYEXnRA+fy2wL8ZYASCEiW1+fLA
+         xyI23eEyHYOfuVkr4qZvRoCYkC9H2PHyTIUUfmwBQ35nhWtC2LavN88SQ7wGPkBHGUMx
+         skWgk8qAvEQzdbyShXPo2nkGz2ilklMUxh+Tio8uy06sbhvfGW7Zp9nTHdPCsBUpFo4k
+         qTUZjAbh1Vafvsf38Nh9qfnfeVKMviHsOByUD90rdaiy9KOU22SVKUUItwpB6fa1HihM
+         QtuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV/T9wEQlwPdM0lCs8U/r1Vby8rLat3ZZCVLDHTu/UDkn2ezlgo3VruYoqkShtwLASD1zx4ORSkcFrXl3JOWiI7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6ft3SGr0nk3u+eOF2kjwbBRP4rkxWiTboK1QsCiOlrBAqSOpf
+	RBquNcwqDWcqgp9KHg8mOatGf8qFAvJVDKjQeggDJqfhMIzvm+V0F2IdSlCLNL3JUlibm+7nCRR
+	uX1eBNnXyK06rJYyis3zBaPP2Yb5HrVIJxWMWnVgWIw==
+X-Gm-Gg: ASbGncvzo4u4BA8NmaT3FRfsXxxcTek+sOHhGae0UTVxnNkIUAwMKOF/LhXph7ngwPi
+	rVl3iRwr/sxEnE1APWHjNySD5FJNZ43/NzhHXL5k9CKIxFE/dG1HlklCq6HEYq5Tvae555RmbIH
+	m7ibDsbMf9/BqfJZDBwr8HiirkuiNXR0KD/7oK/26/SL9NW35GjVyo91uGcS/VhGLedPXKFk80b
+	x6ul/qqyGYm97vWVXyhWI4XhScY5Ss8XbKshnDGxbYcyhOr7iBPVU+oxvhieBO/ewBaQWDXlSpu
+	8ZEKvES5GZPKkJdLMLSkm561FJs=
+X-Google-Smtp-Source: AGHT+IEnROQjyiNXa20y9fdKGDuy8cXUgGRQbjpjaM5VjMNNuXFx1RyY7/MYDJo1ov+PfI5vPHyhYoMIz6wqTgC382I=
+X-Received: by 2002:a05:6512:3b96:b0:58a:f7e0:7284 with SMTP id
+ 2adb3069b0e04-591d84fed59mr1542688e87.13.1760722022961; Fri, 17 Oct 2025
+ 10:27:02 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251017-qbv-fixes-v3-2-d3a42e32646a@altera.com>
+References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
+In-Reply-To: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Fri, 17 Oct 2025 19:26:51 +0200
+X-Gm-Features: AS18NWBvQScHzFXgOzgmGaLsZFy2d0XcQpPFsgGo-dqtoYRGPaRXMw7LL4aRoyw
+Message-ID: <CAMRc=Me4Fh5pDOF8Z2XY4MG_DYqPRN+UJh_BzKvmULL96wciYw@mail.gmail.com>
+Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
+To: Bartosz Golaszewski <brgl@bgdev.pl>, Mark Brown <broonie@kernel.org>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Srinivas Kandagatla <srini@kernel.org>, 
+	Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Takashi Iwai <tiwai@suse.com>, Rob Herring <robh@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andy Shevchenko <andy@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Will Deacon <will@kernel.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_101706_744592_1BB11E03 
-X-CRM114-Status: GOOD (  23.40  )
+X-CRM114-CacheID: sfid-20251017_102705_661246_06D734F9 
+X-CRM114-Status: GOOD (  41.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,310 +106,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rohan,
+On Wed, Sep 24, 2025 at 4:51=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
+ wrote:
+>
+> Here's a functional RFC for improving the handling of shared GPIOs in
+> linux.
+>
+> Problem statement: GPIOs are implemented as a strictly exclusive
+> resource in the kernel but there are lots of platforms on which single
+> pin is shared by multiple devices which don't communicate so need some
+> way of properly sharing access to a GPIO. What we have now is the
+> GPIOD_FLAGS_BIT_NONEXCLUSIVE flag which was introduced as a hack and
+> doesn't do any locking or arbitration of access - it literally just hand
+> the same GPIO descriptor to all interested users.
+>
+> The proposed solution is composed of three major parts: the high-level,
+> shared GPIO proxy driver that arbitrates access to the shared pin and
+> exposes a regular GPIO chip interface to consumers, a low-level shared
+> GPIOLIB module that scans firmware nodes and creates auxiliary devices
+> that attach to the proxy driver and finally a set of core GPIOLIB
+> changes that plug the former into the GPIO lookup path.
+>
+> The changes are implemented in a way that allows to seamlessly compile
+> out any code related to sharing GPIOs for systems that don't need it.
+>
+> The practical use-case for this are the powerdown GPIOs shared by
+> speakers on Qualcomm db845c platform, however I have also extensively
+> tested it using gpio-virtuser on arm64 qemu with various DT
+> configurations.
+>
+> I'm Cc'ing some people that may help with reviewing/be interested in
+> this: OF maintainers (because the main target are OF systems initially),
+> Mark Brown because most users of GPIOD_FLAGS_BIT_NONEXCLUSIVE live
+> in audio or regulator drivers and one of the goals of this series is
+> dropping the hand-crafted GPIO enable counting via struct
+> regulator_enable_gpio in regulator core), Andy and Mika because I'd like
+> to also cover ACPI (even though I don't know about any ACPI platform that
+> would need this at the moment, I think it makes sense to make the
+> solution complete), Dmitry (same thing but for software nodes), Mani
+> (because you have a somewhat related use-case for the PERST# signal and
+> I'd like to hear your input on whether this is something you can use or
+> maybe it needs a separate, implicit gpio-perst driver similar to what
+> Krzysztof did for reset-gpios) and Greg (because I mentioned this to you
+> last week in person and I also use the auxiliary bus for the proxy
+> devices).
+>
+> First patch in the series is a bugfix targetting stable, I'm surprised
+> nobody noticed the lockdep splat yet. The second adds a library function
+> I use in a later patch. All remaining patches implement or use the
+> shared GPIO support.
+>
 
-kernel test robot noticed the following build warnings:
+Mark,
 
-[auto build test WARNING on cb85ca4c0a349e246cd35161088aa3689ae5c580]
+I was working on extending this series with patches that make the
+regulator subsystem aware of shared GPIOs managed by GPIOLIB. I admit
+that after our previous discussions I was under the impression that
+the regulator core not only manages the enable count of the underlying
+non-exclusive GPIOs but also emits the relevant
+REGULATOR_EVENT_ENABLE/DISABLE notifications for GPIO-driven
+regulators when the physical pin actually gets enabled/disabled
+respectively.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Rohan-G-Thomas-via-B4-Relay/net-stmmac-vlan-Disable-802-1AD-tag-insertion-offload/20251017-144104
-base:   cb85ca4c0a349e246cd35161088aa3689ae5c580
-patch link:    https://lore.kernel.org/r/20251017-qbv-fixes-v3-2-d3a42e32646a%40altera.com
-patch subject: [PATCH net v3 2/3] net: stmmac: Consider Tx VLAN offload tag length for maxSDU
-config: x86_64-kexec (https://download.01.org/0day-ci/archive/20251018/202510180039.zqD7oO26-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251018/202510180039.zqD7oO26-lkp@intel.com/reproduce)
+Upon a closer inspection it turns out that this is not the case - the
+ENABLE/DISABLE events are emitted when the *logical* regulator is
+enabled/disabled even if this does not involve a change in the state
+of the shared pin.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510180039.zqD7oO26-lkp@intel.com/
+Example: the tlv320aic3x.c codec driver may use a fixed regulator that
+uses a shared GPIO pin. The regulator in question may get disabled but
+its GPIO might not change state as it's still enabled by a different
+regulator. The driver will still see the disable event and put the
+codec in reset.
 
-All warnings (new ones prefixed by >>):
+I'm not saying this behavior is incorrect, I'm just mentioning it as I
+thought that there's a need for some GPIO descriptor notifier that
+allows to signal the actual change in value to users but it doesn't
+seem to be the case if we just want to maintain the current behavior.
+The only change we need to support the existing NONEXCLUSIVE flag and
+the new shared GPIOs at the same time - until we convert all users -
+is providing gpiod_is_shared() and just making regulator core skip the
+descriptor comparison and referencing via struct regulator_enable_gpio
+if it sees that a GPIO descriptor is shared.
 
->> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:4503:6: warning: variable 'sdu_len' set but not used [-Wunused-but-set-variable]
-    4503 |         u32 sdu_len;
-         |             ^
-   1 warning generated.
+I will post a v2 early next week.
 
-
-vim +/sdu_len +4503 drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-
-  4478	
-  4479	/**
-  4480	 *  stmmac_xmit - Tx entry point of the driver
-  4481	 *  @skb : the socket buffer
-  4482	 *  @dev : device pointer
-  4483	 *  Description : this is the tx entry point of the driver.
-  4484	 *  It programs the chain or the ring and supports oversized frames
-  4485	 *  and SG feature.
-  4486	 */
-  4487	static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
-  4488	{
-  4489		unsigned int first_entry, tx_packets, enh_desc;
-  4490		struct stmmac_priv *priv = netdev_priv(dev);
-  4491		unsigned int nopaged_len = skb_headlen(skb);
-  4492		int i, csum_insertion = 0, is_jumbo = 0;
-  4493		u32 queue = skb_get_queue_mapping(skb);
-  4494		int nfrags = skb_shinfo(skb)->nr_frags;
-  4495		int gso = skb_shinfo(skb)->gso_type;
-  4496		struct stmmac_txq_stats *txq_stats;
-  4497		struct dma_edesc *tbs_desc = NULL;
-  4498		struct dma_desc *desc, *first;
-  4499		struct stmmac_tx_queue *tx_q;
-  4500		bool has_vlan, set_ic;
-  4501		int entry, first_tx;
-  4502		dma_addr_t des;
-> 4503		u32 sdu_len;
-  4504	
-  4505		tx_q = &priv->dma_conf.tx_queue[queue];
-  4506		txq_stats = &priv->xstats.txq_stats[queue];
-  4507		first_tx = tx_q->cur_tx;
-  4508	
-  4509		if (priv->tx_path_in_lpi_mode && priv->eee_sw_timer_en)
-  4510			stmmac_stop_sw_lpi(priv);
-  4511	
-  4512		/* Manage oversized TCP frames for GMAC4 device */
-  4513		if (skb_is_gso(skb) && priv->tso) {
-  4514			if (gso & (SKB_GSO_TCPV4 | SKB_GSO_TCPV6))
-  4515				return stmmac_tso_xmit(skb, dev);
-  4516			if (priv->plat->has_gmac4 && (gso & SKB_GSO_UDP_L4))
-  4517				return stmmac_tso_xmit(skb, dev);
-  4518		}
-  4519	
-  4520		if (unlikely(stmmac_tx_avail(priv, queue) < nfrags + 1)) {
-  4521			if (!netif_tx_queue_stopped(netdev_get_tx_queue(dev, queue))) {
-  4522				netif_tx_stop_queue(netdev_get_tx_queue(priv->dev,
-  4523									queue));
-  4524				/* This is a hard error, log it. */
-  4525				netdev_err(priv->dev,
-  4526					   "%s: Tx Ring full when queue awake\n",
-  4527					   __func__);
-  4528			}
-  4529			return NETDEV_TX_BUSY;
-  4530		}
-  4531	
-  4532		sdu_len = skb->len;
-  4533		/* Check if VLAN can be inserted by HW */
-  4534		has_vlan = stmmac_vlan_insert(priv, skb, tx_q);
-  4535		if (has_vlan)
-  4536			sdu_len += VLAN_HLEN;
-  4537	
-  4538		if (priv->est && priv->est->enable &&
-  4539		    priv->est->max_sdu[queue] &&
-  4540		    skb->len > priv->est->max_sdu[queue]){
-  4541			priv->xstats.max_sdu_txq_drop[queue]++;
-  4542			goto max_sdu_err;
-  4543		}
-  4544	
-  4545		entry = tx_q->cur_tx;
-  4546		first_entry = entry;
-  4547		WARN_ON(tx_q->tx_skbuff[first_entry]);
-  4548	
-  4549		csum_insertion = (skb->ip_summed == CHECKSUM_PARTIAL);
-  4550		/* DWMAC IPs can be synthesized to support tx coe only for a few tx
-  4551		 * queues. In that case, checksum offloading for those queues that don't
-  4552		 * support tx coe needs to fallback to software checksum calculation.
-  4553		 *
-  4554		 * Packets that won't trigger the COE e.g. most DSA-tagged packets will
-  4555		 * also have to be checksummed in software.
-  4556		 */
-  4557		if (csum_insertion &&
-  4558		    (priv->plat->tx_queues_cfg[queue].coe_unsupported ||
-  4559		     !stmmac_has_ip_ethertype(skb))) {
-  4560			if (unlikely(skb_checksum_help(skb)))
-  4561				goto dma_map_err;
-  4562			csum_insertion = !csum_insertion;
-  4563		}
-  4564	
-  4565		if (likely(priv->extend_desc))
-  4566			desc = (struct dma_desc *)(tx_q->dma_etx + entry);
-  4567		else if (tx_q->tbs & STMMAC_TBS_AVAIL)
-  4568			desc = &tx_q->dma_entx[entry].basic;
-  4569		else
-  4570			desc = tx_q->dma_tx + entry;
-  4571	
-  4572		first = desc;
-  4573	
-  4574		if (has_vlan)
-  4575			stmmac_set_desc_vlan(priv, first, STMMAC_VLAN_INSERT);
-  4576	
-  4577		enh_desc = priv->plat->enh_desc;
-  4578		/* To program the descriptors according to the size of the frame */
-  4579		if (enh_desc)
-  4580			is_jumbo = stmmac_is_jumbo_frm(priv, skb->len, enh_desc);
-  4581	
-  4582		if (unlikely(is_jumbo)) {
-  4583			entry = stmmac_jumbo_frm(priv, tx_q, skb, csum_insertion);
-  4584			if (unlikely(entry < 0) && (entry != -EINVAL))
-  4585				goto dma_map_err;
-  4586		}
-  4587	
-  4588		for (i = 0; i < nfrags; i++) {
-  4589			const skb_frag_t *frag = &skb_shinfo(skb)->frags[i];
-  4590			int len = skb_frag_size(frag);
-  4591			bool last_segment = (i == (nfrags - 1));
-  4592	
-  4593			entry = STMMAC_GET_ENTRY(entry, priv->dma_conf.dma_tx_size);
-  4594			WARN_ON(tx_q->tx_skbuff[entry]);
-  4595	
-  4596			if (likely(priv->extend_desc))
-  4597				desc = (struct dma_desc *)(tx_q->dma_etx + entry);
-  4598			else if (tx_q->tbs & STMMAC_TBS_AVAIL)
-  4599				desc = &tx_q->dma_entx[entry].basic;
-  4600			else
-  4601				desc = tx_q->dma_tx + entry;
-  4602	
-  4603			des = skb_frag_dma_map(priv->device, frag, 0, len,
-  4604					       DMA_TO_DEVICE);
-  4605			if (dma_mapping_error(priv->device, des))
-  4606				goto dma_map_err; /* should reuse desc w/o issues */
-  4607	
-  4608			tx_q->tx_skbuff_dma[entry].buf = des;
-  4609	
-  4610			stmmac_set_desc_addr(priv, desc, des);
-  4611	
-  4612			tx_q->tx_skbuff_dma[entry].map_as_page = true;
-  4613			tx_q->tx_skbuff_dma[entry].len = len;
-  4614			tx_q->tx_skbuff_dma[entry].last_segment = last_segment;
-  4615			tx_q->tx_skbuff_dma[entry].buf_type = STMMAC_TXBUF_T_SKB;
-  4616	
-  4617			/* Prepare the descriptor and set the own bit too */
-  4618			stmmac_prepare_tx_desc(priv, desc, 0, len, csum_insertion,
-  4619					priv->mode, 1, last_segment, skb->len);
-  4620		}
-  4621	
-  4622		/* Only the last descriptor gets to point to the skb. */
-  4623		tx_q->tx_skbuff[entry] = skb;
-  4624		tx_q->tx_skbuff_dma[entry].buf_type = STMMAC_TXBUF_T_SKB;
-  4625	
-  4626		/* According to the coalesce parameter the IC bit for the latest
-  4627		 * segment is reset and the timer re-started to clean the tx status.
-  4628		 * This approach takes care about the fragments: desc is the first
-  4629		 * element in case of no SG.
-  4630		 */
-  4631		tx_packets = (entry + 1) - first_tx;
-  4632		tx_q->tx_count_frames += tx_packets;
-  4633	
-  4634		if ((skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP) && priv->hwts_tx_en)
-  4635			set_ic = true;
-  4636		else if (!priv->tx_coal_frames[queue])
-  4637			set_ic = false;
-  4638		else if (tx_packets > priv->tx_coal_frames[queue])
-  4639			set_ic = true;
-  4640		else if ((tx_q->tx_count_frames %
-  4641			  priv->tx_coal_frames[queue]) < tx_packets)
-  4642			set_ic = true;
-  4643		else
-  4644			set_ic = false;
-  4645	
-  4646		if (set_ic) {
-  4647			if (likely(priv->extend_desc))
-  4648				desc = &tx_q->dma_etx[entry].basic;
-  4649			else if (tx_q->tbs & STMMAC_TBS_AVAIL)
-  4650				desc = &tx_q->dma_entx[entry].basic;
-  4651			else
-  4652				desc = &tx_q->dma_tx[entry];
-  4653	
-  4654			tx_q->tx_count_frames = 0;
-  4655			stmmac_set_tx_ic(priv, desc);
-  4656		}
-  4657	
-  4658		/* We've used all descriptors we need for this skb, however,
-  4659		 * advance cur_tx so that it references a fresh descriptor.
-  4660		 * ndo_start_xmit will fill this descriptor the next time it's
-  4661		 * called and stmmac_tx_clean may clean up to this descriptor.
-  4662		 */
-  4663		entry = STMMAC_GET_ENTRY(entry, priv->dma_conf.dma_tx_size);
-  4664		tx_q->cur_tx = entry;
-  4665	
-  4666		if (netif_msg_pktdata(priv)) {
-  4667			netdev_dbg(priv->dev,
-  4668				   "%s: curr=%d dirty=%d f=%d, e=%d, first=%p, nfrags=%d",
-  4669				   __func__, tx_q->cur_tx, tx_q->dirty_tx, first_entry,
-  4670				   entry, first, nfrags);
-  4671	
-  4672			netdev_dbg(priv->dev, ">>> frame to be transmitted: ");
-  4673			print_pkt(skb->data, skb->len);
-  4674		}
-  4675	
-  4676		if (unlikely(stmmac_tx_avail(priv, queue) <= (MAX_SKB_FRAGS + 1))) {
-  4677			netif_dbg(priv, hw, priv->dev, "%s: stop transmitted packets\n",
-  4678				  __func__);
-  4679			netif_tx_stop_queue(netdev_get_tx_queue(priv->dev, queue));
-  4680		}
-  4681	
-  4682		u64_stats_update_begin(&txq_stats->q_syncp);
-  4683		u64_stats_add(&txq_stats->q.tx_bytes, skb->len);
-  4684		if (set_ic)
-  4685			u64_stats_inc(&txq_stats->q.tx_set_ic_bit);
-  4686		u64_stats_update_end(&txq_stats->q_syncp);
-  4687	
-  4688		if (priv->sarc_type)
-  4689			stmmac_set_desc_sarc(priv, first, priv->sarc_type);
-  4690	
-  4691		/* Ready to fill the first descriptor and set the OWN bit w/o any
-  4692		 * problems because all the descriptors are actually ready to be
-  4693		 * passed to the DMA engine.
-  4694		 */
-  4695		if (likely(!is_jumbo)) {
-  4696			bool last_segment = (nfrags == 0);
-  4697	
-  4698			des = dma_map_single(priv->device, skb->data,
-  4699					     nopaged_len, DMA_TO_DEVICE);
-  4700			if (dma_mapping_error(priv->device, des))
-  4701				goto dma_map_err;
-  4702	
-  4703			tx_q->tx_skbuff_dma[first_entry].buf = des;
-  4704			tx_q->tx_skbuff_dma[first_entry].buf_type = STMMAC_TXBUF_T_SKB;
-  4705			tx_q->tx_skbuff_dma[first_entry].map_as_page = false;
-  4706	
-  4707			stmmac_set_desc_addr(priv, first, des);
-  4708	
-  4709			tx_q->tx_skbuff_dma[first_entry].len = nopaged_len;
-  4710			tx_q->tx_skbuff_dma[first_entry].last_segment = last_segment;
-  4711	
-  4712			if (unlikely((skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP) &&
-  4713				     priv->hwts_tx_en)) {
-  4714				/* declare that device is doing timestamping */
-  4715				skb_shinfo(skb)->tx_flags |= SKBTX_IN_PROGRESS;
-  4716				stmmac_enable_tx_timestamp(priv, first);
-  4717			}
-  4718	
-  4719			/* Prepare the first descriptor setting the OWN bit too */
-  4720			stmmac_prepare_tx_desc(priv, first, 1, nopaged_len,
-  4721					csum_insertion, priv->mode, 0, last_segment,
-  4722					skb->len);
-  4723		}
-  4724	
-  4725		if (tx_q->tbs & STMMAC_TBS_EN) {
-  4726			struct timespec64 ts = ns_to_timespec64(skb->tstamp);
-  4727	
-  4728			tbs_desc = &tx_q->dma_entx[first_entry];
-  4729			stmmac_set_desc_tbs(priv, tbs_desc, ts.tv_sec, ts.tv_nsec);
-  4730		}
-  4731	
-  4732		stmmac_set_tx_owner(priv, first);
-  4733	
-  4734		netdev_tx_sent_queue(netdev_get_tx_queue(dev, queue), skb->len);
-  4735	
-  4736		stmmac_enable_dma_transmission(priv, priv->ioaddr, queue);
-  4737		skb_tx_timestamp(skb);
-  4738		stmmac_flush_tx_descriptors(priv, queue);
-  4739		stmmac_tx_timer_arm(priv, queue);
-  4740	
-  4741		return NETDEV_TX_OK;
-  4742	
-  4743	dma_map_err:
-  4744		netdev_err(priv->dev, "Tx DMA map failed\n");
-  4745	max_sdu_err:
-  4746		dev_kfree_skb(skb);
-  4747		priv->xstats.tx_dropped++;
-  4748		return NETDEV_TX_OK;
-  4749	}
-  4750	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Bartosz
 
