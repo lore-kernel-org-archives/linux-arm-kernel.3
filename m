@@ -4,100 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CAEBCCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C980CCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zPE9WHNZsdRI3QmdRcH/wWeYzKksV+R5Ry8aWltKbjU=; b=GvD5Ip4l7FD4RRCQK6HgW6gOyx
-	ynLld/3uXB2I2oqhEWDiQP9kQUfabblQ51/MjVubqffKkS0qB6tSYB+aet0woC8uKhD12GTXp8STP
-	1Z/2/+9qH4w4WAMzA58jW5ViGOp9wDhFs8Oo0zl1a7JVik1Yt2l9mDTYIrFlYlRHqJLD832gouoDE
-	EbLOky4FvDvHKj8AFUetVRrLuDx5NTwZ8GDh2oALNzP9ewKQlOk+hFu+sLUBdAgNCcbDlCgGeiwPQ
-	MWBV8Sdpw2ZMkCoq3EINwPVofW5+HxOydUec372jEKpJWwBaOGBuPJKAN9b2aiOtEDGM/vmackJNW
-	P1UIGeew==;
+	bh=0tVknnIIO8ogharLsKyP8Fjo64gHdZd/wYovrg88iqc=; b=Ym3HBj5BRHEfzo4MvdHN9oCrXP
+	1EOTCVW31jV8cFcFJXrkgJGjOF85Pr4rx7W6cIFR09fBu1GbdwyhqBy5YzAJNsyZ2LcPIykFzWcyD
+	ge72sffASu0U/BIhnSchee2LQFlKENbmCnVDfvzsB5cXuqzCbojqoo/auyS7Mf29hOKqlsTq5o/8b
+	oWXuIm7m2pCixaQPinY9LFHe6GZyTCw3qBGEBIqihQ/3dGT1jk2oweu7ChPlZKyPxP5cjKV0w0ck9
+	rMqtXE4xDeK3rSfbVImyx23VnCSU2Xn0eRjJEIoi2g3lLG90VFncB73oUUhQ65fKG2Tp32wx3UI+Y
+	zXJUOHRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iCg-00000007bkQ-05YH;
-	Fri, 17 Oct 2025 11:00:58 +0000
-Received: from mail-pg1-f173.google.com ([209.85.215.173])
+	id 1v9iDb-00000007c06-22pg;
+	Fri, 17 Oct 2025 11:01:55 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iCd-00000007bjO-2eR3
+	id 1v9iDY-00000007bzC-0Ei5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 11:00:56 +0000
-Received: by mail-pg1-f173.google.com with SMTP id 41be03b00d2f7-b551350adfaso1598923a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 04:00:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760698854; x=1761303654;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zPE9WHNZsdRI3QmdRcH/wWeYzKksV+R5Ry8aWltKbjU=;
-        b=bTFknuJgtaJKuAzIDxBDyv7oYBElD5MRtxgmP6XTD6ilMtT+VtQrtNpbqhowGhFAgy
-         PGcGQ0V4pOsEMz7ovTLn2jXeTF4iHpaSMkoxa9XJfv2jhJfZSQZdta/m/5AhiL8SIkOE
-         sXjidGcil6yYPFsSHZg/LB/QKVCEf/1ark9MYzvOS20AcULUI9m5FIfaOs0mTgrfTU1H
-         WgAKMeB4Mw5wo1xgLQ1jvIDLqRRoEET842R3uwMZrsoszCrBvetmt0y+cafBGsYRTfhw
-         s5DmqoXRxh0SR2GEaQGvZ83jFuqXd7e4ICjC80bm6yuSjIlgAfl+jGRiYtH3pXye+siK
-         UK5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVHP3pSUme7N28plAZVnjr4asJ+fqa39n8/QYtrZnXdbITwg3a1sDPDeH3YbwZE1NyhBaO2ww2eo281GdQkDZU0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyhd492DeAMx7Dn4uyeBbMIUFZWI8fMZV1FETgLITmmGy3eqH+g
-	Gg/XjtvB0yWVYEOhC4zppOmQ3dVzyqSl+mJO0bT3fYQjpBb5HBl5yw1OsA+405GS
-X-Gm-Gg: ASbGncv/keAKvMkhUog9bdzKDe8+4q2BgKCM/rxjgcr9LftwHESnxlUDYojfUtbG1vC
-	CLTHbTgEEn5M94LIUb9t2c0tV+dq+0jWLPqh5DgwY4AqxB7KociowRRmbQB/3LdtNpOK/Ri4X2K
-	pOYES0tjfT9zowkhpe4JiTvARtlj49cvFNulr8U35iUAkeIbBvyfZspfEzxAShtENiiS77uWxhS
-	vFoUQX0HEE/TgID8rdbsBx0XrbK6qerQ5rpuSLuhGqiKJDxEON6f/k19RHkTfl8hwTLN9ZRt+TE
-	3d5R5hNP27mLISs5ocBv7UkGIqnXRoX6OmZuY8qgMY/Wp5EZsB6bPvh4LWq0caW8ZAGWb2M6iBv
-	crciFr8AXNV2Z7t0b+Cfq6z+tNaFXxiB7TDh2TmOWNSlIOn5PYrcUD+ZzVge62dMxBLdmDr2Jo+
-	9h3bA+w9Ecv8P4H3bbvWlglEYMRVPBtSPWk8kmeACGvjXICiNT
-X-Google-Smtp-Source: AGHT+IG4BkezgtKKLdHgFAiuDNaPxCkSI9dZDVrSJ9x6n51IDfQCCykwIkgwWv9YUvhBts3rYrMI5A==
-X-Received: by 2002:a05:6a21:329a:b0:334:823a:ff2e with SMTP id adf61e73a8af0-334a85b9f90mr4893013637.40.1760698854290;
-        Fri, 17 Oct 2025 04:00:54 -0700 (PDT)
-Received: from mail-pj1-f45.google.com (mail-pj1-f45.google.com. [209.85.216.45])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6a228a5b78sm5674713a12.14.2025.10.17.04.00.53
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Oct 2025 04:00:54 -0700 (PDT)
-Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-33bb0472889so1929902a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 04:00:53 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVjvTXJUPtigRo2UwEBZ+8o655la4o0dyzm2G5yVtMOVH9AfRmzNAfmc2egyTtC0T84rsRS1sDgW8ImkKxusoJn@lists.infradead.org
-X-Received: by 2002:a05:6102:5111:b0:5d5:f766:333e with SMTP id
- ada2fe7eead31-5d7dd5934demr1126362137.15.1760698513447; Fri, 17 Oct 2025
- 03:55:13 -0700 (PDT)
+	Fri, 17 Oct 2025 11:01:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UGOgpCMFOHoXFJezWK0JOymt4NL1tdJ/srb67gy9Y/ZwSW6nzYKyPMHBeHeXXshcersbrS9QRuWJlb2SvbPjX1XUxKbnE4m/oWSFgTOKPo5v0EttWfq5yUv7JEl3yI4hGudsozGQzg2+gwpwJh4lHWILHP3rMEL5VryIbDeB3tMxbeR+YTvhJZ5ay2Fux//NavNuFSxe2R8AU5LnllaP8RTsLGXPIZg+9EEvWgwPa31BvfGJlgtlzRWzSETto3oXymCwYioNsovlS59npIq/l4JO5dScBAJ1Wpwh0oXwVJgSsfGeCK/k4Qq9VuMccTyaBSRsF5cvW4uaESHWM+qTHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0tVknnIIO8ogharLsKyP8Fjo64gHdZd/wYovrg88iqc=;
+ b=clp7iZ0oH1rySx7UpT1nSbBqkUUAMS+6GYCJbGkszzx2ebnnWvR82baUpeX7Onnt6I8NzRsYrnhTLYWAgN7LVdQzIfZiJJ2BQU55XNy0zRl84TiPjUVQXlkwgO9YJpkhSfL0TQfk+ANhEUn3u8LPEbVi2Cq1NZDwkQfsSXXxAbKKax7Fv+2HogbK7uiIqZWW8JJQbgDCL5285dJYWZsIefEJn2Fg6/dWjNbOoYnvRdKPg/kk9zRZzKJ4o0N3GrxWFE5n85ZCxLzxlKCzoRYX3yIzCRcwSXZXIgxkvXqt2fldhRy1ezli28Hhn4pLBGBU8bVXtom1vPVlaeaknylANA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0tVknnIIO8ogharLsKyP8Fjo64gHdZd/wYovrg88iqc=;
+ b=JZuUuZuEwdX5tAAUzDUvsAteqr4mEdD4MEwUiVPS0zbvZbUWLCv4+OyDqDg5dH0lUyQbd3gOYeUJJ37QzmyIAE5D7GuJt8bbA+Bx6slgDi9sUa2bFn8vbGv22KJqqXA64bFLb/SUElSxrR3Uruv7b7lDOnsWb/YZug36LD5rgpM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from IA0PR12MB8301.namprd12.prod.outlook.com (2603:10b6:208:40b::13)
+ by IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.10; Fri, 17 Oct
+ 2025 11:01:46 +0000
+Received: from IA0PR12MB8301.namprd12.prod.outlook.com
+ ([fe80::e929:57f5:f4db:5823]) by IA0PR12MB8301.namprd12.prod.outlook.com
+ ([fe80::e929:57f5:f4db:5823%4]) with mapi id 15.20.9228.011; Fri, 17 Oct 2025
+ 11:01:46 +0000
+Message-ID: <45082f08-c7ec-4d45-81d8-5bce4f2fb0d8@amd.com>
+Date: Fri, 17 Oct 2025 16:31:37 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 12/12] KVM: guest_memfd: Add gmem_inode.flags field
+ instead of using i_private
+To: Sean Christopherson <seanjc@google.com>, Miguel Ojeda <ojeda@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Ackerley Tng <ackerleytng@google.com>, David Hildenbrand <david@redhat.com>,
+ Fuad Tabba <tabba@google.com>, Ashish Kalra <ashish.kalra@amd.com>,
+ Vlastimil Babka <vbabka@suse.cz>
+References: <20251016172853.52451-1-seanjc@google.com>
+ <20251016172853.52451-13-seanjc@google.com>
+Content-Language: en-US
+From: "Garg, Shivank" <shivankg@amd.com>
+In-Reply-To: <20251016172853.52451-13-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN2PR01CA0002.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:25::7) To IA0PR12MB8301.namprd12.prod.outlook.com
+ (2603:10b6:208:40b::13)
 MIME-Version: 1.0
-References: <cover.1739540679.git.geert+renesas@glider.be> <2d30e5ffe70ce35f952b7d497d2959391fbf0580.1739540679.git.geert+renesas@glider.be>
- <20250214073402.0129e259@kernel.org> <20250214164614.29bbc620@pumpkin>
-In-Reply-To: <20250214164614.29bbc620@pumpkin>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 17 Oct 2025 12:55:02 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXost7vL5uTocMGtrqhEk5AY3QUWvyP5w7_hBtf3MkMfA@mail.gmail.com>
-X-Gm-Features: AS18NWAcP6voBjoIoEi-7RxJ0pdmzXqhfe5FdHBNP60R0y-DyUBofdEL44euygw
-Message-ID: <CAMuHMdXost7vL5uTocMGtrqhEk5AY3QUWvyP5w7_hBtf3MkMfA@mail.gmail.com>
-Subject: Re: [PATCH treewide v3 2/4] bitfield: Add non-constant
- field_{prep,get}() helpers
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	David Miller <davem@davemloft.net>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Crt Mori <cmo@melexis.com>, 
-	Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Jacky Huang <ychuang3@nuvoton.com>, 
-	Shan-Chun Hung <schung@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Alex Elder <elder@ieee.org>, 
-	Vincent Mailhol <mailhol.vincent@wanadoo.fr>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	linux-crypto@vger.kernel.org, qat-linux@intel.com, linux-gpio@vger.kernel.org, 
-	linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org, 
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PR12MB8301:EE_|IA0PR12MB8374:EE_
+X-MS-Office365-Filtering-Correlation-Id: edb39a64-7de3-473e-3636-08de0d6c9065
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?elZsYkRkWlU1NXdsZnV6OVFMK3dJV2dtNC9YMjFDcU1iWUcxWTljNm5wK3Q3?=
+ =?utf-8?B?b01Zc3B6WkZmLzJNd1o3WGNKUk5wWWVDQWRFeXBuNVVkOGxwR3lMRUFRRjBQ?=
+ =?utf-8?B?OXFiZ05YcDl0TlowU1BVemJqdFo2cmNzZk05WHprUklvaklOVmJmQXdIMHQ2?=
+ =?utf-8?B?Ri9LcXRYNEtWeU9weGpkZ2s1QUN1V3JSNlVBRWJuVmRNd3NTMHFCbldYYTFw?=
+ =?utf-8?B?WUZhSDZlTDhtWUNWUEN2VHdLN0owWHAwMHQwU3I0TVNKTWZMOXA1bHV3c2tt?=
+ =?utf-8?B?S1Z1aHVJeFRQZW9yODVBb1Y2eStzQlFXbEg0bjFYTnhVdTJvSTVHY0ltNmNP?=
+ =?utf-8?B?VEtFaks4NzdhR3VKeWtSd1lBVExvUFh4bWpFUi9SUXJQWlR0QS9GeVl5M2dU?=
+ =?utf-8?B?UlU3MFNadTg3RkJlYitDbXFBYzJtb1c4RnpqY0pnYzg1L3BkSGh5bW1pTTZR?=
+ =?utf-8?B?bUppNUlMbm1OUGtTMUZaNVM3MXptSU16Y3JCeTJmRlczQ3BjMVorK3RWZGJz?=
+ =?utf-8?B?NVNKU3MvaS9Od09zakI0NTUwYUxnd04xZFE1QzRmNEc3bGNaZW1LM0l0YURz?=
+ =?utf-8?B?TnJtVTlQdnpkMGw0cHczQW1jZ0RINzZ3VE1EVzU1ZEgrNXcyQ09xZ2kwYnd4?=
+ =?utf-8?B?WS9SbDZmcmErQjZkR0xuWVJ1L2VWSmJnaTcrR2xVMmdjRWl0MUM5cEY2L1M1?=
+ =?utf-8?B?dzlWYi9qSE9pWU1lMjFKbjk1Q09pWk5Ra042ZVBNMFdrUUUySzhrNk9ESzZy?=
+ =?utf-8?B?K2FFQVI4c2dLQnFPbFhPZnZrajJYSGxkdWU1dnJ2eTBPcmhMUUp4bkg2OVUx?=
+ =?utf-8?B?YldneWEvRDJQZTIxZU9EZ0NNc214enhYSTVKcU90R3NFQ2hMU1luL1kyMVk0?=
+ =?utf-8?B?NXNjMHpFL0ZEZW9KV1YxRkJrVjRrY2JTalEvQ2hkOHFwM1QxREo4ckc2ODdm?=
+ =?utf-8?B?WTZNcUplWWFVSHM5SzNCa3B0cXFySzFlcjZZWFJxSnZoc1c4U21JL25kanVh?=
+ =?utf-8?B?c0t6Rko4SUZzMTZWRllBaHRUKytMcjcrOFpoVFRzZVAwY1hCUWRkMXpFNm54?=
+ =?utf-8?B?RERNcEcvWnl5d1ZWcml5aGlaRmJySXBWZURLWXZnR3Z6em15ZjdINmpldzlw?=
+ =?utf-8?B?RHkyWmpIYjFxVkdmYlVVdTlxQjB1dUtlSHhEbUZDMFp5a0t2MDI5dkYyVTVD?=
+ =?utf-8?B?Tk9uTnZkcks0ZTlURmY1Ukk5WHEvZ0wzN3VlQVFRdkdBNGQ4YkNoem54NElh?=
+ =?utf-8?B?aFdBY0VOYmZxS1JHTkdlYUREcWp5NzVSSmNHV0Fway91cFYxcVJvbjVRV2ZO?=
+ =?utf-8?B?Ylp2bjJlV21yaTBJeHZLejIwajlUSzF2MmwvcjNlRTBIWGYyYndKd3hsREJE?=
+ =?utf-8?B?TzZ6Z3F5WWlGTWNCWWh1bXN2amZsWUxmYitOdDNhczdKZGppL25WUnhXTGxk?=
+ =?utf-8?B?VXdXYi90ZEJaTkFiRTJxUTdPNDhqa1F2OGhQb01sWExWU3dCNDJFODUrVFEr?=
+ =?utf-8?B?REpLWStsd1FpR21aMFFUMzRJT0xpZjltc3F5aVJmdVgrRjJRbnlPTWZ3MDZE?=
+ =?utf-8?B?cW5iN2w1ck5SQnZ2K1c1NzFGUEZLVUs3d0JWYkhCQmZlME9lWGVOMU9CWEMx?=
+ =?utf-8?B?OXFCaEUyOU5pcWh6eEpudVRmbks1RXJMKzAvQ3k1Wnh4L2dRbjg0SVNEK3Vh?=
+ =?utf-8?B?UVZqWmtldWhQaTdEMDRHVU55eGY1VWV1bmZlNkFKbjB5TGZyTUtNZWVVMmVO?=
+ =?utf-8?B?WFlLSVhTKzBLT2g3aUVFRXdoTjJvVVR0NVlCSTJ4NlZ5Nm0zNUw1bkM0YUxy?=
+ =?utf-8?B?cm80SkxTUEJuQmE5Y05FS3JDejkyMGVHZG91K2ZzaXFoR2Z5UHZBQW9SRmRi?=
+ =?utf-8?B?VjZtM1o5WnlJckRidzNBU1BDNHpuQmlJejNGNE9pS3g4MEJycDNhQmlWaGg2?=
+ =?utf-8?Q?9ZD6Kxhy5LaTt2Gw+CUrZ5+gt4rMJM7c?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8301.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YnZDUmRQaW9CZncwckRDblpwZlN6eXo0d2xPUVY0THRKWTRzU0xNWjhFMC9a?=
+ =?utf-8?B?VXZJZTI5S1k1VGZDVkorVXhyTzY4bDRlRW9iNGtHalg5YUtRdzJLdWhiOVhF?=
+ =?utf-8?B?VURrQi94ZjBPMWM1aTBlMkZYUVBKUVpPbCtRUDRyN25ONmh1QkpVNEFBYitN?=
+ =?utf-8?B?S2t0Ulk0M0YyNW04MXdYdGF3RFZwR3lwSisyMDZsb1laL0RMMXFINUFXemNY?=
+ =?utf-8?B?M0VrbnlDemEyMzFla1BIRzlTNDBJU25RTjc2YXZEMDg2TkN6WlRtWVRFL1FP?=
+ =?utf-8?B?OWk1UkVTQ1ZKRzlYT1AyMUFNeTB0eGZWVldSWXpwZjVkWEIwNlhoNHBCZHVY?=
+ =?utf-8?B?V1FEc0l2YVMyNGdxaVprSjZLYVdwWE52NmJub2taKzRVUm53UEYxZ2swcTBM?=
+ =?utf-8?B?N2RYNjl2OWdydFJ6cHpZSkNvcnIxMlZyQ3J1N1QrbkhkQlVIMUpxM2hXYXRw?=
+ =?utf-8?B?RTNjVjVWVUEzd2Q5Znh3eDM1RWlSb2FTNnlCMmdEVVNSNGxYZitCdzlzS2cr?=
+ =?utf-8?B?T0xuK1RQOUlrNlV3OUpzWGpHTWtTRFZ6S0ZheVp2dUg0UXlkMm5VajFsMVkw?=
+ =?utf-8?B?cGF3S25SekFrQzB0d3A4UlVaUExTayt4UnFZSXJRL0VSVFBPUEZvTVpzOEQ4?=
+ =?utf-8?B?ZXpGRkZidEQrSjBGaVYvTXdTV2cxSk1JYTVVc0pORjJ4czMvSHlON0hqd3lP?=
+ =?utf-8?B?YVNIZGZGNlZneUtRMDQzMWZzZjNva2JQbVY4Um4yc0tPQkpNQ05VV29SejNv?=
+ =?utf-8?B?cEpxQzlyaXJvWnE0NVVGNnFTOWlkR2o0TVA1SFl5MUVldlpwUFROTVRkSDFU?=
+ =?utf-8?B?MDRrb0pKODRHemlvUWVQVnRzNE5JTWxHeEtFaFg4Y3huZEkveU1kb1kvK0tm?=
+ =?utf-8?B?UEFQNWhUcnllWHNsWUdEWTQyMGsrdFlISGNNYnZnODh3Si9pZUlnNDFSUkly?=
+ =?utf-8?B?c3VsWjdFa2s5M1BTQytxYktBUjFPOFNhTWhrb0VxNGUzdFRFWlZnMklWMXdz?=
+ =?utf-8?B?QStFMTR0YWFPVHBxSytUY1lldnR5MjdDMTRLNjdkZGwxQ3VrK0J4L0pZRWh1?=
+ =?utf-8?B?TVNmUytoMzVEL25SK3R3TGlFS2lzaklPSjNZS3ZId3RtUTkrblNYaUcwVis4?=
+ =?utf-8?B?VERHbVRkeWlBSWNZYURVZHhMNXZ3aHBaUkU1WmRXOWgzbHFvSW5QVE4wNC93?=
+ =?utf-8?B?dkdaVExmU1VMSUhDWUZyUVl3Zk81WEdiZFFpSU5qdzczcW5FN21sNEFiQWh1?=
+ =?utf-8?B?a0hicHM3aEtQbWtBQmVZTklnVk9GUDFWR083djRZbDN0NUdYQUduRS9mRXJh?=
+ =?utf-8?B?ODNhVHVHZzB1M1pBRXZEc2VwYzNLcHk4N0Q1dUtMeEp2NlhrNkQvNnU3R3Zu?=
+ =?utf-8?B?YXRySjZrOE9wNEVLM044Nit4a2N5T0pKSW9haDFFaTlyWlRpcjFEbHYvTUxG?=
+ =?utf-8?B?MDFqejM2dE9tUFpoQ1JMQy9CZ2RQRzJPQU4rSWZNRWx2S1hqNWJOckhRNDRI?=
+ =?utf-8?B?Z3pPWmJUMEFpZ2Jla1p3UDNQdDU5elpBYmJ4Ulh3M0U5U3pZL0xmR25HazUx?=
+ =?utf-8?B?d203dk5Ba3JzaE0rWDUzWnBNSG8xSWhnakczVGRoRnI2T1U2QjFSN0hsQU5F?=
+ =?utf-8?B?bDZvcTV5RFFxK0RrNWRpY3V4WElFbmhTalJOV3NIY1B4N2tVTzNjanNnVGpK?=
+ =?utf-8?B?ajZLYi9SYkxFZDFXaDVLSXNqb0YwQ1VhZFIxMG5Xa1VRU1BWSHZ5S0NYS2hh?=
+ =?utf-8?B?Y0s2N0NKdEtLVDFoVGVVZ3ZzZzNvN01lZXFPNUxKL056aURzSWg1VC9Wamlr?=
+ =?utf-8?B?NHM3SCt0MnRaZkdLOTNaSFBBakhkc29ZbXArcUFNNUdkVlZ2TnhSM1FEK0p6?=
+ =?utf-8?B?N2dKK3JTd3pZak0xTEk5QTBtdGc0MW5aUk80b0lMZm4wMEM1Y2toaU9aREF4?=
+ =?utf-8?B?WDNkaGc0R1VwbG03UHFoUkZnb1U1NEZ1dnBycjhhNlhobWlMZUZRaWFmU1lG?=
+ =?utf-8?B?eUo4alJmbFdMS0hYRlV6UW5LRXJ5Mk5sTGtobGdXTVZFTGhza3hqdkxMQTd0?=
+ =?utf-8?B?V2tuUHJ1ZDVnalovc0xOOFFVcXcwa0orMTZhZmo5TkRIZ0JmT2pYWHRGK0tN?=
+ =?utf-8?Q?h+amwGKZEUm8zPeWtznumKBCR?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: edb39a64-7de3-473e-3636-08de0d6c9065
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8301.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 11:01:46.5271
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 51EFmnNhRXnLQ1gpZo5peErJtvY2eYg30naF4g/QHi1tT8fAh6/wedSCmKPLdd2N1ug4dd/LzjKnh5f9/ezaUw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8374
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_040055_672084_BAD243FB 
-X-CRM114-Status: GOOD (  30.52  )
+X-CRM114-CacheID: sfid-20251017_040152_388351_00482C0C 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,53 +181,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
-
-On Fri, 14 Feb 2025 at 17:46, David Laight <david.laight.linux@gmail.com> wrote:
-> On Fri, 14 Feb 2025 07:34:02 -0800
-> Jakub Kicinski <kuba@kernel.org> wrote:
-> > On Fri, 14 Feb 2025 14:55:51 +0100 Geert Uytterhoeven wrote:
-> > > The existing FIELD_{GET,PREP}() macros are limited to compile-time
-> > > constants.  However, it is very common to prepare or extract bitfield
-> > > elements where the bitfield mask is not a compile-time constant.
-> > >
-> > > To avoid this limitation, the AT91 clock driver and several other
-> > > drivers already have their own non-const field_{prep,get}() macros.
-> > > Make them available for general use by consolidating them in
-> > > <linux/bitfield.h>, and improve them slightly:
-> > >   1. Avoid evaluating macro parameters more than once,
-> > >   2. Replace "ffs() - 1" by "__ffs()",
-> > >   3. Support 64-bit use on 32-bit architectures.
-> > >
-> > > This is deliberately not merged into the existing FIELD_{GET,PREP}()
-> > > macros, as people expressed the desire to keep stricter variants for
-> > > increased safety, or for performance critical paths.
-> >
-> > I really really think that people should just use the static inline
-> > helpers if the field is not constant. And we should do something like
-> > below so that people can actually find them.
->
-> Especially since you really don't want to be calling ffs() on variables.
-
-It is not that bad, as most temporary architectures have an instruction
-for that.
-
-> Much better to have saved the low bit and field width/mask.
-
-While that would allow some space saving (only 10 or 12 bits needed to
-store low + width), gcc would generate quite some code to create the
-mask (even on PowerPC, where I expected a single instruction would
-do ;-).
 
 
-Gr{oetje,eeting}s,
+On 10/16/2025 10:58 PM, Sean Christopherson wrote:
+> Track a guest_memfd instance's flags in gmem_inode instead of burying them
+> in i_private.  Burning an extra 8 bytes per inode is well worth the added
+> clarity provided by explicit tracking.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  virt/kvm/guest_memfd.c | 15 +++++++++------
+>  1 file changed, 9 insertions(+), 6 deletions(-)
+> 
+> diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
+> index 4463643bd0a2..20f6e7fab58d 100644
+> --- a/virt/kvm/guest_memfd.c
+> +++ b/virt/kvm/guest_memfd.c
+> @@ -30,6 +30,8 @@ struct gmem_file {
+>  struct gmem_inode {
+>  	struct shared_policy policy;
+>  	struct inode vfs_inode;
+> +
+> +	u64 flags;
+>  };
+>  
+>  static __always_inline struct gmem_inode *GMEM_I(struct inode *inode)
+> @@ -154,7 +156,7 @@ static struct folio *kvm_gmem_get_folio(struct inode *inode, pgoff_t index)
+>  
+>  static enum kvm_gfn_range_filter kvm_gmem_get_invalidate_filter(struct inode *inode)
+>  {
+> -	if ((u64)inode->i_private & GUEST_MEMFD_FLAG_INIT_SHARED)
+> +	if (GMEM_I(inode)->flags & GUEST_MEMFD_FLAG_INIT_SHARED)
+>  		return KVM_FILTER_SHARED;
+>  
+>  	return KVM_FILTER_PRIVATE;
+> @@ -385,9 +387,7 @@ static inline struct file *kvm_gmem_get_file(struct kvm_memory_slot *slot)
+>  
+>  static bool kvm_gmem_supports_mmap(struct inode *inode)
+>  {
+> -	const u64 flags = (u64)inode->i_private;
+> -
+> -	return flags & GUEST_MEMFD_FLAG_MMAP;
+> +	return GMEM_I(inode)->flags & GUEST_MEMFD_FLAG_MMAP;
+>  }
+>  
+>  static vm_fault_t kvm_gmem_fault_user_mapping(struct vm_fault *vmf)
+> @@ -399,7 +399,7 @@ static vm_fault_t kvm_gmem_fault_user_mapping(struct vm_fault *vmf)
+>  	if (((loff_t)vmf->pgoff << PAGE_SHIFT) >= i_size_read(inode))
+>  		return VM_FAULT_SIGBUS;
+>  
+> -	if (!((u64)inode->i_private & GUEST_MEMFD_FLAG_INIT_SHARED))
+> +	if (!(GMEM_I(inode)->flags & GUEST_MEMFD_FLAG_INIT_SHARED))
+>  		return VM_FAULT_SIGBUS;
+>  
+>  	folio = kvm_gmem_get_folio(inode, vmf->pgoff);
+> @@ -588,7 +588,6 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+>  		goto err_fops;
+>  	}
+>  
+> -	inode->i_private = (void *)(unsigned long)flags;
+>  	inode->i_op = &kvm_gmem_iops;
+>  	inode->i_mapping->a_ops = &kvm_gmem_aops;
+>  	inode->i_mode |= S_IFREG;
+> @@ -598,6 +597,8 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+>  	/* Unmovable mappings are supposed to be marked unevictable as well. */
+>  	WARN_ON_ONCE(!mapping_unevictable(inode->i_mapping));
+>  
+> +	GMEM_I(inode)->flags = flags;
+> +
+>  	file = alloc_file_pseudo(inode, kvm_gmem_mnt, name, O_RDWR, &kvm_gmem_fops);
+>  	if (IS_ERR(file)) {
+>  		err = PTR_ERR(file);
+> @@ -917,6 +918,8 @@ static struct inode *kvm_gmem_alloc_inode(struct super_block *sb)
+>  		return NULL;
+>  
+>  	mpol_shared_policy_init(&gi->policy, NULL);
+> +
+> +	gi->flags = 0;
 
-                        Geert
+I initially wondered why these are initialized in kvm_gmem_alloc_inode() 
+instead of kvm_gmem_init_inode_once().
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Your comment in kvm_gmem_init_inode_once() made clear to me.. The ctor runs
+once per slab object, so  gi->flags wouldn't reset on inode realloction.
+Initializing in the alloc_inode() ensures proper reset on every allocation,
+Makes sense!
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Thanks for the detailed comment!
+
+Reviewed-by: Shivank Garg <shivankg@amd.com>
+Tested-by: Shivank Garg <shivankg@amd.com>
+
+>  	return &gi->vfs_inode;
+>  }
+>  
+
 
