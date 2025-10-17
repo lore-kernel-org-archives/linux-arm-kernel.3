@@ -4,85 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E96CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A9C6CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hOIrByP8ZUQuvgPySyDlm6fhYAgi3WQo8mV8b43qPRw=; b=FdCTYaqYs6BafK7V5jAkn5aa7A
-	xL11+RDjSq9EeFz3I5VGL1giuCVN92XPZkbZPH/Ypve4EinqIDo93ZLiryRPgtX35tglEGcAz2qM/
-	h9AlQzjyajmB91jmqoUv3y6jo85RueXY6ggSyEJH/N0p8ySOqBFN6kwIJQZOCicEezQJoH22bXFqs
-	Dry8TUHPHmCkivOW38bbDsDyzeE8PAbnlKEw5mZ9yFyLkFKGnSpH+C0zbC4Yy1WGX3HEaY9L7ehWh
-	AFw0ivIpHAFv9IVE899yVf/PwspTEkI9vOPbeurDxQs6S0d8zaaIf0TKjZFWY3oL33cmcRHBZ3FQj
-	aLc4VhkA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KKALYDlBuq3AApm7hJUER0vvZlNv/1hPEVn7ARgUxR4=; b=H3JQ5lFn/YKT5LTWEQLBDeIAzE
+	c+mBdwxWgoQc4BHdD0/ZDbIRSiBtB9nvNMNFl9/R429fJ4p4+Qfa0QMrlx+NUwzek6CwQ9Us32aW1
+	V0Yj3FgUYLi/Y8QG6egqfUpn7YDJtFqczy2tVLqAAFGoghNC9qLrwSK+9YVk9xD83PxYnelfeSRr+
+	a0yvSf+ZHBV0wzZDxhfwnIAxy+mx3KosqECONTTdND6bmeoVDMIicF2y4koqxUqxKhZlLwc7M/CG+
+	0RovskbEFMc4lHdAoxm9pBgzBlXu409+56WnZMpa2YKTuZ82A5GFt2wpuYWYSO3ExFSnN2jGioP9D
+	FTlspX7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9nds-00000008Uai-0kwJ;
-	Fri, 17 Oct 2025 16:49:24 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1v9nfG-00000008Uq4-0Bhc;
+	Fri, 17 Oct 2025 16:50:50 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ndp-00000008UZq-1k8J
+	id 1v9nfD-00000008UpK-19gJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 16:49:23 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b57c2371182so1953003a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 09:49:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760719760; x=1761324560; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hOIrByP8ZUQuvgPySyDlm6fhYAgi3WQo8mV8b43qPRw=;
-        b=E+QE43J4lP+QBGmeuE1oFHn8uZKu08v6VElhcaaetoB0vU14eXtPARmZFr/u5y9oKS
-         bLdGw1QtoQAQdppTOUzPAHMexaETbGDQzrIdaCWitKBqBrfvQoR4xkQDoHQ3bZTk6Q4O
-         aGCsLqMRAGs15dp8aXxvzgWBvcZ6XOCRT+ELPN2pWw7YfEHkzPgVpImVBTAiOGuRaFY2
-         urk7HlMm1Izfu6Zpg31645ouRg1M1WC9gsEPK9mdEwiQi1cuH4cpOBqH14mhZvZapB1C
-         AAnddUEjRsOB8vfkb83Y7e8Utt6RTlwPgm7lyDljxHYwz33exf5bgr0rZ+ieiFua1Unj
-         mTZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760719760; x=1761324560;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=hOIrByP8ZUQuvgPySyDlm6fhYAgi3WQo8mV8b43qPRw=;
-        b=PnoFI84HdWtZaBxnK28vpBYozZcXa4UeyvTOpCd/ZuWLkgilQc3cNJxQYbyZ3e3Svf
-         WyUOUtCgATCkuClpk93slN30/g0S3z5KiBngYJqI9VRde6R0EcSWsV4ASDvl1FeuxcF4
-         Ud6OF7huN2qOHbn8B4q544msyIXhOy8cQJ+8ISjXe00PYklNfRtRdeP42kPWRLbOTQCs
-         Dcm6vCRJvL0rX054TQVAm7tXA3/fn4/syYtmoFqz60uyG3MPaFJWmJx/jw+oPUd4dbhT
-         fiJjw+9HXNNoOZZRq6jK3nIsXRZVvh+iztYTGGoDAb5yP0r777hyfSAoNSRW6fYBibC1
-         PNVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUQNVGGOTZ2ZbDNFUljoWD4W9hFgBqCmtd8ZeT+jojqKm0tlpO55Tb2f0Zo0DiKDGOf9sy/FV1g+5z5FH0x4RII@lists.infradead.org
-X-Gm-Message-State: AOJu0YzO29nS09CzEeHau810RaUgTf1tO/zPIhcjuhS1inYkhJGoMw6L
-	uv2Uzp6zTRoVxLUPf+mmjoH38ulH6kWAh4K9IIr+A3rDH8VcpStX+nOroVPv6OL+w4ZyqK2iYMo
-	IHCFrjA==
-X-Google-Smtp-Source: AGHT+IEuqhHVpbBVF4PRy6ZWRfMuRBmBaTfUEEN01d1cgDPtR7abw4umz8fmd13HoIYheHHmygdWMEDHdzI=
-X-Received: from plbkg4.prod.google.com ([2002:a17:903:604:b0:290:be3d:aff6])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:40ca:b0:290:b928:cf3d
- with SMTP id d9443c01a7336-290cbd35d7dmr53537195ad.59.1760719759868; Fri, 17
- Oct 2025 09:49:19 -0700 (PDT)
-Date: Fri, 17 Oct 2025 09:49:17 -0700
-In-Reply-To: <CANiq72m0rNCaKandZgRa4dMhNOEN7ZanT5ht4kT8FLxYoWLVLQ@mail.gmail.com>
-Mime-Version: 1.0
-References: <20251016172853.52451-1-seanjc@google.com> <CANiq72ntKAeXRT_fEGJteUfuQuNUSjobmJCbQOuJWAcNFb1+9w@mail.gmail.com>
- <aPFVcMdfFlxhgGZh@google.com> <CANiq72m6vWc9K+TLYoToGOWXXFB5tbAdf-crdx6U1UrBifEEBA@mail.gmail.com>
- <diqzqzv2762z.fsf@google.com> <CANiq72m0rNCaKandZgRa4dMhNOEN7ZanT5ht4kT8FLxYoWLVLQ@mail.gmail.com>
-Message-ID: <aPJzjWzL4EbwDM66@google.com>
-Subject: Re: [PATCH v13 00/12] KVM: guest_memfd: Add NUMA mempolicy support
-From: Sean Christopherson <seanjc@google.com>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Ackerley Tng <ackerleytng@google.com>, Miguel Ojeda <ojeda@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Shivank Garg <shivankg@amd.com>, David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, 
-	Ashish Kalra <ashish.kalra@amd.com>, Vlastimil Babka <vbabka@suse.cz>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 17 Oct 2025 16:50:48 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cp9mz25xwz9tJG;
+	Fri, 17 Oct 2025 18:50:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760719843;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KKALYDlBuq3AApm7hJUER0vvZlNv/1hPEVn7ARgUxR4=;
+	b=eyYDDBzaOLfNdca2I7KQdT7e1NK2NXZIZWRlguf6SJej6B3274WlX3ZqqSl9TQ9NfnXzZk
+	Pb7rR3iY1xOHKd1YsBZPleTaH7i5VwHRX/hwXHoygO2Uw13PIaOmiWcP3NzaZZqFsCoJNR
+	7CzPI/jIEEBOM6EJW3QfRZb+x4pWNlqXpzzZNVPlrmRBGAdr8NZJ7KLL3hAcoBFbcu+cZC
+	zcTMsaRupUE4lrEZwZPSfG6id4vATlg/djF3w76VmcjMCA7efgt5IfGwOF0V8rjF/zyVfV
+	YBpveuObA970laZ4iSSs7vCrqQHj93OZNBsIRS1wsm0BquPOrUCiX8tf6oLZJQ==
+Message-ID: <96850d24-8b38-4437-bbde-2b4aede3fdae@mailbox.org>
+Date: Fri, 17 Oct 2025 16:55:25 +0200
+MIME-Version: 1.0
+Subject: Re: [PATCH 25/39] dt-bindings: display: bridge: Document NXP i.MX95
+ pixel interleaver support
+To: Frank Li <Frank.li@nxp.com>
+Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Liu Ying <victor.liu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
+ Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+ <20251011170213.128907-26-marek.vasut@mailbox.org>
+ <aO1LkIAfErQhQ58j@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <aO1LkIAfErQhQ58j@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: 63emeuje8d1fpppi7rferinsd6qqt4yc
+X-MBO-RS-ID: 7c53f1497155dd64e06
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_094921_452754_A2506238 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20251017_095047_459877_08332635 
+X-CRM114-Status: UNSURE (   5.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,58 +89,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025, Miguel Ojeda wrote:
-> On Fri, Oct 17, 2025 at 1:57=E2=80=AFAM Ackerley Tng <ackerleytng@google.=
-com> wrote:
-> >
-> > Using the command on virt/ would pick it up. Would it be better to add
-> > "virt/" to the "automation" + update .clang-format while we're at it?
->=20
-> Yeah, that is what I was suggesting if you rely on it (and if the
-> maintainers of the relevant folders are OK with it).
+On 10/13/25 8:57 PM, Frank Li wrote:
 
-Hmm, my vote would be to go all-or-nothing for KVM (x86), i.e. include ever=
-ything
-in KVM, or explicitly filter out KVM.  I don't see how auto-formatting can =
-be
-useful if it's wildly inconsistent, e.g. if it works for some KVM for-each =
-macros,
-but clobbers others.
+Hello Frank,
 
-And I'm leaning towards filtering out KVM, because I'm not sure I want to e=
-ncourage
-use of auto-formatting.  I can definitely see how it's useful, but so much =
-of the
-auto-formatting is just _awful_.
+>> +  fsl,syscon:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +    description: |
+>> +      A phandle which points to Control and Status Registers (CSR) module.
+> 
+> Need justify why not standard interface such as clock, phy, reset ...
 
-E.g. I ran it on a few KVM files and it generated changes like this
+Because this is neither clock, nor reset nor anything else. This is 
+really only a remote register which controls the pixel interleaving. 
+Therefore, syscon.
 
--       intel_pmu_enable_fixed_counter_bits(pmu, INTEL_FIXED_0_KERNEL |
--                                                INTEL_FIXED_0_USER |
--                                                INTEL_FIXED_0_ENABLE_PMI);
-+       intel_pmu_enable_fixed_counter_bits(
-+               pmu, INTEL_FIXED_0_KERNEL | INTEL_FIXED_0_USER |
-+                            INTEL_FIXED_0_ENABLE_PMI);
+>> +
+>> +  ports:
+>> +    $ref: /schemas/graph.yaml#/properties/ports
+>> +
+>> +    properties:
+>> +      port@0:
+>> +        $ref: /schemas/graph.yaml#/properties/port
+> 
+> video-interfaces.yaml?
+No, because none of the properties in video-interfaces.yaml are 
+applicable to this port as far as I can tell.
 
-and=20
-
--                       intel_pmu_enable_fixed_counter_bits(pmu, ICL_FIXED_=
-0_ADAPTIVE);
-+                       intel_pmu_enable_fixed_counter_bits(
-+                               pmu, ICL_FIXED_0_ADAPTIVE);
-
-There are definitely plenty of good changes as well, but overall I find the=
- results
-to be very net negative.  That's obviously highly subjective, and maybe the=
-re's
-settings in clangd I can tweak to make things more to my liking, but my ini=
-tial
-reaction is that I don't want to actively encourage use of auto-formatting =
-in KVM.
-
-I think no matter what, any decision should be in a separate, dedicated pat=
-ch/thread.
-So for this series, I'll drop the .clang-format change when applying, assum=
-ing
-nothing else pops that requires a new version.
+The rest is fixed, thanks !
 
