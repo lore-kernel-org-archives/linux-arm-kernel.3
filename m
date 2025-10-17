@@ -4,72 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC1ABCCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31CB4CCD1A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o/0xrgYWwbL6uDm6bWRd8Dfjm9NXSGd8s9gIV76gFCo=; b=fk53Olhm86wZSJ7wmjhkIOvEN7
-	KX2DhUYSHkNP2kKKCPwM8dVLNOd2hOTszx/yQEERYyGPZ+ysFYdyl35gSkDKCL/mcywyqfs4HPKcm
-	7Mt2e21jbU5Lk7gtmUox+fuPZXcmxQJgDUSjkxnaetVW8+KZ7Il94/gbiex6AyWmRc+2JOiCeaZav
-	vaNir38jvPFS7b74Wef1ud07yV/iKaJuphC99AcmNSRUHBiH8lcoYYALI4jwWqVHq13EO/jxUZMXV
-	EnYCj5mlUJLEweKJvTZibHy34IKNoL+WL7ZX+fEFzedo1l8F0mbkmpO7UohRShrP0t8YvTPHRnH3A
-	vLA2ZlqA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uDBtrf04QYUQbsiCFswby2jYYDrs9vGFSiZ+aqY91Ds=; b=2OI10dcLMQGvjO5K6XLFofZggj
+	sXR7GSfYibnhYzwegb091I2GL5+FNEoDL07W46UPBGt/dP10wjZz6MkebWaQ/n2m7R5ArUp3GEWmO
+	yORUQEsymOFFZT77QpCgA8zRHBtMeA9RcT3v9awBWNeQG7Vqt4uu4Tqg2sth4akHXHew8pFvlwtqr
+	amQtCkdwyJ+VRnFPrqkau3/0qwCejBgva6+dyaqUiiIe8VQDdfqyp96RbogCK1f3fybdKcvjI6OAB
+	lAXyANb28O7TOqQqhd9QwUt241Gtc4xKRgJvh5df63T7H9ov9YCIr6d7n3cvvv1OCMbbuN7HSIdiR
+	kVd89lIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9n5y-00000008OOH-2UP3;
+	id 1v9n5y-00000008OOM-3jvg;
 	Fri, 17 Oct 2025 16:14:22 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9n5w-00000008ON7-0Yuy
-	for linux-arm-kernel@lists.infradead.org;
+	id 1v9n5x-00000008ONc-2t1t
+	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 17 Oct 2025 16:14:21 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b54f55a290cso310039266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 09:14:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=uDBtrf04QYUQbsiCFswby2jYYDrs9vGFSiZ+aqY91Ds=; b=XqJ+VtaRc9agJyWl47E9O0UqT6
+	BpjEZv59AKuTjuVjHbwoLy3nXHYaniLjmHzUkLSxEvnyhNsaqTpnR+4xmRTWnxqqk6eqn7C9KyYr/
+	3Ua8XVUUGXkuquVyIRCb/OgdigiIw+2rvIPEgzAaEioAazlEaL7w+R8Gc1zRcwqLA+jiKTngV2tuA
+	9wf0M0a74RZL16YZEWBUN1/jLKEFN8z4qsobrwVZm/wWaDhNy+zrAhbJxvT4VO7whG6iVebzDp6Su
+	WS6DsdPA2gKTkAOD3hX3RAeFKt0e2g8HNwARgIDoQFcPg0ZDGsm8UCL71E/PJOYWt3Od1oTHzMP19
+	EJTvgUJg==;
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9n5u-00000007jV8-3Jmu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 16:14:20 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b3d196b7eeeso386038566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 09:14:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760717658; x=1761322458; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=o/0xrgYWwbL6uDm6bWRd8Dfjm9NXSGd8s9gIV76gFCo=;
-        b=YFnPOzw9W3bxchXfnm1ndRMAoIlJScezcltEbx2mw34Js3sRLtraqM8aKnSKo4wOgO
-         WyV8C6bblopJJW3XuxX1+/eHHSdi/fyEwtnHnvyEXVFS8JVL1xI/aL5uwkiw92pk4H30
-         4L2A48gsFEKlZWKSphKpo8brfZTrMFcdZ9kaf5I4YQrAwtcDph0A88kX/977OpS+832d
-         ADd+Lt0j3psDGF3c0YAoBUccJae5uZe4LZ7XjfdHRmeBvGqpWgX0HLlFxlTTOXvqiEPr
-         mRrbmg8QKnL6BgFrqh9MWGcSKx0JwnrrPycy2/Oy4gs2VoJ0XscL8mO5GgsogxKKunsP
-         uGkA==
+        d=gmail.com; s=20230601; t=1760717655; x=1761322455; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uDBtrf04QYUQbsiCFswby2jYYDrs9vGFSiZ+aqY91Ds=;
+        b=OWtiWqykmIvFqTDfXTyyH1fIerqgPxaGE50N3gcRIZwXzsHqBl4u9vHtXlSzo4jR66
+         wyrGJHdUum7CS3Z++Fnjdzh6/mk/tHv66fjccQDd806LLTpgsaZhgg0GE2dGYmRTcZWF
+         rVxbO3w9jK+rFWvuRR/ooNGVLXjk0suB4fJKphskBDqXVF/GMw2tQnCgBkyXpa0/kraX
+         1z4Zq3IoPGWGKMpThoGiZgozNEijcw1b+I5jZdQ0FRLeUa5Kxw4xlK3IK2gI71Ao/9pK
+         ce4wqMkALRPBM3Kf5mY/DnZxG/XmnsFL20W7wft/pNpv8ZqAkqAn8ueaSSOoHlYGVQhC
+         MjBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760717658; x=1761322458;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=o/0xrgYWwbL6uDm6bWRd8Dfjm9NXSGd8s9gIV76gFCo=;
-        b=M3wTRBjilvM+pyWh3NqJo2W7azWWenKYLmKH6Or8w2dvOw+CytClyYkCwHAAKU1He4
-         bLA5AL7taBRkp03vTo+Qo7Uwc6CLWu7XfvpkoyNdWVYYsxyW51BbKWAMDMTyBGc5dwlW
-         41QRhVl0dDeF2xw+9E/EgNu3DbH85ByDfcOXIa2GpB7wX/D+hh4k7wdJgRIxWFX0anvL
-         GKRKxWSqQkcNuKzLvgdTaHI+bIFhDKeo13DwcCTweWqeK5LSTbDsTuhvFKiLHXYSOPwn
-         AX2VgtP07ImmhOKAO3t8sqCmlbf8zYkt0qeUVtvH+89ErqjbZXg6FS6yH49d6BYMY022
-         lI5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW8yPVwUz+hdBQpMeIDRqxg0Sn8bRxbOXOZb8vWTS8jyo3E2iLcNnkizMYWT49BwjQSLauHBPeqljOAg/B1uljp@lists.infradead.org
-X-Gm-Message-State: AOJu0YxR9rfMXeXRm2AXv7r2GeE0QZsXcBl1VrapOtU2I1xNkQY6lZVL
-	qOMcdYFMh8Vu1OZjaut/+10MVlk0T3jEOvDo2KwZxFyJF3fgawC8qbZq
-X-Gm-Gg: ASbGnctjYBiAfbIYzYrGWkmbcctxZPk6fQBqH9TFhOgkIEfov1G1UFnHzX2BWCQur52
-	G1rjEFGacOz+4Xiae9ft5ArxyENsX0nL8s7BNWq9qQg/HJ744aALZqiMbPpTR+AKo6swWqux4iA
-	/Zd3Vf96NQfimMx2Uca+nLYE6HLQYLwVqYR1ixzyJO48IL3oIwO2GDX4DrP7qO39USrTt8HGOWz
-	YZ3ioT7n0j/WNv3yLQ6C6Nz/Cw1eojzjx79drZVIaIj/m2yMOvY+ER6gy1DTZrU8mE/OD3xLMEW
-	1KMjitFjDVC04tdFbr2cQGcOmMLQ9YOPH/dN2NOrAMYzTWqORGccF4zeYWO4VmoTNdN/KuQlqAv
-	mLQ++MPagcRe20UxpXD2BJAfmE9GGnUSiN4Rox+p22iWWOVcg4Rwm5R9QLnNONE+6eP0PhnBy2o
-	XOUUOx6VdXRX64lP7YDPZx70Jnzgc9yG68/ZrRgzUi
-X-Google-Smtp-Source: AGHT+IEvX2NLEl2JEWd8maw6vu+Cz/hVCzCLPJGWsXutTdMkKS8cKelXvHyzoaBlWYedD/QgQ0uDEA==
-X-Received: by 2002:a17:907:a46:b0:b46:6718:3f30 with SMTP id a640c23a62f3a-b6475128af5mr477286966b.51.1760717657887;
-        Fri, 17 Oct 2025 09:14:17 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760717655; x=1761322455;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uDBtrf04QYUQbsiCFswby2jYYDrs9vGFSiZ+aqY91Ds=;
+        b=pC7SyTgTHOn+DoKf0Uk9MKpRhiuWR7772gE4fZteYPy9rZMnd6eooAk7+LrM9r2iXl
+         4EA3Dd06Kl9yprx8ZGpWd6sR08hvHHBwfEt46tLCvrbQs/QpGjFfeiDA7Iy+2+2xiLN5
+         BrqcTlSTC6yk3OOor5WkKpTTMCJHA2difJM+OWxKsJcbIg9hy0UbpQMyImnEd77fYSm+
+         ryI0BUYk4rWg7TlHhiQPyk3lLk6s/6Rnn6hJj/KptvOdTCscCYG56vb5cfQ1tAvJj7OX
+         feM0gKvnXu++bFOoEV9Yl+nUerOV4KdWy1pLaYNoR6Se2vLbULIeTzJtoVEdDHJg9pbQ
+         awdA==
+X-Forwarded-Encrypted: i=1; AJvYcCUC4rVHdTJh5Hhzz8SaeBFMkBFmwn2t/PRSR/F5JebleqLCo1+LNd7oXQY5NZhpg4lgncT/42NEqKNCvCNN+6bL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+2o9DxwcRxemnH8MemgP+YpZkJiJTSjdff/CgJzhnTNIGNvhI
+	jZSp+tw4GHWh+VbH7RU+3AtutUDmDBJ783i7OYVsYAUKf43+VDeyCWp5
+X-Gm-Gg: ASbGncuB2Joe/A9Uqq8vqBdYkr5pv1wvMsbZo/RQUQKbbOuY0oWB9utI+mkPReow5EY
+	dq6zGV5cy6+S/pGoh14O0QE5di6ZyJEDCURBb58faEA+EMGdXQSKddiFu/sOAksDWBcl+WkWApe
+	trg6tQhGqP4o6Alj3494e2xl6y+zSKzFOpCJ0hkULFMAQuMEN1rGPkxYhZeVw9tV/kCsKq2kbxI
+	JPWjndpO1hf0t0iXHfEKKm7cF29pqBtHUaDeiD6FV4DWpR/i02h1kSgEcz99OmcfN6Z6LDvsUp7
+	YbjAajJWa1TUhg4YbSR2LJj+JME/Wcz63LGLHG+ssTVqdUpT/aPO43LwMikydgHgkLbk2bKyQiW
+	Q6XzFH9Naf0rmut2FAWv5IBlV1w5XwkF3PbfNHBDsNGa6tNwS0r9ZeE3yOL6BgefY7noYaA1eOw
+	p3H48iFeTMTJ3tza6vECcl5sQk7eEsGjo4jFQIAbBJ
+X-Google-Smtp-Source: AGHT+IHK9WQ4a0UK8NwMypKKKManCE9AjC6PIzjyVE2Ox3e8SVeVLpu0Cb9a9BFD18dkt9RME7LIHQ==
+X-Received: by 2002:a17:907:3e1d:b0:b3c:8940:623c with SMTP id a640c23a62f3a-b6472a6a114mr519013666b.14.1760717655010;
+        Fri, 17 Oct 2025 09:14:15 -0700 (PDT)
 Received: from ivaylo-T580.. (79-100-18-255.ip.btc-net.bg. [79.100.18.255])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65eb036706sm9606466b.41.2025.10.17.09.14.16
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65eb036706sm9606466b.41.2025.10.17.09.14.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Oct 2025 09:14:17 -0700 (PDT)
+        Fri, 17 Oct 2025 09:14:14 -0700 (PDT)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Krzysztof Kozlowski <krzk@kernel.org>,
 	Sylwester Nawrocki <s.nawrocki@samsung.com>,
@@ -84,17 +98,15 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/5] clk: samsung: clk-pll: Add support for pll_141xx
-Date: Fri, 17 Oct 2025 19:13:30 +0300
-Message-ID: <20251017161334.1295955-3-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v2 0/5] clk: samsung: introduce exynos8890 clock driver
+Date: Fri, 17 Oct 2025 19:13:28 +0300
+Message-ID: <20251017161334.1295955-1-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251017161334.1295955-1-ivo.ivanov.ivanov1@gmail.com>
-References: <20251017161334.1295955-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_091420_185736_6C83F32E 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20251017_171418_933203_0A7CC061 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,59 +121,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PLL is similar to pll_35xx, with the exception of a different
-Locktime - 150 instead of 270, as with pll_142xx.
+Hey folks,
 
-When defining a PLL, the "con" parameter should be set to CON0
-register, like this:
+This patchset adds a pretty much full (except for ISP and camera blocks)
+cmu driver for exynos8890. It's configured to run with gates in manual
+mode, which is done differenetly from other exynos SoCs.
 
-PLL(pll_141xx, CLK_FOUT_SHARED0_PLL, "fout_shared0_pll", "oscclk",
-    PLL_LOCKTIME_PLL_SHARED0, PLL_CON0_PLL_SHARED0,
-    pll_shared0_rate_table),
+Best regards,
+Ivaylo
 
-Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
----
-Changes since V2:
+Changes from V2:
+patch 2/5:
 - rebase on next and drop the unnecessary new line
----
- drivers/clk/samsung/clk-pll.c | 4 +++-
- drivers/clk/samsung/clk-pll.h | 1 +
- 2 files changed, 4 insertions(+), 1 deletion(-)
+patch 3/5:
+- rebase on next
+- add r-b tag from Peng Fan
+patch 4/5:
+- rebase
+- add r-b tag from Peng Fan
+patch 5/5:
+- include bitfield.h to ease the kernel test robot's pain
+- add a comment that specifies we're disabling hwacg and change
+the commit description as per Peng Fan's suggestion
 
-diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
-index 7bea7be1d..4700eadad 100644
---- a/drivers/clk/samsung/clk-pll.c
-+++ b/drivers/clk/samsung/clk-pll.c
-@@ -278,7 +278,8 @@ static int samsung_pll35xx_set_rate(struct clk_hw *hw, unsigned long drate,
- 	}
- 
- 	/* Set PLL lock time. */
--	if (pll->type == pll_142xx || pll->type == pll_1017x)
-+	if (pll->type == pll_142xx || pll->type == pll_1017x ||
-+	    pll->type == pll_141xx)
- 		writel_relaxed(rate->pdiv * PLL142XX_LOCK_FACTOR,
- 			pll->lock_reg);
- 	else
-@@ -1497,6 +1498,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
- 	case pll_1451x:
- 	case pll_1452x:
- 	case pll_142xx:
-+	case pll_141xx:
- 	case pll_1017x:
- 		pll->enable_offs = PLL35XX_ENABLE_SHIFT;
- 		pll->lock_offs = PLL35XX_LOCK_STAT_SHIFT;
-diff --git a/drivers/clk/samsung/clk-pll.h b/drivers/clk/samsung/clk-pll.h
-index 6c8bb7f26..3c7575cde 100644
---- a/drivers/clk/samsung/clk-pll.h
-+++ b/drivers/clk/samsung/clk-pll.h
-@@ -51,6 +51,7 @@ enum samsung_pll_type {
- 	pll_4311,
- 	pll_1017x,
- 	pll_1031x,
-+	pll_141xx,
- };
- 
- #define PLL_RATE(_fin, _m, _p, _s, _k, _ks) \
+Ivaylo Ivanov (5):
+  dt-bindings: clock: add exynos8890 SoC
+  clk: samsung: clk-pll: Add support for pll_141xx
+  clk: samsung: clk-pll: Add support for pll_1419x
+  clk: samsung: clk-pll: Add support for pll_1431x
+  clk: samsung: introduce exynos8890 clock driver
+
+ .../clock/samsung,exynos8890-cmu.yaml         |  477 +
+ drivers/clk/samsung/Makefile                  |    1 +
+ drivers/clk/samsung/clk-exynos8890.c          | 8697 +++++++++++++++++
+ drivers/clk/samsung/clk-pll.c                 |   12 +-
+ drivers/clk/samsung/clk-pll.h                 |   12 +
+ .../clock/samsung,exynos8890-cmu.h            | 1279 +++
+ 6 files changed, 10476 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/samsung,exynos8890-cmu.yaml
+ create mode 100644 drivers/clk/samsung/clk-exynos8890.c
+ create mode 100644 include/dt-bindings/clock/samsung,exynos8890-cmu.h
+
 -- 
 2.43.0
 
