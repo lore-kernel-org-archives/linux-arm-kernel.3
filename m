@@ -4,117 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C9BCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51632CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Spwj47Nan+rW96kf6tlBP7bE1jk4eFBOqBuFMb9M0J0=; b=AP/9Smz3MR7Ga8x+aBctXdPvt9
-	TZ2b0miQE/NOUHI1jlPl4XBZoyWriygE9jK9bCdCSZQWiYa7JVv1Y3kLU8X6FNum3v5aXsLpiFYdm
-	tGXyrmJoOCLu4PzLktiZO+oA8CHBNTF3aYMtjaNA2OzjBhFZ4lM6TC5iLJEndxiiiz2n/cPbuR3ee
-	Qjwgk85Anq+hvmdAMNodwuxEPf9LanfgxTnVX6Z2/+tJU9pHtovecPebyNqPL1CoFRT/Pq5YLASUU
-	m5L/X+3YqkVW6ui0dp8ZOei5CcT4igJQdgH3Rfd7CZ/syNupkcFp5rWz6WTdc9QiY5wM55dBzbZVb
-	+dnk4dDQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NgBJlBBQiwIiYE31q49jHU8DgYr8sOYsUodkYg4Ek5Y=; b=Eb2kfDBWlNgu7nIcoxvFcOQ/l9
+	fWEhwmcSDlkwSNzENsOgUtCMhl1fAoCjsjCEFNlvNfV6RLrp0gU5qCLc6N6xcrPYxTnQdwbf++R0O
+	sRMvY1K+xOt9PRrvH72S9zGZ3y4nRKgkzsWpF8yHJVmVAIMVEmZcqj6NCavHewgDV4NP5SV3uK0tv
+	NTNG0Hqk9/C2mcrGsM014lW1/9jfkvRZ405yx9ewOXzXtRP2InmXtTRcYVEmKZikJO/fBttTraqjz
+	mdbLo+jzDSWjT5QweopJKIAlrtOgCn5vR32yXl/8F18iThtsQBQYFMSP+xu/ke8tovzgZc74SAdZj
+	NVURCLsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9f1d-00000006yZS-0AFU;
-	Fri, 17 Oct 2025 07:37:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v9f47-00000006z8A-3QSf;
+	Fri, 17 Oct 2025 07:39:55 +0000
+Received: from esa6.hc1455-7.c3s2.iphmx.com ([68.232.139.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9f1a-00000006yYT-3aKW
+	id 1v9f43-00000006z7B-2mup
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 07:37:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BAB0B40AD2;
-	Fri, 17 Oct 2025 07:37:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79B65C4CEE7;
-	Fri, 17 Oct 2025 07:37:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760686636;
-	bh=OPpq1V+xteVgsOqjoTTVev2nL2f4yYSk2DnKGXI5Mjg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UPBAypuLH797C3QOEZOSs8Xz02CRwoRnKrJ4ooDD6pCR/J95GEdwdRd170EYeoYNN
-	 C/DBpVWStVA9XS5VKlY7V8mcp9JoSHZ7cwe/E2iSADTYxG8cEN3aFr0iPE2lcmRwHI
-	 ORT/nCIPIQZVD7Drj0IwEI6k+hWzb0Jw/fbu4LNcEnu4vET606q26xIXmQVEJQapqY
-	 aI77aLrXJVCRKvhuFjXXFGXOmYc67vv991l3vPqXGeSNJ9AbIREsLViRdFOCZODCPt
-	 wqHj1vjZRVf7UO5EPEdrzU/BrEjoneVluqN2rmPK3Zt33deJXxbSo8zSgC/CgjJ2D2
-	 nbKB4RoabIOAQ==
-Message-ID: <f38f652a-929d-4db9-9ac8-98a52def5e15@kernel.org>
-Date: Fri, 17 Oct 2025 09:37:12 +0200
+	Fri, 17 Oct 2025 07:39:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1760686791; x=1792222791;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=8Qd4GPH7y8X3pVNHEWQhcSh8umsdNRfLMh7EGnd9YjU=;
+  b=iVmRk0sSX4l3G0KyIf7coc+P/ZZTzQNdgeBw62qVY28eEBPicP2shiPT
+   TBxrlkmd/l5cQtqQ39IVzXz5E6Cfppi59Ii3Z/OhCIx06VOzG+YVqWEyk
+   cHGpSWnwDZTfTCBdEn8pLXuvYzgMZ/IVaqsmS0MgP4XYLpGA4hg4ZZ0LP
+   vLouIF4u+HEtyiqLrqOKHGi1BivMkoDdWcY3FTmQfrMuB2GOY7yWCfzfP
+   qyTFRkzTLtcN1UTyAHMPHJxbtnbacOfsONz1xTcnef6UXwo2A2EHN6QiE
+   SMdYuy7W5taK8c2QHlrcPUgus64RL6FSzEO/VMyH+ZaUo2e4PjK5eF6xA
+   A==;
+X-CSE-ConnectionGUID: stmgl7gBThuCWP+CyGi3nA==
+X-CSE-MsgGUID: dBrIIo83SMKdCOuqLbRDVA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11584"; a="219877385"
+X-IronPort-AV: E=Sophos;i="6.19,234,1754924400"; 
+   d="scan'208";a="219877385"
+Received: from unknown (HELO az2uksmgr2.o.css.fujitsu.com) ([52.151.125.19])
+  by esa6.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Oct 2025 16:39:47 +0900
+Received: from az2uksmgm1.o.css.fujitsu.com (unknown [10.151.22.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgr2.o.css.fujitsu.com (Postfix) with ESMTPS id 83E6682073D
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 07:39:46 +0000 (UTC)
+Received: from az2uksmom1.o.css.fujitsu.com (az2uksmom1.o.css.fujitsu.com [10.151.22.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 407E192674D
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 07:39:46 +0000 (UTC)
+Received: from sm-arm-grace07.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
+	by az2uksmom1.o.css.fujitsu.com (Postfix) with ESMTP id 2F795180157C;
+	Fri, 17 Oct 2025 07:39:41 +0000 (UTC)
+From: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
+Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Subject: [PATCH v4] ACPI: AGDI: Add interrupt signaling mode support
+Date: Fri, 17 Oct 2025 16:39:25 +0900
+Message-ID: <20251017073935.1746365-1-fj1078ii@aa.jp.fujitsu.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Change CONFIG_SM_TCSRCC_8750 from m to
- y
-To: Taniya Das <taniya.das@oss.qualcomm.com>,
- Taniya Das <quic_tdas@quicinc.com>, Bjorn Andersson <andersson@kernel.org>,
- linux-arm-msm@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
- Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
- Imran Shaik <imran.shaik@oss.qualcomm.com>,
- Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
- linux-kernel@vger.kernel.org
-References: <20251017-update_defconfig_tcsrcc_sm8750-v1-1-34b1b47a0bda@oss.qualcomm.com>
- <30390038-0f90-48a4-befe-475cf88ba1fb@kernel.org>
- <37f54b76-a274-4ce2-aaa9-88ba0eb84199@oss.qualcomm.com>
- <90c8dda3-f753-43dc-8bb9-d03a808c8704@kernel.org>
- <38b8468f-5006-46a3-a4ea-28e6692ef14a@quicinc.com>
- <03ac36fb-a227-438e-bdf6-f787e26008b3@kernel.org>
- <8580ae8e-50e9-481c-b9f3-125b6d1cb494@kernel.org>
- <f07fa7fe-b89d-4d1c-9ac8-be5ecbf1ded0@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <f07fa7fe-b89d-4d1c-9ac8-be5ecbf1ded0@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_003718_936015_D32FBDE5 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20251017_003952_326370_DC68C73C 
+X-CRM114-Status: GOOD (  24.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,80 +96,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/10/2025 08:57, Taniya Das wrote:
-> 
-> 
-> On 10/17/2025 12:24 PM, Krzysztof Kozlowski wrote:
->> On 17/10/2025 07:56, Krzysztof Kozlowski wrote:
->>> On 17/10/2025 07:49, Taniya Das wrote:
->>>>
->>>>
->>>> On 10/17/2025 10:51 AM, Krzysztof Kozlowski wrote:
->>>>> On 17/10/2025 07:16, Taniya Das wrote:
->>>>>>
->>>>>>
->>>>>> On 10/17/2025 10:00 AM, Krzysztof Kozlowski wrote:
->>>>>>> On 16/10/2025 20:53, Taniya Das wrote:
->>>>>>>> The TCSR clock controller is required  during boot to provide the ref
->>>>>>>> clocks to the UFS controller. Setting CONFIG_SM_TCSRCC_8750 to y ensures
->>>>>>>> the UFS driver successfully probe and initialize the device.
->>>>>>>>
->>>>>>>> Without this change, the UFS subsystem fails to mount as a usable file
->>>>>>>> system during boot.
->>>>>>>
->>>>>>>
->>>>>>> That's not what I observed. UFS works fine, especially that it is a
->>>>>>> module, so no, this is not a desired change and explanation is not only
->>>>>>> insufficient but actually incorrect.
->>>>>>>
->>>>>>
->>>>>> Krzysztof, on Pakala MTP we are observing the below issue and it
->>>>>> requires the module of tscrcc to be loaded explicitly. This patch also
->>>>>> aligns to how it is on all other targets.
->>>>>>
->>>>>> /soc@0/phy@1d80000: Failed to get clk index: 2 ret: -517
->>>>>> [   10.496570] ufshcd-qcom 1d84000.ufs: freq-table-hz property not specified
->>>>>> [   10.503660] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
->>>>>> find vdd-hba-supply regulator, assuming enabled
->>>>>> [   10.514548] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
->>>>>> find vccq2-supply regulator, assuming enabled
->>>>>> [   10.565955] platform 1d80000.phy: deferred probe pending: (reason
->>>>>> unknown)
->>>>>> [   10.573078] platform 1d84000.ufs: deferred probe pending:
->>>>>> ufshcd-qcom: ufshcd_pltfrm_init() failed
->>>>>>
->>>>>
->>>>>
->>>>> I don't and I am testing regularly, so I assume you have incorrect
->>>>> config. Maybe I have incorrect one (which works), but then commit msg is
->>>>> incomplete - you must explain the bug and provide proof that this is the
->>>>> correct fix for it.
->>>>>
->>>>
->>>> We have tried booting up recently and and that is what we observed. The
->>>> patch from 'm' to 'y' helps the UFS probe is successful and the rootfs
->>>> is picked from ufs partitions. I will add these fail & success log
->>>> snippets in the commit text.
->>>
->>> That's not enough. You need to explain why UFS fails. After explaining
->>> this, I guess bug in UFS would be exposed thus that one should be fixed.
->>> You just provided band-aid without fixing the real problem.
->>>
->>> NAK
->>
->>
->> ... and to prove your analysis is wrong (because your setup is likely
->> having issues) I even tested now linux next with defconfig. Works all
->> fine on next-20251013. You did not share which kernel even has this
->> issue, maybe some downstream tree?
->>
-> 
-> I have added how the commandline looks like for the test. Are you using
-> using the ramdisk as your rootfs?
+AGDI has two types of signaling modes: SDEI and interrupt.
+Currently, the AGDI driver only supports SDEI.
+Therefore, add support for interrupt signaling mode
+The interrupt vector is retrieved from the AGDI table, and call panic
+function when an interrupt occurs.
 
-Of course not. I am using full UFS rootfs. What test would be with
-ramdisk with rootfs?
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
+---
+Hanjun, I have addressed all your comments.
+Please review them.
 
-Best regards,
-Krzysztof
+v3->v4
+ - Add a comment to the flags member.
+ - Fix agdi_interrupt_probe.
+ - Fix agdi_interrupt_remove.
+ - Add space in struct initializsation.
+ - Delete curly braces.
+
+v3: https://lore.kernel.org/all/20250905042751.945616-1-fj1078ii@aa.jp.fujitsu.com/
+v2->v3
+ - Fix bug in the return value of agdi_probe function.
+ - Remove unnecessary curly braces in the agdi_remove function.
+
+v2: https://lore.kernel.org/all/20250829101154.2377800-1-fj1078ii@aa.jp.fujitsu.com/
+v1->v2
+ - Remove acpica update since there is no need to update define value
+   for this patch.
+---
+ drivers/acpi/arm64/agdi.c | 101 ++++++++++++++++++++++++++++++++++----
+ 1 file changed, 92 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/acpi/arm64/agdi.c b/drivers/acpi/arm64/agdi.c
+index e0df3daa4abf..feb4b2cb4618 100644
+--- a/drivers/acpi/arm64/agdi.c
++++ b/drivers/acpi/arm64/agdi.c
+@@ -16,7 +16,11 @@
+ #include "init.h"
+ 
+ struct agdi_data {
++	unsigned char flags; /* AGDI Signaling Mode */
+ 	int sdei_event;
++	unsigned int gsiv;
++	bool use_nmi;
++	int irq;
+ };
+ 
+ static int agdi_sdei_handler(u32 sdei_event, struct pt_regs *regs, void *arg)
+@@ -48,6 +52,57 @@ static int agdi_sdei_probe(struct platform_device *pdev,
+ 	return 0;
+ }
+ 
++static irqreturn_t agdi_interrupt_handler_nmi(int irq, void *dev_id)
++{
++	nmi_panic(NULL, "Arm Generic Diagnostic Dump and Reset NMI Interrupt event issued\n");
++	return IRQ_HANDLED;
++}
++
++static irqreturn_t agdi_interrupt_handler_irq(int irq, void *dev_id)
++{
++	panic("Arm Generic Diagnostic Dump and Reset Interrupt event issued\n");
++	return IRQ_HANDLED;
++}
++
++static int agdi_interrupt_probe(struct platform_device *pdev,
++				struct agdi_data *adata)
++{
++	unsigned long irq_flags;
++	int ret;
++	int irq;
++
++	irq = acpi_register_gsi(NULL, adata->gsiv, ACPI_EDGE_SENSITIVE, ACPI_ACTIVE_HIGH);
++	if (irq < 0) {
++		dev_err(&pdev->dev, "cannot register GSI#%d (%d)\n", adata->gsiv, irq);
++		return irq;
++	}
++
++	irq_flags = IRQF_PERCPU | IRQF_NOBALANCING | IRQF_NO_AUTOEN |
++		    IRQF_NO_THREAD;
++	/* try NMI first */
++	ret = request_nmi(irq, &agdi_interrupt_handler_nmi, irq_flags,
++			  "agdi_interrupt_nmi", NULL);
++	if (!ret) {
++		enable_nmi(irq);
++		adata->irq = irq;
++		adata->use_nmi = true;
++		return 0;
++	}
++
++	/* Then try normal interrupt */
++	ret = request_irq(irq, &agdi_interrupt_handler_irq,
++			  irq_flags, "agdi_interrupt_irq", NULL);
++	if (ret) {
++		dev_err(&pdev->dev, "cannot register IRQ %d\n", ret);
++		acpi_unregister_gsi(adata->gsiv);
++		return ret;
++	}
++	enable_irq(irq);
++	adata->irq = irq;
++
++	return 0;
++}
++
+ static int agdi_probe(struct platform_device *pdev)
+ {
+ 	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
+@@ -55,12 +110,15 @@ static int agdi_probe(struct platform_device *pdev)
+ 	if (!adata)
+ 		return -EINVAL;
+ 
+-	return agdi_sdei_probe(pdev, adata);
++	if (adata->flags & ACPI_AGDI_SIGNALING_MODE)
++		return agdi_interrupt_probe(pdev, adata);
++	else
++		return agdi_sdei_probe(pdev, adata);
+ }
+ 
+-static void agdi_remove(struct platform_device *pdev)
++static void agdi_sdei_remove(struct platform_device *pdev,
++			     struct agdi_data *adata)
+ {
+-	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
+ 	int err, i;
+ 
+ 	err = sdei_event_disable(adata->sdei_event);
+@@ -83,6 +141,30 @@ static void agdi_remove(struct platform_device *pdev)
+ 			adata->sdei_event, ERR_PTR(err));
+ }
+ 
++static void agdi_interrupt_remove(struct platform_device *pdev,
++				  struct agdi_data *adata)
++{
++	if (adata->irq == -1)
++		return;
++
++	if (adata->use_nmi)
++		free_nmi(adata->irq, NULL);
++	else
++		free_irq(adata->irq, NULL);
++
++	acpi_unregister_gsi(adata->gsiv);
++}
++
++static void agdi_remove(struct platform_device *pdev)
++{
++	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
++
++	if (adata->flags & ACPI_AGDI_SIGNALING_MODE)
++		agdi_interrupt_remove(pdev, adata);
++	else
++		agdi_sdei_remove(pdev, adata);
++}
++
+ static struct platform_driver agdi_driver = {
+ 	.driver = {
+ 		.name = "agdi",
+@@ -94,7 +176,7 @@ static struct platform_driver agdi_driver = {
+ void __init acpi_agdi_init(void)
+ {
+ 	struct acpi_table_agdi *agdi_table;
+-	struct agdi_data pdata;
++	struct agdi_data pdata = { 0 };
+ 	struct platform_device *pdev;
+ 	acpi_status status;
+ 
+@@ -103,12 +185,13 @@ void __init acpi_agdi_init(void)
+ 	if (ACPI_FAILURE(status))
+ 		return;
+ 
+-	if (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE) {
+-		pr_warn("Interrupt signaling is not supported");
+-		goto err_put_table;
+-	}
++	if (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE)
++		pdata.gsiv = agdi_table->gsiv;
++	else
++		pdata.sdei_event = agdi_table->sdei_event;
+ 
+-	pdata.sdei_event = agdi_table->sdei_event;
++	pdata.irq = -1;
++	pdata.flags = agdi_table->flags;
+ 
+ 	pdev = platform_device_register_data(NULL, "agdi", 0, &pdata, sizeof(pdata));
+ 	if (IS_ERR(pdev))
+-- 
+2.43.0
+
 
