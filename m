@@ -4,84 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57BA6CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6CB0CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eZ5/2E9/kdHV6wKk13IMjV26fuC0EY7cU/moeac/r0k=; b=T5gw+AoCPUD5+TKhbpo5tIikC+
-	1mVE31SXgCDnkp+zp1K1d88xmCtXibfz0x+4v98EamYntSaJfd2os46VssuCrvDOhrSMBTMk7gROJ
-	kgiIeoCRd9QFer/ys7KL9GlLeazEQA9/FsstEhHc14mm1xDXAhf2bXk3Dr67EYAzjNR+Rkp+6We6Q
-	7WdygpUQm9TAPo6QS5ye1qdMvbp//o9DuKlEffcoJaFEzI8uViiOh/rNDP5ifk/0JKnctDsgtrIww
-	75Rao1zpb49gbyM6T+q3jT8OBtMAIrzrnrqLi3z2hUenzq+lq6vCSSibUTg5B3QQf9L4xy+t4TZN0
-	eQisgxBA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uoOJKVjcja+pZfFrIKEYfKv+zueerFYrO1gT2duocao=; b=x6BEAz+knq/albWik7jPC2ExBa
+	KfT6ACvLlctUDTskE0THdpLox7YTAwAUC9d0PqXwq2N3JSNljwFD3bxOFfK2ZpUnm7qejPPq8Vvdt
+	HHcLzzjofIVs7rI/6DKJO85ZPf6DujiVkkE9PvObdvk8QrPyChNXCK4I5IQHUQK1OPtfHNpV0+he5
+	RH48ebtvNN86WTH/G+TnH7yI/MMduSbpdWVSrndgvSWgSwzM2Gw7q+raotkonFCPoddoZlV8V9y0Y
+	ZHpV+forIpLn6KIB+IMb2E9o92OLcz2spbGD2iHTE4+UCE16gkj/z35RxK54x4/juFy8EPlDU/BDc
+	DFXYG3Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iWN-00000007eWn-42pZ;
-	Fri, 17 Oct 2025 11:21:19 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1v9iWp-00000007efb-2ZsG;
+	Fri, 17 Oct 2025 11:21:47 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iWL-00000007eVj-1chU;
-	Fri, 17 Oct 2025 11:21:18 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760700075;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eZ5/2E9/kdHV6wKk13IMjV26fuC0EY7cU/moeac/r0k=;
-	b=0w22HeRqwsEaDWfFRcdym9ZdxujQL/SMlrRPuJJ8G0lW0VU+roLNqAQqn+5ddD4XHPvhCI
-	G8RfcOVLaDb522FTklVP+T9AWU7a2YUuU3/zS9de1315WWxBoHvU0Nj9QJ0h9Ke1JMi7Um
-	5yCRggrIaasOfxTCXZDvGcnXQN5DpN5DBZjhPihilyQSh9zfnpDA51OSo91RRi6YZ2ajDU
-	zq9nd/fL2MnY3jElVShCHCxnhdw8CHKx+HzZyOCYRxfE/8sQpHPMZx5+Owgr0vwuACBi4W
-	Im9zYuGn3kphxZ4bkop+xrUFJb6ZrY64lUNREC8dmKGqVpm3CuTHhMBvBTfxjg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760700075;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eZ5/2E9/kdHV6wKk13IMjV26fuC0EY7cU/moeac/r0k=;
-	b=yb2o+SyRVbqNJx1T2MjsSgrIjIm9/+bN/XuOD9YUNJmae1nSpVUZAsBLSIxLGfTfjAFqpz
-	FrlXldlLVbWUzqBA==
-To: Andrew Cooper <andrew.cooper@citrix.com>, LKML
- <linux-kernel@vger.kernel.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Andrew Cooper
- <andrew.cooper3@citrix.com>, Linus Torvalds
- <torvalds@linux-foundation.org>, kernel test robot <lkp@intel.com>,
- Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
- Piggin <npiggin@gmail.com>, linuxppc-dev@lists.ozlabs.org, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, linux-s390@vger.kernel.org, Julia Lawall
- <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>, Peter
- Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>, =?utf-8?Q?Andr=C3=A9?= Almeida
- <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V3 07/12] uaccess: Provide scoped masked user access
- regions
-In-Reply-To: <adba2f37-85fc-45fa-b93b-9b86ab3493f3@citrix.com>
-References: <20251017085938.150569636@linutronix.de>
- <20251017093030.253004391@linutronix.de>
- <adba2f37-85fc-45fa-b93b-9b86ab3493f3@citrix.com>
-Date: Fri, 17 Oct 2025 13:21:14 +0200
-Message-ID: <871pn122qd.ffs@tglx>
+	id 1v9iWn-00000007eeZ-2PPr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 11:21:46 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b50645ecfbbso361079666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 04:21:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760700103; x=1761304903; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uoOJKVjcja+pZfFrIKEYfKv+zueerFYrO1gT2duocao=;
+        b=N0c/bXnpevxxQpkkHQhp/xhuWcwRSJY+NtIafm5y7xycF6aPo0BhHPzu/WiIg/HCB1
+         36xR/r0No/9Y/NrANi9O6xreG7XrdgVOmIazUuuLpPu/5QtKLk8WKYI6BNnQ+7JYTTOi
+         ns8aLy9kh3f13W982A0CzdNrByKxGS+eEVooUejB/iP1n9RgDCEUYhaoMNfqOLLTkJB5
+         L9xjh1w29DUhrLE18K1vQwR40tT/vMqO7uJo3rqW9fv5+lb8d5x2b8osd9ixhkJ9pbig
+         84IvEg088c4JSA12dbkLMlYGupaWc51RYcKib9ikaSgTl4Ww4GGkPSsFWrBadAewLmcR
+         /rqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760700103; x=1761304903;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=uoOJKVjcja+pZfFrIKEYfKv+zueerFYrO1gT2duocao=;
+        b=uraPUuCWJqOBbfOkzl9TqMv51Sla7X+AySP0hyEbW5r/fprgfWUKocRQOicwsAkBaw
+         za1uPJ7sj+/Ul1UBdHshBVYAAlIFtxbIj6tRpsEU6uyN7QNM80nYFLLZGA+oyJw/riHd
+         56zNf2Vw0KcJYdRtS3IySRx805sZ2pfyp6AKOyenMsNw62pv/FLbnhivTNV9zhxw1NOo
+         8UixMjPMPCt2ky/RRwjI1O7tM4QorgJ4EL5bZHgZfoom01vDeRBhxbci6RliREeLUptj
+         jO9O36HfNq5heN0cyYv9iHCRo0YO0749IH6dbjSCyOPxemLzGSgMoshW4Q62ijRib1/U
+         W51w==
+X-Forwarded-Encrypted: i=1; AJvYcCUBwxPgVg8v6ZBJAmg1Pa1X9WMakGZYOv4nJzpl1kv3TVkqMjQtEcsU+K+UUxTV8M2SsIN2G1qcQadF1YQyfkPt@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywy7lnJ9NblDtpj2V2sOI9xFLqL+fOLfJpAErxdnHno64qAyXt/
+	PlFaT/Q1GBJXbmiEW4zFfMkOkr39ZaEuB88EBBw43Z9WEvmJgRQfPxh6
+X-Gm-Gg: ASbGncsa6wUOghOcB8OAjACqf9cMxA64Izmk5AgTZnJzzTmwJSd3DLJUNhqisv8DaUU
+	S8igDcDOkNlknxV7Fn2QIk8h/48Ja7+Nx5y7Djl1+uCJpFvkWnhplvTuwBYJ+eFW+glvI6k33iO
+	y6sOOyYUmqcVWFVBiRf7jjX9OX88gQCU2pyRTTS3TEuqcQoaVu9z7EFqbZMCF4dvWx0su7RLux5
+	IeXaMWLgll6eG20tLep6L4ptbtqfOyExRcvAe1Ww2/9k0DXoHbYNSUi/jr2rZYtL995DRkk7zUQ
+	KiWJGlRp89+ovaVh2reAnuh2ZAZxeXf2ww4ocfh7iPfeo/xaoPSuC9ug0aolAOVYzEXDYxOImm7
+	SQb2Z+ZVl3/sm5KwxoZ9oqPZIlDysXQBxuRUpmM5hQ2Ca0K1HiHyGGfgOLWkIrIGSMqTOtom+zT
+	pLxkEeADwPq70nL3aWUc/T7tZRh1a28kz5DesFo1y5bp0oihFu
+X-Google-Smtp-Source: AGHT+IGFhQUxhV6SF10u6CZSFFpi31Ect63oJZfFFTLF//BzPbI6yY/eC/VY0xS8OHwPwrYiIx73tg==
+X-Received: by 2002:a17:907:2d88:b0:b40:33ec:51de with SMTP id a640c23a62f3a-b6472b60651mr339169666b.8.1760700103306;
+        Fri, 17 Oct 2025 04:21:43 -0700 (PDT)
+Received: from SMW024614.wbi.nxp.com ([128.77.115.157])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b5ccd1af35fsm788256166b.60.2025.10.17.04.21.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Oct 2025 04:21:42 -0700 (PDT)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH v2 0/8] Add support for i.MX8ULP's SIM LPAV
+Date: Fri, 17 Oct 2025 04:20:17 -0700
+Message-ID: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_042117_556983_8C0CF525 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20251017_042145_628556_C3B13DB2 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,57 +111,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17 2025 at 12:08, Andrew Cooper wrote:
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-> On 17/10/2025 11:09 am, Thomas Gleixner wrote:
->> --- a/include/linux/uaccess.h
->> +++ b/include/linux/uaccess.h
->> +#define __scoped_masked_user_access(_mode, _uptr, _size, _elbl)					\
->> +for (bool ____stop =3D false; !____stop; ____stop =3D true)						\
->> +	for (typeof((_uptr)) _tmpptr =3D __scoped_user_access_begin(_mode, _up=
-tr, _size, _elbl);	\
->> +	     !____stop; ____stop =3D true)							\
->> +		for (CLASS(masked_user_##_mode##_access, scope) (_tmpptr); !____stop;=
-		\
->> +		     ____stop =3D true)					\
->> +			/* Force modified pointer usage within the scope */			\
->> +			for (const typeof((_uptr)) _uptr =3D _tmpptr; !____stop; ____stop =
-=3D true)	\
->> +				if (1)
->> +
->
-> Truly a thing of beauty.=C2=A0 At least the end user experience is nice.
->
-> One thing to be aware of is that:
->
-> =C2=A0=C2=A0=C2=A0 scoped_masked_user_rw_access(ptr, efault) {
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsafe_get_user(rval, &ptr->rv=
-al, efault);
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsafe_put_user(wval, &ptr->wv=
-al, efault);
-> =C2=A0=C2=A0=C2=A0 } else {
-> =C2=A0=C2=A0=C2=A0 =C2=A0=C2=A0=C2=A0 // unreachable
-> =C2=A0=C2=A0=C2=A0 }
->
-> will compile.=C2=A0 Instead, I think you want the final line of the macro=
- to
-> be "if (0) {} else" to prevent this.
+The LPAV System Integration Module (SIM) is an IP found inside i.MX8ULP's
+LPAV subsystem, which offers clock gating, reset line
+assertion/de-assertion, and various other misc. options.
 
-Duh. yes. But I can just remove the 'if (1)' completely. That's a
-leftover from some earlier iteration of this.
+This series adds support for the IP by introducing a new clock HW provider
+driver and by modifying i.MX8MP's AUDIOMIX block control reset driver to
+allow it to be used for i.MX8ULP's SIM LPAV as well.
 
-> While we're on the subject, can we find some C standards people to lobby.
->
-> C2Y has a proposal to introduce "if (int foo =3D" syntax to generalise the
-> for() loop special case.=C2=A0 Can we please see about fixing the restric=
-tion
-> of only allowing a single type per loop?=C2=A0=C2=A0 This example could b=
-e a
-> single loop if it weren't for that restriction.
+This series is a spin-off from [1].
 
-That'd be nice. But we can't have nice things, can we?
+[1]: https://lore.kernel.org/lkml/20240922174225.75948-1-laurentiumihalcea111@gmail.com/
 
-Thanks,
+---
+Changes in v2:
 
-        tglx
+* drop redundant description for "#clock-cells"/"#reset-cells" properties
+  from binding
+* make "mux-controller" and "#reset-cells" properties mandatory
+* add "mux-controller" child to binding example node
+* drop the compatiblity with syscon - this was never actually needed and
+  it was done to allow using "mmio-mux", which requires a syscon parent
+* modify the auxiliary reset driver to use regmap - this will allow the
+  mux controller, clock control and reset control APIs to use the same
+  spinlock
+* rename "imx8ulp-reset-sim-lpav.h" to "fsl,imx8ulp-sim-lpav.h"
+* drop the "IMX8ULP_CLK_SIM_LPAV_END" macro, which doesn't belong to the
+  binding headers
+* fix the values of "IMX8MP_AUDIOMIX_EARC_RESET_MASK" and
+  "IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK", which were previously incorrect
+* drop redundant macros from auxiliary reset driver - replace their
+  occurrences with their values
+* squash the binding-related macro additions into the binding patch
+* add mux-controller child node to the sim_lpav node
+* make the "gates" array static
+* link to v1: https://lore.kernel.org/lkml/20250804155407.285353-1-laurentiumihalcea111@gmail.com/
+---
+
+Laurentiu Mihalcea (8):
+  reset: imx8mp-audiomix: Fix bad mask values
+  dt-bindings: clock: document 8ULP's SIM LPAV
+  clk: imx: add driver for imx8ulp's sim lpav
+  reset: imx8mp-audiomix: Drop unneeded macros
+  reset: imx8mp-audiomix: Switch to using regmap API
+  reset: imx8mp-audiomix: Extend the driver usage
+  reset: imx8mp-audiomix: Support i.MX8ULP SIM LPAV
+  arm64: dts: imx8ulp: add sim lpav node
+
+ .../bindings/clock/fsl,imx8ulp-sim-lpav.yaml  |  72 ++++++
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  17 ++
+ drivers/clk/imx/Makefile                      |   1 +
+ drivers/clk/imx/clk-imx8ulp-sim-lpav.c        | 211 ++++++++++++++++++
+ drivers/reset/reset-imx8mp-audiomix.c         | 174 +++++++++++----
+ include/dt-bindings/clock/imx8ulp-clock.h     |   5 +
+ .../dt-bindings/reset/fsl,imx8ulp-sim-lpav.h  |  16 ++
+ 7 files changed, 453 insertions(+), 43 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/fsl,imx8ulp-sim-lpav.yaml
+ create mode 100644 drivers/clk/imx/clk-imx8ulp-sim-lpav.c
+ create mode 100644 include/dt-bindings/reset/fsl,imx8ulp-sim-lpav.h
+
+-- 
+2.43.0
+
 
