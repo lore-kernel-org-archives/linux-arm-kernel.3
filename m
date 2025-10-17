@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2297CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 17:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8074CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 17:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mHkVTSQH6rOyvWxy/FXWjL6Ap0CrYVrM4HBcKDr+K6Q=; b=xtkYTTltP7CqFs2pJjJauWdjqE
-	XchMiq5byhbo0J2ZOqSIzyxO6cyGruN2BbEu47NuLeIDOz+Kz4RTwUJILGMOYCpYlz+uxgoaNzFKk
-	mH4vAl3wJBFTExafypSuhBfoEG4UDGo9hgn/FHwE7tFlvDTq4kPnoS8V23DH2Uz0Rq+bK+wW43gJt
-	BzYaYy4qZHm6fuVKkBBXp4gFjpF6ifNfVMeg09owSehHf3BbnV1wBR9x6X8BK21uACB41Qc7wZqqy
-	T1oCqbHix1UPb9hinpdl+o8PwCcbGZxhgTfx7Bc18U843epuWc/Pu6faRBexraSvbQB+2GZUY10mm
-	EAyAOhdQ==;
+	bh=9rJ+/sHLZ5pqEztGlJDr01NCHlLrdyzL2xOLwRrJ67I=; b=YpgKXcTSngWXDqkuoonkwkYxnq
+	KgpCLvdHm8GXCMIS4xLwTgm1lT/MGU/wEC64wKZOBSb6U55Tnl5/GmPPVPXZg9apgDjLxhuQWMckH
+	ps6Bpz6gRA82dRgrDfaRHJ9h1UWUr2fhWLCXj/DjCY/b0b0pi7o2MnD7I0toahmkxWWkgOX9rHjXy
+	lPbE71iAU1I0NHw4Lk1plOYN9S4FwWq1h/8MvUyHPmOX+JHvfOd4Jd+MBCd/z2WBY29I5IzlbLk3X
+	gQ9lILoRyVOdEHE8briW/MDMbHzCOLURfNpXaksV6U6NgPAEACU//zpny1ki1Pk3AkjZTi0TBVwis
+	rKYIZdyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ntJ-00000008Xh6-1SdD;
-	Fri, 17 Oct 2025 17:05:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v9nuT-00000008Y1r-3y8d;
+	Fri, 17 Oct 2025 17:06:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ntE-00000008XgF-3lhD;
-	Fri, 17 Oct 2025 17:05:19 +0000
+	id 1v9nuP-00000008Y0A-3W7b
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 17:06:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 748E94ACA1;
-	Fri, 17 Oct 2025 17:05:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73862C4CEE7;
-	Fri, 17 Oct 2025 17:05:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D6568647F5;
+	Fri, 17 Oct 2025 17:06:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81C9AC4CEE7;
+	Fri, 17 Oct 2025 17:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760720716;
-	bh=QB0Gc9ncYgSpVBw7Sv+xdUvjxJSRAnUxhhUy/5mCqRc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IyMB2QFhdPvWwqmedF1cUtHx/GMJGwYeTjLQ9zGpgPpBZYqkdHWu3wPNj8c1hBdHB
-	 WQ48f/D5edLCK38H4+LbFg4btdTgcmUIm4/yYIKsOx8X1V0/ks5mfKfqXLc6DYntOp
-	 fi03qQ2pfmq3kW6OEWDnRsypKH6R/KCaVg4vjO71XVJtMNFstSQ7cOfj3om9m2DnUk
-	 cz+nM0NDNlTZNl5gyuCgzvLXNsB8pGZ30qhYeVWGm9EF3yUF9FMeGOQcp5ZdmLADAY
-	 E5u2UaJwn6iktWGlFMLvRxa4kF+rXf9pu7Uo6m4fI6bC/vubJuHCmUHspN+KvMcjwR
-	 llQ+KB3I7rfkw==
-Date: Fri, 17 Oct 2025 10:05:13 -0700
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Huacai Chen <chenhuacai@kernel.org>, 
-	Tiezhu Yang <yangtiezhu@loongson.cn>, loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-Message-ID: <jxfb5a2c2qber623l2gwewirwod54bbgfnvt7t7f3jah2ea33g@2uyhy3auzmpx>
-References: <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
- <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
- <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
- <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
- <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
- <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
- <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
- <wlx6pt5crtfdwtop4w5vjznjfarrwitq44wdbufncjdvtsx647@tgobruak66yb>
- <CAMj1kXFfEBkcc-aiwGrRR-pKg4LBbS7weK0pEpZJsKOk5pbkuA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXFfEBkcc-aiwGrRR-pKg4LBbS7weK0pEpZJsKOk5pbkuA@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_100518_749884_E4976A17 
-X-CRM114-Status: GOOD (  38.53  )
+	s=k20201202; t=1760720788;
+	bh=owdsvpGuqtfJqt1yeEm2ukThStXdCZDt3cCbZJE06hA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=srsVk+ExIl6UoFr8jbNWtHjqaCU7kGEh/aCI+er06jBrVykq/oX5SoRKZDVgAsPCz
+	 8jvZOTgIBP32o+Sw089bTZtPRh3qE5gY/+AB/C28STdV+PkV3yLAX+hERh0SWW1d5F
+	 qedQ3ePupiOP5b3OYDQXUw+xWfUoGNgQuGMmFAAOzEeSK/u54xP9gbucnPJ3WC6ZDp
+	 csMWGlgltGih3ceEXKN8oWrecFvo7mOif1VLT2q3iC6dltwQr/7Y74PLiMX14P2BXW
+	 23XEvGzrauJBcx7c6gfUWod0B3WH/bA3Ea0Eb2OSUB33EpclLdiM2eO/rqkMOpMPf7
+	 m1Wwx3LaVAVMw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v9nuM-0000000EwrQ-0JKC;
+	Fri, 17 Oct 2025 17:06:26 +0000
+Date: Fri, 17 Oct 2025 18:06:25 +0100
+Message-ID: <86v7kdwj8u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Maximilian Dittgen <mdittgen@amazon.de>
+Cc: <oliver.upton@linux.dev>,
+	<pbonzini@redhat.com>,
+	<shuah@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<linux-kselftest@vger.kernel.org>,
+	<kvm@vger.kernel.org>,
+	<epetron@amazon.de>,
+	<nh-open-source@amazon.com>,
+	Maximilian Dittgen <mdittgen@amazon.com>
+Subject: Re: [PATCH] KVM: selftests: fix ITS collection target addresses in vgic_lpi_stress
+In-Reply-To: <20251017161918.40711-1-mdittgen@amazon.de>
+References: <20251017161918.40711-1-mdittgen@amazon.de>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mdittgen@amazon.de, oliver.upton@linux.dev, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, kvm@vger.kernel.org, epetron@amazon.de, nh-open-source@amazon.com, mdittgen@amazon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,77 +89,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 06:26:47PM +0200, Ard Biesheuvel wrote:
-> On Fri, 17 Oct 2025 at 18:22, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
-> >
-> > On Fri, Oct 17, 2025 at 01:00:17PM +0200, Ard Biesheuvel wrote:
-> > > On Thu, 16 Oct 2025 at 17:49, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
-> > > >
-> > > > On Thu, Oct 16, 2025 at 04:52:20PM +0200, Ard Biesheuvel wrote:
-> > > > > On Tue, 14 Oct 2025 at 18:47, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
-> > > > > > The idea is that libstub code doesn't belong in vmlinux.o because it's
-> > > > > > not a part of the kernel proper, and doesn't need to be validated or
-> > > > > > modified by objtool for any reason.
-> > > > > >
-> > > > >
-> > > > > I don't see a reason to change this on architectures that a) do not
-> > > > > use objtool and b) link the EFI stub into vmlinux. If LoongArch wants
-> > > > > to change this, that is fine, but that still does not mean it needs to
-> > > > > change on other architectures too.
-> > > > >
-> > > > > EFI related boot errors are a nightmare to debug, and I will be the
-> > > > > one getting the reports when this regresses arm64 on hardware that 2
-> > > > > people on the planet have access to.
-> > > >
-> > > > The idea was to have more consistency, so vmlinux.o never has libstub,
-> > > > regardless of arch, but that's your call.
-> > > >
-> > >
-> > > The code in libstub ends up in .init.text, which will be mapped
-> > > executable during boot on architectures that incorporate it into
-> > > vmlinux.
-> > >
-> > > If objtool validation is never needed for such code, on the basis that
-> > > it is not actually called even though it is present, then I think that
-> > > is fine.
-> > >
-> > > For the other architectures, I don't have any objections in principle,
-> > > I'm just being cautious due to the regression risk.
-> > >
-> > > > I'd still propose we keep the KBUILD_VMLINUX_LIBS_PRELINK mechanism to
-> > > > allow other arches to opt in as needed.
-> > > >
-> > >
-> > > Again, no objection in principle. To me, it just seems a lot of churn
-> > > just to avoid having to teach objtool about indirect calls to noreturn
-> > > functions.
-> >
-> > Well, one of these days we will need to do that with some kind of
-> > compiler -fannotate-noreturn feature or plugin or whatever, but this was
-> > more about "why are we validating libstub code anyway, it doesn't seem
-> > necessary and x86 doesn't do it, so lets make them consistent".
-> >
-> 
-> Sure. So objtool validation is not needed even if the code is
-> incorporated into vmlinux, and therefore mapped executable at boot?
-> I.e., objtool does not check for gadgets or other things that may be
-> problematic even if they are never called directly from reachable
-> code?
+On Fri, 17 Oct 2025 17:19:18 +0100,
+Maximilian Dittgen <mdittgen@amazon.de> wrote:
+>=20
+> When mapping guest ITS collections, vgic_lpi_stress iterates over
+> integers in the range [0, nr_cpus), passing them as the target_addr
+> parameter to its_send_mapc_cmd(). These integers correspond to the
+> selftest userspace vCPU IDs that we intend to map each ITS collection
+> to.
+>=20
+> However, its_encode_target() within its_send_mapc_cmd() expects a
+> vCPU's redistributor address--not the vCPU ID--as the target_addr
+> parameter. This is evident from how its_encode_target() encodes the
+> target_addr parameter as:
+>=20
+>         its_mask_encode(&cmd->raw_cmd[2], target_addr >> 16, 51, 16)
+>=20
+> This shows that we right-shift the input target_addr parameter by 16
+> bits before encoding it. This makes sense when the parameter refers to
+> redistributor addresses (e.g., 0x20000, 0x30000) but not vCPU IDs
+> (e.g., 0x2, 0x3).
 
-Well, boot-time gadgets aren't really a thing.  And, as you said,
-libstub is in .init.text, so it gets freed (and presumably mapped
-non-executable) during boot, so we don't have to worry about any gadgets
-hanging around in memory after the fact.
+=46rom the KVM ITS emulation code:
 
-That said, objtool also generates ORC metadata, so in addition to
-security-type things, it also cares about any code that might show up on
-a stack trace during a boot-time warning/oops.  So it *does* care about
-.init.text code in that sense.
+	 * We use linear CPU numbers for redistributor addressing,
+	 * so GITS_TYPER.PTA is 0.
 
-But IIUC, the libstub code runs *very* early, and wouldn't show up in a
-stack trace anyway, because there are no traces of it on the stack once
-it branches to head.S code (which doesn't save the link register).
+It is not an address.
 
--- 
-Josh
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
