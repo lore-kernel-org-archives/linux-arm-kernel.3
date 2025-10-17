@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D85CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:52:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA7B8CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 17:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nB/bTyp49Nap72JujOJtUfZ+5tI4J6RsgjyYLx9LXUQ=; b=oYABueWWsZqgRCX1VZdBVEvUo9
-	17FGyztPDACVRiz6tPZaASht/ToY8HwHgKMcawzk3zlqZqvgbtdveXaMvCRX4BPNRidL9mjfEFJ8I
-	BKRapU6A2Q90H3+aoHo5MZHKTpQ1j/OBzz1Bb/NYW/NPg9713bNEbyWQiuKDdl0OKt5iJVzcd2bWf
-	Qp8+rP9uabR9kzX/0UjUh/3oafLT3kYirfJLmgtgR9EoSQ90EtsqE6ElebxI2i9j1aLntLZ3KoHUG
-	wht6vHD/YJvu8697pGXvxFJsBkmQndDjMaVgsPEbkBhVxo4G6oewxEmYd/Lay9Vu4HRcF0arLzjER
-	EsCqGnAA==;
+	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eKcQlBPjPB472NaD5zP4wHbT+w80iRDXssOS6Yp5LGU=; b=RLACYs6UMlVEg3J+e0m5O6Ts20
+	knuI8ICzUWZG2GvT2hZsRiu2fgEA4+79/EhJa/otooizBcp3sWeoGkbYo2MCEC0f4XXdn4u3rypDS
+	4F1R9jdsn9XpUnL+If6yPxzO9bgOzvQQAcyYE/fjaBScyoe4Wor1BXeeobs4gV9D3OBFJmip4BP/0
+	KqjyVOMEluI2qRSDRmKEgZnaPtcPrb/KSNbjR2h/q5E86bmrOFAzlY0eYydG4fdh2Hf/cHpVKEfQY
+	OSeFqx9Ud6J3oxyYRZhYOvFwnHXmgOdDMyK+H8ztLn0+nG3JJN8OyeNd0XAcC7ExjAgPYf8XJzYYG
+	uiUUtu8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ngP-00000008VjT-2Sc7;
-	Fri, 17 Oct 2025 16:52:01 +0000
-Received: from mail1.manjaro.org ([142.132.176.110])
+	id 1v9nok-00000008X24-1nCm;
+	Fri, 17 Oct 2025 17:00:38 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9nfs-00000008VBk-3oTX;
-	Fri, 17 Oct 2025 16:51:30 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 2307340C82;
-	Fri, 17 Oct 2025 18:51:25 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1760719886; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=nB/bTyp49Nap72JujOJtUfZ+5tI4J6RsgjyYLx9LXUQ=;
-	b=Wzl0nzCcLl/z4P0GOjFDpmbHR+6G+aVH0OHnBGhUbSkbjshfXgHfQ2IJjlIInaYLToXIMh
-	m+59hBOgcFHl/K2XPn4JI4zAitywpCUlBYrIBNBvyKXPervqpM2iT9uVWuybNxrEFBuLfn
-	c4KmV7iNkFd084C/gubL4FOT22AmJzrX+Uh5ttoY7d4ArowN+H18sj8m4PSMSso5+4r9fL
-	RxnUAfoL9Q8tggxb4KghWSl8ZB+UEvC646hlSbKyvDa9hOW36CYClHoPnx5xBDL059DOEQ
-	2G0st35FIsM/gGeNEn4o7dUhQSw5WpZ8y5af90/eSyB7BFAAsr/lIFH7rciKIA==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <601cd8dc-afb5-4a67-af63-567814d755a4@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-References: <20251017073954.130710-1-cnsztl@gmail.com>
- <7f0b1747-87eb-0b0b-6fb0-304811a4be21@manjaro.org>
- <d9d14ce2-2e65-422e-95fb-eb30b128ad90@gmail.com>
- <41154cde-a447-0707-4387-cd3dca90b97d@manjaro.org> <601cd8dc-afb5-4a67-af63-567814d755a4@gmail.com>
-Date: Fri, 17 Oct 2025 18:51:24 +0200
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Grzegorz Sterniczuk" <grzegorz@sternicz.uk>, "Jonas Karlman" <jonas@kwiboo.se>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-To: "Tianling Shen" <cnsztl@gmail.com>
+	id 1v9noh-00000008X1C-2epR;
+	Fri, 17 Oct 2025 17:00:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1760720425; x=1761325225; i=frank-w@public-files.de;
+	bh=eKcQlBPjPB472NaD5zP4wHbT+w80iRDXssOS6Yp5LGU=;
+	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
+	 Content-Type:Date:In-Reply-To:References:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=GHNvhdyOjKx9DEkuc+CiOWaxpTezwOpUD04IB3bEanFKTSB1DJ9dnzxwB5kx5hqp
+	 371Cveqdw/s8uitSL3XvezoEw09EB8avPsYP5/BvDYOrGosn3muZyE+OOJC22IMou
+	 x2eAuBXzkw1teioOmlM5iqfY7RNNljzBVLbM5YDE/eixiVbOjQ2pC9GLuItxYDxH+
+	 YPp1rI6mRfsRau37u5uhwvbtTbsnF2cdoQY4bzXp0p+7fN+QXCOGGstXFjnDs1lLU
+	 3G0p+7UEQLr/NAH+WkCDpdxhjpR1ZshR5K+zREH13ukMRAGsjH5/juSXxbYxkwb/g
+	 H1XV068d9ZtymvCO1Q==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [194.15.82.42] ([194.15.82.42]) by
+ trinity-msg-rest-gmx-gmx-live-654c5495b9-86l6j (via HTTP); Fri, 17 Oct 2025
+ 17:00:25 +0000
 MIME-Version: 1.0
-Message-ID: <22a424de-4963-0505-51ed-99bca47da619@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
- =?utf-8?q?_rockchip=3A?= fix eMMC corruption on NanoPC-T6 with A3A444 chips
-User-Agent: SOGoMail 5.12.3
+Message-ID: <trinity-189d521f-e308-475e-a4bf-3821794cd216-1760720425043@trinity-msg-rest-gmx-gmx-live-654c5495b9-86l6j>
+From: frank-w@public-files.de
+To: laura.nao@collabora.com, srini@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, rafael@kernel.org,
+ daniel.lezcano@linaro.org, rui.zhang@intel.com, lukasz.luba@arm.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com
+Cc: nfraprado@collabora.com, arnd@arndb.de, colin.i.king@gmail.com,
+ u.kleine-koenig@baylibre.com, andrew-ct.chen@mediatek.com,
+ lala.lin@mediatek.com, bchihi@baylibre.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ kernel@collabora.com, laura.nao@collabora.com
+Subject: Aw: [PATCH RESEND v3 0/9] Add thermal sensor driver support for
+ Mediatek MT8196
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 17 Oct 2025 17:00:25 +0000
+In-Reply-To: <20251016142158.740242-1-laura.nao@collabora.com>
+References: <20251016142158.740242-1-laura.nao@collabora.com>
+X-UI-CLIENT-META-MAIL-DROP: W10=
+X-Provags-ID: V03:K1:P+Yvh/yA0ff0Yl471I+mnmEBCSnB2JA4O9ZcySGW8hcqiIhGA76N3zud4wRV3OLMhC65r
+ 8fKbTK2sx2Xv2Q9sEwiMx/Fr1QVBPj2jardHsJ1KdI4Iv3nzb7SH8aWMjnnLIW81OTdGvyKxGfLM
+ X1YiuUquo3wO+LMKewInBl0Eykwqowy3Rd4Bl4hTyTariZ4Dcnn5WY5N3Y054oPWuUI31DecW+TA
+ Pd31FUGvCwaH7vek68jB6gih3xfut7pG7BQ7uFLeFnRwDMgFu0AKQJtB5uCsECKvWCjW7jccv1sH
+ f/eTAM7O7lxjMFxrddAcW5J1gaDqKZo+gNqlI2WZ/ov7Srq8DUXMsv0gdz6TLdrvRo=
+UI-OutboundReport: notjunk:1;M01:P0:SjEZhVmOfL0=;mUu1hbKY9O2aQGd+FALgkn7YiZg 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
 Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_095129_353463_E84252A4 
-X-CRM114-Status: GOOD (  27.76  )
+X-CRM114-CacheID: sfid-20251017_100036_046458_F2132CEA 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,96 +90,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, October 17, 2025 18:34 CEST, Tianling Shen <cnsztl@gmail.com=
-> wrote:
-> On 2025/10/17 23:15, Dragan Simic wrote:
-> > On Friday, October 17, 2025 14:08 CEST, Tianling Shen <cnsztl@gmail=
-.com> wrote:
-> >> On 2025/10/17 18:25, Dragan Simic wrote:
-> >>> On Friday, October 17, 2025 09:39 CEST, Tianling Shen <cnsztl@gma=
-il.com> wrote:
-> >>>> From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
-> >>>>
-> >>>> Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O erro=
-rs and
-> >>>> corruption when using HS400 mode. Downgrade to HS200 mode to ens=
-ure
-> >>>> stable operation.
-> >>>
-> >>> Could you, please, provide more details about the troublesome eMM=
-C
-> >>> chip that gets identified as A3A444, i.e. what's the actual brand
-> >>> and model?  Maybe you could send a picture of it?  It might also
-> >>> help if you'd send the contents of "/sys/class/block/mmcblkX/devi=
-ce
-> >>> /manfid" from your board (where "X" should equal two).
-> >>
-> >> Unfortunately I don't have this board nor this eMMC chip.
-> >> I got the chip model from my friend, it's FORESEE FEMDNN256G-A3A44=
-,
-> >> manfid is 0x0000d6.
-> >=20
-> > Thanks for responding and providing the details so quickly!
-> >=20
-> >>> I'm asking for that because I'd like to research it a bit further=
-,
-> >>> if possible, because some other eMMC chips that are also found on
-> >>> the NanoPc-T6 seem to work fine in HS400 mode. [1]  It may be tha=
-t
-> >>> the A3A444 chip has some issues with the HS400 mode on its own,
-> >>> i.e. the observed issues may not be caused by the board.
-> >>
-> >> Yes, it should be caused by this eMMC chip.
-> >=20
-> > I'd suggest that we move forward by "quirking off" the HS400 mode
-> > for the FEMDNN256G-A3A44 eMMC chip in the MMC drivers, instead of
-> > downgrading the speed of the sdhci interface on the NanoPC-T6.
-> >=20
-> > That way, the other similar Foresee eMMC chip that's also found
-> > on NanoPC-T6 boards, FEMDNN256G-A3A564, will continue to work in
-> > the faster HS400 mode, while the troublesome A3A44 variant will
-> > be downgraded to the HS200 globally for everyone's benefit.  It's
-> > quite unlikely that the A3A44 variant fails to work reliable in
-> > HS400 mode on the NanoPC-T6 only, so quirking it off in the MMC
-> > drivers should be a sane and safe choice.
-> >=20
-> > If you agree with dropping this patch, I'll be more than happy
-> > to implement this HS200 quirk in the MMC drivers.
+> Gesendet: Donnerstag, 16. Oktober 2025 um 16:21
+> Von: "Laura Nao" <laura.nao@collabora.com>
+> Betreff: [PATCH RESEND v3 0/9] Add thermal sensor driver support for Med=
+iatek MT8196
+>
+> This patch series extends the MediaTek LVTS thermal driver to support th=
+e
+> MT8196 SoC.
 >=20
-> Yes for sure, thank you ;)
-> The full cid is d6010341334134343411f63ea7208700.
+> MT8196 requires a different implementation of the lvts_temp_to_raw()
+> function.
+>=20
+> To support this, the series introduces:
+>=20
+> - A new struct lvts_platform_ops to allow platform-specific
+>   conversion logic between raw sensor values and temperature
+> - A variant of the lvts_temp_to_raw() implementation
+> - Platform data and controller definitions for MT8196
 
-Great, thanks!  I'll start working on the proposed MMC quirk patch
-tomorrow or so, and I'll feel free to ask for some more observable
-A3A44 chip variant data, if needed.
+Hi
 
-> > As a note, FEMDNN256G-A3A44 is found in the Rockchip Qualified
-> > eMMC Support List v1.84, [2] but the evidence says the opposite,
-> > so we should react appropriately by adding this quirk.
-> >=20
-> > [1] https://github.com/openwrt/openwrt/issues/18844
-> > [2] https://dl.radxa.com/rock5/hw/RKeMMCSupportList%20Ver1.84=5F202=
-40815.pdf
-> >=20
-> >>>> Signed-off-by: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
-> >>>> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
-> >>>> ---
-> >>>>    arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 3 +--
-> >>>>    1 file changed, 1 insertion(+), 2 deletions(-)
-> >>>>
-> >>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi =
-b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> >>>> index fafeabe9adf9..5f63f38f7326 100644
-> >>>> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> >>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> >>>> @@ -717,8 +717,7 @@ &sdhci {
-> >>>>    	no-sd;
-> >>>>    	non-removable;
-> >>>>    	max-frequency =3D <200000000>;
-> >>>> -	mmc-hs400-1=5F8v;
-> >>>> -	mmc-hs400-enhanced-strobe;
-> >>>> +	mmc-hs200-1=5F8v;
-> >>>>    	status =3D "okay";
-> >>>>    };
+tested the series against mt7988 and mt7987 (support not yet upstreamed, s=
+o added the necessary fields for it to my 6.17 version)=20
+and it does not break these boards.
 
+Tested-by: Frank Wunderlich <frank-w@public-files.de>
+
+regards Frank
 
