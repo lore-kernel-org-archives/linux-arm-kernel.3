@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F070ACCD1A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:32:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF30CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5kCSOGJcwbOC+7+5BLR+gRNJdgGMuPaf20hsggRiPEw=; b=CahDmfq6q4igt8VNROHc7tGSwP
-	OiCGl1YNgEPm1KnFu74jlUvx4dgvyuc9KG+MAZDG3JutDU+/nF4uAPAJlApHvxdUuwxnygE+dSknx
-	DLsdHqW0UeO1yX8zUpfFFjtI9qeVuLOOIjEauWYhSv479rNMe7uv8m05y9VuBUSN62PYcXPx4djYv
-	JEGlIlTGinFiYgfh/ME/tvXqpGYrtidRr9WtVmsRVRmzjYS7Nk9eC9Ha+sU0W0FnzyXnxTyZiuATj
-	ZP1OYhKe8IMJ4tPpSvk3vS0sr1z8Wxdg82Xt+67Wa2Ful2AE+Gndncxvv8f7FakJxRGRwQbodoU1N
-	vo1TgZ3w==;
+	bh=7bM73lypABp16DNaPQ/AZd3Rd/UhyQMrclXHvC1Kw7I=; b=aAxIYSfSeND+EnAS3Mrd6SJoce
+	WnNQkBR4vzi3nkrf/9WP4hn01Z7DKq5cEIXc0t8UrK8MXjCvOzaeyI+7ITTdbq7aezkOWTA0AuJry
+	iNglAFy/rYWRAwk2Yf1gcasqZNYnrPtsQZGwADxkhwmKQNRTi1UJXL2oGkxHEI5YkjiScidBHSBc1
+	A6YH9tMMJdfrr6FRzpahBJd3h3lidvuT4kDTMaLVNNAEDnm8G4k+79+nnv+hQQnFwA8gyRaNCa+Fy
+	UGh37LCuyjMksEWWAAbttAZhGl1Y5ynPGPItbOv1Mjw+hs2jdnZ7MJiVG3CyeVAwxF650jkHSEopH
+	3i+dZlGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mR4-00000008H8j-0jW4;
-	Fri, 17 Oct 2025 15:32:06 +0000
+	id 1v9mR7-00000008HBH-1ano;
+	Fri, 17 Oct 2025 15:32:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mR1-00000008H6z-03tB;
-	Fri, 17 Oct 2025 15:32:03 +0000
+	id 1v9mR4-00000008H8f-2iCg;
+	Fri, 17 Oct 2025 15:32:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=5kCSOGJcwbOC+7+5BLR+gRNJdgGMuPaf20hsggRiPEw=; b=mcmdI+8Ec0GfoXPv/N67l3Halm
-	Yya0Q5B0/PWM39Qc86WIvX6vfGjWWFBy1arjLAmuHXZgbVbnUepNxYtckRprYmzgoBg6CNGgajxOH
-	YTAqP/e7xGd8Z72YkU8YA8/jJnd5ImnKkrryPAIBbOY65qfsuFJdsLfyASZWYo88Jn2V2JuDcaPz/
-	4JBHCa87ZtLg2a+0Jmo9Yp0WGVZa4vfwVwBEPqDnu0JAw9R4ZLKpzR8MBKTsUPXVzQD3etOeCvqTG
-	0txzDiJy6E8X3kMSIyD/Y4YOTjBUk/BTBTOtiHIVl9P1Ka3DYe58OpiIqdJvvm++k0WuaO5TLsm/B
-	LGezMWWg==;
+	bh=7bM73lypABp16DNaPQ/AZd3Rd/UhyQMrclXHvC1Kw7I=; b=ZsXwRklE70sGO7xxPM22QKPctB
+	UrFMUK6/j9UD7Ttuh1Cms+ScjAPVht/GTGkfEjw5dVuefmrk6pgeh2/usurbRmK7jDoLnxahEe6Sk
+	s4cFYfYaFZ6prBuXYgEAlBdTUoy8adDLQEdy+p1uzdNdR2gwkOGhnotx/x9sMI0EW3axKF4FW2E6/
+	yi7Zu/WkSs4NOp5I0hfi+lFaM+i8i6Mlb91FE9RYz0g0A3nNVnOxWveM++9N+5lOJUu02D9X1/yK8
+	HRWPDP9RWPaVXmYxWg1X/FVl05pO8YZ0WONZ92MTwAHZY9WMUhthg5v+KS9KTJ4Nv4V+ReelrwM1Q
+	IVCWPm6g==;
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mQx-00000007gSh-2cZP;
-	Fri, 17 Oct 2025 15:32:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1760715099; cv=none; 
+	id 1v9mR0-00000007gTK-1Mg7;
+	Fri, 17 Oct 2025 15:32:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1760715107; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=c4cU1iyQ+Ldu7go/75NsLMcc895EysOzW9pPYMezdD/MCDBTPomGNy/uWJ+bgeTjT1obaPdxQ4sNYdYmVKnVNBci9PQIE++MXOD60PApvrwczh22YRj0vzlv7yCNiV3YN1fBo6NKy0okE4Alh5lxk4ioCVYJ8BzOEYBcoI8AvSg=
+	b=SZP21hJUyjRqWo3i+KFM+Ot6ZFYXX0ganbW4ApF0/Af1RFY6vtchJggaPKCwVhOyfcElELCJ+NYEKBbeclZpjOlpxEBLhvLgruTDOcqTufJ6lhg6jTJfp4TbqLYD8cqOourA9x8NCt1cAf2jkuNbCqRtg16e7DVPSFSurf0t4Cw=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1760715099; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=5kCSOGJcwbOC+7+5BLR+gRNJdgGMuPaf20hsggRiPEw=; 
-	b=FgeIcvHv9U6SUV9dE+nY+V2+u7r4znOqrJK5wIizK8lz4uykVEkdZrVJPLNmA6D2V0wDB+NTPyCg0xsuqdg24HnvTfMcdIypuLrbBA8+pwkuQsG2ivNuWwLIoK6TnwBi2TMA0eqs+5ZpRHBNPZDX4MXtfBd5wDAUmH4Ac1Xn53c=
+	t=1760715107; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=7bM73lypABp16DNaPQ/AZd3Rd/UhyQMrclXHvC1Kw7I=; 
+	b=UMSAHMrCRyt+9jDM2RUF/qFZgHqyyHytNtRN9mv2HypGc1yH36ChOkqy0AF9tMwwsLfvbOFrqqIcsPG+OIjTOmBs3oC/+bH7Pr/DzR/8D8sPQFDaqip2wP6z2bTuN/SsQ8J7jvbrxPbbIY5xJ9006lqDdRjmBvpumaHLJ3mDVAo=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760715099;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760715107;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=5kCSOGJcwbOC+7+5BLR+gRNJdgGMuPaf20hsggRiPEw=;
-	b=dcRJGFVr87gKIRNY9cqyB1Pde29JDLQJFEqztQwXYYASI1ZGZaIrFxNmV89JpIsr
-	/W90DLOR2KhXfrKfQlX25SMmfViqCAOjs8zHh8DYLKcLAnNGm2y0IA5wignMKKiXPHn
-	Ejg6ZbvEQI+gf1I9Br+M9i7TaqIYMx3r3mVZrTfQ=
-Received: by mx.zohomail.com with SMTPS id 1760715097932797.8703392963683;
-	Fri, 17 Oct 2025 08:31:37 -0700 (PDT)
+	bh=7bM73lypABp16DNaPQ/AZd3Rd/UhyQMrclXHvC1Kw7I=;
+	b=R5P2wG+kqBxhtk1IsU93+kT+Q6jVvz2C78zjyjhfti/5KvwcC0Vm4cdysqz5eIKR
+	U3P5/AEERfbd0QqPQCcRd/m2mYLzKafSGqa69c8WuigSMNSiQX6+hNDSKNcsdZx12Kn
+	0Xys4tb2aGO/QiRgmOpl5euk02DvlP6g8wKnbCtw=
+Received: by mx.zohomail.com with SMTPS id 1760715104463474.2685315868116;
+	Fri, 17 Oct 2025 08:31:44 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 17 Oct 2025 17:31:08 +0200
-Subject: [PATCH v8 1/5] dt-bindings: gpu: mali-valhall-csf: add
- mediatek,mt8196-mali variant
+Date: Fri, 17 Oct 2025 17:31:09 +0200
+Subject: [PATCH v8 2/5] dt-bindings: power: Add MT8196 GPU frequency
+ control binding
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-mt8196-gpufreq-v8-1-98fc1cc566a1@collabora.com>
+Message-Id: <20251017-mt8196-gpufreq-v8-2-98fc1cc566a1@collabora.com>
 References: <20251017-mt8196-gpufreq-v8-0-98fc1cc566a1@collabora.com>
 In-Reply-To: <20251017-mt8196-gpufreq-v8-0-98fc1cc566a1@collabora.com>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
@@ -90,8 +90,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_163200_210559_BAB418D1 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20251017_163202_854698_52A7C9D2 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,84 +106,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Mali-based GPU on the MediaTek MT8196 SoC uses a separate MCU to
-control the power and frequency of the GPU. This is modelled as a power
-domain and clock provider.
+On the MT8196 and MT6991 SoCs, the GPU power and frequency is controlled
+by some integration logic, referred to as "MFlexGraphics" by MediaTek,
+which comes in the form of an embedded controller running
+special-purpose firmware.
 
-It lets us omit the OPP tables from the device tree, as those can now be
-enumerated at runtime from the MCU.
+This controller takes care of the regulators and PLL clock frequencies
+to squeeze the maximum amount of power out of the silicon.
 
-Add the necessary schema logic to handle what this SoC expects in terms
-of clocks and power-domains.
+Add a binding which models it as a power domain.
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- .../bindings/gpu/arm,mali-valhall-csf.yaml         | 37 +++++++++++++++++++++-
- 1 file changed, 36 insertions(+), 1 deletion(-)
+ .../bindings/power/mediatek,mt8196-gpufreq.yaml    | 117 +++++++++++++++++++++
+ 1 file changed, 117 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-index 613040fdb444..860691ce985e 100644
---- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-+++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-@@ -45,7 +45,9 @@ properties:
-     minItems: 1
-     items:
-       - const: core
--      - const: coregroup
-+      - enum:
-+          - coregroup
-+          - stacks
-       - const: stacks
- 
-   mali-supply: true
-@@ -110,6 +112,27 @@ allOf:
-         power-domain-names: false
-       required:
-         - mali-supply
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: mediatek,mt8196-mali
-+    then:
-+      properties:
-+        mali-supply: false
-+        sram-supply: false
-+        operating-points-v2: false
-+        power-domains:
-+          maxItems: 1
-+        power-domain-names: false
-+        clocks:
-+          maxItems: 2
-+        clock-names:
-+          items:
-+            - const: core
-+            - const: stacks
-+      required:
-+        - power-domains
- 
- examples:
-   - |
-@@ -145,5 +168,17 @@ examples:
-             };
-         };
-     };
+diff --git a/Documentation/devicetree/bindings/power/mediatek,mt8196-gpufreq.yaml b/Documentation/devicetree/bindings/power/mediatek,mt8196-gpufreq.yaml
+new file mode 100644
+index 000000000000..b9e43abaf8a4
+--- /dev/null
++++ b/Documentation/devicetree/bindings/power/mediatek,mt8196-gpufreq.yaml
+@@ -0,0 +1,117 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/power/mediatek,mt8196-gpufreq.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek MFlexGraphics Power and Frequency Controller
++
++maintainers:
++  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
++
++description:
++  A special-purpose embedded MCU to control power and frequency of GPU devices
++  using MediaTek Flexible Graphics integration hardware.
++
++properties:
++  $nodename:
++    pattern: '^power-controller@[a-f0-9]+$'
++
++  compatible:
++    enum:
++      - mediatek,mt8196-gpufreq
++
++  reg:
++    items:
++      - description: GPR memory area
++      - description: RPC memory area
++      - description: SoC variant ID register
++
++  reg-names:
++    items:
++      - const: gpr
++      - const: rpc
++      - const: hw-revision
++
++  clocks:
++    items:
++      - description: main clock of the embedded controller (EB)
++      - description: core PLL
++      - description: stack 0 PLL
++      - description: stack 1 PLL
++
++  clock-names:
++    items:
++      - const: eb
++      - const: core
++      - const: stack0
++      - const: stack1
++
++  mboxes:
++    items:
++      - description: FastDVFS events
++      - description: frequency control
++      - description: sleep control
++      - description: timer control
++      - description: frequency hopping control
++      - description: hardware voter control
++      - description: FastDVFS control
++
++  mbox-names:
++    items:
++      - const: fast-dvfs-event
++      - const: gpufreq
++      - const: sleep
++      - const: timer
++      - const: fhctl
++      - const: ccf
++      - const: fast-dvfs
++
++  memory-region:
++    items:
++      - description: phandle to the GPUEB shared memory
++
++  "#clock-cells":
++    const: 1
++
++  "#power-domain-cells":
++    const: 0
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - clocks
++  - clock-names
++  - mboxes
++  - mbox-names
++  - memory-region
++  - "#clock-cells"
++  - "#power-domain-cells"
++
++additionalProperties: false
++
++examples:
 +  - |
-+    gpu@48000000 {
-+        compatible = "mediatek,mt8196-mali", "arm,mali-valhall-csf";
-+        reg = <0x48000000 0x480000>;
-+        clocks = <&gpufreq 0>, <&gpufreq 1>;
-+        clock-names = "core", "stacks";
-+        interrupts = <GIC_SPI 606 IRQ_TYPE_LEVEL_HIGH 0>,
-+                     <GIC_SPI 605 IRQ_TYPE_LEVEL_HIGH 0>,
-+                     <GIC_SPI 604 IRQ_TYPE_LEVEL_HIGH 0>;
-+        interrupt-names = "job", "mmu", "gpu";
-+        power-domains = <&gpufreq>;
++    #include <dt-bindings/clock/mediatek,mt8196-clock.h>
++
++    power-controller@4b09fd00 {
++        compatible = "mediatek,mt8196-gpufreq";
++        reg = <0x4b09fd00 0x80>,
++              <0x4b800000 0x1000>,
++              <0x4b860128 0x4>;
++        reg-names = "gpr", "rpc", "hw-revision";
++        clocks = <&topckgen CLK_TOP_MFG_EB>,
++                 <&mfgpll CLK_MFG_AO_MFGPLL>,
++                 <&mfgpll_sc0 CLK_MFGSC0_AO_MFGPLL_SC0>,
++                 <&mfgpll_sc1 CLK_MFGSC1_AO_MFGPLL_SC1>;
++        clock-names = "eb", "core", "stack0", "stack1";
++        mboxes = <&gpueb_mbox 0>, <&gpueb_mbox 1>, <&gpueb_mbox 2>,
++                 <&gpueb_mbox 3>, <&gpueb_mbox 4>, <&gpueb_mbox 5>,
++                 <&gpueb_mbox 7>;
++        mbox-names = "fast-dvfs-event", "gpufreq", "sleep", "timer", "fhctl",
++                     "ccf", "fast-dvfs";
++        memory-region = <&gpueb_shared_memory>;
++        #clock-cells = <1>;
++        #power-domain-cells = <0>;
 +    };
- 
- ...
 
 -- 
 2.51.0
