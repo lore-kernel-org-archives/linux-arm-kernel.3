@@ -4,45 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF426CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 18:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49225CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 18:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g944ANa1wR+hI2SKyYnma3gqGbWZXfBsDud3E0YIuqY=; b=l4/GUMy2KI1uATrNRiPyqF/ld/
-	z29xorcth69eifjuIVoanBwIbZqKlDuCeK8/JS2F0kxEYdHAD1KSGVGfhH+Q1USxUtxMP+fGQhQny
-	Ad25NeMCNiOebef7zB6j3DBy3l2vr4RASEXs3tr59dXYjazBaEUlb63/4KSMj0/SKW0OFjKhPl+mp
-	PBL4k9N/Y+dUR6EZgc4Z3TmXlpyApvV8DsQB3MtKJIQzQVGuErPBEF4wSxw9M/PdJENlO6sOy3FJj
-	e3Ln1m0J3tUSDmSBS07WiWel1VKzpBaDAVGRkCYQ3Mrgzrhij7FFsj76zayh/8mntSYBfarPJT9fk
-	V8kC8yLA==;
+	bh=2ODGH/+njiEiC3L6mPwG/6t7Cr+NSv+crwhoZU5dUFk=; b=vb1eKau3EqXJqKM0E7irifV303
+	+KXRIw5A7M3E+jTnpGS6BJELMtU/ob7Y40CUH08Y4O/inz5Q9nOlVZ9SNKWCK3+/oGVsVA/ZIlRsK
+	12VIKB07YHAJlwRQ+NwVy3floP/ONylKVefJQ7CG/prGJ+N1G7fdbMWFP6wb8RJzfvDuYq2oGwJi3
+	QZMCl4HRJnnhnlQ/HHsTOW3HWZdtGygOYsHLWs3BmSfaigLL4yU6JBBr8GQsePz7mSR4skyUiCgGV
+	Wky6B5jk9QePH1jTyjUe/h4X+1w2l7kTZ4vsrFPa5H6Xd4dy5h4lTUKsdPdWlB8A/F4inW0D9r5y/
+	zZT9pHAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9paK-00000008jDE-0NpH;
-	Fri, 17 Oct 2025 18:53:52 +0000
+	id 1v9paS-00000008jF7-1jvW;
+	Fri, 17 Oct 2025 18:54:00 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9paH-00000008jCk-0gRC
+	id 1v9paN-00000008jDx-0Fah
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 18:53:50 +0000
+	Fri, 17 Oct 2025 18:53:56 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 99EF51515;
-	Fri, 17 Oct 2025 11:53:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A93AF1515;
+	Fri, 17 Oct 2025 11:53:46 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 709343F66E;
-	Fri, 17 Oct 2025 11:53:43 -0700 (PDT)
-Message-ID: <ad7c715d-227b-4f49-8f8b-fe4763c1cef6@arm.com>
-Date: Fri, 17 Oct 2025 19:53:41 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DB1733F66E;
+	Fri, 17 Oct 2025 11:53:48 -0700 (PDT)
+Message-ID: <e1874826-2f18-4fae-b83d-cf099c0cf1e6@arm.com>
+Date: Fri, 17 Oct 2025 19:51:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/29] arm_mpam: Add MPAM MSC register layout
- definitions
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
+Subject: Re: [PATCH v2 08/29] arm_mpam: Add the class and component structures
+ for firmware described ris
+To: Gavin Shan <gshan@redhat.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  carl@os.amperecomputing.com, lcherian@marvell.com,
  bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
  baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
@@ -50,24 +49,26 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  dfustini@baylibre.com, amitsinght@marvell.com,
  David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
  Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
- Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
 References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-10-james.morse@arm.com>
- <20250911160031.000026c7@huawei.com>
+ <20250910204309.20751-9-james.morse@arm.com>
+ <a66c6df0-f5e7-4704-a341-d34d07b8c6e1@redhat.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <20250911160031.000026c7@huawei.com>
+In-Reply-To: <a66c6df0-f5e7-4704-a341-d34d07b8c6e1@redhat.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_115349_282632_38224C70 
-X-CRM114-Status: GOOD (  34.80  )
+X-CRM114-CacheID: sfid-20251017_115355_257889_FBD5F356 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,171 +83,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Hi Gavin,
 
-On 11/09/2025 16:00, Jonathan Cameron wrote:
-> On Wed, 10 Sep 2025 20:42:49 +0000
-> James Morse <james.morse@arm.com> wrote:
-> 
->> Memory Partitioning and Monitoring (MPAM) has memory mapped devices
->> (MSCs) with an identity/configuration page.
+On 07/10/2025 00:13, Gavin Shan wrote:
+> On 9/11/25 6:42 AM, James Morse wrote:
+>> An MSC is a container of resources, each identified by their RIS index.
+>> Some RIS are described by firmware to provide their position in the system.
+>> Others are discovered when the driver probes the hardware.
 >>
->> Add the definitions for these registers as offset within the page(s).
-
-> I'm not sure why some things ended up in this patch and others didn't.
-> MPAMCFG_EN for example isn't here.
-
-Things were added once I'd already written this, and I only updated it with 'new' features
-where they were actually useful for feature parity with resctrl/Intel-RDT.
-
-
-> If doing a separate 'register defines' patch I'd do the lot as of
-> the current spec.
-
-I've not done this because its a time sink for no benefit. The kernel doesn't use any of
-the 'missing' features. While I agree it would be nice if the list were up to date - it
-will become stale pretty quickly, so its not an achievable goal...
-
-
-> 
+>> To configure a resource it needs to be found by its class, e.g. 'L2'.
+>> There are two kinds of grouping, a class is a set of components, which
+>> are visible to user-space as there are likely to be multiple instances
+>> of the L2 cache. (e.g. one per cluster or package)
 >>
->> Link: https://developer.arm.com/documentation/ihi0099/latest/
-> 
-> Maybe link a specific version? I'm not sure if I'm looking at is the same one
-> as you were when you wrote this. That will become worse over time.  I'm definitely
-> seeing extra bits in a number of registers.
-> 
-> I'm lazy enough not to go see if the cover letter calls out a version.
-> 
-> Anyhow, various small things on ordering that would have made this easier to review
-> against the spec.
+>> Add support for creating and destroying structures to allow a hierarchy
+>> of resources to be created.
 
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index efc4738e3b4d..c7f4981b3545 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
 
-
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->> index 02e9576ece6b..109f03df46c2 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -152,4 +152,271 @@ extern struct list_head mpam_classes;
->>  int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
->>  				   cpumask_t *affinity);
->>  
->> +/*
->> + * MPAM MSCs have the following register layout. See:
->> + * Arm Memory System Resource Partitioning and Monitoring (MPAM) System
->> + * Component Specification.
->> + * https://developer.arm.com/documentation/ihi0099/latest/
-> 
-> Maybe be friendly and give some section number references.
-
-Heh, linking to the 'latest' means those will change...
-
-
-> 
->> + */
->> +#define MPAM_ARCHITECTURE_V1    0x10
+>> +static struct mpam_class *
+>> +mpam_class_get(u8 level_idx, enum mpam_class_types type)
+>> +{
+>> +    bool found = false;
+>> +    struct mpam_class *class;
 >> +
->> +/* Memory mapped control pages: */
->> +/* ID Register offsets in the memory mapped page */
->> +#define MPAMF_IDR		0x0000  /* features id register */
->> +#define MPAMF_MSMON_IDR		0x0080  /* performance monitoring features */
-> 
-> Any reason this one is out of order with respect to the addresses?
-
-No - I must have been going mad!
-
-
->> +#define MPAMF_IMPL_IDR		0x0028  /* imp-def partitioning */
->> +#define MPAMF_CPOR_IDR		0x0030  /* cache-portion partitioning */
->> +#define MPAMF_CCAP_IDR		0x0038  /* cache-capacity partitioning */
->> +#define MPAMF_MBW_IDR		0x0040  /* mem-bw partitioning */
->> +#define MPAMF_PRI_IDR		0x0048  /* priority partitioning */
->> +#define MPAMF_CSUMON_IDR	0x0088  /* cache-usage monitor */
->> +#define MPAMF_MBWUMON_IDR	0x0090  /* mem-bw usage monitor */
->> +#define MPAMF_PARTID_NRW_IDR	0x0050  /* partid-narrowing */
->> +#define MPAMF_IIDR		0x0018  /* implementer id register */
->> +#define MPAMF_AIDR		0x0020  /* architectural id register */
-> 
-> These 3 as well. I'm not sure what the ordering is conveying but probably easier to just
-> to put them in address order.
-> 
-> There are some other cases of this below.
-
-... I reckon the ones in funny places were the ones that the original FVP supported
-i.e. only the mandatory ones, which wasn't particularly useful.
-
-
-
->> +/* MPAMF_IIDR - MPAM implementation ID register */
->> +#define MPAMF_IIDR_PRODUCTID	GENMASK(31, 20)
->> +#define MPAMF_IIDR_PRODUCTID_SHIFT	20
->> +#define MPAMF_IIDR_VARIANT	GENMASK(19, 16)
->> +#define MPAMF_IIDR_VARIANT_SHIFT	16
->> +#define MPAMF_IIDR_REVISON	GENMASK(15, 12)
->> +#define MPAMF_IIDR_REVISON_SHIFT	12
->> +#define MPAMF_IIDR_IMPLEMENTER	GENMASK(11, 0)
->> +#define MPAMF_IIDR_IMPLEMENTER_SHIFT	0
-
-> I'd expect to see FIELD_GET/ PREP rather than use of shifts. Can we drop the defines?
-
-Sure,
-
-> Pick an order for reg field definitions. Until here they've been low to high.
-
-I think I've got that more consistent now...
-
-
->> +/* Error conditions in accessing memory mapped registers */
->> +#define MPAM_ERRCODE_NONE			0
->> +#define MPAM_ERRCODE_PARTID_SEL_RANGE		1
->> +#define MPAM_ERRCODE_REQ_PARTID_RANGE		2
->> +#define MPAM_ERRCODE_MSMONCFG_ID_RANGE		3
->> +#define MPAM_ERRCODE_REQ_PMG_RANGE		4
->> +#define MPAM_ERRCODE_MONITOR_RANGE		5
->> +#define MPAM_ERRCODE_INTPARTID_RANGE		6
->> +#define MPAM_ERRCODE_UNEXPECTED_INTERNAL	7
-> 
-> Seems there are more in latest spec..
-
-Yup, it the frequent game of spot-the-difference.
-I've updated that as part of your other feedback.
-
-
+>> +    lockdep_assert_held(&mpam_list_lock);
 >> +
->> +/*
->> + * MSMON_CFG_CSU_CTL - Memory system performance monitor configure cache storage
->> + *                    usage monitor control register
->> + * MSMON_CFG_MBWU_CTL - Memory system performance monitor configure memory
->> + *                     bandwidth usage monitor control register
->> + */
->> +#define MSMON_CFG_x_CTL_TYPE			GENMASK(7, 0)
->> +#define MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L	BIT(15)
->> +#define MSMON_CFG_x_CTL_MATCH_PARTID		BIT(16)
->> +#define MSMON_CFG_x_CTL_MATCH_PMG		BIT(17)
->> +#define MSMON_CFG_x_CTL_SCLEN			BIT(19)
+>> +    list_for_each_entry(class, &mpam_classes, classes_list) {
+>> +        if (class->type == type && class->level == level_idx) {
+>> +            found = true;
+>> +            break;
+>> +        }
+>> +    }
+>> +
+>> +    if (found)
+>> +        return class;
+>> +
+>> +    return mpam_class_alloc(level_idx, type);
+>> +}
+>> +
+> 
+> The variable @found can be avoided if the found class can be returned immediately.
+> 
+>     list_for_each_entry(class, &mpam_classes, classes_list) {
+>         if (class->type == type && class->level == level_idx)
+>             return class;
+>     }
+> 
+>     return mpam_class_alloc(level_idx, type);
 
-> On the spec I'm looking at this is reserved in CSU_CTL
-
-It's only defined for MSMON: "Value scaling enable",. I'll move it after the
-MSMON_CFG_MBWU_CTL_TYPE_MBWU define below.
+Yes, feedback like this already came from Jonathan.
 
 
->> +#define MSMON_CFG_x_CTL_SUBTYPE			GENMASK(22, 20)
->> +#define MSMON_CFG_x_CTL_OFLOW_FRZ		BIT(24)
->> +#define MSMON_CFG_x_CTL_OFLOW_INTR		BIT(25)
->> +#define MSMON_CFG_x_CTL_OFLOW_STATUS		BIT(26)
->> +#define MSMON_CFG_x_CTL_CAPT_RESET		BIT(27)
->> +#define MSMON_CFG_x_CTL_CAPT_EVNT		GENMASK(30, 28)
->> +#define MSMON_CFG_x_CTL_EN			BIT(31)
+>> +static int mpam_ris_get_affinity(struct mpam_msc *msc, cpumask_t *affinity,
+>> +                 enum mpam_class_types type,
+>> +                 struct mpam_class *class,
+>> +                 struct mpam_component *comp)
+>> +{
+>> +    int err;
+>> +
+>> +    switch (type) {
+>> +    case MPAM_CLASS_CACHE:
+>> +        err = mpam_get_cpumask_from_cache_id(comp->comp_id, class->level,
+>> +                             affinity);
+>> +        if (err)
+>> +            return err;
+>> +
+>> +        if (cpumask_empty(affinity))
+>> +            pr_warn_once("%s no CPUs associated with cache node",
+>> +                     dev_name(&msc->pdev->dev));
+>> +
+>> +        break;
+> 
+> "\n" missed in the error message and dev_warn_once() can be used:
+> 
+>         if (cpumask_empty(affinity))
+>             dev_warn_once(&msc->pdev->dev, "No CPUs associated with cache node\n");
 
-> I guess this combining of definitions will show some advante in common code
-> later but right now it seems confusing given not all bits are present in both.
+Yup, I'd mopped up most of these but missed this one.
 
-When I started these were the same!
 
-It is dealt with in common code, I don't think any of the bits that are different are
-used by the driver.
-
+>> +    case MPAM_CLASS_MEMORY:
+>> +        get_cpumask_from_node_id(comp->comp_id, affinity);
+>> +        /* affinity may be empty for CPU-less memory nodes */
+>> +        break;
+>> +    case MPAM_CLASS_UNKNOWN:
+>> +        return 0;
+>> +    }
+>> +
+>> +    cpumask_and(affinity, affinity, &msc->accessibility);
+>> +
+>> +    return 0;
+>> +}
 
 
 Thanks,
