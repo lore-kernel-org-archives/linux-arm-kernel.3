@@ -4,78 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA7B8CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 17:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD468CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 17:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	References:In-Reply-To:Date:Content-Type:Subject:Cc:To:From:Message-ID:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eKcQlBPjPB472NaD5zP4wHbT+w80iRDXssOS6Yp5LGU=; b=RLACYs6UMlVEg3J+e0m5O6Ts20
-	knuI8ICzUWZG2GvT2hZsRiu2fgEA4+79/EhJa/otooizBcp3sWeoGkbYo2MCEC0f4XXdn4u3rypDS
-	4F1R9jdsn9XpUnL+If6yPxzO9bgOzvQQAcyYE/fjaBScyoe4Wor1BXeeobs4gV9D3OBFJmip4BP/0
-	KqjyVOMEluI2qRSDRmKEgZnaPtcPrb/KSNbjR2h/q5E86bmrOFAzlY0eYydG4fdh2Hf/cHpVKEfQY
-	OSeFqx9Ud6J3oxyYRZhYOvFwnHXmgOdDMyK+H8ztLn0+nG3JJN8OyeNd0XAcC7ExjAgPYf8XJzYYG
-	uiUUtu8A==;
+	bh=pqg7Htrwxofmei2fLsgAe1uph5/lzKI0qa3LLNeV4j4=; b=ZF+UIou2ODZGrVKDVfWuUYh7RD
+	goypCq5Y5nLqsS3NPrUO/cWpIbOAJI/6LEfD7cQcnl0iSXagQaCKJjwzo+l7rWRBT0+73+802+oZR
+	apkYPVRy+gEAm0hcH67zISmceOT2WKrBtKiENqccfvh8nEmiHh/eWKNAfWmXp9WbCZ2v3qyz1kQOY
+	/5nYGCwZuEVNi9GnjxWiO+BRg3bedP2EWeCvDmbDEZdVTiC0C+jykhojtHDW8o1tOW48I8CCsWfDh
+	vfKMZOVLpjmVyslTi4CMjkqFDhiTV+lY4NfNpXcG4YBj69rq7sc0yA1eoMkhkJkBvlEMhJqLe3Dir
+	uBbP3rLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9nok-00000008X24-1nCm;
-	Fri, 17 Oct 2025 17:00:38 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1v9npO-00000008X9P-2HOA;
+	Fri, 17 Oct 2025 17:01:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9noh-00000008X1C-2epR;
-	Fri, 17 Oct 2025 17:00:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1760720425; x=1761325225; i=frank-w@public-files.de;
-	bh=eKcQlBPjPB472NaD5zP4wHbT+w80iRDXssOS6Yp5LGU=;
-	h=X-UI-Sender-Class:MIME-Version:Message-ID:From:To:Cc:Subject:
-	 Content-Type:Date:In-Reply-To:References:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=GHNvhdyOjKx9DEkuc+CiOWaxpTezwOpUD04IB3bEanFKTSB1DJ9dnzxwB5kx5hqp
-	 371Cveqdw/s8uitSL3XvezoEw09EB8avPsYP5/BvDYOrGosn3muZyE+OOJC22IMou
-	 x2eAuBXzkw1teioOmlM5iqfY7RNNljzBVLbM5YDE/eixiVbOjQ2pC9GLuItxYDxH+
-	 YPp1rI6mRfsRau37u5uhwvbtTbsnF2cdoQY4bzXp0p+7fN+QXCOGGstXFjnDs1lLU
-	 3G0p+7UEQLr/NAH+WkCDpdxhjpR1ZshR5K+zREH13ukMRAGsjH5/juSXxbYxkwb/g
-	 H1XV068d9ZtymvCO1Q==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [194.15.82.42] ([194.15.82.42]) by
- trinity-msg-rest-gmx-gmx-live-654c5495b9-86l6j (via HTTP); Fri, 17 Oct 2025
- 17:00:25 +0000
+	id 1v9npN-00000008X9I-1zec
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 17 Oct 2025 17:01:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=pqg7Htrwxofmei2fLsgAe1uph5/lzKI0qa3LLNeV4j4=; b=XH7zifIDRx+A028eJSzskCrgtO
+	eod1aA/GczdG72uQsHJFWOnn0l+3rmEmB2eMTMPh4SgfZNo4aw3ha4YA7obIYnxLKr3BTnvMv6tKV
+	9Dg/6kwZ9SeX5MBtgalb7nReQZriF68BzjUVI2D5Mot1BWsaZzsoOjYskyuH/pGcs3b+dopF7qFZF
+	IjuzzhsQIwfaTfrPHQJ36nSUKpNBLrWUDzqECsD0V4LL6n2dCOnI3wC+LPEcSkMm4HyBpqe2EM7eA
+	N9VdN/O3Owy63KmA6GSRw1+MM1UPN+aAb+4LV/hxAN7U4KjwPTpc8I8Slawaq0uAw5NEbQE5llD1t
+	tInRCLRA==;
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9npF-00000007nX1-0vpx
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 17:01:14 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-42701b29a7eso1044307f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 10:01:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760720465; x=1761325265; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pqg7Htrwxofmei2fLsgAe1uph5/lzKI0qa3LLNeV4j4=;
+        b=RTkjQ334MK8Pm5nudZ2G+7L1W7v5YtlIyGZFwRHLYI39igeM7SfoPfdkmJzU//TDIk
+         ESWML1epRtsaanMP76m8sPF+eP2OGMrF5NmkbQxLLgG321RVqS6WnX5UMe7hF7dp2kTa
+         3wuVT5b75jfhxxnnHgfFPcxWamJN4mvRzL1E3e8Y8C6A/jDvDMwonTSpaVmM6LjgjTs5
+         bXRav1ONTZno9GVOXPJipXJ0r8Lyiar/URysF9eVmWiq0EOzBikuWJIRmJwrnIe8uGIU
+         zEIyLzrpyXUTeIY5LCTOx5KnpBP1+0okhyYcfuyHzPoSZFdKo6jr5/S1IwBFeVujCVhx
+         6TtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760720465; x=1761325265;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pqg7Htrwxofmei2fLsgAe1uph5/lzKI0qa3LLNeV4j4=;
+        b=MGUfYN+nKMzAudhdvU2gaFUMVIs/el/M/pfHPIaENGYIuUMJZO9FArMI+4klkrKjy3
+         rTnJLYGWbdH2rnsYQVa6ZBQXsnWLCRDSR6K2dBpRce36kXfU7k+6rlZu1l/eydx0gODK
+         f3Vies0GN/nBjJ4KGV4Vg1uQH22ZDX1ndgNPnUqLgkkL1tiwdgK1/2wB//S+D+aOO1RA
+         HFKXcqwE8AssWw2+jjT97i9+9RtDxttnI3ImRQ/dZKsxivqFmS486iTMOK/9zHWl1D64
+         +yo/rQ0OA49L2Ppmx+Kc6slv9Aqor6422cdHBFK8OhGpf358xdZsLmS8QnkuKRu2Nk9A
+         TVYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWQK0fX3YUvvIZnU7iOU7XXTZF9XIRQMVYLewMccn33xYRMF1K/fYghaz/A5ci2M71BkX0JSPN132YPRR1na30/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzY7QbaZE4xMeBDV27cIuJU6WI+44fS1AW2+S7V1wQn+K28oKoE
+	ZURy4fij4BMWJaWJTBqtw5aU3604FIwlLMV3DtxiY5m3uhd0YONjrQus0HtYFCaGpY4Ah981NT+
+	kBRawBhld6FMozX2vZOURn5o0W/fzEwU=
+X-Gm-Gg: ASbGnctzLAOy3KgXiBR8Xr/RGW2DXDBR+EUKcawL0hZtECzzqojXua+CQcevhwt16HU
+	1bTacGwoz/DgtpCI7bk19WyA9N5iJXnj+Df5fJnP8OE+u+cxnT70SXnYxMOJRuvW19q1xVa3/Fp
+	eO5oA1gYIHL5xjmTq/d7EBrzQe+nOTI5FzNj75I1K6lH0hXvwBvzoz8po7P2BlfHFOV4HhnfHjg
+	C4tvZ3j6T8Kpcb/WZ+/sgmzIAienHFx/d/ObeJt2VFGa/IxpPs1HMPZ9R1CpTVcw91fvQGDQfMB
+	CYzdLfw=
+X-Google-Smtp-Source: AGHT+IGl5uGRbmbZLL5/wdiOHc0P0AlgpbUQEkv+/OS3nj0yAr+2M9EwB6fqHN6SeNM2W4NfF3pf+/0qdkabuuH8kJo=
+X-Received: by 2002:a05:6000:705:b0:426:f9d3:2feb with SMTP id
+ ffacd0b85a97d-42704beea1emr3600647f8f.23.1760720464982; Fri, 17 Oct 2025
+ 10:01:04 -0700 (PDT)
 MIME-Version: 1.0
-Message-ID: <trinity-189d521f-e308-475e-a4bf-3821794cd216-1760720425043@trinity-msg-rest-gmx-gmx-live-654c5495b9-86l6j>
-From: frank-w@public-files.de
-To: laura.nao@collabora.com, srini@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, rafael@kernel.org,
- daniel.lezcano@linaro.org, rui.zhang@intel.com, lukasz.luba@arm.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com
-Cc: nfraprado@collabora.com, arnd@arndb.de, colin.i.king@gmail.com,
- u.kleine-koenig@baylibre.com, andrew-ct.chen@mediatek.com,
- lala.lin@mediatek.com, bchihi@baylibre.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- kernel@collabora.com, laura.nao@collabora.com
-Subject: Aw: [PATCH RESEND v3 0/9] Add thermal sensor driver support for
- Mediatek MT8196
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 17 Oct 2025 17:00:25 +0000
-In-Reply-To: <20251016142158.740242-1-laura.nao@collabora.com>
-References: <20251016142158.740242-1-laura.nao@collabora.com>
-X-UI-CLIENT-META-MAIL-DROP: W10=
-X-Provags-ID: V03:K1:P+Yvh/yA0ff0Yl471I+mnmEBCSnB2JA4O9ZcySGW8hcqiIhGA76N3zud4wRV3OLMhC65r
- 8fKbTK2sx2Xv2Q9sEwiMx/Fr1QVBPj2jardHsJ1KdI4Iv3nzb7SH8aWMjnnLIW81OTdGvyKxGfLM
- X1YiuUquo3wO+LMKewInBl0Eykwqowy3Rd4Bl4hTyTariZ4Dcnn5WY5N3Y054oPWuUI31DecW+TA
- Pd31FUGvCwaH7vek68jB6gih3xfut7pG7BQ7uFLeFnRwDMgFu0AKQJtB5uCsECKvWCjW7jccv1sH
- f/eTAM7O7lxjMFxrddAcW5J1gaDqKZo+gNqlI2WZ/ov7Srq8DUXMsv0gdz6TLdrvRo=
-UI-OutboundReport: notjunk:1;M01:P0:SjEZhVmOfL0=;mUu1hbKY9O2aQGd+FALgkn7YiZg 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
+References: <YfEhaK7VtJ4oru03@shell.armlinux.org.uk>
+In-Reply-To: <YfEhaK7VtJ4oru03@shell.armlinux.org.uk>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 17 Oct 2025 18:00:38 +0100
+X-Gm-Features: AS18NWDRvAVPn4Jf57le9CYGXnLlVvbhb67dsacK4IgBFRScoJpp_oMsiemCpA8
+Message-ID: <CA+V-a8taTL1aQ5L1uYfJ405X38953z1FO=X5S54QBqGxLsF5ow@mail.gmail.com>
+Subject: Re: [PATCH net-next v2 0/7] net: stmmac/xpcs: modernise PCS support
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <Jose.Abreu@synopsys.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Jose Abreu <joabreu@synopsys.com>, 
+	linux-arm-kernel@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_100036_046458_F2132CEA 
-X-CRM114-Status: UNSURE (   8.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251017_180113_177233_CF1D4506 
+X-CRM114-Status: GOOD (  30.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,32 +116,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Gesendet: Donnerstag, 16. Oktober 2025 um 16:21
-> Von: "Laura Nao" <laura.nao@collabora.com>
-> Betreff: [PATCH RESEND v3 0/9] Add thermal sensor driver support for Med=
-iatek MT8196
+Hi,
+
+On Wed, Jan 26, 2022 at 10:32=E2=80=AFAM Russell King (Oracle)
+<linux@armlinux.org.uk> wrote:
 >
-> This patch series extends the MediaTek LVTS thermal driver to support th=
-e
-> MT8196 SoC.
->=20
-> MT8196 requires a different implementation of the lvts_temp_to_raw()
-> function.
->=20
-> To support this, the series introduces:
->=20
-> - A new struct lvts_platform_ops to allow platform-specific
->   conversion logic between raw sensor values and temperature
-> - A variant of the lvts_temp_to_raw() implementation
-> - Platform data and controller definitions for MT8196
+> Hi,
+>
+> This series updates xpcs and stmmac for the recent changes to phylink
+> to better support split PCS and to get rid of private MAC validation
+> functions.
+>
+> This series is slightly more involved than other conversions as stmmac
+> has already had optional proper split PCS support.
+>
+> The first six patches of this series were originally posted on 16th
+> December for CFT, and Wong Vee Khee reported his Intel Elkhart Lake
+> setup was fine the first six these. However, no tested-by was given.
+>
+> The patches:
+>
+> 1) Provide a function to query the xpcs for the interface modes that
+>    are supported.
+>
+> 2) Populates the MAC capabilities and switches stmmac_validate() to use
+>    phylink_get_linkmodes(). We do not use phylink_generic_validate() yet
+>    as (a) we do not always have the supported interfaces populated, and
+>    (b) the existing code does not restrict based on interface. There
+>    should be no functional effect from this patch.
+>
+> 3) Populates phylink's supported interfaces from the xpcs when the xpcs
+>    is configured by firmware and also the firmware configured interface
+>    mode. Note: this will restrict stmmac to only supporting these
+>    interfaces modes - stmmac maintainers need to verify that this
+>    behaviour is acceptable.
+>
+> 4) stmmac_validate() tail-calls xpcs_validate(), but we don't need it to
+>    now that PCS have their own validation method. Convert stmmac and
+>    xpcs to use this method instead.
+>
+> 5) xpcs sets the poll field of phylink_pcs to true, meaning xpcs
+>    requires its status to be polled. There is no need to also set the
+>    phylink_config.pcs_poll. Remove this.
+>
+> 6) Switch to phylink_generic_validate(). This is probably the most
+>    contravertial change in this patch set as this will cause the MAC to
+>    restrict link modes based on the interface mode. From an inspection
+>    of the xpcs driver, this should be safe, as XPCS only further
+>    restricts the link modes to a subset of these (whether that is
+>    correct or not is not an issue I am addressing here.) For
+>    implementations that do not use xpcs, this is a more open question
+>    and needs feedback from stmmac maintainers.
+>
+> 7) Convert to use mac_select_pcs() rather than phylink_set_pcs() to set
+>    the PCS - the intention is to eventually remove phylink_set_pcs()
+>    once there are no more users of this.
+>
+> v2: fix signoff and temporary warning in patch 4
+>
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 147 +++++++---------=
+------
+>  drivers/net/pcs/pcs-xpcs.c                        |  41 +++---
+>  include/linux/pcs/pcs-xpcs.h                      |   3 +-
+>  3 files changed, 73 insertions(+), 118 deletions(-)
+>
+Although RZ/V2H doesn't have PCS, it tested this on Renesas RZ/V2H EVK
+and found no regressions.
 
-Hi
+Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-tested the series against mt7988 and mt7987 (support not yet upstreamed, s=
-o added the necessary fields for it to my 6.17 version)=20
-and it does not break these boards.
-
-Tested-by: Frank Wunderlich <frank-w@public-files.de>
-
-regards Frank
+Cheers,
+Prabhakar
 
