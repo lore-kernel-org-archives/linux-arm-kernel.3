@@ -4,92 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E4ACCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:51:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A21D9CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3ZlW1aA+Flinu58HBfkSm0xV8dm7/3+3/U8WtN9/JoA=; b=jdYG6ew+mweXBt3OZKHDlltEQ9
-	EkDB9bYCpplE/f8mRElSEVOm0D3inUtvCkKeeUbnqUnqZRFI6OWPFi4DLP7PFHoldBa5boxKwEPtf
-	2V2o2EAXN9gUxMcdR8YRyY30BcxkQCr+auzDstj4mXgDkZQhhatyafVmR5FgPDrZPAa5Raj+y5wpt
-	aq3dWeOyTPA2HrcTH3+xTSYyIaVxEH7kXELxu/Sx6JaF1JWmY1fnBCctBv/nbhmSoID0dNhBO6wNY
-	DbLCB/uHFf8i6nURFx5SlP+qQDuLbDC6mGQVQm0Iukzx5ikpe84kpFm5pWZKX7A92I3+k+NY1Mpph
-	yEc6rgDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZQ1TtLHokmslhzFjee4cGuD5m+V7qM5aPPie4zC6OAs=; b=mopURnpH6PrZxW0oE30oV19vIh
+	BjK9Jz1EHz0cjFCAZbMm6sD4wGWOJyVIPwRpRK/UGM9kcwlk9KUhk/qoDXWo2UBU9Kj8vQ01LU2nr
+	65OjxkHEUzXFnTHWfwbXwNLen+uWEz+Wmqd/3letqk+SwQORklnxFZBDxMsU3ZAaqC64yIO/iG3k9
+	gcSOgqFBt2RVwf85FWrcW3QpzXa8tAP2CYt35CzP/wPkfbV56mexPRCbP5cbfMo6VhJMUqoIWitee
+	hwuyJ73+VbnlePQmuvc28qzwHRBstrUvwTTqOPE+viCa+WRiFYwYNKOnthNvDoEWwtxBPjFBszYWU
+	DqdJ9X4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mjd-00000008KO2-2JPO;
-	Fri, 17 Oct 2025 15:51:17 +0000
+	id 1v9mnV-00000008L3U-3TpM;
+	Fri, 17 Oct 2025 15:55:17 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mjb-00000008KLl-0p0U
+	id 1v9mnU-00000008L3M-2LiN
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 17 Oct 2025 15:51:15 +0000
+	Fri, 17 Oct 2025 15:55:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=3ZlW1aA+Flinu58HBfkSm0xV8dm7/3+3/U8WtN9/JoA=; b=bKjCsR1LzwwdYQJok53l9ZU+L4
-	cXDmifAt0+4fBIm6e6tPzAcfl3ELmoaDmif7bVBchyDZhQ20wtPl3OGz4UkzEbcF0arc+zp7SVxfy
-	XuanWji85293edCCUrVO0CWtPxmUgvyiExdb40/Cjuvx/nGpMOkJdrFVvbQCtZ/zR5mde7EPe63IH
-	Wl14wtRoGHZLQGQTev3z7pDOulGk/E+o5Bd3hmgIxHrYxB1i/MdgEABQQ9coCNgBm5LefNY/wuQJU
-	TV4zxGGJP18h89F1Mnlbvuj1WTes3uBFKBFB9Iqw78RSpPF7f/aHV1G9cd1E+yqoyBPfkXT9DIwbW
-	U8FMP3bg==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ZQ1TtLHokmslhzFjee4cGuD5m+V7qM5aPPie4zC6OAs=; b=IJLAPD3cJL/IXkH5vKRAFq/ovW
+	ad7k6FLm45cvdQ+8vAfxY5jj5ZzSj8JOVoZOihBgPGw9P39TAlIcNWSpfblUP1RXqhj5bo+M+jmw4
+	K9pfJgQoXmuUe/AQkWdZLrEZ/yybC1gjsljlpj1zJ+mHrvrM755Q5aXpCz8vUzl959bOEfIBokaNR
+	27PrRN2SSfX7CCu4KqnUvmrSsqn6Bl6c4SoWMxw6Cf+5KsXUwRoCWspseBgOjzdzcy21AENcSe8Xs
+	8Dbn7IoKb2ph6RXKnjXZa9jGCz/Sv0f0g1DEBd8pIvgRwOgowfmtVJahsSjXweuxeqdd9n65vB79f
+	6n3fb5Sw==;
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mjX-00000007hgC-3Zvy
+	id 1v9mnQ-00000007i6f-2oZg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 15:51:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 067AB40ABA;
-	Fri, 17 Oct 2025 15:51:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DD8FC4CEE7;
-	Fri, 17 Oct 2025 15:51:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1760716269;
-	bh=T/FTYqw+cii1Ir02UOT08q3sbOYilg5F8OK6kodWyo8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QLDjkLI3fjZzkXD+1UFjtx4Q1kznqHYizlnsgU/sGkpjMP8Q7K0BLD3DBT/h4GJPd
-	 A47FV9O0i2ATjoVWBrPq6XiDtB1oxhz/LWF2UevcrjFJbmKVFFTQNo9Vy046167koc
-	 fiDz9TRmFIrHErh0AX87niLkRypUimqe6O1aP2Ks=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Leo Yan <leo.yan@linaro.org>,
-	German Gomez <german.gomez@arm.com>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Anshuman.Khandual@arm.com,
-	Ingo Molnar <mingo@redhat.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	John Garry <john.g.garry@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	James Clark <james.clark@arm.com>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.15 132/276] perf arm-spe: Refactor arm-spe to support operation packet type
-Date: Fri, 17 Oct 2025 16:53:45 +0200
-Message-ID: <20251017145147.300787844@linuxfoundation.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251017145142.382145055@linuxfoundation.org>
-References: <20251017145142.382145055@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	Fri, 17 Oct 2025 15:55:15 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59HEGCDs001269;
+	Fri, 17 Oct 2025 15:54:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=ZQ1TtLHokmslhzFjee4cGuD5m+V7qM
+	5aPPie4zC6OAs=; b=Law6VkvY0ICKNKchLEppxjum8vOcIanSKnBL7OT7PTmQg0
+	/6qxbBVReHS20QCrAw8Mw10mAM94rLvvh5tD8wbUb+e/utZivGuGVMyuc5GqkixP
+	9WWXmRLKv6pzkRAEKw2FfWsg1p5GZVTfuvuxnFm6T98IRMQAUQ+8yc/rD5Z5b3uH
+	X8d0zz6VYhOyCbAzuvtAz8NrnXH38xtQ7MCVtxDrzdSoscnaYPFy05mStbIeDDtp
+	SKaXWeccmeQ4KD9PLzrxCjVQVpjNf13uY8Trn2RjdAn/nkDZsccyOmP07vNlXyJ4
+	AsYtlADdQJJL2sQy3nsR9lxvDfusEAX4XJPoEovw==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49rfp8em13-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Oct 2025 15:54:20 +0000 (GMT)
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 59HFmLFW024554;
+	Fri, 17 Oct 2025 15:54:19 GMT
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49rfp8em10-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Oct 2025 15:54:19 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59HFlK7X015010;
+	Fri, 17 Oct 2025 15:54:18 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 49r3sjwvr0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 17 Oct 2025 15:54:18 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59HFsGL659048250
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 17 Oct 2025 15:54:16 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 503512004B;
+	Fri, 17 Oct 2025 15:54:16 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 980F420049;
+	Fri, 17 Oct 2025 15:54:15 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 17 Oct 2025 15:54:15 +0000 (GMT)
+Date: Fri, 17 Oct 2025 17:54:14 +0200
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        Andreas Larsson <andreas@gaisler.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        David Hildenbrand <david@redhat.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
+        x86@kernel.org
+Subject: Re: [PATCH v3 06/13] mm: introduce generic lazy_mmu helpers
+Message-ID: <55f8b155-5468-43fc-b6fc-f509f4becd5b-agordeev@linux.ibm.com>
+References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
+ <20251015082727.2395128-7-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251015082727.2395128-7-kevin.brodsky@arm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: 2uFWZ81CE4CiNc9aZu2A8JlAcBwqq-tc
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDEyMDA4NCBTYWx0ZWRfX2Zriy77SuQpm
+ /GHNuVH/UFB6mOfHOC2AuP5g7c+urTyXE81dQ6L6B0AwkiPLgihig9dwBQiKw0AYwvyn2/UBXXe
+ VcGvFB11D3W4lhURudq3zaSM9GHtCo5XdEsYeLbFUmnzVB67HZP20B2Uxwsqr/DnC0GUNt8pn+Q
+ lYbw9Nsugz7aigNaGXWz8mjQ5H0X7sXZm5KLMDqasP/WlwVPUM+i7GhB70V9ACBzBfu/gATiLsp
+ HWtKR/YcgMc3XVsjOXDXb6rwcyJoPiLdVPL4d9Uovyfy1Y+6KXUtJGTOvjrlEvC+BEx9y22ul4M
+ iyiO9mTSInwQOYOlHV2G1yBHcLyrhGstPiwazxXG+Q1pEZlUKx7CHtMC4Sa0JzAFx3fiGUVZ0Ll
+ LSljgWznsRluu1F2sKhweaOdRoS3mQ==
+X-Proofpoint-GUID: B3M2xirfIqNJrZzR03DBgN9gZToY0y4x
+X-Authority-Analysis: v=2.4 cv=af5sXBot c=1 sm=1 tr=0 ts=68f266ac cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=kj9zAlcOel0A:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=1KDjgaeL6VvqQMJ9c2UA:9
+ a=NqO74GWdXPXpGKcKHaDJD/ajO6k=:19 a=CjuIK1q_8ugA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+ a=DXsff8QfwkrTrK3sU8N1:22 a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-17_05,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0
+ bulkscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510120084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_165112_272376_6A099419 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20251017_165513_637577_92792131 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,188 +162,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-5.15-stable review patch.  If anyone has any objections, please let me know.
+On Wed, Oct 15, 2025 at 09:27:20AM +0100, Kevin Brodsky wrote:
 
-------------------
+Hi Kevin,
 
-From: German Gomez <german.gomez@arm.com>
+...
+> * lazy_mmu_mode_pause() ... lazy_mmu_mode_resume()
+>     This is for situations where the mode is temporarily disabled
+>     by first calling pause() and then resume() (e.g. to prevent any
+>     batching from occurring in a critical section).
+...
+> +static inline void lazy_mmu_mode_pause(void)
+> +{
+> +	arch_leave_lazy_mmu_mode();
 
-[ Upstream commit 0066015a3d8f9c01a17eb04579edba7dac9510af ]
+I think it should have been arch_pause_lazy_mmu_mode(), wich defaults
+to  arch_leave_lazy_mmu_mode(), as we discussed in v2:
 
-Extend the decoder of Arm SPE records to support more fields from the
-operation packet type.
+https://lore.kernel.org/linux-mm/d407a381-099b-4ec6-a20e-aeff4f3d750f@arm.com/#t
 
-Not all fields are being decoded by this commit. Only those needed to
-support the use-case SVE load/store/other operations.
+> +}
+> +
+> +static inline void lazy_mmu_mode_resume(void)
+> +{
+> +	arch_enter_lazy_mmu_mode();
+> +}
 
-Suggested-by: Leo Yan <leo.yan@linaro.org>
-Signed-off-by: German Gomez <german.gomez@arm.com>
-Acked-by: Ian Rogers <irogers@google.com>
-Cc: Adrian Hunter <adrian.hunter@intel.com>
-Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Anshuman.Khandual@arm.com
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Jiri Olsa <jolsa@kernel.org>
-Cc: John Garry <john.g.garry@oracle.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Mike Leach <mike.leach@linaro.org>
-Cc: Namhyung Kim <namhyung@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Link: https://lore.kernel.org/r/20230320151509.1137462-2-james.clark@arm.com
-Signed-off-by: James Clark <james.clark@arm.com>
-Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-Stable-dep-of: cb300e351505 ("perf arm_spe: Correct memory level for remote access")
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- .../util/arm-spe-decoder/arm-spe-decoder.c    | 30 ++++++++++--
- .../util/arm-spe-decoder/arm-spe-decoder.h    | 47 +++++++++++++++----
- tools/perf/util/arm-spe.c                     |  8 ++--
- 3 files changed, 67 insertions(+), 18 deletions(-)
-
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-index 3e36934477154..3b937e89654f4 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-@@ -184,11 +184,27 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
- 			decoder->record.context_id = payload;
- 			break;
- 		case ARM_SPE_OP_TYPE:
--			if (idx == SPE_OP_PKT_HDR_CLASS_LD_ST_ATOMIC) {
--				if (payload & 0x1)
--					decoder->record.op = ARM_SPE_ST;
-+			switch (idx) {
-+			case SPE_OP_PKT_HDR_CLASS_LD_ST_ATOMIC:
-+				decoder->record.op |= ARM_SPE_OP_LDST;
-+				if (payload & SPE_OP_PKT_ST)
-+					decoder->record.op |= ARM_SPE_OP_ST;
- 				else
--					decoder->record.op = ARM_SPE_LD;
-+					decoder->record.op |= ARM_SPE_OP_LD;
-+				if (SPE_OP_PKT_IS_LDST_SVE(payload))
-+					decoder->record.op |= ARM_SPE_OP_SVE_LDST;
-+				break;
-+			case SPE_OP_PKT_HDR_CLASS_OTHER:
-+				decoder->record.op |= ARM_SPE_OP_OTHER;
-+				if (SPE_OP_PKT_IS_OTHER_SVE_OP(payload))
-+					decoder->record.op |= ARM_SPE_OP_SVE_OTHER;
-+				break;
-+			case SPE_OP_PKT_HDR_CLASS_BR_ERET:
-+				decoder->record.op |= ARM_SPE_OP_BRANCH_ERET;
-+				break;
-+			default:
-+				pr_err("Get packet error!\n");
-+				return -1;
- 			}
- 			break;
- 		case ARM_SPE_EVENTS:
-@@ -216,6 +232,12 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
- 			if (payload & BIT(EV_MISPRED))
- 				decoder->record.type |= ARM_SPE_BRANCH_MISS;
- 
-+			if (payload & BIT(EV_PARTIAL_PREDICATE))
-+				decoder->record.type |= ARM_SPE_SVE_PARTIAL_PRED;
-+
-+			if (payload & BIT(EV_EMPTY_PREDICATE))
-+				decoder->record.type |= ARM_SPE_SVE_EMPTY_PRED;
-+
- 			break;
- 		case ARM_SPE_DATA_SOURCE:
- 			decoder->record.source = payload;
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-index c3943eb95e305..fa269c9c53b33 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-@@ -14,19 +14,46 @@
- #include "arm-spe-pkt-decoder.h"
- 
- enum arm_spe_sample_type {
--	ARM_SPE_L1D_ACCESS	= 1 << 0,
--	ARM_SPE_L1D_MISS	= 1 << 1,
--	ARM_SPE_LLC_ACCESS	= 1 << 2,
--	ARM_SPE_LLC_MISS	= 1 << 3,
--	ARM_SPE_TLB_ACCESS	= 1 << 4,
--	ARM_SPE_TLB_MISS	= 1 << 5,
--	ARM_SPE_BRANCH_MISS	= 1 << 6,
--	ARM_SPE_REMOTE_ACCESS	= 1 << 7,
-+	ARM_SPE_L1D_ACCESS		= 1 << 0,
-+	ARM_SPE_L1D_MISS		= 1 << 1,
-+	ARM_SPE_LLC_ACCESS		= 1 << 2,
-+	ARM_SPE_LLC_MISS		= 1 << 3,
-+	ARM_SPE_TLB_ACCESS		= 1 << 4,
-+	ARM_SPE_TLB_MISS		= 1 << 5,
-+	ARM_SPE_BRANCH_MISS		= 1 << 6,
-+	ARM_SPE_REMOTE_ACCESS		= 1 << 7,
-+	ARM_SPE_SVE_PARTIAL_PRED	= 1 << 8,
-+	ARM_SPE_SVE_EMPTY_PRED		= 1 << 9,
- };
- 
- enum arm_spe_op_type {
--	ARM_SPE_LD		= 1 << 0,
--	ARM_SPE_ST		= 1 << 1,
-+	/* First level operation type */
-+	ARM_SPE_OP_OTHER	= 1 << 0,
-+	ARM_SPE_OP_LDST		= 1 << 1,
-+	ARM_SPE_OP_BRANCH_ERET	= 1 << 2,
-+
-+	/* Second level operation type for OTHER */
-+	ARM_SPE_OP_SVE_OTHER		= 1 << 16,
-+	ARM_SPE_OP_SVE_FP		= 1 << 17,
-+	ARM_SPE_OP_SVE_PRED_OTHER	= 1 << 18,
-+
-+	/* Second level operation type for LDST */
-+	ARM_SPE_OP_LD			= 1 << 16,
-+	ARM_SPE_OP_ST			= 1 << 17,
-+	ARM_SPE_OP_ATOMIC		= 1 << 18,
-+	ARM_SPE_OP_EXCL			= 1 << 19,
-+	ARM_SPE_OP_AR			= 1 << 20,
-+	ARM_SPE_OP_SIMD_FP		= 1 << 21,
-+	ARM_SPE_OP_GP_REG		= 1 << 22,
-+	ARM_SPE_OP_UNSPEC_REG		= 1 << 23,
-+	ARM_SPE_OP_NV_SYSREG		= 1 << 24,
-+	ARM_SPE_OP_SVE_LDST		= 1 << 25,
-+	ARM_SPE_OP_SVE_PRED_LDST	= 1 << 26,
-+	ARM_SPE_OP_SVE_SG		= 1 << 27,
-+
-+	/* Second level operation type for BRANCH_ERET */
-+	ARM_SPE_OP_BR_COND	= 1 << 16,
-+	ARM_SPE_OP_BR_INDIRECT	= 1 << 17,
- };
- 
- enum arm_spe_neoverse_data_source {
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 2d7fc2b01f36b..c86e60b5954c5 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -336,7 +336,7 @@ static void arm_spe__synth_data_source_neoverse(const struct arm_spe_record *rec
- 	 * We have no data on the hit level or data source for stores in the
- 	 * Neoverse SPE records.
- 	 */
--	if (record->op & ARM_SPE_ST) {
-+	if (record->op & ARM_SPE_OP_ST) {
- 		data_src->mem_lvl = PERF_MEM_LVL_NA;
- 		data_src->mem_lvl_num = PERF_MEM_LVLNUM_NA;
- 		data_src->mem_snoop = PERF_MEM_SNOOP_NA;
-@@ -422,12 +422,12 @@ static void arm_spe__synth_data_source_generic(const struct arm_spe_record *reco
- 
- static u64 arm_spe__synth_data_source(const struct arm_spe_record *record, u64 midr)
- {
--	union perf_mem_data_src	data_src = { 0 };
-+	union perf_mem_data_src	data_src = { .mem_op = PERF_MEM_OP_NA };
- 	bool is_neoverse = is_midr_in_range_list(midr, neoverse_spe);
- 
--	if (record->op == ARM_SPE_LD)
-+	if (record->op & ARM_SPE_OP_LD)
- 		data_src.mem_op = PERF_MEM_OP_LOAD;
--	else if (record->op == ARM_SPE_ST)
-+	else if (record->op & ARM_SPE_OP_ST)
- 		data_src.mem_op = PERF_MEM_OP_STORE;
- 	else
- 		return 0;
--- 
-2.51.0
-
-
-
+Thanks!
 
