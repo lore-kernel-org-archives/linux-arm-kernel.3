@@ -4,77 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF07CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1AA7CCD1A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KazYSMUi3seSS4oObUkpu/Tp1JR7fu/js/EwRQBrgiA=; b=SYyA8iGbRDIpgdZgL7fPeBs7jF
-	l1sCg6xX5dADBfiGdb6C59ytome1GxBYmsvH26LfTzEAJCpjBbtd0eByuUtJ83L8YmpdoXiYp8QQ3
-	6qOE/F+9mHSsG/hRcm4zoevZkmI7+779DLSCjovKedPHNS6t9CWV6EJioANcNqltI3VKY8VYaBB1v
-	bvV+Lu8mVEGv+A7XuNlo2495JV9fArSYDe9YVuxdF0/0kCiqhN5WWmyDKNWovKovikJJKyR1sRipe
-	s2+w/ZfpegQudb40DDu1TGah9fu9QN5kGVSJVTLLl8vgVsnNRVzE5We57caLaD153K+hJ54a18apd
-	e8mBpGJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:cc:Subject:To:From:
+	Message-ID:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sQjHTAU2ANvy0R8z2gg1idxWUOVjpB50pHnvfHruLTk=; b=ICcCjOPUR7athI4vf/bhAGCIU3
+	lrKm0rlCAAr38Mz4RkUihLjHEWxHL/uadVvO4KtPM9qP2SOtodEJlw56BpxCNQ23X+NCzAVe3wrDg
+	dIe39u/MWXG58A3+scrRz1djPKtHjdXxT7Hj4I4DvrxLGe4mJ0nzS20gn7xB9xyecy9nXNcO1IuVx
+	sFobE95vFWavUu1OMBC7FrPX3mc6OO9ApsN0jB5sWW8QfY4UGsX+b5kMqn44L2iN3LQlhvyq9eBId
+	R6FN56rMcFO8Ug4vXztWujxyWV+Ivv55snpZVsfwyYFA+UBEtP86iSCtiVQmsATq4oMYgfTaD71Yd
+	eUF4MeHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hLt-00000007QvW-0xJD;
-	Fri, 17 Oct 2025 10:06:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v9hOO-00000007RvN-3NCO;
+	Fri, 17 Oct 2025 10:09:00 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hLm-00000007QmF-3cij
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 17 Oct 2025 10:06:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=KazYSMUi3seSS4oObUkpu/Tp1JR7fu/js/EwRQBrgiA=; b=V4ewC6ouOpDcoHbjgacbpBECAe
-	PkNNpyjJbEA7d8BrhYaL7qaC67fjBL+jhYIen9fzIie3H4vR6ejWb0MBTcm64FpH34Qdk+Yvxs344
-	5spTJRKsyNEzZMpOh5gPlKvWR9claax4RNdAggeHdbTaQgBC4GtWSCW/OKYAZeZYj1jn1t9hViUn2
-	rGd38opNQP7qM+fZO3h+Z4ozHIx4gPtY+OCDZ0/fzCCSqjrQfbSJdY6jwOk7PH3CMN5uwnaIxCCV0
-	+W4eE550LPZBLkBJi74jAzUx8RCvBic458bYjzqEp2Ya6vHqK7ryXV+Aoj+Wqpg+vZ4uD9ED5y/WN
-	Cx5HPy7A==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hLL-00000007Rca-3O40
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 10:06:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0819A1C14;
-	Fri, 17 Oct 2025 03:05:34 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 88A103F59E;
-	Fri, 17 Oct 2025 03:05:40 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 17 Oct 2025 11:05:09 +0100
-Subject: [PATCH v2 20/25] perf mem: Print extended fields
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-perf_support_arm_spev1-3-v2-20-2d41e4746e1b@arm.com>
-References: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
-In-Reply-To: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
- James Clark <james.clark@linaro.org>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
- linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760695507; l=3651;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=A7ojri2MUqobrd+TLOmz8lLFTBFq9buLIlAc/yoYVBg=;
- b=0/5+Cd6MO1dTYaG5lGH1CEV0BhFhxYsOXXbiPrjcBt6WbaoBnMcFjnH8smdc4+XcH+nQNkSEz
- UIC/dYPYhK9Dp107mBiO3M1xqCRxpvUwQGUD/wKcqRmcgK5mell2y2N
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+	id 1v9hOM-00000007Rt5-128C;
+	Fri, 17 Oct 2025 10:08:59 +0000
+Message-ID: <20251017085938.150569636@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1760695735;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc; bh=sQjHTAU2ANvy0R8z2gg1idxWUOVjpB50pHnvfHruLTk=;
+	b=Eko32jphl7W3Xb+zGpZ6phPdMdJwxHmnxeLrIJj9qdJitAWXAuSbzoODtPZR1exPSq4jMr
+	Xn7ZTH6KgwcOGALTdCL47R8+MFa4jiWK8UogHGnp9QeK4hbWrSPeVPSRc3y9z6FMLcfPGe
+	KbL4vt6K04JVr8neOXAHUbizdH9XNtossRpzFH+fjRoWAjYd4ZAa2/eiSueqkaHZBNR5/Y
+	WgMiXtDNsPUyxQGr8DumDuVWYTMwSZ2IlWZkWq/cFKVncN/jALJBcLTV8IeVbKMcArrHJ2
+	eizyzm/gJ8rGmf9GDpZ/1JOEQhlypSXGiWokxNij3wWrwzykELy0t6VKFNZubQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1760695735;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc; bh=sQjHTAU2ANvy0R8z2gg1idxWUOVjpB50pHnvfHruLTk=;
+	b=jvhhlE5ZDsXkGj4CvFqtuuX6HrygY+mr5PHtByDjb6j+LIqTh5z4fS9wp9QqAIwAio4UlZ
+	gHuITp9EO2Np+kAA==
+From: Thomas Gleixner <tglx@linutronix.de>
+To: LKML <linux-kernel@vger.kernel.org>
+Subject: [patch V3 00/12] uaccess: Provide and use scopes for user masked
+ access
+cc: kernel test robot <lkp@intel.com>,
+ Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ x86@kernel.org,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ linuxppc-dev@lists.ozlabs.org,
+ Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ linux-riscv@lists.infradead.org,
+ Heiko Carstens <hca@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ linux-s390@vger.kernel.org,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Cooper <andrew.cooper3@citrix.com>,
+ Julia Lawall <Julia.Lawall@inria.fr>,
+ Nicolas Palix <nicolas.palix@imag.fr>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?q?Andr=C3=A9=20Almeida?= <andrealmeid@igalia.com>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>,
+ Jan Kara <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org
+Date: Fri, 17 Oct 2025 12:08:54 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_110611_023399_EBD6FEA5 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20251017_030858_454523_E9BAF2B0 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,122 +93,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Print the extended operation types and affiliate info.
+This is a follow up on the V2 feedback:
 
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+   https://lore.kernel.org/20250916163004.674341701@linutronix.de
+
+The main concern over the V2 implementation was the requirement to have
+the code within the macro itself.
+
+The main reason for that was the issue with ASM GOTO within a auto cleanup
+scope. Clang refuses to build when the ASM GOTO label is outside of the
+scope and GCC silently miscompiles the code and misses the cleanup.
+
+After some back and forth discussion Linus suggested to put the local label
+workaround into the user access functions themself.
+
+The second reason for having this construct was to make the potential
+modification of the pointer (when the architecture supports masking) scope
+local, as that preserves the original pointer for the failure path.
+
+Andrew thankfully pointed me to nested for() loops and after some head
+scratching I managed to get all of it hidden in that construct.
+
+So now the scoped access looks like this:
+
+	scoped_masked_user_read_access(ptr, efault) {
+	        // @ptr is aliased. An eventual mask modification is scope local
+		unsafe_get_user(val, ptr, efault);
+		...
+	}
+	return 0;
+efault:
+        // @ptr is unmodified
+	do_stuff(ptr);
+	return -EFAULT;
+
+
+Changes vs. V2:
+
+    - Fix the unsigned long long pointer issue in ARM get_user() -
+      Christophe, Russell
+
+    - Provide a generic workaround for the ASM GOTO issue and convert the
+      affected architecture code over - Linus
+
+    - Reimplement the scoped cleanup magic with nested for() loops - Andrew
+
+    - Provide variants with size provided by the caller - Mathieu
+
+    - Add get/put_user_masked() helpers for single read/write access
+
+    - Fixup the usage in futex, x86. select
+
+    - A clumsy attempt to implement a coccinelle checker which catches
+      access mismatches, e.g. unsafe_put_user() inside a
+      scoped_masked_user_read_access() region. That needs more thought and
+      more coccinelle foo and is just there for discussion.
+
+The series is based on v6.18-rc1 and also available from git:
+
+    git://git.kernel.org/pub/scm/linux/kernel/git/tglx/devel.git uaccess/masked
+
+Thanks,
+
+	tglx
 ---
- tools/perf/util/mem-events.c | 66 ++++++++++++++++++++++++++++++++++++++++----
- 1 file changed, 60 insertions(+), 6 deletions(-)
+Thomas Gleixner (12):
+      ARM: uaccess: Implement missing __get_user_asm_dword()
+      uaccess: Provide ASM GOTO safe wrappers for unsafe_*_user()
+      x86/uaccess: Use unsafe wrappers for ASM GOTO
+      powerpc/uaccess: Use unsafe wrappers for ASM GOTO
+      riscv/uaccess: Use unsafe wrappers for ASM GOTO
+      s390/uaccess: Use unsafe wrappers for ASM GOTO
+      uaccess: Provide scoped masked user access regions
+      uaccess: Provide put/get_user_masked()
+      coccinelle: misc: Add scoped_masked_$MODE_access() checker script
+      futex: Convert to scoped masked user access
+      x86/futex: Convert to scoped masked user access
+      select: Convert to scoped masked user access
 
-diff --git a/tools/perf/util/mem-events.c b/tools/perf/util/mem-events.c
-index 80b3069427bc4bb5ffc3ab0856c01c76d9ba3ba6..c0aee982fb4f1a849c28a8bb01693855922832f6 100644
---- a/tools/perf/util/mem-events.c
-+++ b/tools/perf/util/mem-events.c
-@@ -413,11 +413,15 @@ static const char * const mem_hops[] = {
- 
- static int perf_mem__op_scnprintf(char *out, size_t sz, const struct mem_info *mem_info)
- {
--	u64 op = PERF_MEM_LOCK_NA;
-+	union perf_mem_data_src data_src;
-+	u64 op = PERF_MEM_OP_NA, ext_op = 0;
- 	int l;
- 
--	if (mem_info)
--		op = mem_info__const_data_src(mem_info)->mem_op;
-+	if (mem_info) {
-+		data_src = *mem_info__const_data_src(mem_info);
-+		op = data_src.mem_op;
-+		ext_op = data_src.mem_op_ext;
-+	}
- 
- 	if (op & PERF_MEM_OP_NA)
- 		l = scnprintf(out, sz, "N/A");
-@@ -432,6 +436,19 @@ static int perf_mem__op_scnprintf(char *out, size_t sz, const struct mem_info *m
- 	else
- 		l = scnprintf(out, sz, "No");
- 
-+	if (ext_op == PERF_MEM_EXT_OP_MTE_TAG)
-+		l += scnprintf(out + l, sz - l, " MTE");
-+	else if (ext_op == PERF_MEM_EXT_OP_NESTED_VIRT)
-+		l += scnprintf(out + l, sz - l, " NV");
-+	else if (ext_op == PERF_MEM_EXT_OP_MEMCPY)
-+		l += scnprintf(out + l, sz - l, " MEMCPY");
-+	else if (ext_op == PERF_MEM_EXT_OP_MEMSET)
-+		l += scnprintf(out + l, sz - l, " MEMSET");
-+	else if (ext_op == PERF_MEM_EXT_OP_SIMD)
-+		l += scnprintf(out + l, sz - l, " SIMD");
-+	else if (ext_op == PERF_MEM_EXT_OP_GCS)
-+		l += scnprintf(out + l, sz - l, " GCS");
-+
- 	return l;
- }
- 
-@@ -582,9 +599,6 @@ int perf_mem__blk_scnprintf(char *out, size_t sz, const struct mem_info *mem_inf
- 	size_t l = 0;
- 	u64 mask = PERF_MEM_BLK_NA;
- 
--	sz -= 1; /* -1 for null termination */
--	out[0] = '\0';
--
- 	if (mem_info)
- 		mask = mem_info__const_data_src(mem_info)->mem_blk;
- 
-@@ -600,6 +614,44 @@ int perf_mem__blk_scnprintf(char *out, size_t sz, const struct mem_info *mem_inf
- 	return l;
- }
- 
-+static int perf_mem__aff_scnprintf(char *out, size_t sz,
-+				   const struct mem_info *mem_info)
-+{
-+	union perf_mem_data_src data_src;
-+	size_t l = 0;
-+
-+	sz -= 1; /* -1 for null termination */
-+	out[0] = '\0';
-+
-+	if (!mem_info)
-+		goto out;
-+
-+	data_src = *mem_info__const_data_src(mem_info);
-+
-+	if (data_src.mem_dp)
-+		l += scnprintf(out + l, sz - l, " DP");
-+	if (data_src.mem_fp)
-+		l += scnprintf(out + l, sz - l, " FP");
-+	if (data_src.mem_pred)
-+		l += scnprintf(out + l, sz - l, " PRED");
-+	if (data_src.mem_atomic)
-+		l += scnprintf(out + l, sz - l, " ATOMIC");
-+	if (data_src.mem_excl)
-+		l += scnprintf(out + l, sz - l, " EX");
-+	if (data_src.mem_ar)
-+		l += scnprintf(out + l, sz - l, " AR");
-+	if (data_src.mem_sg)
-+		l += scnprintf(out + l, sz - l, " SG");
-+	if (data_src.mem_cond)
-+		l += scnprintf(out + l, sz - l, " COND");
-+
-+out:
-+	if (!l)
-+		l += scnprintf(out + l, sz - l, " N/A");
-+
-+	return l;
-+}
-+
- int perf_script__meminfo_scnprintf(char *out, size_t sz, const struct mem_info *mem_info)
- {
- 	int i = 0;
-@@ -616,6 +668,8 @@ int perf_script__meminfo_scnprintf(char *out, size_t sz, const struct mem_info *
- 	i += perf_mem__lck_scnprintf(out + i, sz - i, mem_info);
- 	i += scnprintf(out + i, sz - i, "|BLK ");
- 	i += perf_mem__blk_scnprintf(out + i, sz - i, mem_info);
-+	i += scnprintf(out + i, sz - i, "|AFF");
-+	i += perf_mem__aff_scnprintf(out + i, sz - i, mem_info);
- 
- 	return i;
- }
-
--- 
-2.34.1
-
+---
+ arch/arm/include/asm/uaccess.h               |   26 ++
+ arch/powerpc/include/asm/uaccess.h           |    8 
+ arch/riscv/include/asm/uaccess.h             |    8 
+ arch/s390/include/asm/uaccess.h              |    4 
+ arch/x86/include/asm/futex.h                 |   75 ++----
+ arch/x86/include/asm/uaccess.h               |   12 -
+ fs/select.c                                  |   12 -
+ include/linux/uaccess.h                      |  313 ++++++++++++++++++++++++++-
+ kernel/futex/futex.h                         |   37 ---
+ scripts/coccinelle/misc/scoped_uaccess.cocci |  108 +++++++++
+ 10 files changed, 497 insertions(+), 106 deletions(-)
 
