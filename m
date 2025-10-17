@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A1DCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 23:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A57CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 23:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=epoAusswG5dO23h2QFaAnAg30xN4jI6h3Smw2Tdo/d0=; b=FDXq5Un5EPiBkzB/D3RUSIY9Yw
-	/6WOApYBMSKcE+yrkU/5o+2w7IEFkJqATItS5yueQkzwM8APRBaldnj0AK63f5dFFbQRBmNqNBtgq
-	cdvQ+JEUpADEDvWXsWTLLz9E5Z5OeS7YllHNrAbcuvQwuCGgiprzRdDa3Sfly6KmgSdAgiI0h+NKN
-	KZ5cYKswnwLQQzXQUyxuj13o4KmuRfkp5O1GmWa63E/PChfpLzgsot6BdDtF9vc0mWNl+OlBvW8RC
-	5DKs42SC9jDapEW/e4YBqahvflpqUvh8HHw2vZPsfw8LgNyd6aHweKZjna05nbbd0w4yBHXuznWn2
-	WkRRja5Q==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rFUd4KPZzUTUCisRlC6z64P8M16hH71AE+17EZ2+Cpk=; b=c9dcQzUcIpnEF3AG+KSR6B4BEc
+	ApxT+ln66nIsR8NH2x0Fx8RF8ZEsQKhNeKTZvWzVrTzGJ5GzBp4Z+FgX9uf5a3xkPGJKxJliMT2LK
+	23Pz/3IlPGbVZ39CVMS8P/fK/vyizCrzJnN5m4V4IfI37sjr11QYV8mituhUQ7RVChiYmbVIV3p1S
+	Mui2B1+QMTH5PQG9pawiZkPZo40ugQX01Yu62eTc522UNK0Qr0OATnR9+Wleq8HW829rRjjfacHR8
+	pj818yaOa+dleJLxA9Wk0pnwuW5ahImqzelSwofhatDCMml9hVEjcC8EmJ1ZgT92oz/bo37fqutnf
+	oOm0jYSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9uF5-00000009D9n-1unw;
-	Fri, 17 Oct 2025 23:52:15 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1v9uFA-00000009DBy-3Dm3;
+	Fri, 17 Oct 2025 23:52:20 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9uF2-00000009D8r-2jDj
+	id 1v9uF8-00000009DAF-2i8h
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 23:52:13 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b6a2409137dso2065314a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 16:52:11 -0700 (PDT)
+	Fri, 17 Oct 2025 23:52:19 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-28bd8b3fa67so23440045ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 16:52:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760745131; x=1761349931; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=epoAusswG5dO23h2QFaAnAg30xN4jI6h3Smw2Tdo/d0=;
-        b=WiOPrSGpT6Cuy85E177C/YxJ0HQnLl5p8vWa9HWGvrsEJQ0AjEi/aEh0ImA7sVYaLk
-         kNsqQW+NyJrcpld2LRuqAV+24f+zMxLL45r/fN0gjPiOJHtXW7ZlLe/WSCtqPn0Pcqeq
-         TNFBVfdJDkWZqVZI++7gTCyhmuCA4Vyvy8X8/2DVeD6FSEV6RgHv8wgXhZrF0wfLTBg+
-         sPD9+WPdd+msdDdNt+V3hIL7TsuL4QtxoqgyQzgmTfMryZon37cr2rIltwCY0vMdizcL
-         mWWFDguFeg/iGEoATXMbQJxEF2DdhyMOjnsqHbhzl9G3TcHKeDK4WA1eA4hxxX2g4LCK
-         DcFg==
+        d=google.com; s=20230601; t=1760745137; x=1761349937; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rFUd4KPZzUTUCisRlC6z64P8M16hH71AE+17EZ2+Cpk=;
+        b=wNLA9FT5yqD7pJPoHGqwbxjdcoApGE07myLHgoZ3ldAYGrDjIUn70bmqEzJOuyR/oA
+         D0fL/+cdTuxFl0oUfJfFb5ulq/7/7jDmpmAAvAdurCJ1+4uh+Yh3gjOKNVBPeOrCl1gU
+         hFqwcfMkFHCkOqbDj2W5goK5elcKajwipQJG/uvAz5F43zKxclXEyRODyjZCDCeD9mz/
+         eYbKHaMTFuamZpNBLJsk3+RA3nwmD5n6Rs7nyAzU8Y2gXwBkWSlsi4WMsTttHH1U2oil
+         pEPtKz3nJ8+xZj/glMYQeg/KVoAUeyzSU/SjYVdmDrX5eOAsIPWDxXiMUC7M/PzOuL4R
+         So0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760745131; x=1761349931;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=epoAusswG5dO23h2QFaAnAg30xN4jI6h3Smw2Tdo/d0=;
-        b=i5INddR1OigyGSU47kAdQimpnovW4f+E+ZMnux8wJEdx87WeqdtdowFzWVwAV80a7j
-         egNxiKUlnDhs9G3OOV9EQfn+TfwO9aZMJ6TBejRtcWCZDzVnmcM3RuNHgaDHmFo+vLKC
-         Nhe3ri07EiOlWfjkkDMmmMHxttw36I4utGQzj/Lq8Dbt/K08Ps6Jhj74x+XcT3dX64YG
-         wykAhCnkLK1KUk0cVBY0IbC6Btz+Cur3Vhte9Y5J48U8VZI331+SJVh67bw2pfXOafxw
-         fxVqOKuAJrwXFivm1s36uqK4To7xiR3FN7+trHwwdeTPUXOx2IPAiYPcxkExoT+GX6/R
-         Ed1w==
-X-Forwarded-Encrypted: i=1; AJvYcCXpWDHQI7M9kGkkPfXAsTTcGRy7UKZ5fGCiGCMgrmYgwTdp+nKXayVR/U22MVNyZPbibi2xePCHIy2pNmHgUiL7@lists.infradead.org
-X-Gm-Message-State: AOJu0YziAgcX2hN2Eb+aNI3J/yLzl+pEeUHzBhWJtC4pG9trNb6jJ1p7
-	Z+VX/WKaX6xlyPu8FACt6RYihey+QiR+OI+JpA852iUo7yBSD3WRNmAQp0WUh3BVRNSWfJ8oUeH
-	2vEAWdw==
-X-Google-Smtp-Source: AGHT+IFpvneIuRadcbPDmZxphSwx/I7IpPbqWA7MW5ybUCSkZbjENPhFaSSItQAT3k9kMr4I9sKjw9HCWMA=
-X-Received: from pjbds19.prod.google.com ([2002:a17:90b:8d3:b0:33b:51fe:1a84])
- (user=royluo job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:ea03:b0:26c:3e5d:43b6
- with SMTP id d9443c01a7336-290ca217ac9mr72880525ad.32.1760745131078; Fri, 17
- Oct 2025 16:52:11 -0700 (PDT)
-Date: Fri, 17 Oct 2025 23:51:57 +0000
+        d=1e100.net; s=20230601; t=1760745137; x=1761349937;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rFUd4KPZzUTUCisRlC6z64P8M16hH71AE+17EZ2+Cpk=;
+        b=a4eLQ5aHzFURp9R8DzzWUxqW/XxCXLxngZ1/nJYS/MEUw2t/Wp0A3IAW8JLnzGN21r
+         5nmq4QhaeJulAyiFxzOyd+/D/e7heAXi+Tfuzcfcrh3kWfQ2khh94ZFThqD18Tc22HwH
+         VhBn8gogrfWrk6JSywRtJOUEWO2gJa6afyD4sumKQJDfy8M3fKzwrKynQetUgpx0pNNi
+         ywrKN4JdXnfjGfwkjb+2pQhhRnkCrE+6B56ld9lOJFDrP0TJJHAE3DpsnqW8UMobsLJD
+         uPDbWgSQ+hky+n/Mgoi0kgnC9RA02LeM2eYz8l6StdqW/4XeRwC0MdIxGkDBzHhu5HR9
+         twfA==
+X-Forwarded-Encrypted: i=1; AJvYcCVHWCcBUrAJ+iXlk5G8aa+2WuPfJ/weroAsg9F/i1h/lN0H4QwVwlIzL+XBODTLp2Wb07Lw6brvtATauIaHh0kO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTuQTbd8u7gtcE3o1lZcHsuQexDS0i/TJXyg7qQyqyivALg1MK
+	bjcMWlfWff5FsSSHzaS1zt6NOOCGyx/1Mz+kVvtSi8tg1K7zEPHfqB/AvEJI1g8cbHKGEuuTMLS
+	pyIVoAg==
+X-Google-Smtp-Source: AGHT+IGtonGWIlL28ar3C4SMS3Z4eGNFhKCMbFqjIxEvFkEnJLs3JqhHMERukcTD3gq5IHrZVsg/cEtJU7Y=
+X-Received: from plbkg4.prod.google.com ([2002:a17:903:604:b0:290:be3d:aff6])
+ (user=royluo job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:384c:b0:27e:d9a0:ba08
+ with SMTP id d9443c01a7336-290cb27dae5mr68350725ad.43.1760745137248; Fri, 17
+ Oct 2025 16:52:17 -0700 (PDT)
+Date: Fri, 17 Oct 2025 23:51:58 +0000
+In-Reply-To: <20251017235159.2417576-1-royluo@google.com>
 Mime-Version: 1.0
+References: <20251017235159.2417576-1-royluo@google.com>
 X-Mailer: git-send-email 2.51.0.858.gf9c4a03a3a-goog
-Message-ID: <20251017235159.2417576-1-royluo@google.com>
-Subject: [PATCH v4 0/2] Add Google Tensor SoC USB PHY support
+Message-ID: <20251017235159.2417576-2-royluo@google.com>
+Subject: [PATCH v4 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB PHY
 From: Roy Luo <royluo@google.com>
 To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -76,8 +78,8 @@ Cc: Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>, Ro
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_165212_684783_EEE10988 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20251017_165218_690623_DE13DB3B 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,66 +94,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series introduces USB PHY support for the Google Tensor G5
-SoC (codename: Laguna), a new generation of Google silicon first
-launched with Pixel 10 devices.
+Document the device tree bindings for the USB PHY interfaces integrated
+with the DWC3 controller on Google Tensor SoCs, starting with G5
+generation. The USB PHY on Tensor G5 includes two integrated Synopsys
+PHY IPs: the eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo PHY IP.
 
-The Tensor G5 represents a significant architectural overhaul compared
-to previous Tensor generations (e.g., gs101), which were based on Samsung
-Exynos IP. Although the G5 still utilizes Synopsys IP for the USB
-components, the custom top-level integration introduces a completely new
-design for clock, reset scheme, register interfaces and programming
-sequence, necessitating new drivers and device tree bindings.
+Due to a complete architectural overhaul in the Google Tensor G5, the
+existing Samsung/Exynos USB PHY binding for older generations of Google
+silicons such as gs101 are no longer compatible, necessitating this new
+device tree binding.
 
-The USB subsystem on Tensor G5 integrates a Synopsys DWC3 USB 3.1
-DRD-Single Port controller with hibernation support, and a custom PHY
-block comprising Synopsys eUSB2 and USB 3.2/DP combo PHYs. The controller
-support is sent as a separate patch series.
-
-Co-developed-by: Joy Chakraborty <joychakr@google.com>
-Signed-off-by: Joy Chakraborty <joychakr@google.com>
-Co-developed-by: Naveen Kumar <mnkumar@google.com>
-Signed-off-by: Naveen Kumar <mnkumar@google.com>
 Signed-off-by: Roy Luo <royluo@google.com>
 ---
-Changes in v4:
-- Separate controller and phy changes into two distinct patch series.
-- Remove usb2only mode configuration and the corresponding usb_top_cfg
-  reg (moved to controller)
-- Add more descriptions to dp_top reg to indicate it's not DP specific.
-- Add u2phy_apb clk/reset
-Link to v3: https://lore.kernel.org/linux-usb/20251010201607.1190967-1-royluo@google.com
-
-Changes in v3:
-- Align binding file name with the compatible string
-- Simplify the compatible property in binding to a single const value.
-- Add descriptive comments and use item list in binding.
-- Rename binding entries for clarity and brevity.
-Link to v2: https://lore.kernel.org/linux-usb/20251008060000.3136021-1-royluo@google.com
-
-Changes in v2:
-- Reorder patches to present bindings first.
-- Update dt binding compatible strings to be SoC-specific (google,gs5-*).
-- Better describe the hardware in dt binding commit messages and
-  descriptions.
-- Adjust PHY driver commit subjects to use correct prefixes ("phy:").
-- Move PHY driver from a subdirectory to drivers/phy/.
-Link to v1: https://lore.kernel.org/linux-usb/20251006232125.1833979-1-royluo@google.com/
----
-Roy Luo (2):
-  dt-bindings: phy: google: Add Google Tensor G5 USB PHY
-  phy: Add Google Tensor SoC USB PHY driver
-
- .../bindings/phy/google,gs5-usb-phy.yaml      | 104 +++++++
- drivers/phy/Kconfig                           |  13 +
- drivers/phy/Makefile                          |   1 +
- drivers/phy/phy-google-usb.c                  | 271 ++++++++++++++++++
- 4 files changed, 389 insertions(+)
+ .../bindings/phy/google,gs5-usb-phy.yaml      | 104 ++++++++++++++++++
+ 1 file changed, 104 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
- create mode 100644 drivers/phy/phy-google-usb.c
 
-
-base-commit: e5f0a698b34ed76002dc5cff3804a61c80233a7a
+diff --git a/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+new file mode 100644
+index 000000000000..c92c20eba1ea
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+@@ -0,0 +1,104 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++# Copyright (C) 2025, Google LLC
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/google,gs5-usb-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Google Tensor Series (G5+) USB PHY
++
++maintainers:
++  - Roy Luo <royluo@google.com>
++
++description: |
++  Describes the USB PHY interfaces integrated with the DWC3 USB controller on
++  Google Tensor SoCs, starting with the G5 generation.
++  Two specific PHY IPs from Synopsys are integrated, including eUSB 2.0 PHY IP
++  and USB 3.2/DisplayPort combo PHY IP.
++  The hardware can support three PHY interfaces, which are selected using the
++  first phandle argument in the PHY specifier::
++    0 - USB high-speed.
++    1 - USB super-speed.
++    2 - DisplayPort
++
++properties:
++  compatible:
++    const: google,gs5-usb-phy
++
++  reg:
++    items:
++      - description: USB2 PHY configuration registers.
++      - description: USB 3.2/DisplayPort combo PHY top-level registers.
++
++  reg-names:
++    items:
++      - const: u2phy_cfg
++      - const: dp_top
++
++  "#phy-cells":
++    const: 1
++
++  clocks:
++    items:
++      - description: USB2 PHY clock.
++      - description: USB2 PHY APB clock.
++
++  clock-names:
++    items:
++      - const: usb2_phy
++      - const: u2phy_apb
++
++  resets:
++    items:
++      - description: USB2 PHY reset.
++      - description: USB2 PHY APB reset.
++
++  reset-names:
++    items:
++      - const: usb2_phy
++      - const: u2phy_apb
++
++  power-domains:
++    maxItems: 1
++
++  orientation-switch:
++    type: boolean
++    description:
++      Indicates the PHY as a handler of USB Type-C orientation changes
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - "#phy-cells"
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - power-domains
++  - orientation-switch
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        usb_phy: usb_phy@c450014 {
++            compatible = "google,gs5-usb-phy";
++            reg = <0 0x0c450014 0 0xc>,
++                  <0 0x0c637000 0 0xa0>;
++            reg-names = "u2phy_cfg", "dp_top";
++            #phy-cells = <1>;
++            clocks = <&hsion_usb2_phy_clk>, <&hsion_u2phy_apb_clk>;
++            clock-names = "usb2_phy", "u2phy_apb";
++            resets = <&hsion_resets_usb2_phy>,
++                     <&hsion_resets_u2phy_apb>;
++            reset-names = "usb2_phy", "u2phy_apb";
++            power-domains = <&hsio_n_usb_pd>;
++            orientation-switch;
++        };
++    };
++...
 -- 
 2.51.0.858.gf9c4a03a3a-goog
 
