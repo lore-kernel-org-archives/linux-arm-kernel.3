@@ -4,52 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C0CCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 04:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9684ACCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 04:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M0MzBiVHDc9IN2np6iiF+pP970iltpQBaDnzPXxqRFU=; b=scZW8JgPSsQ8hbbidXVEjeGSDF
-	KkM6wllvWSbVhyhB+qr8wSfxh1RGzjJnYrY1iG1dasR5xRAukyI9YpmqeDJ3ZAJvYrna/xxHeJvNx
-	QT1QPkuaEwfylnLxUoYiaGUEPOvVaMpyPTqLVfMF3FKjsvlfekSGZNUqEYXfOYS/sp4mUOfOrTaTg
-	O7TaNI84+ZDUqyFulNYYfhJVxtPMHTnimgtDaMB3mR2kP0xFLGUXArG83jaznUHKdw5xuHe2vWqpJ
-	bMt3dzxHXnw1p3PbNUkpsroRjlLeBzf25nHWZlgJzp5kk9dAdSGyE2TemnZB29Eb0ONXG2hY7WXuL
-	5BpA9GBA==;
+	bh=7wlufWoPrg2dF0C4zySrnGukw37EzGEDOsLdoVXYsp8=; b=OW39aq8mB2/cLp6UoDcwH7ZlJc
+	MdX0NkNH7LeTWwPtropF2Fn7NeodC97lkfWBjGTL7DFsr6jhiLQfkiSdD3OgEl7uLfibXwWccFCXe
+	CPQT6L0A9WvFx1oV+nKSuq6Wz8DQjiDZkZIeGnElpE2cKSJ2kXwC0BietwNzHd8gOGbMO919j4fdE
+	d1vBr5sWU4UB/aLkJJHwOmYUsbFN8QouxMeAExvLemyEWo6VRCLAy1sRCkfSOrguHNSzrms3fkWDx
+	dzkQ9EKt4USr6mvpT1ADmI+li6itw0uycUtINIRcupZ+5wYHQ9XNUwVrR0qMZzUEJlQZPNGCyWjwH
+	ENpaPi1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9c8r-00000006Y6s-1X5m;
-	Fri, 17 Oct 2025 04:32:37 +0000
+	id 1v9cKm-00000006Ykm-14r5;
+	Fri, 17 Oct 2025 04:44:56 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9c8p-00000006Y6Q-2dmj
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 04:32:36 +0000
+	id 1v9cKj-00000006YkQ-3xqf;
+	Fri, 17 Oct 2025 04:44:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 533F543EF2;
-	Fri, 17 Oct 2025 04:32:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC010C4CEE7;
-	Fri, 17 Oct 2025 04:32:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 83BB444F24;
+	Fri, 17 Oct 2025 04:44:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F539C4CEE7;
+	Fri, 17 Oct 2025 04:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760675555;
-	bh=Ge6EHzcpcrmmRvENTbyAwnl5yiDOYIYzciQ77c3hRmg=;
+	s=k20201202; t=1760676293;
+	bh=SSTkBucb3JgRyyCqeNakRbmMDwqm8r6x8qKrd9uPk8w=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=n8tOvhd6gHWW2BPij/fjen9SZJqmLhn9pQ6+SSVUhx0CJvBrgF8u3a9dg3r8L5ItJ
-	 nJQ2b1X7jNXsaw8c6xqUhYSqJ2797TdlRz77YZa2sekvu97MncKbkaRwfZ99nptWD+
-	 Ymhg4Y432DX7iBeLrxhHeEW5vRF4r+t/AYUwX7RfwU81oZ8TZxUARtUnn0wxCXdAoc
-	 kUh9MtJqHQtIQakZWOSZv7kYHeHQihMBVnp4xYGvZ17EeHsJiWfbu9yzX6UAXviVOV
-	 qRUpGio6IVMt3LrdN8NTxo4HTnTae+eDAIQCMMQe3UQkJhqtS+lDJyiagpnuwvQN7H
-	 /QYUgxyZHn4JQ==
-Message-ID: <3434443b-5740-42f4-9aea-6818ef2ecfc2@kernel.org>
-Date: Fri, 17 Oct 2025 06:32:32 +0200
+	b=NOxblIDtox5CRTYai+aOrI33TDQrS5M1T7e6Ej1NyGLUSzavS5iX9HhRdSKFzIXSA
+	 ItaSyY6YCZ/UPfbBALJS+Cpj7nNMGtxjhq4vqr9SZ26AepewdxPa2SQdhU64Djqfbt
+	 qdM5L2Ji6yhco4eAQyxx4o34tiwNLkloTdFZOgZkCyj0B+aeMgFD6GyZQr0k8DuQUm
+	 8gyUUrqyVmGhfR4vom0uitgiVxHGMjj4vinvbGC4ThlNPMZVP8Oad7OhG2Lmxs3ecR
+	 FcTUVRtID/30F8lgtVE0JbmEoK0V0XqwyW2GT/M6p3oB4Xs6MA0F0dZy80ijrFVGCd
+	 tKeP+eAIHU8SQ==
+Message-ID: <c03cc208-5415-40e3-82fd-fc19d31fbc74@kernel.org>
+Date: Fri, 17 Oct 2025 06:44:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v3] ARM: multi_v7_defconfig add /proc/config.gz
-To: david@ixit.cz, Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251016-arm-config_gz-v3-1-3874adbf07ad@ixit.cz>
+Subject: Re: [PATCH v2 1/2] dt-bindings: power: rockchip: Add support for
+ RV1126B
+To: Finley Xiao <finley.xiao@rock-chips.com>, heiko@sntech.de
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ ulf.hansson@linaro.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ zhangqing@rock-chips.com, sugar.zhang@rock-chips.com
+References: <20251017031425.310946-1-finley.xiao@rock-chips.com>
+ <20251017031425.310946-2-finley.xiao@rock-chips.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -95,12 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251016-arm-config_gz-v3-1-3874adbf07ad@ixit.cz>
+In-Reply-To: <20251017031425.310946-2-finley.xiao@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_213235_712250_BE330D7F 
-X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-CacheID: sfid-20251016_214454_049466_9B5C0DC7 
+X-CRM114-Status: UNSURE (   8.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,19 +121,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/10/2025 17:10, David Heidelberg via B4 Relay wrote:
-> From: David Heidelberg <david@ixit.cz>
+On 17/10/2025 05:14, Finley Xiao wrote:
+> Add power domain IDs for RV1126B SoC.
+> Add a new compatible because register fields have changed.
 > 
-> While 32-bit ARM isn't that widespread, multi_v7_defconfig is used for
-> building more generic images, where having access to config can be handy.
+> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
 > 
-> arm64 and x86_64 already bundle config.gz, so this is an effort to provide
-> the same level of comfort with ARMv7 devices.
-> 
-> Signed-off-by: David Heidelberg <david@ixit.cz>
 
-Config patches go via soc - either submaintainers or directly - so with
-your cc list it is unlikely it will be ever applied.
+Missing ---. Please read how commits and patches are created in
+submitting patches.
+
+> Changes in v2:
+> - update the commit message
+> - update the license
+> - rename AISP to AIISP
+
+because this breaks canonical patch format. See yourself, run checkpatch
+or verify signed-off tools.
+
 
 Best regards,
 Krzysztof
