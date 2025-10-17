@@ -4,150 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A21D9CCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C5D9CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZQ1TtLHokmslhzFjee4cGuD5m+V7qM5aPPie4zC6OAs=; b=mopURnpH6PrZxW0oE30oV19vIh
-	BjK9Jz1EHz0cjFCAZbMm6sD4wGWOJyVIPwRpRK/UGM9kcwlk9KUhk/qoDXWo2UBU9Kj8vQ01LU2nr
-	65OjxkHEUzXFnTHWfwbXwNLen+uWEz+Wmqd/3letqk+SwQORklnxFZBDxMsU3ZAaqC64yIO/iG3k9
-	gcSOgqFBt2RVwf85FWrcW3QpzXa8tAP2CYt35CzP/wPkfbV56mexPRCbP5cbfMo6VhJMUqoIWitee
-	hwuyJ73+VbnlePQmuvc28qzwHRBstrUvwTTqOPE+viCa+WRiFYwYNKOnthNvDoEWwtxBPjFBszYWU
-	DqdJ9X4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J60ARZeoH6yHHNV1eYD4xYcbRcMiyJ2+7xTBX0Mu1kk=; b=ClsLWmvRUoOVfyB7MBm39iJQI+
+	1l6Y9PcO3CUfjFgYs6I3E1klD3vWfMCwek+wDusRygKNuF9CbZLYrJ+pUeKCAMsTZpt7jCWZVuElQ
+	eLPsLJQXPe32lBnm1cgflYhn2zC6jplED1wyLao/dleYN/UV8QOVUOP2ldQsl+OKssFto5w/B5j/K
+	ZvmI8DIe4+MYazi+Xu5ro2fZ8m6rqvFqDs64WnZh2uhFi3Ozr2PdNLck3m/jwapif49xZsoSkXiGV
+	QvBB90kl0uFAkAq7usTAxdinu+hGMNCo2JzFofaJYD96mLK0RRQfUrgI3lrjtAZaDn6FB4tVR3QBH
+	sZFVtQkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mnV-00000008L3U-3TpM;
-	Fri, 17 Oct 2025 15:55:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v9mrj-00000008Lco-0TFO;
+	Fri, 17 Oct 2025 15:59:39 +0000
+Received: from mout-p-202.mailbox.org ([80.241.56.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mnU-00000008L3M-2LiN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 17 Oct 2025 15:55:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ZQ1TtLHokmslhzFjee4cGuD5m+V7qM5aPPie4zC6OAs=; b=IJLAPD3cJL/IXkH5vKRAFq/ovW
-	ad7k6FLm45cvdQ+8vAfxY5jj5ZzSj8JOVoZOihBgPGw9P39TAlIcNWSpfblUP1RXqhj5bo+M+jmw4
-	K9pfJgQoXmuUe/AQkWdZLrEZ/yybC1gjsljlpj1zJ+mHrvrM755Q5aXpCz8vUzl959bOEfIBokaNR
-	27PrRN2SSfX7CCu4KqnUvmrSsqn6Bl6c4SoWMxw6Cf+5KsXUwRoCWspseBgOjzdzcy21AENcSe8Xs
-	8Dbn7IoKb2ph6RXKnjXZa9jGCz/Sv0f0g1DEBd8pIvgRwOgowfmtVJahsSjXweuxeqdd9n65vB79f
-	6n3fb5Sw==;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mnQ-00000007i6f-2oZg
+	id 1v9mrg-00000008Lc0-18yW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 15:55:15 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59HEGCDs001269;
-	Fri, 17 Oct 2025 15:54:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=ZQ1TtLHokmslhzFjee4cGuD5m+V7qM
-	5aPPie4zC6OAs=; b=Law6VkvY0ICKNKchLEppxjum8vOcIanSKnBL7OT7PTmQg0
-	/6qxbBVReHS20QCrAw8Mw10mAM94rLvvh5tD8wbUb+e/utZivGuGVMyuc5GqkixP
-	9WWXmRLKv6pzkRAEKw2FfWsg1p5GZVTfuvuxnFm6T98IRMQAUQ+8yc/rD5Z5b3uH
-	X8d0zz6VYhOyCbAzuvtAz8NrnXH38xtQ7MCVtxDrzdSoscnaYPFy05mStbIeDDtp
-	SKaXWeccmeQ4KD9PLzrxCjVQVpjNf13uY8Trn2RjdAn/nkDZsccyOmP07vNlXyJ4
-	AsYtlADdQJJL2sQy3nsR9lxvDfusEAX4XJPoEovw==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49rfp8em13-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 17 Oct 2025 15:54:20 +0000 (GMT)
-Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 59HFmLFW024554;
-	Fri, 17 Oct 2025 15:54:19 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49rfp8em10-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 17 Oct 2025 15:54:19 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59HFlK7X015010;
-	Fri, 17 Oct 2025 15:54:18 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 49r3sjwvr0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 17 Oct 2025 15:54:18 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59HFsGL659048250
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 17 Oct 2025 15:54:16 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 503512004B;
-	Fri, 17 Oct 2025 15:54:16 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 980F420049;
-	Fri, 17 Oct 2025 15:54:15 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 17 Oct 2025 15:54:15 +0000 (GMT)
-Date: Fri, 17 Oct 2025 17:54:14 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        Andreas Larsson <andreas@gaisler.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        David Hildenbrand <david@redhat.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
-        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
-        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
-        x86@kernel.org
-Subject: Re: [PATCH v3 06/13] mm: introduce generic lazy_mmu helpers
-Message-ID: <55f8b155-5468-43fc-b6fc-f509f4becd5b-agordeev@linux.ibm.com>
-References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
- <20251015082727.2395128-7-kevin.brodsky@arm.com>
+	Fri, 17 Oct 2025 15:59:37 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cp8dy37Fvz9t9f;
+	Fri, 17 Oct 2025 17:59:34 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760716774;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=J60ARZeoH6yHHNV1eYD4xYcbRcMiyJ2+7xTBX0Mu1kk=;
+	b=obDQn2Py2SUp9/20BiYE6hxzoR/hpzBb+6WjHyeoUma5diVDMdHg+lKkr3Fn9KWoSBDdhf
+	sk00/195YjqLXuWJPWz0PXxLT9ykvWfxySuxgAAzwERVzHI1d5Ww8qGOTG4+AqAAGMruiq
+	Qah6G+jhSSI1fZ0qXPXr5fAUN7pxJicwsLeDS56HJg9zxOx/8W2OgVILIzsKBQ2+C0GuXg
+	HqAUfGUvUa3OugT/QTTqjhiOd+jFKpnwM5jNEcjkwMqCPoxAsJdKzDxIH2KZ2PT1PhOtGt
+	1S7o16GZiUu1OgMSVstnFv5mmooPTZSVl7gGfGgVK02prc26wjlJxEgLwGXQRg==
+From: Marek Vasut <marek.vasut@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760716772;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=J60ARZeoH6yHHNV1eYD4xYcbRcMiyJ2+7xTBX0Mu1kk=;
+	b=rnWa754RRvqAhRhWDfyzuzZs8RL91LnZBt/EjMHA6VzgKJKb8g2A6beVHFMZXaOTF6vYnQ
+	tTeFniD30BU3Hr8n2wArG+f/Opjv2/bBmQvKXFhdipNQyfWrZxHIHbcAmxc2ZyI14lbznu
+	YVBHRTx9NWzGGllt/ghjFpDDGnVM+ysQmpIh1M3TpWuX7Mj+PAw3lFwLfwCJKFscZFGAgg
+	bUfL1FzZySvILeMLM6btMeCJrTKE8h1lBj3TEuS6t1meRcWL5aQANlCFRU0hXqAD5SRYqe
+	TeGtO7pfJ0VSBk+w2A209/iB9kpv29rLHye9cktGV0A1NjmS5VNFsXQd7nA46g==
+To: linux-media@vger.kernel.org
+Cc: Marek Vasut <marek.vasut@mailbox.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Ming Qian <ming.qian@oss.nxp.com>,
+	Mirela Rabulea <mirela.rabulea@nxp.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 1/2] media: dt-bindings: nxp,imx8-jpeg: Document optional SRAM support
+Date: Fri, 17 Oct 2025 17:58:37 +0200
+Message-ID: <20251017155912.109454-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251015082727.2395128-7-kevin.brodsky@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 2uFWZ81CE4CiNc9aZu2A8JlAcBwqq-tc
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDEyMDA4NCBTYWx0ZWRfX2Zriy77SuQpm
- /GHNuVH/UFB6mOfHOC2AuP5g7c+urTyXE81dQ6L6B0AwkiPLgihig9dwBQiKw0AYwvyn2/UBXXe
- VcGvFB11D3W4lhURudq3zaSM9GHtCo5XdEsYeLbFUmnzVB67HZP20B2Uxwsqr/DnC0GUNt8pn+Q
- lYbw9Nsugz7aigNaGXWz8mjQ5H0X7sXZm5KLMDqasP/WlwVPUM+i7GhB70V9ACBzBfu/gATiLsp
- HWtKR/YcgMc3XVsjOXDXb6rwcyJoPiLdVPL4d9Uovyfy1Y+6KXUtJGTOvjrlEvC+BEx9y22ul4M
- iyiO9mTSInwQOYOlHV2G1yBHcLyrhGstPiwazxXG+Q1pEZlUKx7CHtMC4Sa0JzAFx3fiGUVZ0Ll
- LSljgWznsRluu1F2sKhweaOdRoS3mQ==
-X-Proofpoint-GUID: B3M2xirfIqNJrZzR03DBgN9gZToY0y4x
-X-Authority-Analysis: v=2.4 cv=af5sXBot c=1 sm=1 tr=0 ts=68f266ac cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=kj9zAlcOel0A:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=1KDjgaeL6VvqQMJ9c2UA:9
- a=NqO74GWdXPXpGKcKHaDJD/ajO6k=:19 a=CjuIK1q_8ugA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
- a=DXsff8QfwkrTrK3sU8N1:22 a=Z5ABNNGmrOfJ6cZ5bIyy:22 a=bWyr8ysk75zN3GCy5bjg:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-17_05,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 spamscore=0 adultscore=0 suspectscore=0
- bulkscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510120084
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 15328b960a1f61f18bf
+X-MBO-RS-META: oz5spw445857wu1tgyok8r1xu8tr74oq
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_165513_637577_92792131 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20251017_085936_450651_000672AB 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,31 +95,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 09:27:20AM +0100, Kevin Brodsky wrote:
+Document optional phandle to mmio-sram, which can describe an SRAM
+region used for descriptor storage instead of regular DRAM region.
+Use of SRAM instead of DRAM for descriptor storage may improve bus
+access pattern and performance.
 
-Hi Kevin,
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+---
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Ming Qian <ming.qian@oss.nxp.com>
+Cc: Mirela Rabulea <mirela.rabulea@nxp.com>
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-media@vger.kernel.org
+---
+V2: - New patch
+V3: - Drop description: | and add RB from Frank
+---
+ Documentation/devicetree/bindings/media/nxp,imx8-jpeg.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-...
-> * lazy_mmu_mode_pause() ... lazy_mmu_mode_resume()
->     This is for situations where the mode is temporarily disabled
->     by first calling pause() and then resume() (e.g. to prevent any
->     batching from occurring in a critical section).
-...
-> +static inline void lazy_mmu_mode_pause(void)
-> +{
-> +	arch_leave_lazy_mmu_mode();
+diff --git a/Documentation/devicetree/bindings/media/nxp,imx8-jpeg.yaml b/Documentation/devicetree/bindings/media/nxp,imx8-jpeg.yaml
+index 4cba42ba7cf72..7340989489da3 100644
+--- a/Documentation/devicetree/bindings/media/nxp,imx8-jpeg.yaml
++++ b/Documentation/devicetree/bindings/media/nxp,imx8-jpeg.yaml
+@@ -55,6 +55,12 @@ properties:
+     minItems: 1               # Wrapper and all slots
+     maxItems: 5               # Wrapper and 4 slots
+ 
++  sram:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      Optional phandle to a reserved on-chip SRAM regions. The SRAM can
++      be used for descriptor storage, which may improve bus utilization.
++
+ required:
+   - compatible
+   - reg
+-- 
+2.51.0
 
-I think it should have been arch_pause_lazy_mmu_mode(), wich defaults
-to  arch_leave_lazy_mmu_mode(), as we discussed in v2:
-
-https://lore.kernel.org/linux-mm/d407a381-099b-4ec6-a20e-aeff4f3d750f@arm.com/#t
-
-> +}
-> +
-> +static inline void lazy_mmu_mode_resume(void)
-> +{
-> +	arch_enter_lazy_mmu_mode();
-> +}
-
-Thanks!
 
