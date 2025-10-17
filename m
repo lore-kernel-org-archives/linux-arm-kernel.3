@@ -4,155 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B561BCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 14:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B64CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 14:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LjW5USsLfItaiLR5omtm9ygxYixxcT11tsGX/OJNZko=; b=oryrXf6iyeDfGSmlub72t5ejC2
-	TZLqG5B7kQRcbt6RT9wtPyKIxOjccGH5gCipIB7efsQLcEykex3crili6GP8UTyX/4feYabtw3TSs
-	Edri/PG90aXYmK02es1WhqFZvOjT6F+K7fH6Ukk0tyh3ZzRQqQxET2BLfIXuQ7Trk0/8zt6XIVw0q
-	NwtLFcd3ofLs5kSfEiS51ntqZGDnu4sHFr/GdedV9SeJP2tpSbtpta/YVMJjOU5qP819+DWPl13Li
-	chOP18vw/w+n230NT3GU0w7R+Lf+4GOqRF+UPr+t4Hq6C7ocI8iMKF5SNy07JAcWQJT7matP6VqO+
-	MWAE/NHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uTEMLwgDoxHsliqjBBsP3fZzgpPtM76dIGvYEY0h1oQ=; b=lXhZfdrSIbZ31rje2UOgZBApy+
+	izyyGe2gJ+pZgape+uNlwiqI4BngIw9xtlKrL2V8Qkm0olSmMsKYKhImKPsX+PVdUR+KCTzSJjrBE
+	sn22h1zsW94V+T7gNth14Y2FzlZOPwqqvlTaJRFR/MsE376h5Yoj3ZcQ5/NO+jDn9jIAfUK7u44P7
+	9bQ8as1NdY/gGTNNbr33VzbEirdiQ1xyif+u8P/2o7mYL2M2Arj6bBewzv9nwo01wL4mu0C83ZLDM
+	hlUiAWeyTxrIW/wzSICLvZZF5Z1OjfyDuC+8A3KZYuR/3g3KOjfjd9VgdWAbdnfQ02YWBSw9ggYRH
+	zruQFIOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9llx-000000088vR-39wL;
-	Fri, 17 Oct 2025 14:49:37 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9llv-000000088uq-39X9
+	id 1v9lrQ-00000008AEQ-0usD;
+	Fri, 17 Oct 2025 14:55:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9lrM-00000008ACs-2eZi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 14:49:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c2aLolyO8AvxQTPsgZlaA3P4Ky7nTN007qzKtGmxSzEdlxOh6b6YUvS4Bmht8DqSneAR4qI1l8KhwJ1GR9rDjFyCNIYlMZ9CcGL/9FW+JfpdcmnmGAe57EoD8Scprxm/VDHOAhZH04jMHUXJUlXNDWvgvR9H2lDVG1IoxNes7sF5jpQupyQQftqJ6PTnLBySoUMard1f4G4TkKz1jajbUQtycC3KJE9lIAFmeTJjYtSCzQzOnKzm29rznbGEfwb0UTycl6EuX2DfgzJfKkuvxaWRs1/oRHSD/6Njspb+WBjZcYaTnm1V7qvE065PFycLL1dTQytHdLve3GMRpWvnrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LjW5USsLfItaiLR5omtm9ygxYixxcT11tsGX/OJNZko=;
- b=qULnbSEeB8o1uCm7GEZt8Yelwh8KAVLprMwoXwEGDvfqKD1gGkZuY0QgShnNeE6J3mU/8zNRRlTPX9wySTTswe6Ce+bVXBpyuVYHaWEnEOJ4ytKd7iOJseofSPTRMVyMt79qMM0IOV07ooD/RJO/p0bl/jltdJgp+FehvqsWIBAXmUeqaM+W/RSNMtg6+o1ml+2+w0qI3v70lqgBhEURjJp0i7xQkq47+D5IUXJdUsAXyS54r5tNGzyAADeFsFgh4DW5wssndlB0pZXnLUHyEdbcX/+WytFZDAGtyWojU8GrtSMyOFS6+4T69TzF7EY8U5k9slzMNT7fudSpAfzjiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LjW5USsLfItaiLR5omtm9ygxYixxcT11tsGX/OJNZko=;
- b=TVtlxrNFvq5ZdgQcYvpu4UiesxMFB8BUfmwGUlaYkbNSB+E+ZQImPQxBzJEjhcoh4RNxUhjZzubmzYReD8DLeAVlV6bAlhHNouj38XLt2jkdv6N8sV63soBWNhPFb+AexnKG6nf2Fu4MnuR2G8+VeI7tzwH29Oj6axVPVKR3sgWEOKO93Iyi1Wf0UcxkvWO/BlPVbVMcN5o89PHwLY/SsEyOYbPyBF9Te8+txTFY2adIJfZEsmfw2TfJ9rcK4llGLCStnIj/m3JFgPZsZ6aSOHVxE1T7s44stRxVASRDw29yNAjf2jY51R4bZdem5YERo1R1DEIx0hYg7P94K8bIew==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by GV2PR04MB11397.eurprd04.prod.outlook.com (2603:10a6:150:2af::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.13; Fri, 17 Oct
- 2025 14:49:31 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9228.010; Fri, 17 Oct 2025
- 14:49:31 +0000
-Date: Fri, 17 Oct 2025 10:49:24 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH v2 5/8] reset: imx8mp-audiomix: Switch to using regmap API
-Message-ID: <aPJXdPVrofYGQgIP@lizhi-Precision-Tower-5810>
-References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
- <20251017112025.11997-6-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251017112025.11997-6-laurentiumihalcea111@gmail.com>
-X-ClientProxiedBy: CH0PR04CA0065.namprd04.prod.outlook.com
- (2603:10b6:610:74::10) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Fri, 17 Oct 2025 14:55:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 522A7153B;
+	Fri, 17 Oct 2025 07:55:00 -0700 (PDT)
+Received: from [10.57.36.104] (unknown [10.57.36.104])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C9463F66E;
+	Fri, 17 Oct 2025 07:55:03 -0700 (PDT)
+Message-ID: <461fa23f-9add-40e5-a0d0-759030e7c70b@arm.com>
+Date: Fri, 17 Oct 2025 15:55:01 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|GV2PR04MB11397:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4c77a381-0ffd-489b-ccdf-08de0d8c6148
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|52116014|376014|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pVFvpWIgoVJdl/DxwAoRexnNNoPHDMTWsQESFh6EJEwmnOgVH15Vy9KkRxQB?=
- =?us-ascii?Q?sLJyW5Z+YdHsYXTSK66Bj81cvBuQEdB81rrrITES3TYZUWJVsN0n+Au0WP9P?=
- =?us-ascii?Q?4TTDF6ILhsyrBhPsh8DPLn2jqF4q7qWfQqqyeR+AEf/tED/iJvYB3c3B9YbC?=
- =?us-ascii?Q?oYiKiZm8daace61SwD9D/+a5FGegqaI8SIkWDLIJeLdExtMb3AfjR0E1Y95j?=
- =?us-ascii?Q?oXTZBIdsUzRq3vddqNmWZ6yBlrg1XJBO8qAp/XuzKbV8sc8RbqbFXxBYvsSz?=
- =?us-ascii?Q?egF5Wyq7bIFAECnOPO8bBNgCo67NkJF7o+eKeXBiRKrdP7uX6mrqKhJ1fZ8Z?=
- =?us-ascii?Q?ORdTZrW5YxiqvlzbqDlunaf86WtioysXKiuvGwLsKZcSRf4DoesBnkygwx1P?=
- =?us-ascii?Q?Qpdc2ldwR5YEq72CtIUmehKo7/jo65yWzfcfqle25Nv877BWQIi8lYFA9NrZ?=
- =?us-ascii?Q?ztMH23LVzt6gLBaXkgVeBIqZJThastkBs5wNM5socA/o0cDMb9pdXDbEhw+l?=
- =?us-ascii?Q?0FBugHRiT3eWxaw1GRsTz395TQH1uzTFN7Z4Uo26vqT/P92h5rvUKCvFonRX?=
- =?us-ascii?Q?iLyi7ji66Wmi0oIErC0LbVx+NImrITxgdOup7zbO36osvYg64X4LJSryq0dQ?=
- =?us-ascii?Q?vw/ilNvDtdMtMyYZuBc0YMr6pWXbNfLUL23YOH1s4P/MbR9H6v7SebXFYOl+?=
- =?us-ascii?Q?fzvDlRLvJyX1wm1wXkpgZUzIIAYOIx29bxSrlKlDviyBxqU93Ui7CUbLsnkv?=
- =?us-ascii?Q?JucQ7BcTAhw0/flssO7VktqP0ehG9b5AsuVv3+FTvn+BQGcXvRh2JK4gihp/?=
- =?us-ascii?Q?aPtf443HuoVQnJCbKKNDwtxIWccLI/PeY1ij+9EU3L3Or9/yyYYCAUTgMKDu?=
- =?us-ascii?Q?3GO/LyzADowJIneTstGN1hcDDD17nkPyPkDZJD2nLapOD+Vx1f3eWoG/z3fh?=
- =?us-ascii?Q?VacaoyAK63Kx/QfxoK2RDlz1Q3ODH+eXEvYYN3T+c9RpXSGgwlSZGTDMoBZT?=
- =?us-ascii?Q?KufrRQwVjrmI0wRfX60qOxVf1rXpaetC5eSqtl6ITTNouli/mneRIE5yC9zE?=
- =?us-ascii?Q?QXjnbP78BKDoK3V/dVQhJi449qYvNx+sfchweqEBYEG+48RhMx9w0tk0Ym3e?=
- =?us-ascii?Q?Fnegjf9m3zqu1HmHE24w4lPspRg35D2eVJpmP+y2o+xTm1QR0Jc2KaD/IeXg?=
- =?us-ascii?Q?uKz52rphggyd4bxUZRT8l+UPiP13zMM4wfswW1GECIkFUkE5hQf5QBjpZe2U?=
- =?us-ascii?Q?HeGK0y6yu5iXr1n4CgaQ8+bAYy1WF5Obd9Ndkh4xll8YSb+WFl/F1A9cY6bu?=
- =?us-ascii?Q?uRw8wCM/A8EfWmaBHOMdp3I6duPbM4D2QaQsNWgWniRnTCb55POZ3DEoeKDR?=
- =?us-ascii?Q?prPvwzVa9E3jy3O8p+/Fg58WUy/BEdIDOMLyG4uNS0p0xPdccYpuLXaaKNXt?=
- =?us-ascii?Q?JjstLMKXx2IfCEc9NBIhM0gq88U14rdvihZ62atO4OMy/tg0yq7RabNsFgYp?=
- =?us-ascii?Q?IAesbJXoz+Ma85ETYztlUz4OZxdmdJvFM2Lm?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZKBq5tDpQ94pf7G0vNekfs0yvvs/xXTYpJRLKo8E/IgTeUwBCdfqGLpVdhrA?=
- =?us-ascii?Q?MDfN3v8yoPwUHnZHBo+9rS9+Gdj+lGNIlOI4CXo50aIpjtRCPBXZb+F86QR0?=
- =?us-ascii?Q?+d1ZvHbPyI0LF2V0NIEx26NVHkRi3vI3POGJ4duKSto2JNqVN8AcJXxQfDmB?=
- =?us-ascii?Q?4/5LVqAKCNWPG6PfeffD4+BfEBGKJydCKfRIe5Zu8xnWVDhvpqzmlK3yxFR9?=
- =?us-ascii?Q?+JHUC77e8Wk8m8B3DNv8aiEnPxGe1moP28lXJnvAYQKHC2r+ZdjYPwQYBJy6?=
- =?us-ascii?Q?DXZGH/MU5WDEAjbRLo5TaHTc02TQYiDn1gaWOIlwb3asYkao2QLSppbsilPx?=
- =?us-ascii?Q?B7r66f4YqYHooZXo7AgSwNsd/Paa+va+atN8Xu8SqsKfdC/3d12vIlwCHZzC?=
- =?us-ascii?Q?94R2n72Z86SZRfUjHOYUwRbk2IIzS5Di5rc+JriqLoDi/fuI6L1Vf2u3Jaih?=
- =?us-ascii?Q?raGdCeQVgv+oTlBQ0JyvKw+Z5XbbObdTgBX9fHj9ScM0TebXwE1Ly6xVFG8n?=
- =?us-ascii?Q?VaqvWw/DAs4spbSfkrot8e2GyvbxPfZJPh/nQpSneO2K5dZYVj5DMoYFePgz?=
- =?us-ascii?Q?bEiVeTf7iv1l3CBcWCBtjUnwKjtL0iIcDdX8+7FXygpkOeagsPpyAQWVhSg2?=
- =?us-ascii?Q?jAm3aE0fkEcos04omMTJST9KR8aYKzJrH6EMnjC5qUPi7N4yT0TginC0tGiM?=
- =?us-ascii?Q?MtbgEzbYGoVf+TZNFdNqfNtnvUxizngb4Y47D2intUGyBgUt2rATOZWBBtS0?=
- =?us-ascii?Q?Mq2yH496/Bs3Auy8gceM9g4UehHV20Q276yphshJLT5D5VmFi4JyqYTJn31H?=
- =?us-ascii?Q?/c+Cne14yg3L/TaNlhSLlA/5tp+L0HeIWyOSyVOu5NHFKbXoeWKRsqb47eEa?=
- =?us-ascii?Q?DzlzagpF3hbZBS03h6xoNsVKF5+qK5Q5Bca9VZ0npwWvui/oclPi1X2BXK0K?=
- =?us-ascii?Q?Fe7FaC+yiBcpfPcedUKciEX4gfbnG5//SrFQIChsE6dO7VJf44Rqg0443JbR?=
- =?us-ascii?Q?lDMhCgEzO8mGysipNTG8mkgvcP2ZIbeUgRxnLVEcvdhGA3xgRtsdlJhwmOb0?=
- =?us-ascii?Q?2pQ1vHy9qA8VVCBwL76aNvyQXJCdSudi6DTDYYG2PTqGEhQ4+tb6a1HdYy9M?=
- =?us-ascii?Q?G/bmVomcHU9nyk7iPHs+KBFmNVucpbuCuxDQd5eGPGkXthXN7pdQZV40p4JE?=
- =?us-ascii?Q?3blzv0DFgnhIvC6vWG1TYAey0amzg2lP2ixSqBdtIkRV5xRmZdzHR5kGg/Gk?=
- =?us-ascii?Q?/srZA1m/8ghRQL0YEvL6GYlCFlqVeG11pdcX1cmwAoE2z89RfACT07P5Yaqb?=
- =?us-ascii?Q?Gw3Qz2Qfep6subi5uDIm9LOANk/j3qKwE6aLlg0G4KUb6H5BvOBSrdiv+2mT?=
- =?us-ascii?Q?kv/lTGbeZbnCVLoGLWerr5w5EnXp/hSplxbKYYxUz7c+S2FAVF9wnpGUSmh9?=
- =?us-ascii?Q?E784ZYhl40K1LbEkjUuET+Lz3RL+ilSOmXFQdYbiefz/mBEqpsL3GCVKeRBX?=
- =?us-ascii?Q?k1iwUCuB87SfISRDubW7huHAOIryOW7wAYh/eW8PZAhQ14mXaD2sKF1R3VeR?=
- =?us-ascii?Q?XHO6MqWp0kcIwGP5DGs=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4c77a381-0ffd-489b-ccdf-08de0d8c6148
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 14:49:31.3829
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rAxHzgJqjkKBnIvFU3rTe7byfON1gaOadxkoAiHex3FuKSKjWF9+NHoWrakmM5BM8rKl6Ru7P9p4h7T6Izw5hA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11397
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH v11 00/42] arm64: Support for Arm CCA in KVM
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20250820145606.180644-1-steven.price@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250820145606.180644-1-steven.price@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_074935_942679_0A5FFD60 
-X-CRM114-Status: GOOD (  37.49  )
+X-CRM114-CacheID: sfid-20251017_075512_802390_96B2E018 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,242 +76,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 04:20:22AM -0700, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->
-> As far as the Linux kernel is concerned, block devices such as i.MX8MP's
-> AUDIOMIX block control or i.MX8ULP's SIM LPAV can simultaneously act as
-> clock controllers, reset controllers or mux controllers. Since these IPs
-> offer different functionalities through different subsystem APIs, it's
-> important to make sure that the register R-M-W cycles are performed under
-> the same lock across all subsystem APIs. This will ensure that registers
-> will not end up with the wrong values because of race conditions (e.g.
-> clock consumer tries to update block control register A, while, at the
-> same time, reset consumer tries to update the same block control register).
->
-> However, the aforementioned race conditions will only impact block control
-> IPs which use the same register for multiple functionalities. For example,
-> i.MX8MP's AUDIOMIX block control IP provides clock gating functionalities
-> and reset control functionalities through different registers. This is why
-> the current approach (i.e. clock control and reset control work using
-> different locks) has worked well so far.
->
-> Since we want to extend this driver to be usable for i.MX8ULP's SIM LPAV
-> block control IP, we need to make sure that clock control, reset control,
-> and mux control APIs use the same lock since all of these functionalities
-> are performed using the SYSCTRL0 register.
->
-> To do so, we need to switch to the regmap API and, if possible, use the
-> parent device's regmap, which, in the case of i.MX8ULP, will be the clock
-> controller. This way, we can make sure that the clock gates and the reset
-> controller will use the same lock to perform the register R-M-W cycles.
->
-> This change will also work fine for cases where we don't really need to
-> share the lock across multiple APIs (e.g. i.MX8MP's AUDIOMIX block
-> control) since regmap will take care of the locking we were previously
-> explicitly performing in the driver.
->
-> The transition to the regmap API also involves some cleanup. Specifically,
-> we can make use of devres to unmap the device's memory and get rid of the
-> memory mapping-related error paths and the remove() function altogether.
->
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
->  drivers/reset/reset-imx8mp-audiomix.c | 95 +++++++++++++++++----------
->  1 file changed, 61 insertions(+), 34 deletions(-)
->
-> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
-> index e9643365a62c..c74ce6e04177 100644
-> --- a/drivers/reset/reset-imx8mp-audiomix.c
-> +++ b/drivers/reset/reset-imx8mp-audiomix.c
-> @@ -11,6 +11,7 @@
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/of_address.h>
-> +#include <linux/regmap.h>
->  #include <linux/reset-controller.h>
->
->  #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
-> @@ -19,6 +20,7 @@
->  struct imx8mp_reset_map {
->  	unsigned int offset;
->  	unsigned int mask;
-> +	unsigned int shift;
->  	bool active_low;
->  };
->
-> @@ -26,24 +28,27 @@ static const struct imx8mp_reset_map reset_map[] = {
->  	[IMX8MP_AUDIOMIX_EARC_RESET] = {
->  		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
->  		.mask = BIT(0),
-> +		.shift = 0,
->  		.active_low = true,
->  	},
->  	[IMX8MP_AUDIOMIX_EARC_PHY_RESET] = {
->  		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
->  		.mask = BIT(1),
-> +		.shift = 1,
->  		.active_low = true,
->  	},
->  	[IMX8MP_AUDIOMIX_DSP_RUNSTALL] = {
->  		.offset	= IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET,
->  		.mask = BIT(5),
-> +		.shift = 5,
+Hi all,
 
-why need shift?  you can use ffs(mask) to get shift.
+v6.18-rc1 is out, so I've rebased and refreshed the series. Branches are
+below:
 
->  		.active_low = false,
->  	},
->  };
->
->  struct imx8mp_audiomix_reset {
->  	struct reset_controller_dev rcdev;
-> -	spinlock_t lock; /* protect register read-modify-write cycle */
->  	void __iomem *base;
-> +	struct regmap *regmap;
->  };
->
->  static struct imx8mp_audiomix_reset *to_imx8mp_audiomix_reset(struct reset_controller_dev *rcdev)
-> @@ -55,26 +60,15 @@ static int imx8mp_audiomix_update(struct reset_controller_dev *rcdev,
->  				  unsigned long id, bool assert)
->  {
->  	struct imx8mp_audiomix_reset *priv = to_imx8mp_audiomix_reset(rcdev);
-> -	void __iomem *reg_addr = priv->base;
-> -	unsigned int mask, offset, active_low;
-> -	unsigned long reg, flags;
-> +	unsigned int mask, offset, active_low, shift, val;
->
->  	mask = reset_map[id].mask;
->  	offset = reset_map[id].offset;
->  	active_low = reset_map[id].active_low;
-> +	shift = reset_map[id].shift;
-> +	val = (active_low ^ assert) << shift;
->
-> -	spin_lock_irqsave(&priv->lock, flags);
-> -
-> -	reg = readl(reg_addr + offset);
-> -	if (active_low ^ assert)
-> -		reg |= mask;
-> -	else
-> -		reg &= ~mask;
-> -	writel(reg, reg_addr + offset);
-> -
-> -	spin_unlock_irqrestore(&priv->lock, flags);
-> -
-> -	return 0;
-> +	return regmap_update_bits(priv->regmap, offset, mask, val);
->  }
->
->  static int imx8mp_audiomix_reset_assert(struct reset_controller_dev *rcdev,
-> @@ -94,6 +88,50 @@ static const struct reset_control_ops imx8mp_audiomix_reset_ops = {
->  	.deassert = imx8mp_audiomix_reset_deassert,
->  };
->
-> +static const struct regmap_config regmap_config = {
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +};
-> +
-> +/* assumption: registered only if not using parent regmap */
-> +static void imx8mp_audiomix_reset_iounmap(void *data)
-> +{
-> +	struct imx8mp_audiomix_reset *priv = dev_get_drvdata(data);
-> +
-> +	iounmap(priv->base);
-> +}
-> +
-> +/* assumption: dev_set_drvdata() is called before this */
-> +static int imx8mp_audiomix_reset_get_regmap(struct device *dev)
-> +{
-> +	struct imx8mp_audiomix_reset *priv;
-> +	int ret;
-> +
-> +	priv = dev_get_drvdata(dev);
-> +
-> +	/* try to use the parent's regmap */
-> +	priv->regmap = dev_get_regmap(dev->parent, NULL);
-> +	if (priv->regmap)
-> +		return 0;
-> +
-> +	/* ... if that's not possible then initialize the regmap right now */
-> +	priv->base = of_iomap(dev->parent->of_node, 0);
-> +	if (!priv->base)
-> +		return dev_err_probe(dev, -ENOMEM, "failed to iomap address space\n");
-> +
-> +	ret = devm_add_action_or_reset(dev, imx8mp_audiomix_reset_iounmap, dev);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to register action\n");
-> +
-> +	priv->regmap = devm_regmap_init_mmio(dev, priv->base, &regmap_config);
-> +	if (IS_ERR(priv->regmap))
-> +		return dev_err_probe(dev, PTR_ERR(priv->regmap),
-> +				     "failed to initialize regmap\n");
-> +
-> +	return 0;
-> +}
-> +
->  static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
->  				       const struct auxiliary_device_id *id)
->  {
-> @@ -105,36 +143,26 @@ static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
->  	if (!priv)
->  		return -ENOMEM;
->
-> -	spin_lock_init(&priv->lock);
-> -
->  	priv->rcdev.owner     = THIS_MODULE;
->  	priv->rcdev.nr_resets = ARRAY_SIZE(reset_map);
->  	priv->rcdev.ops       = &imx8mp_audiomix_reset_ops;
->  	priv->rcdev.of_node   = dev->parent->of_node;
->  	priv->rcdev.dev	      = dev;
->  	priv->rcdev.of_reset_n_cells = 1;
-> -	priv->base            = of_iomap(dev->parent->of_node, 0);
-> -	if (!priv->base)
-> -		return -ENOMEM;
->
-> +	/* keep before call to imx8mp_audiomix_reset_init_regmap() */
->  	dev_set_drvdata(dev, priv);
->
-> +	ret = imx8mp_audiomix_reset_get_regmap(dev);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to get regmap\n");
-> +
->  	ret = devm_reset_controller_register(dev, &priv->rcdev);
->  	if (ret)
-> -		goto out_unmap;
-> +		return dev_err_probe(dev, ret,
-> +				     "failed to register reset controller\n");
->
->  	return 0;
-> -
-> -out_unmap:
-> -	iounmap(priv->base);
-> -	return ret;
-> -}
-> -
-> -static void imx8mp_audiomix_reset_remove(struct auxiliary_device *adev)
-> -{
-> -	struct imx8mp_audiomix_reset *priv = dev_get_drvdata(&adev->dev);
-> -
-> -	iounmap(priv->base);
->  }
->
->  static const struct auxiliary_device_id imx8mp_audiomix_reset_ids[] = {
-> @@ -147,7 +175,6 @@ MODULE_DEVICE_TABLE(auxiliary, imx8mp_audiomix_reset_ids);
->
->  static struct auxiliary_driver imx8mp_audiomix_reset_driver = {
->  	.probe		= imx8mp_audiomix_reset_probe,
-> -	.remove		= imx8mp_audiomix_reset_remove,
+kernel: https://gitlab.arm.com/linux-arm/linux-cca cca-host/v11
+kvmtool: https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v9
 
-cleanup imx8mp_audiomix_reset_remove need seperate patch.
+However I'm not going to spam you all with the patches because there are
+some significant changes that are still to be worked out which Marc has
+pointed out (thanks for the review!). Specifically:
 
-Frank
+ * We've agreed that the uAPI should be more like "normal" KVM. So
+   rather than expose the underlying operations (create RECs, init
+   RIPAS, populate memory, activate), the VMM should set this up 'as
+   normal' (but using the guestmem_fd capabilities to mark the memory
+   private) and then on first vcpu run the realm should be configured,
+   RIPAS set based on the memslots/guestmem_fd and any data written in
+   the guestmem_fd populated into the realm.
 
->  	.id_table	= imx8mp_audiomix_reset_ids,
->  };
->
-> --
-> 2.43.0
->
+   The upshot of which is that a VMM will require only minimal changes
+   to support CCA, and the ordering requirements (for attestation of
+   setting up the realm will be handled by KVM).
+
+   Since this is a big change in the uAPI it's going to take a while to
+   prototype and figure out all the details, so please bear with me
+   while I work on an updated version.
+
+ * There are issues with the PMU handling where the host is not provided
+   with as much flexibility it should. For the PMU it's not possible for
+   the host to maintain a PMU counter while the realm is executing. This
+   means that sensible uses like getting an overflow interrupt on the
+   cycle counter break with the use of a realm. This, however, will
+   require a spec update to fix as the RMM will need to in some cases
+   emulate the PMU registers.
+
+ * The GIC handling is also more restrictive then it should be. Although
+   the host is responsible for emulating the GIC, it is unable to set
+   trap bits, restricting the host's ability to do this. There is
+   concern that this could limit the ability to implement hardware
+   workarounds in the future. Again a spec update is needed to fix this.
+
+However, changes that you can see (in the branch) include:
+
+ * Fixing the naming of various symbols. There were previously a lot of
+   instances of "rme" in functions which were not directly related to
+   the hardware extension. These are now renamed to "rmi" reflecting
+   that they are part of the interface to the RMM.
+   (This is the only change affecting kvmtool, although it is also
+   binary compatible)
+
+ * The code now checks with the hardware feature (RME) before probing
+   for RMI.
+
+ * There is now an allowlist for CAPs rather than individually disabling
+   the ones known to be an issue with realms. (This also simplified the
+   code, dropping one patch).
+
+ * Fixes for the vgic handling: make sure the VGIC v4 state is
+   synchronised and only populate valid lrs.
+
+ * A few other minor updates from reviews, and some minor changes from
+   rebasing.
+
+Thanks,
+Steve
+
 
