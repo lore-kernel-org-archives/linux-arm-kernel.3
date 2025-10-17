@@ -4,68 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF9FCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF87CCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CeYmHe2krBmRJ6wb9noy1AZ7ZcEqcmhOzbisZa/Zn0g=; b=MAhxSuA8BmPA4FIEwjHDGGKvQp
-	2UE8lNS4vobIXGKNnsb/LR1+EzFY07/CTqmIxuGxulKa5cyByXznSVrbpyvjWRTU96zycl4illFKF
-	s4Y8PRGBGihEQ8SG3T6VeyKU6Kw7xgKgLfDlsx0qilroOoFyQh1QFCQr1S/Sh209sNstUiMzJn+5K
-	l49gBqhc5nhHEyRADFnIReGlm8TBLyyubnLqjToAuaFo7MMZOVBpUSgC6pyoZta9hB4r9xL0IASQs
-	TCSbsmyYdYlkYWtnNAh4/sgAhVndNEImPKLZc820K57lIFCBNoQRPvFUzoheEM8kxIJgvq6ZSCZlm
-	XBlH6dfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P2PG//Sgxf90BdwYPPBJc4otHN38hNUQCNuD7DHby+4=; b=2Nx7drcuLVnk86Vbb4lOOYO9gw
+	raSMZ9dOz8KsjsiZb0M+pV5rzYBCju3ViJd5CMmNGU72Wq918VLTl8QuFYeTGV16X2oFXbiTF/8P2
+	Zd0DosP1lUc+bgYvV3ixM3PyuTIJfazB7YkR8ZxAyOlyDl/SEpJ66w9rGdcQvrm8a41BpqWhN4Xb5
+	8xKlcRS0Szv0V0+6Zm+SLYsvj1dH0DJpebTfN3422aXsQlivWqo7zkmvsWWChSBmxYSR8x7EigpgH
+	NlZqpuBgIqKn01R85PCft5Espy5VTcW635w4mfhuJNVA82IhFiNZ77FIre0APNjrEHfnX4BBFSGRa
+	7Gw049uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9esb-00000006xfb-15b4;
-	Fri, 17 Oct 2025 07:28:01 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1v9f19-00000006yPN-3oLG;
+	Fri, 17 Oct 2025 07:36:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9esY-00000006xfG-07WS
+	id 1v9f18-00000006yPG-3NW8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 07:27:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1760686074;
-	bh=CeYmHe2krBmRJ6wb9noy1AZ7ZcEqcmhOzbisZa/Zn0g=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VIz76RX4NyL2/lwkpiHUBHlniXsm88NzdohT42OCC6jZRkVCnmCAm4q1QezGJxiQF
-	 nqGCL0odsbY+KGW4RrQLUsHZucGbEgWn81mOIQ/51ojlQU5SXVg+kQiD4MYH9tfuBw
-	 V4VNH3h6CNDZ7QAhpn8X1sYr2VmvG6QJZ/YbGgj4tBgNwhz/PEqHcPFJ/QHfFNE5T2
-	 tUTed0LwGCB5RDYXq6Rukc9vgK+nLeSoCbzkVvzlDQKXStokEeve3blocwxA6qE7Fk
-	 wUscGyg7liKXOBf/W1insVDfobbK/YdlbH13XkV5IuebXQoQONRTSrDd+mkDQfdWsc
-	 x18V1qULiQjWw==
-Received: from [IPv6:2405:6e00:242d:9743:e1f6:2067:ab3d:5861] (unknown [120.20.206.235])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 651866477A;
-	Fri, 17 Oct 2025 15:27:51 +0800 (AWST)
-Message-ID: <2975918e3f3a7de245e93fbee52335acb78bb23a.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] peci: controller: peci-aspeed: convert from
- round_rate() to determine_rate()
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Brian Masney <bmasney@redhat.com>, Iwona Winiarska
-	 <iwona.winiarska@intel.com>, Joel Stanley <joel@jms.id.au>, Maxime Ripard
-	 <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	linux-clk@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
-	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Fri, 17 Oct 2025 17:57:44 +1030
-In-Reply-To: <2025101759-runner-landing-374b@gregkh>
-References: <20250810-peci-round-rate-v1-1-ec96d216a455@redhat.com>
-	 <aMatZAX6eFI1RmDH@redhat.com>
-	 <28dc3bd8aeca7e3164747960747f75060c596704.camel@codeconstruct.com.au>
-	 <aPEZSY6RC-UVclxN@redhat.com>
-	 <ba2e6b78e59afb7c89e5022770a142ec8c31659a.camel@codeconstruct.com.au>
-	 <2025101759-runner-landing-374b@gregkh>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1 
+	Fri, 17 Oct 2025 07:36:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EB81C6036C;
+	Fri, 17 Oct 2025 07:36:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75BB4C4CEE7;
+	Fri, 17 Oct 2025 07:36:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760686609;
+	bh=0a4AvQVxlE5HThoshNnmiekoS3FChrg7c4bp7NdEtGc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=e8G8bBsJdRhZXzwfLH7pImO5jSb7vM0rp0RK2Fv4z4nr6TVpDCr1zj0WTmjbqLdUl
+	 oN4Ko4iuN/c6TXGY2gLENNCcAOc3wJNtYk8sRiJhIw4+nIt3tNtGnERZKaAXxx78pl
+	 b84SFY3nuWoF3tykqnEMfMc8RRDadXRJNhKoYmxf1NBqbfiC6wPi76sNAJfOxd3RCT
+	 Gn21xkmFNjHfbuZ/m9kXGREDmFk6dGZ2lE86Vr2AKLcx5znlR2eZ79HBau1LdJfOn7
+	 3UeacmQHtUsvJHkKlwkZfZOepe1g/ej7TWxvhAxMnwdwsKKsdEOLN1OCJ6Zu19bUHN
+	 Gi7jrSxkoknBg==
+Message-ID: <c6b52b2f-9bf1-44e0-b74f-13dee1ed28d1@kernel.org>
+Date: Fri, 17 Oct 2025 09:36:45 +0200
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_002758_587051_7F2DD6B2 
-X-CRM114-Status: GOOD (  25.26  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Change CONFIG_SM_TCSRCC_8750 from m to
+ y
+To: Taniya Das <taniya.das@oss.qualcomm.com>,
+ Taniya Das <quic_tdas@quicinc.com>, Bjorn Andersson <andersson@kernel.org>,
+ linux-arm-msm@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+ Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+ Imran Shaik <imran.shaik@oss.qualcomm.com>,
+ Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+ linux-kernel@vger.kernel.org
+References: <20251017-update_defconfig_tcsrcc_sm8750-v1-1-34b1b47a0bda@oss.qualcomm.com>
+ <30390038-0f90-48a4-befe-475cf88ba1fb@kernel.org>
+ <37f54b76-a274-4ce2-aaa9-88ba0eb84199@oss.qualcomm.com>
+ <90c8dda3-f753-43dc-8bb9-d03a808c8704@kernel.org>
+ <38b8468f-5006-46a3-a4ea-28e6692ef14a@quicinc.com>
+ <03ac36fb-a227-438e-bdf6-f787e26008b3@kernel.org>
+ <c4c907cd-ac5b-4ddc-96d4-aee840d98692@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <c4c907cd-ac5b-4ddc-96d4-aee840d98692@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,57 +125,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-10-17 at 08:41 +0200, Greg Kroah-Hartman wrote:
-> On Fri, Oct 17, 2025 at 04:52:37PM +1030, Andrew Jeffery wrote:
-> > Hi Greg,
-> >=20
-> > On Thu, 2025-10-16 at 12:11 -0400, Brian Masney wrote:
-> > > Hi Andrew and Iwona,
-> > >=20
-> > > On Mon, Sep 15, 2025 at 02:36:48PM +0930, Andrew Jeffery wrote:
-> > > > Hi Brian,
-> > > >=20
-> > > > On Sun, 2025-09-14 at 07:56 -0400, Brian Masney wrote:
-> > > > > Hi Iwona, Joel, and Andrew,
-> > > > >=20
-> > > > > On Sun, Aug 10, 2025 at 06:21:51PM -0400, Brian Masney wrote:
-> > > > > > The round_rate() clk ops is deprecated, so migrate this
-> > > > > > driver from
-> > > > > > round_rate() to determine_rate() using the Coccinelle
-> > > > > > semantic patch
-> > > > > > appended to the "under-the-cut" portion of the patch.
-> > > > > >=20
-> > > > > > Signed-off-by: Brian Masney <bmasney@redhat.com>
-> > > > >=20
-> > > > > Would it be possible to get this picked up for v6.18? I'd
-> > > > > like to remove
-> > > > > this API from drivers/clk in v6.19.
-> > > >=20
-> > > > My (strong) preference is that Iwona applies it, but I'll keep
-> > > > an eye
-> > > > out for any unusual delays.
-> > >=20
-> > > This patch wasn't picked up for v6.18. Any chance this can get
-> > > picked up
-> > > now for v6.19?
-> > >=20
-> > > I'm hoping to get this merged so that we can remove the
-> > > round_rate() clk
-> > > op from the clk core. The clk maintainer (Stephen) mentioned this
-> > > work
-> > > in his last pull to Linus.
-> > >=20
-> > > https://lore.kernel.org/linux-clk/20251007051720.11386-1-sboyd@kernel=
-.org/
-> >=20
-> > Are you happy to pick this up directly in Iwona's absence?
->=20
-> Why me?
+On 17/10/2025 08:55, Taniya Das wrote:
+> 
+> 
+> On 10/17/2025 11:26 AM, Krzysztof Kozlowski wrote:
+>> On 17/10/2025 07:49, Taniya Das wrote:
+>>>
+>>>
+>>> On 10/17/2025 10:51 AM, Krzysztof Kozlowski wrote:
+>>>> On 17/10/2025 07:16, Taniya Das wrote:
+>>>>>
+>>>>>
+>>>>> On 10/17/2025 10:00 AM, Krzysztof Kozlowski wrote:
+>>>>>> On 16/10/2025 20:53, Taniya Das wrote:
+>>>>>>> The TCSR clock controller is required  during boot to provide the ref
+>>>>>>> clocks to the UFS controller. Setting CONFIG_SM_TCSRCC_8750 to y ensures
+>>>>>>> the UFS driver successfully probe and initialize the device.
+>>>>>>>
+>>>>>>> Without this change, the UFS subsystem fails to mount as a usable file
+>>>>>>> system during boot.
+>>>>>>
+>>>>>>
+>>>>>> That's not what I observed. UFS works fine, especially that it is a
+>>>>>> module, so no, this is not a desired change and explanation is not only
+>>>>>> insufficient but actually incorrect.
+>>>>>>
+>>>>>
+>>>>> Krzysztof, on Pakala MTP we are observing the below issue and it
+>>>>> requires the module of tscrcc to be loaded explicitly. This patch also
+>>>>> aligns to how it is on all other targets.
+>>>>>
+>>>>> /soc@0/phy@1d80000: Failed to get clk index: 2 ret: -517
+>>>>> [   10.496570] ufshcd-qcom 1d84000.ufs: freq-table-hz property not specified
+>>>>> [   10.503660] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
+>>>>> find vdd-hba-supply regulator, assuming enabled
+>>>>> [   10.514548] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
+>>>>> find vccq2-supply regulator, assuming enabled
+>>>>> [   10.565955] platform 1d80000.phy: deferred probe pending: (reason
+>>>>> unknown)
+>>>>> [   10.573078] platform 1d84000.ufs: deferred probe pending:
+>>>>> ufshcd-qcom: ufshcd_pltfrm_init() failed
+>>>>>
+>>>>
+>>>>
+>>>> I don't and I am testing regularly, so I assume you have incorrect
+>>>> config. Maybe I have incorrect one (which works), but then commit msg is
+>>>> incomplete - you must explain the bug and provide proof that this is the
+>>>> correct fix for it.
+>>>>
+>>>
+>>> We have tried booting up recently and and that is what we observed. The
+>>> patch from 'm' to 'y' helps the UFS probe is successful and the rootfs
+>>> is picked from ufs partitions. I will add these fail & success log
+>>> snippets in the commit text.
+>>
+>> That's not enough. You need to explain why UFS fails. After explaining
+>> this, I guess bug in UFS would be exposed thus that one should be fixed.
+>> You just provided band-aid without fixing the real problem.
+>>
+> 
+> When the kernel commandline uses is 'root=PARTLABEL=system', the  is a
+> dependency of the UFS driver on the TCSRCC clockref during bootup and
+> the TCSRCC made as a module will not provide the clocks unless we
 
-I figured that would be sensible since Iwona historically sent you PRs
-for the PECI subsystem.
+No, that's not true. cmdline does not matter here at all.
 
-I'm open to other approaches though.
+> explicitly load the modules. To meet this dependency we need to load
 
-Andrew
+root= has nothing to do with modules.
+
+> TCSRCC statically and move CONFIG_SM_TCSRCC_8750 from 'm' to 'y.
+
+No.
+
+> This will help the UFS partitions to be identified and then the rootfs
+> to be mounted from the partitions.
+
+No, it's completely different problem. Now you are mixing UFS partitions
+with root= argument.
+
+
+
+Best regards,
+Krzysztof
 
