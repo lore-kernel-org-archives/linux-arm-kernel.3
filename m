@@ -4,101 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7617CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:55:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01EFCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XCpfZFAx3hiLnczCJXcXTR7Dek411X8RRc+fD4xQf5M=; b=gDLLLnLn4TcotW3P6haqyCICGL
-	LuWcOrNqyEl7wV+R6qzmEP5ES8y6XCgS8pk9w899A3hB2e0whfoiq3neHmWIpylrSbq5PzqCOezLz
-	L8reJjU4uJuJtZtLrA0hrvNcyzJO9AQzdbyd5DhD2jx6FCcP2hoPSg/U/+iECftDMDIbgBZu720p3
-	G3aVAIYM1dLlD1u4/WBoQNs5fa/y83SyX/47m19Uju8dWPCr58CnLK22GozwZB9fWkDZw9qCa08zg
-	deqbGvdizUdOVvB42o8cT5rKbZrJkDmJ/zFqSnTcDpbVdJPzXNXe9OB0S+JPiqgoshEhXcDMEIKH3
-	ZNhTw/Eg==;
+	bh=0qKoqeZEFFOD2RlWkl69ruJZbnMDtQNF0IQVriRGDxI=; b=sE/l/VrQgivZ7fAXg4GrF2vVVh
+	6oYJRonIIYY87/1Y7CEeRsVhWF9GWyQLUu6r3QoRSIv+zyhLbJfTklGHesjayx/t/S2pEGHKLpCp1
+	JdEVN1w0vS1Pj/SqrtjTXh4AmBiW0/WxBHFqHEeIDi3MnrEj2++ZQzhb8xSp5IBYfxyK4++rjTjg7
+	nNOmoEM8AxbKa8Pog9Ijs5BdY4pLR/frQt5atNvHMlAxPgIM+z9o2nKXU9kQIakb6C2vbDCzqhEnL
+	eIHubxTlAwOvf1RE7ZtddSDk0qVCcbGBGMTWcOD6R8+NRWaWCIpkrhQFbbBttAVuCIH0Y0LAJO0J3
+	Qu2D0ZyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9i7C-00000007atI-3I8u;
-	Fri, 17 Oct 2025 10:55:18 +0000
-Received: from mail-vs1-f48.google.com ([209.85.217.48])
+	id 1v9iCI-00000007bdW-11Fb;
+	Fri, 17 Oct 2025 11:00:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9i7A-00000007as6-0PKt
+	id 1v9iCH-00000007bdF-0QPu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 10:55:17 +0000
-Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-5d3fb34ba53so1398329137.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 03:55:15 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760698514; x=1761303314;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XCpfZFAx3hiLnczCJXcXTR7Dek411X8RRc+fD4xQf5M=;
-        b=dMspSJwZkooHueFkkF79Wr30X3Jc5S1A0ZWWsE8EfJ0etZaFuc0672bFbaZHgUmdrI
-         tidNBKIsjgxcscIomPXji6zl9GAbWYYyTnbkBNpkVCi8ClZrTrOhg9TBsme7i9GiP1LE
-         qwP460rj68S4VtywaFno2SNSHzO26Z7ECy8K44vnmr1H1Hy3M7xICPktQibTlue7Hdhu
-         Rv4JNsBGK+14H6fyzDpkzxOkhSpwGd+260c+j4ZgbaF8dYodqnHXB3ATj9aZoxtvky+p
-         hLKU1CmiBhhJgyC9yHvifW+ZtObdJbjbZ9YTl9Go4Ya2c+bXZy90oCh5Cey9avl0tT+A
-         WgLw==
-X-Forwarded-Encrypted: i=1; AJvYcCW7n3TjxEYnPZHFiJzu5wXn77Onusnv2BYLtoZvoRza65AlN6LZG0kHxdp8Sbhsf0zYxVAf4FlZdbLlqRb8tlka@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnnK3nkDNhyAKjAXJ79QZkFl2/HaIAUVB81TbdhcAFXiYWixqe
-	6SQFqbIXdRWuzuQetvhoRbkuBIU11bQb8rgMmOXrhw+DqzzMrY4yq6okm6QKaAuw
-X-Gm-Gg: ASbGncvQDgAOJAsqjWqcuw3Gpq56iFPZgaBeiGfHsrlPlIp3BEidpt1kSVGtcp83sjQ
-	z/2bz4xejB1bnpsmZIvvr/wDln5iVjKgo+KwfA7Z8oDU+IzYJBwW1Z3ZCAC1X3CTFqo07F+aWB3
-	STSmmceKJCnrSkUMAX/vZx2HfKarmR1/i2UM3iEBsNJLXj/mwonVGWE6ifn1XKkKFlnsX8qO7Hk
-	DznVh8CdjrmfFDXiZAYER7eIpYIC9NaYcUUG7/1XpqtkgqigRMpUqUsC5jagW//fFzxIrIFshVO
-	8Si1hs6zDyun5BmP/oolIoejiEGhKHz7OZUD4D+X6uEFWuUq2z7Qk8FQuA2OPYwrvXKftH5MAbj
-	Go5lLxtF4MaNgvCHQT2M70tE/3Te82Mdb3q9kYzUio78TtKHgZBfd0yWrLiqXTFtQIiVHWyPL/9
-	dSo2DML2xhr+0Bf7ndI5aIaEoCNyU8uAGE7ORRzymUakLcfb/q
-X-Google-Smtp-Source: AGHT+IEcEvSpsJGVVxSWUXvnX3oJ+Y8726Wk5PFky+bHFljAKW1s0wAqFZVxZQSPCU/IJdssykZ5+A==
-X-Received: by 2002:a05:6102:3a0a:b0:5be:57a1:3eda with SMTP id ada2fe7eead31-5d7dd555917mr1535809137.2.1760698513464;
-        Fri, 17 Oct 2025 03:55:13 -0700 (PDT)
-Received: from mail-vs1-f48.google.com (mail-vs1-f48.google.com. [209.85.217.48])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-930bf76b8acsm6231369241.12.2025.10.17.03.55.11
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Oct 2025 03:55:11 -0700 (PDT)
-Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-5d967b67003so54478137.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 03:55:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXwgORvXPn37RqbKxSKeaEz3Yq87wq9S4UIF1E1WciF2Hq8E1tMjbhqVxp282rOcVqptZBrimxxS3I8w/hy84e0@lists.infradead.org
-X-Received: by 2002:a05:6102:c49:b0:5a1:f09f:524e with SMTP id
- ada2fe7eead31-5d7dd59bcd6mr1313646137.16.1760698511065; Fri, 17 Oct 2025
- 03:55:11 -0700 (PDT)
+	Fri, 17 Oct 2025 11:00:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 082F56029E
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 11:00:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB381C4CEE7
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 11:00:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760698831;
+	bh=0qKoqeZEFFOD2RlWkl69ruJZbnMDtQNF0IQVriRGDxI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=EWvUWl5nqTu29sldpT18woB5mT2hLN7XcQmiPTwyYqdXHu+jnVksMP04uDJo2FWId
+	 4waqpD0TRzeyYRxJyOG+KEvd5B4kPr3T4CVxPDayI/eVuAIa7DeXuZSrik+8eZN7v4
+	 LOuqUX8hLZGgrZq0E+I+Ne/tD7zeWxatENHTNaQT6XhXdB9sD/ewxDfqRU3BdtbZdG
+	 QPZMDM+rejO5ZkUON1ph6fVZPVRUKL2HLcUQ/mDGUCK/bLV5XfIqQh99SGJsRbcg3Y
+	 4ahOPJqRncQedXOEULxkPrZ+OpZ+tWNuIZLVsrXnJIW3z5j28FogNDbN/BmUf7rz89
+	 mpc1xYLK4W6Xg==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-57f0aa38aadso2544110e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 04:00:31 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWAWBjGM8lRtJQZpbZmdxOOu0DVPQOdikERX7vGTfOavME/TEbp90YOxUCpRL2Qmw2csB3y866kAeOeQ4aoXYwh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyK9B0UE+er8lGwgalSR02fiaJOs+T3WIdyvXP9zMpfn408Uyij
+	PjC+YUWohyt0jsoAu0WTtu8RlwZcM12DfvSKVm4pvsn5MSy1LDGzYArjJWtyr4+WKZWYebKUL9e
+	BhmOfEBMKVQjXe9NV6x8IE64eR5qcQW8=
+X-Google-Smtp-Source: AGHT+IHxN2kS3odkWkazx6Kii1GVS0Wt6GhSEw2kpURhNsBRjiYw7sCxVK13poY4URZHjBG3Xbuf2j46mmtwgrQHRjc=
+X-Received: by 2002:a05:6512:3b24:b0:57b:8a82:1dcf with SMTP id
+ 2adb3069b0e04-591d84fd0c5mr1144213e87.18.1760698830068; Fri, 17 Oct 2025
+ 04:00:30 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1739540679.git.geert+renesas@glider.be> <2d30e5ffe70ce35f952b7d497d2959391fbf0580.1739540679.git.geert+renesas@glider.be>
- <20250214073402.0129e259@kernel.org>
-In-Reply-To: <20250214073402.0129e259@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 17 Oct 2025 12:55:00 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdU+0HGG22FbO3wNmXtbUm9RhTopYrGghF6UrkFu-iww2A@mail.gmail.com>
-X-Gm-Features: AS18NWCjFk9wo7Q1aPnnkBYJzaq6xcQVQAXawyeid30N8a2RlJlAbXrKkziomTs
-Message-ID: <CAMuHMdU+0HGG22FbO3wNmXtbUm9RhTopYrGghF6UrkFu-iww2A@mail.gmail.com>
-Subject: Re: [PATCH treewide v3 2/4] bitfield: Add non-constant
- field_{prep,get}() helpers
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	David Miller <davem@davemloft.net>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Crt Mori <cmo@melexis.com>, 
-	Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Jacky Huang <ychuang3@nuvoton.com>, 
-	Shan-Chun Hung <schung@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Alex Elder <elder@ieee.org>, 
-	David Laight <david.laight.linux@gmail.com>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	qat-linux@intel.com, linux-gpio@vger.kernel.org, 
-	linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org, 
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
+References: <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
+ <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn> <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
+ <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
+ <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
+ <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
+ <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
+ <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
+ <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
+ <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com> <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
+In-Reply-To: <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 17 Oct 2025 13:00:17 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
+X-Gm-Features: AS18NWCIYrjb5KW9LhHY0tpEoyBeBcU1fB0oUJiskEYiezDhT-2dTfp0F9THCv4
+Message-ID: <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: Huacai Chen <chenhuacai@kernel.org>, Tiezhu Yang <yangtiezhu@loongson.cn>, 
+	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_035516_148993_868A8DA5 
-X-CRM114-Status: GOOD (  32.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,66 +89,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
-
-On Fri, 14 Feb 2025 at 16:34, Jakub Kicinski <kuba@kernel.org> wrote:
-> On Fri, 14 Feb 2025 14:55:51 +0100 Geert Uytterhoeven wrote:
-> > The existing FIELD_{GET,PREP}() macros are limited to compile-time
-> > constants.  However, it is very common to prepare or extract bitfield
-> > elements where the bitfield mask is not a compile-time constant.
+On Thu, 16 Oct 2025 at 17:49, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
+>
+> On Thu, Oct 16, 2025 at 04:52:20PM +0200, Ard Biesheuvel wrote:
+> > On Tue, 14 Oct 2025 at 18:47, Josh Poimboeuf <jpoimboe@kernel.org> wrote:
+> > > The idea is that libstub code doesn't belong in vmlinux.o because it's
+> > > not a part of the kernel proper, and doesn't need to be validated or
+> > > modified by objtool for any reason.
+> > >
 > >
-> > To avoid this limitation, the AT91 clock driver and several other
-> > drivers already have their own non-const field_{prep,get}() macros.
-> > Make them available for general use by consolidating them in
-> > <linux/bitfield.h>, and improve them slightly:
-> >   1. Avoid evaluating macro parameters more than once,
-> >   2. Replace "ffs() - 1" by "__ffs()",
-> >   3. Support 64-bit use on 32-bit architectures.
+> > I don't see a reason to change this on architectures that a) do not
+> > use objtool and b) link the EFI stub into vmlinux. If LoongArch wants
+> > to change this, that is fine, but that still does not mean it needs to
+> > change on other architectures too.
 > >
-> > This is deliberately not merged into the existing FIELD_{GET,PREP}()
-> > macros, as people expressed the desire to keep stricter variants for
-> > increased safety, or for performance critical paths.
+> > EFI related boot errors are a nightmare to debug, and I will be the
+> > one getting the reports when this regresses arm64 on hardware that 2
+> > people on the planet have access to.
 >
-> I really really think that people should just use the static inline
-> helpers if the field is not constant. And we should do something like
-> below so that people can actually find them.
+> The idea was to have more consistency, so vmlinux.o never has libstub,
+> regardless of arch, but that's your call.
 >
-> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
-> index 63928f173223..e02afcd7aeee 100644
-> --- a/include/linux/bitfield.h
-> +++ b/include/linux/bitfield.h
-> @@ -156,6 +156,80 @@
->                 (typeof(_mask))(((_reg) & (_mask)) >> __bf_shf(_mask)); \
->         })
+
+The code in libstub ends up in .init.text, which will be mapped
+executable during boot on architectures that incorporate it into
+vmlinux.
+
+If objtool validation is never needed for such code, on the basis that
+it is not actually called even though it is present, then I think that
+is fine.
+
+For the other architectures, I don't have any objections in principle,
+I'm just being cautious due to the regression risk.
+
+> I'd still propose we keep the KBUILD_VMLINUX_LIBS_PRELINK mechanism to
+> allow other arches to opt in as needed.
 >
-> +/**
-> + * u32_encode_bits() - prepare a u32 bitfield element (non-const)
-> + * @v: value to put in the field
-> + * @field: shifted mask defining the field's length and position
-> + *
-> + * Equivalent of FIELD_PREP() for u32, field does not have to be constant.
-> + *
-> + * Note that the helper is available for other field widths (generated below).
-> + */
-> +static __always_inline __u32 u32_encode_bits(u32 v, u32 field)
-> +{
-> +       if (__builtin_constant_p(v) && (v & ~field_mask(field)))
-> +               __field_overflow();
-> +       return ((v & field_mask(field)) * field_multiplier(field));
-> +}
 
-Unfortunately gcc emits actual divisions or __*div*() calls, and
-multiplications in the non-constant case.
+Again, no objection in principle. To me, it just seems a lot of churn
+just to avoid having to teach objtool about indirect calls to noreturn
+functions.
 
-Gr{oetje,eeting}s,
+> And that variable might even be useful for other cases (x86 startup
+> code?)
+>
 
-                        Geert
-
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Not all x86 startup code is in .init.text; some of it sticks around
+and is still used at runtime. I reckon that implies that objtool
+validation will remain needed for that, no?
 
