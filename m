@@ -4,155 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E91D1CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 14:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE08CCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 14:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JdTbljZyM6bUUzUNsQtwpIxMKm9votaUdNV6jyXxd58=; b=Dq8BebGIoSifREm7B16hdOlfaJ
-	KSHqKRWXyqVRBRT3SXIGXpdkr3hp1DBJsEXxA5uMe20wZOhgBUNzvTCVyUiKsnqnpPNHpuO7rTv7A
-	DItjOXcgr2RHvdTfc47b7qMMRTxviOYsWJOBTbeICoa7nNsBCJaoI4GAYxHev08rnoXd3EWs26IcY
-	IAXYBFZhv6nuqcOHsv+5q5ZTVFG1jeg7UbukbfBfD7xeHRdXFsTOENznBLKahN1eZqJA41wh3YPtW
-	84kgGVjlAhHVLbRFNmuFTRKotnYlWZCmsZSm0izHcSGB7uhin7QFOdA/ycQ151xHJlaem73VbZWBS
-	zPhybkZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gS6I9+pn+T6EshQ8kERlfqfUoiq0QQuAAxssnEC3ucQ=; b=3fGc37zXzYyijSUT0T1oYqG68e
+	V6WVZEorHxOQpkgcHI+8+lNWpM6YKKfRP6BUY6alZpy3GFuYbKjcc0I5BrMy6KtckMF1q/Z8VqG6/
+	LWgboZyjU35tR7wZyFBBNKB3dUlDCRhwGUykkmWRWputL5r4X1tWhI3IU5wB44CABzYRoKGUm1y1k
+	re9JOW6slZiNPZLyScEVqV/7JQO+oYCAn+50ZbC/GhB0HIFQmpXV/nHev3gZlIGyZ8qtHwFTlfdgu
+	rZduJpURuHvAP6uJ6Xk38iq5PL4WFSKouFjvynb35TKPzZX1z8BIXBvQcgydgWrwB6+OVw1lZe4yZ
+	1K2AaxqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9leq-0000000871G-1NT8;
-	Fri, 17 Oct 2025 14:42:16 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1v9lgH-000000087Hd-31hP;
+	Fri, 17 Oct 2025 14:43:45 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9leo-0000000870p-11IL
+	id 1v9lgF-000000087Fw-3PAR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 14:42:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FEq4kk2LCy8O2mFNR2AwAAMvQwxrxqFh0rK/5eRV3CN5Ws3pMAUeq5waYsL5qui4cXLebI2u5XyhtuhYUz7Uvl49ixRXgKicywbXCnSfamUFB5A3TtjPH/d4nGz8QVNsnOGjO1EvQiH1b4RZQ+D8ZtHqmflCcSaUFKwRgP/Vqhg3krjkekXuHfi7Bcq1QuW4nRJ4FkRmjDCUBzLeSogd2IMPKrluZRnz9SiMQAkwUZPpvCKSHCzfNzaBUvcb/ENd6kVXbNhEzuTG7+IOaLf/WPdb1dB7EWBd2zQaG6itBU8WmEX+jnFh2UXPd7UIrT/QMYE0Yf2jPy6JLA2bN27Rog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JdTbljZyM6bUUzUNsQtwpIxMKm9votaUdNV6jyXxd58=;
- b=ZXbKI/HNAlwXu8RBWVfSYMclOyPx0hTp9BhJkfJLZBiBWGcLN9m2y+mz5yaIFyWtE68a9dTiwtSRVJrnvuBHKQk+FPf5mOw55rWEt/W2zw8CI509xZnpfU7Lm51STN3RXCSQVjOWvk7o46rbjYRDRw8IDcRUkhegdoMVmn5OpBmeoauJ30GgE0aLicnokTOlhTxLXH6mrVyLE8Sia/xmF5PAo84xHQxi3Jq+lUr70vQiYmIooEoZ6+Pk/1IzrmX3tbG25t4aS34ONf3TtvPL4YDnikPvbyXRT1FDW97VNsTm6B6AQbKtFfIiPltYUHM8+FNh/bDrnGj/O11Cf4XZXQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JdTbljZyM6bUUzUNsQtwpIxMKm9votaUdNV6jyXxd58=;
- b=PTz9tnVz+SIxTzCeIbaRmrOgSe+I8+r3qcLOb3bmg1AeYW3+jRja/PYM4kdJ69vgE4Yxk9p1a+SzTm627iI4Fl0WtYmSwxsLSbqPSZfpQz1YjTvU+yqkVbarI4Wdp07siB1sj87YmwtRgv09bf4Ne7h37mbaqq3gd8Mm4VnwFI+VXLN5x7O0uegIrNifaOghWCQrxnNTjGVKg80/zR9GD2ywmgipEPmmhRf8Hk5hGgHS7Vx5Yt5YD7HlWcskoLd0r3Rv1AJoCNPScce37xmWE130t4FJa0pmuYYgAMnL5JQ5Knpr8QTwrVKJbo6PZ5oqE/SmTLH1Tjy29JrE1avRhQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AM7PR04MB6885.eurprd04.prod.outlook.com (2603:10a6:20b:10d::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.12; Fri, 17 Oct
- 2025 14:42:08 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9228.010; Fri, 17 Oct 2025
- 14:42:07 +0000
-Date: Fri, 17 Oct 2025 10:41:59 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH v2 3/8] clk: imx: add driver for imx8ulp's sim lpav
-Message-ID: <aPJVtzVyTYAhIFGp@lizhi-Precision-Tower-5810>
-References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
- <20251017112025.11997-4-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251017112025.11997-4-laurentiumihalcea111@gmail.com>
-X-ClientProxiedBy: PH7P221CA0040.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:33c::24) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Fri, 17 Oct 2025 14:43:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1760712221;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gS6I9+pn+T6EshQ8kERlfqfUoiq0QQuAAxssnEC3ucQ=;
+	b=J2rpfYlhaJC4Mv4sJw71YrW5fJlD+s91jurU6yYGBnJwVGqDAqjciA84T+FniibshK1oIm
+	VU0iUNjLF0rd3csc9Eeuv9Gp7Rf3X/efY/PiBOryLT0BZMP4e0KzbI3RhJYe8Ua3159FLA
+	7B5FC4JzjI8OvbvT99OL6uS7k2e4E3I=
+Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-613-cfP8s2VKNh2HBKTK5s2deQ-1; Fri,
+ 17 Oct 2025 10:43:37 -0400
+X-MC-Unique: cfP8s2VKNh2HBKTK5s2deQ-1
+X-Mimecast-MFC-AGG-ID: cfP8s2VKNh2HBKTK5s2deQ_1760712214
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 500951956095;
+	Fri, 17 Oct 2025 14:43:33 +0000 (UTC)
+Received: from warthog.procyon.org.com (unknown [10.42.28.57])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7FD431800452;
+	Fri, 17 Oct 2025 14:43:27 +0000 (UTC)
+From: David Howells <dhowells@redhat.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: David Howells <dhowells@redhat.com>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Stephan Mueller <smueller@chronox.de>,
+	Lukas Wunner <lukas@wunner.de>,
+	Ignat Korchagin <ignat@cloudflare.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	Daniel Gomez <da.gomez@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	linux-crypto@vger.kernel.org,
+	keyrings@vger.kernel.org,
+	linux-modules@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v6 02/17] arm64/sha3: Rename conflicting functions
+Date: Fri, 17 Oct 2025 15:42:46 +0100
+Message-ID: <20251017144311.817771-3-dhowells@redhat.com>
+In-Reply-To: <20251017144311.817771-1-dhowells@redhat.com>
+References: <20251017144311.817771-1-dhowells@redhat.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AM7PR04MB6885:EE_
-X-MS-Office365-Filtering-Correlation-Id: 370e33ce-4c82-4eec-7558-08de0d8b58e1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|19092799006|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NBKTbdj/C6rhk24M/1XCmGYDtAsNPC0lHFYEV7jUDG5okwHOHwX0EX9HprIk?=
- =?us-ascii?Q?5t/bfFfVqqOZyZKVO62VBbt910k/utBVkSVh4foRdbiNwf6Wx0RWUSn+Gsm9?=
- =?us-ascii?Q?xXIo0UOBVKHavxCoS918DBG3nJm+XoemOf4OyA9c+vY8OhDixQbAERaabfL5?=
- =?us-ascii?Q?Hcryz13HZN8RswYq6SWFQd7XW83nlsavmDfdGkI/jcVTK0uc8TfM2yL9x2Pb?=
- =?us-ascii?Q?b8dhzEQ0dFkQd+ZSKOT8azaCuKUW2LKK4rW7sXlGgyO4eVrwfEDIDcT5zjmI?=
- =?us-ascii?Q?C1mnnRGHR0Nnrmekzxc1/XC/Hn53WcWIuChjkG3pKIsKtTkgp8BFJ6plBTmX?=
- =?us-ascii?Q?VzmgC1RucSJA9+izPOrZ/CfmK+yyGxqVmOHgAGpBlq/vZ/dlt5oskZOhQZjX?=
- =?us-ascii?Q?bgrHLoUZ0u6ArBQAl0VFe3jKaHVl5Qa1a//u6Mdo3QpnfckvmAzZfyzuYszH?=
- =?us-ascii?Q?KZenZ818D+BylSw6ROV2k3rkqeDPu0eOrbzkrfpZysf3p1rwIUjUw9X3HSQQ?=
- =?us-ascii?Q?7pT3Rjk67QsuAL/uw7lVmj1Ljz1bMqnVvv2SO7IDJ3rceXf0VmD4yCki3J7T?=
- =?us-ascii?Q?+9l13MYrk787GnGlotxgUYHgHRjHBxp0Hmr/N6Pag1LSjL1jNed8gJqlI7Hr?=
- =?us-ascii?Q?39pNxtMsK8/SIEDP6BgKgT7Ztd0V0w83u2vwF4D/FHuej6b62CYxNgglC4Cf?=
- =?us-ascii?Q?iQQEeQC8ehnbnd8QTJpkD401RjvP+Fu5phQ8D0W/rR3iJvm+7eK7vlufLC4a?=
- =?us-ascii?Q?yT2BI5WHTVZxbYJpo3H7nH3pYFTlSvC6r56Mi1RJn6Klpffcj+qlZoOKqK12?=
- =?us-ascii?Q?FN/KDZaTCSaTq48A+T4QVsW46fypAkVrQglvGiJOESi9/HkZjVAhg+zY3rU3?=
- =?us-ascii?Q?vY4TMMLMtA1ypZ4ikVqjzZEvz4qHzOlljcvMMlkB5L1hBXsK1nDVB7OYyV42?=
- =?us-ascii?Q?2sh3nRPogOqktobrSl7vNCtty+9lEBCwh03fXRTZiJCMgyIJX3bMcTpOMmhQ?=
- =?us-ascii?Q?9+VwmapMdr5IscVO/H1VQiFjhEjE9v2Pu91UbhyVwVRt9g7nq7bm2hdyDIEs?=
- =?us-ascii?Q?wbq/pkr0ykV2m4ZSTVSV1OfsbSrLei0o/DrHLu+7QrKdnjhT/LwY1X1QWxoa?=
- =?us-ascii?Q?fEwh6OP6uhswBU0wwSGOWQWuiQjRt/9gsgrspjuAO7ZR3YSVqngOVq5DRNwv?=
- =?us-ascii?Q?mDUrKnHb7XhlUc06UXbXrG49uHHlBJOIItXO00WWTwKGtYxVRExLKgFZZEbp?=
- =?us-ascii?Q?2d9Xi7su8v79YklEY0XveubPNj+VYoNvrwcnhXLKD1+Vij9IGaAsWlBlUPeK?=
- =?us-ascii?Q?U+brCHXXyAwIhIjLOBow4rs9qkgitOVhduFuDtBSAed9pxq2sAbZtuAmfSWH?=
- =?us-ascii?Q?Iapn/8opo9Vi9PJmapemmxu6h9N2b8JXYHqIZiQBNwulgVkCxMRdrJZYBusu?=
- =?us-ascii?Q?GSY47G0+jOuVQ9aUAtL716eLqIC8hI95aiHuGiw/cug5ay1MiQW3XxKGJcZE?=
- =?us-ascii?Q?LpNoMeyyCsNIm+LjLBz6d0eJsmy7Xaynx8J2?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?k77K3pfnbpN+zTpEs4J41nA+NvMsXsTTL6+VCrSKfoxlrYYgMC0/Axh0gZYF?=
- =?us-ascii?Q?6OJm84PbG3EHw+7hVMGL2xYdAa5ISxWIJgA9uj8+OE4XwysXO2hqhCkCpAIW?=
- =?us-ascii?Q?T3gExa8pmgEJQ3DHqSNJ1b70zKKI9IFQjAVuFb6DkGbjcV93kWrBX42Uisun?=
- =?us-ascii?Q?wlB0af1NOXQfAZxiqEcnflPfuOLK8hkYyjfeq1uBPC+ukSW9s1Ll1q4rGvSj?=
- =?us-ascii?Q?d1JTrJQf7jRxtnepDpbtbZSrm09PnxMCgbO5Qb6PvcFZw8BIsC1zuDY0MUYm?=
- =?us-ascii?Q?bvhngd20aeT410neLxETxl9GNTHljxIlcAnJQlw8CnG8yP8uRBaMrEemqHgu?=
- =?us-ascii?Q?NH0FYRRbMYHGHhyg/ggE8gA2KXosSPznZ5GeGkEruzEIuYO2hO/fzP6Prt3M?=
- =?us-ascii?Q?YUZYcpI+z60grSRFXpVsDudRGFNc24lOl29NmDjySvOd9qa/YzR4MmoYiVMo?=
- =?us-ascii?Q?LeY6ItwhklR8uJQPVlg24Sy1Yz5dewgPciZX5BBCRqsF5VN90F/25saE7Er1?=
- =?us-ascii?Q?WUZ4UUtqnUk3gs8Ho4apX+wveD667BbXsisc0apnL8A7VW9IL1fRYBk0NOHl?=
- =?us-ascii?Q?y5iHP4wKI7jCxqWM59LPKLxg/qldMLoRlR7WvBYNFHVL+3VKKXQWiBvaFbjE?=
- =?us-ascii?Q?Q3Wgi8//xyd4EsvT4yTcaMXsX3oUy+oD4WTaVOo+k47CWRLWbr02CSSZVCfM?=
- =?us-ascii?Q?iVq9qhMU3VN4ucOcdQXQI10nEaY9ScHMpFKH8cj0tOZ/cXcF0a1/YQYWnN5D?=
- =?us-ascii?Q?ePrVNymfiIJUpnp/9xe9vtXKDFl0fu+vGsgXD6Ym6pa/TJ4fcfP23QtcMNQE?=
- =?us-ascii?Q?n5/CPm2LSRCYHtEXVWFVtR1kZqdDpxCn5okaXd2lv/75N6ScnezRsnqxClxs?=
- =?us-ascii?Q?StUH4jId9yyzlpDgBZxJJp5AsPXI/QnQNvNVfA9ghKTbyfdx9Rgz423agzkJ?=
- =?us-ascii?Q?OjkPTl3PhsPu7UduvVllbGIJEmFgTGk3816NKh8gp65qRN+GMKMG01JSEC6g?=
- =?us-ascii?Q?nNrxf37+rwgc3t0muo/RbTxXLJaFKCVlKR48HX1CF4TCWPslZY+Kx7qnnMVH?=
- =?us-ascii?Q?dI9EJKdAQmF7a1qgMuKpKIpnzRBufPpNgtlTBEml2q+nTTgYsFWXum/9UDuK?=
- =?us-ascii?Q?jl7Bpm4nWGz8wbUcD4CyjH0oFU/k+ZvO5Mb9vdq/h7Ks9glljLwgTyF79lmG?=
- =?us-ascii?Q?1ynb70AIhdn4HlOTaJpz6FrqV+jTazHIO4JG23Jac8+1ctwLvF75b+zr3nEI?=
- =?us-ascii?Q?3SswEG7trDG7w5pslax15zc4wENCz7A2MVDqVlNYBFNSmdZSD4fTnN/Gamzd?=
- =?us-ascii?Q?fsY2H+9amH0/zSNsXF89jD6jjJb9b/3E6k0BUX8xolAPFB7Nn7UTKf0BU4kk?=
- =?us-ascii?Q?jyNBeUwoh/AIMPdQOE6DADbkFsNO+apRJAthjWIbwPEa6Opx6ysqu4s9GYjz?=
- =?us-ascii?Q?Knf6pTWYZYDVwzwIC6Ats4vcYLtQ5Q9xYzyl7xxmDKJ+ErXTKH7/LmySRGR+?=
- =?us-ascii?Q?rnfxk14GTzTmQBb+1efb6U+7vlCKM+/TJSYFL5x51XhzXBNNMgMvf14+sR31?=
- =?us-ascii?Q?3IVN0oBDv3aNkbPxYg61K4w6wmqL92lGi2zne4zC?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 370e33ce-4c82-4eec-7558-08de0d8b58e1
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 14:42:07.8736
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: a5yOaGVuI8XrJeTV99/jIj+TyOD6ACM+el1PSUeclwnu/ripik5zYkNAI7FuKz32/F7HegNNPQ6OPWgasgZhsQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6885
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_074214_450151_3EA53B75 
-X-CRM114-Status: GOOD (  32.62  )
+X-CRM114-CacheID: sfid-20251017_074343_919579_F0684007 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,266 +98,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 04:20:20AM -0700, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->
-> The i.MX8ULP System Integration Module (SIM) LPAV module is a block
-> control module found inside the LPAV subsystem, which offers some clock
-> gating options and reset line assertion/de-assertion capabilities.
->
-> Therefore, the clock gate management is supported by registering the
-> module's driver as a clock provider, while the reset capabilities are
-> managed via the auxiliary device API to allow the DT node to act as a
-> reset and clock provider.
->
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
->  drivers/clk/imx/Makefile               |   1 +
->  drivers/clk/imx/clk-imx8ulp-sim-lpav.c | 211 +++++++++++++++++++++++++
->  2 files changed, 212 insertions(+)
->  create mode 100644 drivers/clk/imx/clk-imx8ulp-sim-lpav.c
->
-> diff --git a/drivers/clk/imx/Makefile b/drivers/clk/imx/Makefile
-> index 03f2b2a1ab63..208b46873a18 100644
-> --- a/drivers/clk/imx/Makefile
-> +++ b/drivers/clk/imx/Makefile
-> @@ -41,6 +41,7 @@ clk-imx-lpcg-scu-$(CONFIG_CLK_IMX8QXP) += clk-lpcg-scu.o clk-imx8qxp-lpcg.o
->  clk-imx-acm-$(CONFIG_CLK_IMX8QXP) = clk-imx8-acm.o
->
->  obj-$(CONFIG_CLK_IMX8ULP) += clk-imx8ulp.o
-> +obj-$(CONFIG_CLK_IMX8ULP) += clk-imx8ulp-sim-lpav.o
->
->  obj-$(CONFIG_CLK_IMX1)   += clk-imx1.o
->  obj-$(CONFIG_CLK_IMX25)  += clk-imx25.o
-> diff --git a/drivers/clk/imx/clk-imx8ulp-sim-lpav.c b/drivers/clk/imx/clk-imx8ulp-sim-lpav.c
-> new file mode 100644
-> index 000000000000..a67a0e50e1ce
-> --- /dev/null
-> +++ b/drivers/clk/imx/clk-imx8ulp-sim-lpav.c
-> @@ -0,0 +1,211 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright 2025 NXP
-> + */
-> +
-> +#include <dt-bindings/clock/imx8ulp-clock.h>
-> +
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/clk-provider.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +
-> +#define SYSCTRL0 0x8
-> +
-> +#define IMX8ULP_HIFI_CLK_GATE(gname, cname, pname, bidx)	\
-> +	{							\
-> +		.name = gname "_cg",				\
-> +		.id = IMX8ULP_CLK_SIM_LPAV_HIFI_##cname,	\
-> +		.parent = { .fw_name = pname, .name = pname },	\
-> +		.bit = bidx,					\
-> +	}
-> +
-> +struct clk_imx8ulp_sim_lpav_data {
-> +	void __iomem *base;
-> +	struct regmap *regmap;
-> +	spinlock_t lock; /* shared by MUX, clock gate and reset */
-> +	unsigned long flags; /* for spinlock usage */
-> +	struct clk_hw_onecell_data clk_data; /*  keep last */
-> +};
-> +
-> +struct clk_imx8ulp_sim_lpav_gate {
-> +	const char *name;
-> +	int id;
-> +	const struct clk_parent_data parent;
-> +	u8 bit;
-> +};
-> +
-> +static struct clk_imx8ulp_sim_lpav_gate gates[] = {
-> +	IMX8ULP_HIFI_CLK_GATE("hifi_core", CORE, "hifi_core", 17),
-> +	IMX8ULP_HIFI_CLK_GATE("hifi_pbclk", PBCLK, "lpav_bus", 18),
-> +	IMX8ULP_HIFI_CLK_GATE("hifi_plat", PLAT, "hifi_plat", 19)
-> +};
-> +
-> +#ifdef CONFIG_RESET_CONTROLLER
+Rename the arm64 sha3_* functions to have an "arm64_" prefix to avoid
+conflict with generic code.
 
-Needn't this ifdef because if CONFIG_RESET_CONTROLLER, reset driver will
-not probe, just register aux device is not harmful.
+Signed-off-by: David Howells <dhowells@redhat.com>
+cc: Eric Biggers <ebiggers@kernel.org>
+cc: Jason A. Donenfeld <Jason@zx2c4.com>
+cc: Ard Biesheuvel <ardb@kernel.org>
+cc: Catalin Marinas <catalin.marinas@arm.com>
+cc: Will Deacon <will@kernel.org>
+cc: Herbert Xu <herbert@gondor.apana.org.au>
+cc: Stephan Mueller <smueller@chronox.de>
+cc: linux-crypto@vger.kernel.org
+cc: linux-arm-kernel@lists.infradead.org
+---
+ arch/arm64/crypto/sha3-ce-glue.c | 22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
 
-> +static void clk_imx8ulp_sim_lpav_aux_reset_release(struct device *dev)
-> +{
-> +	struct auxiliary_device *adev = to_auxiliary_dev(dev);
-> +
-> +	kfree(adev);
-> +}
-> +
-> +static void clk_imx8ulp_sim_lpav_unregister_aux_reset(void *data)
-> +{
-> +	struct auxiliary_device *adev = data;
-> +
-> +	auxiliary_device_delete(adev);
-> +	auxiliary_device_uninit(adev);
-> +}
-> +
-> +static int clk_imx8ulp_sim_lpav_register_aux_reset(struct platform_device *pdev)
-> +{
-> +	struct auxiliary_device *adev __free(kfree) = NULL;
-> +	int ret;
-> +
-> +	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
-> +	if (!adev)
-> +		return -ENOMEM;
-> +
-> +	adev->name = "reset";
-> +	adev->dev.parent = &pdev->dev;
-> +	adev->dev.release = clk_imx8ulp_sim_lpav_aux_reset_release;
-> +
-> +	ret = auxiliary_device_init(adev);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "failed to initialize aux dev\n");
-> +		return ret;
-> +	}
-> +
-> +	ret = auxiliary_device_add(adev);
-> +	if (ret) {
-> +		auxiliary_device_uninit(adev);
-> +		dev_err(&pdev->dev, "failed to add aux dev\n");
-> +		return ret;
-> +	}
-> +
-> +	return devm_add_action_or_reset(&pdev->dev,
-> +					clk_imx8ulp_sim_lpav_unregister_aux_reset,
-> +					no_free_ptr(adev));
+diff --git a/arch/arm64/crypto/sha3-ce-glue.c b/arch/arm64/crypto/sha3-ce-glue.c
+index b4f1001046c9..426d8044535a 100644
+--- a/arch/arm64/crypto/sha3-ce-glue.c
++++ b/arch/arm64/crypto/sha3-ce-glue.c
+@@ -31,7 +31,7 @@ MODULE_ALIAS_CRYPTO("sha3-512");
+ asmlinkage int sha3_ce_transform(u64 *st, const u8 *data, int blocks,
+ 				 int md_len);
+ 
+-static int sha3_update(struct shash_desc *desc, const u8 *data,
++static int arm64_sha3_update(struct shash_desc *desc, const u8 *data,
+ 		       unsigned int len)
+ {
+ 	struct sha3_state *sctx = shash_desc_ctx(desc);
+@@ -55,8 +55,8 @@ static int sha3_update(struct shash_desc *desc, const u8 *data,
+ 	return len;
+ }
+ 
+-static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
+-		      u8 *out)
++static int arm64_sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
++			    u8 *out)
+ {
+ 	struct sha3_state *sctx = shash_desc_ctx(desc);
+ 	struct crypto_shash *tfm = desc->tfm;
+@@ -90,8 +90,8 @@ static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
+ static struct shash_alg algs[] = { {
+ 	.digestsize		= SHA3_224_DIGEST_SIZE,
+ 	.init			= crypto_sha3_init,
+-	.update			= sha3_update,
+-	.finup			= sha3_finup,
++	.update			= arm64_sha3_update,
++	.finup			= arm64_sha3_finup,
+ 	.descsize		= SHA3_STATE_SIZE,
+ 	.base.cra_name		= "sha3-224",
+ 	.base.cra_driver_name	= "sha3-224-ce",
+@@ -102,8 +102,8 @@ static struct shash_alg algs[] = { {
+ }, {
+ 	.digestsize		= SHA3_256_DIGEST_SIZE,
+ 	.init			= crypto_sha3_init,
+-	.update			= sha3_update,
+-	.finup			= sha3_finup,
++	.update			= arm64_sha3_update,
++	.finup			= arm64_sha3_finup,
+ 	.descsize		= SHA3_STATE_SIZE,
+ 	.base.cra_name		= "sha3-256",
+ 	.base.cra_driver_name	= "sha3-256-ce",
+@@ -114,8 +114,8 @@ static struct shash_alg algs[] = { {
+ }, {
+ 	.digestsize		= SHA3_384_DIGEST_SIZE,
+ 	.init			= crypto_sha3_init,
+-	.update			= sha3_update,
+-	.finup			= sha3_finup,
++	.update			= arm64_sha3_update,
++	.finup			= arm64_sha3_finup,
+ 	.descsize		= SHA3_STATE_SIZE,
+ 	.base.cra_name		= "sha3-384",
+ 	.base.cra_driver_name	= "sha3-384-ce",
+@@ -126,8 +126,8 @@ static struct shash_alg algs[] = { {
+ }, {
+ 	.digestsize		= SHA3_512_DIGEST_SIZE,
+ 	.init			= crypto_sha3_init,
+-	.update			= sha3_update,
+-	.finup			= sha3_finup,
++	.update			= arm64_sha3_update,
++	.finup			= arm64_sha3_finup,
+ 	.descsize		= SHA3_STATE_SIZE,
+ 	.base.cra_name		= "sha3-512",
+ 	.base.cra_driver_name	= "sha3-512-ce",
 
-use devm_auxiliary_device_create() to simple whole code.
-
-> +}
-> +#else
-> +static int clk_imx8ulp_sim_lpav_register_aux_reset(struct platform_device *pdev)
-> +{
-> +	return 0;
-> +}
-> +#endif /* CONFIG_RESET_CONTROLLER */
-> +
-> +static void clk_imx8ulp_sim_lpav_lock(void *arg) __acquires(&data->lock)
-> +{
-> +	struct clk_imx8ulp_sim_lpav_data *data = dev_get_drvdata(arg);
-> +
-> +	spin_lock_irqsave(&data->lock, data->flags);
-> +}
-> +
-> +static void clk_imx8ulp_sim_lpav_unlock(void *arg) __releases(&data->lock)
-> +{
-> +	struct clk_imx8ulp_sim_lpav_data *data = dev_get_drvdata(arg);
-> +
-> +	spin_unlock_irqrestore(&data->lock, data->flags);
-> +}
-> +
-> +static const struct regmap_config clk_imx8ulp_sim_lpav_regmap_cfg = {
-> +	.reg_bits = 32,
-> +	.val_bits = 32,
-> +	.reg_stride = 4,
-> +	.lock = clk_imx8ulp_sim_lpav_lock,
-> +	.unlock = clk_imx8ulp_sim_lpav_unlock,
-
-why need lock/unlock here, regmap already have lock to access one register.
-
-Frank
-> +};
-> +
-> +static int clk_imx8ulp_sim_lpav_probe(struct platform_device *pdev)
-> +{
-> +	struct clk_imx8ulp_sim_lpav_data *data;
-> +	struct regmap_config regmap_config;
-> +	struct clk_hw *hw;
-> +	int i, ret;
-> +
-> +	data = devm_kzalloc(&pdev->dev,
-> +			    struct_size(data, clk_data.hws, ARRAY_SIZE(gates)),
-> +			    GFP_KERNEL);
-> +	if (!data)
-> +		return -ENOMEM;
-> +
-> +	dev_set_drvdata(&pdev->dev, data);
-> +
-> +	memcpy(&regmap_config, &clk_imx8ulp_sim_lpav_regmap_cfg, sizeof(regmap_config));
-> +	regmap_config.lock_arg = &pdev->dev;
-> +
-> +	/*
-> +	 * this lock is used directly by the clock gate and indirectly
-> +	 * by the reset and mux controller via the regmap API
-> +	 */
-> +	spin_lock_init(&data->lock);
-> +
-> +	data->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(data->base))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(data->base),
-> +				     "failed to ioremap base\n");
-> +	/*
-> +	 * although the clock gate doesn't use the regmap API to modify the
-> +	 * registers, we still need the regmap because of the reset auxiliary
-> +	 * driver and the MUX drivers, which use the parent device's regmap
-> +	 */
-> +	data->regmap = devm_regmap_init_mmio(&pdev->dev, data->base, &regmap_config);
-> +	if (IS_ERR(data->regmap))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(data->regmap),
-> +				     "failed to initialize regmap\n");
-> +
-> +	data->clk_data.num = ARRAY_SIZE(gates);
-> +
-> +	for (i = 0; i < ARRAY_SIZE(gates); i++) {
-> +		hw = devm_clk_hw_register_gate_parent_data(&pdev->dev,
-> +							   gates[i].name,
-> +							   &gates[i].parent,
-> +							   CLK_SET_RATE_PARENT,
-> +							   data->base + SYSCTRL0,
-> +							   gates[i].bit,
-> +							   0x0, &data->lock);
-> +		if (IS_ERR(hw))
-> +			return dev_err_probe(&pdev->dev, PTR_ERR(hw),
-> +					     "failed to register %s gate\n",
-> +					     gates[i].name);
-> +
-> +		data->clk_data.hws[i] = hw;
-> +	}
-> +
-> +	ret = clk_imx8ulp_sim_lpav_register_aux_reset(pdev);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "failed to register aux reset\n");
-> +
-> +	ret = devm_of_clk_add_hw_provider(&pdev->dev,
-> +					  of_clk_hw_onecell_get,
-> +					  &data->clk_data);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "failed to register clk hw provider\n");
-> +
-> +	/* used to probe MUX child device */
-> +	return devm_of_platform_populate(&pdev->dev);
-> +}
-> +
-> +static const struct of_device_id clk_imx8ulp_sim_lpav_of_match[] = {
-> +	{ .compatible = "fsl,imx8ulp-sim-lpav" },
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(of, clk_imx8ulp_sim_lpav_of_match);
-> +
-> +static struct platform_driver clk_imx8ulp_sim_lpav_driver = {
-> +	.probe = clk_imx8ulp_sim_lpav_probe,
-> +	.driver = {
-> +		.name = "clk-imx8ulp-sim-lpav",
-> +		.of_match_table = clk_imx8ulp_sim_lpav_of_match,
-> +	},
-> +};
-> +module_platform_driver(clk_imx8ulp_sim_lpav_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("i.MX8ULP LPAV System Integration Module (SIM) clock driver");
-> +MODULE_AUTHOR("Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>");
-> --
-> 2.43.0
->
 
