@@ -4,183 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02220CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2EF7CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 12:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g850FtYkjXhC2GNpU29LVJwhgpnFQeOXJ4gMScgrmNA=; b=0Kyk4J7uC1cb8cIrcqJ3c+YJai
-	VGOTKquUFemsEc0aaqJcrAhZSk+pDtf6hgCUfSeuN/f++5VuHpWJvyb3jfEZKcWSC4uRWMe0tc7QZ
-	baIE3n9CAxwF3gk5ppwg+5kSf5T3dAIc4+mk2PfhooFdSG3cSo3ACF3wohG+Uma0TF5cYGIPCwDO1
-	KJ8428rs4iEeZQF444/AWjpEWF6GBwZ35k2Uinfwp6ceqtMywxDM7oqqTuh00GfQykmITkZVEuuji
-	QNXMJTF6Tc/KDU9IY/x8gpgP6gY5vyWZciCreRdQL6/5Tf750Xdh6ssPS9vIP9JAp2AsYBbguA1mv
-	/9gM3rdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=i8hy4I4lhZmL+EEXM3yS2UscyTn4FYoKIxBvgeZOabU=; b=ghEHjSfbs4u1QYXWwyDaQ8aogi
+	lsChr9Q23Bg24EG8iv2xTMhOo6oKIOvYrmdyRlBEwrw8zbglQS6TjEc4kbhQsXsOYTGjlqj4q0oyk
+	6c2AngzgyjmW8CRTqafwhIxP3ot38jOwa0ZGsd5s9CefrvFca9bCdiew8DZgD644nfwEKNDm4Vgpg
+	EDX/eYm4hKAjMJoVYpuMcHMN9slDQ1MTauxaEbPP49fRh9pHEZ3WRyp0vUPcFMnDq6Ni0O/hFWy8h
+	XimOO/3/wC+rqQAYBCoXEPgkirU1yQIimcLQv7ghz4KYHMwybvaJ5+vbyuMhv6jB/A+qZJ1ECmr3T
+	0xJOw0hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ieI-00000007gkD-1Oo0;
-	Fri, 17 Oct 2025 11:29:30 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1v9jC1-00000007klP-0JAk;
+	Fri, 17 Oct 2025 12:04:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ieE-00000007gjC-48g7;
-	Fri, 17 Oct 2025 11:29:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bUg3Z96JJtz9rtLQXOgV6tWBcr8RdlratWiOlvrVxEnMZv+20k8sDsbszJ6eosxgorYI/XxmMz9Ft3nGH5ka24hqmT1d1bku5HHLmM2QTEobmFw/BaoL22W2OQWbTIf/dbmv1u+1l2UvrS4ks3JwUi/Re1Hy2DO6Mq0KHR32KMxK25f41TD6kgxURFNSAQOyoAWAqVuOah2jLPLqURUGEmx0kWA+M3va7P6C8rEWSGW7off4bOj17tiK64ORh8BjNdOlKWi+1dbHvJnt46GVxeWrPL/uWLOmiaP0y6Vu2xJMfc10DxR5FOrAO6Oswrh19N4IJw+OMIJIGS9go7v7eQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g850FtYkjXhC2GNpU29LVJwhgpnFQeOXJ4gMScgrmNA=;
- b=k8YrSbvNeGUAlsndrM9D/yhl6baNOjHxfhOLBmTGAsKuaRdIKV7X4KLKUK77Rd6VTChrf8ELW1i7WH3w/Z+oBKsP81bJuu5mKVLUJmW01tqhZc0LQQLOXC5Sy68hjr0AVOXyCC/iPBHd37x8GhW55/lLjqlqDVraZuUscqjJRyWMYiNZui+sQyr134Divmu9Ksc2t+WOGPQjg3HDVIEHqnC5vPDLK5ro36vwFXp3kx3OU9BJJJQikuHE3uLAgs39ciPRIuZ56cGvwebTI4e29+gMs0DTrKe+TMZW7QTsADZ4QqIeUcyXIw7hnnr9BQvOs0Tw9iSqMrXZ5Vq+Q9UxPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=citrix.com; dmarc=pass action=none header.from=citrix.com;
- dkim=pass header.d=citrix.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=citrix.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g850FtYkjXhC2GNpU29LVJwhgpnFQeOXJ4gMScgrmNA=;
- b=mnPWRD0NAtwE7dC1sUBoCyYrvVCDcxtGVx3y5eudSNi6as/UXicKiqha/qIj9chH6PrNjndTTPwQOWCJDRxoIFbODrzZ8n1v+ovkF94Ew9rWIb/jCdVI8j6RDRSvCqObGQDQBf5W/Tv+8suOyJDQdNVMnRVb8oYEKP6rvDv8Fvk=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=citrix.com;
-Received: from DM4PR03MB7015.namprd03.prod.outlook.com (2603:10b6:8:42::8) by
- BY1PR03MB7803.namprd03.prod.outlook.com (2603:10b6:a03:5b4::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.11; Fri, 17 Oct
- 2025 11:29:19 +0000
-Received: from DM4PR03MB7015.namprd03.prod.outlook.com
- ([fe80::e21:7aa4:b1ef:a1f9]) by DM4PR03MB7015.namprd03.prod.outlook.com
- ([fe80::e21:7aa4:b1ef:a1f9%3]) with mapi id 15.20.9228.011; Fri, 17 Oct 2025
- 11:29:19 +0000
-Message-ID: <a60f6ea2-4f37-4e74-b626-acc3013e4ad7@citrix.com>
-Date: Fri, 17 Oct 2025 12:29:13 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch V3 07/12] uaccess: Provide scoped masked user access
- regions
-To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Cooper <andrew.cooper3@citrix.com>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
- Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
- <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org
-References: <20251017085938.150569636@linutronix.de>
- <20251017093030.253004391@linutronix.de>
- <adba2f37-85fc-45fa-b93b-9b86ab3493f3@citrix.com> <871pn122qd.ffs@tglx>
-Content-Language: en-GB
-From: Andrew Cooper <andrew.cooper@citrix.com>
-In-Reply-To: <871pn122qd.ffs@tglx>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO4P265CA0269.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:37a::9) To DM4PR03MB7015.namprd03.prod.outlook.com
- (2603:10b6:8:42::8)
+	id 1v9jBy-00000007kkU-3rcz
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 17 Oct 2025 12:04:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=i8hy4I4lhZmL+EEXM3yS2UscyTn4FYoKIxBvgeZOabU=; b=FsmXXUwEUI73GcGhA93kBRoK8V
+	U9jQNfasyde8W/NscjXd2coVccGNMYG3n5x/u/akeQ76qfXEt605no2ztZKiVPhGHFAzWWxZkTf0v
+	3+AoJK+hdMsRagq5R3hlP6qw+0/410UJMJ0ZrdD7vnpYeAbyBNeYss6iecCl8wY4ENigziqmmxAQH
+	HCzH86NtMvtQl7OFOJE29kup8YjQE2cIPv1RImRdH0ctOkUNe2UkN7EUsIryvjJT3Kdr25NaqNmL0
+	GfcjR8bxP8GHO2f3Bya5IeMrczeeHu8C0KBR62NGWmlMGiGA5oC9C1IvnaDmlbpRwMeqcNQFoVBIA
+	X9K2p9UA==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9jBv-00000007Yad-3CcE
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 12:04:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=i8hy4I4lhZmL+EEXM3yS2UscyTn4FYoKIxBvgeZOabU=; b=tZTlu/6OIKaBb+A4VKrWCxXjZN
+	5Rs9ynrQsIONsvNEONgyNruAKzRbBFv6WoMND58aJn4jL2jAv74EzvmPwDUrClpQYNrzJ5W511CV6
+	cDhA4z+jmMNUOZYiLmRYJbqX1CVuV2Kyhf7eakaJ6+9Hnf4aaQ4OkI7KkhD8J2eLeMjYkgUXgXDoS
+	WMzE0zgQ5Pc59xxud7RL03vGiRRfPoCMBopvHFg+lZcsC2wo7wuT4brmhGDHhpT/+qqzqsiOZKvKy
+	xfU3WQLMIZ+EBRMTx7F51cNoLQz0blIHPVFaSjwFT75EErV1sdwC3z46KSHHPTToSZ7WCCAFwpLL5
+	8v5APkNw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40520)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v9jBf-000000007op-1gwt;
+	Fri, 17 Oct 2025 13:03:59 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v9jBa-000000004Hj-2XOP;
+	Fri, 17 Oct 2025 13:03:54 +0100
+Date: Fri, 17 Oct 2025 13:03:54 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Gatien Chevallier <gatien.chevallier@foss.st.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Tristram Ha <Tristram.Ha@microchip.com>
+Subject: [PATCH net-next 0/6] net: add phylink managed WoL and convert stmmac
+Message-ID: <aPIwqo9mCEOb7ZQu@shell.armlinux.org.uk>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR03MB7015:EE_|BY1PR03MB7803:EE_
-X-MS-Office365-Filtering-Correlation-Id: 967fb0af-3b26-4e7e-39da-08de0d7069c2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?T2l0WkpRR1VZQUZDNUN1bXRaRmtBQmRKcmhyODV0MWR4TG0zdEpoeUkzWEt6?=
- =?utf-8?B?NytiUEkxOGs0MFJpbnQ4S05raThGV2JPckNYMUplSHFCNGJ1QThxc0Nyc0Nv?=
- =?utf-8?B?NUxmNk04cUJYWW1CdUgwVExpcUJNU0FOQllpZjhjMkxUS2J6K25QT1h1c2Vv?=
- =?utf-8?B?R3MxVkFBZEk5RWlNNHI4Nm5ST1FtT3hpdnVjV21KR1oxUUJZVGFlS1FqRHpM?=
- =?utf-8?B?TjlObnJLL1V0YUVpQk5lRFRITzFkb05UNDViNUJ0SFcvZkFqeDdyUHFpMm82?=
- =?utf-8?B?d0V5TUEwZGdweURoK3B2cklnM0RMQjhReWI3NE1ka1Z2dXlhSDdXNUwyam5m?=
- =?utf-8?B?ZHRSL21Ta1ExWHdiL0RhQ1VBU3B2MFExNnczVjAzWElDanJWQTdXOG9HTDBa?=
- =?utf-8?B?UkZncDZjSitueVFJNUgyY2FZNWxuY3RFZG9XRG5ta0l6UWZwWGJzcFJLOW5j?=
- =?utf-8?B?bXArdVlvWnB4RFNNdWx3VXp4dEg3U29jSnM1WGYrWFIrd2FhY2xsZE9OMzVQ?=
- =?utf-8?B?Rk5iRjM2QUZQeEhiS2x5SGROdk1KRnlzZDBlRVR4RDUxbE92ZFBWU3dmUnhJ?=
- =?utf-8?B?TDNVT3p4VUlsWmFHTmdNVitOaUtYL3p6YUd1WEtGTzI5R1VtUXNsWWtyZngv?=
- =?utf-8?B?M2d4ZDdqNzJOR3B3NUhoVEVFdGVjTzZISW9XTmE0b1J1QStyZ2R4Wi9ZTVly?=
- =?utf-8?B?bkRTMU5ZOVRZM1RMZjdJbEx5Qkh5Q21LN1FaRTJ3V0M2U0xMYStjR0I4eVph?=
- =?utf-8?B?TUxqUEFJSGVZUGZlUEtIU1BMK3FJQ2FrQmVPZ3d3cHF2RHFUVFVRL3hGQVNV?=
- =?utf-8?B?NkR6L0ZBSzRWWGQxNzc0VnVYdk5COUR1azFZWDdHekZaWXF3M1hxR3VuVWcv?=
- =?utf-8?B?MUFLbHA2TFI5OWhRb1FGam5XenRGNkRySlNxSW5DK3JRSzhMd0diMGJRSUtp?=
- =?utf-8?B?UVFlL1F0djRxS0hOUmNncVZuS3hwbVczQzBnWmgzamxscVlwMFFHUGUyc0tI?=
- =?utf-8?B?OUY3R1hqVmY2ZldYQ2JEQlBUbUp3azFuTnhFWm1DYklkTFRkaWIzK1p4dU4r?=
- =?utf-8?B?UVBvT0VnajVaOGhadjNWTDhZak80NFVtamZIZjBWaVArWWhNOWM1NEdJMC9C?=
- =?utf-8?B?RWgxdmtVM2x2RFl5QXcvdmpwMkFNK3dZdE5ycDBwTVFuSmkxUkU5Z3VrSTRO?=
- =?utf-8?B?MDRTaDd5TU9xVm9nSXN6VHkramh0ZGllWGJaV1RjVk9QWU9PZUMvQk93NWUr?=
- =?utf-8?B?MkVObXJ6OWlnK1NMa1grbW9LV2JiZnpjSjkxV05lamhCTS9acDdBZEhKdzdp?=
- =?utf-8?B?MjFSMEE2UzJDa1Z4Ri9udDEra0FaS1BqNzVsSlZBblVJaEhDYU1SNmhEMVFQ?=
- =?utf-8?B?b2R1QXlDa1VJVG1ZUStpRkk4d002SFhsYXFjTTAralorR0t6aGhUemhaTDJj?=
- =?utf-8?B?YW4ydmZGSXgxT1owMHRNSVZEOHpPaUtxVy95aDNXcjBYYnltMWIyTVVIWXJs?=
- =?utf-8?B?UnBPek5XTGZUTTR1WG1laHUwTWdIcFRzVldMbzV3b0dZejh1alVSRGl0bDQx?=
- =?utf-8?B?SDlUelNQVlBGa2xFZ2RaWVFKdlVWOTJCTVRmUlZ5NDFPOEFUNjRjVGtYK2pI?=
- =?utf-8?B?NDRQblRJOGF0Nkx0VmEzaFdNeWFUQUZHL0xHNU1LVTF4NEhtR21mcFFsVnpN?=
- =?utf-8?B?NUs1VVlxLzNpdlRDSCtDODNKOFI5QmluZkxRQVdSdXc4eVJuMm5vZzRPYlRQ?=
- =?utf-8?B?ejJGeGdpaVMzZE5iK0JvZU5CdHJoTTllVkdpa2lWNEdoblp4U0xJWlR6TWVE?=
- =?utf-8?B?ZUNHR21NKzh3VXpGS2szQ1pyd2Q1UG05QjB4N1NiR1o4RTlaTmpMMzlRY3N3?=
- =?utf-8?B?OHhTdi9GSVpraUVxd01OSmRKQmZXd0M5dS9PbDB3aVY4OGUwZGdxdE9vMmh4?=
- =?utf-8?Q?bkVPWt6jCADaxhV8Dkj6lhuPUnZAAse4?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR03MB7015.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VmNxbEhDaHpqZEhneUs3Z0V4dGFmaDIvSGxFTDQzdWk2ODZuQXZWQ205VTM0?=
- =?utf-8?B?c3d3cEkyZExEYXJhZmVtQ1BUaEFIKzJNOWJxWjVHM2Y5UmNISkpSUG5lRlZT?=
- =?utf-8?B?eWp5WHp6ZWVOUW5yeEgxUGtjQ29SVkdBS0xBS000RGFvYmx4RDJOc2I3eG83?=
- =?utf-8?B?NEIybitBZDgySzAvbkNSZGphVmxrN2RuWFY0VU5UZnZaSHdIcWcxQTM2Sk9y?=
- =?utf-8?B?VS9GSi9SbTN4KzZiQlNzazQyeGlwM0R1bnJVNGNhZzNzbEN3ejBVQUtHVTRO?=
- =?utf-8?B?dWk1MXI2OXBKN1hTMkJvK2JKcXl0RlF4MHU5WTZyZTBYc2N6SlhsUzg0aVRX?=
- =?utf-8?B?RnVBQW5PT3lHeDNKYi95SXQwRnZ0d2sxMVAzL2xDbUZ5dWJMQUpnc254Zzdx?=
- =?utf-8?B?R0JIRk53Vi9tbGZld09lSGNkWkFMbFhpWVdRUWsxN2VMMElKWG1qWkMwcjRa?=
- =?utf-8?B?MGJCaUp1aEtOOXVRNU1jVGRkZGRhdDJQOTVGcE4yYkJTZGZMTFhxVXpuKzht?=
- =?utf-8?B?T2hNRC9FZjg1TWtsemwwMG9nN0ZBdG1BMHNEY3k0SXRXYmJ0cWhPazR5UndM?=
- =?utf-8?B?Sm0rcHBybHFKTjlUOHFweVVlNFAzS1IzZGJVZWNUSVEvNlJVNVpwTFNZSTJZ?=
- =?utf-8?B?ZnFWRUZHWWEvOXF5bnBKckRTdDVhL3pPdWhNOHBCdjJFT2w2TGw4L3MwQVVk?=
- =?utf-8?B?Wm5SZHJ6eERKbTV4S1J4N2RRenBLbkJxSS94VWNJWkFnaTArRzVDQkJzbjV1?=
- =?utf-8?B?MVhaWnpidDludzI1WjI3M0pGRTRSREZDMTNuNHhhQnpZdjlXbUZTUUpqRnlp?=
- =?utf-8?B?UTh6VzRKSnhsdktSTmN5SDVyNC9PVHRNNm0zeGNJZi9KcmFZazRZb3RubDRx?=
- =?utf-8?B?aDhibjMxaVhQa1orc2pqaUIwNmErNWhHSGw3WVR2OXh1LzBCdEoxMmxldnBw?=
- =?utf-8?B?a3NnNXRpZmZhQ1pUNDh6L3kvUmNuUG5Od3ovWk45RmRVOW5vRHBiNDIrVnVS?=
- =?utf-8?B?YWkxK3RUczZmYkpjOUp0cjNzVzRQd3dyblUvVGgrU245MkpRUndxSzgxODI2?=
- =?utf-8?B?QTNkS2dJTVJvRU5mWVIyVUpvY2NwRnB0Q0NXa0FmY2VZS2ZtNHM0ZlZtYnIw?=
- =?utf-8?B?WDhLTENNV3hUc3NGZEdiMmJzbHhrb3pyeUNIY01SUE15SllvTGg1WW9VVEo0?=
- =?utf-8?B?Nm1lU2dWWi9pM3B1T05JSDJxUFBjK2x5clZkWitYWlJmeURHOTI4MXFLSk1E?=
- =?utf-8?B?TmVQSHFKKy9OQkJMRnFDL01VOWJoMUIrUG9SSHJCaUVDKytReVVaT1FxYmZW?=
- =?utf-8?B?dnBDRjBrcFBtMHg0T0NoSHBuK21heG1uK0h1WXNOVlhsb2tmL0V3bXVSZW0v?=
- =?utf-8?B?OFkrS3lLek5heHRNWlhHR2VvZ0VkUkM0bEV1em5tZWhxMUpIaERPd25UMEhj?=
- =?utf-8?B?VzllY0pjd0tlVlZTcGZEaUdSUzNZbi9FRUhISDZlUVVBdnA1UnB6QlVTVUR4?=
- =?utf-8?B?VkFoV1BiVnF0NytHMWRnYVhTVjZkbDhPZFdpNW9nYTl5L0FEdUduTEFPQnBX?=
- =?utf-8?B?NGtpS3VnczhuYjdkNndsZURlc3k1bDFPNWhoaXF1T3lGY3ZiNmpLc2N0UUFx?=
- =?utf-8?B?VzRDR1IyTUdpVjBtQnMycmlCOTlPbkpZaWxwelp0YStyZ3cvck10U0ZWdUhl?=
- =?utf-8?B?NHVKQnlNZE5zSC9LRkhhVFNJQWFnT1loY1Y3b0lqR3dQQ0NjQWMyMnNqNTJN?=
- =?utf-8?B?U0ZERlM0cXppaVIvc2E0bVBnTWVCNzVoTHVrWjFNRmlpODNjRDV3MUdrU1BI?=
- =?utf-8?B?Rk82US9SN2JHcE85Vmp5a01keWhmNzRwRUkrNXhUa0ozQjdPRXIrSnIweWtU?=
- =?utf-8?B?V3pmTXVtUWdOMHNSYVVNK2g0K1h1Y3FVNlZ5VitLaStyNzN0UGM4dUwwQmRL?=
- =?utf-8?B?dVE1cWE0S05mOG9Ud0c0Ym41bGRTSnZjNnlDdENJdzV4Qzh6YWpaMzIwZmZu?=
- =?utf-8?B?TzM1RVBHMG1RUU9RU0pTRGdmbUEwSkhvTnlkdENzQkNDSUlKWVRYUXJ1QUxx?=
- =?utf-8?B?cis4YWRJdyszYVFialRmQ25WdFZlcTRLWVJrYWpIRUtKMVB5alRjT1ZUYVZv?=
- =?utf-8?B?ZTZqNUxVN2pZekR5K0trUzlIRjluWjJCaWExU3MvVXFMeERrN2Q1NU5RNzE3?=
- =?utf-8?B?SUE9PQ==?=
-X-OriginatorOrg: citrix.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 967fb0af-3b26-4e7e-39da-08de0d7069c2
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR03MB7015.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 11:29:19.7084
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 335836de-42ef-43a2-b145-348c2ee9ca5b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3qLuuiScfpTEVMId3Y9INOBtf/ISJKImiV9xoPKsDgPQ0+N4mdncD1HP+oqHw9gVq5nw+KYgrttdEogALKWPZzxOAyHNVto5Dv8iSqYdSfQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR03MB7803
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_042927_040682_531C41EF 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20251017_130415_996311_2EB19DC0 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,50 +105,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/10/2025 12:21 pm, Thomas Gleixner wrote:
-> On Fri, Oct 17 2025 at 12:08, Andrew Cooper wrote:
->
->> On 17/10/2025 11:09 am, Thomas Gleixner wrote:
->>> --- a/include/linux/uaccess.h
->>> +++ b/include/linux/uaccess.h
->>> +#define __scoped_masked_user_access(_mode, _uptr, _size, _elbl)					\
->>> +for (bool ____stop = false; !____stop; ____stop = true)						\
->>> +	for (typeof((_uptr)) _tmpptr = __scoped_user_access_begin(_mode, _uptr, _size, _elbl);	\
->>> +	     !____stop; ____stop = true)							\
->>> +		for (CLASS(masked_user_##_mode##_access, scope) (_tmpptr); !____stop;		\
->>> +		     ____stop = true)					\
->>> +			/* Force modified pointer usage within the scope */			\
->>> +			for (const typeof((_uptr)) _uptr = _tmpptr; !____stop; ____stop = true)	\
->>> +				if (1)
->>> +
->> Truly a thing of beauty.  At least the end user experience is nice.
->>
->> One thing to be aware of is that:
->>
->>     scoped_masked_user_rw_access(ptr, efault) {
->>         unsafe_get_user(rval, &ptr->rval, efault);
->>         unsafe_put_user(wval, &ptr->wval, efault);
->>     } else {
->>         // unreachable
->>     }
->>
->> will compile.  Instead, I think you want the final line of the macro to
->> be "if (0) {} else" to prevent this.
-> Duh. yes. But I can just remove the 'if (1)' completely. That's a
-> leftover from some earlier iteration of this.
+Hi,
 
-Oh, of course.  That works too.
+This series is implementing the thoughts of Andrew, Florian and myself
+to improve the quality of Wake-on-Lan (WoL) implementations.
 
->
->> While we're on the subject, can we find some C standards people to lobby.
->>
->> C2Y has a proposal to introduce "if (int foo =" syntax to generalise the
->> for() loop special case.  Can we please see about fixing the restriction
->> of only allowing a single type per loop?   This example could be a
->> single loop if it weren't for that restriction.
-> That'd be nice. But we can't have nice things, can we?
+This changes nothing for MAC drivers that do not wish to participate in
+this, but if they do, then they gain the benefit of phylink configuring
+WoL at the point closest to the media as possible.
 
-Well, the worst they can say is no :)
+We first need to solve the problem that the multitude of PHY drivers
+report their device supports WoL, but are not capable of waking the
+system. Correcting this is fundamental to choosing where WoL should be
+enabled - a mis-reported WoL support can render WoL completely
+ineffective.
 
-~Andrew
+The only PHY drivers which uses the driver model's wakeup support is
+drivers/net/phy/broadcom.c, and until recently, realtek. This means
+we have the opportunity for PHY drivers to be _correctly_ converted
+to use this method of signalling wake-up capability only when they can
+actually wake the system, and thus providing a way for phylink to
+know whether to use PHY-based WoL at all.
+
+However, a PHY driver not implementing that logic doesn't become a
+blocker to MACs wanting to convert. In full, the logic is:
+
+- phylink supports a flag, wol_phy_legacy, which forces phylink to use
+  the PHY-based WoL even if the MDIO device is not marked as wake-up
+  capable.
+
+- when wol_phy_legacy is not set, we check whether the PHY MDIO device
+  is wake-up capable. If it is, we offer the WoL request to the PHY.
+
+- if neither wol_phy_legacy is set, or the PHY is not wake-up capable,
+  we do not offer the WoL request to the PHY.
+
+In both cases, after setting any PHY based WoL, we remove the options
+that the PHY now reports are enabled from the options mask, and offer
+these (if any) to the MAC. The mac will get a "mac_set_wol()" method
+call when any settings change.
+
+Phylink mainatains the WoL state for the MAC, so there's no need for
+a "mac_get_wol()" method. There may be the need to set the initial
+state but this is not supported at present.
+
+I've also added support for doing the PHY speed-up/speed-down at
+suspend/resume time depending on the WoL state, which takes another
+issue from the MAC authors.
+
+Lastly, with phylink now having the full picture for WoL, the
+"mac_wol" argument for phylink_suspend() becomes redundant, and for
+MAC drivers that implement mac_set_wol(), the value passed becomes
+irrelevant.
+
+Changes since RFC:
+- patch 3: fix location of phylink_xxx_supports_wol() helpers
+- patch 3: handle sopass for WAKE_MAGICSECURE only when the MAC is
+  handling magic secure.
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       | 11 +--
+ .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c   | 31 +-------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 45 +++++++----
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |  4 +-
+ drivers/net/phy/phy_device.c                       | 14 +++-
+ drivers/net/phy/phylink.c                          | 92 +++++++++++++++++++++-
+ include/linux/phy.h                                | 21 +++++
+ include/linux/phylink.h                            | 28 +++++++
+ 8 files changed, 182 insertions(+), 64 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
