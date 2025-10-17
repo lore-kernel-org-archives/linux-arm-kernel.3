@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A327ECCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 00:10:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADDBCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 00:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E1AC9iyyw2ScMA/Vd6Wp/4knwNlCQVVOev8xoskItFw=; b=EvCHzuD3KC9Ue7rNJTgL+c7dTO
-	ANox7OYc4ayiZeihmEzKpqgB/Upba9BrqvsDXKKMne4WJphzDhVEE+SuMjR6jngoCUv47h0+APlt7
-	GWKYBsC6RoHmLXPuHfSBNtIKZIgTmkPVXnqBvw4wcj18I07o5+0ask0dz/0Cy1RorFwHNQhIvtPfW
-	oi17ZDcXpHAIHz3M/fnJVRriH82XA/ZG9VSzw6jE0GteM9InbddOvsW10RLoPxNMbf4bgaE6O9KeJ
-	RjFHppBeTPGuxNoH9UNo6Gs5oNCr9Y00GQEYA8JFXa4/ijqqLy0JdodOGKfStr4Baf01bn+AF2qA4
-	L3hy8PBQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZLjI+VHvWwq1NOed3zBHwZiL3R2UZSybOuIS4LQq3Jk=; b=Sk9Eg530cLzxd/63rfLirF/rXD
+	zoZlwXI9tx6Qz6mHMxtO8Q7MY+9jvyy5SE6j5QoEFXlWf9WXobjIzOwqsjQBoi9m//hmlkbJldVHH
+	CiBf9jAROAX2dx5Xg0oyFoz5E79qW7paonS1LWVeM3sM4gWO0N4yfHwvmzJ4f8sG7CbiyXerUytdJ
+	jWz1eUfZuoKxvs5hv3kdM1vnvS4eNGyAykofCX3sxXYtVbRliSyRjLLDyY7BdHwScO1mcfVJZ6Stm
+	VpFiesIgjaaCjEhJs+/Nuvb4Q/6g+n205ryXmXwjSYxZoX4LY34asMPCC6BKM6ThoyupHVbINF+4H
+	Dxa4bbqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Y2s-00000006B9p-0HB3;
-	Fri, 17 Oct 2025 00:10:10 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1v9YOt-00000006CZ5-0Nxu;
+	Fri, 17 Oct 2025 00:32:55 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9Y2p-00000006B9W-1euv
+	id 1v9YOp-00000006CVQ-0jIL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 00:10:08 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-26816246a0aso1763285ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 17:10:06 -0700 (PDT)
+	Fri, 17 Oct 2025 00:32:52 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33bcb779733so615729a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 17:32:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760659806; x=1761264606; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=E1AC9iyyw2ScMA/Vd6Wp/4knwNlCQVVOev8xoskItFw=;
-        b=fXeWHyTnTBvAic9542icE+HaW3r6YH/jjuNLkTl3BS8k0vJlv4yCO9KK+J8QTLiVOE
-         qAJ37AzuGqKZQRS7NM1qu3P3jc7jH2EE3h5UwMGjagx8lPqq1otZeoj/kE0e6NlVZN4D
-         cnVqvO6Q9blNFdGTPQICYiupVwIWvTN7a2HudWqsfLjV36CwO2Q3S2bm2t8gjaHMSmeG
-         FNVPVVm6JSULTJ82KH/Zp24ZIAMolRN8fihzLWGArPH25kuKmkj1bqjhGdJ83zAop6vv
-         qAxKVCgZ1VclzHbmKz0g4a6V/KNFqXajIYAAwmT4KVgMKR0CVqcVrZfa2dEfwU5I4+tX
-         acWA==
+        d=google.com; s=20230601; t=1760661170; x=1761265970; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZLjI+VHvWwq1NOed3zBHwZiL3R2UZSybOuIS4LQq3Jk=;
+        b=LIaH6t1gAJHwR1jOyxl3ivFzjmPKod+jUhOq5au/AokbVRRjgI+AmY8K3CBDF0n8KT
+         bXVOVroiINtlXb8iobIsLHy5JLrko8RokbmkYJqF6oQqDIVHBzxsdjiniopUEMUAIBN0
+         ufmxgE+Hwpo922M9/c/1AWRESrmt96PNGO3GLe0jF10AC1O50Os1ZduJj2obc/fPjFXv
+         er4zLgh+wibDeytWyGC9UEnL8jWkvFFHGBNryXgdjUR8qmUUhTeI2Tib6NQWek1DnFlg
+         pQhMmeL0KCaaCX6Z2Q5iPEzwsIXkzuXmtpbfZJQlH0NH0yGZNAnwmAhQnmjxNEX1KuQx
+         KpuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760659806; x=1761264606;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=E1AC9iyyw2ScMA/Vd6Wp/4knwNlCQVVOev8xoskItFw=;
-        b=ssxczyn0WbgTKFtnB8Ee8Otrt1/fOS+6/eKtfvcvouuhFYS3iy2a3ByHq+SegRgKY4
-         TxI6n8PBunkonczR5pX3uHvNKp0g3v3VpB8FclVLmGoqMH/1TV2M9Bp+Yzs5wgqp6p7i
-         wwP3NzHpjXBdywhgG4dYjFLFJImzJfPXXzxJVFRkSqNuEDEHGXLCfWUiGtbfbvNmHPEh
-         hDprBGjyTI0NIslvxr445gS4/tgu773MsXPcvRBijI31lqbuRx1zv+Nww5aMd2f9WPPz
-         ZMCu5qHKa4gCLTq8t2dhuWFgZgNfFTPI1K7u0z2UftHujigphhXy2AC9q+jSnuQmXbE6
-         WRnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVuZpdeXuCBGSyw62d508NXqw3CS/Zh+ozdFvfPWBwbmadRznanc8M9gf0Yq+GS6yHm6+7Y2SxKSykObdi3IWih@lists.infradead.org
-X-Gm-Message-State: AOJu0YzF/0o7s5AxtMq7OqFZnmIFU/l0nsBMNnKj3CpfX4hscuZIh7an
-	dEZV5B84LZQLMV9MVlHEvqXrgXy2F5bA2r4vZdoLybsgkHlDF2UrGNFC8GEQogPfL3aBovwdLLB
-	kJzGFyk5snlCbTcCTK+j+WW53IcmEHhM=
-X-Gm-Gg: ASbGncuWxlj2awHPgSrHmHGyZxOZUh46G5FGNwdMhzqBxJTJygNxLcXHYS1D8TtmC8h
-	nG/wmiY37tTLIkjWbcnKF+4W9iEYBsi01cfpKrTMHm2SoU/a4dGAMR9oaJpI2OoMkAju8uhT0i5
-	+E4ShKvqqcKbziHucGuJiATCRNdR/yZr/lAEXTgEWfcNOVh4XDU36wJHFkDPE1e532G8sCWL+oD
-	KT6BvCKNnxKz1tcocgCIVxNZf1/8J0khsGQbBru7FXwBv2iJKCW50M5IHeQ4beqJXFbkkrmcSgF
-	iK+g63Q4FlI2pV9g3cUgB4xzcdrjlt5F8NizfS/p8l9ggXC5cl3NzRSczO7gHBajsI1YvAZ9Wic
-	dowiJ+FzXI42hWg==
-X-Google-Smtp-Source: AGHT+IHyIQx0yThg9KT154kOAtD8f8239Y2M/cEMXBlvtxveyWdxtgQX335VASRAYK/45RIQjcQyHtpm998s6Nd9ll8=
-X-Received: by 2002:a17:903:248:b0:275:c066:33dd with SMTP id
- d9443c01a7336-290cba529f3mr11403495ad.10.1760659806208; Thu, 16 Oct 2025
- 17:10:06 -0700 (PDT)
-MIME-Version: 1.0
-References: <20251016172853.52451-1-seanjc@google.com> <CANiq72ntKAeXRT_fEGJteUfuQuNUSjobmJCbQOuJWAcNFb1+9w@mail.gmail.com>
- <aPFVcMdfFlxhgGZh@google.com> <CANiq72m6vWc9K+TLYoToGOWXXFB5tbAdf-crdx6U1UrBifEEBA@mail.gmail.com>
- <diqzqzv2762z.fsf@google.com>
-In-Reply-To: <diqzqzv2762z.fsf@google.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Fri, 17 Oct 2025 02:09:52 +0200
-X-Gm-Features: AS18NWCDoiITBSs67Uq2rZ6IBFom-AeoZUx_UgHO9S2h4SATYKwpJteeHcfF5xU
-Message-ID: <CANiq72m0rNCaKandZgRa4dMhNOEN7ZanT5ht4kT8FLxYoWLVLQ@mail.gmail.com>
-Subject: Re: [PATCH v13 00/12] KVM: guest_memfd: Add NUMA mempolicy support
-To: Ackerley Tng <ackerleytng@google.com>
-Cc: Sean Christopherson <seanjc@google.com>, Miguel Ojeda <ojeda@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Shivank Garg <shivankg@amd.com>, David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, 
-	Ashish Kalra <ashish.kalra@amd.com>, Vlastimil Babka <vbabka@suse.cz>
+        d=1e100.net; s=20230601; t=1760661170; x=1761265970;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZLjI+VHvWwq1NOed3zBHwZiL3R2UZSybOuIS4LQq3Jk=;
+        b=qrCl6PCrTGU1o35hlvV1uldHxwa8OfrJff96CIiPE2jcRT193hXaXuXDlSy9dijm9h
+         tjs4vvOk8xf1nP7BpcyXQ4O7X3G3GuLzS+oCyaMXEvKZ3levswJtBhoedJtYdxE4e/Bj
+         bEgKtKCrx+68v3KmtDc797WRhUsbN8Q8UsFUu/Ek6yHovZCd5s5lILciapMf+KSCEL0p
+         9cM27lk4Bc7QQr6y78+pqES/5Hoc3k+FsRU0NlnChrR3Q/saISRnff1ZVfmxEWW8XNIr
+         BiruLEgwz1v+mE+H0zmgHo92b/LB8kl91BeNunN6vwavjKk6flEaC54gUrnifBxNnYDr
+         SceQ==
+X-Gm-Message-State: AOJu0YyhI/l0LKgCFtF46dgJ8nxGs/K9fhZbFoxJIyzJ6TnigFLyoHPq
+	xrIhuZB5VNrgiV505umb6zx0NT7m9rGy3zwYaEl0rbI4vmb/e475UTcK0N7C94P43D9/h4onylu
+	JwdtyYQ==
+X-Google-Smtp-Source: AGHT+IHzipqFwGOQM14+hMbE6MDd7f/rMR4PzXuvuqV/70HQDUX00eM7uGkCf4DwDHKPsPDEwqW7PjFGoNU=
+X-Received: from pjbse5.prod.google.com ([2002:a17:90b:5185:b0:33b:51fe:1a88])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4ccd:b0:327:734a:ae7a
+ with SMTP id 98e67ed59e1d1-33bcf87ac05mr2025384a91.11.1760661170081; Thu, 16
+ Oct 2025 17:32:50 -0700 (PDT)
+Date: Thu, 16 Oct 2025 17:32:19 -0700
+In-Reply-To: <20251017003244.186495-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20251017003244.186495-1-seanjc@google.com>
+X-Mailer: git-send-email 2.51.0.858.gf9c4a03a3a-goog
+Message-ID: <20251017003244.186495-2-seanjc@google.com>
+Subject: [PATCH v3 01/25] KVM: Make support for kvm_arch_vcpu_async_ioctl() mandatory
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, "Kirill A. Shutemov" <kas@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, x86@kernel.org, linux-coco@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Ira Weiny <ira.weiny@intel.com>, 
+	Kai Huang <kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>, 
+	Yan Zhao <yan.y.zhao@intel.com>, Vishal Annapurve <vannapurve@google.com>, 
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Binbin Wu <binbin.wu@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_171007_462477_0F83D21F 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251016_173251_209131_D462692D 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,18 +100,166 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 1:57=E2=80=AFAM Ackerley Tng <ackerleytng@google.co=
-m> wrote:
->
-> Using the command on virt/ would pick it up. Would it be better to add
-> "virt/" to the "automation" + update .clang-format while we're at it?
+Implement kvm_arch_vcpu_async_ioctl() "natively" in x86 and arm64 instead
+of relying on an #ifdef'd stub, and drop HAVE_KVM_VCPU_ASYNC_IOCTL in
+anticipation of using the API on x86.  Once x86 uses the API, providing a
+stub for one architecture and having all other architectures opt-in
+requires more code than simply implementing the API in the lone holdout.
 
-Yeah, that is what I was suggesting if you rely on it (and if the
-maintainers of the relevant folders are OK with it).
+Eliminating the Kconfig will also reduce churn if the API is renamed in
+the future (spoiler alert).
 
-Cheers,
-Miguel
+No functional change intended.
+
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/arm64/kvm/arm.c       |  6 ++++++
+ arch/loongarch/kvm/Kconfig |  1 -
+ arch/mips/kvm/Kconfig      |  1 -
+ arch/powerpc/kvm/Kconfig   |  1 -
+ arch/riscv/kvm/Kconfig     |  1 -
+ arch/s390/kvm/Kconfig      |  1 -
+ arch/x86/kvm/x86.c         |  6 ++++++
+ include/linux/kvm_host.h   | 10 ----------
+ virt/kvm/Kconfig           |  3 ---
+ 9 files changed, 12 insertions(+), 18 deletions(-)
+
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index f21d1b7f20f8..785aaaee6a5d 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1828,6 +1828,12 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+ 	return r;
+ }
+ 
++long kvm_arch_vcpu_async_ioctl(struct file *filp, unsigned int ioctl,
++			       unsigned long arg)
++{
++	return -ENOIOCTLCMD;
++}
++
+ void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+ {
+ 
+diff --git a/arch/loongarch/kvm/Kconfig b/arch/loongarch/kvm/Kconfig
+index ae64bbdf83a7..ed4f724db774 100644
+--- a/arch/loongarch/kvm/Kconfig
++++ b/arch/loongarch/kvm/Kconfig
+@@ -25,7 +25,6 @@ config KVM
+ 	select HAVE_KVM_IRQCHIP
+ 	select HAVE_KVM_MSI
+ 	select HAVE_KVM_READONLY_MEM
+-	select HAVE_KVM_VCPU_ASYNC_IOCTL
+ 	select KVM_COMMON
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+diff --git a/arch/mips/kvm/Kconfig b/arch/mips/kvm/Kconfig
+index ab57221fa4dd..cc13cc35f208 100644
+--- a/arch/mips/kvm/Kconfig
++++ b/arch/mips/kvm/Kconfig
+@@ -22,7 +22,6 @@ config KVM
+ 	select EXPORT_UASM
+ 	select KVM_COMMON
+ 	select KVM_GENERIC_DIRTYLOG_READ_PROTECT
+-	select HAVE_KVM_VCPU_ASYNC_IOCTL
+ 	select KVM_MMIO
+ 	select KVM_GENERIC_MMU_NOTIFIER
+ 	select KVM_GENERIC_HARDWARE_ENABLING
+diff --git a/arch/powerpc/kvm/Kconfig b/arch/powerpc/kvm/Kconfig
+index 2f2702c867f7..c9a2d50ff1b0 100644
+--- a/arch/powerpc/kvm/Kconfig
++++ b/arch/powerpc/kvm/Kconfig
+@@ -20,7 +20,6 @@ if VIRTUALIZATION
+ config KVM
+ 	bool
+ 	select KVM_COMMON
+-	select HAVE_KVM_VCPU_ASYNC_IOCTL
+ 	select KVM_VFIO
+ 	select HAVE_KVM_IRQ_BYPASS
+ 
+diff --git a/arch/riscv/kvm/Kconfig b/arch/riscv/kvm/Kconfig
+index c50328212917..77379f77840a 100644
+--- a/arch/riscv/kvm/Kconfig
++++ b/arch/riscv/kvm/Kconfig
+@@ -23,7 +23,6 @@ config KVM
+ 	select HAVE_KVM_IRQCHIP
+ 	select HAVE_KVM_IRQ_ROUTING
+ 	select HAVE_KVM_MSI
+-	select HAVE_KVM_VCPU_ASYNC_IOCTL
+ 	select HAVE_KVM_READONLY_MEM
+ 	select HAVE_KVM_DIRTY_RING_ACQ_REL
+ 	select KVM_COMMON
+diff --git a/arch/s390/kvm/Kconfig b/arch/s390/kvm/Kconfig
+index cae908d64550..96d16028e8b7 100644
+--- a/arch/s390/kvm/Kconfig
++++ b/arch/s390/kvm/Kconfig
+@@ -20,7 +20,6 @@ config KVM
+ 	def_tristate y
+ 	prompt "Kernel-based Virtual Machine (KVM) support"
+ 	select HAVE_KVM_CPU_RELAX_INTERCEPT
+-	select HAVE_KVM_VCPU_ASYNC_IOCTL
+ 	select KVM_ASYNC_PF
+ 	select KVM_ASYNC_PF_SYNC
+ 	select KVM_COMMON
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index b4b5d2d09634..ca5ba2caf314 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -7240,6 +7240,12 @@ static int kvm_vm_ioctl_set_clock(struct kvm *kvm, void __user *argp)
+ 	return 0;
+ }
+ 
++long kvm_arch_vcpu_async_ioctl(struct file *filp, unsigned int ioctl,
++			       unsigned long arg)
++{
++	return -ENOIOCTLCMD;
++}
++
+ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+ {
+ 	struct kvm *kvm = filp->private_data;
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 5bd76cf394fa..7186b2ae4b57 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -2437,18 +2437,8 @@ static inline bool kvm_arch_no_poll(struct kvm_vcpu *vcpu)
+ }
+ #endif /* CONFIG_HAVE_KVM_NO_POLL */
+ 
+-#ifdef CONFIG_HAVE_KVM_VCPU_ASYNC_IOCTL
+ long kvm_arch_vcpu_async_ioctl(struct file *filp,
+ 			       unsigned int ioctl, unsigned long arg);
+-#else
+-static inline long kvm_arch_vcpu_async_ioctl(struct file *filp,
+-					     unsigned int ioctl,
+-					     unsigned long arg)
+-{
+-	return -ENOIOCTLCMD;
+-}
+-#endif /* CONFIG_HAVE_KVM_VCPU_ASYNC_IOCTL */
+-
+ void kvm_arch_guest_memory_reclaimed(struct kvm *kvm);
+ 
+ #ifdef CONFIG_HAVE_KVM_VCPU_RUN_PID_CHANGE
+diff --git a/virt/kvm/Kconfig b/virt/kvm/Kconfig
+index 5f0015c5dd95..267c7369c765 100644
+--- a/virt/kvm/Kconfig
++++ b/virt/kvm/Kconfig
+@@ -78,9 +78,6 @@ config HAVE_KVM_IRQ_BYPASS
+        tristate
+        select IRQ_BYPASS_MANAGER
+ 
+-config HAVE_KVM_VCPU_ASYNC_IOCTL
+-       bool
+-
+ config HAVE_KVM_VCPU_RUN_PID_CHANGE
+        bool
+ 
+-- 
+2.51.0.858.gf9c4a03a3a-goog
+
 
