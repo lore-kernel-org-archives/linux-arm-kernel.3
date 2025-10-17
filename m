@@ -4,58 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1907FCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 04:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C0CCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 04:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6k3iOcRNR+eTj+p3LRdRfQE6jXhuuMd03BI1bWnZOUg=; b=jthdZ/pQxsUfS02Eyz2IQ6ERBg
-	TMJfvBwFu/0V+6oCzsaMiBmdiTeeSmnc5Kt0z6/x6dFprlnE1sXOQh3UEpimvbjsP+MI8ewMdy3JW
-	Ef536pjWwbNrCDNYePGcPFOVfH0zgiqfBzQu0W7bLrBLGIqGw/hMtliae+xzFtaLCj+TvHg5Dt7C7
-	z0WcA5jMiOjbxBOZPdzwAUehGqM0gggjq5aSnygR8VhIK2mo7ig0uS1QfH7afUEUD/T//w5YMq2N5
-	ZlEUy57pzzjxHvYR40G3bW6loNi+y1t2n+gYverulLxjPRd8AWGoAfu5EezkR3oqLeZ259ij5SXQm
-	zdQbNhWg==;
+	bh=M0MzBiVHDc9IN2np6iiF+pP970iltpQBaDnzPXxqRFU=; b=scZW8JgPSsQ8hbbidXVEjeGSDF
+	KkM6wllvWSbVhyhB+qr8wSfxh1RGzjJnYrY1iG1dasR5xRAukyI9YpmqeDJ3ZAJvYrna/xxHeJvNx
+	QT1QPkuaEwfylnLxUoYiaGUEPOvVaMpyPTqLVfMF3FKjsvlfekSGZNUqEYXfOYS/sp4mUOfOrTaTg
+	O7TaNI84+ZDUqyFulNYYfhJVxtPMHTnimgtDaMB3mR2kP0xFLGUXArG83jaznUHKdw5xuHe2vWqpJ
+	bMt3dzxHXnw1p3PbNUkpsroRjlLeBzf25nHWZlgJzp5kk9dAdSGyE2TemnZB29Eb0ONXG2hY7WXuL
+	5BpA9GBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9c7I-00000006Xpr-2BPd;
-	Fri, 17 Oct 2025 04:31:00 +0000
+	id 1v9c8r-00000006Y6s-1X5m;
+	Fri, 17 Oct 2025 04:32:37 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9c7G-00000006Xof-2SBT
+	id 1v9c8p-00000006Y6Q-2dmj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 04:30:59 +0000
+	Fri, 17 Oct 2025 04:32:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD44845030;
-	Fri, 17 Oct 2025 04:30:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A678BC4CEE7;
-	Fri, 17 Oct 2025 04:30:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 533F543EF2;
+	Fri, 17 Oct 2025 04:32:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC010C4CEE7;
+	Fri, 17 Oct 2025 04:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760675457;
-	bh=TFk5zWUYK2P+cQbWpnbIakZogeXZ6zYqo153hOk7y1k=;
+	s=k20201202; t=1760675555;
+	bh=Ge6EHzcpcrmmRvENTbyAwnl5yiDOYIYzciQ77c3hRmg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oT4kGctz1ORtI4gPkB/+BxTNnvT3Y3maEVGeWBRclPA0cQvax4EPzjN8sHRdkdxTq
-	 8cgNX7hl1GjxmTThOryHfuNUK396xuTeGcet0iGdKVl3+uEsuPz0sE0qsoRN9Oo3tR
-	 I0c6hiQAgVWlqp+M1slvEWKTqv/fg5CxV/M7JAJjO6z/X+Z8k+LptnkPeXqwthSfqj
-	 YCntC4dUmnfKKF4+fS9Ur3ajDtSskzyHxgbfP8Me3CJnkxeKM9zi3OG0sKE4WvJ92O
-	 UEUowtZapR+zi5CLlErCKGJC5xFQ+rup4RGGRLV0hivx3EN1ovbcocIje8gMJS6doj
-	 tulLCkeRqjrfA==
-Message-ID: <30390038-0f90-48a4-befe-475cf88ba1fb@kernel.org>
-Date: Fri, 17 Oct 2025 06:30:53 +0200
+	b=n8tOvhd6gHWW2BPij/fjen9SZJqmLhn9pQ6+SSVUhx0CJvBrgF8u3a9dg3r8L5ItJ
+	 nJQ2b1X7jNXsaw8c6xqUhYSqJ2797TdlRz77YZa2sekvu97MncKbkaRwfZ99nptWD+
+	 Ymhg4Y432DX7iBeLrxhHeEW5vRF4r+t/AYUwX7RfwU81oZ8TZxUARtUnn0wxCXdAoc
+	 kUh9MtJqHQtIQakZWOSZv7kYHeHQihMBVnp4xYGvZ17EeHsJiWfbu9yzX6UAXviVOV
+	 qRUpGio6IVMt3LrdN8NTxo4HTnTae+eDAIQCMMQe3UQkJhqtS+lDJyiagpnuwvQN7H
+	 /QYUgxyZHn4JQ==
+Message-ID: <3434443b-5740-42f4-9aea-6818ef2ecfc2@kernel.org>
+Date: Fri, 17 Oct 2025 06:32:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Change CONFIG_SM_TCSRCC_8750 from m to
- y
-To: Taniya Das <taniya.das@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>, linux-arm-msm@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
- Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
- Imran Shaik <imran.shaik@oss.qualcomm.com>,
- Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
- linux-kernel@vger.kernel.org
-References: <20251017-update_defconfig_tcsrcc_sm8750-v1-1-34b1b47a0bda@oss.qualcomm.com>
+Subject: Re: [PATCH RESEND v3] ARM: multi_v7_defconfig add /proc/config.gz
+To: david@ixit.cz, Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251016-arm-config_gz-v3-1-3874adbf07ad@ixit.cz>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +95,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251017-update_defconfig_tcsrcc_sm8750-v1-1-34b1b47a0bda@oss.qualcomm.com>
+In-Reply-To: <20251016-arm-config_gz-v3-1-3874adbf07ad@ixit.cz>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_213058_664389_610CDE6F 
-X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-CacheID: sfid-20251016_213235_712250_BE330D7F 
+X-CRM114-Status: UNSURE (   9.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,18 +116,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/10/2025 20:53, Taniya Das wrote:
-> The TCSR clock controller is required  during boot to provide the ref
-> clocks to the UFS controller. Setting CONFIG_SM_TCSRCC_8750 to y ensures
-> the UFS driver successfully probe and initialize the device.
+On 16/10/2025 17:10, David Heidelberg via B4 Relay wrote:
+> From: David Heidelberg <david@ixit.cz>
 > 
-> Without this change, the UFS subsystem fails to mount as a usable file
-> system during boot.
+> While 32-bit ARM isn't that widespread, multi_v7_defconfig is used for
+> building more generic images, where having access to config can be handy.
+> 
+> arm64 and x86_64 already bundle config.gz, so this is an effort to provide
+> the same level of comfort with ARMv7 devices.
+> 
+> Signed-off-by: David Heidelberg <david@ixit.cz>
 
-
-That's not what I observed. UFS works fine, especially that it is a
-module, so no, this is not a desired change and explanation is not only
-insufficient but actually incorrect.
+Config patches go via soc - either submaintainers or directly - so with
+your cc list it is unlikely it will be ever applied.
 
 Best regards,
 Krzysztof
