@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E4DCCD1A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 09:07:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6168ECCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 09:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aw6E7QKDkQugyEzE9/IaHxV9MvvKTAd70aLpgh49nGg=; b=UgfX5jWrQdw8r56bEi5XNG1oR8
-	RVviWd0AWF5cBgP1XpIxdv8uGI7B67+S27NcUUwsIkCMokc1SeCxA76334SmhApN78RCEr0FtjXvh
-	hizH/ufm0GnxK1473R2XYqFZLXbJxqwqv8eZvven8uiaS5u/KctMrkH/ZmRjiBdJ1/pZ9Ys7at/qf
-	+SLT9Cd5WsL6JpirlhS1aEBuzd9nBnQF8RnVdGuGXj8k7PpfTbM2kECK76yZ1NlgBafpcxfhkZT5D
-	xI03TYXikFhFDhpu6F75nMarZnugduP1XC2wPhFSlSZVMlDm1Kj00DP49pP0644gtJkyGDdkkNb5m
-	AOncf0mg==;
+	bh=kKyjGiyd7indH53/JCj/Agdp6vht+UmUXB46TuKzHAg=; b=XjzG56C+ZNWSGhs5flDIAqZkDH
+	cBuHDcIyBfdKDNYmciCtkQQhtXqq3Mg+my0Zww+8puQ+zaxSE2lYp7apNG0X2UP8Kl2Tv/fC99L2M
+	rpj3jRkc+n8x+ZsGKdhFCoRPWkiaj17CSOPsQ5TmD6GpbZaNJNHIA7ykecnbBxI7Ok9n24V8OiYYd
+	gEeZCUH3B0gu9hH7Fr4x9rrpiJxgtL2gOQaybvlawmj1YdFI8yeb+mpFPolhuuA93lDiYichLAy0S
+	ZQxjjGSsEMzEpOFMXVUfGlyqDaObkX8DoOosBAaszrjNfinBi/bFcPto7Z4rI+JqSa02n2KVsOdND
+	5DE2BhQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gQL-00000007C9F-3LMI;
-	Fri, 17 Oct 2025 09:06:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v9gQP-00000007CEV-1poj;
+	Fri, 17 Oct 2025 09:07:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gQE-00000007ByO-2SQ2;
-	Fri, 17 Oct 2025 09:06:50 +0000
+	id 1v9gQJ-00000007C4r-1eEd;
+	Fri, 17 Oct 2025 09:06:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 043CC61438;
-	Fri, 17 Oct 2025 09:06:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EA2AC113D0;
-	Fri, 17 Oct 2025 09:06:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 150854B0C1;
+	Fri, 17 Oct 2025 09:06:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93BACC113D0;
+	Fri, 17 Oct 2025 09:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760692009;
-	bh=hNrhTz9RivBvwoNye3uuIuxIHUqtKrAbVtiIQ+QL17g=;
+	s=k20201202; t=1760692014;
+	bh=2hNyNS6XgkjccYANXlv5LduUzRd2LBIUmU8MlMuX+94=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IJP6VjUOzAyspaG0LvetkL7B6Fu27W3n2jt/8ekHyzDijYja0ewa4LZuZOM7Io+Xw
-	 9zLyf2GpImy/6Bm6M5regY6cH/cDOmcF9ZYDs4xGsH9bjQ5lU5jhit0Ak9o7C827KP
-	 E/RQtuKXPjsGtK0w4wNlhQSsUfo5P67ByHo/1y9hYaAiVzKn8dgVlE4SrqZ3tboyaF
-	 UyhxCEpnet4xoSddogHsLHMi/HHPStSKqlrmRHHArbZ/wlu/Nbe8Gaq/fN7nk2UpcA
-	 HTOqKMJAkJDoU7sEa0Ef4+1TTfH4WIdCYbRUZQjrD1fBTbKHz2UEFCm4F2eZaA7K/i
-	 zsgqPo7TvUbtw==
+	b=FJtE8OVhXtLK8Cw7eEr39wsLv+2SPqW1Hz98/SFs0x2eNvqnlzcmw7z+YtUqubzae
+	 dYO2R/WjGzU1u07YgHEkj3lWmaS5wggVXP8XJa1qkU1lA0blSBTBLGl77iZHpAdIp2
+	 fHGrXA9hnJl5td2GtafWQFuNo0EVVbDMjfot/s6Dx/rur4zMws2yx+p5XYmaL8r/Ai
+	 cRemtla3D1hEYRImHxp0EHbeQ5xFQZwkoO/I9wdrMxcPbaG35DaO0v3WzwCUKSd6U+
+	 LjXM6Cit/1DpT5OH0OHdFMhyVxYmJ6af7QOwIny0XLMTkQsmA80xoq7l8ZzFGp+Zbm
+	 7fiVTnB7VLnXQ==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 17 Oct 2025 11:06:16 +0200
-Subject: [PATCH net-next v3 07/13] net: airoha: ppe: Remove
- airoha_ppe_is_enabled() where not necessary
+Date: Fri, 17 Oct 2025 11:06:18 +0200
+Subject: [PATCH net-next v3 09/13] net: airoha: ppe: Flush PPE SRAM table
+ during PPE setup
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-an7583-eth-support-v3-7-f28319666667@kernel.org>
+Message-Id: <20251017-an7583-eth-support-v3-9-f28319666667@kernel.org>
 References: <20251017-an7583-eth-support-v3-0-f28319666667@kernel.org>
 In-Reply-To: <20251017-an7583-eth-support-v3-0-f28319666667@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -61,6 +61,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
  devicetree@vger.kernel.org, Simon Horman <horms@kernel.org>
 X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_020655_473344_2ED87D7F 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,58 +78,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now each PPE has always PPE_STATS_NUM_ENTRIES entries so we do not need
-to run airoha_ppe_is_enabled routine to check if the hash refers to
-PPE1 or PPE2.
+Rely on airoha_ppe_foe_commit_sram_entry routine to flush SRAM PPE table
+entries. This patch allow moving PPE SRAM flush during PPE setup and
+avoid dumping uninitialized values via the debugfs if no entries are
+offloaded yet.
 
 Reviewed-by: Simon Horman <horms@kernel.org>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_ppe.c | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
+ drivers/net/ethernet/airoha/airoha_ppe.c | 24 ++++++++++++++----------
+ 1 file changed, 14 insertions(+), 10 deletions(-)
 
 diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index d142660e7910425c14ea2f867f8238156419833b..195d97e61197e5c393f2e79f33f685c334612a83 100644
+index 46755bc60a8e822b296e188c061c45eae0b88cb5..4b038673cefe20b47c42dd1419c05b57d4d6c64d 100644
 --- a/drivers/net/ethernet/airoha/airoha_ppe.c
 +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -514,10 +514,8 @@ static int airoha_ppe_foe_get_flow_stats_index(struct airoha_ppe *ppe,
- 	if (ppe_num_stats_entries < 0)
- 		return ppe_num_stats_entries;
- 
--	*index = hash;
--	if (airoha_ppe_is_enabled(ppe->eth, 1) &&
--	    hash >= ppe_num_stats_entries)
--		*index = *index - PPE_STATS_NUM_ENTRIES;
-+	*index = hash >= ppe_num_stats_entries ? hash - PPE_STATS_NUM_ENTRIES
-+					       : hash;
- 
- 	return 0;
+@@ -1291,18 +1291,22 @@ static int airoha_ppe_flow_offload_cmd(struct airoha_eth *eth,
+ 	return -EOPNOTSUPP;
  }
-@@ -607,13 +605,11 @@ airoha_ppe_foe_get_entry_locked(struct airoha_ppe *ppe, u32 hash)
  
- 	if (hash < sram_num_entries) {
- 		u32 *hwe = ppe->foe + hash * sizeof(struct airoha_foe_entry);
-+		bool ppe2 = hash >= PPE_SRAM_NUM_ENTRIES;
- 		struct airoha_eth *eth = ppe->eth;
--		bool ppe2;
- 		u32 val;
- 		int i;
+-static int airoha_ppe_flush_sram_entries(struct airoha_ppe *ppe,
+-					 struct airoha_npu *npu)
++static int airoha_ppe_flush_sram_entries(struct airoha_ppe *ppe)
+ {
+ 	u32 sram_num_entries = airoha_ppe_get_total_sram_num_entries(ppe);
+ 	struct airoha_foe_entry *hwe = ppe->foe;
+-	int i;
++	int i, err = 0;
++
++	for (i = 0; i < sram_num_entries; i++) {
++		int err;
  
--		ppe2 = airoha_ppe_is_enabled(ppe->eth, 1) &&
--		       hash >= PPE_SRAM_NUM_ENTRIES;
- 		airoha_fe_wr(ppe->eth, REG_PPE_RAM_CTRL(ppe2),
- 			     FIELD_PREP(PPE_SRAM_CTRL_ENTRY_MASK, hash) |
- 			     PPE_SRAM_CTRL_REQ_MASK);
-@@ -691,8 +687,7 @@ static int airoha_ppe_foe_commit_entry(struct airoha_ppe *ppe,
+-	for (i = 0; i < PPE_SRAM_NUM_ENTRIES; i++)
+ 		memset(&hwe[i], 0, sizeof(*hwe));
++		err = airoha_ppe_foe_commit_sram_entry(ppe, i);
++		if (err)
++			break;
++	}
  
- 	if (hash < sram_num_entries) {
- 		dma_addr_t addr = ppe->foe_dma + hash * sizeof(*hwe);
--		bool ppe2 = airoha_ppe_is_enabled(eth, 1) &&
--			    hash >= PPE_SRAM_NUM_ENTRIES;
-+		bool ppe2 = hash >= PPE_SRAM_NUM_ENTRIES;
+-	return npu->ops.ppe_flush_sram_entries(npu, ppe->foe_dma,
+-					       sram_num_entries);
++	return err;
+ }
  
- 		err = npu->ops.ppe_foe_commit_entry(npu, addr, sizeof(*hwe),
- 						    hash, ppe2);
+ static struct airoha_npu *airoha_ppe_npu_get(struct airoha_eth *eth)
+@@ -1339,10 +1343,6 @@ static int airoha_ppe_offload_setup(struct airoha_eth *eth)
+ 	}
+ 
+ 	airoha_ppe_hw_init(ppe);
+-	err = airoha_ppe_flush_sram_entries(ppe, npu);
+-	if (err)
+-		goto error_npu_put;
+-
+ 	airoha_ppe_foe_flow_stats_reset(ppe, npu);
+ 
+ 	rcu_assign_pointer(eth->npu, npu);
+@@ -1513,6 +1513,10 @@ int airoha_ppe_init(struct airoha_eth *eth)
+ 	if (!ppe->foe_check_time)
+ 		return -ENOMEM;
+ 
++	err = airoha_ppe_flush_sram_entries(ppe);
++	if (err)
++		return err;
++
+ 	err = rhashtable_init(&eth->flow_table, &airoha_flow_table_params);
+ 	if (err)
+ 		return err;
 
 -- 
 2.51.0
