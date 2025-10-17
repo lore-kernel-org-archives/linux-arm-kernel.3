@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD8ACCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 13:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65B72CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 13:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:Message-Id:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m4Fx5KE7cU04M3ryeu+4ZLai3hAE+xd2FVpo8xM00UI=; b=nXl+Ujv8+tB7TX0DSHpAVwEs+D
-	H1xDdgqsI8LBNzLmFWfDsGVz64kQ6MOqHAAnGpneTMHDtBVMg1st4sbvN5lGTqohQC1eEHmm/k/8C
-	BOdIfAfwzTbvqVZD2b+qScPiioGyeeW9fBU9inXOCDUVyAl9VJPONF6aVK/dIXc3lasejuwY52Kri
-	jX9NnRG2jCgp6c5j6B9pS5LhSbCWXK2YDN4Z9ho3jXCx7zXfrzgr7bmHYYqfejudanVnJzl67lBsI
-	oamEFpktjtLGWNiJPDwWfiX2i+godFlseGv0uRaet+nsB9uukuoyiQD6n8mw7+4uF4BJQXnCaCcej
-	TILZbrog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sOY0HlZua3GidJxnHggJk6iRCxBwJVFjZRBfILYXvSY=; b=bPaUhvKSiuLk9fhD1GSTFPJaKs
+	hNzJPDkXhdaug2A0YehY19fWCLj57fxLrkoMfuETByf2+6iwJ7XfR3XTcdkmPhcoz8XkFH/dHvffT
+	Istl6a+ix5MRwMGbrKxfbIVLipiHJ5O+Hy0lDDLzbanuDhSS8yEIFo6O2+vy9choKzG8Sd5HVnspP
+	Z35YS9EXYwBbv2hhvHjwvmQGtRBdynSWsCVxyawWCsYOTloe80lSa1ek0hO54Tb9Gm4c0Au2Wn6rL
+	cJAj05ZZANW63XGyJbv5DbZfXRrmOeRuCNabrY5bciDIbe0oriqPPE0KfneDIr+fsJkwufPL70NwA
+	9p8moocw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9kRR-00000007uRa-0PMe;
+	id 1v9kRR-00000007uRu-1fTk;
 	Fri, 17 Oct 2025 13:24:21 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9kRM-00000007uOn-1QoM
+	id 1v9kRN-00000007uPs-3Tew
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 17 Oct 2025 13:24:16 +0000
+	Fri, 17 Oct 2025 13:24:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:Cc:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=m4Fx5KE7cU04M3ryeu+4ZLai3hAE+xd2FVpo8xM00UI=; b=oMrtgUaZd6uV/Y0ZDBuPQ2q/8z
-	bDiuTWn68TAIXM7RTgsKPtSme1vwDXNIBXcP5sGDvjLDwA8vwMLf/hKljoHz1swSF/RBElurVG2ig
-	6OjxyeNn8OVIJbW8zBq3wmGqnk2FtcMKYhkTvFOznPz+vptPrdrXAgvRVdFKV+SRGjqy+vUrPPLiL
-	WWunRI6+rXfmrVru1SsS8NAweGXQQ6+JvBRmzRUaVJSo57Ysw0De+2rsz6XLpsuihSGcxlcradgeU
-	CoUo+kapvsxDgUsuRGsSIXNVxqPzqa7Pk1zoddyVNjBXpOdjDoyY3tipglrFFgka1hA38BmQriIgF
-	s/gT5Uxg==;
+	d=infradead.org; s=desiato.20200630; h=To:In-Reply-To:References:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Cc:Content-ID:Content-Description;
+	bh=sOY0HlZua3GidJxnHggJk6iRCxBwJVFjZRBfILYXvSY=; b=MoHVeTa4IUQGrEvyOzq9r7yWlP
+	M0QPLhynlSoJoQ08V8ndTOGNcKxN48tCdj9tif8zAi27+qFIjMxwX7/f6SnCBEroWD+gQrcbv4UH7
+	VsU3EvoJlWWW4+DKko4R4R2tpClbk7ZAwmzk47rXD1aL6kEvOAWsBo3qOkOg6Mu+n/BErRwkYuSlG
+	U6MtoDZ9UTyiopiQrd8jecbpVdbY1WELj9xLNrUoPq04Gp68i4M/QLXMQDuwwGrk9YUXaqT7AMvfI
+	eCYpfgA9/ZFqZXmr+eHD7Ch+eifZCMjzX/LHdQKbCXvkShV3o57y1rZ1N+CptkGKObq+dfWTVumqX
+	xJdYFQqQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9kRJ-00000007c0I-15Pa
+	id 1v9kRL-00000007c0b-0DjG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 13:24:15 +0000
+	Fri, 17 Oct 2025 13:24:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B1D11595;
-	Fri, 17 Oct 2025 06:24:02 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4995C1C2B;
+	Fri, 17 Oct 2025 06:24:06 -0700 (PDT)
 Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 36BBB3F66E;
-	Fri, 17 Oct 2025 06:24:09 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7928E3F66E;
+	Fri, 17 Oct 2025 06:24:13 -0700 (PDT)
 From: Sudeep Holla <sudeep.holla@arm.com>
-Subject: [PATCH 0/8] firmware: arm_scmi: Refactoring and enablement of ACPI
- PCC transport
-Date: Fri, 17 Oct 2025 14:23:43 +0100
-Message-Id: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
+Date: Fri, 17 Oct 2025 14:23:47 +0100
+Subject: [PATCH 4/8] firmware: arm_scmi: Fall back to ACPI HID when
+ "compatible" is absent
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGJD8mgC/x3MOwqAMBBF0a3I1AbyUQS3IiJhfOoUxpCACJK9G
- yxPce9LGUmQaWxeSrglyxUqTNsQHz7sULJWk9W2N9oMynOUJfMpS2RW6DoY6xw8HNUmJmzy/L9
- pLuUDxbLy418AAAA=
-X-Change-ID: 20251017-acpi_scmi_pcc-e44e1233eae3
+Message-Id: <20251017-acpi_scmi_pcc-v1-4-0adbab7709d9@arm.com>
+References: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
+In-Reply-To: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
 To: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, Sudeep Holla <sudeep.holla@arm.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_142413_718104_F46254A9 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20251017_142415_330441_723912FA 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,134 +79,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI can be utilized in systems using either the FDT or ACPI specification.
-While FDT-based systems can natively use SCMI, ACPI-based systems often
-need to abstract the functionality provided by SCMI under ASL methods.
-So far, there has been no need to support SCMI natively on ACPI systems.
+scmi_debugfs_common_setup() previously called fwnode_property_read_string()
+without checking its return value, which could leave c_ptr uninitialized
+and lead to kstrdup() on garbage.
 
-However, with the addition of a few new protocols such as Powercap and Telemetry,
-which lack abstractions in the ACPI specification, there is now a need to
-run SCMI natively for those use cases.
+Handle the failure case and use the ACPI HID via acpi_device_hid()
+using ACPI_COMPANION(dev) as a fallback for ACPI-described systems.
+This ensures dbg->type is either a valid string or we hit the existing
+error path cleanly.
 
-This patch series introduces ACPI PCC transport support for the Arm SCMI
-framework, alongside several foundational refactors and enhancements to
-achieve firmware-node neutrality between Device Tree (DT) and ACPI systems.
-
-The key changes include:
-
-1. ACPI/DT abstraction and fwnode transition
-
-   Converted the core SCMI code to use `fwnode_handle` instead of DT-specific
-   structures, ensuring seamless operation across both ACPI and DT
-   environments. All property lookups, child enumeration, and device
-   association paths have been updated accordingly.
-
-2. Unified transport registration for ACPI and DT
-
-   Extended the SCMI transport driver macros to support ACPI match tables,
-   enabling transports to probe using ACPI device IDs while maintaining
-   backward compatibility with DT-only systems.
-
-3. Protocol device initialization and refactoring
-
-   Refactored the protocol device creation and validation logic into a new
-   helper for improved readability and maintainability. Enhanced the
-   initialization logic to handle ACPI-based SCMI devices without explicit
-   child fwnodes.
-
-4. Introduction of ACPI PCC transport
-
-   Added a new SCMI transport driver leveraging ACPI PCCT (Platform
-   Communications Channel Table) subspaces via the Linux PCC mailbox
-   framework. This enables SCMI communication over PCC on ACPI-based
-   platforms.
-
-Collectively, these changes lay the groundwork for robust SCMI operation on
-ACPI platforms, achieving near parity with DT systems where applicable,
-while enabling the new PCC transport path for firmware communication.
-
-Note: SCMI will not be run natively for all existing protocols other
-than Powercap and Telemetry, as they must continue to use ACPI abstractions.
-The ACPI SCMI device document is not hosted publicly yet, but the ACPI
-namespace snippet below provides a reference example for reviewing these patches.
-
-There is one dependency on the SCMI Telemetry support posted by Cristian [1].
-It is required only for the definition of `SCMI_PROTOCOL_TELEMETRY` in the
-`scmi_std_protocol` enumeration.
-
--->8
-
-Device (SCM0) {
-  Name(_HID, "ARML0001")
-  Name (_UID, 0)
-  Name (_DSD, Package () {
-    ToUUID("daffd814-6eba-4d8c-8a91-bc9bbf4aa301"),  // Device Properties UUID
-      Package () {
-        Package(2) {
-          "arm-arml0001-transport-pcc", // Key
-          Package () {               // Value
-              1,                     // Revision
-              3,                     // Count
-              Package(){4, 0, 1},    // PCCT Idx, TransportUID, A2P Common
-              Package(){7, 1, 0},    // PCCT Idx, TransportUID, A2P Exclusive
-              Package(){9, 2, 2}     // PCCT Idx, TransportUID, P2A Exclusive
-          } // Value
-        },
-        Package(2) {
-          "arm-arml0001-protocol-pcap",   // Key
-          Package () {                // Value
-             1,                       // Revision
-             Package() {              // Protocol Exclusive Transport Package
-                                      // Empty; A2P Common
-             },
-             Package() {}             // Protocol Association Package
-          } // Value
-        },
-        Package(2) {
-          "arm-arml0001-protocol-telemetry", // Key
-          Package () {                // Value
-            1,                        // Revision
-            Package() {               // Protocol Exclusive Transport Package
-              Package (2) {1, 0},     // UID=1; Flags=0; A2P Exclusive
-              Package (2) {2, 0}      // UID=2; Flags=0; P2A Exclusive
-            },
-            Package() {}              // Protocol Association Package
-          } // Value
-        },
-      } // Device Properties
-    }) // _DSD
-} // SCM0
+This improves robustness on non-DT platforms where "compatible" is not
+present.
 
 Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
-Sudeep Holla (8):
-      firmware: arm_scmi: Set fwnode for the genrated SCMI platform device
-      firmware: arm_scmi: Extend transport driver macro to support ACPI
-      firmware: arm_scmi: Convert OF-only paths to generic fwnode in SCMI core
-      firmware: arm_scmi: Fall back to ACPI HID when "compatible" is absent
-      firmware: arm_scmi: Pass protocol ID to chan_available() transport callback
-      firmware: arm_scmi: Refactor protocol device creation logic
-      firmware: arm_scmi: transport: Add ACPI PCC transport
-      firmware: arm_scmi: Initialise all protocol devices and transport channels
+ drivers/firmware/arm_scmi/driver.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
- drivers/firmware/arm_scmi/bus.c                |  33 +--
- drivers/firmware/arm_scmi/common.h             |  33 ++-
- drivers/firmware/arm_scmi/driver.c             | 173 ++++++-----
- drivers/firmware/arm_scmi/transports/Kconfig   |  12 +
- drivers/firmware/arm_scmi/transports/Makefile  |   2 +
- drivers/firmware/arm_scmi/transports/mailbox.c |   4 +-
- drivers/firmware/arm_scmi/transports/optee.c   |   4 +-
- drivers/firmware/arm_scmi/transports/pcc.c     | 390 +++++++++++++++++++++++++
- drivers/firmware/arm_scmi/transports/smc.c     |   4 +-
- drivers/firmware/arm_scmi/transports/virtio.c  |   3 +-
- 10 files changed, 561 insertions(+), 97 deletions(-)
----
-base-commit: 7ea30958b3054f5e488fa0b33c352723f7ab3a2a
-change-id: 20251017-acpi_scmi_pcc-e44e1233eae3
-
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index bc5fea11b5db..148b9a13d43f 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2988,8 +2988,9 @@ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
+ 		return NULL;
+ 	}
+ 
+-	fwnode_property_read_string(dev_fwnode(info->dev), "compatible",
+-				    &c_ptr);
++	if (fwnode_property_read_string(dev_fwnode(info->dev), "compatible",
++					&c_ptr))
++		c_ptr = acpi_device_hid(ACPI_COMPANION(info->dev)) ?: "unknown";
+ 	dbg->type = kstrdup(c_ptr, GFP_KERNEL);
+ 	if (!dbg->type) {
+ 		kfree(dbg->name);
 
 -- 
-Regards,
-Sudeep
+2.34.1
 
 
