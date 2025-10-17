@@ -4,69 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 792C7CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 21:45:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD76CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 21:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=deMYrW1BM6i4qXR8M3YZRqz7KEvJJYcTHdMKzMmhdMU=; b=bEmxoXiVXkJ2tWo5kpRlrQhIau
-	IUn8b4Ufgi1LqLQA55fJaN8N+PNcMxAvhLpKerEV3qFYiAW1XICtmDkMAwZ2etfn8Nnm9zj1gSslS
-	PZi+W3KDtGvumLqWS5N5ozfEerFgoF1O6YCQcC50Qsqjp8Ts+n/T8oatvmdkbktvMlCOc/m9u0GeU
-	r3MjHg+WH19Ye8JcGNd9DZuNwOOcbWuMyqD9UALXAgwUZRbdX+4yWS0Qrvwv1ySsa1K6QSRTZNkAf
-	hPqt+s5PVBnqo9MojZRvO2ydXCz0TRucg5Z8pXXCJN6s+le9Yc9DTknmlxFstJR9SQ7ZFiMrufq6P
-	uh4okyog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hwybPT10Rcf7wu7+RwSi/qpvm0zbyRD4aYGeDXWzI2k=; b=AzyC2ME6veKGJj2UbHBITeddpm
+	32Jw3r65/7MKfkD/N+S1wa/bFtxhs5Tuomcjkiz/0zUWxtp1+id1Kh8Yvin8Hl5VnT0rDdezagdxR
+	3rCXIL6CW7xoBS4gaxAgEIz/JozkCeqMeCdqnYCRlX0oqnXDlY7VzDNuXX9qLwSf49a2auyGuhvXI
+	nahm23/rIRPjPzUvnbF7F9J4+rGg2txYaoouWMHxPEsOrAGABCaSpUbsr+lTzngzFi7F1J7OMxHQ7
+	VefbfsuZi6zHJLSyQxr07QsKqoeptZFqEvjnUDybRbc+9b2HcR4UnFU/wSsDhTwhPZFmBIMmadQ0y
+	EdGbAcmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9sGX-000000094rz-29Pi;
-	Fri, 17 Oct 2025 21:45:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v9sJN-0000000955n-2DrY;
+	Fri, 17 Oct 2025 21:48:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9sGV-000000094rf-09Ju
+	id 1v9sJK-0000000955U-3Nlg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 21:45:36 +0000
+	Fri, 17 Oct 2025 21:48:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 100F741964;
-	Fri, 17 Oct 2025 21:45:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46BE1C4CEE7;
-	Fri, 17 Oct 2025 21:45:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3115B44E2F;
+	Fri, 17 Oct 2025 21:48:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16432C4CEE7;
+	Fri, 17 Oct 2025 21:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760737533;
-	bh=uv2XPBC/cnKDym2sM5IK4ykoNBOphBVup4qIH3RplsA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qMHmEEe8bXw2bvDmuxOq743Nhu0fgJe5Ndh5jwpqyGLV9AjbKFpm2zh/zZzXcruzP
-	 zg+F9ZybINmwTqCR5iskrHcuFWmd8ow+hl9n4PWULTJsm0oO+LSpcIoEFn+nhLl8mT
-	 Tby+mnmEh4FqrM+p9XQe38Oe1urPb5WrwaN650PMETdvewf2zQKhLm+3l7ugSwMgHC
-	 t6m2yZ72qeagrkDahGIPA/smKJrkqIB0tbqdO5fFtjhYdB1bmRHcKOWl6SCVL2GZu9
-	 jn/wlTdWJEQH5tjtVPQw1QH47FhPNsTUyys2PU/EeXRxaBWxKPZll8PSAiypzqIpK8
-	 /v0rhkc2U+FdA==
-Date: Fri, 17 Oct 2025 14:47:27 -0700
-From: Bjorn Andersson <andersson@kernel.org>
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
-	Taniya Das <quic_tdas@quicinc.com>, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Ajit Pandey <ajit.pandey@oss.qualcomm.com>, 
-	Imran Shaik <imran.shaik@oss.qualcomm.com>, Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>, 
+	s=k20201202; t=1760737710;
+	bh=xd1yFjt8Ov/S9tkR1UjGKlrmvIPjVzyg2KlyTqOt86g=;
+	h=Date:From:To:Cc:Subject:From;
+	b=j+WSwXh7xicyFQNvSwq+ywq5v4TQoFCf+V49qgiP8FnWrnJYgruFMflp0SQ9/hiX4
+	 EmYol1SE0o/VgCGV6y7aCVXY1p9W+2Sh6JDlQCAFfsZ1LxjnX2jITnkHi3JHn5pCaa
+	 DB7Px62p75PICjOyWnAGpyaUm880l0AWZhTQS5qu8+H2Z8x3gFN3KhJ78h+RMoebqi
+	 +S0H+E0/4+vtIHWMnC9W+beVV8x7Cf8wM33YmNyCY7HnPIHEv/tUs0UyknulYpw7Lw
+	 b5+Z0XAzSCASaJZdwb1QyyJA+bzP1IJLUBd9FxIQE8P/lFL0n8AE1gIRSPKJ4Z++b2
+	 qC9sJmNjseH3A==
+Date: Fri, 17 Oct 2025 22:48:26 +0100
+From: Catalin Marinas <cmarinas@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: defconfig: Change CONFIG_SM_TCSRCC_8750 from m to
- y
-Message-ID: <ay4vqro266o7lk4xq3lpjjsviyllxoymfsl6gi3h6nhalsnkke@5gcpxdsgszhq>
-References: <20251017-update_defconfig_tcsrcc_sm8750-v1-1-34b1b47a0bda@oss.qualcomm.com>
- <30390038-0f90-48a4-befe-475cf88ba1fb@kernel.org>
- <37f54b76-a274-4ce2-aaa9-88ba0eb84199@oss.qualcomm.com>
- <90c8dda3-f753-43dc-8bb9-d03a808c8704@kernel.org>
- <38b8468f-5006-46a3-a4ea-28e6692ef14a@quicinc.com>
- <03ac36fb-a227-438e-bdf6-f787e26008b3@kernel.org>
- <c4c907cd-ac5b-4ddc-96d4-aee840d98692@oss.qualcomm.com>
+Subject: [GIT PULL] arm64 fixes for 6.18-rc2
+Message-ID: <aPK5qkFphJvpJBkJ@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c4c907cd-ac5b-4ddc-96d4-aee840d98692@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_144535_133198_EE5D6695 
-X-CRM114-Status: GOOD (  34.44  )
+X-CRM114-CacheID: sfid-20251017_144830_866045_5B845248 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,116 +70,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 12:25:37PM +0530, Taniya Das wrote:
-> 
-> 
-> On 10/17/2025 11:26 AM, Krzysztof Kozlowski wrote:
-> > On 17/10/2025 07:49, Taniya Das wrote:
-> >>
-> >>
-> >> On 10/17/2025 10:51 AM, Krzysztof Kozlowski wrote:
-> >>> On 17/10/2025 07:16, Taniya Das wrote:
-> >>>>
-> >>>>
-> >>>> On 10/17/2025 10:00 AM, Krzysztof Kozlowski wrote:
-> >>>>> On 16/10/2025 20:53, Taniya Das wrote:
-> >>>>>> The TCSR clock controller is required  during boot to provide the ref
-> >>>>>> clocks to the UFS controller. Setting CONFIG_SM_TCSRCC_8750 to y ensures
-> >>>>>> the UFS driver successfully probe and initialize the device.
-> >>>>>>
-> >>>>>> Without this change, the UFS subsystem fails to mount as a usable file
-> >>>>>> system during boot.
-> >>>>>
-> >>>>>
-> >>>>> That's not what I observed. UFS works fine, especially that it is a
-> >>>>> module, so no, this is not a desired change and explanation is not only
-> >>>>> insufficient but actually incorrect.
-> >>>>>
-> >>>>
-> >>>> Krzysztof, on Pakala MTP we are observing the below issue and it
-> >>>> requires the module of tscrcc to be loaded explicitly. This patch also
-> >>>> aligns to how it is on all other targets.
-> >>>>
-> >>>> /soc@0/phy@1d80000: Failed to get clk index: 2 ret: -517
-> >>>> [   10.496570] ufshcd-qcom 1d84000.ufs: freq-table-hz property not specified
-> >>>> [   10.503660] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
-> >>>> find vdd-hba-supply regulator, assuming enabled
-> >>>> [   10.514548] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
-> >>>> find vccq2-supply regulator, assuming enabled
-> >>>> [   10.565955] platform 1d80000.phy: deferred probe pending: (reason
-> >>>> unknown)
-> >>>> [   10.573078] platform 1d84000.ufs: deferred probe pending:
-> >>>> ufshcd-qcom: ufshcd_pltfrm_init() failed
-> >>>>
-> >>>
-> >>>
-> >>> I don't and I am testing regularly, so I assume you have incorrect
-> >>> config. Maybe I have incorrect one (which works), but then commit msg is
-> >>> incomplete - you must explain the bug and provide proof that this is the
-> >>> correct fix for it.
-> >>>
-> >>
-> >> We have tried booting up recently and and that is what we observed. The
-> >> patch from 'm' to 'y' helps the UFS probe is successful and the rootfs
-> >> is picked from ufs partitions. I will add these fail & success log
-> >> snippets in the commit text.
-> > 
-> > That's not enough. You need to explain why UFS fails. After explaining
-> > this, I guess bug in UFS would be exposed thus that one should be fixed.
-> > You just provided band-aid without fixing the real problem.
-> > 
-> 
-> When the kernel commandline uses is 'root=PARTLABEL=system', the  is a
-> dependency of the UFS driver on the TCSRCC clockref during bootup and
-> the TCSRCC made as a module will not provide the clocks unless we
-> explicitly load the modules.
+Hi Linus,
 
-defconfig has CONFIG_SCSI_UFS_QCOM=m so your test system is obviously
-loading some modules.
+Please pull a couple of arm64 fixes below. Normally it's Will handling
+the fixes this time around but he's fishing on some remote lake away
+from the modern world (and internet connection). Thanks.
 
-This implies that you're:
-1) not packing the tcsrcc into your ramdisk, or
-2) doing something non-standard in your ramdisk which breaks automatic module
-   loading, or 
-3) there's an actual issue somewhere causing the probe deferral not to
-   happen
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
-So, please look at your commit message and ask yourself *why* UFS
-doesn't find the clock, *why* does =y help, etc?
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
+are available in the Git repository at:
 
-We should only use =y for things required to reach and execute the
-content of the ramdisk. As such, I agree with Krzysztof, this patch is
-not correct.
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
 
-Regards,
-Bjorn
+for you to fetch changes up to ea0d55ae4b3207c33691a73da3443b1fd379f1d2:
 
-> To meet this dependency we need to load
-> TCSRCC statically and move CONFIG_SM_TCSRCC_8750 from 'm' to 'y.
-> This will help the UFS partitions to be identified and then the rootfs
-> to be mounted from the partitions.
-> 
-> > NAK
-> > 
-> >>
-> >> [    0.000000] Machine model: Qualcomm Technologies, Inc. SM8750 MTP
-> >> ....
-> >> [    3.133373] ufshcd-qcom 1d84000.ufs: freq-table-hz property not specified
-> >> [    3.144480] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
-> >> find vdd-hba-supply regulator, assuming enabled
-> >> [    3.144585] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
-> >> find vccq2-supply regulator, assuming enabled
-> >> [    3.227770] ufshcd-qcom 1d84000.ufs: Resource ufs_mem not provided
-> >> [    3.238319] ufshcd-qcom 1d84000.ufs: MCQ mode is disabled, err=-19
-> > 
-> > 
-> > 
-> > Best regards,
-> > Krzysztof
-> 
-> -- 
-> Thanks,
-> Taniya Das
-> 
+  arm64: debug: always unmask interrupts in el0_softstp() (2025-10-17 18:08:05 +0100)
+
+----------------------------------------------------------------
+arm64 fixes:
+
+ - Explicitly encode the XZR register if the value passed to
+   write_sysreg_s() is 0. The GIC CDEOI instruction is encoded as a
+   system register write with XZR as the source register. However, clang
+   does not honour the "Z" register constraint, leading to incorrect
+   code generation
+
+ - Ensure the interrupts (DAIF.IF) are unmasked when completing
+   single-step of a suspended breakpoint before calling
+   exit_to_user_mode(). With pseudo-NMIs, interrupts are (additionally)
+   masked at the PMR_EL1 register, handled by local_irq_*()
+
+----------------------------------------------------------------
+Ada Couprie Diaz (1):
+      arm64: debug: always unmask interrupts in el0_softstp()
+
+Lorenzo Pieralisi (1):
+      arm64/sysreg: Fix GIC CDEOI instruction encoding
+
+ arch/arm64/include/asm/sysreg.h  | 11 ++++++++++-
+ arch/arm64/kernel/entry-common.c |  8 +++++---
+ 2 files changed, 15 insertions(+), 4 deletions(-)
+
+-- 
+Catalin
 
