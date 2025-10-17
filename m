@@ -4,65 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42982CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:03:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1B6CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OQQRlKEU7VVm5HYBQTjT7ZZ8vVMImSl8I2PGd8GAARk=; b=o1h4XVM/QYgTiQTM75soldhc0K
-	VtKamCKiIyRT3JABiJaZFejTNUjE2llOPmpLouAp0YhakaIcNQiC0Wb2aF3r8XA7UPp/SWEPPwtTN
-	7GA/guupoh1F05S3rpyJ2M5pucnyvX0oEN2bumYvoOykSbeo29CDCsHXo4YLqTX3XSM97rTX4G88/
-	cQbEdk4PAJ3C8CFPG6QqxcBKS0U0l5JuHgP/z7LB+znp+h+7dEdgLjO79HG8e/xrPfTwFOwG8jj/E
-	blE0KCl8lhV8Q+IF7O+ajjkEIhSGwrHh7gillZ1/jU/0KlYxKOCWlRBSfhVdvgstmtjsFWrGqdwGD
-	08hEmgNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=flaioFGGLRITp6YlwyC7arKkUabJsWgtkcQzqeCnzVA=; b=onpGSsO7zRzotJ67osFVBG1DCo
+	pAHMu2CNU8Kwo79LXkbdTqjMFo1VKIZ19kIakf5AVc3ltSLiGffP1bLwENbKDuaggU/RNy61fsbLF
+	44nhzZiMybRvD2PGFF3A7W1soO+hRFSpHzY76/j4nMX8EajKhjyLFtz3wkQI/pIsC3I6/DB22lCDa
+	ot4n+wHZkPLe1TQR7afY0UEsXL7H1ObQ1+LXu9MyFoRMIE8v/BquqoMJt0glHGzAtHRIzpGHGLJ1c
+	DKKssrHyuPz4yju/SZ1LVARmj2oXuFRgQFV+wLccZWCzTHwFERE8hH5OfHwgKjWGbq1G9KjGhaYzu
+	4vhAySUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iFI-00000007cLH-3ule;
-	Fri, 17 Oct 2025 11:03:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v9iKD-00000007cuM-1ANK;
+	Fri, 17 Oct 2025 11:08:45 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iFH-00000007cL4-3SIj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 17 Oct 2025 11:03:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=OQQRlKEU7VVm5HYBQTjT7ZZ8vVMImSl8I2PGd8GAARk=; b=dsLiTgqIYDRraQPPqotQB7I02K
-	G5W1fuyDctTvzS460Ra5NFCKocLxDFqL3vGs6shO5gCyMvRGYBFuymjOHgH9Jh600UjoLfal4BqQ2
-	9apVMn7lrbRgeCy1pkFdaHXaEc3Mq5LB70IhYhkgsY/Z4sVbcJcrGgz+Uqm5xQgz323yl2DDWWI4E
-	pjlkMRZ5G9P4ycGazluRLerNruMkeIIgw0wLaT5BhMyXbvlkbkY9AMXvJy6xoh8Lb9TbtK7rtFNre
-	MTdRNylz+Ijv4ROTKQEJhafkW4mt7sGy6tLrqGYeNMJuSdxNPxoxi+H3kk1zLGMSx5Qb2NaC+t6bJ
-	ff9Bkr0w==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iFC-00000007Vbo-0dsh
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 11:03:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 81CCF1595;
-	Fri, 17 Oct 2025 04:03:21 -0700 (PDT)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 68D8A3F66E;
-	Fri, 17 Oct 2025 04:03:28 -0700 (PDT)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>
-Subject: [PATCH] pmdomain: arm: scmi: Fix genpd leak on provider registration failure
-Date: Fri, 17 Oct 2025 12:03:20 +0100
-Message-Id: <20251017110320.1186555-1-sudeep.holla@arm.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	id 1v9iK9-00000007csG-2VcR;
+	Fri, 17 Oct 2025 11:08:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YhPZ5I96OBp9ved34BdkDlyIB1wde4txK5BvkXglwzcjnjbXh/lyS7vlPyoQxFf25HYq/ndYfEHvjLZBeW0bfup5EwJtS2v/ptTY8qNVc1dTK/IExn+qMLruDDZCqGmYG+zeCgDpJ/zCRyJSmSMf6rIWqHIsVNMPV+PIXmcqpVCigm/pDCntytDShTRH/nM/4loqbIW0PypWpwpe3UPEGNUbw/NkegcGgfkBYOYckLkixyzcX+b52TOX82p/By0Ri6V/bGqJdxW/BRNrCqkeBYyjccrdVlmD/YGuW2kr5s56PHkEMkJUd1zCZaZMrKZQJEi9Y2r9wBP6QDhhNBUfBQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=flaioFGGLRITp6YlwyC7arKkUabJsWgtkcQzqeCnzVA=;
+ b=yACdDpAR1004GwHFHhikhKJtNxWpYXr1uK6Fr+3JvkwuQgBkkB+EnXUVIaf1xEryfxwJveHjtQTrA981MepGTwNMPWIdvwQ4jdc5sX3s26e5GfBEAyfCNMyk0ZDESYThWTEV7r855jI0XlG5AWJVtsBELOpxpRD+GNbht5AlIYbVqQnGkAAw38ivZxE7vr/uNF0/DD+AcwavWcRQr0tgRrPM/M/vOeJ2eLcjCN1Wvdsz+eHTV73Cn65O87AT8UZSx3bd2/jcgRyeJCIC5SIpUKdrjtK5RC15RwYHexZD0yQj4mGefhs7Xu70g8OXMpUrX1jZymL0XQ6GJWoGQAl9Sg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=citrix.com; dmarc=pass action=none header.from=citrix.com;
+ dkim=pass header.d=citrix.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=citrix.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=flaioFGGLRITp6YlwyC7arKkUabJsWgtkcQzqeCnzVA=;
+ b=lIkG/ehUkV1cjvtRI1eo/Bo9rwjdLrPr8aG6fBNflVMYRBCACWFovcREZ2tajfbCaR+VUvgm1o3ztcSb4piTlp2cvbTs+ibn//8trp2cB2ciJ5Av7ejg4mV3704xB8AetuJNs0/5Qk7i964YrVikLprqw52bsgwYYaohZgVYAFw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=citrix.com;
+Received: from DM4PR03MB7015.namprd03.prod.outlook.com (2603:10b6:8:42::8) by
+ MN6PR03MB7597.namprd03.prod.outlook.com (2603:10b6:208:4f3::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.13; Fri, 17 Oct
+ 2025 11:08:31 +0000
+Received: from DM4PR03MB7015.namprd03.prod.outlook.com
+ ([fe80::e21:7aa4:b1ef:a1f9]) by DM4PR03MB7015.namprd03.prod.outlook.com
+ ([fe80::e21:7aa4:b1ef:a1f9%3]) with mapi id 15.20.9228.011; Fri, 17 Oct 2025
+ 11:08:31 +0000
+Message-ID: <adba2f37-85fc-45fa-b93b-9b86ab3493f3@citrix.com>
+Date: Fri, 17 Oct 2025 12:08:24 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [patch V3 07/12] uaccess: Provide scoped masked user access
+ regions
+To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Cooper <andrew.cooper3@citrix.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ Heiko Carstens <hca@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
+ Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
+ Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
+ Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
+ <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org
+References: <20251017085938.150569636@linutronix.de>
+ <20251017093030.253004391@linutronix.de>
+Content-Language: en-GB
+From: Andrew Cooper <andrew.cooper@citrix.com>
+In-Reply-To: <20251017093030.253004391@linutronix.de>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: LO2P265CA0437.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:e::17) To DM4PR03MB7015.namprd03.prod.outlook.com
+ (2603:10b6:8:42::8)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR03MB7015:EE_|MN6PR03MB7597:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7b755d4d-b1a5-4d57-ba2f-08de0d6d819d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Vk0yeU9ic2lFNDJoZkZNeGM1T2RWRnVFM2U0S2NnbU52ell1WVhUQjN2dTFx?=
+ =?utf-8?B?RDZyWkljdjhkTkJpTFl5OTdTenhLckUrbElyanNVU1lETmxwclA1M1ZldUh0?=
+ =?utf-8?B?VVhLSS93OS9ZYThXaWZCSlV3eHpyMlNEa3dFRG00ZXBLTU5yMWlscHQxRTdC?=
+ =?utf-8?B?UFhrRExBQm1UbUVMemxZSXgrKzZoL3hBM3B1MUpjRXNpOS9LSUZaMnIwMHhK?=
+ =?utf-8?B?N1d2N1c4cnlXOG1YeU9YWXJMalVQUjdkQW5pblF3YzhjSmROSS90NFVoQTJW?=
+ =?utf-8?B?VWl5Tm9hazNXSnRsb1FqTEVmcHlRZGowWHpMMHRNams0Z1hlbXVHb0RvZ3Vm?=
+ =?utf-8?B?L2w4RzFkUURuemtwbUdTRithZ0Y4MDUyc01mSWI4aHJXblREMWpFVnhva3NI?=
+ =?utf-8?B?RG1lTHNDZnBLYTNFelZLZ3Nnb1IrRWcvb2Z0dWZhZzg1UDNlaG5ibG9RU3ho?=
+ =?utf-8?B?K1JVUk0wdmVBK1ZadFM4LzNyTVBESEpVWlI1TTVYdFhaOENZZFZreGRsUEl0?=
+ =?utf-8?B?d3hQbTIwdXhkRCtuOUlhei94U05WOVZzTHpVWFA4RGRrM2VMQmpYdE1PbFBw?=
+ =?utf-8?B?KzNhbGRieUJmQ3BLa2MwZ0VSTUFkKzJoUURkajBUZENIWTdXNmZhRjkzVWVh?=
+ =?utf-8?B?UE55TzQ1UGhYK2pPZVliUlI1dWh2S3M3cFBRNm0vQ2FnOEEwRFRCcGNmZVd5?=
+ =?utf-8?B?QU83Qmx2dnh3bjYyVEQ4eWdDcFUweDkxdnFEV25jZldDRGwwSDFoLzNuZTJR?=
+ =?utf-8?B?QjlrV2pFNWkwYlNPMVVvbGpGYmx3K2hsOEJLbUQ0ckY0VHk1bnZZWUpYOXhG?=
+ =?utf-8?B?Vlg2VkpleUVIbDNlWURNRTVEaGdydjNQODcyQXdudHB5aDBnM3QzQ05Ka1p6?=
+ =?utf-8?B?OHlZNHptcWJlVmVsaHRJSGljYnl2K1RVYklxOU14TWd5eXFWWENRMUdvYnRT?=
+ =?utf-8?B?YkkwdHhlNGwrMFVwSytJc1BQak5FUzhtWVpMWTl4SWZZWGRiTGZxZnZoekRo?=
+ =?utf-8?B?M1hiNFE5cWhJNGhXUldGY0NKdXJkRENaWVVEeFJmd3FjVDNYWUdKV29tYkFB?=
+ =?utf-8?B?TjVTY0d3M3NCcnluUXFMWWJXTjU4UTNSeTZwdzdpaWpSc0RqR2s2WGx5b0cx?=
+ =?utf-8?B?Zktkbi9QNFhXVWhhU1AyWkI3dk9CNTFUcFUxcmJFdnh2OGpQbkVObGZ2OGNm?=
+ =?utf-8?B?bHNuaHpndGpPU0dRbEZsUmQ3cmZ0K2xwOWRyQVJIWm1qaWIwSmlVN21QVmtG?=
+ =?utf-8?B?ZDRlakQ0YlNNNzdpWXFWSE16cm1tWHlQUEZHblc5ZUx3T0R5VmRQbU1tOFlQ?=
+ =?utf-8?B?Q0lLMXZNMGRyQnNIZ2NYWTkyN1N5MUFnOEdXWkZkdStlZzNKM2xMazNETmRN?=
+ =?utf-8?B?NDd6YmNTOGJXckVuVFEyWXRIbmwyajlMK0R3NGJXVXdQREZUU0lsMVE4bElC?=
+ =?utf-8?B?bWh0eUkwWE1iUVdBM3lpVXZFdTdMb1RuWUp3NHFNeDFCU2RHc05UQk8yQVFq?=
+ =?utf-8?B?K0NMd2F0K2YyQngxbXNNRjBhYVBrWFBud05WclJQQWFvMjI4WUY5RkNPVlRy?=
+ =?utf-8?B?UzA2aG5CeUROY2REa256ZDFheEJhN1NncnZBQTgvNjZHT2RCT3h5Qkx0clpF?=
+ =?utf-8?B?Tm1heXRYSDFobVhWczFxbnVtT1pOT3daSkxCbEVKdVNNK2FBdnFoaTFYSGx2?=
+ =?utf-8?B?MURXSXFkaW1hRTVFaUw1UzJ5S3RTeUZvd05QSW5GYlM0TEpjQmxwVFlVaXd5?=
+ =?utf-8?B?RkEvdkwxNS81VUI4VlVoK3I1WlNzVm9QSVl0MFhGdU1pNUNLanJwTC9jblhO?=
+ =?utf-8?B?dEpVZEc1ZnZoWHJsN0NTRlBZZ00vcWZMZjcwdW1Xa2hxdkNRTzdnbTZMVHRh?=
+ =?utf-8?B?RUQ5cGZjVUsrQ3VRWkM0bWVRSnlRL2MxUEJ6YnN0T1NZVy9QMmNLSCsrdUJC?=
+ =?utf-8?Q?8Qvis0ZlTqZYLk1Jibi1yUaO5pAlwqm+?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR03MB7015.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VmxtOFZXeHV6eXk4N0xmeDNBR1RjT3JsUmt3WXNyTGxvckFWaVpFdTAwODF5?=
+ =?utf-8?B?Z0hWYW9pYk5zbjNDUEJLSkpHYnR6YkZNWnliT1VSSVZrd2NjWFhyUWl4RkNi?=
+ =?utf-8?B?QUZBWEpnNnBpRjZBVEhxdlZ1RnJvVENOcWJhdndmalJWT2M0TXlIUnljS2Uy?=
+ =?utf-8?B?K2VnWnNDTUVRYmRzeGhvRTVReUlIdGs5bEdoaEVWZ0hOWTY0eWhsQ1YyN09x?=
+ =?utf-8?B?QjRKYVFHdXV5STkvdXpBRGVGTm1mWFNIeTR2R3Y0R1NXSlRWR1V1dEUyaUY4?=
+ =?utf-8?B?ZGFpS1o0UXBMcU9FUE5ocjVHT1dISjl1T3B0OGxYL3dNNlU3VUpXN3ZWT1FW?=
+ =?utf-8?B?S3NIc2dFUlpPWHlDWjlXdGRjTWtrNEdQRUdUSnZIRlNCSlZ6SmtSdGNnd0U2?=
+ =?utf-8?B?UXNTVTk1YmY3WS9GWCtzMklzaVRhTnA4a2R6bzlkeS9RSWhzNWZWTm9GeFdz?=
+ =?utf-8?B?bUpwMmszR0MydjFUWTRobGhMRWFTZlpEL1hzM1ZUa3IxL0ltcndtYjhManpU?=
+ =?utf-8?B?RWg5bGxrYmJOVzZkNnpNaEFieWo2bFM1bGZVTCtmTlNIU0wvR0Fpbm9iVm1B?=
+ =?utf-8?B?MG15ejRMQ2FOajlIOTJPR1E0VW1xN1RiQXRQRnhFbTM3M2hBbGJ2TUNiOFdn?=
+ =?utf-8?B?YllvY1hoZ05uNFlXUEd4bVZkQUpwaU8rN3hOVG5xVVAxQXZwSXhPL2NEZm0v?=
+ =?utf-8?B?NVRRRmU2anVQRnlhT1lWZUZmQks5aWk4WDhteEJscmM5Q1pzMTVPdGc5WWtQ?=
+ =?utf-8?B?RU9PUjlQdVhGUWwwQW5FVkE2K0dENnhGOEtFbGdzWk8xYmhkYVhqV2NUY2Q2?=
+ =?utf-8?B?Y1VpZU12d3JBdktnNDh5ZVptSi85M3krSExXbnNaN05JTVZaZHhnaXRvNlVG?=
+ =?utf-8?B?YWVEYVRpMThyNW5uWUQrS05qNGxYMitGZU1Vb2dXNTROTmRPY0l2TGZIUEhQ?=
+ =?utf-8?B?eGdJanpCdzIrOGlWNGxaWVZzbUFHbjUrVW8xOGRwSHdWeXRCSzl3MFlNTTVv?=
+ =?utf-8?B?blRmcTducnZrdy91eHV2SlgwaGlzbVNqMkNoVU1jWlNLT1ZRVkd2Nm1KT2pQ?=
+ =?utf-8?B?bjB3Y1BzbzVJZ0l3c3R3dE5sS2tMTmNTWDVjeWIwSEcvNlc1czJhaHR4bE5F?=
+ =?utf-8?B?dHRWU0E3L2s2V0tSVW9VRDJEOEZRYXRHSXFoSnBvMi9hN2I1ZVRocGJLbzIz?=
+ =?utf-8?B?OVhZV3huMnJYdWFZY2t2dVh2QzZ0UkhBY0xBWmFzQ3VBaWt5SUtZTUs0cXQ4?=
+ =?utf-8?B?MmZ2OHEyOWtRVFFBZDIrTmo2bUQ4Y1p6clpWWUY2OTZDRFdGWGFlcDdTc2pG?=
+ =?utf-8?B?Nk9tWkRIeitPdUlnVDFHQTM2QklsNXJhTUk5QTJ4QnZmYXZKRUtQeUNYcGhy?=
+ =?utf-8?B?a1pKYjRPQ3k0aHc2MldmVnFmOW9ySlhVUmg0REExWnVXK21pNnhrNTBPaWFo?=
+ =?utf-8?B?ejUvOFc3TmpGU2pzUjVadlU2SFhPUlJhL3ZBQnVWYktPYlg4TXhpMzdYTjdj?=
+ =?utf-8?B?T1dLT0txNzdzdmlUREJGdDdDaHBtRmw2bytCekhZYU5jTzFrQ0VMcXJjNzdH?=
+ =?utf-8?B?TzZZVHJ5SjEzdGpnZlpEL3FjNUZhVGRneXdMZW8rcGtSV2o1VEVrT3lBbzcw?=
+ =?utf-8?B?REZhQktadUxhdHQ2N3Y2anE0ZGNlNFBMUnhyWWtkQmloVGlVZUpQaURqcVVB?=
+ =?utf-8?B?bDllZ2tKZGNlYjU4Sm9hVTlWNFlxbmtMZHNrRVphOTJwd1JwSGdGUDRseGtX?=
+ =?utf-8?B?TklhaC91VlZjeHExdStOcUIzck9NTXY1Snd0NVdhZlREWDczTkUyek5zUjY3?=
+ =?utf-8?B?WGhUMnozQW9NbHRyNXBqdWNORjIvUmY1WHBrdFJDdU1UUm51ZERsRUJacDRW?=
+ =?utf-8?B?ZUNWbm93bUt1RWtnbndOS205NzdHVncvY00vR2ZmM0tIakIvcFFZejQ2Q0RP?=
+ =?utf-8?B?V0dOeE5CVmJJTklHUVQ0UUJwdEFmd0RxTFVnNFY0aU1weGZOUDUyaTcvTmlC?=
+ =?utf-8?B?YjN5MEkwZG1taWJ5OHlZZ3cyVVRFdFhvT3FTSEx6ODdpY2k5OUNiUWMrUjh3?=
+ =?utf-8?B?OEhFMGd0R2tpN3ZEWEtIeitpL1JvdlprUDFnQ0RQVUpIaEdwTldqTTN2VnEw?=
+ =?utf-8?B?a25ueFl4L3M0R1hKZlNlTHBYTkZCWDdsa0hya2hiNlpDL3VOd2MwUmFxeUhV?=
+ =?utf-8?B?eWc9PQ==?=
+X-OriginatorOrg: citrix.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7b755d4d-b1a5-4d57-ba2f-08de0d6d819d
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR03MB7015.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 11:08:31.3491
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 335836de-42ef-43a2-b145-348c2ee9ca5b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xGRGZJUUkXn+NWSng3vx1fqf75cW3qGfT8mys30BgvHntJB1sOVS7kOvh0DytOuI34g7pkl+dbUH8gckv4Hz0CZgyD0O1oon8OcLa8SXIPk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR03MB7597
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_120336_411150_93D7FF82 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20251017_040841_660117_D70C54D6 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,73 +194,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If of_genpd_add_provider_onecell() fails during probe, the previously
-created generic power domains are not removed, leading to a memory leak
-and potential kernel crash later in genpd_debug_add().
+On 17/10/2025 11:09 am, Thomas Gleixner wrote:
+> --- a/include/linux/uaccess.h
+> +++ b/include/linux/uaccess.h
+> +#define __scoped_masked_user_access(_mode, _uptr, _size, _elbl)					\
+> +for (bool ____stop = false; !____stop; ____stop = true)						\
+> +	for (typeof((_uptr)) _tmpptr = __scoped_user_access_begin(_mode, _uptr, _size, _elbl);	\
+> +	     !____stop; ____stop = true)							\
+> +		for (CLASS(masked_user_##_mode##_access, scope) (_tmpptr); !____stop;		\
+> +		     ____stop = true)					\
+> +			/* Force modified pointer usage within the scope */			\
+> +			for (const typeof((_uptr)) _uptr = _tmpptr; !____stop; ____stop = true)	\
+> +				if (1)
+> +
 
-Add proper error handling to unwind the initialized domains before
-returning from probe to ensure all resources are correctly released on
-failure.
+Truly a thing of beauty.  At least the end user experience is nice.
 
-Example crash trace observed without this fix:
+One thing to be aware of is that:
 
-  | Unable to handle kernel paging request at virtual address fffffffffffffc70
-  | CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc1 #405 PREEMPT
-  | Hardware name: ARM LTD ARM Juno Development Platform/ARM Juno Development Platform
-  | pstate: 00000005 (nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-  | pc : genpd_debug_add+0x2c/0x160
-  | lr : genpd_debug_init+0x74/0x98
-  | Call trace:
-  |  genpd_debug_add+0x2c/0x160 (P)
-  |  genpd_debug_init+0x74/0x98
-  |  do_one_initcall+0xd0/0x2d8
-  |  do_initcall_level+0xa0/0x140
-  |  do_initcalls+0x60/0xa8
-  |  do_basic_setup+0x28/0x40
-  |  kernel_init_freeable+0xe8/0x170
-  |  kernel_init+0x2c/0x140
-  |  ret_from_fork+0x10/0x20
+    scoped_masked_user_rw_access(ptr, efault) {
+        unsafe_get_user(rval, &ptr->rval, efault);
+        unsafe_put_user(wval, &ptr->wval, efault);
+    } else {
+        // unreachable
+    }
 
-Fixes: 898216c97ed2 ("firmware: arm_scmi: add device power domain support using genpd")
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
----
- drivers/pmdomain/arm/scmi_pm_domain.c | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+will compile.  Instead, I think you want the final line of the macro to
+be "if (0) {} else" to prevent this.
 
-diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/scmi_pm_domain.c
-index 8fe1c0a501c9..b5e2ffd5ea64 100644
---- a/drivers/pmdomain/arm/scmi_pm_domain.c
-+++ b/drivers/pmdomain/arm/scmi_pm_domain.c
-@@ -41,7 +41,7 @@ static int scmi_pd_power_off(struct generic_pm_domain *domain)
- 
- static int scmi_pm_domain_probe(struct scmi_device *sdev)
- {
--	int num_domains, i;
-+	int num_domains, i, ret;
- 	struct device *dev = &sdev->dev;
- 	struct device_node *np = dev->of_node;
- 	struct scmi_pm_domain *scmi_pd;
-@@ -108,9 +108,18 @@ static int scmi_pm_domain_probe(struct scmi_device *sdev)
- 	scmi_pd_data->domains = domains;
- 	scmi_pd_data->num_domains = num_domains;
- 
-+	ret = of_genpd_add_provider_onecell(np, scmi_pd_data);
-+	if (ret)
-+		goto err_rm_genpds;
-+
- 	dev_set_drvdata(dev, scmi_pd_data);
- 
--	return of_genpd_add_provider_onecell(np, scmi_pd_data);
-+	return 0;
-+err_rm_genpds:
-+	for (i = num_domains - 1; i >= 0; i--)
-+		pm_genpd_remove(domains[i]);
-+
-+	return ret;
- }
- 
- static void scmi_pm_domain_remove(struct scmi_device *sdev)
--- 
-2.34.1
 
+While we're on the subject, can we find some C standards people to lobby.
+
+C2Y has a proposal to introduce "if (int foo =" syntax to generalise the
+for() loop special case.  Can we please see about fixing the restriction
+of only allowing a single type per loop?   This example could be a
+single loop if it weren't for that restriction.
+
+Thanks,
+
+~Andrew
 
