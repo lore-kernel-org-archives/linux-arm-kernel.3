@@ -4,92 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0632CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 12:05:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C8B5CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 12:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OVeV+IrXJ8udDN+U5jGslpXCLkKrBRG10dtlatjAyUY=; b=sxn8FjSSsLdbAcwwB3kTYgrydi
-	6piw9kcILw1caQ7Ym3qT5oC/lrfHIhNzUjidADtbKrFQcBj1v+Br5BGAJbB3hxypXs7fggietxvtV
-	UtU1QJ/jsGj6ro7ebK2d2j8/oVNa3+rouKz6LVwJ1l0ZDB4lkC09/uGdi2rKzRkUCcobVU6iZdBxu
-	QHNg8FXUQHnlDNhsw5iVl+aXc8z7UYIVUSaHuQHrdsY1fdb1Ho4R3974PysCJCuhGm8ycEEOmSkIP
-	Gycg4mV9oZNbvaUFoLEXhn376+XJIrFWkLHKVvNe34gwWZnVpk4ko1xPFolHSFj7QrwZlbYoJY4xl
-	9fJ3g7/A==;
+	bh=D1OQBcJjNvMdiwaszp4KDFRPLfNnLBhAgYvcBECQKgE=; b=F0vTeBELTklm9y7lMaNVg6YAhH
+	JS0OaH7cEIVUHc6yXlPwfGXdVLODjSsxc7dWkH4oeRmwBwedMdJLNYEXoEiBPgfDhslaehJ5ci8CV
+	cz6ZZ7q0Z5XxMGHbP1+JTNWRiTnhe+fNgMdJ/2b3GzUF2m5SE17bekNJUDFe/MftDZUyzh2fCJ2em
+	rWM0eN3j0OAkK4v08q05W5WhgK9d2bjgJuVDNT9DeELTvzKHS+OIrOBzn+XCkvIaI1SHF4DgLwkaa
+	W/RYytAjEnGw44lffr088yWi7PM2VFzWyb+Ez78xgCEYAcgkfwLjifYaoqdJBFOlJPyqjIOT8ZdbN
+	U6WCznLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9jCw-00000007lHk-3DjD;
-	Fri, 17 Oct 2025 12:05:18 +0000
+	id 1v9jG0-00000007lri-3sv5;
+	Fri, 17 Oct 2025 12:08:28 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9jCu-00000007lGH-1Dv9
+	id 1v9jG0-00000007lrT-0KPU
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 17 Oct 2025 12:05:17 +0000
+	Fri, 17 Oct 2025 12:08:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description;
-	bh=OVeV+IrXJ8udDN+U5jGslpXCLkKrBRG10dtlatjAyUY=; b=ZU3vb3kk4bHSPhYCTt10W3PaWg
-	PnhjrhAuYmKJQQkWFXOFShr4CkbvtTGMUuh9cGpUyjay5FticPqMm3BVIIuShENQoP8cNb0HUy8r1
-	CryzrDJFtf0r9NIcRu9UDBLaqwpKdgKDfLdoim57U2NMCOu87sJQVOwznTiDsjTqU69euVIA6rRYh
-	H/Wldj++zsNTze5K/OjoGtON7u1q1dknmFJddFk6bMEBBWJHFtApRVaSPesR2utoXyBrM8r9GcOo9
-	L9UMOiAdmiKh9SO3ujaiM8XB8JJmpRqWGW61m0sKgv7vsiVek8tEf1atREBt5oBozwWS7q0og78tr
-	FeEKm1PA==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=D1OQBcJjNvMdiwaszp4KDFRPLfNnLBhAgYvcBECQKgE=; b=Zb2ax8ObCId/HoQDA/npNNdy2M
+	3xlV9fzm/390h8PV4Hz+UaPtgG/QizavNS0qqCor4SrKLSokBlr0cznwWVcyFJs9XTZg/LDdi8TBn
+	MTynKwuAVNYEvqEyaeyrEVObXAP8OpEQOLnpJHKfkAoXdPYBnXsesUH8VwRUhlkx7oQOiQPhi0nFv
+	T3326v/wct/IYwSuhikIdG97m/2fr8vGxcpyMIW1u5QZtsHtMj4u2SvtQo67KXqCjH4LNL2D0U9M/
+	kUlDP0/xn4OIvX6CL2PcXC3SHghyhB+4gIhg2MH5LoFOAo/i0R5VWDBY/ShHB6dVAD5PvtR9cE9Bi
+	c1x644+w==;
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9jCr-00000007Yg2-0OHJ
+	id 1v9jFk-00000007Ypt-335D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 12:05:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=OVeV+IrXJ8udDN+U5jGslpXCLkKrBRG10dtlatjAyUY=; b=k8t5dy3e9Cg5CuTe04459tm7qP
-	61MP0dVtuRJTCyC6E6aB+RWJ3A0ptisEe//wdHxSgxIXNEWyAcIqgMBDl2Okdrancpq8o+BIa1qHv
-	uNWJdPEscN4pclWq1eZWouJzfrz5DWSUvCns/dZey39/AYrMdaZXUJK0TDhavptCQVFGLrIl+Rh8Y
-	s7akLvJNiTOXcREndA+E5uQzufknjEOsuJp6T5dZI/f9IyoeFJ2itkWtByYAGUhjWU7eM+mnL5d9Q
-	R1VvruQsat8BiLj31QEq4rY0/MBOTdFlekZ08+ocWztg51f/h7idukHARaA9J2PEJIJDfEkPntzpm
-	NDN4lM7A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43538 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1v9jCl-000000007qu-0h0p;
-	Fri, 17 Oct 2025 13:05:07 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1v9jCj-0000000B2R4-44QH;
-	Fri, 17 Oct 2025 13:05:06 +0100
-In-Reply-To: <aPIwqo9mCEOb7ZQu@shell.armlinux.org.uk>
-References: <aPIwqo9mCEOb7ZQu@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 6/6] net: stmmac: convert to phylink managed WoL PHY
- speed
+	Fri, 17 Oct 2025 12:08:25 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-290dc630a07so4249245ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 05:08:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760702888; x=1761307688; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=D1OQBcJjNvMdiwaszp4KDFRPLfNnLBhAgYvcBECQKgE=;
+        b=Y9VIIvIV7fnlwiV8fTJNoPUeJTHJAmcz0mA0mWfCEyyM9r6fKmv1nTxWQgr3Ta+NpL
+         DyObLMHrESO24JWlfCvs4FmFpMAnnWtqNWUjnFvUOBNDcyWM0kv31LtE32dqRWcyAPGW
+         rBK50OV0u4TiS1ofT5qLFxIOQsR1IC3VFsU/U2JO8JtAjNUvNlAgF30JIHY3/6TudmqM
+         iJDoh7M+BtRcmeLrjLor0gWvzFo4IqkYBuZYIz+nAf7QE44Ou3yB41b05Q2PsPZ/cm5b
+         p/ScvJmNtQZfRV2XRfxHzHlE1b4g8yHKmMiAJD6vAAyS+PNsP91r0T567sC8+KZnNI/H
+         PSHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760702888; x=1761307688;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=D1OQBcJjNvMdiwaszp4KDFRPLfNnLBhAgYvcBECQKgE=;
+        b=XzqguEuvUZ7Q8yD9Z75ZmePBnArP1j7H4DQiMWFjRwCftkQ9OIF2+PSRs3/KdaxyeX
+         DRePSnAA8pv3xDpvOK+qHptABkwMf0zm9WYp+qWZY7hp/n4/ZR7VazDUYDcgNQ2Mgq5p
+         D6bQVzzVpwxO26dzgi3g1xdUS2J4/I9qia2kE6YLWYjPPRActbeT8PKNSbvfI2D319eQ
+         Fo5g0UBtUGv2tLtdEfKJK4UW6Cd+GCX5eGg1AHqLMlKTIVRUdO/Sx9Is/DlwwnqXACiL
+         bcjDdze4EA07heahpuq8Dqzbl1z6nS3stdg/E4/2OcT1aovR2fN3Kma6nvaCFpSSagJ5
+         4OEA==
+X-Forwarded-Encrypted: i=1; AJvYcCWigYTwJsjfciRtctiX+LohHOpOp2HrVUclXJg3TCs4b7SBZIJXvCnIh7x+nk2/CpDMwnxTQi7qgVX8q3lN/xjm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyz+rLAwBnWx9tDpvvqIpzqqLfD+hKvTSVokxW8zKu9Ii18InOD
+	C8P/Wz/iq8W6ZgnqQhwbgPoUqE1uGYbh6wbSwejsaZDJFKn0o0hpN3bj
+X-Gm-Gg: ASbGncuArp5ipSX71LJ/HB/yjmbjUZRxAe5ZaVH/CNdY/kU0rpagJ7lSNCKNi/oHS7t
+	Av3t0b27XeQBGQbJXcbADOzyo5OlrQSpwTb/+gQsP7r5dwdIpbGEccVmWyoQxvIo6Kmtdr0p8bw
+	gQAvKiAu/goB3P0pnpZV/p3hfj4nZR9f8fBOSyUGs9XSAYQIbwLcXSZJCrw+UYDbu+Oxk4B810r
+	W4EwETcGbriYDrOR70JBH3g05IwBlDeKC218/DL17fzCWcgscoVaGgUfzI1KM3h+PxqMjD2jj7j
+	+13SIo8c27W4YKvDArq4q96Q7Aj6eF39H3nQvVa2p7ri9jJTEsBgjYXgjmVszjCgJcd0xpIxg0G
+	z8Y3kTUV5Z2szoG2Nrx8OSwpHt1k/JRbghxI2eMVTpKt0yR3RmmA87BIjt6eFnA==
+X-Google-Smtp-Source: AGHT+IFnsq6kZGk/fHm/e4FGVx4CFf8u3uhudH43GQxU6NT4qAtaZrIavqrUcVzL980LCDRQymv9AQ==
+X-Received: by 2002:a17:902:d50a:b0:27d:339c:4b0 with SMTP id d9443c01a7336-290cba4efb1mr43185145ad.35.1760702887862;
+        Fri, 17 Oct 2025 05:08:07 -0700 (PDT)
+Received: from CNSZTL-PC.lan ([2401:b60:5:2::a])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6a228a5b5csm5822966a12.13.2025.10.17.05.08.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 17 Oct 2025 05:08:07 -0700 (PDT)
+Message-ID: <d9d14ce2-2e65-422e-95fb-eb30b128ad90@gmail.com>
+Date: Fri, 17 Oct 2025 20:08:03 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1v9jCj-0000000B2R4-44QH@rmk-PC.armlinux.org.uk>
-Date: Fri, 17 Oct 2025 13:05:05 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: fix eMMC corruption on NanoPC-T6
+ with A3A444 chips
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Grzegorz Sterniczuk <grzegorz@sternicz.uk>, Jonas Karlman <jonas@kwiboo.se>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251017073954.130710-1-cnsztl@gmail.com>
+ <7f0b1747-87eb-0b0b-6fb0-304811a4be21@manjaro.org>
+From: Tianling Shen <cnsztl@gmail.com>
+In-Reply-To: <7f0b1747-87eb-0b0b-6fb0-304811a4be21@manjaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_130513_262028_8E1A7A4F 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20251017_130823_672197_E13CCD1B 
+X-CRM114-Status: GOOD (  21.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,99 +119,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert stmmac to use phylink's management of the PHY speed when
-Wake-on-Lan is enabled.
+Hi Dragan,
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac.h      |  5 -----
- .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c  |  7 +------
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 15 +--------------
- 3 files changed, 2 insertions(+), 25 deletions(-)
+On 2025/10/17 18:25, Dragan Simic wrote:
+> Hello Tianling,
+> 
+> On Friday, October 17, 2025 09:39 CEST, Tianling Shen <cnsztl@gmail.com> wrote:
+>> From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
+>>
+>> Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O errors and
+>> corruption when using HS400 mode. Downgrade to HS200 mode to ensure
+>> stable operation.
+> 
+> Could you, please, provide more details about the troublesome eMMC
+> chip that gets identified as A3A444, i.e. what's the actual brand
+> and model?  Maybe you could send a picture of it?  It might also
+> help if you'd send the contents of "/sys/class/block/mmcblkX/device
+> /manfid" from your board (where "X" should equal two).
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index f5628a6af7d3..aa8fa180c237 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -376,11 +376,6 @@ enum stmmac_state {
- 
- extern const struct dev_pm_ops stmmac_simple_pm_ops;
- 
--static inline bool stmmac_wol_enabled_phy(struct stmmac_priv *priv)
--{
--	return !priv->plat->pmt && device_may_wakeup(priv->device);
--}
--
- int stmmac_mdio_unregister(struct net_device *ndev);
- int stmmac_mdio_register(struct net_device *ndev);
- int stmmac_mdio_reset(struct mii_bus *mii);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-index fd29b551a082..7ab736de308f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-@@ -793,13 +793,8 @@ static void stmmac_get_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
- static int stmmac_set_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
- {
- 	struct stmmac_priv *priv = netdev_priv(dev);
--	int ret;
- 
--	ret = phylink_ethtool_set_wol(priv->phylink, wol);
--	if (!ret)
--		device_set_wakeup_enable(priv->device, !!wol->wolopts);
--
--	return ret;
-+	return phylink_ethtool_set_wol(priv->phylink, wol);
- }
- 
- static int stmmac_ethtool_op_get_eee(struct net_device *dev,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index a959a4949282..6d0b52d30ac8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1189,14 +1189,6 @@ static int stmmac_init_phy(struct net_device *dev)
- 		phylink_ethtool_set_eee(priv->phylink, &eee);
- 	}
- 
--	if (!priv->plat->pmt) {
--		struct ethtool_wolinfo wol = { .cmd = ETHTOOL_GWOL };
--
--		phylink_ethtool_get_wol(priv->phylink, &wol);
--		device_set_wakeup_capable(priv->device, !!wol.supported);
--		device_set_wakeup_enable(priv->device, !!wol.wolopts);
--	}
--
- 	return 0;
- }
- 
-@@ -1265,6 +1257,7 @@ static int stmmac_phylink_setup(struct stmmac_priv *priv)
- 		config->eee_enabled_default = true;
- 	}
- 
-+	config->wol_phy_speed_ctrl = true;
- 	if (priv->plat->flags & STMMAC_FLAG_USE_PHY_WOL) {
- 		config->wol_phy_legacy = true;
- 	} else {
-@@ -7795,9 +7788,6 @@ int stmmac_suspend(struct device *dev)
- 	mutex_unlock(&priv->lock);
- 
- 	rtnl_lock();
--	if (stmmac_wol_enabled_phy(priv))
--		phylink_speed_down(priv->phylink, false);
--
- 	phylink_suspend(priv->phylink, !!priv->wolopts);
- 	rtnl_unlock();
- 
-@@ -7936,9 +7926,6 @@ int stmmac_resume(struct device *dev)
- 	 * workqueue thread, which will race with initialisation.
- 	 */
- 	phylink_resume(priv->phylink);
--	if (stmmac_wol_enabled_phy(priv))
--		phylink_speed_up(priv->phylink);
--
- 	rtnl_unlock();
- 
- 	netif_device_attach(ndev);
--- 
-2.47.3
+Unfortunately I don't have this board nor this eMMC chip.
+I got the chip model from my friend, it's FORESEE FEMDNN256G-A3A44, 
+manfid is 0x0000d6.
+
+> 
+> I'm asking for that because I'd like to research it a bit further,
+> if possible, because some other eMMC chips that are also found on
+> the NanoPc-T6 seem to work fine in HS400 mode. [1]  It may be that
+> the A3A444 chip has some issues with the HS400 mode on its own,
+> i.e. the observed issues may not be caused by the board.
+
+Yes, it should be caused by this eMMC chip.
+
+Thanks,
+Tianling.
+
+> 
+> [1] https://github.com/openwrt/openwrt/issues/18844
+> 
+>> Signed-off-by: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
+>> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
+>> ---
+>>   arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 3 +--
+>>   1 file changed, 1 insertion(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>> index fafeabe9adf9..5f63f38f7326 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+>> @@ -717,8 +717,7 @@ &sdhci {
+>>   	no-sd;
+>>   	non-removable;
+>>   	max-frequency = <200000000>;
+>> -	mmc-hs400-1_8v;
+>> -	mmc-hs400-enhanced-strobe;
+>> +	mmc-hs200-1_8v;
+>>   	status = "okay";
+>>   };
+> 
 
 
