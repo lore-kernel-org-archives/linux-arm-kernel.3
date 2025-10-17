@@ -4,66 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB632CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 06:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D74CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 06:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ziD71OmLPJ3q4Irr5FFeYTvPjeHYVtmNsEA/ZAPzFPU=; b=vERahyZP+onaEkYQoWKgFmxVB0
-	edNYAbBbNk185kb6c7GFausd846Vjhbc+7w54wVcLgg8mIRojrmAGl5uCfhcwzGK1BhZdtsHRUQiq
-	4+xvNy0MDQtD2+U8CSU6RhTAw/eBtjZ5mZ8G51bEOaorfWgJKdSULl/XhS5W2vWKLx/nzvFxU0eql
-	/0TvrI5bl7IH0Nhnf1eRf/enV1LuXyAo/F9A+HamrQcBNagAPNMIx3WrdQx71zEagNYSYF2JX3wyC
-	KyUB53ex+jijK+zPOaguY8Q0zKZZZ04WVSoadcaDfYy047Dif96Epw6xhsS5v3IRVj7BhomJ5jeJG
-	1Qdg7xXw==;
+	bh=Sor+A5cbfFTEo+6M3a3UBo7FyXM2noFud1/iOZIcuwA=; b=wmu8VydJ+TG1m9t/M7bxtC73GN
+	NVCtQS6Tq25IFrGlJahUgmKMCKnjrQ86UcCKtnqS/XUR4tyxKSldcpy5XjJj026F5X5TAGGpRApq0
+	5MJmz7kSRWJv0TUYN3azf+HRJErhaTYUOROkcWqKii155Ac2/HPv/LRktNEH9QrvUYisSR8foPTS4
+	JZMT1t73a0zmLfkJJP7MAe5CBKPHmta2Y5F47KbhMBZQbrMzfxc96BVXnpIGD2Degax1nGk8g/1wz
+	VZ77aiirYiaaGrr/K5zvJ9pyiwyxs59ZZWSfZIaaJBbFalihOPw+CHGx8z/vk5v9PS/Bnr8lH41wc
+	KWsO254A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9eCS-00000006pJw-3mRU;
-	Fri, 17 Oct 2025 06:44:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v9eIT-00000006qD0-017m;
+	Fri, 17 Oct 2025 06:50:41 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9eCO-00000006pIr-2Kmy;
-	Fri, 17 Oct 2025 06:44:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 96EAF44D06;
-	Fri, 17 Oct 2025 06:44:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0A2FC4CEF9;
-	Fri, 17 Oct 2025 06:44:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760683463;
-	bh=7P4jh6kluLcdpaCNJenQWmykCB2CsHxYxuiH71O7f8U=;
-	h=Date:Subject:Cc:From:To:References:In-Reply-To:From;
-	b=MwccKLcYN/pX/zuOJmFiMxLkdXV91iDq/NMuWvu79+cX6Urmuqgrq3fyqMRBYVr3q
-	 AVfb8urT5KUy8SWL1ZemxNKEqyEECzYsk0QQwieDtvUtJx7dcyOWmJohUwTtrmoCtT
-	 FueWx3yXWx5n0coD0oVYd+ZC5Z+yqLxBzhnacTZN49Y3pFUIkHyMbtzUdFacaTRAWM
-	 2OOtm0nhgIWXaoD31QaON754lNuzQFBMdySQr/gK0o60bHTgX7MXinI33Bxs3Razdw
-	 B4IpHyXDtqSjuDf9fc/NcK3xod9LEjUP/V13okNO4riM7r+qWwsU78PuS3paMSsftZ
-	 o33a16Pctc3yA==
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=4fee797e4721044d08e9601b3b5e8700f6c06056cbf5c56b70d2e0a6e636;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Fri, 17 Oct 2025 08:44:18 +0200
-Message-Id: <DDKE72QORJS2.29XWZ4U0T0K4I@kernel.org>
-Subject: Re: [PATCH] mtd: spi-nor: atmel: add at25dn011
-Cc: "Marcus Folkesson" <marcus.folkesson@gmail.com>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Simon Richter" <simon@sinic.eu>, "Tudor Ambarus"
- <tudor.ambarus@linaro.org>, "Pratyush Yadav" <pratyush@kernel.org>, "Miquel
- Raynal" <miquel.raynal@bootlin.com>, "Richard Weinberger" <richard@nod.at>,
- "Vignesh Raghavendra" <vigneshr@ti.com>, "Nicolas Ferre"
- <nicolas.ferre@microchip.com>, "Alexandre Belloni"
- <alexandre.belloni@bootlin.com>, "Claudiu Beznea"
- <claudiu.beznea@tuxon.dev>, <linux-mtd@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: aerc 0.20.0
-References: <20251017060529.21169-1-simon@sinic.eu>
-In-Reply-To: <20251017060529.21169-1-simon@sinic.eu>
+	id 1v9eIQ-00000006qAe-3uT8;
+	Fri, 17 Oct 2025 06:50:40 +0000
+X-UUID: 946edf96ab2511f0a52f393f94899d25-20251016
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Sor+A5cbfFTEo+6M3a3UBo7FyXM2noFud1/iOZIcuwA=;
+	b=bvtEAl8LV/VLgxFZb6U/gSYiC9gph7ZAR6aV8NbP8HA8luLy2CW6j1nkXMsmE1cCgXUVFKNy+GWyoCXoBPgt67ttAOyuaSo74vIVwAGDDyHAUjQ9bqnAWKpNM6rXSVQZn1uKI8ahPy5Xyd+mR0nOqfIkm47yQACWoCq5GaY0AwM=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:f35710f8-f65f-4d92-944a-d5a72fc38305,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:21da5086-2e17-44e4-a09c-1e463bf6bc47,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
+	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
+	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 946edf96ab2511f0a52f393f94899d25-20251016
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1888755243; Thu, 16 Oct 2025 23:50:34 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Fri, 17 Oct 2025 14:50:29 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.10 via Frontend Transport; Fri, 17 Oct 2025 14:50:29 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>
+CC: Matthias Brugger <matthias.bgg@gmail.com>, Nicolas Dufresne
+	<nicolas@ndufresne.ca>, Jason-JH Lin <jason-jh.lin@mediatek.com>, Nancy Lin
+	<nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, "Paul-PL
+ Chen" <paul-pl.chen@mediatek.com>, Moudy Ho <moudy.ho@mediatek.com>,
+	"Xiandong Wang" <xiandong.wang@mediatek.com>, Sirius Wang
+	<sirius.wang@mediatek.com>, Fei Shao <fshao@chromium.org>, Chen-yu Tsai
+	<wenst@chromium.org>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>
+Subject: [PATCH v8 04/20] soc: mediatek: mtk-cmdq: Add cmdq_get_mbox_priv() in cmdq_pkt_create()
+Date: Fri, 17 Oct 2025 14:44:29 +0800
+Message-ID: <20251017065028.1676930-5-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20251017065028.1676930-1-jason-jh.lin@mediatek.com>
+References: <20251017065028.1676930-1-jason-jh.lin@mediatek.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_234424_620409_252DAB9B 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20251016_235039_000032_CC3FA444 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,70 +98,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---4fee797e4721044d08e9601b3b5e8700f6c06056cbf5c56b70d2e0a6e636
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Add cmdq_get_mbox_priv() in cmdq_pkt_create() to ensure getting private
+data before generating GCE instructions.
 
-Hi Simon,
+Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+---
+ drivers/soc/mediatek/mtk-cmdq-helper.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-On Fri Oct 17, 2025 at 8:05 AM CEST, Simon Richter wrote:
-> Add AT25DN011 with 1Mbit.
-> Used on multiple custom boards and tested with this patch.
+diff --git a/drivers/soc/mediatek/mtk-cmdq-helper.c b/drivers/soc/mediatek/mtk-cmdq-helper.c
+index 455221e8de24..8feeaa320359 100644
+--- a/drivers/soc/mediatek/mtk-cmdq-helper.c
++++ b/drivers/soc/mediatek/mtk-cmdq-helper.c
+@@ -140,6 +140,7 @@ int cmdq_pkt_create(struct cmdq_client *client, struct cmdq_pkt *pkt, size_t siz
+ 	}
+ 
+ 	pkt->pa_base = dma_addr;
++	cmdq_get_mbox_priv(client->chan, &pkt->priv);
+ 
+ 	return 0;
+ }
+-- 
+2.43.0
 
-Could you add your testing to the next version of your patch (below
-a "---" line). See also [1].
-
->
-> Link: https://www.renesas.com/en/document/dst/at25dn011-datasheet?r=3D160=
-8506
-
-Newer flash and no SFDP :|
-
-> Signed-off-by: Simon Richter <simon@sinic.eu>
-> ---
->  drivers/mtd/spi-nor/atmel.c | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/drivers/mtd/spi-nor/atmel.c b/drivers/mtd/spi-nor/atmel.c
-> index 82c592f0a1e1..0c2908bce0bc 100644
-> --- a/drivers/mtd/spi-nor/atmel.c
-> +++ b/drivers/mtd/spi-nor/atmel.c
-> @@ -171,6 +171,11 @@ static const struct flash_info atmel_nor_parts[] =3D=
- {
->  		.name =3D "at45db081d",
->  		.size =3D SZ_1M,
->  		.no_sfdp_flags =3D SECT_4K,
-> +	}, {
-> +		.id =3D SNOR_ID(0x1f, 0x42, 0x00),
-> +		.name =3D "at25dn011",
-
-No .name please, the ID is enough. We've deprecated the use of a
-name.
-
-> +		.size =3D SZ_128K,
-> +		.no_sfdp_flags =3D SECT_4K | SPI_NOR_DUAL_READ
-
-missing trailing comma.
-
--michael
-
->  	}, {
->  		.id =3D SNOR_ID(0x1f, 0x42, 0x16),
->  		.name =3D "at25sl321",
-
-[1] https://docs.kernel.org/driver-api/mtd/spi-nor.html
-
---4fee797e4721044d08e9601b3b5e8700f6c06056cbf5c56b70d2e0a6e636
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaPHlwxIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/gmLwF+JiHyu3n9XMBIhiXLnXajztj5wG7/MjHp
-WunFdtYCZ+VyTvOPA/DytJuplHSgtXWHAX42m2HDy4l8RGIG/10nc2uLX0iousfN
-vFX+Y4mQhWsB9wyr8iYxD9fVyGdi8tzbF0w=
-=w87x
------END PGP SIGNATURE-----
-
---4fee797e4721044d08e9601b3b5e8700f6c06056cbf5c56b70d2e0a6e636--
 
