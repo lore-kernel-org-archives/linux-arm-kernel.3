@@ -4,66 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB10CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:10:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC1ABCCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZaEULVJsZNmXKTIRdpZgj6hdsP9CJDSPKWqK/TLCYco=; b=l6m+ESe23m3/QE+HGC+PfGWPDC
-	jdt4ummrGbiVoay9ZGmIU5tXIshd6h3aCzBd5pxdUzAkuyK0WUphfWUypcwRPaNccXMEbZ7S+TBII
-	IeOEJHgTRouMOTOKW7r/Tsh7U/LHZ6xWOE5xgkEV5FFE2/qug7P5MVZDz+gOV6FXF56FWsiIikWPt
-	UVHQENo6qhadG3EIKMZAPHnxzJneShetW1565Ad+5xk/LxnTzhgKUPPxb+HapgC0Pxxv5BS+I4Ifp
-	LmoyjiaSPIP1ma+FFwe5Wir/qaKdnm0bABrcDg/Y3x4aTbHxJe+yeZ+xSq2nEMcFRRzMVkC/PmyOQ
-	+zOSqA5g==;
+	bh=o/0xrgYWwbL6uDm6bWRd8Dfjm9NXSGd8s9gIV76gFCo=; b=fk53Olhm86wZSJ7wmjhkIOvEN7
+	KX2DhUYSHkNP2kKKCPwM8dVLNOd2hOTszx/yQEERYyGPZ+ysFYdyl35gSkDKCL/mcywyqfs4HPKcm
+	7Mt2e21jbU5Lk7gtmUox+fuPZXcmxQJgDUSjkxnaetVW8+KZ7Il94/gbiex6AyWmRc+2JOiCeaZav
+	vaNir38jvPFS7b74Wef1ud07yV/iKaJuphC99AcmNSRUHBiH8lcoYYALI4jwWqVHq13EO/jxUZMXV
+	EnYCj5mlUJLEweKJvTZibHy34IKNoL+WL7ZX+fEFzedo1l8F0mbkmpO7UohRShrP0t8YvTPHRnH3A
+	vLA2ZlqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9n1r-00000008Nfm-2nIr;
-	Fri, 17 Oct 2025 16:10:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v9n5y-00000008OOH-2UP3;
+	Fri, 17 Oct 2025 16:14:22 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9n1q-00000008NfV-0sU0
+	id 1v9n5w-00000008ON7-0Yuy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 16:10:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A199E60547;
-	Fri, 17 Oct 2025 16:10:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F358C4CEE7;
-	Fri, 17 Oct 2025 16:10:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760717405;
-	bh=sR4wT6ql2A/OkkHX38+xs03NATFvPBEQGacjohvzTGE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jELdT4hZVfXXfDAwQ/NNM9ef6ok7dY7chwQqzT8HM9tHScr+oJ+I85oypKbVRtRr+
-	 wQhua5iRIXsQ5oo5Ykk4FD2gViUYUUeWZ5aALG78PEgzEUHyLXVJ1pOkS+cYY0Ist8
-	 n3kKLTEujA/fX8zEEOEIOukJmooopoF7sjXpBdz8YNLJh70eJE7dsf43Mph1eIuuLK
-	 jGGVT+rJGgXEcnWeV0cUvWM8oZuyiuRRNgTh+ZDZ1c4vl+n0OAUDQEVHB0VZ0FhdkR
-	 5Opfmi3nLqgqYW9rrqJoM0+/lWrUjoIE3hij1vgVbq7ipeoc1S8yT52GAAw1ThvzqA
-	 qHugr+uX1OZRA==
-Message-ID: <44ebd8b7-605c-4e0f-8c3f-966b8a35ff02@kernel.org>
-Date: Fri, 17 Oct 2025 18:09:58 +0200
+	Fri, 17 Oct 2025 16:14:21 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b54f55a290cso310039266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 09:14:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760717658; x=1761322458; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=o/0xrgYWwbL6uDm6bWRd8Dfjm9NXSGd8s9gIV76gFCo=;
+        b=YFnPOzw9W3bxchXfnm1ndRMAoIlJScezcltEbx2mw34Js3sRLtraqM8aKnSKo4wOgO
+         WyV8C6bblopJJW3XuxX1+/eHHSdi/fyEwtnHnvyEXVFS8JVL1xI/aL5uwkiw92pk4H30
+         4L2A48gsFEKlZWKSphKpo8brfZTrMFcdZ9kaf5I4YQrAwtcDph0A88kX/977OpS+832d
+         ADd+Lt0j3psDGF3c0YAoBUccJae5uZe4LZ7XjfdHRmeBvGqpWgX0HLlFxlTTOXvqiEPr
+         mRrbmg8QKnL6BgFrqh9MWGcSKx0JwnrrPycy2/Oy4gs2VoJ0XscL8mO5GgsogxKKunsP
+         uGkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760717658; x=1761322458;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=o/0xrgYWwbL6uDm6bWRd8Dfjm9NXSGd8s9gIV76gFCo=;
+        b=M3wTRBjilvM+pyWh3NqJo2W7azWWenKYLmKH6Or8w2dvOw+CytClyYkCwHAAKU1He4
+         bLA5AL7taBRkp03vTo+Qo7Uwc6CLWu7XfvpkoyNdWVYYsxyW51BbKWAMDMTyBGc5dwlW
+         41QRhVl0dDeF2xw+9E/EgNu3DbH85ByDfcOXIa2GpB7wX/D+hh4k7wdJgRIxWFX0anvL
+         GKRKxWSqQkcNuKzLvgdTaHI+bIFhDKeo13DwcCTweWqeK5LSTbDsTuhvFKiLHXYSOPwn
+         AX2VgtP07ImmhOKAO3t8sqCmlbf8zYkt0qeUVtvH+89ErqjbZXg6FS6yH49d6BYMY022
+         lI5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW8yPVwUz+hdBQpMeIDRqxg0Sn8bRxbOXOZb8vWTS8jyo3E2iLcNnkizMYWT49BwjQSLauHBPeqljOAg/B1uljp@lists.infradead.org
+X-Gm-Message-State: AOJu0YxR9rfMXeXRm2AXv7r2GeE0QZsXcBl1VrapOtU2I1xNkQY6lZVL
+	qOMcdYFMh8Vu1OZjaut/+10MVlk0T3jEOvDo2KwZxFyJF3fgawC8qbZq
+X-Gm-Gg: ASbGnctjYBiAfbIYzYrGWkmbcctxZPk6fQBqH9TFhOgkIEfov1G1UFnHzX2BWCQur52
+	G1rjEFGacOz+4Xiae9ft5ArxyENsX0nL8s7BNWq9qQg/HJ744aALZqiMbPpTR+AKo6swWqux4iA
+	/Zd3Vf96NQfimMx2Uca+nLYE6HLQYLwVqYR1ixzyJO48IL3oIwO2GDX4DrP7qO39USrTt8HGOWz
+	YZ3ioT7n0j/WNv3yLQ6C6Nz/Cw1eojzjx79drZVIaIj/m2yMOvY+ER6gy1DTZrU8mE/OD3xLMEW
+	1KMjitFjDVC04tdFbr2cQGcOmMLQ9YOPH/dN2NOrAMYzTWqORGccF4zeYWO4VmoTNdN/KuQlqAv
+	mLQ++MPagcRe20UxpXD2BJAfmE9GGnUSiN4Rox+p22iWWOVcg4Rwm5R9QLnNONE+6eP0PhnBy2o
+	XOUUOx6VdXRX64lP7YDPZx70Jnzgc9yG68/ZrRgzUi
+X-Google-Smtp-Source: AGHT+IEvX2NLEl2JEWd8maw6vu+Cz/hVCzCLPJGWsXutTdMkKS8cKelXvHyzoaBlWYedD/QgQ0uDEA==
+X-Received: by 2002:a17:907:a46:b0:b46:6718:3f30 with SMTP id a640c23a62f3a-b6475128af5mr477286966b.51.1760717657887;
+        Fri, 17 Oct 2025 09:14:17 -0700 (PDT)
+Received: from ivaylo-T580.. (79-100-18-255.ip.btc-net.bg. [79.100.18.255])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65eb036706sm9606466b.41.2025.10.17.09.14.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Oct 2025 09:14:17 -0700 (PDT)
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Chanwoo Choi <cw00.choi@samsung.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-samsung-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 2/5] clk: samsung: clk-pll: Add support for pll_141xx
+Date: Fri, 17 Oct 2025 19:13:30 +0300
+Message-ID: <20251017161334.1295955-3-ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251017161334.1295955-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20251017161334.1295955-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next V7 2/2] veth: apply qdisc backpressure on full
- ptr_ring to reduce TX drops
-To: netdev@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>
-Cc: bpf@vger.kernel.org, tom@herbertland.com,
- Eric Dumazet <eric.dumazet@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
- =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
- dsahern@kernel.org, makita.toshiaki@lab.ntt.co.jp,
- kernel-team@cloudflare.com, phil@nwl.cc, Chris Arges
- <carges@cloudflare.com>, Yan Zhai <yan@cloudflare.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <174559288731.827981.8748257839971869213.stgit@firesoul>
- <174559294022.827981.1282809941662942189.stgit@firesoul>
-Content-Language: en-US
-From: Jesper Dangaard Brouer <hawk@kernel.org>
-In-Reply-To: <174559294022.827981.1282809941662942189.stgit@firesoul>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_091420_185736_6C83F32E 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,207 +109,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Heads-up.
+The PLL is similar to pll_35xx, with the exception of a different
+Locktime - 150 instead of 270, as with pll_142xx.
 
-We have been running this patchset in production for approx 2.5 months.
-The race-condition we tried to handled (below) in NETDEV_TX_BUSY case,
-isn't avoided 100% of the time.  We end-up in a situation where a TXQ
-remains stopped (and cannot recover) and this results in the attached
-qdisc cannot dequeue packets resulting in backlog getting full.  The
-stalled TXQ state (QUEUE_STATE_DRV_XOFF) was confirmed on one server via
-bpftrace and drgn.
+When defining a PLL, the "con" parameter should be set to CON0
+register, like this:
 
-We cannot recover from this state because we didn't add appropiate txq
-resets in down/up (ndo_stop/ndo_open), and driver doesn't enable
-dev_watchdog checking.  I have patches ready for this, such that the
-device can recover again.
+PLL(pll_141xx, CLK_FOUT_SHARED0_PLL, "fout_shared0_pll", "oscclk",
+    PLL_LOCKTIME_PLL_SHARED0, PLL_CON0_PLL_SHARED0,
+    pll_shared0_rate_table),
 
-The observed race-condition BUG seems to only occur on our ARM64
-(aarch64) servers. Looking at metrics we beleive it have happened 6
-times over the period and these servers were all the same ARM CPU type
-Ampere(R) Altra(R) Max Processor model name Neoverse-N1.  Thus, this
-might be a memory barrier issue.
+Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+---
+Changes since V2:
+- rebase on next and drop the unnecessary new line
+---
+ drivers/clk/samsung/clk-pll.c | 4 +++-
+ drivers/clk/samsung/clk-pll.h | 1 +
+ 2 files changed, 4 insertions(+), 1 deletion(-)
 
-Marked the location below, I think the bug occured.  Looking for input
-on how we can improve the code to avoid this race on ARM.  I think the
-patch [V4] didn't have this race, because it always calls
-__veth_xdp_flush(rq).
-
-  [V4] 
-https://lore.kernel.org/all/174472470529.274639.17026526070544068280.stgit@firesoul/#Z31drivers:net:veth.c
-
-
-On 25/04/2025 16.55, Jesper Dangaard Brouer wrote:
-> In production, we're seeing TX drops on veth devices when the ptr_ring
-> fills up. This can occur when NAPI mode is enabled, though it's
-> relatively rare. However, with threaded NAPI - which we use in
-> production - the drops become significantly more frequent.
-> 
-> The underlying issue is that with threaded NAPI, the consumer often runs
-> on a different CPU than the producer. This increases the likelihood of
-> the ring filling up before the consumer gets scheduled, especially under
-> load, leading to drops in veth_xmit() (ndo_start_xmit()).
-> 
-> This patch introduces backpressure by returning NETDEV_TX_BUSY when the
-> ring is full, signaling the qdisc layer to requeue the packet. The txq
-> (netdev queue) is stopped in this condition and restarted once
-> veth_poll() drains entries from the ring, ensuring coordination between
-> NAPI and qdisc.
-> 
-> Backpressure is only enabled when a qdisc is attached. Without a qdisc,
-> the driver retains its original behavior - dropping packets immediately
-> when the ring is full. This avoids unexpected behavior changes in setups
-> without a configured qdisc.
-> 
-> With a qdisc in place (e.g. fq, sfq) this allows Active Queue Management
-> (AQM) to fairly schedule packets across flows and reduce collateral
-> damage from elephant flows.
-> 
-> A known limitation of this approach is that the full ring sits in front
-> of the qdisc layer, effectively forming a FIFO buffer that introduces
-> base latency. While AQM still improves fairness and mitigates flow
-> dominance, the latency impact is measurable.
-> 
-> In hardware drivers, this issue is typically addressed using BQL (Byte
-> Queue Limits), which tracks in-flight bytes needed based on physical link
-> rate. However, for virtual drivers like veth, there is no fixed bandwidth
-> constraint - the bottleneck is CPU availability and the scheduler's ability
-> to run the NAPI thread. It is unclear how effective BQL would be in this
-> context.
-> 
-> This patch serves as a first step toward addressing TX drops. Future work
-> may explore adapting a BQL-like mechanism to better suit virtual devices
-> like veth.
-> 
-> Reported-by: Yan Zhai <yan@cloudflare.com>
-> Signed-off-by: Jesper Dangaard Brouer <hawk@kernel.org>
-> ---
->   drivers/net/veth.c |   57 +++++++++++++++++++++++++++++++++++++++++++---------
->   1 file changed, 47 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/net/veth.c b/drivers/net/veth.c
-> index 7bb53961c0ea..e58a0f1b5c5b 100644
-> --- a/drivers/net/veth.c
-> +++ b/drivers/net/veth.c
-> @@ -307,12 +307,10 @@ static void __veth_xdp_flush(struct veth_rq *rq)
->   
->   static int veth_xdp_rx(struct veth_rq *rq, struct sk_buff *skb)
->   {
-> -	if (unlikely(ptr_ring_produce(&rq->xdp_ring, skb))) {
-> -		dev_kfree_skb_any(skb);
-> -		return NET_RX_DROP;
-> -	}
-> +	if (unlikely(ptr_ring_produce(&rq->xdp_ring, skb)))
-> +		return NETDEV_TX_BUSY; /* signal qdisc layer */
->   
-> -	return NET_RX_SUCCESS;
-> +	return NET_RX_SUCCESS; /* same as NETDEV_TX_OK */
->   }
->   
->   static int veth_forward_skb(struct net_device *dev, struct sk_buff *skb,
-> @@ -346,11 +344,11 @@ static netdev_tx_t veth_xmit(struct sk_buff *skb, struct net_device *dev)
->   {
->   	struct veth_priv *rcv_priv, *priv = netdev_priv(dev);
->   	struct veth_rq *rq = NULL;
-> -	int ret = NETDEV_TX_OK;
-> +	struct netdev_queue *txq;
->   	struct net_device *rcv;
->   	int length = skb->len;
->   	bool use_napi = false;
-> -	int rxq;
-> +	int ret, rxq;
->   
->   	rcu_read_lock();
->   	rcv = rcu_dereference(priv->peer);
-> @@ -373,17 +371,45 @@ static netdev_tx_t veth_xmit(struct sk_buff *skb, struct net_device *dev)
->   	}
->   
->   	skb_tx_timestamp(skb);
-> -	if (likely(veth_forward_skb(rcv, skb, rq, use_napi) == NET_RX_SUCCESS)) {
-> +
-> +	ret = veth_forward_skb(rcv, skb, rq, use_napi);
-> +	switch (ret) {
-> +	case NET_RX_SUCCESS: /* same as NETDEV_TX_OK */
->   		if (!use_napi)
->   			dev_sw_netstats_tx_add(dev, 1, length);
->   		else
->   			__veth_xdp_flush(rq);
-> -	} else {
-> +		break;
-> +	case NETDEV_TX_BUSY:
-> +		/* If a qdisc is attached to our virtual device, returning
-> +		 * NETDEV_TX_BUSY is allowed.
-> +		 */
-> +		txq = netdev_get_tx_queue(dev, rxq);
-> +
-> +		if (qdisc_txq_has_no_queue(txq)) {
-> +			dev_kfree_skb_any(skb);
-> +			goto drop;
-> +		}
-> +		/* Restore Eth hdr pulled by dev_forward_skb/eth_type_trans */
-> +		__skb_push(skb, ETH_HLEN);
-> +		/* Depend on prior success packets started NAPI consumer via
-> +		 * __veth_xdp_flush(). Cancel TXQ stop if consumer stopped,
-> +		 * paired with empty check in veth_poll().
-> +		 */
-> +		netif_tx_stop_queue(txq);
-> +		smp_mb__after_atomic();
-
-Maybe this memory barrier isn't enough on ARM?
-
-I tried to follow the code, and AFAICT the smp_mb__after_atomic() on ARM
-result in __smp_mb(), which on ARM is[1] an actual DMB (Data Memory
-Barrier) instruction.
-
-[1] 
-https://elixir.bootlin.com/linux/v6.17.1/source/arch/arm/include/asm/barrier.h#L77
-
--Jesper
-
-> +		if (unlikely(__ptr_ring_empty(&rq->xdp_ring)))
-> +			netif_tx_wake_queue(txq);
-> +		break;
-> +	case NET_RX_DROP: /* same as NET_XMIT_DROP */
->   drop:
->   		atomic64_inc(&priv->dropped);
->   		ret = NET_XMIT_DROP;
-> +		break;
-> +	default:
-> +		net_crit_ratelimited("%s(%s): Invalid return code(%d)",
-> +				     __func__, dev->name, ret);
->   	}
-> -
->   	rcu_read_unlock();
->   
->   	return ret;
-> @@ -874,9 +900,17 @@ static int veth_xdp_rcv(struct veth_rq *rq, int budget,
->   			struct veth_xdp_tx_bq *bq,
->   			struct veth_stats *stats)
->   {
-> +	struct veth_priv *priv = netdev_priv(rq->dev);
-> +	int queue_idx = rq->xdp_rxq.queue_index;
-> +	struct netdev_queue *peer_txq;
-> +	struct net_device *peer_dev;
->   	int i, done = 0, n_xdpf = 0;
->   	void *xdpf[VETH_XDP_BATCH];
->   
-> +	/* NAPI functions as RCU section */
-> +	peer_dev = rcu_dereference_check(priv->peer, rcu_read_lock_bh_held());
-> +	peer_txq = netdev_get_tx_queue(peer_dev, queue_idx);
-> +
->   	for (i = 0; i < budget; i++) {
->   		void *ptr = __ptr_ring_consume(&rq->xdp_ring);
->   
-> @@ -925,6 +959,9 @@ static int veth_xdp_rcv(struct veth_rq *rq, int budget,
->   	rq->stats.vs.xdp_packets += done;
->   	u64_stats_update_end(&rq->stats.syncp);
->   
-> +	if (unlikely(netif_tx_queue_stopped(peer_txq)))
-> +		netif_tx_wake_queue(peer_txq);
-> +
->   	return done;
->   }
->   
-> 
+diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
+index 7bea7be1d..4700eadad 100644
+--- a/drivers/clk/samsung/clk-pll.c
++++ b/drivers/clk/samsung/clk-pll.c
+@@ -278,7 +278,8 @@ static int samsung_pll35xx_set_rate(struct clk_hw *hw, unsigned long drate,
+ 	}
+ 
+ 	/* Set PLL lock time. */
+-	if (pll->type == pll_142xx || pll->type == pll_1017x)
++	if (pll->type == pll_142xx || pll->type == pll_1017x ||
++	    pll->type == pll_141xx)
+ 		writel_relaxed(rate->pdiv * PLL142XX_LOCK_FACTOR,
+ 			pll->lock_reg);
+ 	else
+@@ -1497,6 +1498,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 	case pll_1451x:
+ 	case pll_1452x:
+ 	case pll_142xx:
++	case pll_141xx:
+ 	case pll_1017x:
+ 		pll->enable_offs = PLL35XX_ENABLE_SHIFT;
+ 		pll->lock_offs = PLL35XX_LOCK_STAT_SHIFT;
+diff --git a/drivers/clk/samsung/clk-pll.h b/drivers/clk/samsung/clk-pll.h
+index 6c8bb7f26..3c7575cde 100644
+--- a/drivers/clk/samsung/clk-pll.h
++++ b/drivers/clk/samsung/clk-pll.h
+@@ -51,6 +51,7 @@ enum samsung_pll_type {
+ 	pll_4311,
+ 	pll_1017x,
+ 	pll_1031x,
++	pll_141xx,
+ };
+ 
+ #define PLL_RATE(_fin, _m, _p, _s, _k, _ks) \
+-- 
+2.43.0
 
 
