@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C15F3CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 06:05:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8619CCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 06:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aSPqFe3S0bFVfaza5qOmb8ksimgWhn1Shr3aJzL1jL4=; b=nugodxs974p1ycFJDnlIQwGqmE
-	P5FOXv//oa0FKTP+PywqaUREuXRUyhUXpEjOuObXy8/OSlAAOlIUoY8ptPphUZNZWmt3BVr2ndqQM
-	ZoeQ63qxoFy6kMGoA5oDpqieM1wuTf3k8ciTtVzNAG7doT01NklPTUIcqYoqanqYoRXH1Yo7qnoh3
-	E0d9DQUDLrBFWjnknHAw7Ks3F4typlqrnhzyNpPNtxZ49L5d09f8EIBFu1ntL/RkaM+Sa2b1g9F6H
-	ZmjHjSNyh1nsY2KGHe6qrmW/3ndRz5bEXbwFcFwAaBDet+Zmc5dhSyKsrsrJKCjBk+n6IAzL6hzTG
-	bJKt86Kw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EocX1a7XiC78SMAYfzWXkhpGeubPEEt2A4XDo0VaZcA=; b=gP3JA7O/ZZEfYRt8t+eqQPeEBX
+	vTjOeMXh6t14Wxzh6/LvI6+E4gxXQJtL6mbRKKEOnyVNFfIepfpXUqF33z4udeoq3nsS/5iRHqbf2
+	CkmzEeFaHx/qGcmGmQ0rxpZDiunLF6yDLgSBNGF53GsGX6zeZi7oXP4HOd9CGGe3o7TZXgtbOMNNk
+	ybp+vdzwgaWuNNQIU6CwxCre0Za575DyAlDKBrQSVq7rU4NfSxNFwmqCV+DclKGLZw1hECM98vBug
+	9ojEJeHvpZz83GOXC+x7+fuq0AJRfDyXfMWIP6J3MKiUfeXPVIE0eM0ywj8N43VeCXpmAzBzuZyG0
+	3I1LMOSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9daD-00000006gk5-2LVt;
-	Fri, 17 Oct 2025 06:04:57 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1v9dbA-00000006gv8-3pO1;
+	Fri, 17 Oct 2025 06:05:56 +0000
+Received: from mail.sinic.eu ([168.119.168.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9daA-00000006gjM-0tx6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 06:04:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1760681091;
-	bh=aSPqFe3S0bFVfaza5qOmb8ksimgWhn1Shr3aJzL1jL4=;
-	h=From:To:In-Reply-To:References:Subject:Date;
-	b=ka4i6dPRHxsCXqsyxlL789vXXBplQXn+rQsOZupQaXGVhS2VfvbN5EspJsCrA96ce
-	 N3B+5bHeblJ8q5T9XYzhouTFLvxPrm4RLuCTtaNzWtN9t7BJMlZpOROBHFgGFgyGFI
-	 bMRSmXhF2HxrkiTY2lW5RxBuJI3ZLbJDd9CMXUmTNr2+LeRayr92hbPmkMtMUOdTS9
-	 IVbG0COzvRSjOrytIZH5gwSwWkKs9Zuh8NvAScfaXQZkQuyQeDfgg2MwnsUYyY32YT
-	 wlb5i3QnWHsFJnpw08f36blNsbgcTvPJAYU9AsnsLfmTlcSFMgTyHNggw8eUiSuiBB
-	 YAhZ1F6+qrhfg==
-Received: from [127.0.1.1] (unknown [180.150.112.213])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id E73C8766F5;
-	Fri, 17 Oct 2025 14:04:50 +0800 (AWST)
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Andrew Lunn <andrew@lunn.ch>, Guenter Roeck <linux@roeck-us.net>, 
- Tao Ren <taoren@meta.com>, rentao.bupt@gmail.com
-In-Reply-To: <20251015204840.80070-1-rentao.bupt@gmail.com>
-References: <20251015204840.80070-1-rentao.bupt@gmail.com>
-Subject: Re: [PATCH] ARM: dts: aspeed: fuji-data64: Enable mac3 controller
-Message-Id: <176068109091.239120.10783664740576101312.b4-ty@codeconstruct.com.au>
-Date: Fri, 17 Oct 2025 16:34:50 +1030
+	id 1v9db8-00000006gsE-2PV3;
+	Fri, 17 Oct 2025 06:05:56 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A9DE33F16A;
+	Fri, 17 Oct 2025 08:05:40 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sinic.eu; s=dkim;
+	t=1760681145; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=EocX1a7XiC78SMAYfzWXkhpGeubPEEt2A4XDo0VaZcA=;
+	b=Hw3uwCPs1UQdiaNMQhs1zky1zGH48CNcvQN0aGRsmpFukdSlNUX9Chfw2F1215QZmmVtkR
+	EJILPv0rZPGdui26N3lEF/xJ3Pga+Pp9m3bGBVqPwQqXPXRbKnsmH3oxaoFeflzAGJ484q
+	+HIUtz1coJTBXF6nX2+k3qoL/MJSTRJqLF6rPxm6+8aVhzWTi1eJ8r3JfaK34ZXBIe7eFT
+	v/54CbUf8SyI+SZ7rJF3DRTbDbSr3vOcOJJlU6c4lheo52kCQCZJxqBCGtm8Zyiyh1oHMy
+	33My9i3B5tnzl4UfPxCpS59vp6FpXtyhn+gyjpQkC+NOUtBjXLCnsuw+YpaubQ==
+From: Simon Richter <simon@sinic.eu>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Michael Walle <mwalle@kernel.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	linux-mtd@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Marcus Folkesson <marcus.folkesson@gmail.com>,
+	Simon Richter <simon@sinic.eu>
+Subject: [PATCH] mtd: spi-nor: atmel: add at25dn011
+Date: Fri, 17 Oct 2025 08:05:29 +0200
+Message-ID: <20251017060529.21169-1-simon@sinic.eu>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-cfd50
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_230454_683932_EEB1C6AA 
-X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-CacheID: sfid-20251016_230554_775934_1B1F7B6A 
+X-CRM114-Status: UNSURE (   7.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,20 +76,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Oct 2025 13:48:37 -0700, rentao.bupt@gmail.com wrote:
-> "mac3" controller was removed from the initial version of fuji-data64
-> dts because the rgmii setting is incorrect, but dropping mac3 leads to
-> regression in the existing fuji platform, because fuji.dts simply
-> includes fuji-data64.dts.
-> 
-> This patch adds mac3 back to fuji-data64.dts to fix the fuji regression,
-> and rgmii settings need to be fixed later.
-> 
-> [...]
+Add AT25DN011 with 1Mbit.
+Used on multiple custom boards and tested with this patch.
 
-Thanks, I've applied this to the BMC tree.
+Link: https://www.renesas.com/en/document/dst/at25dn011-datasheet?r=1608506
+Signed-off-by: Simon Richter <simon@sinic.eu>
+---
+ drivers/mtd/spi-nor/atmel.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
+diff --git a/drivers/mtd/spi-nor/atmel.c b/drivers/mtd/spi-nor/atmel.c
+index 82c592f0a1e1..0c2908bce0bc 100644
+--- a/drivers/mtd/spi-nor/atmel.c
++++ b/drivers/mtd/spi-nor/atmel.c
+@@ -171,6 +171,11 @@ static const struct flash_info atmel_nor_parts[] = {
+ 		.name = "at45db081d",
+ 		.size = SZ_1M,
+ 		.no_sfdp_flags = SECT_4K,
++	}, {
++		.id = SNOR_ID(0x1f, 0x42, 0x00),
++		.name = "at25dn011",
++		.size = SZ_128K,
++		.no_sfdp_flags = SECT_4K | SPI_NOR_DUAL_READ
+ 	}, {
+ 		.id = SNOR_ID(0x1f, 0x42, 0x16),
+ 		.name = "at25sl321",
 -- 
-Andrew Jeffery <andrew@codeconstruct.com.au>
+2.51.0
 
 
