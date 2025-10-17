@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FFECCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 00:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 491C0CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 00:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cf8N8Y56G5w6bizwE7Ci0y1MCMFb0ZkjYruE6L135MI=; b=u3vPcPCqaJ892+fsXR4s9/agq1
-	bcyXo+5ksMEQbppkfnWCLNrzChOMnwTu6iqdf382jTTQZxGO0JxNvhHT4S35V9vUZrMzZRN24nVQv
-	VQRGbF6ToJqiiA7U2dDzVGEM4FLG3mrP4+ePcUHOLMh2+iO5MjFHXehfz+Gjj9PwMyFqBJNd3iBGu
-	ew/OlWiGY3hjl0FqShJkSfCwQbo0hT2Nei1Q3+w2+FzTP5mhY74lub8Rv0YGyEmzQQ+xX3GA9Jp36
-	v9iXP4dsdQhrkZ1TzA4/cGVWxPCHVwexfNcJ8LU7IN0qNcyCXRjfwiQwQ5vOaeWatSvCjYgE65hzo
-	XyYVdEVQ==;
+	bh=EknCUbF2LHWm0fNDNjp+CKNXYZwTUTGxAjt6VludIpM=; b=R3PD1msXEDUOqgi54NMimeRo4d
+	mxoT018LfIOpwsN7Ys6MFiA+jebzgWO+C/rn8Xpf7ZhpqTgJcVyUf1M1rTBZr15RWF6ThHlGdQ69t
+	BBzbOatg9scqpVN5RG9UDnmUNh1JHP1wxwh+U3I9F/K7muiBw7dtgAoUsz8GJ0f5NGwdjUhY70Y3E
+	8+N+WBc1YhhbZZHijUa11hNOEM2oDs9Joq3YraGDwuHfSY+GG0Uo+5GB45pkyk3a8/KvJ4Y2hDKAC
+	tP5O+Dwh6E2iqBvCgKtn5duDCxMbLFX2jH+aczYYbFLftqA9IuP/qtrCsZ5cAJ868qsNT8+WA7D+M
+	5ptuOgqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YPP-00000006DNx-3Rnj;
-	Fri, 17 Oct 2025 00:33:28 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1v9YPX-00000006DZM-3Z9l;
+	Fri, 17 Oct 2025 00:33:35 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YOz-00000006ChO-48bg
+	id 1v9YP1-00000006ClV-42Sf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 00:33:04 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b557abaad02so2030890a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 17:33:01 -0700 (PDT)
+	Fri, 17 Oct 2025 00:33:06 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-32eb18b5500so2174267a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 17:33:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760661181; x=1761265981; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1760661183; x=1761265983; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=cf8N8Y56G5w6bizwE7Ci0y1MCMFb0ZkjYruE6L135MI=;
-        b=C8AmSR/Ig5GmlAzKpqfcpoNRvnT8JGu9hS0KoxyJiMurUC0u+jib+LG65CW9iQ1uw1
-         Cda0PD8oI2i9EPUofd/tEZcyjvLJE0ptIu1O4JzwksQ1eqtzmVyzpZgk68Xt1hmoFhFp
-         Fv4csMnwc2ZzOC7+XeaLiNFwOeNHZxoUZuIqoX3mYZ+zxPCsizMedb+ZEBhRMmsFIi5k
-         MOaQZ+ng4Nc9GZ99R+7mvVOW22bcbFATzfjrS4+J2fK3+cEWfB3G6QWWyTJUdAMNlyTR
-         5QKZbjGqYyfYASF44VG8Dwq4nqcvthmGXcBM0ci3yCbO/jGEmJ9cE8bhoGJOmc4aIw+O
-         Uxzg==
+        bh=EknCUbF2LHWm0fNDNjp+CKNXYZwTUTGxAjt6VludIpM=;
+        b=tiQZ08Lwc+2eaNMCPWsvW/oUCGpIOCWKZRHlxgpKWEM6wu3EhVRVrcWCBX7trp8Sbh
+         D0tYRFchQ4OpxsQdg7KlE8ODMH0EPINGdx4PGGdiByJNvlj4Ts7qEYaUg+x2AFRZMRUh
+         lZ/F7wIl5E6C/Q4inD44A2KwmxVY4E3o5g7UWW3b+vQQrHUZPs3zDuymUhtbri9VR4iw
+         JpjLmRfvP6D59lxFvVPChd46aijNfJQsTr9Pe8UyaQFyetjcbXJewSlD6DZdQfos/Qnc
+         N3JDHv+j3TmqI79OPYXsdbGWyxKXBA/3Fewx12sSO6+/cYlFGm0i2Y3FioMJCYlfNt06
+         Ra8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760661181; x=1761265981;
+        d=1e100.net; s=20230601; t=1760661183; x=1761265983;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=cf8N8Y56G5w6bizwE7Ci0y1MCMFb0ZkjYruE6L135MI=;
-        b=ZhfuL29CTKisEIoEi1pFTAnJ5SQJWLkvzhqGUpxpShDnLtJPYBPlp7fDD3DO2xPMyL
-         vVGRkuQjkJK9sD6fX+NFRpM6BTxmAF87OP0R4WlWelueicWNCayf79tNcA7FMs/O0HDz
-         sMxk9WxHi9PU0q6eUUsvaq7EW3J+UMKWIpfMzAaky162taA1gNBnzIfrI7X6mOb29y7j
-         7RpLGke/3t1QYxlK2jEp5ZtvsLFY4Z7xpKQTEh++GP4docAJMyFQmGa0x45xRHY+MWlz
-         0Na/4968hOGDbAPmlZdah1CEx24xWepxFM6T+aZH99rXK1Y/qZT/dm/74GoY/7QYTiAu
-         rQCA==
-X-Gm-Message-State: AOJu0Yz+XXQqjwRKLPa0QWsmHUfwafknpeKaOkma7AiIbS4nVinUax2j
-	9Wp0sQVRjhThqUTTELbJbOFmdDKxU+PqZRSGheECwuj2xoqJWRYEwdyva8c5qjaOtmAexdkISkG
-	3i+9/cA==
-X-Google-Smtp-Source: AGHT+IFGX/O8rAylXetPrL4mM3U8URlaleqJu641GFX2gsiAqRo0BdBbaKA0U4x8ZGwd9In5RU4acPt36Xo=
-X-Received: from pjbml22.prod.google.com ([2002:a17:90b:3616:b0:339:ae3b:2bc7])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6300:2408:b0:334:a23e:2dff
- with SMTP id adf61e73a8af0-334a858f4e4mr1825671637.25.1760661180701; Thu, 16
- Oct 2025 17:33:00 -0700 (PDT)
-Date: Thu, 16 Oct 2025 17:32:25 -0700
+        bh=EknCUbF2LHWm0fNDNjp+CKNXYZwTUTGxAjt6VludIpM=;
+        b=QvtAgHwkuXuSiSPhR3cPyv4zMqKHmsTqbRy2GdHxkfYZjk6dlQ/g5l/odFZfeh2il0
+         Q3fi/ThxwkQdElZY0fSYs42pxl2p++yEk1M53ZCLgU+iTJqsZsWw97EJyu9UyL5UQj79
+         xpwGzF63AlDXF1TP28Pwfa+GtdZCf46k9tA9rpZLcrSuR44Vy8FoWmb/k9ERNqmnFZ3U
+         NLtq2Axv2gTEVXku4DqZnW4TmmRkUEv4Vr9Qy22vydWeflWi+bYqb+TIoia6mn7LQLLZ
+         zFOeN1CvvopkOAqjjZg3VZ9dRP9Orzd4oNLOTfJPhVxUie8skwp4PWQBPiAhmb3NLnVG
+         /tWQ==
+X-Gm-Message-State: AOJu0YzL8PvvsXlQq1AWyny+23zcgP/KjNbISn8Fx6M/K2P5Ty608tXM
+	xEoHufqXYKSwgSTnOEgHNH6/GaCLU1Fjr2ghkXIeBeNQH1KH+oIKu45i0FzjEQv9RRtgm/9dKTj
+	VfRE3gg==
+X-Google-Smtp-Source: AGHT+IHp0VFuMyv8iYOF0K3G5i6Db3pbnaDLGLxvBIGhE/qWOYmJanCMeHz3uAv5TWFd0pF3pAUnMoqPNCg=
+X-Received: from pjuy20.prod.google.com ([2002:a17:90a:d714:b0:32f:3fab:c9e7])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:d44c:b0:336:9dcf:ed14
+ with SMTP id 98e67ed59e1d1-33bcf8e3b0emr1878293a91.23.1760661182616; Thu, 16
+ Oct 2025 17:33:02 -0700 (PDT)
+Date: Thu, 16 Oct 2025 17:32:26 -0700
 In-Reply-To: <20251017003244.186495-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251017003244.186495-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.858.gf9c4a03a3a-goog
-Message-ID: <20251017003244.186495-8-seanjc@google.com>
-Subject: [PATCH v3 07/25] KVM: TDX: Drop superfluous page pinning in S-EPT management
+Message-ID: <20251017003244.186495-9-seanjc@google.com>
+Subject: [PATCH v3 08/25] KVM: TDX: Return -EIO, not -EINVAL, on a
+ KVM_BUG_ON() condition
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -87,8 +88,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Binbin Wu <binbin.wu@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_173302_141659_CB265594 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20251016_173304_047452_51907239 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,154 +105,72 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yan Zhao <yan.y.zhao@intel.com>
+Return -EIO when a KVM_BUG_ON() is tripped, as KVM's ABI is to return -EIO
+when a VM has been killed due to a KVM bug, not -EINVAL.  Note, many (all?)
+of the affected paths never propagate the error code to userspace, i.e.
+this is about internal consistency more than anything else.
 
-Don't explicitly pin pages when mapping pages into the S-EPT, guest_memfd
-doesn't support page migration in any capacity, i.e. there are no migrate
-callbacks because guest_memfd pages *can't* be migrated.  See the WARN in
-kvm_gmem_migrate_folio().
-
-Eliminating TDX's explicit pinning will also enable guest_memfd to support
-in-place conversion between shared and private memory[1][2].  Because KVM
-cannot distinguish between speculative/transient refcounts and the
-intentional refcount for TDX on private pages[3], failing to release
-private page refcount in TDX could cause guest_memfd to indefinitely wait
-on decreasing the refcount for the splitting.
-
-Under normal conditions, not holding an extra page refcount in TDX is safe
-because guest_memfd ensures pages are retained until its invalidation
-notification to KVM MMU is completed. However, if there're bugs in KVM/TDX
-module, not holding an extra refcount when a page is mapped in S-EPT could
-result in a page being released from guest_memfd while still mapped in the
-S-EPT.  But, doing work to make a fatal error slightly less fatal is a net
-negative when that extra work adds complexity and confusion.
-
-Several approaches were considered to address the refcount issue, including
-  - Attempting to modify the KVM unmap operation to return a failure,
-    which was deemed too complex and potentially incorrect[4].
- - Increasing the folio reference count only upon S-EPT zapping failure[5].
- - Use page flags or page_ext to indicate a page is still used by TDX[6],
-   which does not work for HVO (HugeTLB Vmemmap Optimization).
-  - Setting HWPOISON bit or leveraging folio_set_hugetlb_hwpoison()[7].
-
-Due to the complexity or inappropriateness of these approaches, and the
-fact that S-EPT zapping failure is currently only possible when there are
-bugs in the KVM or TDX module, which is very rare in a production kernel,
-a straightforward approach of simply not holding the page reference count
-in TDX was chosen[8].
-
-When S-EPT zapping errors occur, KVM_BUG_ON() is invoked to kick off all
-vCPUs and mark the VM as dead. Although there is a potential window that a
-private page mapped in the S-EPT could be reallocated and used outside the
-VM, the loud warning from KVM_BUG_ON() should provide sufficient debug
-information. To be robust against bugs, the user can enable panic_on_warn
-as normal.
-
-Link: https://lore.kernel.org/all/cover.1747264138.git.ackerleytng@google.com [1]
-Link: https://youtu.be/UnBKahkAon4 [2]
-Link: https://lore.kernel.org/all/CAGtprH_ypohFy9TOJ8Emm_roT4XbQUtLKZNFcM6Fr+fhTFkE0Q@mail.gmail.com [3]
-Link: https://lore.kernel.org/all/aEEEJbTzlncbRaRA@yzhao56-desk.sh.intel.com [4]
-Link: https://lore.kernel.org/all/aE%2Fq9VKkmaCcuwpU@yzhao56-desk.sh.intel.com [5]
-Link: https://lore.kernel.org/all/aFkeBtuNBN1RrDAJ@yzhao56-desk.sh.intel.com [6]
-Link: https://lore.kernel.org/all/diqzy0tikran.fsf@ackerleytng-ctop.c.googlers.com [7]
-Link: https://lore.kernel.org/all/53ea5239f8ef9d8df9af593647243c10435fd219.camel@intel.com [8]
-Suggested-by: Vishal Annapurve <vannapurve@google.com>
-Suggested-by: Ackerley Tng <ackerleytng@google.com>
-Suggested-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
-Signed-off-by: Yan Zhao <yan.y.zhao@intel.com>
+Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
 Reviewed-by: Ira Weiny <ira.weiny@intel.com>
-Reviewed-by: Kai Huang <kai.huang@intel.com>
-[sean: extract out of hugepage series, massage changelog accordingly]
 Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 28 ++++------------------------
- 1 file changed, 4 insertions(+), 24 deletions(-)
+ arch/x86/kvm/vmx/tdx.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index 29f344af4cc2..c3bae6b96dc4 100644
+index c3bae6b96dc4..c242d73b6a7b 100644
 --- a/arch/x86/kvm/vmx/tdx.c
 +++ b/arch/x86/kvm/vmx/tdx.c
-@@ -1583,29 +1583,22 @@ void tdx_load_mmu_pgd(struct kvm_vcpu *vcpu, hpa_t root_hpa, int pgd_level)
- 	td_vmcs_write64(to_tdx(vcpu), SHARED_EPT_POINTER, root_hpa);
- }
- 
--static void tdx_unpin(struct kvm *kvm, struct page *page)
--{
--	put_page(page);
--}
--
- static int tdx_mem_page_aug(struct kvm *kvm, gfn_t gfn,
--			    enum pg_level level, struct page *page)
-+			    enum pg_level level, kvm_pfn_t pfn)
- {
- 	int tdx_level = pg_level_to_tdx_sept_level(level);
+@@ -1621,7 +1621,7 @@ static int tdx_mem_page_record_premap_cnt(struct kvm *kvm, gfn_t gfn,
  	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
-+	struct page *page = pfn_to_page(pfn);
- 	gpa_t gpa = gfn_to_gpa(gfn);
- 	u64 entry, level_state;
- 	u64 err;
  
- 	err = tdh_mem_page_aug(&kvm_tdx->td, gpa, tdx_level, page, &entry, &level_state);
--	if (unlikely(tdx_operand_busy(err))) {
--		tdx_unpin(kvm, page);
-+	if (unlikely(tdx_operand_busy(err)))
- 		return -EBUSY;
--	}
+ 	if (KVM_BUG_ON(kvm->arch.pre_fault_allowed, kvm))
+-		return -EINVAL;
++		return -EIO;
  
- 	if (KVM_BUG_ON(err, kvm)) {
- 		pr_tdx_error_2(TDH_MEM_PAGE_AUG, err, entry, level_state);
--		tdx_unpin(kvm, page);
- 		return -EIO;
- 	}
- 
-@@ -1639,29 +1632,18 @@ static int tdx_sept_set_private_spte(struct kvm *kvm, gfn_t gfn,
- 				     enum pg_level level, kvm_pfn_t pfn)
- {
- 	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
--	struct page *page = pfn_to_page(pfn);
+ 	/* nr_premapped will be decreased when tdh_mem_page_add() is called. */
+ 	atomic64_inc(&kvm_tdx->nr_premapped);
+@@ -1635,7 +1635,7 @@ static int tdx_sept_set_private_spte(struct kvm *kvm, gfn_t gfn,
  
  	/* TODO: handle large pages. */
  	if (KVM_BUG_ON(level != PG_LEVEL_4K, kvm))
- 		return -EINVAL;
+-		return -EINVAL;
++		return -EIO;
  
--	/*
--	 * Because guest_memfd doesn't support page migration with
--	 * a_ops->migrate_folio (yet), no callback is triggered for KVM on page
--	 * migration.  Until guest_memfd supports page migration, prevent page
--	 * migration.
--	 * TODO: Once guest_memfd introduces callback on page migration,
--	 * implement it and remove get_page/put_page().
--	 */
--	get_page(page);
--
  	/*
  	 * Read 'pre_fault_allowed' before 'kvm_tdx->state'; see matching
- 	 * barrier in tdx_td_finalize().
+@@ -1658,10 +1658,10 @@ static int tdx_sept_drop_private_spte(struct kvm *kvm, gfn_t gfn,
+ 
+ 	/* TODO: handle large pages. */
+ 	if (KVM_BUG_ON(level != PG_LEVEL_4K, kvm))
+-		return -EINVAL;
++		return -EIO;
+ 
+ 	if (KVM_BUG_ON(!is_hkid_assigned(kvm_tdx), kvm))
+-		return -EINVAL;
++		return -EIO;
+ 
+ 	/*
+ 	 * When zapping private page, write lock is held. So no race condition
+@@ -1846,7 +1846,7 @@ static int tdx_sept_free_private_spt(struct kvm *kvm, gfn_t gfn,
+ 	 * and slot move/deletion.
  	 */
- 	smp_rmb();
- 	if (likely(kvm_tdx->state == TD_STATE_RUNNABLE))
--		return tdx_mem_page_aug(kvm, gfn, level, page);
-+		return tdx_mem_page_aug(kvm, gfn, level, pfn);
+ 	if (KVM_BUG_ON(is_hkid_assigned(kvm_tdx), kvm))
+-		return -EINVAL;
++		return -EIO;
  
- 	return tdx_mem_page_record_premap_cnt(kvm, gfn, level, pfn);
- }
-@@ -1712,7 +1694,6 @@ static int tdx_sept_drop_private_spte(struct kvm *kvm, gfn_t gfn,
- 		return -EIO;
- 	}
- 	tdx_quirk_reset_page(page);
--	tdx_unpin(kvm, page);
- 	return 0;
- }
+ 	/*
+ 	 * The HKID assigned to this TD was already freed and cache was
+@@ -1867,7 +1867,7 @@ static int tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
+ 	 * there can't be anything populated in the private EPT.
+ 	 */
+ 	if (KVM_BUG_ON(!is_hkid_assigned(to_kvm_tdx(kvm)), kvm))
+-		return -EINVAL;
++		return -EIO;
  
-@@ -1792,7 +1773,6 @@ static int tdx_sept_zap_private_spte(struct kvm *kvm, gfn_t gfn,
- 	if (tdx_is_sept_zap_err_due_to_premap(kvm_tdx, err, entry, level) &&
- 	    !KVM_BUG_ON(!atomic64_read(&kvm_tdx->nr_premapped), kvm)) {
- 		atomic64_dec(&kvm_tdx->nr_premapped);
--		tdx_unpin(kvm, page);
- 		return 0;
- 	}
- 
+ 	ret = tdx_sept_zap_private_spte(kvm, gfn, level, page);
+ 	if (ret <= 0)
 -- 
 2.51.0.858.gf9c4a03a3a-goog
 
