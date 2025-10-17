@@ -4,86 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE08CCCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 14:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4723CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 14:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gS6I9+pn+T6EshQ8kERlfqfUoiq0QQuAAxssnEC3ucQ=; b=3fGc37zXzYyijSUT0T1oYqG68e
-	V6WVZEorHxOQpkgcHI+8+lNWpM6YKKfRP6BUY6alZpy3GFuYbKjcc0I5BrMy6KtckMF1q/Z8VqG6/
-	LWgboZyjU35tR7wZyFBBNKB3dUlDCRhwGUykkmWRWputL5r4X1tWhI3IU5wB44CABzYRoKGUm1y1k
-	re9JOW6slZiNPZLyScEVqV/7JQO+oYCAn+50ZbC/GhB0HIFQmpXV/nHev3gZlIGyZ8qtHwFTlfdgu
-	rZduJpURuHvAP6uJ6Xk38iq5PL4WFSKouFjvynb35TKPzZX1z8BIXBvQcgydgWrwB6+OVw1lZe4yZ
-	1K2AaxqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YxF7rfRcIjbtKTEznRyvxt6lz4eb6dSpOqS0g8lXSkg=; b=1WUaU/wPVSPycInYTdkWcqXQYF
+	i3Gdq2gY+2pwd6htkpaABVMfjAzKmM6cwZve+nP0mWgCyNFV6MOcfqEaA8Ghd00bks45+IbdFzdmb
+	P521B8OuAlRnDxEr4BVUGYnWLSUyDmNwY6oRk/TUtfjpqDliA26oJ4UXvWePgWBzGabzEWbr3MDF7
+	xOL/4rA9X31LqMlRwRP+nyipNgzfOYBbUvTJ83zHoYnH51WmOWNFNkGLt7jAJtRwd9jaamIsVSpGf
+	oDTNeUZ+sBMOKNBsRekf5DhQxQR6XzSFzC2/SDEDDBvGSsToMG6J2VRAm3Z76sLTtn/E0KSkYTQtn
+	f84QObdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9lgH-000000087Hd-31hP;
-	Fri, 17 Oct 2025 14:43:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1v9lhM-000000087cG-0dvT;
+	Fri, 17 Oct 2025 14:44:52 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9lgF-000000087Fw-3PAR
+	id 1v9lhJ-000000087bC-4AvV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 14:43:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760712221;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gS6I9+pn+T6EshQ8kERlfqfUoiq0QQuAAxssnEC3ucQ=;
-	b=J2rpfYlhaJC4Mv4sJw71YrW5fJlD+s91jurU6yYGBnJwVGqDAqjciA84T+FniibshK1oIm
-	VU0iUNjLF0rd3csc9Eeuv9Gp7Rf3X/efY/PiBOryLT0BZMP4e0KzbI3RhJYe8Ua3159FLA
-	7B5FC4JzjI8OvbvT99OL6uS7k2e4E3I=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-613-cfP8s2VKNh2HBKTK5s2deQ-1; Fri,
- 17 Oct 2025 10:43:37 -0400
-X-MC-Unique: cfP8s2VKNh2HBKTK5s2deQ-1
-X-Mimecast-MFC-AGG-ID: cfP8s2VKNh2HBKTK5s2deQ_1760712214
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 500951956095;
-	Fri, 17 Oct 2025 14:43:33 +0000 (UTC)
-Received: from warthog.procyon.org.com (unknown [10.42.28.57])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7FD431800452;
-	Fri, 17 Oct 2025 14:43:27 +0000 (UTC)
-From: David Howells <dhowells@redhat.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: David Howells <dhowells@redhat.com>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Stephan Mueller <smueller@chronox.de>,
-	Lukas Wunner <lukas@wunner.de>,
-	Ignat Korchagin <ignat@cloudflare.com>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Daniel Gomez <da.gomez@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	linux-crypto@vger.kernel.org,
-	keyrings@vger.kernel.org,
-	linux-modules@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v6 02/17] arm64/sha3: Rename conflicting functions
-Date: Fri, 17 Oct 2025 15:42:46 +0100
-Message-ID: <20251017144311.817771-3-dhowells@redhat.com>
-In-Reply-To: <20251017144311.817771-1-dhowells@redhat.com>
-References: <20251017144311.817771-1-dhowells@redhat.com>
+	Fri, 17 Oct 2025 14:44:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=motA2VISUGHNvFnlWkXlJGQQa107rlmiONMTVIPvpvLoVflXNxRkPBUBzEr6I9tHuDVFNdqmiaVAqZ+ihrk4TVAm+wLc5LBPDdwA19WdhEMNrY1sFoo3uUlr10J/IeDAfaWP6dB11W1SISgUnANeSrNN5KyDmf+cxxsWG7Ryyo4QFJ0m4PXK+xO8MJztNkO2rXE/Yi84Ggtp65SSdfa9E4xpsH07p6WaO95sapXO601KS4YddwzFOm58N/Sr2EGlPQ60YBMzGGJ+cbJLmws8u/JXSQmPp2iTaF33aPasgAacRjmpbmUG1RrD+x6uN0f362CC/Xc1w0SSRQXWQWegfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YxF7rfRcIjbtKTEznRyvxt6lz4eb6dSpOqS0g8lXSkg=;
+ b=ZZlGHt092sftXGuuo1DVkZ7TIQ8JNyX8dNDYQFXZ7o8zMIR/NQxqfYKl7LNEJ4rwC7zFhQdBYhpytjFDSql7V74xcJ6JKTQwrOJmWs3vmJQ89HBmC2hLWVo7+bIqoJhGZaW5+zS1ptqRLJAqbt11jDpuD/5g6T768WPWeOsrNx0exuDkXLWB6i3uHHEQd+yGrmLI9H0WFaarN/3pmk+flNhRrXO855LRf5sYD86bGNmDqVewBdOQ+GdjeEnQEkrKNccBI7WM1uFOjTPRzWnyI0VDKbza3+IaUANoS/Z/8zBaOqlg+G/sRGXBHwL7x5j1Z3xUjr5iKfae8uf6hKrDYw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YxF7rfRcIjbtKTEznRyvxt6lz4eb6dSpOqS0g8lXSkg=;
+ b=Qwgabcb0GzCicIIkWZljKGglYiEA0CJYWrYtjwVC05x9D2+juPUvvXCVaqUXEDD6NZbsL+M89T2UXUHeYznxHo5jfSxVMRjD2xo0CMf/HSGslUaq8W+EdAyB8XR8E4JLQneRyIRl0kK1HOUWOJen1dWS61jW9q3TMlcU3CgVB7EK97RkT7FymhfkpWVo0kK8CdQYG4sntTt2Bru8GnPYbujBGsAdATO7YiwmUTfjaBsgFJIZaQ2jlgWUZ9JgFGnRopIoNekYgJaFMK0tVlgUo5enCwjMPv02fIpNa3EEoFxM6S4OmpoxfrFyuKZNKPFGhfEzS/7st11gpX5Jj7Wm/A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by GVXPR04MB11522.eurprd04.prod.outlook.com (2603:10a6:150:286::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.12; Fri, 17 Oct
+ 2025 14:44:40 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9228.010; Fri, 17 Oct 2025
+ 14:44:40 +0000
+Date: Fri, 17 Oct 2025 10:44:32 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH v2 4/8] reset: imx8mp-audiomix: Drop unneeded macros
+Message-ID: <aPJWUDXmGkb8QGMz@lizhi-Precision-Tower-5810>
+References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
+ <20251017112025.11997-5-laurentiumihalcea111@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251017112025.11997-5-laurentiumihalcea111@gmail.com>
+X-ClientProxiedBy: PH0PR07CA0086.namprd07.prod.outlook.com
+ (2603:10b6:510:f::31) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|GVXPR04MB11522:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9f128546-338b-46df-3f75-08de0d8bb3e4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|52116014|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?y7l9pTYkveThQ2hFsas67aXEheRGo6EbzidjaugEr/nveWF3O7e5A6iPV5SZ?=
+ =?us-ascii?Q?Y5WcIZttEnFeCEklMQoogMqHSHgMP7nK6ruq8F0YIIePHBV9oCp26AYCW2OI?=
+ =?us-ascii?Q?OnDEr9fb5GAUVd+tC9broTEjVjp70Mve6LFiPnIhzHHfNKOoTzH+ngjbAOkd?=
+ =?us-ascii?Q?yXIXmSoQcS8Vat/CucnKTBolSGRFtupVPAfXMu+EJ4xo/Jgv4aycPjQWRaTB?=
+ =?us-ascii?Q?nRNOJInSc5eoNrFyYjcOzoFLmgW/pAixTW4ulhPkSXt6goqDQe54+AHgjJ6O?=
+ =?us-ascii?Q?GQWfr/dq+wQo9YTlj6bB6cLmPWVvb1U9aoHoW3m4c+F8Sxpue52pmVIa/wGF?=
+ =?us-ascii?Q?iCQZVzPutp0KHQVMpiBvGpHDZ4/GIu/u0GcL4xvcB3FWMgJKSuiobEuwL/AC?=
+ =?us-ascii?Q?HviVGIGjGfjQkF7KTpCEqRlzPjubaZedUJERV4J7YSYjdbJ13mYIze5uAb2j?=
+ =?us-ascii?Q?hMSDGeZNbwjharv2N28ghz7J36/MrnEyN0kQ8vb7K4M1MBypMpLIa8A8GSlr?=
+ =?us-ascii?Q?QS3TcXfxV+AgBKNNe32BQOIn6zr/GoHiaHEnNwHbTGzE/HKijtU8k4jHjTbG?=
+ =?us-ascii?Q?fuJ7ccBj/MelxgHB7kRTeCb7upPHkLp+Z/1avHyVfsXpqooCLluaql4ESM8A?=
+ =?us-ascii?Q?jytvopgIeUF9LF9lgo4AHoL7QNhKUipFt+GKKyrLdAfXZDAaJRkI5J3wQo+O?=
+ =?us-ascii?Q?4msAfK8UetrkdXAIGM4Y8PCih/ZBQqEWTJw9noizPfhKzbZn9z1ThsA+nOf4?=
+ =?us-ascii?Q?cIcm7JXQjAV+3doyV2e+4OrefY+IJ+902ILCs0QcvvOqb6GHDGM6yMj5pJSE?=
+ =?us-ascii?Q?Su0ig9MOa7H7d7COLAwkzqFpDHsjSZcNFD+86PB51B2fOHmcYNks6VhgOhRL?=
+ =?us-ascii?Q?UB/VObjaUfbNpUXutjUL6uCT3lOV4/tLFckNhmpnawWV6MWI2nJVSePDndiC?=
+ =?us-ascii?Q?LGYR0ioXXz5HNKFBLJ3AGIzpkQSV/XAM+M/c8y3PyftPlbKKpZBOGrrC1zQQ?=
+ =?us-ascii?Q?fPZix39ipUBfyby6ZcDN1zrkHwEG4LIH9DA9+5ZUZ5mCSFr2d48B4FOOI+Td?=
+ =?us-ascii?Q?2RNfKV1UZhC8ZMX1JWCb37wgMjJRP+stR5QDDnBbrdmrhBTEPqLLXHSoTVSM?=
+ =?us-ascii?Q?v1nQuy0JoSKoIGhd5veMilrYrEqKiQcd9c6szJFTUa8yaNYvB3OUScIxvvXz?=
+ =?us-ascii?Q?0ZTwAUUaz5i3aufmjuMozpcH5gnNLwnhRSCJ0MzB6Av7eRvi/cO/u4J6Il4J?=
+ =?us-ascii?Q?Dcd5i/Zsyu/bhNbRrFeq0I+cKuOiAgCBeGlqaPQYzA7UGwpOuZxWUeWomq6+?=
+ =?us-ascii?Q?jFkCuDMJAxPjgNma8w+GvmU/E1EMaduvG6Nh3m1AhiqwFwB6AkINKNqVjRWp?=
+ =?us-ascii?Q?HaHXyV63h5O/0geqcBR8tf+CwQ7Xk6+AhOcfVifX9s0Iz52o0UnjO3xAvp9k?=
+ =?us-ascii?Q?cbW7jIr+N2rrnlHghK0eBbWabQeO68F4wzJMq0DC2Alj5ngR/y9VXFedPZ9k?=
+ =?us-ascii?Q?yS1vPwqMVoLpMhg+ftgUxToavbSrFXcOpIZ6?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(52116014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2uyhuijXY2F+UblIYJkxVaUoYZo/CtTiDlOtbTKC1jcaJ2EBJx8xFpnzYFAB?=
+ =?us-ascii?Q?xP/JAGh58N46V0SkJj7+zzXGCORhPkhCJmItlRDg1hQcVd+yF15Dx3MmviXk?=
+ =?us-ascii?Q?hmtCeeR5fU4MKUqaY245mRAp3W3chFXX9vAFXbixsCH9ZzR65znN1qsM2h+O?=
+ =?us-ascii?Q?jHQ0DVJ7Sgmzr8x8bIYaI42Fz4bixBNFs9UT0M5aOlvmFd7dyvZJ7yA++gwg?=
+ =?us-ascii?Q?HDkgC2d5rCP3YuQa7PeP0kxUx6NsdSyK0L2OJB4LQEadjFZ7Q5snB5aZ4A6o?=
+ =?us-ascii?Q?gk1naW8T8+nq345SrrkK8PvifTGQ9qq4cFD+Hvl1gTBIJ44oPUGAUmSN05Gv?=
+ =?us-ascii?Q?O0qXeLO6CVR5H+161damjVGuMTCUCRBEdCMvO/NjyDamDmVJvkt0dxFU6liL?=
+ =?us-ascii?Q?8rulIzzkXGmSRUUJetdc9EZgVJVupLtsCXq+AOQ4SgzlWT2B4WBkvvZcvPf0?=
+ =?us-ascii?Q?mwDByXE+j+SMiz7Hz3jKUEZZE8rK9JtseWUjymiKbt6qtyX1gn2Ouui6ubpX?=
+ =?us-ascii?Q?v3no2XEoUpqMrXG+q1w3yqwdBYQBxu8RZh8ZUotdWZPUhb9ESs5eipHXZk3i?=
+ =?us-ascii?Q?y0i6af5jm6APMUVAA5sJG58ESgpBMH1q9VuzSTlYRby5K0sy2V99RJMWkI/N?=
+ =?us-ascii?Q?AnZ1pc4YkGDptDGXGyTtZkgLfgpMO5mNrWZo9ZIQ+M77oNYRXlGkuAC9fQdN?=
+ =?us-ascii?Q?BGMFCrW9Y7lbWoDNjPeVWrqBA8N2PXd5nqacDZzlSpIOSdeoypkfHpOyl+Qc?=
+ =?us-ascii?Q?zgx4boWFyvAkq4pEotKvRNp/1vIOLyYUOkvOO8S5cQzGnv9S+6T6qzBph2L7?=
+ =?us-ascii?Q?5+KRJPRDs77kV7iZv/Eh6CwWhPhLTJ+yMnVq2cdK5zgFNVbBsJ8SYUJFUKgq?=
+ =?us-ascii?Q?aid/dwCdw3jasqBM/Ri/nRly6tLhWjDD5ecOOOINQJugqr9FlQxu3KxGb1aL?=
+ =?us-ascii?Q?rjat2aUqcX4O4G66z3hq8qkHO85+K2tUjXhUZY+3WJijWGS1NQIkDuSL4EUK?=
+ =?us-ascii?Q?gRGSAdOd+q6yBoNJ4yPsNyPj9JsljnYRb3Fn5gGFzXwl/a3Ej5mdK8RXOu7C?=
+ =?us-ascii?Q?mT37/C/JgcP1p7NxaqrKesrbAPvTfPbtlxrblOGDeT/NlWwMqO2ljFvqgCrf?=
+ =?us-ascii?Q?HF9+xpUrI5fa9jmZ+hFOfmV8l4XaDehTcE6//ozwbT7aqev42Q7JUbsTtS5c?=
+ =?us-ascii?Q?P9ID/Ih/tuxHp4VHUM5XXu49AWtGQvqFieXWh3EQ+E5xRgf+h9ZotliFsUIN?=
+ =?us-ascii?Q?1ZvEiy1hIXFcZNf8LyfQUFb009KtKwHyaYMeDFIgsIfNLrekaRwFoZb3Znbv?=
+ =?us-ascii?Q?Yz2Z4gv/20UPgTxYSz4bsnKhPCuyLCVqOEUjnZDEyDB8TKJF12DqMh8h8WxY?=
+ =?us-ascii?Q?knxWK9VN7IAW1Y9wQucM48orAzf7i+5++BJsLUgaAxHmN1G8WmSxmlwc//K3?=
+ =?us-ascii?Q?9J4DkLr0SKfBGe6ZS0mXMdAJT/twrtvM+W+QfK4QZszMGDxvz7Ethtd9ryl8?=
+ =?us-ascii?Q?yOKm47KIeln6W2B9SoLxj6SpRyAh5m7x8J0VdjmIT8CbLh6dMxTt3553cCx7?=
+ =?us-ascii?Q?LQdLPU4c2t0HZSi5yUU=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9f128546-338b-46df-3f75-08de0d8bb3e4
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 14:44:40.5157
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4zTTkZr/IGCPHWQQMWIx5iFShFQf2AMYerq8oEVcJa5CsIBfbeoPqLMj4dnH0MB8zmeh0YH1dL2WtHXMOoLSAw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11522
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_074343_919579_F0684007 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20251017_074450_035246_C8D601C9 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,90 +167,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename the arm64 sha3_* functions to have an "arm64_" prefix to avoid
-conflict with generic code.
+On Fri, Oct 17, 2025 at 04:20:21AM -0700, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>
+> The macros defining the mask values for the EARC, EARC PHY resets,
+> and the DSP RUN_STALL signal can be dropped as they are not and will
+> not be used anywhere else except to set the value of the "mask" field
+> from "struct imx8mp_reset_map". In this particular case, based on the
+> name of the "mask" field, you can already deduce what these values are
+> for, which is why defining macros for them doesn't offer any new
+> information, nor does it help with the code readability.
+>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> ---
 
-Signed-off-by: David Howells <dhowells@redhat.com>
-cc: Eric Biggers <ebiggers@kernel.org>
-cc: Jason A. Donenfeld <Jason@zx2c4.com>
-cc: Ard Biesheuvel <ardb@kernel.org>
-cc: Catalin Marinas <catalin.marinas@arm.com>
-cc: Will Deacon <will@kernel.org>
-cc: Herbert Xu <herbert@gondor.apana.org.au>
-cc: Stephan Mueller <smueller@chronox.de>
-cc: linux-crypto@vger.kernel.org
-cc: linux-arm-kernel@lists.infradead.org
----
- arch/arm64/crypto/sha3-ce-glue.c | 22 +++++++++++-----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
+Register define still prefer use macro.
 
-diff --git a/arch/arm64/crypto/sha3-ce-glue.c b/arch/arm64/crypto/sha3-ce-glue.c
-index b4f1001046c9..426d8044535a 100644
---- a/arch/arm64/crypto/sha3-ce-glue.c
-+++ b/arch/arm64/crypto/sha3-ce-glue.c
-@@ -31,7 +31,7 @@ MODULE_ALIAS_CRYPTO("sha3-512");
- asmlinkage int sha3_ce_transform(u64 *st, const u8 *data, int blocks,
- 				 int md_len);
- 
--static int sha3_update(struct shash_desc *desc, const u8 *data,
-+static int arm64_sha3_update(struct shash_desc *desc, const u8 *data,
- 		       unsigned int len)
- {
- 	struct sha3_state *sctx = shash_desc_ctx(desc);
-@@ -55,8 +55,8 @@ static int sha3_update(struct shash_desc *desc, const u8 *data,
- 	return len;
- }
- 
--static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
--		      u8 *out)
-+static int arm64_sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
-+			    u8 *out)
- {
- 	struct sha3_state *sctx = shash_desc_ctx(desc);
- 	struct crypto_shash *tfm = desc->tfm;
-@@ -90,8 +90,8 @@ static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
- static struct shash_alg algs[] = { {
- 	.digestsize		= SHA3_224_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-224",
- 	.base.cra_driver_name	= "sha3-224-ce",
-@@ -102,8 +102,8 @@ static struct shash_alg algs[] = { {
- }, {
- 	.digestsize		= SHA3_256_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-256",
- 	.base.cra_driver_name	= "sha3-256-ce",
-@@ -114,8 +114,8 @@ static struct shash_alg algs[] = { {
- }, {
- 	.digestsize		= SHA3_384_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-384",
- 	.base.cra_driver_name	= "sha3-384-ce",
-@@ -126,8 +126,8 @@ static struct shash_alg algs[] = { {
- }, {
- 	.digestsize		= SHA3_512_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-512",
- 	.base.cra_driver_name	= "sha3-512-ce",
+So far const string, hexvalue prefer use value if only use once.
 
+Frank
+
+>  drivers/reset/reset-imx8mp-audiomix.c | 10 +++-------
+>  1 file changed, 3 insertions(+), 7 deletions(-)
+>
+> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
+> index eceb37ff5dc5..e9643365a62c 100644
+> --- a/drivers/reset/reset-imx8mp-audiomix.c
+> +++ b/drivers/reset/reset-imx8mp-audiomix.c
+> @@ -14,11 +14,7 @@
+>  #include <linux/reset-controller.h>
+>
+>  #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
+> -#define IMX8MP_AUDIOMIX_EARC_RESET_MASK		BIT(0)
+> -#define IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK	BIT(1)
+> -
+>  #define IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET	0x108
+> -#define IMX8MP_AUDIOMIX_DSP_RUNSTALL_MASK	BIT(5)
+>
+>  struct imx8mp_reset_map {
+>  	unsigned int offset;
+> @@ -29,17 +25,17 @@ struct imx8mp_reset_map {
+>  static const struct imx8mp_reset_map reset_map[] = {
+>  	[IMX8MP_AUDIOMIX_EARC_RESET] = {
+>  		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
+> -		.mask	= IMX8MP_AUDIOMIX_EARC_RESET_MASK,
+> +		.mask = BIT(0),
+>  		.active_low = true,
+>  	},
+>  	[IMX8MP_AUDIOMIX_EARC_PHY_RESET] = {
+>  		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
+> -		.mask	= IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK,
+> +		.mask = BIT(1),
+>  		.active_low = true,
+>  	},
+>  	[IMX8MP_AUDIOMIX_DSP_RUNSTALL] = {
+>  		.offset	= IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET,
+> -		.mask	= IMX8MP_AUDIOMIX_DSP_RUNSTALL_MASK,
+> +		.mask = BIT(5),
+>  		.active_low = false,
+>  	},
+>  };
+> --
+> 2.43.0
+>
 
