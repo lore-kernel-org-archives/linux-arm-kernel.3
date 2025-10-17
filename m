@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A72ECCD1A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 08:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F0F0CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 08:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9DHhJcPeg5+qd4n7kPIbTMDqbDCheZNreesqa09bE5Y=; b=ZrhoQpJBbdjP9uQN/26mR9wWjr
-	s4m6PfPlFrb/ISGKlTQiIFfHpW4QpsG6/BK9+gPEhP0dXYSVZuNteRKGsWsyiGcoMAGShYEzzU7mo
-	CvY7m2fYlphQl9DaEJUvlzSuh3zwDUXRNZAXy9PIqbAeWNgzqWYKhKX8PBSxxNIS3/56S5IC/Ri82
-	JtS/NxoHbuI9GmJCCTzSEg+MXBfyAPDUNwTgFPR9BrF0WTdwDNU0QK9J7tafQgdDI611twUyqoZnO
-	jx84j0jFm0ImT2gXabNzoGkB3qRWpPtCRWrzfdx43/S0q9aESTAV8hcSmuJbOVfWgCHTsY/p0XySK
-	QBUL2HNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pTw19dwjjVeRMi7oZL0H9g9jPS6KnvMK3gpsYNWW2Bo=; b=OUGl785uvwNnUwv+9TP6FlF4gi
+	l9r6t0+uaa5UIXwSsGyxacuBNa/kQV3oBxOHTdmpc/BLBpOhDPizS874/Bp7tzHVR/VvZqmgp0f59
+	lSvdrotKKDX8evclvB2uDlpNL/zEZbryu7NFVYwMFIZ6FIAGw10GwzOBJZUT23+Fw7zkK3HGvUVfn
+	Y4J3c6ln77FaZDFOEDWXslBBNmsxrZEk1yRhZiXNNDib+XjK+mpk59bi5mmaACrWOKWF4cCmKEGKt
+	qBpoXW/vDtY0SawwCmiHfqy7Xdjxa5wy/NQruZ83dTIM42mfhYAG+b0+svb/xXYwL1DCOWelDuBwg
+	OdMAyWSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gB1-0000000790Y-23Y5;
-	Fri, 17 Oct 2025 08:51:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v9gFf-000000079tq-3anW;
+	Fri, 17 Oct 2025 08:55:55 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gAz-000000078xc-3iWh;
-	Fri, 17 Oct 2025 08:51:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F421860506;
-	Fri, 17 Oct 2025 08:51:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ADADC4CEE7;
-	Fri, 17 Oct 2025 08:51:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760691064;
-	bh=WjGwoKpMhMnhcp0myxQWMCOkFF1h1hZ3MN0mwe3tCBk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=u3bteZFygVQZigHdehKWcqhZ4IUNYlMtkyRixtOw8ahGpXNhlLrEkS9xC+0fGXKHK
-	 d/5yVnFzgR10eGGd1Ln87blm/2ua9+XxEIkI4taRcDmS2rINk3NHPZoG/oXl6g6yuK
-	 3nmgZh2mZKlmUUn5zxzqtDLwQ+r8KsoHEP3P985ujRPKJeqxGumPIvPWldGabXUSyT
-	 SeVcyMip3jwzqxE28E4/OkFkmuLPzimR65RBijeKshNMVngHeH1IHI2YmsrLwa3Erj
-	 7iFKkvC7/uXactVlq9LT69z59BxkIEhJRX1FP77h4eeG17gcgw3LKMMeC7bNi2Wd/N
-	 ggtE/nZXR4+VA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 17 Oct 2025 10:50:33 +0200
-Subject: [PATCH mt76 v2 5/5] wifi: mt76: mt7996: Add NPU offload support to
- MT7996 driver
+	id 1v9gFc-000000079sC-1ntD
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 08:55:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=pTw19dwjjVeRMi7oZL0H9g9jPS6KnvMK3gpsYNWW2Bo=; b=ihl7Vd4yWKfi7xutKpRMyet8Qf
+	0vVIDHl5E71ilKg24cMDIg+HFEIJ0PpfLEVV6fEGSdJ1e1TxIjpu5iCufVMuNqnVZCszGz4aeaLvS
+	r2k6fUYN+RVtv/QYNjCTV+gvycNEKixgFqNsSw/+WfnxXA5xoDJGfO478oIjh3j3v4gBkvA/ROe94
+	8xUEPl2GA1+LPtDJK+/Svd1pFBUOhr92vZ2tBTz3/PrWz0l7/cpX2orQ0ZyirbSX6JQldMFHmxMrO
+	5Nj8WWTxqM45rpNDWhHflyn+nwqe+0qc2qTIK69jX19zYESur0QNpSRA7fkNpunhMTmCPGiO5YKP9
+	rlt0v4Lg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:44918 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1v9gFJ-000000007Vh-3kcy;
+	Fri, 17 Oct 2025 09:55:33 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1v9gFI-0000000Azbb-44bh;
+	Fri, 17 Oct 2025 09:55:33 +0100
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Chen-Yu Tsai <wens@csie.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	s32@nxp.com,
+	Samuel Holland <samuel@sholland.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Vladimir Zapolskiy <vz@mleia.com>
+Subject: [PATCH net-next] net: stmmac: replace has_xxxx with core_type
 MIME-Version: 1.0
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-mt76-npu-devel-v2-5-ddaa90901723@kernel.org>
-References: <20251017-mt76-npu-devel-v2-0-ddaa90901723@kernel.org>
-In-Reply-To: <20251017-mt76-npu-devel-v2-0-ddaa90901723@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-X-Mailer: b4 0.14.2
+Message-Id: <E1v9gFI-0000000Azbb-44bh@rmk-PC.armlinux.org.uk>
+Date: Fri, 17 Oct 2025 09:55:32 +0100
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_015553_008464_7BADB03B 
+X-CRM114-Status: GOOD (  18.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,697 +100,789 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce Airoha NPU support to MT7996 driver. NPU is used to enable
-traffic forward offloading between the MT76 NIC and the Airoha ethernet one
-available on the Airoha EN7581 SoC using Netfilter Flowtable APIs.
+Replace the has_gmac, has_gmac4 and has_xgmac ints, of which only one
+can be set when matching a core to its driver backend, with an
+enumerated type carrying the DWMAC core type.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/wireless/mediatek/mt76/mt7996/Kconfig  |   7 +
- drivers/net/wireless/mediatek/mt76/mt7996/Makefile |   1 +
- drivers/net/wireless/mediatek/mt76/mt7996/dma.c    |  16 +-
- drivers/net/wireless/mediatek/mt76/mt7996/init.c   |  13 +-
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c    |   4 +
- drivers/net/wireless/mediatek/mt76/mt7996/main.c   |  26 +-
- drivers/net/wireless/mediatek/mt76/mt7996/mmio.c   |  13 +-
- drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  21 ++
- drivers/net/wireless/mediatek/mt76/mt7996/npu.c    | 352 +++++++++++++++++++++
- drivers/net/wireless/mediatek/mt76/mt7996/pci.c    |   3 +
- 10 files changed, 438 insertions(+), 18 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/common.h  |  5 ++
+ .../stmicro/stmmac/dwmac-dwc-qos-eth.c        |  2 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-intel.c |  5 +-
+ .../ethernet/stmicro/stmmac/dwmac-ipq806x.c   |  2 +-
+ .../ethernet/stmicro/stmmac/dwmac-loongson.c  |  2 +-
+ .../ethernet/stmicro/stmmac/dwmac-lpc18xx.c   |  2 +-
+ .../stmicro/stmmac/dwmac-qcom-ethqos.c        |  2 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    |  4 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-s32.c   |  2 +-
+ .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |  2 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-sunxi.c |  2 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-tegra.c |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/hwif.c    | 73 +++++++------------
+ .../net/ethernet/stmicro/stmmac/stmmac_est.c  |  4 +-
+ .../ethernet/stmicro/stmmac/stmmac_ethtool.c  | 13 ++--
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 33 +++++----
+ .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 14 ++--
+ .../net/ethernet/stmicro/stmmac/stmmac_pci.c  |  4 +-
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |  9 +--
+ .../net/ethernet/stmicro/stmmac/stmmac_ptp.c  |  4 +-
+ include/linux/stmmac.h                        | 11 ++-
+ 21 files changed, 93 insertions(+), 104 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig b/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
-index 196e1cbab813fcd95c0e04e8383c279c2897b202..5503d03bf62c65f953c6f7dec4008f731b90bb77 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
-@@ -12,3 +12,10 @@ config MT7996E
- 	  and 2.4GHz IEEE 802.11be 4x4:4SS 4096-QAM, 320MHz channels.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index 8f34c9ad457f..23ec3a59ca8f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -43,6 +43,11 @@
+ #define DWXGMAC_ID		0x76
+ #define DWXLGMAC_ID		0x27
  
- 	  To compile this driver as a module, choose M here.
++static inline bool dwmac_is_xmac(enum dwmac_core_type core_type)
++{
++	return core_type == DWMAC_CORE_GMAC4 || core_type == DWMAC_CORE_XGMAC;
++}
 +
-+config MT7996_NPU
-+	bool "MT7996 (PCIe) NPU support"
-+	depends on MT7996E
-+	depends on NET_AIROHA_NPU=y || MT7996E=NET_AIROHA_NPU
-+	select MT76_NPU
-+	default n
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/Makefile b/drivers/net/wireless/mediatek/mt76/mt7996/Makefile
-index 19c0bc02b5843efd21526a0dd866e250649d22b2..69d2d4bb9e69874b2dd649b90c2e85fe40790332 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/Makefile
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/Makefile
-@@ -5,4 +5,5 @@ obj-$(CONFIG_MT7996E) += mt7996e.o
- mt7996e-y := pci.o init.o dma.o eeprom.o main.o mcu.o mac.o \
- 	     debugfs.o mmio.o
+ #define STMMAC_CHAN0	0	/* Always supported and default for all chips */
  
-+mt7996e-$(CONFIG_MT7996_NPU) += npu.o
- mt7996e-$(CONFIG_DEV_COREDUMP) += coredump.o
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-index 20aa67eff76fe3cae3ad629d49bafcd71c21f099..7ac4defca29db4d6ed117f8b05fc59f33b4e3e10 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/dma.c
-@@ -23,6 +23,9 @@ int mt7996_init_tx_queues(struct mt7996_phy *phy, int idx, int n_desc,
- 			flags = MT_WED_Q_TX(idx);
+ /* TX and RX Descriptor Length, these need to be power of two.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+index f1c2e35badf7..c7cd6497d42d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+@@ -109,7 +109,7 @@ static int dwc_eth_dwmac_config_dt(struct platform_device *pdev,
  	}
  
-+	if (mt76_npu_device_active(&dev->mt76))
-+		flags = MT_NPU_Q_TX(phy->mt76->band_idx);
-+
- 	return mt76_connac_init_tx_queues(phy->mt76, idx, n_desc,
- 					  ring_base, wed, flags);
- }
-@@ -344,7 +347,7 @@ void mt7996_dma_start(struct mt7996_dev *dev, bool reset, bool wed_reset)
- 		mtk_wed_device_start(wed, wed_irq_mask);
- 	}
- 
--	if (!mt7996_has_wa(dev))
-+	if (!mt7996_has_wa(dev) || mt76_npu_device_active(&dev->mt76))
- 		irq_mask &= ~(MT_INT_RX(MT_RXQ_MAIN_WA) |
- 			      MT_INT_RX(MT_RXQ_BAND1_WA));
- 	irq_mask = reset ? MT_INT_MCU_CMD : irq_mask;
-@@ -502,7 +505,7 @@ int mt7996_dma_rro_init(struct mt7996_dev *dev)
- 		mdev->q_rx[MT_RXQ_RRO_RXDMAD_C].flags = MT_WED_RRO_Q_RXDMAD_C;
- 		if (mtk_wed_device_active(&mdev->mmio.wed))
- 			mdev->q_rx[MT_RXQ_RRO_RXDMAD_C].wed = &mdev->mmio.wed;
--		else
-+		else if (!mt76_npu_device_active(&dev->mt76))
- 			mdev->q_rx[MT_RXQ_RRO_RXDMAD_C].flags |= MT_QFLAG_EMI_EN;
- 		ret = mt76_queue_alloc(dev, &mdev->q_rx[MT_RXQ_RRO_RXDMAD_C],
- 				       MT_RXQ_ID(MT_RXQ_RRO_RXDMAD_C),
-@@ -610,7 +613,9 @@ int mt7996_dma_rro_init(struct mt7996_dev *dev)
- 			mt76_queue_rx_init(dev, MT_RXQ_MSDU_PAGE_BAND0,
- 					   mt76_dma_rx_poll);
- 		}
--		mt7996_irq_enable(dev, MT_INT_RRO_RX_DONE);
-+
-+		if (!mt76_npu_device_active(&dev->mt76))
-+			mt7996_irq_enable(dev, MT_INT_RRO_RX_DONE);
- 	}
- 
- 	return 0;
-@@ -884,6 +889,10 @@ int mt7996_dma_init(struct mt7996_dev *dev)
- 	if (ret < 0)
- 		return ret;
- 
-+	ret = mt7996_npu_rx_queues_init(dev);
-+	if (ret)
-+		return ret;
-+
- 	netif_napi_add_tx(dev->mt76.tx_napi_dev, &dev->mt76.tx_napi,
- 			  mt7996_poll_tx);
- 	napi_enable(&dev->mt76.tx_napi);
-@@ -941,6 +950,7 @@ void mt7996_dma_reset(struct mt7996_dev *dev, bool force)
- 	if (mtk_wed_device_active(&dev->mt76.mmio.wed))
- 		mtk_wed_device_dma_reset(&dev->mt76.mmio.wed);
- 
-+	mt76_npu_disable_irqs(&dev->mt76);
- 	mt7996_dma_disable(dev, force);
- 	mt76_wed_dma_reset(&dev->mt76);
- 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-index 5f2a2da5c3265fdf878c7322371468c7681f0195..bd7b720c64c5264fe6731b685a259fe3bf5e6353 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-@@ -475,7 +475,7 @@ mt7996_init_wiphy(struct ieee80211_hw *hw, struct mtk_wed_device *wed)
- 		hw->max_tx_aggregation_subframes = 512;
- 
- 	hw->netdev_features = NETIF_F_RXCSUM;
--	if (mtk_wed_device_active(wed))
-+	if (mtk_wed_device_active(wed) || mt76_npu_device_active(mdev))
- 		hw->netdev_features |= NETIF_F_HW_TC;
- 
- 	hw->radiotap_timestamp.units_pos =
-@@ -830,7 +830,8 @@ void mt7996_rro_hw_init(struct mt7996_dev *dev)
- 				   MT_RRO_3_0_EMU_CONF_EN_MASK);
- 			mt76_set(dev, MT_RRO_3_1_GLOBAL_CONFIG,
- 				 MT_RRO_3_1_GLOBAL_CONFIG_RXDMAD_SEL);
--			if (!mtk_wed_device_active(&dev->mt76.mmio.wed)) {
-+			if (!mtk_wed_device_active(&dev->mt76.mmio.wed) &&
-+			    !mt76_npu_device_active(&dev->mt76)) {
- 				mt76_set(dev, MT_RRO_3_1_GLOBAL_CONFIG,
- 					 MT_RRO_3_1_GLOBAL_CONFIG_RX_DIDX_WR_EN |
- 					 MT_RRO_3_1_GLOBAL_CONFIG_RX_CIDX_RD_EN);
-@@ -1067,6 +1068,9 @@ static void mt7996_wed_rro_work(struct work_struct *work)
- 				     list);
- 		list_del_init(&e->list);
- 
-+		if (mt76_npu_device_active(&dev->mt76))
-+			goto reset_session;
-+
- 		for (i = 0; i < MT7996_RRO_WINDOW_MAX_LEN; i++) {
- 			void *ptr = dev->wed_rro.session.ptr;
- 			struct mt7996_wed_rro_addr *elem;
-@@ -1087,6 +1091,7 @@ static void mt7996_wed_rro_work(struct work_struct *work)
- 			elem = ptr + elem_id * sizeof(*elem);
- 			elem->data |= cpu_to_le32(val);
- 		}
-+reset_session:
- 		mt7996_mcu_wed_rro_reset_sessions(dev, e->id);
- out:
- 		kfree(e);
-@@ -1674,6 +1679,10 @@ int mt7996_register_device(struct mt7996_dev *dev)
- 	if (ret)
- 		return ret;
- 
-+	ret = mt7996_npu_hw_init(dev);
-+	if (ret)
-+		return ret;
-+
- 	ret = mt76_register_device(&dev->mt76, true, mt76_rates,
- 				   ARRAY_SIZE(mt76_rates));
- 	if (ret)
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-index fd3fabc60026954e344c5f59c1c585c4b2d445e0..3c26d20db665c5787d9020d3446f944c4902c0da 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-@@ -718,6 +718,7 @@ mt7996_mac_fill_rx(struct mt7996_dev *dev, enum mt76_rxq_id q,
- 		status->flag |= RX_FLAG_8023;
- 		mt7996_wed_check_ppe(dev, &dev->mt76.q_rx[q], msta, skb,
- 				     *info);
-+		mt76_npu_check_ppe(&dev->mt76, skb, *info);
- 	}
- 
- 	if (rxv && !(status->flag & RX_FLAG_8023)) {
-@@ -2536,6 +2537,8 @@ void mt7996_mac_reset_work(struct work_struct *work)
- 
- 	mutex_lock(&dev->mt76.mutex);
- 
-+	mt7996_npu_hw_stop(dev);
-+
- 	mt76_wr(dev, MT_MCU_INT_EVENT, MT_MCU_INT_EVENT_DMA_STOPPED);
- 
- 	if (mt7996_wait_reset_state(dev, MT_MCU_CMD_RESET_DONE)) {
-@@ -2602,6 +2605,7 @@ void mt7996_mac_reset_work(struct work_struct *work)
- 
- 	mutex_unlock(&dev->mt76.mutex);
- 
-+	mt7996_npu_hw_init(dev);
- 	mt7996_update_beacons(dev);
- 
- 	mt7996_for_each_phy(dev, phy)
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index 8485930437810fd1c10faf67c3877fd17e614859..08c4d9c8791bee643c1d404327f20b238964d91f 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -2157,7 +2157,6 @@ mt7996_set_radar_background(struct ieee80211_hw *hw,
- 	return ret;
- }
- 
--#ifdef CONFIG_NET_MEDIATEK_SOC_WED
- static int
- mt7996_net_fill_forward_path(struct ieee80211_hw *hw,
- 			     struct ieee80211_vif *vif,
-@@ -2165,15 +2164,14 @@ mt7996_net_fill_forward_path(struct ieee80211_hw *hw,
- 			     struct net_device_path_ctx *ctx,
- 			     struct net_device_path *path)
+ 	/* dwc-qos needs GMAC4, AAL, TSO and PMT */
+-	plat_dat->has_gmac4 = 1;
++	plat_dat->core_type = DWMAC_CORE_GMAC4;
+ 	plat_dat->dma_cfg->aal = 1;
+ 	plat_dat->flags |= STMMAC_FLAG_TSO_EN;
+ 	plat_dat->pmt = 1;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+index e74d00984b88..b2194e414ec1 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+@@ -565,7 +565,7 @@ static void common_default_data(struct plat_stmmacenet_data *plat)
  {
--	struct mt7996_vif *mvif = (struct mt7996_vif *)vif->drv_priv;
- 	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
- 	struct mt7996_dev *dev = mt7996_hw_dev(hw);
- 	struct mtk_wed_device *wed = &dev->mt76.mmio.wed;
- 	struct mt7996_sta_link *msta_link;
--	struct mt76_vif_link *mlink;
-+	struct mt7996_vif_link *link;
+ 	/* clk_csr_i = 20-35MHz & MDC = clk_csr_i/16 */
+ 	plat->clk_csr = STMMAC_CSR_20_35M;
+-	plat->has_gmac = 1;
++	plat->core_type = DWMAC_CORE_GMAC;
+ 	plat->force_sf_dma_mode = 1;
  
--	mlink = rcu_dereference(mvif->mt76.link[msta->deflink_id]);
--	if (!mlink)
-+	link = mt7996_vif_link(dev, vif, msta->deflink_id);
-+	if (!link)
- 		return -EIO;
+ 	plat->mdio_bus_data->needs_reset = true;
+@@ -612,8 +612,7 @@ static int intel_mgbe_common_data(struct pci_dev *pdev,
+ 	plat->pdev = pdev;
+ 	plat->phy_addr = -1;
+ 	plat->clk_csr = STMMAC_CSR_250_300M;
+-	plat->has_gmac = 0;
+-	plat->has_gmac4 = 1;
++	plat->core_type = DWMAC_CORE_GMAC4;
+ 	plat->force_sf_dma_mode = 0;
+ 	plat->flags |= (STMMAC_FLAG_TSO_EN | STMMAC_FLAG_SPH_DISABLE);
  
- 	msta_link = rcu_dereference(msta->link[msta->deflink_id]);
-@@ -2188,13 +2186,19 @@ mt7996_net_fill_forward_path(struct ieee80211_hw *hw,
- 	     (is_mt7992(&dev->mt76) && msta_link->wcid.phy_idx == MT_BAND1)))
- 		wed = &dev->mt76.mmio.wed_hif2;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c
+index ca4035cbb55b..c05f85534f0c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c
+@@ -473,7 +473,7 @@ static int ipq806x_gmac_probe(struct platform_device *pdev)
+ 			return err;
+ 	}
  
--	if (!mtk_wed_device_active(wed))
-+	if (!mtk_wed_device_active(wed) &&
-+	    !mt76_npu_device_active(&dev->mt76))
- 		return -ENODEV;
+-	plat_dat->has_gmac = true;
++	plat_dat->core_type = DWMAC_CORE_GMAC;
+ 	plat_dat->bsp_priv = gmac;
+ 	plat_dat->set_clk_tx_rate = ipq806x_gmac_set_clk_tx_rate;
+ 	plat_dat->multicast_filter_bins = 0;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+index 592aa9d636e5..2a3ac0136cdb 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+@@ -92,7 +92,7 @@ static void loongson_default_data(struct pci_dev *pdev,
  
- 	path->type = DEV_PATH_MTK_WDMA;
- 	path->dev = ctx->dev;
--	path->mtk_wdma.wdma_idx = wed->wdma_idx;
--	path->mtk_wdma.bss = mlink->idx;
-+#ifdef CONFIG_NET_MEDIATEK_SOC_WED
-+	if (mtk_wed_device_active(wed))
-+		path->mtk_wdma.wdma_idx = wed->wdma_idx;
-+	else
-+#endif
-+		path->mtk_wdma.wdma_idx = link->mt76.band_idx;
-+	path->mtk_wdma.bss = link->mt76.idx;
- 	path->mtk_wdma.queue = 0;
- 	path->mtk_wdma.wcid = msta_link->wcid.idx;
+ 	/* clk_csr_i = 20-35MHz & MDC = clk_csr_i/16 */
+ 	plat->clk_csr = STMMAC_CSR_20_35M;
+-	plat->has_gmac = 1;
++	plat->core_type = DWMAC_CORE_GMAC;
+ 	plat->force_sf_dma_mode = 1;
  
-@@ -2208,8 +2212,6 @@ mt7996_net_fill_forward_path(struct ieee80211_hw *hw,
- 	return 0;
+ 	/* Set default value for multicast hash bins */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-lpc18xx.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-lpc18xx.c
+index 2562a6d036a2..6fffc9dfbae5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-lpc18xx.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-lpc18xx.c
+@@ -41,7 +41,7 @@ static int lpc18xx_dwmac_probe(struct platform_device *pdev)
+ 	if (IS_ERR(plat_dat))
+ 		return PTR_ERR(plat_dat);
+ 
+-	plat_dat->has_gmac = true;
++	plat_dat->core_type = DWMAC_CORE_GMAC;
+ 
+ 	reg = syscon_regmap_lookup_by_compatible("nxp,lpc1850-creg");
+ 	if (IS_ERR(reg)) {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index d8fd4d8f6ced..0831e32b08cc 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -848,7 +848,7 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+ 	plat_dat->fix_mac_speed = ethqos_fix_mac_speed;
+ 	plat_dat->dump_debug_regs = rgmii_dump;
+ 	plat_dat->ptp_clk_freq_config = ethqos_ptp_clk_freq_config;
+-	plat_dat->has_gmac4 = 1;
++	plat_dat->core_type = DWMAC_CORE_GMAC4;
+ 	if (ethqos->has_emac_ge_3)
+ 		plat_dat->dwmac4_addrs = &data->dwmac4_addrs;
+ 	plat_dat->pmt = 1;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index 51ea0caf16c1..9b92f4d335cc 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -1750,8 +1750,8 @@ static int rk_gmac_probe(struct platform_device *pdev)
+ 	/* If the stmmac is not already selected as gmac4,
+ 	 * then make sure we fallback to gmac.
+ 	 */
+-	if (!plat_dat->has_gmac4) {
+-		plat_dat->has_gmac = true;
++	if (plat_dat->core_type != DWMAC_CORE_GMAC4) {
++		plat_dat->core_type = DWMAC_CORE_GMAC;
+ 		plat_dat->rx_fifo_size = 4096;
+ 		plat_dat->tx_fifo_size = 2048;
+ 	}
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+index 221539d760bc..ee095ac13203 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+@@ -146,7 +146,7 @@ static int s32_dwmac_probe(struct platform_device *pdev)
+ 	gmac->ioaddr = res.addr;
+ 
+ 	/* S32CC core feature set */
+-	plat->has_gmac4 = true;
++	plat->core_type = DWMAC_CORE_GMAC4;
+ 	plat->pmt = 1;
+ 	plat->flags |= STMMAC_FLAG_SPH_DISABLE;
+ 	plat->rx_fifo_size = 20480;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+index 354f01184e6c..2ff5db6d41ca 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+@@ -497,7 +497,7 @@ static int socfpga_dwmac_probe(struct platform_device *pdev)
+ 	plat_dat->pcs_init = socfpga_dwmac_pcs_init;
+ 	plat_dat->pcs_exit = socfpga_dwmac_pcs_exit;
+ 	plat_dat->select_pcs = socfpga_dwmac_select_pcs;
+-	plat_dat->has_gmac = true;
++	plat_dat->core_type = DWMAC_CORE_GMAC;
+ 
+ 	plat_dat->riwt_off = 1;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.c
+index 1eadcf5d1ad6..7f560d78209d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.c
+@@ -136,7 +136,7 @@ static int sun7i_gmac_probe(struct platform_device *pdev)
+ 	/* platform data specifying hardware features and callbacks.
+ 	 * hardware features were copied from Allwinner drivers. */
+ 	plat_dat->tx_coe = 1;
+-	plat_dat->has_gmac = true;
++	plat_dat->core_type = DWMAC_CORE_GMAC;
+ 	plat_dat->bsp_priv = gmac;
+ 	plat_dat->init = sun7i_gmac_init;
+ 	plat_dat->exit = sun7i_gmac_exit;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c
+index dc903b846b1b..d765acbe3754 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-tegra.c
+@@ -308,7 +308,7 @@ static int tegra_mgbe_probe(struct platform_device *pdev)
+ 		goto disable_clks;
+ 	}
+ 
+-	plat->has_xgmac = 1;
++	plat->core_type = DWMAC_CORE_XGMAC;
+ 	plat->flags |= STMMAC_FLAG_TSO_EN;
+ 	plat->pmt = 1;
+ 	plat->bsp_priv = mgbe;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+index 3f7c765dcb79..00083ce52549 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+@@ -106,9 +106,7 @@ int stmmac_reset(struct stmmac_priv *priv, void __iomem *ioaddr)
  }
  
--#endif
--
- static int
- mt7996_change_vif_links(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
- 			u16 old_links, u16 new_links,
-@@ -2283,9 +2285,11 @@ const struct ieee80211_ops mt7996_ops = {
- 	.sta_add_debugfs = mt7996_sta_add_debugfs,
- #endif
- 	.set_radar_background = mt7996_set_radar_background,
--#ifdef CONFIG_NET_MEDIATEK_SOC_WED
- 	.net_fill_forward_path = mt7996_net_fill_forward_path,
-+#ifdef CONFIG_NET_MEDIATEK_SOC_WED
- 	.net_setup_tc = mt76_wed_net_setup_tc,
-+#elif defined(CONFIG_MT7996_NPU)
-+	.net_setup_tc = mt76_npu_net_setup_tc,
- #endif
- 	.change_vif_links = mt7996_change_vif_links,
- 	.change_sta_links = mt7996_mac_sta_change_links,
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-index b795a72c2c821561acf559598c0c123c6b785cb5..d9780bb425a719567f3c1e073833ed534f4e4458 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-@@ -707,9 +707,18 @@ void mt7996_dual_hif_set_irq_mask(struct mt7996_dev *dev, bool write_reg,
- static void mt7996_rx_poll_complete(struct mt76_dev *mdev,
- 				    enum mt76_rxq_id q)
+ static const struct stmmac_hwif_entry {
+-	bool gmac;
+-	bool gmac4;
+-	bool xgmac;
++	enum dwmac_core_type core_type;
+ 	u32 min_id;
+ 	u32 dev_id;
+ 	const struct stmmac_regs_off regs;
+@@ -127,9 +125,7 @@ static const struct stmmac_hwif_entry {
+ } stmmac_hw[] = {
+ 	/* NOTE: New HW versions shall go to the end of this table */
+ 	{
+-		.gmac = false,
+-		.gmac4 = false,
+-		.xgmac = false,
++		.core_type = DWMAC_CORE_MAC100,
+ 		.min_id = 0,
+ 		.regs = {
+ 			.ptp_off = PTP_GMAC3_X_OFFSET,
+@@ -146,9 +142,7 @@ static const struct stmmac_hwif_entry {
+ 		.setup = dwmac100_setup,
+ 		.quirks = stmmac_dwmac1_quirks,
+ 	}, {
+-		.gmac = true,
+-		.gmac4 = false,
+-		.xgmac = false,
++		.core_type = DWMAC_CORE_GMAC,
+ 		.min_id = 0,
+ 		.regs = {
+ 			.ptp_off = PTP_GMAC3_X_OFFSET,
+@@ -165,9 +159,7 @@ static const struct stmmac_hwif_entry {
+ 		.setup = dwmac1000_setup,
+ 		.quirks = stmmac_dwmac1_quirks,
+ 	}, {
+-		.gmac = false,
+-		.gmac4 = true,
+-		.xgmac = false,
++		.core_type = DWMAC_CORE_GMAC4,
+ 		.min_id = 0,
+ 		.regs = {
+ 			.ptp_off = PTP_GMAC4_OFFSET,
+@@ -187,9 +179,7 @@ static const struct stmmac_hwif_entry {
+ 		.setup = dwmac4_setup,
+ 		.quirks = stmmac_dwmac4_quirks,
+ 	}, {
+-		.gmac = false,
+-		.gmac4 = true,
+-		.xgmac = false,
++		.core_type = DWMAC_CORE_GMAC4,
+ 		.min_id = DWMAC_CORE_4_00,
+ 		.regs = {
+ 			.ptp_off = PTP_GMAC4_OFFSET,
+@@ -210,9 +200,7 @@ static const struct stmmac_hwif_entry {
+ 		.setup = dwmac4_setup,
+ 		.quirks = NULL,
+ 	}, {
+-		.gmac = false,
+-		.gmac4 = true,
+-		.xgmac = false,
++		.core_type = DWMAC_CORE_GMAC4,
+ 		.min_id = DWMAC_CORE_4_10,
+ 		.regs = {
+ 			.ptp_off = PTP_GMAC4_OFFSET,
+@@ -233,9 +221,7 @@ static const struct stmmac_hwif_entry {
+ 		.setup = dwmac4_setup,
+ 		.quirks = NULL,
+ 	}, {
+-		.gmac = false,
+-		.gmac4 = true,
+-		.xgmac = false,
++		.core_type = DWMAC_CORE_GMAC4,
+ 		.min_id = DWMAC_CORE_5_10,
+ 		.regs = {
+ 			.ptp_off = PTP_GMAC4_OFFSET,
+@@ -256,9 +242,7 @@ static const struct stmmac_hwif_entry {
+ 		.setup = dwmac4_setup,
+ 		.quirks = NULL,
+ 	}, {
+-		.gmac = false,
+-		.gmac4 = false,
+-		.xgmac = true,
++		.core_type = DWMAC_CORE_XGMAC,
+ 		.min_id = DWXGMAC_CORE_2_10,
+ 		.dev_id = DWXGMAC_ID,
+ 		.regs = {
+@@ -280,9 +264,7 @@ static const struct stmmac_hwif_entry {
+ 		.setup = dwxgmac2_setup,
+ 		.quirks = NULL,
+ 	}, {
+-		.gmac = false,
+-		.gmac4 = false,
+-		.xgmac = true,
++		.core_type = DWMAC_CORE_XGMAC,
+ 		.min_id = DWXLGMAC_CORE_2_00,
+ 		.dev_id = DWXLGMAC_ID,
+ 		.regs = {
+@@ -308,20 +290,18 @@ static const struct stmmac_hwif_entry {
+ 
+ int stmmac_hwif_init(struct stmmac_priv *priv)
  {
--	struct mt7996_dev *dev = container_of(mdev, struct mt7996_dev, mt76);
-+	if (q == MT_RXQ_NPU0 || q == MT_RXQ_NPU1) {
-+		struct airoha_npu *npu;
-+
-+		npu = rcu_dereference(mdev->mmio.npu);
-+		if (npu)
-+			airoha_npu_wlan_enable_irq(npu, q - MT_RXQ_NPU0);
+-	bool needs_xgmac = priv->plat->has_xgmac;
+-	bool needs_gmac4 = priv->plat->has_gmac4;
+-	bool needs_gmac = priv->plat->has_gmac;
++	enum dwmac_core_type core_type = priv->plat->core_type;
+ 	const struct stmmac_hwif_entry *entry;
+ 	struct mac_device_info *mac;
+ 	bool needs_setup = true;
+ 	u32 id, dev_id = 0;
+ 	int i, ret;
+ 
+-	if (needs_gmac) {
++	if (core_type == DWMAC_CORE_GMAC) {
+ 		id = stmmac_get_id(priv, GMAC_VERSION);
+-	} else if (needs_gmac4 || needs_xgmac) {
++	} else if (dwmac_is_xmac(core_type)) {
+ 		id = stmmac_get_id(priv, GMAC4_VERSION);
+-		if (needs_xgmac)
++		if (core_type == DWMAC_CORE_XGMAC)
+ 			dev_id = stmmac_get_dev_id(priv, GMAC4_VERSION);
+ 	} else {
+ 		id = 0;
+@@ -331,14 +311,16 @@ int stmmac_hwif_init(struct stmmac_priv *priv)
+ 	priv->synopsys_id = id;
+ 
+ 	/* Lets assume some safe values first */
+-	priv->ptpaddr = priv->ioaddr +
+-		(needs_gmac4 ? PTP_GMAC4_OFFSET : PTP_GMAC3_X_OFFSET);
+-	priv->mmcaddr = priv->ioaddr +
+-		(needs_gmac4 ? MMC_GMAC4_OFFSET : MMC_GMAC3_X_OFFSET);
+-	if (needs_gmac4)
++	if (core_type == DWMAC_CORE_GMAC4) {
++		priv->ptpaddr = priv->ioaddr + PTP_GMAC4_OFFSET;
++		priv->mmcaddr = priv->ioaddr + MMC_GMAC4_OFFSET;
+ 		priv->estaddr = priv->ioaddr + EST_GMAC4_OFFSET;
+-	else if (needs_xgmac)
+-		priv->estaddr = priv->ioaddr + EST_XGMAC_OFFSET;
 +	} else {
-+		struct mt7996_dev *dev = container_of(mdev, struct mt7996_dev,
-+						      mt76);
- 
--	mt7996_irq_enable(dev, MT_INT_RX(q));
-+		mt7996_irq_enable(dev, MT_INT_RX(q));
++		priv->ptpaddr = priv->ioaddr + PTP_GMAC3_X_OFFSET;
++		priv->mmcaddr = priv->ioaddr + MMC_GMAC3_X_OFFSET;
++		if (core_type == DWMAC_CORE_XGMAC)
++			priv->estaddr = priv->ioaddr + EST_XGMAC_OFFSET;
 +	}
+ 
+ 	/* Check for HW specific setup first */
+ 	if (priv->plat->setup) {
+@@ -355,16 +337,12 @@ int stmmac_hwif_init(struct stmmac_priv *priv)
+ 	for (i = ARRAY_SIZE(stmmac_hw) - 1; i >= 0; i--) {
+ 		entry = &stmmac_hw[i];
+ 
+-		if (needs_gmac ^ entry->gmac)
+-			continue;
+-		if (needs_gmac4 ^ entry->gmac4)
+-			continue;
+-		if (needs_xgmac ^ entry->xgmac)
++		if (core_type != entry->core_type)
+ 			continue;
+ 		/* Use synopsys_id var because some setups can override this */
+ 		if (priv->synopsys_id < entry->min_id)
+ 			continue;
+-		if (needs_xgmac && (dev_id ^ entry->dev_id))
++		if (core_type == DWMAC_CORE_XGMAC && (dev_id ^ entry->dev_id))
+ 			continue;
+ 
+ 		/* Only use generic HW helpers if needed */
+@@ -400,6 +378,7 @@ int stmmac_hwif_init(struct stmmac_priv *priv)
+ 	}
+ 
+ 	dev_err(priv->device, "Failed to find HW IF (id=0x%x, gmac=%d/%d)\n",
+-			id, needs_gmac, needs_gmac4);
++		id, core_type == DWMAC_CORE_GMAC,
++		core_type == DWMAC_CORE_GMAC4);
+ 	return -EINVAL;
  }
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+index 4b513d27a988..afc516059b89 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_est.c
+@@ -53,7 +53,7 @@ static int est_configure(struct stmmac_priv *priv, struct stmmac_est *cfg,
+ 	}
  
- /* TODO: support 2/4/6/8 MSI-X vectors */
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-index d52264b2316306d6e2c37db05cf2ff41be3c3f63..87730d26669dff844bc43e3aada9f1265b31de9e 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-@@ -874,4 +874,25 @@ int mt7996_mtk_init_debugfs(struct mt7996_phy *phy, struct dentry *dir);
+ 	ctrl = readl(est_addr + EST_CONTROL);
+-	if (priv->plat->has_xgmac) {
++	if (priv->plat->core_type == DWMAC_CORE_XGMAC) {
+ 		ctrl &= ~EST_XGMAC_PTOV;
+ 		ctrl |= ((NSEC_PER_SEC / ptp_rate) * EST_XGMAC_PTOV_MUL) <<
+ 			 EST_XGMAC_PTOV_SHIFT;
+@@ -148,7 +148,7 @@ static void est_irq_status(struct stmmac_priv *priv, struct net_device *dev,
+ 	}
  
- int mt7996_dma_rro_init(struct mt7996_dev *dev);
+ 	if (status & EST_BTRE) {
+-		if (priv->plat->has_xgmac) {
++		if (priv->plat->core_type == DWMAC_CORE_XGMAC) {
+ 			btrl = FIELD_GET(EST_XGMAC_BTRL, status);
+ 			btrl_max = FIELD_MAX(EST_XGMAC_BTRL);
+ 		} else {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index 39fa1ec92f82..b8885e345966 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -303,9 +303,10 @@ static void stmmac_ethtool_getdrvinfo(struct net_device *dev,
+ {
+ 	struct stmmac_priv *priv = netdev_priv(dev);
  
-+#ifdef CONFIG_MT7996_NPU
-+int mt7996_npu_hw_init(struct mt7996_dev *dev);
-+int mt7996_npu_hw_stop(struct mt7996_dev *dev);
-+int mt7996_npu_rx_queues_init(struct mt7996_dev *dev);
-+#else
-+static inline int mt7996_npu_hw_init(struct mt7996_dev *dev)
-+{
-+	return 0;
-+}
-+
-+static inline int mt7996_npu_hw_stop(struct mt7996_dev *dev)
-+{
-+	return 0;
-+}
-+
-+static inline int mt7996_npu_rx_queues_init(struct mt7996_dev *dev)
-+{
-+	return 0;
-+}
-+#endif /* CONFIG_MT7996_NPU */
-+
+-	if (priv->plat->has_gmac || priv->plat->has_gmac4)
++	if (priv->plat->core_type == DWMAC_CORE_GMAC ||
++	    priv->plat->core_type == DWMAC_CORE_GMAC4)
+ 		strscpy(info->driver, GMAC_ETHTOOL_NAME, sizeof(info->driver));
+-	else if (priv->plat->has_xgmac)
++	else if (priv->plat->core_type == DWMAC_CORE_XGMAC)
+ 		strscpy(info->driver, XGMAC_ETHTOOL_NAME, sizeof(info->driver));
+ 	else
+ 		strscpy(info->driver, MAC100_ETHTOOL_NAME,
+@@ -406,9 +407,9 @@ static int stmmac_ethtool_get_regs_len(struct net_device *dev)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+ 
+-	if (priv->plat->has_xgmac)
++	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
+ 		return XGMAC_REGSIZE * 4;
+-	else if (priv->plat->has_gmac4)
++	else if (priv->plat->core_type == DWMAC_CORE_GMAC4)
+ 		return GMAC4_REG_SPACE_SIZE;
+ 	return REG_SPACE_SIZE;
+ }
+@@ -423,12 +424,12 @@ static void stmmac_ethtool_gregs(struct net_device *dev,
+ 	stmmac_dump_dma_regs(priv, priv->ioaddr, reg_space);
+ 
+ 	/* Copy DMA registers to where ethtool expects them */
+-	if (priv->plat->has_gmac4) {
++	if (priv->plat->core_type == DWMAC_CORE_GMAC4) {
+ 		/* GMAC4 dumps its DMA registers at its DMA_CHAN_BASE_ADDR */
+ 		memcpy(&reg_space[ETHTOOL_DMA_OFFSET],
+ 		       &reg_space[GMAC4_DMA_CHAN_BASE_ADDR / 4],
+ 		       NUM_DWMAC4_DMA_REGS * 4);
+-	} else if (!priv->plat->has_xgmac) {
++	} else if (priv->plat->core_type != DWMAC_CORE_XGMAC) {
+ 		memcpy(&reg_space[ETHTOOL_DMA_OFFSET],
+ 		       &reg_space[DMA_BUS_MODE / 4],
+ 		       NUM_DWMAC1000_DMA_REGS * 4);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index c9fa965c8566..d17400c0580c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -445,7 +445,7 @@ static void stmmac_get_rx_hwtstamp(struct stmmac_priv *priv, struct dma_desc *p,
+ 	if (!priv->hwts_rx_en)
+ 		return;
+ 	/* For GMAC4, the valid timestamp is from CTX next desc. */
+-	if (priv->plat->has_gmac4 || priv->plat->has_xgmac)
++	if (dwmac_is_xmac(priv->plat->core_type))
+ 		desc = np;
+ 
+ 	/* Check if timestamp is available */
+@@ -696,7 +696,7 @@ static int stmmac_hwtstamp_get(struct net_device *dev,
+ static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
+ 				      u32 systime_flags)
+ {
+-	bool xmac = priv->plat->has_gmac4 || priv->plat->has_xgmac;
++	bool xmac = dwmac_is_xmac(priv->plat->core_type);
+ 	struct timespec64 now;
+ 	u32 sec_inc = 0;
+ 	u64 temp = 0;
+@@ -745,7 +745,7 @@ static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
+  */
+ static int stmmac_init_timestamping(struct stmmac_priv *priv)
+ {
+-	bool xmac = priv->plat->has_gmac4 || priv->plat->has_xgmac;
++	bool xmac = dwmac_is_xmac(priv->plat->core_type);
+ 	int ret;
+ 
+ 	if (priv->plat->ptp_clk_freq_config)
+@@ -2397,7 +2397,7 @@ static void stmmac_dma_operation_mode(struct stmmac_priv *priv)
+ 		txfifosz = priv->dma_cap.tx_fifo_size;
+ 
+ 	/* Split up the shared Tx/Rx FIFO memory on DW QoS Eth and DW XGMAC */
+-	if (priv->plat->has_gmac4 || priv->plat->has_xgmac) {
++	if (dwmac_is_xmac(priv->plat->core_type)) {
+ 		rxfifosz /= rx_channels_count;
+ 		txfifosz /= tx_channels_count;
+ 	}
+@@ -4520,7 +4520,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	if (skb_is_gso(skb) && priv->tso) {
+ 		if (gso & (SKB_GSO_TCPV4 | SKB_GSO_TCPV6))
+ 			return stmmac_tso_xmit(skb, dev);
+-		if (priv->plat->has_gmac4 && (gso & SKB_GSO_UDP_L4))
++		if (priv->plat->core_type == DWMAC_CORE_GMAC4 && (gso & SKB_GSO_UDP_L4))
+ 			return stmmac_tso_xmit(skb, dev);
+ 	}
+ 
+@@ -5973,7 +5973,7 @@ static void stmmac_common_interrupt(struct stmmac_priv *priv)
+ 	u32 queue;
+ 	bool xmac;
+ 
+-	xmac = priv->plat->has_gmac4 || priv->plat->has_xgmac;
++	xmac = dwmac_is_xmac(priv->plat->core_type);
+ 	queues_count = (rx_cnt > tx_cnt) ? rx_cnt : tx_cnt;
+ 
+ 	if (priv->irq_wake)
+@@ -5987,7 +5987,7 @@ static void stmmac_common_interrupt(struct stmmac_priv *priv)
+ 		stmmac_fpe_irq_status(priv);
+ 
+ 	/* To handle GMAC own interrupts */
+-	if ((priv->plat->has_gmac) || xmac) {
++	if (priv->plat->core_type == DWMAC_CORE_GMAC || xmac) {
+ 		int status = stmmac_host_irq_status(priv, priv->hw, &priv->xstats);
+ 
+ 		if (unlikely(status)) {
+@@ -6357,7 +6357,7 @@ static int stmmac_dma_cap_show(struct seq_file *seq, void *v)
+ 		   (priv->dma_cap.mbps_1000) ? "Y" : "N");
+ 	seq_printf(seq, "\tHalf duplex: %s\n",
+ 		   (priv->dma_cap.half_duplex) ? "Y" : "N");
+-	if (priv->plat->has_xgmac) {
++	if (priv->plat->core_type == DWMAC_CORE_XGMAC) {
+ 		seq_printf(seq,
+ 			   "\tNumber of Additional MAC address registers: %d\n",
+ 			   priv->dma_cap.multi_addr);
+@@ -6381,7 +6381,7 @@ static int stmmac_dma_cap_show(struct seq_file *seq, void *v)
+ 		   (priv->dma_cap.time_stamp) ? "Y" : "N");
+ 	seq_printf(seq, "\tIEEE 1588-2008 Advanced Time Stamp: %s\n",
+ 		   (priv->dma_cap.atime_stamp) ? "Y" : "N");
+-	if (priv->plat->has_xgmac)
++	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
+ 		seq_printf(seq, "\tTimestamp System Time Source: %s\n",
+ 			   dwxgmac_timestamp_source[priv->dma_cap.tssrc]);
+ 	seq_printf(seq, "\t802.3az - Energy-Efficient Ethernet (EEE): %s\n",
+@@ -6390,7 +6390,7 @@ static int stmmac_dma_cap_show(struct seq_file *seq, void *v)
+ 	seq_printf(seq, "\tChecksum Offload in TX: %s\n",
+ 		   (priv->dma_cap.tx_coe) ? "Y" : "N");
+ 	if (priv->synopsys_id >= DWMAC_CORE_4_00 ||
+-	    priv->plat->has_xgmac) {
++	    priv->plat->core_type == DWMAC_CORE_XGMAC) {
+ 		seq_printf(seq, "\tIP Checksum Offload in RX: %s\n",
+ 			   (priv->dma_cap.rx_coe) ? "Y" : "N");
+ 	} else {
+@@ -7242,8 +7242,9 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
+ 	 * has to be disable and this can be done by passing the
+ 	 * riwt_off field from the platform.
+ 	 */
+-	if (((priv->synopsys_id >= DWMAC_CORE_3_50) ||
+-	    (priv->plat->has_xgmac)) && (!priv->plat->riwt_off)) {
++	if ((priv->synopsys_id >= DWMAC_CORE_3_50 ||
++	     priv->plat->core_type == DWMAC_CORE_XGMAC) &&
++	    !priv->plat->riwt_off) {
+ 		priv->use_riwt = 1;
+ 		dev_info(priv->device,
+ 			 "Enable RX Mitigation via HW Watchdog Timer\n");
+@@ -7357,7 +7358,7 @@ static int stmmac_xdp_rx_timestamp(const struct xdp_md *_ctx, u64 *timestamp)
+ 		return -ENODATA;
+ 
+ 	/* For GMAC4, the valid timestamp is from CTX next desc. */
+-	if (priv->plat->has_gmac4 || priv->plat->has_xgmac)
++	if (dwmac_is_xmac(priv->plat->core_type))
+ 		desc_contains_ts = ndesc;
+ 
+ 	/* Check if timestamp is available */
+@@ -7513,7 +7514,7 @@ int stmmac_dvr_probe(struct device *device,
+ 
+ 	if ((priv->plat->flags & STMMAC_FLAG_TSO_EN) && (priv->dma_cap.tsoen)) {
+ 		ndev->hw_features |= NETIF_F_TSO | NETIF_F_TSO6;
+-		if (priv->plat->has_gmac4)
++		if (priv->plat->core_type == DWMAC_CORE_GMAC4)
+ 			ndev->hw_features |= NETIF_F_GSO_UDP_L4;
+ 		priv->tso = true;
+ 		dev_info(priv->device, "TSO feature enabled\n");
+@@ -7566,7 +7567,7 @@ int stmmac_dvr_probe(struct device *device,
+ #ifdef STMMAC_VLAN_TAG_USED
+ 	/* Both mac100 and gmac support receive VLAN tag detection */
+ 	ndev->features |= NETIF_F_HW_VLAN_CTAG_RX | NETIF_F_HW_VLAN_STAG_RX;
+-	if (priv->plat->has_gmac4 || priv->plat->has_xgmac) {
++	if (dwmac_is_xmac(priv->plat->core_type)) {
+ 		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
+ 		priv->hw->hw_vlan_en = true;
+ 	}
+@@ -7597,7 +7598,7 @@ int stmmac_dvr_probe(struct device *device,
+ 
+ 	/* MTU range: 46 - hw-specific max */
+ 	ndev->min_mtu = ETH_ZLEN - ETH_HLEN;
+-	if (priv->plat->has_xgmac)
++	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
+ 		ndev->max_mtu = XGMAC_JUMBO_LEN;
+ 	else if ((priv->plat->enh_desc) || (priv->synopsys_id >= DWMAC_CORE_4_00))
+ 		ndev->max_mtu = JUMBO_LEN;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+index d62b2870899d..6b03ea98dced 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+@@ -301,7 +301,7 @@ static int stmmac_mdio_read_c22(struct mii_bus *bus, int phyaddr, int phyreg)
+ 	struct stmmac_priv *priv = netdev_priv(bus->priv);
+ 	u32 cmd;
+ 
+-	if (priv->plat->has_gmac4)
++	if (priv->plat->core_type == DWMAC_CORE_GMAC4)
+ 		cmd = MII_GMAC4_READ;
+ 	else
+ 		cmd = 0;
+@@ -344,7 +344,7 @@ static int stmmac_mdio_write_c22(struct mii_bus *bus, int phyaddr, int phyreg,
+ 	struct stmmac_priv *priv = netdev_priv(bus->priv);
+ 	u32 cmd;
+ 
+-	if (priv->plat->has_gmac4)
++	if (priv->plat->core_type == DWMAC_CORE_GMAC4)
+ 		cmd = MII_GMAC4_WRITE;
+ 	else
+ 		cmd = MII_ADDR_GWRITE;
+@@ -417,7 +417,7 @@ int stmmac_mdio_reset(struct mii_bus *bus)
+ 	 * on MDC, so perform a dummy mdio read. To be updated for GMAC4
+ 	 * if needed.
+ 	 */
+-	if (!priv->plat->has_gmac4)
++	if (priv->plat->core_type != DWMAC_CORE_GMAC4)
+ 		writel(0, priv->ioaddr + mii_address);
  #endif
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/npu.c b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..29bb735da4cb8f5998c9483567c65f3e3530c771
---- /dev/null
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
-@@ -0,0 +1,352 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 AIROHA Inc
-+ * Author: Lorenzo Bianconi <lorenzo@kernel.org>
-+ */
-+#include <linux/kernel.h>
-+#include <linux/soc/airoha/airoha_offload.h>
-+
-+#include "mt7996.h"
-+
-+static int mt7996_npu_offload_init(struct mt7996_dev *dev,
-+				   struct airoha_npu *npu)
-+{
-+	phys_addr_t phy_addr = dev->mt76.mmio.phy_addr;
-+	u32 val, hif1_ofs = 0, dma_addr;
-+	int i, err;
-+
-+	err = mt76_npu_get_msg(npu, 0, WLAN_FUNC_GET_WAIT_NPU_VERSION,
-+			       &val, GFP_KERNEL);
-+	if (err) {
-+		dev_warn(dev->mt76.dev, "failed getting NPU fw version\n");
-+		return err;
-+	}
-+
-+	dev_info(dev->mt76.dev, "NPU version: %0d.%d\n",
-+		 (val >> 16) & 0xffff, val & 0xffff);
-+
-+	err = mt76_npu_send_msg(npu, 0, WLAN_FUNC_SET_WAIT_PCIE_PORT_TYPE,
-+				dev->mt76.mmio.npu_type, GFP_KERNEL);
-+	if (err) {
-+		dev_warn(dev->mt76.dev,
-+			 "failed setting NPU wlan PCIe port type\n");
-+		return err;
-+	}
-+
-+	if (dev->hif2)
-+		hif1_ofs = MT_WFDMA0_PCIE1(0) - MT_WFDMA0(0);
-+
-+	for (i = MT_BAND0; i < MT_BAND2; i++) {
-+		dma_addr = phy_addr;
-+		if (i)
-+			dma_addr += MT_RXQ_RING_BASE(MT_RXQ_RRO_BAND1) + 0x90 +
-+				    hif1_ofs;
-+		else
-+			dma_addr += MT_RXQ_RING_BASE(MT_RXQ_RRO_BAND0) + 0x80;
-+
-+		err = mt76_npu_send_msg(npu, i, WLAN_FUNC_SET_WAIT_PCIE_ADDR,
-+					dma_addr, GFP_KERNEL);
-+		if (err) {
-+			dev_warn(dev->mt76.dev,
-+				 "failed setting NPU wlan PCIe desc addr\n");
-+			return err;
-+		}
-+
-+		err = mt76_npu_send_msg(npu, i, WLAN_FUNC_SET_WAIT_DESC,
-+					MT7996_RX_RING_SIZE, GFP_KERNEL);
-+		if (err) {
-+			dev_warn(dev->mt76.dev,
-+				 "failed setting NPU wlan PCIe desc size\n");
-+			return err;
-+		}
-+
-+		dma_addr = phy_addr;
-+		if (i)
-+			dma_addr += MT_TXQ_RING_BASE(0) + 0x150 + hif1_ofs;
-+		else
-+			dma_addr += MT_TXQ_RING_BASE(0) + 0x120;
-+
-+		err = mt76_npu_send_msg(npu, i,
-+					WLAN_FUNC_SET_WAIT_TX_RING_PCIE_ADDR,
-+					dma_addr, GFP_KERNEL);
-+		if (err) {
-+			dev_warn(dev->mt76.dev,
-+				 "failed setting NPU wlan tx desc addr\n");
-+			return err;
-+		}
-+	}
-+
-+	err = mt76_npu_send_msg(npu, 9, WLAN_FUNC_SET_WAIT_PCIE_ADDR,
-+				phy_addr + MT_RXQ_RRO_AP_RING_BASE,
-+				GFP_KERNEL);
-+	if (err) {
-+		dev_warn(dev->mt76.dev,
-+			 "failed setting NPU wlan rxdmad_c addr\n");
-+		return err;
-+	}
-+
-+	err = mt76_npu_send_msg(npu, 9, WLAN_FUNC_SET_WAIT_DESC,
-+				MT7996_RX_RING_SIZE, GFP_KERNEL);
-+	if (err) {
-+		dev_warn(dev->mt76.dev,
-+			 "failed setting NPU wlan rxdmad_c desc size\n");
-+		return err;
-+	}
-+
-+	err = mt76_npu_send_msg(npu, 2, WLAN_FUNC_SET_WAIT_TX_RING_PCIE_ADDR,
-+				phy_addr + MT_RRO_ACK_SN_CTRL, GFP_KERNEL);
-+	if (err) {
-+		dev_warn(dev->mt76.dev,
-+			 "failed setting NPU wlan rro_ack_sn desc addr\n");
-+		return err;
-+	}
-+
-+	err = mt76_npu_send_msg(npu, 0, WLAN_FUNC_SET_WAIT_TOKEN_ID_SIZE,
-+				MT7996_HW_TOKEN_SIZE, GFP_KERNEL);
-+	if (err)
-+		return err;
-+
-+	dev->mt76.token_start = MT7996_HW_TOKEN_SIZE;
-+
-+	return 0;
-+}
-+
-+static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
-+{
-+	u32 val;
-+	int err;
-+
-+	err = mt76_npu_get_msg(npu, 0, WLAN_FUNC_GET_WAIT_RXDESC_BASE,
-+			       &val, GFP_KERNEL);
-+	if (err) {
-+		dev_warn(dev->mt76.dev,
-+			 "failed retriving NPU wlan rx ring0 addr\n");
-+		return err;
-+	}
-+	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_BAND0].regs->desc_base);
-+
-+	err = mt76_npu_get_msg(npu, 1, WLAN_FUNC_GET_WAIT_RXDESC_BASE,
-+			       &val, GFP_KERNEL);
-+	if (err) {
-+		dev_warn(dev->mt76.dev,
-+			 "failed retriving NPU wlan rx ring1 addr\n");
-+		return err;
-+	}
-+	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_BAND1].regs->desc_base);
-+
-+	err = mt76_npu_get_msg(npu, 9, WLAN_FUNC_GET_WAIT_RXDESC_BASE,
-+			       &val, GFP_KERNEL);
-+	if (err) {
-+		dev_warn(dev->mt76.dev,
-+			 "failed retriving NPU wlan rxdmad_c ring addr\n");
-+		return err;
-+	}
-+	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_RXDMAD_C].regs->desc_base);
-+
-+	return 0;
-+}
-+
-+static int mt7996_npu_txd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
-+{
-+	int i, err;
-+
-+	for (i = MT_BAND0; i < MT_BAND2; i++) {
-+		dma_addr_t dma_addr;
-+		u32 val;
-+
-+		err = mt76_npu_get_msg(npu, i + 5,
-+				       WLAN_FUNC_GET_WAIT_RXDESC_BASE,
-+				       &val, GFP_KERNEL);
-+		if (err) {
-+			dev_warn(dev->mt76.dev,
-+				 "failed retriving NPU wlan tx ring addr\n");
-+			return err;
-+		}
-+		writel(val, &dev->mt76.phys[i]->q_tx[0]->regs->desc_base);
-+
-+		if (!dmam_alloc_coherent(dev->mt76.dma_dev,
-+					 256 * MT7996_TX_RING_SIZE,
-+					 &dma_addr, GFP_KERNEL))
-+			return -ENOMEM;
-+
-+		err = mt76_npu_send_msg(npu, i,
-+					WLAN_FUNC_SET_WAIT_TX_BUF_SPACE_HW_BASE,
-+					dma_addr, GFP_KERNEL);
-+		if (err) {
-+			dev_warn(dev->mt76.dev,
-+				 "failed setting NPU wlan queue buf addr\n");
-+			return err;
-+		}
-+
-+		if (!dmam_alloc_coherent(dev->mt76.dma_dev,
-+					 256 * MT7996_TX_RING_SIZE,
-+					 &dma_addr, GFP_KERNEL))
-+			return -ENOMEM;
-+
-+		err = mt76_npu_send_msg(npu, i + 5,
-+					WLAN_FUNC_SET_WAIT_TX_BUF_SPACE_HW_BASE,
-+					dma_addr, GFP_KERNEL);
-+		if (err) {
-+			dev_warn(dev->mt76.dev,
-+				 "failed setting NPU wlan tx buf addr\n");
-+			return err;
-+		}
-+
-+		if (!dmam_alloc_coherent(dev->mt76.dma_dev, 256 * 1024,
-+					 &dma_addr, GFP_KERNEL))
-+			return -ENOMEM;
-+
-+		err = mt76_npu_send_msg(npu, i + 10,
-+					WLAN_FUNC_SET_WAIT_TX_BUF_SPACE_HW_BASE,
-+					dma_addr, GFP_KERNEL);
-+		if (err) {
-+			dev_warn(dev->mt76.dev,
-+				 "failed setting NPU wlan tx buf base\n");
-+			return err;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int mt7996_npu_rx_event_init(struct mt7996_dev *dev,
-+				    struct airoha_npu *npu)
-+{
-+	struct mt76_queue *q = &dev->mt76.q_rx[MT_RXQ_MAIN_WA];
-+	phys_addr_t phy_addr = dev->mt76.mmio.phy_addr;
-+	int err;
-+
-+	err = mt76_npu_send_msg(npu, 0,
-+				WLAN_FUNC_SET_WAIT_RX_RING_FOR_TXDONE_HW_BASE,
-+				q->desc_dma, GFP_KERNEL);
-+	if (err) {
-+		dev_warn(dev->mt76.dev,
-+			 "failed setting NPU wlan tx-done ring\n");
-+		return err;
-+	}
-+
-+	err = mt76_npu_send_msg(npu, 10, WLAN_FUNC_SET_WAIT_DESC,
-+				MT7996_RX_MCU_RING_SIZE, GFP_KERNEL);
-+	if (err) {
-+		dev_warn(dev->mt76.dev,
-+			 "failed setting NPU wlan descriptors\n");
-+		return err;
-+	}
-+
-+	phy_addr += MT_RXQ_RING_BASE(MT_RXQ_MAIN_WA) + 0x20;
-+	err = mt76_npu_send_msg(npu, 10, WLAN_FUNC_SET_WAIT_PCIE_ADDR,
-+				phy_addr, GFP_KERNEL);
-+	if (err)
-+		dev_warn(dev->mt76.dev,
-+			 "failed setting NPU wlan rx pcie address\n");
-+	return err;
-+}
-+
-+static int mt7996_npu_tx_done_init(struct mt7996_dev *dev,
-+				   struct airoha_npu *npu)
-+{
-+	int err;
-+
-+	err = mt76_npu_send_msg(npu, 2, WLAN_FUNC_SET_WAIT_INODE_TXRX_REG_ADDR,
-+				0, GFP_KERNEL);
-+	if (err) {
-+		dev_warn(dev->mt76.dev, "failed setting NPU wlan txrx addr2\n");
-+		return err;
-+	}
-+
-+	err = mt76_npu_send_msg(npu, 7, WLAN_FUNC_SET_WAIT_INODE_TXRX_REG_ADDR,
-+				0, GFP_KERNEL);
-+	if (err)
-+		dev_warn(dev->mt76.dev, "failed setting NPU wlan txrx addr7\n");
-+
-+	return err;
-+}
-+
-+int mt7996_npu_rx_queues_init(struct mt7996_dev *dev)
-+{
-+	int err;
-+
-+	if (!mt76_npu_device_active(&dev->mt76))
-+		return 0;
-+
-+	err = mt76_npu_rx_queue_init(&dev->mt76,
-+				     &dev->mt76.q_rx[MT_RXQ_NPU0]);
-+	if (err)
-+		return err;
-+
-+	return mt76_npu_rx_queue_init(&dev->mt76,
-+				      &dev->mt76.q_rx[MT_RXQ_NPU1]);
-+}
-+
-+int mt7996_npu_hw_init(struct mt7996_dev *dev)
-+{
-+	struct airoha_npu *npu;
-+	int i, err = 0;
-+
-+	mutex_lock(&dev->mt76.mutex);
-+
-+	npu = rcu_dereference_protected(dev->mt76.mmio.npu, &dev->mt76.mutex);
-+	if (!npu)
-+		goto unlock;
-+
-+	err = mt7996_npu_offload_init(dev, npu);
-+	if (err)
-+		goto unlock;
-+
-+	err = mt7996_npu_rxd_init(dev, npu);
-+	if (err)
-+		goto unlock;
-+
-+	err = mt7996_npu_txd_init(dev, npu);
-+	if (err)
-+		goto unlock;
-+
-+	err = mt7996_npu_rx_event_init(dev, npu);
-+	if (err)
-+		goto unlock;
-+
-+	err = mt7996_npu_tx_done_init(dev, npu);
-+	if (err)
-+		goto unlock;
-+
-+	for (i = MT_RXQ_NPU0; i <= MT_RXQ_NPU1; i++)
-+		airoha_npu_wlan_enable_irq(npu, i - MT_RXQ_NPU0);
-+unlock:
-+	mutex_unlock(&dev->mt76.mutex);
-+
-+	return err;
-+}
-+
-+int mt7996_npu_hw_stop(struct mt7996_dev *dev)
-+{
-+	struct airoha_npu *npu;
-+	int i, err;
-+	u32 info;
-+
-+	npu = rcu_dereference_protected(dev->mt76.mmio.npu, &dev->mt76.mutex);
-+	if (!npu)
-+		return 0;
-+
-+	err = mt76_npu_send_msg(npu, 4, WLAN_FUNC_SET_WAIT_INODE_TXRX_REG_ADDR,
-+				0, GFP_KERNEL);
-+	if (err)
-+		return err;
-+
-+	for (i = 0; i < 10; i++) {
-+		err = mt76_npu_get_msg(npu, 3, WLAN_FUNC_GET_WAIT_NPU_INFO,
-+				       &info, GFP_KERNEL);
-+		if (err)
-+			continue;
-+
-+		if (info) {
-+			err = -ETIMEDOUT;
-+			continue;
-+		}
-+	}
-+
-+	if (!err)
-+		err = mt76_npu_send_msg(npu, 6,
-+					WLAN_FUNC_SET_WAIT_INODE_TXRX_REG_ADDR,
-+					0, GFP_KERNEL);
-+	return err;
-+}
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/pci.c b/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
-index 4eb55ffdf1a046e8cf0cbd55e5b0abe7cc1048e7..024d8b217e62f1c9af3e0fbfffdf5058938b8af4 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
-@@ -140,6 +140,9 @@ static int mt7996_pci_probe(struct pci_dev *pdev,
- 	hif2 = mt7996_pci_init_hif2(pdev);
- 	dev->hif2 = hif2;
+ 	return 0;
+@@ -528,7 +528,7 @@ static u32 stmmac_clk_csr_set(struct stmmac_priv *priv)
+ 			value = 0;
+ 	}
  
-+	mt76_npu_init(mdev, pci_resource_start(pdev, 0),
-+		      pdev->bus && pci_domain_nr(pdev->bus) ? 3 : 2);
+-	if (priv->plat->has_xgmac) {
++	if (priv->plat->core_type == DWMAC_CORE_XGMAC) {
+ 		if (clk_rate > 400000000)
+ 			value = 0x5;
+ 		else if (clk_rate > 350000000)
+@@ -600,7 +600,7 @@ int stmmac_mdio_register(struct net_device *ndev)
+ 
+ 	new_bus->name = "stmmac";
+ 
+-	if (priv->plat->has_xgmac) {
++	if (priv->plat->core_type == DWMAC_CORE_XGMAC) {
+ 		new_bus->read = &stmmac_xgmac2_mdio_read_c22;
+ 		new_bus->write = &stmmac_xgmac2_mdio_write_c22;
+ 		new_bus->read_c45 = &stmmac_xgmac2_mdio_read_c45;
+@@ -621,7 +621,7 @@ int stmmac_mdio_register(struct net_device *ndev)
+ 	} else {
+ 		new_bus->read = &stmmac_mdio_read_c22;
+ 		new_bus->write = &stmmac_mdio_write_c22;
+-		if (priv->plat->has_gmac4) {
++		if (priv->plat->core_type == DWMAC_CORE_GMAC4) {
+ 			new_bus->read_c45 = &stmmac_mdio_read_c45;
+ 			new_bus->write_c45 = &stmmac_mdio_write_c45;
+ 		}
+@@ -649,7 +649,7 @@ int stmmac_mdio_register(struct net_device *ndev)
+ 	}
+ 
+ 	/* Looks like we need a dummy read for XGMAC only and C45 PHYs */
+-	if (priv->plat->has_xgmac)
++	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
+ 		stmmac_xgmac2_mdio_read_c45(new_bus, 0, 0, 0);
+ 
+ 	/* If fixed-link is set, skip PHY scanning */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
+index 4e3aa611fda8..94b3a3b27270 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
+@@ -23,7 +23,7 @@ static void common_default_data(struct plat_stmmacenet_data *plat)
+ {
+ 	/* clk_csr_i = 20-35MHz & MDC = clk_csr_i/16 */
+ 	plat->clk_csr = STMMAC_CSR_20_35M;
+-	plat->has_gmac = 1;
++	plat->core_type = DWMAC_CORE_GMAC;
+ 	plat->force_sf_dma_mode = 1;
+ 
+ 	plat->mdio_bus_data->needs_reset = true;
+@@ -76,7 +76,7 @@ static int snps_gmac5_default_data(struct pci_dev *pdev,
+ 	int i;
+ 
+ 	plat->clk_csr = STMMAC_CSR_250_300M;
+-	plat->has_gmac4 = 1;
++	plat->core_type = DWMAC_CORE_GMAC4;
+ 	plat->force_sf_dma_mode = 1;
+ 	plat->flags |= STMMAC_FLAG_TSO_EN;
+ 	plat->pmt = 1;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index 27bcaae07a7f..fbb92cc6ab59 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -552,12 +552,12 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 				&pdev->dev, plat->unicast_filter_entries);
+ 		plat->multicast_filter_bins = dwmac1000_validate_mcast_bins(
+ 				&pdev->dev, plat->multicast_filter_bins);
+-		plat->has_gmac = 1;
++		plat->core_type = DWMAC_CORE_GMAC;
+ 		plat->pmt = 1;
+ 	}
+ 
+ 	if (of_device_is_compatible(np, "snps,dwmac-3.40a")) {
+-		plat->has_gmac = 1;
++		plat->core_type = DWMAC_CORE_GMAC;
+ 		plat->enh_desc = 1;
+ 		plat->tx_coe = 1;
+ 		plat->bugged_jumbo = 1;
+@@ -565,8 +565,7 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 	}
+ 
+ 	if (of_device_compatible_match(np, stmmac_gmac4_compats)) {
+-		plat->has_gmac4 = 1;
+-		plat->has_gmac = 0;
++		plat->core_type = DWMAC_CORE_GMAC4;
+ 		plat->pmt = 1;
+ 		if (of_property_read_bool(np, "snps,tso"))
+ 			plat->flags |= STMMAC_FLAG_TSO_EN;
+@@ -580,7 +579,7 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 	}
+ 
+ 	if (of_device_is_compatible(np, "snps,dwxgmac")) {
+-		plat->has_xgmac = 1;
++		plat->core_type = DWMAC_CORE_XGMAC;
+ 		plat->pmt = 1;
+ 		if (of_property_read_bool(np, "snps,tso"))
+ 			plat->flags |= STMMAC_FLAG_TSO_EN;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+index 993ff4e87e55..3e30172fa129 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+@@ -57,7 +57,7 @@ static int stmmac_adjust_time(struct ptp_clock_info *ptp, s64 delta)
+ 	bool xmac, est_rst = false;
+ 	int ret;
+ 
+-	xmac = priv->plat->has_gmac4 || priv->plat->has_xgmac;
++	xmac = dwmac_is_xmac(priv->plat->core_type);
+ 
+ 	if (delta < 0) {
+ 		neg_adj = 1;
+@@ -344,7 +344,7 @@ void stmmac_ptp_register(struct stmmac_priv *priv)
+ 
+ 	/* Calculate the clock domain crossing (CDC) error if necessary */
+ 	priv->plat->cdc_error_adj = 0;
+-	if (priv->plat->has_gmac4)
++	if (priv->plat->core_type == DWMAC_CORE_GMAC4)
+ 		priv->plat->cdc_error_adj = (2 * NSEC_PER_SEC) / priv->plat->clk_ptp_rate;
+ 
+ 	/* Update the ptp clock parameters based on feature discovery, when
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index fa1318bac06c..48e57e187930 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -171,6 +171,13 @@ struct dwmac4_addrs {
+ 	u32 mtl_low_cred_offset;
+ };
+ 
++enum dwmac_core_type {
++	DWMAC_CORE_MAC100,
++	DWMAC_CORE_GMAC,
++	DWMAC_CORE_GMAC4,
++	DWMAC_CORE_XGMAC,
++};
 +
- 	ret = mt7996_mmio_wed_init(dev, pdev, false, &irq);
- 	if (ret < 0)
- 		goto free_wed_or_irq_vector;
-
+ #define STMMAC_FLAG_HAS_INTEGRATED_PCS		BIT(0)
+ #define STMMAC_FLAG_SPH_DISABLE			BIT(1)
+ #define STMMAC_FLAG_USE_PHY_WOL			BIT(2)
+@@ -187,6 +194,7 @@ struct dwmac4_addrs {
+ #define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(13)
+ 
+ struct plat_stmmacenet_data {
++	enum dwmac_core_type core_type;
+ 	int bus_id;
+ 	int phy_addr;
+ 	/* MAC ----- optional PCS ----- SerDes ----- optional PHY ----- Media
+@@ -220,7 +228,6 @@ struct plat_stmmacenet_data {
+ 	struct stmmac_dma_cfg *dma_cfg;
+ 	struct stmmac_safety_feature_cfg *safety_feat_cfg;
+ 	int clk_csr;
+-	int has_gmac;
+ 	int enh_desc;
+ 	int tx_coe;
+ 	int rx_coe;
+@@ -283,10 +290,8 @@ struct plat_stmmacenet_data {
+ 	struct reset_control *stmmac_rst;
+ 	struct reset_control *stmmac_ahb_rst;
+ 	struct stmmac_axi *axi;
+-	int has_gmac4;
+ 	int rss_en;
+ 	int mac_port_sel_speed;
+-	int has_xgmac;
+ 	u8 vlan_fail_q;
+ 	struct pci_dev *pdev;
+ 	int int_snapshot_num;
 -- 
-2.51.0
+2.47.3
 
 
