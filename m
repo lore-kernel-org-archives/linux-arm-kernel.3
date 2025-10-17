@@ -4,43 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5389ECCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45739CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fTL1RT9ijAeLrmDnS0jYFc7hfoYgS5Zw84NEXEuF+o0=; b=Hif3jIjlwHUBrf2xVMysZuuEW3
-	pUq6o735AxrpiiuoNkClcVrUDLdaBo33cnpgoXmZJbR+ClxGMENGiicvte9y1+bFfh/V6XxpSPRx4
-	zk0gksNtUW0Pl3E59wVAOoduUGwu0rrwM9POFa0WP+zZHZLz8VBztVGcuDKZd8WJa7VA30bFe216B
-	JEDwqIA99w5bER9iGmmycKU4xKGGW+G2Gnfx+BAY0M4yfQM9q4iK977Jmz0VHU88tbl3fO1nk9g2I
-	T13FRnRDX8yrUEdtfq6BSIxhOENWMSqvvr7bBrl5/sJiGK5t7yeG0FEIKoy+UIxCwpweilvI4YkSB
-	bPlqpmug==;
+	bh=JTMzcL1EXa9jQ0WyiYRs8eCtEteAaAvQsITfEPnMHJg=; b=mpUVqrRKDlgYGPLdvhl5g1Csjm
+	PN53PB1okfQFPnYj4rQ4nmZKM6SYAoJO7KuenQEr0lMe3FnNURsMd9zZWOuszAneNfzQplomqoZbK
+	sXeIXN0j38y4KOkX3Kcoa+0e8fJkrLyDzFxTkcjpM/N7wQrq3mlv2gpFIYBGcPrat4/FmBuCtZTkK
+	PRuk2RhU6928ZGSA/rrMmb6RS7MDPIKCuFlykxi1arsq1+J1MNdbcQ2afcbtZ4B41jAdHkWkDbYKI
+	eY1VhpehLvRlMcsGsr/AcJw9/T+lt7HdyGOJzSPyUFnxydnoaNIXcmfJArtSrHDvnu9NuToP4zqgA
+	j4FmFuBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hLT-00000007QPf-0Dcw;
-	Fri, 17 Oct 2025 10:05:59 +0000
+	id 1v9hLV-00000007QT6-1tzx;
+	Fri, 17 Oct 2025 10:06:01 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hLH-00000007Q9B-2qXY
+	id 1v9hLI-00000007Q6P-3yal
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 10:05:49 +0000
+	Fri, 17 Oct 2025 10:05:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1F4A1596;
-	Fri, 17 Oct 2025 03:05:38 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D2341C25;
+	Fri, 17 Oct 2025 03:05:40 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D8FF3F59E;
-	Fri, 17 Oct 2025 03:05:45 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 289903F59E;
+	Fri, 17 Oct 2025 03:05:47 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 17 Oct 2025 11:05:12 +0100
-Subject: [PATCH v2 23/25] perf sort: Sort disabled and full predicated
- flags
+Date: Fri, 17 Oct 2025 11:05:13 +0100
+Subject: [PATCH v2 24/25] perf report: Update document for SIMD flags
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-perf_support_arm_spev1-3-v2-23-2d41e4746e1b@arm.com>
+Message-Id: <20251017-perf_support_arm_spev1-3-v2-24-2d41e4746e1b@arm.com>
 References: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
 In-Reply-To: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -51,16 +50,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760695507; l=2803;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760695507; l=1301;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=1Vk+T+Hx3u2vOsFODCfgVnGRN0oLOre+czspaI2a/pc=;
- b=IYbtljwxVsRkfL093uQOR0+2AbQI66l89zEaX9zZJs5MyVBJwhNMrlsDLmAY7ONsIiQvSaNPC
- g5Qk68NpsfvAKKBuKuzG3yBPhZnuVq35JtfAG5/G18dcx8IRrRZRse5
+ bh=K+lf5GgTPw3SkqzOp32MWVxQu+Fbe4D7TBbZIbWs9ig=;
+ b=8KspN+Twk/hJKAn4lxPldBCPyM1QBdRuH+SAfTGc3DyhwPHVceq9aEI6KY/VbYPvFd7oWJDMd
+ iGcnrU/nzNGDmkfAb0O5F8a55JTUlVaCTPlu8u+tcg1w13bGwEOclDc
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_030547_882872_3DBEB5E2 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20251017_030549_087628_41B9AFCC 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,84 +74,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the Arm ARM (ARM DDI 0487, L.a), section D18.2.6
-"Events packet", apart from the empty predicate and partial
-predicates, an SVE or SME operation can be predicate-disabled
-or full predicated.
-
-To provide complete results, introduce two predicate types for
-these cases.
+Update SIMD architecture and predicate flags.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/sample.h | 13 +++++++++----
- tools/perf/util/sort.c   | 15 ++++++++++-----
- 2 files changed, 19 insertions(+), 9 deletions(-)
+ tools/perf/Documentation/perf-report.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/tools/perf/util/sample.h b/tools/perf/util/sample.h
-index 3b22cc2f7ad6ba1dc53b5d9ffff2a4e47c89612a..9477fe9c87402dd9135f25a6eee2e7539e6fdbca 100644
---- a/tools/perf/util/sample.h
-+++ b/tools/perf/util/sample.h
-@@ -68,8 +68,8 @@ struct aux_sample {
- 
- struct simd_flags {
- 	u8	arch:  2,	/* architecture (isa) */
--		pred:  2,	/* predication */
--		resv:  4;	/* reserved */
-+		pred:  3,	/* predication */
-+		resv:  3;	/* reserved */
- };
- 
- /* simd architecture flags */
-@@ -81,8 +81,13 @@ enum simd_op_flags {
- };
- 
- /* simd predicate flags */
--#define SIMD_OP_FLAGS_PRED_PARTIAL	0x01	/* partial predicate */
--#define SIMD_OP_FLAGS_PRED_EMPTY	0x02	/* empty predicate */
-+enum simd_pred_flags {
-+	SIMD_OP_FLAGS_PRED_NONE = 0x0,	/* Not available */
-+	SIMD_OP_FLAGS_PRED_PARTIAL,	/* partial predicate */
-+	SIMD_OP_FLAGS_PRED_EMPTY,	/* empty predicate */
-+	SIMD_OP_FLAGS_PRED_FULL,	/* full predicate */
-+	SIMD_OP_FLAGS_PRED_DISABLED,	/* disabled predicate */
-+};
- 
- struct perf_sample {
- 	u64 ip;
-diff --git a/tools/perf/util/sort.c b/tools/perf/util/sort.c
-index ad98d5b75f34b49cd39e30cba997a614654eebcb..fe203458c6ffbc340450f6fffc13d0e256dfe7cf 100644
---- a/tools/perf/util/sort.c
-+++ b/tools/perf/util/sort.c
-@@ -207,18 +207,23 @@ static int hist_entry__simd_snprintf(struct hist_entry *he, char *bf,
- 				     size_t size, unsigned int width __maybe_unused)
- {
- 	const char *name;
-+	const char *pred_str = ".";
- 
- 	if (!he->simd_flags.arch)
- 		return repsep_snprintf(bf, size, "");
- 
- 	name = hist_entry__get_simd_name(&he->simd_flags);
- 
--	if (he->simd_flags.pred & SIMD_OP_FLAGS_PRED_EMPTY)
--		return repsep_snprintf(bf, size, "[e] %s", name);
--	else if (he->simd_flags.pred & SIMD_OP_FLAGS_PRED_PARTIAL)
--		return repsep_snprintf(bf, size, "[p] %s", name);
-+	if (he->simd_flags.pred == SIMD_OP_FLAGS_PRED_EMPTY)
-+		pred_str = "e";
-+	else if (he->simd_flags.pred == SIMD_OP_FLAGS_PRED_PARTIAL)
-+		pred_str = "p";
-+	else if (he->simd_flags.pred == SIMD_OP_FLAGS_PRED_DISABLED)
-+		pred_str = "d";
-+	else if (he->simd_flags.pred == SIMD_OP_FLAGS_PRED_FULL)
-+		pred_str = "f";
- 
--	return repsep_snprintf(bf, size, "[.] %s", name);
-+	return repsep_snprintf(bf, size, "[%s] %s", pred_str, name);
- }
- 
- struct sort_entry sort_simd = {
+diff --git a/tools/perf/Documentation/perf-report.txt b/tools/perf/Documentation/perf-report.txt
+index acef3ff4178eff66e8f876ae16cdac7b1387f07b..f361081a65dbe9cead539c7cb81d6ed86eb0acc6 100644
+--- a/tools/perf/Documentation/perf-report.txt
++++ b/tools/perf/Documentation/perf-report.txt
+@@ -136,7 +136,10 @@ OPTIONS
+ 	- addr: (Full) virtual address of the sampled instruction
+ 	- retire_lat: On X86, this reports pipeline stall of this instruction compared
+ 	  to the previous instruction in cycles. And currently supported only on X86
+-	- simd: Flags describing a SIMD operation. "e" for empty Arm SVE predicate. "p" for partial Arm SVE predicate
++	- simd: Flags describing a SIMD operation. The architecture type can be Arm's
++	  ASE (Advanced SIMD extension), SVE, SME. It provides an extra tag for
++	  predicate: "e" for empty predicate, "p" for partial predicate, "d" for
++	  predicate disabled, and "f" for full predicate.
+ 	- type: Data type of sample memory access.
+ 	- typeoff: Offset in the data type of sample memory access.
+ 	- symoff: Offset in the symbol.
 
 -- 
 2.34.1
