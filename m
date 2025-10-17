@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B70CDCCD19E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 03:38:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E34F5CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 03:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rq+uvw5+i90RRBLsQFz7WN6PFQUjhoT0ECz9wYD+Q3I=; b=l5sfShOe9RK3lwwQkCqsNswURD
-	F3JcDXHyKH3Z7lshcvkqOtq3YX8wR6DSwR1NkDJlYOl4mrHwoyr21KLZvBa9SZ38oowalebxFxUGM
-	SAKCwkWpvapRLJzCnfmHhFqBtXVu687XajX5RfitogIcC8rZR0Og1UJPU8Ypyc1IG5oU8KOGX8U2m
-	VIpxoKi9hPlluzWRU7l8fWihLg57vDjvzZLbfOcAuDx0rvRDMAUrsUrD9Jsda417YL/EkHo4d3sxh
-	qdnrTXpMoKbvzKK2svE6BkB1HZcwAh+CcD4uiRUkA2AdsY7F2A4QKhNEkSYJtDi9uM4PGgF0VOWkk
-	tRtangwQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P/9fnC/2O6saU02SSiuS88NA/O5UcCLC92SVbjjmKy0=; b=rxf/Dkd8rSnfqVeExLQL4zP3bu
+	1zozg0p0wqC6ZkRk1JwpCebyMCMpiZ7e0rwjAWRw0qY6eYJRYwGqyW/ZIh4Rn0pQ5fRPsOPUTL40s
+	vXhsSjgmB5FWqyZZ8BteAr8HJnmywoQuY33m+eL6is+64kdPbepwFRIE5ZdiP2OmaEowZ51VIWc+K
+	ZfVIFHP0cFbPT+OCH2V383ouJ2X4YRO93Ji0X03DeSn7XM/C8YkiC5djqdVsm6d4mbfityVFiqlb1
+	+9/JAQgeRCP6VKutxFZ68+wHcBqQoXu8eMdgqVpzf8aCSyfMgp9zbPNytb95uDkq1F+YjRs5L3/ZZ
+	gpURjO1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9bI6-00000006TA2-16ad;
-	Fri, 17 Oct 2025 03:38:06 +0000
-Received: from mail-m3269.qiye.163.com ([220.197.32.69])
+	id 1v9bIB-00000006TDM-0Jl7;
+	Fri, 17 Oct 2025 03:38:11 +0000
+Received: from mail-m3278.qiye.163.com ([220.197.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9bI4-00000006T8Z-00cp;
-	Fri, 17 Oct 2025 03:38:05 +0000
+	id 1v9bI5-00000006T8x-1whv;
+	Fri, 17 Oct 2025 03:38:06 +0000
 Received: from xf.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2638429c1;
-	Fri, 17 Oct 2025 11:37:58 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2638429cb;
+	Fri, 17 Oct 2025 11:38:00 +0800 (GMT+08:00)
 From: Finley Xiao <finley.xiao@rock-chips.com>
 To: heiko@sntech.de
 Cc: robh@kernel.org,
@@ -43,26 +43,27 @@ Cc: robh@kernel.org,
 	zhangqing@rock-chips.com,
 	sugar.zhang@rock-chips.com,
 	Finley Xiao <finley.xiao@rock-chips.com>
-Subject: [PATCH v2 0/2] Add power-controller support for RV1126B
-Date: Fri, 17 Oct 2025 11:14:23 +0800
-Message-ID: <20251017031425.310946-1-finley.xiao@rock-chips.com>
+Subject: [PATCH v2 1/2] dt-bindings: power: rockchip: Add support for RV1126B
+Date: Fri, 17 Oct 2025 11:14:24 +0800
+Message-ID: <20251017031425.310946-2-finley.xiao@rock-chips.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251017031425.310946-1-finley.xiao@rock-chips.com>
+References: <20251017031425.310946-1-finley.xiao@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a99f03ee89303a9kunm1150bbeadf2ea
+X-HM-Tid: 0a99f03eee1303a9kunm1150bbeadf328
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkxOSFZDGUMYTUxOSkpNSkpWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkpLHVZDThlCQx5DSBlIS0NWFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
 	hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=TOqXYfP09IkKcPagpuOEpUf+7StMwwVgNChueNEEN4THyEQzE8BEQRAKnjq/US/r0mn0cwfYk8zIIlVxpHM/woB8uUCEgb38wM8gxHtLtjySqL6HohXsi6j15iyZvjfB87ex0lW3a3rCknOlK9KiXGiyA42C5ogbz1FSGwsxk6Y=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=Rq+uvw5+i90RRBLsQFz7WN6PFQUjhoT0ECz9wYD+Q3I=;
+	b=jAO7b3bmrqxviNpkZtwN17kNLEp0BFxUdFsP3x5PHjWylhgoKHwa/O2YVcujAlws32a0L5PBIqPOLALBTW+EDZGgP8RxhEwoRhA1u/1kyKij2/TCuB01zKtm1iObjlNiwqiwELJXI2CJkV1HABHd8Q5iA9bW/3hOmDUhEtx3l7s=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=P/9fnC/2O6saU02SSiuS88NA/O5UcCLC92SVbjjmKy0=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_203804_488404_0CDEEADE 
-X-CRM114-Status: UNSURE (   6.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251016_203805_650817_9AA6DFE8 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,18 +78,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the power domain controller on the RV1126B SoC.
+Add power domain IDs for RV1126B SoC.
+Add a new compatible because register fields have changed.
 
-Finley Xiao (2):
-  dt-bindings: power: rockchip: Add support for RV1126B
-  pmdomain: rockchip: Add support for RV1126B
+Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
 
- .../power/rockchip,power-controller.yaml      |  2 +
- drivers/pmdomain/rockchip/pm-domains.c        | 41 +++++++++++++++++++
- .../power/rockchip,rv1126b-power.h            | 17 ++++++++
- 3 files changed, 60 insertions(+)
+Changes in v2:
+- update the commit message
+- update the license
+- rename AISP to AIISP
+
+---
+ .../power/rockchip,power-controller.yaml        |  2 ++
+ .../dt-bindings/power/rockchip,rv1126b-power.h  | 17 +++++++++++++++++
+ 2 files changed, 19 insertions(+)
  create mode 100644 include/dt-bindings/power/rockchip,rv1126b-power.h
 
+diff --git a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+index a884e49c995f..f9db602de258 100644
+--- a/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
++++ b/Documentation/devicetree/bindings/power/rockchip,power-controller.yaml
+@@ -46,6 +46,7 @@ properties:
+       - rockchip,rk3576-power-controller
+       - rockchip,rk3588-power-controller
+       - rockchip,rv1126-power-controller
++      - rockchip,rv1126b-power-controller
+ 
+   "#power-domain-cells":
+     const: 1
+@@ -126,6 +127,7 @@ $defs:
+           "include/dt-bindings/power/rk3568-power.h"
+           "include/dt-bindings/power/rk3588-power.h"
+           "include/dt-bindings/power/rockchip,rv1126-power.h"
++          "include/dt-bindings/power/rockchip,rv1126b-power.h"
+ 
+       clocks:
+         minItems: 1
+diff --git a/include/dt-bindings/power/rockchip,rv1126b-power.h b/include/dt-bindings/power/rockchip,rv1126b-power.h
+new file mode 100644
+index 000000000000..beb692bd8e72
+--- /dev/null
++++ b/include/dt-bindings/power/rockchip,rv1126b-power.h
+@@ -0,0 +1,17 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright (c) 2024 Rockchip Electronics Co., Ltd.
++ * Author: Finley Xiao <finley.xiao@rock-chips.com>
++ */
++
++#ifndef __DT_BINDINGS_POWER_RV1126B_POWER_H__
++#define __DT_BINDINGS_POWER_RV1126B_POWER_H__
++
++/* VD_NPU */
++#define RV1126B_PD_NPU		0
++
++/* VD_LOGIC */
++#define RV1126B_PD_VDO		1
++#define RV1126B_PD_AIISP	2
++
++#endif
 -- 
 2.43.0
 
