@@ -4,123 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 055E3CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95FADCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lZqTIsgME323ZkO31yyQWUQxJPAMGciP0ot1SYinmXM=; b=D2uQQLeaFQpKpfd0aT/y8HPWOY
-	J7/yn7Ee4gtQhrSxE8r4nNzn9kRPi5b5/T6XbErq7x1truy1yf9wSqNdh1h7JoVQgXxvILhWZAWoZ
-	SQf++uvwV4XaEPse1E/S6596Q73i3bnioAfS4HNWwvny8dDf+xCh6KFdwdQrsSo41H4Xbm8iE/KBh
-	a5DR5D36uTHXLharoNYjDfp+XgK1Mb/2PPURWIKe2WfDl6cjy7G/04OTIIOTztFttpllGuePB6tzP
-	FHxDbPbpvUqFPp42sIjm6kjS2vwzebXSS/Ng75HT5hDDMENnvbG5SRWploFSolRVSA6TCMUC4eHM/
-	4V5f1ldg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=wea9AWCXiS17qpCfiCGN+u2XfvZ62ulYDs1Frnt6olI=; b=i7ud3ZvZvVqz0c
+	5Vg1kZd3Pg7UVz1FQOFcmHLBOT8Lw9NKqCjlZqzH8lmUb5EGJfwhRERP/zOlYbVDocLCCOfJF4VuP
+	xH39PCu0Hje8oxeqd2w+GPGs+vrCeqTe9EnZcqTQS5SbJ5jwRi2o3+k2NxGhjXRPkx/YFxruFCqu2
+	XWX1kVvJrVsCKskBMvjotOhFl4EzYQu9geelxyv6PDxRopmqNRMeHZI9FjZaDLrB7ebE02t5sqvod
+	J+YoSG4vbRk9JCb38LljtJTYnn4WvdzeXpgimrU6t6aSnQBAsvGqO47f1aP/U1AAmnqhwXQ7dbT6Z
+	q07vNi6xbmqhPfbw0X0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9nS9-00000008T6N-0gr1;
-	Fri, 17 Oct 2025 16:37:17 +0000
-Received: from mail-qv1-f45.google.com ([209.85.219.45])
+	id 1v9nas-00000008UCQ-1ZwO;
+	Fri, 17 Oct 2025 16:46:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9nS6-00000008T5V-0ZIa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 16:37:15 +0000
-Received: by mail-qv1-f45.google.com with SMTP id 6a1803df08f44-78e4056623fso27552546d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 09:37:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760719032; x=1761323832; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lZqTIsgME323ZkO31yyQWUQxJPAMGciP0ot1SYinmXM=;
-        b=f8juoPG1RnDCyWfrViveXrTmQ6lKtAnpYXHBvAo9jXR1p7Ep39Ariwb44ResgJ8Qz1
-         Ndbg/fUiTjmoD5Gg4fKhEO846GumFhjQsY4TIE5/5ckDTExjlk3uMQBpV+n0hF/foE+c
-         /Q/t1ug8kXwO5dkFeF/HcXuplQJNpSNFKI+Zz0AMBQq6cpBSHKygTR4nuCL+hd9eF8Wl
-         Zv13YSq+6RgQ6xepxmzFwjEp9+y9EOsK8S7U8lFtQF0iKmYn3MpqquVtnmaiyyhcdS7h
-         B84Yi5/5irZLUzrF0Za5dqhKcgqrjBcjhQ1XApSfJC9sZq1iRG2fQru+1WwgRE4qlnex
-         oyRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760719032; x=1761323832;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lZqTIsgME323ZkO31yyQWUQxJPAMGciP0ot1SYinmXM=;
-        b=BDbYOBzbVDfUJx7FDEVhiRZokDhOxYIZ0jyGZjhwdceHdbowjEM1dp5t2/CUh+J08Y
-         3VQJIG9ynIvaLIdWyMY+6QnDic4qJxz7kCtg8g1DpxW3wpbHoicO9o07s38vLU6b/kX9
-         RYALVEw4VhRF/fCFv+e8IRHresnBny+dCwJXsQH9kwS99cznj8b/FQTkQINUOzKB9AYk
-         sKs2/XNU422/s/uPEuR317t2tWbT00s+DT+hio5WlhMnk2DEkjiSOkoIawMo2WW4nXoD
-         D2cAH7Rh7chueUyD5XN8ihxY7bVyICAlrUbBcE1V5WgVEXLJdr5vCC99T+53QG+6VrUU
-         cVqg==
-X-Forwarded-Encrypted: i=1; AJvYcCUzeqlLc9kZJFBRyboE2OICUyCOw1wgS6Ld075vmhZwXxzFii9x5KkicNOExdgoIWHzZ4CxwQ2PCI6nujORxHMo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkKrn65jxPJnuvuyZR9O9E0rCj1xWOiwfrS1hq46oexm5X4ya0
-	WUGRvsF7z2ODaGfuXdSX674NFVlsMOXd3syujONh8R5HHyGP+VtQkh4w
-X-Gm-Gg: ASbGncs+O78Hj2ADJLMnj1ELhCBaEmiDSa47ELtmrJHB7ENVZtJPGJbsP/shQqJe0vU
-	uy8650MmTm8lvVdiPB1J5LxIHNl+npv+ePPq903fJsj0V9WrlvzlUlrCagEkHwepJM34uPBhSp9
-	zWByltJ2787qlHsev0rJ2dwyM6ICm3/WLGoY8DqpIJbwy38pfXpV1L+YKhEDVp347IJCXITJAMx
-	0hsS4Oa7h4XyYttySBx3ysoBYrUqRBYFAajw6S+zhKhqUOPLCvdPxFbXMBcQDhnJ3o0tlELYI8p
-	7m2t4DUoTyTzj3HNtmYsA0ZcEjxdO2UERRi6A9V2C8bp9QXVxeDasiljRxPzpxp8SSp0c4db28q
-	0nXE4YVcfoMJVau+8OYYqKTrTIhhlo3B45Vpq6ttuWYxFRO15k6mrXXfhct6RYO1Q0aQO9Xy7tB
-	IbEyIcIxc=
-X-Google-Smtp-Source: AGHT+IEBLNSjsT2f6SbTw5aTPGakjHLdlQrL5hue+DxfPG8mzc3zrpMssrggDkT+31HrLygOdkrpIg==
-X-Received: by 2002:ad4:594b:0:b0:87c:2920:5730 with SMTP id 6a1803df08f44-87c29205b08mr24398926d6.40.1760719031704;
-        Fri, 17 Oct 2025 09:37:11 -0700 (PDT)
-Received: from localhost ([12.22.141.131])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-87d02d91324sm1575686d6.65.2025.10.17.09.37.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Oct 2025 09:37:11 -0700 (PDT)
-Date: Fri, 17 Oct 2025 12:37:09 -0400
-From: Yury Norov <yury.norov@gmail.com>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	David Miller <davem@davemloft.net>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Crt Mori <cmo@melexis.com>, Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jakub Kicinski <kuba@kernel.org>, Alex Elder <elder@ieee.org>,
-	David Laight <david.laight.linux@gmail.com>,
-	Vincent Mailhol <mailhol.vincent@wanadoo.fr>,
-	Jason Baron <jbaron@akamai.com>, Borislav Petkov <bp@alien8.de>,
-	Tony Luck <tony.luck@intel.com>,
-	Michael Hennerich <Michael.Hennerich@analog.com>,
-	Kim Seer Paller <kimseer.paller@analog.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Cosmin Tanislav <demonsingur@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Jianping Shen <Jianping.Shen@de.bosch.com>,
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-edac@vger.kernel.org, qat-linux@intel.com,
-	linux-gpio@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
-	linux-iio@vger.kernel.org, linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/4] bitfield: Drop underscores from macro parameters
-Message-ID: <aPJwtZSMgZLDzxH8@yury>
-References: <cover.1760696560.git.geert+renesas@glider.be>
- <792d176149bc4ffde2a7b78062388dc2466c23ca.1760696560.git.geert+renesas@glider.be>
+	id 1v9nar-00000008UC7-0MMS;
+	Fri, 17 Oct 2025 16:46:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:References;
+	bh=wea9AWCXiS17qpCfiCGN+u2XfvZ62ulYDs1Frnt6olI=; b=LyorBbAU49PhHksBRoS4NxepOs
+	jc9FUojiLyHwqHJtQFnfhUgdMwLGCveAr0bJsNrR576iT+yxwz0MhJwpaKtzcH2KMtNUwJ93RO5eU
+	UbdwOIIhhRoaf3NP5yJEDKJYOgQ6zS5R9CufIQfgaIebJJDbKgIVM5P23e0md+cyaO6vbInthJLS2
+	e+ggTalIC2oGHeG0lblNhGY3kBEMbL3d9VxneypzYtc2aQ4bPF+b+MkvnZmsqzBLA+n4OtSPP5E19
+	zfXX/LKGloCALGeBnRaxUOSW7bVfnU/c1t/IYXfjuDwdad+nKYp5pcZCbyEXELGQcx4G0SfRuyxYn
+	QGKe0kcA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9naj-00000007mKY-1dwf;
+	Fri, 17 Oct 2025 16:46:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A3A54B339;
+	Fri, 17 Oct 2025 16:46:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6E8BC4CEE7;
+	Fri, 17 Oct 2025 16:45:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760719560;
+	bh=h08opjvAv8/xQo7w63XSdz3MO0fB63xMecJbpuPxEA8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=q1Y+SVCHTzDrmoW2qRAb6zFIadjOKdsDbR8JKZ2gD3h8bYtt3wiqJKMhrjREHnDbW
+	 5mA42qA94tol3Ub4cYxKNUjwi2nVNZld535l/Y4+Q1ekr/r780LFdm5LRNk9Bn185N
+	 peLLCqcRx1Tl7ewnpgeOevUX3uygIIHa3mxslR+docEKkatTZaz12dhCc1jK9Y8b8D
+	 KMAsLQ5/F2laMwfOgUcEpeeIfCZqSvRKW5CaaGKdJD7GH3mKrwXe1iT8/nIN4NSil4
+	 fiyC76ZMOqbXLBgdTuHSxNEFbZ3mvyUXH4q6sKyIOSmz9/tuP7KLrx8veMx05oS2Kh
+	 OCHBzteTI9+mw==
+Date: Fri, 17 Oct 2025 11:45:58 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Simon Xue <xxm@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>,
+	Dragan Simic <dsimic@manjaro.org>, FUKAUMI Naoki <naoki@radxa.com>,
+	Diederik de Haas <diederik@cknow-tech.com>, stable@vger.kernel.org,
+	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v3] PCI: dw-rockchip: Prevent advertising L1 Substates
+ support
+Message-ID: <20251017164558.GA1034609@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <792d176149bc4ffde2a7b78062388dc2466c23ca.1760696560.git.geert+renesas@glider.be>
+In-Reply-To: <20251017163252.598812-2-cassel@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_093714_180269_C9722680 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20251017_174611_041019_92EA9EBE 
+X-CRM114-Status: GOOD (  31.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,74 +95,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 12:54:09PM +0200, Geert Uytterhoeven wrote:
-> There is no need to prefix macro parameters with underscores.
-> Remove the underscores.
+On Fri, Oct 17, 2025 at 06:32:53PM +0200, Niklas Cassel wrote:
+> The L1 substates support requires additional steps to work, namely:
+> -Proper handling of the CLKREQ# sideband signal. (It is mostly handled by
+>  hardware, but software still needs to set the clkreq fields in the
+>  PCIE_CLIENT_POWER_CON register to match the hardware implementation.)
+> -Program the frequency of the aux clock into the
+>  DSP_PCIE_PL_AUX_CLK_FREQ_OFF register. (During L1 substates the core_clk
+>  is turned off and the aux_clk is used instead.)
 > 
-> Suggested-by: David Laight <david.laight.linux@gmail.com>
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> These steps are currently missing from the driver.
+> 
+> For more details, see section '18.6.6.4 L1 Substate' in the RK3658 TRM 1.1
+> Part 2, or section '11.6.6.4 L1 Substate' in the RK3588 TRM 1.0 Part2.
+> 
+> While this has always been a problem when using e.g.
+> CONFIG_PCIEASPM_POWER_SUPERSAVE=y, or when modifying
+> /sys/bus/pci/devices/.../link/l1_2_aspm, the lacking driver support for L1
+> substates became more apparent after commit f3ac2ff14834 ("PCI/ASPM:
+> Enable all ClockPM and ASPM states for devicetree platforms"), which
+> enabled ASPM also for CONFIG_PCIEASPM_DEFAULT=y.
+> 
+> When using e.g. an NVMe drive connected to the PCIe controller, the
+> problem will be seen as:
+> nvme nvme0: controller is down; will reset: CSTS=0xffffffff, PCI_STATUS=0x10
+> nvme nvme0: Does your device have a faulty power saving mode enabled?
+> nvme nvme0: Try "nvme_core.default_ps_max_latency_us=0 pcie_aspm=off pcie_port_pm=off" and report a bug
+> 
+> Thus, prevent advertising L1 Substates support until proper driver support
+> is added.
+
+I think Mani is planning a change so we don't try to enable L1
+Substates by default, which should avoid the regression even without a
+patch like this.
+
+That will still leave the existing CONFIG_PCIEASPM_POWER_SUPERSAVE=y
+and sysfs l1_1_aspm problems.
+
+And we'll need to figure out a way to allow L1.x to be enabled based
+on 'supports-clkreq' and possibly other info.  That would likely be
+v6.19 material since it's new functionality.
+
+> Cc: stable@vger.kernel.org
+> Fixes: 0e898eb8df4e ("PCI: rockchip-dwc: Add Rockchip RK356X host controller driver")
+> Fixes: f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for devicetree platforms")
+> Acked-by: Shawn Lin <shawn.lin@rock-chips.com>
+> Signed-off-by: Niklas Cassel <cassel@kernel.org>
 > ---
-> v4:
->   - Update recently introduced FIELD_MODIFY() macro,
+> Changes since v2:
+> -Improve commit message (Bjorn)
 > 
-> v3:
->   - New.
-> ---
->  include/linux/bitfield.h | 106 +++++++++++++++++++--------------------
->  1 file changed, 53 insertions(+), 53 deletions(-)
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 21 +++++++++++++++++++
+>  1 file changed, 21 insertions(+)
 > 
-> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
-> index 5355f8f806a97974..7ff817bdae19b468 100644
-> --- a/include/linux/bitfield.h
-> +++ b/include/linux/bitfield.h
-> @@ -60,68 +60,68 @@
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 3e2752c7dd09..84f882abbca5 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -200,6 +200,25 @@ static bool rockchip_pcie_link_up(struct dw_pcie *pci)
+>  	return FIELD_GET(PCIE_LINKUP_MASK, val) == PCIE_LINKUP;
+>  }
 >  
->  #define __bf_cast_unsigned(type, x)	((__unsigned_scalar_typeof(type))(x))
+> +/*
+> + * See e.g. section '11.6.6.4 L1 Substate' in the RK3588 TRM V1.0 for the steps
+> + * needed to support L1 substates. Currently, not a single rockchip platform
+> + * performs these steps, so disable L1 substates until there is proper support.
+> + */
+> +static void rockchip_pcie_disable_l1sub(struct dw_pcie *pci)
+> +{
+> +	u32 cap, l1subcap;
+> +
+> +	cap = dw_pcie_find_ext_capability(pci, PCI_EXT_CAP_ID_L1SS);
+> +	if (cap) {
+> +		l1subcap = dw_pcie_readl_dbi(pci, cap + PCI_L1SS_CAP);
+> +		l1subcap &= ~(PCI_L1SS_CAP_L1_PM_SS | PCI_L1SS_CAP_ASPM_L1_1 |
+> +			      PCI_L1SS_CAP_ASPM_L1_2 | PCI_L1SS_CAP_PCIPM_L1_1 |
+> +			      PCI_L1SS_CAP_PCIPM_L1_2);
+> +		dw_pcie_writel_dbi(pci, cap + PCI_L1SS_CAP, l1subcap);
+> +	}
+> +}
+> +
+>  static void rockchip_pcie_enable_l0s(struct dw_pcie *pci)
+>  {
+>  	u32 cap, lnkcap;
+> @@ -264,6 +283,7 @@ static int rockchip_pcie_host_init(struct dw_pcie_rp *pp)
+>  	irq_set_chained_handler_and_data(irq, rockchip_pcie_intx_handler,
+>  					 rockchip);
 >  
-> -#define __BF_FIELD_CHECK(_mask, _reg, _val, _pfx)			\
-> +#define __BF_FIELD_CHECK(mask, reg, val, pfx)				\
->  	({								\
-> -		BUILD_BUG_ON_MSG(!__builtin_constant_p(_mask),		\
-> -				 _pfx "mask is not constant");		\
-> -		BUILD_BUG_ON_MSG((_mask) == 0, _pfx "mask is zero");	\
-> -		BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?		\
-> -				 ~((_mask) >> __bf_shf(_mask)) &	\
-> -					(0 + (_val)) : 0,		\
-> -				 _pfx "value too large for the field"); \
-> -		BUILD_BUG_ON_MSG(__bf_cast_unsigned(_mask, _mask) >	\
-> -				 __bf_cast_unsigned(_reg, ~0ull),	\
-> -				 _pfx "type of reg too small for mask"); \
-> -		__BUILD_BUG_ON_NOT_POWER_OF_2((_mask) +			\
-> -					      (1ULL << __bf_shf(_mask))); \
-> +		BUILD_BUG_ON_MSG(!__builtin_constant_p(mask),		\
-> +				 pfx "mask is not constant");		\
-> +		BUILD_BUG_ON_MSG((mask) == 0, pfx "mask is zero");	\
-> +		BUILD_BUG_ON_MSG(__builtin_constant_p(val) ?		\
-> +				 ~((mask) >> __bf_shf(mask)) &	\
-> +					(0 + (val)) : 0,		\
-> +				 pfx "value too large for the field"); \
-> +		BUILD_BUG_ON_MSG(__bf_cast_unsigned(mask, mask) >	\
-> +				 __bf_cast_unsigned(reg, ~0ull),	\
-> +				 pfx "type of reg too small for mask"); \
-> +		__BUILD_BUG_ON_NOT_POWER_OF_2((mask) +			\
-> +					      (1ULL << __bf_shf(mask))); \
->  	})
-
-Hi Geert,
-
-Thanks for the series!
-
-I agree that underscored parameters are excessive. But fixing them has
-a side effect of wiping the history, which is a bad thing.
-
-I would prefer to save a history over following a rule that seemingly
-is not written down. Let's keep this untouched for now, and if there
-will be a need to move the code, we can drop underscores as well.
-
-Meanwhile you (and David) can propose a corresponding rule in
-coding-style.rst and a checkpatch warning. That way we at least will
-stop merging a new code of that style.
-
-Thanks,
-Yury
+> +	rockchip_pcie_disable_l1sub(pci);
+>  	rockchip_pcie_enable_l0s(pci);
+>  
+>  	return 0;
+> @@ -301,6 +321,7 @@ static void rockchip_pcie_ep_init(struct dw_pcie_ep *ep)
+>  	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+>  	enum pci_barno bar;
+>  
+> +	rockchip_pcie_disable_l1sub(pci);
+>  	rockchip_pcie_enable_l0s(pci);
+>  	rockchip_pcie_ep_hide_broken_ats_cap_rk3588(ep);
+>  
+> -- 
+> 2.51.0
+> 
 
