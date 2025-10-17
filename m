@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF136CCD1A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:09:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CD4CCD1A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Content-Type:
 	MIME-Version:References:Subject:Cc:To:From:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=riOmJf9FiDkmu6m5dlKP9M/8U5xAklSgvZrcN3Urpuk=; b=MqNCaBeYz247l+
-	ze9zvTOBK7zxJn21QLUJpBsPbr/P3QnJsIaFBrqTNjscBfc4wOSy9d+HyLxkKpqZkJTpAzPgZYx+L
-	2ERrhN5s3iWYftXx0bMAboWZC37fJaUnka3u8FOS8FlHFN2CmjKjyyWIHseZxXlordIssChqjnisJ
-	UaE9JqaKmohMw7eBtqh5g0dFUGfh/+TI7QBm3E/4OF6br6bGfSkCpqYAaVQO2/ca4nEkGhqXlgkAT
-	yAmk1xP97tcPnnAqWCN3yUdAijR7oYh/1GI/5xRPOIUIAUGEKEucqhsNZJezoH/IxeJBNmYY2T30t
-	UBvOz23wtPIL0TwJgxxw==;
+	List-Owner; bh=EKzyB0lrI1vv7+y80GeaggsaapcXMx0ewLMg7+vmnx4=; b=eHE5VrvhCrV0zk
+	E2vlSagWdOn1aZPvSyh3UBMgXH3my2ikJ3RNv+3lBjV2uROsBHW5C9Eew0dE2kAnTqxbGfpNhSt0n
+	GaB/0T2WT5FSFCuw8hJjARZFD3zM/48GTrdQC3aS+qPYdZxsNeyRN1aP+tAG0xR3a3FczjAAZTESl
+	zpAktIp705Kc6ChEb1Bd/ewOjWk/uVrRyIrsHPNGhfeNUxXXIWOe+SCNRQ99MvdwPI/b3lrHqpX+p
+	8oaYPNnGxtIiK3sUKmzNjPPwgTfEorx8XwU3FNrnoFCkVc+7XFVm+RGe3t4P6dwSszYWB/tdJ3nYN
+	FxUlSqKim2MLjRV0Q+1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hOS-00000007Rz0-03kl;
-	Fri, 17 Oct 2025 10:09:04 +0000
+	id 1v9hOU-00000007S27-2r0o;
+	Fri, 17 Oct 2025 10:09:06 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hOO-00000007Ruh-43be;
-	Fri, 17 Oct 2025 10:09:02 +0000
-Message-ID: <20251017093029.938477880@linutronix.de>
+	id 1v9hOQ-00000007RwB-3XPF;
+	Fri, 17 Oct 2025 10:09:05 +0000
+Message-ID: <20251017093030.001666876@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760695739;
+	s=2020; t=1760695741;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=riOmJf9FiDkmu6m5dlKP9M/8U5xAklSgvZrcN3Urpuk=;
-	b=mnnP4EcHPsGiBWQ80ZqxKt13uzAIBB3k2yS1/Hm+sPYsJe6113u4U0umZSA2nn4kRaNJpJ
-	Rkenq6/jim491Xuz2SO5kQafyylcG/mRIKVDiZycdMNLud5mhnSzrCccn3X38Wn96+T79G
-	hktsrO07q6YSP3slcwP5falY25Pb1CIBaksqoE7E+68t7LYG14+qC/FrU8haf5HTnTplbs
-	MaMSXBhMZ0H9m83V9tz5MYbIVxs8gMl4CTnClDsiglM3QfGTLclgpuM2XbhANq8nfDV8t5
-	j+3gKnN8VqFnD7yW0QYwYHf0UUMTWmEWnVOjwgvBsCHbUXj8W+NB41bt6EE6Fw==
+	 references:references; bh=EKzyB0lrI1vv7+y80GeaggsaapcXMx0ewLMg7+vmnx4=;
+	b=GTvRGyk6DjoMxDt+fYkyakO6ycdq3eWKJ5DLVvdla9gpLRlLAUtCHv3+2OCSBITMNRhjV+
+	6R5tlN403YJ0IfDxjOVq4z3XEeIW/8FaVPYWQFIdq4ALG+Iag8vKidxOVW51jHPDlm3vjB
+	nP7wsoZz7ZXJA2YRNabZ9OZ3Bd9HbSwPqRx+nTnL6R9ljmWGRkc5qFj/+L6OiUpoptPLXr
+	lCw3HWo3QxWP24rkonxwBYynALATxasmSCuenpjqG+BEHbdLziuS9rHmOHHoGRaT+SSkJG
+	xKPV0L9VPCcB90+j30+g4MmmbnMU6jRSjCrYOvAuK1Y6XoE1XS7zW9KZUlKnYQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760695739;
+	s=2020e; t=1760695741;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=riOmJf9FiDkmu6m5dlKP9M/8U5xAklSgvZrcN3Urpuk=;
-	b=lT33mtBxSqSSNnCxx2OdHF+2ZASAeNgjqpk4i+2mH9cETV5n/xlEFPQtRRy1EHJTr8iogE
-	XUXXib744TyAY9DA==
+	 references:references; bh=EKzyB0lrI1vv7+y80GeaggsaapcXMx0ewLMg7+vmnx4=;
+	b=wLsGC9RLzsjb5HJDs0ah7GifEriO3GgBtZB6KgEAeIJj2b6wMW7RITABes1j7sh8PjBhxD
+	SPwii5s8wN3IgXCw==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+Cc: x86@kernel.org,
  kernel test robot <lkp@intel.com>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
- x86@kernel.org,
+ Linus Torvalds <torvalds@linux-foundation.org>,
  Madhavan Srinivasan <maddy@linux.ibm.com>,
  Michael Ellerman <mpe@ellerman.id.au>,
  Nicholas Piggin <npiggin@gmail.com>,
@@ -75,15 +75,14 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
  Christian Brauner <brauner@kernel.org>,
  Jan Kara <jack@suse.cz>,
  linux-fsdevel@vger.kernel.org
-Subject: [patch V3 02/12] uaccess: Provide ASM GOTO safe wrappers for
- unsafe_*_user()
+Subject: [patch V3 03/12] x86/uaccess: Use unsafe wrappers for ASM GOTO
 References: <20251017085938.150569636@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Date: Fri, 17 Oct 2025 12:08:58 +0200 (CEST)
+Date: Fri, 17 Oct 2025 12:09:00 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_030901_279667_26E2B6DE 
-X-CRM114-Status: GOOD (  18.76  )
+X-CRM114-CacheID: sfid-20251017_030903_038897_CC59ABAE 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,176 +108,65 @@ efault:
 	return false;
 }
 
- e80:	e8 00 00 00 00       	call   e85 <foo+0x5>
- e85:	65 48 8b 05 00 00 00 00 mov    %gs:0x0(%rip),%rax
- e8d:	83 80 04 14 00 00 01 	addl   $0x1,0x1404(%rax)   // pf_disable++
- e94:	89 37                	mov    %esi,(%rdi)
- e96:	83 a8 04 14 00 00 01 	subl   $0x1,0x1404(%rax)   // pf_disable--
- e9d:	b8 01 00 00 00       	mov    $0x1,%eax           // success
- ea2:	e9 00 00 00 00       	jmp    ea7 <foo+0x27>      // ret
- ea7:	31 c0                	xor    %eax,%eax           // fail
- ea9:	e9 00 00 00 00       	jmp    eae <foo+0x2e>      // ret
+It ends up leaking the pagefault disable counter in the fault path. clang
+at least fails the build.
 
-which is broken as it leaks the pagefault disable counter on failure.
+Rename unsafe_*_user() to arch_unsafe_*_user() which makes the generic
+uaccess header wrap it with a local label that makes both compilers emit
+correct code. Same for the kernel_nofault() variants.
 
-Clang at least fails the build.
-
-Linus suggested to add a local label into the macro scope and let that
-jump to the actual caller supplied error label.
-
-       	__label__ local_label;                                  \
-        arch_unsafe_get_user(x, ptr, local_label);              \
-	if (0) {                                                \
-	local_label:                                            \
-		goto label;                                     \
-
-That works for both GCC and clang.
-
-clang:
-
- c80:	0f 1f 44 00 00       	   nopl   0x0(%rax,%rax,1)	
- c85:	65 48 8b 0c 25 00 00 00 00 mov    %gs:0x0,%rcx
- c8e:	ff 81 04 14 00 00    	   incl   0x1404(%rcx)	   // pf_disable++
- c94:	31 c0                	   xor    %eax,%eax        // set retval to false
- c96:	89 37                      mov    %esi,(%rdi)      // write
- c98:	b0 01                	   mov    $0x1,%al         // set retval to true
- c9a:	ff 89 04 14 00 00    	   decl   0x1404(%rcx)     // pf_disable--
- ca0:	2e e9 00 00 00 00    	   cs jmp ca6 <foo+0x26>   // ret
-
-The exception table entry points correctly to c9a
-
-GCC:
-
- f70:   e8 00 00 00 00          call   f75 <baz+0x5>
- f75:   65 48 8b 05 00 00 00 00 mov    %gs:0x0(%rip),%rax
- f7d:   83 80 04 14 00 00 01    addl   $0x1,0x1404(%rax)  // pf_disable++
- f84:   8b 17                   mov    (%rdi),%edx
- f86:   89 16                   mov    %edx,(%rsi)
- f88:   83 a8 04 14 00 00 01    subl   $0x1,0x1404(%rax) // pf_disable--
- f8f:   b8 01 00 00 00          mov    $0x1,%eax         // success
- f94:   e9 00 00 00 00          jmp    f99 <baz+0x29>    // ret
- f99:   83 a8 04 14 00 00 01    subl   $0x1,0x1404(%rax) // pf_disable--
- fa0:   31 c0                   xor    %eax,%eax         // fail
- fa2:   e9 00 00 00 00          jmp    fa7 <baz+0x37>    // ret
-
-The exception table entry points correctly to f99
-
-So both compilers optimize out the extra goto and emit correct and
-efficient code.
-
-Provide a generic wrapper to do that to avoid modifying all the affected
-architecture specific implementation with that workaround.
-
-The only change required for architectures is to rename unsafe_*_user() to
-arch_unsafe_*_user(). That's done in subsequent changes.
-
-Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Cc: x86@kernel.org
 ---
- include/linux/uaccess.h |   72 +++++++++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 68 insertions(+), 4 deletions(-)
+ arch/x86/include/asm/uaccess.h |   12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
---- a/include/linux/uaccess.h
-+++ b/include/linux/uaccess.h
-@@ -518,7 +518,34 @@ long strncpy_from_user_nofault(char *dst
- 		long count);
- long strnlen_user_nofault(const void __user *unsafe_addr, long count);
+--- a/arch/x86/include/asm/uaccess.h
++++ b/arch/x86/include/asm/uaccess.h
+@@ -528,18 +528,18 @@ static __must_check __always_inline bool
+ #define user_access_save()	smap_save()
+ #define user_access_restore(x)	smap_restore(x)
  
--#ifndef __get_kernel_nofault
-+#ifdef arch_get_kernel_nofault
-+/*
-+ * Wrap the architecture implementation so that @label can be outside of a
-+ * cleanup() scope. A regular C goto works correctly, but ASM goto does
-+ * not. Clang rejects such an attempt, but GCC silently emits buggy code.
-+ */
-+#define __get_kernel_nofault(dst, src, type, label)		\
-+do {								\
-+	__label__ local_label;					\
-+	arch_get_kernel_nofault(dst, src, type, local_label);	\
-+	if (0) {						\
-+	local_label:						\
-+		goto label;					\
-+	}							\
-+} while (0)
-+
-+#define __put_kernel_nofault(dst, src, type, label)		\
-+do {								\
-+	__label__ local_label;					\
-+	arch_get_kernel_nofault(dst, src, type, local_label);	\
-+	if (0) {						\
-+	local_label:						\
-+		goto label;					\
-+	}							\
-+} while (0)
-+
-+#elif !defined(__get_kernel_nofault) /* arch_get_kernel_nofault */
-+
- #define __get_kernel_nofault(dst, src, type, label)	\
- do {							\
- 	type __user *p = (type __force __user *)(src);	\
-@@ -535,7 +562,8 @@ do {							\
- 	if (__put_user(data, p))			\
- 		goto label;				\
+-#define unsafe_put_user(x, ptr, label)	\
++#define arch_unsafe_put_user(x, ptr, label)	\
+ 	__put_user_size((__typeof__(*(ptr)))(x), (ptr), sizeof(*(ptr)), label)
+ 
+ #ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
+-#define unsafe_get_user(x, ptr, err_label)					\
++#define arch_unsafe_get_user(x, ptr, err_label)					\
+ do {										\
+ 	__inttype(*(ptr)) __gu_val;						\
+ 	__get_user_size(__gu_val, (ptr), sizeof(*(ptr)), err_label);		\
+ 	(x) = (__force __typeof__(*(ptr)))__gu_val;				\
  } while (0)
--#endif
-+
-+#endif  /* !__get_kernel_nofault */
+ #else // !CONFIG_CC_HAS_ASM_GOTO_OUTPUT
+-#define unsafe_get_user(x, ptr, err_label)					\
++#define arch_unsafe_get_user(x, ptr, err_label)					\
+ do {										\
+ 	int __gu_err;								\
+ 	__inttype(*(ptr)) __gu_val;						\
+@@ -618,11 +618,11 @@ do {									\
+ } while (0)
  
- /**
-  * get_kernel_nofault(): safely attempt to read from a location
-@@ -549,7 +577,42 @@ do {							\
- 	copy_from_kernel_nofault(&(val), __gk_ptr, sizeof(val));\
- })
+ #ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
+-#define __get_kernel_nofault(dst, src, type, err_label)			\
++#define arch_get_kernel_nofault(dst, src, type, err_label)		\
+ 	__get_user_size(*((type *)(dst)), (__force type __user *)(src),	\
+ 			sizeof(type), err_label)
+ #else // !CONFIG_CC_HAS_ASM_GOTO_OUTPUT
+-#define __get_kernel_nofault(dst, src, type, err_label)			\
++#define arch_get_kernel_nofault(dst, src, type, err_label)			\
+ do {									\
+ 	int __kr_err;							\
+ 									\
+@@ -633,7 +633,7 @@ do {									\
+ } while (0)
+ #endif // CONFIG_CC_HAS_ASM_GOTO_OUTPUT
  
--#ifndef user_access_begin
-+#ifdef user_access_begin
-+
-+#ifdef arch_unsafe_get_user
-+/*
-+ * Wrap the architecture implementation so that @label can be outside of a
-+ * cleanup() scope. A regular C goto works correctly, but ASM goto does
-+ * not. Clang rejects such an attempt, but GCC silently emits buggy code.
-+ *
-+ * Some architectures use internal local labels already, but this extra
-+ * indirection here is harmless because the compiler optimizes it out
-+ * completely in any case. This construct just ensures that the ASM GOTO
-+ * target is always in the local scope. The C goto 'label' works correct
-+ * when leaving a cleanup() scope.
-+ */
-+#define unsafe_get_user(x, ptr, label)			\
-+do {							\
-+	__label__ local_label;				\
-+	arch_unsafe_get_user(x, ptr, local_label);	\
-+	if (0) {					\
-+	local_label:					\
-+		goto label;				\
-+	}						\
-+} while (0)
-+
-+#define unsafe_put_user(x, ptr, label)			\
-+do {							\
-+	__label__ local_label;				\
-+	arch_unsafe_put_user(x, ptr, local_label);	\
-+	if (0) {					\
-+	local_label:					\
-+		goto label;				\
-+	}						\
-+} while (0)
-+#endif /* arch_unsafe_get_user */
-+
-+#else /* user_access_begin */
- #define user_access_begin(ptr,len) access_ok(ptr, len)
- #define user_access_end() do { } while (0)
- #define unsafe_op_wrap(op, err) do { if (unlikely(op)) goto err; } while (0)
-@@ -559,7 +622,8 @@ do {							\
- #define unsafe_copy_from_user(d,s,l,e) unsafe_op_wrap(__copy_from_user(d,s,l),e)
- static inline unsigned long user_access_save(void) { return 0UL; }
- static inline void user_access_restore(unsigned long flags) { }
--#endif
-+#endif /* !user_access_begin */
-+
- #ifndef user_write_access_begin
- #define user_write_access_begin user_access_begin
- #define user_write_access_end user_access_end
+-#define __put_kernel_nofault(dst, src, type, err_label)			\
++#define arch_put_kernel_nofault(dst, src, type, err_label)		\
+ 	__put_user_size(*((type *)(src)), (__force type __user *)(dst),	\
+ 			sizeof(type), err_label)
+ 
 
 
