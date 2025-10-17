@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F29F0CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D33CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mUV6qtcx4rMTHA9YbDeCb7EleNNSZvqvmp58IK55HCg=; b=NZYaTMw86HBbgHyqhnKIUcY8rZ
-	mjpBFh/gXdWaP7eshG6F8z0W9FjivfJjQk9+4/mDlyWSHeSpEYtATIn0aBCD8DLtWJr568hIwkhJe
-	3K2wh8tttYL7aOK71fqB+TAi4SjRMkpL+m0ofjCuM7AawfbYCitNUFBdJiNMGnvAy+dadLvZKy58b
-	BUCD5ZZRyvXNIR2EPhwSR7IYKfp6NnuzugXdH73LzdZuCa0mLq7Q7vvzOrkQs7vzvZoSp7uCv10jk
-	6lMx5ihcNs5SkVIHZy7+QzPdkedhtPpIdU556aZNwRhfQFK//79ULjNZ2mIrtogeEN/mzveoamPME
-	rQuSWEIQ==;
+	bh=07Toi2vUIU+MWGlot8kMIQ1ee07JBmL9YfZNkL4sfI0=; b=mH2zbCm7MWKiPsTe7rF4jauufd
+	pyVrKfNx0rCTkyteJZcQDjnDew684Hy0asw01GC2XTZX1Rbj75VSFwGu0hrKvvG3CRr9Q4wn6V/AS
+	P9f+iKvB7rATkDsUuYictPn32b2PXlNA2r8+htXTkC2vbaAzN7ps7u+fxi0kUVewv8Nyg6XJiWVy8
+	XHe2FMaZhLE9Zg8ukU+MPtbHIfAbUIPwZAbOVvQv/BKqmwuQm1oKcjueY5NnM9lSc4t2a07T71Z55
+	ZczCD+0zwA/nYjFs8aJKAp/9uMQnTHm/zOqkBJfRYzr94ju1w4vq8W1TzCXUyGD2WLwbPJYq7u2m7
+	eEpgTaAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iX9-00000007evc-41h5;
-	Fri, 17 Oct 2025 11:22:07 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1v9iXo-00000007fOC-3QY5;
+	Fri, 17 Oct 2025 11:22:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iX2-00000007end-3P1Z
+	id 1v9iXn-00000007fNA-3p7t
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 17 Oct 2025 11:22:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=07Toi2vUIU+MWGlot8kMIQ1ee07JBmL9YfZNkL4sfI0=; b=DiFO4mmtJUoVVflI9Zh8tJBRyo
+	LHLPfYOaYpW8oWzZsn+Bz9xkvTYvSRJkmRWcAuxLmejzPkjU8HmCrrbgcYLYrjrwOjQUIdhaLn5ls
+	GkHtzaXRSQoy9GJwca8LbgKfix+FIvkK+1O6/HVrU7AaRCWFmWOPODq2K9xbzZt5ChF27epy2/zu3
+	IDQYDQS9Q1xfMBJknjH0dBin+fqAcGutD6YmHbXGJgIftIhYQyGIaCTWhz1FF7GMoySgdUA7KoqEb
+	N4Hm9x4khKLfU8JqM+pv8yT5MbHVsCBFDjH+bKu4kH4VNkUIkApdYXnCnmyxKEbUoW6a+qhRZDRMt
+	Lq77zCnQ==;
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9iXB-00000007WRw-0Zj5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 11:22:02 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b3e9d633b78so419095366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 04:22:00 -0700 (PDT)
+	Fri, 17 Oct 2025 11:22:46 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b3da3b34950so287867366b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 04:22:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760700119; x=1761304919; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1760700121; x=1761304921; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mUV6qtcx4rMTHA9YbDeCb7EleNNSZvqvmp58IK55HCg=;
-        b=UwA21yPnIsI4+sg3FZQ7H0lTukyk7ozDvKqg9355/IpK2EbFHyB0GiesccosqH7Zjv
-         DJQtpqN0jVEGMjfV8H0IabTzTJaBkhfvZb1M3UF0zXhCXdCpc7aS+vwonV7x6+JIC39P
-         +C+H/47Wfmxbj2hx6YZorUbZ/+nYkIXyTiQrehMfAe0Ndy1qUSLu/ijQEKMgNTHgQ2uv
-         SKACVTkuFZvE8s9d841xEv1H4hne/3yRlwnjZgnGHCRu0IZIPHy/HkCR+UfkUJjSGWko
-         /Mz1rDDPM1I1AiWZMy9qMHX0GW1PtI41yXiNEgPD9XYEV2k/AQkOsoToSzqJjxsEgITN
-         GIlg==
+        bh=07Toi2vUIU+MWGlot8kMIQ1ee07JBmL9YfZNkL4sfI0=;
+        b=m5Y5KcBs+F6ck9g7Wd8atZDbVfnzcu3xER7A/4wiffVzJqr/xvG0NmgJ+AQ4mAp5oG
+         7cBzo6ZuqTh7Vurg8Ig6KVZiwin7KguNVNADmTu+b7GFWu7hZmfXJSrM82/zz9a4X3U4
+         1kubTpdl25eRMfiqq14rBp84eG8J5JaTS80KjHNqVCCXwrJ734oO2hfF9ahCq9CO0lTv
+         1n4z/rrMclfS1nWSartAZpQDckIw+/opk5cXpLSBx8cjz0GyOr6iyBAwFzCs3AWH+ECZ
+         F4q9tSqEC4x2TyNlo8/4gpHZlCE1eOZPkn/8SSegu4hrxTqa6pveYHCYX/cu8wCu5bpa
+         +0uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760700119; x=1761304919;
+        d=1e100.net; s=20230601; t=1760700121; x=1761304921;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=mUV6qtcx4rMTHA9YbDeCb7EleNNSZvqvmp58IK55HCg=;
-        b=fyoCd3FTYEq0N6ThhULb/pJQaxklysCN4R1L3rHrKKO7R072fQ9Ue7fxZCTaBkt5LC
-         ALMYBa5+CyBnoLU7OxarLFn3x8/991Gm5MbORjqk+vV6gJwdqmGpBs9htYeQt++lE56o
-         H2/kwH2UtV5nH//WJEtVdZWLmbWo2Mie9PtYg9JJ2C6IBUfwuHgGRIJyjRZW4q2Fg/IF
-         CG6JeQScoMK4NTabgzJEuGLxccZ3aA7rrywRcpHhCgsZYe0QBi5b7xYQyzlxCFLCk2PK
-         8kGetYpkLxzBu3kuykBeuPRUJZfsHMjCGi00X4HnSRZMqRRwLBrJ209wgQDMRphM4iEN
-         unYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU6jEyoJvAZ+NwXeI0tntom8XxpdqgVUtExwE2JX4Dc0AkFDIyNMx1N0pQMLDVLrWSyS/cl04j9I5MIYkbdvtyB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBkRiQSWYaEo9k5KWmXRI5WMQklVetvov9EWDTLmIKuIva2nYy
-	1dgeKo9i4s+o5BlJ8ZzNhDqRm97Ht9tvn9oDUSHaK5WMYgCATWnqFEYY
-X-Gm-Gg: ASbGncsOcAeO/HYDcFHtvTxOFQWz26NsvIh76a5LNvGwGvzTfyvgj2Lo/vsMLB4qNVB
-	55VKlO5gc+bcF0w41oL7uSs7ZmEtCaGM49cK3lSaFkbQeq853V+L4bjIn84DzD209Q0ofsMmBFw
-	UZ0GpG2CoLMz/OvKO9q2QUlWr0gNB8hMg+y9B7dRhv91blcZK1ru6W4I69V2QQJ07FbT5meNYAy
-	g4ML/VuisXo1RxKtj1MM+4RCzZsreqXsixkBdAS1adW0UHPln1qgKzZHWkMZYGrl9w69pbyCb4M
-	Kyp2ROy9ocO+hy91qRB4vrd4whv8nWASXdeFA9Rgj9rA2dAgPKWt3yKK77sHCGbQrudabqGeyaA
-	eX0Kjr/5uz4y7wcdzGWzd71GTUSh75raR9/Lrhz7PhItV3S3f/Y0BRXJon+ZnYqBulydgaPNJvn
-	Q8OJaJaizeN8VqigNtsktc4Jv6mI4AchW0IRUOFg==
-X-Google-Smtp-Source: AGHT+IGBmOLlRjgaTi3Dp0i7n6ywhQoBAle46tY4Ru1l6tF04+Mf45lE3lTlEpkDb4XkYETG5Xjxmw==
-X-Received: by 2002:a17:907:a0b:b0:afe:159:14b1 with SMTP id a640c23a62f3a-b645d20ef0fmr390859366b.9.1760700119091;
-        Fri, 17 Oct 2025 04:21:59 -0700 (PDT)
+        bh=07Toi2vUIU+MWGlot8kMIQ1ee07JBmL9YfZNkL4sfI0=;
+        b=sJrT5WvVtXnqvrcOFUc2ySdar+LtljlLpBsxH+lr6nTSnrIsxx3+P+p5VC5zXvp5B/
+         0OBQ1yAkv/laNmU5L3WubEjY1bGfO7jk0PCcj7+AoyD8iHXSzbae5IBpgTehMrLoofmQ
+         byS4B3G1YABYuB38Yp/tQaVSGVF7RXy2kpqZMID4h4IxvzZpWclGCzxzxic+ixkwbkLr
+         BfHpn++04yBfXie48K6a5JSx5HC3BFzpqQhx9RYgsAkJ+S9Ub2E7HmxXyeiBysL+te3m
+         RuhY5rvdsbDvXQtQY2k8oKmL4V8z++HqDftyd7WHsL4N1lGr0oHmrV7gYCF5Wh5oIBxq
+         pv/w==
+X-Forwarded-Encrypted: i=1; AJvYcCXvZJ0lderWdq5Sz9twhJmFqAc2+nrMaTrRSjhR6r9/mGCnUyjA7sYxPTWft+Ys4cpC7Jp7Y9pLvXyuyEQB9MUS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwahArgZpGsSmPMHvvqjCS57ShZTZui/OilWXWY98cHbsuZMLk+
+	WMbhAU4i/rY+o3jd0dXROU4UNAkkXMZ31OYL9shoHz4c0r7xdIVnYt+f
+X-Gm-Gg: ASbGncvmHrCPG7WQwpRySlI1gSRrnUY8i3XI/cLG5G0/Y1+ep0kh+LOcWT0VWnWl7LG
+	t5q8Ix/pfNk6vcaQy6gs93Az8xO3/dAiYPz6iAYiCYDHUsBOwBfN06SFMGFunsmZev/JhrOaZKO
+	wWWprix2bPovxRB6VkgA8u2ZgvLgcXFsqpIaJFLaAXKxBx22LvwAbj5A6xKM/jNKSsovKLVQd++
+	XrLT+Jf3nFHGFLx9P1KClcQfw1wAvijBzhHApa0NJtKhTus2Gtolq71fXMRzw3/7eAfZ8DsWmnb
+	1zDk69u3y9tCPR1SMwoSSEnEpaz56Rr+h95T/onl0vwyhbB5itUlY08K0e1Q+nAJDkT1f7WhJrJ
+	ZLFcYWjG4krYF8IZmP/embymJ7s9KU2BYjgBN84VFMVoATqHwrr5wFXfpFU6KbWaADdy5hon6Ze
+	vd+3H23jfQyp2HCL0IiiSylQH6JdO9/oFrZxC3jg==
+X-Google-Smtp-Source: AGHT+IFm4WIQFISVomrAFV51FZBLIpyrii3K7EFFJhRI3QtwYUrQCPmRYno3c3emRFDyrsQdPdKFXw==
+X-Received: by 2002:a17:907:7ea3:b0:b41:873d:e220 with SMTP id a640c23a62f3a-b6474f18597mr313933066b.50.1760700121004;
+        Fri, 17 Oct 2025 04:22:01 -0700 (PDT)
 Received: from SMW024614.wbi.nxp.com ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b5ccd1af35fsm788256166b.60.2025.10.17.04.21.57
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b5ccd1af35fsm788256166b.60.2025.10.17.04.21.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Oct 2025 04:21:58 -0700 (PDT)
+        Fri, 17 Oct 2025 04:22:00 -0700 (PDT)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Abel Vesa <abelvesa@kernel.org>,
 	Peng Fan <peng.fan@nxp.com>,
@@ -89,17 +104,18 @@ Cc: linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v2 7/8] reset: imx8mp-audiomix: Support i.MX8ULP SIM LPAV
-Date: Fri, 17 Oct 2025 04:20:24 -0700
-Message-ID: <20251017112025.11997-8-laurentiumihalcea111@gmail.com>
+Subject: [PATCH v2 8/8] arm64: dts: imx8ulp: add sim lpav node
+Date: Fri, 17 Oct 2025 04:20:25 -0700
+Message-ID: <20251017112025.11997-9-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
 References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_042200_901441_BCDE65AE 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20251017_122240_580950_ED05EE00 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,97 +132,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Support i.MX8ULP's SIM LPAV by adding its reset map definition.
+Add DT node for the SIM LPAV module.
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- drivers/reset/reset-imx8mp-audiomix.c | 51 +++++++++++++++++++++++++++
- 1 file changed, 51 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
-index c370913107f5..b333d7c1442a 100644
---- a/drivers/reset/reset-imx8mp-audiomix.c
-+++ b/drivers/reset/reset-imx8mp-audiomix.c
-@@ -3,6 +3,7 @@
-  * Copyright 2024 NXP
-  */
+diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+index 13b01f3aa2a4..676535c3fc84 100644
+--- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+@@ -776,6 +776,23 @@ edma2: dma-controller@2d800000 {
+ 						"ch28", "ch29", "ch30", "ch31";
+ 			};
  
-+#include <dt-bindings/reset/fsl,imx8ulp-sim-lpav.h>
- #include <dt-bindings/reset/imx8mp-reset-audiomix.h>
- 
- #include <linux/auxiliary_bus.h>
-@@ -17,6 +18,8 @@
- #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
- #define IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET	0x108
- 
-+#define IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET	0x8
++			sim_lpav: clock-controller@2da50000 {
++				compatible = "fsl,imx8ulp-sim-lpav";
++				reg = <0x2da50000 0x10000>;
++				clocks = <&cgc2 IMX8ULP_CLK_LPAV_BUS_DIV>,
++					 <&cgc2 IMX8ULP_CLK_HIFI_DIVCORE>,
++					 <&cgc2 IMX8ULP_CLK_HIFI_DIVPLAT>;
++				clock-names = "lpav_bus", "hifi_core", "hifi_plat";
++				#clock-cells = <1>;
++				#reset-cells = <1>;
 +
- struct imx8mp_reset_map {
- 	unsigned int offset;
- 	unsigned int mask;
-@@ -55,6 +58,50 @@ static const struct imx8mp_reset_info imx8mp_reset_info = {
- 	.num_lines = ARRAY_SIZE(imx8mp_reset_map),
- };
- 
-+static const struct imx8mp_reset_map imx8ulp_reset_map[] = {
-+	[IMX8ULP_SIM_LPAV_HIFI4_DSP_DBG_RST] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(25),
-+		.shift = 25,
-+		.active_low = false,
-+	},
-+	[IMX8ULP_SIM_LPAV_HIFI4_DSP_RST] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(16),
-+		.shift = 16,
-+		.active_low = false,
-+	},
-+	[IMX8ULP_SIM_LPAV_HIFI4_DSP_STALL] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(13),
-+		.shift = 13,
-+		.active_low = false,
-+	},
-+	[IMX8ULP_SIM_LPAV_DSI_RST_BYTE_N] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(5),
-+		.shift = 5,
-+		.active_low = true,
-+	},
-+	[IMX8ULP_SIM_LPAV_DSI_RST_ESC_N] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(4),
-+		.shift = 4,
-+		.active_low = true,
-+	},
-+	[IMX8ULP_SIM_LPAV_DSI_RST_DPI_N] = {
-+		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-+		.mask = BIT(3),
-+		.shift = 3,
-+		.active_low = true,
-+	},
-+};
++				sim_lpav_mux: mux-controller {
++					compatible = "reg-mux";
++					#mux-control-cells = <1>;
++					mux-reg-masks = <0x8 0x00000200>;
++				};
++			};
 +
-+static const struct imx8mp_reset_info imx8ulp_reset_info = {
-+	.map = imx8ulp_reset_map,
-+	.num_lines = ARRAY_SIZE(imx8ulp_reset_map),
-+};
-+
- struct imx8mp_audiomix_reset {
- 	struct reset_controller_dev rcdev;
- 	void __iomem *base;
-@@ -183,6 +230,10 @@ static const struct auxiliary_device_id imx8mp_audiomix_reset_ids[] = {
- 		.name = "clk_imx8mp_audiomix.reset",
- 		.driver_data = (kernel_ulong_t)&imx8mp_reset_info,
- 	},
-+	{
-+		.name = "clk_imx8ulp_sim_lpav.reset",
-+		.driver_data = (kernel_ulong_t)&imx8ulp_reset_info,
-+	},
- 	{ }
- };
- MODULE_DEVICE_TABLE(auxiliary, imx8mp_audiomix_reset_ids);
+ 			cgc2: clock-controller@2da60000 {
+ 				compatible = "fsl,imx8ulp-cgc2";
+ 				reg = <0x2da60000 0x10000>;
 -- 
 2.43.0
 
