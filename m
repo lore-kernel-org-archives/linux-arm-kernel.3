@@ -4,70 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1DCCCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47DCCCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Cc:Subject:To:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WBX1XXPozKbB39+0x+/YaeCYQ4Nq3QF5+0oeXCbgTdE=; b=LHskGN3RiJzHzeiRYw3ljQQMJP
-	ExAxbuyYrAaRwkfpt+6HCcUomga3uoUzifZ24kRUCImaQMh4fkuD7FMnJPB9mCo5U+kBsNIG4Uw+N
-	diucCT3t0B4cwdEJHGgxeV2kuck/XUZIX3QPderEf5MaxdEk52APk9XICpfpnHyKTZqtw2Qg76bN5
-	VGdjwJHTOktlq/HrMEiBqib8PUYK0sfiAyXpsWWbzhKT8Hh3SqrqrenCsrkKMehOuvvw/mwNW+k84
-	OBUHq/8rwn/GtK/UXDg9HHZ6SLUM5f+sjx+TbgQdpJzpoFqBs5yBnZSLPIvizhPHTjT/rimMMvA38
-	Ko8Z1XuQ==;
+	bh=AXb2xoWF36PJ82m6BEQX2BdaIWmKUFdyItrBQFX0b8c=; b=lL3r1Wula8eN+PIqZ/o2YlHsUh
+	+5sr97+ZeT57wi29QkKalUUujbORx8HGSziAfDF1I2M4qPsv744MWsK7CSS7+LJhQwNvzz4LaeoOp
+	Eh3x2tYgV2Spdvhbvs2IpniiPKxhuudKV9+KxjhR+TvVx08MGJsjLQ1ghgTPh0EzUMC/lknoEqK4G
+	Z2A8PXG4/oCPpnBu/VcoauRIV7ovZvF8xsNAE2VwZ8JikNA3o0Eo3kIPFMh8X2lofUObjOhlkfYRT
+	J2efc5tUuygexkQ8P+yd4yrX5kWDUHMmNCS0HC3mUCYK+vTMQx3geT8g6HsG85BaDhK5Zm/Ynl3aa
+	X2cAbAUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hfY-00000007WwR-1i34;
-	Fri, 17 Oct 2025 10:26:44 +0000
+	id 1v9hgw-00000007XBq-0SIb;
+	Fri, 17 Oct 2025 10:28:10 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hfW-00000007Ww9-48HS;
-	Fri, 17 Oct 2025 10:26:42 +0000
+	id 1v9hgv-00000007XBf-1six
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 17 Oct 2025 10:28:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Subject:
-	Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:In-Reply-To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=WBX1XXPozKbB39+0x+/YaeCYQ4Nq3QF5+0oeXCbgTdE=; b=JM8DAtnddHKEBxSv+lbNIezQ3+
-	Pc11nXtyGR40sH0Y04yRga+UbiENOZfan2Ulqh4HXlj8Ix4Q7CGQY4Vy6shrSWyrL1V9QcJUDiePs
-	3ZiuL0TV9RkbaJL9g0KO22ucD/YXmRhINsqHPOCpRRj7F1eSXMKs9cvGZgJtm9nc0FCvg70TADc/C
-	QegNHczKsDR7jsq7qP9YfhU/TH5GLkYTj33oBC7KbMk7k/1aVibAeBV2LvZv+8NBHqplgz32VFFyi
-	J2pJwQ0WBZouiqt4LPPIYCccNbjKExiFy6txpE/CFm1n4DqPcx0XhlU0iZXeDhIscY7emPoHNS6YB
-	yf/WvIlA==;
-Received: from mail1.manjaro.org ([142.132.176.110])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:From:Cc:Subject
+	:To:Message-Id:Date:Content-Type:Mime-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=AXb2xoWF36PJ82m6BEQX2BdaIWmKUFdyItrBQFX0b8c=; b=FgWIzCxFiJpQzHb6/20S0rJYcN
+	QFiQurygEgeDUJ+Tyv7EdGDOGNXugqZA9cMl2pKnahTRNsjqp+t7HH8uR5livjX1/Yg33T/RFqef8
+	UhLQC+U8y70oDKCPZgXXMbgU7gDRIgdRdR5dbXL7PbZCZKqQPKZd1BywJGxPs0U1H+9GTV61CQpk7
+	0gjU6qsPCIBXkEAVSh5E+65KuDNVb3BC+3k8VU033b7DFKYCVXbM2DNqHPju5FXqvrDofedAZfqyC
+	YaTsA0hPLrEvAKVG35+l1E2qEhUGuywsYWpAvCgv5PBDfkrPA4tvBh+wNHzWmrxPJdnBw2pJd4x8k
+	zoA4k49g==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9heo-00000007TCT-3h5F;
-	Fri, 17 Oct 2025 10:26:37 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id C31BB40AB5;
-	Fri, 17 Oct 2025 12:25:07 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1760696710; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=WBX1XXPozKbB39+0x+/YaeCYQ4Nq3QF5+0oeXCbgTdE=;
-	b=kfZagfkTEDuqNuedgWnadskCBrPVOaZ7tFLUl6BKfIDdggV7sfWW5Uw96w2Pk3j18SVw0u
-	9CE7L+jqWc44830qtyPcJ3i0hCCUitBa1bWs3zY8oP0ZYs/TS6Z4kY4pI281t8u4QR/WYO
-	BORe+kFr6OrFc8GZmyZO4ZfvnMsI7F9EZseLP4J7ol+eO9Wa5Pj3Pa8K0Ysg1yp9WgJ51v
-	kAA9e2gaKKketA/KAt1NvEA59iEyKIr70mHhhoKeEtI9uBEiFwiNsX5lYVWVUIIE3AwL9X
-	BwE+IXMlKiiWGpraekOKOc3pW77DREOtNDqjLQvsKykELoekEho+g9pZ8zZyUQ==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <20251017073954.130710-1-cnsztl@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-References: <20251017073954.130710-1-cnsztl@gmail.com>
-Date: Fri, 17 Oct 2025 12:25:07 +0200
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Grzegorz Sterniczuk" <grzegorz@sternicz.uk>, "Jonas Karlman" <jonas@kwiboo.se>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-To: "Tianling Shen" <cnsztl@gmail.com>
-MIME-Version: 1.0
-Message-ID: <7f0b1747-87eb-0b0b-6fb0-304811a4be21@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
- =?utf-8?q?_rockchip=3A?= fix eMMC corruption on NanoPC-T6 with A3A444 chips
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
+	id 1v9hgW-00000007TJx-3U25
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 10:28:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1D46749073;
+	Fri, 17 Oct 2025 10:27:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C4ACC4AF0B;
+	Fri, 17 Oct 2025 10:27:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760696843;
+	bh=AXb2xoWF36PJ82m6BEQX2BdaIWmKUFdyItrBQFX0b8c=;
+	h=Date:To:Subject:Cc:From:References:In-Reply-To:From;
+	b=ivyB4e0+t/GWg+1SNSB43y07tXoByzNyL5FagwcIOvm/vwYuJGFvPkac++hLkjZFg
+	 gi/QmUs86qqqH9c1OOwq1pfIwq0ooGvegZODBLL27kaWwKkb5L+kZtzbwFFRFRPBII
+	 KJ+LMHtEKKhObCscaZra1PV9fj3VsNG4E08+JMrOKqkRN/z9N6k4CFz5Q1t4ga5iVg
+	 IrFA4enPWxzurEv+mkZ2HM0GjBublSHznMwhAwrbRSGeCsXnbTQ6YPiXUWgCGwsZ5N
+	 N2zfXogkrJJtT3sn7nr705gDpKZGvh+Imyi849qPBjGE8L4MU5d4ZIo8Mh+0zZGXfE
+	 9gV+S93/twu+A==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=209572d5d449fea800561efc9231a1c1fc1c44a605e3fc288225d653e647;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Fri, 17 Oct 2025 12:27:18 +0200
+Message-Id: <DDKIXTB6YXUM.3VY1GNCC6GFCN@kernel.org>
+To: "Michael Walle" <mwalle@kernel.org>, "Nishanth Menon" <nm@ti.com>,
+ "Vignesh Raghavendra" <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>
+Subject: Re: [PATCH v1 1/2] rm64: dts: ti: k3-j722s-evm: explicitly use
+ PLL1_HSDIV6 audio refclk
+Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+X-Mailer: aerc 0.20.0
+References: <20251017102228.530517-1-mwalle@kernel.org>
+In-Reply-To: <20251017102228.530517-1-mwalle@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_112633_971055_B3DE041A 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20251017_112801_887263_495B9585 
+X-CRM114-Status: UNSURE (   6.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,50 +93,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Tianling,
+--209572d5d449fea800561efc9231a1c1fc1c44a605e3fc288225d653e647
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On Friday, October 17, 2025 09:39 CEST, Tianling Shen <cnsztl@gmail.com=
-> wrote:
-> From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
->=20
-> Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O errors an=
-d
-> corruption when using HS400 mode. Downgrade to HS200 mode to ensure
-> stable operation.
+On Fri Oct 17, 2025 at 12:22 PM CEST, Michael Walle wrote:
 
-Could you, please, provide more details about the troublesome eMMC
-chip that gets identified as A3A444, i.e. what's the actual brand
-and model?  Maybe you could send a picture of it?  It might also
-help if you'd send the contents of "/sys/class/block/mmcblkX/device
-/manfid" from your board (where "X" should equal two).
+> [PATCH v1 1/2] rm64: dts: ti: k3-j722s-evm: explicitly use PLL1_HSDIV6 au=
+dio refclk
 
-I'm asking for that because I'd like to research it a bit further,
-if possible, because some other eMMC chips that are also found on
-the NanoPc-T6 seem to work fine in HS400 mode. [1]  It may be that
-the A3A444 chip has some issues with the HS400 mode on its own,
-i.e. the observed issues may not be caused by the board.
+Dang. I just noticed the subject has a typo. Will fix it in the next
+version, or if there are no futher remarks, could it be fixed while
+applying?
 
-[1] https://github.com/openwrt/openwrt/issues/18844
+-michael
 
-> Signed-off-by: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
-> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arc=
-h/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> index fafeabe9adf9..5f63f38f7326 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
-> @@ -717,8 +717,7 @@ &sdhci {
->  	no-sd;
->  	non-removable;
->  	max-frequency =3D <200000000>;
-> -	mmc-hs400-1=5F8v;
-> -	mmc-hs400-enhanced-strobe;
-> +	mmc-hs200-1=5F8v;
->  	status =3D "okay";
->  };
+--209572d5d449fea800561efc9231a1c1fc1c44a605e3fc288225d653e647
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaPIaBxIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/gJfwF+MlA538hR89tlDMYyXTdFilZkhwrQOqDO
+KX70l82R34q8yCx2xEAatnjiIiI4D9FvAYDevXZvMHZLxxjOJwsBxB2A0CyDYCAr
+eos4cbNK+BO7LLznbJ+6BkL4Gy2I9IQviL0=
+=jeCh
+-----END PGP SIGNATURE-----
+
+--209572d5d449fea800561efc9231a1c1fc1c44a605e3fc288225d653e647--
 
