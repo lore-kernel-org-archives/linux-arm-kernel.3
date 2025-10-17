@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9023CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 08:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990DFCCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 08:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XXhbXjbg9Bou7XFZx9Va+8DrZiTnOAeArbhWtGkh2B0=; b=bl8d2ROR5LBx0WCu47yGJm6xWd
-	k1FIu597/tAM2dytz6mOpN0f+7gZZrodC6IZe8JkUkCS8/ceD6fpbgy8OXaxx6byQSep80Kt8B5gm
-	ff0wSWHKJzFqcJ73j+4o8MUXWZj2ru1/HCqAc6mdnWLnzegwVlVxsMjrHc7BeZuclKIlNKWRHzjIe
-	h0NAKWK5GTCITrEFO3HQ0Hl4zBiex7F8c7vJ+LhS0VD5CxwOlOQsFkVJS0AkRD/7aBMwgwl8xYXjO
-	N55ZJAZXNhzNiPgxXCWdqjO1Bk9IoIhhCKJgwGJATQYF/2LP6A3hINb6C/oapabHBXPYiP3wBV18z
-	2Y9Wz+qw==;
+	bh=EE4DbP6VyEopa6RRKZ0TwuzbhB7U4XSLZlbDbYNwWIU=; b=gN6LB3ZIS45lTQcE/+1Fx/lABv
+	9XELaiDhKnDuPC2fjG87nygWq2w6QI2CdhgThL03Yk3wQceU6SdToiaakGt2gZy8jxiYkqXinlk6W
+	3KOLEOoqwLPkHsgxQ0hPSXRahWPiM73iVBPx63QWcpn05QHCLN4mc/NhXubgePOLy3Vx/fILRnVqS
+	JmzydBWC7HGLb/buw95gfoO5Q77WJvObuMA4PCCOWUKRM7FNo2LO+T7MXR5yEUkrbYFYj6RFbFC1Q
+	Kj/8zZpL1x7bS94SUUSGdUjj8aXFuvnJD9Dv85y3KkSf87zHMGKWKA8Rp+b24i1MEAdsw4n2EBtvh
+	W9wTQ89g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9g8B-000000077k4-1boE;
-	Fri, 17 Oct 2025 08:48:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v9g8E-000000077nG-1U7E;
+	Fri, 17 Oct 2025 08:48:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9g88-000000077he-2HFy
+	id 1v9g8C-000000077kv-20Tg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 08:48:08 +0000
+	Fri, 17 Oct 2025 08:48:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EA46F604EE;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2CE114B051;
+	Fri, 17 Oct 2025 08:48:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CC0BC116C6;
 	Fri, 17 Oct 2025 08:48:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8D40C113D0;
-	Fri, 17 Oct 2025 08:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760690887;
-	bh=XGXorEJawrWEzTdrR4D/nXvovbfYzhFoHVqFZYAEOXc=;
+	s=k20201202; t=1760690892;
+	bh=aQM8S1gRQ5jL8Y273uYJ9Sl4vppeQ81J+AkspAyr2H8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m5QYaH/WEXygWVrPOjMqdEhRrPdFXruUYtqnHZ4Fmv8H3ZWEzwwid0w3JeLYbrv6k
-	 8aWbPMNETE4+njNuSsGmJ06/LoOwD0Nf2sVekIfotn4vCR9sSAqEb0ogSuIIW0bneu
-	 QdzoH+VyKUf+qiqScez0+3XbbPtYvx0qkWF1s/tAqdBtH7Ox7M13htnmRPMOy6dWU0
-	 LwE4sGc7oVOD3yWiXmM4wBDEITiKazUQnJotUasF7MYeUbPp4Dv0EVjQ21pemjj+Yb
-	 h5v8nvNYoSqzh9RMxijXBZB0v/mI4ZZQ6zyZ/wX/8vaphS4RZOS+hPO0P12uaO3MKe
-	 A6Pg1Sedj6y1g==
+	b=OsutJEW55HQyO+td7OWiczhMBPckM32yQP4VtNVV2xrDdYjzrloB/Un+AZ5bIsqbu
+	 01EyN6iYYyuZb50D3HWUCKDjMJwyk28rwfWLjiZLVYCQW8VW6fEgJrLgybyMdpxegH
+	 gDVf0LT5hdZzInU/YseP+w1c5cUXrv8QIEqYojzsnjoY2aqiiRKQYwwxkhrqOatb0Z
+	 6UwgnjF4+n0zTwZpB2HwpeosTG60RWUVpOSpwqXOHRIUwPVUr7aJVGE4t7U6kj54QM
+	 PwFfnQ4dNFvYF2EukQWYGoFSuLvD1qV4WT4gFXdbvLfvKMopVPQmDScDq3ysb5b2c2
+	 hPRFL57qy+Crw==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-pci@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	Frank Li <Frank.Li@nxp.com>,
 	Rob Herring <robh@kernel.org>,
 	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Scott Branden <sbranden@broadcom.com>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Ray Jui <rjui@broadcom.com>,
+	Frank Li <Frank.Li@nxp.com>,
 	Manivannan Sadhasivam <mani@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v3 2/5] of/irq: Fix OF node refcount in of_msi_get_domain()
-Date: Fri, 17 Oct 2025 10:47:49 +0200
-Message-ID: <20251017084752.1590264-3-lpieralisi@kernel.org>
+Subject: [PATCH v3 3/5] of/irq: Export of_msi_xlate() for module usage
+Date: Fri, 17 Oct 2025 10:47:50 +0200
+Message-ID: <20251017084752.1590264-4-lpieralisi@kernel.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251017084752.1590264-1-lpieralisi@kernel.org>
 References: <20251017084752.1590264-1-lpieralisi@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_014812_538754_491521CC 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,35 +83,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In of_msi_get_domain() if the iterator loop stops early because an
-irq_domain match is detected, an of_node_put() on the iterator node is
-needed to keep the OF node refcount in sync.
-
-Add it.
+of_msi_xlate() is required by drivers that can be configured
+as modular, export the symbol.
 
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>
 ---
- drivers/of/irq.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/of/irq.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-index e67b2041e73b..9f6cd5abba76 100644
+index 9f6cd5abba76..889d0dfbcb3f 100644
 --- a/drivers/of/irq.c
 +++ b/drivers/of/irq.c
-@@ -773,8 +773,10 @@ struct irq_domain *of_msi_get_domain(struct device *dev,
- 
- 	of_for_each_phandle(&it, err, np, "msi-parent", "#msi-cells", 0) {
- 		d = irq_find_matching_host(it.node, token);
--		if (d)
-+		if (d) {
-+			of_node_put(it.node);
- 			return d;
-+		}
+@@ -732,6 +732,7 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
  	}
+ 	return id_out;
+ }
++EXPORT_SYMBOL_GPL(of_msi_xlate);
  
- 	return NULL;
+ /**
+  * of_msi_map_get_device_domain - Use msi-map to find the relevant MSI domain
 -- 
 2.50.1
 
