@@ -4,65 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05979CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 05:08:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0068FCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 05:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lMKro1feHta3Ev1l0OElUNRw/Zk/TZv7q1l/O5EtEYo=; b=TTy/h3Zd0ECcOVtW/P/JS3jPcd
-	fvHsc4MIc0jw23X87qL7DmKSnaOxdTux1e473s/W+y1ytC9ob9ftc9Ey/GuBEfJmrRBgzms/S+ZWG
-	GQJ3agXCYULTiOz7Em3s0jXo84DkTwmgin1PGByWG1vRGBqeKbYrgWFJv+O3QMp83bykmyqPOdH0A
-	tWb4sg1BtanMeMGw4VBslbqI3t/pFd2oB3/B+ELH+tcquwVRExyKSbB3X/94chZNy4EgnRzZVts+2
-	2RS6/NTLDij9kEvkn+OQdC/go/h4dvMVLF4q87yW5IdFx22cNvT1eKA1Np1C/iKlGl/5jn3OgZmqu
-	uzZckpSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Vqnep1ZnxMmFAazaW+76O9ZpZbmm9vZn7F9HbkPeTCg=; b=poET34Lr3PC3TFFnkb7sDgD02+
+	k0dMAbdnj2awanTqyzZrby4/fBLYk3yDGiwGuXARDrtxTsd89VnWqskZ4+229dV96Sy9a+zebx+Ei
+	GceYO95kJfPWygzJ7Pn5COfJRYR7Ii2Yi9GpjiaT9pAKzJYFFLbe7jqdnoB2LwcHguXCNqe0TQ8Zh
+	yTMK53nRWvba03VIOEe2Le5UEIhPpiEXHMHR+oRbMyq4vlfl+u9d+RDUloi7bsRy9V0hxbbpIp+Eg
+	8M0xn0HTdBRkKJjlGdqA3y60fytRO8QNXMGe1ro8oJwsxuqESP52vDvempkIq08ckQNbsxJXq4p1R
+	192LlSPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9chF-00000006a5t-3LJu;
-	Fri, 17 Oct 2025 05:08:09 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9chD-00000006a5U-0Jnr
+	id 1v9cnr-00000006ako-3tpE;
+	Fri, 17 Oct 2025 05:14:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9cno-00000006akD-3pov
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 05:08:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1760677679;
-	bh=lMKro1feHta3Ev1l0OElUNRw/Zk/TZv7q1l/O5EtEYo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=OGM95IMBtiyOqcKal/dEideDcepT9sptwo/Xw+NOzQRmzIeUAnshfynJtDxc/7ZjF
-	 nMlpFLYjQf7BOPFIN6EM8iyvPrzAvcOoUEZfSv1dags2cyaDA8ARoVoWaqwLK/I6ma
-	 GjKL6et/Lgff6UDz+wX3FwhCda7jyYx0SAkZSd1rPyVBIYYlk53HlSrEh3hOPq7xh3
-	 JTT+ofoadN30UyYWhhUq8umhJwRwueq138SpWZ70fC5fS2KMpz6U04RIu6i+aLMczo
-	 X36BvXTM9J+h/NjXtcQcJA2FeusqtxyNrgwMn6elhj4RzFxNdIkmgdAjVEiXAdcyMn
-	 ZUolDo7r0o7mw==
-Received: from [192.168.68.113] (unknown [180.150.112.213])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 60FC0766F5;
-	Fri, 17 Oct 2025 13:07:56 +0800 (AWST)
-Message-ID: <a96786b9020ad278fbda8c2007ad1c98ca41a4a7.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v3 0/2] Add Meta (Facebook) Yosemite5 BMC (AST2600)
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Kevin Tung <kevin.tung.openbmc@gmail.com>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley	 <joel@jms.id.au>, Geert Uytterhoeven
- <geert+renesas@glider.be>, Magnus Damm	 <magnus.damm@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, Amithash Prasasd <amithash@meta.com>, 
- Kevin Tung <Kevin.Tung@quantatw.com>, Ken Chen <Ken.Chen@quantatw.com>, Leo
- Yang <Leo-Yang@quantatw.com>
-Date: Fri, 17 Oct 2025 15:37:55 +1030
-In-Reply-To: <20251001-yv5_add_dts-v3-0-54190fbc0785@gmail.com>
-References: <20251001-yv5_add_dts-v3-0-54190fbc0785@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1 
+	Fri, 17 Oct 2025 05:14:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 391D0153B;
+	Thu, 16 Oct 2025 22:14:46 -0700 (PDT)
+Received: from a079125.blr.arm.com (a079125.arm.com [10.164.21.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 092BE3F66E;
+	Thu, 16 Oct 2025 22:14:49 -0700 (PDT)
+From: Linu Cherian <linu.cherian@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Linu Cherian <linu.cherian@arm.com>
+Subject: [PATCH v4 0/2] arm64/mm: prevent panic on -ENOMEM in arch_add_memory()
+Date: Fri, 17 Oct 2025 10:44:35 +0530
+Message-ID: <20251017051437.2836080-1-linu.cherian@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_220807_323031_C3F7787F 
-X-CRM114-Status: UNSURE (   8.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251016_221457_009213_B195F6BF 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,20 +70,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-10-01 at 16:47 +0800, Kevin Tung wrote:
-> Summary:
-> Add device tree for the Meta (Facebook) Yosemite5 compute node,
-> based on the AST2600 BMC.
->=20
-> The Yosemite5 platform provides monitoring of voltages, power,
-> temperatures, and other critical parameters across the motherboard,
-> CXL board, E1.S expansion board, and NIC components. The BMC also
-> logs relevant events and performs appropriate system actions in
-> response to abnormal conditions.
->=20
-> Signed-off-by: Kevin Tung <kevin.tung.openbmc@gmail.com>
+arch_add_memory() acts as a means to hotplug memory into a system. It
+invokes __create_pgd_mapping() which further unwinds to call
+pgtable_alloc(). Initially, this path was only invoked during early boot
+and therefore it made sense to BUG_ON() in case pgtable_alloc() failed.
+Now however, we risk running into a kernel crash if we try to hotplug
+memory into a system that is already extremely tight on available
+memory. This is undesirable and hence __create_pgd_mapping() and it's
+helpers are reworked to be able to propagate the error from
+pgtable_alloc() allowing the system to fail gracefully.
 
-Thanks, I've applied this to the BMC tree.
+Keeping in mind that it is still essential to BUG_ON()/panic if
+pgtable_alloc() encounters failure at the time of boot, a wrapper is
+created around __create_pgd_mapping() which is designed to panic() if
+it encounters a non-zero return value. This wrapper is then invoked from
+the init functions instead of __create_pgd_mapping(), thereby keeping the
+original functionality intact.
 
-Andrew
+This theoretical bug was identified by Ryan Roberts<ryan.roberts@arm.com>
+as a part of code review of the following series[1].
+
+[1] https://lore.kernel.org/linux-arm-kernel/20250304222018.615808-4-yang@os.amperecomputing.com/
+
+
+Changelog
+
+v4:
+Few trivial code readability improvements 
+
+v3:
+* Added a Fixes tag to patch 1 and CCed to stable
+* Fixed a maybe-uninitialized case in alloc_init_pud
+* Update  pgd_pgtable_alloc_init_mm to make use of
+  pgd_pgtable_alloc_init_mm_gfp
+  * Few other trivial cleanups
+
+v2:
+* With cleanup merged as part of, "arm64: mm: Move KPTI helpers to mmu.c"
+  changes in patch 2(v1) got much simplified and squashed to patch 1 itself.
+* Patch 2 now does a trivial renaming for better readability 
+* Make use of INVALID_PHYS_ADDR for error checks instead of 0.  
+* Do early function return where we do not have any
+  common cleanup in return path
+* Remove redundant variable initialization
+* Changed BUG_ON to panic
+* Renamed ___create_pgd_mapping to early_create_pgd_mapping  
+
+This series is now rebased to linux-6.18-rc1.
+
+
+
+Chaitanya S Prakash (1):
+  arm64/mm: Allow __create_pgd_mapping() to propagate pgtable_alloc()
+    errors
+
+Linu Cherian (1):
+  arm64/mm: Rename try_pgd_pgtable_alloc_init_mm
+
+ arch/arm64/mm/mmu.c | 220 ++++++++++++++++++++++++++++----------------
+ 1 file changed, 139 insertions(+), 81 deletions(-)
+
+-- 
+2.43.0
+
 
