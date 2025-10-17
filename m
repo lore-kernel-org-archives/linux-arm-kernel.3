@@ -4,152 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193E8CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 19:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BDACCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 19:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NDFamMd0o9Y7qLZOjscAOp4r8I+m3aYXZeFPwTjn+lI=; b=laXDOJOUnuXMThPLJ8jHARSoKu
-	z7k2xWAaTuUgPEo4PN8Mn3jNuBWP8p/rpF5pECFfJKesJr80g2Zlck8T1nnntmyVjUiHyMlg1ikbR
-	bjga3qBuC/DaNJPsRRZGMFOZjN18A8MkQVgNx1PBaBpcuW/MZm0QWFFWblp9swEsBQDGMBZmab/LZ
-	QgH2nY8aay86YYFHvxhtXNGNGO0xh1kvm7GhjrNqfOB03C/zB6vkEwcsenrtZZk6eUFVEQMqiL9LU
-	ZPYZUbAoXhWgbvKpVRNTnPkCOLJC9eZKY/vhygzeV97TXhJYtmpec6te0FNUNl8iUmRbCi9eO6hgn
-	I4UnAE4A==;
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fpFmHR4jfTSEaAikPpuoscXSDm/TM6wyuINg2NcI21k=; b=ECSCIGU09a28q3BqJIlAbUU/QW
+	gY50p4pQIfVa7TPvv+yjN6sEOIzuchYJ69aEE4oL+VWrBEcHLlG4zsYxLlUVCnT9sFHN3EqPrmJdF
+	lQJiL0U6HWPCsqXZ/AyS64YmkEUNwiwFS0ec6QDhjcz3KRDEUrz7vErGbmfSgFVcRY6Hc5gd+cP6x
+	FxAtRkHnv5sLTygEg+MhnPI2yKj7PZFs2VAD8Di/bwtvJCe18WCLBqGCjZTmOCYuVMligmE3YpQIi
+	hxI2RrMxY72KbnKXcdYlqKo3WL+5TP9mHjI2d3HS7s7YZqDyqZPtoJzI9Kot6tlCWQ+kZYe9RT09e
+	j4+knc3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9qJm-00000008qpA-1JOf;
-	Fri, 17 Oct 2025 19:40:50 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v9qPt-00000008rBC-0USX;
+	Fri, 17 Oct 2025 19:47:09 +0000
+Received: from mail-wm1-f52.google.com ([209.85.128.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9qJj-00000008qoP-31GZ
+	id 1v9qPq-00000008rAP-3hRK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 19:40:49 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59HJGc03017060
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 19:40:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	NDFamMd0o9Y7qLZOjscAOp4r8I+m3aYXZeFPwTjn+lI=; b=ab+lJnO2WjDFcY+u
-	4mf4EfvpQGaWjRovEEcZWSSzRphu0skduP7aB5wQRV36e/nVbH1tjK/Zl8duA0tY
-	pGqWIoLNeFXEjanyyJ6fVjmg75ID42a12X8EF01ZSeWIlbiem49Bn4vthoh+Pb6o
-	AVSSTuQT7AscEh8JZlyZYj2YtzB6Ck23A3mr+JT8AuqYcNja4pmRG+Lw/w0OrDzU
-	JytgiPWKz+Iwq5LNNV59sdD60F4tNzFA+OODdp5hmCBipRhVa+79zCXeAq07KcFM
-	pvOFAArsBAwm4GimPMSpRb6dsfJhFIht6ew7jsTZqKsqWM1rGFbkI2aQ86m/yTIM
-	8pvjyA==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qfdkng6p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 19:40:44 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-334b0876195so2477229a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 12:40:44 -0700 (PDT)
+	Fri, 17 Oct 2025 19:47:08 +0000
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-47106fc51faso25284745e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 12:47:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760730424; x=1761335224; darn=lists.infradead.org;
+        h=content-transfer-encoding:autocrypt:subject:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fpFmHR4jfTSEaAikPpuoscXSDm/TM6wyuINg2NcI21k=;
+        b=hNBUAZHB2MO56ivzsSkwr5JurhrxAfk5YiXgwy54hL4BS2v9XJo/1tTZ/Tz/WnaC0A
+         PaIx642ypt54fzQboFJDcvhHaFyYjEo6Qnl23XHU9zwOvtU+8Fr0wU6l/svq3GVRpQoj
+         aeiAgrnzoeaq1qktauoewdDbhSKdbnMu9RPAKMxwArt2a8aT2uU+K2gfpn7WSxSnlGbv
+         4U0ULBAl9C2nHIzEC7MpcWCUBfq6CcXn2Qp+6TsDUe+rUkffYsI/XxFEa0IYg9YoKHEX
+         xaoLhi5SjraVJ+hNhm9iqPj0jEyxP21CPSH9xyEUx3KwL07UJ95yI3aVvKnjC7736SJ2
+         irwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760730043; x=1761334843;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1760730424; x=1761335224;
+        h=content-transfer-encoding:autocrypt:subject:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NDFamMd0o9Y7qLZOjscAOp4r8I+m3aYXZeFPwTjn+lI=;
-        b=Po3UlGA39jmYJAPBoUgq1Sb0xf2zu1iBJXVGB6MEW08i2XWKKpD81FoUgmxHTvX+/i
-         gpdmzcteNWzPhnwfc6TQPIxzovrOHWo7xthULvPZ4LnE355FO/6KGDMOMgr9E5NurfWP
-         fC4xtt7htS6568gUlFHpTyMqd+dv96dBF6ul45IevBsDV5a9YNsIXGCjic41IiwKLlrB
-         /Zo5I9nsT1TNJyzWdcz+0cOItsnIyzJRDlAZ59GLUHMUjQ5ix+k7Ne5Xv7rm+sfXSMVQ
-         Xl6At9XBKm8CTnWjzGYaL4GuS/msV74XHYLHnzpQ0a/MeQWEZ46ODKk1YtWa5QsLN2Zh
-         1rQg==
-X-Forwarded-Encrypted: i=1; AJvYcCXkRItnEmyp31xdiOskqD1Vry6SI5+sUBgIM4vZybAxohq0lzvGeefysoITaMKzMzyyYuSLMml2pVepVs8iXbos@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMXX/s+S2P8wJ6TQ5EK5DPwW8oxUvTuG8RlWYZH913O/8YCjmb
-	KXhy13nuPfh/BggF6GLNvPKdLGtqsxn5wrcA0RIyNiB4vUJQObi0gjJRnrq8/fghwI2rBWNsKYP
-	3Us9tvGrKSphfKKFr66RmZ0LAcCaLGNQizIjV7XA1DQMtKh+jf9iFugRhoy1N9VD0z38oTsIrK+
-	NoZA==
-X-Gm-Gg: ASbGncuIRBRCoAIdp6VOHR/ym2/S8Yhq7ZFIw6vThZEs7udu78QQz65vHcZjLRhbJFJ
-	FvXklBq7F9eCYRPjaRepPP/53xVPF3Y3RI0+Gnh4jVETfH1LbnbpP+S8MiJeE30F0W0b+I43czk
-	r6q2edGtQ88MgVUqUZVDLYvXXfW036lF5urrfXaVCrJvUH7ngY35r03QhBOSFpruOHhrdQ7X8Ar
-	Xkdk9F9an0R18Uv7lHgf6w2T0nKNXlbDnNynIci6F2xs1ByJgNiBvFiCJT1pG0s7ogOKgZF0Z2J
-	s88YYZvOyEcWLcwSPwwn4KykAnkzHrMzuLvJMRKD1vWTilF83UferNdbLK4OyjF/lxOE0xg8Tpi
-	RLKXmAyjZFSaq1R3uaMUl4dmEKNcNlpmeWQ==
-X-Received: by 2002:a17:90b:3f8c:b0:32b:a2b9:b200 with SMTP id 98e67ed59e1d1-33bcf87ab38mr6176218a91.13.1760730043205;
-        Fri, 17 Oct 2025 12:40:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGhslTnLw1d44+gxYWnp+m2GVuVioyNzi8Rgxtwtm1YnY0CsEHaMExcmSUWrki5gmUY0K4AhQ==
-X-Received: by 2002:a17:90b:3f8c:b0:32b:a2b9:b200 with SMTP id 98e67ed59e1d1-33bcf87ab38mr6176158a91.13.1760730042699;
-        Fri, 17 Oct 2025 12:40:42 -0700 (PDT)
-Received: from [10.216.52.245] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33d5de11392sm200332a91.7.2025.10.17.12.40.13
+        bh=fpFmHR4jfTSEaAikPpuoscXSDm/TM6wyuINg2NcI21k=;
+        b=ghqRmS4zmMQBckBEugFLB5Ivo5Ot0WSsTJMw0AoGq/wzVwA/ZoRzPcBRoLvG3WCgRM
+         42VoOqAlb5NrgkrcH3NvrhKurxUuug+J3sxc+3V00+cSXyHSPyARWlr6+6zSajNh+x49
+         utqOPjqVHicNnpmX+ImgMQiPnnpMN9pq2B7+fQmCYpBJEebpEQ4NyUzRJrzr+9OgoEDH
+         uHpdkqnPSz6aqLPDapwXLpNHIysMK4+thbjK5dYMHtAT+b2wrTLyIRtL8K1YVJ40dSg8
+         eu/BGimMYFp/bkg9UA/7ct95kckFXGGoHwaJindpLXiHSXKpwDiIMxeB+spqjoAq/MpS
+         R0WA==
+X-Forwarded-Encrypted: i=1; AJvYcCXCWpgdzNeYNLpBBJKAhv59F/k2E0olWYnXCtiqm5Lro69ZCNrCbzssWfSH3uovvPMmOybXOP3vEweG+LrhQE+W@lists.infradead.org
+X-Gm-Message-State: AOJu0YwS+15d7iyJXS4jPasIg5RIp8TG3rhZF1F6R07G2pNaH9qsA/2h
+	xUzPg351+/46pN1bDcYLo2OptNWM6DQUWQCkFTgihJfbRWUt+C/oJbvD
+X-Gm-Gg: ASbGncv/S+H6cJoSyZM6Lu2TWZVctUGNFhOHr0TonQWtuh2G8IUAaHTgGLBZCAvSnyK
+	B45vT3Tak3hd3Y0G0s/XiwzGzf12NXbZOBSyb17GncWZWOL3DHDaponHo5kaWWAC9NCx3cqL3eK
+	M8JEqyWKe0ZggOOqDTsBwU2vcHvX31z7pf4nrxkuZTyuU6wyRQ6hRsoOyBf/7NDYUk81DqGZpNs
+	Nw/132Ovke5Ur7QzJ9VahP/d/TTHco3ahr4SUa4jMK2eVgFP3jnIPxywnZpEQ8cylN3bMekdLna
+	GFdI0+oLnu+mgXe6BhfsKjrLKj8kK1BHEe9N6JibVeZujl28MXA4GnjXLokWl2mHhPCtKIedZXf
+	rgcuNodMrlg5Sha69QzAU+xJfyCVOikBuqiUDuw2bmoNwg3ZI0f9RzyNTAjOfGq+YOPz5roXTpr
+	/qia1H3kgLSc5G26NAUvnbfGiMcWEYVXydOSTS7repV/NOE/oNBeIXiMpdNxqYia4QEjbm82E+W
+	sPOj/YyZKs980yUqVZqFxLW0ugC+6vEihs8jWIdvQoq2qiG3x4rCSiBUg3eIQ==
+X-Google-Smtp-Source: AGHT+IFgYFTAf0MzqjYma1mkQBE9Le8kxiaOfctfqcBza24VOcsw2PISP6F4yTTlo7gRo9UJKpOB6Q==
+X-Received: by 2002:a05:600c:3ba1:b0:46e:47cc:a17e with SMTP id 5b1f17b1804b1-47117870544mr42375215e9.1.1760730424307;
+        Fri, 17 Oct 2025 12:47:04 -0700 (PDT)
+Received: from ?IPV6:2003:ea:8f33:9c00:f581:27c5:5f61:b9b? (p200300ea8f339c00f58127c55f610b9b.dip0.t-ipconnect.de. [2003:ea:8f33:9c00:f581:27c5:5f61:b9b])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-427f00b985esm845193f8f.34.2025.10.17.12.47.03
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Oct 2025 12:40:42 -0700 (PDT)
-Message-ID: <8fb6e8e0-cdca-0bd5-d0fe-56b5f6d27a5c@oss.qualcomm.com>
-Date: Sat, 18 Oct 2025 01:10:09 +0530
+        Fri, 17 Oct 2025 12:47:03 -0700 (PDT)
+Message-ID: <2a4a4138-fe61-48c7-8907-6414f0b471e7@gmail.com>
+Date: Fri, 17 Oct 2025 21:47:25 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v16 05/14] power: reset: reboot-mode: Expose sysfs for
- registered reboot_modes
+User-Agent: Mozilla Thunderbird
 Content-Language: en-US
-To: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel
- <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik
- <andre.draszik@linaro.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-References: <20251015-arm-psci-system_reset2-vendor-reboots-v16-0-b98aedaa23ee@oss.qualcomm.com>
- <20251015-arm-psci-system_reset2-vendor-reboots-v16-5-b98aedaa23ee@oss.qualcomm.com>
- <CACMJSetWthCcJo8v7EuUK-aDKhf5KTNG5WQQ9aTQu62B+E=DMA@mail.gmail.com>
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <CACMJSetWthCcJo8v7EuUK-aDKhf5KTNG5WQQ9aTQu62B+E=DMA@mail.gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, David Miller <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ Russell King - ARM Linux <linux@armlinux.org.uk>,
+ "moderated list:ARM/STM32 ARCHITECTURE"
+ <linux-stm32@st-md-mailman.stormreply.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+From: Heiner Kallweit <hkallweit1@gmail.com>
+Subject: [PATCH net-next] net: stmmac: mdio: use phy_find_first to simplify
+ stmmac_mdio_register
+Autocrypt: addr=hkallweit1@gmail.com; keydata=
+ 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
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: Qp-iOfsJDQFuDJ0haahoUa9xO87tbpnb
-X-Authority-Analysis: v=2.4 cv=MrNfKmae c=1 sm=1 tr=0 ts=68f29bbc cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=C5lFK0Xs5ZTp69CiT58A:9 a=QEXdDO2ut3YA:10
- a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-GUID: Qp-iOfsJDQFuDJ0haahoUa9xO87tbpnb
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxOCBTYWx0ZWRfX/K5q3qrky84K
- zvG5SSjc+tRA8t7jW955vY290b52/6/EIISV/WyoJenQP6KFnqMqZ8a1VXvUc/4SFiYFPlyEI7T
- bW/CyZv5E6w/aUiBEll/tpM0dQnW+ooangujbhxfY4Y80q+qLTnR0SKByA+KhRXweQQseJIgUaY
- cd7L1aVBE4EN4ar/XjiiR/TINXXdGoOo7F/SeudTyubUKArirt/XhfD3RNrEi3pvNmcauPxRc7w
- IGIRDVet3I/WIfyeZBFHU9PDULCj4gNPAHcmFZEKC9bylHA0UeUBkrs3RlUsFb9GtAsIrhSvXan
- 7mUKbciQU/ItKJmBE9DoAFmzJtCu6QgdHV3ELXNCUdhylsC+f8roVeO17t+Js32bqitPVZgn60g
- K3V4rWt1a5kZrbNMCvCriDzUOWfD6w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-17_07,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 clxscore=1015 adultscore=0 phishscore=0
- impostorscore=0 priorityscore=1501 malwarescore=0 lowpriorityscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
- definitions=main-2510110018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_124047_924014_FD838D58 
-X-CRM114-Status: GOOD (  25.84  )
+X-CRM114-CacheID: sfid-20251017_124706_953663_DE1DFE90 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,79 +151,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Simplify the code by using phy_find_first().
 
+Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 53 ++++++++-----------
+ 1 file changed, 22 insertions(+), 31 deletions(-)
 
-On 10/15/2025 8:17 PM, Bartosz Golaszewski wrote:
-> On Wed, 15 Oct 2025 at 06:39, Shivendra Pratap
-> <shivendra.pratap@oss.qualcomm.com> wrote:
->>
->> Currently, there is no standardized mechanism for userspace to
->> discover which reboot-modes are supported on a given platform.
->> This limitation forces tools and scripts to rely on hardcoded
->> assumptions about the supported reboot-modes.
->>
->> Create a class 'reboot-mode' and a device under it to expose a
->> sysfs interface to show the available reboot mode arguments to
->> userspace. Use the driver_name field of the struct
->> reboot_mode_driver to create the device. For device-based
->> drivers, configure the device driver name as driver_name.
->>
->> This results in the creation of:
->>   /sys/class/reboot-mode/<driver>/reboot_modes
->>
->> This read-only sysfs file will exposes the list of supported
->> reboot modes arguments provided by the driver, enabling userspace
->> to query the list of arguments.
->>
->> Align the clean up path to maintain backward compatibility for
->> existing reboot-mode based drivers.
->>
->> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> 
-> [snip]
-> 
->> +
->> +static int create_reboot_mode_device(struct reboot_mode_driver *reboot)
->> +{
->> +       struct reboot_mode_driver **dr;
->> +       int ret = 0;
->> +
->> +       if (!rb_class) {
->> +               rb_class = class_create("reboot-mode");
->> +               if (IS_ERR(rb_class))
->> +                       return PTR_ERR(rb_class);
->> +       }
->> +
->> +       reboot->reboot_dev = device_create(rb_class, NULL, 0, NULL, reboot->driver_name);
->> +       if (IS_ERR(reboot->reboot_dev))
->> +               return PTR_ERR(reboot->reboot_dev);
->> +
->> +       ret = device_create_file(reboot->reboot_dev, &dev_attr_reboot_modes);
->> +       if (ret)
->> +               goto create_file_err;
->> +
->> +       dr = devres_alloc(release_reboot_mode_device, sizeof(*dr), GFP_KERNEL);
->> +       if (!dr) {
->> +               ret = -ENOMEM;
->> +               goto devres_alloc_error;
->> +       }
->> +
->> +       *dr = reboot;
->> +       devres_add(reboot->reboot_dev, dr);
-> 
-> If you're using devres here - at least make it obvious by adding the
-> devm_ prefix to the function name and make it take an explicit struct
-> device * parameter so that it's clear who owns the managed resource.
-> 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+index f408737f6..860ed4aa6 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
+@@ -584,7 +584,8 @@ int stmmac_mdio_register(struct net_device *ndev)
+ 	struct device *dev = ndev->dev.parent;
+ 	struct fwnode_handle *fixed_node;
+ 	struct fwnode_handle *fwnode;
+-	int addr, found, max_addr;
++	struct phy_device *phydev;
++	int addr, max_addr;
+ 
+ 	if (!mdio_bus_data)
+ 		return 0;
+@@ -668,41 +669,31 @@ int stmmac_mdio_register(struct net_device *ndev)
+ 	if (priv->plat->phy_node || mdio_node)
+ 		goto bus_register_done;
+ 
+-	found = 0;
+-	for (addr = 0; addr < max_addr; addr++) {
+-		struct phy_device *phydev = mdiobus_get_phy(new_bus, addr);
+-
+-		if (!phydev)
+-			continue;
+-
+-		/*
+-		 * If an IRQ was provided to be assigned after
+-		 * the bus probe, do it here.
+-		 */
+-		if (!mdio_bus_data->irqs &&
+-		    (mdio_bus_data->probed_phy_irq > 0)) {
+-			new_bus->irq[addr] = mdio_bus_data->probed_phy_irq;
+-			phydev->irq = mdio_bus_data->probed_phy_irq;
+-		}
+-
+-		/*
+-		 * If we're going to bind the MAC to this PHY bus,
+-		 * and no PHY number was provided to the MAC,
+-		 * use the one probed here.
+-		 */
+-		if (priv->plat->phy_addr == -1)
+-			priv->plat->phy_addr = addr;
+-
+-		phy_attached_info(phydev);
+-		found = 1;
+-	}
+-
+-	if (!found && !mdio_node) {
++	phydev = phy_find_first(new_bus);
++	if (!phydev || phydev->mdio.addr >= max_addr) {
+ 		dev_warn(dev, "No PHY found\n");
+ 		err = -ENODEV;
+ 		goto no_phy_found;
+ 	}
+ 
++	/*
++	 * If an IRQ was provided to be assigned after
++	 * the bus probe, do it here.
++	 */
++	if (!mdio_bus_data->irqs && mdio_bus_data->probed_phy_irq > 0) {
++		new_bus->irq[addr] = mdio_bus_data->probed_phy_irq;
++		phydev->irq = mdio_bus_data->probed_phy_irq;
++	}
++
++	/*
++	 * If we're going to bind the MAC to this PHY bus, and no PHY number
++	 * was provided to the MAC, use the one probed here.
++	 */
++	if (priv->plat->phy_addr == -1)
++		priv->plat->phy_addr = addr;
++
++	phy_attached_info(phydev);
++
+ bus_register_done:
+ 	priv->mii = new_bus;
+ 
+-- 
+2.51.1.dirty
 
-sure. we can add devm_ prefix to the function name.
-reboot->reboot_dev is an internal member of struct reboot_mode_driver *reboot.
-The struct reboot_mode_driver *reboot is owned by the calling driver.
-If we want to PASS reboot->reboot_dev to the devm_ prefixed function call, we
-will need to kind of split create_reboot_mode_device into two calls - device_create
-in a separate function and then call the devm_ prefix function where we add the devres_alloc.
-Can you suggest a bit more on this?
-
-thanks,
-Shivendra
 
