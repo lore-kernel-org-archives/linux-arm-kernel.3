@@ -4,144 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B69CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 20:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6510BCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 21:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C12qJIzcq7trqDzz0klaWxch1uVCOS8XjPTTwM5i6CA=; b=dZNPlBZaSiv005WxKr0iHMnUE9
-	zOZZCGxJ0DH4uU1qTPB+vCbp9lAEjRNhT/Ta2zwbYQB0MJl4oIUrPLX+1jysNNrAmJKANGUATGN5v
-	Pe3ATP2PQ4PEV8bKmGh61vwp+VYCUlQfY42GBYL8kXazfllXNM52gAEXqEgeoGvmIgoVyBw9NZf9X
-	QuTUlNWe9HRjfrVJTdi6NHVWn7mhCe2G1dDz2YNkEmF+CUbrazjJBkolsvGn/7Wd2ldOROXaxDXyc
-	bdHTZzy4AP5PKjuJT+6BINFS0E3khu6TU9t5HLakKSjNkLodWXaDe2v4FyAPSdYgC3JzOHGJad2x9
-	l7rZaiRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tjV3n83YnHaOheLKgiPySSlQiQ+1OIaSXeBHMe2jzWc=; b=MtUzss9yiRyk2VkqChaAVbAVnS
+	TtKvs45k9VTeKNsPHpI2r3yMKV2/C94BYqTkaTWv6mIAaM7gwWOg5IhX5x3EnHDMaiFfbEpNdw9CS
+	dsjWisRJaDGHwpE/gf+RyPg43c2svuOITXNBsR5eRrkExFgLlg9ZsIkqO0HsH+NBjEqcK0RgcNQpM
+	72CtU9yH0WLRiwTQuSYPEVyZ7mbrToULeNp60X5ms1MrGP3goqvOzw/lFGy0nBRuqrHbhzJ2CukHY
+	VqsWzfz0VM/AqfBlFpLqnzLDqe/fZGcd03+ce38TDpMuTO1/552wqHYxUoxnEgLq1AC8aYQHez3WF
+	wuj9sSxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9rUm-000000090PO-0vHV;
-	Fri, 17 Oct 2025 20:56:16 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1v9rhs-000000091H8-039K;
+	Fri, 17 Oct 2025 21:09:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9rUk-000000090Oi-0l2h
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 20:56:15 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-47112a73785so17754935e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 13:56:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760734572; x=1761339372; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=C12qJIzcq7trqDzz0klaWxch1uVCOS8XjPTTwM5i6CA=;
-        b=ajrmmXnwLQbqkI68eEmSsJlDAY2Pmuc4ZugbpBfDten8adgD5dicfR8kKN1TrtXGFR
-         jxC7+Yz1yhqBPwDiDN6onHpZd+L5xkf5teyTEff2RWV/7jS3i9Shl5EbqiKgsfz8CUa+
-         dqOKDGhmiTtJdFJBecy+Qy82V3l3kGZ68QrSyd8IsWrq/4eoo4YN4gLeBX5wykAZ5yKM
-         JPaqx9SkFarZaKs6MSVbOekP7dnvw4WS500CYwNx+SiYWiaN6zuYROvMnULQYwqec+/X
-         xAf0AyL7AAb3gnp6Yiff0tS9QqADoEqjsZQ4Wehc7bhwYBn+pCCKD9l+STVucRHUyg6e
-         gmfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760734572; x=1761339372;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=C12qJIzcq7trqDzz0klaWxch1uVCOS8XjPTTwM5i6CA=;
-        b=LdxYXeVnpsrnNsKJ7cxbj8A7G4EsnCng7OHETQBZCzHr1O/U59Jz+EURVx6HA9477b
-         6LFyZIcJR1ofwZMTPTvWAU6EaCaw/nChGyrZk4fZGm9QC2x7fJAsk0KmEe/zd+l/83ed
-         8JgG+zrN2mezcRMv9bpnXIwzr7NUtOcarHMy3rJ5ukWysTpkBP7gRwL0sPQECa2JbZUf
-         +s5lByzADfe5rskCt3Kv081mPt9enwSKivXp+wsiCamqODI9S78+T34KFxqxUf4rMoTV
-         m+I9mZsZm5u4JXi9oB3cBnEloqqUqyEQ9D5JVZlO2oqEj+cCUx+43tuVKwzDDNLUPh4h
-         rB6w==
-X-Forwarded-Encrypted: i=1; AJvYcCWTqCVioPxLSRIIJkjxD4uqQ2tO1JjZCPpebaN+yZ7fT/4TR/1KkOmnBxi3prnFibfxqIJEjW0V06RghqYI21D0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNg+zrl2ZytQW6ZnTrhaij9fA1KdcHpRMmAqRBfadLAU95Aw8A
-	CxXl+HvxOiXwDydr5xZ9d7YMZUh6hT/9mbnd1EPyWlHreWjRXHRJRIzZ/dkOvA==
-X-Gm-Gg: ASbGncsRLbHhXLA3q0xZyIXgLJoKqv1d+lFPTifMIL00pjZV9z3w4ciqOPzDsOFPmjt
-	MPUlXhtDWB6A2sKfkCwY7MxeBaDpv8pb2fEFwXmW+WHgXr2HYF9uKGt/jEDpDBqt8g0SrhQW3VA
-	Arnf0xxk/VnBLKEpKQ3g2UprEVI/0xMWwQSBN5ueZ/pp4m0ITs2P6pjBKKtYFZiM+3GspdAS4bx
-	81q9BlsMgy7xifK7qqGMuK37VgRShZjXLGDW70xoHaAonarY0EEOgybYIeaVpLMKjypB9rhojDt
-	ylGC6aJVlPV2gxjFrUwlOCeB+RyMm9dNNhKWYz5C5iTYP1upOpeG14Dsv+2+OEZQA0ep9P4gSTD
-	sM45FCh6vS1D3ojUxn6eGlPPe0UqKN3imKmNBU0q9zbGzp22TyRBDVOOO3lav5gYrFIfELNc+CQ
-	HQJbREvBr5J9nBO0yDXlF4XkfISP0F92q3G5caZD7uSmHI2PtTHiK3wuZXjh1wXD7GFIwe3KM5C
-	tWgwbwitwqdC0raWp8rElteY/rEvgrIO4oWmBX2
-X-Google-Smtp-Source: AGHT+IGbK1GYiGSq90AfCM3s0IP97DdTnr+FJIu4trDGK9h3lZNAS+qE7FdF8x0d0hVhDNhvUVLA9w==
-X-Received: by 2002:a05:600c:a4c:b0:46e:37fc:def0 with SMTP id 5b1f17b1804b1-471178a23c5mr36281265e9.9.1760734572196;
-        Fri, 17 Oct 2025 13:56:12 -0700 (PDT)
-Received: from ?IPV6:2003:ea:8f33:9c00:f581:27c5:5f61:b9b? (p200300ea8f339c00f58127c55f610b9b.dip0.t-ipconnect.de. [2003:ea:8f33:9c00:f581:27c5:5f61:b9b])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4715520d747sm13489075e9.14.2025.10.17.13.56.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Oct 2025 13:56:11 -0700 (PDT)
-Message-ID: <dc7c8414-55fe-4d86-8e5f-7cf7eeb73f97@gmail.com>
-Date: Fri, 17 Oct 2025 22:56:34 +0200
+	id 1v9rhp-000000091Gi-1phN;
+	Fri, 17 Oct 2025 21:09:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5595D43A4F;
+	Fri, 17 Oct 2025 21:09:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55466C4CEE7;
+	Fri, 17 Oct 2025 21:09:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760735384;
+	bh=MUDqIKKwpcOalbVlQw7f73/p4pZFhDngV44KpR8dpfI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VEyHlQorZmITIIWwk6iqv0GuasGrI+LDJ5pg+L/2YAIHFyhkwgzxleKIZIm2i5gHA
+	 Y1AHjwN6+4Kq8EHXRTUChQor5snqBFfdwfwA38JSHJLHS/TRVeDtxwRGOPYENStW2U
+	 8YvjdGpCvRzBPTQiiQTAaJCtVjd0Zc0YldqalC97ZEa9ZwrUQeXRWR7uI8jQoOXEEc
+	 uIyF1sBniLLo9ptiQgdRxBWE/jzXjs7/Grd1mFLbfJgQM05YJY9esfLoEdAe9nsqgQ
+	 S1kJIOmw9f10DSYgMQslfqaC3yCx9Zch2VfFRcBcioGkaDSp+w4JT/iGz5CvMRF4i/
+	 WKVcx5yIXdrJA==
+Date: Fri, 17 Oct 2025 23:09:39 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Brian Masney <bmasney@redhat.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Ray Jui <rjui@broadcom.com>, Maxime Ripard <mripard@kernel.org>, 
+	Stephen Boyd <sboyd@kernel.org>, Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-i2c@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH RESEND] i2c: busses: bcm2835: convert from round_rate()
+ to determine_rate()
+Message-ID: <hf3zdgvdwkyaubicndcejmioqjqhlko4ypnderd7viobiyjtua@ozxt2adok2j7>
+References: <20251016-i2c-round-rate-resend-v1-1-96dd1d725e8f@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: mdio: use phy_find_first to
- simplify stmmac_mdio_register
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, David Miller <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- Russell King - ARM Linux <linux@armlinux.org.uk>,
- "moderated list:ARM/STM32 ARCHITECTURE"
- <linux-stm32@st-md-mailman.stormreply.com>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <2a4a4138-fe61-48c7-8907-6414f0b471e7@gmail.com>
- <4a2d59c0-be25-4b83-b732-138d04f62292@lunn.ch>
-Content-Language: en-US
-From: Heiner Kallweit <hkallweit1@gmail.com>
-Autocrypt: addr=hkallweit1@gmail.com; keydata=
- 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
-In-Reply-To: <4a2d59c0-be25-4b83-b732-138d04f62292@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251016-i2c-round-rate-resend-v1-1-96dd1d725e8f@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_135614_266791_7FDDCDAE 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20251017_140945_518130_81CD9BC9 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,42 +75,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/17/2025 10:39 PM, Andrew Lunn wrote:
->> -	int addr, found, max_addr;
->> +	struct phy_device *phydev;
->> +	int addr, max_addr;
->>  
->>  	if (!mdio_bus_data)
->>  		return 0;
->> @@ -668,41 +669,31 @@ int stmmac_mdio_register(struct net_device *ndev)
->>  	if (priv->plat->phy_node || mdio_node)
->>  		goto bus_register_done;
->>  
->> -	found = 0;
->> -	for (addr = 0; addr < max_addr; addr++) {
-> 
-> With this loop gone...
-> 
->> +	phydev = phy_find_first(new_bus);
->> +	if (!phydev || phydev->mdio.addr >= max_addr) {
->>  		dev_warn(dev, "No PHY found\n");
->>  		err = -ENODEV;
->>  		goto no_phy_found;
->>  	}
->>  
->> +	/*
->> +	 * If an IRQ was provided to be assigned after
->> +	 * the bus probe, do it here.
->> +	 */
->> +	if (!mdio_bus_data->irqs && mdio_bus_data->probed_phy_irq > 0) {
->> +		new_bus->irq[addr] = mdio_bus_data->probed_phy_irq;
-> 
-> ... what is setting addr to a value?
-> 
-Thanks. Indeed, addr can be removed and here phydev->mdio.addr has to be used.
+Hi,
 
-> 	Andrew
+On Thu, Oct 16, 2025 at 12:08:12PM -0400, Brian Masney wrote:
+> The round_rate() clk ops is deprecated, so migrate this driver from
+> round_rate() to determine_rate().
+> 
+> Signed-off-by: Brian Masney <bmasney@redhat.com>
 
---
-pw-bot: cr
+I'm sorry for the late response on this. Merged into
+i2c/i2c-host.
+
+Thanks,
+Andi
 
