@@ -4,107 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE57CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 09:01:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BFBFCCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 09:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ynpw+ov5bK+vx77ImdnH/P0Henb8Ug17R63N+WQOF0=; b=haIvfFeN4WAj5f5HUADFGOOfAM
-	eF7dOSWQil2YwCwyb74p/BYpzBy+DMniFJqete5hCV8Kv6NY5ppkoJnmsoqJUxaBjqUvnhoKVz+5L
-	Zr8czB6pbtYeZvCRWr/LPFqV1m0+2odW75AlCUrnvLt2ehRV3wdPu+Lz7Yh70JbP9tm3LtaDgKl1F
-	JqUy/SgOrujHmJSDO4vSJQgnaToqdZcJOjvoOUFV64qYStFj24M500NWf0hX1sLCUIQLnBKDtJtr8
-	iAaRgimMikrmjRW4pwKuwEcKhhUwZwpABbsK/g1XYuJoqcJDXSF8Tz7Z70rlxCpzlTxkqwF4wz5Vf
-	RVCwUgyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=418kpMdDHnOQzzDnjco0/swD3OeHn+l/8evRSWETxr8=; b=xcTfdvhhm6gMV7EugHGIs0q5GG
+	nmxNrUsvnD+yiQ+oHEHRPTZwI4k2DrTotlJJu3Z8Ocd37PJVK7PbDaWsuy/495k9Gn6+Oai75OUyM
+	Z8/Lc+pltraq8a9AY6Xujd2lVRcrpdrMfn9N38hVbWWAvodUcRtdvfeKEX9Sq3mz54nruFN8A4RVz
+	7YLBwSvsKf3fadgykHqYQZbhGmuPJ4wFBL+uhFDxLBRg8787RZTg4gXxAOBiz++eu1M7fEwNUN3z4
+	IYpfWI4EhKr1TnOIFcZC4bX4TXHEaBKOapGB2b2R8t8K9seLUIsM786zajB6n5+s1dum1/0qwEA8m
+	Jo5km+oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gL6-00000007Asr-3jEw;
-	Fri, 17 Oct 2025 09:01:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v9gPv-00000007BhG-3t9n;
+	Fri, 17 Oct 2025 09:06:31 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gL5-00000007Asd-1aYU;
-	Fri, 17 Oct 2025 09:01:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C4F3A605D8;
-	Fri, 17 Oct 2025 09:01:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39DA7C4CEE7;
-	Fri, 17 Oct 2025 09:01:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760691690;
-	bh=czvWRGUC8SKWmmVMtp198CQsF4ETDH3/M7KH2tvcz7k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DvGAL1hbud2PLriqHwpGae3BhhR0CT0nDWyrBNBqOTD9hLrHayj2KRYls+qZE2wv6
-	 4hH0XY/jyP84JV6DfOEel3UDGZp3dj2IMja07uWBy6U623jTuUNkyBYowQ+jc5Xc1h
-	 DAW6QHAk9VFxIJNxfjQkHQOz76bdT7KPD7rkUnzrTjHhHkpzxeWLEiweBzHosOUwQ8
-	 ZSLrg91TxbtGFnWbNBFRRAw91TmcTGoHyVIaNiSOm2uXOVrFgEsTc1Ig6iQRFKmGpH
-	 YZgMx1Fz5TLJmmqiSxS/6N2XrZmlGkaMn139yGOfSP8KshQ+mQpVhj0RPRjYf4U5IM
-	 ipH8Ep5LuqmAQ==
-Message-ID: <2b0a60de-060f-47b5-9268-cb1e3f360e12@kernel.org>
-Date: Fri, 17 Oct 2025 11:01:25 +0200
+	id 1v9gPt-00000007BfJ-006m
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 09:06:30 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b3d80891c6cso500303566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 02:06:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760691987; x=1761296787; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=418kpMdDHnOQzzDnjco0/swD3OeHn+l/8evRSWETxr8=;
+        b=WoDOueHuIK/79EhRETPMJmlMcDqoHnaTLIiIZyUEUVNJ967lcuIUWI6hwdW5rzNkbU
+         d1F7HbrTyw4vyBn+P+hzjPB7q/0lY3nEXRjJAZwIWXe1IJrdApOLdROAUaosyoZemiQG
+         KB3WIJm0/kqMT0j5oz98uFS32HavnwEWJoECHPnFbURcNNfVgTb+9BdHWScadHeH1Os+
+         QHC2WXvgb7RGB63dSsUohooFYY46XNi8Q2oPnv3i1YToqGPuGOtZli8tYTU28IfBqQYv
+         Np5yu9lxnJUjDmHpVNaK0IdWru+vl6uJdFCmq4h7AcJWsTWc3U8URcBrOIOFkqaHbMKi
+         YWCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760691987; x=1761296787;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=418kpMdDHnOQzzDnjco0/swD3OeHn+l/8evRSWETxr8=;
+        b=lvrZ/Tq+KcUlcGPgwMx+WW0dTBSkm2a8jpQqDCG7pi3CU6ypfDZs4boKdkqOOA/ys2
+         yyAgtudwnRE5aTg2sZBW0P++0LjddDO+a2Uj/v1iTtzhyRTL4TgkhUqBWKMPwXErhpm+
+         RWsE2nDuiAMZr2UF87c3lCqvg0Vr96gTHUOPIIC9SO9SAmnaSjbyckGlx8jFrSD7j6Ad
+         tOR2UiBD2LoXzNWeHndx73Wmzi0D24zhldir174+fMjfYsP0V2dw88aNFeaNBEFU09iF
+         OhZUyZgoXSMl3VKPy56twqoPrWSleuSTFhU88plfpdmoxme4HUAJFo51YPYHnazSSTg4
+         HiuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHKNhrwMQX1qEzOzSckzH9HfUtj/Vwx5yneI36dYDKaIfy8kIpz5x+NWw68/8YynNXWGX7MeSKEhDaL5B6B0dQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/+e9QK+6fsoewV+K2GxUMyhcmAJ1YXANB3YUVnWqtytkShyyT
+	V0l00jxmU4ZCbKw1MxdmllFMCMr6O4svcJCJIDBVP6/O1Y90B2dE6Y4cW/1yUpNk2MxYL9TPHb8
+	CkbIuATtuuM8UMxXaD0AwMjJyrMYo451pHipszavitw==
+X-Gm-Gg: ASbGncuMNkZqV+7ePnlErh1FkpZXaMbVHaG18aTF3QKNiDSfLXzmWXZHQoOCV4Oeyzj
+	Pz/JdclzUNmXrdk/gZR/Y48AOj6rG+YYkS6vLb4d787ANrGhlIQeEADPc3aA9uRq8MTXas98Mte
+	cRtqU02uEEk7fM5H84nNiCJEhTOeK+nS8yK0oge7styl+RVmFy2ZOI7ojGEM5V/VaMPNa0IhLED
+	ddCe6tcw8tXtnHswyvU2T0yipYfxtYDDQH8PBpT76v5vXXfE6AGMymzmxfIl2E/Mn8IVhhfwUA9
+	jlN3x4Munb5BKcBSPxliPdVvlFY=
+X-Google-Smtp-Source: AGHT+IG+w0UsfxJS4d6pFqa8XviZVfLhRM+rhE1KqiFzit259/+EaKQIY+0egVcn1SrXy9IXtpCbr0Z+t9PVc3PXPa4=
+X-Received: by 2002:a17:907:868f:b0:b41:c602:c75d with SMTP id
+ a640c23a62f3a-b645f7ef255mr378423666b.31.1760691986910; Fri, 17 Oct 2025
+ 02:06:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: power: rockchip: Add support for
- RV1126B
-To: Finley Xiao <finley.xiao@rock-chips.com>, heiko@sntech.de
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- ulf.hansson@linaro.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- zhangqing@rock-chips.com, sugar.zhang@rock-chips.com, huangtao@rock-chips.com
-References: <20251016134103.294636-1-finley.xiao@rock-chips.com>
- <20251016134103.294636-2-finley.xiao@rock-chips.com>
- <d5a07602-360c-420c-aaa0-664d5d1ed760@kernel.org>
- <494b724d-31e3-45f1-9cc2-ac64851a6f70@rock-chips.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <494b724d-31e3-45f1-9cc2-ac64851a6f70@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251015-arm-psci-system_reset2-vendor-reboots-v16-0-b98aedaa23ee@oss.qualcomm.com>
+ <20251015-arm-psci-system_reset2-vendor-reboots-v16-2-b98aedaa23ee@oss.qualcomm.com>
+ <CACMJSesvTLe28Jz83b=zfHD2rvmf7-i_2+2DoV=dgooVqFEYbA@mail.gmail.com> <fa42adf0-8f15-ad4c-3788-578b1bee1c72@oss.qualcomm.com>
+In-Reply-To: <fa42adf0-8f15-ad4c-3788-578b1bee1c72@oss.qualcomm.com>
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Date: Fri, 17 Oct 2025 11:06:15 +0200
+X-Gm-Features: AS18NWCSgzHU1qRYaMmAnFnfeUajlPBrTb0Y5_GWRI3iwaw1dVFHqq2mvJmjYc8
+Message-ID: <CACMJSesxazA7Nf6sAhUT16KfwtiUNjvb5JOEWkEb1B5fJtihMQ@mail.gmail.com>
+Subject: Re: [PATCH v16 02/14] power: reset: reboot-mode: Add device tree
+ node-based registration
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andy Yan <andy.yan@rock-chips.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org, 
+	Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Moritz Fischer <moritz.fischer@ettus.com>, John Stultz <john.stultz@linaro.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Stephen Boyd <swboyd@chromium.org>, 
+	Andre Draszik <andre.draszik@linaro.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	Elliot Berman <quic_eberman@quicinc.com>, Srinivas Kandagatla <srini@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_020629_056386_E848E6A7 
+X-CRM114-Status: GOOD (  27.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,22 +112,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/10/2025 10:51, Finley Xiao wrote:
->>>   
->>>         clocks:
->>>           minItems: 1
->>> diff --git a/include/dt-bindings/power/rockchip,rv1126b-power.h b/include/dt-bindings/power/rockchip,rv1126b-power.h
->>> new file mode 100644
->>> index 000000000000..0a418f16e4ea
->>> --- /dev/null
->>> +++ b/include/dt-bindings/power/rockchip,rv1126b-power.h
->> Use rather filename matching compatible fully.
-> 
-> Should the file be renamed to "rockchip,rv1126b-power-controller.h"?
+On Thu, 16 Oct 2025 at 19:19, Shivendra Pratap
+<shivendra.pratap@oss.qualcomm.com> wrote:
+> >>
+> >> -                       info = devm_kzalloc(reboot->dev, sizeof(*info), GFP_KERNEL);
+> >
+> > This change is good - devres should not be used in subsystem library
+> > code, only in drivers - but it doesn't seem to belong here, can you
+> > please separate it out and make it backportable?
+>
+> sure. Just to confirm we should separate out the devm_kzalloc part of the
+> change and add a fixes tag.
+>
 
-Yes, usually naming follows compatible, unless there are reasons not to,
-like file for multiple compatibles.
+And preferably put it first in the series to avoid conflicts.
 
-Best regards,
-Krzysztof
+> >> @@ -123,8 +136,11 @@ int reboot_mode_register(struct reboot_mode_driver *reboot)
+> >>                 return 0;
+> >>
+> >>  error:
+> >> -               list_for_each_entry(info, &reboot->head, list)
+> >> +               list_for_each_entry_safe(info, next, &reboot->head, list) {
+> >> +                       list_del(&info->list);
+> >
+> > Same here, not deleting the entries currently seems like a bug? Do we
+> > depend on the driver detach to clean up the resources on failure?
+>
+> sure, so this should also go as fixes? and should we remove the other
+> dev_err(printk) also as fixes? or that can still got with the change
+> where we add fwnode based registration?
+>
+
+It doesn't seem to be strictly required by current code as the users
+use it "correctly" but if the API becomes used in different ways - for
+instance the structure may be reused after failure - it's a good idea
+to backport it. In general we should undo everything we did in the
+same function if we fail at some point.
+
+Bart
 
