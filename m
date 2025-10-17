@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 882DACCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 274F5CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d0E9bpJ70XcR2K+KIkSDama1wp8RUqqDRr3ESIT0JuM=; b=gdU00QFCcm50WDsrOJ8BaVmGPf
-	xbDCeFN3KqPKOvPAVC9aynRZ38mFaB4vwqq+U9FYK9ytxfNSbc7vPzH6F4oDFDMUQWsnKfrcpCFsS
-	a+Di7Q39UiG+UWkk0o8vy9phM5KETHwMhlFFfFxhzwgegqBCEmbwhD81zxoArW2MfuLX0yk/8x83Q
-	JoU45mHLocbXJd6diByFNuhLi5ztN/d2+hATJPnN/eei16oYLz8MGYUY26kR+UuUy55fdOyc8Ek4k
-	5B8Z1m04035Cx8/dinZdReKiHm1b8iM5HXzIU14TD5k8PVOqq2X+pXMjqpnRgYTvWoMdDsN2S1gyO
-	97sYEY2g==;
+	bh=H21x331wGQpPWlQMHsTjeZuotTsRf9uT5jEeTCi3qOk=; b=UdNO+v1Uo0tOr9MWRdWwMxstlv
+	iGnIuvruaQgJLe7hBXAEyG/XdtPu/E8ozHRKSu8lKWMsBfe6uEtIuP3nS6UO8hJG8NVz/tPhxlBYP
+	B6MR4HqBYADeyVMa26Awsk7x9JWWJjom246Fr/6H+b+ky8Vkux5vptHAJ+zfFaGH1lY0izkDhmmYm
+	KQDzoF8Xtq5rW7WY3gABR6hvHyjL9ZrMPeUHv/0TpElnVVdAouWc98R4u0AP8ogiDj9xW5OxDoKeN
+	+4GsQT5P50WrhtwDH79n1VSg/PJVmyhJ0EsiAHIX93qjaq9V+OY83RrBA31pfHSNk5Bw5xDVBAygk
+	+Wke5v4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9m0q-00000008CnS-41Pz;
-	Fri, 17 Oct 2025 15:05:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v9m32-00000008DDC-0M6G;
+	Fri, 17 Oct 2025 15:07:16 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9m0n-00000008Cn4-3xtF
+	id 1v9m2y-00000008DC5-3pY5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 15:04:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 632154054C;
-	Fri, 17 Oct 2025 15:04:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEBA1C4CEE7;
-	Fri, 17 Oct 2025 15:04:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1760713497;
-	bh=a1j31TYJKqx2mT0afuLiEaai3JjlnoEc/sojQHUdEDk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bnmxM1DLEGPF0fvD+lgPfFOID2P9vxboij8sY7aajB/4W1DJ2C5DmzWYS0WR4Somo
-	 oAHsPWrWZh/VDo2wqvcMbTPvcYYTlr+BI67PbhxU0Xg/zb216+Pz1ASsoMvhHjjY6L
-	 CrphJ/l5T2cPo2tRJKzMDVQRtklYvp4qRW494bDw=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Namhyung Kim <namhyung@kernel.org>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Yang Jihong <yangjihong@bytedance.com>,
-	Dominique Martinet <asmadeus@codewreck.org>,
-	Colin Ian King <colin.i.king@gmail.com>,
-	Howard Chu <howardchu95@gmail.com>,
-	Ze Gao <zegao2021@gmail.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Weilin Wang <weilin.wang@intel.com>,
-	Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>,
-	Yang Li <yang.lee@linux.alibaba.com>,
-	Leo Yan <leo.yan@linux.dev>,
-	ak@linux.intel.com,
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Yanteng Si <siyanteng@loongson.cn>,
-	Sun Haiyong <sunhaiyong@loongson.cn>,
-	John Garry <john.g.garry@oracle.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.6 018/201] perf test: Add a test for default perf stat command
-Date: Fri, 17 Oct 2025 16:51:19 +0200
-Message-ID: <20251017145135.405992496@linuxfoundation.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251017145134.710337454@linuxfoundation.org>
-References: <20251017145134.710337454@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	Fri, 17 Oct 2025 15:07:14 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cp7PK1SNYz6M4rt;
+	Fri, 17 Oct 2025 23:03:33 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 73BA61402FF;
+	Fri, 17 Oct 2025 23:07:05 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 17 Oct
+ 2025 16:07:04 +0100
+Date: Fri, 17 Oct 2025 16:07:02 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<arm-scmi@vger.kernel.org>, <sudeep.holla@arm.com>,
+	<james.quinlan@broadcom.com>, <f.fainelli@gmail.com>,
+	<vincent.guittot@linaro.org>, <etienne.carriere@st.com>,
+	<peng.fan@oss.nxp.com>, <michal.simek@amd.com>, <quic_sibis@quicinc.com>,
+	<dan.carpenter@linaro.org>, <d-gole@ti.com>, <souvik.chakravarty@arm.com>
+Subject: Re: [PATCH 02/10] firmware: arm_scmi: Reduce the scope of protocols
+ mutex
+Message-ID: <20251017160702.00002af4@huawei.com>
+In-Reply-To: <20250925203554.482371-3-cristian.marussi@arm.com>
+References: <20250925203554.482371-1-cristian.marussi@arm.com>
+	<20250925203554.482371-3-cristian.marussi@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_080458_029367_33594AD0 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20251017_080713_240145_0F869D75 
+X-CRM114-Status: GOOD (  23.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,95 +76,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.6-stable review patch.  If anyone has any objections, please let me know.
+On Thu, 25 Sep 2025 21:35:46 +0100
+Cristian Marussi <cristian.marussi@arm.com> wrote:
 
-------------------
+> Currently the mutex dedicated to the protection of the list of registered
+> protocols is held during all the protocol initialization phase.
+> 
+> Such a wide locking region is not needed and causes problem when trying to
+> initialize notifications from within a protocol initialization routine.
+> 
+> Reduce the scope of the protocol mutex.
+> 
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 
-From: James Clark <james.clark@linaro.org>
+Hi Cristian.  A few things inline and this runs into one of the things
+that is dangerous to do with guard() or the other cleanup.h magic
+(and documented there!)
 
-[ Upstream commit 65d11821910bd910a2b4b5b005360d036c76ecef ]
+> ---
+>  drivers/firmware/arm_scmi/driver.c | 53 +++++++++++++++---------------
+>  1 file changed, 26 insertions(+), 27 deletions(-)
+> 
+> diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> index bd56a877fdfc..71ee25b78624 100644
+> --- a/drivers/firmware/arm_scmi/driver.c
+> +++ b/drivers/firmware/arm_scmi/driver.c
+> @@ -17,6 +17,7 @@
+>  #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+>  
+>  #include <linux/bitmap.h>
+> +#include <linux/cleanup.h>
+>  #include <linux/debugfs.h>
+>  #include <linux/device.h>
+>  #include <linux/export.h>
+> @@ -2179,10 +2180,13 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+>  	if (ret)
+>  		goto clean;
+>  
+> -	ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1,
+> -			GFP_KERNEL);
+> -	if (ret != proto->id)
+> -		goto clean;
+> +	/* Finally register the initialized protocol */
+> +	scoped_guard(mutex, &info->protocols_mtx) {
 
-Test that one cycles event is opened for each core PMU when "perf stat"
-is run without arguments.
+See the guidance in cleanup.h on mixing goto and anything defined in that file.
 
-The event line can either be output as "pmu/cycles/" or just "cycles" if
-there is only one PMU. Include 2 spaces for padding in the one PMU case
-to avoid matching when the word cycles is included in metric
-descriptions.
+In some compilers, if you hit the goto above and hence jump over this
+the cleanup variable will still be instantiated, but not initialized leading to
+a potential attempt to unlock random memory.
 
-Acked-by: Namhyung Kim <namhyung@kernel.org>
-Acked-by: Kan Liang <kan.liang@linux.intel.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
-Cc: Yang Jihong <yangjihong@bytedance.com>
-Cc: Dominique Martinet <asmadeus@codewreck.org>
-Cc: Colin Ian King <colin.i.king@gmail.com>
-Cc: Howard Chu <howardchu95@gmail.com>
-Cc: Ze Gao <zegao2021@gmail.com>
-Cc: Yicong Yang <yangyicong@hisilicon.com>
-Cc: Weilin Wang <weilin.wang@intel.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mike Leach <mike.leach@linaro.org>
-Cc: Jing Zhang <renyu.zj@linux.alibaba.com>
-Cc: Yang Li <yang.lee@linux.alibaba.com>
-Cc: Leo Yan <leo.yan@linux.dev>
-Cc: ak@linux.intel.com
-Cc: Athira Rajeev <atrajeev@linux.vnet.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Yanteng Si <siyanteng@loongson.cn>
-Cc: Sun Haiyong <sunhaiyong@loongson.cn>
-Cc: John Garry <john.g.garry@oracle.com>
-Link: https://lore.kernel.org/r/20240926144851.245903-8-james.clark@linaro.org
-Signed-off-by: Namhyung Kim <namhyung@kernel.org>
-Stable-dep-of: 24937ee839e4 ("perf evsel: Ensure the fallback message is always written to")
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- tools/perf/tests/shell/stat.sh | 25 +++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
-
-diff --git a/tools/perf/tests/shell/stat.sh b/tools/perf/tests/shell/stat.sh
-index 3f1e67795490a..c6df7eec96b98 100755
---- a/tools/perf/tests/shell/stat.sh
-+++ b/tools/perf/tests/shell/stat.sh
-@@ -146,6 +146,30 @@ test_cputype() {
-   echo "cputype test [Success]"
- }
- 
-+test_hybrid() {
-+  # Test the default stat command on hybrid devices opens one cycles event for
-+  # each CPU type.
-+  echo "hybrid test"
-+
-+  # Count the number of core PMUs, assume minimum of 1
-+  pmus=$(ls /sys/bus/event_source/devices/*/cpus 2>/dev/null | wc -l)
-+  if [ "$pmus" -lt 1 ]
-+  then
-+    pmus=1
-+  fi
-+
-+  # Run default Perf stat
-+  cycles_events=$(perf stat -- true 2>&1 | grep -E "/cycles/|  cycles  " | wc -l)
-+
-+  if [ "$pmus" -ne "$cycles_events" ]
-+  then
-+    echo "hybrid test [Found $pmus PMUs but $cycles_events cycles events. Failed]"
-+    err=1
-+    return
-+  fi
-+  echo "hybrid test [Success]"
-+}
-+
- test_default_stat
- test_stat_record_report
- test_stat_record_script
-@@ -153,4 +177,5 @@ test_stat_repeat_weak_groups
- test_topdown_groups
- test_topdown_weak_groups
- test_cputype
-+test_hybrid
- exit $err
--- 
-2.51.0
+Either this needs more substantial rework, or just handling the mutex with
+out using guards.
 
 
+> +		ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1,
+> +				GFP_KERNEL);
+> +		if (ret != proto->id)
+> +			goto clean;
+> +	}
+>  
+>  	/*
+>  	 * Warn but ignore events registration errors since we do not want
+> @@ -2243,25 +2247,22 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+>  static struct scmi_protocol_instance * __must_check
+>  scmi_get_protocol_instance(const struct scmi_handle *handle, u8 protocol_id)
+>  {
+> -	struct scmi_protocol_instance *pi;
+> +	struct scmi_protocol_instance *pi = ERR_PTR(-EPROBE_DEFER);
+>  	struct scmi_info *info = handle_to_scmi_info(handle);
+> +	const struct scmi_protocol *proto;
+>  
+> -	mutex_lock(&info->protocols_mtx);
+> -	pi = idr_find(&info->protocols, protocol_id);
+> -
+> -	if (pi) {
+> -		refcount_inc(&pi->users);
+> -	} else {
+> -		const struct scmi_protocol *proto;
+> -
+> -		/* Fails if protocol not registered on bus */
+> -		proto = scmi_protocol_get(protocol_id, &info->version);
+> -		if (proto)
+> -			pi = scmi_alloc_init_protocol_instance(info, proto);
+> -		else
+> -			pi = ERR_PTR(-EPROBE_DEFER);
+> +	scoped_guard(mutex, &info->protocols_mtx) {
+> +		pi = idr_find(&info->protocols, protocol_id);
+> +		if (pi) {
+
+if !pi we carry on with it NULL, which is a behavior change from
+before where it would be ERR_PTR(-EPROBE_DEFER);
+
+That might not matter, but it's not 'obviously' a safe change.
+
+> +			refcount_inc(&pi->users);
+> +			return pi;
+> +		}
+>  	}
+> -	mutex_unlock(&info->protocols_mtx);
+> +
+> +	/* Fails if protocol not registered on bus */
+> +	proto = scmi_protocol_get(protocol_id, &info->version);
+> +	if (proto)
+Trivial but I'd flip the logic to
+	if (!proto)
+		return ERR_PTR(-EPROBE_DEFER);
+assuming a NULL return as mentioned above isn't the intent.
+Then
+	return scmi_alloc_init_protocol_instance(info, proto);
+
+> +		pi = scmi_alloc_init_protocol_instance(info, proto);
+>  
+>  	return pi;
+>  }
 
 
