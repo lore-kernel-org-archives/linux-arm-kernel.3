@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D724CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 06:16:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4400CCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 06:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7j+iIKp0pSFiYa9aa98CKox/LAZfJP3W1UNFFtJxsCw=; b=UH6csjcamcaIPb5yXWF65CJSct
-	6G2ZrOgSmnM57olwPk3e7Xs1dIyzd0f1afO/lHNPDZdTiQl9xcjeoQY4Iyt04ebMB75BQxWrP6VFJ
-	OCpFz2rZ7nGlOKyCR1RbCsQZAShTgfB/0QDSCPCWWMp5mydiwOo9vnRW3xaW2GZpmfvoBbFoEtp8y
-	akHAs0/+XMpBszmQRarBCIOyEN380u4N+6cdTZIv0ULBTjFiD6z5kRu0miYh7Su2fcuEXrbMW0qKB
-	RDEJW/2RrNhia9+Q/BbJMKUW7eOf7bPxwJmuNnXTgY2CNzx9aX2UhcK5Fgkg76wW6gfIo8BWOcqx8
-	m3TzmNjQ==;
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n3ABf7IwHbPRyeRjMmNlquK3uSB3dxS3CMG569NdO6o=; b=sjMBnzWFE47yiCIC8zOS6O6zQU
+	6hTxkZ/lFAlOJzGPHdODREApP3JKuejNNPuABNZRPO0nAkFxenUrAPEs35T4VNpg6TOrVS6i8Si1O
+	ce2uBjae9APSVwFkf/5kmzOY9dnaHftS+5Elekcf0Lskg1lvtvpPZEEb/SYiwXmdj6uP0EGiB/YkJ
+	bgQXwrD9dw/UrJE8+wAhOSf3slb7vnbKQEH+dY+9J9Y6vv5H0M2QyzTx538jfU0eLo6PfOdwRutx6
+	ZRJinPul682rx6kkPZTrXq+orXg0G2H5c7qkCRYzAG75wg8/iUq++QkSI4bVb9zwID9K3nHe2zroh
+	GjTCAL3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9dlc-00000006jBm-0Nnz;
-	Fri, 17 Oct 2025 06:16:44 +0000
+	id 1v9dld-00000006jDJ-1P8V;
+	Fri, 17 Oct 2025 06:16:45 +0000
 Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9dlV-00000006j63-3k22
+	id 1v9dlZ-00000006j8V-1tZf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 06:16:39 +0000
-Received: from pps.filterd (m0246617.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59GLu5Om001361;
-	Fri, 17 Oct 2025 06:16:13 GMT
+	Fri, 17 Oct 2025 06:16:43 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59GLuYic023857;
+	Fri, 17 Oct 2025 06:16:19 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=corp-2025-04-25; bh=7j+iIKp0pSFiYa9a
-	a98CKox/LAZfJP3W1UNFFtJxsCw=; b=N8frmyGihx/UliKVBKxKe3x9mSZtr7hW
-	X0/uJw8I/1vGu0QDogPEqyvmWvsVo71ODHPxgXjM7qxArPvcXKJjFCAgs8OrngAt
-	QvU7N6VdHqUUcOugak3NWpIRf7N6tfVIGtruurU6yhS2AO7MmJ15JjGesL/jkG4Z
-	XhELAH7OtFnR7zNBVH0mD4QTa1TNTR1J/IpTLQJi3CXaVSG/2uY8n0LoLygSCRTp
-	HObTEV6rDkJYGt7fJLvFZAYxXi7Py+xaBWH6YFbj+unE+f7R8sMqAJ0+JAm2Yw/7
-	2xQ2Lc0CQDf+G/1ZB+cp+3p6GdrSKJATYQo+AkISh9NedE6UgKzkNQ==
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 49qfss29w9-1
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=n3ABf7IwHbPRyeRjMmNlquK3uSB3dxS3CMG569NdO6o=; b=
+	R3gCOeJkP8wmhp6X5KDi/fFhEPMgVG1ZeYIbVgd45ow7K+IY3qP93JTf+liJKFfa
+	k93R6lmpFlZMyz9DI5kS6j+Xadd9nCw3oD7Vdw6nXOShWjyvIXzfuRIJwWtgiucN
+	ajXEpDZ14VSkBUzEDlTFtw2Xb2/FVCAgmVDMSHb/KAKMxnqfbD1Qs1aBfZ+w1uml
+	DzLSmqst8wVkIx6gy2CC8L64HTzq6K6JZvKxV6+lHzM0KzH0YrKJa/bjvhB423LO
+	itUU0HMbCiLk3/otDCfV3HiCt18Y+03khABMk6W7CHdtpvB6uoJYPNUbjbe9WVrv
+	rhHiq/0gx1XphefXuWP4FA==
+Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 49qe59jcje-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 17 Oct 2025 06:16:13 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 59H3rVPP000914;
-	Fri, 17 Oct 2025 06:16:12 GMT
-Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11010036.outbound.protection.outlook.com [52.101.56.36])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 49qdpcnsqt-1
+	Fri, 17 Oct 2025 06:16:19 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 59H40Voo024807;
+	Fri, 17 Oct 2025 06:16:18 GMT
+Received: from sn4pr0501cu005.outbound.protection.outlook.com (mail-southcentralusazon11011007.outbound.protection.outlook.com [40.93.194.7])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 49qdpcnqyn-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 17 Oct 2025 06:16:12 +0000
+	Fri, 17 Oct 2025 06:16:18 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RsfS322yCtXj9EfmGhjVdKf0xZr8bQMo0j4pbgOzZ7dPQCcb0iJ4yT3pdUUzePzakfuz6vsJKFvYHgN2Q+sRW0y9boCUpECSemPBRCeCH3Ar+ooZwyiQRCEPlf4ECzetfowZTtkq/NNCkqd5Q/+6dTWkFVRqIWz3U6qCYdSnfVCHvKOdf4z0HJLamp3ys2GVW+pWI/LLp0/bMbXagLS/uYTCfwsQkFRNBlrQL8Pv7YljCK5JrmQ934l5piu6FT/EDnWz0c50zbk3lFAVdBx8Mck7mYySSiJXpSulttg7oDGfZGNmvjN+c1NSXgcwFjEJ40s7EYBaAet2lEYRs82AAw==
+ b=QUH8lq+nQ9XTPo8gz78ocXWwDAxqapPHC7pAyBd/xTYrzCIJ0ihvdKvLd+vk8dv4FNRTC+ZlHzHxVywZozO4kDbxMhDZkbbdEoInUHQMvRUqLVYafENPfXLU6xLj2qvx1RRKrZfQ4G9d4GPqKx+Q2445tw2i4oa4NgrHuuuWuPLvSu7cK42XnRsUspFg2Uet6r8VP+Z5SYmY7Y7eXd3dnJCBgbfo8dVFeaKyVJ7yt/1dPU0SM1MgHj7U+leR5fxg/U0oM7VhcvFyja02Pj5oqOe76mzxv20M8+LYlMfh2S4L9m64/vHkWGVANGjIxZEQqWePRb9U2qnmIwVgssepnw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7j+iIKp0pSFiYa9aa98CKox/LAZfJP3W1UNFFtJxsCw=;
- b=unbrW+afy0Wh0tU6Ce8TMZMvCDRrxeRHBKDqVEVMSx8a2QG7ruTqlOOW3m5i1oNjRywGnTMI5/av2+9y6oSGjKWonSnfcESqKkDLziH3/SVvLoqjR6VSOtBTJwfgSdmMyWifQLZW9xTBTDIcWnpCLKxhJF9kM+UjqoS8i1JJgZ8pqHZUTcfoRrEv1cctrerRQ3a+nWnqesJ4ejIaheQPCN0XSkwfajyhmO86JKSClVo6eKXKw3Reg7/55v5DCrk2pfg7/eV4CWhyFT7V+AEKu8EcZRZsQue7TYz3eMHgh/P0rtGq3SSGigtaamgLyKTrV6dKfmLtW48vLm9eY/TT2A==
+ bh=n3ABf7IwHbPRyeRjMmNlquK3uSB3dxS3CMG569NdO6o=;
+ b=DU01OUPXjfTqAq965VuDXda26qersyOJV2mmeJdq2FR6B3amLlP9ZKdsoF5Wnh5+M5m5e+APG+cdfD/PLlkiT6oOkKZbRTgV6i9pWZuHM82fV6hG46ROB9O9xdfxK5kPKrEEOFP6IZPE/39t00iF3iuOsvSFLkcnXo00DUNcum37bTrvfpzmbjHWoFxq5uk7ARwlH1SI+CdLWTJzaslriZ1OjfAbDvdu7xjLZv0uYx5QGwxsPpDoPe+dg+lTKN7wA/QseSrq6/obUKyyJnvfphP2IIkpM2moHDCzJIOcuuKbw2lmtOM3rGBmCMpZxA5D5nix1s4Fognfn91rRZUKRw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
  dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7j+iIKp0pSFiYa9aa98CKox/LAZfJP3W1UNFFtJxsCw=;
- b=qvC+hVHUSPpzFQS9O2YbC36vTgR3xeU0LvAT562m3VhC4AxpoMJX85be+MfoVarU5fP6NWiizVadpNP82TyWlNJCVjbk0LBYNTAWPEvIyTeW+WFZtZlHnDKOXmWN7bMGoTVQXW1RKQIP8IFLIDtZiy4Uq96OnIxdPqEGGPjfOJw=
+ bh=n3ABf7IwHbPRyeRjMmNlquK3uSB3dxS3CMG569NdO6o=;
+ b=cORKyKs4BfiFBuMUGpc8RLIvLMCCEXZItS7FnVBwmANwoeBYEkJiLulxvVawKjTmwdZy1RT+TB7f1OHApr//zAKrCY7WQoG9w7LgYHWmVzJBYlHs77Oj/gc2JorcZobE56/Y7w/KcDQsO3Jhn78tYS96UiUgjgdaYpDW14m/J4s=
 Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
  by SN7PR10MB7045.namprd10.prod.outlook.com (2603:10b6:806:342::20) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.12; Fri, 17 Oct
- 2025 06:16:08 +0000
+ 2025 06:16:15 +0000
 Received: from CO6PR10MB5409.namprd10.prod.outlook.com
  ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
  ([fe80::3c92:21f3:96a:b574%4]) with mapi id 15.20.9228.011; Fri, 17 Oct 2025
- 06:16:08 +0000
+ 06:16:15 +0000
 From: Ankur Arora <ankur.a.arora@oracle.com>
 To: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
@@ -83,117 +84,118 @@ Cc: arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org,
         daniel.lezcano@linaro.org, memxor@gmail.com, zhenglifeng1@huawei.com,
         xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
         boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Subject: [PATCH v7 0/7] barrier: Add smp_cond_load_*_timeout()
-Date: Thu, 16 Oct 2025 23:15:59 -0700
-Message-Id: <20251017061606.455701-1-ankur.a.arora@oracle.com>
+Subject: [PATCH v7 3/7] arm64: rqspinlock: Remove private copy of smp_cond_load_acquire_timewait()
+Date: Thu, 16 Oct 2025 23:16:02 -0700
+Message-Id: <20251017061606.455701-4-ankur.a.arora@oracle.com>
 X-Mailer: git-send-email 2.31.1
+In-Reply-To: <20251017061606.455701-1-ankur.a.arora@oracle.com>
+References: <20251017061606.455701-1-ankur.a.arora@oracle.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: MW4PR03CA0090.namprd03.prod.outlook.com
- (2603:10b6:303:b6::35) To CO6PR10MB5409.namprd10.prod.outlook.com
+X-ClientProxiedBy: MW4PR03CA0070.namprd03.prod.outlook.com
+ (2603:10b6:303:b6::15) To CO6PR10MB5409.namprd10.prod.outlook.com
  (2603:10b6:5:357::14)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|SN7PR10MB7045:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5d658607-ef98-459b-5dfc-08de0d44a917
+X-MS-Office365-Filtering-Correlation-Id: b994756a-d2fc-4222-85d9-08de0d44ad5f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Y9GvRORzAQKdIfCnRs19KQsFGQdjcd7txtNwNGsYuG76eE9rkxhTzYsDMrXd?=
- =?us-ascii?Q?tow3tlYaqekMJdp/k2wllJKcPicgfSdHK2TvhN9f4XSyGJNsTPCVtMXLWB96?=
- =?us-ascii?Q?S3wKCUCr/jNrEnXh53lrxOfi35ECA/kQtg8qZxcV1rNwZWuKNmGbJOybL6J9?=
- =?us-ascii?Q?NVV9eBYb8OaLusDW/dpCGdN9pABDrset/khJ4jv1Zeu7iD0gUn42C5mcqTnd?=
- =?us-ascii?Q?y3fbwHVFlbGAkAVdSwDRtIiRKRJX+MiwW5FD/ZN7/O5QrXQvzLQZHhibMhnl?=
- =?us-ascii?Q?ci8n6/NUK2h/pJfwRyP6iZr9CSnuaKN3zGC9qw4N0tAHueATW34e+rrBhP93?=
- =?us-ascii?Q?azuk63qUlwQNVJHzYRf/EJLLQaGSFyzxFMrfHjGUIYVpKIJf9NAQI2cIpZ2I?=
- =?us-ascii?Q?uWPFHEqLaXsd/bv9bWJVsejmWYFDXe8ITaoP63oA1q4fqrBMyLTHZKlJLKMu?=
- =?us-ascii?Q?eQVUvt7SphGoYbPSFi9f1tW+QywgB2An1NjgbamSrEdk//sldoF6Dg6BOEqT?=
- =?us-ascii?Q?WdCJ/OXiEUR/qKTPXPS7rmM42kPveE1D2Q+6pCKIIaH+/e41LgAH9DbseUPw?=
- =?us-ascii?Q?L4jhM5H9BIelbIIL1G43SgAYtK4Oj/iJ4EDJceveG/0FSdJprXTnQIW74MKS?=
- =?us-ascii?Q?a7DtqQuSPwW0lXCm7izQJtVPNL/j2DId5XtKveYH9Ld/F8rMJigIljROG+Ju?=
- =?us-ascii?Q?kPLr8Gc+83rKzWV0/WlXQQ8b41YM+8tuHHCTVQML9ZJ1CvahUwcLcR+WifHp?=
- =?us-ascii?Q?uxjARRv22uUNfEwtgBdv8oagmgB0CyRiDj4fOnI2+GiKq3r4jxHH/qh3s3+h?=
- =?us-ascii?Q?DuI5rA0QnZAqC0HXH73WhBDUCCylR60fmsoUVMFexRuOIDYaXS3vupC6QlIk?=
- =?us-ascii?Q?nPHRrL9WpPprds6yAPDd2fFTyklY9xD6xokr4j/9YgxPzyYFFY9bEWjgsUlg?=
- =?us-ascii?Q?a342dAsEvW01OGfaqYVfPFo3B0hzTvEDiVhrecqCn9JzvAaPKA4NckvaND96?=
- =?us-ascii?Q?zL4GH1rP34dTJ8rfMPNnexiJjFbjf/5gBgTvWqmUUGOSLz4ShmcrNnDtc2zQ?=
- =?us-ascii?Q?bGcQu0mYs78rmMG1oXi51/TrCKuh2GmrqBEHYcH8aT2v+5leFERSzHBbrZ0y?=
- =?us-ascii?Q?ft+Iu+LENUcSQ1iBHoQpwRcw0LRGqPcJvIdrjJo3H4Pxg7B/BnV5iN8azdoT?=
- =?us-ascii?Q?wFKOZc13dkd1MXnvkVDToKbSGD5IlMwCDBBGJ5hFYaFr761ft8dRSP/ZGm5V?=
- =?us-ascii?Q?2hgA7Sun5Ntjsw5eNUDBbDZYCmOs/u4drMVoyW4yIiqKp8XqbcjWCQSbfl6c?=
- =?us-ascii?Q?6Sdn++TW6AFxpCIbJn+jKmb2gQz4+MVv6Z66gb4+yZ3JeWu9U6BO96/3NSfn?=
- =?us-ascii?Q?whCAR+O0oHUw9a5W5Xp5OSdgPaYpyNP6VDHRM+YtyRs9OpQxrZTerqDSUnyA?=
- =?us-ascii?Q?vQNKEDtSlVw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(13003099007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TpOygwpN4M3SdRhg2JYBDC2CJRT8MpUWL02IKNvTNECSs1nAuF3inkBHgNWR?=
+ =?us-ascii?Q?O4H/mDKzTPfTzQELZ3M9DIvOY6m19bJPgOCMuD3Mr60DgHy9IZ3z+zsJw+C4?=
+ =?us-ascii?Q?+fOh1/puUb4XfSHMcrVwV9bJT/o+vWj6LYo9zhpqO/1MlOUas9JJPrQYTE2v?=
+ =?us-ascii?Q?oOqPLhrhVZkrKWUZb10Bpt5LGkBAktwp/aPPHT62kLxpdCJpYB6B2ig/HkW9?=
+ =?us-ascii?Q?+s9x38ACuriGr0dqsaxIQkX25Nn05FlRfcwuSvEEExGSW2WZKv7Tm70u5V1L?=
+ =?us-ascii?Q?D9Fv58qAGSkbsg3J1HUwNiOWOeetdef5FZfLJtRto1jP7NactGnh/p57Tspz?=
+ =?us-ascii?Q?MOjyp8ChcNIiho8iu9oUJcEPCaXHlcmI9aAwdG1TlMaw277NcgyIcGEZVf2W?=
+ =?us-ascii?Q?BA60ZoWTQJpVIXMCFrIAnTIuEb+WoHSkv4FljsGbx1bAdJXZ+oeWqXhVTIG6?=
+ =?us-ascii?Q?bgInxOXZ/XrXXXviUvRSHID8k3eLYznySklR0qnm9QEEfkHJ90osr7U8syZs?=
+ =?us-ascii?Q?7y+KoX7cOKETmVzSsU7VZ+tbzd6VcPejTOHSFvRqFKFiHbf5vFNm/bXefqCF?=
+ =?us-ascii?Q?g630l0AcT54R58ZT/a8rL1cur6LEsp07yOPOSfuKO+zq9Z7PkRZBkJf/EZFT?=
+ =?us-ascii?Q?7zS2AkyN3ru9qrtOpkv76885tyH7g5RY7txVQjcDFtWBX2mXZ18lew35Xs28?=
+ =?us-ascii?Q?m+zPwaen/IxaBARaW+PNa5BP8/VajjG9eLuTydicm/PJHxAOAFB5wk/nOWKv?=
+ =?us-ascii?Q?Gg4fin0+8zJbZRj7Xng7G3gvQy4RpzuLUObMmU5Lw8ttGq0yaTRA4xICYM0J?=
+ =?us-ascii?Q?Hr/kd5sycdws5nHgpxI9itvElzjfExHfqwhFOREFMzUWlBfMLOoL0GmXOWyy?=
+ =?us-ascii?Q?HN4+Olz0auxW2cQIdPkX50snAsiQuqyJXRH6XRpn9Rkk53BjtOc6zuD4MlVO?=
+ =?us-ascii?Q?rXdilcJUj0mZfnQpB8AOWI+JPep5fdX/6PKYRbA1KTmLcOqn7VKgyZtcMnUY?=
+ =?us-ascii?Q?q8QR7giw43Sto5cGTUG408qIu/uWo3iCcMoHaDmLhRAJdx8BkWs96Sw+Kajw?=
+ =?us-ascii?Q?ihMbn4Hz+jncvi1yoaQyiulfCX+5xZ3swhTwjMGf3p+Fcz5MrV5ErzIHG4Sv?=
+ =?us-ascii?Q?Hf/jx1yhcBQbzcumc42N7nYKAiL06iddkv4QiJq7Ayb4yfzWxfJOTyMYLiNT?=
+ =?us-ascii?Q?93Yh2iLuIAaAqSsLWmwHkmVPzphlLc2dAwmPyT9cwkBhL88TeLz9FwGJHi5A?=
+ =?us-ascii?Q?MefdRi7I33xbpb3DtpZeLg0F8VqOlNXCVBaYyNY6FA/uONfmDEzq/zza5KDE?=
+ =?us-ascii?Q?W/MnwhoI+ItEoywkZeJ74DsjiSmo5tkjUL8yuBNSh4sHJLp+RrB95x2SzKXH?=
+ =?us-ascii?Q?yxSNFSpIBlC5iwDOhF1OIJe6N3VyqzFzLI4juJ8XVTW1N4ycfr0njqU3VrEw?=
+ =?us-ascii?Q?ZSzVtxi8A5hdT40jraVpK3Isatm321h0?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aBJhHmboglDmfe+DTF0bEeUHLd5oDGSLvPIkSYIUZCWoygGZQxIcIakiB6Ge?=
- =?us-ascii?Q?+P+2gwULT3gdQSgqMKbcTxdDXNqQ5OzHklAGjdu1bSLSsJUQ6jlCfHy0ErJB?=
- =?us-ascii?Q?3cw+xhvX78zW/fodRQ4B8uEoHjNTlZjSvn34uh73l82u6W9WdChUGtOPrmBQ?=
- =?us-ascii?Q?LvbZ8133QTzNCJPyyCRiX3SJA3N7aEk48RZhCgKT4/lteqNLi4Gw0sdhZCmj?=
- =?us-ascii?Q?q9wJd+doW616cH9QsA6+QV4L6r4E9liOI8wn8LABm68NOnpQmamy86KrA76n?=
- =?us-ascii?Q?5AAel0NFslVnT2qrdqwwv7kgoo6SMi94VXiaxg5I5NR67SgHarmf1nbQDBbz?=
- =?us-ascii?Q?G4CiON2bPpt3p/XKuF8EkvHdz57kZlbb97CUbm9traRuuQkuldbbFNVuk7Nd?=
- =?us-ascii?Q?npu9JAb8OBOZtPRKHEjSOQDRCNx5TNli8s4sfDjABqi+UhQjs3j8jKd+gX+X?=
- =?us-ascii?Q?HD/UFnaOh/oZU/jIZZQXh2fCFnitj4Ylu24qlro2prEwj6EhmW77lUlVcaz/?=
- =?us-ascii?Q?CiWlyfvdr4j21cvu/m9HRd/3dsYwg1nCBGj5fsrSTPzA0dNykMfjYbsCQSUN?=
- =?us-ascii?Q?6jggRSj0dRaK1YX6WNicDPzWFJfuXbeJWb19Zgaf3pYY2W8okeuB4VsgCxMb?=
- =?us-ascii?Q?CwQCVhYxO6hn95X2v2IA1dQIZrk2SU361Qq+VA3QSdELVq8bGbTjNUMRnBs9?=
- =?us-ascii?Q?nVryy/iJfPUx3/s/q2MxG7HtQ3tGypgXby3pdPEVIkPkMdemzuYJbGdpB1qL?=
- =?us-ascii?Q?es0li5RQnqb1AiSq9tINLDkD97kZFtSwNmllA49TPG4TsDZW4uRdcfhU0P7w?=
- =?us-ascii?Q?whdUzbSaBTdnHXpnIiha6sQMqiNWosNOUcNj/UY5/0Qvqf7OEzb5GMoueixu?=
- =?us-ascii?Q?2cJ+11jt55K/R0v3UeOaDOYOviBJNP8/JkeuDj8fumUU7Y9jbwznO3kW4Ey/?=
- =?us-ascii?Q?4TvUVXDKEIegn2TbuVxLej8afHWChnpRYkflEdOKboYBlG5tUORUAzpuh7k0?=
- =?us-ascii?Q?7ZpZjpqju/IideuOcVqbNm1vQBnSLplew9NXSC5Na7afM+yoJ1w616HbxZ5N?=
- =?us-ascii?Q?DJee8E6kdSkOzifgEgvV+e8k+5EZE3Zeoy+8SFlUL3RvZg8LElNT0MMsaYHL?=
- =?us-ascii?Q?waAUSmhDFaDQVq6VSPrdqoxGpYmjvJPdj4SBRyXDbvYt93LMbxrKNUFYGE6d?=
- =?us-ascii?Q?iwcPAO4I6ARub7XFBs7cSCNXK7pM1PP/T+ozkl2/Zh08iDNMS2d1c49zNmvs?=
- =?us-ascii?Q?sbo4wwSVfBbktaCkMWCz1AaGq/mG7cMSPI2a/Se/e+QgNCfof8MRwOFydFGC?=
- =?us-ascii?Q?n3etTfTOQes9pLE0xQ4wMgMPILsy8lQjf+oIWDYvzaNGkjMY8SA7H4lFRk1m?=
- =?us-ascii?Q?Tj5qnrdlmT70OjG+YhMeuMHAnso4s/SOiEU5UzgFzDzC4xcZzkosEAEF76GF?=
- =?us-ascii?Q?eq7Xrg+T76/hifg6qsUlZualL3I/yQqwVGbNd3EZO08AXGKgXbZe1nH9qIEL?=
- =?us-ascii?Q?aKRZO41tYyGiJjCyKYpF3gXwGKroU+k21yiYi5u5gSwYxqv7q0GboQssGJUK?=
- =?us-ascii?Q?niX1idS4oNJoWWZ7/ZlzjGXNNE7Dh+s2zDSQJc9gBmYtDMDU+VwXItIrOV3J?=
- =?us-ascii?Q?dA=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kz9IvIRqoj43pSMxjLtPU9S4BcfiZ/k3kh3j5jzSsqmOnNKWpzarrms1k0fC?=
+ =?us-ascii?Q?H7AKJfeTHpVEhVIYbwNr2kdRFzOmvgq1/FG8dNxJcaIkFY9qF6u3R+CDMTfV?=
+ =?us-ascii?Q?Bfd0Fc06jRGVYerL89m6EGnoQfE5tgh+2Q8vhQrFY2abosc8GB7efbdisqg+?=
+ =?us-ascii?Q?8tUN3U9nuT3HQ3+O0OTCMWNi4yIGcolbbFd6Aa/3LhU0R3wAavcj3leOkz7r?=
+ =?us-ascii?Q?f5+piYjPGpcdGVs5J6b03ylf3Cp26JvdVPgX1hFXg3/Ckr2dxervPVoAVUvZ?=
+ =?us-ascii?Q?ia3NAXtESSR/8DDQ5ZP931Jl55zbSUdER15BWhgV5anDz1H1Pyy2mNt1B38E?=
+ =?us-ascii?Q?1Zej2FgNupFtXmqpydR7mJQ1154i0mZQavkpElvfhjymoxhDVpmUu5LwKupd?=
+ =?us-ascii?Q?RWV9adiLMmh4UX3YzU8hwc5ZvrxWxZnLCYJzoYJCAm2vL/Pu5r80jLTzo7PG?=
+ =?us-ascii?Q?MYIfsL4H4txVMEoUO76Ca+xguFCn7Zzl3aUeRALq7C2zyAqmTg3kaIgOC7zn?=
+ =?us-ascii?Q?Y4r8KMoNmlsjUdF4G/lvzWeVZLXjGa2ALTAnM+yFVQdCHxa7oVrtY14wLcry?=
+ =?us-ascii?Q?+rsage95J5+K+nDl0H/PcIdgOXmUya2QItm2Cb3quoFbVeSUTR9XFqisD9wD?=
+ =?us-ascii?Q?3AQT5Fnf1GdstI/NXCMloMqpoEq6X2ck42Z1RpN7jWDhjAzP1bVwyDV4GBpO?=
+ =?us-ascii?Q?9PD1XdGo3EQJCTiLOMl3Hy/ORYt8+EccdEE1oJcBO5XNJQ4KQTfM2bAmWACM?=
+ =?us-ascii?Q?Lb9ldsIi22CS+j8+P3ss3oF9moU8gKtwjSjlocM5jjhCigTlnoHC6wln0lml?=
+ =?us-ascii?Q?SdkgbrfoCcfkXbIM6bLi0E4YNEg7PMc/oXagQYSojI1/nc51M7tqQ8ftHLNK?=
+ =?us-ascii?Q?YLO2mFk8K6YSTBDdE5qbKkTMFcLUCJKCA9fvwKt44UoWtzQFylWVICBUX7FV?=
+ =?us-ascii?Q?4uTXLoRTPVWHjqyqwcC4T3rSNQ02EI7HdJsSTWzqBbbiTJboF8efUAOfssvK?=
+ =?us-ascii?Q?yxC0a25zJcMNqYgevncL/TkscSlWLqeWzrRxaD+Jl6uNMKc8v2othn6y9BIL?=
+ =?us-ascii?Q?FLbbaoayg4zKD57txrn9sNcrlygCDg+8Jn+lVZcd9Ti38Gfx4XhxNJO3JHwo?=
+ =?us-ascii?Q?CCi0w6aAuBdpXHC82fSVTUhb8oQAyisjGxzB1O6oTD0B1ySRcysJIq4T36h7?=
+ =?us-ascii?Q?twmgVZsgE8o2ujGaP8ocbzkoYwInrhHOijE5VJy2YVYTyrm6szKxD58xNsMu?=
+ =?us-ascii?Q?Hv06jr8wq2mSG3QN5Rx5yJ4LB0JYjLT8MuQYWI80CWuuGIayo6ryBIWVud/P?=
+ =?us-ascii?Q?/oV1hW6OLXtyy+k7g7W+0G4Se1V7q2FhECkqlCGDZGnRG8P/hkeegrL4xOBT?=
+ =?us-ascii?Q?CRfKg9AOL3tFK3t7ord9atrElRUHwJ6OkjWUvjFeAASM6gw+sYigzOdt0w2C?=
+ =?us-ascii?Q?lZONG+7ebwEdybGXiWqXfAAsk0wlH/RG4OTZjVscr7uyZeWmhYhGHqA8BRev?=
+ =?us-ascii?Q?TbU1rsUtyeUp0VRsNtVOKBCLgBiADh+FmWUNbMp9iUrA1B66a1TNj2go/F+Q?=
+ =?us-ascii?Q?wYYIUxvSwIxWRyVq1w4WaY1dsExlEz80vwBvKolfcYFqNZ2eKtydwQo4TVZT?=
+ =?us-ascii?Q?tw=3D=3D?=
 X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: muITpvAYm373R5zCLJNVBt5+jQYoZZUM1uxhV1C3/FHbFvFScOnheYRApc5eR3ZV0P5k+LEugOCgjEKcSTUqbmdY62qQwRblW32+YZIJm7jC9YTCzhnRZ4SkBjskCaXELyGrWmwLwHnWiLaFRAU7s8PZls1plVGeZUK9Kheyr6tpL5oHJTF6a8rWLJJqqTAK4vmsxWZ1b0i7FtR3z4htB5B8JLQ4L5GaFNq/b7i167b0ebg3NohrsskZdRJO27vszMami4BOszl6f10FYznPRxDagqxKx5IU7bkaEHtP1juJEheCQSO6NSRvYoXm5RRVHnIV8iSd6ZTgReXv/0wCeaEBttqPgUi2ADQwFfalI+H5rydjRGL1TVT+YFPfPJYrdSpZBN4nq0HwfvJVET1g1ofnUSsVaf247tVBiBW/cW4oe6GGoh59SjWVGYuKXxugIipJJWkR7KN7g41Y4SMlBbmbUEDpnldrjIm+0Quun51t9UxWWb+XZGgKwcf3duSDTmNSOx+1ns+wa95vEMim0l0VjpwZtdcHLPdHhwev6ntDjGoSuFdQ8ZlvIeOpzB4BWzffAqgft409ibVRUVB2yPvZS8qiwRpkZqIKSUtZCi4=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 9y2vCfHLNywu5b2wC99n5OSWHZshFhAvuFHDLHbIZOYASAMQ/0GC9dEmee7iyZlZgK1NvxVYRMUT/TLdlkeXqEnprJX9xMv22i6yvXE2FSQHsac2+AQYljlw+x+C3a06okNIwP9ewesXao5ipTuUp8ztcppjId2eshODD70CPaIEBshzpvwoKeaDxZl1MPYdje2DeKLub18UhDC881GOdMwdF3pYd6R05GBBin5EsXoGHdCQW7s161X+gKq73xnwF7nxe7VJIeY46U6JYyA4ajK7XQwoZ6fbdFfLmaLzqNTAyoWn41fGmDTO4v++yISj/um4MOpJJbZ0cvHkG9B2VqvvWG8w1t3vv/dj+Zv/4E4taZDBUrm8M1AzAs4KSOauTG0AMQ6L3zjN6Vx9WL8j2YgxzwH9yXneieysAaW9jRaBycu7c9fA43w1sdTyulaRJMonk/FV71Yzd6slZE37rE4i4f2a02+d+lgKT0aqkM+vLgN7g78lchotxQPkQIkR3eOFxCEaCvdET42uvK2dIQkhC2VsRrBl5NlYHJUHWK3ziAYYg2ATr7c5atzQsbPFz8MoPAwCqOC9DZxGj67M09FzYl72ZKw6raeKCKvkRFg=
 X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5d658607-ef98-459b-5dfc-08de0d44a917
+X-MS-Exchange-CrossTenant-Network-Message-Id: b994756a-d2fc-4222-85d9-08de0d44ad5f
 X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 06:16:08.0586
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 06:16:15.2118
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nHZnDGVnirk4O4Im5oZrLC9Ox3SUaLdiqx4KR1Lz5qxn0IdeAt8Wg6sgz2GW/CTctJji2SYukEgVq0ufUXti66iumt2gPrKjf3wm/2GRN+s=
+X-MS-Exchange-CrossTenant-UserPrincipalName: gjaceiaig+9r0sE/objVriy59eTsWzaOUB4PRYRBKCvr7g6h9TGHJqiRSc1gtrcg66Zixmxp7bkpDD5Aev0VuWSbLnB3WNVOaXmyfgKdy0E=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR10MB7045
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-10-17_03,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 malwarescore=0 mlxscore=0
- adultscore=0 phishscore=0 bulkscore=0 mlxlogscore=999 suspectscore=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 phishscore=0 mlxscore=0
+ suspectscore=0 spamscore=0 mlxlogscore=999 malwarescore=0 bulkscore=0
  classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2510020000
  definitions=main-2510170045
-X-Proofpoint-GUID: ExPBRJiKF3TGlCfuUBSKrRcL67BMCkEq
-X-Authority-Analysis: v=2.4 cv=APfYzRIR c=1 sm=1 tr=0 ts=68f1df2d cx=c_pps
- a=OOZaFjgC48PWsiFpTAqLcw==:117 a=OOZaFjgC48PWsiFpTAqLcw==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxMCBTYWx0ZWRfX/ax0AgZoN5Q1
+ fMAwRcmJbCbWQAE5IFdVfHxmdq1dKFRU6+ExFo1tejxwdqyDu0Sg21oT8RyONwTW70ReplfEiW6
+ 2mkZuAf89H0c+DB3G0O5Zaa61KFIVRloOZyLa2Rwdl5/zg/F6ubFHjt/oH2wCHd7sPEgDVIm/rD
+ skRM/kzTZvKD5IYmBvZTOHgFE0PKeGJUMN72FE44UqSYWcrShcMMUxfriGgVMWk64rbgZzOX4FA
+ f2yh4APolh2Iu8bT0d/4ZNV+KohY/hSvw4jRKWArzlS53IswJ0rOxRxk5yWMIxexGp/BcBtDo2q
+ xi9eZPcc91cWBFsGZMYJu3ts2DzzlLHhjdlKedk/gP+pZg8/gjGK7E1UwslTfwoRWt13ts5MhDv
+ sMYS6jZWwyXWgUy1MYy9s1uuBnQLAw==
+X-Authority-Analysis: v=2.4 cv=V7JwEOni c=1 sm=1 tr=0 ts=68f1df33 b=1 cx=c_pps
+ a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
  a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=x6icFKpwvdMA:10
  a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=yPCof4ZbAAAA:8
- a=vggBfdFIAAAA:8 a=7CQSdrXTAAAA:8 a=JfrnYn6hAAAA:8 a=KKAkSRfTAAAA:8
- a=pGLkceISAAAA:8 a=QXDmnoQuuVSgSO7tUmQA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
- a=1CNFftbPRP8L7MoqJWF3:22 a=cvBusfyB2V15izCimMoJ:22 a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAyMSBTYWx0ZWRfX00CZSTy70ino
- BxPXmghQPZx4cQ8YrGJiPG6B7Pn8cia7syW+tRUGEv9z34M69qP+TOlN/jLD1FAkpz+mzEUUQ5P
- lZhdLEZtLOr5s1WQtGdzoE+dr1Dqd5/Vbv1NcRJ48D7EX/h3jaJ3hD0z1kQaweB7hV5N6C8owna
- sFOvZoKmbM0wWcV0eHg9uX2dua2Ag+CuzRue1485zzsiti/DsnnCc8QQ8ZcxT6ChgTsMFpwePff
- Qgplevi8YPASXI46UxWWyLdo6BdYNQ5SX21YmO7VMyJpgwbxK8kFnoZqc8Sve0z+RwxNIPzLczG
- G5YXA7a0cEF92SY3w2BVTVp4/dkBGMN9KgnXHrthqSonJjLpoYANZxwI1wbtS0eSytTBs9XpBei
- ysMKRuStYmtO5o7ViTpzrZpTQZ+7IA==
-X-Proofpoint-ORIG-GUID: ExPBRJiKF3TGlCfuUBSKrRcL67BMCkEq
+ a=pGLkceISAAAA:8 a=7CQSdrXTAAAA:8 a=vggBfdFIAAAA:8 a=pMBjG9WjWPNDpSeUJj0A:9
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: 5CopTsZQZUZoYtpEao42f3H6REVTqkA8
+X-Proofpoint-GUID: 5CopTsZQZUZoYtpEao42f3H6REVTqkA8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_231637_931462_7451C595 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20251016_231641_572377_F4CCB7D3 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -208,120 +210,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds waited variants of the smp_cond_load() primitives:
-smp_cond_load_relaxed_timeout(), and smp_cond_load_acquire_timeout().
+In preparation for defining smp_cond_load_acquire_timeout(), remove
+the private copy. Lacking this, the rqspinlock code falls back to using
+smp_cond_load_acquire().
 
-As the name suggests, the new interfaces are meant for contexts where
-you want to wait on a condition variable for a finite duration.  This is
-easy enough to do with a loop around cpu_relax(). However, some
-architectures (ex. arm64) also allow waiting on a cacheline. So, these
-interfaces handle a mixture of spin/wait with a smp_cond_load() thrown
-in.
-
-The interfaces are:
-   smp_cond_load_relaxed_timeout(ptr, cond_expr, time_check_expr)
-   smp_cond_load_acquire_timeout(ptr, cond_expr, time_check_expr)
-
-The added parameter, time_check_expr, determines the bail out condition.
-
-Also add the ancillary interfaces atomic_cond_read_*_timeout(), and
-atomic64_cond_read_*_timeout(), both of which are wrappers around
-smp_cond_load_*_timeout().
-
-Update poll_idle() and resilient queued spinlocks to use these
-interfaces.
-
-Changelog:
-
-  v6 [1]:
-   - fixup missing timeout parameters in atomic64_cond_read_*_timeout()
-   - remove a race between setting of TIF_NEED_RESCHED and the 
-   - dev->poll_time_limit was being set even if we hadn't spent any
-     time waiting. (Comparing against local_clock() would be fine, but
-     I'm using a cheaper check against _TIF_NEED_RESCHED.)
-   (Both from meta-CI bot)
-
-  v5 [2]:
-   - use cpu_poll_relax() instead of cpu_relax().
-   - instead of defining an arm64 specific
-     smp_cond_load_relaxed_timeout(), just define the appropriate
-     cpu_poll_relax().
-   - re-read the target pointer when we exit due to the time-check.
-   - s/SMP_TIMEOUT_SPIN_COUNT/SMP_TIMEOUT_POLL_COUNT/
-   (Suggested by Will Deacon)
-
-   - add atomic_cond_read_*_timeout() and atomic64_cond_read_*_timeout()
-     interfaces.
-   - rqspinlock: use atomic_cond_read_acquire_timeout().
-   - cpuidle: use smp_cond_load_relaxed_tiemout() for polling.
-   (Suggested by Catalin Marinas)
-
-   - rqspinlock: define SMP_TIMEOUT_POLL_COUNT to be 16k for non arm64
-
-  v4 [3]:
-    - naming change 's/timewait/timeout/'
-    - resilient spinlocks: get rid of res_smp_cond_load_acquire_waiting()
-      and fixup use of RES_CHECK_TIMEOUT().
-    (Both suggested by Catalin Marinas)
-
-  v3 [4]:
-    - further interface simplifications (suggested by Catalin Marinas)
-
-  v2 [5]:
-    - simplified the interface (suggested by Catalin Marinas)
-       - get rid of wait_policy, and a multitude of constants
-       - adds a slack parameter
-      This helped remove a fair amount of duplicated code duplication and in hindsight
-      unnecessary constants.
-
-  v1 [6]:
-     - add wait_policy (coarse and fine)
-     - derive spin-count etc at runtime instead of using arbitrary
-       constants.
-
-Haris Okanovic tested v4 of this series with poll_idle()/haltpoll patches. [7]
-
-Any comments appreciated!
-
-Thanks!
-Ankur
-
- [1] https://lore.kernel.org/lkml/20250911034655.3916002-1-ankur.a.arora@oracle.com/ 
- [2] https://lore.kernel.org/lkml/20250911034655.3916002-1-ankur.a.arora@oracle.com/ 
- [3] https://lore.kernel.org/lkml/20250829080735.3598416-1-ankur.a.arora@oracle.com/
- [4] https://lore.kernel.org/lkml/20250627044805.945491-1-ankur.a.arora@oracle.com/
- [5] https://lore.kernel.org/lkml/20250502085223.1316925-1-ankur.a.arora@oracle.com/
- [6] https://lore.kernel.org/lkml/20250203214911.898276-1-ankur.a.arora@oracle.com/
- [7] https://lore.kernel.org/lkml/2cecbf7fb23ee83a4ce027e1be3f46f97efd585c.camel@amazon.com/
- 
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
 Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 Cc: Alexei Starovoitov <ast@kernel.org>
-Cc: linux-arch@vger.kernel.org
-
-Ankur Arora (7):
-  asm-generic: barrier: Add smp_cond_load_relaxed_timeout()
-  arm64: barrier: Support smp_cond_load_relaxed_timeout()
-  arm64: rqspinlock: Remove private copy of
-    smp_cond_load_acquire_timewait()
-  asm-generic: barrier: Add smp_cond_load_acquire_timeout()
-  atomic: Add atomic_cond_read_*_timeout()
-  rqspinlock: Use smp_cond_load_acquire_timeout()
-  cpuidle/poll_state: Poll via smp_cond_load_relaxed_timeout()
-
- arch/arm64/include/asm/barrier.h    | 13 +++++
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Reviewed-by: Haris Okanovic <harisokn@amazon.com>
+Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
+---
  arch/arm64/include/asm/rqspinlock.h | 85 -----------------------------
- drivers/cpuidle/poll_state.c        | 29 +++-------
- include/asm-generic/barrier.h       | 63 +++++++++++++++++++++
- include/linux/atomic.h              | 10 ++++
- kernel/bpf/rqspinlock.c             | 31 +++++------
- 6 files changed, 108 insertions(+), 123 deletions(-)
+ 1 file changed, 85 deletions(-)
 
+diff --git a/arch/arm64/include/asm/rqspinlock.h b/arch/arm64/include/asm/rqspinlock.h
+index 9ea0a74e5892..a385603436e9 100644
+--- a/arch/arm64/include/asm/rqspinlock.h
++++ b/arch/arm64/include/asm/rqspinlock.h
+@@ -3,91 +3,6 @@
+ #define _ASM_RQSPINLOCK_H
+ 
+ #include <asm/barrier.h>
+-
+-/*
+- * Hardcode res_smp_cond_load_acquire implementations for arm64 to a custom
+- * version based on [0]. In rqspinlock code, our conditional expression involves
+- * checking the value _and_ additionally a timeout. However, on arm64, the
+- * WFE-based implementation may never spin again if no stores occur to the
+- * locked byte in the lock word. As such, we may be stuck forever if
+- * event-stream based unblocking is not available on the platform for WFE spin
+- * loops (arch_timer_evtstrm_available).
+- *
+- * Once support for smp_cond_load_acquire_timewait [0] lands, we can drop this
+- * copy-paste.
+- *
+- * While we rely on the implementation to amortize the cost of sampling
+- * cond_expr for us, it will not happen when event stream support is
+- * unavailable, time_expr check is amortized. This is not the common case, and
+- * it would be difficult to fit our logic in the time_expr_ns >= time_limit_ns
+- * comparison, hence just let it be. In case of event-stream, the loop is woken
+- * up at microsecond granularity.
+- *
+- * [0]: https://lore.kernel.org/lkml/20250203214911.898276-1-ankur.a.arora@oracle.com
+- */
+-
+-#ifndef smp_cond_load_acquire_timewait
+-
+-#define smp_cond_time_check_count	200
+-
+-#define __smp_cond_load_relaxed_spinwait(ptr, cond_expr, time_expr_ns,	\
+-					 time_limit_ns) ({		\
+-	typeof(ptr) __PTR = (ptr);					\
+-	__unqual_scalar_typeof(*ptr) VAL;				\
+-	unsigned int __count = 0;					\
+-	for (;;) {							\
+-		VAL = READ_ONCE(*__PTR);				\
+-		if (cond_expr)						\
+-			break;						\
+-		cpu_relax();						\
+-		if (__count++ < smp_cond_time_check_count)		\
+-			continue;					\
+-		if ((time_expr_ns) >= (time_limit_ns))			\
+-			break;						\
+-		__count = 0;						\
+-	}								\
+-	(typeof(*ptr))VAL;						\
+-})
+-
+-#define __smp_cond_load_acquire_timewait(ptr, cond_expr,		\
+-					 time_expr_ns, time_limit_ns)	\
+-({									\
+-	typeof(ptr) __PTR = (ptr);					\
+-	__unqual_scalar_typeof(*ptr) VAL;				\
+-	for (;;) {							\
+-		VAL = smp_load_acquire(__PTR);				\
+-		if (cond_expr)						\
+-			break;						\
+-		__cmpwait_relaxed(__PTR, VAL);				\
+-		if ((time_expr_ns) >= (time_limit_ns))			\
+-			break;						\
+-	}								\
+-	(typeof(*ptr))VAL;						\
+-})
+-
+-#define smp_cond_load_acquire_timewait(ptr, cond_expr,			\
+-				      time_expr_ns, time_limit_ns)	\
+-({									\
+-	__unqual_scalar_typeof(*ptr) _val;				\
+-	int __wfe = arch_timer_evtstrm_available();			\
+-									\
+-	if (likely(__wfe)) {						\
+-		_val = __smp_cond_load_acquire_timewait(ptr, cond_expr,	\
+-							time_expr_ns,	\
+-							time_limit_ns);	\
+-	} else {							\
+-		_val = __smp_cond_load_relaxed_spinwait(ptr, cond_expr,	\
+-							time_expr_ns,	\
+-							time_limit_ns);	\
+-		smp_acquire__after_ctrl_dep();				\
+-	}								\
+-	(typeof(*ptr))_val;						\
+-})
+-
+-#endif
+-
+-#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire_timewait(v, c, 0, 1)
+-
+ #include <asm-generic/rqspinlock.h>
+ 
+ #endif /* _ASM_RQSPINLOCK_H */
 -- 
 2.43.5
 
