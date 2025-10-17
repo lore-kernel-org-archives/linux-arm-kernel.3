@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D1CCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 06:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E023CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 06:50:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Enpj9fYg7Kdz2Uum8sy0T+MgG0vANtu/HY+5vlKFnNI=; b=eVZEN7CiTKT4/E6LcD2MwPPI7N
-	vtEVCr0nPi3duvcClwbCKGIJVZ7AbF6JiGussVS616iEn/npX8IbDgafB0ieFzvG5B3fUufX/JTPz
-	fpXph3N0CdSQUjCu5DnfQzoXxYDpdSBEijiHA6FbX6jGzfKKhPyxR+EevWDfIQcsBC+itXZYE2p6O
-	a1pgPd2kR/3sj+wJh1/aFrBc7JEOnEQeWkJLM70+R2IRC8qhdWPTts3s4TF3Sr/Z22zOnKaaY7brI
-	oLIBOMWTgV5m2p9VFb0krUYLTWewm3RRCCtGGGR88zJIehSEpdX1sFH57QF6NKSssCBb6qZBHYmYo
-	0R6DVdmA==;
+	bh=GaCDgUVMB4sgbM1/K5J9BFG9g9jS7vE/ZZlkt+ZP8pY=; b=UYsQsqyikv+yLRy1A6DsmfWSTI
+	38L16G6k14zwZurDRyDNN5nuzRsbesqRuaPDjRob6uwgtEKkkqI3q9WFNLkvVa31YwLB1V/UMkt7J
+	8WJS5jztNy5Quipooxa45hk5+88Elc8Cp+lGVH6DBTrT/cc/qMUuSNOSlGVgeyM2IbcURQ+LJB5dH
+	Yr37gLRoh+TDbbHgaEOmDArWdZuuaEpreri5IGA5pnbDsyyzbi83b/COYDRHEWSoNkOmpvJTOenoL
+	ASjXpw6OQf/CGXmyPPo4bRLoHL41YcCbSRLHbWNHje94W16/ozdQl/gq/7frodJbPtmD8yL7+Phra
+	h+qZklLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9eIa-00000006qNa-1UaC;
-	Fri, 17 Oct 2025 06:50:48 +0000
+	id 1v9eIb-00000006qOt-0j9b;
+	Fri, 17 Oct 2025 06:50:49 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9eIS-00000006qAl-0QOq;
+	id 1v9eIS-00000006qAi-1DNb;
 	Fri, 17 Oct 2025 06:50:41 +0000
-X-UUID: 9539d084ab2511f0a52f393f94899d25-20251016
+X-UUID: 958420f8ab2511f0a52f393f94899d25-20251016
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Enpj9fYg7Kdz2Uum8sy0T+MgG0vANtu/HY+5vlKFnNI=;
-	b=qe2zc1k+o0jHzv9ZYxuT8zZUDucGlA4qn9ZQ7CdLhfObkK88N/852b6xG3Bb2zlthhTZDb2d9Q6rXZIq9eJXdigZI/FiUpEvqJK4Wt2G2tJ+hxWY0BkjYzjeMY2btrP45QLn0qrZT1iYt4bvnNS5S3jmLEXY7blEdrSgctk1lok=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=GaCDgUVMB4sgbM1/K5J9BFG9g9jS7vE/ZZlkt+ZP8pY=;
+	b=mTcrjCdCN/dyS1M3XB9SSDiYtq19yW0J5mj/4bZLuBcQtAMmDvtSlRKOpru5IQVXILeJct6jkylyXweij+9ZJg3NsebE32l5hLkcjrB3IKngfyRJLvQ2JL+DywWoFG1srnoOsI0LlTM7EGUwOOH26WVmw9GpMVvcQuPod+1d6iI=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:e00ffc59-a8f9-4e70-8d1e-c0cdfe7e6cc7,IP:0,UR
+X-CID-O-INFO: VERSION:1.3.6,REQID:dbdc869c-d8be-4673-ab81-947a80238925,IP:0,UR
 	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
 	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:196d45b9-795c-4f99-91f3-c115e0d49051,B
+X-CID-META: VersionHash:a9d874c,CLOUDID:1ec17d02-eaf8-4c8c-94de-0bc39887e077,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
 	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
 	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -42,13 +42,13 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 9539d084ab2511f0a52f393f94899d25-20251016
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+X-UUID: 958420f8ab2511f0a52f393f94899d25-20251016
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
 	(envelope-from <jason-jh.lin@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 230061138; Thu, 16 Oct 2025 23:50:35 -0700
+	with ESMTP id 1700305605; Thu, 16 Oct 2025 23:50:35 -0700
 Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.1748.10; Fri, 17 Oct 2025 14:50:31 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
@@ -70,9 +70,9 @@ CC: Matthias Brugger <matthias.bgg@gmail.com>, Nicolas Dufresne
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>
-Subject: [PATCH v8 12/20] soc: mediatek: Use reg_write function pointer for subsys ID compatibility
-Date: Fri, 17 Oct 2025 14:44:37 +0800
-Message-ID: <20251017065028.1676930-13-jason-jh.lin@mediatek.com>
+Subject: [PATCH v8 16/20] soc: mediatek: mtk-cmdq: Remove shift_pa parameter from cmdq_pkt_jump()
+Date: Fri, 17 Oct 2025 14:44:41 +0800
+Message-ID: <20251017065028.1676930-17-jason-jh.lin@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20251017065028.1676930-1-jason-jh.lin@mediatek.com>
 References: <20251017065028.1676930-1-jason-jh.lin@mediatek.com>
@@ -81,8 +81,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_235040_180911_0F9DF0D0 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20251016_235040_359899_03F51485 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,59 +97,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch to reg_write and reg_write_mask function pointers for register
-access, enabling compatibility with platforms regardless of subsys ID
-support.
+Since shift_pa will be stored in the cmdq_mbox_priv structure within
+cmdq_pkt, all shift_pa parameters in CMDQ helper APIs can be removed.
+
+Remove the shift_pa parameters from cmdq_pkt_jump(), cmdq_pkt_jump_abs(),
+and cmdq_pkt_jump_rel().
 
 Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/soc/mediatek/mtk-mmsys.c | 8 +++++---
- drivers/soc/mediatek/mtk-mutex.c | 5 +++--
- 2 files changed, 8 insertions(+), 5 deletions(-)
+ drivers/soc/mediatek/mtk-cmdq-helper.c |  6 +++---
+ include/linux/soc/mediatek/mtk-cmdq.h  | 20 ++++++++------------
+ 2 files changed, 11 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/soc/mediatek/mtk-mmsys.c b/drivers/soc/mediatek/mtk-mmsys.c
-index bb4639ca0b8c..5d3a9bbfda79 100644
---- a/drivers/soc/mediatek/mtk-mmsys.c
-+++ b/drivers/soc/mediatek/mtk-mmsys.c
-@@ -167,9 +167,11 @@ static void mtk_mmsys_update_bits(struct mtk_mmsys *mmsys, u32 offset, u32 mask,
- 	u32 tmp;
- 
- 	if (mmsys->cmdq_base.size && cmdq_pkt) {
--		ret = cmdq_pkt_write_mask(cmdq_pkt, mmsys->cmdq_base.subsys,
--					  mmsys->cmdq_base.offset + offset, val,
--					  mask);
-+		ret = mmsys->cmdq_base.reg_write_mask(cmdq_pkt,
-+						      mmsys->cmdq_base.subsys,
-+						      mmsys->cmdq_base.pa_base,
-+						      mmsys->cmdq_base.offset + offset,
-+						      val, mask);
- 		if (ret)
- 			pr_debug("CMDQ unavailable: using CPU write\n");
- 		else
-diff --git a/drivers/soc/mediatek/mtk-mutex.c b/drivers/soc/mediatek/mtk-mutex.c
-index 38179e8cd98f..bb42ad5ee8ca 100644
---- a/drivers/soc/mediatek/mtk-mutex.c
-+++ b/drivers/soc/mediatek/mtk-mutex.c
-@@ -990,6 +990,7 @@ int mtk_mutex_enable_by_cmdq(struct mtk_mutex *mutex, void *pkt)
- 	struct mtk_mutex_ctx *mtx = container_of(mutex, struct mtk_mutex_ctx,
- 						 mutex[mutex->id]);
- 	struct cmdq_pkt *cmdq_pkt = (struct cmdq_pkt *)pkt;
-+	dma_addr_t en_addr = mtx->addr + DISP_REG_MUTEX_EN(mutex->id);
- 
- 	WARN_ON(&mtx->mutex[mutex->id] != mutex);
- 
-@@ -998,8 +999,8 @@ int mtk_mutex_enable_by_cmdq(struct mtk_mutex *mutex, void *pkt)
- 		return -ENODEV;
- 	}
- 
--	cmdq_pkt_write(cmdq_pkt, mtx->cmdq_reg.subsys,
--		       mtx->addr + DISP_REG_MUTEX_EN(mutex->id), 1);
-+	mtx->cmdq_reg.reg_write(cmdq_pkt, mtx->cmdq_reg.subsys, en_addr, en_addr, 1);
-+
- 	return 0;
+diff --git a/drivers/soc/mediatek/mtk-cmdq-helper.c b/drivers/soc/mediatek/mtk-cmdq-helper.c
+index 1b4d4a1e2984..0ab87eb04614 100644
+--- a/drivers/soc/mediatek/mtk-cmdq-helper.c
++++ b/drivers/soc/mediatek/mtk-cmdq-helper.c
+@@ -562,7 +562,7 @@ int cmdq_pkt_assign(struct cmdq_pkt *pkt, u16 reg_idx, u32 value)
  }
- EXPORT_SYMBOL_GPL(mtk_mutex_enable_by_cmdq);
+ EXPORT_SYMBOL(cmdq_pkt_assign);
+ 
+-int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_pa)
++int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr)
+ {
+ 	struct cmdq_instruction inst = {
+ 		.op = CMDQ_CODE_JUMP,
+@@ -573,11 +573,11 @@ int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_pa)
+ }
+ EXPORT_SYMBOL(cmdq_pkt_jump_abs);
+ 
+-int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
++int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset)
+ {
+ 	struct cmdq_instruction inst = {
+ 		.op = CMDQ_CODE_JUMP,
+-		.value = (u32)offset >> shift_pa
++		.value = (u32)offset >> pkt->priv.shift_pa
+ 	};
+ 	return cmdq_pkt_append_command(pkt, inst);
+ }
+diff --git a/include/linux/soc/mediatek/mtk-cmdq.h b/include/linux/soc/mediatek/mtk-cmdq.h
+index f6dc43c036bd..af66410b06d1 100644
+--- a/include/linux/soc/mediatek/mtk-cmdq.h
++++ b/include/linux/soc/mediatek/mtk-cmdq.h
+@@ -411,17 +411,15 @@ int cmdq_pkt_poll_addr(struct cmdq_pkt *pkt, dma_addr_t addr, u32 value, u32 mas
+  *			 contains more instruction.
+  * @pkt:        the CMDQ packet
+  * @addr:       absolute physical address of target instruction buffer
+- * @shift_pa:	shift bits of physical address in CMDQ instruction. This value
+- *		is got by cmdq_get_shift_pa().
+  *
+  * Return: 0 for success; else the error code is returned
+  */
+-int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_pa);
++int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr);
+ 
+ /* This wrapper has to be removed after all users migrated to jump_abs */
+-static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_pa)
++static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr)
+ {
+-	return cmdq_pkt_jump_abs(pkt, addr, shift_pa);
++	return cmdq_pkt_jump_abs(pkt, addr);
+ }
+ 
+ /**
+@@ -431,12 +429,10 @@ static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_
+  *			 target address should contains more instruction.
+  * @pkt:	the CMDQ packet
+  * @offset:	relative offset of target instruction buffer from current PC.
+- * @shift_pa:	shift bits of physical address in CMDQ instruction. This value
+- *		is got by cmdq_get_shift_pa().
+  *
+  * Return: 0 for success; else the error code is returned
+  */
+-int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa);
++int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset);
+ 
+ /**
+  * cmdq_pkt_jump_rel_temp() - Temporary wrapper for new CMDQ helper API
+@@ -453,7 +449,7 @@ int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa);
+  */
+ static inline int cmdq_pkt_jump_rel_temp(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
+ {
+-	return cmdq_pkt_jump_rel(pkt, offset, shift_pa);
++	return cmdq_pkt_jump_rel(pkt, offset);
+ }
+ 
+ /**
+@@ -595,17 +591,17 @@ static inline int cmdq_pkt_poll_addr(struct cmdq_pkt *pkt, dma_addr_t addr, u32
+ 	return -EINVAL;
+ }
+ 
+-static inline int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_pa)
++static inline int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr)
+ {
+ 	return -EINVAL;
+ }
+ 
+-static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_pa)
++static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr)
+ {
+ 	return -EINVAL;
+ }
+ 
+-static inline int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
++static inline int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset)
+ {
+ 	return -EINVAL;
+ }
 -- 
 2.43.0
 
