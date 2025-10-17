@@ -4,180 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EAE7CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 12:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 944DBCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 12:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjmdPgLuin1uAqr3oZDlYroQcXfTwQyAOkGrncUeKcA=; b=omW+HgnI/BZAAc1M2oTvUUipr+
-	RMQICVF9z3W1uqdlOxOe8RbIQvMww9qi6zIk4+2AM0XZayw36ZBH5AO1ptP3k51xsLZkUae1JdNb+
-	zfdSg5IRqWlhiZlGK/Kqm7FXpYGd9yO6Ar0rmHqLbZlU11mZ6BfV64UOuMBRg0l9b6FhsufQ72g/i
-	w3AbWYNIXvl3VUOuqhzQcWqM8U9X72GaZUSKKWHGoso4WInu2thn9IzDtXtOe6XcvKhdx6FC0RUAy
-	L9XYGooSUHV23w9k4b2wGruVX2aBR7d8XiuoN3IQVOgzRUBYJptbaPUqXxrvCf6EUf1ixGgOnbX+o
-	fLIJIRDw==;
+	bh=IGyYcC+d3YKTIer3CKrB01eeg5KvZEEyEjcSchgym/I=; b=VDoqG2upx4aMSszUOeiX0EmQzt
+	JW55A+vpGJv61KAS1PekxQS6nfmcYLpiViUhWNfdDKf2KGOKI5jEBfec0LywdauOvtvZ2TrBJVW1n
+	Yn2x9BXwI987UfyqJ6At1cowP8AKDymaigxRTFY4OgV/moY3LhzRkpgAD2hQtTpS2pOVdm0PEXQAQ
+	DV3VBr0DQEdBgQMrZ4/xUa3oBghxYUAfbSGzqCutfGyiRwHg4QilZSaXEkVWGQcYTdg94R0JVhlhp
+	bBBHFBxJmaDyV83Pbsv+zbiQ4KaXkyJ8daHo8A5Err8+B1CO6IzXRQiYUxgxNh7tWuMcS1bDgGQ15
+	9V0DAknA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9jhj-00000007obV-1zAE;
-	Fri, 17 Oct 2025 12:37:07 +0000
-Received: from mail-canadaeastazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c104::] helo=YQZPR01CU011.outbound.protection.outlook.com)
+	id 1v9jmy-00000007p3I-170U;
+	Fri, 17 Oct 2025 12:42:32 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9jhc-00000007oZV-37rC;
-	Fri, 17 Oct 2025 12:37:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fmm3y2+jV4oNlHiczGY1Ut5VcvvsueMFIDmZgTTuHoQlapawf3hCOX5ik4VpbCyvkb6Yk4PLSjGKB4+dpTuYcb4TfXM3KHXPsHx5GFZSgruBamiy+il4FGZ1gMwwdpIbP6gWXL6XuzWqBSC0LzbfIgZE9lUAy8bc/zvU5kENvyD06Cu5rKONZ7PuXFf+KAJH6v9GRpe/DnLU9IzLFt8mn7Aj6rlUwzh+utCVgJ+/gr38mDXlKaxsjQJGL04iEhOrEPj7RgfCrouDlZ1paN8wRvNj/ML9NRxyQoxGKF3iMUvnd9dixHQejWXPKeY9AgP9rL11kR3sx4aC5NRwqZZFyA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tjmdPgLuin1uAqr3oZDlYroQcXfTwQyAOkGrncUeKcA=;
- b=XPIFYMXiL/cUKLGckQeewrXuVKQSxTYmnFMcgQ7vG1riGYaFJMYKZyOMd5hyTnjreyNtTAFfQUdCGE+oY16sFHjTLwXvUUgzIYiHVAu0k8GRrpmDW642bOmTijRcCdvB9uPOyqLhl7QsDY1AWBMmlzK0WKhmS6P9WG/qed1TZabOxOjkDWSW6BXymilZBf/yFLrhInKoDTngLkJ3LYbBLw0JSBbjxgW4ObKkNwXy0T/8UT0+iH171VvLLvgb2pSTxtmNUMlXf8Ew40MT9XKA82XyIgc+mQppaDAj2Bhfmf2d6Wdqbbe+rIpVsPTiFKMvT+EDrPY1a/M9kqOQmY45PA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tjmdPgLuin1uAqr3oZDlYroQcXfTwQyAOkGrncUeKcA=;
- b=Eyd0U48+hAbb5iG6KkzJqpPeYZJr7eTvvkJ/bzqtEjcBumVFejxCCQI+oUdvmixtmpdI/Vf9U4gBTpY8MUQNo4Oc/7NLTG7KvmC7rmf0bcSLAucJIBkVxdZ/c8e35r6gfWeDghlqxu/M4SZ/J6Nz1lLO4WPbiq4WA0Ta0xlPi8Y8CEK699N/QFWlJtnScB4yM+lwxfmrfnGyBTffa1ZtWDC1VNNzWtyo8O0+HOcQmE0qddYxco2wX87Z8se7fEZgCvLg+szxEnjYGI8j+xUFwmLIkYZWkSi05tsTFqGrtK40xEMs0qxGOWBI+jb+qKCdgEMZeCyaif38Xew8YQ/MHA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:be::5)
- by YT6PR01MB11252.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:13b::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.13; Fri, 17 Oct
- 2025 12:36:52 +0000
-Received: from YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::50f1:2e3f:a5dd:5b4]) by YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::50f1:2e3f:a5dd:5b4%2]) with mapi id 15.20.9228.011; Fri, 17 Oct 2025
- 12:36:52 +0000
-Message-ID: <8669c9f6-74c3-4bd6-833c-1d73158dfc97@efficios.com>
-Date: Fri, 17 Oct 2025 08:36:50 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [patch V3 01/12] ARM: uaccess: Implement missing
- __get_user_asm_dword()
-To: Thomas Gleixner <tglx@linutronix.de>, LKML <linux-kernel@vger.kernel.org>
-Cc: kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
- Linus Torvalds <torvalds@linux-foundation.org>, x86@kernel.org,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
- Andrew Cooper <andrew.cooper3@citrix.com>,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>,
- Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?=
- <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org
-References: <20251017085938.150569636@linutronix.de>
- <20251017093029.874834505@linutronix.de>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <20251017093029.874834505@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQ1P288CA0021.CANP288.PROD.OUTLOOK.COM
- (2603:10b6:c01:9e::27) To YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:be::5)
+	id 1v9jmv-00000007p2y-3S9o
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 12:42:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=IGyYcC+d3YKTIer3CKrB01eeg5KvZEEyEjcSchgym/I=; b=W/2CuL+hGNToi9Z5Ya9VSH3ZG5
+	WXVDOEvDRj1FSTKN61nZaKm5ZqpQcULX9Rlh5dVV1ggi4dYw4MJWDeoC777XmSJTFF599UZfuatXs
+	M7bv9lYTfOo3uU+7M0R3YywZwdYEixlTiwaN080t7d22vLUv+nIk9uLoeiv0OIPbFnFVFMgdJDNOl
+	/3QSlONY2oqkPNc63j4RAvUFifA2YC/Ey0yBO4X5NksD4hgiFDRXO7gnQb7becUfjqtEduVUI8JhG
+	rfwNt9ohYZxv/MEpKWS36L2TfV4KLZlYSUsEZzea4G55cBQW5tD+kqSq8F4vHiLXBCEn32jx1OZgd
+	U+bUqVqA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43812)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v9jmi-000000007sy-3bmI;
+	Fri, 17 Oct 2025 13:42:16 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v9jme-000000004Jn-4AHz;
+	Fri, 17 Oct 2025 13:42:13 +0100
+Date: Fri, 17 Oct 2025 13:42:12 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: rohan.g.thomas@altera.com
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	Rohan G Thomas <rohan.g.thomas@intel.com>,
+	Boon Khai Ng <boon.khai.ng@altera.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3 1/3] net: stmmac: vlan: Disable 802.1AD tag
+ insertion offload
+Message-ID: <aPI5pBXnh5X7OXtG@shell.armlinux.org.uk>
+References: <20251017-qbv-fixes-v3-0-d3a42e32646a@altera.com>
+ <20251017-qbv-fixes-v3-1-d3a42e32646a@altera.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT2PR01MB9175:EE_|YT6PR01MB11252:EE_
-X-MS-Office365-Filtering-Correlation-Id: a4b3446d-1a87-486a-5002-08de0d79d93d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?U0xnU2QybDhWczZVUlM4Y20veTZZRlZ2ZHRyS3hOOG1zeFh4RitUNWxjMWlw?=
- =?utf-8?B?OEJqcWxXVXNxaHh1UVRwbkNGSnR0em9wUTZqTHN2NjVGQzc5MmpCVk9jQS8r?=
- =?utf-8?B?K1NEb3ZPQldJZWtUNHV1eUxLN25sNjdLcFdqdUg2bFBWOFhkWXV5Mm5WL0xy?=
- =?utf-8?B?UC9NbndjZDN4NkNZOTg4eEExc2hzakk5ZzA2TzB0eE5qa3hiemV4eWhIdDhI?=
- =?utf-8?B?R0hsZk4wcFNWcWFhY2hlSDlZTUhiTDluQTFuOGNSUk5LMis0b094WEhSZEY1?=
- =?utf-8?B?MXNxRFdkelJxeUtVdmJrRE9WdTJpK05oODEwZXEwRGIrc1RNT3RoeVI4TFlK?=
- =?utf-8?B?dnJDbkFCNkpHaXJ1S3ZTTW91bWxsUWtkc2p4SUFjQlk3eFRQYVZ2blFlNVpH?=
- =?utf-8?B?WWJDWThLL0JBTnZLTklPLzk3d2RGSkw4WWdpRHVlUGZsWDl4MHpPa2xyUFV4?=
- =?utf-8?B?a0RHQm1oQnIxVHNmWWJIbzF3dlBRMGlEdk8rWDBsL0Y1amEzSFFUQ09oMWpJ?=
- =?utf-8?B?OEEwRmt3eE5Bdk15ZlZLT1VRQUpjaHllcklHeFArZ0dTS0VNM3ZpejZNSS9n?=
- =?utf-8?B?NzRoMWJROWkrb3BNTldPSjFJV2tCZGhmUlZJeWJqSFBnMXo0bmp2UUl6RlpL?=
- =?utf-8?B?b1c3WkR2T0o3L1NjVVMwaVk4N3lhUmpWUnIrckxqVkFiZUowZEhpR1RLc0FM?=
- =?utf-8?B?QjNUWHoyK2d1RXpZNlBjVFRXNjZXcCtPaHM1U2FySDNRMDgycmlDN0F0TGhD?=
- =?utf-8?B?aTBVUmc4enBvSjJtaDdBenNXdkdNLzd4bWRpSDlBejExMVFkOHE0bUgzdEp6?=
- =?utf-8?B?bm9YY29yNzBUQzJLV2tOb3lLYjVBa1ZEYnN2UThpdkN4OG1tUXdYQ2dvYUFS?=
- =?utf-8?B?bUg3OW9NNXdQZUMwKzJETUxvakpkdlJaZmIwd3A4ZVU3M2lTR1IycXBKODJY?=
- =?utf-8?B?NWIzZ0grWDdCdmpHd3RIMXE3bnl4N08rL2tVNVVZc0pZV2puVW5NV2s0MG1V?=
- =?utf-8?B?T2M2aWJ1dkVTUlpLSE9MQ2dGUUI3MTdhUjRBQmFDaG9JeEpjeGpad1ZZWkpY?=
- =?utf-8?B?b1BGRnptOXRSWXVQNXhzNkNncDRNQXB0Wi81RDdHcEpsMEg4cmF1T2w4dFFx?=
- =?utf-8?B?MktzR1N5ZHc3cmdic2NLSkg4ZE5IcFlUZUNoOUgvcXZFQ0JubzRVRGRpSTJS?=
- =?utf-8?B?dVdkbXNaSmlqeU1iMDNCMmZKWWRHRnZNMkprMXprdTU3OU95SGhiS0wwSXVZ?=
- =?utf-8?B?SWViMmZzQmZNMTEvMFdjaG5VWHpiSFFoZGd0a2pFb0FpY0ZrOGlma3FUdGI4?=
- =?utf-8?B?VlVyNFlhZ1IxWjBodktpaXFDNkVyV05YblVKRGpaa01MSVhZMXB3QittcW1S?=
- =?utf-8?B?b3J1SGJITVZiMmtvSGhKY2ZhcERYd0s4RHNiMTVTTTBISk0xYzN5S0t6Uzls?=
- =?utf-8?B?UnFJeS8wV0VsdCtPS25IOXZSdktONUpKRlZTeHdYMGJQbERkNXdvM2VyM2ww?=
- =?utf-8?B?Mm5BMlpSK0FTb1pHL2JhdFpxbzNtMXhkY3U1L3U2L1FxMEIzUzdKc0NrZzBw?=
- =?utf-8?B?N1ZsOVhadW9Cem9Cb2k3a1JLcE9BL3dsU1k2c0Z5bFlpTTNsTFdFdTVhcTdl?=
- =?utf-8?B?MFAyVFpzL3FhYXR4blI0aGZ6L3NQa21DQUJyQjVERWhwb2Q4WjlZR2RHT1Q1?=
- =?utf-8?B?SkdTNXYxZHRRNEREMUYxVU9DRVA5dldiTDVEaGUyOXVxTHg0Zm1rUmd3MCtR?=
- =?utf-8?B?MG96VC9obGJLVElKK1NuV0NnQkFLSU5lL0Zsd3dUcTlLaU5DTVpaMHAzMGhO?=
- =?utf-8?B?ME5pVXptWm84VjEwVDl3ZElFS3ByRGI2cGxCT09lSXUydmZUbGJTZ2lEanly?=
- =?utf-8?B?eHFiTWZqUnFFY2k3SzVBOTMxeVIrWjJnN1RwUktML3ZzYVE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VVZhWUQ1djl6aVh0RkJwVHVaSW80eGMyMExUNHR3SFR6TlU5NDFMc2NtZWM5?=
- =?utf-8?B?Q3FYUFRBbmlpY2N1R3hlcUp1cnpSaFdsTUk2WGV0cWRlcEZKbVpFa2tuVEtW?=
- =?utf-8?B?Y2grSzFGQUFFTU1jdk84VXRmUnlXVkFwMjZPQmQzMXBDQlFZZFlqLzhpTUxh?=
- =?utf-8?B?RzNpSE1YYjVHS0FEQnR2M2J5c1REV25rdEJRL3dlOHBRSXQzTmNSbW50Y3M4?=
- =?utf-8?B?UUNLNHpaWXcrYzJtWnVJcEZ2L0VuUCtObWIwZklFRkdGcDR0RjNYck9oTkxD?=
- =?utf-8?B?cHVyejhDenZSNkswTHVQSmVTOWN5VmVvOU94Q2dDU2lYbGVZb1VSM2h1cE9l?=
- =?utf-8?B?RE1IR0JOTnVNK0t0VWszQUNKdVFCR2hYVWNlVzIxWVY2dEY1akZyS0J4WTZR?=
- =?utf-8?B?dUREM2dQZ1hNYVEvQVhCYU9WZFB2enpPM3lndTlOM2Rkb1orMk1Fc0xQUlIr?=
- =?utf-8?B?aDVNdlllRzFFdWFUbjR2bUxNNnRCWEp1bDlKQjNXOWFSTDJIWmNGOGFIVkVB?=
- =?utf-8?B?Wk4yMzJPOXBlSW5BWjk5NmpJNGEzRE52N21TQm1GWEpEaG1DTElPZmNDTWds?=
- =?utf-8?B?Qkx5SjZQY1QxaEI3N3BGcFNMQVBITWZBMU44TXhiTjFteis2MzdweG8wYjdD?=
- =?utf-8?B?dGhYVXU2MVpKUXBiYTJtMUliM0M2KzZXQ0gyNE80UFZaYXI0MjVlcEYzMElT?=
- =?utf-8?B?a0VnU1FvSjlQRDRxVkFUK0lxdVdmQ1hBcFRaUVRNZy9yeW0wMGg2NU1hNUhw?=
- =?utf-8?B?SER6Y0FIOUcvLy9ZNzNuV05vdmNYYVVyd0xSblFrbE9ObXE3dldrSTlwbVhW?=
- =?utf-8?B?UWRKa0xYc1BJYUg3ZktIUzlTbEk0OG5wZkVBbk03ZWQyZUxkRW1ZTGFDU2Vq?=
- =?utf-8?B?K1hPR1UvUFNWUnpqeUh2eWV4b1pSZTJ1YndsZ2VaSkdtYXVwbDlmUzJXRWN4?=
- =?utf-8?B?YmcxSGl2bjRYM2REWWtiT3Z1aHkweUdvZkhZUy8wQWs4YnQzTGhtb05LR3E0?=
- =?utf-8?B?WFZnQUo1YWlSM0Y0SWNUS1NYV3U5djk3WjZZeC94QnlNTUFaZEh6K0VNQVRu?=
- =?utf-8?B?K3JzS3FvT3dyYmpaL2ZTY1pac1d4dFk1NTU2aFAxZGpibnB1K1hCMkF5R2xQ?=
- =?utf-8?B?aE1pZHArSUxqSERMU2lwYUJKeVdCaDkvaFRSbDkyR25kdXJIZXZyMmowU0Fl?=
- =?utf-8?B?QnpmRUs1aFRlQk5zZGlkRVZ3Sjg4RFNGU2FZY3pxSkwwbERCOGtkY0tUT2kv?=
- =?utf-8?B?U1FPYTUyM1gxNUg2T0Z6TVpRUXNyWlBxclBjWFIvd0Y5ckxiZGVSaWRYWTEy?=
- =?utf-8?B?MVpKV0g4eVh4cjFKTDhxOTVVRUx1bFg1ei9oaXpILytnMUd5S25USHI2aTFl?=
- =?utf-8?B?a3I2TFV6K1RaK0pKK3NyV2hPbEhic21XTHNOSk15Q0QvMGgwRFhNSjMzaXha?=
- =?utf-8?B?TVpnNjhpZGFKQUE3eE9jTWVaSHJQNVFMMGFRUUE0TlgrWnFRaEkyMjdtZElF?=
- =?utf-8?B?NWdnSU9pWm5vVGltMU1mV2d1Rno4MFEybFBxckYrL2VPMTFEdmQ3TDRNbmpR?=
- =?utf-8?B?SFVmR3RzUXV0Ty9xc0ZhaDJOK3I5MjRnZVA0UmZPOHUwYzN3TGFPMnVZaHU4?=
- =?utf-8?B?SDVCQnVjK1QyUS85bTZRQ2NrYTRrWUtjbnJZS3RWSEpsc2UyZDJHWVdiZDhR?=
- =?utf-8?B?UHhwOGhzZUZ5UmRpUmlnQ2NPaHR1L1dxZUc0QzJmT2VPem9OOGpJT2t3ZmRX?=
- =?utf-8?B?NEZldS9ZKzh1blNnS2ZqVXA3U2d4MkZnSUtHd2VCbmR5cjVYMmpSN2NKa0ts?=
- =?utf-8?B?N0M2RXRraW9WRllJSFN3VDNaN0Y1YmgyVTl3M09MZG45U0ZkdEx4ejRQVTNy?=
- =?utf-8?B?aC9LR2lwL3hSa0xOeitHN0NrdFNOeUJGTFBOdXVrbitGMTVnUDNUdkViVlRH?=
- =?utf-8?B?bXhSeUVKRmpWOTRHMlJObUp1eWhxd0hRZEFLbS9QUEt0ZzYzS0VPQmRpSjJh?=
- =?utf-8?B?cUFkL01SdE1oTU1IN3lES3NwZDNGbGlCc2Z0RjBDZHZzVVVnRDg3ekpUZGFS?=
- =?utf-8?B?RE5rbS9WOHExNlhYa1phdi9yTzA3cktoQVppMlhCdXMxbVpadzJQMnJXUW1N?=
- =?utf-8?B?cit5UlNSRGVSWnBaTGtLeHRRSlFNN1ZVY2hpcFo3TDFZcEo2SkVmYTBEV21n?=
- =?utf-8?Q?u6SKEpC+fH6NJS+MheHHyFI=3D?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a4b3446d-1a87-486a-5002-08de0d79d93d
-X-MS-Exchange-CrossTenant-AuthSource: YT2PR01MB9175.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 12:36:52.3192
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: nvOQiYBGkP0X2RW+J8b0j1unNJg1wfnrFlP0ApIDVjsUn2O7ijYxD6/F9Kig+gJJkkLIREAebROOlvM8fAd7yHRhQaf+MKAcP6Wc0mHbDr4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT6PR01MB11252
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251017-qbv-fixes-v3-1-d3a42e32646a@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_053700_800684_D85F600D 
-X-CRM114-Status: GOOD (  25.49  )
+X-CRM114-CacheID: sfid-20251017_054229_882397_82649E01 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,106 +89,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-17 06:08, Thomas Gleixner wrote:
-> When CONFIG_CPU_SPECTRE=n then get_user() is missing the 8 byte ASM variant
-> for no real good reason. This prevents using get_user(u64) in generic code.
-> 
-> Implement it as a sequence of two 4-byte reads with LE/BE awareness and
-> make the unsigned long (or long long) type for the intermediate variable to
-> read into dependend on the the target type.
-> 
-> The __long_type() macro and idea was lifted from PowerPC. Thanks to
-> Christophe for pointing it out.
-> 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Closes: https://lore.kernel.org/oe-kbuild-all/202509120155.pFgwfeUD-lkp@intel.com/
-> ---
-> V2a: Solve the *ptr issue vs. unsigned long long - Russell/Christophe
-> V2: New patch to fix the 0-day fallout
-> ---
->   arch/arm/include/asm/uaccess.h |   26 +++++++++++++++++++++++++-
->   1 file changed, 25 insertions(+), 1 deletion(-)
-> 
-> --- a/arch/arm/include/asm/uaccess.h
-> +++ b/arch/arm/include/asm/uaccess.h
-> @@ -283,10 +283,17 @@ extern int __put_user_8(void *, unsigned
->   	__gu_err;							\
->   })
->   
-> +/*
-> + * This is a type: either unsigned long, if the argument fits into
-> + * that type, or otherwise unsigned long long.
-> + */
-> +#define __long_type(x) \
-> +	__typeof__(__builtin_choose_expr(sizeof(x) > sizeof(0UL), 0ULL, 0UL))
-> +
->   #define __get_user_err(x, ptr, err, __t)				\
->   do {									\
->   	unsigned long __gu_addr = (unsigned long)(ptr);			\
-> -	unsigned long __gu_val;						\
-> +	__long_type(x) __gu_val;					\
->   	unsigned int __ua_flags;					\
->   	__chk_user_ptr(ptr);						\
->   	might_fault();							\
-> @@ -295,6 +302,7 @@ do {									\
->   	case 1:	__get_user_asm_byte(__gu_val, __gu_addr, err, __t); break;	\
->   	case 2:	__get_user_asm_half(__gu_val, __gu_addr, err, __t); break;	\
->   	case 4:	__get_user_asm_word(__gu_val, __gu_addr, err, __t); break;	\
-> +	case 8:	__get_user_asm_dword(__gu_val, __gu_addr, err, __t); break;	\
->   	default: (__gu_val) = __get_user_bad();				\
->   	}								\
->   	uaccess_restore(__ua_flags);					\
-> @@ -353,6 +361,22 @@ do {									\
->   #define __get_user_asm_word(x, addr, err, __t)			\
->   	__get_user_asm(x, addr, err, "ldr" __t)
->   
-> +#ifdef __ARMEB__
-> +#define __WORD0_OFFS	4
-> +#define __WORD1_OFFS	0
-> +#else
-> +#define __WORD0_OFFS	0
-> +#define __WORD1_OFFS	4
-> +#endif
-> +
-> +#define __get_user_asm_dword(x, addr, err, __t)				\
-> +	({								\
-> +	unsigned long __w0, __w1;					\
-> +	__get_user_asm(__w0, addr + __WORD0_OFFS, err, "ldr" __t);	\
-> +	__get_user_asm(__w1, addr + __WORD1_OFFS, err, "ldr" __t);	\
-> +	(x) = ((u64)__w1 << 32) | (u64) __w0;				\
-> +})
+On Fri, Oct 17, 2025 at 02:11:19PM +0800, Rohan G Thomas via B4 Relay wrote:
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 650d75b73e0b0ecd02d35dd5d6a8742d45188c47..dedaaef3208bfadc105961029f79d0d26c3289d8 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -4089,18 +4089,11 @@ static int stmmac_release(struct net_device *dev)
+>  static bool stmmac_vlan_insert(struct stmmac_priv *priv, struct sk_buff *skb,
+>  			       struct stmmac_tx_queue *tx_q)
+>  {
+> -	u16 tag = 0x0, inner_tag = 0x0;
+> -	u32 inner_type = 0x0;
+> +	u16 tag = 0x0;
+>  	struct dma_desc *p;
 
-If we look at __get_user_asm_half, it always loads the lower addresses
-first (__gu_addr), and then loads the following address (__gu_addr + 1).
+#include <stdnetdevcodeformat.h> - Please maintain reverse christmas-
+tree order.
 
-This new code for dword flips the order of word accesses between BE and
-LE, which means that on BE we're reading the second word and then moving
-back one word.
-
-I'm not sure whether it matters or not, but I'm pointing it out in case
-it matters in terms of hardware memory access pattern.
-
-Also we end up with __get_user_asm_{half,dword} that effectively do the
-same tricks in very different ways, so it would be good to come up with
-a unified pattern.
-
-Thanks,
-
-Mathieu
-
-
-> +
->   #define __put_user_switch(x, ptr, __err, __fn)				\
->   	do {								\
->   		const __typeof__(*(ptr)) __user *__pu_ptr = (ptr);	\
-> 
-
+I haven't yet referred to the databook, so there may be more comments
+coming next week.
 
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
