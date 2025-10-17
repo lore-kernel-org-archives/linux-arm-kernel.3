@@ -4,80 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66879CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1240BCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VcUWyXl440OW+7SVufCsEuKVAzGcFk2g4c3DEDJP6xo=; b=OjT6Yg7KdlRqW0UVll4pwVG4r8
-	vqhz0WApnNHNrb3XA/aJhVfnL6i+tp7E3Nw/nS9/g9j9emtcW4EWnBQ0Z7L4vUOA4gpz3Dbu6QCZQ
-	mneO1Om9uZ9dH++nO6cqlGSvC4D3goKZQW/yG0imzptu887K52UXztmvN+v/pyR4DYP+oCAaKBFNf
-	gUCS9FOPS7VzluPy0LHbYHJdcczucbLUTzaGL+WYP2fKdJJOu6F5HYazBqFtY7g0M0B3tYfPMus1L
-	flG9T++8Ea1QJDryA5yJKXamVlQJEQuRUaVPBDL0RiIlfGillYZ0NC2vjfTlaQ96vuPUnuEabZ9H4
-	Cg+a0bDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GeezqfLobkHMMeX6EwZEjl/3YmvgXMO5jnKVg/JuO6c=; b=yaogYHQiMMub6jPoaM5LZ2UHY9
+	yLj6l8wuOVf+h9JEE0XFgcah7UlhZOvOXkAtQOXembGbsrJmf3O7rt7IdUku8FueSvMm8tZbKSOWl
+	3IF4Dg0S9u1gS0QuhAJw2bw3aad5oOoxbZH4bVusouYwWS2ltny9T+gWJqCS8PZHUgQOtA7KWO1rv
+	pwdIah0aIcn8mxD+jnMuclASRoUSFWpF7CTmudObIwjdbkrsf9ouGnMhp/6o04rUZMS2W2HCE/rj/
+	9DcgFl4QzfX83Vk+3ajpm79FCm5XInuwye2ejF7Z77a8qN2XZ8BxRiFYSxmBluqQeG7yNfcJzxBhN
+	4y3ZPywQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9muy-00000008MbE-3fTG;
-	Fri, 17 Oct 2025 16:03:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mux-00000008Mav-0cwe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 17 Oct 2025 16:02:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=VcUWyXl440OW+7SVufCsEuKVAzGcFk2g4c3DEDJP6xo=; b=L/Y09XIaNaAi2fn78XVTKz3FEp
-	xSBYQ4ayihnKLnEzpUUOT6+bQII6S8nq4rZa2ZOh6dbfXBceFuSFrwBvfsaaNm5aHCTwet4uvujx1
-	sLQHwwkqkaGOAWssv5wsM2haPBVa33NPzfK0kBKXeeEk+VvhOha3Z7FHEv6FdE0fC/Wf7rxHSuJoB
-	L/25kbKJEx83hv5ec+vKp2+1IRz2d0SiTgZdb17TteASh2aHMfT9V3DWGmJBCKMLXy/n5/1y05PO5
-	XC/rdOmyi98bhlU3GtlqXiRFxtxnYUZ0EwIopbOfvwoMWga0uu+sU0Mpwdu5k/svzS/y/uhWjy3Pi
-	4iKI6niw==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mum-00000007iff-08It
+	id 1v9mv2-00000008McS-0h2K;
+	Fri, 17 Oct 2025 16:03:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9mv0-00000008MbT-0bNc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 16:02:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AF2634B95C;
-	Fri, 17 Oct 2025 16:02:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91458C4CEE7;
-	Fri, 17 Oct 2025 16:02:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760716963;
-	bh=xojrpFlz1LFNv97U0p6wiXyxxqPnBp1q0KSfoha5XPA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LHoSw/PZokmUd2Wc0/IYOV1WttAmj1Ak5JnKJdEt0h3QSQBtfIxDIQgkomsBc5l1n
-	 el08IFWZToc9N5U0hSwBjvv342efsu0yc9Pu/pyZduyk7DUre0EMfyqYvky97Rtbyr
-	 UwxD7s+NEdOCv2uCjfPi0bvGrM/DCp7rLM2p78bga74zGKcvBiuQ2hJgghXCYTpYBt
-	 YhCluy32wjj8x2k1Wgl7X5llmtwOzeZd6aZV0HdwChvfpoNyeERpOl/Yxr5Ldz5WCX
-	 G6O4HPO/muoUrNzAuvYRoJYtif8/ypWig3+XayEUkcGrrvIhW15CsBBBr3vrcDr9RS
-	 SE7KW+1EMRJgA==
-Date: Fri, 17 Oct 2025 17:02:39 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: linus.walleij@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Fri, 17 Oct 2025 16:03:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DEE281595;
+	Fri, 17 Oct 2025 09:02:52 -0700 (PDT)
+Received: from localhost.localdomain (unknown [10.163.68.204])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9F9F33F59E;
+	Fri, 17 Oct 2025 09:02:56 -0700 (PDT)
+From: Dev Jain <dev.jain@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: anshuman.khandual@arm.com,
+	wangkefeng.wang@huawei.com,
+	ryan.roberts@arm.com,
+	baohua@kernel.org,
+	pjaroszynski@nvidia.com,
 	linux-arm-kernel@lists.infradead.org,
-	cix-kernel-upstream@cixtech.com
-Subject: Re: [PATCH v4 3/3] arm64: dts: cix: Add pinctrl nodes for sky1
-Message-ID: <20251017-expectant-tingly-95cd6d57962c@spud>
-References: <20251017074646.3344924-1-gary.yang@cixtech.com>
- <20251017074646.3344924-4-gary.yang@cixtech.com>
+	linux-kernel@vger.kernel.org,
+	Dev Jain <dev.jain@arm.com>
+Subject: [RESEND] [PATCH v2] arm64/mm: Elide TLB flush in certain pte protection transitions
+Date: Fri, 17 Oct 2025 21:32:51 +0530
+Message-Id: <20251017160251.96717-1-dev.jain@arm.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="H64nj9AQoov3hoOl"
-Content-Disposition: inline
-In-Reply-To: <20251017074646.3344924-4-gary.yang@cixtech.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_170250_370019_1BD63A5C 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251017_090302_246035_1F5EEC0F 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,41 +67,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Currently arm64 does an unconditional TLB flush in mprotect(). This is not
+required for some cases, for example, when changing from PROT_NONE to
+PROT_READ | PROT_WRITE (a real usecase - glibc malloc does this to emulate
+growing into the non-main heaps), and unsetting uffd-wp in a range.
 
---H64nj9AQoov3hoOl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Therefore, implement pte_needs_flush() for arm64, which is already
+implemented by some other arches as well.
 
-On Fri, Oct 17, 2025 at 03:46:46PM +0800, Gary Yang wrote:
-> +#define DS_LEVEL0	2
-> +#define DS_LEVEL1	3
-> +#define DS_LEVEL2	5
-> +#define DS_LEVEL3	6
-> +#define DS_LEVEL4	8
-> +#define DS_LEVEL5	9
-> +#define DS_LEVEL6	11
-> +#define DS_LEVEL7	12
-> +#define DS_LEVEL8	13
-> +#define DS_LEVEL9	14
-> +#define DS_LEVEL10	17
-> +#define DS_LEVEL11	18
-> +#define DS_LEVEL12	20
-> +#define DS_LEVEL13	21
-> +#define DS_LEVEL14	23
-> +#define DS_LEVEL15	24
+Running a userspace program changing permissions back and forth between
+PROT_NONE and PROT_READ | PROT_WRITE, and measuring the average time taken
+for the none->rw transition, I get a reduction from 3.2 microseconds to
+2.85 microseconds, giving a 12.3% improvement.
 
-All of these just hide the amperage, please drop them.
+Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+Signed-off-by: Dev Jain <dev.jain@arm.com>
+---
+mm-selftests pass. Based on 6.18-rc1.
 
---H64nj9AQoov3hoOl
-Content-Type: application/pgp-signature; name="signature.asc"
+v1->v2:
+ - Drop PTE_PRESENT_INVALID and PTE_AF checks, use ptdesc_t instead of
+   pteval_t, return !!diff (Ryan)
 
------BEGIN PGP SIGNATURE-----
+ arch/arm64/include/asm/tlbflush.h | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPJonwAKCRB4tDGHoIJi
-0iOeAQDyBaIb9gA3BPzuk30EVWGx8N+rGqa+2Z8gxw7jelG+/QD8DPxps1C5UQBi
-wFmCW5uuw60FSmq8tcTuX3dEPar0jgQ=
-=Z8KD
------END PGP SIGNATURE-----
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 18a5dc0c9a54..40df783ba09a 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -524,6 +524,33 @@ static inline void arch_tlbbatch_add_pending(struct arch_tlbflush_unmap_batch *b
+ {
+ 	__flush_tlb_range_nosync(mm, start, end, PAGE_SIZE, true, 3);
+ }
++
++static inline bool __pte_flags_need_flush(ptdesc_t oldval, ptdesc_t newval)
++{
++	ptdesc_t diff = oldval ^ newval;
++
++	/* invalid to valid transition requires no flush */
++	if (!(oldval & PTE_VALID))
++		return false;
++
++	/* Transition in the SW bits requires no flush */
++	diff &= ~PTE_SWBITS_MASK;
++
++	return !!diff;
++}
++
++static inline bool pte_needs_flush(pte_t oldpte, pte_t newpte)
++{
++	return __pte_flags_need_flush(pte_val(oldpte), pte_val(newpte));
++}
++#define pte_needs_flush pte_needs_flush
++
++static inline bool huge_pmd_needs_flush(pmd_t oldpmd, pmd_t newpmd)
++{
++	return __pte_flags_need_flush(pmd_val(oldpmd), pmd_val(newpmd));
++}
++#define huge_pmd_needs_flush huge_pmd_needs_flush
++
+ #endif
+ 
+ #endif
+-- 
+2.30.2
 
---H64nj9AQoov3hoOl--
 
