@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41A6CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 09:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C42BCCD1A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 09:06:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=prGrXc3O+qczp5QnOBOdbAPxQxwuSuLhRnMQhCRuU48=; b=LXVnM1RwfaDavG8j6xG/8FWUIA
-	p9FPeHtIOFadMga6qDZf3HhkUDDdpwAi8l8t5AuzpSOozbLFCdv9mJCgDN/VSzs+ppIX6tPgXBCoi
-	GCQIYXYV+gZ7jD7n7Z3VT8kDkx6vbTMmGGpZgPzxFNWeVMgpBMyyJ+/6zFnjBVbpj/6y5AH+EoAiG
-	MK5mQqtYAW893f7GC5T5LaEgscDqUDUU5dfndX4XX7Coj2nfed9koJ3SA8FS1W/MtR+D0Fcax6txG
-	z/176k6/qrFmzgOIlITL3gOR7SkN2/mUmdeSeQn0FfP9aViZYirW7ieJHCU+Y0sJe6Xr+xIS5B9iM
-	ZFPv6L2Q==;
+	bh=60OMG9Bfq33niR17566RVtcrhuSDxGciFB7xICFJWP8=; b=oQrZVNJEMSWl8TpOYz3MYBuOPA
+	lhiMVRyzZbrGLyaVVM8T7EShUWTHYqwEtedlU4GqKQ4TyDFHJXKkjHKEp2bJA/3/sKSeXQcOm+Wud
+	z/TPrxEZ5xQX8ZLbni16x+uXB7jbkIF5UXBq338g1Yf8xfzK6ren5unZhWuHqCpq7Q9fdAYKF/2nn
+	qKWRTyPZoS5QnvzhuplXju7Hi9jR296ioZnfdLwrx15+u33FQ5WUjmX7B4SGqDuAqvHmUXwUgpiO+
+	VRbCFaBqT9AClXi63viE+BAhpRY7qQQ39uBZuYD9Xfaj/x1DA66jKdsdc1mMz72sA4wcOkGnQ7Jo5
+	PH4YqUXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gQ0-00000007BjW-3a37;
-	Fri, 17 Oct 2025 09:06:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v9gQ5-00000007BoE-1tm7;
+	Fri, 17 Oct 2025 09:06:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gPy-00000007BiE-2o04;
-	Fri, 17 Oct 2025 09:06:34 +0000
+	id 1v9gQ1-00000007BjR-16rI;
+	Fri, 17 Oct 2025 09:06:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1C2C2604C5;
-	Fri, 17 Oct 2025 09:06:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DE77C4CEFE;
-	Fri, 17 Oct 2025 09:06:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 92FD14ADCD;
+	Fri, 17 Oct 2025 09:06:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E640DC4CEF9;
+	Fri, 17 Oct 2025 09:06:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760691993;
-	bh=2hoee5aUofQ7RDJJ+SoAmMAvRdZk3eVJOdj3z3fu1/o=;
+	s=k20201202; t=1760691996;
+	bh=NITHiO1A/cRdExkggxIIRs5P2A4dim+V/Z/R+2/59Zw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OMWddH23pCXxhbNHfOj+eV/wTAMH99uI99paDSSb3TCii7/NLqlu5kx82WqMpH7AO
-	 KcK82avV1g6WC3M1+EOVDCBOiFIcAAOml6sPnYMHNijs9rsRg5XGiY4+1/cRDul9UW
-	 Dtv4iZTUewXV/kS1NbsME0nPDZIPro6yK/zhnYDzxChqF5wSRpuhHtL5WLMxrJ9weL
-	 AO3ci9RF+LAp9qq37W6G9sZlw0YyQ+Q0hrCn05rBXlyWmoiQK5XDUPzkJiK0wsCbZq
-	 vsBVPTBUlUlaDd4J6ISNlKKbuzSeEqqCE0ZX6J9fTYrvVmzETSvF6E1+QruymFFr4L
-	 GepxnjS5qNkug==
+	b=FQRlR/t1DYlWIGETDPrEEbEKgHOSo/HveKwQP+/yGIROiN7BOdFDqhH6OcSXl5VFn
+	 9OG5yhoqecHo/zX5c+3tNMct2o2WBJyhxkmsZyRHl1Kr9JRHriFZV3nH3DixA2n7uC
+	 mLQ7TKMKPcfp3tFsmzqXTN8IntEGF2WW/liitnqP8xluqmq1jDptWc2bBD5d7H1SPO
+	 u5s5eaNWZbkSLcVP59w/x+cTJDS3QhZWDeSpu4u2VI3AyPt1p7d0x2t9B0ZIhHUE3F
+	 gg4+mKmrTpRHtVs3GbGcGT4k+Lab8YnzjLQdyMVjZftj9isWjD7lBhiRU1IpPtBwTJ
+	 s7i45dYiXPSkA==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 17 Oct 2025 11:06:10 +0200
-Subject: [PATCH net-next v3 01/13] dt-bindings: net: airoha: Add AN7583
- support
+Date: Fri, 17 Oct 2025 11:06:11 +0200
+Subject: [PATCH net-next v3 02/13] net: airoha: ppe: Dynamically allocate
+ foe_check_time array in airoha_ppe struct
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-an7583-eth-support-v3-1-f28319666667@kernel.org>
+Message-Id: <20251017-an7583-eth-support-v3-2-f28319666667@kernel.org>
 References: <20251017-an7583-eth-support-v3-0-f28319666667@kernel.org>
 In-Reply-To: <20251017-an7583-eth-support-v3-0-f28319666667@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -59,8 +59,11 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
  Lorenzo Bianconi <lorenzo@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org
+ devicetree@vger.kernel.org, Simon Horman <horms@kernel.org>
 X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_020637_332327_4E1DB497 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,84 +78,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce AN7583 ethernet controller support to Airoha EN7581
-device-tree bindings. The main difference between EN7581 and AN7583 is
-the number of reset lines required by the controller (AN7583 does not
-require hsi-mac).
+This is a preliminary patch to properly enable PPE support for AN7583
+SoC.
 
+Reviewed-by: Simon Horman <horms@kernel.org>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- .../devicetree/bindings/net/airoha,en7581-eth.yaml | 35 +++++++++++++++++++++-
- 1 file changed, 34 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/airoha/airoha_eth.h | 2 +-
+ drivers/net/ethernet/airoha/airoha_ppe.c | 5 +++++
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-index 6d22131ac2f9e28390b9e785ce33e8d983eafd0f..fbe2ddcdd909cb3d853a4ab9e9fec4af1d096c52 100644
---- a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-+++ b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-@@ -17,6 +17,7 @@ properties:
-   compatible:
-     enum:
-       - airoha,en7581-eth
-+      - airoha,an7583-eth
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index cd13c1c1224f64b63d455b24ce722c33c2fa7125..4330b672d99e1e190efa5ad75d13fb35e77d070e 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -554,7 +554,7 @@ struct airoha_ppe {
+ 	struct rhashtable l2_flows;
  
-   reg:
-     items:
-@@ -44,6 +45,7 @@ properties:
-       - description: PDMA irq
+ 	struct hlist_head *foe_flow;
+-	u16 foe_check_time[PPE_NUM_ENTRIES];
++	u16 *foe_check_time;
  
-   resets:
-+    minItems: 7
-     maxItems: 8
+ 	struct airoha_foe_stats *foe_stats;
+ 	dma_addr_t foe_stats_dma;
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 691361b254075555549ee80a4ed358c52e8e00b2..8d1dceadce0becb2b1ce656d64ab77bd3c2f914a 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -1440,6 +1440,11 @@ int airoha_ppe_init(struct airoha_eth *eth)
+ 			return -ENOMEM;
+ 	}
  
-   reset-names:
-@@ -54,8 +56,9 @@ properties:
-       - const: xsi-mac
-       - const: hsi0-mac
-       - const: hsi1-mac
--      - const: hsi-mac
-+      - enum: [ hsi-mac, xfp-mac ]
-       - const: xfp-mac
-+    minItems: 7
- 
-   memory-region:
-     items:
-@@ -81,6 +84,36 @@ properties:
-       interface to implement hardware flow offloading programming Packet
-       Processor Engine (PPE) flow table.
- 
-+allOf:
-+  - $ref: ethernet-controller.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - airoha,en7581-eth
-+    then:
-+      properties:
-+        resets:
-+          minItems: 8
++	ppe->foe_check_time = devm_kzalloc(eth->dev, PPE_NUM_ENTRIES,
++					   GFP_KERNEL);
++	if (!ppe->foe_check_time)
++		return -ENOMEM;
 +
-+        reset-names:
-+          minItems: 8
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - airoha,an7583-eth
-+    then:
-+      properties:
-+        resets:
-+          maxItems: 7
-+
-+        reset-names:
-+          maxItems: 7
-+
- patternProperties:
-   "^ethernet@[1-4]$":
-     type: object
+ 	err = rhashtable_init(&eth->flow_table, &airoha_flow_table_params);
+ 	if (err)
+ 		return err;
 
 -- 
 2.51.0
