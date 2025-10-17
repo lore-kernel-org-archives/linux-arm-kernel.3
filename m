@@ -4,43 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4A0CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:05:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F96DCCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EmjDPTVTEQtw4C56BW15lH+yjoMvIUdobS10UjSP3JY=; b=hMwcTrMu6Gdor0V40wkSC0x4VE
-	1Sh1uKV+iDxNBRIlPDI4+eeg6vY6dM5abhQhL3rmQnaE7zj+Qzuuh9Zu2xHQHubC49962b8KHzCjL
-	qSimw6YbMhTGEZA4ccrKW342pE3n3EWMqHBEF6B3iOUrMotR9lMsJdhuhip76TEvgZObWR5Cqa2fe
-	ydygdP2s6FrLVjN2EfQ9i0aWxSulX0oHnkgFkhY9AeMsL88sxx9MoqLqb21NPJo+uKiawOIIeodyq
-	ecGA6BirMvsqx8xMGXOsXaoihLCRemQz7NVM9v/1YGS41LISrOtI88G4eWhFFtT+QSTYCsIDNc6PF
-	40xEWETQ==;
+	bh=EtmqNZExTpOoWoC+piJmNvBBjNMhWOel9iqpkSCV1+Y=; b=pc0poA0bOihjHb+qD5ApD00MbI
+	M1ZEwOSwPA3aVmmx8CPQ6+KdoWHOdtcrL1oK8EuvNWzP+HbblYn4VtQUVR3U8eUVWqrdOJ4lwPIPa
+	r3HwWlmY2tsi0KG/bQTxbONlGXQEi3WLNgm/1mP+HFWZeH+2m3BfG4z/Rel+MyVdx8SOAiP2Cb5KE
+	DjijkU5VvesbWYi/XL3CF1X8Rjqq18FkvghPHmiYp3fZIyi4l9n0LE7Lgt36ZWUKosVthB+tTE5kq
+	wBqCuyo6KhssLwtLzwkjp9gUFEQWalIVTuYTjJZpSHeKGG5rsrkwPlLGHeoKUEfBfp7WW++85jZnF
+	CLYHEW8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hKu-00000007Pdn-25aL;
+	id 1v9hKu-00000007PeZ-3aZJ;
 	Fri, 17 Oct 2025 10:05:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hKn-00000007PXE-2gJF
+	id 1v9hKp-00000007PZD-1OLi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 10:05:19 +0000
+	Fri, 17 Oct 2025 10:05:20 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B60C1C14;
-	Fri, 17 Oct 2025 03:05:09 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD1841595;
+	Fri, 17 Oct 2025 03:05:10 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BE29B3F59E;
-	Fri, 17 Oct 2025 03:05:15 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 693653F59E;
+	Fri, 17 Oct 2025 03:05:17 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 17 Oct 2025 11:04:54 +0100
-Subject: [PATCH v2 05/25] perf arm_spe: Decode ASE and FP fields in other
- operation
+Date: Fri, 17 Oct 2025 11:04:55 +0100
+Subject: [PATCH v2 06/25] perf arm_spe: Decode SME data processing packet
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-perf_support_arm_spev1-3-v2-5-2d41e4746e1b@arm.com>
+Message-Id: <20251017-perf_support_arm_spev1-3-v2-6-2d41e4746e1b@arm.com>
 References: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
 In-Reply-To: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -51,16 +50,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760695507; l=2769;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760695507; l=3212;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=N0jNmX4wH1J25D1rmsic2Y5Tu8VYPddY1OtkCA2TvqI=;
- b=66JwCbDx9O+k8fTscIAFDpGlP7GzRLaLBxsrFf1+YAFxQnOTiNxwAk2IpYVSmm+Lh2vPtrUgy
- TifUQ8K6XkLBnnrPXOuDXur9sVeDLuB8PEoQEvuLFGEUXxNEk4rPmII
+ bh=Eh/nqOU+QofsS2OSXnw9Q/W0xybJNqrLOXhmO4OxKOw=;
+ b=Ts65eRCtVgnRmmDUfH+hu793O0m1CNR4vqp19wbx2V25zBf5VcF6x86RAZ7nJAb2rssSLHd/i
+ A+AxCka1IC2AR8k3ZCnKwfwe07ofHXC+uhZfgeoUNDaFd3B1s/1epFv
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_030517_815169_C4434B54 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20251017_030519_621214_10330B26 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +74,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a check for other operation, which prevents any incorrectly
-classifying. Parse the ASE and FP fields.
+For SME data processing, decode its Effective vector length or Tile Size
+(ETS), and print out if a floating-point operation.
 
 After:
 
-  .  0000002f:  48 06                                           OTHER ASE FP INSN-OTHER
-  .  00000031:  b2 08 80 48 01 08 00 ff ff                      VA 0xffff000801488008
-  .  0000003a:  9a 00 00                                        LAT 0 XLAT
-  .  0000003d:  42 16                                           EV RETIRED L1D-ACCESS TLB-ACCESS
+  .  00000000:  49 00                                           SME-OTHER ETS 1024 FP
+  .  00000002:  b2 18 3c d7 83 00 80 ff ff                      VA 0xffff800083d73c18
+  .  0000000b:  9a 00 00                                        LAT 0 XLAT
+  .  0000000e:  43 00                                           DATA-SOURCE 0
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c | 6 +++++-
- tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h | 4 ++++
- 2 files changed, 9 insertions(+), 1 deletion(-)
+ tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c |  9 +++++++++
+ tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h | 11 +++++++++++
+ 2 files changed, 20 insertions(+)
 
 diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-index 533920b738cbcb39136d1ba3d88e99f9d8009e74..21b65a9b40f481b6cb25aaf01ab627ade046ff72 100644
+index 21b65a9b40f481b6cb25aaf01ab627ade046ff72..5769ba2f414049161f271fd8b8f40c440d15a75a 100644
 --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
 +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-@@ -351,8 +351,12 @@ static int arm_spe_pkt_desc_op_type(const struct arm_spe_pkt *packet,
+@@ -351,6 +351,15 @@ static int arm_spe_pkt_desc_op_type(const struct arm_spe_pkt *packet,
  				arm_spe_pkt_out_string(&err, &buf, &buf_len, " FP");
  			if (payload & SPE_OP_PKT_SVE_PRED)
  				arm_spe_pkt_out_string(&err, &buf, &buf_len, " PRED");
--		} else {
-+		} else if (SPE_OP_PKT_OTHER_SUBCLASS_OTHER(payload)) {
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, "OTHER");
-+			if (payload & SPE_OP_PKT_OTHER_ASE)
-+				arm_spe_pkt_out_string(&err, &buf, &buf_len, " ASE");
++		} else if (SPE_OP_PKT_OTHER_SUBCLASS_SME(payload)) {
++			arm_spe_pkt_out_string(&err, &buf, &buf_len, "SME-OTHER");
++
++			/* SME effective vector length or tile size */
++			arm_spe_pkt_out_string(&err, &buf, &buf_len, " ETS %d",
++					       SPE_OP_PKG_SME_ETS(payload));
++
 +			if (payload & SPE_OP_PKT_OTHER_FP)
 +				arm_spe_pkt_out_string(&err, &buf, &buf_len, " FP");
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " %s",
- 					       payload & SPE_OP_PKT_COND ?
- 					       "COND-SELECT" : "INSN-OTHER");
+ 		} else if (SPE_OP_PKT_OTHER_SUBCLASS_OTHER(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, "OTHER");
+ 			if (payload & SPE_OP_PKT_OTHER_ASE)
 diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-index 48bd9e9ef132b11b79ffe2e2fbc7cfe4c340ff92..704601c6dbe30e93f83a82670d0d60344a22222a 100644
+index 704601c6dbe30e93f83a82670d0d60344a22222a..adf4cde320aad01265b5232b0d6ff6b1f752f35f 100644
 --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
 +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-@@ -123,8 +123,12 @@ enum arm_spe_events {
- #define SPE_OP_PKT_HDR_CLASS_LD_ST_ATOMIC	0x1
- #define SPE_OP_PKT_HDR_CLASS_BR_ERET		0x2
+@@ -125,10 +125,21 @@ enum arm_spe_events {
  
-+#define SPE_OP_PKT_OTHER_SUBCLASS_OTHER(v)	(((v) & GENMASK_ULL(7, 3)) == 0x0)
+ #define SPE_OP_PKT_OTHER_SUBCLASS_OTHER(v)	(((v) & GENMASK_ULL(7, 3)) == 0x0)
  #define SPE_OP_PKT_OTHER_SUBCLASS_SVE(v)	(((v) & (BIT(7) | BIT(3) | BIT(0))) == 0x8)
++#define SPE_OP_PKT_OTHER_SUBCLASS_SME(v)	(((v) & (BIT(7) | BIT(3) | BIT(0))) == 0x88)
  
-+#define SPE_OP_PKT_OTHER_ASE			BIT(2)
-+#define SPE_OP_PKT_OTHER_FP			BIT(1)
+ #define SPE_OP_PKT_OTHER_ASE			BIT(2)
+ #define SPE_OP_PKT_OTHER_FP			BIT(1)
+ 
++/*
++ * SME effective vector length or tile size (ETS) is stored in byte 0
++ * bits [6:4,2]; the length is rounded up to a power of two and use 128
++ * as one step, so ETS calculation is:
++ *
++ *   128 * (2 ^ bits [6:4,2]) = 32 << (bits [6:4,2])
++ */
++#define SPE_OP_PKG_SME_ETS(v)			(128 << (FIELD_GET(GENMASK_ULL(6, 4), (v)) << 1 | \
++							(FIELD_GET(BIT(2), (v)))))
 +
  #define SPE_OP_PKT_LDST_SUBCLASS_GP_REG(v)	(((v) & GENMASK_ULL(7, 1)) == 0x0)
  #define SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP(v)	(((v) & GENMASK_ULL(7, 1)) == 0x4)
