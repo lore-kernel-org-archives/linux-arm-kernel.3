@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A231CCD19A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA9EACCD195
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,34 +12,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ma7svIBwp3Tl5z6twROb3PYfD40sAqcIj05u0PggGeY=; b=GiEvCJ+vWwXElwECMBYk3rI39D
-	vWV2Smcxpu72k3cQiuUn8Cdk63CYgrZ6eAKvPrC7H+Ms1deSV6YZ4Rf/vysZix+4ikdo/xg+4qXz4
-	R06YBhHyvTYr9aoEVIp2K5xe5hc7H+OD6MTDJljSu8bmwJ4TGRb53z7PltLWTOjSsxZ77Kci9DgP5
-	M2xAKmhI1fRkkFxCa+ylJxeUoXLYw/cN4SqTlluocr925LMfNiMTm99IyQV3IIvrP6/IFJgUCsg+k
-	g4DmHf/4WM8i8yWPRaqXlNm0IlmnTDs+HQ/ZZYsZ4I97wNykh1aKEe1EcDp0R3LWyCgwC8traELjx
-	RFmG7RXQ==;
+	bh=azgI0MUZZrj4NFos0GIOB9lvrsAMA4cu4gnaFGgIPDw=; b=Vg+lshGBk8oVPC2gcqwUcRBdwY
+	7X/g33WZ436JNUi+Y3o8qswjRzC+nP6JDXPsQRJI+X8Qllblu+bsxOZXfcxoQnLLlIO6fKMdm6Y9W
+	HG+FAUwyPkBX6JOdv6u37oPs1GSYM4lTW80bapwLmw8Swcua6Yo3Rvx6yzre1A1r53UjHDbBnTDvg
+	NeIxLtBRXC8sXwLbjbajGPHQphWmQNvZtxHI2NU6TgsLKHPoeb5xLX7X36m5vkplNSN7gqVvADdS5
+	Vw1xNfc7a6BMs8MYjW11UwOUR7GPYlQV1k/12u6tQF2LTxvQmPO6UD/nxA44MEGqIr02to7xOdTqf
+	7qCLNmMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hKm-00000007PW0-42gS;
+	id 1v9hKm-00000007PVd-2nDg;
 	Fri, 17 Oct 2025 10:05:16 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hKi-00000007PSg-3yw1
+	id 1v9hKi-00000007PRb-0LZf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 10:05:14 +0000
+	Fri, 17 Oct 2025 10:05:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48E881595;
-	Fri, 17 Oct 2025 03:05:04 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9D7341596;
+	Fri, 17 Oct 2025 03:05:02 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C85C53F59E;
-	Fri, 17 Oct 2025 03:05:10 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 28E8D3F59E;
+	Fri, 17 Oct 2025 03:05:09 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 17 Oct 2025 11:04:51 +0100
-Subject: [PATCH v2 02/25] perf arm_spe: Unify operation naming
+Date: Fri, 17 Oct 2025 11:04:50 +0100
+Subject: [PATCH v2 01/25] perf arm_spe: Fix memset subclass in operation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-perf_support_arm_spev1-3-v2-2-2d41e4746e1b@arm.com>
+Message-Id: <20251017-perf_support_arm_spev1-3-v2-1-2d41e4746e1b@arm.com>
 References: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
 In-Reply-To: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -50,16 +50,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760695507; l=4831;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760695507; l=4136;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=G2/h7Cz3kpY9a4X3zZdlt9hLzKN/SrbioEaOWhtErXY=;
- b=iIBSWJDZXiHRdlZxEfsDa6C8EGYqpxyz6ApGwmCbx1+tKaQpIQy7Ubf2Hc5o2ClBHqw8hY4b+
- O7c4+gCsA4FD4PVQtBBlYOMnz0effuxCdBVKuSDAGwKyHNSJQre1UEY
+ bh=911J1yGhIzG59kvCUApAkrk5zeOIijIY/YAoFzkTeCI=;
+ b=13UdyN8VrL+C49kNsupfZkr5K1TCc98bzOGKg4YSVTFfOv9e3dkzZ1kWF3lyk4p6AiJrASpdy
+ Scxfb2i8jOeBw2r2gdcxO1lZHBnfa3LwZhWH6uqkkKQYOoFVHDkV8Ie
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_030513_071744_533C682F 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20251017_030512_204730_50A62605 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,99 +74,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename extended subclass and SVE/SME register access subclass, so that
-the naming can be consistent cross all sub classes.
+The operation subclass is extracted from bits [7..1] of the payload.
+Since bit [0] is not parsed, there is no chance to match the memset type
+(0x25). As a result, the memset payload is never parsed successfully.
 
-Add an log "SVE-SME-REG" for the SVE/SME register access, this is easier
-for parsing.
+Instead of extracting a unified bit field, change to extract the
+specific bits for each operation subclass.
 
+Fixes: 34fb60400e32 ("perf arm-spe: Add raw decoding for SPEv1.3 MTE and MOPS load/store")
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/arm-spe-decoder/arm-spe-decoder.c   |  2 +-
- .../perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c | 21 ++++++++++-----------
- .../perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h |  4 ++--
- 3 files changed, 13 insertions(+), 14 deletions(-)
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 25 ++++++----------------
+ .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     | 15 ++++++-------
+ 2 files changed, 14 insertions(+), 26 deletions(-)
 
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-index 96eb7cced6fd1574f5d823e4c67b9051dcf183ed..b0fb896abad48de93aa1ed560029f9bc9ae969e9 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-@@ -200,7 +200,7 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
- 					decoder->record.op |= ARM_SPE_OP_ST;
- 				else
- 					decoder->record.op |= ARM_SPE_OP_LD;
--				if (SPE_OP_PKT_IS_LDST_SVE(payload))
-+				if (SPE_OP_PKT_LDST_SUBCLASS_SVE_SME_REG(payload))
- 					decoder->record.op |= ARM_SPE_OP_SVE_LDST;
- 				break;
- 			case SPE_OP_PKT_HDR_CLASS_OTHER:
 diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-index 1a1ffe50ee73ab4400fd1163d0e84e54f4d8ab0b..f6e9c58ce62f3ae227a79d91caefaef4bd87d98a 100644
+index 80561630253dd5c46f7e99b24fc13b99f346459f..1a1ffe50ee73ab4400fd1163d0e84e54f4d8ab0b 100644
 --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
 +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-@@ -362,31 +362,30 @@ static int arm_spe_pkt_desc_op_type(const struct arm_spe_pkt *packet,
- 		arm_spe_pkt_out_string(&err, &buf, &buf_len,
- 				       payload & 0x1 ? "ST" : "LD");
- 
--		if (SPE_OP_PKT_IS_LDST_ATOMIC(payload)) {
-+		if (SPE_OP_PKT_LDST_SUBCLASS_EXTENDED(payload)) {
- 			if (payload & SPE_OP_PKT_AT)
- 				arm_spe_pkt_out_string(&err, &buf, &buf_len, " AT");
- 			if (payload & SPE_OP_PKT_EXCL)
- 				arm_spe_pkt_out_string(&err, &buf, &buf_len, " EXCL");
- 			if (payload & SPE_OP_PKT_AR)
+@@ -371,31 +371,20 @@ static int arm_spe_pkt_desc_op_type(const struct arm_spe_pkt *packet,
  				arm_spe_pkt_out_string(&err, &buf, &buf_len, " AR");
--		}
--
--		if (SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP(payload))
-+		} else if (SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP(payload)) {
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " SIMD-FP");
--		else if (SPE_OP_PKT_LDST_SUBCLASS_GP_REG(payload))
-+		} else if (SPE_OP_PKT_LDST_SUBCLASS_GP_REG(payload)) {
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " GP-REG");
--		else if (SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG(payload))
-+		} else if (SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG(payload)) {
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " UNSPEC-REG");
--		else if (SPE_OP_PKT_LDST_SUBCLASS_NV_SYSREG(payload))
-+		} else if (SPE_OP_PKT_LDST_SUBCLASS_NV_SYSREG(payload)) {
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " NV-SYSREG");
--		else if (SPE_OP_PKT_LDST_SUBCLASS_MTE_TAG(payload))
-+		} else if (SPE_OP_PKT_LDST_SUBCLASS_MTE_TAG(payload)) {
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MTE-TAG");
--		else if (SPE_OP_PKT_LDST_SUBCLASS_MEMCPY(payload))
-+		} else if (SPE_OP_PKT_LDST_SUBCLASS_MEMCPY(payload)) {
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MEMCPY");
--		else if (SPE_OP_PKT_LDST_SUBCLASS_MEMSET(payload))
-+		} else if (SPE_OP_PKT_LDST_SUBCLASS_MEMSET(payload)) {
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MEMSET");
-+		} else if (SPE_OP_PKT_LDST_SUBCLASS_SVE_SME_REG(payload)) {
-+			arm_spe_pkt_out_string(&err, &buf, &buf_len, " SVE-SME-REG");
+ 		}
  
--		if (SPE_OP_PKT_IS_LDST_SVE(payload)) {
+-		switch (SPE_OP_PKT_LDST_SUBCLASS_GET(payload)) {
+-		case SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP:
++		if (SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP(payload))
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " SIMD-FP");
+-			break;
+-		case SPE_OP_PKT_LDST_SUBCLASS_GP_REG:
++		else if (SPE_OP_PKT_LDST_SUBCLASS_GP_REG(payload))
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " GP-REG");
+-			break;
+-		case SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG:
++		else if (SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG(payload))
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " UNSPEC-REG");
+-			break;
+-		case SPE_OP_PKT_LDST_SUBCLASS_NV_SYSREG:
++		else if (SPE_OP_PKT_LDST_SUBCLASS_NV_SYSREG(payload))
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " NV-SYSREG");
+-			break;
+-		case SPE_OP_PKT_LDST_SUBCLASS_MTE_TAG:
++		else if (SPE_OP_PKT_LDST_SUBCLASS_MTE_TAG(payload))
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MTE-TAG");
+-			break;
+-		case SPE_OP_PKT_LDST_SUBCLASS_MEMCPY:
++		else if (SPE_OP_PKT_LDST_SUBCLASS_MEMCPY(payload))
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MEMCPY");
+-			break;
+-		case SPE_OP_PKT_LDST_SUBCLASS_MEMSET:
++		else if (SPE_OP_PKT_LDST_SUBCLASS_MEMSET(payload))
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MEMSET");
+-			break;
+-		default:
+-			break;
+-		}
+ 
+ 		if (SPE_OP_PKT_IS_LDST_SVE(payload)) {
  			/* SVE effective vector length */
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " EVLEN %d",
- 					       SPE_OP_PKG_SVE_EVL(payload));
 diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-index 75e355fe3438cc07704cb61a66ca162bd0904042..cb947e625918922dc1fa25cf8843b09661197782 100644
+index d00c2481712dcc457eab2f5e9848ffc3150e6236..75e355fe3438cc07704cb61a66ca162bd0904042 100644
 --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
 +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-@@ -133,14 +133,14 @@ enum arm_spe_events {
- #define SPE_OP_PKT_LDST_SUBCLASS_MEMCPY(v)	(((v) & GENMASK_ULL(7, 1)) == 0x20)
- #define SPE_OP_PKT_LDST_SUBCLASS_MEMSET(v)	(((v) & GENMASK_ULL(7, 0)) == 0x25)
+@@ -125,14 +125,13 @@ enum arm_spe_events {
  
--#define SPE_OP_PKT_IS_LDST_ATOMIC(v)		(((v) & (GENMASK_ULL(7, 5) | BIT(1))) == 0x2)
-+#define SPE_OP_PKT_LDST_SUBCLASS_EXTENDED(v)	(((v) & (GENMASK_ULL(7, 5) | BIT(1))) == 0x2)
+ #define SPE_OP_PKT_IS_OTHER_SVE_OP(v)		(((v) & (BIT(7) | BIT(3) | BIT(0))) == 0x8)
  
- #define SPE_OP_PKT_AR				BIT(4)
- #define SPE_OP_PKT_EXCL				BIT(3)
- #define SPE_OP_PKT_AT				BIT(2)
- #define SPE_OP_PKT_ST				BIT(0)
+-#define SPE_OP_PKT_LDST_SUBCLASS_GET(v)		((v) & GENMASK_ULL(7, 1))
+-#define SPE_OP_PKT_LDST_SUBCLASS_GP_REG		0x0
+-#define SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP	0x4
+-#define SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG	0x10
+-#define SPE_OP_PKT_LDST_SUBCLASS_NV_SYSREG	0x30
+-#define SPE_OP_PKT_LDST_SUBCLASS_MTE_TAG	0x14
+-#define SPE_OP_PKT_LDST_SUBCLASS_MEMCPY		0x20
+-#define SPE_OP_PKT_LDST_SUBCLASS_MEMSET		0x25
++#define SPE_OP_PKT_LDST_SUBCLASS_GP_REG(v)	(((v) & GENMASK_ULL(7, 1)) == 0x0)
++#define SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP(v)	(((v) & GENMASK_ULL(7, 1)) == 0x4)
++#define SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG(v)	(((v) & GENMASK_ULL(7, 1)) == 0x10)
++#define SPE_OP_PKT_LDST_SUBCLASS_NV_SYSREG(v)	(((v) & GENMASK_ULL(7, 1)) == 0x30)
++#define SPE_OP_PKT_LDST_SUBCLASS_MTE_TAG(v)	(((v) & GENMASK_ULL(7, 1)) == 0x14)
++#define SPE_OP_PKT_LDST_SUBCLASS_MEMCPY(v)	(((v) & GENMASK_ULL(7, 1)) == 0x20)
++#define SPE_OP_PKT_LDST_SUBCLASS_MEMSET(v)	(((v) & GENMASK_ULL(7, 0)) == 0x25)
  
--#define SPE_OP_PKT_IS_LDST_SVE(v)		(((v) & (BIT(3) | BIT(1))) == 0x8)
-+#define SPE_OP_PKT_LDST_SUBCLASS_SVE_SME_REG(v)	(((v) & (BIT(3) | BIT(1))) == 0x8)
+ #define SPE_OP_PKT_IS_LDST_ATOMIC(v)		(((v) & (GENMASK_ULL(7, 5) | BIT(1))) == 0x2)
  
- #define SPE_OP_PKT_SVE_SG			BIT(7)
- /*
 
 -- 
 2.34.1
