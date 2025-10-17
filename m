@@ -4,66 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA59CCD1A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 13:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6FC4CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 13:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W2go7P0WmG/RPCYKvg47qI3EWymjqyqQ0wd9YV6XU2E=; b=bBJyb7laVOLvmajN8DfGC2msJV
-	a74ulmqcqJn3cMi2m0rrT+aM5DHRJ3OLiAdSDZYjbXLMM9mBXeeXErlBEYJjS2ivxP/iyQGSNyBB7
-	6fMZQtpIxDwioJ3FtsaVzD9yuHHppsriq2WH1uzHdC5WGASGNt5FnL5AiJeqi0sWB3yQadWIreHpw
-	T1tUR7JbCMBMQDTn8e9DSgnMCDz9ZgYbD/qsvjHLJxcdIhZZIGiAk4e+6Kxm6/KbBSa2QBzq7MYNN
-	D9v2d36GQ+pNKGCZZCo9dT4AhNCMXad+9Bpf5vd23Av4PHbAqrDYeUeYGwOymmanK2v1AY1k54gTV
-	XAEc+4gQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DUCXQ0EvV9ktxmOlNW52FjkhtUMF4mrPMo81WKGkY7k=; b=m24ATYkjerRgLnr0wRrkfQbdXB
+	KpXg3PvaCKADiQawvJyFVNNNt7hmuD0IVt90Q6NQv4kpd0Pvivg0oWySAh03i/YVZ+4nzLfYrM0jf
+	93TE7akC05oVHfamhMZbqABeZdQZdRb/PyeHt0xYIHz+9Wh3d2u2ZMKdqxflu9CmnJPyuZoYUb+0S
+	yeARjxGQF0LoA3OBmieM/RopgVPbYVE/iCVc20Z5yA40RTRExYH2d154oFVNqks5x6ul5ItDTdcRR
+	MvU8nSgeCNb3+Z+Z3/wwQNIVMKiotq38OHMuotLNjbNnrA1SmPP11Ye6RX2nIuvaX4QBW16X+kbYs
+	l07LjfGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9kRh-00000007uhJ-323z;
-	Fri, 17 Oct 2025 13:24:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v9kY5-00000007vuy-3VPE;
+	Fri, 17 Oct 2025 13:31:13 +0000
+Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9kRW-00000007uXQ-11KV
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 17 Oct 2025 13:24:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Cc:Content-ID:Content-Description;
-	bh=W2go7P0WmG/RPCYKvg47qI3EWymjqyqQ0wd9YV6XU2E=; b=f+pV7sjsc78ij1WfwBKYxb5XMV
-	wnwxBi5AD67o9iTI9ihrTCZb/xVIOxA1RoZr8F0Zwfmg4O571qDsLot3bNYFlmA9zX6FlS4yiOQbC
-	Zmdz98DCL3eOWGD7py5QpiPCyVx3wrjk78lhELJptCfmqPhV8tpY/uvIo7jLIfbeLsor1ehj2bmy+
-	ZkS6QJe7gn/4gx9eNx11mihsRFZUUHpyYItjrVbcKfLQJu7gvad3d9lieX0SagbaJZAVjdmxcD35u
-	U+kiuIyXUtW+HMIyES6MOjA3uhJpe428s9oW2AOaiCbLSodMxWOTo/Rf/6RBSazoiQUT9d92cMALx
-	Ih+S2Vog==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9kRR-00000007c2C-3tTh
+	id 1v9kY3-00000007vtV-15R5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 13:24:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 698EA1C2B;
-	Fri, 17 Oct 2025 06:24:10 -0700 (PDT)
-Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 96C963F66E;
-	Fri, 17 Oct 2025 06:24:17 -0700 (PDT)
-From: Sudeep Holla <sudeep.holla@arm.com>
-Date: Fri, 17 Oct 2025 14:23:51 +0100
-Subject: [PATCH 8/8] firmware: arm_scmi: Initialise all protocol devices
- and transport channels
+	Fri, 17 Oct 2025 13:31:12 +0000
+Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-781da6c1a37so22828547b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 06:31:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760707870; x=1761312670; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=DUCXQ0EvV9ktxmOlNW52FjkhtUMF4mrPMo81WKGkY7k=;
+        b=lxPawxyikNTFkjZ6iW3YZcz/YVY4HEDEOjh4GluUAgF4R7EpQelqnBMZJXCcaLHFIm
+         1h926zlrQGgpbrxQhnAdXpEdQAu/QsdyIhHrrfJH2GZKKyZQ8f8dXjYh6R+AsCNICkRp
+         Zmm2NGvCc9p8ReatnHfvb6pd9cjxckCXTBaTLQv93N/jZVD6mJQMX7JmNyjO7AmUCO4u
+         PwtmyseZuX5XgPZ1hQoYcfeRuEZlIgBZZSgtVuXbzELbV66J8dB68O3ByWpOHJd3wU4g
+         yNegk/azuo6+1Ut+8qofYvMWG3XhhKaHvxGrgLjyeIKshy4gZc8gzx/d/f8sooFR5dkJ
+         JYRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760707870; x=1761312670;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DUCXQ0EvV9ktxmOlNW52FjkhtUMF4mrPMo81WKGkY7k=;
+        b=ezyMEiXKdTwqlrW2U/wGS33gZJM0sYM+4EP1znaP8d/m3lk/FTTeGQQ+Lz9J2Qmo+n
+         +5EfDbUObcmu68XQBIYYITpXgNZKkyFf34yi/XlcZxy78CObiO7NPRkDUOL0hlKGDR2o
+         g1BiO6GeFbCoMWb1EOfGSwNn5aZci6PNkmjKNwud78tRZEbzUFZdwbb2ceTL4V6KZegz
+         1Vy4fhcb6YFKuAmtipzhPl+6stHKxJmZUJKDei9qJXwI8mEpFQRyNnTV6wWycCn2GXzA
+         pjr5NqLixxjWKcUKCLGd9Dy58FGyntxrYt5870SgQpUWlOcHxW6Dhc+8F1NaF2nxWNQn
+         bGHw==
+X-Forwarded-Encrypted: i=1; AJvYcCXKOwjTjcdPMS4CNrJt5uE9letPusBfKSsCv9GPKHxfIItlsLQB7H5GQfGj4chTKW3tKa3vV0jqdY5yiFWsgFPi@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywxh6aAXEeju7kGhr679D4xyuTyg16NKzcby/jfmyyr7FWjk6bU
+	DE92zpMbePLXCwxgPHfDnDKKKKd/d/rk8K6rw9VpjW+M2oZVJrqA93jq3tESdkueQdX+VplrbmI
+	If4OIS1VMIAWcvEsrwiE6nO2ZCXdDsdVnWEzPR+JFow==
+X-Gm-Gg: ASbGncuYlmtqR9gNjSbrbrJvYap2oLSU6ag1UMCDscAc3nXqQ9yXWkEf+BQnmXgmnl+
+	R4ye4iQCYkHZY5EIe2TGU9uiz7GC1BDCQz12t6n2Ic+0CjT1D0G9IBIOzJQd5BBDB2GXdo4Rgnf
+	TL5DOGPiZkPII7OSCPykJ93c25NmH71OE8thiZSd2bIwPAuJx7zxgqcq5+c4pg2wzIj9btFZtPk
+	WcCCacpnMAqu3WG+mSW1HBPwJ7ekTycfqMfyEP812CEnX5vmyLrsrYVraU5qPdpyKeCJXi/
+X-Google-Smtp-Source: AGHT+IE99aLeU1qJuGUKKD3EwC+82B0WlUi+IrZYAAKOJ3BjaAC6xXwG/vSFF6c7L0L5r1xHD6BMxG1tEIJhEP9Q9Zs=
+X-Received: by 2002:a05:690e:4009:b0:63e:17d8:d985 with SMTP id
+ 956f58d0204a3-63e17d8db6emr2723484d50.53.1760707869805; Fri, 17 Oct 2025
+ 06:31:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-acpi_scmi_pcc-v1-8-0adbab7709d9@arm.com>
-References: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
-In-Reply-To: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
-To: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Sudeep Holla <sudeep.holla@arm.com>
-X-Mailer: b4 0.14.3
+References: <20251007140434.606051-1-kamal.dasu@broadcom.com>
+In-Reply-To: <20251007140434.606051-1-kamal.dasu@broadcom.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Fri, 17 Oct 2025 15:30:34 +0200
+X-Gm-Features: AS18NWCxOo1IPoxvNmAyvX3kK0QzpALZz5b5Ua2IC_5KvIDu-uhmuTnAMYhlcsU
+Message-ID: <CAPDyKFrsjnSYBTpPJ1qWXVHTZSw8EuQh6b_CcNAKuKHHMwy2MQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] sdhci-brcmstb SD host controller SoC specific enhancements
+To: Kamal Dasu <kamal.dasu@broadcom.com>
+Cc: andersson@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, florian.fainelli@broadcom.com, adrian.hunter@intel.com, 
+	bcm-kernel-feedback-list@broadcom.com, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mmc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_142422_276304_3CDDFDA6 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20251017_063111_297669_0E0EAB8E 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,74 +96,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike Device Tree, the ACPI SCMI namespace device does not provide child
-fwnodes to represent each protocol. To initialise all protocol devices and
-their associated transport channels, we must iterate over the supported DSD
-entries defined in the device.
+On Tue, 7 Oct 2025 at 16:04, Kamal Dasu <kamal.dasu@broadcom.com> wrote:
+>
+> sdhci-brcmstb HS200 configuration for BCM72116 and PM register save restore
+> changes applicable to various SoCs.
+>
+> v2 changes:
+>  - Separate commit for SDIO_CFG register defines that moved
+>  - Implemented cosmetic changes proposed for initial change for :
+>      "mmc: sdhci-brcmstb: clear CFG_OP_DLY when using HS200"
+>  - Moved BCM74371 support in a separate commit
+>  - Implemented review comments and reorganized code for :
+>      "mmc: sdhci-brcmstb: save and restore registers during PM"
+>  - Added Reviewed-by and Acked-by tags wherever applicable
+>
+> Kamal Dasu (5):
+>   dt-bindings: mmc: Add support for BCM72116 and BCM74371 SD host
+>     controller
+>   mmc: sdhci-brcmstb: move SDIO_CFG_CQ_CAPABILITY define
+>   mmc: sdhci-brcmstb: clear CFG_OP_DLY when using HS200
+>   mmc: sdhci-brcmstb: Add BCM74371 support
+>   mmc: sdhci-brcmstb: save and restore registers during PM
+>
+>  .../bindings/mmc/brcm,sdhci-brcmstb.yaml      |   2 +
+>  drivers/mmc/host/sdhci-brcmstb.c              | 154 +++++++++++++++++-
+>  2 files changed, 147 insertions(+), 9 deletions(-)
+>
 
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
----
- drivers/firmware/arm_scmi/driver.c | 24 ++++++++++++++++++++++--
- 1 file changed, 22 insertions(+), 2 deletions(-)
+The series applied for next, thanks!
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index f679a769fc87..9470be5de692 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2786,7 +2786,7 @@ scmi_txrx_setup(struct scmi_info *info, struct fwnode_handle *fwnode,
-  */
- static int scmi_channels_setup(struct scmi_info *info)
- {
--	int ret;
-+	int ret, idx;
- 	struct fwnode_handle *fwnode = dev_fwnode(info->dev);
- 
- 	/* Initialize a common generic channel at first */
-@@ -2809,6 +2809,17 @@ static int scmi_channels_setup(struct scmi_info *info)
- 			return ret;
- 	}
- 
-+	if (acpi_disabled)
-+		return 0;
-+
-+	for (idx = 1; idx < ARRAY_SIZE(scmi_dsd_info_list); idx++) {
-+		int prot_id = scmi_dsd_info_list[idx].protocol_id;
-+
-+		ret = scmi_txrx_setup(info, fwnode, prot_id);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	return 0;
- }
- 
-@@ -3175,7 +3186,7 @@ static void scmi_device_check_create(struct fwnode_handle *fwnode, int prot_id,
- 
- static int scmi_probe(struct platform_device *pdev)
- {
--	int ret;
-+	int ret, idx;
- 	char *err_str = "probe failure\n";
- 	struct scmi_handle *handle;
- 	const struct scmi_desc *desc;
-@@ -3304,6 +3315,15 @@ static int scmi_probe(struct platform_device *pdev)
- 		scmi_device_check_create(child, prot_id, info);
- 	}
- 
-+	if (acpi_disabled)
-+		return 0;
-+
-+	for (idx = 1; idx < ARRAY_SIZE(scmi_dsd_info_list); idx++) {
-+		int prot_id = scmi_dsd_info_list[idx].protocol_id;
-+
-+		scmi_device_check_create(dev_fwnode(dev), prot_id, info);
-+	}
-+
- 	return 0;
- 
- notification_exit:
-
--- 
-2.34.1
-
+Kind regards
+Uffe
 
