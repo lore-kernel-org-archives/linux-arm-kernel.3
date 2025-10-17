@@ -4,93 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6CF7CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77177CCD1A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Txvygtf95T8nvPnqElNFv3jlBIUlCRN1Ha31LP6OZM=; b=0cpeRrcoo62nl/H3/8oEFjW8TZ
-	J5WNRtvQxXYaUdEL5+gMaaTox4H36aa6Ce5D9Q21qE/aY6Tow7LRWeNgNtO+R/ngNJHI2/TYrWWfX
-	P3ivvuEdUjDlxHwekq//tmsR2SYf7yYDfmAigbmyIMackRZYw4LzoYYyE9CEzt+oJrY0p4HcZfP1b
-	JubKbLezz5oF4AMW5A/+6UQ4tEApFjYinoJnSfa91pFTHnrQkp6JSogA6R86N8EqMiTyyDVIZ/kgA
-	zlI5tRi4SLAcb43vPRX8do+f4ffN7EDtsif52pmRRoOHvJYkmiRX8g9wrvNf/1YAHtbhpc/eSH4A9
-	s9TSpB7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bviz2cLEdx+RtgN/6hHK3DLWNL6Mg9mRP8KFNaIDkIk=; b=PL/Lhcp5z/z02saL9EKmYmgxm8
+	SA1mvC45AgPobzsUzZ82RdRr/Yd21bLDS8MFZVb/mghh0pnDYEAdGyIH6Javl9nZbuSvm/1Z+y29N
+	tC1r53UHHeO2JNOTP793r9PiQvKhzEaeTKuMGjbzz0kSUeuCfUG6cjdLW1DkJ9pqr67kZ0znFbeWY
+	/2junf6bV5o3i7jDyDc+kUakYHfu/uxSfn3QtutjaJThQX15T/6HVBxX4leX1OZiK0/t5jVzAwpWV
+	eoyoENJoUAdl69LXMvuUclwKm4phBlLbFMCfkz/yBu9DlYjN4muCUQ1HTRRDzByk8+mpHyyeH+xxf
+	/NicZ/TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9eX1-00000006v8N-2P5Y;
-	Fri, 17 Oct 2025 07:05:43 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1v9eXI-00000006vDp-1ekA;
+	Fri, 17 Oct 2025 07:06:00 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9eWy-00000006v7n-1bzG
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 07:05:42 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 36315C041DD;
-	Fri, 17 Oct 2025 07:05:16 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 651C9606DB;
-	Fri, 17 Oct 2025 07:05:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 00B0D102F22FF;
-	Fri, 17 Oct 2025 09:04:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760684733; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=8Txvygtf95T8nvPnqElNFv3jlBIUlCRN1Ha31LP6OZM=;
-	b=sjVqtIm4RJwQ4q/9IDLKMSW6riYcV/yNt+HFk6E2Z9iRJ7mcel14odvS1qcyV6Zojb2ZL/
-	UjK86X1GZjeFt8l4tTWqqX5GMkhp2tz//ZFswJJxaec0tbucR/wHOUZPsTXsOTWqF6Hkcy
-	PsT3RCGuLuL3pIzCuxEBS19909xxzsZzs/iU/so1N2Ny/VakwLErGxdMdFvoTDEZfIGP7c
-	1q7q03jcaA/Jdyzq66uIb9IX6f6YcMZtfsL6xNXl25uo1acubbem9B/PXBj+xHKuu2fXEd
-	CJGlJW9d8NPHglu7w1OISAR7MVpEiXJ497Z1xlPBUvJt0TtWvMd4li2EVhgW5g==
-Message-ID: <1f9d856f-4cfb-472c-abec-96ce55f4db81@bootlin.com>
-Date: Fri, 17 Oct 2025 09:04:55 +0200
+	id 1v9eXF-00000006vCR-2t8k;
+	Fri, 17 Oct 2025 07:05:59 +0000
+X-UUID: 9494443eab2511f0a52f393f94899d25-20251016
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=bviz2cLEdx+RtgN/6hHK3DLWNL6Mg9mRP8KFNaIDkIk=;
+	b=PJRrm3m9NNW/VNlPvjfUWJgm3m6yvW0sWV8gIFtvJVbIs5hPscU7SgIerOX1VfmZzm9YCAh0prhA5sVnkAGREn6hhqArrr+igSIANokP3Qrt2w34QVq8lMvXnYHYPOYGC8vrH58JTAf7Leen/kLkKG4KE/Y3AtFhQA5M4wBMuXY=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:e1b82a55-4fb9-4959-b357-9ab58af167d6,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:1c3b2951-c509-4cf3-8dc0-fcdaad49a6d3,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
+	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
+	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 9494443eab2511f0a52f393f94899d25-20251016
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1224143274; Thu, 16 Oct 2025 23:50:34 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Fri, 17 Oct 2025 14:50:30 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.10 via Frontend Transport; Fri, 17 Oct 2025 14:50:30 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>
+CC: Matthias Brugger <matthias.bgg@gmail.com>, Nicolas Dufresne
+	<nicolas@ndufresne.ca>, Jason-JH Lin <jason-jh.lin@mediatek.com>, Nancy Lin
+	<nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>, Paul-PL
+ Chen <paul-pl.chen@mediatek.com>, Moudy Ho <moudy.ho@mediatek.com>, Xiandong
+ Wang <xiandong.wang@mediatek.com>, Sirius Wang <sirius.wang@mediatek.com>,
+	Fei Shao <fshao@chromium.org>, Chen-yu Tsai <wenst@chromium.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>
+Subject: [PATCH v8 05/20] soc: mediatek: mtk-cmdq: Add cmdq_pkt_jump_rel_temp() for removing shift_pa
+Date: Fri, 17 Oct 2025 14:44:30 +0800
+Message-ID: <20251017065028.1676930-6-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20251017065028.1676930-1-jason-jh.lin@mediatek.com>
+References: <20251017065028.1676930-1-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 00/14] net: stmmac: phylink PCS conversion
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexis Lothore <alexis.lothore@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Boon Khai Ng <boon.khai.ng@altera.com>,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Daniel Machon <daniel.machon@microchip.com>,
- "David S. Miller" <davem@davemloft.net>,
- Drew Fustini <dfustini@tenstorrent.com>,
- Emil Renner Berthing <emil.renner.berthing@canonical.com>,
- Eric Dumazet <edumazet@google.com>,
- Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
- Furong Xu <0x1207@gmail.com>, Inochi Amaoto <inochiama@gmail.com>,
- Jacob Keller <jacob.e.keller@intel.com>, Jakub Kicinski <kuba@kernel.org>,
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
- Jisheng Zhang <jszhang@kernel.org>, Kees Cook <kees@kernel.org>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Ley Foon Tan <leyfoon.tan@starfivetech.com>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Matthew Gerlach <matthew.gerlach@altera.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Michal Swiatkowski <michal.swiatkowski@linux.intel.com>,
- netdev@vger.kernel.org, Oleksij Rempel <o.rempel@pengutronix.de>,
- Paolo Abeni <pabeni@redhat.com>, Rohan G Thomas <rohan.g.thomas@altera.com>,
- Shenwei Wang <shenwei.wang@nxp.com>, Simon Horman <horms@kernel.org>,
- Song Yoong Siang <yoong.siang.song@intel.com>,
- Swathi K S <swathi.ks@samsung.com>, Tiezhu Yang <yangtiezhu@loongson.cn>,
- Vinod Koul <vkoul@kernel.org>, Vladimir Oltean <olteanv@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, Yu-Chun Lin <eleanor15x@gmail.com>
-References: <aPECqg0vZGnBFCbh@shell.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <aPECqg0vZGnBFCbh@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_000540_807966_096FDC7C 
-X-CRM114-Status: GOOD (  39.12  )
+X-CRM114-CacheID: sfid-20251017_000557_725542_83716A08 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,113 +97,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Since shift_pa will be stored into the cmdq_mobx_priv of cmdq_pkt, all
+the shif_pa parameters in CMDQ helper APIs can be removed.
 
-On 16/10/2025 16:35, Russell King (Oracle) wrote:
-> This series is radical - it takes the brave step of ripping out much of
-> the existing PCS support code and throwing it all away.
-> 
-> I have discussed the introduction of the STMMAC_FLAG_HAS_INTEGRATED_PCS
-> flag with Bartosz Golaszewski, and the conclusion I came to is that
-> this is to workaround the breakage that I've been going on about
-> concerning the phylink conversion for the last five or six years.
-> 
-> The problem is that the stmmac PCS code manipulates the netif carrier
-> state, which confuses phylink.
-> 
-> There is a way of testing this out on the Jetson Xavier NX platform as
-> the "PCS" code paths can be exercised while in RGMII mode - because
-> RGMII also has in-band status and the status register is shared with
-> SGMII. Testing this out confirms my long held theory: the interrupt
-> handler manipulates the netif carrier state before phylink gets a
-> look-in, which means that the mac_link_up() and mac_link_down() methods
-> are never called, resulting in the device being non-functional.
-> 
-> Moreover, on dwmac4 cores, ethtool reports incorrect information -
-> despite having a full-duplex link, ethtool reports that it is
-> half-dupex.
-> 
-> Thus, this code is completely broken - anyone using it will not have
-> a functional platform, and thus it doesn't deserve to live any longer,
-> especially as it's a thorn in phylink.
-> 
-> Rip all this out, leaving just the bare bones initialisation in place.
-> 
-> However, this is not the last of what's broken. We have this hw->ps
-> integer which is really not descriptive, and the DT property from
-> which it comes from does little to help understand what's going on.
-> Putting all the clues together:
-> 
-> - early configuration of the GMAC configuration register for the
->   speed.
-> - setting the SGMII rate adapter layer to take its speed from the
->   GMAC configuration register.
-> 
-> Lastly, setting the transmit enable (TE) bit, which is a typo that puts
-> the nail in the coffin of this code. It should be the transmit
-> configuration (TC) bit. Given that when the link comes up, phylink
-> will call mac_link_up() which will overwrite the speed in the GMAC
-> configuration register, the only part of this that is functional is
-> changing where the SGMII rate adapter layer gets its speed from,
-> which is a boolean.
-> 
-> From what I've found so far, everyone who sets the snps,ps-speed
-> property which configures this mode also configures a fixed link,
-> so the pre-configuration is unnecessary - the link will come up
-> anyway.
-> 
-> So, this series rips that out the preconfiguration as well, and
-> replaces hw->ps with a boolean hw->reverse_sgmii_enable flag.
-> 
-> We then move the sole PCS configuration into a phylink_pcs instance,
-> which configures the PCS control register in the same way as is done
-> during the probe function.
-> 
-> Thus, we end up with much easier and simpler conversion to phylink PCS
-> than previous attempts.
-> 
-> Even so, this still results in inband mode always being enabled at the
-> moment in the new .pcs_config() method to reflect what the probe
-> function was doing. The next stage will be to change that to allow
-> phylink to correctly configure the PCS. This needs fixing to allow
-> platform glue maintainers who are currently blocked to progress.
-> 
-> Please note, however, that this has not been tested with any SGMII
-> platform.
-> 
-> I've tried to get as many people into the Cc list with get_maintainers,
-> I hope that's sufficient to get enough eyeballs on this.
-> 
-> Changes since RFC:
-> - new patch (7) to remove RGMII "pcs" mode
-> - new patch (8) to move reverse "pcs" mode to stmmac_check_pcs_mode()
-> - new patch (9) to simplify the code moved in the previous patch
-> - new patch (10) to rename the confusing hw->ps to something more
->   understandable.
-> - new patch (11) to shut up inappropriate complaints about
->   "snps,ps-speed" being invalid.
-> - new patch (13) to add a MAC .pcs_init method, which will only be
->   called when core has PCS present.
-> - modify patch 14 to use this new pcs_init method.
-> 
-> Despite getting a couple of responses to the RFC series posted in
-> September, I have had nothing testing this on hardware. I have tested
-> this on the Jetson Xavier NX, which included trial runs with enabling
-> the RGMII "pcs" mode, hence the new patches that rip out this mode. I
-> have come to the conclusion that the only way to get stmmac changes
-> tested is to get them merged into net-next, thereby forcing people to
-> have to run with them... and we'll deal with any fallout later.
+Add cmdq_pkt_jump_rel_temp() for the current users of cmdq_pkt_jump_rel(),
+and then remove shift_pa after all users have migrated to the new APIs.
 
-I have tested this on :
- - dwmac-socfpga w/ Lynx, SGMII and 1000BaseX mode
- - dwmac-socfpga w/ RGMII mode
- - stm32-dwmac (on stm32mp157a), w/ RGMII mode
+Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+---
+ include/linux/soc/mediatek/mtk-cmdq.h | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-I don't have any device available with stmmac using the internal PCS
-implementation, but at least the 2 platforms above don't regress with
-this series.
+diff --git a/include/linux/soc/mediatek/mtk-cmdq.h b/include/linux/soc/mediatek/mtk-cmdq.h
+index 0c3906e8ad19..9b6d855cacb9 100644
+--- a/include/linux/soc/mediatek/mtk-cmdq.h
++++ b/include/linux/soc/mediatek/mtk-cmdq.h
+@@ -377,6 +377,24 @@ static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_
+  */
+ int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa);
+ 
++/**
++ * cmdq_pkt_jump_rel_temp() - Temporary wrapper for new CMDQ helper API
++ * @pkt:	the CMDQ packet
++ * @offset:	relative offset of target instruction buffer from current PC.
++ * @shift_pa:	[DEPRECATED] shift bits of physical address in CMDQ instruction.
++ *		This value is got by cmdq_get_shift_pa().
++ *
++ * This function is a temporary wrapper that was introduced only for ease of
++ * migration of the many users of the CMDQ API located in multiple kernel
++ * subsystems.
++ *
++ * This has to be removed after all users are migrated to the newer CMDQ API.
++ */
++static inline int cmdq_pkt_jump_rel_temp(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
++{
++	return cmdq_pkt_jump_rel(pkt, offset, shift_pa);
++}
++
+ /**
+  * cmdq_pkt_eoc() - Append EOC and ask GCE to generate an IRQ at end of execution
+  * @pkt:	The CMDQ packet
+@@ -506,6 +524,12 @@ static inline int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_p
+ 	return -EINVAL;
+ }
+ 
++/* This wrapper has to be removed after all users migrated to jump_rel */
++static inline int cmdq_pkt_jump_rel_temp(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
++{
++	return -EIMVAL;
++}
++
+ static inline int cmdq_pkt_eoc(struct cmdq_pkt *pkt)
+ {
+ 	return -EINVAL;
+-- 
+2.43.0
 
-Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
 
