@@ -4,116 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D278FCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB10CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 16:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D4mf9FdrvOGmLornKgNki0gXD9BcM6SCmzEl3gfV4Zs=; b=l4hSmmWRHCDrXQ7iGTDctmOXZ6
-	NZd0UPzH6+DCTZgd6oEldTxkuNGFHSHu4+ZYZfLYregVOSJnyyjagF8VcDsjQli8g4yF4nxZ8tZce
-	Er4qNpF1IXlml0WGS19esk8lsOLTIRKH7qqsKpeDtPucZTvBinhUhHA0hI1gc7qWu4y7sSOZ+jTGA
-	wxLYcELmisgOjV4GXIz3CNkbYAX0bellsGyhBAGHdfK30X7ULcfF1w18Au5PlkyL89sCL0nAUXm49
-	5TTHbRuyk+WZF7gpIjiOojQFHKGk4NuOlneVnMLkHbWZgCOSuCNFZSu3Lwk8tHY1UPxBbznb9Y2T/
-	ZBxRSzWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZaEULVJsZNmXKTIRdpZgj6hdsP9CJDSPKWqK/TLCYco=; b=l6m+ESe23m3/QE+HGC+PfGWPDC
+	jdt4ummrGbiVoay9ZGmIU5tXIshd6h3aCzBd5pxdUzAkuyK0WUphfWUypcwRPaNccXMEbZ7S+TBII
+	IeOEJHgTRouMOTOKW7r/Tsh7U/LHZ6xWOE5xgkEV5FFE2/qug7P5MVZDz+gOV6FXF56FWsiIikWPt
+	UVHQENo6qhadG3EIKMZAPHnxzJneShetW1565Ad+5xk/LxnTzhgKUPPxb+HapgC0Pxxv5BS+I4Ifp
+	LmoyjiaSPIP1ma+FFwe5Wir/qaKdnm0bABrcDg/Y3x4aTbHxJe+yeZ+xSq2nEMcFRRzMVkC/PmyOQ
+	+zOSqA5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9myh-00000008NCr-2G92;
-	Fri, 17 Oct 2025 16:06:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v9n1r-00000008Nfm-2nIr;
+	Fri, 17 Oct 2025 16:10:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9myg-00000008NCe-3UUr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 17 Oct 2025 16:06:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=D4mf9FdrvOGmLornKgNki0gXD9BcM6SCmzEl3gfV4Zs=; b=Hzjc49iyw9W2DUnSmMdrOuiil3
-	Tzg8YfqGYUK+wwsf2Lgl4TsUAJRgHwO54xxC+N4wREDWmgP1U1yCi1fgOtFIi5ln2nMdi0PKy9eG/
-	23Cz8MovqJdrk41Gh29fAItIugw5dn8A5OS6z9qYmcgzaFODPLMcYnAaMoljwMBfetuL4nRphYpM6
-	cgPsid86eTVusUKdeLN7L6/qFlUKFoZ59R4gg8fXPFMvaRoJID+tURjyudoZWK9iQR8mFNJ6OdwDb
-	6nlRsvREs6+LAH2b+JFZl7npPpnc7sKKpvTkWte4JRNRUg8Vm0EcRhu1zWLvHm8qgZfy6OcmEvXgb
-	pKvyKHJQ==;
-Received: from mail-oi1-f179.google.com ([209.85.167.179])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9myU-00000007it8-2zMy
+	id 1v9n1q-00000008NfV-0sU0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 16:06:46 +0000
-Received: by mail-oi1-f179.google.com with SMTP id 5614622812f47-4439f1cb764so882465b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 09:06:36 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760717194; x=1761321994;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=D4mf9FdrvOGmLornKgNki0gXD9BcM6SCmzEl3gfV4Zs=;
-        b=vBX9Dak/DVDmPImf76AU+twFFw+pR1p7K3ljCm8a74FYVIeLA8fYO5pDh6c0E3Wbn3
-         Os1Dzck0K0SZbpb0dPYQfxyi2ER1Qw0GZbVIE/qDLe9/H2GE1sjHbJ0zFwGMsyk5RGWo
-         xcWSiMjO72Wmq7MrZxWFnsiAaKUvCad3Jv7tCKIz45VCyX0YMIBDk23sIr/DA+tQJosT
-         eDFkPDXuyXu1aKROdN1uUS0z5HKftD7lCHKXQUR9nzeXVS2UITOEKob9BDBqeSkkLJKa
-         oyn9OC+8yUCBwiek7AQI7J3w3K1C1hmNA4GRoPRyvQahE4U2dpVOmOUt0AWDsm7BXXqV
-         lH+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVQ6oEFGyIz8KLC8j4nZinxbBGiWkiGl3ImktKowSAUf/qoU1vWd30w805DG4fVI/rRQJyDDw6UngkTrcE6oS83@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNueOY01oEjaq3CvLqhfX419g1OTjwJaYVrcfDfBwD/1mREW0F
-	I51c9NBdWoqYeYLcutasBbrpatfvzV3XMxqL/qtKyyMBoJpJgB1LOtXgwGl9BiTu
-X-Gm-Gg: ASbGncvqOdscpYxC1mywS6EkXeW8Dht35YlgVwLNJ8CggGKWMPo5baWP8pMSMRcfryh
-	Iwc2fmlyn7ioi4CLQ8YvXMvJgLxVTajDilyHB0efDk54g3QpsWS9wavj+0puc84ZllQLslyYW23
-	jwBDYezsL7YxmtxNTpKXTCmPXgqUs418fsCGgsZTUdqrP46mtBenD7aehLq/ra/PUFfEOS3W2//
-	dpPCys0b7I+a9DJ9YY2Ggt5ntRmng9xUX6reP1HBA6t47ruC6v9xG+uGJoo9iuXQ5+/PTSmvHb3
-	tDaTZ9YcoZGcVIBXQYSMcby91hpwmPAfOvfcom/Fnj7LQvg2K01Jc6FrFVC0D7vxCPcrZar9dFv
-	PKQW8UZhhwt3ml9ndklkEZS03QEPc8nuRS48Lz/F1NvBmAw7xSsNGVx5/UBDGnpV92/XuEvrkum
-	XyJYXUlQ7Dgy18kXAKQXT51aHyalvrrFYrHKo1AomMRA==
-X-Google-Smtp-Source: AGHT+IGIaEPP0Wqv9M703acPKyppA4XXxL7Zu3kx7n5B6eFM+5Y0ukIFkwtZldshB6yY3Jp7LCpZxg==
-X-Received: by 2002:a05:6808:250a:b0:43f:65da:73e6 with SMTP id 5614622812f47-443a313a0a9mr2036481b6e.45.1760717193469;
-        Fri, 17 Oct 2025 09:06:33 -0700 (PDT)
-Received: from mail-oi1-f182.google.com (mail-oi1-f182.google.com. [209.85.167.182])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-443a6e690d2sm494588b6e.13.2025.10.17.09.06.33
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Oct 2025 09:06:33 -0700 (PDT)
-Received: by mail-oi1-f182.google.com with SMTP id 5614622812f47-4439f1cb764so882451b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 09:06:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWnbW6THMGeQXNtzf5mo0XLkP/kDoldnlPhiivS62ZP8grEn4q6Xg4uAO+C/FRaEXH7iYP3XC8ibDcDA8A6Qn74@lists.infradead.org
-X-Received: by 2002:a05:6102:40c6:10b0:5d7:dec6:389a with SMTP id
- ada2fe7eead31-5d7dec64177mr1309355137.9.1760716852567; Fri, 17 Oct 2025
- 09:00:52 -0700 (PDT)
+	Fri, 17 Oct 2025 16:10:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A199E60547;
+	Fri, 17 Oct 2025 16:10:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F358C4CEE7;
+	Fri, 17 Oct 2025 16:10:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760717405;
+	bh=sR4wT6ql2A/OkkHX38+xs03NATFvPBEQGacjohvzTGE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jELdT4hZVfXXfDAwQ/NNM9ef6ok7dY7chwQqzT8HM9tHScr+oJ+I85oypKbVRtRr+
+	 wQhua5iRIXsQ5oo5Ykk4FD2gViUYUUeWZ5aALG78PEgzEUHyLXVJ1pOkS+cYY0Ist8
+	 n3kKLTEujA/fX8zEEOEIOukJmooopoF7sjXpBdz8YNLJh70eJE7dsf43Mph1eIuuLK
+	 jGGVT+rJGgXEcnWeV0cUvWM8oZuyiuRRNgTh+ZDZ1c4vl+n0OAUDQEVHB0VZ0FhdkR
+	 5Opfmi3nLqgqYW9rrqJoM0+/lWrUjoIE3hij1vgVbq7ipeoc1S8yT52GAAw1ThvzqA
+	 qHugr+uX1OZRA==
+Message-ID: <44ebd8b7-605c-4e0f-8c3f-966b8a35ff02@kernel.org>
+Date: Fri, 17 Oct 2025 18:09:58 +0200
 MIME-Version: 1.0
-References: <cover.1739540679.git.geert+renesas@glider.be> <2d30e5ffe70ce35f952b7d497d2959391fbf0580.1739540679.git.geert+renesas@glider.be>
- <20251017081912.2ad26705@kernel.org>
-In-Reply-To: <20251017081912.2ad26705@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 17 Oct 2025 18:00:41 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVS5KmVkv_pmc+R-EXik-Z1_7nuiHM=vm1Cu8v91wmLBQ@mail.gmail.com>
-X-Gm-Features: AS18NWD4CQztq7yi6j63q-9XtnW0otWo2wOw8z0_Fp7R-6z_qrlZWB5IqFYEbBg
-Message-ID: <CAMuHMdVS5KmVkv_pmc+R-EXik-Z1_7nuiHM=vm1Cu8v91wmLBQ@mail.gmail.com>
-Subject: Re: [PATCH treewide v3 2/4] bitfield: Add non-constant
- field_{prep,get}() helpers
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	David Miller <davem@davemloft.net>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Crt Mori <cmo@melexis.com>, 
-	Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Jacky Huang <ychuang3@nuvoton.com>, 
-	Shan-Chun Hung <schung@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Alex Elder <elder@ieee.org>, 
-	David Laight <david.laight.linux@gmail.com>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	qat-linux@intel.com, linux-gpio@vger.kernel.org, 
-	linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org, 
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_170644_338023_72E5F0F2 
-X-CRM114-Status: GOOD (  36.98  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next V7 2/2] veth: apply qdisc backpressure on full
+ ptr_ring to reduce TX drops
+To: netdev@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>
+Cc: bpf@vger.kernel.org, tom@herbertland.com,
+ Eric Dumazet <eric.dumazet@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>,
+ =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
+ dsahern@kernel.org, makita.toshiaki@lab.ntt.co.jp,
+ kernel-team@cloudflare.com, phil@nwl.cc, Chris Arges
+ <carges@cloudflare.com>, Yan Zhai <yan@cloudflare.com>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <174559288731.827981.8748257839971869213.stgit@firesoul>
+ <174559294022.827981.1282809941662942189.stgit@firesoul>
+Content-Language: en-US
+From: Jesper Dangaard Brouer <hawk@kernel.org>
+In-Reply-To: <174559294022.827981.1282809941662942189.stgit@firesoul>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,88 +78,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+Heads-up.
 
-On Fri, 17 Oct 2025 at 17:19, Jakub Kicinski <kuba@kernel.org> wrote:
-> On Fri, 14 Feb 2025 14:55:51 +0100 Geert Uytterhoeven wrote:
-> > The existing FIELD_{GET,PREP}() macros are limited to compile-time
-> > constants.  However, it is very common to prepare or extract bitfield
-> > elements where the bitfield mask is not a compile-time constant.
-> >
-> > To avoid this limitation, the AT91 clock driver and several other
-> > drivers already have their own non-const field_{prep,get}() macros.
-> > Make them available for general use by consolidating them in
-> > <linux/bitfield.h>, and improve them slightly:
-> >   1. Avoid evaluating macro parameters more than once,
-> >   2. Replace "ffs() - 1" by "__ffs()",
-> >   3. Support 64-bit use on 32-bit architectures.
-> >
-> > This is deliberately not merged into the existing FIELD_{GET,PREP}()
-> > macros, as people expressed the desire to keep stricter variants for
-> > increased safety, or for performance critical paths.
->
-> We already have helpers for this, please just don't know they exist :/
->
-> The "const" version of the helpers are specifically defined to work
-> on masks generated with BIT() and GENMASK(). If the mask is not
-> constant we should expect it to have a well defined width.
->
-> I strongly prefer that we do this instead and convert the users to
-> the fixed-width version:
->
-> ---->8----------------
->
-> Subject: bitfield: open code the fixed-width non-const helpers so that people see them
->
-> There is a number of useful helpers defined in bitfield.h but
-> they are mostly invisible to the reader because they are all
-> generated by macros. Open code the 32b versions (which are
-> most commonly used) to give developers a chance to discover them.
->
-> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+We have been running this patchset in production for approx 2.5 months.
+The race-condition we tried to handled (below) in NETDEV_TX_BUSY case,
+isn't avoided 100% of the time.  We end-up in a situation where a TXQ
+remains stopped (and cannot recover) and this results in the attached
+qdisc cannot dequeue packets resulting in backlog getting full.  The
+stalled TXQ state (QUEUE_STATE_DRV_XOFF) was confirmed on one server via
+bpftrace and drgn.
 
-Thanks, but this is more or less the same code which you suggested
-before [1], and to which I just replied[2] after looking at the
-generated assembler output on various architectures.
+We cannot recover from this state because we didn't add appropiate txq
+resets in down/up (ndo_stop/ndo_open), and driver doesn't enable
+dev_watchdog checking.  I have patches ready for this, such that the
+device can recover again.
 
-> @@ -188,6 +193,81 @@ static __always_inline u64 field_mask(u64 field)
->         return field / field_multiplier(field);
->  }
->  #define field_max(field)       ((typeof(field))field_mask(field))
+The observed race-condition BUG seems to only occur on our ARM64
+(aarch64) servers. Looking at metrics we beleive it have happened 6
+times over the period and these servers were all the same ARM CPU type
+Ampere(R) Altra(R) Max Processor model name Neoverse-N1.  Thus, this
+might be a memory barrier issue.
+
+Marked the location below, I think the bug occured.  Looking for input
+on how we can improve the code to avoid this race on ARM.  I think the
+patch [V4] didn't have this race, because it always calls
+__veth_xdp_flush(rq).
+
+  [V4] 
+https://lore.kernel.org/all/174472470529.274639.17026526070544068280.stgit@firesoul/#Z31drivers:net:veth.c
+
+
+On 25/04/2025 16.55, Jesper Dangaard Brouer wrote:
+> In production, we're seeing TX drops on veth devices when the ptr_ring
+> fills up. This can occur when NAPI mode is enabled, though it's
+> relatively rare. However, with threaded NAPI - which we use in
+> production - the drops become significantly more frequent.
+> 
+> The underlying issue is that with threaded NAPI, the consumer often runs
+> on a different CPU than the producer. This increases the likelihood of
+> the ring filling up before the consumer gets scheduled, especially under
+> load, leading to drops in veth_xmit() (ndo_start_xmit()).
+> 
+> This patch introduces backpressure by returning NETDEV_TX_BUSY when the
+> ring is full, signaling the qdisc layer to requeue the packet. The txq
+> (netdev queue) is stopped in this condition and restarted once
+> veth_poll() drains entries from the ring, ensuring coordination between
+> NAPI and qdisc.
+> 
+> Backpressure is only enabled when a qdisc is attached. Without a qdisc,
+> the driver retains its original behavior - dropping packets immediately
+> when the ring is full. This avoids unexpected behavior changes in setups
+> without a configured qdisc.
+> 
+> With a qdisc in place (e.g. fq, sfq) this allows Active Queue Management
+> (AQM) to fairly schedule packets across flows and reduce collateral
+> damage from elephant flows.
+> 
+> A known limitation of this approach is that the full ring sits in front
+> of the qdisc layer, effectively forming a FIFO buffer that introduces
+> base latency. While AQM still improves fairness and mitigates flow
+> dominance, the latency impact is measurable.
+> 
+> In hardware drivers, this issue is typically addressed using BQL (Byte
+> Queue Limits), which tracks in-flight bytes needed based on physical link
+> rate. However, for virtual drivers like veth, there is no fixed bandwidth
+> constraint - the bottleneck is CPU availability and the scheduler's ability
+> to run the NAPI thread. It is unclear how effective BQL would be in this
+> context.
+> 
+> This patch serves as a first step toward addressing TX drops. Future work
+> may explore adapting a BQL-like mechanism to better suit virtual devices
+> like veth.
+> 
+> Reported-by: Yan Zhai <yan@cloudflare.com>
+> Signed-off-by: Jesper Dangaard Brouer <hawk@kernel.org>
+> ---
+>   drivers/net/veth.c |   57 +++++++++++++++++++++++++++++++++++++++++++---------
+>   1 file changed, 47 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/net/veth.c b/drivers/net/veth.c
+> index 7bb53961c0ea..e58a0f1b5c5b 100644
+> --- a/drivers/net/veth.c
+> +++ b/drivers/net/veth.c
+> @@ -307,12 +307,10 @@ static void __veth_xdp_flush(struct veth_rq *rq)
+>   
+>   static int veth_xdp_rx(struct veth_rq *rq, struct sk_buff *skb)
+>   {
+> -	if (unlikely(ptr_ring_produce(&rq->xdp_ring, skb))) {
+> -		dev_kfree_skb_any(skb);
+> -		return NET_RX_DROP;
+> -	}
+> +	if (unlikely(ptr_ring_produce(&rq->xdp_ring, skb)))
+> +		return NETDEV_TX_BUSY; /* signal qdisc layer */
+>   
+> -	return NET_RX_SUCCESS;
+> +	return NET_RX_SUCCESS; /* same as NETDEV_TX_OK */
+>   }
+>   
+>   static int veth_forward_skb(struct net_device *dev, struct sk_buff *skb,
+> @@ -346,11 +344,11 @@ static netdev_tx_t veth_xmit(struct sk_buff *skb, struct net_device *dev)
+>   {
+>   	struct veth_priv *rcv_priv, *priv = netdev_priv(dev);
+>   	struct veth_rq *rq = NULL;
+> -	int ret = NETDEV_TX_OK;
+> +	struct netdev_queue *txq;
+>   	struct net_device *rcv;
+>   	int length = skb->len;
+>   	bool use_napi = false;
+> -	int rxq;
+> +	int ret, rxq;
+>   
+>   	rcu_read_lock();
+>   	rcv = rcu_dereference(priv->peer);
+> @@ -373,17 +371,45 @@ static netdev_tx_t veth_xmit(struct sk_buff *skb, struct net_device *dev)
+>   	}
+>   
+>   	skb_tx_timestamp(skb);
+> -	if (likely(veth_forward_skb(rcv, skb, rq, use_napi) == NET_RX_SUCCESS)) {
 > +
-> +/**
-> + * u32_encode_bits() - prepare a u32 bitfield element (non-const)
-> + * @v: value to put in the field
-> + * @field: shifted mask defining the field's length and position
-> + *
-> + * Equivalent of FIELD_PREP() for u32, field does not have to be constant.
-> + *
-> + * Note that the helper is available for other field widths (generated below).
-> + */
-> +static __always_inline __u32 u32_encode_bits(u32 v, u32 field)
-> +{
-> +       if (__builtin_constant_p(v) && (v & ~field_mask(field)))
-> +               __field_overflow();
-> +       return ((v & field_mask(field)) * field_multiplier(field));
+> +	ret = veth_forward_skb(rcv, skb, rq, use_napi);
+> +	switch (ret) {
+> +	case NET_RX_SUCCESS: /* same as NETDEV_TX_OK */
+>   		if (!use_napi)
+>   			dev_sw_netstats_tx_add(dev, 1, length);
+>   		else
+>   			__veth_xdp_flush(rq);
+> -	} else {
+> +		break;
+> +	case NETDEV_TX_BUSY:
+> +		/* If a qdisc is attached to our virtual device, returning
+> +		 * NETDEV_TX_BUSY is allowed.
+> +		 */
+> +		txq = netdev_get_tx_queue(dev, rxq);
+> +
+> +		if (qdisc_txq_has_no_queue(txq)) {
+> +			dev_kfree_skb_any(skb);
+> +			goto drop;
+> +		}
+> +		/* Restore Eth hdr pulled by dev_forward_skb/eth_type_trans */
+> +		__skb_push(skb, ETH_HLEN);
+> +		/* Depend on prior success packets started NAPI consumer via
+> +		 * __veth_xdp_flush(). Cancel TXQ stop if consumer stopped,
+> +		 * paired with empty check in veth_poll().
+> +		 */
+> +		netif_tx_stop_queue(txq);
+> +		smp_mb__after_atomic();
 
-Unfortunately gcc emits actual divisions or __*div*() calls, and
-multiplications in the non-constant case.
+Maybe this memory barrier isn't enough on ARM?
 
-So I don't think this is suitable as-is.
+I tried to follow the code, and AFAICT the smp_mb__after_atomic() on ARM
+result in __smp_mb(), which on ARM is[1] an actual DMB (Data Memory
+Barrier) instruction.
 
-> +}
+[1] 
+https://elixir.bootlin.com/linux/v6.17.1/source/arch/arm/include/asm/barrier.h#L77
 
-[1] https://lore.kernel.org/all/20250214073402.0129e259@kernel.org
-[2] https://lore.kernel.org/all/CAMuHMdU+0HGG22FbO3wNmXtbUm9RhTopYrGghF6UrkFu-iww2A@mail.gmail.com
+-Jesper
 
-Gr{oetje,eeting}s,
+> +		if (unlikely(__ptr_ring_empty(&rq->xdp_ring)))
+> +			netif_tx_wake_queue(txq);
+> +		break;
+> +	case NET_RX_DROP: /* same as NET_XMIT_DROP */
+>   drop:
+>   		atomic64_inc(&priv->dropped);
+>   		ret = NET_XMIT_DROP;
+> +		break;
+> +	default:
+> +		net_crit_ratelimited("%s(%s): Invalid return code(%d)",
+> +				     __func__, dev->name, ret);
+>   	}
+> -
+>   	rcu_read_unlock();
+>   
+>   	return ret;
+> @@ -874,9 +900,17 @@ static int veth_xdp_rcv(struct veth_rq *rq, int budget,
+>   			struct veth_xdp_tx_bq *bq,
+>   			struct veth_stats *stats)
+>   {
+> +	struct veth_priv *priv = netdev_priv(rq->dev);
+> +	int queue_idx = rq->xdp_rxq.queue_index;
+> +	struct netdev_queue *peer_txq;
+> +	struct net_device *peer_dev;
+>   	int i, done = 0, n_xdpf = 0;
+>   	void *xdpf[VETH_XDP_BATCH];
+>   
+> +	/* NAPI functions as RCU section */
+> +	peer_dev = rcu_dereference_check(priv->peer, rcu_read_lock_bh_held());
+> +	peer_txq = netdev_get_tx_queue(peer_dev, queue_idx);
+> +
+>   	for (i = 0; i < budget; i++) {
+>   		void *ptr = __ptr_ring_consume(&rq->xdp_ring);
+>   
+> @@ -925,6 +959,9 @@ static int veth_xdp_rcv(struct veth_rq *rq, int budget,
+>   	rq->stats.vs.xdp_packets += done;
+>   	u64_stats_update_end(&rq->stats.syncp);
+>   
+> +	if (unlikely(netif_tx_queue_stopped(peer_txq)))
+> +		netif_tx_wake_queue(peer_txq);
+> +
+>   	return done;
+>   }
+>   
+> 
 
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
