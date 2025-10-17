@@ -4,84 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51632CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E89CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NgBJlBBQiwIiYE31q49jHU8DgYr8sOYsUodkYg4Ek5Y=; b=Eb2kfDBWlNgu7nIcoxvFcOQ/l9
-	fWEhwmcSDlkwSNzENsOgUtCMhl1fAoCjsjCEFNlvNfV6RLrp0gU5qCLc6N6xcrPYxTnQdwbf++R0O
-	sRMvY1K+xOt9PRrvH72S9zGZ3y4nRKgkzsWpF8yHJVmVAIMVEmZcqj6NCavHewgDV4NP5SV3uK0tv
-	NTNG0Hqk9/C2mcrGsM014lW1/9jfkvRZ405yx9ewOXzXtRP2InmXtTRcYVEmKZikJO/fBttTraqjz
-	mdbLo+jzDSWjT5QweopJKIAlrtOgCn5vR32yXl/8F18iThtsQBQYFMSP+xu/ke8tovzgZc74SAdZj
-	NVURCLsQ==;
+	bh=8bx5Txy8og/O6i1T8MIDUUZY/+F2oP8HDFFEoUUoKHk=; b=4qyTzpqhhXEvlJMraG7auIf8LE
+	5botahvLgORzsCnXLWsqA6RmB68dt0tR+rIPbdMf8JmvacfAuTzIS7rnuL70IpqmzUEN7O3eMBMTi
+	Mg5D1AT3qqLpUPDCm0liXNnKNxWLfaO7HahwTyMqutOM1t5DHBxnEhFN99Qw6hww257iZk+KtLxP9
+	QlfQXkaODmniUnPNOeLJVA10I+ygT8VUX0XBG7oi9l+jebKtyb36qQGXq/d5eY7L8ddFjKmc54fe/
+	fFrdSbQ7bbEKfKO/TX3QjWcTuT5bxlvPjQViKV9J0nSbyYGoIw8URemuOExHCr81MYhcy3BXPD+U9
+	BWHu3PAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9f47-00000006z8A-3QSf;
-	Fri, 17 Oct 2025 07:39:55 +0000
-Received: from esa6.hc1455-7.c3s2.iphmx.com ([68.232.139.139])
+	id 1v9f4c-00000006zEy-3gjq;
+	Fri, 17 Oct 2025 07:40:26 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9f43-00000006z7B-2mup
+	id 1v9f4a-00000006zD5-0rzw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 07:39:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1760686791; x=1792222791;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=8Qd4GPH7y8X3pVNHEWQhcSh8umsdNRfLMh7EGnd9YjU=;
-  b=iVmRk0sSX4l3G0KyIf7coc+P/ZZTzQNdgeBw62qVY28eEBPicP2shiPT
-   TBxrlkmd/l5cQtqQ39IVzXz5E6Cfppi59Ii3Z/OhCIx06VOzG+YVqWEyk
-   cHGpSWnwDZTfTCBdEn8pLXuvYzgMZ/IVaqsmS0MgP4XYLpGA4hg4ZZ0LP
-   vLouIF4u+HEtyiqLrqOKHGi1BivMkoDdWcY3FTmQfrMuB2GOY7yWCfzfP
-   qyTFRkzTLtcN1UTyAHMPHJxbtnbacOfsONz1xTcnef6UXwo2A2EHN6QiE
-   SMdYuy7W5taK8c2QHlrcPUgus64RL6FSzEO/VMyH+ZaUo2e4PjK5eF6xA
-   A==;
-X-CSE-ConnectionGUID: stmgl7gBThuCWP+CyGi3nA==
-X-CSE-MsgGUID: dBrIIo83SMKdCOuqLbRDVA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11584"; a="219877385"
-X-IronPort-AV: E=Sophos;i="6.19,234,1754924400"; 
-   d="scan'208";a="219877385"
-Received: from unknown (HELO az2uksmgr2.o.css.fujitsu.com) ([52.151.125.19])
-  by esa6.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Oct 2025 16:39:47 +0900
-Received: from az2uksmgm1.o.css.fujitsu.com (unknown [10.151.22.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgr2.o.css.fujitsu.com (Postfix) with ESMTPS id 83E6682073D
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 07:39:46 +0000 (UTC)
-Received: from az2uksmom1.o.css.fujitsu.com (az2uksmom1.o.css.fujitsu.com [10.151.22.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 407E192674D
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 07:39:46 +0000 (UTC)
-Received: from sm-arm-grace07.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
-	by az2uksmom1.o.css.fujitsu.com (Postfix) with ESMTP id 2F795180157C;
-	Fri, 17 Oct 2025 07:39:41 +0000 (UTC)
-From: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org,
+	Fri, 17 Oct 2025 07:40:25 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-33bbeec2ed7so1162878a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 00:40:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760686822; x=1761291622; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8bx5Txy8og/O6i1T8MIDUUZY/+F2oP8HDFFEoUUoKHk=;
+        b=jD/hXOpSgCdLe8WCopexclzaDiLWgTHHGQYWR/pn5a3k8e/09Fu2ngNpx3e2/Zf/JE
+         b/o/+W4oRK8XD+RIIz9i2VEd0zhf/Gy0T+HpNpy5In5BbD/eIUD9yvxl4LDjvDerCPIN
+         cW59+rNQt0vuGr0d7+H0b0yMDvuZm9BhqK8+ZN2vEALVTcov7aCK0kZ7998NxyuDe6OD
+         xF9CF4mMOecZ9INAL2Qqc+Qmdvm1TBa/Az6poLPdX50Y8WSUyUKmW/QiLJcHgkVo6iMW
+         PwNdqWOK/XtuOKdTdCBVcoycrSXTDrc3Etcqj5zWBSPEmCnY/TRXjUSfHF9Um4Ou0gWc
+         kmoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760686822; x=1761291622;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8bx5Txy8og/O6i1T8MIDUUZY/+F2oP8HDFFEoUUoKHk=;
+        b=hDWJDojuZ1Azjvl6s+5CyhAfa1U/qp8MEvuwqUAUpc74ue+auYYlWnnidNLuPNbUzL
+         NZXXTzvw7AMa+fgkf4JQi7p9+62P+vqJ3BAFuttfDTJV8rzU3I2YUZYMAovaA8hTIFsh
+         4Bv+smt0iqOly3l7/jkYiY2H3pAebMGlvw0EZ5Ob10hT8NdFvbn8bsmXTGvL6aNZMKTd
+         7VFnK67orw90KqA/S9ahwmjd9C40Dg8sv9n0ic004P3Ys3Co/xkqEAZ1tM2zzIhKmtI3
+         LYT+BFPuqIq+w/Rwv5Rl+DoZTmqrG+5iRhFKTfZYYsq4jFnjKR24gv11869dU5OY7RqS
+         sX9g==
+X-Forwarded-Encrypted: i=1; AJvYcCU6GigvfCZjfh2nAK6m0IX7hjB5M+PG+jZ8mh8I0YSy6BLaK/iitTzK35CMtRduqmVbKNdbxNg5Tl9Z0dJCyI7J@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYDv07gfNBnBBxPWxUIXQQ2WEW1iRgqEQKDki5VjPu2dFJoqdk
+	jKiLc496A4MdF7nqGauSCLYvfnr2xgsl95Zt387HTW2HYmJSjuJTw4rg
+X-Gm-Gg: ASbGncsbIrdpCouW8AMuUAaViGEXGThP+UhM/qFJ+SU0psNmDELVmZYXSMYfSeKOlhI
+	sZAjDNw1GGDJUV9I+J1HisMkzUm9M9R3hW875oKtHeOGAbxlbnqfnTA1zO0ylK/94p+qYfYk9YU
+	9l3oOQOVu71XNi1fSney9Gg/MzLiQNeuWlVMJDAAhJxz27NHQDhxwim/wrl6Mk4YSEx+gupTGYc
+	kYRHAB0POAhzWaCSFGesDq3oV9ySZ7t1+NjlTzSDIaN40y0NFsixF6/dSOkiARWfvuKVBPhCUmn
+	yNsCrcvES/rLVjVxgZc4iq4C3hLB9R7pXG8kNMiIzb7UPCWgb+9D0ia+cCW1YfF8ZiIiROhHa0F
+	eN9iLSJUuMpt6LFA8eu1XMNLJJ4itluP/rC33CHPUWrxz+czAL1l99dPMLnWwPLk=
+X-Google-Smtp-Source: AGHT+IE5Wq2LSw/8u7zxDPAEAndLC3TWgGO8LMJfU4cDrcRHWlGtfWo/mBTgBjACKeby5RgogHrlvg==
+X-Received: by 2002:a17:90b:38c7:b0:339:d1f0:c735 with SMTP id 98e67ed59e1d1-33bcf91e032mr3105311a91.28.1760686821347;
+        Fri, 17 Oct 2025 00:40:21 -0700 (PDT)
+Received: from CNSZTL-DEB.lan ([2401:b60:5:2::a])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33bd7b3173asm1879479a91.12.2025.10.17.00.40.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Oct 2025 00:40:20 -0700 (PDT)
+From: Tianling Shen <cnsztl@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Grzegorz Sterniczuk <grzegorz@sternicz.uk>,
+	Tianling Shen <cnsztl@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Jonas Karlman <jonas@kwiboo.se>
+Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
-Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Subject: [PATCH v4] ACPI: AGDI: Add interrupt signaling mode support
-Date: Fri, 17 Oct 2025 16:39:25 +0900
-Message-ID: <20251017073935.1746365-1-fj1078ii@aa.jp.fujitsu.com>
-X-Mailer: git-send-email 2.43.0
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: fix eMMC corruption on NanoPC-T6 with A3A444 chips
+Date: Fri, 17 Oct 2025 15:39:54 +0800
+Message-ID: <20251017073954.130710-1-cnsztl@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_003952_326370_DC68C73C 
-X-CRM114-Status: GOOD (  24.64  )
+X-CRM114-CacheID: sfid-20251017_004024_259435_795A0B2A 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,191 +104,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AGDI has two types of signaling modes: SDEI and interrupt.
-Currently, the AGDI driver only supports SDEI.
-Therefore, add support for interrupt signaling mode
-The interrupt vector is retrieved from the AGDI table, and call panic
-function when an interrupt occurs.
+From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
 
-Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
+Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O errors and
+corruption when using HS400 mode. Downgrade to HS200 mode to ensure
+stable operation.
+
+Signed-off-by: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
+Signed-off-by: Tianling Shen <cnsztl@gmail.com>
 ---
-Hanjun, I have addressed all your comments.
-Please review them.
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-v3->v4
- - Add a comment to the flags member.
- - Fix agdi_interrupt_probe.
- - Fix agdi_interrupt_remove.
- - Add space in struct initializsation.
- - Delete curly braces.
-
-v3: https://lore.kernel.org/all/20250905042751.945616-1-fj1078ii@aa.jp.fujitsu.com/
-v2->v3
- - Fix bug in the return value of agdi_probe function.
- - Remove unnecessary curly braces in the agdi_remove function.
-
-v2: https://lore.kernel.org/all/20250829101154.2377800-1-fj1078ii@aa.jp.fujitsu.com/
-v1->v2
- - Remove acpica update since there is no need to update define value
-   for this patch.
----
- drivers/acpi/arm64/agdi.c | 101 ++++++++++++++++++++++++++++++++++----
- 1 file changed, 92 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/acpi/arm64/agdi.c b/drivers/acpi/arm64/agdi.c
-index e0df3daa4abf..feb4b2cb4618 100644
---- a/drivers/acpi/arm64/agdi.c
-+++ b/drivers/acpi/arm64/agdi.c
-@@ -16,7 +16,11 @@
- #include "init.h"
- 
- struct agdi_data {
-+	unsigned char flags; /* AGDI Signaling Mode */
- 	int sdei_event;
-+	unsigned int gsiv;
-+	bool use_nmi;
-+	int irq;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+index fafeabe9adf9..5f63f38f7326 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+@@ -717,8 +717,7 @@ &sdhci {
+ 	no-sd;
+ 	non-removable;
+ 	max-frequency = <200000000>;
+-	mmc-hs400-1_8v;
+-	mmc-hs400-enhanced-strobe;
++	mmc-hs200-1_8v;
+ 	status = "okay";
  };
  
- static int agdi_sdei_handler(u32 sdei_event, struct pt_regs *regs, void *arg)
-@@ -48,6 +52,57 @@ static int agdi_sdei_probe(struct platform_device *pdev,
- 	return 0;
- }
- 
-+static irqreturn_t agdi_interrupt_handler_nmi(int irq, void *dev_id)
-+{
-+	nmi_panic(NULL, "Arm Generic Diagnostic Dump and Reset NMI Interrupt event issued\n");
-+	return IRQ_HANDLED;
-+}
-+
-+static irqreturn_t agdi_interrupt_handler_irq(int irq, void *dev_id)
-+{
-+	panic("Arm Generic Diagnostic Dump and Reset Interrupt event issued\n");
-+	return IRQ_HANDLED;
-+}
-+
-+static int agdi_interrupt_probe(struct platform_device *pdev,
-+				struct agdi_data *adata)
-+{
-+	unsigned long irq_flags;
-+	int ret;
-+	int irq;
-+
-+	irq = acpi_register_gsi(NULL, adata->gsiv, ACPI_EDGE_SENSITIVE, ACPI_ACTIVE_HIGH);
-+	if (irq < 0) {
-+		dev_err(&pdev->dev, "cannot register GSI#%d (%d)\n", adata->gsiv, irq);
-+		return irq;
-+	}
-+
-+	irq_flags = IRQF_PERCPU | IRQF_NOBALANCING | IRQF_NO_AUTOEN |
-+		    IRQF_NO_THREAD;
-+	/* try NMI first */
-+	ret = request_nmi(irq, &agdi_interrupt_handler_nmi, irq_flags,
-+			  "agdi_interrupt_nmi", NULL);
-+	if (!ret) {
-+		enable_nmi(irq);
-+		adata->irq = irq;
-+		adata->use_nmi = true;
-+		return 0;
-+	}
-+
-+	/* Then try normal interrupt */
-+	ret = request_irq(irq, &agdi_interrupt_handler_irq,
-+			  irq_flags, "agdi_interrupt_irq", NULL);
-+	if (ret) {
-+		dev_err(&pdev->dev, "cannot register IRQ %d\n", ret);
-+		acpi_unregister_gsi(adata->gsiv);
-+		return ret;
-+	}
-+	enable_irq(irq);
-+	adata->irq = irq;
-+
-+	return 0;
-+}
-+
- static int agdi_probe(struct platform_device *pdev)
- {
- 	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
-@@ -55,12 +110,15 @@ static int agdi_probe(struct platform_device *pdev)
- 	if (!adata)
- 		return -EINVAL;
- 
--	return agdi_sdei_probe(pdev, adata);
-+	if (adata->flags & ACPI_AGDI_SIGNALING_MODE)
-+		return agdi_interrupt_probe(pdev, adata);
-+	else
-+		return agdi_sdei_probe(pdev, adata);
- }
- 
--static void agdi_remove(struct platform_device *pdev)
-+static void agdi_sdei_remove(struct platform_device *pdev,
-+			     struct agdi_data *adata)
- {
--	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
- 	int err, i;
- 
- 	err = sdei_event_disable(adata->sdei_event);
-@@ -83,6 +141,30 @@ static void agdi_remove(struct platform_device *pdev)
- 			adata->sdei_event, ERR_PTR(err));
- }
- 
-+static void agdi_interrupt_remove(struct platform_device *pdev,
-+				  struct agdi_data *adata)
-+{
-+	if (adata->irq == -1)
-+		return;
-+
-+	if (adata->use_nmi)
-+		free_nmi(adata->irq, NULL);
-+	else
-+		free_irq(adata->irq, NULL);
-+
-+	acpi_unregister_gsi(adata->gsiv);
-+}
-+
-+static void agdi_remove(struct platform_device *pdev)
-+{
-+	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
-+
-+	if (adata->flags & ACPI_AGDI_SIGNALING_MODE)
-+		agdi_interrupt_remove(pdev, adata);
-+	else
-+		agdi_sdei_remove(pdev, adata);
-+}
-+
- static struct platform_driver agdi_driver = {
- 	.driver = {
- 		.name = "agdi",
-@@ -94,7 +176,7 @@ static struct platform_driver agdi_driver = {
- void __init acpi_agdi_init(void)
- {
- 	struct acpi_table_agdi *agdi_table;
--	struct agdi_data pdata;
-+	struct agdi_data pdata = { 0 };
- 	struct platform_device *pdev;
- 	acpi_status status;
- 
-@@ -103,12 +185,13 @@ void __init acpi_agdi_init(void)
- 	if (ACPI_FAILURE(status))
- 		return;
- 
--	if (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE) {
--		pr_warn("Interrupt signaling is not supported");
--		goto err_put_table;
--	}
-+	if (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE)
-+		pdata.gsiv = agdi_table->gsiv;
-+	else
-+		pdata.sdei_event = agdi_table->sdei_event;
- 
--	pdata.sdei_event = agdi_table->sdei_event;
-+	pdata.irq = -1;
-+	pdata.flags = agdi_table->flags;
- 
- 	pdev = platform_device_register_data(NULL, "agdi", 0, &pdata, sizeof(pdata));
- 	if (IS_ERR(pdev))
 -- 
-2.43.0
+2.51.0
 
 
