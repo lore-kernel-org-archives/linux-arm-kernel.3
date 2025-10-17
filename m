@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AFA3CCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57BA6CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:21:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8r7krmsVbg9LZSGZHAhgtzNazujSLkD3B3g7V5NcBwY=; b=OnI06xNbLaEXuZAZPpga6iqOks
-	S49om7CXRiTciVwiMT1lGCcAvLD7l/bMnZ6F3ZeqZXr2v83ww0TcU3X0JuWj1iop67tzV5IJJOr6b
-	yhm/6ODgBeqOehPj+owgFWsNGMTd5sjyOaVjLOwcP+oFSSMoqslYF72+WV1udh3P5IgIb1AImBbVC
-	W/nWHhtDtdDZb+/Fhq5oHuXiirSri8ZcH/wKs5vTEJ5BcmzUlVYpdlIKQBRcEMClDC5o5EXoQNxaC
-	gbGyiWzQtTBE1l6kzp0/tnmvMxz3XEhNbyV1VC8HIg8hoV+7GPhjrr5d17V5iMeIONK/kLUYHElts
-	pSyOvg9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eZ5/2E9/kdHV6wKk13IMjV26fuC0EY7cU/moeac/r0k=; b=T5gw+AoCPUD5+TKhbpo5tIikC+
+	1mVE31SXgCDnkp+zp1K1d88xmCtXibfz0x+4v98EamYntSaJfd2os46VssuCrvDOhrSMBTMk7gROJ
+	kgiIeoCRd9QFer/ys7KL9GlLeazEQA9/FsstEhHc14mm1xDXAhf2bXk3Dr67EYAzjNR+Rkp+6We6Q
+	7WdygpUQm9TAPo6QS5ye1qdMvbp//o9DuKlEffcoJaFEzI8uViiOh/rNDP5ifk/0JKnctDsgtrIww
+	75Rao1zpb49gbyM6T+q3jT8OBtMAIrzrnrqLi3z2hUenzq+lq6vCSSibUTg5B3QQf9L4xy+t4TZN0
+	eQisgxBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iNw-00000007dW3-1iht;
-	Fri, 17 Oct 2025 11:12:36 +0000
+	id 1v9iWN-00000007eWn-42pZ;
+	Fri, 17 Oct 2025 11:21:19 +0000
 Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9iNt-00000007dV4-3kBq;
-	Fri, 17 Oct 2025 11:12:35 +0000
+	id 1v9iWL-00000007eVj-1chU;
+	Fri, 17 Oct 2025 11:21:18 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760699551;
+	s=2020; t=1760700075;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8r7krmsVbg9LZSGZHAhgtzNazujSLkD3B3g7V5NcBwY=;
-	b=dwf9SVgx1Zm1Pjequ3PR4+DL9xU+zQkUKo/qkUoLgcEfT5hWjmoO+A9ILNUIdfH3PCBjcm
-	kjHuIgzpSkUwpYij4l2LrTCRzQ2kOF14XCm2thcKmeyb4xvWKLv4pS9XDX+TSJMhsmM3xZ
-	uJd47j3quh7ZP3eF0SSZHcrgy0w23wDuwgQVoKuxn37DVakJ9pvBRscWEovVvfQBQMLfzo
-	ZDoCCebSSI7JLCizkNXDwjf37GRsNaYiN4YTYgmYyBOmkYv+luhDR3r613BYkEG6UQ4xEp
-	iYq38/MAPfL1wPgY02WJkbXSgs57Re0RYgWYpTOXPn8w5sJohJ8UT9mds3BzsQ==
+	bh=eZ5/2E9/kdHV6wKk13IMjV26fuC0EY7cU/moeac/r0k=;
+	b=0w22HeRqwsEaDWfFRcdym9ZdxujQL/SMlrRPuJJ8G0lW0VU+roLNqAQqn+5ddD4XHPvhCI
+	G8RfcOVLaDb522FTklVP+T9AWU7a2YUuU3/zS9de1315WWxBoHvU0Nj9QJ0h9Ke1JMi7Um
+	5yCRggrIaasOfxTCXZDvGcnXQN5DpN5DBZjhPihilyQSh9zfnpDA51OSo91RRi6YZ2ajDU
+	zq9nd/fL2MnY3jElVShCHCxnhdw8CHKx+HzZyOCYRxfE/8sQpHPMZx5+Owgr0vwuACBi4W
+	Im9zYuGn3kphxZ4bkop+xrUFJb6ZrY64lUNREC8dmKGqVpm3CuTHhMBvBTfxjg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760699551;
+	s=2020e; t=1760700075;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8r7krmsVbg9LZSGZHAhgtzNazujSLkD3B3g7V5NcBwY=;
-	b=26gxJBd+HlY8L8NbIT72iVZHqcHJxgQgi0oCm2WnVTtFtLjxOCcaf7Awkdf4HoaO1nfGV0
-	R6vqEwqGMtDc68AQ==
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan
- Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org, kernel test robot
- <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Linus Torvalds
- <torvalds@linux-foundation.org>, x86@kernel.org, Madhavan Srinivasan
+	bh=eZ5/2E9/kdHV6wKk13IMjV26fuC0EY7cU/moeac/r0k=;
+	b=yb2o+SyRVbqNJx1T2MjsSgrIjIm9/+bN/XuOD9YUNJmae1nSpVUZAsBLSIxLGfTfjAFqpz
+	FrlXldlLVbWUzqBA==
+To: Andrew Cooper <andrew.cooper@citrix.com>, LKML
+ <linux-kernel@vger.kernel.org>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Andrew Cooper
+ <andrew.cooper3@citrix.com>, Linus Torvalds
+ <torvalds@linux-foundation.org>, kernel test robot <lkp@intel.com>,
+ Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, x86@kernel.org, Madhavan Srinivasan
  <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
- Piggin <npiggin@gmail.com>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, linuxppc-dev@lists.ozlabs.org, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Piggin <npiggin@gmail.com>, linuxppc-dev@lists.ozlabs.org, Paul Walmsley
+ <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
  linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
  Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, linux-s390@vger.kernel.org, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Andrew Cooper
- <andrew.cooper3@citrix.com>, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
- Palix <nicolas.palix@imag.fr>, Darren Hart <dvhart@infradead.org>,
+ <svens@linux.ibm.com>, linux-s390@vger.kernel.org, Julia Lawall
+ <Julia.Lawall@inria.fr>, Nicolas Palix <nicolas.palix@imag.fr>, Peter
+ Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>,
  Davidlohr Bueso <dave@stgolabs.net>, =?utf-8?Q?Andr=C3=A9?= Almeida
- <andrealmeid@igalia.com>
-Subject: Re: [patch V3 12/12] select: Convert to scoped masked user access
-In-Reply-To: <20251017103554.GY4067720@noisy.programming.kicks-ass.net>
+ <andrealmeid@igalia.com>, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V3 07/12] uaccess: Provide scoped masked user access
+ regions
+In-Reply-To: <adba2f37-85fc-45fa-b93b-9b86ab3493f3@citrix.com>
 References: <20251017085938.150569636@linutronix.de>
- <20251017093030.570048808@linutronix.de>
- <20251017103554.GY4067720@noisy.programming.kicks-ass.net>
-Date: Fri, 17 Oct 2025 13:12:29 +0200
-Message-ID: <874irx234y.ffs@tglx>
+ <20251017093030.253004391@linutronix.de>
+ <adba2f37-85fc-45fa-b93b-9b86ab3493f3@citrix.com>
+Date: Fri, 17 Oct 2025 13:21:14 +0200
+Message-ID: <871pn122qd.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_041234_066777_9D3E57CF 
-X-CRM114-Status: UNSURE (   7.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251017_042117_556983_8C0CF525 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,14 +96,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17 2025 at 12:35, Peter Zijlstra wrote:
-> On Fri, Oct 17, 2025 at 12:09:18PM +0200, Thomas Gleixner wrote:
->> -		unsafe_get_user(to->p, &from->p, Efault);
->> -		unsafe_get_user(to->size, &from->size, Efault);
->> -		user_read_access_end();
->> +		scoped_masked_user_rw_access(from, Efault) {
->
-> Should this not be: scoped_masked_user_read_access() ?
+On Fri, Oct 17 2025 at 12:08, Andrew Cooper wrote:
 
-Of course. The wonders of copy & pasta ....
+> On 17/10/2025 11:09 am, Thomas Gleixner wrote:
+>> --- a/include/linux/uaccess.h
+>> +++ b/include/linux/uaccess.h
+>> +#define __scoped_masked_user_access(_mode, _uptr, _size, _elbl)					\
+>> +for (bool ____stop =3D false; !____stop; ____stop =3D true)						\
+>> +	for (typeof((_uptr)) _tmpptr =3D __scoped_user_access_begin(_mode, _up=
+tr, _size, _elbl);	\
+>> +	     !____stop; ____stop =3D true)							\
+>> +		for (CLASS(masked_user_##_mode##_access, scope) (_tmpptr); !____stop;=
+		\
+>> +		     ____stop =3D true)					\
+>> +			/* Force modified pointer usage within the scope */			\
+>> +			for (const typeof((_uptr)) _uptr =3D _tmpptr; !____stop; ____stop =
+=3D true)	\
+>> +				if (1)
+>> +
+>
+> Truly a thing of beauty.=C2=A0 At least the end user experience is nice.
+>
+> One thing to be aware of is that:
+>
+> =C2=A0=C2=A0=C2=A0 scoped_masked_user_rw_access(ptr, efault) {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsafe_get_user(rval, &ptr->rv=
+al, efault);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsafe_put_user(wval, &ptr->wv=
+al, efault);
+> =C2=A0=C2=A0=C2=A0 } else {
+> =C2=A0=C2=A0=C2=A0 =C2=A0=C2=A0=C2=A0 // unreachable
+> =C2=A0=C2=A0=C2=A0 }
+>
+> will compile.=C2=A0 Instead, I think you want the final line of the macro=
+ to
+> be "if (0) {} else" to prevent this.
+
+Duh. yes. But I can just remove the 'if (1)' completely. That's a
+leftover from some earlier iteration of this.
+
+> While we're on the subject, can we find some C standards people to lobby.
+>
+> C2Y has a proposal to introduce "if (int foo =3D" syntax to generalise the
+> for() loop special case.=C2=A0 Can we please see about fixing the restric=
+tion
+> of only allowing a single type per loop?=C2=A0=C2=A0 This example could b=
+e a
+> single loop if it weren't for that restriction.
+
+That'd be nice. But we can't have nice things, can we?
+
+Thanks,
+
+        tglx
 
