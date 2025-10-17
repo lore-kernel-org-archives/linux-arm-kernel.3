@@ -4,45 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08728CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 18:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87516CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 18:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ROdbFE8y2T2KPedPLHPnGdwjoaGzA/QVraC+t7XYJyA=; b=rJGQgy6j3CsVhUvZbHa8xJ2gsN
-	KMmlfvRqSl6z5uwhlrhPrCp4imFOtqupL4Pc8kzvkcPGgdHJ+KuIf4nmdwXAR63GaLuqfFP5wnSz2
-	Hh1R6mJhwMdGrliDCMpRcLnDZUHUqCXYl9QIhFwcg6e60HLWFVpHfqXLI7x0jP3r3WLIk20MrwxGK
-	rw6ZPGL0vM++YhnNoU0LHgbVJ8KTI5QpEl5iCrcSFhtCSocSD7ldfej3fGaxoyM5DpI4mUy1gsTXL
-	hw2faOLCU9tNxcVIpzO2YJrmKH2eRDCXxDq9KgLf0LQn8U+F6OtMjvwX7ON+2DX6nytAXLiLoRfEB
-	VOJ3TSJw==;
+	bh=Jo4oImkEBXJ1ekm2nVICMbpxm4KOT7C6jbNF/Xi65CM=; b=andwxJJ9Fi2TkS+ESMMTRSVkuR
+	gACz8YuRi6enZZ/Qc2yJ3hFhtx0GI12ffk/KAHo2RxmhOca65Ab1kHCgkrDsEKjPFrl0nnrxi/QuG
+	clYf3EhPZKadADlE4k94kg+LaP9WJFPAdwPZ9kIz6/vsyBxSm0lUYH39G8f5OVPalEnmU9FWa07ZO
+	9w5hI+NfjyPBV45O/NWjZjlq/YCxPTsyN9ttSaOOCqoxCv7awn2hgU+Eq2tcLayiWy19jt4viCCKL
+	Xp7u2c6Fwe/ozRDdVvgF8Lj8knHB0rdkj6AqYDdEavxz35WBaspDoGGCydtS26u473GiAB91ppQcn
+	cUV3dbXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9pXh-00000008i94-2oYA;
-	Fri, 17 Oct 2025 18:51:09 +0000
+	id 1v9pXp-00000008iC9-49pq;
+	Fri, 17 Oct 2025 18:51:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9pXa-00000008i6O-2Rg5
+	id 1v9pXk-00000008iA4-0SaL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 18:51:03 +0000
+	Fri, 17 Oct 2025 18:51:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D9021515;
-	Fri, 17 Oct 2025 11:50:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5C8E31595;
+	Fri, 17 Oct 2025 11:51:00 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 75A823F6A8;
-	Fri, 17 Oct 2025 11:50:56 -0700 (PDT)
-Message-ID: <0a96d2d9-e548-4362-ae23-856d1d44548b@arm.com>
-Date: Fri, 17 Oct 2025 19:50:56 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8336E3F6A8;
+	Fri, 17 Oct 2025 11:51:02 -0700 (PDT)
+Message-ID: <7c2723fb-b5dd-4ae7-802b-8c9b2dadd78a@arm.com>
+Date: Fri, 17 Oct 2025 19:50:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 06/29] ACPI / MPAM: Parse the MPAM table
-To: Jonathan Cameron <jonathan.cameron@huawei.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
+To: Fenghua Yu <fenghuay@nvidia.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  carl@os.amperecomputing.com, lcherian@marvell.com,
  bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
  baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
@@ -50,25 +48,25 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  dfustini@baylibre.com, amitsinght@marvell.com,
  David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
  Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
- Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250910204309.20751-1-james.morse@arm.com>
  <20250910204309.20751-7-james.morse@arm.com>
- <20250911141726.00002f0c@huawei.com>
- <334e0e8b-3f30-48b7-896f-0b31111d2b41@arm.com>
- <20250926154806.0000609e@huawei.com>
+ <53c52ef8-823e-4627-8fff-e09da33d8e7b@nvidia.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <20250926154806.0000609e@huawei.com>
+In-Reply-To: <53c52ef8-823e-4627-8fff-e09da33d8e7b@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_115102_749553_99307466 
-X-CRM114-Status: GOOD (  44.64  )
+X-CRM114-CacheID: sfid-20251017_115112_225099_99BA72AF 
+X-CRM114-Status: GOOD (  20.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,173 +81,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Hi Fenghua,
 
-On 26/09/2025 15:48, Jonathan Cameron wrote:
->>>> +	char uid[16];
->>>> +	u32 acpi_id;
->>>> +
->>>> +	if (acpi_disabled || !system_supports_mpam() || IS_ERR(table))
->>>> +		return 0;
->>>> +
->>>> +	if (table->revision < 1)
->>>> +		return 0;
->>>> +
->>>> +	table_end = (char *)table + table->length;
->>>> +
->>>> +	while (table_offset < table_end) {
->>>> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
->>>> +		table_offset += tbl_msc->length;
->>>> +
->>>> +		if (table_offset > table_end) {
->>>> +			pr_debug("MSC entry overlaps end of ACPI table\n");
->>>> +			break;  
+On 02/10/2025 04:21, Fenghua Yu wrote:
+> On 9/10/25 13:42, James Morse wrote:
+>> Add code to parse the arm64 specific MPAM table, looking up the cache
+>> level from the PPTT and feeding the end result into the MPAM driver.
 >>
->>> That this isn't considered an error is a bit subtle and made me wonder
->>> if there was a use of uninitialized pdev (there isn't because err == 0)  
->>
->> Its somewhat a philosophical arguement. I don't expect the kernel to have to validate
->> these tables, they're not provided by the user and there quickly becomes a point where
->> you have to trust them, and they have to be correct.
-
-> Potential buffer overrun is to me always worth error out screaming, but I get your
-> broader point.   Maybe just make it a pr_err()
-
-Sure, done.
+>> For now the MPAM hook mpam_ris_create() is stubbed out, but will update
+>> the MPAM driver with optional discovered data.
 
 
->> At the other extreme is the asusmption the table is line-noise and we should check
->> everything to avoid out of bounds accesses. Dave wanted the diagnostic messages on these.
->>
->> As this is called from an initcall, the best you get is an inexplicable print message.
->> (what should we say - update your firmware?)
+>> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
+>> new file mode 100644
+>> index 000000000000..fd9cfa143676
+>> --- /dev/null
+>> +++ b/drivers/acpi/arm64/mpam.c
+
+>> +static int acpi_mpam_parse_resource(struct mpam_msc *msc,
+>> +                    struct acpi_mpam_resource_node *res)
+>> +{
+>> +    int level, nid;
+>> +    u32 cache_id;
+>> +
+>> +    switch (res->locator_type) {
+>> +    case ACPI_MPAM_LOCATION_TYPE_PROCESSOR_CACHE:
+>> +        cache_id = res->locator.cache_locator.cache_reference;
+>> +        level = find_acpi_cache_level_from_id(cache_id);
+>> +        if (level <= 0) {
+>> +            pr_err_once("Bad level (%u) for cache with id %u\n", level, cache_id);
 > 
-> Depends on whether you can lean hard on the firmware team. Much easier
-> for me if I can tell them the board doesn't boot because they got it wrong.
+> Since level could be negative value here, printing it as %u converts it to positive value
+> and will cause debug difficulty. For example, -ENOENT returned by
+> find_acpi_cache_level_from_id() will be printed as 4294967294(instead of -2) which is hard
+> to know the error code.
 > 
-> That would have been safer if we had this upstream in advance of hardware, but indeed
-> a little high risk today as who knows what borked tables are out there.
+> Suggest to change this to %d:
+
+Sure, its never meant to be seen!
+
+
+>             pr_err_once("Bad level (%d) for cache with id %u\n", level, cache_id);
 > 
-> Personal preference though is to error out on things like this and handle the papering
-> over at the top level.  Don't put extra effort into checking tables are invalid
-> but if we happen to notice as part of code safety stuff like sizes then good to scream
-> about it.
+>> +            return -EINVAL;
+>> +        }
+>> +        return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_CACHE,
+>> +                       level, cache_id);
+>> +    case ACPI_MPAM_LOCATION_TYPE_MEMORY:
+>> +        nid = pxm_to_node(res->locator.memory_locator.proximity_domain);
+>> +        if (nid == NUMA_NO_NODE)
+>> +            nid = 0;
+>> +        return mpam_ris_create(msc, res->ris_index, MPAM_CLASS_MEMORY,
+>> +                       255, nid);
+>> +    default:
+>> +        /* These get discovered later and treated as unknown */
+>> +        return 0;
+>> +    }
+>> +}
+
+>> +static bool __init parse_msc_pm_link(struct acpi_mpam_msc_node *tbl_msc,
+>> +                     struct platform_device *pdev,
+>> +                     u32 *acpi_id)
+>> +{
+>> +    char hid[sizeof(tbl_msc->hardware_id_linked_device) + 1];
+>> +    bool acpi_id_valid = false;
+>> +    struct acpi_device *buddy;
+>> +    char uid[11];
+>> +    int err;
+>> +
+>> +    memset(&hid, 0, sizeof(hid));
+>> +    memcpy(hid, &tbl_msc->hardware_id_linked_device,
+>> +           sizeof(tbl_msc->hardware_id_linked_device));
+>> +
+>> +    if (!strcmp(hid, ACPI_PROCESSOR_CONTAINER_HID)) {
+>> +        *acpi_id = tbl_msc->instance_id_linked_device;
+>> +        acpi_id_valid = true;
+>> +    }
+>> +
+>> +    err = snprintf(uid, sizeof(uid), "%u",
+>> +               tbl_msc->instance_id_linked_device);
+>> +    if (err >= sizeof(uid)) {
 > 
->>
->>
->> Silently failing in this code is always safe as the driver has a count of the number of
->> MSC, and doesn't start accessing the hardware until its found them all.
->> (this is because to find the system wide minimum value - and its not worth starting if
->>  its not possible to finish).
->>
->>
->>> Why not return here?  
->>
->> Just because there was no other return in the loop, and I hate surprise returns.
->>
->> I'll change it if it avoids thinking about how that platform_device_put() gets skipped!
->>
->>
->>>   
->>>> +		}
->>>> +
->>>> +		/*
->>>> +		 * If any of the reserved fields are set, make no attempt to
->>>> +		 * parse the MSC structure. This MSC will still be counted,
->>>> +		 * meaning the MPAM driver can't probe against all MSC, and
->>>> +		 * will never be enabled. There is no way to enable it safely,
->>>> +		 * because we cannot determine safe system-wide partid and pmg
->>>> +		 * ranges in this situation.
->>>> +		 */  
->>
->>> This is decidedly paranoid. I'd normally expect the architecture to be based
->>> on assumption that is fine for old software to ignore new fields.  ACPI itself
->>> has fairly firm rules on this (though it goes wrong sometimes :)  
->>
->> Yeah - the MPAM table isn't properly structured as subtables. I don't see how they are
->> going to extend it if they need to.
->>
->> The paranoia is that anything set in these reserved fields probably indicates something
->> the driver needs to know about: a case in point is the way PCC was added.
->>
->> I'd much prefer we skip creation of MSC devices that have properties we don't understand.
->> acpi_mpam_count_msc() still counts them - which means the driver never finds all the MSC,
->> and never touches the hardware.
->>
->> MPAM isn't a critical feature, its better that it be disabled than make things worse.
->> (the same attitude holds with the response to the MPAM error interrupt - reset everything
->>  and pack up shop. This is bettern than accidentally combining important/unimportant
->>  tasks)
->>
->>
->>> I'm guessing there is something out there that made this necessary though so
->>> keep it if you actually need it.  
->>
->> It's a paranoid/violent reaction to the way PCC was added - without something like this,
->> that would have led to the OS trying to map the 0 page and poking around in it - never
->> likely to go well.
->>
->> Doing this does let them pull another PCC without stable kernels going wrong.
->> Ultimately I think they'll need to replace the table with one that is properly structured.
->> For now - this is working with what we have.
+> err could be negative error code.
 
-> Fair enough. I'm too lazy / behind with reviews to go scream via our channels about
-> problems here.  Paranoia it is.  Maybe we'll end up backporting some 'fixes' that
-> ignore nicely added fields with appropriate control bits to turn them on.
-> So be it if that happens.
+Not here it can't, from lib/vsprintf.c's documentation of snprintf()
+| * The return value is the number of characters which would be
+| * generated for the given input, excluding the trailing null,
+| * as per ISO C99.  If the return is greater than or equal to
+| * @size, the resulting string is truncated.
 
-Yup - I'm expecting to at least backport "ignore this feature" patches when the table gets
-changed. It's not how its supposed to work, but the missing subtable header wasn't caught
-until it was too late.
-MPAM isn't a critical feature, so it shouldn't matter too much if old kernels on new
-hardware can't use it.
-
-
->>>> +		if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2) {
->>>> +			pr_err_once("Unrecognised MSC, MPAM not usable\n");
->>>> +			pr_debug("MSC.%u: reserved field set\n", tbl_msc->identifier);
->>>> +			continue;
->>>> +		}
->>>> +
->>>> +		if (!tbl_msc->mmio_size) {
->>>> +			pr_debug("MSC.%u: marked as disabled\n", tbl_msc->identifier);
->>>> +			continue;
->>>> +		}
->>>> +
->>>> +		if (decode_interface_type(tbl_msc, &iface)) {
->>>> +			pr_debug("MSC.%u: unknown interface type\n", tbl_msc->identifier);
->>>> +			continue;
->>>> +		}
->>>> +
->>>> +		next_res = 0;
->>>> +		next_prop = 0;
->>>> +		memset(res, 0, sizeof(res));
->>>> +		memset(props, 0, sizeof(props));
->>>> +
->>>> +		pdev = platform_device_alloc("mpam_msc", tbl_msc->identifier);  
->>>
->>> https://lore.kernel.org/all/20241009124120.1124-13-shiju.jose@huawei.com/
->>> was a proposal to add a DEFINE_FREE() to clean these up.  Might be worth a revisit.
->>> Then Greg was against the use it was put to and asking for an example of where
->>> it helped.  Maybe this is that example.
->>>
->>> If you do want to do that, I'd factor out a bunch of the stuff here as a helper
->>> so we can have the clean ownership pass of a return_ptr().  
->>> Similar to what Shiju did here (this is the usecase for platform device that
->>> Greg didn't like).
->>> https://lore.kernel.org/all/20241009124120.1124-14-shiju.jose@huawei.com/
->>>
->>> Even without that I think factoring some of this out and hence being able to
->>> do returns on errors and put the if (err) into the loop would be a nice
->>> improvement to readability.  
->>
->> If you think its more readable I'll structure it like that.
+> This error validation only checks size but not error code.
 > 
-> The refactor yes. I'd keep clear of the the DEFINE_FREE() unless you have
-> some spare time ;)
-
-spare what?
-
+> Better to change it to
+> 
+>         if (err < 0 || err >= sizeof(uid))
+> 
 
 
 Thanks,
