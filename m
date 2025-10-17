@@ -4,57 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD76CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 21:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 668B0CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 22:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hwybPT10Rcf7wu7+RwSi/qpvm0zbyRD4aYGeDXWzI2k=; b=AzyC2ME6veKGJj2UbHBITeddpm
-	32Jw3r65/7MKfkD/N+S1wa/bFtxhs5Tuomcjkiz/0zUWxtp1+id1Kh8Yvin8Hl5VnT0rDdezagdxR
-	3rCXIL6CW7xoBS4gaxAgEIz/JozkCeqMeCdqnYCRlX0oqnXDlY7VzDNuXX9qLwSf49a2auyGuhvXI
-	nahm23/rIRPjPzUvnbF7F9J4+rGg2txYaoouWMHxPEsOrAGABCaSpUbsr+lTzngzFi7F1J7OMxHQ7
-	VefbfsuZi6zHJLSyQxr07QsKqoeptZFqEvjnUDybRbc+9b2HcR4UnFU/wSsDhTwhPZFmBIMmadQ0y
-	EdGbAcmg==;
+	bh=LYJooa3CPyiL/YqvqFJbpYPNVK38FpDeFlhZ7s1lavw=; b=Qw36rTbiEF6RY7KnKxq4WTd20N
+	ZhEnnecOssZURNajGdydZktmO7GS3mP82s8z5JWU++WlmNXkwRyv/V6ifXK/zA4BAab3IgxSgquSh
+	8z27CNcqCqvXMMGdstyPzE2Q89COT3L+V0XKrgndFjaQzGQJ9x8B9iBh0Wvl0QrkuG0RIkuw/c3f8
+	dUbFOPzkOnhMh1WLmlxIdDOxReCAwB4FV7i4de8/EA0POPT+kGserU44GfBB84ZJt/FulK2scLu6Z
+	FwYJX4Zwds8dydsYOofV2YiaPONzAdvJVomvLtwcBNeyvW2ZNfm/ZYyTUqM3/p40C4JQgU6nZTz0k
+	jBlyOrYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9sJN-0000000955n-2DrY;
-	Fri, 17 Oct 2025 21:48:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v9seO-000000096IP-0Ga0;
+	Fri, 17 Oct 2025 22:10:16 +0000
+Received: from out-177.mta0.migadu.com ([91.218.175.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9sJK-0000000955U-3Nlg
+	id 1v9seL-000000096Gs-2Q4a
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 21:48:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3115B44E2F;
-	Fri, 17 Oct 2025 21:48:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16432C4CEE7;
-	Fri, 17 Oct 2025 21:48:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760737710;
-	bh=xd1yFjt8Ov/S9tkR1UjGKlrmvIPjVzyg2KlyTqOt86g=;
-	h=Date:From:To:Cc:Subject:From;
-	b=j+WSwXh7xicyFQNvSwq+ywq5v4TQoFCf+V49qgiP8FnWrnJYgruFMflp0SQ9/hiX4
-	 EmYol1SE0o/VgCGV6y7aCVXY1p9W+2Sh6JDlQCAFfsZ1LxjnX2jITnkHi3JHn5pCaa
-	 DB7Px62p75PICjOyWnAGpyaUm880l0AWZhTQS5qu8+H2Z8x3gFN3KhJ78h+RMoebqi
-	 +S0H+E0/4+vtIHWMnC9W+beVV8x7Cf8wM33YmNyCY7HnPIHEv/tUs0UyknulYpw7Lw
-	 b5+Z0XAzSCASaJZdwb1QyyJA+bzP1IJLUBd9FxIQE8P/lFL0n8AE1gIRSPKJ4Z++b2
-	 qC9sJmNjseH3A==
-Date: Fri, 17 Oct 2025 22:48:26 +0100
-From: Catalin Marinas <cmarinas@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] arm64 fixes for 6.18-rc2
-Message-ID: <aPK5qkFphJvpJBkJ@arm.com>
+	Fri, 17 Oct 2025 22:10:14 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1760738999;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=LYJooa3CPyiL/YqvqFJbpYPNVK38FpDeFlhZ7s1lavw=;
+	b=QWxmnxob+fxd6kyXR2Yyd0g0hFnFRzfunZcrA+AKQkwUTkBDME5O8A/pj0nE4ZsRt27jKM
+	DP8XgrreoLrKjZRe/qPI99FtJ4fCZcCA+gxdKH6t7Uinqykmb2uBcwX5DjLbUelJLvNZgv
+	o7Avg4oA0CpZsrCge2SOt7JJ91SHbjM=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH RESEND wireless-next] wifi: mt76: connac: Replace memcpy + hard-coded size with strscpy
+Date: Sat, 18 Oct 2025 00:09:14 +0200
+Message-ID: <20251017220913.167923-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_144830_866045_5B845248 
-X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-CacheID: sfid-20251017_151013_752973_725A8BF7 
+X-CRM114-Status: UNSURE (   8.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,49 +74,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+Use strscpy() to copy the string into the fixed-size buffer 'req.data'
+instead of hardcoding the number of bytes to copy. This improves
+maintainability and ensures the buffer is always NUL-terminated.
 
-Please pull a couple of arm64 fixes below. Normally it's Will handling
-the fixes this time around but he's fishing on some remote lake away
-from the modern world (and internet connection). Thanks.
+No functional changes.
 
-The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
-
-for you to fetch changes up to ea0d55ae4b3207c33691a73da3443b1fd379f1d2:
-
-  arm64: debug: always unmask interrupts in el0_softstp() (2025-10-17 18:08:05 +0100)
-
-----------------------------------------------------------------
-arm64 fixes:
-
- - Explicitly encode the XZR register if the value passed to
-   write_sysreg_s() is 0. The GIC CDEOI instruction is encoded as a
-   system register write with XZR as the source register. However, clang
-   does not honour the "Z" register constraint, leading to incorrect
-   code generation
-
- - Ensure the interrupts (DAIF.IF) are unmasked when completing
-   single-step of a suspended breakpoint before calling
-   exit_to_user_mode(). With pseudo-NMIs, interrupts are (additionally)
-   masked at the PMR_EL1 register, handled by local_irq_*()
-
-----------------------------------------------------------------
-Ada Couprie Diaz (1):
-      arm64: debug: always unmask interrupts in el0_softstp()
-
-Lorenzo Pieralisi (1):
-      arm64/sysreg: Fix GIC CDEOI instruction encoding
-
- arch/arm64/include/asm/sysreg.h  | 11 ++++++++++-
- arch/arm64/kernel/entry-common.c |  8 +++++---
- 2 files changed, 15 insertions(+), 4 deletions(-)
-
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
+index fc3e6728fcfb..8fc3ecfc27a0 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
+@@ -2,6 +2,7 @@
+ /* Copyright (C) 2020 MediaTek Inc. */
+ 
+ #include <linux/firmware.h>
++#include <linux/string.h>
+ #include "mt76_connac2_mac.h"
+ #include "mt76_connac_mcu.h"
+ 
+@@ -1974,7 +1975,7 @@ int mt76_connac_mcu_chip_config(struct mt76_dev *dev)
+ 		.resp_type = 0,
+ 	};
+ 
+-	memcpy(req.data, "assert", 7);
++	strscpy(req.data, "assert");
+ 
+ 	return mt76_mcu_send_msg(dev, MCU_CE_CMD(CHIP_CONFIG),
+ 				 &req, sizeof(req), false);
 -- 
-Catalin
+2.51.0
+
 
