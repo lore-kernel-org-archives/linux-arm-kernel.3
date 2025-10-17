@@ -4,108 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6A5CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 05:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F19CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 05:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M8pOuJev06kVcvMcwfuR0fMRW2UFlwyU7A9mgPytXiQ=; b=d5OTQpqkWMFOMYbD87c810BSYW
-	et8kmqIEVzZ7ms2Cv5S9S3RpyerXQn791+PFNfVMA50ipJ/LhuTCqHYrWICJQJ7wMQr4lsyKWV5my
-	CmyU55ZQf7FnvlnjqACWszA+8R8FN1em1B9s0cXxO4eWgoCzUJoNd0WV27dRxxNasS4Md4pwWAm2t
-	EVvysry+thjrNFeyNt4nF3e41sy1Okodjbdq2QJAsRJ1E1i1mdMnk+Fm/rc5QWInf7jo5PhxDwJ+L
-	o2LGCyGwvd3KH8QGPRkkk+fQCnpClToahg1DWrVP4YTNTTUMF9Bh7Z28IktHEClxIAIkkQIXsvIzV
-	fGAKYFoA==;
+	bh=+AXDuN2pWRA0lHz4wfxMwg5YfYsPbOFLK5/qAhiTBd0=; b=fSbDRQlDCkR1EaKrEwgRJMfXTI
+	//z3P2vf+G3NNl9fPjj+HOg09ZMhKruNw94hc/VbT40JLuyeRUaF7qqreqS8H6F9k8OxlwVVSACPd
+	5Vh0PwnRBfThhNCpKHOwZAW3VEUzZKyv01jYT4d28rZLw+6mn+q6qx+7tpwsQvU02Qe/Ei5TMWf6v
+	iWya4NiGFafGHO7A6FwSrVDdwGMIX+r7TmZW7XmVQwaBJMqsxO1b755JwmWYH+kX8s3cpmIZvuWf6
+	wYxbZAj9e0L5YRsaoPiH1hLd7EUWY6drgK17V7Z67XCkQlG1siO2flaOzTCRF+x0mZQ67F254zLsu
+	sIekFQAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9cuG-00000006bvH-25iA;
-	Fri, 17 Oct 2025 05:21:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9cuF-00000006bvB-1Zkj
+	id 1v9cxf-00000006cBN-2Iwo;
+	Fri, 17 Oct 2025 05:25:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9cxd-00000006cAz-1tRK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 05:21:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C83BD60375;
-	Fri, 17 Oct 2025 05:21:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BBB5C4CEE7;
-	Fri, 17 Oct 2025 05:21:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760678494;
-	bh=hjJCSuHfRg3Z0/fXMxh5w654m/Ay/iOYcxY74kEycgo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TGEU4NhGH069OFw7QheDVVKbGcCewNdSxjZXSGDH8D05TdyDV/5JJly28B707QarY
-	 i6nPRB0yy5EXKfY5+onOSlmgGO1Q07RewtCP6IanG8a/YrCnW7CJGrEZur5UydDxf9
-	 IAEWReKKuG77XhKr1XYsnwKY5jkODBPa+3laIcLI9QR6ZkiLGoTPFiQAHu6erECNDv
-	 td4n0XOB0I5xgh0ICPMmx8DGfNSVEZXTggAXcIkwqa+WI7tD9kXPt4bNXGRWVO4ZYD
-	 MHSweYMG6VAW6u0Pa+Tc+jncdK+tQggQdTanCdURvq0cAjk77qh4DgDWDOMLcZjAcx
-	 iEhUat/kRHwyQ==
-Message-ID: <90c8dda3-f753-43dc-8bb9-d03a808c8704@kernel.org>
-Date: Fri, 17 Oct 2025 07:21:30 +0200
+	Fri, 17 Oct 2025 05:25:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E35DD153B;
+	Thu, 16 Oct 2025 22:24:54 -0700 (PDT)
+Received: from [10.163.38.24] (unknown [10.163.38.24])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C08993F66E;
+	Thu, 16 Oct 2025 22:24:58 -0700 (PDT)
+Message-ID: <91a246e6-1efb-43d9-80a4-8445549f47cc@arm.com>
+Date: Fri, 17 Oct 2025 10:54:55 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Change CONFIG_SM_TCSRCC_8750 from m to
- y
-To: Taniya Das <taniya.das@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>, linux-arm-msm@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
- Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
- Imran Shaik <imran.shaik@oss.qualcomm.com>,
- Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+Subject: Re: [PATCH v3 1/2] arm64/mm: Allow __create_pgd_mapping() to
+ propagate pgtable_alloc() errors
+To: Linu Cherian <linu.cherian@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-References: <20251017-update_defconfig_tcsrcc_sm8750-v1-1-34b1b47a0bda@oss.qualcomm.com>
- <30390038-0f90-48a4-befe-475cf88ba1fb@kernel.org>
- <37f54b76-a274-4ce2-aaa9-88ba0eb84199@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>,
+ Zhenhua Huang <quic_zhenhuah@quicinc.com>, Dev Jain <dev.jain@arm.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ Chaitanya S Prakash <chaitanyas.prakash@arm.com>, stable@vger.kernel.org
+References: <20251015112758.2701604-1-linu.cherian@arm.com>
+ <20251015112758.2701604-2-linu.cherian@arm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <37f54b76-a274-4ce2-aaa9-88ba0eb84199@oss.qualcomm.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20251015112758.2701604-2-linu.cherian@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251016_222505_598913_692B97D1 
+X-CRM114-Status: GOOD (  31.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,47 +73,483 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/10/2025 07:16, Taniya Das wrote:
+On 15/10/25 4:57 PM, Linu Cherian wrote:
+> From: Chaitanya S Prakash <chaitanyas.prakash@arm.com>
 > 
-> 
-> On 10/17/2025 10:00 AM, Krzysztof Kozlowski wrote:
->> On 16/10/2025 20:53, Taniya Das wrote:
->>> The TCSR clock controller is required  during boot to provide the ref
->>> clocks to the UFS controller. Setting CONFIG_SM_TCSRCC_8750 to y ensures
->>> the UFS driver successfully probe and initialize the device.
->>>
->>> Without this change, the UFS subsystem fails to mount as a usable file
->>> system during boot.
->>
->>
->> That's not what I observed. UFS works fine, especially that it is a
->> module, so no, this is not a desired change and explanation is not only
->> insufficient but actually incorrect.
->>
-> 
-> Krzysztof, on Pakala MTP we are observing the below issue and it
-> requires the module of tscrcc to be loaded explicitly. This patch also
-> aligns to how it is on all other targets.
-> 
-> /soc@0/phy@1d80000: Failed to get clk index: 2 ret: -517
-> [   10.496570] ufshcd-qcom 1d84000.ufs: freq-table-hz property not specified
-> [   10.503660] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
-> find vdd-hba-supply regulator, assuming enabled
-> [   10.514548] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
-> find vccq2-supply regulator, assuming enabled
-> [   10.565955] platform 1d80000.phy: deferred probe pending: (reason
-> unknown)
-> [   10.573078] platform 1d84000.ufs: deferred probe pending:
-> ufshcd-qcom: ufshcd_pltfrm_init() failed
-> 
+> arch_add_memory() is used to hotplug memory into a system but as a part
+> of its implementation it calls __create_pgd_mapping(), which uses
+> pgtable_alloc() in order to build intermediate page tables. As this path
+> was initally only used during early boot pgtable_alloc() is designed to
 
+typo  ^^^^^^^
+> BUG_ON() on failure. However, in the event that memory hotplug is
+> attempted when the system's memory is extremely tight and the allocation
+> were to fail, it would lead to panicking the system, which is not
+> desirable. Hence update __create_pgd_mapping and all it's callers to be
+> non void and propagate -ENOMEM on allocation failure to allow system to
+> fail gracefully.
+> 
+> But during early boot if there is an allocation failure, we want the
+> system to panic, hence create a wrapper around __create_pgd_mapping()
+> called early_create_pgd_mapping() which is designed to panic, if ret
+> is non zero value. All the init calls are updated to use this wrapper
+> rather than the modified __create_pgd_mapping() to restore
+> functionality.
+> 
+> Fixes: 4ab215061554 ("arm64: Add memory hotplug support")
+> Cc: stable@vger.kernel.org
 
-I don't and I am testing regularly, so I assume you have incorrect
-config. Maybe I have incorrect one (which works), but then commit msg is
-incomplete - you must explain the bug and provide proof that this is the
-correct fix for it.
+Makes sense to add Fixes and Cc stable.
+> Signed-off-by: Chaitanya S Prakash <chaitanyas.prakash@arm.com>
+> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+> ---
+> Changelog:
+> 
+> v3:
+> * Fixed a maybe-uninitialized case in alloc_init_pud
+> * Added Fixes tag and CCed stable
+> * Few other trivial cleanups
+> 
+>  arch/arm64/mm/mmu.c | 210 ++++++++++++++++++++++++++++----------------
+>  1 file changed, 132 insertions(+), 78 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index b8d37eb037fc..638cb4df31a9 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -49,6 +49,8 @@
+>  #define NO_CONT_MAPPINGS	BIT(1)
+>  #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
+>  
+> +#define INVALID_PHYS_ADDR	(-1ULL)
+> +
 
+Should this be defined as (~(phys_addr_t)0) instead ? Probably
+INVALID_PHYS_ADDR macro should be made generic as well as this
+is being used in multiple places. But that's besides the point
+here.
 
-Best regards,
-Krzysztof
+arch/arm64/mm/mmu.c			#define INVALID_PHYS_ADDR   (-1ULL)
+arch/s390/boot/vmem.c			#define INVALID_PHYS_ADDR (~(phys_addr_t)0)
+drivers/vdpa/vdpa_user/iova_domain.h	#define INVALID_PHYS_ADDR (~(phys_addr_t)0)
+kernel/dma/swiotlb.c			#define INVALID_PHYS_ADDR (~(phys_addr_t)0)
+>  DEFINE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
+>  
+>  u64 kimage_voffset __ro_after_init;
+> @@ -194,11 +196,11 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+>  	} while (ptep++, addr += PAGE_SIZE, addr != end);
+>  }
+>  
+> -static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+> -				unsigned long end, phys_addr_t phys,
+> -				pgprot_t prot,
+> -				phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> -				int flags)
+> +static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+> +			       unsigned long end, phys_addr_t phys,
+> +			       pgprot_t prot,
+> +			       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> +			       int flags)
+>  {
+>  	unsigned long next;
+>  	pmd_t pmd = READ_ONCE(*pmdp);
+> @@ -213,6 +215,8 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+>  			pmdval |= PMD_TABLE_PXN;
+>  		BUG_ON(!pgtable_alloc);
+>  		pte_phys = pgtable_alloc(TABLE_PTE);
+> +		if (pte_phys == INVALID_PHYS_ADDR)
+> +			return -ENOMEM;
+>  		ptep = pte_set_fixmap(pte_phys);
+>  		init_clear_pgtable(ptep);
+>  		ptep += pte_index(addr);
+> @@ -244,12 +248,15 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+>  	 * walker.
+>  	 */
+>  	pte_clear_fixmap();
+> +
+> +	return 0;
+>  }
+>  
+> -static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+> -		     phys_addr_t phys, pgprot_t prot,
+> -		     phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags)
+> +static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+> +		    phys_addr_t phys, pgprot_t prot,
+> +		    phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags)
+>  {
+> +	int ret;
+>  	unsigned long next;
+>  
+>  	do {
+> @@ -269,22 +276,27 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+>  			BUG_ON(!pgattr_change_is_safe(pmd_val(old_pmd),
+>  						      READ_ONCE(pmd_val(*pmdp))));
+>  		} else {
+> -			alloc_init_cont_pte(pmdp, addr, next, phys, prot,
+> -					    pgtable_alloc, flags);
+> +			ret = alloc_init_cont_pte(pmdp, addr, next, phys, prot,
+> +						  pgtable_alloc, flags);
+> +			if (ret)
+> +				return ret;
+>  
+>  			BUG_ON(pmd_val(old_pmd) != 0 &&
+>  			       pmd_val(old_pmd) != READ_ONCE(pmd_val(*pmdp)));
+>  		}
+>  		phys += next - addr;
+>  	} while (pmdp++, addr = next, addr != end);
+> +
+> +	return 0;
+>  }
+>  
+> -static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+> -				unsigned long end, phys_addr_t phys,
+> -				pgprot_t prot,
+> -				phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> -				int flags)
+> +static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+> +			       unsigned long end, phys_addr_t phys,
+> +			       pgprot_t prot,
+> +			       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> +			       int flags)
+>  {
+> +	int ret;
+>  	unsigned long next;
+>  	pud_t pud = READ_ONCE(*pudp);
+>  	pmd_t *pmdp;
+> @@ -301,6 +313,8 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+>  			pudval |= PUD_TABLE_PXN;
+>  		BUG_ON(!pgtable_alloc);
+>  		pmd_phys = pgtable_alloc(TABLE_PMD);
+> +		if (pmd_phys == INVALID_PHYS_ADDR)
+> +			return -ENOMEM;
+>  		pmdp = pmd_set_fixmap(pmd_phys);
+>  		init_clear_pgtable(pmdp);
+>  		pmdp += pmd_index(addr);
+> @@ -320,20 +334,26 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+>  		    (flags & NO_CONT_MAPPINGS) == 0)
+>  			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+>  
+> -		init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
+> +		ret = init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
+> +		if (ret)
+> +			goto out;
+>  
+>  		pmdp += pmd_index(next) - pmd_index(addr);
+>  		phys += next - addr;
+>  	} while (addr = next, addr != end);
+>  
+> +out:
+>  	pmd_clear_fixmap();
+> +
+> +	return ret;
+>  }
+>  
+> -static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+> -			   phys_addr_t phys, pgprot_t prot,
+> -			   phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> -			   int flags)
+> +static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+> +			  phys_addr_t phys, pgprot_t prot,
+> +			  phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> +			  int flags)
+>  {
+> +	int ret = 0;
+>  	unsigned long next;
+>  	p4d_t p4d = READ_ONCE(*p4dp);
+>  	pud_t *pudp;
+> @@ -346,6 +366,8 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>  			p4dval |= P4D_TABLE_PXN;
+>  		BUG_ON(!pgtable_alloc);
+>  		pud_phys = pgtable_alloc(TABLE_PUD);
+> +		if (pud_phys == INVALID_PHYS_ADDR)
+> +			return -ENOMEM;
+>  		pudp = pud_set_fixmap(pud_phys);
+>  		init_clear_pgtable(pudp);
+>  		pudp += pud_index(addr);
+> @@ -375,8 +397,10 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>  			BUG_ON(!pgattr_change_is_safe(pud_val(old_pud),
+>  						      READ_ONCE(pud_val(*pudp))));
+>  		} else {
+> -			alloc_init_cont_pmd(pudp, addr, next, phys, prot,
+> -					    pgtable_alloc, flags);
+> +			ret = alloc_init_cont_pmd(pudp, addr, next, phys, prot,
+> +						  pgtable_alloc, flags);
+> +			if (ret)
+> +				goto out;
+>  
+>  			BUG_ON(pud_val(old_pud) != 0 &&
+>  			       pud_val(old_pud) != READ_ONCE(pud_val(*pudp)));
+> @@ -384,14 +408,18 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+>  		phys += next - addr;
+>  	} while (pudp++, addr = next, addr != end);
+>  
+> +out:
+>  	pud_clear_fixmap();
+> +
+> +	return ret;
+>  }
+>  
+> -static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+> -			   phys_addr_t phys, pgprot_t prot,
+> -			   phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> -			   int flags)
+> +static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+> +			  phys_addr_t phys, pgprot_t prot,
+> +			  phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> +			  int flags)
+>  {
+> +	int ret;
+>  	unsigned long next;
+>  	pgd_t pgd = READ_ONCE(*pgdp);
+>  	p4d_t *p4dp;
+> @@ -404,6 +432,8 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+>  			pgdval |= PGD_TABLE_PXN;
+>  		BUG_ON(!pgtable_alloc);
+>  		p4d_phys = pgtable_alloc(TABLE_P4D);
+> +		if (p4d_phys == INVALID_PHYS_ADDR)
+> +			return -ENOMEM;
+>  		p4dp = p4d_set_fixmap(p4d_phys);
+>  		init_clear_pgtable(p4dp);
+>  		p4dp += p4d_index(addr);
+> @@ -418,8 +448,10 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+>  
+>  		next = p4d_addr_end(addr, end);
+>  
+> -		alloc_init_pud(p4dp, addr, next, phys, prot,
+> -			       pgtable_alloc, flags);
+> +		ret = alloc_init_pud(p4dp, addr, next, phys, prot,
+> +				     pgtable_alloc, flags);
+> +		if (ret)
+> +			goto out;
+>  
+>  		BUG_ON(p4d_val(old_p4d) != 0 &&
+>  		       p4d_val(old_p4d) != READ_ONCE(p4d_val(*p4dp)));
+> @@ -427,15 +459,19 @@ static void alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+>  		phys += next - addr;
+>  	} while (p4dp++, addr = next, addr != end);
+>  
+> +out:
+>  	p4d_clear_fixmap();
+> +
+> +	return ret;
+>  }
+>  
+> -static void __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+> -					unsigned long virt, phys_addr_t size,
+> -					pgprot_t prot,
+> -					phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> -					int flags)
+> +static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+> +				       unsigned long virt, phys_addr_t size,
+> +				       pgprot_t prot,
+> +				       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> +				       int flags)
+>  {
+> +	int ret;
+>  	unsigned long addr, end, next;
+>  	pgd_t *pgdp = pgd_offset_pgd(pgdir, virt);
+>  
+> @@ -444,7 +480,7 @@ static void __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+>  	 * within a page, we cannot map the region as the caller expects.
+>  	 */
+>  	if (WARN_ON((phys ^ virt) & ~PAGE_MASK))
+> -		return;
+> +		return -EINVAL;
+>  
+>  	phys &= PAGE_MASK;
+>  	addr = virt & PAGE_MASK;
+> @@ -452,25 +488,45 @@ static void __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+>  
+>  	do {
+>  		next = pgd_addr_end(addr, end);
+> -		alloc_init_p4d(pgdp, addr, next, phys, prot, pgtable_alloc,
+> -			       flags);
+> +		ret = alloc_init_p4d(pgdp, addr, next, phys, prot, pgtable_alloc,
+> +				     flags);
+> +		if (ret)
+> +			return ret;
+>  		phys += next - addr;
+>  	} while (pgdp++, addr = next, addr != end);
+> +
+> +	return 0;
+>  }
+>  
+> -static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+> -				 unsigned long virt, phys_addr_t size,
+> -				 pgprot_t prot,
+> -				 phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> -				 int flags)
+> +static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+> +				unsigned long virt, phys_addr_t size,
+> +				pgprot_t prot,
+> +				phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> +				int flags)
+>  {
+> +	int ret;
+> +
+>  	mutex_lock(&fixmap_lock);
+> -	__create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
+> -				    pgtable_alloc, flags);
+> +	ret = __create_pgd_mapping_locked(pgdir, phys, virt, size, prot,
+> +					  pgtable_alloc, flags);
+>  	mutex_unlock(&fixmap_lock);
+> +
+> +	return ret;
+>  }
+>  
+> -#define INVALID_PHYS_ADDR	(-1ULL)
+> +static void early_create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+> +				     unsigned long virt, phys_addr_t size,
+> +				     pgprot_t prot,
+> +				     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
+> +				     int flags)
+> +{
+> +	int ret;
+> +
+> +	ret = __create_pgd_mapping(pgdir, phys, virt, size, prot, pgtable_alloc,
+> +				   flags);
+> +	if (ret)
+> +		panic("Failed to create page tables\n");
+> +}
+>  
+>  static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
+>  				       enum pgtable_type pgtable_type)
+> @@ -511,21 +567,13 @@ try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type, gfp_t gfp)
+>  static phys_addr_t __maybe_unused
+>  pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
+>  {
+> -	phys_addr_t pa;
+> -
+> -	pa = __pgd_pgtable_alloc(&init_mm, GFP_PGTABLE_KERNEL, pgtable_type);
+> -	BUG_ON(pa == INVALID_PHYS_ADDR);
+> -	return pa;
+> +	return __pgd_pgtable_alloc(&init_mm, GFP_PGTABLE_KERNEL, pgtable_type);
+>  }
+>  
+>  static phys_addr_t
+>  pgd_pgtable_alloc_special_mm(enum pgtable_type pgtable_type)
+>  {
+> -	phys_addr_t pa;
+> -
+> -	pa = __pgd_pgtable_alloc(NULL, GFP_PGTABLE_KERNEL, pgtable_type);
+> -	BUG_ON(pa == INVALID_PHYS_ADDR);
+> -	return pa;
+> +	return  __pgd_pgtable_alloc(NULL, GFP_PGTABLE_KERNEL, pgtable_type);
+>  }
+>  
+>  static void split_contpte(pte_t *ptep)
+> @@ -903,8 +951,8 @@ void __init create_mapping_noalloc(phys_addr_t phys, unsigned long virt,
+>  			&phys, virt);
+>  		return;
+>  	}
+> -	__create_pgd_mapping(init_mm.pgd, phys, virt, size, prot, NULL,
+> -			     NO_CONT_MAPPINGS);
+> +	early_create_pgd_mapping(init_mm.pgd, phys, virt, size, prot, NULL,
+> +				 NO_CONT_MAPPINGS);
+>  }
+>  
+>  void __init create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
+> @@ -918,8 +966,8 @@ void __init create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
+>  	if (page_mappings_only)
+>  		flags = NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>  
+> -	__create_pgd_mapping(mm->pgd, phys, virt, size, prot,
+> -			     pgd_pgtable_alloc_special_mm, flags);
+> +	early_create_pgd_mapping(mm->pgd, phys, virt, size, prot,
+> +				 pgd_pgtable_alloc_special_mm, flags);
+>  }
+>  
+>  static void update_mapping_prot(phys_addr_t phys, unsigned long virt,
+> @@ -931,8 +979,8 @@ static void update_mapping_prot(phys_addr_t phys, unsigned long virt,
+>  		return;
+>  	}
+>  
+> -	__create_pgd_mapping(init_mm.pgd, phys, virt, size, prot, NULL,
+> -			     NO_CONT_MAPPINGS);
+> +	early_create_pgd_mapping(init_mm.pgd, phys, virt, size, prot, NULL,
+> +				 NO_CONT_MAPPINGS);
+>  
+>  	/* flush the TLBs after updating live kernel mappings */
+>  	flush_tlb_kernel_range(virt, virt + size);
+> @@ -941,8 +989,8 @@ static void update_mapping_prot(phys_addr_t phys, unsigned long virt,
+>  static void __init __map_memblock(pgd_t *pgdp, phys_addr_t start,
+>  				  phys_addr_t end, pgprot_t prot, int flags)
+>  {
+> -	__create_pgd_mapping(pgdp, start, __phys_to_virt(start), end - start,
+> -			     prot, early_pgtable_alloc, flags);
+> +	early_create_pgd_mapping(pgdp, start, __phys_to_virt(start), end - start,
+> +				 prot, early_pgtable_alloc, flags);
+>  }
+>  
+>  void __init mark_linear_text_alias_ro(void)
+> @@ -1178,9 +1226,10 @@ static int __init __kpti_install_ng_mappings(void *__unused)
+>  		// covers the PTE[] page itself, the remaining entries are free
+>  		// to be used as a ad-hoc fixmap.
+>  		//
+> -		__create_pgd_mapping_locked(kpti_ng_temp_pgd, __pa(alloc),
+> -					    KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
+> -					    kpti_ng_pgd_alloc, 0);
+> +		if (__create_pgd_mapping_locked(kpti_ng_temp_pgd, __pa(alloc),
+> +						KPTI_NG_TEMP_VA, PAGE_SIZE, PAGE_KERNEL,
+> +						kpti_ng_pgd_alloc, 0))
+> +			panic("Failed to create page tables\n");
+>  	}
+>  
+>  	cpu_install_idmap();
+> @@ -1233,9 +1282,9 @@ static int __init map_entry_trampoline(void)
+>  
+>  	/* Map only the text into the trampoline page table */
+>  	memset(tramp_pg_dir, 0, PGD_SIZE);
+> -	__create_pgd_mapping(tramp_pg_dir, pa_start, TRAMP_VALIAS,
+> -			     entry_tramp_text_size(), prot,
+> -			     pgd_pgtable_alloc_init_mm, NO_BLOCK_MAPPINGS);
+> +	early_create_pgd_mapping(tramp_pg_dir, pa_start, TRAMP_VALIAS,
+> +				 entry_tramp_text_size(), prot,
+> +				 pgd_pgtable_alloc_init_mm, NO_BLOCK_MAPPINGS);
+>  
+>  	/* Map both the text and data into the kernel page table */
+>  	for (i = 0; i < DIV_ROUND_UP(entry_tramp_text_size(), PAGE_SIZE); i++)
+> @@ -1877,23 +1926,28 @@ int arch_add_memory(int nid, u64 start, u64 size,
+>  	if (force_pte_mapping())
+>  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>  
+> -	__create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
+> -			     size, params->pgprot, pgd_pgtable_alloc_init_mm,
+> -			     flags);
+> +	ret = __create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
+> +				   size, params->pgprot, pgd_pgtable_alloc_init_mm,
+> +				   flags);
+> +	if (ret)
+> +		goto err;
+>  
+>  	memblock_clear_nomap(start, size);
+>  
+>  	ret = __add_pages(nid, start >> PAGE_SHIFT, size >> PAGE_SHIFT,
+>  			   params);
+>  	if (ret)
+> -		__remove_pgd_mapping(swapper_pg_dir,
+> -				     __phys_to_virt(start), size);
+> -	else {
+> -		/* Address of hotplugged memory can be smaller */
+> -		max_pfn = max(max_pfn, PFN_UP(start + size));
+> -		max_low_pfn = max_pfn;
+> -	}
+> +		goto err;
+> +
+> +	/* Address of hotplugged memory can be smaller */
+> +	max_pfn = max(max_pfn, PFN_UP(start + size));
+> +	max_low_pfn = max_pfn;
+> +
+> +	return 0;
+>  
+> +err:
+> +	__remove_pgd_mapping(swapper_pg_dir,
+> +			     __phys_to_virt(start), size);
+>  	return ret;
+>  }
+>  
+
+Otherwise LGTM.
+
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
