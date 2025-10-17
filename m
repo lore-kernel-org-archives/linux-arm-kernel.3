@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65B72CCD1A5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6DACCD1A7
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 13:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,59 +12,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sOY0HlZua3GidJxnHggJk6iRCxBwJVFjZRBfILYXvSY=; b=bPaUhvKSiuLk9fhD1GSTFPJaKs
-	hNzJPDkXhdaug2A0YehY19fWCLj57fxLrkoMfuETByf2+6iwJ7XfR3XTcdkmPhcoz8XkFH/dHvffT
-	Istl6a+ix5MRwMGbrKxfbIVLipiHJ5O+Hy0lDDLzbanuDhSS8yEIFo6O2+vy9choKzG8Sd5HVnspP
-	Z35YS9EXYwBbv2hhvHjwvmQGtRBdynSWsCVxyawWCsYOTloe80lSa1ek0hO54Tb9Gm4c0Au2Wn6rL
-	cJAj05ZZANW63XGyJbv5DbZfXRrmOeRuCNabrY5bciDIbe0oriqPPE0KfneDIr+fsJkwufPL70NwA
-	9p8moocw==;
+	bh=1B+7cFZ3UNUlvSb/muUu/UTmvwC8AThbVW1WeatoRz4=; b=QIn/k60bx+zBpUVvy+WQnfxC0W
+	Y5mO2aPFj+JyW3KvfHsv3FM4oK2pN44Cz26CbiCKhY5Dv0f87V9O+YdXW9gW7irQ7qZLmKCt4PyNt
+	dvjUe0U8Y8oObzKSEYQi9t9UJXbXtsTlOUbj1/7oCj9OpPyFdt2MeIffzvDlOCCs9DfqIzC2QvXdK
+	Z/VEuj+uC1wjTmmh5Ul7euup6GoPxv4XPZTADh8CIRylT6EKQRCt5z/9FZLVVKmJya+ZAiXhn6968
+	tyfo30Te5069rTptVIJFAcg5UQ4hzotzM+Q0gv4QJP8sNFryoG255h2E2BaAXPtWH6pTywnHzIyJ8
+	PE0lcjxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9kRR-00000007uRu-1fTk;
+	id 1v9kRR-00000007uSS-35nX;
 	Fri, 17 Oct 2025 13:24:21 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9kRN-00000007uPs-3Tew
+	id 1v9kRP-00000007uQM-1xEa
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 17 Oct 2025 13:24:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=To:In-Reply-To:References:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
 	Reply-To:Cc:Content-ID:Content-Description;
-	bh=sOY0HlZua3GidJxnHggJk6iRCxBwJVFjZRBfILYXvSY=; b=MoHVeTa4IUQGrEvyOzq9r7yWlP
-	M0QPLhynlSoJoQ08V8ndTOGNcKxN48tCdj9tif8zAi27+qFIjMxwX7/f6SnCBEroWD+gQrcbv4UH7
-	VsU3EvoJlWWW4+DKko4R4R2tpClbk7ZAwmzk47rXD1aL6kEvOAWsBo3qOkOg6Mu+n/BErRwkYuSlG
-	U6MtoDZ9UTyiopiQrd8jecbpVdbY1WELj9xLNrUoPq04Gp68i4M/QLXMQDuwwGrk9YUXaqT7AMvfI
-	eCYpfgA9/ZFqZXmr+eHD7Ch+eifZCMjzX/LHdQKbCXvkShV3o57y1rZ1N+CptkGKObq+dfWTVumqX
-	xJdYFQqQ==;
+	bh=1B+7cFZ3UNUlvSb/muUu/UTmvwC8AThbVW1WeatoRz4=; b=Kvs5YpJ7zdPV7AzD85xuUZV7B8
+	VgYuWczipuwgv/v8+SxsxnUlefuKvcMhgZEjI6gzI9KKfpwQFzELnnVj8TGt7H0/b78X1k/ioLGKn
+	kphTZFR7i+YZ7J83E5e/KU6hGOMso19L2JOEAN1fUwl8Nuz8u+cbQmnYG9fgTMu3pe+atI3bCR84T
+	4jCs2OnDKcfzeauqERiG5wViEnbLN8WeoUoKCM3bAUDlc2xGttz5r4JBtboWIVV8AEjUWj/dmm7lx
+	qy7MiKLR+Wjnfb0pW396vNnewdCKpELc79aLcl5fPWkIsbE7Q9kmr0oVc1LxHQfbo6DcqldF9m2jx
+	OeUqP9/w==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9kRL-00000007c0b-0DjG
+	id 1v9kRM-00000007c16-0Uu4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 13:24:16 +0000
+	Fri, 17 Oct 2025 13:24:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4995C1C2B;
-	Fri, 17 Oct 2025 06:24:06 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1985119F6;
+	Fri, 17 Oct 2025 06:24:04 -0700 (PDT)
 Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7928E3F66E;
-	Fri, 17 Oct 2025 06:24:13 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 463983F66E;
+	Fri, 17 Oct 2025 06:24:11 -0700 (PDT)
 From: Sudeep Holla <sudeep.holla@arm.com>
-Date: Fri, 17 Oct 2025 14:23:47 +0100
-Subject: [PATCH 4/8] firmware: arm_scmi: Fall back to ACPI HID when
- "compatible" is absent
+Date: Fri, 17 Oct 2025 14:23:45 +0100
+Subject: [PATCH 2/8] firmware: arm_scmi: Extend transport driver macro to
+ support ACPI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-acpi_scmi_pcc-v1-4-0adbab7709d9@arm.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251017-acpi_scmi_pcc-v1-2-0adbab7709d9@arm.com>
 References: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
 In-Reply-To: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
 To: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, Sudeep Holla <sudeep.holla@arm.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_142415_330441_723912FA 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251017_142416_521892_CB574C37 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +78,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_debugfs_common_setup() previously called fwnode_property_read_string()
-without checking its return value, which could leave c_ptr uninitialized
-and lead to kstrdup() on garbage.
+Extend the SCMI transport driver helper to also support ACPI-based
+systems. Introduce an internal helper macro that accepts both OF and
+ACPI match tables, and expose two wrappers:
 
-Handle the failure case and use the ACPI HID via acpi_device_hid()
-using ACPI_COMPANION(dev) as a fallback for ACPI-described systems.
-This ensures dbg->type is either a valid string or we hit the existing
-error path cleanly.
+  - DEFINE_SCMI_TRANSPORT_DRIVER(...)      -> DT/OF wrapper (unchanged ABI)
+  - DEFINE_SCMI_ACPI_TRANSPORT_DRIVER(...) -> ACPI wrapper
 
-This improves robustness on non-DT platforms where "compatible" is not
-present.
+For ACPI, the generated platform_driver now sets .acpi_match_table via
+ACPI_PTR() so that builds without CONFIG_ACPI remain safe (becomes NULL).
+The spawned platform_device inherits the parent device’s ACPI companion
+to ensure proper firmware-node association (i.e.subsequent lookups or
+fwnode use see the correct firmware node).
+
+This keeps existing DT users unchanged and continues to function as
+expected while allowing transports to be probed using the structure
+`acpi_device_id` tables on ACPI platforms.
 
 Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- drivers/firmware/arm_scmi/driver.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ drivers/firmware/arm_scmi/common.h | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index bc5fea11b5db..148b9a13d43f 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2988,8 +2988,9 @@ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
- 		return NULL;
- 	}
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index 911941e6885d..d038fec72360 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -9,6 +9,7 @@
+ #ifndef _SCMI_COMMON_H
+ #define _SCMI_COMMON_H
  
--	fwnode_property_read_string(dev_fwnode(info->dev), "compatible",
--				    &c_ptr);
-+	if (fwnode_property_read_string(dev_fwnode(info->dev), "compatible",
-+					&c_ptr))
-+		c_ptr = acpi_device_hid(ACPI_COMPANION(info->dev)) ?: "unknown";
- 	dbg->type = kstrdup(c_ptr, GFP_KERNEL);
- 	if (!dbg->type) {
- 		kfree(dbg->name);
++#include <linux/acpi.h>
+ #include <linux/bitfield.h>
+ #include <linux/completion.h>
+ #include <linux/device.h>
+@@ -453,7 +454,8 @@ struct scmi_transport {
+ 	struct scmi_transport_core_operations **core_ops;
+ };
+ 
+-#define DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __core_ops)\
++#define __DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __of_match,       \
++					__acpi_match, __core_ops)	       \
+ static void __tag##_dev_free(void *data)				       \
+ {									       \
+ 	struct platform_device *spdev = data;				       \
+@@ -474,6 +476,7 @@ static int __tag##_probe(struct platform_device *pdev)			       \
+ 									       \
+ 	device_set_of_node_from_dev(&spdev->dev, dev);			       \
+ 	device_set_node(&spdev->dev, dev_fwnode(dev));			       \
++	ACPI_COMPANION_SET(&spdev->dev, ACPI_COMPANION(dev));		       \
+ 									       \
+ 	strans.supplier = dev;						       \
+ 	memcpy(&strans.desc, &(__desc), sizeof(strans.desc));		       \
+@@ -498,11 +501,18 @@ err:									       \
+ static struct platform_driver __drv = {					       \
+ 	.driver = {							       \
+ 		   .name = #__tag "_transport",				       \
+-		   .of_match_table = __match,				       \
++		   .of_match_table = __of_match,			       \
++		   .acpi_match_table = ACPI_PTR(__acpi_match),		       \
+ 		   },							       \
+ 	.probe = __tag##_probe,						       \
+ }
+ 
++#define DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __core_ops)\
++	__DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, NULL, __core_ops)
++
++#define DEFINE_SCMI_ACPI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __core_ops)\
++	__DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, NULL, __match, __core_ops)
++
+ void scmi_notification_instance_data_set(const struct scmi_handle *handle,
+ 					 void *priv);
+ void *scmi_notification_instance_data_get(const struct scmi_handle *handle);
 
 -- 
 2.34.1
