@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C4ACCD199
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A8ACCD195
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 06:11:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P2b28tzinV7zggN1ntVTDdiRSPTLBHdEFS/KuKGDRME=; b=b90M8B/F4vH2st4sVb+C1SqAkv
-	WLzDiL2j+0aWkXU33OCdux0/HTo3d0ll/PP5Aj+JGWwm0zdPHjdcCaalYcbnvJK01QlAsufOt7BgH
-	rRVXWKJsof7jMqe9P/a9/XhS3LRAQlDXVaz4W74xUqjvs1TxYQceh37UQXBJazd1SyG9mYiYErFDC
-	4Dte4JwFVEoo0crxD8RP2OFyT4UFTDGq2JaSRj2tIPvIYIbPpRYkimgFRr2Bqjc35S4PU9j13yEwS
-	rUHhQLrt6JxOvC/zgvaa9f7DdhJ10010/zMoelmoQXMuDFigQ1OqqGcPhJ7prKXGeroe0N4veRmC3
-	007iohNQ==;
+	bh=kpHd3zQ9SDvXeP3al94lW1gOjo2GOMJpT5UhJrMWiQw=; b=fnyA9yJr2Hc5lC1Ik7rc/0Bfbt
+	skLepA4r1WABAFwrQnASpX/lQzZjjB40ON2SEdKT3smXp+jFRovK69RzJvlbxhF7FHlAcg5uvFrG0
+	5vdH4XpYxP89PFWN9lUsUGheK59vb3NHsSdKeXJ6DBdA6dUSPXu7F6HNnBYmGr6M30eGJjpsgjPs4
+	lgkNapuqIajGHBPuSFrRFBTIuVtNW1iHMofoPctZMPH8mTGNZ4JqiU2+sh5pTRdiZuz9eLcuNRHHN
+	FZFXD2D9t1fn1Mjx4OBkTc8uqCMuDIlvWVRxl1fX7fkYaQCdQ1dxZ1hR0bNtRz8YPVi4J1vyHijsp
+	E/FmI2Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9dgd-00000006hgN-2XNT;
-	Fri, 17 Oct 2025 06:11:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v9dgc-00000006hfR-3CXY;
+	Fri, 17 Oct 2025 06:11:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9dgb-00000006he6-2cgz
+	id 1v9dgb-00000006he4-2Aj4
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 17 Oct 2025 06:11:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 114DB6420D;
-	Fri, 17 Oct 2025 06:11:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A785AC116B1;
+	by tor.source.kernel.org (Postfix) with ESMTP id E7AFB64208;
+	Fri, 17 Oct 2025 06:11:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8A94CC113D0;
 	Fri, 17 Oct 2025 06:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1760681492;
-	bh=NTA7XXehFna8Lnz9z9hQDJQmt5EcD5cxGnspoWjl5V8=;
+	bh=jUVEbKS16TGx2Muh86hLCxq0Nm8NYW02YAqm3vPLILw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=NDT2h+jN4Fo/V782pJVCyAoFMDQnca+b11ea9IbVH3hZjx0JvKZtsDb6BBFbxJjEW
-	 KgBXOBYWrEY29jdKBiR3vbIBwAvxiCfFNcudI8kD5AngbnR6YCXGd7Gm/Un9geOOhy
-	 D77x5NWxRh1HnfG5BNY2cWp5KPcDogJIY8suYnFlWyVt8y6Y1DXGOic69Oiyeaku6O
-	 jiFtYZC1AUghnKzEeE8N/MiZXcEBeLnF3tKQAUsTXa2lO5xM7Z9LrWnpYHdCdguVeL
-	 bcGn/MEskl7O9AeiTXgrczZsx8a2QjKycNOYotd5N4YdFzfYbTDfRO3+PgA6xYZSvE
-	 hyX8lEwLBY9nA==
+	b=Hdq6QNi0xde8h8eGHVLeFv9S18G5Mc4wflqLl+kHkPfaA4MY/i5Qhjb8lcWe39+fY
+	 cLzn3N44f9H3XpLhdSCrpd0sWzwHGmzb71E4rvF2F6zyNr9Mq6B2uxMXEBjuZ7i14t
+	 KSafTrPnmCtCcaNydDh84KM7UCgA1bh98qU/Eok3f73k3Y85C+EFxMuZNX32JVbpSG
+	 dwKB8YntQgOrlRjLvhCwlCux7PnyzQRVj9xskMWtoN7sZdPMcsMu4Rmgheod9ev0jj
+	 HETreLUPAPc3f8ut1rypKviEXaangQOJ8NB2dF3f3YjXC3Vz3Hilmzgusv4zrh/BiY
+	 dcISyS+tbxFeQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9F8C4CCD1A2;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8232FCCD184;
 	Fri, 17 Oct 2025 06:11:32 +0000 (UTC)
 From: Rohan G Thomas via B4 Relay <devnull+rohan.g.thomas.altera.com@kernel.org>
-Date: Fri, 17 Oct 2025 14:11:21 +0800
-Subject: [PATCH net v3 3/3] net: stmmac: est: Fix GCL bounds checks
+Date: Fri, 17 Oct 2025 14:11:19 +0800
+Subject: [PATCH net v3 1/3] net: stmmac: vlan: Disable 802.1AD tag
+ insertion offload
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-qbv-fixes-v3-3-d3a42e32646a@altera.com>
+Message-Id: <20251017-qbv-fixes-v3-1-d3a42e32646a@altera.com>
 References: <20251017-qbv-fixes-v3-0-d3a42e32646a@altera.com>
 In-Reply-To: <20251017-qbv-fixes-v3-0-d3a42e32646a@altera.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -64,14 +65,13 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
  Boon Khai Ng <boon.khai.ng@altera.com>
 Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Rohan G Thomas <rohan.g.thomas@altera.com>, 
- Matthew Gerlach <matthew.gerlach@altera.com>
+ Rohan G Thomas <rohan.g.thomas@altera.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760681491; l=1340;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760681491; l=4281;
  i=rohan.g.thomas@altera.com; s=20250815; h=from:subject:message-id;
- bh=mX5G4ROq0gDY4G0a4Qm/T3N17XaJr2mEhgFfcjCdoJk=;
- b=z8V58A1VlIr5ekLOqI6PBxwoKAM5sCuB+v2xtlazP8QRxqeoIu3e4AOJzUJiniz/MDLjGmNFn
- YWFLDF9+3quBrbhbs5cVU0EvUePkFdXCjLg7rESERbIkmMEmkC4wGuz
+ bh=0616UyoDlligJPpSZE/pfPD+6seIJyoif/vrOJ0b/GI=;
+ b=EfsGbkXO7Y+nZ9tKoxqEDUGS3y+G6JMMb82kXSkJw56OqgcgzvPRgBxj9WPiwoDnEM3YysNx+
+ enrELze0XAeAjo0y+v30qGo5cUty7Vu7oldF9z6nwCvsRYmiUMuLdYN
 X-Developer-Key: i=rohan.g.thomas@altera.com; a=ed25519;
  pk=5yZXkXswhfUILKAQwoIn7m6uSblwgV5oppxqde4g4TY=
 X-Endpoint-Received: by B4 Relay for rohan.g.thomas@altera.com/20250815
@@ -94,38 +94,105 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Rohan G Thomas <rohan.g.thomas@altera.com>
 
-Fix the bounds checks for the hw supported maximum GCL entry
-count and gate interval time.
+The DWMAC IP's VLAN tag insertion offload does not support inserting
+STAG (802.1AD) and CTAG (802.1Q) types in bytes 13 and 14 using the
+same MAC_VLAN_Incl and MAC_VLAN_Inner_Incl register configurations.
 
-Fixes: b60189e0392f ("net: stmmac: Integrate EST with TAPRIO scheduler API")
+Currently, MAC_VLAN_Incl is configured to offload only STAG type
+insertion. However, the DWMAC IP inserts a CTAG type when the inner
+VLAN ID field of the descriptor is not configured, and a STAG type
+when it is configured. This behavior is not documented and leads to
+inconsistent double VLAN tagging.
+
+Additionally, an unexpected CTAG with VLAN ID 0 is inserted, resulting
+in frames like:
+
+Frame 1: 110 bytes on wire (880 bits), 110 bytes captured (880 bits)
+Ethernet II, Src: <src> (<src>), Dst: <dst> (<dst>)
+IEEE 802.1ad, ID: 100
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 0 (unexpected)
+802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 200
+Internet Protocol Version 4, Src: 192.168.4.10, Dst: 192.168.4.11
+Internet Control Message Protocol
+
+To avoid this undocumented and incorrect behavior, disable 802.1AD tag
+insertion offload. Also, don't set CSVL bit. As per the data book,
+when this bit is set, S-VLAN type (0x88A8) is inserted in the 13th and
+14th bytes of transmitted packets and when this bit is reset, C-VLAN
+type (0x8100) is inserted in the 13th and 14th bytes of transmitted
+packets.
+
+Fixes: 30d932279dc2 ("net: stmmac: Add support for VLAN Insertion Offload")
+Fixes: e94e3f3b51ce ("net: stmmac: Add support for VLAN Insertion Offload in GMAC4+")
+Fixes: 1d2c7a5fee31 ("net: stmmac: Refactor VLAN implementation")
 Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
+Reviewed-by: Boon Khai Ng <boon.khai.ng@altera.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 19 +++++--------------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c |  2 +-
+ 2 files changed, 6 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-index 97e89a604abd7a01bb8e904c38f10716e0a911c1..3b4d4696afe96afe58e0c936429f51c22ae145be 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-@@ -981,7 +981,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
- 	if (qopt->cmd == TAPRIO_CMD_DESTROY)
- 		goto disable;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 650d75b73e0b0ecd02d35dd5d6a8742d45188c47..dedaaef3208bfadc105961029f79d0d26c3289d8 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4089,18 +4089,11 @@ static int stmmac_release(struct net_device *dev)
+ static bool stmmac_vlan_insert(struct stmmac_priv *priv, struct sk_buff *skb,
+ 			       struct stmmac_tx_queue *tx_q)
+ {
+-	u16 tag = 0x0, inner_tag = 0x0;
+-	u32 inner_type = 0x0;
++	u16 tag = 0x0;
+ 	struct dma_desc *p;
  
--	if (qopt->num_entries >= dep)
-+	if (qopt->num_entries > dep)
- 		return -EINVAL;
- 	if (!qopt->cycle_time)
- 		return -ERANGE;
-@@ -1012,7 +1012,7 @@ static int tc_taprio_configure(struct stmmac_priv *priv,
- 		s64 delta_ns = qopt->entries[i].interval;
- 		u32 gates = qopt->entries[i].gate_mask;
+-	if (!priv->dma_cap.vlins)
++	if (!priv->dma_cap.vlins || !skb_vlan_tag_present(skb))
+ 		return false;
+-	if (!skb_vlan_tag_present(skb))
+-		return false;
+-	if (skb->vlan_proto == htons(ETH_P_8021AD)) {
+-		inner_tag = skb_vlan_tag_get(skb);
+-		inner_type = STMMAC_VLAN_INSERT;
+-	}
  
--		if (delta_ns > GENMASK(wid, 0))
-+		if (delta_ns > GENMASK(wid - 1, 0))
- 			return -ERANGE;
- 		if (gates > GENMASK(31 - wid, 0))
- 			return -ERANGE;
+ 	tag = skb_vlan_tag_get(skb);
+ 
+@@ -4109,7 +4102,7 @@ static bool stmmac_vlan_insert(struct stmmac_priv *priv, struct sk_buff *skb,
+ 	else
+ 		p = &tx_q->dma_tx[tx_q->cur_tx];
+ 
+-	if (stmmac_set_desc_vlan_tag(priv, p, tag, inner_tag, inner_type))
++	if (stmmac_set_desc_vlan_tag(priv, p, tag, 0x0, 0x0))
+ 		return false;
+ 
+ 	stmmac_set_tx_owner(priv, p);
+@@ -7573,11 +7566,9 @@ int stmmac_dvr_probe(struct device *device,
+ 		ndev->features |= NETIF_F_HW_VLAN_CTAG_FILTER;
+ 		ndev->features |= NETIF_F_HW_VLAN_STAG_FILTER;
+ 	}
+-	if (priv->dma_cap.vlins) {
++	if (priv->dma_cap.vlins)
+ 		ndev->features |= NETIF_F_HW_VLAN_CTAG_TX;
+-		if (priv->dma_cap.dvlan)
+-			ndev->features |= NETIF_F_HW_VLAN_STAG_TX;
+-	}
++
+ #endif
+ 	priv->msg_enable = netif_msg_init(debug, default_msg_level);
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+index 0b6f6228ae35db3d855d8d386c3806a007a9d176..ff02a79c00d4f52a458edde1bcc08a0895b2c1c1 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+@@ -212,7 +212,7 @@ static void vlan_enable(struct mac_device_info *hw, u32 type)
+ 
+ 	value = readl(ioaddr + VLAN_INCL);
+ 	value |= VLAN_VLTI;
+-	value |= VLAN_CSVL; /* Only use SVLAN */
++	value &= ~VLAN_CSVL; /* Only use CVLAN */
+ 	value &= ~VLAN_VLC;
+ 	value |= (type << VLAN_VLC_SHIFT) & VLAN_VLC;
+ 	writel(value, ioaddr + VLAN_INCL);
 
 -- 
 2.43.7
