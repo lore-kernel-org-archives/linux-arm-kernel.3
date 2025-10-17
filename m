@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AE5CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 00:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A5A5CCD1A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 00:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YenbGRez6bu/UEaTbB8eZbtDNA5csFA4mZUF4JnZu9w=; b=cNMeUd7KBoM7WrqsqaKikALPVB
-	2fJjihv6pez26TD49qHwR403GlTpboThDbUILxxcOTwczJcj93YtChP6DkjyYYerZ/DJYaYcQkj+V
-	N7F80XF6/UPFqajZLbEPDplvnPTo4y7VXcDn3sRfVSG8jhLDGc976EI6613Lk/eY9Hz9v0b1x0nIv
-	yy3PtW48cYShzHRcOK86mM1cD/MvagUXobYHIE4cj7t4auZMEc461rOWWA+IgkbbpK4On+5wjAGTk
-	I3g13JS/PJ9k51LBiVhe7wby19g2vJagu+IwgQUpjITzO4Oqg8tDhWYpLTMsrpZuHDFNbdorKvyw4
-	g+UjaqAQ==;
+	bh=24WL3/XVrWtQShgQMVnGZkUPAQhnwZjEdj9gk6jqvRM=; b=JaxavTKhruYOmCN3SIefbwYsB8
+	xdC+H1/bjuwstLPpKu58jtgugM3BEn1pkvawYz+67rkUnfDMuiPqsKmvpyfQR2m27fez5USWiufy3
+	AOBXGajJ29Q4oy6zWGEww6wpAR/47KUXzI8ZLmxaxz1018XbZT8fahJFfXn0TjRfBRktgtrb+Kjgm
+	n+nREZJVgVDtaitGPTtJgR7OdGoldPEloAVLh4G0Rzg5uEpGRH1MkKmGeDIg42IL7m9rg2dS+pesR
+	DwI2rxtLyYOChvP6OtkOKCdAimfujrOuCv7P9455q8TvYt0gFoF5CHDUDgGnFfgq12VD592pBhbwi
+	zrESgEWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YQ3-00000006EDX-3yrh;
-	Fri, 17 Oct 2025 00:34:07 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1v9YQ6-00000006EHI-2WsO;
+	Fri, 17 Oct 2025 00:34:10 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YP8-00000006Cxq-3SNI
+	id 1v9YPE-00000006D4X-1xVX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 00:33:14 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-27eca7298d9so29216565ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 17:33:10 -0700 (PDT)
+	Fri, 17 Oct 2025 00:33:20 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-32eaa47c7c8so1111117a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 17:33:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760661189; x=1761265989; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1760661194; x=1761265994; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=YenbGRez6bu/UEaTbB8eZbtDNA5csFA4mZUF4JnZu9w=;
-        b=HttfWQmFgE9GuQnXOq3SdSpoyNL6bG83qZvQZmrwjjE9yOF8l5YiGpFIxR/KDgbBp6
-         HPuTHb5K3PWax0Thxq42unCBEoGx6+01FgV+6dImjdxJpZrtBl5Uf3L9mWx2ee1QSxTP
-         yppR0X2wqRK1Kx5bnjFaL16ejHt+JBQQdWrwMuJISoafJPaDdlOlnx5Y5srsOv6Ms8Me
-         +mGtgtaI9U3VtRWzWQoCv0HiNY/l/m43S3kv0EPaaiYImSltrh5wxRduSj5K20yoaNaO
-         7kv3G8prTHAaDvGF7DQ8Wtwua59lnrcjRPkW9mH8Eo6D6maTo3eU9eaDA7SnNgEoO4sO
-         mM3A==
+        bh=24WL3/XVrWtQShgQMVnGZkUPAQhnwZjEdj9gk6jqvRM=;
+        b=X/sHJbvUMdme4ugd8bBPtcjjB4B8NZFosWSxhcIrq2rbXrHoIt3leWk3lNspLZ033K
+         jaPvbFzVfOflyY948Y4DoRbT0vqTjno+hRY2Sxq4QDz98SBsBF7Tkk2MplFIQKrQ9+R5
+         g4FAjyrpU9wKI4nw5BohvVqa2RtBwq2C78Ll/DvwMHdf09Ak5fE5jmYYbs3lxZgWzxi8
+         r51rqsgd2mLsmqZI8nhVZNyY7X5xPnM5XlTpLP5kZZ60NUz8lUEMu9uPiJ7WbBkNYIb+
+         5wFrKhHr7Q/pWieHpuNkPhZa5T46eFNOtC+RGUOfdWy7otmaqluE/cR+Lbw2xWXAlo47
+         x2Kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760661189; x=1761265989;
+        d=1e100.net; s=20230601; t=1760661194; x=1761265994;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YenbGRez6bu/UEaTbB8eZbtDNA5csFA4mZUF4JnZu9w=;
-        b=MJRy9KNmByYHhhXa0hWnaIahjFKHfOhLBxr+E8Uxjahg7wr3eo1E7LBponNpHnRbuD
-         K+UJAowX9YiyrttPqaID9gKpWiSZ6bOHWHXW3Be+Q84h8gixEsDPzyu+hs61tbdY7gJU
-         ct9yIiGA4zbCzscqDfkHLnOCalJKTyn4nzOJ1k2iDLInn9wfGyaL+R+k9vM4M8z+Ppgm
-         nYEfh9goxpNl8JSsaO7N8Sb6z1BOzSWALwjQ7uGEqVA7XMIBr22RxyS3uywu5Mh+gfow
-         eF4qN/ynCq90d7KXQ6X+lZiKX6IQiHXmzQiTFadHOlPjYxfQAl9u4UdQnW9JGwxE0udv
-         8MQQ==
-X-Gm-Message-State: AOJu0YwAYk9BvYQLxBxsERz1b87o7iTJ8HzkPdBZ9aoTpy6ortQy7GTU
-	yVBwZPA1bRlPImtwBviT1IrejfLcr5kOBvVcZz5td6uFBTAElDjaj1cs4fYivf/8nYQHv4AP0rF
-	3ZmHycg==
-X-Google-Smtp-Source: AGHT+IFzwgrTUpyTLmlR4n7vLZlT3Ntvx3uZ2AlOGbeNdkR1Pz/L5L7m7JolYZt52l8hjag9eabuD/ERTOw=
-X-Received: from pjbpf6.prod.google.com ([2002:a17:90b:1d86:b0:33b:5907:81cb])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:19f0:b0:286:d3c5:4d15
- with SMTP id d9443c01a7336-290cb947798mr22501395ad.36.1760661189400; Thu, 16
- Oct 2025 17:33:09 -0700 (PDT)
-Date: Thu, 16 Oct 2025 17:32:30 -0700
+        bh=24WL3/XVrWtQShgQMVnGZkUPAQhnwZjEdj9gk6jqvRM=;
+        b=AgHHfZrB+mzwoKJQIig7Hd/XY7bpiakLIpb/4AG/F2loQzAUVXpQaUTFOKL8+R9wXM
+         TJndFsb7ajQzNfrd7BpRkmy/0kKCUHklZCURbYF7gVfmK7mOmIlW8M4ReXIeRdcRCJ7Z
+         hSz0F9F1/l6rjdoUWIORLy1ucezM1X4M2YtrtPRdLEnoOgWcyK2aBJK5DvUCmVUGslCZ
+         XLRgKj4HIGTmATYv2hjbM9GpxhmXwH/W9yabldkkjbfzi6UQu5qW0N2DSaShXz+ZoeKm
+         m+NkqXCRRxbsqngrsKBxhz5EZWzzrMKlBmoj93ksgUd+tAQ/TfvfymOJw0OpjyB4qIaQ
+         dQVA==
+X-Gm-Message-State: AOJu0YyFYbbyIYu2KS2i2SA+mlhT7Bg/CWbYf7T1t3T1k2odjwLeku2v
+	8EVYVTWF9BjFzBQpwu0daGM+xGCeh6IUIzSuSx4uJ+y4D/nDqAXx4fZSMxivY684BhHhp5OZ4Pq
+	9/rYCjA==
+X-Google-Smtp-Source: AGHT+IHsf5Q4hKwAqjzfrtBJQeOEWpiuWR1U3EUS3M0ncbeH1DJJyZF5orweh3oOIyC71bDEGVac2tYwtXY=
+X-Received: from pjir1.prod.google.com ([2002:a17:90a:5c81:b0:31f:2a78:943])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:270a:b0:32e:8c14:5d09
+ with SMTP id 98e67ed59e1d1-33bcf86287fmr1924301a91.7.1760661194542; Thu, 16
+ Oct 2025 17:33:14 -0700 (PDT)
+Date: Thu, 16 Oct 2025 17:32:33 -0700
 In-Reply-To: <20251017003244.186495-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251017003244.186495-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.858.gf9c4a03a3a-goog
-Message-ID: <20251017003244.186495-13-seanjc@google.com>
-Subject: [PATCH v3 12/25] KVM: TDX: Use atomic64_dec_return() instead of a
- poor equivalent
+Message-ID: <20251017003244.186495-16-seanjc@google.com>
+Subject: [PATCH v3 15/25] KVM: TDX: ADD pages to the TD image while populating
+ mirror EPT entries
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -88,8 +88,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Binbin Wu <binbin.wu@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_173310_906629_2E4949B7 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20251016_173316_722191_F1897477 
+X-CRM114-Status: GOOD (  35.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,50 +105,262 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use atomic64_dec_return() when decrementing the number of "pre-mapped"
-S-EPT pages to ensure that the count can't go negative without KVM
-noticing.  In theory, checking for '0' and then decrementing in a separate
-operation could miss a 0=>-1 transition.  In practice, such a condition is
-impossible because nr_premapped is protected by slots_lock, i.e. doesn't
-actually need to be an atomic (that wart will be addressed shortly).
+When populating the initial memory image for a TDX guest, ADD pages to the
+TD as part of establishing the mappings in the mirror EPT, as opposed to
+creating the mappings and then doing ADD after the fact.  Doing ADD in the
+S-EPT callbacks eliminates the need to track "premapped" pages, as the
+mirror EPT (M-EPT) and S-EPT are always synchronized, e.g. if ADD fails,
+KVM reverts to the previous M-EPT entry (guaranteed to be !PRESENT).
 
-Don't bother trying to keep the count non-negative, as the KVM_BUG_ON()
-ensures the VM is dead, i.e. there's no point in trying to limp along.
+Eliminating the hole where the M-EPT can have a mapping that doesn't exist
+in the S-EPT in turn obviates the need to handle errors that are unique to
+encountering a missing S-EPT entry (see tdx_is_sept_zap_err_due_to_premap()).
+
+Keeping the M-EPT and S-EPT synchronized also eliminates the need to check
+for unconsumed "premap" entries during tdx_td_finalize(), as there simply
+can't be any such entries.  Dropping that check in particular reduces the
+overall cognitive load, as the managemented of nr_premapped with respect
+to removal of S-EPT is _very_ subtle.  E.g. successful removal of an S-EPT
+entry after it completed ADD doesn't adjust nr_premapped, but it's not
+clear why that's "ok" but having half-baked entries is not (it's not truly
+"ok" in that removing pages from the image will likely prevent the guest
+from booting, but from KVM's perspective it's "ok").
+
+Doing ADD in the S-EPT path requires passing an argument via a scratch
+field, but the current approach of tracking the number of "premapped"
+pages effectively does the same.  And the "premapped" counter is much more
+dangerous, as it doesn't have a singular lock to protect its usage, since
+nr_premapped can be modified as soon as mmu_lock is dropped, at least in
+theory.  I.e. nr_premapped is guarded by slots_lock, but only for "happy"
+paths.
+
+Note, this approach was used/tried at various points in TDX development,
+but was ultimately discarded due to a desire to avoid stashing temporary
+state in kvm_tdx.  But as above, KVM ended up with such state anyways,
+and fully committing to using temporary state provides better access
+rules (100% guarded by slots_lock), and makes several edge cases flat out
+impossible.
+
+Note #2, continue to extend the measurement outside of mmu_lock, as it's
+a slow operation (typically 16 SEAMCALLs per page whose data is included
+in the measurement), and doesn't *need* to be done under mmu_lock, e.g.
+for consistency purposes.  However, MR.EXTEND isn't _that_ slow, e.g.
+~1ms latency to measure a full page, so if it needs to be done under
+mmu_lock in the future, e.g. because KVM gains a flow that can remove
+S-EPT entries uring KVM_TDX_INIT_MEM_REGION, then extending the
+measurement can also be moved into the S-EPT mapping path (again, only if
+absolutely necessary).  P.S. _If_ MR.EXTEND is moved into the S-EPT path,
+take care not to return an error up the stack if TDH_MR_EXTEND fails, as
+removing the M-EPT entry but not the S-EPT entry would result in
+inconsistent state!
 
 Reviewed-by: Rick Edgecombe <rick.p.edgecombe@intel.com>
-Reviewed-by: Ira Weiny <ira.weiny@intel.com>
-Reviewed-by: Binbin Wu <binbin.wu@linux.intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ arch/x86/kvm/vmx/tdx.c | 114 ++++++++++++++---------------------------
+ arch/x86/kvm/vmx/tdx.h |   8 ++-
+ 2 files changed, 45 insertions(+), 77 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index 220989a1e085..6c0adc1b3bd5 100644
+index f4bab75d3ffb..76030461c8f7 100644
 --- a/arch/x86/kvm/vmx/tdx.c
 +++ b/arch/x86/kvm/vmx/tdx.c
-@@ -1722,10 +1722,9 @@ static int tdx_sept_zap_private_spte(struct kvm *kvm, gfn_t gfn,
+@@ -1583,6 +1583,32 @@ void tdx_load_mmu_pgd(struct kvm_vcpu *vcpu, hpa_t root_hpa, int pgd_level)
+ 	td_vmcs_write64(to_tdx(vcpu), SHARED_EPT_POINTER, root_hpa);
+ }
+ 
++static int tdx_mem_page_add(struct kvm *kvm, gfn_t gfn, enum pg_level level,
++			    kvm_pfn_t pfn)
++{
++	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
++	u64 err, entry, level_state;
++	gpa_t gpa = gfn_to_gpa(gfn);
++
++	lockdep_assert_held(&kvm->slots_lock);
++
++	if (KVM_BUG_ON(kvm->arch.pre_fault_allowed, kvm) ||
++	    KVM_BUG_ON(!kvm_tdx->page_add_src, kvm))
++		return -EIO;
++
++	err = tdh_mem_page_add(&kvm_tdx->td, gpa, pfn_to_page(pfn),
++			       kvm_tdx->page_add_src, &entry, &level_state);
++	if (unlikely(tdx_operand_busy(err)))
++		return -EBUSY;
++
++	if (KVM_BUG_ON(err, kvm)) {
++		pr_tdx_error_2(TDH_MEM_PAGE_ADD, err, entry, level_state);
++		return -EIO;
++	}
++
++	return 0;
++}
++
+ static int tdx_mem_page_aug(struct kvm *kvm, gfn_t gfn,
+ 			    enum pg_level level, kvm_pfn_t pfn)
+ {
+@@ -1624,19 +1650,10 @@ static int tdx_sept_set_private_spte(struct kvm *kvm, gfn_t gfn,
+ 
+ 	/*
+ 	 * If the TD isn't finalized/runnable, then userspace is initializing
+-	 * the VM image via KVM_TDX_INIT_MEM_REGION.  Increment the number of
+-	 * pages that need to be mapped and initialized via TDH.MEM.PAGE.ADD.
+-	 * KVM_TDX_FINALIZE_VM checks the counter to ensure all mapped pages
+-	 * have been added to the image, to prevent running the TD with a
+-	 * valid mapping in the mirror EPT, but not in the S-EPT.
++	 * the VM image via KVM_TDX_INIT_MEM_REGION; ADD the page to the TD.
+ 	 */
+-	if (unlikely(kvm_tdx->state != TD_STATE_RUNNABLE)) {
+-		if (KVM_BUG_ON(kvm->arch.pre_fault_allowed, kvm))
+-			return -EIO;
+-
+-		atomic64_inc(&kvm_tdx->nr_premapped);
+-		return 0;
+-	}
++	if (unlikely(kvm_tdx->state != TD_STATE_RUNNABLE))
++		return tdx_mem_page_add(kvm, gfn, level, pfn);
+ 
+ 	return tdx_mem_page_aug(kvm, gfn, level, pfn);
+ }
+@@ -1662,39 +1679,6 @@ static int tdx_sept_link_private_spt(struct kvm *kvm, gfn_t gfn,
+ 	return 0;
+ }
+ 
+-/*
+- * Check if the error returned from a SEPT zap SEAMCALL is due to that a page is
+- * mapped by KVM_TDX_INIT_MEM_REGION without tdh_mem_page_add() being called
+- * successfully.
+- *
+- * Since tdh_mem_sept_add() must have been invoked successfully before a
+- * non-leaf entry present in the mirrored page table, the SEPT ZAP related
+- * SEAMCALLs should not encounter err TDX_EPT_WALK_FAILED. They should instead
+- * find TDX_EPT_ENTRY_STATE_INCORRECT due to an empty leaf entry found in the
+- * SEPT.
+- *
+- * Further check if the returned entry from SEPT walking is with RWX permissions
+- * to filter out anything unexpected.
+- *
+- * Note: @level is pg_level, not the tdx_level. The tdx_level extracted from
+- * level_state returned from a SEAMCALL error is the same as that passed into
+- * the SEAMCALL.
+- */
+-static int tdx_is_sept_zap_err_due_to_premap(struct kvm_tdx *kvm_tdx, u64 err,
+-					     u64 entry, int level)
+-{
+-	if (!err || kvm_tdx->state == TD_STATE_RUNNABLE)
+-		return false;
+-
+-	if (err != (TDX_EPT_ENTRY_STATE_INCORRECT | TDX_OPERAND_ID_RCX))
+-		return false;
+-
+-	if ((is_last_spte(entry, level) && (entry & VMX_EPT_RWX_MASK)))
+-		return false;
+-
+-	return true;
+-}
+-
+ static int tdx_sept_zap_private_spte(struct kvm *kvm, gfn_t gfn,
+ 				     enum pg_level level, struct page *page)
+ {
+@@ -1714,12 +1698,6 @@ static int tdx_sept_zap_private_spte(struct kvm *kvm, gfn_t gfn,
+ 		err = tdh_mem_range_block(&kvm_tdx->td, gpa, tdx_level, &entry, &level_state);
  		tdx_no_vcpus_enter_stop(kvm);
  	}
- 	if (tdx_is_sept_zap_err_due_to_premap(kvm_tdx, err, entry, level)) {
--		if (KVM_BUG_ON(!atomic64_read(&kvm_tdx->nr_premapped), kvm))
-+		if (KVM_BUG_ON(atomic64_dec_return(&kvm_tdx->nr_premapped) < 0, kvm))
- 			return -EIO;
+-	if (tdx_is_sept_zap_err_due_to_premap(kvm_tdx, err, entry, level)) {
+-		if (KVM_BUG_ON(atomic64_dec_return(&kvm_tdx->nr_premapped) < 0, kvm))
+-			return -EIO;
+-
+-		return 0;
+-	}
  
--		atomic64_dec(&kvm_tdx->nr_premapped);
- 		return 0;
+ 	if (KVM_BUG_ON(err, kvm)) {
+ 		pr_tdx_error_2(TDH_MEM_RANGE_BLOCK, err, entry, level_state);
+@@ -2825,12 +2803,6 @@ static int tdx_td_finalize(struct kvm *kvm, struct kvm_tdx_cmd *cmd)
+ 
+ 	if (!is_hkid_assigned(kvm_tdx) || kvm_tdx->state == TD_STATE_RUNNABLE)
+ 		return -EINVAL;
+-	/*
+-	 * Pages are pending for KVM_TDX_INIT_MEM_REGION to issue
+-	 * TDH.MEM.PAGE.ADD().
+-	 */
+-	if (atomic64_read(&kvm_tdx->nr_premapped))
+-		return -EINVAL;
+ 
+ 	cmd->hw_error = tdh_mr_finalize(&kvm_tdx->td);
+ 	if (tdx_operand_busy(cmd->hw_error))
+@@ -3127,6 +3099,9 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+ 	struct page *src_page;
+ 	int ret, i;
+ 
++	if (KVM_BUG_ON(kvm_tdx->page_add_src, kvm))
++		return -EIO;
++
+ 	/*
+ 	 * Get the source page if it has been faulted in. Return failure if the
+ 	 * source page has been swapped out or unmapped in primary memory.
+@@ -3137,22 +3112,14 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+ 	if (ret != 1)
+ 		return -ENOMEM;
+ 
++	kvm_tdx->page_add_src = src_page;
+ 	ret = kvm_tdp_mmu_map_private_pfn(arg->vcpu, gfn, pfn);
+-	if (ret < 0)
+-		goto out;
++	kvm_tdx->page_add_src = NULL;
+ 
+-	ret = 0;
+-	err = tdh_mem_page_add(&kvm_tdx->td, gpa, pfn_to_page(pfn),
+-			       src_page, &entry, &level_state);
+-	if (err) {
+-		ret = unlikely(tdx_operand_busy(err)) ? -EBUSY : -EIO;
+-		goto out;
+-	}
++	put_page(src_page);
+ 
+-	KVM_BUG_ON(atomic64_dec_return(&kvm_tdx->nr_premapped) < 0, kvm);
+-
+-	if (!(arg->flags & KVM_TDX_MEASURE_MEMORY_REGION))
+-		goto out;
++	if (ret || !(arg->flags & KVM_TDX_MEASURE_MEMORY_REGION))
++		return ret;
+ 
+ 	/*
+ 	 * Note, MR.EXTEND can fail if the S-EPT mapping is somehow removed
+@@ -3165,14 +3132,11 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+ 		err = tdh_mr_extend(&kvm_tdx->td, gpa + i, &entry, &level_state);
+ 		if (KVM_BUG_ON(err, kvm)) {
+ 			pr_tdx_error_2(TDH_MR_EXTEND, err, entry, level_state);
+-			ret = -EIO;
+-			goto out;
++			return -EIO;
+ 		}
  	}
  
-@@ -3157,8 +3156,7 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
- 		goto out;
- 	}
+-out:
+-	put_page(src_page);
+-	return ret;
++	return 0;
+ }
  
--	if (!KVM_BUG_ON(!atomic64_read(&kvm_tdx->nr_premapped), kvm))
--		atomic64_dec(&kvm_tdx->nr_premapped);
-+	KVM_BUG_ON(atomic64_dec_return(&kvm_tdx->nr_premapped) < 0, kvm);
+ static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *cmd)
+diff --git a/arch/x86/kvm/vmx/tdx.h b/arch/x86/kvm/vmx/tdx.h
+index ca39a9391db1..1b00adbbaf77 100644
+--- a/arch/x86/kvm/vmx/tdx.h
++++ b/arch/x86/kvm/vmx/tdx.h
+@@ -36,8 +36,12 @@ struct kvm_tdx {
  
- 	if (arg->flags & KVM_TDX_MEASURE_MEMORY_REGION) {
- 		for (i = 0; i < PAGE_SIZE; i += TDX_EXTENDMR_CHUNKSIZE) {
+ 	struct tdx_td td;
+ 
+-	/* For KVM_TDX_INIT_MEM_REGION. */
+-	atomic64_t nr_premapped;
++	/*
++	 * Scratch pointer used to pass the source page to tdx_mem_page_add.
++	 * Protected by slots_lock, and non-NULL only when mapping a private
++	 * pfn via tdx_gmem_post_populate().
++	 */
++	struct page *page_add_src;
+ 
+ 	/*
+ 	 * Prevent vCPUs from TD entry to ensure SEPT zap related SEAMCALLs do
 -- 
 2.51.0.858.gf9c4a03a3a-goog
 
