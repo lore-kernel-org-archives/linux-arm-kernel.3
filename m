@@ -4,91 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 274A9CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:52:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7617CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XK6rShI1laVwxqZnNYg1sUJOrdVDcwamBttA7hfuCSM=; b=mz+vB9oLvkbaDV+ANlEFeSzOyM
-	6nkuNAMotCAF1z1HGTnBzpc0wTiakkfaxQY7C5qKes7ew+dZH27TzlpFQbdXvcQE4ZXQxUD6ldS2p
-	QBj9btHDvaJ+vtKiX4QEf0sAzn0upEEoejW/qXnHRKyE0p83GUh0t6WukjSrUVzlwurEYA3PzB2s5
-	5iODuZl8vwyA4UTImFTi0dXy9uFzhfX0R3X+3pEFm5O2nSN079ZPIwzTj+8JvsnuUR6lOkRj2PgCR
-	S3oYEIlVghH6rb3iEub1Ad2bIRbXz0/vq8XSXbbWuTifOzq3dRGoqgp3cUl2cfYCgc8TuDt+qCF9l
-	qUdLs+YQ==;
+	bh=XCpfZFAx3hiLnczCJXcXTR7Dek411X8RRc+fD4xQf5M=; b=gDLLLnLn4TcotW3P6haqyCICGL
+	LuWcOrNqyEl7wV+R6qzmEP5ES8y6XCgS8pk9w899A3hB2e0whfoiq3neHmWIpylrSbq5PzqCOezLz
+	L8reJjU4uJuJtZtLrA0hrvNcyzJO9AQzdbyd5DhD2jx6FCcP2hoPSg/U/+iECftDMDIbgBZu720p3
+	G3aVAIYM1dLlD1u4/WBoQNs5fa/y83SyX/47m19Uju8dWPCr58CnLK22GozwZB9fWkDZw9qCa08zg
+	deqbGvdizUdOVvB42o8cT5rKbZrJkDmJ/zFqSnTcDpbVdJPzXNXe9OB0S+JPiqgoshEhXcDMEIKH3
+	ZNhTw/Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9i4F-00000007a7H-0nm6;
-	Fri, 17 Oct 2025 10:52:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v9i7C-00000007atI-3I8u;
+	Fri, 17 Oct 2025 10:55:18 +0000
+Received: from mail-vs1-f48.google.com ([209.85.217.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9i4D-00000007a6g-1feM;
-	Fri, 17 Oct 2025 10:52:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	Message-ID:In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=XK6rShI1laVwxqZnNYg1sUJOrdVDcwamBttA7hfuCSM=; b=ZSHoi1ZmZFAYauZNSr39pwzWLf
-	tVIYL3Ax7MAJ/cPTgSTcN3bgKRKu8vlGWsao3hXgM7sVi3oi1QqVA8zDKi1gww56VbiLvvG02OGLR
-	wi0cWM04yeqzDf8IN2ms5leZQSI4paJj8C/ZpVk7SkM23UCexcs2Ne6kyVr8ljQNfjQUeb8f+gguS
-	59Al/72ox0vk5oNWGH7nlwE6Xic3PGvwVySdmS1DhtqUOV5ZUhr4IPnCqap7IWfFuyrQ3SF2mjebl
-	QLiziMJJGBSF3jY4Z9wXtMaFzcE3ReY6UholKZUAvyIPM7I5BJM2V6JWLVx8MRFnW8vtiw909INXO
-	WDCp8D5w==;
-Received: from mail3-relais-sop.national.inria.fr ([192.134.164.104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9i44-00000007Ur0-33fp;
-	Fri, 17 Oct 2025 10:52:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=inria.fr; s=dc;
-  h=date:from:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=XK6rShI1laVwxqZnNYg1sUJOrdVDcwamBttA7hfuCSM=;
-  b=tn4aYz9lmkDrc4N/iK2W/dM81CNjYMahGWFcq4rSfyrAOMJ30S0qvU5x
-   DDrS1DB49dy9J+mDsmpdTC6EmQpk42hAVCNU91tBng/7RP3/kJKfUQYys
-   dvZSuay+w3oYltOCgaKnt47F1KY4PVI6Z3oE5kX432CUOCAhWVjp27mxF
-   g=;
-X-CSE-ConnectionGUID: TVVds0QUR5GM1FOFhwN2PA==
-X-CSE-MsgGUID: 9dq6U7JzTjaJHe2aNq8FFA==
-Authentication-Results: mail3-relais-sop.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=julia.lawall@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="6.19,236,1754949600"; 
-   d="scan'208";a="128490637"
-Received: from bb116-15-226-202.singnet.com.sg (HELO hadrien) ([116.15.226.202])
-  by mail3-relais-sop.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Oct 2025 12:51:38 +0200
-Date: Fri, 17 Oct 2025 18:51:31 +0800 (+08)
-From: Julia Lawall <julia.lawall@inria.fr>
-To: Thomas Gleixner <tglx@linutronix.de>
-cc: LKML <linux-kernel@vger.kernel.org>, Julia Lawall <Julia.Lawall@inria.fr>, 
-    Nicolas Palix <nicolas.palix@imag.fr>, kernel test robot <lkp@intel.com>, 
-    Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-    Linus Torvalds <torvalds@linux-foundation.org>, x86@kernel.org, 
-    Madhavan Srinivasan <maddy@linux.ibm.com>, 
-    Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-    Christophe Leroy <christophe.leroy@csgroup.eu>, 
-    linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, 
-    Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-    Heiko Carstens <hca@linux.ibm.com>, 
-    Christian Borntraeger <borntraeger@linux.ibm.com>, 
-    Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, 
-    Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-    Andrew Cooper <andrew.cooper3@citrix.com>, 
-    Peter Zijlstra <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>, 
-    Davidlohr Bueso <dave@stgolabs.net>, 
-    =?ISO-8859-15?Q?Andr=E9_Almeida?= <andrealmeid@igalia.com>, 
-    Alexander Viro <viro@zeniv.linux.org.uk>, 
-    Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-    linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V3 09/12] [RFC] coccinelle: misc: Add scoped_masked_$MODE_access()
- checker script
-In-Reply-To: <20251017093030.378863263@linutronix.de>
-Message-ID: <46ea566b-6c42-a73-31da-ba15ed82aaf@inria.fr>
-References: <20251017085938.150569636@linutronix.de> <20251017093030.378863263@linutronix.de>
+	id 1v9i7A-00000007as6-0PKt
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 10:55:17 +0000
+Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-5d3fb34ba53so1398329137.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 03:55:15 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760698514; x=1761303314;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XCpfZFAx3hiLnczCJXcXTR7Dek411X8RRc+fD4xQf5M=;
+        b=dMspSJwZkooHueFkkF79Wr30X3Jc5S1A0ZWWsE8EfJ0etZaFuc0672bFbaZHgUmdrI
+         tidNBKIsjgxcscIomPXji6zl9GAbWYYyTnbkBNpkVCi8ClZrTrOhg9TBsme7i9GiP1LE
+         qwP460rj68S4VtywaFno2SNSHzO26Z7ECy8K44vnmr1H1Hy3M7xICPktQibTlue7Hdhu
+         Rv4JNsBGK+14H6fyzDpkzxOkhSpwGd+260c+j4ZgbaF8dYodqnHXB3ATj9aZoxtvky+p
+         hLKU1CmiBhhJgyC9yHvifW+ZtObdJbjbZ9YTl9Go4Ya2c+bXZy90oCh5Cey9avl0tT+A
+         WgLw==
+X-Forwarded-Encrypted: i=1; AJvYcCW7n3TjxEYnPZHFiJzu5wXn77Onusnv2BYLtoZvoRza65AlN6LZG0kHxdp8Sbhsf0zYxVAf4FlZdbLlqRb8tlka@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnnK3nkDNhyAKjAXJ79QZkFl2/HaIAUVB81TbdhcAFXiYWixqe
+	6SQFqbIXdRWuzuQetvhoRbkuBIU11bQb8rgMmOXrhw+DqzzMrY4yq6okm6QKaAuw
+X-Gm-Gg: ASbGncvQDgAOJAsqjWqcuw3Gpq56iFPZgaBeiGfHsrlPlIp3BEidpt1kSVGtcp83sjQ
+	z/2bz4xejB1bnpsmZIvvr/wDln5iVjKgo+KwfA7Z8oDU+IzYJBwW1Z3ZCAC1X3CTFqo07F+aWB3
+	STSmmceKJCnrSkUMAX/vZx2HfKarmR1/i2UM3iEBsNJLXj/mwonVGWE6ifn1XKkKFlnsX8qO7Hk
+	DznVh8CdjrmfFDXiZAYER7eIpYIC9NaYcUUG7/1XpqtkgqigRMpUqUsC5jagW//fFzxIrIFshVO
+	8Si1hs6zDyun5BmP/oolIoejiEGhKHz7OZUD4D+X6uEFWuUq2z7Qk8FQuA2OPYwrvXKftH5MAbj
+	Go5lLxtF4MaNgvCHQT2M70tE/3Te82Mdb3q9kYzUio78TtKHgZBfd0yWrLiqXTFtQIiVHWyPL/9
+	dSo2DML2xhr+0Bf7ndI5aIaEoCNyU8uAGE7ORRzymUakLcfb/q
+X-Google-Smtp-Source: AGHT+IEcEvSpsJGVVxSWUXvnX3oJ+Y8726Wk5PFky+bHFljAKW1s0wAqFZVxZQSPCU/IJdssykZ5+A==
+X-Received: by 2002:a05:6102:3a0a:b0:5be:57a1:3eda with SMTP id ada2fe7eead31-5d7dd555917mr1535809137.2.1760698513464;
+        Fri, 17 Oct 2025 03:55:13 -0700 (PDT)
+Received: from mail-vs1-f48.google.com (mail-vs1-f48.google.com. [209.85.217.48])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-930bf76b8acsm6231369241.12.2025.10.17.03.55.11
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 17 Oct 2025 03:55:11 -0700 (PDT)
+Received: by mail-vs1-f48.google.com with SMTP id ada2fe7eead31-5d967b67003so54478137.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 03:55:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXwgORvXPn37RqbKxSKeaEz3Yq87wq9S4UIF1E1WciF2Hq8E1tMjbhqVxp282rOcVqptZBrimxxS3I8w/hy84e0@lists.infradead.org
+X-Received: by 2002:a05:6102:c49:b0:5a1:f09f:524e with SMTP id
+ ada2fe7eead31-5d7dd59bcd6mr1313646137.16.1760698511065; Fri, 17 Oct 2025
+ 03:55:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+References: <cover.1739540679.git.geert+renesas@glider.be> <2d30e5ffe70ce35f952b7d497d2959391fbf0580.1739540679.git.geert+renesas@glider.be>
+ <20250214073402.0129e259@kernel.org>
+In-Reply-To: <20250214073402.0129e259@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 17 Oct 2025 12:55:00 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdU+0HGG22FbO3wNmXtbUm9RhTopYrGghF6UrkFu-iww2A@mail.gmail.com>
+X-Gm-Features: AS18NWCjFk9wo7Q1aPnnkBYJzaq6xcQVQAXawyeid30N8a2RlJlAbXrKkziomTs
+Message-ID: <CAMuHMdU+0HGG22FbO3wNmXtbUm9RhTopYrGghF6UrkFu-iww2A@mail.gmail.com>
+Subject: Re: [PATCH treewide v3 2/4] bitfield: Add non-constant
+ field_{prep,get}() helpers
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	David Miller <davem@davemloft.net>, Linus Walleij <linus.walleij@linaro.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, Crt Mori <cmo@melexis.com>, 
+	Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Jacky Huang <ychuang3@nuvoton.com>, 
+	Shan-Chun Hung <schung@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Alex Elder <elder@ieee.org>, 
+	David Laight <david.laight.linux@gmail.com>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	qat-linux@intel.com, linux-gpio@vger.kernel.org, 
+	linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org, 
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_115205_776780_162B25EA 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20251017_035516_148993_868A8DA5 
+X-CRM114-Status: GOOD (  32.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,151 +113,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jakub,
 
-
-On Fri, 17 Oct 2025, Thomas Gleixner wrote:
-
-> A common mistake in user access code is that the wrong access mode is
-> selected for starting the user access section. As most architectures map
-> Read and Write modes to ReadWrite this goes often unnoticed for quite some
-> time.
+On Fri, 14 Feb 2025 at 16:34, Jakub Kicinski <kuba@kernel.org> wrote:
+> On Fri, 14 Feb 2025 14:55:51 +0100 Geert Uytterhoeven wrote:
+> > The existing FIELD_{GET,PREP}() macros are limited to compile-time
+> > constants.  However, it is very common to prepare or extract bitfield
+> > elements where the bitfield mask is not a compile-time constant.
+> >
+> > To avoid this limitation, the AT91 clock driver and several other
+> > drivers already have their own non-const field_{prep,get}() macros.
+> > Make them available for general use by consolidating them in
+> > <linux/bitfield.h>, and improve them slightly:
+> >   1. Avoid evaluating macro parameters more than once,
+> >   2. Replace "ffs() - 1" by "__ffs()",
+> >   3. Support 64-bit use on 32-bit architectures.
+> >
+> > This is deliberately not merged into the existing FIELD_{GET,PREP}()
+> > macros, as people expressed the desire to keep stricter variants for
+> > increased safety, or for performance critical paths.
 >
-> Aside of that the scoped user access mechanism requires that the same
-> pointer is used for the actual accessor macros that was handed in to start
-> the scope because the pointer can be modified by the scope begin mechanism
-> if the architecture supports masking.
+> I really really think that people should just use the static inline
+> helpers if the field is not constant. And we should do something like
+> below so that people can actually find them.
 >
-> Add a basic (and incomplete) coccinelle script to check for the common
-> issues. The error output is:
+> diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
+> index 63928f173223..e02afcd7aeee 100644
+> --- a/include/linux/bitfield.h
+> +++ b/include/linux/bitfield.h
+> @@ -156,6 +156,80 @@
+>                 (typeof(_mask))(((_reg) & (_mask)) >> __bf_shf(_mask)); \
+>         })
 >
-> kernel/futex/futex.h:303:2-17: ERROR: Invalid pointer for unsafe_put_user(p) in scoped_masked_user_write_access(to)
-> kernel/futex/futex.h:292:2-17: ERROR: Invalid access mode unsafe_get_user() in scoped_masked_user_write_access()
->
-> Not-Yet-Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Julia Lawall <Julia.Lawall@inria.fr>
-> Cc: Nicolas Palix <nicolas.palix@imag.fr>
-> ---
->  scripts/coccinelle/misc/scoped_uaccess.cocci |  108 +++++++++++++++++++++++++++
->  1 file changed, 108 insertions(+)
->
-> --- /dev/null
-> +++ b/scripts/coccinelle/misc/scoped_uaccess.cocci
-> @@ -0,0 +1,108 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/// Validate scoped_masked_user*access() scopes
-> +///
-> +// Confidence: Zero
-> +// Options: --no-includes --include-headers
-> +
-> +virtual context
-> +virtual report
-> +virtual org
-> +
-> +@initialize:python@
-> +@@
-> +
-> +scopemap = {
-> +  'scoped_masked_user_read_access_size'  : 'scoped_masked_user_read_access',
-> +  'scoped_masked_user_write_access_size' : 'scoped_masked_user_write_access',
-> +  'scoped_masked_user_rw_access_size'    : 'scoped_masked_user_rw_access',
+> +/**
+> + * u32_encode_bits() - prepare a u32 bitfield element (non-const)
+> + * @v: value to put in the field
+> + * @field: shifted mask defining the field's length and position
+> + *
+> + * Equivalent of FIELD_PREP() for u32, field does not have to be constant.
+> + *
+> + * Note that the helper is available for other field widths (generated below).
+> + */
+> +static __always_inline __u32 u32_encode_bits(u32 v, u32 field)
+> +{
+> +       if (__builtin_constant_p(v) && (v & ~field_mask(field)))
+> +               __field_overflow();
+> +       return ((v & field_mask(field)) * field_multiplier(field));
 > +}
-> +
-> +# Most common accessors. Incomplete list
-> +noaccessmap = {
-> +  'scoped_masked_user_read_access'       : ('unsafe_put_user', 'unsafe_copy_to_user'),
-> +  'scoped_masked_user_write_access'      : ('unsafe_get_user', 'unsafe_copy_from_user'),
-> +}
-> +
-> +# Most common accessors. Incomplete list
-> +ptrmap = {
-> +  'unsafe_put_user'			 : 1,
-> +  'unsafe_get_user'			 : 1,
-> +  'unsafe_copy_to_user'		 	 : 0,
-> +  'unsafe_copy_from_user'		 : 0,
-> +}
-> +
-> +print_mode = None
-> +
-> +def pr_err(pos, msg):
-> +   if print_mode == 'R':
-> +      coccilib.report.print_report(pos[0], msg)
-> +   elif print_mode == 'O':
-> +      cocci.print_main(msg, pos)
-> +
-> +@r0 depends on report || org@
-> +iterator name scoped_masked_user_read_access,
-> +	      scoped_masked_user_read_access_size,
-> +	      scoped_masked_user_write_access,
-> +	      scoped_masked_user_write_access_size,
-> +	      scoped_masked_user_rw_access,
-> +	      scoped_masked_user_rw_access_size;
-> +iterator scope;
-> +statement S;
-> +@@
-> +
-> +(
-> +(
-> +scoped_masked_user_read_access(...) S
-> +|
-> +scoped_masked_user_read_access_size(...) S
-> +|
-> +scoped_masked_user_write_access(...) S
-> +|
-> +scoped_masked_user_write_access_size(...) S
-> +|
-> +scoped_masked_user_rw_access(...) S
-> +|
-> +scoped_masked_user_rw_access_size(...) S
-> +)
-> +&
-> +scope(...) S
-> +)
-> +
-> +@script:python depends on r0 && report@
-> +@@
-> +print_mode = 'R'
-> +
-> +@script:python depends on r0 && org@
-> +@@
-> +print_mode = 'O'
-> +
-> +@r1@
-> +expression sp, a0, a1;
-> +iterator r0.scope;
-> +identifier ac;
-> +position p;
-> +@@
-> +
-> +  scope(sp,...) {
-> +    <+...
-> +    ac@p(a0, a1, ...);
-> +    ...+>
-> +  }
 
-This will be more efficient and equally useful with <... ...>
-Using + requires that there is at least one match, which has a cost.
+Unfortunately gcc emits actual divisions or __*div*() calls, and
+multiplications in the non-constant case.
 
-julia
+Gr{oetje,eeting}s,
+
+                        Geert
 
 
-> +
-> +@script:python@
-> +pos << r1.p;
-> +scope << r0.scope;
-> +ac << r1.ac;
-> +sp << r1.sp;
-> +a0 << r1.a0;
-> +a1 << r1.a1;
-> +@@
-> +
-> +scope = scopemap.get(scope, scope)
-> +if ac in noaccessmap.get(scope, []):
-> +   pr_err(pos, 'ERROR: Invalid access mode %s() in %s()' %(ac, scope))
-> +
-> +if ac in ptrmap:
-> +   ap = (a0, a1)[ptrmap[ac]]
-> +   if sp != ap.lstrip('&').split('->')[0].strip():
-> +      pr_err(pos, 'ERROR: Invalid pointer for %s(%s) in %s(%s)' %(ac, ap, scope, sp))
->
->
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
