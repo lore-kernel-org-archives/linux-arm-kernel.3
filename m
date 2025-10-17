@@ -4,96 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BECCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 18:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55983CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 18:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cm/Xe7cjynibkOQ6Px4QnhuGS+eC9ZhGU5GEHOrppAM=; b=ypZnO83utLZCCvrnLLU/YKvgxW
-	NLVko+mZMeMOK4okeOKkOBqzKQd+T3o7bmyd59UlpIHxNL+qZXGCPD0XMF8p8FpbUH/GHDcingJAi
-	ZBjP6yAqMftpuxcFv1ORDtQ56fuuE5Z/+dfRaNHhBocOlB4nWcCgC3Fxqr5FIuxsUqnvEz2ttJRJK
-	U+sXMojgfgCKg0V5+25x6TaxEQTIYm3XcZHMj+0FwNS0Kw1h/r0ba1HGzyCeh59vmIoU6lToXMIGO
-	a5lUiCsE7EbzNGqorQhKy7aBH2Ooki7NU2RzCHxbu1qdn4N0D7OTk7ZcrDDrgV5CaN0oteeql/cHg
-	xD+o4Dbg==;
+	bh=uZ7wmyeoCr/n+eEz+2rVPc9HZYTWQxyrTPZm5rRd0V8=; b=QPBE9qJj11t4grc/GVPRPpn2nf
+	alzmzswExezOEQ5t1LkOd9Tqfdhfhq2rdy9r1pb6eni6m02vx5ZDRrcQxpqNJuo8kMQ32Ef4RJNsR
+	SE8kGlTWyY6yj21RQz1ZmcsnzUUYij7t3Z+LjbPL/xCH+viirzsKA77WS6jD3INPW0DeOrvy+QMVl
+	gO5UEBlloZz8+WyU4q5Uk49kMJ7pbHl18maMjNOlxO6zg74W2RL4mh/mzSVDHYcXyqlVEE1ibwyPK
+	zOL9o5t7qoS71IpoxffupN6U0liu9JFfQ2S8/r00+AgruUi1FCJt3DziSJwUSp01JN5hfaIACAse9
+	2JhlQdNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ok7-00000008dgc-0gmv;
-	Fri, 17 Oct 2025 17:59:55 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1v9oqN-00000008eK9-48E8;
+	Fri, 17 Oct 2025 18:06:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ok4-00000008dgH-2Lzx
+	id 1v9oqM-00000008eJz-2cMD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 17:59:53 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-471005e2ba9so5205e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 10:59:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760723991; x=1761328791; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cm/Xe7cjynibkOQ6Px4QnhuGS+eC9ZhGU5GEHOrppAM=;
-        b=t3dMw8+CVupQEtmraxY70KqcMdDiJJFnXRwf4i+C/rKwb5Wq72cO2ooucL0KXEbn6O
-         7qtN2w3NlhEdQVzxY1qPghBaQkYmhxk9953BmXLd3UsllFODg7S7HmoRLog/MVwRpkqZ
-         g9s8YmA0UzkPpMRaOrXaP9g8oXNQ5g+T34hTZYXgHQDriprizpexKi5J+rSsoXtMl4ok
-         3q1AqfQXlCMo+KMkQoBi4tQXz/7isUjC9tdgXlmLyKxErsTSHI1XpArOTzD82BouGLPr
-         u+0HR4OTwlpx6YG2uw61ul61necEs9BOadMxZ9pye8t/Z1lJhbl0f45TuiwzHW7BUJP+
-         UqGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760723991; x=1761328791;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cm/Xe7cjynibkOQ6Px4QnhuGS+eC9ZhGU5GEHOrppAM=;
-        b=B3p21H1yEjGHH/1ZDBdZpE6SOyBEFoob1k21y/Q2ICyDPTxXM3jFuWPIKiBdnG6gM6
-         UFIOObOE4ApVUZEtRIKRNOPoGAf0U8w4kb0+2vMm+yyxVFwdnAs+xde+bW7JlmdHWkCY
-         Y6XUDBrA1eaqNCjzn5+14BiNlbkzQ83uPvs+jIz4jrwfN4K6dkDgl9knBp4qzDrSEIs7
-         3ea3NzZx4rGAmd7aEYxkBqmP8Z5vHb62qtwxA3DRjPZ/DsZ3aCbcMBmKOwT0cyZNhwTj
-         ENqNm/NwyRIVZGkRWuS2RubkxUw002daFYDZYTe9/XEAiO4IFG1G0ETNT0RSyWPrY3HJ
-         c9NQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXmS/4F1ZAOCLfleus9oz4ehXBuoX1bHhzF/o6Ycky3htCtWfsXudPsNW4PfGdpsOgPyl5j2x5oYDv/u/7aWZZT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyY203fQouSbzaM4GtPudM6QwIoOUDehIrsoJYlcVqgY0Q2Ndmm
-	0ahleyUcrQIQUULRYSKX1SglIf1JXNaj5USSoMK9UXAsZ/YUsX4XIbGEFK5dyBINuw==
-X-Gm-Gg: ASbGncvpCpf7Yzdv5Ki8vG6PGhpxcC6f6osGpILnT7nOVTSyhHJdtO5fv9Ts2hL7wUa
-	CWgOiUgT04R8GE2zfxzof/nPvj9U0UYwaBWgkJmvgkBM0YYz0jR5VUdhXn9TnB09N9kj3AfZiXk
-	CzN7D7ToJZSNFkKjd8Jxo1PDxM+fCphpAlFNzfMKEBWAgHI6fz/Ny6s/vl3VPx+t+fxla2P+xj7
-	gBJpcS/h9Lm2JWzv/Xl1oiHqiULliRQgev4JamnFGRzlrkwZXRqjZ1QKb+IqrqKhZ40vKtDMxiz
-	3z71dY0zfvTsukwqGZW0dWTHdW+yElA+9hz+SmBfoMkx4QLOnhwmpbPgiaU4aVS09U0nRlRWyCJ
-	xlZoxdFrRHj9kJZZMJSvRVB0aGR8ax5TTiH0mi0XkZLxXs9P+M/F3y0xKZm5pgNO0vvkGwP6Ss5
-	CnWPdE5SmIM2xLbyHt2RmOPU11scvd+2xsRTExCQ==
-X-Google-Smtp-Source: AGHT+IE8/FXhVVJrozgI0Wh8A6TqTcaQumti7JajkJKRLGU4JC0DDWkhAHhYmkS9bQHIRIjtvr95Fw==
-X-Received: by 2002:a05:600c:4797:b0:46e:1b09:1cda with SMTP id 5b1f17b1804b1-470ff2e9434mr4517485e9.5.1760723990610;
-        Fri, 17 Oct 2025 10:59:50 -0700 (PDT)
-Received: from google.com (140.240.76.34.bc.googleusercontent.com. [34.76.240.140])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-427f00b988dsm420433f8f.35.2025.10.17.10.59.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Oct 2025 10:59:49 -0700 (PDT)
-Date: Fri, 17 Oct 2025 17:59:46 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
+	Fri, 17 Oct 2025 18:06:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BCB2F6482E;
+	Fri, 17 Oct 2025 18:06:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76468C4CEE7;
+	Fri, 17 Oct 2025 18:06:19 +0000 (UTC)
+Date: Fri, 17 Oct 2025 19:06:16 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Huang Ying <ying.huang@linux.alibaba.com>
+Cc: Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>, Gavin Shan <gshan@redhat.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	will@kernel.org, joro@8bytes.org, praan@google.com
-Subject: Re: [PATCH v5 4/4] iommu/io-pgtable-arm-selftests: Use KUnit
-Message-ID: <aPKEEuCYbbJbN9Cr@google.com>
-References: <20250929155001.3287719-1-smostafa@google.com>
- <20250929155001.3287719-5-smostafa@google.com>
- <86ca3918-4992-41a2-894f-f1fd8ce4121f@arm.com>
- <aO9vI1aEhnyZx1PL@google.com>
- <b48193a4-a37b-41ba-b4ba-8b5c67d812bd@arm.com>
- <20251015151002.GH3938986@ziepe.ca>
- <73a1d5d0-8077-450c-a38f-c1b027088258@arm.com>
- <20251016172524.GN3938986@ziepe.ca>
- <aPI-8YfqC83QlltH@google.com>
- <20251017141312.GP3938986@ziepe.ca>
+	linux-mm@kvack.org
+Subject: Re: [PATCH] arm64, mm: avoid always making PTE dirty in pte_mkwrite()
+Message-ID: <aPKFmHg-FrkGJxWd@arm.com>
+References: <20251015023712.46598-1-ying.huang@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251017141312.GP3938986@ziepe.ca>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_105952_664614_13B1B1EB 
-X-CRM114-Status: GOOD (  17.20  )
+In-Reply-To: <20251015023712.46598-1-ying.huang@linux.alibaba.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,38 +64,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 11:13:12AM -0300, Jason Gunthorpe wrote:
-> On Fri, Oct 17, 2025 at 01:04:49PM +0000, Mostafa Saleh wrote:
+On Wed, Oct 15, 2025 at 10:37:12AM +0800, Huang Ying wrote:
+> Current pte_mkwrite_novma() makes PTE dirty unconditionally.  This may
+> mark some pages that are never written dirty wrongly.  For example,
+> do_swap_page() may map the exclusive pages with writable and clean PTEs
+> if the VMA is writable and the page fault is for read access.
+> However, current pte_mkwrite_novma() implementation always dirties the
+> PTE.  This may cause unnecessary disk writing if the pages are
+> never written before being reclaimed.
 > 
-> > Is simple enough and verbose and can distinguished from test failures,
-> > it will look like:
-> > [    2.095812]     ok 1 arm_lpae_do_selftests # SKIP Failed to allocated device!
->                    ^^^^^
+> So, change pte_mkwrite_novma() to clear the PTE_RDONLY bit only if the
+> PTE_DIRTY bit is set to make it possible to make the PTE writable and
+> clean.
 > 
-> The test "passed" though, and since we never expect this failure it
-> seems wrong to make it pass.
+> The current behavior was introduced in commit 73e86cb03cf2 ("arm64:
+> Move PTE_RDONLY bit handling out of set_pte_at()").  Before that,
+> pte_mkwrite() only sets the PTE_WRITE bit, while set_pte_at() only
+> clears the PTE_RDONLY bit if both the PTE_WRITE and the PTE_DIRTY bits
+> are set.
 > 
-> I think there is no point in distinguishing "infrastructure" from
-> anything else. Either the test runs to completion and does everything,
-> or it fails.
+> To test the performance impact of the patch, on an arm64 server
+> machine, run 16 redis-server processes on socket 1 and 16
+> memtier_benchmark processes on socket 0 with mostly get
+> transactions (that is, redis-server will mostly read memory only).
+> The memory footprint of redis-server is larger than the available
+> memory, so swap out/in will be triggered.  Test results show that the
+> patch can avoid most swapping out because the pages are mostly clean.
+> And the benchmark throughput improves ~23.9% in the test.
 > 
-> The use of skip is for things where we probe something and detect we
-> can't run the test. Like maybe you have a test that relies on
-> PAGE_SIZE=4096, or CONFIG_XX so skip other systems.
+> Fixes: 73e86cb03cf2 ("arm64: Move PTE_RDONLY bit handling out of set_pte_at()")
+> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Gavin Shan <gshan@redhat.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
+> Cc: Yicong Yang <yangyicong@hisilicon.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> ---
+>  arch/arm64/include/asm/pgtable.h | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> While, "I hit an OOM so I skip the test" seems wrong to me. Maybe the
-> OOM was caused by the "unit under test" leaking memory??
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index aa89c2e67ebc..0944e296dd4a 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -293,7 +293,8 @@ static inline pmd_t set_pmd_bit(pmd_t pmd, pgprot_t prot)
+>  static inline pte_t pte_mkwrite_novma(pte_t pte)
+>  {
+>  	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
+> -	pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
+> +	if (pte_sw_dirty(pte))
+> +		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
+>  	return pte;
+>  }
 
-I see, both are fine with me, it seems the kunit maintainer is more
-inclined twords the failure approach [1].
+This seems to be the right thing. I recall years ago I grep'ed
+(obviously not hard enough) and most pte_mkwrite() places had a
+pte_mkdirty(). But I missed do_swap_page() and possibly others.
 
-So, I can keep the test failing, is it OK Robin?
+For this patch:
 
-[1] https://lore.kernel.org/all/CABVgOS=NfRcXYzJVMMKqeXP8SyTewffwb7vdGN1D8esO2f0KOA@mail.gmail.com/
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
-Thanks,
-Mostafa
+I wonder whether we should also add (as a separate patch):
 
-> 
-> Jason
+diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
+index 830107b6dd08..df1c552ef11c 100644
+--- a/mm/debug_vm_pgtable.c
++++ b/mm/debug_vm_pgtable.c
+@@ -101,6 +101,7 @@ static void __init pte_basic_tests(struct pgtable_debug_args *args, int idx)
+ 	WARN_ON(pte_dirty(pte_mkclean(pte_mkdirty(pte))));
+ 	WARN_ON(pte_write(pte_wrprotect(pte_mkwrite(pte, args->vma))));
+ 	WARN_ON(pte_dirty(pte_wrprotect(pte_mkclean(pte))));
++	WARN_ON(pte_dirty(pte_mkwrite_novma(pte_mkclean(pte))));
+ 	WARN_ON(!pte_dirty(pte_wrprotect(pte_mkdirty(pte))));
+ }
+
+For completeness, also (and maybe other combinations):
+
+	WARN_ON(!pte_write(pte_mkdirty(pte_mkwrite_novma(pte))));
+
+I cc'ed linux-mm in case we missed anything. If nothing raised, I'll
+queue it next week.
+
+Thanks.
+
+-- 
+Catalin
 
