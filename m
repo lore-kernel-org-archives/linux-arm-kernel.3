@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D91DCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98DBDCCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMw/BLc6WyU37noQ/Egq3GTvTz6IcvJz4RAiUujLg10=; b=oob0OpWrooJcuyYJLwK2TkXzrI
-	8Uabrv8hDOWka4UrolF+LUqxPLgzAGx8KsUwdl/rmabk96Y56jYnGH29VJgaDXwcAruqkNVli2Zq5
-	JNZK32BEvwGoJYvlTopr9bcR8hxCfHWgZgeZ33zKkuMPwLiCSY3YwWKERuMizulV3CGMqicwZIk8v
-	MVxrTuE6Iwn8QlmDOqynpHPtn1a3XpojW/TwWnU9FfUMWPAi4MYpiflekTkwaWH/1I2zMAPJ7P/S2
-	T9esHEPa9A3d9MMLX31MVrU6TQa5gZ1m4k9HbVLrnOYPIULOzLwLFTR//9DbgzMygXlXzmAwTvoMK
-	mpqRFJmA==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3tvxCvy53Nd2u9uv4h1/Z8p3w7ai/Crv2fKXgAl5unM=; b=hAOFNSBxJQDtzYUNTm+9Nwb2Jx
+	UPGUcSMCpyEFjBOa+qKsYOY9aAxTQNyws8dTU+54ICegtClc0KiClT2SsdIaQWgneJb4eHHi71jbc
+	sMBAFnAZmzR9Se8DEoSx2uqben8mQClo2ONvhr+MyprBWaEVFKc0/I0+Stkc5bOj6fcPf6iHYMo8p
+	IWPQGeDXSsdNo8NCKGs8aCTMTvqApvnSfmy/aESRY0KHwnI8dMMqa/gRRA8ev4qNtvfKUpyKvsahs
+	PNTALOebey9dO/e2mJ3JKEx6tNr/Nhj3UszWcv72ft8pANblA/+mT6uoh81KbBVO9swu8jSOLgeU7
+	nwATqxiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9fAw-000000070IO-3EFP;
-	Fri, 17 Oct 2025 07:46:58 +0000
-Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1v9fAz-000000070KU-4BM7;
+	Fri, 17 Oct 2025 07:47:02 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9fAt-000000070Fu-2yvZ
+	id 1v9fAv-000000070Gc-0zdl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 07:46:57 +0000
+	Fri, 17 Oct 2025 07:46:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xlxzARgcHiLkZEgtp0Cvyq77KS/eKWhzGTk3RjWZLe5NsJUbIrmS+YK8IiANzS9ro1rwo6CfTSBWVO9SF+K7vr4t7zFwYUcMVbV8yDGmq728GFSCfOMu5ggMf6echQx20Mm6OHf21TaAFeqzOH9PodphbPMLHKsGKo934Dlt67GbmPf+a3RoHmM9/6zHJ/zYV5bA7f/FQHaPFcGYIftwLSd0hsznXmEKpUEzjuuB+5WJv5FPl6m7uosSG6WNk9drgzxY8uTN70WgsDRwOVqDveJLXlx9ZJX4J26627BQyMlmD66WInez9WqkrBADja770qstrZnFf61uuxELdj5Z1w==
+ b=MefhjDH69cDTBz+cR9FGToLAEaMj++sdAbVtactKzfO6WIb8Q4NUpq6qCPjcvrzQy/Ceywp9xfCyY3uOQShl1ZyhIaL+e72JlajOmjP0J+BUtK8p/Ln4/coyV6GTeCYgd2VnaxeVwavyBz4Rffi19cLvnItIAlcuAS6BvAJk3JUUzjJFqG7Okxe2kZ8slp3ExNy+O7bDe3H6sUzH16sG7uO+jNOTJxTzuOOXuIGTAyxx9JZEbVGPOGFanN047C1v60T5Wwzmmxv9p1DwIOAzkUMKgLYs9trZ25zHW8lLXCzyUo9oYZ+hnLny/hNA7Ex3Xw/D0Hiz2yMXVe6aAA0mUw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KMw/BLc6WyU37noQ/Egq3GTvTz6IcvJz4RAiUujLg10=;
- b=e81XaogpmBMkZ3v/2IkV6/ZsQskyfiOApLdX29iOiyzXYdio2ewRDpqbGEHHjQlSO6Inxalf2iguTpQVPMpIy672IRVgDCFrbp+Nj5/064biBS4tH7N8zgIbsncg9rPomhRjmWF9MDiEWT6yZ8OFKdkocx2jsngeaijLqhy+g2BQGEoH4W/6Pk+k0NJn0QK4WuJFWtTfuQBXsSq/lh4tsqOOX3aD7Za+oEbo/zlB5Tqrn43vE4QQyBxbK2darGPKwbx/cJEb/JW5FNz0HDEAEURKtUqsXGwJizfWZDzUnGpm85jRSiUaPgLZ6YDgzcVcoIo0pjQxtCv4VXeXJNdnsQ==
+ bh=3tvxCvy53Nd2u9uv4h1/Z8p3w7ai/Crv2fKXgAl5unM=;
+ b=MMpFr3k+eIMxoh3T+w4TaTjCpmaPdLv1SL6aLq2UByd/D+mLY5t+kgXGkeRxdc7XHwuPur2+mjURJXF10rQbwsgP5h/YvWCJDHut4vdW1UHnS170SZhkoYcP07aCUwExWk1jbWpWfUSght8es7bxcySR2Q1UcajKvADuji7iRpAO30xDBPeaTfDP5gZrKTC0QX577z7MB2PRwuEE27PQCgEP3Fjh7xAREag57pxUZGxtHN9tcS1hLzwH/vvsZW+4ly+X/k+EWLyiRZ8dAN9sUEkazQd0iamLVTBjyxg1CBQZNE82C9UBxKOCCix/yunCU0JbfzPTVEmwhhv3pj01PQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from SI1PR02CA0029.apcprd02.prod.outlook.com (2603:1096:4:1f4::20)
- by KL1PR06MB7011.apcprd06.prod.outlook.com (2603:1096:820:11b::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.11; Fri, 17 Oct
- 2025 07:46:47 +0000
-Received: from SG2PEPF000B66CD.apcprd03.prod.outlook.com
- (2603:1096:4:1f4:cafe::7c) by SI1PR02CA0029.outlook.office365.com
- (2603:1096:4:1f4::20) with Microsoft SMTP Server (version=TLS1_3,
+Received: from PSBPR02CA0003.apcprd02.prod.outlook.com (2603:1096:301::13) by
+ TYSPR06MB6315.apcprd06.prod.outlook.com (2603:1096:400:40f::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9228.12; Fri, 17 Oct 2025 07:46:49 +0000
+Received: from TY2PEPF0000AB8A.apcprd03.prod.outlook.com
+ (2603:1096:301:0:cafe::a) by PSBPR02CA0003.outlook.office365.com
+ (2603:1096:301::13) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9228.13 via Frontend Transport; Fri,
- 17 Oct 2025 07:46:47 +0000
+ 17 Oct 2025 07:46:48 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -55,11 +54,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CD.mail.protection.outlook.com (10.167.240.27) with Microsoft
+ TY2PEPF0000AB8A.mail.protection.outlook.com (10.167.253.8) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.20.9253.7 via Frontend Transport; Fri, 17 Oct 2025 07:46:47 +0000
 Received: from localhost.localdomain (unknown [172.16.64.196])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 865FF40EEE9D;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 838E341C0152;
 	Fri, 17 Oct 2025 15:46:46 +0800 (CST)
 From: Gary Yang <gary.yang@cixtech.com>
 To: linus.walleij@linaro.org,
@@ -72,62 +71,61 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	cix-kernel-upstream@cixtech.com,
 	Gary Yang <gary.yang@cixtech.com>
-Subject: [PATCH v4 1/3] dt-bindings: pinctrl: Add cix,sky1-pinctrl
-Date: Fri, 17 Oct 2025 15:46:44 +0800
-Message-ID: <20251017074646.3344924-2-gary.yang@cixtech.com>
+Subject: [PATCH v4 0/3] Add pinctrl support for Sky1
+Date: Fri, 17 Oct 2025 15:46:43 +0800
+Message-ID: <20251017074646.3344924-1-gary.yang@cixtech.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251017074646.3344924-1-gary.yang@cixtech.com>
-References: <20251017074646.3344924-1-gary.yang@cixtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CD:EE_|KL1PR06MB7011:EE_
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB8A:EE_|TYSPR06MB6315:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 7289a4b8-ca2d-4832-8940-08de0d515331
+X-MS-Office365-Filtering-Correlation-Id: 1e88dfc2-370d-462f-b202-08de0d5153ae
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JZ0WNSs8uYNHlEzAJCk3TyaiOsqBwKr/kFZTDuaeFm69XG7QDwoF5XaPjuHy?=
- =?us-ascii?Q?zQjerovRyWQ8JNwl6F/G+uog73LRnlyuXEvBPe6L3+T0OxJzSqcm27BkmfwM?=
- =?us-ascii?Q?MTPawuxGOjCHqBpAL1BcFN5pmmp0zGBIOTdY9GmrATQ9xarYJIYmjkTZ1hSa?=
- =?us-ascii?Q?exYva9Wpcpsk0sLHIfgXp941S6LMTe80g99elZfvEQEgxdICSHVxnYIP1VS+?=
- =?us-ascii?Q?4do/Q/wurQnc1bvvBwF2F+vUjlROpIhq2IjfYL3Ybn5qp5cByBs3sr62kqVq?=
- =?us-ascii?Q?QFKKLVZ9Ur2zxC1J6URAckbAQZo69zNfa0qr0YlFD5RgJ7PYJ5OuBm2thnAY?=
- =?us-ascii?Q?BOFODGHlRtd5jYXESk9GvcjbskDYLATTtjy6ALI7TbFqa2ibCzysYJgm5QAl?=
- =?us-ascii?Q?QUFHSgtrouormSOWWONLGWT4gri+MWBV3nfbk+F+u8SiUD5+kSNbJUuoArwE?=
- =?us-ascii?Q?zgTDNv3VAh3vtMO4kRc7JoHy6sNfPEuVkR7G2+G8XJFoHvtW+s5RoJsZMWDz?=
- =?us-ascii?Q?iisT5BqkEhpI6e8/HcRKDSIWzbEhq94Bsk58IQ5oXeld3pL8ZKuBvSs3hBDE?=
- =?us-ascii?Q?dyutFtC+gGqkhKgRo47KnENWA7e9jl3r3Cqug/3aCMVZZLkGmf5tgp1c2gXH?=
- =?us-ascii?Q?/TuRNKS7oJfsTa7MEbK1ExljSR4H9c7ltaFZEhZttBfJ7O4efrbNjr0Gk20P?=
- =?us-ascii?Q?xqOXCC7+lhyBhwuqXTFI1L+72HURxH4/jY6FnvyDsFWeFM0Hkd7LK0ScB9fD?=
- =?us-ascii?Q?33S+mIKgKTMlOfwosbPXnZ24AQx0M3uRcHHSQQw/gqEv0boe7zD88FxIM2ur?=
- =?us-ascii?Q?5C2yqyLJOw+gAZjTcv/M305kx2nJNI5jO7u5YIGpNPFktet2eKSZnqzl4PnL?=
- =?us-ascii?Q?JWIyrxXLrBIkkR3/G5N3ho0pCNtL34vSOAOF/Bts8nQhM+Zd58AHoF2u3bRi?=
- =?us-ascii?Q?J0X0y7YLylKn2R6FTK6LsTD57Crvd8UdNiYvc4da9raOI7BSejjWGpwDioa+?=
- =?us-ascii?Q?T5DQ5U36mhddaSpcdjh0XOi91XWME1Hi6eywEVSy5ascvTroXfcd6n4ptWxg?=
- =?us-ascii?Q?2d9kZnHB9btqGUDKpSWmiEnU/prheBJplhfbVlFelPUzdLgYmwL3h5pJ/GkQ?=
- =?us-ascii?Q?HVUBV1z+4wNYuYMLR7+22ium93qHIx+6tZZ7fyB18dSp6DVkEtf0fydBtqyS?=
- =?us-ascii?Q?lQQSLKmUrV+xkvcTCdEutDLCixKQCeY25XdbOrVJmkUpdoUwCOqvsCZbBXch?=
- =?us-ascii?Q?LhqlJuH1f1fbLPQYT+bvhqSlu0v25IGaY53996RIOg86Kg+DEA+IzcPMk8Db?=
- =?us-ascii?Q?DDFNfvqJ6D5dcv5Xe+KMefNibnAKDECalYrRhQzKCD4v9VNLF7+etVTlNBiC?=
- =?us-ascii?Q?5cex9NOThI0+JCOpH+78TSQ/DKgpnZ9vnV7GGVjPuyW7jRh94CtnDNKNldjv?=
- =?us-ascii?Q?OqJNIUgPba9F8v1yPMq50XEELCN/nQZi3WdKByang4+ihtbjbcRtGKN2J44R?=
- =?us-ascii?Q?KR8AxVu5x2VODedNsREIPGvzT8Wa2N1ZQJxV?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?j+1UliJsvAyf76joDycBlTR0+ZNISm8udGi1yu/BaSzaoxSUeKzQtNFrI/9L?=
+ =?us-ascii?Q?9bCAcjJOw+s+KvLP8xgwSFy5fP5HFM9+4oW+ZZg98UIOi3eoCp2Z/lyckydR?=
+ =?us-ascii?Q?A3yC1x7i74gFIv2Oc5Q3JVSkb1g9dTcVwMT+KnoBzh/rS/59MPVA6rxWpBgO?=
+ =?us-ascii?Q?jY7yXZ7pQejfOd3+Iq03l/2NaOQe0kTDGxixqOVsW71CR+pkpD9ZQK2Uor6s?=
+ =?us-ascii?Q?u0hmg0IKoZiSAbgTCDN1VBoMlTW3YBKG4uk/Igynnhsa6edJrYV4P1OYBvTd?=
+ =?us-ascii?Q?yvpZANj0t709jtNORdT8SFFJ1yBCNW10ISV+UuzUlQijeF+TvXLyaw19G4Cq?=
+ =?us-ascii?Q?wd5Bp+F2OxlHAJYS7Yi2U6jbK8Qxuf2VhsBIgBhDDS3k6SQvCGJ0iuUYEQQ8?=
+ =?us-ascii?Q?+osNLdqBvOSUb6lbrDEjrX08d2T3hW2JDwSXIp5SMMg8Znv9XhNQibhFZvJZ?=
+ =?us-ascii?Q?fda/RHqnk2h95GD+iLERv8uwQMMCoBCLT22aymisPezQYmLmTr7KHo8306HB?=
+ =?us-ascii?Q?6jIwpLRzdeHeJ7mA0/V2CLrWUxlFeqi0A0rrNl9vzzLI9fvLu06d2/6Xyc5x?=
+ =?us-ascii?Q?eNzKno194CBiyfE07WQFKWQz3DQRi4IZBrkjoJPxS2zNHo/5V3BuW6SwkDSJ?=
+ =?us-ascii?Q?0OucFTiZWEEi+ZUq9o+cVq3Aep0DL4Hxi/Vj0DH8SoM3ICmG28hEsiG4bmxk?=
+ =?us-ascii?Q?H9Eeq5HeISB4zwJbgl/ltvrlpIhXpcfidyhl56PfwfBvF5oifCbjp9Vz2Of9?=
+ =?us-ascii?Q?WE2bJIIzsVCTvKg0Ok5lsrryK7KM0O1QbzKw1VevEahu7rZeRGrAJJ1EKz2n?=
+ =?us-ascii?Q?DmeMZXk7+cbl0nVLZQBan+ODYDxxc2jl2gKD+YaP0X+S/ZBCS0Yz/5s3Chq/?=
+ =?us-ascii?Q?2jdIdwljuSigrpU7ekOeVc+QSSOPnFUdyInIP3E7DDRju3Rc0vu1a1MAB5i+?=
+ =?us-ascii?Q?JDPkcBsBcc63iu6GfacDTeM/VoD619CsB6FCMquB7PJIWoYm+uBOJDdkGXVf?=
+ =?us-ascii?Q?n0klrqNscGSKpScrwpLJQkIv16uxN2uKJJG7cQv9u6g0KCgV+hBk8dAup5qq?=
+ =?us-ascii?Q?fPpoOLcgCojVtpCb4MnYj2WxZqfuuE+nR6KJNyl7X9FDBkswOkc/wjHHK+QP?=
+ =?us-ascii?Q?0qvNsl2r5f3xfU8EuFVoexiD7cFXCNI9dS9TY7Ul/rqq8eF+jgLxw1NAMF1m?=
+ =?us-ascii?Q?1RLKmBy/gq3wqjqgcmMZ6uamD5F89pkhIobj0avXupJRnoDUIGttA+RBKqv0?=
+ =?us-ascii?Q?TmSCiTZo7udWCX4qdAFUcSodi+TFpDlYKTKxWOt/vQrscOAuEHhLxeblOCEL?=
+ =?us-ascii?Q?7XmbbxgqgtfclpSmhuSLlGOb+eF+wL7H9dENINCjrNgjoPBjLMe4jgrc1XL7?=
+ =?us-ascii?Q?9FiRXvCdCyonZRIYlH9H6/qLIj29fRvQrdptLqhteDyvnvfVmn6NrXFfKKIf?=
+ =?us-ascii?Q?Jo5UhFTbg74k5nhELuFkygx6LuBLLNTwjUNCkYjWTPtym+ogPL1dwK90UAuL?=
+ =?us-ascii?Q?GGTNujECEyfdo8FO9GyG483dkVuGL++84iggDDFjqeT35WUk4ewdEsmPHbJQ?=
+ =?us-ascii?Q?Hxo63wC8Mn0jp0M0gWs=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014);DIR:OUT;SFP:1102;
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 07:46:47.0832
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 07:46:47.8035
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7289a4b8-ca2d-4832-8940-08de0d515331
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1e88dfc2-370d-462f-b202-08de0d5153ae
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CD.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB8A.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB7011
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB6315
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_004655_748482_F5386BF3 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20251017_004657_297532_A667F863 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,117 +140,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pin-controller is used to control the Soc pins.
-There are two pin-controllers on Cix Sky1 platform.
-One is used under S0 state, the other is used under
-S0 and S5 state.
+Patch 1: Add dt-binding doc for pinctrl on Sky1
+Patch 2: Add pin-controller driver for sky1
+Patch 3: Add pinctrl nodes for sky1
 
-Signed-off-by: Gary Yang <gary.yang@cixtech.com>
----
- .../bindings/pinctrl/cix,sky1-pinctrl.yaml    | 94 +++++++++++++++++++
- 1 file changed, 94 insertions(+)
+changes for v4:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-pinctrl.yaml
+scripts/checkpatch.pl 000*.patch
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+- support driver_strength = <8> (mA)
+- Fix dt-bindings style
+
+
+Changes for v3:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-pinctrl.yaml
+scripts/checkpatch.pl 000*.patch
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+- Re-order the patch set, and move dt-bindings to the 1st patch.
+- Refine the pinctrl driver with SKY_PINFUNCTION macro
+- Fix warnings when make dt_binding_check
+
+Changes for v2:
+- restructure the pinctrl driver to support pinmux=<..>
+- redefine pinmux macros
+- move header file from dt-bindings to dts
+- fix the code-style issues
+
+Gary Yang (3):
+  dt-bindings: pinctrl: Add cix,sky1-pinctrl
+  pinctrl: cix: Add pin-controller support for sky1
+  arm64: dts: cix: Add pinctrl nodes for sky1
+
+ .../bindings/pinctrl/cix,sky1-pinctrl.yaml    |  94 +++
+ arch/arm64/boot/dts/cix/sky1-orion-o6.dts     |  32 +
+ arch/arm64/boot/dts/cix/sky1-pinfunc.h        | 418 +++++++++++++
+ arch/arm64/boot/dts/cix/sky1.dtsi             |  10 +
+ drivers/pinctrl/Kconfig                       |   1 +
+ drivers/pinctrl/Makefile                      |   1 +
+ drivers/pinctrl/cix/Kconfig                   |  14 +
+ drivers/pinctrl/cix/Makefile                  |   4 +
+ drivers/pinctrl/cix/pinctrl-sky1-base.c       | 573 ++++++++++++++++++
+ drivers/pinctrl/cix/pinctrl-sky1.c            | 559 +++++++++++++++++
+ drivers/pinctrl/cix/pinctrl-sky1.h            |  48 ++
+ 11 files changed, 1754 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
+ create mode 100644 arch/arm64/boot/dts/cix/sky1-pinfunc.h
+ create mode 100644 drivers/pinctrl/cix/Kconfig
+ create mode 100644 drivers/pinctrl/cix/Makefile
+ create mode 100644 drivers/pinctrl/cix/pinctrl-sky1-base.c
+ create mode 100644 drivers/pinctrl/cix/pinctrl-sky1.c
+ create mode 100644 drivers/pinctrl/cix/pinctrl-sky1.h
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
-new file mode 100644
-index 000000000000..4ad160734353
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
-@@ -0,0 +1,94 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/cix,sky1-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Cix Sky1 Soc Pin Controller
-+
-+maintainers:
-+  - Gary Yang <gary.yang@cixtech.com>
-+
-+description:
-+  The pin-controller is used to control Soc pins. There are two pin-controllers
-+  on Cix Sky1 platform. one is used under S0 state, the other one is used under
-+  S0 and S5 state.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - cix,sky1-iomuxc
-+      - cix,sky1-iomuxc-s5
-+
-+  reg:
-+    items:
-+      - description: gpio base
-+
-+# Client device subnode's properties
-+patternProperties:
-+  '-cfg$':
-+    type: object
-+    additionalProperties: false
-+
-+    description:
-+      A pinctrl node should contain at least one subnode representing the
-+      pinctrl groups available on the machine.
-+
-+    patternProperties:
-+      'pins$':
-+        type: object
-+        additionalProperties: false
-+
-+        description:
-+          Each subnode will list the pins it needs, and how they should
-+          be configured, with regard to muxer configuration, bias pull,
-+          and drive strength.
-+
-+        allOf:
-+          - $ref: pincfg-node.yaml#
-+          - $ref: pinmux-node.yaml#
-+
-+        properties:
-+          pinmux:
-+            description:
-+              Values are constructed from pin number and mux setting
-+
-+          bias-disable: true
-+
-+          bias-pull-up: true
-+
-+          bias-pull-down: true
-+
-+          drive-strength:
-+            description:
-+              typical current when output high level.
-+            enum: [ 2, 3, 5, 6, 8, 9, 11, 12, 13, 14, 17, 18, 20, 21, 23,
-+                    24 ]
-+
-+
-+        required:
-+          - pinmux
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  # Pinmux controller node
-+  - |
-+    #define CIX_PAD_GPIO012_FUNC_GPIO012 (11 << 8 | 0x0)
-+    #define DS_LEVEL4 (8)
-+    iomuxc: pinctrl@4170000 {
-+        compatible = "cix,sky1-iomuxc";
-+        reg = <0x4170000 0x1000>;
-+
-+        wifi_vbat_gpio: wifi-vbat-gpio-cfg {
-+            pins {
-+                pinmux = <CIX_PAD_GPIO012_FUNC_GPIO012>;
-+                bias-pull-up;
-+                drive-strength = <DS_LEVEL4>;
-+           };
-+        };
-+    };
 -- 
 2.49.0
 
