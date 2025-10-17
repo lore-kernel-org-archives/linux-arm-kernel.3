@@ -4,78 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 917F6CCD1AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4A42CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uHvvzLKmf5c70RfsJL9N8TtNdChSER8kcLq/kGUzcsA=; b=nVByPmyOie8vO4VVpf+sHJUJbX
-	IBW5aD31NYNA9yylRph7ppfjhqIBLtxB76knBk+qrbi2eIGBjyjkoWYZS2MtSkp7sR3YHOqxKIPv4
-	2qb80XLGrRw1a5vEQ98e8woY7euDIIAss4WT2OLmPrE/rGFDkhyE2Ix+4piG6GlQVd6Kvdvg3ooST
-	O+580PE3q0nnhZzbequIVnZwix5V4pMkZm2uIkWoCspjpgHsnNn4iXnKs1IWGfRuB0cfTPbfZ3Ztg
-	dbvj+nZsPgBQE7fzvH+1rxwi4LsGVld5ftei7XnaCNE9RBE94hLGiMzpGw9A5/ay2n4EDFOzW4tbx
-	ZCzK8y0A==;
+	bh=T3GLww76RJcsd2GjX3gg3/FMhdYzc0pTJwH6K/kNPXY=; b=Po+kH/C1bNPMQLAghD29nj+OIq
+	msyLNkfud+sX0Sio1IvmG3iQLFXr3lscSJpFe+YkGxuuxnCgoHn0PJYYYv1kERUO5IOsNj6AH+bMO
+	JMKf4NA7wLiVAupIK1XUEuYXkdtnlFXCUqL6oQf+HBiywl5WjKimAvTwJXpxZHC7y6DJsBPwf7jfC
+	Jh3RkX+XASWUbrRaSGmHFhHuegW1HZYbYYqlGCdxC4FiqGAGwgczPoqVbLI7zpz4uIA+Wzhd47yN1
+	TJbn+EVgQbdBRRaV1r+HjWRcccEeicXmv6n4lCBTxWaecJhFTjUDdfkhP5QQumTxwMacw+oi3QSNn
+	FvCpi94Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mCE-00000008Eza-36GC;
-	Fri, 17 Oct 2025 15:16:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v9mDd-00000008FUp-2CgN;
+	Fri, 17 Oct 2025 15:18:13 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mCD-00000008EzK-1hvK
+	id 1v9mDb-00000008FSW-17IO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 15:16:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B416A644C8;
-	Fri, 17 Oct 2025 15:16:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE63CC4CEE7;
-	Fri, 17 Oct 2025 15:16:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1760714204;
-	bh=aSPhKdG/ToVZJ5+8kusvPngAyPgxFlWXvpGemVX22Dw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O0MlxUnID93NFGJpRzPgr4RYfL6biZA5+XSk21KgZiWUcfAaZWdocGpmqxAeq+4Py
-	 +57y3prS+YUoZ0NSeeOEPTOXdUNenjvu1Jn7dC3fOz/IZtUTLc+8VTo6tYRVjBmG63
-	 4OKACN2ZBD0X5UzE/Y+MDJTV0b/3o1YfiwK1yYCA=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Namhyung Kim <namhyung@kernel.org>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Yang Jihong <yangjihong@bytedance.com>,
-	Dominique Martinet <asmadeus@codewreck.org>,
-	Colin Ian King <colin.i.king@gmail.com>,
-	Howard Chu <howardchu95@gmail.com>,
-	Ze Gao <zegao2021@gmail.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Weilin Wang <weilin.wang@intel.com>,
-	Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>,
-	Yang Li <yang.lee@linux.alibaba.com>,
-	Leo Yan <leo.yan@linux.dev>,
-	ak@linux.intel.com,
-	Athira Rajeev <atrajeev@linux.vnet.ibm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Yanteng Si <siyanteng@loongson.cn>,
-	Sun Haiyong <sunhaiyong@loongson.cn>,
-	John Garry <john.g.garry@oracle.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.12 031/277] perf test: Add a test for default perf stat command
-Date: Fri, 17 Oct 2025 16:50:38 +0200
-Message-ID: <20251017145148.283904974@linuxfoundation.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251017145147.138822285@linuxfoundation.org>
-References: <20251017145147.138822285@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	Fri, 17 Oct 2025 15:18:12 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id B817A1FF15;
+	Fri, 17 Oct 2025 15:18:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1760714287; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=T3GLww76RJcsd2GjX3gg3/FMhdYzc0pTJwH6K/kNPXY=;
+	b=xcSfxPPCNp1TboryKAwOsxL7amZ4DE3ooNWWGwGmSRi6QXff7lfOzu2/fMvajzPRBssgCM
+	DO2w9O39uhMWldaDsH1L/Cfg9zCA4uo+u4RCSKXv5Cw+1ETeVuJqirIWQpMS1chMmmWHet
+	QokKLgjKJgc5CF6DYdq8LmVWwI+RXtw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1760714287;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=T3GLww76RJcsd2GjX3gg3/FMhdYzc0pTJwH6K/kNPXY=;
+	b=8X/LtTH4djdAVrPyuc9fminwuQWQRNqlvrxfEsEdnv4TFrkHxocfqGsAHZD373TQ2xpQBy
+	Kl7aJnBffxynU4Bg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=xcSfxPPC;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="8X/LtTH4"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1760714287; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=T3GLww76RJcsd2GjX3gg3/FMhdYzc0pTJwH6K/kNPXY=;
+	b=xcSfxPPCNp1TboryKAwOsxL7amZ4DE3ooNWWGwGmSRi6QXff7lfOzu2/fMvajzPRBssgCM
+	DO2w9O39uhMWldaDsH1L/Cfg9zCA4uo+u4RCSKXv5Cw+1ETeVuJqirIWQpMS1chMmmWHet
+	QokKLgjKJgc5CF6DYdq8LmVWwI+RXtw=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1760714287;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=T3GLww76RJcsd2GjX3gg3/FMhdYzc0pTJwH6K/kNPXY=;
+	b=8X/LtTH4djdAVrPyuc9fminwuQWQRNqlvrxfEsEdnv4TFrkHxocfqGsAHZD373TQ2xpQBy
+	Kl7aJnBffxynU4Bg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0253313A71;
+	Fri, 17 Oct 2025 15:18:06 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id w3EIOi5e8mgsCgAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Fri, 17 Oct 2025 15:18:06 +0000
+Message-ID: <53982a5b-c3ac-4977-83cb-5b4e6d240f75@suse.de>
+Date: Fri, 17 Oct 2025 17:18:05 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/imx: Add more RGB swizzling options
+To: Frank Li <Frank.li@nxp.com>, Marek Vasut <marek.vasut@mailbox.org>
+Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Liu Ying <victor.liu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
+ Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org
+References: <20251017144626.66918-1-marek.vasut@mailbox.org>
+ <aPJcXLcvX15A0HtA@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <aPJcXLcvX15A0HtA@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: B817A1FF15
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	URIBL_BLOCKED(0.00)[infradead.org:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,linux.dev:email,pengutronix.de:email,suse.de:dkim,suse.de:mid,suse.de:email,nxp.com:email,mailbox.org:email,lists.freedesktop.org:email,ideasonboard.com:email];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[18];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	FREEMAIL_CC(0.00)[lists.freedesktop.org,kernel.org,gmail.com,ideasonboard.com,nxp.com,pengutronix.de,vger.kernel.org,lists.linux.dev,lists.infradead.org];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[ideasonboard.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_081811_601968_5D29A1BF 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,95 +178,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.12-stable review patch.  If anyone has any objections, please let me know.
+Hi
 
-------------------
+Am 17.10.25 um 17:10 schrieb Frank Li:
+> On Fri, Oct 17, 2025 at 04:45:38PM +0200, Marek Vasut wrote:
+>> Add additional buffer format swizzling options beyond XR24, the
+>> hardware is capable of sampling other formats, fill them in.
+>>
+>> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+>> ---
+>> Cc: Abel Vesa <abelvesa@kernel.org>
+>> Cc: Conor Dooley <conor+dt@kernel.org>
+>> Cc: Fabio Estevam <festevam@gmail.com>
+>> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+>> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+>> Cc: Liu Ying <victor.liu@nxp.com>
+>> Cc: Lucas Stach <l.stach@pengutronix.de>
+>> Cc: Peng Fan <peng.fan@nxp.com>
+>> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+>> Cc: Rob Herring <robh@kernel.org>
+>> Cc: Shawn Guo <shawnguo@kernel.org>
+>> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+>> Cc: devicetree@vger.kernel.org
+>> Cc: dri-devel@lists.freedesktop.org
+>> Cc: imx@lists.linux.dev
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-clk@vger.kernel.org
+>> ---
+>> Liu, please test on MX8qxp , I do not have that hardware.
+>> ---
+>>   drivers/gpu/drm/imx/dc/dc-fu.c    | 40 +++++++++++++++++++++++++++++++
+>>   drivers/gpu/drm/imx/dc/dc-plane.c |  8 +++++++
+>>   2 files changed, 48 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/imx/dc/dc-fu.c b/drivers/gpu/drm/imx/dc/dc-fu.c
+>> index 1d8f74babef8a..397af0e9b0236 100644
+>> --- a/drivers/gpu/drm/imx/dc/dc-fu.c
+>> +++ b/drivers/gpu/drm/imx/dc/dc-fu.c
+>> @@ -65,6 +65,46 @@ static const struct dc_fu_pixel_format pixel_formats[] = {
+>>   		DRM_FORMAT_XRGB8888,
+>>   		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
+>>   		R_SHIFT(16) | G_SHIFT(8)  | B_SHIFT(0)  | A_SHIFT(0),
+>> +	}, {
+>> +		DRM_FORMAT_ARGB8888,
+>> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(8),
+>> +		R_SHIFT(16) | G_SHIFT(8)  | B_SHIFT(0)  | A_SHIFT(24),
+>> +	}, {
+>> +		DRM_FORMAT_ABGR8888,
+>> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(8),
+>> +		R_SHIFT(0)  | G_SHIFT(8)  | B_SHIFT(16) | A_SHIFT(24),
+>> +	}, {
+>> +		DRM_FORMAT_XBGR8888,
+>> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
+>> +		R_SHIFT(0)  | G_SHIFT(8)  | B_SHIFT(16) | A_SHIFT(0),
+>> +	}, {
+>> +		DRM_FORMAT_RGBA8888,
+>> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(8),
+>> +		R_SHIFT(24) | G_SHIFT(16) | B_SHIFT(8)  | A_SHIFT(0),
+>> +	}, {
+>> +		DRM_FORMAT_RGBX8888,
+>> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
+>> +		R_SHIFT(24) | G_SHIFT(16) | B_SHIFT(8)  | A_SHIFT(0),
+>> +	}, {
+>> +		DRM_FORMAT_BGRA8888,
+>> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(8),
+>> +		R_SHIFT(8)  | G_SHIFT(16) | B_SHIFT(24) | A_SHIFT(0),
+>> +	}, {
+>> +		DRM_FORMAT_BGRX8888,
+>> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
+>> +		R_SHIFT(8)  | G_SHIFT(16) | B_SHIFT(24) | A_SHIFT(0),
+>> +	}, {
+>> +		DRM_FORMAT_RGB888,
+>> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
+>> +		R_SHIFT(16) | G_SHIFT(8)  | B_SHIFT(0)  | A_SHIFT(0),
+>> +	}, {
+>> +		DRM_FORMAT_BGR888,
+>> +		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
+>> +		R_SHIFT(0)  | G_SHIFT(8)  | B_SHIFT(16) | A_SHIFT(0),
+>> +	}, {
+>> +		DRM_FORMAT_RGB565,
+>> +		R_BITS(5)   | G_BITS(6)   | B_BITS(5)   | A_BITS(0),
+>> +		R_SHIFT(11) | G_SHIFT(5)  | B_SHIFT(0)  | A_SHIFT(0),
+>>   	},
+>>   };
+>>
+>> diff --git a/drivers/gpu/drm/imx/dc/dc-plane.c b/drivers/gpu/drm/imx/dc/dc-plane.c
+>> index e40d5d66c5c1f..68d32b76fab95 100644
+>> --- a/drivers/gpu/drm/imx/dc/dc-plane.c
+>> +++ b/drivers/gpu/drm/imx/dc/dc-plane.c
+>> @@ -33,6 +33,14 @@ do {									\
+>>
+>>   static const uint32_t dc_plane_formats[] = {
+>>   	DRM_FORMAT_XRGB8888,
+>> +	DRM_FORMAT_ARGB8888,
+>> +	DRM_FORMAT_ABGR8888,
+>> +	DRM_FORMAT_XBGR8888,
+>> +	DRM_FORMAT_RGBA8888,
+>> +	DRM_FORMAT_RGBX8888,
+>> +	DRM_FORMAT_BGRA8888,
+>> +	DRM_FORMAT_BGRX8888,
+>> +	DRM_FORMAT_RGB565,
+> Is it posssible sort by name?
 
-From: James Clark <james.clark@linaro.org>
+The plane-format arrays are (roughly) sorted by hardware preference.
 
-[ Upstream commit 65d11821910bd910a2b4b5b005360d036c76ecef ]
+Best regards
+Thomas
 
-Test that one cycles event is opened for each core PMU when "perf stat"
-is run without arguments.
+>
+> Frank
+>>   };
+>>
+>>   static const struct drm_plane_funcs dc_plane_funcs = {
+>> --
+>> 2.51.0
+>>
 
-The event line can either be output as "pmu/cycles/" or just "cycles" if
-there is only one PMU. Include 2 spaces for padding in the one PMU case
-to avoid matching when the word cycles is included in metric
-descriptions.
-
-Acked-by: Namhyung Kim <namhyung@kernel.org>
-Acked-by: Kan Liang <kan.liang@linux.intel.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
-Cc: Yang Jihong <yangjihong@bytedance.com>
-Cc: Dominique Martinet <asmadeus@codewreck.org>
-Cc: Colin Ian King <colin.i.king@gmail.com>
-Cc: Howard Chu <howardchu95@gmail.com>
-Cc: Ze Gao <zegao2021@gmail.com>
-Cc: Yicong Yang <yangyicong@hisilicon.com>
-Cc: Weilin Wang <weilin.wang@intel.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mike Leach <mike.leach@linaro.org>
-Cc: Jing Zhang <renyu.zj@linux.alibaba.com>
-Cc: Yang Li <yang.lee@linux.alibaba.com>
-Cc: Leo Yan <leo.yan@linux.dev>
-Cc: ak@linux.intel.com
-Cc: Athira Rajeev <atrajeev@linux.vnet.ibm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Yanteng Si <siyanteng@loongson.cn>
-Cc: Sun Haiyong <sunhaiyong@loongson.cn>
-Cc: John Garry <john.g.garry@oracle.com>
-Link: https://lore.kernel.org/r/20240926144851.245903-8-james.clark@linaro.org
-Signed-off-by: Namhyung Kim <namhyung@kernel.org>
-Stable-dep-of: 24937ee839e4 ("perf evsel: Ensure the fallback message is always written to")
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- tools/perf/tests/shell/stat.sh | 25 +++++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
-
-diff --git a/tools/perf/tests/shell/stat.sh b/tools/perf/tests/shell/stat.sh
-index 3f1e67795490a..c6df7eec96b98 100755
---- a/tools/perf/tests/shell/stat.sh
-+++ b/tools/perf/tests/shell/stat.sh
-@@ -146,6 +146,30 @@ test_cputype() {
-   echo "cputype test [Success]"
- }
- 
-+test_hybrid() {
-+  # Test the default stat command on hybrid devices opens one cycles event for
-+  # each CPU type.
-+  echo "hybrid test"
-+
-+  # Count the number of core PMUs, assume minimum of 1
-+  pmus=$(ls /sys/bus/event_source/devices/*/cpus 2>/dev/null | wc -l)
-+  if [ "$pmus" -lt 1 ]
-+  then
-+    pmus=1
-+  fi
-+
-+  # Run default Perf stat
-+  cycles_events=$(perf stat -- true 2>&1 | grep -E "/cycles/|  cycles  " | wc -l)
-+
-+  if [ "$pmus" -ne "$cycles_events" ]
-+  then
-+    echo "hybrid test [Found $pmus PMUs but $cycles_events cycles events. Failed]"
-+    err=1
-+    return
-+  fi
-+  echo "hybrid test [Success]"
-+}
-+
- test_default_stat
- test_stat_record_report
- test_stat_record_script
-@@ -153,4 +177,5 @@ test_stat_repeat_weak_groups
- test_topdown_groups
- test_topdown_weak_groups
- test_cputype
-+test_hybrid
- exit $err
 -- 
-2.51.0
-
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstrasse 146, 90461 Nuernberg, Germany
+GF: Ivo Totev, Andrew Myers, Andrew McDonald, Boudien Moerman
+HRB 36809 (AG Nuernberg)
 
 
 
