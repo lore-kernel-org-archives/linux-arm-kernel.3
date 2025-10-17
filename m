@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8AB8CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 00:33:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B990CCCD1A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 00:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IUhhIOZQl1LmuwLSXSpqUy/3rFv/MJFTCRm/41SsmT4=; b=cyTTFSgjLkWPXg9Ez6BW6Ku/b+
-	VdBAeJ1RLjmVu2UOTcZ9PSdK50918grsuyFQ6Xl1JHXUJlM85N3mjDrKZGkFrlOmVaK+rL4Ye6uEe
-	uVgjcYXEQfxzolq0JU+9po75iN5akRamAicDrjdVwSBGQM0PCYiEBmIRQejWYtoaCfa/FRr7bckcs
-	1y/PIaG4+XoUpVTFff8lhhj8xd0ctNAsnYh/uXKacgoLZeFrMpLalAGfW2BjizfrSa7Pl0omkHl0c
-	MJzC1ESCfu3hiYd89QY8pHmSc2x1CWNqFJbpdSHEWYs9eBa87DvWXquJvj/EzVRVOI4Ejv2v6CZuJ
-	1V636pTg==;
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ko9UTh0kFN5WvzyFoNPT6gnIbmUfHZvedxM+uwzO14M=; b=FPF2c4jii3u3b+Q6HRfYeROHAv
+	OiqWJqxMvfX9aWjRnXznmtZt8DiIrRCaYc/nZOAWt0asfm74VQNpxW/wuct8EB5E8wei0j/PmWrRa
+	v8WctCtnb+XndUZkvdWw5IQAh5vDlTsVdnPqAkFqPHiLltS5HXP9wTiXAg6W7p7hBlmBxJFZwEr63
+	mSC6x7tMrbleqRIP/lbRFn0fSXII+IyFHNL87NfXi4e+8e0xJacch7fY9C9RBuJQN0qpVfmy+E2Ai
+	oF/lg3PAkuvABGokvK2W8iOkFQG5+mnoBdq9VlfmbTCHq/L5aZ1+EKa7ZoYjsKUHpgw7PqEMrWh8Z
+	dgtepMsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YOs-00000006CY9-29mR;
-	Fri, 17 Oct 2025 00:32:54 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1v9YP2-00000006Co6-40jH;
+	Fri, 17 Oct 2025 00:33:05 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YOo-00000006CUh-0IkH
+	id 1v9YOu-00000006Ca6-20br
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 00:32:52 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-32eb18b5659so1155802a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 17:32:48 -0700 (PDT)
+	Fri, 17 Oct 2025 00:32:58 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32eb864fe90so2362032a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 17:32:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760661168; x=1761265968; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IUhhIOZQl1LmuwLSXSpqUy/3rFv/MJFTCRm/41SsmT4=;
-        b=xwoGGUOaxlI1IKi0AmlXkS5ODeCF6zzEbc5ePI3f2lj+aU+M9WvVL3HNNHJZqqgA8u
-         BgZ1i7L1BrH10hEG6Ry+KDoxGzEVazQm8TLdl+gONj7dpGdXgxiMsszUwU4hdaGrgGyW
-         y9ch9EPftCIFeC9jgLKWTj26ieUVkAtkRSMRcSdtzE90gK1mlfb/W45fQrPvoHthYgmx
-         TDNFS3PX6YwXxpakvEYDgohdhG/GiQlCSh//vHUi9QtC6lHGT7Ws2OFdtx+aedXMIeg/
-         ypfuSGIJuaZ72E96e/zfVv3jiMDdTn7dmrqMULghwc2PYTtKTXquKtKjpBNm2eK9jg1O
-         vNBw==
+        d=google.com; s=20230601; t=1760661175; x=1761265975; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=ko9UTh0kFN5WvzyFoNPT6gnIbmUfHZvedxM+uwzO14M=;
+        b=HERgldaDXafp5BoaN5UgfriS8Zcns8W2pxbwOZ+h8RCxLfU04U+q4b9+x/UoraSVYR
+         QQt2vI7w6XsS6/D1NKytyu8r8qJ1X9N03DB0sXtVV1zbk52f14PM09pECtcifMK4DPNy
+         7EKDOQVG1ubdeMQbTv4c8hhWZ0hMhI0VhNJsLrgq58Snj+9OuNWPaiM2qzCcSQSlRFcK
+         SWnZkUKS/C9uIrJCTZ6ipzGC9ckAXuXY2Pqm2O5lHGMD5A5oWugDPR29AsL1Era+jrGk
+         0wCbno964pPH5CK7wJAlNRw1Xh9oQv/0EVePGVLni5GMqDPGVQhQPht3DR4W5KznrOYq
+         F/Aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760661168; x=1761265968;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IUhhIOZQl1LmuwLSXSpqUy/3rFv/MJFTCRm/41SsmT4=;
-        b=Hr/Lre0AiEh6NzFTDoWdzhaxIEP4aAgv1YU9IPg7fshe+mM1ilU6Djpr3i/ba52n4F
-         F7pRIYUKeiAXp3zYu6Q4uFcVmol4iMRBEm5RliQoR9845xCHkR4cS/lm2z0w1x1LmkeG
-         g1wgilU770GECh09DEsvyELV06Vwp5EqErhnWM62sUPBuH5BrXINeFRuhEP7RpqWNCY4
-         DGb/Mbf78uFS/cF2UPl1oXf+udilduhluUdmNWnX0/7PI1MVhsMqtQuG9zQ+g7MQB61D
-         kjHJk3F2qpTl01FFsPkhGVY5U9ctTOKQbG5ShaZmIkhUqfaWkvfdPa/D/Iwdlwf96imH
-         IQMA==
-X-Gm-Message-State: AOJu0Yyy4L8pKayJWZvizuA1yriWWaGB+y5cDP89u5seqp0QDNf8wLj8
-	sDlbxUN/LR5KYa7Z9H9JCMYco9rKA+ayf7Ft/g6Bnm3VLSFuUgtau1Rm2CybooAmJ1fSmrD5NnW
-	aUsdxtg==
-X-Google-Smtp-Source: AGHT+IGuHGQyD51mVtQEohHO8NdP+zAwWbn/b6u+mCKYmFM3Ij1iHsaMWgJCqF8QAg/mESpyN5uCXlDFqHE=
-X-Received: from pjblk6.prod.google.com ([2002:a17:90b:33c6:b0:33b:51fe:1a74])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4a81:b0:32e:ddbc:9bd6
- with SMTP id 98e67ed59e1d1-33bcf8f9431mr1768955a91.27.1760661168259; Thu, 16
- Oct 2025 17:32:48 -0700 (PDT)
-Date: Thu, 16 Oct 2025 17:32:18 -0700
+        d=1e100.net; s=20230601; t=1760661175; x=1761265975;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ko9UTh0kFN5WvzyFoNPT6gnIbmUfHZvedxM+uwzO14M=;
+        b=fze4vviyfXm/F9H5EqgM7oggd3icUE97knY90OCl+aioMyijERN0JiiYMFMFKveZLt
+         RNU84Oc6IdZgTy/enpKiraSrhSaL3rhzVIl9NaBaMufdYsbebnhiWQkMAATVo9ieTcY3
+         8vFVz5UPYD68jlhsfl0cDzywgiIt9/v94EahJ3ycCfSNXTh3RXbswaCzgucVwz56Xzs1
+         ECD5mIt+rkoGHxp77DuK+EvppZYIwaoZSpCtkrQdg9CUYfYWUGm5qZvbaaE2TQwFx/vH
+         CMz5x3+wHQ0RIGXZ37YE/P9gpydKcYXzFx/fLXuurrk0OtZYcKD5SrVU62Ue+tQzahsj
+         ycnA==
+X-Gm-Message-State: AOJu0Yy7qv/uPf2FAgsaES4ykX57fu3x9mpkMqIOZWlOEiZyGLOsxcwA
+	E3c4j9MzbFoEPpaWVxz3w1cZqantWqBtCzLyShMugIKUPaUQLN5okvkyOw9grq7XGrQzA8dETGZ
+	OxJBGBw==
+X-Google-Smtp-Source: AGHT+IE6CYPgkt1lc/boR85TJpRZ+SOX8flYF3i2xBYbojnuL2N+y/yOiWuvwhvUCsHzA0ZslE057qBeNRU=
+X-Received: from pjbmr8.prod.google.com ([2002:a17:90b:2388:b0:330:49f5:c0a7])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3c0c:b0:33b:c5f6:40f1
+ with SMTP id 98e67ed59e1d1-33bcf85d123mr2212838a91.7.1760661175511; Thu, 16
+ Oct 2025 17:32:55 -0700 (PDT)
+Date: Thu, 16 Oct 2025 17:32:22 -0700
+In-Reply-To: <20251017003244.186495-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20251017003244.186495-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.858.gf9c4a03a3a-goog
-Message-ID: <20251017003244.186495-1-seanjc@google.com>
-Subject: [PATCH v3 00/25] KVM: x86/mmu: TDX post-populate cleanups
+Message-ID: <20251017003244.186495-5-seanjc@google.com>
+Subject: [PATCH v3 04/25] KVM: x86/mmu: Add dedicated API to map guest_memfd
+ pfn into TDP MMU
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -84,8 +88,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Binbin Wu <binbin.wu@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_173250_110622_3D8995B1 
-X-CRM114-Status: GOOD (  15.14  )
+X-CRM114-CacheID: sfid-20251016_173256_595265_81DD796D 
+X-CRM114-Status: GOOD (  19.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,115 +105,162 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Non-x86 folks, patches 1 and 2 are likely the only thing of interest here.
-They make kvm_arch_vcpu_async_ioctl() mandatory and then rename it to
-kvm_arch_vcpu_unlocked_ioctl().  Hopefully they're boring?
+Add and use a new API for mapping a private pfn from guest_memfd into the
+TDP MMU from TDX's post-populate hook instead of partially open-coding the
+functionality into the TDX code.  Sharing code with the pre-fault path
+sounded good on paper, but it's fatally flawed as simulating a fault loses
+the pfn, and calling back into gmem to re-retrieve the pfn creates locking
+problems, e.g. kvm_gmem_populate() already holds the gmem invalidation
+lock.
 
-As for the x86 side...
+Providing a dedicated API will also removing several MMU exports that
+ideally would not be exposed outside of the MMU, let alone to vendor code.
+On that topic, opportunistically drop the kvm_mmu_load() export.  Leave
+kvm_tdp_mmu_gpa_is_mapped() alone for now; the entire commit that added
+kvm_tdp_mmu_gpa_is_mapped() will be removed in the near future.
 
-Clean up the TDX post-populate paths (and many tangentially related paths) to
-address locking issues between gmem and TDX's post-populate hook[*], and
-within KVM itself (KVM doesn't ensure full mutual exclusivity between paths
-that for all intents and purposes the TDX-Module requires to be serialized).
+Cc: Michael Roth <michael.roth@amd.com>
+Cc: Yan Zhao <yan.y.zhao@intel.com>
+Cc: Ira Weiny <ira.weiny@intel.com>
+Cc: Vishal Annapurve <vannapurve@google.com>
+Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
+Link: https://lore.kernel.org/all/20250709232103.zwmufocd3l7sqk7y@amd.com
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/kvm/mmu.h     |  1 +
+ arch/x86/kvm/mmu/mmu.c | 60 +++++++++++++++++++++++++++++++++++++++++-
+ arch/x86/kvm/vmx/tdx.c | 10 +++----
+ 3 files changed, 63 insertions(+), 8 deletions(-)
 
-Compile tested only again on my end, but Rick and Yan took v2 for a spin, so I
-dropped the RFC.
-
-[*] http://lore.kernel.org/all/aG_pLUlHdYIZ2luh@google.com
-
-v3:
- - Collect more reviews.
- - Add the async_ioctl() => unlocked_ioctl() patches, and use the "unlocked"
-   variant in the TDX vCPU sub-ioctls so they can take kvm->lock outside of
-   vcpu->mutex.
- - Add a patch to document that vcpu->mutex is taken *outside* kvm->slots_lock.
- - Add the tdx_vm_state_guard CLASS() to take kvm->lock, all vcpu->mutex locks,
-   and kvm->slots_lock, in order to make tdx_td_init(), tdx_td_finalize(),
-   tdx_vcpu_init_mem_region(), and tdx_vcpu_init() mutually exclusive with
-   each other, and mutually exclusvie with basically anything that can result
-   in contending one of the TDX-Module locks (can't remember which one).
- - Refine the changelog for the "Drop PROVE_MMU=y" patch. [Binbin]
-
-v2:
- - Collect a few reviews (and ignore some because the patches went away).
-   [Rick, Kai, Ira]
- - Move TDH_MEM_PAGE_ADD under mmu_lock and drop nr_premapped. [Yan, Rick]
- - Force max_level = PG_LEVEL_4K straightaway. [Yan]
- - s/kvm_tdp_prefault_page/kvm_tdp_page_prefault. [Rick]
- - Use Yan's version of "Say no to pinning!".  [Yan, Rick]
- - Tidy up helpers and macros to reduce boilerplate and copy+pate code, and
-   to eliminate redundant/dead code (e.g. KVM_BUG_ON() the same error
-   multiple times).
- - KVM_BUG_ON() if TDH_MR_EXTEND fails (I convinced myself it can't).
-
-v1: https://lore.kernel.org/all/20250827000522.4022426-1-seanjc@google.com
-
-Sean Christopherson (23):
-  KVM: Make support for kvm_arch_vcpu_async_ioctl() mandatory
-  KVM: Rename kvm_arch_vcpu_async_ioctl() to
-    kvm_arch_vcpu_unlocked_ioctl()
-  KVM: TDX: Drop PROVE_MMU=y sanity check on to-be-populated mappings
-  KVM: x86/mmu: Add dedicated API to map guest_memfd pfn into TDP MMU
-  Revert "KVM: x86/tdp_mmu: Add a helper function to walk down the TDP
-    MMU"
-  KVM: x86/mmu: Rename kvm_tdp_map_page() to kvm_tdp_page_prefault()
-  KVM: TDX: Return -EIO, not -EINVAL, on a KVM_BUG_ON() condition
-  KVM: TDX: Fold tdx_sept_drop_private_spte() into
-    tdx_sept_remove_private_spte()
-  KVM: x86/mmu: Drop the return code from
-    kvm_x86_ops.remove_external_spte()
-  KVM: TDX: Avoid a double-KVM_BUG_ON() in tdx_sept_zap_private_spte()
-  KVM: TDX: Use atomic64_dec_return() instead of a poor equivalent
-  KVM: TDX: Fold tdx_mem_page_record_premap_cnt() into its sole caller
-  KVM: TDX: Bug the VM if extended the initial measurement fails
-  KVM: TDX: ADD pages to the TD image while populating mirror EPT
-    entries
-  KVM: TDX: Fold tdx_sept_zap_private_spte() into
-    tdx_sept_remove_private_spte()
-  KVM: TDX: Combine KVM_BUG_ON + pr_tdx_error() into TDX_BUG_ON()
-  KVM: TDX: Derive error argument names from the local variable names
-  KVM: TDX: Assert that mmu_lock is held for write when removing S-EPT
-    entries
-  KVM: TDX: Add macro to retry SEAMCALLs when forcing vCPUs out of guest
-  KVM: TDX: Add tdx_get_cmd() helper to get and validate sub-ioctl
-    command
-  KVM: TDX: Convert INIT_MEM_REGION and INIT_VCPU to "unlocked" vCPU
-    ioctl
-  KVM: TDX: Use guard() to acquire kvm->lock in tdx_vm_ioctl()
-  KVM: TDX: Guard VM state transitions with "all" the locks
-
-Yan Zhao (2):
-  KVM: TDX: Drop superfluous page pinning in S-EPT management
-  KVM: TDX: Fix list_add corruption during vcpu_load()
-
- arch/arm64/kvm/arm.c               |   6 +
- arch/loongarch/kvm/Kconfig         |   1 -
- arch/loongarch/kvm/vcpu.c          |   4 +-
- arch/mips/kvm/Kconfig              |   1 -
- arch/mips/kvm/mips.c               |   4 +-
- arch/powerpc/kvm/Kconfig           |   1 -
- arch/powerpc/kvm/powerpc.c         |   4 +-
- arch/riscv/kvm/Kconfig             |   1 -
- arch/riscv/kvm/vcpu.c              |   4 +-
- arch/s390/kvm/Kconfig              |   1 -
- arch/s390/kvm/kvm-s390.c           |   4 +-
- arch/x86/include/asm/kvm-x86-ops.h |   1 +
- arch/x86/include/asm/kvm_host.h    |   5 +-
- arch/x86/kvm/mmu.h                 |   3 +-
- arch/x86/kvm/mmu/mmu.c             |  66 ++-
- arch/x86/kvm/mmu/tdp_mmu.c         |  45 +-
- arch/x86/kvm/vmx/main.c            |   9 +
- arch/x86/kvm/vmx/tdx.c             | 638 ++++++++++++++---------------
- arch/x86/kvm/vmx/tdx.h             |   8 +-
- arch/x86/kvm/vmx/x86_ops.h         |   1 +
- arch/x86/kvm/x86.c                 |  13 +
- include/linux/kvm_host.h           |  14 +-
- virt/kvm/Kconfig                   |   3 -
- virt/kvm/kvm_main.c                |   6 +-
- 24 files changed, 422 insertions(+), 421 deletions(-)
-
-
-base-commit: f222788458c8a7753d43befef2769cd282dc008e
+diff --git a/arch/x86/kvm/mmu.h b/arch/x86/kvm/mmu.h
+index f63074048ec6..2f108e381959 100644
+--- a/arch/x86/kvm/mmu.h
++++ b/arch/x86/kvm/mmu.h
+@@ -259,6 +259,7 @@ extern bool tdp_mmu_enabled;
+ 
+ bool kvm_tdp_mmu_gpa_is_mapped(struct kvm_vcpu *vcpu, u64 gpa);
+ int kvm_tdp_map_page(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code, u8 *level);
++int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn);
+ 
+ static inline bool kvm_memslots_have_rmaps(struct kvm *kvm)
+ {
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index 18d69d48bc55..ba5cca825a7f 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -5014,6 +5014,65 @@ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
+ 	return min(range->size, end - range->gpa);
+ }
+ 
++int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn)
++{
++	struct kvm_page_fault fault = {
++		.addr = gfn_to_gpa(gfn),
++		.error_code = PFERR_GUEST_FINAL_MASK | PFERR_PRIVATE_ACCESS,
++		.prefetch = true,
++		.is_tdp = true,
++		.nx_huge_page_workaround_enabled = is_nx_huge_page_enabled(vcpu->kvm),
++
++		.max_level = PG_LEVEL_4K,
++		.req_level = PG_LEVEL_4K,
++		.goal_level = PG_LEVEL_4K,
++		.is_private = true,
++
++		.gfn = gfn,
++		.slot = kvm_vcpu_gfn_to_memslot(vcpu, gfn),
++		.pfn = pfn,
++		.map_writable = true,
++	};
++	struct kvm *kvm = vcpu->kvm;
++	int r;
++
++	lockdep_assert_held(&kvm->slots_lock);
++
++	if (KVM_BUG_ON(!tdp_mmu_enabled, kvm))
++		return -EIO;
++
++	if (kvm_gfn_is_write_tracked(kvm, fault.slot, fault.gfn))
++		return -EPERM;
++
++	r = kvm_mmu_reload(vcpu);
++	if (r)
++		return r;
++
++	r = mmu_topup_memory_caches(vcpu, false);
++	if (r)
++		return r;
++
++	do {
++		if (signal_pending(current))
++			return -EINTR;
++
++		if (kvm_test_request(KVM_REQ_VM_DEAD, vcpu))
++			return -EIO;
++
++		cond_resched();
++
++		guard(read_lock)(&kvm->mmu_lock);
++
++		r = kvm_tdp_mmu_map(vcpu, &fault);
++	} while (r == RET_PF_RETRY);
++
++	if (r != RET_PF_FIXED)
++		return -EIO;
++
++	return 0;
++}
++EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_tdp_mmu_map_private_pfn);
++
+ static void nonpaging_init_context(struct kvm_mmu *context)
+ {
+ 	context->page_fault = nonpaging_page_fault;
+@@ -5997,7 +6056,6 @@ int kvm_mmu_load(struct kvm_vcpu *vcpu)
+ out:
+ 	return r;
+ }
+-EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_mmu_load);
+ 
+ void kvm_mmu_unload(struct kvm_vcpu *vcpu)
+ {
+diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+index 4c3014befe9f..29f344af4cc2 100644
+--- a/arch/x86/kvm/vmx/tdx.c
++++ b/arch/x86/kvm/vmx/tdx.c
+@@ -3157,15 +3157,12 @@ struct tdx_gmem_post_populate_arg {
+ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+ 				  void __user *src, int order, void *_arg)
+ {
+-	u64 error_code = PFERR_GUEST_FINAL_MASK | PFERR_PRIVATE_ACCESS;
+-	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
+ 	struct tdx_gmem_post_populate_arg *arg = _arg;
+-	struct kvm_vcpu *vcpu = arg->vcpu;
++	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
++	u64 err, entry, level_state;
+ 	gpa_t gpa = gfn_to_gpa(gfn);
+-	u8 level = PG_LEVEL_4K;
+ 	struct page *src_page;
+ 	int ret, i;
+-	u64 err, entry, level_state;
+ 
+ 	/*
+ 	 * Get the source page if it has been faulted in. Return failure if the
+@@ -3177,7 +3174,7 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+ 	if (ret != 1)
+ 		return -ENOMEM;
+ 
+-	ret = kvm_tdp_map_page(vcpu, gpa, error_code, &level);
++	ret = kvm_tdp_mmu_map_private_pfn(arg->vcpu, gfn, pfn);
+ 	if (ret < 0)
+ 		goto out;
+ 
+@@ -3240,7 +3237,6 @@ static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *c
+ 	    !vt_is_tdx_private_gpa(kvm, region.gpa + (region.nr_pages << PAGE_SHIFT) - 1))
+ 		return -EINVAL;
+ 
+-	kvm_mmu_reload(vcpu);
+ 	ret = 0;
+ 	while (region.nr_pages) {
+ 		if (signal_pending(current)) {
 -- 
 2.51.0.858.gf9c4a03a3a-goog
 
