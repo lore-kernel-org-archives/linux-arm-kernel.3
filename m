@@ -4,47 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92545CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A231CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 10:05:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kBskAmrB6OqS5iqyEkYiDsvJrIJnjr7IYS1eJp47RYU=; b=IWjUd1A+mqtwVQ
-	ZNiOE73kqkhJ/w2rVDjXuv08tu3PLw5fzqK6G1HjmER1KX2b16VMM5pnQwwK0+KxB5bukNOXECkVn
-	3WXj+wkrNloftn9sMm4i1g+6P7TinWmLbk3UkgnbXRJSqJu33tTR5j8a7rjIKpcvGkckQQfCY/pX4
-	cLsiG5uQGNCFiyBjo7FOA1IbtuqZMBu2yqmOIYZhi/wnl1uInUb3/6x+NgUDGxmzsg/GIljtrQ48/
-	BmEcfuRHDnGx/98xAQXSlW4ZIq3U7yjNIOiV6/ppD4ZmIjkxikr40cEgizXJKpJEs3LBh9j64Eko/
-	ReEv/q1GkIkGnw+a3GBw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ma7svIBwp3Tl5z6twROb3PYfD40sAqcIj05u0PggGeY=; b=GiEvCJ+vWwXElwECMBYk3rI39D
+	vWV2Smcxpu72k3cQiuUn8Cdk63CYgrZ6eAKvPrC7H+Ms1deSV6YZ4Rf/vysZix+4ikdo/xg+4qXz4
+	R06YBhHyvTYr9aoEVIp2K5xe5hc7H+OD6MTDJljSu8bmwJ4TGRb53z7PltLWTOjSsxZ77Kci9DgP5
+	M2xAKmhI1fRkkFxCa+ylJxeUoXLYw/cN4SqTlluocr925LMfNiMTm99IyQV3IIvrP6/IFJgUCsg+k
+	g4DmHf/4WM8i8yWPRaqXlNm0IlmnTDs+HQ/ZZYsZ4I97wNykh1aKEe1EcDp0R3LWyCgwC8traELjx
+	RFmG7RXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hKi-00000007PSA-1Rjd;
-	Fri, 17 Oct 2025 10:05:12 +0000
+	id 1v9hKm-00000007PW0-42gS;
+	Fri, 17 Oct 2025 10:05:16 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9hKf-00000007PQM-2Er3
+	id 1v9hKi-00000007PSg-3yw1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 10:05:11 +0000
+	Fri, 17 Oct 2025 10:05:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F1FD51595;
-	Fri, 17 Oct 2025 03:05:00 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48E881595;
+	Fri, 17 Oct 2025 03:05:04 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D82F3F59E;
-	Fri, 17 Oct 2025 03:05:07 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C85C53F59E;
+	Fri, 17 Oct 2025 03:05:10 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v2 00/25] perf arm_spe: Extend operations
-Date: Fri, 17 Oct 2025 11:04:49 +0100
-Message-Id: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
+Date: Fri, 17 Oct 2025 11:04:51 +0100
+Subject: [PATCH v2 02/25] perf arm_spe: Unify operation naming
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMEU8mgC/4WNywqDMBBFf0WybkomPhK76n8UEU0mNQubkFhpE
- f+9UaG70s3Amcu5dyERg8VILtlCAs42WvdIwE8ZUUP3uCO1OjHhjJdMckY9BtPGp/cuTG0XxjZ
- 6nIHmtK/Q6MooIXpOku4DGvvaq29N4sHGyYX3vjTD9j1KayZ/l6bDqNBguqKoAbi+pvSs3LgtH
- Dqv/+gAJetzJXNZiq/erOv6AcOe6+H9AAAA
-X-Change-ID: 20250820-perf_support_arm_spev1-3-b6efd6fc77b2
+Message-Id: <20251017-perf_support_arm_spev1-3-v2-2-2d41e4746e1b@arm.com>
+References: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
+In-Reply-To: <20251017-perf_support_arm_spev1-3-v2-0-2d41e4746e1b@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
  Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
  Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
@@ -53,16 +50,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760695507; l=3920;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760695507; l=4831;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=kxZCEPV6QzFr7mTkcZf7get9IWZKZYyf+nYylZeNWSE=;
- b=H4iJA2ClKh7GgkcMjWRQY4FOtRhasDFek/ho9rR5HggMMRK5oSgwHgN0htfB31ZjlmF+j706K
- SYjUh/BjXrgAMeNtw9bnpHW4lza1bYPU0hSy0NvZohPxsNfzcYauFLN
+ bh=G2/h7Cz3kpY9a4X3zZdlt9hLzKN/SrbioEaOWhtErXY=;
+ b=iIBSWJDZXiHRdlZxEfsDa6C8EGYqpxyz6ApGwmCbx1+tKaQpIQy7Ubf2Hc5o2ClBHqw8hY4b+
+ O7c4+gCsA4FD4PVQtBBlYOMnz0effuxCdBVKuSDAGwKyHNSJQre1UEY
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_030509_653265_E188AD68 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20251017_030513_071744_533C682F 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,86 +74,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series enhances tooling to support new operations:
+Rename extended subclass and SVE/SME register access subclass, so that
+the naming can be consistent cross all sub classes.
 
-  - Support for MTE tag since Arm SPE v1.3;
-  - Support for Advanced SIMD extension and SVE operations;
-  - Support memcpy, memset and GCS operations;
-  - Support extended operations for atomic, Acquire/Release and
-    Exclusive instructions.
-  - Enhance the data source for associated info, like floating-point,
-    conditional, data processing, etc.
-
-This series is divided into three parts:
-
-  Patches 01 ~ 06: Support raw dump for new operations;
-  Patches 07 ~ 17: Export the operation info into records, so that the
-                   information can be later consumed by samples.
-  Patches 18 ~ 25: Set the operation info into sample's data source and
-                   SIMD flag, and updated the document.
-
-This patch series is tested on FVP for native parsing and x86_64 for
-cross parsing.
+Add an log "SVE-SME-REG" for the SVE/SME register access, this is easier
+for parsing.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
-Changes in v2:
-- Refined to use enums for 2nd operation types. (James)
-- Avoided adjustment bit positions for operations. (James)
-- Used enum for extended operation type in uapi header and defined
-  individual bit field for operation details in uaip header. (James)
-- Refined SIMD flag definitions. (James)
-- Extracted a separate commit for updating tool's header. (James/Arnaldo)
-- Minor improvement for printing memory events.
-- Rebased on the latest perf-tools-next branch.
-- Link to v1: https://lore.kernel.org/r/20250929-perf_support_arm_spev1-3-v1-0-1150b3c83857@arm.com
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.c   |  2 +-
+ .../perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c | 21 ++++++++++-----------
+ .../perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h |  4 ++--
+ 3 files changed, 13 insertions(+), 14 deletions(-)
 
----
-Leo Yan (25):
-      perf arm_spe: Fix memset subclass in operation
-      perf arm_spe: Unify operation naming
-      perf arm_spe: Decode GCS operation
-      perf arm_spe: Rename SPE_OP_PKT_IS_OTHER_SVE_OP macro
-      perf arm_spe: Decode ASE and FP fields in other operation
-      perf arm_spe: Decode SME data processing packet
-      perf arm_spe: Remove unused operation types
-      perf arm_spe: Consolidate operation types
-      perf arm_spe: Introduce data processing macro for SVE operations
-      perf arm_spe: Report register access in record
-      perf arm_spe: Report MTE allocation tag in record
-      perf arm_spe: Report extended memory operations in records
-      perf arm_spe: Report associated info for SVE / SME operations
-      perf arm_spe: Report memset and memcpy in records
-      perf arm_spe: Report GCS in record
-      perf arm_spe: Expose SIMD information in other operations
-      perf arm_spe: Synthesize memory samples for SIMD operations
-      perf/uapi: Extend data source fields
-      tools/include: Sync uapi/linux/perf.h with the kernel sources
-      perf mem: Print extended fields
-      perf arm_spe: Set extended fields in data source
-      perf sort: Support sort ASE and SME
-      perf sort: Sort disabled and full predicated flags
-      perf report: Update document for SIMD flags
-      perf arm_spe: Improve SIMD flags setting
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
+index 96eb7cced6fd1574f5d823e4c67b9051dcf183ed..b0fb896abad48de93aa1ed560029f9bc9ae969e9 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
+@@ -200,7 +200,7 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
+ 					decoder->record.op |= ARM_SPE_OP_ST;
+ 				else
+ 					decoder->record.op |= ARM_SPE_OP_LD;
+-				if (SPE_OP_PKT_IS_LDST_SVE(payload))
++				if (SPE_OP_PKT_LDST_SUBCLASS_SVE_SME_REG(payload))
+ 					decoder->record.op |= ARM_SPE_OP_SVE_LDST;
+ 				break;
+ 			case SPE_OP_PKT_HDR_CLASS_OTHER:
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+index 1a1ffe50ee73ab4400fd1163d0e84e54f4d8ab0b..f6e9c58ce62f3ae227a79d91caefaef4bd87d98a 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+@@ -362,31 +362,30 @@ static int arm_spe_pkt_desc_op_type(const struct arm_spe_pkt *packet,
+ 		arm_spe_pkt_out_string(&err, &buf, &buf_len,
+ 				       payload & 0x1 ? "ST" : "LD");
+ 
+-		if (SPE_OP_PKT_IS_LDST_ATOMIC(payload)) {
++		if (SPE_OP_PKT_LDST_SUBCLASS_EXTENDED(payload)) {
+ 			if (payload & SPE_OP_PKT_AT)
+ 				arm_spe_pkt_out_string(&err, &buf, &buf_len, " AT");
+ 			if (payload & SPE_OP_PKT_EXCL)
+ 				arm_spe_pkt_out_string(&err, &buf, &buf_len, " EXCL");
+ 			if (payload & SPE_OP_PKT_AR)
+ 				arm_spe_pkt_out_string(&err, &buf, &buf_len, " AR");
+-		}
+-
+-		if (SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " SIMD-FP");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_GP_REG(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_GP_REG(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " GP-REG");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " UNSPEC-REG");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_NV_SYSREG(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_NV_SYSREG(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " NV-SYSREG");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_MTE_TAG(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_MTE_TAG(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MTE-TAG");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_MEMCPY(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_MEMCPY(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MEMCPY");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_MEMSET(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_MEMSET(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MEMSET");
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_SVE_SME_REG(payload)) {
++			arm_spe_pkt_out_string(&err, &buf, &buf_len, " SVE-SME-REG");
+ 
+-		if (SPE_OP_PKT_IS_LDST_SVE(payload)) {
+ 			/* SVE effective vector length */
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " EVLEN %d",
+ 					       SPE_OP_PKG_SVE_EVL(payload));
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+index 75e355fe3438cc07704cb61a66ca162bd0904042..cb947e625918922dc1fa25cf8843b09661197782 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+@@ -133,14 +133,14 @@ enum arm_spe_events {
+ #define SPE_OP_PKT_LDST_SUBCLASS_MEMCPY(v)	(((v) & GENMASK_ULL(7, 1)) == 0x20)
+ #define SPE_OP_PKT_LDST_SUBCLASS_MEMSET(v)	(((v) & GENMASK_ULL(7, 0)) == 0x25)
+ 
+-#define SPE_OP_PKT_IS_LDST_ATOMIC(v)		(((v) & (GENMASK_ULL(7, 5) | BIT(1))) == 0x2)
++#define SPE_OP_PKT_LDST_SUBCLASS_EXTENDED(v)	(((v) & (GENMASK_ULL(7, 5) | BIT(1))) == 0x2)
+ 
+ #define SPE_OP_PKT_AR				BIT(4)
+ #define SPE_OP_PKT_EXCL				BIT(3)
+ #define SPE_OP_PKT_AT				BIT(2)
+ #define SPE_OP_PKT_ST				BIT(0)
+ 
+-#define SPE_OP_PKT_IS_LDST_SVE(v)		(((v) & (BIT(3) | BIT(1))) == 0x8)
++#define SPE_OP_PKT_LDST_SUBCLASS_SVE_SME_REG(v)	(((v) & (BIT(3) | BIT(1))) == 0x8)
+ 
+ #define SPE_OP_PKT_SVE_SG			BIT(7)
+ /*
 
- include/uapi/linux/perf_event.h                    | 32 ++++++++-
- tools/include/uapi/linux/perf_event.h              | 32 ++++++++-
- tools/perf/Documentation/perf-report.txt           |  5 +-
- tools/perf/util/arm-spe-decoder/arm-spe-decoder.c  | 56 ++++++++++++++--
- tools/perf/util/arm-spe-decoder/arm-spe-decoder.h  | 61 +++++++++--------
- .../util/arm-spe-decoder/arm-spe-pkt-decoder.c     | 53 ++++++++-------
- .../util/arm-spe-decoder/arm-spe-pkt-decoder.h     | 40 +++++++----
- tools/perf/util/arm-spe.c                          | 77 +++++++++++++++++-----
- tools/perf/util/mem-events.c                       | 66 +++++++++++++++++--
- tools/perf/util/sample.h                           | 21 ++++--
- tools/perf/util/sort.c                             | 21 ++++--
- 11 files changed, 359 insertions(+), 105 deletions(-)
----
-base-commit: f3b601f900902ab80902c44f820a8985384ac021
-change-id: 20250820-perf_support_arm_spev1-3-b6efd6fc77b2
-
-Best regards,
 -- 
-Leo Yan <leo.yan@arm.com>
+2.34.1
 
 
