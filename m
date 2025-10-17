@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB6FFCCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:12:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70367CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:14:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NSDZrfmgFBsU5iOKB58xhh44fw7pFmThrLHIc1dHKnY=; b=uavTYkKA2edT361g+tt3YBA2/O
-	J8d2YaEswiEDQTWLiXhy4DqTAsdzXxJR8x1jxEBqQXzi/9gJdrrgTOjowMd1AoQMn4kAv1DM2hQBW
-	yQ0qLrvODxlbM26r4LXFgo3xz6crgvpekzcJogICMWzVs7TSRv8VVXaKZAZn3Uu1kv1uCSDb7U6rB
-	MKGkaAuix+qrbnhxUWJh5uiAgsyad/ArTGJsDEGWNGmEBdUCouSHM8tzK9gxpp79nFwnkfKN1GKgM
-	x6OnBnnQZvItUnilVvtpZFM53kWxAJLwAs/VqtsEzixdrmuPV0BdGsGKEwnWcb4uFtHJKkegXgAgF
-	ilKXONoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=edFXMRMFO6PnDBg221MKle/uhUCFjl2dlsKaZGRAvA4=; b=GVTeI+nvGqFtO5KJwxiVLxocjC
+	glTtBlRh7ZQ+fMZMGmG/YelcLSxky5qz2RuxQv3jHGkGOcDjyYZdFFUxrVqT68KBa2X8TmM8c6/EM
+	DU56vFHRjqhM0WaU8nAfya8WriP54QiewWKHRx+vA8LPsqPFdiWuOL/Rlhl9xdkc6WL1k9wEYySPX
+	sQC8TlKpfNJO2v7k+M7ZrCJbpHBaBCRZ7CleVm8VsUEayiDiRyqSgVxC01XxcCgEIRHs2DMZB7Ryt
+	MOkrqlvg/c/xbZLhpFcIWsMHoz3FellXyQlFdmkMlmJwi5+nP0lpKKxDt2bGpnImllIxgWUtPWSDF
+	gEqRzJLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9m8F-00000008E5D-3mk4;
-	Fri, 17 Oct 2025 15:12:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v9m9l-00000008ENV-1Kqn;
+	Fri, 17 Oct 2025 15:14:13 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9m8E-00000008E4q-43qc
+	id 1v9m9i-00000008EM8-1GP5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 15:12:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5DB546448D;
-	Fri, 17 Oct 2025 15:12:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32F68C4CEF9;
-	Fri, 17 Oct 2025 15:12:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760713958;
-	bh=1IuDydb9LVnh3/OC5wI1BZmlPhEFBAW9Ll+jAbKHxOM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TqmvhnCx3DrRFih0Hvwau0ZVDoNCUJBx/O3sVu/j1ssqtkREF1YfTzvFlfcOU8RUF
-	 BvcqKmld1ZylivNmpGNRG+umisrT0IU0Hmhookb0+BazONDjWGtolHdNWRmyytUZoW
-	 GPo8oO/pz2i5AsSkGGDG57DxH6z572pZUF45xM7uT+RFmQ5YgDLC3/6jmzhGVOofP1
-	 V6RcGG4IADuHO9+fa3Ww81AX6nfzzaZw0saKuI5pfVW/e9vZNAefSIkgRcukNsv7cE
-	 nsOrylVfJ/ms0A/d1ED1auwPhg5lujqGB2UNjVyDThzlzJg7CK0GP7zbIOl9m06xet
-	 f9YIKqKW9isxg==
-Date: Fri, 17 Oct 2025 20:42:24 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Chester Lin <chester62515@gmail.com>, 
-	Matthias Brugger <mbrugger@suse.com>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
-	NXP S32 Linux Team <s32@nxp.com>, bhelgaas@google.com, jingoohan1@gmail.com, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, krzk+dt@kernel.org, 
-	Conor Dooley <conor+dt@kernel.org>, Ionut.Vicovan@nxp.com, Larisa Grigore <larisa.grigore@nxp.com>, 
-	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>, ciprianmarian.costea@nxp.com, 
-	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, Frank Li <Frank.li@nxp.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, Niklas Cassel <cassel@kernel.org>
-Subject: Re: [PATCH 1/3 v2] dt-bindings: PCI: s32g: Add NXP PCIe controller
-Message-ID: <nzznoiri4n7krpid4lp4pax2dge6vwdj3eqyxqob4bzf6gmlzy@a6moyj74ehzp>
-References: <20250919155821.95334-2-vincent.guittot@linaro.org>
- <iom65w7amxqf7miopujxeulyiglhkyjszjc3nd4ivknj5npcz2@bvxej6ymkecd>
- <aOU0w5Brp6uxjZDr@lpieralisi>
- <4rghtk5qv4u7vx4nogctquu3skvxis4npxfukgtqeilbofyclr@nhkrkojv3syh>
- <eba7d968-209d-4acb-ba41-4bebf03e96ba@app.fastmail.com>
- <4143977f-1e70-4a63-b23b-78f87d9fdcde@app.fastmail.com>
- <2erycpxudpckmme3k2cpn6wgti4ueyvupo2tzrvmu7aqp7tm6d@itfj7pfrpzzg>
- <3d480f73-15b4-4fb8-8d2b-f9961c1736ca@app.fastmail.com>
- <4kvo2qg2til22hlssv7lt2ugo63emr5c4hfjur5m3vnxvpdekx@jcbhaxb2d2j2>
- <839e3878-ae62-4c8b-a74b-ac4f6f060d98@app.fastmail.com>
+	Fri, 17 Oct 2025 15:14:11 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cp7c75Mc5z6K5Wg;
+	Fri, 17 Oct 2025 23:12:55 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 20E0B1402FF;
+	Fri, 17 Oct 2025 23:14:04 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 17 Oct
+ 2025 16:14:03 +0100
+Date: Fri, 17 Oct 2025 16:14:01 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<arm-scmi@vger.kernel.org>, <sudeep.holla@arm.com>,
+	<james.quinlan@broadcom.com>, <f.fainelli@gmail.com>,
+	<vincent.guittot@linaro.org>, <etienne.carriere@st.com>,
+	<peng.fan@oss.nxp.com>, <michal.simek@amd.com>, <quic_sibis@quicinc.com>,
+	<dan.carpenter@linaro.org>, <d-gole@ti.com>, <souvik.chakravarty@arm.com>
+Subject: Re: [PATCH 04/10] uapi: Add ARM SCMI definitions
+Message-ID: <20251017161401.00002891@huawei.com>
+In-Reply-To: <20250925203554.482371-5-cristian.marussi@arm.com>
+References: <20250925203554.482371-1-cristian.marussi@arm.com>
+	<20250925203554.482371-5-cristian.marussi@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <839e3878-ae62-4c8b-a74b-ac4f6f060d98@app.fastmail.com>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251017_081410_481417_5F2BDC4D 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +75,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 09, 2025 at 11:16:02PM +0200, Arnd Bergmann wrote:
-> On Thu, Oct 9, 2025, at 20:47, Manivannan Sadhasivam wrote:
-> > On Wed, Oct 08, 2025 at 07:56:44PM +0200, Arnd Bergmann wrote:
-> >> On Wed, Oct 8, 2025, at 17:19, Manivannan Sadhasivam wrote:
-> >>
-> >> That is not my impression from reading the code: At least for
-> >> the case where both devices are on the same bridge and they
-> >> use map_type=PCI_P2PDMA_MAP_BUS_ADDR, I would expect the DMA
-> >> to use the plain PCI bus address, not going through the
-> >> dma-ranges+ranges translation that would apply when they are
-> >> on different host bridges.
-> >> 
-> >
-> > Right, but I don't get the overlap issue still. If the P2P client triggers a
-> > write to a P2P PCI address (let's assume 0x8000_0000), and if that address
-> > belongs to a an endpoint in a different domain, the host bridge should still
-> > forward it to the endpoint without triggering write to the RAM.
-> 
-> If 0x8000_0000 is an endpoint in a different domain, I would expect the
-> DMA transfer to go to the RAM at that address since the DMA has to leave
-> the PCI host bridge upstream by following its inbound windows.
-> 
-> This is not the problem I'm talking about though, since cross-domain
-> P2P is not particularly well-defined.
-> 
-> > Atleast, I don't see any concern from the outbound memory translation point of
-> > view.
-> >
-> > Please let me know if there is any gap in my understanding.
-> 
-> To clarify: I don't think that programming the output translation this
-> way is the problem here, but assigning memory resources to ambiguous
-> addresses is. The host bridge probe uses the 'ranges' both for
-> setting up the outbound window and the bus resources. 
-> 
-> If the PCI bus scan assigns address 0x8000_0000 to the memory BAR
-> of a device, and that device or any other one in the /same/
-> domain tries to DMA to DRAM at address 0x8000_0000, it would likely
-> reach the memory BAR instead of DRAM. If for some reason it does reach
-> DRAM after all, it would be unable to do a P2P DMA into the BAR when
-> it tries.
-> 
+On Thu, 25 Sep 2025 21:35:48 +0100
+Cristian Marussi <cristian.marussi@arm.com> wrote:
 
-I tried to verify how the Root Port is supposed to behave in this scenario, but
-I couldn't conclude on anything. So it looks like this overlapping *might*
-create issues with P2PDMA and DRAM access. Thanks for spotting and also for
-persisting with my lack of understanding :)
-
-> If the PCI scan already checks for overlap between the DT "ranges"
-> and other resources (DRAM or MMIO) before assigning a BAR, this may
-> be a non-issue, but I haven't found the code that does this.
-> Looking at pci_bus_allocate_dev_resources() it seems that it would
-> attempt to assign an overlapping address to a BAR but then fail
-> to claim it because of the resource conflict. If that is the
-> case, it would not actually have an ambiguous DMA routing
-> but instead the device would fail to be probed because of the
-> conflict.
+> Add a number of structures and ioctls definitions used by the ARM
+> SCMI Telemetry protocol.
 > 
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+Hi Cristian,
 
-AFAICS, the existing resource checks only finds out the overlap between the
-resources assigned to the devices, not between the DRAM or MMIO. This is
-something we should do in devm_of_pci_get_host_bridge_resources() IMO.
+Main thing in here is request to add __counted_by markings for the flexible array members.
 
-- Mani
+>  SYSTEM CONTROL MANAGEMENT INTERFACE (SCMI) i.MX Extension Message Protocol drivers
+> diff --git a/include/uapi/linux/scmi.h b/include/uapi/linux/scmi.h
+> new file mode 100644
+> index 000000000000..b1a6d34fee4a
+> --- /dev/null
+> +++ b/include/uapi/linux/scmi.h
+> @@ -0,0 +1,286 @@
 
--- 
-மணிவண்ணன் சதாசிவம்
+> +
+> +/**
+> + * scmi_tlm_config  - Whole instance or group configuration
+> + *
+> + * @enable: Enable/Disable Telemetry for the whole instance or the group
+> + * @t_enable: Enable/Disable timestamping for all the DEs belonging to a group.
+I'm fairly sure that even for reserved the kernel-doc script will complain if no
+documentation.  (I haven't checked if it special cases that though!)
+> + * @current_update_interval: Get/Set currently active update interval for the
+> + *			     whole instance or a group.
+> + *
+> + * Used by:
+> + *	RO - SCMI_TLM_GET_CFG
+> + *	WO - SCMI_TLM_SET_CFG
+> + *
+> + * Supported by:
+> + *	control/
+> + *	groups/<N>/control
+> + */
+> +struct scmi_tlm_config {
+> +	__u8 enable;
+> +	__u8 t_enable;
+> +	__u8 reserved[2];
+> +	__u32 current_update_interval;
+> +};
+
+> +/**
+> + * scmi_tlm_grps_list  - DE-groups List
+> + *
+> + * @num_grps: Number of entries returned in @grps
+> + * @grps: An array containing descriptors for all defined DE Groups
+> + *
+> + * Used by:
+> + *	RW - SCMI_TLM_GET_GRP_LIST
+> + *
+> + * Supported by:
+> + *	control/
+> + */
+> +struct scmi_tlm_grps_list {
+> +	__u32 num_grps;
+> +	struct scmi_tlm_grp_info grps[];
+
+As below on __counted_by
+
+> +};
+> +
+> +/**
+> + * scmi_tlm_grp_desc  - Group descriptor
+> + *
+> + * @num_des: Number of DEs part of this group
+> + * @composing_des: An array containing the DE IDs that belongs to this group.
+> + *
+> + * Used by:
+> + *	RW - SCMI_TLM_GET_GRP_DESC
+> + *
+> + * Supported by:
+> + *	groups/<N>control/
+> + */
+> +struct scmi_tlm_grp_desc {
+> +	__u32 num_des;
+> +	__u32 composing_des[];
+
+If we can give this a __counted_by marking please do.
+
+> +};
+
+
 
