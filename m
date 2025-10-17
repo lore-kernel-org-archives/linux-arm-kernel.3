@@ -4,67 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C4FCCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 09:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 687BACCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 09:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NztC9OMCatTTQwpoZke82j/IOHOT8VkpQXM+0K2ojno=; b=tXm88dU//UUAJWdpb7Xe0AvFjO
-	ZixUF+WypO6TE8UlkjEsMmqB1LnDcKN456tPz/p9xqXtFR/wm1utrbUXiqaFNC+nuqXcc1ZnzTkMY
-	ubFu9PDc8WnWWlfT7F9rbt/1F9c8pxCvf42noya+vQ3f9HDFSn0RGv3nWMc2wuSr9Oh6fvjQpkUzS
-	Kjuydr7b/HlVnHPxoAJ5Z3mRIcOHuG95B1YmZ1HNWT88kAFuVfLZt6yevUlt3tV4AAMuVvO6fBsHG
-	11fgvQCVpUMiauC6xtOdkBkWejPz6u3Q1oSgg3EsZN/6jrbaXiF7iRk9AH7jjQmWjjUBRnoDklTGk
-	G5YoM3Ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pwoS2G1log6q/mf6Ox4kQ6OpfNHlw1PUU/4NeXxJC80=; b=QaF3T+2y1PvvfpWs9xVNt7/nEn
+	tZTeLDKPFyIGRYqCA9SEoMCxqZEh4RAQtQpcSql21O3sFcpoVL848XqP4Y/ACyk7W5BV8CMP9o8QR
+	XawsKE6jvg0rNnA75p6UIjHHSDyk1N6FfY9PWjv0e5wOBPVYuDh/n5iw8liWbdkdODVdKf9lXoDLD
+	wiDGsgOjw9Ga1p2xOfSQHgIr8Ol/JFmle2QRHgGKR/cCQo/vBrocfuSO5yBvp2GL/zHFo5Y5+bcoN
+	i5EEDMvcKucw5X0wy2q0RU352HI30a/eLZ22yGjhbgvjELUTUBHj87B1t0Z3LGyqz8qcfuh4HE9ft
+	bafFCFPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gvJ-00000007LIA-3P4U;
-	Fri, 17 Oct 2025 09:38:57 +0000
-Received: from mail-m155100.qiye.163.com ([101.71.155.100])
+	id 1v9h7r-00000007NTM-2RK1;
+	Fri, 17 Oct 2025 09:51:55 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gvE-00000007LCd-2rqp;
-	Fri, 17 Oct 2025 09:38:54 +0000
-Received: from xf.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 264523299;
-	Fri, 17 Oct 2025 17:38:48 +0800 (GMT+08:00)
-From: Finley Xiao <finley.xiao@rock-chips.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ulf.hansson@linaro.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	zhangqing@rock-chips.com,
-	sugar.zhang@rock-chips.com,
-	huangtao@rock-chips.com,
-	Finley Xiao <finley.xiao@rock-chips.com>
-Subject: [PATCH v4 2/2] pmdomain: rockchip: Add support for RV1126B
-Date: Fri, 17 Oct 2025 17:38:34 +0800
-Message-ID: <20251017093834.331998-3-finley.xiao@rock-chips.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251017093834.331998-1-finley.xiao@rock-chips.com>
-References: <20251017093834.331998-1-finley.xiao@rock-chips.com>
+	id 1v9h7p-00000007NSt-2aH4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 09:51:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b0Ia73YYejWJKvj2SeOGSM2G9kCpnXmF7X/XNR3EDbtbW0EomAQ7kclkiFFP0zvn/0I/oOyZ7CgnTqQNdTfa513LD5lS4WYoDhenrmD4fnYrV6EhmqZKaMECm2clUfWEN+GgmF3ZFlOu4DNAUKjH7Fgrd5XpcJoxZcxEbIeWD1nAwV6x7O1jkP7Cmo48Scm6wrrBA0gLZTKa94/Pds6OjX/dOmepWLgt6aej2rcQ21zOjxEAVnK61BtYut1fULFIXwRo+MQCCozRMWYHw5W9Loc3enuNQs9Ntma4ZMPnuINwFzkV27vpWE9DI4EAvTU5fzoJxsBYWPtuSlTqNFMrtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pwoS2G1log6q/mf6Ox4kQ6OpfNHlw1PUU/4NeXxJC80=;
+ b=U4jFOwI42BE/Ha9x9p3M90HHiWwal6g+G/j8YphL2xUdN50mn3pqrgQeWA8BmodkBj3FgUmW3HXFUCuXJz3eoMNW1RJnpqVLG5O5eLMmSNgKRBb0zTv/s1ZipuFWSWZ3kSZJVVq7M+5119SgfX2fi5zVTQDrccA0Wpj0EWKFXXx6CxX8HvbhZdy3rMpvzRdFp2en7JnZsd+0mxBlCgC1FJeHt7yNR8FDTWKcGx16Nf/6mY/iobMqVnecvQHCld/v2pxy9LQaSwWj/I5Rkvhp8aphRfeqhlp+rzcpAls/Q0n57L42BjnmdRZLTCz8eh+co5b5auTgL5yEo69Eut/t4A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pwoS2G1log6q/mf6Ox4kQ6OpfNHlw1PUU/4NeXxJC80=;
+ b=4TXN7qWjIYDdLRCTfHDbAOb0iBwjGSPG8VHTkX74Jx7defknazytkjvnGPPKUPBFpdMqWxKESwfv2DWZT4nwX3w1aZHIiGawgdEvmEuz9JqRtKSWq7GJIw2I3YXuyzaIh8kMvjGiLA/eOeYVraTmga4MKUxA8yvQA/7Fqys9Rps=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from IA0PR12MB8301.namprd12.prod.outlook.com (2603:10b6:208:40b::13)
+ by DS5PPF6BCF148B6.namprd12.prod.outlook.com (2603:10b6:f:fc00::652) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.13; Fri, 17 Oct
+ 2025 09:51:45 +0000
+Received: from IA0PR12MB8301.namprd12.prod.outlook.com
+ ([fe80::e929:57f5:f4db:5823]) by IA0PR12MB8301.namprd12.prod.outlook.com
+ ([fe80::e929:57f5:f4db:5823%4]) with mapi id 15.20.9228.011; Fri, 17 Oct 2025
+ 09:51:45 +0000
+Message-ID: <ea119c29-d559-49f7-9a50-95a0497643ee@amd.com>
+Date: Fri, 17 Oct 2025 15:21:35 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 06/12] KVM: selftests: Define wrappers for common
+ syscalls to assert success
+To: Sean Christopherson <seanjc@google.com>, Miguel Ojeda <ojeda@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Ackerley Tng <ackerleytng@google.com>, David Hildenbrand <david@redhat.com>,
+ Fuad Tabba <tabba@google.com>, Ashish Kalra <ashish.kalra@amd.com>,
+ Vlastimil Babka <vbabka@suse.cz>
+References: <20251016172853.52451-1-seanjc@google.com>
+ <20251016172853.52451-7-seanjc@google.com>
+Content-Language: en-US
+From: "Garg, Shivank" <shivankg@amd.com>
+In-Reply-To: <20251016172853.52451-7-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN2PR01CA0006.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:25::11) To IA0PR12MB8301.namprd12.prod.outlook.com
+ (2603:10b6:208:40b::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a99f189440803a9kunmbe68a2b91699fc
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR4dHVYZGEIdSE8dGklPGh9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=W5jp6S/w9W+mUfWqB06NKlgUMJCpSRRuHfUWlNqXTcHWT4XJAzCN5Q0cIoRdnrfHoEKofNCELI7ej65U0xnP5xOc6B3Sz37UA/DWs7wTDJKLPWRNNrFxLTtMe9dL/wCsuHLli3ul58bBUt16rbr9Ey5Dgu1IILb1z2jMJExyRdM=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=NztC9OMCatTTQwpoZke82j/IOHOT8VkpQXM+0K2ojno=;
-	h=date:mime-version:subject:message-id:from;
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PR12MB8301:EE_|DS5PPF6BCF148B6:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0cb697a1-391d-4ad7-f417-08de0d62c809
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cjIvb21iSWUzRkMwcW0xYURYdm1ONWlOcUdCeXRkL0pSSjNrOUpvNDUrcUh3?=
+ =?utf-8?B?MDhqOWFETWVYdzFlMDYzalZCMFVGU29tNTdpL3RHQzFKV0JGQVJpRUhHalBt?=
+ =?utf-8?B?eEdhMXh3VEVCMVN2VFp0VGkyYjJFY29VRUg4d1E4QUkySVZhMWFjQVpPaEhh?=
+ =?utf-8?B?eFdxVGQ0ZVROOTVIR1JibXAwTWxaU012VGJHbUdrbEUrU042TUgrdTdoRWtQ?=
+ =?utf-8?B?emhZZUIyYkJBbXhIRkxQRitqeVNKVXVsN2haVG80YVhsL09hWUgvVFViTUJB?=
+ =?utf-8?B?ZFpjbHZ4aERkU1Z0MXBGTUVXWGQ4TVA2YkVIc2pTdnljZmk1bnpMbmdiT2Fu?=
+ =?utf-8?B?ckgrTWJlbmd4Q3VKOVE3eVVHUk9sUW45ZTVxRWRnVWJEOFptd292ejMzY3hl?=
+ =?utf-8?B?WmJxRUIrV0VqeEZQeFRYOHc3SEJsRDBsOFpLTFp3Ym5sd2pueFJFTGkrT0cv?=
+ =?utf-8?B?dyt2ZUl3T1l5U3h5VE5LNUdISEJmejJWTW1uTWluZTBDT3doL0RvRXkyVUs2?=
+ =?utf-8?B?M29hbk5OVDZmZU5YZ24yUEsxZnZzWU1BbHJaemI1djdsODhRazNidUp4TVRt?=
+ =?utf-8?B?Vk9KS0tYeENjWDQ4VlZLVXJNL2g2cUxRUVMxZXBlb3ZPMlRwZzR0Vy83ODZh?=
+ =?utf-8?B?dFpnT0NPTzhNdzBsSThxZk51YXRBQkI3dm5WUjNYOXNCZ2tLQkFPTFlzWEFt?=
+ =?utf-8?B?OXo0dk9XbDc2WW92VmJ6em1wUHRTMkZ5aFFVWGtXdW5oSElNU05QaFEvUTlE?=
+ =?utf-8?B?WVFQRUltemo1U213R1E2OGwwVWpqcVJ5QXFuRnp6WnJleVpDSTgxMzJLM3Rn?=
+ =?utf-8?B?WVlKUmZWVWl4RVFnNmU0dE0rS2FNSk40SkR5MHNIYXEwdzNaVHlaMmpsRkI2?=
+ =?utf-8?B?MVBFL2I4UXIzYmdtNTRJdGhheUw0SENXSkpsU2NnSndjcjRvaFVaaUFleThs?=
+ =?utf-8?B?WEFoaWw5ZDFmR0lkKzA1a3dzY2tOamwybHA5UW5aOGREb3hYWHhUZHk4dzZa?=
+ =?utf-8?B?d0hNVjF4K1dLeDFzREhWWUF4WXcyWHFBMjl4S1VsdGNlczR6dnpUTG9NZkNH?=
+ =?utf-8?B?WWh4OEFkcW14a0R6UzhxMWZTb2VYbWljRkVNNVdDR1RLcEdsNm1lMGFwTnFE?=
+ =?utf-8?B?bEYxUkxGM0RQMVZzaW9iQ2xZNUJZbnpOSU5yWklkMUs4NHVoYkJ2ZFd1Umc0?=
+ =?utf-8?B?TU93RUVtUzlsM1J6Nm01SEl2Q3hLMWxRMlVYUENIQlZuOS9VSzRsRjA2VXVM?=
+ =?utf-8?B?VkZQRGJTZEZTc2UwZ0NhWUY4M1FkTGJWOFFBRThqRUp5OEdtaGpxVkIyemZH?=
+ =?utf-8?B?R29aNVEydzFMYUQzYVVqbWJTdjQxbDVXRUQvckVxelBrbks4d1BVbm5aaWFM?=
+ =?utf-8?B?NXNmMVRPZU8xL1lYd3NlQXlrT01DL3F3TFhvdk5yalY0bzVoVGMwdlZRbXlk?=
+ =?utf-8?B?Z3J1U1NpeCtJRnZVak9Ta0RIelI5REFSOWpPTE1Cc29CL1E4cGJTNkZFcHhC?=
+ =?utf-8?B?bGx2ZWlaMlg1Tit5TmRKSHd4Z1o1T3F6RldyWEpZczkzZjVDS2RGUUYyY0dP?=
+ =?utf-8?B?TEMwQll6M1BvVDdJVlVOUE9RVnFGU095eWR1ZFd0Y2dndGNPaDZ1dVlrVHZo?=
+ =?utf-8?B?M3cyeHNKRUpuMXRUVFZoWnF5RDlNdUErOWY2Ymc1YnU1Y2pabUJiUWxFM3pa?=
+ =?utf-8?B?a25UTDZucHBYOG8xWmt6YTRHRzdmQXd0aDQrcjlhZ01xMmdBeVM3Qll2QjFY?=
+ =?utf-8?B?SDFIeS9rbUVxQVhyMEY1akJiMWQzdGZpN3lPMzg4OHluTFpQM21Laldwdnhn?=
+ =?utf-8?B?RmFBQjBWV1c5U0l0MlRrOFBqdlV6VnlRUUVrNjNDNnNUSVd3dUxwblNxckYr?=
+ =?utf-8?B?TEhRKy90Y3Z6TXVrcHNvNGFOMlh3UE9GNGh1MklITTVyU1hreTh1Y1IrOHlo?=
+ =?utf-8?Q?cUmbw1x+1XHLQN0Kef0Su2kMh01HqxH8?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8301.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dVprYnVUczFoNm4rNndvWTl2WlByak9Zc29XdkVHc1IwNHZNdFJMTUhlaDVl?=
+ =?utf-8?B?R3Yya2s2K2NpTnR1a09saFN6V1FPMjNXYitNMkZ6YmdjZll0L1JYcmgxK0c3?=
+ =?utf-8?B?OGt0SWVXdWVmOWZBUDExUHd3cG9nVVVURnhodFFNbE83emZvRUJjWStMbEJL?=
+ =?utf-8?B?WHRGRnBhcFFETGhMd2N4RjdmUFdvOFNVZlNBTTdWZ2VaY2E2WW5tV1p0NlNp?=
+ =?utf-8?B?dkx2b2RCTzFsY2x5NGgxNngxQ000K3lkcy9rMTF1cU1BVnBzTDRVVVBvMkJp?=
+ =?utf-8?B?Uit5a0VoM3IvWTlrUWJUY1RMZ1lVOFlab0RBelpqYmwxVk0vbWJNNzFzc1dJ?=
+ =?utf-8?B?Z28wRWtPbGYzY2d4Wlp3UGIyZUt0LzZMb3RvTUQwN1U3Y1VFeUF5TWZycS92?=
+ =?utf-8?B?SEpqR2xiamhBblNHZHdzM2RiMVpBSWtRMGlNd0tCMVBvQmpBV0FiVXhubVNh?=
+ =?utf-8?B?dElBRHRVbTd4K0dyOUpYK3lrU0JDYmsrTnVmT2tibUJxK0hoTHU2Q2k3d1J4?=
+ =?utf-8?B?S28xU01yUllwU1g2SzQwM3ZoT0JrMXUyeTc4QTNac1kxTXdBYTBFM25LYkdQ?=
+ =?utf-8?B?anR6MWo2ZlViTDB6cVhMazQzcy82YzF5TnFkYzI0dWdmKzJ4QXNSNTNZU3hH?=
+ =?utf-8?B?bVB3czNVSzUvdlVpSkZiZmt2a1dEWTR2NzFka2EyRXV1cTYyTTJ3VlB3c01G?=
+ =?utf-8?B?MG1GUGVSNkZKSzFKeUNzMVlMR3Z3UldqNXE3UWtSMHNDSUpVV0dpVXZqZjYz?=
+ =?utf-8?B?WlhHWVFZRHBOM2ZmbXRScFZTelZxVHpFdkloMThMN2xnb3N1WTNCcWNXekE2?=
+ =?utf-8?B?aWhIUi9SQlRqZ0ptZXkwOEVkeTBxOXN4dEhCd3p1b3RhUHlQZmo2NHFtZjM1?=
+ =?utf-8?B?cmFFRElOOTFCRlM0MGs2bWp4WHFrbDE3eU5MRExsVmp3OCs5TFV1NEd0bXh5?=
+ =?utf-8?B?MnQ4eEZ0RUxtSmQ2OGphWStaUUZnNllqc3JoaHVkWW5oSUJmamVneDFza0hZ?=
+ =?utf-8?B?NW1uNHhwdzJqOE00MUJ2RURFK1llVDAxdm5abVo5N2FrRVBaaXZhbXVRVEF1?=
+ =?utf-8?B?d1lDTFEzanc4Y2FZVkhKWmNFZEJyMjBpS2c3V2RPejBYRkxQRzcvWDhIYmJq?=
+ =?utf-8?B?TWdOWHdRbmc4NUU5OFVYekNWUjdjaW9EaUE0UDJtRzB2enlkUVpKZTBpZ3kw?=
+ =?utf-8?B?dXNHajViT2VwejZYZk9MdDdVcUJabjNjQ3VDRks3Umo3MmZCWHZZU0R0UFpi?=
+ =?utf-8?B?a01kdHlmVUZMZ3ZZME04QmdlSHR1cVBQeDhEYU9hRHJoT0o3d2JuUU4wckNr?=
+ =?utf-8?B?MjJwcGxzcU13SngyckFBZ0Z0b1AwWXZudGxrWHRmSGplWkFIY0gzVnlZV2xz?=
+ =?utf-8?B?QXVOTVFjdjRuR3F2RjJCVWdEZndiNCt4UStzNEwrVS9Cbk0xL01uYkxyclli?=
+ =?utf-8?B?L3JyQ0RKLzZqSUNrV3V6ckpCRE5rOUNvWTZ6OHV1REpsWU9XKzVEd2MxTW5o?=
+ =?utf-8?B?c3Ntay9yUWxtOHNqby9laExiRFlWMGtkMFJiV1ZUWHhlUkdoWnpCM3B0bG9l?=
+ =?utf-8?B?bUV6VVJqbkJmVktuLzROQmlaNE94T3p1R213SnBBaXQ0MGFwMDZGMXpPMUgv?=
+ =?utf-8?B?ZWhwelhDRGJUNjZBMTM5enZobU1NdHNIZHBJN01jeGVnYXU5VnBVMTdaREFS?=
+ =?utf-8?B?eEJQOHlHZ1c1bVZCUmJsb0FrYXBRUjc0cVFxcTY2N3ZnVW5GT25aU3ptODMv?=
+ =?utf-8?B?VTR0bVp5K0tobGdJOEVjblpZaExiaDVBeFhTYTU3Z0FLN2FVcFRxR2lSTXhV?=
+ =?utf-8?B?NnRyNEI4OEJhN0NIdHVUZHZJL3BtOWxxQVA0L1ZLOTRtZExzS3BISXIwTzV1?=
+ =?utf-8?B?UGVHc1ZRb0lyU1lvQWhsc1hCOEZOMjdPbUhzSTZzdEFZSWF4cUVud1dCREUx?=
+ =?utf-8?B?aEFRR1VUWFNhWlpOSm5KOEJENS9XVjRmd01UNThFUkk0TjI5aTdpL3Z6QStn?=
+ =?utf-8?B?VzJMZjJ6aDY0WmRENHZvYWo3TFhYQTQ4STROOUFVc3VhcGxOTUkrQ3V6MXNH?=
+ =?utf-8?B?SFRaWWJkY2xXdmhBTURvQ3JlZkRMLzFoZ3Fhd1p2MlYrK1hVaGdMQURYZUlP?=
+ =?utf-8?Q?l+JQ8TXSLnfZ4ft5jeBnAPor+?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0cb697a1-391d-4ad7-f417-08de0d62c809
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8301.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2025 09:51:45.2338
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ijtHlBPhNdakRRRXNKLFg0QlCsJc5UDwH3o2KnFVH9uLu4PS/BnD1W6cJxkLKi4UcfXFensAeleQA9FT0yLC0A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF6BCF148B6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_023852_918895_F0CFA17A 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20251017_025153_660165_78AC523B 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,112 +181,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add configuration and power domains for RV1126 SoC.
 
-Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
----
 
-Changes in v4:
-- update the header after rename
+On 10/16/2025 10:58 PM, Sean Christopherson wrote:
+> Add kvm_<sycall> wrappers for munmap(), close(), fallocate(), and
+> ftruncate() to cut down on boilerplate code when a sycall is expected
+> to succeed, and to make it easier for developers to remember to assert
+> success.
+> 
+> Implement and use a macro framework similar to the kernel's SYSCALL_DEFINE
+> infrastructure to further cut down on boilerplate code, and to drastically
+> reduce the probability of typos as the kernel's syscall definitions can be
+> copy+paste almost verbatim.
+> 
+> Provide macros to build the raw <sycall>() wrappers as well, e.g. to
+> replace hand-coded wrappers (NUMA) or pure open-coded calls.
+> 
+> Reviewed-by: Ackerley Tng <ackerleytng@google.com>
+> Tested-by: Ackerley Tng <ackerleytng@google.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  tools/testing/selftests/kvm/arm64/vgic_irq.c  |  2 +-
+>  .../selftests/kvm/include/kvm_syscalls.h      | 81 +++++++++++++++++++
+>  .../testing/selftests/kvm/include/kvm_util.h  | 29 +------
+>  .../selftests/kvm/kvm_binary_stats_test.c     |  4 +-
+>  tools/testing/selftests/kvm/lib/kvm_util.c    | 31 ++-----
+>  .../kvm/x86/private_mem_conversions_test.c    |  9 +--
+>  6 files changed, 96 insertions(+), 60 deletions(-)
+>  create mode 100644 tools/testing/selftests/kvm/include/kvm_syscalls.h
+> 
 
-Changes in v3: None
+Reviewed-by: Shivank Garg <shivankg@amd.com>
+Tested-by: Shivank Garg <shivankg@amd.com>
 
-Changes in v2:
-- rename AISP to AIISP
-- collect review tag
-
- drivers/pmdomain/rockchip/pm-domains.c | 41 ++++++++++++++++++++++++++
- 1 file changed, 41 insertions(+)
-
-diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/rockchip/pm-domains.c
-index 1955c6d453e4..4f1336a0f49a 100644
---- a/drivers/pmdomain/rockchip/pm-domains.c
-+++ b/drivers/pmdomain/rockchip/pm-domains.c
-@@ -25,6 +25,7 @@
- #include <soc/rockchip/rockchip_sip.h>
- #include <dt-bindings/power/px30-power.h>
- #include <dt-bindings/power/rockchip,rv1126-power.h>
-+#include <dt-bindings/power/rockchip,rv1126b-power-controller.h>
- #include <dt-bindings/power/rk3036-power.h>
- #include <dt-bindings/power/rk3066-power.h>
- #include <dt-bindings/power/rk3128-power.h>
-@@ -137,6 +138,20 @@ struct rockchip_pmu {
- 	.active_wakeup = wakeup,			\
- }
- 
-+#define DOMAIN_M_G(_name, pwr, status, req, idle, ack, g_mask, wakeup, keepon)	\
-+{							\
-+	.name = _name,					\
-+	.pwr_w_mask = (pwr) << 16,			\
-+	.pwr_mask = (pwr),				\
-+	.status_mask = (status),			\
-+	.req_w_mask = (req) << 16,			\
-+	.req_mask = (req),				\
-+	.idle_mask = (idle),				\
-+	.ack_mask = (ack),				\
-+	.clk_ungate_mask = (g_mask),			\
-+	.active_wakeup = wakeup,			\
-+}
-+
- #define DOMAIN_M_G_SD(_name, pwr, status, req, idle, ack, g_mask, mem, wakeup, keepon)	\
- {							\
- 	.name = _name,					\
-@@ -205,6 +220,9 @@ struct rockchip_pmu {
- #define DOMAIN_RV1126(name, pwr, req, idle, wakeup)		\
- 	DOMAIN_M(name, pwr, pwr, req, idle, idle, wakeup)
- 
-+#define DOMAIN_RV1126B(name, pwr, req, wakeup)			\
-+	DOMAIN_M_G(name, pwr, pwr, req, req, req, req, wakeup, true)
-+
- #define DOMAIN_RK3288(name, pwr, status, req, wakeup)		\
- 	DOMAIN(name, pwr, status, req, req, (req) << 16, wakeup)
- 
-@@ -1104,6 +1122,13 @@ static const struct rockchip_domain_info rv1126_pm_domains[] = {
- 	[RV1126_PD_USB]		= DOMAIN_RV1126("usb", BIT(9), BIT(15), BIT(15),  false),
- };
- 
-+static const struct rockchip_domain_info rv1126b_pm_domains[] = {
-+					      /* name     pwr     req      wakeup */
-+	[RV1126B_PD_NPU]	= DOMAIN_RV1126B("npu",   BIT(0), BIT(8),  false),
-+	[RV1126B_PD_VDO]	= DOMAIN_RV1126B("vdo",   BIT(1), BIT(9),  false),
-+	[RV1126B_PD_AIISP]	= DOMAIN_RV1126B("aiisp", BIT(2), BIT(10), false),
-+};
-+
- static const struct rockchip_domain_info rk3036_pm_domains[] = {
- 	[RK3036_PD_MSCH]	= DOMAIN_RK3036("msch", BIT(14), BIT(23), BIT(30), true),
- 	[RK3036_PD_CORE]	= DOMAIN_RK3036("core", BIT(13), BIT(17), BIT(24), false),
-@@ -1516,6 +1541,18 @@ static const struct rockchip_pmu_info rv1126_pmu = {
- 	.domain_info = rv1126_pm_domains,
- };
- 
-+static const struct rockchip_pmu_info rv1126b_pmu = {
-+	.pwr_offset = 0x210,
-+	.status_offset = 0x230,
-+	.req_offset = 0x110,
-+	.idle_offset = 0x128,
-+	.ack_offset = 0x120,
-+	.clk_ungate_offset = 0x140,
-+
-+	.num_domains = ARRAY_SIZE(rv1126b_pm_domains),
-+	.domain_info = rv1126b_pm_domains,
-+};
-+
- static const struct of_device_id rockchip_pm_domain_dt_match[] = {
- 	{
- 		.compatible = "rockchip,px30-power-controller",
-@@ -1585,6 +1622,10 @@ static const struct of_device_id rockchip_pm_domain_dt_match[] = {
- 		.compatible = "rockchip,rv1126-power-controller",
- 		.data = (void *)&rv1126_pmu,
- 	},
-+	{
-+		.compatible = "rockchip,rv1126b-power-controller",
-+		.data = (void *)&rv1126b_pmu,
-+	},
- 	{ /* sentinel */ },
- };
- 
--- 
-2.43.0
 
 
