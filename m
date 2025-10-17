@@ -4,64 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5F7CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F276CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 15:41:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eJLATKbj5YyZuWZ3D3SH6md1xFViaYulRRTutxgxbBY=; b=OosNzl1rSmAL3nGlS4H0p+7ICr
-	uAwOPNOCQUiAbkVPR2qmlsVUEk0f09fx5qIem9IAtAyDQ47rWiNXCE7xO527M6jLu6c2125mT8xWD
-	sZPwhPMJQxR7RqvNrXggYFw1PyPa0+MuuAt5dENJrWcXOkW2NSELaMdFM76T5zCtatDofByU2w1+3
-	BRLgyvCiHS0l6h86BplS354spd7IpcA/waawpZ5QjO6BloW+2g/O1tnOJ4sAeBdqrqReYtD+wFZaJ
-	70ST7Lm3vU35PGraVkJbZlsNG8ru0lf3Pl5pRuDwxnCi7ZU5lzhieetuGjXOVQTg+Tlr0jlyJaBxS
-	NJ1CqFWw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0w+B/tCledBrlOq6HIpAHqdVg2SY76LtseeOT2jub/4=; b=O4fuDo/hZ5SE68tteXd6p1dP8A
+	I9vux8OeTyf20RnRXGSR45y2MOhRz3t3MewyqUg/3CW8Mh18XO/yoLDTKmk4gmalvdMQ4ekHNQ1JD
+	RRkVjvHe3ewnp2Uaj8cxBOKOAFHcU/cbubA1QC6ePqso+g4L++jay3jg0KwH+I4Ou8kqZTXi2lOVz
+	7R1ge2BzyBr7DU0L4pqjH8J7EKm4j9/DPniweAP9Hn8wrzn49M+2M5yrn5uLg2qLV/ks/4Zk1YGzU
+	o9/DvRYskp5sofUseBs9nhvBA7u3UTHER8RRU/ZkMKgizgtM+ZK+8/uET/WD1xE/9clD69YZVgEoO
+	/Gg16MsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mWQ-00000008IUg-3THA;
-	Fri, 17 Oct 2025 15:37:38 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1v9ma7-00000008IvE-1vnm;
+	Fri, 17 Oct 2025 15:41:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9mWN-00000008ISz-30f8
+	id 1v9ma6-00000008Iv4-2GxJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 17 Oct 2025 15:41:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=0w+B/tCledBrlOq6HIpAHqdVg2SY76LtseeOT2jub/4=; b=lSTB8mEdskKuftisu7UWLcbDxL
+	fYF9kimCVyXF6ZANzYTxR8kfk1IvNj00uXmc1x3GMFXqNLIk2qekrc3ENXVLcVVuUmz2/kUGVag/1
+	65SmEYmwxwAOdNPXuuATzowK3Fs7DXdtB07VUEIODfSq16tdanZQ33CJRbCA/yoOQhICY51zZVeVV
+	LOgN78M5EcFl0BqcuBrsf0o6T4scZkn5LdBBcJ+F78Q7VQcXrm6G87+guYDYIahwe7HuYex6Q4u9c
+	+y4NPjz+nAdGi3EJRUgR3PHOxZS+O971W/tQd3oeFOt5IRvKaqVPKqDJ4PyD895QycEAK4Io3w+TU
+	JwROaItg==;
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9mZw-00000007h2C-1gzs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 15:37:37 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cp87775kTz689xS;
-	Fri, 17 Oct 2025 23:36:19 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5848C1402DA;
-	Fri, 17 Oct 2025 23:37:28 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 17 Oct
- 2025 16:37:27 +0100
-Date: Fri, 17 Oct 2025 16:37:25 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<arm-scmi@vger.kernel.org>, <sudeep.holla@arm.com>,
-	<james.quinlan@broadcom.com>, <f.fainelli@gmail.com>,
-	<vincent.guittot@linaro.org>, <etienne.carriere@st.com>,
-	<peng.fan@oss.nxp.com>, <michal.simek@amd.com>, <quic_sibis@quicinc.com>,
-	<dan.carpenter@linaro.org>, <d-gole@ti.com>, <souvik.chakravarty@arm.com>
-Subject: Re: [PATCH 05/10] firmware: arm_scmi: Add Telemetry protocol
- support
-Message-ID: <20251017163725.0000149e@huawei.com>
-In-Reply-To: <20250925203554.482371-6-cristian.marussi@arm.com>
-References: <20250925203554.482371-1-cristian.marussi@arm.com>
-	<20250925203554.482371-6-cristian.marussi@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 17 Oct 2025 15:41:20 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cp8DJ5PL7z9stY;
+	Fri, 17 Oct 2025 17:40:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760715648;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=0w+B/tCledBrlOq6HIpAHqdVg2SY76LtseeOT2jub/4=;
+	b=iVr+wcSNqhY0cAOxIloMmCqxI1pOJ6NLEZ4Ekr1cbwb00IZPv19HJPsVM1jGoQ1Xq/36eb
+	kyEYsc+tvacqMl2tVv4e6rE55SEuEL1yhF3zZZ7nsNEjA+c8m6XHEFXZWl60KJYhVKfZsh
+	Z50hgV2EyM3V4h3s7nzlqiYWbBd0k3mUmLwfB03j50uikADnf/1ux40m1Q/OKoRzhh7cbW
+	6j0eVPY3vbs/F12cYiHxpwz7706+76/RToU7NXXiqtQF8IGUBUs8I1V4domUB+DsKgjvzf
+	KERWlYXYUr8ovm3WpO580jWATqGlONbZomso9AiENEJXUuoJfj8RIMLkinpKxw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=M2vdZSh1;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+From: Marek Vasut <marek.vasut@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760715646;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=0w+B/tCledBrlOq6HIpAHqdVg2SY76LtseeOT2jub/4=;
+	b=M2vdZSh1ah2zIbwb5jDUsDqLWG3Jj8lJ30k26oXZWEqPg0TCRJnst1D3GrdBFpgCd0plds
+	8a7rghvolSpA2X2nLu6XEv/GDyMHGt/l+0OSvLjOeLT0gsfrEE1S7E4sJHtqmT2CTYd13t
+	qSAlTGKLl2/85Te8WeNTr4hJ4JDLGj/6RQpEVmV48BN1hRccpiZemMGkiuNipSmrKxhT4o
+	Tc6vT+NvfEzG9wIxu2oNrvcpzONVm0Ova/fcseLkPaeT70YEcEAmCNWwZIexXAVZ99O5/e
+	xQph+CDk4t+aHxmuFr1IRP+G7VFeo5i9Sfry1clEYYvktMXPBWlPb2dp/GC+HA==
+To: dri-devel@lists.freedesktop.org
+Cc: Marek Vasut <marek.vasut@mailbox.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Liu Ying <victor.liu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH] drm/bridge: fsl-ldb: Parse register offsets from DT
+Date: Fri, 17 Oct 2025 17:39:33 +0200
+Message-ID: <20251017154029.105099-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 03a1ed152bce17d94f4
+X-MBO-RS-META: pccptyfowt41qqwww3cqkzb3ibd7zxtd
+X-Rspamd-Queue-Id: 4cp8DJ5PL7z9stY
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_083736_050472_D973FBB0 
-X-CRM114-Status: GOOD (  25.75  )
+X-CRM114-CacheID: sfid-20251017_164117_814161_C7021072 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,209 +117,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Sep 2025 21:35:49 +0100
-Cristian Marussi <cristian.marussi@arm.com> wrote:
+The DT binding for this bridge describe register offsets for the LDB,
+parse the register offsets from DT instead of hard-coding them in the
+driver. No functional change.
 
-> Add basic support for SCMI V4.0-alpha_0 Telemetry protocol including SHMTI,
-> FastChannels, Notifications and Single Sample Reads collection methods.
-> 
-> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+---
+Cc: Abel Vesa <abelvesa@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+Cc: Liu Ying <victor.liu@nxp.com>
+Cc: Lucas Stach <l.stach@pengutronix.de>
+Cc: Peng Fan <peng.fan@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-clk@vger.kernel.org
+---
+ drivers/gpu/drm/bridge/fsl-ldb.c | 42 ++++++++++++++++++++------------
+ 1 file changed, 26 insertions(+), 16 deletions(-)
 
-Hi,
+diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
+index 5c3cf37200bce..c54caea0b63fc 100644
+--- a/drivers/gpu/drm/bridge/fsl-ldb.c
++++ b/drivers/gpu/drm/bridge/fsl-ldb.c
+@@ -61,24 +61,16 @@ enum fsl_ldb_devtype {
+ };
+ 
+ struct fsl_ldb_devdata {
+-	u32 ldb_ctrl;
+-	u32 lvds_ctrl;
+ 	bool lvds_en_bit;
+ 	bool single_ctrl_reg;
+ };
+ 
+ static const struct fsl_ldb_devdata fsl_ldb_devdata[] = {
+ 	[IMX6SX_LDB] = {
+-		.ldb_ctrl = 0x18,
+ 		.single_ctrl_reg = true,
+ 	},
+-	[IMX8MP_LDB] = {
+-		.ldb_ctrl = 0x5c,
+-		.lvds_ctrl = 0x128,
+-	},
++	[IMX8MP_LDB] = { },
+ 	[IMX93_LDB] = {
+-		.ldb_ctrl = 0x20,
+-		.lvds_ctrl = 0x24,
+ 		.lvds_en_bit = true,
+ 	},
+ };
+@@ -90,6 +82,8 @@ struct fsl_ldb {
+ 	struct clk *clk;
+ 	struct regmap *regmap;
+ 	const struct fsl_ldb_devdata *devdata;
++	u32 ldb_ctrl;
++	u32 lvds_ctrl;
+ 	bool ch0_enabled;
+ 	bool ch1_enabled;
+ };
+@@ -204,7 +198,7 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+ 		reg |=	(fsl_ldb->ch0_enabled ? LDB_CTRL_DI0_VSYNC_POLARITY : 0) |
+ 			(fsl_ldb->ch1_enabled ? LDB_CTRL_DI1_VSYNC_POLARITY : 0);
+ 
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->ldb_ctrl, reg);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->ldb_ctrl, reg);
+ 
+ 	if (fsl_ldb->devdata->single_ctrl_reg)
+ 		return;
+@@ -212,7 +206,7 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+ 	/* Program LVDS_CTRL */
+ 	reg = LVDS_CTRL_CC_ADJ(2) | LVDS_CTRL_PRE_EMPH_EN |
+ 	      LVDS_CTRL_PRE_EMPH_ADJ(3) | LVDS_CTRL_VBG_EN;
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, reg);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, reg);
+ 
+ 	/* Wait for VBG to stabilize. */
+ 	usleep_range(15, 20);
+@@ -220,7 +214,7 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+ 	reg |=	(fsl_ldb->ch0_enabled ? LVDS_CTRL_CH0_EN : 0) |
+ 		(fsl_ldb->ch1_enabled ? LVDS_CTRL_CH1_EN : 0);
+ 
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, reg);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, reg);
+ }
+ 
+ static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
+@@ -231,12 +225,12 @@ static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
+ 	/* Stop channel(s). */
+ 	if (fsl_ldb->devdata->lvds_en_bit)
+ 		/* Set LVDS_CTRL_LVDS_EN bit to disable. */
+-		regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl,
++		regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl,
+ 			     LVDS_CTRL_LVDS_EN);
+ 	else
+ 		if (!fsl_ldb->devdata->single_ctrl_reg)
+-			regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, 0);
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->ldb_ctrl, 0);
++			regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, 0);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->ldb_ctrl, 0);
+ 
+ 	clk_disable_unprepare(fsl_ldb->clk);
+ }
+@@ -296,7 +290,7 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+ 	struct device_node *remote1, *remote2;
+ 	struct drm_panel *panel;
+ 	struct fsl_ldb *fsl_ldb;
+-	int dual_link;
++	int dual_link, idx, ret;
+ 
+ 	fsl_ldb = devm_drm_bridge_alloc(dev, struct fsl_ldb, bridge, &funcs);
+ 	if (IS_ERR(fsl_ldb))
+@@ -309,6 +303,22 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+ 	fsl_ldb->dev = &pdev->dev;
+ 	fsl_ldb->bridge.of_node = dev->of_node;
+ 
++	idx = of_property_match_string(dev->of_node, "reg-names", "ldb");
++	if (idx < 0)
++		return idx;
++
++	ret = of_property_read_u32_index(dev->of_node, "reg", 2 * idx, &fsl_ldb->ldb_ctrl);
++	if (ret)
++		return ret;
++
++	idx = of_property_match_string(dev->of_node, "reg-names", "lvds");
++	if (idx < 0)
++		return idx;
++
++	ret = of_property_read_u32_index(dev->of_node, "reg", 2 * idx, &fsl_ldb->lvds_ctrl);
++	if (ret)
++		return ret;
++
+ 	fsl_ldb->clk = devm_clk_get(dev, "ldb");
+ 	if (IS_ERR(fsl_ldb->clk))
+ 		return PTR_ERR(fsl_ldb->clk);
+-- 
+2.51.0
 
-This is very much in the superficial drive by category as reviews
-go.  A few things noted but I've not looked at the code in enough
-detail.
-
-Jonathan
-
-
-> diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-> new file mode 100644
-> index 000000000000..f03000c173c2
-> --- /dev/null
-> +++ b/drivers/firmware/arm_scmi/telemetry.c
-> @@ -0,0 +1,2117 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * System Control and Management Interface (SCMI) Telemetry Protocol
-> + *
-> + * Copyright (C) 2025 ARM Ltd.
-> + *
-My favorite trivial comment applies.  What does this blank line add
-to readability? I'd drop it.
-
-> + */
-
-> +
-> +struct scmi_de_desc {
-> +	__le32 id;
-> +	__le32 grp_id;
-> +	__le32 data_sz;
-> +	__le32 attr_1;
-> +#define	IS_NAME_SUPPORTED(d)	((d)->attr_1 & BIT(31))
-> +#define	IS_FC_SUPPORTED(d)	((d)->attr_1 & BIT(30))
-> +#define	GET_DE_TYPE(d)		(le32_get_bits((d)->attr_1, GENMASK(29, 22)))
-> +#define	IS_PERSISTENT(d)	((d)->attr_1 & BIT(21))
-> +#define GET_DE_UNIT_EXP(d)						\
-> +	({								\
-> +		int __signed_exp =					\
-> +			le32_get_bits((d)->attr_1, GENMASK(20, 13));	\
-> +									\
-> +		if (__signed_exp & BIT(7))				\
-> +			__signed_exp |= GENMASK(31, 8);			\
-> +		__signed_exp;						\
-> +	})
-> +#define	GET_DE_UNIT(d)		(le32_get_bits((d)->attr_1, GENMASK(12, 5)))
-> +
-> +#define GET_DE_TSTAMP_EXP(d)						\
-> +	({								\
-> +		int __signed_exp =					\
-> +			FIELD_GET(GENMASK(4, 1), (d)->attr_1);		\
-> +									\
-> +		if (__signed_exp & BIT(3))				\
-> +			__signed_exp |= GENMASK(31, 4);			\
-> +		__signed_exp;						\
-See below for sign_extend32() using code to replace these.
-
-
-> +
-> +struct scmi_msg_resp_telemetry_reading_complete {
-> +	__le32 num_dwords;
-> +	__le32 dwords[];
-__counted_by(num_word);
-
-> +};
-> +
-> +/* TDCF */
-> +
-> +#define TO_CPU_64(h, l)	(((u64)le32_to_cpu((h)) << 32) | le32_to_cpu((l)))
-Some of this stuff sounds very generic and isn't at all.
-
-Personally I think I'd just drop this one as it may be better to see
-the implementation wherever it is used.
-
-> +static int scmi_telemetry_tdcf_line_parse(struct telemetry_info *ti,
-> +					  struct payload __iomem *payld,
-> +					  struct telemetry_shmti *shmti,
-> +					  bool update)
-> +{
-> +	int used_qwords;
-> +
-> +	used_qwords = (USE_LINE_TS(payld) && TS_VALID(payld)) ?
-> +		QWORDS_TS_LINE_DATA_PAYLD : QWORDS_LINE_DATA_PAYLD;
-> +
-> +	/*Invalid lines are not an error, could simply be disabled DEs */
-
-Check for inconsistent comment syntax etc.
-
-> +	if (DATA_INVALID(payld))
-> +		return used_qwords;
-
-> +
-> +static int scmi_telemetry_shmti_scan(struct telemetry_info *ti,
-> +				     unsigned int shmti_id, u64 ts,
-> +				     bool update)
-> +{
-> +	struct telemetry_shmti *shmti = &ti->shmti[shmti_id];
-> +	struct tdcf __iomem *tdcf = shmti->base;
-> +	int retries = SCMI_TLM_TDCF_MAX_RETRIES;
-> +	u64 startm = 0, endm = 0xffffffffffffffff;
-
-No one likes counting fs.  Use a GENMASK probably.
-
-> +	void *eplg = SHMTI_EPLG(shmti);
-
-
-> +static void
-> +scmi_telemetry_msg_payld_process(struct telemetry_info *ti,
-> +				 unsigned int num_dwords, unsigned int *dwords,
-
-I'd kind of expect something called dwords to have a fixed size. u32, u64 or
-whatever.
-
-> +				 ktime_t timestamp)
-> +{
-> +	u32 next = 0;
-> +
-> +	while (next < num_dwords) {
-> +		struct payload *payld = (struct payload *)&dwords[next];
-> +		struct scmi_telemetry_de *de;
-> +		struct telemetry_de *tde;
-> +		u32 de_id;
-> +
-> +		next += USE_LINE_TS(payld) ?
-> +			TS_LINE_DATA_PAYLD_WORDS : LINE_DATA_PAYLD_WORDS;
-> +
-> +		if (DATA_INVALID(payld)) {
-> +			dev_err(ti->dev, "MSG - Received INVALID DATA line\n");
-> +			continue;
-> +		}
-> +
-> +		de_id = le32_to_cpu(payld->id);
-> +		de = xa_load(&ti->xa_des, de_id);
-> +		if (!de || !de->enabled) {
-> +			dev_err(ti->dev,
-> +				"MSG - Received INVALID DE - ID:%u  enabled:%d\n",
-> +				de_id, de ? (de->enabled ? 'Y' : 'N') : 'X');
-> +			continue;
-> +		}
-> +
-> +		tde = to_tde(de);
-> +		guard(mutex)(&tde->mtx);
-> +		tde->cached = true;
-> +		tde->last_val = LINE_DATA_GET(&payld->tsl);
-> +		//TODO BLK_TS in notification payloads
-> +		if (USE_LINE_TS(payld) && TS_VALID(payld))
-> +			tde->last_ts = LINE_TSTAMP_GET(&payld->tsl);
-> +		else
-> +			tde->last_ts = 0;
-> +	}
-> +}
-
-
-> diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-> index 59527193d6dd..6c6db95d0089 100644
-> --- a/include/linux/scmi_protocol.h
-> +++ b/include/linux/scmi_protocol.h
-
-...
-
-> +#define	SCMI_TLM_GET_UPDATE_INTERVAL_SECS(x)				\
-> +	(le32_get_bits((x), GENMASK(20, 5)))
-Why is this one little endian specific and the next just uses assumption of
-CPU Endian?
-
-> +#define SCMI_TLM_GET_UPDATE_INTERVAL_EXP(x)				\
-> +	({								\
-> +		int __signed_exp = FIELD_GET(GENMASK(4, 0), (x));	\
-> +									\
-> +		if (__signed_exp & BIT(4))				\
-> +			__signed_exp |= GENMASK(31, 5);			\
-sign_extend32() from bitops.h should work here and is much more self explanatory.
-That would then make this something like
-
-#define SCMI_TLM_GET_UPDATE_INTERVAL_EXP(x) \
- 	sign_extend32(x, 4);
-or you can mask it first if you like but I don't think it makes any difference
-in practice.
-
-> +		__signed_exp;						\
-> +	})
-> +
-> +#define SCMI_TLM_BUILD_UPDATE_INTERVAL(s, e)				    \
-> +	(FIELD_PREP(GENMASK(20, 5), (s)) | FIELD_PREP(GENMASK(4, 0), (e)))
-
-> +
-> +struct scmi_telemetry_update_report {
-> +	ktime_t		timestamp;
-> +	unsigned int	agent_id;
-> +	int		status;
-> +	unsigned int	num_dwords;
-> +	unsigned int	dwords[];
-
-More places where __counted_by is appropriate. I'll not comment on any others and
-just assume you'll add them wherever appropriate.
-
-> +};
 
