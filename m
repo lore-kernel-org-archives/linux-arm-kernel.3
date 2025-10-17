@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC47CCCD19A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 00:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B46DCCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 00:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/pSW/fUm0O3ay1Oo9bje5jBv9ucpW+KObLJe4y1pVWI=; b=BMOTyBKO1J461Y6xHB9bHWZqSZ
-	s817Bbvcbdi4HsI27J4Ugns1hZgCOOLViF39uzX81xo9Da0UbfTFklr/DYiobR8XBK8+F8+LUFB16
-	Ks5PTG1NXlMD6ZNbIO1ObVTQ48fWpXG16jZDGfclOZwrUM6V7UiXNFW4UTkYQVbpLz63afvah7hq0
-	R1FoC0vXwVDQnyXr0HzeBJs77CDRSzlM2G9kBLHZSclUPYYG/YfBG5W0iBHsMfQlh6oau5DxLchjM
-	x59lHObcS7tnBRpdO57GRadbGUvuvneBWKHrjOmnbd8gC8Qok6aGUlY029Q3dmcz2NjP77SR4digz
-	9VWxf+fw==;
+	bh=Ngwce4OaquS4InkYDa/fl+U0GZsEjplrgThj8MTuVYg=; b=1cEAclq/aHixsfWhTL+sYwjg6G
+	yR8mcQsJGlx/HB2sOTuZF5mGX4GytVD1VKO98yFoW1+pRXHyu9DzQ3RRx1+C6mnPxLj7x+OtGYxZz
+	Ghf1rBjolUpjdnPYiWMMT1WKornRHsYBaUJTjkJuOuYeeEDsj0UYb2ynlTkPUcbL0X9ppePK8CaqL
+	aEQlgb0pB4/RGD3/XVaI6RI5G40Jz8bJq+PXnbcBK1bW9To9tl/EGxuD17UjQb6IxU5INOn8Kp+9C
+	OqovPoKbBDtmcYa4eEZ69UyIUOmErNnAw0BR4RTo/AmsGkzc41LRlPB5Yu8wu2KR4ZWGlQHtBLiAY
+	doRF+CzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YQk-00000006FVT-3iKK;
-	Fri, 17 Oct 2025 00:34:50 +0000
-Received: from mail-pj1-f74.google.com ([209.85.216.74])
+	id 1v9YQm-00000006FYf-1Jlo;
+	Fri, 17 Oct 2025 00:34:52 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9YPX-00000006DWk-3DI3
+	id 1v9YPc-00000006DeJ-2Btn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 17 Oct 2025 00:33:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Ngwce4OaquS4InkYDa/fl+U0GZsEjplrgThj8MTuVYg=; b=ubGU0XJteMHtcDi2FVU+LuNjVX
+	tMP33xdN7pF7wD/qdkNtHwFRCAT5y2q7OMixX9zJ02HeSbvu4QlNyksbitbespzKWx9T6EWx8vIua
+	kfjb41ihLRjfOQS3jvNML6FjBJcWk5xfGWCPHLy9/EQCcLvYYPHUld0EZHOLGJjN74nG+of1YEw80
+	iutNmSJ9a9kXSw1W7lkJKFVeuywNcpzciieMjm3Yst4gTzQ99cjcEyJ6PWidYmoWlhr8MRD8gAf8u
+	QKPPZoYcVoQhWpNHNCAI85CUceeSWoSZ5kV9sjoZb4IVb+q0320GjZirLXJOlewtU67XbEOSRpaSB
+	zm/wLz7g==;
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9YPV-0000000FiEq-03wp
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 17 Oct 2025 00:33:38 +0000
-Received: by mail-pj1-f74.google.com with SMTP id 98e67ed59e1d1-33baf262850so1336943a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 17:33:34 -0700 (PDT)
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33428befc49so2261527a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 16 Oct 2025 17:33:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760661212; x=1761266012; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1760661210; x=1761266010; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=/pSW/fUm0O3ay1Oo9bje5jBv9ucpW+KObLJe4y1pVWI=;
-        b=Ht0w5Seba0brKe8TRP57gNoMAYssJTCJr4pbpf1ijaxFoSJAl5V1HXSn0KuzAUn4iP
-         k/w1Ly9PZxq5Z5VLEOdi9bipLpan3LXARhZFieAT5l+CWlv3bDTZtQpilmxfEMGEsb4s
-         d+XZ1LduXEAggypG/A1eihXg4LgMxZWBWoGJiiu8sKb6wORoDLhKC5qXvTMz1DcVhnBm
-         6FgZMYJ4xOqw3iCHWUznnWSYNIatYooWjq0tAtLxfUdncrVSSoH/SQctZmhDsNwgo6EA
-         qA8fJHkQ5fJc6uUT6D9umqeWhzQ8fZx44Vg2ZkXYHRZobg/beSn8dAQnURQR50nTlXVc
-         NaHg==
+        bh=Ngwce4OaquS4InkYDa/fl+U0GZsEjplrgThj8MTuVYg=;
+        b=yl60Gkw0CXE8gKwyIq8h8WEf4dtKNNrYuN5iIA4lzdo5TNLcC4zZxiflbvi7uQudfe
+         2sWZEkCaq5X6KS4uuvraqwEdCACU2FkBn+Hpb+ykN25Zm8DtgBs0PRIogpqQuWw7qUae
+         7IMRGGNiAReF9j+8stZn4OL8OwPJLLrxBch9geoy7QjvDYjtlcLXlTb4DchiH0DuCUxU
+         oe0pA+b/iBZpZMonmyz5x/a0ob3HNOQyMQ/WgyqQiN65zLbIy7ehH+EXHxVijz8tnfWI
+         9V3XmTFqFAfMSMPX5gSZwd5dZn3HNJUpxtu8tcYaUNHnsEWfl7/m4cIfJFenptyGO2Ae
+         pTLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760661212; x=1761266012;
+        d=1e100.net; s=20230601; t=1760661210; x=1761266010;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=/pSW/fUm0O3ay1Oo9bje5jBv9ucpW+KObLJe4y1pVWI=;
-        b=HVXc9R6ZdRHOmRR0cbPungK48PrP7/hpEKvtI1qgX4RKJCvqleC/f570qyMxdOVCbV
-         T/wspLPt1koXWP9w3z0EV7GCeywEbq3aDSpU3B6ZMPUo5HRfrundjaijeKoZTgzfIw8K
-         OZ+lR62q/DFECsRoKLvGi9JK3KMCQrqvOJz2nTuvJ85efIc48P/q26pf+IE8k+L7SM13
-         W2bCuqQdlc+pQdEGDSk6s+vI5oW8eU/aTDQDDjKD8HDkJnbTmtFpqU2Zvt41mqVAc1Bs
-         nJuU2OMg/vnNnzqYRa/VH2+6FK2WN/wN4ysrCECHUGdE+DCRcrFezJxdBA6EBPnX1ec7
-         RGBg==
-X-Gm-Message-State: AOJu0YzZeljJxEm/w7ugwUVb4HMRFXGmSGZ/BFQ9/xowBjCOoQhc4XMb
-	UFv5FlgR/OSUBScGS1ihzQ5HVmz9dBJ0qcuNi6iJdH47op7I4uZlsDGG6OliT3hk/utOJIdn4FF
-	L52+/mg==
-X-Google-Smtp-Source: AGHT+IGUYXYNMUKz1i83Pw6n8U7DCU7Wd9XYw4AfmAkZINqRiiLRcAvioXFznTZGlb6j2wOsKcjvQ1uSQcI=
-X-Received: from pjsc19.prod.google.com ([2002:a17:90a:bf13:b0:33b:ab21:aff7])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4b0f:b0:32e:8c14:5cd2
- with SMTP id 98e67ed59e1d1-33bcf8faac8mr1848079a91.28.1760661212029; Thu, 16
- Oct 2025 17:33:32 -0700 (PDT)
-Date: Thu, 16 Oct 2025 17:32:43 -0700
+        bh=Ngwce4OaquS4InkYDa/fl+U0GZsEjplrgThj8MTuVYg=;
+        b=plYz1MYdC/AFPdAESWHIBXhxINe4xDlP6JTfJO0Bvj6OpBIoQA2Yc7KtQns8HleN3n
+         EUYy7vdXQrKgCmavamPIDVarYPwM7YKWjC15C8t4Iv1FRl4rtsQ7t8aUP1DSBuEMBAiJ
+         hbSP1c0EbLOjKOZZ6ldA3/HM5M2XyL2/C0Fsl5czIsTwS7THIztd5zU/CJRES5tsBbHo
+         55x8M7kjlFvMapbZ3xxPdTsgGBpRDNkkG0zf3HlNZ8zfH0U5rAWSBCcrbMt0CNRLoyPF
+         xNWAGOXjfRYo5sXC9pNYSZths3Ly9bvDb0Sc7d+hclCS1DPuSTX3FHvasXXcLMB9ZMwK
+         cGxw==
+X-Gm-Message-State: AOJu0Yy7V/aeOI+3x14K3EVT4rbb2TlgoWkvZX49x8YVA2o9Gdg8hu2Q
+	Su8ZgYd34/duST1FH46W/n/cTwlbbg+Ejb1FFhzoedJn2bAtHse89hri/MXvLty2dO5TlNcipTj
+	N6Uq8SA==
+X-Google-Smtp-Source: AGHT+IEKHDX7XekpTQV5XLScyWGD23ZPyNWCCYdFpMOGeqIT3rMk3IOTs/Q4qsdgwOMQLd3yDk0jpbRIcJA=
+X-Received: from pjua3.prod.google.com ([2002:a17:90a:cb83:b0:33b:be14:2b68])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1d09:b0:339:e8c7:d47d
+ with SMTP id 98e67ed59e1d1-33bc9c11c65mr2828717a91.9.1760661210238; Thu, 16
+ Oct 2025 17:33:30 -0700 (PDT)
+Date: Thu, 16 Oct 2025 17:32:42 -0700
 In-Reply-To: <20251017003244.186495-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251017003244.186495-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.858.gf9c4a03a3a-goog
-Message-ID: <20251017003244.186495-26-seanjc@google.com>
-Subject: [PATCH v3 25/25] KVM: TDX: Fix list_add corruption during vcpu_load()
+Message-ID: <20251017003244.186495-25-seanjc@google.com>
+Subject: [PATCH v3 24/25] KVM: TDX: Guard VM state transitions with "all" the locks
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -87,8 +102,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Binbin Wu <binbin.wu@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251016_173336_004398_C32E9C35 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20251017_013334_306593_FE3325F2 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,111 +119,175 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yan Zhao <yan.y.zhao@intel.com>
+Acquire kvm->lock, kvm->slots_lock, and all vcpu->mutex locks when
+servicing ioctls that (a) transition the TD to a new state, i.e. when
+doing INIT or FINALIZE or (b) are only valid if the TD is in a specific
+state, i.e. when initializing a vCPU or memory region.  Acquiring "all"
+the locks fixes several KVM_BUG_ON() situations where a SEAMCALL can fail
+due to racing actions, e.g. if tdh_vp_create() contends with either
+tdh_mr_extend() or tdh_mr_finalize().
 
-During vCPU creation, a vCPU may be destroyed immediately after
-kvm_arch_vcpu_create() (e.g., due to vCPU id confiliction). However, the
-vcpu_load() inside kvm_arch_vcpu_create() may have associate the vCPU to
-pCPU via "list_add(&tdx->cpu_list, &per_cpu(associated_tdvcpus, cpu))"
-before invoking tdx_vcpu_free().
+For all intents and purposes, the paths in question are fully serialized,
+i.e. there's no reason to try and allow anything remotely interesting to
+happen.  Smack 'em with a big hammer instead of trying to be "nice".
 
-Though there's no need to invoke tdh_vp_flush() on the vCPU, failing to
-dissociate the vCPU from pCPU (i.e., "list_del(&to_tdx(vcpu)->cpu_list)")
-will cause list corruption of the per-pCPU list associated_tdvcpus.
+Acquire kvm->lock to prevent VM-wide things from happening, slots_lock to
+prevent kvm_mmu_zap_all_fast(), and _all_ vCPU mutexes to prevent vCPUs
+from interefering.  Use the recently-renamed kvm_arch_vcpu_unlocked_ioctl()
+to service the vCPU-scoped ioctls to avoid a lock inversion problem, e.g.
+due to taking vcpu->mutex outside kvm->lock.
 
-Then, a later list_add() during vcpu_load() would detect list corruption
-and print calltrace as shown below.
+See also commit ecf371f8b02d ("KVM: SVM: Reject SEV{-ES} intra host
+migration if vCPU creation is in-flight"), which fixed a similar bug with
+SEV intra-host migration where an in-flight vCPU creation could race with
+a VM-wide state transition.
 
-Dissociate a vCPU from its associated pCPU in tdx_vcpu_free() for the vCPUs
-destroyed immediately after creation which must be in
-VCPU_TD_STATE_UNINITIALIZED state.
+Define a fancy new CLASS to handle the lock+check => unlock logic with
+guard()-like syntax:
 
-kernel BUG at lib/list_debug.c:29!
-Oops: invalid opcode: 0000 [#2] SMP NOPTI
-RIP: 0010:__list_add_valid_or_report+0x82/0xd0
+        CLASS(tdx_vm_state_guard, guard)(kvm);
+        if (IS_ERR(guard))
+                return PTR_ERR(guard);
 
-Call Trace:
- <TASK>
- tdx_vcpu_load+0xa8/0x120
- vt_vcpu_load+0x25/0x30
- kvm_arch_vcpu_load+0x81/0x300
- vcpu_load+0x55/0x90
- kvm_arch_vcpu_create+0x24f/0x330
- kvm_vm_ioctl_create_vcpu+0x1b1/0x53
- kvm_vm_ioctl+0xc2/0xa60
-  __x64_sys_ioctl+0x9a/0xf0
- x64_sys_call+0x10ee/0x20d0
- do_syscall_64+0xc3/0x470
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
+to simplify juggling the many locks.
 
-Signed-off-by: Yan Zhao <yan.y.zhao@intel.com>
+Note!  Take kvm->slots_lock *after* all vcpu->mutex locks, as per KVM's
+soon-to-be-documented lock ordering rules[1].
+
+Link: https://lore.kernel.org/all/20251016235538.171962-1-seanjc@google.com [1]
+Reported-by: Yan Zhao <yan.y.zhao@intel.com>
+Closes: https://lore.kernel.org/all/aLFiPq1smdzN3Ary@yzhao56-desk.sh.intel.com
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/tdx.c | 43 +++++++++++++++++++++++++++++++++++++-----
- 1 file changed, 38 insertions(+), 5 deletions(-)
+ arch/x86/kvm/vmx/tdx.c | 63 +++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 53 insertions(+), 10 deletions(-)
 
 diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index d6541b08423f..daec88d4b88d 100644
+index 84b5fe654c99..d6541b08423f 100644
 --- a/arch/x86/kvm/vmx/tdx.c
 +++ b/arch/x86/kvm/vmx/tdx.c
-@@ -833,19 +833,52 @@ void tdx_vcpu_put(struct kvm_vcpu *vcpu)
- 	tdx_prepare_switch_to_host(vcpu);
+@@ -2632,6 +2632,46 @@ static int tdx_read_cpuid(struct kvm_vcpu *vcpu, u32 leaf, u32 sub_leaf,
+ 	return -EIO;
  }
  
-+/*
-+ * Life cycles for a TD and a vCPU:
-+ * 1. KVM_CREATE_VM ioctl.
-+ *    TD state is TD_STATE_UNINITIALIZED.
-+ *    hkid is not assigned at this stage.
-+ * 2. KVM_TDX_INIT_VM ioctl.
-+ *    TD transitions to TD_STATE_INITIALIZED.
-+ *    hkid is assigned after this stage.
-+ * 3. KVM_CREATE_VCPU ioctl. (only when TD is TD_STATE_INITIALIZED).
-+ *    3.1 tdx_vcpu_create() transitions vCPU state to VCPU_TD_STATE_UNINITIALIZED.
-+ *    3.2 vcpu_load() and vcpu_put() in kvm_arch_vcpu_create().
-+ *    3.3 (conditional) if any error encountered after kvm_arch_vcpu_create()
-+ *        kvm_arch_vcpu_destroy() --> tdx_vcpu_free().
-+ * 4. KVM_TDX_INIT_VCPU ioctl.
-+ *    tdx_vcpu_init() transitions vCPU state to VCPU_TD_STATE_INITIALIZED.
-+ *    vCPU control structures are allocated at this stage.
-+ * 5. kvm_destroy_vm().
-+ *    5.1 tdx_mmu_release_hkid(): (1) tdh_vp_flush(), disassociates all vCPUs.
-+ *                                (2) puts hkid to !assigned state.
-+ *    5.2 kvm_destroy_vcpus() --> tdx_vcpu_free():
-+ *        transitions vCPU to VCPU_TD_STATE_UNINITIALIZED state.
-+ *    5.3 tdx_vm_destroy()
-+ *        transitions TD to TD_STATE_UNINITIALIZED state.
-+ *
-+ * tdx_vcpu_free() can be invoked only at 3.3 or 5.2.
-+ * - If at 3.3, hkid is still assigned, but the vCPU must be in
-+ *   VCPU_TD_STATE_UNINITIALIZED state.
-+ * - if at 5.2, hkid must be !assigned and all vCPUs must be in
-+ *   VCPU_TD_STATE_INITIALIZED state and have been dissociated.
-+ */
- void tdx_vcpu_free(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_tdx *kvm_tdx = to_kvm_tdx(vcpu->kvm);
- 	struct vcpu_tdx *tdx = to_tdx(vcpu);
- 	int i;
- 
-+	if (vcpu->cpu != -1) {
-+		KVM_BUG_ON(tdx->state == VCPU_TD_STATE_INITIALIZED, vcpu->kvm);
-+		tdx_disassociate_vp(vcpu);
-+		return;
++typedef void *tdx_vm_state_guard_t;
++
++static tdx_vm_state_guard_t tdx_acquire_vm_state_locks(struct kvm *kvm)
++{
++	int r;
++
++	mutex_lock(&kvm->lock);
++
++	if (kvm->created_vcpus != atomic_read(&kvm->online_vcpus)) {
++		r = -EBUSY;
++		goto out_err;
 +	}
 +
- 	/*
- 	 * It is not possible to reclaim pages while hkid is assigned. It might
--	 * be assigned if:
--	 * 1. the TD VM is being destroyed but freeing hkid failed, in which
--	 * case the pages are leaked
--	 * 2. TD VCPU creation failed and this on the error path, in which case
--	 * there is nothing to do anyway
-+	 * be assigned if the TD VM is being destroyed but freeing hkid failed,
-+	 * in which case the pages are leaked.
- 	 */
- 	if (is_hkid_assigned(kvm_tdx))
- 		return;
++	r = kvm_lock_all_vcpus(kvm);
++	if (r)
++		goto out_err;
++
++	/*
++	 * Note the unintuitive ordering!  vcpu->mutex must be taken outside
++	 * kvm->slots_lock!
++	 */
++	mutex_lock(&kvm->slots_lock);
++	return kvm;
++
++out_err:
++	mutex_unlock(&kvm->lock);
++	return ERR_PTR(r);
++}
++
++static void tdx_release_vm_state_locks(struct kvm *kvm)
++{
++	mutex_unlock(&kvm->slots_lock);
++	kvm_unlock_all_vcpus(kvm);
++	mutex_unlock(&kvm->lock);
++}
++
++DEFINE_CLASS(tdx_vm_state_guard, tdx_vm_state_guard_t,
++	     if (!IS_ERR(_T)) tdx_release_vm_state_locks(_T),
++	     tdx_acquire_vm_state_locks(kvm), struct kvm *kvm);
++
+ static int tdx_td_init(struct kvm *kvm, struct kvm_tdx_cmd *cmd)
+ {
+ 	struct kvm_tdx_init_vm __user *user_data = u64_to_user_ptr(cmd->data);
+@@ -2644,6 +2684,10 @@ static int tdx_td_init(struct kvm *kvm, struct kvm_tdx_cmd *cmd)
+ 	BUILD_BUG_ON(sizeof(*init_vm) != 256 + sizeof_field(struct kvm_tdx_init_vm, cpuid));
+ 	BUILD_BUG_ON(sizeof(struct td_params) != 1024);
+ 
++	CLASS(tdx_vm_state_guard, guard)(kvm);
++	if (IS_ERR(guard))
++		return PTR_ERR(guard);
++
+ 	if (kvm_tdx->state != TD_STATE_UNINITIALIZED)
+ 		return -EINVAL;
+ 
+@@ -2743,7 +2787,9 @@ static int tdx_td_finalize(struct kvm *kvm, struct kvm_tdx_cmd *cmd)
+ {
+ 	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
+ 
+-	guard(mutex)(&kvm->slots_lock);
++	CLASS(tdx_vm_state_guard, guard)(kvm);
++	if (IS_ERR(guard))
++		return PTR_ERR(guard);
+ 
+ 	if (!is_hkid_assigned(kvm_tdx) || kvm_tdx->state == TD_STATE_RUNNABLE)
+ 		return -EINVAL;
+@@ -2781,8 +2827,6 @@ int tdx_vm_ioctl(struct kvm *kvm, void __user *argp)
+ 	if (r)
+ 		return r;
+ 
+-	guard(mutex)(&kvm->lock);
+-
+ 	switch (tdx_cmd.id) {
+ 	case KVM_TDX_CAPABILITIES:
+ 		r = tdx_get_capabilities(&tdx_cmd);
+@@ -3090,8 +3134,6 @@ static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *c
+ 	if (tdx->state != VCPU_TD_STATE_INITIALIZED)
+ 		return -EINVAL;
+ 
+-	guard(mutex)(&kvm->slots_lock);
+-
+ 	/* Once TD is finalized, the initial guest memory is fixed. */
+ 	if (kvm_tdx->state == TD_STATE_RUNNABLE)
+ 		return -EINVAL;
+@@ -3147,7 +3189,8 @@ static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *c
+ 
+ int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
+ {
+-	struct kvm_tdx *kvm_tdx = to_kvm_tdx(vcpu->kvm);
++	struct kvm *kvm = vcpu->kvm;
++	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
+ 	struct kvm_tdx_cmd cmd;
+ 	int r;
+ 
+@@ -3155,12 +3198,13 @@ int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
+ 	if (r)
+ 		return r;
+ 
++	CLASS(tdx_vm_state_guard, guard)(kvm);
++	if (IS_ERR(guard))
++		return PTR_ERR(guard);
++
+ 	if (!is_hkid_assigned(kvm_tdx) || kvm_tdx->state == TD_STATE_RUNNABLE)
+ 		return -EINVAL;
+ 
+-	if (mutex_lock_killable(&vcpu->mutex))
+-		return -EINTR;
+-
+ 	vcpu_load(vcpu);
+ 
+ 	switch (cmd.id) {
+@@ -3177,7 +3221,6 @@ int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
+ 
+ 	vcpu_put(vcpu);
+ 
+-	mutex_unlock(&vcpu->mutex);
+ 	return r;
+ }
+ 
 -- 
 2.51.0.858.gf9c4a03a3a-goog
 
