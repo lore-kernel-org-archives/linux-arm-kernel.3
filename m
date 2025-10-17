@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4664ECCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 09:08:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00E83CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 09:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FaQviEYyn0aOZw+1EleTHAA/DT/se6i8MN21zy+nETU=; b=bXqCNSNfc3RNT8jYRafpkMROYI
-	INLwL81+riSieJE3GXPDohYlyQKLxgHHfiHKFIZPGSZUyP+mF3aeMLfncwma5nzt+PydsSKSk9Hm4
-	rOoYUjD3ma0QfAl2Cd99zjeMUK9gqYRluQbKDR9cxBXAmP1GOrxTDoXRT/aiQWCuR47Xg2NvrntNj
-	78oKS5bc7GUKmJpdrO18N/BLzEk8IUImSZDS4FVnG8cqbv3QRkDxw++WmdOHI8G3O9wiEprHH6HXg
-	a6+orrWXJ91yocN2sl/5Ht+buiks2Pp+elCF5gCL4++65aTGEVxhv4L6IY17OKYTHedLSVDODClJD
-	NJ1AATDg==;
+	bh=jtANRVclpvuWy8dlrPKXbqpWxnnOas7CgcIGeYvy6xo=; b=kOWT3pD9HLI/bCIXwK38jw4wq6
+	s6j00XMtzYoGeus7wZvG1IdFOEi9m6S/9KSH48/lgpgAQ7KEn3krOl+FV8HaQZzRxyuodh2vSe5GA
+	Hs9Jar/bbc8lecyl9Q8Wd0zK+U+y9u329Kf4WWcUIcuYWQPIavu2TCYiDFAO12q5r3S9PWeS+ZP6r
+	WLL8XxkbVJz0hoaDdmkYJa8f+xp5pAeEK4iJCnPqMXUE+fbklv73jupb+UX1bwRnxsEss54RATWd+
+	uwnpRC+17J/Jxg7C2rxQKp6Agl+PGKU+JqHxyiT9+BlXqFfn6DO0WCk00eS+IlfGjR/bHW1FWQJF9
+	rH+mNfmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gRb-00000007DSe-28Z9;
-	Fri, 17 Oct 2025 09:08:15 +0000
+	id 1v9gSr-00000007Dzy-2XY7;
+	Fri, 17 Oct 2025 09:09:33 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gRa-00000007DRb-3IVf;
-	Fri, 17 Oct 2025 09:08:14 +0000
+	id 1v9gSq-00000007DzT-1D9f;
+	Fri, 17 Oct 2025 09:09:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=FaQviEYyn0aOZw+1EleTHAA/DT/se6i8MN21zy+nETU=; b=qS/98Fx4JlOa/34J44GN+CkegW
-	FLzeWLZ75Q0dJYndos+V3Kz5hQ/PgSmqWri0bBTObNePucgcwJ1BbA5F92AAb4mHPp9Wpi1nmhYC2
-	A8OT1RiEFJoso5s6SB3BaeaE6Jsnaw8/HFYP+8FNHeI5ofILz2Ndk+8IqXGBn9N+8+YiYzJ2Ed8oJ
-	8wBNQGvI38nF6lnKQtwi54wL687f5KqNTePqKGrFf6BIiVWIZA0mp4q00cwgeRUkGVQiYEiuGC8gP
-	CzBirGzTBEHf8K5VjJjvVK2fRsZ3+KQnlja7M+aGjFtopRjBEz3JjTRWfy2jEWldv5+b7Ra/4SHSU
-	905l/lPA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	bh=jtANRVclpvuWy8dlrPKXbqpWxnnOas7CgcIGeYvy6xo=; b=Qi4OPRFhLXko8vuA7G0Xga0rfq
+	ToBckhXkwbpuLgbDWZ7vRVyB7ZNPBKPSIMDfXou0JSFRtmOjQWV9Ag3bb45o6cNwh0n8alfwYVar4
+	pOS9N5UQEMAK/4ZIlvChypwvg9MhYO6aE0xt8e7LT0eR2No25jWcjvNyVqY6JeFWN0/OVnvkibJRE
+	RSAO3X1xt3AEeXPLFiv+39BponHiW99SW/8QKXrNZ4sOho4dxqXI/z2iHu8l/Q2Oq/mtf3ne9Wv5y
+	wmYCkaCNLjDzfg+kJxrNDeHxmFS+2Aww9dQfeaBoDXloKP+khsFoKvJXCaoxQdMe+d2Egg0pFdYyv
+	1H4QObkw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9gQV-00000007Pxk-2kps;
-	Fri, 17 Oct 2025 09:08:11 +0000
+	id 1v9gQT-00000007Px7-1ILW;
+	Fri, 17 Oct 2025 09:09:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA7E34156D;
-	Fri, 17 Oct 2025 09:07:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CBCCC4CEE7;
-	Fri, 17 Oct 2025 09:07:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C82440786;
+	Fri, 17 Oct 2025 09:06:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25D13C4CEF9;
+	Fri, 17 Oct 2025 09:06:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760692022;
-	bh=ZTKgysNNfScjYNlHG2PtLbUTn95/y+2fnSbvS4Vbw0U=;
+	s=k20201202; t=1760692017;
+	bh=ptWrRTulQ7ja6IlTLgATLScM0utDLOR3ac/K/ROGBcY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IMpZnIh6Fl3S1fF14hVVKkclmY4figgjW5dWv8yzfQHUmYllVL+zv1TzD2G6X3Kuq
-	 P+Q8EHM3R3BPlf5VD0s/9BHK2lYKRqPJ3N0taJYw7NruQfcuAI9tXvxw6l7JCShVIH
-	 appo4+HPBUc6ITUcgxKT4/RjaxUPhT2qOHDPbBBl+NXRQar4gw3bRu0wH4xdDkoSXv
-	 gEiXhVQWrFnl8Y9UxPCVKsXPZcEA0Z7f/dYU+8DHZwVmFjDMY50rqbOo+J2Kbios6a
-	 ATMKiVeHdZWMV5DF2ML79/t6J6zc3ndxAZZnM+u02mXwnDqDDBfs4oBgnp6qBsgYn4
-	 uJPtDTNkH79Dg==
+	b=EhWDvd+IcNjQ0EpcsKd1baxcIeX8OsVl9Ajif4J0Y+YZHUD41LrqxMyizcajZGDSx
+	 +M029aoHL093q3HKgfO5qu++/XsFPEnpBMmKn/NJH7Rg6lexJMWjY6HEveyjm2JK83
+	 ZOguQAg9HAWpQaFl24rQTz9d/5qICMLAa97ZIsDW5x2RPw32IvC+d8P1r86suQNbqj
+	 Ap6CW1PDHUjZXQzyf9MEtzjUqpzWYg/BKRdK1Pm67Zyocu0ihKJGDzwIK77/PyRWzH
+	 cZYqMJaqMGWEMiRIBH7Z2x0syO5K00XjHheIguItvvHS7gSvxHpYchqsKw9/xPY0ZW
+	 ydpQbczxLuQNQ==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 17 Oct 2025 11:06:21 +0200
-Subject: [PATCH net-next v3 12/13] net: airoha: ppe: Do not use magic
- numbers in airoha_ppe_foe_get_entry_locked()
+Date: Fri, 17 Oct 2025 11:06:19 +0200
+Subject: [PATCH net-next v3 10/13] net: airoha: Select default ppe cpu port
+ in airoha_dev_init()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251017-an7583-eth-support-v3-12-f28319666667@kernel.org>
+Message-Id: <20251017-an7583-eth-support-v3-10-f28319666667@kernel.org>
 References: <20251017-an7583-eth-support-v3-0-f28319666667@kernel.org>
 In-Reply-To: <20251017-an7583-eth-support-v3-0-f28319666667@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -76,9 +76,8 @@ Cc: linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, Simon Horman <horms@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_100730_782980_9252B47C 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251017_100717_589159_A3C835A7 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,29 +92,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Explicit the size of entries pointed by hwe pointer in
-airoha_ppe_foe_get_entry_locked routine
+Select the PPE default cpu port in airoha_dev_init routine.
+This patch allows to distribute the load between the two available cpu
+ports (FE_PSE_PORT_CDM1 and FE_PSE_PORT_CDM2) if the device is running a
+single PPE module (e.g. 7583) selecting the cpu port based on the use
+QDMA device. For multi-PPE device (e.g. 7581) assign FE_PSE_PORT_CDM1 to
+PPE1 and FE_PSE_PORT_CDM2 to PPE2.
 
 Reviewed-by: Simon Horman <horms@kernel.org>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_ppe.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 38 ++++++++++++++------------------
+ 1 file changed, 16 insertions(+), 22 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 4b038673cefe20b47c42dd1419c05b57d4d6c64d..eda95107cd1daf6ff00a85abc72313a509ed67e9 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -619,7 +619,8 @@ airoha_ppe_foe_get_entry_locked(struct airoha_ppe *ppe, u32 hash)
- 					     REG_PPE_RAM_CTRL(ppe2)))
- 			return NULL;
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index dea856ddf242d2c4ec3ca44796fc6deb2d784904..4e338c126dd3fa16f040960ff7f26d8214a9d6f7 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -531,25 +531,6 @@ static int airoha_fe_init(struct airoha_eth *eth)
+ 	/* disable IFC by default */
+ 	airoha_fe_clear(eth, REG_FE_CSR_IFC_CFG, FE_IFC_EN_MASK);
  
--		for (i = 0; i < sizeof(struct airoha_foe_entry) / 4; i++)
-+		for (i = 0; i < sizeof(struct airoha_foe_entry) / sizeof(*hwe);
-+		     i++)
- 			hwe[i] = airoha_fe_rr(eth,
- 					      REG_PPE_RAM_ENTRY(ppe2, i));
+-	airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(0),
+-		     FIELD_PREP(DFT_CPORT_MASK(7), FE_PSE_PORT_CDM1) |
+-		     FIELD_PREP(DFT_CPORT_MASK(6), FE_PSE_PORT_CDM1) |
+-		     FIELD_PREP(DFT_CPORT_MASK(5), FE_PSE_PORT_CDM1) |
+-		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM1) |
+-		     FIELD_PREP(DFT_CPORT_MASK(3), FE_PSE_PORT_CDM1) |
+-		     FIELD_PREP(DFT_CPORT_MASK(2), FE_PSE_PORT_CDM1) |
+-		     FIELD_PREP(DFT_CPORT_MASK(1), FE_PSE_PORT_CDM1) |
+-		     FIELD_PREP(DFT_CPORT_MASK(0), FE_PSE_PORT_CDM1));
+-	airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(1),
+-		     FIELD_PREP(DFT_CPORT_MASK(7), FE_PSE_PORT_CDM2) |
+-		     FIELD_PREP(DFT_CPORT_MASK(6), FE_PSE_PORT_CDM2) |
+-		     FIELD_PREP(DFT_CPORT_MASK(5), FE_PSE_PORT_CDM2) |
+-		     FIELD_PREP(DFT_CPORT_MASK(4), FE_PSE_PORT_CDM2) |
+-		     FIELD_PREP(DFT_CPORT_MASK(3), FE_PSE_PORT_CDM2) |
+-		     FIELD_PREP(DFT_CPORT_MASK(2), FE_PSE_PORT_CDM2) |
+-		     FIELD_PREP(DFT_CPORT_MASK(1), FE_PSE_PORT_CDM2) |
+-		     FIELD_PREP(DFT_CPORT_MASK(0), FE_PSE_PORT_CDM2));
+-
+ 	/* enable 1:N vlan action, init vlan table */
+ 	airoha_fe_set(eth, REG_MC_VLAN_EN, MC_VLAN_EN_MASK);
+ 
+@@ -1756,8 +1737,10 @@ static void airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+ static int airoha_dev_init(struct net_device *dev)
+ {
+ 	struct airoha_gdm_port *port = netdev_priv(dev);
+-	struct airoha_eth *eth = port->qdma->eth;
+-	u32 pse_port;
++	struct airoha_qdma *qdma = port->qdma;
++	struct airoha_eth *eth = qdma->eth;
++	u32 pse_port, fe_cpu_port;
++	u8 ppe_id;
+ 
+ 	airoha_set_macaddr(port, dev->dev_addr);
+ 
+@@ -1770,16 +1753,27 @@ static int airoha_dev_init(struct net_device *dev)
+ 		fallthrough;
+ 	case 2:
+ 		if (airoha_ppe_is_enabled(eth, 1)) {
++			/* For PPE2 always use secondary cpu port. */
++			fe_cpu_port = FE_PSE_PORT_CDM2;
+ 			pse_port = FE_PSE_PORT_PPE2;
+ 			break;
+ 		}
+ 		fallthrough;
+-	default:
++	default: {
++		u8 qdma_id = qdma - &eth->qdma[0];
++
++		/* For PPE1 select cpu port according to the running QDMA. */
++		fe_cpu_port = qdma_id ? FE_PSE_PORT_CDM2 : FE_PSE_PORT_CDM1;
+ 		pse_port = FE_PSE_PORT_PPE1;
+ 		break;
  	}
++	}
+ 
+ 	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(port->id), pse_port);
++	ppe_id = pse_port == FE_PSE_PORT_PPE2 ? 1 : 0;
++	airoha_fe_rmw(eth, REG_PPE_DFT_CPORT0(ppe_id),
++		      DFT_CPORT_MASK(port->id),
++		      fe_cpu_port << __ffs(DFT_CPORT_MASK(port->id)));
+ 
+ 	return 0;
+ }
 
 -- 
 2.51.0
