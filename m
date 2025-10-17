@@ -4,66 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 222B0CCD1A2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801AFCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 11:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x7SrQcEhSUYcmuUdv81JIKa1JW6QODcCoPOeMwyReHA=; b=Cvs5jefCOAkrVzrDVKJGiXe247
-	X9/tPYyjavUySJHEJBAOjbova7GI4UuDSkfiA7B2pSgCmBxeJ4HNiXaGrUFnjtFDC3wBfKroNRN3J
-	2rBUwwhSnBn/gLQYlv3bpXW4Poz9zJzomkvpIoGSW2rO58YHmDlbYzVk4D4akDh1DkfaFWAgMuQ/V
-	H2ycgW+rF//eIprRQnllkzqHuTFzO5dwSAtdrWtnRXlEKJgwE0pPlGPki8wQl66VEFFi6FlVE090R
-	UqfCmE3SLgfc0Eq2GB8y8qDvS2VQgKRVt1E8k5eiescVGtB2TvhiQPeDpty2SLwHwjlHPhylSe85c
-	eoNaXYpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6NUdGt9MtwvZM8jFQHDsw1CCYzG2H7JFSs9BY7PdJqA=; b=nsxdbRsZ7YEmbG3Loi6qslqUeW
+	LySvzl0UXMYeQ8CD7P9EqEOFSTDL4dHNT320mW6P2KNdDZvG93Dz55hQsSbqStLG5edZFmoEfzMpw
+	8oCgGgzgHowS1OIUbC6Z/HeQy8Z2btFHQZEboxwRsEMcREW87ENyXokG3ix+4Y9xnGKFwu1y7f3Kz
+	fjmhNd+8Ezm3zkYjPaviqELutXVJxDmiHUoyu5ir2eonPOwUIL2yn4cBOocTd2PzqcdoLS0WO9ANE
+	3mZRBZFT6JO5hCl2pnSkFMmMVtsKh5N97pZx5ZyA1tTyT54h8oSg5Qe48EYZZyFwkuKnz6c6xokHj
+	IyqGtQCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ia2-00000007g01-2lzG;
-	Fri, 17 Oct 2025 11:25:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v9ia7-00000007g2Z-43dw;
+	Fri, 17 Oct 2025 11:25:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9ia0-00000007fzH-3mkI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 11:25:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A42841A39;
-	Fri, 17 Oct 2025 11:25:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A735C4CEE7;
-	Fri, 17 Oct 2025 11:25:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760700304;
-	bh=Oha5M5RT2nW2MzZklI9wS7QllDX3Iir9ry2TjWilqqc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=riBoFF8m0IcwZ+37LWZ9Kck4w0akHJzJVv7yYIxm0Fk8dSrg4j4K38bYDy99GWGYC
-	 J/xmAsajaw9OaKqCLeOv6Walg3iGIPnpzmNNxlvfiEtN0Ei08Vk5NyJR+EpnYuI3fJ
-	 Isr2v7iiBXOY0NnkQ5vnwAZqrZCw3sBNRtdoI3mEK74++fQfoMOEDlDdigjHjympjJ
-	 GU8vjsdfjhPmKyS3wwEWENJOqTpBy/alzbSTyXtZUn++6fZWnDqbLI2OttmDNXtoZF
-	 ugApFpcYV1uHfyMll8Vq9165mHODLDwJXT4eaw2hrzsrNI3JM46p6tU5uQxhsXai0O
-	 RvslakHm7ZigA==
-From: Mark Brown <broonie@kernel.org>
-To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, 
- =?utf-8?q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>, 
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
- linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
- linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Colin Ian King <coking@nvidia.com>
-Cc: kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20251016153000.9142-1-coking@nvidia.com>
-References: <20251016153000.9142-1-coking@nvidia.com>
-Subject: Re: [PATCH][next] spi: aspeed: fix spelling mistake "triming" ->
- "trimming"
-Message-Id: <176070030059.36285.11703430965734905306.b4-ty@kernel.org>
-Date: Fri, 17 Oct 2025 12:25:00 +0100
+	id 1v9ia6-00000007g0j-17pq;
+	Fri, 17 Oct 2025 11:25:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=6NUdGt9MtwvZM8jFQHDsw1CCYzG2H7JFSs9BY7PdJqA=; b=Hs9rnXkxHjJhukQH8YKpfmx1MG
+	VZA60esTzih9n9wz+52eqcD59QOx+XDFIHyh7c+pophLHqgU4pS4pFhzbPljuZVWqPytPuzxcaLl7
+	S+E7SYSRSFwMybJrMhDmdTjSEfc00iD7BHmyfTmTRiICFGeQllh5SzKuMB3fgb9Ax4AAWWvj3Uavu
+	KjG5+YOXW8tPPa0//Qqm1AlGRYRbcs7Y3JxSsHqhWz2AGe38QnB6cYh9h9t3xtx3WZuOcipGJF8lQ
+	1baXzfSn292iNCLYPtUPcw5e9HmK8yNQQvOc+EEUeIP/k8jyFwFcGC+J6+je+9353wqrDfz3kSPye
+	pecvA4Gw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v9ia1-00000007Web-1SpD;
+	Fri, 17 Oct 2025 11:25:05 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id E1F4030023C; Fri, 17 Oct 2025 13:25:04 +0200 (CEST)
+Date: Fri, 17 Oct 2025 13:25:04 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Andrew Cooper <andrew.cooper@citrix.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	kernel test robot <lkp@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>, linuxppc-dev@lists.ozlabs.org,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Nicolas Palix <nicolas.palix@imag.fr>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V3 07/12] uaccess: Provide scoped masked user access
+ regions
+Message-ID: <20251017112504.GE3245006@noisy.programming.kicks-ass.net>
+References: <20251017085938.150569636@linutronix.de>
+ <20251017093030.253004391@linutronix.de>
+ <adba2f37-85fc-45fa-b93b-9b86ab3493f3@citrix.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-2a268
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_042504_968952_6B7FE94F 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <adba2f37-85fc-45fa-b93b-9b86ab3493f3@citrix.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,37 +94,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Oct 2025 16:30:00 +0100, Colin Ian King wrote:
-> There is a spelling mistake in a dev_warn message. Fix it.
+On Fri, Oct 17, 2025 at 12:08:24PM +0100, Andrew Cooper wrote:
+> On 17/10/2025 11:09 am, Thomas Gleixner wrote:
+> > --- a/include/linux/uaccess.h
+> > +++ b/include/linux/uaccess.h
+> > +#define __scoped_masked_user_access(_mode, _uptr, _size, _elbl)					\
+> > +for (bool ____stop = false; !____stop; ____stop = true)						\
+> > +	for (typeof((_uptr)) _tmpptr = __scoped_user_access_begin(_mode, _uptr, _size, _elbl);	\
+> > +	     !____stop; ____stop = true)							\
+> > +		for (CLASS(masked_user_##_mode##_access, scope) (_tmpptr); !____stop;		\
+> > +		     ____stop = true)					\
+> > +			/* Force modified pointer usage within the scope */			\
+> > +			for (const typeof((_uptr)) _uptr = _tmpptr; !____stop; ____stop = true)	\
+> > +				if (1)
+> > +
+> 
+> Truly a thing of beauty.  At least the end user experience is nice.
+> 
+> One thing to be aware of is that:
+> 
+>     scoped_masked_user_rw_access(ptr, efault) {
+>         unsafe_get_user(rval, &ptr->rval, efault);
+>         unsafe_put_user(wval, &ptr->wval, efault);
+>     } else {
+>         // unreachable
+>     }
+> 
+> will compile.  Instead, I think you want the final line of the macro to
+> be "if (0) {} else" to prevent this.
 > 
 > 
+> While we're on the subject, can we find some C standards people to lobby.
+> 
+> C2Y has a proposal to introduce "if (int foo =" syntax to generalise the
+> for() loop special case.  Can we please see about fixing the restriction
+> of only allowing a single type per loop?   This example could be a
+> single loop if it weren't for that restriction.
 
-Applied to
+So elsewhere, Linus suggested to use a struct to get around that. See
+for example this lovely thing:
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-
-Thanks!
-
-[1/1] spi: aspeed: fix spelling mistake "triming" -> "trimming"
-      commit: d77daa49085b067137d0adbe3263f75a7ee13a1b
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+  https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git/commit/?h=locking/core&id=1bc5d8cefd0d9768dc03c83140dd54c552bea470
 
 
