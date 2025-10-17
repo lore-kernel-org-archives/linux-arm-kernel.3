@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49225CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 18:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC69CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 18:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ODGH/+njiEiC3L6mPwG/6t7Cr+NSv+crwhoZU5dUFk=; b=vb1eKau3EqXJqKM0E7irifV303
-	+KXRIw5A7M3E+jTnpGS6BJELMtU/ob7Y40CUH08Y4O/inz5Q9nOlVZ9SNKWCK3+/oGVsVA/ZIlRsK
-	12VIKB07YHAJlwRQ+NwVy3floP/ONylKVefJQ7CG/prGJ+N1G7fdbMWFP6wb8RJzfvDuYq2oGwJi3
-	QZMCl4HRJnnhnlQ/HHsTOW3HWZdtGygOYsHLWs3BmSfaigLL4yU6JBBr8GQsePz7mSR4skyUiCgGV
-	Wky6B5jk9QePH1jTyjUe/h4X+1w2l7kTZ4vsrFPa5H6Xd4dy5h4lTUKsdPdWlB8A/F4inW0D9r5y/
-	zZT9pHAA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3AvpD5Oc1G528FBCdIT5tp5J/UM/fR/w6vweo6KCFM8=; b=z4WKovdCdjUVhXh7XWcEtJouq0
+	hvYZVfPEfoB7zck2EvEzvwxEaIVdpoWyL1OokVGiYwGUmmQHK+3hJF6TgAhFh4VFcjEQt5VMhgGBE
+	s702J5Bvds8lsgzJD8A4P/X4qZSyESKKoM1TPqbR1YdRWdxnUb2+Px0Y3lxyHQhEXmrI85jSuZNTa
+	fjpucbF2JTyrFhR5EFJfXqNz5u9sOtGWHDsJUOl2hvO8oNmh4fwrGBbNtKxm61PtLRF3YBbwbyTmK
+	ED3bPpEEsTE35FaZxXSjMwdgDq8Df07xvQdp6J2OzagwpCTCNFOAX8XGgLZW3qXUYJalKI5uwZT08
+	WU503WEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9paS-00000008jF7-1jvW;
-	Fri, 17 Oct 2025 18:54:00 +0000
+	id 1v9pdV-00000008jYA-3wiD;
+	Fri, 17 Oct 2025 18:57:10 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9paN-00000008jDx-0Fah
+	id 1v9pdS-00000008jXm-48Q2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 17 Oct 2025 18:53:56 +0000
+	Fri, 17 Oct 2025 18:57:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A93AF1515;
-	Fri, 17 Oct 2025 11:53:46 -0700 (PDT)
-Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DB1733F66E;
-	Fri, 17 Oct 2025 11:53:48 -0700 (PDT)
-Message-ID: <e1874826-2f18-4fae-b83d-cf099c0cf1e6@arm.com>
-Date: Fri, 17 Oct 2025 19:51:32 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/29] arm_mpam: Add the class and component structures
- for firmware described ris
-To: Gavin Shan <gshan@redhat.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-9-james.morse@arm.com>
- <a66c6df0-f5e7-4704-a341-d34d07b8c6e1@redhat.com>
-Content-Language: en-GB
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C23701515;
+	Fri, 17 Oct 2025 11:56:57 -0700 (PDT)
+Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC7843F66E;
+	Fri, 17 Oct 2025 11:57:00 -0700 (PDT)
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <a66c6df0-f5e7-4704-a341-d34d07b8c6e1@redhat.com>
-Content-Type: text/plain; charset=UTF-8
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org
+Cc: James Morse <james.morse@arm.com>,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com,
+	lcherian@marvell.com,
+	bobo.shaobowang@huawei.com,
+	tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com,
+	Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>,
+	peternewman@google.com,
+	dfustini@baylibre.com,
+	amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Dave Martin <dave.martin@arm.com>,
+	Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Rob Herring <robh@kernel.org>,
+	Rohit Mathew <rohit.mathew@arm.com>,
+	Rafael Wysocki <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Gavin Shan <gshan@redhat.com>
+Subject: [PATCH v3 00/29] arm_mpam: Add basic mpam driver
+Date: Fri, 17 Oct 2025 18:56:16 +0000
+Message-Id: <20251017185645.26604-1-james.morse@arm.com>
+X-Mailer: git-send-email 2.20.1
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_115355_257889_FBD5F356 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20251017_115707_111380_0A30B427 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,104 +92,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
+Hello,
 
-On 07/10/2025 00:13, Gavin Shan wrote:
-> On 9/11/25 6:42 AM, James Morse wrote:
->> An MSC is a container of resources, each identified by their RIS index.
->> Some RIS are described by firmware to provide their position in the system.
->> Others are discovered when the driver probes the hardware.
->>
->> To configure a resource it needs to be found by its class, e.g. 'L2'.
->> There are two kinds of grouping, a class is a set of components, which
->> are visible to user-space as there are likely to be multiple instances
->> of the L2 cache. (e.g. one per cluster or package)
->>
->> Add support for creating and destroying structures to allow a hierarchy
->> of resources to be created.
+A slew of minor changes, nothing really sticks out.
+Changes are noted on each patch.
 
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index efc4738e3b4d..c7f4981b3545 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
+~
 
->> +static struct mpam_class *
->> +mpam_class_get(u8 level_idx, enum mpam_class_types type)
->> +{
->> +    bool found = false;
->> +    struct mpam_class *class;
->> +
->> +    lockdep_assert_held(&mpam_list_lock);
->> +
->> +    list_for_each_entry(class, &mpam_classes, classes_list) {
->> +        if (class->type == type && class->level == level_idx) {
->> +            found = true;
->> +            break;
->> +        }
->> +    }
->> +
->> +    if (found)
->> +        return class;
->> +
->> +    return mpam_class_alloc(level_idx, type);
->> +}
->> +
-> 
-> The variable @found can be avoided if the found class can be returned immediately.
-> 
->     list_for_each_entry(class, &mpam_classes, classes_list) {
->         if (class->type == type && class->level == level_idx)
->             return class;
->     }
-> 
->     return mpam_class_alloc(level_idx, type);
+This is just enough MPAM driver for ACPI. DT got ripped out. If you need DT
+support - please share your DTS so the DT folk know the binding is what is
+needed.
+This doesn't contain any of the resctrl code, meaning you can't actually drive it
+from user-space yet. Because of that, its hidden behind CONFIG_EXPERT.
+This will change once the user interface is connected up.
 
-Yes, feedback like this already came from Jonathan.
+This is the initial group of patches that allows the resctrl code to be built
+on top. Including that will increase the number of trees that may need to
+coordinate, so breaking it up make sense.
+
+The locking got simplified, but is still strange - this is because of the 'mpam-fb'
+firmware interface specification that is still alpha. That thing needs to wait for
+an interrupt after every system register write, which significantly impacts the
+driver. Some features just won't work, e.g. reading the monitor registers via
+perf.
+
+I've not found a platform that can test all the behaviours around the monitors,
+so this is where I'd expect the most bugs.
+
+The MPAM spec that describes all the system and MMIO registers can be found here:
+https://developer.arm.com/documentation/ddi0598/db/?lang=en
+(Ignored the 'RETIRED' warning - that is just arm moving the documentation around.
+ This document has the best overview)
+
+The expectation is this will go via the arm64 tree.
 
 
->> +static int mpam_ris_get_affinity(struct mpam_msc *msc, cpumask_t *affinity,
->> +                 enum mpam_class_types type,
->> +                 struct mpam_class *class,
->> +                 struct mpam_component *comp)
->> +{
->> +    int err;
->> +
->> +    switch (type) {
->> +    case MPAM_CLASS_CACHE:
->> +        err = mpam_get_cpumask_from_cache_id(comp->comp_id, class->level,
->> +                             affinity);
->> +        if (err)
->> +            return err;
->> +
->> +        if (cpumask_empty(affinity))
->> +            pr_warn_once("%s no CPUs associated with cache node",
->> +                     dev_name(&msc->pdev->dev));
->> +
->> +        break;
-> 
-> "\n" missed in the error message and dev_warn_once() can be used:
-> 
->         if (cpumask_empty(affinity))
->             dev_warn_once(&msc->pdev->dev, "No CPUs associated with cache node\n");
+This series is based on v6.18-rc4, and can be retrieved from:
+https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/driver/v3
 
-Yup, I'd mopped up most of these but missed this one.
+The rest of the driver can be found here:
+https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/snapshot/v6.18-rc1
+
+What is MPAM? Set your time-machine to 2020:
+https://lore.kernel.org/lkml/20201030161120.227225-1-james.morse@arm.com/
+
+This series was previously posted here:
+[v2] lore.kernel.org/r/20250910204309.20751-1-james.morse@arm.com
+[v1] lore.kernel.org/r/20250822153048.2287-1-james.morse@arm.com
+[RFC] lore.kernel.org/r/20250711183648.30766-2-james.morse@arm.com
 
 
->> +    case MPAM_CLASS_MEMORY:
->> +        get_cpumask_from_node_id(comp->comp_id, affinity);
->> +        /* affinity may be empty for CPU-less memory nodes */
->> +        break;
->> +    case MPAM_CLASS_UNKNOWN:
->> +        return 0;
->> +    }
->> +
->> +    cpumask_and(affinity, affinity, &msc->accessibility);
->> +
->> +    return 0;
->> +}
+James Morse (27):
+  ACPI / PPTT: Add a helper to fill a cpumask from a processor container
+  ACPI / PPTT: Stop acpi_count_levels() expecting callers to clear
+    levels
+  ACPI / PPTT: Find cache level by cache-id
+  ACPI / PPTT: Add a helper to fill a cpumask from a cache_id
+  arm64: kconfig: Add Kconfig entry for MPAM
+  ACPI / MPAM: Parse the MPAM table
+  arm_mpam: Add probe/remove for mpam msc driver and kbuild boiler plate
+  arm_mpam: Add the class and component structures for firmware
+    described ris
+  arm_mpam: Add MPAM MSC register layout definitions
+  arm_mpam: Add cpuhp callbacks to probe MSC hardware
+  arm_mpam: Probe hardware to find the supported partid/pmg values
+  arm_mpam: Add helpers for managing the locking around the mon_sel
+    registers
+  arm_mpam: Probe the hardware features resctrl supports
+  arm_mpam: Merge supported features during mpam_enable() into
+    mpam_class
+  arm_mpam: Reset MSC controls from cpuhp callbacks
+  arm_mpam: Add a helper to touch an MSC from any CPU
+  arm_mpam: Extend reset logic to allow devices to be reset any time
+  arm_mpam: Register and enable IRQs
+  arm_mpam: Use a static key to indicate when mpam is enabled
+  arm_mpam: Allow configuration to be applied and restored during cpu
+    online
+  arm_mpam: Probe and reset the rest of the features
+  arm_mpam: Add helpers to allocate monitors
+  arm_mpam: Add mpam_msmon_read() to read monitor value
+  arm_mpam: Track bandwidth counter state for overflow and power
+    management
+  arm_mpam: Add helper to reset saved mbwu state
+  arm_mpam: Add kunit test for bitmap reset
+  arm_mpam: Add kunit tests for props_mismatch()
 
+Rohit Mathew (2):
+  arm_mpam: Probe for long/lwd mbwu counters
+  arm_mpam: Use long MBWU counters if supported
 
-Thanks,
+ arch/arm64/Kconfig                  |   25 +
+ drivers/Kconfig                     |    2 +
+ drivers/Makefile                    |    1 +
+ drivers/acpi/arm64/Kconfig          |    3 +
+ drivers/acpi/arm64/Makefile         |    1 +
+ drivers/acpi/arm64/mpam.c           |  384 ++++
+ drivers/acpi/pptt.c                 |  248 ++-
+ drivers/acpi/tables.c               |    2 +-
+ drivers/resctrl/Kconfig             |   22 +
+ drivers/resctrl/Makefile            |    4 +
+ drivers/resctrl/mpam_devices.c      | 2701 +++++++++++++++++++++++++++
+ drivers/resctrl/mpam_internal.h     |  661 +++++++
+ drivers/resctrl/test_mpam_devices.c |  389 ++++
+ include/linux/acpi.h                |   26 +
+ include/linux/arm_mpam.h            |   58 +
+ include/linux/platform_device.h     |    1 +
+ 16 files changed, 4519 insertions(+), 9 deletions(-)
+ create mode 100644 drivers/acpi/arm64/mpam.c
+ create mode 100644 drivers/resctrl/Kconfig
+ create mode 100644 drivers/resctrl/Makefile
+ create mode 100644 drivers/resctrl/mpam_devices.c
+ create mode 100644 drivers/resctrl/mpam_internal.h
+ create mode 100644 drivers/resctrl/test_mpam_devices.c
+ create mode 100644 include/linux/arm_mpam.h
 
-James
+-- 
+2.39.5
+
 
