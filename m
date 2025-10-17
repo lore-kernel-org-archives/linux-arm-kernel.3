@@ -4,109 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0C9CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0400CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 07:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rV7OlrVjgmDx2nu3vLmG8NDJXIPQbsJRfxFL9jTeoM8=; b=ztNneawRzmuZrbOoUbjjwrWD4u
-	afu2q5UrQFCnizx/LCDt2KGEdkLMCBUI3ZxWGu9GDot8JOiKRI6g7LIWJ8HQJHvavUUton7c5Pg93
-	UH+LtatN9sxmcIY8T9gVH5r0OyKhgvyuhHfkQeqWfa+6A8j1L11eHZcO8U9h9F0f0HMgRrir7M23Y
-	0l5PFySu1c4hJ9fpnVsXxa7La9lcRLVPkPzF/PSMGrKmJ6xfqlw7Q0M3i14ZbTX4Ea2cq7uP6KJyq
-	FNbD2AgLJJrNEKWc5QgpUy2MZHJ/4kVhrIeorZmwzIa3+AFujQrZ5cRqFuuiK9/efr1QUWa5M3ks5
-	1u7KtPgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XQrvP1GlmV9hF254YFykYp7sZklQgP8zUBpeNxqA/go=; b=wTOKl16/jKalN5ttPPyPEhBO2r
+	tmYTZx+5lsFv6KxPGlf/k9OGEoiC9NtShOHo0N9Z/ND5em/OiB23Eajtd14uK5+DILrMDm/5LSmJo
+	AfkI0Y78xQk8lPYn68WihXMfuDVV6KBn7uK3C/sJcIf7TzmF8J1wIgNaYEQyp4YztlWmSTwzmb9ZD
+	2YeUtS/jy1brJA1diYo3/RMFK+QkjIDSVEKIkdQxl31YvXFzg1FOrTWrf1tkHQLxvD9dFbO/WJe20
+	VoGvqd+x+s8CMbWqZBsRYCl7On+/I9LFxnQb6DQ2eHB5ZhJNyz9GtRwB3M3v4nPI6MMQd/EaYUR7G
+	q+/rIDyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9f4n-00000006zJZ-0r3M;
-	Fri, 17 Oct 2025 07:40:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v9f7e-00000006zrn-0YE0;
+	Fri, 17 Oct 2025 07:43:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9f4k-00000006zIP-458L;
-	Fri, 17 Oct 2025 07:40:36 +0000
+	id 1v9f7c-00000006zrg-2ayG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 07:43:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 988B2456D8;
-	Fri, 17 Oct 2025 07:40:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79F47C4CEE7;
-	Fri, 17 Oct 2025 07:40:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760686834;
-	bh=sb/nElh9KMN8mQVtbv98NeQoE2uRu5jwjS2h4VMCK1A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ajzyhNDCNv3tFpAGl/2kxzSDKoyY5sO4ci+57z4j0yIk54h1Eswl5xzKilAMuu6Px
-	 MfqtkkYeHXCaRWue658cKrOdLidcvjHBpnr4RFTdAWPgUKx8l56msfqEbN5I4vxFks
-	 pQH1Ey2qdh3Ucafbu7bRlZHWI3qQ+6KrNdivvqnpJd9SgUKZePb/DF8XokRWVjZjBg
-	 9jaaIayru7fdbwWU7HfIxC1fyq9PzdmP7ZnD6SSsLZQwLreYnOm8XfBbHoOiopuUPK
-	 Ip7sRCHriZ29HlqSVcJSVZhDoLHoObhuPKFcPJysZJrJqRVl/xkeab6NXUDzLF21VG
-	 3+9QDfc6qes1Q==
-Message-ID: <1ce0101b-e6ee-4914-8c41-215a2f1aacf4@kernel.org>
-Date: Fri, 17 Oct 2025 09:40:29 +0200
+	by tor.source.kernel.org (Postfix) with ESMTP id AE04C6036C;
+	Fri, 17 Oct 2025 07:43:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3942C4CEE7;
+	Fri, 17 Oct 2025 07:43:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1760687011;
+	bh=Ghawdb9l72IEZCfQwNVJ0wErDbWEow5FhFKT+ciucco=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rbgnTyiRwNqzWTCsT9SFJ0M0y6ewfizs6HV6j9R9MCeXDn5I+PfLLTbX7sIZzLKdb
+	 2CLT0UiaisCdgatT2tsNx53BuVw1axilp0cVSfN3oo61y9gcRgaA5AbPgN6rFvEW+K
+	 y3LwXgi9MYsbutny94X7lRDSlaUPH76FX4X3wTQI=
+Date: Fri, 17 Oct 2025 09:43:28 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Brian Masney <bmasney@redhat.com>,
+	Iwona Winiarska <iwona.winiarska@intel.com>,
+	Joel Stanley <joel@jms.id.au>, Maxime Ripard <mripard@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] peci: controller: peci-aspeed: convert from round_rate()
+ to determine_rate()
+Message-ID: <2025101721-twiddling-huskiness-4852@gregkh>
+References: <20250810-peci-round-rate-v1-1-ec96d216a455@redhat.com>
+ <aMatZAX6eFI1RmDH@redhat.com>
+ <28dc3bd8aeca7e3164747960747f75060c596704.camel@codeconstruct.com.au>
+ <aPEZSY6RC-UVclxN@redhat.com>
+ <ba2e6b78e59afb7c89e5022770a142ec8c31659a.camel@codeconstruct.com.au>
+ <2025101759-runner-landing-374b@gregkh>
+ <2975918e3f3a7de245e93fbee52335acb78bb23a.camel@codeconstruct.com.au>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: power: rockchip: Add support for
- RV1126B
-To: Finley Xiao <finley.xiao@rock-chips.com>, heiko@sntech.de
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- ulf.hansson@linaro.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- zhangqing@rock-chips.com, sugar.zhang@rock-chips.com
-References: <20251017065646.320643-1-finley.xiao@rock-chips.com>
- <20251017065646.320643-2-finley.xiao@rock-chips.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251017065646.320643-2-finley.xiao@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_004035_056791_6AA133B0 
-X-CRM114-Status: UNSURE (   7.51  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2975918e3f3a7de245e93fbee52335acb78bb23a.camel@codeconstruct.com.au>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,20 +76,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/10/2025 08:56, Finley Xiao wrote:
->  
->        clocks:
->          minItems: 1
-> diff --git a/include/dt-bindings/power/rockchip,rv1126b-power.h b/include/dt-bindings/power/rockchip,rv1126b-power.h
-> new file mode 100644
-> index 000000000000..beb692bd8e72
-> --- /dev/null
-> +++ b/include/dt-bindings/power/rockchip,rv1126b-power.h
+On Fri, Oct 17, 2025 at 05:57:44PM +1030, Andrew Jeffery wrote:
+> On Fri, 2025-10-17 at 08:41 +0200, Greg Kroah-Hartman wrote:
+> > On Fri, Oct 17, 2025 at 04:52:37PM +1030, Andrew Jeffery wrote:
+> > > Hi Greg,
+> > > 
+> > > On Thu, 2025-10-16 at 12:11 -0400, Brian Masney wrote:
+> > > > Hi Andrew and Iwona,
+> > > > 
+> > > > On Mon, Sep 15, 2025 at 02:36:48PM +0930, Andrew Jeffery wrote:
+> > > > > Hi Brian,
+> > > > > 
+> > > > > On Sun, 2025-09-14 at 07:56 -0400, Brian Masney wrote:
+> > > > > > Hi Iwona, Joel, and Andrew,
+> > > > > > 
+> > > > > > On Sun, Aug 10, 2025 at 06:21:51PM -0400, Brian Masney wrote:
+> > > > > > > The round_rate() clk ops is deprecated, so migrate this
+> > > > > > > driver from
+> > > > > > > round_rate() to determine_rate() using the Coccinelle
+> > > > > > > semantic patch
+> > > > > > > appended to the "under-the-cut" portion of the patch.
+> > > > > > > 
+> > > > > > > Signed-off-by: Brian Masney <bmasney@redhat.com>
+> > > > > > 
+> > > > > > Would it be possible to get this picked up for v6.18? I'd
+> > > > > > like to remove
+> > > > > > this API from drivers/clk in v6.19.
+> > > > > 
+> > > > > My (strong) preference is that Iwona applies it, but I'll keep
+> > > > > an eye
+> > > > > out for any unusual delays.
+> > > > 
+> > > > This patch wasn't picked up for v6.18. Any chance this can get
+> > > > picked up
+> > > > now for v6.19?
+> > > > 
+> > > > I'm hoping to get this merged so that we can remove the
+> > > > round_rate() clk
+> > > > op from the clk core. The clk maintainer (Stephen) mentioned this
+> > > > work
+> > > > in his last pull to Linus.
+> > > > 
+> > > > https://lore.kernel.org/linux-clk/20251007051720.11386-1-sboyd@kernel.org/
+> > > 
+> > > Are you happy to pick this up directly in Iwona's absence?
+> > 
+> > Why me?
+> 
+> I figured that would be sensible since Iwona historically sent you PRs
+> for the PECI subsystem.
 
+I did not remember that, sorry.  The MAINTAINERS file does not mention
+this at all, and it lists many other maintainers that should be able to
+take this patch:
+	$ ./scripts/get_maintainer.pl  drivers/peci/controller/peci-aspeed.c
+	Iwona Winiarska <iwona.winiarska@intel.com> (maintainer:ASPEED PECI CONTROLLER)
+	Joel Stanley <joel@jms.id.au> (maintainer:ARM/ASPEED MACHINE SUPPORT)
+	Andrew Jeffery <andrew@codeconstruct.com.au> (maintainer:ARM/ASPEED MACHINE SUPPORT)
+	linux-aspeed@lists.ozlabs.org (moderated list:ASPEED PECI CONTROLLER)
+	openbmc@lists.ozlabs.org (moderated list:ASPEED PECI CONTROLLER)
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ASPEED MACHINE SUPPORT)
+	linux-kernel@vger.kernel.org (open list)
+	ASPEED PECI CONTROLLER status: Supported
+	PECI SUBSYSTEM status: Supported
+	ARM/ASPEED MACHINE SUPPORT status: Supported
 
-I don't see my comment addressed. You never responded. Please slow down
-with your postings and respond to comments.
+thanks,
 
-Best regards,
-Krzysztof
+greg k-h
 
