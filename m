@@ -4,64 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96FF3CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 08:31:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23353CCD19A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 17 Oct 2025 08:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j4zpwLN+3JQ7ROYF5QsmOjc6s8D81bAV2/U0WYzrC58=; b=zkB6+kw9fnz7vClR/N80f9bhAE
-	MbTcNQRkblZ/SrPExt09nMloQ0OBRq7LmbgOiTmsI0Xko3jOrscyGg5CYbBH55AevEEfQfE7uID8W
-	QY1EsmjhhzbBXjKdLOPIOztLpgXEMUrYeGrdLCNt2xaLzWp1mADRn4MmH3Rmd7m9md/mR/5CTJBrH
-	QJCsuHBJ5EgxIDHoUn+pX1xN9NfxOeM1VPKGSzemuE25voLlRxehv+ZtFTRU75G4TaL/NDahjGv5J
-	di3gjRoJ5Cw5ll9/fOR9mjdoSPnjBXooMp7RdvUmEG9G4/T27cSdSFTZ+AF4wGDxu9pQ5u0ggxIYV
-	S70QEExA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y66tgSqO/LGhFFtUG7qKG9sBuiTnMZSeuWeXsqkVw2s=; b=YNdINpg7rKzuOYK2B0nnr+fT/p
+	l5/f1R+KKFGAz67ngEu4xsLWnsEJjyxrMm3BeVIJ6E1hcRz/O00lXUoZwuz1cyeenHCNoBYDZGpVY
+	Z6ffZLGFPrTBNfXr1WbQc2GC3oDqoyKeaNd86YI3KcbTA5P0I7NsCnHTezAeriZC62fv2ySUf7bH5
+	IH2emY6LIyICi4iWn3Iw56veH1ZR++VRDnZOFNIHaZwJ7husuteZ9GjmgS/WnhL67pDqM/4/pX/Qs
+	aZ4j2G5ho/ufaUx0SkinxhylomlgX8HNgbMNNSq+xzRd8uloU3WS6qZBnEJD1ILE5ioIIfqOLVgb9
+	uvc0NUGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9fsN-00000007508-3n8b;
-	Fri, 17 Oct 2025 08:31:51 +0000
+	id 1v9fux-000000075cH-2JRt;
+	Fri, 17 Oct 2025 08:34:31 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9fsL-000000074zX-1TeA;
-	Fri, 17 Oct 2025 08:31:50 +0000
+	id 1v9fuv-000000075bP-11Nw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 17 Oct 2025 08:34:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 489ED455C6;
-	Fri, 17 Oct 2025 08:31:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED015C4CEE7;
-	Fri, 17 Oct 2025 08:31:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 004FE454A7;
+	Fri, 17 Oct 2025 08:34:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80F82C4CEF9;
+	Fri, 17 Oct 2025 08:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760689908;
-	bh=8JUiOrjDfOdA/96I1n2RoxKgJNH0r2C48Z5YYltnGhg=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=bSxYK2kDJV4zgONmPeuPitDLrbENAOcdwhHNI9fk2w0/zI5It/AVh5B3m2jkhK9S7
-	 geXRz55eImzmjpiK8aUGHgF8yVZhmi8zxkgihRCKnMIWmnCqMFPZMUomGx2keiu7H5
-	 TDWkfMaZgaKdT5MHSOx2Hxdy4ZoLUQGuBSytAwCdaVRGR9t5WY96tAUTsNsARIPvc4
-	 OW4xweUoJtc4gGXNhSkQg3OxGtfijv6DD9W0NDlgC8MimW8fVppaqm3rUS8FdJehf2
-	 nb8B/nVLpIqWKO4ZekSXkLFbOnMNF3onDdBkYeo+s/ZbYRqUkKh5JIYy6wGz8qdH3n
-	 6benPmRb8/eoA==
-Date: Fri, 17 Oct 2025 03:31:46 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1760690067;
+	bh=w3Jtbc7P9k3PPr7nIVh983//ubXEPnmSoqZwGmDBXrk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tBURSOf1n1gAe4wuT1WyYiBXXL0n4H1eV34vl60JDzY1kfH5x0va0pTUZzw46QfON
+	 44YdA+pobnFwaecgLz6QSBEVbPWsC5+Rd96IabcLUdGAzeqLqH+n3vCpvEuNfZ9qrO
+	 DWYY3kbxMoGvDtAyQYpfaBjeIrgs38GMRq7uGwS86DiM1aEsNdmvCrtQ+F3kVCYhNe
+	 g5fgrWwvl/cGqiaYTUFEj0gQ37qLq/S1Qr2fcudgvMJ0hluVJzJ9xBko2C0xcNLyWq
+	 gY1rLyNmgXbzQ4A/XtfuywKcILMUH8i6XMus/6tx/aiivjkzEkjK/XuqQjn9awXHF0
+	 vL93gvQw3wHiQ==
+Message-ID: <94ae58e4-4fd2-4c29-a060-986d84309f94@kernel.org>
+Date: Fri, 17 Oct 2025 10:34:23 +0200
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: sugar.zhang@rock-chips.com, krzysztof.kozlowski+dt@linaro.org, 
- linux-arm-kernel@lists.infradead.org, heiko@sntech.de, 
- mturquette@baylibre.com, conor+dt@kernel.org, huangtao@rock-chips.com, 
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-clk@vger.kernel.org, sboyd@kernel.org, devicetree@vger.kernel.org
-To: Elaine Zhang <zhangqing@rock-chips.com>
-In-Reply-To: <20251017063107.1606965-5-zhangqing@rock-chips.com>
-References: <20251017063107.1606965-1-zhangqing@rock-chips.com>
- <20251017063107.1606965-5-zhangqing@rock-chips.com>
-Message-Id: <176068990653.1336490.3635831064787473495.robh@kernel.org>
-Subject: Re: [PATCH v2 4/5] dt-bindings: clock: Add support for rockchip
- pvtpll
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Change CONFIG_SM_TCSRCC_8750 from m to
+ y
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Taniya Das <quic_tdas@quicinc.com>, Taniya Das
+ <taniya.das@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>,
+ linux-arm-msm@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+ Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+ Imran Shaik <imran.shaik@oss.qualcomm.com>,
+ Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+ linux-kernel@vger.kernel.org
+References: <20251017-update_defconfig_tcsrcc_sm8750-v1-1-34b1b47a0bda@oss.qualcomm.com>
+ <30390038-0f90-48a4-befe-475cf88ba1fb@kernel.org>
+ <37f54b76-a274-4ce2-aaa9-88ba0eb84199@oss.qualcomm.com>
+ <90c8dda3-f753-43dc-8bb9-d03a808c8704@kernel.org>
+ <38b8468f-5006-46a3-a4ea-28e6692ef14a@quicinc.com>
+ <03ac36fb-a227-438e-bdf6-f787e26008b3@kernel.org>
+ <8580ae8e-50e9-481c-b9f3-125b6d1cb494@kernel.org>
+ <0a9874d4-29e4-477e-a675-c4534658f9d9@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <0a9874d4-29e4-477e-a675-c4534658f9d9@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_013149_427461_2F3C58CC 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251017_013429_345565_3C723203 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,42 +130,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 17 Oct 2025 14:31:06 +0800, Elaine Zhang wrote:
-> Add pvtpll documentation for rockchip.
+On 17/10/2025 10:15, Konrad Dybcio wrote:
+> On 10/17/25 8:54 AM, Krzysztof Kozlowski wrote:
+>> On 17/10/2025 07:56, Krzysztof Kozlowski wrote:
+>>> On 17/10/2025 07:49, Taniya Das wrote:
+>>>>
+>>>>
+>>>> On 10/17/2025 10:51 AM, Krzysztof Kozlowski wrote:
+>>>>> On 17/10/2025 07:16, Taniya Das wrote:
 > 
-> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
-> ---
->  .../bindings/clock/rockchip,clk-pvtpll.yaml   | 98 +++++++++++++++++++
->  1 file changed, 98 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,clk-pvtpll.yaml
+> [...]
 > 
+>>>> We have tried booting up recently and and that is what we observed. The
+>>>> patch from 'm' to 'y' helps the UFS probe is successful and the rootfs
+>>>> is picked from ufs partitions. I will add these fail & success log
+>>>> snippets in the commit text.
+>>>
+>>> That's not enough. You need to explain why UFS fails. After explaining
+>>> this, I guess bug in UFS would be exposed thus that one should be fixed.
+>>> You just provided band-aid without fixing the real problem.
+>>>
+>>> NAK
+>>
+>>
+>> ... and to prove your analysis is wrong (because your setup is likely
+>> having issues) I even tested now linux next with defconfig. Works all
+>> fine on next-20251013. You did not share which kernel even has this
+>> issue, maybe some downstream tree?
+> 
+> Is there a chance you have the TCSR module packed in initramfs and
+> Taniya doesn't?
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Of course that's a chance, since I have all modules packed. Why would
+someone pack UFS to initramfs but not its dependencies? It would never
+work, actually, nothing would work...
 
-yamllint warnings/errors:
+If initramfs does not have necessary modules, way to fix it is to add
+these modules, not make the symbol enabled.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/rockchip,clk-pvtpll.example.dtb: pvtpll-core@20480000 (rockchip,rv1126b-core-pvtpll): compatible: ['rockchip,rv1126b-core-pvtpll', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/clock/rockchip,clk-pvtpll.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/rockchip,clk-pvtpll.example.dtb: pvtpll-npu@22080000 (rockchip,rv1126b-npu-pvtpll): compatible: ['rockchip,rv1126b-npu-pvtpll', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/clock/rockchip,clk-pvtpll.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251017063107.1606965-5-zhangqing@rock-chips.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Best regards,
+Krzysztof
 
