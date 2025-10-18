@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83905CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 15:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13D1ECCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 15:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xEbuPokphWIs+4h5DDd7NjYQ9fkkhFYcg7pziBj9im4=; b=ZSyvcfIPdtLNhf5UBcLWFQ7RX/
-	TBbCKXmNxgdZ+EPyw+Ad2McxUtR4CHEeqvUNI4pQHq+ULu4dq6tLaYLhpqfwYzacyK1ojsrfl2mNp
-	MRqgPjt340+1Vvd1nllUIblvRdZYobFJXcSJTZKgEz9HHrSCwJoJ+B1s/ymTzUKPFA1YPzPmvkQnB
-	rpXuqgfbdUxxp1KNXG43B4TeUbNgQ4n/lCrGi6Okhc0uvMIloODsMWrIfD3Rk2Q1mpEFOs0z7IlvS
-	Tggi6PqnaltPC0H3q8XxtXAYLQcQlwhBeT4GNEwXMMvq1usxmXR7URZIlP5kVTLZCa1i7ua9A7Sii
-	1Ac8H5Xw==;
+	bh=WlWpwEPl5u/jZmx6JNLVWmiy33Jxq4ZIl6RzICMVjvk=; b=q9L2ZLVqGwYZq4rb3jgE7Ej3wc
+	5bB7MNFZsrz8bSdh9jNxvNcueBW1As7v9FyT1sw/xfpnFT2mNzLH5ogsJBvzVtt5fLdQMg0t5+97o
+	9bykQeRGHuUDGCpVBC2YUpG8kzlr4E3xzz4PqmNZaYksNRcJ0Qu0jD8qUH1krWug6kudQn0TDy7mg
+	sFwAeh6A/AygQ31EgAct3R4AAkEyV+KmiPFOOPXjpOb7TuC6zmZAym9GX4PuncITnUgDXgE3Y5rRg
+	mMZrPC58MFXwBL3j1uY2AClgjAa+WVi3mdLlh8dzdoxbCFAlsB1s3hv5yqk+2j4lSJE5fVwCZ9H02
+	NUWtJGEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA8d3-0000000A3hg-1918;
-	Sat, 18 Oct 2025 15:13:57 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1vA8ft-0000000A45x-2XyG;
+	Sat, 18 Oct 2025 15:16:53 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA8d0-0000000A3h1-2aUs
+	id 1vA8fq-0000000A45X-1nLf
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 15:13:55 +0000
+	Sat, 18 Oct 2025 15:16:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760800434; x=1792336434;
+  t=1760800610; x=1792336610;
   h=date:from:to:cc:subject:message-id;
-  bh=gnH1Sr9cbu6LcW48xStbmYfNalhmUaWXn1+A60iE4Hs=;
-  b=mp4oFuqSg3Hhfd7cu4QilJvBHRRTRN8LiLjbsWC/aAzC77hQgfANiAwh
-   z7w6JQ0CD+i9EMMgNI4t6pkfLGyCW+KW7KS039v4qbARF9dOi7jrnlFNf
-   Ligxirw7IZZuS3vlMbaRh/dNeJXdeUeGED7ZSPB5A+a3edz4W6lHsKdPp
-   45+AE97U2UQLgpCm6lwmV6tfhicjT3apn/23jUgc1QMx44JzEd1/PqNKZ
-   1Zlc0J15JDYQnJhe6BkumQkbjJS06uSdPVBx9HQUKujFxvRxVhxzfYGep
-   Jx6mS9JotVf8H8BXJRIo/QfCJ1Utl7UaXZnli97ddCSvMVFroGcaLxhy7
+  bh=sEVr5J4rl9InPfPngX1rC24uVrdo3HUcK7bUPUNkZ8M=;
+  b=UxfO4GWjyOYbXrhPWKv4ydwQMWikxRAsfL3SvF5iA8/7memW6w142DZR
+   5nRbhEYu+YULdUfT6OKPBll9cQPQQ/PYWaCM9oi1eNrsBYB3CR06rzKDs
+   NGtF6laemq5ifFRTx0SJIoMKQ5/wp6BUhusCmzeFuBoJa4oFlv5zCKUiS
+   dlBwKar0A8xzSkpXdZscdrJzS+KgvatnaEoRwCTuTS7kmFtf5ChkQvn+G
+   yeHe50BJQ8TNAPCqCkG2pVB7Ke0CTyBbYxG/sJuXnBYjcI7zv/F6VnoeO
+   Um+GbNAvStPjkQoAn2yFwU6iMUg7NOWKBBUWaTHBwYfu+fjt1+l8mtu/h
    A==;
-X-CSE-ConnectionGUID: fYPnvMghSu6JvefMlOBhIQ==
-X-CSE-MsgGUID: SP54vQ2dRAmOf1CGTpNA2A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="62203082"
+X-CSE-ConnectionGUID: bcTVlBAbQ66K2b87R6BAXQ==
+X-CSE-MsgGUID: dO8kjACURum3VPRYQWNWsg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="80620895"
 X-IronPort-AV: E=Sophos;i="6.19,239,1754982000"; 
-   d="scan'208";a="62203082"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Oct 2025 08:13:49 -0700
-X-CSE-ConnectionGUID: pZqtSsOuSnGiyY4zECHkXw==
-X-CSE-MsgGUID: Ffv8fkV1RRekAWOM0Y+dhw==
+   d="scan'208";a="80620895"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Oct 2025 08:16:50 -0700
+X-CSE-ConnectionGUID: 9jslU3S8SNOUl9XGl2xmzA==
+X-CSE-MsgGUID: hnUd7wNGTDCsltV9aLWhrA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,239,1754982000"; 
-   d="scan'208";a="213579659"
+   d="scan'208";a="188056146"
 Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
-  by orviesa002.jf.intel.com with ESMTP; 18 Oct 2025 08:13:47 -0700
+  by orviesa005.jf.intel.com with ESMTP; 18 Oct 2025 08:16:48 -0700
 Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1vA8cq-0008MQ-2e;
-	Sat, 18 Oct 2025 15:13:44 +0000
-Date: Sat, 18 Oct 2025 23:13:14 +0800
+	id 1vA8fm-0008Mr-0z;
+	Sat, 18 Oct 2025 15:16:46 +0000
+Date: Sat, 18 Oct 2025 23:15:53 +0800
 From: kernel test robot <lkp@intel.com>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:arm/fixes] BUILD SUCCESS
- 3573844359bbcd5e83d6a61f15b9cec4730d4ad3
-Message-ID: <202510182308.PFMfZxYn-lkp@intel.com>
+Subject: [soc:for-next] BUILD SUCCESS
+ 30954acd3919f32bde7c33da949a1ba76d744754
+Message-ID: <202510182347.RCCiSJNu-lkp@intel.com>
 User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_081354_696723_541A5E35 
-X-CRM114-Status: UNSURE (   5.59  )
+X-CRM114-CacheID: sfid-20251018_081650_499381_ED952656 
+X-CRM114-Status: UNSURE (   5.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,12 +83,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
-branch HEAD: 3573844359bbcd5e83d6a61f15b9cec4730d4ad3  soc: officially expand maintainership team
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: 30954acd3919f32bde7c33da949a1ba76d744754  Merge branch 'soc/drivers' into for-next
 
-elapsed time: 1454m
+elapsed time: 1457m
 
-configs tested: 177
+configs tested: 185
 configs skipped: 3
 
 The following configs have been built successfully.
@@ -98,14 +98,17 @@ tested configs:
 alpha                             allnoconfig    clang-22
 alpha                             allnoconfig    gcc-15.1.0
 alpha                            allyesconfig    gcc-15.1.0
+arc                              allmodconfig    gcc-15.1.0
 arc                               allnoconfig    clang-22
 arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    gcc-15.1.0
 arc                        nsimosci_defconfig    clang-22
 arc                   randconfig-001-20251018    clang-22
 arc                   randconfig-001-20251018    gcc-12.5.0
 arc                   randconfig-002-20251018    clang-22
 arc                   randconfig-002-20251018    gcc-8.5.0
 arm                              alldefconfig    clang-22
+arm                              allmodconfig    gcc-15.1.0
 arm                               allnoconfig    clang-22
 arm                       aspeed_g4_defconfig    clang-22
 arm                   randconfig-001-20251018    clang-19
@@ -139,6 +142,7 @@ hexagon               randconfig-002-20251018    clang-22
 hexagon               randconfig-002-20251018    gcc-12.5.0
 i386                             allmodconfig    clang-20
 i386                              allnoconfig    clang-20
+i386                              allnoconfig    gcc-14
 i386                             allyesconfig    clang-20
 i386        buildonly-randconfig-001-20251018    clang-20
 i386        buildonly-randconfig-001-20251018    gcc-14
@@ -192,6 +196,8 @@ nios2                 randconfig-002-20251018    gcc-12.5.0
 nios2                 randconfig-002-20251018    gcc-8.5.0
 openrisc                          allnoconfig    clang-22
 openrisc                          allnoconfig    gcc-15.1.0
+openrisc                         allyesconfig    gcc-15.1.0
+parisc                           allmodconfig    gcc-15.1.0
 parisc                            allnoconfig    clang-22
 parisc                            allnoconfig    gcc-15.1.0
 parisc                              defconfig    gcc-15.1.0
@@ -256,6 +262,7 @@ x86_64      buildonly-randconfig-005-20251018    clang-20
 x86_64      buildonly-randconfig-005-20251018    gcc-14
 x86_64      buildonly-randconfig-006-20251018    clang-20
 x86_64                              defconfig    clang-20
+x86_64                              defconfig    gcc-14
 x86_64                                  kexec    clang-20
 x86_64                randconfig-071-20251018    clang-20
 x86_64                randconfig-072-20251018    clang-20
@@ -271,6 +278,7 @@ x86_64                    rhel-9.4-kselftests    clang-20
 x86_64                          rhel-9.4-rust    clang-20
 xtensa                            allnoconfig    gcc-15.1.0
 xtensa                       common_defconfig    clang-22
+xtensa                randconfig-001-20251018    gcc-13.4.0
 xtensa                randconfig-002-20251018    gcc-8.5.0
 
 --
