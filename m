@@ -4,79 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F518CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 03:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC2CCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 03:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6JLd3+7eItXpa6oD4S9fDPBUWfNqHNd7yVeROhoYzhk=; b=WtMEScrsqXlx9gO5USW1eMlnPi
-	NXD2OdJzHuAzyELYUZ/APQzvoaDFi/ytrEpPtwO6DSrKsnWkO7tCoF60nlBvuNNjefdm+UnRnv+/t
-	lG1XXikAW8vAqi0E85EQuJg/wlMZGJvgs98JP0ChLz1gg1dBEAwFGcr5F129qbCCNc1kHa6UzlUKK
-	59tKg4jLvxz+HY47insKDXgdNCpyCvOlZ2PNwm4g1UEdjULK5d/42NbTl6EZVPl5nwURVF2zlDvb+
-	MZmSlkRQrXO3JA2Ek8d+gzVavvp7r5qkFQ3KW040WNWzSKaXfxGqDO8jpRpwPsldai6lik/yt0LtK
-	z/AZ1Hzg==;
+	bh=HrL7s/yHucvSFN5OrFoyTGqXmwSYjGi9IJVI2DWq6E8=; b=p3o1YxrFZ8wiwh7ElyBsVVGhsF
+	Uf0tyLiQE8VLhw6sPNa6KD71cGJ9oTK+7s7j6w3IcMVqI1NSeBKW/y8AwtUhMeQNPJI47pkv2iwvf
+	4Gi7pJOe5MHQPvKWC2FoF2oxmmmueJK2QYOoKHsA2+ZmvQg9hiAMUboGUgHDzGbepsuoZKhLg/DUI
+	DlZTEcre5a2eTWZ1chcZYEZhmnFQsbItvAslvHAJDWwCUlepSh9ADMLu2ZFr17pX5Nkk694VIpUDz
+	JJB4zDMY6X+yILBm+FN97mZir/yajq0zidrugReUiy9G4X3L6wD5Ltln9WTgaL5utg6GDvZqZ+RSK
+	rfTcYtkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9xNP-00000009R1V-3wPo;
-	Sat, 18 Oct 2025 03:13:04 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1v9xRq-00000009RVj-0LCs;
+	Sat, 18 Oct 2025 03:17:38 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9xNN-00000009Qzs-3ReE;
-	Sat, 18 Oct 2025 03:13:03 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=6JLd3+7eItXpa6oD4S9fDPBUWfNqHNd7yVeROhoYzhk=;
-	b=khUUExDvT3R13J+zlBDtTRqcrQXBaFr90ZDcRlnEcMH/93u0p26NoIbqZWt53NL4czY+SQBdo
-	/OxEI0osb2yjgBCfCnle2Lszklq7b1TG2qRs3Ddkv2OFUvMv1V1DKYJFPSvhpEzZnt+OXMf3+KZ
-	xaS7JvFzR4Tfv6rrLRXuY2U=
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4cpRZM2kr5zmV6y;
-	Sat, 18 Oct 2025 11:12:27 +0800 (CST)
-Received: from kwepemr500001.china.huawei.com (unknown [7.202.194.229])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4C2671A016C;
-	Sat, 18 Oct 2025 11:12:49 +0800 (CST)
-Received: from [10.174.179.35] (10.174.179.35) by
- kwepemr500001.china.huawei.com (7.202.194.229) with Microsoft SMTP Server
+	id 1v9xRn-00000009RUr-1URn
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 18 Oct 2025 03:17:37 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4cpRgg4m53z1prPw;
+	Sat, 18 Oct 2025 11:17:03 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0825918048E;
+	Sat, 18 Oct 2025 11:17:26 +0800 (CST)
+Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 18 Oct 2025 11:12:47 +0800
-Message-ID: <c91878d6-f645-4fc0-abd3-f1ba4aef47cd@huawei.com>
-Date: Sat, 18 Oct 2025 11:12:47 +0800
+ 15.2.1544.11; Sat, 18 Oct 2025 11:17:25 +0800
+Received: from [10.67.121.115] (10.67.121.115) by
+ kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 18 Oct 2025 11:17:25 +0800
+Message-ID: <c349eb9f-9f8a-f268-c765-a59c94bf6613@hisilicon.com>
+Date: Sat, 18 Oct 2025 11:17:24 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 1/2] pgtable: add pte_clrhuge() implementation for
- arm64 and riscv
-To: Matthew Wilcox <willy@infradead.org>
-CC: <akpm@linux-foundation.org>, <david@redhat.com>,
-	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <vbabka@suse.cz>,
-	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, <ziy@nvidia.com>,
-	<baolin.wang@linux.alibaba.com>, <npache@redhat.com>, <ryan.roberts@arm.com>,
-	<dev.jain@arm.com>, <baohua@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <anshuman.khandual@arm.com>,
-	<yangyicong@hisilicon.com>, <ardb@kernel.org>, <apopple@nvidia.com>,
-	<samuel.holland@sifive.com>, <luxu.kernel@bytedance.com>,
-	<abrestic@rivosinc.com>, <yongxuan.wang@sifive.com>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>, <wangkefeng.wang@huawei.com>,
-	<chenjun102@huawei.com>
-References: <20251016112704.179280-1-yintirui@huawei.com>
- <20251016112704.179280-2-yintirui@huawei.com>
- <aPE36PlriswJWSKD@casper.infradead.org>
-From: Yin Tirui <yintirui@huawei.com>
-In-Reply-To: <aPE36PlriswJWSKD@casper.infradead.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.179.35]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemr500001.china.huawei.com (7.202.194.229)
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: Question about heterogeneous VM live migration
+Content-Language: en-US
+To: Marc Zyngier <maz@kernel.org>
+CC: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+References: <866aca63-1f6b-2109-fa76-6d68cb7c547a@hisilicon.com>
+ <86wm4twu3c.wl-maz@kernel.org>
+From: Zhou Wang <wangzhou1@hisilicon.com>
+In-Reply-To: <86wm4twu3c.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.115]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_201302_043851_4EF42FEB 
-X-CRM114-Status: UNSURE (   6.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251017_201735_573977_A4CE9B4C 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,22 +76,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/17/2025 2:22 AM, Matthew Wilcox wrote:
-> On Thu, Oct 16, 2025 at 07:27:03PM +0800, Yin Tirui wrote:
->> Add pte_clrhuge() helper function for architectures that enable
->> ARCH_SUPPORTS_HUGE_PFNMAP to clear huge page attributes from PTE
->> entries.
+On 2025/10/17 21:12, Marc Zyngier wrote:
+> On Thu, 16 Oct 2025 03:00:07 +0100,
+> Zhou Wang <wangzhou1@hisilicon.com> wrote:
+>>
+>> Hi,
+>>
+>> We are now trying to do heterogeneous VM live migration among HiSilicon ARM
+>> servers, seems there are problems about disabling a feature in guest.
+>>
+>> For a feature, if we disable it in VM by configure related ID register field,
+>> we should make it actually been disabled, e.g. configure related control
+>> register in EL2 or trap EL0/EL1 access to EL2.
 > 
-> I really would prefer to see pte_clrhuge() removed first.  Otherwise
-> this just goes onto the long list of "somebody should clean this up some
-> day" and nobody ever will.
+> This is in general not possible.
 > 
+>> Possible problems:
+>>
+>> 1. Some features can not be disabled actually in EL0/EL1, e.g. FEAT_AFP,
+>>    FEAT_RPRES, FEAT_CSSC, FEAT_LRCPC3...
+>>
+>>    Disabling it by ID can not avoid a stupid user to directly use it without ID
+>>    checking, which may bring subtle problem in heterogeneous VM live migration.
+> 
+> Yes. There is no solution to that.
+> 
+>> 2. For some features, it can be trapped, but KVM does not support yet. Not sure
+>>    if we should support them in future.
+>>
+>>    E.g. If we disable ID of FEAT_HAFT for guest, we need configure
+>>         HCRX_EL2.TCR2En to 0, so access to TCR2_EL1.HAFT will be trapped.
+> 
+> That's wrong. If you force TCR2EN to 0, none of the TCR2_EL1 controls
+> will work. For example, you'd lose the POE/PIE controls.
 
-Understood. I'm working on it.
--- 
-Best regards,
-Yin Tirui
+Yes, it will impact other control bits, same as SCTLR_EL1 trapping mentioned below.
 
+> 
+>>         For FEAT_PAN3, it instroduces EPAN to SCTLR_EL1，if we disable ID of
+>> 	FEAT_PAN3, we need make SCTLR_EL1 to trap by setting HFGRTR_EL2.SCTLR_EL1.
+>>
+>>    Seems there are no trap setting in above cases. Just a quick look, maybe I
+>>    miss something.
+>>
+>> I am not sure if we already consider above problems, any help will be appreciated.
+> 
+> we know about most of these things already. In general, you cannot
+> hide features that the host has, other than indicating to the guest
+> that they may not exist. The underlying HW is still there and will act
+> as expected.
+> 
+> I think you're simply expecting too much from the architecture.
+
+Many thanks about above explanation, I get the situation now.
+
+Best,
+Zhou
+
+> 
+> 	M.
+> 
 
