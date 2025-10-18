@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C820CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 08:25:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2CD0CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 08:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IUKNZndPvh6ngzx+JKUqjbqaS1mvFUvjO4ruTxv0kLg=; b=WuZFntD3FGlX+mjzw0xg8P4pRu
-	Hs57ePsYOceivuSY/fRGqjDRWYomqg0kKyNj/KmVdMmFmAslGaj/70skMtJrb7H/v/n+4zA6wE6Hu
-	cJTzf085T0VDYuZ4TiaI35UzO3GlW3zRC+dn6UOKsCS5fkzoGmPjqcEBNptO3lsojEhNcdD7+2ovp
-	ZvGXKkdtTZd76l01JcKMo31xpeZjKOfi535fgBy/O09cVYaoFtWlkFPV7ssFSvFj46i76oDQxwMVF
-	6FQc4o/FwMswNmuFM29Dc7VXw4PZCrTaBGHqLk9jDWGRB968REs3vZz/XbSwkbna7t5fWT0wCvQsk
-	9dsgvq2Q==;
+	bh=LHQnif9iYqp+76sOJB03i8X7khKjqjSmR//p2dfPzlE=; b=lEzwJYBtHCvgJudLAhYLix+KAd
+	b335o0gD5ua8EW/LG7VBOjtz7Q+zazZTbl7bf+OR97qTthRMW9G9n7GXaHaK8pIHAWaUZVUXUtO0I
+	KeSN6Z42Ruej0Qr0/cz8JimULXbvEmrFL0/EqsNdPJgWou/4IhCGPLc075LTN/nJbZNDS3iPrz944
+	iE/zbjMW+LDQrNChUhn65Q5wIb8Zn+kGmGYouZqD6ihUhawrhA4xuWLTOEsimkJ8bZpHgWeZF2R1b
+	Gav5ceap06R285e9Trgeyu2mO9/OJen91e678p0D/qmxP3b/MNT1MACc4TJdEuBw3zDOz0Mi6exfz
+	7JZZKGMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA2F9-00000009gDu-1uxh;
-	Sat, 18 Oct 2025 08:24:51 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1vA2L2-00000009gUJ-0wkT;
+	Sat, 18 Oct 2025 08:30:56 +0000
+Received: from mail1.manjaro.org ([142.132.176.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA2F6-00000009gD6-2SaH
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 08:24:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760775888; x=1792311888;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=xveeeHbBkRzYTsyaDDmpSiybjRa5hkiGj6eDae8sz/U=;
-  b=SFeJuGxYqw/oRsiTW+Zb3iGwMdsdJEqWUAt6YJ1QDwCqzLCexCUuQPS5
-   oJmdTcUM3nZ8fWto21e3LmiFYu5XO5KjFiLxm6oEN9cR2fisBuj6AA90i
-   cuUX2b8zvJ/RAT77/H6Z70dULWla7uJSfjaAxho77lL3VHtRvw7OoiyvG
-   bm1XIMiT8Y4AF3F185BMjqRLuYXcsEZqh8jqjNRu32ut6cg+6ZIXLnAuE
-   cIdKzsqXV2M0l3/CsYZCghEwNCKNp6lUWVWTJCtNZCLgevq0lxR9OzFcS
-   jgYnhBESK+kaOVmfORPrROOv5opVBxXLs6vFyD57IONOuRSNNTxF/bZEg
-   g==;
-X-CSE-ConnectionGUID: YdudLF6YQZaVX4hULTVjLg==
-X-CSE-MsgGUID: GvQ5v5oNR7e8/OVLApjpDA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11585"; a="74327359"
-X-IronPort-AV: E=Sophos;i="6.19,238,1754982000"; 
-   d="scan'208";a="74327359"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Oct 2025 01:24:42 -0700
-X-CSE-ConnectionGUID: w+gjILSNQPaSKyWWiEmNuQ==
-X-CSE-MsgGUID: ZQJmWX4mQGWqARhTuZxczA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,238,1754982000"; 
-   d="scan'208";a="182051693"
-Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
-  by orviesa006.jf.intel.com with ESMTP; 18 Oct 2025 01:24:39 -0700
-Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vA2Eu-0008AF-2n;
-	Sat, 18 Oct 2025 08:24:36 +0000
-Date: Sat, 18 Oct 2025 16:24:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: Bill Tsui <b10902118@ntu.edu.tw>, oleg@redhat.com,
-	catalin.marinas@arm.com, will@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, nathan@kernel.org,
-	nick.desaulniers+lkml@gmail.com, morbo@google.com,
-	justinstitt@google.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	Bill Tsui <b10902118@ntu.edu.tw>
-Subject: Re: [PATCH v3 1/1] arm64: ptrace: fix hw_break_set() to set addr and
- ctrl together
-Message-ID: <202510181547.dI5kyPuT-lkp@intel.com>
-References: <20251016154401.35799-2-b10902118@ntu.edu.tw>
+	id 1vA2Kz-00000009gTT-392M;
+	Sat, 18 Oct 2025 08:30:55 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 7EEC340A58;
+	Sat, 18 Oct 2025 10:30:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
+	t=1760776250; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=LHQnif9iYqp+76sOJB03i8X7khKjqjSmR//p2dfPzlE=;
+	b=Lsweb7i7JsRok6u3gjJiFlqLb20Rnj0oiNxcsMlQd4j6VCOkFRc3aySSOXbhO68IVhef4j
+	+oZEvSXbsoQtu5f1MSuUnIkCuobtnHHzTeOIaVbAShO5wU5Y7sRY/u4fbSL4ometXUXZja
+	MKYho3Jjh2UcyCsBRV0wVacC2tghSR5ak+kyHKM260CaFf61sZl/G6/pJWmZ52DyYq7zsS
+	ZEi4N03bkyauJrQTevbG7V1G6LPMMdwWHmtr+wSkYzU3pVfSOyw3DRw3z8gphoIYDJEpor
+	b3w0vvGM6jAmHnzw9O84RWwx/Quq3jeEYeP0lj8EvKFmKNZr4dZ6Zc7vm0H3bQ==
+From: "Dragan Simic" <dsimic@manjaro.org>
+In-Reply-To: <CALWfF7K0=J3E-zr41wV-28+SCFkT_so55Aee8BvQsB4KJZy6YQ@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+References: <20251017073954.130710-1-cnsztl@gmail.com> <7f0b1747-87eb-0b0b-6fb0-304811a4be21@manjaro.org>
+ <d9d14ce2-2e65-422e-95fb-eb30b128ad90@gmail.com> <41154cde-a447-0707-4387-cd3dca90b97d@manjaro.org> <CALWfF7K0=J3E-zr41wV-28+SCFkT_so55Aee8BvQsB4KJZy6YQ@mail.gmail.com>
+Date: Sat, 18 Oct 2025 10:30:49 +0200
+Cc: "Tianling Shen" <cnsztl@gmail.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Grzegorz Sterniczuk" <grzegorz@sternicz.uk>, "Jonas Karlman" <jonas@kwiboo.se>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+To: "Jimmy Hon" <honyuenkwun@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251016154401.35799-2-b10902118@ntu.edu.tw>
+Message-ID: <47931e9e-09db-3909-4531-dae6869171d7@manjaro.org>
+Subject: =?utf-8?q?Re=3A?= [PATCH] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
+ =?utf-8?q?_rockchip=3A?= fix eMMC corruption on NanoPC-T6 with A3A444 chips
+User-Agent: SOGoMail 5.12.3
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: None
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_012448_666202_0B93B087 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20251018_013054_171303_CCD7DB2D 
+X-CRM114-Status: GOOD (  35.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,90 +69,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bill,
+Hello Jimmy,
 
-kernel test robot noticed the following build warnings:
+On Saturday, October 18, 2025 02:42 CEST, Jimmy Hon <honyuenkwun@gmail.=
+com> wrote:
+> On Fri, Oct 17, 2025 at 10:15=E2=80=AFAM Dragan Simic <dsimic@manjaro=
+.org> wrote:
+> > On Friday, October 17, 2025 14:08 CEST, Tianling Shen <cnsztl@gmail=
+.com> wrote:
+> > > On 2025/10/17 18:25, Dragan Simic wrote:
+> > > > On Friday, October 17, 2025 09:39 CEST, Tianling Shen <cnsztl@g=
+mail.com> wrote:
+> > > >> From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
+> > > >>
+> > > >> Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O er=
+rors and
+> > > >> corruption when using HS400 mode. Downgrade to HS200 mode to e=
+nsure
+> > > >> stable operation.
+> > > >
+> > > > Could you, please, provide more details about the troublesome e=
+MMC
+> > > > chip that gets identified as A3A444, i.e. what's the actual bra=
+nd
+> > > > and model?  Maybe you could send a picture of it?  It might als=
+o
+> > > > help if you'd send the contents of "/sys/class/block/mmcblkX/de=
+vice
+> > > > /manfid" from your board (where "X" should equal two).
+> > >
+> > > Unfortunately I don't have this board nor this eMMC chip.
+> > > I got the chip model from my friend, it's FORESEE FEMDNN256G-A3A4=
+4,
+> > > manfid is 0x0000d6.
+> >
+> > Thanks for responding and providing the details so quickly!
+> >
+> > > > I'm asking for that because I'd like to research it a bit furth=
+er,
+> > > > if possible, because some other eMMC chips that are also found =
+on
+> > > > the NanoPc-T6 seem to work fine in HS400 mode. [1]  It may be t=
+hat
+> > > > the A3A444 chip has some issues with the HS400 mode on its own,
+> > > > i.e. the observed issues may not be caused by the board.
+> > >
+> > > Yes, it should be caused by this eMMC chip.
+> >
+> > I'd suggest that we move forward by "quirking off" the HS400 mode
+> > for the FEMDNN256G-A3A44 eMMC chip in the MMC drivers, instead of
+> > downgrading the speed of the sdhci interface on the NanoPC-T6.
+> >
+> > That way, the other similar Foresee eMMC chip that's also found
+> > on NanoPC-T6 boards, FEMDNN256G-A3A564, will continue to work in
+> > the faster HS400 mode, while the troublesome A3A44 variant will
+> > be downgraded to the HS200 globally for everyone's benefit.  It's
+> > quite unlikely that the A3A44 variant fails to work reliable in
+> > HS400 mode on the NanoPC-T6 only, so quirking it off in the MMC
+> > drivers should be a sane and safe choice.
+> >
+> > If you agree with dropping this patch, I'll be more than happy
+> > to implement this HS200 quirk in the MMC drivers.
+> >
+> > As a note, FEMDNN256G-A3A44 is found in the Rockchip Qualified
+> > eMMC Support List v1.84, [2] but the evidence says the opposite,
+> > so we should react appropriately by adding this quirk.
+>=20
+> When adding the quirk for the A3A44, can we lower the max frequency
+> and keep the HS400 mode instead?
+> That's what the Fedora folks found works [3]. There's more test
+> results in Armbian [4]
 
-[auto build test WARNING on arm64/for-next/core]
-[also build test WARNING on linus/master v6.18-rc1 next-20251017]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Are there any I/O performance tests that would prove that lowering
+the HS400 frequency to 150 MHz ends up working significantly faster
+than dropping the eMMC chip to HS200 mode?
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Bill-Tsui/arm64-ptrace-fix-hw_break_set-to-set-addr-and-ctrl-together/20251016-235711
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-patch link:    https://lore.kernel.org/r/20251016154401.35799-2-b10902118%40ntu.edu.tw
-patch subject: [PATCH v3 1/1] arm64: ptrace: fix hw_break_set() to set addr and ctrl together
-config: arm64-randconfig-r113-20251018 (https://download.01.org/0day-ci/archive/20251018/202510181547.dI5kyPuT-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251018/202510181547.dI5kyPuT-lkp@intel.com/reproduce)
+I'm asking that because lowering the frequency looks much more like
+there's some issue with the board, rather than the issue being the
+eMMC chip's support for HS400 mode.  Thus, a quirk that would lower
+the HS400 mode frequency would likely be frowned upon and rejected,
+while a quirk that puts the chip into HS200 mode is much cleaner
+and has much higher chances to be accepted.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510181547.dI5kyPuT-lkp@intel.com/
+With all that in mind, if the resulting I/O performance difference
+between 150 MHz HS400 and HS200 is within 15-20% or so, I'd highly
+recommend that we still go with the HS200 quirk.  It also leaves
+us with a nice safety margin, which is always good to have when
+such hardware instability issues are worked around in software,
+unless detailed eye diagrams, protocol dumps and whatnot can be
+pulled and analyzed, in which case the resulting safety margin
+can be much slimmer.
 
-All warnings (new ones prefixed by >>):
+Ideally, we'd have a completely different board with the same
+Foresee FEMDNN256G-A3A44 eMMC chip to test how reliably its HS400
+mode works there, to see is it really up to this eMMC chip or up
+to the board design, but I'm afraid we don't have that (easily)
+available, so the only remaining option is to work with what's
+actually available, which inevitably leads to a certain amount
+of guesswork and some compromises.
 
->> arch/arm64/kernel/ptrace.c:449:12: warning: 'ptrace_hbp_set_addr' defined but not used [-Wunused-function]
-    static int ptrace_hbp_set_addr(unsigned int note_type,
-               ^~~~~~~~~~~~~~~~~~~
->> arch/arm64/kernel/ptrace.c:424:12: warning: 'ptrace_hbp_set_ctrl' defined but not used [-Wunused-function]
-    static int ptrace_hbp_set_ctrl(unsigned int note_type,
-               ^~~~~~~~~~~~~~~~~~~
+> > [1] https://github.com/openwrt/openwrt/issues/18844
+> > [2] https://dl.radxa.com/rock5/hw/RKeMMCSupportList%20Ver1.84=5F202=
+40815.pdf
+> [3] https://lists.fedoraproject.org/archives/list/kernel@lists.fedora=
+project.org/thread/MCSDYDQVOXS5AZMKA7LLY4QX7JXBWPCA/
+> [4] https://github.com/armbian/build/pull/8736#issuecomment-338776053=
+6
 
-
-vim +/ptrace_hbp_set_addr +449 arch/arm64/kernel/ptrace.c
-
-478fcb2cdb2351 Will Deacon 2012-03-05  423  
-478fcb2cdb2351 Will Deacon 2012-03-05 @424  static int ptrace_hbp_set_ctrl(unsigned int note_type,
-478fcb2cdb2351 Will Deacon 2012-03-05  425  			       struct task_struct *tsk,
-478fcb2cdb2351 Will Deacon 2012-03-05  426  			       unsigned long idx,
-478fcb2cdb2351 Will Deacon 2012-03-05  427  			       u32 uctrl)
-478fcb2cdb2351 Will Deacon 2012-03-05  428  {
-478fcb2cdb2351 Will Deacon 2012-03-05  429  	int err;
-478fcb2cdb2351 Will Deacon 2012-03-05  430  	struct perf_event *bp;
-478fcb2cdb2351 Will Deacon 2012-03-05  431  	struct perf_event_attr attr;
-478fcb2cdb2351 Will Deacon 2012-03-05  432  	struct arch_hw_breakpoint_ctrl ctrl;
-478fcb2cdb2351 Will Deacon 2012-03-05  433  
-478fcb2cdb2351 Will Deacon 2012-03-05  434  	bp = ptrace_hbp_get_initialised_bp(note_type, tsk, idx);
-478fcb2cdb2351 Will Deacon 2012-03-05  435  	if (IS_ERR(bp)) {
-478fcb2cdb2351 Will Deacon 2012-03-05  436  		err = PTR_ERR(bp);
-478fcb2cdb2351 Will Deacon 2012-03-05  437  		return err;
-478fcb2cdb2351 Will Deacon 2012-03-05  438  	}
-478fcb2cdb2351 Will Deacon 2012-03-05  439  
-478fcb2cdb2351 Will Deacon 2012-03-05  440  	attr = bp->attr;
-478fcb2cdb2351 Will Deacon 2012-03-05  441  	decode_ctrl_reg(uctrl, &ctrl);
-478fcb2cdb2351 Will Deacon 2012-03-05  442  	err = ptrace_hbp_fill_attr_ctrl(note_type, ctrl, &attr);
-478fcb2cdb2351 Will Deacon 2012-03-05  443  	if (err)
-478fcb2cdb2351 Will Deacon 2012-03-05  444  		return err;
-478fcb2cdb2351 Will Deacon 2012-03-05  445  
-478fcb2cdb2351 Will Deacon 2012-03-05  446  	return modify_user_hw_breakpoint(bp, &attr);
-478fcb2cdb2351 Will Deacon 2012-03-05  447  }
-478fcb2cdb2351 Will Deacon 2012-03-05  448  
-478fcb2cdb2351 Will Deacon 2012-03-05 @449  static int ptrace_hbp_set_addr(unsigned int note_type,
-478fcb2cdb2351 Will Deacon 2012-03-05  450  			       struct task_struct *tsk,
-478fcb2cdb2351 Will Deacon 2012-03-05  451  			       unsigned long idx,
-478fcb2cdb2351 Will Deacon 2012-03-05  452  			       u64 addr)
-478fcb2cdb2351 Will Deacon 2012-03-05  453  {
-478fcb2cdb2351 Will Deacon 2012-03-05  454  	int err;
-478fcb2cdb2351 Will Deacon 2012-03-05  455  	struct perf_event *bp;
-478fcb2cdb2351 Will Deacon 2012-03-05  456  	struct perf_event_attr attr;
-478fcb2cdb2351 Will Deacon 2012-03-05  457  
-478fcb2cdb2351 Will Deacon 2012-03-05  458  	bp = ptrace_hbp_get_initialised_bp(note_type, tsk, idx);
-478fcb2cdb2351 Will Deacon 2012-03-05  459  	if (IS_ERR(bp)) {
-478fcb2cdb2351 Will Deacon 2012-03-05  460  		err = PTR_ERR(bp);
-478fcb2cdb2351 Will Deacon 2012-03-05  461  		return err;
-478fcb2cdb2351 Will Deacon 2012-03-05  462  	}
-478fcb2cdb2351 Will Deacon 2012-03-05  463  
-478fcb2cdb2351 Will Deacon 2012-03-05  464  	attr = bp->attr;
-478fcb2cdb2351 Will Deacon 2012-03-05  465  	attr.bp_addr = addr;
-478fcb2cdb2351 Will Deacon 2012-03-05  466  	err = modify_user_hw_breakpoint(bp, &attr);
-478fcb2cdb2351 Will Deacon 2012-03-05  467  	return err;
-478fcb2cdb2351 Will Deacon 2012-03-05  468  }
-478fcb2cdb2351 Will Deacon 2012-03-05  469  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
