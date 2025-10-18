@@ -4,77 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89CCCCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 09:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97B33CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 09:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vyrEA9Xn7+fTNF+uNpgdCwGsRJedwepAfqXbZwl9tKw=; b=mTMzhXICLO7SBG8jQJAr0IpKaK
-	20aLIJHAOdlc4ZMAFFflI1bjW+TlEqzBGwOekLks2cOpKi1FgQ07vYNnVz2VYUkOI1ZnuMeNujDjc
-	crN8LyIP8YlxTxd4SFhDzaYiMJZ0rWrDvKoVSYoeQ5czhL6DAnmIWF4dlwtxRDMpV3fvyCnRN/cBx
-	qLo43P+Fm2NxocHHdKVtWSjIEWp1T6QOpohPDUEI+vQqcy68iu3Ktol4WPkHQmg1GPr80Py2ieR5+
-	onMgA+PSIT9ECtkyHuE5NFhck6nLtahAif88uvyrIc0WVcuHkorlcGMeZemHWfR7p0cl9PWYXCM0r
-	Nmf4GBKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nhWVuNwxLp4oDhy9Y7Je0Sd3r/8yjdmEN4SRPPZ/YRc=; b=oLQ16SkvEastOhdEOXr+f6SMRv
+	Z1vJZELYYE0P/RA4HEo2Mq1arH3iNOJxwCoZk4lC69bakyGgMIEtk5I5/IC+t8jq0wMXIw4Q8n7Tn
+	55B14uxTZV/dcw6E1EoGzdzvNIBYFSH1LnkRlmQBs7MI20pHzJ7LfcXBR6BzHwzwofQrpMOX1NygJ
+	qSB07CHeBofAZWkUdHozwu9VJfhLJAJPtd5H93F0UrzNvwVTBaGOznbuDloskv7EcJp9vnDLnV359
+	JnYYtHjg8oF8DvVGWYGMrO0J4KrOzdijZrWqfAeuHYOwm0IO1P9yOtvwyDMb2RZWrVUcal30siFUb
+	bupNnuHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA3Ju-00000009kjA-1BDX;
-	Sat, 18 Oct 2025 09:33:50 +0000
-Received: from mout.web.de ([217.72.192.78])
+	id 1vA3Xv-00000009lE9-2qwk;
+	Sat, 18 Oct 2025 09:48:19 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA3Jq-00000009kiN-0M0q
+	id 1vA3Xt-00000009lDf-2er0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 09:33:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1760780015; x=1761384815; i=markus.elfring@web.de;
-	bh=vyrEA9Xn7+fTNF+uNpgdCwGsRJedwepAfqXbZwl9tKw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=sH6cxA06/4h0nBgx7PIiuqPYQ2YLlEBmQ4vp7jpuM7gkweLy7QK1V0LVWPs3JImt
-	 KoTv/uvemRE4Z+UlFG1v/KHNUhfyAbc4mbVyGJa45b/X1vMNMrDSFJr6w7HR2aGhb
-	 B/+f08JXsnuGrvxg3db9zI6Sj1g3tCPOOVzZnd7b3b/Sz1Or7jOcEXzsFxpDfJfJT
-	 prav6btJtCzr1GVKlod3kGsEBTi0cbTbZnKqz49KJ00XBc3XAGERwfo3wY7iUckQ7
-	 sXU+iz9OwYubrb3+VVC8b4Pl0v/7eAyVoyTVS6xaOonvGhReNwMDQ+30Och3ju5MT
-	 8lwpgRS3ro9ZBxPw9A==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.92.233]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1N7xaT-1u5Jdc1NuF-00yR2p; Sat, 18
- Oct 2025 11:33:35 +0200
-Message-ID: <0b35a3d9-1d56-48e2-87b4-0672739228cb@web.de>
-Date: Sat, 18 Oct 2025 11:33:33 +0200
+	Sat, 18 Oct 2025 09:48:19 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-471131d6121so21505055e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Oct 2025 02:48:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760780896; x=1761385696; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nhWVuNwxLp4oDhy9Y7Je0Sd3r/8yjdmEN4SRPPZ/YRc=;
+        b=TeuiFXhH917OHHLFBX+mEssC4LNVVQE1c9lDpgH5NaUw0iE23aGp7Fi/70wtUjjUQG
+         J4j9Mt0TsAbdm6fuGUmX9AYPZAyvywAlKJ86Hrqxz/BF1gN1dOkrAdx82br04Tjr+0by
+         dLloOybsi2LOWSeGqYrf67FNZcxBSj67tGaH5fyDGVAYnHTVbhD5hEvD9KPFzZePOzaX
+         80DeLilvqEXiofVD68BqH1xb9Hfb1c/zG2Z8W+lxMEEnRMLblzt8J4uq3v4FVA969UbK
+         xDCJso4Yl+BC97O9/nwqj+BGSIbevE36Pfkg9/0d2cAIbfUV+RKsZG3S1fTpUJ0Ix28e
+         NYZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760780896; x=1761385696;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nhWVuNwxLp4oDhy9Y7Je0Sd3r/8yjdmEN4SRPPZ/YRc=;
+        b=NRKJnqPm9fSiMGwJFaKZCi3QJL8fUw3yp1SdopMwWoaMcC76+XnbOBaU67ByEpLZ2s
+         ZKvvHucfAQorI4O5GoKO24lg/nNTmI8hMKu92td3kJnQGbafeN6rnq0+hjHV1n22V4ra
+         k2RfZoIakjXU0FESPna3842Iyqn7LU7EooHMp5AsSOAN2Vvf3Ti1Ekgs0ktvRtHKpQuz
+         w5azW2BsWJQlipr8YqZNAFQULFuKJVI2JelW5oS069/myiQrNZmpDAJrCP4xXe4KksNb
+         Xj0GmQnKHVEWRAsqOvSKPGEDz6RLNY+ygZJKVYmSunU8bS0ogk22QgwQ6H2lD+SIiXFs
+         3+Cw==
+X-Forwarded-Encrypted: i=1; AJvYcCURQKxRGPJXa6iD9EGZExNR3Q6df/J/qgM8sM2BMaoTQdMGX/+W50TkqQf2SoFK8zqqr3Zg7jGX2IWU2Y59/G79@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzr5jw4PVeUfxXnwWdH5uKgybfiTJLI7We3WI/70FkNXdW/WZKC
+	nyaUHC7UwuDNWfwrdy5GCwovl5fuCZJrBXmEwFGVrEY7huEc8PvxmHLaDx/7aa1glLw=
+X-Gm-Gg: ASbGnctY6YpEeIiKTcYWnQq6ICzR4jmYUKDUe8TbvQJaIWzkDFgB6DRUODYqX9d7tBC
+	teinRt7lkpfrF6qNE3GL76t3o7POyQ+bUBudVh6OIOhI9HP7GQbukNHx4yzagjH8x248vYs0sAY
+	Sa0UB/fsGRRj9ACTZMeO/+4g+mwst+WvoPgKFsYcUfh9Vrz+0b+cra3v6Dn87LogXXrYFE2QSEM
+	X1QMeFq/BBFcQ/TqKuu7NyRO+51Y+GhuaWL7cSq/dtWHQhtbV359zh2rwjmS2exCrc4VU+1wxm3
+	6esFvNUlN9UN2XftBFLAWWuwQrknMktxVeJGjTDjX2npC9EdV9IXQWgDY34yGcVd718b8LGx7rE
+	r/kj18/CYUtugEpFxEbjh6FRGKtPxp4e02vpEnbMReh+ZRC1JQLnNX8SBfREJYtt6Ev99a5+FIY
+	nZiUiHnzlLTr21Qeuj
+X-Google-Smtp-Source: AGHT+IG+kX1i7eggIHxYAK08ThcqnvRyiNfTqtAevzOHW/nGlWwTN/Eu/9VszT8osDHnwWAvHzqdHA==
+X-Received: by 2002:a05:600c:3e8f:b0:46f:a95d:e9e7 with SMTP id 5b1f17b1804b1-471177ab11dmr52244015e9.0.1760780895638;
+        Sat, 18 Oct 2025 02:48:15 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4715257d916sm37111235e9.4.2025.10.18.02.48.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 18 Oct 2025 02:48:15 -0700 (PDT)
+Date: Sat, 18 Oct 2025 12:48:11 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-omap@vger.kernel.org>,
+	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-pci@vger.kernel.org>,
+	"moderated list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1 1/3] PCI: j721e: Propagate dev_err_probe return value
+Message-ID: <aPNiW8QzsLv4R0E6@stanley.mountain>
+References: <20251014113234.44418-1-linux.amoon@gmail.com>
+ <20251014113234.44418-2-linux.amoon@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Bjorn Helgaas <bhelgaas@google.com>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>
-Cc: LKML <linux-kernel@vger.kernel.org>
-References: <20251014113234.44418-3-linux.amoon@gmail.com>
-Subject: Re: [PATCH 2/3] PCI: j721e: Use devm_clk_get_optional_enabled() to
- get the clock
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20251014113234.44418-3-linux.amoon@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:frkmSHrrCRc2PlwZbdSNiHlxfazUtn29V6HusRn4PyAKpa6yiuf
- geDvTXIHj+kpYFFv2/FykwKqqCsuGXekp0aipJBWQUD+kARyw8zBBjuSG/tfsN5N3OD4tjO
- BplH9rHFr0lYYlVVK6r6Z/TVAqsd4g6TfBJWWGkbttN0yR1WY6JYSu482izILzoY+PpotVP
- scvDT5bI0ZWwlumq19q+Q==
-UI-OutboundReport: notjunk:1;M01:P0:RkC044W13ck=;rEVaV1CwHnFD93z53WkOl41LXtf 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
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251014113234.44418-2-linux.amoon@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_023347_057324_572050CC 
-X-CRM114-Status: UNSURE (   4.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251018_024817_869285_5287A7C7 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,13 +107,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Use devm_clk_get_optional_enabled() helper instead of calling
-> devm_clk_get_optional() and then clk_prepare_enable(). It simplifies
-> the error handling and makes the code more compact. =E2=80=A6
+On Tue, Oct 14, 2025 at 05:02:27PM +0530, Anand Moon wrote:
+> Ensure that the return value from dev_err_probe() is consistently assigned
+> back to ret in all error paths within j721e_pcie_probe(). This ensures
+> the original error code are propagation for debugging.
+> 
+> Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+> v1: new patch in this series
+> ---
+>  drivers/pci/controller/cadence/pci-j721e.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+> index 5bc5ab20aa6d..9c7bfa77a66e 100644
+> --- a/drivers/pci/controller/cadence/pci-j721e.c
+> +++ b/drivers/pci/controller/cadence/pci-j721e.c
+> @@ -569,20 +569,20 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+>  	pm_runtime_enable(dev);
+>  	ret = pm_runtime_get_sync(dev);
+>  	if (ret < 0) {
+> -		dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
+> +		ret = dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
+>  		goto err_get_sync;
 
-Can this information be sufficient so that the subsequent two sentences
-may be omitted from such a change description?
+Wait, no, this doesn't make sense.  It's just assigning ret to itself.
+That's just confusing and pointless.
 
-Regards,
-Markus
+regards,
+dan carpenter
+
 
