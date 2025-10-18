@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8EACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 09:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A83CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 09:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bkaCz6QqL8OZMUg5UjNBWr38rK9WXmvMsbf2Ke1GoJA=; b=oSkfkFu2ooL2n6Zddicv/QmCDO
-	n8SHsvsAHKg7GLzyBYw93bYEZpb+XIyheDGB5ZRrz/+o8a4LH9FFRlprv/3K1FA942vVzPg4hrxsB
-	FFBarSuerxEryN7N/yVYOzdhEcRJL1xeRgWuzzSVS5UpCXfB3J8FIrT7Q0OhuEy2EUveHeTyEWnbb
-	3loIJl2Dz8IWXFOtB0caR2O9MBhZtcFaJb6DvT0nWSlvJn0zNtfLbOsuPDCRQN/KEOsWe96xVK135
-	1nnxhsxjuQR69Cvn9FjvpbTMIN7JnkGs0X+L5FFAwAR5yQ37nMvHrXP9Uz/y892jzxkOlKOblQKps
-	rXF1Bdpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9M5STHmJ3JPrk2Wsv4wV3lFlLbIXAXhqL9CjPsfbW44=; b=oVgYToeXmqwWcrgYlpz/3d/7LR
+	xqCKbfqtg67zcT0XMz23hkL6qn5iXTWKYOAV9bD2tmrzby+nTVIuINz/hhurgy3ICDVD41zMV3WA0
+	lq6Lo0UtOICh3RH6pNnjrBfbwQVsl+vS2iyJbAJAl/EEYKlAGgZW5svHw3AtWgjwdR5hZ+nt7T7DD
+	cB8oINIQhly89h2pdPvsxmzX0tW26yqTUIBzxVWe7aQuALfey2jLGX40WMsxs1A803PHbbtS4FWbP
+	ZuvxKAF9cqeWVXYwGD+u0CH4HkFayyyDk7zCev48qWzOKcalFXmBz3JEx2Vo/vtWvXtRTd9i75iEj
+	89ie9c+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA36e-00000009jOg-2JtF;
-	Sat, 18 Oct 2025 09:20:08 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA36b-00000009jOA-3PmK
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 09:20:07 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cpbJ13kd9z9sSC;
-	Sat, 18 Oct 2025 11:00:33 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id HJxa1yDcQJwG; Sat, 18 Oct 2025 11:00:33 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cpbJ12blgz9sS8;
-	Sat, 18 Oct 2025 11:00:33 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 468C38B765;
-	Sat, 18 Oct 2025 11:00:33 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id 0rhQCqUhMXYB; Sat, 18 Oct 2025 11:00:33 +0200 (CEST)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 4BD6D8B764;
-	Sat, 18 Oct 2025 11:00:32 +0200 (CEST)
-Message-ID: <f2e43e3f-b4fc-4ebd-b6ae-7e610b2ea164@csgroup.eu>
-Date: Sat, 18 Oct 2025 11:00:32 +0200
+	id 1vA38Z-00000009jgL-481I;
+	Sat, 18 Oct 2025 09:22:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vA38Y-00000009jg7-0O8M;
+	Sat, 18 Oct 2025 09:22:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 65BCE60385;
+	Sat, 18 Oct 2025 09:22:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3DD9C4CEF8;
+	Sat, 18 Oct 2025 09:22:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760779325;
+	bh=QQSf2fBH1I4j49Rjfw8dWqqBHqMePF2agU/OEK725YA=;
+	h=From:Date:Subject:To:Cc:From;
+	b=sVsRlwoo0wkMDAUzAZQgO5UNCIihquJ2tR3nf0sUHU/JR6lZtjiQ69TceRLnogk6D
+	 LCL01WbnwqqBu502Bug4WLc+kFFyagg2PcS+OYzhHpI6vWlqW41jdD6zNbXRjSSx37
+	 tg2vdN1NrQYSmJwjONIZcwdp/05wMpdPmBZ0ORgle+SHEOc0cVTXx07rqLNAqrgKsh
+	 HZGhKe/d/4EU3L0Cl8p+TYOH2wJaXLK8uZoCc2gKZ4TGmTXdcLSJx1OLjzumPdS6zG
+	 zVf7TT9feFcPtP0Px0gDD0j+EkObEU5RXMjBVo1C9WqLtUxcQQ0LwjrLnBsH70CB/b
+	 BVxT6lvZkggqg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Sat, 18 Oct 2025 11:21:47 +0200
+Subject: [PATCH net-next] net: airoha: Remove code duplication in
+ airoha_regs.h
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 02/17] arm64/sha3: Rename conflicting functions
-To: David Howells <dhowells@redhat.com>, Eric Biggers <ebiggers@kernel.org>
-Cc: "Jason A . Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel
- <ardb@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>,
- Stephan Mueller <smueller@chronox.de>, Lukas Wunner <lukas@wunner.de>,
- Ignat Korchagin <ignat@cloudflare.com>, Luis Chamberlain
- <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>,
- Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
- linux-crypto@vger.kernel.org, keyrings@vger.kernel.org,
- linux-modules@vger.kernel.org, linux-kernel@vger.kernel.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org
-References: <20251017144311.817771-1-dhowells@redhat.com>
- <20251017144311.817771-3-dhowells@redhat.com>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <20251017144311.817771-3-dhowells@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_022006_015342_E1BB7587 
-X-CRM114-Status: GOOD (  14.66  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251018-airoha-regs-cosmetics-v1-1-bbf6295c45fd@kernel.org>
+X-B4-Tracking: v=1; b=H4sIACpc82gC/x3MQQqDMBBG4avIrB1IpKnVq0gXIf7VWdTIjIggu
+ XtDl9/ivZsMKjAam5sUp5jkrcK3DaU1bgtY5mrqXBe88z1H0bxGVizGKdsXhyTj8MDgXEAfXk+
+ q7a74yPX/Tu9SfmxsqmdnAAAA
+X-Change-ID: 20251017-airoha-regs-cosmetics-54e9005e7586
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,105 +74,351 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch does not introduce any logical change, it just removes
+duplicated code in airoha_regs.h.
+Fix naming conventions in airoha_regs.h.
 
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.c  | 102 ++++++++++++++--------------
+ drivers/net/ethernet/airoha/airoha_regs.h | 109 ++++++++++++++----------------
+ 2 files changed, 100 insertions(+), 111 deletions(-)
 
-Le 17/10/2025 à 16:42, David Howells a écrit :
-> Rename the arm64 sha3_* functions to have an "arm64_" prefix to avoid
-> conflict with generic code.
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 5825f6f29a92e8fff0596d7883a4c2648432a6ef..b06cab4ef25abb1f61915f84142835f30c15ce8f 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -137,11 +137,11 @@ static void airoha_fe_maccr_init(struct airoha_eth *eth)
+ 
+ 	for (p = 1; p <= ARRAY_SIZE(eth->ports); p++)
+ 		airoha_fe_set(eth, REG_GDM_FWD_CFG(p),
+-			      GDM_TCP_CKSUM | GDM_UDP_CKSUM | GDM_IP4_CKSUM |
+-			      GDM_DROP_CRC_ERR);
++			      GDM_TCP_CKSUM_MASK | GDM_UDP_CKSUM_MASK |
++			      GDM_IP4_CKSUM_MASK | GDM_DROP_CRC_ERR_MASK);
+ 
+-	airoha_fe_rmw(eth, REG_CDM1_VLAN_CTRL, CDM1_VLAN_MASK,
+-		      FIELD_PREP(CDM1_VLAN_MASK, 0x8100));
++	airoha_fe_rmw(eth, REG_CDM_VLAN_CTRL(1), CDM_VLAN_MASK,
++		      FIELD_PREP(CDM_VLAN_MASK, 0x8100));
+ 
+ 	airoha_fe_set(eth, REG_FE_CPORT_CFG, FE_CPORT_PAD);
+ }
+@@ -396,46 +396,46 @@ static int airoha_fe_mc_vlan_clear(struct airoha_eth *eth)
+ static void airoha_fe_crsn_qsel_init(struct airoha_eth *eth)
+ {
+ 	/* CDM1_CRSN_QSEL */
+-	airoha_fe_rmw(eth, REG_CDM1_CRSN_QSEL(CRSN_22 >> 2),
+-		      CDM1_CRSN_QSEL_REASON_MASK(CRSN_22),
+-		      FIELD_PREP(CDM1_CRSN_QSEL_REASON_MASK(CRSN_22),
++	airoha_fe_rmw(eth, REG_CDM_CRSN_QSEL(1, CRSN_22 >> 2),
++		      CDM_CRSN_QSEL_REASON_MASK(CRSN_22),
++		      FIELD_PREP(CDM_CRSN_QSEL_REASON_MASK(CRSN_22),
+ 				 CDM_CRSN_QSEL_Q1));
+-	airoha_fe_rmw(eth, REG_CDM1_CRSN_QSEL(CRSN_08 >> 2),
+-		      CDM1_CRSN_QSEL_REASON_MASK(CRSN_08),
+-		      FIELD_PREP(CDM1_CRSN_QSEL_REASON_MASK(CRSN_08),
++	airoha_fe_rmw(eth, REG_CDM_CRSN_QSEL(1, CRSN_08 >> 2),
++		      CDM_CRSN_QSEL_REASON_MASK(CRSN_08),
++		      FIELD_PREP(CDM_CRSN_QSEL_REASON_MASK(CRSN_08),
+ 				 CDM_CRSN_QSEL_Q1));
+-	airoha_fe_rmw(eth, REG_CDM1_CRSN_QSEL(CRSN_21 >> 2),
+-		      CDM1_CRSN_QSEL_REASON_MASK(CRSN_21),
+-		      FIELD_PREP(CDM1_CRSN_QSEL_REASON_MASK(CRSN_21),
++	airoha_fe_rmw(eth, REG_CDM_CRSN_QSEL(1, CRSN_21 >> 2),
++		      CDM_CRSN_QSEL_REASON_MASK(CRSN_21),
++		      FIELD_PREP(CDM_CRSN_QSEL_REASON_MASK(CRSN_21),
+ 				 CDM_CRSN_QSEL_Q1));
+-	airoha_fe_rmw(eth, REG_CDM1_CRSN_QSEL(CRSN_24 >> 2),
+-		      CDM1_CRSN_QSEL_REASON_MASK(CRSN_24),
+-		      FIELD_PREP(CDM1_CRSN_QSEL_REASON_MASK(CRSN_24),
++	airoha_fe_rmw(eth, REG_CDM_CRSN_QSEL(1, CRSN_24 >> 2),
++		      CDM_CRSN_QSEL_REASON_MASK(CRSN_24),
++		      FIELD_PREP(CDM_CRSN_QSEL_REASON_MASK(CRSN_24),
+ 				 CDM_CRSN_QSEL_Q6));
+-	airoha_fe_rmw(eth, REG_CDM1_CRSN_QSEL(CRSN_25 >> 2),
+-		      CDM1_CRSN_QSEL_REASON_MASK(CRSN_25),
+-		      FIELD_PREP(CDM1_CRSN_QSEL_REASON_MASK(CRSN_25),
++	airoha_fe_rmw(eth, REG_CDM_CRSN_QSEL(1, CRSN_25 >> 2),
++		      CDM_CRSN_QSEL_REASON_MASK(CRSN_25),
++		      FIELD_PREP(CDM_CRSN_QSEL_REASON_MASK(CRSN_25),
+ 				 CDM_CRSN_QSEL_Q1));
+ 	/* CDM2_CRSN_QSEL */
+-	airoha_fe_rmw(eth, REG_CDM2_CRSN_QSEL(CRSN_08 >> 2),
+-		      CDM2_CRSN_QSEL_REASON_MASK(CRSN_08),
+-		      FIELD_PREP(CDM2_CRSN_QSEL_REASON_MASK(CRSN_08),
++	airoha_fe_rmw(eth, REG_CDM_CRSN_QSEL(2, CRSN_08 >> 2),
++		      CDM_CRSN_QSEL_REASON_MASK(CRSN_08),
++		      FIELD_PREP(CDM_CRSN_QSEL_REASON_MASK(CRSN_08),
+ 				 CDM_CRSN_QSEL_Q1));
+-	airoha_fe_rmw(eth, REG_CDM2_CRSN_QSEL(CRSN_21 >> 2),
+-		      CDM2_CRSN_QSEL_REASON_MASK(CRSN_21),
+-		      FIELD_PREP(CDM2_CRSN_QSEL_REASON_MASK(CRSN_21),
++	airoha_fe_rmw(eth, REG_CDM_CRSN_QSEL(2, CRSN_21 >> 2),
++		      CDM_CRSN_QSEL_REASON_MASK(CRSN_21),
++		      FIELD_PREP(CDM_CRSN_QSEL_REASON_MASK(CRSN_21),
+ 				 CDM_CRSN_QSEL_Q1));
+-	airoha_fe_rmw(eth, REG_CDM2_CRSN_QSEL(CRSN_22 >> 2),
+-		      CDM2_CRSN_QSEL_REASON_MASK(CRSN_22),
+-		      FIELD_PREP(CDM2_CRSN_QSEL_REASON_MASK(CRSN_22),
++	airoha_fe_rmw(eth, REG_CDM_CRSN_QSEL(2, CRSN_22 >> 2),
++		      CDM_CRSN_QSEL_REASON_MASK(CRSN_22),
++		      FIELD_PREP(CDM_CRSN_QSEL_REASON_MASK(CRSN_22),
+ 				 CDM_CRSN_QSEL_Q1));
+-	airoha_fe_rmw(eth, REG_CDM2_CRSN_QSEL(CRSN_24 >> 2),
+-		      CDM2_CRSN_QSEL_REASON_MASK(CRSN_24),
+-		      FIELD_PREP(CDM2_CRSN_QSEL_REASON_MASK(CRSN_24),
++	airoha_fe_rmw(eth, REG_CDM_CRSN_QSEL(2, CRSN_24 >> 2),
++		      CDM_CRSN_QSEL_REASON_MASK(CRSN_24),
++		      FIELD_PREP(CDM_CRSN_QSEL_REASON_MASK(CRSN_24),
+ 				 CDM_CRSN_QSEL_Q6));
+-	airoha_fe_rmw(eth, REG_CDM2_CRSN_QSEL(CRSN_25 >> 2),
+-		      CDM2_CRSN_QSEL_REASON_MASK(CRSN_25),
+-		      FIELD_PREP(CDM2_CRSN_QSEL_REASON_MASK(CRSN_25),
++	airoha_fe_rmw(eth, REG_CDM_CRSN_QSEL(2, CRSN_25 >> 2),
++		      CDM_CRSN_QSEL_REASON_MASK(CRSN_25),
++		      FIELD_PREP(CDM_CRSN_QSEL_REASON_MASK(CRSN_25),
+ 				 CDM_CRSN_QSEL_Q1));
+ }
+ 
+@@ -455,18 +455,18 @@ static int airoha_fe_init(struct airoha_eth *eth)
+ 	airoha_fe_wr(eth, REG_FE_PCE_CFG,
+ 		     PCE_DPI_EN_MASK | PCE_KA_EN_MASK | PCE_MC_EN_MASK);
+ 	/* set vip queue selection to ring 1 */
+-	airoha_fe_rmw(eth, REG_CDM1_FWD_CFG, CDM1_VIP_QSEL_MASK,
+-		      FIELD_PREP(CDM1_VIP_QSEL_MASK, 0x4));
+-	airoha_fe_rmw(eth, REG_CDM2_FWD_CFG, CDM2_VIP_QSEL_MASK,
+-		      FIELD_PREP(CDM2_VIP_QSEL_MASK, 0x4));
++	airoha_fe_rmw(eth, REG_CDM_FWD_CFG(1), CDM_VIP_QSEL_MASK,
++		      FIELD_PREP(CDM_VIP_QSEL_MASK, 0x4));
++	airoha_fe_rmw(eth, REG_CDM_FWD_CFG(2), CDM_VIP_QSEL_MASK,
++		      FIELD_PREP(CDM_VIP_QSEL_MASK, 0x4));
+ 	/* set GDM4 source interface offset to 8 */
+-	airoha_fe_rmw(eth, REG_GDM4_SRC_PORT_SET,
+-		      GDM4_SPORT_OFF2_MASK |
+-		      GDM4_SPORT_OFF1_MASK |
+-		      GDM4_SPORT_OFF0_MASK,
+-		      FIELD_PREP(GDM4_SPORT_OFF2_MASK, 8) |
+-		      FIELD_PREP(GDM4_SPORT_OFF1_MASK, 8) |
+-		      FIELD_PREP(GDM4_SPORT_OFF0_MASK, 8));
++	airoha_fe_rmw(eth, REG_GDM_SRC_PORT_SET(4),
++		      GDM_SPORT_OFF2_MASK |
++		      GDM_SPORT_OFF1_MASK |
++		      GDM_SPORT_OFF0_MASK,
++		      FIELD_PREP(GDM_SPORT_OFF2_MASK, 8) |
++		      FIELD_PREP(GDM_SPORT_OFF1_MASK, 8) |
++		      FIELD_PREP(GDM_SPORT_OFF0_MASK, 8));
+ 
+ 	/* set PSE Page as 128B */
+ 	airoha_fe_rmw(eth, REG_FE_DMA_GLO_CFG,
+@@ -492,8 +492,8 @@ static int airoha_fe_init(struct airoha_eth *eth)
+ 	airoha_fe_set(eth, REG_GDM_MISC_CFG,
+ 		      GDM2_RDM_ACK_WAIT_PREF_MASK |
+ 		      GDM2_CHN_VLD_MODE_MASK);
+-	airoha_fe_rmw(eth, REG_CDM2_FWD_CFG, CDM2_OAM_QSEL_MASK,
+-		      FIELD_PREP(CDM2_OAM_QSEL_MASK, 15));
++	airoha_fe_rmw(eth, REG_CDM_FWD_CFG(2), CDM_OAM_QSEL_MASK,
++		      FIELD_PREP(CDM_OAM_QSEL_MASK, 15));
+ 
+ 	/* init fragment and assemble Force Port */
+ 	/* NPU Core-3, NPU Bridge Channel-3 */
+@@ -507,8 +507,8 @@ static int airoha_fe_init(struct airoha_eth *eth)
+ 		      FIELD_PREP(IP_ASSEMBLE_PORT_MASK, 0) |
+ 		      FIELD_PREP(IP_ASSEMBLE_NBQ_MASK, 22));
+ 
+-	airoha_fe_set(eth, REG_GDM3_FWD_CFG, GDM3_PAD_EN_MASK);
+-	airoha_fe_set(eth, REG_GDM4_FWD_CFG, GDM4_PAD_EN_MASK);
++	airoha_fe_set(eth, REG_GDM_FWD_CFG(3), GDM_PAD_EN_MASK);
++	airoha_fe_set(eth, REG_GDM_FWD_CFG(4), GDM_PAD_EN_MASK);
+ 
+ 	airoha_fe_crsn_qsel_init(eth);
+ 
+@@ -516,7 +516,7 @@ static int airoha_fe_init(struct airoha_eth *eth)
+ 	airoha_fe_set(eth, REG_FE_CPORT_CFG, FE_CPORT_PORT_XFC_MASK);
+ 
+ 	/* default aging mode for mbi unlock issue */
+-	airoha_fe_rmw(eth, REG_GDM2_CHN_RLS,
++	airoha_fe_rmw(eth, REG_GDM_CHN_RLS(2),
+ 		      MBI_RX_AGE_SEL_MASK | MBI_TX_AGE_SEL_MASK,
+ 		      FIELD_PREP(MBI_RX_AGE_SEL_MASK, 3) |
+ 		      FIELD_PREP(MBI_TX_AGE_SEL_MASK, 3));
+@@ -1703,7 +1703,7 @@ static void airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
+ 
+ 	/* Forward the traffic to the proper GDM port */
+ 	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(2), pse_port);
+-	airoha_fe_clear(eth, REG_GDM_FWD_CFG(2), GDM_STRIP_CRC);
++	airoha_fe_clear(eth, REG_GDM_FWD_CFG(2), GDM_STRIP_CRC_MASK);
+ 
+ 	/* Enable GDM2 loopback */
+ 	airoha_fe_wr(eth, REG_GDM_TXCHN_EN(2), 0xffffffff);
+diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+index 69c5a143db8c079be0a6ecf41081cd3f5048c090..4b714b59740d5035fff0cdd1a405172d66f114b7 100644
+--- a/drivers/net/ethernet/airoha/airoha_regs.h
++++ b/drivers/net/ethernet/airoha/airoha_regs.h
+@@ -23,6 +23,8 @@
+ #define GDM3_BASE			0x1100
+ #define GDM4_BASE			0x2500
+ 
++#define CDM_BASE(_n)			\
++	((_n) == 2 ? CDM2_BASE : CDM1_BASE)
+ #define GDM_BASE(_n)			\
+ 	((_n) == 4 ? GDM4_BASE :	\
+ 	 (_n) == 3 ? GDM3_BASE :	\
+@@ -109,30 +111,24 @@
+ #define PATN_DP_MASK			GENMASK(31, 16)
+ #define PATN_SP_MASK			GENMASK(15, 0)
+ 
+-#define REG_CDM1_VLAN_CTRL		CDM1_BASE
+-#define CDM1_VLAN_MASK			GENMASK(31, 16)
++#define REG_CDM_VLAN_CTRL(_n)		CDM_BASE(_n)
++#define CDM_VLAN_MASK			GENMASK(31, 16)
+ 
+-#define REG_CDM1_FWD_CFG		(CDM1_BASE + 0x08)
+-#define CDM1_VIP_QSEL_MASK		GENMASK(24, 20)
++#define REG_CDM_FWD_CFG(_n)		(CDM_BASE(_n) + 0x08)
++#define CDM_OAM_QSEL_MASK		GENMASK(31, 27)
++#define CDM_VIP_QSEL_MASK		GENMASK(24, 20)
+ 
+-#define REG_CDM1_CRSN_QSEL(_n)		(CDM1_BASE + 0x10 + ((_n) << 2))
+-#define CDM1_CRSN_QSEL_REASON_MASK(_n)	\
+-	GENMASK(4 + (((_n) % 4) << 3),	(((_n) % 4) << 3))
+-
+-#define REG_CDM2_FWD_CFG		(CDM2_BASE + 0x08)
+-#define CDM2_OAM_QSEL_MASK		GENMASK(31, 27)
+-#define CDM2_VIP_QSEL_MASK		GENMASK(24, 20)
+-
+-#define REG_CDM2_CRSN_QSEL(_n)		(CDM2_BASE + 0x10 + ((_n) << 2))
+-#define CDM2_CRSN_QSEL_REASON_MASK(_n)	\
++#define REG_CDM_CRSN_QSEL(_n, _m)	(CDM_BASE(_n) + 0x10 + ((_m) << 2))
++#define CDM_CRSN_QSEL_REASON_MASK(_n)	\
+ 	GENMASK(4 + (((_n) % 4) << 3),	(((_n) % 4) << 3))
+ 
+ #define REG_GDM_FWD_CFG(_n)		GDM_BASE(_n)
+-#define GDM_DROP_CRC_ERR		BIT(23)
+-#define GDM_IP4_CKSUM			BIT(22)
+-#define GDM_TCP_CKSUM			BIT(21)
+-#define GDM_UDP_CKSUM			BIT(20)
+-#define GDM_STRIP_CRC			BIT(16)
++#define GDM_PAD_EN_MASK			BIT(28)
++#define GDM_DROP_CRC_ERR_MASK		BIT(23)
++#define GDM_IP4_CKSUM_MASK		BIT(22)
++#define GDM_TCP_CKSUM_MASK		BIT(21)
++#define GDM_UDP_CKSUM_MASK		BIT(20)
++#define GDM_STRIP_CRC_MASK		BIT(16)
+ #define GDM_UCFQ_MASK			GENMASK(15, 12)
+ #define GDM_BCFQ_MASK			GENMASK(11, 8)
+ #define GDM_MCFQ_MASK			GENMASK(7, 4)
+@@ -156,6 +152,10 @@
+ #define LBK_CHAN_MODE_MASK		BIT(1)
+ #define LPBK_EN_MASK			BIT(0)
+ 
++#define REG_GDM_CHN_RLS(_n)		(GDM_BASE(_n) + 0x20)
++#define MBI_RX_AGE_SEL_MASK		GENMASK(26, 25)
++#define MBI_TX_AGE_SEL_MASK		GENMASK(18, 17)
++
+ #define REG_GDM_TXCHN_EN(_n)		(GDM_BASE(_n) + 0x24)
+ #define REG_GDM_RXCHN_EN(_n)		(GDM_BASE(_n) + 0x28)
+ 
+@@ -168,10 +168,10 @@
+ #define FE_GDM_MIB_RX_CLEAR_MASK	BIT(1)
+ #define FE_GDM_MIB_TX_CLEAR_MASK	BIT(0)
+ 
+-#define REG_FE_GDM1_MIB_CFG		(GDM1_BASE + 0xf4)
++#define REG_FE_GDM_MIB_CFG(_n)		(GDM_BASE(_n) + 0xf4)
+ #define FE_STRICT_RFC2819_MODE_MASK	BIT(31)
+-#define FE_GDM1_TX_MIB_SPLIT_EN_MASK	BIT(17)
+-#define FE_GDM1_RX_MIB_SPLIT_EN_MASK	BIT(16)
++#define FE_GDM_TX_MIB_SPLIT_EN_MASK	BIT(17)
++#define FE_GDM_RX_MIB_SPLIT_EN_MASK	BIT(16)
+ #define FE_TX_MIB_ID_MASK		GENMASK(15, 8)
+ #define FE_RX_MIB_ID_MASK		GENMASK(7, 0)
+ 
+@@ -214,6 +214,33 @@
+ #define REG_FE_GDM_RX_ETH_L511_CNT_L(_n)	(GDM_BASE(_n) + 0x198)
+ #define REG_FE_GDM_RX_ETH_L1023_CNT_L(_n)	(GDM_BASE(_n) + 0x19c)
+ 
++#define REG_GDM_SRC_PORT_SET(_n)		(GDM_BASE(_n) + 0x23c)
++#define GDM_SPORT_OFF2_MASK			GENMASK(19, 16)
++#define GDM_SPORT_OFF1_MASK			GENMASK(15, 12)
++#define GDM_SPORT_OFF0_MASK			GENMASK(11, 8)
++
++#define REG_FE_GDM_TX_OK_PKT_CNT_H(_n)		(GDM_BASE(_n) + 0x280)
++#define REG_FE_GDM_TX_OK_BYTE_CNT_H(_n)		(GDM_BASE(_n) + 0x284)
++#define REG_FE_GDM_TX_ETH_PKT_CNT_H(_n)		(GDM_BASE(_n) + 0x288)
++#define REG_FE_GDM_TX_ETH_BYTE_CNT_H(_n)	(GDM_BASE(_n) + 0x28c)
++
++#define REG_FE_GDM_RX_OK_PKT_CNT_H(_n)		(GDM_BASE(_n) + 0x290)
++#define REG_FE_GDM_RX_OK_BYTE_CNT_H(_n)		(GDM_BASE(_n) + 0x294)
++#define REG_FE_GDM_RX_ETH_PKT_CNT_H(_n)		(GDM_BASE(_n) + 0x298)
++#define REG_FE_GDM_RX_ETH_BYTE_CNT_H(_n)	(GDM_BASE(_n) + 0x29c)
++#define REG_FE_GDM_TX_ETH_E64_CNT_H(_n)		(GDM_BASE(_n) + 0x2b8)
++#define REG_FE_GDM_TX_ETH_L64_CNT_H(_n)		(GDM_BASE(_n) + 0x2bc)
++#define REG_FE_GDM_TX_ETH_L127_CNT_H(_n)	(GDM_BASE(_n) + 0x2c0)
++#define REG_FE_GDM_TX_ETH_L255_CNT_H(_n)	(GDM_BASE(_n) + 0x2c4)
++#define REG_FE_GDM_TX_ETH_L511_CNT_H(_n)	(GDM_BASE(_n) + 0x2c8)
++#define REG_FE_GDM_TX_ETH_L1023_CNT_H(_n)	(GDM_BASE(_n) + 0x2cc)
++#define REG_FE_GDM_RX_ETH_E64_CNT_H(_n)		(GDM_BASE(_n) + 0x2e8)
++#define REG_FE_GDM_RX_ETH_L64_CNT_H(_n)		(GDM_BASE(_n) + 0x2ec)
++#define REG_FE_GDM_RX_ETH_L127_CNT_H(_n)	(GDM_BASE(_n) + 0x2f0)
++#define REG_FE_GDM_RX_ETH_L255_CNT_H(_n)	(GDM_BASE(_n) + 0x2f4)
++#define REG_FE_GDM_RX_ETH_L511_CNT_H(_n)	(GDM_BASE(_n) + 0x2f8)
++#define REG_FE_GDM_RX_ETH_L1023_CNT_H(_n)	(GDM_BASE(_n) + 0x2fc)
++
+ #define REG_PPE_GLO_CFG(_n)			(((_n) ? PPE2_BASE : PPE1_BASE) + 0x200)
+ #define PPE_GLO_CFG_BUSY_MASK			BIT(31)
+ #define PPE_GLO_CFG_FLOW_DROP_UPDATE_MASK	BIT(9)
+@@ -326,44 +353,6 @@
+ 
+ #define REG_UPDMEM_DATA(_n)			(((_n) ? PPE2_BASE : PPE1_BASE) + 0x374)
+ 
+-#define REG_FE_GDM_TX_OK_PKT_CNT_H(_n)		(GDM_BASE(_n) + 0x280)
+-#define REG_FE_GDM_TX_OK_BYTE_CNT_H(_n)		(GDM_BASE(_n) + 0x284)
+-#define REG_FE_GDM_TX_ETH_PKT_CNT_H(_n)		(GDM_BASE(_n) + 0x288)
+-#define REG_FE_GDM_TX_ETH_BYTE_CNT_H(_n)	(GDM_BASE(_n) + 0x28c)
+-
+-#define REG_FE_GDM_RX_OK_PKT_CNT_H(_n)		(GDM_BASE(_n) + 0x290)
+-#define REG_FE_GDM_RX_OK_BYTE_CNT_H(_n)		(GDM_BASE(_n) + 0x294)
+-#define REG_FE_GDM_RX_ETH_PKT_CNT_H(_n)		(GDM_BASE(_n) + 0x298)
+-#define REG_FE_GDM_RX_ETH_BYTE_CNT_H(_n)	(GDM_BASE(_n) + 0x29c)
+-#define REG_FE_GDM_TX_ETH_E64_CNT_H(_n)		(GDM_BASE(_n) + 0x2b8)
+-#define REG_FE_GDM_TX_ETH_L64_CNT_H(_n)		(GDM_BASE(_n) + 0x2bc)
+-#define REG_FE_GDM_TX_ETH_L127_CNT_H(_n)	(GDM_BASE(_n) + 0x2c0)
+-#define REG_FE_GDM_TX_ETH_L255_CNT_H(_n)	(GDM_BASE(_n) + 0x2c4)
+-#define REG_FE_GDM_TX_ETH_L511_CNT_H(_n)	(GDM_BASE(_n) + 0x2c8)
+-#define REG_FE_GDM_TX_ETH_L1023_CNT_H(_n)	(GDM_BASE(_n) + 0x2cc)
+-#define REG_FE_GDM_RX_ETH_E64_CNT_H(_n)		(GDM_BASE(_n) + 0x2e8)
+-#define REG_FE_GDM_RX_ETH_L64_CNT_H(_n)		(GDM_BASE(_n) + 0x2ec)
+-#define REG_FE_GDM_RX_ETH_L127_CNT_H(_n)	(GDM_BASE(_n) + 0x2f0)
+-#define REG_FE_GDM_RX_ETH_L255_CNT_H(_n)	(GDM_BASE(_n) + 0x2f4)
+-#define REG_FE_GDM_RX_ETH_L511_CNT_H(_n)	(GDM_BASE(_n) + 0x2f8)
+-#define REG_FE_GDM_RX_ETH_L1023_CNT_H(_n)	(GDM_BASE(_n) + 0x2fc)
+-
+-#define REG_GDM2_CHN_RLS		(GDM2_BASE + 0x20)
+-#define MBI_RX_AGE_SEL_MASK		GENMASK(26, 25)
+-#define MBI_TX_AGE_SEL_MASK		GENMASK(18, 17)
+-
+-#define REG_GDM3_FWD_CFG		GDM3_BASE
+-#define GDM3_PAD_EN_MASK		BIT(28)
+-
+-#define REG_GDM4_FWD_CFG		GDM4_BASE
+-#define GDM4_PAD_EN_MASK		BIT(28)
+-#define GDM4_SPORT_OFFSET0_MASK		GENMASK(11, 8)
+-
+-#define REG_GDM4_SRC_PORT_SET		(GDM4_BASE + 0x23c)
+-#define GDM4_SPORT_OFF2_MASK		GENMASK(19, 16)
+-#define GDM4_SPORT_OFF1_MASK		GENMASK(15, 12)
+-#define GDM4_SPORT_OFF0_MASK		GENMASK(11, 8)
+-
+ #define REG_IP_FRAG_FP			0x2010
+ #define IP_ASSEMBLE_PORT_MASK		GENMASK(24, 21)
+ #define IP_ASSEMBLE_NBQ_MASK		GENMASK(20, 16)
 
-Same comment as previous patch, the functions are static, why would they 
-conflict with generic code ?
+---
+base-commit: 1f89ed0ebf2696d1d8fa7625e26c692aa153774a
+change-id: 20251017-airoha-regs-cosmetics-54e9005e7586
 
-Also generic code doesn't have such functions at the moment, are they 
-added by a follow patch ?
-
-Christophe
-
-
-> 
-> Signed-off-by: David Howells <dhowells@redhat.com>
-> cc: Eric Biggers <ebiggers@kernel.org>
-> cc: Jason A. Donenfeld <Jason@zx2c4.com>
-> cc: Ard Biesheuvel <ardb@kernel.org>
-> cc: Catalin Marinas <catalin.marinas@arm.com>
-> cc: Will Deacon <will@kernel.org>
-> cc: Herbert Xu <herbert@gondor.apana.org.au>
-> cc: Stephan Mueller <smueller@chronox.de>
-> cc: linux-crypto@vger.kernel.org
-> cc: linux-arm-kernel@lists.infradead.org
-> ---
->   arch/arm64/crypto/sha3-ce-glue.c | 22 +++++++++++-----------
->   1 file changed, 11 insertions(+), 11 deletions(-)
-> 
-> diff --git a/arch/arm64/crypto/sha3-ce-glue.c b/arch/arm64/crypto/sha3-ce-glue.c
-> index b4f1001046c9..426d8044535a 100644
-> --- a/arch/arm64/crypto/sha3-ce-glue.c
-> +++ b/arch/arm64/crypto/sha3-ce-glue.c
-> @@ -31,7 +31,7 @@ MODULE_ALIAS_CRYPTO("sha3-512");
->   asmlinkage int sha3_ce_transform(u64 *st, const u8 *data, int blocks,
->   				 int md_len);
->   
-> -static int sha3_update(struct shash_desc *desc, const u8 *data,
-> +static int arm64_sha3_update(struct shash_desc *desc, const u8 *data,
->   		       unsigned int len)
->   {
->   	struct sha3_state *sctx = shash_desc_ctx(desc);
-> @@ -55,8 +55,8 @@ static int sha3_update(struct shash_desc *desc, const u8 *data,
->   	return len;
->   }
->   
-> -static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
-> -		      u8 *out)
-> +static int arm64_sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
-> +			    u8 *out)
->   {
->   	struct sha3_state *sctx = shash_desc_ctx(desc);
->   	struct crypto_shash *tfm = desc->tfm;
-> @@ -90,8 +90,8 @@ static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
->   static struct shash_alg algs[] = { {
->   	.digestsize		= SHA3_224_DIGEST_SIZE,
->   	.init			= crypto_sha3_init,
-> -	.update			= sha3_update,
-> -	.finup			= sha3_finup,
-> +	.update			= arm64_sha3_update,
-> +	.finup			= arm64_sha3_finup,
->   	.descsize		= SHA3_STATE_SIZE,
->   	.base.cra_name		= "sha3-224",
->   	.base.cra_driver_name	= "sha3-224-ce",
-> @@ -102,8 +102,8 @@ static struct shash_alg algs[] = { {
->   }, {
->   	.digestsize		= SHA3_256_DIGEST_SIZE,
->   	.init			= crypto_sha3_init,
-> -	.update			= sha3_update,
-> -	.finup			= sha3_finup,
-> +	.update			= arm64_sha3_update,
-> +	.finup			= arm64_sha3_finup,
->   	.descsize		= SHA3_STATE_SIZE,
->   	.base.cra_name		= "sha3-256",
->   	.base.cra_driver_name	= "sha3-256-ce",
-> @@ -114,8 +114,8 @@ static struct shash_alg algs[] = { {
->   }, {
->   	.digestsize		= SHA3_384_DIGEST_SIZE,
->   	.init			= crypto_sha3_init,
-> -	.update			= sha3_update,
-> -	.finup			= sha3_finup,
-> +	.update			= arm64_sha3_update,
-> +	.finup			= arm64_sha3_finup,
->   	.descsize		= SHA3_STATE_SIZE,
->   	.base.cra_name		= "sha3-384",
->   	.base.cra_driver_name	= "sha3-384-ce",
-> @@ -126,8 +126,8 @@ static struct shash_alg algs[] = { {
->   }, {
->   	.digestsize		= SHA3_512_DIGEST_SIZE,
->   	.init			= crypto_sha3_init,
-> -	.update			= sha3_update,
-> -	.finup			= sha3_finup,
-> +	.update			= arm64_sha3_update,
-> +	.finup			= arm64_sha3_finup,
->   	.descsize		= SHA3_STATE_SIZE,
->   	.base.cra_name		= "sha3-512",
->   	.base.cra_driver_name	= "sha3-512-ce",
-> 
-> 
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
