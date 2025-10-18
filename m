@@ -4,61 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF96CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 13:57:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B0D7CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 14:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+8Vwrx25FHbbCKskadf35mdBQsNbpuT/QB9T+nEdcx0=; b=jI1mz4C+M7tikGNM7ELsJWftlO
-	y8V7ElNKMe5yJKXyHOMoDhINY4KSm5WuvzOwN2Hbk0M/6WY+ZxgYxB8VIoPsCeCb4c5ufhOmt6iLu
-	g8ND/rclBZhHjGXH4FvQWyqbwtCg4i1kTduCHK8RSZrlgO+94QsN7aitI80JKZFA2+LlvyMeOijC3
-	38DmymtvTqg9/OTKK/O4YXZqbxV/UKpiua7eiAw05LdNdAMIYcxG1L4Kr5SaJbdAk2TLXhBmLCqTO
-	h60U3bPxBE9BskyAPDLYxRBnuVs0pLBAt9m3+XgaFnwsBuNFNfdCAbTZI2kdUG3fzIFXqtv87suy5
-	dtNMdqpA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=f8ksrreibEDx1ydWLSjaks7SLTKcK9oFAIsdMwlQ55U=; b=JGf/w7mFnCXuLoRbnCNGz8NwYr
+	DkDe1QSN8QOTp4FoGtE0AQSNV430Cm8na4AeXlg+6v1sDLrLMegXTPukMhWhyWdzO9LtFIavrqgst
+	/EznbHbk1wUck1VY4e/wH9d6Xz2R7mM7tv5vubjNz9H8Rl5umeVBD7ntIYO/1FgkCPEwpKe4ncFTo
+	VBonZmD4tPHKBp+X4AQdqSeOsij+SQR2K7ESLC82DmUhZMTQ6YUpA7y44xW95fS7+D/Ef6igjjzW2
+	BK/mN4YAL9bpgqrfFsKJPQV6FC6Y2KZz1AMAS2s74U2gXgkTH1o9kGOR/KSwa9CmQo5Ox/uO5xo+z
+	4NhJCvWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA7RA-00000009zPY-3THG;
-	Sat, 18 Oct 2025 13:57:37 +0000
-Received: from mail1.manjaro.org ([142.132.176.110])
+	id 1vA7ep-0000000A00K-3IaP;
+	Sat, 18 Oct 2025 14:11:43 +0000
+Received: from mx1.wiredblade.com ([162.216.242.38])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA7R7-00000009zPA-1dEg;
-	Sat, 18 Oct 2025 13:57:35 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 0CBA540A58;
-	Sat, 18 Oct 2025 15:57:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
-	t=1760795846; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=+8Vwrx25FHbbCKskadf35mdBQsNbpuT/QB9T+nEdcx0=;
-	b=q+ShW8gbZfu5gfnVK8jFNRS8vnV4Z7AKmeulUm+muBQ29LVoue8E0iN1sxtYiLq7xHn2ui
-	2pCS/jVkmcPr1+r642wSQHsBhVUo6wbdkNoD4Axfl/8xP8hmz/aAaW/v+pojVA2q/WoH5y
-	Mqoekiyt0ziBJEVcY6On8YPMalEeBqTdvvsl+weeZJgwbe1d3wiTvQrBvuZBJWctZs5SNZ
-	QcQ9hiwm15K9fRBjTTkSD7e+irY7ILOJfeXHIlFqNJw4oMZ7q/kSywch6SCx3LZ67h8Ink
-	Ga45s9NcNrLeSnQWJOr+Qs5wWZX5ztf6Y/ovekJSfNco5RNWRb/kAYBKxcADLA==
-From: "Dragan Simic" <dsimic@manjaro.org>
-In-Reply-To: <b22425c3-01e0-4d2e-bf78-5db884d4ec38@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-References: <20251017073954.130710-1-cnsztl@gmail.com>
- <7f0b1747-87eb-0b0b-6fb0-304811a4be21@manjaro.org>
- <d9d14ce2-2e65-422e-95fb-eb30b128ad90@gmail.com>
- <41154cde-a447-0707-4387-cd3dca90b97d@manjaro.org>
- <CALWfF7K0=J3E-zr41wV-28+SCFkT_so55Aee8BvQsB4KJZy6YQ@mail.gmail.com>
- <47931e9e-09db-3909-4531-dae6869171d7@manjaro.org> <b22425c3-01e0-4d2e-bf78-5db884d4ec38@gmail.com>
-Date: Sat, 18 Oct 2025 15:57:24 +0200
-Cc: "Jimmy Hon" <honyuenkwun@gmail.com>, "Tianling Shen" <cnsztl@gmail.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Grzegorz Sterniczuk" <grzegorz@sternicz.uk>, "Jonas Karlman" <jonas@kwiboo.se>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-To: "Hugh Cole-Baker" <sigmaris@gmail.com>
+	id 1vA7em-00000009zzz-2Z5L
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 18 Oct 2025 14:11:41 +0000
+dkim-signature: v=1; a=rsa-sha256; d=psihoexpert.ro; s=dynu;
+	c=relaxed/relaxed; q=dns/txt; h=From:Subject:Date:Message-ID:To:CC:MIME-Version:Content-Transfer-Encoding;
+	bh=f8ksrreibEDx1ydWLSjaks7SLTKcK9oFAIsdMwlQ55U=;
+	b=AGNYPmlkUzr4J8DpQCZ7aTY3k7br3iQcjjtNCAMAQGHqYphqSQ+iQ/L0DruTzvJMXK4empjj+qXHICxjbRXijb1tV7F4pSTQcgsSpZZo+HDWpAPEXIAGu/6pT2TJNt55RjZ8WKRMXelEf99Xof/FoMBCvWzfC0syDQ64hsw95cnBmWEr5Z2IGY177Ei+Z0r2jIQCwqSOXp/hG528HhvFSrsBegnPtRMMux2+yrMIPdNUmdaV2rJT1xEE+h
+	gUZJFzpwr1pvZmZAbu5JjH0908aUGK2IlEi0XbaNj+4Z18u4WdS8kkTCEbOc7GoSaQNsMPRv3Gzt9y3LVfi0A1nafI9w==
+Received: from TkB (188-24-192-7.rdsnet.ro [188.24.192.7])
+	by mx1.wiredblade.com with ESMTPSA
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256)
+	; Sat, 18 Oct 2025 14:11:37 +0000
+From: Marius Dinu <m95d+git@psihoexpert.ro>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marius Dinu <m95d+git@psihoexpert.ro>
+Subject: [PATCH] drm: rockchip-dw-dp: add missing dependency on bridge_connector
+Date: Sat, 18 Oct 2025 14:11:30 +0000
+Message-ID: <20251018141130.13170-1-m95d+git@psihoexpert.ro>
+X-Mailer: git-send-email 2.49.1
 MIME-Version: 1.0
-Message-ID: <de5e8643-49bb-4e0e-45fd-51b25ecf530d@manjaro.org>
-Subject: =?utf-8?q?Re=3A?= [PATCH] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
- =?utf-8?q?_rockchip=3A?= fix eMMC corruption on NanoPC-T6 with A3A444 chips
-User-Agent: SOGoMail 5.12.3
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: None
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_065733_840568_45AD85E7 
-X-CRM114-Status: GOOD (  46.59  )
+X-CRM114-CacheID: sfid-20251018_071140_801111_860E1788 
+X-CRM114-Status: UNSURE (   7.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,179 +63,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Hugh,
+Avoids this error:
+  LD      .tmp_vmlinux1
+  ld: drivers/gpu/drm/rockchip/dw_dp-rockchip.o: in function `dw_dp_rockchip_bind':
+  /usr/src/linux/drivers/gpu/drm/rockchip/dw_dp-rockchip.c:108:(.text+0x188): undefined reference to `drm_bridge_connector_init'
+  make[2]: *** [scripts/Makefile.vmlinux:72: vmlinux.unstripped] Error 1
 
-On Saturday, October 18, 2025 14:14 CEST, Hugh Cole-Baker <sigmaris@gma=
-il.com> wrote:
-> On 18/10/2025 09:30, Dragan Simic wrote:
-> > On Saturday, October 18, 2025 02:42 CEST, Jimmy Hon <honyuenkwun@gm=
-ail.com> wrote:
-> >> On Fri, Oct 17, 2025 at 10:15=E2=80=AFAM Dragan Simic <dsimic@manj=
-aro.org> wrote:
-> >>> On Friday, October 17, 2025 14:08 CEST, Tianling Shen <cnsztl@gma=
-il.com> wrote:
-> >>>> On 2025/10/17 18:25, Dragan Simic wrote:
-> >>>>> On Friday, October 17, 2025 09:39 CEST, Tianling Shen <cnsztl@g=
-mail.com> wrote:
-> >>>>>> From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
-> >>>>>>
-> >>>>>> Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O er=
-rors and
-> >>>>>> corruption when using HS400 mode. Downgrade to HS200 mode to e=
-nsure
-> >>>>>> stable operation.
-> >>>>>
-> >>>>> Could you, please, provide more details about the troublesome e=
-MMC
-> >>>>> chip that gets identified as A3A444, i.e. what's the actual bra=
-nd
-> >>>>> and model?  Maybe you could send a picture of it?  It might als=
-o
-> >>>>> help if you'd send the contents of "/sys/class/block/mmcblkX/de=
-vice
-> >>>>> /manfid" from your board (where "X" should equal two).
-> >>>>
-> >>>> Unfortunately I don't have this board nor this eMMC chip.
-> >>>> I got the chip model from my friend, it's FORESEE FEMDNN256G-A3A=
-44,
-> >>>> manfid is 0x0000d6.
-> >>>
-> >>> Thanks for responding and providing the details so quickly!
-> >>>
-> >>>>> I'm asking for that because I'd like to research it a bit furth=
-er,
-> >>>>> if possible, because some other eMMC chips that are also found =
-on
-> >>>>> the NanoPc-T6 seem to work fine in HS400 mode. [1]  It may be t=
-hat
-> >>>>> the A3A444 chip has some issues with the HS400 mode on its own,
-> >>>>> i.e. the observed issues may not be caused by the board.
-> >>>>
-> >>>> Yes, it should be caused by this eMMC chip.
-> >>>
-> >>> I'd suggest that we move forward by "quirking off" the HS400 mode
-> >>> for the FEMDNN256G-A3A44 eMMC chip in the MMC drivers, instead of
-> >>> downgrading the speed of the sdhci interface on the NanoPC-T6.
-> >>>
-> >>> That way, the other similar Foresee eMMC chip that's also found
-> >>> on NanoPC-T6 boards, FEMDNN256G-A3A564, will continue to work in
-> >>> the faster HS400 mode, while the troublesome A3A44 variant will
-> >>> be downgraded to the HS200 globally for everyone's benefit.  It's
-> >>> quite unlikely that the A3A44 variant fails to work reliable in
-> >>> HS400 mode on the NanoPC-T6 only, so quirking it off in the MMC
-> >>> drivers should be a sane and safe choice.
-> >>>
-> >>> If you agree with dropping this patch, I'll be more than happy
-> >>> to implement this HS200 quirk in the MMC drivers.
-> >>>
-> >>> As a note, FEMDNN256G-A3A44 is found in the Rockchip Qualified
-> >>> eMMC Support List v1.84, [2] but the evidence says the opposite,
-> >>> so we should react appropriately by adding this quirk.
-> >>
-> >> When adding the quirk for the A3A44, can we lower the max frequenc=
-y
-> >> and keep the HS400 mode instead?
-> >> That's what the Fedora folks found works [3]. There's more test
-> >> results in Armbian [4]
-> >=20
-> > Are there any I/O performance tests that would prove that lowering
-> > the HS400 frequency to 150 MHz ends up working significantly faster
-> > than dropping the eMMC chip to HS200 mode?
-> >=20
-> > I'm asking that because lowering the frequency looks much more like
-> > there's some issue with the board, rather than the issue being the
-> > eMMC chip's support for HS400 mode.  Thus, a quirk that would lower
-> > the HS400 mode frequency would likely be frowned upon and rejected,
-> > while a quirk that puts the chip into HS200 mode is much cleaner
-> > and has much higher chances to be accepted.
->=20
-> I also have the NanoPC-T6 with one of the A3A444 eMMCs which suffers
-> from I/O errors in the default HS400 mode. These are its details in
-> /sys/block/mmcblk0/device/:
-> manfid: 0x0000d6
-> oemid: 0x0103
-> name: A3A444
-> fwrev: 0x1100000000000000
-> hwrev: 0x0
-> rev: 0x8
+Signed-off-by: Marius Dinu <m95d+git@psihoexpert.ro>
+---
+ drivers/gpu/drm/rockchip/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thanks for reporting the same issue with the same board and
-increasing our sample size to two. :)
+diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
+index b7b025814e72..d335bb12a369 100644
+--- a/drivers/gpu/drm/rockchip/Kconfig
++++ b/drivers/gpu/drm/rockchip/Kconfig
+@@ -11,6 +11,7 @@ config DRM_ROCKCHIP
+ 	select DRM_ANALOGIX_DP if ROCKCHIP_ANALOGIX_DP
+ 	select DRM_DISPLAY_DP_AUX_BUS if ROCKCHIP_ANALOGIX_DP
+ 	select DRM_DW_DP if ROCKCHIP_DW_DP
++	select DRM_BRIDGE_CONNECTOR if ROCKCHIP_DW_DP
+ 	select DRM_DW_HDMI if ROCKCHIP_DW_HDMI
+ 	select DRM_DW_HDMI_QP if ROCKCHIP_DW_HDMI_QP
+ 	select DRM_DW_MIPI_DSI if ROCKCHIP_DW_MIPI_DSI
+-- 
+2.49.1
 
-> I wasn't sure if I was just unlucky to get a faulty chip, but seeing
-> this thread it seems like a wider issue. On my board, limiting it to
-> HS200 mode gets rid of the I/O errors, and it seems that lowering
-> the frequency to 150MHz also avoids I/O errors.
->=20
-> I did a quick unscientific test with fio; HS400 Enhanced Strobe mode
-> with a 150MHz clock gives slightly better performance than HS200:
->=20
-> HS200 mode:
-> read: IOPS=3D697, BW=3D43.6MiB/s
-> write: IOPS=3D697, BW=3D43.6MiB/s
->=20
-> HS400 mode with 150MHz clock:
-> read: IOPS=3D805, BW=3D50.3MiB/s
-> write: IOPS=3D799, BW=3D50.0MiB/s
->=20
-> so from my perspective, limiting the frequency would be a better fix
-> than disabling HS400 entirely.
-
-Thanks for running these tests!  The measured difference in the
-I/O performance is about 15%, which surely isn't insignificant,
-but IMHO it makes the proposed lowering of the eMMC chip to HS200
-mode fall into the "good safety margin" bracket that I described
-earlier.  I think it's better to sacrifice those 15% to stay on
-the, hopefully, rock-solid side.
-
-I've been thinking more about the 150 MHz HS400 and HS200 quirks,
-and I'm afraid I'm even more sure that the 150 MHz HS400 quirk
-would be frowned upon and rejected.  See, it does make it look
-like a board-level issue, requiring a board-level fix, instead of
-being a chip-level issue, for which a quirk would be fine.  The
-acceptably low difference in the measured performance levels just
-solidifies such a viewpoint, I'm afraid.
-
-> It could also be of interest that the clock used apparently can't
-> provide an exact 200MHz, e.g. in HS200 mode:
->=20
-> root@t6:~# cat /sys/kernel/debug/mmc0/ios
-> clock:		200000000 Hz
-> actual clock:	187500000 Hz
-> vdd:		18 (3.0 ~ 3.1 V)
-> bus mode:	2 (push-pull)
-> chip select:	0 (don't care)
-> power mode:	2 (on)
-> bus width:	3 (8 bits)
-> timing spec:	9 (mmc HS200)
-> signal voltage:	1 (1.80 V)
-> driver type:	0 (driver type B)
-
-Thanks, that's also something to think about.
-
-> > With all that in mind, if the resulting I/O performance difference
-> > between 150 MHz HS400 and HS200 is within 15-20% or so, I'd highly
-> > recommend that we still go with the HS200 quirk.  It also leaves
-> > us with a nice safety margin, which is always good to have when
-> > such hardware instability issues are worked around in software,
-> > unless detailed eye diagrams, protocol dumps and whatnot can be
-> > pulled and analyzed, in which case the resulting safety margin
-> > can be much slimmer.
-> >=20
-> > Ideally, we'd have a completely different board with the same
-> > Foresee FEMDNN256G-A3A44 eMMC chip to test how reliably its HS400
-> > mode works there, to see is it really up to this eMMC chip or up
-> > to the board design, but I'm afraid we don't have that (easily)
-> > available, so the only remaining option is to work with what's
-> > actually available, which inevitably leads to a certain amount
-> > of guesswork and some compromises.
-> >=20
-> >>> [1] https://github.com/openwrt/openwrt/issues/18844
-> >>> [2] https://dl.radxa.com/rock5/hw/RKeMMCSupportList%20Ver1.84=5F2=
-0240815.pdf
-> >> [3] https://lists.fedoraproject.org/archives/list/kernel@lists.fed=
-oraproject.org/thread/MCSDYDQVOXS5AZMKA7LLY4QX7JXBWPCA/
-> >> [4] https://github.com/armbian/build/pull/8736#issuecomment-338776=
-0536
 
 
