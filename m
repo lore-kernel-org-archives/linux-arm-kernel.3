@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E786ACCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 09:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A8EACCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 09:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6z6CG4Bzykdg3VlQO62kpKPKIN5Ed0HvWERMlLp9z1M=; b=JElnYkzliO8ODBxyBAytQo2fIM
-	lWhsCGw2tuqbIMhJiAXdfw6EJPL/E/H1l0jypmMNBfBZ+nr6R7o/ueUaJrWoQBUkMSs3hbtGcfWKs
-	t2zcH6YvgH2wz2e+38mredHvlH4sZmdXZAAJkRfA0/rw3pvINTto9nIlswDD/K8Mi2fxIuUHXbruJ
-	K90efvgL1zhP1jrkuAbQbY35Wd8iYXXktf6wn3BpA8j9aiOf4QMOpYATZPbbeqqrubXpfIG2g/Go2
-	nmsP2Z9qbqrdijS0gFsd9Ukoz8BooJxT0rhbluJoZnE02lXsqnS8LmgO3qj+cuBxSFXl2dOz8y+Fj
-	zlcdQ9NQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bkaCz6QqL8OZMUg5UjNBWr38rK9WXmvMsbf2Ke1GoJA=; b=oSkfkFu2ooL2n6Zddicv/QmCDO
+	n8SHsvsAHKg7GLzyBYw93bYEZpb+XIyheDGB5ZRrz/+o8a4LH9FFRlprv/3K1FA942vVzPg4hrxsB
+	FFBarSuerxEryN7N/yVYOzdhEcRJL1xeRgWuzzSVS5UpCXfB3J8FIrT7Q0OhuEy2EUveHeTyEWnbb
+	3loIJl2Dz8IWXFOtB0caR2O9MBhZtcFaJb6DvT0nWSlvJn0zNtfLbOsuPDCRQN/KEOsWe96xVK135
+	1nnxhsxjuQR69Cvn9FjvpbTMIN7JnkGs0X+L5FFAwAR5yQ37nMvHrXP9Uz/y892jzxkOlKOblQKps
+	rXF1Bdpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA2ss-00000009iO3-0yES;
-	Sat, 18 Oct 2025 09:05:54 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA2so-00000009iNE-0Xkd
+	id 1vA36e-00000009jOg-2JtF;
+	Sat, 18 Oct 2025 09:20:08 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vA36b-00000009jOA-3PmK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 09:05:51 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-63c1413dbeeso3861119a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Oct 2025 02:05:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760778348; x=1761383148; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=6z6CG4Bzykdg3VlQO62kpKPKIN5Ed0HvWERMlLp9z1M=;
-        b=BLdlWlbRVVbAolHfjABaPI+zbDmjZ6xUg+rX8ubBE9porNObFv8oiojSQY5M+7y/EJ
-         bbtgy0qyyjS1B2Q7EpDueNpFicTynmlyVi34hzHWhkF6mbIUVaCs6621Fd413t51OSHw
-         2vwbnoneidbeHRpq7OuYBK0MiS81c6HHcVzeYLLeiK9uuHOQmtnm8EudikEaB9ByyV00
-         wCNMp2K+XXheNVUoQrdKePSsboWRTltEQ4/tvTZrwkTkaR69/UGWLWyP5bIi+YPNofUo
-         viPuk5i4/815b68zVYPXECT7eyRskflSIOXjzgXQNCwnGFbO+SJQ6Fq1/41HlONsSQNc
-         7/vw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760778348; x=1761383148;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6z6CG4Bzykdg3VlQO62kpKPKIN5Ed0HvWERMlLp9z1M=;
-        b=pFnbAtMiVCy4JhQmdwefr2FVF+DPcfpwe9oIOojn37mkg9+/lDVzhAWQtjXJZYGEL2
-         Pp9WIEKI8zWnxWFtpJVwA/YhFzNeC4DVkL08UtPPohRjVQX4e1Cz1CGXgBLTJRvhrTOa
-         GX1flQgcL5ZAcg+0+rqv2dPzPsDJZ6Zh0kd/O0zqTnr1Bue0i5euoxtXNS3Bvg/WvPQp
-         egjHzdtd9yLC70DaxMCnuPT1uf9DqLxyi3L4zL8I0gZ8K/pFD+oJA3TN6VpsXx4USdyS
-         V1GUhtHol4192mdqdJbFq7jF1l4XDxkpWzNA3WdRY1+mRxcVtTEZyK/PLpGqwyugU/UE
-         5FTg==
-X-Forwarded-Encrypted: i=1; AJvYcCXmPm9GR41Cy2JAtzugrGC26+udW5rxQBOQGwZg5jaPJ5zNrFB8XW6SI9H1CtNBexT69xCSRrftxJ61EOzc/T2d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6/oRUuyLeGwWCqONa5QgGXgCmjqs5VfLtyUGOt+dQpzG7AD/n
-	Pe1xRSuZ7Kxn32tUknLBX9GVbf4DSSzz5WuGZKTn6gcJS4PJljYGgTtW14Rb4xuu9EQOW0jPzCH
-	dsvx7V0B4sBZBuy73JnZ70zxUD3pGJ1o=
-X-Gm-Gg: ASbGncsxx5wLpMFZdYAMTkM/E15MEeMeAhmwYdWj/0G6PtUB+G2IsZFDIpoMC7NFfIM
-	uvT6fHxWpK02UhGwJo4wby0tcmW9obB9MPzFwJxhmdUolfg4WOzjbkRmk3eZshJjJfeBh2ag07V
-	D19n75m0jmBg7O21Ewsmw/eXWbxl39zsSkGiC+G+IfJbaAHHJVUEDFniqdH6gCflb1q1apDBxoM
-	aAI+HJZnzIoHek6MNdvtkukYek+/312jSjmZjf+wlbDbK7t3p8LS3oZvSQ=
-X-Google-Smtp-Source: AGHT+IEhR89+OlZnqrJ1xToJ35S4hHteVi05MGdBYp0FB9E+H5DwaPu0w+LV/8y6BXwE5xnOmNRU6JE04b6xtGtpRL0=
-X-Received: by 2002:a05:6402:4504:b0:63b:f48d:cf4a with SMTP id
- 4fb4d7f45d1cf-63c1f578eaamr5362961a12.0.1760778348106; Sat, 18 Oct 2025
- 02:05:48 -0700 (PDT)
+	Sat, 18 Oct 2025 09:20:07 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4cpbJ13kd9z9sSC;
+	Sat, 18 Oct 2025 11:00:33 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id HJxa1yDcQJwG; Sat, 18 Oct 2025 11:00:33 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4cpbJ12blgz9sS8;
+	Sat, 18 Oct 2025 11:00:33 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 468C38B765;
+	Sat, 18 Oct 2025 11:00:33 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id 0rhQCqUhMXYB; Sat, 18 Oct 2025 11:00:33 +0200 (CEST)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 4BD6D8B764;
+	Sat, 18 Oct 2025 11:00:32 +0200 (CEST)
+Message-ID: <f2e43e3f-b4fc-4ebd-b6ae-7e610b2ea164@csgroup.eu>
+Date: Sat, 18 Oct 2025 11:00:32 +0200
 MIME-Version: 1.0
-References: <20251018061127.7352-1-linux.amoon@gmail.com> <071f563c-6d09-46ea-870b-a51e0522bfad@web.de>
-In-Reply-To: <071f563c-6d09-46ea-870b-a51e0522bfad@web.de>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Sat, 18 Oct 2025 14:35:31 +0530
-X-Gm-Features: AS18NWDj5t4J8Su9s5gXUOjbXZcv8D1D0shD_oUkWVHtMigAOGJ_VaoJUxZoA-o
-Message-ID: <CANAwSgQEqv2a1MGkGtj8CpXSKOXv=_wV3afOgn=iri7uqnj1bw@mail.gmail.com>
-Subject: Re: [PATCH] PCI: rockchip: Propagate dev_err_probe return value
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: linux-pci@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, Bjorn Helgaas <bhelgaas@google.com>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, LKML <linux-kernel@vger.kernel.org>, 
-	kernel-janitors@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 02/17] arm64/sha3: Rename conflicting functions
+To: David Howells <dhowells@redhat.com>, Eric Biggers <ebiggers@kernel.org>
+Cc: "Jason A . Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel
+ <ardb@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>,
+ Stephan Mueller <smueller@chronox.de>, Lukas Wunner <lukas@wunner.de>,
+ Ignat Korchagin <ignat@cloudflare.com>, Luis Chamberlain
+ <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>,
+ Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
+ linux-crypto@vger.kernel.org, keyrings@vger.kernel.org,
+ linux-modules@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+References: <20251017144311.817771-1-dhowells@redhat.com>
+ <20251017144311.817771-3-dhowells@redhat.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <20251017144311.817771-3-dhowells@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_020550_180389_C8750C2A 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20251018_022006_015342_E1BB7587 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,47 +87,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus,
 
-On Sat, 18 Oct 2025 at 13:09, Markus Elfring <Markus.Elfring@web.de> wrote:
->
-> > Ensure that the return value from dev_err_probe() is consistently assigned
-> > back to return in all error paths within rockchip_pcie_init_port()
-> > function. This ensures the original error code are propagation for
-> > debugging.
->
-> I find the change description improvable.
->
-Ok, is this ok?
 
-When using the dev_err_probe() helper function in rockchip_pcie_init_port(),
-ensure its return value is consistently assigned to the return variable. This
-guarantees that the original error code, whether it's a specific error
-or -EPROBE_DEFER,
-is correctly propagated up the call stack for proper error handling
-and debugging.
+Le 17/10/2025 à 16:42, David Howells a écrit :
+> Rename the arm64 sha3_* functions to have an "arm64_" prefix to avoid
+> conflict with generic code.
 
->
-> Would an other source code variant become more desirable?
-> https://elixir.bootlin.com/linux/v6.17.1/source/drivers/base/core.c#L5031-L5075
->
->         err = dev_err_probe(dev,
->                             reset_control_bulk_assert(ROCKCHIP_NUM_CORE_RSTS, rockchip->core_rsts),
->                             "Couldn't assert Core resets\n");
->         if (err)
->                 goto err_exit_phy;
-No, the correct code ensures that dev_err_probe() is only called when
-an actual error has
-occurred, providing a clear and accurate log entry. For deferred probe
-(-EPROBE_DEFER),
-it will correctly log at a debug level, as intended for that scenario.
-For other errors, it will provide
-a standard error message.
->
->
-> Regards,
-> Markus
+Same comment as previous patch, the functions are static, why would they 
+conflict with generic code ?
 
-Thanks
--Anand
+Also generic code doesn't have such functions at the moment, are they 
+added by a follow patch ?
+
+Christophe
+
+
+> 
+> Signed-off-by: David Howells <dhowells@redhat.com>
+> cc: Eric Biggers <ebiggers@kernel.org>
+> cc: Jason A. Donenfeld <Jason@zx2c4.com>
+> cc: Ard Biesheuvel <ardb@kernel.org>
+> cc: Catalin Marinas <catalin.marinas@arm.com>
+> cc: Will Deacon <will@kernel.org>
+> cc: Herbert Xu <herbert@gondor.apana.org.au>
+> cc: Stephan Mueller <smueller@chronox.de>
+> cc: linux-crypto@vger.kernel.org
+> cc: linux-arm-kernel@lists.infradead.org
+> ---
+>   arch/arm64/crypto/sha3-ce-glue.c | 22 +++++++++++-----------
+>   1 file changed, 11 insertions(+), 11 deletions(-)
+> 
+> diff --git a/arch/arm64/crypto/sha3-ce-glue.c b/arch/arm64/crypto/sha3-ce-glue.c
+> index b4f1001046c9..426d8044535a 100644
+> --- a/arch/arm64/crypto/sha3-ce-glue.c
+> +++ b/arch/arm64/crypto/sha3-ce-glue.c
+> @@ -31,7 +31,7 @@ MODULE_ALIAS_CRYPTO("sha3-512");
+>   asmlinkage int sha3_ce_transform(u64 *st, const u8 *data, int blocks,
+>   				 int md_len);
+>   
+> -static int sha3_update(struct shash_desc *desc, const u8 *data,
+> +static int arm64_sha3_update(struct shash_desc *desc, const u8 *data,
+>   		       unsigned int len)
+>   {
+>   	struct sha3_state *sctx = shash_desc_ctx(desc);
+> @@ -55,8 +55,8 @@ static int sha3_update(struct shash_desc *desc, const u8 *data,
+>   	return len;
+>   }
+>   
+> -static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
+> -		      u8 *out)
+> +static int arm64_sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
+> +			    u8 *out)
+>   {
+>   	struct sha3_state *sctx = shash_desc_ctx(desc);
+>   	struct crypto_shash *tfm = desc->tfm;
+> @@ -90,8 +90,8 @@ static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
+>   static struct shash_alg algs[] = { {
+>   	.digestsize		= SHA3_224_DIGEST_SIZE,
+>   	.init			= crypto_sha3_init,
+> -	.update			= sha3_update,
+> -	.finup			= sha3_finup,
+> +	.update			= arm64_sha3_update,
+> +	.finup			= arm64_sha3_finup,
+>   	.descsize		= SHA3_STATE_SIZE,
+>   	.base.cra_name		= "sha3-224",
+>   	.base.cra_driver_name	= "sha3-224-ce",
+> @@ -102,8 +102,8 @@ static struct shash_alg algs[] = { {
+>   }, {
+>   	.digestsize		= SHA3_256_DIGEST_SIZE,
+>   	.init			= crypto_sha3_init,
+> -	.update			= sha3_update,
+> -	.finup			= sha3_finup,
+> +	.update			= arm64_sha3_update,
+> +	.finup			= arm64_sha3_finup,
+>   	.descsize		= SHA3_STATE_SIZE,
+>   	.base.cra_name		= "sha3-256",
+>   	.base.cra_driver_name	= "sha3-256-ce",
+> @@ -114,8 +114,8 @@ static struct shash_alg algs[] = { {
+>   }, {
+>   	.digestsize		= SHA3_384_DIGEST_SIZE,
+>   	.init			= crypto_sha3_init,
+> -	.update			= sha3_update,
+> -	.finup			= sha3_finup,
+> +	.update			= arm64_sha3_update,
+> +	.finup			= arm64_sha3_finup,
+>   	.descsize		= SHA3_STATE_SIZE,
+>   	.base.cra_name		= "sha3-384",
+>   	.base.cra_driver_name	= "sha3-384-ce",
+> @@ -126,8 +126,8 @@ static struct shash_alg algs[] = { {
+>   }, {
+>   	.digestsize		= SHA3_512_DIGEST_SIZE,
+>   	.init			= crypto_sha3_init,
+> -	.update			= sha3_update,
+> -	.finup			= sha3_finup,
+> +	.update			= arm64_sha3_update,
+> +	.finup			= arm64_sha3_finup,
+>   	.descsize		= SHA3_STATE_SIZE,
+>   	.base.cra_name		= "sha3-512",
+>   	.base.cra_driver_name	= "sha3-512-ce",
+> 
+> 
+
 
