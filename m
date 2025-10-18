@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211CBCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 20:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D907CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 20:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M8BE/inF98kPrlo4jMfLeCVrWalnzfK85oql9uKs5zs=; b=RKESOX4sytL4lvOP5xIaggawMQ
-	vMY65pelNMwpcY2csWzyZzrAHVEmOVqzIBqqvLmsO4j4fiBunQ+gRBNHXN46Nm2gvg2nmHGgBOsu+
-	KIO3sxU60otu8eovNm4rC6oYyZhOK5rz47FGNFgzh4ofKTcEWtcCDI1CeSHWZXbbGbkHBsUSJxOS+
-	RnOCx1EH77YuXS4NH51c2YeKYPr7vRpN+zP+F90oBeZc8OMWCPFN6Rn7VrUYf2YJqplJV5C5XRehl
-	S1Zu3s8ov8gDfIAWw15Kcc8vFzt7C/chhQVKUVOmakt5/wZdqAaKT6xt/3a9pJKNdnKDsbKWUdtzj
-	gBKXUXtQ==;
+	bh=HZVFyQFH/N6BlbXZw7Nya2jm1NlFu/aT9k9hJeAWYd0=; b=YPulBT9xqp4B1ysoRpvfMKBrbf
+	VytquSoOVn+b0Y/E+HVsnO3H6Z9u8fCKrI85xXakgm5zMwuDchyQit3qlv89HCvBYExr1Jd53mQTa
+	GikxoNJHRjcBLG4+DG71JREWrLZeeA9JV1W3KNrBz4RvYj07atywN23BKTXNqBOgCKGhsLlCqxQZ7
+	Ghq6+2HQY45pFmu84k4WFLYiTWSCwkKQIb1fXgJRtxaaxzh9iokTvtBImCz3fJNekJyOIwjAEQGKU
+	eaTIPtjvrIZIH0h35O3aon3JOcdilVSdhmaopbNVET74X9x5RJozpGZTz9/bIN85SO0ERwkvMKDDm
+	4lqnCZ7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vADnZ-0000000ARft-1O6q;
-	Sat, 18 Oct 2025 20:45:09 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vADsp-0000000AS6x-0LVx;
+	Sat, 18 Oct 2025 20:50:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vADnX-0000000ARcw-2HHQ
+	id 1vADsm-0000000AS6U-0qMS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 20:45:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=M8BE/inF98kPrlo4jMfLeCVrWalnzfK85oql9uKs5zs=; b=w+wfa6nn9XaNfQieOBRXpVCGS0
-	KIocCTz6+kVqACoV8E+DfvOZD9Xn+FRup0EJo1XSE0ldg1snzcKwQlVWCd0/w5tZg16xpoBIgLvRg
-	xCppfZ3PimGE0EKsdpfg6h0MjrjihSX1WKdP1vruH/pmu8KY8rh7b2N1ttfhMEBPB+2A=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vADnH-00BOap-4N; Sat, 18 Oct 2025 22:44:51 +0200
-Date: Sat, 18 Oct 2025 22:44:51 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>, David Miller <davem@davemloft.net>,
+	Sat, 18 Oct 2025 20:50:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=HZVFyQFH/N6BlbXZw7Nya2jm1NlFu/aT9k9hJeAWYd0=; b=S8RVQB9gc5V85YTnJ25mLHH2Vs
+	jYcPLDoDMEB7wJ3GereehfiJA/tHV9Qc71uSKDF4TlPs8FyhXlcyaUoJeUPZvlz6Y5JdQoX+Zhr+r
+	RVmVRq0wk05pUUXtc+J/P39mOXEN0XPmRT7ibqUkCTOk9rcM3BewqOYeBBrylj6u7A9uoowpHa5o3
+	Azqt2pju1pTzqbWHNYythB3qFjEh+M+rzQSEuX++nmhDN1RnCdfXLybWNYJSJuJow+KFvo+9qSYcY
+	kUew1Zpz4oNZttZXiC3p1WzmZjUcNMjGH72MEDReMLkZnFqKZTiKDlJUd8ZcMACGg5XA+as8/OW/K
+	ukzTLkjw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50152)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vADsJ-000000000i9-1B5b;
+	Sat, 18 Oct 2025 21:50:03 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vADsA-000000005aS-0gvN;
+	Sat, 18 Oct 2025 21:49:54 +0100
+Date: Sat, 18 Oct 2025 21:49:54 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	Russell King - ARM Linux <linux@armlinux.org.uk>,
-	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 net-next] net: stmmac: mdio: use phy_find_first to
- simplify stmmac_mdio_register
-Message-ID: <d262d94d-219f-4f8a-95c0-7867a8f2ad93@lunn.ch>
-References: <20ca4962-9588-40b8-b021-fb349a92e9e5@gmail.com>
+	Han Gao <rabenda.cn@gmail.com>, Icenowy Zheng <uwu@icenowy.me>,
+	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <ziyao@disroot.org>,
+	netdev@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH] net: stmmac: dwmac-sophgo: Add phy interface filter
+Message-ID: <aPP9cjzwihca-h6C@shell.armlinux.org.uk>
+References: <20251017011802.523140-1-inochiama@gmail.com>
+ <34fcc4cd-cd3d-418a-8d06-7426d2514dee@lunn.ch>
+ <i5prc7y4fxt3krghgvs7buyfkwwulxnsc2oagbwdjx4tbqjqls@fx4nkkyz6tdt>
+ <c16e53f9-f506-41e8-b3c6-cc3bdb1843e1@lunn.ch>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20ca4962-9588-40b8-b021-fb349a92e9e5@gmail.com>
+In-Reply-To: <c16e53f9-f506-41e8-b3c6-cc3bdb1843e1@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_134507_577368_2FFB581B 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251018_135032_509935_312C61CF 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,12 +93,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 18, 2025 at 08:48:07PM +0200, Heiner Kallweit wrote:
-> Simplify the code by using phy_find_first().
+On Sat, Oct 18, 2025 at 10:38:17PM +0200, Andrew Lunn wrote:
+> On Sat, Oct 18, 2025 at 08:42:07AM +0800, Inochi Amaoto wrote:
+> > On Fri, Oct 17, 2025 at 08:16:17PM +0200, Andrew Lunn wrote:
+> > > On Fri, Oct 17, 2025 at 09:18:01AM +0800, Inochi Amaoto wrote:
+> > > > As the SG2042 has an internal rx delay, the delay should be remove
+> > > > when init the mac, otherwise the phy will be misconfigurated.
+> > > 
+> > > Are there any in tree DT blobs using invalid phy-modes? In theory,
+> > > they should not work, but sometimes there is other magic going on. I
+> > > just want to make sure this is not going to cause a regression.
+> > > 
+> > 
+> > I see no SG2042 board using invalid phy-modes. Only rgmii-id is used,
+> > which is vaild.
 > 
-> Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
+> Great, thanks for checking.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Hang on. Is this right?
 
-    Andrew
+The commit says that SG2042 has an internal receive delay. This is
+presumably the MAC side.
+
+To work around that, you map rgmii-id to rgmii-txid for the PHY, to
+prevent the PHY from enabling its receive-side clock delay.
+
+It seems to me that you're saying that rgmii-rxid and rgmii-id
+should not be used with these MACs, and you're fixing up to remove
+the receive-side delay.
+
+"rgmii-id" doesn't mean "there is a delay _somewhere_ in the system".
+It's supposed to mean that the PHY should add delays on both tx and
+rx paths.
+
+Confused.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
