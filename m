@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13374CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 10:43:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9073FCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 11:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cn18gVEv8LUVX5SOWaN3l+0XFDVqIgAa7PHNiyYdPz4=; b=DKeznzKdMbIdXdG/opZD27pbJ1
-	NtXKtgWT4K1NhMlHs3uOk6xVy97TtKnjsI6weF+bXu1qnr8CeZwbKgN7Aud8AVhvj7vHrmDvGndMU
-	9cHvtBcBgou6q97k7IVVYAaSjb/QnhOEqrz2Ql1VOrueKEbi7P7u9DrbNUd0Dmvvjgu9x1Ixmisd8
-	Fx8czdOUzFRyM4AWQWBfjrGA5lWu2p7adFmPsWB3x5br60x22TJSAhVKDPzlFiHN7JchGbK72W6vl
-	ftbeRuUQgdjSbW9tjfcQCb9ihCh4aL7j6WpqQgr9uxSjWKZpLIMPeJhcQjkk6xODawXmcsYMjixp5
-	3IBvPIEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lPhE7P7FuS/qPa7zqyeMrwzg8XYkJkmdI5yXJVLLIgo=; b=0o8dQOu5Pwyw62kgcyyrnz2wr3
+	V3OAAJYUpF0hTzCRYJDXN9MykwgxCaJl/78MRDKSrKBEAsrpCwXktgNh7Yge7yPv0GLM9VO91klwk
+	EjhLneTmdRG/rGoYsRgtRXb9ow+oyL0dOJHdESZ2mqgZyjgspoITTBujrQnq26Ez03vyDt8LFcEv9
+	192vthQTdd/3UdxRG8EsT4CanhANG1oD5LsWkMt90PgHRjdGBxHAkfySuTD3UCTAv69WCjVqLeyT+
+	DCx8xOS7oAhTgapoAf9s7MqHHQForqPiGE2D8AkOWj4B8kryYgmzL8XAvtzJQUo5TWvHf2pnBbzEt
+	kXuC5CXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA4PD-00000009ot0-3ACF;
-	Sat, 18 Oct 2025 10:43:23 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vA5Cj-00000009rZf-0wEz;
+	Sat, 18 Oct 2025 11:34:33 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA4PC-00000009osq-1mxG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 18 Oct 2025 10:43:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=cn18gVEv8LUVX5SOWaN3l+0XFDVqIgAa7PHNiyYdPz4=; b=l6YsguApyMZm+hA3k1pQedX/5F
-	viJkWw0n7brNfEHSKZkWWUAGtExbx2T5dBXe6d/hAS/8nrzbntFRibxhJTe0tufIH5ihj9V1pUXNL
-	AeTj4ygFWK/du3EwGR79wjU65tZB4I+R9IwmwkwdXQuu6Jv+vnoK4CPFa/77+H56QejxKQa9y5nSX
-	dFORpv9shWJ2QfUFAE3SBGnwpG5dX4Y0jxbPqkp5v98q2oX1ePnNnGVRAmpARgluUSvW2VFH/taH+
-	3hzn/jl+iUICoCjYdhAuOPksHn8WperGExLiv45kQQnpRk68uCQJCwRBjRhDYDCUQKrSW7rNlZDYx
-	ZvTdWwlA==;
-Received: from mout.web.de ([212.227.17.12])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA4Ov-00000008JUu-2umj
+	id 1vA5Cg-00000009rZI-24Uq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 10:43:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1760784177; x=1761388977; i=markus.elfring@web.de;
-	bh=cn18gVEv8LUVX5SOWaN3l+0XFDVqIgAa7PHNiyYdPz4=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=AFB8Nax6FtWLuRVj+nsHEQ+z/ML7//Q0vDQUqhI6VyqI6415SForIroMBVO4ivex
-	 4mAqTpih4R570kXovzbwxzQQfrS/KUREkRKTgoKRe4r+suL6xjle3WniE6Bneodx0
-	 8zQrFwICbGMTCb7wQF0k9g9FfEbHRpb3DwjwxVB407n5BkvfySxqZFnnq3/UeqT+n
-	 nqB5heu9+aL7L0ZHyo9pU5GhZEeM5/euoOm0e2UHzITZBDUsHtMCRyU83+NZf9Bd5
-	 icVcdSncNFV9iyI/G1wBJzGNzCKLrsG/S+oQ42ZSieLi1qYGu56UkEinDavQCabub
-	 yvTAgHDmVbHYUNyOFg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.92.233]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MuF8x-1uMLzo2bPx-011EfC; Sat, 18
- Oct 2025 12:42:57 +0200
-Message-ID: <cf656a57-bb2f-447e-ac6c-0ab118606dc9@web.de>
-Date: Sat, 18 Oct 2025 12:42:55 +0200
+	Sat, 18 Oct 2025 11:34:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1760787270; x=1792323270;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=lxmXxI9NVNvUFbJkHjVwI4PAcvRKTU8tPXimX86qghE=;
+  b=POo8/llh7yiC4HejEK65UFAQ/Ed1uBZA/lTx9qSEMkm64RoniGy2ijIL
+   DCe3Gbh5wmWm5iN95MZqPAMwM4eQhVMNUs80f++E+2KW9ynOOa6ZpOWHK
+   SkymuHW83PnhQDrKBTsakiPfltcqYa6Sa2YCvLZaKOGgPA+EauIz6FLQo
+   QlZ5hGx9Ra/8RzYxpn1f3pkpL45MaETwVRYo+qMlDpkf80g1W5QqioT3l
+   Y94QJ92F42h+MmESMnChW5EEJaHSwfWGo4k+OTSb5KPG3AWst1qzyasLa
+   eNZ2p1GOgTXAClvFw6IuObyGIauZDJOGifukNUrhaHu041jcNdkst5rKZ
+   A==;
+X-CSE-ConnectionGUID: 5L+vlH8/SNm9ryyarit5hg==
+X-CSE-MsgGUID: W6fIJVLfTK6/AcwJtQFMAw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="62902574"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="62902574"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Oct 2025 04:34:24 -0700
+X-CSE-ConnectionGUID: hItXz9+CR9+morbJD6EyVA==
+X-CSE-MsgGUID: MR5JyuycRausU/z8Jyg5Pw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,238,1754982000"; 
+   d="scan'208";a="182491676"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa009.jf.intel.com with ESMTP; 18 Oct 2025 04:34:20 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vA5CU-0008G9-0M;
+	Sat, 18 Oct 2025 11:34:18 +0000
+Date: Sat, 18 Oct 2025 19:33:56 +0800
+From: kernel test robot <lkp@intel.com>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH v2 3/8] clk: imx: add driver for imx8ulp's sim lpav
+Message-ID: <202510181949.IazLEB6V-lkp@intel.com>
+References: <20251017112025.11997-4-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] PCI: j721e: Propagate dev_err_probe return value
-To: Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>, LKML <linux-kernel@vger.kernel.org>,
- kernel-janitors@vger.kernel.org
-References: <20251014113234.44418-2-linux.amoon@gmail.com>
- <a2cefc72-de44-4a23-92d2-44b58c8c13fe@web.de>
- <CANAwSgTtaAtCxtF+DGS-Ay4O3_9JMwk-fJ27yoijhWWbF2URrg@mail.gmail.com>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <CANAwSgTtaAtCxtF+DGS-Ay4O3_9JMwk-fJ27yoijhWWbF2URrg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:1lIM1h5WLjuYfsMemPwgtC/4pl1bjIrYBTed8hKPBz4TXvf6OQu
- 6UNChvXyR7fIoOLzDg4PMaeZSAqWgCpzBCzlCtBLLMuuOd+Xy9FOQ4fToDJMt5F361wJ599
- 7BsTRipmslb55SF0DIua1M0SzmlmyHBmolxoX3zdgcIo0/ncP0Qmjk7lK9B9dIsyS3GOR4T
- 3kMBXhNj/6W2bdqPDkbdA==
-UI-OutboundReport: notjunk:1;M01:P0:q3LJM0LNTFo=;wcDgREHGski+81RTw2KTX8OaFoA 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 ABUICcnqhgYJZg==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251017112025.11997-4-laurentiumihalcea111@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_114306_412267_0ADA9E65 
-X-CRM114-Status: UNSURE (   6.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251018_043430_629111_CA86BCE0 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,26 +98,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> I propose to take another source code transformation approach better in=
-to account.
->> https://elixir.bootlin.com/linux/v6.17.1/source/drivers/base/core.c#L50=
-31-L5075
->>
->> Example:
->> https://elixir.bootlin.com/linux/v6.17.1/source/drivers/pci/controller/=
-cadence/pci-j721e.c#L444-L636
->>
->>         ret =3D dev_err_probe(dev, cdns_pcie_init_phy(dev, cdns_pcie), =
-"Failed to init phy\n");
->>         if (ret)
->>                 goto err_get_sync;
->>
-> No, the correct code ensures that dev_err_probe() is only called when
-> an actual error
-> has occurred, providing a clear and accurate log entry. =E2=80=A6
+Hi Laurentiu,
 
-Where do you see undesirable technical differences?
+kernel test robot noticed the following build warnings:
 
-Regards,
-Markus
+[auto build test WARNING on pza/reset/next]
+[also build test WARNING on abelvesa/clk/imx abelvesa/for-next linus/master v6.18-rc1 next-20251017]
+[cannot apply to pza/imx-drm/next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Laurentiu-Mihalcea/reset-imx8mp-audiomix-Fix-bad-mask-values/20251017-192620
+base:   https://git.pengutronix.de/git/pza/linux reset/next
+patch link:    https://lore.kernel.org/r/20251017112025.11997-4-laurentiumihalcea111%40gmail.com
+patch subject: [PATCH v2 3/8] clk: imx: add driver for imx8ulp's sim lpav
+config: xtensa-randconfig-r132-20251018 (https://download.01.org/0day-ci/archive/20251018/202510181949.IazLEB6V-lkp@intel.com/config)
+compiler: xtensa-linux-gcc (GCC) 11.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251018/202510181949.IazLEB6V-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510181949.IazLEB6V-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   drivers/clk/imx/clk-imx8ulp-sim-lpav.c: In function 'clk_imx8ulp_sim_lpav_aux_reset_release':
+   drivers/clk/imx/clk-imx8ulp-sim-lpav.c:52:9: error: implicit declaration of function 'kfree' [-Werror=implicit-function-declaration]
+      52 |         kfree(adev);
+         |         ^~~~~
+   drivers/clk/imx/clk-imx8ulp-sim-lpav.c: In function 'clk_imx8ulp_sim_lpav_register_aux_reset':
+   drivers/clk/imx/clk-imx8ulp-sim-lpav.c:65:16: error: cleanup argument not a function
+      65 |         struct auxiliary_device *adev __free(kfree) = NULL;
+         |                ^~~~~~~~~~~~~~~~
+   drivers/clk/imx/clk-imx8ulp-sim-lpav.c:68:16: error: implicit declaration of function 'kzalloc' [-Werror=implicit-function-declaration]
+      68 |         adev = kzalloc(sizeof(*adev), GFP_KERNEL);
+         |                ^~~~~~~
+>> drivers/clk/imx/clk-imx8ulp-sim-lpav.c:68:14: warning: assignment to 'struct auxiliary_device *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+      68 |         adev = kzalloc(sizeof(*adev), GFP_KERNEL);
+         |              ^
+   cc1: some warnings being treated as errors
+
+
+vim +68 drivers/clk/imx/clk-imx8ulp-sim-lpav.c
+
+    62	
+    63	static int clk_imx8ulp_sim_lpav_register_aux_reset(struct platform_device *pdev)
+    64	{
+    65		struct auxiliary_device *adev __free(kfree) = NULL;
+    66		int ret;
+    67	
+  > 68		adev = kzalloc(sizeof(*adev), GFP_KERNEL);
+    69		if (!adev)
+    70			return -ENOMEM;
+    71	
+    72		adev->name = "reset";
+    73		adev->dev.parent = &pdev->dev;
+    74		adev->dev.release = clk_imx8ulp_sim_lpav_aux_reset_release;
+    75	
+    76		ret = auxiliary_device_init(adev);
+    77		if (ret) {
+    78			dev_err(&pdev->dev, "failed to initialize aux dev\n");
+    79			return ret;
+    80		}
+    81	
+    82		ret = auxiliary_device_add(adev);
+    83		if (ret) {
+    84			auxiliary_device_uninit(adev);
+    85			dev_err(&pdev->dev, "failed to add aux dev\n");
+    86			return ret;
+    87		}
+    88	
+    89		return devm_add_action_or_reset(&pdev->dev,
+    90						clk_imx8ulp_sim_lpav_unregister_aux_reset,
+    91						no_free_ptr(adev));
+    92	}
+    93	#else
+    94	static int clk_imx8ulp_sim_lpav_register_aux_reset(struct platform_device *pdev)
+    95	{
+    96		return 0;
+    97	}
+    98	#endif /* CONFIG_RESET_CONTROLLER */
+    99	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
