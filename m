@@ -4,94 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22CB7CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 17:20:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B48CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 17:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7VxnEHAFTLBwJjm9p2k/uUVQ9xHF6FgWwcXARdXtVLE=; b=HZ4Ak+tb+PG2RKpZ4O/b5y3hf3
-	b3/8p+pgj6Ua9TJYF6hKEO7UR2UqKh7akOPiR6apgrAUcDZwzv69E4vxxjPJLGNDR/H0qrouC/sdG
-	ZGr7lmuVfMCuNvEw4clXbJE/XZYj+Xby2FPgfkp3OyiGL/4rWJKAdOSRxuFbhvWpX3MeUDVKJl0mC
-	rA/j5MJMKr6Qcob2mrRqqBQfVad7sQcETLOzRu151AUXVfmNwrkD9sw2/CXrxblVRji3nYnbGibnM
-	Rnzbr3pp+7Po/2msxF5vloB2OWTLkxglPr3hmukw5v8NLrwGD/ym4zxAQ1bvSBAEGzPCTyaKPXTJu
-	9FBO6K7w==;
+	bh=xnMuYvktlN2xS/DmBJCTciCF7ZdwayS1KGQc1yiQx70=; b=Ch/CgDj8kMG8zFldK9uhFYY1Iq
+	3W//C7SCGOxoXgeDVmtwT2moWwZ7hgzzi6GDM5b7fBR2hKtbHuK/Jxs9HNWIw82kEVqSh84/k7Ak4
+	pHdip6lJj3nbTAoMHAd+U44NoC7Yttt45IObGMvKLVV9Et1VmIzF+0G+1d8aYikqmygPSpiChbtDL
+	S7BWOx9aoO0gBuVtVlhkFVkbUpGL/3GRfYwOuERSf2eiY3aQEz3S8e6NqquyQSA8mMZLSBsX7ghOP
+	AIpRX9mDavpmX+GUrH1ReZr5mJ6SGV6uR650s0y7+7D8pAIqCaQOfcSvsMPxMgqk0p7B4w3z73zeB
+	2mlsaAOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAAbI-0000000ADDf-1nJi;
-	Sat, 18 Oct 2025 17:20:16 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1vAAj8-0000000AEMf-0kac;
+	Sat, 18 Oct 2025 17:28:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAAbF-0000000ADBg-20R6
+	id 1vAAj5-0000000AELu-3TdM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 17:20:14 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b3c82276592so54564966b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Oct 2025 10:20:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760808011; x=1761412811; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7VxnEHAFTLBwJjm9p2k/uUVQ9xHF6FgWwcXARdXtVLE=;
-        b=dq5G2QJhmvRYh9OiD6DKZfr2wEXwj00MJe1cplddDvzA9zpG3tUanCX7hqbS2Slvtj
-         cw8ewEQBFY7JqjjcSos/UK8r4nd/8itnTR8g6a/TvOtaLLWKo6Grn/fgBrCmxTMQOQNe
-         e1UiyKlLobWPFSULCCm7236Zy6rGTNbFfQiSb+ba4+f8J6QeY0IpuaCE+wh7xnY0KbCt
-         ceYXgtFnyBHnyU/+SqV0c+22IbgKgnhLzwV4WbiORZtPgzTRfEk3pWtyRG639fSlDfUq
-         +ruQYoHg+IiKtp6PvqVZLT6+DjU56FCsG+Gcvle+MvhQDbA4k5eVmrKKNBZA6otPK8LC
-         00GQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760808011; x=1761412811;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7VxnEHAFTLBwJjm9p2k/uUVQ9xHF6FgWwcXARdXtVLE=;
-        b=Z9JV/s2F4w+K7kR4BsnJjgel3Bpjx+Atlk68C+vXcFaQUSuOXfOiyBIfGPJU8J1PFH
-         88Gh6lhsxufrWop9aV+Ylv66Wx+73mFORqltCF10Gs43276U+ICRR4e7bkz4pMAtHKvk
-         1JYMjTOJwFpK/VsCXLScvQIRFUkkW4ofK/lDPOlA9/AMxVwYjmgHCWb/z9cLoZt3LVNO
-         eEVOTcVooQSDJpyyxZMpTjMuwAmY9F25Mro6EB1rmwacjAuxLaUiapvnvDqwp+lOmS7K
-         n+WnDcv9g42/x6vLGDai6d3upCZ0iuIcq7TaiTj0nur0/AYeyUNBA/MExIGrW2Qg7qQ+
-         bxHg==
-X-Forwarded-Encrypted: i=1; AJvYcCVC+ouzUqb0DJs+10IAScuQzBNeitMdKpuIT/X7ny7Iktk+T+f6xe0MSDfVXq8MnFz7meNgCU4opSTBIjxEDuCi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/eR43aavpHDzyTj6RxDiNNEfZ7QholnmWuVg4gtoCwlRedzLT
-	3FUe81kiEB4jozt/GVL++AvBZyrqR2k/8v9/zeZqdniwMe46RxL26g8Uir07Zvz3fJ0=
-X-Gm-Gg: ASbGncvRnhvjEfO+BGI9zVecV5HdyajGThBbl9BZRqRflxIlX/ynjCVdS+iCPfbhKRy
-	PLlv/KRGofgF+9iAOyduoweRFcrU7GCytggfmkKWj3K9EkDp7A/lUDht8iNt3Pg+EOoOTAwxpz7
-	XhPuOkvIyWd/wU9+CapFAzvZPNHSTyDe/E3YnZnZ04IYM3wrl9J5Rbe2vIEjHF4mcKoq4b6Zf/Q
-	q+OdIlG1yijIwvPOySuykRSyzJz9NA3ByQb0fWSwDrD0tXsrt/USN1YP+4ZyRErVMd7J9Ar5wRJ
-	ZExaPxuQuYccrLZV/zgih1LyNrhZ7Z1j5Ah+9FMWF7T/BmygPXtKltzXHkYbrZpzPazVu1Hr0qS
-	rqX7RZQCgsXStF+gjSTAEguPd6moY09QY8G3t3akaDGp2O4ifzMNv6zVbJxTlg7s5fKei15yj9F
-	6cajY67oRSwqFYi+uSmD4qAiD+y0c=
-X-Google-Smtp-Source: AGHT+IGzjn00W+axM7EzxH6402VlIDI5GyxjkBOsZamKlExZQPJ2gmUxiR9RMhBcQN+CgJFX6XHGnQ==
-X-Received: by 2002:a17:907:9407:b0:b63:561c:aa28 with SMTP id a640c23a62f3a-b6474b36a30mr495141766b.4.1760808011555;
-        Sat, 18 Oct 2025 10:20:11 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65e7da2bc7sm280666466b.16.2025.10.18.10.20.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Oct 2025 10:20:11 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sam Protsenko <semen.protsenko@linaro.org>
-In-Reply-To: <20251009-gs101-pmu-regmap-tables-v2-0-2d64f5261952@linaro.org>
-References: <20251009-gs101-pmu-regmap-tables-v2-0-2d64f5261952@linaro.org>
-Subject: Re: [PATCH v2 0/3] soc: samsung: exynos-pmu: gs101: avoid SError
- for inaccessible registers
-Message-Id: <176080801030.47136.7288147057248506381.b4-ty@linaro.org>
-Date: Sat, 18 Oct 2025 19:20:10 +0200
+	Sat, 18 Oct 2025 17:28:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 17EB141936;
+	Sat, 18 Oct 2025 17:28:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EC80C4CEF8;
+	Sat, 18 Oct 2025 17:28:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760808499;
+	bh=nkpL8KCY8Mv4kdqNPyJVilkHUZSdiEwxv2jGzWqeGx4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XLMRLUsTZ25haHEOiq3fj+rwzViXij4qUl4GZuEHvA2ZRIcLI6AUIhbA3QmBZP73B
+	 skj9XCWXM7Dd77iUR/QVlzM2Mo0x0LeUdsBDComWdt3NBg5Fxmh4MLeV36j7CQKNVL
+	 m3mMKH22qvXKelhmdPh75q8T2uB8g1eFfSDaN9ZaXpwJT3EJd/U4Tnh9IgGOD+8+3A
+	 oeU83mRJ7T1dRjc0+Al0yRFHI5FqiWThJmlshgwZmkLGq30KhgdL/zJCaxV2VU+Dwn
+	 TlxOe+PmWediUZbxK7+WRWQd7e3Ldp0mttozai6MfnO1hBArlQj3ZgNOcHiLUDpHjI
+	 DHwoXbsXbCHqQ==
+Message-ID: <a77ee843-4c7f-4c7b-820d-2d9486887b7e@kernel.org>
+Date: Sat, 18 Oct 2025 19:28:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: defconfig: Enable ILITEK ILI21X & ILI25X
+ family of touch sensors
+To: Swamil Jain <s-jain1@ti.com>, nm@ti.com, tomi.valkeinen@ideasonboard.com,
+ robh@kernel.org, jyri.sarha@iki.fi, aradhya.bhatia@linux.dev,
+ airlied@gmail.com, conor+dt@kernel.org, h-shenoy@ti.com, kristo@kernel.org,
+ krzk+dt@kernel.org, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ simona@ffwll.ch, tzimmermann@suse.de
+Cc: devarsht@ti.com, praneeth@ti.com, u-kumar1@ti.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org
+References: <20251017115325.1942591-1-s-jain1@ti.com>
+ <20251017115325.1942591-3-s-jain1@ti.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251017115325.1942591-3-s-jain1@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_102013_540547_F29E6A59 
-X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-CacheID: sfid-20251018_102819_932043_45A17D7E 
+X-CRM114-Status: UNSURE (   5.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,28 +124,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 09 Oct 2025 10:31:24 +0100, André Draszik wrote:
-> Accessing non-existent PMU registers causes an SError, halting the
-> system and rendering it unuseable.
+On 17/10/2025 13:53, Swamil Jain wrote:
+> Microtips Technology USA's LVDS Panel MF-101HIEBCAF0[1] uses
+> ILITEK 2511 capacitative touch sensor to provide touch features on the
+> display. This panel is used with TI's AM62-SK EVMs.
 > 
-> For gs101, we can avoid that by creating the underlying PMU regmap with
-> the read- and writable register ranges in place, because on gs101 this
-> driver controls creation of the regmap.
+> Enable ILITEK ILI21X touch sensors.
 > 
-> [...]
+> [1]: https://www.ti.com/tool/SK-LCD1
+> 
 
-Applied, thanks!
-
-[1/3] soc: samsung: exynos-pmu: allow specifying read & write access tables for secure regmap
-      https://git.kernel.org/krzk/linux/c/1fce7e4d6c42c8164e6e36d8600e16663066c1b2
-[2/3] soc: samsung: exynos-pmu: move some gs101 related code into new file
-      https://git.kernel.org/krzk/linux/c/b320711e4c377b0e2ce0b296ba9485cf3f9eb10d
-[3/3] soc: samsung: gs101-pmu: implement access tables for read and write
-      https://git.kernel.org/krzk/linux/c/8b9cd112f1ac8d72244b189654e693012ea8dfe0
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Krzysztof
 
