@@ -4,79 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA40DCCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 13:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD1CCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 13:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8H5vzOhfwOFb0ThMppbAGaVCE3dpwzVxkrOGXVN0X4A=; b=N0+n/X2ixN44ECmYZNqYisoMXG
-	xAj0MtYWM6YfnSE6fhRJFWQUR5+xlaAgJEq8fLAYTQ2aGhi5QlKhHR6dDbOP+H2PU4Fw49FB1B5ff
-	kEkwc2OqeqJwH7QRNi3qPOPWvQyVA17eMfJNXySwXNrpqfTbuSlufSyMzOCUxXM0cZaP2tOXZz0vx
-	PLwWlNlkEcgzAvgqvVLAhc/U32oDSMAB1MFOQpBFShyIMTYGFdVDYysvyPgw+Q60IcMZEtMc9UJWr
-	2WFbCWITTYuAZW0tqqqeIfgh2NZlB1eOpXNL8RASAeOJsobztTGjPrdOJKZMRwE06VJLapzBFjHr6
-	qfVri0Lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+xH/dYh9+61Zw9s7WJ+ymcWtaxDOHvFEU7kBYJsTw9g=; b=vIrVFdA66fzEu/jl5qARYDqNhZ
+	wFimtPDgdLyG/8DZH8VMyW2hJ1UZ4cMHnpCKOvhW5BhlVUQ2++rw/QisbiVPP47HR8AePJzqXNwgB
+	2jbe4D976gd0mMjs3mR3b1lplrXlX+H/ksbPfAYh3l2tAR3nHIT3HkxsizXZj7J1wxUkdCNOu42lC
+	C6/4c1Fa8mK0cfJ7IqaHdbn6dR0IMzNP1CYONrLady/9fvjArU9p8XUq3nvjHHd1+HZq54AcNulEz
+	oE997d6IcrXBwgHbPOPN2putEZ6524wcJ/lZMwH0LZBKXvq39gWhel/4d9+pVVCKFmqL3fMMDQ49z
+	3Qe653MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA6xK-00000009xnP-0IiX;
-	Sat, 18 Oct 2025 13:26:46 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vA791-00000009yiw-0IE8;
+	Sat, 18 Oct 2025 13:38:51 +0000
+Received: from smtps.ntu.edu.tw ([140.112.2.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA6xD-00000009xgU-13B7;
-	Sat, 18 Oct 2025 13:26:40 +0000
-X-UUID: 11809bf4ac2611f0a52f393f94899d25-20251018
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=8H5vzOhfwOFb0ThMppbAGaVCE3dpwzVxkrOGXVN0X4A=;
-	b=U56HXIsWeXMkVxw2FVs+eRWndkC2JgtACT8oTIonBfGI6qyPXeahJjUtjRHU35h8KAc7mPb4MxuxoYRHo8YZquNm8q+H2ZJ3GRWE66L8naztuR/rK1ShtdzniEl66XRRDcZ/R/WfPdy+HqoqMVir2BuJvidpkjz0lzunWSdewr8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:50b8ff33-93ed-44c4-b282-24a877aea337,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:f91a8702-eaf8-4c8c-94de-0bc39887e077,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
-	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 11809bf4ac2611f0a52f393f94899d25-20251018
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <zhengnan.chen@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2073665612; Sat, 18 Oct 2025 06:26:35 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Sat, 18 Oct 2025 21:26:29 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Sat, 18 Oct 2025 21:26:28 +0800
-From: Zhengnan Chen <zhengnan.chen@mediatek.com>
-To: Yong Wu <yong.wu@mediatek.com>, Joerg Roedel <joro@8bytes.org>, Will
- Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: <iommu@lists.linux.dev>, <linux-mediatek@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Zhengnan Chen
-	<zhengnan.chen@mediatek.com>
-Subject: [PATCH v4 4/5] iommu/mediatek: mt8189: Add INFRA IOMMUs support
-Date: Sat, 18 Oct 2025 21:26:13 +0800
-Message-ID: <20251018132625.14428-5-zhengnan.chen@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20251018132625.14428-1-zhengnan.chen@mediatek.com>
-References: <20251018132625.14428-1-zhengnan.chen@mediatek.com>
+	id 1vA78c-00000009yej-30Gd
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 18 Oct 2025 13:38:49 +0000
+Received: from x415ea.. (unknown [101.14.4.245])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtps.ntu.edu.tw (Postfix) with ESMTPSA id 8B5EE34F4C;
+	Sat, 18 Oct 2025 21:38:07 +0800 (CST)
+From: Bill Tsui <b10902118@ntu.edu.tw>
+To: oleg@redhat.com,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: nathan@kernel.org,
+	nick.desaulniers+lkml@gmail.com,
+	morbo@google.com,
+	justinstitt@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	Bill Tsui <b10902118@ntu.edu.tw>
+Subject: [PATCH v4 1/1] arm64: ptrace: fix hw_break_set() to set addr and ctrl together
+Date: Sat, 18 Oct 2025 21:37:31 +0800
+Message-ID: <20251018133731.42505-2-b10902118@ntu.edu.tw>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251018133731.42505-1-b10902118@ntu.edu.tw>
+References: <20251016154401.35799-1-b10902118@ntu.edu.tw>
+ <20251018133731.42505-1-b10902118@ntu.edu.tw>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_062639_337712_F69921CF 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20251018_063827_022326_B15A49FE 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +71,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for mt8189 INFRA IOMMUs.
+This patch fixes the failure of PTRACE_SETREGSET when setting a hardware
+breakpoint on a non-4-byte aligned address with a valid control to a
+32-bit tracee. The issue was discovered while testing LLDB.
 
-Signed-off-by: Zhengnan Chen <zhengnan.chen@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Yong Wu <yong.wu@mediatek.com>
+Link: https://github.com/llvm/llvm-project/pull/152284
+
+The failure happens because hw_break_set() checks and sets the breakpoint
+address and control separately. This can result in an check failure when
+it first validates the address to be set with old control.
+
+For example, the control are initialized with breakpoint length of 4.
+Combining with a non-4-byte aligned address would cross a 4-byte boundary,
+which is invalid. However, the user-provided control may actually specify a
+length of 1, which should be valid.
+
+The fix is to set the address and control together. This is supported
+by modify_user_hw_breakpoint(), the function that sets and checks
+breakpoints. The original implementation wrap this function to
+ptrace_hbp_set_addr() and ptrace_hbp_set_ctrl() for 32-bit API
+PTRACE_SETHBPREGS simply because it can only modify one register (address
+or control) per call. For the 64-bit PTRACE_SETREGSET API, this
+restriction does not apply, so a new helper function ptrace_hbp_set() was
+added to set both in a single call to modify_user_hw_breakpoint().
+
+Then ptrace_hbp_set_addr() and ptrace_hbp_set_ctrl() are only used by
+compat_ptrace_hbp_set(), so moved into CONFIG_COMPAT block and renamed
+with prefix compat_.
+
+For reference, the check is in
+	arch/arm64/kernel/hw_breakpoint.c:hw_breakpoint_arch_parse()
+which is called via:
+	modify_user_hw_breakpoint()
+	-> modify_user_hw_breakpoint_check()
+	-> hw_breakpoint_parse()
+	-> hw_breakpoint_arch_parse()
+
+Signed-off-by: Bill Tsui <b10902118@ntu.edu.tw>
 ---
- drivers/iommu/mtk_iommu.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ arch/arm64/kernel/ptrace.c | 90 ++++++++++++++++++++++++--------------
+ 1 file changed, 58 insertions(+), 32 deletions(-)
 
-diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
-index aa4972aed91e..e71acaa292cc 100644
---- a/drivers/iommu/mtk_iommu.c
-+++ b/drivers/iommu/mtk_iommu.c
-@@ -339,6 +339,7 @@ static int mtk_iommu_hw_init(const struct mtk_iommu_data *data, unsigned int ban
- #define MTK_IOMMU_4GB_MODE_REMAP_BASE	 0x140000000UL
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index 4b001121c72d..c8caf4e0805e 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -421,10 +421,11 @@ static struct perf_event *ptrace_hbp_get_initialised_bp(unsigned int note_type,
+ 	return bp;
+ }
  
- static LIST_HEAD(apulist);	/* List the apu iommu HWs */
-+static LIST_HEAD(infralist);	/* List the iommu_infra HW */
- static LIST_HEAD(m4ulist);	/* List all the M4U HWs */
+-static int ptrace_hbp_set_ctrl(unsigned int note_type,
+-			       struct task_struct *tsk,
+-			       unsigned long idx,
+-			       u32 uctrl)
++/* Set the address and control together for non-compat ptrace */
++static int ptrace_hbp_set(unsigned int note_type,
++				   struct task_struct *tsk,
++				   unsigned long idx,
++				   u64 addr, u32 uctrl)
+ {
+ 	int err;
+ 	struct perf_event *bp;
+@@ -438,6 +439,8 @@ static int ptrace_hbp_set_ctrl(unsigned int note_type,
+ 	}
  
- #define for_each_m4u(data, head)  list_for_each_entry(data, head, list)
-@@ -1758,6 +1759,18 @@ static const struct mtk_iommu_plat_data mt8189_data_apu = {
- 	.iova_region_larb_msk = mt8189_apu_region_msk,
- };
- 
-+static const struct mtk_iommu_plat_data mt8189_data_infra = {
-+	.m4u_plat	= M4U_MT8189,
-+	.flags		= WR_THROT_EN | DCM_DISABLE | MTK_IOMMU_TYPE_INFRA |
-+			  CFG_IFA_MASTER_IN_ATF | SHARE_PGTABLE | PGTABLE_PA_35_EN,
-+	.hw_list	= &infralist,
-+	.banks_num	= 1,
-+	.banks_enable	= {true},
-+	.inv_sel_reg	= REG_MMU_INV_SEL_GEN2,
-+	.iova_region	= single_domain,
-+	.iova_region_nr	= ARRAY_SIZE(single_domain),
-+};
+ 	attr = bp->attr;
++	attr.bp_addr = addr;
 +
- static const struct mtk_iommu_plat_data mt8192_data = {
- 	.m4u_plat       = M4U_MT8192,
- 	.flags          = HAS_BCLK | HAS_SUB_COMM_2BITS | OUT_ORDER_WR_EN |
-@@ -1860,6 +1873,7 @@ static const struct of_device_id mtk_iommu_of_ids[] = {
- 	{ .compatible = "mediatek,mt8188-iommu-vdo",   .data = &mt8188_data_vdo},
- 	{ .compatible = "mediatek,mt8188-iommu-vpp",   .data = &mt8188_data_vpp},
- 	{ .compatible = "mediatek,mt8189-iommu-apu",   .data = &mt8189_data_apu},
-+	{ .compatible = "mediatek,mt8189-iommu-infra", .data = &mt8189_data_infra},
- 	{ .compatible = "mediatek,mt8192-m4u", .data = &mt8192_data},
- 	{ .compatible = "mediatek,mt8195-iommu-infra", .data = &mt8195_data_infra},
- 	{ .compatible = "mediatek,mt8195-iommu-vdo",   .data = &mt8195_data_vdo},
+ 	decode_ctrl_reg(uctrl, &ctrl);
+ 	err = ptrace_hbp_fill_attr_ctrl(note_type, ctrl, &attr);
+ 	if (err)
+@@ -446,27 +449,6 @@ static int ptrace_hbp_set_ctrl(unsigned int note_type,
+ 	return modify_user_hw_breakpoint(bp, &attr);
+ }
+ 
+-static int ptrace_hbp_set_addr(unsigned int note_type,
+-			       struct task_struct *tsk,
+-			       unsigned long idx,
+-			       u64 addr)
+-{
+-	int err;
+-	struct perf_event *bp;
+-	struct perf_event_attr attr;
+-
+-	bp = ptrace_hbp_get_initialised_bp(note_type, tsk, idx);
+-	if (IS_ERR(bp)) {
+-		err = PTR_ERR(bp);
+-		return err;
+-	}
+-
+-	attr = bp->attr;
+-	attr.bp_addr = addr;
+-	err = modify_user_hw_breakpoint(bp, &attr);
+-	return err;
+-}
+-
+ #define PTRACE_HBP_ADDR_SZ	sizeof(u64)
+ #define PTRACE_HBP_CTRL_SZ	sizeof(u32)
+ #define PTRACE_HBP_PAD_SZ	sizeof(u32)
+@@ -524,9 +506,6 @@ static int hw_break_set(struct task_struct *target,
+ 			return -EINVAL;
+ 		ret = user_regset_copyin(&pos, &count, &kbuf, &ubuf, &addr,
+ 					 offset, offset + PTRACE_HBP_ADDR_SZ);
+-		if (ret)
+-			return ret;
+-		ret = ptrace_hbp_set_addr(note_type, target, idx, addr);
+ 		if (ret)
+ 			return ret;
+ 		offset += PTRACE_HBP_ADDR_SZ;
+@@ -537,10 +516,11 @@ static int hw_break_set(struct task_struct *target,
+ 					 offset, offset + PTRACE_HBP_CTRL_SZ);
+ 		if (ret)
+ 			return ret;
+-		ret = ptrace_hbp_set_ctrl(note_type, target, idx, ctrl);
++		offset += PTRACE_HBP_CTRL_SZ;
++
++		ret = ptrace_hbp_set(note_type, target, idx, addr, ctrl);
+ 		if (ret)
+ 			return ret;
+-		offset += PTRACE_HBP_CTRL_SZ;
+ 
+ 		user_regset_copyin_ignore(&pos, &count, &kbuf, &ubuf,
+ 					  offset, offset + PTRACE_HBP_PAD_SZ);
+@@ -2139,6 +2119,52 @@ static int compat_ptrace_hbp_get(unsigned int note_type,
+ 	return err;
+ }
+ 
++static int compat_ptrace_hbp_set_ctrl(unsigned int note_type,
++			       struct task_struct *tsk,
++			       unsigned long idx,
++			       u32 uctrl)
++{
++	int err;
++	struct perf_event *bp;
++	struct perf_event_attr attr;
++	struct arch_hw_breakpoint_ctrl ctrl;
++
++	bp = ptrace_hbp_get_initialised_bp(note_type, tsk, idx);
++	if (IS_ERR(bp)) {
++		err = PTR_ERR(bp);
++		return err;
++	}
++
++	attr = bp->attr;
++	decode_ctrl_reg(uctrl, &ctrl);
++	err = ptrace_hbp_fill_attr_ctrl(note_type, ctrl, &attr);
++	if (err)
++		return err;
++
++	return modify_user_hw_breakpoint(bp, &attr);
++}
++
++static int compat_ptrace_hbp_set_addr(unsigned int note_type,
++			       struct task_struct *tsk,
++			       unsigned long idx,
++			       u64 addr)
++{
++	int err;
++	struct perf_event *bp;
++	struct perf_event_attr attr;
++
++	bp = ptrace_hbp_get_initialised_bp(note_type, tsk, idx);
++	if (IS_ERR(bp)) {
++		err = PTR_ERR(bp);
++		return err;
++	}
++
++	attr = bp->attr;
++	attr.bp_addr = addr;
++	err = modify_user_hw_breakpoint(bp, &attr);
++	return err;
++}
++
+ static int compat_ptrace_hbp_set(unsigned int note_type,
+ 				 struct task_struct *tsk,
+ 				 compat_long_t num,
+@@ -2151,10 +2177,10 @@ static int compat_ptrace_hbp_set(unsigned int note_type,
+ 
+ 	if (num & 1) {
+ 		addr = *kdata;
+-		err = ptrace_hbp_set_addr(note_type, tsk, idx, addr);
++		err = compat_ptrace_hbp_set_addr(note_type, tsk, idx, addr);
+ 	} else {
+ 		ctrl = *kdata;
+-		err = ptrace_hbp_set_ctrl(note_type, tsk, idx, ctrl);
++		err = compat_ptrace_hbp_set_ctrl(note_type, tsk, idx, ctrl);
+ 	}
+ 
+ 	return err;
 -- 
-2.46.0
+2.51.0
 
 
