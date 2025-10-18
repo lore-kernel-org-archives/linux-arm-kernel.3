@@ -4,60 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B1ECCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 17:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A924CCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 17:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qB1j/+I5/ZjuuObSlQbb2C9HSpLcHcdbskR3s4rIdGc=; b=B1qZwn4RthFEZcIzUWKVnXOLkR
-	yf58nPCGYnLOb2/pwruP1hfHfgXc9PBgetxroPqYMWM4fcW++2krOOCPmlance+IavBoQ+vu0Pgz/
-	SgG6NY8tGnWmKK4VjkNdN39N46GnnJY+17T3MRr25pKmFjwwDE2bk9iYzDCD3oB4F0G/SCjB16euk
-	SGTUX3LYLPfVpuPwALrBaIC6GX0+F5ruPfaW0javX2lRvD1JfChUuTYnWcOyyE6DVOaKPAQQWWJ5Y
-	zQxbF+dkiErHF3Xd5+55enxffUKHibiq5LrG95pbVYe203ZXFgXLPKP4iDf37fs1Up0eRYztQsaV9
-	j7CukrmA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2r7uYQC9IHxd6bgHDQbPQY0fL2/pLhUbCiU6jVHQRig=; b=ITrsymjHsRDbNGUofPqJpiXVdA
+	cmBRzdhhRRBrVTUml/44n9B0hsE2i8oSD2jXEuKWfSeLs7YyL7CtFVJH5IRe8CMHhxrTdlWQ1I+pE
+	J7OoA/fcEYXEO2bHV3yPK0AlY+lsISPSZpTnDIWl3MWJYLbOlfQIB8FA2Ms1UvuKdXbEChB5rUx+t
+	fKLbU4/c2DrOMKhF7qeJ6aiKNWlbxo3ukMUoR+2bhXI87rgU+nfssr7gm8IukAvB+B54Gr9TiDtAj
+	ERTdid82ahg/cDhsDmAmSvwdS3px7mOhQdDskgx2evKqqIsi8vKhmCNjPDKzvqBBuOHiphzA04wV8
+	D54mLopQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAAMN-0000000ABK9-3nRM;
-	Sat, 18 Oct 2025 17:04:51 +0000
-Received: from mail-108-mta253.mxroute.com ([136.175.108.253])
+	id 1vAANZ-0000000ABcV-2Mu2;
+	Sat, 18 Oct 2025 17:06:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAAML-0000000ABJJ-2Ucv
+	id 1vAANY-0000000ABbg-0ogn
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 17:04:50 +0000
-Received: from filter006.mxroute.com ([140.82.40.27] filter006.mxroute.com)
- (Authenticated sender: mN4UYu2MZsgR)
- by mail-108-mta253.mxroute.com (ZoneMTA) with ESMTPSA id 199f847ec11000c217.002
- for <linux-arm-kernel@lists.infradead.org>
- (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
- Sat, 18 Oct 2025 17:04:47 +0000
-X-Zone-Loop: af70f36b808dbddffa552ec9a3a839443a01e61e577f
-X-Originating-IP: [140.82.40.27]
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=josie.lol;
-	s=x; h=Content-Transfer-Encoding:MIME-Version:Date:Subject:Cc:To:From:Sender:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References;
-	bh=qB1j/+I5/ZjuuObSlQbb2C9HSpLcHcdbskR3s4rIdGc=; b=UtYNd+m7cEUGGMDAHNEASp9fXe
-	Il0E5icoPyU3EXmklLPkB20OCbbznfoSs3DB1tjKYCwys27L/Q2FBoCvvnTyqMB01P93C6ili0x9V
-	1DNVrA4J5sZyYVtlzvSRhyJFnMRHgKAzFNuprMTDPiwYvselR5PcrlR1W2P6fdAoDffGD7q9TNkHj
-	/YwjG1OyLl1W1kmxTb8/NkxCUmezHjsIiHu6TO8raH1aoHzPQNslja7JdUuIzT2RJGxzxq7DRil3B
-	K4qCkFpu/s+LGh8gVsNJJuMEf8MdpOhO14IAM9zrsPHakLLXRl+7O2qhIfT8DOzcOo/Qza1K6l1X6
-	vfKTvV3Q==;
-From: Josephine Pfeiffer <hi@josie.lol>
-To: linux@armlinux.org.uk
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/4] ARM: ptdump: use seq_puts() in pt_dump_seq_puts() macro
-Date: Sat, 18 Oct 2025 19:04:42 +0200
-Message-ID: <20251018170442.3355403-1-hi@josie.lol>
+	Sat, 18 Oct 2025 17:06:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C03C60382;
+	Sat, 18 Oct 2025 17:06:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAAEBC4CEF8;
+	Sat, 18 Oct 2025 17:05:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760807162;
+	bh=2x+8nVrwYwA8yCfBJaLAbxeu2GjEiw06hcYzBWsfWaw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ne/BL92xXoLlX5oC8Zxa3RfndPNs2+CbW4wirFL6Yc+bB0k0893A4Yr8Hd7E4WwDN
+	 L8pxcvfnyW60imsIqZc7I00X8IXC4eTB/OF1rRC7mBE0ztI0Eqe17zjEyWVgoMKrxK
+	 9p64OEFuUltApFFhRN/HObl3bWXwyoS8HoSXlP/Xm9PQrD/Cp5m7d7ISxjz9EV6Ocg
+	 srINPmuT1Zm9k9j9YXgZuhzEm/w9Njic3582KvOOXmGfHeIjVljBVBe0GzT009sgmU
+	 AGj8Evq2iABNkubLv/y6avRA1PemmrenzvEk3inpciFn05kGm3RdU0XSJ2kj03Y10B
+	 7Aq+WVqphdlJA==
+Message-ID: <884448f6-89bf-49e4-8d1c-e91b666cbe3c@kernel.org>
+Date: Sat, 18 Oct 2025 19:05:57 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] dt-bindings: soc: samsung: exynos-sysreg: add
+ power-domains
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20251010-power-domains-dt-bindings-soc-samsung-exynos-sysreg-v2-1-552f5787a3f3@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251010-power-domains-dt-bindings-soc-samsung-exynos-sysreg-v2-1-552f5787a3f3@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Authenticated-Id: hi@josie.lol
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_100449_719249_78B0D60D 
-X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,39 +119,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pt_dump_seq_puts() macro incorrectly uses seq_printf() instead of
-seq_puts(). This is both a performance issue and conceptually wrong,
-as the macro name suggests plain string output (puts) but the
-implementation uses formatted output (printf).
+On 10/10/2025 08:29, André Draszik wrote:
+> On gs101 only, sysreg can be part of a power domain, so we need to
+> allow the relevant property 'power-domains' for the relevant
+> compatibles google,gs101-*-sysreg.
+> 
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> ---
+> Changes in v2:
+> - limit to gs101 only (Krzysztof)
+> - Link to v1: https://lore.kernel.org/r/20251008-power-domains-dt-bindings-soc-samsung-exynos-sysreg-v1-1-ab41c517dec6@linaro.org
+> ---
+>  .../bindings/soc/samsung/samsung,exynos-sysreg.yaml         | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
 
-While there are no current call sites in the ARM implementation that
-trigger this code path, fixing the macro ensures correctness and
-prevents potential issues if new call sites are added in the future.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-This bug was introduced in commit d02ca6d76ba7 ("ARM: 8736/1: mm: dump:
-make the page table dumping seq_file") in 2017, which explicitly copied
-the implementation from the buggy arm64 version (ae5d1cf358a5).
-
-Fixes: d02ca6d76ba7 ("ARM: 8736/1: mm: dump: make the page table dumping seq_file")
-Signed-off-by: Josephine Pfeiffer <hi@josie.lol>
----
- arch/arm/mm/dump.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm/mm/dump.c b/arch/arm/mm/dump.c
-index cd032522d902..bc90cf2404d2 100644
---- a/arch/arm/mm/dump.c
-+++ b/arch/arm/mm/dump.c
-@@ -42,7 +42,7 @@ static struct addr_marker address_markers[] = {
- #define pt_dump_seq_puts(m, fmt)    \
- ({						\
- 	if (m)					\
--		seq_printf(m, fmt);	\
-+		seq_puts(m, fmt);	\
- })
- 
- struct pg_state {
--- 
-2.51.1.dirty
-
+Best regards,
+Krzysztof
 
