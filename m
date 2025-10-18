@@ -4,87 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6653CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 04:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AE9CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 04:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Niff0cY+3zKtJEokA62CF8EX1JGEDNP9i3wfgGE+H9w=; b=A7bZOFO8UZ2rY+sRj8fQCBUSHX
-	HnMDEJU7cEH7yzfD1GWPrBvvhoeNfM7nQ1x1wovGyEKOov0EWVi/JWlDr/PUXwJDHlztxQWZLEYHo
-	DNYK4j2hJ4WeD9FvYu8WQfb99Ay0NNcnZFF2K/M2lrdkGH5KMszoJhoi89yDu8bTvLjXo/fj1XxZt
-	7sKREA3/fYeDLUIDprOU9isbmXq7Xa6+YWI7937FRqyUORIOCbq4Qsw9wMOyVTJjUX4NA0G1k19rg
-	NaE7MjmBHYimXkWWHaT0X9TjUnqHETiZvj76o1+vNMg48NGtzHx0OvHI7B/gNH3ANJr9DNju+uC1a
-	h09hFWZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FwE+FlafPdFDMuivWnU+BJHVFOy/nLZHlq4G67TTc0k=; b=kU0i2jg6i06pcqDD0v0C4ot8QC
+	or1+cKk1msEK7Ssw3AWnFOubk7bZV/7zgcGL6cTcA1HdGmIc7Nn7AyJx2Acump/Yoclg496aNcRgf
+	feENR0f0mIl8dOcCFNQ+nHneKQjqn7qYQ7yfbjbIQ1ucIX9CroRy/VMmCC1SBJ9PT3bBj1YI2fpyp
+	9hFuINlF6Ot/ZlJsOcnG2+Wvi7YTkn5OUFOyF8kNtPgqYfXTN1gJkhsf8jJSntFXFYdnZebH05BCR
+	UI2wzmmPzW51e14tEgmJVEHkoEbY2RxJUmZ04cBs1Hnh9VpyzNiSuG6sKewnywsakiwBJaZc2Zli1
+	Efos1q4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9yM2-00000009UD4-0S5d;
-	Sat, 18 Oct 2025 04:15:42 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1v9yf5-00000009V5i-3tOP;
+	Sat, 18 Oct 2025 04:35:23 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v9yLz-00000009UCf-1yiI
+	id 1v9yf3-00000009V5L-3Npb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 04:15:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760760939; x=1792296939;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=xJ+JsUz4XbcP1v+4FsWXjV6AIbsUH9+FEb2iGeNwyHU=;
-  b=a9o/lVmYKyCiV7Pzq52aUm92StDsKkSPfKPMnRynfjQONZqHnHwyzFxL
-   DEB5cDSpu8+k14GxyjMou/3D+5GHMHuLfifnVbw28PGdO8B3wwNAnBVpR
-   7IbHxjJIocSeA4Tcrr/Y12QV/McSPTBNDXdaoCz4lXjudywHdIRj5YPH6
-   ioQaiZcrOrxERP6a0BZdT11ZhEUvdBuWUibxMi1kuYrrnLDdGfzzQBcts
-   lnGYI0QwSwpVr7QL+365wqob+JzVauT8WZD9zkPsKL1pxifWPwoyHCZBH
-   2dVKFUJ+3gh6T1ccBerxMJjcmMFdZYKeW4SyfjO0sofDFbmz7wy7AG8id
-   w==;
-X-CSE-ConnectionGUID: crd/wjBVTVCKc4fyAbax4Q==
-X-CSE-MsgGUID: oiYA/Pj4T/G2beYaibnrdQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11585"; a="73650843"
-X-IronPort-AV: E=Sophos;i="6.19,238,1754982000"; 
-   d="scan'208";a="73650843"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Oct 2025 21:15:36 -0700
-X-CSE-ConnectionGUID: vdSs8jYZR0+Zx8hwJkk8DQ==
-X-CSE-MsgGUID: AOaCem9pThybXB/LUZKBSg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,238,1754982000"; 
-   d="scan'208";a="188197059"
-Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
-  by fmviesa004.fm.intel.com with ESMTP; 17 Oct 2025 21:15:31 -0700
-Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v9yLg-00083H-2m;
-	Sat, 18 Oct 2025 04:15:25 +0000
-Date: Sat, 18 Oct 2025 12:15:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
-	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Sat, 18 Oct 2025 04:35:22 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-27ee41e074dso31109325ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 17 Oct 2025 21:35:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760762121; x=1761366921; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FwE+FlafPdFDMuivWnU+BJHVFOy/nLZHlq4G67TTc0k=;
+        b=SSczfY4DvwkIMC754oSbGj4mVx7Qvm0Rdpb2yR0p+s4ohz4y1eelXWsaQRUV3L1d42
+         F/FYHI66cXf1aHuITqFs/aaOLbFPAF55YTxoFtL5QuUjfO9mkG1C/MCYaJQJaD65g4vW
+         fteUwS1ulfR/sAVwek60pX7BF1N60YKkMoZA8aR0ad/bn0a7Y/Zcy++QwpGEGFIe4MLK
+         hxTAALRMvx1cFIL6aWMsIiqd1ubnQP3gvRbiVv3w05YI0YF9709Rh5syEE5JnP4pYbQo
+         SE2wqZ97pEMCFXFc29uyWL70KagDPWatTKs7lFLXk1sgDRi6v1gmZTWcMFxTV9ybYX8d
+         w1/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760762121; x=1761366921;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FwE+FlafPdFDMuivWnU+BJHVFOy/nLZHlq4G67TTc0k=;
+        b=Yg4XQ6h3T2GNHfVUm2Mjh0lFDI9C81ln3CJJfJhXnn/fa4SrAIAI8Wm2rx6D/sfku5
+         mKzbg2wrhawVReySlEQ20cgfhE13yTtlO49KvyUqp7sXHbyy/rxH7mpdpZDucNJHXb2y
+         hPbH0apEKuvbR/Da5/yxgTVBv4m3N/toF7Pi9J64K7V90SQUYAzu0TjUyvbebB2+rJ4k
+         S4Po8RtXR3ghrC0nAmcWi5nlJDzbR1RZaw7jgIqG12uGtMYGl4ZX3ExVnU7GQMZMCMoh
+         dS5ch9sq4DqzS9nb5/YXaVG4/SZVpciBtZk/f1zkZVybvNmyxVx1Q6TG5M2SgAk8olUo
+         P0zQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWmI4vD0s2ldZkkVLMMaorcyY6afUYz95tfIFonjSGgAd6zDEewT/1/D/XT4SMjiild32Pa0bOrVOMHMVCSXLRp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKBqwbGkUQ9Z7Lg4dPdYRfEROFc5zkR1sTGYBcUqKz8Z6zRa0c
+	KUYLk/lVua7bWIWsUx9g56ccZZj1amaJ7sUeLuFVPCjkailQaKePKC18rXXJ0w==
+X-Gm-Gg: ASbGncvWDZgc0guJM8uCYZ7fH5fuTNfYDRAI+sHZQoontqFO7V33e5VwT3q+2y5fgYi
+	0kHzW4uqKGd0lbgVu+W+dW2Sqyk10qla+kHqHhjXJXUrtkO+5J2rSAVrw57u04xGiofA0zS3tBM
+	Nyb9YYgzYbMK6XlbslNRGn0HSn6OxwpPcsYPZziPNIbHVq6ThfIO4cgDhkVzOh9zzi3xJ4yRZI9
+	rqa+uj10sVkQMHkZXpNniazr38dmCmNutxnFLlPCf9uhdvLdhcVAS8krj7i347hYQLvona6HTT8
+	niNV1rc5pMKqE2lz5lS7vA+tfDz3QV8Vn3Qj4X+JxUIC9+0S3WvfGssePTbO6tPekVmo/hwpwHx
+	5iHcXhBhjGNSC6BJ3o15h9zN2/enby9L/TckyBwMtTLSa6ZjkOvwWDj2u9XsFPmv7zQb4D537JC
+	88ltdcwOVolhkjRanoeQYn1+e/YdjGi+qeeI8AcscevvwzGMjjASttn0aM1hW2XszsFO9SCZRR7
+	peg
+X-Google-Smtp-Source: AGHT+IFjj+JR7R/Q2O8WxGOAy+zB1ukpFPQ6elAKB9VmH+ImOjLf6iOrU+WTRyaZ3nV4hWJdz9cmxA==
+X-Received: by 2002:a17:903:3bc4:b0:290:b131:31dd with SMTP id d9443c01a7336-290c99aa9a0mr69186125ad.0.1760762120750;
+        Fri, 17 Oct 2025 21:35:20 -0700 (PDT)
+Received: from cosmo-ubuntu-2404.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29247218eafsm12167715ad.101.2025.10.17.21.35.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 17 Oct 2025 21:35:20 -0700 (PDT)
+From: Cosmo Chou <chou.cosmo@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joel@jms.id.au,
+	andrew@codeconstruct.com.au
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH v2 3/8] clk: imx: add driver for imx8ulp's sim lpav
-Message-ID: <202510181121.D3XVfMFh-lkp@intel.com>
-References: <20251017112025.11997-4-laurentiumihalcea111@gmail.com>
+	cosmo.chou@quantatw.com,
+	Cosmo Chou <chou.cosmo@gmail.com>
+Subject: [PATCH v2] ARM: dts: aspeed: bletchley: remove WDTRST1 assertion from wdt1
+Date: Sat, 18 Oct 2025 12:33:09 +0800
+Message-ID: <20251018043310.1056032-1-chou.cosmo@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251017112025.11997-4-laurentiumihalcea111@gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251017_211539_555614_29C76875 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20251017_213521_886072_2A323B67 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,123 +105,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurentiu,
+Remove the external signal configuration from wdt1 to prevent the
+WDTRST1 pin from being asserted during watchdog resets.
 
-kernel test robot noticed the following build errors:
+The WDTRST1 pin was originally configured to reset the TPM during
+watchdog events. However, the pin is incorrectly routed to SRST#
+on the hardware, causing unintended system resets. Since the TPM
+is not currently utilized on this platform, remove the external
+signal configuration to avoid the incorrect reset behavior.
 
-[auto build test ERROR on pza/reset/next]
-[also build test ERROR on abelvesa/clk/imx abelvesa/for-next linus/master v6.18-rc1 next-20251017]
-[cannot apply to pza/imx-drm/next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Signed-off-by: Cosmo Chou <chou.cosmo@gmail.com>
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts | 6 ------
+ 1 file changed, 6 deletions(-)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Laurentiu-Mihalcea/reset-imx8mp-audiomix-Fix-bad-mask-values/20251017-192620
-base:   https://git.pengutronix.de/git/pza/linux reset/next
-patch link:    https://lore.kernel.org/r/20251017112025.11997-4-laurentiumihalcea111%40gmail.com
-patch subject: [PATCH v2 3/8] clk: imx: add driver for imx8ulp's sim lpav
-config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20251018/202510181121.D3XVfMFh-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251018/202510181121.D3XVfMFh-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510181121.D3XVfMFh-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/clk/imx/clk-imx8ulp-sim-lpav.c:52:2: error: call to undeclared function 'kfree'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      52 |         kfree(adev);
-         |         ^
->> drivers/clk/imx/clk-imx8ulp-sim-lpav.c:65:32: error: use of undeclared identifier '__free_kfree'; did you mean '__free_pages'?
-      65 |         struct auxiliary_device *adev __free(kfree) = NULL;
-         |                                       ^
-   include/linux/cleanup.h:213:33: note: expanded from macro '__free'
-     213 | #define __free(_name)   __cleanup(__free_##_name)
-         |                                   ^
-   <scratch space>:30:1: note: expanded from here
-      30 | __free_kfree
-         | ^
-   include/linux/gfp.h:381:13: note: '__free_pages' declared here
-     381 | extern void __free_pages(struct page *page, unsigned int order);
-         |             ^
->> drivers/clk/imx/clk-imx8ulp-sim-lpav.c:65:32: error: 'cleanup' function '__free_pages' must take 1 parameter
-      65 |         struct auxiliary_device *adev __free(kfree) = NULL;
-         |                                       ^
-   include/linux/cleanup.h:213:33: note: expanded from macro '__free'
-     213 | #define __free(_name)   __cleanup(__free_##_name)
-         |                                   ^
-   <scratch space>:30:1: note: expanded from here
-      30 | __free_kfree
-         | ^
->> drivers/clk/imx/clk-imx8ulp-sim-lpav.c:68:9: error: call to undeclared function 'kzalloc'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      68 |         adev = kzalloc(sizeof(*adev), GFP_KERNEL);
-         |                ^
->> drivers/clk/imx/clk-imx8ulp-sim-lpav.c:68:7: error: incompatible integer to pointer conversion assigning to 'struct auxiliary_device *' from 'int' [-Wint-conversion]
-      68 |         adev = kzalloc(sizeof(*adev), GFP_KERNEL);
-         |              ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   5 errors generated.
-
-
-vim +/kfree +52 drivers/clk/imx/clk-imx8ulp-sim-lpav.c
-
-    46	
-    47	#ifdef CONFIG_RESET_CONTROLLER
-    48	static void clk_imx8ulp_sim_lpav_aux_reset_release(struct device *dev)
-    49	{
-    50		struct auxiliary_device *adev = to_auxiliary_dev(dev);
-    51	
-  > 52		kfree(adev);
-    53	}
-    54	
-    55	static void clk_imx8ulp_sim_lpav_unregister_aux_reset(void *data)
-    56	{
-    57		struct auxiliary_device *adev = data;
-    58	
-    59		auxiliary_device_delete(adev);
-    60		auxiliary_device_uninit(adev);
-    61	}
-    62	
-    63	static int clk_imx8ulp_sim_lpav_register_aux_reset(struct platform_device *pdev)
-    64	{
-  > 65		struct auxiliary_device *adev __free(kfree) = NULL;
-    66		int ret;
-    67	
-  > 68		adev = kzalloc(sizeof(*adev), GFP_KERNEL);
-    69		if (!adev)
-    70			return -ENOMEM;
-    71	
-    72		adev->name = "reset";
-    73		adev->dev.parent = &pdev->dev;
-    74		adev->dev.release = clk_imx8ulp_sim_lpav_aux_reset_release;
-    75	
-    76		ret = auxiliary_device_init(adev);
-    77		if (ret) {
-    78			dev_err(&pdev->dev, "failed to initialize aux dev\n");
-    79			return ret;
-    80		}
-    81	
-    82		ret = auxiliary_device_add(adev);
-    83		if (ret) {
-    84			auxiliary_device_uninit(adev);
-    85			dev_err(&pdev->dev, "failed to add aux dev\n");
-    86			return ret;
-    87		}
-    88	
-    89		return devm_add_action_or_reset(&pdev->dev,
-    90						clk_imx8ulp_sim_lpav_unregister_aux_reset,
-    91						no_free_ptr(adev));
-    92	}
-    93	#else
-    94	static int clk_imx8ulp_sim_lpav_register_aux_reset(struct platform_device *pdev)
-    95	{
-    96		return 0;
-    97	}
-    98	#endif /* CONFIG_RESET_CONTROLLER */
-    99	
-
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
+index 24969c82d05e..abdb1562115a 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
+@@ -1080,11 +1080,5 @@ pinctrl_gpiov2_unbiased_default: gpiov2 {
+ 
+ &wdt1 {
+ 	status = "okay";
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pinctrl_wdtrst1_default>;
+ 	aspeed,reset-type = "soc";
+-	aspeed,external-signal;
+-	aspeed,ext-push-pull;
+-	aspeed,ext-active-high;
+-	aspeed,ext-pulse-duration = <256>;
+ };
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
 
