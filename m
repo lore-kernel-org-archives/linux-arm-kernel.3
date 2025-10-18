@@ -4,97 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A40CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 09:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6111ACCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 10:40:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YLcttbn5k16RAKKI+EzOZF6EXsPtXzfzb9zD7Ffua0E=; b=aKrWk+MMbYffAGzOV9ziEeux/t
-	4s3NZnvuIxX6QRwAK7lUfc7dpUOeUAJolOD0pJOfOD+VBx4FA9FnB9RfCJiYKJABgYdEpCA55Riso
-	6Mh2HxWit2n/IUexyb4DdpJRSMp5UVSLuEOEfQgyU1mQAr3tZsHCmpmqF+9urwILyH2bMt86D7ndw
-	wpTQovs4EP2MfDAF/a62dbAv0OEJTk0C0mTIQ9L0WOAPup0OOEBtWdrFXzLpX3vp0SPtQiQwdb6KY
-	tzYF0uCGkXnN/edq12jfBgCiN/pFqZEKo8a/1EWvNa1LrWSqIuJdXdsvWjgOg24C4Mx1w/yrBllyt
-	pxiColKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f+51DM99CEdSFDPj0ZKr0xiXs9AF5iALomLseFpeJs8=; b=gYPTrahT/wksf2Fajy+GzsZksY
+	uonBAdE4ImVN5qOop2Wvq5LCOJCV6Jc6qjegeRnZMGS7QJguCpmkBxySe+fiy3hveJ69naqeymW0W
+	T6IIFFmDy9wHXIlnqToSfpELcAhVtFO344z+fmb3Xl/EqvySqG2Cx03WngFAbaKo80xP1jjmjcAHK
+	EwUHcwSTXWXO+z0ciVSN4gZOS5Yi3XBxhJ3GzdNk74eCxl6TFKyBFrkftq2CK619PJBAgqe755xMZ
+	+JgYyKyW9GWJpwfX5Onzc+lpN0ydve/7CyruvgqpJHOQjAE2b3PTAV6G5ki9fjZXaGHQGcn1QYdlt
+	LWX1pKgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA3cx-00000009luf-1K5G;
-	Sat, 18 Oct 2025 09:53:31 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vA4Lu-00000009ocu-2bTO;
+	Sat, 18 Oct 2025 10:39:58 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vA3cv-00000009lu3-17M9
+	id 1vA4Lr-00000009oZn-32No
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 09:53:30 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47157119d8bso1246065e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Oct 2025 02:53:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760781207; x=1761386007; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YLcttbn5k16RAKKI+EzOZF6EXsPtXzfzb9zD7Ffua0E=;
-        b=i5zNAvHZsHfYmJfd00wHpAIbJTbAAK7jQhFs2w9Tpumn9TvHYF2TlEyqP2K1PEp31r
-         f97dPWSn9IIbpnDgDiitx6vRlZR8RJldW5M9DyB/FJuvTUGQGpS04hUnGv06LR2S3WWN
-         iYtWeSEg30reDxBPukL+kRTXdU2W/aLTq+dg+t9fCYKNC0FCqwJG4uukR7k5k+cvrf6V
-         pfZ0KLkXz6wFhO1sbU34rlhywbH6DCulpHHlD8TAPmx1L9riiMbQM4MgJHw+XLqYCVBi
-         bWUTZx3WPSmu5Z83UVsXUPGM4XgcwWxrxkV/eTQKHZE5kXqrL5QxHcAvJFIO/eDQgs3Y
-         V16g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760781207; x=1761386007;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YLcttbn5k16RAKKI+EzOZF6EXsPtXzfzb9zD7Ffua0E=;
-        b=CSDaSjA+jyagNBjEDMTeFSA2U3hingdgtUtgpjgtxR8K2YA/Ui8qwbXyD9nWThV8Pa
-         oCA54ukUoJT8AVBiLFJeW73atrOCFn09ADSKXILi06+PcdenlLFrpYYL9S3AB2KvVPbQ
-         5GIuUseYKRV8bOlkM2R5ctRa2JhorLcrA4X91PBPdEXfpHhIbrBgPnX0VZxBVch7hoIh
-         3KOLFSpfdNCemzEcyqr7jmFIU2XbbTug2Q3ECMKC9r/uaUfwaUwgDLJrx+dL0MIXzBse
-         2pobx6Js7ImJRRtmKmlPgh+oytyDj0koqJHrUDlCZCAmi8T+G/RMZqxF8Lmv9Ui7qmpX
-         z7OQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWSF3GBGesieboRCo9ab49dE/PylKBxb4GerGfDirX9JqC3ZSwH31XT7YJpHxclOgE0psmRUvjabb4pi+Q/vRPa@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcmevrRHDnByVy1KV8klexCejwGmamL9J5PWWxvV0f8JMA2w35
-	Xd4pDR9GJr/dm6nZ2Q7YQZOGv6vj5pRvFHpJcfdkLObfq5k6fMvE2fvQPG70KLazzzCnpelkJZt
-	IJCaQ
-X-Gm-Gg: ASbGncvowtpVgrFtGKjIM5xtarQgO9x5XRAfweO4yGMr64gG26Pwbm0KADeWCZUSfg+
-	nmPlnM72iiLEK0JlGwofLnjZ32uSon1MsuQdrFtm+GIUETqvV/6g2NLARaQp4FmiXCAlm/VqF0C
-	DZpmQhHip5N9tM/llQf8EkouBszJx8oWRiU10NfCMOfM8v3KU6xfWVsgOLvNFIev9K71nZDT4aA
-	VufzaWY7RPO8pWvQ7lodvkQTxMsPe/1vRdSkszqeKk+Cvd0s4rGsMaVbYD99SSbrJPMDVaiLvsw
-	hoVc7jTz1ZkLF30K4lUwDORlOuAdJGtO0iJkePnuRVP/uZO3D6NlktUfpETzUtmxFGfgAb3qK+4
-	bAJ+LNA83jkzyj5Ve0KVnIJ/p+5cSXuCza8Yg26N8RKoXBytTznopYS2uouzmxdCd4piytMgW6q
-	KzwTHGKwp+P1Mcc90H
-X-Google-Smtp-Source: AGHT+IE7qvTI/bg1JlFoj/mWNWosxLYB/3XVkN4l0hbhMw4Lq63sfmg28D78UCq3lmimATW7krx+qA==
-X-Received: by 2002:a05:600c:34d0:b0:471:1717:409 with SMTP id 5b1f17b1804b1-471179071b4mr45155315e9.23.1760781207332;
-        Sat, 18 Oct 2025 02:53:27 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-427f009a96asm4030365f8f.31.2025.10.18.02.53.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Oct 2025 02:53:26 -0700 (PDT)
-Date: Sat, 18 Oct 2025 12:53:23 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-omap@vger.kernel.org>,
-	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-pci@vger.kernel.org>,
-	"moderated list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 2/3] PCI: j721e: Use devm_clk_get_optional_enabled()
- to get the clock
-Message-ID: <aPNjkzrexmIyQXpT@stanley.mountain>
-References: <20251014113234.44418-1-linux.amoon@gmail.com>
- <20251014113234.44418-3-linux.amoon@gmail.com>
+	Sat, 18 Oct 2025 10:39:57 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=f+51DM99CEdSFDPj0ZKr0xiXs9AF5iALomLseFpeJs8=;
+	b=Dh7p0h6ckcL1ZyDbAEAtZheChwQS6K8kQGdngk43Q4CA/ahRus3uQRF8JvXdkvLtbx7fuh6AH
+	kFQDQFjiPNvy2ZqGHWGWln9eFQ7iI0xRts2OqA/rzKhTxTwB6vXYgx/XCY+FqDKFoKMjUsfOFMt
+	JZSW+6SMJTSU73JqutAIizE=
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4cpdT75xGyzcZyL;
+	Sat, 18 Oct 2025 18:38:35 +0800 (CST)
+Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
+	by mail.maildlp.com (Postfix) with ESMTPS id B5A0E14010D;
+	Sat, 18 Oct 2025 18:39:39 +0800 (CST)
+Received: from [10.67.120.170] (10.67.120.170) by
+ kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 18 Oct 2025 18:39:39 +0800
+Message-ID: <e04eb4c8-3344-4a3b-bf00-c9221be5fe86@huawei.com>
+Date: Sat, 18 Oct 2025 18:39:38 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251014113234.44418-3-linux.amoon@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] iommu: Add io_ptdump debug interface for iommu
+To: Jason Gunthorpe <jgg@ziepe.ca>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<yangyicong@huawei.com>, <wangzhou1@hisilicon.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <fanghao11@huawei.com>,
+	<jonathan.cameron@huawei.com>, <linuxarm@huawei.com>
+References: <20250814093005.2040511-1-xiaqinxin@huawei.com>
+ <20250902161028.GC184112@ziepe.ca>
+ <f2720f17-5e81-4f69-aaf5-791b47973178@huawei.com>
+ <20250910141547.GD882933@ziepe.ca>
+ <bb4c3f0b-06da-46e6-9769-efe3dc00e9fb@huawei.com>
+ <20250915162810.GI882933@ziepe.ca>
+From: Qinxin Xia <xiaqinxin@huawei.com>
+In-Reply-To: <20250915162810.GI882933@ziepe.ca>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.170]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_025329_319441_46381788 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20251018_033956_134859_5E8522BB 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,19 +85,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 05:02:28PM +0530, Anand Moon wrote:
-> @@ -630,7 +622,6 @@ static int j721e_pcie_probe(struct platform_device *pdev)
->  
->  		ret = cdns_pcie_host_setup(rc);
->  		if (ret < 0) {
-> -			clk_disable_unprepare(pcie->refclk);
->  			goto err_pcie_setup;
->  		}
 
-This will introduce a checkpatch warning with checkpatch.pl -f because
-you need to delete the curly braces.
 
-regards,
-dan carpenter
+On 2025/9/16 00:28:10, Jason Gunthorpe <jgg@ziepe.ca> wrote:
+> On Thu, Sep 11, 2025 at 10:08:55PM +0800, Qinxin Xia wrote:
+>>
+>>
+>> On 2025/9/10 22:15:47, Jason Gunthorpe <jgg@ziepe.ca> wrote:
+>>> On Wed, Sep 10, 2025 at 11:20:08AM +0800, Qinxin Xia wrote:
+>>>> Ok, I see, my colleague Wang Zhou also released a version of io_ptdump
+>>>> a long time ago, which is implemented in smmu debugfs. Will recommends that
+>>>> io_ptdump be implemented in a way similar to CPU page table dump. Using
+>>>> debugfs to expose the data and using format-specific callbacks to implement
+>>>> specific data dumps, I'll talk to him about this as well.
+>>>
+>>> I feel we should have a iommu subsystem debugfs and per-iommu_domain
+>>> directories to dump the page tables.
+>>>
+>>> The smmu debugfs can report what iommu_domains each STE/CD is
+>>> referencing.
+>>>
+>>> This also needs RCU freeing of page table levels as a locking
+>>> strategy.
+>>
+>> Thanks, I'll add RCU in the next version, but there's some
+>> confusion,
+> 
+> Please don't, RCU is quite complicated, I don't really want to see
+> attempts to retrofit it into the existing page table code. This is why
+> I've said debugging like this needs to go along with the new iommu pt
+> work to consolidate the page table code.
+> 
+>> Do you
+>> mean to create a directory for each domain? like：
+>>
+>> /sys/kernel/debug/io_page_tables/domain_xxxx (xxxx=domain addr)
+> 
+> Something like this could be a reasonable option.
+> 
+>> tree domain_xxxx like:
+>> domain_xxxx
+>> └── group x
+>> │ └── device
+> 
+> Though I would probably not include this information..
+> 
+Users could be difficult to map domain to devices, so I think maybe
+we should provide the device information contained in the domain.>> └── 
+DebugFS file: /sys/kernel/debug/io_page_tables
+>> └── Operation: Reading this file triggers the entire debug information
+>> collection process
+> 
+> I don't think we want to dump every page table in the system in one
+> file.
+> 
+>> Do you mean that the interface in io-pgtable-arm.c is directly invoked
+>> during the process of obtaining page table information without passing
+>> through arm-smmu-v3.c?
+> 
+> Yes, this is what iommu pt brings.
+> 
+> Jason
 
 
