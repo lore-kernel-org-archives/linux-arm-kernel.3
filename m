@@ -4,104 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13994CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 19:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA13CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 20:39:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=npvxteVAfIEKzMeytJ2WmNF7D4AAPzWxw0qzjoJdKTI=; b=nLz3S0/9xHrwrM5XnUoHdIicCy
-	neZMIJGrhDVffclJuBTXCXkNgnHIMSqqUrb10yW3VhAUpFMB5+bsZgal8EYg3msExwrRHtMoFIfrG
-	yunSygs0fmSV9nFtTTUPep3PYCONwi5riNyK1OUU2w3VQtLTD5SJ8P0/58KhnOIC8NO88R9yfKGAi
-	4C+L60SnsP9bXMUxPYqYt1xhfgj4sKqTVYTCGeE00TkwzsHK4/D7QhpZUA53Ah+Ihij0BZJMRA+Az
-	fIlnLtDlgo17umJGM1qfK8skw6OXV+vHzGAIYXhsJrsXLuokW1fqHJs310tNjmuKdE9NYISEM1fZ+
-	BbHB+vOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QO5CCKZz8K+FxHChucX6dPFxnD74Zj4nIadAyB4UqqY=; b=XTcT68+GeNRIgT8jkMveriuUl2
+	tgH4O0kmSTBZBQAdjcs0zf3wLPwuj0RKwB9t2FrWGv+3WxCOxXyEzTmeaMNrau3ZIlBYTIEQYq1QS
+	JbhqNvAh85a2JHrM6xlXrWc+VPWPXWCNi+ZcJx7fESW+CsfADm8ivEjJN6lS6bNRMtCO1dL5xyt07
+	neV5BGRpbwHa0rTvqaR6BY7jlQQVmCaR3GUohcbPAzD7DYFD2u5mSzbD5BPAXfcpCqi3Bo4XcqBD7
+	Cd5/DOQJma+t8IMs61w/vTRp9dE5u0WHRadoSyjPl87tmkGOMYxgEh4oB+vZoRj4twHQ2zHrThFqU
+	0ENZ3M9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vACF1-0000000AKib-2bbs;
-	Sat, 18 Oct 2025 19:05:23 +0000
-Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
+	id 1vADhV-0000000ARFu-3tTW;
+	Sat, 18 Oct 2025 20:38:53 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vACEz-0000000AKhr-259W
+	id 1vADhT-0000000AREm-3abj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 18 Oct 2025 19:05:22 +0000
-Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-65051376edbso774015eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Oct 2025 12:05:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760814320; x=1761419120; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=npvxteVAfIEKzMeytJ2WmNF7D4AAPzWxw0qzjoJdKTI=;
-        b=bl+fca37wLdWdWoZnjoWyKNssFKTk4hd96UZaoSKOnXQMB9rb1/gcVBmhim/FIC43u
-         RjEtRYT4P8UfgMBND7CHXxqy5MfBaKLhOxxBvutAtwAugtMFGkIw5jVnaoe11M2GSnr/
-         lvPZfSGX+jwImugZqbQUmnKdrBIFPwoW01dP/l5eSZuSAZ17Gs8t+VRiAyS8N/mc+mZY
-         maGxVd1JEZUw9lfploC8ePmWNE2yPx0unnZVW/Cbn3q1bFNiXJPqAeiOPSZLJPyDO62M
-         tNuxFtrXZL5Ce3effP0uNMB8N0a6OqNYwwAUDo2J+u7v0wGA71Fys2o8z/1y2NUCGvDo
-         M3SQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760814320; x=1761419120;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=npvxteVAfIEKzMeytJ2WmNF7D4AAPzWxw0qzjoJdKTI=;
-        b=MRHXQH9GHcc64DTwdLiFSx81Cp1mYc4dN+rgZ+LeHdMQY8D2fyC5efUHKjD5ioOrfG
-         mE4uv9Di4VQOxCTmt3zro82ywPr+UREb9HN5Mg2jgyAzkP2L4htfJj2kShcMi2p0/TcQ
-         sI/6XXXhAOQv5N7TnU+YUQjbfwYDZJsoaQUPwIG2PDpElzbIPI5OSxEoKsGJ9UEuz39H
-         +Ipj91/KsSvZ1sfu3pb56UGjn0kYmuVyKpOpxU+OLYRYJN18kPVQee7V2H0xYfqB+LKG
-         5F32uCAsGZSDpTmDQhe43W1stuCxdkWoOsMnRIFfnmcL+m168M97qnIqy+DVixF5YJap
-         /zWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXd0R8FPjwQ4YtlKfnqqwvznpFiFXghQ0YkaaF2z41DlJwnxQYVhhpeHB1uNhldbJLm5DkMkDtP1bgoWMcQkKLI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbWr2+GgrxrljyxoGcYtPnsUsVF/OkyjfucLTgheVaFN8Y/Zux
-	xtg5nmsJOgYVG2uKN2p9B5+5KX2a4q5wdy9SptrHAYTcXA46va4479MxlYJwHkI6poihyUd2CMd
-	ZVP9s6hXyXU10QMqAgONWmczNAMAWWpE=
-X-Gm-Gg: ASbGncu0W7yHCHNkZn3uP+HMWspV3qshQIigwhsss1jAMEoYL6XGxTFDDFPXDHeQGeT
-	xE3NH4uglGBgDy86pphIarik5ZQxhEj6usfzaTncSvjj2fTH5PophxFV0rBniFS6arq4kc+eDUv
-	6U6A/GcER5+vmewtHhD9DE9l3ANeoa170qpqbUd+ZcHjmPmcE76nm8Cr/KNpfIJjiPJ1TLzDwqJ
-	sXIjqGT+mcDwN5KUoQEuAFQ8vAjzYJc7rhXO/Z2b55us/ibCDis3l0V2tgnantZSAG02Yb7
-X-Google-Smtp-Source: AGHT+IHn6bYHsxvnnBm5dSpuXWjNC+PBXDBTRxFzgYuC3xttEpimkJMntVWJZ0cZXwANZryVuMF0nNeTd369Q5XITzY=
-X-Received: by 2002:a05:6871:6907:b0:349:de3c:bfc8 with SMTP id
- 586e51a60fabf-3c98d0c7686mr2520732fac.31.1760814319754; Sat, 18 Oct 2025
- 12:05:19 -0700 (PDT)
+	Sat, 18 Oct 2025 20:38:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=QO5CCKZz8K+FxHChucX6dPFxnD74Zj4nIadAyB4UqqY=; b=219YyT2koGh9ZG2kniua6hTtA3
+	kytbSTUCvH09jHO6xXuf3x3Wc6W3WX0VChfdQ3HfTBaGmxtTF3F1A+cM12lNgHKF8d4kUx4gV6pGN
+	HNsUb3N8w6uO6+o2yuRj2Ps5j/XN2dRTfCiXoXBz1mu5HGG5Y8Zmz1huUjGQhGi+zR64=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vADgv-00BOZC-9S; Sat, 18 Oct 2025 22:38:17 +0200
+Date: Sat, 18 Oct 2025 22:38:17 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Han Gao <rabenda.cn@gmail.com>, Icenowy Zheng <uwu@icenowy.me>,
+	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <ziyao@disroot.org>,
+	netdev@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH] net: stmmac: dwmac-sophgo: Add phy interface filter
+Message-ID: <c16e53f9-f506-41e8-b3c6-cc3bdb1843e1@lunn.ch>
+References: <20251017011802.523140-1-inochiama@gmail.com>
+ <34fcc4cd-cd3d-418a-8d06-7426d2514dee@lunn.ch>
+ <i5prc7y4fxt3krghgvs7buyfkwwulxnsc2oagbwdjx4tbqjqls@fx4nkkyz6tdt>
 MIME-Version: 1.0
-References: <20251015232015.846282-1-robh@kernel.org>
-In-Reply-To: <20251015232015.846282-1-robh@kernel.org>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Sat, 18 Oct 2025 14:05:08 -0500
-X-Gm-Features: AS18NWBGMwSlAmXgBiXSGQWXCd5xrZTGccuKfzZwiw4wGpClNDZImruw46Wm-dA
-Message-ID: <CABb+yY2u=XZFdoDrjjYFhARLoaxH4uTnT=GyFmsnV_U1aWn=UQ@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: Fix inconsistent quoting
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Stephen Boyd <sboyd@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
-	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, 
-	Jonathan Cameron <jic23@kernel.org>, Andy Shevchenko <andy@kernel.org>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Lee Jones <lee@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Andrew Lunn <andrew@lunn.ch>, 
-	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Florian Fainelli <f.fainelli@gmail.com>, Tony Lindgren <tony@atomide.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-iio@vger.kernel.org, linux-media@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-phy@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <i5prc7y4fxt3krghgvs7buyfkwwulxnsc2oagbwdjx4tbqjqls@fx4nkkyz6tdt>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_120521_545963_1D8B54CF 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20251018_133851_892243_939B2208 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,42 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 6:20=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org>=
- wrote:
->
-> yamllint has gained a new check which checks for inconsistent quoting
-> (mixed " and ' quotes within a file). Fix all the cases yamllint found
-> so we can enable the check (once the check is in a release). Use
-> whichever quoting is dominate in the file.
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  .../arm/altera/socfpga-clk-manager.yaml       |  4 ++--
->  .../bindings/clock/nvidia,tegra124-car.yaml   |  8 ++++----
->  .../bindings/clock/nvidia,tegra20-car.yaml    |  6 +++---
->  .../devicetree/bindings/gpio/gpio-mxs.yaml    |  9 +++++----
->  .../bindings/gpio/snps,dw-apb-gpio.yaml       |  4 ++--
->  .../bindings/iio/temperature/adi,ltc2983.yaml | 20 +++++++++----------
->  .../mailbox/qcom,apcs-kpss-global.yaml        | 16 +++++++--------
->  .../mailbox/xlnx,zynqmp-ipi-mailbox.yaml      |  2 +-
->  .../bindings/media/fsl,imx6q-vdoa.yaml        |  2 +-
->  .../devicetree/bindings/mfd/aspeed-lpc.yaml   |  4 ++--
->  .../devicetree/bindings/mfd/ti,twl.yaml       |  4 ++--
->  .../bindings/net/ethernet-switch.yaml         |  2 +-
->  .../pci/plda,xpressrich3-axi-common.yaml      |  2 +-
->  .../bindings/phy/motorola,cpcap-usb-phy.yaml  |  4 ++--
->  .../pinctrl/microchip,sparx5-sgpio.yaml       | 12 +++++------
->  .../bindings/pinctrl/qcom,pmic-gpio.yaml      | 10 +++++-----
->  .../bindings/pinctrl/qcom,pmic-mpp.yaml       |  6 +++---
->  .../bindings/pinctrl/renesas,pfc.yaml         |  4 ++--
->  .../bindings/pinctrl/renesas,rza1-ports.yaml  |  2 +-
->  .../pinctrl/renesas,rzg2l-pinctrl.yaml        |  2 +-
->  .../pinctrl/renesas,rzv2m-pinctrl.yaml        |  2 +-
->  .../bindings/power/renesas,sysc-rmobile.yaml  |  4 ++--
->  .../soc/microchip/atmel,at91rm9200-tcb.yaml   |  8 ++++----
->  .../soc/tegra/nvidia,tegra20-pmc.yaml         | 12 +++++------
->  24 files changed, 75 insertions(+), 74 deletions(-)
->
-For the mailbox changes
-  Acked-by: Jassi Brar <jassisinghbrar@gmail.com>
+On Sat, Oct 18, 2025 at 08:42:07AM +0800, Inochi Amaoto wrote:
+> On Fri, Oct 17, 2025 at 08:16:17PM +0200, Andrew Lunn wrote:
+> > On Fri, Oct 17, 2025 at 09:18:01AM +0800, Inochi Amaoto wrote:
+> > > As the SG2042 has an internal rx delay, the delay should be remove
+> > > when init the mac, otherwise the phy will be misconfigurated.
+> > 
+> > Are there any in tree DT blobs using invalid phy-modes? In theory,
+> > they should not work, but sometimes there is other magic going on. I
+> > just want to make sure this is not going to cause a regression.
+> > 
+> 
+> I see no SG2042 board using invalid phy-modes. Only rgmii-id is used,
+> which is vaild.
+
+Great, thanks for checking.
+
+> 
+> > Also, does the DT binding document list the valid phy-modes?
+> > 
+> 
+> It does not list. Is it better for me to add a list for it?
+
+It would be nice to list the valid modes, to match the code.
+
+   Andrew
 
