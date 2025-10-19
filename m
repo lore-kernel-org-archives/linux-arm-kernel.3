@@ -4,87 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39C89CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 06:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A21CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 06:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RDRUSkhiE/XFv7OW4RSw91eps1PHNhul5pJctkyAuh0=; b=i2J+Fh1gWLmfMoEObZW3Yp+gu4
-	7uEgXMYdmg8opNeHzUeqc+0/ID+qb5UCprlOrnVuz+0g2XiKk329SotMjb6SEy3Uol8kxeUsrt1Sv
-	ccfxz5ytwwFe1N8iVAE8C4zDPX90jfmiyyyfJRSIBA09fAJ2pdPzz09Us7YnNUeHDpKU4NTqgZNJH
-	ScC6KNLgI+b3VSW922YLy7nbEfCy4yqmPAkIGvOTtwvRPWzFSxVaSfVhObxfBEnrCYzr2/zqPu4pb
-	kccwkI0+4Meepetb8Rrqq4Ry7h9nwCN/b5wE2vmHzjF/1R4VVZcxpKGgPJHkgeJEFozXjBltmdf+Z
-	Zc+E50Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GYC/hQuGeMEF947/LuK3VJRiyEjbNIGm04998G60uow=; b=X7HlBZT2ICjsYHamDxU/6ltg3y
+	9gDL2rgxRiBTSaJ59FpAG26/o7h0MsLHgCab617t68JAp3JL9kgD2mg8Uyfx7akFVjbV1XD/5Nmp2
+	rOFpoUcegzqV7wOtaTJoNH7NRfJCNJMxX+6oNfHzLlUxPzCmHePBl/m7QkFTtUTpA79vMlaa7ScDp
+	4KpWFL5cnk0eZgQEbZCC4gtyHDaxZSFDAexsATbKbbtiKfF3+G6k0TRGnXpQQA5iLUtJJMWKuF3be
+	e9SeH9hCmPSo+Pd2KinUHPk6r+b2t8Pw1Ph8KfCJMiTH3wkx8gC9DPoIgHN7Myy2sDFyeuS+eanRk
+	xnwwkIqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAMTC-0000000AiGc-23WJ;
-	Sun, 19 Oct 2025 06:00:42 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1vAMbM-0000000AiaW-3MJb;
+	Sun, 19 Oct 2025 06:09:08 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAMTA-0000000AiG1-016K
+	id 1vAMbK-0000000AiZm-0ZH6
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 06:00:41 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b40f11a1027so628514166b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Oct 2025 23:00:39 -0700 (PDT)
+	Sun, 19 Oct 2025 06:09:07 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47100eae3e5so31296385e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Oct 2025 23:09:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760853638; x=1761458438; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=RDRUSkhiE/XFv7OW4RSw91eps1PHNhul5pJctkyAuh0=;
-        b=ZVa14rNMiaB7RU4StYAYB5W7ccWqezVaQTGQeGu+14+a5eNciAiY3j09wdFg0Y+WJh
-         sqrnGOotwKs1cVfhXtJHW3qjdYwqkR58CNPR5U+LB42NA74Zg/6BpKUT4Osv9K2ih66s
-         1PFa2j+WH6pV4Y95TguC4d/15/P78lVm0G0d6QgrRDX7qO26kIODr2EnwZe2WLk9Tdrb
-         0MGduY/iwxpwdIabzU/gHFn8CVncmp6Nohbjstr50/vMbuz4Wrm30/MT2AnEHTJV730r
-         1Xo9vp4WbtXu+mckX5ZgOOy6ArOCmcT+sQ3FwsQHqhsIk6L1YS4zkQb+UXt9IFFgtkQm
-         j9Nw==
+        d=gmail.com; s=20230601; t=1760854143; x=1761458943; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GYC/hQuGeMEF947/LuK3VJRiyEjbNIGm04998G60uow=;
+        b=P03z5OtYxnTNKJPmSc2tY3Kg2VoA6NC869Fdrc7BrXtKABasNzJYrkiiWx241yEFa+
+         AC4NxB3Tt6EL5EIGszjxAfKPGmeDDs/oRWKVTebIgTnXgFPxMd4I4wWSLMhQT3L4Z1gZ
+         yd/fEANImMeYvKMBQylXiLj252NDNPYAPUJUYyD0gHKEW+NaVGeEDP5NdpwJ/cL99f93
+         mBMD+Gdjk0bDLxMYSo96Z37ESDC/DT1IeOA+V6IJgCakXro66omNNtQW/AlyQA/i/NCf
+         Ot7F1sINs9rrvuZR6wO4keEl91MNxCJWpp3hLnuXib7mIdaJGiu7uNr+/KUtTGzE5jiD
+         kUzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760853638; x=1761458438;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RDRUSkhiE/XFv7OW4RSw91eps1PHNhul5pJctkyAuh0=;
-        b=nlt8R9lxYgfZIucjaIF8ziA3UhrVjEEJ4rd+YlkfvMYKB0ciDstAcmDDUPyhHjFL8D
-         1YqxYpyASQkCWLs4K72eWrWTOFPY8maMBdxYnEoKPds7nTIHrmiV+DpyzXAu+CDd8W4R
-         roMeydyWBpaPITCz/HPr9Oz8k92GRXPuCM7v3CBF20As66B5dlKCdG9GiS2AmpKxbdv2
-         1THiuM730r7Rjdg+NljLNZqzgQmaHvN4v7CpN5g/Il7LVh2lVAZLqw/hcrZfff6MkrBa
-         A3WK4sVKO35VuZ3525v4HsImyGtrtRa+PiZic2EVcCg7sq6ARtMea97O9K9wKlZI3bxv
-         cn2A==
-X-Forwarded-Encrypted: i=1; AJvYcCX397i/5pbsFjA5FZmUP06wOxF7d20bOSC46CxJOfSYoaJ3oOn+cMn0h3+r7/cmSrZYp2wCpNZs01gKDFaAam1o@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxvv5U1ubPlVKaxnUu+FdR48Kqm72nIOMIxQFo5MEfcLAL+zK61
-	bqAdW1CK3tQ/RkfibWfSTTxc7HvtumUWlkFw0rO8/HkweXNw4xZr9q9TZ2dQYxR98zBY6tFFSXy
-	K5C/9+NJLUsC34z3QgTzdIAXw8cZWIow=
-X-Gm-Gg: ASbGncuMaVcP3uZWuk76I2umrD6S0ObxflMNggchQ+UCpzlXbdF7yYQNfGFrg4NB+Z5
-	6bYEmXVylLx+mf9elwIzXoXgcxqonQ1nR8vJZYXJYaW/ZeEj2WBfCCMjRM43dtoVpmfjR1uE3ZU
-	yctpoRgv0XtqkyZQMQIsesN1OvMIXGzVhVkEEyDz1FnykE1gSlXdr09Q9vBP8VtNIvBZ8sqYyxh
-	k7Q4Hvowbzlpr5HpnW/CHBeh25K+OEd1BPYwcgMIBk/CY9bM1rkiKrOrz1cUasiFFwK1w==
-X-Google-Smtp-Source: AGHT+IFouXM66dWGoME6chpnuaQA5AhGJ3XBtWEQPmJjkQDMbd8DEH4sRrB+vsmFy93A7mrCfiSnE5e4aC5FUlXjYmc=
-X-Received: by 2002:a17:907:7b8c:b0:b04:b446:355 with SMTP id
- a640c23a62f3a-b6475706d77mr890751766b.59.1760853637425; Sat, 18 Oct 2025
- 23:00:37 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760854143; x=1761458943;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GYC/hQuGeMEF947/LuK3VJRiyEjbNIGm04998G60uow=;
+        b=vABpyseF/ooLwlnY425E/Bc5Xo5xKcPujrZOij94qSsPjNz5daJGbR5a8g6J/YTPPS
+         6XHgYtNfWtQ1PIjE5i6IqGP18NMuI986RZjXNW2Fb3ZICtuiIHp0a7YlC32rz86c3u48
+         7kGxamTLaeJLGl6qSCO87CIXlk2iynMrwG4SC2YAy0ON3TFWcMJsb1C7C0l3lzBGu41S
+         mDJqpTHF0rLEXGm1+7H4H3wgO/rOczKE6RwOJwlpW75ulzwSqrmulIyWTKlWxNtdFkyN
+         syZJlOnyNeSQT/B0e+VXriu6e/SMfytPsgv7PlXrXUB5qiAtMUbBmtuHlquP0zf7F7Gh
+         8mYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWyaxo+5zEXSQS3q66VH9G6+Pbps0I6LXaU38vEboM+FFM1mp7I70Wib2J3GWHU9OOd6luU6do6l0nUYPLznlvP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzygLSDSWoBzPz39GDAXfD+LzGJaZM7sqaK0AlcwMoNrvvC3N/
+	HJuonq1SgdOHbvKoSjcufgLqovcIKMSCy3b6Z75GCPhpCvvFTYDKC35R
+X-Gm-Gg: ASbGncsD0bZofdyKZvZ9nYgwwwl0a49dqICIIIp+A3QsE7Jv0forZiKLka5IZOvU7bZ
+	b/woxOhrxPrIdvwRfqluVlLC4H9gyQZCj82zl7SX6sLaB7KF/yAHTTYrjUCaRy1Rgl0rgOzEwyi
+	U5d6acJqIYRsxpDlKVSJPlbS52rS4CxpnqXMpbaLpcBEdN83Xm+IMqLBVRtBW9EjlJhk9yNWdga
+	QfjEgtr11G50kM5sCphrZ6en8qbY5oAms5buOQTHyZGUDCxL1Bwja/3xd7SZWZ5AXsAz1dPjd2w
+	X7DCx2iKAwRBs/TquxP+VJr0Ec5KonQcnd9c1Np6pHueS+xstBvyTK9te48dpnXWERsumOOfQjG
+	ZolSc/fqUP2jmZQdjCeb56AA254cyNkSJinYoQL3uyp7h0hymyOuRBWTQ2KsYZDtJrukdpvtk4w
+	GR
+X-Google-Smtp-Source: AGHT+IEZ5upR5rvq2pYeoFEK0g1VqqLoHFsnsUnK8lryUbaHf4IrN1h8fWBgNccm4eIUhXw2FJ5z5w==
+X-Received: by 2002:a05:600c:820f:b0:471:176d:bf8a with SMTP id 5b1f17b1804b1-4711791cd3dmr68834905e9.35.1760854143309;
+        Sat, 18 Oct 2025 23:09:03 -0700 (PDT)
+Received: from localhost ([212.73.77.104])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4710cdb9d4dsm83976805e9.5.2025.10.18.23.09.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 18 Oct 2025 23:09:02 -0700 (PDT)
+From: Askar Safin <safinaskar@gmail.com>
+To: ebiggers@kernel.org
+Cc: ardb@kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v4 15/19] lib/crc32: make crc32c() go directly to lib
+Date: Sun, 19 Oct 2025 09:08:45 +0300
+Message-ID: <20251019060845.553414-1-safinaskar@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20241202010844.144356-16-ebiggers@kernel.org>
+References: <20241202010844.144356-16-ebiggers@kernel.org>
 MIME-Version: 1.0
-References: <20251014113234.44418-1-linux.amoon@gmail.com> <20251014113234.44418-2-linux.amoon@gmail.com>
- <aPNiW8QzsLv4R0E6@stanley.mountain>
-In-Reply-To: <aPNiW8QzsLv4R0E6@stanley.mountain>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Sun, 19 Oct 2025 11:30:22 +0530
-X-Gm-Features: AS18NWDuyNsNiWxQmtkRHjc2M2PlmVH_Wd0KhK-4VAGV-r5GP86AOOEs_7Ea5Qw
-Message-ID: <CANAwSgRchOvNPShUZOsUzdS0jaBOtFmpPLpJZEv7NNqOohWo3w@mail.gmail.com>
-Subject: Re: [PATCH v1 1/3] PCI: j721e: Propagate dev_err_probe return value
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-omap@vger.kernel.org>, 
-	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-pci@vger.kernel.org>, 
-	"moderated list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_230040_091003_F98E235D 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20251018_230906_186981_D4C75EC0 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,42 +114,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan
+Eric Biggers <ebiggers@kernel.org>:
+> Now that the lower level __crc32c_le() library function is optimized for
 
-On Sat, 18 Oct 2025 at 15:18, Dan Carpenter <dan.carpenter@linaro.org> wrote:
->
-> On Tue, Oct 14, 2025 at 05:02:27PM +0530, Anand Moon wrote:
-> > Ensure that the return value from dev_err_probe() is consistently assigned
-> > back to ret in all error paths within j721e_pcie_probe(). This ensures
-> > the original error code are propagation for debugging.
-> >
-> > Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> > ---
-> > v1: new patch in this series
-> > ---
-> >  drivers/pci/controller/cadence/pci-j721e.c | 12 ++++++------
-> >  1 file changed, 6 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-> > index 5bc5ab20aa6d..9c7bfa77a66e 100644
-> > --- a/drivers/pci/controller/cadence/pci-j721e.c
-> > +++ b/drivers/pci/controller/cadence/pci-j721e.c
-> > @@ -569,20 +569,20 @@ static int j721e_pcie_probe(struct platform_device *pdev)
-> >       pm_runtime_enable(dev);
-> >       ret = pm_runtime_get_sync(dev);
-> >       if (ret < 0) {
-> > -             dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
-> > +             ret = dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
-> >               goto err_get_sync;
->
-> Wait, no, this doesn't make sense.  It's just assigning ret to itself.
-> That's just confusing and pointless.
->
-Ok, Thanks for clarifying.
-> regards,
-> dan carpenter
->
-Thanks
--Anand
+This patch (i. e. 38a9a5121c3b ("lib/crc32: make crc32c() go directly to lib"))
+solves actual bug I found in practice. So, please, backport it
+to stable kernels.
+
+I did bisect.
+
+It is possible to apply this patch on top of v6.12.48 without conflicts.
+
+The bug actually prevents me for using my system (more details below).
+
+Here is steps to reproduce bug I noticed.
+
+Build kernel so:
+
+$ cat /tmp/mini
+CONFIG_64BIT=y
+CONFIG_PRINTK=y
+CONFIG_SERIAL_8250=y
+CONFIG_TTY=y
+CONFIG_SERIAL_8250_CONSOLE=y
+CONFIG_BLK_DEV_INITRD=y
+CONFIG_RD_GZIP=y
+CONFIG_BINFMT_ELF=y
+CONFIG_BINFMT_SCRIPT=y
+CONFIG_PROC_FS=y
+CONFIG_SYSFS=y
+CONFIG_DEVTMPFS=y
+CONFIG_MODULES=y
+CONFIG_BTRFS_FS=m
+CONFIG_MODULE_COMPRESS=y
+CONFIG_MODULE_COMPRESS_XZ=y
+CONFIG_MODULE_COMPRESS_ALL=y
+CONFIG_MODULE_DECOMPRESS=y
+CONFIG_PRINTK_TIME=y
+$ make allnoconfig KCONFIG_ALLCONFIG=/tmp/mini
+$ make
+
+Then create initramfs, which contains statically built busybox
+(I used busybox v1.37.0 (Debian 1:1.37.0-6+b3)) and modules we just created.
+
+Then run Qemu using command line similar to this:
+
+qemu-system-x86_64 -kernel arch/x86/boot/bzImage -initrd i.gz -append 'console=ttyS0 panic=1 rdinit=/bin/busybox sh' -m 256 -no-reboot -enable-kvm -serial stdio -display none
+
+Then in busybox shell type this:
+
+# mkdir /proc
+# busybox mount -t proc proc /proc
+# modprobe btrfs
+
+On buggy kernels I get this output:
+
+# modprobe btrfs
+[   19.614228] raid6: skipped pq benchmark and selected sse2x4
+[   19.614638] raid6: using intx1 recovery algorithm
+[   19.616569] xor: measuring software checksum speed
+[   19.616937]    prefetch64-sse  : 42616 MB/sec
+[   19.617270]    generic_sse     : 41320 MB/sec
+[   19.617531] xor: using function: prefetch64-sse (42616 MB/sec)
+[   19.619731] Invalid ELF header magic: != ELF
+modprobe: can't load module libcrc32c (kernel/lib/libcrc32c.ko.xz): unknown symbol in module, or unknown parameter
+
+The bug is reproducible on all kernels from v6.12 until this commit.
+And it is not reproducible on all kernels, which contain this commit.
+I found this using bisect.
+
+This bug actually breaks my workflow. I have btrfs as root filesystem.
+Initramfs, generated by Debian, doesn't suit my needs. So I'm going
+to create my own initramfs from scratch. (Note that I use Debian Trixie,
+which has v6.12.48 kernel.) During testing this initramfs in Qemu
+I noticed that command "modprobe btrfs" fails with error given above.
+(I not yet tried to test this initramfs on real hardware.)
+
+So, this bug actually breaks my workflow.
+
+So, please backport this patch (i. e. 38a9a5121c3b ("lib/crc32: make crc32c() go directly to lib"))
+to stable kernels.
+
+I tested that this patch can be applied without conflicts on top of v6.12.48,
+and this patch indeed fixes the bug for v6.12.48.
+
+If you want, I can give more info.
+
+It is possible that this is in fact bug in busybox, not in Linux.
+But still I think that backporting this patch is good idea.
+
+This busybox thread my be related:
+https://lists.busybox.net/pipermail/busybox/2023-May/090309.html
+
+-- 
+Askar Safin
 
