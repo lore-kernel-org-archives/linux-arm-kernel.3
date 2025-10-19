@@ -4,66 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9704ACCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 07:32:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFB75CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 07:42:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NzJBwVufIqSd28UXTJiRvSTu8HB03cFHT0WX4CBcKAs=; b=wtEnomRCzpwvWgLqSfPHdO1dSm
-	9szgfGAPcZIXu2BkQ65lYwxPrUBwpxMzbX///GJQFFsXXwKYIgDJFilApjCR+FpmYkh3ig5/up4ku
-	AEV3lF/E9yAWnTuZRp557QNnmnc8eyKGRhfS/3qLR2C8pVWJVkCzadj6OjlMls4OuJywPRHyP3rdR
-	RAxfDEjso/Ul1TnscNG+KUBbNqoGcDoyhw+K2Xi61sr5W7e+VlmLr2eQIIxdxnaGPROClqRvsgJSZ
-	4Jmagg4OnGLy8iqKW6xDBA/MrJpZQh4CE0cn2oSgDDJHxMcJtj/Z38/fFnhLQ3S1ctR8t/dq2rIwB
-	PC8U70aA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hjuUe+UFCTyI3ZlwUaVCKaC02uBTC5d7Of/hpQUOtLw=; b=yfsIE1mcGYIpW1
+	0ByvLdznCnxqI+PnadPJ9k8R2nNG/Z/xWObFvGGjRZB2TSP9m6Cx7thPKrG9dTl7YAklndZAiVO3a
+	ZIxMgbHat67IHh+XKL80wkaPEfMRu8dR8P4piWG/684pwfw4EdJGom2SXr5dJHqfvGDabf1kJcqua
+	lH4kCIBNlvn5+fTazt5T/Dd6jSseEkZjxaFC7TnyLKJDVKMWRWWtkxpCKasf8tIGgXwyxPYq1MFHz
+	Ny+eS2f+Hf4Knoxc7LD/ZbW3nKYZquGMOwaQzE7WsGmshxslNHWrU9CfoOncYfxI2t6SL/XebRkCt
+	ewA9OAZqhvpeyD6/wiLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vANtt-0000000AmcH-1RS0;
-	Sun, 19 Oct 2025 07:32:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vAO33-0000000Amr5-2agI;
+	Sun, 19 Oct 2025 07:41:49 +0000
+Received: from mail-lj1-f175.google.com ([209.85.208.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vANtq-0000000AmbN-2tD6;
-	Sun, 19 Oct 2025 07:32:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4643B44456;
-	Sun, 19 Oct 2025 07:32:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF52DC4CEE7;
-	Sun, 19 Oct 2025 07:31:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760859123;
-	bh=Q5WZijcRsjXr1RWFkwdQADczeQBWeDR34cnzsxqPN0o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oysZ12Tnrxw8qCzJaaW5FvHJsX9RECC9QhUHD4trdla7ylQC1SGPQ9dxBvbwfh4AB
-	 EZuq9TNoFGZKeRbBH5MmkMv3fcI3RkZjkGjXSDd3+cdi4WsjG0b2rv96lVjbHCAhko
-	 KmEaHXcJCviGKhdxY00RrIu2XmkcpgHioxyHCVaYgG7yjyq+cuSpKV6+xGOI73Pm/g
-	 lyAcuHPLAav9ye31NNhcKtGXM8Y4UMZvwgwXL7b2aMfSzjNPIpxbseiRy60DFPUNlb
-	 ktnUvzx6DG1m9szD4Ci9xy3LYv/BIuwrz+O+2qj57v5bPxfRwJ+1CXFQ4bTuhKnZ4Z
-	 aDQTsk24cusQQ==
-Date: Sun, 19 Oct 2025 13:01:44 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Ryder Lee <ryder.lee@mediatek.com>, 
-	Jianjun Wang <jianjun.wang@mediatek.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, upstream@airoha.com
-Subject: Re: [PATCH v5 5/5] PCI: mediatek: add support for Airoha AN7583 SoC
-Message-ID: <hjyhso2sqgyq4ymzqg6pmjfrfncla24zwsev2mfinolmclm3ih@sol2yoapbykq>
-References: <20251012205900.5948-1-ansuelsmth@gmail.com>
- <20251012205900.5948-6-ansuelsmth@gmail.com>
+	id 1vAO30-0000000AmqU-0lTo
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 19 Oct 2025 07:41:47 +0000
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-371e4858f74so40082651fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Oct 2025 00:41:45 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760859698; x=1761464498;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hjuUe+UFCTyI3ZlwUaVCKaC02uBTC5d7Of/hpQUOtLw=;
+        b=g6lBnV2J9sQCkP6pV9JfWOzjI29n1LfAjN7Koxln2+AM89tDhJEIxRRR5gxrmYYs6w
+         G3EL16bQMKHQmjfvY/H5C/6gzlW+uFh8xtWCZTc4/SpqRoyZYBAWYAHE++VQWXdXI8VU
+         lYSRtW0dYOed+57ub1FcwWUFn8XIyv8htsSlXJUX717u4UV/wWysEST6hcVRYSiHwETA
+         OEJU2rHSl4FO1+VNyD3Yq0Me65LRNPDPnUBVxFiGf8cMPamf47xtq1ETIpIO5FbUcOWB
+         JfXLgw0c1FImQfGdZfTSU7gqOUmDCHMt8GOM12QXkJptFRUkTJIhvecqo0eB/ec5Hk5l
+         uSoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXZ4GxyDTtAofxl/hBbIFYm1AtSIpjPnmS3dh6uFOKCtr2cn7hBp6qmRyEO9FMhxiDVwEy8yEHkBtZhIkwdjA1l@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAJG5KzAOjjF3Te3aUCqTmoA8UqwYs7L7mKd0/H6JlwzueYzUa
+	8rD4AHbROTomMAeT+6MiRHN7mbNBbPWb4ZKLTJqe6NsFitXiZcQ7jD915z7uvvm+
+X-Gm-Gg: ASbGncsOywwVjHrJhi6Q5G7B9kVtux3LFVsevktPzV3uIuk9JPGRwGaMc96uZJgCIig
+	EXCh+XAHLv3EB9uVE9Lrjg5iSEi/fbfksg3BwXE6AylwooETGq0rqZsGPWl3MMvV0oAQzzSVI6g
+	xyDqMwJRAjJe5nB+tEIVw5/Yqf1Kq5BfqQnSi9HLnYV7HKVm2I4k1gxzZOMXJTyets9pg4Y2L5i
+	ZWwFTwjd3t6rVam9n0kWsL7u0WY/kZhq/EODkUb1QHwGGG7YDVFYKdYi0rWogLJjehKCtNkD5FW
+	uSfDZnDr8ULtTV7bDNTmSWQRz7rk79Fwaz0u/FfJqaZ7EoHUZBpwxy4cSSk5HCkSu4CDTH0m8l1
+	izUM6hQsypPvON4F+ZvkarfMcUWRD8aeIsPv3ndLuIh86y8rFRj5qN6mHDpRSO3e7+Uu46GFTa2
+	2HUySPXzBzMtiwNhihuhDV+LVQNLUCCRWMs0RE5s7ncrlC/bJB5BSmOA==
+X-Google-Smtp-Source: AGHT+IFvp+AnsDmVlYriWHQwCZMiwdlUMv0d63N6pwEBptoz1ORjKDJSCEZFNn4GSq5H7+iBdNR1uA==
+X-Received: by 2002:a05:651c:1544:b0:376:3918:53b5 with SMTP id 38308e7fff4ca-3778216644fmr38744101fa.6.1760859697577;
+        Sun, 19 Oct 2025 00:41:37 -0700 (PDT)
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com. [209.85.208.180])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-377a921ae62sm11580111fa.21.2025.10.19.00.41.35
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 19 Oct 2025 00:41:36 -0700 (PDT)
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-37775ed97daso44620421fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Oct 2025 00:41:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVE84vO7kPu1821soZ5JDjqwuv42gXEYrb+em6lN2BKRqhOOEpor95SQ5Vt/KSHLlmB0D4Mv/YPID2F+JT50fQv@lists.infradead.org
+X-Received: by 2002:a05:651c:2113:b0:36b:2fab:fa6f with SMTP id
+ 38308e7fff4ca-37782137beemr41886461fa.3.1760859695663; Sun, 19 Oct 2025
+ 00:41:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251012205900.5948-6-ansuelsmth@gmail.com>
+References: <20251012192330.6903-1-jernej.skrabec@gmail.com> <20251012192330.6903-2-jernej.skrabec@gmail.com>
+In-Reply-To: <20251012192330.6903-2-jernej.skrabec@gmail.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Sun, 19 Oct 2025 15:41:23 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66ddMgVSFFtQde34BY2FcjPn38hxCsvVQ+m5+fOJtyJ7A@mail.gmail.com>
+X-Gm-Features: AS18NWCXbetOzzBsxzmfJfwCXigzPHLCDC4AqSPGnEbYZf4O62hkT_fB8IZOMeY
+Message-ID: <CAGb2v66ddMgVSFFtQde34BY2FcjPn38hxCsvVQ+m5+fOJtyJ7A@mail.gmail.com>
+Subject: Re: [PATCH 01/30] drm/sun4i: mixer: Fix up DE33 channel macros
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: mripard@kernel.org, maarten.lankhorst@linux.intel.com, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_003219_004175_11F05CB9 
-X-CRM114-Status: GOOD (  26.40  )
+X-CRM114-CacheID: sfid-20251019_004146_235861_06E4D5FC 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,105 +96,17 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 12, 2025 at 10:56:59PM +0200, Christian Marangi wrote:
-> Add support for the second PCIe Root Complex present on Airoha AN7583
-> SoC.
-> 
-> This is based on the Mediatek Gen1/2 PCIe driver and similar to Gen3
-> also require workaround for the reset signals.
-> 
-> Introduce a new flag to skip having to reset signals and also introduce
-> some additional logic to configure the PBUS registers required for
-> Airoha SoC.
-> 
-> While at it, also add additional info on the PERST# Signal delay
-> comments and use dedicated macro.
-> 
+On Mon, Oct 13, 2025 at 3:23=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
+l.com> wrote:
+>
+> Properly define macros. Till now raw numbers and inappropriate macro was
+> used.
+>
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-This belongs to a separate patch which should come before this one.
-
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  drivers/pci/controller/pcie-mediatek.c | 92 ++++++++++++++++++++------
->  1 file changed, 70 insertions(+), 22 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
-> index 1678461e56d3..3340c005da4b 100644
-> --- a/drivers/pci/controller/pcie-mediatek.c
-> +++ b/drivers/pci/controller/pcie-mediatek.c
-> @@ -148,6 +148,7 @@ enum mtk_pcie_flags {
->  	NO_MSI = BIT(2), /* Bridge has no MSI support, and relies on an
->  			  * external block
->  			  */
-> +	SKIP_PCIE_RSTB	= BIT(3), /* Skip calling RSTB bits on PCIe probe */
->  };
->  
->  /**
-> @@ -684,28 +685,32 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
->  		regmap_update_bits(pcie->cfg, PCIE_SYS_CFG_V2, val, val);
->  	}
->  
-> -	/* Assert all reset signals */
-> -	writel(0, port->base + PCIE_RST_CTRL);
-> -
-> -	/*
-> -	 * Enable PCIe link down reset, if link status changed from link up to
-> -	 * link down, this will reset MAC control registers and configuration
-> -	 * space.
-> -	 */
-> -	writel(PCIE_LINKDOWN_RST_EN, port->base + PCIE_RST_CTRL);
-> -
-> -	/*
-> -	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal) and
-> -	 * 2.2.1 (Initial Power-Up (G3 to S0)). The deassertion of PERST# should
-> -	 * be delayed 100ms (TPVPERL) for the power and clock to become stable.
-> -	 */
-> -	msleep(100);
-> -
-> -	/* De-assert PHY, PE, PIPE, MAC and configuration reset	*/
-> -	val = readl(port->base + PCIE_RST_CTRL);
-> -	val |= PCIE_PHY_RSTB | PCIE_PERSTB | PCIE_PIPE_SRSTB |
-> -	       PCIE_MAC_SRSTB | PCIE_CRSTB;
-> -	writel(val, port->base + PCIE_RST_CTRL);
-> +	if (!(soc->flags & SKIP_PCIE_RSTB)) {
-> +		/* Assert all reset signals */
-> +		writel(0, port->base + PCIE_RST_CTRL);
-> +
-> +		/*
-> +		 * Enable PCIe link down reset, if link status changed from
-> +		 * link up to link down, this will reset MAC control registers
-> +		 * and configuration space.
-> +		 */
-> +		writel(PCIE_LINKDOWN_RST_EN, port->base + PCIE_RST_CTRL);
-> +
-> +		/*
-> +		 * Described in PCIe CEM specification revision 3.0 sections
-> +		 * 2.2 (PERST# Signal) and 2.2.1 (Initial Power-Up (G3 to S0)).
-> +		 *
-> +		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
-> +		 * for the power and clock to become stable.
-
-You can drop the comments since PCIE_T_PVPERL_MS definition has them.
-
-> +		 */
-> +		msleep(PCIE_T_PVPERL_MS);
-> +
-> +		/* De-assert PHY, PE, PIPE, MAC and configuration reset	*/
-> +		val = readl(port->base + PCIE_RST_CTRL);
-> +		val |= PCIE_PHY_RSTB | PCIE_PERSTB | PCIE_PIPE_SRSTB |
-> +		       PCIE_MAC_SRSTB | PCIE_CRSTB;
-> +		writel(val, port->base + PCIE_RST_CTRL);
-
-If PCIE_LINKDOWN_RST_EN corresponds to PERST# signal, then it should be
-deasserted only after the power and REFCLK are stable. But I'm not sure what the
-above PCIE_RST_CTRL setting is doing. If it somehow affects either power or
-REFCLK, then it should come before PCIE_LINKDOWN_RST_EN.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Reviewed-by: Chen-Yu Tsai <wens@csie.org>
 
