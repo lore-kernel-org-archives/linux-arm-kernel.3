@@ -4,61 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF6AACCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 05:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39C89CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 06:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AposZdA97v4QvIOBBItfYm/C3IV29NLm7krGfYU2BhE=; b=OLUpPGuBF0rW61EdUtYJ+qdZFZ
-	ymFLkY15ecGkAK7ZeBD2L1mrYiSr3dzYT0cHFfxkBIrgKRXAJ1ZHujyOcxSqt4jNxkdLKNTXi70uw
-	YaKm51ueMFipjy2T++Z4PSxz2eQUzH3cQIEZ0gO5P+2Bv0iD/zabwmhHSc3QWnqHXdzvYJB3jF8Mb
-	1diEjRURmyZV1X316wnMRBbDr7BVMDAdx53NV5RX7ErpWDpKWwcpUmkDXySQimSjC8e8Xk2Fjri6D
-	HnmlqX5Y4Xu1mr9chHEpyy71kGZO02WeLi0R8/G9aBGan8vqXri4WSuJpJHfON0NwT+veYaa3TArz
-	mWS2De/A==;
+	bh=RDRUSkhiE/XFv7OW4RSw91eps1PHNhul5pJctkyAuh0=; b=i2J+Fh1gWLmfMoEObZW3Yp+gu4
+	7uEgXMYdmg8opNeHzUeqc+0/ID+qb5UCprlOrnVuz+0g2XiKk329SotMjb6SEy3Uol8kxeUsrt1Sv
+	ccfxz5ytwwFe1N8iVAE8C4zDPX90jfmiyyyfJRSIBA09fAJ2pdPzz09Us7YnNUeHDpKU4NTqgZNJH
+	ScC6KNLgI+b3VSW922YLy7nbEfCy4yqmPAkIGvOTtwvRPWzFSxVaSfVhObxfBEnrCYzr2/zqPu4pb
+	kccwkI0+4Meepetb8Rrqq4Ry7h9nwCN/b5wE2vmHzjF/1R4VVZcxpKGgPJHkgeJEFozXjBltmdf+Z
+	Zc+E50Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAMGT-0000000AhgY-37JH;
-	Sun, 19 Oct 2025 05:47:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vAMTC-0000000AiGc-23WJ;
+	Sun, 19 Oct 2025 06:00:42 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAMGS-0000000Ahg5-0WSU
+	id 1vAMTA-0000000AiG1-016K
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 05:47:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 378E060261;
-	Sun, 19 Oct 2025 05:47:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4AE4C4CEE7;
-	Sun, 19 Oct 2025 05:47:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760852842;
-	bh=Cug9c27jA9+gokQPguItXYngRRlfQacDDzPvQMTHUb4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bkLBBCIuBF3XQUYxsX2zWfNGa7gmHAqJZP4DYD/7CiIKL5EREik60ZaHWZCdNYqyK
-	 52N1yPT4O+4Ay2DNL2TL+zC3vVC5ieANkDRL6EIhcT4wtAtZBP7IIoOBl2ITUFUKx5
-	 hTXaRnLdM1HK2b1O20Zv1J7dVNGfFVdoc9RU+dDVaAJbfiJIH3d51WHLfKC/v2ijs9
-	 laGlk1NyN/O8XMgk1b91Oco8al9mN4RL06rPHxPsxFyGew/pWQkD9+/EHCJtE4Z6Xn
-	 HkBI+7CLQIcjwt8MrZ2a26lC+GRqte6t+o6pi8278sR1uFw98xIlgeNDvPGLkHQ5ci
-	 dFfl97YBVE4gA==
-Date: Sun, 19 Oct 2025 11:17:04 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
-Cc: Frank.Li@nxp.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	bhelgaas@google.com, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, yuji2.ishikawa@toshiba.co.jp
-Subject: Re: [PATCH v3 2/2] PCI: dwc: visconti: Remove cpu_addr_fix() after
- DTS fix ranges
-Message-ID: <v7voxo42ryezh7iypjqqqnpxk6pdrm4fovgsdvmd56362umdsy@bhooegmb5rx6>
-References: <1757298848-15154-1-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
- <1757298848-15154-3-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
+	Sun, 19 Oct 2025 06:00:41 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b40f11a1027so628514166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Oct 2025 23:00:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760853638; x=1761458438; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=RDRUSkhiE/XFv7OW4RSw91eps1PHNhul5pJctkyAuh0=;
+        b=ZVa14rNMiaB7RU4StYAYB5W7ccWqezVaQTGQeGu+14+a5eNciAiY3j09wdFg0Y+WJh
+         sqrnGOotwKs1cVfhXtJHW3qjdYwqkR58CNPR5U+LB42NA74Zg/6BpKUT4Osv9K2ih66s
+         1PFa2j+WH6pV4Y95TguC4d/15/P78lVm0G0d6QgrRDX7qO26kIODr2EnwZe2WLk9Tdrb
+         0MGduY/iwxpwdIabzU/gHFn8CVncmp6Nohbjstr50/vMbuz4Wrm30/MT2AnEHTJV730r
+         1Xo9vp4WbtXu+mckX5ZgOOy6ArOCmcT+sQ3FwsQHqhsIk6L1YS4zkQb+UXt9IFFgtkQm
+         j9Nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760853638; x=1761458438;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RDRUSkhiE/XFv7OW4RSw91eps1PHNhul5pJctkyAuh0=;
+        b=nlt8R9lxYgfZIucjaIF8ziA3UhrVjEEJ4rd+YlkfvMYKB0ciDstAcmDDUPyhHjFL8D
+         1YqxYpyASQkCWLs4K72eWrWTOFPY8maMBdxYnEoKPds7nTIHrmiV+DpyzXAu+CDd8W4R
+         roMeydyWBpaPITCz/HPr9Oz8k92GRXPuCM7v3CBF20As66B5dlKCdG9GiS2AmpKxbdv2
+         1THiuM730r7Rjdg+NljLNZqzgQmaHvN4v7CpN5g/Il7LVh2lVAZLqw/hcrZfff6MkrBa
+         A3WK4sVKO35VuZ3525v4HsImyGtrtRa+PiZic2EVcCg7sq6ARtMea97O9K9wKlZI3bxv
+         cn2A==
+X-Forwarded-Encrypted: i=1; AJvYcCX397i/5pbsFjA5FZmUP06wOxF7d20bOSC46CxJOfSYoaJ3oOn+cMn0h3+r7/cmSrZYp2wCpNZs01gKDFaAam1o@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxvv5U1ubPlVKaxnUu+FdR48Kqm72nIOMIxQFo5MEfcLAL+zK61
+	bqAdW1CK3tQ/RkfibWfSTTxc7HvtumUWlkFw0rO8/HkweXNw4xZr9q9TZ2dQYxR98zBY6tFFSXy
+	K5C/9+NJLUsC34z3QgTzdIAXw8cZWIow=
+X-Gm-Gg: ASbGncuMaVcP3uZWuk76I2umrD6S0ObxflMNggchQ+UCpzlXbdF7yYQNfGFrg4NB+Z5
+	6bYEmXVylLx+mf9elwIzXoXgcxqonQ1nR8vJZYXJYaW/ZeEj2WBfCCMjRM43dtoVpmfjR1uE3ZU
+	yctpoRgv0XtqkyZQMQIsesN1OvMIXGzVhVkEEyDz1FnykE1gSlXdr09Q9vBP8VtNIvBZ8sqYyxh
+	k7Q4Hvowbzlpr5HpnW/CHBeh25K+OEd1BPYwcgMIBk/CY9bM1rkiKrOrz1cUasiFFwK1w==
+X-Google-Smtp-Source: AGHT+IFouXM66dWGoME6chpnuaQA5AhGJ3XBtWEQPmJjkQDMbd8DEH4sRrB+vsmFy93A7mrCfiSnE5e4aC5FUlXjYmc=
+X-Received: by 2002:a17:907:7b8c:b0:b04:b446:355 with SMTP id
+ a640c23a62f3a-b6475706d77mr890751766b.59.1760853637425; Sat, 18 Oct 2025
+ 23:00:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1757298848-15154-3-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
+References: <20251014113234.44418-1-linux.amoon@gmail.com> <20251014113234.44418-2-linux.amoon@gmail.com>
+ <aPNiW8QzsLv4R0E6@stanley.mountain>
+In-Reply-To: <aPNiW8QzsLv4R0E6@stanley.mountain>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Sun, 19 Oct 2025 11:30:22 +0530
+X-Gm-Features: AS18NWDuyNsNiWxQmtkRHjc2M2PlmVH_Wd0KhK-4VAGV-r5GP86AOOEs_7Ea5Qw
+Message-ID: <CANAwSgRchOvNPShUZOsUzdS0jaBOtFmpPLpJZEv7NNqOohWo3w@mail.gmail.com>
+Subject: Re: [PATCH v1 1/3] PCI: j721e: Propagate dev_err_probe return value
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-omap@vger.kernel.org>, 
+	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-pci@vger.kernel.org>, 
+	"moderated list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251018_230040_091003_F98E235D 
+X-CRM114-Status: GOOD (  22.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,64 +99,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 08, 2025 at 11:34:08AM +0900, Nobuhiro Iwamatsu wrote:
-> From: Frank Li <Frank.Li@nxp.com>
-> 
-> Remove cpu_addr_fix() since it is no longer needed. The PCIe ranges
-> property has been corrected in the DTS, and the DesignWare common code now
-> handles address translation properly without requiring this workaround.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
-> 
-> ---
-> v3:
->   Add pci->use_parent_dt_ranges fixes.
->   Update Signed-off-by address, because my company email address haschanged.
-> 
-> v2:
->   No Update.
-> ---
->  drivers/pci/controller/dwc/pcie-visconti.c | 15 ++-------------
->  1 file changed, 2 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-visconti.c b/drivers/pci/controller/dwc/pcie-visconti.c
-> index cdeac6177143c..d8765e57147af 100644
-> --- a/drivers/pci/controller/dwc/pcie-visconti.c
-> +++ b/drivers/pci/controller/dwc/pcie-visconti.c
-> @@ -171,20 +171,7 @@ static void visconti_pcie_stop_link(struct dw_pcie *pci)
->  	visconti_mpu_writel(pcie, val | MPU_MP_EN_DISABLE, PCIE_MPU_REG_MP_EN);
->  }
->  
-> -/*
-> - * In this SoC specification, the CPU bus outputs the offset value from
-> - * 0x40000000 to the PCIe bus, so 0x40000000 is subtracted from the CPU
-> - * bus address. This 0x40000000 is also based on io_base from DT.
-> - */
-> -static u64 visconti_pcie_cpu_addr_fixup(struct dw_pcie *pci, u64 cpu_addr)
-> -{
-> -	struct dw_pcie_rp *pp = &pci->pp;
-> -
-> -	return cpu_addr & ~pp->io_base;
-> -}
-> -
->  static const struct dw_pcie_ops dw_pcie_ops = {
-> -	.cpu_addr_fixup = visconti_pcie_cpu_addr_fixup,
->  	.link_up = visconti_pcie_link_up,
->  	.start_link = visconti_pcie_start_link,
->  	.stop_link = visconti_pcie_stop_link,
-> @@ -310,6 +297,8 @@ static int visconti_pcie_probe(struct platform_device *pdev)
->  
->  	platform_set_drvdata(pdev, pcie);
->  
-> +	pci->use_parent_dt_ranges = true;
-> +
+Hi Dan
 
-I hope you'll respin this series by keeping just the above flag and dropping the
-cpu_addr_fixup removal.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+On Sat, 18 Oct 2025 at 15:18, Dan Carpenter <dan.carpenter@linaro.org> wrote:
+>
+> On Tue, Oct 14, 2025 at 05:02:27PM +0530, Anand Moon wrote:
+> > Ensure that the return value from dev_err_probe() is consistently assigned
+> > back to ret in all error paths within j721e_pcie_probe(). This ensures
+> > the original error code are propagation for debugging.
+> >
+> > Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > ---
+> > v1: new patch in this series
+> > ---
+> >  drivers/pci/controller/cadence/pci-j721e.c | 12 ++++++------
+> >  1 file changed, 6 insertions(+), 6 deletions(-)
+> >
+> > diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+> > index 5bc5ab20aa6d..9c7bfa77a66e 100644
+> > --- a/drivers/pci/controller/cadence/pci-j721e.c
+> > +++ b/drivers/pci/controller/cadence/pci-j721e.c
+> > @@ -569,20 +569,20 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+> >       pm_runtime_enable(dev);
+> >       ret = pm_runtime_get_sync(dev);
+> >       if (ret < 0) {
+> > -             dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
+> > +             ret = dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
+> >               goto err_get_sync;
+>
+> Wait, no, this doesn't make sense.  It's just assigning ret to itself.
+> That's just confusing and pointless.
+>
+Ok, Thanks for clarifying.
+> regards,
+> dan carpenter
+>
+Thanks
+-Anand
 
