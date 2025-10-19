@@ -4,102 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A21CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 06:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAEACCD1AA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 06:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GYC/hQuGeMEF947/LuK3VJRiyEjbNIGm04998G60uow=; b=X7HlBZT2ICjsYHamDxU/6ltg3y
-	9gDL2rgxRiBTSaJ59FpAG26/o7h0MsLHgCab617t68JAp3JL9kgD2mg8Uyfx7akFVjbV1XD/5Nmp2
-	rOFpoUcegzqV7wOtaTJoNH7NRfJCNJMxX+6oNfHzLlUxPzCmHePBl/m7QkFTtUTpA79vMlaa7ScDp
-	4KpWFL5cnk0eZgQEbZCC4gtyHDaxZSFDAexsATbKbbtiKfF3+G6k0TRGnXpQQA5iLUtJJMWKuF3be
-	e9SeH9hCmPSo+Pd2KinUHPk6r+b2t8Pw1Ph8KfCJMiTH3wkx8gC9DPoIgHN7Myy2sDFyeuS+eanRk
-	xnwwkIqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9q57YetZremQaMovsDmJdvVQMz1dL2IN1fYFmNllm00=; b=3UOO2fxkWx5nTJPWpvrLi4wIAN
+	sRsePTUUS+2VXHe/ZjeU9QJzptcXNzKvo8Uw7UsHYxIZUhCQmsaekWgRbrqpI0oWPeJXjKTEGnVmj
+	fA8qxLmXl5wJnBe5loVo6bnut35ZtmoHN/Yr6nkjqq10GgSJPpp5b77N3EANXbJar82Gw46IJ1CLh
+	tpTP5tLrwxcR0puC5wcMev/+LtAnwu0AJELKU4ANHfSTjLe2VI8lnJL297mZIosD0X+i6nNCGq8+Y
+	95Knyq76nLpuk7j/KHGfS1RCieoIMgM3ToWc2pc5IOwMvapHOphzeMd5iPEMftppmDLfXYPcAsccf
+	eLHdxYhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAMbM-0000000AiaW-3MJb;
-	Sun, 19 Oct 2025 06:09:08 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vAMs6-0000000AkPH-1IXr;
+	Sun, 19 Oct 2025 06:26:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAMbK-0000000AiZm-0ZH6
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 06:09:07 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47100eae3e5so31296385e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 18 Oct 2025 23:09:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760854143; x=1761458943; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GYC/hQuGeMEF947/LuK3VJRiyEjbNIGm04998G60uow=;
-        b=P03z5OtYxnTNKJPmSc2tY3Kg2VoA6NC869Fdrc7BrXtKABasNzJYrkiiWx241yEFa+
-         AC4NxB3Tt6EL5EIGszjxAfKPGmeDDs/oRWKVTebIgTnXgFPxMd4I4wWSLMhQT3L4Z1gZ
-         yd/fEANImMeYvKMBQylXiLj252NDNPYAPUJUYyD0gHKEW+NaVGeEDP5NdpwJ/cL99f93
-         mBMD+Gdjk0bDLxMYSo96Z37ESDC/DT1IeOA+V6IJgCakXro66omNNtQW/AlyQA/i/NCf
-         Ot7F1sINs9rrvuZR6wO4keEl91MNxCJWpp3hLnuXib7mIdaJGiu7uNr+/KUtTGzE5jiD
-         kUzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760854143; x=1761458943;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GYC/hQuGeMEF947/LuK3VJRiyEjbNIGm04998G60uow=;
-        b=vABpyseF/ooLwlnY425E/Bc5Xo5xKcPujrZOij94qSsPjNz5daJGbR5a8g6J/YTPPS
-         6XHgYtNfWtQ1PIjE5i6IqGP18NMuI986RZjXNW2Fb3ZICtuiIHp0a7YlC32rz86c3u48
-         7kGxamTLaeJLGl6qSCO87CIXlk2iynMrwG4SC2YAy0ON3TFWcMJsb1C7C0l3lzBGu41S
-         mDJqpTHF0rLEXGm1+7H4H3wgO/rOczKE6RwOJwlpW75ulzwSqrmulIyWTKlWxNtdFkyN
-         syZJlOnyNeSQT/B0e+VXriu6e/SMfytPsgv7PlXrXUB5qiAtMUbBmtuHlquP0zf7F7Gh
-         8mYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWyaxo+5zEXSQS3q66VH9G6+Pbps0I6LXaU38vEboM+FFM1mp7I70Wib2J3GWHU9OOd6luU6do6l0nUYPLznlvP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzygLSDSWoBzPz39GDAXfD+LzGJaZM7sqaK0AlcwMoNrvvC3N/
-	HJuonq1SgdOHbvKoSjcufgLqovcIKMSCy3b6Z75GCPhpCvvFTYDKC35R
-X-Gm-Gg: ASbGncsD0bZofdyKZvZ9nYgwwwl0a49dqICIIIp+A3QsE7Jv0forZiKLka5IZOvU7bZ
-	b/woxOhrxPrIdvwRfqluVlLC4H9gyQZCj82zl7SX6sLaB7KF/yAHTTYrjUCaRy1Rgl0rgOzEwyi
-	U5d6acJqIYRsxpDlKVSJPlbS52rS4CxpnqXMpbaLpcBEdN83Xm+IMqLBVRtBW9EjlJhk9yNWdga
-	QfjEgtr11G50kM5sCphrZ6en8qbY5oAms5buOQTHyZGUDCxL1Bwja/3xd7SZWZ5AXsAz1dPjd2w
-	X7DCx2iKAwRBs/TquxP+VJr0Ec5KonQcnd9c1Np6pHueS+xstBvyTK9te48dpnXWERsumOOfQjG
-	ZolSc/fqUP2jmZQdjCeb56AA254cyNkSJinYoQL3uyp7h0hymyOuRBWTQ2KsYZDtJrukdpvtk4w
-	GR
-X-Google-Smtp-Source: AGHT+IEZ5upR5rvq2pYeoFEK0g1VqqLoHFsnsUnK8lryUbaHf4IrN1h8fWBgNccm4eIUhXw2FJ5z5w==
-X-Received: by 2002:a05:600c:820f:b0:471:176d:bf8a with SMTP id 5b1f17b1804b1-4711791cd3dmr68834905e9.35.1760854143309;
-        Sat, 18 Oct 2025 23:09:03 -0700 (PDT)
-Received: from localhost ([212.73.77.104])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4710cdb9d4dsm83976805e9.5.2025.10.18.23.09.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 18 Oct 2025 23:09:02 -0700 (PDT)
-From: Askar Safin <safinaskar@gmail.com>
-To: ebiggers@kernel.org
-Cc: ardb@kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-crypto@vger.kernel.org,
-	linux-ext4@vger.kernel.org,
-	linux-f2fs-devel@lists.sourceforge.net,
-	linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-scsi@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	loongarch@lists.linux.dev,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v4 15/19] lib/crc32: make crc32c() go directly to lib
-Date: Sun, 19 Oct 2025 09:08:45 +0300
-Message-ID: <20251019060845.553414-1-safinaskar@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20241202010844.144356-16-ebiggers@kernel.org>
-References: <20241202010844.144356-16-ebiggers@kernel.org>
+	id 1vAMs3-0000000AkOZ-0M5r;
+	Sun, 19 Oct 2025 06:26:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B778440A2;
+	Sun, 19 Oct 2025 06:26:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FAF1C4CEE7;
+	Sun, 19 Oct 2025 06:25:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760855166;
+	bh=5drm76qRadzN/MiXV5TorM1Em9uwpzEm1NGdBnBhsDY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eM9Qk7Q3wQJHKvcthQ9pRHExHxk301B5waian5gtkujs13tIF+kUatzBWZ59lJCYp
+	 ePALQuqjiQkRyskr6+l7Ul0zg8ES+WBlKzL4QnVNmvUa2etVdUlXBAE9Y/+pF5OzUK
+	 t9esr8xOZ0DYIIgr9RvEljsv7/ZipO7S9uMqnU6bb5+fyl1/SKjHhlZuMm3Av6LU5J
+	 bcwyGm5PqBa+W5FKLKKlQlbydhSO5vObxEe3uSUo3JV0caLW+5J6rp5r8Pu58qL14l
+	 8VwpCEmAZRFqhT6q+qhRTpzAg2+i/ZIyIf/K4+LsjwDMQhFO91oixGAmdmHsUu7B8A
+	 Ve/I8yH4+DdZg==
+Date: Sun, 19 Oct 2025 11:55:45 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Niklas Cassel <cassel@kernel.org>, Shawn Lin <shawn.lin@rock-chips.com>, 
+	Hans Zhang <18255117159@163.com>, Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
+	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v1] PCI: dw-rockchip: Simplify regulator setup with
+ devm_regulator_get_enable_optional()
+Message-ID: <4fqtxx5isbvyypgjzjczm4mxqhawsmcalap5bvkohgpeqxnyar@uy5bo2yb4lwy>
+References: <20250905112736.6401-1-linux.amoon@gmail.com>
+ <CANAwSgSYvTJ=8hv_BrrF1v7u3hq5AB_BSfT7wj0-LQF87dQMUQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CANAwSgSYvTJ=8hv_BrrF1v7u3hq5AB_BSfT7wj0-LQF87dQMUQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_230906_186981_D4C75EC0 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20251018_232623_182587_9727E125 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,98 +80,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Eric Biggers <ebiggers@kernel.org>:
-> Now that the lower level __crc32c_le() library function is optimized for
+On Sat, Oct 18, 2025 at 11:21:49AM +0530, Anand Moon wrote:
+> Hi All,
+> 
+> On Fri, 5 Sept 2025 at 16:57, Anand Moon <linux.amoon@gmail.com> wrote:
+> >
+> > Replace manual get/enable logic with devm_regulator_get_enable_optional()
+> > to reduce boilerplate and improve error handling. This devm helper ensures
+> > the regulator is enabled during probe and automatically disabled on driver
+> > removal. Dropping the vpcie3v3 struct member eliminates redundant state
+> > tracking, resulting in cleaner and more maintainable code.
+> >
+> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> > ---
+> >  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 23 +++++--------------
+> >  1 file changed, 6 insertions(+), 17 deletions(-)
+> >
+> If we compile the kernel with phy and regulator as modules,
+> I observe this message.
+> 
+> [   25.473960][   T55] platform 3c0800000.pcie: deferred probe
+> pending: platform: supplier regulator-vcc3v3-pcie not ready
+> [   25.474071][   T55] platform fe0a0000.hdmi: deferred probe pending:
+> platform: wait for supplier /i2c@fdd40000/pmic@20/regulators/LDO_REG9
+> [   25.474124][   T55] platform regulator-vcc5v0-usb-otg: deferred
+> probe pending: reg-fixed-voltage: can't get GPIO
+> [   25.474171][   T55] platform fdc20000.syscon:io-domains: deferred
+> probe pending: platform: wait for supplier
+> /i2c@fdd40000/pmic@20/regulators/SWITCH_REG1
+> [   25.474218][   T55] platform cpufreq-dt: deferred probe pending:
+> (reason unknown)
+> [   25.474264][   T55] platform regulator-vcc3v3-pcie: deferred probe
+> pending: reg-fixed-voltage: can't get GPIO
+> [   25.474343][   T55] rockchip-pm-domain
+> fdd90000.power-management:power-controller: Timed out. Forcing
+> sync_state()
+> [   37.744968][ T2415] psi: inconsistent task state!
+> task=2280:(udev-worker) cpu=1 psi_flags=4 clear=0 set=4
+> [   37.849725][   T50] fan53555-regulator 3-001c: FAN53555 Option[12]
+> Rev[15] Detected!
+> [   37.990008][ T2216] SCSI subsystem initialized
+> 
 
-This patch (i. e. 38a9a5121c3b ("lib/crc32: make crc32c() go directly to lib"))
-solves actual bug I found in practice. So, please, backport it
-to stable kernels.
+This is a deferred probe log and not related to this patch or the PCIe
+controller driver. The controller drivers should still be functional once the
+dependent GPIO driver is probed.
 
-I did bisect.
-
-It is possible to apply this patch on top of v6.12.48 without conflicts.
-
-The bug actually prevents me for using my system (more details below).
-
-Here is steps to reproduce bug I noticed.
-
-Build kernel so:
-
-$ cat /tmp/mini
-CONFIG_64BIT=y
-CONFIG_PRINTK=y
-CONFIG_SERIAL_8250=y
-CONFIG_TTY=y
-CONFIG_SERIAL_8250_CONSOLE=y
-CONFIG_BLK_DEV_INITRD=y
-CONFIG_RD_GZIP=y
-CONFIG_BINFMT_ELF=y
-CONFIG_BINFMT_SCRIPT=y
-CONFIG_PROC_FS=y
-CONFIG_SYSFS=y
-CONFIG_DEVTMPFS=y
-CONFIG_MODULES=y
-CONFIG_BTRFS_FS=m
-CONFIG_MODULE_COMPRESS=y
-CONFIG_MODULE_COMPRESS_XZ=y
-CONFIG_MODULE_COMPRESS_ALL=y
-CONFIG_MODULE_DECOMPRESS=y
-CONFIG_PRINTK_TIME=y
-$ make allnoconfig KCONFIG_ALLCONFIG=/tmp/mini
-$ make
-
-Then create initramfs, which contains statically built busybox
-(I used busybox v1.37.0 (Debian 1:1.37.0-6+b3)) and modules we just created.
-
-Then run Qemu using command line similar to this:
-
-qemu-system-x86_64 -kernel arch/x86/boot/bzImage -initrd i.gz -append 'console=ttyS0 panic=1 rdinit=/bin/busybox sh' -m 256 -no-reboot -enable-kvm -serial stdio -display none
-
-Then in busybox shell type this:
-
-# mkdir /proc
-# busybox mount -t proc proc /proc
-# modprobe btrfs
-
-On buggy kernels I get this output:
-
-# modprobe btrfs
-[   19.614228] raid6: skipped pq benchmark and selected sse2x4
-[   19.614638] raid6: using intx1 recovery algorithm
-[   19.616569] xor: measuring software checksum speed
-[   19.616937]    prefetch64-sse  : 42616 MB/sec
-[   19.617270]    generic_sse     : 41320 MB/sec
-[   19.617531] xor: using function: prefetch64-sse (42616 MB/sec)
-[   19.619731] Invalid ELF header magic: != ELF
-modprobe: can't load module libcrc32c (kernel/lib/libcrc32c.ko.xz): unknown symbol in module, or unknown parameter
-
-The bug is reproducible on all kernels from v6.12 until this commit.
-And it is not reproducible on all kernels, which contain this commit.
-I found this using bisect.
-
-This bug actually breaks my workflow. I have btrfs as root filesystem.
-Initramfs, generated by Debian, doesn't suit my needs. So I'm going
-to create my own initramfs from scratch. (Note that I use Debian Trixie,
-which has v6.12.48 kernel.) During testing this initramfs in Qemu
-I noticed that command "modprobe btrfs" fails with error given above.
-(I not yet tried to test this initramfs on real hardware.)
-
-So, this bug actually breaks my workflow.
-
-So, please backport this patch (i. e. 38a9a5121c3b ("lib/crc32: make crc32c() go directly to lib"))
-to stable kernels.
-
-I tested that this patch can be applied without conflicts on top of v6.12.48,
-and this patch indeed fixes the bug for v6.12.48.
-
-If you want, I can give more info.
-
-It is possible that this is in fact bug in busybox, not in Linux.
-But still I think that backporting this patch is good idea.
-
-This busybox thread my be related:
-https://lists.busybox.net/pipermail/busybox/2023-May/090309.html
+- Mani
 
 -- 
-Askar Safin
+மணிவண்ணன் சதாசிவம்
 
