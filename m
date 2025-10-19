@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71BF6CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 10:04:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49886CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 10:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AH9BX+nOYSHxj+SlHaEYYvYn56SKDoaZoDFu2BE+aWk=; b=XCDDcMo9yIhM6fBEbaG/TgR34l
-	rcHK6o3YYDSkkq50jxbCEsaXjA6gfy/nPeZf59nfVobT1naDu3+x4btc/nbuZUR7My7Gk/9gZb0GL
-	mP9MEaogA1QaSouECdLOo8Zhy52kyjUCFf5ey078PvSSIKmigjtiTzr9NjEg9REJ/UBrmibosvtfM
-	3VqRAANaBecdw8GAbDG3Pl+rb53pcoCr/o+Cbe7HMPTv9ualKCjLgv3LYVWRCZ0k8u4OwVrwJ/Sca
-	cYq7xBgsrfBxcVnk5DOpdxclUwl3kaCa2/37B6zzimw/lUJ2Yh+TpMKCbBYhGWhGzZ4rQPkiL++er
-	rTtdZXaA==;
+	bh=M6BS+Rx9p5Zae9XWkew/CqneYHlYUBOvdqcwKj9vtN4=; b=OCDECAxolJC6gBrtAOOCHUIM2K
+	+F+WlKmB0chtLOayuIZbcfyxiA4JpvTOju+E7vEZ+kDuywpiyeh085ninzP1oJROv/OiA4U0VMGDt
+	F5FfOsH7eUW8RDUySG/uE2CPqWBSDZ0m/IdH9nlTasn5sEigrJOxpGSD/MI+rihbTBoAwf5aVDjXC
+	bqBNjZ8fGsnFvNNuehv+1teUb8kqcANucrCyyO9oXkm954ynWnE+DVRLaPCvSM8cGRkIUi8LTNimM
+	wr0G210vWLi4HA/2hFPiTnPf8MJW/xNRb8/78ASBKrByTriR5qKLrWc8x++0xft2PIH3xppRUcveX
+	GL+k+t/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAQGp-0000000Athv-3RtB;
-	Sun, 19 Oct 2025 10:04:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vAQHV-0000000Atnf-0bv1;
+	Sun, 19 Oct 2025 10:04:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAQGn-0000000Athb-0PTx
+	id 1vAQHU-0000000AtnS-0Knl
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 10:04:10 +0000
+	Sun, 19 Oct 2025 10:04:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE5F445C3F;
-	Sun, 19 Oct 2025 10:03:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80702C4CEE7;
-	Sun, 19 Oct 2025 10:03:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D9CF60388;
+	Sun, 19 Oct 2025 10:04:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 853F1C116C6;
+	Sun, 19 Oct 2025 10:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760868238;
-	bh=y6N4OVCBgMamWcwFizLrQmToD6eC9fiNXocvZf5m3CY=;
+	s=k20201202; t=1760868276;
+	bh=K5bIOHqo4e4+v9JFw9VR8FYJWSsf4cxoBgG8icLWWIU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=In29qi3z0rBMtHAkJwncS/drzsoqgYMQVyLcNJ1aYeFpGOv/QtnUujmASFqxvXMjW
-	 WIsZ2QR1q9EyuMq1z/K28VeHyI4xx+USHYrbY2Gki6minkGXQKieECU9r1oJ0OajZD
-	 4o9CxnyNLjMw4sEY8tWZ3ej9wrcnC/7RIXIan1IDCFsBwl48jYbMa2yW3k9ff7MjsT
-	 oaazzO9pDGbpGQEHmp/Q4HrDk9uUvQGvHaqtFvwRac2lgZ2NXE0RQB7iBBwoyAR7TP
-	 TUVwfDsYAxYqfX1PaeLuGYjJeDzNaF0sYn7ksLfoCOsNXkC/XUs+1zHLLtCHugq5ur
-	 r2ccp4TpkX1eQ==
-Message-ID: <f45b3490-0cb3-4a3f-88e1-1f5b462e8088@kernel.org>
-Date: Sun, 19 Oct 2025 12:03:52 +0200
+	b=hu8kUuTP8G2bym5uquQb23frtqpM9s5kephneD5NwmnrA4u3r68L5W63bzFHEGbii
+	 L3+Mja+AasARH8lj2JkjkVSKLyQAUcEIZwQ8iUwHODa1w1GEhuSzMisPjiiN05F5AA
+	 gO2nBYYRnSSQVxzE5CinWzILsFFiPf2Pb2L1v4WbTTr74Y38JNaudZJmRzzY1ByjZe
+	 USYG+j6y1+0Z2QJy6bTfW2HsJDeaTDSAVpFBBGa7gno216k7k7Su2fPI8fhvzOsQ1v
+	 jnfvoxXKcJbTWmcsZDMkkBGIi/IOLqMKiUB8nGsbY1Y6RuKGUTFF5aT+/sxx0qMrXa
+	 jPM/p1Wj1CL7w==
+Message-ID: <d7cea4d7-52ce-42b5-a1b8-452998351630@kernel.org>
+Date: Sun, 19 Oct 2025 12:04:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 2/8] dt-bindings: clock: document 8ULP's SIM LPAV
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
- Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+To: Frank Li <Frank.li@nxp.com>,
+ Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
  Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev,
+ Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang
+ <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
 References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
  <20251017112025.11997-3-laurentiumihalcea111@gmail.com>
+ <aPJTquVc8zl727bC@lizhi-Precision-Tower-5810>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,13 +107,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251017112025.11997-3-laurentiumihalcea111@gmail.com>
+In-Reply-To: <aPJTquVc8zl727bC@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_030409_200908_B89D3956 
-X-CRM114-Status: UNSURE (   6.03  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,15 +124,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/10/2025 13:20, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On 17/10/2025 16:33, Frank Li wrote:
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/clock/imx8ulp-clock.h>
+>> +
+>> +    clock-controller@2da50000 {
 > 
-> Add documentation for i.MX8ULP's SIM LPAV module.
-> 
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> ---
+> Maybe mfd is better, this is clock, reset and mux controller actually.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+There is no such hardware term as mfd.
 
 Best regards,
 Krzysztof
