@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34894CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 12:03:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C751ACCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 13:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zbbqPCF8EZxspjJ0J8Cg+Ds28tVe/+l3WYsN8n3gDhI=; b=i9XQAAQUdhsbaU0FlciwmGV17d
-	AUr6CGmY2U1mdVaJzoALsXxa33o3nB0cVdG0DkdL/z4T/afimZR928XfiXBHDlQ4/AE6Hle9iJ6Hk
-	QvlGIDwk2sMTbdw2gMKC3InnIWCuV/0LbFKphV7qFhYaZklIlgbifbWOq36kHwdav0kH2uQ5Glt2c
-	BTUIWgWxorzHUlvFHSe0xTWAIM+lKeMEQUPVNXN5kDqfNl//dexkdTjhTV1x/pmjKUYGyTk7NSwRc
-	Y4o7BtdzhdmojdqDCp4IkZ1H9PWIV7DqEC4Xd9kqaEfA8OfzWl5a+f9YcWMiOkyrFYG4QK0MTuSWc
-	7m0hQwBw==;
+	bh=rAUp/zOPfZjDHenR5pCa5rJWpFDGvgMLJJymplML+FU=; b=z2aaJS0dyZmNPX3wZxsLg2SKJw
+	gfoh1iLiTdSi7oudRRU2V3/5nkDWhD91IU+w12q5TuFgxootGTv0u9LG6xTOBoeZ5e9IoZNeWfA0W
+	PtF/aytpSrPg01sWMLdMNyMwj631rGz4GQWOkAmSzcVf9INRF+9fwFmsYa1/MO0VS6/TuZYek7tt3
+	p7QT/+HpBXMFdAWvQks88tUjPDbE3U1HIMm5zHN+HgUmlX/rQvlDTTvd70cbkGSJbUTKcNTgMVJM/
+	mj5DhGHn/IXgjGFWIWouYx0TB7jCA2GQXV7a43yXHvo+uQ0Q9boMLrNWxejTWCHypzHyFu7ax9/Bg
+	lDe3dsRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAS8C-0000000Az5z-0YJA;
-	Sun, 19 Oct 2025 12:03:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vATXu-0000000B1xi-2DlN;
+	Sun, 19 Oct 2025 13:34:02 +0000
+Received: from mail.ispras.ru ([83.149.199.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAS89-0000000Az5X-0wcc
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 12:03:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 00A1943DA7;
-	Sun, 19 Oct 2025 12:03:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66E1AC4CEE7;
-	Sun, 19 Oct 2025 12:03:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760875388;
-	bh=UTBipG2N3uJpJm9CwyryseA7CzD9lAULhEu0lVKREpE=;
+	id 1vATXr-0000000B1wW-0q5o;
+	Sun, 19 Oct 2025 13:34:00 +0000
+Received: from localhost (unknown [10.10.165.9])
+	by mail.ispras.ru (Postfix) with UTF8SMTPSA id 9B43F4076720;
+	Sun, 19 Oct 2025 13:32:46 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru 9B43F4076720
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
+	s=default; t=1760880766;
+	bh=rAUp/zOPfZjDHenR5pCa5rJWpFDGvgMLJJymplML+FU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ut2gTsCQ3+iJZn+/fMcxG+QwcudI+T/+SdV/g9L04YE8J/aT7g+tik43KBI/aM4Ce
-	 OvkxaPFQpzusHz4sIecRNxkZDfZg4sDtS6z4vcPw7fSAM64VCdvwAOgWZaNDQkGMMp
-	 W5MmUKVBh/KxiFr3mzAQYr5QwMSRafuvc8C6hBRxq54MIlNFE8OX/MupL6x21OpDRI
-	 qqDSUkFvwLW5lJY/Elco/mfI4mioXCc+D/2yiB0gMYHUNZVS+cH0fEAZ5pjrAKRmDB
-	 qO7k0vZi/Iqcwt57o6IBBGhj/BuzM1OWgK+GE0iZOVvQg4kEOm4PThfEW6Laj1UCBJ
-	 X12WFpyJyDE/A==
-Date: Sun, 19 Oct 2025 15:03:04 +0300
-From: Leon Romanovsky <leon@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Robin Murphy <robin.murphy@arm.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/3] dma_mapping: Add auto cleanup support
-Message-ID: <20251019120304.GG6199@unreal>
-References: <CGME20251010185046eucas1p26868b540b74a96e36943066216525bed@eucas1p2.samsung.com>
- <20251010-dmamap_cleanup-v1-0-ec5bc14e82c4@nxp.com>
- <f3fba346-6fdd-4b0e-9414-087a12772a6a@samsung.com>
+	b=SYpsxsyudGv77Du/W+Aj376mvpJBH/DqSar/O5dKKUa5FzIf88vBgFfRnWO7WgxSY
+	 jTaWC7WFny8AUjK7wSsX/TOco0l0oT+/A+L4DsBw+maYjY5j9fzasLNn9BGwlgVeCm
+	 cA2RL4y5mgpuSu8Ww1FhhjQeF5K1eBMSDsRSOnyw=
+Date: Sun, 19 Oct 2025 16:32:46 +0300
+From: Fedor Pchelkin <pchelkin@ispras.ru>
+To: Sergey Shtylyov <s.shtylyov@omp.ru>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Jiri Slaby <jirislaby@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, lvc-project@linuxtesting.org, 
+	Eddie Huang <eddie.huang@mediatek.com>
+Subject: Re: [PATCH v3] serial: 8250_mtk: correct max baud rate in
+ set_termios() method
+Message-ID: <20251019162744-e3ac865925bae161b0193e70-pchelkin@ispras>
+References: <b238b17a-c22b-4bd8-87bd-2d924328a062@omp.ru>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <f3fba346-6fdd-4b0e-9414-087a12772a6a@samsung.com>
+In-Reply-To: <b238b17a-c22b-4bd8-87bd-2d924328a062@omp.ru>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_050321_324285_634448D1 
-X-CRM114-Status: GOOD (  28.44  )
+X-CRM114-CacheID: sfid-20251019_063359_421147_EA3371BD 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,166 +71,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 07:54:46AM +0200, Marek Szyprowski wrote:
-> Hi
+On Sat, 18. Oct 23:44, Sergey Shtylyov wrote:
+> Commit 81bb549fdf14 ("serial: 8250_mtk: support big baud rate.") claimed
+> the maximum supported baud rate to be 4 Mbps; of the Mediatek datasheets
+> (I was able to get my hands on), only MT7987A datasheet did support this
+> claim and MT7981B/88A datasheets disagreed, claiming just 3 Mbps maximum.
+> However, this commit failed to enforce even the claimed maximum, passing
+> port->uartclk to uart_get_baud_rate() for the maximum baud rate -- while
+> the datasheets mention up to 52 MHz for the baud clock's frequency. This
+> means that an integer overflow would happen (when multiplying the baud
+> variable by 256) if a baud rate higher than 16777215 bps is passed via
+> termios->c_ospeed (division by 0 will also happen when exactly 16777216
+> bps is passed). Pass to uart_get_baud_rate() the documented maximum of
+> 4 Mbps or port->uartclk (whichever happens to be lesser) -- this way,
+> we can avoid both overflows and regression with the maximum baud rate...
 > 
-> On 10.10.2025 20:50, Frank Li wrote:
-> > There are many below pattern
-> >
-> > 	fun()
-> > 	{
-> > 		...
-> > 		dma_map_single();
-> > 		if (dma_mapping_error)
-> > 			goto err1;
-> >
-> > 		dmaengine_prep_slave_single()
-> > 		if (...)
-> > 			goto err2
-> >
-> > 		dmaengine_submit()
-> > 		if (...)
-> > 			goto err3
-> >
-> > 		wait_for_completion_timeout()
-> > 		if (...)
-> > 			goto err4
-> >
-> > 	err4:
-> > 	err3:
-> > 	err2:
-> > 		dma_umap_single();
-> > 	err1:
-> > 	}
-> >
-> > Use cleanup can simple error handle like guard(), such as guard(mutex).
-> > or __free(kfree) = kmalloc.
-> >
-> > But dma_umap_single() need more argurements. So situation below complex.
-> >
-> > It need pack argurments list into structure.
-> >
-> > 	#define __DEFINE_GUARD_CLASS(_name, _return_type, _list_class_fields)   \
-> > 	typedef struct {                                                \
-> > 	       	 _return_type ret;                                       \
-> > 	        bool    okay;                                           \
-> > 	        struct  {                                               \
-> > 	                __REMOVE(_list_class_fields);                   \
-> > 	        } args;                                                 \
-> > 	} class_##_name##_t;
-> >
-> > So save all arugments to it.
-> >
-> > __DEFINE_GUARD_CLASS(dma_map_single, dma_addr_t, (struct device *dev; void *ptr; size_t size; enum dma_data_direction dir)
-> > will expand to
-> >
-> > 	struct {
-> > 		dma_addr_t ret;
-> > 		bool	okay;
-> > 		struct {
-> > 			struct device *dev;
-> > 			void *ptr;
-> > 			size_t size;
-> > 			enum dma_data_direction dir;
-> > 		}
-> > 	}
-> >
-> > So cleanup function can use saved argurement.
-> >
-> > The above fun will be
-> >
-> > 	fun()
-> > 	{
-> > 		CLASS(dma_map_single, dma)(dev, ...);
-> >
-> > 		...
-> > 		if (...)
-> > 			return err;
-> > 	}
-> >
-> > if funtion return, which need keep map,
-> >
-> > 	submit()
-> > 	{
-> > 		dma_map_single();
-> > 		...
-> > 		dmaengine_submit();
-> > 		if (...)
-> > 			goto err1
-> > 		return;
-> >
-> > 	goto err1:
-> > 		dma_umap_single();
-> > 	}
-> >
-> > Macro retain_and_empty() will clean varible to avoid unmap.
-> >
-> >          ({                                  \
-> >                  __auto_type __ptr = &(t); typeof(t) empty= {};   \
-> >                  __auto_type __val = *__ptr; \
-> >                  __ptr->okay = 0;        \
-> >                  __val.ret;              \
-> >          })
-> >
-> > So
-> >
-> > 	submit()
-> > 	{
-> >         		CLASS(dma_map_single, dma)(dev,...;
-> >
-> > 	        ...
-> > 	        dmaengine_submit();
-> > 		if (...)
-> > 			return err;
-> >
-> > 		//before return;
-> >
-> > 		retain_and_empty(dma)
-> > 	}
-> >
-> > This series just show how to hanndle many agurement at resource alloc/free
-> > functions. Only show dma_map_single. If the over all method is acceptable.
-> > I will more define for dma mapping functions.
-> >
-> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Found by Linux Verification Center (linuxtesting.org) with the Svace static
+> analysis tool.
 > 
-> This looks fine from the DMA-mapping API perspective. I think we should 
-> also get some feedback from Peter, who authored most of the __cleanup() 
-> based infrastructure, so I've added him to the recipients list.
+> Fixes: 81bb549fdf14 ("serial: 8250_mtk: support big baud rate.")
+> Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
 
-I may represent minority here, but patch "i2c: lpi2c: Use auto cleanup
-for dma_map_single()" looks completely unreadable after this change.
+Tested-by: Fedor Pchelkin <pchelkin@ispras.ru>
 
-It is perfectly valid to use __cleanup() for simple and scoped things
-like kmalloc, but DMA API is much complicated than that.
+on Banana Pi BPI-R4 with MediaTek MT7988A chipset.
 
-Thanks
+Thanks!
 
 > 
+> ---
+> This patch is against the tty-linus branch of Greg KH's 'tty.git' repo.
 > 
-> > ---
-> > Frank Li (3):
-> >        cleanup: Add DEFINE_GUARD_ARGS_CLASS macro for resource alloc/free functions with multiple arguments
-> >        dma-mapping: Add auto cleanup support dma_map_single()
-> >        i2c: lpi2c: Use auto cleanup for dma_map_single()
-> >
-> >   drivers/i2c/busses/i2c-imx-lpi2c.c | 13 ++++---
-> >   include/linux/cleanup.h            | 73 ++++++++++++++++++++++++++++++++++++++
-> >   include/linux/dma-mapping.h        |  8 +++++
-> >   3 files changed, 87 insertions(+), 7 deletions(-)
-> > ---
-> > base-commit: 7c3ba4249a3604477ea9c077e10089ba7ddcaa03
-> > change-id: 20251008-dmamap_cleanup-d0a7f0525a3d
-> >
-> > Best regards,
-> > --
-> > Frank Li <Frank.Li@nxp.com>
-> >
-> >
-> Best regards
-> -- 
-> Marek Szyprowski, PhD
-> Samsung R&D Institute Poland
+> Changes in version #3:
+> - updated the maximum baud rate to 4 Mbps;
+> - rewrote the description again, adding more info on the MT798x datasheets
+>   studied, on how the bug manifests iself, and on the solution.
 > 
+> Changes in version #2:
+> - changed the approach to the problem (and hence rewrote the description);
+> - removed "the" article from the subject for brevity.
 > 
+>  drivers/tty/serial/8250/8250_mtk.c |    2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> Index: tty/drivers/tty/serial/8250/8250_mtk.c
+> ===================================================================
+> --- tty.orig/drivers/tty/serial/8250/8250_mtk.c
+> +++ tty/drivers/tty/serial/8250/8250_mtk.c
+> @@ -358,7 +358,7 @@ mtk8250_set_termios(struct uart_port *po
+>  	 */
+>  	baud = uart_get_baud_rate(port, termios, old,
+>  				  port->uartclk / 16 / UART_DIV_MAX,
+> -				  port->uartclk);
+> +				  min(4000000U, port->uartclk));
+>  
+>  	if (baud < 115200) {
+>  		serial_port_out(port, MTK_UART_HIGHS, 0x0);
 
