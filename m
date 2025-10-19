@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF0FCCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 17:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CE8ECCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 17:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/nsvhglHKGLgE5m2owBDC86h0qZvLVX6ICR4qKSu14=; b=dTVF1jmst6+r3WEQy+akipGUAM
-	S579qpcFAVW19i4Iv4pdL0v29i3s7bnTx2agSNJPjgfxEiu/giNNYCzaPVLmRD86x8bY0F/W/XpYd
-	PkRDTsYI1CupeCok0xriaS12Gfuv3lFWjpad2lniG0f2EkSQG9slqDe4Ou4zy25F1nJFT6h6paDm5
-	1Kmt5SA8tHX1doKh94fPvL3+dOQ5DeVHzIaXEIW2ndLB3Tas/TH/zLMBx6AVmDXM6v6Pbr9HEMzWv
-	PSjQz+Osm6jD/tTxO3oqzOCG9PtRj7HpgzjZxZophpbjNKUK3ThcPDlQiAy2Wp8Osxu7xMBLcp5H/
-	4HODgGRg==;
+	bh=dcGvpPgDi7UhVRE9urqo3zdP9h64sZLMpPk0fu55Wjc=; b=qMINm6YE9fD8WimxFpBCcCnNYj
+	lpWcbiBEpA8qTtRMUqh8JUL7jt1ha+teFx+9XCPrnkrthEURgMA/J5MqNNtGUiGxzpnjLeyeCWnbi
+	R14U7ObMAMxghYKa5CbYIljvyF8+k5wSz1D35gueZdTeZTzijcCtIHx7bdzU1XHyHe6IflS2lmvIU
+	M/scHPO7HkFUmAZxEpn/MKNKdGXaOJF+dY0r2wgow2cdiiLxeQvQLKnyFE7vFXEwyl+0OLN4rOFfB
+	Gm8zsws9FfwSZcrJysP7Y0Ewa72jo3A4EV9v5v3LiXY+/J62gkNm5QguSif6nZbJoWy/pq5Nci8/0
+	bkqFfuBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAWyP-0000000BF1g-0d0Q;
-	Sun, 19 Oct 2025 17:13:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vAXAd-0000000BFdo-2qxW;
+	Sun, 19 Oct 2025 17:26:15 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAWyN-0000000BF1I-1W3g
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 19 Oct 2025 17:13:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2/nsvhglHKGLgE5m2owBDC86h0qZvLVX6ICR4qKSu14=; b=V3VUYkCIzFfIVPQOBl9Np/ulzz
-	csJaVknCtHSAxahwF5FnecbKi15svupf7ZjYv2e+ZVl/+d8Dyi3exphUbyM5i97aV0C4FJMmg5l3V
-	NGvmkOXSEfqePwyiE6cL3jZrqHzs1kRySUjX+GITUK5eiEU6XHGb2tnPCF9GZJoGHP84iow44Ph6G
-	wm6RNQo3g7obTWZLMbXhcavyg97k9iXad4iszCMnARJF9+ea4WthTFtf0284AUWwM5NKRjBWO7VgD
-	QHOTkymRcCNXvuYyGvjXB0iVKySNMqUqAuHfJl7VjJao1Mx41Dr1qc+Y+WFVdu7hQItpJgkTprz1Q
-	5FgJm3Xg==;
-Received: from mout.web.de ([212.227.17.11])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAWyH-00000009BEY-2KfG
+	id 1vAXAb-0000000BFcz-1kQX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 17:13:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1760893985; x=1761498785; i=markus.elfring@web.de;
-	bh=2/nsvhglHKGLgE5m2owBDC86h0qZvLVX6ICR4qKSu14=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=KMQNfqs8Oq+hcrIKjnp5nS1uXZaSfp4P8B4kSvJiX6N/z2B0kX7NLYsRf+PRZ77s
-	 MKNzt/i8jPWzZBNUxxDaLENYS9jKyTHZrsxOd6rBQBHodpSFVsBVwpWR2vGlbwvsV
-	 Rdx4e2Qv45877c1ZtCuLZcwPypdY6pNitwH6AuobJQHrQdkfjXRExGDA+8GbezfH1
-	 rpzohRREeQkdfxNfnNfpUgh142Zdv14AYcxP/ZqWJTj2DjUkvq5PHpv9dS8/OO6aj
-	 kPV+a5CKnc5hQyq1SJp1rAOp8tlONVmIwn8RbUVVcZp1+2/nJQ+vqlORrSb70myYa
-	 ZtJc2L3qkmXdbdSVSQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.180]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1N7gbY-1u7JMB1tfm-00yA5J; Sun, 19
- Oct 2025 19:13:05 +0200
-Message-ID: <a6de463a-6ebe-445f-bc06-32e74a8e5a66@web.de>
-Date: Sun, 19 Oct 2025 19:13:03 +0200
+	Sun, 19 Oct 2025 17:26:14 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-63c4b5a1b70so3052131a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Oct 2025 10:26:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760894771; x=1761499571; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dcGvpPgDi7UhVRE9urqo3zdP9h64sZLMpPk0fu55Wjc=;
+        b=TA01tbGuMW9X2gCObbViBSKy+0EPjA/g2h46lzTq3ykOVIXb1b9mPclUzGxZ6qeTUG
+         uYx+OX8pgk16ycYxyLWK6e9YXrCKR+6yZ7enQHCnB83Cia1yKQConP9cvjcqvy+ePqHU
+         0fBj/70WTZPQp537y22XjzrSnlKlZXvCM9jYD+Jh/50Ne46Y1qkF4claeVl59E9yMweH
+         s3aWjyyQlfGN3Xh6iS7ESZlhvZciKAUS0D55brIflU3seVlyTUy1zSTR+fhE+JvCvsbG
+         V/CxjsI4+rbvdFvmt8pZH3pN6pL2cPLFvEvkTH2cP4wPafFrck1/ElDLsJnJQBD33G3v
+         41uw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760894771; x=1761499571;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dcGvpPgDi7UhVRE9urqo3zdP9h64sZLMpPk0fu55Wjc=;
+        b=cArAEvLaO3MCR01WE+m98T4MMJymqb72ObjEekUhDpgELenKvHxV5yzuUg1xqf18tu
+         J490NX+pJDD/C4B+anADyNOOT22KGDEqON76Nl8gMIqN+RUqIASVl6T2DMNB6LjzSVpe
+         2QPYAI30XCOKm2K8WdqO2KPLGJSYCOSZGenBFuuvFYUwYxWXGBGct6hGtYko9eraQBz0
+         V7mISHfp99p7qJCj0oeu6z/TCbGSCGLbM8m0J0SKVCvM05xUo5xcMC6iTtSa8MJxJVKG
+         JjQ/SSTvFajD8Qo2p+ni4Md+iT16k0ADFKEq1egJJhnDljDbHtgTDP7wt4YreTRaJrKf
+         1+Fw==
+X-Forwarded-Encrypted: i=1; AJvYcCUnVju74BdhS15FHF4rgvd0DoZn/szXsjl577PHY3sowQ8pS+bvcLm/BD0jB0nrPgmPhlXc1cK7cRW0/liL5sfs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyhx22SFMcBdVGXnLtDVOr97EoiB1w1cPlh1FjhW0d+bcpYJLC1
+	Mq9zt9jBplkJDNu3EmEteDn4343BTzXo3AWQ6BT4o9v3XJO10jy2HB+Np1sm+Vauo1I0e54xyh4
+	LowaxciiFDJPwhflkWtOJu7ncgofRwbcVynGD
+X-Gm-Gg: ASbGnct1vjpxAZqY+wuB7QA4x5MwgMLet9qayDFtZdlV2UB362zDi2oi9K3J70pHZit
+	lh7K07XsZtebi2Ep+KYA6O2f5YYsIGuR80DWdS1pEdzcHtSDNQb9uNmALHysPuzd/2giH1Jbl92
+	KSZFt8aKjzlK7WdhMVEJdkKIA2m0Ds2qu0ahX4nOIsgMfkvPnioPlMzYLiDSRKE32T+/9sqslyP
+	gD3sMpLNT0V2p14eEL/OymcLO3unfSeMAoUvACH4wl8ry414glzszVU80c=
+X-Google-Smtp-Source: AGHT+IGFfd5J/ysr3ek+IDavp0eOZzca1RD3tVOMVHu17l6EPjX9/ntDT7tc4dh0oH9ur/ZRJY759LCgAfbwJubVr2k=
+X-Received: by 2002:a05:6402:f23:b0:63c:eb9:478c with SMTP id
+ 4fb4d7f45d1cf-63c1f640c48mr7170724a12.14.1760894771292; Sun, 19 Oct 2025
+ 10:26:11 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
- Anand Moon <linux.amoon@gmail.com>, kernel-janitors@vger.kernel.org
-Cc: cocci@inria.fr, LKML <linux-kernel@vger.kernel.org>,
- linux-pci@vger.kernel.org, linux-omap@vger.kernel.org,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Bjorn Helgaas <bhelgaas@google.com>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>
-References: <26975dab-9631-4661-aaf4-afa213104a13@wanadoo.fr>
-Subject: Re: [1/3] PCI: j721e: Propagate dev_err_probe return value
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <26975dab-9631-4661-aaf4-afa213104a13@wanadoo.fr>
-Content-Type: text/plain; charset=UTF-8
+References: <20251017073954.130710-1-cnsztl@gmail.com> <7f0b1747-87eb-0b0b-6fb0-304811a4be21@manjaro.org>
+ <d9d14ce2-2e65-422e-95fb-eb30b128ad90@gmail.com> <41154cde-a447-0707-4387-cd3dca90b97d@manjaro.org>
+ <CALWfF7K0=J3E-zr41wV-28+SCFkT_so55Aee8BvQsB4KJZy6YQ@mail.gmail.com>
+ <47931e9e-09db-3909-4531-dae6869171d7@manjaro.org> <b22425c3-01e0-4d2e-bf78-5db884d4ec38@gmail.com>
+ <de5e8643-49bb-4e0e-45fd-51b25ecf530d@manjaro.org>
+In-Reply-To: <de5e8643-49bb-4e0e-45fd-51b25ecf530d@manjaro.org>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Sun, 19 Oct 2025 22:55:53 +0530
+X-Gm-Features: AS18NWAFmg8ydtYWZAF7B0PEQDmwlJtX2b2P_doA3LWyhsy_Mw4wWrTiPwga6os
+Message-ID: <CANAwSgTZa7PXBuyh9EdDOXCNuCTOHGsJz18pSjP6WUN8sOaqTQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: fix eMMC corruption on NanoPC-T6
+ with A3A444 chips
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Hugh Cole-Baker <sigmaris@gmail.com>, Jimmy Hon <honyuenkwun@gmail.com>, 
+	Tianling Shen <cnsztl@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Grzegorz Sterniczuk <grzegorz@sternicz.uk>, Jonas Karlman <jonas@kwiboo.se>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:r8HwqWYbZxus8y8tOlbmEE39V6Tk1oUKvw7AwUiMSY8yZMi2x1E
- ZfOWkd/4R/hczF/6SR0Z9xTxKxFrdE+59jSHjzFwZBsU5R/YPAjXJAVf5HpdOdtXLiv4t2o
- DeiBfuR0OicFooKwmI3eLChmze+NxsboUe/aE3Me0NgkbTdWln+sd5jha778zndLbkUxjgp
- NFc3P4tveXj/QDnPDAXNw==
-UI-OutboundReport: notjunk:1;M01:P0:VNqRzb13YEI=;1EHcRGKETxQlU+QrRRaTgNutrUe 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 c01+w==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_181331_883777_34BA2E41 
-X-CRM114-Status: UNSURE (   5.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251019_102613_505364_7513BB6F 
+X-CRM114-Status: GOOD (  60.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,15 +104,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > As Dan Carpenter pointed out - " Wait, no, this doesn't make sense.
-> > It's just assigning ret to itself."
->=20
-> Yes, Dan is right.
+Hi All,
 
-Would you become more interested in an other source code transformation?
-https://lore.kernel.org/cocci/fe93e337-7d8e-4b82-b187-b5a67b627544@web.de/
-https://sympa.inria.fr/sympa/arc/cocci/2025-10/msg00020.html
+On Sat, 18 Oct 2025 at 19:27, Dragan Simic <dsimic@manjaro.org> wrote:
+>
+> Hello Hugh,
+>
+> On Saturday, October 18, 2025 14:14 CEST, Hugh Cole-Baker <sigmaris@gmail=
+.com> wrote:
+> > On 18/10/2025 09:30, Dragan Simic wrote:
+> > > On Saturday, October 18, 2025 02:42 CEST, Jimmy Hon <honyuenkwun@gmai=
+l.com> wrote:
+> > >> On Fri, Oct 17, 2025 at 10:15=E2=80=AFAM Dragan Simic <dsimic@manjar=
+o.org> wrote:
+> > >>> On Friday, October 17, 2025 14:08 CEST, Tianling Shen <cnsztl@gmail=
+.com> wrote:
+> > >>>> On 2025/10/17 18:25, Dragan Simic wrote:
+> > >>>>> On Friday, October 17, 2025 09:39 CEST, Tianling Shen <cnsztl@gma=
+il.com> wrote:
+> > >>>>>> From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
+> > >>>>>>
+> > >>>>>> Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O erro=
+rs and
+> > >>>>>> corruption when using HS400 mode. Downgrade to HS200 mode to ens=
+ure
+> > >>>>>> stable operation.
+> > >>>>>
+> > >>>>> Could you, please, provide more details about the troublesome eMM=
+C
+> > >>>>> chip that gets identified as A3A444, i.e. what's the actual brand
+> > >>>>> and model?  Maybe you could send a picture of it?  It might also
+> > >>>>> help if you'd send the contents of "/sys/class/block/mmcblkX/devi=
+ce
+> > >>>>> /manfid" from your board (where "X" should equal two).
+> > >>>>
+> > >>>> Unfortunately I don't have this board nor this eMMC chip.
+> > >>>> I got the chip model from my friend, it's FORESEE FEMDNN256G-A3A44=
+,
+> > >>>> manfid is 0x0000d6.
+> > >>>
+> > >>> Thanks for responding and providing the details so quickly!
+> > >>>
+> > >>>>> I'm asking for that because I'd like to research it a bit further=
+,
+> > >>>>> if possible, because some other eMMC chips that are also found on
+> > >>>>> the NanoPc-T6 seem to work fine in HS400 mode. [1]  It may be tha=
+t
+> > >>>>> the A3A444 chip has some issues with the HS400 mode on its own,
+> > >>>>> i.e. the observed issues may not be caused by the board.
+> > >>>>
+> > >>>> Yes, it should be caused by this eMMC chip.
+> > >>>
+> > >>> I'd suggest that we move forward by "quirking off" the HS400 mode
+> > >>> for the FEMDNN256G-A3A44 eMMC chip in the MMC drivers, instead of
+> > >>> downgrading the speed of the sdhci interface on the NanoPC-T6.
+> > >>>
+> > >>> That way, the other similar Foresee eMMC chip that's also found
+> > >>> on NanoPC-T6 boards, FEMDNN256G-A3A564, will continue to work in
+> > >>> the faster HS400 mode, while the troublesome A3A44 variant will
+> > >>> be downgraded to the HS200 globally for everyone's benefit.  It's
+> > >>> quite unlikely that the A3A44 variant fails to work reliable in
+> > >>> HS400 mode on the NanoPC-T6 only, so quirking it off in the MMC
+> > >>> drivers should be a sane and safe choice.
+> > >>>
+> > >>> If you agree with dropping this patch, I'll be more than happy
+> > >>> to implement this HS200 quirk in the MMC drivers.
+> > >>>
+> > >>> As a note, FEMDNN256G-A3A44 is found in the Rockchip Qualified
+> > >>> eMMC Support List v1.84, [2] but the evidence says the opposite,
+> > >>> so we should react appropriately by adding this quirk.
+> > >>
+> > >> When adding the quirk for the A3A44, can we lower the max frequency
+> > >> and keep the HS400 mode instead?
+> > >> That's what the Fedora folks found works [3]. There's more test
+> > >> results in Armbian [4]
+> > >
+> > > Are there any I/O performance tests that would prove that lowering
+> > > the HS400 frequency to 150 MHz ends up working significantly faster
+> > > than dropping the eMMC chip to HS200 mode?
+> > >
+> > > I'm asking that because lowering the frequency looks much more like
+> > > there's some issue with the board, rather than the issue being the
+> > > eMMC chip's support for HS400 mode.  Thus, a quirk that would lower
+> > > the HS400 mode frequency would likely be frowned upon and rejected,
+> > > while a quirk that puts the chip into HS200 mode is much cleaner
+> > > and has much higher chances to be accepted.
+> >
+> > I also have the NanoPC-T6 with one of the A3A444 eMMCs which suffers
+> > from I/O errors in the default HS400 mode. These are its details in
+> > /sys/block/mmcblk0/device/:
+> > manfid: 0x0000d6
+> > oemid: 0x0103
+> > name: A3A444
+> > fwrev: 0x1100000000000000
+> > hwrev: 0x0
+> > rev: 0x8
+>
+> Thanks for reporting the same issue with the same board and
+> increasing our sample size to two. :)
+>
+> > I wasn't sure if I was just unlucky to get a faulty chip, but seeing
+> > this thread it seems like a wider issue. On my board, limiting it to
+> > HS200 mode gets rid of the I/O errors, and it seems that lowering
+> > the frequency to 150MHz also avoids I/O errors.
+> >
+> > I did a quick unscientific test with fio; HS400 Enhanced Strobe mode
+> > with a 150MHz clock gives slightly better performance than HS200:
+> >
+> > HS200 mode:
+> > read: IOPS=3D697, BW=3D43.6MiB/s
+> > write: IOPS=3D697, BW=3D43.6MiB/s
+> >
+> > HS400 mode with 150MHz clock:
+> > read: IOPS=3D805, BW=3D50.3MiB/s
+> > write: IOPS=3D799, BW=3D50.0MiB/s
+> >
+> > so from my perspective, limiting the frequency would be a better fix
+> > than disabling HS400 entirely.
+>
+> Thanks for running these tests!  The measured difference in the
+> I/O performance is about 15%, which surely isn't insignificant,
+> but IMHO it makes the proposed lowering of the eMMC chip to HS200
+> mode fall into the "good safety margin" bracket that I described
+> earlier.  I think it's better to sacrifice those 15% to stay on
+> the, hopefully, rock-solid side.
+>
+> I've been thinking more about the 150 MHz HS400 and HS200 quirks,
+> and I'm afraid I'm even more sure that the 150 MHz HS400 quirk
+> would be frowned upon and rejected.  See, it does make it look
+> like a board-level issue, requiring a board-level fix, instead of
+> being a chip-level issue, for which a quirk would be fine.  The
+> acceptably low difference in the measured performance levels just
+> solidifies such a viewpoint, I'm afraid.
+>
+> > It could also be of interest that the clock used apparently can't
+> > provide an exact 200MHz, e.g. in HS200 mode:
+> >
+> > root@t6:~# cat /sys/kernel/debug/mmc0/ios
+> > clock:                200000000 Hz
+> > actual clock: 187500000 Hz
+> > vdd:          18 (3.0 ~ 3.1 V)
+> > bus mode:     2 (push-pull)
+> > chip select:  0 (don't care)
+> > power mode:   2 (on)
+> > bus width:    3 (8 bits)
+> > timing spec:  9 (mmc HS200)
+> > signal voltage:       1 (1.80 V)
+> > driver type:  0 (driver type B)
+>
+> Thanks, that's also something to think about.
+>
+> > > With all that in mind, if the resulting I/O performance difference
+> > > between 150 MHz HS400 and HS200 is within 15-20% or so, I'd highly
+> > > recommend that we still go with the HS200 quirk.  It also leaves
+> > > us with a nice safety margin, which is always good to have when
+> > > such hardware instability issues are worked around in software,
+> > > unless detailed eye diagrams, protocol dumps and whatnot can be
+> > > pulled and analyzed, in which case the resulting safety margin
+> > > can be much slimmer.
+> > >
+> > > Ideally, we'd have a completely different board with the same
+> > > Foresee FEMDNN256G-A3A44 eMMC chip to test how reliably its HS400
+> > > mode works there, to see is it really up to this eMMC chip or up
+> > > to the board design, but I'm afraid we don't have that (easily)
+> > > available, so the only remaining option is to work with what's
+> > > actually available, which inevitably leads to a certain amount
+> > > of guesswork and some compromises.
+> > >
+> > >>> [1] https://github.com/openwrt/openwrt/issues/18844
+> > >>> [2] https://dl.radxa.com/rock5/hw/RKeMMCSupportList%20Ver1.84_20240=
+815.pdf
+> > >> [3] https://lists.fedoraproject.org/archives/list/kernel@lists.fedor=
+aproject.org/thread/MCSDYDQVOXS5AZMKA7LLY4QX7JXBWPCA/
+> > >> [4] https://github.com/armbian/build/pull/8736#issuecomment-33877605=
+36
+>
 
-Regards,
-Markus
+Would you consider the following patch?
+
+As per the Rockchip RK3588S SoC Technical Reference Manual (TRM) Part 1,
+chapter 21.6, Interface Description, the eMMC signals require careful handl=
+ing
+to ensure signal integrity.
+
+I2C2_SCL_M2 I/O EMMC_RSTN/I2C2_SCL_M2/UART5_RTSN_M1/GPIO2_A3_d
+BUS_IOC_GPIO2A_IOMUX_SEL_L[15:12]=3D0x9
+I2C2_SDA_M2 I/O EMMC_DATA_STROBE/I2C2_SDA_M2/UART5_CTSN_M1/GPIO2_A2_d
+BUS_IOC_GPIO2A_IOMUX_SEL_L[11:8]=3D0x9
+
+$ git diff .
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
+b/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
+index 6584d73660f6..f60a1d8be0ef 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
+@@ -327,7 +327,7 @@ emmc {
+                emmc_rstnout: emmc-rstnout {
+                        rockchip,pins =3D
+                                /* emmc_rstn */
+-                               <2 RK_PA3 1 &pcfg_pull_none>;
++                               <2 RK_PA3 1 &pcfg_pull_down_drv_level_2>;
+                };
+
+                /omit-if-no-ref/
+@@ -369,7 +369,7 @@ emmc_cmd: emmc-cmd {
+                emmc_data_strobe: emmc-data-strobe {
+                        rockchip,pins =3D
+                                /* emmc_data_strobe */
+-                               <2 RK_PA2 1 &pcfg_pull_down>;
++                               <2 RK_PA2 1 &pcfg_pull_down_drv_level_2>;
+                };
+        };
+
+Thanks
+-Anand
 
