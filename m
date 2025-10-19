@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B74D9CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 06:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2255CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 06:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pDtTIK2+iDJUniyJe7txR6FBZbVfQR0Z8/V861w1LKg=; b=Zd4n2XJtDZhcnDaXTkN1kJP8TB
-	+/FWTkGgA6HAd3pAL/57PwCvKR2QrTjl5Bh5CsBJjdmbsIubaQAW/CiC24QPPdS/3NR8d1p/jjm65
-	uwrDxXWzQKS/mDQkN0Aqv80TEO9tO4ph4GTeGCzBIdBQSVgw70saBgTkQ28G+ZUC9kWjKf5XLav/z
-	Kr3hbJsekv4P1pr/yYJilkcYtXQyq2ZhtomnTJRtwQuLrmwGHveV14G2x0tJcjT/3GfBu9TTk08gW
-	AUXoQTpeIl/hWd5ggVJE0e69MA1P86iwmpuOdmfemHEvXidEswKm9SzCpQJ5JrSxXwn9kOY1yrJoh
-	Y0Vhbqeg==;
+	bh=P1J3gPqMHpX6saWyMtO+TdHzbExLK4+Ng14TD3HYQ4k=; b=SqIDHAtzu7Ga1dFU5f8Asnyo/L
+	XHg8NuCZuGs1dgIzSH4EPgrUZeq4WP2JTat1gKL6X5RjgqJJDmdeh9mFEzgp48Qi2F5kKPloGuM99
+	lGucCauLx/RtEZwXIRd2q2rGW48EKmDuk1TiqODa0ZkfvOztBJ6bwOp1+R1rKGv7OR+mR437F1Sru
+	RQSespw+EzRv0zEsohTdQEAkMNcYFe6VfNYuTH7896QPW1XJCQuGTgrrL8Yb4ogdIsR4t9ktpKVGH
+	ZiROYbJyfz7wORGMwvKhJ+hVuwBrrM52tYq/cZTBXEy5q8DUig0Jdjeg9q/t5xSPen8IC6eeWjVfD
+	pHwANteg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAN3n-0000000Akkt-3FYm;
-	Sun, 19 Oct 2025 06:38:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vANC9-0000000Al2e-096z;
+	Sun, 19 Oct 2025 06:47:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAN3m-0000000AkkF-2DNE;
-	Sun, 19 Oct 2025 06:38:30 +0000
+	id 1vANC8-0000000Al2Q-0j8I;
+	Sun, 19 Oct 2025 06:47:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9FE7660250;
-	Sun, 19 Oct 2025 06:38:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A1D4C4CEE7;
-	Sun, 19 Oct 2025 06:38:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 49A3D60250;
+	Sun, 19 Oct 2025 06:46:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1AEBC4CEE7;
+	Sun, 19 Oct 2025 06:46:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760855897;
-	bh=zutQ6iQf0byeRZ/GXJXZW1hAG258FPpWvXBWCy3HRR4=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=h/iVFhoQAyK3Y8+SGOK5H/0il/s5MM/gUzmZhceLEECMiG6csCzKWW6/6MfkxuALD
-	 2F5Sybk1He1fZhw4/5ggAQ2h5Qusv8wEUX8TDCOuoKPXMEf1Au1D1/lfp/HJ1vZ5Kf
-	 EmVEvHguGrJYej3vSromF2Qa6CHvJqXNVCivdGrxyKq3FdfPntQZ2BM/3TQjXY+8nL
-	 QuYgj9yrnjQ2Vti2EO5MD3Q2jDrl79vUKWvAQE9jtn5gqMt+/juvtXKX2MORZQYlzH
-	 Id6h7XSCZUOX9dUF3mbDNW0/nI79xu0k06MiqqBpjeRYHkBzjeg9Wrv0c1xhPLugge
-	 ODuLGy0m8u5OQ==
+	s=k20201202; t=1760856408;
+	bh=+a+2hCN0GD5orS5JrZMFWqnSdCPfMOObGECdOlF/YN8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=TMqNhywCW0j0gr+EVC6Q8qsF30M2Gyvdxr11ywRpofXBeFofDxgeupde2Zp2j0hag
+	 PU3jp4JzMkkaDx07u16quNHT0hyGYr2GVQsGJloGcoyOON29mN1E3tQVeRlcVYP8wI
+	 1LHai7ybNXEMzZ9+F0/A3IEa5+Br/LLChYULjhDGs6ySp5JLF5gs+FuK97gV7m5cZg
+	 4H5JHZbJ1Gidk9EB/BxiuDcyPza9Lh4O1Fr4IxVmk+12xte/wWWJgXQh0Sy/mAdvN2
+	 pkp6MXFgt+U3uEoTmgS1nctWpJJnfasbbFsfUvFzj+XY8AcB8SYd3XjTnFyCCZ5eR0
+	 9+6y5b/x0xR6g==
 From: Manivannan Sadhasivam <mani@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+To: Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
  =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>, Niklas Cassel <cassel@kernel.org>, 
- Shawn Lin <shawn.lin@rock-chips.com>, Hans Zhang <18255117159@163.com>, 
- Wilfred Mallawa <wilfred.mallawa@wdc.com>, linux-pci@vger.kernel.org, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Shawn Lin <shawn.lin@rock-chips.com>, Simon Xue <xxm@rock-chips.com>, 
+ Yao Zi <ziyao@disroot.org>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Anand Moon <linux.amoon@gmail.com>
-In-Reply-To: <20250905112736.6401-1-linux.amoon@gmail.com>
-References: <20250905112736.6401-1-linux.amoon@gmail.com>
-Subject: Re: [PATCH v1] PCI: dw-rockchip: Simplify regulator setup with
- devm_regulator_get_enable_optional()
-Message-Id: <176085588758.11569.7678087221969106036.b4-ty@kernel.org>
-Date: Sun, 19 Oct 2025 12:08:07 +0530
+ linux-kernel@vger.kernel.org, Jonas Karlman <jonas@kwiboo.se>, 
+ Chukun Pan <amadeus@jmu.edu.cn>
+In-Reply-To: <20250918153057.56023-1-ziyao@disroot.org>
+References: <20250918153057.56023-1-ziyao@disroot.org>
+Subject: Re: (subset) [PATCH v2 0/3] Add PCIe Gen2x1 controller support for
+ RK3528
+Message-Id: <176085639822.11982.1205401883779675228.b4-ty@kernel.org>
+Date: Sun, 19 Oct 2025 12:16:38 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -76,20 +78,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 05 Sep 2025 16:57:25 +0530, Anand Moon wrote:
-> Replace manual get/enable logic with devm_regulator_get_enable_optional()
-> to reduce boilerplate and improve error handling. This devm helper ensures
-> the regulator is enabled during probe and automatically disabled on driver
-> removal. Dropping the vpcie3v3 struct member eliminates redundant state
-> tracking, resulting in cleaner and more maintainable code.
+On Thu, 18 Sep 2025 15:30:54 +0000, Yao Zi wrote:
+> Rockchip RK3528 ships one PCIe Gen2x1 controller that operates in RC
+> mode only. The SoC doesn't provide a separate MSI controller, thus the
+> one integrated in designware PCIe IP must be used. This series documents
+> the PCIe controller in dt-binding and describes it in the SoC devicetree.
 > 
+> Radxa E20C board is used for testing, whose LAN GbE port is provided
+> through an RTL8111H chip connected to PCIe controller. Its devicetree
+> is adjusted to enable the controller, and IPERF3 shows the interface
+> runs at full-speed. A typical result looks like
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] PCI: dw-rockchip: Simplify regulator setup with devm_regulator_get_enable_optional()
-      commit: c930b10f17c03858cfe19b9873ba5240128b4d1b
+[1/3] dt-bindings: PCI: dwc: rockchip: Add RK3528 variant
+      commit: dfbf19c47a01eda5df4d476d64a273e1188ea5a1
 
 Best regards,
 -- 
