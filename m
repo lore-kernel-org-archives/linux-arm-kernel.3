@@ -4,78 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B48D7CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 17:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A311CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 18:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:To:From:Subject:References:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kQAc0UibkOncRkKIvQcXYGUpA0pSKYWfAFZPX+lj44I=; b=2B3wukOSnO1GwKunEJSP9HlcxD
-	b4OIrXvmICkGDN6Ya3nn5FgJCKdWa+munlWqy67TUPfm5Ql/LMWUFMdYiCsqta5++xsF+8yy7tPtP
-	Ioc+eYhnRblpzjyljUR114tAJ7upfV4Aq4pP3uxZGi7/3ozap49f3mN5AxfAyDSUtDKZSSYTGDfRh
-	zsr9IOGIzKBFHRKNqYqR6BsBpjugN2NsIkbMhE5kkfz1uKtmbxquslN0U3WY6l3ioO2X3Y5Pw6aMo
-	6QdE4eCJSRv8psj5uguOrZIpTRJuztg8P5/1I+vXg4ueAoN/Cf7b9vh45x/sml9fPumO/YJs53nmf
-	+eHhf0Pg==;
+	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ERRtoG7bB418wgjyE9jDggkfu2QPAbzjTsBuPu44/cA=; b=sWFchjtRlZzB/aQH2vxFUxy45J
+	MPiyKme2JZsEMqxGCOntzA2AvRY7+4AZIL36NoLox904RZR4bZb4omFm8Kshz+61G7uLO1w2GgNS+
+	pAl0y0GEgXuk341wl+6GKX7G4BN8IboS6X4PWglalciU3yBXJ2q/gsP0wHlcbYOaq8Ujjjp8dE4d7
+	9EHEGq1M33cFSQke75Lyzbci/Kppx6wvdMvU6cZx3jZTIOai+CfqebKQ93ePuFrHrNH0S5hrBJJ9c
+	+Ljeu3KfH+Km0dQ1V5LbKVcgp1mJ4E44jTslpqIYHGSLWZpF5f93DBp8H7Esxqw+23NRJjPC112u+
+	+Nj2jLVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAXTv-0000000BGoZ-49o7;
-	Sun, 19 Oct 2025 17:46:11 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1vAXrA-0000000BHrj-1BXZ;
+	Sun, 19 Oct 2025 18:10:12 +0000
+Received: from mail1.manjaro.org ([2a01:4f8:c010:b6e8::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAXTo-0000000BGma-2Xbx
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 17:46:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1760895953; x=1761500753; i=markus.elfring@web.de;
-	bh=kQAc0UibkOncRkKIvQcXYGUpA0pSKYWfAFZPX+lj44I=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Cc:References:
-	 Subject:From:To:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=AoYNu6Cz4U9DR/ZkC3SLCUGYLtm2epS47pj2a/LpqrVSmgfj2w1rX3W1LfHXPtuQ
-	 0E8qnyEx+opHTbhjD7imNV+9e8P63Swu1Np9e5/fOylp3bE5qbuMZXNMZYijj+7U6
-	 F0u6XFaD70fWOMB7PzYZOtmAz0lFfhStwKMCl5FtfLU5CXdu/oyUhBjaT/oG6CTKH
-	 uWLYcUwjFs+PHxDdOMqXMsyN0dqGtjg4VeZp1+PtLkLGTM2+IMgGTNZA0FWFSMUv2
-	 F3C0bvj+nOKTIitf16luC2r/dlq8+1m7k9sDhg3EKC0ziiGDb7zRB9wdAbqwVtD73
-	 y/Kr2oCNe13pjRAmhg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.180]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1Ml4B4-1uTl1A3bDA-00aSSE; Sun, 19
- Oct 2025 19:45:52 +0200
-Message-ID: <53826884-2772-4453-965e-037bf3c4b2ab@web.de>
-Date: Sun, 19 Oct 2025 19:45:50 +0200
+	id 1vAXr7-0000000BHr2-3wZ8;
+	Sun, 19 Oct 2025 18:10:11 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id 4684640A58;
+	Sun, 19 Oct 2025 20:09:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=dkim;
+	t=1760897402; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ERRtoG7bB418wgjyE9jDggkfu2QPAbzjTsBuPu44/cA=;
+	b=VtVGybfY5fuB19L+2yb0xkzW1Ddf2ptzniOmXG98nENyurifzlZGRSMOGmOBOcD6SteVZG
+	gm7eoN3oiKzyiLIAkrNryM5s2iWKpuLNQoglrmoT2jDE3sx/FNRfXAYU5KckAwevx3G6yR
+	pRwplGe3bcp2d30R2QOBIMLcPhVpVTD6dRvS7g9FwvR8DdYSz4+8zv6uhEVCuIhXgs/wS4
+	7Kv7iUfw1vhNO7JAfMFvGA0P96U4e2CYvpFNtG0wGCIINxoEkr5/b0bkLn6vSaqzBY/Hkq
+	h4Ki5L4PC6QnTmnQiLacZoiWxsBwXAj+I5uroQrE9LvEVAkLx9NggaFoIDIP5w==
+From: "Dragan Simic" <dsimic@manjaro.org>
+In-Reply-To: <CANAwSgTZa7PXBuyh9EdDOXCNuCTOHGsJz18pSjP6WUN8sOaqTQ@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+References: <20251017073954.130710-1-cnsztl@gmail.com> <7f0b1747-87eb-0b0b-6fb0-304811a4be21@manjaro.org>
+ <d9d14ce2-2e65-422e-95fb-eb30b128ad90@gmail.com> <41154cde-a447-0707-4387-cd3dca90b97d@manjaro.org>
+ <CALWfF7K0=J3E-zr41wV-28+SCFkT_so55Aee8BvQsB4KJZy6YQ@mail.gmail.com>
+ <47931e9e-09db-3909-4531-dae6869171d7@manjaro.org> <b22425c3-01e0-4d2e-bf78-5db884d4ec38@gmail.com>
+ <de5e8643-49bb-4e0e-45fd-51b25ecf530d@manjaro.org> <CANAwSgTZa7PXBuyh9EdDOXCNuCTOHGsJz18pSjP6WUN8sOaqTQ@mail.gmail.com>
+Date: Sun, 19 Oct 2025 20:09:59 +0200
+Cc: "Hugh Cole-Baker" <sigmaris@gmail.com>, "Jimmy Hon" <honyuenkwun@gmail.com>, "Tianling Shen" <cnsztl@gmail.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Grzegorz Sterniczuk" <grzegorz@sternicz.uk>, "Jonas Karlman" <jonas@kwiboo.se>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+To: "Anand Moon" <linux.amoon@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: cocci@inria.fr, LKML <linux-kernel@vger.kernel.org>,
- linux-pci@vger.kernel.org, linux-omap@vger.kernel.org,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Bjorn Helgaas <bhelgaas@google.com>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>
-References: <26975dab-9631-4661-aaf4-afa213104a13@wanadoo.fr>
-Subject: Re: [1/3] PCI: j721e: Propagate dev_err_probe return value
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-To: Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
- Anand Moon <linux.amoon@gmail.com>, kernel-janitors@vger.kernel.org
-In-Reply-To: <26975dab-9631-4661-aaf4-afa213104a13@wanadoo.fr>
-Content-Type: text/plain; charset=UTF-8
+Message-ID: <047fe2b8-0f94-0f0f-5964-b65844834706@manjaro.org>
+Subject: =?utf-8?q?Re=3A?= [PATCH] =?utf-8?q?arm64=3A?==?utf-8?q?_dts=3A?=
+ =?utf-8?q?_rockchip=3A?= fix eMMC corruption on NanoPC-T6 with A3A444 chips
+User-Agent: SOGoMail 5.12.3
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:OBDn8bnGKssNr77QFbAHY8RZK1BrBIYIrD/r90S0dn5UgtsTsF0
- Xj1Wz/ZJlcNyg5gPii8qG8W/BMdr183r89jmtSuqoTLk56AAi6KZnlyNUT3Wu9geH8uOCQ9
- JXlZ4aAwhE8AlHX8OmooofT7ndGQf0cjNBBcT3LH66S6l5YdzmJCr+s0ymaRshLkw6QDoXE
- +nGGgkvI6to1bsoJvm1oQ==
-UI-OutboundReport: notjunk:1;M01:P0:eJj1V8s1uIo=;hhrsl/doOk2iLBxkNnnEtnlFm5B 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 QxQ6lcXoIh8JWCmQUlNvf+6bY+9aIoWCebc=
+X-Last-TLS-Session-Version: None
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_104605_001231_A8AE4AE2 
-X-CRM114-Status: UNSURE (   5.08  )
+X-CRM114-CacheID: sfid-20251019_111010_220155_E39D6D12 
+X-CRM114-Status: UNSURE (   8.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,22 +73,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> Using:
-> 	ret =3D dev_err_probe(dev, cdns_pcie_init_phy(dev, cdns_pcie), "Failed =
-to=20
-> init phy\n");
+Hello Anand,
+
+On Sunday, October 19, 2025 19:25 CEST, Anand Moon <linux.amoon@gmail.c=
+om> wrote:
+> Would you consider the following patch?
 >=20
-> 1) is hard to read and understand.
-=E2=80=A6
+> As per the Rockchip RK3588S SoC Technical Reference Manual (TRM) Part=
+ 1,
+> chapter 21.6, Interface Description, the eMMC signals require careful=
+ handling
+> to ensure signal integrity.
+>=20
+> I2C2=5FSCL=5FM2 I/O EMMC=5FRSTN/I2C2=5FSCL=5FM2/UART5=5FRTSN=5FM1/GPI=
+O2=5FA3=5Fd
+> BUS=5FIOC=5FGPIO2A=5FIOMUX=5FSEL=5FL[15:12]=3D0x9
+> I2C2=5FSDA=5FM2 I/O EMMC=5FDATA=5FSTROBE/I2C2=5FSDA=5FM2/UART5=5FCTSN=
+=5FM1/GPIO2=5FA2=5Fd
+> BUS=5FIOC=5FGPIO2A=5FIOMUX=5FSEL=5FL[11:8]=3D0x9
+>=20
+> $ git diff .
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
+> b/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
+> index 6584d73660f6..f60a1d8be0ef 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base-pinctrl.dtsi
+> @@ -327,7 +327,7 @@ emmc {
+>                 emmc=5Frstnout: emmc-rstnout {
+>                         rockchip,pins =3D
+>                                 /* emmc=5Frstn */
+> -                               <2 RK=5FPA3 1 &pcfg=5Fpull=5Fnone>;
+> +                               <2 RK=5FPA3 1 &pcfg=5Fpull=5Fdown=5Fd=
+rv=5Flevel=5F2>;
+>                 };
+>=20
+>                 /omit-if-no-ref/
+> @@ -369,7 +369,7 @@ emmc=5Fcmd: emmc-cmd {
+>                 emmc=5Fdata=5Fstrobe: emmc-data-strobe {
+>                         rockchip,pins =3D
+>                                 /* emmc=5Fdata=5Fstrobe */
+> -                               <2 RK=5FPA2 1 &pcfg=5Fpull=5Fdown>;
+> +                               <2 RK=5FPA2 1 &pcfg=5Fpull=5Fdown=5Fd=
+rv=5Flevel=5F2>;
+>                 };
+>         };
 
-I would like to inform you that it can be determined with the help of anot=
-her
-small SmPL script that variations of such assignment expressions are used =
-in
-108 source files of the software =E2=80=9CLinux next-20251017=E2=80=9D.
-How will development imaginations evolve further then?
+Frankly, I'm not really sure how would such changes do something
+good regarding the eMMC signal integrity?  In general, signal
+integrity depends mostly on the routing of the PCB traces, which
+is purely hardware design.  Sure, termination of data lines also
+plays a significant role, but that surely isn't at play here.
 
-Regards,
-Markus
+Moreover, the eMMC RSTn line is already pulled high to VCCIO in
+the reference RK3588 design, so pulling it down in the SoC itself
+would be pretty much wrong thing to do.
+
 
