@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845FDCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 18 Oct 2025 23:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF2ECCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 00:05:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=90t9kNOfuX87ta0XD7F9faf4tVSWcm7PKheSFED9zNU=; b=x51mv8OXu2palzG/3TZdSnC1LY
-	jkOcMwiTX0peU3TjCF0+Ikj7fA4ki8+81VKcUX2muJw8f8guHFTSxAehC2hUD87iQgdqnkHamy2wJ
-	uj2qSsQ9uYlD4Mh8C4uJ2wEKIRZ8f89b7mae5uaDDGbjtRscyAh+mhdtTgYtL/cyuZlPUEi1UE1/o
-	S8pDrdMPOaYQ2/4B8rKFdsVxV4gdPKiO3Sg3NsxfbnNPs1ab0vnIZBQ5dY/5KclfLxu+LQsT29y0t
-	uFmWphUpQSh+64YdO3PxPWoUuwLUbTd1WkbGa995g0HvgWRn+uczwoK2nE7iWHarzrmvcI0SlfsxL
-	ykV01FxA==;
+	bh=rz0DjI9FG3R+Vf1dNEL5GbVU6jXA/C1j8hwA+dUf/6I=; b=vVsBAJCdpQ/uBDWd4W3sAeUjOm
+	kasotQea1RLqhbP3EjEzsylrNS+Wje297Ux/0fNSH7XdboziDifdAKK69tvqYucWgDXEshsTGlWPo
+	8t+SBhB86v5CB/jv2Pj+CFadCK1I1FBGUugZ35Zc31PHn8zHGzxpyzUN7/6UVhd7gOFWpwtxhziG4
+	2Vr4IXhs3FBoxS73D5oBk6RZcwoq2pEORSjgMkJwRfJpoTQt3o13uLkuEWh2LI4hLaOOLv8BtTM1J
+	AM9n/1nHipbgnY0ifxbUySN5k51zanQ7wCMzW7WEViZTBOi1+taqY3oaUcU8yyToLrz1zRBvljFhY
+	8R6QI/7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAGGx-0000000AXjJ-1SFB;
-	Sat, 18 Oct 2025 23:23:39 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1vAGux-0000000AYgH-1dFP;
+	Sun, 19 Oct 2025 00:04:59 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAGGu-0000000AXid-3yHL;
-	Sat, 18 Oct 2025 23:23:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760829817; x=1792365817;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9MLdj9wpJXNrazCJbFGZFgXo0Adj941uIsE+4ls2ZM0=;
-  b=SWgO5NW5y8vAQoIBNF1UyuXuXKoFi5VSBuggpYLsFxGqi1Mqyo3sE9rg
-   pNJTeGBAdn8gh7211RrATIfADyB55+js3V53xa+8/6PyMutEgGIlir7L0
-   RqzQY+GNLRe+hhPrnYSLb+isc3+yfeCudp+vyDrSPB8BQdlJuYGj0eHLh
-   PDm3/tADm1Z/LXEgGv76xl8hoswh0rMwQRA9MaBAprs7MTVM0Fjk5Bq6y
-   tLQIG9vUmm8/WOnvS20R5SI2xpBVvudT2U13Q6iMyJV/+i8y1eZLCxU8I
-   2a1J6bgZ2QXbMNXcSolDcY36YXsDRra1NkQulexEg7wFpkYw7nkwvLXfh
-   g==;
-X-CSE-ConnectionGUID: FEaow+LESOyJqmgh4rIb8g==
-X-CSE-MsgGUID: nj7IHGYLQf+zbceirVcgYA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63093910"
-X-IronPort-AV: E=Sophos;i="6.19,239,1754982000"; 
-   d="scan'208";a="63093910"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Oct 2025 16:23:24 -0700
-X-CSE-ConnectionGUID: Md/aauc6THu4J5WtQX8jPw==
-X-CSE-MsgGUID: 33V5Xx+lRm+o3dlrbXe5kw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,239,1754982000"; 
-   d="scan'208";a="182977975"
-Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
-  by fmviesa006.fm.intel.com with ESMTP; 18 Oct 2025 16:23:21 -0700
-Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vAGFT-0008gj-1N;
-	Sat, 18 Oct 2025 23:22:42 +0000
-Date: Sun, 19 Oct 2025 07:21:21 +0800
-From: kernel test robot <lkp@intel.com>
-To: Elaine Zhang <zhangqing@rock-chips.com>, mturquette@baylibre.com,
-	sboyd@kernel.org, sugar.zhang@rock-chips.com, heiko@sntech.de,
-	robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org, huangtao@rock-chips.com
-Subject: Re: [PATCH v2 3/5] clk: rockchip: Add clock controller for the
- RV1126B
-Message-ID: <202510190651.YrDKfo1d-lkp@intel.com>
-References: <20251017063107.1606965-4-zhangqing@rock-chips.com>
+	id 1vAGuu-0000000AYfm-1AIW
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 19 Oct 2025 00:04:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=rz0DjI9FG3R+Vf1dNEL5GbVU6jXA/C1j8hwA+dUf/6I=; b=AcN5Xqb1JNtWQtEk5ZUe7Vs44j
+	z6+QascX8RZXSMzyNmZzlFs0g6XLvpMzTZ0U8eTgVmWGTWkCOapk0xir30PnWmjZ3UOLRQTKoWVuS
+	ukLu99pJOm6qI3+yfv+f7nNyf4DISn160d2zMZr8VTYh9aVfCTZXUGhortzxREz4zatY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vAGu2-00BP9M-KF; Sun, 19 Oct 2025 02:04:02 +0200
+Date: Sun, 19 Oct 2025 02:04:02 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Han Gao <rabenda.cn@gmail.com>, Icenowy Zheng <uwu@icenowy.me>,
+	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <ziyao@disroot.org>,
+	netdev@vger.kernel.org, sophgo@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH] net: stmmac: dwmac-sophgo: Add phy interface filter
+Message-ID: <370d13b7-bba8-449d-9050-e0719d20b57c@lunn.ch>
+References: <20251017011802.523140-1-inochiama@gmail.com>
+ <34fcc4cd-cd3d-418a-8d06-7426d2514dee@lunn.ch>
+ <i5prc7y4fxt3krghgvs7buyfkwwulxnsc2oagbwdjx4tbqjqls@fx4nkkyz6tdt>
+ <c16e53f9-f506-41e8-b3c6-cc3bdb1843e1@lunn.ch>
+ <aPP9cjzwihca-h6C@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251017063107.1606965-4-zhangqing@rock-chips.com>
+In-Reply-To: <aPP9cjzwihca-h6C@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251018_162337_024453_37BF6BED 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20251018_170456_315931_CCDEDDAA 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,37 +83,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Elaine,
+> "rgmii-id" doesn't mean "there is a delay _somewhere_ in the system".
+> It's supposed to mean that the PHY should add delays on both tx and
+> rx paths.
 
-kernel test robot noticed the following build errors:
+When passed to the PHY it means that.
 
-[auto build test ERROR on rockchip/for-next]
-[also build test ERROR on clk/clk-next linus/master v6.18-rc1 next-20251017]
-[cannot apply to pza/imx-drm/next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+However, DT describes the hardware, the PCB. "rgmii-id" means the PCB
+does not provide the delays. So the MAC/PHY combination needs to add
+the delays. We normally have the PHY provide the delays, so the
+phy-mode is normally passed straight to the PHY. However, if the MAC
+is adding a delay, which it is in this case, in one direction and
+cannot be turned off, the value passed to the PHY needs to reflect
+this, to avoid double delays.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Elaine-Zhang/clk-rockchip-Implement-rockchip_clk_register_armclk_multi_pll/20251017-180259
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git for-next
-patch link:    https://lore.kernel.org/r/20251017063107.1606965-4-zhangqing%40rock-chips.com
-patch subject: [PATCH v2 3/5] clk: rockchip: Add clock controller for the RV1126B
-config: arm-defconfig (https://download.01.org/0day-ci/archive/20251019/202510190651.YrDKfo1d-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 754ebc6ebb9fb9fbee7aef33478c74ea74949853)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251019/202510190651.YrDKfo1d-lkp@intel.com/reproduce)
+And because the MAC delay cannot be turned off, it means there are PCB
+designs which don't work, double delays. So it would be nice not to
+list them in the binding.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510190651.YrDKfo1d-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> ld.lld: error: undefined symbol: rk3576_rst_init
-   >>> referenced by clk-rv1126b.c:1050 (drivers/clk/rockchip/clk-rv1126b.c:1050)
-   >>>               drivers/clk/rockchip/clk-rv1126b.o:(rv1126b_clk_init) in archive vmlinux.a
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+	Andrew
 
