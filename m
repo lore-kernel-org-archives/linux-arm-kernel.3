@@ -4,61 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2255CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 06:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8363ECCD1AA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 07:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P1J3gPqMHpX6saWyMtO+TdHzbExLK4+Ng14TD3HYQ4k=; b=SqIDHAtzu7Ga1dFU5f8Asnyo/L
-	XHg8NuCZuGs1dgIzSH4EPgrUZeq4WP2JTat1gKL6X5RjgqJJDmdeh9mFEzgp48Qi2F5kKPloGuM99
-	lGucCauLx/RtEZwXIRd2q2rGW48EKmDuk1TiqODa0ZkfvOztBJ6bwOp1+R1rKGv7OR+mR437F1Sru
-	RQSespw+EzRv0zEsohTdQEAkMNcYFe6VfNYuTH7896QPW1XJCQuGTgrrL8Yb4ogdIsR4t9ktpKVGH
-	ZiROYbJyfz7wORGMwvKhJ+hVuwBrrM52tYq/cZTBXEy5q8DUig0Jdjeg9q/t5xSPen8IC6eeWjVfD
-	pHwANteg==;
+	bh=mSCBpqfTtQuM+Ra3M0njm+Khg9E9onlNjIvge8iCd2I=; b=bMSFXL8w3XrwSnl5bn51dUtFzV
+	qI3YpvRglp0eXmCPQVesEo+Vntdeu5caUm7V/k+EOZt8fT4w0X2Z2z6CquOK6hM0yXwWISSxvMtRQ
+	7bTeQHQvGmYnXkroGr2/9h/bE8bJ0T3V5cCrlEchWDAtuTyGBgBaowYKUaLnoU7WnAvVvjoZn1HDn
+	rnncSKRaFhvYpQK8/bfR1LyS6A928meEEG/yoNAGnFZj6en7ZRgUkQ/rTBSHdbrpLQVR4+qRcrffy
+	ujGxCq/B/02JAQxyDsbt5XcLoaSz/P4bD1GqbR28/GjufhIl5lszEGwV872mecmctWG6Hxgwb5hck
+	9LT/Myuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vANC9-0000000Al2e-096z;
-	Sun, 19 Oct 2025 06:47:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vANY4-0000000Alk1-2Af6;
+	Sun, 19 Oct 2025 07:09:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vANC8-0000000Al2Q-0j8I;
-	Sun, 19 Oct 2025 06:47:08 +0000
+	id 1vANY3-0000000Aljt-484r
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 19 Oct 2025 07:09:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 49A3D60250;
-	Sun, 19 Oct 2025 06:46:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1AEBC4CEE7;
-	Sun, 19 Oct 2025 06:46:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E9CBF611EF;
+	Sun, 19 Oct 2025 07:09:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59D02C4CEE7;
+	Sun, 19 Oct 2025 07:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760856408;
-	bh=+a+2hCN0GD5orS5JrZMFWqnSdCPfMOObGECdOlF/YN8=;
+	s=k20201202; t=1760857772;
+	bh=1cvbg145GTR8EwyOshytryB72YZoENuA0QaLFuEP+eA=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=TMqNhywCW0j0gr+EVC6Q8qsF30M2Gyvdxr11ywRpofXBeFofDxgeupde2Zp2j0hag
-	 PU3jp4JzMkkaDx07u16quNHT0hyGYr2GVQsGJloGcoyOON29mN1E3tQVeRlcVYP8wI
-	 1LHai7ybNXEMzZ9+F0/A3IEa5+Br/LLChYULjhDGs6ySp5JLF5gs+FuK97gV7m5cZg
-	 4H5JHZbJ1Gidk9EB/BxiuDcyPza9Lh4O1Fr4IxVmk+12xte/wWWJgXQh0Sy/mAdvN2
-	 pkp6MXFgt+U3uEoTmgS1nctWpJJnfasbbFsfUvFzj+XY8AcB8SYd3XjTnFyCCZ5eR0
-	 9+6y5b/x0xR6g==
+	b=Ie6YBXys5ek/3dVw1jratTcMf/Im58/bJdqbGvhcsxZ127WhezF6AerTaa7gZoMXl
+	 qwHXxUQo87FogLaDJJdMYRX+X7hz2fKU7tIth5w50ckX5VS3TwSCnaxtT5o1iF5tVx
+	 F5Fymtml4MRudNadzb2ppUFpnFIfRrwCJ+A/v0+lbjc6f6+ZzZtP4uZ3o3kHtR9EyV
+	 D/yRcWdDqQvXU1nJ0oLuO1TM5BeQY2j3I+8AXlry3OORoZ1CLDSNwHSuvMvpoAxWy0
+	 xu1zkc/IKSln+1TGocbyqmga4YlboOdNMY2lKqk3AriXE/FWusZQmQQPHL1VVsoukD
+	 x72s57jK5qH5A==
 From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bjorn Helgaas <bhelgaas@google.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Shawn Lin <shawn.lin@rock-chips.com>, Simon Xue <xxm@rock-chips.com>, 
- Yao Zi <ziyao@disroot.org>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Jonas Karlman <jonas@kwiboo.se>, 
- Chukun Pan <amadeus@jmu.edu.cn>
-In-Reply-To: <20250918153057.56023-1-ziyao@disroot.org>
-References: <20250918153057.56023-1-ziyao@disroot.org>
-Subject: Re: (subset) [PATCH v2 0/3] Add PCIe Gen2x1 controller support for
- RK3528
-Message-Id: <176085639822.11982.1205401883779675228.b4-ty@kernel.org>
-Date: Sun, 19 Oct 2025 12:16:38 +0530
+To: thippeswamy.havalige@amd.com, Ravi Kumar Bandi <ravib@amazon.com>
+Cc: lpieralisi@kernel.org, bhelgaas@google.com, linux-pci@vger.kernel.org, 
+ kwilczynski@kernel.org, robh@kernel.org, michal.simek@amd.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+In-Reply-To: <20250920225232.18757-1-ravib@amazon.com>
+References: <C47CF283-C0C4-4ACF-BE07-3E87153D6EC6@amazon.com>
+ <20250920225232.18757-1-ravib@amazon.com>
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Message-Id: <176085776570.12994.10687348823390647832.b4-ty@kernel.org>
+Date: Sun, 19 Oct 2025 12:39:25 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -78,23 +73,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 18 Sep 2025 15:30:54 +0000, Yao Zi wrote:
-> Rockchip RK3528 ships one PCIe Gen2x1 controller that operates in RC
-> mode only. The SoC doesn't provide a separate MSI controller, thus the
-> one integrated in designware PCIe IP must be used. This series documents
-> the PCIe controller in dt-binding and describes it in the SoC devicetree.
+On Sat, 20 Sep 2025 22:52:32 +0000, Ravi Kumar Bandi wrote:
+> The pcie-xilinx-dma-pl driver does not enable INTx interrupts
+> after initializing the port, preventing INTx interrupts from
+> PCIe endpoints from flowing through the Xilinx XDMA root port
+> bridge. This issue affects kernel 6.6.0 and later versions.
 > 
-> Radxa E20C board is used for testing, whose LAN GbE port is provided
-> through an RTL8111H chip connected to PCIe controller. Its devicetree
-> is adjusted to enable the controller, and IPERF3 shows the interface
-> runs at full-speed. A typical result looks like
+> This patch allows INTx interrupts generated by PCIe endpoints
+> to flow through the root port. Tested the fix on a board with
+> two endpoints generating INTx interrupts. Interrupts are
+> properly detected and serviced. The /proc/interrupts output
+> shows:
 > 
 > [...]
 
 Applied, thanks!
 
-[1/3] dt-bindings: PCI: dwc: rockchip: Add RK3528 variant
-      commit: dfbf19c47a01eda5df4d476d64a273e1188ea5a1
+[1/1] PCI: xilinx-xdma: Enable INTx interrupts
+      commit: c098c13f4365e6750009be4d90dba36fa4a19b4e
 
 Best regards,
 -- 
