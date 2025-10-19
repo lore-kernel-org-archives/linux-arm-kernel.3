@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5085ACCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 15:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31E1CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 16:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R5H+MaCr8Gp0YfRAgXVkenTGJLR59RzoE18KNDLcDYQ=; b=LM8E9gdJXvGCjfCenU98MMmgC9
-	WdE02VMSJdk0JQLY4mWM+uCWqGApFgRXnsu0sLQJYq4IHv5HtxrQm2s6XDSHfEsI3yDtOzuVpPUtK
-	WzEDyXtl56ndANxBRmxU7G7LY3Ko/FH3rhk7VRkofUPnO3YJDaAeoTRVOrv+xQYL/3wY2/UYD/Un+
-	2M2SJT9HFYQ8kCIvW1mBnLpW7lppCXrT/vCq02UkZKL9E1QEDAApGv6OkGm0Es5dUXDi5hhF+zIf5
-	sJ5hoUwokixHaDmIHQ7qtUlpfLn0nsS7vjfbcQWOpGZaRfCa5Euz9+ADkf82EtQAkCe/S7b3Nxi48
-	FOhnzQlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AHfKA9U4Qc/kfoVyXIAwIin/0PHtcEBFmI2qkbJlwas=; b=LhHU8+DsT8S8U5rRiWMEi9+T5f
+	ryXwbBRSXWSZ63dlxB8nNFfEMohAbvKukR6SZoNs3C1wK6IFM6M35ajhKP2WYUxCdVnvZIVl8wito
+	mAJNCg7YIOrEI87yJCSc4TQa7Rh6bxXNj0BjBEeLrz/bgKOwOuJgRkfOlzWSqCac4gHKcbDwqXcfT
+	EzWRbIrdCVwPQgGqB7Rno6YLQ7nMPMVOuWaeinMEmejk96WTJCoopVbBBo99V4zBzaJmabPISI9me
+	H7RFsxzgF84CIqD4vzL/nHYPrvkATESNDSmELAoXXycyWSrJdBTX9RlDRJsxSBgos0vnz26+zia5r
+	mxiMwrfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAVmF-0000000BAbb-3LlK;
-	Sun, 19 Oct 2025 15:56:59 +0000
-Received: from smtp-81.smtpout.orange.fr ([80.12.242.81] helo=smtp.smtpout.orange.fr)
+	id 1vAVvI-0000000BBJe-4Bap;
+	Sun, 19 Oct 2025 16:06:21 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAVmC-0000000BAb0-2v6W;
-	Sun, 19 Oct 2025 15:56:58 +0000
-Received: from [IPV6:2a01:cb10:785:b00:8347:f260:7456:7662]
- ([IPv6:2a01:cb10:785:b00:8347:f260:7456:7662])
-	by smtp.orange.fr with ESMTPA
-	id AVlyvBh0PDOeWAVlyvdeNf; Sun, 19 Oct 2025 17:56:50 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1760889410;
-	bh=R5H+MaCr8Gp0YfRAgXVkenTGJLR59RzoE18KNDLcDYQ=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=dN+InTtXbEQFgpQGgwNWLk2rLIeP2eEX9Yt1WZuX7ggfe7c7i2PFQHh2dVAcVzOR/
-	 GMYQPeRg8zYSYF7mD6y3TaYQ14z4vNy2GVUwM8SgspZ3go8NkpbN1t04Qp1iG4sY5C
-	 3d7IBvbk/8aaHsOn/eKKbWctllnznhJLAwlfHu06hOR6buY8iD9GSCtJXgXRrV1eE0
-	 wtOCrju4F3dg6zxDlfxefjwF5gYgStxRALOmCC0GgiGjM+xvFhpkGqyVqdQRhMnGfo
-	 Vqw8/ds8sqrlhLoKoRqPIPPdKqMF2f0YzR7I8NIx6n8JV5kLA++dzhaL1CtebQHZN3
-	 /Da6zRepGe+tA==
-X-ME-Helo: [IPV6:2a01:cb10:785:b00:8347:f260:7456:7662]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Sun, 19 Oct 2025 17:56:50 +0200
-X-ME-IP: 2a01:cb10:785:b00:8347:f260:7456:7662
-Message-ID: <c674e933-cf6f-412d-b83b-b225ff6365c9@wanadoo.fr>
-Date: Sun, 19 Oct 2025 17:56:40 +0200
+	id 1vAVvG-0000000BBJ8-3fJ3;
+	Sun, 19 Oct 2025 16:06:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=AHfKA9U4Qc/kfoVyXIAwIin/0PHtcEBFmI2qkbJlwas=; b=YSQqmBdBp6Cnqio5Q494KslAOs
+	4IwGfKAEq3Yx1gDBSm40vA7TITFzwpl7tzPQiEk9pf91Qljfll83vZg7bFt7U76ye5LcZPZcQihYm
+	rMD+Tm67OaIlxTr+A/J08+ujbQhWSUCniipMMiuOza4Uk5++DBGDynN1uY8xCwi9U84b8/6uex+U2
+	j1wvM7P2YQ7FdQ2dRqlRQoRuMiBSYlHJdZeaT9guLiLTmGrhTfKaKQg3CDVXMApOXZdpL2H7g9MrW
+	EJZfKmepspjCiTWqBBKcPOA0c8/SBZ5P2LDmeCerFlB05cvK3DpuzBCfgIg5pJvMP4BB0Z6X46ldl
+	sRFA5eAA==;
+Received: from i53875a28.versanet.de ([83.135.90.40] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vAVv4-0001nY-Qi; Sun, 19 Oct 2025 18:06:06 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ David Petry <petry103@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ David Petry <petry103@gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: Enable second HDMI output on CM3588
+Date: Sun, 19 Oct 2025 18:06:05 +0200
+Message-ID: <6801712.G0QQBjFxQf@diego>
+In-Reply-To: <20251019142053.11047-1-petry103@gmail.com>
+References: <20251019142053.11047-1-petry103@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] wifi: mt76: add tx checksum offload for mt7915, mt7921,
- mt7981 and mt7986
-To: Aleksander Jan Bajkowski <olek2@wp.pl>, nbd@nbd.name, lorenzo@kernel.org,
- ryder.lee@mediatek.com, shayne.chen@mediatek.com, sean.wang@mediatek.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- howard-yh.hsu@mediatek.com, StanleyYP.Wang@mediatek.com, rosenp@gmail.com,
- luoxueqin@kylinos.cn, chad@monroe.io, linux-wireless@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20251019155316.3537185-1-olek2@wp.pl>
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Content-Language: en-US, fr-FR
-In-Reply-To: <20251019155316.3537185-1-olek2@wp.pl>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_085657_157832_D9EBB843 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20251019_090618_962478_3689E087 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,84 +71,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 19/10/2025 à 17:51, Aleksander Jan Bajkowski a écrit :
-> Supports IPv4 and IPv6 TCP + UDP
-> 
-> In various tests between MT7986 and Intel BE200, I observed a performance
-> boost ranging from 2 to 12%, with an average of 5.5%.
-> 
-> I did the tests on the MT7915, MT7981, MT7986, and MT7921 variants. The
-> MT7922, MT7925, and MT799x are untouched for now and still have
-> checksumming disabled.
-> 
-> Signed-off-by: Felix Fietkau <nbd@nbd.name>
-> [rebased and resolved conflicts]
-> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+Hi David,
+
+Am Sonntag, 19. Oktober 2025, 16:20:53 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb David Petry:
+> Enable the second HDMI output port found on FriendlyElec CM3588 and CM3588
+
+the decription sounds like you're referencing two boards, but the change
+itself only touches one. Is there a 2nd patch missing or does the wording
+above need improvement?
+
+Thanks
+Heiko
+
+>=20
+> Signed-off-by: David Petry <petry103@gmail.com>
 > ---
->   drivers/net/wireless/mediatek/mt76/mt76_connac_mac.c | 5 +++++
->   drivers/net/wireless/mediatek/mt76/mt7915/init.c     | 3 ++-
->   drivers/net/wireless/mediatek/mt76/mt792x_core.c     | 3 +++
->   3 files changed, 10 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mac.c b/drivers/net/wireless/mediatek/mt76/mt76_connac_mac.c
-> index 0db00efe88b0..e31b3e7e2038 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mac.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mac.c
-> @@ -372,6 +372,9 @@ mt76_connac2_mac_write_txwi_8023(__le32 *txwi, struct sk_buff *skb,
->   		wmm = sta->wme;
->   	}
->   
-> +	val = FIELD_PREP(MT_TXD0_ETH_TYPE_OFFSET, 10);
-> +	txwi[0] |= cpu_to_le32(val);
+>  .../rk3588-friendlyelec-cm3588-nas.dts        | 38 +++++++++++++++++++
+>  1 file changed, 38 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.=
+dts b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
+> index 5fbbeb6f5a935..10a7d3691a26f 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
+> @@ -101,6 +101,17 @@ hdmi0_con_in: endpoint {
+>  		};
+>  	};
+> =20
+> +	hdmi1-con {
+> +		compatible =3D "hdmi-connector";
+> +		type =3D "a";
 > +
->   	val = FIELD_PREP(MT_TXD1_HDR_FORMAT, MT_HDR_FORMAT_802_3) |
->   	      FIELD_PREP(MT_TXD1_TID, tid);
->   
-> @@ -391,6 +394,8 @@ mt76_connac2_mac_write_txwi_8023(__le32 *txwi, struct sk_buff *skb,
->   
->   	val = FIELD_PREP(MT_TXD7_TYPE, fc_type) |
->   	      FIELD_PREP(MT_TXD7_SUB_TYPE, fc_stype);
-> +	if (skb->ip_summed == CHECKSUM_PARTIAL)
-> +		val |= MT_TXD7_IP_SUM | MT_TXD7_UDP_TCP_SUM;
->   
->   	txwi[7] |= cpu_to_le32(val);
->   }
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/init.c b/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-> index 5ea8b46e092e..a3bab240afb7 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-> @@ -359,7 +359,8 @@ mt7915_init_wiphy(struct mt7915_phy *phy)
->   	hw->queues = 4;
->   	hw->max_rx_aggregation_subframes = IEEE80211_MAX_AMPDU_BUF_HE;
->   	hw->max_tx_aggregation_subframes = IEEE80211_MAX_AMPDU_BUF_HE;
-> -	hw->netdev_features = NETIF_F_RXCSUM;
-> +	hw->netdev_features = NETIF_F_RXCSUM |
-> +			      NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;
->   
->   	if (mtk_wed_device_active(&mdev->mmio.wed))
->   		hw->netdev_features |= NETIF_F_HW_TC;
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt792x_core.c b/drivers/net/wireless/mediatek/mt76/mt792x_core.c
-> index c0e56541a954..fe138d2e8e62 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt792x_core.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt792x_core.c
-> @@ -632,6 +632,9 @@ int mt792x_init_wiphy(struct ieee80211_hw *hw)
->   	}
->   	hw->netdev_features = NETIF_F_RXCSUM;
->   
-> +	if (is_mt7921(&dev->mt76))
-> +		NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;
-
-This looks strange.
-
-Maybe:
-	netdev_features |= NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;
-?
-
-CJ
-
+> +		port {
+> +			hdmi1_con_in: endpoint {
+> +				remote-endpoint =3D <&hdmi1_out_con>;
+> +			};
+> +		};
+> +	};
 > +
->   	hw->radiotap_timestamp.units_pos =
->   		IEEE80211_RADIOTAP_TIMESTAMP_UNIT_US;
->   
+>  	ir-receiver {
+>  		compatible =3D "gpio-ir-receiver";
+>  		gpios =3D <&gpio0 RK_PD4 GPIO_ACTIVE_LOW>;
+> @@ -335,6 +346,22 @@ hdmi0_out_con: endpoint {
+>  	};
+>  };
+> =20
+> +&hdmi1 {
+> +	status =3D "okay";
+> +};
+> +
+> +&hdmi1_in {
+> +	hdmi1_in_vp1: endpoint {
+> +		remote-endpoint =3D <&vp1_out_hdmi1>;
+> +	};
+> +};
+> +
+> +&hdmi1_out {
+> +	hdmi1_out_con: endpoint {
+> +		remote-endpoint =3D <&hdmi1_con_in>;
+> +	};
+> +};
+> +
+>  &hdmi_receiver_cma {
+>  	status =3D "okay";
+>  };
+> @@ -350,6 +377,10 @@ &hdptxphy0 {
+>  	status =3D "okay";
+>  };
+> =20
+> +&hdptxphy1 {
+> +	status =3D "okay";
+> +};
+> +
+>  /* Connected to MIPI-DSI0 */
+>  &i2c5 {
+>  	pinctrl-names =3D "default";
+> @@ -840,3 +871,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+>  		remote-endpoint =3D <&hdmi0_in_vp0>;
+>  	};
+>  };
+> +
+> +&vp1 {
+> +	vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
+> +		reg =3D <ROCKCHIP_VOP2_EP_HDMI1>;
+> +		remote-endpoint =3D <&hdmi1_in_vp1>;
+> +	};
+> +};
+>=20
+
+
+
 
 
