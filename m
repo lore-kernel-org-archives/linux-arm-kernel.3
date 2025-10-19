@@ -4,89 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1477CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 16:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B272ACCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 16:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x6WS4gSSC3cojCRavBWi/OUmPz/su/Y/sBe19ZDjBWE=; b=S9O/lOXvXh+ZP6XS+JZanQRGrK
-	nAD7svcfxx+52xS++sACdcvrIHZm71silxtD4UM77r82X1rQeafWjyn7nWJOLMiNU31/wYh1/70xe
-	qjzoXtAhYn82GUSY/FrZgR+yI572GJRkB1/Bzq8+Vvbcx1nN2E+CcBdzfOTIycR3ANI6QWVG05/dP
-	kVAB6ry6z1Qj0P6wl+Xb0xmoyRr07IEmzMN3U7XdG36VH+jwcGT1B2EMYIqETJ02tlV3tFGMS7ZnL
-	F4PXrs6ApDbRWgIM2w8El8/TVIwX0KFLgnxZjl1tEeUFXLhhBRtweN3HKGLa/jKsReaOyn6ZVjV24
-	llHUfziQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Karn116GYjTx2H81CntcrkAvTygSq7TejQKGOkTyXIM=; b=3NuqSWTqMIRyPhEcDVF45ONBJe
+	DFmjt263mehVet3cj5nuA06zQepGG5AXXz3tIFghIkxKCg4g6P5EXVkfQu36fqbuwlP+WefXjoHjg
+	ZwfB9FXWZOBAHvPLb5B6/bMbdnns4T1SUUxEjpZaKYEFlyoqOJVS6TC+vP56Y2wSeXPGPGj1ySdVg
+	V7WJ8NnbMHt9NzcCZoW+k6vSGUpiXRopB7rb3QH3p5KOnLvVOqdNFoSX6/xYwg4+Q8h+UN4uMJXPQ
+	fNLP0DwsgWf0aTE7IuSqAro9okA4v1PzfNoFHm586zXfNifeRE4fL39fF/m8sUsm9C6nlJyEFAwaM
+	5/l5anmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAW8k-0000000BBzI-0Mub;
-	Sun, 19 Oct 2025 16:20:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vAWDj-0000000BCDy-3LSd;
+	Sun, 19 Oct 2025 16:25:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAW8j-0000000BBz1-0zsO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 19 Oct 2025 16:20:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=x6WS4gSSC3cojCRavBWi/OUmPz/su/Y/sBe19ZDjBWE=; b=A6lnhI2qat4pKWrFuGPeZSYgLE
-	5prBQ3FROr5v5Ee3uW51/lysTxWmqfbXSXoBgU0LC5dqyU8JqOLjebRlUbbSa8ArifHmKdnFPRvyJ
-	u6niQn+QBK/hUzZU4dMqfIjuEsy7JHDQzcy3Lap8NfveD8Wnr7PbUnFlLtgSNCI8Bq3KPYs7oQ9lz
-	pobhhqTiIa/4TaDPyUaXv1M8LVl6N9XqyaYC3dqpkJRWosMLLOdtVPGQLXEjVS797sevRG5Fdr5x6
-	t76o3Z/uNNPzCYKwXivdFuvIeOXuITcz6j39o1ZNLT2LOo7WcOPvEqQbKdaMhr2EIemF3pLB0AQl8
-	lNS9zKmQ==;
-Received: from mx3.wp.pl ([212.77.101.9])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAW8f-000000099fK-0CQN
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 16:20:11 +0000
-Received: (wp-smtpd smtp.wp.pl 3996 invoked from network); 19 Oct 2025 17:53:20 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1760889200; bh=x6WS4gSSC3cojCRavBWi/OUmPz/su/Y/sBe19ZDjBWE=;
-          h=From:To:Subject;
-          b=yupk4sHBX13usKKR0MDf4qQStF4MPIXIO+VA7RorDCUj06lUA/TBVTYQJGIJZuuCo
-           e0Vb1SYDh7LjFfbS+bndEFkJnY29BlqgkZB7IdEd81B4VGeuOrBq/yehGpmIETXAu5
-           QQ+LKnfdgeG4SFZzS9oZH9qgrX3Deia3rbjOq3I9qXom4/yhNsCmfave45ojIJhZ3+
-           gg9DonnA4F/7XBoYqKMuGP8hZ30NswO4LhZDSm5xeeZeD7xr8Qu4lAOxKh/R9iAJmd
-           xl8vGZA6jui6tZQrf9pk0p0DXUkvjxB7QW4iyyZtjXDingwE11gM75dq+ntA+W63KN
-           28h6eOIJGhzEg==
-Received: from 83.24.149.147.ipv4.supernova.orange.pl (HELO laptop-olek.home) (olek2@wp.pl@[83.24.149.147])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
-          for <nbd@nbd.name>; 19 Oct 2025 17:53:20 +0200
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	howard-yh.hsu@mediatek.com,
-	StanleyYP.Wang@mediatek.com,
-	rosenp@gmail.com,
-	luoxueqin@kylinos.cn,
-	chad@monroe.io,
-	olek2@wp.pl,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] wifi: mt76: add tx checksum offload for mt7915, mt7921, mt7981 and mt7986
-Date: Sun, 19 Oct 2025 17:51:55 +0200
-Message-ID: <20251019155316.3537185-1-olek2@wp.pl>
-X-Mailer: git-send-email 2.47.3
+	id 1vAWDg-0000000BCDU-3FdU;
+	Sun, 19 Oct 2025 16:25:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C9C944476;
+	Sun, 19 Oct 2025 16:25:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7610C4CEE7;
+	Sun, 19 Oct 2025 16:25:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760891119;
+	bh=AqeDRU1eKSmQXUiCZ7pwi0Bd8BGGXBM48O4Ou5Xs+sw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=F2EokHRLd68kZBeDRRdhxJ1rDW2elFlh8EnkyaTJnHSCfqkoujh7BohpZc68H407D
+	 6bUXmBrNoq7Ww0jTMF1QQwGeMEpfXz0BrGd0k+T8PJbgWDRrKfDcnhwumf2RRZV3Tp
+	 M1nqa0cZRI89OYqyvuvRWeFwctcqJgDf9nK43gHk2G3mRl3usq7ey6ziFEp5oxVwef
+	 8ha/lyEniLuE2fegL9ApZJO+lst38G6OUrwAE6O/NFZ/Mz1YaBFZd+ociss1pkQv9d
+	 0MzWPAoBwoLUZ5+ACw5ohULeXVrjB6+3sdA7UiNPKC79wDn4zGf7+6LA7UKkZ5vUk5
+	 GbYsQCDUj5ADg==
+Date: Sun, 19 Oct 2025 09:23:46 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Askar Safin <safinaskar@gmail.com>
+Cc: ardb@kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+	linux-ext4@vger.kernel.org, linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-scsi@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	loongarch@lists.linux.dev, sparclinux@vger.kernel.org,
+	x86@kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v4 15/19] lib/crc32: make crc32c() go directly to lib
+Message-ID: <20251019162346.GB1604@sol>
+References: <20241202010844.144356-16-ebiggers@kernel.org>
+ <20251019060845.553414-1-safinaskar@gmail.com>
+ <CAPnZJGAb7AM4p=HdsDhYcANCzD8=gpGjuP4wYfr2utLp3WMSNQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-WP-MailID: 20b9a344b7368db3f41473995158abfd
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000000 [UcNU]                               
+In-Reply-To: <CAPnZJGAb7AM4p=HdsDhYcANCzD8=gpGjuP4wYfr2utLp3WMSNQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_172009_374465_208EFD99 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251019_092520_876965_13F3EC67 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,76 +80,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Supports IPv4 and IPv6 TCP + UDP
+On Sun, Oct 19, 2025 at 11:10:25AM +0300, Askar Safin wrote:
+> On Sun, Oct 19, 2025 at 9:09 AM Askar Safin <safinaskar@gmail.com> wrote:
+> >
+> > Eric Biggers <ebiggers@kernel.org>:
+> > > Now that the lower level __crc32c_le() library function is optimized for
+> >
+> > This patch (i. e. 38a9a5121c3b ("lib/crc32: make crc32c() go directly to lib"))
+> > solves actual bug I found in practice. So, please, backport it
+> > to stable kernels.
+> 
+> Oops. I just noticed that this patch removes module "libcrc32c".
+> And this breaks build for Debian kernel v6.12.48.
+> Previously I tested minimal build using "make localmodconfig".
+> Now I tried full build of Debian kernel using "dpkg-buildpackage".
+> And it failed, because some of Debian files reference "libcrc32c",
+> which is not available.
+> 
+> So, please, don't backport this patch to stable kernels.
+> I'm sorry.
 
-In various tests between MT7986 and Intel BE200, I observed a performance
-boost ranging from 2 to 12%, with an average of 5.5%.
+Right, this commit simplified the CRC library design by removing the
+libcrc32c module.  initramfs build scripts that hard-coded the addition
+of libcrc32c.ko into the ramdisk (which I don't think was ever necessary
+in the first place, though it did used to be useful to hard-code some of
+the *other* CRC modules like crc32c-intel) had to be updated to remove
+it.  It looks like Debian did indeed do that, and they updated it in
+https://salsa.debian.org/kernel-team/linux/-/commit/6c242c647f84bfdbdc22a6a758fa59da4e941a10#1251f9400a85485d275e1709758350aa098709a8
 
-I did the tests on the MT7915, MT7981, MT7986, and MT7921 variants. The
-MT7922, MT7925, and MT799x are untouched for now and still have
-checksumming disabled.
+As for your original problem, I'd glad to see that the simplified design
+is preventing problems.  There's an issue with backporting this commit
+alone, though.  This was patch 15 of a 19-patch series for a good
+reason: the CRC-32C implementation in lib/ wasn't architecture-optimized
+until after patches 1-14 of this series.  Backporting this commit alone
+would make crc32c() no longer utilize architecture-optimized code.
 
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
-[rebased and resolved conflicts]
-Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
----
- drivers/net/wireless/mediatek/mt76/mt76_connac_mac.c | 5 +++++
- drivers/net/wireless/mediatek/mt76/mt7915/init.c     | 3 ++-
- drivers/net/wireless/mediatek/mt76/mt792x_core.c     | 3 +++
- 3 files changed, 10 insertions(+), 1 deletion(-)
+Now, it already didn't do so reliably (and this patch series fixed
+that).  However, backporting this commit alone would make it never do
+so.  So it would regress performance in some cases.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mac.c b/drivers/net/wireless/mediatek/mt76/mt76_connac_mac.c
-index 0db00efe88b0..e31b3e7e2038 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mac.c
-@@ -372,6 +372,9 @@ mt76_connac2_mac_write_txwi_8023(__le32 *txwi, struct sk_buff *skb,
- 		wmm = sta->wme;
- 	}
- 
-+	val = FIELD_PREP(MT_TXD0_ETH_TYPE_OFFSET, 10);
-+	txwi[0] |= cpu_to_le32(val);
-+
- 	val = FIELD_PREP(MT_TXD1_HDR_FORMAT, MT_HDR_FORMAT_802_3) |
- 	      FIELD_PREP(MT_TXD1_TID, tid);
- 
-@@ -391,6 +394,8 @@ mt76_connac2_mac_write_txwi_8023(__le32 *txwi, struct sk_buff *skb,
- 
- 	val = FIELD_PREP(MT_TXD7_TYPE, fc_type) |
- 	      FIELD_PREP(MT_TXD7_SUB_TYPE, fc_stype);
-+	if (skb->ip_summed == CHECKSUM_PARTIAL)
-+		val |= MT_TXD7_IP_SUM | MT_TXD7_UDP_TCP_SUM;
- 
- 	txwi[7] |= cpu_to_le32(val);
- }
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/init.c b/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-index 5ea8b46e092e..a3bab240afb7 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/init.c
-@@ -359,7 +359,8 @@ mt7915_init_wiphy(struct mt7915_phy *phy)
- 	hw->queues = 4;
- 	hw->max_rx_aggregation_subframes = IEEE80211_MAX_AMPDU_BUF_HE;
- 	hw->max_tx_aggregation_subframes = IEEE80211_MAX_AMPDU_BUF_HE;
--	hw->netdev_features = NETIF_F_RXCSUM;
-+	hw->netdev_features = NETIF_F_RXCSUM |
-+			      NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;
- 
- 	if (mtk_wed_device_active(&mdev->mmio.wed))
- 		hw->netdev_features |= NETIF_F_HW_TC;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt792x_core.c b/drivers/net/wireless/mediatek/mt76/mt792x_core.c
-index c0e56541a954..fe138d2e8e62 100644
---- a/drivers/net/wireless/mediatek/mt76/mt792x_core.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt792x_core.c
-@@ -632,6 +632,9 @@ int mt792x_init_wiphy(struct ieee80211_hw *hw)
- 	}
- 	hw->netdev_features = NETIF_F_RXCSUM;
- 
-+	if (is_mt7921(&dev->mt76))
-+		NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;
-+
- 	hw->radiotap_timestamp.units_pos =
- 		IEEE80211_RADIOTAP_TIMESTAMP_UNIT_US;
- 
--- 
-2.47.3
+Since the errors you're actually getting are:
 
+    [   19.619731] Invalid ELF header magic: != ELF
+    modprobe: can't load module libcrc32c (kernel/lib/libcrc32c.ko.xz): unknown symbol in module, or unknown parameter
+
+I do have to wonder if this is actually a busybox bug or
+misconfiguration, where it's passing a compressed module to the kernel
+without decompressing it?  And removing the module just hid the problem.
+
+- Eric
 
