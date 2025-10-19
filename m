@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49886CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 10:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F986CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 10:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M6BS+Rx9p5Zae9XWkew/CqneYHlYUBOvdqcwKj9vtN4=; b=OCDECAxolJC6gBrtAOOCHUIM2K
-	+F+WlKmB0chtLOayuIZbcfyxiA4JpvTOju+E7vEZ+kDuywpiyeh085ninzP1oJROv/OiA4U0VMGDt
-	F5FfOsH7eUW8RDUySG/uE2CPqWBSDZ0m/IdH9nlTasn5sEigrJOxpGSD/MI+rihbTBoAwf5aVDjXC
-	bqBNjZ8fGsnFvNNuehv+1teUb8kqcANucrCyyO9oXkm954ynWnE+DVRLaPCvSM8cGRkIUi8LTNimM
-	wr0G210vWLi4HA/2hFPiTnPf8MJW/xNRb8/78ASBKrByTriR5qKLrWc8x++0xft2PIH3xppRUcveX
-	GL+k+t/Q==;
+	bh=FSDYUgurlaP25DdKXGT/mbeqGQLJxYfQp1C9yXJgJJE=; b=NNrSXvktSTm+pBtPRu0no4WLeB
+	BEvJgRfqfZ8OPSPklbDK1HstcZsSGJ+nSTOO80EvPuRiWYyembCmv9iX3TTuPOTPC+TQ8/zYwtpZH
+	Fb/4VsfI7O8vZJI2eHx6bceYZxhs7Xe1tGDkRFxAqHKkXFRt148rObpf2D+jPPKe0cbakMxF8cmST
+	7OS5pbiSlp0rviyi+lw6RTL0TZkC7XhVCmo2UxzOj5WfgCP8smtHXm75UBKHPhbBMfwVvYEfxrg8H
+	K2hvX9kfgYgOQx11+aGtj/PX5TjVv3AM/wY1vjyqWHQr0YjBGx9ODztYdVpjAPxBur5bBV9viMIAo
+	1+yzpslg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAQHV-0000000Atnf-0bv1;
-	Sun, 19 Oct 2025 10:04:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vAQIN-0000000Attz-21sR;
+	Sun, 19 Oct 2025 10:05:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAQHU-0000000AtnS-0Knl
+	id 1vAQIK-0000000Atsu-2VTi
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 10:04:52 +0000
+	Sun, 19 Oct 2025 10:05:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3D9CF60388;
-	Sun, 19 Oct 2025 10:04:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 853F1C116C6;
-	Sun, 19 Oct 2025 10:04:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EBDFA416A8;
+	Sun, 19 Oct 2025 10:05:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C27AC4CEE7;
+	Sun, 19 Oct 2025 10:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760868276;
-	bh=K5bIOHqo4e4+v9JFw9VR8FYJWSsf4cxoBgG8icLWWIU=;
+	s=k20201202; t=1760868333;
+	bh=8/6MAIRp7ORV3+JDXdvVgqS6cXx7rt5drIEAxCcTDRQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hu8kUuTP8G2bym5uquQb23frtqpM9s5kephneD5NwmnrA4u3r68L5W63bzFHEGbii
-	 L3+Mja+AasARH8lj2JkjkVSKLyQAUcEIZwQ8iUwHODa1w1GEhuSzMisPjiiN05F5AA
-	 gO2nBYYRnSSQVxzE5CinWzILsFFiPf2Pb2L1v4WbTTr74Y38JNaudZJmRzzY1ByjZe
-	 USYG+j6y1+0Z2QJy6bTfW2HsJDeaTDSAVpFBBGa7gno216k7k7Su2fPI8fhvzOsQ1v
-	 jnfvoxXKcJbTWmcsZDMkkBGIi/IOLqMKiUB8nGsbY1Y6RuKGUTFF5aT+/sxx0qMrXa
-	 jPM/p1Wj1CL7w==
-Message-ID: <d7cea4d7-52ce-42b5-a1b8-452998351630@kernel.org>
-Date: Sun, 19 Oct 2025 12:04:30 +0200
+	b=SQ9E4kFYblZrraQ6lpIruO73LafeBj1Ly66IJthQYFy8IB9gmfMI9ZGemn6lpncHB
+	 lIXm9y9JJ2AM4JQLDauFQ0SG6/RPR3rK9eM/VkKogKRzk4kqmU2b8fOnxqHeVbytkX
+	 3yL7XiumkVvBaBTcpu2D3PaZ3FJsuoeTBOh8UkvbxpFiKi+d9kstuSGWUJGflyggCb
+	 udDMiDj8rm6borsYevqHakua6W8axclEeaj3t2hGcBJgllpkCXWOUZqjjTV72Vn5OO
+	 Wk8axnoctkBcIfKn3iohe4PA8qZTbrOhIb7AaPH52I1YzHJptoFnV1nt4Mi9+mvjDI
+	 p2qL+mDNVb/3A==
+Message-ID: <cdecae8a-7fb9-4ac2-a412-1a18c4783ffa@kernel.org>
+Date: Sun, 19 Oct 2025 12:05:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 2/8] dt-bindings: clock: document 8ULP's SIM LPAV
@@ -61,7 +61,7 @@ Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
  linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
 References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
  <20251017112025.11997-3-laurentiumihalcea111@gmail.com>
- <aPJTquVc8zl727bC@lizhi-Precision-Tower-5810>
+ <aPJZ6dDRyyl3Qg4o@lizhi-Precision-Tower-5810>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,9 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aPJTquVc8zl727bC@lizhi-Precision-Tower-5810>
+In-Reply-To: <aPJZ6dDRyyl3Qg4o@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251019_030544_675557_CA92F5E4 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,17 +127,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/10/2025 16:33, Frank Li wrote:
+On 17/10/2025 16:59, Frank Li wrote:
+> On Fri, Oct 17, 2025 at 04:20:19AM -0700, Laurentiu Mihalcea wrote:
+>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>>
+>> Add documentation for i.MX8ULP's SIM LPAV module.
+>>
+>> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>> ---
+>>  .../bindings/clock/fsl,imx8ulp-sim-lpav.yaml  | 72 +++++++++++++++++++
+>>  include/dt-bindings/clock/imx8ulp-clock.h     |  5 ++
+>>  .../dt-bindings/reset/fsl,imx8ulp-sim-lpav.h  | 16 +++++
+>>  3 files changed, 93 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/clock/fsl,imx8ulp-sim-lpav.yaml
+>>  create mode 100644 include/dt-bindings/reset/fsl,imx8ulp-sim-lpav.h
+>>
+>> diff --git a/Documentation/devicetree/bindings/clock/fsl,imx8ulp-sim-lpav.yaml b/Documentation/devicetree/bindings/clock/fsl,imx8ulp-sim-lpav.yaml
+>> new file mode 100644
+>> index 000000000000..fb3b9028a4c3
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/clock/fsl,imx8ulp-sim-lpav.yaml
+>> @@ -0,0 +1,72 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/clock/fsl,imx8ulp-sim-lpav.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 >> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/imx8ulp-clock.h>
+>> +title: NXP i.MX8ULP LPAV System Integration Module (SIM)
 >> +
->> +    clock-controller@2da50000 {
+>> +maintainers:
+>> +  - Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>> +
+>> +description:
+>> +  The i.MX8ULP LPAV subsystem contains a block control module known as
+>> +  SIM LPAV, which offers functionalities such as clock gating or reset
+>> +  line assertion/de-assertion.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: fsl,imx8ulp-sim-lpav
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    maxItems: 3
+>> +
+>> +  clock-names:
+>> +    items:
+>> +      - const: lpav_bus
+>> +      - const: hifi_core
+>> +      - const: hifi_plat
 > 
-> Maybe mfd is better, this is clock, reset and mux controller actually.
+> dt prefer use -
 
-There is no such hardware term as mfd.
+
+I don't think we ever expressed such preference. Where did you find it?
+
+
+> lpav-bus, ...
+Then just "bus" or "apb".
+
+
 
 Best regards,
 Krzysztof
