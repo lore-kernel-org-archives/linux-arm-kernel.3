@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65812CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 10:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E807CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 10:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Q//6LQDm5vvBeQ9sEBAivNXMI2ny/HhHL/pL6Pvb2as=; b=OyNB3mACk4zISENe/kNJvbK7YD
-	FzHlxwbjbI5658wm8lj87ZO+xwrAGYGeNf/P1LVp2vAxfOU/5Uy+XGbr6EwN1XBo3UO0dc9O8bKhq
-	lkhKtO1Ex58fFAjUrUVkh39+kR+q3PiwBaH7na58hbgPJAmvCJbNansDMS3vjKwPceT7OqrJe/aFW
-	ryPaYSMYSB/IiqZ6arShPMV+3k1xB8OXh0Dq5iy41089eZFCrzDFmbkNICI8pPSmQIXlt300sO3V9
-	xO8VCMAib5iC97AI/Itkw4uoDkUNY5MH5rqM6i1FmrFG7stn7TRf+DFM0WUrlP1rZt3BxWTqXCiz1
-	e9Zx2xXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s9NxPfe6XfxXUjr+vI8y3+8zDY9J9m+A8OFmzTDnis0=; b=E/Ia4wKxknEOMRS2VCJZpIZzzz
+	CewtYC+PzVTOId64ZJGV+tIhcfqxj0LuDTwqDGxyST5K1KxO9/wtRwnzun4kd4QsH+XeNTKPaIac0
+	2EzwWmKI3j2OYej4eS+XpskGJZVCEe+EGIK+29Ulhee//qxV2R53evb0sbe9NxtxiUaGS2D/AgDEZ
+	pgtNjwyEM2oXbYAanNc/3Ob8xdx2a8BH7ddCVe96u1ABW9dAYbIaLLSyRr5ir9Ty0ADfCdxx7gwEc
+	J7xhjlxxksBmcdE/FxgPusJ/o4MuBtd9G4YPF5ii5MY1KUbHqceEBUFptbYjYxMlV/DGg8tAYXOKi
+	HpEo97dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAQqP-0000000AvnD-1JMO;
-	Sun, 19 Oct 2025 10:40:57 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1vAQqf-0000000Avov-2bNc;
+	Sun, 19 Oct 2025 10:41:13 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAQqM-0000000Avme-23Uc
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 10:40:56 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59JAeFfJ664942;
-	Sun, 19 Oct 2025 05:40:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1760870415;
-	bh=Q//6LQDm5vvBeQ9sEBAivNXMI2ny/HhHL/pL6Pvb2as=;
-	h=From:To:CC:Subject:Date;
-	b=imx2nrjuEIBCXItftYb7HVyHMShrMl3U1cRkvmm+hCYKpTVwvsYID6ZWemyGF98VZ
-	 lt1+g7EBc1jBVEb73Wj7LsLoOVn8wbAt5UsakuEUPZecGDKWsauymehXI6HKRL1bm5
-	 WlzuJ8E/+S8f96kXsgtPKj5YejGM+THcAwNQkOU4=
-Received: from DFLE200.ent.ti.com (dfle200.ent.ti.com [10.64.6.58])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59JAeEXI3821906
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Sun, 19 Oct 2025 05:40:14 -0500
-Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 19 Oct
- 2025 05:40:14 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sun, 19 Oct 2025 05:40:14 -0500
-Received: from psdkl-workstation0.dhcp.ti.com (psdkl-workstation0.dhcp.ti.com [172.24.234.127])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59JAeANM113965;
-	Sun, 19 Oct 2025 05:40:11 -0500
-From: Aniket Limaye <a-limaye@ti.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>,
-        <gehariprasath@ti.com>, Aniket Limaye <a-limaye@ti.com>
-Subject: [PATCH] arm64: dts: ti: k3-j784s4: Fix I2C pinmux pull configuration
-Date: Sun, 19 Oct 2025 16:09:19 +0530
-Message-ID: <20251019103938.276062-1-a-limaye@ti.com>
-X-Mailer: git-send-email 2.51.0
+	id 1vAQqc-0000000Avo8-3uQJ;
+	Sun, 19 Oct 2025 10:41:12 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1vAIke-000000005VK-0PXI;
+	Sun, 19 Oct 2025 02:02:28 +0000
+Date: Sun, 19 Oct 2025 03:02:24 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Yu Jiaoliang <yujiaoliang@vivo.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Changqi Hu <changqi.hu@mediatek.com>,
+	Sam Shih <sam.shih@mediatek.com>,
+	Steven Liu <steven.liu@mediatek.com>,
+	John Crispin <john@phrozen.org>, linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3] serial: 8250_mtk: Enable baud clock and manage in
+ runtime PM
+Message-ID: <aPRGsKGDrYlyoTje@makrotopia.org>
+References: <de5197ccc31e1dab0965cabcc11ca92e67246cf6.1758058441.git.daniel@makrotopia.org>
+ <939cea9e-d7bd-4a13-b462-17e483f61e4c@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <939cea9e-d7bd-4a13-b462-17e483f61e4c@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_034054_714862_9743F20A 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20251019_034110_993199_14895FDE 
+X-CRM114-Status: GOOD (  28.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,67 +73,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The I2C pins for some of the instances on J784S4/J742S2/AM69 are
-configured as PIN_INPUT_PULLUP while these pins are open-drain type and
-do not support internal pull-ups [0][1][2]. The pullup configuration
-bits in the corresponding padconfig registers are reserved and any
-writes to them have no effect and readback checks on those bits fail.
 
-Update the pinmux settings to use PIN_INPUT instead of PIN_INPUT_PULLUP
-to reflect the correct hardware behaviour.
+On Wed, Sep 17, 2025 at 12:00:57PM +0200, Matthias Brugger wrote:
+> On 16/09/2025 23:37, Daniel Golle wrote:
+> > Some MediaTek SoCs got a gated UART baud clock, which currently gets
+> > disabled as the clk subsystem believes it would be unused. This results in
+> > the uart freezing right after "clk: Disabling unused clocks" on those
+> > platforms.
+> > 
+> > Request the baud clock to be prepared and enabled during probe, and to
+> > restore run-time power management capabilities to what it was before commit
+> > e32a83c70cf9 ("serial: 8250-mtk: modify mtk uart power and clock
+> > management") disable and unprepare the baud clock when suspending the UART,
+> > prepare and enable it again when resuming it.
+> > 
+> > Fixes: e32a83c70cf9 ("serial: 8250-mtk: modify mtk uart power and clock management")
+> 
+> Most of the issues from this commit are already fixed in
+> b6c7ff2693ddc ("serial: 8250_mtk: Simplify clock sequencing and runtime PM")
+> which is more or less a revert of e32a83c70cf9.
+> 
+> I think we should add
+> Fixes: b6c7ff2693ddc ("serial: 8250_mtk: Simplify clock sequencing and runtime PM")
+> here as well. It's a fix of a fix :)
 
-[0]: https://www.ti.com/lit/gpn/tda4ah-q1 (J784S4 Datasheet: Table 5-1. Pin Attributes)
-[1]: https://www.ti.com/lit/gpn/tda4ape-q1 (J742S2 Datasheet: Table 5-1. Pin Attributes)
-[2]: https://www.ti.com/lit/gpn/am69a (AM69 Datasheet: Table 5-1. Pin Attributes)
+Just a friendly ping about this patch :)
+Should I resend the patch with the added Fixes:-tag? Or can it be merged
+including the tag added my Matthias without a resend?
 
-Signed-off-by: Aniket Limaye <a-limaye@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am69-sk.dts                   | 8 ++++----
- arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi | 4 ++--
- 2 files changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am69-sk.dts b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-index 5896e57b5b9e..0e2d12cb051d 100644
---- a/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-@@ -236,8 +236,8 @@ J784S4_IOPAD(0x0d4, PIN_OUTPUT, 11) /* (AN38) SPI0_CLK.UART8_TXD */
- 
- 	main_i2c0_pins_default: main-i2c0-default-pins {
- 		pinctrl-single,pins = <
--			J784S4_IOPAD(0x0e0, PIN_INPUT_PULLUP, 0) /* (AN36) I2C0_SCL */
--			J784S4_IOPAD(0x0e4, PIN_INPUT_PULLUP, 0) /* (AP37) I2C0_SDA */
-+			J784S4_IOPAD(0x0e0, PIN_INPUT, 0) /* (AN36) I2C0_SCL */
-+			J784S4_IOPAD(0x0e4, PIN_INPUT, 0) /* (AP37) I2C0_SDA */
- 		>;
- 	};
- 
-@@ -416,8 +416,8 @@ J784S4_WKUP_IOPAD(0x088, PIN_OUTPUT, 0) /* (J37) WKUP_GPIO0_12.MCU_UART0_TXD */
- 
- 	mcu_i2c0_pins_default: mcu-i2c0-default-pins {
- 		pinctrl-single,pins = <
--			J784S4_WKUP_IOPAD(0x0a0, PIN_INPUT_PULLUP, 0) /* (M35) MCU_I2C0_SCL */
--			J784S4_WKUP_IOPAD(0x0a4, PIN_INPUT_PULLUP, 0) /* (G34) MCU_I2C0_SDA */
-+			J784S4_WKUP_IOPAD(0x0a0, PIN_INPUT, 0) /* (M35) MCU_I2C0_SCL */
-+			J784S4_WKUP_IOPAD(0x0a4, PIN_INPUT, 0) /* (G34) MCU_I2C0_SDA */
- 		>;
- 	};
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-index 419c1a70e028..2834f0a8bbee 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-@@ -270,8 +270,8 @@ J784S4_IOPAD(0x0d4, PIN_OUTPUT, 11) /* (AN38) SPI0_CLK.UART8_TXD */
- 
- 	main_i2c0_pins_default: main-i2c0-default-pins {
- 		pinctrl-single,pins = <
--			J784S4_IOPAD(0x0e0, PIN_INPUT_PULLUP, 0) /* (AN36) I2C0_SCL */
--			J784S4_IOPAD(0x0e4, PIN_INPUT_PULLUP, 0) /* (AP37) I2C0_SDA */
-+			J784S4_IOPAD(0x0e0, PIN_INPUT, 0) /* (AN36) I2C0_SCL */
-+			J784S4_IOPAD(0x0e4, PIN_INPUT, 0) /* (AP37) I2C0_SDA */
- 		>;
- 	};
- 
--- 
-2.51.0
-
+> 
+> Regards,
+> Matthias
+> 
+> 
+> > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> > Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> > ---
+> > v3: squash into single patch
+> > v2: add managing run-time PM in dedicated patch
+> > 
+> >   drivers/tty/serial/8250/8250_mtk.c | 6 ++++--
+> >   1 file changed, 4 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/drivers/tty/serial/8250/8250_mtk.c b/drivers/tty/serial/8250/8250_mtk.c
+> > index b44de2ed7413..5875a7b9b4b1 100644
+> > --- a/drivers/tty/serial/8250/8250_mtk.c
+> > +++ b/drivers/tty/serial/8250/8250_mtk.c
+> > @@ -435,6 +435,7 @@ static int __maybe_unused mtk8250_runtime_suspend(struct device *dev)
+> >   	while
+> >   		(serial_in(up, MTK_UART_DEBUG0));
+> > +	clk_disable_unprepare(data->uart_clk);
+> >   	clk_disable_unprepare(data->bus_clk);
+> >   	return 0;
+> > @@ -445,6 +446,7 @@ static int __maybe_unused mtk8250_runtime_resume(struct device *dev)
+> >   	struct mtk8250_data *data = dev_get_drvdata(dev);
+> >   	clk_prepare_enable(data->bus_clk);
+> > +	clk_prepare_enable(data->uart_clk);
+> >   	return 0;
+> >   }
+> > @@ -475,13 +477,13 @@ static int mtk8250_probe_of(struct platform_device *pdev, struct uart_port *p,
+> >   	int dmacnt;
+> >   #endif
+> > -	data->uart_clk = devm_clk_get(&pdev->dev, "baud");
+> > +	data->uart_clk = devm_clk_get_enabled(&pdev->dev, "baud");
+> >   	if (IS_ERR(data->uart_clk)) {
+> >   		/*
+> >   		 * For compatibility with older device trees try unnamed
+> >   		 * clk when no baud clk can be found.
+> >   		 */
+> > -		data->uart_clk = devm_clk_get(&pdev->dev, NULL);
+> > +		data->uart_clk = devm_clk_get_enabled(&pdev->dev, NULL);
+> >   		if (IS_ERR(data->uart_clk)) {
+> >   			dev_warn(&pdev->dev, "Can't get uart clock\n");
+> >   			return PTR_ERR(data->uart_clk);
+> 
 
