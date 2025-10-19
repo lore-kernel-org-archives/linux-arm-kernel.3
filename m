@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8363ECCD1AA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 07:10:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F252CCD1AA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 07:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mSCBpqfTtQuM+Ra3M0njm+Khg9E9onlNjIvge8iCd2I=; b=bMSFXL8w3XrwSnl5bn51dUtFzV
-	qI3YpvRglp0eXmCPQVesEo+Vntdeu5caUm7V/k+EOZt8fT4w0X2Z2z6CquOK6hM0yXwWISSxvMtRQ
-	7bTeQHQvGmYnXkroGr2/9h/bE8bJ0T3V5cCrlEchWDAtuTyGBgBaowYKUaLnoU7WnAvVvjoZn1HDn
-	rnncSKRaFhvYpQK8/bfR1LyS6A928meEEG/yoNAGnFZj6en7ZRgUkQ/rTBSHdbrpLQVR4+qRcrffy
-	ujGxCq/B/02JAQxyDsbt5XcLoaSz/P4bD1GqbR28/GjufhIl5lszEGwV872mecmctWG6Hxgwb5hck
-	9LT/Myuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cxlN28x+5gJxNJVHdK9WapGpiwux4ojfMtJWdMgLLFI=; b=UJguw6LHEfrNEUAKQBqW33nfGU
+	mQPf+d40QNplZFTo7zQZE4mcgr23I1bHcEyOGpxM/tOhbeDneI25cydt8I0sSDZ72cea9hcdh/hUR
+	52xPi8koRivr57mcZcc64JoXnYNRTpIREVGOHPNK/en63/wp5E6kcFJWFfyPm8olSk2jHLZXniTtt
+	qqf3nazf6bPWzNyiXm83X8d6goQp4vk1DEJiQqgjpHT4UzbgOk+WX8RNHbopX6qz081wjiLA3+E+X
+	Zc9M/BPmq4VRkBnNvqVZAx6GkXZTlJDQ/bwoA+9LB8fn40rjGlwHtPpdhUztjDOMTmZ2QXBoqjDWB
+	ypHyi2mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vANY4-0000000Alk1-2Af6;
-	Sun, 19 Oct 2025 07:09:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vANZ6-0000000Alqw-3lBd;
+	Sun, 19 Oct 2025 07:10:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vANY3-0000000Aljt-484r
+	id 1vANZ4-0000000AlqK-3VwS
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 07:09:48 +0000
+	Sun, 19 Oct 2025 07:10:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E9CBF611EF;
-	Sun, 19 Oct 2025 07:09:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59D02C4CEE7;
-	Sun, 19 Oct 2025 07:09:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2CB3744FCB;
+	Sun, 19 Oct 2025 07:10:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0C71C4CEE7;
+	Sun, 19 Oct 2025 07:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760857772;
-	bh=1cvbg145GTR8EwyOshytryB72YZoENuA0QaLFuEP+eA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Ie6YBXys5ek/3dVw1jratTcMf/Im58/bJdqbGvhcsxZ127WhezF6AerTaa7gZoMXl
-	 qwHXxUQo87FogLaDJJdMYRX+X7hz2fKU7tIth5w50ckX5VS3TwSCnaxtT5o1iF5tVx
-	 F5Fymtml4MRudNadzb2ppUFpnFIfRrwCJ+A/v0+lbjc6f6+ZzZtP4uZ3o3kHtR9EyV
-	 D/yRcWdDqQvXU1nJ0oLuO1TM5BeQY2j3I+8AXlry3OORoZ1CLDSNwHSuvMvpoAxWy0
-	 xu1zkc/IKSln+1TGocbyqmga4YlboOdNMY2lKqk3AriXE/FWusZQmQQPHL1VVsoukD
-	 x72s57jK5qH5A==
+	s=k20201202; t=1760857840;
+	bh=WDqVVyRyQr+FH8+6XQnjBusK3qxbfBk4dcq13t/IdEU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QIaAxIju/58TL3RFmbl6lKGP1EV96wzk5L9mzMVqHif0ZFQDHs9ZzIHR0WmmZX7tF
+	 G7YHjWDl4SlPkWHhGaJy+iEALoY6Iuthmx8mFg3ladxAl//K92pb+3hWJK+z3MDoF2
+	 QPMwrH2TZg0Rru7ZnPm5qx0oO5lhZafyPfIN1a5kUtH59oEN/aiKBRkBh4rEECIXlG
+	 3wT1ejF5kgaBgyFIzEHOHOBMPxbAoBUA14APBB7XrBmcmXA7L8MPmvrO3lZQg86vkZ
+	 Yg8fz8wJU5lTyu5MxuLbzglkW1975mO0JEZ2ENw0qbnfbnrJRfjdlGs6kZmtcX6Yjw
+	 Z9qSabLbbuZEw==
+Date: Sun, 19 Oct 2025 12:40:24 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
-To: thippeswamy.havalige@amd.com, Ravi Kumar Bandi <ravib@amazon.com>
+To: Ravi Kumar Bandi <ravib@amazon.com>, thippeswamy.havalige@amd.com
 Cc: lpieralisi@kernel.org, bhelgaas@google.com, linux-pci@vger.kernel.org, 
- kwilczynski@kernel.org, robh@kernel.org, michal.simek@amd.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org
-In-Reply-To: <20250920225232.18757-1-ravib@amazon.com>
+	kwilczynski@kernel.org, robh@kernel.org, michal.simek@amd.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Message-ID: <akia22ulvkho753escdkhmunx3wdkgzk4hoosbrdpg3flfucxd@clwwh2hkt6wl>
 References: <C47CF283-C0C4-4ACF-BE07-3E87153D6EC6@amazon.com>
  <20250920225232.18757-1-ravib@amazon.com>
-Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
-Message-Id: <176085776570.12994.10687348823390647832.b4-ty@kernel.org>
-Date: Sun, 19 Oct 2025 12:39:25 +0530
+ <ffnsnm67kc546xrx673yvuepolafapueyfboykmcfododbpb2o@cjcmlqcvu76v>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ffnsnm67kc546xrx673yvuepolafapueyfboykmcfododbpb2o@cjcmlqcvu76v>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251019_001050_892841_C2F15080 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,28 +75,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sat, 20 Sep 2025 22:52:32 +0000, Ravi Kumar Bandi wrote:
-> The pcie-xilinx-dma-pl driver does not enable INTx interrupts
-> after initializing the port, preventing INTx interrupts from
-> PCIe endpoints from flowing through the Xilinx XDMA root port
-> bridge. This issue affects kernel 6.6.0 and later versions.
+On Mon, Sep 29, 2025 at 07:38:01PM +0530, Manivannan Sadhasivam wrote:
+> On Sat, Sep 20, 2025 at 10:52:32PM +0000, Ravi Kumar Bandi wrote:
+> > The pcie-xilinx-dma-pl driver does not enable INTx interrupts
+> > after initializing the port, preventing INTx interrupts from
+> > PCIe endpoints from flowing through the Xilinx XDMA root port
+> > bridge. This issue affects kernel 6.6.0 and later versions.
+> > 
+> > This patch allows INTx interrupts generated by PCIe endpoints
+> > to flow through the root port. Tested the fix on a board with
+> > two endpoints generating INTx interrupts. Interrupts are
+> > properly detected and serviced. The /proc/interrupts output
+> > shows:
+> > 
+> > [...]
+> > 32:        320          0  pl_dma:RC-Event  16 Level     400000000.axi-pcie, azdrv
+> > 52:        470          0  pl_dma:RC-Event  16 Level     500000000.axi-pcie, azdrv
+> > [...]
+> > 
+> > Changes since v1::
+> > - Fixed commit message per reviewer's comments
+> > 
+> > Fixes: 8d786149d78c ("PCI: xilinx-xdma: Add Xilinx XDMA Root Port driver")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
 > 
-> This patch allows INTx interrupts generated by PCIe endpoints
-> to flow through the root port. Tested the fix on a board with
-> two endpoints generating INTx interrupts. Interrupts are
-> properly detected and serviced. The /proc/interrupts output
-> shows:
+> Thippeswamy, are you fine with this change?
 > 
-> [...]
 
-Applied, thanks!
+Since there was no reply for a while and the change looked good to me, I've
+merged this patch.
 
-[1/1] PCI: xilinx-xdma: Enable INTx interrupts
-      commit: c098c13f4365e6750009be4d90dba36fa4a19b4e
+- Mani
 
-Best regards,
 -- 
-Manivannan Sadhasivam <mani@kernel.org>
-
+மணிவண்ணன் சதாசிவம்
 
