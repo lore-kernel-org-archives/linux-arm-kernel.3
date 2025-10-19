@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 634A5CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 03:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9DCCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 05:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8NGg2qzTa7uhmYPhS6f+RlPqR+OA7skbV6BGg/tY8MY=; b=dLbpwy7OGbXJWdOfU3Gh8UuwIu
-	QXUvqUtpdmkVD1nQAg1vtrlwemFwLlOU/GFR9zsgXbCRWmbz9ayxwdae/spcC6ewknNvN1rjmxtr2
-	mtZ/s8GOYlli2fqDGLH81naALbdncDzaFgR13OkYzCEk3uWTYhNnAV6+R257okQdLZkp+TH8Ys9j8
-	25+BbjchGgvVBLGuGdQm3ejwh6SbiveD7QjbH0vglKeDQPWw/Nseozbv+ZledqFBNTyfRJK5hSrCi
-	mI67EaAr6rSjUs//UybXn3mmDFbuSfDLwkOZimgKjqsbgb3xt8wN0Vg1oSrFkX41W9lQXDFw0/Zv4
-	Nprpx9gQ==;
+	bh=giM7NWZnc5LVRCPwmgWqmMTjxvPwwx0UfdWCSCRrRpE=; b=cH8aqQaN9isgNfmNrdC+B9Zq+e
+	pk0Dcl8/xCBhX9NXc6dIggFqZtFeQIIpk8Bzhf2xsgy6124cj7+Bq7BxZ2KB1tSQe1lgotKMA82zW
+	/oH9D7mPXLeO9t+prMPd1KqB9GwIQdz7EKIw51hMQdngSRJM1BmQsdj3+QH0tAiw/+58erUHI4i8s
+	9UPMbNgsmPbVWPQ6/zbY7JlbPUF7al+Sl8A/q56T7YMUcUhrhHbbVItzaq5ffDHz0/mDCS4XsIaEl
+	GVxGp6QR0rLJRsa8K/g+qN/q3uZy+aC0aVD5BI3ruUFfXqxUMX3qvBgWgwp3rCRSBGNDTj740mGl1
+	NTQ+MROQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAJjh-0000000Ad2c-3Z1F;
-	Sun, 19 Oct 2025 03:05:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vAMFS-0000000AhZf-1YhV;
+	Sun, 19 Oct 2025 05:46:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAJjg-0000000Ad2H-3NnX
+	id 1vAMFR-0000000AhZY-1mnk
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 03:05:32 +0000
+	Sun, 19 Oct 2025 05:46:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B74CC601DE;
-	Sun, 19 Oct 2025 03:05:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CD4BC4CEFE;
-	Sun, 19 Oct 2025 03:05:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7A67760261;
+	Sun, 19 Oct 2025 05:46:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE2CCC4CEE7;
+	Sun, 19 Oct 2025 05:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760843123;
-	bh=9o9O9kFzULuQMA47+02lmYPnOnyhKOLV0LUaGS8NwHE=;
+	s=k20201202; t=1760852779;
+	bh=k6dLJospkNnZM88ur31GaVa3vtvm36+YwoHgWyO9KWs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Cl7Bx6o1/F98Aq1CkDwk0bIGZ0yxz507ZMsuE3tySTDPmzvG/ZaQoeSbCMcVmZsXd
-	 4r9tIz9obvfLbnVUn8vyHFBrExuBXXELCt/9JUl/2iAkl/1VGb+BVfCNAyW+M11+C9
-	 vlXJL8EoiyFtfzrcii+AVF5yn96pz2K6HDDOzTnTK6AbTkPyJLKG63CPD5S0SG2q5z
-	 E9DExdAGRssYts3XL4l3RE3NPqCm/GDfrdYDfspKzuAJHn5GbJItcNcxtjp/BMYZLQ
-	 bqnJAd4gyqds2mHy1c9GFLMv863TKip323zsLGuP+YCTXubdn69ja4CxMWrO3el+s9
-	 NnS6mpVNQYPJQ==
-Date: Sun, 19 Oct 2025 12:05:17 +0900
-From: Namhyung Kim <namhyung@kernel.org>
-To: tanze <tanze@kylinos.cn>
-Cc: james.clark@linaro.org, leo.yan@linux.dev, irogers@google.com,
-	john.g.garry@oracle.com, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	graham.woodward@arm.com, mike.leach@linaro.org,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Athira Rajeev <atrajeev@linux.ibm.com>
-Subject: Re: [PATCH v2] perf arm_spe: Add a macro definition to handle offset
- value
-Message-ID: <aPRVbfadB0mCGP4t@google.com>
-References: <20251016083019.27935-1-tanze@kylinos.cn>
- <20251017021540.45930-1-tanze@kylinos.cn>
+	b=BH1cnBZHVvkXAIDXVa76qucH+MM6U4BI32MRjM3/OwIyrVezK8qBavKRymWlsrVH3
+	 v5mU6zylvUJDFfGUaMPbfWpF36R/sj/23PSim4gZuda0JR+umCOo6ESx2mXBhxX4bd
+	 J3R8XgTjwKbXpVWtUKhgFr/9ElAjLUc5efSGe+8Hs1CKL6rbnX5g/69stiEnf3+XOc
+	 faAnizHGhLd8bKt5Ene03RVXHJJG4TV1h60zxRmwZTkKnK6MISB4WvRBf9Va7EpNZ/
+	 dZm2r3WJPiXWARwneR9IDY+tXnWTD9lQke+GScWX+O4EfnIWNLMt2NPKQK5XuWjPnc
+	 f/Fh2VIf5Gr3g==
+Date: Sun, 19 Oct 2025 11:15:57 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
+Cc: Frank.Li@nxp.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org, 
+	bhelgaas@google.com, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, yuji2.ishikawa@toshiba.co.jp
+Subject: Re: [PATCH v3 1/2] arm64: dts: toshiba: Update SoC and PCIe ranges
+ to reflect hardware behavior
+Message-ID: <qspujjam6am5wzdrb3ygbprdxf5u3aonn5m5qhywxvok5vapgy@idqfjpzs5hna>
+References: <1757298848-15154-1-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
+ <1757298848-15154-2-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251017021540.45930-1-tanze@kylinos.cn>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <1757298848-15154-2-git-send-email-nobuhiro.iwamatsu.x90@mail.toshiba>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,124 +73,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-On Fri, Oct 17, 2025 at 10:15:40AM +0800, tanze wrote:
-> Add a macro definition SPE_SYNTH_ID_OFFSET to handle the offset value
-> and improve readability.
+On Mon, Sep 08, 2025 at 11:34:07AM +0900, Nobuhiro Iwamatsu wrote:
+> From: Frank Li <Frank.Li@nxp.com>
 > 
-> Signed-off-by: tanze <tanze@kylinos.cn>
-
-I'm adding relevant folks to CC.
-
-Thanks,
-Namhyung
-
-> ---
-> Hi, Leo Yan
+> tmpv7708 trim address bit[31:30] in tmpv7708 before passing to the PCIe
+> controller. Since only PCIe controller needs to convert the address range
+> 0x40000000 - 0x80000000, add a bus definition, describe the ranges in it,
+> and move the PCIe definition.
 > 
-> Thank you for your guidance and suggestions. I have made revisions according to your requirements. 
-> Do you have any further suggestions?
-> ---
-> Changes in v2:
-> - Migrate the macro definitions to the synthetic-events.h file
-> - Add modifications to other source files that use the offset value
-> ---
->  tools/perf/util/arm-spe.c          | 2 +-
->  tools/perf/util/cs-etm.c           | 2 +-
->  tools/perf/util/intel-bts.c        | 2 +-
->  tools/perf/util/intel-pt.c         | 2 +-
->  tools/perf/util/powerpc-vpadtl.c   | 3 ++-
->  tools/perf/util/synthetic-events.h | 2 ++
->  6 files changed, 8 insertions(+), 5 deletions(-)
+> Prepare for the removal of the driver’s cpu_addr_fixup().
 > 
-> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-> index 71be979f5077..b082cb1666a6 100644
-> --- a/tools/perf/util/arm-spe.c
-> +++ b/tools/perf/util/arm-spe.c
-> @@ -1732,7 +1732,7 @@ arm_spe_synth_events(struct arm_spe *spe, struct perf_session *session)
->  	attr.sample_period = spe->synth_opts.period;
+
+This statement is the linux driver behavior which has nothing to do with
+devicetree. Please drop it.
+
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> Suggested-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
+> Signed-off-by: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
+
+Acked-by: Manivannan Sadhasivam <mani@kernel.org>
+
+- Mani
+
+> 
+> ---
+> v3:
+>  Move update in drivers/pci/controller/dwc/pcie-visconti.c to patch 2.
+>  Update Signed-off-by address, because my company email address has changed.
+> 
+> v2:
+>   Update commit message.
+>   Fix range.
+>   Set true to use_parent_dt_ranges.
+>   move pcie under the dedicated sub-bus.
+> ---
+>  arch/arm64/boot/dts/toshiba/tmpv7708.dtsi | 75 ++++++++++++++---------
+>  1 file changed, 45 insertions(+), 30 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+> index 39806f0ae5133..b754965a76ca6 100644
+> --- a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+> +++ b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+> @@ -478,37 +478,52 @@ pwm: pwm@241c0000 {
+>  			status = "disabled";
+>  		};
 >  
->  	/* create new id val to be a fixed offset from evsel id */
-> -	id = evsel->core.id[0] + 1000000000;
-> +	id = evsel->core.id[0] + PERF_SYNTH_EVENT_ID_OFFSET;
->  
->  	if (!id)
->  		id = 1;
-> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-> index 30f4bb3e7fa3..46902f7b69f1 100644
-> --- a/tools/perf/util/cs-etm.c
-> +++ b/tools/perf/util/cs-etm.c
-> @@ -1726,7 +1726,7 @@ static int cs_etm__synth_events(struct cs_etm_auxtrace *etm,
->  	attr.read_format = evsel->core.attr.read_format;
->  
->  	/* create new id val to be a fixed offset from evsel id */
-> -	id = evsel->core.id[0] + 1000000000;
-> +	id = evsel->core.id[0] + PERF_SYNTH_EVENT_ID_OFFSET;
->  
->  	if (!id)
->  		id = 1;
-> diff --git a/tools/perf/util/intel-bts.c b/tools/perf/util/intel-bts.c
-> index 3625c6224750..98b928eca724 100644
-> --- a/tools/perf/util/intel-bts.c
-> +++ b/tools/perf/util/intel-bts.c
-> @@ -777,7 +777,7 @@ static int intel_bts_synth_events(struct intel_bts *bts,
->  	attr.sample_id_all = evsel->core.attr.sample_id_all;
->  	attr.read_format = evsel->core.attr.read_format;
->  
-> -	id = evsel->core.id[0] + 1000000000;
-> +	id = evsel->core.id[0] + PERF_SYNTH_EVENT_ID_OFFSET;
->  	if (!id)
->  		id = 1;
->  
-> diff --git a/tools/perf/util/intel-pt.c b/tools/perf/util/intel-pt.c
-> index 9b1011fe4826..4fb9600a7369 100644
-> --- a/tools/perf/util/intel-pt.c
-> +++ b/tools/perf/util/intel-pt.c
-> @@ -3987,7 +3987,7 @@ static int intel_pt_synth_events(struct intel_pt *pt,
->  	attr.sample_id_all = evsel->core.attr.sample_id_all;
->  	attr.read_format = evsel->core.attr.read_format;
->  
-> -	id = evsel->core.id[0] + 1000000000;
-> +	id = evsel->core.id[0] + PERF_SYNTH_EVENT_ID_OFFSET;
->  	if (!id)
->  		id = 1;
->  
-> diff --git a/tools/perf/util/powerpc-vpadtl.c b/tools/perf/util/powerpc-vpadtl.c
-> index 39a3fb3f1330..5ce5d2bf4c6c 100644
-> --- a/tools/perf/util/powerpc-vpadtl.c
-> +++ b/tools/perf/util/powerpc-vpadtl.c
-> @@ -15,6 +15,7 @@
->  #include "powerpc-vpadtl.h"
->  #include "sample.h"
->  #include "tool.h"
-> +#include "util/synthetic-events.h"
->  
->  /*
->   * Structure to save the auxtrace queue
-> @@ -656,7 +657,7 @@ powerpc_vpadtl_synth_events(struct powerpc_vpadtl *vpa, struct perf_session *ses
->  	attr.config = PERF_SYNTH_POWERPC_VPA_DTL;
->  
->  	/* create new id val to be a fixed offset from evsel id */
-> -	id = evsel->core.id[0] + 1000000000;
-> +	id = evsel->core.id[0] + PERF_SYNTH_EVENT_ID_OFFSET;
->  	if (!id)
->  		id = 1;
->  
-> diff --git a/tools/perf/util/synthetic-events.h b/tools/perf/util/synthetic-events.h
-> index ee29615d68e5..c8a1fe7a3fa4 100644
-> --- a/tools/perf/util/synthetic-events.h
-> +++ b/tools/perf/util/synthetic-events.h
-> @@ -39,6 +39,8 @@ enum perf_record_synth {
->  };
->  #define PERF_SYNTH_ALL  (PERF_SYNTH_MAX - 1)
->  
-> +#define PERF_SYNTH_EVENT_ID_OFFSET	(1000000000ULL)
+> -		pcie: pcie@28400000 {
+> -			compatible = "toshiba,visconti-pcie";
+> -			reg = <0x0 0x28400000 0x0 0x00400000>,
+> -			      <0x0 0x70000000 0x0 0x10000000>,
+> -			      <0x0 0x28050000 0x0 0x00010000>,
+> -			      <0x0 0x24200000 0x0 0x00002000>,
+> -			      <0x0 0x24162000 0x0 0x00001000>;
+> -			reg-names = "dbi", "config", "ulreg", "smu", "mpu";
+> -			device_type = "pci";
+> -			bus-range = <0x00 0xff>;
+> -			num-lanes = <2>;
+> -			num-viewport = <8>;
+> -
+> -			#address-cells = <3>;
+> +		pcie_bus: bus@24000000 {
+> +			compatible = "simple-bus";
+> +			#address-cells = <2>;
+>  			#size-cells = <2>;
+> -			#interrupt-cells = <1>;
+> -			ranges = <0x81000000 0 0x40000000 0 0x40000000 0 0x00010000
+> -				  0x82000000 0 0x50000000 0 0x50000000 0 0x20000000>;
+> -			interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>,
+> -				     <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
+> -			interrupt-names = "msi", "intr";
+> -			interrupt-map-mask = <0 0 0 7>;
+> -			interrupt-map =
+> -				<0 0 0 1 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
+> -				 0 0 0 2 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
+> -				 0 0 0 3 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
+> -				 0 0 0 4 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
+> -			max-link-speed = <2>;
+> -			clocks = <&extclk100mhz>, <&pismu TMPV770X_CLK_PCIE_MSTR>, <&pismu TMPV770X_CLK_PCIE_AUX>;
+> -			clock-names = "ref", "core", "aux";
+> -			status = "disabled";
+> +			ranges = /* register 1:1 map */
+> +				 <0x0 0x24000000 0x0 0x24000000 0x0 0x0C000000>,
+> +				 /*
+> +				  * bus fabric mask address bit 30 and 31 to 0
+> +				  * before send to PCIe controller.
+> +				  *
+> +				  * PCIe map address 0 to cpu's 0x40000000
+> +				  */
+> +				 <0x0 0x00000000 0x0 0x40000000 0x0 0x40000000>;
 > +
->  int parse_synth_opt(char *str);
->  
->  typedef int (*perf_event__handler_t)(const struct perf_tool *tool, union perf_event *event,
+> +			pcie: pcie@28400000 {
+> +				compatible = "toshiba,visconti-pcie";
+> +				reg = <0x0 0x28400000 0x0 0x00400000>,
+> +				      <0x0 0x30000000 0x0 0x10000000>,
+> +				      <0x0 0x28050000 0x0 0x00010000>,
+> +				      <0x0 0x24200000 0x0 0x00002000>,
+> +				      <0x0 0x24162000 0x0 0x00001000>;
+> +				reg-names = "dbi", "config", "ulreg", "smu", "mpu";
+> +				device_type = "pci";
+> +				bus-range = <0x00 0xff>;
+> +				num-lanes = <2>;
+> +				num-viewport = <8>;
+> +
+> +				#address-cells = <3>;
+> +				#size-cells = <2>;
+> +				#interrupt-cells = <1>;
+> +				ranges = <0x81000000 0 0x00000000 0 0x00000000 0 0x00010000
+> +					  0x82000000 0 0x10000000 0 0x10000000 0 0x20000000>;
+> +				interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>,
+> +					     <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
+> +				interrupt-names = "msi", "intr";
+> +				interrupt-map-mask = <0 0 0 7>;
+> +				interrupt-map =
+> +					<0 0 0 1 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
+> +					 0 0 0 2 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
+> +					 0 0 0 3 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
+> +					 0 0 0 4 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
+> +				max-link-speed = <2>;
+> +				clocks = <&extclk100mhz>, <&pismu TMPV770X_CLK_PCIE_MSTR>, <&pismu TMPV770X_CLK_PCIE_AUX>;
+> +				clock-names = "ref", "core", "aux";
+> +				status = "disabled";
+> +			};
+>  		};
+>  	};
+>  };
 > -- 
-> 2.25.1
+> 2.51.0
 > 
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
