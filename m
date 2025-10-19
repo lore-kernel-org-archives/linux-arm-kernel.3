@@ -4,124 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49803CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 11:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34894CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 19 Oct 2025 12:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fGQ0MOLcCnQuGNFEws8tSgmjY6Cq/DDB5jiuxcA7h9E=; b=vG2fEnsRt0zqJSIHnAaPFnazDV
-	S//bmofADrB49cbR/l6J1hHbbx1PWwfDRPbC59uT7fQ+7UkFkvRWSQK7c/7oUpbwMJuVvhvq4G+hY
-	iEMnTHHL2/MFJlniydD5Uy0ECiGZwW89RoPpVoC3GabcC9+/jmmYZNBSOrBBpIE9HDfr6snULJEhm
-	YrszZkzFroeT4ZP+Nk5iL/3Cz2IxO9SG0zf1UKBwLd2C8dKK8it9QSp9yn5ZpOV8q/X/pApeZrNAN
-	vNDA3vaMJbXwifQaKTeOuZ2qBvkUEEv91SlvXGGPJh8Uva/rjgVbxr7HNXwZ/veyBdlyNxa6TrKP6
-	Rgq8Tu8A==;
+	bh=zbbqPCF8EZxspjJ0J8Cg+Ds28tVe/+l3WYsN8n3gDhI=; b=i9XQAAQUdhsbaU0FlciwmGV17d
+	AUr6CGmY2U1mdVaJzoALsXxa33o3nB0cVdG0DkdL/z4T/afimZR928XfiXBHDlQ4/AE6Hle9iJ6Hk
+	QvlGIDwk2sMTbdw2gMKC3InnIWCuV/0LbFKphV7qFhYaZklIlgbifbWOq36kHwdav0kH2uQ5Glt2c
+	BTUIWgWxorzHUlvFHSe0xTWAIM+lKeMEQUPVNXN5kDqfNl//dexkdTjhTV1x/pmjKUYGyTk7NSwRc
+	Y4o7BtdzhdmojdqDCp4IkZ1H9PWIV7DqEC4Xd9kqaEfA8OfzWl5a+f9YcWMiOkyrFYG4QK0MTuSWc
+	7m0hQwBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAS2X-0000000Ayi6-0VzW;
-	Sun, 19 Oct 2025 11:57:33 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vAS8C-0000000Az5z-0YJA;
+	Sun, 19 Oct 2025 12:03:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAS2T-0000000Ayh7-47qQ
+	id 1vAS89-0000000Az5X-0wcc
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 19 Oct 2025 11:57:31 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59J2On81030782
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Oct 2025 11:57:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=fGQ0MOLcCnQuGNFEws8tSgmj
-	Y6Cq/DDB5jiuxcA7h9E=; b=lVoVWAA707Wxc31l/VYGNTxdteth2GASXjMSBSdy
-	+zoc+/PCElxn2YJnsllNtvhJmh28jb33bTb9sYU2NBMcWV/rzUITNI6g+GidLXEe
-	AdSNGUi5kwcSeulH2s5IHbgyN/AfR/t+9Pxrixs42WGQ7VYlbkZ7JyoqWkhCTWhB
-	ZjuvIGKsAayNOthmF3gubpaan1ODBJSpQPWvb25PfXcMn5bHqZbscUvVcEvFK8ID
-	jmqBEg4BtNflagzLYxhz4sjSx9ID6BDMo0xVXK83JXTj3z5D3Nezl/H2I/ohLVwM
-	c1cLG2ffTJu5gLu/5Y6VPTc6KhDGxAoEw9V4CbW/exAoPg==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49v3nfa8t5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Oct 2025 11:57:18 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-88ef355f7a3so1396319385a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 19 Oct 2025 04:57:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760875037; x=1761479837;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fGQ0MOLcCnQuGNFEws8tSgmjY6Cq/DDB5jiuxcA7h9E=;
-        b=pj5scorP3a0HdHjtodoKTkHS7MnnvjTOBdM6x4WNC2ZNGLF/Z8XtneSIO+/nUDwDot
-         h6nSQ47iXc4HT6S1wcVNaHk3+KV/Hh6QDX/rpwWKaQZqdMEvcowqH5eoauQvmOxL+jt0
-         ozBI2GIAmGAgrk3lyFeUHF6HBT6Yb8a8QaBqiSIW+2FV9ms9SKNQGU+eg+wiUxTJGb5S
-         SGJEQx48FGSN0XOvaSslOLKIf0uQh1ZcTR0haEOYDF3waJ9XK0D7HXBhKkQthmPgpLjs
-         R1tEoHnBTN/jHx0ztGqdXUOvjtsmFJh9zC/gphKoDdxqQuYxDfueMR0EY8SRAfYiUyIH
-         ExqA==
-X-Forwarded-Encrypted: i=1; AJvYcCXi0emxUO+Txd+jtOpdkyOCgWIQGwRf2OTYtBCNz0Us52fbYqXiveiAT5w8dGLClzL6g4PO2p6Ke+5FFcfXq50c@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFdtUyMUog49UXbj7iUS/gdaosAl+3sk1ZdrG9D1SZKYkdtDtD
-	eMKO0KcpLavnJnqL3bKQ47yflQE0vgBYwlvPbqQfzPY1rT/igm/EttRRqTb6Hdb6hKG8fSzQDtt
-	d5/2+5HbHOcA4YCND7F6Bdn9mqM8tqSLLWOOztNZKRlpGsb91kbdH/AuKrU1Lm9yB+4LpAbGsAu
-	nAgQ==
-X-Gm-Gg: ASbGncudnSAHEUam+qOXDFbpffp3Q2slA1amUAn8sMImSzTDtO7UvTj6niIKCJMIFmx
-	Erj2nfSr0kVxOE4FyfkdmXW3AfeJgWjnah7N200K8O2e/rlaqOxkz+1IVRaR56jZ9u9z1sxEX7K
-	F6F5j2vItwzcLJG8uGj5ESctHET5Vam/PhnGnZ8nIVvQ94WTtVME+LPAfzB0IA7Y38eI6xwP+85
-	ENWiJqKnustcFaVa9mf9P1GBNUriWacMoU4JNA+UO8YLjF6KHNFACQufMuckiCQhoDKPYZF/UIU
-	8KKguM8yRnoRh0nxJMmSiTs1X3vApJ2Kybbw6fEh11WyaHXtqRqnDZWftK4gWqZ9hkKXHvzpK0t
-	oYLWdGAAuXcLubgV2maRNzl+RumcVFejtarhZwRdBUa9UDLCOtwpn/vBI6xG5Hcj556QiX5CDUo
-	uvTPR26IOxjZI=
-X-Received: by 2002:ac8:5883:0:b0:4e8:abe4:9d38 with SMTP id d75a77b69052e-4e8abe4a39emr77390871cf.41.1760875037437;
-        Sun, 19 Oct 2025 04:57:17 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGX+YQp615nB1m9e4OBBL2rDPwe9z4DG6TaUYbaoSrZe/rJKku24BCoQyPFtL21NMa605kdaw==
-X-Received: by 2002:ac8:5883:0:b0:4e8:abe4:9d38 with SMTP id d75a77b69052e-4e8abe4a39emr77390621cf.41.1760875036915;
-        Sun, 19 Oct 2025 04:57:16 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-591deeaff12sm1501803e87.34.2025.10.19.04.57.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Oct 2025 04:57:15 -0700 (PDT)
-Date: Sun, 19 Oct 2025 14:57:13 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: defconfig: Change CONFIG_SM_TCSRCC_8750 from m to
- y
-Message-ID: <s2u4wktoi26b5yjfl52j4y53r2bgtwsryacjd22smidl4kbtsj@ahiqbwgrcpif>
-References: <20251017-update_defconfig_tcsrcc_sm8750-v1-1-34b1b47a0bda@oss.qualcomm.com>
- <30390038-0f90-48a4-befe-475cf88ba1fb@kernel.org>
- <37f54b76-a274-4ce2-aaa9-88ba0eb84199@oss.qualcomm.com>
+	Sun, 19 Oct 2025 12:03:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 00A1943DA7;
+	Sun, 19 Oct 2025 12:03:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66E1AC4CEE7;
+	Sun, 19 Oct 2025 12:03:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760875388;
+	bh=UTBipG2N3uJpJm9CwyryseA7CzD9lAULhEu0lVKREpE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ut2gTsCQ3+iJZn+/fMcxG+QwcudI+T/+SdV/g9L04YE8J/aT7g+tik43KBI/aM4Ce
+	 OvkxaPFQpzusHz4sIecRNxkZDfZg4sDtS6z4vcPw7fSAM64VCdvwAOgWZaNDQkGMMp
+	 W5MmUKVBh/KxiFr3mzAQYr5QwMSRafuvc8C6hBRxq54MIlNFE8OX/MupL6x21OpDRI
+	 qqDSUkFvwLW5lJY/Elco/mfI4mioXCc+D/2yiB0gMYHUNZVS+cH0fEAZ5pjrAKRmDB
+	 qO7k0vZi/Iqcwt57o6IBBGhj/BuzM1OWgK+GE0iZOVvQg4kEOm4PThfEW6Laj1UCBJ
+	 X12WFpyJyDE/A==
+Date: Sun, 19 Oct 2025 15:03:04 +0300
+From: Leon Romanovsky <leon@kernel.org>
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Robin Murphy <robin.murphy@arm.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/3] dma_mapping: Add auto cleanup support
+Message-ID: <20251019120304.GG6199@unreal>
+References: <CGME20251010185046eucas1p26868b540b74a96e36943066216525bed@eucas1p2.samsung.com>
+ <20251010-dmamap_cleanup-v1-0-ec5bc14e82c4@nxp.com>
+ <f3fba346-6fdd-4b0e-9414-087a12772a6a@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <37f54b76-a274-4ce2-aaa9-88ba0eb84199@oss.qualcomm.com>
-X-Proofpoint-ORIG-GUID: 1xrBPTRpJSWdwm3xTwn38sHih2FAG9T-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE4MDAyNyBTYWx0ZWRfX2FtMKWuQ+XjO
- CnKNyMV97rxl5nIaUJvnF9kdn5nS4+XF02j5YN8+ey5CMGFIvhxAwg4jRzv2KWS1y13hCOKsQwy
- ASitb9ran3id4xg5Sx6XDCzSuo5clRlZgiLdRzxeWiRLFNxWBSVgEN2TFC+VWx8ecQj1eUA46vZ
- kwPyyAO7av+6FHf2mr5eL94A2qAWGQtPCykrMKMmWk6Y52s5eMLix0dgtIMVdnsll8xzuNkirDF
- jU13WokV3krGbj4mxdkfWPCj7+w/LNFDOnRT6h1n1WC9+rSjs6s8Y2GnDDAvu6+o60VCa5j2idX
- Z4Eiuc092voEOGIQih+DggiV8NllpQRilnpQJwAPn4U2epwZ3m6FKMbNvxsRFy3vU/+ZRRedckR
- wghlgTz912Dg9JFUsXH7u74HIRW1gw==
-X-Proofpoint-GUID: 1xrBPTRpJSWdwm3xTwn38sHih2FAG9T-
-X-Authority-Analysis: v=2.4 cv=EYjFgfmC c=1 sm=1 tr=0 ts=68f4d21e cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7rlisPeBpEk40MJsvS0A:9
- a=CjuIK1q_8ugA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-19_05,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 clxscore=1015 spamscore=0 malwarescore=0 lowpriorityscore=0
- priorityscore=1501 impostorscore=0 phishscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510180027
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <f3fba346-6fdd-4b0e-9414-087a12772a6a@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_045730_036337_EE08EE5D 
-X-CRM114-Status: GOOD (  25.56  )
+X-CRM114-CacheID: sfid-20251019_050321_324285_634448D1 
+X-CRM114-Status: GOOD (  28.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,54 +81,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 10:46:43AM +0530, Taniya Das wrote:
+On Tue, Oct 14, 2025 at 07:54:46AM +0200, Marek Szyprowski wrote:
+> Hi
 > 
+> On 10.10.2025 20:50, Frank Li wrote:
+> > There are many below pattern
+> >
+> > 	fun()
+> > 	{
+> > 		...
+> > 		dma_map_single();
+> > 		if (dma_mapping_error)
+> > 			goto err1;
+> >
+> > 		dmaengine_prep_slave_single()
+> > 		if (...)
+> > 			goto err2
+> >
+> > 		dmaengine_submit()
+> > 		if (...)
+> > 			goto err3
+> >
+> > 		wait_for_completion_timeout()
+> > 		if (...)
+> > 			goto err4
+> >
+> > 	err4:
+> > 	err3:
+> > 	err2:
+> > 		dma_umap_single();
+> > 	err1:
+> > 	}
+> >
+> > Use cleanup can simple error handle like guard(), such as guard(mutex).
+> > or __free(kfree) = kmalloc.
+> >
+> > But dma_umap_single() need more argurements. So situation below complex.
+> >
+> > It need pack argurments list into structure.
+> >
+> > 	#define __DEFINE_GUARD_CLASS(_name, _return_type, _list_class_fields)   \
+> > 	typedef struct {                                                \
+> > 	       	 _return_type ret;                                       \
+> > 	        bool    okay;                                           \
+> > 	        struct  {                                               \
+> > 	                __REMOVE(_list_class_fields);                   \
+> > 	        } args;                                                 \
+> > 	} class_##_name##_t;
+> >
+> > So save all arugments to it.
+> >
+> > __DEFINE_GUARD_CLASS(dma_map_single, dma_addr_t, (struct device *dev; void *ptr; size_t size; enum dma_data_direction dir)
+> > will expand to
+> >
+> > 	struct {
+> > 		dma_addr_t ret;
+> > 		bool	okay;
+> > 		struct {
+> > 			struct device *dev;
+> > 			void *ptr;
+> > 			size_t size;
+> > 			enum dma_data_direction dir;
+> > 		}
+> > 	}
+> >
+> > So cleanup function can use saved argurement.
+> >
+> > The above fun will be
+> >
+> > 	fun()
+> > 	{
+> > 		CLASS(dma_map_single, dma)(dev, ...);
+> >
+> > 		...
+> > 		if (...)
+> > 			return err;
+> > 	}
+> >
+> > if funtion return, which need keep map,
+> >
+> > 	submit()
+> > 	{
+> > 		dma_map_single();
+> > 		...
+> > 		dmaengine_submit();
+> > 		if (...)
+> > 			goto err1
+> > 		return;
+> >
+> > 	goto err1:
+> > 		dma_umap_single();
+> > 	}
+> >
+> > Macro retain_and_empty() will clean varible to avoid unmap.
+> >
+> >          ({                                  \
+> >                  __auto_type __ptr = &(t); typeof(t) empty= {};   \
+> >                  __auto_type __val = *__ptr; \
+> >                  __ptr->okay = 0;        \
+> >                  __val.ret;              \
+> >          })
+> >
+> > So
+> >
+> > 	submit()
+> > 	{
+> >         		CLASS(dma_map_single, dma)(dev,...;
+> >
+> > 	        ...
+> > 	        dmaengine_submit();
+> > 		if (...)
+> > 			return err;
+> >
+> > 		//before return;
+> >
+> > 		retain_and_empty(dma)
+> > 	}
+> >
+> > This series just show how to hanndle many agurement at resource alloc/free
+> > functions. Only show dma_map_single. If the over all method is acceptable.
+> > I will more define for dma mapping functions.
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > 
-> On 10/17/2025 10:00 AM, Krzysztof Kozlowski wrote:
-> > On 16/10/2025 20:53, Taniya Das wrote:
-> >> The TCSR clock controller is required  during boot to provide the ref
-> >> clocks to the UFS controller. Setting CONFIG_SM_TCSRCC_8750 to y ensures
-> >> the UFS driver successfully probe and initialize the device.
-> >>
-> >> Without this change, the UFS subsystem fails to mount as a usable file
-> >> system during boot.
-> > 
-> > 
-> > That's not what I observed. UFS works fine, especially that it is a
-> > module, so no, this is not a desired change and explanation is not only
-> > insufficient but actually incorrect.
-> > 
-> 
-> Krzysztof, on Pakala MTP we are observing the below issue and it
-> requires the module of tscrcc to be loaded explicitly. This patch also
-> aligns to how it is on all other targets.
-> 
-> /soc@0/phy@1d80000: Failed to get clk index: 2 ret: -517
-> [   10.496570] ufshcd-qcom 1d84000.ufs: freq-table-hz property not specified
-> [   10.503660] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
-> find vdd-hba-supply regulator, assuming enabled
-> [   10.514548] ufshcd-qcom 1d84000.ufs: ufshcd_populate_vreg: Unable to
-> find vccq2-supply regulator, assuming enabled
-> [   10.565955] platform 1d80000.phy: deferred probe pending: (reason
-> unknown)
-> [   10.573078] platform 1d84000.ufs: deferred probe pending:
-> ufshcd-qcom: ufshcd_pltfrm_init() failed
+> This looks fine from the DMA-mapping API perspective. I think we should 
+> also get some feedback from Peter, who authored most of the __cleanup() 
+> based infrastructure, so I've added him to the recipients list.
 
-This will also require you to set CONFIG_SCSI_UFS_QCOM=y (=m in
-defconfig), CONFIG_PHY_QCOM_QMP_UFS=y (also =m in defconfig), etc. So, I
-doubt that you are using defconfig as is. Please extend your
-configuration in order to pick this module.
+I may represent minority here, but patch "i2c: lpi2c: Use auto cleanup
+for dma_map_single()" looks completely unreadable after this change.
 
-Note, defconfig is supposed to be used by multiple platforms and
-multiple defice. As sych we can't enable all bootable devices. It is
-expected that the users either change their configuration or use
-initramfs. Only "working console" is expected to be working with the
-defconfig and that's only because systemd doesn't reopen /dev/console
-after probing modules. If it were, we could have moved all pinctrl,
-interconnect and other similar drivers to =m in order to make the
-footprint smaller for other platforms.
+It is perfectly valid to use __cleanup() for simple and scoped things
+like kmalloc, but DMA API is much complicated than that.
 
--- 
-With best wishes
-Dmitry
+Thanks
+
+> 
+> 
+> > ---
+> > Frank Li (3):
+> >        cleanup: Add DEFINE_GUARD_ARGS_CLASS macro for resource alloc/free functions with multiple arguments
+> >        dma-mapping: Add auto cleanup support dma_map_single()
+> >        i2c: lpi2c: Use auto cleanup for dma_map_single()
+> >
+> >   drivers/i2c/busses/i2c-imx-lpi2c.c | 13 ++++---
+> >   include/linux/cleanup.h            | 73 ++++++++++++++++++++++++++++++++++++++
+> >   include/linux/dma-mapping.h        |  8 +++++
+> >   3 files changed, 87 insertions(+), 7 deletions(-)
+> > ---
+> > base-commit: 7c3ba4249a3604477ea9c077e10089ba7ddcaa03
+> > change-id: 20251008-dmamap_cleanup-d0a7f0525a3d
+> >
+> > Best regards,
+> > --
+> > Frank Li <Frank.Li@nxp.com>
+> >
+> >
+> Best regards
+> -- 
+> Marek Szyprowski, PhD
+> Samsung R&D Institute Poland
+> 
+> 
 
