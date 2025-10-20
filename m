@@ -4,46 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D572ECCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28383CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eLP8ilZ0fwFxjte0X8PNF7IivDmUbDB3mM8lQ5OsGmg=; b=RUJ/NIJq40YvrcuqAMTK4qwxHJ
-	ThPXVcoQ6Qeij/2Ml92lffuuBWFS6wvLbURLlyc4gHddsZvor4VZcFLATIhRlzSttHx8CQY4AvOen
-	9zOrQvxe8nqbVkWApZTvtk3umRlg+GWBeurzMG2ecIfFaX8FTYOpO6V+h2NqZ3ryTb0mlMSStG1tx
-	l7I4w7w1iwAcFuxjEJNEPGajosE6UWTty7yyQbUuyQ+FCtm/kSGgn601fTJF+1BFaC7v55GvgP94u
-	8X41dehkxUcIodIyR83Horr++us640RiTFqJ6cMiag9uwjy0qh7gyl91SsWY0IfZt3EgJ7sWU2q6P
-	7K4LcWsA==;
+	bh=FEVqi5Nllg5ZJBjCJ/BWh6zaV6Dl1dPjOzZboHdnN9s=; b=U86kJeAMio3xYteP3OpcsgLOMz
+	kK1JCCpyiH/FWpVYC7kpt+zO4pguOOjUOaqtGma9faVnaIvgeo6nQnHOQjo2biXxlInIEBEfidf5T
+	HipGPW+s2wT0KRFqpsPWXdYeQpkt7wGFa8u/5/oOQsyE7hhBckV/HTtbB19gy8Boq436f8Npq/xGR
+	BkksvVcmhUL6qNZPpriJK52pySb7r2URg0TK5zCGaJcQbDHA8RGPHNOVfm3FvfJu8tor+ADbO56uB
+	axT7vkSKVDk7eejjbza+51Tv/H5qnjLd9e8NDt21lPj9REqDhiJrxUtWtnE/V3V3WkUbszyag6afc
+	Y1ARWNow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtQE-0000000EQwH-29gh;
-	Mon, 20 Oct 2025 17:11:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vAtQF-0000000EQxA-0aMZ;
+	Mon, 20 Oct 2025 17:11:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtQ4-0000000EQof-26rT
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vAtQ6-0000000EQqJ-2WUV
+	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 20 Oct 2025 17:11:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=FEVqi5Nllg5ZJBjCJ/BWh6zaV6Dl1dPjOzZboHdnN9s=; b=rSKV9XctCnTJnaFAqJnMLiRmlS
+	h6GHDKkGKbIhgwCrn3KDKhcYZ/B14byzaIPiD/7iQm/qHE1+Zp0OE/mKeFXQRGzCjEWZPZHrsAx12
+	fTysKUAgQ12AhhAWQhFTLv9xLhqbZqWcxS/RU3057E9Dot5psHOQDAEoDmAiMrR9Wzd+CUghWJn4I
+	IdhuDN4ShXwFrFnu/ubhxPFDu2kthW76YgDWgfq7+VKAAum21GRuhNBye+Y1lrQBmGdEkBny0JcZ0
+	M4Z9PJWQzGsGz+wWpkCLvcX/QZyoT+PWOMdXKMHh5Sx0dOqqexs5MhdmYHCmX92+KsgG7Qdn/S7yy
+	B2kBbEDg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAsYL-0000000025L-3aBs
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Oct 2025 16:16:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F89B48DF4;
-	Mon, 20 Oct 2025 17:11:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E77BC116B1;
-	Mon, 20 Oct 2025 17:11:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BF9D348DDB;
+	Mon, 20 Oct 2025 17:11:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B601C4AF0B;
+	Mon, 20 Oct 2025 17:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760980282;
-	bh=8s4OP1AvakA/kxF+4prl0Tvj4XO9cRh189UcPgu3oxk=;
+	s=k20201202; t=1760980280;
+	bh=y56EJjskppbR+/rkKdNbFUjyY8BC1025ZtXtMgp99fA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=g5laTG33MZnByhR4wffZQdgbPopMZuAIWkmH3vTJCU50Z3zLZymlE5i/xT7sQedms
-	 SAeCE+rhUkk1tPZJnC3UmI0qegJlSNc5OqfT7pImk46KudP4cNwiQFs8siFxeN5Grq
-	 w8XolDDnh7LBAY0bykr9RN47eKSIGLDqiOKf5WH5KNNJNlY2nTVD5VyZj+ZxEe9/Db
-	 Ve6EPnFzRXDkKGLVmFSpnaowpMV5/rJVYH1J2f2hOBDYmDyT7Z0KgXPVHwf1hG9ZSb
-	 KK0/e+O3PsHXpIhJu62d0n/RfsaWBScszNceMWibrsBzhNT7NTe7NElK0Yh6QcjRSU
-	 K/ssEO84Pdnlg==
+	b=AWdrNuSx2oo2kKoNLDRwFOI+ta0fWeipsRkJtycyKAs8R6VgZTE+U+gAuq4mRQGVb
+	 4MuZPrA8qZQOL+YkkaM/nMEbjhnAJh+kTEOProDZY5Eb8rTuy2NM80bBzhzKPYOwwi
+	 bnsXxRTbX7UFNdOgN80sf0ZPoGvkILMO2TYcXRhcFFWR28+KOd8iyOabAd/10iiGrt
+	 6r/DLmIlcFvSSzf0j/3sBUcQobSAzwhDlIkY/kuoTR6WLEh1rXl7PSAeADFChD/CgR
+	 +NWmHgob6V3MPJfv8cuJl8uhKYwxS02j+CbjAR83SlmUYnTTi+mKfxPymhnIq0laGP
+	 OWS1xwwnN2wXQ==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 5CB135FEB2; Tue, 21 Oct 2025 01:11:18 +0800 (CST)
+	id 431FD5FE78; Tue, 21 Oct 2025 01:11:18 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Chen-Yu Tsai <wens@kernel.org>,
 	Jernej Skrabec <jernej@kernel.org>,
@@ -54,25 +69,24 @@ To: Chen-Yu Tsai <wens@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Vinod Koul <vkoul@kernel.org>
-Cc: Chen-Yu Tsai <wens@csie.org>,
-	linux-sunxi@lists.linux.dev,
+Cc: linux-sunxi@lists.linux.dev,
 	linux-sound@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	dmaengine@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 07/11] arm64: dts: allwinner: a523: Add DMA controller device nodes
-Date: Tue, 21 Oct 2025 01:10:53 +0800
-Message-ID: <20251020171059.2786070-8-wens@kernel.org>
+Subject: [PATCH 04/11] ASoC: sun4i-spdif: Support SPDIF output on A523 family
+Date: Tue, 21 Oct 2025 01:10:50 +0800
+Message-ID: <20251020171059.2786070-5-wens@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251020171059.2786070-1-wens@kernel.org>
 References: <20251020171059.2786070-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_101140_782323_361B9973 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20251020_171610_240505_9A89C7D6 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,195 +101,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
+The TX side of the SPDIF block on the A523 is almost the same the
+previous generations, the only difference being that it has separate
+module clock inputs for the TX and RX side.
 
-The A523 has two DMA controllers. Add device nodes for both. Also hook
-up DMA for existing devices.
+Since this driver currently only supports TX, add support for a
+different clock name so that TX and RX clocks can be separated
+if RX support is ever added. Then add support for the A523.
 
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 ---
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 56 +++++++++++++++++++
- 1 file changed, 56 insertions(+)
+ sound/soc/sunxi/sun4i-spdif.c | 28 +++++++++++++++++++++++++---
+ 1 file changed, 25 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index a9e051a8bea3..8edbd3873199 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -241,6 +241,8 @@ uart0: serial@2500000 {
- 			reg-io-width = <4>;
- 			clocks = <&ccu CLK_BUS_UART0>;
- 			resets = <&ccu RST_BUS_UART0>;
-+			dmas = <&dma 14>, <&dma 14>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
+diff --git a/sound/soc/sunxi/sun4i-spdif.c b/sound/soc/sunxi/sun4i-spdif.c
+index 34e5bd94e9af..6a58dc4311de 100644
+--- a/sound/soc/sunxi/sun4i-spdif.c
++++ b/sound/soc/sunxi/sun4i-spdif.c
+@@ -177,6 +177,7 @@ struct sun4i_spdif_quirks {
+ 	bool has_reset;
+ 	unsigned int val_fctl_ftx;
+ 	unsigned int mclk_multiplier;
++	const char *tx_clk_name;
+ };
  
-@@ -252,6 +254,8 @@ uart1: serial@2500400 {
- 			reg-io-width = <4>;
- 			clocks = <&ccu CLK_BUS_UART1>;
- 			resets = <&ccu RST_BUS_UART1>;
-+			dmas = <&dma 15>, <&dma 15>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
+ struct sun4i_spdif_dev {
+@@ -323,6 +324,7 @@ static int sun4i_spdif_hw_params(struct snd_pcm_substream *substream,
+ 	}
+ 	mclk *= host->quirks->mclk_multiplier;
  
-@@ -263,6 +267,8 @@ uart2: serial@2500800 {
- 			reg-io-width = <4>;
- 			clocks = <&ccu CLK_BUS_UART2>;
- 			resets = <&ccu RST_BUS_UART2>;
-+			dmas = <&dma 16>, <&dma 16>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
++	dev_info(&pdev->dev, "Setting SPDIF clock rate to %u\n", mclk);
+ 	ret = clk_set_rate(host->spdif_clk, mclk);
+ 	if (ret < 0) {
+ 		dev_err(&pdev->dev,
+@@ -542,7 +544,6 @@ static struct snd_soc_dai_driver sun4i_spdif_dai = {
+ 		.formats = SUN4I_FORMATS,
+ 	},
+ 	.ops = &sun4i_spdif_dai_ops,
+-	.name = "spdif",
+ };
  
-@@ -274,6 +280,8 @@ uart3: serial@2500c00 {
- 			reg-io-width = <4>;
- 			clocks = <&ccu CLK_BUS_UART3>;
- 			resets = <&ccu RST_BUS_UART3>;
-+			dmas = <&dma 17>, <&dma 17>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
+ static const struct sun4i_spdif_quirks sun4i_a10_spdif_quirks = {
+@@ -572,6 +573,14 @@ static const struct sun4i_spdif_quirks sun50i_h6_spdif_quirks = {
+ 	.mclk_multiplier = 1,
+ };
  
-@@ -285,6 +293,8 @@ uart4: serial@2501000 {
- 			reg-io-width = <4>;
- 			clocks = <&ccu CLK_BUS_UART4>;
- 			resets = <&ccu RST_BUS_UART4>;
-+			dmas = <&dma 18>, <&dma 18>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
- 
-@@ -296,6 +306,8 @@ uart5: serial@2501400 {
- 			reg-io-width = <4>;
- 			clocks = <&ccu CLK_BUS_UART5>;
- 			resets = <&ccu RST_BUS_UART5>;
-+			dmas = <&dma 19>, <&dma 19>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
- 
-@@ -307,6 +319,8 @@ uart6: serial@2501800 {
- 			reg-io-width = <4>;
- 			clocks = <&ccu CLK_BUS_UART6>;
- 			resets = <&ccu RST_BUS_UART6>;
-+			dmas = <&dma 20>, <&dma 20>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
- 
-@@ -318,6 +332,8 @@ uart7: serial@2501c00 {
- 			reg-io-width = <4>;
- 			clocks = <&ccu CLK_BUS_UART7>;
- 			resets = <&ccu RST_BUS_UART7>;
-+			dmas = <&dma 21>, <&dma 21>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
- 
-@@ -329,6 +345,8 @@ i2c0: i2c@2502000 {
- 			interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&ccu CLK_BUS_I2C0>;
- 			resets = <&ccu RST_BUS_I2C0>;
-+			dmas = <&dma 43>, <&dma 43>;
-+			dma-names = "rx", "tx";
- 			status = "disabled";
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -342,6 +360,8 @@ i2c1: i2c@2502400 {
- 			interrupts = <GIC_SPI 11 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&ccu CLK_BUS_I2C1>;
- 			resets = <&ccu RST_BUS_I2C1>;
-+			dmas = <&dma 44>, <&dma 44>;
-+			dma-names = "rx", "tx";
- 			status = "disabled";
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -355,6 +375,8 @@ i2c2: i2c@2502800 {
- 			interrupts = <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&ccu CLK_BUS_I2C2>;
- 			resets = <&ccu RST_BUS_I2C2>;
-+			dmas = <&dma 45>, <&dma 45>;
-+			dma-names = "rx", "tx";
- 			status = "disabled";
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -368,6 +390,8 @@ i2c3: i2c@2502c00 {
- 			interrupts = <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&ccu CLK_BUS_I2C3>;
- 			resets = <&ccu RST_BUS_I2C3>;
-+			dmas = <&dma 46>, <&dma 46>;
-+			dma-names = "rx", "tx";
- 			status = "disabled";
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -381,6 +405,8 @@ i2c4: i2c@2503000 {
- 			interrupts = <GIC_SPI 14 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&ccu CLK_BUS_I2C4>;
- 			resets = <&ccu RST_BUS_I2C4>;
-+			dmas = <&dma 47>, <&dma 47>;
-+			dma-names = "rx", "tx";
- 			status = "disabled";
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -394,6 +420,8 @@ i2c5: i2c@2503400 {
- 			interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&ccu CLK_BUS_I2C5>;
- 			resets = <&ccu RST_BUS_I2C5>;
-+			dmas = <&dma 48>, <&dma 48>;
-+			dma-names = "rx", "tx";
- 			status = "disabled";
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -408,6 +436,19 @@ syscon: syscon@3000000 {
- 			ranges;
- 		};
- 
-+		dma: dma-controller@3002000 {
-+			compatible = "allwinner,sun55i-a523-dma",
-+				     "allwinner,sun50i-a100-dma";
-+			reg = <0x03002000 0x1000>;
-+			interrupts = <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_DMA>, <&ccu CLK_MBUS_DMA>;
-+			clock-names = "bus", "mbus";
-+			dma-channels = <16>;
-+			dma-requests = <54>;
-+			resets = <&ccu RST_BUS_DMA>;
-+			#dma-cells = <1>;
-+		};
++static const struct sun4i_spdif_quirks sun55i_a523_spdif_quirks = {
++	.reg_dac_txdata = SUN8I_SPDIF_TXFIFO,
++	.val_fctl_ftx   = SUN50I_H6_SPDIF_FCTL_FTX,
++	.has_reset      = true,
++	.mclk_multiplier = 1,
++	.tx_clk_name	= "tx",
++};
 +
- 		sid: efuse@3006000 {
- 			compatible = "allwinner,sun55i-a523-sid",
- 				     "allwinner,sun50i-a64-sid";
-@@ -729,6 +770,8 @@ r_i2c0: i2c@7081400 {
- 			reg = <0x07081400 0x400>;
- 			interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
- 			clocks = <&r_ccu CLK_BUS_R_I2C0>;
-+			dmas = <&dma 49>, <&dma 49>;
-+			dma-names = "rx", "tx";
- 			resets = <&r_ccu RST_BUS_R_I2C0>;
- 			pinctrl-names = "default";
- 			pinctrl-0 = <&r_i2c_pins>;
-@@ -775,6 +818,19 @@ mcu_ccu: clock-controller@7102000 {
- 			#reset-cells = <1>;
- 		};
+ static const struct of_device_id sun4i_spdif_of_match[] = {
+ 	{
+ 		.compatible = "allwinner,sun4i-a10-spdif",
+@@ -594,6 +603,15 @@ static const struct of_device_id sun4i_spdif_of_match[] = {
+ 		/* Essentially the same as the H6, but without RX */
+ 		.data = &sun50i_h6_spdif_quirks,
+ 	},
++	{
++		.compatible = "allwinner,sun55i-a523-spdif",
++		/*
++		 * Almost the same as H6, but has split the TX and RX clocks,
++		 * has a separate reset bit for the RX side, and has some
++		 * expanded features for the RX side.
++		 */
++		.data = &sun55i_a523_spdif_quirks,
++	},
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, sun4i_spdif_of_match);
+@@ -635,6 +653,7 @@ static int sun4i_spdif_probe(struct platform_device *pdev)
+ 	const struct sun4i_spdif_quirks *quirks;
+ 	int ret;
+ 	void __iomem *base;
++	const char *tx_clk_name = "spdif";
  
-+		mcu_dma: dma-controller@7121000 {
-+			compatible = "allwinner,sun55i-a523-mcu-dma",
-+				     "allwinner,sun50i-a100-dma";
-+			reg = <0x07121000 0x1000>;
-+			interrupts = <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&mcu_ccu CLK_BUS_MCU_DMA>, <&mcu_ccu CLK_MCU_MBUS_DMA>;
-+			clock-names = "bus", "mbus";
-+			dma-channels = <16>;
-+			dma-requests = <15>;
-+			resets = <&mcu_ccu RST_BUS_MCU_DMA>;
-+			#dma-cells = <1>;
-+		};
-+
- 		npu: npu@7122000 {
- 			compatible = "vivante,gc";
- 			reg = <0x07122000 0x1000>;
+ 	dev_dbg(&pdev->dev, "Entered %s\n", __func__);
+ 
+@@ -671,9 +690,12 @@ static int sun4i_spdif_probe(struct platform_device *pdev)
+ 		return PTR_ERR(host->apb_clk);
+ 	}
+ 
+-	host->spdif_clk = devm_clk_get(&pdev->dev, "spdif");
++	if (quirks->tx_clk_name)
++		tx_clk_name = quirks->tx_clk_name;
++	host->spdif_clk = devm_clk_get(&pdev->dev, tx_clk_name);
+ 	if (IS_ERR(host->spdif_clk)) {
+-		dev_err(&pdev->dev, "failed to get a spdif clock.\n");
++		dev_err(&pdev->dev, "failed to get the \"%s\" clock.\n",
++			tx_clk_name);
+ 		return PTR_ERR(host->spdif_clk);
+ 	}
+ 
 -- 
 2.47.3
 
