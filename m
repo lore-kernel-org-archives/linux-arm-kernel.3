@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA68ECCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 06:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A28CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 06:40:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bXu0fLNIjNsnlnYxafZfaEBKLToeO/gwBqpczT/1DcQ=; b=FrGw57RD1AjFDhh4uvDbL7vfS6
-	rnBQtuCHb+yyUT03C+dEe9U6fp/EaeqquZAhoO4zBHjmwDyHmj6ABRSjrvQOiTGkReYAXG22bBfd8
-	d6VyrLRxU76JuWHHw6oDEpaneEni/Mc5eyOrdpu3TNBRiRvMQM7niX1OQL/ugeWxOvoXBFTfJn4UO
-	gB5r697ZqHRLNobv08XXosEesnudWzzVSnXY0YfoPfMcn5IZ2VoJU9PXl2nWFgcoDnNca3kKqF3BA
-	19o2AOddFURxxAdgcq1tyTjfwnBbqmBc15nF2tnO4QlDCxCt28lzKEP2yx9zFYgrRKrrsnjBuvybK
-	5Q1i2oXQ==;
+	bh=Yx2JP7P7r2dszg72QONYsTzWX02D3Bj0Jaxh0gu3AXM=; b=rY2tn5bFykzoR92dFToFEU5QNF
+	/WITEtgndbRpYanetPYeouiz81J+Ucu4c2XEv94+dXMq5vBuuVrJPBWlpg1EuUfTVlB1MAX9m+IqX
+	qfWknPfI/a+RzY1RgTeKrchoX5qm84vHsEuRyg5hqiIqD+uxMSOUp8YorYrALvxZuWrX+Pye9eJDr
+	fdZLAZPwHR8TEA7pPHk+9hNYccRgYRzjHGvPRCMWzyLGNzkibHUgfDBEhjxb3fxI70ooBpeYoMugT
+	caRl4ELozheu2EOg2UKOEiqdQxHBh12ptk8kM5oMyH4gSlpsIvarxZ+HWzk5slyFO9l3VhYMHLQ3q
+	H+kiDXEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAjYZ-0000000C4MG-3DGI;
-	Mon, 20 Oct 2025 06:39:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vAjZY-0000000C4Vz-0aBY;
+	Mon, 20 Oct 2025 06:40:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAjYW-0000000C4Lq-2Anf
+	id 1vAjZX-0000000C4VK-1GJE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 06:39:45 +0000
+	Mon, 20 Oct 2025 06:40:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C36440987;
-	Mon, 20 Oct 2025 06:39:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EA60C4CEF9;
-	Mon, 20 Oct 2025 06:39:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 487E460289;
+	Mon, 20 Oct 2025 06:40:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9787FC4CEF9;
+	Mon, 20 Oct 2025 06:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760942383;
-	bh=AkTb0mj50pn+U0cFUoZLlc9k8U196wci3Nbv8tGI4MQ=;
+	s=k20201202; t=1760942432;
+	bh=UJTlw/pu3vywNn13Ms+E5luWG1v4DvAhkTCP9OzzQOc=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=tTu1DQQzXhEvvm8Tr9Mmkt66tuBnO3RogFKJ6gvqvuYvMH7kgnukEAXse7FKBg4Ro
-	 FLpnV48VIpVZv76j35x82KU3L6qCH7Co3EEqwGp2ZQDMljyXDgJtTJABJ1XcY9wXDN
-	 cEwX9/pc0nhXJVeQH43s7ngPjhFF+KSk2PfttgdMiQ+pCj9Z4K7Czkxh6eLJEq28tJ
-	 j5EBjOxHeE7NU1ntRvWEIYZNGANR8UDJULEVjHa+njO5jdtSwTTA4H7whDIvJAoujj
-	 fCTuONCu/oCcW9h+lCrCA+Lu7wWCWVDqqYIFYaRQ6Pi35U69cER7WR8HctxU2OTCrI
-	 LM4nNc8dYubdA==
-Message-ID: <6b30c646-cc52-4552-8311-86974c1459e7@kernel.org>
-Date: Mon, 20 Oct 2025 08:39:38 +0200
+	b=BpT25Pxe1mhGst83DZD9Z6TJ3ZHdU1xjdlaoh/Zf17hKKYEc+1Nf8GAb05LhVQ2Z7
+	 FgtNhXTr4Q7WYA9muS0+V1kRjtizrKrvKBj7rfN31h6iyCmB7iUC5A+vle0G8m6YWf
+	 jqVP5vI2ET3vRrE3hjXsZB3LwzqUCAGtXkdvA7jRwlLmvL2rQy1SlchjqsI/aR6hSp
+	 D8sr/01r83oweAJBJeWDaSCuII4fZSdtem+jk0QH1qPdD9IfrGY2tdxBs8wwUWl18Y
+	 VxAhUgzVeHpfau1l5rJ+LJMcFG+7osVCsSDQ4evzrZlBzXg/9gY8Nv9Zc1IrwPm/pq
+	 rhsieA9VGUwRw==
+Message-ID: <2eb2d833-03e0-4570-8979-3a28d708b21f@kernel.org>
+Date: Mon, 20 Oct 2025 08:40:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: mfd: aspeed,ast2x00-scu: allow #size-cells
- range
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Lee Jones <lee@kernel.org>,
+Subject: Re: [PATCH v5 0/5] Introduce ASPEED AST2700 BMC SoC
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Arnd Bergmann <arnd@arndb.de>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
  Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Taniya Das <quic_tdas@quicinc.com>,
+ "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Eric Biggers <ebiggers@google.com>,
  "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
  "linux-arm-kernel@lists.infradead.org"
  <linux-arm-kernel@lists.infradead.org>,
  "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20251020020745.2004916-1-ryan_chen@aspeedtech.com>
- <b38321e8-d243-460a-a9d6-6770a41627cd@kernel.org>
- <TY2PPF5CB9A1BE6CDC6F04CC0F472FE6451F2F5A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "soc@lists.linux.dev" <soc@lists.linux.dev>, Mo Elbadry
+ <elbadrym@google.com>, Rom Lemarchand <romlem@google.com>,
+ William Kennington <wak@google.com>, Yuxiao Zhang <yuxiaozhang@google.com>,
+ "wthai@nvidia.com" <wthai@nvidia.com>, "leohu@nvidia.com"
+ <leohu@nvidia.com>, "dkodihalli@nvidia.com" <dkodihalli@nvidia.com>,
+ "spuranik@nvidia.com" <spuranik@nvidia.com>
+References: <20250901031311.1247805-1-ryan_chen@aspeedtech.com>
+ <41705e13-c61d-4249-9492-b83f1371d3f9@app.fastmail.com>
+ <OS8PR06MB7541AEC5560E3445C33009BEF21FA@OS8PR06MB7541.apcprd06.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +118,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <TY2PPF5CB9A1BE6CDC6F04CC0F472FE6451F2F5A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+In-Reply-To: <OS8PR06MB7541AEC5560E3445C33009BEF21FA@OS8PR06MB7541.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_233944_624753_3A214029 
-X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,35 +135,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/10/2025 08:31, Ryan Chen wrote:
->> Subject: Re: [PATCH] dt-bindings: mfd: aspeed,ast2x00-scu: allow #size-cells
->> range
+On 25/09/2025 10:00, Ryan Chen wrote:
+>> Subject: Re: [PATCH v5 0/5] Introduce ASPEED AST2700 BMC SoC
 >>
->> On 20/10/2025 04:07, Ryan Chen wrote:
->>> The #size-cells property in the Aspeed SCU binding is currently fixed
->>> to a constant value of 1. However, newer SoCs (ex. AST2700) may
->>> require two size cells to describe certain subregions or
+>> On Mon, Sep 1, 2025, at 05:13, Ryan Chen wrote:
+>>> This introduces initial support for the Aspeed AST2700 SoC and the
+>>> AST2700 Evaluation Board (EVB) to the Linux kernel. The AST27XX is the
+>>> 8th generation Baseboard Management Controller (BMC) SoC from Aspeed,
+>>> featuring improved performance, enhanced security, and expanded I/O
+>>> capabilities compared to previous generations.
+>>>
+>>> AST27XX SOC Family
+>>>  - https://www.aspeedtech.com/server_ast2700/
+>>>  - https://www.aspeedtech.com/server_ast2720/
+>>>  - https://www.aspeedtech.com/server_ast2750/
 >>
->> "may"? So there is no issue yet?
+>> Hi Ryan,
+>>
+>> Thanks for you submission earlier. I see that you had sent the series to several
+>> lists including soc@lists.linux.dev, which is what I use to keep track of patches
+>> that have been successfully reviewed and that are ready to be merged through
+>> the soc tree.
+>>
+>> Unless you have been told to send it here by Joel and Andrew, I assume that
+>> they will pick up the series through the "bmc"
+>> tree once they are happy with it like they do with the 32-bit Aspeed SoC
+>> (ast24xx/25xx/26xx) patches, and I have dropped the series from
+>> https://patchwork.kernel.org/project/linux-soc
+>> now.
+>>
+>> For future submission, please send the patches only "to"
+>> them, with the other people in the "cc" field to avoid this confusion, and leave
+>> out the "soc@lists.linux.dev"
+>> recipient. You can add me as arnd@arndb.de to the Cc list for reviews though.
+>>
+>> Please also add a patch that changes the MAINTAINERS entry to reflect the
+>> added arch/arm64 contents.
+>>
+>>      Arnd
 > 
-> while I submit ast2700 platform,
-
-So there is no warning currently? Then don't mention. You cannot use
-argument of possible future warning as there is a warning needing to be
-fixed. This makes no sense. Like you add bug in your patchset and then
-send *different* patch claiming you are fixing a bug.
+> Hello Arnd,
+> 	Thanks your notify. I will remove soc@lists.linux.dev, in next patch.
 
 
-> These warnings appear when validating the AST2700 EVB device tree.
-> The SCU nodes on AST2700 have subdevices (such as clock and reset controllers)
-> that require two address cells, which is not allowed by the current `const: 1`
-> constraint in the schema. 
-> 
-> Here is the related report:
->   https://lkml.org/lkml/2025/9/2/1165
-
-This must be together, so we can review entire picture, not pieces by
-pieces. Organize your work correctly, so reviewing will be easy.
+No, this patchset still has known (reported) warnings/bugs, which need
+to be addressed here before merging it.
 
 Best regards,
 Krzysztof
