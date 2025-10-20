@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0CA5CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 08:25:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C27CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 08:25:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tulMT4eR9G2pK3+NvoTz2q9bRPSj5YZkL5Rxs9IM84A=; b=wDq6c1F/2Cl6naQzXewqogPar+
-	FKIzqwRR0wFyFZbFxFKM4SB5h9J2uIXWdrKG1sZeIj7DukZtkWIY9Y4wIFxWbQgoa5vU/XxW7LVLZ
-	OF2Cixc3dASWxv06fM4eKhZvfOtbARfLl8jxGP06KFU182jjCp9LrCAeoWAeDo+hun+AmufUvr7p3
-	3i59HNEN17eDP1Lhw1K0mSMMin/18mP5mDVG7wB0BLICnjhsGdl4Qayxg5T0k8yEPSukG4FO+ixFj
-	kHKRlr4sddfmSgkIAojAmlCHQzrKYOHh8tOaKXWognUSq/dDGU1GZ8cefysjuhlSdZiGatJdhuSoT
-	xyhDP3Jw==;
+	bh=UyZIpaVDPbowyjNSE8t2Q83Px0nlWtO5mCsqD1DwipM=; b=GdWIkJZgf18f7b8bvWurvy15eY
+	rR7SL409qRWRXBPyZa1pJmgP3e+CN7DUs+XI/FWCKyd9jaQNbDlIRboVjdnKCyU4c6TYYgBV3kxgP
+	ntKa8CBAxN/4BE1taEwGpqZsKfyoAnoEJnD7lfgPHsqrRD72c9YX/JiViV45Z26PPFDF/MfzRmjor
+	7pkLR9lhM3/kuQ5HbhTSnEJksYM6l995U0+EWkb9fJ1cifmkqvi01nRnUNEGte7CE52qIT+JFJAWF
+	dkf9jx2D0TRRAm0CEYaxjnYHth2RPGSkCKOn6IEO7CPlsfkk3IlRb28TVBsdC+zEK13dZLUzdD1eK
+	fxSaR1Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAlCf-0000000CMGl-3onD;
-	Mon, 20 Oct 2025 08:25:17 +0000
+	id 1vAlCZ-0000000CM7X-34kG;
+	Mon, 20 Oct 2025 08:25:11 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAlCV-0000000CM25-0BDc;
-	Mon, 20 Oct 2025 08:25:08 +0000
+	id 1vAlCQ-0000000CLwl-2AeQ;
+	Mon, 20 Oct 2025 08:25:03 +0000
 Received: from [192.168.1.102] (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0F8001116;
-	Mon, 20 Oct 2025 10:23:21 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 693DB19B5;
+	Mon, 20 Oct 2025 10:23:17 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1760948603;
-	bh=aphqrnjnIHEaL1McVyPsfsz1ESyLlGYYkbJKH8NlHMg=;
+	s=mail; t=1760948598;
+	bh=9ds5WhlrzJQppmDtccCFQ4pALhxTK+AT+VJO5bNqkWI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Z+Fc3I3kwwM42ZJWD1OKt3Rcuuawr4d2kcM1vAoJfi35Qq4959AiJVgxr1XH+gG7d
-	 s4SVp5poG+AZXZyizdsbvZLRLQzEbZakvE98xyC0yTtnzujJOtb/hYI18Dx1WOnJ1k
-	 CljDBws2gl4v8LfVnlWUpnhM9PRt1oUIM63gi4D8=
+	b=kGpkf5V4o+RlBNItkDaV8kqRO8a10Jn0gPR2qMV5+D3OoAUoFEjUlJyu6VHlpqCaw
+	 8bYGXCa+Qp3ot43rV5mhoJg8sYJYC5LWIufZVy9JYGOleS4T4glkxU5zjJByBsQt9X
+	 bvy9y3TVWDUnue5b2hB1gAKRQk8BSljHxVdeeEBQ=
 From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Mon, 20 Oct 2025 10:24:54 +0200
-Subject: [PATCH v8 8/8] media: Documentation: kapi: Add v4l2 generic ISP
- support
+Date: Mon, 20 Oct 2025 10:24:49 +0200
+Subject: [PATCH v8 3/8] media: uapi: Convert Amlogic C3 to V4L2 extensible
+ params
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251020-extensible-parameters-validation-v8-8-afba4ba7b42d@ideasonboard.com>
+Message-Id: <20251020-extensible-parameters-validation-v8-3-afba4ba7b42d@ideasonboard.com>
 References: <20251020-extensible-parameters-validation-v8-0-afba4ba7b42d@ideasonboard.com>
 In-Reply-To: <20251020-extensible-parameters-validation-v8-0-afba4ba7b42d@ideasonboard.com>
 To: Dafna Hirschfeld <dafna@fastmail.com>, 
@@ -55,28 +55,28 @@ To: Dafna Hirschfeld <dafna@fastmail.com>,
 Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
  linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
- Michael Riesch <michael.riesch@collabora.com>
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4112;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6875;
  i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=aphqrnjnIHEaL1McVyPsfsz1ESyLlGYYkbJKH8NlHMg=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBo9fHYLuapdMSCrbxyTfvkamWN3atlzp6On/gWa
- Ullsu6bJlWJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaPXx2AAKCRByNAaPFqFW
- PMebD/40IT9AUTtqWZ1ILnE5CPIbzJn7CE5LICF8T/arumBlmCly/EBuhRr2Cc5lMTkqPq8BIR3
- JzCsZmxP9yTspZctBCJ+ZvHC3GSur4e2GXJgJQa2DW98j6MJpx20A1q6Lb1+/hWag4G+xk1/PH+
- yJfj/eZ3MOQStCijZOadI+l5jrUa70H3dzY2UCiB7FFog2/YMYFclF3LBe41lNNPt8qot0Trc65
- bpmu56bfff00/AwdmoWkahb34YVztUxsuFkwnAUVqNlUGGy3DnTlWsRwTYdlGyUax3mbnWKJE0I
- 7TfqzvONQ+0SZmHpu8vQTIa65cjA6WgyuhnhMnnOGaei4mHelvbAjJi+IuUrZXgyvwbJ3tKY66E
- jIf/eDzd+LiDltTTWTc68j5mHybg0USzv9dObAvWpxJ+gEloSVhxD6upum5sVSGFhRsLATswqnA
- 1FdGI18PiuzQ0rCcuQbrdcwA9IxAzbzhEHQ6fqpd9F1aWZOQklr7rGssEDY+GVNuotQztE9SlsG
- YJ59FjfbRShIG2PZKk6w1JE0y3VhsCj29fSwxeu3efR95MAp1iQdL7AscBI0yeoCHnBR+4cbWNu
- XK0E6QC7MbsXwrLJpyLsknPdH8dDGKO5a9V2JdICIWdOED3hRTT1SBKiAXrDKplYNL6QsPWJWVe
- imETzVRPh5GckEA==
+ bh=9ds5WhlrzJQppmDtccCFQ4pALhxTK+AT+VJO5bNqkWI=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBo9fHXPoZnOtzu3U/Yqdh1baHVBlN9Ze5GG0PKh
+ XijvkqEDVCJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaPXx1wAKCRByNAaPFqFW
+ PChbEACdbzH3Sd/VmVLQgrB0ZJ6xmAUnfsdXZRz4rG6nXeYKMeBa1z5G22X2dhZ0Whf9XKqZEat
+ yHcBrIwrl3fC+WftiYH/sUSWuPm9nv0KUn6dGtU/yPfPmmEoDJPaggnhajTKeaTKbX0heGbYKpg
+ mC5VYtLuXxKnbrMtYBiGErvx646mUchUp4A0smHXmi2yp8T4hFwNjVlCEoBFgaXnwBAmD7SPFeW
+ 8cEB57KIGcgiuMCX6ZppXhLcjymbms396Cq8kOGnbRMLHYD0WSLZIo+MqsGmbuQB/LJa+gGCq5X
+ 43B3U4PF3ozQHH/heDvAPJ1QoTyGqU5zr45zAEzuUnLBLFovm5GkMW0kZmhdefmXINL1plZxfq2
+ kfABWehk270lPNCdNNwq6Nmmw+ENqT5nvboXHBAIW4yliFrx/SKGxOQuzRppDSpJFW7iLYtswEH
+ mkjQ3zpZwpgnxgtsBlyvPN4EDM7ql8rIhlm70jYzk+DiDNVRO0WiaBmdp5zIDIlj3qfPCjZbppP
+ /LP9QWdAbGh901yx4iW4h1VmNno5gGATBw8P9NZvFYZUd88DVr+MjWTgV22QYr0Pj6URMMguows
+ qJ0GtnZYy2hnU0ldtKjGx9/UjZbwiYcNTxlXqHWcrJ1wKnyuwMOGWAjDx78zvOJ9Mq+eMrfAlAR
+ SRrxOHDkHqwJ1eQ==
 X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
  fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_012507_292203_104821CD 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20251020_012502_714420_05836665 
+X-CRM114-Status: GOOD (  25.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,95 +91,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add to the driver-api documentation the v4l2-isp.h types and
-helpers documentation.
+With the introduction of common types for extensible parameters
+format, convert the c3-isp-config.h header to use the new types.
+
+Factor-out the documentation that is now part of the common header
+and only keep the driver-specific on in place.
+
+The conversion to use common types doesn't impact userspace as the
+new types are either identical to the ones already existing in the
+C3 ISP uAPI or are 1-to-1 type convertible.
 
 Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+Reviewed-by: Keke Li <keke.li@amlogic.com>
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 ---
- Documentation/driver-api/media/v4l2-core.rst |  1 +
- Documentation/driver-api/media/v4l2-isp.rst  | 49 ++++++++++++++++++++++++++++
- MAINTAINERS                                  |  1 +
- 3 files changed, 51 insertions(+)
+ include/uapi/linux/media/amlogic/c3-isp-config.h | 92 +++++++-----------------
+ 1 file changed, 24 insertions(+), 68 deletions(-)
 
-diff --git a/Documentation/driver-api/media/v4l2-core.rst b/Documentation/driver-api/media/v4l2-core.rst
-index ad987c34ad2a8460bb95e97adc4d850d624e0b81..a5f5102c64cca57b57b54ab95882b26286fb27de 100644
---- a/Documentation/driver-api/media/v4l2-core.rst
-+++ b/Documentation/driver-api/media/v4l2-core.rst
-@@ -27,3 +27,4 @@ Video4Linux devices
-     v4l2-common
-     v4l2-tveeprom
-     v4l2-jpeg
-+    v4l2-isp
-diff --git a/Documentation/driver-api/media/v4l2-isp.rst b/Documentation/driver-api/media/v4l2-isp.rst
-new file mode 100644
-index 0000000000000000000000000000000000000000..150ba39b257b23e6a8ca1a348047f5b55588fbf7
---- /dev/null
-+++ b/Documentation/driver-api/media/v4l2-isp.rst
-@@ -0,0 +1,49 @@
-+.. SPDX-License-Identifier: GPL-2.0
+diff --git a/include/uapi/linux/media/amlogic/c3-isp-config.h b/include/uapi/linux/media/amlogic/c3-isp-config.h
+index ed085ea62a574932c7ad8d59d34b2c5c74a597d8..0a3c1cc55ccbbad12f18037d65f32ec9ca1a4ec0 100644
+--- a/include/uapi/linux/media/amlogic/c3-isp-config.h
++++ b/include/uapi/linux/media/amlogic/c3-isp-config.h
+@@ -6,8 +6,13 @@
+ #ifndef _UAPI_C3_ISP_CONFIG_H_
+ #define _UAPI_C3_ISP_CONFIG_H_
+ 
++#ifdef __KERNEL__
++#include <linux/build_bug.h>
++#endif /* __KERNEL__ */
+ #include <linux/types.h>
+ 
++#include <linux/media/v4l2-isp.h>
 +
-+V4L2 generic ISP parameters and statistics support
-+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ /*
+  * Frames are split into zones of almost equal width and height - a zone is a
+  * rectangular tile of a frame. The metering blocks within the ISP collect
+@@ -141,7 +146,7 @@ struct c3_isp_stats_info {
+  * @C3_ISP_PARAMS_BUFFER_V0: First version of C3 ISP parameters block
+  */
+ enum c3_isp_params_buffer_version {
+-	C3_ISP_PARAMS_BUFFER_V0,
++	C3_ISP_PARAMS_BUFFER_V0 = V4L2_ISP_PARAMS_VERSION_V0,
+ };
+ 
+ /**
+@@ -176,62 +181,23 @@ enum c3_isp_params_block_type {
+ 	C3_ISP_PARAMS_BLOCK_SENTINEL
+ };
+ 
+-#define C3_ISP_PARAMS_BLOCK_FL_DISABLE (1U << 0)
+-#define C3_ISP_PARAMS_BLOCK_FL_ENABLE (1U << 1)
++/* For backward compatibility */
++#define C3_ISP_PARAMS_BLOCK_FL_DISABLE	V4L2_ISP_PARAMS_FL_BLOCK_DISABLE
++#define C3_ISP_PARAMS_BLOCK_FL_ENABLE	V4L2_ISP_PARAMS_FL_BLOCK_ENABLE
+ 
+ /**
+  * struct c3_isp_params_block_header - C3 ISP parameter block header
+  *
+  * This structure represents the common part of all the ISP configuration
+- * blocks. Each parameters block shall embed an instance of this structure type
+- * as its first member, followed by the block-specific configuration data. The
+- * driver inspects this common header to discern the block type and its size and
+- * properly handle the block content by casting it to the correct block-specific
+- * type.
++ * blocks and is identical to :c:type:`v4l2_isp_params_block_header`.
+  *
+- * The @type field is one of the values enumerated by
++ * The type field is one of the values enumerated by
+  * :c:type:`c3_isp_params_block_type` and specifies how the data should be
+- * interpreted by the driver. The @size field specifies the size of the
+- * parameters block and is used by the driver for validation purposes. The
+- * @flags field is a bitmask of per-block flags C3_ISP_PARAMS_FL*.
+- *
+- * When userspace wants to disable an ISP block the
+- * C3_ISP_PARAMS_BLOCK_FL_DISABLED bit should be set in the @flags field. In
+- * this case userspace may optionally omit the remainder of the configuration
+- * block, which will be ignored by the driver.
+- *
+- * When a new configuration of an ISP block needs to be applied userspace
+- * shall fully populate the ISP block and omit setting the
+- * C3_ISP_PARAMS_BLOCK_FL_DISABLED bit in the @flags field.
+- *
+- * Userspace is responsible for correctly populating the parameters block header
+- * fields (@type, @flags and @size) and the block-specific parameters.
+- *
+- * For example:
+- *
+- * .. code-block:: c
++ * interpreted by the driver.
+  *
+- *	void populate_pst_gamma(struct c3_isp_params_block_header *block) {
+- *		struct c3_isp_params_pst_gamma *gamma =
+- *			(struct c3_isp_params_pst_gamma *)block;
+- *
+- *		gamma->header.type = C3_ISP_PARAMS_BLOCK_PST_GAMMA;
+- *		gamma->header.flags = C3_ISP_PARAMS_BLOCK_FL_ENABLE;
+- *		gamma->header.size = sizeof(*gamma);
+- *
+- *		for (unsigned int i = 0; i < 129; i++)
+- *			gamma->pst_gamma_lut[i] = i;
+- *	}
+- *
+- * @type: The parameters block type from :c:type:`c3_isp_params_block_type`
+- * @flags: A bitmask of block flags
+- * @size: Size (in bytes) of the parameters block, including this header
++ * The flags field is a bitmask of per-block flags C3_ISP_PARAMS_FL_*.
+  */
+-struct c3_isp_params_block_header {
+-	__u16 type;
+-	__u16 flags;
+-	__u32 size;
+-};
++#define c3_isp_params_block_header v4l2_isp_params_block_header
+ 
+ /**
+  * struct c3_isp_params_awb_gains - Gains for auto-white balance
+@@ -498,26 +464,10 @@ struct c3_isp_params_blc {
+ /**
+  * struct c3_isp_params_cfg - C3 ISP configuration parameters
+  *
+- * This struct contains the configuration parameters of the C3 ISP
+- * algorithms, serialized by userspace into an opaque data buffer. Each
+- * configuration parameter block is represented by a block-specific structure
+- * which contains a :c:type:`c3_isp_param_block_header` entry as first
+- * member. Userspace populates the @data buffer with configuration parameters
+- * for the blocks that it intends to configure. As a consequence, the data
+- * buffer effective size changes according to the number of ISP blocks that
+- * userspace intends to configure.
+- *
+- * The parameters buffer is versioned by the @version field to allow modifying
+- * and extending its definition. Userspace should populate the @version field to
+- * inform the driver about the version it intends to use. The driver will parse
+- * and handle the @data buffer according to the data layout specific to the
+- * indicated revision and return an error if the desired revision is not
+- * supported.
+- *
+- * For each ISP block that userspace wants to configure, a block-specific
+- * structure is appended to the @data buffer, one after the other without gaps
+- * in between nor overlaps. Userspace shall populate the @total_size field with
+- * the effective size, in bytes, of the @data buffer.
++ * This is the driver-specific implementation of
++ * :c:type:`v4l2_isp_params_buffer`.
++ *
++ * Currently only C3_ISP_PARAM_BUFFER_V0 is supported.
+  *
+  * The expected memory layout of the parameters buffer is::
+  *
+@@ -561,4 +511,10 @@ struct c3_isp_params_cfg {
+ 	__u8 data[C3_ISP_PARAMS_MAX_SIZE];
+ };
+ 
++#ifdef __KERNEL__
++/* Make sure the header is type-convertible to the generic v4l2 params one */
++static_assert((sizeof(struct c3_isp_params_cfg) - C3_ISP_PARAMS_MAX_SIZE) ==
++	      sizeof(struct v4l2_isp_params_buffer));
++#endif /* __KERNEL__ */
 +
-+Design rationale
-+================
-+
-+ISP configuration parameters and statistics are processed and collected by
-+drivers and exchanged with userspace through data types that usually
-+reflect the ISP peripheral registers layout.
-+
-+Each ISP driver defines its own metadata output format for parameters and
-+a metadata capture format for statistics. The buffer layout is realized by a
-+set of C structures that reflects the registers layout. The number and types
-+of C structures is fixed by the format definition and becomes part of the Linux
-+kernel uAPI/uABI interface.
-+
-+Because of the hard requirement of backward compatibility when extending the
-+user API/ABI interface, modifying an ISP driver capture or output metadata
-+format after it has been accepted by mainline is very hard if not impossible.
-+
-+It generally happens, in fact, that after the first accepted revision of an ISP
-+driver the buffers layout need to be modified, either to support new hardware
-+blocks, to fix bugs or to support different revisions of the hardware.
-+
-+Each of these situations would require defining a new metadata format, making it
-+really hard to maintain and extend drivers and requiring userspace to use
-+the correct format depending on the kernel revision in use.
-+
-+V4L2 ISP configuration parameters
-+=================================
-+
-+For these reasons, Video4Linux2 defines generic types for ISP configuration
-+parameters and statistics. Drivers are still expected to define their own
-+formats for their metadata output and capture nodes, but the buffers layout can
-+be defined using the extensible and versioned types defined by
-+include/uapi/linux/media/v4l2-isp.h.
-+
-+Drivers are expected to provide the definitions of their supported ISP blocks,
-+the control flags and the expected maximum size of a buffer.
-+
-+For driver developers a set of helper functions to assist them with validation
-+of the buffer received from userspace is available in
-+drivers/media/v4l2-core/v4l2-isp.c
-+
-+V4L2 ISP support driver documentation
-+=====================================
-+.. kernel-doc:: include/media/v4l2-isp.h
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5833f82caa7f2f734bb0e1be144ade2109b23988..cd1137c7754538d02bd72521fec6c89e082246d2 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -26856,6 +26856,7 @@ V4L2 GENERIC ISP PARAMETERS AND STATISTIC FORMATS
- M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
- L:	linux-media@vger.kernel.org
- S:	Maintained
-+F:	Documentation/driver-api/media/v4l2-isp.rst
- F:	Documentation/userspace-api/media/v4l/v4l2-isp.rst
- F:	drivers/media/v4l2-core/v4l2-isp.c
- F:	include/media/v4l2-isp.h
+ #endif
 
 -- 
 2.51.0
