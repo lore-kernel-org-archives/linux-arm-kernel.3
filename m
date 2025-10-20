@@ -4,162 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B04F9CCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 18:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A21CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 18:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CilgOmB3PmmJBXdjPACzYWmzSaC6FSXbe7AKUnZ3sjA=; b=NxFRLa/MPr+kJ2aunbUiuAOCLb
-	TAG1bOQwdLphGdb7Hb/Yq6qeMHxPL8BPZH67IRlzi3fQzVJH9B/BYB3608BiiQmWG0iSwCQodV7/Q
-	y0gEhnnEAzewWUe8pZgYLeT5U5wUPIFMjInlZvqey5g8sFMIzS0Jeya4aDkkkPkFKkxndUkf7sVUj
-	COLoHznkK3gZsedFFKDAc1nqcsWkM33eEUJXCTND5pcIBIIiL4yQdQmw6O+QqqlrPVsfNtvOOa+lv
-	qh6nO+H7IU+84j23qlpzo4EyYua2/qW1yY7rrofNNrPFIQBy48S1z4DmhTz5cRtFJlGDjgs70FB3I
-	8bPsIoqg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=NqGYobboUdW1G9PLBetA4b9la5YBiKRpKr8cFBtnww4=; b=MPYwpNqGlO03qb
+	96EpJHn6OsBtt3l/g0bBrLT8dWUQ+Fw6BCr0RhWb2mmcUusGXL/UtMlWn8mLbquKhsg1qrm2cM6hw
+	EYCEmLJ4wYFg8tQNRh0qhXko2kbH0OpVKFPFOmXk/a2GizRp6VDGeMzflOgnsk/42MJE5jNyn7yeq
+	TXi0dqR8dYxS9vsb0hq2oOcGL8BiI1LsVPJuuhNkow5c4Z2DmtU2s6LE+NYcsMT9u6f7HMSAPkDcP
+	UcBikZdynIReFxQGpHOvxbPY8oDpU6gdaREh+K46uESXhLNv6PH3y7NHxnFQKcMNKx20Wt8DyWOD/
+	Ei7ZWCTyTSKfoUnQsJhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAuv2-0000000EfLw-30SA;
-	Mon, 20 Oct 2025 18:47:44 +0000
-Received: from mail-westusazon11012009.outbound.protection.outlook.com ([52.101.43.9] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1vAuvt-0000000EfeZ-0Ng3;
+	Mon, 20 Oct 2025 18:48:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAuus-0000000Ef8L-0N1P;
-	Mon, 20 Oct 2025 18:47:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m0QOrttW24P4rAZo/KUo0kCRNhY4u0rAiFVu8T4LypPxL99+OxXjaaKtTYuadv1JTgTAZJcY6TgHKZT1CYw80EW0d7clp5FS6QHqt+18JoLxDv6yflg/ITWwC+qX1V9c8C5rUw90Nx+TocDDdWZKQsdkpvWtn6PAKJgNqDrdoDyplIu4L5qfQ4LAbyQGWn+Pef8IrsjcpeYgvBQ3WrmGLbGlxTmVaPGeCPVq9WzBeKZmIC08mzEm3Vvzw7tdJV7RvdMPRXkHmBBFAJn9YXC7Eyga2kIqsVP4Frzqv2K08H9ZBUBadpQmh6gJ5Et3ywyTovwW93yI/EOg/bh7y/5OrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CilgOmB3PmmJBXdjPACzYWmzSaC6FSXbe7AKUnZ3sjA=;
- b=WzrrtElVW5RZuMp3VxUGuaz4+4huF07o0pjclGGjLJXxs4ZXytEd653p6gnXQA1FcRkSXKLr6CWEqQ4sMctyM4LOujpHZT0ihQ2GHJhkGUQSd1+9K+6fO/JAYaajXrYP1ApL/U9llZRXd2RK73yIXELRC9ixhuW9kfQXlW3coXAkTxVdfTRALs+V0dIQLLPuIy2/IUNPy317MZoc+aSXR3rN0tCnO4PPSCWDMnlEsu8qNHnhT8qUAsvKl3l5kmbiLSWLj/TfVTcw97MiVr0iqEySbIWCzCoPYXbjGcX2uDDPl8ONaHMV+rujJyTzE+KMygzc3Bemzh0aFyUM3+26RA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CilgOmB3PmmJBXdjPACzYWmzSaC6FSXbe7AKUnZ3sjA=;
- b=kdf+fjZafKK+Z9VgDoejv0iwN4UHMz63FYGzWoL9XtqIkw4ocCftk8VHdodcmkzc67Yyh8nLStUlHKp+l8/S83v3Lb5l9i4tJnr9UIsK4ewUZd58vdvcw9ZP0uji1hUmtome1qORnCcLv30BQwRs/OK00wlTqBA8a9saWbbcOndWJZMOR4NmvpHcfRy0Ip7AGS9G0uvwezJu7VpIljfiOW72HvuFnRSQpoYLz3ZQcdEsyxXkkwGG3xVxzNHo3cQA4Z5GAUPWkbE/O3D8rF7SC14lKxER8WQ2GCN4pztp9I7NY2xH7BzaT3D5T2kBD2XvVAzo9mcNpgao6bCLlCu+Xw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by IA1PR12MB6650.namprd12.prod.outlook.com (2603:10b6:208:3a1::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.14; Mon, 20 Oct
- 2025 18:47:17 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9228.015; Mon, 20 Oct 2025
- 18:47:17 +0000
-Date: Mon, 20 Oct 2025 15:47:15 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: joro@8bytes.org, kevin.tian@intel.com, suravee.suthikulpanit@amd.com,
-	will@kernel.org, robin.murphy@arm.com, sven@kernel.org,
-	j@jannau.net, robin.clark@oss.qualcomm.com,
-	m.szyprowski@samsung.com, krzk@kernel.org, dwmw2@infradead.org,
-	baolu.lu@linux.intel.com, yong.wu@mediatek.com,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	tjeznach@rivosinc.com, pjw@kernel.org, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, heiko@sntech.de, schnelle@linux.ibm.com,
-	mjrosato@linux.ibm.com, orsonzhai@gmail.com,
-	baolin.wang@linux.alibaba.com, wens@csie.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org,
-	thierry.reding@gmail.com, jonathanh@nvidia.com,
-	jean-philippe@linaro.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
-	virtualization@lists.linux.dev, patches@lists.linux.dev
-Subject: Re: [PATCH v1 5/6] iommu: Do not revert set_domain for the last gdev
-Message-ID: <20251020184715.GE316284@nvidia.com>
-References: <cover.1760312540.git.nicolinc@nvidia.com>
- <691771cd72daf8d6c813d25067c6c521d834e350.1760312540.git.nicolinc@nvidia.com>
+	id 1vAuvq-0000000Efdh-3Rwb;
+	Mon, 20 Oct 2025 18:48:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C53BB45753;
+	Mon, 20 Oct 2025 18:48:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87273C113D0;
+	Mon, 20 Oct 2025 18:48:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760986113;
+	bh=o/Sy2P8YFH5ANKdlTpZx1IEAMq0gSZpaNcIbyeS/PII=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=losduLJAc7dAsf3wyrLi+rC/AOAjmanuRRkZpjuzOAryHiqMxNGC4fkX45HwQt0mK
+	 2wOLx1BssZsLCEhHY4SFi9C0mCiiKireXPeWwxbYxjdIlJIMoMq2wP6uwypeHSczJw
+	 tPZnn9CifhdvSS6DWWbExHByyNcpqq8B7zjufkjuvBrjVzuebDbufka1MxKebaGMv/
+	 Y67hYZULhqD/dSuxJbBzQr/KS8WO/b/sSaQ4cK6KEO06zEQizp6UmKjA/3K+iWiGph
+	 LvpsGEMo7zCx8STtys5VHLCFt+gLP7PI1QXcsmpohMczQhCoiaWewBcMoil7bMk9i2
+	 f8ZIoIcYP+/8g==
+Date: Mon, 20 Oct 2025 13:48:32 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jim Quinlan <james.quinlan@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Cyril Brulebois <kibi@debian.org>,
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 2/2] PCI: brcmstb: Add panic/die handler to driver
+Message-ID: <20251020184832.GA1144646@bhelgaas>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <691771cd72daf8d6c813d25067c6c521d834e350.1760312540.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: PH8P221CA0044.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:346::22) To MN2PR12MB3613.namprd12.prod.outlook.com
- (2603:10b6:208:c1::17)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|IA1PR12MB6650:EE_
-X-MS-Office365-Filtering-Correlation-Id: 18a6681d-8b7a-4dfb-df52-08de100917dd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LGTXyFOX5UFLztirMGyyGtqByiufqwqBWymR94WP7MaE3bSBjoWFdciZxisW?=
- =?us-ascii?Q?ZQKJ/EHC9BdNJFEC4nt3dIptdjn/qIic3B2QOjx0mX/ATushtvstYZeHE+uJ?=
- =?us-ascii?Q?XvCtwbJZI3yMICaPKRRfP+IkbMGae8g2K2RGx0CwapQPTeBwxnYG62FKwwAd?=
- =?us-ascii?Q?W+LAX4DeksXlUxrfOMj/KTvqv1mpMUtOYt4QrK2YTU2OfxqFCxxMfWagBUjv?=
- =?us-ascii?Q?zoGSJPwxvWEe9LQK9TZH+Nzbgbl73XY31R2GOVDld6HolaagkW9+hiehRrxv?=
- =?us-ascii?Q?YZ5M7kS2fhhHqk37dN6dMhBeIu/EI3iQzN+dXfn7lCIjlUK0+2XlEXkHdMwV?=
- =?us-ascii?Q?qlAsOF8VcM19wP5fCBexAuaoVTduqvjB8uAM6GT6XzdoBiFKEoMiYL0drZkN?=
- =?us-ascii?Q?Jr8VFEcLwmnMf/mkSx5lVtdEjuHLJQ4ko/2TSqgwrQ9hOPcm0fzryglCjGSI?=
- =?us-ascii?Q?W+wGQg9+CPLgFkQXe2j+VZ5lQUA7lqwV4PIe2PEROg6z4/19fzhz9CXYgmjb?=
- =?us-ascii?Q?lLtGIfgHucqtd75P0iwS8MF3bJ+hAdADlH7+fH0GCwir4e5Dq4krSseWZML1?=
- =?us-ascii?Q?Qp2sgjM3dSkTR54k7E/k38xVGEigtMlmtq7/Lxp63D/iFa9f7MkGrNb2hauC?=
- =?us-ascii?Q?/YnExkGCs3ZEyz3AyhswjNuoHnMhfunlsLoZ2556Jy6dDYXodb/0QbG4TyuD?=
- =?us-ascii?Q?fq+kiXly8ZAvNBiUBVzlNa2J233MeYLQblRLQ2nVlk3b5B/rC9+EPzbRw7fl?=
- =?us-ascii?Q?/iV7MAEBNdAohljsc0sWw6t4CF0CSoXmQYP99SP/Qk6RWqO4DjkfOgCMZgR8?=
- =?us-ascii?Q?59mY5lyCrz6G530FkQSIyyi+1ZY/PWcgPITOU6pZYxXU42qKYHQtXSA8ZCwL?=
- =?us-ascii?Q?vthcNSIG5ptiCkDH6/Ay9CUGbRvopefqwkUCEEfqzr0ksYGargppCTkgiQpR?=
- =?us-ascii?Q?JxC6DqMpZRlebzzvaahSKbvlYD8iVN/Wk4roWQKmYjYYCvqqPcPaHl7a6wkl?=
- =?us-ascii?Q?Y9VyNzxTXG7uzmuekQkmPIIcGXvTJ8udnty29AHab84iitWNAAiJWYlLADzO?=
- =?us-ascii?Q?Bw2c/mkw19eM7p05U0Hc6m3T0p7f7dTJnbiiJUkwzrPa9e9R9+jCiUScV2u/?=
- =?us-ascii?Q?BeQi7lb/gew0mCP4dtSNWRLV6hE2vq016hHCvFo27wUqrOYu9UgN1+mNh3t+?=
- =?us-ascii?Q?YhR/S5QumUSAqrseYuwWYekQCRtqpePHZYj3GyERvc9B/fQc/9zKcKc++Cpl?=
- =?us-ascii?Q?u0WLKPd1y8YYoVJDoClb+heQ/yVGKHY1rjKfnro1MppfDRQuJ9SfIly5nJV3?=
- =?us-ascii?Q?du49PzkfGeDpTGWuIg1gLaeTzags4t5KX+4hh+U2o3m/0LBqzh1lyIPEGD5V?=
- =?us-ascii?Q?hqD5hYgoU6j1KtbQOHCOmkDKMdvJRg5lP6VHXTJG0+oZJK/znnDvuVcEsIww?=
- =?us-ascii?Q?Jnx0mBB06jgAOrglPJhgI+dvy1ZxQj+i?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pgj4/Oy2enlBvTPd5jnAmEdkLxWJvv3mTgJzm+FDjbhAaUFJD6rifYWlMGl3?=
- =?us-ascii?Q?dT4n04eE5Mf6B5JN+tMMWis1Df5ZybcjhQrCCcVj/4pRaqCh0aFQ4zSToECE?=
- =?us-ascii?Q?8Hju/EdpP3P6gfKFSav7sOGL1Iz+TiCNk1jFYxsWmpZtDf1iygE21Q6/Mvpk?=
- =?us-ascii?Q?nKjQyoILVDKIuns7RSPW7DjxGURgO1LR64mK6TLXvfGXXWHtWw1u7QFwBUQu?=
- =?us-ascii?Q?LoDDrqWZO86q3HNceiIIVvql3uQZBSMenEyNITAvpynPV/2x+uvRt9Pnjuqq?=
- =?us-ascii?Q?OxoTSEpU4BxEeugxEHaNmzKJFsHZNKh9s1V0o2Zo4+Jq+5RAJtNx6LPEGvBn?=
- =?us-ascii?Q?GhbKavbqI7O1EefwbbN9aDKuQYRL2TiQ51JobNXjl5FxqCm2jTMBFCGmdiSM?=
- =?us-ascii?Q?0SRxIyE1WK15JJwJeEaTZ///0KDCD4fN3TuNsj79It3FUmWeETk54chpDEzV?=
- =?us-ascii?Q?iS9snB/7Z3K0anQ+C6KTLgSmYm+FSwXKtwN3WK8iGTJZ0cxwpDLIJSaObBHa?=
- =?us-ascii?Q?KtMpgu2zQq7RvwhT0mRKyn4jPMau/h87hfbvA/tzALpI19tstfuXQV8H161U?=
- =?us-ascii?Q?zvnXt00zrbnnNkQKt5Oe8swoT5kyRmXCrWClQZEPbQ601pTJvbaOBcSJzgTU?=
- =?us-ascii?Q?C58qwU43bm9clC9S2FJdD2CCbwrF+TqlMNRPIMoUtmE17Md4O+GxkdsVGu59?=
- =?us-ascii?Q?7B1RJA6RXitRw4SWVBzSOTlASDUCPl9Unt0MUu9lgMCYAPP9TjtHBztDlYls?=
- =?us-ascii?Q?VML1mK5JDPw7mNNnTbExQXI7Unfx9p/28xrKCLICis1JWpiHBGm+4uPOxHVG?=
- =?us-ascii?Q?8/SUbzp6Z902o9LsB4nQPzuKenqnXAWAPi6aZ6bTESs/KLypIlktuMNYf2ya?=
- =?us-ascii?Q?/sX/b2SpFkkmXeJCqb7q8eB4Ae2b0WjpGY4+1xsYfxIB8ut71V9yXH7tZkB6?=
- =?us-ascii?Q?PeXwVxw5FFJo7BCwaGFq14wlG0SztV7IZxwuTuoy9sGINZHOJiuDgJzLxSSg?=
- =?us-ascii?Q?VatpDZ/svuZTiWwi3NkfnOGkfquE+xOZKTyTuW55k2YPNQOuEWpPqJiE4fQO?=
- =?us-ascii?Q?LMH6W7nkksW8s1E4cowot1GBxbmykj944yn2kihx7NpOJ1NF13d2jogeqBF2?=
- =?us-ascii?Q?Sic6Jv9is0PZo8Wnf8od+kp62aBVZy+xWbPj/fxdquyRUR2vgM53C/L+zuOY?=
- =?us-ascii?Q?bi4Cy+VaVQb9wA1xrPUoOz+c1vMJyA70fQqFHPdEkmAsgmFkA+fdob+jo/hZ?=
- =?us-ascii?Q?Gl6G1SU5qyCHOQW0VIqbCWCYlStHaYdarbwi8R4gJ2m+covkOj6pa7M4FHTF?=
- =?us-ascii?Q?DSrRwK5ZqfXKgO5AyKNBx2KcqjMRcacvhVgjRK/O9DPT0kJd1f5zVukggvhq?=
- =?us-ascii?Q?Qb2ThJ9Aztd0CxKYVBNvibvyee6WWC/KRTRHozPyX9p4Zkina58OwVJlV43N?=
- =?us-ascii?Q?A1yG8H6RVrt3dT6QBsHLu8Ui5VASg7LZh20Lb1VXEbtliVhGK/oqbhhFUVGK?=
- =?us-ascii?Q?xOKd8WgzYpEmpjedA1pBMRIkPib5S3hA7dhueLotM5gNY3t9FcJGO/SSPlOh?=
- =?us-ascii?Q?dyu3+nn2B+5l51LWzOprJdqqOK5OVFlHoBFpMGrz?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 18a6681d-8b7a-4dfb-df52-08de100917dd
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2025 18:47:17.5548
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EMpzJRKPYhzTvnFeJl49fJn+CXUYGKPTBtWG7GDi8ItdiWRCTplLMhYCDIyCXLPY
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6650
+In-Reply-To: <20251003195607.2009785-3-james.quinlan@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_114734_522129_55856AD4 
-X-CRM114-Status: GOOD (  14.77  )
+X-CRM114-CacheID: sfid-20251020_114834_901950_296E1C18 
+X-CRM114-Status: GOOD (  27.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,25 +80,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 12, 2025 at 04:57:41PM -0700, Nicolin Chen wrote:
-> The last gdev is the device that failed the __iommu_device_set_domain().
-> So, it doesn't need to be reverted, given it's attached to group->domain
-> already.
+On Fri, Oct 03, 2025 at 03:56:07PM -0400, Jim Quinlan wrote:
+> Whereas most PCIe HW returns 0xffffffff on illegal accesses and the like,
+> by default Broadcom's STB PCIe controller effects an abort.  Some SoCs --
+> 7216 and its descendants -- have new HW that identifies error details.
 > 
-> This is not a problem currently, since it's a simply re-attach. However,
-> the core will need to pass in the old domain to __iommu_device_set_domain
-> so the old domain pointers would be inconsistent between a failed device
-> and all its prior succeeded devices, as all the prior devices need to be
-> reverted.
+> This simple handler determines if the PCIe controller was the cause of the
+> abort and if so, prints out diagnostic info.  Unfortunately, an abort still
+> occurs.
 > 
-> Avoid the re-attach for the last gdev, by breaking before the revert.
+> Care is taken to read the error registers only when the PCIe bridge is
+> active and the PCIe registers are acceptable.  Otherwise, a "die" event
+> caused by something other than the PCIe could cause an abort if the PCIe
+> "die" handler tried to access registers when the bridge is off.
 > 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/iommu.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
+> Example error output:
+>   brcm-pcie 8b20000.pcie: Error: Mem Acc: 32bit, Read, @0x38000000
+>   brcm-pcie 8b20000.pcie:  Type: TO=0 Abt=0 UnspReq=1 AccDsble=0 BadAddr=0
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> +/* Error report registers */
+> +#define PCIE_OUTB_ERR_TREAT				0x6000
+> +#define  PCIE_OUTB_ERR_TREAT_CONFIG_MASK		0x1
+> +#define  PCIE_OUTB_ERR_TREAT_MEM_MASK			0x2
+> +#define PCIE_OUTB_ERR_VALID				0x6004
+> +#define PCIE_OUTB_ERR_CLEAR				0x6008
+> +#define PCIE_OUTB_ERR_ACC_INFO				0x600c
+> +#define  PCIE_OUTB_ERR_ACC_INFO_CFG_ERR_MASK		0x01
+> +#define  PCIE_OUTB_ERR_ACC_INFO_MEM_ERR_MASK		0x02
+> +#define  PCIE_OUTB_ERR_ACC_INFO_TYPE_64_MASK		0x04
+> +#define  PCIE_OUTB_ERR_ACC_INFO_DIR_WRITE_MASK		0x10
+> +#define  PCIE_OUTB_ERR_ACC_INFO_BYTE_LANES_MASK		0xff00
+> +#define PCIE_OUTB_ERR_ACC_ADDR				0x6010
+> +#define PCIE_OUTB_ERR_ACC_ADDR_BUS_MASK			0xff00000
+> +#define PCIE_OUTB_ERR_ACC_ADDR_DEV_MASK			0xf8000
+> +#define PCIE_OUTB_ERR_ACC_ADDR_FUNC_MASK		0x7000
+> +#define PCIE_OUTB_ERR_ACC_ADDR_REG_MASK			0xfff
+> +#define PCIE_OUTB_ERR_CFG_CAUSE				0x6014
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_TIMEOUT_MASK		0x40
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ABORT_MASK		0x20
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_UNSUPP_REQ_MASK	0x10
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_TIMEOUT_MASK	0x4
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_DISABLED_MASK	0x2
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_64BIT__MASK	0x1
+> +#define PCIE_OUTB_ERR_MEM_ADDR_LO			0x6018
+> +#define PCIE_OUTB_ERR_MEM_ADDR_HI			0x601c
+> +#define PCIE_OUTB_ERR_MEM_CAUSE				0x6020
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_TIMEOUT_MASK		0x40
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_ABORT_MASK		0x20
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_UNSUPP_REQ_MASK	0x10
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_ACC_DISABLED_MASK	0x2
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_BAD_ADDR_MASK		0x1
 
-Jason
+IMO "_MASK" is not adding anything useful to these names.  But I see
+there's a lot of precedent in this driver.
+
+>  #define  PCIE_RGR1_SW_INIT_1_PERST_MASK			0x1
+>  #define  PCIE_RGR1_SW_INIT_1_PERST_SHIFT		0x0
+>  
+> @@ -306,6 +342,8 @@ struct brcm_pcie {
+>  	bool			ep_wakeup_capable;
+>  	const struct pcie_cfg_data	*cfg;
+>  	bool			bridge_in_reset;
+> +	struct notifier_block	die_notifier;
+> +	struct notifier_block	panic_notifier;
+>  	spinlock_t		bridge_lock;
+>  };
+>  
+> @@ -1731,6 +1769,115 @@ static int brcm_pcie_resume_noirq(struct device *dev)
+>  	return ret;
+>  }
+>  
+> +/* Dump out PCIe errors on die or panic */
+> +static int _brcm_pcie_dump_err(struct brcm_pcie *pcie,
+
+What is the leading underscore telling me?  There's no
+brcm_pcie_dump_err() that we need to distinguish from.
+
+> +			       const char *type)
+> +{
+> +	void __iomem *base = pcie->base;
+> +	int i, is_cfg_err, is_mem_err, lanes;
+> +	char *width_str, *direction_str, lanes_str[9];
+> +	u32 info, cfg_addr, cfg_cause, mem_cause, lo, hi;
+> +	unsigned long flags;
+> +
+> +	spin_lock_irqsave(&pcie->bridge_lock, flags);
+> +	/* Don't access registers when the bridge is off */
+> +	if (pcie->bridge_in_reset || readl(base + PCIE_OUTB_ERR_VALID) == 0) {
+> +		spin_unlock_irqrestore(&pcie->bridge_lock, flags);
+> +		return NOTIFY_DONE;
+> +	}
+> +
+> +	/* Read all necessary registers so we can release the spinlock ASAP */
+> +	info = readl(base + PCIE_OUTB_ERR_ACC_INFO);
+> +	is_cfg_err = !!(info & PCIE_OUTB_ERR_ACC_INFO_CFG_ERR_MASK);
+> +	is_mem_err = !!(info & PCIE_OUTB_ERR_ACC_INFO_MEM_ERR_MASK);
+> +	if (is_cfg_err) {
+> +		cfg_addr = readl(base + PCIE_OUTB_ERR_ACC_ADDR);
+> +		cfg_cause = readl(base + PCIE_OUTB_ERR_CFG_CAUSE);
+> +	}
+> +	if (is_mem_err) {
+> +		mem_cause = readl(base + PCIE_OUTB_ERR_MEM_CAUSE);
+> +		lo = readl(base + PCIE_OUTB_ERR_MEM_ADDR_LO);
+> +		hi = readl(base + PCIE_OUTB_ERR_MEM_ADDR_HI);
+> +	}
+> +	/* We've got all of the info, clear the error */
+> +	writel(1, base + PCIE_OUTB_ERR_CLEAR);
+> +	spin_unlock_irqrestore(&pcie->bridge_lock, flags);
+> +
+> +	dev_err(pcie->dev, "reporting data on PCIe %s error\n", type);
+
+Looks like this isn't included in the example error output.  Not a big
+deal in itself, but logging this:
+
+  brcm-pcie 8b20000.pcie: reporting data on PCIe Panic error
+
+suggests that we know this panic was directly *caused* by PCIe, and
+I'm not sure the fact that somebody called panic() and
+PCIE_OUTB_ERR_VALID was non-zero is convincing evidence of that.
+
+I think this relies on the assumptions that (a) the controller
+triggers an abort and (b) the abort handler calls panic().  So I think
+this logs useful information that *might* be related to the panic.
+
+I'd rather phrase this with a little less certainty, to convey the
+idea that "here's some PCIe error information that might be related to
+the panic/die".
+
+> +	width_str = (info & PCIE_OUTB_ERR_ACC_INFO_TYPE_64_MASK) ? "64bit" : "32bit";
+> +	direction_str = (info & PCIE_OUTB_ERR_ACC_INFO_DIR_WRITE_MASK) ? "Write" : "Read";
+> +	lanes = FIELD_GET(PCIE_OUTB_ERR_ACC_INFO_BYTE_LANES_MASK, info);
+> +	for (i = 0, lanes_str[8] = 0; i < 8; i++)
+> +		lanes_str[i] = (lanes & (1 << i)) ? '1' : '0';
+> +
+> +	if (is_cfg_err) {
+> +		int bus = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_BUS_MASK, cfg_addr);
+> +		int dev = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_DEV_MASK, cfg_addr);
+> +		int func = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_FUNC_MASK, cfg_addr);
+> +		int reg = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_REG_MASK, cfg_addr);
+> +
+> +		dev_err(pcie->dev, "Error: CFG Acc, %s, %s, Bus=%d, Dev=%d, Fun=%d, Reg=0x%x, lanes=%s\n",
+
+Why are we printing bus and dev with %d?  Can we use the usual format
+("%04x:%02x:%02x.%d") so it matches other logging?
+
+> +			width_str, direction_str, bus, dev, func, reg, lanes_str);
+> +		dev_err(pcie->dev, " Type: TO=%d Abt=%d UnsupReq=%d AccTO=%d AccDsbld=%d Acc64bit=%d\n",
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_TIMEOUT_MASK),
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ABORT_MASK),
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_UNSUPP_REQ_MASK),
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_TIMEOUT_MASK),
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_DISABLED_MASK),
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_64BIT__MASK));
+> +	}
+> +
+> +	if (is_mem_err) {
+> +		u64 addr = ((u64)hi << 32) | (u64)lo;
+> +
+> +		dev_err(pcie->dev, "Error: Mem Acc, %s, %s, @0x%llx, lanes=%s\n",
+> +			width_str, direction_str, addr, lanes_str);
+> +		dev_err(pcie->dev, " Type: TO=%d Abt=%d UnsupReq=%d AccDsble=%d BadAddr=%d\n",
+> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_TIMEOUT_MASK),
+> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_ABORT_MASK),
+> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_UNSUPP_REQ_MASK),
+> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_ACC_DISABLED_MASK),
+> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_BAD_ADDR_MASK));
+> +	}
+> +
+> +	return NOTIFY_OK;
+
+What is the difference between NOTIFY_DONE and NOTIFY_OK?  Can the
+caller do anything useful based on the difference?
+
+This seems like opportunistic error information that isn't definitely
+definitely connected to anything, so I'm not sure returning different
+values is really reliable.
 
