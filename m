@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA88CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 13:46:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A609CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 13:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NWcxiyUnH+GCuZQzCUqbz2uG3U/Ek9WtMP6FsoEVRQ0=; b=NdsFTlj2FCd7LoF/Si6f051rBR
-	pfmAXOJteZ9nTVlQx16QfvwFGewVZ3sjWkoil4CPpjCZNaeVbUJzywXzSt/9sBF7Q6K2PGYYlKl3Q
-	7Kul3b7h0lCWGTSSrzK4MaMrlTuUW5gHHY26UR/cwwdxGi+/Vg1WKf9h8iy9hbHU1put1ZJgC9rSq
-	I+9favPOUK//zma70F4pJRPA2Z3V5LuzKBp0PoqP8ciHfQVHjx4gMenHhheJ8Prr6Z1bKDuClrC3O
-	chdEC4ljXp3l2OUI2xmmU1T2Q3htNsgBLQKdbaM3MlcZd/V3ZdmTgrjeNF9Ka047nLFTeZzrTjkI/
-	4cF9mPxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+oJhR7TQR33Hs7zmN9Ew/2XEnO2MDjLO5t6uKC++Vuk=; b=g3AYzt0aDXhUoB3hkPBLHVOB0S
+	tlqA4jBefSQiFNc1Y3gqEz6Gs9uy2mH96yi8vSyhDtE/pxp2T8l7SCJxHzJ47bVwpmKvEpIMk8oEF
+	8lz7t8R3TfpNR0en94elQAgeRrnjgUiP6jsxCUTDIVRCTv7kiYhRaqMcsRGVhsUbqBsRDn7GnYPBs
+	xbw32bjqWMiMHZDbINzHAMzlIKYSbc88PXb8cmQggPESwZOyex+t7ZisDMV0o1s3i25V822rD9Ym1
+	jFRurjRZYv9i/hXruSUw4vq34UEGaBpNSR0N+w+d7UgG8C+YNUJUmfBeLEmKoJQghEuYtyp+lu4be
+	5kpXvCXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAqDG-0000000DqD5-1oyM;
-	Mon, 20 Oct 2025 13:46:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAqDF-0000000DqCP-0Vu4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 13:46:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B21A61F6F;
-	Mon, 20 Oct 2025 13:46:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F4AFC113D0;
-	Mon, 20 Oct 2025 13:46:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760967971;
-	bh=KtOvr2CT2ZJfd+Wdd1NhPf0C0AhFoUXbwiHFwdYHSkQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b4s8JzE4+w9MiKIIMzTbYJec56T4vfL+sBHbkRo0o1iACbS9wjydWznV7ooaim84T
-	 AKDL0vLzOM8yb/W4hRv/4WjZeCAr0JofCsF5mRHU4zjF4I/l0bJNjE2kVjtl8XtS1n
-	 3c7YLb1hTKZWlKyGRfN1OyyZOkWF2vHmKUfwjPu0oxZJAo6+VicMbOt1NAWBgsvWBp
-	 ZLp5eXyYy4Cx+XQAm3JO2PY9EPYAMNzOh8OxVj/UBSIGpUHtbFi0aHaZNm9ZmqdJjY
-	 HrtmtrZHWkgXtfIcv63PhDcSgN2qIXNK5DYiKAjxRzN4RZjgMSNUHtBKtI5lj0PdNC
-	 /7dkyBEb9Ks3g==
-Date: Mon, 20 Oct 2025 14:46:07 +0100
-From: Simon Horman <horms@kernel.org>
-To: Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>, David Miller <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	Russell King - ARM Linux <linux@armlinux.org.uk>,
-	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 net-next] net: stmmac: mdio: use phy_find_first to
- simplify stmmac_mdio_register
-Message-ID: <aPY9H0zTwhCWTmXK@horms.kernel.org>
-References: <20ca4962-9588-40b8-b021-fb349a92e9e5@gmail.com>
+	id 1vAqEj-0000000DqbI-08s6;
+	Mon, 20 Oct 2025 13:47:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAqEg-0000000DqZX-1wXb;
+	Mon, 20 Oct 2025 13:47:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4FCBA16A3;
+	Mon, 20 Oct 2025 06:47:30 -0700 (PDT)
+Received: from [10.57.36.117] (unknown [10.57.36.117])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF81F3F66E;
+	Mon, 20 Oct 2025 06:47:32 -0700 (PDT)
+Message-ID: <ef6434a9-cde5-4d68-a3a3-1873ba7912d3@arm.com>
+Date: Mon, 20 Oct 2025 14:47:30 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20ca4962-9588-40b8-b021-fb349a92e9e5@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 4/5] drm/panthor: Use existing OPP table if present
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Chia-I Wu <olvaffe@gmail.com>,
+ Chen-Yu Tsai <wenst@chromium.org>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-hardening@vger.kernel.org, linux-pm@vger.kernel.org
+References: <20251017-mt8196-gpufreq-v8-0-98fc1cc566a1@collabora.com>
+ <20251017-mt8196-gpufreq-v8-4-98fc1cc566a1@collabora.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20251017-mt8196-gpufreq-v8-4-98fc1cc566a1@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251020_064742_617977_F2D7880E 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,57 +78,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 18, 2025 at 08:48:07PM +0200, Heiner Kallweit wrote:
+On 17/10/2025 16:31, Nicolas Frattaroli wrote:
+> On SoCs where the GPU's power-domain is in charge of setting performance
+> levels, the OPP table of the GPU node will have already been populated
+> during said power-domain's attach_dev operation.
+> 
+> To avoid initialising an OPP table twice, only set the OPP regulator and
+> the OPPs from DT if there's no OPP table present.
+> 
+> Reviewed-by: Chia-I Wu <olvaffe@gmail.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-...
+Reviewed-by: Steven Price <steven.price@arm.com>
 
-> @@ -668,41 +669,31 @@ int stmmac_mdio_register(struct net_device *ndev)
-
-...
-
-> +	phydev = phy_find_first(new_bus);
-> +	if (!phydev || phydev->mdio.addr > max_addr) {
-
-Hi Heiner,
-
-Depending on logic earlier in this function max_addr may be PHY_MAX_ADDR (32).
-
->  		dev_warn(dev, "No PHY found\n");
->  		err = -ENODEV;
->  		goto no_phy_found;
+> ---
+>  drivers/gpu/drm/panthor/panthor_devfreq.c | 32 ++++++++++++++++++++++---------
+>  1 file changed, 23 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/drm/panthor/panthor_devfreq.c
+> index a6dca599f0a5..ec63e27f4883 100644
+> --- a/drivers/gpu/drm/panthor/panthor_devfreq.c
+> +++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
+> @@ -141,6 +141,7 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
+>  	struct thermal_cooling_device *cooling;
+>  	struct device *dev = ptdev->base.dev;
+>  	struct panthor_devfreq *pdevfreq;
+> +	struct opp_table *table;
+>  	struct dev_pm_opp *opp;
+>  	unsigned long cur_freq;
+>  	unsigned long freq = ULONG_MAX;
+> @@ -152,17 +153,30 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
+>  
+>  	ptdev->devfreq = pdevfreq;
+>  
+> -	ret = devm_pm_opp_set_regulators(dev, reg_names);
+> -	if (ret && ret != -ENODEV) {
+> -		if (ret != -EPROBE_DEFER)
+> -			DRM_DEV_ERROR(dev, "Couldn't set OPP regulators\n");
+> -		return ret;
+> +	/*
+> +	 * The power domain associated with the GPU may have already added an
+> +	 * OPP table, complete with OPPs, as part of the platform bus
+> +	 * initialization. If this is the case, the power domain is in charge of
+> +	 * also controlling the performance, with a set_performance callback.
+> +	 * Only add a new OPP table from DT if there isn't such a table present
+> +	 * already.
+> +	 */
+> +	table = dev_pm_opp_get_opp_table(dev);
+> +	if (IS_ERR_OR_NULL(table)) {
+> +		ret = devm_pm_opp_set_regulators(dev, reg_names);
+> +		if (ret && ret != -ENODEV) {
+> +			if (ret != -EPROBE_DEFER)
+> +				DRM_DEV_ERROR(dev, "Couldn't set OPP regulators\n");
+> +			return ret;
+> +		}
+> +
+> +		ret = devm_pm_opp_of_add_table(dev);
+> +		if (ret)
+> +			return ret;
+> +	} else {
+> +		dev_pm_opp_put_opp_table(table);
 >  	}
 >  
-> +	/*
-> +	 * If an IRQ was provided to be assigned after
-> +	 * the bus probe, do it here.
-> +	 */
-> +	if (!mdio_bus_data->irqs && mdio_bus_data->probed_phy_irq > 0) {
-> +		new_bus->irq[phydev->mdio.addr] = mdio_bus_data->probed_phy_irq;
+> -	ret = devm_pm_opp_of_add_table(dev);
+> -	if (ret)
+> -		return ret;
+> -
+>  	spin_lock_init(&pdevfreq->lock);
+>  
+>  	panthor_devfreq_reset(pdevfreq);
+> 
 
-And new_bus->irq is an array with PHY_MAX_ADDR elements.
-
-So if phydev->mdio.addr and max_addr are both PHY_MAX_ADDR,
-then the if condition above my first comment will not be met,
-and it seems that the access would irq[] may overflow.
-
-Perhaps this can't occur. But It does seem worth bringing to your attention.
-
-Flagged by Smatch.
-
-> +		phydev->irq = mdio_bus_data->probed_phy_irq;
-> +	}
-> +
-> +	/*
-> +	 * If we're going to bind the MAC to this PHY bus, and no PHY number
-> +	 * was provided to the MAC, use the one probed here.
-> +	 */
-> +	if (priv->plat->phy_addr == -1)
-> +		priv->plat->phy_addr = phydev->mdio.addr;
-> +
-> +	phy_attached_info(phydev);
-> +
->  bus_register_done:
->  	priv->mii = new_bus;
-
-...
 
