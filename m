@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AD29CCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F71CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9UqRyhTuWMPJUwu1Z1uPslo1yvarlL6qIoBqc8OuwVs=; b=3ZsZ8h1OKpIHTL8n8gLjp2rRod
-	egpds9R8Uug098GYlMe46NqkYaqBm6NU/gbKioXe1kMhXOQbdAhov4mrpsf1eM4qeWWvDkMcSk79n
-	nFLDB9S9lhGKd9wwHWGsds/1cunffH0CwleFyCVAgVMZPqerlGHXcPmI29EdjY2n2Y+e3GncT9pJc
-	7kpvuntjFt6N1UuMb/JNA/DoVr6VR4oHbKROG/4OnldNC/LdW3ebFxjLquymLUpNw6ZuXI10DvwzE
-	KmPd1EaZG2dnZQ+W3rV1qkgV3xYXlaBXS7QojYU0k7y7BBykDa9cdVhLfAg+vphVHH0fjn0uvmUCv
-	kNEzCw3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q/66rxPnbpYQFlS+dv6XaKdv0wxHBu0ZyFSkv14gaLg=; b=UXJGpP3k+Ig18SgyROR0pbKVeL
+	O9zuBPaK9pb0ZQtR/me5vHIu5WWHvOqZTjXHTrnsprqqL+HehlwlxqBvj3IGvkbNjaqsQVSa5CzmK
+	aMWgzMWxUfxxS6GzIRilQYbi1C9oc3/OKaFiv/JED+Dp9g62+E5+tSjOriNZX54Rd4Q7bFefKWPtX
+	vMBdBirUgEXG++DX+fckZRmUEEA7mEAIJMe7IkYxDHyhX8orFapDGifSVSd8XOQsAuO2c7zcnK4Ji
+	s63XaK4alKpXGu2P62SiX9X82o88MNWOui4O6/icHh4HpBLKZbi4LD6XiNpnjP5EvG7VMw/Szdqvy
+	8eaezkdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtQF-0000000EQy2-25qF;
-	Mon, 20 Oct 2025 17:11:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vAtRJ-0000000ERqD-3NZL;
+	Mon, 20 Oct 2025 17:12:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtQ6-0000000EQqI-2Vjk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 20 Oct 2025 17:11:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=9UqRyhTuWMPJUwu1Z1uPslo1yvarlL6qIoBqc8OuwVs=; b=lDOh0/QSCI7nXkNAnpBH7oxdOR
-	uNDL4sxCW+XpGPjQaeQv7E0RUNNfcCSSbL0wnul9vqSmGY09bfkR1GvqvvyFe+CMIo1Es36xPl0Fv
-	BH3kL/znG8gHVEpGUAR+SnuDFlf8GaL8oCe31xu4Uj1Kws+aT0150fcXygi4W0ee4k56Z+SqXRXOI
-	bkmXVUvAuyWKvKB1Zo0wuJH42yq5BJ+rIJbmw2+OqHNoNdJ9WClcr4ujlfmHY9YE5TzjA4VrKk7HN
-	N/RCfKCIKQJJtK3VwBosVkGFD73+mmJ+beEf3ehGfszOrRcR7C6NlC3cihWKyKstbsBaj/DW+Fj+l
-	lRlB224Q==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAsYL-0000000025I-3THC
+	id 1vAtRI-0000000ERpa-3HOF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 16:16:13 +0000
+	Mon, 20 Oct 2025 17:12:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 72B7D43447;
-	Mon, 20 Oct 2025 17:11:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B395C4CEF9;
-	Mon, 20 Oct 2025 17:11:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 04451602AE;
+	Mon, 20 Oct 2025 17:12:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F140C4CEF9;
+	Mon, 20 Oct 2025 17:12:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760980280;
-	bh=TJPYa24Z5KTj/XUQBDA+4muq/sKdsaWSFY+S+sPkdkw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=RTQz/DbS3nDJtiW0gDdrU4/D+mk33QWYGezbsuDwSgW+xyVGsCuE7m2lbKyKoZDYg
-	 Qxd2TUg5S8DD4fruNkVcz6j9K2v0gJFpE6uo4SZaiwN6gkdyVwLfkaneT53r5mDLH7
-	 WoUBvzrF4qdszKMcVpagSm4DAFS+/vF12j6AL74W6f3HsqSeqZ3cfBsFgCvUocr291
-	 Q84eyOe8eHgi1cUIQiImKIl+am2qIMJjFA3bkyY05VTwx/oHMC06eQm5Aq1xnKVWUt
-	 odkOIZ8CHk2n+GNqzHgdEF7a5pMxYN0hWChZwXnFGS4LMAX5WhEe+eSD+gJ7lXcQdw
-	 MLoZ4bYpOegMA==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 1D6D45FDC3; Tue, 21 Oct 2025 01:11:18 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Mark Brown <broonie@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>
-Cc: linux-sunxi@lists.linux.dev,
-	linux-sound@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 00/11] allwinner: a523: Enable I2S and SPDIF TX
-Date: Tue, 21 Oct 2025 01:10:46 +0800
-Message-ID: <20251020171059.2786070-1-wens@kernel.org>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_171610_215911_F8ED787F 
-X-CRM114-Status: GOOD (  17.01  )
+	s=k20201202; t=1760980375;
+	bh=dwqtHQVfFZjxcm6Jo6c9XdBZqKfCUiwIrZyMMZjil70=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oaX3CypquTs6LmNjpxP0M7JcbmHhYPQkPrndJisq3Mq5CS4ChGkC6d2iyFuzYgjFS
+	 64GozyDfDWKZP+/igTX/fcUZXzI4pcNfgW9fwPpl6zAywwv0qC02O3C/Ol3CpyiMpO
+	 O5SaVua+JTHSQs4CLFzE5hfP3RiUb/AODW/Ml2QFKd2dwKdnT42DH1CkSRBTDd9LvI
+	 ys0G1HfP32V+N7vDdT/eoBlMxujAAsZ0iNZhYPC+dpAbJFa30tA/JfSSXCVf9snOQo
+	 lDwXn4jP5OHGXofzGV0kdwoCznluMpaz+Hrq8PIHlPAA9y7tVVYEkSqr2PajDz3jb0
+	 2MhbnFI9/8M4Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vAtRF-0000000FaSv-2Qhv;
+	Mon, 20 Oct 2025 17:12:53 +0000
+Date: Mon, 20 Oct 2025 18:12:53 +0100
+Message-ID: <86h5vtwl7u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	kasan-dev@googlegroups.com,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [RFC PATCH 14/16] arm64/insn: always inline aarch64_insn_encode_ldst_size()
+In-Reply-To: <20250923174903.76283-15-ada.coupriediaz@arm.com>
+References: <20250923174903.76283-1-ada.coupriediaz@arm.com>
+	<20250923174903.76283-15-ada.coupriediaz@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ada.coupriediaz@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, ardb@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kasan-dev@googlegroups.com, mark.rutland@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,85 +96,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+On Tue, 23 Sep 2025 18:49:01 +0100,
+Ada Couprie Diaz <ada.coupriediaz@arm.com> wrote:
+> 
+> The type and instruction checks cannot be made at compile time,
+> as they are dynamically created. However, we can remove the error print
+> as it should never appear in normal operation and will still lead to
+> a fault BRK.
+> 
+> This makes `aarch64_insn_encode_ldst_size()` safe for inlining
+> and usage from patching callbacks.
+> 
+> This is a change of visiblity, as previously the function was private to
+> lib/insn.c.
+> However, in order to inline more `aarch64_insn_` functions and make
+> patching callbacks safe, it needs to be accessible by those functions.
+> As it is more accessible than before, add a check so that only loads
+> or stores can be affected by the size encoding.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> ---
+>  arch/arm64/include/asm/insn.h | 24 ++++++++++++++++++++++++
+>  arch/arm64/lib/insn.c         | 19 +------------------
+>  2 files changed, 25 insertions(+), 18 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+> index 44435eede1f3..46d4d452e2e2 100644
+> --- a/arch/arm64/include/asm/insn.h
+> +++ b/arch/arm64/include/asm/insn.h
+> @@ -717,6 +717,30 @@ static __always_inline u32 aarch64_insn_encode_immediate(
+>  
+>  	return insn;
+>  }
+> +
+> +extern const u32 aarch64_insn_ldst_size[];
+> +static __always_inline u32 aarch64_insn_encode_ldst_size(
+> +					 enum aarch64_insn_size_type type,
+> +					 u32 insn)
+> +{
+> +	u32 size;
+> +
+> +	if (type < AARCH64_INSN_SIZE_8 || type > AARCH64_INSN_SIZE_64) {
+> +		return AARCH64_BREAK_FAULT;
+> +	}
+> +
+> +	/* Don't corrput the top bits of other instructions which aren't a size. */
+> +	if (!aarch64_insn_is_ldst(insn)) {
+> +		return AARCH64_BREAK_FAULT;
+> +	}
+> +
+> +	size = aarch64_insn_ldst_size[type];
 
-This series enables the SPDIF and I2S hardware found on the Allwinner
-A523/A527/T527 family SoCs. These SoCs have one SPDIF interface and
-four I2S interfaces. All of them are capable of both playback and
-capture, however the SPDIF driver only supports playback.
+Given that we have this:
 
-The series is organized by subsystem, so each maintainer can find the
-patches they need to take.
+	enum aarch64_insn_size_type {
+		AARCH64_INSN_SIZE_8,
+		AARCH64_INSN_SIZE_16,
+		AARCH64_INSN_SIZE_32,
+		AARCH64_INSN_SIZE_64,
+	};
 
-Patch 1 adds SoC/hardware specific compatibles for the two DMA
-controllers in the A523 SoC.
+[...]
 
-Patch 2 adds an SoC specific compatible for the I2S interface
-controllers in the A523 SoC.
+> +	insn &= ~GENMASK(31, 30);
+> +	insn |= size << 30;
+> +
+> +	return insn;
+> +}
+> +
+>  static __always_inline u32 aarch64_insn_encode_register(
+>  				 enum aarch64_insn_register_type type,
+>  				 u32 insn,
+> diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
+> index 71df4d72ac81..63564d236235 100644
+> --- a/arch/arm64/lib/insn.c
+> +++ b/arch/arm64/lib/insn.c
+> @@ -42,30 +42,13 @@ u64 aarch64_insn_decode_immediate(enum aarch64_insn_imm_type type, u32 insn)
+>  	return (insn >> shift) & mask;
+>  }
+>  
+> -static const u32 aarch64_insn_ldst_size[] = {
+> +const u32 aarch64_insn_ldst_size[] = {
+>  	[AARCH64_INSN_SIZE_8] = 0,
+>  	[AARCH64_INSN_SIZE_16] = 1,
+>  	[AARCH64_INSN_SIZE_32] = 2,
+>  	[AARCH64_INSN_SIZE_64] = 3,
+>  };
 
-Patch 3 adds an SoC specific compatible for the SPDIF interface
-controller in the A523 SoC.
+[...] this array is completely superfluous, and
 
-Patch 4 adds driver support for the SPDIF interface.
+	size = aarch64_insn_ldst_size[type];
 
-Patch 5 marks a clock related to the DMA controller as critical. The
-docs are quite vague on how this particular clock gate ties in with
-the other memory bus gate that the DMA controller needs.
+could be replaced by
 
-Patch 6 tweaks the software lower limit of the audio PLL.
+	size = type;
 
-Patch 7 adds devices nodes for the DMA controllers.
+But that's only a very minor improvement. On the plus side, your
+approach definitely makes it impossible to add a patching callback
+using aarch64_insn_encode_ldst_size() in a module!
 
-Patch 8 adds a devices node for the SPDIF interface controller.
+Thanks,
 
-Patch 9 adds device nodes for the I2S interface controllers.
-
-Patch 10 adds one set of pinmux settings for I2S2.
-
-Patch 11 is what I used to test the changes, and serves as an example
-for how to use these new interfaces.
-
-
-Patch 1 can go through the dmaengine tree, or I can take it through the
-sunxi tree.
-
-Patches 2 through 4 should go through the ASoC tree.
-
-The rest, except the example, will go through the sunxi tree.
-
-
-Please take a look.
-
-
-Thanks
-ChenYu
-
-
-Chen-Yu Tsai (11):
-  dt-bindings: dma: allwinner,sun50i-a64-dma: Add compatibles for A523
-  ASoC: dt-bindings: allwinner,sun4i-a10-i2s: Add compatible for A523
-  ASoC: dt-bindings: allwinner,sun4i-a10-spdif: Add compatible for A523
-  ASoC: sun4i-spdif: Support SPDIF output on A523 family
-  clk: sunxi-ng: sun55i-a523-r-ccu: Mark bus-r-dma as critical
-  clk: sunxi-ng: sun55i-a523-ccu: Lower audio0 pll minimum rate
-  arm64: dts: allwinner: a523: Add DMA controller device nodes
-  arm64: dts: allwinner: a523: Add device node for SPDIF block
-  arm64: dts: allwinner: a523: Add device nodes for I2S controllers
-  arm64: dts: allwinner: a523: Add I2S2 pins on PI pin group
-  [EXAMPLE] arm64: dts: allwinner: a527-cubie-a5e: Enable I2S and SPDIF
-    output
-
- .../dma/allwinner,sun50i-a64-dma.yaml         |   5 +-
- .../sound/allwinner,sun4i-a10-i2s.yaml        |   4 +-
- .../sound/allwinner,sun4i-a10-spdif.yaml      |  44 +++++-
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 135 ++++++++++++++++++
- .../dts/allwinner/sun55i-a527-cubie-a5e.dts   |  52 +++++++
- drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c      |   2 +-
- drivers/clk/sunxi-ng/ccu-sun55i-a523.c        |   2 +-
- sound/soc/sunxi/sun4i-spdif.c                 |  28 +++-
- 8 files changed, 259 insertions(+), 13 deletions(-)
+	M.
 
 -- 
-2.47.3
-
+Without deviation from the norm, progress is not possible.
 
