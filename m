@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4CACCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD2FCCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O08ZQU7nzCm/CtBp+vh3SNifDt7t1M3uvSj4nDW/Pxk=; b=vY3MqW0HccAJfPbOfMCm3Mo2x2
-	aY2epzJ39bWoGd4qwuc17tvOw9cPcI5KqWOlsnaEmG9TTy2BA9q/u3H94sAFi8DfQTnMPOVi8cxxw
-	DbXHo1GulLAp+/8KxZf/SoNu7zqQQjlt0xl0e+BzJGQBi5Cy1PbYq7/wKhROb4b/7E6QRJUZ6MD3B
-	7HW0Xd6R6vSOFpnqcxGSoKqtPpQd8vf5OZsJDCEkhXXs1TQBrxLubsTwCwMnbgDus5i3ufd2bMSFP
-	EGSMmDRGFAsOqhSq2xtSwaPvYx2FvT4e3kunTegW2/ZQocls1qIPO9vFfZonp5sBIRe1tejSDn0Ta
-	zZI5RVbw==;
+	bh=RRPaMbfJAZI7RCNqN6ObTFqj0JMSPmSj/5WzMmnBcMY=; b=EXbP0YOTJ0NBg9oy1pDhGX2T4F
+	vG8loDZRxbETjTIwf+zXywxleVp2P+3hoVrzFhVLyitDiYYI++xw0NTlco9haGQaBkSXgJo80KIMU
+	ADuMb9AKy+avVNPAcb+91N2orloU1a0fMErWsSC7dOqy4kBPRtnNmFoQmTcSl+yFKfavvLO5GqHgR
+	sK4Q9GVceAYVXiYVvZqxYhb6vDn3DQiiIL/nEuIt5CcLWGOjyzxzKTa/GvMTdfL6/jom7zmZ6fvcO
+	Wp8jPQHHzMjJ0rr0hj7LvtycVaZ7Za0cFhCed6zvVLZhJUpUVlYD8sFdXBkW7/Gohk91505q8sW5F
+	+gXfn50w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmu7-0000000Cn0F-0HDf;
-	Mon, 20 Oct 2025 10:14:15 +0000
+	id 1vAmuF-0000000CnAw-1Q1z;
+	Mon, 20 Oct 2025 10:14:23 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmtv-0000000Cmgh-0vwU
+	id 1vAmtw-0000000CmiA-3FWU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 10:14:04 +0000
+	Mon, 20 Oct 2025 10:14:06 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B6DCF4E411F4;
-	Mon, 20 Oct 2025 10:14:01 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 4AE334E411F3;
+	Mon, 20 Oct 2025 10:14:03 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8CD3A606D5;
-	Mon, 20 Oct 2025 10:14:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 045D3102F23BA;
-	Mon, 20 Oct 2025 12:13:58 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1A7F2606D5;
+	Mon, 20 Oct 2025 10:14:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BFB4E102F23BB;
+	Mon, 20 Oct 2025 12:14:00 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760955240; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1760955242; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=O08ZQU7nzCm/CtBp+vh3SNifDt7t1M3uvSj4nDW/Pxk=;
-	b=FPONONTu17DwjtFqnXc2CrtRVoFYP3Z81o35ENOszAxPICHAYiYlmpSFlBqtMJJTxAADye
-	LjORyswaTFoo3p4deGa0ec0V0qtrz0fNgEvpmCjwOHUhq0QX85bI+YdfUUR8jkPMiY0u0F
-	ilj70weAte5mxiRn+N8+vQUZF6AZXIqT0gLh6NJl60h134joxd0XLm1DybV4ceZWzA623R
-	jDddQn4sRbQuFQdUyVG3rK5G0EU5scwMMQV++vLxUrFyCBWHOc4/i3slBwr74gALWja+nf
-	gCHJy0OQkRQyZTb+nsZ1FYy+NFRRrhR7GAry/a3fOVLVoZee8FVSHXMAllxZjg==
+	bh=RRPaMbfJAZI7RCNqN6ObTFqj0JMSPmSj/5WzMmnBcMY=;
+	b=vOoGI1qw7DlFId+6s4UIXGc8HxyTrsHYuV+RFf09g+/FQJWRrRh7G9peN4Vl0fMHBR52bt
+	bfAYo8SdagcwSN3yYknuv9a8nneVVLjFnetXoaesAIhT3+cXS+RuZr2LdYLvbXDg3MMoc9
+	+tKEOv5iLN55QQxB4Xhdv9TQx0BfuzaMso9qFBq6u0VrM/c1Uc6Vqy/WgzYm8ffEt1VvYZ
+	Mah0BCuBi94fxM48rmVZKAKYa9nnch7xXYUNdBgmR73uddi5ampY10RQUXdhlMwanpJEcH
+	MPE0mSlxbIluXNb6vXOqn7JlDVVeozVm7jVXKhWtm4PEZVuZHKkGXm91Bj8xbQ==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	Richard Weinberger <richard@nod.at>,
@@ -65,9 +65,9 @@ Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v3 08/15] mtd: rawnand: sunxi: introduce random en/dir in sunxi_nfc_caps
-Date: Mon, 20 Oct 2025 12:13:04 +0200
-Message-ID: <20251020101311.256819-9-richard.genoud@bootlin.com>
+Subject: [PATCH v3 09/15] mtd: rawnand: sunxi: introduce reg_pat_id in sunxi_nfc_caps
+Date: Mon, 20 Oct 2025 12:13:05 +0200
+Message-ID: <20251020101311.256819-10-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251020101311.256819-1-richard.genoud@bootlin.com>
 References: <20251020101311.256819-1-richard.genoud@bootlin.com>
@@ -75,8 +75,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_031403_408227_E1E109AC 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20251020_031405_233751_47A8C093 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,83 +91,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H6/H616 RANDOM EN/DIRECTION masks are different from A10/A23.
-So move the masks into sunxi_nfc_caps.
+The H6/H616 pattern ID register is not at the same offset as the
+A10/A23 one, so move its offset into sunxi_nfc_caps.
 
 No functional change.
 
 Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 ---
- drivers/mtd/nand/raw/sunxi_nand.c | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
+ drivers/mtd/nand/raw/sunxi_nand.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 4118307cac15..3ccb7ea7cf17 100644
+index 3ccb7ea7cf17..e8c08f0139d2 100644
 --- a/drivers/mtd/nand/raw/sunxi_nand.c
 +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -144,8 +144,8 @@
- #define NFC_ECC_EXCEPTION	BIT(4)
- #define NFC_ECC_BLOCK_SIZE_MSK	BIT(5)
- #define NFC_ECC_BLOCK_512	BIT(5)
--#define NFC_RANDOM_EN		BIT(9)
--#define NFC_RANDOM_DIRECTION	BIT(10)
-+#define NFC_RANDOM_EN(nfc)	(nfc->caps->random_en_mask)
-+#define NFC_RANDOM_DIRECTION(nfc) (nfc->caps->random_dir_mask)
- #define NFC_ECC_MODE_MSK(nfc)	(nfc->caps->ecc_mode_mask)
- #define NFC_ECC_MODE(nfc, x)	field_prep(NFC_ECC_MODE_MSK(nfc), (x))
- #define NFC_RANDOM_SEED_MSK	GENMASK(30, 16)
-@@ -228,6 +228,8 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
+@@ -55,7 +55,8 @@
+ #define NFC_REG_A10_USER_DATA	0x0050
+ #define NFC_REG_USER_DATA(nfc, x)	(nfc->caps->reg_user_data + ((x) * 4))
+ #define NFC_REG_SPARE_AREA	0x00A0
+-#define NFC_REG_PAT_ID		0x00A4
++#define NFC_REG_PAT_ID(nfc) (nfc->caps->reg_pat_id)
++#define NFC_REG_A10_PAT_ID	0x00A4
+ #define NFC_REG_MDMA_ADDR	0x00C0
+ #define NFC_REG_MDMA_CNT	0x00C4
+ #define NFC_RAM0_BASE		0x0400
+@@ -227,6 +228,7 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
+  * @reg_io_data:	I/O data register
   * @reg_ecc_err_cnt:	ECC error counter register
   * @reg_user_data:	User data register
++ * @reg_pat_id:		Pattern ID Register
   * @reg_pat_found:	Data Pattern Status Register
-+ * @random_en_mask:	RANDOM_EN mask in NFC_ECC_CTL register
-+ * @random_dir_mask:	RANDOM_DIRECTION mask in NFC_ECC_CTL register
-  * @ecc_mode_mask:	ECC_MODE mask in NFC_ECC_CTL register
-  * @pat_found_mask:	ECC_PAT_FOUND mask in NFC_REG_PAT_FOUND register
-  * @dma_maxburst:	DMA maxburst
-@@ -241,6 +243,8 @@ struct sunxi_nfc_caps {
+  * @random_en_mask:	RANDOM_EN mask in NFC_ECC_CTL register
+  * @random_dir_mask:	RANDOM_DIRECTION mask in NFC_ECC_CTL register
+@@ -242,6 +244,7 @@ struct sunxi_nfc_caps {
+ 	unsigned int reg_io_data;
  	unsigned int reg_ecc_err_cnt;
  	unsigned int reg_user_data;
++	unsigned int reg_pat_id;
  	unsigned int reg_pat_found;
-+	unsigned int random_en_mask;
-+	unsigned int random_dir_mask;
- 	unsigned int ecc_mode_mask;
- 	unsigned int pat_found_mask;
- 	unsigned int dma_maxburst;
-@@ -669,7 +673,7 @@ static void sunxi_nfc_randomizer_enable(struct nand_chip *nand)
- 	if (!(nand->options & NAND_NEED_SCRAMBLING))
- 		return;
+ 	unsigned int random_en_mask;
+ 	unsigned int random_dir_mask;
+@@ -803,7 +806,7 @@ static int sunxi_nfc_hw_ecc_correct(struct nand_chip *nand, u8 *data, u8 *oob,
+ 	if (pattern_found & BIT(step)) {
+ 		u8 pattern;
  
--	writel(readl(nfc->regs + NFC_REG_ECC_CTL) | NFC_RANDOM_EN,
-+	writel(readl(nfc->regs + NFC_REG_ECC_CTL) | NFC_RANDOM_EN(nfc),
- 	       nfc->regs + NFC_REG_ECC_CTL);
- }
- 
-@@ -680,7 +684,7 @@ static void sunxi_nfc_randomizer_disable(struct nand_chip *nand)
- 	if (!(nand->options & NAND_NEED_SCRAMBLING))
- 		return;
- 
--	writel(readl(nfc->regs + NFC_REG_ECC_CTL) & ~NFC_RANDOM_EN,
-+	writel(readl(nfc->regs + NFC_REG_ECC_CTL) & ~NFC_RANDOM_EN(nfc),
- 	       nfc->regs + NFC_REG_ECC_CTL);
- }
- 
-@@ -2220,6 +2224,8 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
+-		if (unlikely(!(readl(nfc->regs + NFC_REG_PAT_ID) & 0x1))) {
++		if (unlikely(!(readl(nfc->regs + NFC_REG_PAT_ID(nfc)) & 0x1))) {
+ 			pattern = 0x0;
+ 		} else {
+ 			pattern = 0xff;
+@@ -2223,6 +2226,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
+ 	.reg_io_data = NFC_REG_A10_IO_DATA,
  	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
  	.reg_user_data = NFC_REG_A10_USER_DATA,
++	.reg_pat_id = NFC_REG_A10_PAT_ID,
  	.reg_pat_found = NFC_REG_ECC_ST,
-+	.random_en_mask = BIT(9),
-+	.random_dir_mask = BIT(10),
- 	.ecc_mode_mask = GENMASK(15, 12),
- 	.pat_found_mask = GENMASK(31, 16),
- 	.dma_maxburst = 4,
-@@ -2234,6 +2240,8 @@ static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
+ 	.random_en_mask = BIT(9),
+ 	.random_dir_mask = BIT(10),
+@@ -2239,6 +2243,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
+ 	.reg_io_data = NFC_REG_A23_IO_DATA,
  	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
  	.reg_user_data = NFC_REG_A10_USER_DATA,
++	.reg_pat_id = NFC_REG_A10_PAT_ID,
  	.reg_pat_found = NFC_REG_ECC_ST,
-+	.random_en_mask = BIT(9),
-+	.random_dir_mask = BIT(10),
- 	.ecc_mode_mask = GENMASK(15, 12),
- 	.pat_found_mask = GENMASK(31, 16),
- 	.dma_maxburst = 8,
+ 	.random_en_mask = BIT(9),
+ 	.random_dir_mask = BIT(10),
 
