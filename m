@@ -4,67 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60D0CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:44:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 800FACCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AT8kvrM/pmB47OHQy99Ebe3K0Er153ALtlnbPz3lC68=; b=02V9JZqFd8l4bF+L0chcR+YrJY
-	wLTRZ6YVrVzkpS++wmNiEmgXDC+gGxtYxsx1jan3jOgD7xYX6I4phXwSKkNXrYpjXNGXbK8bl75fN
-	d1hcndW9t5RQRGGCs3VUNXbtqw/0gocDFuyL+sZO+/3xoVagVr4z0s/HCb1msmG75Wm+f8d4w4ckp
-	MjtHT9UzlbgcoATL7tPIy9Jo8T3LbVYcVVMCm6jekrRL1RIHPTVN2gvvWFmtB9Oj72puHI9J02Hn7
-	x/r4eDcRtvmNVBNiHv+R3c3TnfUSwePIisatbNde/2w1H002audFQAkRGvs+ZsqIMgE8rbOfMMgbe
-	7O3Z7MGA==;
+	bh=e9DE8Y4ELtbu9c+CGNbLoj5JLa2wZmUmqU0Hi3lY7mU=; b=F9Ya/RTEM43OvIHtvhq7Cadw5u
+	+UhycMnrCLqWiFl4vvEnltxQ2C22D5vP2xx1M6sUK4tYwlBa5dtpzZMkpz5vOhJ/7W7fHt32EmYr7
+	tEH/AWhwL/E5NRc1EgCCzgauukLsB3tuWRj1bIL7zCAcaD6f5M5uYkm/Fjf/qMtbj//SJLCqVgkrJ
+	4AsqvSu8lwCM8SAb8GL6eA1LlhdeRNcSjpHtiwPbUKeyM9ybbZJxSBPoDNJlgkO/2UR3nDeXV7oLP
+	+WCY6sCOGjqGWAJMIKrNs+ZtZwvnnQxlnx2c1UyTZkPR872iqAP1u60guvC2VQhjHBlbOALnlG3kw
+	kRH3bFtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAr7e-0000000Dzer-3bO1;
-	Mon, 20 Oct 2025 14:44:30 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vArA2-0000000E06H-1MBg;
+	Mon, 20 Oct 2025 14:46:58 +0000
+Received: from mail-eastus2azon11010065.outbound.protection.outlook.com ([52.101.56.65] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAr7c-0000000Dzdq-0oyM;
-	Mon, 20 Oct 2025 14:44:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=AT8kvrM/pmB47OHQy99Ebe3K0Er153ALtlnbPz3lC68=; b=MZzlvL561DhtDq2BnjgVNhw48X
-	LdAaF8ZhQcfaQgm+NAamiJkMr1WoA4Bu+vWxwcgA8s87SSytjOE920W12HnSzH968gx/MuzEGhHbD
-	cxjoHsx9T4BY87bsYn+dVVg21RLcSxSSZbHPwh/7s9VIQwrPjqWLzq1mshNxOI0TOHOscFvu+d8Sq
-	F8u1vl5xdWcg4gPAi9uiykIAgMyOVqoUA+jxcMMYASFvKKrhHMPFL0BNMUBxYkBFH+mLSmYOfHq0q
-	llao0jVA859vPzpB2Wgb3Sp+Zv9DYtQn369m9EtC0CggdZFfCJK2HoqdkAX5ODls1ZArzmC0j1iiq
-	PKgScYYw==;
-Received: from [212.111.240.218] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vAr7W-0002MH-Fu; Mon, 20 Oct 2025 16:44:22 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Alexey Charkov <alchark@gmail.com>, Algea Cao <algea.cao@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Cenk Uluisik <cenk.uluisik@googlemail.com>,
- Conor Dooley <conor+dt@kernel.org>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Jimmy Hon <honyuenkwun@gmail.com>, Kever Yang <kever.yang@rock-chips.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>,
- Muhammed Efe Cetin <efectn@6tel.net>, Ondrej Jirman <megi@xff.cz>,
- Rob Herring <robh@kernel.org>, Sandy Huang <hjc@rock-chips.com>
-Subject: Re: [PATCH v2 0/5] arm64: dts: rockchip: Add device tree for the Orange Pi
- CM5 Base board
-Date: Mon, 20 Oct 2025 16:44:21 +0200
-Message-ID: <2328202.iZASKD2KPV@phil>
-In-Reply-To: <20251005235542.1017-1-laurent.pinchart@ideasonboard.com>
-References: <20251005235542.1017-1-laurent.pinchart@ideasonboard.com>
+	id 1vAr9z-0000000E05S-40mK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Oct 2025 14:46:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cXrTx9KxnQPNDCzVnK+9b2AS7gw4mqXTEYGOAz3UZs6SpwNUBMqcFnX42XNitht4m87+qQO5BSJVda18Acw8nyYduclUKot2wwYJNXblNsq6zJUa6tP1Zl1vYj0cRitJCi7czQbpCeO8GcGLRRB3t+fRgmPRZKvHAuHNidLojaY/CHy5Upxilj2J6kw9NmCsnnA+/zKXTM9zn/EgWMr6ICInsePuDHLsEPwYbW6BpoXi0QHoziOE7/JN+BdCMVaDs0o65wdTPNat1WwDTSs12kIbJDq8lf2SBFG/bLOzDcWa0q9crW2OSoDsUy8g/m10VhwNkvCYg//+6Y8iT4xNuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e9DE8Y4ELtbu9c+CGNbLoj5JLa2wZmUmqU0Hi3lY7mU=;
+ b=Js0QxAeqZjRpCddr47cHNZwII3eR/5ngTY2YsBb4RFYr8ca6qkp1+sErIGCETR/75GFLGzmq90W+JI/xIRp5TctlQXximm1wdkivu6vq08s7/SaYVoXoo+aReSs5LOHSe9jUo39UGnfwzp5MrxHHYImtodpctgpBuqFlSRJUhAojpi8KOyefUtp/ywXciH6dGh3uIgUaq1qI82yRb0Gqw5i3c1B31XNExhvpl12Yd/LLVrPs0sZ1NlLyp4kf8hu6qgA5d+wYFwF9u8I/iRXyLsMcNua7CjK3pZn0X72iZev7zxBNR2/dV3Q7MqBtZL7K116PdA8Ju0cTKxN3lVs8mg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=e9DE8Y4ELtbu9c+CGNbLoj5JLa2wZmUmqU0Hi3lY7mU=;
+ b=ldC/VmivkB3OKreyLYZ0NwHo37Z4iz8tjeOXjfnLH1ocHS5/1eDWWirJmDckBMn1g7avIYWPExlbfhWhy/tIqVqf45eJrjvt+hBKP6cQUw5GxSc5Pw2IrMv0L9SwY7yP9mdr70ilphh+KAAGgXEF3h/btVgcL5alG61TYTyshH2wCHejnQNZSXa81jjjFcgyY98/xoZ4+KWLtq25btg9gYj6GdZOvOBoDKyi22wMQL4pwiDINnD0+6BHlkocLV/tOASrx6S+gRHyVD5/xhwV/8ujyoq3fqQcNHSVBUrqAKX+/b+zh/rKmx1V+nNywvUEGq8Syc7QgZX0htEl42hiGg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
+ by PH8PR12MB6867.namprd12.prod.outlook.com (2603:10b6:510:1ca::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.16; Mon, 20 Oct
+ 2025 14:46:48 +0000
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9228.015; Mon, 20 Oct 2025
+ 14:46:47 +0000
+Date: Mon, 20 Oct 2025 11:46:46 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Jiaqi Yan <jiaqiyan@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, duenwen@google.com,
+	rananta@google.com, jthoughton@google.com, vsethi@nvidia.com,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com,
+	corbet@lwn.net, shuah@kernel.org, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 0/3] VMM can handle guest SEA via KVM_EXIT_ARM_SEA
+Message-ID: <20251020144646.GT316284@nvidia.com>
+References: <20251013185903.1372553-1-jiaqiyan@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251013185903.1372553-1-jiaqiyan@google.com>
+X-ClientProxiedBy: BL1P222CA0021.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:208:2c7::26) To MN2PR12MB3613.namprd12.prod.outlook.com
+ (2603:10b6:208:c1::17)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|PH8PR12MB6867:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1b8cd6ff-bd2c-4155-a7e0-08de0fe77f11
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zm7iftggoofnt0HG7+J72zWLiEF5U5eHrkzBxye8jnCKCds/XPERGlCMyu78?=
+ =?us-ascii?Q?DQxWjJVWzKAEKTmmcfcf9qX7lJcXDYXQiU+bUUh40LcXU7hPEPkbhhVag38Z?=
+ =?us-ascii?Q?yK9DVMUQxZn05XcZ1H7zdY0H90epWZFGrZgy0Of8Q16n7X+cv6A8GNPf66yB?=
+ =?us-ascii?Q?zQs7VzZxt9yKmpOBE6Ud4bwCtdqAxQS3VS76oSEcz1hVDQfi5p15bFQWwepC?=
+ =?us-ascii?Q?xEhBr3pH6fpZVvwJAneWU1h9QOSYUBnqNFDmS5zTIIKL1T3cYOxfBD9ExXkc?=
+ =?us-ascii?Q?EOl3NaW9BznQhX5T0FltJLSNjEG//t1tyxdWe2iqjc8IAusVSrrbHVqRQ1/9?=
+ =?us-ascii?Q?J064OXdQK8ufW1hi5YDTsK2zAPk873lG9JKHMcXH50Pw0GAMQn8Nv3Tq3S2m?=
+ =?us-ascii?Q?INnMw5G5QUiwt4nM563JngtAhvhxsqGYabVaPDxp5XRBXDm/ZiOJOZwrf+Qt?=
+ =?us-ascii?Q?UJvI1nBVZ+8jKe/Lrpa31TTRVGMEe1Oq2rGNlcvQ9YLiWTKzU5Pa1f+M4BZ6?=
+ =?us-ascii?Q?M3UT9o0EEWb1bkAdXiIBmX0QRfdUzXwFVG0515Hd2eFMe9JCmeu5omCB4B39?=
+ =?us-ascii?Q?p0sFEWTrr0XAsedJEw8ovQw2D0mRglIhaJVO8gVCVURQXHyvtbzxkAINM4/t?=
+ =?us-ascii?Q?vu7fkyhu7ucuwlT8U4n/mZdcmkhKkrMCEMFxditKQwUQ9RnFK9/rVbgBEhqw?=
+ =?us-ascii?Q?CFBajpRtB62Cz+eQEtjjHwd1H/erasVGolETs8cKqNNi4P3oLDekjENsjLJd?=
+ =?us-ascii?Q?Yfo/V1Cp9pozP//NNjGI/oMMD2I8Q9QzZrq5u80DhQTUHAEzQRibuHrm3Q9R?=
+ =?us-ascii?Q?hwDIj5iGHeWqRLQeiqhB05KEKNP109uc1sQEUSkd/bjP5WsGLbdyOKQzemnw?=
+ =?us-ascii?Q?HkSlFLWwevU8dH1jsKY7iJx45OzDQc8ZJ8/3BCHkLXlDqgvZ4+TiLWcwGBLf?=
+ =?us-ascii?Q?WvoHN8RHavDs8gJC1EH0Aom8/CIhD5l3T0tpbyBDMtVrmbTsiizElnaI9Vqc?=
+ =?us-ascii?Q?DmxGJagTxBpP32KCPEYtJMUMsAInpy+bHDmP+fa0ZbWjyG2ocfpxqHRy/ad2?=
+ =?us-ascii?Q?OCc74Sqj6GSBOgmhBNEQQmdj3p5yGinyITQZ5Y8/4frMj9Kdcjo7wdWvIdUH?=
+ =?us-ascii?Q?3blIgYxStOy1oo4H7edJsx7YC8wgPkpwXNb1RI3lsJjP3uKcXcQriXgNrloD?=
+ =?us-ascii?Q?Xd4gj1HeIgfe7xbuPpddLxfjEcvtVBJSA8w3IFG+5lkkZh6c0680nYAx1Zgi?=
+ =?us-ascii?Q?gJ7W2roe0qvmguqex0qTGrU/WA92WuWSTIO+DyE3UUKEVh8Te4r06na9p8Gt?=
+ =?us-ascii?Q?IwnsRQlepamlPz7jFyhbbIt6HMZekLueVQx8jHG6dCNCHVESRIhekqhXQfY/?=
+ =?us-ascii?Q?o6yEBUmFsgMxRIY/CoMLwoo6Gv4do938N01zc6QRJX/HhOG3Aii8EN8FFTzO?=
+ =?us-ascii?Q?Mm/rv/GkAnMYRCEW5b4B6MaEMSCdCdE3?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CbpydnOm2ehy9Y8098k49cTnLV6nDZgrIri2NSFTODMGY9JlwVG96d71eRTo?=
+ =?us-ascii?Q?EfqqD2DYnDGLDja2pJ1X30vjCsa2NqPKAAxG3ctWNckf0zWpOOhKi6pgvJjs?=
+ =?us-ascii?Q?FOC3KajZPgEqfEjFxdEqLCGzX7+j+yrQIlyJMreus5T4QClbDM9oLVzSD02c?=
+ =?us-ascii?Q?E2Gp49NM1Lidvk0VK+tJ0jOGeezvIZj+Z3cF03P457ZrPUK54MbVFIHsREj0?=
+ =?us-ascii?Q?SXR0oSxP7bt9znTzfVikZhqDFeNlQ5BasC6Q4cPB2IZiKj/ijPlh7b+uRdBh?=
+ =?us-ascii?Q?xltbNwtmRRej8gbbmSAVE+FjpQHtaO14LOxM4TqmYvWSBpvwwmXwH/6cRoe7?=
+ =?us-ascii?Q?nhJpymvaRWY8BlpqqLR3jdxR6IP7aFYCSq3R725PJF16CRsXntDJBmmxyTqn?=
+ =?us-ascii?Q?/ciLqDFEvJfaQcQR31yV7EqFYVuJDEJ18eu+vixpU9lSphAPoayGTxVA4zD9?=
+ =?us-ascii?Q?WiOJcMgwA6MO2AQF/cYGxesu4j6UNploLYW+cmXGQIHrO7Zz8DBUM0C2pY2/?=
+ =?us-ascii?Q?IQynamDCrhclsJinZaofcjKO2FPAuW/ATZHiIzAKGZczV9F7A5kSQ2fQ6+SW?=
+ =?us-ascii?Q?9tzsRIqufgnU2fkNVZ3NxfgS47S6sNfBpV9hIkuxbLtJ+EASwGhH8blae+3M?=
+ =?us-ascii?Q?6Ig1Yrr4o50bArIfJrLSpiiaTtM0xxRH1TC6MRRjrXwR7XUl3UnKdNENN3Rt?=
+ =?us-ascii?Q?2Yx8fJ5d/6IUtDBq+ZfZXeWAdulahPkjH7GCFcuZZh4hAW/a8U6H5ikB+9zD?=
+ =?us-ascii?Q?9NuGhi1u347b3VxEWLPKbDzbpxk27VnrsSktSY4gEbsY8NWFY0CmbTSQVPJQ?=
+ =?us-ascii?Q?pIuHuUeYUIuoLU1YmN0Vb/ZaszX5ALYeCHOZoHmofdK9PRFAeSzEcXdpSuN1?=
+ =?us-ascii?Q?YfncfytJnwBaTdewaukvjt4MW9K33XOofBKbpbFXU759jdLbVn7sOmj11/KB?=
+ =?us-ascii?Q?NqHPa6AIf/PodoHm7YGtDP2bfASu3IKMFZ9/LrXV1qXqCSGWHuglq1hmGmj3?=
+ =?us-ascii?Q?BLoZrwjnfQ53NFNTbAAbR+xVrVPP0z4gZI8mROjEeLOlB0WzxMJcwlKwVUri?=
+ =?us-ascii?Q?py7dcqH32yg/EqqTscTcIB9l0oBzetBqmQsnN5iuW12gAyawD1CPK3R2WMMz?=
+ =?us-ascii?Q?3/JZ1Jr2t+2cTUurv7whXu2+n2uVyjgFm8GVjzwqpiCXtEIa2MlodWM/TXax?=
+ =?us-ascii?Q?BSmj8shPocrvE9XIKIQvit/IBTOEpSXba9m49qxAODUwelG/KqCWivhHBZ9u?=
+ =?us-ascii?Q?8D1gn+a7mBQRiAB3tasrZHGt/vXtnbnkxQVfy6OVDXUSD3ylNIN6dtUIKTIK?=
+ =?us-ascii?Q?5EsD0vAS0IMiO0L9utjcJCMcr7gzWDZaWrvrlta1gVICJnZuG9QQQNXyGCyL?=
+ =?us-ascii?Q?G5hinTC4QIW+dDutgjX+QrUIu8Yxc6TShFcZDrocrDZci0DXKme0XDrWcEou?=
+ =?us-ascii?Q?JD64F4l2RbrswQBMfyNRwFvE/GPvwCssQEcQnMSKWwXyIyH6iro97CwUmjVg?=
+ =?us-ascii?Q?ooj4O5/O83jSq++3QpA2kWeJKn1VUdUPK9DDgPLlfrzUa3Pq/kioITeTPIyr?=
+ =?us-ascii?Q?EyEU6n+wTzhUIwZhQv1KB6uQQZR9sHIx4MwQMMOq?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b8cd6ff-bd2c-4155-a7e0-08de0fe77f11
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2025 14:46:47.9281
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UjQzy/+/BaDu6nwETAdb8TbACWTcDV9eir6snZnPKkU/4Z87V+NtlbtQxmfgM0PF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6867
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_074428_232311_89B641A1 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20251020_074655_992649_92CDDF5A 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,54 +162,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+On Mon, Oct 13, 2025 at 06:59:00PM +0000, Jiaqi Yan wrote:
+> Problem
+> =======
+> 
+> When host APEI is unable to claim a synchronous external abort (SEA)
+> during guest abort, today KVM directly injects an asynchronous SError
+> into the VCPU then resumes it. The injected SError usually results in
+> unpleasant guest kernel panic.
+> 
+> One of the major situation of guest SEA is when VCPU consumes recoverable
+> uncorrected memory error (UER), which is not uncommon at all in modern
+> datacenter servers with large amounts of physical memory. Although SError
+> and guest panic is sufficient to stop the propagation of corrupted memory,
+> there is room to recover from an UER in a more graceful manner.
+> 
+> Proposed Solution
+> =================
+> 
+> The idea is, we can replay the SEA to the faulting VCPU. If the memory
+> error consumption or the fault that cause SEA is not from guest kernel,
+> the blast radius can be limited to the poison-consuming guest process,
+> while the VM can keep running.
+> 
+> In addition, instead of doing under the hood without involving userspace,
+> there are benefits to redirect the SEA to VMM:
+> 
+> - VM customers care about the disruptions caused by memory errors, and
+>   VMM usually has the responsibility to start the process of notifying
+>   the customers of memory error events in their VMs. For example some
+>   cloud provider emits a critical log in their observability UI [1], and
+>   provides a playbook for customers on how to mitigate disruptions to
+>   their workloads.
+> 
+> - VMM can protect future memory error consumption by unmapping the poisoned
+>   pages from stage-2 page table with KVM userfault [2], or by splitting the
+>   memslot that contains the poisoned pages.
+> 
+> - VMM can keep track of SEA events in the VM. When VMM thinks the status
+>   on the host or the VM is bad enough, e.g. number of distinct SEAs
+>   exceeds a threshold, it can restart the VM on another healthy host.
+> 
+> - Behavior parity with x86 architecture. When machine check exception
+>   (MCE) is caused by VCPU, kernel or KVM signals userspace SIGBUS to
+>   let VMM either recover from the MCE, or terminate itself with VM.
+>   The prior RFC proposes to implement SIGBUS on arm64 as well, but
+>   Marc preferred KVM exit over signal [3]. However, implementation
+>   aside, returning SEA to VMM is on par with returning MCE to VMM.
+> 
+> Once SEA is redirected to VMM, among other actions, VMM is encouraged
+> to inject external aborts into the faulting VCPU.
 
-Am Montag, 6. Oktober 2025, 01:55:36 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Laurent Pinchart:
-> Hello,
->=20
-> This patch series adds a device tree for the Orange Pi CM5 Base board
-> from Xunlong. This is a combination of a compute module and a carrier
-> board, so the device tree is split in two files.
->=20
-> The work is based on a combination of upstream device trees for other
-> RK3588-based Orange Pi boards and the downstream device tree, all
-> checked against the available schematics for the carrier board. The
-> compute module schematics is unfortunately not available.
->=20
-> The series starts with three patches that add a new tmds-enable-gpios
-> property to the rk3588-dw-hdmi-qp DT binding (1/5) and update the driver
-> accordingly (2/5 and 3/5). Those patches have been authored by Cristian
-> Ciocaltea as part of a larger series, I have incorporated them here
-> as-is.
->=20
-> Patch 4/5 then add a new compatible for the board to arm/rockchip.yaml.
-> The last patch (5/5) adds the device tree for the board.
->=20
-> Patches 2/5 and 3/5 could be merged separately through the DRM tree,
-> but patch 1/5 needs to be merged with the device tree in 5/5 to avoid
-> introducing DT validation warnings. I'd appreciate advice from the DT
-> maintainers regarding how to handle this, as I have been told before
-> that DT bindings and DT sources can't be merged through the same tree.
+I don't know much about the KVM details but this explanation makes
+sense to me and we also have use cases for all of what is written
+here.
 
-I think we generally only care about binding warnings happening
-in linux-next.
-
-I.e. in most cases, the binding is merged with the driver and
-the dts then into a separate tree - sort of ignoring the local
-binding error, because everything will be fine once stuff comes
-together in linux-next.
-
-
-Speaking of bindings, does your board _need_ the frl-gpio to produce
-any hdmi output? Like could we merge the board without the (optional)
-gpio and then add it later, once the binding+driver have made it in?
-
-Just me trying to grab the big chunks earlier in the cycle.
-
-
-Thanks
-Heiko
-
-
+Thanks,
+Jason
 
