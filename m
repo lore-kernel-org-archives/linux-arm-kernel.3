@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862A8CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 00:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCBECCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 00:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQtVdU4BeC2AMmbgJ2ufg8rg5ddlBHc8GgL90KZnHzU=; b=RbF9JvhriTBx5ojgHe9VfNkGph
-	qGjgIm/nCtieL1QALqMEce9vGeJY2gM7Q5h4m8CsC5dWYypVGGeRmp5yunJNM7lCzH1pyfbUlMa5N
-	07rtGldOGsGsGFM76TZdpVOEWGDiX+PGuERDtZYMgWAszSSXr/lYlTDqp5Wzcb270f3YNr147dxtT
-	ZZR883SyQTFhbT5vQoCgcH62ZyU2TZKV4JGXG8gXEcZnebxGJeUxmDsfCBCLZq6+7hc4ooWLiVw11
-	zjyXQCcScgvePVeetsMkdA+rBuKGdSKfRw9CapkP/XEjv6VVx8yC30lbfPnYRXd1ImO5lXoHCtbba
-	qxgihrlg==;
+	bh=5nryTMLZz/qjOx/dPDZ8UzUaiG4ZutJykzvKGEer7ls=; b=nSj1jb7L1vtfC5LoaKmT6Tj+/P
+	RqOyz/M5v153VyQxNH74HLy8FAxwl6+ismUlwvQ3c3h8hvu0SEf/JvaM/YFiLJ6dF683ILJuAFgAe
+	jri+QEFIII3/WHM3Nkuor2Pbgs5Bjedlpdr8X7lQX9b7Tc4RwRf1eG9dgEAuTnp+d7LQQVzTOv/dC
+	JkzZxaVUBS9U8JBjN1twn0K1vsXeZ1AkEwVpX4KZ6XWC9EVwn7Df9pKHJet6mxRPMJZ3fvMKz0FOk
+	FPxWm82pZq3BIm2cWTIezYeG4FfjSx2mpLHtaa3pb58jZl5XGIrq7NHW6RT+mQy4MTmZpTnnMLjdl
+	n8RQnA+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAe9g-0000000BZTI-0lh0;
+	id 1vAe9g-0000000BZU9-3BzE;
 	Mon, 20 Oct 2025 00:53:44 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAe9X-0000000BZNV-2x4x
+	id 1vAe9Z-0000000BZP9-3AsL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 00:53:38 +0000
+	Mon, 20 Oct 2025 00:53:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A35E45BBB;
-	Mon, 20 Oct 2025 00:53:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08420C4AF09;
-	Mon, 20 Oct 2025 00:53:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 675F245F14;
+	Mon, 20 Oct 2025 00:53:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1E7AC116B1;
+	Mon, 20 Oct 2025 00:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760921615;
-	bh=Hauj1v8AzIcWYsh5CTOeRlzypb0Dv3HdLIY/wCgEtzU=;
+	s=k20201202; t=1760921617;
+	bh=Ocy9eV0L13nS4ER5Z553g2xK+fvNl2zjeQzulMWNTqs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EDmcNoYSTLKuVAnezV8raI05zhSi+N8DFRp5eUI+SDDMEQx4A3Mi+XXEyv8kGwS9H
-	 mfsiBZOBedmzyu4nmcPr4bmk+suPDgv0bollZO8GCcnM9d3HW/XHoLopB7XAPRttT8
-	 ILXgXsR82tNvVEzfu/dSwY2hS1dVzqtgPmQF5jWfTKlFV5ARz+6VvMp6ycsodwMBqH
-	 7h6cn3vxwdujzqKx9Kwtmz9g0HC1wQdeph9vx1px3QV8Sp0T/5JVBSKDmLVdJ+i0NR
-	 7eGFPwi5GdBWcyMgbJ+lnupzJRhvo7uxeFOT0KqAMY5/y9vsCt8VK1UHi+T48wFc+c
-	 S9X4Wqc+dep2Q==
+	b=d1889XQwlMFMZELdIY0pVdzdGDHKZMMIpa1KwIwJxItnBfErqrrYXn0Mi5bTrkO4u
+	 2R4ON00DsyPINlQD9Q1p9BOqrd7GxCO7KmKCDgEmc0wXPmFXVu8K5t1hOFU9iwGzhv
+	 SlMGoDxgTI5jxSqdF2zZZSWzQKb90cQR2z2h3B5rgy76Fn6ADuW3aqyCJHepGaHoQU
+	 A2pF5Il18C4YeyDQhSITVFCkKv9nzR2Dwtm7uLDDQaHmx0ip9ObuOgplpqu3KkPrM7
+	 kJRahMDUX4opNuo2rEdSemNh5X0jltrnArbX/IjXF3BDRFu2cbtiY8brPAjKrujwNe
+	 1pLJZ4TuTQ3Yw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: David Howells <dhowells@redhat.com>,
@@ -51,18 +51,17 @@ Cc: David Howells <dhowells@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 08/17] lib/crypto: sha3: Drop unfinished SHAKE support from gen-hash-testvecs.py
-Date: Sun, 19 Oct 2025 17:50:29 -0700
-Message-ID: <20251020005038.661542-9-ebiggers@kernel.org>
+Subject: [PATCH 13/17] crypto: arm64/sha3 - Update sha3_ce_transform() to prepare for library
+Date: Sun, 19 Oct 2025 17:50:34 -0700
+Message-ID: <20251020005038.661542-14-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.1.dirty
 In-Reply-To: <20251020005038.661542-1-ebiggers@kernel.org>
 References: <20251020005038.661542-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_175335_763760_2B75EBCA 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251019_175337_835324_51307E30 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,44 +76,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SHAKE testing doesn't actually use gen-hash-testvecs.py, so remove
-the unfinished SHAKE support from it.
+- Use size_t lengths, to match the library.
+
+- Pass the block size instead of digest size, and add support for the
+  block size that SHAKE128 uses.  This allows the code to be used with
+  SHAKE128 and SHAKE256, which don't have the concept of a digest size.
+  SHAKE256 has the same block size as SHA3-256, but SHAKE128 has a
+  unique block size.  Thus, there are now 5 supported block sizes.
+
+Don't bother changing the "glue" code arm64_ce_transform() too much, as
+it gets deleted when the SHA-3 code is migrated into lib/crypto/ anyway.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- scripts/crypto/gen-hash-testvecs.py | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ arch/arm64/crypto/sha3-ce-core.S | 66 ++++++++++++++++----------------
+ arch/arm64/crypto/sha3-ce-glue.c | 11 +++---
+ 2 files changed, 38 insertions(+), 39 deletions(-)
 
-diff --git a/scripts/crypto/gen-hash-testvecs.py b/scripts/crypto/gen-hash-testvecs.py
-index cb6f6cfbedeb2..ba241cb1ed2fd 100755
---- a/scripts/crypto/gen-hash-testvecs.py
-+++ b/scripts/crypto/gen-hash-testvecs.py
-@@ -59,14 +59,10 @@ def hash_init(alg):
+diff --git a/arch/arm64/crypto/sha3-ce-core.S b/arch/arm64/crypto/sha3-ce-core.S
+index 9c77313f5a608..62477848821d9 100644
+--- a/arch/arm64/crypto/sha3-ce-core.S
++++ b/arch/arm64/crypto/sha3-ce-core.S
+@@ -35,11 +35,15 @@
+ 	.macro	xar, rd, rn, rm, imm6
+ 	.inst	0xce800000 | .L\rd | (.L\rn << 5) | ((\imm6) << 10) | (.L\rm << 16)
+ 	.endm
  
- def hash_update(ctx, data):
-     ctx.update(data)
+ 	/*
+-	 * int sha3_ce_transform(u64 *st, const u8 *data, int blocks, int dg_size)
++	 * size_t sha3_ce_transform(struct sha3_state *state, const u8 *data,
++	 *			    size_t nblocks, size_t block_size)
++	 *
++	 * block_size is assumed to be one of 72 (SHA3-512), 104 (SHA3-384), 136
++	 * (SHA3-256 and SHAKE256), 144 (SHA3-224), or 168 (SHAKE128).
+ 	 */
+ 	.text
+ SYM_FUNC_START(sha3_ce_transform)
+ 	/* load state */
+ 	add	x8, x0, #32
+@@ -49,62 +53,58 @@ SYM_FUNC_START(sha3_ce_transform)
+ 	ld1	{v12.1d-v15.1d}, [x8], #32
+ 	ld1	{v16.1d-v19.1d}, [x8], #32
+ 	ld1	{v20.1d-v23.1d}, [x8], #32
+ 	ld1	{v24.1d}, [x8]
  
- def hash_final(ctx):
--    if ctx.name == "shake_128":
--        return ctx.digest(16)
--    if ctx.name == "shake_256":
--        return ctx.digest(32)
-     return ctx.digest()
+-0:	sub	w2, w2, #1
++0:	sub	x2, x2, #1
+ 	mov	w8, #24
+ 	adr_l	x9, .Lsha3_rcon
  
- def compute_hash(alg, data):
-     ctx = hash_init(alg)
-     hash_update(ctx, data)
-@@ -166,9 +162,9 @@ print(f'/* This file was generated by: {sys.argv[0]} {" ".join(sys.argv[1:])} */
- gen_unkeyed_testvecs(alg)
- if alg == 'blake2s':
-     gen_additional_blake2s_testvecs()
- elif alg == 'poly1305':
-     gen_additional_poly1305_testvecs()
--elif alg.startswith('sha3-') or alg.startswith('shake'):
-+elif alg.startswith('sha3-'):
-     pass # no HMAC
- else:
-     gen_hmac_testvecs(alg)
+ 	/* load input */
+ 	ld1	{v25.8b-v28.8b}, [x1], #32
+-	ld1	{v29.8b-v31.8b}, [x1], #24
++	ld1	{v29.8b}, [x1], #8
+ 	eor	v0.8b, v0.8b, v25.8b
+ 	eor	v1.8b, v1.8b, v26.8b
+ 	eor	v2.8b, v2.8b, v27.8b
+ 	eor	v3.8b, v3.8b, v28.8b
+ 	eor	v4.8b, v4.8b, v29.8b
+-	eor	v5.8b, v5.8b, v30.8b
+-	eor	v6.8b, v6.8b, v31.8b
+-
+-	tbnz	x3, #6, 2f		// SHA3-512
+ 
+ 	ld1	{v25.8b-v28.8b}, [x1], #32
+-	ld1	{v29.8b-v30.8b}, [x1], #16
+-	eor	 v7.8b,  v7.8b, v25.8b
+-	eor	 v8.8b,  v8.8b, v26.8b
+-	eor	 v9.8b,  v9.8b, v27.8b
+-	eor	v10.8b, v10.8b, v28.8b
+-	eor	v11.8b, v11.8b, v29.8b
+-	eor	v12.8b, v12.8b, v30.8b
++	eor	v5.8b, v5.8b, v25.8b
++	eor	v6.8b, v6.8b, v26.8b
++	eor	v7.8b, v7.8b, v27.8b
++	eor	v8.8b, v8.8b, v28.8b
++	cmp	x3, #72
++	b.eq	3f	/* SHA3-512 (block_size=72)? */
+ 
+-	tbnz	x3, #4, 1f		// SHA3-384 or SHA3-224
++	ld1	{v25.8b-v28.8b}, [x1], #32
++	eor	v9.8b, v9.8b, v25.8b
++	eor	v10.8b, v10.8b, v26.8b
++	eor	v11.8b, v11.8b, v27.8b
++	eor	v12.8b, v12.8b, v28.8b
++	cmp	x3, #104
++	b.eq	3f	/* SHA3-384 (block_size=104)? */
+ 
+-	// SHA3-256
+ 	ld1	{v25.8b-v28.8b}, [x1], #32
+ 	eor	v13.8b, v13.8b, v25.8b
+ 	eor	v14.8b, v14.8b, v26.8b
+ 	eor	v15.8b, v15.8b, v27.8b
+ 	eor	v16.8b, v16.8b, v28.8b
+-	b	3f
+-
+-1:	tbz	x3, #2, 3f		// bit 2 cleared? SHA-384
++	cmp	x3, #144
++	b.lt	3f	/* SHA3-256 or SHAKE256 (block_size=136)? */
++	b.eq	2f	/* SHA3-224 (block_size=144)? */
+ 
+-	// SHA3-224
++	/* SHAKE128 (block_size=168) */
+ 	ld1	{v25.8b-v28.8b}, [x1], #32
+-	ld1	{v29.8b}, [x1], #8
+-	eor	v13.8b, v13.8b, v25.8b
+-	eor	v14.8b, v14.8b, v26.8b
+-	eor	v15.8b, v15.8b, v27.8b
+-	eor	v16.8b, v16.8b, v28.8b
+-	eor	v17.8b, v17.8b, v29.8b
++	eor	v17.8b, v17.8b, v25.8b
++	eor	v18.8b, v18.8b, v26.8b
++	eor	v19.8b, v19.8b, v27.8b
++	eor	v20.8b, v20.8b, v28.8b
+ 	b	3f
+-
+-	// SHA3-512
+-2:	ld1	{v25.8b-v26.8b}, [x1], #16
+-	eor	 v7.8b,  v7.8b, v25.8b
+-	eor	 v8.8b,  v8.8b, v26.8b
++2:
++	ld1	{v25.8b}, [x1], #8	/* SHA3-224 (block_size=144) */
++	eor	v17.8b, v17.8b, v25.8b
+ 
+ 3:	sub	w8, w8, #1
+ 
+ 	eor3	v29.16b,  v4.16b,  v9.16b, v14.16b
+ 	eor3	v26.16b,  v1.16b,  v6.16b, v11.16b
+@@ -183,21 +183,21 @@ SYM_FUNC_START(sha3_ce_transform)
+ 
+ 	eor	 v0.16b,  v0.16b, v31.16b
+ 
+ 	cbnz	w8, 3b
+ 	cond_yield 4f, x8, x9
+-	cbnz	w2, 0b
++	cbnz	x2, 0b
+ 
+ 	/* save state */
+ 4:	st1	{ v0.1d- v3.1d}, [x0], #32
+ 	st1	{ v4.1d- v7.1d}, [x0], #32
+ 	st1	{ v8.1d-v11.1d}, [x0], #32
+ 	st1	{v12.1d-v15.1d}, [x0], #32
+ 	st1	{v16.1d-v19.1d}, [x0], #32
+ 	st1	{v20.1d-v23.1d}, [x0], #32
+ 	st1	{v24.1d}, [x0]
+-	mov	w0, w2
++	mov	x0, x2
+ 	ret
+ SYM_FUNC_END(sha3_ce_transform)
+ 
+ 	.section	".rodata", "a"
+ 	.align		8
+diff --git a/arch/arm64/crypto/sha3-ce-glue.c b/arch/arm64/crypto/sha3-ce-glue.c
+index 426d8044535ab..f4eae798371ef 100644
+--- a/arch/arm64/crypto/sha3-ce-glue.c
++++ b/arch/arm64/crypto/sha3-ce-glue.c
+@@ -26,30 +26,29 @@ MODULE_LICENSE("GPL v2");
+ MODULE_ALIAS_CRYPTO("sha3-224");
+ MODULE_ALIAS_CRYPTO("sha3-256");
+ MODULE_ALIAS_CRYPTO("sha3-384");
+ MODULE_ALIAS_CRYPTO("sha3-512");
+ 
+-asmlinkage int sha3_ce_transform(u64 *st, const u8 *data, int blocks,
+-				 int md_len);
++asmlinkage size_t sha3_ce_transform(struct sha3_state *state, const u8 *data,
++				    size_t nblocks, size_t block_size);
+ 
+ static int arm64_sha3_update(struct shash_desc *desc, const u8 *data,
+ 		       unsigned int len)
+ {
+ 	struct sha3_state *sctx = shash_desc_ctx(desc);
+ 	struct crypto_shash *tfm = desc->tfm;
+-	unsigned int bs, ds;
++	unsigned int bs;
+ 	int blocks;
+ 
+-	ds = crypto_shash_digestsize(tfm);
+ 	bs = crypto_shash_blocksize(tfm);
+ 	blocks = len / bs;
+ 	len -= blocks * bs;
+ 	do {
+ 		int rem;
+ 
+ 		kernel_neon_begin();
+-		rem = sha3_ce_transform(sctx->st, data, blocks, ds);
++		rem = sha3_ce_transform(sctx, data, blocks, bs);
+ 		kernel_neon_end();
+ 		data += (blocks - rem) * bs;
+ 		blocks = rem;
+ 	} while (blocks);
+ 	return len;
+@@ -72,11 +71,11 @@ static int arm64_sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int
+ 	block[len++] = 0x06;
+ 	memset(block + len, 0, bs - len);
+ 	block[bs - 1] |= 0x80;
+ 
+ 	kernel_neon_begin();
+-	sha3_ce_transform(sctx->st, block, 1, ds);
++	sha3_ce_transform(sctx, block, 1, bs);
+ 	kernel_neon_end();
+ 	memzero_explicit(block , sizeof(block));
+ 
+ 	for (i = 0; i < ds / 8; i++)
+ 		put_unaligned_le64(sctx->st[i], digest++);
 -- 
 2.51.1.dirty
 
