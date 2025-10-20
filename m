@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1DDCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2B6CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j9UGTJcWYSBAqp5JJLufyhsbLELsj0ohBAucYdJtZ1o=; b=b26uFgGVofnBgSaROEqeA+rzE1
-	7gpY/y9zkNBQyFOiqPonlBQi/oIZz0TArXU2ZX4rWJWZCYtSwGCJ8CIKFj7khh6BEqTPStrE6j5TJ
-	c3Wzf9GhRylxJ8rBKwBzqaYT1pn0eKZIyosyMD8mfbu8wyV8Y4UtJVSdIz2ar88b5JucIDdh5o3zO
-	SZg9d+d8Xk6JBiGGAZBRLlU7kDUW3ukSrKfIOC6D1EgOwBXu/ArrbmN4XGHDPztQNuMdmhZ31GBkY
-	8rneWEKINgFW+7rkdzcRjQrgFZTY9BpGd4cA4JpSv+9I8TZmUvZPQ/kgfneDoQc+pX1fzsRwnYBN1
-	ai7foufA==;
+	bh=qvlyha3XerTbsFS6cH72yftIqITSDRC+fAzq8n2ZdDU=; b=VJOduWse+G4QdD6A9PD7TKcfPe
+	y67Nh+E5WIKStDpz05gYn0Dm86ENSWE0idGjc/KaD/0/v3z5fWAmL0HspFjGM/5qYJLpAPYXPdNmh
+	L04EhU4Pnve4dYWeTaR9Xt0cz0tu68AR7D9Ukk6HH5rzGSx22qoBBrmcSLJ23iZT0l3oK8gESqKCc
+	XrOmIR62FJpMLWtp7qrsNXP+935hnL/v7fGjmtWGNUYa4u5PuNLEaZ86IhJ/rJs7pTOCca4bbGfOf
+	jGJSC9kC85MHQXw2nwg38CUwTXDBnw/Uuind2hMAjAXEXln1ZxLBEG6dRn3buB8esGqfIvU9eCMro
+	4z6P9/CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmto-0000000Cmaa-0Gt3;
-	Mon, 20 Oct 2025 10:13:56 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vAmtu-0000000Cmgo-139A;
+	Mon, 20 Oct 2025 10:14:02 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmtk-0000000CmWm-1RVm
+	id 1vAmtk-0000000CmWu-2kx7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 10:13:54 +0000
+	Mon, 20 Oct 2025 10:13:55 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 2869C4E411F3;
-	Mon, 20 Oct 2025 10:13:49 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 3AA66C0AFE6;
+	Mon, 20 Oct 2025 10:13:31 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EF86A606D5;
-	Mon, 20 Oct 2025 10:13:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BED94102F23A7;
-	Mon, 20 Oct 2025 12:13:45 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C05DA606D5;
+	Mon, 20 Oct 2025 10:13:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E9AEE102F23AF;
+	Mon, 20 Oct 2025 12:13:47 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760955227; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1760955229; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=j9UGTJcWYSBAqp5JJLufyhsbLELsj0ohBAucYdJtZ1o=;
-	b=ZKstGuMoiIN/ifTdPeQY8PmAMotlWmbporhLhj7pGHzBM32L0Oimhlj9F8vLLXbnXug4uQ
-	qERwvE68jOeOd4Q+imJIbtPiuOM2dHBoPpiUpyTbmQlzf/koGuwGowDJWgH1xxgkN+AkTz
-	YAbTdrNS3yw5I+0goOMHNDmsieefCMP75oNwWSnkZQx9oThOlNMQogdgBRZjR/1HUJ3GGB
-	MXUvYhtA8I3ivHfz9GGHYWyTZ+0tAi4bySm6smXAI0gNeN9rC222/WJO5BZ7MTEbGRlfze
-	C4gT/le7b8+5cabWB3hpxiSp+z1kyE3ur+IbICHqPAyhFMJHlTx9rS8SJxSaVQ==
+	bh=qvlyha3XerTbsFS6cH72yftIqITSDRC+fAzq8n2ZdDU=;
+	b=vf+gL8i4KPMd1K+yWFT9H4XWYyCTPI6GWG1hiK1pS+AK56pcVcgqyScsnTThkcT0tjWb47
+	vkfaAV0w3JxH5jniB5CFhMezVyJMhoZT3J6ydoPkF9OmLNFcSiP/kiCiz28ST1z8D4rnXi
+	YmTvqUailKFcQiLfYyK0412CmPsk9caFfZbdWbOYKTk31ImoE8w//nrOjKCvTHc+vSfEbj
+	hRbvAFDwo1tT1Wah3n9CsoqNP/40zx8lfcqwqBRyoBOnjxfHZzFu5NWRCApXXyF3aooIcx
+	kZpZ+aUGf444jF915sR25Jtce9YQetNF9+07b0gAOkHwvBwjGapRZTjpVlcPUg==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	Richard Weinberger <richard@nod.at>,
@@ -65,9 +65,9 @@ Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v3 01/15] mtd: rawnand: sunxi: Remove superfluous register readings
-Date: Mon, 20 Oct 2025 12:12:57 +0200
-Message-ID: <20251020101311.256819-2-richard.genoud@bootlin.com>
+Subject: [PATCH v3 02/15] mtd: rawnand: sunxi: move ECC strenghts in sunxi_nfc_caps
+Date: Mon, 20 Oct 2025 12:12:58 +0200
+Message-ID: <20251020101311.256819-3-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251020101311.256819-1-richard.genoud@bootlin.com>
 References: <20251020101311.256819-1-richard.genoud@bootlin.com>
@@ -75,8 +75,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_031352_512839_18317DC2 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20251020_031353_063762_BBE072C6 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,35 +91,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The register NFC_REG_ECC_CTL was read twice and the result was not used,
-then a third time with a mask applied.
-Removing those calls didn't change the behavior.
+H6/H616 has more ECC strenghts than A10/A23.
 
-Tested on H616 SoC, scrambling enabled.
+Move the ECC strenghts array to sunxi_nfc_caps to make it ready for
+H6/H616 support.
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+No functional change.
+
+Reviewed-by: Chen-Yu Tsai <wens@csie.org>
 Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 ---
- drivers/mtd/nand/raw/sunxi_nand.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/mtd/nand/raw/sunxi_nand.c | 20 ++++++++++++++++----
+ 1 file changed, 16 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index f6a8e8ae819d..cb12179b63a5 100644
+index cb12179b63a5..d3b17d54f04c 100644
 --- a/drivers/mtd/nand/raw/sunxi_nand.c
 +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -623,13 +623,12 @@ static void sunxi_nfc_randomizer_config(struct nand_chip *nand, int page,
- 					bool ecc)
+@@ -213,11 +213,15 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
+  *			through MBUS on A23/A33 needs extra configuration.
+  * @reg_io_data:	I/O data register
+  * @dma_maxburst:	DMA maxburst
++ * @ecc_strengths:	Available ECC strengths array
++ * @nstrengths:		Size of @ecc_strengths
+  */
+ struct sunxi_nfc_caps {
+ 	bool has_mdma;
+ 	unsigned int reg_io_data;
+ 	unsigned int dma_maxburst;
++	const u8 *ecc_strengths;
++	unsigned int nstrengths;
+ };
+ 
+ /**
+@@ -1619,9 +1623,9 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
+ 				       struct nand_ecc_ctrl *ecc,
+ 				       struct device_node *np)
  {
+-	static const u8 strengths[] = { 16, 24, 28, 32, 40, 48, 56, 60, 64 };
+ 	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
  	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
--	u32 ecc_ctl = readl(nfc->regs + NFC_REG_ECC_CTL);
-+	u32 ecc_ctl;
- 	u16 state;
++	const u8 *strengths = nfc->caps->ecc_strengths;
+ 	struct mtd_info *mtd = nand_to_mtd(nand);
+ 	struct nand_device *nanddev = mtd_to_nanddev(mtd);
+ 	int nsectors;
+@@ -1645,7 +1649,7 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
  
- 	if (!(nand->options & NAND_NEED_SCRAMBLING))
- 		return;
+ 		ecc->strength = bytes * 8 / fls(8 * ecc->size);
  
--	ecc_ctl = readl(nfc->regs + NFC_REG_ECC_CTL);
- 	state = sunxi_nfc_randomizer_state(nand, page, ecc);
- 	ecc_ctl = readl(nfc->regs + NFC_REG_ECC_CTL) & ~NFC_RANDOM_SEED_MSK;
- 	writel(ecc_ctl | NFC_RANDOM_SEED(state), nfc->regs + NFC_REG_ECC_CTL);
+-		for (i = 0; i < ARRAY_SIZE(strengths); i++) {
++		for (i = 0; i < nfc->caps->nstrengths; i++) {
+ 			if (strengths[i] > ecc->strength)
+ 				break;
+ 		}
+@@ -1666,7 +1670,7 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
+ 	}
+ 
+ 	/* Add ECC info retrieval from DT */
+-	for (i = 0; i < ARRAY_SIZE(strengths); i++) {
++	for (i = 0; i < nfc->caps->nstrengths; i++) {
+ 		if (ecc->strength <= strengths[i]) {
+ 			/*
+ 			 * Update ecc->strength value with the actual strength
+@@ -1677,7 +1681,7 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
+ 		}
+ 	}
+ 
+-	if (i >= ARRAY_SIZE(strengths)) {
++	if (i >= nfc->caps->nstrengths) {
+ 		dev_err(nfc->dev, "unsupported strength\n");
+ 		return -ENOTSUPP;
+ 	}
+@@ -2167,15 +2171,23 @@ static void sunxi_nfc_remove(struct platform_device *pdev)
+ 		dma_release_channel(nfc->dmac);
+ }
+ 
++static const u8 sunxi_ecc_strengths_a10[] = {
++	16, 24, 28, 32, 40, 48, 56, 60, 64
++};
++
+ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
+ 	.reg_io_data = NFC_REG_A10_IO_DATA,
+ 	.dma_maxburst = 4,
++	.ecc_strengths = sunxi_ecc_strengths_a10,
++	.nstrengths = ARRAY_SIZE(sunxi_ecc_strengths_a10),
+ };
+ 
+ static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
+ 	.has_mdma = true,
+ 	.reg_io_data = NFC_REG_A23_IO_DATA,
+ 	.dma_maxburst = 8,
++	.ecc_strengths = sunxi_ecc_strengths_a10,
++	.nstrengths = ARRAY_SIZE(sunxi_ecc_strengths_a10),
+ };
+ 
+ static const struct of_device_id sunxi_nfc_ids[] = {
 
