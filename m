@@ -4,104 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185ECCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:59:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5D3CCD1A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Vy47wkPi9vz9nd/Ubb0WzYYj5086de9de6TtEsO3Zns=; b=A8DDD0lBB3zvLQs3cpSyPTpLvY
-	rrgmCYgYrMicKpOJKerQ8a/MSVvAa+sdktOkqU4Nu695M6y0zsFGlF181UYs4gWpmH/0ksw2C3X1/
-	ltX9OVk7hKkDg5WQCf/4BlIeUlkZt/IRaq2VJ3W1nAmP4kUgXm1GzONfy1BZYezbdv9i+QMAu5zs0
-	9SjR5PzqvKLJehQjfSE2AbTcAMB/Sgc1uXyoGKMH3bjRKEDtrHlQTb29sHw6mMqLqZapKNDCshHm3
-	HdL2Zqbf9H5sscN5EGbFz+myz0J4ZAWneuTV/YULdBkSjxLmRkmn/wYwBNwbRiz4VnMerxDegqQcw
-	XhCl2gFQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nv1tAHNC5rdzWwEmyrpfHnCrcnzP5XefZ6TCtA01IJk=; b=UUP33eqaDbjY2HQk51Zvb3mKRi
+	ijnOTtCcCxqjqbkfznLChWhQ0Bk29zzd7zJHS30Y0NSPd2en4tad+1q+073T5rzbai/+9t9UN0b0b
+	4CwX52E0jcOOnJxtVO4d8AXA56m//FOJicvA2oQeJCLvonTRBXQUjTrTNIcHPmbSkvGkDLIqZUpBt
+	B8bgZ7mdOqjPswhBSy+mw8OxuikqiXsiBTCgAu2KWb3Yix5HpFmgrfFndyXKPGi3Cq+eyhRUNFT6R
+	/F8U8ySOakpKV0sD4GVynUoWT8kbouxRdUutSEApDQOfEpKMRSoPHn5LHpGCGhL221pMKRp9NGorx
+	HF76Sm1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmfq-0000000Ch0R-47pg;
-	Mon, 20 Oct 2025 09:59:30 +0000
-Received: from mx-relay90-hz2.antispameurope.com ([94.100.136.190])
+	id 1vAmgG-0000000ChCH-3Wkz;
+	Mon, 20 Oct 2025 09:59:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmfm-0000000CgxE-1Kp3
+	id 1vAmgE-0000000ChAv-0jdE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 09:59:29 +0000
-ARC-Authentication-Results: i=1; mx-gate90-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=Vy47wkPi9vz9nd/Ubb0WzYYj5086de9de6TtEsO3Zns=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1760954343;
- b=jt2nOzNX+Nj8pwsjptNOWubj30WoRe39PdNCsMV2w5W2Hdhlvkn054SK9VuphQPZ19lL1lBP
- 8QokD92tvdi8L8r8dhF+JHh4B+M0xaeop//QRWfvO8A8mVQjUXMjVMmvPItgf+sOiL49dJJvko0
- MQbV6to0JM4b8GKyaBPC/EQ+JOR1M9jltS33p4nR2bAtqD+0vpQ3YlyQDHYhwykfAhnvu4yBiyg
- RU20awGnKoZFGjHwWek26YFMyjLEZ8oPS+7xMm6V1ZGj/0UfoAub02LuGeIJma4Nh2b9gNpHC77
- hakkBfr2aaOX3pJ1joR2RpG88EKBxkxT0YkcHFBLJXwPA==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1760954343;
- b=CzZ1EQzHn4IKaJ8e3gq0RpXcg9RsdPntW1RmZDOhuCmIdprppQftJkSTMtg9fpeBGs6D4iKM
- pNd33LBsldkNbKngBG6Y4OiVfoc9HaQ/GomOp8PHIbSxQxplEVPa7fCt1vW9iYN0NO1EzUUazB5
- oSplWzcfYWIZmfR7VqhoGoh1Dx3/uNh7FTor4MXm5YndJuiW/iEVIWsL+hm8gypzqX1uAkGibup
- pqjQTZvCf1CpMrLlkHC7k8qFkTZ9GTLv9s5KlsH29FubZQ73nYbuGWwLR92+r6/ptXsV0PF4Lfc
- BjLGCO2GbkjGGCR4MlsJx6/uLzR/8kp66f7hGLNOBJZ4w==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay90-hz2.antispameurope.com;
- Mon, 20 Oct 2025 11:59:03 +0200
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 88256CC0DD7;
-	Mon, 20 Oct 2025 11:58:49 +0200 (CEST)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Marek Vasut <marex@denx.de>,
-	Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Liu Ying <victor.liu@nxp.com>,
-	Marco Felsch <m.felsch@pengutronix.de>
-Subject: [PATCH v2 1/1] drm: lcdif: Use dev_err_probe()
-Date: Mon, 20 Oct 2025 11:58:45 +0200
-Message-ID: <20251020095846.116202-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 20 Oct 2025 09:59:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CA0B741B6F;
+	Mon, 20 Oct 2025 09:59:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13B2DC113D0;
+	Mon, 20 Oct 2025 09:59:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760954393;
+	bh=ceTjqZxROGT4tCOsh4a1HC9zi9dJeNYU0qKQYBS6T/Y=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=ezqf3hMoB5jnKPS4DJHG/Pg0w0CBMBhQb1Vb9ShbsVCoiTO85JRDSaCiHmsDHy5Ay
+	 NpGG3pw/yqf3mEdbDn5x11ApurZUrQsRLExKcjhaEF+A685wwdCqtav1OKMnh/85jc
+	 UbTXDmCBUO8b1Eb8il8CyLFeNWJp8cSMslkoatW3ODyl0xiYeosKW4XN1y+dEIoBpG
+	 x9HSbhjU5W40P08avbwa3N9w7rDsGXA6os01LIa9Vcf+g1mbRLFwcBNLkCOVaqbGQi
+	 ZM9rqGN8nNnQ6YepAZLoHI05hIPSp/bwIW6u2ByfBJRg3rocNyGBhwk3X18FoDIhrG
+	 6/mJFOTxZ/G8w==
+Message-ID: <fb986e30-9dfa-44c2-a395-418175d49b20@kernel.org>
+Date: Mon, 20 Oct 2025 11:59:49 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay90-hz2.antispameurope.com with 4cqrVL377fzX01q
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 303711fa30182f3b5e5363e87477579b
-X-cloud-security: scantime:1.797
-DKIM-Signature: a=rsa-sha256;
- bh=Vy47wkPi9vz9nd/Ubb0WzYYj5086de9de6TtEsO3Zns=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1760954342; v=1;
- b=btt+zyO4bRcB7jvSnq/oSUpme/85wg7EghIHQldrkf3wK1leh2hkB68Owe8vBknmo589Q9Zz
- NXNJlhx+u6nvNJkDjwYi8kVVZwPEZvY8b853RwO/Q/eNCFRvTaOV2Y8XRZHNJ2QpXRt+v3ptN+m
- qpBHxQr3eddcqnqckMA7knKj6OxTwJ5Qcgt5ip2IjyjxqfAq+Ub+dbDsne7/KDruWwrGOhNwF39
- mdiXBb0zgLCGvsWsqlR+t4hKcbp4pdVrRBC1DgY+PujmArv0RTjQf0bPPEvQ8lpSRjjPJm3f0jr
- rT9ush7wiyjA7HNwnvj2zb1UHukwoCJaTxQPzA/LgeoSg==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: mfd: aspeed,ast2x00-scu: allow #size-cells
+ range
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20251020020745.2004916-1-ryan_chen@aspeedtech.com>
+ <b38321e8-d243-460a-a9d6-6770a41627cd@kernel.org>
+ <TY2PPF5CB9A1BE6CDC6F04CC0F472FE6451F2F5A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <6b30c646-cc52-4552-8311-86974c1459e7@kernel.org>
+ <e7fec714-aa68-49a1-85e5-356115843307@kernel.org>
+ <TY2PPF5CB9A1BE65E96ED9C3CE0E8C7A53EF2F5A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <TY2PPF5CB9A1BE658D97FEB9B56E67534DCF2F5A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <6cf7f86d-00f1-4939-aed0-4f97c1e0fd69@kernel.org>
+ <TY2PPF5CB9A1BE6D5DF2D5348DAD6410D42F2F5A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <TY2PPF5CB9A1BE6D5DF2D5348DAD6410D42F2F5A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_025926_720535_5F77642A 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20251020_025954_258400_49F4EFFF 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,45 +131,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use dev_err_probe() to add a reason for deferred probe. This can
-especially happen on lcdif3 which uses hdmi_tx_phy for 'pix' clock
+On 20/10/2025 10:50, Ryan Chen wrote:
+> 
+> 
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: Monday, October 20, 2025 4:47 PM
+>> To: Ryan Chen <ryan_chen@aspeedtech.com>; Lee Jones <lee@kernel.org>;
+>> Rob Herring <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>;
+>> Conor Dooley <conor+dt@kernel.org>; Joel Stanley <joel@jms.id.au>; Andrew
+>> Jeffery <andrew@codeconstruct.com.au>; devicetree@vger.kernel.org;
+>> linux-arm-kernel@lists.infradead.org; linux-aspeed@lists.ozlabs.org;
+>> linux-kernel@vger.kernel.org
+>> Subject: Re: [PATCH] dt-bindings: mfd: aspeed,ast2x00-scu: allow #size-cells
+>> range
+>>
+>> On 20/10/2025 10:18, Ryan Chen wrote:
+>>>> Subject: RE: [PATCH] dt-bindings: mfd: aspeed,ast2x00-scu: allow
+>>>> #size-cells range
+>>>>
+>>>>> Subject: Re: [PATCH] dt-bindings: mfd: aspeed,ast2x00-scu: allow
+>>>>> #size-cells range
+>>>>>
+>>>>> On 20/10/2025 08:39, Krzysztof Kozlowski wrote:
+>>>>>> On 20/10/2025 08:31, Ryan Chen wrote:
+>>>>>>>> Subject: Re: [PATCH] dt-bindings: mfd: aspeed,ast2x00-scu: allow
+>>>>>>>> #size-cells range
+>>>>>>>>
+>>>>>>>> On 20/10/2025 04:07, Ryan Chen wrote:
+>>>>>>>>> The #size-cells property in the Aspeed SCU binding is currently
+>>>>>>>>> fixed to a constant value of 1. However, newer SoCs (ex.
+>>>>>>>>> AST2700) may require two size cells to describe certain
+>>>>>>>>> subregions or
+>>>>>>>>
+>>>>>>>> "may"? So there is no issue yet?
+>>>>>>>
+>>>>>>> while I submit ast2700 platform,
+>>>>>>
+>>>>>> So there is no warning currently? Then don't mention. You cannot
+>>>>>> use argument of possible future warning as there is a warning
+>>>>>> needing to be fixed. This makes no sense. Like you add bug in your
+>>>>>> patchset and then send *different* patch claiming you are fixing a bug.
+>>>>>>
+>>>>>>
+>>>>>>> These warnings appear when validating the AST2700 EVB device tree.
+>>>>>>> The SCU nodes on AST2700 have subdevices (such as clock and reset
+>>>>>>> controllers) that require two address cells, which is not allowed
+>>>>>>> by the current `const: 1` constraint in the schema.
+>>>>>>>
+>>>>>>> Here is the related report:
+>>>>>>>   https://lkml.org/lkml/2025/9/2/1165
+>>>>>>
+>>>>>> This must be together, so we can review entire picture, not pieces
+>>>>>> by pieces. Organize your work correctly, so reviewing will be easy.
+>>>>>>
+>>>>> Anyway, I managed to find your original work and there is no need
+>>>>> for this patch at all. You don't have 64-bit sizes there.
+>>>> Thanks, I will keep #size-cells = <1>; for my next step.
+>>>
+>>> Hello Krzysztof,
+>>> Sory bothers you again.
+>>> After checking the AST2700 platform memory configuration, it supports
+>>> up to 8GB of DRAM. This requires using `#size-cells = <2>` for the
+>>> memory node, for
+>>> example:
+>>>
+>>> 	memory@400000000 {
+>>> 		device_type = "memory";
+>>> 		reg = <0x4 0x00000000 0x0 0x40000000>;
+>>> 	};
+>>>
+>>> Given this, what would be the proper way to proceed?
+>>
+>>
+>> I did not comment on memory node. Maybe I looked at wrong node, not sure,
+>> that's why this should not be discussed here but in that DTS patchset really.
+> 
+> Understood, thanks for the clarification.
+> I'll move this discussion to the AST2700 DTS patchset and ensure that the
+> binding and DTS changes are reviewed together there.
+> 
 
-Reviewed-by: Liu Ying <victor.liu@nxp.com>
-Reviewed-by: Marco Felsch <m.felsch@pengutronix.de>
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-Changes in v2:
-* Collected Liu's and Marcos' R-b
+The problem is that you refer to some very old patchset which is long
+gone from our mailboxes. Sending a necessary change month after the DTS
+patch is not making the discussion easy.
 
- drivers/gpu/drm/mxsfb/lcdif_drv.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+Please always think how your patchset is supposed to be reviewed.
 
-diff --git a/drivers/gpu/drm/mxsfb/lcdif_drv.c b/drivers/gpu/drm/mxsfb/lcdif_drv.c
-index fcb2a7517377e..47da1d9336b90 100644
---- a/drivers/gpu/drm/mxsfb/lcdif_drv.c
-+++ b/drivers/gpu/drm/mxsfb/lcdif_drv.c
-@@ -149,15 +149,17 @@ static int lcdif_load(struct drm_device *drm)
- 
- 	lcdif->clk = devm_clk_get(drm->dev, "pix");
- 	if (IS_ERR(lcdif->clk))
--		return PTR_ERR(lcdif->clk);
-+		return dev_err_probe(drm->dev, PTR_ERR(lcdif->clk), "Failed to get pix clock\n");
- 
- 	lcdif->clk_axi = devm_clk_get(drm->dev, "axi");
- 	if (IS_ERR(lcdif->clk_axi))
--		return PTR_ERR(lcdif->clk_axi);
-+		return dev_err_probe(drm->dev, PTR_ERR(lcdif->clk_axi),
-+				     "Failed to get axi clock\n");
- 
- 	lcdif->clk_disp_axi = devm_clk_get(drm->dev, "disp_axi");
- 	if (IS_ERR(lcdif->clk_disp_axi))
--		return PTR_ERR(lcdif->clk_disp_axi);
-+		return dev_err_probe(drm->dev, PTR_ERR(lcdif->clk_disp_axi),
-+				     "Failed to get disp_axi clock\n");
- 
- 	platform_set_drvdata(pdev, drm);
- 
--- 
-2.43.0
-
+Best regards,
+Krzysztof
 
