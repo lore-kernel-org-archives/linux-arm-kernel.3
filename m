@@ -4,104 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD24CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E616CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:04:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/xaDzCk8g9Yg/TwlJeMcBMF5t+X3WKHYwMzLzHQCj6g=; b=qg76EG+dFYDH8WLLtim4AN3zT0
-	++FaPp8ep1dKgCqWP92yGoPMAdXBuOqV3ffYrKCQd5TDB64x2c8rWU1wAmYdfklMiS55C8dXJOjej
-	11BHj4XIS4zlRdRLey4+NWcOaH8aqIndxGwWZZ33HuLOd/p+NGioRA6FqJEP3c57qDqPCCm6GahdD
-	CWHYPmNezcYhJ63vNiVnNSmBSoacgsqyBO5S+Sl//Uf7vjVRSThHYxHNLqiE7j8qCq/m/9m3Sa6ZE
-	Vfo9mdBp6QSJiDLCeZSCERV7j9a1mRRbOaqizPWEqakiqvEcytlH8NOPndwubDINekDalAuNts6vC
-	DikVC8ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Subject:Cc:To:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FYOfZuoNHQ6zfb1eIHdQ/g7m/nIgJIBArSgWVNXdu3o=; b=EyieSrBQECUxu/uN5Yq2S2FZ4F
+	MlsV8yv5cJopRdUraZbWnDYizMUOImXbFDV5kkL73YtZGfo+25wGfk5hwZ5wpL6GcXiqxVjHFCsyL
+	FLRdYDa6uNyGJD3V3n0hFZOiKwyO4CHkjQCjfONmaC1G1ZTXg96U0Ik+GzhjO7ZfYSSDhpPyosygy
+	YwqxFc2mjoefQ68oqd4q1J3guWF1c3RBEh7kXEBitRCX1Zyz7zUNU+iin8QNk2FL6oe/YTc/YfVc2
+	OJWGTFv3wPZhW6JnPGD2EsSxFXJ95WLJnq04K4M3xds5pSnqE2MAzL0u0nLG74X+r9Lo2HIh80oLb
+	jLGWal8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnfD-0000000Cz3e-2IBp;
-	Mon, 20 Oct 2025 11:02:55 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vAngS-0000000CzNL-03C1;
+	Mon, 20 Oct 2025 11:04:12 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnfA-0000000Cz3A-3XeN
+	id 1vAngO-0000000CzLY-37WW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 11:02:54 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-47118259fd8so23331115e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 04:02:52 -0700 (PDT)
+	Mon, 20 Oct 2025 11:04:09 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47109187c32so19793565e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 04:04:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760958171; x=1761562971; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/xaDzCk8g9Yg/TwlJeMcBMF5t+X3WKHYwMzLzHQCj6g=;
-        b=AbIHe41ZuAhAj7biydHTUCviXV8gMLaOB/u7uz6fKOCxnrbhGDjVejGB3HtD/xgEfZ
-         qFBK4xqTmxAm9XpIIl/C/WBTJYmozsPu7gfMSn0DNDc9R2f7Tdg/qbwJ2pGDlORc+7tG
-         05ScO082ojVKn/IJFyMQN93zS0Lu6QKZtkU7Op73+xfkdh4iBI7Y5XDiBKnJUFD4XDkS
-         VRrfZ1OTJgnut4FPdvKlc20H4qOzF8rFjQyHnATYBwNZiX4PduiDcCpnz04AwiIRnpzw
-         uiSih5wERBVdnMlgXoC6Ct/4UQS5OavJJyz+mS7+WzF0xkj97dZpNmNvxfYcYJPFR6gR
-         Z1Rw==
+        d=gmail.com; s=20230601; t=1760958247; x=1761563047; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:subject:cc:to:from:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=FYOfZuoNHQ6zfb1eIHdQ/g7m/nIgJIBArSgWVNXdu3o=;
+        b=ZcfNGx+TYhEvTtKbT91QNg+KEE5wnlmrZ0cYDFujRFbOsTodZxX0J7TtWoqG8sAaxx
+         tZzpiFCB5dGWR+8L9zSUuFM1QSdv3XqEJvqJBqZo7kIIQsCVw3Yd91dLJ17u1neYQdg/
+         pqdbs6EiQqlu9JS5ppXvULBDh7j4XqveO5vbgKj5mEgGC61LJVdVQWXbhxGWGpYo+GSB
+         FFGEOmYKAD/GAa22GwCFOKHKOKbBn0qzaQASsJKKVQHoiNr2jTDtuR/tKY56cmBPwtMh
+         t+/DQTLn2jsgv/FfyzGMwMJCesJ1FGEA70HcVgfJFVPXZc0VOmUnmmE5JMxpJB0zahqB
+         KFIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760958171; x=1761562971;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1760958247; x=1761563047;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:subject:cc:to:from:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/xaDzCk8g9Yg/TwlJeMcBMF5t+X3WKHYwMzLzHQCj6g=;
-        b=OtQ43SU2TDT3De2ny+vJKnyFE80hMuIio9fXFoBLLVVEMxISvnP6JPSNHZpLh42mJV
-         HXzmMBRxDB+7nlesjyE01e2bQd5JBQLYrwyQF69iRYzV1vB0xIev/fcthyQ0j+znUW3k
-         /PurRFV5xuc/Z1oC7tvF3IUx6Y64qaKm7hExzTTp9eiefx7MZKBSuzCl96SHYRX1Io94
-         Ovd1+LMZat6ubuOiq963Li7Ao7TjeTDBSdcXGDSDM7H/sJNaYhE05TT39yUgRBMuf6Yq
-         nEn0dAJT5D2gUElNFWCXZ0WYuA2Q1wo2XJwNeILJeAD+yS/UnWfURaYvLcBNqu22WqA8
-         F4fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV4CRuUWNOK/Ea1ARRqn9QiW9e2A5rkojrTQhOwyDYIIP4x16zBzYg4SsU71VFhMfClmIm3r1BHDmGD1eZ1gilq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMFiq09reAGqS3CnHV2qe1Qz2nJ1uvYZ6xCpJuwN05eElpzo/Z
-	EYGMYcREwjDa5jyex4TWQwJocXsHkSPLWXGXSPJWTsk8u7V4rv62JezKUGEINVdrQy8=
-X-Gm-Gg: ASbGncvYOE/oTUtTQx1d5aY4H5hAoFLfA3J136VJ4qcyI41s64y1HfqL65jY8ECqfVK
-	T9M8bfTbAT8NIV1t+rj2KOlSQYhkemXx/QjhIu4EFQEdnTWkQmvpP8mLuw7riZtd4TjkjYcTwl7
-	KmwAJk72toJVubnxg8my7Zizr4yDmyi/P2E+66cK2V/tyjutWHyn0Dz3Xvievwd5vugtNVd+hHp
-	adjdTnIF4WZvz9VPvGT93iATtv2kH9UgaExHZKZlQcLT3VmaaEHOLjZ5AU0ftHLHvcAMfbRTbX8
-	KOA0v1UN2+MxT85zpT9CRfrE2igvR7hN0i8yVGEdMHqyHkdrRCYicrsr+8xu7QVzz0kymWMdAI2
-	uPvebE/ETZQXtSMA/TfWb6g9/36HuoscpgubwO0v6Ux+a2/hwXeBZVzi7bmqS6msvQzGnY5uOYl
-	2X+RtayXKY
-X-Google-Smtp-Source: AGHT+IHVRGuyj2IpvPopVEw/V/0JRaYFv5Zr9eggn9/gr+9TUMeVNtov2/qg5jgRutFZM+D2sOlUeg==
-X-Received: by 2002:a05:600c:820f:b0:46f:b42e:e365 with SMTP id 5b1f17b1804b1-4711791dce8mr93413745e9.39.1760958170945;
-        Mon, 20 Oct 2025 04:02:50 -0700 (PDT)
-Received: from [10.11.12.107] ([79.115.63.145])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4715520dd65sm137785635e9.15.2025.10.20.04.02.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 04:02:50 -0700 (PDT)
-Message-ID: <de77e673-c2f2-4293-88bf-be9c6779a5dc@linaro.org>
-Date: Mon, 20 Oct 2025 12:02:48 +0100
+        bh=FYOfZuoNHQ6zfb1eIHdQ/g7m/nIgJIBArSgWVNXdu3o=;
+        b=TBF6FsvgWsRPc+8clZPR/UnYKlljH0F6QYFBk5VkFm+KUJXvrLWdTHWCTDQ8sFkC89
+         HLhy30QUxkMbqOrUX1kt7+qJ75Z5umeXxUSQq9tcMzivor7ULhRbkfVVpt3vGraym17D
+         8JcDi0tMjc3oHTpBILb6tjnXrJQmKF+Qy91nziv+2jsfiVCQ63y4n12SkgwaU2YyryxZ
+         vwujKDZwe2chUQ6fkBJ/UGj3D7ZTOhBNpKmysUqmEihascl1Q8Bow2IFh28FgRHAgsf+
+         HkNPzdbActaB74GxEP73X5vNnTnze26h98+yaTMIGsyC8VbrJzrGzb82FnBPfSkFluNo
+         OUXA==
+X-Forwarded-Encrypted: i=1; AJvYcCVdqr3w5qGQ6eMbAKlbUesxTV6Wdo+er41uEZl9BQAqSx853s38ttbiOuv7WnJCCy6u5N+Ah4CNud4VYGefPFth@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9Bh2BqONgT2lHQf8gMMShJ44KrTxRVRi9Li7OrRf6mfROBz6K
+	HAmxa+Q6DD0yi1/f0R6sh35gIGJEUO8s/BN2hyPglxLvlzx6KiQYRJmK
+X-Gm-Gg: ASbGnctgrnBVah2yKJYt7IcuNLgW7VzS9GG2OBRF8O19OC0WVdBiE1ecDmRd2yQbEAW
+	qrBbMmQxyNdTPJ1ms+R08XfIQuhbvqZffAndekXktVS0UHsD0gr1arddJQKRddFgYmiU1ON8Re8
+	FDh2wiFr5mZYTaEE+Qsz2Y0/5CdueysqGrzGKcWQ/EIeMyNdX6tP9R/vUl0XWL/SthCgUZbmejM
+	f3ZHFvd3cEWVUn4uXFSyRVqIEQTK47maeBfdY1D7d7H37WRX55cwq6h3EljUQpHrT0zywqK9Vrc
+	ripqPQ7KeYx7qZN39XtIZmp+c0C8E28b4wTgbVaKhCXCpYasUwHie2jyvL2LCBBCO2BatJ/+72S
+	CC5K9wjbAFjycoCKjBMDbgzKy3gQ4Ep11LipB2gqx6SxPbbgnL6/eHuZdUkjuJwYsiZUM1DIKdV
+	b6nB2114kurAdgxA0cyw51wSLUOIDLOkoS3uPx/rmerA==
+X-Google-Smtp-Source: AGHT+IGgJEIPMXEXNKI395DmJYirOVPGUv9eBwNI0mKNkT1iDHPejiG58osCYccM9drAAu3VR8kn5A==
+X-Received: by 2002:a05:600c:34d5:b0:46f:b42e:e394 with SMTP id 5b1f17b1804b1-4711793473fmr92013195e9.41.1760958246642;
+        Mon, 20 Oct 2025 04:04:06 -0700 (PDT)
+Received: from Ansuel-XPS. (93-34-92-177.ip49.fastwebnet.it. [93.34.92.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4715520dd65sm137840795e9.15.2025.10.20.04.04.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Oct 2025 04:04:05 -0700 (PDT)
+Message-ID: <68f61725.050a0220.343129.f1f0@mx.google.com>
+X-Google-Original-Message-ID: <aPYXHZQYtY_jcRhd@Ansuel-XPS.>
+Date: Mon, 20 Oct 2025 13:03:57 +0200
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, upstream@airoha.com
+Subject: Re: [PATCH v5 5/5] PCI: mediatek: add support for Airoha AN7583 SoC
+References: <20251012205900.5948-1-ansuelsmth@gmail.com>
+ <20251012205900.5948-6-ansuelsmth@gmail.com>
+ <hjyhso2sqgyq4ymzqg6pmjfrfncla24zwsev2mfinolmclm3ih@sol2yoapbykq>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
- <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
- <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
- <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
- <2f8da425-63d9-4321-9cd3-976bbd29a52f@kernel.org>
- <a03cd07f-8e9f-4b02-b301-f1bbb69eb7db@linaro.org>
- <f6812244-8e8e-45b9-87b9-fe96d740a843@kernel.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <f6812244-8e8e-45b9-87b9-fe96d740a843@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <hjyhso2sqgyq4ymzqg6pmjfrfncla24zwsev2mfinolmclm3ih@sol2yoapbykq>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_040252_906170_CF0C5E34 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20251020_040408_807579_5FBA80B4 
+X-CRM114-Status: GOOD (  35.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,58 +114,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 10/20/25 10:58 AM, Krzysztof Kozlowski wrote:
-> On 20/10/2025 11:19, Tudor Ambarus wrote:
->>
->>
->> On 10/20/25 9:22 AM, Krzysztof Kozlowski wrote:
->>> On 20/10/2025 09:45, Tudor Ambarus wrote:
->>>>
->>>>
->>>> On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
->>>>>> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
->>>>>> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
->>>>>> --- a/drivers/clk/samsung/Kconfig
->>>>>> +++ b/drivers/clk/samsung/Kconfig
->>>>>> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
->>>>>>  	  status of the certains clocks from SoC, but it could also be tied to
->>>>>>  	  other devices as an input clock.
->>>>>>  
->>>>>> +config EXYNOS_ACPM_CLK
->>>>>> +	tristate "Clock driver controlled via ACPM interface"
->>>>>> +	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
->>>>>
->>>>> I merged the patches but I don't get why we are not enabling it by
->>>>> default, just like every other clock driver. What is so special here?
->>>>
->>>> Thanks! Are you referring to the depends on line? I needed it otherwise
->>>> on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
->>>
->>>
->>> No. I am referring to missing default and defconfig patch.
->>>
->>
->> default m or y would force compilation of EXYNOS_ACPM_CLK and
->> EXYNOS_ACPM_PROTOCOL for all ARCH_EXYNOS, even on Exynos platforms that
->> don't use ACPM. Since ACPM is not universally required by the Exynos
->> architecture, I thought to make it opt-in (default n).
+On Sun, Oct 19, 2025 at 01:01:44PM +0530, Manivannan Sadhasivam wrote:
+> On Sun, Oct 12, 2025 at 10:56:59PM +0200, Christian Marangi wrote:
+> > Add support for the second PCIe Root Complex present on Airoha AN7583
+> > SoC.
+> > 
+> > This is based on the Mediatek Gen1/2 PCIe driver and similar to Gen3
+> > also require workaround for the reset signals.
+> > 
+> > Introduce a new flag to skip having to reset signals and also introduce
+> > some additional logic to configure the PBUS registers required for
+> > Airoha SoC.
+> > 
+> > While at it, also add additional info on the PERST# Signal delay
+> > comments and use dedicated macro.
+> > 
 > 
+> This belongs to a separate patch which should come before this one.
 > 
-> Just like every clock driver. So again - how is it different?
+> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> > ---
+> >  drivers/pci/controller/pcie-mediatek.c | 92 ++++++++++++++++++++------
+> >  1 file changed, 70 insertions(+), 22 deletions(-)
+> > 
+> > diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
+> > index 1678461e56d3..3340c005da4b 100644
+> > --- a/drivers/pci/controller/pcie-mediatek.c
+> > +++ b/drivers/pci/controller/pcie-mediatek.c
+> > @@ -148,6 +148,7 @@ enum mtk_pcie_flags {
+> >  	NO_MSI = BIT(2), /* Bridge has no MSI support, and relies on an
+> >  			  * external block
+> >  			  */
+> > +	SKIP_PCIE_RSTB	= BIT(3), /* Skip calling RSTB bits on PCIe probe */
+> >  };
+> >  
+> >  /**
+> > @@ -684,28 +685,32 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
+> >  		regmap_update_bits(pcie->cfg, PCIE_SYS_CFG_V2, val, val);
+> >  	}
+> >  
+> > -	/* Assert all reset signals */
+> > -	writel(0, port->base + PCIE_RST_CTRL);
+> > -
+> > -	/*
+> > -	 * Enable PCIe link down reset, if link status changed from link up to
+> > -	 * link down, this will reset MAC control registers and configuration
+> > -	 * space.
+> > -	 */
+> > -	writel(PCIE_LINKDOWN_RST_EN, port->base + PCIE_RST_CTRL);
+> > -
+> > -	/*
+> > -	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal) and
+> > -	 * 2.2.1 (Initial Power-Up (G3 to S0)). The deassertion of PERST# should
+> > -	 * be delayed 100ms (TPVPERL) for the power and clock to become stable.
+> > -	 */
+> > -	msleep(100);
+> > -
+> > -	/* De-assert PHY, PE, PIPE, MAC and configuration reset	*/
+> > -	val = readl(port->base + PCIE_RST_CTRL);
+> > -	val |= PCIE_PHY_RSTB | PCIE_PERSTB | PCIE_PIPE_SRSTB |
+> > -	       PCIE_MAC_SRSTB | PCIE_CRSTB;
+> > -	writel(val, port->base + PCIE_RST_CTRL);
+> > +	if (!(soc->flags & SKIP_PCIE_RSTB)) {
+> > +		/* Assert all reset signals */
+> > +		writel(0, port->base + PCIE_RST_CTRL);
+> > +
+> > +		/*
+> > +		 * Enable PCIe link down reset, if link status changed from
+> > +		 * link up to link down, this will reset MAC control registers
+> > +		 * and configuration space.
+> > +		 */
+> > +		writel(PCIE_LINKDOWN_RST_EN, port->base + PCIE_RST_CTRL);
+> > +
+> > +		/*
+> > +		 * Described in PCIe CEM specification revision 3.0 sections
+> > +		 * 2.2 (PERST# Signal) and 2.2.1 (Initial Power-Up (G3 to S0)).
+> > +		 *
+> > +		 * The deassertion of PERST# should be delayed 100ms (TPVPERL)
+> > +		 * for the power and clock to become stable.
+> 
+> You can drop the comments since PCIE_T_PVPERL_MS definition has them.
+> 
+> > +		 */
+> > +		msleep(PCIE_T_PVPERL_MS);
+> > +
+> > +		/* De-assert PHY, PE, PIPE, MAC and configuration reset	*/
+> > +		val = readl(port->base + PCIE_RST_CTRL);
+> > +		val |= PCIE_PHY_RSTB | PCIE_PERSTB | PCIE_PIPE_SRSTB |
+> > +		       PCIE_MAC_SRSTB | PCIE_CRSTB;
+> > +		writel(val, port->base + PCIE_RST_CTRL);
+> 
+> If PCIE_LINKDOWN_RST_EN corresponds to PERST# signal, then it should be
+> deasserted only after the power and REFCLK are stable. But I'm not sure what the
+> above PCIE_RST_CTRL setting is doing. If it somehow affects either power or
+> REFCLK, then it should come before PCIE_LINKDOWN_RST_EN.
+>
 
-The key difference lies in the universality of the hardware interface
-across the ARCH_EXYNOS family. If EXYNOS_AUDSS_CLK_CON, EXYNOS_CLKOUT
-are considered core, integral, or nearly universal features across
-Exynos SoCs, then it's alright to have them by default. I can't tell how
-common is ACPM across the Samsung Exynos SoCs. I know it's present on
-gs{1,2)01 and e850. Heard it mentioned around some other phone but I
-can't remember which. Maybe we shall set to a default m when more users
-reveal themselves? I'm of course open to drop the defconfig patch and
-follow up with a patch setting EXYNOS_ACPM_CLK to
-"default m if ARCH_EXYNOS" if you think it's common enough.
+Hi I checked MT7622 programming guide for this.
 
-Cheers,
-ta
+The order of operation for reset is exactly what you have described.
+
+Indded, first everything is reset (assert all signals) then we set
+PCIE_LINKDOWN_RST_EN that in unrelated. We wait for clock stabilization
+with the msleep and only AFTER we deassert the PCIE_PERSTB.
+
+So no, PCIE_LINKDOWN_RST_EN is not PERST# signal sw but it's actually
+PCIE_PERSTB.
+
+> 
+> -- 
+> மணிவண்ணன் சதாசிவம்
+
+-- 
+	Ansuel
 
