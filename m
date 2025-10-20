@@ -4,45 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC032CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 21:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C348CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 21:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=owM2ECmj28klizbxLdnckSW4KHV1gevIqDdGUgOsXSI=; b=mN8UXOnbkUkadR5KIztBYNM2OK
-	rgdfturZ1b+y5uGGMLmLW0VS1nTVckpFeNOIdrnACQEgeplKqj0P6V8Gi2An2FgF4KJ5yowTJ1Szg
-	LlMFbIXi0trG2rYgZC+z4mlnCU39aVh8gNt65vkhmkNGguewgYBWZwfF4cy1XzvLAP/czII1at+9y
-	NiaCkqTKnOKDLeoWjuACZ1TLB29MJWmcxKZbHRHpEmp8CLrlRvlRkW8oN5bDbC09vAP1IGIaYV26n
-	khrrAip3JcAS1YYYSqeLAFuqpEczgISkZVB3P0lV5SRaHLP/hJUB17dLvbs1ZuuSaWRqlHlLo6dmV
-	gIzisyaA==;
+	bh=+cajRE1/wRAhGHHPYjz9ylT8OEo7s0LA0LFyZXFXHqg=; b=qjHmXo2wWu+jGeozhkRqBjo32r
+	Zo6g56S+wnWd4XeQQtmXxKZr8gKCRCyZZ98+VPt8cMXUk9jGWhmDyocDIGI9we5bVS8uDczx56ClS
+	49E0vEPAZ7LGpI0WV1mUdOkpYRozB8N7B1xlGZxAc631PBS66MbQzR4LBWiZLMYMkONoCpq9jj/rQ
+	tdRaNcs54hbh0tLo8PLCQvmRyo51AzSh+HXbtXqvyXc5i0LqoeVWs2TOOBo1JtN2OAOMlINbosVMD
+	XXJk2e1TYZqdfJ/lW594I7cJp0R29HVjY8B10GiWEgkPH8Six2G6npfs71oz6eH/kU3dwLn080yBA
+	SC/aPDUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAxIx-0000000F58N-3qUt;
-	Mon, 20 Oct 2025 21:20:35 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vAxIy-0000000F590-1uTf;
+	Mon, 20 Oct 2025 21:20:36 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAxIu-0000000F568-2hqU;
+	id 1vAxIw-0000000F57d-1rSv;
 	Mon, 20 Oct 2025 21:20:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=+cajRE1/wRAhGHHPYjz9ylT8OEo7s0LA0LFyZXFXHqg=; b=qQRfuhS5WeJPojcCYeEKsMmtqP
+	OfK3kDafTidmUS/+oj3M9rR0zysKfe10QwO8XgZUUd2v/IMEppFPJzg/MZh61iUth/4HWYGr5n3on
+	KZ7OneQy+303vNwu8rx6vEhHKNYjj0z8FiTzmeZhq68gFGyFrlwyq4mc13I3LB66BpL5+wADpHM0r
+	e37TOVKGKPwRfMkgEMbeyNt8fCUmyhmg8GyGYrz+o1zTCoIgN1PDwFgpc0cxsTWF51nPE3W+mjfP5
+	tIck+XK+zBjXkeWcV+uF2fjwM3++rFvY0auHehaKl79Dt/+v/Vyz+HAKkh020d+u3o7Xny5KA5GDH
+	kL396+MQ==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAxIs-00000002R7q-1PV5;
+	Mon, 20 Oct 2025 21:20:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760995229;
-	bh=ebhCP696my3k4WkNCPQ1Nj+6kNj+G6BYfiv6ewYHW84=;
+	s=mail; t=1760995226;
+	bh=7PC6JHtD5/xPy2Ey7TaucbPgSAi+lFZoa3bDhNA91IY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BuTVmlhmnDI7AsEdDshMpCtHVCVCrdFdOybD8PjHoR0ElTXqcXEFZm/Th+YkWzgs5
-	 Qbodetct5EBCzIV/Hpxk5ro3eX7nvy/MDWBQ/5qut5Cax6rNKYcd85nHcOpoiLwsg9
-	 HIh6x2U+eu/gbCsvi+UItjjTpb36iJSHgz/bFFGC3KLHhfrkiwrSPZHeW1z0weHq/g
-	 I/tNzxyy9SH+eUjOgdZrXCZCe/WE5i7reTNqpEpSnt1dQ/dwkE7iUtSglrkaOHEhTB
-	 s6BoWoz9BAtfadyq7qRC6ok+i6X4sB+IxIlu6qhSbyCmyIaZH1DswQa+1JzNsXGskj
-	 DY9VI5qXtMClQ==
+	b=fnJ7QxwuQI+5vZ3jGmQUj55/483QdNSBgF5l43Mi+EEwpDi2ZICQsgUilxUC7J6IM
+	 nbum5eWpUZyy/rlc2JsZ692YIfPnq45hiOYXIrrkKuXNJq+TIBDsqezToc78YhitIR
+	 ygTpmY2a1dvcH3mMdn2h9fh+tFwzjnXxiJfRdGMm/z1Qa+ujre3z1fuf12jhhhg5Zs
+	 fvDyPodwjKyyQbs9zlycAiw2CjbtZzuU3/yzte4i01R7xsMs9W6dXOgtk46GNeuoOD
+	 rBwIz6NRtmtR6f/B06Gai8UVSJ6IZe1aI29wlnQFWoEWzlIrl7AqOfnl6XH88VAMYj
+	 NOb3Tznv9Igcg==
 Received: from trenzalore (unknown [23.233.251.139])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B61A117E055D;
-	Mon, 20 Oct 2025 23:20:26 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 732BC17E0456;
+	Mon, 20 Oct 2025 23:20:23 +0200 (CEST)
 From: Detlev Casanova <detlev.casanova@collabora.com>
 To: linux-kernel@vger.kernel.org
 Cc: Rob Herring <robh@kernel.org>,
@@ -68,17 +82,18 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v3 2/2] arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576
-Date: Mon, 20 Oct 2025 17:20:09 -0400
-Message-ID: <20251020212009.8852-3-detlev.casanova@collabora.com>
+Subject: [PATCH v3 1/2] arm64: dts: rockchip: Add the vdpu381 Video Decoders on RK3588
+Date: Mon, 20 Oct 2025 17:20:08 -0400
+Message-ID: <20251020212009.8852-2-detlev.casanova@collabora.com>
 X-Mailer: git-send-email 2.51.1.dirty
 In-Reply-To: <20251020212009.8852-1-detlev.casanova@collabora.com>
 References: <20251020212009.8852-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_142032_842578_F17A1F63 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20251020_222031_726764_CB9F8850 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,69 +108,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the vdpu383 Video Decoder variant to the RK3576 device tree.
+Add the vdpu381 Video Decoders to the rk3588-base devicetree.
 
-Also allow using the dedicated SRAM as a pool.
+The RK3588 based SoCs all embed 2 vdpu381 decoders.
+This also adds the dedicated IOMMU controllers.
 
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 36 ++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 74 +++++++++++++++++++
+ 1 file changed, 74 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index fc4e9e07f1cf..00999823746f 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1289,6 +1289,41 @@ gpu: gpu@27800000 {
- 			status = "disabled";
- 		};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index e2500e31c434..d076267a330b 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -1353,6 +1353,70 @@ vepu121_3_mmu: iommu@fdbac800 {
+ 		#iommu-cells = <0>;
+ 	};
  
-+		vdec: video-codec@27b00000 {
-+			compatible = "rockchip,rk3576-vdec";
-+			reg = <0x0 0x27b00100 0x0 0x500>,
-+			      <0x0 0x27b00000 0x0 0x100>,
-+			      <0x0 0x27b00600 0x0 0x100>;
-+			reg-names = "function", "link", "cache";
-+			interrupts = <GIC_SPI 308 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cru ACLK_RKVDEC_ROOT>, <&cru HCLK_RKVDEC>,
-+				 <&cru ACLK_RKVDEC_ROOT_BAK>, <&cru CLK_RKVDEC_CORE>,
-+				 <&cru CLK_RKVDEC_HEVC_CA>;
-+			clock-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
-+			assigned-clocks = <&cru ACLK_RKVDEC_ROOT>, <&cru CLK_RKVDEC_CORE>,
-+					  <&cru ACLK_RKVDEC_ROOT_BAK>, <&cru CLK_RKVDEC_HEVC_CA>;
-+			assigned-clock-rates = <600000000>, <600000000>,
-+					       <500000000>, <1000000000>;
-+			iommus = <&vdec_mmu>;
-+			power-domains = <&power RK3576_PD_VDEC>;
-+			resets = <&cru SRST_A_RKVDEC_BIU>, <&cru SRST_H_RKVDEC_BIU>,
-+				 <&cru SRST_H_RKVDEC>, <&cru SRST_RKVDEC_CORE>,
-+				 <&cru SRST_RKVDEC_HEVC_CA>;
-+			reset-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
-+			sram = <&rkvdec_sram>;
++	vdec0: video-codec@fdc38000 {
++		compatible = "rockchip,rk3588-vdec";
++		reg = <0x0 0xfdc38100 0x0 0x500>,
++		      <0x0 0xfdc38000 0x0 0x100>,
++		      <0x0 0xfdc38600 0x0 0x100>;
++		reg-names = "function", "link", "cache";
++		interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RKVDEC0>, <&cru HCLK_RKVDEC0>, <&cru CLK_RKVDEC0_CA>,
++			 <&cru CLK_RKVDEC0_CORE>, <&cru CLK_RKVDEC0_HEVC_CA>;
++		clock-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
++		assigned-clocks = <&cru ACLK_RKVDEC0>, <&cru CLK_RKVDEC0_CORE>,
++				  <&cru CLK_RKVDEC0_CA>, <&cru CLK_RKVDEC0_HEVC_CA>;
++		assigned-clock-rates = <800000000>, <600000000>,
++				       <600000000>, <1000000000>;
++		iommus = <&vdec0_mmu>;
++		power-domains = <&power RK3588_PD_RKVDEC0>;
++		resets = <&cru SRST_A_RKVDEC0>, <&cru SRST_H_RKVDEC0>, <&cru SRST_RKVDEC0_CA>,
++			 <&cru SRST_RKVDEC0_CORE>, <&cru SRST_RKVDEC0_HEVC_CA>;
++		reset-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
++		sram = <&vdec0_sram>;
++	};
++
++	vdec0_mmu: iommu@fdc38700 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdc38700 0x0 0x40>, <0x0 0xfdc38740 0x0 0x40>;
++		interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RKVDEC0>, <&cru HCLK_RKVDEC0>;
++		clock-names = "aclk", "iface";
++		power-domains = <&power RK3588_PD_RKVDEC0>;
++		#iommu-cells = <0>;
++	};
++
++	vdec1: video-codec@fdc40000 {
++		compatible = "rockchip,rk3588-vdec";
++		reg = <0x0 0xfdc40100 0x0 0x500>,
++		      <0x0 0xfdc40000 0x0 0x100>,
++		      <0x0 0xfdc40600 0x0 0x100>;
++		reg-names = "function", "link", "cache";
++		interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RKVDEC1>, <&cru HCLK_RKVDEC1>, <&cru CLK_RKVDEC1_CA>,
++			 <&cru CLK_RKVDEC1_CORE>, <&cru CLK_RKVDEC1_HEVC_CA>;
++		clock-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
++		assigned-clocks = <&cru ACLK_RKVDEC1>, <&cru CLK_RKVDEC1_CORE>,
++				  <&cru CLK_RKVDEC1_CA>, <&cru CLK_RKVDEC1_HEVC_CA>;
++		assigned-clock-rates = <800000000>, <600000000>,
++				       <600000000>, <1000000000>;
++		iommus = <&vdec1_mmu>;
++		power-domains = <&power RK3588_PD_RKVDEC1>;
++		resets = <&cru SRST_A_RKVDEC1>, <&cru SRST_H_RKVDEC1>, <&cru SRST_RKVDEC1_CA>,
++			 <&cru SRST_RKVDEC1_CORE>, <&cru SRST_RKVDEC1_HEVC_CA>;
++		reset-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
++		sram = <&vdec1_sram>;
++	};
++
++	vdec1_mmu: iommu@fdc40700 {
++		compatible = "rockchip,rk3588-iommu", "rockchip,rk3568-iommu";
++		reg = <0x0 0xfdc40700 0x0 0x40>, <0x0 0xfdc40740 0x0 0x40>;
++		interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&cru ACLK_RKVDEC1>, <&cru HCLK_RKVDEC1>;
++		clock-names = "aclk", "iface";
++		power-domains = <&power RK3588_PD_RKVDEC1>;
++		#iommu-cells = <0>;
++	};
++
+ 	av1d: video-codec@fdc70000 {
+ 		compatible = "rockchip,rk3588-av1-vpu";
+ 		reg = <0x0 0xfdc70000 0x0 0x800>;
+@@ -3248,6 +3312,16 @@ system_sram2: sram@ff001000 {
+ 		ranges = <0x0 0x0 0xff001000 0xef000>;
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
++
++		vdec0_sram: codec-sram@0 {
++			reg = <0x0 0x78000>;
++			pool;
 +		};
 +
-+		vdec_mmu: iommu@27b00800 {
-+			compatible = "rockchip,rk3576-iommu", "rockchip,rk3568-iommu";
-+			reg = <0x0 0x27b00800 0x0 0x40>, <0x0 0x27b00900 0x0 0x40>;
-+			interrupts = <GIC_SPI 309 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cru CLK_RKVDEC_CORE>, <&cru HCLK_RKVDEC>;
-+			clock-names = "aclk", "iface";
-+			power-domains = <&power RK3576_PD_VDEC>;
-+			rockchip,disable-mmu-reset;
-+			#iommu-cells = <0>;
++		vdec1_sram: codec-sram@78000 {
++			reg = <0x78000 0x77000>;
++			pool;
 +		};
-+
- 		vop: vop@27d00000 {
- 			compatible = "rockchip,rk3576-vop";
- 			reg = <0x0 0x27d00000 0x0 0x3000>, <0x0 0x27d05000 0x0 0x1000>;
-@@ -2694,6 +2729,7 @@ sram: sram@3ff88000 {
- 			/* start address and size should be 4k align */
- 			rkvdec_sram: rkvdec-sram@0 {
- 				reg = <0x0 0x78000>;
-+				pool;
- 			};
- 		};
+ 	};
  
+ 	pinctrl: pinctrl {
 -- 
 2.51.1.dirty
 
