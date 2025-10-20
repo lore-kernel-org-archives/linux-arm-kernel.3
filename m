@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF34CCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2354DCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pUXQFFKo1Pv4M2rvre8t7B9CCNvKB01SFKiEFm6LRLA=; b=XOS5I4ngIkGJ0dzp0xkCKcOX8t
-	4/0/101jylrSaahxkaKHhCUHV33fvs1GlZAGoLbVVrKIYVeqU0b8Oug2YcurouxAZ7mG+YOqKGdu/
-	0n/kK+MGQ50QXsLExe7Uw3XbK1QMzg5caN/YG+A+UWXKY02y3HUylZbmqP6LaB8i3NiFN899TcM9I
-	7cuvWg91pBV6V0vdrwS1RXzrUBNBssrXsBT8U0GLzPOLU1+WsdMIYWnjQnmMgna9Z2oLQwFzqzm5v
-	gU6GK60JWlvAJDFPuWHVIpGI0eE6kFbjllfTpQVaK/PJ8yA1IFCkHjY1ivdHtch3i/7/0pDel61gN
-	oqsxwzcg==;
+	bh=OnrXY4nKtL41DrpWV6jY8HibEUgELK3MwgT78fRwTko=; b=MMaM3dnTUKsyTN3wBJV4T+3gPI
+	lu6s8vvyP4u/IYt22EbtQUfOvWx2s8xdv8HYc68dwnysWJyJ+kfhv5PbsQDvwn0PeADnrF7Dowpzq
+	emyuvTt1boilszvO0BBv8zbnhLWkU0DxVlfcVgltdWeJ0dT7AJxdkdb5jic491u90K3KB3vGTjcq4
+	8VJtORnTsh7sBRHCtvr3qNGyCNCJzK8UJGnNKFOMGCht7/V+E7lcAKs1WefzITuyHIIsbDrnczl9p
+	opoqxvmX0viFF/9Y1QSQkmI/Y18yZee9YGYD9g/Cx2Ie/H32u79Xxbbjsyljhg0s7i/yfVWgOIv8T
+	i8wewN5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp4G-0000000DUeN-3IpR;
-	Mon, 20 Oct 2025 12:32:52 +0000
+	id 1vAp4E-0000000DUZc-21x5;
+	Mon, 20 Oct 2025 12:32:50 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp2D-0000000DRj8-0BYM
+	id 1vAp2A-0000000DRf9-3Rtt
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 20 Oct 2025 12:30:45 +0000
+	Mon, 20 Oct 2025 12:30:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=pUXQFFKo1Pv4M2rvre8t7B9CCNvKB01SFKiEFm6LRLA=; b=cQACr1ibEk5en1+Nvxb1Ni2BNC
-	Sp/pwr9MaIm1avzbbkAIDDb4SS1UouTQT4s47fi3ziDniSO1lUcnTvg/vO4V4eZ3Rs68/ONbRBtCB
-	Wpmgfsjl8C/k6iMHAFVlPz57GYTYCZj1G0cZOi69rBDehiNY13LSFf4A4NW5mvafWPPGz//mkcZ8/
-	sj0OQKuFmnjC3zhPiUnDpbau9vI4V8B6KUwqg7tWw9yd5Ld9j+pYaQQHFzSgyVCOY9OHKbwR6m6MS
-	1GeRTl5T/CEvq5MmTihv6NabYnfLjwKe9sbPagI07HJFdi1T3PFiLqZKsFBd0LkbW0t2FFg72yDmt
-	balE/X9w==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	bh=OnrXY4nKtL41DrpWV6jY8HibEUgELK3MwgT78fRwTko=; b=e9e+oFSF8zZBB01pZEwK+piw+y
+	L8zRRbRNa25u5/9LwU1aTEYAPBu66zqq/59akfbWtPs1QD23l4eKW59vpcFPzMAwPPNlvRinmPr89
+	9V7SiJtJpix72CQKiBVSd58bRmslnDUtxgb1bfNjj6lN9MK1+NBz80XLM8R0L+xBcmfFSSOb105ij
+	+LbxFhJTtIJpeNPcCbQXeXi/bT1OG/Qmpw/6O4eHbZQ9FVjZd+X5/QBjKIPMZxHWNjXavSXlFTxFw
+	4waPD+c1EeIu4pl7drZrjY+O0XpT3AkLPwt1hR48nhMJu1L27lKEZp9XHnTW/u/wdBdNFB0z4mBLT
+	yrwCwoYA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp27-000000074J8-2e7Y
+	id 1vAp26-000000074I0-0Aaj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 12:30:43 +0000
+	Mon, 20 Oct 2025 12:30:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F31C48ADA;
-	Mon, 20 Oct 2025 12:30:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1E39C116B1;
-	Mon, 20 Oct 2025 12:30:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 014FB48AFE;
+	Mon, 20 Oct 2025 12:30:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5F76C113D0;
+	Mon, 20 Oct 2025 12:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760963414;
-	bh=v/v0QyeagRIyAv+E9uORe5cEqPKFIALzdwQ8WmOq0to=;
+	s=k20201202; t=1760963415;
+	bh=htSs6qqxEyUkJEeEv+pmd+ZSERdhl17dnq7eKn3pDqM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LUz/jsK/+XGMM5FlE+JJskKsIAcrEf3gDjS6a9EEBZNRptyAON/1DSn9kcstXXqBb
-	 /YtvKqmQSZWlHqbZa3whEVEN+YJ0KXqi2I9fvZGQ2Ds4Xgj/ALfVnUq/OD1uEx2C65
-	 3EoQnb1CHEPoAX7F/fXq9+02zR6fR80/WIz4lpq82rKfnzWZAS2jvkbc9+g3b6DvMZ
-	 5acCJQYwSX0APp9eG6h6YoedQt9KxrrGNHYDOcet/m2pPSdSG8YfI8uCkEKetnXYjg
-	 FvXyBBKerCOMDhCLKubKch9Qnla2/fEDjgaKfuP28D1441f/wwTUx97SXLwWgSWDoB
-	 w/JpIGpeUaXnw==
+	b=s6FeGFXGf4zUQ1CRmobuEBTrFzc9EE4Qx19Ed6FX4QXvPbP7Lu7+5FnWqJL5I4S+Y
+	 aHMvqc5csDW5SoatyZcuw3/Q3a+jPjf109jtrY4yq2q6ozae1oTR0TPKIOdzJRp71K
+	 CN7E0UbtV1eatoJ442jE7sH5Evuhl9ygJpLUFQAzgzBboolpS6Kiv+/PMpeaQWaFUM
+	 /jxLT5pIgJspwc5l8766QQdclrx3E1OnaZBo8XURYcNtBKnEwj5+NnmetsF+YC+jaD
+	 Ti+U9ho97BWJ2WCcWZyijdT+WjysIf4zlqvU8ehZJ6qhsyR1mEZv1ToDkKxIiy1xr2
+	 oFSFYXW6ts+2A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vAp1g-0000000FUu2-0nyL;
-	Mon, 20 Oct 2025 12:30:12 +0000
+	id 1vAp1i-0000000FUu2-0Esd;
+	Mon, 20 Oct 2025 12:30:14 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -81,9 +81,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>,
 	Jinjie Ruan <ruanjinjie@huawei.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v4 16/26] genirq: Allow per-cpu interrupt sharing for non-overlapping affinities
-Date: Mon, 20 Oct 2025 13:29:33 +0100
-Message-ID: <20251020122944.3074811-17-maz@kernel.org>
+Subject: [PATCH v4 22/26] irqchip/apple-aic: Drop support for custom PMU irq partitions
+Date: Mon, 20 Oct 2025 13:29:39 +0100
+Message-ID: <20251020122944.3074811-23-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251020122944.3074811-1-maz@kernel.org>
 References: <20251020122944.3074811-1-maz@kernel.org>
@@ -94,8 +94,8 @@ X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradea
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_133041_369183_5B9EC528 
-X-CRM114-Status: GOOD (  23.72  )
+X-CRM114-CacheID: sfid-20251020_133039_631977_62DBBA45 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,201 +110,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Interrupt sharing for percpu-devid interrupts is forbidden, and
-for good reasons. These are interrupts generated *from* a CPU and
-handled by itself (timer, for example). Nobody in their right mind
-would put two devices on the same pin (and if they have, they get to
-keep the pieces...).
+Similarly to what has been done for GICv3, drop the irq partitioning
+support from the AIC driver, effectively merging the two per-cpu
+interrupts for the PMU.
 
-But this also prevents more benign cases, where devices are connected
-to groups of CPUs, and for which the affinities are not overlapping.
-Effectively, the only thing they share is the interrupt number, and
-nothing else.
-
-Let's tweak the definition of IRQF_SHARED applied to percpu_devid
-interrupts to allow this particular case. This results in extra
-validation at the point of the interrupt being setup and freed,
-as well as a tiny bit of extra complexity for interrupts at handling
-time (to pick the correct irqaction).
-
+Reviewed-by: Sven Peter <sven@kernel.org>
 Tested-by: Will Deacon <will@kernel.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- kernel/irq/chip.c   |  8 ++++--
- kernel/irq/manage.c | 67 +++++++++++++++++++++++++++++++++++++--------
- 2 files changed, 61 insertions(+), 14 deletions(-)
+ drivers/irqchip/irq-apple-aic.c | 28 +++++++---------------------
+ 1 file changed, 7 insertions(+), 21 deletions(-)
 
-diff --git a/kernel/irq/chip.c b/kernel/irq/chip.c
-index 633e1f67bb6f4..19e0a87a2663e 100644
---- a/kernel/irq/chip.c
-+++ b/kernel/irq/chip.c
-@@ -897,8 +897,9 @@ void handle_percpu_irq(struct irq_desc *desc)
- void handle_percpu_devid_irq(struct irq_desc *desc)
- {
- 	struct irq_chip *chip = irq_desc_get_chip(desc);
--	struct irqaction *action = desc->action;
- 	unsigned int irq = irq_desc_get_irq(desc);
-+	unsigned int cpu = smp_processor_id();
-+	struct irqaction *action;
- 	irqreturn_t res;
- 
- 	/*
-@@ -910,12 +911,15 @@ void handle_percpu_devid_irq(struct irq_desc *desc)
- 	if (chip->irq_ack)
- 		chip->irq_ack(&desc->irq_data);
- 
-+	for (action = desc->action; action; action = action->next)
-+		if (cpumask_test_cpu(cpu, action->affinity))
-+			break;
-+
- 	if (likely(action)) {
- 		trace_irq_handler_entry(irq, action);
- 		res = action->handler(irq, raw_cpu_ptr(action->percpu_dev_id));
- 		trace_irq_handler_exit(irq, action, res);
- 	} else {
--		unsigned int cpu = smp_processor_id();
- 		bool enabled = cpumask_test_cpu(cpu, desc->percpu_enabled);
- 
- 		if (enabled)
-diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-index b1a3140e5f3c9..ea3dbf6fee194 100644
---- a/kernel/irq/manage.c
-+++ b/kernel/irq/manage.c
-@@ -1418,6 +1418,19 @@ setup_irq_thread(struct irqaction *new, unsigned int irq, bool secondary)
- 	return 0;
- }
- 
-+static bool valid_percpu_irqaction(struct irqaction *old, struct irqaction *new)
-+{
-+	do {
-+		if (cpumask_intersects(old->affinity, new->affinity) ||
-+		    old->percpu_dev_id == new->percpu_dev_id)
-+			return false;
-+
-+		old = old->next;
-+	} while (old);
-+
-+	return true;
-+}
-+
- /*
-  * Internal function to register an irqaction - typically used to
-  * allocate special interrupts that are part of the architecture.
-@@ -1438,6 +1451,7 @@ __setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new)
- 	struct irqaction *old, **old_ptr;
- 	unsigned long flags, thread_mask = 0;
- 	int ret, nested, shared = 0;
-+	bool per_cpu_devid;
- 
- 	if (!desc)
- 		return -EINVAL;
-@@ -1447,6 +1461,8 @@ __setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new)
- 	if (!try_module_get(desc->owner))
- 		return -ENODEV;
- 
-+	per_cpu_devid = irq_settings_is_per_cpu_devid(desc);
-+
- 	new->irq = irq;
- 
- 	/*
-@@ -1554,13 +1570,20 @@ __setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new)
- 		 */
- 		unsigned int oldtype;
- 
--		if (irq_is_nmi(desc)) {
-+		if (irq_is_nmi(desc) && !per_cpu_devid) {
- 			pr_err("Invalid attempt to share NMI for %s (irq %d) on irqchip %s.\n",
- 				new->name, irq, desc->irq_data.chip->name);
- 			ret = -EINVAL;
- 			goto out_unlock;
- 		}
- 
-+		if (per_cpu_devid && !valid_percpu_irqaction(old, new)) {
-+			pr_err("Overlapping affinities for %s (irq %d) on irqchip %s.\n",
-+				new->name, irq, desc->irq_data.chip->name);
-+			ret = -EINVAL;
-+			goto out_unlock;
-+		}
-+
- 		/*
- 		 * If nobody did set the configuration before, inherit
- 		 * the one provided by the requester.
-@@ -1711,7 +1734,7 @@ __setup_irq(unsigned int irq, struct irq_desc *desc, struct irqaction *new)
- 		if (!(new->flags & IRQF_NO_AUTOEN) &&
- 		    irq_settings_can_autoenable(desc)) {
- 			irq_startup(desc, IRQ_RESEND, IRQ_START_COND);
--		} else {
-+		} else if (!per_cpu_devid) {
- 			/*
- 			 * Shared interrupts do not go well with disabling
- 			 * auto enable. The sharing interrupt might request
-@@ -2346,7 +2369,7 @@ void disable_percpu_nmi(unsigned int irq)
- static struct irqaction *__free_percpu_irq(unsigned int irq, void __percpu *dev_id)
- {
- 	struct irq_desc *desc = irq_to_desc(irq);
--	struct irqaction *action;
-+	struct irqaction *action, **action_ptr;
- 
- 	WARN(in_interrupt(), "Trying to free IRQ %d from IRQ context!\n", irq);
- 
-@@ -2354,21 +2377,33 @@ static struct irqaction *__free_percpu_irq(unsigned int irq, void __percpu *dev_
- 		return NULL;
- 
- 	scoped_guard(raw_spinlock_irqsave, &desc->lock) {
--		action = desc->action;
--		if (!action || action->percpu_dev_id != dev_id) {
--			WARN(1, "Trying to free already-free IRQ %d\n", irq);
--			return NULL;
-+		action_ptr = &desc->action;
-+		for (;;) {
-+			action = *action_ptr;
-+
-+			if (!action) {
-+				WARN(1, "Trying to free already-free IRQ %d\n", irq);
-+				return NULL;
-+			}
-+
-+			if (action->percpu_dev_id == dev_id)
-+				break;
-+
-+			action_ptr = &action->next;
- 		}
- 
--		if (!cpumask_empty(desc->percpu_enabled)) {
--			WARN(1, "percpu IRQ %d still enabled on CPU%d!\n",
--			     irq, cpumask_first(desc->percpu_enabled));
-+		if (cpumask_intersects(desc->percpu_enabled, action->affinity)) {
-+			WARN(1, "percpu IRQ %d still enabled on CPU%d!\n", irq,
-+			     cpumask_first_and(desc->percpu_enabled, action->affinity));
- 			return NULL;
- 		}
- 
- 		/* Found it - now remove it from the list of entries: */
--		desc->action = NULL;
--		desc->istate &= ~IRQS_NMI;
-+		*action_ptr = action->next;
-+
-+		/* Demote from NMI if we killed the last action */
-+		if (!desc->action)
-+			desc->istate &= ~IRQS_NMI;
+diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
+index cb8b6f40ce8d3..6305d25b9e77b 100644
+--- a/drivers/irqchip/irq-apple-aic.c
++++ b/drivers/irqchip/irq-apple-aic.c
+@@ -578,16 +578,9 @@ static void __exception_irq_entry aic_handle_fiq(struct pt_regs *regs)
  	}
  
- 	unregister_handler_proc(irq, action);
-@@ -2462,6 +2497,14 @@ struct irqaction *create_percpu_irqaction(irq_handler_t handler, unsigned long f
- 	action->percpu_dev_id = dev_id;
- 	action->affinity = affinity;
+ 	if ((read_sysreg_s(SYS_IMP_APL_PMCR0_EL1) & (PMCR0_IMODE | PMCR0_IACT)) ==
+-			(FIELD_PREP(PMCR0_IMODE, PMCR0_IMODE_FIQ) | PMCR0_IACT)) {
+-		int irq;
+-		if (cpumask_test_cpu(smp_processor_id(),
+-				     &aic_irqc->fiq_aff[AIC_CPU_PMU_P]->aff))
+-			irq = AIC_CPU_PMU_P;
+-		else
+-			irq = AIC_CPU_PMU_E;
++			(FIELD_PREP(PMCR0_IMODE, PMCR0_IMODE_FIQ) | PMCR0_IACT))
+ 		generic_handle_domain_irq(aic_irqc->hw_domain,
+-					  AIC_FIQ_HWIRQ(irq));
+-	}
++					  AIC_FIQ_HWIRQ(AIC_CPU_PMU_P));
  
-+	/*
-+	 * We allow some form of sharing for non-overlapping affinity
-+	 * masks. Obviously, covering all CPUs prevents any sharing
-+	 * the first place.
-+	 */
-+	if (!cpumask_equal(affinity, cpu_possible_mask))
-+		action->flags |= IRQF_SHARED;
+ 	if (static_branch_likely(&use_fast_ipi) &&
+ 	    (FIELD_GET(UPMCR0_IMODE, read_sysreg_s(SYS_IMP_APL_UPMCR0_EL1)) == UPMCR0_IMODE_FIQ) &&
+@@ -632,18 +625,7 @@ static int aic_irq_domain_map(struct irq_domain *id, unsigned int irq,
+ 				    handle_fasteoi_irq, NULL, NULL);
+ 		irqd_set_single_target(irq_desc_get_irq_data(irq_to_desc(irq)));
+ 	} else {
+-		int fiq = FIELD_GET(AIC_EVENT_NUM, hw);
+-
+-		switch (fiq) {
+-		case AIC_CPU_PMU_P:
+-		case AIC_CPU_PMU_E:
+-			irq_set_percpu_devid_partition(irq, &ic->fiq_aff[fiq]->aff);
+-			break;
+-		default:
+-			irq_set_percpu_devid(irq);
+-			break;
+-		}
+-
++		irq_set_percpu_devid(irq);
+ 		irq_domain_set_info(id, irq, hw, &fiq_chip, id->host_data,
+ 				    handle_percpu_devid_irq, NULL, NULL);
+ 	}
+@@ -732,6 +714,10 @@ static int aic_irq_domain_translate(struct irq_domain *id,
+ 				break;
+ 			}
+ 		}
 +
- 	return action;
- }
- 
++		/* Merge the two PMUs on a single interrupt */
++		if (*hwirq == AIC_CPU_PMU_E)
++			*hwirq = AIC_CPU_PMU_P;
+ 		break;
+ 	default:
+ 		return -EINVAL;
 -- 
 2.47.3
 
