@@ -4,94 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B08CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:04:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0C15CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:08:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ll6Bf/giB3iOTp7R2Z2b6cqPDuF5BEVBq2f4yaww1LQ=; b=FYpVVdNbgwf22jmeNbxWgCpLWq
-	r0ISt8rO0X7gt7NcK0qWcxDyJHEYhxkEbEvKnUpzJEunVbKpSVJSV641Y6aXyxAsyF27EsqwZW2Dh
-	qGOtxwfzH6MzycBzDlJ+wllvQHkr7rKAQXUG7vFINNnQjHfJnYruPXgSijO1ymhlTcdSpYIjWPZC0
-	xvnp2y6xEbHDk6nyUCI/hoKxTsUuxIwj6DTu7SEN4yyCk9P3EfQM253xHRYh0rGHR0HORx4iguHx/
-	IG5+iIUAgk6Rt7GK5XheTmEqCL43Sl1ygT3rVH2KUZnJflurC9LNOjvSDUJ1SEbeYs2L6Tf5LC0N2
-	cZELbgdg==;
+	bh=PW2Gb3KgS1lxfff0TLl++nMBLOL4Uug61XDZnqG+onc=; b=royfpso0wOPZkkrvMlT+LFt+Ef
+	WsMcga4y434n5Mm/a0E/h+FopsnK7VXEDgSuv9yCK9e0QzK6BrrblBVhh10c+H7z05KLrGPc4cngq
+	RAbeqQuB63eGF67u4pkuN8e2NNgfZQyTsQZF+efFy5z7VjYXDfPA1CarvSo8dHdHHzx4IlWiNkAFU
+	dEEcAVaaA4/J9dlzQQfL5WTYKNHn/mEWoUUntvaRwr6JyJWXhM/lrqf8/DZmyWYhJDHm3Ggc4g6fI
+	XmyOs5QBCD8SBgB7vJxB8wKwbLyHTnEEB4b5LbT0hTuJl+GuZcAXvyBNuM1EAVa7w4YvFvYbSYluE
+	+RiO2NYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAngx-0000000Cza1-2utg;
-	Mon, 20 Oct 2025 11:04:43 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vAnkC-0000000D0K6-1Ozl;
+	Mon, 20 Oct 2025 11:08:04 +0000
+Received: from mail-m1973177.qiye.163.com ([220.197.31.77])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAngv-0000000CzZ2-1r7z;
-	Mon, 20 Oct 2025 11:04:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760958278;
-	bh=S0gr+beW66g6d7RoCiZR+zG9DA0elSFkbETKy2N04NQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pXHJc2FNtClHFj9eM8P+MyxeRQdr3hjyYE/NHTr5gplDQ6b0FiKkWh5+fuUUQkh3P
-	 vxdY1/NaeT9+p2F3MhtS2T9bHSVCDDKn1xekNXcd7dj4hrGGIMWnF5KMnw9eU5rLDj
-	 YF4t+XHI6biYGH551ZAOJy6amFub7ICBmQhDdLNSajlQNojcVHxGWvTEawdLIS+tZT
-	 6Iv3iigIVPbECkhtd8AHkNijp7q1myT076F/rJA9Vtwby0IcWla2ll8T8TEdhq3h75
-	 aDaCIsbsp/5qnbTNJvb1vW5fe/ZY+G82ZRdY3ETCuFL1X91mTu5xt0fa0/hMCrzNV9
-	 hgJulVcqYJNcw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A83D117E0C54;
-	Mon, 20 Oct 2025 13:04:37 +0200 (CEST)
-Message-ID: <6de4477a-5c2e-413f-9aa2-77b7262ebb38@collabora.com>
-Date: Mon, 20 Oct 2025 13:04:37 +0200
+	id 1vAnk8-0000000D0HR-2sbv;
+	Mon, 20 Oct 2025 11:08:02 +0000
+Received: from [172.16.12.149] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 268423cdc;
+	Mon, 20 Oct 2025 19:07:48 +0800 (GMT+08:00)
+Message-ID: <954a67d1-1759-4e18-8eef-3fa14fb3cef5@rock-chips.com>
+Date: Mon, 20 Oct 2025 19:07:46 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] dt-bindings: ufs: mediatek,ufs: add MT8195
- compatible and update clock nodes
-To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
- "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
- "James.Bottomley@HansenPartnership.com"
- <James.Bottomley@HansenPartnership.com>, "robh@kernel.org"
- <robh@kernel.org>, "bvanassche@acm.org" <bvanassche@acm.org>,
- "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- =?UTF-8?B?TWFjcGF1bCBMaW4gKOael+aZuuaWjCk=?= <Macpaul.Lin@mediatek.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
- "krzk@kernel.org" <krzk@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "avri.altman@wdc.com" <avri.altman@wdc.com>,
- "martin.petersen@oracle.com" <martin.petersen@oracle.com>
-Cc: "macpaul@gmail.com" <macpaul@gmail.com>,
- =?UTF-8?B?UGFibG8gU3VuICjlravmr5Pnv5Qp?= <pablo.sun@mediatek.com>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- =?UTF-8?B?QmVhciBXYW5nICjokKnljp/mg5/lvrcp?= <bear.wang@mediatek.com>,
- =?UTF-8?B?UmFtYXggTG8gKOe+heaYjumBoCk=?= <Ramax.Lo@mediatek.com>
-References: <20250722085721.2062657-1-macpaul.lin@mediatek.com>
- <20250722085721.2062657-3-macpaul.lin@mediatek.com>
- <b90956e8-adf9-4411-b6f9-9212fcd14b59@collabora.com>
- <438077d191833bb4f628b2c6da3b86b3ecfb40e6.camel@mediatek.com>
- <cb173df9-4c70-4619-b36d-8e99272551b6@kernel.org>
- <a9bf15e48afd8496ca9b015e7f5b03821863a0b2.camel@mediatek.com>
- <7f285723-ecd7-4df6-8c9b-f2e786ce3602@kernel.org>
- <4b3d2678d2b724fb53ec7272ef8daf52197d4a0e.camel@mediatek.com>
- <4dc420a3-cf89-4f45-84e7-4d0079240681@kernel.org>
- <95d3fe686abcd4a6070c6613392fdb9605bdd73e.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v6 1/8] usb: typec: Add default HPD device when register
+ DisplayPort altmode
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Chaoyi Chen <kernel@airkyi.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+ Diederik de Haas <didi.debian@cknow.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20251016022741.91-1-kernel@airkyi.com>
+ <20251016022741.91-2-kernel@airkyi.com> <aPYImGmesrZWwyqh@kuha.fi.intel.com>
 Content-Language: en-US
-In-Reply-To: <95d3fe686abcd4a6070c6613392fdb9605bdd73e.camel@mediatek.com>
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <aPYImGmesrZWwyqh@kuha.fi.intel.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9a014dd00203abkunm40e5dafaa0fcfb
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxlKGVZPGB1KQx1CSU5CSUJWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
+	9VSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=dXqj5NkZfi6RdQnKgqMUg8BCh/n152sPRHim3KgJLTuoqkgUqNXBIJ1AlymydVKUpz8pF6HwyNm2AetRmBbh9s5l+IGGlsVFCOmPNAyFWUBGqpTYSkwmiZ3vxoKGCHQdHSj3aXmc2X4h5qhyffGPX+Ek0rtr7mj99qONbKoltJ8=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=PW2Gb3KgS1lxfff0TLl++nMBLOL4Uug61XDZnqG+onc=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_040441_647469_AA3D3140 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20251020_040800_876229_9881EDC2 
+X-CRM114-Status: GOOD (  23.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,126 +90,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 20/10/25 12:46, Peter Wang (王信友) ha scritto:
-> On Mon, 2025-10-20 at 11:56 +0200, Krzysztof Kozlowski wrote:
->>
->> On 20/10/2025 11:44, Peter Wang (王信友) wrote:
->>> On Mon, 2025-10-20 at 10:28 +0200, Krzysztof Kozlowski wrote:
->>>>>
->>>>>
->>>>> Hi Krzysztof Kozlowski,
->>>>>
->>>>> The main reason for my objection was also clearly stated:
->>>>> "removing these DTS settings will make what was originally
->>>>> a simple task more complicated."
->>>>> I’m not sure if you are quoting only the "In addition"
->>>>> part to take it out of context?
->>>>
->>>> It is not out of context. It was the statement on its own.
->>>
->>> Hi Krzysztof Kozlowski,
->>>
->>> However, you haven’t addressed the main reason for my objection.
->>> "removing these DTS settings will make what was originally
->>> a simple task more complicated."
->>
->>
->> You did not object in technical matter at all here:
->> https://lore.kernel.org/all/ce0f9785f8f488010cd81adbbdb5ac07742fc988.camel@mediatek.com/
->>
->> Look at this patch.
->>
->> You said nothing about actual change, except blocking the community
->> maintainer. You did not raise any other concerns so what are you
->> speaking about "other main concerns"?
->>
->> Even if such existed, they did not matter, because YOU WROTE ONLY:
->>
->> "The role of MediaTek UFS maintainer is not suitable to be handed
->> over
->> to someone outside of MediaTek."
->>
->> This is what we discuss here.
->>
->> Do you even read your own comments and where did you place them? Do
->> you
->> understand that we discuss emails, not some unsaid or other threads?
->>
->> Look at this:
->>
->> https://lore.kernel.org/all/ce0f9785f8f488010cd81adbbdb5ac07742fc988.camel@mediatek.com/
->>
->>
->>> But it’s clear that you haven’t carefully considered the main
->>> reason for my objection?
->>
->> Main reason for objection? What?
->>
-> 
-> Hi Krzysztof Kozlowski,
-> 
-> I think you misunderstood—these are different patches.
-> This one only changes the maintainer. What I was referring to
-> is another patch that removes parts of the DTS setting.
-> https://lore.kernel.org/all/eb47587159484abca8e6d65dddcf0844822ce99f.camel@mediatek.com/
-> 
-> 
-> I don’t know who AngeloGioacchino is,
+Hi Heikki,
 
-Sorry Peter, but a 10 seconds research on your side would have made you aware of
-who I am.
-
-https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/MAINTAINERS?h=v6.6#n2346
-
-...then a 60 seconds research would reveal way more than just that about me,
-and also your colleagues know me quite a bit :-)
-
-Besides, you don't really need to know who somebody is to make an upstream review:
-this is a community, and a good patch may come from old and recognized contributors
-as much as from new ones sending their first patch upstream.
-
-> so isn’t it reasonable for
-> me to oppose directly changing the maintainer?
-> Or do you think everyone should know who AngeloGioacchino is
-> and just accept this change?
-> 
-> 
-> Let’s put it this way: if a strager you don’t know suddenly comes
-> to your home and says they’re now the maintainer of your house,
-> would you be comfortable with that?
-> 
-> 
-> 
+On 10/20/2025 6:02 PM, Heikki Krogerus wrote:
+> On Thu, Oct 16, 2025 at 10:27:34AM +0800, Chaoyi Chen wrote:
+>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 >>
+>> Add default DRM AUX HPD bridge device when register DisplayPort
+>> altmode. That makes it redundant for each Type-C driver to implement
+>> a similar registration process in embedded scenarios.
 >>
->> You are twisting the problem, like anyone denied you being the
->> maintainer.
+>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>> ---
 >>
->> YOU DENIED OTHER PEOPLE!
+>> Changes in v6:
+>> - Fix depend in Kconfig.
 >>
->> I finish the discussion here, I am considering your explanations
->> intentionally twisting the point thus I find it still harmful
->> behavior.
+>> Changes in v5:
+>> - Remove the calls related to `drm_aux_hpd_bridge_notify()`.
+>> - Place the helper functions in the same compilation unit.
+>> - Add more comments about parent device.
+>>
+>>   drivers/usb/typec/Kconfig         |  2 ++
+>>   drivers/usb/typec/class.c         | 26 ++++++++++++++++++++++++++
+>>   include/linux/usb/typec_altmode.h |  2 ++
+>>   3 files changed, 30 insertions(+)
+>>
+>> diff --git a/drivers/usb/typec/Kconfig b/drivers/usb/typec/Kconfig
+>> index 2f80c2792dbd..a6730fbb576b 100644
+>> --- a/drivers/usb/typec/Kconfig
+>> +++ b/drivers/usb/typec/Kconfig
+>> @@ -2,6 +2,8 @@
+>>   
+>>   menuconfig TYPEC
+>>   	tristate "USB Type-C Support"
+>> +	depends on DRM || DRM=n
+>> +	select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
+> This is wrong. DRM should not dictate how this entire subsystem core
+> is configured. The dependency needs to be on the DRM bridge side.
+>
+> You can for example use the bus notification there to see when a new
+> alternate mode is being registered, or use some other notification
+> mechanism.
 
-Krzysztof, many thanks for taking time to defend the community.
+Is it a good idea to implement notification functions like drivers/usb/core/notify.c in TCPM, and then let other subsystems (such as DRM) listen to these notifications?
 
-Regards,
-Angelo
 
->>
->> Best regards,
->> Krzysztof
-> 
-> I think you’re the one twisting my words.
-> What I said was that I oppose people OUTSIDE of MediaTek becoming
-> maintainers, not that I oppose other people in GENERAL.
-> In fact, I also mentioned that other MediaTek maintainers
-> would be joining.
-> 
-> 
-> Thanks
-> Peter
-> 
-> 
+>
+> thanks,
+>
+>>   	help
+>>   	  USB Type-C Specification defines a cable and connector for USB where
+>>   	  only one type of plug is supported on both ends, i.e. there will not
+>> diff --git a/drivers/usb/typec/class.c b/drivers/usb/typec/class.c
+>> index 67a533e35150..e9d7772d1a8f 100644
+>> --- a/drivers/usb/typec/class.c
+>> +++ b/drivers/usb/typec/class.c
+>> @@ -8,14 +8,18 @@
+>>   
+>>   #include <linux/module.h>
+>>   #include <linux/mutex.h>
+>> +#include <linux/of.h>
+>>   #include <linux/property.h>
+>>   #include <linux/slab.h>
+>>   #include <linux/string_choices.h>
+>>   #include <linux/usb/pd_vdo.h>
+>> +#include <linux/usb/typec_dp.h>
+>>   #include <linux/usb/typec_mux.h>
+>>   #include <linux/usb/typec_retimer.h>
+>>   #include <linux/usb.h>
+>>   
+>> +#include <drm/bridge/aux-bridge.h>
+>> +
+>>   #include "bus.h"
+>>   #include "class.h"
+>>   #include "pd.h"
+>> @@ -538,6 +542,21 @@ const struct device_type typec_altmode_dev_type = {
+>>   	.release = typec_altmode_release,
+>>   };
+>>   
+>> +static void dp_altmode_hpd_device_register(struct typec_altmode *alt)
+>> +{
+>> +	if (alt->svid != USB_TYPEC_DP_SID)
+>> +		return;
+>> +
+>> +	/*
+>> +	 * alt->dev.parent->parent : USB-C controller device
+>> +	 * alt->dev.parent         : USB-C connector device
+>> +	 */
+>> +	alt->hpd_dev = drm_dp_hpd_bridge_register(alt->dev.parent->parent,
+>> +						  to_of_node(alt->dev.parent->fwnode));
+>> +	if (IS_ERR(alt->hpd_dev))
+>> +		alt->hpd_dev = NULL;
+>> +}
+>> +
+>>   static struct typec_altmode *
+>>   typec_register_altmode(struct device *parent,
+>>   		       const struct typec_altmode_desc *desc)
+>> @@ -600,6 +619,13 @@ typec_register_altmode(struct device *parent,
+>>   		return ERR_PTR(ret);
+>>   	}
+>>   
+>> +	/*
+>> +	 * It is too late to register the HPD device when the DisplayPort
+>> +	 * altmode device becomes ready. If the current altmode is DP,
+>> +	 * register a static HPD device.
+>> +	 */
+>> +	dp_altmode_hpd_device_register(&alt->adev);
+>> +
+>>   	return &alt->adev;
+>>   }
+>>   
+>> diff --git a/include/linux/usb/typec_altmode.h b/include/linux/usb/typec_altmode.h
+>> index b3c0866ea70f..acb0af1b9d5d 100644
+>> --- a/include/linux/usb/typec_altmode.h
+>> +++ b/include/linux/usb/typec_altmode.h
+>> @@ -21,6 +21,7 @@ struct typec_altmode_ops;
+>>    * @desc: Optional human readable description of the mode
+>>    * @ops: Operations vector from the driver
+>>    * @cable_ops: Cable operations vector from the driver.
+>> + * @hpd_dev: HPD device for DisplayPort
+>>    */
+>>   struct typec_altmode {
+>>   	struct device			dev;
+>> @@ -32,6 +33,7 @@ struct typec_altmode {
+>>   	char				*desc;
+>>   	const struct typec_altmode_ops	*ops;
+>>   	const struct typec_cable_ops	*cable_ops;
+>> +	struct device			*hpd_dev;
+>>   };
+>>   
+>>   #define to_typec_altmode(d) container_of(d, struct typec_altmode, dev)
+>> -- 
+>> 2.49.0
+
+-- 
+Best,
+Chaoyi
 
 
