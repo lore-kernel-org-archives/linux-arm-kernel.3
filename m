@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6560CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE86CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9640FzO+7LwBWDEDlYQ6XFq5rpeqGgD5bICG4rK6d/M=; b=rmlTZKGf0mgPUHV7Gd9jruXilI
-	G5ECcBYZgDuSzvucF2sJ5PIbSPB59o+RlnA+HQpuFUC+CGstVAGscf99urxcegnRWU2qPBCwAVI7x
-	eFNDeJTMVjFIIRedtw4FxuA2Hlrv022KnkqWLtiTQ/KE/UihiPUebP4pGKNUQ1qMcKCN/cxBCA27D
-	eallmekoshD5R2H8BfmMB37ZRgxR2Ns+lXTq//q3NTfoSMBoSqtb3ZhqbPZuypy5T0c7pqhD5QepR
-	KCdu7Ir6Iq760Oos09ESpg9fMWWQJuzZG2u7kgk9vZtHGfZHlJ5IvPbazemUM+udSTM1N1+uiVbu+
-	4ZgxAhAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Uy03Wns3+azC2ulcA/z8gfaoHoosxjUlbn65J7+0Zc=; b=TyFxta164k2SYchhaw254EwF/8
+	zd/1n0meaeVWvAjxFFMafNBp5hagn6VhozVfM3pQg32ttkL8Md4K+7IHGzBHmPg+0hObaFiH+59SP
+	qA9BFzi8BtFXxI9kCLZTf2mhJjUZrMRyLi6MWY70vIJ/oWi/a9uMw2lV5nvb1yu/TTnx13kwqUn4C
+	34QizNVn8F9sAOtu/DKQcssoc0fzi3zpAIiKORKxRpheD0iIUh5LkjR9UEcXpoe0yuoyIqYzm/g4m
+	MRuYx74HpWGzPn38xE2dXn7R2e/6bEAvCsDF5OfkJxUyCAerCq4PQqPrPCqwwbf99DneammpgI6UM
+	eaU2zP+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtM6-0000000EQIg-2wVO;
-	Mon, 20 Oct 2025 17:07:34 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vAtPm-0000000EQh8-0Rep;
+	Mon, 20 Oct 2025 17:11:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtM4-0000000EQHi-3dLA
+	id 1vAtPl-0000000EQh1-2SkL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 17:07:34 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-46e6a6a5e42so25088465e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 10:07:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760980051; x=1761584851; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9640FzO+7LwBWDEDlYQ6XFq5rpeqGgD5bICG4rK6d/M=;
-        b=kVKDedAqZdG7Q8NcqSt7lT2cIa0DrtJ2AZWflZw1hhLIEv55erGzvw5Rj2RNjgKZSm
-         D/k16U5dHgiIczEI1CrMYcQ43mGFaB69FbUEgT39S6DDBnnZkKH6lQNnwnA3XVW81nQP
-         qaCWTSjAVQAZR6jw1at9rNngirbdrIOxA4XdnB21SrzeSin+NiwejLtiBndgniBc4z4a
-         HgkA7cIMaFVpAnnU8ep11bP32F5+xzaDAx8yJrKGJSu/r0ti2mwn24hMeEII+ClZ0J6s
-         z3x2sNOILjqPE9fF2wCwrtSQBZ7f7pomB8FYo0Dhiydcunk8qzS7d9vvOms+nUzZ731k
-         34Bg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760980051; x=1761584851;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9640FzO+7LwBWDEDlYQ6XFq5rpeqGgD5bICG4rK6d/M=;
-        b=g8N5p6jl4n1bIvkty57wGFToudoVyRRw8ikt6bt8omQC1K8EM9LMwSCTKd8vEvaSvR
-         t6U4nb56KNMLa/KbS8DCDE4WEaoaderuxNmm9Rm1kognOO2W3HcuFRbXjMF9K3Kjq0Ld
-         BDUmrNjTD9wUmDbg7Hn5WIOvxqYGA5OYSQeOl7TLH0sizHOvC/KncR42aWz4AAOp9jXe
-         NsCepf0a95BCjNohyc3AXHLGVp7OVWT/t+E6sAJc3VrtacDWBGrQk2AYeGkk/SElfd4C
-         ov9IOYvcIee1SWCUot6YBAKYU+hyb/81RJn0HSWvw2hOJ49d4kkFbEdBLQ3NfMm9PRWb
-         TvmA==
-X-Forwarded-Encrypted: i=1; AJvYcCX5IGmfFAJSfDDjEO+QLnwvYtaIOdMYuVv9X3E5Ckt1CVHbtFj5BeLTZedqd61f/xI/+laekkCSoWtr9cxdyMY0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzID8aljFT0tdZ7cxwprVO9T9zDSmDcR/FAWWhIMDxOvr0WGVRR
-	vIDcecJPlYT6KuF9c1al2gUI9/p2T65el8Zj/kijQ52+qrD8j8uLPrnO
-X-Gm-Gg: ASbGnctNanvM+0AMkr0Pb2oN1IontF0ypn4pToQzL3r+7xgR6/84q34wVncfWKGSAJT
-	pSR1rLOlXvXEqIx9sQpk+kcoe2TRg2Y2DDl2oiqxoj1LtsI7cw5OlrUpQDXEf7hXD7hfabNiULU
-	A5/07sh9SQHyma5nU+wbo/suNnmbrwXKOY1YsRzlv0/bgd1Qyetd29b+DtqzjG8HGh+2C9TaZJQ
-	+Ytrv+tWoWmfyppn25eBNi4LOx7w1X4MYhP6uJZVo4cIZLlnPjBup7xnmJMA54hqUKkFRt2Dnov
-	95XU0gO5ES5uffLKSzN0UeFAo1lYKFBH88Liq/oKhXXi4GHBI9+jVToDI/uk+MR3H9Z6XgjWUY7
-	Jedwrle64KDJSFN/uNVRabTca9ON9v77SNyBc3XG8pQtxEUJnIDRXvbnVszTpsZH6/FLVy+K869
-	y1E1z0KBtMVhTE/slaWsUHBdZjEd4HsHZ/VXrV6QBSyDy5ZUeTYbjSs1f98Vcii8AGv+/i
-X-Google-Smtp-Source: AGHT+IF71H05NxO/mN75w8LXTuLNlvDg53UBaWFoqKaZMqlp8yMREG6PcbIoHKXwfd7uM03lA2vPNA==
-X-Received: by 2002:a05:600c:524f:b0:471:115e:624f with SMTP id 5b1f17b1804b1-4711790c2d6mr98843065e9.21.1760980050861;
-        Mon, 20 Oct 2025 10:07:30 -0700 (PDT)
-Received: from jernej-laptop.localnet (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-471144b5c34sm252921305e9.10.2025.10.20.10.07.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Oct 2025 10:07:30 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Vinod Koul <vkoul@kernel.org>,
- Chen-Yu Tsai <wens@kernel.org>
-Cc: linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- dmaengine@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: sun6i: Add debug messages for cyclic DMA prepare
-Date: Mon, 20 Oct 2025 19:07:29 +0200
-Message-ID: <1934468.tdWV9SEqCh@jernej-laptop>
-In-Reply-To: <20251020170147.2783867-1-wens@kernel.org>
-References: <20251020170147.2783867-1-wens@kernel.org>
+	Mon, 20 Oct 2025 17:11:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE11F620BF;
+	Mon, 20 Oct 2025 17:11:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 482EEC113D0;
+	Mon, 20 Oct 2025 17:11:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760980280;
+	bh=scg+/vO8bFxkmmzsBeRqdeZzJ1dGRrmJ/AeHk9Ng2s0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Gy4iVDXJWPC5L6y6UGyZNPo1lTkIFG+bSMJ3dmQuCn4YSDVdoZO6n7pLVV7CmH4RA
+	 K2IdzWv4HUJdz6a7QyNz6Fkz3s5IEm22PF1bQQo+GXfG6rW2u6ADBT9Kd5tEPIyA9I
+	 SAqqzGT62WZfYIC8H87SqEnyyJT7Qep5vR9wvouCiHE6gJqodbcrY/OpOlMCInb5G6
+	 PNW9S6EsKppFRgFGqBHMMN4dT/HmB8AjB9bWiufu+0VZJj2QatzvL2TlHqtN2DvAo+
+	 zcxZK5zdadGd2C6f75ZqiasnwzAwdr7mNjrqcUJJqHkXOB/QTFmFy821qOGMn/v3TW
+	 lriRxPotYO48g==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 344895FE2C; Tue, 21 Oct 2025 01:11:18 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Mark Brown <broonie@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>
+Cc: linux-sunxi@lists.linux.dev,
+	linux-sound@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 02/11] ASoC: dt-bindings: allwinner,sun4i-a10-i2s: Add compatible for A523
+Date: Tue, 21 Oct 2025 01:10:48 +0800
+Message-ID: <20251020171059.2786070-3-wens@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251020171059.2786070-1-wens@kernel.org>
+References: <20251020171059.2786070-1-wens@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_100732_911475_40FC813D 
-X-CRM114-Status: UNSURE (   9.42  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,21 +83,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne ponedeljek, 20. oktober 2025 ob 19:01:45 Srednjeevropski poletni =C4=8D=
-as je Chen-Yu Tsai napisal(a):
-> The driver already has debug messages for memcpy and linear transfers,
-> but is missing them for cyclic transfers.
->=20
-> Cyclic transfers are one of the main uses of the DMA controller, used
-> for audio data transfers. And since these are likely the first DMA
-> peripherals to be enabled, it helps to have these debug messages.
->=20
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+As far as the author can tell, based on their respective manuals,
+the I2S interface controllers found in the Allwinner A523 SoC is the
+same as ones in the R329 SoC.
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Add a SoC-specific compatible for it, with a fallback to the R329's
+compatible.
 
-Best regards,
-Jernej
+Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+---
+ .../devicetree/bindings/sound/allwinner,sun4i-a10-i2s.yaml    | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
+diff --git a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-i2s.yaml b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-i2s.yaml
+index 739114fb6549..ae86cb5f0a74 100644
+--- a/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-i2s.yaml
++++ b/Documentation/devicetree/bindings/sound/allwinner,sun4i-a10-i2s.yaml
+@@ -33,7 +33,9 @@ properties:
+       - const: allwinner,sun50i-h6-i2s
+       - const: allwinner,sun50i-r329-i2s
+       - items:
+-          - const: allwinner,sun20i-d1-i2s
++          - enum:
++              - allwinner,sun20i-d1-i2s
++              - allwinner,sun55i-a523-i2s
+           - const: allwinner,sun50i-r329-i2s
+ 
+   reg:
+-- 
+2.47.3
 
 
