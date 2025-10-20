@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0DBCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:26:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77419CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jujjS3lwB6N81z0ck49yRqklSI1LQL/A/rK9Hu4HyeY=; b=qh9lfnD9a2QRHjVrJnz58DKsk2
-	gCok/137R+NU2PAmQNfpXGnmEBiH8cI1QM0r+8eopsRnfRpjuAoeUBbufqGkaMTHEBmQjR5vLqfek
-	u8wxapQaSVHSaoAh+Yhlmm83EMhnYVNktJ/vQIwBYIVwyzlVyZNNJ6fK9AF18dU5uYwW4H+oOYIFC
-	7oRH8utpgGAiOQCzeLBolomIBvn3LrSxhKKInaj0lToVX2Sr+e51n3+8UzzejdKvyJv4c4aH4Y9EZ
-	PxGClkDDU5o3bA0aqvE+vUl4JIEzCeBwi03qXUdN1M9IHw2auf6Kf1+xhQTgDCtR9V7q9XDp8Lcvi
-	30wVwAxA==;
+	bh=jTLPMSIbv5fpOud4f0Hc1b0p6p1IYr0YI29TibnVZhE=; b=muTUP4rKGrDg2HQpjudh1+yrXw
+	YSrKu45+7QaJWaPZ4stFmKhwaVaTnwqGBAIxa60nSMFe9Yp037whyKEK3RwsUZjKqT9i9hGjw48ym
+	fn6y+qDfgMlY/XYiZ795vmVSl2pkuIKAWQLJW5ubgAOmGZxY5vRJlsjID/40o5ubEksIhP68A3fU4
+	xUm3pyqvFAFIF0MGtZhSSzRFOgrN8MC8h7AgSHFssswD11Ovzb/VQcD4JJ70HGucqdPxWpN2s9cAQ
+	3lxkC6PiefoaU+LnYBbbsPNjiPsQIycmuUse9ivm5gFI4x2AKECTitCYm3qnArkxJHAiZtsPYAoeG
+	ajaQbfpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAm9g-0000000CZGE-290S;
-	Mon, 20 Oct 2025 09:26:16 +0000
+	id 1vAmAB-0000000CZP7-0oHa;
+	Mon, 20 Oct 2025 09:26:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAm9Y-0000000CZDd-0EVO
+	id 1vAmA7-0000000CZND-43Kk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 09:26:10 +0000
+	Mon, 20 Oct 2025 09:26:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4DE341063;
-	Mon, 20 Oct 2025 02:25:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 633741063;
+	Mon, 20 Oct 2025 02:26:34 -0700 (PDT)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 126FE3F66E;
-	Mon, 20 Oct 2025 02:26:04 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2903A3F66E;
+	Mon, 20 Oct 2025 02:26:41 -0700 (PDT)
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: stable@vger.kernel.org
 Cc: Ryan Roberts <ryan.roberts@arm.com>,
@@ -41,14 +41,14 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	mark.rutland@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 5.4-5.10 0/2] arm64: errata: Apply workarounds for Neoverse-V3AE
-Date: Mon, 20 Oct 2025 10:25:51 +0100
-Message-ID: <20251020092555.591819-1-ryan.roberts@arm.com>
+Subject: [PATCH 5.15-6.1 0/2] arm64: errata: Apply workarounds for Neoverse-V3AE
+Date: Mon, 20 Oct 2025 10:26:26 +0100
+Message-ID: <20251020092630.592033-1-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_022608_157835_EDE598DD 
+X-CRM114-CacheID: sfid-20251020_022644_187113_137A8B0E 
 X-CRM114-Status: UNSURE (   7.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -67,7 +67,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi All,
 
-This series is a backport that applies to stable kernels 5.4 and 5.10, of the
+This series is a backport that applies to stable kernels 5.15 and 6.1, of the
 recent errata workarounds for Neoverse-V3AE, which were originally posted at:
 
   https://lore.kernel.org/all/20250919145832.4035534-1-ryan.roberts@arm.com/
