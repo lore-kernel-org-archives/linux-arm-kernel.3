@@ -4,71 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10591CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C32B4CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hYXbrusDCQx5T6b9umpdUY8a8NiR31KkG6pTbJMWWPs=; b=wmiX+33+mydJ08x9adoB0fodrG
-	btf1GNNAV+CCOmDRssXHRWu+jVb3MNpQXMKFSbP6TpIe5QpC5I2TlML2NGPtKCioYWpWmg3zNcln1
-	XwgW8yjZnspwuTtUr2CxpRXXr+6yQ33134YSNcMNJcR+ZTf03sa4d21kGw/0ZopFgysFyvgxsND5p
-	rV0Qnp0DUWk73WqRCZgpQMi+pWt2dmSPkXPzQA6pWlaeZ7N40d7Cu6lHzTwSTXW38/5e6ic4HWnIV
-	iIN1AACKKvc7DygMIXsXy7IZSNL73+0n0PgiJv6hmFeW+NXDQgm4PJ0eKL7eFYNpbZRzjnOWzt9Om
-	I0DiJAnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OGJ/LOFXo1K2Oq9DbtsxkgAibxiWQj1MuXH6r6QM4Lc=; b=LVvmW6qfo3EZioOqmskvWqgfrZ
+	DTbkgT6tTWBQ0h5HisDX1/dlt5QlMckCf+St78ur6MzdKcR9kzUuo1QZQ4LPGfj7uxiGxVQ85JvOK
+	09ze748peOVOcNKPQro96rWJ/9x0+AK4YdewyVqW/Qsn2M64dtd74u2cPOkCDLuMbJGOlXaYAfsqI
+	yZR1RyfYvsZ4kBnMJgcRvFZwQkyhxgI4JkFnpHoDlaMv/XVuksAstFHzetpbZr/8ljImOTcumTYoD
+	Sp7CIsuDdmXrjri9V6zfT5bZeEQxTVaKbolvaLziInF2Tv8Lm8LLHTguYwWsg881KHoKWqFHeQXoK
+	HCsuBl8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmBS-0000000Ca5l-0Lef;
-	Mon, 20 Oct 2025 09:28:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vAmE3-0000000Cas6-3oU2;
+	Mon, 20 Oct 2025 09:30:47 +0000
+Received: from mail.simonwunderlich.de ([23.88.38.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmBM-0000000Ca0l-0RKj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 20 Oct 2025 09:28:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=hYXbrusDCQx5T6b9umpdUY8a8NiR31KkG6pTbJMWWPs=; b=H2e+iVT4o1IS+ieWAKYb17HYYp
-	oZCk4CxHxtkAwv+RNo55Uf9SFIqeAk0UYeSY45qV4r32UkB6lSfF8LEvfdL6G5RRvNEML6FV2spv1
-	UpDF13S4KNwH+senjjs4mJXRv1uj5bMpPvdxLBkKof8U/82KOMOSDYZXhX+JX1HPiwSfNEhUrHjcp
-	32D4qx5QDjYiHgKREbmlxx2AJ3fwycFw+drAw38ZrLXWU3yyjFEWCEz3WoZExehTAmXKKpWbxt+jn
-	9brMxnt6UsdSqyZtUE8OwmFxSCk6zWdUaP1rwwPJbRIuCwNS0qz9Z1VpGF9qmLtlx82EMS+Hqg/Nf
-	4tEeZkgQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmBI-00000009fhx-1Ks1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 09:27:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC8EA22C7;
-	Mon, 20 Oct 2025 02:27:47 -0700 (PDT)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 56B393F66E;
-	Mon, 20 Oct 2025 02:27:54 -0700 (PDT)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: stable@vger.kernel.org
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	James Morse <james.morse@arm.com>
-Subject: [PATCH 6.16-6.17 2/2] arm64: errata: Apply workarounds for Neoverse-V3AE
-Date: Mon, 20 Oct 2025 10:27:39 +0100
-Message-ID: <20251020092741.592431-3-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251020092741.592431-1-ryan.roberts@arm.com>
-References: <20251020092741.592431-1-ryan.roberts@arm.com>
+	id 1vAmE1-0000000Caqk-04of;
+	Mon, 20 Oct 2025 09:30:46 +0000
+Received: from ripper.localnet (p200300c59748F6e00000000000000c00.dip0.t-ipconnect.de [IPv6:2003:c5:9748:f6e0::c00])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.simonwunderlich.de (Postfix) with ESMTPSA id 2476BFA130;
+	Mon, 20 Oct 2025 11:30:38 +0200 (CEST)
+From: Sven Eckelmann <se@simonwunderlich.de>
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ stable@vger.kernel.org
+Subject: Re: [PATCH mt76 v3] wifi: mt76: Fix DTS power-limits on little endian systems
+Date: Mon, 20 Oct 2025 11:30:37 +0200
+Message-ID: <2453774.NG923GbCHz@ripper>
+In-Reply-To: <20251020-fix-power-limits-v3-1-019d2e49239a@simonwunderlich.de>
+References: <20251020-fix-power-limits-v3-1-019d2e49239a@simonwunderlich.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; boundary="nextPart880480923.0ifERbkFSE";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_102756_990934_6C0B7DE2 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251020_023045_217463_1A220604 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,66 +66,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mark Rutland <mark.rutland@arm.com>
+--nextPart880480923.0ifERbkFSE
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Sven Eckelmann <se@simonwunderlich.de>
+Date: Mon, 20 Oct 2025 11:30:37 +0200
+Message-ID: <2453774.NG923GbCHz@ripper>
+MIME-Version: 1.0
 
-Neoverse-V3AE is also affected by erratum #3312417, as described in its
-Software Developer Errata Notice (SDEN) document:
+On Monday, 20 October 2025 11:20:53 CEST Sven Eckelmann (Plasma Cloud) wrote:
+> The power-limits for ru and mcs and stored in the devicetree as bytewise
+> array (often with sizes which are not a multiple of 4). These arrays have a
+> prefix which defines for how many modes a line is applied. This prefix is
+> also only a byte - but the code still tried to fix the endianness of this
+> byte with a be32 operation. As result, loading was mostly failing or was
+> sending completely unexpected values to the firmware.
+> 
+> Since the other rates are also stored in the devicetree as bytewise arrays,
+> just drop the u32 access + be32_to_cpu conversion and directly access them
+> as bytes arrays.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 22b980badc0f ("mt76: add functions for parsing rate power limits from DT")
+> Fixes: a9627d992b5e ("mt76: extend DT rate power limits to support 11ax devices")
+> Signed-off-by: Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
+> ---
+> Changes in v3:
+> - add "mt76" as addition prefix after "PATCH" as requested by Zhi-Jun You
+> - Link to v2: https://lore.kernel.org/r/20250926-fix-power-limits-v2-1-c2bc7881eb6d@simonwunderlich.de
 
-  Neoverse V3AE (MP172) SDEN v9.0, erratum 3312417
-  https://developer.arm.com/documentation/SDEN-2615521/9-0/
+Seems like the v2 was already picked up [1] and I've simply missed it.
 
-Enable the workaround for Neoverse-V3AE, and document this.
+Sorry about the noise,
+	Sven
 
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: James Morse <james.morse@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Will Deacon <will@kernel.org>
----
- Documentation/arch/arm64/silicon-errata.rst | 2 ++
- arch/arm64/Kconfig                          | 1 +
- arch/arm64/kernel/cpu_errata.c              | 1 +
- 3 files changed, 4 insertions(+)
+[1] https://github.com/nbd168/wireless/commit/3d63b5084c50607fff84d17d2727c3bab8190d8e
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index b18ef4064bc0..a7ec57060f64 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -200,6 +200,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | Neoverse-V3     | #3312417        | ARM64_ERRATUM_3194386       |
- +----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | Neoverse-V3AE   | #3312417        | ARM64_ERRATUM_3194386       |
-++----------------+-----------------+-----------------+-----------------------------+
- | ARM            | MMU-500         | #841119,826419  | ARM_SMMU_MMU_500_CPRE_ERRATA|
- |                |                 | #562869,1047329 |                             |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 393d71124f5d..1503b78f8611 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1137,6 +1137,7 @@ config ARM64_ERRATUM_3194386
- 	  * ARM Neoverse-V1 erratum 3324341
- 	  * ARM Neoverse V2 erratum 3324336
- 	  * ARM Neoverse-V3 erratum 3312417
-+	  * ARM Neoverse-V3AE erratum 3312417
+--nextPart880480923.0ifERbkFSE
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
 
- 	  On affected cores "MSR SSBS, #0" instructions may not affect
- 	  subsequent speculative instructions, which may permit unexepected
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 59d723c9ab8f..21f86c160aab 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -545,6 +545,7 @@ static const struct midr_range erratum_spec_ssbs_list[] = {
- 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1),
- 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2),
- 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V3),
-+	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V3AE),
- 	{}
- };
- #endif
---
-2.43.0
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQS81G/PswftH/OW8cVND3cr0xT1ywUCaPYBPQAKCRBND3cr0xT1
+y4ebAQCwb9tDygtnPh36+fO93hSzJLDBcmb2cPfpL0IU63CHWAD/VAvazvuQmmS1
+TBo61BmhKvF9W99jw9t2dIur+vxrSA0=
+=hC3z
+-----END PGP SIGNATURE-----
+
+--nextPart880480923.0ifERbkFSE--
+
+
 
 
