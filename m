@@ -4,113 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141AACCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 08:23:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E82CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 08:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k9Cb2I+wZtGaXTmG2yntJsHjBSe5OKa6A/u+hYcLcXk=; b=Dr+12/soAssPoXA2dmS5UELNLF
-	s8hw/7N+VPke8f7vE1AXy/31ACRQbq8c+OL5DV7vRTdiyAM/AeSTv/LrnXNLpJ51ZEXod6mWdiqdb
-	fvZosFTMgBMcnIytk52T6qrhyDcmVseD30+KfaYnW/YnUKfAiGj+QnjxchdOHmOl6LLfimSNcvQqt
-	Nld8P7pcCjglx2iwRkNnp9q4dT5/xUupLx37b+EP5wrOx4d4K8szdU8i44pOAnWAB/QSIowH28dsI
-	giCmkx12v27XU93rvpxpGs2+6x7zvD2CG9H+gdJUW/LtHnsR4qPc/P9Ytxv/WApEFq47uYEyzP7Fy
-	09YqxiSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=x/ws0mLPMpy29XbOECxXjqhmz1Lsu0GCRjMMEXORNyo=; b=C2NcpyioJqxwbM
+	3AsTlLt3g3MXv0S9a0SVnhYEYN3Jha+2WELpA9Y76BjnOXQBT/mgi7TFI6e+9X11PtoCSBi2ceW3D
+	hn8elrV8LQYbvLRBD5YdMaylPeUirrnsHG9+51Ie2nb6ovYo9V57LBceA6RAlpIdT83oue+US4SNy
+	KSrIwtwfHjDPOXP7vrNqBmSLP+eEHWfMKfX6Rd7CLZQvdmrahY9BPfyFhBs9gvAaJhCiMZX6N4nBf
+	2eu7MeRswUO2Dr10ergHPysOTiPvzv+C0ffnOVTkMCyG7IHHywEONogPw7xbcVQKkMiYn4J/eO3yw
+	xU+Sy793e4MrIihFAxmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAlAP-0000000CLeb-0yL1;
-	Mon, 20 Oct 2025 08:22:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vAlCS-0000000CLzi-1ykO;
+	Mon, 20 Oct 2025 08:25:04 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAlAN-0000000CLeN-2Qst
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 08:22:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D881461CD6;
-	Mon, 20 Oct 2025 08:22:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9242C4CEFE;
-	Mon, 20 Oct 2025 08:22:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760948572;
-	bh=8v23XW0hAwdFQYfOtD8IgyDFuPnLGjKXYO+djDjJjG0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CO7riAtYyjd3ndpj4ZESkP2rNvWii9tOnrQYxKO+6ne6Ca0nYzmbQ8izewzcWp7mG
-	 CkDHN0/Qs8Zjr2Oq9TY5bCFNaQdTfmR7ecBoerf+kxxVm7AEzJll2A8hCq6zm56M/X
-	 w91KslbEp8kgrefO+MdYKZp/+UKM4O/7rH80DUEqqvYdMqwyZin5FbxEIc9svWS7iP
-	 mocOHcnwyQHqpIMcvrq3pNwJ+Qt+whC+Qfyg5gG3hhdAJzslvWRVgFRhqubWGOa1JM
-	 oIbuDI8DvoSJTnxphq5uPkTCswYvfQDBYj1HW36sl0P/0QTxZZodheDNxVCBOveV+O
-	 OaJ9oIdVnk4oQ==
-Message-ID: <2f8da425-63d9-4321-9cd3-976bbd29a52f@kernel.org>
-Date: Mon, 20 Oct 2025 10:22:45 +0200
+	id 1vAlCO-0000000CLvd-3ys0;
+	Mon, 20 Oct 2025 08:25:02 +0000
+Received: from [192.168.1.102] (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9285843;
+	Mon, 20 Oct 2025 10:23:14 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1760948595;
+	bh=LMeEQNb1aiaCLIqc8fJMYr6L7JHO1QyiGOqjiFG05n0=;
+	h=From:Subject:Date:To:Cc:From;
+	b=m9c4xVId9J2QbbGzzcTJe2/8k6aG7LBLQXXOfpvzLcpzjSvAway1Yb99oTgKutrbU
+	 1cAopt5eAq5+To/kEp/zR1Qk5Y1Q4HGnn5oAMoWjomcTxlm2FWZ6UT+pLu9WKH3mJs
+	 XM9SH+5U3I+OiLWIMFTaKTUK0tW94gnAg0BMMRxI=
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Subject: [PATCH v8 0/8] media: Introduce V4L2 generic ISP support
+Date: Mon, 20 Oct 2025 10:24:46 +0200
+Message-Id: <20251020-extensible-parameters-validation-v8-0-afba4ba7b42d@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
- <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
- <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
- <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAM7x9WgC/43QTWrDMBAF4KsErauiX0vKqvcoXUijUSNI7CAZk
+ xJ898qBNl7U1Ms3MN8b5k4qloyVHA93UnDKNQ99C/blQODk+0+kObZMBBOaGcYp3kbsaw5npFd
+ f/AVHLJVO/pyjH9syBSt5MkkDsEAacy2Y8u1R8f7R8inXcShfj8aJL9Mf3P6PT5wy6hIIAw6Ms
+ PCWI/o69GHwJb7CcCFLxyRWLmc7XNFcg2AdtwhKyQ1XPl3L3Q5XLvdGYMxKZYNkG65auWLPvaq
+ 5kiXU3jkIPG24+uk6rne4urnYxeCU6qxPW3/ofl3OmNnhds3VyXAXXZIO9YZrVi5XO1zT3K4TN
+ mDU4J39w53n+RtwFxbW5wIAAA==
+X-Change-ID: 20250701-extensible-parameters-validation-c831f7f5cc0b
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Antoine Bouyer <antoine.bouyer@nxp.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>, 
+ Michael Riesch <michael.riesch@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6221;
+ i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
+ bh=LMeEQNb1aiaCLIqc8fJMYr6L7JHO1QyiGOqjiFG05n0=;
+ b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBo9fHXNbyKPullzJsOli3OapJL6zNyyMNKtcfmG
+ W/E2BF++/CJAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaPXx1wAKCRByNAaPFqFW
+ PFAwEADHdyfhO+G7QdFivw7jaOuFiZH+NBhkpOO66yYgBDc/fvs6rHMzkTpLRy9KOdyu4L6Ky4X
+ 48/xDgAGvQj6T8WVlxinZZW7zQaGsGNsF716XASRJVC5HRaUj6EpW1N3e8NTStKUYepo9oyzfIP
+ Nvd/ZIlgYR2fqBnawsasYegs07ALtw0pLtg4dmjqKqdY0WF6y1Gmx26W3gyO0UtETZWiCgDW5bm
+ G2mpTqwGfGzEzgP9YqnTf+/Wa+BKJ7ci941sYqpO+51Vwun298kRJXSUoqS2SX26pSyn8F8WKdp
+ f0wMoZGeLVCi3VBvKUvlf4GcgAtY/DdjQkhpAeD5gHVnGaXsKdN3fYzgrdDoM7pwFH0MUuDSngN
+ MU8Rer/5GXkb2KnMZ30w6VmmEe6gF+umMRiGCGfmTH3JqE8PVEgXIto5qUo6B3EMQuUGQXcJFV0
+ kqxn8xmcPmI6au7IP2+hoA6gpZMATzQAUYWgxWq6yihdnI0CWm11lRj3unU87Iqo+sjowLTrXTi
+ GuhdOIVL4EtGNl/Wuizuhj78SBUyAhxwhpCbbVdMK6pigu5nICFCenoc4S+p+uoK0MarxAJRhPH
+ pDJQ7u73n6d5ABY+6by9QsrUWJrb77dFGBfNIavUX2D7A0ZEBWJPwNNcha5ROCRwwhIoLME/BYV
+ 7W2RRajFxyUvqLg==
+X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
+ fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251020_012501_141580_DB2315D2 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,33 +96,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/10/2025 09:45, Tudor Ambarus wrote:
-> 
-> 
-> On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
->>> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
->>> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
->>> --- a/drivers/clk/samsung/Kconfig
->>> +++ b/drivers/clk/samsung/Kconfig
->>> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
->>>  	  status of the certains clocks from SoC, but it could also be tied to
->>>  	  other devices as an input clock.
->>>  
->>> +config EXYNOS_ACPM_CLK
->>> +	tristate "Clock driver controlled via ACPM interface"
->>> +	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
->>
->> I merged the patches but I don't get why we are not enabling it by
->> default, just like every other clock driver. What is so special here?
-> 
-> Thanks! Are you referring to the depends on line? I needed it otherwise
-> on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
+Extensible parameters meta formats have been introduced in the Linux
+kernel v6.12 initially to support different revision of the RkISP1 ISP
+implemented in different SoC. In order to avoid breaking userspace
+everytime an ISP configuration block is added or modified in the uAPI
+these new formats, which are versionated and extensible by their
+definition have been introduced.
 
+See for reference:
+e9d05e9d5db1 ("media: uapi: rkisp1-config: Add extensible params format")
+6c53a7b68c5d ("media: rkisp1: Implement extensible params support")
 
-No. I am referring to missing default and defconfig patch.
+The Amlogic C3 ISP driver followed shortly, introducing an extensible
+format for the ISP configuration:
 
+6d406187ebc0 ("media: uapi: Add stats info and parameters buffer for C3 ISP")
 
+with a very similar, if not identical, implementation of the routines to
+validate and handle the ISP configuration in the ISP driver in the
+c3-isp-params.c file.
+
+fb2e135208f3 ("media: platform: Add C3 ISP driver")
+
+With the recent upstreaming attempt of the Mali C55 ISP driver from Dan,
+a third user of extensible parameters is going to be itroduced in the
+kernel, duplicating again in the driver the procedure for validating and
+handling the ISP configuration blocks
+
+https://patchwork.linuxtv.org/project/linux-media/patch/20250624-c55-v10-15-54f3d4196990@ideasonboard.com/
+
+To avoid duplicating again the validation routines and common types
+definition, this series introduces v4l2-isp.c/.h for the kAPI
+and v4l2-isp.h for the uAPI and re-organize the RkISP1
+and Amlogic C3 drivers to use the common types and the helper validation
+routines.
+
+The v4l2-isp abstraction will be augmented to support statistcs as well.
+
+If the here proposed approach is accepted, I propose to rebase the Mali
+C55 driver on top of this series, to use the new common types and
+helpers.
+
+Tested on Mali C55 and RkISP1 with camshark
+
+Thanks
+  j
+
+Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+---
+Changes in v8:
+- Address Michael comments and reword documentation
+- Use the correct "metadata capture" for stats and "metadata output" for
+  parameters. I mixed up the two in the previous revisions.
+- Link to v7: https://lore.kernel.org/r/20251014-extensible-parameters-validation-v7-0-6628bed5ca98@ideasonboard.com
+
+Changes in v7:
+- Moved version to the v4l2-isp uAPI
+- Moved version check to the v4l2-isp.c helpers
+- Link to v6: https://lore.kernel.org/r/20251007-extensible-parameters-validation-v6-0-5f719d9f39e5@ideasonboard.com
+
+Changes in v6:
+- Rename all symbols to v4l2_isp
+- Changed the interface of the two buffer validation functions
+- Reworked the rkisp1 and c3 porting accordingly
+- Updated documentation
+- I have moved v4l2_params_buffer_size() from uAPI because it was
+  convenient for linux but not required in userspace
+- Link to v5: https://lore.kernel.org/r/20250915-extensible-parameters-validation-v5-0-e6db94468af3@ideasonboard.com
+
+Changes in v5:
+- Move everything to v4l2-isp prefix except from format documentation
+  which still is about 'extensible-parameters' (to be paired in future
+  with extensbile-stats)
+- Simplify documentation and move it part to the driver-api
+  Documentation
+- Remove 'group' and 'features' from the generic handlers definition and
+  adjust rkisp1 accordingly
+- Link to v4: https://lore.kernel.org/r/20250820-extensible-parameters-validation-v4-0-30fe5a99cb1f@ideasonboard.com
+
+Changes in v4:
+- Fix the definition of V4L2_PARAMS_FL_PLATFORM_FLAGS
+- Add __counted_by() attribute to the data[] flexible-array member of
+  v4l2_params_buffer
+- Minor style change
+- Link to v3: https://lore.kernel.org/r/20250819-extensible-parameters-validation-v3-0-9dc008348b30@ideasonboard.com
+
+Changes in v3:
+- Rebased on latest media-committers/next
+- Take in Dan's suggestion in block size validation
+- Documentation minor spelling fixes
+- Link to v2: https://lore.kernel.org/r/20250710-extensible-parameters-validation-v2-0-7ec8918ec443@ideasonboard.com
+
+Changes in v2:
+- Make v4l2_params_buffer directly usable
+- Centralize ENABLE/DISABLE flags definition and validation
+- Take in Dan's v4l2_params_buffer_size()
+- Allow blocks to only contain the header if they're going to be
+  disabled
+- Documentation fixes as reported by Nicolas
+- Link to v1: https://lore.kernel.org/r/20250708-extensible-parameters-validation-v1-0-9fc27c9c728c@ideasonboard.com
+
+---
+Jacopo Mondi (8):
+      media: uapi: Introduce V4L2 generic ISP types
+      media: uapi: Convert RkISP1 to V4L2 extensible params
+      media: uapi: Convert Amlogic C3 to V4L2 extensible params
+      media: Documentation: uapi: Add V4L2 ISP documentation
+      media: v4l2-core: Introduce v4l2-isp.c
+      media: rkisp1: Use v4l2-isp for validation
+      media: amlogic-c3: Use v4l2-isp for validation
+      media: Documentation: kapi: Add v4l2 generic ISP support
+
+ Documentation/driver-api/media/v4l2-core.rst       |   1 +
+ Documentation/driver-api/media/v4l2-isp.rst        |  49 ++++++
+ .../userspace-api/media/v4l/meta-formats.rst       |   1 +
+ Documentation/userspace-api/media/v4l/v4l2-isp.rst | 120 ++++++++++++++
+ MAINTAINERS                                        |  10 ++
+ drivers/media/platform/amlogic/c3/isp/Kconfig      |   1 +
+ .../media/platform/amlogic/c3/isp/c3-isp-params.c  | 124 +++-----------
+ drivers/media/platform/rockchip/rkisp1/Kconfig     |   1 +
+ .../media/platform/rockchip/rkisp1/rkisp1-params.c | 183 +++++++++------------
+ drivers/media/v4l2-core/Kconfig                    |   4 +
+ drivers/media/v4l2-core/Makefile                   |   1 +
+ drivers/media/v4l2-core/v4l2-isp.c                 | 128 ++++++++++++++
+ include/media/v4l2-isp.h                           |  91 ++++++++++
+ include/uapi/linux/media/amlogic/c3-isp-config.h   |  92 +++--------
+ include/uapi/linux/media/v4l2-isp.h                | 102 ++++++++++++
+ include/uapi/linux/rkisp1-config.h                 | 107 +++---------
+ 16 files changed, 659 insertions(+), 356 deletions(-)
+---
+base-commit: 8652359fc004cbadbf0e95692c1472caac6260c2
+change-id: 20250701-extensible-parameters-validation-c831f7f5cc0b
 
 Best regards,
-Krzysztof
+-- 
+Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+
 
