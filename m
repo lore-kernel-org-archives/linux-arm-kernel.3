@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7747CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 06:58:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0BE7CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 07:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hANDGoBepfMAwgHxMGOx7Odd1SWbuJfjiOO1DjDEWp0=; b=ARUK/vH2QeDkz8mbVst8jsuXEe
-	G/zWrCZKfgrJSlce7p+cO9vosFBXtrANx+aHgqLOz0Jhw2dMbs3sQ5nmyKNpslDpXdNwyYZOpbvNu
-	sPuFQs67PkjrLkWbsrjPHQCTDe3duImHHIl0S2sYDc466SASC6rOvItxYoqHFMzdAhxCHwcZ/DspJ
-	6jsd/O4X853pQ7xuSQn4r61/sJibeqTIzcphcsNVshAMBxIzphckLLiBfCaKQpwkOvMmSR+lX/NGI
-	fUByPbNuRmfKgIMvt7nNFb2mqEN+5jJlf6RvGk42/WJB6E3PcEjxBIZjKSyf9OT6/IsHGX+Cryamu
-	NC7JWHyQ==;
+	bh=GbcyX4zXgDj6b+81xUBaXnTZPluOV/BD+qMNcOUdYcE=; b=uQTftiNvaKxFOp9nsN38bbxL2A
+	ER5PQ/tlVIborQLFXuxv+YNoD6ZQPmnbHcpBSvUl4M9mnX5uKBAsqI2qg1GLL/SNpJ3p1t/Xn+qhV
+	rY2VcATZL5XPDFdam1RFcaSVCSwkXmEnZV/KaMDM6QvoMURl7YX3itvvUnTFlWALX6RsM0EgnW94Y
+	Pyc5c/PjmrW9HqUD/DLuJB9NMfineAT1JRdctWJwIOnLVjhUGsF4Wm/3FzYZI+BWyO0N98Qbbzytx
+	wIbgZjP0bfyvC+s/nJyz/lOK2N1IdDJxiC3MMX1HE5QRxZmQUUT5RfmnxAsDrEVJWZPTyQ4K7CjeB
+	5xtaV4ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAjqC-0000000C7JG-0TNx;
-	Mon, 20 Oct 2025 06:58:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vAjvd-0000000C8Fs-05wT;
+	Mon, 20 Oct 2025 07:03:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAjqA-0000000C7Ih-2FAw;
-	Mon, 20 Oct 2025 06:57:58 +0000
+	id 1vAjvb-0000000C8Fc-466B
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Oct 2025 07:03:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C9E7D61439;
-	Mon, 20 Oct 2025 06:57:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B54AC4CEF9;
-	Mon, 20 Oct 2025 06:57:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 60C4661469;
+	Mon, 20 Oct 2025 07:03:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D7FCC4CEF9;
+	Mon, 20 Oct 2025 07:03:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760943463;
-	bh=3zKcbSMPDP4MWcdlhzd5uYSC4CKRpKj4OpV+hFKX4mQ=;
+	s=k20201202; t=1760943801;
+	bh=XP/iXY31pwnAwtKE9Vnx2Txoc0iaUX/VhtGFvpcioEE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=h/c2r9fKO5C/9wOuhV2YrXDqKfIorKXbdecYWIkwER6qlgC4ozMkjC3qAQYwLs9AP
-	 tJujPtHztTZtW1geiCoa7E+GpLfLeaCFgheEaST3T7PqeIu/fO3HDpXXjTv/wANzNu
-	 jPgS3SOgbJSJGRTBIaQPG0mbRofhtVsRnxL48eSNkIdOXoPsjU4jFUr5o1HQFmGnti
-	 6lWhqEANjU7EhoKEzFa/mrIJrm18WQmKZUiKblQvz8YeTdFw12rgY7j2X+rg/EK1bt
-	 a3WFWZSQgBoWddUnY5ISPlI3c3Ne2EzbffjZilRWpShSXu0LheYnqbeuccIH6pZ3Jw
-	 McoKR2jNhgSNg==
-Message-ID: <737b57e6-6d91-49fc-b52d-32e40861d25f@kernel.org>
-Date: Mon, 20 Oct 2025 08:57:37 +0200
+	b=dWQta6xq2NGa/nT3MYwNJm0UBqECC0Zg+I8d0X80DpgPG521S4MwVawe1+5Flufkv
+	 qSpLSyHt+kkeliVUiDR7xPqmQ9ch8YxTEiOsBVU4dg96eKXDWtqyppyu5eoXJV6Da/
+	 atPKfCjEhlgfTLDSXrc2rMNhhv8wQ2RnCndFjGK6IB81etj+SgPn32mAQBFh+Bi1pz
+	 QNZPAWS9AfZMlUbJgl899wDMSnJBvHAbL/qb5m/wRbsbaTu4bzVXQmb6ubfbYxOcLk
+	 +2IMNUUYnFgmMeRlb8/RLPi7JVqwhisJxyMzcdIhwGl3hGrzL/bnGXpLb3waDH/8ug
+	 yBkc9oU30SeSg==
+Message-ID: <4a436c40-0fb4-47b7-bfd4-0bc499e85b5a@kernel.org>
+Date: Mon, 20 Oct 2025 09:03:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/5] dt-bindings: mediatek: mt8189: Add bindings for MM
- & APU & INFRA IOMMU
-To: Zhengnan Chen <zhengnan.chen@mediatek.com>, Yong Wu
- <yong.wu@mediatek.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: iommu@lists.linux.dev, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- Conor Dooley <conor.dooley@microchip.com>
-References: <20251015125532.9041-1-zhengnan.chen@mediatek.com>
- <20251015125532.9041-2-zhengnan.chen@mediatek.com>
+Subject: Re: [PATCH v6 0/6] exynos-acpm: add DVFS protocol and clock driver
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251015125532.9041-2-zhengnan.chen@mediatek.com>
+In-Reply-To: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,22 +122,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/10/2025 14:55, Zhengnan Chen wrote:
-> There are three iommu in total, namely MM_IOMMU, APU_IOMMU, INFRA_IOMMU,
-> Add bindings for them.
+On 10/10/2025 14:46, Tudor Ambarus wrote:
+> Dependencies description:
+> All patches should go through the Samsung SoC tree.
+> The acpm-clk driver (#4) depends on the ACPM DVFS ops (#2).
+> If the clock subsystem needs to merge the new clock driver, it will
+> need an immutable tag with the 2 patches.
 > 
-> Signed-off-by: Zhengnan Chen <zhengnan.chen@mediatek.com>
-> Reviewed-by: Matthias Brugger <matthias.bgg@gmail.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  .../bindings/iommu/mediatek,iommu.yaml        |   8 +
->  .../memory/mediatek,mt8189-memory-port.h      | 283 ++++++++++++++++++
->  2 files changed, 291 insertions(+)
->  create mode 100644 include/dt-bindings/memory/mediatek,mt8189-memory-port.h
-> 
-For memory-controller:
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> The following DT patches depend on the bindings from #1:
+> https://lore.kernel.org/linux-samsung-soc/20250924-acpm-dvfs-dt-v4-0-3106d49e03f5@linaro.org/
+
+You forgot to mention that this patchset adds new dtbs_check warnings,
+which are fixed ONLY after applying DT patches.
 
 Best regards,
 Krzysztof
