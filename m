@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3241CCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:33:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A185CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UjICtCf3eQgtE3t/MupIK3q+cX0EOd1X79oQ5cN18Zk=; b=L9nPC3hWuUliv87p9n7L0Gkz7e
-	fTwO0l5w3KdArIkOKO8s88hfQs59EbwBIu7w+INOo6mJSOHOaDsJ+vA2cwTSWLJNRT5OmyQwgzzFg
-	ZZqg48oKUM4YUB3zoNNhEwZjHGdYXjBVagXMU/Lf1SLRT8LEERrAGXKIEHhyK0yoUtgzobG40M+Ve
-	7J80aBHL/93L3/sxhgAKOqCa9MszsWMUB1qKU+3flXMKxEuCIrT1NqLbTZImaoF4Zg/8ktCNbB/aJ
-	nJ8e6ENo4JInzw/04glDyZj1PWHYcH427LZWP97mdJ6bqaXjaVOz7YbrcmMlbrCUt9hFykEA6LVt9
-	1C9Kl8Yg==;
+	bh=ntrU9nuRet64PMVdCke1I3LrFr9q76nQfM0zFt2OtT8=; b=Ojy3x6H3UCsv+gPEWKtui30WRL
+	HxU72fOE19XtBmHBOrebeo2+cBZC6y+IEganj63wHufykjb74K4UTeYnEn+JBX5MORbF9/jUVHdq7
+	WAVR258tPWVOLdRmznQg3ivVmpG/7yNvx9fqIwO81rHLs+fRda4jwFwWLSMsaBw92YXZ5wfORtup2
+	BuFckAo/0vMgkUzQ+8fctgHIAh4E5nfEi9dxqW1waGJjSlv8b59Fgd2OTQ4hss/AEQY/qZKPWClit
+	GIU/mD6LsHS8aQaZb5gfc4WnQU+SSJvvCvElRt4EMn3zv4ejZoTmx7hNug5cJ8P9jiDMxGLiBc3ba
+	y03EGhCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp4V-0000000DUzS-1yEp;
-	Mon, 20 Oct 2025 12:33:07 +0000
+	id 1vAp4Z-0000000DV6T-3k85;
+	Mon, 20 Oct 2025 12:33:12 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp2D-0000000DRju-43St
+	id 1vAp2T-0000000DS5I-2I59
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 20 Oct 2025 12:30:46 +0000
+	Mon, 20 Oct 2025 12:31:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=UjICtCf3eQgtE3t/MupIK3q+cX0EOd1X79oQ5cN18Zk=; b=eIaKonNRZ2oBfS+TMb+aKBOxsh
-	69fc6894OCUAZsHbuPe5LbfqqzNqDkI1B6BJwDxsPZbvtBtWlBcTfDBpKOA/7rQX0QilCFw1kFiCT
-	t/PKstmA7ERuJ9GSz00WsHOR3Gz4SUvpT6iJTUnyrWdVEfuwjhmHWOxxw3cyuiRXb4vvRYCXgLNN4
-	9e1wveNtc0t4TATM8Euih3pHpgvtH+erEnp/lON6bAj2mfHgdpAu75jKrhAw0dawwiKkNF5NQNTMC
-	tI3762ICinZLdw+O/s5FNbmdsWhEdsrhBY8iY3UN7N1YVtHX2TuLyaNUBtIfe6odMQkjNtKCfSyAS
-	Vs+sl/oA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	bh=ntrU9nuRet64PMVdCke1I3LrFr9q76nQfM0zFt2OtT8=; b=aQp6M9lprD4CWsaGYsUtW+vq8M
+	2FIBok2SU7Nm6FtoQBS1i1iCi6bDcj62YqJxmetXQugyrDPUbb1xS0ddRbkjyn0uWE3B2QPPoIAwh
+	lAPxwU3wH+9mFMa6D7F+4P87lQ9wTCVH6kzLpU+GKSY2/XkZiQo0c8LRFAdL85YnhV1Duidz4o4C6
+	lLmoaB48RPOMT+k4fY4OCGkYagVAPAuhW1RQf7IaOd2sx6F83PQjnhA1o3iZev4q1+gA1nXqBtW/E
+	TvY/bc79b9QSuMKDc+kWAtFLFn2bpnRREnyRzBaWWhVOQVuvKXZk9HqEGQOERxaD032St4a4hwuKB
+	VhNlZ0Dw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp28-000000074KS-2Cop
+	id 1vAp2O-000000074mQ-2aOB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 12:30:44 +0000
+	Mon, 20 Oct 2025 12:30:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3194D4402F;
-	Mon, 20 Oct 2025 12:30:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1442CC113D0;
-	Mon, 20 Oct 2025 12:30:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 70DE048AC1;
+	Mon, 20 Oct 2025 12:30:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B6DBC116C6;
+	Mon, 20 Oct 2025 12:30:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760963415;
-	bh=Z4H5BsUqrowzozLwQNmNb98DvlFEdBawk1MycZ0axyk=;
+	s=k20201202; t=1760963410;
+	bh=Coi94hPhUXXNLgq9jnPOWHoGdCzfOo5Sym8rez8bbhs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=booUqgsrcMGJd9IyHOLMkyyzapma72ctsEsDKJAvFgNtx+gYb3cAcj4bmqfrmxu1F
-	 Ba22RtLX1HtxOI8H7kEuSFZ6oMwHpOU2ovTUmraQaLCE+jSSpgsTPxqRFR5tQB18M2
-	 nTjbU/LFugGslOBPJjo2Tec4zHuGb0C4vVaybgVmMPWaRBOV2KFPyJ2CYdS5IVXeQi
-	 AICja+9wm8hfjWJvxVFf22OYp6WnspIQUA/hHmYIR6MAZEtfVw41E+GhNbCYaN2U1w
-	 aOpJj9G98PPRqxXyaBQQkE8e2fXOHGc9S+GAPbKToByEGKBQaMpB1fiEGEBZHMZT0n
-	 /6lVXODGKNZuw==
+	b=aTzGnq+27zIx6xgvRds0Cr34kpf1s+bVMyeygcLzOAyKIwrsHWRh8FTdnlZ4lvr60
+	 crp7oalHILkGFU6JwMgY9vxvCOEkBMVLOiHMb7kWOU7LF50HPP/IKRTlWIFRrv8Q9G
+	 +FvjH6QXOnV6nQ+D2nSxYQe8b6dB0J6mv5uB3MaRmphrWHbUWkGBlbhSEol3S3Pk1F
+	 JvCj3CgVYATUObr0zITPUFpwAbxmleBKjBH3OwQXnkNJCTBUdJmLZLXu6wWPuyuuTw
+	 FrD0fMV7zMrNvvbHtECTUcFlzykVwJnUF1FMcHlBr7cwrISisatBNlVB9l3Cfv1kOi
+	 WQ9oeT3wGw2mw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vAp1h-0000000FUu2-0bcz;
-	Mon, 20 Oct 2025 12:30:13 +0000
+	id 1vAp1c-0000000FUu2-1WPA;
+	Mon, 20 Oct 2025 12:30:08 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -81,9 +81,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>,
 	Jinjie Ruan <ruanjinjie@huawei.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v4 19/26] perf: arm_spe_pmu: Request specific affinities for percpu IRQ
-Date: Mon, 20 Oct 2025 13:29:36 +0100
-Message-ID: <20251020122944.3074811-20-maz@kernel.org>
+Subject: [PATCH v4 04/26] platform: Add firmware-agnostic irq and affinity retrieval interface
+Date: Mon, 20 Oct 2025 13:29:21 +0100
+Message-ID: <20251020122944.3074811-5-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251020122944.3074811-1-maz@kernel.org>
 References: <20251020122944.3074811-1-maz@kernel.org>
@@ -94,8 +94,8 @@ X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradea
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_133041_952647_A066E7BF 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20251020_133058_176342_7344E00F 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,30 +110,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Let the SPE driver request IRQs with an affinity mask matching
-the SPE implementation affinity.
+Expand platform_get_irq_optional() to also return an affinity if
+available, renaming it to platform_get_irq_affinity() in the
+process.
 
+platform_get_irq_optional() is preserved with its current semantics
+by calling into the new helper with a NULL affinity pointer.
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Tested-by: Will Deacon <will@kernel.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/perf/arm_spe_pmu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/base/platform.c         | 60 +++++++++++++++++++++++++++------
+ include/linux/platform_device.h |  2 ++
+ 2 files changed, 52 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index 1460b02d20e8b..87908f0712c0c 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -1259,8 +1259,8 @@ static int arm_spe_pmu_dev_init(struct arm_spe_pmu *spe_pmu)
- 		return -ENXIO;
+diff --git a/drivers/base/platform.c b/drivers/base/platform.c
+index 09450349cf323..3a058f63ef0d3 100644
+--- a/drivers/base/platform.c
++++ b/drivers/base/platform.c
+@@ -150,25 +150,37 @@ devm_platform_ioremap_resource_byname(struct platform_device *pdev,
+ EXPORT_SYMBOL_GPL(devm_platform_ioremap_resource_byname);
+ #endif /* CONFIG_HAS_IOMEM */
  
- 	/* Request our PPIs (note that the IRQ is still disabled) */
--	ret = request_percpu_irq(spe_pmu->irq, arm_spe_pmu_irq_handler, DRVNAME,
--				 spe_pmu->handle);
-+	ret = request_percpu_irq_affinity(spe_pmu->irq, arm_spe_pmu_irq_handler,
-+					  DRVNAME, mask, spe_pmu->handle);
- 	if (ret)
- 		return ret;
++static const struct cpumask *get_irq_affinity(struct platform_device *dev,
++					      unsigned int num)
++{
++	const struct cpumask *mask = NULL;
++#ifndef CONFIG_SPARC
++	struct fwnode_handle *fwnode = dev_fwnode(&dev->dev);
++
++	if (is_of_node(fwnode))
++		mask = of_irq_get_affinity(to_of_node(fwnode), num);
++	else if (is_acpi_device_node(fwnode))
++		mask = acpi_irq_get_affinity(ACPI_HANDLE_FWNODE(fwnode), num);
++#endif
++
++	return mask ?: cpu_possible_mask;
++}
++
+ /**
+- * platform_get_irq_optional - get an optional IRQ for a device
++ * platform_get_irq_affinity - get an optional IRQ and its affinity for a device
+  * @dev: platform device
+  * @num: IRQ number index
++ * @affinity: optional cpumask pointer to get the affinity of a per-cpu IRQ
+  *
+  * Gets an IRQ for a platform device. Device drivers should check the return
+  * value for errors so as to not pass a negative integer value to the
+- * request_irq() APIs. This is the same as platform_get_irq(), except that it
+- * does not print an error message if an IRQ can not be obtained.
+- *
+- * For example::
+- *
+- *		int irq = platform_get_irq_optional(pdev, 0);
+- *		if (irq < 0)
+- *			return irq;
++ * request_irq() APIs. Optional affinity information is provided in the
++ * affinity pointer if available, and NULL otherwise.
+  *
+  * Return: non-zero IRQ number on success, negative error number on failure.
+  */
+-int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
++int platform_get_irq_affinity(struct platform_device *dev, unsigned int num,
++			      const struct cpumask **affinity)
+ {
+ 	int ret;
+ #ifdef CONFIG_SPARC
+@@ -236,8 +248,36 @@ int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
+ out:
+ 	if (WARN(!ret, "0 is an invalid IRQ number\n"))
+ 		return -EINVAL;
++
++	if (ret > 0 && affinity)
++		*affinity = get_irq_affinity(dev, num);
++
+ 	return ret;
+ }
++EXPORT_SYMBOL_GPL(platform_get_irq_affinity);
++
++/**
++ * platform_get_irq_optional - get an optional IRQ for a device
++ * @dev: platform device
++ * @num: IRQ number index
++ *
++ * Gets an IRQ for a platform device. Device drivers should check the return
++ * value for errors so as to not pass a negative integer value to the
++ * request_irq() APIs. This is the same as platform_get_irq(), except that it
++ * does not print an error message if an IRQ can not be obtained.
++ *
++ * For example::
++ *
++ *		int irq = platform_get_irq_optional(pdev, 0);
++ *		if (irq < 0)
++ *			return irq;
++ *
++ * Return: non-zero IRQ number on success, negative error number on failure.
++ */
++int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
++{
++	return platform_get_irq_affinity(dev, num, NULL);
++}
+ EXPORT_SYMBOL_GPL(platform_get_irq_optional);
  
+ /**
+diff --git a/include/linux/platform_device.h b/include/linux/platform_device.h
+index 074754c23d330..ad66333ce85ce 100644
+--- a/include/linux/platform_device.h
++++ b/include/linux/platform_device.h
+@@ -102,6 +102,8 @@ devm_platform_ioremap_resource_byname(struct platform_device *pdev,
+ 
+ extern int platform_get_irq(struct platform_device *, unsigned int);
+ extern int platform_get_irq_optional(struct platform_device *, unsigned int);
++extern int platform_get_irq_affinity(struct platform_device *, unsigned int,
++				     const struct cpumask **);
+ extern int platform_irq_count(struct platform_device *);
+ extern int devm_platform_get_irqs_affinity(struct platform_device *dev,
+ 					   struct irq_affinity *affd,
 -- 
 2.47.3
 
