@@ -4,75 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44ABDCCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38141CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:11:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2r5y1mBmz5eggI5FeubKKMTyd6C8Kfk2vMD6BmwoREY=; b=PWRSS+XU/+alflLvluU3S4yY7E
-	F8UWiiWHsfbZBGjZXa1pmumfPxdRPC2azBUtK8qqlMtp4S0qddDTd0+ZgCAVlNpRUcMX3jB3Rpel8
-	RwblTQPuftsslGxwvGt6ux170EFoR9W7p3zWVbri8PplJGn7PAkWCwbSZpRyakOYqSjV6muuC5ek3
-	ZEcSLH4/TYvTWNr1q5pQokGfFHHsts7r3e1goO0fwHObkNeH3qO2C2p4H7iydhh6NQiExSbtYYCLZ
-	yXGgQZpMDrhI3lQtJdcxu97UvJ6W7LfqV9Np6aVv1gPkTreHBmTzkO6+Z4caP3F3PGm5LBj0WCFi0
-	KAxaGb4Q==;
+	bh=5BAHlA1S+8ohXIryRWQBG42cPVTS0nNUw7iiTjZgF2U=; b=mYCLWEgEq/vahZXsjomw35vu9n
+	zunnhwGKH/fsunjBqtjPxTNXV2lszbimJK4zBgHrN1Zb/ujDkChGJHF63xFpBdec7qd4EF+yEe7hQ
+	E3U3NT2YH/SsPKDNS0qxXzIn0epdIjtdSbGgSG1sbiTrIgvMoybQgtzeGEIsQwbOzPaNy8l/GfTHN
+	j0rvU/Ic+YXwClGay9dQI9bvzH+1eWFz6C/VTulSsskMlHG20lw7lQTIvfLbjRm6QXCGjmzjAdrsY
+	sUZ0UkfYvYdoPfqa/hEIzEWTcZl6dzFdR/H6i3fkGNgyZBGx75+YWUNqhaiCBmznfzQxQ6EoTPKEg
+	yGO4SrGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtPv-0000000EQkF-2yyG;
-	Mon, 20 Oct 2025 17:11:31 +0000
+	id 1vAtQ6-0000000EQqn-2F8q;
+	Mon, 20 Oct 2025 17:11:42 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtPu-0000000EQjr-1M6Y
+	id 1vAtQ5-0000000EQp1-0CZM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 20 Oct 2025 17:11:30 +0000
+	Mon, 20 Oct 2025 17:11:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2r5y1mBmz5eggI5FeubKKMTyd6C8Kfk2vMD6BmwoREY=; b=Ts3zCBjRmtBUk4J+8sV2g4Cz6r
-	paR39m4HcKMqbJ2Sitc65xXBUihW7sSnVIDohGTmC2wSBkLtSv2+Twv7T/kUMoBhDtUTU/R/EHmoF
-	/fOkRebt5K6G5XV9O61aOhFbvG1LLOCFLzsTyQi9rn4CNFWcmDZVNxL7ukvDGK4I8HNKzJff5VO3J
-	hp3tZZczQN21ZdbR4AxEoriOVeeRJA7GFKbmKIjY5GFmrlWjLaNKYkD89I6/otgXQW1IS6izoFvkO
-	0yae7qImHVUQyKwNITST9AHtX2YHf4mQWKfOGvK3ffxBwu7L72/zafHmgb//UEDdG2VX+Xw9yUY43
-	2CLYNEQg==;
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=5BAHlA1S+8ohXIryRWQBG42cPVTS0nNUw7iiTjZgF2U=; b=f9AboOYJPHJDiBNSM9hyio1/xQ
+	QIK+mInysQRkfn/onPafpxp8kFpmYQSV4NOAEzjxB2C67oTz4RneWWTXuNJF6jlABoEH+HSq1jvBy
+	/jLUn1BKtZGb9ZOCeeAAs5AKDOgu0kc3QA6B3NEIpPMg7AGLoytcIaxSQsgK7zaXj4k9AnT6iMhbA
+	JTvzaL/JxLbyo49ISruYw176m1yieWxJZTo6M6cFBtCAp5tjY9DdaJr8u0+ZAzFPxmnc3DZs6XlhK
+	j9UDIRDq/5K0nkxrmQz9ZMst+Cf7arX0sjdFcikMnc8RddIRgfvvXlJ5kiCDRWBwqTzzYKUUIXlrg
+	OQAU3Tyg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAsYA-00000000249-47aC
+	id 1vAsYL-0000000025K-3Y3o
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 16:16:00 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cr21X5Vstz6L4vM;
-	Tue, 21 Oct 2025 01:08:00 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3EB39140275;
-	Tue, 21 Oct 2025 01:11:08 +0800 (CST)
-Received: from localhost (10.48.157.75) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 20 Oct
- 2025 18:11:07 +0100
-Date: Mon, 20 Oct 2025 18:11:06 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-CC: Cristian Marussi <cristian.marussi@arm.com>, <arm-scmi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH 2/8] firmware: arm_scmi: Extend transport driver macro
- to support ACPI
-Message-ID: <20251020181106.0000724f@huawei.com>
-In-Reply-To: <20251017-acpi_scmi_pcc-v1-2-0adbab7709d9@arm.com>
-References: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
-	<20251017-acpi_scmi_pcc-v1-2-0adbab7709d9@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 20 Oct 2025 16:16:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DA1D848DEA;
+	Mon, 20 Oct 2025 17:11:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B660C19423;
+	Mon, 20 Oct 2025 17:11:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760980280;
+	bh=YIPTcjtisaZ5yPU39cB2poEgXiC9oxSbvqACMF7guZQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Z2j2ylcRsPrmU7y/m750/X9+1N5xr2bBqx9A+QSEXxwY+9gtT7A7NnP65B/pv7Gn2
+	 u32eHV6WYAZBxdpfKfLs35SfOdk3Wv9F8TsqxGm9fH+BLPjt+p1s5DsWYNAgGV0oA9
+	 H/pbvK/CWheUeHx85405QQn3q74qyJnxQ53LmlTERDER2xQPN8QL+gwM02SYpOGo7o
+	 qejrhZmMP2FvP/q1BoHm0e8Gl8vcyBeCn1B36empLQOoaTzT3RKdaYIcTj47HG1Qg9
+	 xKps1E7fosHAK1eIRSRdvqPkQzp+JGquO8hVdjmbmO6pxwbW90dZBx5kpfTNYW/dYP
+	 mQ2aiX9+YFJ4A==
+Received: by wens.tw (Postfix, from userid 1000)
+	id 2A8285F952; Tue, 21 Oct 2025 01:11:18 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Mark Brown <broonie@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>
+Cc: Chen-Yu Tsai <wens@csie.org>,
+	linux-sunxi@lists.linux.dev,
+	linux-sound@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 01/11] dt-bindings: dma: allwinner,sun50i-a64-dma: Add compatibles for A523
+Date: Tue, 21 Oct 2025 01:10:47 +0800
+Message-ID: <20251020171059.2786070-2-wens@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251020171059.2786070-1-wens@kernel.org>
+References: <20251020171059.2786070-1-wens@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.48.157.75]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_171559_191830_5E46485D 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20251020_171610_106313_9AA7C059 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,101 +102,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Oct 2025 14:23:45 +0100
-Sudeep Holla <sudeep.holla@arm.com> wrote:
+From: Chen-Yu Tsai <wens@csie.org>
 
-> Extend the SCMI transport driver helper to also support ACPI-based
-> systems. Introduce an internal helper macro that accepts both OF and
-> ACPI match tables, and expose two wrappers:
->=20
->   - DEFINE_SCMI_TRANSPORT_DRIVER(...)      -> DT/OF wrapper (unchanged AB=
-I)
->   - DEFINE_SCMI_ACPI_TRANSPORT_DRIVER(...) -> ACPI wrapper
->=20
-> For ACPI, the generated platform_driver now sets .acpi_match_table via
-> ACPI_PTR() so that builds without CONFIG_ACPI remain safe (becomes NULL).
-In general it doesn't normally matter if ACPI_PTR() isn't used.
+There are two DMA controllers on the A523, one in the main system area
+and the other for the MCU. These are the same as the one found on the
+A100. The only difference is the DMA endpoint (DRQ) layout.
 
-What specifically is this preventing?  If CONFIG_ACPI isn't set then we'll =
-never
-use those paths anyway.  Using ACPI_PTR() tends to need ifdef magic or
-__maybe_unused markings that are rarely worth the effort for these tiny
-tables.
+Since the number of channels and endpoints are described with additional
+generic properties, just add new A523-specific compatible strings and
+fallback to the A100 one.
 
-> The spawned platform_device inherits the parent device=E2=80=99s ACPI com=
-panion
-> to ensure proper firmware-node association (i.e.subsequent lookups or
-> fwnode use see the correct firmware node).
->=20
-> This keeps existing DT users unchanged and continues to function as
-> expected while allowing transports to be probed using the structure
-> `acpi_device_id` tables on ACPI platforms.
->=20
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-> ---
->  drivers/firmware/arm_scmi/common.h | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_sc=
-mi/common.h
-> index 911941e6885d..d038fec72360 100644
-> --- a/drivers/firmware/arm_scmi/common.h
-> +++ b/drivers/firmware/arm_scmi/common.h
-> @@ -9,6 +9,7 @@
->  #ifndef _SCMI_COMMON_H
->  #define _SCMI_COMMON_H
-> =20
-> +#include <linux/acpi.h>
->  #include <linux/bitfield.h>
->  #include <linux/completion.h>
->  #include <linux/device.h>
-> @@ -453,7 +454,8 @@ struct scmi_transport {
->  	struct scmi_transport_core_operations **core_ops;
->  };
-> =20
-> -#define DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __co=
-re_ops)\
-> +#define __DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __of_match,=
-       \
-> +					__acpi_match, __core_ops)	       \
->  static void __tag##_dev_free(void *data)				       \
->  {									       \
->  	struct platform_device *spdev =3D data;				       \
-> @@ -474,6 +476,7 @@ static int __tag##_probe(struct platform_device *pdev=
-)			       \
->  									       \
->  	device_set_of_node_from_dev(&spdev->dev, dev);			       \
->  	device_set_node(&spdev->dev, dev_fwnode(dev));			       \
-> +	ACPI_COMPANION_SET(&spdev->dev, ACPI_COMPANION(dev));		       \
->  									       \
->  	strans.supplier =3D dev;						       \
->  	memcpy(&strans.desc, &(__desc), sizeof(strans.desc));		       \
-> @@ -498,11 +501,18 @@ err:									       \
->  static struct platform_driver __drv =3D {					       \
->  	.driver =3D {							       \
->  		   .name =3D #__tag "_transport",				       \
-> -		   .of_match_table =3D __match,				       \
-> +		   .of_match_table =3D __of_match,			       \
-> +		   .acpi_match_table =3D ACPI_PTR(__acpi_match),		       \
->  		   },							       \
->  	.probe =3D __tag##_probe,						       \
->  }
-> =20
-> +#define DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __co=
-re_ops)\
-> +	__DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, NULL, __c=
-ore_ops)
-> +
-> +#define DEFINE_SCMI_ACPI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match,=
- __core_ops)\
-> +	__DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, NULL, __match, __c=
-ore_ops)
-> +
->  void scmi_notification_instance_data_set(const struct scmi_handle *handl=
-e,
->  					 void *priv);
->  void *scmi_notification_instance_data_get(const struct scmi_handle *hand=
-le);
->=20
+Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+---
+I could probably take this through the soc tree if Vinod gives an ack.
+
+ .../devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml    | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml b/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml
+index 0f2501f72cca..c3e14eb6cfff 100644
+--- a/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml
++++ b/Documentation/devicetree/bindings/dma/allwinner,sun50i-a64-dma.yaml
+@@ -29,7 +29,10 @@ properties:
+           - const: allwinner,sun8i-r40-dma
+           - const: allwinner,sun50i-a64-dma
+       - items:
+-          - const: allwinner,sun50i-h616-dma
++          - enum:
++              - allwinner,sun50i-h616-dma
++              - allwinner,sun55i-a523-dma
++              - allwinner,sun55i-a523-mcu-dma
+           - const: allwinner,sun50i-a100-dma
+ 
+   reg:
+-- 
+2.47.3
 
 
