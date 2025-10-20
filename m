@@ -4,126 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FB2CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:56:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E4FACCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NAetlB1rfruY8L6GWaLiiP+AhNOGwi30zR6SQ1TQ+GY=; b=r4G2CfdRW71/9CZnrG5ctSsgPM
-	VYLzhx7US01nYqHYTbjOjcTgtJDc8iMHlIj8HqrcruPMv9mEPm5g6OE99Uj8XZ5pXLfCOZAhGfAnb
-	hdjJ5YuQ0xm5Dj2jXe1mWaLS91fszi3eRKdt+eMiQuEHysAD9tu4uUU5jHFHUIY7ZNjRXGxdub161
-	OcIGq3chtQzzDy7yH1AQDzhCtRB7wT7docfN5Jb1/DVPnHnFrgo7k+K3AfUnxI2kNW+/RaCE+qZX9
-	VcTc1gRn5aycLHbhD6jWCiOiv8tUxKAoGClq61D/IUKuXp2yDPk7BTtN4wDW2QAtkmWvIqSB/iLNe
-	sln+UaVw==;
+	bh=gFJLxW8OUDNgtKGw5vBtPWMYgGcJSO6ZFLPzt/gNjxs=; b=jtM3bru5kKhpqSYV4E30NSvtNs
+	R0Ati0qz18pvSOqIQQJrmg6kThnPO8eH/Neb9/M79/tUrPtwU7IPra+pAo2Y3EUoecp7ZMBRzNhDw
+	LfEmg7DkqMyptrbexCi9U5XrfnwVNd/NidJoxjR88cKEuQL1W2J41giz2fQ4v7te5hKLwKiH5/i81
+	tEcN5eTJZ1e0gD/mcKfCvJqzqGAE0BP4+puLKnpGiNySC9c80aZG5Z6vNgt4j5Q+1tQ3zZc0e1sFA
+	7h/MJScX2rjSN5RGt4MgP49bXIoB6Lml7md+Dpk+r7u5j+x9xpQ4ZDPbFGtKp0wnpZSEOoL6EYuwX
+	O5QB5O5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmct-0000000Cg5a-0dMA;
-	Mon, 20 Oct 2025 09:56:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vAmdD-0000000CgFG-2E6k;
+	Mon, 20 Oct 2025 09:56:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmcr-0000000Cg4Q-2e5n
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 20 Oct 2025 09:56:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=NAetlB1rfruY8L6GWaLiiP+AhNOGwi30zR6SQ1TQ+GY=; b=HaHqAH5Lpsvr4OGipgIRVHpvEv
-	7ictgwEXjml0q0QOkPU7yOG7HsX1hTrFbO/2Pvno417YkGMOMJCMajNWaQVlc/g+HumX2CFGBFBD9
-	V+J+B2zHFou3wnldt/n54ZqhXvKGPCAvlSZ4lWwEOD6JjCus9Wj8yq+HAOqLTXZ0y8RDbae4jyrEj
-	aXI/WkXDxFsjEAWxisBGWAqXqcIPjOc5eA4/VHM5kTKUBRn9YzDfEXvA2+EoHV8C0LMC00tW+vPPc
-	FYW9mGxgKvxtZeoU6hoyzjeNbYpS/NX5nf5FDOVwXj4dI8JsRCG31wH7T0W1JPK1dalaLIZ08bPfe
-	kXPHqyOQ==;
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmcj-00000009h2Z-0Opu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 09:56:23 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-339d53f4960so4197871a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 02:56:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760954173; x=1761558973; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NAetlB1rfruY8L6GWaLiiP+AhNOGwi30zR6SQ1TQ+GY=;
-        b=jpv/7g4xur3437kWfrPIoMcuWPfkO3dHkAWhv4C0ohaXkjP/tHBRck7aUVdYr7sLr2
-         LmiPm9ETLRJ2+U6BEHPp1anpGCStCBMcI/wLDfOTI8O55q0wvShnp9IqAhpZ5dt4lw4T
-         IocasyzwTJrrfk03S37IoWhd0i9y00P1S0t6PKYtmBzdmFGj0PRWWOwFCoFhUCr3PCtn
-         a96dfxA4UHAyKWVFbQkzXgnroVdZQAnXT27VUkgoRx9I6KHsDzIciAezRwASm0RzpYK2
-         6SQi/IPJNc8wswSIYxCVWT4hmd48gAcJZEZOGVLmw5nK87LSemlGXocUV1z3pyOXZMEf
-         ZMZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760954173; x=1761558973;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NAetlB1rfruY8L6GWaLiiP+AhNOGwi30zR6SQ1TQ+GY=;
-        b=EfjqXr/QZEGPQqeT6/rOUiL9g3o/Tmn+K7ww5HZ4XKTlL2WCUFSDqKf/I3F6hPAHQ5
-         7WQJrm78nT8zE3XKcT03c8oxTYthEudgWvaKAVIOgKBPBHXzUYzuqBPvmLtoFjkOuZDv
-         v3znDq+rmzACn3H7pDfdEiHiBbMQxAaDsLqoH3J6tFIgXLGJxVd8oARkiRnX85+FhKAk
-         jBX8ksGanbqmAW2JicRCTMp249iKj5pE/fWMt0zqmD+jwaStt7wXZmPa4fzbcH4YgWCQ
-         7/DpA3uedfiXo3mD9KIacyhwaW6yOQ+sLK5c07SMd12NW9k44bDjTk5KHE1vR+ntJsWt
-         UAFw==
-X-Forwarded-Encrypted: i=1; AJvYcCUvV5oSHSgGA3H1VVFdGMKfy1NBd2H8k0Ds27nJaeC/omC+R7If2q1cSMkiEy6Q1JQddeb3M/4q5+DhixTznlKm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEkNB8ibyqfIsgCN19P4NrfGa7vSgL8CT8aMXcfEbkRDPiHRfZ
-	o7cVPN6boOTEG/eyijAa6nyeqxIoekKA1W2yCJgHxDvcYvA1BoLhcmeZ
-X-Gm-Gg: ASbGncturEfqCGXXBBd/Ybbnmf6eQzoyWZglcE6itWX2cTMfpVN26lM57mBFeNtE7fc
-	HVT41oyx+2w3fC2qRyOCFy4VJuW74zzpGM7SSSFL2b1dxSl4wbjY4oe/jeXt11BWDdtYni/+PrK
-	5tfeX0hVcaYurlYyA/3k1YsGfogTEfvFPDTL6OMC4i2jP2LimmcHZJ/iT2QW8dQ/67g0X2ys5Cz
-	Clln1SI93XxHeZO8samdGHObmpP74BIUJPnlgm/m50tpysVIjmnJyoLmztixxupFCYuR65jVcBv
-	Et3iN6PFD9U5XjC9wKX8pRziz23xXvdAQz3xXEMM6ag8a5eIOUsARWyCg/bRKmtAl4TiC46R0nw
-	oET4lg+yxXJ4bcIiKsRxeLtczVcy0BodtWBtN9MGlO+7IRrG+Q+EcFJSbNBDMR2ANshHBGFOcf6
-	dWkIHpaE8wFg==
-X-Google-Smtp-Source: AGHT+IE7zVwzQMhb5BY4ayD1uNx5wi44qB2+5gan5ZQtQHTnM1ourkvH3ZfDn2OiMchcyVMlnamnPg==
-X-Received: by 2002:a17:90a:ec8b:b0:32b:6145:fa63 with SMTP id 98e67ed59e1d1-33bcf860229mr19877507a91.4.1760954172663;
-        Mon, 20 Oct 2025 02:56:12 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6a76b33bf3sm7265996a12.19.2025.10.20.02.56.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Oct 2025 02:56:12 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Han Gao <rabenda.cn@gmail.com>,
-	Icenowy Zheng <uwu@icenowy.me>,
-	Vivian Wang <wangruikang@iscas.ac.cn>,
-	Yao Zi <ziyao@disroot.org>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v2 2/3] net: phy: Add helper for fixing RGMII PHY mode based on internal mac delay
-Date: Mon, 20 Oct 2025 17:54:58 +0800
-Message-ID: <20251020095500.1330057-3-inochiama@gmail.com>
-X-Mailer: git-send-email 2.51.1.dirty
-In-Reply-To: <20251020095500.1330057-1-inochiama@gmail.com>
-References: <20251020095500.1330057-1-inochiama@gmail.com>
+	id 1vAmdA-0000000CgDA-1zTE;
+	Mon, 20 Oct 2025 09:56:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9DC1345827;
+	Mon, 20 Oct 2025 09:56:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 844F3C4CEF9;
+	Mon, 20 Oct 2025 09:56:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760954203;
+	bh=eRscmhaBeaXNyyMb6QNngH3o5h5QCnU9xCb75nFP7+M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TTfdfeu7+i1jUYuaXPwGYgFpZ061KDKhmAeYU6LXSHmZVl4lLGEFxYVEEjcUeeEIQ
+	 cvrGT7UgAI4lKgsp3/EPHY2EbxgElGBkCyw7GEhhjeH/DGWR7X6mpgaNoxKAkUXZZO
+	 Mi6f9OrDOYt0rus2Kaq8TnBWsTs5N/gJ389bdcbWjqtJ/iuhuNbY/IIUextL4vNluy
+	 +viQe9GpTDGX/6l5h/zlR2L6hMnQLjazC/sTjT5Nz84GLCCW6deVz6kg0GYBOIktNo
+	 5q+icUzkiCEYEf/J1+8Nkdkq28e8cgiyQYXWb6iXDOw7MHJ9UwIDe6oAePv90frKCU
+	 MAOkNIVOB4kPg==
+Message-ID: <4dc420a3-cf89-4f45-84e7-4d0079240681@kernel.org>
+Date: Mon, 20 Oct 2025 11:56:36 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] dt-bindings: ufs: mediatek,ufs: add MT8195
+ compatible and update clock nodes
+To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
+ "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
+ "James.Bottomley@HansenPartnership.com"
+ <James.Bottomley@HansenPartnership.com>, "robh@kernel.org"
+ <robh@kernel.org>, "bvanassche@acm.org" <bvanassche@acm.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ =?UTF-8?B?TWFjcGF1bCBMaW4gKOael+aZuuaWjCk=?= <Macpaul.Lin@mediatek.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "avri.altman@wdc.com" <avri.altman@wdc.com>,
+ "martin.petersen@oracle.com" <martin.petersen@oracle.com>
+Cc: "macpaul@gmail.com" <macpaul@gmail.com>,
+ =?UTF-8?B?UGFibG8gU3VuICjlravmr5Pnv5Qp?= <pablo.sun@mediatek.com>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ =?UTF-8?B?QmVhciBXYW5nICjokKnljp/mg5/lvrcp?= <bear.wang@mediatek.com>,
+ =?UTF-8?B?UmFtYXggTG8gKOe+heaYjumBoCk=?= <Ramax.Lo@mediatek.com>
+References: <20250722085721.2062657-1-macpaul.lin@mediatek.com>
+ <20250722085721.2062657-3-macpaul.lin@mediatek.com>
+ <b90956e8-adf9-4411-b6f9-9212fcd14b59@collabora.com>
+ <438077d191833bb4f628b2c6da3b86b3ecfb40e6.camel@mediatek.com>
+ <cb173df9-4c70-4619-b36d-8e99272551b6@kernel.org>
+ <a9bf15e48afd8496ca9b015e7f5b03821863a0b2.camel@mediatek.com>
+ <7f285723-ecd7-4df6-8c9b-f2e786ce3602@kernel.org>
+ <4b3d2678d2b724fb53ec7272ef8daf52197d4a0e.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <4b3d2678d2b724fb53ec7272ef8daf52197d4a0e.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_105620_471658_F7EEF402 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20251020_025644_557454_8D1E1F71 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,89 +145,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "phy-mode" property of devicetree indicates whether the PCB has
-delay now, which means the mac needs to modify the PHY mode based
-on whether there is an internal delay in the mac.
+On 20/10/2025 11:44, Peter Wang (王信友) wrote:
+> On Mon, 2025-10-20 at 10:28 +0200, Krzysztof Kozlowski wrote:
+>>>
+>>>
+>>> Hi Krzysztof Kozlowski,
+>>>
+>>> The main reason for my objection was also clearly stated:
+>>> "removing these DTS settings will make what was originally
+>>> a simple task more complicated."
+>>> I’m not sure if you are quoting only the "In addition"
+>>> part to take it out of context?
+>>
+>> It is not out of context. It was the statement on its own.
+> 
+> Hi Krzysztof Kozlowski,
+> 
+> However, you haven’t addressed the main reason for my objection.
+> "removing these DTS settings will make what was originally
+> a simple task more complicated."
 
-This modification is similar for many ethernet drivers. To simplify
-code, define the helper phy_fix_phy_mode_for_mac_delays(speed, mac_txid,
-mac_rxid) to fix PHY mode based on whether mac adds internal delay.
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- drivers/net/phy/phy-core.c | 43 ++++++++++++++++++++++++++++++++++++++
- include/linux/phy.h        |  3 +++
- 2 files changed, 46 insertions(+)
+You did not object in technical matter at all here:
+https://lore.kernel.org/all/ce0f9785f8f488010cd81adbbdb5ac07742fc988.camel@mediatek.com/
 
-diff --git a/drivers/net/phy/phy-core.c b/drivers/net/phy/phy-core.c
-index 605ca20ae192..4f258fb409da 100644
---- a/drivers/net/phy/phy-core.c
-+++ b/drivers/net/phy/phy-core.c
-@@ -101,6 +101,49 @@ const char *phy_rate_matching_to_str(int rate_matching)
- }
- EXPORT_SYMBOL_GPL(phy_rate_matching_to_str);
+Look at this patch.
 
-+/**
-+ * phy_fix_phy_mode_for_mac_delays - Convenience function for fixing PHY
-+ * mode based on whether mac adds internal delay
-+ *
-+ * @interface: The current interface mode of the port
-+ * @mac_txid: True if the mac adds internal tx delay
-+ * @mac_rxid: True if the mac adds internal rx delay
-+ *
-+ * Return fixed PHY mode, or PHY_INTERFACE_MODE_NA if the interface can
-+ * not apply the internal delay
-+ */
-+phy_interface_t phy_fix_phy_mode_for_mac_delays(phy_interface_t interface,
-+						bool mac_txid, bool mac_rxid)
-+{
-+	if (!phy_interface_mode_is_rgmii(interface))
-+		return interface;
-+
-+	if (mac_txid && mac_rxid) {
-+		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
-+			return PHY_INTERFACE_MODE_RGMII;
-+		return PHY_INTERFACE_MODE_NA;
-+	}
-+
-+	if (mac_txid) {
-+		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
-+			return PHY_INTERFACE_MODE_RGMII_RXID;
-+		if (interface == PHY_INTERFACE_MODE_RGMII_TXID)
-+			return PHY_INTERFACE_MODE_RGMII;
-+		return PHY_INTERFACE_MODE_NA;
-+	}
-+
-+	if (mac_rxid) {
-+		if (interface == PHY_INTERFACE_MODE_RGMII_ID)
-+			return PHY_INTERFACE_MODE_RGMII_TXID;
-+		if (interface == PHY_INTERFACE_MODE_RGMII_RXID)
-+			return PHY_INTERFACE_MODE_RGMII;
-+		return PHY_INTERFACE_MODE_NA;
-+	}
-+
-+	return interface;
-+}
-+EXPORT_SYMBOL_GPL(phy_fix_phy_mode_for_mac_delays);
-+
- /**
-  * phy_interface_num_ports - Return the number of links that can be carried by
-  *			     a given MAC-PHY physical link. Returns 0 if this is
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index 3c7634482356..0bc00a4cceb2 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -1813,6 +1813,9 @@ static inline bool phy_is_pseudo_fixed_link(struct phy_device *phydev)
- 	return phydev->is_pseudo_fixed_link;
- }
+You said nothing about actual change, except blocking the community
+maintainer. You did not raise any other concerns so what are you
+speaking about "other main concerns"?
 
-+phy_interface_t phy_fix_phy_mode_for_mac_delays(phy_interface_t interface,
-+						bool mac_txid, bool mac_rxid);
-+
- int phy_save_page(struct phy_device *phydev);
- int phy_select_page(struct phy_device *phydev, int page);
- int phy_restore_page(struct phy_device *phydev, int oldpage, int ret);
---
-2.51.1.dirty
+Even if such existed, they did not matter, because YOU WROTE ONLY:
 
+"The role of MediaTek UFS maintainer is not suitable to be handed over
+to someone outside of MediaTek."
+
+This is what we discuss here.
+
+> 
+>>
+>>
+>>
+>> You denied community to participate and now you twist the argument
+>> like
+>> you want Mediatek people to be involved. No one denied Mediatek to be
+>> maintainer.
+>>
+>> It is you who denied community to join the maintainers.
+>>
+>> This is not acceptable and you still do not understand why.
+> 
+> I think I understand your point now, you believe that opposing
+> this patch means opposing community participation and support, right?
+
+Do you even read your own comments and where did you place them? Do you
+understand that we discuss emails, not some unsaid or other threads?
+
+Look at this:
+
+https://lore.kernel.org/all/ce0f9785f8f488010cd81adbbdb5ac07742fc988.camel@mediatek.com/
+
+	
+> But it’s clear that you haven’t carefully considered the main 
+> reason for my objection?
+
+Main reason for objection? What?
+
+> 
+> 
+> 
+>>
+>>
+>> You could apologize and explain your mistakes, but instead you push
+>> same
+>> narrative.
+>>
+>> Still a red flag. I will not accept such vendor-like behaviors,
+>> because
+>> they significantly harm the community.
+>>
+>> I am very surprised that UFS maintainers did not object to it. This
+>> should be clearly ostracized.
+>>
+>>
+> 
+> Sorry, I still don’t quite understand why having people who
+> know the SoC better maintain the SoC driver would be considered
+> harmful to the community?
+
+You are twisting the problem, like anyone denied you being the maintainer.
+
+YOU DENIED OTHER PEOPLE!
+
+I finish the discussion here, I am considering your explanations
+intentionally twisting the point thus I find it still harmful behavior.
+
+Best regards,
+Krzysztof
 
