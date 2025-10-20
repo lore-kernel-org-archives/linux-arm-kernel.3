@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E722CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 16:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37432CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 16:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FMstRJgr2fJbGk1sdv3mEnU9xmKpzQMXd2s8YH1xqIw=; b=OWj4sMHSOGofnk+KLYuvkOibNC
-	UwBYHXyqhPteSXnPP7DvnpSt9SkMv7cQldyixSVR4Iz05v8JqmxqucgUBdt6+Ffl7r0oURlVBGcP1
-	RKE3Fo2H1vlbBx1kN8lrrTHP3xP6wvXI8FX5+ChJbSTRoMr3P4AglJ+gs/QZHYbxwcjaKrWEpY/vy
-	aiRaAbgOHZNGsighuAl/dBW8tfJmliH9S0jInjz7RMPN7VezatuYpmUPkuMB0J7ub97Loql5TWSHW
-	j3Ev294OyxDytrc/SWIUZwpdUl1kdnVRLihrPIbw6cOoeRD+NVMGSLGmTnFVFiwcPKw+LI6xlgHon
-	pExnU4Pg==;
+	bh=tP+Yk8vpAFXW9U6o/r9+ksJDWbbYd+rG3XMJ0zpQT18=; b=WwLkM+xgniZVyThT3eQHI8As2a
+	74d+mBtLk2i+GUpRIL0zxoTeddde34gpxMmhoiXkb1TU4I1SdVaL3vCODfIzxYj0q0OSU403x7cZ1
+	Q7IebadjguadJNp5Rme8155828Ikcn59RU9mrAHRHEnLTTYgED+mLL6z+/w7cQxcHmTe6pIz+orpj
+	/zvslYBFmndpSuMmM1IQpBogfD5nYDozpTVwqdEBFFP1TbjhN+gR2Z5R5JWorL6AEkImBx7jwhy6J
+	Q1iCw39mWoy8KsCcWOY9STlGwD4ZNwMQm1swXdUM/UoXl+/5YoUapYvV5UpfT35zb0fv8xrQkXMzn
+	YHMh6cLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAskD-0000000EJ3d-17X4;
-	Mon, 20 Oct 2025 16:28:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAskA-0000000EJ2L-1rsD
+	id 1vAsmT-0000000EJfi-1mit;
+	Mon, 20 Oct 2025 16:30:45 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAsmR-0000000EJf9-33TN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 16:28:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 00A241063;
-	Mon, 20 Oct 2025 09:28:13 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49B283F63F;
-	Mon, 20 Oct 2025 09:28:16 -0700 (PDT)
-Message-ID: <7ac2abe6-7311-4b20-b1fb-566ed7516315@arm.com>
-Date: Mon, 20 Oct 2025 17:28:14 +0100
+	Mon, 20 Oct 2025 16:30:45 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cr16n6Yjrz6L5Xx;
+	Tue, 21 Oct 2025 00:27:29 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4EA82140275;
+	Tue, 21 Oct 2025 00:30:37 +0800 (CST)
+Received: from localhost (10.48.157.75) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 20 Oct
+ 2025 17:30:36 +0100
+Date: Mon, 20 Oct 2025 17:30:34 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<arm-scmi@vger.kernel.org>, <sudeep.holla@arm.com>,
+	<james.quinlan@broadcom.com>, <f.fainelli@gmail.com>,
+	<vincent.guittot@linaro.org>, <etienne.carriere@st.com>,
+	<peng.fan@oss.nxp.com>, <michal.simek@amd.com>, <quic_sibis@quicinc.com>,
+	<dan.carpenter@linaro.org>, <d-gole@ti.com>, <souvik.chakravarty@arm.com>
+Subject: Re: [PATCH 07/10] firmware: arm_scmi: Add System Telemetry ioctls
+ support
+Message-ID: <20251020173034.00005c15@huawei.com>
+In-Reply-To: <20250925203554.482371-8-cristian.marussi@arm.com>
+References: <20250925203554.482371-1-cristian.marussi@arm.com>
+	<20250925203554.482371-8-cristian.marussi@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 19/29] arm_mpam: Use a static key to indicate when mpam
- is enabled
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Gavin Shan <gshan@redhat.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
- <20251017185645.26604-20-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20251017185645.26604-20-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.157.75]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_092822_526340_78F8811F 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20251020_093044_076204_54E7F61E 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,67 +76,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Thu, 25 Sep 2025 21:35:51 +0100
+Cristian Marussi <cristian.marussi@arm.com> wrote:
 
-On 10/17/25 19:56, James Morse wrote:
-> Once all the MSC have been probed, the system wide usable number of
-> PARTID is known and the configuration arrays can be allocated.
+> Extend the filesystem based interface with special 'control' file that can
+> be used to configure and retrieve SCMI Telemetry data in binary form using
+> the alternative ioctls-based ABI described in uapi/linux/scmi.h.
+Why you say alternative.  Why do you need both?
+
+That's in the cover letter but I'd put something here as well.
 > 
-> After this point, checking all the MSC have been probed is pointless,
-> and the cpuhp callbacks should restore the configuration, instead of
-> just resetting the MSC.
-> 
-> Add a static key to enable this behaviour. This will also allow MPAM
-> to be disabled in response to an error, and the architecture code to
-> enable/disable the context switch of the MPAM system registers.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 > ---
-> Changes since v2:
->  * Removed the word 'TODO'.
->  * Fixed a typo in the commit message.
-> ---
-[..]
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index a04b09abd814..d492df9a1735 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -9,6 +9,7 @@
->  #include <linux/bitmap.h>
->  #include <linux/cpumask.h>
->  #include <linux/io.h>
-> +#include <linux/jump_label.h>
->  #include <linux/llist.h>
->  #include <linux/mailbox_client.h>
->  #include <linux/mutex.h>
-> @@ -19,8 +20,16 @@
->  
->  #define MPAM_MSC_MAX_NUM_RIS	16
->  
-> +
+>  .../firmware/arm_scmi/scmi_system_telemetry.c | 402 ++++++++++++++++++
+>  1 file changed, 402 insertions(+)
+> 
+> diff --git a/drivers/firmware/arm_scmi/scmi_system_telemetry.c b/drivers/firmware/arm_scmi/scmi_system_telemetry.c
+> index 2fec465b0f33..f591aad10302 100644
+> --- a/drivers/firmware/arm_scmi/scmi_system_telemetry.c
+> +++ b/drivers/firmware/arm_scmi/scmi_system_telemetry.c
 
-nit: stray whitespace change
-
->  struct platform_device;
->  
-> +DECLARE_STATIC_KEY_FALSE(mpam_enabled);
-> +
-> +static inline bool mpam_is_enabled(void)
+> +static long scmi_tlm_des_read_ioctl(const struct scmi_tlm_inode *tlmi,
+> +				    unsigned long arg, bool single,
+> +				    bool is_group)
 > +{
-> +	return static_branch_likely(&mpam_enabled);
-> +}
+> +	const struct scmi_tlm_setup *tsp = tlmi->tsp;
+> +	void * __user uptr = (void * __user)arg;
+> +	struct scmi_tlm_data_read bulk, *bulk_ptr;
+> +	int ret, grp_id = SCMI_TLM_GRP_INVALID;
 > +
->  /*
->   * Structures protected by SRCU may not be freed for a surprising amount of
->   * time (especially if perf is running). To ensure the MPAM error interrupt can
+> +	if (copy_from_user(&bulk, uptr, sizeof(bulk)))
+> +		return -EFAULT;
+> +
+> +	bulk_ptr = kzalloc(struct_size(bulk_ptr, samples, bulk.num_samples),
 
--- 
-Thanks,
+__free() would help here.
 
-Ben
+> +			   GFP_KERNEL);
+> +	if (!bulk_ptr)
+> +		return -ENOMEM;
+> +
+> +	if (is_group) {
+> +		const struct scmi_telemetry_group *grp = tlmi->priv;
+> +
+> +		grp_id = grp->info->id;
+> +	}
+> +
+> +	bulk_ptr->num_samples = bulk.num_samples;
+> +	if (!single)
+> +		ret = tsp->ops->des_bulk_read(tsp->ph, grp_id,
+> +					      &bulk_ptr->num_samples,
+> +			  (struct scmi_telemetry_de_sample *)bulk_ptr->samples);
+> +	else
+> +		ret = tsp->ops->des_sample_get(tsp->ph, grp_id,
+> +					       &bulk_ptr->num_samples,
+> +			  (struct scmi_telemetry_de_sample *)bulk_ptr->samples);
+
+That is very unusual code alignment.  Drag 2 lines above left to match one line above.
+
+> +	if (ret)
+> +		goto out;
+> +
+> +	if (copy_to_user(uptr, bulk_ptr, sizeof(*bulk_ptr) +
+> +			 bulk_ptr->num_samples * sizeof(bulk_ptr->samples[0])))
+> +		ret = -EFAULT;
+> +
+> +out:
+> +	kfree(bulk_ptr);
+> +
+> +	return ret;
+> +}
 
 
