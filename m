@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1977DCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 19:13:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD4ACCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 19:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/1IqfcCUA9YLagYCycxbsY/fycVFokt9Tw0XGGRWeE=; b=IU7Bmq7tjcu7/Z96h03hblzqO0
-	fy3zQgrxpBEIz9lqwYcl3wSXIZMN0mDmttsJG40yCvMqGQyGq8EBli4Y2nM260LX31P2BscXE1M4V
-	e43D9Gs0zukhQDY5k8BrZahPPJwq6mRQZMD0Xi3KUEkfnxFzrt8El3c+nGxbyQSuP4vBtV2d8AdhB
-	Q/jcj4jmSjNfthm/ziGxA2tL80t9iL1PHn+lLRBtGnOJAKZ0XHsaVeLk1kmEqAcSjkXfLxSCrKWLU
-	mrbIv0QSDtqk5MMqugCuXtaPJ4dZLdkdhdn7Q/loKQ7YhCMWLooG99DRBSaFItkgZUA7wVu0PLrgw
-	uYqRq4lQ==;
+	bh=394T93MvlNTwJ4OmrNSHdthp7AqCvywv9bIug30d09M=; b=CcQNsLKcKSAmSuHl3S4tsR6eYn
+	pwroaNEMUA20WPeyuDk5k3F8qtZttS+XbhuxNAj/2ItOz9fSD9gQW5a9kFdyrKej9YrMsUPUBh3kz
+	021bwjTfcgo6yNFQprTdMi/r/9I3fl9OhXNXUI1cSnVFwpFbhnFgmV8zuREeHbbqYsrUM7Gb5XRC8
+	R0mPKhRIvVKLTDISHlwgtn0XIiz8hmI5R+Eoz/gDWReecwl2+yvKdbXiuAcBngvBkBoIcdxaTLAj2
+	XoV36YqmagBynxyLCZ/zRm+nvfMYs6xiW/1b+kUJYTFstRgk2Zph5arfLgt0fIZA6ho8nBY3eLyh2
+	gEK+6G1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAvJm-0000000Ek2p-1Q4U;
-	Mon, 20 Oct 2025 19:13:18 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1vAvKa-0000000EkOE-47YI;
+	Mon, 20 Oct 2025 19:14:08 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAvJk-0000000Ek1c-2eIi
+	id 1vAvKY-0000000EkMz-1nTB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 19:13:17 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-63c45c11be7so4800225a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 12:13:16 -0700 (PDT)
+	Mon, 20 Oct 2025 19:14:07 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b3d50882cc2so900741566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 12:14:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1760987595; x=1761592395; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1760987644; x=1761592444; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=T/1IqfcCUA9YLagYCycxbsY/fycVFokt9Tw0XGGRWeE=;
-        b=QQbwW6DDavcQrKlDskzfEQG7NtyeX02FTQgATlvATzXfB0vtoby5V/2R+18Wbt9GvG
-         Clm67wplgN1hmCtJFJ4AV/V4NG4Smi0PaR54P7pwSZiBrGJRSGd6LuvrEObuav9hcrev
-         ssAi0poktLWT9g283WOVIWImnqhrkBKMsGwgFGA2YU84pu58hUZsYpOOirbTMGHgrvwj
-         Kk3xIhRk+Aj91z8QVk+9DDvc8DjkQsi7XaImnqdesbgTzR31vUKuI5GfnnvwKoQRe6kx
-         TltCpR57cAADKJuv/MChUtrZHhR8Uy15uP4SiS7nlMedzrQ9BQi01HDPbYeYa9KynjNN
-         UQOg==
+        bh=394T93MvlNTwJ4OmrNSHdthp7AqCvywv9bIug30d09M=;
+        b=OtnmC1SUGF/AXz/+XbAARK+0gS3CqsWm8buCjafbPBZ5Ffe8myWT8tUrPKgGbLfaIW
+         YfaH1Gnrq2fk64efhO582g9YMV21FQhvSBWxAaLxHYYAMumhmDPbQPOK+tmuzOV4W082
+         dn3i3RyZfJjtJuVTu2Zp1ic22H7Ee0GcQiCskoM9qAYoAe268yN0C5bQLyjZ94XKg+yG
+         7ZksG0RmEw7xp1G0Au10CHiDGb5zIMmnFvkd0Nv/8b9wQfvWZaALVJPtfrMMsEhB+Myb
+         aiaoG/zlp9L/9CCs0c2POVLd7JY7w6+nv1QcuJi8bUbsWZ6orHnLuZYZwMYHx72UiWe7
+         wsPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760987595; x=1761592395;
+        d=1e100.net; s=20230601; t=1760987644; x=1761592444;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=T/1IqfcCUA9YLagYCycxbsY/fycVFokt9Tw0XGGRWeE=;
-        b=eb/ybE9e1NcnxMcxbRVLxMvcF6meeFlPmFHghz7mf/s8GfB9lZTAoe8d+BMizsY/Gl
-         o3FuO7gt+E+KnRvVEz38/YpGEPbOMhcVAwVioo7wq0JiVCJG7ZU9sHimWZhmBgzxCPwB
-         NZD8wMMke0OOA+cwkc8rymsZpewbJ5dIiiePw5+xPggfX/sswTIxanqth4H6WvtfKiAp
-         qkhzqGqLDo7KuS8/jBnuifWFItfmHtnxuIBHXlyfQQQQneJKelG18IMcBMNUTKHXUNYK
-         SA7hTu+JBpZTrxmd9TZJ8qBVUueSyt3cvrhqhw332TtcRl6ftbt5pkKDtinZlSielnTL
-         d41Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVaXnw0lqeXFZQX0wFdkrFEkcbdWPQCVoEKiFxXVo0ewT3K1HgMqxw2nMrIdCyMjetIr85XF6UU77YDBaPYT2hP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzE9eqrzH3ecQncUbTXsDYE/6R3Kli6QxY21gkupRrUqrEvnwII
-	wvyakI18SxfPHvVp9cixThLJ844Ika9pkCEN79TBgJTcqL6eHHqOLfc4LCGYzzFK73s=
-X-Gm-Gg: ASbGnct2Ut3pKIkgdbB8DznW7opEYKBDSBcFJ3gWYXazdqiNBj1kYGuAOHxqOOvALcP
-	OrVoYKXLieyKMYDpLgqPIvKwCGjM+33OYZWf2RLK7VoE5BSpDorx04NdXgGbAH0NSL4O3fqo3Bh
-	PtGSmwkPCvTlS0Huva5HLiLx5ZpeOR0TgHtefBKcq3X9v5S1UbcH463uQlkSGVr6d/0R6avc28f
-	Re9u7L8HZJQkWpUh8BMdDKyg1fce0BUgkeEDrUOrbfqYLm0VKX1Gb8EYY128x81UuqoCnDvyHTT
-	/DpWNYq3tNYDFAjSdNuSy+ellOAPQkPpun02WL066e3Qu7ry2Zzb03PQO+W2VRQFVIV8GWrBw+n
-	SWX0890i+gDMd/1yrx1dCepvJw/30TFjo27K8ZlM1SM6hM93xXIc9GJBmkA+zPWvx6Ffj8xeK4t
-	0MXodPG9IS
-X-Google-Smtp-Source: AGHT+IFegYM0qEO5npRuzThv182Pha2riR+uFui+GrzI4KaHnCKvwdQOowJPKiLUY+i2Ba0SSvxXbA==
-X-Received: by 2002:a05:6402:354f:b0:63c:6537:43d2 with SMTP id 4fb4d7f45d1cf-63c65374608mr6780582a12.38.1760987594661;
-        Mon, 20 Oct 2025 12:13:14 -0700 (PDT)
+        bh=394T93MvlNTwJ4OmrNSHdthp7AqCvywv9bIug30d09M=;
+        b=tbMtE29qqQ189CHFdSOHCrEgqUv1vN7x1ThKLN4gZ+uFtaW/Rx9iQQ5fy/C5U0HdzK
+         2qI3wsh0ElWszWcbmtuZV9LHjdKB3DGclOp9vyRfGwprxO/kn731kh40OR7WKx0GF6p6
+         HqEGLx6iLmuThffB6za344T37vYyT+bun57xXbQ5W/ainGITqZFSvSSBF+nHq3nn9TWN
+         KAmnLHhEMSInnHwCvc4gemx83H2OF/rsAGItfMXsofgG01qYOLTfqzqX495VfAwLmAvq
+         DGY1bub03teRbZj0JQJNOmzD8DFjJheCl8f8ymaLhQUlKQ2sqpiicA7DWOweUPkVTsRD
+         edyA==
+X-Forwarded-Encrypted: i=1; AJvYcCUROyz+1r/wK57N/4RTkIcaWQUyJaFQCVgoFBHX+ckrCvtaVZKYloOVwFkjzIT+6G1cxXhdlZhD59xIlxXqhpIO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCXv10jKgVUCBw7YhCepDgxmUZsex1U2fKypdaKbwbXKfbwlLc
+	DLwqrlEorACX78FbvbrLcflGtyX44LTHEY8MrbP80+gBIAvwEg5rKj4XvModd9ubrn4=
+X-Gm-Gg: ASbGncsmLFAeUyh7hKPZ0IV3rwKucJt0pYwJkL7n3jY8BvuhuBXUdHYOy0jD7xftXlM
+	AJzAN5qCH/poSWx5FHV5c9+5TjZ7ak6hB/KdpTZcth9TU7TqRTNq38dQNxqc8vg/XwzxdwFofE/
+	WJmwrTDR9IJEHoIhqAQDn5AoTfFr6EaOosKZNEEFvDpvdICwe7m+vKhHN6+SuMzGtVt9yb8j14S
+	pUPcdcHErR7y5Ytu2ec1rQ7ipIhNgEc4U8qQ/zTkVhju2cOoI4JGuY7MrQkpOkoC9b5YlQwGOmD
+	/v7gf+BS3S86Pt8GCRcU5AtYBi/T2ujY3Au3U3OHtdZhrICUvbtmOJVZSATX9M4Fk3MFlI7niNS
+	3TmF0HEcXYWhSM19Nra96IL6CkUi4xTTSpA3EtTz7W271hEKaFZ8m0YbfoRrh+rP78krpT2+jc0
+	TzDI3NljFN
+X-Google-Smtp-Source: AGHT+IGwCJgZYKC8FZLAT4kOm6dkEpwAC47hppBn//mgpxVSX8jW4DahXg//7RoX6AQwA7IGTbpD8Q==
+X-Received: by 2002:a17:907:7ba8:b0:b41:297c:f7bb with SMTP id a640c23a62f3a-b647245844fmr1618450466b.26.1760987644536;
+        Mon, 20 Oct 2025 12:14:04 -0700 (PDT)
 Received: from [192.168.50.4] ([82.78.167.151])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63c48a93998sm7234434a12.4.2025.10.20.12.13.13
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65eb525d1asm866441566b.58.2025.10.20.12.14.03
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 12:13:14 -0700 (PDT)
-Message-ID: <1b33d759-be0e-4bd7-b7ca-586d35b1c1e6@tuxon.dev>
-Date: Mon, 20 Oct 2025 22:13:12 +0300
+        Mon, 20 Oct 2025 12:14:04 -0700 (PDT)
+Message-ID: <88a560cc-4176-4674-b2c3-009af68f5bf0@tuxon.dev>
+Date: Mon, 20 Oct 2025 22:14:02 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 18/31] clk: at91: clk-i2s-mux: add support for
- parent_hw
+Subject: Re: [PATCH v4 13/31] clk: at91: sama7d65: switch to parent_hw and
+ parent_data
 To: Ryan.Wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
  alexandre.belloni@bootlin.com, nicolas.ferre@microchip.com
 Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, varshini.rajendran@microchip.com
 References: <cover.1758226719.git.Ryan.Wanner@microchip.com>
- <276cf23db4b81668bedbcb7b2dd310b62c2ad025.1758226719.git.Ryan.Wanner@microchip.com>
+ <cd47c45215f4c6a38447151222094616850a9d0d.1758226719.git.Ryan.Wanner@microchip.com>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-In-Reply-To: <276cf23db4b81668bedbcb7b2dd310b62c2ad025.1758226719.git.Ryan.Wanner@microchip.com>
+In-Reply-To: <cd47c45215f4c6a38447151222094616850a9d0d.1758226719.git.Ryan.Wanner@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_121316_678330_C6E3C7F2 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20251020_121406_488449_03E434A6 
+X-CRM114-Status: GOOD (  21.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,22 +104,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Ryan,
 
+In title: s/switch/switch system clocks"
 
-On 9/19/25 00:16, Ryan.Wanner@microchip.com wrote:
-> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+On 9/19/25 00:15, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
 > 
-> Add support for parent_hw in i2s mux clock driver.
-
-s/parent_hw/parent_data. Same for the patch title.
-
-> With this parent-child relation is described with pointers rather
-> than strings making registration a bit faster.
+> Switch the system clocks to use parent_hw and parent_data. Having this
+> allows the driver to conform to the new clk-system API.
 > 
-> All the SoC based drivers that rely on clk-i2s-mux were adapted
-> to the new API change. The switch itself for SoCs will be done
-> in subsequent patches.
+> The parent registration is after the USBCK registration due to one of
+> the system clocks being dependent on USBCK.
 > 
-> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 > Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>  drivers/clk/at91/sama7d65.c | 36 +++++++++++++++++++++++-------------
+>  1 file changed, 23 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
+> index 986e8ef57dea..38c44b5d5d42 100644
+> --- a/drivers/clk/at91/sama7d65.c
+> +++ b/drivers/clk/at91/sama7d65.c
+> @@ -537,23 +537,23 @@ static struct {
+>  /*
+>   * System clock description
+>   * @n:	clock name
+> - * @p:	clock parent name
+> + * @p:	clock parent hw
+>   * @id: clock id
+>   */
+> -static const struct {
+> +static struct {
+>  	const char *n;
+> -	const char *p;
+> +	struct clk_hw *parent_hw;
+>  	u8 id;
+>  } sama7d65_systemck[] = {
+> -	{ .n = "uhpck",		.p = "usbck", .id = 6 },
+> -	{ .n = "pck0",		.p = "prog0", .id = 8, },
+> -	{ .n = "pck1",		.p = "prog1", .id = 9, },
+> -	{ .n = "pck2",		.p = "prog2", .id = 10, },
+> -	{ .n = "pck3",		.p = "prog3", .id = 11, },
+> -	{ .n = "pck4",		.p = "prog4", .id = 12, },
+> -	{ .n = "pck5",		.p = "prog5", .id = 13, },
+> -	{ .n = "pck6",		.p = "prog6", .id = 14, },
+> -	{ .n = "pck7",		.p = "prog7", .id = 15, },
+> +	{ .n = "uhpck",		.id = 6 },
+> +	{ .n = "pck0",		.id = 8, },
+> +	{ .n = "pck1",		.id = 9, },
+> +	{ .n = "pck2",		.id = 10, },
+> +	{ .n = "pck3",		.id = 11, },
+> +	{ .n = "pck4",		.id = 12, },
+> +	{ .n = "pck5",		.id = 13, },
+> +	{ .n = "pck6",		.id = 14, },
+> +	{ .n = "pck7",		.id = 15, },
+>  };
+>  
+>  /* Mux table for programmable clocks. */
+> @@ -1299,9 +1299,19 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
+>  		sama7d65_pmc->pchws[i] = hw;
+>  	}
+>  
+> +	/* Set systemck parent hws. */
+> +	sama7d65_systemck[0].parent_hw = usbck_hw;
+> +	sama7d65_systemck[1].parent_hw = sama7d65_pmc->pchws[0];
+> +	sama7d65_systemck[2].parent_hw = sama7d65_pmc->pchws[1];
+> +	sama7d65_systemck[3].parent_hw = sama7d65_pmc->pchws[2];
+> +	sama7d65_systemck[4].parent_hw = sama7d65_pmc->pchws[3];
+> +	sama7d65_systemck[5].parent_hw = sama7d65_pmc->pchws[4];
+> +	sama7d65_systemck[6].parent_hw = sama7d65_pmc->pchws[5];
+> +	sama7d65_systemck[7].parent_hw = sama7d65_pmc->pchws[6];
+> +	sama7d65_systemck[8].parent_hw = sama7d65_pmc->pchws[7];
+>  	for (i = 0; i < ARRAY_SIZE(sama7d65_systemck); i++) {
+>  		hw = at91_clk_register_system(regmap, sama7d65_systemck[i].n,
+> -					      sama7d65_systemck[i].p, NULL,
+> +					      NULL, &AT91_CLK_PD_HW(sama7d65_systemck[i].parent_hw),
+>  					      sama7d65_systemck[i].id, 0);
+
+Just saying: we could have been used parent_hw only for system clocks (and
+some other clocks updated in this series) if we wouldn't have the dt-compat.c.
+
+>  		if (IS_ERR(hw))
+>  			goto err_free;
+
 
