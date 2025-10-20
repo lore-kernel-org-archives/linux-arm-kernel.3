@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A7C2CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 08:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27BE3CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 08:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=krtDUBIIbBhf5txhvHZ8ViDPiZJA8hj1zGguCfZUNVQ=; b=sj4FoRH5qneLCX1q8CGA1BCgEV
-	tCABBfkQCok4jcFSOlSiry5vUC4zvTsmRZSZo+A3UhKiqUs8xDmg9aHxGmYRNy4FiN5j70tIkBqWL
-	1HI9H/v6+l6IGJnpcpthMAVQLW39Tq78N/TQ4b4oWRPl2RMfQ6VWpWgU6txpemAqr/s1c5Kyw4pj8
-	QdI/zCJQJb8kMNrrkiTS3cA1FJA6aOVLEGLbslwyoKdV4Ker9JuJLYAdkWMI/PFlQoZ/SpqMwAADz
-	BSudhyVd/BhzXaJH9FS62flYnfl6MeEkPkErayNP+m0POpZ5T4rvyfLIKBRUjsp4rhxawMqeN/6d4
-	elPvX7bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D4g7tLG0z0iauVDCZshwQEMQAR05MDuCJfXUDNGgb4A=; b=xwJ+avhQzRJa64KdFiQUCkhFN+
+	Z1h9cnVr8E7jcCHUURdkY79UDxjrAvQ3Jmd5Ah2ZW7rmkizYCOO2uQ66zkr/hzf4ulUZwuGI9pbfV
+	eV41niO51zzveIgbs8uPomgJ4wlvjQ64EC3QvjatHpvuxDfQV98UsJk7FWir0SdWmSoN3pDodls/W
+	ghR2VMZWEfnHM3p6o8MHQxw+MeNDkhMRKo8GJ6Rfj2XXdZjtFK051RQrjWJRw2raEl/FfnFbzAWla
+	YDRvwZiE7Q/xHNifgu9uqCcaeYhmQFj9Ho+s+PXoPgnFj6MTgFU4W/hua+XXc88HKTp7csp1+48TN
+	peq/a0zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAl7d-0000000CKzq-0iV1;
-	Mon, 20 Oct 2025 08:20:05 +0000
-Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
+	id 1vAl7q-0000000CL6y-2QWi;
+	Mon, 20 Oct 2025 08:20:19 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAl7a-0000000CKyG-16oA
+	id 1vAl7o-0000000CL5j-08oW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 08:20:03 +0000
-Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-7ea50f94045so77255596d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 01:20:01 -0700 (PDT)
+	Mon, 20 Oct 2025 08:20:17 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-42420c7de22so1955199f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 01:20:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760948400; x=1761553200; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=krtDUBIIbBhf5txhvHZ8ViDPiZJA8hj1zGguCfZUNVQ=;
-        b=WgXYjiuMqZq0mWphobYIT/PCVgW9eMRa5WaQAwHGPQBFQiVDCw5JPBcZG51cIY5c1Z
-         ikMYdxmcmz3YwpjgM9T9jhsGxQ6Lzrf3perBgc/NFKHqr1II8a6ZgSDc7VbSv8BzO0aV
-         Gapm01BGxaS4mo3bLw79lWp7ZZfl3OgjWoqx2Dr5yerWE78RvUoBFA+/kwiG5Mx4Q6Tz
-         kaDGap1BSMbC+2PnuzC59WW7ApdXKvfH+ccubSEOjSKVfpqlhVJ7PTu/56zOJOBr0yMs
-         KPJkWdrJcxWsUAeqtm3zQGvdLEN9bouC8gVh72Hpxmlqn+sL0dwqhm5u+iUgO74rtGIb
-         /KfA==
+        d=linaro.org; s=google; t=1760948414; x=1761553214; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=D4g7tLG0z0iauVDCZshwQEMQAR05MDuCJfXUDNGgb4A=;
+        b=XYB4fzRScTmsTCtmhZ0NZWyBAhHR87fYpwybzqaewJJc257SkTHvZ7+KXUaXjiNtef
+         k/AMwfptOD2aQLAgzZ14zVAanBuwPw/sLgx9JuMOvD/c+IG+uWhtb4ZwKMQopPkDn8dS
+         TLD7ukjGSc1ZB5hifyQoiubRl8bPqsnHByOMJAijDlGsWTopb7A7yKMDp4bXtOvJACDg
+         y7BQw1hAb34WpJ89r3hFT0XVgQyjIijLaXqHaHCiFCbO9ch8kbkWHCbARO+D7tyc/q4g
+         j121VMpzXJYj7LNjhkY1Y3pkHLfA0xME0m48bENWlWTyQuAMEIObB5SKr31sewo1M5kF
+         bejA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760948400; x=1761553200;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=krtDUBIIbBhf5txhvHZ8ViDPiZJA8hj1zGguCfZUNVQ=;
-        b=S0c/4zZ81gMf/9CsYrpZOxygUJpWublKh2Gi7Synesx+vQptZpM+nQoaEwV9QkCIGX
-         giU+cHj68I93vnzIvZvilTbEWUSpOExxmidDX0mYK+GWsp9e/3t7xDV2wMBy9RRXSWp3
-         okl5uq0etIrZ88kV4alneqF5ipmezVrTTmz2Smg46/fbMpnWllpOg6hGRfIpHNDyLyQ0
-         OwlKjWfgCCI+FJUqPpo0J6zeq2HgpXYN7f8Ig8Re8cRUOJ9V1kieHJF8b+sxsQrT3wg4
-         mrZFje2YWGgYuE7WYttTJfqvPUXll5KjigU+TZN8WnqAyX1OJ4JYaiSgYerghEQy8zPH
-         EZ6w==
-X-Forwarded-Encrypted: i=1; AJvYcCXKX3Wcjq3CyemSMG/Ds2gBshwithixRpM7SxNK35aKh7ppLWbWa6hOQ/CxAtzSREpYnJkTMbGLvpycgedG9I+M@lists.infradead.org
-X-Gm-Message-State: AOJu0YyV4AM739aDWq8Dh/bvFt/QlxR+HGvs6h0gr5JgoyafgCofJrSP
-	5K5wZ4bxprEm3iB81eIbQAZ6xdfn5TuLu/6BNHc9DjSzvcHYXEK6ak2o628iQ5tFR+6O8klE4nz
-	liM8AHhszGozEUKJ1KL3hxcWYZAC8l8c=
-X-Gm-Gg: ASbGncurK04a6a74wEvspQyXK8i3Qr5ZY8GeGkCpvxqJov7JRqpeXdk5RafUGtni/bK
-	OFPypiceN1pdUblF633nlA2ibIAKjgjavdg4+uwefAw9JDc/OsPiv43o6Do/5rrGB5XLOuqWdeR
-	3GyulnrPh/zm1wlRsViJykvVSpx12J1wVTuabOThiggcw81Y7mP8HdK+cBRtsXvofmnUbDZv7i0
-	mOIkEvkQoqQk9FShPiwdAhx5HAX/aAGWn0RkOoBd9HE2LeYOYXKuC5dWDfz/33tOkoKWZvKPEcJ
-	NggLLfD6Xo/MDiaDWg==
-X-Google-Smtp-Source: AGHT+IH00fZSiLlpv5/iK2nqClbPVqEOFs6NjYUaaUpZZ81WenopkIUOdg2ZPbRIOvaCbrU3WZ4RbOVGHG7Hebvs9Kw=
-X-Received: by 2002:a05:622a:55:b0:4b3:4fa9:4cd2 with SMTP id
- d75a77b69052e-4e89cfb2443mr191567221cf.33.1760948400448; Mon, 20 Oct 2025
- 01:20:00 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760948414; x=1761553214;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=D4g7tLG0z0iauVDCZshwQEMQAR05MDuCJfXUDNGgb4A=;
+        b=AwRoYDm47X6TSsNvmFL+VO1i2tHScUmMSzlwuVnC8lD6PUcpQclwOMj19XJQjA3tkZ
+         iHWh86tvI5Q7mXeSlO/AWFLfJnQrhFppT/S3U1jyt1hc2BZ3eLMSyP/gcwNzpyXE9zyx
+         OxMNF/MAQXi8E1b1h4Bdz0NyMnEnl/Os5du0bcWv8tvJ21sfrwEfXtg1HkKssSPsZlFg
+         yf9PZlaEhxAyHpPp1SKlsxybDxOXhHz7/XWIDy+NjfN+GbNOHD2Uy+c/7BiALwP3Id9P
+         4FQsIQ0wuR+iGeiFPgPO4qcAkXAh7bkW/auo/3CzRXpaCPX5A2ksOeFEF06h9vNnUzIh
+         rzaw==
+X-Forwarded-Encrypted: i=1; AJvYcCXKzvu4/pKwJUzXjz3XJoMEQVGgf60ZolGEoMSkcfzY080FEqM9o02UsV4jVGLg6UFf2Fp03Lyi7OLIyGN0n0yd@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZ2XG8RJI0WruQA99t2tCuuAiDKIWTyMrf6sWz5IoGVs2Mo32e
+	8ub5bGa0M0F/m3V162Z2cyP5Ne/mte8IjZcXR3W36OzBfPZFfefA2VhkS/yiEd/OA04=
+X-Gm-Gg: ASbGncuJsheu4dd321hpFmBT3XcMe1T5lCn2EO8G/1bKBShYYScaqtys/8oFE/Q7UTX
+	SF4V6o3UjBo4xkMAFJCxNG1c9XQNhZiVUSihTJP64Po1/LkgeZqXvSNfVnL+8spZYuhcsUDvLgs
+	fOsI88GagfHkqErSlseVzn1pNV0/+tSvPyIQplSNZx5pXIxz2PdP0LVLG5P1cCtEeRutx/6+LzV
+	XbkdQwQmErLW/636wgvf8+rn8sRF6vdStfmmDzaOcxu8O5PSDs3/2L55urzj3p7MVQjcWUEEFNH
+	S/FzXU8/+6i1FJavYAxOZta0wLQ2x5MTiyXQ+/OsP4drXd9sDtSZNFzFGSEIcyzrr0s76XR0385
+	CpsTcEa0nAiACHC8/pa0srUHTrkevoS4HbUhqrCX/U90EYKPs+5aECX6AC+y/3mVuvjkFnLRxuI
+	VgsRri
+X-Google-Smtp-Source: AGHT+IF9UUnAeLy3gCa6SVoO9qEd1RLxMrSgZ5Yun3pQeXRQI1M57QDjdkLDsr9aPMss860pll2eKw==
+X-Received: by 2002:a5d:5888:0:b0:426:dbf7:9e51 with SMTP id ffacd0b85a97d-42704d522d0mr7056583f8f.18.1760948413562;
+        Mon, 20 Oct 2025 01:20:13 -0700 (PDT)
+Received: from localhost ([41.210.143.179])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-427f009a75bsm14255515f8f.23.2025.10.20.01.20.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Oct 2025 01:20:13 -0700 (PDT)
+Date: Mon, 20 Oct 2025 11:20:08 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 7/8] firmware: arm_scmi: transport: Add ACPI PCC transport
+Message-ID: <aPXwuEebbjEJHmc5@stanley.mountain>
+References: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
+ <20251017-acpi_scmi_pcc-v1-7-0adbab7709d9@arm.com>
 MIME-Version: 1.0
-References: <20250925-rk3576-evb1-dsi-v1-1-c76fc3740abc@gmail.com>
-In-Reply-To: <20250925-rk3576-evb1-dsi-v1-1-c76fc3740abc@gmail.com>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Mon, 20 Oct 2025 12:19:51 +0400
-X-Gm-Features: AS18NWCBDCEZzvVwJX4XETqmgmCCBqTdNAVD0aLBXbcVgyOY6pJqe52HL1dPqJA
-Message-ID: <CABjd4YwVfrzxYKM4cAG=-fMbw9OcQGZD20CVCG8FvC8phDsw+Q@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: Add DSI LCD display on rk3576-evb1
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251017-acpi_scmi_pcc-v1-7-0adbab7709d9@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_012002_301650_2077BE83 
-X-CRM114-Status: GOOD (  16.82  )
+X-CRM114-CacheID: sfid-20251020_012016_237790_B340393C 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,35 +99,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 12:38=E2=80=AFAM Alexey Charkov <alchark@gmail.com>=
- wrote:
->
-> Add support for the Rockchip W552793DBA-V10 LCD+touchscreen assembly whic=
-h
-> comes physically attached to Rockchip RK3576 EVB1 boards.
->
-> The display part is driven by the on-chip MIPI DSI controller, and the
-> touchscreen is connected over I2C.
->
-> Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> ---
-> Note that backlight support is left out for now, as it depends on PWM
-> support [0] which has not yet been merged.
->
-> A workaround is simply `gpioset -c 0 13=3D1` to set the respective GPIO
-> pin high and thus to light up the display unconditionally.
->
-> [0] https://lore.kernel.org/lkml/20250602-rk3576-pwm-v2-0-a6434b0ce60c@co=
-llabora.com/
-> ---
->  arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 89 ++++++++++++++++++=
-++++++
->  1 file changed, 89 insertions(+)
+On Fri, Oct 17, 2025 at 02:23:50PM +0100, Sudeep Holla wrote:
+> +static int pcc_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+> +			  bool tx)
+> +{
+> +	const char *desc = tx ? "Tx" : "Rx";
+> +	struct device *cdev = cinfo->dev;
+> +	struct scmi_pcc *smbox;
+> +	int ret, ss_id;
+> +	struct mbox_client *cl;
+> +
+> +	smbox = devm_kzalloc(dev, sizeof(*smbox), GFP_KERNEL);
+> +	if (!smbox)
+> +		return -ENOMEM;
+> +
+> +	cl = &smbox->cl;
+> +	cl->dev = cdev;
+> +	cl->tx_prepare = tx ? tx_prepare : NULL;
+> +	cl->rx_callback = rx_callback;
+> +	cl->tx_block = false;
+> +
+> +	ss_id = pcc_get_ss_id(cinfo->id, tx);
+> +	if (ss_id < 0)
+> +		return ss_id;
+> +
+> +	smbox->pchan = pcc_mbox_request_channel(cl, ss_id);
+> +	if (IS_ERR(smbox->pchan)) {
+> +		ret = PTR_ERR(smbox->pchan);
+> +		if (ret != -EPROBE_DEFER)
+> +			dev_err(cdev,
+> +				"failed to request SCMI %s mailbox\n", desc);
+> +		return ret;
+> +	}
 
-Hi Heiko,
+Use the dev_err_probe() function for this:
 
-Any thoughts about this one? Can we perhaps get it merged for -next?
+	smbox->pchan = pcc_mbox_request_channel(cl, ss_id);
+	if (IS_ERR(smbox->pchan)
+		return dev_err_probe(cdev, PTR_ERR(smbox->pchan),
+				     "failed to request SCMI %s mailbox\n",
+				     desc);
 
-Thanks a lot,
-Alexey
+regards,
+dan carpenter
+
+> +
+> +	cinfo->transport_info = smbox;
+> +	smbox->cinfo = cinfo;
+> +
+> +	return 0;
+> +}
+
 
