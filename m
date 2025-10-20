@@ -4,140 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A289ACCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:12:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A18CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Ar1BWwGlfNp640IcE5oKnLZ16LfXw1anW9aZ0nbtsHU=; b=lgzvrueV8qUMKm
-	ldkoc0DuqOEjY+tgpTN15OERImm6C9VTtHCsnq6sZs8n+2aABnDR/kmRaJ2kz+sJ7pScMKSbd6xmp
-	rEO0GD/JDJUzs/vPiOIeuO35/EUrt59hIgZkTF6vhZp+TkO9rxVM8fcMTuCb9To6PcWKq02m9jgj4
-	D3+xpBf99/6dg9aiSp8o/Q+YtS4tQtCf4IDoouSZ53IYy05MW+6ZpTFh1C7GedTxBJlnvlxPYh+Wa
-	w34y8u710PFjM2OJWfR9V6+HGm/xJDJp92qeKWDF9QPjHl4XUXvGosNooAE9aILLqEu+7qMJvQNbj
-	VyNKZVXahNDRwfjPW/Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+P3Ak6DXFEA5/O3krKPLFisYXT5GCSa0uagPCId9fj4=; b=rqR0DT4lyJIZjjd7sANhhtx5cY
+	cMl/eZhIQ++mdrEcoZy3AGHcIJQgU1L6huwWoFafpKjfspvVGWMy55xXHaJcZ7E2ivQB71iFT5Zbw
+	hRPtHLzJtDYP7WaRRLybQye8ymrrPIPYhtXgAyIf7HQ3IZAH+hewUvTO8VbaB7KUhv+zCNAEm0vrj
+	G7lzrD7wYb1NCNlaiz0Qp2nSpZtk8c3mfitBwbV4yIX1ITH4xkhCJX66fxHAJmpI27kPkvbWH1JOF
+	0RGCQE8VQI04sXIYOsqwfEh/i16BRyWWcuHi+mQwcxW2ZOS73djXUS61Ao4hptpljdpp76wETi+SU
+	aET8h/PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnoh-0000000D1dw-2tIk;
-	Mon, 20 Oct 2025 11:12:43 +0000
-Received: from mail-norwayeastazolkn190130003.outbound.protection.outlook.com ([2a01:111:f403:d20f::3] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vAnxk-0000000D35z-2Gyl;
+	Mon, 20 Oct 2025 11:22:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnof-0000000D1br-0Mr5
+	id 1vAnxh-0000000D35V-1jnL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 11:12:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nOTyw7LZznAnnkKyLENIU9eKq3iBS45IcjwN3Qwie2oSkELNGJhVidFTMbq1aJ3d+/vbeO89QA+/3XkBKunttFJxq3vbJ+OoljqmorPOkNaxbWY9vRJHBqbSlgC/w7xBnJxiTUCzMSz2KaZVfcJj8VAdqjYiKBYKyV7Y92SY/9yM26pa2kRyuyDq5CtlGtkAxfqlLRcQnfpwQd4Iikakjo1a+O4KUCseCZZS+UkV2+0ImeKGO/WDj68XiYGeGksaP/LxTplJL36WZ6fYjLk8TCOsWT05vEXchjgzrlaTZpEs47aPfWAZIWiJAyJSHT5OMiNH2WlCzNwzq0C/IDLm+g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ar1BWwGlfNp640IcE5oKnLZ16LfXw1anW9aZ0nbtsHU=;
- b=j84NSw2WN49oFv7lkV6cb63Ua5+sM80fj+YUuGt9uDTLe1Z+ZU2IFlNUNpncl/pcqW72btM+SVMtIMSTLt0zFu0UWrIjW4nC6Gtsl7Kjz8ZO5OigDrjZdAxhQnCA//xFeqF6QScWKdRL9KksOPkhfBTzoQht6oh62FYaB1ZTpofbiZLjLUXknnn4kh97WrHxl4zU29+j4OZTrVMW6o4NVyVqPYGz4rzll+ujaQUhC/96Nwk/EVQQMmPmiK4Oy9t6T+F7kS076yByn4zCXn6b9MaPa7DPMBEcQzLxqyNPdXSvp4KjvNIV2BPKn0XP6ng+Jm3qauTqxYaNwEgOMFmCZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ar1BWwGlfNp640IcE5oKnLZ16LfXw1anW9aZ0nbtsHU=;
- b=OykXOz462DIviDECVO42QxK2g8AwqbXZMET3dqbYxzDLhddinVGoA7LSkmDdUYd7p9Rwj5w8zvPTm0JJGXOJwzFiz262oG6KTYcpbL6AKN8MDVMhgBvJVk6FsAQpN7E0zWJjLzn8kmLK8gMbr8EgVXx+fsBKuhPL/LxPQ69m8lowTsGAVL0vkyNAmGiPwlW4PV0f1/Ksu1vsrWIDy6udYm4KUfOvS3/3eTYKWuLQVR8HS9z6tmxMnGex9ddJ14ynViQgqFAiLPH2nZ1OBj34ZbkdgFIwzz/QE8a/xf9usxUtW3uTtOkWaUcN5dHuBkodAkD/CmHHRfgn2phcOlDE1g==
-Received: from VI1PR02MB3952.eurprd02.prod.outlook.com (2603:10a6:803:85::14)
- by PA1PR02MB11474.eurprd02.prod.outlook.com (2603:10a6:102:4f4::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.15; Mon, 20 Oct
- 2025 11:12:33 +0000
-Received: from VI1PR02MB3952.eurprd02.prod.outlook.com
- ([fe80::60e5:4de0:ff18:2fb1]) by VI1PR02MB3952.eurprd02.prod.outlook.com
- ([fe80::60e5:4de0:ff18:2fb1%6]) with mapi id 15.20.9228.015; Mon, 20 Oct 2025
- 11:12:33 +0000
-From: David Binderman <dcb314@hotmail.com>
-To: "maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
-	<yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, LKML <linux-kernel@vger.kernel.org>
-Subject: linux-6.18-rc2/arch/arm64/kvm/vgic/vgic-v3.c:728: Possible || and |
- mixup ?
-Thread-Topic: linux-6.18-rc2/arch/arm64/kvm/vgic/vgic-v3.c:728: Possible ||
- and | mixup ?
-Thread-Index: AQHcQbIAXK9FdldYaEebDX/5mg5dXA==
-Date: Mon, 20 Oct 2025 11:12:33 +0000
-Message-ID: <VI1PR02MB39529C3384B3308D100CCD399CF5A@VI1PR02MB3952.eurprd02.prod.outlook.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-GB
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI1PR02MB3952:EE_|PA1PR02MB11474:EE_
-x-ms-office365-filtering-correlation-id: 37461397-bd2f-41a5-6d04-08de0fc9919c
-x-microsoft-antispam: BCL:0;ARA:14566002|31061999003|461199028|8062599012|15030799006|8060799015|19110799012|15080799012|440099028|3412199025|40105399003|39105399003|102099032|21999032;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?CCg14MrjFY50Y/yFPx2q8V516YDXPWdfZS4u2HI/52otG9n7gEVYPy/MG7?=
- =?iso-8859-1?Q?00BeGxNm11cDaflFyLRCZNFGg316NIHShjuuD/3e7cHd3AgDK4f+Glxs/G?=
- =?iso-8859-1?Q?mZXdWkIhb8OmxMakidNlOxacyOsVFRgdeeG/bCmy245tQ1IzznWueP+2Uy?=
- =?iso-8859-1?Q?mb09DV3K1qavHC1VryT5JVr+2aErJ/PIhpzf9YLPywxuk+lHzClCZ9l/36?=
- =?iso-8859-1?Q?g/xbRC2bY/9qaMoCKmEaZtbr+pvA7GsHx4Q/AhSuRLVdrnbs2rIy4qK93U?=
- =?iso-8859-1?Q?0riSBM+lfQz/iyP7VofqRM3+xVbRve4lNVHOxfQiLHkt3SmqFwXUUf+TGu?=
- =?iso-8859-1?Q?5RUfDXeOp4j90QxfrPFWivl8Iutcr/fZ+Gg9sESa+Vy/s7qpGUwieBoMOm?=
- =?iso-8859-1?Q?OaMGJxfUMWeHWhdVOA5S34jc9qz7Z6KyNVucjueJYohDTdBa2QCCtCrqM4?=
- =?iso-8859-1?Q?eeM87nhWxR4P3Z2jPp8rPAarjAE2wfJkuu1iIGQ2WH4m/1FC2MrFFicvvD?=
- =?iso-8859-1?Q?ZCFA54apESIfdfrvIy9iQ8WuEiO6GS4eSO0iAsuJpKsn2+zOx8Dax0p9R6?=
- =?iso-8859-1?Q?symYD2eVsFShzunQVwYnkW80abPcJRmPID1q0BCfudivFhM38q4c7QEJnn?=
- =?iso-8859-1?Q?HlecYD5xwuwsGYyb8d6+zncHp6MlaATKdJPB06Gg4fZ7FzYvzJ916ac1Js?=
- =?iso-8859-1?Q?o80sZxfmvtAI0m9HtK6wJZRAVi6Wiosyr6dcgQRjGlVpqaJY9a13dpFsKw?=
- =?iso-8859-1?Q?4sx3o+TYlp4hxu4i556XmWiII96ToYO2yvdHKpwTOdFkzNbUzHGcIiNf04?=
- =?iso-8859-1?Q?NPvcA4a9vcH8Ibc1IbsOeiQY2Lfci02I1PFEJarLgQy0/T98G1o9qWwdpy?=
- =?iso-8859-1?Q?dOQYurdQ0Ws2wS3+tnYqYw9nGELSvqk0q9CAhBGTpgExMjXLerKu76i8Pl?=
- =?iso-8859-1?Q?ES93dZJqCuWuvEmoB0JX01iRYvIUqp9GaffYpph3SBlo3dPBiO5czWfXcG?=
- =?iso-8859-1?Q?tiRHACufDzGLGoiiJpNYpOPE4rO6yu/cl2uxKJpeUIdSBstf/bP0k6XYKK?=
- =?iso-8859-1?Q?bsnWZAd9ZIGUlwa+vhf6z+XIbto2eM3rnT5Y7fcQM7SlikpTjvw5AiLmtY?=
- =?iso-8859-1?Q?ufgG6WlHsLxps+FJ+/QcxwiiUKfT0oG9Y01qZ8hEvYshQ+tFj/g9lgOd0T?=
- =?iso-8859-1?Q?ci+pqfiE3TdZ0GNyN/jO7T53ZOufGWh6s/m4LcmWfKYFna3C/lGmuTadpb?=
- =?iso-8859-1?Q?JmMyPZnZw8IvaB1nE0kw=3D=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?8dPaLxTsQU2u2ca/w1Uvnai+slFVRMGpKMi06bN8egx5wDMzFX7Udzn1XF?=
- =?iso-8859-1?Q?BxvLOFC24hOX4JRvn4tE/dBv0WYmceblYvFNENu+qwNK39fUil/kc9cdaI?=
- =?iso-8859-1?Q?6/Cv2XQvBq4RXZcSu+nWQMoNETRhJbfG3td+sV5MQmBDs451Fbgu8Kr2yi?=
- =?iso-8859-1?Q?MuCtPd/Dulp1rw2GQydK4kXdseG5qjWMu75/UmPXRgJrfET/9caSyLzGWn?=
- =?iso-8859-1?Q?uULJ0OeDH5+rED/1krBkqpYIaArQ3UOghsR+XzNGNoujWM3MN6mZwqXVK1?=
- =?iso-8859-1?Q?NTFN4Voq+YgVuuBGV7cMnp5DPQ+mYQcgBn3OEY1nK0UqsoKndSidjELvaI?=
- =?iso-8859-1?Q?w6S+q06sdabSaGVZ17M5/0I6kjhkLHJJoku4iDVADCfdjtbLZM0jJ/auX7?=
- =?iso-8859-1?Q?rIive8cUpGu6pCZre9E78POOsQ0QDIDQyixg7DSoF8biC0bMFrsaDhLOt5?=
- =?iso-8859-1?Q?Xfci11X+Zjw9fnXF8auk9gRndZKH9dHPuQ4GrooEvwRb9si75ivo/uuITm?=
- =?iso-8859-1?Q?H9PuqHh61HUKo7EUVtftLvH1ZkM2Wnpr8dt8x6yk0FzHI4uPaGRZlTfi+H?=
- =?iso-8859-1?Q?MqJDW78nwiwnEzxkLeTA5cLG9013X1uNy+9rucUEHK8nnl96o5BVpDvGAT?=
- =?iso-8859-1?Q?YSdSl6Y+oCzIV1YUZuESON9Q4DL53ert5FoHGR9Qq2VrDLMd/TWZadzXiK?=
- =?iso-8859-1?Q?M3dIR+1ZL8z2O65WRLdBppL9kESsUJ9fdc6ZeAk8hpwL+GBrlyhDXi6no3?=
- =?iso-8859-1?Q?7wJ+AMlpCSqPJczGM/EFmYvOPVnAAP9l69WYUl9L8plZF1aQL2FNRhqV+T?=
- =?iso-8859-1?Q?xbX+icTA/1mH5uqcAe5O+CgkAVEdFCHrd3hJs/3b+3LK1FJBVkiFgsNbGV?=
- =?iso-8859-1?Q?KcgoGW4Jc2FRjcITCpFfHRv3dN7G8M7INLRkH+uU3w2Rx6p6hAGJ4l7xwj?=
- =?iso-8859-1?Q?FK3iOYy1IccP6yD3xLNmnKM2yp8P5MF8GlXa/lW+7aP53CZi9UAxL3wHud?=
- =?iso-8859-1?Q?7408UYq5EvijoJqFROdUByOx5xxb3Ri072iMEmuCnYGzCqbFRPuChdi9LB?=
- =?iso-8859-1?Q?al+B0s2cC/WW+CbE3lrSPB+HTbz5Sdydm035d8bGJRxB59GmY1LwXdlnCi?=
- =?iso-8859-1?Q?/4OmsVu1QeHMHASCgthtHaOmm/hG/toCx8LQbO0AXldHcFIY9KwVBOT6TL?=
- =?iso-8859-1?Q?NZHpDxOI6NhlUFdFZAQukeiHtBrQ7gCNn5Thud35ij2jtU5uGe7ke8bV2Z?=
- =?iso-8859-1?Q?RqFcJQdy3q1qWjp1mG6A=3D=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 20 Oct 2025 11:22:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1705844830;
+	Mon, 20 Oct 2025 11:22:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACF8FC4CEF9;
+	Mon, 20 Oct 2025 11:21:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760959320;
+	bh=LSHVI2VLtnjMI4kRWYUVFoVw5grvJWjCEzPh2CrLB9U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=YfCWxJYus6FG0VhGEPHSD8Fv+hUPHuzdgxzvI/yj/ZVQO+yhR1lnZxExLt1uJ+Q9j
+	 b1WuQP0XLv0ksoPGuIYH+IHHDfp5VdwtfBYHgQMxij7Scc2qyqcTcYaZ5FaO/Z8Q7A
+	 pfOX5ug/YaKv9hRFViLXK2g0Rbsln0oERYmRj/VowBzXFeMoYQot23+nguqhIdzUtU
+	 KBtNjWTBnmkeBywrJFHehgpRO2viLQXKH7W0x4MfoEYfeZk8+5+p2rgNUDwXWJSgC6
+	 nh5ebyYJ5fuhhAhhWtP0Hvny47X5+bWq1bO08Kr6GW09Df2IpqcSVXecL9a60UMnTU
+	 uNBZwtVal3QkA==
+Message-ID: <c5712c26-439f-4c20-8d36-4179f345cca1@kernel.org>
+Date: Mon, 20 Oct 2025 13:21:54 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: sct-15-20-8534-20-msonline-outlook-5faa0.templateTenant
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI1PR02MB3952.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37461397-bd2f-41a5-6d04-08de0fc9919c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Oct 2025 11:12:33.8514
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR02MB11474
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
+ <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
+ <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
+ <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
+ <2f8da425-63d9-4321-9cd3-976bbd29a52f@kernel.org>
+ <a03cd07f-8e9f-4b02-b301-f1bbb69eb7db@linaro.org>
+ <f6812244-8e8e-45b9-87b9-fe96d740a843@kernel.org>
+ <de77e673-c2f2-4293-88bf-be9c6779a5dc@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <de77e673-c2f2-4293-88bf-be9c6779a5dc@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_041241_411580_7DD4C8A6 
-X-CRM114-Status: UNSURE (   4.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251020_042201_502616_A823E894 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,23 +132,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello there,=0A=
-=0A=
-Static analyser cppcheck said:=0A=
-=0A=
-linux-6.18-rc2/arch/arm64/kvm/vgic/vgic-v3.c:728:48: style: inconclusive: B=
-oolean expression 'common_trap' is used in bitwise operation. Did you mean =
-'||'? [bitwiseOnBoolean]=0A=
-=0A=
-Source code is=0A=
-=0A=
-    if (group0_trap || group1_trap || common_trap | dir_trap) {=0A=
-=0A=
-Maybe better code:=0A=
-=0A=
-    if (group0_trap || group1_trap || common_trap || dir_trap) {=0A=
-=0A=
-Regards=0A=
-=0A=
-David Binderman=0A=
+On 20/10/2025 13:02, Tudor Ambarus wrote:
+> 
+> 
+> On 10/20/25 10:58 AM, Krzysztof Kozlowski wrote:
+>> On 20/10/2025 11:19, Tudor Ambarus wrote:
+>>>
+>>>
+>>> On 10/20/25 9:22 AM, Krzysztof Kozlowski wrote:
+>>>> On 20/10/2025 09:45, Tudor Ambarus wrote:
+>>>>>
+>>>>>
+>>>>> On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
+>>>>>>> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
+>>>>>>> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
+>>>>>>> --- a/drivers/clk/samsung/Kconfig
+>>>>>>> +++ b/drivers/clk/samsung/Kconfig
+>>>>>>> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
+>>>>>>>  	  status of the certains clocks from SoC, but it could also be tied to
+>>>>>>>  	  other devices as an input clock.
+>>>>>>>  
+>>>>>>> +config EXYNOS_ACPM_CLK
+>>>>>>> +	tristate "Clock driver controlled via ACPM interface"
+>>>>>>> +	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
+>>>>>>
+>>>>>> I merged the patches but I don't get why we are not enabling it by
+>>>>>> default, just like every other clock driver. What is so special here?
+>>>>>
+>>>>> Thanks! Are you referring to the depends on line? I needed it otherwise
+>>>>> on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
+>>>>
+>>>>
+>>>> No. I am referring to missing default and defconfig patch.
+>>>>
+>>>
+>>> default m or y would force compilation of EXYNOS_ACPM_CLK and
+>>> EXYNOS_ACPM_PROTOCOL for all ARCH_EXYNOS, even on Exynos platforms that
+>>> don't use ACPM. Since ACPM is not universally required by the Exynos
+>>> architecture, I thought to make it opt-in (default n).
+>>
+>>
+>> Just like every clock driver. So again - how is it different?
+> 
+> The key difference lies in the universality of the hardware interface
+> across the ARCH_EXYNOS family. If EXYNOS_AUDSS_CLK_CON, EXYNOS_CLKOUT
+> are considered core, integral, or nearly universal features across
+> Exynos SoCs, then it's alright to have them by default. I can't tell how
+> common is ACPM across the Samsung Exynos SoCs. I know it's present on
+> gs{1,2)01 and e850. Heard it mentioned around some other phone but I
+> can't remember which. Maybe we shall set to a default m when more users
+> reveal themselves? I'm of course open to drop the defconfig patch and
+> follow up with a patch setting EXYNOS_ACPM_CLK to
+> "default m if ARCH_EXYNOS" if you think it's common enough.
+
+
+OK, we can wait till one more user appears. Although the choice is less
+about universality, but rather if this is a core SoC element. If this is
+a core SoC element, then SoC ARCH should select it (not allow to disable
+it), even if this is only for one ARCH_EXYNOS SoC.
+
+Best regards,
+Krzysztof
 
