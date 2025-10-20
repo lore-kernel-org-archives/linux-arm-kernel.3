@@ -4,93 +4,194 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C420CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 08:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21875CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 08:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2yGmBP/PkMxgu2wwxaNLMOWwQSg0wFQ20D8HmohcvME=; b=L6SATpnus9BfhX23sCVLtkCZv1
-	dy/iy/qxrfUy04vtt0zo+Vi2ANwbsHiQMi4y2bSdls8K8sZ2AmW3lRYhuDnAVQTaWYFWcb5Kpl7tZ
-	Hr/DbfkgxZKxE6M7fp/MccMkhSCe3klq0YztBVvv7jAHt8bQvtjobUX9yB/qC1HVTNS0YDDNz2g+m
-	3FAlhOCVdXagHFr9c6k7MuJ9vDd5D8L426u+YbK+2cFtioCytjDzUi00U5dVMo3C6yHwPH6hXHy+L
-	8s8hAOWoUWRlT923K2s6TRxIeL8Gu7kupmsXGpLnPsaj/dv1KB6XeAovOL4NIdxHhRA7242YVokBT
-	VR1Xjffw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	In-Reply-To:Content-Type:References:Message-ID:Subject:CC:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PpYZSNAz1ZH1FHiL/HmYYh2kOK9LqhQM0+AQtYwfaPc=; b=UUo4hJ2nSDerPz4WbB1MdHYhe3
+	Ik+uFf48vtUexDY9BPB3/bBPnsRH7EIZXkv/uEa9S1gUafd2n56QHe3O2J18vkk0BCcplaBQLdri7
+	rOwQw0zIsktonvIx8Xazhawo8On64gAiZBZBZsM991V9U0YDUnYVsUcL4UIiNyeHu8OVnQgW2eNdw
+	lOBDZHqR2O0Wwbe8MqJA8EgO9twtv7LJIoI1tpYAXdC2hSrKj4IYVS/NC0vFoi1THCHE0BUHxF9gZ
+	/om9Ut3cuaycZ7bFdzrhYl2cJk2qT40T5GFHTXQxQexumpjpVtt9xo82rq016X9p++DxlZ+x/+Vjz
+	fY6GHEpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAlbe-0000000CSju-1UK0;
-	Mon, 20 Oct 2025 08:51:06 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1vAldU-0000000CTFP-1T1A;
+	Mon, 20 Oct 2025 08:53:00 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAlbZ-0000000CShp-3EHi
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 08:51:05 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-4283be7df63so921507f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 01:51:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760950260; x=1761555060; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=2yGmBP/PkMxgu2wwxaNLMOWwQSg0wFQ20D8HmohcvME=;
-        b=akoR3I5ydV+h0C/BgetzMaY1cQ0yoQPwOdg1dAMmiyE+kddqc3mlWA4e4DL8Yk+R5R
-         yRseG2dxtAkR+tOzAnzIgL7MQ2k1nEmCa93e4LlPL83XMEikEIGSSzn4BsT+h1gpV0MV
-         coZs2UXWkLtW8QNAKfhmm2VVEdsEsc2zq6bixIt7f8/W1Oy5eD0HdTIma5+dtpg4QlnX
-         0OOSVnYg1vGS1a+7I+4QZxWEkIxGZnIgXPvb2G17WM9mzkfk8h5PQEvE3vW/wiFNfPt9
-         d9bX9YUjkNeoJrmZM557U1TXbGCiqLHgy3fVa5enWnOdMqWeuwYNGalj/LDAaXu1MXtc
-         Nsqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760950260; x=1761555060;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:from:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2yGmBP/PkMxgu2wwxaNLMOWwQSg0wFQ20D8HmohcvME=;
-        b=nvspbiQkIdAD0fr7YtePkmwhXqA7MfQCqSlZ+HdG6NeOBLAW3yt5675AoJrX+ww15b
-         UVbbuvdndrWx5iyUm+RqxHmAbUJonGoia5zYEelKV6uijiP7FA42i2mWi3qthxoA4NqZ
-         2D+dq0rhzuQ0zfC1B8c1wh/ID4c54YB/aTc09xBhwLGt5VIpLUNK4mj99y0Tubo0xWnG
-         wTCY+h84yetfupZ8u6cGjsa/jXlC8Jko7a8YpGtYZJVvpqyczb0sqiMI9hgB/VXpx2IF
-         7rqiTBwEqCidHJlyPvI1hoQvUSTm8NNM4h2Uh8hXOwrU1mru/VKowPwao2shE4kf4lAL
-         Bc2A==
-X-Forwarded-Encrypted: i=1; AJvYcCVKDMllVjZF4jrt2aQGMD/AIg89ljyjwdKz+HvkRbjfmHUZvhFaQIu3tajNNhp5hE6D3uahSjAmCVmCPoP0Idg3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8AprFq5DTwtZ6rB5sSxnzUacu3zoYd5JoAI5OadNT810tvQFG
-	Y5xfdwWgkGQs03hohaLR9/UJxv6Pycm7j80kd9hubtFwL80o+BKGBCwPAvAVxJpYhX4=
-X-Gm-Gg: ASbGnctUfrC6Y12w9ri8Hk9FvP4c7TSVgMsjRqgIQfEIugoS5NNNstPmDaOY1IpZRTh
-	89KmAxSCqYt8MAjZ9qH+4yAcvEtrHoaeVEeXiCs5AlpcZCMYHhNU94b19vtcPs988JyZMwPCnEm
-	QTARyv1sEeH388e8MEhwpjwCZofK/6uU6TQgVMAdyEnE2G4CUbAELGSa95Z0X/0oHJArjhHEwfs
-	PwDybrOEk9y9MF+4spM/qHir/x/R69S6Y2K9NID1EoJw6fHMWXr5beAnbeZePTj/M9ZZtI5uO37
-	cMn5SiKJBcFHGdIGeHxN/NSc1Z9O91SYatsG5Qreuu5sQbLD5ULt+/s808qweJC28avWYB5osOI
-	vPNVHIRxvn+PTVBDO+y1aw2LxoBF3u6PpXW3Mbx5IVIhC+sNhPxojUpwF8tDNVLDyq/ld8Hbav+
-	jS4HkLFt5fBsX+AhYjhaanlMWnSlMCJ6UwQ5yy4ifcNHheTg6zVg==
-X-Google-Smtp-Source: AGHT+IEZuzT5Fi6RwZkG3ZCBMeU/nFGgDtAhgLPA7LKZMuxVJQUCCBR14TWol1dcQMMPKI5tWNEmrQ==
-X-Received: by 2002:a05:6000:1848:b0:428:4354:aa27 with SMTP id ffacd0b85a97d-4284354abc4mr2871879f8f.46.1760950259658;
-        Mon, 20 Oct 2025 01:50:59 -0700 (PDT)
-Received: from ?IPV6:2001:8f8:183b:9829:50b9:dafe:ddca:3ba4? ([2001:8f8:183b:9829:50b9:dafe:ddca:3ba4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4710f29b559sm104370685e9.8.2025.10.20.01.50.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 01:50:59 -0700 (PDT)
-Message-ID: <748fd61a-31fb-436f-b028-b47807a4860c@gmail.com>
-Date: Mon, 20 Oct 2025 12:50:58 +0400
+	id 1vAldR-0000000CTDx-0cQj;
+	Mon, 20 Oct 2025 08:52:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1760950377; x=1792486377;
+  h=date:from:to:cc:subject:message-id:reply-to:references:
+   in-reply-to:mime-version;
+  bh=R3/Ks3I+o/rolqTu05pxsoOaK92JoNY28685s2iEvpY=;
+  b=DCw9udYCwr2yBGFbmbmCJGUnTldn5hc4Gfw1DiIzZmuGyfJYucUV+jUc
+   /GLy2nQOB8w49W9E7q133LuRnhMSNjHk1+Em/vKouULTooWQfM102l6yx
+   3VdNCcjMEMcS0Tqn8LXpq4Y34gpCUx8jSjGlYwLgxWYsbuYzfm3gegwjI
+   ZqOjjyZJhMpnh9hztF/YZkDf8DzrHDd8++DLGi2r5ik0PFwIfGRzxreRM
+   e0DnJhDHg3o4f5ETZ9QdpwaMdcjFcaXDzS5HvOTwo7m5ynDakKXTySBr0
+   unw5v65hMwZZ7c2/wtRvimtJlF2YC9Hi1MMzs+gTfDJb1BbyEwqgAnc/k
+   w==;
+X-CSE-ConnectionGUID: JIOpmXlGT3yXvDvhrWEhdw==
+X-CSE-MsgGUID: JgbdNUrfSye/fpdUp5iyvg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11587"; a="88531774"
+X-IronPort-AV: E=Sophos;i="6.19,242,1754982000"; 
+   d="scan'208";a="88531774"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2025 01:52:56 -0700
+X-CSE-ConnectionGUID: dLxTKFXJTY6MrdXUNZ/Zag==
+X-CSE-MsgGUID: NVuHT5VNRievNUCCIHDheg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,242,1754982000"; 
+   d="scan'208";a="220427697"
+Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
+  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2025 01:52:55 -0700
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Mon, 20 Oct 2025 01:52:55 -0700
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27 via Frontend Transport; Mon, 20 Oct 2025 01:52:55 -0700
+Received: from DM1PR04CU001.outbound.protection.outlook.com (52.101.61.25) by
+ edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Mon, 20 Oct 2025 01:52:54 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xVyFOuqpsBqYlmQPi5idK0W8vw1TEfusTu4ZSMG9W5QDjrepLaiZrePX1RZxfggloOJsbE/XZi/Z/uhHOuLNqI6JhFwA7tUfsG/AFoNG8qh2hL7Eelkb2fmhL86p2OpiNMeqQj1Ckr25/OqjUWtLmM1L/eVJMGEu/a2tnL8ZTP4lq3G5lnz881vHISbxBr5zso25Y6RtVDHJg8QQoxr6JlhXUF9qPux2ZVgGxHkx+hRG104MAIdXIA+zfxeViKSsPMqrLKIT5RRSQ4rG23W1KBedB3wBC28pLw5psnyS4yGtEPFz07JnWkVLmF0VR8vULfsGpaHSuoDnPWzNNJmQAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PpYZSNAz1ZH1FHiL/HmYYh2kOK9LqhQM0+AQtYwfaPc=;
+ b=KC8TnSvsV4l0NIjC9zi6p69WxUz8+cH3j0M+IY7mk97Nw4sAlZg/lS1+zUWEXT1TdqerRYXvSOcuOXZC9yXx568D308LnJnqiK1+am6m82bj5Hv8ItzSmWZbzwRSm95nntkheF+IemtjwTaEyV4BAOQt67yTmNQBFzMke/sG0gEf2d/n3/CYs5eprgZo1n1X5WwSLTaMlLYaB9Jq2O7POjB7Fp0XlpQl7iTPoplO76JK/De5sAT8X2nqil96oWEA9MkSQyVMv81N0DR41OPx+xNrcBa/z1/G+zareqkhBGLNYTKwoLRpjZwov3TatR7VAcv7IzlPXGMHYdrGHtgGGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
+ CO1PR11MB4833.namprd11.prod.outlook.com (2603:10b6:303:99::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9228.16; Mon, 20 Oct 2025 08:52:15 +0000
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca%6]) with mapi id 15.20.9228.015; Mon, 20 Oct 2025
+ 08:52:15 +0000
+Date: Mon, 20 Oct 2025 16:50:18 +0800
+From: Yan Zhao <yan.y.zhao@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
+	<maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda
+	<imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, "Kirill A.
+ Shutemov" <kas@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<x86@kernel.org>, <linux-coco@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, Kai Huang
+	<kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>, Vishal Annapurve
+	<vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Ackerley Tng <ackerleytng@google.com>, Binbin Wu <binbin.wu@linux.intel.com>
+Subject: Re: [PATCH v3 25/25] KVM: TDX: Fix list_add corruption during
+ vcpu_load()
+Message-ID: <aPX3ymhrw1qcbyZX@yzhao56-desk.sh.intel.com>
+References: <20251017003244.186495-1-seanjc@google.com>
+ <20251017003244.186495-26-seanjc@google.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20251017003244.186495-26-seanjc@google.com>
+X-ClientProxiedBy: KL1PR02CA0002.apcprd02.prod.outlook.com
+ (2603:1096:820:c::7) To DS7PR11MB5966.namprd11.prod.outlook.com
+ (2603:10b6:8:71::6)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Alexey Charkov <alchark@gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: Add DSI LCD display on rk3576-evb1
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250925-rk3576-evb1-dsi-v1-1-c76fc3740abc@gmail.com>
- <CABjd4YwVfrzxYKM4cAG=-fMbw9OcQGZD20CVCG8FvC8phDsw+Q@mail.gmail.com>
- <5143458.iZASKD2KPV@phil>
-Content-Language: en-US
-In-Reply-To: <5143458.iZASKD2KPV@phil>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|CO1PR11MB4833:EE_
+X-MS-Office365-Filtering-Correlation-Id: 385ace61-8238-4ee3-defd-08de0fb5f7df
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MSsAr5Rw1f9dxNMqfKvanA5mESHPHbuGTUlFPwwk+NO553lC3iwQZj5iWh8/?=
+ =?us-ascii?Q?I1yOZyIn26aWOnfcgtPRDcpz6u3S2Dima3I2cclMKqwKEOm41gE7blnGicP1?=
+ =?us-ascii?Q?3i9mlDNdp3QKxFaAm8WoC6nhDNCRDngq7N275GbSPZq7UDFTJzvseVQp2te1?=
+ =?us-ascii?Q?dh7D+h8gx+bUl65cnT6MtEilqtbjgWi7xxu8shdGeBwHfdJClZGfj+lRdwwY?=
+ =?us-ascii?Q?y0CE6YTHZi1mNXj7q+2iztuLr0q30f+fXumpQnrdcHxsUgKsSa4qW5fR6Qbv?=
+ =?us-ascii?Q?zNNcmBab8oy1yNqC3CUOsbbq68eMvrPCwVudC7NAwj0uq7XlzrogPYNbZBji?=
+ =?us-ascii?Q?UQXDo6V+O1L7/3ycUMHdTwd5rcMPGax0o0/m6kCnZiYR7y77yJIqdtEdt9ib?=
+ =?us-ascii?Q?tZdGk54MO9fTlJN8ASwpNo8a6gbUXwpBuWM4QbqK2/shGIsEcI8kx7zoQgaS?=
+ =?us-ascii?Q?MRplN4Lv2KYiWQldHoSWpmtaRVTg3urEZl193sARxbjUthiEbFNkQLV2ZoEs?=
+ =?us-ascii?Q?zRRn00rVUVu7ggoGKqhcdA2ISLRolRKCStHV2r+TVKwExKNGFDI1F4PiKV6i?=
+ =?us-ascii?Q?sAz8htnzS+X+Qaacs3wVWFlkQi2f+VOZRJouT2YHLd/NjCgNIEl94zycaDPS?=
+ =?us-ascii?Q?mCqDMGErCQYoufAjlO7wDb33XEns7xoBU4P+fpGfi5I9vJemCiyHotE+NwM9?=
+ =?us-ascii?Q?LdRptxWtah5DiX/BiTn6NlCUwfPEUehHAedwleEpmazDrYg4xPnSKuDvlutY?=
+ =?us-ascii?Q?77t6zkPrjIV/t8F/2iRF09UInnifuDJzG6hPqOpZWNHtp6PXwBCY6GQQokgN?=
+ =?us-ascii?Q?+AXBDgImEXHO7BFM55aK62Ze6W+WIxCOuBcJZXsC8KEKIQsIMhAiWnwQFYJO?=
+ =?us-ascii?Q?mLA9+T/uYQslyGHWjy31WbjEt/or49Iu5jIBK4wCd/B+HCxk9Vx0UkS70ab+?=
+ =?us-ascii?Q?/7MokDzZjJF/eHLW9Qj1zKz1wEVsEkCLOfxXc5SOvapqjtOWryoHuwNplmJy?=
+ =?us-ascii?Q?uurhnRN79Bobue0ZzfmeTo5ckFXrhP7EN+dd3e3Tn7+5ZF3jPqEgNXGGhNgs?=
+ =?us-ascii?Q?InR1NKKaUKY9rU0/T5NSSlM9XutMbpcW6Rztdh+XmUWeck7Y4TIqsdJUuTsa?=
+ =?us-ascii?Q?hb5o7i+Fvpn0alrc3WyaVQ8LbAqOfy9OEM/JTm1QO4QPXvPl9uKF/BDNzHro?=
+ =?us-ascii?Q?7jniVR7VWOqVeTv+zTJ5sgIw3zVtR+fqOjOb6qCJQ2zR/D2QVu4ZGs8qy8FV?=
+ =?us-ascii?Q?Vms07Ia1YmpYeG/04paZLYg0y/wOP6HPO+GJHCHk4m9qQiaPJnwjBwOJrLDc?=
+ =?us-ascii?Q?VjSNk2yY52UxLfZetUqkLJNPMGG7yMasO3fFyc/02IQrMLc9zL1O8DjUnNdu?=
+ =?us-ascii?Q?HxZTYd9tqc1IeMC4s+lZKJCTi/0yTtBR6A9VdB7A67MTu74M02lzgl5sKh9B?=
+ =?us-ascii?Q?x3VtDYCaOEX1c6Yo2LVEnfruex5HsJO5?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZD6qemoO7wSEGbsmKyJ1SxSayW39544IPzqIaCBYpZ8FR7d8Wexj/4xO3dzx?=
+ =?us-ascii?Q?ntVzfkNcvBfKl6c4RDnDiOzNYZXJ18fLjChHiB55q53Cr7HBtwh9A/mUTTFd?=
+ =?us-ascii?Q?WLoWQ1u8unCSD++aNkg0LWivSnA94BVeb5eu0kcUrQ2M2x/5GuNxnp5rWw+L?=
+ =?us-ascii?Q?yPG5Zd/M6tdymwTC8WbLWVVSGEeAWkoNvNq6Ts8rbJJSBzKfLPYarbt4O2hS?=
+ =?us-ascii?Q?v8ZAaGgrKxiiV4UudHuvoxpZVnh1LFgbYktYpg+Sf8MGuWmYmQqTZSUx9dLx?=
+ =?us-ascii?Q?mtywRfw4YCQ1oDgES+3Qa3r+zR430iIuRNWUQISJm1VHTJcnHNtswbFk2r7f?=
+ =?us-ascii?Q?mKkd1AXOiow++0+DVuxX7mwIfPbLVtfu4RWsrCG61U68hBomaexFoOfayOzN?=
+ =?us-ascii?Q?WGlPdbbyBc/5pb7aLC/KJp5lo5FCqpowO29DvjtPNmET05q7fD9HTlTD8w+2?=
+ =?us-ascii?Q?/A+0qQY3dhd0nm2K+cqFgH/ltAnM6Lkm39v/DhCTHOYDDFv3YDhKTQR7P6dj?=
+ =?us-ascii?Q?0eTTuNoEu31Lt0A8qHdePc/+ZJuMmskeTk41ITWuLrrA5IlVdRK0sswpnbx7?=
+ =?us-ascii?Q?sktRg1qk+T1hCrjuVfLqxidIpT/XCTPftZJl1HMZuXdPBfZjFG7SfhuxdDa/?=
+ =?us-ascii?Q?o5ZxWlrCl8fdP/utQxzYWpmHuMpFPTrBegJYyKFTgPm7fhbrCIut4uwr9uQI?=
+ =?us-ascii?Q?2WOrwGDuk7OgWMTBm5qYPl/KpSmGpPmbNWwjjJTIEIjKGa6itDe2K1NHLhJo?=
+ =?us-ascii?Q?fLYY/HNfwPxgJi1LewfWguhEkW6StvSmxwUzXGaY7SzmCa8O5wK/XYcbe397?=
+ =?us-ascii?Q?YD0xLMNgYblF6qFifz25gZc5WC7XwqAyZQcXnN5Sx/Bn6HF8wdWuoIvUkspV?=
+ =?us-ascii?Q?Zqgxbg2qkYparyOIcDuTQ90uSnFQ1ocpFIa2wPp5qvTkP7lmr7zqOaMmp5H4?=
+ =?us-ascii?Q?eaLOLHi8d0Hp6gOnZnicZ+okcQ3lo5bC/3NJihn6kBfbQ1i9W8zOB0YFBbp5?=
+ =?us-ascii?Q?Qd6df1WLl35RYKQKJQORtmOXizb4NvNilyKtDkZMmSliDMs4lCo/sdrGues1?=
+ =?us-ascii?Q?jlwXxM8143UBsJFRe5pM5w4d0R+I2MZSg8z0H3XrTuOxPBwZaCnAy09+o4eg?=
+ =?us-ascii?Q?VU3Uyab7U2jw9EUjjvH3+pMYnVT7XR6A5QBsm29boX7YgpaLblp0gbUzMkj1?=
+ =?us-ascii?Q?MPZPaE4DcGIqcHDU5eXCYWsRLzHrV9R33DXK7TKL3N2h71Q8pPS3KvDZzMqg?=
+ =?us-ascii?Q?0by5Fn/e7UGfM++ZS3HKC0fo047Lgaiusp31LvV39olMdqR1V/FuRkljakm1?=
+ =?us-ascii?Q?o4+IGEW20t2CA0+LKdiQY9bJWTbGJWh/aO8WOmdW7vybUxWMuHynHXZm/Qz1?=
+ =?us-ascii?Q?DQKdKf91ObG+319Mg2AOoySNqDI6xZCj3EncHSG586Ul5xuHZEDb5Qh4Zug2?=
+ =?us-ascii?Q?O6U3mQyf1vZdMZfIku4e6fYWhg/dKpkZuHrWuWckek0ATjVJXRkHDGEdMFmk?=
+ =?us-ascii?Q?QzocqoKJcUDtq+31mSC7xl1zbHCR+U4SvWU7vK/qUtjBRPJsU0sp2IQ4+y5g?=
+ =?us-ascii?Q?pdRuie3OHSPJg9pHLmxKoqQlO5fB6yFv+tX1qzCL?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 385ace61-8238-4ee3-defd-08de0fb5f7df
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2025 08:52:15.7729
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BH0rYeJWn5eNZLgR1OxzU5r+TGtu2eK1BP8GoO7/AUb528OlQNGXZrz07h4Hiqzo3U7Q/zq2EHyK0KHpx8GOfg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB4833
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_015101_827223_3C231C6A 
-X-CRM114-Status: GOOD (  28.56  )
+X-CRM114-CacheID: sfid-20251020_015257_204674_711A45D3 
+X-CRM114-Status: GOOD (  28.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,99 +203,124 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 16, 2025 at 05:32:43PM -0700, Sean Christopherson wrote:
+> From: Yan Zhao <yan.y.zhao@intel.com>
+> 
+> During vCPU creation, a vCPU may be destroyed immediately after
+> kvm_arch_vcpu_create() (e.g., due to vCPU id confiliction). However, the
+> vcpu_load() inside kvm_arch_vcpu_create() may have associate the vCPU to
+> pCPU via "list_add(&tdx->cpu_list, &per_cpu(associated_tdvcpus, cpu))"
+> before invoking tdx_vcpu_free().
+> 
+> Though there's no need to invoke tdh_vp_flush() on the vCPU, failing to
+> dissociate the vCPU from pCPU (i.e., "list_del(&to_tdx(vcpu)->cpu_list)")
+> will cause list corruption of the per-pCPU list associated_tdvcpus.
+> 
+> Then, a later list_add() during vcpu_load() would detect list corruption
+> and print calltrace as shown below.
+> 
+> Dissociate a vCPU from its associated pCPU in tdx_vcpu_free() for the vCPUs
+> destroyed immediately after creation which must be in
+> VCPU_TD_STATE_UNINITIALIZED state.
+> 
+> kernel BUG at lib/list_debug.c:29!
+> Oops: invalid opcode: 0000 [#2] SMP NOPTI
+> RIP: 0010:__list_add_valid_or_report+0x82/0xd0
+> 
+> Call Trace:
+>  <TASK>
+>  tdx_vcpu_load+0xa8/0x120
+>  vt_vcpu_load+0x25/0x30
+>  kvm_arch_vcpu_load+0x81/0x300
+>  vcpu_load+0x55/0x90
+>  kvm_arch_vcpu_create+0x24f/0x330
+>  kvm_vm_ioctl_create_vcpu+0x1b1/0x53
+>  kvm_vm_ioctl+0xc2/0xa60
+>   __x64_sys_ioctl+0x9a/0xf0
+>  x64_sys_call+0x10ee/0x20d0
+>  do_syscall_64+0xc3/0x470
+>  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+> 
+> Signed-off-by: Yan Zhao <yan.y.zhao@intel.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/vmx/tdx.c | 43 +++++++++++++++++++++++++++++++++++++-----
+>  1 file changed, 38 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+> index d6541b08423f..daec88d4b88d 100644
+> --- a/arch/x86/kvm/vmx/tdx.c
+> +++ b/arch/x86/kvm/vmx/tdx.c
+> @@ -833,19 +833,52 @@ void tdx_vcpu_put(struct kvm_vcpu *vcpu)
+>  	tdx_prepare_switch_to_host(vcpu);
+>  }
+>  
+> +/*
+> + * Life cycles for a TD and a vCPU:
+> + * 1. KVM_CREATE_VM ioctl.
+> + *    TD state is TD_STATE_UNINITIALIZED.
+> + *    hkid is not assigned at this stage.
+> + * 2. KVM_TDX_INIT_VM ioctl.
+> + *    TD transitions to TD_STATE_INITIALIZED.
+> + *    hkid is assigned after this stage.
+> + * 3. KVM_CREATE_VCPU ioctl. (only when TD is TD_STATE_INITIALIZED).
+> + *    3.1 tdx_vcpu_create() transitions vCPU state to VCPU_TD_STATE_UNINITIALIZED.
+> + *    3.2 vcpu_load() and vcpu_put() in kvm_arch_vcpu_create().
+> + *    3.3 (conditional) if any error encountered after kvm_arch_vcpu_create()
+> + *        kvm_arch_vcpu_destroy() --> tdx_vcpu_free().
+> + * 4. KVM_TDX_INIT_VCPU ioctl.
+> + *    tdx_vcpu_init() transitions vCPU state to VCPU_TD_STATE_INITIALIZED.
+> + *    vCPU control structures are allocated at this stage.
+> + * 5. kvm_destroy_vm().
+> + *    5.1 tdx_mmu_release_hkid(): (1) tdh_vp_flush(), disassociates all vCPUs.
+> + *                                (2) puts hkid to !assigned state.
+> + *    5.2 kvm_destroy_vcpus() --> tdx_vcpu_free():
+> + *        transitions vCPU to VCPU_TD_STATE_UNINITIALIZED state.
+> + *    5.3 tdx_vm_destroy()
+> + *        transitions TD to TD_STATE_UNINITIALIZED state.
+> + *
+> + * tdx_vcpu_free() can be invoked only at 3.3 or 5.2.
+> + * - If at 3.3, hkid is still assigned, but the vCPU must be in
+> + *   VCPU_TD_STATE_UNINITIALIZED state.
+> + * - if at 5.2, hkid must be !assigned and all vCPUs must be in
+> + *   VCPU_TD_STATE_INITIALIZED state and have been dissociated.
+> + */
+>  void tdx_vcpu_free(struct kvm_vcpu *vcpu)
+>  {
+>  	struct kvm_tdx *kvm_tdx = to_kvm_tdx(vcpu->kvm);
+>  	struct vcpu_tdx *tdx = to_tdx(vcpu);
+>  	int i;
+>  
+> +	if (vcpu->cpu != -1) {
+> +		KVM_BUG_ON(tdx->state == VCPU_TD_STATE_INITIALIZED, vcpu->kvm);
+> +		tdx_disassociate_vp(vcpu);
+Sorry, I should use "tdx_flush_vp_on_cpu(vcpu);" rather than invoking
+tdx_disassociate_vp() directly.
 
+This is to ensure that list_del() in tdx_disassociate_vp() runs on the physical
+cpu that owns the list and to which the vcpu is associated with in the previous
+tdx_vcpu_load().
 
-On Mon, Oct 20, 2025 at 12:31 PM Heiko Stuebner <heiko@sntech.de> wrote:
->
-> Am Montag, 20. Oktober 2025, 10:19:51 Mitteleuropäische Sommerzeit schrieb Alexey Charkov:
-> > On Thu, Sep 25, 2025 at 12:38 AM Alexey Charkov <alchark@gmail.com> wrote:
-> > >
-> > > Add support for the Rockchip W552793DBA-V10 LCD+touchscreen assembly which
-> > > comes physically attached to Rockchip RK3576 EVB1 boards.
-> > >
-> > > The display part is driven by the on-chip MIPI DSI controller, and the
-> > > touchscreen is connected over I2C.
-> > >
-> > > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > > ---
-> > > Note that backlight support is left out for now, as it depends on PWM
-> > > support [0] which has not yet been merged.
-> > >
-> > > A workaround is simply `gpioset -c 0 13=1` to set the respective GPIO
-> > > pin high and thus to light up the display unconditionally.
-> > >
-> > > [0] https://lore.kernel.org/lkml/20250602-rk3576-pwm-v2-0-a6434b0ce60c@collabora.com/
-> > > ---
-> > >  arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 89 ++++++++++++++++++++++++
-> > >  1 file changed, 89 insertions(+)
-> >
-> > Hi Heiko,
-> >
-> > Any thoughts about this one? Can we perhaps get it merged for -next?
->
-> Does the gpio-backlight work on that device?
-> That would make the gpioset hack unnecessary.
-
-I've got a local patch using pwm-gpio and pwm-backlight as a stop-gap 
-solution, but I don't think it's worth merging upstream, because the 
-backlight is supposed to be driven by the hardware PWM on the same pin 
-(not bit-banging the GPIO line). After all, Nicolas has been working on 
-adding a proper hardware PWM driver for RK3576.
-
-The display itself works without PWM support, and so does the touchscreen.
-
-My temp patch goes like this:
-
----
-  arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 15 +++++++++++++++
-  1 file changed, 15 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts 
-b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
-index f20cd6f2c079..5c27fff03569 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
-@@ -58,6 +58,14 @@ button-vol-up {
-  		};
-  	};
-
-+	backlight: backlight {
-+		compatible = "pwm-backlight";
-+		brightness-levels = <20 220>;
-+		default-brightness-level = <100>;
-+		num-interpolated-steps = <200>;
-+		pwms = <&lcd_bl_pwm 0 25000 0>;
-+	};
-+
-  	hdmi-con {
-  		compatible = "hdmi-connector";
-  		type = "a";
-@@ -78,6 +86,12 @@ work_led: led-0 {
-  		};
-  	};
-
-+	lcd_bl_pwm: pwm {
-+		#pwm-cells = <3>;
-+		compatible = "pwm-gpio";
-+		gpios = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
-+	};
-+
-  	vbus5v0_typec: regulator-vbus5v0-typec {
-  		compatible = "regulator-fixed";
-  		regulator-name = "vbus5v0_typec";
-@@ -277,6 +291,7 @@ panel@0 {
-  		compatible = "wanchanglong,w552793baa", "raydium,rm67200";
-  		reg = <0>;
-
-+		backlight = <&backlight>;
-  		iovcc-supply = <&vcc3v3_lcd_n>;
-  		reset-gpios = <&gpio3 RK_PB5 GPIO_ACTIVE_LOW>;
-  		vdd-supply = <&vcc3v3_lcd_n>;
--- 
-
-Best regards,
-Alexey
+> +		return;
+> +	}
+> +
+>  	/*
+>  	 * It is not possible to reclaim pages while hkid is assigned. It might
+> -	 * be assigned if:
+> -	 * 1. the TD VM is being destroyed but freeing hkid failed, in which
+> -	 * case the pages are leaked
+> -	 * 2. TD VCPU creation failed and this on the error path, in which case
+> -	 * there is nothing to do anyway
+> +	 * be assigned if the TD VM is being destroyed but freeing hkid failed,
+> +	 * in which case the pages are leaked.
+>  	 */
+>  	if (is_hkid_assigned(kvm_tdx))
+>  		return;
+> -- 
+> 2.51.0.858.gf9c4a03a3a-goog
+> 
 
