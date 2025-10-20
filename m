@@ -4,115 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96438CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAEFCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hQsbLRhyo+YpQS0XU65M5daaDH2O275YUQAvgxI33yc=; b=nn1kZA/v1hwnmIP831+0GzMCKM
-	T32kpPVHpK4FDQLjpe7NA4eQEBNIYeC9Hz7eFpcBEkBdHPodJuH7U/qlc1DIHrY39w6JXBjZJBb7W
-	xd7OtoSpdDQA6HSI/rKduZ6wqns8qK5Vz+ETDK06WFovNIwLp1Kk022s3mKvoeRsnEk+GGEW+srkd
-	T6whqOQ0a+V9sj8cpMyj+JMcA+zzQAmjYWBZKtgWc1K+ANIMTpUB6KDk9Sc6/WHBP/n2bNX8pxdp8
-	3GFtUey/jUDPzVywkHe2tgG16i0VXscxP/6LuLK5bhP0oTkMglpsXuUgK/6UL24ZnywtkOO+t+aL3
-	jszl8M4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/hRMZ7RubjZ51t5HEsE2KinRdv78Ykro8hts/vPrg7E=; b=s88uLrnhvLIKABhCCSFug1DB0z
+	SdgZUikmkXloUjQ+wvMzErq1+MHDlsluZoZg+GKF7VhU0alCbWAIWMim7z2rFQydBHFyk/FuMk8MV
+	QtE6sP6AsfCtnh7G0/2R+51v976NRavxuAEODtmGJ1NJvnFG8uU+wilgxL9ywqbBxEenGF3Tjh+bx
+	804/A8DEuH9riwDloTw6/Cwwa93yGsW0VAc0hqA+x8Hj8jP0x3XXmTKaxy9/hMpgTFjIsT38NUNt1
+	gz9owuyfH0E2QEGkY5RATDvBu1t+P80pHa6vf/kob9NccDPyWdYkUjuP5WdkQD8BETgZo9BTgPo2M
+	8Lug6iHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmeq-0000000Cgje-3xYX;
-	Mon, 20 Oct 2025 09:58:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vAmfH-0000000Cgpo-16Dj;
+	Mon, 20 Oct 2025 09:58:55 +0000
+Received: from mail-m16.yeah.net ([220.197.32.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmep-0000000Cgj7-2k3Q
+	id 1vAmfE-0000000CgpK-3fw3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 09:58:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B884861D57;
-	Mon, 20 Oct 2025 09:58:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13483C4CEF9;
-	Mon, 20 Oct 2025 09:58:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760954292;
-	bh=NiBGc+8QbFyTGPny5KTd2eO9Xrvo0n3prlh5bGsN3BU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CMcMo6z6a+ZViNqLjo7nIltpr+C41hKf3CrxAevtTNvNCTtul0axJLFTb374trMoQ
-	 H0C7ka6++1hkVNVAYHwshxyXcdF7BRgx/oLnpX1RJd3fNIDyyFqP59uPD6mj/Hl+0i
-	 qOqXUStEg8xXCsibVWFiJOy/K8oSzLKRpDGgYnsVV+o2uQAVOn2XpuUFZUjJx94S/1
-	 LBt2OlkeE2OFR/uIXyBQlRc2RjzmtNWhhTYU8EfNLym+2We3uzHsqb9e5GsjLPdERc
-	 9nH+5t5DrQHfxiRnjuXWuhz1uf7ctzDVkS2r/jkM9J1AsEc/2ztMy+RA6hcPJgV9tD
-	 UuyasGxIw3C/A==
-Message-ID: <f6812244-8e8e-45b9-87b9-fe96d740a843@kernel.org>
-Date: Mon, 20 Oct 2025 11:58:06 +0200
+	Mon, 20 Oct 2025 09:58:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=/hRMZ7RubjZ51t5HEsE2KinRdv78Ykro8hts/vPrg7E=;
+	b=IjWAFwgH4BD9QVtbIQgLD5TtcK3BFRS9t1OkMGzZNaJElB40T4I0l6t84L57xg
+	ywaE/oanlws4Qyy1MFlUwdrKpF359uYcqwgkx04q6Merf+CQygOfO9oEIA3yw0/t
+	qthbcHi1yjUpbY+2RJdHd+b80zO9TD3oz7gmBAtu58L38=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgD3_1a8B_ZogCNUAA--.13047S3;
+	Mon, 20 Oct 2025 17:58:22 +0800 (CST)
+Date: Mon, 20 Oct 2025 17:58:20 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Sam Ravnborg <sam@ravnborg.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/5] dt-bindings: arm: fsl: add compatible for Skov
+ i.MX8MP variant
+Message-ID: <aPYHvCZbVIr0-gJ3@dragon>
+References: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-0-abbb759cf8ef@pengutronix.de>
+ <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-4-abbb759cf8ef@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
- <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
- <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
- <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
- <2f8da425-63d9-4321-9cd3-976bbd29a52f@kernel.org>
- <a03cd07f-8e9f-4b02-b301-f1bbb69eb7db@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <a03cd07f-8e9f-4b02-b301-f1bbb69eb7db@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250922-v6-17-topic-imx8mp-skov-dts-jutouch-10inch-v2-4-abbb759cf8ef@pengutronix.de>
+X-CM-TRANSID: Ms8vCgD3_1a8B_ZogCNUAA--.13047S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUzWrWUUUUU
+X-Originating-IP: [121.224.201.6]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNB7ILmj2B77crgAA3Z
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251020_025853_237238_B4FA20B6 
+X-CRM114-Status: UNSURE (   8.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,56 +86,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/10/2025 11:19, Tudor Ambarus wrote:
+On Mon, Sep 22, 2025 at 01:10:55PM +0200, Steffen Trumtrar wrote:
+> In preparation for adding a new device tree variant with a different
+> panel, describe the DT compatible in the binding.
 > 
-> 
-> On 10/20/25 9:22 AM, Krzysztof Kozlowski wrote:
->> On 20/10/2025 09:45, Tudor Ambarus wrote:
->>>
->>>
->>> On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
->>>>> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
->>>>> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
->>>>> --- a/drivers/clk/samsung/Kconfig
->>>>> +++ b/drivers/clk/samsung/Kconfig
->>>>> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
->>>>>  	  status of the certains clocks from SoC, but it could also be tied to
->>>>>  	  other devices as an input clock.
->>>>>  
->>>>> +config EXYNOS_ACPM_CLK
->>>>> +	tristate "Clock driver controlled via ACPM interface"
->>>>> +	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
->>>>
->>>> I merged the patches but I don't get why we are not enabling it by
->>>> default, just like every other clock driver. What is so special here?
->>>
->>> Thanks! Are you referring to the depends on line? I needed it otherwise
->>> on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
->>
->>
->> No. I am referring to missing default and defconfig patch.
->>
-> 
-> default m or y would force compilation of EXYNOS_ACPM_CLK and
-> EXYNOS_ACPM_PROTOCOL for all ARCH_EXYNOS, even on Exynos platforms that
-> don't use ACPM. Since ACPM is not universally required by the Exynos
-> architecture, I thought to make it opt-in (default n).
+> Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
+Applied, thanks!
 
-Just like every clock driver. So again - how is it different?
-
-> 
-> Setting it as a module in arm64 defconfig makes it available on
-> compatible platforms.
-> 
-> Similar clock drivers do the same: CLK_RASPBERRYPI.
-> COMMON_CLK_SCPI, COMMON_CLK_SCMI - no defaults and set them as builtin
-> in the arm64 defconfig.
-
-
-I am speaking about Samsung drivers.
-
-
-Best regards,
-Krzysztof
 
