@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CE0ACCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 13:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B25BCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 13:17:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bv/hgIoX+50q6Ixl1xcYkiMJg4G9dL+7TCf9i2+ayLE=; b=n5OqWEma8gx2PEJAXgVLqAuHnM
-	5q85sl8+5xXcofv95gpgZA56esnxrR3XizRLNENx2k0qWA7QGmzt2HnsVW7QzAkhSyFUhzTiAegHx
-	TBE0wEqbLlwP4RsTWD4WqDoPuNQhf2lBAGxtN+tdwCWTUa4XFDibIIcdudGZxbPYdnHl7lcKmRuf/
-	J2XlTN6JcIuaXRLMDFn3ANqATOYKu+4HDx4FO6U1NX1ZOFRBl46xaGP5/ANn+qVuyequwcHBe5XI+
-	lgcLA0JnjWipwKFOEXIFRCWhqrpOWhl1I8pcMtAtlXiN5qpebaGlOEfkQKS/DrBtwAP73wFOrpqnx
-	4JcdhLPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GTq/+CR+1YPS7UoGRwrDDUPcf4nRdaeC2o8uP0i5q8s=; b=KKeVmnbyQ7Bh1K1ntiXp/SUQla
+	gdO1zIZ2JXpAr0ffZLVEVDmsOXkORr8f5iSfejGSdR8JCdXiX07EMckIdyDkomGF98ZQIbZnuNYmv
+	OA3p8x4j4Ce01wytGLg7clERfakY0twu8V5qB1gepUFCdyQlZilVPOYFNHvRJ4TCC0gZC+FXRe3QM
+	1ira0Gys7ZUotZP5OhXErQm+nkCRhadKNfptT6TxkU99xdxzOmIATcwd+P8qdzyAXhsEPmY16v8eF
+	sj+OfTULCvGLZbyBZ6nLfZ0kG/+q5oZ4xmcGmeqny8yhJr3GMzR8dLljob6YMcdjt+tGof9e9vEHU
+	QneKGtEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vApkN-0000000DkTF-3hEW;
-	Mon, 20 Oct 2025 13:16:23 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1vAplX-0000000Dkrd-160D;
+	Mon, 20 Oct 2025 13:17:35 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vApkL-0000000DkSj-0QUO
+	id 1vAplU-0000000Dkla-3nj3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 13:16:22 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-784966ad073so13947217b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 06:16:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760966180; x=1761570980; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bv/hgIoX+50q6Ixl1xcYkiMJg4G9dL+7TCf9i2+ayLE=;
-        b=v9ObOySAMxKfqlWb1A248zqCxkKst6dl7NvROqP/GohInsthDgV6zcuElgPMCH/TYN
-         505ExZHa2iNtnW5+8KpJ6Pph/3f2yxReiZ32GJETGDOor9qtybbAlQ0G0lt4I+edBEij
-         XqYCZVNWiK6A4Cys+DGVcB+HCukpz+lJCz058j/1iJuEUU3dxTV8NF9Dp3IP+sOOR+nv
-         IfIxiYzq4ZAdufOpkPBGdTm+FbPPcodh5t+D/Xos49bFzskv/oBMfaT7guQtvusBxUi3
-         YHxR1YbnvxGqC/uh7ygImj274V6wT2w0f8gjN8CqofBPCH4he0IV8k8ae0Tf8kWfswIZ
-         jU3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760966180; x=1761570980;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Bv/hgIoX+50q6Ixl1xcYkiMJg4G9dL+7TCf9i2+ayLE=;
-        b=UwXC2ieJGnH5wby8umdK7azIREvFHVJXpeGkzeRyiNIw7COUFb7ursnaIu9odtFbwH
-         i6vg4kY3QlE2uYPsLHw1UIKdc4aog38Tgz0ntbsnLm96r5J3iiCAzShuMfbC7Tkb8pe6
-         cTc0H8EYXkBmLIscKCc74Fi8C7/+Rz9ymcjHLHcl88EExreSCsWh5fghsKWEz8SwAyYn
-         75I/FEW81lPDSho1jfsB/1FYomrI6e9TcIG4ulBTkHDhpjpfgdgrWfhN2u87bYjy+1P+
-         +QQ+VT/gx4rxZ+eOQiEflpW8rRPgWiYJ/8tyxGaO6BoBgj6Jyk28EVs0asaicCaZaZ2q
-         56sg==
-X-Forwarded-Encrypted: i=1; AJvYcCUi7Jf2vJ3yHNGEEciBQ5YeL9hZUXNk+02prDjqcr5tb3cmVYlSAxk6iubMuvn8CUKgKgKymjjU+ahon0kRPZHy@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywn6E02yTx5bW0x7BaQmMnmnS7WjFo+pvROD9qVHeW/rHStqHki
-	10fP7biCj8KcZ4Qn9tbtFMsKD4VH3gGznMmlkeu2xwq1Jb7fjDZsUw64GyKl4oZawHehjYTt9JF
-	mjHWR2g64RNQugpiW78kEtsj9sHsXZsA+xgjq1Yxdew==
-X-Gm-Gg: ASbGncuTnKHN0S4oYqMdrRyfHomgOvlsRnQbPTvRODGgKQSE/Qw1ipGStVe6aPSGDM5
-	r1FYjsz9hB6vkp+UiZPUOHkBmdFvryVvWXeiJEKyXnjqcqg0W6tbSpUZE3JXrPEx3g2ZNOuNET0
-	oodbo31j9fpHArdXwf9GVEUQ6Vdx0mybH4TPB3TFWK5wciKl3JbMYEXAcjXYvZ0+I6duktfe9SU
-	CWIIvaKvP2eY9ZFHVIR53f9Rt8tuhQqtWWpzIYFhJH/Ez8rH0RsvKlA9fokQAo2LJiEycHR
-X-Google-Smtp-Source: AGHT+IGnRUd6oOWdcIGq7ZJOM2TXHgRRiMIGNGat5wkkLEzDStDeU0jE+0gV73QBrOSN31p7sfrpQMby2GN8IBO6/98=
-X-Received: by 2002:a05:690e:134f:b0:63e:3352:4eef with SMTP id
- 956f58d0204a3-63e335251d5mr4077188d50.69.1760966179641; Mon, 20 Oct 2025
- 06:16:19 -0700 (PDT)
+	Mon, 20 Oct 2025 13:17:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=GTq/+CR+1YPS7UoGRwrDDUPcf4nRdaeC2o8uP0i5q8s=; b=UQ4RY7a+iw2ZNe6jCaBXAspIq0
+	ZGZiSu+snnG1VxqR0lS6tv+dPf1jX3LpaKq0oVTtAwnhzkq8c1UUTJztqLmQbOpw2CwAuohUQ37TC
+	jdfPyfM2qd5JvEEJnJLqkM/ToRFaZxlGmqpN9sTrga9IIEcdvZcy7owoCGcVpn4muoTZ2OwXAigB/
+	NdbSch5+8iyAuWFOsHGaF8oQFj48nrdQIHjzKcBwtQemugFgQhGigdTRL7RJjl4+C79+cnPq5LaBp
+	tbZA0qE0uy66tBV7gHf9V4uvB30R/0y2CM2VpUvIpAJrm2WuCOvM5FfqUlkQTVKt/uNkV9fbV22IZ
+	d0p02pYA==;
+Date: Mon, 20 Oct 2025 15:15:11 +0200
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Lee Jones <lee@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alistair Francis
+ <alistair@alistair23.me>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
+ <broonie@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.li@nxp.com>, Andreas
+ Kemnade <akemnade@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski
+ <krzysztof.kozlowski@linaro.org>
+Subject: Re: (subset) [PATCH v3 1/3] dt-bindings: mfd: sy7636a: Add missing
+ gpio pins and supply
+Message-ID: <20251020151511.1fd8611b@kemnade.info>
+In-Reply-To: <175993751776.2584245.7441294249150226238.b4-ty@kernel.org>
+References: <20250917-sy7636-rsrc-v3-1-331237d507a2@kernel.org>
+	<175993751776.2584245.7441294249150226238.b4-ty@kernel.org>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-References: <20251003150251.520624-1-ulf.hansson@linaro.org>
- <20251003150251.520624-3-ulf.hansson@linaro.org> <87ms5pzkxa.ffs@tglx>
-In-Reply-To: <87ms5pzkxa.ffs@tglx>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 20 Oct 2025 15:15:43 +0200
-X-Gm-Features: AS18NWAQ9Q6Yt14QDB7s6GeA-9Aoe7Poi1wd95vo2hk4UxQrH-HTLgjH3ho0lzw
-Message-ID: <CAPDyKFrVkO1nn-1C7z9RJBX-bzxQ8_tBhhKNaK7h++NbAoT3zg@mail.gmail.com>
-Subject: Re: [PATCH 2/3] arm64: smp: Implement cpus_has_pending_ipi()
-To: Thomas Gleixner <tglx@linutronix.de>, Mark Rutland <mark.rutland@arm.com>, 
-	Marc Zyngier <maz@kernel.org>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Maulik Shah <quic_mkshah@quicinc.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, linux-pm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_061621_149039_9537B2BC 
-X-CRM114-Status: GOOD (  20.08  )
+X-CRM114-CacheID: sfid-20251020_061732_942839_DCFCE022 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +77,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Marc
+On Wed, 08 Oct 2025 16:31:57 +0100
+Lee Jones <lee@kernel.org> wrote:
 
-On Fri, 17 Oct 2025 at 16:01, Thomas Gleixner <tglx@linutronix.de> wrote:
->
-> On Fri, Oct 03 2025 at 17:02, Ulf Hansson wrote:
-> > Note, the implementation is intentionally lightweight and doesn't use
-> > any
->
-> By some definition of lightweight.
->
-> >  static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
-> >  {
-> > +     unsigned int cpu;
-> > +
-> > +     for_each_cpu(cpu, target)
-> > +             per_cpu(pending_ipi, cpu) = true;
->
-> Iterating over a full cpumask on a big system is not necessarily
-> considered lightweight. And that comes on top of the loop in
-> smp_call_function_many_cond() plus the potential loop in
-> arm64_send_ipi()...
->
-> None of this is actually needed. If you want a lightweight racy check
-> whether there is an IPI en route to a set of CPUs then you can simply do
-> that in kernel/smp.c:
->
-> bool smp_pending_ipis_crystalball(mask)
-> {
->         for_each_cpu(cpu, mask) {
->                 if (!llist_empty(per_cpu_ptr(&call_single_queue, cpu)))
->                         return true;
->         }
->         return false;
-> }
->
-> No?
+> On Wed, 17 Sep 2025 09:14:29 +0200, Andreas Kemnade wrote:
+> > To be able to fully describe how the SY7636A is connected to the system,
+> > add properties for the EN and VCOM_EN pins. To squeeze out every bit
+> > of unused current, in many devices it is possible to power off the
+> > complete chip. Add an input regulator to allow that.
+> > 
+> >   
+> 
+> Applied, thanks!
+> 
+> [1/3] dt-bindings: mfd: sy7636a: Add missing gpio pins and supply
+>       commit: 7d983e997cb53d4c48b61b105163c31c92a35823
+> 
+hmm, what is the fate of this? I remember having seen this in your
+for-mfd-next-next branch. But now I cannot find it neither in
+your mfd-next nor your mfd-next-next nor general linux-next.
 
-Indeed this is way better, thanks for your suggestion!
-
-I have also tried this out and can confirm that it gives the same
-improved results on the Dragonboard 410c!
-
-I will submit a new version of the series and I will try to
-incorporate all the valuable feedback I have received.
-
-Thanks everyone and kind regards
-Uffe
+Regards,
+Andreas
 
