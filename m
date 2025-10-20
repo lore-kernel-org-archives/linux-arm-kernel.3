@@ -4,51 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B6FCCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:05:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC71FCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JxdKLquGDy40MTK1OxxcobkJRKlQRkZ2NfGTEbx+iDA=; b=fkU/zAF7MHsmduRPHAjs0xtpOw
-	Ut6i5aM6SDtX3sjvsjd2MEXsokJNHLvxX6OeNRFe5i5Lxe3ol+ePOQt+nRaWau1n8VWVnllxQVbdm
-	z4BUAaLYiEUEmv1aFQaqtq3e8w0/b96/MkuBGyWTdSUMS4FB6TJ9qBn91JuSj4EkfkdCpFaPsWka1
-	Njgo0p+OYaXg7UK+7XPDyTkP469/vA2x4yl1AJ1F9xUppkCjpIaXtgwzXap+v+Fx9Tf5CE9t7R+m4
-	/XN7Gyn9JPwjdRO8XXokhFLCWQJftcHaX+DrFe8dHabMAfaaUySeHuGtST7kSshrGkcZmEIodMzA3
-	kd3sksGw==;
+	bh=bpE33ixsZKka12SJ9vJFEx7XoP64MUoFBquOykC8kLg=; b=tNJSc9hCfE/6BAEIJsYSPFQ+h6
+	w7zA48QcxFbRD4X5+qPUG88jhQK4rRthfiffhw9Cy3ZBAUZlD/W9+kL+TmZebzYK5+opoX9DfIlKS
+	cgS/e8r4LyzjHBI+e7DhBCaJ81sRzMg9FXI9eRiA+oQKKX+QXM3oz35kM/L4dvkjMpMIEFjMoq0eI
+	fEHrERGAGUABcT6TNT37jF5xagYhuOMjtuCpDtQPYCWS4cLG33Zrsu7FhDIfSG3kRJYq6qig/wQfG
+	70EFxZRtvoSFPpv/aUH+q40YaLTgYnPMUiuarwFaJFT1BIpzWmfAkbc7OE/l+tAe1UawhyuO6aq9Y
+	jKX4azQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmlO-0000000CjKd-1ewl;
-	Mon, 20 Oct 2025 10:05:14 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vAmlU-0000000CjQk-0a5p;
+	Mon, 20 Oct 2025 10:05:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAml2-0000000CiyW-2kw7;
-	Mon, 20 Oct 2025 10:04:54 +0000
+	id 1vAml8-0000000Cj3x-1jZW;
+	Mon, 20 Oct 2025 10:04:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=bpE33ixsZKka12SJ9vJFEx7XoP64MUoFBquOykC8kLg=; b=B6DiKt56PZut8P3Mxc/4s8Ydo/
+	NaXKJa5d09mhme3SyWGQst5TewMb9B6pM4CIGUwrSaklO1mxefE/hYVKvtbOyiPp8cgafILyIHMsA
+	Ss493p1eA6aB9EbyWHbpzzz16oQaM7pkxCKVjUNzxvnPKToqo4KjI9nD0754RUKorEKKMilT7AJ8X
+	gKZtHgXpSyScZHa5kH+JaPvDExQDEaB67jEA5UpnjEqZdL29iME1nidsMzUyDCIzm7SucahzBUayO
+	TMQDQJD9vFv9ETDataY6Yj5hmc/uL4DevMNqwteYXWVRqq8Oh5rpLvTV0x21ZQ15S+Y1jNQ8s/0DR
+	uJMZAQiQ==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAml2-00000009hXb-1p25;
+	Mon, 20 Oct 2025 10:04:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760954690;
-	bh=wvumRtQ3KWxNLuSCqqYpTqD88kqpmy34MP/x6Tf0kEs=;
+	s=mail; t=1760954686;
+	bh=ARtDZwsdCFqaJMeHgUn82RRxg6fZeKD7Hzqi7I3KSJA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ms6CiYVST6M90q1cs07+V3lOwJ1cYQQ8Sk+nWwbFl6Gal5W+CbF3WAItwDCo9+v0K
-	 SJ2wLYvWHDYLLB1RcKLmLbuDEA8CRrIBA++yJLxn9NXhnr1hEvCBIw9UE3tu4apvlQ
-	 jKhC93BuucPPIN4WzrEuv/YOwjDjIIAAkG7VKi5/BhXv44Ak8Mxg1rx0oRswc0Y6Jf
-	 QNpQeOBSlsCOp3zw5joRiHZ4jQULcKjOShxWQs98L4oGM1XO2Dz1hIOqqRZnIDDWmz
-	 y7G4Hsi9cDZo52cZRL52ZaHWuIv2ba9fdo/N5E1dOW3z7NyJbTdWCJKE2EHEAx/CNY
-	 ukiXDPayF6FSQ==
+	b=cH2jcxgGTWXbL5Uj9plnlDcSy1rIpK6H0scnSzyf3uB+Y6IVZjH5SpJIZMPQ6J82p
+	 AlZFZK26tN47zUgLf/JSIF15au/EParWh5QZ1QqcG+p0xF1xLetq4VtSgqjidZvY8O
+	 RUXUtIqGo8f2xt3wrohwYKbmKJY0RtCb7jDlUELVaec2A75/e4777hmbpQ4z2JwZdz
+	 Ap1oab188MzOSS48fZvU71C55N4t5SCGnAvArZcvQoI7HfSlrq6ISEAAZ+5P9nlf5c
+	 ABovrbf1C68PpMuMneDeIEK8ifEP0dleQanTHIzgAj0WOp5w8518XbmCM46HhhTt6i
+	 PMH3MFhCB0cqw==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DB73617E108C;
-	Mon, 20 Oct 2025 12:04:49 +0200 (CEST)
-Message-ID: <24b74989-4e31-49e3-8652-c2439f368b26@collabora.com>
-Date: Mon, 20 Oct 2025 12:04:49 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 611DC17E0FAD;
+	Mon, 20 Oct 2025 12:04:45 +0200 (CEST)
+Message-ID: <bd9a2670-008a-4e0a-9ad2-90bdad22778d@collabora.com>
+Date: Mon, 20 Oct 2025 12:04:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 10/20] soc: mediatek: mtk-cmdq: Extend cmdq_pkt_write
- API for SoCs without subsys ID
+Subject: Re: [PATCH v8 02/20] mailbox: mtk-cmdq: Refine DMA address handling
+ for the command buffer
 To: Jason-JH Lin <jason-jh.lin@mediatek.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
@@ -66,15 +80,15 @@ Cc: Matthias Brugger <matthias.bgg@gmail.com>,
  dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
 References: <20251017065028.1676930-1-jason-jh.lin@mediatek.com>
- <20251017065028.1676930-11-jason-jh.lin@mediatek.com>
+ <20251017065028.1676930-3-jason-jh.lin@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20251017065028.1676930-11-jason-jh.lin@mediatek.com>
+In-Reply-To: <20251017065028.1676930-3-jason-jh.lin@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_030452_885443_CEC81E2B 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20251020_110454_518120_268F019C 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,57 +104,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 17/10/25 08:44, Jason-JH Lin ha scritto:
-> This patch extends the cmdq_pkt_write API to support SoCs that do not
-> have subsys ID mapping by introducing new register write APIs:
-> - cmdq_pkt_write_pa() and cmdq_pkt_write_subsys() replace
->    cmdq_pkt_write()
-> - cmdq_pkt_write_mask_pa() and cmdq_pkt_write_mask_subsys() replace
->    cmdq_pkt_write_mask()
+> GCE can only fetch the command buffer address from a 32-bit register.
+> Some SoCs support a 35-bit command buffer address for GCE, which
+> requires a right shift of 3 bits before setting the address into
+> the 32-bit register. A comment has been added to the header of
+> cmdq_get_shift_pa() to explain this requirement.
 > 
-> To ensure consistent function pointer interfaces, both
-> cmdq_pkt_write_pa() and cmdq_pkt_write_subsys() provide subsys and
-> pa_base parameters. This unifies how register writes are invoked,
-> regardless of whether subsys ID is supported by the device.
+> To prevent the GCE command buffer address from being DMA mapped beyond
+> its supported bit range, the DMA bit mask for the device is set during
+> initialization.
 > 
-> All GCEs support writing registers by PA (with mask) without subsys,
-> but this requires extra GCE instructions to convert the PA into a GCE
-> readable format, reducing performance compared to using subsys directly.
-> Therefore, subsys is preferred for register writes when available.
+> Additionally, to ensure the correct shift is applied when setting or
+> reading the register that stores the GCE command buffer address,
+> new APIs, cmdq_convert_gce_addr() and cmdq_revert_gce_addr(), have
+> been introduced for consistent operations on this register.
 > 
-> API documentation and function pointer declarations in cmdq_client_reg
-> have been updated. The original write APIs will be removed after all
-> CMDQ users transition to the new interfaces.
+> The variable type for the command buffer address has been standardized
+> to dma_addr_t to prevent handling issues caused by type mismatches.
 > 
+> Fixes: 0858fde496f8 ("mailbox: cmdq: variablize address shift in platform")
 > Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
-> ---
->   drivers/soc/mediatek/mtk-cmdq-helper.c | 54 +++++++++++++++++
->   include/linux/soc/mediatek/mtk-cmdq.h  | 83 ++++++++++++++++++++++++++
->   2 files changed, 137 insertions(+)
-> 
-
-> diff --git a/include/linux/soc/mediatek/mtk-cmdq.h b/include/linux/soc/mediatek/mtk-cmdq.h
-> index 154d0511a0ad..f6dc43c036bd 100644
-> --- a/include/linux/soc/mediatek/mtk-cmdq.h
-> +++ b/include/linux/soc/mediatek/mtk-cmdq.h
-> @@ -57,6 +57,10 @@ struct cmdq_client_reg {
->   	phys_addr_t pa_base;
->   	u16 offset;
->   	u16 size;
-> +	int (*reg_write)(struct cmdq_pkt *pkt, u8 subsys, u32 pa_base,
-> +			 u16 offset, u32 value);
-
-(*pkt_write)
-
-> +	int (*reg_write_mask)(struct cmdq_pkt *pkt, u8 subsys, u32 pa_base,
-> +			      u16 offset, u32 value, u32 mask);
-
-(*pkt_write_mask)
-
-those names make a lot more sense.
-
-After applying the requested changes,
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
->   };
 
