@@ -4,166 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D5ACCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6312BCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:13:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5bxjB334lq2cwp/dJxagqzzbGZudoVRk26pRjV3j57k=; b=EgPsCg8rqTUy3W0cXJT+pJCQyx
-	RGlf0kRH1dOpWHPnBP9JQZCvgWgQ0aidPr7HZDAqBdySa1u8ODUHinrZQdOHvoacki5bCEM0ltQbp
-	soIQmTqAaRkExdWIbIuZOmn9iY4kSLCckQQp190c1vVq781u+FgsgqFXGxp1+RjAC2jCRrKH+eBEb
-	D4V2GupuMhxKiQ4pxWyMwCD7mpt3At9D+JILfi5USycdK+7NVYdKmgl+fvVy88vApUyWrZ0+zHZ+L
-	G+WwwYEAQt+XqRpq6tVANSWPYNfrovr7OvkKmWXynFKicATUlH6LSm0sUPnIRls3SY3WsuR6sIBRX
-	jETLgKow==;
+	bh=Pomt2ITXhIHlFit8dq3w5svz3PMdwi8h98cx9ZzxHC0=; b=iS1Ht9aO+aJGLlv+CJQWogdlok
+	QSeHH3OguW0Sks0MmbzlL07wgE2SeK5atJFhC3rZkmtETQCaMV+swDveZCj8pG0rf6weD/Rexb4LO
+	yIwvpOGcgMPn8TKheFINn77ianEjg0T3GnTml+762lr1bB+2SS6fC7VN8Ri5iQ+0r6T6sB5R0tkhZ
+	DPAnGN1S7uvn3cs3Ax2LkvRZ3tCdajrEzrzWwomnomL3ilDq6+7CA3AHntqP6TuK2slWwq5lTs39T
+	/JYluzBKlKrQah9d0LmTE3jfFxPt/XsPMPadw/A8dpCkSN2UP5jvmu+kQZNfOdIpNkevk2itSyu0R
+	1oJDjt8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAolM-0000000DKIl-1ed3;
-	Mon, 20 Oct 2025 12:13:20 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vAolk-0000000DKVr-3lsD;
+	Mon, 20 Oct 2025 12:13:44 +0000
+Received: from mail-vs1-f44.google.com ([209.85.217.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAolK-0000000DKIE-1zK7
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 20 Oct 2025 12:13:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=5bxjB334lq2cwp/dJxagqzzbGZudoVRk26pRjV3j57k=; b=aPOl1fVyOq9KzlZm4++gnBPJgz
-	gCtv5aLa0sMo7guvZHWQARV2B6ody0pgZhpX7CSJI55N/oS5+nsnpMs6d6jGlbkuxgThBeoNLDybJ
-	Q4DloM8aaPQodGiEgu38ZRNaDNIVAtjqF7i9sAwN2NF4ZnD08/dBi8tkSIuHwS5qhEZizUDjcggf5
-	T8khXv+yDGxFbkQlAwwzxPWmlBtOMbpIqPs08Nq09+bAvUgYgyBu259bWH3ZOQmzFLXeQQqIwqLdM
-	Y5YcKKlaIWohzLAIMMV26A8gcIS9d/Xu+Md3ezckW8sKCp0mi17/6Pd2QAllXIfyd/ycQneMf/DSL
-	zBOqxN/w==;
-Received: from mail-westus3azon11010067.outbound.protection.outlook.com ([52.101.201.67] helo=PH7PR06CU001.outbound.protection.outlook.com)
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAolF-00000006alF-3kra
+	id 1vAolh-0000000DKRa-09Md
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 12:13:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ks/csCaaZh7pyHqmtPwmTS030cl93VQqoo7q7qy/zVLNWIUKZCSo4zjd0oIX1y3SAPQBLbHiMnj7oMsbDFymoXhkShiZdC3tW+EAZnT6I0+EVGRLqrWHfWbXwaJ2JY0vfX3d5Wm1CZ9j34KzCrfxelmXJ9HUbGpqtX4H3UceYAlIlOqwhPkG2J1HhV9P5cCYbSa5u2FCs2tisnl/USRwffgYJuDc5EbtF+qGJ6nluZ+3G2wcFDTxjYNQAl9wD2/GQA0o/YSqqmp4lsbGEbX+Sth9mnR3hx7e90LdPl51pxHYNdK0hGBkLi1TLARWcCODYh9nPj6RpS+lVpCgNGREoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5bxjB334lq2cwp/dJxagqzzbGZudoVRk26pRjV3j57k=;
- b=CNHGIrA0QVMeGx7x0NV5olHQ0eGG3J4NXao2J0Cn1fr/DPUfzrcDXtMAt4MC2LbQQIPvRhsVVqO08hK60u0m/w+rRYTrs67LBuADj9+SPQ0B7R0CInlN++dtGE5oV1aDB38bQ1hka6jKzR5JnRICmkt+qzXNbBOV11nQfDTfDoB2N4ToFfAQAWlzDr08lDKiEbU53bgFEwUXmsNTfpxWz/RAYXM12Bk/DJNR21tEwp32OHiWQP621yDEsIIj2v3iRpnkkAGaMPmnqB75D4nuB52tiez4wJeJUfuOwGC0dIod+hV8uNDiq0hqhb2/bzk4XuN9jv9UTXQXEd7wlRj8Tg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5bxjB334lq2cwp/dJxagqzzbGZudoVRk26pRjV3j57k=;
- b=snpfilPQQTlhHlZ7hFVkJKYEz+WT4eeXpH5w+9NcgceNTGeA8n8wRe8G/W+r/mNHO49ZnjlmDJrJwRjUUr/eOFuBFDsZJ8MjccacLXTLKI9yT/iIoqDq3lhOWA/WZn5FNAF0wBAK8P2Y2D4ZsVq6wEUdeXcUxiQEiTNTlg7yxpV7UNjD33r/05AC0I/83x4qLhJ9ykP/srKytLyQO27hOkyIugaEpVLn6Im8jaag2u9juTtbgquuoF2FqrFDpayHrlRTBSvc6cvx/IW6dvMeF0FkkV094CO7GKn11RIdvUPT+wzWziuoOoIi42Z6JQdK1x+OEb5BV6mx4ItMte9RfQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by MN6PR12MB8470.namprd12.prod.outlook.com (2603:10b6:208:46d::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.16; Mon, 20 Oct
- 2025 12:12:27 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9228.015; Mon, 20 Oct 2025
- 12:12:27 +0000
-Date: Mon, 20 Oct 2025 09:12:25 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kernel test robot <lkp@intel.com>, will@kernel.org,
-	oe-kbuild-all@lists.linux.dev, jean-philippe@linaro.org,
-	robin.murphy@arm.com, joro@8bytes.org, balbirs@nvidia.com,
-	miko.lenczewski@arm.com, peterz@infradead.org, kevin.tian@intel.com,
-	praan@google.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 5/7] iommu/arm-smmu-v3: Populate smmu_domain->invs
- when attaching masters
-Message-ID: <20251020121225.GK316284@nvidia.com>
-References: <14d76eebae359825442a96c0ffa13687de792063.1760555863.git.nicolinc@nvidia.com>
- <202510172340.XyneWIPI-lkp@intel.com>
- <aPKxBh14fxnVIXK+@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aPKxBh14fxnVIXK+@Asurada-Nvidia>
-X-ClientProxiedBy: BN9PR03CA0478.namprd03.prod.outlook.com
- (2603:10b6:408:139::33) To MN2PR12MB3613.namprd12.prod.outlook.com
- (2603:10b6:208:c1::17)
+	Mon, 20 Oct 2025 12:13:43 +0000
+Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-59dff155dc6so2120957137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 05:13:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760962419; x=1761567219;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Pomt2ITXhIHlFit8dq3w5svz3PMdwi8h98cx9ZzxHC0=;
+        b=okZUNvgjpv4th0FDMpN2n9T+rtYeT/ujXrn/at8rJAI44ZhlRBJR+rIB8XhSqqdmLk
+         PswCRc3Am7I9aX5u2/qMLcwpkjHjVVoq15phr8BSzq4mltUeyYn4Li09NfX/ib9RGnnj
+         /FHHO9JlaTHr2P61E6M65Pwq6m5279k9x3MkdAzvWIza1bDk4tVik2GWDuMnG2Ac62+Y
+         qLlQfc8cVmuMVc2XmdCBTgE0abQ0ydN3uIVbMz+aNIxQXx8up5vNwgroc5kQ0k9ufr+b
+         ceAyFdYCBG1+VfcUIEtLnM22aHnFA/Lob3JQBAYp0LmH4rAXDt0SG3TeWD2NR5ute62e
+         tPcA==
+X-Forwarded-Encrypted: i=1; AJvYcCUmADNvQq6eO+K05j1+Cf1RH3rFMoFsopxFk3XyAcO2uJQcM5VSvTVxszim+kb4U/oDvO9UaPCEg1RRpLKxLXgV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzv1IhxHl4Mj0+BxrXq3UD5k+4zkWqB0o1XX7OdYfuEUew3Du3D
+	MrkJPqv2ygfmEYeVClNF+eeXgBPkrYnvFWCrSTu1hePu4nIBp0SZuxVYjBI/CPRe
+X-Gm-Gg: ASbGncundf8eQBksykO/AkTvH165sCLs/OJ1nAgTQnEnWh3zBZkCT2a6NhIMyhqGhtJ
+	wo8IEy4AZ55rx6kDz1j0niA94H+yy8LU7eZyoHHgw1bWyZgKMjgwkq/vSGgXm2FyvyApuPt4aXb
+	1Zf/VqkVCLDdG4ThsYpaXW0K5Pqf235i7SPJdM/V8YS1A1BaPNpWO02oF8ooX9nGNmiIZqM5vFH
+	g6a+BCqtgxO3t93Z1BvwjtIr8PimHR9wRyUzJxw1hD7uBRz4Oa10HxdtZdXiDOTK7rKj9pBMPi/
+	5kvhxUXyPm4ay4vfefkJJe3qh5caWfVPDWQET+LFSF1FT9gcbd5el3LjxrEOpk1GiuY954/GqZU
+	KwRWi8kY7ZMw6wEAb+K6HYu+89e73/ODNycMaqoqDv0mKcx01yzftum4ArvJ3iMge7QgTqGfnSL
+	1QR8hTlQUfIgK0YfG+GMhBZlVsbG1XiuhYP9fdcY8U2Q==
+X-Google-Smtp-Source: AGHT+IGfN7tHyqmtqpq2bFYABZ0bqWvezYzus2IJk7IQL0P+N+NOigxaVZwOF9PoQ1or5/0U9bkXaw==
+X-Received: by 2002:a05:6102:162b:b0:5d6:12fb:d188 with SMTP id ada2fe7eead31-5d7dd59d57amr3741316137.18.1760962419118;
+        Mon, 20 Oct 2025 05:13:39 -0700 (PDT)
+Received: from mail-vk1-f181.google.com (mail-vk1-f181.google.com. [209.85.221.181])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-932c3d855a0sm2391808241.3.2025.10.20.05.13.37
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 20 Oct 2025 05:13:38 -0700 (PDT)
+Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-5563c36f5dfso1655968e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 05:13:37 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWKP5I14vqe7sGfBQ2+Qa2dgMFBGzLHWqk0g3WkVEX9NS8hmzWWLH4W8sEt2vAt5HN+93sqFoQAu6dUGvh7oHFU@lists.infradead.org
+X-Received: by 2002:a05:6102:50a2:b0:5d5:f6ae:38ca with SMTP id
+ ada2fe7eead31-5d7dd6f4c27mr3609494137.41.1760962417639; Mon, 20 Oct 2025
+ 05:13:37 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|MN6PR12MB8470:EE_
-X-MS-Office365-Filtering-Correlation-Id: a8dfd62a-3d28-4f62-350f-08de0fd1ef3f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MagpK7QC+4Jm0qof2cPDSJWP/Hyv4A16rpiCJR7prSwzQxC4U4wOI7ATi36K?=
- =?us-ascii?Q?9f6iWXKqqbi2+mY6uMVlY7Qc3AxikTwbmPzmlnSonzaKbuikmoi5BhQtQI0l?=
- =?us-ascii?Q?qT7vDvrWD+0Qolh0V0brayKPsfrSZEyZMFjHLxTV8ay9ZAloijfy+V/LFlXn?=
- =?us-ascii?Q?q1j/eYfNC0VrTT35k4xAG9TjTrjeW9skdvg4TinPN/HigU0xgYjx+2Z9v1kF?=
- =?us-ascii?Q?UpCz/Qd5uwmE+f9QrWEgnnBov1NZOON3/CLulqxoqtXMYXW4UIVJXNzrpY9S?=
- =?us-ascii?Q?cJ78OsDrrAvOhHaw2s1FIBO/cMCHnH9NUOfqHp0OUgqYxhSSdXgtVbcSNOCn?=
- =?us-ascii?Q?9Lu1LPU25oGIN4wCiE7/GiqvFA5bDaxBqWDiqZgdzd1zjo5WpbutgG3ichNc?=
- =?us-ascii?Q?Y0WF4S4ghNfxCWTAQYnh/puUK5hbvaC7SJRytHl3TSJXgLauU0Bt6luGOFQo?=
- =?us-ascii?Q?/u3r81TaMiGPAo3MNWHtGn3aJMDbHJD3ZKndAgOHJLAHZV3lrrRgZCwGLqku?=
- =?us-ascii?Q?5nGssjgeSkuZkW6iQP1AIOjPazFJ/Nj6XHgAaMp+z5mmYteXyAZngpTkqM67?=
- =?us-ascii?Q?YOqbtgDSWG5gU59Wg8Z1dd2IBwf3w1nB6f8Tcjsw3BSDl20qqCtm789QbCBu?=
- =?us-ascii?Q?mEKq81oCPmc4KQFk6evv9B2/t+3Xcjv/+bVuxKCNoWxi2p/ADkh/zMPVs4qQ?=
- =?us-ascii?Q?eLR7LFCCtrF2vta4/r+l5zYXfRWJZChAugIMLwSeY9dRtQDreTzMl0nZ8AWA?=
- =?us-ascii?Q?Bb8tEvq/A7kO+fBdl/pD3K3Bu6G9my3YMDJQ3eWEW3vx0q22fG/f347BGpdA?=
- =?us-ascii?Q?S+Vv00xY4MfokPBfvmfs/TestahAr+PnRo2OxOVs2PWSnPC2IrqYYmxXAC21?=
- =?us-ascii?Q?exdgwe5JTnZDUyn3ZG8AyWl55AxHlo4sStzOVUr7eD19nmeLIkSBCtpjRMlf?=
- =?us-ascii?Q?1XhsPBOdYs5y7hJOV3eBok6R32dlJ0HWfnodAM+IYQ1eiWJqTPUfBj00qAiS?=
- =?us-ascii?Q?ReNMnvHITpnVR4oAl1nbNrLWKe053aSYDJC/X6zcK7x9hwoBPLzA4lWh1Eg0?=
- =?us-ascii?Q?X8OLF1/YZr4a5TTYjSbal29TidfFhpgd/bWWLl5u9NdLNk6VQhWsDFNWTGif?=
- =?us-ascii?Q?QbsouCMFx1Ga0Rt62v9CEuXJbECkZ2vcOBXMju/4QBdYVBnIVodv9phzY0g2?=
- =?us-ascii?Q?w8HMFCACm4nwDYPAf7TCIz5WF1IRvmebNlFrn6K2tbeHxMfDpxaFikA4sonJ?=
- =?us-ascii?Q?npLyE9SPzfux//npkv9UGU180SeYgU0s0mB0ZbRLcGpAGh0u5cpsUfhcXRRP?=
- =?us-ascii?Q?59r5p9KX4CrXwD712rjW4InMLxRgp1oyJrJ+hZNFEWvr8Q2r3q9l8F79p9Bb?=
- =?us-ascii?Q?XXvlX1CSughtlgPq6w8vo/UwxXFRBZrSAtaQa6Wh4c4QyMNovompk5oggJ1k?=
- =?us-ascii?Q?lZIKx2T8oW3Hm8XxkMQHNTo+RlEujhzP?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BQc0jB32WRlg+Hnnv5gCZI2DEAHLQbg1VkKoY4Cn17hRCL0M9TYu23dE10Cf?=
- =?us-ascii?Q?COjYFhJPghuDnuEZ/c21tDQmrWh0i4UO62mAeGiLv52/CsWZHW9IYL3xaJbi?=
- =?us-ascii?Q?94TGsbxNj0ItCre6FABVDFYfOhY5nphB2YEJAtWNGFRVsZRJT3jDzZD0B8Pr?=
- =?us-ascii?Q?qnxcPdRONzJOkEHwJaT2UBImsy9atga+qL8NeinUxawIkF5R1tiUmKmuvk/B?=
- =?us-ascii?Q?PBcH2SMM1Iyn76Zecx3TdXL4YPVFpeMSdJUSavCSfRlKnHh6wub/+J011aRp?=
- =?us-ascii?Q?msNa5eZxTYKGX8wYCxiMU60Q46Qi8a7FfCQI1vSsKl7tNqRavwMAEusOVWDZ?=
- =?us-ascii?Q?AeWnnQ7eMEn9Tf18Up4cFsIOkDvj9tepqptpXv7oOXWPKuBNDI6yrUWDpkRh?=
- =?us-ascii?Q?3grfvgDn+OfgsR+mwIbSR9p+K0qxzEye74WVmvwPleNb2P7RK9iS9WVOvrEq?=
- =?us-ascii?Q?oGaMDbdzDZJKPyFC/AGb6H1a8UuClfat+HpRw4xn8EYqzfe5x9YMpfLzHLjn?=
- =?us-ascii?Q?HiwqiJE6iicCGa/zt7jO4rUG4pRK9RPoToLOLgPCUJAs7eFglQXKyyoEB8rv?=
- =?us-ascii?Q?iliHgp8G0F6F2D/Ho2pmaaatirmZnL4gmrs14SwPpSVjgJ9EX21Aknfc4m8C?=
- =?us-ascii?Q?4OfT0Au+7A+8jzfw7/zP9RNk0srUeoY8QZxpDrVcbNsBx1uS3rYuqGKAaBoE?=
- =?us-ascii?Q?XhaPRUkcjLPjErW6XmXFBEhzFnOAqIhonWQ4iUO+vpXg64JCI9hkVQ51Uk4O?=
- =?us-ascii?Q?yr8xdeQ3ZaSG0wtxmOiDtIl/wOaxLy2ZJDxT0bmqbfT1zwhnQxld8Nhe3ep0?=
- =?us-ascii?Q?9mbF57z7R3gA4HTgbgCkHyw88EvKAGEeBUkkr6gMMesyogsCfhXfOv4HSu8x?=
- =?us-ascii?Q?OnvdZAhUVp2JYzD52HmjRE8KwYRJwYofkBmuUFeMMf7aLXPwkU2X28ztyaEJ?=
- =?us-ascii?Q?i3vzdzvpK//fy4GssocuOBUXXLKgA1WBsVgucpwOiW9VGS5rPUHq1M/3YYOJ?=
- =?us-ascii?Q?eDuOypj/nTOj7nTfspGm951nvxvBuVk67z0ItAf70qcfTl5LK9RtVPvrtqTw?=
- =?us-ascii?Q?O6lYbTNlYFdEFEwbQ25ZmpXTEi8QAL1wtlNJIO22ehkUaFXZKPIXtKgIvCvg?=
- =?us-ascii?Q?kuVHPGUZCUQt+Kzvp/rW3d3XRfGMl5OoHzQBexULC89b26V/rkKDIQ/hzn3U?=
- =?us-ascii?Q?yiS68+T6xtZstNj/AArjcG2W/wSu1pYUeFLZOsCjyQVy9uoXF42MjXRfFh1p?=
- =?us-ascii?Q?y99wUitXhi7Dv0GrQuQ+b7cENwtUA1KCLs5yG3hYSwuZmEk0DhaWlz8s3QLN?=
- =?us-ascii?Q?J8lttNdtGu1pAt91lt+rjZj6viUEGSkDOR4YeUZHNWLvzTMeh+RWE8hLZKZ7?=
- =?us-ascii?Q?KeCnEk1P4tBVL9rHzEKUd44eIrxF2N80MNWdql3WhkI4XYk7T1wlJ8p16D1+?=
- =?us-ascii?Q?cIWc54OaiXXnMAgk56vjFuWtW6D0tCgByn+GXu6z1tzG4NC8gjiKat2WB3Ut?=
- =?us-ascii?Q?7Ozk/hMAPVee65B7YfkoaPLZYzsC/nsbCokelJ7nQx/pZDmRhAmyJub0clUt?=
- =?us-ascii?Q?CWoVS/Lz05IL7c7+PKPJMkfdsNT3uwvJ4pF66oHA?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a8dfd62a-3d28-4f62-350f-08de0fd1ef3f
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2025 12:12:27.1184
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yyBIVAbQcQ8RABOjTodi0gi6mqtoS/+3h7WeDBFEZr7YmBa9nZ+vTbvDvmscjpcf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR12MB8470
+References: <cover.1760696560.git.geert+renesas@glider.be> <792d176149bc4ffde2a7b78062388dc2466c23ca.1760696560.git.geert+renesas@glider.be>
+ <aPJwtZSMgZLDzxH8@yury>
+In-Reply-To: <aPJwtZSMgZLDzxH8@yury>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 20 Oct 2025 14:13:26 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXCoqZmSqRAfujib=2fk0Ob1FiPYWBj8vMXfuXNoKhfVg@mail.gmail.com>
+X-Gm-Features: AS18NWDS1vbUG4-z_--VlQ3gjSspwjijy0fs8EPqX7O88cWCZQUNQKHTmAYei1k
+Message-ID: <CAMuHMdXCoqZmSqRAfujib=2fk0Ob1FiPYWBj8vMXfuXNoKhfVg@mail.gmail.com>
+Subject: Re: [PATCH v4 1/4] bitfield: Drop underscores from macro parameters
+To: Yury Norov <yury.norov@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	David Miller <davem@davemloft.net>, Linus Walleij <linus.walleij@linaro.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, Crt Mori <cmo@melexis.com>, 
+	Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Jacky Huang <ychuang3@nuvoton.com>, 
+	Shan-Chun Hung <schung@nuvoton.com>, Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Jakub Kicinski <kuba@kernel.org>, Alex Elder <elder@ieee.org>, 
+	David Laight <david.laight.linux@gmail.com>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, 
+	Jason Baron <jbaron@akamai.com>, Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, 
+	Michael Hennerich <Michael.Hennerich@analog.com>, Kim Seer Paller <kimseer.paller@analog.com>, 
+	David Lechner <dlechner@baylibre.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Richard Genoud <richard.genoud@bootlin.com>, 
+	Cosmin Tanislav <demonsingur@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>, 
+	Jianping Shen <Jianping.Shen@de.bosch.com>, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-edac@vger.kernel.org, qat-linux@intel.com, 
+	linux-gpio@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
+	linux-iio@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_131315_323094_402CA832 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20251020_051341_433312_12DD6BCA 
+X-CRM114-Status: GOOD (  28.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,39 +117,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 02:11:34PM -0700, Nicolin Chen wrote:
-> On Sat, Oct 18, 2025 at 12:03:27AM +0800, kernel test robot wrote:
-> > sparse warnings: (new ones prefixed by >>)
-> > >> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:3208:33: sparse: sparse: incorrect type in assignment (different address spaces) @@     expected struct arm_smmu_invs **invs_ptr @@     got struct arm_smmu_invs [noderef] __rcu ** @@
-> >    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:3208:33: sparse:     expected struct arm_smmu_invs **invs_ptr
-> >    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c:3208:33: sparse:     got struct arm_smmu_invs [noderef] __rcu **
-> ...
-> > > 3208			invst->invs_ptr = &new_smmu_domain->invs;
-> ...
-> > > 3247		rcu_assign_pointer(*invst->invs_ptr, invst->new_invs);
-> 
-> Looks like we need:
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index 8906c1625f428..398d8beb8f862 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -1105,7 +1105,7 @@ static inline bool arm_smmu_master_canwbs(struct arm_smmu_master *master)
->   *            to_unref argument to an arm_smmu_invs_unref() call
->   */
->  struct arm_smmu_inv_state {
-> -       struct arm_smmu_invs **invs_ptr;
-> +       struct arm_smmu_invs __rcu **invs_ptr;
->         struct arm_smmu_invs *old_invs;
->         struct arm_smmu_invs *new_invs;
->  };
+Hi Yury,
 
-Isn't it:
+On Fri, 17 Oct 2025 at 18:37, Yury Norov <yury.norov@gmail.com> wrote:
+> On Fri, Oct 17, 2025 at 12:54:09PM +0200, Geert Uytterhoeven wrote:
+> > There is no need to prefix macro parameters with underscores.
+> > Remove the underscores.
+> >
+> > Suggested-by: David Laight <david.laight.linux@gmail.com>
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > ---
+> > v4:
+> >   - Update recently introduced FIELD_MODIFY() macro,
 
- struct arm_smmu_invs * __rcu *invs_ptr;
+> > --- a/include/linux/bitfield.h
+> > +++ b/include/linux/bitfield.h
+> > @@ -60,68 +60,68 @@
+> >
+> >  #define __bf_cast_unsigned(type, x)  ((__unsigned_scalar_typeof(type))(x))
+> >
+> > -#define __BF_FIELD_CHECK(_mask, _reg, _val, _pfx)                    \
+> > +#define __BF_FIELD_CHECK(mask, reg, val, pfx)                                \
+> >       ({                                                              \
+> > -             BUILD_BUG_ON_MSG(!__builtin_constant_p(_mask),          \
+> > -                              _pfx "mask is not constant");          \
+> > -             BUILD_BUG_ON_MSG((_mask) == 0, _pfx "mask is zero");    \
+> > -             BUILD_BUG_ON_MSG(__builtin_constant_p(_val) ?           \
+> > -                              ~((_mask) >> __bf_shf(_mask)) &        \
+> > -                                     (0 + (_val)) : 0,               \
+> > -                              _pfx "value too large for the field"); \
+> > -             BUILD_BUG_ON_MSG(__bf_cast_unsigned(_mask, _mask) >     \
+> > -                              __bf_cast_unsigned(_reg, ~0ull),       \
+> > -                              _pfx "type of reg too small for mask"); \
+> > -             __BUILD_BUG_ON_NOT_POWER_OF_2((_mask) +                 \
+> > -                                           (1ULL << __bf_shf(_mask))); \
+> > +             BUILD_BUG_ON_MSG(!__builtin_constant_p(mask),           \
+> > +                              pfx "mask is not constant");           \
+> > +             BUILD_BUG_ON_MSG((mask) == 0, pfx "mask is zero");      \
+> > +             BUILD_BUG_ON_MSG(__builtin_constant_p(val) ?            \
+> > +                              ~((mask) >> __bf_shf(mask)) &  \
+> > +                                     (0 + (val)) : 0,                \
+> > +                              pfx "value too large for the field"); \
+> > +             BUILD_BUG_ON_MSG(__bf_cast_unsigned(mask, mask) >       \
+> > +                              __bf_cast_unsigned(reg, ~0ull),        \
+> > +                              pfx "type of reg too small for mask"); \
+> > +             __BUILD_BUG_ON_NOT_POWER_OF_2((mask) +                  \
+> > +                                           (1ULL << __bf_shf(mask))); \
+> >       })
+>
+> I agree that underscored parameters are excessive. But fixing them has
+> a side effect of wiping the history, which is a bad thing.
+>
+> I would prefer to save a history over following a rule that seemingly
+> is not written down. Let's keep this untouched for now, and if there
+> will be a need to move the code, we can drop underscores as well.
 
-This is a pointer to a rcu controlled pointer, not a rcu controlled
-pointer to a pointer..
+Fair enough.
+So I assume you are fine with not having underscored parameters in
+new code, like in [PATCH v4 2/4]?
 
-Jason
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
