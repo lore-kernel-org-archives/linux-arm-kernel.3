@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76921CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FECCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QNcsf2bxhA6GEinVzYinU1wal/lvjlluyIMCaStgmnc=; b=ojOtjbSo42zcsaob0cr944DFSF
-	Oj6eO3EvziegcrTzeag3Un4NV4909JN/y6FqFHi9xgKk3g+ikdkGkBFRyttR4YdCCi8jI8wfGhLca
-	3gqHsmhUK8+w+94Xej9lZLnxJkZPMw67q144JalayTgKCYR1cWYZtuTEEveuNFzd0iBG2h7LAbUav
-	nqzBVgzeCld1clBYNQY6XIdK+PRBYc+IBuXLeRRwC51s8RIQzzIXvU64EaLfXHx9UdQgrE5HIqALH
-	3AYdlWcVBvQplAuHsb/7jO+GZLXojgvqDjsGzq6PskAiHkBsfgCHOrZBtCN4ZMv5Hzf+8UwSE2mv7
-	Q9xhaNng==;
+	bh=XDuvQXb54cMNvi0VR+KH+67MSFQG1h6rXg3U25/jH1Q=; b=hSWTYXFrgaPtBmf6/WRZdSTZ+a
+	HlV0UN2JYmUM0fCBMwmDrrxtoJwc7rzUuFVqsi153Z9UWkSeJmKao2H31X3h7CYyeq1E6dDpHqNyj
+	WcRoKnw2O1fk6x15NChWujSCYvao1tthTA0F3nH7z7AV2L2J/kM186jATpc8Ry4OT/CqBbJ2PH+tt
+	MZG+9mkNEHTTWGuXOIw4i8d9N9/HZxJI2X3jMoG63VW4HRGyRHEYOBjLWNYHBRVP73HEi/kvbVr4p
+	f51RdsV1kRE2EDZgzVnvMq6nsJzelc5XJr3cQnDbQanCxx86i6x+EBXErD9ssjG3FAh9WTEPSFNXB
+	B+VpGk5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmAD-0000000CZQY-3Unr;
+	id 1vAmAD-0000000CZPt-2B7G;
 	Mon, 20 Oct 2025 09:26:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmA9-0000000CZON-3BB5
+	id 1vAmA8-0000000CZNs-3ndQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 09:26:47 +0000
+	Mon, 20 Oct 2025 09:26:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 735F122C7;
-	Mon, 20 Oct 2025 02:26:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E767C1F91;
+	Mon, 20 Oct 2025 02:26:35 -0700 (PDT)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D3573F66E;
-	Mon, 20 Oct 2025 02:26:43 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8DA873F66E;
+	Mon, 20 Oct 2025 02:26:42 -0700 (PDT)
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: stable@vger.kernel.org
 Cc: Ryan Roberts <ryan.roberts@arm.com>,
@@ -42,17 +42,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	James Morse <james.morse@arm.com>
-Subject: [PATCH 5.15-6.1 2/2] arm64: errata: Apply workarounds for Neoverse-V3AE
-Date: Mon, 20 Oct 2025 10:26:28 +0100
-Message-ID: <20251020092630.592033-3-ryan.roberts@arm.com>
+Subject: [PATCH 5.15-6.1 1/2] arm64: cputype: Add Neoverse-V3AE definitions
+Date: Mon, 20 Oct 2025 10:26:27 +0100
+Message-ID: <20251020092630.592033-2-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251020092630.592033-1-ryan.roberts@arm.com>
 References: <20251020092630.592033-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_022645_890605_27D9EED6 
-X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-CacheID: sfid-20251020_022644_981939_5DE7DE80 
+X-CRM114-Status: UNSURE (   9.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -70,15 +70,16 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mark Rutland <mark.rutland@arm.com>
 
-[ Upstream commit 0c33aa1804d101c11ba1992504f17a42233f0e11 ]
+[ Upstream commit 3bbf004c4808e2c3241e5c1ad6cc102f38a03c39 ]
 
-Neoverse-V3AE is also affected by erratum #3312417, as described in its
-Software Developer Errata Notice (SDEN) document:
+Add cputype definitions for Neoverse-V3AE. These will be used for errata
+detection in subsequent patches.
 
-  Neoverse V3AE (MP172) SDEN v9.0, erratum 3312417
+These values can be found in the Neoverse-V3AE TRM:
+
   https://developer.arm.com/documentation/SDEN-2615521/9-0/
 
-Enable the workaround for Neoverse-V3AE, and document this.
+... in section A.6.1 ("MIDR_EL1, Main ID Register").
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: James Morse <james.morse@arm.com>
@@ -89,48 +90,29 @@ Signed-off-by: Will Deacon <will@kernel.org>
 [ Ryan: Trivial backport ]
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- Documentation/arm64/silicon-errata.rst | 2 ++
- arch/arm64/Kconfig                     | 1 +
- arch/arm64/kernel/cpu_errata.c         | 1 +
- 3 files changed, 4 insertions(+)
+ arch/arm64/include/asm/cputype.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/arm64/silicon-errata.rst b/Documentation/arm64/silicon-errata.rst
-index e7b50babd0d5..a8eddcf24231 100644
---- a/Documentation/arm64/silicon-errata.rst
-+++ b/Documentation/arm64/silicon-errata.rst
-@@ -181,6 +181,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | Neoverse-V3     | #3312417        | ARM64_ERRATUM_3194386       |
- +----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | Neoverse-V3AE   | #3312417        | ARM64_ERRATUM_3194386       |
-++----------------+-----------------+-----------------+-----------------------------+
- | ARM            | MMU-500         | #841119,826419  | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
- | ARM            | MMU-600         | #1076982,1209401| N/A                         |
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 6bb23a041e32..d889a466468c 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1027,6 +1027,7 @@ config ARM64_ERRATUM_3194386
- 	  * ARM Neoverse-V1 erratum 3324341
- 	  * ARM Neoverse V2 erratum 3324336
- 	  * ARM Neoverse-V3 erratum 3312417
-+	  * ARM Neoverse-V3AE erratum 3312417
-
- 	  On affected cores "MSR SSBS, #0" instructions may not affect
- 	  subsequent speculative instructions, which may permit unexepected
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 78aea409b092..f527e9590e11 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -457,6 +457,7 @@ static const struct midr_range erratum_spec_ssbs_list[] = {
- 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1),
- 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2),
- 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V3),
-+	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V3AE),
- 	{}
- };
- #endif
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index 41612b03af63..8e4bdd91856a 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -93,6 +93,7 @@
+ #define ARM_CPU_PART_NEOVERSE_V2	0xD4F
+ #define ARM_CPU_PART_CORTEX_A720	0xD81
+ #define ARM_CPU_PART_CORTEX_X4		0xD82
++#define ARM_CPU_PART_NEOVERSE_V3AE	0xD83
+ #define ARM_CPU_PART_NEOVERSE_V3	0xD84
+ #define ARM_CPU_PART_CORTEX_X925	0xD85
+ #define ARM_CPU_PART_CORTEX_A725	0xD87
+@@ -173,6 +174,7 @@
+ #define MIDR_NEOVERSE_V2 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V2)
+ #define MIDR_CORTEX_A720 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720)
+ #define MIDR_CORTEX_X4 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X4)
++#define MIDR_NEOVERSE_V3AE	MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V3AE)
+ #define MIDR_NEOVERSE_V3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V3)
+ #define MIDR_CORTEX_X925 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X925)
+ #define MIDR_CORTEX_A725 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A725)
 --
 2.43.0
 
