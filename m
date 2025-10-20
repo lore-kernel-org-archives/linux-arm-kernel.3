@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCBECCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 00:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C7E5CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 00:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5nryTMLZz/qjOx/dPDZ8UzUaiG4ZutJykzvKGEer7ls=; b=nSj1jb7L1vtfC5LoaKmT6Tj+/P
-	RqOyz/M5v153VyQxNH74HLy8FAxwl6+ismUlwvQ3c3h8hvu0SEf/JvaM/YFiLJ6dF683ILJuAFgAe
-	jri+QEFIII3/WHM3Nkuor2Pbgs5Bjedlpdr8X7lQX9b7Tc4RwRf1eG9dgEAuTnp+d7LQQVzTOv/dC
-	JkzZxaVUBS9U8JBjN1twn0K1vsXeZ1AkEwVpX4KZ6XWC9EVwn7Df9pKHJet6mxRPMJZ3fvMKz0FOk
-	FPxWm82pZq3BIm2cWTIezYeG4FfjSx2mpLHtaa3pb58jZl5XGIrq7NHW6RT+mQy4MTmZpTnnMLjdl
-	n8RQnA+A==;
+	bh=R2dzn/u327kMlDGEaPO2nM9P4HDSsVjwZNcpdrm5Z/c=; b=YFpYtR0LxACJ5vwlV8w/rrgRK5
+	KtVCdATTKsD3mxKRz3glzb7a0rSu+4hCR5qkb6FN9pnKrGgBlcuqap4Ph8N9POQ6tTLqiUciKm78l
+	5ZKauiQE+zlVP69mc93RSzu1RKJwdCFpC0vwArlofE9myC0lT9AV0l+oxJjckF0hzoyhp7Dke293k
+	TGnIwxY4gIcRYdSqScT6A9du59RqJtzVuvqvYVHGDD23jxflnwney/1P5AnqD70VDo7TwE73Ely3L
+	B8slgtTesMBvxx5A1LwsDZkKiV94OJaO/o7cEwiLPKjXLdEFUoYHrOLbasEbpNpfxRlT50t3D9EJd
+	t3iTescg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAe9g-0000000BZU9-3BzE;
-	Mon, 20 Oct 2025 00:53:44 +0000
+	id 1vAe9h-0000000BZVN-2Hii;
+	Mon, 20 Oct 2025 00:53:45 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAe9Z-0000000BZP9-3AsL
+	id 1vAe9a-0000000BZPz-3eZd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 00:53:39 +0000
+	Mon, 20 Oct 2025 00:53:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 675F245F14;
-	Mon, 20 Oct 2025 00:53:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1E7AC116B1;
-	Mon, 20 Oct 2025 00:53:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8C81345C19;
+	Mon, 20 Oct 2025 00:53:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34F10C116D0;
+	Mon, 20 Oct 2025 00:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760921617;
-	bh=Ocy9eV0L13nS4ER5Z553g2xK+fvNl2zjeQzulMWNTqs=;
+	s=k20201202; t=1760921618;
+	bh=C2S+qsv86X6YHw0RsYoz1ghvx9MVynx7qbxPFYMhHRI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=d1889XQwlMFMZELdIY0pVdzdGDHKZMMIpa1KwIwJxItnBfErqrrYXn0Mi5bTrkO4u
-	 2R4ON00DsyPINlQD9Q1p9BOqrd7GxCO7KmKCDgEmc0wXPmFXVu8K5t1hOFU9iwGzhv
-	 SlMGoDxgTI5jxSqdF2zZZSWzQKb90cQR2z2h3B5rgy76Fn6ADuW3aqyCJHepGaHoQU
-	 A2pF5Il18C4YeyDQhSITVFCkKv9nzR2Dwtm7uLDDQaHmx0ip9ObuOgplpqu3KkPrM7
-	 kJRahMDUX4opNuo2rEdSemNh5X0jltrnArbX/IjXF3BDRFu2cbtiY8brPAjKrujwNe
-	 1pLJZ4TuTQ3Yw==
+	b=btBxdSoKK8eYo3dLvauelp0i1L3qqEStWYUk3UWxMcbn+VLvQcBpCicN0lqNtUvfL
+	 b72Ofqo+Qobk3gyo8/SYRFBVjb16+TEDVc3e07Nd59SbNJzZDJSldkTWua7lXgvYZ7
+	 hGA+RnNVhh2BLaQq+Jgb5Z0J5KfF6LNb3dqpaZ/wPhq43KGEI+tqDGvnrsTewNKnk/
+	 Mqr4vRGZSUv4+FZPZ5P0hJs4Fjwh+ogDkkZU2Kirgcvdj4DLOYhY083846AAWRmvet
+	 kMnHKLRVfhGnz+nw1FZJJOWyBLlYRpmRZM0tF4aMQ/HTl2J0ExvYgonVCIrZQJorMs
+	 axuWAhPVFSguw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: David Howells <dhowells@redhat.com>,
@@ -51,17 +51,17 @@ Cc: David Howells <dhowells@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 13/17] crypto: arm64/sha3 - Update sha3_ce_transform() to prepare for library
-Date: Sun, 19 Oct 2025 17:50:34 -0700
-Message-ID: <20251020005038.661542-14-ebiggers@kernel.org>
+Subject: [PATCH 16/17] crypto: jitterentropy - use default sha3 implementation
+Date: Sun, 19 Oct 2025 17:50:37 -0700
+Message-ID: <20251020005038.661542-17-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.1.dirty
 In-Reply-To: <20251020005038.661542-1-ebiggers@kernel.org>
 References: <20251020005038.661542-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_175337_835324_51307E30 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20251019_175339_068075_E2E775E1 
+X-CRM114-Status: GOOD (  15.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,209 +76,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-- Use size_t lengths, to match the library.
+Make jitterentropy use "sha3-256" instead of "sha3-256-generic", as the
+ability to explicitly request the generic code is going away.  It's not
+worth providing a special generic API just for jitterentropy.  There are
+many other solutions available to it, such as doing more iterations or
+using a more effective jitter collection method.
 
-- Pass the block size instead of digest size, and add support for the
-  block size that SHAKE128 uses.  This allows the code to be used with
-  SHAKE128 and SHAKE256, which don't have the concept of a digest size.
-  SHAKE256 has the same block size as SHA3-256, but SHAKE128 has a
-  unique block size.  Thus, there are now 5 supported block sizes.
-
-Don't bother changing the "glue" code arm64_ce_transform() too much, as
-it gets deleted when the SHA-3 code is migrated into lib/crypto/ anyway.
+Moreover, the status quo is that SHA-3 is quite slow anyway.  Currently
+only arm64 and s390 have architecture-optimized SHA-3 code.  I'm not
+familiar with the performance of the s390 one, but the arm64 one isn't
+actually that much faster than the generic code anyway.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/arm64/crypto/sha3-ce-core.S | 66 ++++++++++++++++----------------
- arch/arm64/crypto/sha3-ce-glue.c | 11 +++---
- 2 files changed, 38 insertions(+), 39 deletions(-)
+ crypto/jitterentropy-kcapi.c | 12 ++----------
+ 1 file changed, 2 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/crypto/sha3-ce-core.S b/arch/arm64/crypto/sha3-ce-core.S
-index 9c77313f5a608..62477848821d9 100644
---- a/arch/arm64/crypto/sha3-ce-core.S
-+++ b/arch/arm64/crypto/sha3-ce-core.S
-@@ -35,11 +35,15 @@
- 	.macro	xar, rd, rn, rm, imm6
- 	.inst	0xce800000 | .L\rd | (.L\rn << 5) | ((\imm6) << 10) | (.L\rm << 16)
- 	.endm
+diff --git a/crypto/jitterentropy-kcapi.c b/crypto/jitterentropy-kcapi.c
+index a53de7affe8d1..7c880cf34c523 100644
+--- a/crypto/jitterentropy-kcapi.c
++++ b/crypto/jitterentropy-kcapi.c
+@@ -46,11 +46,11 @@
+ #include <linux/time.h>
+ #include <crypto/internal/rng.h>
  
- 	/*
--	 * int sha3_ce_transform(u64 *st, const u8 *data, int blocks, int dg_size)
-+	 * size_t sha3_ce_transform(struct sha3_state *state, const u8 *data,
-+	 *			    size_t nblocks, size_t block_size)
-+	 *
-+	 * block_size is assumed to be one of 72 (SHA3-512), 104 (SHA3-384), 136
-+	 * (SHA3-256 and SHAKE256), 144 (SHA3-224), or 168 (SHAKE128).
- 	 */
- 	.text
- SYM_FUNC_START(sha3_ce_transform)
- 	/* load state */
- 	add	x8, x0, #32
-@@ -49,62 +53,58 @@ SYM_FUNC_START(sha3_ce_transform)
- 	ld1	{v12.1d-v15.1d}, [x8], #32
- 	ld1	{v16.1d-v19.1d}, [x8], #32
- 	ld1	{v20.1d-v23.1d}, [x8], #32
- 	ld1	{v24.1d}, [x8]
+ #include "jitterentropy.h"
  
--0:	sub	w2, w2, #1
-+0:	sub	x2, x2, #1
- 	mov	w8, #24
- 	adr_l	x9, .Lsha3_rcon
+-#define JENT_CONDITIONING_HASH	"sha3-256-generic"
++#define JENT_CONDITIONING_HASH	"sha3-256"
  
- 	/* load input */
- 	ld1	{v25.8b-v28.8b}, [x1], #32
--	ld1	{v29.8b-v31.8b}, [x1], #24
-+	ld1	{v29.8b}, [x1], #8
- 	eor	v0.8b, v0.8b, v25.8b
- 	eor	v1.8b, v1.8b, v26.8b
- 	eor	v2.8b, v2.8b, v27.8b
- 	eor	v3.8b, v3.8b, v28.8b
- 	eor	v4.8b, v4.8b, v29.8b
--	eor	v5.8b, v5.8b, v30.8b
--	eor	v6.8b, v6.8b, v31.8b
--
--	tbnz	x3, #6, 2f		// SHA3-512
+ /***************************************************************************
+  * Helper function
+  ***************************************************************************/
  
- 	ld1	{v25.8b-v28.8b}, [x1], #32
--	ld1	{v29.8b-v30.8b}, [x1], #16
--	eor	 v7.8b,  v7.8b, v25.8b
--	eor	 v8.8b,  v8.8b, v26.8b
--	eor	 v9.8b,  v9.8b, v27.8b
--	eor	v10.8b, v10.8b, v28.8b
--	eor	v11.8b, v11.8b, v29.8b
--	eor	v12.8b, v12.8b, v30.8b
-+	eor	v5.8b, v5.8b, v25.8b
-+	eor	v6.8b, v6.8b, v26.8b
-+	eor	v7.8b, v7.8b, v27.8b
-+	eor	v8.8b, v8.8b, v28.8b
-+	cmp	x3, #72
-+	b.eq	3f	/* SHA3-512 (block_size=72)? */
+@@ -228,19 +228,11 @@ static int jent_kcapi_init(struct crypto_tfm *tfm)
+ 	struct shash_desc *sdesc;
+ 	int size, ret = 0;
  
--	tbnz	x3, #4, 1f		// SHA3-384 or SHA3-224
-+	ld1	{v25.8b-v28.8b}, [x1], #32
-+	eor	v9.8b, v9.8b, v25.8b
-+	eor	v10.8b, v10.8b, v26.8b
-+	eor	v11.8b, v11.8b, v27.8b
-+	eor	v12.8b, v12.8b, v28.8b
-+	cmp	x3, #104
-+	b.eq	3f	/* SHA3-384 (block_size=104)? */
+ 	spin_lock_init(&rng->jent_lock);
  
--	// SHA3-256
- 	ld1	{v25.8b-v28.8b}, [x1], #32
- 	eor	v13.8b, v13.8b, v25.8b
- 	eor	v14.8b, v14.8b, v26.8b
- 	eor	v15.8b, v15.8b, v27.8b
- 	eor	v16.8b, v16.8b, v28.8b
--	b	3f
--
--1:	tbz	x3, #2, 3f		// bit 2 cleared? SHA-384
-+	cmp	x3, #144
-+	b.lt	3f	/* SHA3-256 or SHAKE256 (block_size=136)? */
-+	b.eq	2f	/* SHA3-224 (block_size=144)? */
- 
--	// SHA3-224
-+	/* SHAKE128 (block_size=168) */
- 	ld1	{v25.8b-v28.8b}, [x1], #32
--	ld1	{v29.8b}, [x1], #8
--	eor	v13.8b, v13.8b, v25.8b
--	eor	v14.8b, v14.8b, v26.8b
--	eor	v15.8b, v15.8b, v27.8b
--	eor	v16.8b, v16.8b, v28.8b
--	eor	v17.8b, v17.8b, v29.8b
-+	eor	v17.8b, v17.8b, v25.8b
-+	eor	v18.8b, v18.8b, v26.8b
-+	eor	v19.8b, v19.8b, v27.8b
-+	eor	v20.8b, v20.8b, v28.8b
- 	b	3f
--
--	// SHA3-512
--2:	ld1	{v25.8b-v26.8b}, [x1], #16
--	eor	 v7.8b,  v7.8b, v25.8b
--	eor	 v8.8b,  v8.8b, v26.8b
-+2:
-+	ld1	{v25.8b}, [x1], #8	/* SHA3-224 (block_size=144) */
-+	eor	v17.8b, v17.8b, v25.8b
- 
- 3:	sub	w8, w8, #1
- 
- 	eor3	v29.16b,  v4.16b,  v9.16b, v14.16b
- 	eor3	v26.16b,  v1.16b,  v6.16b, v11.16b
-@@ -183,21 +183,21 @@ SYM_FUNC_START(sha3_ce_transform)
- 
- 	eor	 v0.16b,  v0.16b, v31.16b
- 
- 	cbnz	w8, 3b
- 	cond_yield 4f, x8, x9
--	cbnz	w2, 0b
-+	cbnz	x2, 0b
- 
- 	/* save state */
- 4:	st1	{ v0.1d- v3.1d}, [x0], #32
- 	st1	{ v4.1d- v7.1d}, [x0], #32
- 	st1	{ v8.1d-v11.1d}, [x0], #32
- 	st1	{v12.1d-v15.1d}, [x0], #32
- 	st1	{v16.1d-v19.1d}, [x0], #32
- 	st1	{v20.1d-v23.1d}, [x0], #32
- 	st1	{v24.1d}, [x0]
--	mov	w0, w2
-+	mov	x0, x2
- 	ret
- SYM_FUNC_END(sha3_ce_transform)
- 
- 	.section	".rodata", "a"
- 	.align		8
-diff --git a/arch/arm64/crypto/sha3-ce-glue.c b/arch/arm64/crypto/sha3-ce-glue.c
-index 426d8044535ab..f4eae798371ef 100644
---- a/arch/arm64/crypto/sha3-ce-glue.c
-+++ b/arch/arm64/crypto/sha3-ce-glue.c
-@@ -26,30 +26,29 @@ MODULE_LICENSE("GPL v2");
- MODULE_ALIAS_CRYPTO("sha3-224");
- MODULE_ALIAS_CRYPTO("sha3-256");
- MODULE_ALIAS_CRYPTO("sha3-384");
- MODULE_ALIAS_CRYPTO("sha3-512");
- 
--asmlinkage int sha3_ce_transform(u64 *st, const u8 *data, int blocks,
--				 int md_len);
-+asmlinkage size_t sha3_ce_transform(struct sha3_state *state, const u8 *data,
-+				    size_t nblocks, size_t block_size);
- 
- static int arm64_sha3_update(struct shash_desc *desc, const u8 *data,
- 		       unsigned int len)
- {
- 	struct sha3_state *sctx = shash_desc_ctx(desc);
- 	struct crypto_shash *tfm = desc->tfm;
--	unsigned int bs, ds;
-+	unsigned int bs;
- 	int blocks;
- 
--	ds = crypto_shash_digestsize(tfm);
- 	bs = crypto_shash_blocksize(tfm);
- 	blocks = len / bs;
- 	len -= blocks * bs;
- 	do {
- 		int rem;
- 
- 		kernel_neon_begin();
--		rem = sha3_ce_transform(sctx->st, data, blocks, ds);
-+		rem = sha3_ce_transform(sctx, data, blocks, bs);
- 		kernel_neon_end();
- 		data += (blocks - rem) * bs;
- 		blocks = rem;
- 	} while (blocks);
- 	return len;
-@@ -72,11 +71,11 @@ static int arm64_sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int
- 	block[len++] = 0x06;
- 	memset(block + len, 0, bs - len);
- 	block[bs - 1] |= 0x80;
- 
- 	kernel_neon_begin();
--	sha3_ce_transform(sctx->st, block, 1, ds);
-+	sha3_ce_transform(sctx, block, 1, bs);
- 	kernel_neon_end();
- 	memzero_explicit(block , sizeof(block));
- 
- 	for (i = 0; i < ds / 8; i++)
- 		put_unaligned_le64(sctx->st[i], digest++);
+-	/*
+-	 * Use SHA3-256 as conditioner. We allocate only the generic
+-	 * implementation as we are not interested in high-performance. The
+-	 * execution time of the SHA3 operation is measured and adds to the
+-	 * Jitter RNG's unpredictable behavior. If we have a slower hash
+-	 * implementation, the execution timing variations are larger. When
+-	 * using a fast implementation, we would need to call it more often
+-	 * as its variations are lower.
+-	 */
++	/* Use SHA3-256 as conditioner */
+ 	hash = crypto_alloc_shash(JENT_CONDITIONING_HASH, 0, 0);
+ 	if (IS_ERR(hash)) {
+ 		pr_err("Cannot allocate conditioning digest\n");
+ 		return PTR_ERR(hash);
+ 	}
 -- 
 2.51.1.dirty
 
