@@ -4,100 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3728FCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23358CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:17:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MFGSwFSrgqDr9/3WMg/kXR+n60QLpJskpnlVbbXnq7E=; b=k+NVHfamWOtG/UhcLMHx25g5Om
-	nhG3x+jHlAjcIWWPL8vIdHZjHKY0Z925h9aGintoZ2ngYN3FP1PTSGIXcL7itp6jUFVM/n61hqfIX
-	nK+zv1enZYqochCz4W8OnMzxWYWwrCwW592dukBEO+Jwk8ooJJC2392rEG1QZwIrvLHhB+egqiKOk
-	r6fWPERbyp9T1eqeiIQrwrkHUeahYcPzxFFQSbTKeNFTwUxk2Btbosr2B7D/Y7rPWFpwEGgnE1iqB
-	Sn6FsUlGawvYDX5qCEAa7VROybf/G0w/2QqXkxvs3NzgBepY4c8XvkoWzUwbsb+RcP0Xcz255djOk
-	bxzAZ3cw==;
+	bh=d4CIb+mZ4TdXD2+XOrnH5Psl6jGU1lXy8Aan9HS+a3c=; b=xWozeGVeP8MKTJTtGw98sR2HNn
+	vBQJhU+1qCKbs+DX3zZSeM0pryjt/RqO1TsK73FW1cxA5EA5fscOzzMeXwLS+Sl6xx35AFbIt6lma
+	lnUFWPreqUuDK390E5nt2KNC6mumMn4Bv/ZaHsMHoLs07msVA0xZQJY1kg7u+w2mRYkGJBFpyQyRN
+	Y+f87fDeYk0Q12CibRlfwD9cKgX97KGmDICTtFXmeB/J+qaDWW9NCl31glbb87IhEEoac73reEgVf
+	yTRE5BrwLPgtA1+EOC+35yg7mysxZPRcAaxJxHfHb7tb1amHix3IOJAgYQkBWLs7hJSsJ8e3cuSaU
+	/fckTNuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAqhQ-0000000DvkX-1Mzf;
-	Mon, 20 Oct 2025 14:17:24 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1vAqhb-0000000DvoX-0sRT;
+	Mon, 20 Oct 2025 14:17:35 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAqhM-0000000DviQ-31CW
+	id 1vAqhZ-0000000Dvn8-0BCD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 14:17:22 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-76e2ea933b7so3968862b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 07:17:20 -0700 (PDT)
+	Mon, 20 Oct 2025 14:17:34 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-36a6a39752bso43860811fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 07:17:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760969839; x=1761574639; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-disposition:mime-version
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MFGSwFSrgqDr9/3WMg/kXR+n60QLpJskpnlVbbXnq7E=;
-        b=UeCf2bk88BjjzM2T5KoyPu5Zt29yAV92m58QaIbot7K7qVNPS+9OghZT6LbXFo1Acg
-         OYUPUNQUftZzB4D4v671tnFLEMGtVLVxmsmu8LxDe3NJGiS5SOha0ocyL8BYomFmwRj/
-         ApdoSV25wk8Zyj5chAZD+2OIsZF9nI3H/CjY0uCKM47oU4FDMWDCLIe83deLA1gNLtDr
-         zJa0AVDn50ZQLSB06wXsawFALMc3vOj77DMR2EwVSSpabz6z4mdc9jqWUbSHmPxcOk0+
-         YxR0YJzkIfu4NtrQfdIWfmb2oOVbCCkEk7lfiGuMWwWBLqGrp47OaFPA38I+UuoacEim
-         xCuA==
+        d=linaro.org; s=google; t=1760969851; x=1761574651; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=d4CIb+mZ4TdXD2+XOrnH5Psl6jGU1lXy8Aan9HS+a3c=;
+        b=XienBSap7RUws8z1dYErfQc8FSDMJozDDN6LEI7asb8Y/C2xydlFMXKfKYqc+QfEcF
+         F5qSjw6H+ScO8wbP0Zjp8m2ko1mJ730n+uDWm01e55Ms5cyBxNRu4Y6aPuE93wxUDNiq
+         ZUFifTiUJh3hRmFM9tw3scV84xkP1xilMMhQYEn+5VGI+XRh6J0LtErag4IurlMPzcZQ
+         J2bg+OtCiRT3WKmcl2s4tdm14sy9PFn4WJjPabtVBb97mpchZR6AbQKr6q0BRXd4svTX
+         Ijv/trZqv84RwCjOSZ7C6heVvoefgKfacpj3U0O6vwVAiwGNxl/LRejS1YbT+42P4BHc
+         aEZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760969839; x=1761574639;
-        h=content-transfer-encoding:content-disposition:mime-version
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MFGSwFSrgqDr9/3WMg/kXR+n60QLpJskpnlVbbXnq7E=;
-        b=K+q3JkNQFVkWwCLBf78NYR7b4vQr5Vf7Lu1BeoW2SYQ4SJB5XDz7gh0iKXVY87cH+1
-         rOFL3KgQ+HMlqU//4iRa7Kd9JBnRjEvZRMnXbcH9Y1C9Q1xdGSUK78zLtMVUg11AWspv
-         VXm9YPwVvFiHtfpw9ZRFGMBCiGpF8lm5spcRJeOHXow4l6GU3IoAbnjhMv+AE28pifNs
-         71Yye7XK458E5uVF5bL7suOtSjYrcMh8Vg/meNQezHPaW301F2cUkHQQFkMFI480tHLu
-         rXSKCgKua933s+UlO8sw7QlUmcQoExAFMI/X/XsoUSb7tNEU+Yt//ORzof7+uyA6criX
-         RzsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXreolo8kGZdFZAHjk7lK9qgj+JD2/t37KFZH7ABVZlxIMP2N/rf4yxfsCh8o9ueuqqhZt08b14zu2R8VFSVSTU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5G28VinQ8y78GvA3QpdELTIV+M4Qaef8cRXL7FNeCmsQP0cBB
-	JNxGbwRGWkhhwJiQLlonjPYAgL2xCHm+E87/WmZj9ZTt6Rsr1LL4Zir7
-X-Gm-Gg: ASbGncv13efPuXc6zTKk44tMhCXEcsnSzC6bOOM2yY/xklDwAi37eVDErUvahmEIpcn
-	0HEkFJ5LCrWLSNHKXLR4sz37Vgt0bd6dCuhIa2Av+xkJ+9ivcX4PWToJO/YwZWsstb7VsroshuU
-	HnXPAi98m2PNxmBOWqntIaDWoDO9VzJ8u6Si05ePsm6G27s3biebTaIH2HKIskfwAlmaxVA2tNg
-	+uVc+HDj9c7JrbWLhSOhcPWJTyVglWSDJwna42gB2GCiG+fwtcuDueKyqTU1dwKiy00oBM+QkoT
-	8QyJ/qM2Z6m3Fvn4WDM5X8fTntYT/pboU6YCYLe/d1tGnU4HRmVgyNPBmoYUD+q6t/gERMBkfY4
-	JRMZdaL4oB/YxVoU7UY7vy9QNIDFqolRaGftWYRefVBLe06Aajk1F48pDciYBgo2/DE9V/LGvCu
-	L6BLWlW3DjXNcBETGu5IH/+t0Gjc5EFjo=
-X-Google-Smtp-Source: AGHT+IEGpqCj48hSlGvE39SucbX6Ouca5PqF+VzauRnJXVW7BvicaDLem8wj36fR99ehw835dYNneQ==
-X-Received: by 2002:a17:90b:3c02:b0:33b:6bff:35fe with SMTP id 98e67ed59e1d1-33bc9d1c743mr18185739a91.16.1760969839288;
-        Mon, 20 Oct 2025 07:17:19 -0700 (PDT)
-Received: from hiagonb ([2804:1b3:a7c0:fdb0:efbb:1413:f1d2:48d9])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33d5de11601sm8126966a91.9.2025.10.20.07.17.06
+        d=1e100.net; s=20230601; t=1760969851; x=1761574651;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=d4CIb+mZ4TdXD2+XOrnH5Psl6jGU1lXy8Aan9HS+a3c=;
+        b=KSkmdm3B7ERvGmnPteDhL2L7UIgyw71j+BTctQI9jV6sFykEKsg25Inve04AjuF4u3
+         1l0pPthMnXuY060ua/WwO9bUiYtrsjDQBg6vq5hLQP+KUTv8KoxQ42Snp83eSs2ddSQp
+         bZAGHvFAWKlkF2romvnsTQTy5dZdq4hiS4zxlSGI68DGazQ1KeV1qBFmbom9x6q0wOBK
+         cs6zYxHU5ETkkjQGYUyB0kF7dmHwTpSgKYFPbIVJcgWmYmqHqfWdGlrCxVqGvoZQtOVe
+         ie0VM/YjG1tFdU8q7tgDWCSFRLu8FaLfRgdhnri9jZMJXv+kxD+PZUk6VxmEMY0tIfi3
+         8ylQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWYBI8cdXFZk2bMmbXmPUFvUeio+M9lPhVefq2NVOK9HlC1heAo7R+PqHI0VMQr6Bb8Ytn+JerJDiNEufh9ba3u@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfZ39uICP4x3h2T+lStvitmOrpi/Z3liytW5xtBvgwhcr+dW99
+	wTan97Xiun/Xd1yi1g2/koI37RpoIpFJeGiAM3xKQ+Kki6wlC9Gqp5Dc1f3X8XOX9VU=
+X-Gm-Gg: ASbGnctTN53dcVlZoQDUhPNEwnbw+qnRIWrIW6jfGnzlDDGfxgxmsEgXoroGPPj9zdc
+	Z1AEAjz+9cQaFc7iILlqUYoAwruCa0Vu55Cwf9C1617oF8MqFijTMZewBnxFOrKLlQ6FKSnu/63
+	rjtrklhRSzSa4/1YZXY9mEta9cS7PO7+ZY1vpbUncPEhf+2Hw5Zae+UxPRgDD9/nfIu4YsovC0G
+	GG5rczS9MOV21oK5uXU4flnfBtzOZM4roqaaK6WHdR2AY2MKGs0dBo3VwRXYqFsmV8FzMv426WF
+	+UVH4+z6u2P3XnnAhL6sPY4uaqYb3fIxte9hW/5Pjcu1zh9zO5qOIC3w9rdFjo8clgF1kJur3wz
+	WPevK+HpOh9UxxjEKOe7scVXTTVBGG1czxNq1gLxDtliEwhv5BPTaw3eElX9NxtJetpIaSMXt1d
+	AhldcnigT0AgKRc8xi5tFoA54PGn/KTGWIOkJtx6Ezx6DV4/I46ycnS+M+NAGa
+X-Google-Smtp-Source: AGHT+IGaUa1A4Uzcr6IBjfTLgEHTVeFFWXgoQ0Z12nmLZQh/21hDjDxTbaAdxTiU3/Df8JDb3tz84w==
+X-Received: by 2002:a05:651c:501:b0:376:46ba:864c with SMTP id 38308e7fff4ca-37797aca3femr42697361fa.46.1760969850852;
+        Mon, 20 Oct 2025 07:17:30 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-377a950a284sm20797191fa.36.2025.10.20.07.17.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Oct 2025 07:17:18 -0700 (PDT)
-Date: Mon, 20 Oct 2025 11:17:04 -0300
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Beleswar Padhi <b-padhi@ti.com>
-Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, afd@ti.com, u-kumar1@ti.com, 
-	hnagalla@ti.com, jm@ti.com, d-gole@ti.com, b-padhi@ti.com, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Robert Nelson <robertcnelson@gmail.com>, 
-	=?utf-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>, Emanuele Ghidoli <emanuele.ghidoli@toradex.com>, 
-	Francesco Dolcini <francesco.dolcini@toradex.com>, Matthias Schiffer <matthias.schiffer@ew.tq-group.com>, 
-	Logan Bristol <logan.bristol@utexas.edu>, Josua Mayer <josua@solid-run.com>, John Ma <jma@phytec.com>, 
-	Nathan Morrisson <nmorrisson@phytec.com>, Garrett Giordano <ggiordano@phytec.com>, 
-	Matt McKee <mmckee@phytec.com>, Wadim Egorov <w.egorov@phytec.de>, 
-	Max Krummenacher <max.krummenacher@toradex.com>, Stefan Eichenberger <stefan.eichenberger@toradex.com>, 
-	Hiago De Franco <hiago.franco@toradex.com>, Diogo Ivo <diogo.ivo@siemens.com>, 
-	Li Hua Qian <huaqian.li@siemens.com>, Jan Kiszka <jan.kiszka@siemens.com>, 
-	Baocheng Su <baocheng.su@siemens.com>, Benedikt Niedermayr <benedikt.niedermayr@siemens.com>, 
-	regressions@lists.linux.dev
-Subject: [REGRESSION] Suspend to RAM does not work anymore with
- k3-am62-ti-ipc-firmware.dtsi
-Message-ID: <sid7gtg5vay5qgicsl6smnzwg5mnneoa35cempt5ddwjvedaio@hzsgcx6oo74l>
+        Mon, 20 Oct 2025 07:17:30 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@linaro.org>
+To: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Maulik Shah <quic_mkshah@quicinc.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ulf Hansson <ulf.hansson@linaro.org>
+Subject: [PATCH v2 0/2] pmdomain: Improve idlestate selection for CPUs
+Date: Mon, 20 Oct 2025 16:17:10 +0200
+Message-ID: <20251020141718.150919-1-ulf.hansson@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_071720_762352_2CC8463F 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20251020_071733_093203_F5FAEEB7 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,109 +105,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello all,
+Platforms using the genpd governor for CPUs are relying on it to find the most
+optimal idlestate for a group of CPUs. Although, observations tells us that
+there are some significant improvement that can be made around this.
 
-After commit 1d6161617c10 (“arm64: dts: ti: k3-am62-ti-ipc-firmware:
-Refactor IPC cfg into new dtsi”), suspend-to-RAM stopped working on
-AM62x.
+These improvement are based upon allowing us to take pending IPIs into account
+for the group of CPUs that the genpd governor is in control of. If there is
+pending IPI for any of these CPUs, we should not request an idlestate that
+affects the group, but rather pick a shallower state that affects only the CPU.
 
-When I originally tested that change, I did not test suspend-to-RAM
-functionality, but our testing infrastructure caught this regression.
+More details are available in the commit messages for each patch.
 
-See the log below:
+Kind regards
+Ulf Hansson
 
-root@verdin-am62-15479173:~# cat /sys/class/remoteproc/remoteproc*/state
-offline
-offline
-offline
-root@verdin-am62-15479173:~# echo mem > /sys/power/state
-[   37.798686] PM: suspend entry (deep)
-[   37.805942] Filesystems sync: 0.003 seconds
-[   37.811965] Freezing user space processes
-[   37.819214] Freezing user space processes completed (elapsed 0.002 seconds)
-[   37.826469] OOM killer disabled.
-[   37.829721] Freezing remaining freezable tasks
-[   37.835557] Freezing remaining freezable tasks completed (elapsed 0.001 seconds)
-[   37.843057] printk: Suspending console(s) (use no_console_suspend to debug)
-[   37.953874] omap-mailbox 29000000.mailbox: fifo 5 has unexpected unread messages
-[   37.953909] omap-mailbox 29000000.mailbox: PM: dpm_run_callback(): platform_pm_suspend returns -16
-[   37.953941] omap-mailbox 29000000.mailbox: PM: failed to suspend: error -16
-[   37.953967] PM: Some devices failed to suspend, or early wake event detected
-[   37.973876] am65-cpsw-nuss 8000000.ethernet: set new flow-id-base 19
-[   37.984655] am65-cpsw-nuss 8000000.ethernet end0: PHY [8000f00.mdio:00] driver [TI DP83867] (irq=353)
-[   37.985655] am65-cpsw-nuss 8000000.ethernet end0: configuring for phy/rgmii-rxid link mode
-[   38.009002] usb-conn-gpio connector: repeated role: device
-[   38.013377] lt8912 1-0048: PM: dpm_run_callback(): lt8912_bridge_resume [lontium_lt8912b] returns -121
-[   38.013420] lt8912 1-0048: PM: failed to resume async: error -121
-[   38.153252] OOM killer enabled.
-[   38.156422] Restarting tasks: Starting
-[   38.163532] Restarting tasks: Done
-[   38.167252] random: crng reseeded on system resumption
-[   38.173031] PM: suspend exit
 
-The omap-mailbox driver returns -EBUSY because it detects an unexpected
-unread message on FIFO 5.  As I understand it, this FIFO corresponds to
-the communication channel between the DM R5 and the Cortex-M4 cores.
+Ulf Hansson (2):
+  smp: Introduce a helper function to check for pending IPIs
+  pmdomain: Extend the genpd governor for CPUs to account for IPIs
 
-DM R5 sends a message that is never consumed, since no firmware is
-running on the M4 (the core is offline). This unhandled message prevents
-the system from entering suspend.
+ drivers/pmdomain/governor.c | 20 +++++++++++++-------
+ include/linux/smp.h         |  5 +++++
+ kernel/smp.c                | 24 ++++++++++++++++++++++++
+ 3 files changed, 42 insertions(+), 7 deletions(-)
 
-This issue also appears on the downstream TI kernel, which I reported
-earlier [1] (for reference).
+-- 
+2.43.0
 
-The following patch resolves the problem:
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
-index ea69fab9b52b..e07cf3290cc3 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
-@@ -26,11 +26,6 @@ mbox_m4_0: mbox-m4-0 {
-                ti,mbox-rx = <0 0 0>;
-                ti,mbox-tx = <1 0 0>;
-        };
--
--       mbox_r5_0: mbox-r5-0 {
--               ti,mbox-rx = <2 0 0>;
--               ti,mbox-tx = <3 0 0>;
--       };
- };
-
- &mcu_m4fss {
-@@ -45,7 +40,6 @@ &wkup_r5fss0 {
- };
-
- &wkup_r5fss0_core0 {
--       mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-        memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-                        <&wkup_r5fss0_core0_memory_region>;
-        status = "okay";
-
-Ultimately  this issue is related to the omap driver itself:
-
-1. We should have a functionatlly to save and restore the messages into
-the mailbox, instead of preveting it to go into suspend.
-
-2. Or we could not check all 16 FIFOs if the kernel does not own them:
-
-	for (fifo = 0; fifo < mdev->num_fifos; fifo++) {
-		if (mbox_read_reg(mdev, MAILBOX_MSGSTATUS(fifo))) {
-			dev_err(mdev->dev, "fifo %d has unexpected unread messages\n",
-				fifo);
-			return -EBUSY;
-		}
-	}
-
-Setting the number of FIFOs to 4 in the device tree also resolves this
-issue.
-
-Do you have suggestions on how best to fix this in the driver, or should
-we consider reverting the DTS change until suspend-to-RAM works again?
-
-#regzbot introduced: 1d6161617c
-
-[1] https://e2e.ti.com/support/processors-group/processors/f/processors-forum/1557295/am62p-mailbox-channel-is-not-freed-during-r5-remoteproc-stop-call/6069413
-
-Best regards,
-Hiago.
 
