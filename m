@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D91CCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 22:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA181CCD1A2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 23:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jou7wl1+eFLqh56mhBKzbuquNRGf4+Mstk8GHncGjYM=; b=INRkMSGJ1wOG80bGDsMzwBMa6U
-	8SYdfrMQGuYeJFi6cUTbRID3hXKcCBoHUbu6ED+oZqDVrTv/A5N9WE3rFeBdWDhk/wxKRz8mLwRw5
-	PCuwSdo2CXWWDGHDh/96DCpiaeudKj9+IpBUtVVzwooUzm6fMx/Gd00x70+je8iUXPJFL7S/WlGX/
-	wWdFHWEYMlqfXj6VKQ8ojVefqW2YSIgKtD71yr1Ws6H9YjLzcsGBBuKg8iU8H6XteQne11ELCZeWd
-	qc5X6hRrg/5roF3RWn6Kd7RSRzKjltuDLqw8rvzAv9Ey3abeZ7AXkPEOWyWz0N+NCnYEarmYcDHVE
-	nH8QU+ag==;
+	bh=jkJQ2Wqv2WIkS8r8m2VU+kwyMn/g5LRAACPYO1/MIBg=; b=irsm3RZt9ImeT3eQiDgTAZ5/xT
+	yXyh2Of9KZiN9lm25tdeVeA1sK7/9DOz/hQJQJWokyUTIT1NTqQHNmuH5X2uWfuIMnsZqUWZgFwZ3
+	hVmT2wDJnllzuLILApIHIHnqWKjqHgytIjd5KwCtK8XOxVt0+b7+d6TkwkyuDk7MGjpGlkL62NAHv
+	JeEoI1NE9Hz/eLNjBAe8lK6N8W4+bJaOjiwJw8LvBsiL5nkEwkITnqEeOlhmZ3/bOtOucKu9m9k6e
+	s6/hjanHHxA4tJZGtHgPCLES+JxJp41QMfTCetqTkdriIuw7PUDVDCtIX09VSm83Fl/05qgpIYgdl
+	K0WRGAYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAy3y-0000000F9ZR-0m2e;
-	Mon, 20 Oct 2025 22:09:10 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1vAzi4-0000000FIeC-1T44;
+	Mon, 20 Oct 2025 23:54:40 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAy3v-0000000F9Z4-0HW2
+	id 1vAzi2-0000000FIdl-2CIx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 22:09:08 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-373a1ab2081so52808031fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 15:09:06 -0700 (PDT)
+	Mon, 20 Oct 2025 23:54:39 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-77f343231fcso3333871b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 16:54:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760998145; x=1761602945; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Jou7wl1+eFLqh56mhBKzbuquNRGf4+Mstk8GHncGjYM=;
-        b=iqfoj3YSkVf9Pc7PvVWXiF68qw+jeDVmh7F7HVa1vB/f2XnLAOFuOxQBhfxaXYTyhX
-         gbq9cOdBET0LtEKfwYoQM648Ilt763ZGGII0Ny46G7ZBJSsFP0/94QqLmf2BVOsDUqvy
-         R1MLnZqZVdOleyI5bgBkJrVCnKciqukLM+el81g7rtUE8auEinj9/MUyiYJ+ndtuL5uR
-         fT3zmI86gftBv5xSGlTFbKrY0pmaeYgqefiBZEqUTlRYqrN3lE72dTEAV6CDwpKHGXrp
-         I6GwYY3r/WnXf4tEx3cSgYOFhVBDgYo/OrkoRSAx0dNZEYKXDK5AMIlbudnhqyUihJQ/
-         GEEg==
+        d=gmail.com; s=20230601; t=1761004478; x=1761609278; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jkJQ2Wqv2WIkS8r8m2VU+kwyMn/g5LRAACPYO1/MIBg=;
+        b=Z+tSZM06HUto96km5Rzp/1rG8w3yGe70paGiPkFFSxQtZGdD1N7B9K5+tzguI2fR6l
+         to3mMZeO9zZIAUR66kZpiQYy2RBx0py/i/N1aEgGqirNDmn3AIcMuNIcLJC0covZl4Sp
+         qlRJnjw2vyxltKAv7OSbMhRiDW4L8B4rdgAG3neiCDTwg0gra2bMYSgZzvevAQNCijyT
+         0B3Lg8F+oxulgVGxbo6o2wQEOOZqsvwZvoiPD0gPV59oskCfVovBZoviE4hk6w5Ouvwh
+         yUO71RC92OhCYvjnODBupiWf4BwmmCq5feeILGH7R88TwMim2Lvx7c4TfbP5+0yOrJ41
+         8Aqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760998145; x=1761602945;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Jou7wl1+eFLqh56mhBKzbuquNRGf4+Mstk8GHncGjYM=;
-        b=bqBDTGyTpPbCRwa4SbTIFepgCpzBGotImFMKM7iVUfw6YOrqVxjhwt9HyndLHH74UJ
-         hCOzYH5q6pBSPrqIYf6ntsv45jIh6LdPWqoNFUmtw4DaCSh0NBLkLCHneX05AfX5kF2u
-         urGGd7M3D/iPDRB/EiZ3qQmZ+GlzGvwnDWF+gzbJ/E7ipMEIjZisoIGALHtDPYbbwDFO
-         /aqr9IhlcC8VkM0HN/jZuij9Zrcsb2G50ecdqjTW4kO/euWvemLUjIKkaxtbAGakpIiC
-         /05xFCANSq/IUfzY+3ItgZNzfpctTlNxse80OIwsCA6OSEHxUChPX/fKFuS1fZDnlE+T
-         Sm+g==
-X-Forwarded-Encrypted: i=1; AJvYcCUuP2SdEt8WaeKSqFDlDhx8kNcK3jBLm1Qdmw9LXY1m6h+gk+Z2kNFZ20rZCCJt82QhdWgvB3sGQ02O8PVvWVwr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxV2+cz+zHaMClPOz/S9YME3rraBow/yPKqVpsmNsSPVYR17zt5
-	UjSE7SS+gcTabFh4zNVBbFgDTV0d6XP625dcYgVJHhgXeYsMwjPJuKOasaeGORXXusCWM7jPMAe
-	gv3PMAHduCtQ9QViV0ZfZ+z/VFaAj9qOO+AghkugfRw==
-X-Gm-Gg: ASbGncuVrMp0qLjGw1GdSrgzDnXCOI7d0unpQu/nzqHphKDloBNuoOgkS1oejECltgx
-	YzyBW1Rny3AWhQNDjtzw88isywVPugNOHf/mC3tamxuwvKoUc1DzabaVpbQRBBEwpikDo6JoHAW
-	AzmffJR80GfhLhdMgHyT8n2248aYS24ehVx/PlKgljC7d2Te8mTVUki+MoMfcN8Jc8feKEXJLzr
-	6KccdT3BrlLjCMtxuFQglUwsbexT9WR3k8K3ZTF+hw3x+CB8kENzMLHRfsI2CUc+hQ1l94=
-X-Google-Smtp-Source: AGHT+IHndeIzowFKyGV77xJrwW3PbYRom9TRTnbQmCDghJkjbT3tIKvOTzTzPAFp9D2embhKwkVO+r8Cc1SJcrX3RR4=
-X-Received: by 2002:a2e:a9a8:0:b0:36a:cdb0:c1f3 with SMTP id
- 38308e7fff4ca-37797a143b5mr45120621fa.29.1760998144941; Mon, 20 Oct 2025
- 15:09:04 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761004478; x=1761609278;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jkJQ2Wqv2WIkS8r8m2VU+kwyMn/g5LRAACPYO1/MIBg=;
+        b=FsyqYFU/9L+Lk9OA1pzMTS2PXbZTuW4sB0zRW7rl0rw1k1NeptCuSZeUZuSfqbwdR4
+         tyE4tMbFp748kxd93E1ZsqF4zThEvGPYbkYYO4A20tLeyfqZFFGENBIOQKLR4PHm1DwQ
+         19TO/rfPlMvT7MPlcLLAoD5DDMwYTDgblueaA711oMu2v4BFTOe/5L5L+Qivb+9Kl2hY
+         d6kxfvlZxU30+vX+72j8mRK83hoUZE3v7s9p2QPAmbaYKWyqckhpuVsOYZi6yvJVB7Ru
+         Agh/zGytC4LhJBfgMZxDXeihC4GqNmT+alpNlQixtD4u38+o2hzakw7JNOtKnstahoco
+         OSAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUw1J7gkVgdrjhK/CJ4wS/fe37LRVyJjv7AG5hkHwyfuXt7ySyFafx7p8rT+Ygkks1vRLkASCLpXFLUXCbsj12F@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWUUdWavKgYCkIQx3euzz7F1sotqsJxpBeSPM3Sj3BatSNagjJ
+	sEpgQvdIG7LbN6BH9jpvg+WY1s2l9yrPHh1gp2GMGUPr6C4dVIe/VZYV
+X-Gm-Gg: ASbGncsyCuLursY7MmMtRJblvpGvDWnNYc06kT6ihc80Rk1iLh58ZizT5M9r6WVqlQr
+	3c0X2PpiBQ3Sl9loGpskv8nCPnQFbhJn+rAe75ccCrbvRwayJ25Vc9srXwEOa7lWWtBgxlTQT0N
+	Zbk7uVomGwsNFITvM9808Oyu+BjGWs9SNvwmvILncgBs9c7JIe5xgnkF+OQwYlGDAq01AsG+eW6
+	gOBMmAM/15CabmXFF8BXHMyrSeYNbJo8hFxDNSaK0lRl6B3Ou2UhkO8W1X+VE21JlXLm/aZaHah
+	Fluld7Yw2Cq0GkcRpQ84K0h9BAcuP9B8KG55h7EN7OkX6rUMynTf4jwIA/gsktu7dz63jXgQ/Le
+	rR2sdSzuiLXw0MhCa+m1MDGPhmgoK6jaP5iP9l//z3n2VpCrlK3CzrHQ8M45JPMvFHJFEmugTlI
+	2diiuE4MlEpG5UYwPm8c0S0g==
+X-Google-Smtp-Source: AGHT+IEWbUvYFru0xgeOb8F6Gj2YJIGo2FfUgJ3zMwHaKzd+9qSePGSKb4FX+0Eekq3XescoXtalXQ==
+X-Received: by 2002:a05:6a20:918f:b0:334:97dd:c5b4 with SMTP id adf61e73a8af0-334a856e67amr20900400637.27.1761004477385;
+        Mon, 20 Oct 2025 16:54:37 -0700 (PDT)
+Received: from [192.168.0.150] ([103.124.138.155])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a22ff15b0csm9487310b3a.2.2025.10.20.16.54.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 20 Oct 2025 16:54:36 -0700 (PDT)
+Message-ID: <c42e042b-f1b1-453e-a350-dc5c99d38c75@gmail.com>
+Date: Tue, 21 Oct 2025 06:54:32 +0700
 MIME-Version: 1.0
-References: <20251014140451.1009969-1-antonio.borneo@foss.st.com>
- <20251014140451.1009969-10-antonio.borneo@foss.st.com> <20251014-affection-voltage-8b1764273a06@spud>
- <b4eca95eaa0e6f27fc07479d5eab2131d20eb270.camel@foss.st.com>
- <20251015-headstand-impulse-95aa736e7633@spud> <0826a055f6b2e3e6b50a5961e60d1b57d1d596c6.camel@foss.st.com>
-In-Reply-To: <0826a055f6b2e3e6b50a5961e60d1b57d1d596c6.camel@foss.st.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 21 Oct 2025 00:08:53 +0200
-X-Gm-Features: AS18NWB0sT7rk733pb0JBmXxWZ3rsESep7Jo9zTjJKG7duLHdqwxNHX29WRzGYA
-Message-ID: <CACRpkdbeaiNGfOFfVfDNZ=u=4yhCykcdSdHUv-td_DVyr3aWaQ@mail.gmail.com>
-Subject: Re: [PATCH v3 09/10] dt-bindings: pinctrl: stm32: Support I/O
- synchronization parameters
-To: Antonio Borneo <antonio.borneo@foss.st.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, 
-	Christophe Roullier <christophe.roullier@foss.st.com>, 
-	Fabien Dessenne <fabien.dessenne@foss.st.com>, Valentin Caron <valentin.caron@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/17] lib/crypto: Add SHA3-224, SHA3-256, SHA3-384,
+ SHA3-512, SHAKE128, SHAKE256
+To: David Howells <dhowells@redhat.com>
+Cc: Eric Biggers <ebiggers@kernel.org>, linux-crypto@vger.kernel.org,
+ Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-s390@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>,
+ Stephan Mueller <smueller@chronox.de>
+References: <aPXfzd0KBNg-MjXi@archie.me>
+ <20251020005038.661542-1-ebiggers@kernel.org>
+ <20251020005038.661542-4-ebiggers@kernel.org>
+ <1062376.1760956765@warthog.procyon.org.uk>
+Content-Language: en-US
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+In-Reply-To: <1062376.1760956765@warthog.procyon.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_150907_293937_86EB5D87 
-X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-CacheID: sfid-20251020_165438_789481_31AF0AD8 
+X-CRM114-Status: UNSURE (   8.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,27 +109,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 20, 2025 at 5:09=E2=80=AFPM Antonio Borneo
-<antonio.borneo@foss.st.com> wrote:
+On 10/20/25 17:39, David Howells wrote:
+> Bagas Sanjaya <bagasdotme@gmail.com> wrote:
+> 
+>>> +If selectable algorithms are required then the crypto_hash API may be used
+>>> +instead as this binds each algorithm to a specific C type.
+>>
+>> What is crypto_hash API then? I can't find any of its documentation beside
+>> being mentioned here.
+> 
+> crypto_shash, then.
 
-> pinconf-generic only accepts positive numeric values for
-> both generic and custom properties in struct pinconf_generic_params.
+OK, thanks!
 
-Do you need it to support negative values?
-Patches welcome!
-
-> Plus, I haven't found any existing driver that mixes pinconf-generic with
-> custom string values.
-
-Maybe I misunderstand, but pinconf_generic_parse_dt_config()
-looks at  pctldev->desc->custom_params and
-pctldev->desc->num_custom_params found in
-struct pinctrl_desc in
-include/linux/pinctrl/pinctrl.h
-
-$ git grep custom_params drivers/pinctrl/
-gives you a list of all drivers using this.
-
-Yours,
-Linus Walleij
+-- 
+An old man doll... just what I always wanted! - Clara
 
