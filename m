@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F18ECCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8ADDCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HH+OrcUoiw1nCwWXZHp75T7oxUeoyCLBk37pLw6ZKfw=; b=v32fY20BL7ils30pmtF5V0jggI
-	vJFFmB/1Rr4/B8t94Eqs/ozrxs22n5BBhuLSvmnGfdY01dT5uKFveg7wLdjYqMDAtAGfZLf8Kkt0g
-	vZNYW8d6e2K8jlewU+YFdKRJPex1HgYAaz15tGPVVlynciN6K3XxNK/fTtPjzLYO+ysJX46gRLhN9
-	MG7IMFmsTGfH8Nvr+21jCfKHb6f0UJ78jQh+WOzrvMpXEj8BLUPUVohn2t54qt6CDkBP/h3mydj6o
-	dOO7lbSmCs+Y+ADwTf0FAlob/lukLX8MziAtl4ccwtzN9xgaA0BHsVfgc7GX2X/ijX8gTxT0VyL3A
-	NNISTxdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kCJM5hd7cuuTGXXLC9GDsuZ+RcImyun4DsTTOfWwEBI=; b=T5ambPanXnaaxfFqq6xRQ4+xUl
+	Tj7nzz1NeRWLrN57ZyBtAql8YLmBNx8I58t8uSQgiDcwr/X3Jrq+tmUBNQqqGvmsRr0xk6lfVFCXa
+	WVTogdXe1Fcs/EKMy0BaoYGAnU3la3MkDG1Y92NC7/KNebT/3YZ6H2gqtKG8qWtbURTqVAk1Uk3P5
+	uYagB/s3nL7/xo8EdgNtzjvrr1sFwOOxu4VCNsd8HFxHr5POadnLwTtx9j+h+VQWMkOTbTYbZMHR2
+	rJpNVMm1XLWzU7eLDzV6t8nigQarR8nize71Dm+pUQHeXXi3u6isWWlv+wPmHcu+nLPuvtEUBixnS
+	YycTnA+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnNb-0000000Cunl-49nG;
-	Mon, 20 Oct 2025 10:44:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnNa-0000000CunI-0BnN
+	id 1vAnOX-0000000CuzK-3djr;
+	Mon, 20 Oct 2025 10:45:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAnOW-0000000Cuyk-0QxC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 10:44:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D9F7B40813;
-	Mon, 20 Oct 2025 10:44:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B50BCC4CEF9;
-	Mon, 20 Oct 2025 10:44:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760957080;
-	bh=F4Dp7ZQIagEZfQkEK+NkPAeOo1rKX2a9BXZpkTkzXrw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RTCqGzXrb5mTsz3/Zn76S8LARLm9j6Pg/fZkrU34o9O2onyjXZnrSKqJx/mWr2TL6
-	 NE6q1q2dqWH4yJ/r5rpP70fmac6CdlJUr+CtrtGNYgQ37YROh0hPthK98+dmdEOYfs
-	 y59tOsZsJ7AXpr5MkumOQN2ofAUHZx/X/t7ZK/XVxrPWejYJCkpE4qnnmcQ/NZi8aM
-	 9FfthxwSbaVrxal4GK6HL5WJuS62WYnkOmEbPd1/7kB/EhypdhHRybsAclTUgMlhg9
-	 QyW465poC92pV9OEep/1bZys6B/OnXElD1hrbJ12JBtupvGnJxOXsWYrZf9xGtagHa
-	 UFtR4Ay7fvJEQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vAnNW-0000000FSrX-16MA;
-	Mon, 20 Oct 2025 10:44:38 +0000
-Date: Mon, 20 Oct 2025 11:44:37 +0100
-Message-ID: <86qzuxx36y.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Mark\
- Rutland" <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J.\
- Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	"Saravana\
- Kannan" <saravanak@google.com>,
-	Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau
-	<j@jannau.net>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark
-	<james.clark@linaro.org>
-Subject: Re: [PATCH v3 04/26] platform: Add firmware-agnostic irq and affinity retrieval interface
-In-Reply-To: <20251009180351.00000d3d@huawei.com>
-References: <20250922082833.2038905-1-maz@kernel.org>
-	<20250922082833.2038905-5-maz@kernel.org>
-	<20251009180351.00000d3d@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: jonathan.cameron@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 20 Oct 2025 10:45:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A8081063;
+	Mon, 20 Oct 2025 03:45:31 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B92943F63F;
+	Mon, 20 Oct 2025 03:45:34 -0700 (PDT)
+Message-ID: <12556653-a26f-4c28-820a-4b5ba1537bc4@arm.com>
+Date: Mon, 20 Oct 2025 11:45:33 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 04/29] ACPI / PPTT: Add a helper to fill a cpumask from
+ a cache_id
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-5-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251017185645.26604-5-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_034442_121835_592DA0D0 
-X-CRM114-Status: GOOD (  35.37  )
+X-CRM114-CacheID: sfid-20251020_034540_233684_42C6CBBB 
+X-CRM114-Status: GOOD (  27.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,89 +83,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Oct 2025 18:03:51 +0100,
-Jonathan Cameron <jonathan.cameron@huawei.com> wrote:
+Hi James,
+
+On 10/17/25 19:56, James Morse wrote:
+> MPAM identifies CPUs by the cache_id in the PPTT cache structure.
 > 
-> On Mon, 22 Sep 2025 09:28:11 +0100
-> Marc Zyngier <maz@kernel.org> wrote:
+> The driver needs to know which CPUs are associated with the cache.
+> The CPUs may not all be online, so cacheinfo does not have the
+> information.
 > 
-> > Expand platform_get_irq_optional() to also return an affinity if
-> > available, renaming it to platform_get_irq_affinity() in the
-> > process.
-> > 
-> > platform_get_irq_optional() is preserved with its current semantics
-> > by calling into the new helper with a NULL affinity pointer.
-> > 
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Add a helper to pull this information out of the PPTT.
 > 
-> Maybe a breadcrumb of a comment for those of us who can't be bothered
-> to figure out why this needs the ifndef CONFIG_SPARC?
-
-The main issue is that SPARC, despite using OpenFirmware, does not use
-the OF infrastructure (which is basically DT only). This means that
-SPARC has its own firmware interface and parses interrupts its own
-way, storing them as archdata in the device. Sad state of things,
-unfortunately.
-
-> Otherwise a question on whether it's worth spinning a fwnode.h handler
-> to hide away the fwnode type in get_irq_affinity.
-> I think not given the complexity already there for the platform device
-> irq stuff, but thought I'd mention it.
-
-I don't think it'd be worth the hassle at this stage. The platform
-code is already a weird mix of DT and ACPI, without any clear
-delineation.
-
-If we wanted to do something useful, we'd split that into generic code
-on one side (the actual Linux platform device code), and the firmware
-specific backend. The main problem is to find a common abstraction,
-and ISTR that people found that rather hard, hence the current state.
-
+> CC: Rohit Mathew <Rohit.Mathew@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> ---
+> Changes since v2:
+>  * Removed stray cleanup useage in preference for acpi_get_pptt().
+>  * Removed WARN_ON_ONCE() for symmetry with other helpers.
+>  * Dropped restriction on unified caches.
 > 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
-Thanks for that.
-
-> > ---
-> >  drivers/base/platform.c         | 60 +++++++++++++++++++++++++++------
-> >  include/linux/platform_device.h |  2 ++
-> >  2 files changed, 52 insertions(+), 10 deletions(-)
-> > 
-> > diff --git a/drivers/base/platform.c b/drivers/base/platform.c
-> > index 09450349cf323..3a058f63ef0d3 100644
-> > --- a/drivers/base/platform.c
-> > +++ b/drivers/base/platform.c
-> > @@ -150,25 +150,37 @@ devm_platform_ioremap_resource_byname(struct platform_device *pdev,
-> >  EXPORT_SYMBOL_GPL(devm_platform_ioremap_resource_byname);
-> >  #endif /* CONFIG_HAS_IOMEM */
-> >  
-> > +static const struct cpumask *get_irq_affinity(struct platform_device *dev,
-> > +					      unsigned int num)
-> > +{
-> > +	const struct cpumask *mask = NULL;
-> > +#ifndef CONFIG_SPARC
-> > +	struct fwnode_handle *fwnode = dev_fwnode(&dev->dev);
-> > +
-> > +	if (is_of_node(fwnode))
-> > +		mask = of_irq_get_affinity(to_of_node(fwnode), num);
-> > +	else if (is_acpi_device_node(fwnode))
-> > +		mask = acpi_irq_get_affinity(ACPI_HANDLE_FWNODE(fwnode), num);
+> Changes since v1:
+>  * Added punctuation to the commit message.
+>  * Removed a comment about an alternative implementaion.
+>  * Made the loop continue with a warning if a CPU is missing from the PPTT.
 > 
-> Not sure how useful it will be more generally, but maybe use fwnode.h and
-> appropriate callback rather than opencoding here?
+> Changes since RFC:
+>  * acpi_count_levels() now returns a value.
+>  * Converted the table-get stuff to use Jonathan's cleanup helper.
+>  * Dropped Sudeep's Review tag due to the cleanup change.
+> ---
+>  drivers/acpi/pptt.c  | 64 ++++++++++++++++++++++++++++++++++++++++++++
+>  include/linux/acpi.h |  6 +++++
+>  2 files changed, 70 insertions(+)
 > 
-> Mind you the extra handling in existing platform_get_irq_optional()
-> for corner cases doesn't really fit with that model.
+> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
+> index 50c8f2a3c927..2f86f58699a6 100644
+> --- a/drivers/acpi/pptt.c
+> +++ b/drivers/acpi/pptt.c
+> @@ -985,3 +985,67 @@ int find_acpi_cache_level_from_id(u32 cache_id)
+>  
+>  	return -ENOENT;
+>  }
+> +
+> +/**
+> + * acpi_pptt_get_cpumask_from_cache_id() - Get the cpus associated with the
+> + *					   specified cache
+> + * @cache_id: The id field of the cache
+> + * @cpus: Where to build the cpumask
+> + *
+> + * Determine which CPUs are below this cache in the PPTT. This allows the property
+> + * to be found even if the CPUs are offline.
+> + *
+> + * The PPTT table must be rev 3 or later,
+> + *
+> + * Return: -ENOENT if the PPTT doesn't exist, or the cache cannot be found.
+> + * Otherwise returns 0 and sets the cpus in the provided cpumask.
+> + */
+> +int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus)
+> +{
+> +	int level, cpu;
+> +	u32 acpi_cpu_id;
+> +	struct acpi_pptt_cache *cache;
+> +	struct acpi_table_header *table;
+> +	struct acpi_pptt_cache_v1 *cache_v1;
+> +	struct acpi_pptt_processor *cpu_node;
+> +
+> +	cpumask_clear(cpus);
+> +
+> +	table = acpi_get_pptt();
+> +	if (!table)
+> +		return -ENOENT;
+> +
+> +	if (table->revision < 3)
+> +		return -ENOENT;
+> +
+> +	for_each_possible_cpu(cpu) {
+> +		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
+> +		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
+> +		if (!cpu_node)
+> +			continue;
+> +
+> +		/* Start at 1 for L1 */
+> +		level = 1;
+> +		cache = acpi_find_any_type_cache_node(table, acpi_cpu_id, level,
+> +						      &cpu_node);
+> +		while (cache) {
+> +			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
+> +						cache, sizeof(*cache));
+> +			if (!cache)
+> +				continue;
+> +
+> +			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
+> +						cache, sizeof(*cache));
+> +
+> +			if (cache->flags & ACPI_PPTT_CACHE_ID_VALID &&
+> +			    cache_v1->cache_id == cache_id)
+> +				cpumask_set_cpu(cpu, cpus);
+> +
+> +			level++;
 
-Indeed, and I find that fwnode.h is currently completely
-FW-independent.  I'd rather keep it that way and not expose these
-shenanigans outside of the support code *unless* we have a good reason
-to do so.
+Same comment as for the previous patch. You are bumping the level
+without considering if there is another cache at that level.
 
-Cheers,
+> +			cache = acpi_find_any_type_cache_node(table, acpi_cpu_id,
+> +							      level, &cpu_node);
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+Thanks,
 
-	M.
+Ben
 
--- 
-Without deviation from the norm, progress is not possible.
 
