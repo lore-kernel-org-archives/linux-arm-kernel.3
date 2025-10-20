@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC85ECCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF1E8CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XiFkPjpbRb4EvxWHzM2pnBZEEJZd3/pqX3IeZ6qKzeA=; b=e6wcTmV1BMVNBtTVhdNgTAkxY7
-	TcQ3/Gs+eP0KuaAx5OsdsEPA3NYUSu33PFECDV2U6xQwB0kKW+hF1wNOzAoBUP52YzWEkITkOCvVf
-	pmDL5jykblL1RAMvTLDQm8eL1k51ZiN+RFfOb4t9ZhKCl3xrGtogxsWunDP3G65ms5KQSQI/3xJts
-	fJ7keyW0m62i/oakYYA+D/4IeTFGsZFZWd9D7cJ31pWfKMRR8VLwSqbfMaTPMVyrHOByTDC3kxQWs
-	vQeJ+JFRMZ7fZqkyh1KZV9VaW6b93tXsJQWtn4OuOq9Bkgj4PS4O6cnTTuQxTz35RbNQaWdGUvhf2
-	mLvGxkpg==;
+	bh=d2jINvzcEowHYXUQtyByG0BLnrpPSoNJ9KYOgYddVTI=; b=uY0EbVDi30sHpVTie23ksubrum
+	1E9p6F7Oe6+rVtezsS8Oe1ZJMujEYoM81r3CStYr7RXtPkQDsX28II3hVBONotTbIc9GILpz5VgOc
+	qnQmNOXi2u7mM7MO1JTjYnFyhXW4hL4p/cSK1fnlXo3pbR6l84I0cpEpeIpMy540o/RIdOTdCQpHg
+	VCfFA311cJD738MM3eQplxq0azYoEYnVw5aiEPTGu6KqUV+LPldktQdjnsAWUjKJCAtX8pZ6aJebM
+	cPtXNX4/C0xVuSyBAfxnNggm7L9j+4tDXKGeB6+1uM3aWxEl51oW3yDgrpopZQxbKQYGp8pQNjnhP
+	A0l/mp8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtWQ-0000000ESqA-22Al;
-	Mon, 20 Oct 2025 17:18:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vAtXE-0000000ET2F-0hUC;
+	Mon, 20 Oct 2025 17:19:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtWP-0000000ESpz-22jZ;
-	Mon, 20 Oct 2025 17:18:13 +0000
+	id 1vAtXD-0000000ET1x-1ex3;
+	Mon, 20 Oct 2025 17:19:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 980276029A;
-	Mon, 20 Oct 2025 17:18:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F8D5C4CEFE;
-	Mon, 20 Oct 2025 17:18:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CD4C2620CB;
+	Mon, 20 Oct 2025 17:19:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 559C4C4CEF9;
+	Mon, 20 Oct 2025 17:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760980692;
-	bh=XiFkPjpbRb4EvxWHzM2pnBZEEJZd3/pqX3IeZ6qKzeA=;
+	s=k20201202; t=1760980742;
+	bh=d2jINvzcEowHYXUQtyByG0BLnrpPSoNJ9KYOgYddVTI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Gl5LTmHInpyxPFKLcyUsCYaiT0yTRN+G+x1IBw6hObRVmPn3hR8ZI3mddOUsa0MJ/
-	 EfkhMjLRk5dPlCKaI0mJY/QoaOEk3/c2zrzBr9KjPzJPZjuF/FdI7BZNGlDoFVhgvq
-	 2xQ3RNEUwc9Pc8MduggMdUO+Nc/eNn0zPPq9NLDAJmlyqdJKIkrSaE1R94vVCmWc/1
-	 iP/xoUTk1geJluzVdSqbzIPIiNKFv+XqmdPTj3HJ1Qc2NAUgj3k4mMuHaIvTWAIxpu
-	 GnV1nSGyD9I8cvJvmuKmESSfhFBw8hjlNYBB2Yuk6AR1PL6JSp5Q4lAY2y/d+lVKiy
-	 0TPW3GLwSPQxw==
-Date: Mon, 20 Oct 2025 18:18:06 +0100
+	b=qSfz08NsopoJBlCTowu9oCXd//s4JDWGOFYx3omXLXJefUl1UzZL5Mj0T1IQc2mhg
+	 vjerZuHSwJ2gZUmIvMwly4gwcb3GG8PvnLIeOQFv5UMVnBSWDQPQkl7Ceaoy1/zUim
+	 EHm/rD/S4Y36etd0uOEnCn7OZDn1ydWG/SzOlX6bnpkc6qmIht7vX8MBqL0csrtdsr
+	 rzSnz+qwouug/Z1RNrXtIL9Uj9l1WNPC/Q8uQtDFY0pe3+v2UFcdNTL8g887y9APim
+	 Kj0wJCYBA3qdka/oR7GbS4x8E2y+i2znYcmB7Q/42VhGaW+jEYL4Q9VAIiYCvQfFJ9
+	 q17inbhmJaWZg==
+Date: Mon, 20 Oct 2025 18:18:56 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Richard Genoud <richard.genoud@bootlin.com>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Wentao Liang <vulab@iscas.ac.cn>, Johan Hovold <johan@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 14/15] dt-bindings: mtd: sunxi: Add H616 compatible
-Message-ID: <20251020-caring-aftermath-32ed83db9a7a@spud>
-References: <20251020101311.256819-1-richard.genoud@bootlin.com>
- <20251020101311.256819-15-richard.genoud@bootlin.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, quentin.schulz@cherry.de,
+	andy.yan@rock-chips.com, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	cn.liweihao@gmail.com, Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH 1/9] dt-bindings: display: rockchip: dw-hdmi: Add
+ compatible for RK3368 HDMI
+Message-ID: <20251020-showcase-crayon-660e4f67881a@spud>
+References: <20251020082508.3636511-1-heiko@sntech.de>
+ <20251020082508.3636511-2-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ugH87F6woIwS5I8f"
+	protocol="application/pgp-signature"; boundary="7YQcMoFn8RBCI1lI"
 Content-Disposition: inline
-In-Reply-To: <20251020101311.256819-15-richard.genoud@bootlin.com>
+In-Reply-To: <20251020082508.3636511-2-heiko@sntech.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,23 +76,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---ugH87F6woIwS5I8f
+--7YQcMoFn8RBCI1lI
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---ugH87F6woIwS5I8f
+--7YQcMoFn8RBCI1lI
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPZuzgAKCRB4tDGHoIJi
-0mWmAQCXkfmlRLPpkpogtOPLDai3zd1cQMUD4dehkb1qSH2wTwD/TyAWdD6k93SK
-AeF6ryJefcHUqunzW+LtLTOwecmIFQQ=
-=YaUV
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPZvAAAKCRB4tDGHoIJi
+0gdnAP9UKaGnCPV2zaldvnd211nAHuvWh9YTAsetUvI6810yKwEAvc3hLDjMN6Zn
+5Mim/845bWOoq9O19ETLpIYckAc7uAE=
+=7vaE
 -----END PGP SIGNATURE-----
 
---ugH87F6woIwS5I8f--
+--7YQcMoFn8RBCI1lI--
 
