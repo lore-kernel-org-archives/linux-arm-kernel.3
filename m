@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 522DDCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC85ECCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HaJPYdzmdjqE8tfjnQoBnFkN3+gQ9iqo9/ICpUWGNSc=; b=XhpcdSrc5UU+5M+GSrECLGyUzN
-	Xd2qcIIiFHmfSiPvZjB8uq3xE98dwUF1lqhj3S43wCZvtDJ65HZtGXqN8skzpC3a8vMGU6CYHFvLb
-	fQk31CwR3nALVH0MUODT75MZDhsDnEE0EaIl887ZJYmNuvtEx0S+erzKxGxEXPbuZXf75OyJR0BeJ
-	exN4TtYx3x8Tmo6vbdyZfCP2vAahfkDcc1gqZqnor/Z3K6NDNy8J9IqDPmkUaw4zLmvEktjykdUQl
-	Nv+yku3ha2srf6ZiVmx4Vp9tkBiC3uNQZHBHWc2oc6op1zd6YpfvD99K0FNjhhVkbgRLeyQzK9haj
-	SHiJT+Vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XiFkPjpbRb4EvxWHzM2pnBZEEJZd3/pqX3IeZ6qKzeA=; b=e6wcTmV1BMVNBtTVhdNgTAkxY7
+	TcQ3/Gs+eP0KuaAx5OsdsEPA3NYUSu33PFECDV2U6xQwB0kKW+hF1wNOzAoBUP52YzWEkITkOCvVf
+	pmDL5jykblL1RAMvTLDQm8eL1k51ZiN+RFfOb4t9ZhKCl3xrGtogxsWunDP3G65ms5KQSQI/3xJts
+	fJ7keyW0m62i/oakYYA+D/4IeTFGsZFZWd9D7cJ31pWfKMRR8VLwSqbfMaTPMVyrHOByTDC3kxQWs
+	vQeJ+JFRMZ7fZqkyh1KZV9VaW6b93tXsJQWtn4OuOq9Bkgj4PS4O6cnTTuQxTz35RbNQaWdGUvhf2
+	mLvGxkpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtVO-0000000ESgs-2qxr;
-	Mon, 20 Oct 2025 17:17:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtVL-0000000ESgT-3qwY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 17:17:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E254F1007;
-	Mon, 20 Oct 2025 10:16:57 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 564BC3F66E;
-	Mon, 20 Oct 2025 10:17:00 -0700 (PDT)
-Message-ID: <1e48c5ac-d409-47ba-ab59-78a8710d2d15@arm.com>
-Date: Mon, 20 Oct 2025 18:16:58 +0100
+	id 1vAtWQ-0000000ESqA-22Al;
+	Mon, 20 Oct 2025 17:18:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAtWP-0000000ESpz-22jZ;
+	Mon, 20 Oct 2025 17:18:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 980276029A;
+	Mon, 20 Oct 2025 17:18:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F8D5C4CEFE;
+	Mon, 20 Oct 2025 17:18:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760980692;
+	bh=XiFkPjpbRb4EvxWHzM2pnBZEEJZd3/pqX3IeZ6qKzeA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Gl5LTmHInpyxPFKLcyUsCYaiT0yTRN+G+x1IBw6hObRVmPn3hR8ZI3mddOUsa0MJ/
+	 EfkhMjLRk5dPlCKaI0mJY/QoaOEk3/c2zrzBr9KjPzJPZjuF/FdI7BZNGlDoFVhgvq
+	 2xQ3RNEUwc9Pc8MduggMdUO+Nc/eNn0zPPq9NLDAJmlyqdJKIkrSaE1R94vVCmWc/1
+	 iP/xoUTk1geJluzVdSqbzIPIiNKFv+XqmdPTj3HJ1Qc2NAUgj3k4mMuHaIvTWAIxpu
+	 GnV1nSGyD9I8cvJvmuKmESSfhFBw8hjlNYBB2Yuk6AR1PL6JSp5Q4lAY2y/d+lVKiy
+	 0TPW3GLwSPQxw==
+Date: Mon, 20 Oct 2025 18:18:06 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Richard Genoud <richard.genoud@bootlin.com>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Wentao Liang <vulab@iscas.ac.cn>, Johan Hovold <johan@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 14/15] dt-bindings: mtd: sunxi: Add H616 compatible
+Message-ID: <20251020-caring-aftermath-32ed83db9a7a@spud>
+References: <20251020101311.256819-1-richard.genoud@bootlin.com>
+ <20251020101311.256819-15-richard.genoud@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 21/29] arm_mpam: Probe and reset the rest of the
- features
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Gavin Shan <gshan@redhat.com>, Zeng Heng <zengheng4@huawei.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
- <20251017185645.26604-22-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20251017185645.26604-22-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_101708_088885_AD13301B 
-X-CRM114-Status: GOOD (  16.37  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ugH87F6woIwS5I8f"
+Content-Disposition: inline
+In-Reply-To: <20251020101311.256819-15-richard.genoud@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,80 +82,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
 
-On 10/17/25 19:56, James Morse wrote:
-> MPAM supports more features than are going to be exposed to resctrl.
-> For partid other than 0, the reset values of these controls isn't
-> known.
-> 
-> Discover the rest of the features so they can be reset to avoid any
-> side effects when resctrl is in use.
-> 
-> PARTID narrowing allows MSC/RIS to support less configuration space than
-> is usable. If this feature is found on a class of device we are likely
-> to use, then reduce the partid_max to make it usable. This allows us
-> to map a PARTID to itself.
-> 
-> CC: Rohit Mathew <Rohit.Mathew@arm.com>
-> CC: Zeng Heng <zengheng4@huawei.com>
-> CC: Dave Martin <Dave.Martin@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> ---
-> Changes since v2:
->  * Moved some enum definitions in here.
->  * Whitespace.
-> 
-[...]
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index 2f2a7369107b..00edee9ebc6c 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -139,16 +139,30 @@ static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
->  
->  /* Bits for mpam features bitmaps */
->  enum mpam_device_features {
-> -	mpam_feat_cpor_part = 0,
+--ugH87F6woIwS5I8f
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Any reason this one doesn't stay first?
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-> +	mpam_feat_cmax_softlim,
-> +	mpam_feat_cmax_cmax,
-> +	mpam_feat_cmax_cmin,
-> +	mpam_feat_cmax_cassoc,
-> +	mpam_feat_cpor_part,
->  	mpam_feat_mbw_part,
->  	mpam_feat_mbw_min,
->  	mpam_feat_mbw_max,
-> +	mpam_feat_mbw_prop,
-> +	mpam_feat_intpri_part,
-> +	mpam_feat_intpri_part_0_low,
-> +	mpam_feat_dspri_part,
-> +	mpam_feat_dspri_part_0_low,
->  	mpam_feat_msmon,
->  	mpam_feat_msmon_csu,
-> +	mpam_feat_msmon_csu_capture,
-> +	mpam_feat_msmon_csu_xcl,
->  	mpam_feat_msmon_csu_hw_nrdy,
->  	mpam_feat_msmon_mbwu,
-> +	mpam_feat_msmon_mbwu_capture,
-> +	mpam_feat_msmon_mbwu_rwbw,
->  	mpam_feat_msmon_mbwu_hw_nrdy,
-> -	MPAM_FEATURE_LAST
-> +	mpam_feat_partid_nrw,
-> +	MPAM_FEATURE_LAST,
+--ugH87F6woIwS5I8f
+Content-Type: application/pgp-signature; name="signature.asc"
 
-nit: drop the trailing , from MPAM_FEATURE_LAST. It confuses the diff.
+-----BEGIN PGP SIGNATURE-----
 
->  };
->  
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPZuzgAKCRB4tDGHoIJi
+0mWmAQCXkfmlRLPpkpogtOPLDai3zd1cQMUD4dehkb1qSH2wTwD/TyAWdD6k93SK
+AeF6ryJefcHUqunzW+LtLTOwecmIFQQ=
+=YaUV
+-----END PGP SIGNATURE-----
 
-
--- 
-Thanks,
-
-Ben
-
+--ugH87F6woIwS5I8f--
 
