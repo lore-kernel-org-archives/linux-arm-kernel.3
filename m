@@ -4,110 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BC54CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD05CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JdSeM7L3fyz67vnTQhFFC4l1PlGndmy+nOL9BJyjRtQ=; b=o/VTA9QBrFk01hgRxxcmzvbY+2
-	HUhAtaaU3mAdK7PjHwjgShfRJbzj1eKttIXlYvbXq3lHIhM9R0uJkyWpy8gxogbtq1n9L3Yd2cchc
-	x4V+lDnGgfIxY+BOtDKg93XEzDoW/BGmcJ5KE6iztckKsaLKHq98H6XZMaISATN9HSYi1kRv0qWl5
-	d2sbxttITeE1XckYQ5IQwdXSLVTzDqdBMnmZTU0+4maM5L4/Fp+cXdGAoPbpnxqXdcV/meLvSU8Zh
-	Q7+0zWuxYfmMP/okAeZ99w6T9O6TJrolY5h5mPi7D7YPUN5BvUkJCUJBCILUlU3AgW84HvrbOm9PA
-	Bwtdpywg==;
+	bh=FP3wJ4egQPPrPTjBkz89dEMC48T1xKcDeExWX0daaJU=; b=DBlTelqNfEasrpRmTD0dWr97oj
+	7N41rDv0T4/UCR0NVQUv4RQmIhfoGBY3Pmn+F2aNCdXbmjpL20eD7GlFKw2vqJ5KrtyVM1ZmkcW6f
+	NIGd7tJOoADG/YuFpGtioQ0rnpbVSH/0ovMKIgXZKtI9NStSAfrD0/TF40RrPjj7AX65UOcd7VAZD
+	r1SNbKT7lQzzHsAEKkT3UkX8vMoA7yUZ7JbL6IVmjrGY21ZKxEU0wdNBGMEYSQ9ZmH+da2nKtXN8M
+	jRLDm+eiy8PpAVjEw0eiPM1aF9TxM7kE1O4MogPrk4yb/hdNOlGbMe0+VWClVnsX9JaljjJVrS45V
+	UJ4JUtfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAqRn-0000000Dsn1-1fW6;
-	Mon, 20 Oct 2025 14:01:15 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vAqTa-0000000Dt57-1Xm3;
+	Mon, 20 Oct 2025 14:03:06 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAqRk-0000000Dskw-00mj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 14:01:13 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59KB8svT015526;
-	Mon, 20 Oct 2025 14:00:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=JdSeM7
-	L3fyz67vnTQhFFC4l1PlGndmy+nOL9BJyjRtQ=; b=seOBZBUcodAAuYBOCTxX4s
-	ROev3nWFE2tmlivxkn2ojXoh3KpiDiTfNQ8CmN0ykL7wQSrZaVZWMh/k1G5s531+
-	cQRn7tdC6IzGRbwjsNSPRIZVmtpSW21rLU60LI03YHK5qGpwGkORKd46pDf6YaZu
-	Md3dF/87wMdkXtK6dbTDPUAZqZCXNxHarzCOyoKZFtxTHqjqAkAJIdH0Vj3bzZlX
-	rGvSYfcIwtf7KTyVg5RRj3eRtdAsCjCGXcZDYgXHPQQDeOAQtVcKrU+Z/9+xZQ18
-	cBri2ItafAfalB0ebak5wqoARCkQhbOihIprsg3ZxTTaXfvCqwqkCV5OqQlOQ97w
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49v31c0sgw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 20 Oct 2025 14:00:56 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59KAAlrC017058;
-	Mon, 20 Oct 2025 14:00:56 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 49vnkxp2g9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 20 Oct 2025 14:00:56 +0000
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59KE0sfo6226180
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 20 Oct 2025 14:00:54 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 481212004B;
-	Mon, 20 Oct 2025 14:00:54 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1B41D20043;
-	Mon, 20 Oct 2025 14:00:54 +0000 (GMT)
-Received: from [9.111.135.235] (unknown [9.111.135.235])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 20 Oct 2025 14:00:54 +0000 (GMT)
-Message-ID: <51fc91b6-3a6e-44f7-ae93-aef0bcb48964@linux.ibm.com>
-Date: Mon, 20 Oct 2025 16:00:42 +0200
+	id 1vAqTX-0000000Dt4K-3rL9;
+	Mon, 20 Oct 2025 14:03:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1760968980;
+	bh=wa/LFx+3nxvEsI8+aKge1iAS1QhaGGNlrbnB3buk7SI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VDIf1diVrnftwL38ZREdQLDRwHdtKgievZhFbibJhQFutwAztvjM5o0Ofy8B+MuJ1
+	 gbB2fB5zCNc+lFbJoxBbEDZzf1uheBzC+Nlx9sun+NUI/d/KYBq3Ff28STT0H965tq
+	 nnrbsAdRosSrONRkoiNeZgNC8PuvSRPgPpkICA0Q54jAzdpR5hhw1tu2Y1cS27zwJX
+	 FRg9vM1KZf5TCg1umqLDbOg3lDUSE36e1IEZJfrh77+iTevPfFGOU0jL5YfxqKJ1H/
+	 gzueE+BKPyTjIQVERY1kpaRD5P4l5aKwVvJQygCbM/bzM0GDjLk7n4Ja3+QPhI/Axl
+	 9w4l4cXjKqsWA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0AF5A17E0456;
+	Mon, 20 Oct 2025 16:02:59 +0200 (CEST)
+Message-ID: <8453efd3-630e-4f2c-950d-88a73927cc54@collabora.com>
+Date: Mon, 20 Oct 2025 16:02:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 15/17] lib/crypto: s390/sha3: Migrate optimized code into
- library
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: David Howells <dhowells@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
-        "Jason A . Donenfeld" <Jason@zx2c4.com>, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-crypto@vger.kernel.org
-References: <20251020005038.661542-1-ebiggers@kernel.org>
- <20251020005038.661542-16-ebiggers@kernel.org>
-From: Holger Dengler <dengler@linux.ibm.com>
+Subject: Re: [PATCH 02/15] arm64: dts: mediatek: mt7981b-openwrt-one:
+ Configure UART0 pinmux
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Sjoerd Simons <sjoerd@collabora.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang
+ <jianjun.wang@mediatek.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Lee Jones <lee@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+ kernel@collabora.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org,
+ linux-phy@lists.infradead.org, netdev@vger.kernel.org,
+ Bryan Hinton <bryan@bryanhinton.com>
+References: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
+ <20251016-openwrt-one-network-v1-2-de259719b6f2@collabora.com>
+ <aPDnT4tuSzNDzyAE@makrotopia.org>
+ <5f430ff9-d701-426a-bf93-5290e6912eb4@collabora.com>
+ <aPEfUBl6fMe6QYdY@makrotopia.org>
+ <82594ce7-f093-4753-b808-cd234845aed8@collabora.com>
+ <aPYq4cnaAHu5ags5@makrotopia.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20251020005038.661542-16-ebiggers@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: P_P5WNnDrZc7bkcs6wRRlyJy8aTaDxbq
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE4MDAyMiBTYWx0ZWRfX5GEZ9Cx6axoj
- D01+yR3yKlDi4IlgTSmKdF1PlEUEL1k0LMU35tvDHaqVhINoiEVQJxRqDFkCy981lONc+Cat2Sn
- i9FGaSyhtxDRJ0v+JGAlxRrZb+i8MGjUkIWtgx4zzJep7w2HSm3j7Q4/4uvoThFV1McFfk6Xzvm
- EZXYtQfgrIRr5jN4aFEJAPrLhBSY2qJKjw2KkiQANNBQeuJlIxerredLIxOESi9AbdGpnGFBbwt
- lRwmZ9ZRxxnIvmPiPrDbRQu7P3wNDCp7kVmfVPzmqKq7J0Sf1UqX5+JReAdFrFSQg43mecbyBIT
- FHm0uZS/J0AM0KAT6rTbsX6RLmwONKW0T9WZlhSm6D0l65uRNJE49GfKfCRr1ctIKPNAQfNshIg
- 8meKg2qqV3Y7yRFtpGP1po4LvxRa0w==
-X-Proofpoint-GUID: P_P5WNnDrZc7bkcs6wRRlyJy8aTaDxbq
-X-Authority-Analysis: v=2.4 cv=SKNPlevH c=1 sm=1 tr=0 ts=68f64099 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=mFTWSeivvc5NSGs0BT4A:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-20_04,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 suspectscore=0 clxscore=1011 priorityscore=1501
- spamscore=0 impostorscore=0 bulkscore=0 lowpriorityscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510180022
+In-Reply-To: <aPYq4cnaAHu5ags5@makrotopia.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_070112_161683_03025D30 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20251020_070304_128427_55476EA7 
+X-CRM114-Status: GOOD (  39.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,31 +98,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/10/2025 02:50, Eric Biggers wrote:
-> Instead of exposing the s390-optimized SHA-3 code via s390-specific
-> crypto_shash algorithms, instead just implement the sha3_absorb_blocks()
-> and sha3_keccakf() library functions.  This is much simpler, it makes
-> the SHA-3 library functions be s390-optimized, and it fixes the
-> longstanding issue where the s390-optimized SHA-3 code was disabled by
-> default.  SHA-3 still remains available through crypto_shash, but
-> individual architectures no longer need to handle it.
+Il 20/10/25 14:28, Daniel Golle ha scritto:
+> On Mon, Oct 20, 2025 at 12:23:14PM +0200, AngeloGioacchino Del Regno wrote:
+>> Il 16/10/25 18:37, Daniel Golle ha scritto:
+>>> On Thu, Oct 16, 2025 at 04:29:14PM +0200, AngeloGioacchino Del Regno wrote:
+>>>> Il 16/10/25 14:38, Daniel Golle ha scritto:
+>>>>> On Thu, Oct 16, 2025 at 12:08:38PM +0200, Sjoerd Simons wrote:
+>>>>>> Add explicit pinctrl configuration for UART0 on the OpenWrt One board,
+>>>>>>
+>>>>>> Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
+>>>>>> ---
+>>>>>>     arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts | 11 +++++++++++
+>>>>>>     1 file changed, 11 insertions(+)
+>>>>>>
+>>>>>> diff --git a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+>>>>>> index 968b91f55bb27..f836059d7f475 100644
+>>>>>> --- a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+>>>>>> +++ b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+>>>>>> @@ -22,6 +22,17 @@ memory@40000000 {
+>>>>>>     	};
+>>>>>>     };
+>>>>>> +&pio {
+>>>>>> +	uart0_pins: uart0-pins {
+>>>>>> +		mux {
+>>>>>> +			function = "uart";
+>>>>>> +			groups = "uart0";
+>>>>>> +		};
+>>>>>> +	};
+>>>>>> +};
+>>>>>> +
+>>>>>>     &uart0 {
+>>>>>> +	pinctrl-names = "default";
+>>>>>> +	pinctrl-0 = <&uart0_pins>;
+>>>>>>     	status = "okay";
+>>>>>>     };
+>>>>>
+>>>>> As there is only a single possible pinctrl configuration for uart0,
+>>>>> both the pinmux definition as well as the pinctrl properties should go
+>>>>> into mt7981b.dtsi rather than in the board's dts.
+>>>>
+>>>> If there's really one single possible pin configuration for the UART0 pins,
+>>>> as in, those pins *do not* have a GPIO mode, then yes I agree.
+>>>>
+>>>> If those pins can be as well configured as GPIOs, this goes to board DTS.
+>>>
+>>> I respectfully disagree and will explain below.
+>>>
+>>
+>> Thanks a lot for taking the time to write all this - explains everything,
+>> and even too much :) :)
+>>
+>> Though, there's something funny here! The following snippet of "main" text
+>> does explain stuff that is interesting, but that I (not other people, so
+>> thanks again for saying all this) know already, but.....
+>>
+>>> All pinmux pins on the MediaTek platform also allow being configured as
+>>> GPIOs. However, if you configure those as GPIOs the consequence is that
+>>> you cannot use UART0 any more at all. So using UART0 at all always
+>>> implies using exactly those pins, there is no alternative to that.
+>>>
+>>> Hence every board with every possible uses of pins 32 and 33 (there is
+>>> only RX and TX for UART0, RTS/CTS flow-control is not possible) can be
+>>> represented without needing to configure the pinctrl for uart0 on the
+>>> board level. There isn't going to be any variation on the board-level
+>>> when it comes to uart0. Either it is enabled (status = "okay";), and
+>>> that will always imply using the 'uart0' group in mode 'uart', or, in
+>>> case any of the two pins of uart0 is used for something else that means
+>>> uart0 cannot be enabled. Simple as that.
+>>>
+>>> Hence there is no need to duplicate that pinctrl settings on each and
+>>> every board, as controlling the 'status' property on the board-level
+>>> already gives 100% freedom.
+>>>
+>>
+>> ...all of this is not justifying your point.
 > 
-> Note that the existing code used both CPACF_KIMD_SHA3_224 and
-> CPACF_KIMD_SHA3_256 after checking for just CPACF_KIMD_SHA3_256, and
-> similarly for 384 and 512.  I've preserved that behavior.
+> So what is the rule then? I understand the logic of describing the
+> pins eg. for uart1 only on board-level as there are actual alternatives
+> regarding the pins to be used, and if also including RTS/CTS pins.
+> Hence, for uart1, there are several possible pingroups which can be
+> used. What would be the argument to keep a pinctrl description for
+> which the SoC doesn't offer any alternatives to be on the board-level?
+> There is nothing to be decided by the board, literally 0 freedom.
 > 
-> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
-The current code also cover a performance feature, which allows (on supported hardware, e.g. z17) to skip the ICV initialization. The support has been introduced with 88c02b3f79a6 ("s390/sha3: Support sha3 performance enhancements"). Unfortunately, this patch removes this support. Was this intended?
 
-The get this feature back, we need to hook also into the init() function, set the according bit for the first message block and skip the initialization of the ICV.
+As you described - the BootROM is using those two pins as UART0.
 
-Please also add me and Harald Freudenberger to the cc: list for this patch.
+Should you want those pins to be used as GPIOs, you'd at least get HW glitches in
+early boot phases, or you'd render emergency download mode unusable - which is not
+a good idea, not practical, and also, well, almost a stupid thing to do from the
+hardware perspective.
 
--- 
-Mit freundlichen Grüßen / Kind regards
-Holger Dengler
---
-IBM Systems, Linux on IBM Z Development
-dengler@linux.ibm.com
+This means that it is very, very, very unlikely (to the point that it's practically
+impossible) that those pins can ever be used for anything else that is not *the*
+one of the two functions that are supported for them (which is UART0 in this case).
 
+In this case, adding the pins at the board level would only create unnecessary
+duplication and nothing else, because, well, noone could possibly ever use those
+for anything else, again.
+
+That's the criteria.
+
+If the BootROM didn't use those pins, and those could support both GPIO mode and
+HW function mode (any: uart0, 1, 2...n, spi, i2c, whatever else), even though it
+is likely for boards to use them for one specific function, there is nothing that
+stops a HW engineer to decide to route those elsewhere and use them as a GPIO
+instead, so that's not a SoC configuration, but rather a HW implementation decision
+at the PCB level.
+
+See it like this (although this is an oversimplified view):
+  - SoC DT describes the SoC (the chip) - in this case the MT7981B chip
+  - Board DT describes decisions that were taken by the HW engineer that developed
+    the PCB on which the MT7981B was placed.
+
+Clearly, if there's a board design (usually, a "base project") that has derivatives
+(for example, a device with eMMC, one with UFS, one with both, one with two SFP,
+one with one SFP and one soldered ethernet chip on a non-exposed SFP interface,
+etc) it is ok to have a "board-common" dtsi and specific board variants on top,
+like it is done with some bananapi and some genio boards.
+
+Lots of text here - yet oversimplified. There is much more to say, but I think
+(and hope) that this is enough to make you understand the main point (of course
+feel free to throw more questions if what I wrote doesn't fully satisfy you).
+
+>>
+>>> (Sidenote: As even the BootROM already uses those two pins as UART for
+>>> debug output,
+>>
+>> Funny thing is, your side note is what *fully* justifies your disagreement
+>> and it's also what triggers me to say that you're right, lol :)
+>>
+>> Okay then, I am fine with this commit now and I can renew my
+>>
+>> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> 
+> Note that the patch you have just added your Reviewed-by:-tag to does
+> *not* add the uart0 pinctrl on SoC-level but board-level, so different
+> from what I argued for above.
+
+Ewwww I'm doing too may things at once. Pretty crazy days around here :)))
+
+ >> Did you mean to add Reviewed-by: for that
+> (which contraticts what you just wrote) or rather to the to-be-submitted
+> v2 of this series which includes the change to move the uart0 pinctrl
+> to mt7981b.dtsi?
+
+Yeah. Sorry.
+
+I repeat then, so that this is clear: you are right, the pinctrl for UART0 on the
+MT7981B SoC must go to mt7981b.dtsi and *not* to mt7981b-openwrt-one.
+
+Cheers,
+Angelo
 
