@@ -4,160 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4697ECCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5089ACCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zab9XNfbDtyYM4jo98G7jBV7h02qbSEaHF7fJybFJWo=; b=nU99tjiHTIiMmom6VHrZjmdiFM
-	ze4foyycAY1hZwUvIzPNKRcBE70mR9opPgsaEYcMloqfraEY85k7qQWBcquON0Px2p0eyhEOchePO
-	jEQe7u/gG0YS4BsGQAw8fy/xB/4Gvll8Lp51pivOH3RTO52A6Fnw4tnqlsj5TEb6WphEQBcMoPkUU
-	/cbBCDRxNQitICnX14hmVwjlWzGVRO/2+c7net29q1aLPd0z8YrLiKax/ibwJMDhQcQqXi338UCuO
-	PUj+9Dd/qBeBvJXOtaBAFeDDkgmRCx4wliDbRcdIshSriG4Rzfv7cOc3wyz9CBMU19HaQ8KxIzSE2
-	/zqHbPww==;
+	bh=8M+85N7vxPlT6EdfKNMF7iLZL6P7LA7QnBJfg2pIwHw=; b=g9Sg2JgoUVAFGXRYvP4TY1M72i
+	aajLsrX3gMhXGiAJN0+FBDJ5FzRQyvju1EYItWhEJX03xsj3MN3VbXwoRWJr0m7/2i0P9gLwDzJ48
+	CKGaseAlMgvsE0FDbXzOheLdsNi8sWAGEvU88QuUm+EaOyIaXjQBn5UY+qQ3Zu6bvVmUf1wKi/n67
+	vgCsxecF5gyKp7YgWVnpkRLgfsPeisrNZXQmofonIukrWwGqbCvpUuExTTah+JGsbWYfgBsB/9t9O
+	jyGYQvhbDNCV0R//63Bq2fsOdacLetMqg/sT+5ADdSCo5SDSbCwIMsKyjJlYQweOQej95A+jmfFG/
+	sbm3yhiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vArDY-0000000E0W4-41q0;
-	Mon, 20 Oct 2025 14:50:36 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vArF0-0000000E0pt-0hRr;
+	Mon, 20 Oct 2025 14:52:06 +0000
+Received: from wxsgout04.xfusion.com ([36.139.87.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vArDV-0000000E0V7-1Fpy
+	id 1vArEx-0000000E0n6-03A6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 14:50:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jqZKUuciyn3rxM35K5P+t0/zadN3qeziTU1mHKX/WzUf4RDI+lxkWncJb3gVA3PMz+K1Ig66QE6Ypa6OZiVIxZ2areTPWtPPBwyth7cHlKckvXjuw/5OQNsPDnYMVOt02XhqIatNESfIHV4T9Gk5SqUJNKUQWOoFJhgbHGStEr2BBiwajG1Y6v5ZqtLyoeviGSEQgym5eLTb+l2zT0+hlpbA+lWghKWR1okXkMK7GDlwL3WWlW6xLn478ccwbUcQShgZwaSfHjY6Hdxucmv1Shf9j3g49/z8/zKCvc3V4HZmmFEOIBRseMVcOQ5EzMwPvTDWzfIbOLc+mKGJ7MsR0Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EEMy9dy5w2j1W1HRvBgtVS0GYtEQgzQODPMO8ooU97Y=;
- b=TmH25ecz9nv4B/lQaQUwV+90ek0Wh2ViDlmEPtMfl64vXvQc1IOfltZXed+mkBMYHmpGB0QySDaAGlYBZfAYtM4pgNfqPr/bMrAuj+x2PY8tVh439iSwnz82LJHm3SvWHIRQpP/dY42nK9KMLGyZQ5svjKMnh8EIOOQEKFvN4i7NdYuvlv9MCLT5Fqe9Lp/zHSlGEbRIFcVfE4uNVu1yB5UVDmBMSDo5WSN5rA6IKKmMZxdMGxrVZ/MjvjUToom+7cPX8pIEf38ZDPso4pxP46zyrgKsawI2leWtqmwCNvukOegWnhAc67mlnr/ZY6ALS2xxyHxaON73yNjm+Gi9qA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EEMy9dy5w2j1W1HRvBgtVS0GYtEQgzQODPMO8ooU97Y=;
- b=nPHUjZTVKLOc5HPpm9dfkpF6SZTbbldvkG2U/xBL2BsSW4V2UuP1dviqWec68r7wb07NLz56gKnb2pituU9oBUPYV0t28ObGhz2Uy/jo2AlVTRV8ATdYD2ay7MIZTOW4J0rDYiJqsjjsOpM8MElU1zxsZwe+JUu1NQAUjAosBX6t8h87qOzipuNN1oQYq6yb3fEL+3FA4J8jOiPPP+YAFE+JRv1rIV3UglKXdW46I/0UOPsCrKGOIv/8LXinERkf0Wnclzw0kYhsIuvqKx6wgPdsbRNvlaSO9qfs+uI63ftRcxMrkOwGaXt1CwY5dHSC85N33g1sSg9T/f6mLEN3FQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by VI2PR04MB10932.eurprd04.prod.outlook.com (2603:10a6:800:279::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.15; Mon, 20 Oct
- 2025 14:50:25 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9228.014; Mon, 20 Oct 2025
- 14:50:25 +0000
-Date: Mon, 20 Oct 2025 10:50:13 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH v2 7/8] reset: imx8mp-audiomix: Support i.MX8ULP SIM LPAV
-Message-ID: <aPZMJb9VwylTIiCM@lizhi-Precision-Tower-5810>
-References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
- <20251017112025.11997-8-laurentiumihalcea111@gmail.com>
- <aPJZdAQwdoOP3cqN@lizhi-Precision-Tower-5810>
- <64b28a11-337a-42ba-8765-d94b19070d66@gmail.com>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <64b28a11-337a-42ba-8765-d94b19070d66@gmail.com>
-X-ClientProxiedBy: SJ0PR13CA0059.namprd13.prod.outlook.com
- (2603:10b6:a03:2c2::34) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
+	Mon, 20 Oct 2025 14:52:04 +0000
+Received: from wuxpheds03048.xfusion.com (unknown [10.32.143.30])
+	by wxsgout04.xfusion.com (SkyGuard) with ESMTPS id 4cqyxl3NzQzBC2xT;
+	Mon, 20 Oct 2025 22:49:31 +0800 (CST)
+Received: from DESKTOP-Q8I2N5U.xfusion.com (10.82.130.100) by
+ wuxpheds03048.xfusion.com (10.32.143.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_RSA_WITH_AES_128_CBC_SHA256) id 15.2.2562.20;
+ Mon, 20 Oct 2025 22:51:41 +0800
+From: shechenglong <shechenglong@xfusion.com>
+To: <linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <stone.xulei@xfusion.com>,
+	<chenjialong@xfusion.com>, <yuxiating@xfusion.com>, shechenglong
+	<shechenglong@xfusion.com>
+Subject: [PATCH v2 2/2] cpu: fix hard lockup triggered by printk calls within
+  scheduling context
+Date: Mon, 20 Oct 2025 22:51:17 +0800
+Message-ID: <20251020145118.1306-3-shechenglong@xfusion.com>
+X-Mailer: git-send-email 2.38.0.windows.1
+In-Reply-To: <20251020145118.1306-1-shechenglong@xfusion.com>
+References: <20250918064907.1832-1-shechenglong@xfusion.com>
+ <20251020145118.1306-1-shechenglong@xfusion.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|VI2PR04MB10932:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62d4a905-29a8-407e-c004-08de0fe80086
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?3P5Tb6euz3jo+diUxHUkFiKSGcOOtXeLM2HtHx/NL3428b579nJ/DQ2f7X?=
- =?iso-8859-1?Q?Ir8m9XDXx/E0iGo5r0nhejJiO+rJ/CYB8kuuPffNNMQm/fgD53eUOdQioD?=
- =?iso-8859-1?Q?59kndDk2+8BAoIGYKGlkrGGaVsPOIu1ijxnuSWAqEMcerJG+sONt1Gbxfb?=
- =?iso-8859-1?Q?PFwXhrR9WoL7q9G/TQHqcKj0RP6qjlsNJbC/vX8Z2Exhu9G4BbSMYa3+YY?=
- =?iso-8859-1?Q?z1J3wEHh/UJJRRUcZ09fqKqu7Q8bS2arKnfZhteFPoy+TF1woar/mEbNJU?=
- =?iso-8859-1?Q?zXds95bLjjND/YE2D2+Og04zo788Y6ncMpJGvKH8h9AkQH0WlHJzgxb3Nk?=
- =?iso-8859-1?Q?iNp770tLrb521u9O1egp12JdBmsnFpMG5pZWdg5gCkAxHdhS+G5VZVwdVD?=
- =?iso-8859-1?Q?TgWehz5vz32VIRFKR+11lJDxeOwN06w+f2xVEgJSqMNfJf0fwelGAKxReE?=
- =?iso-8859-1?Q?QsPiEaRVDDylUyB8whnvqGWgQ8Qj0GG5pfkrPZaaIhK+K4ob5Akdc+GGa3?=
- =?iso-8859-1?Q?9XDARKcnJrjvY9rU41/OqCOo3f2rChmD+ibVMcTnJuSPDJOc0bue1pVDjn?=
- =?iso-8859-1?Q?8utGDwVEn1/C5Lrbpz2t1R7VdQMpUzby5b2zQg/H1ugcIRha8uhqcWxsiD?=
- =?iso-8859-1?Q?BDQufdHd6GXKZHNE6DdkInmc7W6tSrOnlmhg3621T2UaQkV9WMXlUjznBj?=
- =?iso-8859-1?Q?dRbn6r9gYgT7HkS0ybXlQ3OnlVT8hbtKXlAcXvNkK8q0pEXPbtxp/e5cST?=
- =?iso-8859-1?Q?JktuGIQJJgyYkra+YB3V68POZvxfineycsXwn8VJKbhJ4JpYGj373H3Mz8?=
- =?iso-8859-1?Q?DLTs+Z5YFUcPprLhB9lrqUmpB9qpQC2wf99C2YClqRnWdyxMYT1ugKCT0V?=
- =?iso-8859-1?Q?3TtTG+2bEgo9i65OfSTzhLu6fsS8WzmdJeCY950wIqGeiKtq1K62uPglXm?=
- =?iso-8859-1?Q?wW6olxNrUJGTenzMIEOZ9Hh49EiNJ903ejnHbEf/6KtwmJq06K314wcPad?=
- =?iso-8859-1?Q?at25Js3ROFEA+n9J5gBMplwHimGcYFbyuU9phyij6+6FjZJjWAqXRoMMRV?=
- =?iso-8859-1?Q?JNtDW07+1qLOvONPkiWf0d7T3gdUHLEu41XNgv9iNPRGkDPoO2r74YNAw7?=
- =?iso-8859-1?Q?Vn2CaFwUFGaolLBaf8sosWR3YJn0ksvDS3kGsSoKo1NyVAZ07eZiEQGLtX?=
- =?iso-8859-1?Q?BXEpiuLgqDKpBMElJQy4h+WSj3C9tHCkZZwxcf0KJ/6KkGf9hbhhXZI/H6?=
- =?iso-8859-1?Q?25MWVgWRwBsvLoxzwG45wRJfrttSsGvkZXT4TNNf9LUqSxAfMGVFs7xrDz?=
- =?iso-8859-1?Q?AmPM29t5wuTGg6FKf1nz3RaL/3BXNxTMZE4+RsodulRBPv1q8tS46J+YR+?=
- =?iso-8859-1?Q?tunql79YAWkS8e3c0RAmTvU5KAfosO54LIgizQmFJwwPIlGejx9+0v5FoB?=
- =?iso-8859-1?Q?mf+Lp6P4BKv/8Z1ILq9okMGkAlVhyvk6u2uYVhruYpeOpPDiSp0nr227CQ?=
- =?iso-8859-1?Q?AnEgINABLF1I3ylxqcxbddnzaeizG2GApY1lmVTt4/iYAB0JTegPFKj0wJ?=
- =?iso-8859-1?Q?AbFgQOGrwgEeimuHYK6ENU/R8ot9?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?FFodb9H6gGuwKnvxvF6FljgLEYINDxLvWb2xvdaQuCEmIWvLjfu+/FK58A?=
- =?iso-8859-1?Q?0/1qO8Gs1H6MsTWUp5NhYDKrQ4cHhTHmVa8v2jgzLH2mW70JWwbVTEmYJg?=
- =?iso-8859-1?Q?aNim2pjq/GNA3aFhmGsVPbuE/b52QsAL7Day6dJsqvFWI9bmbs7qCCQ0mL?=
- =?iso-8859-1?Q?RTJ1l60ZFDQy7YwlhGvWuksDK3b4ypajOLsGF37N3eFRxjCnKJoYrKGOdz?=
- =?iso-8859-1?Q?dYehuPDYfPxhewgHgqD2cUkmvhCD8vi2Dpv2izP6uqWks4ZvMwhFKaGS/c?=
- =?iso-8859-1?Q?Skql1Jc1O4SQJVpz7FYDV3OvD9zsiUdx/IQpZatbxCcaxH3K40mcJf2U7t?=
- =?iso-8859-1?Q?yMtwQKzN3AZGF8Ck+FiJkZGNKwsQqcdeN5UZB1oxzekqYMAP9VxWakj0lU?=
- =?iso-8859-1?Q?zOVmhco/lkqFMIQANydbJQQdASYSBgRo3TJWBOogFlohxuVH4/+RPfTcmt?=
- =?iso-8859-1?Q?K4VAqtxniqKNKbQQZpBw64URAij30cTCR1Al0fzq5Dp2WvSPnu2lB2Bcga?=
- =?iso-8859-1?Q?wf9OPllnqH1pdcfQ4mbQmNUlP0A0xTAgzx61kVs/8+OQVB1tKZmeXJZtaD?=
- =?iso-8859-1?Q?jxBste9/m20NBCiQLzPNyZUifxhm5DbSx1enEq22/kgygeAhqWaQNAd/vD?=
- =?iso-8859-1?Q?hOoX3/Eqp6qBYAMOnDbxCsE08ihNAYSpjFaMN+KC/mpLVJZw8EhJlBpL/K?=
- =?iso-8859-1?Q?q9bxLBPR2s8sTQeO05SFWbsaLmkugvMimBelFXgZH4ou01au9zJowq3euP?=
- =?iso-8859-1?Q?kVCagXnWpAsdX1H4xDARvCGg2YVUYXSIvqcZDPeEIMn9P4K2NPuLhynK12?=
- =?iso-8859-1?Q?EgF+OHPx9oPgcd7WhBTZ6fmGOEb8k/jaRY0LtioSzN9DkeGrge/dDEutUE?=
- =?iso-8859-1?Q?p/yODU6NaMzWH+PwU9Hlkg9jPaNGpfVW18Z3tfk/ftCYCUfvKZzYxnP4Xc?=
- =?iso-8859-1?Q?MYNlXMJ+PKceTeL7CynpndNTFqR6qqXBci5T7d3EUh1AEwlzLtZAvrxY0+?=
- =?iso-8859-1?Q?tszZZWjps0oXMzW84PcNfIkxeDSkfo8Xp2ZbJTpsMPK8Eo20PlpE3Bb9WV?=
- =?iso-8859-1?Q?0sfOVSnbz+a917Utdi3eqowO8/afGdyap9stKGshjYRN3W3Q8o81nNmPBC?=
- =?iso-8859-1?Q?/2AZ26YlLj9JOFKnYFa/5K7oOcPxhdXDsmL7k0DPuszjcMPDTWBeFMtbmv?=
- =?iso-8859-1?Q?BfizYoYtfn9cpHw6y3My3APJPWNFaz6lICmO5hWrFOdmfX9ZPohsnZaHYt?=
- =?iso-8859-1?Q?RqWzh2y/G7gUWyBTeJQ29+ar0sByJR6cobFtx/mPh4Kmi8xAm2l3ZAxGSV?=
- =?iso-8859-1?Q?2IGd/94mr4MHl/oWo42AeZxkgjNIfW8hFxUchXjpFf32AeYwBBNP1QYOBS?=
- =?iso-8859-1?Q?bgwlweLRftVvhCjBAaT2SMqScXyMd+7ExfKAh2MZf3d+JaeradIaZ7HfS2?=
- =?iso-8859-1?Q?o/3CP3dV/u6h7H/wuR2vlFp5ZcLzYBSopJmGUGFxk+Fq/zXUlNsmpJVS4P?=
- =?iso-8859-1?Q?GZKklczvvEFGKbSQVj6CILURM13Hxo3KxiPs45VdEkuWC/NWCxhEBqvhzx?=
- =?iso-8859-1?Q?IG68HAERv++bLARrIDiCq+AtS3L9q3DbFGj5B9k9TwHmzrav3smknQ/PqZ?=
- =?iso-8859-1?Q?KOC1KuD/vLBJA=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62d4a905-29a8-407e-c004-08de0fe80086
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2025 14:50:25.3085
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mAsR9+ocyoGlUPUQfM9S0+QiOrlGA+h3vEwYe8Evu+7aKfP5MPoXy5P7CsIgs3TqXv1BpXmkGHkyf4cDJSVt1A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10932
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-Originating-IP: [10.82.130.100]
+X-ClientProxiedBy: wuxpheds03045.xfusion.com (10.32.131.99) To
+ wuxpheds03048.xfusion.com (10.32.143.30)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_075033_338954_D264CEF1 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20251020_075203_645015_F25743CC 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,132 +69,137 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 20, 2025 at 07:29:28AM -0700, Laurentiu Mihalcea wrote:
->
-> On 10/17/2025 7:57 AM, Frank Li wrote:
-> > On Fri, Oct 17, 2025 at 04:20:24AM -0700, Laurentiu Mihalcea wrote:
-> >> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >>
-> >> Support i.MX8ULP's SIM LPAV by adding its reset map definition.
-> >>
-> >> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> >> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >> ---
-> >>  drivers/reset/reset-imx8mp-audiomix.c | 51 +++++++++++++++++++++++++++
-> >>  1 file changed, 51 insertions(+)
-> >>
-> >> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
-> >> index c370913107f5..b333d7c1442a 100644
-> >> --- a/drivers/reset/reset-imx8mp-audiomix.c
-> >> +++ b/drivers/reset/reset-imx8mp-audiomix.c
-> >> @@ -3,6 +3,7 @@
-> >>   * Copyright 2024 NXP
-> >>   */
-> >>
-> >> +#include <dt-bindings/reset/fsl,imx8ulp-sim-lpav.h>
-> >>  #include <dt-bindings/reset/imx8mp-reset-audiomix.h>
-> >>
-> >>  #include <linux/auxiliary_bus.h>
-> >> @@ -17,6 +18,8 @@
-> >>  #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
-> >>  #define IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET	0x108
-> >>
-> >> +#define IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET	0x8
-> >> +
-> >>  struct imx8mp_reset_map {
-> >>  	unsigned int offset;
-> >>  	unsigned int mask;
-> >> @@ -55,6 +58,50 @@ static const struct imx8mp_reset_info imx8mp_reset_info = {
-> >>  	.num_lines = ARRAY_SIZE(imx8mp_reset_map),
-> >>  };
-> >>
-> >> +static const struct imx8mp_reset_map imx8ulp_reset_map[] = {
-> >> +	[IMX8ULP_SIM_LPAV_HIFI4_DSP_DBG_RST] = {
-> >> +		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-> >> +		.mask = BIT(25),
-> > Register defination still perfer use macro. If not, let me know.
->
-> I see no value in adding defines for the masks (see patch 4 commit message)
->
-> in this particular scenario.
->
->
-> Is the assignment of the "mask" field for the "struct imx8mp_reset_map" item found
->
-> at index  IMX8ULP_SIM_LPAV_HIFI4_DSP_DBG_RST not enough to deduce that the
->
-> constant we're using is the mask for the DSP_DBG_RST bit?
-
-This bit is NOT software choose bit, which must be align hardware spec.
-Define macro help map name to spec and easy to look for spec by use macro.
-
-There are over thousand result to seach bit 25.
-
-eventhough search SYSCTRL0, may have many SYSCTRL0 in RM.
-
-Frank
->
->
-> >
-> > Frank
-> >> +		.shift = 25,
-> >> +		.active_low = false,
-> >> +	},
-> >> +	[IMX8ULP_SIM_LPAV_HIFI4_DSP_RST] = {
-> >> +		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-> >> +		.mask = BIT(16),
-> >> +		.shift = 16,
-> >> +		.active_low = false,
-> >> +	},
-> >> +	[IMX8ULP_SIM_LPAV_HIFI4_DSP_STALL] = {
-> >> +		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-> >> +		.mask = BIT(13),
-> >> +		.shift = 13,
-> >> +		.active_low = false,
-> >> +	},
-> >> +	[IMX8ULP_SIM_LPAV_DSI_RST_BYTE_N] = {
-> >> +		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-> >> +		.mask = BIT(5),
-> >> +		.shift = 5,
-> >> +		.active_low = true,
-> >> +	},
-> >> +	[IMX8ULP_SIM_LPAV_DSI_RST_ESC_N] = {
-> >> +		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-> >> +		.mask = BIT(4),
-> >> +		.shift = 4,
-> >> +		.active_low = true,
-> >> +	},
-> >> +	[IMX8ULP_SIM_LPAV_DSI_RST_DPI_N] = {
-> >> +		.offset = IMX8ULP_SIM_LPAV_SYSCTRL0_OFFSET,
-> >> +		.mask = BIT(3),
-> >> +		.shift = 3,
-> >> +		.active_low = true,
-> >> +	},
-> >> +};
-> >> +
-> >> +static const struct imx8mp_reset_info imx8ulp_reset_info = {
-> >> +	.map = imx8ulp_reset_map,
-> >> +	.num_lines = ARRAY_SIZE(imx8ulp_reset_map),
-> >> +};
-> >> +
-> >>  struct imx8mp_audiomix_reset {
-> >>  	struct reset_controller_dev rcdev;
-> >>  	void __iomem *base;
-> >> @@ -183,6 +230,10 @@ static const struct auxiliary_device_id imx8mp_audiomix_reset_ids[] = {
-> >>  		.name = "clk_imx8mp_audiomix.reset",
-> >>  		.driver_data = (kernel_ulong_t)&imx8mp_reset_info,
-> >>  	},
-> >> +	{
-> >> +		.name = "clk_imx8ulp_sim_lpav.reset",
-> >> +		.driver_data = (kernel_ulong_t)&imx8ulp_reset_info,
-> >> +	},
-> >>  	{ }
-> >>  };
-> >>  MODULE_DEVICE_TABLE(auxiliary, imx8mp_audiomix_reset_ids);
-> >> --
-> >> 2.43.0
-> >>
+relocate the printk() calls from spectre_v4_mitigations_off() and=0D
+spectre_v2_mitigations_off() into setup_system_capabilities() function,=0D
+preventing hard lockups that occur when printk() is invoked from scheduler =
+context.=0D
+=0D
+Link: https://patchwork.kernel.org/project/linux-arm-kernel/patch/202509180=
+64907.1832-1-shechenglong@xfusion.com/=0D
+Suggested-by: Mark Rutland <mark.rutland@arm.com>=0D
+Suggested-by: Catalin Marinas <catalin.marinas@arm.com>=0D
+Suggested-by: Will Deacon <will@kernel.org>=0D
+Signed-off-by: shechenglong <shechenglong@xfusion.com>=0D
+---=0D
+ arch/arm64/include/asm/spectre.h |  2 ++=0D
+ arch/arm64/kernel/cpufeature.c   |  7 ++++++-=0D
+ arch/arm64/kernel/proton-pack.c  | 28 ++++++++++++++--------------=0D
+ 3 files changed, 22 insertions(+), 15 deletions(-)=0D
+=0D
+diff --git a/arch/arm64/include/asm/spectre.h b/arch/arm64/include/asm/spec=
+tre.h=0D
+index 8fef12626090..f244b52fb123 100644=0D
+--- a/arch/arm64/include/asm/spectre.h=0D
++++ b/arch/arm64/include/asm/spectre.h=0D
+@@ -118,5 +118,7 @@ void spectre_bhb_patch_wa3(struct alt_instr *alt,=0D
+ void spectre_bhb_patch_clearbhb(struct alt_instr *alt,=0D
+                                __le32 *origptr, __le32 *updptr, int nr_ins=
+t);=0D
+=0D
++void spectre_print_disabled_mitigations(void);=0D
++=0D
+ #endif /* __ASSEMBLY__ */=0D
+ #endif /* __ASM_SPECTRE_H */=0D
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.=
+c=0D
+index 5ed401ff79e3..6836e314fd30 100644=0D
+--- a/arch/arm64/kernel/cpufeature.c=0D
++++ b/arch/arm64/kernel/cpufeature.c=0D
+@@ -94,7 +94,7 @@=0D
+ #include <asm/traps.h>=0D
+ #include <asm/vectors.h>=0D
+ #include <asm/virt.h>=0D
+-=0D
++#include <asm/spectre.h>=0D
+ /* Kernel representation of AT_HWCAP and AT_HWCAP2 */=0D
+ static DECLARE_BITMAP(elf_hwcap, MAX_CPU_FEATURES) __read_mostly;=0D
+=0D
+@@ -3875,6 +3875,11 @@ static void __init setup_system_capabilities(void)=0D
+         */=0D
+        if (system_uses_ttbr0_pan())=0D
+                pr_info("emulated: Privileged Access Never (PAN) using TTBR=
+0_EL1 switching\n");=0D
++=0D
++       /*=0D
++        * Report Spectre mitigations status.=0D
++        */=0D
++       spectre_print_disabled_mitigations();=0D
+ }=0D
+=0D
+ void __init setup_system_features(void)=0D
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pac=
+k.c=0D
+index d833b7c1bba8..386f986e6b5d 100644=0D
+--- a/arch/arm64/kernel/proton-pack.c=0D
++++ b/arch/arm64/kernel/proton-pack.c=0D
+@@ -91,12 +91,7 @@ early_param("nospectre_v2", parse_spectre_v2_param);=0D
+=0D
+ static bool spectre_v2_mitigations_off(void)=0D
+ {=0D
+-       bool ret =3D __nospectre_v2 || cpu_mitigations_off();=0D
+-=0D
+-       if (ret)=0D
+-               pr_info_once("spectre-v2 mitigation disabled by command lin=
+e option\n");=0D
+-=0D
+-       return ret;=0D
++       return __nospectre_v2 || cpu_mitigations_off();=0D
+ }=0D
+=0D
+ static const char *get_bhb_affected_string(enum mitigation_state bhb_state=
+)=0D
+@@ -421,13 +416,8 @@ early_param("ssbd", parse_spectre_v4_param);=0D
+  */=0D
+ static bool spectre_v4_mitigations_off(void)=0D
+ {=0D
+-       bool ret =3D cpu_mitigations_off() ||=0D
++       return cpu_mitigations_off() ||=0D
+                   __spectre_v4_policy =3D=3D SPECTRE_V4_POLICY_MITIGATION_=
+DISABLED;=0D
+-=0D
+-       if (ret)=0D
+-               pr_info_once("spectre-v4 mitigation disabled by command-lin=
+e option\n");=0D
+-=0D
+-       return ret;=0D
+ }=0D
+=0D
+ /* Do we need to toggle the mitigation state on entry to/exit from the ker=
+nel? */=0D
+@@ -1042,8 +1032,6 @@ void spectre_bhb_enable_mitigation(const struct arm64=
+_cpu_capabilities *entry)=0D
+=0D
+        if (arm64_get_spectre_v2_state() =3D=3D SPECTRE_VULNERABLE) {=0D
+                /* No point mitigating Spectre-BHB alone. */=0D
+-       } else if (cpu_mitigations_off() || __nospectre_bhb) {=0D
+-               pr_info_once("spectre-bhb mitigation disabled by command li=
+ne option\n");=0D
+        } else if (supports_ecbhb(SCOPE_LOCAL_CPU)) {=0D
+                state =3D SPECTRE_MITIGATED;=0D
+                set_bit(BHB_HW, &system_bhb_mitigations);=0D
+@@ -1197,3 +1185,15 @@ void unpriv_ebpf_notify(int new_state)=0D
+                pr_err("WARNING: %s", EBPF_WARN);=0D
+ }=0D
+ #endif=0D
++=0D
++void spectre_print_disabled_mitigations(void)=0D
++{=0D
++       if (spectre_v2_mitigations_off())=0D
++               pr_info("spectre-v2 mitigation disabled by command-line opt=
+ion\n");=0D
++=0D
++       if (spectre_v4_mitigations_off())=0D
++               pr_info("spectre-v4 mitigation disabled by command-line opt=
+ion\n");=0D
++=0D
++       if (__nospectre_bhb || cpu_mitigations_off())=0D
++               pr_info("spectre-bhb mitigation disabled by command-line op=
+tion\n");=0D
++}=0D
+--=0D
+2.33.0=0D
 
