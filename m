@@ -4,92 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B319CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:16:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3728FCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:17:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bqdq9WmXPaR8Gsjoe2b8oxuoY7eohXxoBpzukdwSAp0=; b=CmRJPQcgAnQLmmyB8oDe/MxJ9Y
-	m8EP9iC/T5JYAm+54E1s3chEnMQORnIu0KgBl8L427djqRAPxij87gfebiYMhoLMyuAMopmZ67hl1
-	0bSig8VL0E1UszH+hCtXQvjrFdWDylgVY2R+JqB+tV/n1IcKOL2Lsgm93KNDGKZXgqVB0pyvcWPyf
-	XT1qzkXMFDx/4FDOimutThblfQPXzLWmgewi8PWfqx+XdgYgHNOHHA2uZ3Ydjq60cNIngH6xZ+J8x
-	UuftUeAJwffrzBrPPs9tLz4SFnzc0QZNWXcRQj6Hkf7tq/143Kxw+BjdFEMOqjBy9rJ4y4fNqu15t
-	CIb9D3/A==;
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MFGSwFSrgqDr9/3WMg/kXR+n60QLpJskpnlVbbXnq7E=; b=k+NVHfamWOtG/UhcLMHx25g5Om
+	nhG3x+jHlAjcIWWPL8vIdHZjHKY0Z925h9aGintoZ2ngYN3FP1PTSGIXcL7itp6jUFVM/n61hqfIX
+	nK+zv1enZYqochCz4W8OnMzxWYWwrCwW592dukBEO+Jwk8ooJJC2392rEG1QZwIrvLHhB+egqiKOk
+	r6fWPERbyp9T1eqeiIQrwrkHUeahYcPzxFFQSbTKeNFTwUxk2Btbosr2B7D/Y7rPWFpwEGgnE1iqB
+	Sn6FsUlGawvYDX5qCEAa7VROybf/G0w/2QqXkxvs3NzgBepY4c8XvkoWzUwbsb+RcP0Xcz255djOk
+	bxzAZ3cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAqgk-0000000DvaE-47r7;
-	Mon, 20 Oct 2025 14:16:42 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1vAqhQ-0000000DvkX-1Mzf;
+	Mon, 20 Oct 2025 14:17:24 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAqgj-0000000DvZV-1utH
+	id 1vAqhM-0000000DviQ-31CW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 14:16:42 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b4fb8d3a2dbso3033629a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 07:16:40 -0700 (PDT)
+	Mon, 20 Oct 2025 14:17:22 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-76e2ea933b7so3968862b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 07:17:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760969800; x=1761574600; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1760969839; x=1761574639; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-disposition:mime-version
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bqdq9WmXPaR8Gsjoe2b8oxuoY7eohXxoBpzukdwSAp0=;
-        b=UhJ5zgKQz7GtUCP9FAaYfCjKWQeN+RCN0W4MhUzH7lN6P+Q8TpaQVKmsMsnzlbXG9i
-         A13vG89A3gWoQjixME1Zo6k1ra3hwFOM420v97uzoRhjDnLMxIVmcsmNxnDKmkqgJY8+
-         DrxAvMf8h60eDKJLOK0nUXJzlXSgjZZWvWFE+HfVzMPiOALuxjHDSOuVUUDG8vpo9+U4
-         azDAS7oHKsResEBPoDYug60rgO8/Slio6PeTPq9j9CBy/MK1bboYQKwr9rXPHkDxPv2e
-         CYqU/liBqsvwzkLWNqZzKD3u22XDaUttySfYa4MP1IZCriTg0IEcaUN/JNs08HSLCOOp
-         pU8w==
+        bh=MFGSwFSrgqDr9/3WMg/kXR+n60QLpJskpnlVbbXnq7E=;
+        b=UeCf2bk88BjjzM2T5KoyPu5Zt29yAV92m58QaIbot7K7qVNPS+9OghZT6LbXFo1Acg
+         OYUPUNQUftZzB4D4v671tnFLEMGtVLVxmsmu8LxDe3NJGiS5SOha0ocyL8BYomFmwRj/
+         ApdoSV25wk8Zyj5chAZD+2OIsZF9nI3H/CjY0uCKM47oU4FDMWDCLIe83deLA1gNLtDr
+         zJa0AVDn50ZQLSB06wXsawFALMc3vOj77DMR2EwVSSpabz6z4mdc9jqWUbSHmPxcOk0+
+         YxR0YJzkIfu4NtrQfdIWfmb2oOVbCCkEk7lfiGuMWwWBLqGrp47OaFPA38I+UuoacEim
+         xCuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760969800; x=1761574600;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1760969839; x=1761574639;
+        h=content-transfer-encoding:content-disposition:mime-version
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bqdq9WmXPaR8Gsjoe2b8oxuoY7eohXxoBpzukdwSAp0=;
-        b=MMVch9T7SL5WQZIHDYVYZNh9g92SOcv8CFcDWVd1+AOOAWTm1+J2VkH6CE9lRr0GjV
-         zStqTOK77a9NJqFdLGFTei2S6WqKUm53p7FCO9MDVms/w4p5G7GrlJ3T8RZFaXBLNr+H
-         6ckUgNUsv2XJ1jS6omweWsIbR4ZqP5ZDceTba7V7TWMkVYtgtSF1o7j2Ezj0FeaVCjDC
-         k6bnKQgXV6/m5FshocFtbj6lBS8VJCQHlerjIx+yBF4KRsbQnqbonB4Bmnvgko1labxi
-         gQfodon93hk4/hrw/XYA0a5PbYoGNBMxBZS4xEHj2bS9VXVcuLXZgHGvAUGoF8y1ELbP
-         ttPA==
-X-Forwarded-Encrypted: i=1; AJvYcCW/aIVPgrKbcpN2KFvBt9VKgn2XAjoKQyCSXj2/CPMf/q4rwfSHs9WhlRkBzyPquC+RZtf7NZ9EF0kcS7Wute2V@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyl01WVMLkvI4P6Nw4XuoSzjLCCKZ+CehxIp1Wl57t6EG9twwXs
-	2LwiQEQJiebirH2W/0U/hPAEsq8VrzrypJpxx+w/j2sqCpMMoAmdmUKkAdvC/sJZtUTAbaz4aTj
-	+mrzRMHyjBcXvib0NGGF+nwKgahuDoM4=
-X-Gm-Gg: ASbGncs0fg0GyV6tml9FnDIt8GoLvUUR3AFEA3mWPxRBphAfRjndl4teeWbO19LCEAu
-	fbv1WUoU+KsLI160rNhI4X9R393GWTC4iDOGBPldoA19GVHGbBM6SAlTwTtv+0x5OCq4vucyu+P
-	pkwNN7wnCe4IHt8cfNq56tfd+f2T3rjvAgXckoO8FqxdCf82xvjFRYwAf+vg1lew9Qmw75M2tor
-	3iu/ck2JhJat8y4mhRuV8cIBqMlwb93gm/kyLzu8Eq16WLiRhsh8lRYSdbcY2122icaLvZ++2w4
-	IpRILIEKk35NdKmevkBB5Pja
-X-Google-Smtp-Source: AGHT+IF71shr5BTQv0oq5eLWvgxmXcOQ1nEZ8rFk3kgzINgGyypUZnjlZnnQfErZnclV+r8kM1yF7mXz80sc3mNjFCg=
-X-Received: by 2002:a17:903:11ce:b0:290:9da8:f88c with SMTP id
- d9443c01a7336-290c9ca6b61mr160740585ad.17.1760969800070; Mon, 20 Oct 2025
- 07:16:40 -0700 (PDT)
+        bh=MFGSwFSrgqDr9/3WMg/kXR+n60QLpJskpnlVbbXnq7E=;
+        b=K+q3JkNQFVkWwCLBf78NYR7b4vQr5Vf7Lu1BeoW2SYQ4SJB5XDz7gh0iKXVY87cH+1
+         rOFL3KgQ+HMlqU//4iRa7Kd9JBnRjEvZRMnXbcH9Y1C9Q1xdGSUK78zLtMVUg11AWspv
+         VXm9YPwVvFiHtfpw9ZRFGMBCiGpF8lm5spcRJeOHXow4l6GU3IoAbnjhMv+AE28pifNs
+         71Yye7XK458E5uVF5bL7suOtSjYrcMh8Vg/meNQezHPaW301F2cUkHQQFkMFI480tHLu
+         rXSKCgKua933s+UlO8sw7QlUmcQoExAFMI/X/XsoUSb7tNEU+Yt//ORzof7+uyA6criX
+         RzsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXreolo8kGZdFZAHjk7lK9qgj+JD2/t37KFZH7ABVZlxIMP2N/rf4yxfsCh8o9ueuqqhZt08b14zu2R8VFSVSTU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5G28VinQ8y78GvA3QpdELTIV+M4Qaef8cRXL7FNeCmsQP0cBB
+	JNxGbwRGWkhhwJiQLlonjPYAgL2xCHm+E87/WmZj9ZTt6Rsr1LL4Zir7
+X-Gm-Gg: ASbGncv13efPuXc6zTKk44tMhCXEcsnSzC6bOOM2yY/xklDwAi37eVDErUvahmEIpcn
+	0HEkFJ5LCrWLSNHKXLR4sz37Vgt0bd6dCuhIa2Av+xkJ+9ivcX4PWToJO/YwZWsstb7VsroshuU
+	HnXPAi98m2PNxmBOWqntIaDWoDO9VzJ8u6Si05ePsm6G27s3biebTaIH2HKIskfwAlmaxVA2tNg
+	+uVc+HDj9c7JrbWLhSOhcPWJTyVglWSDJwna42gB2GCiG+fwtcuDueKyqTU1dwKiy00oBM+QkoT
+	8QyJ/qM2Z6m3Fvn4WDM5X8fTntYT/pboU6YCYLe/d1tGnU4HRmVgyNPBmoYUD+q6t/gERMBkfY4
+	JRMZdaL4oB/YxVoU7UY7vy9QNIDFqolRaGftWYRefVBLe06Aajk1F48pDciYBgo2/DE9V/LGvCu
+	L6BLWlW3DjXNcBETGu5IH/+t0Gjc5EFjo=
+X-Google-Smtp-Source: AGHT+IEGpqCj48hSlGvE39SucbX6Ouca5PqF+VzauRnJXVW7BvicaDLem8wj36fR99ehw835dYNneQ==
+X-Received: by 2002:a17:90b:3c02:b0:33b:6bff:35fe with SMTP id 98e67ed59e1d1-33bc9d1c743mr18185739a91.16.1760969839288;
+        Mon, 20 Oct 2025 07:17:19 -0700 (PDT)
+Received: from hiagonb ([2804:1b3:a7c0:fdb0:efbb:1413:f1d2:48d9])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33d5de11601sm8126966a91.9.2025.10.20.07.17.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Oct 2025 07:17:18 -0700 (PDT)
+Date: Mon, 20 Oct 2025 11:17:04 -0300
+From: Hiago De Franco <hiagofranco@gmail.com>
+To: Beleswar Padhi <b-padhi@ti.com>
+Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, afd@ti.com, u-kumar1@ti.com, 
+	hnagalla@ti.com, jm@ti.com, d-gole@ti.com, b-padhi@ti.com, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Robert Nelson <robertcnelson@gmail.com>, 
+	=?utf-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>, Emanuele Ghidoli <emanuele.ghidoli@toradex.com>, 
+	Francesco Dolcini <francesco.dolcini@toradex.com>, Matthias Schiffer <matthias.schiffer@ew.tq-group.com>, 
+	Logan Bristol <logan.bristol@utexas.edu>, Josua Mayer <josua@solid-run.com>, John Ma <jma@phytec.com>, 
+	Nathan Morrisson <nmorrisson@phytec.com>, Garrett Giordano <ggiordano@phytec.com>, 
+	Matt McKee <mmckee@phytec.com>, Wadim Egorov <w.egorov@phytec.de>, 
+	Max Krummenacher <max.krummenacher@toradex.com>, Stefan Eichenberger <stefan.eichenberger@toradex.com>, 
+	Hiago De Franco <hiago.franco@toradex.com>, Diogo Ivo <diogo.ivo@siemens.com>, 
+	Li Hua Qian <huaqian.li@siemens.com>, Jan Kiszka <jan.kiszka@siemens.com>, 
+	Baocheng Su <baocheng.su@siemens.com>, Benedikt Niedermayr <benedikt.niedermayr@siemens.com>, 
+	regressions@lists.linux.dev
+Subject: [REGRESSION] Suspend to RAM does not work anymore with
+ k3-am62-ti-ipc-firmware.dtsi
+Message-ID: <sid7gtg5vay5qgicsl6smnzwg5mnneoa35cempt5ddwjvedaio@hzsgcx6oo74l>
 MIME-Version: 1.0
-References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
- <20251017112025.11997-7-laurentiumihalcea111@gmail.com> <aPJZCv+iG6cuxsj4@lizhi-Precision-Tower-5810>
-In-Reply-To: <aPJZCv+iG6cuxsj4@lizhi-Precision-Tower-5810>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Mon, 20 Oct 2025 17:18:59 +0300
-X-Gm-Features: AS18NWBTX8pCKgoouBoSyxGFd8xpmwwpvcDYztextRp06KZCPCFp7jOkfhl48Co
-Message-ID: <CAEnQRZBd1nadLPE0NSWOJLRNwFEnRhOTENv_vestHCLxe41Rbg@mail.gmail.com>
-Subject: Re: [PATCH v2 6/8] reset: imx8mp-audiomix: Extend the driver usage
-To: Frank Li <Frank.li@nxp.com>
-Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>, Abel Vesa <abelvesa@kernel.org>, 
-	Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Daniel Baluta <daniel.baluta@nxp.com>, 
-	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_071641_518561_D3EBF429 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20251020_071720_762352_2CC8463F 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,41 +112,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 5:57=E2=80=AFPM Frank Li <Frank.li@nxp.com> wrote:
->
-> On Fri, Oct 17, 2025 at 04:20:23AM -0700, Laurentiu Mihalcea wrote:
-> > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >
-> > Some NXP SoCs integrate one or more, per-subsystem, block control IPs,
-> > which allow users to control the assertion and de-assertion of the
-> > reset lines tied to some peripherals present in said subsystems. Some
-> > examples of such SoCs include i.MX8MP with AUDIOMIX block control and
-> > i.MX8ULP with SIM LPAV.
-> >
-> > Some of the aformentioned block control IPs exhibit a common pattern wi=
-th
-> > respect to the assertion and de-assertion of the reset lines. Namely, t=
-he
-> > user is able to control the state of the reset line by toggling a bit f=
-rom
-> > one of the IP's registers.
-> >
-> > Linux can take advantage of this pattern and, instead of having one dri=
-ver
-> > for each block control IP, a single, more generic driver could be used.
-> >
-> > To allow this to happen, the previous approach, in which a single reset
-> > map is used, is replaced by a per-driver approach, in which each auxili=
-ary
-> > device driver holds a reference to a certain reset map.
->
-> Can you shorter your commit message?, basically, you just add
-> imx8mp_reset_info for difference auxiliary_device_id.
+Hello all,
 
-It is always preferred to have commit messages trying to explain the contex=
-t.
-I have never heard anyone complaining that the commit message is too long :=
-D.
+After commit 1d6161617c10 (“arm64: dts: ti: k3-am62-ti-ipc-firmware:
+Refactor IPC cfg into new dtsi”), suspend-to-RAM stopped working on
+AM62x.
 
-Daniel.
+When I originally tested that change, I did not test suspend-to-RAM
+functionality, but our testing infrastructure caught this regression.
+
+See the log below:
+
+root@verdin-am62-15479173:~# cat /sys/class/remoteproc/remoteproc*/state
+offline
+offline
+offline
+root@verdin-am62-15479173:~# echo mem > /sys/power/state
+[   37.798686] PM: suspend entry (deep)
+[   37.805942] Filesystems sync: 0.003 seconds
+[   37.811965] Freezing user space processes
+[   37.819214] Freezing user space processes completed (elapsed 0.002 seconds)
+[   37.826469] OOM killer disabled.
+[   37.829721] Freezing remaining freezable tasks
+[   37.835557] Freezing remaining freezable tasks completed (elapsed 0.001 seconds)
+[   37.843057] printk: Suspending console(s) (use no_console_suspend to debug)
+[   37.953874] omap-mailbox 29000000.mailbox: fifo 5 has unexpected unread messages
+[   37.953909] omap-mailbox 29000000.mailbox: PM: dpm_run_callback(): platform_pm_suspend returns -16
+[   37.953941] omap-mailbox 29000000.mailbox: PM: failed to suspend: error -16
+[   37.953967] PM: Some devices failed to suspend, or early wake event detected
+[   37.973876] am65-cpsw-nuss 8000000.ethernet: set new flow-id-base 19
+[   37.984655] am65-cpsw-nuss 8000000.ethernet end0: PHY [8000f00.mdio:00] driver [TI DP83867] (irq=353)
+[   37.985655] am65-cpsw-nuss 8000000.ethernet end0: configuring for phy/rgmii-rxid link mode
+[   38.009002] usb-conn-gpio connector: repeated role: device
+[   38.013377] lt8912 1-0048: PM: dpm_run_callback(): lt8912_bridge_resume [lontium_lt8912b] returns -121
+[   38.013420] lt8912 1-0048: PM: failed to resume async: error -121
+[   38.153252] OOM killer enabled.
+[   38.156422] Restarting tasks: Starting
+[   38.163532] Restarting tasks: Done
+[   38.167252] random: crng reseeded on system resumption
+[   38.173031] PM: suspend exit
+
+The omap-mailbox driver returns -EBUSY because it detects an unexpected
+unread message on FIFO 5.  As I understand it, this FIFO corresponds to
+the communication channel between the DM R5 and the Cortex-M4 cores.
+
+DM R5 sends a message that is never consumed, since no firmware is
+running on the M4 (the core is offline). This unhandled message prevents
+the system from entering suspend.
+
+This issue also appears on the downstream TI kernel, which I reported
+earlier [1] (for reference).
+
+The following patch resolves the problem:
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
+index ea69fab9b52b..e07cf3290cc3 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-ti-ipc-firmware.dtsi
+@@ -26,11 +26,6 @@ mbox_m4_0: mbox-m4-0 {
+                ti,mbox-rx = <0 0 0>;
+                ti,mbox-tx = <1 0 0>;
+        };
+-
+-       mbox_r5_0: mbox-r5-0 {
+-               ti,mbox-rx = <2 0 0>;
+-               ti,mbox-tx = <3 0 0>;
+-       };
+ };
+
+ &mcu_m4fss {
+@@ -45,7 +40,6 @@ &wkup_r5fss0 {
+ };
+
+ &wkup_r5fss0_core0 {
+-       mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+        memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+                        <&wkup_r5fss0_core0_memory_region>;
+        status = "okay";
+
+Ultimately  this issue is related to the omap driver itself:
+
+1. We should have a functionatlly to save and restore the messages into
+the mailbox, instead of preveting it to go into suspend.
+
+2. Or we could not check all 16 FIFOs if the kernel does not own them:
+
+	for (fifo = 0; fifo < mdev->num_fifos; fifo++) {
+		if (mbox_read_reg(mdev, MAILBOX_MSGSTATUS(fifo))) {
+			dev_err(mdev->dev, "fifo %d has unexpected unread messages\n",
+				fifo);
+			return -EBUSY;
+		}
+	}
+
+Setting the number of FIFOs to 4 in the device tree also resolves this
+issue.
+
+Do you have suggestions on how best to fix this in the driver, or should
+we consider reverting the DTS change until suspend-to-RAM works again?
+
+#regzbot introduced: 1d6161617c
+
+[1] https://e2e.ti.com/support/processors-group/processors/f/processors-forum/1557295/am62p-mailbox-channel-is-not-freed-during-r5-remoteproc-stop-call/6069413
+
+Best regards,
+Hiago.
 
