@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 854B7CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3058CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:Content-ID:
-	Content-Type:MIME-Version:Subject:Cc:To:References:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d6xOn+OgWXQb76sNinZ8VoFwbnnrNk5YxBP2M1Z16Rw=; b=WGsYPTY4QAZsNkqgL7IzU5V7a0
-	ju5XQIdpFd8Z7VlBeAzJtiICOtltAvBqEuybTlRc2L7lviZPMnWtopeyG+8v3YtHhlHXhFmXIzWKY
-	Um9hhUydEctNJgP3ZOdvIk4XRfF0JOjv6hqd4UBwx63b5zP7Ev+0YPA4wgkWF0yr9t1O4CFRD3xwv
-	Ut7DelfllmBFtp2K7yw/O+V4nKcKOtQL+ek00Ao/5MJlW/RbZpT9yNmBKVSkA5eTinacYC26BQfLN
-	CDIFA/eO4Ds97hgxHQ7LGiJCdZxOeSjs02wLU5eFeFFjBonR7e6nC0EYOKNOKu2RVbgfCWcFbGAYL
-	yH9zAb8g==;
+	bh=pyqZHguj4pWVxVzjCwOW7QzekGnxMtJdbRxBmWKZji0=; b=qLlKEmfYUqYQLauvp6VPX6UQur
+	DXJiHGK5s+gF5cUbGwnGiFpsbYJbs+Pkr9NXwQ/4B8Wnao5bcH7M1hXvttOfv6b5jO0e4xNMTcxPd
+	xIR1nRkjcQSrnojlLyYct6n+bd6PJfxPHDab0eMUm10V8zBQ9iEy0g9EsRlDw9fnt90Soevtq4R+x
+	NA8SYLYrEbDCW95KBFuTzFs0K7ytvjim5cowaG+ND8KyQli83w6ACSzD1EHSTj2APGonEp9xRJPbx
+	S+lde4XmcKu/eFEZCLEGQ30oU7PDaHAVQZuWWXaOjhiGmswg6X1l0sA8ghKlTWsO61yU0UGmjAOE/
+	02jOacEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnEt-0000000Csq4-1CMU;
-	Mon, 20 Oct 2025 10:35:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnEq-0000000Csom-05Sa
+	id 1vAnGz-0000000CtHP-1IPM;
+	Mon, 20 Oct 2025 10:37:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAnGx-0000000CtGS-2eWq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 10:35:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760956539;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d6xOn+OgWXQb76sNinZ8VoFwbnnrNk5YxBP2M1Z16Rw=;
-	b=XfFYU10eYFs8PvAtIXEVwf/pHUhDJqxdAQ0rSqfNlR0Nk8q/THTWAyYxrVU6+dOdS3WgTT
-	z1E/WQjgvTf5siVwOUM0pqhpuFBJY+GfrNRd84RuRZf6nROPqPymew1/dHmyuEEsO6upTR
-	6kwvfdV2VQKCzBIq90vDxLBjhcsODeo=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-302-v350hqWrNxSXvlNLKw2vdQ-1; Mon,
- 20 Oct 2025 06:35:35 -0400
-X-MC-Unique: v350hqWrNxSXvlNLKw2vdQ-1
-X-Mimecast-MFC-AGG-ID: v350hqWrNxSXvlNLKw2vdQ_1760956533
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C0B011800657;
-	Mon, 20 Oct 2025 10:35:33 +0000 (UTC)
-Received: from warthog.procyon.org.uk (unknown [10.42.28.57])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DC77A18003FC;
-	Mon, 20 Oct 2025 10:35:31 +0000 (UTC)
-Organization: Red Hat UK Ltd. Registered Address: Red Hat UK Ltd, Amberley
-	Place, 107-111 Peascod Street, Windsor, Berkshire, SI4 1TE, United
-	Kingdom.
-	Registered in England and Wales under Company Registration No. 3798903
-From: David Howells <dhowells@redhat.com>
-In-Reply-To: <20251020005038.661542-17-ebiggers@kernel.org>
-References: <20251020005038.661542-17-ebiggers@kernel.org> <20251020005038.661542-1-ebiggers@kernel.org>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: dhowells@redhat.com, linux-crypto@vger.kernel.org,
-    Ard Biesheuvel <ardb@kernel.org>,
-    "Jason A . Donenfeld" <Jason@zx2c4.com>,
-    linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-    linux-s390@vger.kernel.org
-Subject: Re: [PATCH 16/17] crypto: jitterentropy - use default sha3 implementation
+	Mon, 20 Oct 2025 10:37:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6116D1063;
+	Mon, 20 Oct 2025 03:37:42 -0700 (PDT)
+Received: from [10.57.65.147] (unknown [10.57.65.147])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DB2C53F63F;
+	Mon, 20 Oct 2025 03:37:41 -0700 (PDT)
+Message-ID: <3836a43f-809e-419d-a85d-74606d9daa0f@arm.com>
+Date: Mon, 20 Oct 2025 12:37:38 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-ID: <1062227.1760956530.1@warthog.procyon.org.uk>
-Date: Mon, 20 Oct 2025 11:35:30 +0100
-Message-ID: <1062228.1760956530@warthog.procyon.org.uk>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 05/13] mm: introduce CONFIG_ARCH_LAZY_MMU
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
+ <20251015082727.2395128-6-kevin.brodsky@arm.com>
+ <aPNjd2dg3YN-TZKH@kernel.org>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <aPNjd2dg3YN-TZKH@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_033540_192862_114CA6FF 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20251020_033751_736655_C679F3E6 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,10 +85,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Why don't you take my approach and just call lib/crypto/sha3 directly rather
-than using a crypto/ object as an intermediary if that crypto/ object is just
-going to wrap lib/crypto?
+On 18/10/2025 11:52, Mike Rapoport wrote:
+>> @@ -231,7 +231,7 @@ static inline int pmd_dirty(pmd_t pmd)
+>>   * held, but for kernel PTE updates, no lock is held). Nesting is not permitted
+>>   * and the mode cannot be used in interrupt context.
+>>   */
+>> -#ifndef __HAVE_ARCH_ENTER_LAZY_MMU_MODE
+>> +#ifndef CONFIG_ARCH_LAZY_MMU
+>>  static inline void arch_enter_lazy_mmu_mode(void) {}
+>>  static inline void arch_leave_lazy_mmu_mode(void) {}
+>>  static inline void arch_flush_lazy_mmu_mode(void) {}
+>> diff --git a/mm/Kconfig b/mm/Kconfig
+>> index 0e26f4fc8717..2fdcb42ca1a1 100644
+>> --- a/mm/Kconfig
+>> +++ b/mm/Kconfig
+>> @@ -1372,6 +1372,9 @@ config PT_RECLAIM
+>>  config FIND_NORMAL_PAGE
+>>  	def_bool n
+>>  
+>> +config ARCH_LAZY_MMU
+>> +	bool
+>> +
+> I think a better name would be ARCH_HAS_LAZY_MMU and the config option fits
+> better to arch/Kconfig.
 
-David
+Sounds fine by me - I'm inclined to make it slightly longer still,
+ARCH_HAS_LAZY_MMU_MODE, to avoid making "LAZY_MMU" sound like some HW
+feature.
 
+- Kevin
 
