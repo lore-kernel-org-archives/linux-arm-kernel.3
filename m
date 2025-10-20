@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93222CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:00:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69EDCCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I0Rh7vr2r5CUO65seAlIgLtsprqiSEsZXpmW27HKpY8=; b=iImaQiRKcIoJddLdbeOJvp+6q7
-	kv+T7jP66oQq57MUNNFL/aqX6O/bPqWJuOizT+qtsws8gtmY+UV/2n2s2aJdmb0rEMbhyNPOm3Awo
-	iE4lGTYC8oQh9DWK3S2T8zSLp0TSMelq5aqAxpt+MS4xySwzGaPjSfqmfcEslPWO2vAQ5Jo5fwXYK
-	VewrTMKThp4ho/Y95ZLw08p4fvb395sgHAn3sa1McvjM0xkIh7PeNEauPs2ZLNC35PEvQsNpBK0kG
-	1NWdXQLh0yH7VFtg9uMILqfuI9YJ3BCO9NlIt0RTirq9Vwu6R4qc/3eOPxh25EHw78AHZixZcl81x
-	yG8WImAw==;
+	bh=VBcpAydgMjv8oPtj/jsbFK1iGkELarw+yWPLnnEN1Fw=; b=aYS3LLuYI+pAAKT3DxBi/z5ldA
+	aywhWaUW6Vh3/hQ2NCsVUTadqZazTEGiyCKVObESYtRM3qV8RfJpSfLV3g2LoWlsGnkui11U2fthF
+	nAcMz7MnEUMNgcFM4tSuA3usaOrLQNDnl3yqAmMb1G451BdnD3xbZOzlKtK38WwICG5UKr4MSCqCF
+	ydy+HLw9G2Q/qXW6c0gT8bkjIsnZz2f1iyG2hb+1clDlj71GlD53rTVd1FfC5gYgxMjwlIZGYVQI+
+	p1KXw+il8ifXQSKyQby60t99rI5yIm7nqDGfLiSUdF62oHzdUSEbDG3SDtn32z3jXz7vr/cg2HQ6A
+	Rufm+i3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnd4-0000000Cygj-2zMc;
-	Mon, 20 Oct 2025 11:00:42 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1vAnem-0000000Cyww-0uZg;
+	Mon, 20 Oct 2025 11:02:28 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnd0-0000000CyeD-1C9S
+	id 1vAnek-0000000CywS-1AhS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 11:00:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1760958033; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=I0Rh7vr2r5CUO65seAlIgLtsprqiSEsZXpmW27HKpY8=;
-	b=cA0PCdUcbiCx+wPxE3/l3N+Sg62ETYzSN+UrM6Xv5IAV0omkyrSub7nzU7xEb3dZdNBrik6hR/+UXHWhysKg4YoFydY5XWURLgZjLPeaE5j5af0WbkDhXkmOC5m5+fZpIVeafkL6rdbGiwKKVlZvPkigZhf/4UW0mg6a7EuS/0I=
-Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WqbBPTq_1760958022 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 20 Oct 2025 19:00:30 +0800
-From: "Huang, Ying" <ying.huang@linux.alibaba.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>,  Anshuman Khandual
- <anshuman.khandual@arm.com>,  Ryan Roberts <ryan.roberts@arm.com>,  Gavin
- Shan <gshan@redhat.com>,  Ard Biesheuvel <ardb@kernel.org>,  "Matthew
- Wilcox (Oracle)" <willy@infradead.org>,  Yicong Yang
- <yangyicong@hisilicon.com>,  linux-arm-kernel@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  linux-mm@kvack.org
-Subject: Re: [PATCH] arm64, mm: avoid always making PTE dirty in pte_mkwrite()
-In-Reply-To: <aPKFmHg-FrkGJxWd@arm.com> (Catalin Marinas's message of "Fri, 17
-	Oct 2025 19:06:16 +0100")
-References: <20251015023712.46598-1-ying.huang@linux.alibaba.com>
-	<aPKFmHg-FrkGJxWd@arm.com>
-Date: Mon, 20 Oct 2025 19:00:20 +0800
-Message-ID: <87bjm1g7nf.fsf@DESKTOP-5N7EMDA>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Mon, 20 Oct 2025 11:02:27 +0000
+Received: from localhost (unknown [116.232.147.23])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id EF5D9341EEB;
+	Mon, 20 Oct 2025 11:02:23 +0000 (UTC)
+Date: Mon, 20 Oct 2025 19:02:19 +0800
+From: Yixun Lan <dlan@gentoo.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Han Gao <rabenda.cn@gmail.com>, Icenowy Zheng <uwu@icenowy.me>,
+	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <ziyao@disroot.org>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v2 3/3] net: stmmac: dwmac-sophgo: Add phy interface
+ filter
+Message-ID: <20251020110219-GYH1506524@gentoo.org>
+References: <20251020095500.1330057-1-inochiama@gmail.com>
+ <20251020095500.1330057-4-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ascii
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251020095500.1330057-4-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_040039_123728_11C0978F 
-X-CRM114-Status: GOOD (  25.69  )
+X-CRM114-CacheID: sfid-20251020_040226_344540_7B061E0A 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,104 +83,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Catalin,
+Hi Inochi,
 
-Catalin Marinas <catalin.marinas@arm.com> writes:
+On 17:54 Mon 20 Oct     , Inochi Amaoto wrote:
+> As the SG2042 has an internal rx delay, the delay should be remove
+missed my comment in v1?
 
-> On Wed, Oct 15, 2025 at 10:37:12AM +0800, Huang Ying wrote:
->> Current pte_mkwrite_novma() makes PTE dirty unconditionally.  This may
->> mark some pages that are never written dirty wrongly.  For example,
->> do_swap_page() may map the exclusive pages with writable and clean PTEs
->> if the VMA is writable and the page fault is for read access.
->> However, current pte_mkwrite_novma() implementation always dirties the
->> PTE.  This may cause unnecessary disk writing if the pages are
->> never written before being reclaimed.
->> 
->> So, change pte_mkwrite_novma() to clear the PTE_RDONLY bit only if the
->> PTE_DIRTY bit is set to make it possible to make the PTE writable and
->> clean.
->> 
->> The current behavior was introduced in commit 73e86cb03cf2 ("arm64:
->> Move PTE_RDONLY bit handling out of set_pte_at()").  Before that,
->> pte_mkwrite() only sets the PTE_WRITE bit, while set_pte_at() only
->> clears the PTE_RDONLY bit if both the PTE_WRITE and the PTE_DIRTY bits
->> are set.
->> 
->> To test the performance impact of the patch, on an arm64 server
->> machine, run 16 redis-server processes on socket 1 and 16
->> memtier_benchmark processes on socket 0 with mostly get
->> transactions (that is, redis-server will mostly read memory only).
->> The memory footprint of redis-server is larger than the available
->> memory, so swap out/in will be triggered.  Test results show that the
->> patch can avoid most swapping out because the pages are mostly clean.
->> And the benchmark throughput improves ~23.9% in the test.
->> 
->> Fixes: 73e86cb03cf2 ("arm64: Move PTE_RDONLY bit handling out of set_pte_at()")
->> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
->> Cc: Ryan Roberts <ryan.roberts@arm.com>
->> Cc: Gavin Shan <gshan@redhat.com>
->> Cc: Ard Biesheuvel <ardb@kernel.org>
->> Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
->> Cc: Yicong Yang <yangyicong@hisilicon.com>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> ---
->>  arch/arm64/include/asm/pgtable.h | 3 ++-
->>  1 file changed, 2 insertions(+), 1 deletion(-)
->> 
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index aa89c2e67ebc..0944e296dd4a 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -293,7 +293,8 @@ static inline pmd_t set_pmd_bit(pmd_t pmd, pgprot_t prot)
->>  static inline pte_t pte_mkwrite_novma(pte_t pte)
->>  {
->>  	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
->> -	pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
->> +	if (pte_sw_dirty(pte))
->> +		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
->>  	return pte;
->>  }
->
-> This seems to be the right thing. I recall years ago I grep'ed
-> (obviously not hard enough) and most pte_mkwrite() places had a
-> pte_mkdirty(). But I missed do_swap_page() and possibly others.
-
-The do_swap_page() change was introduced in June 2024, quite recently.
-
-> For this patch:
->
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-
-Thanks!
-
-> I wonder whether we should also add (as a separate patch):
->
-> diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
-> index 830107b6dd08..df1c552ef11c 100644
-> --- a/mm/debug_vm_pgtable.c
-> +++ b/mm/debug_vm_pgtable.c
-> @@ -101,6 +101,7 @@ static void __init pte_basic_tests(struct pgtable_debug_args *args, int idx)
->  	WARN_ON(pte_dirty(pte_mkclean(pte_mkdirty(pte))));
->  	WARN_ON(pte_write(pte_wrprotect(pte_mkwrite(pte, args->vma))));
->  	WARN_ON(pte_dirty(pte_wrprotect(pte_mkclean(pte))));
-> +	WARN_ON(pte_dirty(pte_mkwrite_novma(pte_mkclean(pte))));
->  	WARN_ON(!pte_dirty(pte_wrprotect(pte_mkdirty(pte))));
+> when init the mac, otherwise the phy will be misconfigurated.
+> 
+> Fixes: 543009e2d4cd ("net: stmmac: dwmac-sophgo: Add support for Sophgo SG2042 SoC")
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Tested-by: Han Gao <rabenda.cn@gmail.com>
+> ---
+>  .../net/ethernet/stmicro/stmmac/dwmac-sophgo.c  | 17 ++++++++++++++++-
+>  1 file changed, 16 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+> index 3b7947a7a7ba..960357d6e282 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
+> @@ -7,11 +7,16 @@
+> 
+>  #include <linux/clk.h>
+>  #include <linux/module.h>
+> +#include <linux/property.h>
+>  #include <linux/mod_devicetable.h>
+>  #include <linux/platform_device.h>
+> 
+>  #include "stmmac_platform.h"
+> 
+> +struct sophgo_dwmac_data {
+> +	bool has_internal_rx_delay;
+> +};
+> +
+>  static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
+>  				    struct plat_stmmacenet_data *plat_dat,
+>  				    struct stmmac_resources *stmmac_res)
+> @@ -32,6 +37,7 @@ static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
+>  static int sophgo_dwmac_probe(struct platform_device *pdev)
+>  {
+>  	struct plat_stmmacenet_data *plat_dat;
+> +	const struct sophgo_dwmac_data *data;
+>  	struct stmmac_resources stmmac_res;
+>  	struct device *dev = &pdev->dev;
+>  	int ret;
+> @@ -50,11 +56,20 @@ static int sophgo_dwmac_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return ret;
+> 
+> +	data = device_get_match_data(&pdev->dev);
+> +	if (data && data->has_internal_rx_delay)
+> +		plat_dat->phy_interface = phy_fix_phy_mode_for_mac_delays(plat_dat->phy_interface,
+> +									  false, true);
+> +
+>  	return stmmac_dvr_probe(dev, plat_dat, &stmmac_res);
 >  }
->
-> For completeness, also (and maybe other combinations):
->
-> 	WARN_ON(!pte_write(pte_mkdirty(pte_mkwrite_novma(pte))));
+> 
+> +static struct sophgo_dwmac_data sg2042_dwmac_data = {
+static const?
+> +	.has_internal_rx_delay = true,
+> +};
+> +
+>  static const struct of_device_id sophgo_dwmac_match[] = {
+> -	{ .compatible = "sophgo,sg2042-dwmac" },
+> +	{ .compatible = "sophgo,sg2042-dwmac", .data = &sg2042_dwmac_data },
+>  	{ .compatible = "sophgo,sg2044-dwmac" },
+>  	{ /* sentinel */ }
+>  };
+> --
+> 2.51.1.dirty
+> 
 
-Sure.  Will add another patch for this.
-
-> I cc'ed linux-mm in case we missed anything. If nothing raised, I'll
-> queue it next week.
-
----
-Best Regards,
-Huang, Ying
+-- 
+Yixun Lan (dlan)
 
