@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C7CCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30FCBCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4yKNAcdX6TywFmdUqMcSYE/MnIpQrKp1CpCYZyHWpak=; b=RzRi9gLM0eE1uAGTX3fp//M0ce
-	93YqABhkA4y1eeJNhn4AVbM0FSpAU43L0mZgQC7nVubKoxTEg/BUCC6e4CBwhO7FcQXFnoaigKtZD
-	oCuhyTMVUeYix2ffwZD7Dj1S/2p2RJiwW6ePq0EJmBvPBbWICwQ6BTEbPgseB9/cpa5jOR3o9WM4C
-	sFI3p5mGGA+7GIMca1GtciUwijNhjAdh/1fanS5ycUET4HN+UVcZNbxjZ0qIvssdm9gSr5NcAVFCo
-	7UUHE+yEuB0tJDDd0gspvK5+YTNbiFmclzfJ5KUHg24mOJG1HP0pfq6aPBbecLDHlyucoqhtZ7uwx
-	qRxoNiuw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=45s8xbYNf9jQxc63cl0AgC+UotTvB1T2Qp9B1kMy89U=; b=UgOjpx/gSxW2ZuVuIV2lSrBlzN
+	7jwB9kuholGa2E9lAmeKiLl8m9zQkVnEM8VHF4/D4wSxwpBNDaWmVJnwvOgRICr3PxOUr7PY3mSUn
+	wVqUIgsMWtskGazAgNxGjLVg9ZleKDISW7Dg2Y6lRvRj2HkY7IZK4JEK6wg63SrbOqgww6ewaw0nV
+	xEQuNH/cfAc4Xjn2JGp91GD08WgFcMDJ5OGf7AgT5kR9ASlqXNC7tBxuXaUztuGvTFb42BERw81Sn
+	KsOsmAgnV+EtTEh0ScuVDJzq9hOqdm8PVPFSE9FsVebB5Yn/tJVe6nex+O8W1buGqke3vbyz30Hk1
+	fivrYlyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp1g-0000000DQtu-1Lka;
-	Mon, 20 Oct 2025 12:30:12 +0000
+	id 1vAp1l-0000000DR21-0U3m;
+	Mon, 20 Oct 2025 12:30:17 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp1e-0000000DQqC-24Hn
+	id 1vAp1i-0000000DQwy-1YFr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 12:30:10 +0000
+	Mon, 20 Oct 2025 12:30:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B288B61EC0;
-	Mon, 20 Oct 2025 12:30:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FB9FC113D0;
-	Mon, 20 Oct 2025 12:30:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B51F461EDC;
+	Mon, 20 Oct 2025 12:30:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A94BC19421;
+	Mon, 20 Oct 2025 12:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760963409;
-	bh=xb/lnXZ7cyeI2Kiq/oDJcO0yuGXr40YVwbGy347cEi0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=VOYeQEiHx1SU+kMdzV43TDLpRb/1X2OAi6PQIFcfwGAIFzadoDTyFta0UEI4rXH4B
-	 hgYtCS6UuWatHtdKWWUu7+S4kkQiJqELiJ2w0+yM2qQ+EL2j96Vu7x8hjZL286TyRD
-	 oupHx1nr1ArXNaWDVYP96bm8K8/p7xgEJ3vy2h5Sumy0YYnz5MnKiXS+dtb4Ke/ML/
-	 Z/T303aL37zQp64TDGGeTQCM/8nU5Y62V85iuTKZeDgy0V2SIupCOjH0FzJgXBEUUf
-	 Lee3TSVSAcnNkPXozbjR20EDn5K1Xk1bE6AUn3m1G5hgbGffesvFS0yr9qvac2kOx2
-	 zkra8w+VY7joQ==
+	s=k20201202; t=1760963413;
+	bh=qCRKVzUo8JhfJQXLMZIhnq5wXtHpuBDbMkrOgwQu9Jk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Iyv1XjbGpZVqg2WUePMCx7D9j3S+srrbKICJVpFgREeP15xCjro9tuAFMTmrM9hRr
+	 SXTPNCo3ZHqbAMRVJWeDjYh6JWMc/BFH7KzJjlwaJsrUI8Jv+2bkMSmJZir7DJEYbs
+	 DS48t8R3HzKYrd6TRir7+M6MmDwiFOjDYlpNpJvCARruazn61/ermw6byAFVcKoUSN
+	 9xr+ZgJ/dw6X4Phz2slUoXQ/Uw++EJA4pb3ATEOKKTLg4AFAwpAexrbJmkCninImId
+	 un2dJdWxpqgwblGCOSbGogazR2cNQePjJ57AViz6uoX1iMBgrAp80GhwoJvut8cqUu
+	 SZG3CfoWNVGiw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vAp1b-0000000FUu2-0E4m;
-	Mon, 20 Oct 2025 12:30:07 +0000
+	id 1vAp1f-0000000FUu2-2Ccd;
+	Mon, 20 Oct 2025 12:30:11 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -66,10 +66,12 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>,
 	Jinjie Ruan <ruanjinjie@huawei.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v4 00/26] genirq: Add support for percpu_devid IRQ affinity
-Date: Mon, 20 Oct 2025 13:29:17 +0100
-Message-ID: <20251020122944.3074811-1-maz@kernel.org>
+Subject: [PATCH v4 14/26] genirq: Add affinity to percpu_devid interrupt requests
+Date: Mon, 20 Oct 2025 13:29:31 +0100
+Message-ID: <20251020122944.3074811-15-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251020122944.3074811-1-maz@kernel.org>
+References: <20251020122944.3074811-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -90,121 +92,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the fourth version of this series, originally posted at [1],
-which aims at allowing percpu_devid interrupt requests on the basis of
-an affinity mask. See the original submission for the details of why
-this is a desirable outcome.
+Add an affinity field to both the irqaction structure and the interrupt
+request primitives. Nothing is making use of it yet, and the only value
+used it NULL, which is used as a shorthand for cpu_possible_mask.
 
-From v3, we have some additional tidying up, thanks to Jonathan's
-review, and a bunch of tags -- see changelog for details.
+This will shortly get used with actual affinities.
 
-FWIW, I've pushed a branch at [0].
+Tested-by: Will Deacon <will@kernel.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ include/linux/interrupt.h |  5 +++--
+ kernel/irq/manage.c       | 14 ++++++++++----
+ 2 files changed, 13 insertions(+), 6 deletions(-)
 
-* From v3 [3]:
-
-  - Additional cleanups in of_irq_get_affinity() (Jonathan)
-
-  - Rebased on 6.18-rc2
-
-  - Collected Abs, Rbs and Tbs, with thanks (Raphael, Jonathan,
-    Jinjie, Suzuki, Sven, Will)
-
-* From v2 [2]:
-
-  - Turned of_node_to_fwnode() usage to of_fwnode_handle() (Jonathan)
-
-  - Added a patch to finally kill of_node_to_fwnode()
-
-  - Tidied-up documentation, comments and formatting (Jonathan)
-
-  - Collected ABs and Rbs, with thanks (Jonathan, Suzuki, Sven)
-
-* From v1 [1]:
-
-  - Fixed NMI handling by getting rid of the NMI-specific flow
-    handler, which was pretty useless anyway (Will)
-
-  - As a result, killed a metric buttload worth of GICv3 code
-
-  - Moved irq_fwspec out of irq_fwspec_info, and passed it as a
-    parameter to irq_get_fwspec_info(), renamed from irq_get_info(),
-    and applied some generous sanitisation of the structure (Thomas)
-
-  - Dropped the rather useless fwspec validity flag (Thomas)
-
-  - Rejigged the PMU per-CPU handling to better deal with the DT/ACPI
-    differences, and drop some now useless patches (Will)
-
-  - Plenty of cosmetic rework (Raphael, Thomas)
-
-[0] git://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git irq/ppi-affinity
-[1] https://lore.kernel.org/r/20250908163127.2462948-1-maz@kernel.org
-[2] https://lore.kernel.org/r/20250915085702.519996-1-maz@kernel.org
-[3] https://lore.kernel.org/r/20250922082833.2038905-1-maz@kernel.org
-
-Marc Zyngier (25):
-  irqdomain: Add firmware info reporting interface
-  ACPI: irq: Add IRQ affinity reporting interface
-  of/irq: Add IRQ affinity reporting interface
-  platform: Add firmware-agnostic irq and affinity retrieval interface
-  irqchip/gic-v3: Add FW info retrieval support
-  irqchip/apple-aic: Add FW info retrieval support
-  coresight: trbe: Convert to new IRQ affinity retrieval API
-  perf: arm_pmu: Convert to new IRQ affinity retrieval API
-  perf: arm_spe_pmu: Convert to new IRQ affinity retrieval API
-  irqchip/gic-v3: Switch high priority PPIs over to
-    handle_percpu_devid_irq()
-  genirq: Kill handle_percpu_devid_fasteoi_nmi()
-  genirq: Merge irqaction::{dev_id,percpu_dev_id}
-  genirq: Factor-in percpu irqaction creation
-  genirq: Add affinity to percpu_devid interrupt requests
-  genirq: Update request_percpu_nmi() to take an affinity
-  genirq: Allow per-cpu interrupt sharing for non-overlapping affinities
-  genirq: Add request_percpu_irq_affinity() helper
-  perf: arm_spe_pmu: Request specific affinities for percpu IRQ
-  coresight: trbe: Request specific affinities for percpu IRQ
-  irqchip/gic-v3: Drop support for custom PPI partitions
-  irqchip/apple-aic: Drop support for custom PMU irq partitions
-  irqchip: Kill irq-partition-percpu
-  genirq: Kill irq_{g,s}et_percpu_devid_partition()
-  irqdomain: Kill of_node_to_fwnode() helper
-  perf: arm_pmu: Kill last use of per-CPU cpu_armpmu pointer
-
-Will Deacon (1):
-  perf: arm_pmu: Request specific affinities for percpu NMI/IRQ
-
- arch/arm64/kernel/smp.c                      |   2 +-
- drivers/acpi/irq.c                           |  19 ++
- drivers/base/platform.c                      |  60 ++++-
- drivers/hwtracing/coresight/coresight-trbe.c |   9 +-
- drivers/irqchip/Kconfig                      |   4 -
- drivers/irqchip/Makefile                     |   1 -
- drivers/irqchip/irq-apple-aic.c              |  56 +++--
- drivers/irqchip/irq-gic-v3.c                 | 224 +++++------------
- drivers/irqchip/irq-partition-percpu.c       | 241 -------------------
- drivers/of/irq.c                             |  20 ++
- drivers/perf/arm_pmu.c                       |  49 ++--
- drivers/perf/arm_pmu_acpi.c                  |   2 +-
- drivers/perf/arm_pmu_platform.c              |  20 +-
- drivers/perf/arm_pmuv3.c                     |   2 +-
- drivers/perf/arm_spe_pmu.c                   |  13 +-
- include/linux/acpi.h                         |   7 +
- include/linux/interrupt.h                    |  24 +-
- include/linux/irq.h                          |   5 -
- include/linux/irqchip/irq-partition-percpu.h |  53 ----
- include/linux/irqdesc.h                      |   1 -
- include/linux/irqdomain.h                    |  33 ++-
- include/linux/of_irq.h                       |   7 +
- include/linux/perf/arm_pmu.h                 |   6 +-
- include/linux/platform_device.h              |   2 +
- kernel/irq/chip.c                            |  33 +--
- kernel/irq/irqdesc.c                         |  24 +-
- kernel/irq/irqdomain.c                       |  32 ++-
- kernel/irq/manage.c                          | 125 +++++++---
- 28 files changed, 419 insertions(+), 655 deletions(-)
- delete mode 100644 drivers/irqchip/irq-partition-percpu.c
- delete mode 100644 include/linux/irqchip/irq-partition-percpu.h
-
+diff --git a/include/linux/interrupt.h b/include/linux/interrupt.h
+index 0ec1a71ab4e84..52147d5f432b3 100644
+--- a/include/linux/interrupt.h
++++ b/include/linux/interrupt.h
+@@ -125,6 +125,7 @@ struct irqaction {
+ 		void		*dev_id;
+ 		void __percpu	*percpu_dev_id;
+ 	};
++	const struct cpumask	*affinity;
+ 	struct irqaction	*next;
+ 	irq_handler_t		thread_fn;
+ 	struct task_struct	*thread;
+@@ -181,7 +182,7 @@ request_any_context_irq(unsigned int irq, irq_handler_t handler,
+ extern int __must_check
+ __request_percpu_irq(unsigned int irq, irq_handler_t handler,
+ 		     unsigned long flags, const char *devname,
+-		     void __percpu *percpu_dev_id);
++		     const cpumask_t *affinity, void __percpu *percpu_dev_id);
+ 
+ extern int __must_check
+ request_nmi(unsigned int irq, irq_handler_t handler, unsigned long flags,
+@@ -192,7 +193,7 @@ request_percpu_irq(unsigned int irq, irq_handler_t handler,
+ 		   const char *devname, void __percpu *percpu_dev_id)
+ {
+ 	return __request_percpu_irq(irq, handler, 0,
+-				    devname, percpu_dev_id);
++				    devname, NULL, percpu_dev_id);
+ }
+ 
+ extern int __must_check
+diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
+index d9ddc30678b5d..5f4c651677436 100644
+--- a/kernel/irq/manage.c
++++ b/kernel/irq/manage.c
+@@ -2444,10 +2444,14 @@ int setup_percpu_irq(unsigned int irq, struct irqaction *act)
+ 
+ static
+ struct irqaction *create_percpu_irqaction(irq_handler_t handler, unsigned long flags,
+-					  const char *devname, void __percpu *dev_id)
++					  const char *devname, const cpumask_t *affinity,
++					  void __percpu *dev_id)
+ {
+ 	struct irqaction *action;
+ 
++	if (!affinity)
++		affinity = cpu_possible_mask;
++
+ 	action = kzalloc(sizeof(struct irqaction), GFP_KERNEL);
+ 	if (!action)
+ 		return NULL;
+@@ -2456,6 +2460,7 @@ struct irqaction *create_percpu_irqaction(irq_handler_t handler, unsigned long f
+ 	action->flags = flags | IRQF_PERCPU | IRQF_NO_SUSPEND;
+ 	action->name = devname;
+ 	action->percpu_dev_id = dev_id;
++	action->affinity = affinity;
+ 
+ 	return action;
+ }
+@@ -2466,6 +2471,7 @@ struct irqaction *create_percpu_irqaction(irq_handler_t handler, unsigned long f
+  * @handler:	Function to be called when the IRQ occurs.
+  * @flags:	Interrupt type flags (IRQF_TIMER only)
+  * @devname:	An ascii name for the claiming device
++ * @affinity:	A cpumask describing the target CPUs for this interrupt
+  * @dev_id:	A percpu cookie passed back to the handler function
+  *
+  * This call allocates interrupt resources, but doesn't enable the interrupt
+@@ -2478,7 +2484,7 @@ struct irqaction *create_percpu_irqaction(irq_handler_t handler, unsigned long f
+  */
+ int __request_percpu_irq(unsigned int irq, irq_handler_t handler,
+ 			 unsigned long flags, const char *devname,
+-			 void __percpu *dev_id)
++			 const cpumask_t *affinity, void __percpu *dev_id)
+ {
+ 	struct irqaction *action;
+ 	struct irq_desc *desc;
+@@ -2495,7 +2501,7 @@ int __request_percpu_irq(unsigned int irq, irq_handler_t handler,
+ 	if (flags && flags != IRQF_TIMER)
+ 		return -EINVAL;
+ 
+-	action = create_percpu_irqaction(handler, flags, devname, dev_id);
++	action = create_percpu_irqaction(handler, flags, devname, affinity, dev_id);
+ 	if (!action)
+ 		return -ENOMEM;
+ 
+@@ -2560,7 +2566,7 @@ int request_percpu_nmi(unsigned int irq, irq_handler_t handler,
+ 		return -EINVAL;
+ 
+ 	action = create_percpu_irqaction(handler, IRQF_NO_THREAD | IRQF_NOBALANCING,
+-					 name, dev_id);
++					 name, NULL, dev_id);
+ 	if (!action)
+ 		return -ENOMEM;
+ 
 -- 
 2.47.3
 
