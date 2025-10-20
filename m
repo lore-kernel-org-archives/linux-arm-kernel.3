@@ -4,92 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F20CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 19:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9074CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 19:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XAU73KA5bRRjDexmLv9S0p4A3jfHSvmFsVyQH8dOED0=; b=1ECGekWORpjEVzF917o7GnsaDy
-	+zfHu3Qq6VNDDQyXK/IXVwDgiVZ68IoVEscNOk4ixrab0jqYYPOTPIiOA6xLRoqkNXeYlB/onoD9B
-	cz5l8AOztub4++FDenD8gmDW3GUwqGO04xSwJqbYLd/3nkmcjHOL0PW14Gf0Py+VFDm8wzk75EixR
-	SDQ/0WrstizvRZFdvTLUShkInixXMFsbs3y5eNiruZ9Z4T3NfKplqLDKNcyMWtq7qtweG29YGBJHo
-	ynVxiv1V4zNobIk+hv7nwc2lwkQixlzTgL1FctILwvJXeoTZzaqfvsv+wUUm82bSnDW62y6ykMCIp
-	tLAyVi9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gTifzaDtIeIGMUJPDNpHSblEN3/LU3gQrRGCekOirMU=; b=nenVa9IRgUm2mB7OQbnAsYhiaQ
+	xbkxvPYnAhG7+7P39zHIEehM/EQPmZ6R/bNzgdORSZqC8seA81qrw6472k9nZ+TU/b1Wf/xPxoiiv
+	ariNRSithoqBNLDix9db7diXvtxaIapQZBDlZ051HyzsXwGiIkD+ppECRly5qFsVDYNvRSByVcp0X
+	0O7d5h9DYi73ctaX0FQCN2qNCtB+4/wNamey1bl0eTDgpjr3CWWszoAX3Uopu9uwlUjfbNgY11QqE
+	yVZh/IxS60IiaiEmfcH8mZDEqGmjhUk//3xCoqZyv1mg8pojOZfKl5d1z+a5DVWPL245pynl9H6i6
+	lfMHGgZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAvM0-0000000Ekst-0tL7;
-	Mon, 20 Oct 2025 19:15:36 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vAvN6-0000000ElAD-2OdM;
+	Mon, 20 Oct 2025 19:16:44 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAvLx-0000000Eks4-20lg
+	id 1vAvN5-0000000El9T-04KP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 19:15:34 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-47114a40161so3848585e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 12:15:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1760987732; x=1761592532; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XAU73KA5bRRjDexmLv9S0p4A3jfHSvmFsVyQH8dOED0=;
-        b=qKKh37a4eK5Iv73fDYKef5emn5qKy5R1A8BXQp3GjYAy4rq93UvSJs1i8XMj5WNdZe
-         ahY3ny0YZi+MBrN4r1BRawsWO6mKAYBwAhlwFNUMYT6I41HZ0jNKjiDGq+/fhT9rhD+J
-         zQxVER8mja7/3kQag5sSK7Wks/R034xQwRAD4f8VOjSBI9nf1uxhSYJ8c08qj4Wsu1Rl
-         iJUyXMQh6F57+R/Ykv49nb3BSR5nGa/PYwV+cbkMdGzOdcXPYF+vIG2jP9UEE85dy7P6
-         hxIiKWZbnGrNUgf1y8YjbMCNW4ya6tA47FUzexWOY9E7PAjI5KcZB37Bdm06wGlUxGYW
-         zEUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760987732; x=1761592532;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XAU73KA5bRRjDexmLv9S0p4A3jfHSvmFsVyQH8dOED0=;
-        b=Pg1raSSV7DxkFOZpWlWV73FQDp9HUS6QIFOQkjYxcMijKK2yg+ZAs4j3Yh29rWFj7y
-         Bw4tI81VRj/56EJwzZ8i4qi+quUN0022f/bPddzBhKEkwEKq9gz+WJi5Id9nfLQ9vhhA
-         PvNV5+BALLqFwdFhsVpHh5p1IesS2T1TgDyX09fhvVR9EnKgQcFj2y+eZUUWaK5O+WvM
-         wJ8PcZsOyRQdbLI67PBXgkn4/nVnBQk1bpyQL3AIei0cd8KspC/eMSj7DCrr51ZEPKbx
-         DaT4MErrkQnxFD3hfftpwvljpa9Ci8lzLMlmbdr3U+pUjJSY3GnWmvpsRImHMJko1tc4
-         ehRg==
-X-Forwarded-Encrypted: i=1; AJvYcCUId3PDUQbjOnc5/LzeAgqPwtWfj76Iu+lz8shjZPUu6ReNFxoWfgcK6q71EUaXJHDZgJdRiIsayXsSS0I9boFH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPWyoSbnMskbGbPUkk9KA7zR9ugtDJ/o+Akgrk9eS/H8HOhnrB
-	WBzrACeEKJKeljI0SIAL9MvSklT3HA+DoMiVV+U8gIonZ/txQmP8+AWHlKPpMf/6nqQ=
-X-Gm-Gg: ASbGnctEAbLmFJXFleu54WyRrAtxrKphQZTVHikCo/vTaIgGmZ/tQznbI/hEXgkKCOu
-	3FXT9bif0jm7DpqZDrzCt6txic22dj96w1iYgS3pCUgkIElwg4iCilDPJ+50DsO2b26e8hklEol
-	jX3+oZR+s05jk6ItDGLku4YUmQ0lP5etr1x5/zG8kOGVN9/JKNHoSxT5eq8h9qXK2Jyz68jlGxl
-	ypun8clZOjIA7+2ferD8mT1osnDysrO2LOkF1r3v2iVRlYe04HX1hC1kgj5ujXNLOC+oEV8U69o
-	aJOnOtPZto12zaGnp+0IFi4FvQd3/EPubUWH8XqDEMaLR3qzRhGSzA/Umsnagjb4+fDqp6YDdrc
-	DlZ5vWiuXVnbq4xGyWRWgv+8jWsRHPtQWdFCQ8NPk4bw6cfYlva7lKuuKE27jPil/DHIss9ms4F
-	ACxN1cEVe9fOoQpptOTbL6yLW2PAfPqg==
-X-Google-Smtp-Source: AGHT+IHeXH+q1HCer8n1RPKQyzx1aKdI5mUetAs7LD84l09TghB+9mCwTSBlYrvcYqrjSZVmIiyAXA==
-X-Received: by 2002:a05:600c:3b24:b0:46e:1abc:1811 with SMTP id 5b1f17b1804b1-47117912b6amr94831265e9.27.1760987731695;
-        Mon, 20 Oct 2025 12:15:31 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.151])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-427f009a797sm16672032f8f.27.2025.10.20.12.15.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 12:15:31 -0700 (PDT)
-Message-ID: <eed15c43-dde3-410b-b2a3-655f4acf8d97@tuxon.dev>
-Date: Mon, 20 Oct 2025 22:15:30 +0300
+	Mon, 20 Oct 2025 19:16:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QSW+hyX4rvnUTuWS96gCYTOPF2OJcMUfmUlCNBgJIsjhZzAnm9EKnkszi9BhA33kTyMEAwmjN/6nHIGqLwW/CQx4hT6/+8hhSQUfdB0C9KFhKQE7yp+6ZnG22cXouB3FjXyViJXYpeq28+w60IL73EpWxCB4C8NPU5CBUE1SUjsL1DQs3BMoSOX7rpgPBoQs7Rp7dgfyahRCf7/g/FKGeDvGOgUvdoXm2ML0ZfXdMupt75FfNcCJqcLt0gYnF7uWmFxDUKXJTVSU2m7vWakkhCq/yqH88bYZHPZS5isxuxbMeoucX0uxSCzreIUNaHbSC5EveU5p1vpkRmj7OK9o9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gTifzaDtIeIGMUJPDNpHSblEN3/LU3gQrRGCekOirMU=;
+ b=Jg9ohT1ZNWCN4DuFH0a431B07/A+DCrm0+IB+un3iYagYI3RcL+mo467Bu7s+HnMUWasqsiyDNpLwDKf6/Ao6FTJCZ3Hb6p0wuUYG7OQCRlT9gRsaDeU5uMTDNEzwyXUdzb2FPSVPmSC1sk2iDTl93lcyOmwugvAE1AD5h5dmw2a6hQZb47cpaTUBgrx29yMyhxR5dZRKY6losNzD1YnrEyI1Ts5f1KdX9YYyRBWJ54LRrT3i1bNp0xcRwDPYDP6Sm75gXOjyO6Nv7twh9uUecWw76zw5GaR1ruzaIpO44NlK5HiL/Cl+ig7Fllxqs7dJRtA3rJ1sZi+4qw14gMh6g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gTifzaDtIeIGMUJPDNpHSblEN3/LU3gQrRGCekOirMU=;
+ b=iREq6nXDggLOk0W9yexV8wYTMzk4m6BIMwwy3vzGhX6FoUmWV12leTyacAxeCENYy4is163lO6o9boOPhSWmq2iIgsiAW7F8iywigaFlo7gMD7a7Z/YrG1joJgpdCFNQAhHDeRqcvTrXcHxxXuu8A2rXqlCjvN8wccITbfJTtGIVVnuVHtFxmztn3R2phE8QRYAMTBQE92T35y1FF4/rgXEClZC5TKqg0RgPS5/9akrEGW9SYHhJPP4MVhQguWfo+pav1pOcwO+EkUpwbxXZappLQSrQZ5SFybYNL6C9Hrry2bHWhIGERLURJoiMk0G5ITmSlCyQFljpDk0krPQsJw==
+Received: from CH2PR20CA0016.namprd20.prod.outlook.com (2603:10b6:610:58::26)
+ by IA1PR12MB7543.namprd12.prod.outlook.com (2603:10b6:208:42d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.15; Mon, 20 Oct
+ 2025 19:16:34 +0000
+Received: from CH2PEPF00000144.namprd02.prod.outlook.com
+ (2603:10b6:610:58:cafe::c1) by CH2PR20CA0016.outlook.office365.com
+ (2603:10b6:610:58::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9228.17 via Frontend Transport; Mon,
+ 20 Oct 2025 19:16:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CH2PEPF00000144.mail.protection.outlook.com (10.167.244.101) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9253.7 via Frontend Transport; Mon, 20 Oct 2025 19:16:34 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 20 Oct
+ 2025 12:16:29 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Mon, 20 Oct 2025 12:16:28 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.181)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 20 Oct 2025 12:16:28 -0700
+Date: Mon, 20 Oct 2025 12:16:26 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: kernel test robot <lkp@intel.com>, <will@kernel.org>,
+	<oe-kbuild-all@lists.linux.dev>, <jean-philippe@linaro.org>,
+	<robin.murphy@arm.com>, <joro@8bytes.org>, <balbirs@nvidia.com>,
+	<miko.lenczewski@arm.com>, <peterz@infradead.org>, <kevin.tian@intel.com>,
+	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 3/7] iommu/arm-smmu-v3: Introduce a per-domain
+ arm_smmu_invs array
+Message-ID: <aPaKirLXdOtvuNgA@Asurada-Nvidia>
+References: <345bb7703ebd19992694758b47e371900267fa0e.1760555863.git.nicolinc@nvidia.com>
+ <202510172156.WHU485ad-lkp@intel.com>
+ <aPKjEvxCJoRhzU7K@Asurada-Nvidia>
+ <20251020121056.GJ316284@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 21/31] clk: at91: dt-compat: switch to parent_hw and
- parent_data
-To: Ryan.Wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
- alexandre.belloni@bootlin.com, nicolas.ferre@microchip.com
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, varshini.rajendran@microchip.com
-References: <cover.1758226719.git.Ryan.Wanner@microchip.com>
- <628859234f4b2523f43b3ac05d5e29ceb05a7f61.1758226719.git.Ryan.Wanner@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <628859234f4b2523f43b3ac05d5e29ceb05a7f61.1758226719.git.Ryan.Wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20251020121056.GJ316284@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000144:EE_|IA1PR12MB7543:EE_
+X-MS-Office365-Filtering-Correlation-Id: 060faac0-bbe8-41be-8c69-08de100d2efc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|7416014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2QcmtfdHqDFkaxuUyvQpUL2RexRxcUieBCjXZe6Tz04hYe8Z81WEKnPRCNT/?=
+ =?us-ascii?Q?KlSWR8vTy1mbnr1PGyOE2pKe3V3aaL01nuhJi1iPzdwYCgf/8RzzNF0cwhsv?=
+ =?us-ascii?Q?XLFJcMvEveWoDUHnJVoKzfS0pAQ0CBklmF0ZTCB2JA7sfhgQuaDDKJ5tvFTx?=
+ =?us-ascii?Q?2d8Oes9qhOg9YkJP1KpdYDAqhxpX2UmyVjclD+pVPKcKYzwbv6bhoIclv3wL?=
+ =?us-ascii?Q?OHqQ8aYDxy4Q+98rIV3hJokTRZdpy6XjyydGnggO0pbeLUncwY5Ue8aecXkJ?=
+ =?us-ascii?Q?8tIqmnXKGYxDneFk7n984s2iqpmP8wlbFd/Az2Q16rFSM6TUVOjNfgpG6FEC?=
+ =?us-ascii?Q?tiMbC09z5i0lc5+Gn0Dv0KxzjOl7MaCAN57A1KDftRWrf9M+rOHD3/iRXD9n?=
+ =?us-ascii?Q?M9sQT5rm7eWpqv7oQPBmZsoi7bO6H8P2uY/7Q7NhDsOYHSS2RhZsnUn/1B1+?=
+ =?us-ascii?Q?YhYCHXXRlNTkBIjxLR2mJSghgOKboHQlkPMxSgK4ZQ6pyxsgd1qlmz4VKAM+?=
+ =?us-ascii?Q?9p4uE6NivS+yPD3LrrVANPw+9BJoAJyouCypA7Our/SSLdePhserhnn545+i?=
+ =?us-ascii?Q?oWo804hxsPnJENnZoJvmM+hfsxzBCDJwPIFHs9//INJdF8sYzQD3cnAr8IQS?=
+ =?us-ascii?Q?o5sDizQsOVOAUW4T/24NKczem832cNb297ZDDdo2tdWKc6yF4rbhpRcmKFf/?=
+ =?us-ascii?Q?1aeRSre3AeT2p8w4z9cf3ywKAJy9nHeUe9zJfZpHiPPj5tcnPnt+sD8PAMLS?=
+ =?us-ascii?Q?hTzFcDqX6HgPwFM9tebVGhOLBKI4XWWdqDlp0FbXBI0OwwquO+itsP25o+OB?=
+ =?us-ascii?Q?o7eB38MFzdCXCx6kE4dZeENISazDO1Jn3IftkZDU/wXNKd9Lj5GlCU56i6t2?=
+ =?us-ascii?Q?bj8TMYvKR7LnOZqUNuuDtiqow9llAbpsCuVMqmyqtVTG55XArOgqvgCApo7a?=
+ =?us-ascii?Q?oCH1oXkl0WIQ8DEgG+MburmV1+H28BKrZwz4P4y6tY17rufTbUe9GV0IfKlh?=
+ =?us-ascii?Q?wYgcIMuom2U7iQSSg1A2WUyRGZcX3+2+Xh3Stt/qCCO8ebmc5XPKw/XoGldu?=
+ =?us-ascii?Q?ug3S0iQnLob6jzNJlWtFYuqTnVYrFhm+lLVx/G4ef1teqS9SfOJAxGh7LLUD?=
+ =?us-ascii?Q?GP8MB4Ps+hm+JU9J50OoYy1x11UJHCHo2U85TiavzBcp2Ae70uVSV0eu2FFx?=
+ =?us-ascii?Q?+N42ztWMinQcF1LoAy3oMJbhZGOC7BpyE2HYtabI1bz+INtI+mLllWo2zNeZ?=
+ =?us-ascii?Q?DwOoHVVyAF7nLfAj/6IMvlhJ89sTfBnw/a0bKq58zyPfj4zK2j6soywuJr3y?=
+ =?us-ascii?Q?HSUL3p7OdCnvirDMQGihdaRtjaUxV2rfk3SNthlOej/mCEwUk5nEtPcWomvQ?=
+ =?us-ascii?Q?ulzPod1lHNOD/I7Q+LBxx9cZ1kID6/WoK57m1bkV+HbHrmw2yF/bU3m5CqSM?=
+ =?us-ascii?Q?nFc0XeojyN+Gl8/Qc0GXFmNM32k8fZD0w8e9lCeefq6kPoR8e0OMFguVqmBi?=
+ =?us-ascii?Q?cC1VqY7BH1Rz0LWgTb7Xxy9PBG1UpaNIQUbdT5OsGK73CdyLj3gvbtjglWpH?=
+ =?us-ascii?Q?c0i4mE3dLpXxD4u5kgo=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(7416014)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2025 19:16:34.0570
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 060faac0-bbe8-41be-8c69-08de100d2efc
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000144.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7543
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_121533_561568_1E36B357 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20251020_121643_055095_FD3B1058 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,174 +158,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Ryan,
+On Mon, Oct 20, 2025 at 09:10:56AM -0300, Jason Gunthorpe wrote:
+> On Fri, Oct 17, 2025 at 01:12:02PM -0700, Nicolin Chen wrote:
+> > On Fri, Oct 17, 2025 at 09:47:07PM +0800, kernel test robot wrote:
+> > >    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c: note: in included file:
+> > > >> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h:1048:9: sparse: sparse: incorrect type in argument 1 (different address spaces) @@     expected struct callback_head *head @@     got struct callback_head [noderef] __rcu * @@
+> > >    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h:1048:9: sparse:     expected struct callback_head *head
+> > >    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h:1048:9: sparse:     got struct callback_head [noderef] __rcu *
+> > > >> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h:1048:9: sparse: sparse: cast removes address space '__rcu' of expression
+> > ...
+> > >   1045	
+> > >   1046	static inline void arm_smmu_domain_free(struct arm_smmu_domain *smmu_domain)
+> > >   1047	{
+> > > > 1048		kfree_rcu(smmu_domain->invs, rcu);
+> > 
+> > Looks like it should be:
+> >  static inline void arm_smmu_domain_free(struct arm_smmu_domain *smmu_domain)
+> >  {
+> > -       kfree_rcu(smmu_domain->invs, rcu);
+> > +       struct arm_smmu_invs *invs = rcu_dereference(smmu_domain->invs);
+> 
+> rcu_derference_protected(,true) since we know there is no concurrency
+> here..
 
-On 9/19/25 00:16, Ryan.Wanner@microchip.com wrote:
-> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> 
-> Switch old dt-compat clocks to use parent_hw and parent_data. Having
-> parent_hw instead of parent names improves to clock registration
-> speed and re-parenting.
-> 
-> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> ---
->  drivers/clk/at91/dt-compat.c | 80 +++++++++++++++++++++++++-----------
->  1 file changed, 56 insertions(+), 24 deletions(-)
-> 
-> diff --git a/drivers/clk/at91/dt-compat.c b/drivers/clk/at91/dt-compat.c
-> index fa8658d3be7b..9ca871b817e0 100644
-> --- a/drivers/clk/at91/dt-compat.c
-> +++ b/drivers/clk/at91/dt-compat.c
-> @@ -43,7 +43,8 @@ static void __init of_sama5d2_clk_audio_pll_frac_setup(struct device_node *np)
->  
->  	parent_name = of_clk_get_parent_name(np, 0);
->  
-> -	hw = at91_clk_register_audio_pll_frac(regmap, name, parent_name, NULL);
-> +	hw = at91_clk_register_audio_pll_frac(regmap, name, NULL,
-> +					      &AT91_CLK_PD_NAME(parent_name));
->  	if (IS_ERR(hw))
->  		return;
->  
-> @@ -69,7 +70,8 @@ static void __init of_sama5d2_clk_audio_pll_pad_setup(struct device_node *np)
->  
->  	parent_name = of_clk_get_parent_name(np, 0);
->  
-> -	hw = at91_clk_register_audio_pll_pad(regmap, name, parent_name, NULL);
-> +	hw = at91_clk_register_audio_pll_pad(regmap, name, NULL,
-> +					     &AT91_CLK_PD_NAME(parent_name));
->  	if (IS_ERR(hw))
->  		return;
->  
-> @@ -95,7 +97,7 @@ static void __init of_sama5d2_clk_audio_pll_pmc_setup(struct device_node *np)
->  
->  	parent_name = of_clk_get_parent_name(np, 0);
->  
-> -	hw = at91_clk_register_audio_pll_pmc(regmap, name, parent_name, NULL);
-> +	hw = at91_clk_register_audio_pll_pmc(regmap, name, NULL, &AT91_CLK_PD_NAME(parent_name));
->  	if (IS_ERR(hw))
->  		return;
->  
-> @@ -129,6 +131,7 @@ static void __init of_sama5d2_clk_generated_setup(struct device_node *np)
->  	struct clk_hw *hw;
->  	unsigned int num_parents;
->  	const char *parent_names[GENERATED_SOURCE_MAX];
-> +	struct clk_parent_data parent_data[GENERATED_SOURCE_MAX];
->  	struct device_node *gcknp, *parent_np;
->  	struct clk_range range = CLK_RANGE(0, 0);
->  	struct regmap *regmap;
-> @@ -149,6 +152,8 @@ static void __init of_sama5d2_clk_generated_setup(struct device_node *np)
->  	if (IS_ERR(regmap))
->  		return;
->  
-> +	for (unsigned int i = 0; i < num_parents; i++)
-> +		parent_data[i] = AT91_CLK_PD_NAME(parent_names[i]);
->  	for_each_child_of_node(np, gcknp) {
->  		int chg_pid = INT_MIN;
->  
-> @@ -171,7 +176,7 @@ static void __init of_sama5d2_clk_generated_setup(struct device_node *np)
->  
->  		hw = at91_clk_register_generated(regmap, &pmc_pcr_lock,
->  						 &dt_pcr_layout, name,
-> -						 parent_names, NULL, NULL,
-> +						 NULL, parent_data, NULL,
->  						 num_parents, id, &range,
->  						 chg_pid);
->  		if (IS_ERR(hw))
-> @@ -201,7 +206,7 @@ static void __init of_sama5d4_clk_h32mx_setup(struct device_node *np)
->  
->  	parent_name = of_clk_get_parent_name(np, 0);
->  
-> -	hw = at91_clk_register_h32mx(regmap, name, parent_name, NULL);
-> +	hw = at91_clk_register_h32mx(regmap, name, NULL, &AT91_CLK_PD_NAME(parent_name));
->  	if (IS_ERR(hw))
->  		return;
->  
-> @@ -228,6 +233,8 @@ static void __init of_sama5d2_clk_i2s_mux_setup(struct device_node *np)
->  		return;
->  
->  	for_each_child_of_node(np, i2s_mux_np) {
-> +		struct clk_parent_data parent_data[2];
-> +
->  		if (of_property_read_u8(i2s_mux_np, "reg", &bus_id))
->  			continue;
->  
-> @@ -238,8 +245,10 @@ static void __init of_sama5d2_clk_i2s_mux_setup(struct device_node *np)
->  		if (ret != 2)
->  			continue;
->  
-> +		parent_data[0] = AT91_CLK_PD_NAME(parent_names[0]);
-> +		parent_data[1] = AT91_CLK_PD_NAME(parent_names[1]);
->  		hw = at91_clk_i2s_mux_register(regmap_sfr, i2s_mux_np->name,
-> -					       parent_names, NULL, 2, bus_id);
-> +					       NULL, parent_data, 2, bus_id);
->  		if (IS_ERR(hw))
->  			continue;
->  
-> @@ -269,7 +278,8 @@ static void __init of_at91rm9200_clk_main_osc_setup(struct device_node *np)
->  	if (IS_ERR(regmap))
->  		return;
->  
-> -	hw = at91_clk_register_main_osc(regmap, name, parent_name, NULL, bypass);
-> +	hw = at91_clk_register_main_osc(regmap, name, NULL,
-> +					&AT91_CLK_PD_NAME(parent_name), bypass);
->  	if (IS_ERR(hw))
->  		return;
->  
-> @@ -323,7 +333,7 @@ static void __init of_at91rm9200_clk_main_setup(struct device_node *np)
->  	if (IS_ERR(regmap))
->  		return;
->  
-> -	hw = at91_clk_register_rm9200_main(regmap, name, parent_name, NULL);
-> +	hw = at91_clk_register_rm9200_main(regmap, name, NULL, &AT91_CLK_PD_NAME(parent_name));
->  	if (IS_ERR(hw))
->  		return;
->  
-> @@ -336,6 +346,7 @@ static void __init of_at91sam9x5_clk_main_setup(struct device_node *np)
->  {
->  	struct clk_hw *hw;
->  	const char *parent_names[2];
-> +	struct clk_parent_data parent_data[2];
->  	unsigned int num_parents;
->  	const char *name = np->name;
->  	struct regmap *regmap;
-> @@ -354,7 +365,9 @@ static void __init of_at91sam9x5_clk_main_setup(struct device_node *np)
->  
->  	of_property_read_string(np, "clock-output-names", &name);
->  
-> -	hw = at91_clk_register_sam9x5_main(regmap, name, parent_names, NULL,
-> +	parent_data[0] = AT91_CLK_PD_NAME(parent_names[0]);
-> +	parent_data[1] = AT91_CLK_PD_NAME(parent_names[1]);
-> +	hw = at91_clk_register_sam9x5_main(regmap, name, NULL, parent_data,
->  					   num_parents);
->  	if (IS_ERR(hw))
->  		return;
-> @@ -396,6 +409,7 @@ of_at91_clk_master_setup(struct device_node *np,
->  	struct clk_hw *hw;
->  	unsigned int num_parents;
->  	const char *parent_names[MASTER_SOURCE_MAX];
-> +	struct clk_parent_data parent_data[MASTER_SOURCE_MAX];
->  	const char *name = np->name;
->  	struct clk_master_characteristics *characteristics;
->  	struct regmap *regmap;
-> @@ -419,13 +433,15 @@ of_at91_clk_master_setup(struct device_node *np,
->  	if (IS_ERR(regmap))
->  		return;
->  
-> +	for (unsigned int i = 0; i < MASTER_SOURCE_MAX; i++)
-> +		parent_data[i] = AT91_CLK_PD_NAME(parent_names[i]);
->  	hw = at91_clk_register_master_pres(regmap, "masterck_pres", num_parents,
-> -					   parent_names, NULL, layout,
-> +					   NULL, parent_data, layout,
->  					   characteristics, &mck_lock);
->  	if (IS_ERR(hw))
->  		goto out_free_characteristics;
->  
-> -	hw = at91_clk_register_master_div(regmap, name, "masterck_pres", NULL,
-> +	hw = at91_clk_register_master_div(regmap, name, NULL, &AT91_CLK_PD_HW(hw),
->  					  layout, characteristics,
->  					  &mck_lock, CLK_SET_RATE_GATE, 0);
+Oh right, it's outside rcu_read_lock().
 
-Looks like at91_clk_register_master_div() could be kept to use parent_hws
-instead of parent_data.
+Thanks
+Nicolin
 
