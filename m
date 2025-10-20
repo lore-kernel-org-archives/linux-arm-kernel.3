@@ -4,98 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A185CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4AE3CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ntrU9nuRet64PMVdCke1I3LrFr9q76nQfM0zFt2OtT8=; b=Ojy3x6H3UCsv+gPEWKtui30WRL
-	HxU72fOE19XtBmHBOrebeo2+cBZC6y+IEganj63wHufykjb74K4UTeYnEn+JBX5MORbF9/jUVHdq7
-	WAVR258tPWVOLdRmznQg3ivVmpG/7yNvx9fqIwO81rHLs+fRda4jwFwWLSMsaBw92YXZ5wfORtup2
-	BuFckAo/0vMgkUzQ+8fctgHIAh4E5nfEi9dxqW1waGJjSlv8b59Fgd2OTQ4hss/AEQY/qZKPWClit
-	GIU/mD6LsHS8aQaZb5gfc4WnQU+SSJvvCvElRt4EMn3zv4ejZoTmx7hNug5cJ8P9jiDMxGLiBc3ba
-	y03EGhCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MhYxWhLFynEPuXGXf6NvRZnWZ6WgJyN1EoBH8Cps2Ag=; b=VYLIY7DqKXj5Y3R8fflWXwdU2e
+	ONfCes/6EY8wE2CQo37jPChUijSN/xPErgocJNNoqLj2+vDUoaF7WDBfLpKNwfXzuSQfCD0WMcsZ/
+	ZluQhbhW4N1sd959s36AJxyUyG8XHu/5P1j8TybwyoGt7fTibMqJHyYoKqFhPCiPyx4c5PL4/1DUK
+	sgo+IecrtYfRTKDLZNohaouB7gJEhkqdJu5XTtpnJfKg6uVPnYNAy4M3F2IRVVRomgaGb9uFqTigK
+	cg0ycPZ/74wASlKpmyH557xwxSiw0rVbrswE4EycP/dCvrfhjITUbZ+mVVe0+LBtIuzb1SxJty7O7
+	4cJP8GYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp4Z-0000000DV6T-3k85;
-	Mon, 20 Oct 2025 12:33:12 +0000
+	id 1vAp67-0000000DXOl-1ua9;
+	Mon, 20 Oct 2025 12:34:47 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp2T-0000000DS5I-2I59
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 20 Oct 2025 12:31:03 +0000
+	id 1vAp2x-0000000DSi4-0B9i;
+	Mon, 20 Oct 2025 12:31:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=ntrU9nuRet64PMVdCke1I3LrFr9q76nQfM0zFt2OtT8=; b=aQp6M9lprD4CWsaGYsUtW+vq8M
-	2FIBok2SU7Nm6FtoQBS1i1iCi6bDcj62YqJxmetXQugyrDPUbb1xS0ddRbkjyn0uWE3B2QPPoIAwh
-	lAPxwU3wH+9mFMa6D7F+4P87lQ9wTCVH6kzLpU+GKSY2/XkZiQo0c8LRFAdL85YnhV1Duidz4o4C6
-	lLmoaB48RPOMT+k4fY4OCGkYagVAPAuhW1RQf7IaOd2sx6F83PQjnhA1o3iZev4q1+gA1nXqBtW/E
-	TvY/bc79b9QSuMKDc+kWAtFLFn2bpnRREnyRzBaWWhVOQVuvKXZk9HqEGQOERxaD032St4a4hwuKB
-	VhNlZ0Dw==;
-Received: from sea.source.kernel.org ([172.234.252.31])
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=MhYxWhLFynEPuXGXf6NvRZnWZ6WgJyN1EoBH8Cps2Ag=; b=MabG5WugADLFB3VHMtrQzUpRxT
+	Uu5zPfFuEVei3jXQflPWqYDa6IGq9AhbFshszFxtQ1DIYbau0T1+AsxcL/7DW0l1L2pB6zDvyTRqH
+	494zfzYQgg30yraphBl8ZiXhUoL0awuihc5jLRjNZhUoPtRpTUm2/UYBJmic6y/VzE7YfDsJKCxvD
+	MqvUhcQZMorqRGWCQqtPbOQ5hIZObA1uZmQxvvU6BEMyffc5XFJ+mIsmPRyXijZAodRwEpxRgsW9k
+	inN2sogIdhHGsVM3s262AzpVc1S7oBKNHAes48Gbb4e9nTsTuCzDv25e+XfDVI6e9i6+Hgkeyaaur
+	JrlXViug==;
+Received: from gloria.sntech.de ([185.11.138.130])
 	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp2O-000000074mQ-2aOB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 12:30:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70DE048AC1;
-	Mon, 20 Oct 2025 12:30:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B6DBC116C6;
-	Mon, 20 Oct 2025 12:30:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760963410;
-	bh=Coi94hPhUXXNLgq9jnPOWHoGdCzfOo5Sym8rez8bbhs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aTzGnq+27zIx6xgvRds0Cr34kpf1s+bVMyeygcLzOAyKIwrsHWRh8FTdnlZ4lvr60
-	 crp7oalHILkGFU6JwMgY9vxvCOEkBMVLOiHMb7kWOU7LF50HPP/IKRTlWIFRrv8Q9G
-	 +FvjH6QXOnV6nQ+D2nSxYQe8b6dB0J6mv5uB3MaRmphrWHbUWkGBlbhSEol3S3Pk1F
-	 JvCj3CgVYATUObr0zITPUFpwAbxmleBKjBH3OwQXnkNJCTBUdJmLZLXu6wWPuyuuTw
-	 FrD0fMV7zMrNvvbHtECTUcFlzykVwJnUF1FMcHlBr7cwrISisatBNlVB9l3Cfv1kOi
-	 WQ9oeT3wGw2mw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vAp1c-0000000FUu2-1WPA;
-	Mon, 20 Oct 2025 12:30:08 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v4 04/26] platform: Add firmware-agnostic irq and affinity retrieval interface
-Date: Mon, 20 Oct 2025 13:29:21 +0100
-Message-ID: <20251020122944.3074811-5-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251020122944.3074811-1-maz@kernel.org>
-References: <20251020122944.3074811-1-maz@kernel.org>
+	id 1vAp2p-000000075TG-3MZj;
+	Mon, 20 Oct 2025 12:31:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=MhYxWhLFynEPuXGXf6NvRZnWZ6WgJyN1EoBH8Cps2Ag=; b=zjTdNbwzRfJ02QMBrrUYQyahQC
+	e9N3vAi5TdIP52ZJc9LOJrjBvU+FQY7C7UqYSd4R0ulVAW1xYAUKXit/t/Rr4/7MZxilfLTNNJgac
+	TlFiOtt/tM3BpXEYQzfEO+lrPttm2Zk9zvunVObYN9FvqgCaOWoNYUx/SS2DDJ5g/lH8VblaMS2fZ
+	7ZT+SpN4ORtxBml2817HjzBDIFLE6qL/CmK8DJm0yEeTns6Dk/df/NPZeiwBHJhNsNxzx4kD0nkHi
+	5hMv45MUTUZN0U8f5/YH/rZ6GrqqID3rYMB42Sqypt8jJYpXqM01Qg8aZU+kjq2Zupd4ICtFzxcNp
+	WqFKgMJw==;
+Received: from [141.76.253.240] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vAp2f-0000zJ-3h; Mon, 20 Oct 2025 14:31:13 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add DSI LCD display on rk3576-evb1
+Date: Mon, 20 Oct 2025 14:31:12 +0200
+Message-ID: <12339028.CDJkKcVGEf@phil>
+In-Reply-To: <748fd61a-31fb-436f-b028-b47807a4860c@gmail.com>
+References: <20250925-rk3576-evb1-dsi-v1-1-c76fc3740abc@gmail.com>
+ <5143458.iZASKD2KPV@phil> <748fd61a-31fb-436f-b028-b47807a4860c@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org, jonathan.cameron@huawei.com, ruanjinjie@huawei.com, alexandru.elisei@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_133058_176342_7344E00F 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20251020_133125_099280_3D0B7628 
+X-CRM114-Status: GOOD (  28.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,124 +87,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expand platform_get_irq_optional() to also return an affinity if
-available, renaming it to platform_get_irq_affinity() in the
-process.
+Am Montag, 20. Oktober 2025, 10:50:58 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb Alexey Charkov:
+>=20
+> On Mon, Oct 20, 2025 at 12:31=E2=80=AFPM Heiko Stuebner <heiko@sntech.de>=
+ wrote:
+> >
+> > Am Montag, 20. Oktober 2025, 10:19:51 Mitteleurop=C3=A4ische Sommerzeit=
+ schrieb Alexey Charkov:
+> > > On Thu, Sep 25, 2025 at 12:38=E2=80=AFAM Alexey Charkov <alchark@gmai=
+l.com> wrote:
+> > > >
+> > > > Add support for the Rockchip W552793DBA-V10 LCD+touchscreen assembl=
+y which
+> > > > comes physically attached to Rockchip RK3576 EVB1 boards.
+> > > >
+> > > > The display part is driven by the on-chip MIPI DSI controller, and =
+the
+> > > > touchscreen is connected over I2C.
+> > > >
+> > > > Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> > > > ---
+> > > > Note that backlight support is left out for now, as it depends on P=
+WM
+> > > > support [0] which has not yet been merged.
+> > > >
+> > > > A workaround is simply `gpioset -c 0 13=3D1` to set the respective =
+GPIO
+> > > > pin high and thus to light up the display unconditionally.
+> > > >
+> > > > [0] https://lore.kernel.org/lkml/20250602-rk3576-pwm-v2-0-a6434b0ce=
+60c@collabora.com/
+> > > > ---
+> > > >  arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 89 ++++++++++++=
+++++++++++++
+> > > >  1 file changed, 89 insertions(+)
+> > >
+> > > Hi Heiko,
+> > >
+> > > Any thoughts about this one? Can we perhaps get it merged for -next?
+> >
+> > Does the gpio-backlight work on that device?
+> > That would make the gpioset hack unnecessary.
+>=20
+> I've got a local patch using pwm-gpio and pwm-backlight as a stop-gap=20
+> solution, but I don't think it's worth merging upstream, because the=20
+> backlight is supposed to be driven by the hardware PWM on the same pin=20
+> (not bit-banging the GPIO line). After all, Nicolas has been working on=20
+> adding a proper hardware PWM driver for RK3576.
+>=20
+> The display itself works without PWM support, and so does the touchscreen.
 
-platform_get_irq_optional() is preserved with its current semantics
-by calling into the new helper with a NULL affinity pointer.
+Right now, I don't think we have an actual timeline if/when Nicolas will
+be able to work on the pwm again. So my idea was if we want to
+integrate the baclight as you described below, to have an actual usable
+display and then when the new pwm has landed switch over to that one?
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Tested-by: Will Deacon <will@kernel.org>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- drivers/base/platform.c         | 60 +++++++++++++++++++++++++++------
- include/linux/platform_device.h |  2 ++
- 2 files changed, 52 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/base/platform.c b/drivers/base/platform.c
-index 09450349cf323..3a058f63ef0d3 100644
---- a/drivers/base/platform.c
-+++ b/drivers/base/platform.c
-@@ -150,25 +150,37 @@ devm_platform_ioremap_resource_byname(struct platform_device *pdev,
- EXPORT_SYMBOL_GPL(devm_platform_ioremap_resource_byname);
- #endif /* CONFIG_HAS_IOMEM */
- 
-+static const struct cpumask *get_irq_affinity(struct platform_device *dev,
-+					      unsigned int num)
-+{
-+	const struct cpumask *mask = NULL;
-+#ifndef CONFIG_SPARC
-+	struct fwnode_handle *fwnode = dev_fwnode(&dev->dev);
-+
-+	if (is_of_node(fwnode))
-+		mask = of_irq_get_affinity(to_of_node(fwnode), num);
-+	else if (is_acpi_device_node(fwnode))
-+		mask = acpi_irq_get_affinity(ACPI_HANDLE_FWNODE(fwnode), num);
-+#endif
-+
-+	return mask ?: cpu_possible_mask;
-+}
-+
- /**
-- * platform_get_irq_optional - get an optional IRQ for a device
-+ * platform_get_irq_affinity - get an optional IRQ and its affinity for a device
-  * @dev: platform device
-  * @num: IRQ number index
-+ * @affinity: optional cpumask pointer to get the affinity of a per-cpu IRQ
-  *
-  * Gets an IRQ for a platform device. Device drivers should check the return
-  * value for errors so as to not pass a negative integer value to the
-- * request_irq() APIs. This is the same as platform_get_irq(), except that it
-- * does not print an error message if an IRQ can not be obtained.
-- *
-- * For example::
-- *
-- *		int irq = platform_get_irq_optional(pdev, 0);
-- *		if (irq < 0)
-- *			return irq;
-+ * request_irq() APIs. Optional affinity information is provided in the
-+ * affinity pointer if available, and NULL otherwise.
-  *
-  * Return: non-zero IRQ number on success, negative error number on failure.
-  */
--int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
-+int platform_get_irq_affinity(struct platform_device *dev, unsigned int num,
-+			      const struct cpumask **affinity)
- {
- 	int ret;
- #ifdef CONFIG_SPARC
-@@ -236,8 +248,36 @@ int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
- out:
- 	if (WARN(!ret, "0 is an invalid IRQ number\n"))
- 		return -EINVAL;
-+
-+	if (ret > 0 && affinity)
-+		*affinity = get_irq_affinity(dev, num);
-+
- 	return ret;
- }
-+EXPORT_SYMBOL_GPL(platform_get_irq_affinity);
-+
-+/**
-+ * platform_get_irq_optional - get an optional IRQ for a device
-+ * @dev: platform device
-+ * @num: IRQ number index
-+ *
-+ * Gets an IRQ for a platform device. Device drivers should check the return
-+ * value for errors so as to not pass a negative integer value to the
-+ * request_irq() APIs. This is the same as platform_get_irq(), except that it
-+ * does not print an error message if an IRQ can not be obtained.
-+ *
-+ * For example::
-+ *
-+ *		int irq = platform_get_irq_optional(pdev, 0);
-+ *		if (irq < 0)
-+ *			return irq;
-+ *
-+ * Return: non-zero IRQ number on success, negative error number on failure.
-+ */
-+int platform_get_irq_optional(struct platform_device *dev, unsigned int num)
-+{
-+	return platform_get_irq_affinity(dev, num, NULL);
-+}
- EXPORT_SYMBOL_GPL(platform_get_irq_optional);
- 
- /**
-diff --git a/include/linux/platform_device.h b/include/linux/platform_device.h
-index 074754c23d330..ad66333ce85ce 100644
---- a/include/linux/platform_device.h
-+++ b/include/linux/platform_device.h
-@@ -102,6 +102,8 @@ devm_platform_ioremap_resource_byname(struct platform_device *pdev,
- 
- extern int platform_get_irq(struct platform_device *, unsigned int);
- extern int platform_get_irq_optional(struct platform_device *, unsigned int);
-+extern int platform_get_irq_affinity(struct platform_device *, unsigned int,
-+				     const struct cpumask **);
- extern int platform_irq_count(struct platform_device *);
- extern int devm_platform_get_irqs_affinity(struct platform_device *dev,
- 					   struct irq_affinity *affd,
--- 
-2.47.3
+Heiko
+
+
+> My temp patch goes like this:
+>=20
+> ---
+>   arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 15 +++++++++++++++
+>   1 file changed, 15 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts=20
+> b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+> index f20cd6f2c079..5c27fff03569 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+> @@ -58,6 +58,14 @@ button-vol-up {
+>   		};
+>   	};
+>=20
+> +	backlight: backlight {
+> +		compatible =3D "pwm-backlight";
+> +		brightness-levels =3D <20 220>;
+> +		default-brightness-level =3D <100>;
+> +		num-interpolated-steps =3D <200>;
+> +		pwms =3D <&lcd_bl_pwm 0 25000 0>;
+> +	};
+> +
+>   	hdmi-con {
+>   		compatible =3D "hdmi-connector";
+>   		type =3D "a";
+> @@ -78,6 +86,12 @@ work_led: led-0 {
+>   		};
+>   	};
+>=20
+> +	lcd_bl_pwm: pwm {
+> +		#pwm-cells =3D <3>;
+> +		compatible =3D "pwm-gpio";
+> +		gpios =3D <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
+> +	};
+> +
+>   	vbus5v0_typec: regulator-vbus5v0-typec {
+>   		compatible =3D "regulator-fixed";
+>   		regulator-name =3D "vbus5v0_typec";
+> @@ -277,6 +291,7 @@ panel@0 {
+>   		compatible =3D "wanchanglong,w552793baa", "raydium,rm67200";
+>   		reg =3D <0>;
+>=20
+> +		backlight =3D <&backlight>;
+>   		iovcc-supply =3D <&vcc3v3_lcd_n>;
+>   		reset-gpios =3D <&gpio3 RK_PB5 GPIO_ACTIVE_LOW>;
+>   		vdd-supply =3D <&vcc3v3_lcd_n>;
+>=20
+
+
+
 
 
