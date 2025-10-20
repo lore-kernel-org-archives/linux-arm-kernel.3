@@ -4,82 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E4FACCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96438CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gFJLxW8OUDNgtKGw5vBtPWMYgGcJSO6ZFLPzt/gNjxs=; b=jtM3bru5kKhpqSYV4E30NSvtNs
-	R0Ati0qz18pvSOqIQQJrmg6kThnPO8eH/Neb9/M79/tUrPtwU7IPra+pAo2Y3EUoecp7ZMBRzNhDw
-	LfEmg7DkqMyptrbexCi9U5XrfnwVNd/NidJoxjR88cKEuQL1W2J41giz2fQ4v7te5hKLwKiH5/i81
-	tEcN5eTJZ1e0gD/mcKfCvJqzqGAE0BP4+puLKnpGiNySC9c80aZG5Z6vNgt4j5Q+1tQ3zZc0e1sFA
-	7h/MJScX2rjSN5RGt4MgP49bXIoB6Lml7md+Dpk+r7u5j+x9xpQ4ZDPbFGtKp0wnpZSEOoL6EYuwX
-	O5QB5O5w==;
+	bh=hQsbLRhyo+YpQS0XU65M5daaDH2O275YUQAvgxI33yc=; b=nn1kZA/v1hwnmIP831+0GzMCKM
+	T32kpPVHpK4FDQLjpe7NA4eQEBNIYeC9Hz7eFpcBEkBdHPodJuH7U/qlc1DIHrY39w6JXBjZJBb7W
+	xd7OtoSpdDQA6HSI/rKduZ6wqns8qK5Vz+ETDK06WFovNIwLp1Kk022s3mKvoeRsnEk+GGEW+srkd
+	T6whqOQ0a+V9sj8cpMyj+JMcA+zzQAmjYWBZKtgWc1K+ANIMTpUB6KDk9Sc6/WHBP/n2bNX8pxdp8
+	3GFtUey/jUDPzVywkHe2tgG16i0VXscxP/6LuLK5bhP0oTkMglpsXuUgK/6UL24ZnywtkOO+t+aL3
+	jszl8M4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmdD-0000000CgFG-2E6k;
-	Mon, 20 Oct 2025 09:56:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vAmeq-0000000Cgje-3xYX;
+	Mon, 20 Oct 2025 09:58:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmdA-0000000CgDA-1zTE;
-	Mon, 20 Oct 2025 09:56:46 +0000
+	id 1vAmep-0000000Cgj7-2k3Q
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Oct 2025 09:58:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9DC1345827;
-	Mon, 20 Oct 2025 09:56:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 844F3C4CEF9;
-	Mon, 20 Oct 2025 09:56:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B884861D57;
+	Mon, 20 Oct 2025 09:58:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13483C4CEF9;
+	Mon, 20 Oct 2025 09:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760954203;
-	bh=eRscmhaBeaXNyyMb6QNngH3o5h5QCnU9xCb75nFP7+M=;
+	s=k20201202; t=1760954292;
+	bh=NiBGc+8QbFyTGPny5KTd2eO9Xrvo0n3prlh5bGsN3BU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TTfdfeu7+i1jUYuaXPwGYgFpZ061KDKhmAeYU6LXSHmZVl4lLGEFxYVEEjcUeeEIQ
-	 cvrGT7UgAI4lKgsp3/EPHY2EbxgElGBkCyw7GEhhjeH/DGWR7X6mpgaNoxKAkUXZZO
-	 Mi6f9OrDOYt0rus2Kaq8TnBWsTs5N/gJ389bdcbWjqtJ/iuhuNbY/IIUextL4vNluy
-	 +viQe9GpTDGX/6l5h/zlR2L6hMnQLjazC/sTjT5Nz84GLCCW6deVz6kg0GYBOIktNo
-	 5q+icUzkiCEYEf/J1+8Nkdkq28e8cgiyQYXWb6iXDOw7MHJ9UwIDe6oAePv90frKCU
-	 MAOkNIVOB4kPg==
-Message-ID: <4dc420a3-cf89-4f45-84e7-4d0079240681@kernel.org>
-Date: Mon, 20 Oct 2025 11:56:36 +0200
+	b=CMcMo6z6a+ZViNqLjo7nIltpr+C41hKf3CrxAevtTNvNCTtul0axJLFTb374trMoQ
+	 H0C7ka6++1hkVNVAYHwshxyXcdF7BRgx/oLnpX1RJd3fNIDyyFqP59uPD6mj/Hl+0i
+	 qOqXUStEg8xXCsibVWFiJOy/K8oSzLKRpDGgYnsVV+o2uQAVOn2XpuUFZUjJx94S/1
+	 LBt2OlkeE2OFR/uIXyBQlRc2RjzmtNWhhTYU8EfNLym+2We3uzHsqb9e5GsjLPdERc
+	 9nH+5t5DrQHfxiRnjuXWuhz1uf7ctzDVkS2r/jkM9J1AsEc/2ztMy+RA6hcPJgV9tD
+	 UuyasGxIw3C/A==
+Message-ID: <f6812244-8e8e-45b9-87b9-fe96d740a843@kernel.org>
+Date: Mon, 20 Oct 2025 11:58:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] dt-bindings: ufs: mediatek,ufs: add MT8195
- compatible and update clock nodes
-To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
- "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
- "James.Bottomley@HansenPartnership.com"
- <James.Bottomley@HansenPartnership.com>, "robh@kernel.org"
- <robh@kernel.org>, "bvanassche@acm.org" <bvanassche@acm.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- =?UTF-8?B?TWFjcGF1bCBMaW4gKOael+aZuuaWjCk=?= <Macpaul.Lin@mediatek.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "avri.altman@wdc.com" <avri.altman@wdc.com>,
- "martin.petersen@oracle.com" <martin.petersen@oracle.com>
-Cc: "macpaul@gmail.com" <macpaul@gmail.com>,
- =?UTF-8?B?UGFibG8gU3VuICjlravmr5Pnv5Qp?= <pablo.sun@mediatek.com>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- =?UTF-8?B?QmVhciBXYW5nICjokKnljp/mg5/lvrcp?= <bear.wang@mediatek.com>,
- =?UTF-8?B?UmFtYXggTG8gKOe+heaYjumBoCk=?= <Ramax.Lo@mediatek.com>
-References: <20250722085721.2062657-1-macpaul.lin@mediatek.com>
- <20250722085721.2062657-3-macpaul.lin@mediatek.com>
- <b90956e8-adf9-4411-b6f9-9212fcd14b59@collabora.com>
- <438077d191833bb4f628b2c6da3b86b3ecfb40e6.camel@mediatek.com>
- <cb173df9-4c70-4619-b36d-8e99272551b6@kernel.org>
- <a9bf15e48afd8496ca9b015e7f5b03821863a0b2.camel@mediatek.com>
- <7f285723-ecd7-4df6-8c9b-f2e786ce3602@kernel.org>
- <4b3d2678d2b724fb53ec7272ef8daf52197d4a0e.camel@mediatek.com>
+Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
+ <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
+ <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
+ <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
+ <2f8da425-63d9-4321-9cd3-976bbd29a52f@kernel.org>
+ <a03cd07f-8e9f-4b02-b301-f1bbb69eb7db@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -125,12 +110,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <4b3d2678d2b724fb53ec7272ef8daf52197d4a0e.camel@mediatek.com>
+In-Reply-To: <a03cd07f-8e9f-4b02-b301-f1bbb69eb7db@linaro.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_025644_557454_8D1E1F71 
-X-CRM114-Status: GOOD (  16.58  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,100 +127,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/10/2025 11:44, Peter Wang (王信友) wrote:
-> On Mon, 2025-10-20 at 10:28 +0200, Krzysztof Kozlowski wrote:
+On 20/10/2025 11:19, Tudor Ambarus wrote:
+> 
+> 
+> On 10/20/25 9:22 AM, Krzysztof Kozlowski wrote:
+>> On 20/10/2025 09:45, Tudor Ambarus wrote:
 >>>
 >>>
->>> Hi Krzysztof Kozlowski,
+>>> On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
+>>>>> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
+>>>>> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
+>>>>> --- a/drivers/clk/samsung/Kconfig
+>>>>> +++ b/drivers/clk/samsung/Kconfig
+>>>>> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
+>>>>>  	  status of the certains clocks from SoC, but it could also be tied to
+>>>>>  	  other devices as an input clock.
+>>>>>  
+>>>>> +config EXYNOS_ACPM_CLK
+>>>>> +	tristate "Clock driver controlled via ACPM interface"
+>>>>> +	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
+>>>>
+>>>> I merged the patches but I don't get why we are not enabling it by
+>>>> default, just like every other clock driver. What is so special here?
 >>>
->>> The main reason for my objection was also clearly stated:
->>> "removing these DTS settings will make what was originally
->>> a simple task more complicated."
->>> I’m not sure if you are quoting only the "In addition"
->>> part to take it out of context?
->>
->> It is not out of context. It was the statement on its own.
-> 
-> Hi Krzysztof Kozlowski,
-> 
-> However, you haven’t addressed the main reason for my objection.
-> "removing these DTS settings will make what was originally
-> a simple task more complicated."
-
-
-You did not object in technical matter at all here:
-https://lore.kernel.org/all/ce0f9785f8f488010cd81adbbdb5ac07742fc988.camel@mediatek.com/
-
-Look at this patch.
-
-You said nothing about actual change, except blocking the community
-maintainer. You did not raise any other concerns so what are you
-speaking about "other main concerns"?
-
-Even if such existed, they did not matter, because YOU WROTE ONLY:
-
-"The role of MediaTek UFS maintainer is not suitable to be handed over
-to someone outside of MediaTek."
-
-This is what we discuss here.
-
-> 
+>>> Thanks! Are you referring to the depends on line? I needed it otherwise
+>>> on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
 >>
 >>
->>
->> You denied community to participate and now you twist the argument
->> like
->> you want Mediatek people to be involved. No one denied Mediatek to be
->> maintainer.
->>
->> It is you who denied community to join the maintainers.
->>
->> This is not acceptable and you still do not understand why.
-> 
-> I think I understand your point now, you believe that opposing
-> this patch means opposing community participation and support, right?
-
-Do you even read your own comments and where did you place them? Do you
-understand that we discuss emails, not some unsaid or other threads?
-
-Look at this:
-
-https://lore.kernel.org/all/ce0f9785f8f488010cd81adbbdb5ac07742fc988.camel@mediatek.com/
-
-	
-> But it’s clear that you haven’t carefully considered the main 
-> reason for my objection?
-
-Main reason for objection? What?
-
-> 
-> 
-> 
->>
->>
->> You could apologize and explain your mistakes, but instead you push
->> same
->> narrative.
->>
->> Still a red flag. I will not accept such vendor-like behaviors,
->> because
->> they significantly harm the community.
->>
->> I am very surprised that UFS maintainers did not object to it. This
->> should be clearly ostracized.
->>
+>> No. I am referring to missing default and defconfig patch.
 >>
 > 
-> Sorry, I still don’t quite understand why having people who
-> know the SoC better maintain the SoC driver would be considered
-> harmful to the community?
+> default m or y would force compilation of EXYNOS_ACPM_CLK and
+> EXYNOS_ACPM_PROTOCOL for all ARCH_EXYNOS, even on Exynos platforms that
+> don't use ACPM. Since ACPM is not universally required by the Exynos
+> architecture, I thought to make it opt-in (default n).
 
-You are twisting the problem, like anyone denied you being the maintainer.
 
-YOU DENIED OTHER PEOPLE!
+Just like every clock driver. So again - how is it different?
 
-I finish the discussion here, I am considering your explanations
-intentionally twisting the point thus I find it still harmful behavior.
+> 
+> Setting it as a module in arm64 defconfig makes it available on
+> compatible platforms.
+> 
+> Similar clock drivers do the same: CLK_RASPBERRYPI.
+> COMMON_CLK_SCPI, COMMON_CLK_SCMI - no defaults and set them as builtin
+> in the arm64 defconfig.
+
+
+I am speaking about Samsung drivers.
+
 
 Best regards,
 Krzysztof
