@@ -4,102 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2708BCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DCC4CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0XCJmz4HW13zmCaIQ84NTp39kjqei0obsLTQVEkJ9Dg=; b=rKoHbD1giR9gLE2bYPd+cK+LeH
-	Hq4d9JLO6JrdqYKW7mZchs3Z8y1Opj9M2jiblV0O5UZmNH1TpkQPKgQyj0bHhFig+J3Zl3NEiUuQM
-	jakT4dIwTeHIu/y9309pZE+XGWuiq61bp3AfPWgmWmBVNijVsnn3UrR6c6hFVtgC5eBQrwmy5xyhl
-	qZSnzG+VV/rDTOM/oDv59inAjbIi6OOnsJD+Ey44DFZGOrklr2F0HnXFYB5YSiQBisrRk9HvrUK8b
-	T8mpQu67WI72wsJ3/Jz3fV9aXuOk+CL6sphPaHmdg6AStByZOmwAyp8oq6wQFwpGLBgAFp3tv+rt7
-	A0C86jRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ntU/ZBbGixY1I9/0XrvVmLdRSFRQaL3Gfnj2DxnNlps=; b=adopZSXctEaSregPAjpM62jf81
+	PqPuvq1a/EXxyER9cGEeGe2yKByo/+ZNcT/cd7ekqp1a+TX3aK4SEU9OzmAwPnTA0/bodhX8EgBf0
+	8j1BT8J49Jm6NcWyIVMY0uJnMPIbOD1NVL3XO6P2q+hWSjFw+Zm+i54+zrRVyQoxOhB+t1uTxy3yI
+	5bwsZRMF4fKhAQ8e9qkpgvkOAIy9/XqiUyRSqd29GQgRaLSAmdkur51sd/+3PqTh3Wo/nMumK00vy
+	nDaA2nG20E9mFdWePhz8D9zVUEYLGzDZQ3aZDpeFlxHlGtUwCYTgyhRG0HTlkHESI8DjdWYGzh2Dk
+	i1Hysi2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAm3i-0000000CYLe-2BGA;
-	Mon, 20 Oct 2025 09:20:06 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1vAm5V-0000000CYbb-1Ku1;
+	Mon, 20 Oct 2025 09:21:57 +0000
+Received: from mail.simonwunderlich.de ([2a01:4f8:c17:e8c0::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAm3f-0000000CYLC-3yYD
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 09:20:05 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-42421b1514fso2559842f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 02:20:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760952002; x=1761556802; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=0XCJmz4HW13zmCaIQ84NTp39kjqei0obsLTQVEkJ9Dg=;
-        b=XzmsjeR/1B+8bgyBoiP7JpzIvTyrLIW/oh3+nKX8ad+RLa457BPjcd4YbPTKC73Wej
-         W4aBbzlQ23mWNMh6irf5P4KTOwM5VJMZZAmt8qvkw9n0YSVeHifu823jVuLDlS55FZOC
-         vQoub6K5sr2/4NlCIdDCit+vO++s+GLpnY58EPg7bcmT1UPu18GlvVjYza0jkA5me63K
-         118ICWGeZQrndzAj+YwTmcjuCw/KPBBg96dJ7ijQLbqyIY6Bix+TWTR6ZcM2IzfGFLbT
-         5UP7ozw+Fp6Ax1f4VKnzhDtQSWJvHvIDSPjZNcn+ye7v6A29Y1pMrqacd1c5565OsOxb
-         M+bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760952002; x=1761556802;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0XCJmz4HW13zmCaIQ84NTp39kjqei0obsLTQVEkJ9Dg=;
-        b=eOQHf51UwL/pvty3ZW3E46kUjkEVQdH5b/iap8+FcYivFuFczRLUiVwmx/A6BoEzG+
-         xjcXCIK1sNTqFJ/FAT1iS11Pt6O8i3GqPj0YOGu/j4ORuC6G8QwSWCHGwy3PLumvDdnB
-         FkMae45gHIaGaT5sbuT7jS+fy2GAuZAOqHrp9lfwfBivw1Kk6e6+zPHc6CdCf6MNBLVq
-         bMm/VvyQU8Xv7yHyU9ZpDKIMJZ1Aka2A+NTvKv85TNDQgGVyjdw5EHghJ1U+5ILs+KdN
-         IgGzpLAeVWqFBhlkON3vj616F8rVOQilPeIgm+HQPn1OL8dNYqWFMZhIIOk3PSOZXLAh
-         5mfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXU7C7KCYnJVZZIF4GEIjLDIT78AZcsPfr3sEhDXdxUCkQXxeS2wxepXQwSJw86YBS20yCXqfBNhLtrCpdRLec0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGM99NLoUnMM3I3l4+UJPpCqBg06eC1c8QAyyzz8iAYzCUpwxe
-	MmqFc+81TEk67EqGVKd8BmfJ41y98rWjsFdTUqDDgWr3pOBTcWukCiLqWWR7KweoHhw=
-X-Gm-Gg: ASbGncv/v3lsPu13Yb9taTJ7+wehEoK0vb3dTrx8e14+9bJ5SFvuhjUUOF8jBbYgJbX
-	gzK4B6dMvHzsGeBYZqlhtYcysUYr0rGIhN1RvgDrTI/us3UzAXc6hHf9tpy5agSpkAah9du7Zz6
-	9hFBQcKWZakuyAhJCxHf4QLoC/UcdfnML7XgI68jp3opAbvjZl50LNZV/0JBy3k19RyEfyUEaGN
-	dxr7XBa10oeMzgTvtfnOufJRIi5BwqtO8DzJ/1SlQZr1nws8jKswZgFHFCftSeYP+jeYDHTOf5g
-	5ZKPN9cRjpzBe25cNmeZHjuSzCTa/oOwN5uH7c4GHmLFt6jcDVKpZ6UAFWuQR1wSweBTWRq3NNA
-	TB7YinbfSBGLL2BE8RbIc/TGkSelyJl/vN5o25HT2WJpgbh69jts8nJiHtDt8Um/0d+kZMn3OGJ
-	q85s1dapmzyLS0u/Usd+E=
-X-Google-Smtp-Source: AGHT+IHDfUmNi5eqw691/M33t81cdCOV6g/HJdfYKSgYwXlWSNi3vurpVr1BkRRnhjmGHUqYcBuwxw==
-X-Received: by 2002:a05:6000:4008:b0:428:3bf5:b3b8 with SMTP id ffacd0b85a97d-4283bf5b655mr5592745f8f.44.1760952002139;
-        Mon, 20 Oct 2025 02:20:02 -0700 (PDT)
-Received: from [10.11.12.107] ([79.115.63.145])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-427f00ce3e2sm14354917f8f.47.2025.10.20.02.20.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 02:20:01 -0700 (PDT)
-Message-ID: <a03cd07f-8e9f-4b02-b301-f1bbb69eb7db@linaro.org>
-Date: Mon, 20 Oct 2025 10:19:59 +0100
+	id 1vAm5T-0000000CYaZ-0LOY;
+	Mon, 20 Oct 2025 09:21:56 +0000
+Received: from sven-desktop.home.narfation.org (p200300c59748F6e00000000000000c00.dip0.t-ipconnect.de [IPv6:2003:c5:9748:f6e0::c00])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.simonwunderlich.de (Postfix) with ESMTPSA id D7EE1FA130;
+	Mon, 20 Oct 2025 11:21:42 +0200 (CEST)
+From: "Sven Eckelmann (Plasma Cloud)" <se@simonwunderlich.de>
+Date: Mon, 20 Oct 2025 11:20:53 +0200
+Subject: [PATCH mt76 v3] wifi: mt76: Fix DTS power-limits on little endian
+ systems
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
- <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
- <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
- <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
- <2f8da425-63d9-4321-9cd3-976bbd29a52f@kernel.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <2f8da425-63d9-4321-9cd3-976bbd29a52f@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20251020-fix-power-limits-v3-1-019d2e49239a@simonwunderlich.de>
+X-B4-Tracking: v=1; b=H4sIAPX+9WgC/3XNTQ6CMBAF4KuQrq2hJfTHlfcwLqAdZRJoSYtFQ
+ 7i7TVcucPlm3nyzkQgBIZJLtZEACSN6l0NzqogZOvcEijZnwmve1ppJ+sA3nf0KgY444RJpa6C
+ WvdaNUIzkszlA7hTyRqZFCnLP0wHj4sOn/Ems7P6TiVFGBROgWt1ppdg14uTd+nIWwohmOFsoa
+ uI/EhcHEs+S4b2RWYFe2ENp3/cvoYyprQkBAAA=
+X-Change-ID: 20250917-fix-power-limits-5ce07b993681
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ stable@vger.kernel.org, 
+ "Sven Eckelmann (Plasma Cloud)" <se@simonwunderlich.de>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5253; i=se@simonwunderlich.de;
+ h=from:subject:message-id; bh=4UgmR2z1wg7yH4cLtO7dxKxxXESpTcWRNrpxYXHV0sI=;
+ b=owGbwMvMwCXmy1+ufVnk62nG02pJDBlf//3Z/iSYPb+57M51U0YdOdspMxML5OquqIay/WGL7
+ b/1dVN0RykLgxgXg6yYIsueK/nnN7O/lf887eNRmDmsTCBDGLg4BWAiBQqMDGdWLjVbXmwm/TRH
+ WiH9DzfzIsmPXFxvvvWfPezwYQL3Fg+G/54tHQmRV5UmxixLSVkrX6Kb+as28P0JZ74tScp7IhJ
+ WMgEA
+X-Developer-Key: i=se@simonwunderlich.de; a=openpgp;
+ fpr=522D7163831C73A635D12FE5EC371482956781AF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_022004_009358_9A229A39 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20251020_022155_306384_0C702E5F 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,47 +80,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The power-limits for ru and mcs and stored in the devicetree as bytewise
+array (often with sizes which are not a multiple of 4). These arrays have a
+prefix which defines for how many modes a line is applied. This prefix is
+also only a byte - but the code still tried to fix the endianness of this
+byte with a be32 operation. As result, loading was mostly failing or was
+sending completely unexpected values to the firmware.
 
+Since the other rates are also stored in the devicetree as bytewise arrays,
+just drop the u32 access + be32_to_cpu conversion and directly access them
+as bytes arrays.
 
-On 10/20/25 9:22 AM, Krzysztof Kozlowski wrote:
-> On 20/10/2025 09:45, Tudor Ambarus wrote:
->>
->>
->> On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
->>>> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
->>>> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
->>>> --- a/drivers/clk/samsung/Kconfig
->>>> +++ b/drivers/clk/samsung/Kconfig
->>>> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
->>>>  	  status of the certains clocks from SoC, but it could also be tied to
->>>>  	  other devices as an input clock.
->>>>  
->>>> +config EXYNOS_ACPM_CLK
->>>> +	tristate "Clock driver controlled via ACPM interface"
->>>> +	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
->>>
->>> I merged the patches but I don't get why we are not enabling it by
->>> default, just like every other clock driver. What is so special here?
->>
->> Thanks! Are you referring to the depends on line? I needed it otherwise
->> on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
-> 
-> 
-> No. I am referring to missing default and defconfig patch.
-> 
+Cc: stable@vger.kernel.org
+Fixes: 22b980badc0f ("mt76: add functions for parsing rate power limits from DT")
+Fixes: a9627d992b5e ("mt76: extend DT rate power limits to support 11ax devices")
+Signed-off-by: Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
+---
+Changes in v3:
+- add "mt76" as addition prefix after "PATCH" as requested by Zhi-Jun You
+- Link to v2: https://lore.kernel.org/r/20250926-fix-power-limits-v2-1-c2bc7881eb6d@simonwunderlich.de
 
-default m or y would force compilation of EXYNOS_ACPM_CLK and
-EXYNOS_ACPM_PROTOCOL for all ARCH_EXYNOS, even on Exynos platforms that
-don't use ACPM. Since ACPM is not universally required by the Exynos
-architecture, I thought to make it opt-in (default n).
+Changes in v2:
+- Fix second Fixes line, thanks Zhi-Jun You
+- Link to v1: https://lore.kernel.org/r/20250917-fix-power-limits-v1-1-616e859a9881@simonwunderlich.de
+---
+ drivers/net/wireless/mediatek/mt76/eeprom.c | 37 +++++++++++++++++++----------
+ 1 file changed, 24 insertions(+), 13 deletions(-)
 
-Setting it as a module in arm64 defconfig makes it available on
-compatible platforms.
+diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/net/wireless/mediatek/mt76/eeprom.c
+index a987c5e4eff6..6ce8e4af18fe 100644
+--- a/drivers/net/wireless/mediatek/mt76/eeprom.c
++++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
+@@ -253,6 +253,19 @@ mt76_get_of_array(struct device_node *np, char *name, size_t *len, int min)
+ 	return prop->value;
+ }
+ 
++static const s8 *
++mt76_get_of_array_s8(struct device_node *np, char *name, size_t *len, int min)
++{
++	struct property *prop = of_find_property(np, name, NULL);
++
++	if (!prop || !prop->value || prop->length < min)
++		return NULL;
++
++	*len = prop->length;
++
++	return prop->value;
++}
++
+ struct device_node *
+ mt76_find_channel_node(struct device_node *np, struct ieee80211_channel *chan)
+ {
+@@ -294,7 +307,7 @@ mt76_get_txs_delta(struct device_node *np, u8 nss)
+ }
+ 
+ static void
+-mt76_apply_array_limit(s8 *pwr, size_t pwr_len, const __be32 *data,
++mt76_apply_array_limit(s8 *pwr, size_t pwr_len, const s8 *data,
+ 		       s8 target_power, s8 nss_delta, s8 *max_power)
+ {
+ 	int i;
+@@ -303,15 +316,14 @@ mt76_apply_array_limit(s8 *pwr, size_t pwr_len, const __be32 *data,
+ 		return;
+ 
+ 	for (i = 0; i < pwr_len; i++) {
+-		pwr[i] = min_t(s8, target_power,
+-			       be32_to_cpu(data[i]) + nss_delta);
++		pwr[i] = min_t(s8, target_power, data[i] + nss_delta);
+ 		*max_power = max(*max_power, pwr[i]);
+ 	}
+ }
+ 
+ static void
+ mt76_apply_multi_array_limit(s8 *pwr, size_t pwr_len, s8 pwr_num,
+-			     const __be32 *data, size_t len, s8 target_power,
++			     const s8 *data, size_t len, s8 target_power,
+ 			     s8 nss_delta, s8 *max_power)
+ {
+ 	int i, cur;
+@@ -319,8 +331,7 @@ mt76_apply_multi_array_limit(s8 *pwr, size_t pwr_len, s8 pwr_num,
+ 	if (!data)
+ 		return;
+ 
+-	len /= 4;
+-	cur = be32_to_cpu(data[0]);
++	cur = data[0];
+ 	for (i = 0; i < pwr_num; i++) {
+ 		if (len < pwr_len + 1)
+ 			break;
+@@ -335,7 +346,7 @@ mt76_apply_multi_array_limit(s8 *pwr, size_t pwr_len, s8 pwr_num,
+ 		if (!len)
+ 			break;
+ 
+-		cur = be32_to_cpu(data[0]);
++		cur = data[0];
+ 	}
+ }
+ 
+@@ -346,7 +357,7 @@ s8 mt76_get_rate_power_limits(struct mt76_phy *phy,
+ {
+ 	struct mt76_dev *dev = phy->dev;
+ 	struct device_node *np;
+-	const __be32 *val;
++	const s8 *val;
+ 	char name[16];
+ 	u32 mcs_rates = dev->drv->mcs_rates;
+ 	u32 ru_rates = ARRAY_SIZE(dest->ru[0]);
+@@ -392,21 +403,21 @@ s8 mt76_get_rate_power_limits(struct mt76_phy *phy,
+ 
+ 	txs_delta = mt76_get_txs_delta(np, hweight16(phy->chainmask));
+ 
+-	val = mt76_get_of_array(np, "rates-cck", &len, ARRAY_SIZE(dest->cck));
++	val = mt76_get_of_array_s8(np, "rates-cck", &len, ARRAY_SIZE(dest->cck));
+ 	mt76_apply_array_limit(dest->cck, ARRAY_SIZE(dest->cck), val,
+ 			       target_power, txs_delta, &max_power);
+ 
+-	val = mt76_get_of_array(np, "rates-ofdm",
+-				&len, ARRAY_SIZE(dest->ofdm));
++	val = mt76_get_of_array_s8(np, "rates-ofdm",
++				   &len, ARRAY_SIZE(dest->ofdm));
+ 	mt76_apply_array_limit(dest->ofdm, ARRAY_SIZE(dest->ofdm), val,
+ 			       target_power, txs_delta, &max_power);
+ 
+-	val = mt76_get_of_array(np, "rates-mcs", &len, mcs_rates + 1);
++	val = mt76_get_of_array_s8(np, "rates-mcs", &len, mcs_rates + 1);
+ 	mt76_apply_multi_array_limit(dest->mcs[0], ARRAY_SIZE(dest->mcs[0]),
+ 				     ARRAY_SIZE(dest->mcs), val, len,
+ 				     target_power, txs_delta, &max_power);
+ 
+-	val = mt76_get_of_array(np, "rates-ru", &len, ru_rates + 1);
++	val = mt76_get_of_array_s8(np, "rates-ru", &len, ru_rates + 1);
+ 	mt76_apply_multi_array_limit(dest->ru[0], ARRAY_SIZE(dest->ru[0]),
+ 				     ARRAY_SIZE(dest->ru), val, len,
+ 				     target_power, txs_delta, &max_power);
 
-Similar clock drivers do the same: CLK_RASPBERRYPI.
-COMMON_CLK_SCPI, COMMON_CLK_SCMI - no defaults and set them as builtin
-in the arm64 defconfig.
+---
+base-commit: b36d55610215a976267197ddc914902c494705d7
+change-id: 20250917-fix-power-limits-5ce07b993681
 
-Cheers,
-ta
+Best regards,
+-- 
+Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
+
 
