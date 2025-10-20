@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3377CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E696CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ym6WdGpcsTOiUsHahKZHNCziri2nQeP2Us0CtyD1lWM=; b=2W49RpvQm5xcEsPPZ5uSxV5+05
-	pPLDfxj3tivpOwGQtbpFfJ7F/tu9+0YA0LEVVspDfNSaY+nGh+54+C6cBYAwotYt94tB4MN41CBw7
-	l/UzEqRVN7AfsBpXpcUVDy9t1N9/OGBcaKW5Ya01CjjNoTpEnrCwWmcbO+ccKohXihwOGaUrcoGg4
-	/jqjzhd1RRb3WCtj7V5I35k8Jktnclgm2QXJ3JRbmHKhLBWj+EUzBqheIdoDhEl+Le1VFATVoQN3z
-	sK+k2vwP9HaROP4fH3G7caJSxO16ohQHlYCEKSDV8dfW29ojyigslUOWmICwXapoZVyr/LowyN9Ng
-	gJZ5LQqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gT4c4sJrY+uRE80dfQnZ0+JjbvKqCsCY5BuNFNs0hp4=; b=ZXlFuBNcGxOhKeF9AYbeAzrpae
+	XBiSwfCzJ47rYhhkYA1atxsh7p8YxBxntdMTXr3YgcT3nvXVV1RqLaNPYawhtiL+CHo4KzV2zmnAN
+	B5vUOg9jHzwT+Nz6Z9LToXnFUo2ejh7gxs9uear7TiWYBkpl4C2Vnct3mUhuPxTyUlkgZaN6rT6r8
+	o0Bod+cLESdKQzBFQQK+1l14C9uOteO3Jc+IYAC/E39tkIAd3H9EtCKXArvcLUiB+uhs6nnaQQ9f6
+	AKFq7suXBayXxxfuO9BSEX49pWcHBqabmxp3a3TfXTHG05Z6J68HPQ0WAl5hNvzx8XuRW2rhi6D7X
+	ySFNRdzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAokp-0000000DK2p-2aO5;
-	Mon, 20 Oct 2025 12:12:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vAol6-0000000DKBL-47yt;
+	Mon, 20 Oct 2025 12:13:04 +0000
+Received: from fra-out-006.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.197.217.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAoko-0000000DK24-2UCq
+	id 1vAol3-0000000DK7a-2tDD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 12:12:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 01F2261EBE;
-	Mon, 20 Oct 2025 12:12:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FC92C116B1;
-	Mon, 20 Oct 2025 12:12:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760962365;
-	bh=o627uAltlZfUSzxVftcBvs28qPkp2oEdWSS66lURXtI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=h5F5cestvSoWmKsMxhDn02e47wX+MJ87BAGK0Y6phMV94r3eKHjrNEp1zZu+fxED7
-	 YtxkBxbKhWddgKVmmwd+SgTGrZA1m6MtzgmiTGrgW5nVeqRBD2xNbT/AKlUnwGqwpK
-	 CxFnwwx1kh4zUaNUJbnalYeGJ+MRpObKKogEFXg0Qzhq3cd5vqpPj+lM7W8k/czdQF
-	 UlSDqdJ3Z3o59P76yGQDuN3Jn77G5kQg5tMKac+B2uZMMUb7YVJlEcI5mASJEh0A+o
-	 pomtK5I1U/9UyoElYQ9e4pNX/XF/jctqIhjg9HKiQi7ldFPJZfkE0ccU3onsqbGPNm
-	 QzvLIKHhqDaJA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vAokl-0000000FUSB-0FFU;
-	Mon, 20 Oct 2025 12:12:43 +0000
-Date: Mon, 20 Oct 2025 13:12:42 +0100
-Message-ID: <86o6q1wz45.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: David Binderman <dcb314@hotmail.com>
-Cc: "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com"
-	<yuzenghui@huawei.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: linux-6.18-rc2/arch/arm64/kvm/vgic/vgic-v3.c:728: Possible || and | mixup ?
-In-Reply-To: <VI1PR02MB39529C3384B3308D100CCD399CF5A@VI1PR02MB3952.eurprd02.prod.outlook.com>
-References: <VI1PR02MB39529C3384B3308D100CCD399CF5A@VI1PR02MB3952.eurprd02.prod.outlook.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: dcb314@hotmail.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 20 Oct 2025 12:13:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
+  t=1760962381; x=1792498381;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=gT4c4sJrY+uRE80dfQnZ0+JjbvKqCsCY5BuNFNs0hp4=;
+  b=qW/etFQg1MvHsHGIkQGE/JB82vRRKzo7475/hplalor6eovXmMNNKEQ6
+   8EtseTmz1gtyIEHQDAamXKJU98bfAnBTdoAO+pwKL3bRu3jcWcOU3yXeW
+   o3Rqovsbd2lcJ7r9tbOl0iBEjOr4J42pJVqVWd+A0rNSUUBNqzMLLoAyl
+   tUd/AUe3/Wgn2vRKCAFh6lCrUWcsTNPOD48avKjDM92KhWQVwhGdBQSVi
+   /WYZwtiXZr3Gs6cbytSVfCrbdv0lBBo5+YUiw6XK5uoCo9Rn1zoggtCxp
+   GvGef7tyonFHU6hq4OLaasZCm4KCoBovRSXDA38YxswjQVF+NJBX1yw1m
+   A==;
+X-CSE-ConnectionGUID: paAvEk0fQZycm0Z2Ouoe9w==
+X-CSE-MsgGUID: urA571EoRWOh9u8FI1m1cw==
+X-IronPort-AV: E=Sophos;i="6.19,242,1754956800"; 
+   d="scan'208";a="3869976"
+Received: from ip-10-6-11-83.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.11.83])
+  by internal-fra-out-006.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2025 12:12:48 +0000
+Received: from EX19MTAEUC001.ant.amazon.com [54.240.197.225:17685]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.33.169:2525] with esmtp (Farcaster)
+ id d81a3bf9-5a3a-4933-b9f8-3d78ac7eca0f; Mon, 20 Oct 2025 12:12:48 +0000 (UTC)
+X-Farcaster-Flow-ID: d81a3bf9-5a3a-4933-b9f8-3d78ac7eca0f
+Received: from EX19D016EUA001.ant.amazon.com (10.252.50.245) by
+ EX19MTAEUC001.ant.amazon.com (10.252.51.155) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Mon, 20 Oct 2025 12:12:34 +0000
+Received: from amazon.com (10.1.213.26) by EX19D016EUA001.ant.amazon.com
+ (10.252.50.245) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20; Mon, 20 Oct 2025
+ 12:12:30 +0000
+From: Maximilian Dittgen <mdittgen@amazon.de>
+To: <maz@kernel.org>
+CC: <epetron@amazon.de>, <kvm@vger.kernel.org>, <kvmarm@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<mdittgen@amazon.com>, <mdittgen@amazon.de>, <nh-open-source@amazon.com>,
+	<oliver.upton@linux.dev>, <pbonzini@redhat.com>, <shuah@kernel.org>
+Subject: Re: [PATCH] KVM: selftests: fix ITS collection target addresses in vgic_lpi_stress
+Date: Mon, 20 Oct 2025 14:12:20 +0200
+Message-ID: <20251020121220.83972-1-mdittgen@amazon.de>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <86v7kdwj8u.wl-maz@kernel.org>
+References: <20251017161918.40711-1-mdittgen@amazon.de> <86v7kdwj8u.wl-maz@kernel.org>
+MIME-Version: 1.0
+X-Originating-IP: [10.1.213.26]
+X-ClientProxiedBy: EX19D037UWB004.ant.amazon.com (10.13.138.84) To
+ EX19D016EUA001.ant.amazon.com (10.252.50.245)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251020_051302_096794_72B51F15 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,28 +94,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Oct 2025 12:12:33 +0100,
-David Binderman <dcb314@hotmail.com> wrote:
-> 
-> Hello there,
-> 
-> Static analyser cppcheck said:
-> 
-> linux-6.18-rc2/arch/arm64/kvm/vgic/vgic-v3.c:728:48: style: inconclusive: Boolean expression 'common_trap' is used in bitwise operation. Did you mean '||'? [bitwiseOnBoolean]
-> 
-> Source code is
-> 
->     if (group0_trap || group1_trap || common_trap | dir_trap) {
-> 
-> Maybe better code:
-> 
->     if (group0_trap || group1_trap || common_trap || dir_trap) {
-> 
+On Fri, 17 Oct 2025 19:06:25 +0200,
+Marc Zyngier <maz@kernel.org> wrote:
+>
+>	  * We use linear CPU numbers for redistributor addressing,
+>	  * so GITS_TYPER.PTA is 0.
+>
+> It is not an address.
 
-Sure. please send in a patch.
+The issue is that its_encode_target in selftests is designed for
+physical redistriubtor addresses (GITS_TYPER.PTA = 1) and thus
+performs a right shift by 16 bits:
 
-	M.
+		its_mask_encode(&cmd->raw_cmd[2], target_addr >> 16, 51, 16);
 
--- 
-Without deviation from the norm, progress is not possible.
+When the vgic_lpi_stress selftest passes in a linear vCPU id as
+the redistributor address (GITS_TYPER.PTA = 0 behavior),
+The its_encode_target function shifts the CPU numbers 16 bits right,
+functionally zeroing them.
+
+We need to either:
+- Align this specific selftest with GITS_TYPER.PTA = 0 and not use
+    its_encode_target to encode the target vCPU id. Instead have a
+    dedicated encode function for the use case without a bit shift.
+- Align all selftests with GITS_TYPER.PTA = 0 and refactor
+    its_encode_target to skip the bit shift altogether.
+- Align selftests with GITS_TYPER.PTA = 1 and pass a redistributor
+    address, not a vCPU id, into its_send_mapc_cmd().
+
+Otherwise, the selftest's current behavior incorrectly maps all
+collections to target vCPU 0.
+
+Thanks,
+Maximilian
+
+
+
+Amazon Web Services Development Center Germany GmbH
+Tamara-Danz-Str. 13
+10243 Berlin
+Geschaeftsfuehrung: Christian Schlaeger
+Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
+Sitz: Berlin
+Ust-ID: DE 365 538 597
+
 
