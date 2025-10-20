@@ -4,65 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DE0BCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 08:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141AACCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 08:23:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8h2l1N5Cg8vyKobtn2Pe4zUGVCtgOR3YdwiahusUFj0=; b=xDYCzD9zIDJ3ScWzaOhvIeeLAp
-	+7SBC5s07LNp4O02dZPuFQHvXSIkEtmALCRsc3pUhUxGUc87SdwWZW5+7/y7v9wqHVAgXYwaxEQ7+
-	NMdFNeckyFlvs9liLWKidNW9/YUonxJPeeKv4jyt5r4iSpdIXZpMTetTe4bYWUOcShHdoq4q1C6pv
-	PhbkYvxSnfjcWvYruzRxCuQxphu3+zdmvSPjL6qdgusM3T2UTuafQMMC/j3iEv0IjYdCp2oHUc1+t
-	cVb8flBR6o6QgolCMVIJsnsD/mYiY5WzRKkmuGT/6NDKKebt7bHJZSW3BYm71dGM9bGsLYayU3G6m
-	Tk6K+y3w==;
+	bh=k9Cb2I+wZtGaXTmG2yntJsHjBSe5OKa6A/u+hYcLcXk=; b=Dr+12/soAssPoXA2dmS5UELNLF
+	s8hw/7N+VPke8f7vE1AXy/31ACRQbq8c+OL5DV7vRTdiyAM/AeSTv/LrnXNLpJ51ZEXod6mWdiqdb
+	fvZosFTMgBMcnIytk52T6qrhyDcmVseD30+KfaYnW/YnUKfAiGj+QnjxchdOHmOl6LLfimSNcvQqt
+	Nld8P7pcCjglx2iwRkNnp9q4dT5/xUupLx37b+EP5wrOx4d4K8szdU8i44pOAnWAB/QSIowH28dsI
+	giCmkx12v27XU93rvpxpGs2+6x7zvD2CG9H+gdJUW/LtHnsR4qPc/P9Ytxv/WApEFq47uYEyzP7Fy
+	09YqxiSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAl8F-0000000CLHF-2cGT;
-	Mon, 20 Oct 2025 08:20:43 +0000
-Received: from mail-m158252.netease.com ([47.251.158.252])
+	id 1vAlAP-0000000CLeb-0yL1;
+	Mon, 20 Oct 2025 08:22:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAl8B-0000000CLEX-2qUn;
-	Mon, 20 Oct 2025 08:20:41 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 267e17090;
-	Mon, 20 Oct 2025 16:20:32 +0800 (GMT+08:00)
-Message-ID: <77be8aa2-f91b-4291-b3f3-73ae97a2c495@rock-chips.com>
-Date: Mon, 20 Oct 2025 16:20:31 +0800
+	id 1vAlAN-0000000CLeN-2Qst
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Oct 2025 08:22:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D881461CD6;
+	Mon, 20 Oct 2025 08:22:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9242C4CEFE;
+	Mon, 20 Oct 2025 08:22:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760948572;
+	bh=8v23XW0hAwdFQYfOtD8IgyDFuPnLGjKXYO+djDjJjG0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CO7riAtYyjd3ndpj4ZESkP2rNvWii9tOnrQYxKO+6ne6Ca0nYzmbQ8izewzcWp7mG
+	 CkDHN0/Qs8Zjr2Oq9TY5bCFNaQdTfmR7ecBoerf+kxxVm7AEzJll2A8hCq6zm56M/X
+	 w91KslbEp8kgrefO+MdYKZp/+UKM4O/7rH80DUEqqvYdMqwyZin5FbxEIc9svWS7iP
+	 mocOHcnwyQHqpIMcvrq3pNwJ+Qt+whC+Qfyg5gG3hhdAJzslvWRVgFRhqubWGOa1JM
+	 oIbuDI8DvoSJTnxphq5uPkTCswYvfQDBYj1HW36sl0P/0QTxZZodheDNxVCBOveV+O
+	 OaJ9oIdVnk4oQ==
+Message-ID: <2f8da425-63d9-4321-9cd3-976bbd29a52f@kernel.org>
+Date: Mon, 20 Oct 2025 10:22:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Grzegorz Sterniczuk <grzegorz@sternicz.uk>,
- Dragan Simic <dsimic@manjaro.org>, Heiko Stuebner <heiko@sntech.de>,
- Jonas Karlman <jonas@kwiboo.se>
-Subject: Re: [PATCH] arm64: dts: rockchip: fix eMMC corruption on NanoPC-T6
- with A3A444 chips
-To: Tianling Shen <cnsztl@gmail.com>, Hugh Cole-Baker <sigmaris@gmail.com>
-References: <20251017073954.130710-1-cnsztl@gmail.com>
- <d70c0eb5-9aa2-47b1-8205-81b724180319@rock-chips.com>
- <08911ae2-fef3-432d-a236-d820c9cb67ac@gmail.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <08911ae2-fef3-432d-a236-d820c9cb67ac@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a00b4af9a09cckunma851ec124e48ea
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQx0dS1ZCH05CSk1NGktOGBpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	xVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=FYMRm0h1xoQknRUP34oGrB1pA/MPaKTWnA15xR/xfT/uxUzm/R3VAhuGIvU7aAoEqk+PnXghGlYL7e3oETmsIeuQBW+Gd35FhFLL1e6TMR6nodDCFy0foDq1PeNgNyHlhIKYanQcemlRddnjKuY/VgAkZxmNLsHxuRebDevp9p0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=8h2l1N5Cg8vyKobtn2Pe4zUGVCtgOR3YdwiahusUFj0=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_012040_228523_34477F0E 
-X-CRM114-Status: GOOD (  17.01  )
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
+ <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
+ <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
+ <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,58 +125,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Hugh Cole-Baker who seems also suffer from this issue
+On 20/10/2025 09:45, Tudor Ambarus wrote:
+> 
+> 
+> On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
+>>> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
+>>> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
+>>> --- a/drivers/clk/samsung/Kconfig
+>>> +++ b/drivers/clk/samsung/Kconfig
+>>> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
+>>>  	  status of the certains clocks from SoC, but it could also be tied to
+>>>  	  other devices as an input clock.
+>>>  
+>>> +config EXYNOS_ACPM_CLK
+>>> +	tristate "Clock driver controlled via ACPM interface"
+>>> +	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
+>>
+>> I merged the patches but I don't get why we are not enabling it by
+>> default, just like every other clock driver. What is so special here?
+> 
+> Thanks! Are you referring to the depends on line? I needed it otherwise
+> on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
 
-在 2025/10/20 星期一 12:44, Tianling Shen 写道:
-> Hi Shawn,
-> 
-> On 2025/10/20 9:53, Shawn Lin wrote:
->> Hi Tianling
->>
->> On 2025/10/17 Friday 15:39, Tianling Shen wrote:
->>> From: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
->>>
->>> Some NanoPC-T6 boards with A3A444 eMMC chips experience I/O errors and
->>> corruption when using HS400 mode. Downgrade to HS200 mode to ensure
->>> stable operation.
->>
->> May I ask you to test another patch I just posted to see if it fixes
->> your issue?
->>
->> https://patchwork.kernel.org/project/linux-mmc/ 
->> patch/1760924981-52339-1- git-send-email-shawn.lin@rock-chips.com/
-> 
-> Thank you for the patch! I will ask my friend to test it but he uses 
-> this board as a home router, so it may take a few days or weeks to 
-> report the result.
- > > Thanks,
-> Tianling.
-> 
->>
->>
->>>
->>> Signed-off-by: Grzegorz Sterniczuk <grzegorz@sternicz.uk>
->>> Signed-off-by: Tianling Shen <cnsztl@gmail.com>
->>> ---
->>>   arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 3 +--
->>>   1 file changed, 1 insertion(+), 2 deletions(-)
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/ 
->>> arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->>> index fafeabe9adf9..5f63f38f7326 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
->>> @@ -717,8 +717,7 @@ &sdhci {
->>>       no-sd;
->>>       non-removable;
->>>       max-frequency = <200000000>;
->>> -    mmc-hs400-1_8v;
->>> -    mmc-hs400-enhanced-strobe;
->>> +    mmc-hs200-1_8v;
->>>       status = "okay";
->>>   };
->>
-> 
-> 
 
+No. I am referring to missing default and defconfig patch.
+
+
+
+Best regards,
+Krzysztof
 
