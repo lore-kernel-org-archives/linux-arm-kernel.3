@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C343CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C1DDCCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:14:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TlgpiaXdHomM8CcSygjkcn+ee6YskO7bh1LOyxfaLSg=; b=vw/gBLZIA4sI0sQrADFrS7X3XS
-	97jhfNStA//06vMhI6tvVE0otDV0ywdjcx06H++AtOKaB8nqE7D/XHAs5E/qgqS2JL4ARkQujFrju
-	qBiKsS9U8YEFCSSZcBCRwM0XAVe8j4FEQbRbZu83CtYsocOeEwSoXZQR7r137Ekw3yYBkln4g/9q7
-	iFzWvp1IImUAZXjJMYKVwRxcENXfdtK5Br+VUmE5A8SaXk/UoJotKr0D9WEWSK2p54iFUA08KKgFT
-	IZtDavZb1UnMHzVjqVsY/rNAZL0lGvUOslamiE9IskU6sw4vDLCqFUYgWIKAoWb8V/8jhScbADEYw
-	ky/IH9oA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j9UGTJcWYSBAqp5JJLufyhsbLELsj0ohBAucYdJtZ1o=; b=b26uFgGVofnBgSaROEqeA+rzE1
+	7gpY/y9zkNBQyFOiqPonlBQi/oIZz0TArXU2ZX4rWJWZCYtSwGCJ8CIKFj7khh6BEqTPStrE6j5TJ
+	c3Wzf9GhRylxJ8rBKwBzqaYT1pn0eKZIyosyMD8mfbu8wyV8Y4UtJVSdIz2ar88b5JucIDdh5o3zO
+	SZg9d+d8Xk6JBiGGAZBRLlU7kDUW3ukSrKfIOC6D1EgOwBXu/ArrbmN4XGHDPztQNuMdmhZ31GBkY
+	8rneWEKINgFW+7rkdzcRjQrgFZTY9BpGd4cA4JpSv+9I8TZmUvZPQ/kgfneDoQc+pX1fzsRwnYBN1
+	ai7foufA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmtn-0000000CmaA-3FT6;
-	Mon, 20 Oct 2025 10:13:55 +0000
+	id 1vAmto-0000000Cmaa-0Gt3;
+	Mon, 20 Oct 2025 10:13:56 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmtk-0000000CmWj-1RU9
+	id 1vAmtk-0000000CmWm-1RVm
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 20 Oct 2025 10:13:54 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id BF8554E411EF;
-	Mon, 20 Oct 2025 10:13:46 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 2869C4E411F3;
+	Mon, 20 Oct 2025 10:13:49 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8A4E2606D5;
-	Mon, 20 Oct 2025 10:13:46 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D13A2102F0848;
-	Mon, 20 Oct 2025 12:13:30 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EF86A606D5;
+	Mon, 20 Oct 2025 10:13:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BED94102F23A7;
+	Mon, 20 Oct 2025 12:13:45 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760955225; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=TlgpiaXdHomM8CcSygjkcn+ee6YskO7bh1LOyxfaLSg=;
-	b=ldFkaM6PGz+ac5R4MZPS60mfQ9HDzcx+xxSA3NPHxzeUgZaAWD9aTF6JyjF3jn9Sq3CXC1
-	yARRrNWWVsKOko+v3UN86GXnql17r07oqn9n02MWHO11q10p6lohMAeWfnkjgzRi/XK2U2
-	dg/MZHh4DlwySBRqxGn0qsWMClTtoY5TbMXO/mgE2FIVV6+3BS9mOLSVPvO0P54URLuEiK
-	HLV6FiDFqDpHbBwe+sGJvHd8IoOCrvGAS8prcR+0JC4MySY2ZafezqXWlJwG6KBhfq3HDq
-	diI/vkxLXKRTLUax5YZG23/mde3hMjTg7L76MGRlETd4mvOFxydDO7vPg6p5Fw==
+	t=1760955227; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=j9UGTJcWYSBAqp5JJLufyhsbLELsj0ohBAucYdJtZ1o=;
+	b=ZKstGuMoiIN/ifTdPeQY8PmAMotlWmbporhLhj7pGHzBM32L0Oimhlj9F8vLLXbnXug4uQ
+	qERwvE68jOeOd4Q+imJIbtPiuOM2dHBoPpiUpyTbmQlzf/koGuwGowDJWgH1xxgkN+AkTz
+	YAbTdrNS3yw5I+0goOMHNDmsieefCMP75oNwWSnkZQx9oThOlNMQogdgBRZjR/1HUJ3GGB
+	MXUvYhtA8I3ivHfz9GGHYWyTZ+0tAi4bySm6smXAI0gNeN9rC222/WJO5BZ7MTEbGRlfze
+	C4gT/le7b8+5cabWB3hpxiSp+z1kyE3ur+IbICHqPAyhFMJHlTx9rS8SJxSaVQ==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	Richard Weinberger <richard@nod.at>,
@@ -64,16 +65,18 @@ Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v3 00/15] Introduce Allwinner H6/H616 NAND controller support
-Date: Mon, 20 Oct 2025 12:12:56 +0200
-Message-ID: <20251020101311.256819-1-richard.genoud@bootlin.com>
+Subject: [PATCH v3 01/15] mtd: rawnand: sunxi: Remove superfluous register readings
+Date: Mon, 20 Oct 2025 12:12:57 +0200
+Message-ID: <20251020101311.256819-2-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251020101311.256819-1-richard.genoud@bootlin.com>
+References: <20251020101311.256819-1-richard.genoud@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_031352_512915_5681EB44 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20251020_031352_512839_18317DC2 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,90 +91,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi everyone,
+The register NFC_REG_ECC_CTL was read twice and the result was not used,
+then a third time with a mask applied.
+Removing those calls didn't change the behavior.
 
-This patch series introduce H6/H616 NAND controller support (but not yet
-the DMA/MDMA part).
+Tested on H616 SoC, scrambling enabled.
 
-All the work was done on a H616 board with a Kioxia TC58NVG1S3HTA00 NAND
-chip.
-ECC is supported, as well as scrambling.
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+---
+ drivers/mtd/nand/raw/sunxi_nand.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-H6 SoC has not been tested, but it shares all registers with H616, plus
-some registers dedicated to Embedded Crypto Engine that H616 lacks.
-
-This IP has quite some register fields modified from the A10/A23, but in
-the end, it works more or less the same.
-Main differences with A10/A23 are:
-- The need for 2 more clocks (for ECC and MBUS)
-- The use of a new USER_DATA_LEN register
-- More ECC strengths (44, 52, 68, 72, 76 and 80 bits / 1KB)
-- MDMA based on chained buffers
-- some registers layouts have changed (mainly due do the stronger ECC)
-
-Patch 1 removes a superfluous call, and is independent from the others.
-
-Patches 2-12 are paving the way to the introduction of H616 NAND
-controller support.
-They are small, without functional change and easier to review than a
-big patch.
-They move a fixed value (register offset, field mask, SRAM size) into
-the struct sunxi_nfc_caps when this value is different on H6/H616.
-
-Patch 13 introduces the support for H6/H616 NAND controller.
-
-Patch 14 introduces allwinner,sun50i-h616-nand-controller compatible
-in order to differentiate from the A10 and A23.
-
-Patch 15 adds the NAND controller node to sun50i-h616.dtsi
-
-Changes from v2:
-- add missing 'status = "disabled";' in nand controller node.
-- factorize back clock/clock-names in binding.
-- pick-up reviewed-by
-
-Changes from v1:
-- reorder patches to have dtsi/bindings patches at the end.
-- reorder nand-controller and pins nodes to respect the order.
-- add /omit-if-no-ref/ on pins that may be unused.
-- remove pinctrl from nand controller node (this should be added to device
- DT).
-- rework dt binding.
-- fix H616 comment on chained descriptors support.
-- add missing mbus_clk description.
-- make ECC clock mandatory for H6 (because it's indeed mandatory).
-- harmonize new clock retrieving error messages with older ones.
-- harmonize commits subjects (mtd: rawnand: sunxi).
-- reword commit messages to use imperative mood.
-- pick-up reviewed-by
-
-Thanks Krzysztof, Jernej and Chen-Yu for the reviews!
-
-Regards,
-Richard
-
-Richard Genoud (15):
-  mtd: rawnand: sunxi: Remove superfluous register readings
-  mtd: rawnand: sunxi: move ECC strenghts in sunxi_nfc_caps
-  mtd: rawnand: sunxi: introduce reg_ecc_err_cnt in sunxi_nfc_caps
-  mtd: rawnand: sunxi: introduce reg_user_data in sunxi_nfc_caps
-  mtd: rawnand: sunxi: rework pattern found registers
-  mtd: rawnand: sunxi: add has_ecc_block_512 capability
-  mtd: rawnand: sunxi: introduce ecc_mode_mask in sunxi_nfc_caps
-  mtd: rawnand: sunxi: introduce random en/dir in sunxi_nfc_caps
-  mtd: rawnand: sunxi: introduce reg_pat_id in sunxi_nfc_caps
-  mtd: rawnand: sunxi: introduce reg_spare_area in sunxi_nfc_caps
-  mtd: rawnand: sunxi: introduce ecc_err_mask in sunxi_nfc_caps
-  mtd: rawnand: sunxi: introduce sram_size in sunxi_nfc_caps
-  mtd: rawnand: sunxi: Add support for H616 nand controller
-  dt-bindings: mtd: sunxi: Add H616 compatible
-  arm64: dts: allwinner: h616: add NAND controller
-
- .../mtd/allwinner,sun4i-a10-nand.yaml         |  41 +-
- .../arm64/boot/dts/allwinner/sun50i-h616.dtsi |  52 +++
- drivers/mtd/nand/raw/sunxi_nand.c             | 350 +++++++++++++++---
- 3 files changed, 395 insertions(+), 48 deletions(-)
-
-
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
+index f6a8e8ae819d..cb12179b63a5 100644
+--- a/drivers/mtd/nand/raw/sunxi_nand.c
++++ b/drivers/mtd/nand/raw/sunxi_nand.c
+@@ -623,13 +623,12 @@ static void sunxi_nfc_randomizer_config(struct nand_chip *nand, int page,
+ 					bool ecc)
+ {
+ 	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
+-	u32 ecc_ctl = readl(nfc->regs + NFC_REG_ECC_CTL);
++	u32 ecc_ctl;
+ 	u16 state;
+ 
+ 	if (!(nand->options & NAND_NEED_SCRAMBLING))
+ 		return;
+ 
+-	ecc_ctl = readl(nfc->regs + NFC_REG_ECC_CTL);
+ 	state = sunxi_nfc_randomizer_state(nand, page, ecc);
+ 	ecc_ctl = readl(nfc->regs + NFC_REG_ECC_CTL) & ~NFC_RANDOM_SEED_MSK;
+ 	writel(ecc_ctl | NFC_RANDOM_SEED(state), nfc->regs + NFC_REG_ECC_CTL);
 
