@@ -4,104 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F8BACCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 21:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D91CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 22:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p+3sYnwm/zVmUqqbZ6Lan1Fe/EeeP/Xr5dbG7CHwG7Y=; b=eKVnW+L0SZG7SyZy/hEx2jBmWi
-	iJwRQbBDUkNDZ/6ONfRxN9QIYByIEFZ5UxozqaaWsVMZHGOvDKkwY4kocWWyRd/zjdYzZjZU9151I
-	nner83uluPotI23RQyxl1Tso0iDQTP7/eTEZM1og/I59QRTqGzZA3p1B2k7C6Wc+Rh2eMv1JLl0Uc
-	t9g1Vu9gkiiVJuPfsVUACexRXCWmVnobHsicd36U6gmt8jAOt4zbGLtlPemTz2ZvzEH6l587rWLSI
-	/6dDUf/wbb1eT/RS5zCryKR535SBRvN8HsddsqbbMSnFk/x3kq6n/TS/JYNY7LTw5BdCv/1Ag/ucd
-	IBdQ81og==;
+	bh=Jou7wl1+eFLqh56mhBKzbuquNRGf4+Mstk8GHncGjYM=; b=INRkMSGJ1wOG80bGDsMzwBMa6U
+	8SYdfrMQGuYeJFi6cUTbRID3hXKcCBoHUbu6ED+oZqDVrTv/A5N9WE3rFeBdWDhk/wxKRz8mLwRw5
+	PCuwSdo2CXWWDGHDh/96DCpiaeudKj9+IpBUtVVzwooUzm6fMx/Gd00x70+je8iUXPJFL7S/WlGX/
+	wWdFHWEYMlqfXj6VKQ8ojVefqW2YSIgKtD71yr1Ws6H9YjLzcsGBBuKg8iU8H6XteQne11ELCZeWd
+	qc5X6hRrg/5roF3RWn6Kd7RSRzKjltuDLqw8rvzAv9Ey3abeZ7AXkPEOWyWz0N+NCnYEarmYcDHVE
+	nH8QU+ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAxXK-0000000F7AV-1wqL;
-	Mon, 20 Oct 2025 21:35:26 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1vAy3y-0000000F9ZR-0m2e;
+	Mon, 20 Oct 2025 22:09:10 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAxXI-0000000F79a-2JOv
+	id 1vAy3v-0000000F9Z4-0HW2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 21:35:25 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-784966ad073so20732017b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 14:35:24 -0700 (PDT)
+	Mon, 20 Oct 2025 22:09:08 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-373a1ab2081so52808031fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 15:09:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760996123; x=1761600923; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1760998145; x=1761602945; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=p+3sYnwm/zVmUqqbZ6Lan1Fe/EeeP/Xr5dbG7CHwG7Y=;
-        b=XOVvlSYsYxbULaHIMHnf1VEmM0xR2DLJXtp7kd1hSohcjprn+M0u/t3xDiDzJjzUtc
-         7v9sUpXWMhzBViczyZTCwX+d9KaJuu5Dnvwn6aRYyJCGv9+bse43eWlW1sh4shhWX0bZ
-         PnMHfuVZtRGBufBNk/JRwljLyR6I5rplxW5XXwZKxHGl3v5Pm/Oq5YY6r6HocCDK+uS1
-         MsO4r9fkl+uraoBDTKVsnyZvIzW1akur6JLZa9Z2/YlS6XWbjVDeNQdk8EMUStDquehg
-         1F/TZlgL94lYZSMeav5YmgMKcGLsKPC40N7LEOL1YWPPMSGz/iNX2l9t21jPwa/nLeik
-         UtpQ==
+        bh=Jou7wl1+eFLqh56mhBKzbuquNRGf4+Mstk8GHncGjYM=;
+        b=iqfoj3YSkVf9Pc7PvVWXiF68qw+jeDVmh7F7HVa1vB/f2XnLAOFuOxQBhfxaXYTyhX
+         gbq9cOdBET0LtEKfwYoQM648Ilt763ZGGII0Ny46G7ZBJSsFP0/94QqLmf2BVOsDUqvy
+         R1MLnZqZVdOleyI5bgBkJrVCnKciqukLM+el81g7rtUE8auEinj9/MUyiYJ+ndtuL5uR
+         fT3zmI86gftBv5xSGlTFbKrY0pmaeYgqefiBZEqUTlRYqrN3lE72dTEAV6CDwpKHGXrp
+         I6GwYY3r/WnXf4tEx3cSgYOFhVBDgYo/OrkoRSAx0dNZEYKXDK5AMIlbudnhqyUihJQ/
+         GEEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760996123; x=1761600923;
+        d=1e100.net; s=20230601; t=1760998145; x=1761602945;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=p+3sYnwm/zVmUqqbZ6Lan1Fe/EeeP/Xr5dbG7CHwG7Y=;
-        b=vbi1Qu6MjVlAn0OF1PckUwS+MDnP8T2pbp4OrkKQDyvIPOXxI8AIswQFbOjtABAIUJ
-         Owmya3GqKXmid6kTVau4+TPA4eBp+uKZBHnYgB6ec8g48VpEGZ+3xHep/2IsMHEMyqhW
-         tRvX7ZoGFCXBTaQufJpcGc2gLFHxpR1U61zdyDPUHnN8N6/MJrRc3qPnE6GHcwipOcRO
-         lLjIeFU4ewNrVojuTTmonoYygSvZZEnZCdpFgvGQ38+dgTLjQtQKM9gzS0kNKX0HT6ES
-         NhHc99uT0KkIrBC3mgWOt7dQZMCXkdGWRR8t3sREJvJu9Ah2iy86lJiKbRYyZ2+hfqtP
-         cQHA==
-X-Forwarded-Encrypted: i=1; AJvYcCWCTS3utX1JVDbsDYRu/Jyg8UzbLZ0qn0BUhvDUU4JKXrymYhO7CapnLvJPnD5E2ZbXcAvM0ezL2OOo3ClSD636@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6mQk8vdoXde3tav+9+tzmGppUbCiZnoKhRh10DMuD2ZtR8dqU
-	GWI2EjF+B36RDb6LmiUfBh8yR09I4hts8j2be0bCKFWZ52L11cek27V/bWTIkft/ZyB94UZPmXl
-	CoHKf9HErRC0qZJCSS5P4ZkkcPygnUv1Rl9ccRN5HLg==
-X-Gm-Gg: ASbGncs0oTKAU6qKfGGIJcoo711zhL4baYLOQcwnCul1d72ZQZBrkWZ9BXNCzX5D7nC
-	KqpaUJosG5+Ufx9vLkTZLPqMSaT4Tkv6vs3hPLuAB1OfMbmk07oES351kzvYQm86AOwJHE+FY/p
-	++j5G+q4US52XHkZIunvOhwwK0tmDChk4j2sO09FUUMul9oBnwj1RzXoO743xP/r3QRYwyud/jC
-	I/ET02N0fzVfi3+3xYr5J8yNrEOlvDLWbJ6wC0JF/j3YmPQZO8k6SlLNp0R4yOtgj/ip4M=
-X-Google-Smtp-Source: AGHT+IHcbLV8sjcTUSW/kYKLFIDfgxSVgbG/hCotLfs+E1Yurw11PQwO89zUraRAtmdIvysGYrHzIqa+Gk+I+qbLfMk=
-X-Received: by 2002:a05:690e:408b:b0:63e:221e:bd38 with SMTP id
- 956f58d0204a3-63e221ebe30mr9755360d50.64.1760996123201; Mon, 20 Oct 2025
- 14:35:23 -0700 (PDT)
+        bh=Jou7wl1+eFLqh56mhBKzbuquNRGf4+Mstk8GHncGjYM=;
+        b=bqBDTGyTpPbCRwa4SbTIFepgCpzBGotImFMKM7iVUfw6YOrqVxjhwt9HyndLHH74UJ
+         hCOzYH5q6pBSPrqIYf6ntsv45jIh6LdPWqoNFUmtw4DaCSh0NBLkLCHneX05AfX5kF2u
+         urGGd7M3D/iPDRB/EiZ3qQmZ+GlzGvwnDWF+gzbJ/E7ipMEIjZisoIGALHtDPYbbwDFO
+         /aqr9IhlcC8VkM0HN/jZuij9Zrcsb2G50ecdqjTW4kO/euWvemLUjIKkaxtbAGakpIiC
+         /05xFCANSq/IUfzY+3ItgZNzfpctTlNxse80OIwsCA6OSEHxUChPX/fKFuS1fZDnlE+T
+         Sm+g==
+X-Forwarded-Encrypted: i=1; AJvYcCUuP2SdEt8WaeKSqFDlDhx8kNcK3jBLm1Qdmw9LXY1m6h+gk+Z2kNFZ20rZCCJt82QhdWgvB3sGQ02O8PVvWVwr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxV2+cz+zHaMClPOz/S9YME3rraBow/yPKqVpsmNsSPVYR17zt5
+	UjSE7SS+gcTabFh4zNVBbFgDTV0d6XP625dcYgVJHhgXeYsMwjPJuKOasaeGORXXusCWM7jPMAe
+	gv3PMAHduCtQ9QViV0ZfZ+z/VFaAj9qOO+AghkugfRw==
+X-Gm-Gg: ASbGncuVrMp0qLjGw1GdSrgzDnXCOI7d0unpQu/nzqHphKDloBNuoOgkS1oejECltgx
+	YzyBW1Rny3AWhQNDjtzw88isywVPugNOHf/mC3tamxuwvKoUc1DzabaVpbQRBBEwpikDo6JoHAW
+	AzmffJR80GfhLhdMgHyT8n2248aYS24ehVx/PlKgljC7d2Te8mTVUki+MoMfcN8Jc8feKEXJLzr
+	6KccdT3BrlLjCMtxuFQglUwsbexT9WR3k8K3ZTF+hw3x+CB8kENzMLHRfsI2CUc+hQ1l94=
+X-Google-Smtp-Source: AGHT+IHndeIzowFKyGV77xJrwW3PbYRom9TRTnbQmCDghJkjbT3tIKvOTzTzPAFp9D2embhKwkVO+r8Cc1SJcrX3RR4=
+X-Received: by 2002:a2e:a9a8:0:b0:36a:cdb0:c1f3 with SMTP id
+ 38308e7fff4ca-37797a143b5mr45120621fa.29.1760998144941; Mon, 20 Oct 2025
+ 15:09:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251015232015.846282-1-robh@kernel.org>
-In-Reply-To: <20251015232015.846282-1-robh@kernel.org>
+References: <20251014140451.1009969-1-antonio.borneo@foss.st.com>
+ <20251014140451.1009969-10-antonio.borneo@foss.st.com> <20251014-affection-voltage-8b1764273a06@spud>
+ <b4eca95eaa0e6f27fc07479d5eab2131d20eb270.camel@foss.st.com>
+ <20251015-headstand-impulse-95aa736e7633@spud> <0826a055f6b2e3e6b50a5961e60d1b57d1d596c6.camel@foss.st.com>
+In-Reply-To: <0826a055f6b2e3e6b50a5961e60d1b57d1d596c6.camel@foss.st.com>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 20 Oct 2025 23:35:10 +0200
-X-Gm-Features: AS18NWBAzh5HU2QEiT3WGw7lWd7_MVL73oGUD23tlLIja0Rs_422Nhq3kpTmHsU
-Message-ID: <CACRpkdZFXxBY2AopX2bgFGE_nhXmV3YirfRwuo4L6qWzzAC4rg@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: Fix inconsistent quoting
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Stephen Boyd <sboyd@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
-	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, 
-	Jonathan Cameron <jic23@kernel.org>, Andy Shevchenko <andy@kernel.org>, 
-	Jassi Brar <jassisinghbrar@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Lee Jones <lee@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Andrew Lunn <andrew@lunn.ch>, 
-	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Daire McNamara <daire.mcnamara@microchip.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Florian Fainelli <f.fainelli@gmail.com>, Tony Lindgren <tony@atomide.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-iio@vger.kernel.org, linux-media@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-phy@lists.infradead.org
+Date: Tue, 21 Oct 2025 00:08:53 +0200
+X-Gm-Features: AS18NWB0sT7rk733pb0JBmXxWZ3rsESep7Jo9zTjJKG7duLHdqwxNHX29WRzGYA
+Message-ID: <CACRpkdbeaiNGfOFfVfDNZ=u=4yhCykcdSdHUv-td_DVyr3aWaQ@mail.gmail.com>
+Subject: Re: [PATCH v3 09/10] dt-bindings: pinctrl: stm32: Support I/O
+ synchronization parameters
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, 
+	Fabien Dessenne <fabien.dessenne@foss.st.com>, Valentin Caron <valentin.caron@foss.st.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_143524_591953_3ED2E478 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20251020_150907_293937_86EB5D87 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,17 +106,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 16, 2025 at 1:20=E2=80=AFAM Rob Herring (Arm) <robh@kernel.org>=
- wrote:
+On Mon, Oct 20, 2025 at 5:09=E2=80=AFPM Antonio Borneo
+<antonio.borneo@foss.st.com> wrote:
 
-> yamllint has gained a new check which checks for inconsistent quoting
-> (mixed " and ' quotes within a file). Fix all the cases yamllint found
-> so we can enable the check (once the check is in a release). Use
-> whichever quoting is dominate in the file.
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> pinconf-generic only accepts positive numeric values for
+> both generic and custom properties in struct pinconf_generic_params.
 
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
+Do you need it to support negative values?
+Patches welcome!
+
+> Plus, I haven't found any existing driver that mixes pinconf-generic with
+> custom string values.
+
+Maybe I misunderstand, but pinconf_generic_parse_dt_config()
+looks at  pctldev->desc->custom_params and
+pctldev->desc->num_custom_params found in
+struct pinctrl_desc in
+include/linux/pinctrl/pinctrl.h
+
+$ git grep custom_params drivers/pinctrl/
+gives you a list of all drivers using this.
 
 Yours,
 Linus Walleij
