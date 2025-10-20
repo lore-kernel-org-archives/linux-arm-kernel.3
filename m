@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A609CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 13:47:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5CACCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 13:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+oJhR7TQR33Hs7zmN9Ew/2XEnO2MDjLO5t6uKC++Vuk=; b=g3AYzt0aDXhUoB3hkPBLHVOB0S
-	tlqA4jBefSQiFNc1Y3gqEz6Gs9uy2mH96yi8vSyhDtE/pxp2T8l7SCJxHzJ47bVwpmKvEpIMk8oEF
-	8lz7t8R3TfpNR0en94elQAgeRrnjgUiP6jsxCUTDIVRCTv7kiYhRaqMcsRGVhsUbqBsRDn7GnYPBs
-	xbw32bjqWMiMHZDbINzHAMzlIKYSbc88PXb8cmQggPESwZOyex+t7ZisDMV0o1s3i25V822rD9Ym1
-	jFRurjRZYv9i/hXruSUw4vq34UEGaBpNSR0N+w+d7UgG8C+YNUJUmfBeLEmKoJQghEuYtyp+lu4be
-	5kpXvCXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nqHvMgb0znCwfqJeA+RPXM5wvAfiMBWwT5rw7djWXRU=; b=y+je9EMNFhZeq9yxaH9lxXLcmJ
+	1sJYnoeqEbri4ih04g5IkSouG4/Vc1sPJxwfv8DNPGD9nuRn4CB6VnSpN2lUdUnk6igChjKb9EBA7
+	ceYOhNRKxIOIm9YcVyYkLxO6Kg7Lw99OLqn+v26hxMcB/yMFmJadiVV1Kh7cswq2ymw9psj1p5HEy
+	agHT70uSZ2eoPOYwq/jYRBbseueNbLede3KJNW+41gs/+BnUw/6wCYx/JUEsTD4OmNskj2UeQvO9d
+	0OnblUYmovSkon2nupB1uQYfntJSP9A6vyvs5RIyMO98yI4yn5Q7zxbcN6ZzoRCiemj0l3W3EDQey
+	uRw3HBQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAqEj-0000000DqbI-08s6;
-	Mon, 20 Oct 2025 13:47:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAqEg-0000000DqZX-1wXb;
-	Mon, 20 Oct 2025 13:47:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4FCBA16A3;
-	Mon, 20 Oct 2025 06:47:30 -0700 (PDT)
-Received: from [10.57.36.117] (unknown [10.57.36.117])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF81F3F66E;
-	Mon, 20 Oct 2025 06:47:32 -0700 (PDT)
-Message-ID: <ef6434a9-cde5-4d68-a3a3-1873ba7912d3@arm.com>
-Date: Mon, 20 Oct 2025 14:47:30 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 4/5] drm/panthor: Use existing OPP table if present
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	id 1vAqNj-0000000Ds56-1SEo;
+	Mon, 20 Oct 2025 13:57:03 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAqNg-0000000Ds3h-2bSs;
+	Mon, 20 Oct 2025 13:57:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1760968609; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=B76x+v2U612DJuvjGJrxH9KxhqLNSHabXgPOtil2Al6AvzEPDXhdQ3pM0+2MjuypEfl4BC/0qiZWFdw1rDob742eajmqBEAz5nQX2NrnkMxAFKnha77sbTdE8DFzzaETh0Wfvm6+m8dqsdqdMP08A60N9Ar/Q4CO1Roam4dJo9U=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1760968609; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=nqHvMgb0znCwfqJeA+RPXM5wvAfiMBWwT5rw7djWXRU=; 
+	b=k6t1B/lOVxI/5dz0U9zfC9L/tgdqerNFT21Wg03c7tDDtGurzi96OguldTDhfy+cfM82/lHAe+o36L8qf+Duq/rvmXediBJOvu+jHQCmtTZmhqB6fGIQ8bENxzlZ75mmh7AQQ+URPt9AVoF6nsSU448UsvhNQEvRm8gy6aChDBw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760968609;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=nqHvMgb0znCwfqJeA+RPXM5wvAfiMBWwT5rw7djWXRU=;
+	b=VzqvIjc8muGtBxUkI/DjmYeRjYa+BG6VmeXEj3KCpeo8JWlPAhe3u7uiEawigmU6
+	/HNlExiXNYWxIr8mXk6VdNNpGp8QCASEc7PbXlSyaVxgZlfvhPkKEPXHm+FZmiawe2C
+	hXw+pe9pxGgm1FZLAJLVOP/TiZMToqLI3H8Ny93E=
+Received: by mx.zohomail.com with SMTPS id 1760968606551857.8630135881692;
+	Mon, 20 Oct 2025 06:56:46 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
+ Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Jassi Brar <jassisinghbrar@gmail.com>, Chia-I Wu <olvaffe@gmail.com>,
- Chen-Yu Tsai <wenst@chromium.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-hardening@vger.kernel.org, linux-pm@vger.kernel.org
-References: <20251017-mt8196-gpufreq-v8-0-98fc1cc566a1@collabora.com>
- <20251017-mt8196-gpufreq-v8-4-98fc1cc566a1@collabora.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20251017-mt8196-gpufreq-v8-4-98fc1cc566a1@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, kernel@collabora.com,
+ linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org
+Subject: Re: [PATCH v2 1/5] dt-bindings: ufs: mediatek,ufs: Add mt8196-ufshci variant
+Date: Mon, 20 Oct 2025 15:56:39 +0200
+Message-ID: <2018479.PYKUYFuaPT@workhorse>
+In-Reply-To: <10741243.nUPlyArG6x@workhorse>
+References: <20251016-mt8196-ufs-v2-0-c373834c4e7a@collabora.com>
+ <20251018-appliance-plus-361abdd09e75@spud> <10741243.nUPlyArG6x@workhorse>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_064742_617977_F2D7880E 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20251020_065700_718012_1910C38B 
+X-CRM114-Status: GOOD (  25.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,76 +89,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/10/2025 16:31, Nicolas Frattaroli wrote:
-> On SoCs where the GPU's power-domain is in charge of setting performance
-> levels, the OPP table of the GPU node will have already been populated
-> during said power-domain's attach_dev operation.
+On Monday, 20 October 2025 15:27:40 Central European Summer Time Nicolas Frattaroli wrote:
+> On Saturday, 18 October 2025 23:30:17 Central European Summer Time Conor Dooley wrote:
+> > On Fri, Oct 17, 2025 at 09:02:07PM +0200, Nicolas Frattaroli wrote:
+> > > On Friday, 17 October 2025 17:42:10 Central European Summer Time Conor Dooley wrote:
+> > > > On Thu, Oct 16, 2025 at 02:06:43PM +0200, Nicolas Frattaroli wrote:
+> > > 
+> > > > > +
+> > > > > +  freq-table-hz: true
+> > > > 
+> > > > Then you add this deprecated property, which isn't mentioned in the
+> > > > commit message and I don't see why a deprecated property is needed.
+> > > 
+> > > I'll rework it to use operating-points-v2 instead. It needs one of
+> > > the two, or else on mt8196 at least, the hardware locks up.
+> > > 
+> > > I'll still add operating-points-v2 for all SoCs though, if that's
+> > > okay with you.
+> > 
+> > Right. I'd accept freq-table-hz if the other devices here have been
+> > using it all along, but if this is something new - then please use the
+> > operating-points-v2 property. Looking at the binding example, it looks
+> > like it does indeed use freq-table-hz, so that's probably justification
+> > enough to keep doing so.
 > 
-> To avoid initialising an OPP table twice, only set the OPP regulator and
-> the OPPs from DT if there's no OPP table present.
+> Turns out the only usage of freq-table-hz is in the examples I've added.
+> Mainline does not at all have any nodes in the DT right now that would
+> use this property.
 > 
-> Reviewed-by: Chia-I Wu <olvaffe@gmail.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> Ergo, I think I will go for operating-points-v2. We might as well clean
+> this up now instead of ossifying a deprecated property in a new binding
+> for the sake of downstream compatibility (which should never be a concern)
+> that I am already breaking. The added benefit is that if we ever do get
+> better OPP definitions than just two clock states, then we can actually
+> add the OPP bandwidth properties so implementations can make informed
+> decisions.
+> 
 
-Reviewed-by: Steven Price <steven.price@arm.com>
+Nevermind, I see the existing binding had it in the example for 8183,
+just not in the binding itself. So freq-table-hz it is.
 
-> ---
->  drivers/gpu/drm/panthor/panthor_devfreq.c | 32 ++++++++++++++++++++++---------
->  1 file changed, 23 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/drm/panthor/panthor_devfreq.c
-> index a6dca599f0a5..ec63e27f4883 100644
-> --- a/drivers/gpu/drm/panthor/panthor_devfreq.c
-> +++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
-> @@ -141,6 +141,7 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
->  	struct thermal_cooling_device *cooling;
->  	struct device *dev = ptdev->base.dev;
->  	struct panthor_devfreq *pdevfreq;
-> +	struct opp_table *table;
->  	struct dev_pm_opp *opp;
->  	unsigned long cur_freq;
->  	unsigned long freq = ULONG_MAX;
-> @@ -152,17 +153,30 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
->  
->  	ptdev->devfreq = pdevfreq;
->  
-> -	ret = devm_pm_opp_set_regulators(dev, reg_names);
-> -	if (ret && ret != -ENODEV) {
-> -		if (ret != -EPROBE_DEFER)
-> -			DRM_DEV_ERROR(dev, "Couldn't set OPP regulators\n");
-> -		return ret;
-> +	/*
-> +	 * The power domain associated with the GPU may have already added an
-> +	 * OPP table, complete with OPPs, as part of the platform bus
-> +	 * initialization. If this is the case, the power domain is in charge of
-> +	 * also controlling the performance, with a set_performance callback.
-> +	 * Only add a new OPP table from DT if there isn't such a table present
-> +	 * already.
-> +	 */
-> +	table = dev_pm_opp_get_opp_table(dev);
-> +	if (IS_ERR_OR_NULL(table)) {
-> +		ret = devm_pm_opp_set_regulators(dev, reg_names);
-> +		if (ret && ret != -ENODEV) {
-> +			if (ret != -EPROBE_DEFER)
-> +				DRM_DEV_ERROR(dev, "Couldn't set OPP regulators\n");
-> +			return ret;
-> +		}
-> +
-> +		ret = devm_pm_opp_of_add_table(dev);
-> +		if (ret)
-> +			return ret;
-> +	} else {
-> +		dev_pm_opp_put_opp_table(table);
->  	}
->  
-> -	ret = devm_pm_opp_of_add_table(dev);
-> -	if (ret)
-> -		return ret;
-> -
->  	spin_lock_init(&pdevfreq->lock);
->  
->  	panthor_devfreq_reset(pdevfreq);
-> 
 
 
