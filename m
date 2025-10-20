@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55FDCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:48:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2A8CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qG38QouOAiJDe70jz6Us+02ZPOy6qlEZVBeSeQllsf4=; b=q49qzq3OWiv47Zl75IL49uIHLC
-	mobqJiO+BLN02NRW1xh3cCHBN/kScHcOWIe33NnAnsPdD4EnUvmSz5ubo4EFao1qmVtDDDGjOwnV1
-	OJRYrhYTwl75dWpIk/kbO4X4kaFTk7RWTZyOZXYBwX08axLxQiM/X8FnyAxNdoj0smyfCSUZEpyLI
-	9XFfKZu1t5hhsfFERCmV04JjbqkbwzcfcupApyWySTuvOHj3QNj1yEm1qepmrgo22Zo7T2CIVd9n1
-	UQNzaakV2es2CqYg90u+KjjcrnhpD+g9/EOnQihh+dcz/PUjDJpmN+Q1dfF3cHSwv2O4uAmxZFj/d
-	S7omWZVw==;
+	bh=LT8UUy5Ej3UyVlJPtvk5iRBgSEzEU437pG46R+ymarY=; b=uEszN+jXyv3PvW7+g2aVaa05cY
+	a30Bj9JI/Es67nqxXtctuijK3r7kEiTR0jTcT+j1wFLQ4WF/eHZ8lzbkZ8rjo+DtRMTOKv2IY1J+z
+	QAW9gMRTyxHeP4TPCAfF4nfIagIMZh4qd8xxU0MiRlnAYuJytKK3g4epnXbSndMiWYJnur1vmCC/S
+	g1R+u7awbBa7lm5l3jHRqtVYwvhj/56+UTCqsIy2llrBpB3mGphUZVyKssebwpi/EeNkJ36V7V+pT
+	8GtZVcnbHq+3U0n818EXMuw92kQutex/Qe0HkdUo3ZOMu4KB2zAvIRRZnEVt93y+0fwVdj7T7pWxu
+	WlcelnKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vApJN-0000000DclC-0Iby;
-	Mon, 20 Oct 2025 12:48:29 +0000
-Received: from mail-m16.yeah.net ([220.197.32.17])
+	id 1vApKB-0000000DcvN-22bT;
+	Mon, 20 Oct 2025 12:49:19 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vApJJ-0000000DckP-1jPV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 12:48:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=qG38QouOAiJDe70jz6Us+02ZPOy6qlEZVBeSeQllsf4=;
-	b=GJNyNazGNH1J8Z23xlahfIB4N9k1UPOa5jeUmZ8DXTAMdQO1I67Jlq0Uk8toIZ
-	J1haK204p9moPdukvCA4NwSzmBDsujtNmXTsCMTvc3Wt/t6GCzCxrCVIbAQTBsUx
-	4V88hcHLLlhGEfIDbtMswv6J0CtRYphPBJ0yc1BYV1n9Y=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgD3X7GAL_ZocZNTAA--.29215S3;
-	Mon, 20 Oct 2025 20:48:02 +0800 (CST)
-Date: Mon, 20 Oct 2025 20:48:00 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Andreas Kemnade <akemnade@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alistair Francis <alistair@alistair23.me>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.li@nxp.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v3 3/3] ARM: dts: imx: e70k02: add sy7636
-Message-ID: <aPYvgKWNvr0RxOKQ@dragon>
-References: <20250917-sy7636-rsrc-v3-0-331237d507a2@kernel.org>
- <20250917-sy7636-rsrc-v3-3-331237d507a2@kernel.org>
+	id 1vApKA-0000000Dcv8-2z59;
+	Mon, 20 Oct 2025 12:49:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=LT8UUy5Ej3UyVlJPtvk5iRBgSEzEU437pG46R+ymarY=; b=Sckcs4B1DMoAf+R+VKASmCSlsH
+	UuL+8/5Vq90WXxiopcDXRshB2d5vkuJvC3PgnMB/kGlJ2caebfPirKbSLfWlkqJveSHiLZ5Rw6DPB
+	N0nN8UewjWozirdXYg4fq9t47zUJP9gAie6eeDbdp28wsejDHLtJxmE6APQHdIEMuATHYkoMZ9KUm
+	yArDJVdESTMjXJL4Qyy5/hjKWU9d1WUrwiGGweNSz03q7nDWX6YQUjiOIA5qfV+/Ynz4OF+ZVFXlP
+	+v1/1M4VWmvvgrMaOCkB1RhWET3LLS0+nG+BwlOwU4x9ejvQu8SRItzGrLV+SCX3Ga97a89XZbF9o
+	IIXsIixA==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vApK6-00000007Ug6-2zGb;
+	Mon, 20 Oct 2025 12:49:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=LT8UUy5Ej3UyVlJPtvk5iRBgSEzEU437pG46R+ymarY=; b=t8qVnE7A5m3NrSDtXnEhrdx7oQ
+	GuDvt4aKjvYuD5KxLgHuTFwBuvqYZ9xOEN2q90ikgdkzDwTlxrWocmflwGb5z0hRiDqz9U42cRdsY
+	R8CSpzsS/ZEJtBp9gv3OYLvpTjZMxMaIUK+4C0w00Uz9daMN2Di6EUosKmxapNblnFB+X/NiLGc/H
+	qCxsAPlLyz8ZGipQgIaxh/OqFIgkbxHGGI1KOrRG0N2mGDV9aM65nPqC6jOiIIRLiC5/98VpfpckX
+	P1il/ZXHNeecX9PH6kATylv9hWtIsXJuHTmAwj06x1g80o9a9JnAmL0h55UKbHb/Sp9kzBIIq5MPE
+	z47iTySw==;
+Received: from [141.76.253.240] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vApK3-0001CH-4r; Mon, 20 Oct 2025 14:49:11 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Quentin Schulz <quentin.schulz@cherry.de>, mturquette@baylibre.com,
+ sboyd@kernel.org, zhangqing@rock-chips.com, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH] clk: rockchip: rk3588: Don't change PLL rates when setting
+ dclk_vop2_src
+Date: Mon, 20 Oct 2025 14:49:10 +0200
+Message-ID: <4856104.usQuhbGJ8B@phil>
+In-Reply-To: <eumxn7lvp34si2gik33hcavcrsstqqoxixiznjbertxars7zcx@xsycorjhj3id>
+References: <20251008133135.3745785-1-heiko@sntech.de> <2749454.BddDVKsqQX@diego>
+ <eumxn7lvp34si2gik33hcavcrsstqqoxixiznjbertxars7zcx@xsycorjhj3id>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250917-sy7636-rsrc-v3-3-331237d507a2@kernel.org>
-X-CM-TRANSID: M88vCgD3X7GAL_ZocZNTAA--.29215S3
-X-Coremail-Antispam: 1Uf129KBjvJXoWxtr4kuw4Uuw4fCw1fGF1rZwb_yoW7WrWkpa
-	1Svrs5WrWxWF1fta43AasrCr1fCws2kr1v9w47uFy8Aa1qva4UJF4UKrn3Crn8XFs8Zw4Y
-	vrn5ury7W3Wqv3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jezuAUUUUU=
-X-Originating-IP: [121.224.201.6]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNALDKWj2L4I5uAAA3u
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_054825_857847_24549CA0 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20251020_134916_003662_B9275B85 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,183 +88,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 17, 2025 at 09:14:31AM +0200, Andreas Kemnade wrote:
-> Add the EPD PMIC for the e70k02 based devices as a step towards full EPD
-> support.
-> 
-> Acked-by: Alistair Francis <alistair@alistair23.me>
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> Signed-off-by: Andreas Kemnade <akemnade@kernel.org>
-> ---
->  arch/arm/boot/dts/nxp/imx/e70k02.dtsi              | 25 +++++++++++++++++++++-
->  .../arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts | 24 +++++++++++++++++++++
->  .../arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts | 24 +++++++++++++++++++++
->  3 files changed, 72 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm/boot/dts/nxp/imx/e70k02.dtsi b/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
-> index dcc3c9d488a88..b4f42f71c6c49 100644
-> --- a/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
-> +++ b/arch/arm/boot/dts/nxp/imx/e70k02.dtsi
-> @@ -69,6 +69,14 @@ memory@80000000 {
->  		reg = <0x80000000 0x20000000>;
->  	};
->  
-> +	epd_pmic_supply: regulator-epd-pmic-in {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "epd_pmic_supply";
-> +		gpio = <&gpio2 14 GPIO_ACTIVE_HIGH>;
-> +		startup-delay-us = <20000>;
-> +		enable-active-high;
+Am Donnerstag, 16. Oktober 2025, 00:57:15 Mitteleurop=C3=A4ische Sommerzeit=
+ schrieb Sebastian Reichel:
+> Hi,
+>=20
+> On Wed, Oct 15, 2025 at 03:27:12PM +0200, Heiko St=C3=BCbner wrote:
+> > Am Mittwoch, 15. Oktober 2025, 14:58:46 Mitteleurop=C3=A4ische Sommerze=
+it schrieb Quentin Schulz:
+> > > Hi Heiko,
+> > >=20
+> > > On 10/8/25 3:31 PM, Heiko Stuebner wrote:
+> > > > dclk_vop2_src currently has CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_R=
+EPARENT
+> > > > flags set, which is vastly different than dclk_vop0_src or dclk_vop=
+1_src,
+> > > > which have none of those.
+> > > >=20
+> > > > With these flags in dclk_vop2_src, actually setting the clock then =
+results
+> > > > in a lot of other peripherals breaking, because setting the rate re=
+sults
+> > > > in the PLL source getting changed:
+> > > >=20
+> > > > [   14.898718] clk_core_set_rate_nolock: setting rate for dclk_vop2=
+ to 152840000
+> > > > [   15.155017] clk_change_rate: setting rate for pll_gpll to 168000=
+0000
+> > > > [ clk adjusting every gpll user ]
+> > > >=20
+> > > > This includes possibly the other vops, i2s, spdif and even the uart=
+s.
+> > > > Among other possible things, this breaks the uart console on a board
+> > > > I use. Sometimes it recovers later on, but there will be a big block
+> > >=20
+> > > I can reproduce on the same board as yours and this fixes the issue=20
+> > > indeed (note I can only reproduce for now when display the modetest=20
+> > > pattern, otherwise after boot the console seems fine to me).
+> >=20
+> > I boot into a Debian rootfs with fbcon on my system, and the serial
+> > console produces garbled output when the vop adjusts the clock
+> >=20
+> > Sometimes it recovers after a bit, but other times it doesn't
+> >=20
+> > > Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+> > > Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Tiger w=
+/DP carrierboard
+>=20
+> I'm pretty sure I've seen this while playing with USB-C DP AltMode
+> on Rock 5B. So far I had no time to investigate further.
+>=20
+> What I'm missing in the commit message is the impact on VOP. Also
+> it might be a good idea to have Andy in Cc, so I've added him.
 
-enable-active-high right after gpio = <... GPIO_ACTIVE_HIGH>, as it's a
-supplement description for "gpio" property.
+Hmm, it brings VP2 in line with the other two VPs, only VP2 had this
+special setting - even right from the start, so it could very well
+have been left there accidentially during submission.
 
-Shawn
+So in the end VP2 will have to deal with this, because when the VP
+causes a rate change in the GPLL, this changes so many clocks of
+other possibly running devices. Not only the uart, but also emmc
+and many more. And all those devices do not like if their clock gets
+changed under them I think.
 
-> +	};
-> +
->  	reg_wifi: regulator-wifi {
->  		compatible = "regulator-fixed";
->  		regulator-name = "SD3_SPWR";
-> @@ -133,7 +141,22 @@ touchscreen@24 {
->  		vdd-supply = <&ldo5_reg>;
->  	};
->  
-> -	/* TODO: SY7636 PMIC for E Ink at 0x62 */
-> +	sy7636: pmic@62 {
-> +		compatible = "silergy,sy7636a";
-> +		reg = <0x62>;
-> +		enable-gpios = <&gpio2 8 GPIO_ACTIVE_HIGH>;
-> +		vcom-en-gpios = <&gpio2 3 GPIO_ACTIVE_HIGH>;
-> +		epd-pwr-good-gpios = <&gpio2 13 GPIO_ACTIVE_HIGH>;
-> +		vin-supply = <&epd_pmic_supply>;
-> +
-> +		#thermal-sensor-cells = <0>;
-> +
-> +		regulators {
-> +			reg_epdpmic: vcom {
-> +				regulator-name = "vcom";
-> +			};
-> +		};
-> +	};
->  
->  };
->  
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
-> index a2534c422a522..f8709a9524093 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6sl-tolino-vision5.dts
-> @@ -26,6 +26,11 @@ / {
->  	compatible = "kobo,tolino-vision5", "fsl,imx6sl";
->  };
->  
-> +&epd_pmic_supply {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_epd_pmic_supply>;
-> +};
-> +
->  &gpio_keys {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpio_keys>;
-> @@ -59,6 +64,12 @@ MX6SL_PAD_FEC_RXD1__GPIO4_IO18          0x10059 /* TP_RST */
->  		>;
->  	};
->  
-> +	pinctrl_epd_pmic_supply: epd-pmic-supplygrp {
-> +		fsl,pins = <
-> +			MX6SL_PAD_EPDC_PWRWAKEUP__GPIO2_IO14    0x40010059
-> +		>;
-> +	};
-> +
->  	pinctrl_gpio_keys: gpio-keysgrp {
->  		fsl,pins = <
->  			MX6SL_PAD_FEC_CRS_DV__GPIO4_IO25	0x17059	/* PWR_SW */
-> @@ -159,6 +170,14 @@ MX6SL_PAD_KEY_COL2__GPIO3_IO28		0x1b8b1 /* ricoh619 bat_low_int */
->  		>;
->  	};
->  
-> +	pinctrl_sy7636_gpio: sy7636-gpiogrp {
-> +		fsl,pins = <
-> +			MX6SL_PAD_EPDC_VCOM0__GPIO2_IO03        0x40010059 /* VCOM_CTRL */
-> +			MX6SL_PAD_EPDC_PWRCTRL1__GPIO2_IO08     0x40010059 /* EN */
-> +			MX6SL_PAD_EPDC_PWRSTAT__GPIO2_IO13      0x17059 /* PWR_GOOD */
-> +		>;
-> +	};
-> +
->  	pinctrl_uart1: uart1grp {
->  		fsl,pins = <
->  			MX6SL_PAD_UART1_TXD__UART1_TX_DATA 0x1b0b1
-> @@ -329,6 +348,11 @@ &ricoh619 {
->  	pinctrl-0 = <&pinctrl_ricoh_gpio>;
->  };
->  
-> +&sy7636 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_sy7636_gpio>;
-> +};
-> +
->  &uart1 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_uart1>;
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
-> index 660620d226f71..19bbe60331b36 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
-> +++ b/arch/arm/boot/dts/nxp/imx/imx6sll-kobo-librah2o.dts
-> @@ -36,6 +36,11 @@ &cpu0 {
->  	soc-supply = <&dcdc1_reg>;
->  };
->  
-> +&epd_pmic_supply {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_epd_pmic_supply>;
-> +};
-> +
->  &gpio_keys {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_gpio_keys>;
-> @@ -69,6 +74,12 @@ MX6SLL_PAD_GPIO4_IO18__GPIO4_IO18	0x10059 /* TP_RST */
->  		>;
->  	};
->  
-> +	pinctrl_epd_pmic_supply: epd-pmic-supplygrp {
-> +		fsl,pins = <
-> +			MX6SLL_PAD_EPDC_PWR_WAKE__GPIO2_IO14    0x40010059
-> +		>;
-> +	};
-> +
->  	pinctrl_gpio_keys: gpio-keysgrp {
->  		fsl,pins = <
->  			MX6SLL_PAD_GPIO4_IO25__GPIO4_IO25	0x17059	/* PWR_SW */
-> @@ -169,6 +180,14 @@ MX6SLL_PAD_KEY_COL2__GPIO3_IO28		0x1b8b1 /* ricoh619 bat_low_int */
->  		>;
->  	};
->  
-> +	pinctrl_sy7636_gpio: sy7636-gpiogrp {
-> +		fsl,pins = <
-> +			MX6SLL_PAD_EPDC_VCOM0__GPIO2_IO03       0x40010059 /* VCOM_CTRL */
-> +			MX6SLL_PAD_EPDC_PWR_CTRL1__GPIO2_IO08   0x40010059 /* EN */
-> +			MX6SLL_PAD_EPDC_PWR_STAT__GPIO2_IO13    0x17059 /* PWR_GOOD */
-> +		>;
-> +	};
-> +
->  	pinctrl_uart1: uart1grp {
->  		fsl,pins = <
->  			MX6SLL_PAD_UART1_TXD__UART1_DCE_TX 0x1b0b1
-> @@ -319,6 +338,11 @@ &ricoh619 {
->  	pinctrl-0 = <&pinctrl_ricoh_gpio>;
->  };
->  
-> +&sy7636 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_sy7636_gpio>;
-> +};
-> +
->  &uart1 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&pinctrl_uart1>;
-> 
-> -- 
-> 2.47.3
-> 
+
+Heiko
+
 
 
