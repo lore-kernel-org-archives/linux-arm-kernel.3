@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7535CCD1A2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 21:14:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34673CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 21:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Anov0QvRPQfn4K2J8uUtp5viSlmFSR3/aNvGLqYjUXo=; b=lSywDS9EwcXi4mZp5lWDPCU/mM
-	VYZtdAPLKMNovNbYpFlBmbZvUcTfZCqVz+zUBxUzlwdNqSFKaq2dxEeGJzFZXUbEGer/OdTPRVjYY
-	nAhOewb4ICCjOh/UwbOUJNkonLzD2t8qzyNi7/h6cofEUIN7mG2+JgA5NfZkJBsFDds1LHDT/mBoJ
-	TRCNVJZjf3s9KcalH3UDApOCveCI3sJr2U+HbxOLNlffY7kmKH/IRM5Aec26eGAN2j57eqe7jRBFx
-	Bz90go7zu6HFBkMZVzv51m8lxjwTnnnM9IPn2kVH8HPJqnNIVbq2pcoHa2B/Ehko1kGzdjXyhnm2X
-	tUGQg0dw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CsUpySOyZcUmOpBGoyKv7EuwRf5BVSkqhpGNz3Kir9I=; b=5FHYeZhHRTAe5vnYnReLk+FKGn
+	iwN6h/AGENEIFLO0T42JGdoozFqSFj4fPcF4yexeWKF2kjcX/XTEntchbU1jEXH+kVe26Xh9x8lPE
+	ahu/CDrwToaFr3776UnSGrCEqBoZ/kTATfDX2RTGB+YCIDItrw31SsvFbwwrxU9Mn+j8XHrTCXNmA
+	nS+I7X5bcs9JiS0UGmiRsY/adCaR5Suf13S5k6RSFAmFBPP0lMbu6cEWXiIe3qcKQ17PfSuj4LwOS
+	J6vhRMvykSqwGm6qa8fUG8jYR+V0p64bLJQseuORUoz+NUqWEU00rZBY4g2vdSf509Q3g3w4VEhqd
+	EiQADE7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAxDP-0000000F3Z5-2CH8;
-	Mon, 20 Oct 2025 21:14:51 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1vAxIs-0000000F55n-1Pvb;
+	Mon, 20 Oct 2025 21:20:30 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAxDN-0000000F3YW-0VZj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 21:14:50 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-78488cdc20aso29931567b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 14:14:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760994888; x=1761599688; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Anov0QvRPQfn4K2J8uUtp5viSlmFSR3/aNvGLqYjUXo=;
-        b=wpEqzuXVqhr9Mf0v2w1GPwYacSEffkeizx2GeFnu8QYwTBbDYuTY1juD7Ci2u2lGpE
-         +XsqH7giIw/uIjFvaNOYuF+i/UidEkbnq5H5mMR5gjoP6cXhLzI1+TIKORZNTnIY1V70
-         9dn811yk/Muay9vZTAxnfi5zJitYmSP4e7gY2CA6ofhLmGIwA8YPjaD+hlvWno5QfMRc
-         DdLF52xnWQyEd60X+7j2BZmMV6g/ev3Kt78K+mPDCDZc61Avr8AGfZcuuURnptIkLmHL
-         6d9CJSntej+1/A4eFkPzysKb2Lu4ejbL7YPSGz2cveM33TRyb4uSI6zltOgiorzolmH3
-         Qtgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760994888; x=1761599688;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Anov0QvRPQfn4K2J8uUtp5viSlmFSR3/aNvGLqYjUXo=;
-        b=a0mqagfKP/z5Stpo14Bk6/4XUyp/uWpeYn44yKgfUhQWSteQnmq2pY0Mx6TMEV5Ew3
-         A+ZOtD0Lr457t70SKM6JzR++gUtL7jRntrspIagK+oNknejZuhrIrFh/vMOZkzj3nYw2
-         eWiYvZJQS3WJVacd7AJsIWHCRvzJxhwRDepoGO5NNIqYBPQWqddTtD41D+kQg9kiXH77
-         DNI8uqNpchI4dBiBncKyxbBVNsl6/IPwup9cCrVdLsXdsf3gd7gWtnIBEoSf25OHU3Kc
-         EF83vwby5SgVqUXHntNpPF8sjw+h2zLACNLNseS/557kB9ooIuYmEUTUB55MQxpgNSDE
-         tESA==
-X-Gm-Message-State: AOJu0Yz5y2Gpw3ePjskRB0tCVLIoL383HRjKn5vxcXk5aFAHIarjxzbo
-	qAU2OC/41CLf8f/vlXm/DhtepBv8ilDUyHpQtb8ka3ya34X1Mho8sXuhwA3FkuWZO3RrNixi0j8
-	RVCOWS96QUXc100vqlzqhMJIKFy/s1MNLK2zOn+BvdA==
-X-Gm-Gg: ASbGnct8NtW9v/396pwM1l7B8bK0lXu4PH/1fdNdvsLZfzpO9kYThTu3QjT7oRjbUJL
-	fyVcZSNApPC3GBFjkcK44yQPtvfpnnqPApQC86g7zLcD8hM1GaidfnbSk/wNgFHnepB3lttnsGp
-	CM8m0ERMKWkTyb99Wc/0QvUa3jFVuVSsETmJ+RNTY7j0oLwlKNpgUDRWdRgVgr8mVbZo5Ln3ios
-	r2piPe3kg3VbyrDxSnqn6LLRp/FNYOGHlH/8g19rLwT//qvKGDOeKfIScPp
-X-Google-Smtp-Source: AGHT+IHhrp7Mn9zG8R+s34GGCarO9Dn8P7XKckYmdVwHQpsn3aJyInOYeKKns+cAzGFVWkgEGpTwoLHL2z6emdmu3u4=
-X-Received: by 2002:a05:690e:12cb:b0:63e:2f48:2bcb with SMTP id
- 956f58d0204a3-63e2f482c43mr6596645d50.62.1760994887673; Mon, 20 Oct 2025
- 14:14:47 -0700 (PDT)
+	id 1vAxIq-0000000F54i-2Xxt;
+	Mon, 20 Oct 2025 21:20:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1760995223;
+	bh=M3lIp+cKelh2O4BMlSXcu2sgi0P54b6jr5d4gpqzweg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ShB6Swg7D9NzKVB3AJxHIEZbUFqjlvfvdmQih1OxuV8JY4am4EZfpnjKLkbTO1mUI
+	 7L4Ne4Q16+t1S/hBCovhPzVa1Vnq5kQtTKc7imAQFJpTp/SVdgAq9LEDHdE/8abCZH
+	 LCj8FMkxt8Hn2L0iP8Jk48Zvdt7JXXafs6azc/GkGLSq3CUiCdGDxN/sbQXRUMh65G
+	 lBSIJvmgK+x1FDDxsTzd2wKPorbHBzbxg8U0CC9hIpMPdYRTtvauHujCG9DwwL48lT
+	 WMluUNAfkviXBF/c7E2okPaFqfhqBbFG/thp2/pghwta7ZPhhL0JOlp/Y5r/LRFHx0
+	 a4i7XUKQW/qGw==
+Received: from trenzalore (unknown [23.233.251.139])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3BC1117E02B0;
+	Mon, 20 Oct 2025 23:20:20 +0200 (CEST)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Damon Ding <damon.ding@rock-chips.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Patrick Wildt <patrick@blueri.se>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Chris Morgan <macromorgan@hotmail.com>,
+	Alexander Shiyan <eagle.alexander923@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH v3 0/2] arm64: dts: rockchip: Add vdpu 381 and 383 nodes
+Date: Mon, 20 Oct 2025 17:20:07 -0400
+Message-ID: <20251020212009.8852-1-detlev.casanova@collabora.com>
+X-Mailer: git-send-email 2.51.1.dirty
 MIME-Version: 1.0
-References: <20251017143302.1776953-1-arnd@kernel.org>
-In-Reply-To: <20251017143302.1776953-1-arnd@kernel.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 20 Oct 2025 23:14:33 +0200
-X-Gm-Features: AS18NWDHiKNwFnALX7AQT5km93TFZcU8T80jIGuWJpNTNbsxPXZ2-GQ-sa1_jQk
-Message-ID: <CACRpkdav6Q8Sv_JC3g86YttdGiPsvmSs+5OBxOX-EL5-S4LJhA@mail.gmail.com>
-Subject: Re: [PATCH] soc: officially expand maintainership team
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Drew Fustini <fustini@kernel.org>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_141449_167544_30846D92 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20251020_142028_797453_6AA6CE6F 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,27 +92,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 4:33=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wro=
-te:
+Add the nodes for vdpu 381 and 383, respectively RK3588 and RK3576.
+To keep compatibility with older variants, the reg ranges order is not
+in register order so that the function reg range is kept first.
 
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> Since Olof moved on from the soc tree maintenance, Arnd has mainly taken
-> care of the day-to-day activities around the SoC tree by himself, which
-> is generally not a good setup.
->
-> Krzysztof, Linus and Alexandre have volunteered to become co-maintainers
-> of the SoC tree, with the plan of taking turns to do merges and reviews
-> to spread the workload. In addition, Drew joins as another reviewer.
->
-> Cc: Krzysztof Kozlowski <krzk@kernel.org>
-> Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
-> Cc: Linus Walleij <linus.walleij@linaro.org>
-> Cc: Drew Fustini <fustini@kernel.org>
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Also adds the corresponding iommu nodes.
 
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
+Note that on RK3588, both cores are added as it represents the hardware,
+but the driver, later will only register the first one.
 
-Yours,
-Linus Walleij
+Regards,
+Detlev.
+
+Changes since v2:
+ - Set the correct IRQ number for the second rk3588 core
+
+Changes since v1:
+ - Set node name to match first reg range
+
+Detlev Casanova (2):
+  arm64: dts: rockchip: Add the vdpu381 Video Decoders on RK3588
+  arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576
+
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 36 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 74 +++++++++++++++++++
+ 2 files changed, 110 insertions(+)
+
+-- 
+2.51.1.dirty
+
 
