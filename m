@@ -4,54 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C32B4CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16390CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OGJ/LOFXo1K2Oq9DbtsxkgAibxiWQj1MuXH6r6QM4Lc=; b=LVvmW6qfo3EZioOqmskvWqgfrZ
-	DTbkgT6tTWBQ0h5HisDX1/dlt5QlMckCf+St78ur6MzdKcR9kzUuo1QZQ4LPGfj7uxiGxVQ85JvOK
-	09ze748peOVOcNKPQro96rWJ/9x0+AK4YdewyVqW/Qsn2M64dtd74u2cPOkCDLuMbJGOlXaYAfsqI
-	yZR1RyfYvsZ4kBnMJgcRvFZwQkyhxgI4JkFnpHoDlaMv/XVuksAstFHzetpbZr/8ljImOTcumTYoD
-	Sp7CIsuDdmXrjri9V6zfT5bZeEQxTVaKbolvaLziInF2Tv8Lm8LLHTguYwWsg881KHoKWqFHeQXoK
-	HCsuBl8A==;
+	bh=n/CPIzx5KaL4TyTuJmekW/24AWANlyqw3dcl3WFRWCE=; b=uYfMCO7FVy+99nALX7jcU1hVHj
+	O8aG0yAcV4lKzOu3bMIkXG+GN/42oqj+9Oixz3jQEYjBc03qnnABM5bttxbF6jcSNPvMgVOycIJWe
+	2FV7qxdMX/DnAteJircmEV/bAWwQBO2Y7hzRxugMFekQKoe0btjdO7Q2FaRBhtuC8kHrGka39dpkh
+	zJv9YO/1mxVntmfOgFPI24I5Oj4zSQ05lypd4y4ubGaBbS6zE68rf0dfmfHhA2+UFdAwmPLQq5yNi
+	m0rYxrsUom3fR9J8afJo9xpCKLXb6L3ZjkBKiuQDnxIrWaHo07hHIQ7YlVCzet04JyX8mkmTsLhdq
+	lh3Tw3oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmE3-0000000Cas6-3oU2;
-	Mon, 20 Oct 2025 09:30:47 +0000
-Received: from mail.simonwunderlich.de ([23.88.38.48])
+	id 1vAmFu-0000000CbBn-2hUy;
+	Mon, 20 Oct 2025 09:32:42 +0000
+Received: from mail-m16.yeah.net ([1.95.21.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmE1-0000000Caqk-04of;
-	Mon, 20 Oct 2025 09:30:46 +0000
-Received: from ripper.localnet (p200300c59748F6e00000000000000c00.dip0.t-ipconnect.de [IPv6:2003:c5:9748:f6e0::c00])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.simonwunderlich.de (Postfix) with ESMTPSA id 2476BFA130;
-	Mon, 20 Oct 2025 11:30:38 +0200 (CEST)
-From: Sven Eckelmann <se@simonwunderlich.de>
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
- Sean Wang <sean.wang@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH mt76 v3] wifi: mt76: Fix DTS power-limits on little endian systems
-Date: Mon, 20 Oct 2025 11:30:37 +0200
-Message-ID: <2453774.NG923GbCHz@ripper>
-In-Reply-To: <20251020-fix-power-limits-v3-1-019d2e49239a@simonwunderlich.de>
-References: <20251020-fix-power-limits-v3-1-019d2e49239a@simonwunderlich.de>
+	id 1vAmFr-0000000CbAC-45Vo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Oct 2025 09:32:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=n/CPIzx5KaL4TyTuJmekW/24AWANlyqw3dcl3WFRWCE=;
+	b=f+td/ulGtsPQnMf4UyE9j/iAeHqvY2m6HE3o3yyNzMK9d9OTLoJmJTOHjc25wj
+	YJf6h4X9eVPS8jKXFSIktaRYEv+9nHu7dkShH6/qYgKai+seF6B5DFdOSge0elUr
+	zOpjYkLOmANepEswQHnkajIgM/Z0ouimRwMktRf2qkcYU=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgB3zxWZAfZoV+ZTAA--.12317S3;
+	Mon, 20 Oct 2025 17:32:11 +0800 (CST)
+Date: Mon, 20 Oct 2025 17:32:09 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Olof Johansson <olof@lixom.net>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev
+Subject: Re: [PATCH 3/3] arm64: dts: fsl-lx2160a: include rev2 chip's dts
+Message-ID: <aPYBmXdpZyO0b62F@dragon>
+References: <20240826-2160r2-v1-0-106340d538d6@nxp.com>
+ <20240826-2160r2-v1-3-106340d538d6@nxp.com>
+ <20250923111038.qluh2kjmc534ytig@skbuf>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart880480923.0ifERbkFSE";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250923111038.qluh2kjmc534ytig@skbuf>
+X-CM-TRANSID: Ms8vCgB3zxWZAfZoV+ZTAA--.12317S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU2puAUUUUU
+X-Originating-IP: [121.224.201.6]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNRw-pGj2AZwdHAAA3w
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_023045_217463_1A220604 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20251020_023240_394760_FD944DEF 
+X-CRM114-Status: UNSURE (   8.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,57 +82,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart880480923.0ifERbkFSE
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Sven Eckelmann <se@simonwunderlich.de>
-Date: Mon, 20 Oct 2025 11:30:37 +0200
-Message-ID: <2453774.NG923GbCHz@ripper>
-MIME-Version: 1.0
+On Tue, Sep 23, 2025 at 02:10:38PM +0300, Vladimir Oltean wrote:
+> Sorry for digging up an old thread, but I'm curious why you applied
+> patch 2/3 but not this one? Currently,
+> arch/arm64/boot/dts/freescale/fsl-lx2160a-rev2.dtsi has no user.
 
-On Monday, 20 October 2025 11:20:53 CEST Sven Eckelmann (Plasma Cloud) wrote:
-> The power-limits for ru and mcs and stored in the devicetree as bytewise
-> array (often with sizes which are not a multiple of 4). These arrays have a
-> prefix which defines for how many modes a line is applied. This prefix is
-> also only a byte - but the code still tried to fix the endianness of this
-> byte with a be32 operation. As result, loading was mostly failing or was
-> sending completely unexpected values to the firmware.
-> 
-> Since the other rates are also stored in the devicetree as bytewise arrays,
-> just drop the u32 access + be32_to_cpu conversion and directly access them
-> as bytes arrays.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 22b980badc0f ("mt76: add functions for parsing rate power limits from DT")
-> Fixes: a9627d992b5e ("mt76: extend DT rate power limits to support 11ax devices")
-> Signed-off-by: Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
-> ---
-> Changes in v3:
-> - add "mt76" as addition prefix after "PATCH" as requested by Zhi-Jun You
-> - Link to v2: https://lore.kernel.org/r/20250926-fix-power-limits-v2-1-c2bc7881eb6d@simonwunderlich.de
+I'm not sure how I missed it :)  Thanks for asking.  Applied now.
 
-Seems like the v2 was already picked up [1] and I've simply missed it.
-
-Sorry about the noise,
-	Sven
-
-[1] https://github.com/nbd168/wireless/commit/3d63b5084c50607fff84d17d2727c3bab8190d8e
-
---nextPart880480923.0ifERbkFSE
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQS81G/PswftH/OW8cVND3cr0xT1ywUCaPYBPQAKCRBND3cr0xT1
-y4ebAQCwb9tDygtnPh36+fO93hSzJLDBcmb2cPfpL0IU63CHWAD/VAvazvuQmmS1
-TBo61BmhKvF9W99jw9t2dIur+vxrSA0=
-=hC3z
------END PGP SIGNATURE-----
-
---nextPart880480923.0ifERbkFSE--
-
-
+Shawn
 
 
