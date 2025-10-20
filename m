@@ -4,54 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED4BDCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60D0CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 14:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fx5UJrzS36PVxVU6im8pH4mB1mBGzlo1nOoA/Rr/B+8=; b=1y/MGMhW5tWJH05PRApfPUnXaI
-	5aU9jgB8h8Q6t5ZvUKSfbT/qvXAOfIKaP5/eJ6OEr12FO6uDOSgflMBOYASNLpU92cNGl55HFludx
-	cJP8p+ypoWh5sM0OX9r5dvCR/c4iHXZBehe0M90xh2hBbA+Y7ZVNob9bf3uPNkU2VmgnNMRbLshIS
-	GHF2QXcDGU07hNFmCBdfiZWczeaUTbs6ljU32rMaJg/Hznfrf//bROwUZVPJjl7LIHyANk4FYa0v1
-	jigipiKh9JaRRqUdjN7Q3hvHIIqdhZ2us7iq8fHECOEKfkzlJyXwHKoaqOwd5k4eAGJEl0cOCPP7G
-	u6zSbwFA==;
+	bh=AT8kvrM/pmB47OHQy99Ebe3K0Er153ALtlnbPz3lC68=; b=02V9JZqFd8l4bF+L0chcR+YrJY
+	wLTRZ6YVrVzkpS++wmNiEmgXDC+gGxtYxsx1jan3jOgD7xYX6I4phXwSKkNXrYpjXNGXbK8bl75fN
+	d1hcndW9t5RQRGGCs3VUNXbtqw/0gocDFuyL+sZO+/3xoVagVr4z0s/HCb1msmG75Wm+f8d4w4ckp
+	MjtHT9UzlbgcoATL7tPIy9Jo8T3LbVYcVVMCm6jekrRL1RIHPTVN2gvvWFmtB9Oj72puHI9J02Hn7
+	x/r4eDcRtvmNVBNiHv+R3c3TnfUSwePIisatbNde/2w1H002audFQAkRGvs+ZsqIMgE8rbOfMMgbe
+	7O3Z7MGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAr0o-0000000DyzV-08wq;
-	Mon, 20 Oct 2025 14:37:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAr0k-0000000DyyQ-1kUi
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 14:37:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2222A1063;
-	Mon, 20 Oct 2025 07:37:13 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 95D9D3F63F;
-	Mon, 20 Oct 2025 07:37:20 -0700 (PDT)
-Date: Mon, 20 Oct 2025 15:37:18 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Xiaoqi Zhuang <xiaoqi.zhuang@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH] coresight: ETR: Fix ETR buffer use-after-free issue
-Message-ID: <20251020143718.GH281971@e132581.arm.com>
-References: <20251020-fix_etr_issue-v1-1-902ab51770b4@oss.qualcomm.com>
+	id 1vAr7e-0000000Dzer-3bO1;
+	Mon, 20 Oct 2025 14:44:30 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAr7c-0000000Dzdq-0oyM;
+	Mon, 20 Oct 2025 14:44:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=AT8kvrM/pmB47OHQy99Ebe3K0Er153ALtlnbPz3lC68=; b=MZzlvL561DhtDq2BnjgVNhw48X
+	LdAaF8ZhQcfaQgm+NAamiJkMr1WoA4Bu+vWxwcgA8s87SSytjOE920W12HnSzH968gx/MuzEGhHbD
+	cxjoHsx9T4BY87bsYn+dVVg21RLcSxSSZbHPwh/7s9VIQwrPjqWLzq1mshNxOI0TOHOscFvu+d8Sq
+	F8u1vl5xdWcg4gPAi9uiykIAgMyOVqoUA+jxcMMYASFvKKrhHMPFL0BNMUBxYkBFH+mLSmYOfHq0q
+	llao0jVA859vPzpB2Wgb3Sp+Zv9DYtQn369m9EtC0CggdZFfCJK2HoqdkAX5ODls1ZArzmC0j1iiq
+	PKgScYYw==;
+Received: from [212.111.240.218] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vAr7W-0002MH-Fu; Mon, 20 Oct 2025 16:44:22 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Alexey Charkov <alchark@gmail.com>, Algea Cao <algea.cao@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Cenk Uluisik <cenk.uluisik@googlemail.com>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Jimmy Hon <honyuenkwun@gmail.com>, Kever Yang <kever.yang@rock-chips.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>,
+ Muhammed Efe Cetin <efectn@6tel.net>, Ondrej Jirman <megi@xff.cz>,
+ Rob Herring <robh@kernel.org>, Sandy Huang <hjc@rock-chips.com>
+Subject: Re: [PATCH v2 0/5] arm64: dts: rockchip: Add device tree for the Orange Pi
+ CM5 Base board
+Date: Mon, 20 Oct 2025 16:44:21 +0200
+Message-ID: <2328202.iZASKD2KPV@phil>
+In-Reply-To: <20251005235542.1017-1-laurent.pinchart@ideasonboard.com>
+References: <20251005235542.1017-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251020-fix_etr_issue-v1-1-902ab51770b4@oss.qualcomm.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_073722_547675_6C7F71DA 
-X-CRM114-Status: GOOD (  33.89  )
+X-CRM114-CacheID: sfid-20251020_074428_232311_89B641A1 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,255 +79,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 20, 2025 at 05:06:46PM +0800, Xiaoqi Zhuang wrote:
-> When ETR is enabled as CS_MODE_SYSFS, if the buffer size is changed
-> and enabled again, currently sysfs_buf will point to the newly
-> allocated memory(buf_new) and free the old memory(buf_old). But the
-> etr_buf that is being used by the ETR remains pointed to buf_old, not
-> updated to buf_new. In this case, it will result in a memory
-> use-after-free issue.
+Hi Laurent,
 
-I struggled to understand how to reproduce the issue under the condition
-"if the buffer size is changed and enabled again."
+Am Montag, 6. Oktober 2025, 01:55:36 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Laurent Pinchart:
+> Hello,
+>=20
+> This patch series adds a device tree for the Orange Pi CM5 Base board
+> from Xunlong. This is a combination of a compute module and a carrier
+> board, so the device tree is split in two files.
+>=20
+> The work is based on a combination of upstream device trees for other
+> RK3588-based Orange Pi boards and the downstream device tree, all
+> checked against the available schematics for the carrier board. The
+> compute module schematics is unfortunately not available.
+>=20
+> The series starts with three patches that add a new tmds-enable-gpios
+> property to the rk3588-dw-hdmi-qp DT binding (1/5) and update the driver
+> accordingly (2/5 and 3/5). Those patches have been authored by Cristian
+> Ciocaltea as part of a larger series, I have incorporated them here
+> as-is.
+>=20
+> Patch 4/5 then add a new compatible for the board to arm/rockchip.yaml.
+> The last patch (5/5) adds the device tree for the board.
+>=20
+> Patches 2/5 and 3/5 could be merged separately through the DRM tree,
+> but patch 1/5 needs to be merged with the device tree in 5/5 to avoid
+> introducing DT validation warnings. I'd appreciate advice from the DT
+> maintainers regarding how to handle this, as I have been told before
+> that DT bindings and DT sources can't be merged through the same tree.
 
-I don't think the flow below where the trace is re-enabled would cause
-an issue:
+I think we generally only care about binding warnings happening
+in linux-next.
 
-  - Step 1: Enable trace path between ETM0 -> ETR0;
-  - Step 2: Change the buffer size for ETR0;
-  - Step 3: Disable trace path between ETM0 -> ETR0;
-  - Step 4: Enable again trace path between ETM0 -> ETR0.
+I.e. in most cases, the binding is merged with the driver and
+the dts then into a separate tree - sort of ignoring the local
+binding error, because everything will be fine once stuff comes
+together in linux-next.
 
-In this case, step3 releases the buffer and update "drvdata->etr_buf" to
-NULL, and step 4 allocates a new buffer and assign it to
-"drvdata->etr_buf".
 
-The problem should occur when operating on two trace paths, E.g.,
+Speaking of bindings, does your board _need_ the frl-gpio to produce
+any hdmi output? Like could we merge the board without the (optional)
+gpio and then add it later, once the binding+driver have made it in?
 
-  - Step 1: Enable trace path between ETM0 -> ETR0;
-  - Step 2: Change the buffer size for ETR0;
-  - Step 3: Enable trace path between ETM1 -> ETR0;
+Just me trying to grab the big chunks earlier in the cycle.
 
-In step3, the driver releases the existed buffer and allocate a new one.
-At the meantime, "drvdata->etr_buf" still holds the buffer allocated in
-step 1.
 
-> Fix this by checking ETR's mode before updating and releasing buf_old,
-> if the mode is CS_MODE_SYSFS, then skip updating and releasing it.
+Thanks
+Heiko
 
-Given that we now have a couple of reported issues related to ETR mode,
-I'd like to refactor the ETR mode handling and its reference counting
-thoroughly.  I've drafted a large change (it's quite big, but we can
-split it into small patches if we agree to proceed).
 
-Thanks for reporting the issue!
-
-Leo
-
----8<---
-
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-index b07fcdb3fe1a..d0fac958c614 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-@@ -1241,6 +1241,8 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 	struct etr_buf *sysfs_buf = NULL, *new_buf = NULL, *free_buf = NULL;
- 
-+	WARN_ON(coresight_get_mode(csdev) != CS_MODE_SYSFS);
-+
- 	/*
- 	 * If we are enabling the ETR from disabled state, we need to make
- 	 * sure we have a buffer with the right size. The etr_buf is not reset
-@@ -1263,7 +1265,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
- 		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
- 	}
- 
--	if (drvdata->reading || coresight_get_mode(csdev) == CS_MODE_PERF) {
-+	if (drvdata->reading) {
- 		ret = -EBUSY;
- 		goto out;
- 	}
-@@ -1292,30 +1294,14 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
- 	int ret = 0;
- 	unsigned long flags;
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
--	struct etr_buf *sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
-+	struct etr_buf *sysfs_buf;
- 
-+	sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
- 	if (IS_ERR(sysfs_buf))
- 		return PTR_ERR(sysfs_buf);
- 
- 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
--
--	/*
--	 * In sysFS mode we can have multiple writers per sink.  Since this
--	 * sink is already enabled no memory is needed and the HW need not be
--	 * touched, even if the buffer size has changed.
--	 */
--	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
--		csdev->refcnt++;
--		goto out;
--	}
--
- 	ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
--	if (!ret) {
--		coresight_set_mode(csdev, CS_MODE_SYSFS);
--		csdev->refcnt++;
--	}
--
--out:
- 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
- 
- 	if (!ret)
-@@ -1735,11 +1721,6 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
- 	struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
- 
- 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
--	 /* Don't use this sink if it is already claimed by sysFS */
--	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
--		rc = -EBUSY;
--		goto unlock_out;
--	}
- 
- 	if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
- 		rc = -EINVAL;
-@@ -1759,18 +1740,14 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
- 	 * No HW configuration is needed if the sink is already in
- 	 * use for this session.
- 	 */
--	if (drvdata->pid == pid) {
--		csdev->refcnt++;
-+	if (drvdata->pid == pid)
- 		goto unlock_out;
--	}
- 
- 	rc = tmc_etr_enable_hw(drvdata, etr_perf->etr_buf);
- 	if (!rc) {
- 		/* Associate with monitored process. */
- 		drvdata->pid = pid;
--		coresight_set_mode(csdev, CS_MODE_PERF);
- 		drvdata->perf_buf = etr_perf->etr_buf;
--		csdev->refcnt++;
- 	}
- 
- unlock_out:
-@@ -1778,17 +1755,76 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
- 	return rc;
- }
- 
-+static int tmc_acquire_mode(struct coresight_device *csdev, enum cs_mode mode)
-+{
-+	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-+
-+	if (mode != CS_MODE_SYSFS && mode != CS_MODE_PERF)
-+		return -EINVAL;
-+
-+	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock);
-+
-+	if (coresight_get_mode(csdev) == CS_MODE_DISABLED) {
-+		if (!csdev->refcnt)
-+			coresight_set_mode(csdev, mode);
-+		csdev->refcnt++;
-+	} else if (coresight_get_mode(csdev) != mode) {
-+		ret = -EBUSY;
-+	}
-+
-+	return csdev->refcnt;
-+}
-+
-+static void tmc_release_mode(struct coresight_device *csdev, enum cs_mode mode)
-+{
-+	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-+
-+	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock);
-+
-+	if (WARN_ON(coresight_get_mode(csdev) != mode))
-+		return;
-+
-+	csdev->refcnt--;
-+	if (!csdev->refcnt)
-+		coresight_set_mode(csdev, CS_MODE_DISABLED);
-+}
-+
- static int tmc_enable_etr_sink(struct coresight_device *csdev,
- 			       enum cs_mode mode, void *data)
- {
-+	unsigned long flags;
-+	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-+	int ret;
-+
-+	ret = tmc_acquire_mode(csdev, mode);
-+	if (ret < 0)
-+		return ret;
-+
-+	/*
-+	 * For sysfs mode, the higher level mutex ensures exclusively
-+	 * enabling sink, it is safe to bail out if this is not the
-+	 * first time to enable sink.
-+	 *
-+	 * A perf session can enable the same sink simultaneously, fall
-+	 * through to call tmc_enable_etr_sink_perf() to ensure the sink
-+	 * has been enabled.
-+	 */
-+	if (mode == CS_MODE_SYSFS && ret > 1)
-+		return 0;
-+
- 	switch (mode) {
- 	case CS_MODE_SYSFS:
--		return tmc_enable_etr_sink_sysfs(csdev);
-+		ret = tmc_enable_etr_sink_sysfs(csdev);
- 	case CS_MODE_PERF:
--		return tmc_enable_etr_sink_perf(csdev, data);
-+		ret = tmc_enable_etr_sink_perf(csdev, data);
- 	default:
--		return -EINVAL;
-+		ret = -EINVAL;
- 	}
-+
-+	if (ret)
-+		tmc_release_mode(csdev, mode);
-+
-+	return ret;
- }
- 
- static int tmc_disable_etr_sink(struct coresight_device *csdev)
-@@ -1796,30 +1832,20 @@ static int tmc_disable_etr_sink(struct coresight_device *csdev)
- 	unsigned long flags;
- 	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 
--	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-+	tmc_release_mode(csdev, mode);
- 
--	if (drvdata->reading) {
--		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
--		return -EBUSY;
--	}
-+	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock);
- 
--	csdev->refcnt--;
--	if (csdev->refcnt) {
--		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-+	if (csdev->refcnt || drvdata->reading)
- 		return -EBUSY;
--	}
- 
--	/* Complain if we (somehow) got out of sync */
--	WARN_ON_ONCE(coresight_get_mode(csdev) == CS_MODE_DISABLED);
-+	if (drvdata->pid == -1)
-+		return 0;
-+
- 	tmc_etr_disable_hw(drvdata);
--	/* Dissociate from monitored process. */
--	drvdata->pid = -1;
--	coresight_set_mode(csdev, CS_MODE_DISABLED);
- 	/* Reset perf specific data */
- 	drvdata->perf_buf = NULL;
- 
--	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
--
- 	dev_dbg(&csdev->dev, "TMC-ETR disabled\n");
- 	return 0;
- }
 
