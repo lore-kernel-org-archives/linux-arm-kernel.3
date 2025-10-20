@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2354DCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1781CCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OnrXY4nKtL41DrpWV6jY8HibEUgELK3MwgT78fRwTko=; b=MMaM3dnTUKsyTN3wBJV4T+3gPI
-	lu6s8vvyP4u/IYt22EbtQUfOvWx2s8xdv8HYc68dwnysWJyJ+kfhv5PbsQDvwn0PeADnrF7Dowpzq
-	emyuvTt1boilszvO0BBv8zbnhLWkU0DxVlfcVgltdWeJ0dT7AJxdkdb5jic491u90K3KB3vGTjcq4
-	8VJtORnTsh7sBRHCtvr3qNGyCNCJzK8UJGnNKFOMGCht7/V+E7lcAKs1WefzITuyHIIsbDrnczl9p
-	opoqxvmX0viFF/9Y1QSQkmI/Y18yZee9YGYD9g/Cx2Ie/H32u79Xxbbjsyljhg0s7i/yfVWgOIv8T
-	i8wewN5A==;
+	bh=RiKXRUXn6xq6TYoI+Rs6kF3Uk5jW2G5xFTPNGqprSqc=; b=tGZ0LCGvnIMQBTOzAO/3wAg2AT
+	AfnXI4pwQRJYf5WebC5eryNXqFv0KbLJq9Eml3LhloA4OyIMi1zuyDOUYhKEqWSTpPRK7Y7zgFfy+
+	ZxeeL1aTh5phG5TjfmSut+mBGWjhZVsr8EAGYkyUV6BFtsnUUQCkUuvnYoNJ7fbfc58geucHQz67I
+	sMgH2O9cxk0S+1IHxwZ0GLFnx3CUP+ZY7XRvaj9bXc0pZV7skYV4Zn7wuloG1MVHrTmoHktfGCDjq
+	62A/fBJqIcLo0gCQCQMoUL0uQQkNAGta0FTIEODh05lZmfmyZTPAHG5e2JS5u+VPDoKeBs3E2uxCW
+	o8853gJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp4E-0000000DUZc-21x5;
-	Mon, 20 Oct 2025 12:32:50 +0000
+	id 1vAp4J-0000000DUiG-0CDS;
+	Mon, 20 Oct 2025 12:32:55 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp2A-0000000DRf9-3Rtt
+	id 1vAp2B-0000000DRgh-2seQ
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 20 Oct 2025 12:30:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=OnrXY4nKtL41DrpWV6jY8HibEUgELK3MwgT78fRwTko=; b=e9e+oFSF8zZBB01pZEwK+piw+y
-	L8zRRbRNa25u5/9LwU1aTEYAPBu66zqq/59akfbWtPs1QD23l4eKW59vpcFPzMAwPPNlvRinmPr89
-	9V7SiJtJpix72CQKiBVSd58bRmslnDUtxgb1bfNjj6lN9MK1+NBz80XLM8R0L+xBcmfFSSOb105ij
-	+LbxFhJTtIJpeNPcCbQXeXi/bT1OG/Qmpw/6O4eHbZQ9FVjZd+X5/QBjKIPMZxHWNjXavSXlFTxFw
-	4waPD+c1EeIu4pl7drZrjY+O0XpT3AkLPwt1hR48nhMJu1L27lKEZp9XHnTW/u/wdBdNFB0z4mBLT
-	yrwCwoYA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
+	bh=RiKXRUXn6xq6TYoI+Rs6kF3Uk5jW2G5xFTPNGqprSqc=; b=WwUsKfyiuR1RFOaKF3BD5nlZFo
+	2w/261YzzeqNnM6MAaLguLt2WJtPVZXA3ne47d77Vr8xJ/XMDFJu0GLI/tr/91OUlhUxkQePewdbq
+	jsK3uHNP2Q1P/oLgdo2ClFi1tnVXMxQBwhK050bjHWm2aN+i5zGRdjrCjjCNObnaHZuFxaFbCVDi/
+	UXMJXzSgscPLrviHN9KVjy7cye+rsBx2NcBJri5/pSnX6r/zRDAJhfJcgJ7Zry7J/+Fdwu1o66PQS
+	G/YOPwlQnSITcpo15qHC6sdkJXQaMn4zxOYlViIGKwkQT5EO2qbssSlJb+XBi0R4G2L95rc5cLwed
+	6ZQLNmLg==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAp26-000000074I0-0Aaj
+	id 1vAp26-000000074BW-30VC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 12:30:41 +0000
+	Mon, 20 Oct 2025 12:30:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 014FB48AFE;
-	Mon, 20 Oct 2025 12:30:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5F76C113D0;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6DCDC450A5;
+	Mon, 20 Oct 2025 12:30:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51595C16AAE;
 	Mon, 20 Oct 2025 12:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1760963415;
-	bh=htSs6qqxEyUkJEeEv+pmd+ZSERdhl17dnq7eKn3pDqM=;
+	bh=SD2Umc58RAYBDBTzYKG/F/oMtl5Yq55ujhMJL6VW3lo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=s6FeGFXGf4zUQ1CRmobuEBTrFzc9EE4Qx19Ed6FX4QXvPbP7Lu7+5FnWqJL5I4S+Y
-	 aHMvqc5csDW5SoatyZcuw3/Q3a+jPjf109jtrY4yq2q6ozae1oTR0TPKIOdzJRp71K
-	 CN7E0UbtV1eatoJ442jE7sH5Evuhl9ygJpLUFQAzgzBboolpS6Kiv+/PMpeaQWaFUM
-	 /jxLT5pIgJspwc5l8766QQdclrx3E1OnaZBo8XURYcNtBKnEwj5+NnmetsF+YC+jaD
-	 Ti+U9ho97BWJ2WCcWZyijdT+WjysIf4zlqvU8ehZJ6qhsyR1mEZv1ToDkKxIiy1xr2
-	 oFSFYXW6ts+2A==
+	b=ile+P+67iCccGOyk8MsETfiEbnx1XINkCvcKe1oS0JLCfbTSO6bT5eLL1vmiGqjlY
+	 hW69mpFQsuZRRCUr2MHzNB0BplAZGaajF29Ib6eGFJZXT1zTgDOaARtI5ANTmyU+ZZ
+	 gGpQzF7tzGoVsvXdCoj9vcONOvx8w2RIZQ/6e9LIOQFFVTTnLBxUZXg/jbtMlunIoV
+	 x+ksrfeGMsm+ki0fYJydhWoCovfcZYBckl7k4M/RZTqcnzQY8f8p/sJX4iAcFEOzgf
+	 7PivfJRjM2RCYW1FPjrehrX+B3Vbu0YmNghcWa/OLZn7wKelAP5ha/bcGar7EA8QQO
+	 DrJtcUBDZH4KQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vAp1i-0000000FUu2-0Esd;
-	Mon, 20 Oct 2025 12:30:14 +0000
+	id 1vAp1h-0000000FUu2-1rqN;
+	Mon, 20 Oct 2025 12:30:13 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -81,9 +81,9 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>,
 	Jinjie Ruan <ruanjinjie@huawei.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH v4 22/26] irqchip/apple-aic: Drop support for custom PMU irq partitions
-Date: Mon, 20 Oct 2025 13:29:39 +0100
-Message-ID: <20251020122944.3074811-23-maz@kernel.org>
+Subject: [PATCH v4 20/26] coresight: trbe: Request specific affinities for percpu IRQ
+Date: Mon, 20 Oct 2025 13:29:37 +0100
+Message-ID: <20251020122944.3074811-21-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251020122944.3074811-1-maz@kernel.org>
 References: <20251020122944.3074811-1-maz@kernel.org>
@@ -94,8 +94,8 @@ X-SA-Exim-Rcpt-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradea
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_133039_631977_62DBBA45 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20251020_133040_136314_E246B0CE 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,71 +110,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similarly to what has been done for GICv3, drop the irq partitioning
-support from the AIC driver, effectively merging the two per-cpu
-interrupts for the PMU.
+Let the TRBE driver request IRQs with an affinity mask matching
+the TRBE implementation affinity.
 
-Reviewed-by: Sven Peter <sven@kernel.org>
+Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Tested-by: Will Deacon <will@kernel.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/irqchip/irq-apple-aic.c | 28 +++++++---------------------
- 1 file changed, 7 insertions(+), 21 deletions(-)
+ drivers/hwtracing/coresight/coresight-trbe.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
-index cb8b6f40ce8d3..6305d25b9e77b 100644
---- a/drivers/irqchip/irq-apple-aic.c
-+++ b/drivers/irqchip/irq-apple-aic.c
-@@ -578,16 +578,9 @@ static void __exception_irq_entry aic_handle_fiq(struct pt_regs *regs)
- 	}
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index 8f17160fec442..9f64f463339d6 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -1494,7 +1494,8 @@ static int arm_trbe_probe_irq(struct platform_device *pdev,
+ 	if (!drvdata->handle)
+ 		return -ENOMEM;
  
- 	if ((read_sysreg_s(SYS_IMP_APL_PMCR0_EL1) & (PMCR0_IMODE | PMCR0_IACT)) ==
--			(FIELD_PREP(PMCR0_IMODE, PMCR0_IMODE_FIQ) | PMCR0_IACT)) {
--		int irq;
--		if (cpumask_test_cpu(smp_processor_id(),
--				     &aic_irqc->fiq_aff[AIC_CPU_PMU_P]->aff))
--			irq = AIC_CPU_PMU_P;
--		else
--			irq = AIC_CPU_PMU_E;
-+			(FIELD_PREP(PMCR0_IMODE, PMCR0_IMODE_FIQ) | PMCR0_IACT))
- 		generic_handle_domain_irq(aic_irqc->hw_domain,
--					  AIC_FIQ_HWIRQ(irq));
--	}
-+					  AIC_FIQ_HWIRQ(AIC_CPU_PMU_P));
- 
- 	if (static_branch_likely(&use_fast_ipi) &&
- 	    (FIELD_GET(UPMCR0_IMODE, read_sysreg_s(SYS_IMP_APL_UPMCR0_EL1)) == UPMCR0_IMODE_FIQ) &&
-@@ -632,18 +625,7 @@ static int aic_irq_domain_map(struct irq_domain *id, unsigned int irq,
- 				    handle_fasteoi_irq, NULL, NULL);
- 		irqd_set_single_target(irq_desc_get_irq_data(irq_to_desc(irq)));
- 	} else {
--		int fiq = FIELD_GET(AIC_EVENT_NUM, hw);
--
--		switch (fiq) {
--		case AIC_CPU_PMU_P:
--		case AIC_CPU_PMU_E:
--			irq_set_percpu_devid_partition(irq, &ic->fiq_aff[fiq]->aff);
--			break;
--		default:
--			irq_set_percpu_devid(irq);
--			break;
--		}
--
-+		irq_set_percpu_devid(irq);
- 		irq_domain_set_info(id, irq, hw, &fiq_chip, id->host_data,
- 				    handle_percpu_devid_irq, NULL, NULL);
- 	}
-@@ -732,6 +714,10 @@ static int aic_irq_domain_translate(struct irq_domain *id,
- 				break;
- 			}
- 		}
-+
-+		/* Merge the two PMUs on a single interrupt */
-+		if (*hwirq == AIC_CPU_PMU_E)
-+			*hwirq = AIC_CPU_PMU_P;
- 		break;
- 	default:
- 		return -EINVAL;
+-	ret = request_percpu_irq(drvdata->irq, arm_trbe_irq_handler, DRVNAME, drvdata->handle);
++	ret = request_percpu_irq_affinity(drvdata->irq, arm_trbe_irq_handler, DRVNAME,
++					  affinity, drvdata->handle);
+ 	if (ret) {
+ 		free_percpu(drvdata->handle);
+ 		return ret;
 -- 
 2.47.3
 
