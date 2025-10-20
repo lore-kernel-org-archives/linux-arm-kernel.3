@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B19D5CCD1A5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31EB4CCD1A7
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 00:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2AmbYkq6G8J5zZaglrVX+fCURb9cATRUgN4aAkU+xiE=; b=kltCibdthR/zm+mCKes2sMTcp1
-	E1FKzZL5eCjXM01O6wJAsQNrACEV1zqnisnD5BpbCqThEgKZG8j0FOqitH7N6TnNieRPvtms81gFz
-	9cwLGvbJs6DNP4mcdoLNjAac4MVsRXUdZznHjzErZvP7vjMu/RPhV+I055a7DEgu/ubTG8An0Tu9d
-	Rwiiq8J/8Vux4dfX8u3tPJ78DTc4lnEbglCoTTdraEG7Sr68LiZWG8v6jhxbR5Ep5EADMNOgJr64Z
-	u6PJQsGePHgyE3gau4oRNIa00NfMZB126Qy6vUvtJpTylJ5K8JHpQhvOyg7ws6rkKpUYLw0dYNL5G
-	x1ky/R1w==;
+	bh=kvmZOAD9jNf6vxVKppHcwz1oxlpOixMF/GZAF/45xaQ=; b=YItEgXFXclojfOKUK2d8JkjtNp
+	r/t26RkExhOO9ZAXNKkpD4ZordUZS/ujHFQ+BmUJjKB07prdHdys2JsuPEuGnQ6zDW+cL3ALqM0je
+	4JGuiSsqLSFEYmvkLLNpwGbNl6nx894UTVl+iOh1u7euCYoROa4/flZk8YW77lququR6BhQ3vtE+A
+	SAJ0xMQUqvX4c3+hVHWDlY1Tc5PXC+DYVpiA6PuHTETlhc4vr2ZJ2BkzGb2n/SQHkA4mbDyOyMW1x
+	dRQvbJqd+ko3bAdpU1PMPzaKQkLbD2x+PyzCT8r9w1Ap0PK3F4HV51GdqNlY3V+IUlvf9EoeI2G6q
+	LEH8/ZlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAeA4-0000000BZnP-0iX7;
-	Mon, 20 Oct 2025 00:54:08 +0000
+	id 1vAeA1-0000000BZjB-2MjH;
+	Mon, 20 Oct 2025 00:54:05 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAe9k-0000000BZXt-2If0
+	id 1vAe9j-0000000BZWh-3o6n
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 20 Oct 2025 00:53:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6430861299;
-	Mon, 20 Oct 2025 00:53:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8F10C4CEE7;
-	Mon, 20 Oct 2025 00:53:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A20260097;
+	Mon, 20 Oct 2025 00:53:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7A8EC19422;
+	Mon, 20 Oct 2025 00:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760921618;
-	bh=zXkMPjNQfeAh7+9lKU8XzQRbjmrE7OEmEaBqTzm61Ic=;
+	s=k20201202; t=1760921613;
+	bh=sgZdv9/jC61EwAyz3+5yPn188L13C/HYwtzknEucV2Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FMf79vK7BhWJm1/j27q2jylG8NJxDE0tTvhYvkg10FR/aKnoQXZeozp2NIjtGhN48
-	 +kbPHC1uBrhheosAw//vmKyuK4mtPd4xvgEL6uDuAb53kHrx3n/10VTRBBEKkDjPYh
-	 fXRdUq03JkHqnurwJSgnfHVhBXL5+4fa9/MlkrUIUos+XGnKYV6RlrtpmNhEsrT7uD
-	 KPQEhXivMQyqvRQ2cqvIgG9u5yJXhwisAlWSHILCiBHKfY5kEY3vOg/VN4gINiP6nc
-	 W2uO8dERfy9RmHT7NfC86n82QMdMEWdOLDLXSunHUUWQypTcn0FcVsEEDWZv+zSbvx
-	 g4/Bky0kB6Eyg==
+	b=awA0qsyBkDffZ3ll3L/Xb8c76xfkuBADiDXlFTU+rEPGDvB+kJjfBomaaj+zgVpI7
+	 ibgRbrNVh5uSfMq8U+LK4pYHz2TerksDNqMHfZDBbQtzrK1JqXouPoROWylESIXDbc
+	 d29FltE2N/XImrp5VviHh7BTZqCetTkY91z1W/Y11MWwBpdXpBzMsdx72AYeXqPlME
+	 7xXbZnR9bD1nkPV2NE89xlqPm1xUHcPddZjlPkRt+6vFUvNqPmr3/433ohJSsyAE9T
+	 H8xoKl1YdyJrgSInHqNeIj1zw5eKHWO2IJPXb+Cx9Dt3H8+JDXMYImzdj3KTCgAUlK
+	 8nEiKEmekkEBw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: David Howells <dhowells@redhat.com>,
@@ -50,10 +50,12 @@ Cc: David Howells <dhowells@redhat.com>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-s390@vger.kernel.org,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 15/17] lib/crypto: s390/sha3: Migrate optimized code into library
-Date: Sun, 19 Oct 2025 17:50:36 -0700
-Message-ID: <20251020005038.661542-16-ebiggers@kernel.org>
+	Eric Biggers <ebiggers@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Stephan Mueller <smueller@chronox.de>
+Subject: [PATCH 03/17] lib/crypto: Add SHA3-224, SHA3-256, SHA3-384, SHA3-512, SHAKE128, SHAKE256
+Date: Sun, 19 Oct 2025 17:50:24 -0700
+Message-ID: <20251020005038.661542-4-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.1.dirty
 In-Reply-To: <20251020005038.661542-1-ebiggers@kernel.org>
 References: <20251020005038.661542-1-ebiggers@kernel.org>
@@ -73,750 +75,1379 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of exposing the s390-optimized SHA-3 code via s390-specific
-crypto_shash algorithms, instead just implement the sha3_absorb_blocks()
-and sha3_keccakf() library functions.  This is much simpler, it makes
-the SHA-3 library functions be s390-optimized, and it fixes the
-longstanding issue where the s390-optimized SHA-3 code was disabled by
-default.  SHA-3 still remains available through crypto_shash, but
-individual architectures no longer need to handle it.
+From: David Howells <dhowells@redhat.com>
 
-Note that the existing code used both CPACF_KIMD_SHA3_224 and
-CPACF_KIMD_SHA3_256 after checking for just CPACF_KIMD_SHA3_256, and
-similarly for 384 and 512.  I've preserved that behavior.
+Add SHA3, providing SHA3-224, SHA3-256, SHA3-384, SHA3-512, SHAKE128 and
+SHAKE256 to lib/crypto.
 
+Notes:
+
+ (1) I've left hooks in sha3.c for asm-optimised variants, but as I don't
+     entirely know what those might look like, not having implemented any,
+     the hooks' usability is uncertain.
+
+ (2) The SHAKE algorithms will be required for ML-DSA.
+
+Signed-off-by: David Howells <dhowells@redhat.com>
+cc: Eric Biggers <ebiggers@kernel.org>
+cc: Jason A. Donenfeld <Jason@zx2c4.com>
+cc: Ard Biesheuvel <ardb@kernel.org>
+cc: Herbert Xu <herbert@gondor.apana.org.au>
+cc: Stephan Mueller <smueller@chronox.de>
+cc: linux-crypto@vger.kernel.org
+
+Changes
+=======
+v4)
+ - Doc fixes:
+   - Fix the description of the algorithm to be closer to the NIST spec's
+     terminology.
+   - Don't talk of finialising the context for XOFs.
+   - Don't say "Return: None".
+   - Declare the "Context" to be "Any context" and make no mention of the
+     fact that it might use the FPU.
+   - Change "initialise" to "initialize".
+   - Don't warn that the context is relatively large for stack use.
+ - Use size_t for size parameters/variables.
+ - Make the module_exit unconditional.
+
+v3)
+ - Split the s390 function rename out to a separate patch.
+
+v2)
+ - Simplify things by keeping the state array in LE form and byteswapping
+   all the 64-bit words before and after applying the keccak function on a
+   BE system.  This means no byteswapping is required when XOR'ing data
+   into the state array or when extracting the digest.  Further, this is a
+   no-op on LE systems.
+
+ - Rename sha3_final() to sha3_squeeze() and don't clear the context at the
+   end as it's permitted to continue calling sha3_final() to extract
+   continuations of the digest (needed by ML-DSA).
+
+ - Don't reapply the end marker to the hash state in continuation
+   sha3_squeeze() unless sha3_update() gets called again (needed by
+   ML-DSA).
+
+ - Give sha3_squeeze() the amount of digest to produce as a parameter
+   rather than using ctx->digest_size and don't return the amount digested.
+
+ - Reimplement sha3_final() as a wrapper around sha3_squeeze() that
+   extracts ctx->digest_size amount of digest and then zeroes out the
+   context.  The latter is necessary to avoid upsetting
+   hash-test-template.h.
+
+ - Provide a sha3_reinit() function to clear the state, but to leave the
+   parameters that indicate the hash properties unaffected, allowing for
+   reuse.
+
+ - Provide a sha3_set_digestsize() function to change the size of the
+   digest to be extracted by sha3_final().  sha3_squeeze() takes a
+   parameter for this instead.
+
+ - Don't pass the digest size as a parameter to shake128/256_init() but
+   rather default to 128/256 bits as per the function name.
+
+- Provide a sha3_clear() function to zero out the context.
+
+Link: https://lore.kernel.org/r/20251017144311.817771-4-dhowells@redhat.com
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/s390/configs/debug_defconfig |   3 +-
- arch/s390/configs/defconfig       |   3 +-
- arch/s390/crypto/Kconfig          |  20 ----
- arch/s390/crypto/Makefile         |   2 -
- arch/s390/crypto/sha.h            |  51 ----------
- arch/s390/crypto/sha3_256_s390.c  | 157 ------------------------------
- arch/s390/crypto/sha3_512_s390.c  | 157 ------------------------------
- arch/s390/crypto/sha_common.c     | 117 ----------------------
- lib/crypto/Kconfig                |   1 +
- lib/crypto/s390/sha3.h            |  76 +++++++++++++++
- 10 files changed, 79 insertions(+), 508 deletions(-)
- delete mode 100644 arch/s390/crypto/sha.h
- delete mode 100644 arch/s390/crypto/sha3_256_s390.c
- delete mode 100644 arch/s390/crypto/sha3_512_s390.c
- delete mode 100644 arch/s390/crypto/sha_common.c
- create mode 100644 lib/crypto/s390/sha3.h
+ Documentation/crypto/index.rst |   1 +
+ Documentation/crypto/sha3.rst  | 241 ++++++++++++++++
+ include/crypto/sha3.h          | 433 +++++++++++++++++++++++++++-
+ lib/crypto/Kconfig             |   7 +
+ lib/crypto/Makefile            |   6 +
+ lib/crypto/sha3.c              | 511 +++++++++++++++++++++++++++++++++
+ 6 files changed, 1198 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/crypto/sha3.rst
+ create mode 100644 lib/crypto/sha3.c
 
-diff --git a/arch/s390/configs/debug_defconfig b/arch/s390/configs/debug_defconfig
-index b31c1df902577..5fdfebcfd50f2 100644
---- a/arch/s390/configs/debug_defconfig
-+++ b/arch/s390/configs/debug_defconfig
-@@ -790,10 +790,11 @@ CONFIG_CRYPTO_GCM=y
- CONFIG_CRYPTO_SEQIV=y
- CONFIG_CRYPTO_MD4=m
- CONFIG_CRYPTO_MD5=y
- CONFIG_CRYPTO_MICHAEL_MIC=m
- CONFIG_CRYPTO_RMD160=m
-+CONFIG_CRYPTO_SHA3=m
- CONFIG_CRYPTO_SM3_GENERIC=m
- CONFIG_CRYPTO_WP512=m
- CONFIG_CRYPTO_XCBC=m
- CONFIG_CRYPTO_CRC32=m
- CONFIG_CRYPTO_842=m
-@@ -803,12 +804,10 @@ CONFIG_CRYPTO_ZSTD=m
- CONFIG_CRYPTO_ANSI_CPRNG=m
- CONFIG_CRYPTO_USER_API_HASH=m
- CONFIG_CRYPTO_USER_API_SKCIPHER=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
--CONFIG_CRYPTO_SHA3_256_S390=m
--CONFIG_CRYPTO_SHA3_512_S390=m
- CONFIG_CRYPTO_GHASH_S390=m
- CONFIG_CRYPTO_AES_S390=m
- CONFIG_CRYPTO_DES_S390=m
- CONFIG_CRYPTO_HMAC_S390=m
- CONFIG_ZCRYPT=m
-diff --git a/arch/s390/configs/defconfig b/arch/s390/configs/defconfig
-index 161dad7ef211a..7bac3f53a95b0 100644
---- a/arch/s390/configs/defconfig
-+++ b/arch/s390/configs/defconfig
-@@ -774,10 +774,11 @@ CONFIG_CRYPTO_GCM=y
- CONFIG_CRYPTO_SEQIV=y
- CONFIG_CRYPTO_MD4=m
- CONFIG_CRYPTO_MD5=y
- CONFIG_CRYPTO_MICHAEL_MIC=m
- CONFIG_CRYPTO_RMD160=m
-+CONFIG_CRYPTO_SHA3=m
- CONFIG_CRYPTO_SM3_GENERIC=m
- CONFIG_CRYPTO_WP512=m
- CONFIG_CRYPTO_XCBC=m
- CONFIG_CRYPTO_CRC32=m
- CONFIG_CRYPTO_842=m
-@@ -788,12 +789,10 @@ CONFIG_CRYPTO_ANSI_CPRNG=m
- CONFIG_CRYPTO_JITTERENTROPY_OSR=1
- CONFIG_CRYPTO_USER_API_HASH=m
- CONFIG_CRYPTO_USER_API_SKCIPHER=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
--CONFIG_CRYPTO_SHA3_256_S390=m
--CONFIG_CRYPTO_SHA3_512_S390=m
- CONFIG_CRYPTO_GHASH_S390=m
- CONFIG_CRYPTO_AES_S390=m
- CONFIG_CRYPTO_DES_S390=m
- CONFIG_CRYPTO_HMAC_S390=m
- CONFIG_ZCRYPT=m
-diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
-index 03f73fbd38b62..f838ca055f6d7 100644
---- a/arch/s390/crypto/Kconfig
-+++ b/arch/s390/crypto/Kconfig
-@@ -1,29 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0
+diff --git a/Documentation/crypto/index.rst b/Documentation/crypto/index.rst
+index 100b47d049c04..4ee667c446f99 100644
+--- a/Documentation/crypto/index.rst
++++ b/Documentation/crypto/index.rst
+@@ -25,5 +25,6 @@ for cryptographic use cases, as well as programming examples.
+    api
+    api-samples
+    descore-readme
+    device_drivers/index
+    krb5
++   sha3
+diff --git a/Documentation/crypto/sha3.rst b/Documentation/crypto/sha3.rst
+new file mode 100644
+index 0000000000000..3255618ea2ec3
+--- /dev/null
++++ b/Documentation/crypto/sha3.rst
+@@ -0,0 +1,241 @@
++.. SPDX-License-Identifier: GPL-2.0-or-later
++
++==========================
++SHA-3 Algorithm collection
++==========================
++
++.. Contents:
++
++  - Overview
++  - Basic API
++    - Extendable-Output Functions
++  - Convenience API
++  - Internal API
++    - Testing
++  - References
++  - API Function Reference
++
++
++Overview
++========
++
++The SHA-3 algorithm base, as specified in NIST FIPS-202[1], provides a number
++of specific variants all based on the same basic algorithm (the Keccak sponge
++function and permutation).  The differences between them are: the "rate" (how
++much of the common state buffer gets updated with new data between invocations
++of the Keccak function and analogous to the "block size"), what domain
++separation suffix/padding gets appended to the message and how much data is
++extracted at the end.  The Keccak sponge function is designed such that
++arbitrary amounts of output can be obtained for certain algorithms.
++
++Four standard digest algorithms are provided:
++
++ - SHA3-224
++ - SHA3-256
++ - SHA3-384
++ - SHA3-512
++
++and two Extendable-Output Functions (XOF):
++
++ - SHAKE128
++ - SHAKE256
++
++If selectable algorithms are required then the crypto_hash API may be used
++instead as this binds each algorithm to a specific C type.
++
++
++Basic API
++=========
++
++The basic API has a separate context struct for each algorithm in the SHA3
++suite, none of the contents of which are expected to be accessed directly::
++
++	struct sha3_224_ctx { ... };
++	struct sha3_256_ctx { ... };
++	struct sha3_384_ctx { ... };
++	struct sha3_512_ctx { ... };
++	struct shake128_ctx { ... };
++	struct shake256_ctx { ... };
++
++There are a collection of initialisation functions, one for each algorithm
++supported, that initialise the context appropriately for that algorithm::
++
++	void sha3_224_init(struct sha3_224_ctx *ctx);
++	void sha3_256_init(struct sha3_256_ctx *ctx);
++	void sha3_384_init(struct sha3_384_ctx *ctx);
++	void sha3_512_init(struct sha3_512_ctx *ctx);
++	void shake128_init(struct shake128_ctx *ctx);
++	void shake256_init(struct shake256_ctx *ctx);
++
++Data is then added with the appropriate update function, again one per
++algorithm::
++
++	void sha3_224_update(struct sha3_224_ctx *ctx,
++			     const u8 *data, size_t len);
++	void sha3_256_update(struct sha3_256_ctx *ctx,
++			     const u8 *data, size_t len);
++	void sha3_384_update(struct sha3_384_ctx *ctx,
++			     const u8 *data, size_t len);
++	void sha3_512_update(struct sha3_512_ctx *ctx,
++			     const u8 *data, size_t len);
++	void shake128_update(struct shake128_ctx *ctx,
++			     const u8 *data, size_t len);
++	void shake256_update(struct shake256_ctx *ctx,
++			     const u8 *data, size_t len);
++
++The update function may be called multiple times if need be to add
++non-contiguous data.
++
++For digest algorithms, the digest is finalised and extracted with the
++algorithm-specific function::
++
++	void sha3_224_final(struct sha3_224_ctx *ctx,
++			    u8 out[SHA3_224_DIGEST_SIZE]);
++	void sha3_256_final(struct sha3_256_ctx *ctx,
++			    u8 out[SHA3_256_DIGEST_SIZE]);
++	void sha3_384_final(struct sha3_384_ctx *ctx,
++			    u8 out[SHA3_384_DIGEST_SIZE]);
++	void sha3_512_final(struct sha3_512_ctx *ctx,
++			    u8 out[SHA3_512_DIGEST_SIZE]);
++
++which also explicitly clears the context.  The amount of data extracted is
++determined by the type.
++
++
++Extendable-Output Functions
++---------------------------
++
++For XOFs, once the data has been added to a context, a variable amount of data
++may be extracted.  This can be done by calling the appropriate squeeze
++function::
++
++	void shake128_squeeze(struct shake128_ctx *ctx, u8 *out, size_t out_len);
++	void shake256_squeeze(struct shake256_ctx *ctx, u8 *out, size_t out_len);
++
++and telling it how much data should be extracted.  The squeeze function may be
++called multiple times but it will only append the domain separation suffix on
++the first invocation.
++
++Note that performing a number of squeezes, with the output laid consequitively
++in a buffer, gets exactly the same output as doing a single squeeze for the
++combined amount over the same buffer.
++
++Once all the desired output has been extracted, the context should be cleared
++with the clear function appropriate to the algorithm::
++
++	void shake128_clear(struct shake128_ctx *ctx);
++	void shake256_clear(struct shake256_ctx *ctx);
++
++
++Convenience API
++===============
++
++It only a single contiguous buffer of input needs to be added and only a single
++buffer of digest or XOF output is required, then a convenience API is provided
++that wraps all the required steps into a single function.  There is one
++function for each algorithm supported::
++
++	void sha3_224(const u8 *in, size_t in_len, u8 out[SHA3_224_DIGEST_SIZE]);
++	void sha3_256(const u8 *in, size_t in_len, u8 out[SHA3_256_DIGEST_SIZE]);
++	void sha3_384(const u8 *in, size_t in_len, u8 out[SHA3_384_DIGEST_SIZE]);
++	void sha3_512(const u8 *in, size_t in_len, u8 out[SHA3_512_DIGEST_SIZE]);
++	void shake128(const u8 *in, size_t in_len, u8 *out, size_t out_len);
++	void shake256(const u8 *in, size_t in_len, u8 *out, size_t out_len);
++
++
++Internal API
++============
++
++There is a common internal API underlying all of this that may be used to build
++further algorithms or APIs as the engine in the same in all cases.  The
++algorithm APIs all wrap the common context structure::
++
++	struct sha3_ctx {
++		struct sha3_state	state;
++		u8			block_size;
++		u8			padding;
++		u8			absorb_offset;
++		u8			squeeze_offset;
++		bool			end_marked;
++	};
++
++	struct sha3_state {
++		u64			st[SHA3_STATE_SIZE / 8];
++	};
++
++The fields are as follows:
++
++ * ``state.st``
++
++   An array of 25 64-bit state buckets that are used to hold the mathematical
++   state of the Keccak engine.  Data is XOR'd onto part of this, the engine is
++   cranked and then the output is copied from this.
++
++   For the convenience of adding input and extract output from it, the array is
++   kept in little-endian order most of the time, but is byteswapped to
++   host-endian in order to perform the Keccak function and then byteswapped
++   back again.  On an LE machine, the byteswapping is a no-op.
++
++ * ``block_size``
++
++   The size of the block of state that can be updated or extracted at a time.
++   This is related to the algorithm size and is analogous to the "rate" in the
++   algorithm definition.
++
++ * ``padding``
++
++   The terminating byte to add when finalising the stat.  This may differ
++   between algorithms.
++
++ * ``absorb_offset``
++
++   This tracks which is the next byte of state to be updated; when it hits
++   ``block_size``, the engine is cranked and this is reset to 0.
++
++ * ``squeeze_offset``
++
++   This tracks which is the next byte of state to be extracted; similar to
++   ``partial``, when it hits ``block_size``, if more output is requested, the
++   engine is cranked to generate more and this is reset to 0.
++
++ * ``end_marked``
++
++   This is set to true when the domain separation suffix and any padding have
++   been appended to the state to prevent multiple squeezings from XOF
++   algorithms from re-appending this.
++
++Note that the size of the digest is *not* included here as that's only needed
++at finalisation time for digest algorithms and can be supplied then.  It is not
++relevant to XOFs.
++
++To make use of the context, the following internal functions are provided::
++
++	void sha3_update(struct sha3_ctx *ctx, const u8 *data, size_t len);
++	void sha3_squeeze(struct sha3_ctx *ctx, u8 *out, size_t out_len);
++	void sha3_clear(struct sha3_ctx *ctx);
++
++These allow data to be appended to/absorbed into the state, output to be
++extracted/squeezed from the state and for the state to be cleared.  Note that
++there is no "final" function, per se, but that can be constructed by squeezing
++and clearing.
++
++
++Testing
++-------
++
++The sha3 module does a basic sanity test on initialisation, but there is also a
++kunit test module available.
++
++
++References
++==========
++
++[1] https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf
++
++
++
++API Function Reference
++======================
++
++.. kernel-doc:: crypto/lib/sha3.c
++.. kernel-doc:: include/crypto/sha3.h
+diff --git a/include/crypto/sha3.h b/include/crypto/sha3.h
+index 41e1b83a6d918..a54117cb1546b 100644
+--- a/include/crypto/sha3.h
++++ b/include/crypto/sha3.h
+@@ -1,13 +1,16 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ /*
+  * Common values for SHA-3 algorithms
++ *
++ * See also Documentation/crypto/sha3.rst
+  */
+ #ifndef __CRYPTO_SHA3_H__
+ #define __CRYPTO_SHA3_H__
  
- menu "Accelerated Cryptographic Algorithms for CPU (s390)"
+ #include <linux/types.h>
++#include <linux/string.h>
  
--config CRYPTO_SHA3_256_S390
--	tristate "Hash functions: SHA3-224 and SHA3-256"
--	select CRYPTO_HASH
--	help
--	  SHA3-224 and SHA3-256 secure hash algorithms (FIPS 202)
--
--	  Architecture: s390
--
--	  It is available as of z14.
--
--config CRYPTO_SHA3_512_S390
--	tristate "Hash functions: SHA3-384 and SHA3-512"
--	select CRYPTO_HASH
--	help
--	  SHA3-384 and SHA3-512 secure hash algorithms (FIPS 202)
--
--	  Architecture: s390
--
--	  It is available as of z14.
--
- config CRYPTO_GHASH_S390
- 	tristate "Hash functions: GHASH"
- 	select CRYPTO_HASH
- 	help
- 	  GCM GHASH hash function (NIST SP800-38D)
-diff --git a/arch/s390/crypto/Makefile b/arch/s390/crypto/Makefile
-index 998f4b656b18e..387a229e10381 100644
---- a/arch/s390/crypto/Makefile
-+++ b/arch/s390/crypto/Makefile
-@@ -1,12 +1,10 @@
- # SPDX-License-Identifier: GPL-2.0
- #
- # Cryptographic API
- #
+ #define SHA3_224_DIGEST_SIZE	(224 / 8)
+ #define SHA3_224_BLOCK_SIZE	(200 - 2 * SHA3_224_DIGEST_SIZE)
+ #define SHA3_224_EXPORT_SIZE	SHA3_STATE_SIZE + SHA3_224_BLOCK_SIZE + 1
  
--obj-$(CONFIG_CRYPTO_SHA3_256_S390) += sha3_256_s390.o sha_common.o
--obj-$(CONFIG_CRYPTO_SHA3_512_S390) += sha3_512_s390.o sha_common.o
- obj-$(CONFIG_CRYPTO_DES_S390) += des_s390.o
- obj-$(CONFIG_CRYPTO_AES_S390) += aes_s390.o
- obj-$(CONFIG_CRYPTO_PAES_S390) += paes_s390.o
- obj-$(CONFIG_S390_PRNG) += prng.o
- obj-$(CONFIG_CRYPTO_GHASH_S390) += ghash_s390.o
-diff --git a/arch/s390/crypto/sha.h b/arch/s390/crypto/sha.h
-deleted file mode 100644
-index b9cd9572dd35c..0000000000000
---- a/arch/s390/crypto/sha.h
-+++ /dev/null
-@@ -1,51 +0,0 @@
--/* SPDX-License-Identifier: GPL-2.0+ */
--/*
-- * Cryptographic API.
-- *
-- * s390 generic implementation of the SHA Secure Hash Algorithms.
-- *
-- * Copyright IBM Corp. 2007
-- * Author(s): Jan Glauber (jang@de.ibm.com)
-- */
--#ifndef _CRYPTO_ARCH_S390_SHA_H
--#define _CRYPTO_ARCH_S390_SHA_H
--
--#include <crypto/hash.h>
--#include <crypto/sha2.h>
--#include <crypto/sha3.h>
--#include <linux/build_bug.h>
--#include <linux/types.h>
--
--/* must be big enough for the largest SHA variant */
--#define CPACF_MAX_PARMBLOCK_SIZE	SHA3_STATE_SIZE
--#define SHA_MAX_BLOCK_SIZE		SHA3_224_BLOCK_SIZE
--
--struct s390_sha_ctx {
--	u64 count;		/* message length in bytes */
--	union {
--		u32 state[CPACF_MAX_PARMBLOCK_SIZE / sizeof(u32)];
--		struct {
--			u64 state[SHA512_DIGEST_SIZE / sizeof(u64)];
--			u64 count_hi;
--		} sha512;
--		struct {
--			__le64 state[SHA3_STATE_SIZE / sizeof(u64)];
--		} sha3;
--	};
--	int func;		/* KIMD function to use */
--	bool first_message_part;
--};
--
--struct shash_desc;
--
--int s390_sha_update_blocks(struct shash_desc *desc, const u8 *data,
--			   unsigned int len);
--int s390_sha_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
--		   u8 *out);
--
--static inline void __check_s390_sha_ctx_size(void)
--{
--	BUILD_BUG_ON(S390_SHA_CTX_SIZE != sizeof(struct s390_sha_ctx));
--}
--
+@@ -21,16 +24,444 @@
+ 
+ #define SHA3_512_DIGEST_SIZE	(512 / 8)
+ #define SHA3_512_BLOCK_SIZE	(200 - 2 * SHA3_512_DIGEST_SIZE)
+ #define SHA3_512_EXPORT_SIZE	SHA3_STATE_SIZE + SHA3_512_BLOCK_SIZE + 1
+ 
++/* SHAKE128 and SHAKE256 actually have variable output size, but this is
++ * used to calculate the block size/rate analogously to the above..
++ */
++#define SHAKE128_DEFAULT_SIZE	(128 / 8)
++#define SHAKE128_BLOCK_SIZE	(200 - 2 * SHAKE128_DEFAULT_SIZE)
++#define SHAKE256_DEFAULT_SIZE	(256 / 8)
++#define SHAKE256_BLOCK_SIZE	(200 - 2 * SHAKE256_DEFAULT_SIZE)
++
+ #define SHA3_STATE_SIZE		200
+ 
+ struct shash_desc;
+ 
+ struct sha3_state {
+ 	u64		st[SHA3_STATE_SIZE / 8];
+ };
+ 
++/*
++ * The SHA3 context structure and state buffer.
++ *
++ * To avoid the need to byteswap when adding input and extracting output from
++ * the state array, the state array is kept in little-endian order most of the
++ * time, but is byteswapped to host-endian in order to perform the Keccak
++ * function and then byteswapped back again after.  On a LE machine, the
++ * byteswap step is a no-op.
++ */
++struct sha3_ctx {
++	struct sha3_state	state;
++	u8			block_size;	/* Block size in bytes */
++	u8			padding;	/* Padding byte */
++	u8			absorb_offset;	/* Next state byte to absorb into */
++	u8			squeeze_offset;	/* Next state byte to extract */
++	bool			end_marked;	/* T if end marker inserted */
++};
++
+ int crypto_sha3_init(struct shash_desc *desc);
+ 
 -#endif
-diff --git a/arch/s390/crypto/sha3_256_s390.c b/arch/s390/crypto/sha3_256_s390.c
-deleted file mode 100644
-index fd5ecae60a572..0000000000000
---- a/arch/s390/crypto/sha3_256_s390.c
-+++ /dev/null
-@@ -1,157 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Cryptographic API.
-- *
-- * s390 implementation of the SHA256 and SHA224 Secure Hash Algorithm.
-- *
-- * s390 Version:
-- *   Copyright IBM Corp. 2019
-- *   Author(s): Joerg Schmidbauer (jschmidb@de.ibm.com)
-- */
--#include <asm/cpacf.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha3.h>
--#include <linux/cpufeature.h>
--#include <linux/errno.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--#include <linux/string.h>
--
--#include "sha.h"
--
--static int s390_sha3_256_init(struct shash_desc *desc)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--
--	sctx->first_message_part = test_facility(86);
--	if (!sctx->first_message_part)
--		memset(sctx->state, 0, sizeof(sctx->state));
--	sctx->count = 0;
--	sctx->func = CPACF_KIMD_SHA3_256;
--
--	return 0;
--}
--
--static int s390_sha3_256_export(struct shash_desc *desc, void *out)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--	union {
--		u8 *u8;
--		u64 *u64;
--	} p = { .u8 = out };
--	int i;
--
--	if (sctx->first_message_part) {
--		memset(out, 0, SHA3_STATE_SIZE);
--		return 0;
--	}
--	for (i = 0; i < SHA3_STATE_SIZE / 8; i++)
--		put_unaligned(le64_to_cpu(sctx->sha3.state[i]), p.u64++);
--	return 0;
--}
--
--static int s390_sha3_256_import(struct shash_desc *desc, const void *in)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--	union {
--		const u8 *u8;
--		const u64 *u64;
--	} p = { .u8 = in };
--	int i;
--
--	for (i = 0; i < SHA3_STATE_SIZE / 8; i++)
--		sctx->sha3.state[i] = cpu_to_le64(get_unaligned(p.u64++));
--	sctx->count = 0;
--	sctx->first_message_part = 0;
--	sctx->func = CPACF_KIMD_SHA3_256;
--
--	return 0;
--}
--
--static int s390_sha3_224_import(struct shash_desc *desc, const void *in)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--
--	s390_sha3_256_import(desc, in);
--	sctx->func = CPACF_KIMD_SHA3_224;
--	return 0;
--}
--
--static struct shash_alg sha3_256_alg = {
--	.digestsize	=	SHA3_256_DIGEST_SIZE,	   /* = 32 */
--	.init		=	s390_sha3_256_init,
--	.update		=	s390_sha_update_blocks,
--	.finup		=	s390_sha_finup,
--	.export		=	s390_sha3_256_export,
--	.import		=	s390_sha3_256_import,
--	.descsize	=	S390_SHA_CTX_SIZE,
--	.statesize	=	SHA3_STATE_SIZE,
--	.base		=	{
--		.cra_name	 =	"sha3-256",
--		.cra_driver_name =	"sha3-256-s390",
--		.cra_priority	 =	300,
--		.cra_flags	 =	CRYPTO_AHASH_ALG_BLOCK_ONLY,
--		.cra_blocksize	 =	SHA3_256_BLOCK_SIZE,
--		.cra_module	 =	THIS_MODULE,
--	}
--};
--
--static int s390_sha3_224_init(struct shash_desc *desc)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--
--	s390_sha3_256_init(desc);
--	sctx->func = CPACF_KIMD_SHA3_224;
--	return 0;
--}
--
--static struct shash_alg sha3_224_alg = {
--	.digestsize	=	SHA3_224_DIGEST_SIZE,
--	.init		=	s390_sha3_224_init,
--	.update		=	s390_sha_update_blocks,
--	.finup		=	s390_sha_finup,
--	.export		=	s390_sha3_256_export, /* same as for 256 */
--	.import		=	s390_sha3_224_import, /* function code different! */
--	.descsize	=	S390_SHA_CTX_SIZE,
--	.statesize	=	SHA3_STATE_SIZE,
--	.base		=	{
--		.cra_name	 =	"sha3-224",
--		.cra_driver_name =	"sha3-224-s390",
--		.cra_priority	 =	300,
--		.cra_flags	 =	CRYPTO_AHASH_ALG_BLOCK_ONLY,
--		.cra_blocksize	 =	SHA3_224_BLOCK_SIZE,
--		.cra_module	 =	THIS_MODULE,
--	}
--};
--
--static int __init sha3_256_s390_init(void)
--{
--	int ret;
--
--	if (!cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA3_256))
--		return -ENODEV;
--
--	ret = crypto_register_shash(&sha3_256_alg);
--	if (ret < 0)
--		goto out;
--
--	ret = crypto_register_shash(&sha3_224_alg);
--	if (ret < 0)
--		crypto_unregister_shash(&sha3_256_alg);
--out:
--	return ret;
--}
--
--static void __exit sha3_256_s390_fini(void)
--{
--	crypto_unregister_shash(&sha3_224_alg);
--	crypto_unregister_shash(&sha3_256_alg);
--}
--
--module_cpu_feature_match(S390_CPU_FEATURE_MSA, sha3_256_s390_init);
--module_exit(sha3_256_s390_fini);
--
--MODULE_ALIAS_CRYPTO("sha3-256");
--MODULE_ALIAS_CRYPTO("sha3-224");
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("SHA3-256 and SHA3-224 Secure Hash Algorithm");
-diff --git a/arch/s390/crypto/sha3_512_s390.c b/arch/s390/crypto/sha3_512_s390.c
-deleted file mode 100644
-index f4b52a3a04339..0000000000000
---- a/arch/s390/crypto/sha3_512_s390.c
-+++ /dev/null
-@@ -1,157 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Cryptographic API.
-- *
-- * s390 implementation of the SHA512 and SHA384 Secure Hash Algorithm.
-- *
-- * Copyright IBM Corp. 2019
-- * Author(s): Joerg Schmidbauer (jschmidb@de.ibm.com)
-- */
--#include <asm/cpacf.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha3.h>
--#include <linux/cpufeature.h>
--#include <linux/errno.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--#include <linux/string.h>
--
--#include "sha.h"
--
--static int s390_sha3_512_init(struct shash_desc *desc)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--
--	sctx->first_message_part = test_facility(86);
--	if (!sctx->first_message_part)
--		memset(sctx->state, 0, sizeof(sctx->state));
--	sctx->count = 0;
--	sctx->func = CPACF_KIMD_SHA3_512;
--
--	return 0;
--}
--
--static int s390_sha3_512_export(struct shash_desc *desc, void *out)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--	union {
--		u8 *u8;
--		u64 *u64;
--	} p = { .u8 = out };
--	int i;
--
--	if (sctx->first_message_part) {
--		memset(out, 0, SHA3_STATE_SIZE);
--		return 0;
--	}
--	for (i = 0; i < SHA3_STATE_SIZE / 8; i++)
--		put_unaligned(le64_to_cpu(sctx->sha3.state[i]), p.u64++);
--	return 0;
--}
--
--static int s390_sha3_512_import(struct shash_desc *desc, const void *in)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--	union {
--		const u8 *u8;
--		const u64 *u64;
--	} p = { .u8 = in };
--	int i;
--
--	for (i = 0; i < SHA3_STATE_SIZE / 8; i++)
--		sctx->sha3.state[i] = cpu_to_le64(get_unaligned(p.u64++));
--	sctx->count = 0;
--	sctx->first_message_part = 0;
--	sctx->func = CPACF_KIMD_SHA3_512;
--
--	return 0;
--}
--
--static int s390_sha3_384_import(struct shash_desc *desc, const void *in)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--
--	s390_sha3_512_import(desc, in);
--	sctx->func = CPACF_KIMD_SHA3_384;
--	return 0;
--}
--
--static struct shash_alg sha3_512_alg = {
--	.digestsize	=	SHA3_512_DIGEST_SIZE,
--	.init		=	s390_sha3_512_init,
--	.update		=	s390_sha_update_blocks,
--	.finup		=	s390_sha_finup,
--	.export		=	s390_sha3_512_export,
--	.import		=	s390_sha3_512_import,
--	.descsize	=	S390_SHA_CTX_SIZE,
--	.statesize	=	SHA3_STATE_SIZE,
--	.base		=	{
--		.cra_name	 =	"sha3-512",
--		.cra_driver_name =	"sha3-512-s390",
--		.cra_priority	 =	300,
--		.cra_flags	 =	CRYPTO_AHASH_ALG_BLOCK_ONLY,
--		.cra_blocksize	 =	SHA3_512_BLOCK_SIZE,
--		.cra_module	 =	THIS_MODULE,
--	}
--};
--
--MODULE_ALIAS_CRYPTO("sha3-512");
--
--static int s390_sha3_384_init(struct shash_desc *desc)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--
--	s390_sha3_512_init(desc);
--	sctx->func = CPACF_KIMD_SHA3_384;
--	return 0;
--}
--
--static struct shash_alg sha3_384_alg = {
--	.digestsize	=	SHA3_384_DIGEST_SIZE,
--	.init		=	s390_sha3_384_init,
--	.update		=	s390_sha_update_blocks,
--	.finup		=	s390_sha_finup,
--	.export		=	s390_sha3_512_export, /* same as for 512 */
--	.import		=	s390_sha3_384_import, /* function code different! */
--	.descsize	=	S390_SHA_CTX_SIZE,
--	.statesize	=	SHA3_STATE_SIZE,
--	.base		=	{
--		.cra_name	 =	"sha3-384",
--		.cra_driver_name =	"sha3-384-s390",
--		.cra_priority	 =	300,
--		.cra_flags	 =	CRYPTO_AHASH_ALG_BLOCK_ONLY,
--		.cra_blocksize	 =	SHA3_384_BLOCK_SIZE,
--		.cra_ctxsize	 =	sizeof(struct s390_sha_ctx),
--		.cra_module	 =	THIS_MODULE,
--	}
--};
--
--MODULE_ALIAS_CRYPTO("sha3-384");
--
--static int __init init(void)
--{
--	int ret;
--
--	if (!cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA3_512))
--		return -ENODEV;
--	ret = crypto_register_shash(&sha3_512_alg);
--	if (ret < 0)
--		goto out;
--	ret = crypto_register_shash(&sha3_384_alg);
--	if (ret < 0)
--		crypto_unregister_shash(&sha3_512_alg);
--out:
--	return ret;
--}
--
--static void __exit fini(void)
--{
--	crypto_unregister_shash(&sha3_512_alg);
--	crypto_unregister_shash(&sha3_384_alg);
--}
--
--module_cpu_feature_match(S390_CPU_FEATURE_MSA, init);
--module_exit(fini);
--
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("SHA3-512 and SHA3-384 Secure Hash Algorithm");
-diff --git a/arch/s390/crypto/sha_common.c b/arch/s390/crypto/sha_common.c
-deleted file mode 100644
-index d6f8396187946..0000000000000
---- a/arch/s390/crypto/sha_common.c
-+++ /dev/null
-@@ -1,117 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Cryptographic API.
-- *
-- * s390 generic implementation of the SHA Secure Hash Algorithms.
-- *
-- * Copyright IBM Corp. 2007
-- * Author(s): Jan Glauber (jang@de.ibm.com)
-- */
--
--#include <crypto/internal/hash.h>
--#include <linux/export.h>
--#include <linux/module.h>
--#include <asm/cpacf.h>
--#include "sha.h"
--
--int s390_sha_update_blocks(struct shash_desc *desc, const u8 *data,
--			   unsigned int len)
--{
--	unsigned int bsize = crypto_shash_blocksize(desc->tfm);
--	struct s390_sha_ctx *ctx = shash_desc_ctx(desc);
--	unsigned int n;
--	int fc;
--
--	fc = ctx->func;
--	if (ctx->first_message_part)
--		fc |= CPACF_KIMD_NIP;
--
--	/* process as many blocks as possible */
--	n = (len / bsize) * bsize;
--	ctx->count += n;
--	switch (ctx->func) {
--	case CPACF_KLMD_SHA_512:
--	case CPACF_KLMD_SHA3_384:
--		if (ctx->count < n)
--			ctx->sha512.count_hi++;
--		break;
--	}
--	cpacf_kimd(fc, ctx->state, data, n);
--	ctx->first_message_part = 0;
--	return len - n;
--}
--EXPORT_SYMBOL_GPL(s390_sha_update_blocks);
--
--static int s390_crypto_shash_parmsize(int func)
--{
--	switch (func) {
--	case CPACF_KLMD_SHA_1:
--		return 20;
--	case CPACF_KLMD_SHA_256:
--		return 32;
--	case CPACF_KLMD_SHA_512:
--		return 64;
--	case CPACF_KLMD_SHA3_224:
--	case CPACF_KLMD_SHA3_256:
--	case CPACF_KLMD_SHA3_384:
--	case CPACF_KLMD_SHA3_512:
--		return 200;
--	default:
--		return -EINVAL;
--	}
--}
--
--int s390_sha_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
--		   u8 *out)
--{
--	struct s390_sha_ctx *ctx = shash_desc_ctx(desc);
--	int mbl_offset, fc;
--	u64 bits;
--
--	ctx->count += len;
--
--	bits = ctx->count * 8;
--	mbl_offset = s390_crypto_shash_parmsize(ctx->func);
--	if (mbl_offset < 0)
--		return -EINVAL;
--
--	mbl_offset = mbl_offset / sizeof(u32);
--
--	/* set total msg bit length (mbl) in CPACF parmblock */
--	switch (ctx->func) {
--	case CPACF_KLMD_SHA_512:
--		/* The SHA512 parmblock has a 128-bit mbl field. */
--		if (ctx->count < len)
--			ctx->sha512.count_hi++;
--		ctx->sha512.count_hi <<= 3;
--		ctx->sha512.count_hi |= ctx->count >> 61;
--		mbl_offset += sizeof(u64) / sizeof(u32);
--		fallthrough;
--	case CPACF_KLMD_SHA_1:
--	case CPACF_KLMD_SHA_256:
--		memcpy(ctx->state + mbl_offset, &bits, sizeof(bits));
--		break;
--	case CPACF_KLMD_SHA3_224:
--	case CPACF_KLMD_SHA3_256:
--	case CPACF_KLMD_SHA3_384:
--	case CPACF_KLMD_SHA3_512:
--		break;
--	default:
--		return -EINVAL;
--	}
--
--	fc = ctx->func;
--	fc |= test_facility(86) ? CPACF_KLMD_DUFOP : 0;
--	if (ctx->first_message_part)
--		fc |= CPACF_KLMD_NIP;
--	cpacf_klmd(fc, ctx->state, src, len);
--
--	/* copy digest to out */
--	memcpy(out, ctx->state, crypto_shash_digestsize(desc->tfm));
--
--	return 0;
--}
--EXPORT_SYMBOL_GPL(s390_sha_finup);
--
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("s390 SHA cipher common functions");
++/**
++ * sha3_clear() - Explicitly clear the entire context
++ * @ctx: the context to clear
++ *
++ * Explicitly clear the entire context, including the type parameters; after
++ * this, the context must be fully initialized again.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_clear(struct sha3_ctx *ctx)
++{
++	memzero_explicit(ctx, sizeof(*ctx));
++}
++
++void sha3_update(struct sha3_ctx *ctx, const u8 *data, size_t len);
++void sha3_squeeze(struct sha3_ctx *ctx, u8 *out, size_t out_len);
++
++/*
++ * Context wrapper for SHA3-224.
++ */
++struct sha3_224_ctx {
++	struct sha3_ctx ctx;
++};
++
++/**
++ * sha3_224_init() - Set a SHA3 context for SHA3-224
++ * @ctx: the context to initialize
++ *
++ * Initialize a SHA3 context for the production of a SHA3-224 digest of a
++ * message.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_224_init(struct sha3_224_ctx *ctx)
++{
++	*ctx = (struct sha3_224_ctx){
++		.ctx.block_size	= SHA3_224_BLOCK_SIZE,
++		.ctx.padding	= 0x06,
++	};
++}
++
++/**
++ * sha3_224_update() - Update a SHA3-224 hash with message data
++ * @ctx: the context to update; must have been initialized
++ * @data: the message data
++ * @len: the data length in bytes
++ *
++ * This can be called any number of times to add data to the hash, performing
++ * the "keccak sponge absorbing" phase.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_224_update(struct sha3_224_ctx *ctx, const u8 *data, size_t len)
++{
++	return sha3_update(&ctx->ctx, data, len);
++}
++
++/**
++ * sha3_224_final() - Finalise a SHA3-224 hash and extract the digest
++ * @ctx: The context to finalise; must have been initialized
++ * @out: Where to write the resulting message digest
++ *
++ * Finish the computation of a SHA3-224 hash and perform the "Keccak sponge
++ * squeezing" phase.  The digest is written to @out buffer and the context will
++ * be completely zeroed out.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_224_final(struct sha3_224_ctx *ctx, u8 out[SHA3_224_DIGEST_SIZE])
++{
++	sha3_squeeze(&ctx->ctx, out, SHA3_224_DIGEST_SIZE);
++	sha3_clear(&ctx->ctx);
++}
++
++/*
++ * Context wrapper for SHA3-256.
++ */
++struct sha3_256_ctx {
++	struct sha3_ctx ctx;
++};
++
++/**
++ * sha3_256_init() - Set a SHA3 context for SHA3-256
++ * @ctx: the context to initialize
++ *
++ * Initialize a SHA3 context for the production of a SHA3-256 digest of a
++ * message.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_256_init(struct sha3_256_ctx *ctx)
++{
++	*ctx = (struct sha3_256_ctx){
++		.ctx.block_size	= SHA3_256_BLOCK_SIZE,
++		.ctx.padding	= 0x06,
++	};
++}
++
++/**
++ * sha3_256_update() - Update a SHA3-256 hash with message data
++ * @ctx: the context to update; must have been initialized
++ * @data: the message data
++ * @len: the data length in bytes
++ *
++ * This can be called any number of times to add data to the hash, performing
++ * the "keccak sponge absorbing" phase.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_256_update(struct sha3_256_ctx *ctx, const u8 *data, size_t len)
++{
++	return sha3_update(&ctx->ctx, data, len);
++}
++
++/**
++ * sha3_256_final() - Finalise a SHA3-256 hash and extract the digest
++ * @ctx: The context to finalise; must have been initialized
++ * @out: Where to write the resulting message digest
++ *
++ * Finish the computation of a SHA3-256 hash and perform the "Keccak sponge
++ * squeezing" phase.  The digest is written to @out buffer and the context will
++ * be completely zeroed out.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_256_final(struct sha3_256_ctx *ctx, u8 out[SHA3_256_DIGEST_SIZE])
++{
++	sha3_squeeze(&ctx->ctx, out, SHA3_256_DIGEST_SIZE);
++	sha3_clear(&ctx->ctx);
++}
++
++/*
++ * Context wrapper for SHA3-384.
++ */
++struct sha3_384_ctx {
++	struct sha3_ctx ctx;
++};
++
++/**
++ * sha3_384_init() - Set a SHA3 context for SHA3-384
++ * @ctx: the context to initialize
++ *
++ * Initialize a SHA3 context for the production of a SHA3-384 digest of a
++ * message.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_384_init(struct sha3_384_ctx *ctx)
++{
++	*ctx = (struct sha3_384_ctx){
++		.ctx.block_size	= SHA3_384_BLOCK_SIZE,
++		.ctx.padding	= 0x06,
++	};
++}
++
++/**
++ * sha3_384_update() - Update a SHA3-384 hash with message data
++ * @ctx: the context to update; must have been initialized
++ * @data: the message data
++ * @len: the data length in bytes
++ *
++ * This can be called any number of times to add data to the hash, performing
++ * the "keccak sponge absorbing" phase.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_384_update(struct sha3_384_ctx *ctx, const u8 *data, size_t len)
++{
++	return sha3_update(&ctx->ctx, data, len);
++}
++
++/**
++ * sha3_384_final() - Finalise a SHA3-384 hash and extract the digest
++ * @ctx: The context to finalise; must have been initialized
++ * @out: Where to write the resulting message digest
++ *
++ * Finish the computation of a SHA3-384 hash and perform the "Keccak sponge
++ * squeezing" phase.  The digest is written to @out buffer and the context will
++ * be completely zeroed out.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_384_final(struct sha3_384_ctx *ctx, u8 out[SHA3_384_DIGEST_SIZE])
++{
++	sha3_squeeze(&ctx->ctx, out, SHA3_384_DIGEST_SIZE);
++	sha3_clear(&ctx->ctx);
++}
++
++/*
++ * Context wrapper for SHA3-512.
++ */
++struct sha3_512_ctx {
++	struct sha3_ctx ctx;
++};
++
++/**
++ * sha3_512_init() - Set a SHA3 context for SHA3-512
++ * @ctx: the context to initialize
++ *
++ * Initialize a SHA3 context for the production of a SHA3-512 digest of a
++ * message.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_512_init(struct sha3_512_ctx *ctx)
++{
++	*ctx = (struct sha3_512_ctx){
++		.ctx.block_size	= SHA3_512_BLOCK_SIZE,
++		.ctx.padding	= 0x06,
++	};
++}
++
++/**
++ * sha3_512_update() - Update a SHA3-512 hash with message data
++ * @ctx: the context to update; must have been initialized
++ * @data: the message data
++ * @len: the data length in bytes
++ *
++ * This can be called any number of times to add data to the hash, performing
++ * the "keccak sponge absorbing" phase.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_512_update(struct sha3_512_ctx *ctx, const u8 *data, size_t len)
++{
++	return sha3_update(&ctx->ctx, data, len);
++}
++
++/**
++ * sha3_512_final() - Finalise a SHA3-512 hash and extract the digest
++ * @ctx: The context to finalise; must have been initialized
++ * @out: Where to write the resulting message digest
++ *
++ * Finish the computation of a SHA3-512 hash and perform the "Keccak sponge
++ * squeezing" phase.  The digest is written to @out buffer and the context will
++ * be completely zeroed out.
++ *
++ * Context: Any context.
++ */
++static inline void sha3_512_final(struct sha3_512_ctx *ctx, u8 out[SHA3_512_DIGEST_SIZE])
++{
++	sha3_squeeze(&ctx->ctx, out, SHA3_512_DIGEST_SIZE);
++	sha3_clear(&ctx->ctx);
++}
++
++/*
++ * Context wrapper for SHAKE128.
++ */
++struct shake128_ctx {
++	struct sha3_ctx ctx;
++};
++
++/**
++ * shake128_init() - Set a SHA3 context for SHAKE128
++ * @ctx: The context to initialize
++ *
++ * Initialize a SHA3 context for the production of SHAKE128 output generation
++ * from a message.  The sha3_squeeze() function can be used to extract an
++ * arbitrary amount of data from the context.
++ *
++ * Context: Any context.
++ */
++static inline void shake128_init(struct shake128_ctx *ctx)
++{
++	*ctx = (struct shake128_ctx){
++		.ctx.block_size	= SHAKE128_BLOCK_SIZE,
++		.ctx.padding	= 0x1f,
++	};
++}
++
++/**
++ * shake128_update() - Update a SHAKE128 hash with message data
++ * @ctx: the context to update; must have been initialized
++ * @data: the message data
++ * @len: the data length in bytes
++ *
++ * This can be called any number of times to add data to the XOF state,
++ * performing the "keccak sponge absorbing" phase.
++ *
++ * Context: Any context.
++ */
++static inline void shake128_update(struct shake128_ctx *ctx, const u8 *data, size_t len)
++{
++	return sha3_update(&ctx->ctx, data, len);
++}
++
++/**
++ * shake128_squeeze() - Finalize a SHAKE128 digest of any type and extract the digest
++ * @ctx: the context to finalize; must have been initialized
++ * @out: Where to write the resulting message digest
++ * @out_size: The amount of digest to extract to @out in bytes
++ *
++ * Finish the computation of a SHAKE128 XOF and perform the "Keccak sponge
++ * squeezing" phase.  @out_size amount of digest is written to @out buffer.
++ *
++ * This may be called multiple times to extract continuations of the digest.
++ * Note that, a number of consecutive squeezes laid end-to-end will yield the
++ * same output as one big squeeze generating the same total amount of output.
++ *
++ * Context: Any context.
++ */
++static inline void shake128_squeeze(struct shake128_ctx *ctx, u8 *out, size_t out_size)
++{
++	return sha3_squeeze(&ctx->ctx, out, out_size);
++}
++
++/**
++ * shake128_clear() - Explicitly clear the entire SHAKE128 context
++ * @ctx: the context to clear
++ *
++ * Explicitly clear the entire context; after this, the context must be
++ * initialized again.
++ *
++ * Context: Any context.
++ */
++static inline void shake128_clear(struct shake128_ctx *ctx)
++{
++	sha3_clear(&ctx->ctx);
++}
++
++/*
++ * Context wrapper for SHAKE256.
++ */
++struct shake256_ctx {
++	struct sha3_ctx ctx;
++};
++
++/**
++ * shake256_init() - Set a SHA3 context for SHAKE256
++ * @ctx: The context to initialize
++ *
++ * Initialize a SHA3 context for the production of SHAKE256 output generation
++ * from a message.  The sha3_squeeze() function can be used to extract an
++ * arbitrary amount of data from the context.
++ *
++ * Context: Any context.
++ */
++static inline void shake256_init(struct shake256_ctx *ctx)
++{
++	*ctx = (struct shake256_ctx){
++		.ctx.block_size	= SHAKE256_BLOCK_SIZE,
++		.ctx.padding	= 0x1f,
++	};
++}
++
++/**
++ * shake256_update() - Update a SHAKE256 hash with message data
++ * @ctx: the context to update; must have been initialized
++ * @data: the message data
++ * @len: the data length in bytes
++ *
++ * This can be called any number of times to add data to the XOF state,
++ * performing the "keccak sponge absorbing" phase.
++ *
++ * Context: Any context.
++ */
++static inline void shake256_update(struct shake256_ctx *ctx, const u8 *data, size_t len)
++{
++	return sha3_update(&ctx->ctx, data, len);
++}
++
++/**
++ * shake256_squeeze() - Finalize a SHAKE256 digest of any type and extract the digest
++ * @ctx: the context to finalize; must have been initialized
++ * @out: Where to write the resulting message digest
++ * @out_size: The amount of digest to extract to @out in bytes
++ *
++ * Finish the computation of a SHAKE256 XOF and perform the "Keccak sponge
++ * squeezing" phase.  @out_size amount of digest is written to @out buffer.
++ *
++ * This may be called multiple times to extract continuations of the digest.
++ * Note that, a number of consecutive squeezes laid end-to-end will yield the
++ * same output as one big squeeze generating the same total amount of output.
++ *
++ * Context: Any context.
++ */
++static inline void shake256_squeeze(struct shake256_ctx *ctx, u8 *out, size_t out_size)
++{
++	return sha3_squeeze(&ctx->ctx, out, out_size);
++}
++
++/**
++ * shake256_clear() - Explicitly clear the entire SHAKE256 context
++ * @ctx: the context to clear
++ *
++ * Explicitly clear the entire context; after this, the context must be
++ * initialized again.
++ *
++ * Context: Any context.
++ */
++static inline void shake256_clear(struct shake256_ctx *ctx)
++{
++	sha3_clear(&ctx->ctx);
++}
++
++void sha3_224(const u8 *in, size_t in_len, u8 out[SHA3_224_DIGEST_SIZE]);
++void sha3_256(const u8 *in, size_t in_len, u8 out[SHA3_256_DIGEST_SIZE]);
++void sha3_384(const u8 *in, size_t in_len, u8 out[SHA3_384_DIGEST_SIZE]);
++void sha3_512(const u8 *in, size_t in_len, u8 out[SHA3_512_DIGEST_SIZE]);
++void shake128(const u8 *in, size_t in_len, u8 *out, size_t out_len);
++void shake256(const u8 *in, size_t in_len, u8 *out, size_t out_len);
++
++#endif /* __CRYPTO_SHA3_H__ */
 diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 544eb67fe70f4..36bb4b94d0123 100644
+index eea17e36a22be..1caf3fbe24bff 100644
 --- a/lib/crypto/Kconfig
 +++ b/lib/crypto/Kconfig
-@@ -193,10 +193,11 @@ config CRYPTO_LIB_SHA3
+@@ -182,10 +182,17 @@ config CRYPTO_LIB_SHA512_ARCH
+ 	default y if RISCV && 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+ 	default y if S390
+ 	default y if SPARC64
+ 	default y if X86_64
  
- config CRYPTO_LIB_SHA3_ARCH
- 	bool
- 	depends on CRYPTO_LIB_SHA3 && !UML
- 	default y if ARM64 && KERNEL_MODE_NEON
-+	default y if S390
- 
++config CRYPTO_LIB_SHA3
++	tristate
++	help
++	  The SHA3 library functions.
++	  Select this if your module uses any of these functions from
++	  <crypto/sha3.h>.
++
  config CRYPTO_LIB_SM3
  	tristate
  
  source "lib/crypto/tests/Kconfig"
-diff --git a/lib/crypto/s390/sha3.h b/lib/crypto/s390/sha3.h
+ 
+diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
+index bded351aeacef..b7fa51bfeebb5 100644
+--- a/lib/crypto/Makefile
++++ b/lib/crypto/Makefile
+@@ -266,10 +266,16 @@ libsha512-$(CONFIG_X86) += x86/sha512-ssse3-asm.o \
+ 			   x86/sha512-avx2-asm.o
+ endif # CONFIG_CRYPTO_LIB_SHA512_ARCH
+ 
+ ################################################################################
+ 
++#obj-$(CONFIG_CRYPTO_LIB_SHA3) += libsha3.o
++#libsha3-y := sha3.o
++obj-$(CONFIG_CRYPTO_SHA3) += sha3.o
++
++################################################################################
++
+ obj-$(CONFIG_MPILIB) += mpi/
+ 
+ obj-$(CONFIG_CRYPTO_SELFTESTS_FULL)		+= simd.o
+ 
+ obj-$(CONFIG_CRYPTO_LIB_SM3)			+= libsm3.o
+diff --git a/lib/crypto/sha3.c b/lib/crypto/sha3.c
 new file mode 100644
-index 0000000000000..c08a192cc01a0
+index 0000000000000..5f847a5eecdc7
 --- /dev/null
-+++ b/lib/crypto/s390/sha3.h
-@@ -0,0 +1,76 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
++++ b/lib/crypto/sha3.c
+@@ -0,0 +1,511 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * SHA-3 optimized using the CP Assist for Cryptographic Functions (CPACF)
++ * Cryptographic API.
 + *
-+ * Copyright 2025 Google LLC
++ * SHA-3, as specified in
++ * https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf
++ *
++ * SHA-3 code by Jeff Garzik <jeff@garzik.org>
++ *               Ard Biesheuvel <ard.biesheuvel@linaro.org>
++ *		 David Howells <dhowells@redhat.com>
++ *
++ * See also Documentation/crypto/sha3.rst
 + */
-+#include <asm/cpacf.h>
-+#include <linux/cpufeature.h>
 +
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_cpacf_sha3_256);
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_cpacf_sha3_512);
++#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
++#include <crypto/sha3.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/unaligned.h>
 +
-+static void sha3_absorb_blocks(struct __sha3_ctx *ctx,
-+			       const u8 *data, size_t nblocks)
++/*
++ * On some 32-bit architectures, such as h8300, GCC ends up using over 1 KB of
++ * stack if the round calculation gets inlined into the loop in
++ * sha3_keccakf_rounds_generic().  On the other hand, on 64-bit architectures
++ * with plenty of [64-bit wide] general purpose registers, not inlining it
++ * severely hurts performance.  So let's use 64-bitness as a heuristic to
++ * decide whether to inline or not.
++ */
++#ifdef CONFIG_64BIT
++#define SHA3_INLINE	inline
++#else
++#define SHA3_INLINE	noinline
++#endif
++
++#define SHA3_KECCAK_ROUNDS 24
++
++static const u64 sha3_keccakf_rndc[24] = {
++	0x0000000000000001ULL, 0x0000000000008082ULL, 0x800000000000808aULL,
++	0x8000000080008000ULL, 0x000000000000808bULL, 0x0000000080000001ULL,
++	0x8000000080008081ULL, 0x8000000000008009ULL, 0x000000000000008aULL,
++	0x0000000000000088ULL, 0x0000000080008009ULL, 0x000000008000000aULL,
++	0x000000008000808bULL, 0x800000000000008bULL, 0x8000000000008089ULL,
++	0x8000000000008003ULL, 0x8000000000008002ULL, 0x8000000000000080ULL,
++	0x000000000000800aULL, 0x800000008000000aULL, 0x8000000080008081ULL,
++	0x8000000000008080ULL, 0x0000000080000001ULL, 0x8000000080008008ULL
++};
++
++/*
++ * Perform a single round of Keccak mixing.
++ */
++static SHA3_INLINE void sha3_keccakf_one_round_generic(struct sha3_state *state)
 +{
-+	/*
-+	 * Note that since the library functions keep the sha3_state in little
-+	 * endian order, there is no need to convert it to little endian before
-+	 * invoking CPACF_KIMD_SHA3_*, which also assume little endian order.
-+	 */
-+	if (static_branch_likely(&have_cpacf_sha3_256)) {
-+		if (ctx->block_size == SHA3_224_BLOCK_SIZE) {
-+			cpacf_kimd(CPACF_KIMD_SHA3_224, &ctx->state, data,
-+				   nblocks * SHA3_224_BLOCK_SIZE);
-+			return;
-+		}
-+		if (ctx->block_size == SHA3_256_BLOCK_SIZE) {
-+			cpacf_kimd(CPACF_KIMD_SHA3_256, &ctx->state, data,
-+				   nblocks * SHA3_256_BLOCK_SIZE);
-+			return;
-+		}
-+	}
-+	if (static_branch_likely(&have_cpacf_sha3_512)) {
-+		if (ctx->block_size == SHA3_384_BLOCK_SIZE) {
-+			cpacf_kimd(CPACF_KIMD_SHA3_384, &ctx->state, data,
-+				   nblocks * SHA3_384_BLOCK_SIZE);
-+			return;
-+		}
-+		if (ctx->block_size == SHA3_512_BLOCK_SIZE) {
-+			cpacf_kimd(CPACF_KIMD_SHA3_512, &ctx->state, data,
-+				   nblocks * SHA3_512_BLOCK_SIZE);
-+			return;
-+		}
-+	}
-+	sha3_absorb_blocks_generic(ctx, data, nblocks);
++	u64 *st = state->st;
++	u64 t[5], tt, bc[5];
++
++	/* Theta */
++	bc[0] = st[0] ^ st[5] ^ st[10] ^ st[15] ^ st[20];
++	bc[1] = st[1] ^ st[6] ^ st[11] ^ st[16] ^ st[21];
++	bc[2] = st[2] ^ st[7] ^ st[12] ^ st[17] ^ st[22];
++	bc[3] = st[3] ^ st[8] ^ st[13] ^ st[18] ^ st[23];
++	bc[4] = st[4] ^ st[9] ^ st[14] ^ st[19] ^ st[24];
++
++	t[0] = bc[4] ^ rol64(bc[1], 1);
++	t[1] = bc[0] ^ rol64(bc[2], 1);
++	t[2] = bc[1] ^ rol64(bc[3], 1);
++	t[3] = bc[2] ^ rol64(bc[4], 1);
++	t[4] = bc[3] ^ rol64(bc[0], 1);
++
++	st[0] ^= t[0];
++
++	/* Rho Pi */
++	tt = st[1];
++	st[ 1] = rol64(st[ 6] ^ t[1], 44);
++	st[ 6] = rol64(st[ 9] ^ t[4], 20);
++	st[ 9] = rol64(st[22] ^ t[2], 61);
++	st[22] = rol64(st[14] ^ t[4], 39);
++	st[14] = rol64(st[20] ^ t[0], 18);
++	st[20] = rol64(st[ 2] ^ t[2], 62);
++	st[ 2] = rol64(st[12] ^ t[2], 43);
++	st[12] = rol64(st[13] ^ t[3], 25);
++	st[13] = rol64(st[19] ^ t[4],  8);
++	st[19] = rol64(st[23] ^ t[3], 56);
++	st[23] = rol64(st[15] ^ t[0], 41);
++	st[15] = rol64(st[ 4] ^ t[4], 27);
++	st[ 4] = rol64(st[24] ^ t[4], 14);
++	st[24] = rol64(st[21] ^ t[1],  2);
++	st[21] = rol64(st[ 8] ^ t[3], 55);
++	st[ 8] = rol64(st[16] ^ t[1], 45);
++	st[16] = rol64(st[ 5] ^ t[0], 36);
++	st[ 5] = rol64(st[ 3] ^ t[3], 28);
++	st[ 3] = rol64(st[18] ^ t[3], 21);
++	st[18] = rol64(st[17] ^ t[2], 15);
++	st[17] = rol64(st[11] ^ t[1], 10);
++	st[11] = rol64(st[ 7] ^ t[2],  6);
++	st[ 7] = rol64(st[10] ^ t[0],  3);
++	st[10] = rol64(    tt ^ t[1],  1);
++
++	/* Chi */
++	bc[ 0] = ~st[ 1] & st[ 2];
++	bc[ 1] = ~st[ 2] & st[ 3];
++	bc[ 2] = ~st[ 3] & st[ 4];
++	bc[ 3] = ~st[ 4] & st[ 0];
++	bc[ 4] = ~st[ 0] & st[ 1];
++	st[ 0] ^= bc[ 0];
++	st[ 1] ^= bc[ 1];
++	st[ 2] ^= bc[ 2];
++	st[ 3] ^= bc[ 3];
++	st[ 4] ^= bc[ 4];
++
++	bc[ 0] = ~st[ 6] & st[ 7];
++	bc[ 1] = ~st[ 7] & st[ 8];
++	bc[ 2] = ~st[ 8] & st[ 9];
++	bc[ 3] = ~st[ 9] & st[ 5];
++	bc[ 4] = ~st[ 5] & st[ 6];
++	st[ 5] ^= bc[ 0];
++	st[ 6] ^= bc[ 1];
++	st[ 7] ^= bc[ 2];
++	st[ 8] ^= bc[ 3];
++	st[ 9] ^= bc[ 4];
++
++	bc[ 0] = ~st[11] & st[12];
++	bc[ 1] = ~st[12] & st[13];
++	bc[ 2] = ~st[13] & st[14];
++	bc[ 3] = ~st[14] & st[10];
++	bc[ 4] = ~st[10] & st[11];
++	st[10] ^= bc[ 0];
++	st[11] ^= bc[ 1];
++	st[12] ^= bc[ 2];
++	st[13] ^= bc[ 3];
++	st[14] ^= bc[ 4];
++
++	bc[ 0] = ~st[16] & st[17];
++	bc[ 1] = ~st[17] & st[18];
++	bc[ 2] = ~st[18] & st[19];
++	bc[ 3] = ~st[19] & st[15];
++	bc[ 4] = ~st[15] & st[16];
++	st[15] ^= bc[ 0];
++	st[16] ^= bc[ 1];
++	st[17] ^= bc[ 2];
++	st[18] ^= bc[ 3];
++	st[19] ^= bc[ 4];
++
++	bc[ 0] = ~st[21] & st[22];
++	bc[ 1] = ~st[22] & st[23];
++	bc[ 2] = ~st[23] & st[24];
++	bc[ 3] = ~st[24] & st[20];
++	bc[ 4] = ~st[20] & st[21];
++	st[20] ^= bc[ 0];
++	st[21] ^= bc[ 1];
++	st[22] ^= bc[ 2];
++	st[23] ^= bc[ 3];
++	st[24] ^= bc[ 4];
 +}
 +
-+static void sha3_keccakf(struct sha3_state *state)
++static void sha3_keccakf_rounds_generic(struct sha3_state *state)
 +{
-+	if (static_branch_likely(&have_cpacf_sha3_512)) {
-+		/*
-+		 * Passing zeroes into any of CPACF_KIMD_SHA3_* gives the plain
-+		 * Keccak-f permutation, which is what we want here.  Use
-+		 * SHA3-512 since it has the smallest block size.
-+		 *
-+		 * Also, as in sha3_absorb_blocks(), the state needn't be
-+		 * converted to little endian.  It already is little endian.
-+		 */
-+		static const u8 zeroes[SHA3_512_BLOCK_SIZE];
-+
-+		cpacf_kimd(CPACF_KIMD_SHA3_512, state, zeroes, sizeof(zeroes));
-+	} else {
-+		sha3_keccakf_generic(state);
++	for (int round = 0; round < SHA3_KECCAK_ROUNDS; round++) {
++		sha3_keccakf_one_round_generic(state);
++		/* Iota */
++		state->st[0] ^= sha3_keccakf_rndc[round];
 +	}
 +}
 +
-+#define sha3_mod_init_arch sha3_mod_init_arch
-+static void sha3_mod_init_arch(void)
++/*
++ * Byteswap the state buckets to CPU-endian if we're not on a little-endian
++ * machine for the duration of the Keccak mixing function.  Note that these
++ * loops are no-ops on LE machines and will be optimised away.
++ */
++static void sha3_keccakf_generic(struct sha3_state *state)
 +{
-+	if (cpu_have_feature(S390_CPU_FEATURE_MSA)) {
-+		if (cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA3_256))
-+			static_branch_enable(&have_cpacf_sha3_256);
-+		if (cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA3_512))
-+			static_branch_enable(&have_cpacf_sha3_512);
++	for (int  i = 0; i < ARRAY_SIZE(state->st); i++)
++		cpu_to_le64s(&state->st[i]);
++
++	sha3_keccakf_rounds_generic(state);
++
++	for (int  i = 0; i < ARRAY_SIZE(state->st); i++)
++		le64_to_cpus(&state->st[i]);
++}
++
++static void sha3_absorb_block_generic(struct sha3_ctx *ctx, const u8 *data)
++{
++	struct sha3_state *state = &ctx->state;
++	size_t bsize = ctx->block_size;
++
++	for (size_t i = 0; i < bsize / 8; i++)
++		state->st[i] ^= get_unaligned((u64 *)(data + 8 * i));
++	sha3_keccakf_generic(state);
++}
++
++/*
++ * Perform rounds of XOR'ing whole blocks of data into the state buffer and
++ * then performing a keccak mix step.
++ */
++static void sha3_absorb_blocks_generic(struct sha3_ctx *ctx,
++				       const u8 *data, size_t nblocks)
++{
++	do {
++		sha3_absorb_block_generic(ctx, data);
++		data += ctx->block_size;
++	} while (--nblocks);
++}
++
++#ifdef CONFIG_CRYPTO_LIB_SHA3_ARCH
++#include "sha3.h" /* $(SRCARCH)/sha3.h */
++#else
++#define sha3_keccakf		sha3_keccakf_generic
++#define sha3_absorb_blocks	sha3_absorb_blocks_generic
++#endif
++
++/*
++ * XOR in partial data that's insufficient to fill a whole block.
++ */
++static void sha3_absorb_xorle(struct sha3_ctx *ctx, const u8 *data,
++			      size_t partial, size_t len)
++{
++	u8 *buf = (u8 *)ctx->state.st;
++
++	buf += partial;
++	for (size_t i = 0; i < len; i++)
++		*buf++ ^= *data++;
++}
++
++/**
++ * sha3_update() - Update a SHA3 context of any type with message data
++ * @ctx: the context to update; must have been initialized
++ * @data: the message data
++ * @len: the data length in bytes
++ *
++ * This can be called any number of times to perform the "keccak sponge
++ * absorbing" phase.
++ *
++ * Context: May use the FPU/Vector unit registers.
++ */
++void sha3_update(struct sha3_ctx *ctx, const u8 *data, size_t len)
++{
++	size_t absorb_offset = ctx->absorb_offset;
++	size_t bsize = ctx->block_size;
++
++	WARN_ON_ONCE(ctx->end_marked);
++
++	if (absorb_offset && absorb_offset + len >= bsize) {
++		sha3_absorb_xorle(ctx, data, absorb_offset, bsize - absorb_offset);
++		len  -= bsize - absorb_offset;
++		data += bsize - absorb_offset;
++		sha3_keccakf(&ctx->state);
++		ctx->absorb_offset = 0;
++	}
++
++	if (len >= bsize) {
++		size_t nblocks = len / bsize;
++
++		sha3_absorb_blocks(ctx, data, nblocks);
++		data += nblocks * bsize;
++		len  -= nblocks * bsize;
++	}
++
++	if (len) {
++		sha3_absorb_xorle(ctx, data, ctx->absorb_offset, len);
++		ctx->absorb_offset += len;
 +	}
 +}
++EXPORT_SYMBOL_GPL(sha3_update);
++
++/**
++ * sha3_squeeze() - Finalize a SHA3 digest of any type and extract the digest
++ * @ctx: the context to finalize; must have been initialized
++ * @out: Where to write the resulting message digest
++ * @out_size: The amount of digest to extract to @out
++ *
++ * Finish the computation of a SHA3 message digest of any type and perform the
++ * "Keccak sponge squeezing" phase.  @out_size amount of digest is written to
++ * @out buffer.
++ *
++ * This may be called multiple times to extract continuations of the digest.
++ * Note that, for example, two consecutive 16-byte squeezes laid end-to-end
++ * will yield the same as one 32-byte squeeze.
++ *
++ * Context: May use the FPU/Vector unit registers.
++ */
++void sha3_squeeze(struct sha3_ctx *ctx, u8 *out, size_t out_size)
++{
++	size_t squeeze_offset = ctx->squeeze_offset;
++	size_t bsize = ctx->block_size;
++	u8 *p = (u8 *)ctx->state.st, end_marker = 0x80;
++
++	if (!ctx->end_marked) {
++		sha3_absorb_xorle(ctx, &ctx->padding, ctx->absorb_offset, 1);
++		sha3_absorb_xorle(ctx, &end_marker, bsize - 1, 1);
++		ctx->end_marked = true;
++	}
++
++	for (;;) {
++		if (squeeze_offset == 0)
++			sha3_keccakf(&ctx->state);
++
++		size_t part = umin(out_size, bsize - squeeze_offset);
++
++		if (part > 0) {
++			memcpy(out, p + squeeze_offset, part);
++			out_size -= part;
++			out += part;
++			squeeze_offset += part;
++		}
++		if (!out_size)
++			break;
++		if (squeeze_offset >= bsize)
++			squeeze_offset = 0;
++	}
++
++	ctx->squeeze_offset = squeeze_offset;
++}
++EXPORT_SYMBOL_GPL(sha3_squeeze);
++
++/**
++ * sha3_224() - Convenience wrapper to digest a simple buffer as SHA3-224
++ * @in: The data to be digested
++ * @in_len: The amount of data to be digested in bytes
++ * @out: The buffer into which the digest will be stored (size not checked)
++ *
++ * Convenience wrapper to initialise a SHA3 context for SHA-224, add the input
++ * data to it, finalise it, extract 28 bytes of digest and clear the context.
++ *
++ * Context: May use the FPU/Vector unit registers.
++ */
++void sha3_224(const u8 *in, size_t in_len, u8 out[SHA3_224_DIGEST_SIZE])
++{
++	struct sha3_224_ctx ctx;
++
++	sha3_224_init(&ctx);
++	sha3_224_update(&ctx, in, in_len);
++	sha3_224_final(&ctx, out);
++}
++EXPORT_SYMBOL(sha3_224);
++
++/**
++ * sha3_256() - Convenience wrapper to digest a simple buffer as SHA3-256
++ * @in: The data to be digested
++ * @in_len: The amount of data to be digested in bytes
++ * @out: The buffer into which the digest will be stored (size not checked)
++ *
++ * Convenience wrapper to initialise a SHA3 context for SHA-256, add the input
++ * data to it, finalise it, extract 32 bytes of digest and clear the context.
++ *
++ * Context: May use the FPU/Vector unit registers.
++ */
++void sha3_256(const u8 *in, size_t in_len, u8 out[SHA3_256_DIGEST_SIZE])
++{
++	struct sha3_256_ctx ctx;
++
++	sha3_256_init(&ctx);
++	sha3_256_update(&ctx, in, in_len);
++	sha3_256_final(&ctx, out);
++}
++EXPORT_SYMBOL(sha3_256);
++
++/**
++ * sha3_384() - Convenience wrapper to digest a simple buffer as SHA3-384
++ * @in: The data to be digested
++ * @in_len: The amount of data to be digested in bytes
++ * @out: The buffer into which the digest will be stored (size not checked)
++ *
++ * Convenience wrapper to initialise a SHA3 context for SHA-384, add the input
++ * data to it, finalise it, extract 48 bytes of digest and clear the context.
++ *
++ * Context: May use the FPU/Vector unit registers.
++ */
++void sha3_384(const u8 *in, size_t in_len, u8 out[SHA3_384_DIGEST_SIZE])
++{
++	struct sha3_384_ctx ctx;
++
++	sha3_384_init(&ctx);
++	sha3_384_update(&ctx, in, in_len);
++	sha3_384_final(&ctx, out);
++}
++EXPORT_SYMBOL(sha3_384);
++
++/**
++ * sha3_512() - Convenience wrapper to digest a simple buffer as SHA3-512
++ * @in: The data to be digested in bytes
++ * @in_len: The amount of data to be digested in bytes
++ * @out: The buffer into which the digest will be stored (size not checked)
++ *
++ * Convenience wrapper to initialise a SHA3 context for SHA-512, add the input
++ * data to it, finalise it, extract 64 bytes of digest and clear the context.
++ *
++ * Context: May use the FPU/Vector unit registers.
++ */
++void sha3_512(const u8 *in, size_t in_len, u8 out[SHA3_512_DIGEST_SIZE])
++{
++	struct sha3_512_ctx ctx;
++
++	sha3_512_init(&ctx);
++	sha3_512_update(&ctx, in, in_len);
++	sha3_512_final(&ctx, out);
++}
++EXPORT_SYMBOL(sha3_512);
++
++/**
++ * shake128() - Convenience wrapper to apply SHAKE128 to a simple buffer
++ * @in: The input data to be used
++ * @in_len: The amount of input data in bytes
++ * @out: The buffer in which to store the output
++ * @out_len: The amount of output to store in bytes (variable length)
++ *
++ * Convenience wrapper to initialise a SHA3 context for SHAKE128, add the input
++ * data to it, finalise it, extract the requested amount of output and clear
++ * the context.
++ *
++ * Context: May use the FPU/Vector unit registers.
++ */
++void shake128(const u8 *in, size_t in_len, u8 *out, size_t out_len)
++{
++	struct shake128_ctx ctx;
++
++	shake128_init(&ctx);
++	shake128_update(&ctx, in, in_len);
++	shake128_squeeze(&ctx, out, out_len);
++	shake128_clear(&ctx);
++}
++EXPORT_SYMBOL(shake128);
++
++/**
++ * shake256() - Convenience wrapper to apply SHAKE256 to a simple buffer
++ * @in: The input data to be used
++ * @in_len: The amount of input data in bytes
++ * @out: The buffer in which to store the output
++ * @out_len: The amount of output to store in bytes (variable length)
++ *
++ * Convenience wrapper to initialise a SHA3 context for SHAKE128, add the input
++ * data to it, finalise it, extract the requested amount of output and clear
++ * the context.
++ *
++ * Context: May use the FPU/Vector unit registers.
++ */
++void shake256(const u8 *in, size_t in_len, u8 *out, size_t out_len)
++{
++	struct shake256_ctx ctx;
++
++	shake256_init(&ctx);
++	shake256_update(&ctx, in, in_len);
++	shake256_squeeze(&ctx, out, out_len);
++	shake256_clear(&ctx);
++}
++EXPORT_SYMBOL(shake256);
++
++/*
++ * Do a quick test using SHAKE256 and a 200 byte digest.
++ */
++static const u8 sha3_sample[] __initconst =
++	"The quick red fox jumped over the lazy brown dog!\n"
++	"The quick red fox jumped over the lazy brown dog!\n"
++	"The quick red fox jumped over the lazy brown dog!\n"
++	"The quick red fox jumped over the lazy brown dog!\n";
++
++static const u8 sha3_sample_shake256_200[] __initconst = {
++	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, /* Write-before guard */
++	0xab, 0x06, 0xd4, 0xf9, 0x8b, 0xfd, 0xb2, 0xc4, 0xfe, 0xf1, 0xcc, 0xe2,
++	0x40, 0x45, 0xdd, 0x15, 0xcb, 0xdd, 0x02, 0x8d, 0xb7, 0x9f, 0x1e, 0x67,
++	0xd6, 0x7f, 0x98, 0x5e, 0x1b, 0x19, 0xf8, 0x01, 0x43, 0x82, 0xcb, 0xd8,
++	0x5d, 0x21, 0x64, 0xa8, 0x80, 0xc9, 0x22, 0xe5, 0x07, 0xaf, 0xe2, 0x5d,
++	0xcd, 0xc6, 0x23, 0x36, 0x2b, 0xc7, 0xc7, 0x7d, 0x09, 0x9d, 0x68, 0x05,
++	0xe4, 0x62, 0x63, 0x1b, 0x67, 0xbc, 0xf8, 0x95, 0x07, 0xd2, 0xe4, 0xd0,
++	0xba, 0xa2, 0x67, 0xf5, 0xe3, 0x15, 0xbc, 0x85, 0xa1, 0x50, 0xd6, 0x6f,
++	0x6f, 0xd4, 0x54, 0x4c, 0x3f, 0x4f, 0xe5, 0x1f, 0xb7, 0x00, 0x27, 0xfc,
++	0x15, 0x33, 0xc2, 0xf9, 0xb3, 0x4b, 0x9e, 0x81, 0xe5, 0x96, 0xbe, 0x05,
++	0x6c, 0xac, 0xf9, 0x9f, 0x65, 0x36, 0xbb, 0x11, 0x47, 0x6d, 0xf6, 0x8f,
++	0x9f, 0xa2, 0x77, 0x37, 0x3b, 0x18, 0x77, 0xcf, 0x65, 0xc5, 0xa1, 0x7e,
++	0x2c, 0x0e, 0x71, 0xf0, 0x4d, 0x18, 0x67, 0xb9, 0xc4, 0x8c, 0x64, 0x3b,
++	0x4b, 0x45, 0xea, 0x16, 0xb2, 0x4a, 0xc5, 0xf5, 0x85, 0xdc, 0xd2, 0xd9,
++	0x13, 0x77, 0xb3, 0x19, 0xd9, 0x8c, 0x9f, 0x28, 0xe7, 0x64, 0x91, 0x0f,
++	0x6f, 0x32, 0xbf, 0xa8, 0xa8, 0xa3, 0xff, 0x99, 0x0e, 0x0b, 0x62, 0x50,
++	0xf8, 0x3a, 0xc2, 0xf5, 0x98, 0x21, 0xeb, 0x9d, 0xe8, 0x45, 0xf4, 0x46,
++	0x1e, 0x8b, 0xbd, 0x10, 0x59, 0x2c, 0x87, 0xe2,
++	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, /* Write-after guard */
++};
++
++static int __init sha3_mod_init(void)
++{
++#define out_len 200
++	u8 out[8 + out_len + 8] = {};
++
++#ifdef sha3_mod_init_arch
++	sha3_mod_init_arch();
++#endif
++
++	BUILD_BUG_ON(sizeof(out) != sizeof(sha3_sample_shake256_200));
++
++	shake256(sha3_sample, sizeof(sha3_sample) - 1, out + 8, out_len);
++
++	if (memcmp(out, sha3_sample_shake256_200,
++		   sizeof(sha3_sample_shake256_200)) != 0) {
++		pr_err("SHAKE256(200) failed\n");
++		for (size_t i = 0; i < out_len;) {
++			size_t part = min(out_len - i, 32);
++
++			pr_err("%*phN\n", (int)part, out + i);
++			i += part;
++		}
++		return -EBADMSG;
++	}
++	return 0;
++}
++subsys_initcall(sha3_mod_init);
++
++static void __exit sha3_mod_exit(void)
++{
++}
++module_exit(sha3_mod_exit);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("SHA-3 Secure Hash Algorithm");
 -- 
 2.51.1.dirty
 
