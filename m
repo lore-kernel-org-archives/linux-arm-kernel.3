@@ -4,87 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E10ACCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD0DCCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Mda8oOOpYCD565rSyu3DIf2XuqcwsaLNOoOyBWIStU=; b=osqeo+F8XF9vvuLkwostneNI6w
-	I5QBBEOx6Pmbrt8Hdi9oky5MBQcdcsz97wEkVcNknVJffPPMoJ185nJZqvrgeAoUIfooQg5JHjAIi
-	r+nMF5mpqxv0lFJlnu/l/cZp7BfYierouAKGRnCAFbV6LsiBCkST2voe4MbfIVSJ4jvceoFbZBceC
-	+/WHvhNgGYjSCbmNjcr1C1Zk3JCue6lja0nZIiVknAqv2hvMae5RCJrU5sckJxibbQKrMx90toSvM
-	APQTVl3m4CfiWt3eTW7NH8iDfhBPgfbstM885CkDv3XAWSSARPB9FEnHaos//dtlwTY2Kilr2feEl
-	Sv+4Sx1A==;
+	bh=Tl1HwVQ6bVLZapBHPgA/1M6RjCK4Q7J5tRgWObxFJAk=; b=1JwwsEIrpp/yePj3GcpMkPQmoL
+	IwV3oAwmcFvj/SOTcFLJC34WqCvKv5nndA+hf+laPsZRZieoKAichjwMpmnrZTfyZz/MyxQIilqwI
+	orv7F/32E73aeuGHfpuPLkhS+WQ5knvvWzX50CSjn0TRKzPwrn2dRyeRqn646xdkpCYcyPiDz5uR5
+	BYozSWENpogQyHEF/IX3VzEdyx1nQDm6rgrMQwJa+3H5S5gmqX6/8XroNFYthW/4wQCWXequ6loEC
+	x+lBZ7ZtsXNAuSt778YnK6+/r+7XZ3AK/nKzQWCDN49wOhjkfhpO/O9QtB9ZK6qHA2TeO6lQ5dbgx
+	0G46U5Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtJn-0000000EPgo-1O6y;
-	Mon, 20 Oct 2025 17:05:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vAtKV-0000000EPst-2xxH;
+	Mon, 20 Oct 2025 17:05:55 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtJk-0000000EPfq-0b3n
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 17:05:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5859F486E0;
-	Mon, 20 Oct 2025 17:05:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32B33C4CEF9;
-	Mon, 20 Oct 2025 17:05:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760979906;
-	bh=aOxVPX/stENfYbyxAxdQ2trXPVhmxu69UvS1Y1oOJF8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=HlLf+uu1A+9glk1xokZA2dQ7TAtEcg65CYsuIrXkDFUW/3iO5kbyLa1Nz22Gz4GZH
-	 R9teEXbX5glQ3aczLPG59dylLlIyqvwnGr2WlKnCPW0Wy52t5Zc+enhyLRnakWk8+5
-	 GC2X1llO4MAG7E+ufqUtS24JNbpQgarIL42C6yN7WHt8Kl2t/LFmta0l4wANSlgEy4
-	 YYCV5CGmAOW2vLmZIWJVFF73VIBBdhzvBKuqYm6qtRY6aBa9tXqV5lV/fhfV3s4i9U
-	 5nTMSxBe+XEoDcU9uyNffgYRGN3jDl5i2N2OLCAPtnLAk+U2AJDTEfxQIg20+pFv2+
-	 J5dVj48neEruQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vAtJf-0000000FaGq-3F9t;
-	Mon, 20 Oct 2025 17:05:04 +0000
-Date: Mon, 20 Oct 2025 18:05:03 +0100
-Message-ID: <86ikg9wlkw.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	kasan-dev@googlegroups.com,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [RFC PATCH 12/16] kvm/arm64: make alternative callbacks safe
-In-Reply-To: <20250923174903.76283-13-ada.coupriediaz@arm.com>
-References: <20250923174903.76283-1-ada.coupriediaz@arm.com>
-	<20250923174903.76283-13-ada.coupriediaz@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ada.coupriediaz@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, ardb@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kasan-dev@googlegroups.com, mark.rutland@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1vAtKT-0000000EPrf-1wil;
+	Mon, 20 Oct 2025 17:05:54 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1vAtKD-000000005HU-0nRf;
+	Mon, 20 Oct 2025 17:05:37 +0000
+Date: Mon, 20 Oct 2025 18:05:33 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Sjoerd Simons <sjoerd@collabora.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Lee Jones <lee@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+	kernel@collabora.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-phy@lists.infradead.org, netdev@vger.kernel.org,
+	Bryan Hinton <bryan@bryanhinton.com>
+Subject: Re: [PATCH 02/15] arm64: dts: mediatek: mt7981b-openwrt-one:
+ Configure UART0 pinmux
+Message-ID: <aPZr3WMybjTWnn9E@makrotopia.org>
+References: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
+ <20251016-openwrt-one-network-v1-2-de259719b6f2@collabora.com>
+ <aPDnT4tuSzNDzyAE@makrotopia.org>
+ <5f430ff9-d701-426a-bf93-5290e6912eb4@collabora.com>
+ <aPEfUBl6fMe6QYdY@makrotopia.org>
+ <82594ce7-f093-4753-b808-cd234845aed8@collabora.com>
+ <aPYq4cnaAHu5ags5@makrotopia.org>
+ <8453efd3-630e-4f2c-950d-88a73927cc54@collabora.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8453efd3-630e-4f2c-950d-88a73927cc54@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_100508_222556_C329657A 
-X-CRM114-Status: GOOD (  30.85  )
+X-CRM114-CacheID: sfid-20251020_100553_649546_D1A1A0CE 
+X-CRM114-Status: GOOD (  69.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,93 +90,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-nit: please keep $SUBJECT in keeping with the subsystem you are
-patching: "KVM: arm64: Make alternative callbacks safe"
-
-On Tue, 23 Sep 2025 18:48:59 +0100,
-Ada Couprie Diaz <ada.coupriediaz@arm.com> wrote:
+On Mon, Oct 20, 2025 at 04:02:58PM +0200, AngeloGioacchino Del Regno wrote:
+> Il 20/10/25 14:28, Daniel Golle ha scritto:
+> > On Mon, Oct 20, 2025 at 12:23:14PM +0200, AngeloGioacchino Del Regno wrote:
+> > > Il 16/10/25 18:37, Daniel Golle ha scritto:
+> > > > On Thu, Oct 16, 2025 at 04:29:14PM +0200, AngeloGioacchino Del Regno wrote:
+> > > > > Il 16/10/25 14:38, Daniel Golle ha scritto:
+> > > > > > On Thu, Oct 16, 2025 at 12:08:38PM +0200, Sjoerd Simons wrote:
+> > > > > > > Add explicit pinctrl configuration for UART0 on the OpenWrt One board,
+> > > > > > > 
+> > > > > > > Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
+> > > > > > > ---
+> > > > > > >     arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts | 11 +++++++++++
+> > > > > > >     1 file changed, 11 insertions(+)
+> > > > > > > 
+> > > > > > > diff --git a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+> > > > > > > index 968b91f55bb27..f836059d7f475 100644
+> > > > > > > --- a/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+> > > > > > > +++ b/arch/arm64/boot/dts/mediatek/mt7981b-openwrt-one.dts
+> > > > > > > @@ -22,6 +22,17 @@ memory@40000000 {
+> > > > > > >     	};
+> > > > > > >     };
+> > > > > > > +&pio {
+> > > > > > > +	uart0_pins: uart0-pins {
+> > > > > > > +		mux {
+> > > > > > > +			function = "uart";
+> > > > > > > +			groups = "uart0";
+> > > > > > > +		};
+> > > > > > > +	};
+> > > > > > > +};
+> > > > > > > +
+> > > > > > >     &uart0 {
+> > > > > > > +	pinctrl-names = "default";
+> > > > > > > +	pinctrl-0 = <&uart0_pins>;
+> > > > > > >     	status = "okay";
+> > > > > > >     };
+> > > > > > 
+> > > > > > As there is only a single possible pinctrl configuration for uart0,
+> > > > > > both the pinmux definition as well as the pinctrl properties should go
+> > > > > > into mt7981b.dtsi rather than in the board's dts.
+> > > > > 
+> > > > > If there's really one single possible pin configuration for the UART0 pins,
+> > > > > as in, those pins *do not* have a GPIO mode, then yes I agree.
+> > > > > 
+> > > > > If those pins can be as well configured as GPIOs, this goes to board DTS.
+> > > > 
+> > > > I respectfully disagree and will explain below.
+> > > > 
+> > > 
+> > > Thanks a lot for taking the time to write all this - explains everything,
+> > > and even too much :) :)
+> > > 
+> > > Though, there's something funny here! The following snippet of "main" text
+> > > does explain stuff that is interesting, but that I (not other people, so
+> > > thanks again for saying all this) know already, but.....
+> > > 
+> > > > All pinmux pins on the MediaTek platform also allow being configured as
+> > > > GPIOs. However, if you configure those as GPIOs the consequence is that
+> > > > you cannot use UART0 any more at all. So using UART0 at all always
+> > > > implies using exactly those pins, there is no alternative to that.
+> > > > 
+> > > > Hence every board with every possible uses of pins 32 and 33 (there is
+> > > > only RX and TX for UART0, RTS/CTS flow-control is not possible) can be
+> > > > represented without needing to configure the pinctrl for uart0 on the
+> > > > board level. There isn't going to be any variation on the board-level
+> > > > when it comes to uart0. Either it is enabled (status = "okay";), and
+> > > > that will always imply using the 'uart0' group in mode 'uart', or, in
+> > > > case any of the two pins of uart0 is used for something else that means
+> > > > uart0 cannot be enabled. Simple as that.
+> > > > 
+> > > > Hence there is no need to duplicate that pinctrl settings on each and
+> > > > every board, as controlling the 'status' property on the board-level
+> > > > already gives 100% freedom.
+> > > > 
+> > > 
+> > > ...all of this is not justifying your point.
+> > 
+> > So what is the rule then? I understand the logic of describing the
+> > pins eg. for uart1 only on board-level as there are actual alternatives
+> > regarding the pins to be used, and if also including RTS/CTS pins.
+> > Hence, for uart1, there are several possible pingroups which can be
+> > used. What would be the argument to keep a pinctrl description for
+> > which the SoC doesn't offer any alternatives to be on the board-level?
+> > There is nothing to be decided by the board, literally 0 freedom.
+> > 
 > 
-> Alternative callback functions are regular functions, which means they
-> or any function they call could get patched or instrumented
-> by alternatives or other parts of the kernel.
-> Given that applying alternatives does not guarantee a consistent state
-> while patching, only once done, and handles cache maintenance manually,
-> it could lead to nasty corruptions and execution of bogus code.
+> As you described - the BootROM is using those two pins as UART0.
 > 
-> Make the KVM alternative callbacks safe by marking them `noinstr` and
-> `__always_inline`'ing their helpers.
-> This is possible thanks to previous commits making `aarch64_insn_...`
-> functions used in the callbacks safe to inline.
+> Should you want those pins to be used as GPIOs, you'd at least get HW glitches in
+> early boot phases, or you'd render emergency download mode unusable - which is not
+> a good idea, not practical, and also, well, almost a stupid thing to do from the
+> hardware perspective.
+
+No, that's not a problem. During reset the pinctrl/gpio controller is always
+reset to the default and no matter how the pins were used in Linux before the
+reset. Hence debug output and also emrgency download mode always works.
+The only disadvantage of use the pins differently is that the bootrom output
+on one of them cannot be prevented -- but in case that's not a problem (eg.
+because the pin is later used as an input rather than output) it can totally
+be done, though it would be stupid as it would render the debug UART unusable.
+Yet, I'd consider it a possible choice of a board designer.
+
 > 
-> `kvm_update_va_mask()` is already marked as `__init`, which has its own
-> text section conflicting with the `noinstr` one.
-> Instead, use `__no_instr_section(".noinstr.text")` to add
-> all the function attributes added by `noinstr`, without the section
-> conflict.
-> This can be an issue, as kprobes seems to only block the text sections,
-> not based on function attributes.
+> This means that it is very, very, very unlikely (to the point that it's practically
+> impossible) that those pins can ever be used for anything else that is not *the*
+> one of the two functions that are supported for them (which is UART0 in this case).
 > 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> ---
-> This is missing `kvm_patch_vector_branch()`, which could receive the same
-> treatment, but the `WARN_ON_ONCE` in the early-exit check would make it
-> call into instrumentable code.
-> I do not currently know if this `WARN` can safely be removed or if it
-> has some importance.
-
-This is only debug code, which could be easily removed. However, I'd
-like to suggest that we add a method to indicate that a patching
-callback has failed for whatever reason. This doesn't have to be a
-complex piece of infrastructure, and can be best effort (you can only
-fail a single callback in a single location).
-
-But it would certainly help catching unexpected situations (been
-there, done that, ended up with visible scars...).
-
-> ---
->  arch/arm64/kvm/va_layout.c | 12 +++++++-----
->  1 file changed, 7 insertions(+), 5 deletions(-)
+> In this case, adding the pins at the board level would only create unnecessary
+> duplication and nothing else, because, well, noone could possibly ever use those
+> for anything else, again.
 > 
-> diff --git a/arch/arm64/kvm/va_layout.c b/arch/arm64/kvm/va_layout.c
-> index 91b22a014610..3ebb7e0074f6 100644
-> --- a/arch/arm64/kvm/va_layout.c
-> +++ b/arch/arm64/kvm/va_layout.c
-> @@ -109,7 +109,7 @@ __init void kvm_apply_hyp_relocations(void)
->  	}
->  }
->  
-> -static u32 compute_instruction(int n, u32 rd, u32 rn)
-> +static __always_inline u32 compute_instruction(int n, u32 rd, u32 rn)
->  {
->  	u32 insn = AARCH64_BREAK_FAULT;
->  
-> @@ -151,6 +151,7 @@ static u32 compute_instruction(int n, u32 rd, u32 rn)
->  	return insn;
->  }
->  
-> +__noinstr_section(".init.text")
->  void __init kvm_update_va_mask(struct alt_instr *alt,
->  			       __le32 *origptr, __le32 *updptr, int nr_inst)
->  {
-> @@ -241,7 +242,8 @@ void kvm_patch_vector_branch(struct alt_instr *alt,
->  	*updptr++ = cpu_to_le32(insn);
->  }
->  
-> -static void generate_mov_q(u64 val, __le32 *origptr, __le32 *updptr, int nr_inst)
-> +static __always_inline void generate_mov_q(u64 val, __le32 *origptr,
-> +				 __le32 *updptr, int nr_inst)
->  {
->  	u32 insn, oinsn, rd;
->
+> That's the criteria.
 
-generate_mov_q() (and others) start with a BUG_ON(), which may not be
-recoverable, just like WARN_ON() above. That's where we should be able
-to fail (more or less) gracefully and at least indicate the failure.
+So this criteria, avoiding unnecessary duplication, is also what I thought and
+is very true for the argument I presented before which somehow wasn't what has
+convinced you: That using uart0 in any possible way **always** implied using
+the uart0 pingroup in uart mode, because there aren't any other pins which can
+be used for uart0. In this sense, if uart0 is used at all, it is **not** the
+choice of the board designer which pins to use for that -- there simply is only
+that one single option.
 
-Thanks,
+> 
+> If the BootROM didn't use those pins, and those could support both GPIO mode and
+> HW function mode (any: uart0, 1, 2...n, spi, i2c, whatever else), even though it
+> is likely for boards to use them for one specific function, there is nothing that
+> stops a HW engineer to decide to route those elsewhere and use them as a GPIO
+> instead, so that's not a SoC configuration, but rather a HW implementation decision
+> at the PCB level.
 
-	M.
+That's exactly my point: There isn't any other option to route uart0 to. Only
+those two pins. The other alternative functions of those pins (apart from GPIO)
+are rather esoteric debugging features (I2C access to SoC internals).
 
--- 
-Without deviation from the norm, progress is not possible.
+> 
+> See it like this (although this is an oversimplified view):
+>  - SoC DT describes the SoC (the chip) - in this case the MT7981B chip
+>  - Board DT describes decisions that were taken by the HW engineer that developed
+>    the PCB on which the MT7981B was placed.
+
+So the choice of a HW engineer regarding uart0 is simply whether uart0
+is used or not. If uart0 is used, the HW engineer doesn't have any choice
+regarding which pins they would like to use for the uart0 RX and TX lines,
+the SoC design dictates exactly one option for that.
+
+> 
+> Clearly, if there's a board design (usually, a "base project") that has derivatives
+> (for example, a device with eMMC, one with UFS, one with both, one with two SFP,
+> one with one SFP and one soldered ethernet chip on a non-exposed SFP interface,
+> etc) it is ok to have a "board-common" dtsi and specific board variants on top,
+> like it is done with some bananapi and some genio boards.
+> 
+> Lots of text here - yet oversimplified. There is much more to say, but I think
+> (and hope) that this is enough to make you understand the main point (of course
+> feel free to throw more questions if what I wrote doesn't fully satisfy you).
+> 
+> > > 
+> > > > (Sidenote: As even the BootROM already uses those two pins as UART for
+> > > > debug output,
+> > > 
+> > > Funny thing is, your side note is what *fully* justifies your disagreement
+> > > and it's also what triggers me to say that you're right, lol :)
+> > > 
+> > > Okay then, I am fine with this commit now and I can renew my
+> > > 
+> > > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> > 
+> > Note that the patch you have just added your Reviewed-by:-tag to does
+> > *not* add the uart0 pinctrl on SoC-level but board-level, so different
+> > from what I argued for above.
+> 
+> Ewwww I'm doing too may things at once. Pretty crazy days around here :)))
+> 
+> >> Did you mean to add Reviewed-by: for that
+> > (which contraticts what you just wrote) or rather to the to-be-submitted
+> > v2 of this series which includes the change to move the uart0 pinctrl
+> > to mt7981b.dtsi?
+> 
+> Yeah. Sorry.
+> 
+> I repeat then, so that this is clear: you are right, the pinctrl for UART0 on the
+> MT7981B SoC must go to mt7981b.dtsi and *not* to mt7981b-openwrt-one.
+
+Thank you, that should make it clear to Sjoerd as well (who may skip and ignore
+all of our debating :).
 
