@@ -4,63 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A62CCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:20:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AFECCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4CWQJL/ma71NTFRMVhXHdXOrLF6UXRPwP2aUNcC19Ao=; b=b5jISWsfi2U1Hq+iQz1bqpBrDt
-	yympH3vLc34Ggv1WUvAF8X2NJdblnbUNeLI/1BHPR9pSm/Cx9DBf7HBdx9/D+W1iLIKqcduvKXnME
-	K8CP/eVSTtryWdn660MoDp0sjXXHqsqUYSOa2If17FNMTNEMUZ98mzkZl74M5uKyXI1vxdLotUtcS
-	MIHNCcGnTBXlHmLkcd8J3HqFN3p9F4RlgPwb/n986idZG8iawDeUhRx+pjTB5xWWtSNhvuaW+GnCn
-	eZlw1bdKbkrpvaVK7sq1VZw0v4EDpJRncSbLg/lmf2N1OtWMAjrFjy6ifVcjb2ZTrAWIJCJoIKeiQ
-	IJrvpvpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JJL3ymzyML+diLAVT9nhgdl7Vx9TWLZbPp7QEm8FssI=; b=pD4ifB5nx1qoMgJAOC3CLf6+bV
+	KiAHd7EwaAZyTvjrXo/fSikFceYcVwGgZOkPU/fdNaBnSe6QAp1paEArc/7bgvYAj4qr1bUUKfaBL
+	FX2Srpv2cc9xHN8fJQXKIo62mQRXbhbwU5+Yo4DlZfVaB0Fg445imDbAYx9CIP7GWgZ4dN617CLBp
+	9LTSOBmxhv49KMoLC+i5Tl3jN9P1aYGVya9+mbRcHmmsnSlhPdqDxqTQfP3siI+Vv0DmQI/5LrYJb
+	Vasu5PrJLiJ+9i298QOschp7bWRmE8QZGIU4ZeqSMFu3pe/GPERdLA0uL5Wgd8bBcXOL4V7x+uBCb
+	t1WsESXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtYa-0000000ETKx-1Ksn;
-	Mon, 20 Oct 2025 17:20:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vAtcN-0000000ETr8-2EBv;
+	Mon, 20 Oct 2025 17:24:23 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtYY-0000000ETJw-19zD
+	id 1vAtcK-0000000ETqR-1B14
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 17:20:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD290450E3;
-	Mon, 20 Oct 2025 17:20:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A902C4CEF9;
-	Mon, 20 Oct 2025 17:20:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760980811;
-	bh=BBdSB5XAD1YvzsBRvHq+pGVZ+js4CR0/KKZhrayNJnM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OePdjB6eN0nq/HbPmKKQystov9LAi8oF8K8mYHl9KXXh4ilJKjD63usjZ08iIKSa/
-	 bj9gfaXCGR5r+lZZh/squfy/YwgeJ3QaR1/WRK66VT1IyDULP5Llpdwrti0U6KPDnf
-	 yglYXevr+51SpGHDz3jMCVsnXQgAJYtZ8crZMwzpTDs1DL3ku//SZWEyBhrV30ei6J
-	 TUt5uvdnqAg1XdPj/juXZG4Atwlo89iJ8Vn2GcbmBjoo0hkLArzN81o4jyOvj15+z/
-	 xrAcRsVca+1jSo4HvvTDrqPtZ+vOqTkpzE9irJ85sG4EYFsYVm33yPDLlxxmtydwZz
-	 ts/FURmYtpu/Q==
-Date: Mon, 20 Oct 2025 10:18:38 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: David Howells <dhowells@redhat.com>
-Cc: linux-crypto@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-s390@vger.kernel.org
-Subject: Re: [PATCH 11/17] lib/crypto: sha3: Simplify the API
-Message-ID: <20251020171838.GB1644@sol>
-References: <20251020005038.661542-12-ebiggers@kernel.org>
- <20251020005038.661542-1-ebiggers@kernel.org>
- <1062182.1760956416@warthog.procyon.org.uk>
+	Mon, 20 Oct 2025 17:24:21 +0000
+Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-36a448c8aa2so40265821fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 10:24:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760981058; x=1761585858; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JJL3ymzyML+diLAVT9nhgdl7Vx9TWLZbPp7QEm8FssI=;
+        b=BFlOdr03ntGQaTiXbJzaZcRuUuxJYq0HnvkQdNMmzaNIap2Fy6TLNKsJ/z0itzSsd9
+         EGiHScNm18gWaqSrJY1VAP8h6vOtLB9w9vkYUHeWt3sGTiSETIvNrJtUSd+F1p2ooag1
+         6PqIPkXcF5nUOkqpYLJoDTVPmsUObL/ZLrChO8283pQHHVAKkt00g80aur79hQfoa/Yq
+         UfyQDfoHvYjROGhfsedPnz3c9orhOzhY5ahqMj1//2VX//gO/mX6/f2bdhjjADDYe+Sk
+         ldcwMfhbk3pQ8ZyHJHsOrLBg+nBRZqvEyfoTJtM7bkCavQEglGlnpsuzIPc45kLV7/ZF
+         4bTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760981058; x=1761585858;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JJL3ymzyML+diLAVT9nhgdl7Vx9TWLZbPp7QEm8FssI=;
+        b=w7Q78Mf4i5gRbjniEgd3ZJ7ZOcO7FQ7qGHxFBfQ0kG/dLfpLpNRNM/GL5kO+xBHYpY
+         ssZpKoC3azL5yuSDyCvaEP7zI6Fz7qi0F0nVoawtujqOW8AdB09d86UbDVT9BC/AICod
+         cNB3JzTy5tRuteTn59F0VzpsXmLbD6fJlMqiwrdVjPWtvxc/dkbfyAyTDAWjugshbSa0
+         93pPyMgi1MHgru/YrNTcMF3zeEoSssmfiWFTn8k6x4QxkU4IR5KFs8qx0eSp/WDSRSiS
+         yWrRjhoyv08JX1wZiryS1BzF06Df0gNzd1tF352Z57vaJF9BTW1OjFzEgAdWCd1CtWSd
+         r/Ow==
+X-Forwarded-Encrypted: i=1; AJvYcCVKU8n4oglvFBEz7S2S2BbUIKmPxWE8lnMFSbGLLvMa/zxKVVJolHb+DEUjtmO/sa2yP5g2XAKMrx0X3sbUrC0C@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+tjZ+vvG9s5BSled1YabbnnEe3lfXTxsGlZY/f0EpijInwCgJ
+	Q3iuIrsesZGxtHD+lbNjI0TS0wszzdfYimWwXbo0qRVmnJA5A/kfb753lQO+x8Lj4iy95ZwqgAd
+	oFCUgnFtfkFUbfTY4JKR4A6PmYQXlaTM=
+X-Gm-Gg: ASbGncsOZpI3k8WCzEVLWipsjPJqHhmSvS0Lr/nV5vKRa8n03LAAaQycQRBr4gYSX4n
+	TUK5H4SMqGW+JUti4Iun4PAjjTQFoNaBn6s/USqmo9L0RIBF/lS2KgOXV5G9dlljYnOXVSY9xt8
+	59JI/0cozvF5fDFQ5i/k1Q47+MjVRB2O9PkMRS0CglwjOEUNsb/AnjCfGru3GJfoNlg/tjRHL8z
+	RZwKOJ2+5ispgZxcS/NDfAVd3IC2/hB/Q/eR69SheQ/LX3SALcyR71Unj+FMBYx2s5vVuVeDYl+
+	V4QZSkORxVBU7v7s
+X-Google-Smtp-Source: AGHT+IFGvquo7dKjulQge3D4nLth2WI8das3/MTTYuoViw5UYS7r0NQDoBhHAaPE++J0d5/68a7BWV0yZERz90yIgHQ=
+X-Received: by 2002:a05:651c:1990:b0:375:f6b9:c948 with SMTP id
+ 38308e7fff4ca-377978d7927mr37082001fa.15.1760981056694; Mon, 20 Oct 2025
+ 10:24:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1062182.1760956416@warthog.procyon.org.uk>
+References: <20251013205155.1187947-1-festevam@gmail.com> <4bd512fd-b3df-484a-8a04-a1ed066c42fa@nxp.com>
+In-Reply-To: <4bd512fd-b3df-484a-8a04-a1ed066c42fa@nxp.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Mon, 20 Oct 2025 14:24:05 -0300
+X-Gm-Features: AS18NWDxC1BDffoJ0EW6ktW9w7SITyz7Fejydue0HKFG2UIjYNHc8u5VIdoiknI
+Message-ID: <CAOMZO5AGRejEwNvkH0Di0HVi8QPduTeCSud+_GqOkD4tqEcsdA@mail.gmail.com>
+Subject: Re: [PATCH RESEND v4 1/3] dt-bindings: lcdif: Document a imx6sx-lcdif fallback
+To: Liu Ying <victor.liu@nxp.com>
+Cc: marex@denx.de, stefan@agner.ch, airlied@gmail.com, simona@ffwll.ch, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	shawnguo@kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Ahmad Fatoum <a.fatoum@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_102026_356472_1792BE64 
-X-CRM114-Status: GOOD (  26.02  )
+X-CRM114-CacheID: sfid-20251020_102420_322108_20B5C47A 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,97 +101,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 20, 2025 at 11:33:36AM +0100, David Howells wrote:
-> Eric Biggers <ebiggers@kernel.org> wrote:
-> 
-> > Instead of having separate types and functions for each of the six SHA-3
-> > algorithms, instead divide them into two groups: the digests and the
-> > XOFs.  The digests use sha3_ctx and the XOFs use shake_ctx.  The
-> > internal context is now called __sha3_ctx.
-> 
-> Please roll changes into the original patches rather than posting them with a
-> set of "fixes" and add a Co-developed-by tag for yourself.
+Hi Liu,
 
-Sure, that sounds good to me.  I'll do that on the next version.  For
-this version I wanted to make it clear what I had changed.  Also, some
-people don't like it when their patches are changed, so I wanted to make
-sure you were okay with it first.
+On Tue, Oct 14, 2025 at 1:12=E2=80=AFAM Liu Ying <victor.liu@nxp.com> wrote=
+:
 
-> > +/** Context for SHA3-224, SHA3-256, SHA3-384, or SHA3-512 */
-> > +struct sha3_ctx {
-> > +	struct __sha3_ctx	ctx;
-> > +	u8			digest_size;	/* Digest size in bytes */
-> > +};
-> 
-> Don't do that.  That expands the context by an extra word when there's spare
-> space in __sha3_ctx.  If you go with the separate types, then this field is
-> redundant.
+> Strictly speaking, I don't think i.MX6SX LCDIF is compatible with i.MX28 =
+LCDIF
+> because at least i.MX28 LCDIF has the version and debug{0,1,2} registers(=
+at
+> 0x1c0, 0x1d0, 0x1e0 and 0x1f0) while i.MX6SX LCDIF hasn't.
 
-Right, packing the struct tightly is nice.  On the other hand, having
-the digest_size be in the digest-specific struct prevents it from
-accidentally be used during XOF operations.
+There are some DT users, such as Barebox that matches against
+fsl,imx28-lcdif, so we cannot remove it.
 
-Consider that the arm64 SHA-3 assembly function took a digest_size
-argument.  It was tempting to just use __sha3_ctx::digest_size, but of
-course that would have been wrong.
+In my first attempt,  I tried removing it:
 
-But it looks like we could tighten sha3_absorb_blocks() to take a
-(sha3_state, block_size) pair.  That would reduce the number of places
-in which __sha3_ctx is used.  We should do that anyway.  So I'll
-tentatively plan to do that and also move the digest_size to __sha3_ctx.
+https://lore.kernel.org/linux-devicetree/20241028180844.154349-2-festevam@g=
+mail.com/
 
-> Actually, I lean slightly towards passing in the desired digest length
-> to sha3_*final() and doing a WARN if it doesn't match.
+but this was rejected due to potential dtb compatibility breakage:
 
-That would be redundant though.  It would make the API more difficult to
-use, especially in the case where the caller is supporting multiple
-SHA-3 variants, e.g. crypto/sha3.c.
-
-Note that BLAKE2s has a variable-length digest too, and the BLAKE2s API
-only requires that the digest size be passed to init.
-
-I prefer the simpler version that's consistent with the BLAKE2s API.
-
-> > +static inline void sha3_zeroize_ctx(struct sha3_ctx *ctx)
-> 
-> sha3_zero_ctx() please if you don't like "sha3_clear_ctx".  "zero" is a
-> perfectly usable as verb in itself.
-
-In cryptography it's normally zeroize.  See
-https://en.wikipedia.org/wiki/Zeroisation
-
-And also try 'git grep zeroize include/crypto/':
-
-    include/crypto/acompress.h: * acomp_request_free() -- zeroize and free asynchronous (de)compression
-    include/crypto/aead.h: * crypto_free_aead() - zeroize and free aead handle
-    include/crypto/aead.h: * aead_request_free() - zeroize and free request data structure
-    include/crypto/akcipher.h: * akcipher_request_free() - zeroize and free public key request
-    include/crypto/chacha.h:static inline void chacha_zeroize_state(struct chacha_state *state)
-    include/crypto/hash.h: * crypto_free_ahash() - zeroize and free the ahash handle
-    include/crypto/hash.h: * ahash_request_free() - zeroize and free the request data structure
-    include/crypto/hash.h: * crypto_free_shash() - zeroize and free the message digest handle
-    include/crypto/internal/cipher.h: * crypto_free_cipher() - zeroize and free the single block cipher handle
-    include/crypto/kpp.h: * kpp_request_free() - zeroize and free kpp request
-    include/crypto/md5.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/md5.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/rng.h: * crypto_free_rng() - zeroize and free RNG handle
-    include/crypto/sha1.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/sha1.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/sha2.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/sha2.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/sha2.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/sha2.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/sha2.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/sha2.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/sha2.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/sha2.h: * After finishing, this zeroizes @ctx.  So the caller does not need to do it.
-    include/crypto/skcipher.h: * crypto_free_skcipher() - zeroize and free cipher handle
-    include/crypto/skcipher.h: * crypto_free_lskcipher() - zeroize and free cipher handle
-    include/crypto/skcipher.h: * skcipher_request_free() - zeroize and free request data structure
-
-Point is, we should prefer standard terminology that is already used in
-the code and the wider problem domain, instead of coming up with new
-terminology each time a new contributor hops in.
-
-- Eric
+https://lore.kernel.org/linux-devicetree/4addc413-dd13-4867-8c49-45539af7b4=
+5b@pengutronix.de/
 
