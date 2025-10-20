@@ -4,99 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E393CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCBD5CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:56:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qEZOmmPRU+6Jp7MDbpYX1wr9n73+5CZ3iAvnUvQZOdM=; b=h9PAx55vK+3cfVRueXuz0+0BLf
-	hXgYX7uI8UlOoRGAhH9KVBY1tpxXaCPGTsRMt21wrkCRVA5GKkz0aCkcKtraNwNclm5Yn+2OoAYVR
-	Tu9KpHQApnRsVxU4hd6a0R2UxAoJD9WmVYSXfrL820HUSxXWuGTseYneDr4C9zjG9RSyCoBcbRiv3
-	evLedWyLCHxMiJvEpJbd6m5qjqBnKEDOxdCFpf5JHpEa2RTZ22DoBhzGjM9aH/75+FVCYrQC5L7j1
-	SnXVzVztNu5a3r0CH602Ez4T7Xf/TDVs9NFlWXKsNC0HC+1S6nuODbwsS3LEdm8urM4wZtXGXKn3m
-	6QUvI9Tw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HnjCj7JbAdjNvBUGLpD1SpiGs6GWZ/iOIsdOQuRNQDA=; b=UWIQ4NM23BBBByuPTq/i9vxT0B
+	qNm1lcpQ/INL59sxezlOHqvz5mRxahfmmfb4sp4ML5g359erNJqrRjgzLpodAGI2CKoewTqcd6Gu5
+	IS+Do0vDH9KSy6gj54tQsMk94Uj4x+xrYFYwjP1ICUMl9Hjnt2hwuDeEFRi+BD3s9NVp3WmawUCxr
+	B6pZcYbDEgkLgAHAxmh/3yPFIO99FH0NbD18Y8VKMydp5OFPWQfAajGK6J62sRTM9FtBKr5hJtRnl
+	PRG00VqOJWOZGiVszAS4G+iincH2dwCa6yvOEKORN6yjjRmEUk54jDM9eS9bhvYrOF09XOGSIctlx
+	p6mgQuUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmab-0000000CfXa-00iJ;
-	Mon, 20 Oct 2025 09:54:05 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vAmcP-0000000Cfrz-2s6E;
+	Mon, 20 Oct 2025 09:55:57 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmaY-0000000CfWt-19wx
+	id 1vAmcN-0000000CfrP-2f5B
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 09:54:03 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4711f156326so27691935e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 02:54:01 -0700 (PDT)
+	Mon, 20 Oct 2025 09:55:57 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-7930132f59aso5638005b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 02:55:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760954040; x=1761558840; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qEZOmmPRU+6Jp7MDbpYX1wr9n73+5CZ3iAvnUvQZOdM=;
-        b=xnYuzYJdzSxPNvswWI39EbcSze9OpNu7qVpR1NItMNmXIuANgEl87hvZZAeMcpeJJ6
-         5q7QqOb43AMuJs/CNWpIqgAfnpf2aoFnsSeSoWBcKbPWwr87JAM6A0N5rbeZHgEvjyf1
-         CScbt9W7YOjYMv7Xq4bwgl3719PblYSCv8Mc4LH+FMGAbNujXFk9/Aj6g2eHKV0WVJO7
-         YXHbVH7CkIJnhbXeQ0sMMqeaKwsRf3k1ozzcWethLbm6K3traD2S0uq00M5D248xK9Tm
-         jzyLs91kl6RFCjGfDhiuV8QpK1SIlWKK6f/G1rsw8EOOy/eQhjucghOXwU4okH9AD6z1
-         z0mw==
+        d=gmail.com; s=20230601; t=1760954154; x=1761558954; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HnjCj7JbAdjNvBUGLpD1SpiGs6GWZ/iOIsdOQuRNQDA=;
+        b=OoGUlCXTXY5jR/mBBPfMcrC0VzovURfasR0oAQkDjzUBJzTsZtheTToEBeJavN/C/M
+         v+4lmIv7CzhZazKMIsJtXO+rCKGzN9Py3D2q6eXgCtHjaFGvtdB7taec4VXORfwZEUtf
+         xir3x1QPTOW/Fvj6QBBBfJ/S/7WDr3DzOClC3BEf8A0gsOyoMaKaXPXdvU4QEjI714HK
+         idaPV1/0fSHM/VW4Eh4SAL8iPUdxFNPrJv9ABNSBI+EU0tA8gMmrtVdDhgrgoKtrk7Ue
+         L57rR5MgQlNApNnrbNdGokbmn+bnUmcIRDIQIE4uUuxG9sqDVDOMsSB1cG3GZLP0MgTO
+         /bpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760954040; x=1761558840;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qEZOmmPRU+6Jp7MDbpYX1wr9n73+5CZ3iAvnUvQZOdM=;
-        b=R40qNzqe1wbJh5le1oU8/zbhdvTk5ErQyMOBJg6qj/1/Vn8WJzWpdUr/uvrOtR1brW
-         sEISJKOre3Pub9m7O7Fit9TTk+nYt7LTd1RbcpyZJlGi8LnauPrzGnXlEsx2hElsMx8v
-         YX02C85mYjb/kRy9xMj2oQLeqOieGsB94nWKBFuifwupDtWF/dwJtl2x/mBZjam7Pegx
-         kXx1I7z7sFnfkUSDz09FPExxK+ZpMpxx3RJoKcFwiYZsz4oWasMjHqJPuVvTeEe6dB3x
-         f/dwMWFW/AUs27vzawlycR5G2zTCcQsbhyjCdECfjRrlG3zdHFaAorMpjIGTRjDSiEho
-         Nv0A==
-X-Forwarded-Encrypted: i=1; AJvYcCXF9D8ETBW/g0pHoYxc5gNgEcg/EFvChUqj+o0KE18CX3cNit/9s3J9aC83NwpQCNSr52XBSkHIpP8wHUGWOdna@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqM8QhcLkMPNuQKe2lqn8NhLG1lB/ZmUQGiTM38pMQMxBWJnYp
-	dDOJ6jGxNiMfXLXE2EKPYaGaM67Lg3TTs3sz4awx0zTwldXlUAxDywGN+POhUCN8t0k=
-X-Gm-Gg: ASbGncsSDhS8TSgAMbGG5V014BfvFWnBs/QGIbVO0/Y9pAHkqTGX8qscXr2AQSmd5yM
-	1GT8PaI/DuRJxkBaEnLVh6EQLdYvnyT/lW2WEez/AjpbGTHKPj9GWaxKlUcCjLhBjJQutQK06zf
-	IJ6qOmVCqPFClw/EdPdZj9/xSVSVDlIvNCRx9PA75Se+0WbdVkc1M3eNfHw0yw+hCAm7k+GBYqX
-	o4zjoaevtN78sEptH5h2t6qfqTqYco878ufXC8mky+8wSn+LspdpNbRy45kozqGhVTHfIlLAXLy
-	G+62FdfkSJii8yo97asIQvXee9wtVacWxC6cv/fqpkYopxfx1aOXMKCmk7NZlN3NhIY/YOtdEr2
-	tUGPCbVE9rteH9tkl8+ynvAO2bi5PSRc5aLrItRJe6WGdUOvj1mrBS1eROvZjoH1ouQh11B/sAj
-	gXCQ4Tyrzf8bgFncPgMsbREQnS+CPrsA==
-X-Google-Smtp-Source: AGHT+IFX1wgTFn1MLKPhwOgGbyn9M3V01/rxbBTWs1eN7xRNGNtr9tOjyrzfftVxp4Ewsx3pfTiwYg==
-X-Received: by 2002:a05:600c:3b8d:b0:471:9da:5248 with SMTP id 5b1f17b1804b1-47117917155mr87074895e9.26.1760954040323;
-        Mon, 20 Oct 2025 02:54:00 -0700 (PDT)
-Received: from [10.11.12.107] ([79.115.63.145])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4714fb1b668sm156200285e9.0.2025.10.20.02.53.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 02:53:59 -0700 (PDT)
-Message-ID: <cad8f866-1655-4f4d-acf0-a974ad40ef39@linaro.org>
-Date: Mon, 20 Oct 2025 10:53:56 +0100
+        d=1e100.net; s=20230601; t=1760954154; x=1761558954;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HnjCj7JbAdjNvBUGLpD1SpiGs6GWZ/iOIsdOQuRNQDA=;
+        b=phZWethUaQZoudPmH6q6RGn95m+qYK9tWhpxQSuS+vz2gGc4xGyYZK8QldJk1A0lQR
+         qbnYnuEerF6rLxX00EHYI09WA5burEYFmkK8+vRP40bXrRCgMXB6lh3tVr0RBtrEOI8u
+         0gWgxaHo99YBOt4ObLRn6eFoCK5vV2kIMJaKUK4SvSpIon5HrBiW4nfGKvshJ2728rRr
+         Iv2zoGfI7b5oGgSroytKGIBWVXm956Obhd0B4dOiqnS4XlOKcwA1VWjEZ6zzeOyqY6WG
+         mvL1VsAHkaSPI/QipOWp6YxDgQDXzu9QbGLrmhISrDjsQU7ivpCbAxpibCsiNttfdXr1
+         J8Sw==
+X-Forwarded-Encrypted: i=1; AJvYcCUm6y6iwyyzc/vnWmQ3uwTasHzVgbG4JXbZM1qdOrpfI+VESRCTjocdKALqf+JNth7LsJ3dG2leteQlhONeb1hs@lists.infradead.org
+X-Gm-Message-State: AOJu0YygGWj4QY2HcKmx70WmlE3LDswFnalAStHo9GnAmcp9D+09wSwG
+	Ve7E6nMHF454jAEtAW5exjXmQKnjU0W4daDhu7UrO3OzXWyagrTcayqEclZ9WGLKXco=
+X-Gm-Gg: ASbGncs5pI6gfMYLyqL5mLhjlwOMvl8uSWW6mvxCYdqIk0le+WUEARwP6HkI8q74Z0J
+	0eJ2kLVIO6qrqBU1fAtXArtnC+F4A4dx8Mj2DXJCZmDlTC7nGT56Cfg1rteZDoYE+VdZQgn0AXV
+	mM0fZY3rqDKIHvzxXPacWBuwJn4oePVoMnj0ya/0UiCvbM1cksozs/6ZjXob9chQ/AqQD7+qKlU
+	hxxlwngUZJZaz7Fqo0btJZhHbpVuOueJ3XkNvP3HbaGAq4cc9DKevIe4+f+DF7KEqjm4qO7mXs7
+	Q+N2cDgjzhq7s9fxooXnw1pxGfSpwqs14fPzYz6dNPwcfgbbjLb2pH9wthXnGs/mlgY1pmBeXkS
+	1C7BEOkBSxDGyOo9IZvTrxiNHcO5e03G9iaxOUVzJ3kqcWeYSkb59dnGKZAPwIJYSNfzh2cM8/j
+	c=
+X-Google-Smtp-Source: AGHT+IGgDyGZ3OQ57iwdb2555NKJghSCCZpCKxoCPXr9rM53NE7X3m8ehUVd2NOzuBByD+q6WjfyCA==
+X-Received: by 2002:a05:6300:8088:b0:334:b8bc:1031 with SMTP id adf61e73a8af0-334b8bc1040mr10403992637.58.1760954154496;
+        Mon, 20 Oct 2025 02:55:54 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6a76b6f302sm7256845a12.38.2025.10.20.02.55.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Oct 2025 02:55:54 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Han Gao <rabenda.cn@gmail.com>,
+	Icenowy Zheng <uwu@icenowy.me>,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	Yao Zi <ziyao@disroot.org>
+Cc: netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH v2 0/3] net: stmmac: dwmac-sophgo: Add phy interface filter
+Date: Mon, 20 Oct 2025 17:54:56 +0800
+Message-ID: <20251020095500.1330057-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.51.1.dirty
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/6] exynos-acpm: add DVFS protocol and clock driver
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
- <4a436c40-0fb4-47b7-bfd4-0bc499e85b5a@kernel.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <4a436c40-0fb4-47b7-bfd4-0bc499e85b5a@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_025402_336928_F1F528F2 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20251020_025555_674228_F0B7BE61 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,26 +120,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+As the SG2042 has an internal rx delay, the delay should be remove
+when init the mac, otherwise the phy will be misconfigurated.
 
+Since this delay fix is common for other MACs, add a common helper
+for it. And use it to fix SG2042.
 
-On 10/20/25 8:03 AM, Krzysztof Kozlowski wrote:
-> On 10/10/2025 14:46, Tudor Ambarus wrote:
->> Dependencies description:
->> All patches should go through the Samsung SoC tree.
->> The acpm-clk driver (#4) depends on the ACPM DVFS ops (#2).
->> If the clock subsystem needs to merge the new clock driver, it will
->> need an immutable tag with the 2 patches.
->>
->> The following DT patches depend on the bindings from #1:
->> https://lore.kernel.org/linux-samsung-soc/20250924-acpm-dvfs-dt-v4-0-3106d49e03f5@linaro.org/
-> 
-> You forgot to mention that this patchset adds new dtbs_check warnings,
-> which are fixed ONLY after applying DT patches.
-> 
+Change from v1:
+- https://lore.kernel.org/all/20251017011802.523140-1-inochiama@gmail.com
+1. Add phy-mode property to dt-bindings of sophgo,sg2044-dwmac
+2. Add common helper for fixing RGMII phy mode
+3. Use struct to hold the compatiable data.
 
-Indeed, sorry. I saw how you handled the dependencies in your tree with
-the 2 dedicated branches, I'll keep in mind.
+Inochi Amaoto (3):
+  dt-bindings: net: sophgo,sg2044-dwmac: add phy mode restriction
+  net: phy: Add helper for fixing RGMII PHY mode based on internal mac
+    delay
+  net: stmmac: dwmac-sophgo: Add phy interface filter
 
-Cheers,
-ta
+ .../bindings/net/sophgo,sg2044-dwmac.yaml     | 17 ++++++++
+ .../ethernet/stmicro/stmmac/dwmac-sophgo.c    | 17 +++++++-
+ drivers/net/phy/phy-core.c                    | 43 +++++++++++++++++++
+ include/linux/phy.h                           |  3 ++
+ 4 files changed, 79 insertions(+), 1 deletion(-)
+
+--
+2.51.1.dirty
+
 
