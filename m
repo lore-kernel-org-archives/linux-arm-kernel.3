@@ -4,111 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A6A7CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 07:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F58CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 07:08:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jOo9JET4vUFfyJODmVQtZNVBwivz+aQMy3oIN5Y85co=; b=4z8C+z82dVy2S7lhLXJwP3GcEF
-	qK2me2FeSK21041qS6mEripJn0G8GC5np1uDU4oDaHZ8pTtw/j+v5Tt1M0Vo7aWc6BSpwEowDKIWy
-	iotWpsZ+pkfvMFcmLPf4Rq3UllSDBAp6PqORC6f4H95InYpV68dt9s4ePRNln6OIOcBZuPwBay3oe
-	aFsv8tOsXtJbOIH+SUe72UMk0GwnQdhHDArxKm2at8YOZJW8nujVTG4UPt31MfwgfInzH78eRRWNC
-	t1eidIn/RULu1epuv9eoKzlX75nTklTjyGPrfGEwr4bhNMZDTFWjOI6Pi0bjLuYO18moBaemHCKkl
-	fIpN1s8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/HOxQeFzZprgS340iSyl+E8y8vVH7kK0gqo8lCK0SDQ=; b=LIuuZNShOWv2/5iE2CnQnDStWg
+	7JC8mkIsWVLj+BODlKD2BrfqXY2TBrMdpe/rzW/xg9t22FoafRye/QKiz01HkhoTgAKB6Utq6mP55
+	rweAJrrsGByQNgprHtWxxkyUp2V9MNy09gIoI9ViJQGajXfovKf38LvS9q1Ntw2MRjv4l011BTAq+
+	TMq8x3E+flEtJC8nzQ6RLsslb/KwqwKLn/ND4jWQOKEU0DbgjUPGj+3LySlvU8SO8gIAb2fNt+Tm3
+	b/yqWWanizh9tP+Dh5WfsU2Eo6VcEDywcB7sV2tf5gciuFA1bAoTMO7V/QM3JZ2GAa4ENkehiCl9b
+	RCSIg4ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAjzq-0000000C8x6-35z3;
-	Mon, 20 Oct 2025 07:07:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vAjzy-0000000C8zR-0FF1;
+	Mon, 20 Oct 2025 07:08:06 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAjzn-0000000C8vI-2buT
+	id 1vAjzv-0000000C8yl-1T8c
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 07:07:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A8BA43977;
-	Mon, 20 Oct 2025 07:07:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4F84C4CEF9;
-	Mon, 20 Oct 2025 07:07:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760944075;
-	bh=G1r+KTfGuzyMRIAob+ptSeEb3p5H7LvTXJGC/0PVn54=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AdJdCbjt4w6BaN7KpMv8/RoZsl0ewy7/i74GMvy3asQVV0PTWCMobCnr2W1ssI66u
-	 C8xvJm23mUCFi8X0eonwzLKfSdsMqKCVaCdWh/5Pk/m+cTmxpxLPzKHtItfydoMHpm
-	 yikfAhgp2ZuxUkVE6wQ8TR96QT5Ichp2n5YfYV+yAeRio9s9s3ZF59BaJxzduvzUbZ
-	 bPvVgUFlxJdDBKxVD0z67SSHegeGtZ5AGy1lBU5kbbAA85+EP8hAK3M0QJ97FAZoQV
-	 RzzYbyuijqKvhQxCYaJg7V6vwAYIi2aHiJ5BHl76taixrOcxNrxTLBQwRbY5PkyuqH
-	 ZPJaB2PQVJOsw==
-Message-ID: <8b095395-8c09-45ba-8dcb-48cd81b8c0e0@kernel.org>
-Date: Mon, 20 Oct 2025 09:07:50 +0200
+	Mon, 20 Oct 2025 07:08:04 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-339d53f4960so4063466a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 00:08:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760944082; x=1761548882; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/HOxQeFzZprgS340iSyl+E8y8vVH7kK0gqo8lCK0SDQ=;
+        b=cRV0XTksrk//rHQ9Buz+wVrqTRenYQkgKOG/BZpwL21wPd37DasKJFf6beEFgPTab9
+         1psQ6P1pUMVOmXRxswc+cPMcUFqTNaKM+nrI2mZ0S7CRd3oaJYvxaw4T7QBqfRyh2wfQ
+         02lJ2v975J1fFRJtqx2Gv5r1X/DLxV919WoLx8d2Nh2bQDA1UMx6vPX+0tI9gzb5zCUc
+         oyoPsitiXuCbP6EkzkpqJIyVm00Zjpp0VfS4DAbgRsDr+i9K9PiZvDEZa7eexodynHqr
+         fE/ULcaMmGJbgzogbrP7JVFgmKuN4ZQqFHC79BeciZSmrNsu/GN7hbgW0NhM0jzK1oLn
+         /roA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760944082; x=1761548882;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/HOxQeFzZprgS340iSyl+E8y8vVH7kK0gqo8lCK0SDQ=;
+        b=F5HXSFOgTSyAJviagRCxZ2d34S5S/lA1W4URg9eYr0e4ZKEZ6CyQiLZQCtYjC3JrNO
+         a2SNUPgK7VMcRrPcOFPDU7UH/vPfupzAi/dxnXoP8WeSXWa6CgpUKYQbiEZQf93tf/wL
+         teuP0Gvcd0e9qoS16+7zLnd5tyt8mUR2/QJAkk1LV5IDAA0bhtf31JQMFhFnlWeutiZe
+         z1jqj4acqGaNZNs3IIAcxy2rIrn9QqyXb1aw33po4C+sTAJEkpPQWfgqkcmZs1h9B53B
+         UvdRiGNvKJVG/UgK2AvOSdvExbbeMq0FOntlsM+LsQJb6VW9qO73TP+93BjNjU/piVFL
+         hphA==
+X-Forwarded-Encrypted: i=1; AJvYcCX8wZWSOn44SP4btBohGvmERzkEGcKqMIK3kW0fNUWurmmfQJHFZRXEI8yS0HAWm1XJ6Rg0kXpVxte7ULcB4aAX@lists.infradead.org
+X-Gm-Message-State: AOJu0YzM+gI5EwW4AzC7cm3Fn196BABOjX9HFiotpL0d6cx/U+nS8OrG
+	FOwTCPYDYfNcZwi1OX9fMSZ5B7dfs/GC7CbVfNYR0lqZxMDrisBuOOaH
+X-Gm-Gg: ASbGncvyFYMgdwyDkbNc38YHTnvrLI+yxKjMfB/AZ7Z4HRy4gqc6FlvmotbwXgMdSCd
+	SmKfI1BmdfRFm4MYVpkrrTHkeEBYMyoZOHDAsedRSMPCkPBZIFerB091m749Il7ygahDf/hK9hg
+	1r9LNdo3Az9BUeebkiziu9WcxO4U7cfFcVqSVYVd+7dzDDVEXwNrSIx/fUSVjTFCjxsq6mH+B28
+	uLYdS2LOfnPBvg/nxfBhDNtlmR0ecpP3gZWpItpEZZDBp/BNfUuq9ts2p6fe901XSsK2y0CION0
+	jPiwX2lWJxNp+OATcNUs+zDN/X3OrPp3+jebLjB1Q3sBh+p5O6TXZ0qZjaZhYoasQpCdVQyJKdt
+	RxzaoxqxQw2eOKcs7dcoRCFQi1wNJDh8Oau45xLFpIzwA8X/wEYlUWaffrScdwEZA0r1D+Xh9FO
+	PtxLU=
+X-Google-Smtp-Source: AGHT+IEQ5375x2wAPSKC6RY36q65Xq6o1ABPfooltKbLM5TnVL2vpALRNQnKbvej+kaD3bTB+gwZ+Q==
+X-Received: by 2002:a17:90b:4b0f:b0:32e:8c14:5cd2 with SMTP id 98e67ed59e1d1-33bcf8faac8mr15518129a91.28.1760944081925;
+        Mon, 20 Oct 2025 00:08:01 -0700 (PDT)
+Received: from archie.me ([103.124.138.155])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33d5deae553sm7219872a91.21.2025.10.20.00.08.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Oct 2025 00:08:00 -0700 (PDT)
+Received: by archie.me (Postfix, from userid 1000)
+	id 123104241816; Mon, 20 Oct 2025 14:07:57 +0700 (WIB)
+Date: Mon, 20 Oct 2025 14:07:57 +0700
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: Eric Biggers <ebiggers@kernel.org>, linux-crypto@vger.kernel.org
+Cc: David Howells <dhowells@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Stephan Mueller <smueller@chronox.de>
+Subject: Re: [PATCH 03/17] lib/crypto: Add SHA3-224, SHA3-256, SHA3-384,
+ SHA3-512, SHAKE128, SHAKE256
+Message-ID: <aPXfzd0KBNg-MjXi@archie.me>
+References: <20251020005038.661542-1-ebiggers@kernel.org>
+ <20251020005038.661542-4-ebiggers@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/3] arm64: dts: exynos: gs101: add cpufreq support
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- willmcvicker@google.com, kernel-team@android.com
-References: <20250924-acpm-dvfs-dt-v4-0-3106d49e03f5@linaro.org>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250924-acpm-dvfs-dt-v4-0-3106d49e03f5@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bwyeZRG0SF5QekIi"
+Content-Disposition: inline
+In-Reply-To: <20251020005038.661542-4-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_000755_710854_B718FEBE 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251020_000803_393958_49805B2A 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,25 +107,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/09/2025 17:14, Tudor Ambarus wrote:
-> Define the CPU clocks and OPPs.
-> 
-> Patch #2 has a dependency on the ACPM clock bindings sent at:
-> https://lore.kernel.org/linux-samsung-soc/20250924-acpm-clk-v5-1-4cca1fadd00d@linaro.org/T/#u
-> 
-> Thanks,
-> ta
 
-Please stop CC-ing address kernel-team@android.com. I receive bounced
-from them:
----
-Your email to group kernel-team@android.com was rejected due to spam
-classification.
----
+--bwyeZRG0SF5QekIi
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Cc only public addresses, not internal ones. If any kernel team needs
-these patches, they can easily set lore/lei tracking.
+On Sun, Oct 19, 2025 at 05:50:24PM -0700, Eric Biggers wrote:
+> +The SHA-3 algorithm base, as specified in NIST FIPS-202[1], provides a n=
+umber
+> +of specific variants all based on the same basic algorithm (the Keccak s=
+ponge
+> +function and permutation).  The differences between them are: the "rate"=
+ (how
+> +much of the common state buffer gets updated with new data between invoc=
+ations
 
-Best regards,
-Krzysztof
+Use reST footnotes, like:
+
+---- >8 ----
+diff --git a/Documentation/crypto/sha3.rst b/Documentation/crypto/sha3.rst
+index c27da98c89b7f8..ae1fd3e01e34c2 100644
+--- a/Documentation/crypto/sha3.rst
++++ b/Documentation/crypto/sha3.rst
+@@ -18,7 +18,7 @@ SHA-3 Algorithm collection
+ Overview
+ =3D=3D=3D=3D=3D=3D=3D=3D
+=20
+-The SHA-3 algorithm base, as specified in NIST FIPS-202[1], provides a num=
+ber
++The SHA-3 algorithm base, as specified in NIST FIPS-202 [1]_, provides a n=
+umber
+ of specific variants all based on the same basic algorithm (the Keccak spo=
+nge
+ function and permutation).  The differences between them are: the "rate" (=
+how
+ much of the common state buffer gets updated with new data between invocat=
+ions
+@@ -136,7 +136,7 @@ should use the much more comprehensive KUnit test suite=
+ instead.
+ References
+ =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+=20
+-[1] https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf
++.. [1] https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf
+=20
+=20
+=20
+> +If selectable algorithms are required then the crypto_hash API may be us=
+ed
+> +instead as this binds each algorithm to a specific C type.
+
+What is crypto_hash API then? I can't find any of its documentation beside
+being mentioned here.
+
+--=20
+An old man doll... just what I always wanted! - Clara
+
+--bwyeZRG0SF5QekIi
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCaPXfxAAKCRD2uYlJVVFO
+o3A4AP9bdkVnmtIfCagfxHcW5eGHSyGy7zxDqFUTIe8b2dhvVAD+KVzQDxqnujqm
+eYhwNKRJG53xvL9m37FLDKGqqZLtLw0=
+=VJti
+-----END PGP SIGNATURE-----
+
+--bwyeZRG0SF5QekIi--
 
