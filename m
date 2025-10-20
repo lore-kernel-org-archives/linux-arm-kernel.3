@@ -4,146 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0723FCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 13:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B30CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 13:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YIK5SNK5pmqg82a5/YyDMEtxGyc3+yHTt+DwTnUnCH8=; b=VmBJNOodZ6BZQSEWW6zaWtKVPP
-	xaJ5o7qeu0xG32GJ2VVc9+J61eygYUhji47qmNGM+6c/wZQjIrI5ZWVdtQPJx+HjdE0X9iN9WayLw
-	el06/2a4dfS38E9n63Q5W1JyLOSQ9mQlQXGDzUzUbusDAocwndn1dkJjSGGUyrouq+/lj+ltZh4uY
-	++oBvihYbQXbEIVaSGaMKmrVgUX6S58cNIfbyD7hxnHIWTyzgzeqiAOJ3++FpMTZOKyO+w12/LVkB
-	o4p0cxDLr5m6j2lqq8UTTBOiX9urX8ZrEREkypY2j/YUSuz9h6fQQhiGXi9sJS7vKbs4Pso/xBBUR
-	D2cew/eg==;
+	bh=CuQNCifUktlMCAA4v8tmCWank1/HSzSiksw1WUKqzUc=; b=Dw21tyPTg24o3C6n0eyyQz54gw
+	AEkBOQo/GtbJV/6MJIOB6vV6JSyaXlMRU3v4fASRaZWq0YWEx9UsRCQXWJfPl5zcVTh/8uv5CObZD
+	SiknLG8g/VRdnNeImO5wqGVEEduZQQjLLEqIEFxw1duTAY9Y+8MMsgZgtmqK6f4vsHvMgvtXauPww
+	XFCKOGiuLq1hed/BicaawHpPePslLGbNhtog5dFnn1l1CSwdUKdmGh5U3QG+jLXhstULCnDzTa+hD
+	EbY9jzThV9A6cu2tdKDu9DlC0mdAkOCafiXrPNSycpwEE5FSdrl2QfRYLjTnEGDCS6p+2ZxRJu8WV
+	7DYzVo2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vApft-0000000Dizt-3Y3e;
-	Mon, 20 Oct 2025 13:11:45 +0000
-Received: from mail-northeuropeazon11022138.outbound.protection.outlook.com ([52.101.66.138] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vApiy-0000000Dk6h-1TIg;
+	Mon, 20 Oct 2025 13:14:56 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vApfo-0000000DiwV-049k
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 13:11:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QM73N0RhXNMVFTidfPFhiHkHsfnTypmd+a2whHuhKyLKZpg0G8fsTse1oLUHMfj72w3FOrCVTybg0JxapfmowOXoJp9L0QBsGH8UR4XbDXYOGgRE1Uxdgf0WdhYygA4R1OSjniSvPOYPs6CXrQ3I7D/vLnHXIPQ5tkxEhRi/4vJeX8aMa1gNL8OC0SjUXfp5ubsDtZPLwm0rRO8UjA3Ahnt3WzyvFSrHyv176dmTsXNv58vOuE0ns7x/Kf/59WkDh3pSla+iSa+Ed+LSgW/0moBol38+bXcLeoEQTrq0uITjIFoKDOfSkz9VHSjLjQXex/1oFJsclk+OTAl+xpqKGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YIK5SNK5pmqg82a5/YyDMEtxGyc3+yHTt+DwTnUnCH8=;
- b=NJFnMbGWTRiGRQlqrTQV1mHOatpS8p5JoWr6pkYGkGkQCwHYBPVK+swYKQn0gVbNyY/ftid8kf/Gv7x4moU0dyXE/Ofi5qVwF0KS0qI/IY/jkyd7UcPRs8g6o9s2uh3qgnR8UDIIg+cTUQlEKyo84XMwgccRmtQealmKYBM7dsgujHoQW2W4blws+j4LjXULCzW8YW3Da0+HbTZ0BT0QxCOtmEpW6OGzsDiwn4aGlX8v1RCdeJAftKSao7qCNCn6k6OVTutmcbpfbEQcTAcXxC/T4l9SQVo519n7f4tdtkwDI4glKHX7ctL2xApLf/xR/w5wvW+6Hh+7uSK7DNvq/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=kernel.org smtp.mailfrom=phytec.de;
- dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=phytec.de; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YIK5SNK5pmqg82a5/YyDMEtxGyc3+yHTt+DwTnUnCH8=;
- b=WzrNDvRstbfD97FFHABv0OwzV1jSxgwaIj38FLXMN9IrLnqH6+VKv2yWb2rYGURxWlKhEHSIaXHaLq4U/72rblxoxXeCH74pQp7BTnO+2e+WUc7l6g/DmEEvFdrSDNl62fTQI+GAHb2rGXbR5zd4H+vfjUwl2GAJPFbDlhPMMwESFO5f4H9Cv57uTm8e08WI+kvPNSu+2NJiigeO5GgyFjQPrYIcnK/zduka9guwUn2hyFU41ddgAislfs2p+evK+5olwu2egxf5y4wSbzbtrMdvuagYwDQUqUKVnUqftyAUP5ep+8+rDtKYh5nvJWUifNVPmaiqIrpFB+CNo9Lw3g==
-Received: from DU7P195CA0005.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:54d::24)
- by PR3P195MB0864.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:a5::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.16; Mon, 20 Oct
- 2025 13:11:33 +0000
-Received: from DU6PEPF0000A7E2.eurprd02.prod.outlook.com
- (2603:10a6:10:54d:cafe::60) by DU7P195CA0005.outlook.office365.com
- (2603:10a6:10:54d::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9228.17 via Frontend Transport; Mon,
- 20 Oct 2025 13:11:33 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Postix.phytec.de (91.26.50.189) by
- DU6PEPF0000A7E2.mail.protection.outlook.com (10.167.8.42) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.7 via Frontend Transport; Mon, 20 Oct 2025 13:11:33 +0000
-Received: from [127.0.1.1] (172.25.39.168) by Postix.phytec.de (172.25.0.11)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 20 Oct
- 2025 15:11:32 +0200
-From: Yannic Moog <y.moog@phytec.de>
-Date: Mon, 20 Oct 2025 15:11:23 +0200
-Subject: [PATCH 2/4] arm64: dts: imx8mp-phycore-som: add spi-nor supply vcc
+	id 1vApix-0000000Dk6D-3A8j;
+	Mon, 20 Oct 2025 13:14:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=CuQNCifUktlMCAA4v8tmCWank1/HSzSiksw1WUKqzUc=; b=bRa0cSJ4442ZO650F8Hg7bwebI
+	DAeE+GC2X1mxjz1ioB0UzZZdywqJ3Hd0beb+JVhJUwGZ2EzcNinhyuDcXj9lA0vh/FWe3YeneDjYo
+	jmiYlbINHHq0JuSUxhQvoQW5vfWcs47YQwwLRlyiSBym5pF7j83NroAy3ReSmhUSCGU0IUBxDJQGm
+	yQ+JtIdk1cwpTOFaKBjB98DeP/u39x8WkFmwLUHMdE4EoIjVK5LI/O+QVWsV2ebV8EFg65+JjL1jM
+	oGFNC/gr+LxZIXc/ZyD1Q9SRWvxyQQcNIEFMObKf9AKc9M3yFS/DSylE+KOOps9zTlapEXOma/opp
+	+ikkjA6g==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vApit-00000007xVh-372d;
+	Mon, 20 Oct 2025 13:14:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=CuQNCifUktlMCAA4v8tmCWank1/HSzSiksw1WUKqzUc=; b=uELIpQfigKvvT9McDvhdbiIu/c
+	zlGP7XcXJrLNQcPukS4BU+SgL7bIIFazM0OVpQ/HbL2H7+59YcHeZm4Q1D4mI3pCLAB+P4TJcn9HI
+	A7fV1OifN1hw2ERuqgWa3o9PogVvleK7G6EtM1R5+N2IwjTo9IYgTd9c0VIbRK/LynLllv1hk5buy
+	WqgHQYzgysvNldEUCUTUSniEajLmisXl0JUo50ccLUNSn5dvP0lDMbqXKVCalpiLPOKIvcdlyqpYP
+	MW8XLCKz5Kzq90Tx5xPHAY1gJ/9Y4wYS7H/QZyFKxgR8pX7xMaoQhut98GvAgq77NKBtS+0wO1wQg
+	lH6z4rgw==;
+Received: from [141.76.253.240] (helo=phil.eduroam.local)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vApim-0001Qj-4C; Mon, 20 Oct 2025 15:14:44 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Simon Xue <xxm@rock-chips.com>,
+	Yao Zi <ziyao@disroot.org>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: Re: (subset) [PATCH v2 0/3] Add PCIe Gen2x1 controller support for RK3528
+Date: Mon, 20 Oct 2025 15:14:41 +0200
+Message-ID: <176096606936.3742628.8434480469163363343.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250918153057.56023-1-ziyao@disroot.org>
+References: <20250918153057.56023-1-ziyao@disroot.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20251020-imx8mp-dts-additions-v1-2-ea9ac5652b8b@phytec.de>
-References: <20251020-imx8mp-dts-additions-v1-0-ea9ac5652b8b@phytec.de>
-In-Reply-To: <20251020-imx8mp-dts-additions-v1-0-ea9ac5652b8b@phytec.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-CC: <upstream@lists.phytec.de>, <devicetree@vger.kernel.org>,
-	<imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Yannic Moog <y.moog@phytec.de>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [172.25.39.168]
-X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
- (172.25.0.11)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7E2:EE_|PR3P195MB0864:EE_
-X-MS-Office365-Filtering-Correlation-Id: feafe587-aee4-4e80-9b74-08de0fda313e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?T3NjcHR2OURHK3hIMTQ4V3dBdmFxQS8wL2JzbjRXeDFwWUd0clNBVVJoc3Zk?=
- =?utf-8?B?M1JMRUFoWTArUVR4KzhoZ2VQS1gzZGJLY3hRdlRrSnRFVmtUYlRvYmgybk8z?=
- =?utf-8?B?MGJNb2RESFlxVk5JWmtrNjNIUVdPR0QxUFRlMzlocEY1Z05nL3ZRSzI2VWpP?=
- =?utf-8?B?SnJGT0k1UkJWTmtnZ2RyTGVGUkpqZzBoKzBNYU5reCtzSE9oS0QrbTB5UE1h?=
- =?utf-8?B?ZGR3anRJOWk5Q0FhcTNINjZ4Y2xCdVY2VFkwQkN3cW9Pa0ptcFF3YnhJb21k?=
- =?utf-8?B?dFlhenNLajdERjRVUmhleS85M2x0c1RHb3VIbmxHZzFmSG5RbmhvZkg2T09O?=
- =?utf-8?B?TmRUK2lzcGlJdHFsVGIvUHRkazRUTkwrWGpraUhZUEQwZXgwcWk2VkVZK1lI?=
- =?utf-8?B?VUR3cnI5a0pJbjhKZzROVWRrWTIwNzQ1cTF2Z3NHSk9FS2ZYUFBjdUlqYTZ2?=
- =?utf-8?B?b0VnVjJZVHJlMnNjTWFOR2ErRFRXMUxwRjYvcUErUVREUzRhU3pvdU9pZ0RT?=
- =?utf-8?B?am4yVTdCcFJIeURRZ1V5bjE4RUlvYXFwZkdxYW9FK2VEQWRwR29OeHFkSmY0?=
- =?utf-8?B?TjBLOCs0UWI2VjBEbTN4a2owaUFyMU1Ldi9IbXMxcDlpa2srQStxSVF5N2g3?=
- =?utf-8?B?Sml4Z045ZHg1SjhFMm5NdkxmSms3OUlnbWptdGo1Tm1COW44ZjFNRXd6eVh3?=
- =?utf-8?B?NW9CanF5VjlFMzJyandzVEVGZ1IzOG8yenVNMVY2V1cwcW5iS0R4ZzViYmpN?=
- =?utf-8?B?NWthZTZzSHdzWmtNVCtPQTVqc255SXZoRnZEUUpuR3RDOWV3bytTMm1iZ0Nh?=
- =?utf-8?B?R0RwQ09Fc25Ja0hUL2hqdWl1RDdzdXQya1ZBN0IrTloyR0xLaCtTTFJuSlg1?=
- =?utf-8?B?ZExPR1RyV1N4dk43am9GeW01cG80NWY3aGN6b0xVbThURFpqcEs4Mm1Ib2xw?=
- =?utf-8?B?NlFYeTErYTRLMzRqK1Y3aWVHSk9HcE1ETE80RWFiamhIQVQ1ZEUvZjZqc2N6?=
- =?utf-8?B?cXVEVHZvQVMvSEY3TzJIaWJVMU5sQ1FsS3pkejBoV0ZNTnhmTGpoNmxoQlBq?=
- =?utf-8?B?MWFBOEZiaWpyYVhQa2xVOFExUVJqbk9PUEd3dXZZcDZ1WHJTUUk5TnFiRjhn?=
- =?utf-8?B?anRqRUJkWElzVnVDbXV1eGwrZkZhaWx5elBoSkl2c2xBV2FNS0RPU3NLTXZW?=
- =?utf-8?B?WXNpNTRxVWpYSE5tTm1xeU11R2dCSTNHRlFwVWI3cERWNXQ5eGNMYUdPVjJY?=
- =?utf-8?B?N21XQ0VlK1p0NExqYXI0cmVmVlEyM05DRUxZcXhNWnR4OXJpbDlabm1YVlIx?=
- =?utf-8?B?MmtKb0xacmJJZ2hjY0pIQXZ6azNDT0RVcXdFOXBmNkVaaldsdUJ1a1lKazMv?=
- =?utf-8?B?TmhRUlhuVDZZRDg1T0dXWFVLWVlDSityOFJLdmhJRFhaa1ZBOXZDYnJWZjNa?=
- =?utf-8?B?YkM1ZVBmUGR1MzdZVWszNW1ucG5LU0pEeURlSDVNTmpuY0tXUFhmWi9tRFM4?=
- =?utf-8?B?NHpqdDVmTXVFWnJ1eWlvRENBTTc4MWFZeXpJOXltQVdHMXZ0ckFtbGxMZ3dh?=
- =?utf-8?B?cWdrTkZpZThGK3NLM0YrbDhyTE9YRjBjUGtLVXFjTGRoL1U0M1lLa2JqTXo2?=
- =?utf-8?B?dklZbVZvLzViSXhRNnRQSWpzMFV3TE1tdWp6bFR4dXVld3lGUVdnUmQ1YVRl?=
- =?utf-8?B?VVp0SVZFYXBjQUc5MDFtWlNNUWdPaThtZ0g4VTJJOXNWOWJ6U0dZQ0g5d3Fk?=
- =?utf-8?B?cS9kVUVMUm9TR1pnc1I5Yzk4Tm1mRkxwWmZxNEtVVUlicGE4UWF5SnNtOVYv?=
- =?utf-8?B?eWZ2WGdSczVFTVhwcnMzTlIrdndFa0s3SE5KMkFQalBtc2k0ZUZUaDgxVGR4?=
- =?utf-8?B?cm9wMExibUJGZDNGN1B3ZHBDWTNxbjlIWjBMdG55NHNDMXorS0lMRXcvd214?=
- =?utf-8?B?Nktnd1NIb1ZIdWs4VXQrVzQvc1lkSVp6MGR1TjBsbE1uMUxySGZxQmk0WlZB?=
- =?utf-8?B?bzFUVTJJSGxYZ2owczZLdG94dGpBdVpWSXVsQkZ6RmRVUU41ZWxGbXBsREtk?=
- =?utf-8?B?MXNPcDdMb0xyTVdhaDlxaytFc0c2bFpnT2ZyYVgyZzllOENrN0Z6czNGeUZu?=
- =?utf-8?Q?r9co=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(82310400026);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Oct 2025 13:11:33.5963
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: feafe587-aee4-4e80-9b74-08de0fda313e
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E2.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3P195MB0864
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_061140_058834_9C6664EC 
-X-CRM114-Status: UNSURE (   8.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251020_141453_030377_F3EA2570 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,44 +99,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The spi flash on the SoM is missing its vcc supply definition. Add
-missing regulator which supplies the flash with 1.8V.
 
-Signed-off-by: Yannic Moog <y.moog@phytec.de>
----
- arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+On Thu, 18 Sep 2025 15:30:54 +0000, Yao Zi wrote:
+> Rockchip RK3528 ships one PCIe Gen2x1 controller that operates in RC
+> mode only. The SoC doesn't provide a separate MSI controller, thus the
+> one integrated in designware PCIe IP must be used. This series documents
+> the PCIe controller in dt-binding and describes it in the SoC devicetree.
+> 
+> Radxa E20C board is used for testing, whose LAN GbE port is provided
+> through an RTL8111H chip connected to PCIe controller. Its devicetree
+> is adjusted to enable the controller, and IPERF3 shows the interface
+> runs at full-speed. A typical result looks like
+> 
+> [...]
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi
-index 88831c0fbb7be3db18910385e4e15691b1c74ef2..d370e2a3a00c5e3e91a606ac0fbed30cf5e6f9b2 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi
-@@ -28,6 +28,15 @@ reg_vdd_io: regulator-vdd-io {
- 		regulator-min-microvolt = <3300000>;
- 		regulator-name = "VDD_IO";
- 	};
-+
-+	reg_vdd_1v8: regulator-vdd-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-name = "VDD_1V8";
-+	};
- };
- 
- &A53_0 {
-@@ -83,6 +92,7 @@ som_flash: flash@0 {
- 		spi-max-frequency = <80000000>;
- 		spi-rx-bus-width = <4>;
- 		spi-tx-bus-width = <1>;
-+		vcc-supply = <&reg_vdd_1v8>;
- 	};
- };
- 
+Applied, thanks!
 
+[2/3] arm64: dts: rockchip: Add PCIe Gen2x1 controller for RK3528
+      commit: 263fac6b09b42a1b077c21354370d38758237ab0
+[3/3] arm64: dts: rockchip: Enable PCIe controller on Radxa E20C
+      commit: 047bac0be317e68b89d0deed4f659f8e080df6e8
+
+Best regards,
 -- 
-2.51.0
-
+Heiko Stuebner <heiko@sntech.de>
 
