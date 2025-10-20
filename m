@@ -4,84 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F71CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D140CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q/66rxPnbpYQFlS+dv6XaKdv0wxHBu0ZyFSkv14gaLg=; b=UXJGpP3k+Ig18SgyROR0pbKVeL
-	O9zuBPaK9pb0ZQtR/me5vHIu5WWHvOqZTjXHTrnsprqqL+HehlwlxqBvj3IGvkbNjaqsQVSa5CzmK
-	aMWgzMWxUfxxS6GzIRilQYbi1C9oc3/OKaFiv/JED+Dp9g62+E5+tSjOriNZX54Rd4Q7bFefKWPtX
-	vMBdBirUgEXG++DX+fckZRmUEEA7mEAIJMe7IkYxDHyhX8orFapDGifSVSd8XOQsAuO2c7zcnK4Ji
-	s63XaK4alKpXGu2P62SiX9X82o88MNWOui4O6/icHh4HpBLKZbi4LD6XiNpnjP5EvG7VMw/Szdqvy
-	8eaezkdg==;
+	bh=QFq5LOrpzBT+0cc2xULTJJjO/I/ewFbE34Rwz7Vzghc=; b=CVKxcLupIFt45u5HgFLi/RclYx
+	/kjL5Hbvr6vUZ/jqgDftU65xNhHbJ5atGzVJkhOCHTIwzA9ITCxM3ZMJkrtUH675xusO1BcRetwDp
+	PMDmkxva3SPflnfLSfbUfc6DQtrx1IuSSREECjUxQwWo7iVjSEoObXWAIrT7SZlrhk0MCv7T8Lzbj
+	WvP8TFV8P+ARNnjwMFk3plVnR5ipm00+7cW0zEb9z3mtZEl1ljdYOGLQ3+pGNuhc29pYyQ95tBmWM
+	4F+oFUYlOxRrVv1WGvEs0hXH8BjgYtZKAkIOOZTm3U8XidTan/Mo/8ccVg3Ck/RdwORApTG1aCtfQ
+	YmwqfgbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtRJ-0000000ERqD-3NZL;
-	Mon, 20 Oct 2025 17:12:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vAtTu-0000000ESUw-1Grl;
+	Mon, 20 Oct 2025 17:15:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtRI-0000000ERpa-3HOF
+	id 1vAtTt-0000000ESUq-2FFB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 17:12:56 +0000
+	Mon, 20 Oct 2025 17:15:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 04451602AE;
-	Mon, 20 Oct 2025 17:12:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F140C4CEF9;
-	Mon, 20 Oct 2025 17:12:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E76F7620C1;
+	Mon, 20 Oct 2025 17:15:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC5DFC4CEF9;
+	Mon, 20 Oct 2025 17:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760980375;
-	bh=dwqtHQVfFZjxcm6Jo6c9XdBZqKfCUiwIrZyMMZjil70=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=oaX3CypquTs6LmNjpxP0M7JcbmHhYPQkPrndJisq3Mq5CS4ChGkC6d2iyFuzYgjFS
-	 64GozyDfDWKZP+/igTX/fcUZXzI4pcNfgW9fwPpl6zAywwv0qC02O3C/Ol3CpyiMpO
-	 O5SaVua+JTHSQs4CLFzE5hfP3RiUb/AODW/Ml2QFKd2dwKdnT42DH1CkSRBTDd9LvI
-	 ys0G1HfP32V+N7vDdT/eoBlMxujAAsZ0iNZhYPC+dpAbJFa30tA/JfSSXCVf9snOQo
-	 lDwXn4jP5OHGXofzGV0kdwoCznluMpaz+Hrq8PIHlPAA9y7tVVYEkSqr2PajDz3jb0
-	 2MhbnFI9/8M4Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vAtRF-0000000FaSv-2Qhv;
-	Mon, 20 Oct 2025 17:12:53 +0000
-Date: Mon, 20 Oct 2025 18:12:53 +0100
-Message-ID: <86h5vtwl7u.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	kasan-dev@googlegroups.com,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [RFC PATCH 14/16] arm64/insn: always inline aarch64_insn_encode_ldst_size()
-In-Reply-To: <20250923174903.76283-15-ada.coupriediaz@arm.com>
-References: <20250923174903.76283-1-ada.coupriediaz@arm.com>
-	<20250923174903.76283-15-ada.coupriediaz@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ada.coupriediaz@arm.com, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, will@kernel.org, oliver.upton@linux.dev, ardb@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, kasan-dev@googlegroups.com, mark.rutland@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1760980536;
+	bh=QFq5LOrpzBT+0cc2xULTJJjO/I/ewFbE34Rwz7Vzghc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=J0N7qB7eyOf+og4EajM32N6iSDRWii4pM4IRcRrlLHUUVPxxeAz/pUZH5GMV0asoc
+	 a/Df+2Ka9Q2b6okE6DBFL3ITMbpWGE+y+MbvRLu0+t+PJUS719uYEWje+KG8ITeCFH
+	 ozdIKrp0R1hh96xNsggx5xkzmrCKG0fZ1isIa+sTaA/OMuxB+xwEciezZz3clKHFWF
+	 0NtqxouSG8TySG1CitJoiLEi0iSaKLxoJxib5jZhg2ag/9aaE6/VeJXwjXMF+XwYzq
+	 JGR4rmdw9/AMzO0kMie+fivm5M/VNz4r1QkijaZdvhVHaeNmO4QkApK7JwQNJuSqzo
+	 +yaddHAuR95gw==
+Date: Mon, 20 Oct 2025 18:15:31 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Matthias Schiffer <matthias.schiffer@tq-group.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: fsl: add TQ-Systems boards
+ MBLS1028A and MBLS1028A-IND
+Message-ID: <20251020-closure-eating-5562565a4032@spud>
+References: <20251020133536.303471-1-alexander.stein@ew.tq-group.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="y5gaGBfQOuF8CKPP"
+Content-Disposition: inline
+In-Reply-To: <20251020133536.303471-1-alexander.stein@ew.tq-group.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,109 +77,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Sep 2025 18:49:01 +0100,
-Ada Couprie Diaz <ada.coupriediaz@arm.com> wrote:
-> 
-> The type and instruction checks cannot be made at compile time,
-> as they are dynamically created. However, we can remove the error print
-> as it should never appear in normal operation and will still lead to
-> a fault BRK.
-> 
-> This makes `aarch64_insn_encode_ldst_size()` safe for inlining
-> and usage from patching callbacks.
-> 
-> This is a change of visiblity, as previously the function was private to
-> lib/insn.c.
-> However, in order to inline more `aarch64_insn_` functions and make
-> patching callbacks safe, it needs to be accessible by those functions.
-> As it is more accessible than before, add a check so that only loads
-> or stores can be affected by the size encoding.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> ---
->  arch/arm64/include/asm/insn.h | 24 ++++++++++++++++++++++++
->  arch/arm64/lib/insn.c         | 19 +------------------
->  2 files changed, 25 insertions(+), 18 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-> index 44435eede1f3..46d4d452e2e2 100644
-> --- a/arch/arm64/include/asm/insn.h
-> +++ b/arch/arm64/include/asm/insn.h
-> @@ -717,6 +717,30 @@ static __always_inline u32 aarch64_insn_encode_immediate(
->  
->  	return insn;
->  }
-> +
-> +extern const u32 aarch64_insn_ldst_size[];
-> +static __always_inline u32 aarch64_insn_encode_ldst_size(
-> +					 enum aarch64_insn_size_type type,
-> +					 u32 insn)
-> +{
-> +	u32 size;
-> +
-> +	if (type < AARCH64_INSN_SIZE_8 || type > AARCH64_INSN_SIZE_64) {
-> +		return AARCH64_BREAK_FAULT;
-> +	}
-> +
-> +	/* Don't corrput the top bits of other instructions which aren't a size. */
-> +	if (!aarch64_insn_is_ldst(insn)) {
-> +		return AARCH64_BREAK_FAULT;
-> +	}
-> +
-> +	size = aarch64_insn_ldst_size[type];
 
-Given that we have this:
+--y5gaGBfQOuF8CKPP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-	enum aarch64_insn_size_type {
-		AARCH64_INSN_SIZE_8,
-		AARCH64_INSN_SIZE_16,
-		AARCH64_INSN_SIZE_32,
-		AARCH64_INSN_SIZE_64,
-	};
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-[...]
+--y5gaGBfQOuF8CKPP
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +	insn &= ~GENMASK(31, 30);
-> +	insn |= size << 30;
-> +
-> +	return insn;
-> +}
-> +
->  static __always_inline u32 aarch64_insn_encode_register(
->  				 enum aarch64_insn_register_type type,
->  				 u32 insn,
-> diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
-> index 71df4d72ac81..63564d236235 100644
-> --- a/arch/arm64/lib/insn.c
-> +++ b/arch/arm64/lib/insn.c
-> @@ -42,30 +42,13 @@ u64 aarch64_insn_decode_immediate(enum aarch64_insn_imm_type type, u32 insn)
->  	return (insn >> shift) & mask;
->  }
->  
-> -static const u32 aarch64_insn_ldst_size[] = {
-> +const u32 aarch64_insn_ldst_size[] = {
->  	[AARCH64_INSN_SIZE_8] = 0,
->  	[AARCH64_INSN_SIZE_16] = 1,
->  	[AARCH64_INSN_SIZE_32] = 2,
->  	[AARCH64_INSN_SIZE_64] = 3,
->  };
+-----BEGIN PGP SIGNATURE-----
 
-[...] this array is completely superfluous, and
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPZuMwAKCRB4tDGHoIJi
+0idqAP99wn9rZ3vdX/HiKOVJU/T6U0epcn96qhI5HbBPOZrMCgD/fDSstymKGmQ+
+e0eW7q6qrX43inmNTqVE9GCARUNQpAU=
+=f5RB
+-----END PGP SIGNATURE-----
 
-	size = aarch64_insn_ldst_size[type];
-
-could be replaced by
-
-	size = type;
-
-But that's only a very minor improvement. On the plus side, your
-approach definitely makes it impossible to add a patching callback
-using aarch64_insn_encode_ldst_size() in a module!
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+--y5gaGBfQOuF8CKPP--
 
