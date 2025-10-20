@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A4CCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 15:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E367CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 15:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oo7DpZ4wl1wswOWuSb4aFqE1cYvWje2320z/a0W/Glo=; b=4C9toRIP5r8IWDaSvClwKA9i9K
-	3DlLfKPCm5+LzZwZiIdtv53UjQu+yVI4fNehI38ZiIqj/3G1hpwqSJ/DV2N5uQuIH2u4hf/AdkXzJ
-	4knnim1u4AWq89QGVQrY1SUhGLtnQnyHV2o9MaQB6rzvXDtBtp7lII4lfvmHX6fVSRq28WJ08NKSc
-	Dxe18ha8q8o8IbzWAHQ0jp6Hd4eoBqOWvncUCVUSlgtb+0VtANkuPL4ZCOdXSfOUuZgCcLheUv3Gr
-	R5ZYO96Q7xr720PdnViviI0SfhYUO28Is3klmwb5QhrSxVSniLArafbJEP37B6tsLg/l/BwhTeih7
-	v7NkEPmg==;
+	bh=JENJ9B3gZlIzJ6uT+wXkqNufvM/IycwvyzR8o72f9Xk=; b=CrHtgsyTHTUPYYXOHaStD2A3Tk
+	fmMW/6aQjp2Z3qzVPAlUx9cG1IvsfY6o8S8AfHpw8Ws7C0T51YwxVDdjfyDzMB+iIJ2dIWFf5x7N9
+	GJGGVTbDuTTNRDVrQY3EHYJlzfUEaCwOQJ0qdGYMGIx/feWnjrdVoEy37LELma/Glky9UsrYlW2zX
+	eIAS+Od99EiHACxKtVLVWGNBPBwFGKwipFzs6+APJYN2x8FW/c3FDMGbKH8WdPwOUnrhn7glwdmGM
+	ClH1fltb4xgeuk+j31lIMyz2EoZMIaQMuEB9mTKGF3KbVG9jFrIAh27BpjeaML32QlECQLGX4OHb3
+	/HcVYc3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAs0V-0000000EAzZ-1ynn;
-	Mon, 20 Oct 2025 15:41:11 +0000
-Received: from 003.mia.mailroute.net ([199.89.3.6])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAs0S-0000000EAxv-3T2E;
-	Mon, 20 Oct 2025 15:41:10 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by 003.mia.mailroute.net (Postfix) with ESMTP id 4cr05752FhzljBC1;
-	Mon, 20 Oct 2025 15:40:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
-	content-transfer-encoding:content-type:content-type:in-reply-to
-	:from:from:content-language:references:subject:subject
-	:user-agent:mime-version:date:date:message-id:received:received;
-	 s=mr01; t=1760974855; x=1763566856; bh=Oo7DpZ4wl1wswOWuSb4aFqE1
-	cYvWje2320z/a0W/Glo=; b=vDdO+gK/7aLRcCYqexOk3vyB/qSdU1m71g/jSNSO
-	WYA7nKpxkNrQs127L28ptZvN9LWzUJPJ3+/+/p5fjrZ8A/kEhFnrZ0MmpZv+1xvZ
-	jMPv5odsVYbu6k5lpHWYCNVk/XAukCt0PnNiQGH0m7fI9/fJ9pOl0OllpUnL32sC
-	FNMkeCMTD8CMgozwVMuqptLt8ntFgux8f5TpK1YO7+hlUr6BVn0buBxm3sJLkIlu
-	Nj5FKVfHkAzQzi3hyYky5jWXqaHBORTRYJ/3f2TlAWRu/mCIs8xMz2opfK/tNJJb
-	BPYpqW1A1UYXVV7F1JzmDKyz2vUfouC+TMJ5Nhr4bKWAiA==
-X-Virus-Scanned: by MailRoute
-Received: from 003.mia.mailroute.net ([127.0.0.1])
- by localhost (003.mia [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
- id AT_bPrdYl-hz; Mon, 20 Oct 2025 15:40:55 +0000 (UTC)
-Received: from [100.119.48.131] (unknown [104.135.180.219])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bvanassche@acm.org)
-	by 003.mia.mailroute.net (Postfix) with ESMTPSA id 4cr04l5K2pzlgqVl;
-	Mon, 20 Oct 2025 15:40:38 +0000 (UTC)
-Message-ID: <05167a77-f34e-4c75-aded-3c907c4ba446@acm.org>
-Date: Mon, 20 Oct 2025 08:40:37 -0700
+	id 1vAs4J-0000000EBdH-1ayj;
+	Mon, 20 Oct 2025 15:45:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAs4G-0000000EBcb-0VZB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Oct 2025 15:45:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0E8C1063;
+	Mon, 20 Oct 2025 08:44:51 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 14E4B3F66E;
+	Mon, 20 Oct 2025 08:44:54 -0700 (PDT)
+Message-ID: <40dd0187-230b-470c-a875-c324df1dedce@arm.com>
+Date: Mon, 20 Oct 2025 16:44:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] scsi: ufs: ufs-mediatek: Add UFS host support for
- MT8195 SoC
-To: Macpaul Lin <macpaul.lin@mediatek.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>,
- "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K . Petersen" <martin.petersen@oracle.com>,
- linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Cc: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>,
- Ramax Lo <ramax.lo@mediatek.com>, Macpaul Lin <macpaul@gmail.com>,
- MediaTek Chromebook Upstream
- <Project_Global_Chrome_Upstream_Group@mediatek.com>
-References: <20250722085721.2062657-1-macpaul.lin@mediatek.com>
+Subject: Re: [PATCH v3 07/29] arm_mpam: Add probe/remove for mpam msc driver
+ and kbuild boiler plate
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-8-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-From: Bart Van Assche <bvanassche@acm.org>
-In-Reply-To: <20250722085721.2062657-1-macpaul.lin@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <20251017185645.26604-8-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_084108_955119_68E306C8 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251020_084504_244472_55AE42D5 
+X-CRM114-Status: GOOD (  32.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,15 +83,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/22/25 1:57 AM, Macpaul Lin wrote:
-> Add "mediatek,mt8195-ufshci" to the of_device_id table to enable
-> support for MediaTek MT8195/MT8395 UFS host controller. This matches the
-> device node entry in the MT8195/MT8395 device tree and allows proper driver
-> binding.
-Please always include a cover letter when posting a patch series. The
-cover letter generated by git includes helpful information like a diffstat.
+Hi James,
 
+On 10/17/25 19:56, James Morse wrote:
+> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+> only be accessible from those CPUs, and they may not be online.
+> Touching the hardware early is pointless as MPAM can't be used until
+> the system-wide common values for num_partid and num_pmg have been
+> discovered.
+> 
+> Start with driver probe/remove and mapping the MSC.
+> 
+> CC: Carl Worth <carl@os.amperecomputing.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since v2:
+>  * Comment in Kconfig about why EXPERT.
+>  * Dropped duplicate depends.
+>  * Fixed duplicate return statement.
+>  * Restructured driver probe to have a do_ function to allow breaks to be
+>    return instead...
+>  * Removed resctrl.h include, added spinlock.h
+>  * Removed stray DT function prototype
+>  * Removed stray PCC variables in struct mpam_msc.
+>  * Used ccflags not cflags for debug define.
+>  * Moved srcu header include to internal.h
+>  * Moved mpam_msc_destroy() into this patch.
+> 
+> Changes since v1:
+>  * Avoid selecting driver on other architectrues.
+>  * Removed PCC support stub.
+>  * Use for_each_available_child_of_node_scoped() and of_property_read_reg()
+>  * Clarified a comment.
+>  * Stopped using mpam_num_msc as an id,a and made it atomic.
+>  * Size of -1 returned from cache_of_calculate_id()
+>  * Renamed some struct members.
+>  * Made a bunch of pr_err() dev_err_ocne().
+>  * Used more cleanup magic.
+>  * Inlined a print message.
+>  * Fixed error propagation from mpam_dt_parse_resources().
+>  * Moved cache accessibility checks earlier.
+>  * Change cleanup macro to use IS_ERR_OR_NULL().
+> 
+> Changes since RFC:
+>  * Check for status=broken DT devices.
+>  * Moved all the files around.
+>  * Made Kconfig symbols depend on EXPERT
+> ---
+>  arch/arm64/Kconfig              |   1 +
+>  drivers/Kconfig                 |   2 +
+>  drivers/Makefile                |   1 +
+>  drivers/acpi/arm64/mpam.c       |   7 ++
+>  drivers/resctrl/Kconfig         |  13 +++
+>  drivers/resctrl/Makefile        |   4 +
+>  drivers/resctrl/mpam_devices.c  | 190 ++++++++++++++++++++++++++++++++
+>  drivers/resctrl/mpam_internal.h |  52 +++++++++
+>  include/linux/acpi.h            |   2 +-
+>  9 files changed, 271 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/resctrl/Kconfig
+>  create mode 100644 drivers/resctrl/Makefile
+>  create mode 100644 drivers/resctrl/mpam_devices.c
+>  create mode 100644 drivers/resctrl/mpam_internal.h
+> 
+[snip]
+> +static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+> +{
+> +	int err;
+> +	u32 tmp;
+> +	struct mpam_msc *msc;
+> +	struct resource *msc_res;
+> +	struct device *dev = &pdev->dev;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
+> +	if (!msc)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	mutex_init(&msc->probe_lock);
+> +	mutex_init(&msc->part_sel_lock);
+> +	msc->id = pdev->id;
+> +	msc->pdev = pdev;
+> +	INIT_LIST_HEAD_RCU(&msc->all_msc_list);
+> +	INIT_LIST_HEAD_RCU(&msc->ris);
+> +
+> +	err = update_msc_accessibility(msc);
+> +	if (err)
+> +		return ERR_PTR(err);
+> +	if (cpumask_empty(&msc->accessibility)) {
+> +		dev_err_once(dev, "MSC is not accessible from any CPU!");
+> +		return ERR_PTR(-EINVAL);
+> +	}
+> +
+> +	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
+> +		msc->iface = MPAM_IFACE_MMIO;
+> +	else
+> +		msc->iface = MPAM_IFACE_PCC;
+
+As there is no PCC support in this series should this return
+ERR_PTR(-ENOTSUPP) when the firmware doesn't advertise a MMIO interface?
+
+> +
+> +	if (msc->iface == MPAM_IFACE_MMIO) {
+> +		void __iomem *io;
+> +
+> +		io = devm_platform_get_and_ioremap_resource(pdev, 0,
+> +							    &msc_res);
+> +		if (IS_ERR(io)) {
+> +			dev_err_once(dev, "Failed to map MSC base address\n");
+> +			return (void *)io;
+> +		}
+> +		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+> +		msc->mapped_hwpage = io;
+> +	}
+> +
+> +	list_add_rcu(&msc->all_msc_list, &mpam_all_msc);
+> +	platform_set_drvdata(pdev, msc);
+> +
+> +	return msc;
+> +}
+> +
+> +static int mpam_msc_drv_probe(struct platform_device *pdev)
+> +{
+> +	int err;
+> +	struct mpam_msc *msc = NULL;
+> +	void *plat_data = pdev->dev.platform_data;
+> +
+> +	mutex_lock(&mpam_list_lock);
+> +	msc = do_mpam_msc_drv_probe(pdev);
+> +	mutex_unlock(&mpam_list_lock);
+> +	if (!IS_ERR(msc)) {
+> +		/* Create RIS entries described by firmware */
+> +		err = acpi_mpam_parse_resources(msc, plat_data);
+> +		if (err)
+> +			mpam_msc_drv_remove(pdev);
+> +	} else {
+> +		err = PTR_ERR(msc);
+> +	}
+> +
+> +	if (!err && atomic_add_return(1, &mpam_num_msc) == fw_num_msc)
+> +		pr_info("Discovered all MSC\n");
+> +
+> +	return err;
+> +}
+> +
+> +static struct platform_driver mpam_msc_driver = {
+> +	.driver = {
+> +		.name = "mpam_msc",
+> +	},
+> +	.probe = mpam_msc_drv_probe,
+> +	.remove = mpam_msc_drv_remove,
+> +};
+> +
+> +static int __init mpam_msc_driver_init(void)
+> +{
+> +	if (!system_supports_mpam())
+> +		return -EOPNOTSUPP;
+> +
+> +	init_srcu_struct(&mpam_srcu);
+> +
+> +	fw_num_msc = acpi_mpam_count_msc();
+> +
+> +	if (fw_num_msc <= 0) {
+> +		pr_err("No MSC devices found in firmware\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	return platform_driver_register(&mpam_msc_driver);
+> +}
+> +subsys_initcall(mpam_msc_driver_init);
+-- 
 Thanks,
 
-Bart.
+Ben
+
 
