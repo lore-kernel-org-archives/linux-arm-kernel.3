@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E367CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 15:45:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03DAFCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 15:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JENJ9B3gZlIzJ6uT+wXkqNufvM/IycwvyzR8o72f9Xk=; b=CrHtgsyTHTUPYYXOHaStD2A3Tk
-	fmMW/6aQjp2Z3qzVPAlUx9cG1IvsfY6o8S8AfHpw8Ws7C0T51YwxVDdjfyDzMB+iIJ2dIWFf5x7N9
-	GJGGVTbDuTTNRDVrQY3EHYJlzfUEaCwOQJ0qdGYMGIx/feWnjrdVoEy37LELma/Glky9UsrYlW2zX
-	eIAS+Od99EiHACxKtVLVWGNBPBwFGKwipFzs6+APJYN2x8FW/c3FDMGbKH8WdPwOUnrhn7glwdmGM
-	ClH1fltb4xgeuk+j31lIMyz2EoZMIaQMuEB9mTKGF3KbVG9jFrIAh27BpjeaML32QlECQLGX4OHb3
-	/HcVYc3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tqunwMaYrmZoCU5ondxT5rUOVp1LVZFzvhEqbXHshro=; b=jyFWP8GxhIosihaFQWZKdAaVis
+	hBPnULHmmssRTAQnAxrD/HleeikSfTd0YEGVlYQZvJE8mBt2/gBkb4erAK+n8Vujs7mfoNw39ldGF
+	lJuxj2pp/UuhiRyX6sZm1RKu/GBBrAAcPJiwCQsvZdLm6LDd0ft3+Z0cjDe+R8tiiL9t5MsGjAkmk
+	OowhHlTE7MR9oveCtqHBzSC80sVzKpTvXfgL3HJK9Q9vDqGLfL+ymm5rjOfTj4bBY+XiA6vUnkuKJ
+	bqW6ulAgScWMYrR6Mw/iAm2WGdQpjcm0AwPVh45OWuE4/NGiQmH0wHZqKbsdEaW5bN0zs9eAGv80Q
+	H2Kfejfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAs4J-0000000EBdH-1ayj;
-	Mon, 20 Oct 2025 15:45:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAs4G-0000000EBcb-0VZB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 15:45:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0E8C1063;
-	Mon, 20 Oct 2025 08:44:51 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 14E4B3F66E;
-	Mon, 20 Oct 2025 08:44:54 -0700 (PDT)
-Message-ID: <40dd0187-230b-470c-a875-c324df1dedce@arm.com>
-Date: Mon, 20 Oct 2025 16:44:53 +0100
+	id 1vAs5q-0000000EByZ-3YzL;
+	Mon, 20 Oct 2025 15:46:43 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAs5o-0000000EBx9-46AK;
+	Mon, 20 Oct 2025 15:46:42 +0000
+Received: from pendragon.ideasonboard.com (87-94-110-32.bb.dnainternet.fi [87.94.110.32])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id A5C8782E;
+	Mon, 20 Oct 2025 17:44:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1760975093;
+	bh=sNxXee+W1+T0QQqYoZjUQPLYVU/MxS9aOZB5QdQS9ek=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EUmFc3rrfBxKRn2+DXvEc1xUEtm8JTz1bNCs9ssWuUL1dWVnQywDAlGX2ql3aBA1U
+	 SNSkDg/T6rRFd/A8NI4HjvZ6yjfafbIPjhU3J41NHmMcHDuVnBtaNXDvuVB74UxgQH
+	 sNLxo2Fk+KZB6IHjDVZbRrKQX6I+Oo/yyGq7T8rA=
+Date: Mon, 20 Oct 2025 18:46:25 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Alexey Charkov <alchark@gmail.com>,
+	Algea Cao <algea.cao@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Cenk Uluisik <cenk.uluisik@googlemail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Jimmy Hon <honyuenkwun@gmail.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Muhammed Efe Cetin <efectn@6tel.net>, Ondrej Jirman <megi@xff.cz>,
+	Rob Herring <robh@kernel.org>, Sandy Huang <hjc@rock-chips.com>
+Subject: Re: [PATCH v2 0/5] arm64: dts: rockchip: Add device tree for the
+ Orange Pi CM5 Base board
+Message-ID: <20251020154625.GB6159@pendragon.ideasonboard.com>
+References: <20251005235542.1017-1-laurent.pinchart@ideasonboard.com>
+ <2328202.iZASKD2KPV@phil>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/29] arm_mpam: Add probe/remove for mpam msc driver
- and kbuild boiler plate
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Gavin Shan <gshan@redhat.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
- <20251017185645.26604-8-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20251017185645.26604-8-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <2328202.iZASKD2KPV@phil>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_084504_244472_55AE42D5 
-X-CRM114-Status: GOOD (  32.03  )
+X-CRM114-CacheID: sfid-20251020_084641_145922_D8442FF9 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,179 +81,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Mon, Oct 20, 2025 at 04:44:21PM +0200, Heiko Stuebner wrote:
+> Am Montag, 6. Oktober 2025, 01:55:36 Mitteleuropäische Sommerzeit schrieb Laurent Pinchart:
+> > Hello,
+> > 
+> > This patch series adds a device tree for the Orange Pi CM5 Base board
+> > from Xunlong. This is a combination of a compute module and a carrier
+> > board, so the device tree is split in two files.
+> > 
+> > The work is based on a combination of upstream device trees for other
+> > RK3588-based Orange Pi boards and the downstream device tree, all
+> > checked against the available schematics for the carrier board. The
+> > compute module schematics is unfortunately not available.
+> > 
+> > The series starts with three patches that add a new tmds-enable-gpios
+> > property to the rk3588-dw-hdmi-qp DT binding (1/5) and update the driver
+> > accordingly (2/5 and 3/5). Those patches have been authored by Cristian
+> > Ciocaltea as part of a larger series, I have incorporated them here
+> > as-is.
+> > 
+> > Patch 4/5 then add a new compatible for the board to arm/rockchip.yaml.
+> > The last patch (5/5) adds the device tree for the board.
+> > 
+> > Patches 2/5 and 3/5 could be merged separately through the DRM tree,
+> > but patch 1/5 needs to be merged with the device tree in 5/5 to avoid
+> > introducing DT validation warnings. I'd appreciate advice from the DT
+> > maintainers regarding how to handle this, as I have been told before
+> > that DT bindings and DT sources can't be merged through the same tree.
+> 
+> I think we generally only care about binding warnings happening
+> in linux-next.
+> 
+> I.e. in most cases, the binding is merged with the driver and
+> the dts then into a separate tree - sort of ignoring the local
+> binding error, because everything will be fine once stuff comes
+> together in linux-next.
 
-On 10/17/25 19:56, James Morse wrote:
-> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
-> only be accessible from those CPUs, and they may not be online.
-> Touching the hardware early is pointless as MPAM can't be used until
-> the system-wide common values for num_partid and num_pmg have been
-> discovered.
-> 
-> Start with driver probe/remove and mapping the MSC.
-> 
-> CC: Carl Worth <carl@os.amperecomputing.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Changes since v2:
->  * Comment in Kconfig about why EXPERT.
->  * Dropped duplicate depends.
->  * Fixed duplicate return statement.
->  * Restructured driver probe to have a do_ function to allow breaks to be
->    return instead...
->  * Removed resctrl.h include, added spinlock.h
->  * Removed stray DT function prototype
->  * Removed stray PCC variables in struct mpam_msc.
->  * Used ccflags not cflags for debug define.
->  * Moved srcu header include to internal.h
->  * Moved mpam_msc_destroy() into this patch.
-> 
-> Changes since v1:
->  * Avoid selecting driver on other architectrues.
->  * Removed PCC support stub.
->  * Use for_each_available_child_of_node_scoped() and of_property_read_reg()
->  * Clarified a comment.
->  * Stopped using mpam_num_msc as an id,a and made it atomic.
->  * Size of -1 returned from cache_of_calculate_id()
->  * Renamed some struct members.
->  * Made a bunch of pr_err() dev_err_ocne().
->  * Used more cleanup magic.
->  * Inlined a print message.
->  * Fixed error propagation from mpam_dt_parse_resources().
->  * Moved cache accessibility checks earlier.
->  * Change cleanup macro to use IS_ERR_OR_NULL().
-> 
-> Changes since RFC:
->  * Check for status=broken DT devices.
->  * Moved all the files around.
->  * Made Kconfig symbols depend on EXPERT
-> ---
->  arch/arm64/Kconfig              |   1 +
->  drivers/Kconfig                 |   2 +
->  drivers/Makefile                |   1 +
->  drivers/acpi/arm64/mpam.c       |   7 ++
->  drivers/resctrl/Kconfig         |  13 +++
->  drivers/resctrl/Makefile        |   4 +
->  drivers/resctrl/mpam_devices.c  | 190 ++++++++++++++++++++++++++++++++
->  drivers/resctrl/mpam_internal.h |  52 +++++++++
->  include/linux/acpi.h            |   2 +-
->  9 files changed, 271 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/resctrl/Kconfig
->  create mode 100644 drivers/resctrl/Makefile
->  create mode 100644 drivers/resctrl/mpam_devices.c
->  create mode 100644 drivers/resctrl/mpam_internal.h
-> 
-[snip]
-> +static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
-> +{
-> +	int err;
-> +	u32 tmp;
-> +	struct mpam_msc *msc;
-> +	struct resource *msc_res;
-> +	struct device *dev = &pdev->dev;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
-> +	if (!msc)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	mutex_init(&msc->probe_lock);
-> +	mutex_init(&msc->part_sel_lock);
-> +	msc->id = pdev->id;
-> +	msc->pdev = pdev;
-> +	INIT_LIST_HEAD_RCU(&msc->all_msc_list);
-> +	INIT_LIST_HEAD_RCU(&msc->ris);
-> +
-> +	err = update_msc_accessibility(msc);
-> +	if (err)
-> +		return ERR_PTR(err);
-> +	if (cpumask_empty(&msc->accessibility)) {
-> +		dev_err_once(dev, "MSC is not accessible from any CPU!");
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +
-> +	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
-> +		msc->iface = MPAM_IFACE_MMIO;
-> +	else
-> +		msc->iface = MPAM_IFACE_PCC;
+Assuming they get merged together in linux-next. If there's a delay,
+linux-next will exhibit warnings for some time. I don't know what the
+rule is regarding that.
 
-As there is no PCC support in this series should this return
-ERR_PTR(-ENOTSUPP) when the firmware doesn't advertise a MMIO interface?
+> Speaking of bindings, does your board _need_ the frl-gpio to produce
+> any hdmi output? Like could we merge the board without the (optional)
+> gpio and then add it later, once the binding+driver have made it in?
 
-> +
-> +	if (msc->iface == MPAM_IFACE_MMIO) {
-> +		void __iomem *io;
-> +
-> +		io = devm_platform_get_and_ioremap_resource(pdev, 0,
-> +							    &msc_res);
-> +		if (IS_ERR(io)) {
-> +			dev_err_once(dev, "Failed to map MSC base address\n");
-> +			return (void *)io;
-> +		}
-> +		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
-> +		msc->mapped_hwpage = io;
-> +	}
-> +
-> +	list_add_rcu(&msc->all_msc_list, &mpam_all_msc);
-> +	platform_set_drvdata(pdev, msc);
-> +
-> +	return msc;
-> +}
-> +
-> +static int mpam_msc_drv_probe(struct platform_device *pdev)
-> +{
-> +	int err;
-> +	struct mpam_msc *msc = NULL;
-> +	void *plat_data = pdev->dev.platform_data;
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +	msc = do_mpam_msc_drv_probe(pdev);
-> +	mutex_unlock(&mpam_list_lock);
-> +	if (!IS_ERR(msc)) {
-> +		/* Create RIS entries described by firmware */
-> +		err = acpi_mpam_parse_resources(msc, plat_data);
-> +		if (err)
-> +			mpam_msc_drv_remove(pdev);
-> +	} else {
-> +		err = PTR_ERR(msc);
-> +	}
-> +
-> +	if (!err && atomic_add_return(1, &mpam_num_msc) == fw_num_msc)
-> +		pr_info("Discovered all MSC\n");
-> +
-> +	return err;
-> +}
-> +
-> +static struct platform_driver mpam_msc_driver = {
-> +	.driver = {
-> +		.name = "mpam_msc",
-> +	},
-> +	.probe = mpam_msc_drv_probe,
-> +	.remove = mpam_msc_drv_remove,
-> +};
-> +
-> +static int __init mpam_msc_driver_init(void)
-> +{
-> +	if (!system_supports_mpam())
-> +		return -EOPNOTSUPP;
-> +
-> +	init_srcu_struct(&mpam_srcu);
-> +
-> +	fw_num_msc = acpi_mpam_count_msc();
-> +
-> +	if (fw_num_msc <= 0) {
-> +		pr_err("No MSC devices found in firmware\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return platform_driver_register(&mpam_msc_driver);
-> +}
-> +subsys_initcall(mpam_msc_driver_init);
+With a suitable pull-up I think so. I can submit a v3 with that.
+
+> Just me trying to grab the big chunks earlier in the cycle.
+
 -- 
-Thanks,
+Regards,
 
-Ben
-
+Laurent Pinchart
 
