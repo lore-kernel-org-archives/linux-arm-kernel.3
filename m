@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16390CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC80CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n/CPIzx5KaL4TyTuJmekW/24AWANlyqw3dcl3WFRWCE=; b=uYfMCO7FVy+99nALX7jcU1hVHj
-	O8aG0yAcV4lKzOu3bMIkXG+GN/42oqj+9Oixz3jQEYjBc03qnnABM5bttxbF6jcSNPvMgVOycIJWe
-	2FV7qxdMX/DnAteJircmEV/bAWwQBO2Y7hzRxugMFekQKoe0btjdO7Q2FaRBhtuC8kHrGka39dpkh
-	zJv9YO/1mxVntmfOgFPI24I5Oj4zSQ05lypd4y4ubGaBbS6zE68rf0dfmfHhA2+UFdAwmPLQq5yNi
-	m0rYxrsUom3fR9J8afJo9xpCKLXb6L3ZjkBKiuQDnxIrWaHo07hHIQ7YlVCzet04JyX8mkmTsLhdq
-	lh3Tw3oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gtraHV6tD9LMKBudKXJHrkWgzDDis34qevkyGhCtEA4=; b=FFigpzikzxIS7it0qt+R4OhP9E
+	q7QFeZvykyL6aadnxIuZO1uBXdd0mzTedxV5HtxMYEH5DrHAZRPi3dK3+qw6WUWevMyfntwI4jxhx
+	Qgkmg1OJWI1pTyp00sHgOiAK/mtz89XWxAZly3bdvoA1J1tehP4kN/M1eYN9LTLNGm74InQa5i7i1
+	qk4NhHz4bTMdhfps06V3V4tvlec17xDVpy7T0zFOwwsUQU/v8gLYFnC6Db+oZneRQUoAcQOuBQjdT
+	b1tC+0wROq8C6hq1RyZcCBW/Jq1d5Af4tnLhrBYUXxVpX+XJFlvICc9AjYLSNuApI/b4ypP8UIkGN
+	9EI7+fig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmFu-0000000CbBn-2hUy;
-	Mon, 20 Oct 2025 09:32:42 +0000
-Received: from mail-m16.yeah.net ([1.95.21.16])
+	id 1vAmG9-0000000CbFk-3xXh;
+	Mon, 20 Oct 2025 09:32:57 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmFr-0000000CbAC-45Vo
+	id 1vAmG7-0000000CbDl-1qCx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 09:32:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=n/CPIzx5KaL4TyTuJmekW/24AWANlyqw3dcl3WFRWCE=;
-	b=f+td/ulGtsPQnMf4UyE9j/iAeHqvY2m6HE3o3yyNzMK9d9OTLoJmJTOHjc25wj
-	YJf6h4X9eVPS8jKXFSIktaRYEv+9nHu7dkShH6/qYgKai+seF6B5DFdOSge0elUr
-	zOpjYkLOmANepEswQHnkajIgM/Z0ouimRwMktRf2qkcYU=
-Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgB3zxWZAfZoV+ZTAA--.12317S3;
-	Mon, 20 Oct 2025 17:32:11 +0800 (CST)
-Date: Mon, 20 Oct 2025 17:32:09 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Olof Johansson <olof@lixom.net>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH 3/3] arm64: dts: fsl-lx2160a: include rev2 chip's dts
-Message-ID: <aPYBmXdpZyO0b62F@dragon>
-References: <20240826-2160r2-v1-0-106340d538d6@nxp.com>
- <20240826-2160r2-v1-3-106340d538d6@nxp.com>
- <20250923111038.qluh2kjmc534ytig@skbuf>
+	Mon, 20 Oct 2025 09:32:57 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 43D72C0AFE0;
+	Mon, 20 Oct 2025 09:32:31 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BF17A606D5;
+	Mon, 20 Oct 2025 09:32:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 647E9102F23A5;
+	Mon, 20 Oct 2025 11:32:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1760952769; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=gtraHV6tD9LMKBudKXJHrkWgzDDis34qevkyGhCtEA4=;
+	b=ULhkehzui4+Ze3NHhCw8OMTAHXwv4oGVtZa0hDSLkxX/UG8SvbSN0PjmVqYIdg0iX0jix5
+	W4Zeq952RjF+8bdaxgfHOThl4QttcfUWbaPvfHrbHz29UEAhGpS3z0lb/iWan1+yfcx4wO
+	awLEDw2RDqcNsPYcqlg0IqtPsTBNgsEP+t0zGAaV4zU3V+a4PGjnBgIZWwt0b+cA2yKR40
+	5W50Pov7mZOjSJbmpm/UosEQdHDokkvAnlXm0QimgTH2qhPv7EzlMoDZo3htdoieFGV297
+	yIwq1ovbcf7gGKx0bx88ZmpdC1lLiE70c6uNN8+A6dxF0wv4+9UMGzLAY5jZeQ==
+Message-ID: <b2c58580-d891-4d10-b3dd-572f7f98c6fe@bootlin.com>
+Date: Mon, 20 Oct 2025 11:32:37 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250923111038.qluh2kjmc534ytig@skbuf>
-X-CM-TRANSID: Ms8vCgB3zxWZAfZoV+ZTAA--.12317S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU2puAUUUUU
-X-Originating-IP: [121.224.201.6]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNRw-pGj2AZwdHAAA3w
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/3] net: stmmac: Allow supporting coarse
+ adjustment mode
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Jakub Kicinski <kuba@kernel.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Richard Cochran <richardcochran@gmail.com>,
+ Russell King <linux@armlinux.org.uk>,
+ =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
+ <20251015102725.1297985-3-maxime.chevallier@bootlin.com>
+ <20251017182358.42f76387@kernel.org>
+ <d40cbc17-22fa-4829-8eb0-e9fd26fc54b1@bootlin.com>
+ <20251020110040.18cf60c9@kmaincent-XPS-13-7390>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20251020110040.18cf60c9@kmaincent-XPS-13-7390>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_023240_394760_FD944DEF 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251020_023255_692513_4BB4E004 
+X-CRM114-Status: GOOD (  36.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,13 +90,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 23, 2025 at 02:10:38PM +0300, Vladimir Oltean wrote:
-> Sorry for digging up an old thread, but I'm curious why you applied
-> patch 2/3 but not this one? Currently,
-> arch/arm64/boot/dts/freescale/fsl-lx2160a-rev2.dtsi has no user.
+Hi Köry,
 
-I'm not sure how I missed it :)  Thanks for asking.  Applied now.
+On 20/10/2025 11:00, Kory Maincent wrote:
+> On Sat, 18 Oct 2025 09:42:57 +0200
+> Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+> 
+>> Hi Jakub,
+>>
+>> On 18/10/2025 03:23, Jakub Kicinski wrote:
+>>> On Wed, 15 Oct 2025 12:27:22 +0200 Maxime Chevallier wrote:  
+>>>> The DWMAC1000 supports 2 timestamping configurations to configure how
+>>>> frequency adjustments are made to the ptp_clock, as well as the reported
+>>>> timestamp values.
+>>>>
+>>>> There was a previous attempt at upstreaming support for configuring this
+>>>> mode by Olivier Dautricourt and Julien Beraud a few years back [1]
+>>>>
+>>>> In a nutshell, the timestamping can be either set in fine mode or in
+>>>> coarse mode.
+>>>>
+>>>> In fine mode, which is the default, we use the overflow of an accumulator
+>>>> to trigger frequency adjustments, but by doing so we lose precision on the
+>>>> timetamps that are produced by the timestamping unit. The main drawback
+>>>> is that the sub-second increment value, used to generate timestamps, can't
+>>>> be set to lower than (2 / ptp_clock_freq).
+>>>>
+>>>> The "fine" qualification comes from the frequent frequency adjustments we
+>>>> are able to do, which is perfect for a PTP follower usecase.
+>>>>
+>>>> In Coarse mode, we don't do frequency adjustments based on an
+>>>> accumulator overflow. We can therefore have very fine subsecond
+>>>> increment values, allowing for better timestamping precision. However
+>>>> this mode works best when the ptp clock frequency is adjusted based on
+>>>> an external signal, such as a PPS input produced by a GPS clock. This
+>>>> mode is therefore perfect for a Grand-master usecase.
+>>>>
+>>>> We therefore attempt to map these 2 modes with the newly introduced
+>>>> hwtimestamp qualifiers (precise and approx).
+>>>>
+>>>> Precise mode is mapped to stmmac fine mode, and is the expected default,
+>>>> suitable for all cases and perfect for follower mode
+>>>>
+>>>> Approx mode is mapped to coarse mode, suitable for Grand-master.  
+>>>
+>>> I failed to understand what this device does and what the problem is :(
+>>>
+>>> What is your ptp_clock_freq? Isn't it around 50MHz typically? 
+>>> So 2 / ptp_freq is 40nsec (?), not too bad?  
+>>
+>> That's not too bad indeed, but it makes a difference when acting as
+>> Grand Master, especially in this case because you don't need to
+>> perform clock adjustments (it's sync'd through PPS in), so we might
+>> as well take this opportunity to improve the TS.
+>>
+>>>
+>>> My recollection of the idea behind that timestamping providers
+>>> was that you can configure different filters for different providers.
+>>> IOW that you'd be able to say:
+>>>  - [precise] Rx stamp PTP packets 
+>>>  -  [approx] Rx stamp all packets
+>>> not that you'd configure precision of one piece of HW..  
+>>
+>> So far it looks like only one provider is enabled at a given time, my
+>> understanding was that the qualifier would be used in case there
+>> are multiple timestampers on the data path, to select the better one
+>> (e.g. a PHY that supports TS, a MAC that supports TS, we use the 
+>> best out of the two).
+> 
+> No, we do not support multiple timestampers at the same time.
+> For that IIUC we would have to add a an ID of the source in the packet. I
+> remember people were talking about modifying cmsg. 
+> This qualifier is indeed a first step to walk this path but I don't think
+> people are currently working on adding this support for now. 
+> 
+>> However I agree with your comments, that's exactly the kind of feedback
+>> I was looking for. This work has been tried several times now each
+>> time with a different uAPI path, I'm OK to consider that this is out
+>> of the scope of the hwprov feature.
+>>
+>>> If the HW really needs it, just lob a devlink param at it?  
+>>
+>> I'm totally OK with that. I'm not well versed into devlink, working mostly
+>> with embedded devices with simple-ish NICs, most of them don't use devlink.
+>> Let me give it a try then :)
+> 
+> meh, I kind of dislike using devlink here. As I said using timestamping
+> qualifier is a fist step for the multiple timestamping support. If one day we
+> will add this support, if there is other implementation it will add burden on
+> the development to track and change all the other implementation. Why don't we
+> always use this qualifier parameter even if it is not really for simultaneous
+> timestamping to avoid any future wrong development choice.
 
-Shawn
+On my side I've implemented the devlink-based approach, and I have to say i'm not
+so unhappy with it :) At least I don't have the feeling this is bending
+the API to fit one specific case.
 
+The thing is that the qualifier model doesn't fully map to the situation we
+have in stmmac.
+
+The stmmac coarse/fine adjustment doesn't only changes the timestamping
+behaviour, but also the ptp_clock adjustment mode. 
+
+So changing the qualifier here will have a side effect on the PTP clock,
+do we accept that as part of the hwprov timestamping API ?
+
+Should we use this API for coarse/fine stmmac config, I agree with your
+previous comment of adding a dedicated qualifier that explicitely says
+that using this qualifier comes with side effects, with the risk of
+paving the way for lots of modes being added for driver-specific scenarios.
+
+Another thing with the stmmac implem is that we don't truly have 2
+timestampers (1 approx and 1 precise), but rather only one whose precision
+can be adjusted. Does it really make sense here to have the qualifier
+writeable for the same timestamper ?
+
+Of course the netlink tsinfo/tsconfig is more appealing due to its generic
+nature, but OTHO I don't want to introduce ill-defined behaviours in that
+API with this series. The multiple timestamper work still makes a ton of
+sense for MAC+PHY timestamping setups :)
+
+I'm opened for both approached TBH :)
+
+Maxime
 
