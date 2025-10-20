@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CECFBCCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 634B9CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sq+NjgT7WPKoXULLDuNnNsnd4c4ZwkvNiYePWjTydu8=; b=Hlll5RrnRuigh77EWSVgArucJX
-	9HPOzP7FsLn9oxX48E8yT6QZzJDTWWpZ8AhCExeU0QguesVQtPfrUD03+oWCjNjfrN/0cTm0WjTpW
-	1jwI1Pp9b9/vaCiciCs/gwy5X/6JP+zDBKJpDF7aLg5MCElIUH3p/DOjtpd8X7SWU1yqUVpJPK3DE
-	Z5igNSrbwQ2asbo4LUg5NXBjW0lbVi0nI82Kw9ZBU7awTAkQoGdgEwfmCC5hrZYZsBjpu28N4YBEY
-	sNo9IvpKpivqSLg7VN+Wt0dTg7/XMFuP/h7PjpMomIp6FpNfNb61+lOtAVd0/ZBHYyZAhhT5tsC4N
-	DybcXvbw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f9XmIXBCOkiOI7RlyM3G8//FcG/Gp0aO++wK6DT9wAU=; b=q5BqaemzEroDFF1bo8+k/2MPF1
+	KZBkyoaCGStkpOqUH465zNn8jvjf6AOfWkHu9Iii7ZkL53qVULPbzGEK0jIdBkgMtVgNOHmwdCBk1
+	NsfNWytWDQ1DogLT00QLon7/Oh094hR9PtZvyHstvtM1qdnShW3bmsNru4IBr6CvF9Hy48uSGjmKD
+	TswPmxTauKBa+2ZSvH42NrRDR298Lvm92sBEcEzFhCt7aBFLADdG88qx1eoS6FSPr63S2yWIib/GG
+	/gCptJvd/YkDivgt9b0otbfGbSYd2AXHam2SDzxYCAdvxSYZb4b1aTEcvctCYChS/8vmabeZuQ4ic
+	OoXuj0nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtGt-0000000EP7a-3quS;
-	Mon, 20 Oct 2025 17:02:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vAtJL-0000000EPXV-2qzG;
+	Mon, 20 Oct 2025 17:04:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtGq-0000000EP6x-434H
+	id 1vAtJK-0000000EPX8-0tpc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 20 Oct 2025 17:04:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=f9XmIXBCOkiOI7RlyM3G8//FcG/Gp0aO++wK6DT9wAU=; b=U7aNpCjVgC0Bw/Zl70QOw6EW/U
+	8nXaW6rv5dB4Sg5Rs9fUcGfnn+Au+U/cwco48irijdfpTNU2kz7hkVi2E9TU2TpVr+HXKeXACskE9
+	2wiRDWTF7fAkVdVKvvr3yo9vRbiJ0V3EBeqP7qjDFX8a3Soy3lYto5ZzriMlGkebwCa1U8oteA+1R
+	oelKhPX/6jj0X5OR+MoT4SwlIuiaRaCcMaAJW9fnUIvapD1RFPm38EqeKXygzQWGYUA2SfUT/HRhR
+	ZFw2sKYNxf5e1LtO8V8xf3mzY20tgOHaOzvuc8a/vFPRAAKo1d0h2Zq6//5izJO7NsqPZp0oB8x/g
+	GCv91hlg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAsRa-000000001ex-1VAB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 17:02:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 957B144C2C;
-	Mon, 20 Oct 2025 17:01:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50E96C113D0;
-	Mon, 20 Oct 2025 17:01:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760979714;
-	bh=70yn7mGVqzvbk0wNOdWe6Ex6JjVwgt08GC05AbsLvbE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=fMSPhd9xOCtLOxZ69PwVB4aYYjeVU3UacJZITkzQYtPpjLh97/bDeOoPUL0YYxjo7
-	 3CwUFQsThjTtW/55U1MVom3TiuwunCUtH2WX2ggtvpvP9eFyiklLq2iT9U2Fkt8jMh
-	 v+7fr+6dwqSEkFZ+bvjZuRZsmGMDYaRVn25hf84eMfKJkS8ATOE3eBiAVqRNSqA4s8
-	 +bczBe8MGOwwLstKdmY8+X2I54aUcFNBNrXGmWcsUWC1tohGGA0tfbHv0TYLfRJBjU
-	 frOF7eWUnmtkdP2Wz/9gZN6+H68EMCNAM57MCjeMM7phH6/mLreW5zAinF27SV12dC
-	 ZDU006Ku03gGA==
-Received: by wens.tw (Postfix, from userid 1000)
-	id B224A5FDC3; Tue, 21 Oct 2025 01:01:51 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Vinod Koul <vkoul@kernel.org>
-Cc: linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	dmaengine@vger.kernel.org
-Subject: [PATCH] dmaengine: sun6i: Add debug messages for cyclic DMA prepare
-Date: Tue, 21 Oct 2025 01:01:45 +0800
-Message-ID: <20251020170147.2783867-1-wens@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Mon, 20 Oct 2025 16:09:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C22391007;
+	Mon, 20 Oct 2025 10:04:27 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B8AF3F66E;
+	Mon, 20 Oct 2025 10:04:30 -0700 (PDT)
+Message-ID: <9ad95fa5-6f1d-4c31-a6c6-41c1e9cc5c20@arm.com>
+Date: Mon, 20 Oct 2025 18:04:28 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 20/29] arm_mpam: Allow configuration to be applied and
+ restored during cpu online
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-21-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251017185645.26604-21-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_100209_019883_7EFBADC6 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20251020_170910_729515_DF7526B1 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +98,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver already has debug messages for memcpy and linear transfers,
-but is missing them for cyclic transfers.
+Hi James,
 
-Cyclic transfers are one of the main uses of the DMA controller, used
-for audio data transfers. And since these are likely the first DMA
-peripherals to be enabled, it helps to have these debug messages.
+On 10/17/25 19:56, James Morse wrote:
+> When CPUs come online the MSC's original configuration should be restored.
+> 
+> Add struct mpam_config to hold the configuration. This has a bitmap of
+> features that were modified. Once the maximum partid is known, allocate
+> a configuration array for each component, and reprogram each RIS
+> configuration from this.
+> 
+> CC: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> ---
+> Changes since v2:
+>  * Call mpam_init_reset_cfg() on alloated config as 0 is not longer correct.
+>  * init_garbage() on each config - the array has to be freed in one go, but
+>    otherwise this looks weird.
+>  * Use struct initialiser in mpam_init_reset_cfg(),
+>  * Moved int err definition.
+>  * Removed srcu lock taking based on squinting at the only caller.
+>  * Moved config reset to mpam_reset_component_cfg() for re-use in
+>    mpam_reset_component_locked(), previous memset() was not enough since zero
+>    no longer means reset.
+> 
+[...]
+>  
+> +struct reprogram_ris {
+> +	struct mpam_msc_ris *ris;
+> +	struct mpam_config *cfg;
+> +};
+> +
+> +/* Call with MSC lock held */
+> +static int mpam_reprogram_ris(void *_arg)
+> +{
+> +	u16 partid, partid_max;
+> +	struct reprogram_ris *arg = _arg;
+> +	struct mpam_msc_ris *ris = arg->ris;
+> +	struct mpam_config *cfg = arg->cfg;
+> +
+> +	if (ris->in_reset_state)
+> +		return 0;
+> +
+> +	spin_lock(&partid_max_lock);
+> +	partid_max = mpam_partid_max;
+> +	spin_unlock(&partid_max_lock);
+> +	for (partid = 0; partid <= partid_max + 1; partid++)
 
-Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
----
- drivers/dma/sun6i-dma.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Loop overrun. This was correct in the previous version of the patch and
+the same shape of loop is done correctly elsewhere in this version. I
+think it would be good to standardise on using either:
+partid <= partid_max
+or
+partid < partid_max + 1
+I have a preference for the first as you don't need to think about the
+size of the type.
 
-diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index 2215ff877bf7..2e03c587bd2e 100644
---- a/drivers/dma/sun6i-dma.c
-+++ b/drivers/dma/sun6i-dma.c
-@@ -826,6 +826,11 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_cyclic(
- 			v_lli->cfg = lli_cfg;
- 			sdev->cfg->set_drq(&v_lli->cfg, DRQ_SDRAM, vchan->port);
- 			sdev->cfg->set_mode(&v_lli->cfg, LINEAR_MODE, IO_MODE);
-+			dev_dbg(chan2dev(chan),
-+				"%s; chan: %d, dest: %pad, src: %pad, len: %zu. flags: 0x%08lx\n",
-+				__func__, vchan->vc.chan.chan_id,
-+				&sconfig->dst_addr, &buf_addr,
-+				buf_len, flags);
- 		} else {
- 			sun6i_dma_set_addr(sdev, v_lli,
- 					   sconfig->src_addr,
-@@ -833,6 +838,11 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_cyclic(
- 			v_lli->cfg = lli_cfg;
- 			sdev->cfg->set_drq(&v_lli->cfg, vchan->port, DRQ_SDRAM);
- 			sdev->cfg->set_mode(&v_lli->cfg, IO_MODE, LINEAR_MODE);
-+			dev_dbg(chan2dev(chan),
-+				"%s; chan: %d, dest: %pad, src: %pad, len: %zu. flags: 0x%08lx\n",
-+				__func__, vchan->vc.chan.chan_id,
-+				&buf_addr, &sconfig->src_addr,
-+				buf_len, flags);
- 		}
- 
- 		prev = sun6i_dma_lli_add(prev, v_lli, p_lli, txd);
 -- 
-2.47.3
+Thanks,
+
+Ben
 
 
