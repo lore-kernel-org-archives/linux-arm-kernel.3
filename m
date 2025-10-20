@@ -4,99 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D415BCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 10:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93222CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PufIutwJX/MUqRq87e43IN62sjFrJG1C0t3fcKqtI5s=; b=D6jJYkCWaYaSHMi/0oQVGG0jX2
-	kKDakHwIoeOs6eWwGIo5m7Dw9Siv88fFy6xXxpQ+SfEcfYAMRcl87DrgzKEJPFKT2Uh1BqcVu744f
-	ZEcPJRztFuDoDNLN92iHDlJkcihPa+0tRH4pktcix6/MQbinsP5BTZfb4LPKoF67SHLQCyhcS6cvV
-	QfFUsNacbQd95mhhos+enDrNWZovBj1V9OcBoQqdOuN6WaWEYp1W+ORYaFIkGnmeS2WwDvA+yHkRW
-	kGhohtK1EVItsz88czHiDYSMvXfgPQYa78QpcMiBTESTRmMyizyJcHYt0TLwsgnGMhipViRRkGmXm
-	2x71sxyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I0Rh7vr2r5CUO65seAlIgLtsprqiSEsZXpmW27HKpY8=; b=iImaQiRKcIoJddLdbeOJvp+6q7
+	kv+T7jP66oQq57MUNNFL/aqX6O/bPqWJuOizT+qtsws8gtmY+UV/2n2s2aJdmb0rEMbhyNPOm3Awo
+	iE4lGTYC8oQh9DWK3S2T8zSLp0TSMelq5aqAxpt+MS4xySwzGaPjSfqmfcEslPWO2vAQ5Jo5fwXYK
+	VewrTMKThp4ho/Y95ZLw08p4fvb395sgHAn3sa1McvjM0xkIh7PeNEauPs2ZLNC35PEvQsNpBK0kG
+	1NWdXQLh0yH7VFtg9uMILqfuI9YJ3BCO9NlIt0RTirq9Vwu6R4qc/3eOPxh25EHw78AHZixZcl81x
+	yG8WImAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnaN-0000000Cy8r-04oy;
-	Mon, 20 Oct 2025 10:57:55 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1vAnd4-0000000Cygj-2zMc;
+	Mon, 20 Oct 2025 11:00:42 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAnaK-0000000Cy6y-2lJ9
+	id 1vAnd0-0000000CyeD-1C9S
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 10:57:53 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-afcb7ae6ed0so789620466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 03:57:51 -0700 (PDT)
+	Mon, 20 Oct 2025 11:00:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760957870; x=1761562670; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PufIutwJX/MUqRq87e43IN62sjFrJG1C0t3fcKqtI5s=;
-        b=ZXkuKJJnBELiZ4Hz+bagip4fXEnYo+LZtiOdiak+hsvuSLhy3UzbyiryBruC5pRTZ+
-         uemWq+kIIwDocGjEcFtk0HGW1ikVNy4sGtUqeNu06J/OTxsSldeLu33cFRtppgw1RpzS
-         AQSLmsuxjPCJmPmM3oxt4bz+gLiz22hgXjsM2JvnzL03+4A6WNbyUTHisVr7iYTw4Vj8
-         bdg+TI0h1r4LzP7jCKlR5As8HRRvBqA2TKgik2ikfWy28EVt0agb7y7LyKs5BRBpJy4d
-         twmXFpQDgoInxERgv0Pp51N4GSQMJsKRi49VWs9RG3DcAluqE7YABZQ62NGogmgy0yX0
-         2vKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760957870; x=1761562670;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PufIutwJX/MUqRq87e43IN62sjFrJG1C0t3fcKqtI5s=;
-        b=mNXtuKrg9o92fTU6SkECDvBR6KpvqotCLoRJOcXifHSWrsSBIDmT/PwY0QfSBSXFo4
-         ANlIAruboSFRyBtgEjsB5bBzmg9jdAkV0CoZdWvgVy6QuNrQrvd/9UYSH4nuWt0ayQU3
-         J5cXdFlv7ehHHMsdxPFuX7gdr3+FdyXeGvS1o93m6sRsNohfzYh9kaBz7WT/q9PjTi4y
-         UUqaeHctI+htUvb+8Fjinwc48npXoaQma9phqKZ7M67Ywq1SAJnHEvwzPuoAMEXHR5rK
-         6gcxqZNep9WtSsR9INQmX2jSDUVqACxFHUnoi1SNq2g8NP0ozyiA3OlpRQ1Dmdmouxf1
-         jKRg==
-X-Forwarded-Encrypted: i=1; AJvYcCV8pPP3FpbOW/ByPhmJ+/q/01w4AsNEUVw816gqiBG4goMgQoS3EK1UiaQFH7bInYFenNdryG6NEnIh57JgrAh8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIruUlR8Di9pSU6t8X1U67htdWkEqnTN13GNwEK3ZYppz/Leny
-	nb+8FBVGyn7UEY5OFxJnSNewzP3iBMfvAyolTOYM9xYbUJ+v4IEinwhW
-X-Gm-Gg: ASbGncsQnJb4V4ed6wghZk1HPj9KGf/kzIQd0QJ9JfkGC+TwD2J+rz6AvcNte4OE0ek
-	WRP7lojyphJfcIcIsD4cAw/TFGFonROp6AZ4bg27LoWMITgS9MYmyH67FRDOq4LODfTLODcV3yC
-	5zAZd7OhLg4og4g3jBtHvLgyYT4YkM3xSxBffnE6rx1fMtrxM1sonyve8vakT3WI9uTDKx0WOBB
-	YOGpgxOn117xZlfPjgcTxeyoU5axTFu5xTdtiEjn8gFaLibtkDCtdqLFW/CEWeZNHjCT5O1ALXL
-	wa6oJ9xD2VIy/xKz0v1DevPbBWK/eK7NCZSe6Ytrs4zD+J4e/wvjMjMRJqpPL1LJOD2VC9aUGXp
-	GycInmcmGV/PXzywOO5JCGzsRl3VKf+H1tS1e32jsLy1jzTAxe3NlkbvYJTzIpqtWLrYUOUCrHo
-	dU45TY25MSwnBTuFjzrF4Jv4CdPVqNkVHastTa+bYXi8Y=
-X-Google-Smtp-Source: AGHT+IEGNGRqyCA4oo2Whj2ekIc3ahNm9oAu93O5XQjpUk9MWXWOqPcdHqIk3lFTx8TLeoPA3wFzBw==
-X-Received: by 2002:a17:907:2687:b0:b57:78fa:db46 with SMTP id a640c23a62f3a-b64764d7dabmr1614004666b.43.1760957870288;
-        Mon, 20 Oct 2025 03:57:50 -0700 (PDT)
-Received: from [10.25.213.231] ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65e7e984f2sm749179166b.13.2025.10.20.03.57.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Oct 2025 03:57:49 -0700 (PDT)
-Message-ID: <26f1b9ef-2e90-476c-8f95-6bae08f69eb1@gmail.com>
-Date: Mon, 20 Oct 2025 03:57:46 -0700
+	d=linux.alibaba.com; s=default;
+	t=1760958033; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=I0Rh7vr2r5CUO65seAlIgLtsprqiSEsZXpmW27HKpY8=;
+	b=cA0PCdUcbiCx+wPxE3/l3N+Sg62ETYzSN+UrM6Xv5IAV0omkyrSub7nzU7xEb3dZdNBrik6hR/+UXHWhysKg4YoFydY5XWURLgZjLPeaE5j5af0WbkDhXkmOC5m5+fZpIVeafkL6rdbGiwKKVlZvPkigZhf/4UW0mg6a7EuS/0I=
+Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WqbBPTq_1760958022 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 20 Oct 2025 19:00:30 +0800
+From: "Huang, Ying" <ying.huang@linux.alibaba.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>,  Anshuman Khandual
+ <anshuman.khandual@arm.com>,  Ryan Roberts <ryan.roberts@arm.com>,  Gavin
+ Shan <gshan@redhat.com>,  Ard Biesheuvel <ardb@kernel.org>,  "Matthew
+ Wilcox (Oracle)" <willy@infradead.org>,  Yicong Yang
+ <yangyicong@hisilicon.com>,  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  linux-mm@kvack.org
+Subject: Re: [PATCH] arm64, mm: avoid always making PTE dirty in pte_mkwrite()
+In-Reply-To: <aPKFmHg-FrkGJxWd@arm.com> (Catalin Marinas's message of "Fri, 17
+	Oct 2025 19:06:16 +0100")
+References: <20251015023712.46598-1-ying.huang@linux.alibaba.com>
+	<aPKFmHg-FrkGJxWd@arm.com>
+Date: Mon, 20 Oct 2025 19:00:20 +0800
+Message-ID: <87bjm1g7nf.fsf@DESKTOP-5N7EMDA>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/8] reset: imx8mp-audiomix: Fix bad mask values
-To: Frank Li <Frank.li@nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang
- <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
-References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
- <20251017112025.11997-2-laurentiumihalcea111@gmail.com>
- <aPJSk2spnihEEkas@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <aPJSk2spnihEEkas@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=ascii
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_035752_716300_E9030DE1 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20251020_040039_123728_11C0978F 
+X-CRM114-Status: GOOD (  25.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,63 +70,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Catalin,
 
-On 10/17/2025 7:28 AM, Frank Li wrote:
-> On Fri, Oct 17, 2025 at 04:20:18AM -0700, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->>
->> As per the i.MX8MP TRM, section 14.2 "AUDIO_BLK_CTRL", table 14.2.3.1.1
->> "memory map", the definition of the EARC control register shows that the
->> EARC controller software reset is controlled via bit 0, while the EARC PHY
->> software reset is controlled via bit 1.
->>
->> This means that the current definitions of IMX8MP_AUDIOMIX_EARC_RESET_MASK
->> and IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK are wrong since their values would
->> imply that the EARC controller software reset is controlled via bit 1 and
->> the EARC PHY software reset is controlled via bit 2. Fix them.
->>
->> Fixes: a83bc87cd30a ("reset: imx8mp-audiomix: Prepare the code for more reset bits")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> Just curious, why previous version can work?
+Catalin Marinas <catalin.marinas@arm.com> writes:
 
-
-good question. I assume this was never tested so I don't think the question
-
-of this working in previous versions or not is applicable here. I also looked for
-
-the usages of these macros in the DTS and there seems to be no consumer.
-
-
-I discovered the issue while testing the patches from this series. As for testing,
-
-I used a dummy consumer driver/node and manually checked the register values
-
-after each reset assert/de-assert operation.
-
-
->
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> On Wed, Oct 15, 2025 at 10:37:12AM +0800, Huang Ying wrote:
+>> Current pte_mkwrite_novma() makes PTE dirty unconditionally.  This may
+>> mark some pages that are never written dirty wrongly.  For example,
+>> do_swap_page() may map the exclusive pages with writable and clean PTEs
+>> if the VMA is writable and the page fault is for read access.
+>> However, current pte_mkwrite_novma() implementation always dirties the
+>> PTE.  This may cause unnecessary disk writing if the pages are
+>> never written before being reclaimed.
+>> 
+>> So, change pte_mkwrite_novma() to clear the PTE_RDONLY bit only if the
+>> PTE_DIRTY bit is set to make it possible to make the PTE writable and
+>> clean.
+>> 
+>> The current behavior was introduced in commit 73e86cb03cf2 ("arm64:
+>> Move PTE_RDONLY bit handling out of set_pte_at()").  Before that,
+>> pte_mkwrite() only sets the PTE_WRITE bit, while set_pte_at() only
+>> clears the PTE_RDONLY bit if both the PTE_WRITE and the PTE_DIRTY bits
+>> are set.
+>> 
+>> To test the performance impact of the patch, on an arm64 server
+>> machine, run 16 redis-server processes on socket 1 and 16
+>> memtier_benchmark processes on socket 0 with mostly get
+>> transactions (that is, redis-server will mostly read memory only).
+>> The memory footprint of redis-server is larger than the available
+>> memory, so swap out/in will be triggered.  Test results show that the
+>> patch can avoid most swapping out because the pages are mostly clean.
+>> And the benchmark throughput improves ~23.9% in the test.
+>> 
+>> Fixes: 73e86cb03cf2 ("arm64: Move PTE_RDONLY bit handling out of set_pte_at()")
+>> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>> Cc: Gavin Shan <gshan@redhat.com>
+>> Cc: Ard Biesheuvel <ardb@kernel.org>
+>> Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
+>> Cc: Yicong Yang <yangyicong@hisilicon.com>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
 >> ---
->>  drivers/reset/reset-imx8mp-audiomix.c | 4 ++--
->>  1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
->> index 6b357adfe646..eceb37ff5dc5 100644
->> --- a/drivers/reset/reset-imx8mp-audiomix.c
->> +++ b/drivers/reset/reset-imx8mp-audiomix.c
->> @@ -14,8 +14,8 @@
->>  #include <linux/reset-controller.h>
->>
->>  #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
->> -#define IMX8MP_AUDIOMIX_EARC_RESET_MASK		BIT(1)
->> -#define IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK	BIT(2)
->> +#define IMX8MP_AUDIOMIX_EARC_RESET_MASK		BIT(0)
->> +#define IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK	BIT(1)
->>
->>  #define IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET	0x108
->>  #define IMX8MP_AUDIOMIX_DSP_RUNSTALL_MASK	BIT(5)
->> --
->> 2.43.0
->>
+>>  arch/arm64/include/asm/pgtable.h | 3 ++-
+>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index aa89c2e67ebc..0944e296dd4a 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -293,7 +293,8 @@ static inline pmd_t set_pmd_bit(pmd_t pmd, pgprot_t prot)
+>>  static inline pte_t pte_mkwrite_novma(pte_t pte)
+>>  {
+>>  	pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
+>> -	pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
+>> +	if (pte_sw_dirty(pte))
+>> +		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
+>>  	return pte;
+>>  }
+>
+> This seems to be the right thing. I recall years ago I grep'ed
+> (obviously not hard enough) and most pte_mkwrite() places had a
+> pte_mkdirty(). But I missed do_swap_page() and possibly others.
+
+The do_swap_page() change was introduced in June 2024, quite recently.
+
+> For this patch:
+>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+
+Thanks!
+
+> I wonder whether we should also add (as a separate patch):
+>
+> diff --git a/mm/debug_vm_pgtable.c b/mm/debug_vm_pgtable.c
+> index 830107b6dd08..df1c552ef11c 100644
+> --- a/mm/debug_vm_pgtable.c
+> +++ b/mm/debug_vm_pgtable.c
+> @@ -101,6 +101,7 @@ static void __init pte_basic_tests(struct pgtable_debug_args *args, int idx)
+>  	WARN_ON(pte_dirty(pte_mkclean(pte_mkdirty(pte))));
+>  	WARN_ON(pte_write(pte_wrprotect(pte_mkwrite(pte, args->vma))));
+>  	WARN_ON(pte_dirty(pte_wrprotect(pte_mkclean(pte))));
+> +	WARN_ON(pte_dirty(pte_mkwrite_novma(pte_mkclean(pte))));
+>  	WARN_ON(!pte_dirty(pte_wrprotect(pte_mkdirty(pte))));
+>  }
+>
+> For completeness, also (and maybe other combinations):
+>
+> 	WARN_ON(!pte_write(pte_mkdirty(pte_mkwrite_novma(pte))));
+
+Sure.  Will add another patch for this.
+
+> I cc'ed linux-mm in case we missed anything. If nothing raised, I'll
+> queue it next week.
+
+---
+Best Regards,
+Huang, Ying
 
