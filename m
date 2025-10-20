@@ -4,92 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD4ACCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 19:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98476CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 19:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=394T93MvlNTwJ4OmrNSHdthp7AqCvywv9bIug30d09M=; b=CcQNsLKcKSAmSuHl3S4tsR6eYn
-	pwroaNEMUA20WPeyuDk5k3F8qtZttS+XbhuxNAj/2ItOz9fSD9gQW5a9kFdyrKej9YrMsUPUBh3kz
-	021bwjTfcgo6yNFQprTdMi/r/9I3fl9OhXNXUI1cSnVFwpFbhnFgmV8zuREeHbbqYsrUM7Gb5XRC8
-	R0mPKhRIvVKLTDISHlwgtn0XIiz8hmI5R+Eoz/gDWReecwl2+yvKdbXiuAcBngvBkBoIcdxaTLAj2
-	XoV36YqmagBynxyLCZ/zRm+nvfMYs6xiW/1b+kUJYTFstRgk2Zph5arfLgt0fIZA6ho8nBY3eLyh2
-	gEK+6G1w==;
+	bh=SDlZJRYdimnRIVHlNMRHwg+YJzd0pv9ZGTDqzHt2hqg=; b=ZZZlHsoa4RejWYAXsxDCo5REqX
+	30yh3EkiuF6xqicbi8TkbjIeRMwy9k98HDhA9XPaVRHTxyiUlQeZOQ156Q2FYnzHnxnC6AY33gwmq
+	eGM9aTEpxVO8O4bq32tF0CgRpnb5StbrgtvNkTohquMMHLpbLnig28rO49hO5VtheiYOaJRYjI5Ne
+	jACHADgzuVoCn/nyTImmritXjG/A0u40Jg/tDGYpBz0UAMMx83a8nwmNjSfCbo0afvERsNC3gd4NV
+	ownx5DTpyIIIaxYhlwMyeXNv44c7Ky4AaznhYKkiwgzNv8tWLkGzoCpIc5qmvF8MzVexnIaylUzDv
+	Me45NbhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAvKa-0000000EkOE-47YI;
-	Mon, 20 Oct 2025 19:14:08 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1vAvL4-0000000Ekbe-3Vma;
+	Mon, 20 Oct 2025 19:14:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAvKY-0000000EkMz-1nTB
+	id 1vAvL3-0000000Ekaz-3egd
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 20 Oct 2025 19:14:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=SDlZJRYdimnRIVHlNMRHwg+YJzd0pv9ZGTDqzHt2hqg=; b=Cax6ihyV5/VBVHUBEpKD9gMQVf
+	ASFIa3Mheq/FPub2/Afla48tllHpJpqw8pAayyxZ9ZUaG+qA603lU9pVCpMouNa6wcFa7AywYvUYH
+	JTVn3ii8D4bQzkY66YlEdxLVwNgAxRhgwEP3dJBoQtSMGuRbxizlteZVmriPYNeMs/PwdGGb31jaZ
+	ZtXqXr/9t2uqwzIHOQQS+KEyJeQ43qXC+5OrTYXaP5BzzdAcGpoSrsSS7ZZlplN+qjPlx4K56qi0Q
+	F4FTEwk6lO98di8REakogr1bRihSG/OVUaqtJ4fwP/A24EiyTj4a+vWrunw1ESxcb3TXgjI5RxMG8
+	TA2CV+yQ==;
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAuTK-000000008ji-0YEz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 19:14:07 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b3d50882cc2so900741566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 12:14:05 -0700 (PDT)
+	Mon, 20 Oct 2025 18:19:08 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-46e542196c7so37598585e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 12:14:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1760987644; x=1761592444; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1760987672; x=1761592472; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=394T93MvlNTwJ4OmrNSHdthp7AqCvywv9bIug30d09M=;
-        b=OtnmC1SUGF/AXz/+XbAARK+0gS3CqsWm8buCjafbPBZ5Ffe8myWT8tUrPKgGbLfaIW
-         YfaH1Gnrq2fk64efhO582g9YMV21FQhvSBWxAaLxHYYAMumhmDPbQPOK+tmuzOV4W082
-         dn3i3RyZfJjtJuVTu2Zp1ic22H7Ee0GcQiCskoM9qAYoAe268yN0C5bQLyjZ94XKg+yG
-         7ZksG0RmEw7xp1G0Au10CHiDGb5zIMmnFvkd0Nv/8b9wQfvWZaALVJPtfrMMsEhB+Myb
-         aiaoG/zlp9L/9CCs0c2POVLd7JY7w6+nv1QcuJi8bUbsWZ6orHnLuZYZwMYHx72UiWe7
-         wsPw==
+        bh=SDlZJRYdimnRIVHlNMRHwg+YJzd0pv9ZGTDqzHt2hqg=;
+        b=ZRJj0nMyzhMo1Dp0l8B/JcwIXdNrQ54iXpJakfJX/VAxvah6SCbik1iAPQ0sP/bBLf
+         +tL69Y2uTnucdmp0IXPEPQ4HU8H5f3pcE9n9XoxOz1CoQEZwqFElYRdlMh4JskeFHSU7
+         bUp3ftnyJvUJMe0H0xQkAHDYVnqeg89berh4vdr9dex5KRCtyAFtk3B8oOBtYCNv8vid
+         8QvhB0Cp+Rkr15hfHkmL/LlXMRzbontr9xEme71FU/bKD0EEbF7XTjoRTtMgt23Ijjob
+         i2dlHwPE7ExO8QXZHyuDf1+ceS+cO9nDvELcjTTVPrn2u/3d9ZQq5yImywCUM+Y+w+L3
+         fXOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760987644; x=1761592444;
+        d=1e100.net; s=20230601; t=1760987672; x=1761592472;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=394T93MvlNTwJ4OmrNSHdthp7AqCvywv9bIug30d09M=;
-        b=tbMtE29qqQ189CHFdSOHCrEgqUv1vN7x1ThKLN4gZ+uFtaW/Rx9iQQ5fy/C5U0HdzK
-         2qI3wsh0ElWszWcbmtuZV9LHjdKB3DGclOp9vyRfGwprxO/kn731kh40OR7WKx0GF6p6
-         HqEGLx6iLmuThffB6za344T37vYyT+bun57xXbQ5W/ainGITqZFSvSSBF+nHq3nn9TWN
-         KAmnLHhEMSInnHwCvc4gemx83H2OF/rsAGItfMXsofgG01qYOLTfqzqX495VfAwLmAvq
-         DGY1bub03teRbZj0JQJNOmzD8DFjJheCl8f8ymaLhQUlKQ2sqpiicA7DWOweUPkVTsRD
-         edyA==
-X-Forwarded-Encrypted: i=1; AJvYcCUROyz+1r/wK57N/4RTkIcaWQUyJaFQCVgoFBHX+ckrCvtaVZKYloOVwFkjzIT+6G1cxXhdlZhD59xIlxXqhpIO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCXv10jKgVUCBw7YhCepDgxmUZsex1U2fKypdaKbwbXKfbwlLc
-	DLwqrlEorACX78FbvbrLcflGtyX44LTHEY8MrbP80+gBIAvwEg5rKj4XvModd9ubrn4=
-X-Gm-Gg: ASbGncsmLFAeUyh7hKPZ0IV3rwKucJt0pYwJkL7n3jY8BvuhuBXUdHYOy0jD7xftXlM
-	AJzAN5qCH/poSWx5FHV5c9+5TjZ7ak6hB/KdpTZcth9TU7TqRTNq38dQNxqc8vg/XwzxdwFofE/
-	WJmwrTDR9IJEHoIhqAQDn5AoTfFr6EaOosKZNEEFvDpvdICwe7m+vKhHN6+SuMzGtVt9yb8j14S
-	pUPcdcHErR7y5Ytu2ec1rQ7ipIhNgEc4U8qQ/zTkVhju2cOoI4JGuY7MrQkpOkoC9b5YlQwGOmD
-	/v7gf+BS3S86Pt8GCRcU5AtYBi/T2ujY3Au3U3OHtdZhrICUvbtmOJVZSATX9M4Fk3MFlI7niNS
-	3TmF0HEcXYWhSM19Nra96IL6CkUi4xTTSpA3EtTz7W271hEKaFZ8m0YbfoRrh+rP78krpT2+jc0
-	TzDI3NljFN
-X-Google-Smtp-Source: AGHT+IGwCJgZYKC8FZLAT4kOm6dkEpwAC47hppBn//mgpxVSX8jW4DahXg//7RoX6AQwA7IGTbpD8Q==
-X-Received: by 2002:a17:907:7ba8:b0:b41:297c:f7bb with SMTP id a640c23a62f3a-b647245844fmr1618450466b.26.1760987644536;
-        Mon, 20 Oct 2025 12:14:04 -0700 (PDT)
+        bh=SDlZJRYdimnRIVHlNMRHwg+YJzd0pv9ZGTDqzHt2hqg=;
+        b=BgIH9thypm+JYoLBaBhI/CkbRzhuqPvcZVRlbWUBTP5zmNBr62L1ZYnOKWtiph4fW6
+         wAyVsLtT/Vo5j1/94FIsxr9oxI5mhZxK3BPmBHcI/eEBuFyQBVOXMZRZtrZGhV0usyBE
+         eXd3uIF5RZHjeF5WxjYEYF6oVh30bCE9K9Ol5gYPCfblU8TjkH3p1gTpLfWuTuk4yRcT
+         XUuiJWVJLc8KFD8d692LAfxDMpFSgUXmnNupZRk2MnJyZmsnHuF0fJizcdExZpagE8CY
+         FfM53QJKnQz84OchGPuEiXxBLF7fy5bUKoIKKoB9Jd1caNUjHi2ueJ8VlKhdUpzHJLm5
+         4J7A==
+X-Forwarded-Encrypted: i=1; AJvYcCUj3wVWX7gfUePYhZXmN4ZeuLlE2npQzSYUs3frkaGHJyjmOmuUI1yO6hTCMZ585khBO6BkkqB+c7oHlV3yT5Vy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYb/FTDpqTf4qW10OTU2yyKfvGNSlNuWX/fIPulILk2y8TkaKp
+	kYul+JPAvopVci8S7n8604thQN4C5TS9fmFSuJw/lykZxLCDcIgim5DK4FRvjOJJQcs=
+X-Gm-Gg: ASbGnct1Dz+XrfZvBpQdhfe/rKG6x3sKqNQKCm0sb7HPZAMcOAXgrP+25rKlHCL4FX2
+	R8t9x2umZMKINeiEhSOGT1SEAhDJs++mI5bEnpUnjwqR9IFLvG/hJeaXPtUKxmjqlbk2xNXq1pu
+	KnVGzH76TOS3VK0UHvaTyAaXDhPTx8DNDQa9v3JN4q1snSXQ1rJ9riApD0E/hyY7ZeJkhrT+qCY
+	8No7gGeHaNybDgGWsTwniN0ExF+/Jqc/Da4d3o09FtgCcUthagzaxK8CgNUUTVF7ytDNg47Ed4c
+	UGqZZrSMKr1f0AsuYsorwAhCU3unftIzBxY+VK+qNKtx7Q0v+oSAHEGOjU9XLseYpcamAiGhLto
+	PX/wlhBseyqezof6t5Mb82oNMltLuT+/hjPuVSdZEZIrfPKPrl80kdBgQ9rbSVhb3fDANLDrAGp
+	LuZfGUJlkI
+X-Google-Smtp-Source: AGHT+IGmMD0YHvu73+iykCZumpj3yIaAy8xwP+HHCSMQ83VbmXhKKiVZhRtq1rwRrVeYCqqd8gymvA==
+X-Received: by 2002:a05:600c:4e49:b0:46e:1a60:c995 with SMTP id 5b1f17b1804b1-4711721a463mr111865765e9.2.1760987672296;
+        Mon, 20 Oct 2025 12:14:32 -0700 (PDT)
 Received: from [192.168.50.4] ([82.78.167.151])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65eb525d1asm866441566b.58.2025.10.20.12.14.03
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-471144c82c9sm243199115e9.14.2025.10.20.12.14.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 12:14:04 -0700 (PDT)
-Message-ID: <88a560cc-4176-4674-b2c3-009af68f5bf0@tuxon.dev>
-Date: Mon, 20 Oct 2025 22:14:02 +0300
+        Mon, 20 Oct 2025 12:14:31 -0700 (PDT)
+Message-ID: <7f478e52-eb82-4cac-a11c-e0e4977b3d33@tuxon.dev>
+Date: Mon, 20 Oct 2025 22:14:30 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 13/31] clk: at91: sama7d65: switch to parent_hw and
- parent_data
+Subject: Re: [PATCH v4 19/31] clk: at91: clk-smd: add support for
+ clk_parent_data
 To: Ryan.Wanner@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
  alexandre.belloni@bootlin.com, nicolas.ferre@microchip.com
 Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, varshini.rajendran@microchip.com
 References: <cover.1758226719.git.Ryan.Wanner@microchip.com>
- <cd47c45215f4c6a38447151222094616850a9d0d.1758226719.git.Ryan.Wanner@microchip.com>
+ <4e3f834e6901f7fcad0e697b56c85573c8e7ae52.1758226719.git.Ryan.Wanner@microchip.com>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-In-Reply-To: <cd47c45215f4c6a38447151222094616850a9d0d.1758226719.git.Ryan.Wanner@microchip.com>
+In-Reply-To: <4e3f834e6901f7fcad0e697b56c85573c8e7ae52.1758226719.git.Ryan.Wanner@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_121406_488449_03E434A6 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20251020_191906_300972_C917CB85 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,86 +121,21 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi, Ryan,
 
-In title: s/switch/switch system clocks"
+On 9/19/25 00:16, Ryan.Wanner@microchip.com wrote:
+> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+> 
+> Add support for parent_hw in smd clock drivers.
 
-On 9/19/25 00:15, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+s/parent_hw/parent_data
+
+> With this parent-child relation is described with pointers rather
+> than strings making registration a bit faster.
 > 
-> Switch the system clocks to use parent_hw and parent_data. Having this
-> allows the driver to conform to the new clk-system API.
+> All the SoC based drivers that rely on clk-smd were adapted
+> to the new API change. The switch itself for SoCs will be done
+> in subsequent patches.
 > 
-> The parent registration is after the USBCK registration due to one of
-> the system clocks being dependent on USBCK.
-> 
+> Signed-off-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 > Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> ---
->  drivers/clk/at91/sama7d65.c | 36 +++++++++++++++++++++++-------------
->  1 file changed, 23 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
-> index 986e8ef57dea..38c44b5d5d42 100644
-> --- a/drivers/clk/at91/sama7d65.c
-> +++ b/drivers/clk/at91/sama7d65.c
-> @@ -537,23 +537,23 @@ static struct {
->  /*
->   * System clock description
->   * @n:	clock name
-> - * @p:	clock parent name
-> + * @p:	clock parent hw
->   * @id: clock id
->   */
-> -static const struct {
-> +static struct {
->  	const char *n;
-> -	const char *p;
-> +	struct clk_hw *parent_hw;
->  	u8 id;
->  } sama7d65_systemck[] = {
-> -	{ .n = "uhpck",		.p = "usbck", .id = 6 },
-> -	{ .n = "pck0",		.p = "prog0", .id = 8, },
-> -	{ .n = "pck1",		.p = "prog1", .id = 9, },
-> -	{ .n = "pck2",		.p = "prog2", .id = 10, },
-> -	{ .n = "pck3",		.p = "prog3", .id = 11, },
-> -	{ .n = "pck4",		.p = "prog4", .id = 12, },
-> -	{ .n = "pck5",		.p = "prog5", .id = 13, },
-> -	{ .n = "pck6",		.p = "prog6", .id = 14, },
-> -	{ .n = "pck7",		.p = "prog7", .id = 15, },
-> +	{ .n = "uhpck",		.id = 6 },
-> +	{ .n = "pck0",		.id = 8, },
-> +	{ .n = "pck1",		.id = 9, },
-> +	{ .n = "pck2",		.id = 10, },
-> +	{ .n = "pck3",		.id = 11, },
-> +	{ .n = "pck4",		.id = 12, },
-> +	{ .n = "pck5",		.id = 13, },
-> +	{ .n = "pck6",		.id = 14, },
-> +	{ .n = "pck7",		.id = 15, },
->  };
->  
->  /* Mux table for programmable clocks. */
-> @@ -1299,9 +1299,19 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
->  		sama7d65_pmc->pchws[i] = hw;
->  	}
->  
-> +	/* Set systemck parent hws. */
-> +	sama7d65_systemck[0].parent_hw = usbck_hw;
-> +	sama7d65_systemck[1].parent_hw = sama7d65_pmc->pchws[0];
-> +	sama7d65_systemck[2].parent_hw = sama7d65_pmc->pchws[1];
-> +	sama7d65_systemck[3].parent_hw = sama7d65_pmc->pchws[2];
-> +	sama7d65_systemck[4].parent_hw = sama7d65_pmc->pchws[3];
-> +	sama7d65_systemck[5].parent_hw = sama7d65_pmc->pchws[4];
-> +	sama7d65_systemck[6].parent_hw = sama7d65_pmc->pchws[5];
-> +	sama7d65_systemck[7].parent_hw = sama7d65_pmc->pchws[6];
-> +	sama7d65_systemck[8].parent_hw = sama7d65_pmc->pchws[7];
->  	for (i = 0; i < ARRAY_SIZE(sama7d65_systemck); i++) {
->  		hw = at91_clk_register_system(regmap, sama7d65_systemck[i].n,
-> -					      sama7d65_systemck[i].p, NULL,
-> +					      NULL, &AT91_CLK_PD_HW(sama7d65_systemck[i].parent_hw),
->  					      sama7d65_systemck[i].id, 0);
-
-Just saying: we could have been used parent_hw only for system clocks (and
-some other clocks updated in this series) if we wouldn't have the dt-compat.c.
-
->  		if (IS_ERR(hw))
->  			goto err_free;
-
+>
 
