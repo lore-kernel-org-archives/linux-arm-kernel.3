@@ -4,49 +4,228 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7B42CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57EE8CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lhNOMV03OsN/47rj5ZYLId5vYuMwg5LO2FBbZ5UmtOw=; b=IosR4N/Hae0PKuF4pggNx5UTgc
-	IXGXMus/qIlrA8IOW5r3n0SHDapI2vu9GxM1niQI44glRJiZCJ75OH5Ga3Am/3gn7U2k9MX+lWJLH
-	Sn9sJw3lXfztdIeu9uuTCt8I+VOJeWuu8zmkMrrK9bwif3WpsKuGSn4Ds7KQ5uxC6cr0iSEaDxGYu
-	Ui//Zi4SwxYbNRKk6dmrUKGoQez1LCiI4tm6nE7q9lwg1Cj+HVmTmWknrZH9WjmwvWqWpUJAL0kvV
-	aFdnZu2+EhqOLeDMREU652Lpz2EGe16iWeMb+u/SNAXnWEB8f8Ygg6ssPua5cjDdx+PhUzT99Nxur
-	v26hFSEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HswBHiGPywFsF77KAG126weA43c/z/RIyNRi+mkpplI=; b=3AmE6wh+mn9OIux8vtZb4kNQbP
+	PKHSpaX3PnNL9/SO43EBpU95+pUm6THjBcXhAJF5SOkyeH5YxDpAd85BQ0IVQMG6wDOTWgEF5sGyN
+	xLFmwmVBMhsvgcFiWuYob1DEjqRwrue34jM2y8XSUnnc/nxVTArOJK5Hag7Blu45XL9mA3Te4lAUX
+	LW0zCO/tvdIIWngGpdwXKipnjlWJLPYJnMToVFQOd+n2XS1MW4K+tLAZC7ckKPGXd0vVVj4NOc+sK
+	y2vhUgyI1G0NZfWSoEfQy+Ja3rXLuk1mkCm5gAU4bHwXpwZ2I8XNp0M2rX0hXJNxs4gN/EVtu1ncG
+	bIBemZWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAoJT-0000000D6wx-1c5Q;
-	Mon, 20 Oct 2025 11:44:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAoJQ-0000000D6vY-3Y6v
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 11:44:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B36CC1063;
-	Mon, 20 Oct 2025 04:44:15 -0700 (PDT)
-Received: from 010265703453.arm.com (unknown [10.57.37.158])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D2EAF3F66E;
-	Mon, 20 Oct 2025 04:44:22 -0700 (PDT)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org
-Cc: mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Subject: [PATCH] perf/arm-ni: Add NoC S3 support
-Date: Mon, 20 Oct 2025 12:44:19 +0100
-Message-Id: <ddb1dbaccce2f092bbfe1029982aad3a81bded71.1760960572.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.34.1
+	id 1vAoLe-0000000D7PS-2plk;
+	Mon, 20 Oct 2025 11:46:46 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAoLb-0000000D7On-3lGY;
+	Mon, 20 Oct 2025 11:46:45 +0000
+X-UUID: 71546f8aadaa11f09f706fa2197c6ceb-20251020
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=HswBHiGPywFsF77KAG126weA43c/z/RIyNRi+mkpplI=;
+	b=soumNGrwngYLp06FMsVNZcucVBwhu6hfa1IleFiKuHJi/xXpfVWq5Vx/GmdCOOo4YzIP13CLbLaHodPFhMTbIxJuJe0J8F+GbOIFLH15UbP2e2Nv01q/6Si34FsLOWDkf55QsAx1KzK3E/m47YuhQLEp9SUZ9C0oubPGZjxKBRQ=;
+X-CID-CACHE: Type:Local,Time:202510200346-07,HitQuantity:2
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:61d9de08-d4fb-4536-bcbd-93fb03c58102,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:82059502-eaf8-4c8c-94de-0bc39887e077,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:99|1,File:130,RT:nil,Bulk:nil,QS:n
+	il,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC
+	:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 71546f8aadaa11f09f706fa2197c6ceb-20251020
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1036643041; Mon, 20 Oct 2025 04:46:40 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Mon, 20 Oct 2025 19:46:32 +0800
+Received: from SI4PR04CU001.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Mon, 20 Oct 2025 19:46:33 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CF25BJSI7wQUS26dKsTrcSHwO8sREZo3LsTo/IBp55rT0ONpv9KRTC8qZfHgmFYLcY8kURGzlD5Nix6s/LQoxCkP46LcAigI7e5NtLW7FFaxmVL3T5uJcASzU9GtAUdmRvlw6OIJJ7Pf9xepqUQ9xrMgrRRrx4KKvQMtBa+5aZFNls0Fsln5iMojzXvhT0gkK549SmO5RZ+GM+ZBOs25uLmlMgi/V3StHa9OFJHPssfwQKdR8BBqsw4/hRWMEzQxWI6DIBa48jh1p1gHD24mvjQMs6ke0eiz0im8dtvmCHBUf2PMBLQ+L7D4yZjBv99DQDjIY2fWU9atUbz8ho8cYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HswBHiGPywFsF77KAG126weA43c/z/RIyNRi+mkpplI=;
+ b=UoQUrtECGN9NhWMsUQAcMHjA8Qsu2PbW5IFtqvT93O4egBPXoKomuOkySUFrmioxr19mmYMf16jnsjoPOOkJazCJBSeEN1EyoDC7E4D2U8Pzq9/FiJsjuasHgnyffdD5fmKqjxm22yu8oKm1OmCmeBS4jVKVQvoAoqYQzUx+uhUV+uQhFp508jRLg1ZrysUXbym15gJooQz2I7lx8AZMczhO5G7ExkURc26C06weaDS5pmraizxc4lwXQsEqPebOMkvUl8Z/xkFrM0XZwBCp5CO+etPOw28AuO9OyzS2ZPUXphU6obtGrGCAbAD6Y3kNN3waUU+lpTB7rM5285VPgQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HswBHiGPywFsF77KAG126weA43c/z/RIyNRi+mkpplI=;
+ b=AKX6ew3OckxvCv8imZak2A1jyqJ+pb2ijIZLkEmHpNGqIXi6tE55ghkyJEnRUkoMhFgmrOmnbSrcvXS+SIGAs69D63r8k4Yez6LDeNparoMi+NEcAD67D+2O+ICQoxyycEgCv9o/Vi5Q2VWgULfczhyLoezp+MVsG9PeJ4+q4qU=
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
+ by JH0PR03MB8843.apcprd03.prod.outlook.com (2603:1096:990:a5::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.16; Mon, 20 Oct
+ 2025 11:46:33 +0000
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::3945:7dbc:62bd:c31c]) by PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::3945:7dbc:62bd:c31c%6]) with mapi id 15.20.9228.015; Mon, 20 Oct 2025
+ 11:46:33 +0000
+From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
+To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
+	"James.Bottomley@HansenPartnership.com"
+	<James.Bottomley@HansenPartnership.com>, "robh@kernel.org" <robh@kernel.org>,
+	"bvanassche@acm.org" <bvanassche@acm.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "linux-scsi@vger.kernel.org"
+	<linux-scsi@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, =?utf-8?B?TWFjcGF1bCBMaW4gKOael+aZuuaWjCk=?=
+	<Macpaul.Lin@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "alim.akhtar@samsung.com"
+	<alim.akhtar@samsung.com>, "krzk@kernel.org" <krzk@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "avri.altman@wdc.com" <avri.altman@wdc.com>,
+	"martin.petersen@oracle.com" <martin.petersen@oracle.com>
+CC: "macpaul@gmail.com" <macpaul@gmail.com>,
+	=?utf-8?B?UGFibG8gU3VuICjlravmr5Pnv5Qp?= <pablo.sun@mediatek.com>,
+	Project_Global_Chrome_Upstream_Group
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	=?utf-8?B?QmVhciBXYW5nICjokKnljp/mg5/lvrcp?= <bear.wang@mediatek.com>,
+	=?utf-8?B?UmFtYXggTG8gKOe+heaYjumBoCk=?= <Ramax.Lo@mediatek.com>
+Subject: Re: [PATCH v2 3/4] dt-bindings: ufs: mediatek,ufs: add MT8195
+ compatible and update clock nodes
+Thread-Topic: [PATCH v2 3/4] dt-bindings: ufs: mediatek,ufs: add MT8195
+ compatible and update clock nodes
+Thread-Index: AQHb+ubXEcM0idFfNEe1g+HvnHp2OrQ941oAgAGSzYCAileogIABbykAgAAEWwCAABUpAIAAA1sAgAAN9ICAAAUNgIAAC7YA
+Date: Mon, 20 Oct 2025 11:46:33 +0000
+Message-ID: <2fecb7235ee54bbf66d54f57bd08c62c5f7c3a60.camel@mediatek.com>
+References: <20250722085721.2062657-1-macpaul.lin@mediatek.com>
+	 <20250722085721.2062657-3-macpaul.lin@mediatek.com>
+	 <b90956e8-adf9-4411-b6f9-9212fcd14b59@collabora.com>
+	 <438077d191833bb4f628b2c6da3b86b3ecfb40e6.camel@mediatek.com>
+	 <cb173df9-4c70-4619-b36d-8e99272551b6@kernel.org>
+	 <a9bf15e48afd8496ca9b015e7f5b03821863a0b2.camel@mediatek.com>
+	 <7f285723-ecd7-4df6-8c9b-f2e786ce3602@kernel.org>
+	 <4b3d2678d2b724fb53ec7272ef8daf52197d4a0e.camel@mediatek.com>
+	 <4dc420a3-cf89-4f45-84e7-4d0079240681@kernel.org>
+	 <95d3fe686abcd4a6070c6613392fdb9605bdd73e.camel@mediatek.com>
+	 <6de4477a-5c2e-413f-9aa2-77b7262ebb38@collabora.com>
+In-Reply-To: <6de4477a-5c2e-413f-9aa2-77b7262ebb38@collabora.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|JH0PR03MB8843:EE_
+x-ms-office365-filtering-correlation-id: 3da5f420-a36b-42b6-b80a-08de0fce5154
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700021|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?Zm9OczhsckhBTUhKeE1lLzd3L21wL0U2WFZKcm9hdEI0T0ZpYnJTZE5KK0hL?=
+ =?utf-8?B?ZDZCbWM1amQ3cWMrYmRoZEQ4aWJsMm1MK3ZIQkk0V0UyTlRwS1NITnNyT1RL?=
+ =?utf-8?B?TnNKNHBNVU9VYVBSTjVQY2wvWGI2Vm1TZ3A3YVUzSzM4bTc0OUNwbUxaNisx?=
+ =?utf-8?B?NitHSWtVM1RJQUxFcm9qU1dCVkVBTnZJejI0M05mdkp0eFdwd1VvWUw4KzlG?=
+ =?utf-8?B?V1lsdjJ0Skh4NzlYbW96VVR2cE8xMUhrc1dEQ0p3Rk5TNGEwY3k3Q01zRjJh?=
+ =?utf-8?B?dXVUcHVyQUU0ZEtoNSs0RzRCUmViUWRGSWRMTGFpRWFnNVZoTjVJU0xHNGRW?=
+ =?utf-8?B?bER6RHd6VjRyMUtma0JvZEprMzVWNm5Hb29na2s0SjJ3QkRDOGZGZzVDUTZU?=
+ =?utf-8?B?RzNIUzdQNldDQTVJRGlNY0laN3UzNHFMRXJReTArOGU2M25sTzRIMFBMSTdZ?=
+ =?utf-8?B?S2VDT2hNRDVTNzRIamdSTmQwR1o0eFdQY2g1QW1pZGNwb1hpZ29vdGpjNUVo?=
+ =?utf-8?B?K3NIeFJVY2dxQjZVd3BBYXEvaVFwMW1COEZPWENmemJmUnA1enJxY0hRM0Uv?=
+ =?utf-8?B?eE5hWnE5aGpYN0tCdXNBNWtZeW1uYm1STC9aOXlDalR5UFNSdHR0dTVzUnZW?=
+ =?utf-8?B?S0hWd0ZjcnpqZ1hMVnBzNHFTWVBEVmlsanZ4Z0w3WFRrSHVIcnNDdmFnSEp1?=
+ =?utf-8?B?WDgyVXFwQzg5Sks2ZE5TODVDeGNnQTJKeUpiZWthUjJhdVFnL200bldEVlRw?=
+ =?utf-8?B?STNvckc3L0c5SHpib1hpOW1Sd2dRMFNPbHlocTVkbzgxZktEZEU1TlNIYTFp?=
+ =?utf-8?B?cWM4am5yODdHSE1NRDFkZExPcCtPdWN1RDVERjFCT2pUQ1N0Z2NWNVRrU2xX?=
+ =?utf-8?B?QlJ0RWp6WUtDb0hWZmZva3E4T2xnUThNbllHR2tPcHJVT3g2S29xOWNzOHFu?=
+ =?utf-8?B?MXRHZHVKRmFPdlozbXh1UFNGcE5yMFNNQU4yTG9PMXMxWGE1VzdKUWpPT3BL?=
+ =?utf-8?B?cG5ZSTU0SitMcVJvWTNmZjZEUG51S1owVGJtZU1maHNNcG81L3JRdlNFdkti?=
+ =?utf-8?B?ODA4NHpZNGtIZEpYWjh0NjFzUnJteW4rWm9RZjE5eTcycjFjdFBjelNuNm9a?=
+ =?utf-8?B?YzVLeTlOZUluMTJWTmtxNmFoNi9pSXF3U2lDV2dvWVlZN3IyY01iVXhKQ09K?=
+ =?utf-8?B?T0RpUFErbDRCQXBKSnVuWGRPbUJDZUQ0STVTdEpLZVpJa3RyTHVjeXhIS2VM?=
+ =?utf-8?B?RGViRnp0aUxEQnVTTWNYelp2Uy9iSXdabW81ZmtYandERE93QUtGU0lrZzcz?=
+ =?utf-8?B?M2J3SWtiNHk3USs2M3BrQU9zQ3dUL21rQXArZXc4Yms4aC8yclpjWXpXODND?=
+ =?utf-8?B?ZE9BZGM5cVl0QW9zZXpKTUY0RkE1elJGUkxvNmt5ZnJmR1cxU2QwTGlFM1Vz?=
+ =?utf-8?B?Mm9iRmFZKzEwUEpCd2F1YWNsa2VhTlZWaEJoVDgwUU1vRFk5R1NUVmNaTW5J?=
+ =?utf-8?B?TnhPZU1sN1NRSEFINDNFdjBVWmtDMnRqUFJPbi9vODh4VlFMV1N0bDRuSHNp?=
+ =?utf-8?B?MU91QzNmazl1ZEE1VFYzYXRxejhVTnpicUZEcTdpOTQ3dUV6OHZSeUxNTnJ2?=
+ =?utf-8?B?MzdHb1RRN1RHM3pJbTZYVnlsT3JQcTVvNzFHYU5BQWxRcHgrNHkzNnlWZ1ll?=
+ =?utf-8?B?ckVJL21YMXdMUW53QW4rd0FkRmJ1czUzeHFXOUVVOUcycUQ0bDA3N0FnbDZC?=
+ =?utf-8?B?MkJFQzdtcHQ3R1Y4U0JjS2JBdldjYnZvL2d0by9XTmJBaElxYmNObm5hMlBD?=
+ =?utf-8?B?Z1RHTnRnOTVpMW9rb1NObUM2M2NaMGJSa2FkbWN1ME5jL3Vtd01PaklsQ3Nu?=
+ =?utf-8?B?MUZ4OHZlSzhyTUs4VWJZenVDNVptMGdFQWFkd3oxNGhmYUM2cVhKOUsrZHor?=
+ =?utf-8?B?TEIwc2dOTE9XdGhseEd3dnA0TFJsdE9wU3RRSzRGVnZCUHNvdlN4RVdFV1Bs?=
+ =?utf-8?B?aFcrclB1bGdNa3MrS3pRaHkvYmVJS0lFeXBwSXJCbVpSWWhSOVpiVldUVldu?=
+ =?utf-8?B?bElsdTlBTldFM2V4OEdOa3FjeGI4RlBnT3NYQT09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700021)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TWd1Y2Q3NFJiekJoOEpaTzMwdnZKZHYyV09MazRDaTE4VWZTbmpzeEhzOXZj?=
+ =?utf-8?B?N3YxaEFKbmt0bU5BNzA3YWxPR0Z5V0YvQWMvQXdydEJSZFlBTHhlNUNqcitH?=
+ =?utf-8?B?MjUxdXQxTG9QQzI2M0lyUVNmQmJlRU5aeW5pRlA1eW55MmR3U3F6VjA0eTl5?=
+ =?utf-8?B?SWlXdVl0OTkwZFVFWDdUS204TzBpTTVpNCtEZTNpd3ZFSk5xNmkySjZkZGFU?=
+ =?utf-8?B?anBGbEFNOWU0NzFaVzVYQ2RucSttWlEySWl5RjE2ODlMcitGMVdRWVE2QTB5?=
+ =?utf-8?B?aitIbWFIL2Z5V2VOUEQzMm9hZVFyVHEvWVg3Nkd2eWNJWDJvWFcwSTlUa29Z?=
+ =?utf-8?B?b3dYOVVWSUI4ZS9tNkJVNytBM0g2M29QY0ZFUWRQUTJLMDNqcjZOMFhGdW1q?=
+ =?utf-8?B?NUVsdHl4ejRwWEZMbUwwRVFVQUJSNWNVWThwQ2l0d0tsZ1h0TWI3VElESXlo?=
+ =?utf-8?B?RE1HbmV2N2oxS1J3eVREZS9VM2RwZGd5WHhwZFpwcVBMNjh5QUtoalozUVRV?=
+ =?utf-8?B?VHFjRW1TQjVKQ3pBcGh2aytqSWxYWm1pYXRvU0J1d29yNHFnV2tKUU0yQlJn?=
+ =?utf-8?B?VGNpZitlQTBMMDF0MnRCY3JOVHh1S2wxVVNHUG5kUEJSMmxYTHI0MmNIVWlP?=
+ =?utf-8?B?b3dDcXZBdUFjeGl4VnVtckYrYUlJSkFiWWhISC9oNE1Pb1V4TGQ2QUZ3MHNa?=
+ =?utf-8?B?R2wwUm44QUswaHdjS2NFU05zWFRDVkJ4WEtkQkJ5Z1p6RHRWYzJ0V0QrUFFv?=
+ =?utf-8?B?dWVPaVNLZURCMDk2d2tyaFUwdG1YWWNNSnFSOGk1QzRETk50bE5GRDA5UXNw?=
+ =?utf-8?B?aEtTZHdxS2FFSzhZVWdsblBnb2FCRG1vNllJNUNRMS8yZEsvamNrV1R2ZWMx?=
+ =?utf-8?B?czdUU3VreVpKU093ZE9CUXRwK1BVNDNxRExrSG03MkU4NTQ2c1BsbUNWNlFx?=
+ =?utf-8?B?aTVESFd6VHpJNm1WWkpDcUEwQTg3THNydFlPTk1IV28zckVVTHF6aGFzOHBn?=
+ =?utf-8?B?SS9LK2RUR3B3bXc4dmY5dVVUNkF2MUdlRnkrNzRHbjR2SFYwc3plM0Q3R1Jt?=
+ =?utf-8?B?UXppUXpFVmRJemt3SVBFL1YrZU1MYityNVRQOWhudzFSNkZIWmgvM1pmM21p?=
+ =?utf-8?B?OGF4ZFlOVGgyOWF1RFAzQlpwWEFWbGtKdDRValZheXNKN3lpMkNJYjdRSWxT?=
+ =?utf-8?B?bHhyYnBBZld6OUQ3OFdqcUxqV1BKWXVZRFBwTmVpK0dsUG9waVgxS1NFRHl6?=
+ =?utf-8?B?T2NnVUhpYWcyeGMrdGRqV0p1RlVvMWF1Tlp5RG83V2tKQmVtR2xVdmM3ZkVp?=
+ =?utf-8?B?ek1TUWNKVTk5eWFlcDB6YWl1eHRMaGk4N2ZSc2duSGFtVSt1bktYbEkrZmNz?=
+ =?utf-8?B?YnFxaENKVjF6QmovbFZlT2xveXZyQ1NpMDVKWnZ6QUltMEwva2pmaFRXSUpl?=
+ =?utf-8?B?WjdmSk0wNUxIRDJEcEtMYkIzN2hyU0tjdm5GN29Ld1NuNno2NDN0blZhb1BS?=
+ =?utf-8?B?UFhUZ3N2ZzU1R2FwM21WUFVZT0M3ZVBlZkJ3U1lCY0VvbkN5b3B1Zk9jbzJx?=
+ =?utf-8?B?MGhKTXdOVERoeXl3aldLVXhMTEI5VVMrUzBvZ3hSNjEwT2xNMkpmaGowYlhC?=
+ =?utf-8?B?Mk9aM2VkdlVMNFk0Rllvays4MC9KcTdDL3NuTVpTc1kxek85M2RIcEZrZmtn?=
+ =?utf-8?B?bFFFaU1GY24ybHhremZXUjhaSWJUUXNKdDlnbzZJL3RzclNGb1EyUDJEeFk2?=
+ =?utf-8?B?bHUxckJJQlhBU2tJcUU0dlBQQ2ExejhQemlvT2EzOU9rSStLeDlESUtjN3Ur?=
+ =?utf-8?B?WjhtaE1ySXZmcG9wT1loQjIwUDFlQU1oVlFvVjRaNFU4cWtvdVB2RGdCQnRK?=
+ =?utf-8?B?d0o1YVgvOU5TQTlxSVdvZEwxNm54RnViSnVteE9QRVMxbkw0TVhyTyt0L1ZI?=
+ =?utf-8?B?MWJmaXFkdDhLeENRRzJkVTVnTk52azdSR3dlQVRZQ05jTTJCd2dnaWlGeVJY?=
+ =?utf-8?B?RFFHWnpqa1V2ZnBHalIzVWV5OWpzTUtjeGZlMTJrbzhkMXJMeGZsbDJxYVBK?=
+ =?utf-8?B?dEk4T0xkWW5LWFk0d2wzSWZYWndXZEN3ZnhOcGFhN2JXUHZGTHJxYU5aTDQ3?=
+ =?utf-8?B?NUNoeXBTcUhBb240MEhKSXlQTzdIMTJMdjVqRC9JWHpyZ3kvbFdQZEk3eEV2?=
+ =?utf-8?B?UHc9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <AB7752DCE343654C8C82A171BBF2146D@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3da5f420-a36b-42b6-b80a-08de0fce5154
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Oct 2025 11:46:33.4878
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: OW93m9evaW9UNWgaLhte+OxQ6n0Ej23kijUuSV1mFMvTzRdKOkPDT2CQA9f67BCzr10FVAMtFPDChCvAZXLIBg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB8843
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_044428_963487_0BC3FB50 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20251020_044643_968092_C6DA0687 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,250 +240,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NoC S3 and its SI L1 sibling look largely similar to their predecessors,
-but add the notion of subfeatures to the discovery process, which we now
-use to find the event muxes for each device node. Plus, as ever, more
-mildly annoying shuffling around of some of the PMU registers (this time
-it's the counters...)
-
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
- drivers/perf/arm-ni.c | 92 +++++++++++++++++++++++++++++++++----------
- 1 file changed, 71 insertions(+), 21 deletions(-)
-
-diff --git a/drivers/perf/arm-ni.c b/drivers/perf/arm-ni.c
-index 1615a0564031..aa824abc629e 100644
---- a/drivers/perf/arm-ni.c
-+++ b/drivers/perf/arm-ni.c
-@@ -21,6 +21,11 @@
- 
- #define NI_CHILD_NODE_INFO	0x004
- #define NI_CHILD_PTR(n)		(0x008 + (n) * 4)
-+#define NI_NUM_SUB_FEATURES	0x100
-+#define NI_SUB_FEATURE_TYPE(n)	(0x108 + (n) * 8)
-+#define NI_SUB_FEATURE_PTR(n)	(0x10c + (n) * 8)
-+
-+#define NI_SUB_FEATURE_TYPE_FCU	0x2
- 
- #define NI700_PMUSELA		0x00c
- 
-@@ -33,9 +38,10 @@
- #define NI_PIDR2_VERSION	GENMASK(7, 4)
- 
- /* PMU node */
--#define NI_PMEVCNTR(n)		(0x008 + (n) * 8)
--#define NI_PMCCNTR_L		0x0f8
--#define NI_PMCCNTR_U		0x0fc
-+#define NI700_PMEVCNTR(n)	(0x008 + (n) * 8)
-+#define NI700_PMCCNTR_L		0x0f8
-+#define NI_PMEVCNTR(n)		(0x200 + (n) * 8)
-+#define NI_PMCCNTR_L		0x2f8
- #define NI_PMEVTYPER(n)		(0x400 + (n) * 4)
- #define NI_PMEVTYPER_NODE_TYPE	GENMASK(12, 9)
- #define NI_PMEVTYPER_NODE_ID	GENMASK(8, 0)
-@@ -66,6 +72,8 @@
- enum ni_part {
- 	PART_NI_700 = 0x43b,
- 	PART_NI_710AE = 0x43d,
-+	PART_NOC_S3 = 0x43f,
-+	PART_SI_L1 = 0x455,
- };
- 
- enum ni_node_type {
-@@ -79,6 +87,10 @@ enum ni_node_type {
- 	NI_HSNI,
- 	NI_HMNI,
- 	NI_PMNI,
-+	NI_TSNI,
-+	NI_TMNI,
-+	NI_CMNI = 0x0e,
-+	NI_MCN = 0x63,
- };
- 
- struct arm_ni_node {
-@@ -179,6 +191,9 @@ static struct attribute *arm_ni_event_attrs[] = {
- 	NI_EVENT_ATTR(hsni, NI_HSNI),
- 	NI_EVENT_ATTR(hmni, NI_HMNI),
- 	NI_EVENT_ATTR(pmni, NI_PMNI),
-+	NI_EVENT_ATTR(tsni, NI_TSNI),
-+	NI_EVENT_ATTR(tmni, NI_TMNI),
-+	NI_EVENT_ATTR(cmni, NI_CMNI),
- 	NULL
- };
- 
-@@ -332,16 +347,16 @@ static int arm_ni_event_init(struct perf_event *event)
- 	return -EINVAL;
- }
- 
--static u64 arm_ni_read_ccnt(struct arm_ni_cd *cd)
-+static u64 arm_ni_read_ccnt(void __iomem *pmccntr)
- {
- 	u64 l, u_old, u_new;
- 	int retries = 3; /* 1st time unlucky, 2nd improbable, 3rd just broken */
- 
--	u_new = readl_relaxed(cd->pmu_base + NI_PMCCNTR_U);
-+	u_new = readl_relaxed(pmccntr + 4);
- 	do {
- 		u_old = u_new;
--		l = readl_relaxed(cd->pmu_base + NI_PMCCNTR_L);
--		u_new = readl_relaxed(cd->pmu_base + NI_PMCCNTR_U);
-+		l = readl_relaxed(pmccntr);
-+		u_new = readl_relaxed(pmccntr + 4);
- 	} while (u_new != u_old && --retries);
- 	WARN_ON(!retries);
- 
-@@ -350,7 +365,6 @@ static u64 arm_ni_read_ccnt(struct arm_ni_cd *cd)
- 
- static void arm_ni_event_read(struct perf_event *event)
- {
--	struct arm_ni_cd *cd = pmu_to_cd(event->pmu);
- 	struct hw_perf_event *hw = &event->hw;
- 	u64 count, prev;
- 	bool ccnt = hw->idx == NI_CCNT_IDX;
-@@ -358,9 +372,9 @@ static void arm_ni_event_read(struct perf_event *event)
- 	do {
- 		prev = local64_read(&hw->prev_count);
- 		if (ccnt)
--			count = arm_ni_read_ccnt(cd);
-+			count = arm_ni_read_ccnt((void __iomem *)event->hw.event_base);
- 		else
--			count = readl_relaxed(cd->pmu_base + NI_PMEVCNTR(hw->idx));
-+			count = readl_relaxed((void __iomem *)event->hw.event_base);
- 	} while (local64_cmpxchg(&hw->prev_count, prev, count) != prev);
- 
- 	count -= prev;
-@@ -385,16 +399,21 @@ static void arm_ni_event_stop(struct perf_event *event, int flags)
- 		arm_ni_event_read(event);
- }
- 
--static void arm_ni_init_ccnt(struct arm_ni_cd *cd)
-+static void arm_ni_init_ccnt(struct hw_perf_event *hw)
- {
--	local64_set(&cd->ccnt->hw.prev_count, S64_MIN);
--	lo_hi_writeq_relaxed(S64_MIN, cd->pmu_base + NI_PMCCNTR_L);
-+	local64_set(&hw->prev_count, S64_MIN);
-+	lo_hi_writeq_relaxed(S64_MIN, (void __iomem *)hw->event_base);
- }
- 
--static void arm_ni_init_evcnt(struct arm_ni_cd *cd, int idx)
-+static void arm_ni_init_evcnt(struct hw_perf_event *hw)
- {
--	local64_set(&cd->evcnt[idx]->hw.prev_count, S32_MIN);
--	writel_relaxed(S32_MIN, cd->pmu_base + NI_PMEVCNTR(idx));
-+	local64_set(&hw->prev_count, S32_MIN);
-+	writel_relaxed(S32_MIN, (void __iomem *)hw->event_base);
-+}
-+
-+static bool arm_ni_is_7xx(const struct arm_ni *ni)
-+{
-+	return ni->part == PART_NI_700 || ni->part == PART_NI_710AE;
- }
- 
- static int arm_ni_event_add(struct perf_event *event, int flags)
-@@ -403,14 +422,17 @@ static int arm_ni_event_add(struct perf_event *event, int flags)
- 	struct hw_perf_event *hw = &event->hw;
- 	struct arm_ni_unit *unit;
- 	enum ni_node_type type = NI_EVENT_TYPE(event);
-+	bool is_7xx = arm_ni_is_7xx(cd_to_ni(cd));
- 	u32 reg;
- 
- 	if (type == NI_PMU) {
- 		if (cd->ccnt)
- 			return -ENOSPC;
- 		hw->idx = NI_CCNT_IDX;
-+		hw->event_base = (unsigned long)cd->pmu_base +
-+				 is_7xx ? NI700_PMCCNTR_L : NI_PMCCNTR_L;
- 		cd->ccnt = event;
--		arm_ni_init_ccnt(cd);
-+		arm_ni_init_ccnt(hw);
- 	} else {
- 		hw->idx = 0;
- 		while (cd->evcnt[hw->idx]) {
-@@ -420,7 +442,9 @@ static int arm_ni_event_add(struct perf_event *event, int flags)
- 		cd->evcnt[hw->idx] = event;
- 		unit = (void *)hw->config_base;
- 		unit->event[hw->idx] = NI_EVENT_EVENTID(event);
--		arm_ni_init_evcnt(cd, hw->idx);
-+		hw->event_base = (unsigned long)cd->pmu_base +
-+				 is_7xx ? NI700_PMEVCNTR(hw->idx) : NI_PMEVCNTR(hw->idx);
-+		arm_ni_init_evcnt(hw);
- 		lo_hi_writeq_relaxed(le64_to_cpu(unit->pmusel), unit->pmusela);
- 
- 		reg = FIELD_PREP(NI_PMEVTYPER_NODE_TYPE, type) |
-@@ -457,7 +481,7 @@ static irqreturn_t arm_ni_handle_irq(int irq, void *dev_id)
- 			ret = IRQ_HANDLED;
- 			if (!(WARN_ON(!cd->ccnt))) {
- 				arm_ni_event_read(cd->ccnt);
--				arm_ni_init_ccnt(cd);
-+				arm_ni_init_ccnt(&cd->ccnt->hw);
- 			}
- 		}
- 		for (int i = 0; i < NI_NUM_COUNTERS; i++) {
-@@ -466,7 +490,7 @@ static irqreturn_t arm_ni_handle_irq(int irq, void *dev_id)
- 			ret = IRQ_HANDLED;
- 			if (!(WARN_ON(!cd->evcnt[i]))) {
- 				arm_ni_event_read(cd->evcnt[i]);
--				arm_ni_init_evcnt(cd, i);
-+				arm_ni_init_evcnt(&cd->evcnt[i]->hw);
- 			}
- 		}
- 		writel_relaxed(reg, cd->pmu_base + NI_PMOVSCLR);
-@@ -476,6 +500,25 @@ static irqreturn_t arm_ni_handle_irq(int irq, void *dev_id)
- 	}
- }
- 
-+static void __iomem *arm_ni_get_pmusel(struct arm_ni *ni, void __iomem *unit_base)
-+{
-+	u32 type, ptr, num;
-+
-+	if (arm_ni_is_7xx(ni))
-+		return unit_base + NI700_PMUSELA;
-+
-+	num = readl_relaxed(unit_base + NI_NUM_SUB_FEATURES);
-+	for (int i = 0; i < num; i++) {
-+		type = readl_relaxed(unit_base + NI_SUB_FEATURE_TYPE(i));
-+		if (type != NI_SUB_FEATURE_TYPE_FCU)
-+			continue;
-+		ptr = readl_relaxed(unit_base + NI_SUB_FEATURE_PTR(i));
-+		return ni->base + ptr;
-+	}
-+	/* Should be impossible */
-+	return NULL;
-+}
-+
- static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_start)
- {
- 	struct arm_ni_cd *cd = ni->cds + node->id;
-@@ -512,13 +555,18 @@ static int arm_ni_init_cd(struct arm_ni *ni, struct arm_ni_node *node, u64 res_s
- 		case NI_HSNI:
- 		case NI_HMNI:
- 		case NI_PMNI:
--			unit->pmusela = unit_base + NI700_PMUSELA;
-+		case NI_TSNI:
-+		case NI_TMNI:
-+		case NI_CMNI:
-+			unit->pmusela = arm_ni_get_pmusel(ni, unit_base);
- 			writel_relaxed(1, unit->pmusela);
- 			if (readl_relaxed(unit->pmusela) != 1)
- 				dev_info(ni->dev, "No access to node 0x%04x%04x\n", unit->id, unit->type);
- 			else
- 				unit->ns = true;
- 			break;
-+		case NI_MCN:
-+			break;
- 		default:
- 			/*
- 			 * e.g. FMU - thankfully bits 3:2 of FMU_ERR_FR0 are RES0 so
-@@ -649,6 +697,8 @@ static int arm_ni_probe(struct platform_device *pdev)
- 	switch (part) {
- 	case PART_NI_700:
- 	case PART_NI_710AE:
-+	case PART_NOC_S3:
-+	case PART_SI_L1:
- 		break;
- 	default:
- 		dev_WARN(&pdev->dev, "Unknown part number: 0x%03x, this may go badly\n", part);
--- 
-2.34.1
-
+T24gTW9uLCAyMDI1LTEwLTIwIGF0IDEzOjA0ICswMjAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
+ZWdubyB3cm90ZToNCj4gDQo+IA0KPiBTb3JyeSBQZXRlciwgYnV0IGEgMTAgc2Vjb25kcyByZXNl
+YXJjaCBvbiB5b3VyIHNpZGUgd291bGQgaGF2ZSBtYWRlDQo+IHlvdSBhd2FyZSBvZg0KPiB3aG8g
+SSBhbS4NCj4gDQo+IGh0dHBzOi8vdXJsZGVmZW5zZS5jb20vdjMvX19odHRwczovL2dpdC5rZXJu
+ZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9zdGFibGUvbGludXguZ2l0L3RyZWUvTUFJ
+TlRBSU5FUlM/aD12Ni42Km4yMzQ2X187SXchIUNUUk5LQTl3TWcwQVJidyFqNDZPZEVpY1pkbENR
+azREb1VjOWJDMzJpbmtYSm55bjRtVEZ5cEdHQ0tfYkgxQ0psVzRFdDc1ZWdtbUtQQk9nZjNTSGNQ
+SlRkWF92dDd3X2hwODItbGt5cGRVY1AzMnMkDQo+IA0KPiAuLi50aGVuIGEgNjAgc2Vjb25kcyBy
+ZXNlYXJjaCB3b3VsZCByZXZlYWwgd2F5IG1vcmUgdGhhbiBqdXN0IHRoYXQNCj4gYWJvdXQgbWUs
+DQo+IGFuZCBhbHNvIHlvdXIgY29sbGVhZ3VlcyBrbm93IG1lIHF1aXRlIGEgYml0IDotKQ0KDQpI
+aSBBbmdlbG9HaW9hY2NoaW5vLA0KDQpZZXMsIGhvd2V2ZXIsIEkgd2FzIG5vdCBhd2FyZSBvZiB0
+aGlzIHdoZW4gSSByZXNwb25kZWQgbGFzdCB5ZWFyLg0KVGhlcmUgaGF2ZSBiZWVuIGludGVybmFs
+IGRpc2N1c3Npb25zIHNpbmNlIHRoZW4sIGFuZCB3ZSBoYXZlIA0KZGVjaWRlZCB0aGF0IG5ldyBN
+ZWRpYVRlayBtYWludGFpbmVycyB3aWxsIGJlIGFkZGVkLg0KVGhpcyBwb3NpdGlvbiBpcyBzdGls
+bCBub3QgYXBwcm9wcmlhdGUgZm9yIHNvbWVvbmUgZXh0ZXJuYWwNCnRvIE1lZGlhVGVrLiBJIGhv
+cGUgZm9yIHlvdXIgdW5kZXJzdGFuZGluZy4NCg0KDQo+IA0KPiBCZXNpZGVzLCB5b3UgZG9uJ3Qg
+cmVhbGx5IG5lZWQgdG8ga25vdyB3aG8gc29tZWJvZHkgaXMgdG8gbWFrZSBhbg0KPiB1cHN0cmVh
+bSByZXZpZXc6DQo+IHRoaXMgaXMgYSBjb21tdW5pdHksIGFuZCBhIGdvb2QgcGF0Y2ggbWF5IGNv
+bWUgZnJvbSBvbGQgYW5kDQo+IHJlY29nbml6ZWQgY29udHJpYnV0b3JzDQo+IGFzIG11Y2ggYXMg
+ZnJvbSBuZXcgb25lcyBzZW5kaW5nIHRoZWlyIGZpcnN0IHBhdGNoIHVwc3RyZWFtLg0KPiANCj4g
+DQo+IA0KDQpJIGFncmVlIHdpdGggeW91ciBwb2ludCwgcGVyaGFwcyB3ZSBzaW1wbHkgaGF2ZSBk
+aWZmZXJlbnQgDQp2aWV3cG9pbnRzLCBidXQgb3VyIGdvYWwgaXMgdGhlIHNhbWXigJR0byBtYWtl
+IHRoaXMgY29tbXVuaXR5IGJldHRlci4NCklmIHRoZXJlIGFyZSBhbnkgc2hvcnRjb21pbmdzIGlu
+IG91ciBpZGVhcywgd2UgY2FuIGRpc2N1c3MgDQp0aGVtIGFuZCBmb2N1cyBvbiB0aGUgcGF0Y2gg
+aXRzZWxmLCByYXRoZXIgdGhhbiByZXNvcnRpbmcgdG8gDQpibGFua2V0IGNyaXRpY2lzbXMgc3Vj
+aCBhcyBsYWJlbGluZyBkb3duc3RyZWFtIGFzIGxvdyBxdWFsaXR5IA0Kb3IgdXBzdHJlYW0gYXMg
+aW5oZXJlbnRseSBzdXBlcmlvci4NClN1Y2ggcmVtYXJrcyBkbyBub3QgY29udHJpYnV0ZSB0byB0
+aGUgaW1wcm92ZW1lbnQgb2YgdGhlIGNvbW11bml0eS4NCg0KVGhhbmtzDQpQZXRlcg0KDQo=
 
