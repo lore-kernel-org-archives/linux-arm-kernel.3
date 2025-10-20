@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C80ACCD1A5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E279CCD195
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 00:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OqT/LKw/7tNEbEGMECMmsC8+bRlnkfk//hxi6ie0Kxo=; b=2qNM1YZcNB+mAzVhnVwP5SF7+A
-	WGizqMrd41wcgHk3xhLcSUPYG3/euxuRA16JaF89Bg+Jr96pcTab/N2uGtB9qg3roBWS2QmAsTrs7
-	F/uTZAWdQ0zT3cT6RhoLd7lpkevZz36vHfyaacf8tqTdr4mgFOYLxZbKICVQIALf0OyZBdvbLWIfv
-	XlI/l0JLGmXt7RUNLUqa1RurOQHEKkuVpleB3MqfFMwYXssK3GQ8dw78MoA4hqtQhwieqaHHfA7Tv
-	RwvBVdthY1zZAMBSPh/FuTYwfvN+U4ffniMJQaDdu8WKhdZlf5bjzKC8WWAJ5bqGLY7HaaDvVuS+h
-	wrXCto2g==;
+	bh=Q7uoU2Q8w1ehUXPejnhXKQt4c8Oe2nucecR/ksW0I/w=; b=wbbQWKmfTUS2nBCrOcC6NrqgNs
+	hjfC9cA26/A+S+15bQ7Ngx3nMTx3rynK71pqeHt9GLX5Nt8rhpYbbbOdtA6WmakiqOG0aO3AyjSoR
+	8JVkcNk4Oa7M6ySOUDAAEVeECe06n7eI9hQA/Z9jugasnUvf42Ceg0JeuPEXWsRki7eFPab5GYzUP
+	nvZEov+6BL4LcoYpg6DL8QC9lTUFdKTnOMPAhI50NGkMaFrNbfWyw0cnekXvL/QWVRybeVYjZPr2+
+	WPHWaPSJ2o5Vmt/uGamEz+nQTDx/d1jlm86Z1UvR9YbXbM2GnJJY+Pu8PqG8ArIOpq1jn9HHTcbZv
+	tdcJ13Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAeA3-0000000BZlu-19q0;
+	id 1vAeA3-0000000BZmp-3Hoc;
 	Mon, 20 Oct 2025 00:54:07 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAe9k-0000000BZXj-278y
+	id 1vAe9k-0000000BZXi-27hT
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 20 Oct 2025 00:53:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0223B60477;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2D93C61294;
+	Mon, 20 Oct 2025 00:53:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 928DAC116C6;
 	Mon, 20 Oct 2025 00:53:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67FB4C116C6;
-	Mon, 20 Oct 2025 00:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760921615;
-	bh=3ORQ9KVdJyyMj/gc8QaYuJQuZsbtFtyURkNerD2o3uc=;
+	s=k20201202; t=1760921616;
+	bh=cOfo+vQJHwt2jR/1l9Mz7dS2z0ta/WcLrt8/j3uJDXU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oit5HcfNshrDSHmVtH2/S/JLASBzI/Ti9cISjcCNnHc0K2pLTZdIR6fE3rYorCHej
-	 Gmd04rN/u71NvIzZYDXIk++NB69tceE4IS7mShbKhrBOLtZHcpOdGUTck4J5oLdQ9p
-	 lpnw0LdnIzk1JSekGDXjKb4yf6MO7qiJBJvrQFlASLbLIpt68bP/oC6m6at7lVP3qB
-	 6hQbY2Rb89WT38+go/KYUS7yCW+xety/MFf8ddQw0hz6YJhcNl0869T+umw6XWXHl6
-	 CixfqdyCd8099VjnSNoO5X8GyOSzQtytnCziqKW+gx/SmSebt+XRESHpxseeEi4X7w
-	 7XDhQQ6PXT+yA==
+	b=HOhzAKtFKZVFysTC8yxErFpISUC2VMzxJyDD4hdrcz3uTIj089WiV2ODOJ9CcZikf
+	 Wnrdg6pzK3qd37l9VMFqSh+HhqYmIraNWDgxnLHKmXDbxW4QOAo9e3aqgzI681X7F8
+	 2T/xNT/n69e2pc5tgrP9nGk7sY5Gnj/HKo8uIcEmP5fh7e45rxM6BKOVYluW8bvVQx
+	 HTDb0ijna/p2XtzNmpeqGJC6af59j1w9wiqAKySaKq8+wgm9Glj3HxO4bH5IIJrckn
+	 zIPtzRoCL+L4Aa5u6mwEvZBRdFjBdfyqPlBGW73nCvNYIBFc6kyZa+4+tpZouJTEg/
+	 PhF3qfNlsLBOQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: David Howells <dhowells@redhat.com>,
@@ -51,9 +51,9 @@ Cc: David Howells <dhowells@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 09/17] lib/crypto: sha3: Consistently use EXPORT_SYMBOL_GPL
-Date: Sun, 19 Oct 2025 17:50:30 -0700
-Message-ID: <20251020005038.661542-10-ebiggers@kernel.org>
+Subject: [PATCH 12/17] lib/crypto: sha3: Document one-shot functions in header and improve docs
+Date: Sun, 19 Oct 2025 17:50:33 -0700
+Message-ID: <20251020005038.661542-13-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.51.1.dirty
 In-Reply-To: <20251020005038.661542-1-ebiggers@kernel.org>
 References: <20251020005038.661542-1-ebiggers@kernel.org>
@@ -73,96 +73,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Consistently use EXPORT_SYMBOL_GPL in sha3.c, instead of a mix of
-EXPORT_SYMBOL and EXPORT_SYMBOL_GPL.
+Move kerneldoc for the one-shot functions to the header for the
+following reasons:
+
+- This style is already used in sha1.h, sha2.h, and crypto_shash.
+  And all the inline functions in sha3.h already.
+
+- The header is where people who want to call the code usually look.
+
+- This way the documentation won't have to be moved each time a function
+  is changed to or from an inline function.
+
+Also revise this documentation to fix some errors, be more user focused
+(rather than focusing on implementation details like whether a context
+is allocated and zeroized), and be a bit more consistent with sha2.h.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- lib/crypto/sha3.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ include/crypto/sha3.h | 75 +++++++++++++++++++++++++++++++++++++++++++
+ lib/crypto/sha3.c     | 70 ----------------------------------------
+ 2 files changed, 75 insertions(+), 70 deletions(-)
 
+diff --git a/include/crypto/sha3.h b/include/crypto/sha3.h
+index 58d2b3e0663e8..80acdb266b8e3 100644
+--- a/include/crypto/sha3.h
++++ b/include/crypto/sha3.h
+@@ -259,13 +259,88 @@ static inline void shake_squeeze(struct shake_ctx *ctx,
+ 				 u8 *out, size_t out_len)
+ {
+ 	return __sha3_squeeze(&ctx->ctx, out, out_len);
+ }
+ 
++/**
++ * sha3_224() - Compute SHA3-224 digest in one shot
++ * @in: The input data to be digested
++ * @in_len: Length of the input data in bytes
++ * @out: The buffer into which the digest will be stored
++ *
++ * Convenience function that computes a SHA3-224 digest.  Use this instead of
++ * the incremental API if you're able to provide all the input at once.
++ *
++ * Context: Any context.
++ */
+ void sha3_224(const u8 *in, size_t in_len, u8 out[SHA3_224_DIGEST_SIZE]);
++
++/**
++ * sha3_256() - Compute SHA3-256 digest in one shot
++ * @in: The input data to be digested
++ * @in_len: Length of the input data in bytes
++ * @out: The buffer into which the digest will be stored
++ *
++ * Convenience function that computes a SHA3-256 digest.  Use this instead of
++ * the incremental API if you're able to provide all the input at once.
++ *
++ * Context: Any context.
++ */
+ void sha3_256(const u8 *in, size_t in_len, u8 out[SHA3_256_DIGEST_SIZE]);
++
++/**
++ * sha3_384() - Compute SHA3-384 digest in one shot
++ * @in: The input data to be digested
++ * @in_len: Length of the input data in bytes
++ * @out: The buffer into which the digest will be stored
++ *
++ * Convenience function that computes a SHA3-384 digest.  Use this instead of
++ * the incremental API if you're able to provide all the input at once.
++ *
++ * Context: Any context.
++ */
+ void sha3_384(const u8 *in, size_t in_len, u8 out[SHA3_384_DIGEST_SIZE]);
++
++/**
++ * sha3_512() - Compute SHA3-512 digest in one shot
++ * @in: The input data to be digested
++ * @in_len: Length of the input data in bytes
++ * @out: The buffer into which the digest will be stored
++ *
++ * Convenience function that computes a SHA3-512 digest.  Use this instead of
++ * the incremental API if you're able to provide all the input at once.
++ *
++ * Context: Any context.
++ */
+ void sha3_512(const u8 *in, size_t in_len, u8 out[SHA3_512_DIGEST_SIZE]);
++
++/**
++ * shake128() - Compute SHAKE128 in one shot
++ * @in: The input data to be used
++ * @in_len: Length of the input data in bytes
++ * @out: The buffer into which the output will be stored
++ * @out_len: Length of the output to produce in bytes
++ *
++ * Convenience function that computes SHAKE128 in one shot.  Use this instead of
++ * the incremental API if you're able to provide all the input at once as well
++ * as receive all the output at once.  All output lengths are supported.
++ *
++ * Context: Any context.
++ */
+ void shake128(const u8 *in, size_t in_len, u8 *out, size_t out_len);
++
++/**
++ * shake256() - Compute SHAKE256 in one shot
++ * @in: The input data to be used
++ * @in_len: Length of the input data in bytes
++ * @out: The buffer into which the output will be stored
++ * @out_len: Length of the output to produce in bytes
++ *
++ * Convenience function that computes SHAKE256 in one shot.  Use this instead of
++ * the incremental API if you're able to provide all the input at once as well
++ * as receive all the output at once.  All output lengths are supported.
++ *
++ * Context: Any context.
++ */
+ void shake256(const u8 *in, size_t in_len, u8 *out, size_t out_len);
+ 
+ #endif /* __CRYPTO_SHA3_H__ */
 diff --git a/lib/crypto/sha3.c b/lib/crypto/sha3.c
-index 8f08e7b8f4521..f8167037138c7 100644
+index 6c13a43b0f868..6705c1b48da48 100644
 --- a/lib/crypto/sha3.c
 +++ b/lib/crypto/sha3.c
-@@ -329,11 +329,11 @@ void sha3_224(const u8 *in, size_t in_len, u8 out[SHA3_224_DIGEST_SIZE])
+@@ -284,107 +284,50 @@ void __sha3_squeeze(struct __sha3_ctx *ctx, u8 *out, size_t out_len)
+ 
+ 	ctx->squeeze_offset = squeeze_offset;
+ }
+ EXPORT_SYMBOL_GPL(__sha3_squeeze);
+ 
+-/**
+- * sha3_224() - Convenience wrapper to digest a simple buffer as SHA3-224
+- * @in: The data to be digested
+- * @in_len: The amount of data to be digested in bytes
+- * @out: The buffer into which the digest will be stored (size not checked)
+- *
+- * Convenience wrapper to initialise a SHA3 context for SHA-224, add the input
+- * data to it, finalise it, extract 28 bytes of digest and clear the context.
+- *
+- * Context: May use the FPU/Vector unit registers.
+- */
+ void sha3_224(const u8 *in, size_t in_len, u8 out[SHA3_224_DIGEST_SIZE])
+ {
+ 	struct sha3_ctx ctx;
  
  	sha3_224_init(&ctx);
- 	sha3_224_update(&ctx, in, in_len);
- 	sha3_224_final(&ctx, out);
+ 	sha3_update(&ctx, in, in_len);
+ 	sha3_final(&ctx, out);
  }
--EXPORT_SYMBOL(sha3_224);
-+EXPORT_SYMBOL_GPL(sha3_224);
+ EXPORT_SYMBOL_GPL(sha3_224);
  
- /**
-  * sha3_256() - Convenience wrapper to digest a simple buffer as SHA3-256
-  * @in: The data to be digested
-  * @in_len: The amount of data to be digested in bytes
-@@ -350,11 +350,11 @@ void sha3_256(const u8 *in, size_t in_len, u8 out[SHA3_256_DIGEST_SIZE])
+-/**
+- * sha3_256() - Convenience wrapper to digest a simple buffer as SHA3-256
+- * @in: The data to be digested
+- * @in_len: The amount of data to be digested in bytes
+- * @out: The buffer into which the digest will be stored (size not checked)
+- *
+- * Convenience wrapper to initialise a SHA3 context for SHA-256, add the input
+- * data to it, finalise it, extract 32 bytes of digest and clear the context.
+- *
+- * Context: May use the FPU/Vector unit registers.
+- */
+ void sha3_256(const u8 *in, size_t in_len, u8 out[SHA3_256_DIGEST_SIZE])
+ {
+ 	struct sha3_ctx ctx;
  
  	sha3_256_init(&ctx);
- 	sha3_256_update(&ctx, in, in_len);
- 	sha3_256_final(&ctx, out);
+ 	sha3_update(&ctx, in, in_len);
+ 	sha3_final(&ctx, out);
  }
--EXPORT_SYMBOL(sha3_256);
-+EXPORT_SYMBOL_GPL(sha3_256);
+ EXPORT_SYMBOL_GPL(sha3_256);
  
- /**
-  * sha3_384() - Convenience wrapper to digest a simple buffer as SHA3-384
-  * @in: The data to be digested
-  * @in_len: The amount of data to be digested in bytes
-@@ -371,11 +371,11 @@ void sha3_384(const u8 *in, size_t in_len, u8 out[SHA3_384_DIGEST_SIZE])
+-/**
+- * sha3_384() - Convenience wrapper to digest a simple buffer as SHA3-384
+- * @in: The data to be digested
+- * @in_len: The amount of data to be digested in bytes
+- * @out: The buffer into which the digest will be stored (size not checked)
+- *
+- * Convenience wrapper to initialise a SHA3 context for SHA-384, add the input
+- * data to it, finalise it, extract 48 bytes of digest and clear the context.
+- *
+- * Context: May use the FPU/Vector unit registers.
+- */
+ void sha3_384(const u8 *in, size_t in_len, u8 out[SHA3_384_DIGEST_SIZE])
+ {
+ 	struct sha3_ctx ctx;
  
  	sha3_384_init(&ctx);
- 	sha3_384_update(&ctx, in, in_len);
- 	sha3_384_final(&ctx, out);
+ 	sha3_update(&ctx, in, in_len);
+ 	sha3_final(&ctx, out);
  }
--EXPORT_SYMBOL(sha3_384);
-+EXPORT_SYMBOL_GPL(sha3_384);
+ EXPORT_SYMBOL_GPL(sha3_384);
  
- /**
-  * sha3_512() - Convenience wrapper to digest a simple buffer as SHA3-512
-  * @in: The data to be digested in bytes
-  * @in_len: The amount of data to be digested in bytes
-@@ -392,11 +392,11 @@ void sha3_512(const u8 *in, size_t in_len, u8 out[SHA3_512_DIGEST_SIZE])
+-/**
+- * sha3_512() - Convenience wrapper to digest a simple buffer as SHA3-512
+- * @in: The data to be digested in bytes
+- * @in_len: The amount of data to be digested in bytes
+- * @out: The buffer into which the digest will be stored (size not checked)
+- *
+- * Convenience wrapper to initialise a SHA3 context for SHA-512, add the input
+- * data to it, finalise it, extract 64 bytes of digest and clear the context.
+- *
+- * Context: May use the FPU/Vector unit registers.
+- */
+ void sha3_512(const u8 *in, size_t in_len, u8 out[SHA3_512_DIGEST_SIZE])
+ {
+ 	struct sha3_ctx ctx;
  
  	sha3_512_init(&ctx);
- 	sha3_512_update(&ctx, in, in_len);
- 	sha3_512_final(&ctx, out);
+ 	sha3_update(&ctx, in, in_len);
+ 	sha3_final(&ctx, out);
  }
--EXPORT_SYMBOL(sha3_512);
-+EXPORT_SYMBOL_GPL(sha3_512);
+ EXPORT_SYMBOL_GPL(sha3_512);
  
- /**
-  * shake128() - Convenience wrapper to apply SHAKE128 to a simple buffer
-  * @in: The input data to be used
-  * @in_len: The amount of input data in bytes
-@@ -416,11 +416,11 @@ void shake128(const u8 *in, size_t in_len, u8 *out, size_t out_len)
+-/**
+- * shake128() - Convenience wrapper to apply SHAKE128 to a simple buffer
+- * @in: The input data to be used
+- * @in_len: The amount of input data in bytes
+- * @out: The buffer in which to store the output
+- * @out_len: The amount of output to store in bytes (variable length)
+- *
+- * Convenience wrapper to initialise a SHA3 context for SHAKE128, add the input
+- * data to it, finalise it, extract the requested amount of output and clear
+- * the context.
+- *
+- * Context: May use the FPU/Vector unit registers.
+- */
+ void shake128(const u8 *in, size_t in_len, u8 *out, size_t out_len)
+ {
+ 	struct shake_ctx ctx;
+ 
  	shake128_init(&ctx);
- 	shake128_update(&ctx, in, in_len);
- 	shake128_squeeze(&ctx, out, out_len);
- 	shake128_clear(&ctx);
+@@ -392,23 +335,10 @@ void shake128(const u8 *in, size_t in_len, u8 *out, size_t out_len)
+ 	shake_squeeze(&ctx, out, out_len);
+ 	shake_zeroize_ctx(&ctx);
  }
--EXPORT_SYMBOL(shake128);
-+EXPORT_SYMBOL_GPL(shake128);
+ EXPORT_SYMBOL_GPL(shake128);
  
- /**
-  * shake256() - Convenience wrapper to apply SHAKE256 to a simple buffer
-  * @in: The input data to be used
-  * @in_len: The amount of input data in bytes
-@@ -440,11 +440,11 @@ void shake256(const u8 *in, size_t in_len, u8 *out, size_t out_len)
+-/**
+- * shake256() - Convenience wrapper to apply SHAKE256 to a simple buffer
+- * @in: The input data to be used
+- * @in_len: The amount of input data in bytes
+- * @out: The buffer in which to store the output
+- * @out_len: The amount of output to store in bytes (variable length)
+- *
+- * Convenience wrapper to initialise a SHA3 context for SHAKE128, add the input
+- * data to it, finalise it, extract the requested amount of output and clear
+- * the context.
+- *
+- * Context: May use the FPU/Vector unit registers.
+- */
+ void shake256(const u8 *in, size_t in_len, u8 *out, size_t out_len)
+ {
+ 	struct shake_ctx ctx;
+ 
  	shake256_init(&ctx);
- 	shake256_update(&ctx, in, in_len);
- 	shake256_squeeze(&ctx, out, out_len);
- 	shake256_clear(&ctx);
- }
--EXPORT_SYMBOL(shake256);
-+EXPORT_SYMBOL_GPL(shake256);
- 
- /*
-  * Do a quick test using SHAKE256 and a 200 byte digest.
-  */
- static const u8 sha3_sample[] __initconst =
 -- 
 2.51.1.dirty
 
