@@ -4,46 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAEC8CCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:11:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB562CCD1A7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 17:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6de2fyaarI9K2/ks3PeVYbyxQ7PM/e/830k4Zmpr7Bc=; b=tV1KxkIbxbfZcVavcHzbR6jfB/
-	fG+YOfWfn2jWszR1Plnb8QX/O91+FanfKDok6Ocl3ZFgQma4JmkrObc3px57HSGRbI/jxtGzA4kgi
-	gde8HgIAMyNzJzqcBy2/efTbs3A0c0xCbVsVcPIfHTIHqkuXxt/GewzFWp2Y6FugD6rCnLB/Bkkb3
-	LvtxYm0jldJyWdMjK9TGMI2YBLrqjqCqwTL9UJvnJ0dB4bx3V0CtH9VEhzXIXHf3vxNO0vgOhcTbk
-	GmyqxiqP8LkdG77Pw68pXTQeppcXvBH2pvfOPyYwx4yrwRZLuuPXHKMAWrAynC1KkBCrEDTQzQ5qi
-	6b2w44ew==;
+	bh=kRpZ7zgsNrhNM+rxIDLJnGPAUyw2qc9ktVSnlul7uqQ=; b=oOfhwJ0QrKRr4dTwGCPKXHI5Qg
+	EKtSQUFgjTjKtWuOUEsk4EUjHp9zVXtA4RU/sahZCGtTWyLhR2ECRdzDo1Gu7Bjgx/ePagPJhw5d5
+	dSJ7+4rMQuvk1w+CbmpPjIVhFiXlUWuWsUeJpo94LuM7fk1lvm2hVSTZvW+5bOtfBNoK6BCvIc2fN
+	b571FGLG+api2r+eobZ1y3pl76ifCW3mFo9XoZcWbj7cyuuWEk9G2VczJXwkWZfk5R4AuIyOAnZNb
+	u+A47mG6Nm2Ld5K52RPiVAu2iIThjc5i4GOR3zuSxF3pZCgto/mGsbXfdD6b1nBFlxjhok8oAlHdx
+	pyZY4KzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtQ7-0000000EQrg-0imN;
-	Mon, 20 Oct 2025 17:11:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vAtQ6-0000000EQrI-3bNr;
+	Mon, 20 Oct 2025 17:11:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAtQ4-0000000EQog-26mv
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vAtQ5-0000000EQp2-0EQl
+	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 20 Oct 2025 17:11:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=kRpZ7zgsNrhNM+rxIDLJnGPAUyw2qc9ktVSnlul7uqQ=; b=EjyfPf2TO8U/Td13zXrWLCmroI
+	r8a13Q0mFQKZJdEbotu9gdJ0OPTGHxCguRIFTchwtXHaGIYalDWWLphye5Pd/VOSXsnafDUiqOb34
+	1AbksUs3cRBPRaptuJMUy41DztZEtklds+LLVT8kC6VoZNJHAM8Fc7T6dJ5n3M7m9iG52ZyFej6Wn
+	SxM0cRWg1ixC6wyuEwZmaxDna7hh6zSJwVYlDHPwroZYm+Pja+ExXRH5WAfl03iekP5QbWdH3buzh
+	5HMcD15H9E+F2eCUmFcWMckQEBsadc3ZOcQeP0mPDiTa4GTs/eC0m4oF45CpUqbBCmuk1DQDf67Om
+	oiqPANbA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vAsYL-0000000025J-3Vzb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Oct 2025 16:16:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F84648DF3;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9821348DEB;
 	Mon, 20 Oct 2025 17:11:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EC18C19421;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AD3FC113D0;
 	Mon, 20 Oct 2025 17:11:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1760980282;
-	bh=qJlYlCdLicsk3Qg+mKxU+NISEK1JvSSkuCl6A572eG4=;
+	bh=IrJnFSl0vpD3jGCn+oBa7YlslutdYfojddkzQZM95dk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BCvy6s5fuw+OQYHnGwF2kNwuSXGkZ9hKH3PWBHPFC7S3XeMeVN0cRdly0W5bSUDhb
-	 RO0kfd1ZCJJBB+L3kHSFqP4hi0W5zDMB+H1QkBHrQcufHuCv2H2Sx5IQm59Xs47c+v
-	 3m92pOgPjxML37+9DRFI096dxL/esFy85urgSV1M1ON3kcgWPOB9jW1wL3x2QQd4Zn
-	 r087FlRGBv+wMUvcr0GzUiDEEpZonvClaznrMU3KMtxAOj94zdvfKiIPm7FXSoLL4v
-	 2Uzhkb70r7FJN7vW28nHLxcRiLjUB4NNMwIG/oZTJcscTDnfJga+Y4cE2ABC3L77QY
-	 kxVBwDt1xsQpw==
+	b=ll1u0K+4eP+gsGLcebeYiSuIsCSyF8lilj4gby7yHw+6Xm3n7BC9FS3+kiL4RKIr8
+	 G9aTXWih4Z4rHUEHbA1WtbrlC1svYG/6DBSJHXtC3rf01P2OcNLgo1BOrzMjxzb6Jq
+	 0omSqngr32C9EmsA/OmpFuXddT91xBpOPlD8ayQYbi/k4TEt6scLSZy1KYhepV/Gl4
+	 7ActQB0DDucoi9b7qvg3ndo1UDigjgpj6ksXdVIuOO32YllCwPDoqWPO3TJiMdh2te
+	 hiFUGH0YEV9gU5YArLPP+4CmX+3nOdB8ITc84yPdyMUo5xc95YJ6yli0E38DqmOy08
+	 Q35J/32vbmsPQ==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 4B4EC5FDC7; Tue, 21 Oct 2025 01:11:18 +0800 (CST)
+	id 524AA5FEC0; Tue, 21 Oct 2025 01:11:18 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Chen-Yu Tsai <wens@kernel.org>,
 	Jernej Skrabec <jernej@kernel.org>,
@@ -61,17 +76,17 @@ Cc: linux-sunxi@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	dmaengine@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 05/11] clk: sunxi-ng: sun55i-a523-r-ccu: Mark bus-r-dma as critical
-Date: Tue, 21 Oct 2025 01:10:51 +0800
-Message-ID: <20251020171059.2786070-6-wens@kernel.org>
+Subject: [PATCH 06/11] clk: sunxi-ng: sun55i-a523-ccu: Lower audio0 pll minimum rate
+Date: Tue, 21 Oct 2025 01:10:52 +0800
+Message-ID: <20251020171059.2786070-7-wens@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251020171059.2786070-1-wens@kernel.org>
 References: <20251020171059.2786070-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_101140_776956_62EE7BB5 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20251020_171610_083221_89A367DA 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,35 +101,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "bus-r-dma" clock in the A523's PRCM clock controller is also
-referred to as "DMA_CLKEN_SW" or "DMA ADB400 gating". It is unclear how
-this ties into the DMA controller MBUS clock gate; however if the clock
-is not enabled, the DMA controller in the MCU block will fail to access
-DRAM, even failing to retrieve the DMA descriptors.
+While the user manual states that the PLL's rate should be between 180
+MHz and 3 GHz in the register defninition section, it also says the
+actual operating frequency is 22.5792*4 MHz in the PLL features table.
 
-Mark this clock as critical. This sort of mirrors what is done for the
-main DMA controller's MBUS clock, which has a separate toggle that is
-currently left out of the main clock controller driver.
+22.5792*4 MHz is one of the actual clock rates that we want and is
+is available in the SDM table. Lower the minimum clock rate to 90 MHz
+so that both rates in the SDM table can be used.
 
-Fixes: 8cea339cfb81 ("clk: sunxi-ng: add support for the A523/T527 PRCM CCU")
+Fixes: 7cae1e2b5544 ("clk: sunxi-ng: Add support for the A523/T527 CCU PLLs")
 Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 ---
- drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c | 2 +-
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-index 70ce0ca0cb7d..fdcdcccd0939 100644
---- a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-@@ -121,7 +121,7 @@ static SUNXI_CCU_GATE_HW(bus_r_ir_rx_clk, "bus-r-ir-rx",
- 			 &r_apb0_clk.common.hw, 0x1cc, BIT(0), 0);
- 
- static SUNXI_CCU_GATE_HW(bus_r_dma_clk, "bus-r-dma",
--			 &r_apb0_clk.common.hw, 0x1dc, BIT(0), 0);
-+			 &r_apb0_clk.common.hw, 0x1dc, BIT(0), CLK_IS_CRITICAL);
- static SUNXI_CCU_GATE_HW(bus_r_rtc_clk, "bus-r-rtc",
- 			 &r_apb0_clk.common.hw, 0x20c, BIT(0), 0);
- static SUNXI_CCU_GATE_HW(bus_r_cpucfg_clk, "bus-r-cpucfg",
+diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
+index acb532f8361b..20dad06b37ca 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
++++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
+@@ -300,7 +300,7 @@ static struct ccu_nm pll_audio0_4x_clk = {
+ 	.m		= _SUNXI_CCU_DIV(16, 6),
+ 	.sdm		= _SUNXI_CCU_SDM(pll_audio0_sdm_table, BIT(24),
+ 					 0x178, BIT(31)),
+-	.min_rate	= 180000000U,
++	.min_rate	= 90000000U,
+ 	.max_rate	= 3000000000U,
+ 	.common		= {
+ 		.reg		= 0x078,
 -- 
 2.47.3
 
