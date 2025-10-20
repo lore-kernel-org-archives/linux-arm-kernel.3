@@ -4,99 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBF1CCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0771CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 11:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oz+Xl2/NrMdS6fZi0EK9OqxzCdzOSL6WeQJpOQkz1Yo=; b=V1VcOXH9D1GESnDV8841u6u9V2
-	blHnwTC+cNZwzQaur6fN5ZihFG09ZS+NbSOQywTib21WK4ORkcQ/O7qNGQblqWY2LDKrU74a2mC4b
-	m5d6sDD2AQw3WnFYP6yxEH1O5AmtDMC5phitzWnnhu0EmjzN2n02CC85IfoU2d1LO6Mo+SSNF6ZWD
-	osMCcv6c8V06QwKKuJfnrXf9l0WhH+0VD7n0WoKn1UEGXDq9rVF0Pw+JXLXb/h5qaxSTaLFX+nQSP
-	D3qsxmpJeWEOfKP24jxroZj3gKcNukbBho9PX+oGX22EBxgauSSxfboiQeu0gnAwKmkoy19HY0cH8
-	UGHx2sbg==;
+	bh=0UtO/Ve7QiGpMlUuu0IVSIrQoQ/KH9yo8ixVSg0L1bc=; b=OFoeC2ZOwigtT3McTaUnbzBDnl
+	l6JvpRYz5f18UgKXo0CHUo9T9Fc/P3kZSVqyn211mMCVaIS9I9ssI/s207M2EGwm5ZhBQx/8SsmZ7
+	UW6MXeVW7EcQS4rj2Hi77yuq2BOjNBXkZ/nGfbPyyN+TyRxgh1kbC6Ie6pdog6dn654iq7+MucSIg
+	Obg/X6tbR+Bp7G61U6uxKEcyYnhBpvPLns9ftjxKZXv5NgAUMONIZO08fx0hDN4tIKB35BCeSRXGv
+	Ba5MXTFyZZH3MsVVFOKiXH/cBoxPZle2uiQOafPXHTcsz+GR0WlffNv3+MpTFqLsLbRxHNyyoK8h7
+	M7T9818w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAo1R-0000000D3zi-3Oy2;
-	Mon, 20 Oct 2025 11:25:53 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1vAoAd-0000000D5TS-2ylE;
+	Mon, 20 Oct 2025 11:35:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAo1O-0000000D3z8-25fN
+	id 1vAoAb-0000000D5SK-314U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 11:25:51 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-b6a7d3040efso1163135a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 04:25:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760959549; x=1761564349; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=oz+Xl2/NrMdS6fZi0EK9OqxzCdzOSL6WeQJpOQkz1Yo=;
-        b=ABSLhbFpJRfC8nTehMB29mHgnF+M6SlQ9MwgJk3yOyB6P6uJfiafLoqG5LwEAuCKFT
-         lnU86Goq0Mrn4wILWjXE9hGvvLhpDULtmButCI3Kk5fPQoKoppfjVST1YIKUlJzFHnt7
-         bBYExRyYPvFR8TGcN7Pv83sZSHqw0spZ4GRc0icmSkCg591wOWVEJgTK1UoTLwS8oQWs
-         w0af8CMyuHv3evf9IKSy/d4yFpjKKG4sPAvosDFPdBQxyoQ7vyr+5u6kqRTpYY2nTXzB
-         5dYCQzhkv3c4KO5dIIW+CeAflNr3FQQTYVTq9TEfo2EfedZiwSyB6uvXplHWO0kNnt28
-         Z0VQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760959549; x=1761564349;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oz+Xl2/NrMdS6fZi0EK9OqxzCdzOSL6WeQJpOQkz1Yo=;
-        b=q+qOlnq5PNJIRKbz1rp08hWOWelU9QlkeGM0d96xmrGYsh5yS9Da2TagXWrZL69ZUY
-         iExI7EGAw+NE1DHBERkVfJrZ7O3JIbAyZPNYhEm8YlFlfgVY1bFIioe0bcxB40nlyEtZ
-         6gtr1RgFd13asGHsyn5uo/Y+/owBsPuazLepL5dz97MBv4jQoje9RiBGy33bvDlNw3Oz
-         CkDq8qcDxJUsr0lFApTJaHksNtnAkVhNOwIvcZztcggMCN31FOEmrH4PmXl29vhcicrF
-         sHwwh/tf403WKdxEzSsBf/AIiwuIr2zBIrEBeL0AxwHCSK7fPOx8rR0RcKo1GoXbWONU
-         dfLg==
-X-Forwarded-Encrypted: i=1; AJvYcCUgYP4NzdbuJylmtYeGdR9xLDnZ6ZAzks/MXZLJpSlc/GGX9ydJuebI+7h7huqOX9geaLyoqvr6wYsSOhQxZ1eY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxetlrhkD4aDHjYeoE/hd/kuARjUNRTivqveCP5K9z2711h9ioF
-	EQQF1He4MCiXhk7LAWB/1NF8m46WRnGFumBoXMSmSeEkhzJcIz/oy6OV
-X-Gm-Gg: ASbGncs3pwgQSUvAUIN9PsKbzU5JY9LlFhmpodlyqHScvLvr3RXssy+GWHFBo32ehGA
-	+8Q93j2vhEBydzV2qtE1X8X4lkEAEAIjBmrVH9OBb0NDqJAXiSKO6wmB10+uJrU+f3Topk5y8qy
-	BRtytvrEkAYaa5SAkylyeU4Ov+jShawGd9fWCNBU4N6XRg8lccLt8a+J7TwTMlUS7lGtMrT5wIK
-	T1NI4KKd5A7Z4l8VWfg5ZS0VBT+/OYqzPrfqEDqzXMrB0SkHVLf5ar7h7SFF3YX9yC3pR1yAQGR
-	KElF4hlpiyg+LPGd/IrC3jUjq/D6cofa50GmWfM1ulGRQ0Uz2kV5cnUgyckP5y9jt+cALBEN73w
-	FRT0IT2igZ1wCU56Uc2oFUfAb5GJsWqVxEq84P14lFLWsLVNCiv8dcfUhPgVn/fGM3ewJD84ohZ
-	Cb1gNjZISYmg==
-X-Google-Smtp-Source: AGHT+IGmXkq5K8nuswuZOy/Q3vJ1q/fs2FggRu+CXIAg0ikFpAfPL8SJOtCn/E3IpbjQlSwX+Wyw8w==
-X-Received: by 2002:a17:903:b90:b0:290:bd15:24a8 with SMTP id d9443c01a7336-290c9c89fa6mr155748285ad.11.1760959549499;
-        Mon, 20 Oct 2025 04:25:49 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-292471d598asm77433485ad.63.2025.10.20.04.25.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Oct 2025 04:25:48 -0700 (PDT)
-Date: Mon, 20 Oct 2025 19:24:55 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
-	Han Gao <rabenda.cn@gmail.com>, Icenowy Zheng <uwu@icenowy.me>, 
-	Vivian Wang <wangruikang@iscas.ac.cn>, Yao Zi <ziyao@disroot.org>, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v2 3/3] net: stmmac: dwmac-sophgo: Add phy interface
- filter
-Message-ID: <ljyivijlhvrendlslvpo4b7rycclt5pheipegx3fwz3fksn4cn@fgpzyhr2j4gi>
-References: <20251020095500.1330057-1-inochiama@gmail.com>
- <20251020095500.1330057-4-inochiama@gmail.com>
- <20251020110219-GYH1506524@gentoo.org>
+	Mon, 20 Oct 2025 11:35:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 373E1489C1;
+	Mon, 20 Oct 2025 11:35:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4A9DC4CEF9;
+	Mon, 20 Oct 2025 11:35:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760960120;
+	bh=ZioengeclCBPyaIw8m5VBq2tqjHhRbeGcSeZSVPGoOk=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=MfN84N3FvlrHrKO6hwp0uof+Ta7bEnnpHDT3YaLa+WZMR3CMdo0kZHWC3c1U6E2pF
+	 J5umlW8m4tmUBXWCdMwHbR4/0xVpTKgZPBLKDvRhZKJDxJztlux+q0MDAfDEkL6tk4
+	 8OYnemTQgRJ0/6UVcCgGgfTHTwvb9712A6SjcKvzTp9OqaiU46BCKQI2Ydk8t6rmO0
+	 EPlKRiwgd6lPVQLKfkryxc/KWv8F9NGbZx7wNrM1RS06vHJfcAyHaIhAQpol9wOgAt
+	 CEIBujREfOOxhdxe8FDc9qugI9RYC1kUt+djUMqMw1/KQ0j89XW7VWnow0FdMexgWY
+	 J7M8KbhYwuI/g==
+Date: Mon, 20 Oct 2025 06:35:18 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251020110219-GYH1506524@gentoo.org>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: andi.shyti@kernel.org, linux-i2c@vger.kernel.org, 
+ andriy.shevchenko@linux.intel.com, naresh.solanki@9elements.com, 
+ p.zabel@pengutronix.de, linux-arm-kernel@lists.infradead.org, 
+ openbmc@lists.ozlabs.org, conor+dt@kernel.org, 
+ linux-aspeed@lists.ozlabs.org, joel@jms.id.au, krzk+dt@kernel.org, 
+ andrew@codeconstruct.com.au, linux-kernel@vger.kernel.org, 
+ benh@kernel.crashing.org, devicetree@vger.kernel.org
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+In-Reply-To: <20251020013200.1858325-2-ryan_chen@aspeedtech.com>
+References: <20251020013200.1858325-1-ryan_chen@aspeedtech.com>
+ <20251020013200.1858325-2-ryan_chen@aspeedtech.com>
+Message-Id: <176096011475.23064.13799548826512417145.robh@kernel.org>
+Subject: Re: [PATCH v19 1/4] dt-bindings: i2c: Split AST2600 binding into a
+ new YAML
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_042550_562824_AC77FEF9 
-X-CRM114-Status: GOOD (  25.06  )
+X-CRM114-CacheID: sfid-20251020_043521_803949_FA8416C5 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,87 +78,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 20, 2025 at 07:02:19PM +0800, Yixun Lan wrote:
-> Hi Inochi,
+
+On Mon, 20 Oct 2025 09:31:57 +0800, Ryan Chen wrote:
+> The AST2600 I2C controller is a new hardware design compared to the
+> I2C controllers in previous ASPEED SoCs (e.g., AST2400, AST2500).
 > 
-> On 17:54 Mon 20 Oct     , Inochi Amaoto wrote:
-> > As the SG2042 has an internal rx delay, the delay should be remove
-> missed my comment in v1?
+> It introduces new features such as:
+>  - A redesigned register layout
+>  - Separation between controller and target mode registers
+>  - Transfer mode selection (byte, buffer, DMA)
+>  - Support for a shared global register block for configuration
+> 
+> Due to these fundamental differences, maintaining a separate
+> devicetree binding file for AST2600 helps to clearly distinguish
+> the hardware capabilities and configuration options from the older
+> controllers.
+> 
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> ---
+>  .../devicetree/bindings/i2c/aspeed,i2c.yaml   |  3 +-
+>  .../devicetree/bindings/i2c/ast2600-i2c.yaml  | 67 +++++++++++++++++++
+>  2 files changed, 68 insertions(+), 2 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/i2c/ast2600-i2c.yaml
 > 
 
-My fault, I forgot to fix here
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> > when init the mac, otherwise the phy will be misconfigurated.
-> > 
-> > Fixes: 543009e2d4cd ("net: stmmac: dwmac-sophgo: Add support for Sophgo SG2042 SoC")
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > Tested-by: Han Gao <rabenda.cn@gmail.com>
-> > ---
-> >  .../net/ethernet/stmicro/stmmac/dwmac-sophgo.c  | 17 ++++++++++++++++-
-> >  1 file changed, 16 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-> > index 3b7947a7a7ba..960357d6e282 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
-> > @@ -7,11 +7,16 @@
-> > 
-> >  #include <linux/clk.h>
-> >  #include <linux/module.h>
-> > +#include <linux/property.h>
-> >  #include <linux/mod_devicetable.h>
-> >  #include <linux/platform_device.h>
-> > 
-> >  #include "stmmac_platform.h"
-> > 
-> > +struct sophgo_dwmac_data {
-> > +	bool has_internal_rx_delay;
-> > +};
-> > +
-> >  static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
-> >  				    struct plat_stmmacenet_data *plat_dat,
-> >  				    struct stmmac_resources *stmmac_res)
-> > @@ -32,6 +37,7 @@ static int sophgo_sg2044_dwmac_init(struct platform_device *pdev,
-> >  static int sophgo_dwmac_probe(struct platform_device *pdev)
-> >  {
-> >  	struct plat_stmmacenet_data *plat_dat;
-> > +	const struct sophgo_dwmac_data *data;
-> >  	struct stmmac_resources stmmac_res;
-> >  	struct device *dev = &pdev->dev;
-> >  	int ret;
-> > @@ -50,11 +56,20 @@ static int sophgo_dwmac_probe(struct platform_device *pdev)
-> >  	if (ret)
-> >  		return ret;
-> > 
-> > +	data = device_get_match_data(&pdev->dev);
-> > +	if (data && data->has_internal_rx_delay)
-> > +		plat_dat->phy_interface = phy_fix_phy_mode_for_mac_delays(plat_dat->phy_interface,
-> > +									  false, true);
-> > +
-> >  	return stmmac_dvr_probe(dev, plat_dat, &stmmac_res);
-> >  }
-> > 
-> > +static struct sophgo_dwmac_data sg2042_dwmac_data = {
-> static const?
+yamllint warnings/errors:
 
-Right.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/i2c/ast2600-i2c.yaml: warning: ignoring duplicate '$id' value 'http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/i2c/ast2600-i2c.yaml: properties:reg: {'minItems': 1, 'maxItems': 2, 'items': [{'description': 'address offset and range of bus'}, {'description': 'address offset and range of bus buffer'}]} should not be valid under {'required': ['maxItems']}
+	hint: "maxItems" is not needed with an "items" list
+	from schema $id: http://devicetree.org/meta-schemas/items.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/i2c/ast2600-i2c.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
+ 	 $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml
+ 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/i2c/ast2600-i2c.yaml
+Documentation/devicetree/bindings/i2c/ast2600-i2c.example.dtb: /example-0/i2c@40: failed to match any schema with compatible: ['aspeed,ast2600-i2c-bus']
 
-> > +	.has_internal_rx_delay = true,
-> > +};
-> > +
-> >  static const struct of_device_id sophgo_dwmac_match[] = {
-> > -	{ .compatible = "sophgo,sg2042-dwmac" },
-> > +	{ .compatible = "sophgo,sg2042-dwmac", .data = &sg2042_dwmac_data },
-> >  	{ .compatible = "sophgo,sg2044-dwmac" },
-> >  	{ /* sentinel */ }
-> >  };
-> > --
-> > 2.51.1.dirty
-> > 
-> 
-> -- 
-> Yixun Lan (dlan)
+doc reference errors (make refcheckdocs):
 
-Regards,
-Inochi
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251020013200.1858325-2-ryan_chen@aspeedtech.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
