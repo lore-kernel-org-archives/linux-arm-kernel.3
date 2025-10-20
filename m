@@ -4,110 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C16DCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9FA6CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 12:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nd/+G4gTzljsK/pzwIPEACIJNyJwxEtITmWVwnAHIe0=; b=qKqJ3ocej3KbUWErlqvCGY4rO6
-	7NgvjqvQCNpmZjkc9V+EG1DM0czawP+zgp7LEDiGEwfqrvbHgv8NtVIJbPXiO2iCmGAyBqTk6kGsl
-	eCLyg9yOrYmxlIEUiBhCYpCGG4K8WoyOSkLuYp5Fn9nsXqXO6RlTpHu8zBIvg/OPZYc8qykotftw5
-	p91QNZJ3TzqyKOp+TZ7Dtu+OVIB/SCy9MHET/HKv5RGGknxeiFeU09G31y7zp3CwiuwiQnpXeKA1P
-	BL/Rr1YmzgoTsPqGhbnuNgiyG60khTSBolNLzL2uFWTuwlYwCSP+kD9XxpUFSN5VeveriGst2Fabl
-	m/jeesbQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xm/J5aoiPYsZnMiN7LTPgkGX52KGGjizlIB4W3vhsvI=; b=0M8JaD5TEvW/OR2fOhAor5GEpR
+	TDSlKKqkVp0QCjmgeovBQeGyGM80RPEnbvxFX/Zj2lzu2G9Co7sMKnU6iRXFVs5pbtNjWtGc7UXPu
+	9NLNwCfh0ssW4O9BSpomVo8UelRykoantNbzUrptILbAc2n+JqVyr+BhQDUKnEIShYICtBXo6GSL1
+	DQxWqz33yPk/92M2anYxJL5hjcc7kPblSNVdr+/p1ymzWkavVFSYfnjMDi10LZgbUUYpx4Bt92sxA
+	mv2b9P7oPhMpp8ezCVh5YpKahxdJt+lQrxz9oIfL+H0Z1FvIG1mKw2E9czso/R92JZd6G5h3NI3hE
+	DQ9QQ/Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vApLi-0000000Ddn3-319H;
-	Mon, 20 Oct 2025 12:50:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vApNk-0000000DeFN-1Dvy;
+	Mon, 20 Oct 2025 12:53:00 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vApLg-0000000DdkZ-0lDD
+	id 1vApNf-0000000DeDC-3mbp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 12:50:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CB05345A8B;
-	Mon, 20 Oct 2025 12:50:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80DBCC4CEF9;
-	Mon, 20 Oct 2025 12:50:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760964637;
-	bh=sb3c4pwCtVMvyxYctET5WVbAplwe/3JXuIYoLa4R5FQ=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=SvuJHASiG9fBVIOQGvXjMkrdFXDFpMpLKegxsEEdiAjzIiqsrrOdCDq4AJNwUW+2G
-	 P2bQRQ4Hfz/iUseB1KcO+NrXaDAOTvYpdBWLJfCq9Tysb4Tk8WnR1u8Wr84aMVOiOA
-	 kK5YfeKxRsLp3dDqqYbpFo0qZK2FaEL/cR/LGv2cR1QR9NFUlHdCHyxY2Iyw+m2fES
-	 3LwQ943f5Ah8Gxq1kXhD3zMcJfp+r3o9PDqzCr8RHp7fbP7gIPH0iKEVc+mqXxjypb
-	 2aJDAI/oxKv6kHMiUYR9zy2N6QZbgwXNHvv0Rar7OcWcl+S29nSWBiLX/yWU5Q2UTp
-	 L5gdvqWbqJ9QA==
-Message-ID: <12043639-77ef-4e8f-9ef9-760af2053b43@kernel.org>
-Date: Mon, 20 Oct 2025 14:50:31 +0200
+	Mon, 20 Oct 2025 12:52:58 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 187014E411EC;
+	Mon, 20 Oct 2025 12:52:46 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D688C606D5;
+	Mon, 20 Oct 2025 12:52:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B3CDA102F23B2;
+	Mon, 20 Oct 2025 14:52:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1760964764; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=xm/J5aoiPYsZnMiN7LTPgkGX52KGGjizlIB4W3vhsvI=;
+	b=oNz4QML52tT7x/9G0sWyWTxbCrAVkNvTv79vy7Dp5UIupPUNqYDHcEkldl79sy3TOslfCe
+	/k81yvPVrU+6MkZTNFShUBBIspeDJirvh9+NrHDH5AFPfUZLg7gHYSeGFnkL8Aq82o2hfZ
+	LJ7CT8ajJWywOKH7nYFIYQvtLol54IcTYgNeUgl62+YJb0H0dsSalA4yrSAqO7+BOwNCVM
+	fK189keR7wQECoOZneEEzTCMsjbZO70i4AI96+MIQmA9M20NIW0rH47ptuYGHm9uoXifVl
+	CfPl18lfYSdKcKBJyeI+hrd+XtRyjYso2ZTmPosoxLNot3FBGdbRbILiN78CKQ==
+Date: Mon, 20 Oct 2025 14:52:14 +0200
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jose Abreu <joabreu@synopsys.com>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Richard Cochran <richardcochran@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Alexis =?UTF-8?B?TG90aG9yw6k=?=
+ <alexis.lothore@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Willem
+ de Bruijn <willemdebruijn.kernel@gmail.com>
+Subject: Re: [PATCH net-next 2/3] net: stmmac: Allow supporting coarse
+ adjustment mode
+Message-ID: <20251020145214.64186fc9@kmaincent-XPS-13-7390>
+In-Reply-To: <b2c58580-d891-4d10-b3dd-572f7f98c6fe@bootlin.com>
+References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
+	<20251015102725.1297985-3-maxime.chevallier@bootlin.com>
+	<20251017182358.42f76387@kernel.org>
+	<d40cbc17-22fa-4829-8eb0-e9fd26fc54b1@bootlin.com>
+	<20251020110040.18cf60c9@kmaincent-XPS-13-7390>
+	<b2c58580-d891-4d10-b3dd-572f7f98c6fe@bootlin.com>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: fix redundant quotes on fsl,imx6q-vdoa.yaml
-To: Erick Setubal Bacurau <erick.setubal@gmx.de>, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, Frank.Li@nxp.com, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- david.hunter.linux@gmail.com,
- linux-kernel-mentees@lists.linuxfoundation.org, skhan@linuxfoundation.org
-References: <20251020121145.190020-1-erick.setubal@gmx.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251020121145.190020-1-erick.setubal@gmx.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_055052_262882_1299F1DA 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251020_055256_422963_3422619D 
+X-CRM114-Status: GOOD (  58.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,19 +91,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/10/2025 14:11, Erick Setubal Bacurau wrote:
-> Fix a dt-schema error: `fsl,imx6q-vdoa.yaml:19:12: [error] string value is
-> redundantly quoted with any quotes (quoted-strings)`
-> 
-> Signed-off-by: Erick Setubal Bacurau <erick.setubal@gmx.de>
-> ---
->  Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
+On Mon, 20 Oct 2025 11:32:37 +0200
+Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
 
-Already fixed here:
-https://lore.kernel.org/all/20251015232015.846282-1-robh@kernel.org/
+> Hi K=C3=B6ry,
+>=20
+> On 20/10/2025 11:00, Kory Maincent wrote:
+> > On Sat, 18 Oct 2025 09:42:57 +0200
+> > Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
+> >  =20
+> >> Hi Jakub,
+> >>
+> >> On 18/10/2025 03:23, Jakub Kicinski wrote: =20
+> >>> On Wed, 15 Oct 2025 12:27:22 +0200 Maxime Chevallier wrote:   =20
+> >>>> The DWMAC1000 supports 2 timestamping configurations to configure how
+> >>>> frequency adjustments are made to the ptp_clock, as well as the repo=
+rted
+> >>>> timestamp values.
+> >>>>
+> >>>> There was a previous attempt at upstreaming support for configuring =
+this
+> >>>> mode by Olivier Dautricourt and Julien Beraud a few years back [1]
+> >>>>
+> >>>> In a nutshell, the timestamping can be either set in fine mode or in
+> >>>> coarse mode.
+> >>>>
+> >>>> In fine mode, which is the default, we use the overflow of an accumu=
+lator
+> >>>> to trigger frequency adjustments, but by doing so we lose precision =
+on
+> >>>> the timetamps that are produced by the timestamping unit. The main
+> >>>> drawback is that the sub-second increment value, used to generate
+> >>>> timestamps, can't be set to lower than (2 / ptp_clock_freq).
+> >>>>
+> >>>> The "fine" qualification comes from the frequent frequency adjustmen=
+ts we
+> >>>> are able to do, which is perfect for a PTP follower usecase.
+> >>>>
+> >>>> In Coarse mode, we don't do frequency adjustments based on an
+> >>>> accumulator overflow. We can therefore have very fine subsecond
+> >>>> increment values, allowing for better timestamping precision. However
+> >>>> this mode works best when the ptp clock frequency is adjusted based =
+on
+> >>>> an external signal, such as a PPS input produced by a GPS clock. This
+> >>>> mode is therefore perfect for a Grand-master usecase.
+> >>>>
+> >>>> We therefore attempt to map these 2 modes with the newly introduced
+> >>>> hwtimestamp qualifiers (precise and approx).
+> >>>>
+> >>>> Precise mode is mapped to stmmac fine mode, and is the expected defa=
+ult,
+> >>>> suitable for all cases and perfect for follower mode
+> >>>>
+> >>>> Approx mode is mapped to coarse mode, suitable for Grand-master.   =
+=20
+> >>>
+> >>> I failed to understand what this device does and what the problem is =
+:(
+> >>>
+> >>> What is your ptp_clock_freq? Isn't it around 50MHz typically?=20
+> >>> So 2 / ptp_freq is 40nsec (?), not too bad?   =20
+> >>
+> >> That's not too bad indeed, but it makes a difference when acting as
+> >> Grand Master, especially in this case because you don't need to
+> >> perform clock adjustments (it's sync'd through PPS in), so we might
+> >> as well take this opportunity to improve the TS.
+> >> =20
+> >>>
+> >>> My recollection of the idea behind that timestamping providers
+> >>> was that you can configure different filters for different providers.
+> >>> IOW that you'd be able to say:
+> >>>  - [precise] Rx stamp PTP packets=20
+> >>>  -  [approx] Rx stamp all packets
+> >>> not that you'd configure precision of one piece of HW..   =20
+> >>
+> >> So far it looks like only one provider is enabled at a given time, my
+> >> understanding was that the qualifier would be used in case there
+> >> are multiple timestampers on the data path, to select the better one
+> >> (e.g. a PHY that supports TS, a MAC that supports TS, we use the=20
+> >> best out of the two). =20
+> >=20
+> > No, we do not support multiple timestampers at the same time.
+> > For that IIUC we would have to add a an ID of the source in the packet.=
+ I
+> > remember people were talking about modifying cmsg.=20
+> > This qualifier is indeed a first step to walk this path but I don't thi=
+nk
+> > people are currently working on adding this support for now.=20
+> >  =20
+> >> However I agree with your comments, that's exactly the kind of feedback
+> >> I was looking for. This work has been tried several times now each
+> >> time with a different uAPI path, I'm OK to consider that this is out
+> >> of the scope of the hwprov feature.
+> >> =20
+> >>> If the HW really needs it, just lob a devlink param at it?   =20
+> >>
+> >> I'm totally OK with that. I'm not well versed into devlink, working mo=
+stly
+> >> with embedded devices with simple-ish NICs, most of them don't use dev=
+link.
+> >> Let me give it a try then :) =20
+> >=20
+> > meh, I kind of dislike using devlink here. As I said using timestamping
+> > qualifier is a fist step for the multiple timestamping support. If one =
+day
+> > we will add this support, if there is other implementation it will add
+> > burden on the development to track and change all the other implementat=
+ion.
+> > Why don't we always use this qualifier parameter even if it is not real=
+ly
+> > for simultaneous timestamping to avoid any future wrong development cho=
+ice.
+> > =20
+>=20
+> On my side I've implemented the devlink-based approach, and I have to say=
+ i'm
+> not so unhappy with it :) At least I don't have the feeling this is bendi=
+ng
+> the API to fit one specific case.
 
-Best regards,
-Krzysztof
+Indeed I don't think so, but my idea was to generalize the selection of
+the timestamp provider source to one API even if it is only one clock for t=
+wo
+different qualifiers.
+=20
+> The thing is that the qualifier model doesn't fully map to the situation =
+we
+> have in stmmac.
+>=20
+> The stmmac coarse/fine adjustment doesn't only changes the timestamping
+> behaviour, but also the ptp_clock adjustment mode.=20
+>=20
+> So changing the qualifier here will have a side effect on the PTP clock,
+> do we accept that as part of the hwprov timestamping API ?
+
+Yes, I see the timestamp source as a couple of a qualifier plus a PTP
+clock index therefore if we change the timestamp source it is intended to h=
+ave
+side effect.
+
+> Should we use this API for coarse/fine stmmac config, I agree with your
+> previous comment of adding a dedicated qualifier that explicitely says
+> that using this qualifier comes with side effects, with the risk of
+> paving the way for lots of modes being added for driver-specific scenario=
+s.
+
+I am not really a PTP in the field user but maybe there is a limited number=
+ of
+generic qualifier possible. Here we could have a qualifier for better frequ=
+ency
+precision and one for better timestamping precision. I don't think we will =
+end
+with tons of different qualifiers.
+Maybe PTP maintainers and users like Richard or Willem have pointers on the
+number of possible qualifier?
+
+> Another thing with the stmmac implem is that we don't truly have 2
+> timestampers (1 approx and 1 precise), but rather only one whose precision
+> can be adjusted. Does it really make sense here to have the qualifier
+> writeable for the same timestamper ?
+
+I do think so.
+
+> Of course the netlink tsinfo/tsconfig is more appealing due to its generic
+> nature, but OTHO I don't want to introduce ill-defined behaviours in that
+> API with this series. The multiple timestamper work still makes a ton of
+> sense for MAC+PHY timestamping setups :)
+
+I think that is where it would be nice to have a review from Richard or
+Willem on this to give us pointers on what is existing in the PTP world and=
+ if
+using a qualifier makes sense.
+
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
