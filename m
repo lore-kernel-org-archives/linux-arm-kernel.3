@@ -4,80 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874CBCCD199
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 06:51:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3836ECCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 06:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QZCiJUNbDBKZU7NscC9t+cPIbwSt1d1aTLOIOEONDRo=; b=lP6EdAdUm9vLQS1dvru6OnNtCo
-	kBh3BM+sasGyA97ECJ0RHLY4J5NRx0XNUrjYtMY3LjFZDQFP20fBSQ0hOLapMdl2MMsK3+vOGtVc5
-	ao7CGuyQB7z5Q3sFesY47j2CZFS+0xqo2Wl3lJjZrol/KtGESdvFs4nd6GVhVIsn7xZJ/0/wFpFij
-	GYoBq8PtL07OGR94gzd6bHbivb6Vyji3OysHFM3ebB3sUOh1E/Yg8hBvJSD1r3TlS7OAGjReboBBL
-	K0W3OW3cdaqTIxv9QysemCwaHgtgmYZnH7oya7kqmumWOXHSnEuB3A/heV/DAaPw47ZBF6bCmAJn5
-	cFdrK5Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3UTBcBDx0QA5mYe2EpCIKBLcuKEC832toVFb9zth9Bw=; b=JWtP8dzmRG2LOgVJcVuIkgeSxd
+	8Sc8ttDvZAzbe85Nha7XnKYlX1yJsXs+Gxs5IU6dJXygEU9n6tOoL32qzhPsNCfZuA7KwqXQl/JX1
+	ki5YgvPiB7bW+8sQt80OZVIJJY3pGFAcY/mj7slvN8ZduaoiQXqxlSMpfJ/F6XatBnQP0jyR09Ck2
+	L7LQcbDBh4nt6Ec45CpSzwdzURutcWz1yIaJh4VIwAmUNtauuB5A0X8cL3UDkwEtzQGhwGHLoU7gn
+	OpuhVwWlWbwETaQrNz5Ekht3aNpsaQqrBy1mY9/PPrVkqzfaZsLFakKol5I4lonNhQTdlDNzZVnRI
+	gGOYCd2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAjjQ-0000000C5Zk-3znw;
-	Mon, 20 Oct 2025 06:51:00 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vAjnZ-0000000C68z-2M6x;
+	Mon, 20 Oct 2025 06:55:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAjjO-0000000C5Yv-2fRH;
-	Mon, 20 Oct 2025 06:50:59 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760943055;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QZCiJUNbDBKZU7NscC9t+cPIbwSt1d1aTLOIOEONDRo=;
-	b=aBpWibfQy7NDvaZaGXNCdeOTgstNqJSd72h/HvfsU+bxtPLg46jN298a5AmbZZ0I8qsmk+
-	d+9FiLZZFEkKF34+6aD/geC//vXqFAxlhvsIuTZ0otTv1PFTa68B8uXOwFcWk4+8WYI5an
-	IUvxnjVByp5cBtfO9vsxxCUqKZIHzZsfrdbZZf3kacNHifOfvhESr5BlU2Lf/PbfyV38By
-	KVznd395E5j77XdHOnXPD6Z0vpewpRYK/FK7/w8iwdhVqFvHHEA4Stu+hyylX4JdUwRORb
-	fu7YAxMMiLqA2Vrpd+zZrafVfIA99TO2e4VyA7/HhfSxLwAND/A9kWLVflkZvA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760943055;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QZCiJUNbDBKZU7NscC9t+cPIbwSt1d1aTLOIOEONDRo=;
-	b=JHg1coFAEo4pN71GSm+4Y8XD2IbiEBac1CDhS7fUoq52oNxVyS/BaH8IlhDFLi/qxEKwbs
-	tEjcxtPV9FDv1sAg==
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, LKML
- <linux-kernel@vger.kernel.org>
-Cc: kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Linus Torvalds
- <torvalds@linux-foundation.org>, x86@kernel.org, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
- Piggin <npiggin@gmail.com>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, linuxppc-dev@lists.ozlabs.org, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, linux-s390@vger.kernel.org, Andrew Cooper
- <andrew.cooper3@citrix.com>, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
- Palix <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>,
- Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
- =?utf-8?Q?Andr=C3=A9?= Almeida <andrealmeid@igalia.com>, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan
- Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V3 08/12] uaccess: Provide put/get_user_masked()
-In-Reply-To: <d58b798a-3994-438c-9c02-678f3178b21e@efficios.com>
-References: <20251017085938.150569636@linutronix.de>
- <20251017093030.315578108@linutronix.de>
- <eb6c111c-4854-4166-94d0-f45d4f6e7018@efficios.com>
- <d58b798a-3994-438c-9c02-678f3178b21e@efficios.com>
-Date: Mon, 20 Oct 2025 08:50:54 +0200
-Message-ID: <87ecqyyskx.ffs@tglx>
+	id 1vAjnY-0000000C68O-3TAA
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 20 Oct 2025 06:55:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E25A66144A;
+	Mon, 20 Oct 2025 06:55:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BF03C4CEFB;
+	Mon, 20 Oct 2025 06:54:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760943301;
+	bh=DAuRUF0lLu8WfXtUTMdE9X0H9e1gzgxTyuJAuFXveM8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dEy1A4I6YWD00vNF2H0Ik163tGCkiofeFlomrMISl6Qcgs753dVLzNcz8XX39HJ78
+	 KJv1AZhz3i3rcw8nQ4rZPeNcjY8BQG+5atgxa5AIPswB7RB0+qVsVykcy12bf8hlAy
+	 GT7+/NyMjFvBl7scU7ouuqXDfL3OByAHIjsPcdD90Yl799xAbHKY5h0yTVrxQnfeQA
+	 uZuPi4rEMxIXQO+MwlK4BkLAn8QQqtDiCfbSswzaroh0jHc1hbAZaiOH8DX1sze+8f
+	 MKLIqSpxv5JVgyPKm1/R6cJ+SRMSu0Ai601jw5zQTGGx9pgrUmkyLGF0iWnIMqPuo+
+	 zC6a8lTtDlcNg==
+Message-ID: <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
+Date: Mon, 20 Oct 2025 08:54:54 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251019_235058_816761_B8F43BD4 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
+ <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,36 +123,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17 2025 at 09:45, Mathieu Desnoyers wrote:
-> On 2025-10-17 09:41, Mathieu Desnoyers wrote:
-> [...]
->>> +/**
->>> + * get_user_masked - Read user data with masked access
-> [...]
->>> + * Return: true if successful, false when faulted
->
-> I notice that __get_user() and get_user() return -EFAULT
-> on error, 0 on success. I suspect the reversed logic
-> will be rather confusing.
+On 10/10/2025 14:46, Tudor Ambarus wrote:
+> Add the Exynos ACPM clock driver. It provides support for clocks that
+> are controlled by firmware that implements the ACPM interface.
+> 
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> Tested-by: Peter Griffin <peter.griffin@linaro.org> # on gs101-oriole
+> ---
+>  drivers/clk/samsung/Kconfig    |  10 +++
+>  drivers/clk/samsung/Makefile   |   1 +
+>  drivers/clk/samsung/clk-acpm.c | 185 +++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 196 insertions(+)
+> 
+> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
+> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
+> --- a/drivers/clk/samsung/Kconfig
+> +++ b/drivers/clk/samsung/Kconfig
+> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
+>  	  status of the certains clocks from SoC, but it could also be tied to
+>  	  other devices as an input clock.
+>  
+> +config EXYNOS_ACPM_CLK
+> +	tristate "Clock driver controlled via ACPM interface"
+> +	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
 
-In most cases the return value of those is treated as a boolean
-success/fail indicator. It's pretty confusing when a boolean return
-value indicates success with 'false'. It's way more intuitive to read:
 
-       if (!do_something())
-       		goto fail;
+I merged the patches but I don't get why we are not enabling it by
+default, just like every other clock driver. What is so special here?
 
-Just because we have this historic return '0' on success and error code
-on fail concept does not mean we have to proliferate it forever.
-
-In fact a lot of that 'hand an error code through the callchain' is just
-pointless as in many cases that error code is completely ignored and
-just used for a boolean decision at the end. So there is no point to
-pretend that those error codes are meaningful except for places where
-they need to be returned to user space.
-
-Thanks,
-
-        tglx
-
+> +	help
+> +	  This driver provides support for clocks that are controlled by
+> +	  firmware that implements the ACPM interface.
+> +
+> +	  This driver uses the ACPM interface to interact with the firmware
+> +	  providing all the clock controlls.
+> +
+>  config TESLA_FSD_COMMON_CLK
+>  	bool "Tesla FSD clock controller support" if COMPILE_TEST
+>  	depends on COMMON_CLK_SAMSUNG
+Best regards,
+Krzysztof
 
