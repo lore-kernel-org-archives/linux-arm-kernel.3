@@ -4,100 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB0E8CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 07:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5C45CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 07:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NeEefsjDjBTzkWLJQXyP/5aObcnLAGWfiU+nORhhDXo=; b=pkxWdjsRLZAsX2gYdv2/AKadUr
-	snERKnFhDp2lUCG5PFfTTWEnXEU3Qp8vuub/XDiBVTldloFy4GhxPXP+lYCVUemCHJmQfJ+pbcj1L
-	o/qxc8cbtUvN9455BiwaB1GUhTSpaE0d/DibvWbJRraZHnhemCaicj4uTUpd3FpGUWTnvnrtc5XLv
-	x1K4A5xAP4SxB0ae0+nRy299LV00vhP9CkRnNvWKu4xWLlW/91xwnCCtz95yRDxa6vN2qX+6YAQsl
-	GAYyTIZj3g4gx4AMkymsCf5pSjwWmwQ9WGjK2QpXntHNSUfWxj+XwXEsJTUXGH8oPAOYwoPWqhdJF
-	AjfU4mig==;
+	bh=ZcfCRyR31+am0iN4Xfd05eQCFyZcZAlVqMoqLfdVPvM=; b=OXU7EG7vbA4B7Ws64gpO5c17Kp
+	VIy8AsHUI5wqsMLKqkE/9cbtX8+veyuzdCl8forth7wKaEkTrWS8javqyzvhMpe+NPpDPf/DAWDXY
+	wcrlR+G44HdOdVgRvDLhv4eSup0bgpK6QJ2Eqf7OorGd+3WDvtxBxkE2r6W5CFb4Ek+g6bOiFVZbh
+	jJAjhKN7p49hSthN+dnPxyu8p5WsZ046GSaXlBQIQNKeYoI2e9S5YL3CbweyN4hhADcwOg9Kn/P3N
+	tgaei737VwC0a6lW9wl0QFqwaabEn+Qk9Xt880+HLOOViBL0BcB/VbZyJZhAYh2hKYMBodaBDKtQ/
+	nBvlpx0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAkal-0000000CFts-2PIN;
-	Mon, 20 Oct 2025 07:46:07 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1vAkeP-0000000CGJX-0nOq;
+	Mon, 20 Oct 2025 07:49:53 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAkai-0000000CFtY-3aAm
+	id 1vAkeM-0000000CGIf-0dFk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 07:46:06 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-426fd62bfeaso1764045f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 00:46:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760946362; x=1761551162; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NeEefsjDjBTzkWLJQXyP/5aObcnLAGWfiU+nORhhDXo=;
-        b=DXlJcX9Y2hjtnZ2iCafoBg3+a7YD9yNvVJN3W/F6/SmcGFJIQXDNnZ2bs20QX1/mmK
-         QXoQu0SvvuvH4EMre242Bl+INGeKnci6Ru/nWcsk0GNGRv9TSUZMb4V3zmTR7qDRzODO
-         zx6eC0K+HwVEj4oPeUC81M9ULBlIHe85A84iO4wzA+OUkx5cANz1wpMwy2yhlOAQ1UUY
-         7mHc33h8n5YUxjx/uYxa5l+gIoGjMQmXqgMyBlvOhtBVeArVAYz5e32oMfDz3XMvW1sQ
-         fCyb0K5Bu9HZUqkQ6AvObJudS4WZ/btU+7Ib127G+VVXcY2mF+3zPCuknT5VI5AAhP8A
-         8G1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760946362; x=1761551162;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NeEefsjDjBTzkWLJQXyP/5aObcnLAGWfiU+nORhhDXo=;
-        b=xDFaIX7C3zlFU1icC/sNoqLnU10UrOM+X33PLMdiGkEY9jRDCLw3rwMDLvR6Gjl3SX
-         0240zwL58u2hYuTKL+QZ/LdPzI6/G4pKEIZrk8UFT4gwLwDfQYXt7nXR/HSphn8loGAU
-         Ivc6GEuY8q44LB2wcm8WobdQsPFgyFQs/AtU1QEMNaKu2OSXbah5u77cQsFKdla2LDmo
-         C/rGCrL0v5fQ54efYHtE7eBSZYhl4U3Z5oQ4bLwtd6RNEYfnM4IUhwQjPC8cGRbEFIpU
-         uBDaIjZkvgICb+tPPRsq1g6BEE3xhHuc+8uMmQDF8mg5Zu04/R26JwZqR0n00Yc8cJ1B
-         RJCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV0I2nUjtyvyVIMkucfsFGpvm+mN4LYzxQeY4jP3ilyVPY5Q/3xqbmMrq+LvRwMBdf20oM6RB0wYvQIWqyHkVGo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjzmPYMfsvCq08NZ9f4AXOsYMfVr0RQxYk1pVhiEJahJvbMKvw
-	Rj4B/rSNT6L8MF0mteIiVvJlEcdUnPaFFQYh8v1xOPltp4jiGm4UuYuWzIHotz8AMJ8=
-X-Gm-Gg: ASbGncv+yQEWVYcZgTLHIBOfUzJ0z/MPe4mM4dW64buCdKXX4FljNLiWrqQvqQaaWTO
-	GbQZmsJi7Yd39x3j+BXVNDtGQvOr/ECfPwPhkxRJeWmE+oYQfkdOF+q7ERZKLRRNaTz+gRY1MfR
-	0fdC01IzaQ93IaQgnbdTjUGGEg9uSpprQbxAEYxyLnY2cYB9p/L/T9CWXpuba4fFmBSsW7RPM/u
-	XmCbt8fs24mMreXd1FQV2D6NbTPjgnPC8SPvZHf4JlAJxxVzNbF+snjkXz+L6NHM3jVv5ddK2AI
-	U9wG8NoKnU1NFRwD52iLSegb+zB0LE/dPbBkguAMz6uuFPq0vl92LBE63LUC1UdvCObmLK/icwd
-	3/TcpGnJUAcMnWEKA2UBGBloPe2T9WEDN/Rq0wQP0ffytuTwC56AK/eo+gzeUwsKPx/gRy1ZnP7
-	EpvyN6s1BDtiQYv8Nh2/c=
-X-Google-Smtp-Source: AGHT+IElXYjtpSTA367NjPFbuT2cNOkeZqKtyb865DWWHqYMgZ9skD7DsDruCaof11OozJ+7TkNWCA==
-X-Received: by 2002:a5d:5888:0:b0:426:d587:850d with SMTP id ffacd0b85a97d-42704d78d2amr6946088f8f.28.1760946361718;
-        Mon, 20 Oct 2025 00:46:01 -0700 (PDT)
-Received: from [10.11.12.107] ([79.115.63.145])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-427ea5a102fsm14122755f8f.1.2025.10.20.00.45.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 00:46:01 -0700 (PDT)
-Message-ID: <17695fcf-f33c-4246-8d5c-b2120e9e03b1@linaro.org>
-Date: Mon, 20 Oct 2025 08:45:58 +0100
+	Mon, 20 Oct 2025 07:49:51 +0000
+X-UUID: 4f4e1ddaad8911f0a38c85956e01ac42-20251020
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:077d9843-85d1-45bd-9f42-d164766ef793,IP:0,UR
+	L:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:25
+X-CID-META: VersionHash:a9d874c,CLOUDID:cb42775910660d13e7362869089db852,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|850,TC:nil,Content:0|50,EDM:5,
+	IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
+	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 4f4e1ddaad8911f0a38c85956e01ac42-20251020
+X-User: xiaopei01@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 571335398; Mon, 20 Oct 2025 15:49:30 +0800
+From: Pei Xiao <xiaopei01@kylinos.cn>
+To: eugen.hristev@linaro.org
+Cc: alexandre.belloni@bootlin.com,
+	jic23@kernel.org,
+	lars@metafoo.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	nicolas.ferre@microchip.com,
+	xiaopei01@kylinos.cn
+Subject: [PATCH v2] iio: adc: at91-sama5d2_adc: Fix potential use-after-free in sama5d2_adc driver
+Date: Mon, 20 Oct 2025 15:49:25 +0800
+Message-Id: <268cbf0a5d9b931fcf6c025c53cc698ce78e4689.1760946527.git.xiaopei01@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <e9d6831a-d0ef-440c-b235-fec18048deed@linaro.org>
+References: <e9d6831a-d0ef-440c-b235-fec18048deed@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/6] clk: samsung: add Exynos ACPM clock driver
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
- <20251010-acpm-clk-v6-4-321ee8826fd4@linaro.org>
- <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <92f1c027-bacc-4537-a158-2e0890e2e8ee@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_004605_091367_E11DD95B 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20251020_004950_488158_6A6082AA 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,29 +81,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+at91_adc_interrupt can call at91_adc_touch_data_handler function
+to start the work by schedule_work(&st->touch_st.workq).
 
+If we remove the module which will call at91_adc_remove to
+make cleanup, it will free indio_dev through iio_device_unregister
+while the work mentioned above will be used. The sequence of operations
+that may lead to a UAF bug is as follows:
 
-On 10/20/25 7:54 AM, Krzysztof Kozlowski wrote:
->> diff --git a/drivers/clk/samsung/Kconfig b/drivers/clk/samsung/Kconfig
->> index 76a494e95027af26272e30876a87ac293bd56dfa..70a8b82a0136b4d0213d8ff95e029c52436e5c7f 100644
->> --- a/drivers/clk/samsung/Kconfig
->> +++ b/drivers/clk/samsung/Kconfig
->> @@ -95,6 +95,16 @@ config EXYNOS_CLKOUT
->>  	  status of the certains clocks from SoC, but it could also be tied to
->>  	  other devices as an input clock.
->>  
->> +config EXYNOS_ACPM_CLK
->> +	tristate "Clock driver controlled via ACPM interface"
->> +	depends on EXYNOS_ACPM_PROTOCOL || (COMPILE_TEST && !EXYNOS_ACPM_PROTOCOL)
-> 
-> I merged the patches but I don't get why we are not enabling it by
-> default, just like every other clock driver. What is so special here?
+CPU0                                      CPU1
 
-Thanks! Are you referring to the depends on line? I needed it otherwise
-on randconfigs where COMPILE_TEST=y and EXYNOS_ACPM_PROTOCOL=n I get:
+                                     | at91_adc_workq_handler
+at91_adc_remove                      |
+iio_device_unregister(indio_dev)     |
+//free indio_dev                     |
+                                     | iio_push_to_buffers(indio_dev)
+                                     | //use indio_dev
 
-ERROR: modpost: "devm_acpm_get_by_node" [drivers/clk/samsung/clk-acpm.ko] undefined!
+Fix it by ensuring that the work is canceled before proceeding with
+the cleanup in at91_adc_remove.
 
-Cheers,
-ta
+Fixes: 3ec2774f1cc ("iio: adc: at91-sama5d2_adc: add support for position and pressure channels")
+Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+---
+ drivers/iio/adc/at91-sama5d2_adc.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
+index b4c36e6a7490..1cd6ce61cf17 100644
+--- a/drivers/iio/adc/at91-sama5d2_adc.c
++++ b/drivers/iio/adc/at91-sama5d2_adc.c
+@@ -2480,6 +2480,7 @@ static void at91_adc_remove(struct platform_device *pdev)
+ 	struct iio_dev *indio_dev = platform_get_drvdata(pdev);
+ 	struct at91_adc_state *st = iio_priv(indio_dev);
+ 
++	cancel_work_sync(&st->touch_st.workq);
+ 	iio_device_unregister(indio_dev);
+ 
+ 	at91_adc_dma_disable(st);
+-- 
+2.25.1
+
 
