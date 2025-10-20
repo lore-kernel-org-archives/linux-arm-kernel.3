@@ -4,95 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7DD6CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86964CCD199
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 20 Oct 2025 09:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sjEUaWPd/Jj2ElIhymJE8eOmk6i+S46mwSJsA8AQ+EQ=; b=IZrOeO0LCMIOkux6bU+qRP/UYQ
-	ZVtoS8wA1CvSlARVRCafICstGIxjHuN5z9cKuF6i9TI0FPFplVtgTQ7vVdrgIupcjFCYf/qTeeowS
-	zp1WvuR5yKTd5fN9U978ih+k3VMhCPnyHQTokDxD3gvw/LyqlFqYxz1kC+mF/BHEwwWaL6kbM+cjU
-	EtCNZA80WDTCnKs1GkVOJUl8Qy/cFRzJh8YtOu32yv5B6/Lyd1Jduk6E8KKL1KA66r1W3ONGRFVHL
-	T0fD42l3WUVBJvRlLIMACIiPJZmCFK+lyoecalodvSxFRTcbsIwNAx5JWqBrbd2gLF6Mhenlt9EyJ
-	Nxr1eQhA==;
+	bh=5/f5THsVNT2n6+wuFClk7UP7tP672TSKVcPb7xVt1qA=; b=pSQ2g7UydrupDKPhSdVOygfFuK
+	pbz/ugNfTWpxWwvEI2JkWVLiwCHi7ES8VrAKB/R1J7Cm5Oq0RfnFX8qf2F/C09RHq2Zpj8qlVpFrs
+	Jhsy4d3dl63s5T5tH6muB2O9Jqlb9Cs3xRFQaywb01zfoRp+l+XR6jVCiT51X8Iyv3w5TgYmErts3
+	xPKxf6obWYLp5bWU0PjVVqg+lDNWwIBjuxbqbRN+bGmoFSmtpVrk709S4h/Y6Zz+PZmuKz/Q/GuC/
+	8quq2lQHgCyfDk9pthIROPt2Ekgg2vmRbJawlAm88lh44v46zrPx9+epVt/mTwx+Ol6Cg3sIY42ut
+	7gWfq2MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmP5-0000000CdSZ-10Bz;
-	Mon, 20 Oct 2025 09:42:11 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1vAmT7-0000000CeIm-2Dlt;
+	Mon, 20 Oct 2025 09:46:21 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vAmP2-0000000CdRA-2U9n
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 20 Oct 2025 09:42:09 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-59054fc6a45so4666113e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 02:42:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1760953326; x=1761558126; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sjEUaWPd/Jj2ElIhymJE8eOmk6i+S46mwSJsA8AQ+EQ=;
-        b=I7p7619ALOB2k1ohc4LaEnI2oXSEIyPozb6vJykdf46RkHW0aViAA+F1Y9Oi2sFqe3
-         Sasv/UFlg/AqHcB0mD2eqZ1YZAwakbju8ABPLjmLPmSui5LrXsxs3RCdIOyItVEU+RNG
-         rjbRuZcXFbHiLnbh8G1g6756gDw6RhHkUVBAzmbN3hu5UC2BH/yhASBuROYCHwSi19Yb
-         75AUGpIO0MRObHZcGnaEtcFIwZ3lChxGV2VmEMtshGgV5Aqpkl3W3iRovzDl1JKVEFGW
-         YVU2OaXfr0+Gt9TkAdUlt/B8ROtUbbI+fC3EW/CBNchpPlD9ZV5rgsCM3VFi4Jk+GSVE
-         Vn2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760953326; x=1761558126;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=sjEUaWPd/Jj2ElIhymJE8eOmk6i+S46mwSJsA8AQ+EQ=;
-        b=pnEt4KVmFPMw/Lmxyybafu7F0gN0+URgIGeGmbtu+J+a3CNFELqijlRp/FEN4E6UrD
-         p5AFFA+cWZxnyTAg8plpzb9OdIV5uPCF/BAYF336E3MUDWs+0To6gecgTvPyOw6oazXD
-         YkJyItMuwkndC3YoQKCkZ2YOskOqeUYCLtXNqYwMdDG73zUBpoTsUeRJ3bkJvSyo9HVI
-         pUnxYpp6YQb2nddXXm3KGzZjI0Sw3MwUa24SbK8MqJ4WPeq8wYDUEynpU0I63iw8ry9D
-         7+So79hD7dafCaXn4+i6hVn8yK489UaiQQp0v+Pz5kyAWu/vmqq1Z3FLP5eh461h4X9u
-         STHg==
-X-Forwarded-Encrypted: i=1; AJvYcCV5P60WFj3/uZbDNn3KUt1xMWawIH2Uo+yyGCSdbaXnafMMezOdyPzp3CTKtbDYppgtSexlv7WZBTPLXtKH92fJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywur4bNxD70fragc716/miTPkcBvHh3LCAB5FiSOiaodWP3I1MD
-	cj8k5IWUmwId9NljBPZgVNr3lpyz0MOeA14oB64gzHyNjdBDszJ7u2D7gr5pcxJ7xGuWES2BbLN
-	+CzTRxnozFmMJ8yEBo5d7eWl7GrUR66sw/aH5KH4C4gEVet/JglaL
-X-Gm-Gg: ASbGncvAdSCa9za/yiuvKoz+g3p0wNgy9KE1hXvrHuS8Nt+SXdK/B2vzlAsSUZlL1Rb
-	ZSLAg1v8YlRLN0NRcRuKW+b28oREA8ASvFs+RgdLFDlzFTnZMgnQkajbFOSPM/hZZb3cKzvX8D8
-	+KKdr2nRCohEnAsiK+kUcRPajd8CDU1FanH2Z1ldLD086Tvr6bvqibIlOe/oAtJiCEhHhf1vDIP
-	Wtt99hvMuVXoXuC3nW/2v7+YQDEBfnxXArLOxI/+nQXYLwan1sJM+DT8vLAbTX5X8P/9zSh4zQx
-	X8se5IGJnfn2e2tO
-X-Google-Smtp-Source: AGHT+IHY1EdCIXYngUyFFwGvzEW0znpDl77em9pEnOCmJRoroDyoIZB7DiA520ogK1u8lsISe3niq2HVycioLER4ci8=
-X-Received: by 2002:a05:6512:1052:b0:578:ed03:7b70 with SMTP id
- 2adb3069b0e04-591d8589aedmr3757333e87.28.1760953326040; Mon, 20 Oct 2025
- 02:42:06 -0700 (PDT)
+	id 1vAmT4-0000000CeFz-3H8V;
+	Mon, 20 Oct 2025 09:46:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1760953574;
+	bh=jImzS7kzdcSLp9Jf+2/whVppszQvlgg1u1y3EIe5sjQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=V0pFhusgmorb/EI/Ff3qSALsH+A4wCvTsjbW4TxYmOYLbRf1iQLt0+7ZcKSynNJNr
+	 VSKmlM7OTEBSWmkM3ZOy5inFxIhvkWlrHbcTVa2Q3E7RrKCn2TaDnw8aWBuQlzdevt
+	 aszck1+q3M1v6YhWjGTclgROU1xcZsKybjEMFXp8cZ5/AkveIbIm4iHorglYqYN7sR
+	 MEt8DkpKHFowsspj6uIBFP3DM7IcxElvUgz+gwCg3g4LynJa5MV1lQKIbreLhIID4+
+	 awTbLhAerc2fOavsIGw5vKeLlaySd010Ptc2Ve0u1gNdtyv5ppLzRZOatOU1fL5HnU
+	 IzBiyEfDm1QwQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AFF3F17E0DB7;
+	Mon, 20 Oct 2025 11:46:13 +0200 (CEST)
+Message-ID: <4ed4e704-ba0d-4d72-bbb1-0bcbfba2dc11@collabora.com>
+Date: Mon, 20 Oct 2025 11:46:12 +0200
 MIME-Version: 1.0
-References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
- <CAMRc=Me4Fh5pDOF8Z2XY4MG_DYqPRN+UJh_BzKvmULL96wciYw@mail.gmail.com> <81bda56c-f18b-4bd9-abf9-9da7c2251f42@sirena.org.uk>
-In-Reply-To: <81bda56c-f18b-4bd9-abf9-9da7c2251f42@sirena.org.uk>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Mon, 20 Oct 2025 11:41:52 +0200
-X-Gm-Features: AS18NWCTv8z2cF08OaIclAyR6BuSf6xIu18qyroHsfySyW-sq8vo6xUHsWKQB4s
-Message-ID: <CAMRc=MdOCHJEyPxN+-g71ux68=Mt_Q5P9611QO7Q8J9e8UJv_A@mail.gmail.com>
-Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Srinivas Kandagatla <srini@kernel.org>, 
-	Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Takashi Iwai <tiwai@suse.com>, Rob Herring <robh@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andy Shevchenko <andy@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Will Deacon <will@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 01/20] arm64: dts: mediatek: Add GCE header for MT8196
+To: Jason-JH Lin <jason-jh.lin@mediatek.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+ Nicolas Dufresne <nicolas@ndufresne.ca>, Nancy Lin <nancy.lin@mediatek.com>,
+ Singo Chang <singo.chang@mediatek.com>,
+ Paul-PL Chen <paul-pl.chen@mediatek.com>, Moudy Ho <moudy.ho@mediatek.com>,
+ Xiandong Wang <xiandong.wang@mediatek.com>,
+ Sirius Wang <sirius.wang@mediatek.com>, Fei Shao <fshao@chromium.org>,
+ Chen-yu Tsai <wenst@chromium.org>,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
+References: <20251017065028.1676930-1-jason-jh.lin@mediatek.com>
+ <20251017065028.1676930-2-jason-jh.lin@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251017065028.1676930-2-jason-jh.lin@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_024208_855065_4252E4DB 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20251020_024618_979288_C5AA07EE 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,22 +88,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 7:32=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
-te:
->
-> On Fri, Oct 17, 2025 at 07:26:51PM +0200, Bartosz Golaszewski wrote:
->
-> > Upon a closer inspection it turns out that this is not the case - the
-> > ENABLE/DISABLE events are emitted when the *logical* regulator is
-> > enabled/disabled even if this does not involve a change in the state
-> > of the shared pin.
->
-> It really should be the actual physical state change that triggers the
-> event.
+Il 17/10/25 08:44, Jason-JH Lin ha scritto:
+> Add GCE header define for GCE Thread Priority and GCE Event IDs
+> that used in the MT8196 dtsi.
+> 
+> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+> ---
+>   arch/arm64/boot/dts/mediatek/mt8196-gce.h | 612 ++++++++++++++++++++++
+>   1 file changed, 612 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/mediatek/mt8196-gce.h
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8196-gce.h b/arch/arm64/boot/dts/mediatek/mt8196-gce.h
+> new file mode 100644
+> index 000000000000..457dc73aeed3
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/mediatek/mt8196-gce.h
+> @@ -0,0 +1,612 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + *
+> + */
+> +
+> +#ifndef __DTS_GCE_MT8196_H
+> +#define __DTS_GCE_MT8196_H
+> +
+> +/* GCE Thread Priority
+> + * The GCE core has multiple GCE threads, each of which can independently
+> + * execute its own sequence of instructions.
+> + * However, the GCE threads on the same core cannot run in parallel.
+> + * Different GCE threads can determine thread priority based on the scenario,
+> + * thereby serving different user needs.
+> + *
+> + * Low priority thread is executed when no high priority thread is active.
+> + * Same priority thread is scheduled by round robin.
+> + */
+> +#define CMDQ_THR_PRIO_LOWEST	0
+> +#define CMDQ_THR_PRIO_1		1
+> +#define CMDQ_THR_PRIO_2		2
+> +#define CMDQ_THR_PRIO_3		3
+> +#define CMDQ_THR_PRIO_4		4
+> +#define CMDQ_THR_PRIO_5		5
+> +#define CMDQ_THR_PRIO_6		6
+> +#define CMDQ_THR_PRIO_HIGHEST	7
+> +
+> +/*
+> + * GCE0 Hardware Event IDs
+> + * Different SoCs will have varying numbers of hardware event signals,
+> + * which are sent from the corresponding hardware to the GCE.
+> + * Each hardware event signal corresponds to an event ID in the GCE.
+> + * The CMDQ driver can use the following event ID definitions to allow
+> + * the client driver to use wait and clear APIs provided by CMDQ, enabling
+> + * the GCE to execute operations in the instructions for that event ID.
+> + *
+> + * The event IDs of GCE0 are mainly used by display hardware.
 
-I guess so, but this would require some non-trivial rework of the
-regulator core. We'd need some list of deferred notifications stored
-in memory for when the physical state actually changes.
+..snip..
 
-Bartosz
+> +/* CMDQ_EVENT_MML1_FRAME_DONE_SEL0 ~ 15: 284 ~ 299 */
+> +#define CMDQ_EVENT_MML1_FRAME_DONE_SEL(n)					(284 + (n))
+> +/* CMDQ_EVENT_MML1_REG_UPDATE_DONE_ENG_EVENT0 ~ 15: 300 ~ 315 */
+> +#define CMDQ_EVENT_MML1_REG_UPDATE_DONE_ENG_EVENT0				(300 + (n))
+                                                     ^^^^^
+There's a typo here                                  (n)
+
+Please fix, after which
+
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
 
