@@ -4,54 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1EA2CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:43:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFC0CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xZTLqM3E7aVDYIB/jnD5MiDi3FAIGgatFm751EDj2YQ=; b=EPXXaK/5rdbbVXefTydpHQLvyJ
-	5A4Fg1/KBWi5Mzpfvv3cDcApKWH2XlF5s9np7p6GthJuDKe1U4BdqwigyJ+r+VVmauu6P7IqUS45l
-	SuwSjO2rL1TmI9aEF52uC2iXuRft8X9VOLGSYnCkNeFm88mUHivxwRhoPKJselec2uk7/YQ72v/Dj
-	f+CnX9RBL+QMZFSMfhSstjGpPC4J7qr3CFjWT9gaeX75Iqelrz62TbsitfyDoBuUj5N/6UbrIvqnI
-	iecrT4iRKmSxZbZbaUvhkQUI0VvjwYDTVpMuXvvoblkVTxeCZLWh3EjmmIKVt8ZfQV2fdj7GqMOvH
-	M9BPEcYQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=445YquTwMCYGWvvFlDmuQ2qGeWs3mzkw8t3wT+6a8rU=; b=R6EPq2dZHIJonyCni3UeADfGXA
+	kWHPCBxzInyPl2YrN/br8J1qcPLBu2/iGP+LKNn7plT2aEupEbFqNln4uhO/uAl8vca8Jk44NewrH
+	+lLbqWcaoJtpNR3Z/QnkdT11HhFToB3PG9YRc9jypEgMHI8Ptw27Rx0kODLopVoJabAa4zDR9ntGB
+	eQ/9wGV1QiXNLVaMpOOOsNxX/M18BXgMpSmFnRuYjWl7XgEUOXwvhEY5nJ1pjxj0BIn6sfamFZikM
+	JTyWJ5CNb0gycaJkLItD53re1x52KPlXKPW5V0ikN0y+4riLeg3TQQm6W3U9z+MCLzThTKqwEVzt3
+	xb0S8GDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB71I-0000000G6hV-0xTy;
-	Tue, 21 Oct 2025 07:43:00 +0000
-Received: from mail.zynotix.com ([79.137.80.196])
+	id 1vB71k-0000000G6se-2Opg;
+	Tue, 21 Oct 2025 07:43:28 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB71F-0000000G6gD-3t2m
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 07:42:59 +0000
-Received: by mail.zynotix.com (Postfix, from userid 1002)
-	id 2C54925222; Tue, 21 Oct 2025 09:41:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zynotix.com; s=mail;
-	t=1761032501; bh=xZTLqM3E7aVDYIB/jnD5MiDi3FAIGgatFm751EDj2YQ=;
-	h=Date:From:To:Subject:From;
-	b=KRxGv3URZV0H73/VEoTxCojft2+P14BlYjqCWNVK+zpk/YCtmxTjBh24MouCwx4Nb
-	 dZTdlPIuuaAFiFGRmcS2bUuzNs3FVCK+NpE8fqNtRYYrD6bjb9dQD5aVVvW+9UAWNK
-	 KsmHSCnZd6UD/WEdY5/7kHGjCkKI+DcONXWZaDEn2XaiogG0/sWFsQjo53BZ9D6H1n
-	 7X3Hx574dg7XIQltUAzaUnp96Obf6zAqxgjbIVL6cXk5XMcqt58Xb97Gkp6Kx+XU8U
-	 LrvzvIV0gMr0HU0ekP59Tkm3uu5iZ+sbpZqPhWODQTKJ8sTimXUHz7qgn1ggFvnEsT
-	 Nk7A1d6mcfKCg==
-Received: by mail.zynotix.com for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 07:40:46 GMT
-Message-ID: <20251021084501-0.1.ck.un93.0.jw8op9jyvk@zynotix.com>
-Date: Tue, 21 Oct 2025 07:40:46 GMT
-From: =?UTF-8?Q?"Magdalena_Ko=C5=82adczyk"?= <magdalena.koladczyk@zynotix.com>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: =?UTF-8?Q?Informacja_z_ksi=C4=99gowo=C5=9Bci?=
-X-Mailer: mail.zynotix.com
+	id 1vB71i-0000000G6nj-1PA2;
+	Tue, 21 Oct 2025 07:43:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
+	bh=445YquTwMCYGWvvFlDmuQ2qGeWs3mzkw8t3wT+6a8rU=; b=iUrZTOZzaLL3fyZVeCHJaxvjeC
+	BerfNIWSOthofcI0H1WxeVGUXBNntT85YiRWop7D9KbYjW3zCCM31xEbQVa4P1AEB+VjLgV6TI1Bl
+	SX9HqLLAr2mkVBbAGsaEqRpVz182SdMmrkcdp5bq17JU4g6EdLu3xvOho7tjBmtbP2Uvh48xnJKcZ
+	TMU4ITOKae999SatR0zfGZFmdJJVDQ1hAgCT4HZuem7v5c+z8OLurowI7x7FrIiGSEwWIQpFCYcPa
+	Iv4Pc1StT+dtczdgEPmKCN9U3TCl3gyW+Zj+k+yFweP4WLdB/y1e4V9v74vrOHwGQxLnqXH9JfwOa
+	Z7tREdIA==;
+Received: from [212.111.240.218] (helo=phil.guestnet.ukdd.de)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vB71P-0000uy-Pz; Tue, 21 Oct 2025 09:43:07 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	quentin.schulz@cherry.de,
+	andy.yan@rock-chips.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	cn.liweihao@gmail.com,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH v2 8/9] arm64: dts: rockchip: Enable HDMI output on RK3368-Lion-Haikou
+Date: Tue, 21 Oct 2025 09:42:53 +0200
+Message-ID: <20251021074254.87065-9-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20251021074254.87065-1-heiko@sntech.de>
+References: <20251021074254.87065-1-heiko@sntech.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_004258_106530_1E24ECB7 
-X-CRM114-Status: UNSURE (   1.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251021_004326_384398_E36ACEF4 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,24 +82,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dzie=C5=84 dobry,
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-prowadz=C4=99 biuro ksi=C4=99gowe, kt=C3=B3re specjalizuje si=C4=99 w obs=
-=C5=82udze biznesu Pa=C5=84stwa formatu.
+Enable the VOP and HDMI controller on the Lion-Haikou board.
 
-Wraz z zespo=C5=82em zapewniamy wsparcie, kt=C3=B3re wykracza daleko poza=
- samo przygotowanie rozlicze=C5=84 i procesowanie dokumentacji.
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+---
+ .../boot/dts/rockchip/rk3368-lion-haikou.dts   | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-Redukujemy do minimum czas i =C5=9Brodki, jakie nasi Klienci przeznaczaj=C4=
-=85 na obs=C5=82ug=C4=99 finansowo-ksi=C4=99gow=C4=85 i kadrowo-p=C5=82ac=
-ow=C4=85.=20
+diff --git a/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
+index abd1af97456a..a8eb4e9c2778 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
+@@ -58,6 +58,16 @@ vcc5v0_otg: regulator-vcc5v0-otg {
+ 	};
+ };
+ 
++&display_subsystem {
++	status = "okay";
++};
++
++&hdmi {
++	avdd-0v9-supply = <&vdd10_video>;
++	avdd-1v8-supply = <&vcc18_video>;
++	status = "okay";
++};
++
+ &i2c_lvds_blc {
+ 	eeprom: eeprom@50 {
+ 		compatible = "atmel,24c01";
+@@ -101,6 +111,14 @@ &uart1 {
+ 	status = "disabled";
+ };
+ 
++&vop {
++	status = "okay";
++};
++
++&vop_mmu {
++	status = "okay";
++};
++
+ &pinctrl {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&haikou_pin_hog>;
+-- 
+2.47.2
 
-Z racji mojego do=C5=9Bwiadczenia przy wsp=C3=B3=C5=82pracy z firmami o t=
-akim rodzaju dzia=C5=82alno=C5=9Bci, chcia=C5=82abym przedstawi=C4=87 kil=
-ka warto=C5=9Bciowych i sprawdzonych rozwi=C4=85za=C5=84.
-
-Czy mo=C5=BCemy porozmawia=C4=87 o obs=C5=82udze Pa=C5=84stwa firmy?
-
-Pozdrawiam
-Magdalena Ko=C5=82adczyk
 
