@@ -4,74 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073CCCCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 13:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FED0CCD1A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 13:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lu/YSRFYNTWn2sHbKkcgJG3Xsw6PYI6j/HckrM3pqQs=; b=OJGatzy0bT2A8jaxQwQMdotjlh
-	3M8y8R9Bnc+lDOaxDspwWrODpa0XknBZDWUSh1iBE9uIkm1uw6sEFM/SQg1oqqtYfd5W5IXfZgDJu
-	FLrOZT/OIkj2CSRbZA4in1qDkRTEw9AKYNu1xV8JekAb93cVx9LH9NrZaRkk5yzixJsnJy6gJ5MQd
-	4onX+HkOa3cOwoDw6OuP1gso1F1C0tkAbKeOIcoFe4BwOOlu1+uydPyhEdtgen/9mzZrmDaUSJPT5
-	2jZ+D9JcUP3xIKcsHR+AHS3RvqnL8jgwVXCmMinwz/9aSTqBRWsWYxEcz5J5qMloj/d1rsnPHxmo6
-	p04bu52Q==;
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j3KJELQ+1zBaV6zsfBpuZG8t84lL3xkiKid35BQ9x2E=; b=h9lbdNmjNshm6pEdn2tIaUQhHr
+	AgXtI5gvRrA36ke0r1P7R2SEOOB1Q62S0nugZ6G2ZZ+GS3Kr82bvEG94VIRREOwp8qTEqibZ9kBPj
+	TrOVUwB0M+yVPLGditWDRH/pXCrJeMa3Rju4aHrR+KfoFk7BViN7cCfzWklQhD5OYyIE4FWzeSWTu
+	UPYYmD+vnyXX25p8oExQRMsfK9bPE+pr0qyxMs0JsBcnYjgqPPwTwy4f8bfuNt8ZRjvBV837D1Mt6
+	2lLPGeZGBiV2JAxhvzPXx1GmiEEHtZpcwZwAM+cR9EB/WcrW9H1piLUdPHPKbP9ltoKX2izhW5NwM
+	peToa67w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBCa2-0000000HBA2-3pG8;
-	Tue, 21 Oct 2025 13:39:14 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1vBCaA-0000000HBDO-0vVM;
+	Tue, 21 Oct 2025 13:39:22 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBCa0-0000000HB8a-0CJ0
+	id 1vBCa7-0000000HBBp-1mwi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 13:39:13 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Lu/YSRFYNTWn2sHbKkcgJG3Xsw6PYI6j/HckrM3pqQs=;
-	b=OEliUXtze1ysDGiXebc8aOkkfcO6F8sq5bQfW/8h9+NAyXEd9E1D55qVscDhErXCkjF4CR9it
-	+ccNru3QBKFMcneNKNZJ4iyEtNqrPU50yHK48KGzTP5hUnodQQiJdci9PW6zCm4OnN71GRN3hQt
-	Aah6GlwadXT64oz3XZTFhVk=
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4crYK66cMGzKm6m;
-	Tue, 21 Oct 2025 21:38:18 +0800 (CST)
-Received: from kwepemh200008.china.huawei.com (unknown [7.202.181.115])
-	by mail.maildlp.com (Postfix) with ESMTPS id DCC4818001B;
-	Tue, 21 Oct 2025 21:38:42 +0800 (CST)
-Received: from [10.174.176.125] (10.174.176.125) by
- kwepemh200008.china.huawei.com (7.202.181.115) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 21 Oct 2025 21:38:42 +0800
-Subject: Re: [Question] Received vtimer interrupt but ISTATUS is 0
-To: Marc Zyngier <maz@kernel.org>
-CC: Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-	"moderated list:KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)"
-	<linux-arm-kernel@lists.infradead.org>, "open list:KERNEL VIRTUAL MACHINE FOR
- ARM64 (KVM/arm64)" <kvmarm@lists.linux.dev>, open list
-	<linux-kernel@vger.kernel.org>, "wanghaibin.wang@huawei.com"
-	<wanghaibin.wang@huawei.com>
-References: <14b30b59-12bb-fc69-8447-aae86fcafcd1@huawei.com>
- <87frblxx3b.wl-maz@kernel.org>
-From: Kunkun Jiang <jiangkunkun@huawei.com>
-Message-ID: <f9a37a7d-2141-ee82-c7d6-23d8de9db2c1@huawei.com>
-Date: Tue, 21 Oct 2025 21:38:26 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+	Tue, 21 Oct 2025 13:39:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761053958;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=j3KJELQ+1zBaV6zsfBpuZG8t84lL3xkiKid35BQ9x2E=;
+	b=Fm52bYlPGqZSpzR3cdtOjdEXeelUUsG5PHSGjAV/zjQEyENbmo2PQWPbX2fn9uyy3WRoZD
+	NU6v78EOuATTjK8j3laFDDcanzU/poGe8X5JCfmBhX7zYW+ZAWfbs8CLH7IUXq7OXU9kWq
+	Y78ybsBF4i7aGyYe/wp+KDsEzeI0IOQ=
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
+ [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-21-4ezr0MEKOeO2SN7t5S-99w-1; Tue, 21 Oct 2025 09:39:16 -0400
+X-MC-Unique: 4ezr0MEKOeO2SN7t5S-99w-1
+X-Mimecast-MFC-AGG-ID: 4ezr0MEKOeO2SN7t5S-99w_1761053956
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-86df46fa013so2472017685a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 06:39:16 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761053956; x=1761658756;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=j3KJELQ+1zBaV6zsfBpuZG8t84lL3xkiKid35BQ9x2E=;
+        b=kp0S2RKNPkxf7NvqlAdaPHzGgmeOZoZKSVH5U8hikW3EA29jhJmyn6Cd15g+PBEq6s
+         r4qqwR0mvLgh+Th1kNbxAeQ4i9VfOn+7GwRmkPeUukbLfACoEUi7LEJnMFLpbym678k4
+         RJ0PgNAcEEVdfqeoY1DjvgT5IfeAur8b0o9wV8BT8bCxyE8JqF8hFNSRDV6sXccjAbX9
+         gvUtAN3xKrDhP+yvlECum8CTnTeOGYXtjLS+5A/oJjUrh47mdOvOghh1GbnH5dWurIJu
+         zdYXvW2pR9OiShClq6d25EhoT8ZqpKNnsRGZecXfOxToU4ofTlA4tV510NwhEMmJY6q1
+         PyBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX45Xl2f9qmuJSSrP+Izzz/8XcvbY4RBCrQF4OAUY32uIs5omzs51+Vey1KK0CecvLDesS09NzDcvc2xTisbggL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyx+zPf2rOJsgEmfHP/XnSknirmh2VWV/CCzv1h7NvBHceeFKTD
+	sjLPQtiVz3nZC7kDf5t+htNmBMhouxrs+ym4clTP8f4RCHG/k5pfvYF18/akXwFqATotrH66eWY
+	iO80Br0vLShb+z7c7fX0sCnAs5h7fhffFeCpwV87Rembe7l7Y/Ape5jvshrmK3ML9MRk4eSvfMu
+	v5
+X-Gm-Gg: ASbGncutk92lIzt9gYzOUUrq7lgIx7ykjAsaAm3suSQW+GkO/jcc/vlOssYhB2bqyhT
+	YNfVaATmd76kZznMm3PPMGEfRdnCfJe9AOHL1JBHAy6X+9tRsiI69sCho2CWg9SIkjcoH4nrppU
+	5cPfCBKUV2CFiQwqC4qUgfbwc9MPaJ6o/FVh828LRJGECd2eCr0SAof6RlkyZGqrG8k/vOh5F8E
+	yhwog/bLYqYc5vrPoVZvgoiSbZLUB0TdyJxbJh5ah36O9uye+nP2QEyvUy8+ZkXkNZUuzChatcq
+	gcjZemBBKsIfCRs1v/3hoBiqiLE15LNIUXXf4PiiubrubER4ErlVKN/IpBSA4ZdBgZdHutHEvyH
+	i8ARa9JH6Gq0RwKFfuz0wTxa9fsYZ/vFBNZpplCfzIvodbg==
+X-Received: by 2002:ac8:7d8a:0:b0:4e8:a6c3:4322 with SMTP id d75a77b69052e-4e8a6c343dbmr147838271cf.68.1761053955806;
+        Tue, 21 Oct 2025 06:39:15 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFz7AKLLzN2UNU/guKrJvkpbFnggCrMTTSh4yWUy38aXqbwBFVcdBvCw2i1DLngSoeAJ3ah8Q==
+X-Received: by 2002:ac8:7d8a:0:b0:4e8:a6c3:4322 with SMTP id d75a77b69052e-4e8a6c343dbmr147838031cf.68.1761053955419;
+        Tue, 21 Oct 2025 06:39:15 -0700 (PDT)
+Received: from ?IPV6:2601:600:947f:f020:85dc:d2b2:c5ee:e3c4? ([2601:600:947f:f020:85dc:d2b2:c5ee:e3c4])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4e8aaf3370fsm74330521cf.3.2025.10.21.06.39.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Oct 2025 06:39:14 -0700 (PDT)
+From: Waiman Long <llong@redhat.com>
+X-Google-Original-From: Waiman Long <longman@redhat.com>
+Message-ID: <ea2d3e0e-b1ee-4b58-a93a-b9d127258e75@redhat.com>
+Date: Tue, 21 Oct 2025 09:39:10 -0400
 MIME-Version: 1.0
-In-Reply-To: <87frblxx3b.wl-maz@kernel.org>
-Content-Type: text/plain; charset="utf-8"; format=flowed
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 13/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
+To: Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
+ <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-14-frederic@kernel.org>
+In-Reply-To: <20251013203146.10162-14-frederic@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: FpcnoFnSDR6CnG2vUaC7VbNBZLQHBIG7bENs_XjzBQA_1761053956
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.176.125]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemh200008.china.huawei.com (7.202.181.115)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_063912_389057_1BC4887F 
-X-CRM114-Status: GOOD (  45.11  )
+X-CRM114-CacheID: sfid-20251021_063919_579583_16385B7F 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,169 +133,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
-
-On 2025/10/15 0:32, Marc Zyngier wrote:
-> On Tue, 14 Oct 2025 15:45:37 +0100,
-> Kunkun Jiang <jiangkunkun@huawei.com> wrote:
->>
->> Hi all,
->>
->> I'm having a very strange problem that can be simplified to a vtimer
->> interrupt being received but ISTATUS is 0. Why dose this happen?
->> According to analysis, it may be the timer condition is met and the
->> interrupt is generated. Maybe some actions(cancel timer?) are done in
->> the VM, ISTATUS becomes 0 and he hardware needs to clear the
->> interrupt. But the clear command is sent too slowly, the OS has
->> already read the ICC_IAR_EL1. So hypervisor executed
->> kvm_arch_timer_handler but ISTATUS is 0.
-> 
-> If what you describe is accurate, and that the HW takes so long to
-> retire the timer interrupt that we cannot trust having taken an
-> interrupt, how long until we can trust that what we have is actually
-> correct?
-> 
-> Given that it takes a full exit from the guest before we can handle
-> the interrupt, I am rather puzzled that you observe this sort of bad
-> behaviours on modern HW. You either have an insanely fast CPU with a
-> very slow GIC, or a very bizarre machine (a bit like a ThunderX -- not
-> a compliment).
-I added dump_stack in the exception branch, and the following is the 
-stack when the problem occurred.
-> [ 2669.521569] Call trace:
-> [ 2669.521577]  dump_backtrace+0x0/0x220
-> [ 2669.521579]  show_stack+0x20/0x2c
-> [ 2669.521583]  dump_stack+0xf0/0x138
-> [ 2669.521588]  kvm_arch_timer_handler+0x138/0x194
-> [ 2669.521592]  handle_percpu_devid_irq+0x90/0x1f4
-> [ 2669.521598]  __handle_domain_irq+0x84/0xfc
-> [ 2669.521600]  gic_handle_irq+0xfc/0x320
-> [ 2669.521601]  el1_irq+0xb8/0x140
-> [ 2669.521604]  kvm_arch_vcpu_ioctl_run+0x258/0x6fc
-> [ 2669.521607]  kvm_vcpu_ioctl+0x334/0xa94
-> [ 2669.521612]  __arm64_sys_ioctl+0xb0/0xf4
-> [ 2669.521614]  el0_svc_common.constprop.0+0x7c/0x1bc
-> [ 2669.521616]  do_el0_svc+0x2c/0xa4
-> [ 2669.521619]  el0_svc+0x20/0x30
-> [ 2669.521620]  el0_sync_handler+0xb0/0xb4
-> [ 2669.521621]  el0_sync+0x160/0x180By analyzing this stack, it should indeed take a full exit from the 
-guest.Do you think this is a hardware issue?
-> 
-> How does it work when context-switching from a vcpu that has a pending
-> timer interrupt to one that doesn't? Do you also see spurious
-> interrupts?
-I added a log under the 'if(!vcpu)' branch and tested it, but it did not 
-go to this branch. In addition, I have set the vcpu to be bound to the 
-core, and only one vcpu is running on one core.
-> 
->> The code flow is as follows:
->> kvm_arch_timer_handler
->>      ->if (kvm_timer_should_fire)
->>          ->the value of SYS_CNTV_CTL is 0b001(ISTATUS=0,IMASK=0,ENABLE=1)
->>      ->return IRQ_HANDLED
->>
->> Because ISTATUS is 0, kvm_timer_update_irq will not be executed to
->> inject this interrupt into the VM. Since EOImode is 1 and the vtimer
->> interrupt has IRQD_FORWARDED_TO_VCPU flag, hypervisor will not write
->> ICC_DIR_EL1 to deactivate the interrupt. This interrupt remains in
->> active state, blocking subsequent interrupt from being
->> process. Fortunately, in kvm_timer_vcpu_load it will be determined
->> again whether an interrupt needs to be injected into the VM. But the
->> delay will definitely increase.
-> 
-> Right, so you are at most a context switch away from your next
-> interrupt, just like in the !vcpu case. While not ideal, that's not
-> fatal.
-> 
->>
->> What I want to discuss is the solution to this problem. My solution is
->> to add a deactivation action:
->> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
->> index dbd74e4885e2..46baba531d51 100644
->> --- a/arch/arm64/kvm/arch_timer.c
->> +++ b/arch/arm64/kvm/arch_timer.c
->> @@ -228,8 +228,13 @@ static irqreturn_t kvm_arch_timer_handler(int
->> irq, void *dev_id)
->>          else
->>                  ctx = map.direct_ptimer;
->>
->> -       if (kvm_timer_should_fire(ctx))
->> +       if (kvm_timer_should_fire(ctx)) {
->>                  kvm_timer_update_irq(vcpu, true, ctx);
->> +       } else {
->> +               struct vgic_irq *irq;
->> +               irq = vgic_get_vcpu_irq(vcpu, timer_irq(timer_ctx));
->> +               gic_write_dir(irq->hwintid);
->> +       }
->>
->>          if (userspace_irqchip(vcpu->kvm) &&
->>              !static_branch_unlikely(&has_gic_active_state))
->>
->> If you have any new ideas or other solutions to this problem, please
->> let me know.
-> 
-> That's not right.
-> 
-> For a start, this is GICv3 specific, and will break on everything
-> else. Also, why the round-trip via the vgic_irq when you already have
-> the interrupt number that has fired *as a parameter*?
-> 
-> Finally, this breaks with NV, as you could have switched between EL1
-> and EL2 timers, and since you cannot trust you are in the correct
-> interrupt context (interrupt firing out of context), you can't trust
-> irq->hwintid either, as the mappings will have changed.
-> 
-> Something like the patchlet below should do the trick, but I'm
-> definitely not happy about this sort of sorry hacks.
-> 
-> 	M.
-> 
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index dbd74e4885e24..3db7c6bdffbc0 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -206,6 +206,13 @@ static void soft_timer_cancel(struct hrtimer *hrt)
->   	hrtimer_cancel(hrt);
->   }
+On 10/13/25 4:31 PM, Frederic Weisbecker wrote:
+> @@ -80,12 +110,45 @@ EXPORT_SYMBOL_GPL(housekeeping_affine);
 >   
-> +static void set_timer_irq_phys_active(struct arch_timer_context *ctx, bool active)
+>   bool housekeeping_test_cpu(int cpu, enum hk_type type)
+>   {
+> -	if (housekeeping.flags & BIT(type))
+> +	if (READ_ONCE(housekeeping.flags) & BIT(type))
+>   		return cpumask_test_cpu(cpu, housekeeping_cpumask(type));
+>   	return true;
+>   }
+>   EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
+>   
+> +int housekeeping_update(struct cpumask *mask, enum hk_type type)
 > +{
-> +	int r;
-> +	r = irq_set_irqchip_state(ctx->host_timer_irq, IRQCHIP_STATE_ACTIVE, active);
-> +	WARN_ON(r);
-> +}
+> +	struct cpumask *trial, *old = NULL;
 > +
->   static irqreturn_t kvm_arch_timer_handler(int irq, void *dev_id)
->   {
->   	struct kvm_vcpu *vcpu = *(struct kvm_vcpu **)dev_id;
-> @@ -230,6 +237,8 @@ static irqreturn_t kvm_arch_timer_handler(int irq, void *dev_id)
->   
->   	if (kvm_timer_should_fire(ctx))
->   		kvm_timer_update_irq(vcpu, true, ctx);
+> +	if (type != HK_TYPE_DOMAIN)
+> +		return -ENOTSUPP;
+> +
+> +	trial = kmalloc(sizeof(*trial), GFP_KERNEL);
+Should you use cpumask_size() instead of sizeof(*trial) as the latter 
+can be much bigger?
+> +	if (!trial)
+> +		return -ENOMEM;
+> +
+> +	cpumask_andnot(trial, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT), mask);
+> +	if (!cpumask_intersects(trial, cpu_online_mask)) {
+> +		kfree(trial);
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (!housekeeping.flags)
+> +		static_branch_enable(&housekeeping_overridden);
+> +
+> +	if (!(housekeeping.flags & BIT(type)))
+> +		old = housekeeping_cpumask_dereference(type);
 > +	else
-> +		set_timer_irq_phys_active(ctx, false);
->   
->   	if (userspace_irqchip(vcpu->kvm) &&
->   	    !static_branch_unlikely(&has_gic_active_state))
-> @@ -659,13 +668,6 @@ static void timer_restore_state(struct arch_timer_context *ctx)
->   	local_irq_restore(flags);
->   }
->   
-> -static inline void set_timer_irq_phys_active(struct arch_timer_context *ctx, bool active)
-> -{
-> -	int r;
-> -	r = irq_set_irqchip_state(ctx->host_timer_irq, IRQCHIP_STATE_ACTIVE, active);
-> -	WARN_ON(r);
-> -}
-> -
->   static void kvm_timer_vcpu_load_gic(struct arch_timer_context *ctx)
->   {
->   	struct kvm_vcpu *vcpu = ctx->vcpu;
-> 
-After extensive testing, this patch was able to resolve the issue I 
-encountered.
-Tested-by: Kunkun Jiang <jiangkunkun@huawei.com>
+> +		WRITE_ONCE(housekeeping.flags, housekeeping.flags | BIT(type));
+> +	rcu_assign_pointer(housekeeping.cpumasks[type], trial);
+> +
+> +	synchronize_rcu();
+> +
+> +	kfree(old);
 
-Thanks,
-Kunkun Jiang
+If "isolcpus" boot command line option is set, old can be a pointer to 
+the boot time memblock area which isn't a pointer that can be handled by 
+the slab allocator AFAIU. I don't know the exact consequence, but it may 
+not be good. One possible solution I can think of is to make 
+HK_TYPE_DOMAIN and HK_TYPE_DOMAIN_ROOT point to the same memblock 
+pointer and don't pass the old HK_TYPE_DOMAIN pointer to kfree() if it 
+matches HK_TYPE_DOMAIN_BOOT one. Alternatively, we can just set the 
+HK_TYPE_DOMAIN_BOOT pointer at boot and make HK_TYPE_DOMAIN falls back 
+to HK_TYPE_DOMAIN_BOOT if not set.
+
+Cheers,
+Longman
+
 
