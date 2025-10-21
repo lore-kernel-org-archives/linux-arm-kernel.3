@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE349CCD1BA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B606CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:43:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oU5xEPT8aEVLQudNuyzuo82/ZEcqDr2Z0zwtb+h3Wiw=; b=r9L+/z7L6qCyE15YzQyQaaGyXD
-	34F+Kv4kfWFvvJ5eYA9CDUI2fc9/J4EhD2RhCGQu9p1RkPjYxSHC+wxdQW9ClVFy4MzRxg578XcsF
-	W56GxaLRAgPyPE38kxhKYhghGJvXts1z7QaxDx9eWV29SXejtTVEgmJsx3i9soOGqAG0Lre1LljuD
-	hrHpFWtsz3POs8V2ub2O5bUxGUHG+Ke6lMkyE++tIffVmVDh94KeWqSl/QUq1Ip2TkRkPNRD5BDAF
-	aitae+WSUKx7SqtCHsRy6UWJeiD3QVvNshnwLG3i/FHAZEJuKdK65y8UW/Cpb5mHCRsKAkBDjC6ND
-	4nj/K0uQ==;
+	bh=FS4dERJDFsHCnVZ76N6RaaiZZW7ln6HmoGA7DcqZWmQ=; b=C41p/IU+5CigyZsPaRo57sTXqp
+	D2cEDhNIXg/LUFqtfRy25EiFczf5kH7+bIhnEZmg+v3QesgnTjCwmCITamjj6g7ntFbTWeMdt7Xjv
+	TwdUhJs7YHTmgy5jQHQ3wOBPAEasxE6VbeNKC0wEDY8VRL1eE9GRirLV/bLi9/HyOfosUqLGRD582
+	PH8z1JRkfkOBaGxUXyMc+UHnlvPsGiEPMs7pjMJruVTkS0pLAS+z9QlIsvKnxC4Z71OSeeAoLCBWz
+	BUH54uVdrA8i68SME2tlgG3xacWE26tg8sKdL9xtVuVwO5jioNzboBDvsnArsAPtmz4QUTjdGOj4h
+	2vHF1WrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB71q-0000000G71L-3ARW;
-	Tue, 21 Oct 2025 07:43:34 +0000
+	id 1vB71r-0000000G72o-1g21;
+	Tue, 21 Oct 2025 07:43:35 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB71i-0000000G6nh-1OQ0;
-	Tue, 21 Oct 2025 07:43:28 +0000
+	id 1vB71i-0000000G6ne-1MG2;
+	Tue, 21 Oct 2025 07:43:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=oU5xEPT8aEVLQudNuyzuo82/ZEcqDr2Z0zwtb+h3Wiw=; b=GjKO6I/QtwVjj13ledu/xMmPUe
-	ZV6r46SGUe+AyFZb1Vv+LsGdd54kxGePylhi8/PAUCAXHYYr0JnYXQOcFAlt3BZI2rDYxVwYTpVL2
-	MZsCyiaYbPRbghR5YnbrEEJ6jRulARZZyjEa2TK2uLgQ/6OWKYIv+qMyCjnJSRFvuROnItkj7nDRk
-	O8nYDAOGe1MbTlD90KH37JZjOqWG7vI4kL3XGVq4ld4IEHgfWTjyItBz3NjiFHqHIStJ2wsoSGeTf
-	rd3WlKeWoZlz54wClaKPlxoseWUdGzlk+/gYnia8zEJEfCSz60AP34kIWVAYi3YOyiCdMkb36c7Zj
-	GHfIdC8A==;
+	bh=FS4dERJDFsHCnVZ76N6RaaiZZW7ln6HmoGA7DcqZWmQ=; b=QCpsxy9cZFNcyN9fqhpFFoyzIU
+	GLVWRogS3VEDnMPTV8IPVtHV7fz8uqB/C3C43KKxi1Rvh7kYoAGMVo+HKCP31BbcYRn9XN5y5+E2D
+	utJ1RiHVoWLeLUt+aW2K4cG9+1NPtWRDCWAKa8GBNDrA0fU6KKs+yuMUeagUtcPRlUfHlusR0FpLe
+	oG6vxv7zv6UbAke9k2lqVFaIyR/K1fYp968iaIyHNPTurlad1Xqcw2J3djCsdEaNpLyD0wMqtsHs3
+	BcIHvNvAchMJliCvGSrc020sgzMjL1sWvMzjhnfJOvPq2MvRaNUd8VN0VGhBlxkBNL2ECwWX5M4ve
+	RRVsz1hg==;
 Received: from [212.111.240.218] (helo=phil.guestnet.ukdd.de)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1vB71N-0000uy-OF; Tue, 21 Oct 2025 09:43:05 +0200
+	id 1vB71N-0000uy-BF; Tue, 21 Oct 2025 09:43:05 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: heiko@sntech.de
 Cc: maarten.lankhorst@linux.intel.com,
@@ -57,17 +57,17 @@ Cc: maarten.lankhorst@linux.intel.com,
 	linux-kernel@vger.kernel.org,
 	cn.liweihao@gmail.com,
 	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: [PATCH v2 3/9] soc: rockchip: grf: Add select correct PWM implementation on RK3368
-Date: Tue, 21 Oct 2025 09:42:48 +0200
-Message-ID: <20251021074254.87065-4-heiko@sntech.de>
+Subject: [PATCH v2 2/9] drm/rockchip: hdmi: add RK3368 controller variant
+Date: Tue, 21 Oct 2025 09:42:47 +0200
+Message-ID: <20251021074254.87065-3-heiko@sntech.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20251021074254.87065-1-heiko@sntech.de>
 References: <20251021074254.87065-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_004326_403909_4CFEBF99 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20251021_004326_391974_8DCD4F13 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,31 +84,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-Similar to the RK3288, the RK3368 has two different implementations of
-the PWM block inside the SoC - the newer ones that we have a driver for
-and that is used on every SoC and a previous variant that was likely
-left as a fallback if the new one creates problems.
-
-The devicetree is already set up for the new variant, so make sure
-we actually use it - similar to the RK3288.
+The RK3368 has only one VOP, so there is no source selection happening
+and the controller uses an internal PHY for the HDMI output.
 
 Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 ---
- drivers/soc/rockchip/grf.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/drivers/soc/rockchip/grf.c b/drivers/soc/rockchip/grf.c
-index 344870da7675..963cdea01ce7 100644
---- a/drivers/soc/rockchip/grf.c
-+++ b/drivers/soc/rockchip/grf.c
-@@ -91,6 +91,7 @@ static const struct rockchip_grf_info rk3328_grf __initconst = {
- 
- static const struct rockchip_grf_value rk3368_defaults[] __initconst = {
- 	{ "jtag switching", RK3368_GRF_SOC_CON15, FIELD_PREP_WM16_CONST(BIT(13), 0) },
-+	{ "pwm select", RK3368_GRF_SOC_CON15, FIELD_PREP_WM16_CONST(BIT(12), 1) },
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+index 7b613997bb50..95ff3fce97a3 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+@@ -467,6 +467,19 @@ static const struct dw_hdmi_plat_data rk3328_hdmi_drv_data = {
+ 	.use_drm_infoframe = true,
  };
  
- static const struct rockchip_grf_info rk3368_grf __initconst = {
++static struct rockchip_hdmi_chip_data rk3368_chip_data = {
++	.lcdsel_grf_reg = -1,
++};
++
++static const struct dw_hdmi_plat_data rk3368_hdmi_drv_data = {
++	.mode_valid = dw_hdmi_rockchip_mode_valid,
++	.mpll_cfg   = rockchip_mpll_cfg,
++	.cur_ctr    = rockchip_cur_ctr,
++	.phy_config = rockchip_phy_config,
++	.phy_data = &rk3368_chip_data,
++	.use_drm_infoframe = true,
++};
++
+ static struct rockchip_hdmi_chip_data rk3399_chip_data = {
+ 	.lcdsel_grf_reg = RK3399_GRF_SOC_CON20,
+ 	.lcdsel_big = FIELD_PREP_WM16_CONST(RK3399_HDMI_LCDC_SEL, 0),
+@@ -507,6 +520,9 @@ static const struct of_device_id dw_hdmi_rockchip_dt_ids[] = {
+ 	{ .compatible = "rockchip,rk3328-dw-hdmi",
+ 	  .data = &rk3328_hdmi_drv_data
+ 	},
++	{ .compatible = "rockchip,rk3368-dw-hdmi",
++	 .data = &rk3368_hdmi_drv_data
++	},
+ 	{ .compatible = "rockchip,rk3399-dw-hdmi",
+ 	  .data = &rk3399_hdmi_drv_data
+ 	},
 -- 
 2.47.2
 
