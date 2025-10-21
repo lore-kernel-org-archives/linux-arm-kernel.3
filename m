@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D667ACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 17:23:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF1A3CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 17:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=KpB+B15OVXzo8/vLye/2HUIXanlBDK6L57ZK7ZUWtEg=; b=LMPtFka0X0J/Ak
-	frd6ycOW0SJTEkKjAufY7mbndsSniEYfh3ossAmrdFxD9iUdpAk1xsRwTGAiToBXKpZSuSn/NeyaM
-	kJ0A/KYIaSgCKLSIQ98zFq1qW63N+zD5k/VzADloObb90s+E1iaigi3PQOkvpYpiXdz4DMfsVETEk
-	lzUjCW9KbTtZw6LP00P51M2agc4sEHpsWNtJQuvChuHsPBIObi/v5xQOWabESbn8vJx20qtkZH/8u
-	VpdV3mD0klFa+iasYYMhh/wxP7G7rBL3EpYl4RkiC+j/HurjtzzllOyxImxxV7Lnijv4Rn8u0MoK4
-	rHz+NzzeJt5kvx8IFglQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rWxyFCsOQTn+NY2y8vUkY0HkkIwtHSXM/KHDuM64Y+o=; b=aFkadpJqLixfNL0u+o7AgR8CgZ
+	qKRe0ri/GJTnLGpBquTE1Azv93w+dE53K7373H4i8d9/xrz66aRrNIPKlALgx9FU1r2wW63mU5+Jw
+	Fa2eWI0FcgBtemo+0qpCxaf1GjhZ1pojvhcIhI7BT985WyDO5coplfvcHkWz25dhQQQg4WwboTM7c
+	gUmA6Rw/3y28B28AvxS7Xn4HjWJo7CIxZtYqhEhKtRo+ZzaO1/NzwX5HTAHrk7DoZGQympkev05Rr
+	n8a8GdajeA5sx1jdkGv3lekEQjiPKVuRyOwMtLSotYX9NPxZEBoOTwmn7+xbxe96QOJLNmbVlTz9Z
+	tM84Xupg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBG4p-00000000EUC-1RmZ;
-	Tue, 21 Oct 2025 17:23:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vBGD0-00000000G9f-3VmW;
+	Tue, 21 Oct 2025 17:31:42 +0000
+Received: from gentwo.org ([62.72.0.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBG4n-00000000ETJ-1uad
+	id 1vBGCx-00000000G8f-3jxv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 17:23:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E494044384;
-	Tue, 21 Oct 2025 17:23:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3E29C4CEF1;
-	Tue, 21 Oct 2025 17:23:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761067390;
-	bh=WtDAPjj2uGIdoRAWnE+iIkBURVgXeLBKvep422kdXHE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=FZjJF+4r91jouTqR4ZCGqzgg0rVgTjnvGMOtExNJniwX5dWlP4jCwmBXfEbVJuqti
-	 7IXt4pidP071Ogg9iGMBn38tmDXu75p9f2J92QJqiccOw/kxe0mEufMpxqK+n/b6dM
-	 JQAKYV8Ne/rBstqxIewQZaV49n8p7GNi8MD9GN0UDraKVCTlcY1S4/GjbsiBtM/wzp
-	 46uYfybDE61g6tR53qeFxSYdNJeFgsV+m+ov7nVifWmTKiUzdoU5abyz9XKoCaj+2l
-	 zIsZH9Tdg/O/QqQ2UaxeiOqnNWBbkVyDpD702xmI0jgsENuk+XdJ+za6yM1daKa4Aa
-	 hOm1C5wxr6JfQ==
-Date: Tue, 21 Oct 2025 12:23:09 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Ravi Kumar Bandi <ravib@amazon.com>
-Cc: mani@kernel.org, thippeswamy.havalige@amd.com, lpieralisi@kernel.org,
-	bhelgaas@google.com, linux-pci@vger.kernel.org,
-	kwilczynski@kernel.org, robh@kernel.org, michal.simek@amd.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Stefan Roese <stefan.roese@mailbox.org>,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
-Message-ID: <20251021172309.GA1198438@bhelgaas>
+	Tue, 21 Oct 2025 17:31:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
+	s=default; t=1761067898;
+	bh=hltXOIbWWgBTBlvQco48LT2+SFzQye7FM3u76fXl0Cs=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=SRu7Npy7HxfLnS2UzT8UOEQICfEq8fFhMonn8ojuq2x6uY1SqNw9T7RYvu279i72V
+	 Lwqlx30oO7ATXpynvx7oKdcTPd/rdIT4BF8qzcVPuEN3j3El0u8HNPcUPk4ICNU/hU
+	 CR9cE3C3hGT6s2WAE7X1IlaYEJsL7RX1Szu8SoEg=
+Received: by gentwo.org (Postfix, from userid 1003)
+	id F09DD4028E; Tue, 21 Oct 2025 10:31:38 -0700 (PDT)
+Received: from localhost (localhost [127.0.0.1])
+	by gentwo.org (Postfix) with ESMTP id EDE534015D;
+	Tue, 21 Oct 2025 10:31:38 -0700 (PDT)
+Date: Tue, 21 Oct 2025 10:31:38 -0700 (PDT)
+From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, arnd@arndb.de, 
+    catalin.marinas@arm.com, will@kernel.org, peterz@infradead.org, 
+    akpm@linux-foundation.org, mark.rutland@arm.com, harisokn@amazon.com, 
+    ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org, 
+    memxor@gmail.com, zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com, 
+    joao.m.martins@oracle.com, boris.ostrovsky@oracle.com, 
+    konrad.wilk@oracle.com
+Subject: Re: [PATCH v7 2/7] arm64: barrier: Support
+ smp_cond_load_relaxed_timeout()
+In-Reply-To: <20251017061606.455701-3-ankur.a.arora@oracle.com>
+Message-ID: <c8be3663-42db-4c8e-cb5c-b7f28aaefc04@gentwo.org>
+References: <20251017061606.455701-1-ankur.a.arora@oracle.com> <20251017061606.455701-3-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250920225232.18757-1-ravib@amazon.com>
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_102313_729616_7DEC8F59 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20251021_103139_957296_B0E5DD84 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,60 +75,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc Stefan, Sean]
+On Thu, 16 Oct 2025, Ankur Arora wrote:
 
-On Sat, Sep 20, 2025 at 10:52:32PM +0000, Ravi Kumar Bandi wrote:
-> The pcie-xilinx-dma-pl driver does not enable INTx interrupts
-> after initializing the port, preventing INTx interrupts from
-> PCIe endpoints from flowing through the Xilinx XDMA root port
-> bridge. This issue affects kernel 6.6.0 and later versions.
-> 
-> This patch allows INTx interrupts generated by PCIe endpoints
-> to flow through the root port. Tested the fix on a board with
-> two endpoints generating INTx interrupts. Interrupts are
-> properly detected and serviced. The /proc/interrupts output
-> shows:
-> 
-> [...]
-> 32:        320          0  pl_dma:RC-Event  16 Level     400000000.axi-pcie, azdrv
-> 52:        470          0  pl_dma:RC-Event  16 Level     500000000.axi-pcie, azdrv
-> [...]
-> 
-> Changes since v1::
-> - Fixed commit message per reviewer's comments
-> 
-> Fixes: 8d786149d78c ("PCI: xilinx-xdma: Add Xilinx XDMA Root Port driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
+> +#define SMP_TIMEOUT_POLL_COUNT	1
 
-Hi Ravi, obviously you tested this, but I don't know how to reconcile
-this with Stefan's INTx fix at
-https://lore.kernel.org/r/20251021154322.973640-1-stefan.roese@mailbox.org
+A way to disable the spinning in the core code and thus arm64 wont spin
+there anymore. Good.
 
-Does Stefan's fix need to be squashed into this patch?
+Spinning is bad and a waste of cpu resources. If this is done then I
+would like the arch code to implement the spinning and not the core so
+that there is a motivation for the arch maintainer to
+come up with a way to avoid the spinning at some point.
 
-> ---
->  drivers/pci/controller/pcie-xilinx-dma-pl.c | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/pcie-xilinx-dma-pl.c b/drivers/pci/controller/pcie-xilinx-dma-pl.c
-> index b037c8f315e4..cc539292d10a 100644
-> --- a/drivers/pci/controller/pcie-xilinx-dma-pl.c
-> +++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
-> @@ -659,6 +659,12 @@ static int xilinx_pl_dma_pcie_setup_irq(struct pl_dma_pcie *port)
->  		return err;
->  	}
->  
-> +	/* Enable interrupts */
-> +	pcie_write(port, XILINX_PCIE_DMA_IMR_ALL_MASK,
-> +		   XILINX_PCIE_DMA_REG_IMR);
-> +	pcie_write(port, XILINX_PCIE_DMA_IDRN_MASK,
-> +		   XILINX_PCIE_DMA_REG_IDRN_MASK);
-> +
->  	return 0;
->  }
->  
-> -- 
-> 2.47.3
-> 
+The patch is ok as is.
+
+Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+
 
