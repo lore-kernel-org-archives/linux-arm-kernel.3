@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 766EDCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 10:19:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD0FACCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 10:19:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=woOwa8Fm3W4TUXtaSjFuyMaCsuhekr34Wf3Lz1UWAX0=; b=NPWSwbaYe8k9lwtk395uGoFwna
-	AmtFOrS6NHC07fVeUqUOU8CimuydEeovnSz0xYT0kd21eJA7z4QADe1DHQvDR7RwAwH2JR9etmuiL
-	AyUEgV0SeuRuEe9mSMr08lSvD2j047nP8jiDpfMiGe4xoV8NBkJFXPr4ApYKIwkOV4NoeNUc8meTn
-	0eAPEm+3tODwo+MMcvEyW839Hj5QXhA5u8rpfqGnQy3aLjKmIRoV3zNQ79H/MQ84raHuv+76sGPB+
-	XVjfg0RUTXLeLvrc7SCqbQu4KgaZZFvivNLy/XNqzECB85uglxSm9aFheV0VvWPbobeT/J084n2pJ
-	rtmZQ7TA==;
+	bh=nSdyP75s+qH19CU7JiwgBpzb/FMw0dtgnSzqlfpGTLk=; b=GlZuTSoNT2ekjrir7Jbwo+lmhD
+	r6vClxLDVw+voE23RoGAnHKCNzCC1LdIqVi1mYN4jMHXT0hB8vfulcxZ7RM4MTqHLZKamzvdR0eXS
+	ivp+M1MS1jaj+nu8WL4YyiJUS337OpfMROOMxo3ox5fTcD9v6jFz7I/LIPKg+b4uUvY5igGJSo8Y1
+	RHmGr8i+px4zpkF+aUqFUsQvc2Wikk/lyAHZBOYFpWh8lKEgurFt6o6IwvMngqdSvnZhEbE+t0jXy
+	9+CW4lalMnHLnHUU+1qY5TUjokmrb14vgRRnJXb05Xcfiad6L62qkjgPydRdr+iLE/0lfc4jrrT2A
+	Rj8g5kXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB9Sw-0000000Gb4O-3lay;
-	Tue, 21 Oct 2025 10:19:42 +0000
+	id 1vB9Sy-0000000Gb7M-3zFW;
+	Tue, 21 Oct 2025 10:19:44 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB9So-0000000Gawi-20Fi;
-	Tue, 21 Oct 2025 10:19:35 +0000
+	id 1vB9Sq-0000000Gaxz-3buw;
+	Tue, 21 Oct 2025 10:19:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761041970;
-	bh=s3C57jE/RyRY0ojZyNVm3JP0AqGDocSnepbywENMmxA=;
+	s=mail; t=1761041972;
+	bh=Oq23yGZ/GtFdV1bxn1QAep1nMXJorSEThDKlDL/e8Ec=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=J2MW1bF2jnDtDz2TXt69m4xCKV49c0rajPIZ/8IoOPaw7/xzDGcbrBDJI3AH7hYNW
-	 m4Skcc48Omg5ucJNp67+TljntOI5e5Lxx0a7ZKea/w6mv21leIQmLvE7WEeKOD4Vhk
-	 xAmTtsutwq9Q6UInX1mLLXYsvGQtvV0anLs2K1gQYanFqRKgfty7G2d8NoAwYdstaO
-	 NXHowjCKF6HBAeaMm43a8opDWYyN1nSaiz7xG7DFgZZfLhHSqm/jvAQwQF5B3svM9n
-	 gT87s9ZxxauaxNRifVctU43DiS6q+05dy1sNkoQaEviSbGKqJD0mU7nLDm+qkhxS4k
-	 Lb2Oo6y7EvAHQ==
+	b=kIGkpJlAeylMJRXzfCmSUMtS0keJbPqm8Z9JcspzOjrzHj46Er9JoxjYPE1fVI9q7
+	 H1XO4dqZDTAQwwOa5Vf8v6YziT5LVO05qpUi6IPaXJXKAmoPYpNO+X5kjgrxt/U249
+	 QEe11QEAQz8RpY/FDBm/m18V0bxJEN1miKxToZ935lhji3LE/PsxCgOSoQXkSE1drh
+	 0/ZNacYRTkyOe8lBz0bMJFh82bPxalZ3IkzR5G4oKpjGzFh6yQJoNHhXItyJ9fV0Y8
+	 dZhxEthXWlFqmjYFRoqMTD35idig58BL8W8sWVYAnAe+h1Y8aY+NWWOu79K3gLDL3w
+	 GuRwu8p2jwQbg==
 Received: from localhost (unknown [82.79.138.145])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id A147017E1407;
-	Tue, 21 Oct 2025 12:19:30 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 2F35217E1414;
+	Tue, 21 Oct 2025 12:19:32 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 21 Oct 2025 13:19:16 +0300
-Subject: [PATCH v3 3/5] drm/rockchip: dw_hdmi_qp: Switch to phy_configure()
+Date: Tue, 21 Oct 2025 13:19:18 +0300
+Subject: [PATCH v3 5/5] drm/rockchip: dw_hdmi_qp: Add high color depth
+ support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251021-rk3588-10bpc-v3-3-3d3eed00a6db@collabora.com>
+Message-Id: <20251021-rk3588-10bpc-v3-5-3d3eed00a6db@collabora.com>
 References: <20251021-rk3588-10bpc-v3-0-3d3eed00a6db@collabora.com>
 In-Reply-To: <20251021-rk3588-10bpc-v3-0-3d3eed00a6db@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -67,8 +68,8 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_031934_673048_1F9C6C3D 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20251021_031937_069555_4E6F3613 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,100 +84,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Stop relying on phy_set_bus_width() based workaround to setup the TMDS
-character rate and, instead, use the recently introduced HDMI PHY
-configuration API.  This is also a prerequisite to enable high color
-depth and FRL support.
+Since both RK3576 and RK3588 SoCs are capable of handling 10 bpc color
+depth, introduce a pair of new helpers to program the necessary
+registers, as well as passing bpc at PHY configuration level.
 
-Additionally, move the logic to ->atomic_check() callback where the
-current mode rate is already provided by the connector state.  As a
-matter of fact this is actually necessary to ensure the link rate is
-configured before VOP2 attempts to use the PHY PLL as a DCLK source in
-vop2_crtc_atomic_enable().  The rationale is to restrict any changes of
-the PHY rate via CCF and, instead, prefer the PHY configuration API for
-this purpose.
+Note max_bpc is unconditionally set to 10 before initializing the QP
+bridge library, as there is no need to adjust it dynamically, i.e. per
+SoC variant, for now.
+
+While setting up .enc_init() callbacks of rockchip_hdmi_qp_ctrl_ops,
+also replace the unnecessary whitespace chars before .irq_callback()
+assignments.
 
 Acked-by: Daniel Stone <daniels@collabora.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 37 +++++++++++++-------------
- 1 file changed, 19 insertions(+), 18 deletions(-)
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 54 ++++++++++++++++++++++++--
+ 1 file changed, 51 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 931343b072ad..04e18dd9102a 100644
+index ac5ec697b9a2..ca3fa3965302 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -14,6 +14,7 @@
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <linux/phy/phy.h>
-+#include <linux/phy/phy-hdmi.h>
- #include <linux/regmap.h>
- #include <linux/workqueue.h>
- 
-@@ -96,6 +97,7 @@ struct rockchip_hdmi_qp {
- 	struct delayed_work hpd_work;
- 	int port_id;
- 	const struct rockchip_hdmi_qp_ctrl_ops *ctrl_ops;
-+	unsigned long long tmds_char_rate;
- };
+@@ -70,6 +70,12 @@
+ #define RK3588_HDMI1_LEVEL_INT		BIT(24)
+ #define RK3588_GRF_VO1_CON3		0x000c
+ #define RK3588_GRF_VO1_CON6		0x0018
++#define RK3588_COLOR_DEPTH_MASK		GENMASK(7, 4)
++#define RK3588_8BPC			0x0
++#define RK3588_10BPC			0x6
++#define RK3588_COLOR_FORMAT_MASK	GENMASK(3, 0)
++#define RK3588_RGB			0x0
++#define RK3588_YUV420			0x3
+ #define RK3588_SCLIN_MASK		BIT(9)
+ #define RK3588_SDAIN_MASK		BIT(10)
+ #define RK3588_MODE_MASK		BIT(11)
+@@ -97,6 +103,7 @@ struct rockchip_hdmi_qp {
  
  struct rockchip_hdmi_qp_ctrl_ops {
-@@ -114,24 +116,9 @@ static struct rockchip_hdmi_qp *to_rockchip_hdmi_qp(struct drm_encoder *encoder)
+ 	void (*io_init)(struct rockchip_hdmi_qp *hdmi);
++	void (*enc_init)(struct rockchip_hdmi_qp *hdmi, struct rockchip_crtc_state *state);
+ 	irqreturn_t (*irq_callback)(int irq, void *dev_id);
+ 	irqreturn_t (*hardirq_callback)(int irq, void *dev_id);
+ };
+@@ -111,9 +118,16 @@ static struct rockchip_hdmi_qp *to_rockchip_hdmi_qp(struct drm_encoder *encoder)
  static void dw_hdmi_qp_rockchip_encoder_enable(struct drm_encoder *encoder)
  {
  	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
--	struct drm_crtc *crtc = encoder->crtc;
--	unsigned long long rate;
++	struct drm_crtc *crtc = encoder->crtc;
  
  	/* Unconditionally switch to TMDS as FRL is not yet supported */
  	gpiod_set_value(hdmi->enable_gpio, 1);
--
--	if (crtc && crtc->state) {
--		rate = drm_hdmi_compute_mode_clock(&crtc->state->adjusted_mode,
--						   8, HDMI_COLORSPACE_RGB);
--		/*
--		 * FIXME: Temporary workaround to pass pixel clock rate
--		 * to the PHY driver until phy_configure_opts_hdmi
--		 * becomes available in the PHY API. See also the related
--		 * comment in rk_hdptx_phy_power_on() from
--		 * drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
--		 */
--		phy_set_bus_width(hdmi->phy, div_u64(rate, 100));
--	}
++
++	if (!crtc || !crtc->state)
++		return;
++
++	if (hdmi->ctrl_ops->enc_init)
++		hdmi->ctrl_ops->enc_init(hdmi, to_rockchip_crtc_state(crtc->state));
  }
  
  static int
-@@ -139,12 +126,26 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
- 					 struct drm_crtc_state *crtc_state,
- 					 struct drm_connector_state *conn_state)
- {
-+	struct rockchip_hdmi_qp *hdmi = to_rockchip_hdmi_qp(encoder);
- 	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
-+	union phy_configure_opts phy_cfg = {};
-+	int ret;
+@@ -126,16 +140,19 @@ dw_hdmi_qp_rockchip_encoder_atomic_check(struct drm_encoder *encoder,
+ 	union phy_configure_opts phy_cfg = {};
+ 	int ret;
  
--	s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
--	s->output_type = DRM_MODE_CONNECTOR_HDMIA;
-+	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate)
-+		return 0;
+-	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate)
++	if (hdmi->tmds_char_rate == conn_state->hdmi.tmds_char_rate &&
++	    s->output_bpc == conn_state->hdmi.output_bpc)
+ 		return 0;
  
--	return 0;
-+	phy_cfg.hdmi.tmds_char_rate = conn_state->hdmi.tmds_char_rate;
-+
-+	ret = phy_configure(hdmi->phy, &phy_cfg);
-+	if (!ret) {
-+		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
-+		s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
-+		s->output_type = DRM_MODE_CONNECTOR_HDMIA;
-+	} else {
-+		dev_err(hdmi->dev, "Failed to configure phy: %d\n", ret);
-+	}
-+
-+	return ret;
+ 	phy_cfg.hdmi.tmds_char_rate = conn_state->hdmi.tmds_char_rate;
++	phy_cfg.hdmi.bpc = conn_state->hdmi.output_bpc;
+ 
+ 	ret = phy_configure(hdmi->phy, &phy_cfg);
+ 	if (!ret) {
+ 		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
+ 		s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
+ 		s->output_type = DRM_MODE_CONNECTOR_HDMIA;
++		s->output_bpc = conn_state->hdmi.output_bpc;
+ 	} else {
+ 		dev_err(hdmi->dev, "Failed to configure phy: %d\n", ret);
+ 	}
+@@ -371,15 +388,45 @@ static void dw_hdmi_qp_rk3588_io_init(struct rockchip_hdmi_qp *hdmi)
+ 	regmap_write(hdmi->regmap, RK3588_GRF_SOC_CON2, val);
  }
  
- static const struct
++static void dw_hdmi_qp_rk3576_enc_init(struct rockchip_hdmi_qp *hdmi,
++				       struct rockchip_crtc_state *state)
++{
++	u32 val;
++
++	if (state->output_bpc == 10)
++		val = FIELD_PREP_WM16(RK3576_COLOR_DEPTH_MASK, RK3576_10BPC);
++	else
++		val = FIELD_PREP_WM16(RK3576_COLOR_DEPTH_MASK, RK3576_8BPC);
++
++	regmap_write(hdmi->vo_regmap, RK3576_VO0_GRF_SOC_CON8, val);
++}
++
++static void dw_hdmi_qp_rk3588_enc_init(struct rockchip_hdmi_qp *hdmi,
++				       struct rockchip_crtc_state *state)
++{
++	u32 val;
++
++	if (state->output_bpc == 10)
++		val = FIELD_PREP_WM16(RK3588_COLOR_DEPTH_MASK, RK3588_10BPC);
++	else
++		val = FIELD_PREP_WM16(RK3588_COLOR_DEPTH_MASK, RK3588_8BPC);
++
++	regmap_write(hdmi->vo_regmap,
++		     hdmi->port_id ? RK3588_GRF_VO1_CON6 : RK3588_GRF_VO1_CON3,
++		     val);
++}
++
+ static const struct rockchip_hdmi_qp_ctrl_ops rk3576_hdmi_ctrl_ops = {
+ 	.io_init		= dw_hdmi_qp_rk3576_io_init,
+-	.irq_callback	        = dw_hdmi_qp_rk3576_irq,
++	.enc_init		= dw_hdmi_qp_rk3576_enc_init,
++	.irq_callback		= dw_hdmi_qp_rk3576_irq,
+ 	.hardirq_callback	= dw_hdmi_qp_rk3576_hardirq,
+ };
+ 
+ static const struct rockchip_hdmi_qp_ctrl_ops rk3588_hdmi_ctrl_ops = {
+ 	.io_init		= dw_hdmi_qp_rk3588_io_init,
+-	.irq_callback	        = dw_hdmi_qp_rk3588_irq,
++	.enc_init		= dw_hdmi_qp_rk3588_enc_init,
++	.irq_callback		= dw_hdmi_qp_rk3588_irq,
+ 	.hardirq_callback	= dw_hdmi_qp_rk3588_hardirq,
+ };
+ 
+@@ -472,6 +519,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+ 
+ 	plat_data.phy_ops = cfg->phy_ops;
+ 	plat_data.phy_data = hdmi;
++	plat_data.max_bpc = 10;
+ 
+ 	encoder = &hdmi->encoder.encoder;
+ 	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm, dev->of_node);
 
 -- 
 2.51.0
