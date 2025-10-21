@@ -4,81 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF2CCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 09:34:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324E3CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 09:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8o+wETYksP8ccjEosz8Cbz5sDcAm+lKn1MXus85N6hk=; b=AWLuvXdaDC/PyUsGSREdUBE+AB
-	1GEThpBAVJobpiNVzTya+7/mtFXnNp6xhF52v+LBpOk0fIbcmXZaLVi4yRK3iSWs/5XhsinRlgbYi
-	6yscKTcsdjLDnEI45N10KL8+LIgYyN0Bql2T8cZhKMX4Qj//Ng51lZqmHE9tp60FjMtK8fEDc1kfq
-	25wvosZEh9lNh6V9Kow4+Z2SBQsQ0SPNtDiojmnd0GVVuahoCcKD8Xzajx+DYP7eTYBf3gwWcQdMz
-	Jr3bfZEeLSYsrMwOq4kXs8l2OQg9/stbjxzvrpQbmhY4IFKKNKyVAs1aqq6wPMpCSc/l2ny3L5E7J
-	WMxjjH2g==;
+	bh=kaLrb8mkfQjEuRi3C8h2RybuNenhPIPoHG7GvRR/GEI=; b=VJSWJvVXJBXer5YLo0XaDn/jPq
+	Qr/UwHc6SL3qgyySr8eZqThyyC/NWzpl9SqNb4J/Obl9wqKcYCUoZhoyGd7kiLosYSePcTgarSvVd
+	z+trba5NGphFoPV9vBgiqyFhYmDh5Z8Ase5JnBbNsyDwd0bQBPw8xSZy3vsBolyyJzuCmph5EGB6U
+	+1OryIFHerP/aRBIAn9ynPq81/sGodTp7gickZXSqXCBaQwmkVAvdM5TnrTgJSFH/EDtHd6ngKy7Q
+	Opa1Jgt5LjlcT/TRQZPsD6f7/C8I+lnYAYvRdwFiVnf2frQOs1oGMTUCwl9qU1xaXOHdte6Z0rqhk
+	lxMc60cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB8lI-0000000GSuq-0LqP;
-	Tue, 21 Oct 2025 09:34:36 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB8lE-0000000GSs0-2Xnj
+	id 1vB8mt-0000000GTEI-3CFr;
+	Tue, 21 Oct 2025 09:36:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vB8ms-0000000GTDZ-11fu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 09:34:34 +0000
-Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id EB6942125B;
-	Tue, 21 Oct 2025 11:34:23 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1761039265;
-	bh=8o+wETYksP8ccjEosz8Cbz5sDcAm+lKn1MXus85N6hk=; h=From:To:Subject;
-	b=YfPu/PPlq2HCEYCkZ6DMBbfM0yvF6ZC7n12d9hkKdj1MW9iFrUpGbN65nH0cIiBv5
-	 7g9HNVFSTM6pKIk+d95YldohlYU6EfMAPBOgbGMVJRp7T0C86mFnTpfUDxI0VJIT5h
-	 yTQD8LLRTku7cjc8PtWy0zOQum5BXOFH5Y+Z6zrXwcOy2wWPGksj8QCK/ZIAK4x9si
-	 c/2knDKelHt2/GZva+si3bcwSwa4sjZflo1rrU6vuGbV7rZoCJYN2D/wS/kKb3tjHY
-	 NSdliuWB8h9HyN7JwSfMiQ8sYo9r4hkLvNhB4zAN8cwQ4vj1oz3Eo6cHiKWw6MaNZm
-	 7KZrWVWc24MRA==
-Date: Tue, 21 Oct 2025 11:34:20 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Beleswar Prasad Padhi <b-padhi@ti.com>
-Cc: Hiago De Franco <hiagofranco@gmail.com>, nm@ti.com, vigneshr@ti.com,
-	kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, afd@ti.com, u-kumar1@ti.com, hnagalla@ti.com,
-	jm@ti.com, d-gole@ti.com, devicetree@vger.kernel.org,
+	Tue, 21 Oct 2025 09:36:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 817FD1007;
+	Tue, 21 Oct 2025 02:36:02 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B2F23F66E;
+	Tue, 21 Oct 2025 02:36:08 -0700 (PDT)
+Date: Tue, 21 Oct 2025 10:36:00 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Robert Nelson <robertcnelson@gmail.com>,
-	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
-	Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
-	Logan Bristol <logan.bristol@utexas.edu>,
-	Josua Mayer <josua@solid-run.com>, John Ma <jma@phytec.com>,
-	Nathan Morrisson <nmorrisson@phytec.com>,
-	Garrett Giordano <ggiordano@phytec.com>,
-	Matt McKee <mmckee@phytec.com>, Wadim Egorov <w.egorov@phytec.de>,
-	Max Krummenacher <max.krummenacher@toradex.com>,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	Hiago De Franco <hiago.franco@toradex.com>,
-	Diogo Ivo <diogo.ivo@siemens.com>,
-	Li Hua Qian <huaqian.li@siemens.com>,
-	Jan Kiszka <jan.kiszka@siemens.com>,
-	Baocheng Su <baocheng.su@siemens.com>,
-	Benedikt Niedermayr <benedikt.niedermayr@siemens.com>,
-	regressions@lists.linux.dev
-Subject: Re: [REGRESSION] Suspend to RAM does not work anymore with
- k3-am62-ti-ipc-firmware.dtsi
-Message-ID: <20251021093420.GA28462@francesco-nb>
-References: <sid7gtg5vay5qgicsl6smnzwg5mnneoa35cempt5ddwjvedaio@hzsgcx6oo74l>
- <e60dd8d6-2bd5-41f0-bf8a-b0a5822a7f88@ti.com>
+	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, d-gole@ti.com, souvik.chakravarty@arm.com
+Subject: Re: [PATCH 02/10] firmware: arm_scmi: Reduce the scope of protocols
+ mutex
+Message-ID: <aPdUAOirD2yodeTy@pluto>
+References: <20250925203554.482371-1-cristian.marussi@arm.com>
+ <20250925203554.482371-3-cristian.marussi@arm.com>
+ <20251017160702.00002af4@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <e60dd8d6-2bd5-41f0-bf8a-b0a5822a7f88@ti.com>
+In-Reply-To: <20251017160702.00002af4@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_023433_672625_85FB8940 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20251021_023614_360274_39AE31E9 
+X-CRM114-Status: GOOD (  32.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,51 +70,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 02:33:10PM +0530, Beleswar Prasad Padhi wrote:
-> On 20/10/25 19:47, Hiago De Franco wrote:
-> > DM R5 sends a message that is never consumed, since no firmware is
-> > running on the M4 (the core is offline).
+On Fri, Oct 17, 2025 at 04:07:02PM +0100, Jonathan Cameron wrote:
+> On Thu, 25 Sep 2025 21:35:46 +0100
+> Cristian Marussi <cristian.marussi@arm.com> wrote:
 > 
+> > Currently the mutex dedicated to the protection of the list of registered
+> > protocols is held during all the protocol initialization phase.
+> > 
+> > Such a wide locking region is not needed and causes problem when trying to
+> > initialize notifications from within a protocol initialization routine.
+> > 
+> > Reduce the scope of the protocol mutex.
+> > 
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 > 
-> May I know why you are not running any firmware on the M4
-> rproc? If the intention is just to run the DM R5 core on the SoC,
-> you can disable the IPC by NOT including the
-> "k3-am62-ti-ipc-firmware.dtsi". That was the motivation for the
-> refactoring.
+> Hi Cristian.  A few things inline and this runs into one of the things
+> that is dangerous to do with guard() or the other cleanup.h magic
+> (and documented there!)
 
-Verdin AM62 and AM62P are generic SoMs, that can be used for a multitude
-of different use cases. And not having anything running on the M4 is the
-default use case.
+Hi Jonathan,
 
-I think having the node in the DT is the correct way forward, if you
-want to start the M4 firmware you need such a node, so this is enabling
-a valid and useful use case.
+thanks for having a look at this series.
 
-> List of suggestions/solutions in order of preference:
-> 1. If no intention to enable IPC on rprocs:
->       Do _not_ include k3-am62-ti-ipc-firmware.dtsi
-> 2. If intention is to enable IPC on rprocs:
->       Make sure rproc firmware is available in rootfs.
->       rproc would boot up and consume the mbox
->       msg, suspend would be successful. Tested this
->       on TI AM62x-sk with commit 1d6161617c, works
-> 3. Add support in mbox driver to flush the pending
->     queues.
-
-2 is not applicable here, and 1 to me is not a good solution. So this
-means that we need #3.
-
-> > #regzbot introduced: 1d6161617c
 > 
-> Would not see this as a regression, but rather a new
-> bug for the omap-mailbox driver...
+> > ---
+> >  drivers/firmware/arm_scmi/driver.c | 53 +++++++++++++++---------------
+> >  1 file changed, 26 insertions(+), 27 deletions(-)
+> > 
+> > diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+> > index bd56a877fdfc..71ee25b78624 100644
+> > --- a/drivers/firmware/arm_scmi/driver.c
+> > +++ b/drivers/firmware/arm_scmi/driver.c
+> > @@ -17,6 +17,7 @@
+> >  #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+> >  
+> >  #include <linux/bitmap.h>
+> > +#include <linux/cleanup.h>
+> >  #include <linux/debugfs.h>
+> >  #include <linux/device.h>
+> >  #include <linux/export.h>
+> > @@ -2179,10 +2180,13 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+> >  	if (ret)
+> >  		goto clean;
+> >  
+> > -	ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1,
+> > -			GFP_KERNEL);
+> > -	if (ret != proto->id)
+> > -		goto clean;
+> > +	/* Finally register the initialized protocol */
+> > +	scoped_guard(mutex, &info->protocols_mtx) {
+> 
+> See the guidance in cleanup.h on mixing goto and anything defined in that file.
+> 
+> In some compilers, if you hit the goto above and hence jump over this
+> the cleanup variable will still be instantiated, but not initialized leading to
+> a potential attempt to unlock random memory.
+> 
+> Either this needs more substantial rework, or just handling the mutex with
+> out using guards.
+> 
 
-As a user this is just a regression. It worked fine before, it's not
-working anymore now.
+Thanks for the heads-up I will dig better into cleanup.h which obviously
+I did not enough...my bad.
 
-The fact that the solution might not be in the same file that introduced
-the issue is not a reason for this not being considered a regression.
+> 
+> > +		ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1,
+> > +				GFP_KERNEL);
+> > +		if (ret != proto->id)
+> > +			goto clean;
+> > +	}
+> >  
+> >  	/*
+> >  	 * Warn but ignore events registration errors since we do not want
+> > @@ -2243,25 +2247,22 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+> >  static struct scmi_protocol_instance * __must_check
+> >  scmi_get_protocol_instance(const struct scmi_handle *handle, u8 protocol_id)
+> >  {
+> > -	struct scmi_protocol_instance *pi;
+> > +	struct scmi_protocol_instance *pi = ERR_PTR(-EPROBE_DEFER);
+> >  	struct scmi_info *info = handle_to_scmi_info(handle);
+> > +	const struct scmi_protocol *proto;
+> >  
+> > -	mutex_lock(&info->protocols_mtx);
+> > -	pi = idr_find(&info->protocols, protocol_id);
+> > -
+> > -	if (pi) {
+> > -		refcount_inc(&pi->users);
+> > -	} else {
+> > -		const struct scmi_protocol *proto;
+> > -
+> > -		/* Fails if protocol not registered on bus */
+> > -		proto = scmi_protocol_get(protocol_id, &info->version);
+> > -		if (proto)
+> > -			pi = scmi_alloc_init_protocol_instance(info, proto);
+> > -		else
+> > -			pi = ERR_PTR(-EPROBE_DEFER);
+> > +	scoped_guard(mutex, &info->protocols_mtx) {
+> > +		pi = idr_find(&info->protocols, protocol_id);
+> > +		if (pi) {
+> 
+> if !pi we carry on with it NULL, which is a behavior change from
+> before where it would be ERR_PTR(-EPROBE_DEFER);
+> 
+> That might not matter, but it's not 'obviously' a safe change.
 
-Francesco
+You are right...also the Dox comment is obsoleted..I will review this
+patch as a whole, since even if probably right in its essence is badly
+implemented because I rushed it in in this series to fix a probblem that
+popped up on KASAN.
 
+> 
+> > +			refcount_inc(&pi->users);
+> > +			return pi;
+> > +		}
+> >  	}
+> > -	mutex_unlock(&info->protocols_mtx);
+> > +
+> > +	/* Fails if protocol not registered on bus */
+> > +	proto = scmi_protocol_get(protocol_id, &info->version);
+> > +	if (proto)
+> Trivial but I'd flip the logic to
+> 	if (!proto)
+> 		return ERR_PTR(-EPROBE_DEFER);
+> assuming a NULL return as mentioned above isn't the intent.
+> Then
+> 	return scmi_alloc_init_protocol_instance(info, protoo);
+
+Yes this seems a better rework...
+
+Thanks,
+Cristian
 
