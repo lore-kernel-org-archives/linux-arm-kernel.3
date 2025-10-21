@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE8CCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 23:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15738CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 23:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jebPbjme7P2kWR8ZBbngJLly0Zj7VzPVjORl20HOTyo=; b=faHhw65XzeRZQjRCp1ko+IN0ke
-	Zch6DNvLAQXYc7wFaeCA+v5USyc33LnZfH0e6xm6ZRhGvnK/jDBiWrqpQwtZjcxGpkX0T711gprV2
-	NlWnRHu79+AqLPi1Jl+zwCePobDuzFNTzSybnSAtKRBa6UlBl2fWWQzPTpsKVDUyIOT1mZIZfWdhZ
-	8N/X5kxrvoeSBO2ARb1laRYhvF3lose2YdI1P110jcUw+/XbH0452j61RB9uCRmbdLYetCnm12tcR
-	9ECicD3qdsWq/IvMDSYi6T8JPVlt7aUXHUbV++fmdRgvoIDX6qP6163anluIWdtsMF1Z1hEPIyfJs
-	vSj0vB9Q==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aUw9YHT1DuO4iRx4eDfJXH23Qgt15gcRPss2GWoFLoo=; b=lrwPA0C+SLHy7oxOrv63DeoWZf
+	zljSlcXu68Jno1pZUTZyNihLWYBkG2y/Hgmwd8RzCj83A7Qb8IjR5mC5z2s4XbVToc8hqi49W8RFO
+	kwuH0tufDJlwCqd4qlx9B1zsrWgQfOQbUVtoCvhqpqhK2Tsy2KyX1Whng7Sg56y5JpcU9nSw/Eh0m
+	9EqcmJXpmLdXJ0pNnQYH83mPm0vrENNENx8rdUvipnUeMtvd5tGa00Oj1g2+Dws0NvOv9s/uARWW+
+	tFOi8mB8qZB8pjfukkF232LWtsDRV2/UWJd/ozqMOMODLqan0Flb1k3tTzuBWwJAeEBHpSL7pnfrY
+	c+jvKyfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBLN3-00000000seG-3SKu;
-	Tue, 21 Oct 2025 23:02:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vBLXa-00000000tTv-2f69;
+	Tue, 21 Oct 2025 23:13:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBLN1-00000000sdu-3toV
+	id 1vBLXW-00000000tT3-3yuj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 23:02:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B5DB43AFD;
-	Tue, 21 Oct 2025 23:02:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD849C4CEF1;
-	Tue, 21 Oct 2025 23:02:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761087743;
-	bh=jebPbjme7P2kWR8ZBbngJLly0Zj7VzPVjORl20HOTyo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=o+Z/ffp++yk1l4a4ImWFacO3Xbayi82Qa014hran1qQITfIuDpVRQHXPUH//jEK3O
-	 Sp3sfTP6wr+Aq1Y1W+iTY7TZbNXdQXYG9LoZtDrQ9IR+/y0Il/eHNiT+l9EPyUYdxy
-	 bTWaa0VSOGq7xbLOXAehLsVxJjpdLj6DF2ea17J0pknwn7+CX0FrpuMcDUgAWRL6th
-	 2240836ngUv8ifxU/sqBRS23QAaocFlMDL9Hk80q3kleFhRCiz5XQXrXxWO2YPP7mM
-	 n0v4HGJlMLWsFe+cNsQ8CwNcColVc8bCLgNmjYkH0fYa+V48CZoJUETSScLnKaFwGB
-	 yC6c2+d6T9+zg==
-Date: Tue, 21 Oct 2025 16:02:21 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
- <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Richard
- Cochran <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Alexis
- =?UTF-8?B?TG90aG9yw6k=?= <alexis.lothore@bootlin.com>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 2/3] net: stmmac: Allow supporting coarse
- adjustment mode
-Message-ID: <20251021160221.4021a302@kernel.org>
-In-Reply-To: <911372f3-d941-44a8-bec2-dcc1c14d53dd@bootlin.com>
-References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
-	<20251015102725.1297985-3-maxime.chevallier@bootlin.com>
-	<20251017182358.42f76387@kernel.org>
-	<d40cbc17-22fa-4829-8eb0-e9fd26fc54b1@bootlin.com>
-	<20251020180309.5e283d90@kernel.org>
-	<911372f3-d941-44a8-bec2-dcc1c14d53dd@bootlin.com>
+	Tue, 21 Oct 2025 23:13:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761088392;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=aUw9YHT1DuO4iRx4eDfJXH23Qgt15gcRPss2GWoFLoo=;
+	b=OdlnetnX5Xy895K3hQ/GYQS8F/joURRQ4PSQaVnmlUMM6V2grFsys8CJRsR7GvMYSeTi/X
+	wHxUrfhb3CUkCy7mKYszEm8wfQUVsChnw0p7ROmd6Ynt7UhkP3XuWyKLWw1n5NUroDFF6R
+	nQAvQv4EgCK/54vmy0ikiQcO53QJIqo=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-554-QPlA025eOOSNJd0Q8JPWsw-1; Tue,
+ 21 Oct 2025 19:13:08 -0400
+X-MC-Unique: QPlA025eOOSNJd0Q8JPWsw-1
+X-Mimecast-MFC-AGG-ID: QPlA025eOOSNJd0Q8JPWsw_1761088387
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2DA0C1800245;
+	Tue, 21 Oct 2025 23:13:07 +0000 (UTC)
+Received: from [172.20.84.201] (unknown [10.30.45.119])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E77181955F22;
+	Tue, 21 Oct 2025 23:13:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.18.0-rc1,
+ upstream-arm-next, 143937ca)
+Date: Tue, 21 Oct 2025 23:13:05 -0000
+To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
+ catalin.marinas@arm.com
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Message-Id: <48486.125102119130800624@us-mta-554.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Xm2uPDrYlhSo1kshc7E6EhY5S4BvnRjT4cCzDjIS8fw_1761088387
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_160223_995609_92453F4D 
-X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-CacheID: sfid-20251021_161315_077570_193C3481 
+X-CRM114-Status: UNSURE (   6.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,14 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Oct 2025 10:02:01 +0200 Maxime Chevallier wrote:
-> Let me know if you need more clarifications on this
+Hi, we tested your kernel and here are the results:
 
-The explanation was excellent, thank you. I wonder why it's designed
-in such an odd way, instead of just having current_time with some
-extra/fractional bits not visible in the timestamp. Sigh.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-In any case, I don't feel strongly but it definitely seems to me like
-the crucial distinction here is not the precision of the timestamp but
-whether the user intends to dial the frequency.
+Tested-by: CKI Project <cki-project@redhat.com>
+
+Kernel information:
+    Commit message: arm64, mm: avoid always making PTE dirty in pte_mkwrite=
+()
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2112157979
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
