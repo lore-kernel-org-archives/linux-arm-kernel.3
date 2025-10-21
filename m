@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28025CCD1AF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 05:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B22CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 05:39:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ghmrnfvpmdVficormzFtjrdFed2w8rPM+q7JEBeD1F8=; b=SGbGIUy9MyyUmydfn69bmpa4yj
-	RopO/GYQOKmAKxxzBvoEJwnlMWNjsU/XZ9HCxFWgy0nH22mvYOM1OFT0MkXTKlp4UtKHR8AkKwak5
-	NkcgpUrz0nrpNj7rlkqCYmCODGDZcUzP5Sm3aOgfFSibL53A9NQRZQYAjj40zLz8XAvNTS3HZxE5i
-	aVrn43jmiUgb1BYc6RtTYAuuWWaLMX6GaTnIrc90MYrt9oGS5NJNZfYYRHmaJy5eVFonNvxDXbk2J
-	PCLOhEIbabOWu2sZxUNA7+MWxE7zcKELDfpp/eq74HByrqxwBbrmpQ/aV0JRHeh4E3WY6NWNo0+dA
-	AKNIZl0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2vOyU5LVAZQq/dslq1dz9Vv6cZ5N9rkyrrhiHUM7L/M=; b=Ilok5T8guqbHKf
+	oCj8MsGcaqchhZ/vM69NUNzYF0QxMqhddciB9fOcVrS8BOKGAPQV5z02jm6Fy2YdIX8avE1MtObRR
+	KHO/xS2jZ47IFiikkdZMzZHoz5u0BxZcUoEAmGMhiZvK3C81ixQoEJAcfnFdFhsxBAczOqiou4hz6
+	FFguCE/Xk2Du3glIW3HaIrFmdFM7QtE2/Ue8M2xcSJ5y2A1hxUWywdLIqfZTqLdMQOmCFpoY1jitU
+	VEj0CGddWTx2eq2yFbzjrzf+R4MZV68V1XmtoAnIupN+B/D+hx7bTYTyFhnilHqCJKieFt1HADNiM
+	9fGftclO3ghA+p/swU+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB4nZ-0000000Fq9A-2vAo;
-	Tue, 21 Oct 2025 05:20:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB4nU-0000000Fq7j-02i6
+	id 1vB55m-0000000FsMw-1hjD;
+	Tue, 21 Oct 2025 05:39:30 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vB55j-0000000FsMJ-2U8f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 05:20:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA446175D;
-	Mon, 20 Oct 2025 22:20:26 -0700 (PDT)
-Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7D9943F59E;
-	Mon, 20 Oct 2025 22:20:33 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] arm64/mm: Drop redundant 'level' range trimming in __tlbi_level()
-Date: Tue, 21 Oct 2025 06:20:21 +0100
-Message-Id: <20251021052022.2898275-2-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20251021052022.2898275-1-anshuman.khandual@arm.com>
-References: <20251021052022.2898275-1-anshuman.khandual@arm.com>
+	Tue, 21 Oct 2025 05:39:28 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 21 Oct
+ 2025 13:39:18 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Tue, 21 Oct 2025 13:39:18 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+To: <jic23@kernel.org>, <dlechner@baylibre.com>, <nuno.sa@analog.com>,
+	<andy@kernel.org>, <joel@jms.id.au>, <andrew@codeconstruct.com.au>,
+	<billy_tsai@aspeedtech.com>, <linux-iio@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v1] iio: adc: clear reference voltage bits before configuring vref
+Date: Tue, 21 Oct 2025 13:39:18 +0800
+Message-ID: <20251021053918.3008654-1-billy_tsai@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_222036_085659_792B1F0C 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20251020_223927_649896_4CA6ECE7 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,33 +65,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Page table level value has already known to be in the range [0..3] before
-entering inside the conditional 'if' loop. Hence any subsequent trimming
-is just redundant and can be dropped off.
+Ensures the reference voltage bits are cleared in the ADC engine
+control register before configuring the voltage reference. This
+avoids potential misconfigurations caused by residual bits.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Change-Id: I03c036436f376ced8a19fa5d407b7bbb377ae721
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 ---
- arch/arm64/include/asm/tlbflush.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/iio/adc/aspeed_adc.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 18a5dc0c9a54..131096094f5b 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -110,7 +110,7 @@ static inline unsigned long get_trans_granule(void)
- 									\
- 	if (alternative_has_cap_unlikely(ARM64_HAS_ARMv8_4_TTL) &&	\
- 	    level >= 0 && level <= 3) {					\
--		u64 ttl = level & 3;					\
-+		u64 ttl = level;					\
- 		ttl |= get_trans_granule() << 2;			\
- 		arg &= ~TLBI_TTL_MASK;					\
- 		arg |= FIELD_PREP(TLBI_TTL_MASK, ttl);			\
+diff --git a/drivers/iio/adc/aspeed_adc.c b/drivers/iio/adc/aspeed_adc.c
+index 1d5fd5f534b8..8ab29948214a 100644
+--- a/drivers/iio/adc/aspeed_adc.c
++++ b/drivers/iio/adc/aspeed_adc.c
+@@ -415,6 +415,7 @@ static int aspeed_adc_vref_config(struct iio_dev *indio_dev)
+ 	}
+ 	adc_engine_control_reg_val =
+ 		readl(data->base + ASPEED_REG_ENGINE_CONTROL);
++	adc_engine_control_reg_val &= ~ASPEED_ADC_REF_VOLTAGE;
+ 
+ 	ret = devm_regulator_get_enable_read_voltage(data->dev, "vref");
+ 	if (ret < 0 && ret != -ENODEV)
 -- 
-2.30.2
+2.25.1
 
 
