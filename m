@@ -4,85 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CCD6CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 20:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33978CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 20:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hAvzwpzQSETC2lKwgfVXJKcyUwiMeJEWklgbWrWua1w=; b=WqxXp8jBjywO/stYQNBpWAU4W0
-	evoI+Xq1pNASaifz4qbTEettTMyDR2qBqgbCBaRRyj6rwZf9EYGlkhGrtNBFCW4NdvfjjenUMyJYx
-	F15TpnfOExIDZnf7Ma6lP6pGlD16bpta5Tv/3tr5P36t50SxnYeY3k8oF26aWgeiutAHYqrTj0yqI
-	PPVW3sFtP9Xjo/PEW6v4ZQ1SuizE4J5xaHCvQXsNnx4/0M8ARCJBERni74vlZrjuFqxp+FQYo10sO
-	fmT0QY58y3j9E3zXW8msZJGu1cIRc0bUuaXj0M1p1UFNfEZbVLSQV+oTxraWFifxOaoABoLw7dgXu
-	8bUXDOwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WkfTpNuqej1UoTarvASJEkiFQ49zLY0qzCQi5FcT4uM=; b=KrXTkSvTh/fJGS4GRTn3ZM8a6V
+	JOemke1WPa33T59Yjbd1aA6FM+09mcPPmXRtyNeSecmxfGpuf/Yb/Et7qfB3soRw9gJsOeTabnL7a
+	pMKpdcUtfycmx9Ip7/yeHBLHEZLXrF1h2P0lmmsVqRxVMj5Zt3yb+2DJzApMzWuaxs+7pVRL/CyOy
+	4xZXC4Sl9UA1H9aEISkritpKjbEQY0Yu2MXzlUkWZCnM7jIMU3D6Z2P5XLR9TkS8PVt0MFRbvVxDr
+	vXBCDqXZGOAIQ7DxXq1EsP0jpQcIHaGir+YSacyjexCJZ4Mbo6dXPzUoCTpufVrf8oHz8iRSjDc1C
+	pIs4w11g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBIry-00000000aVJ-1s6P;
-	Tue, 21 Oct 2025 20:22:10 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vBJ7V-00000000bbn-3llz;
+	Tue, 21 Oct 2025 20:38:13 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBIrv-00000000aU4-2OL2;
-	Tue, 21 Oct 2025 20:22:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761078107; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=QrY/3a0vxy2P8JAKFOWpysYjzg9YpdQXvP+aIg2gtIeBQB2GZ0VHr/28YkYykdW1ePNjrhHjDLlNaNi9fEJyHUG5G84GGV+Qi6KCIYFeIZLscaE0Hl2YgCokXDgmszFSTsboUhQiDF9EqFGB6cyWBrnfxf9G4VNp2kbMWlXz99k=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761078107; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=hAvzwpzQSETC2lKwgfVXJKcyUwiMeJEWklgbWrWua1w=; 
-	b=gaqh9cwprh56WWxPqBWHY4c06cztH2dd/JXRzKlsNmG22IMiFPCpx/AFJwoyXYumggiRClhix/qPEJKDiKGhcE9Zd5yA1RcLNfdMI/XXOF5Gt11RwoioTvYx65Qh9MTuSA/FFIfk6Mae178SBhmcmkGsHceWA6x8pa1aLvj2A3c=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sjoerd@collabora.com;
-	dmarc=pass header.from=<sjoerd@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761078107;
-	s=zohomail; d=collabora.com; i=sjoerd@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=hAvzwpzQSETC2lKwgfVXJKcyUwiMeJEWklgbWrWua1w=;
-	b=LTIsdLSW3epqhH5OvoiycJDnQqP3nIYZbR5vNpzfS79o/Limr7vlOShUEfzal4LV
-	b7iKvQLnGJUd2uIs+yNTkLy8SIRK5GbE+5pjp3160njZMvf4itG+twGlnZe1TQRFU41
-	QQ6j6xhEEGpWCgs+L/LFvW1FZFSKrlJ3BdlarpLs=
-Received: by mx.zohomail.com with SMTPS id 176107810303712.61020879160435;
-	Tue, 21 Oct 2025 13:21:43 -0700 (PDT)
-Message-ID: <8f5335a703905dea9d8d0c1840862a3478da1ca7.camel@collabora.com>
-Subject: Re: [PATCH 12/15] arm64: dts: mediatek: mt7981b-openwrt-one: Enable
- Ethernet
-From: Sjoerd Simons <sjoerd@collabora.com>
-To: Andrew Lunn <andrew@lunn.ch>, Eric Woudstra <ericwouds@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Ryder Lee
- <ryder.lee@mediatek.com>,  Jianjun Wang <jianjun.wang@mediatek.com>, Bjorn
- Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi	 <lpieralisi@kernel.org>,
- Krzysztof =?UTF-8?Q?Wilczy=C5=84ski?=	 <kwilczynski@kernel.org>, Manivannan
- Sadhasivam <mani@kernel.org>, Chunfeng Yun	 <chunfeng.yun@mediatek.com>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Lee Jones <lee@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,  "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Lorenzo
- Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>, 
-	kernel@collabora.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, 	linux-pci@vger.kernel.org,
- linux-phy@lists.infradead.org, netdev@vger.kernel.org,  Daniel Golle
- <daniel@makrotopia.org>, Bryan Hinton <bryan@bryanhinton.com>
-Date: Tue, 21 Oct 2025 22:21:31 +0200
-In-Reply-To: <4f82aa17-1bf8-4d72-bc1f-b32f364e1cf6@lunn.ch>
-References: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
-	 <20251016-openwrt-one-network-v1-12-de259719b6f2@collabora.com>
-	 <4f82aa17-1bf8-4d72-bc1f-b32f364e1cf6@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-5 
+	id 1vBJ7S-00000000bZw-2NeW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 20:38:12 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251021203805euoutp01ac68c4569ef66b6ff401b2f1d10dc7f4~wnBj-3b5d2821328213euoutp01L
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 20:38:05 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251021203805euoutp01ac68c4569ef66b6ff401b2f1d10dc7f4~wnBj-3b5d2821328213euoutp01L
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1761079085;
+	bh=WkfTpNuqej1UoTarvASJEkiFQ49zLY0qzCQi5FcT4uM=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=rSyoE7eEsLXh9M8Vms1QePG23J8dvTd+XqkgCf2aNnIF06Guc00f+AK4hNUbm+XLw
+	 pJfmkcyYy9OpTo5HtJVNtSFgUe7ZKlhsHWf2/tt/kDnr4zYtaVbCXvNif9xY70br9D
+	 /h2cMy3Hj9X/n0N535wxwcgZt96u+dAS1Heq4SpQ=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20251021203804eucas1p2c091f1cce52c4d08eeacf8c36604f1fb~wnBisd64H0197501975eucas1p21;
+	Tue, 21 Oct 2025 20:38:04 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20251021203802eusmtip23e28f0f310780cc696c497752fb587eb~wnBhWTpKN1353213532eusmtip2A;
+	Tue, 21 Oct 2025 20:38:02 +0000 (GMT)
+Message-ID: <2e38e6c2-0548-432f-ae34-daf3972877ac@samsung.com>
+Date: Tue, 21 Oct 2025 22:38:01 +0200
 MIME-Version: 1.0
-X-ZohoMailClient: External
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v3 06/10] pmdomain: samsung: convert to
+ regmap_read_poll_timeout()
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, Krzysztof
+	Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Rob
+	Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof
+	Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	<tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>,
+	kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20251016-gs101-pd-v3-6-7b30797396e7@linaro.org>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20251021203804eucas1p2c091f1cce52c4d08eeacf8c36604f1fb
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20251016155855eucas1p2ccc516861548e963761133fc52fc560e
+X-EPHeader: CA
+X-CMS-RootMailID: 20251016155855eucas1p2ccc516861548e963761133fc52fc560e
+References: <20251016-gs101-pd-v3-0-7b30797396e7@linaro.org>
+	<CGME20251016155855eucas1p2ccc516861548e963761133fc52fc560e@eucas1p2.samsung.com>
+	<20251016-gs101-pd-v3-6-7b30797396e7@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_132207_683252_B2EE9E2F 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251021_133811_177662_8EDCD231 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,24 +91,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-10-17 at 19:31 +0200, Andrew Lunn wrote:
-> > +&mdio_bus {
-> > +	phy15: ethernet-phy@f {
-> > +		compatible =3D "ethernet-phy-id03a2.a411";
-> > +		reg =3D <0xf>;
-> > +		interrupt-parent =3D <&pio>;
-> > +		interrupts =3D <38 IRQ_TYPE_EDGE_FALLING>;
->=20
-> This is probably wrong. PHY interrupts are generally level, not edge.
+On 16.10.2025 17:58, André Draszik wrote:
+> Replace the open-coded PD status polling with
+> regmap_read_poll_timeout(). This change simplifies the code without
+> altering functionality.
+>
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> ---
+>   drivers/pmdomain/samsung/exynos-pm-domains.c | 29 ++++++++--------------------
+>   1 file changed, 8 insertions(+), 21 deletions(-)
+>
+> diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdomain/samsung/exynos-pm-domains.c
+> index 383126245811cb8e4dbae3b99ced3f06d3093f35..431548ad9a7e40c0a77ac6672081b600c90ddd4e 100644
+> --- a/drivers/pmdomain/samsung/exynos-pm-domains.c
+> +++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
+> @@ -13,7 +13,6 @@
+>   #include <linux/platform_device.h>
+>   #include <linux/slab.h>
+>   #include <linux/pm_domain.h>
+> -#include <linux/delay.h>
+>   #include <linux/of.h>
+>   #include <linux/pm_runtime.h>
+>   #include <linux/regmap.h>
+> @@ -35,7 +34,8 @@ struct exynos_pm_domain {
+>   static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
+>   {
+>   	struct exynos_pm_domain *pd;
+> -	u32 timeout, pwr;
+> +	unsigned int val;
+> +	u32 pwr;
+>   	int err;
+>   
+>   	pd = container_of(domain, struct exynos_pm_domain, pd);
+> @@ -45,25 +45,12 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
+>   	if (err)
+>   		return err;
+>   
+> -	/* Wait max 1ms */
+> -	timeout = 10;
+> -	while (timeout-- > 0) {
+> -		unsigned int val;
+> -
+> -		err = regmap_read(pd->regmap, 0x4, &val);
+> -		if (err || ((val & pd->local_pwr_cfg) != pwr)) {
+> -			cpu_relax();
+> -			usleep_range(80, 100);
+> -			continue;
+> -		}
+> -
+> -		return 0;
+> -	}
+> -
+> -	if (!err)
+> -		err = -ETIMEDOUT;
+> -	pr_err("Power domain %s %sable failed: %d\n", domain->name,
+> -	       power_on ? "en" : "dis", err);
+> +	err = regmap_read_poll_timeout(pd->regmap, 0x4, val,
+> +				       (val & pd->local_pwr_cfg) == pwr,
+> +				       100, 1 * USEC_PER_MSEC);
+> +	if (err)
+> +		pr_err("Power domain %s %sable failed: %d (%#.2x)\n",
+> +		       domain->name, power_on ? "en" : "dis", err, val);
 
-Sadly i can't find a datasheet for the PHY, so can't really validate that e=
-asily. Maybe Eric can
-comment here as the author of the relevant PHY driver.
+I've posted my 'tested-by' tag for this patchset, but in meantime I 
+found that this patch causes regression from time to time on old Exynos 
+SoCs (especially when all debugs are disabled). It looks that there are 
+some subtle differences between reading the status register up to 10 
+times with cpu_relax()+usleep_range() and the 
+regmap_read_poll_timeout(). I will try to analyze this a bit more and 
+provide details, but I suspect that the old loop might take a bit longer 
+than the 1ms from the comment above this code.
 
-I'd note that the mt7986a-bananapi-bpi-r3-mini dts has the same setup for t=
-his PHY, however that's
-ofcourse not authoritative.
 
---=20
-Sjoerd Simons <sjoerd@collabora.com>
+>   	return err;
+>   }
+>
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
