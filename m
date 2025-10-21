@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D9CCCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 15:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EDBCCD1A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 15:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hgnFrpXidvfCdHtRoC6xMEtt8JVqz1TQu5QhyO+uCEI=; b=nOrwukIx0aYi/yFEgkGeFWREFb
-	YNyHjX5iySNTlHSShXKiEJ0NIPgwQaxx/5OsHe0Yo5by4yKXdVih1VZfKOLOwmBC9h8S/XM/j6QR7
-	x8iW4LNgzWlWqBEMHXBf4ZY/n+8b4P++9fY+bzI+4sM/5/BgXdrOG7uSj5tBo80YiJTz3lAdzT9Oy
-	rijv1ZcJJCKOS9qEzEZav2uFmXNcAfO09mouTuXgFRSPT4k+HCbsPaDbmXM+CZclRUIOO0yXDuxE5
-	QldzuYJlucppo14Ov6v8ey0wojPhY+MWa4TEZRieuuc+jqYZeE70vgkwQC3UrqhegSSV4lCaAzOl0
-	Bht0p2gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J2ELsVcDnKwRB57E7ogJcKSZ6lVJDxlVGwUTuNiPK3g=; b=J8ESxPh636OS6d+BGqQDxkXkXV
+	Cb53mdeO54aUY5QMLlenlG5zw/VsT49Xu6x9PObyFkh+9MsyB21xBc3DV+ZAEvOlyPYI8agdPDaCX
+	gZSN2yRtXQ2+/h48yasQt+CrbU/19bGrImTI6gWWJ/OI6gV5R68l+3MBbqlsfPGPlp94qzCmlb1wA
+	8rn4fJijyqM98xopLlQYdB4RM3Tfa9EivPf+Nk09JVt7wg8B2ZV337eZCTBJhSAC1sHPynlJ2iDsT
+	c5QGi1vidiQyxNPeasbrjj/03dDmTDFE8+Tg+dhKdjn2prKsKgvortU7ueoWjiy43t/mhw4roDNxX
+	vANTc22w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBE5B-0000000HSwh-3i96;
-	Tue, 21 Oct 2025 15:15:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBE5V-0000000HT2g-0s42;
+	Tue, 21 Oct 2025 15:15:49 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBE59-0000000HSw6-2rRT
+	id 1vBE5R-0000000HT0l-2uPb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 15:15:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0A20743B78;
-	Tue, 21 Oct 2025 15:15:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4771C4CEF1;
-	Tue, 21 Oct 2025 15:15:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761059726;
-	bh=MgCXam1/mW0SmqZK+U1KcPTrQ31DfIrbzGnwcNoUJAo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=mznYIclegWDskvSCmLAaalFM0uFXHZtex0TSHbihITxS2pbRir/3KXk12MRxco4ss
-	 Z8CpuUCd+ihY4fF6y/N+uC4e5rGHSynPC2qICWCclMsiCmkaNlxc4lyhNaX5ThNiMi
-	 gT3G1cdtAxeDwCGhcXw4dx5BesSxIwN1CebQOIQ5wdtgFICJw0acGIKSsgK0Azyv+9
-	 56VAWXZcu50+l0yevg4Woj2qtQIfJlwF/FuN4YgkRPPSfx+Lr79GHc3W5dg28nhz3P
-	 QEo/SUdvo5rHFMgzLhtDIwwy2czuuNhi9rHoLK16f1ufJZdV8DyZ8E7pikDkaLgjay
-	 C1iIkch+9VX+A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vBE56-0000000FtDi-1fUu;
-	Tue, 21 Oct 2025 15:15:24 +0000
-Date: Tue, 21 Oct 2025 16:15:23 +0100
-Message-ID: <868qh4wak4.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: linux-kernel@vger.kernel.org,	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,	linux-pci@vger.kernel.org,	Frank Li
- <Frank.Li@nxp.com>,	Sascha Bischoff <sascha.bischoff@arm.com>,	Thomas
- Gleixner <tglx@linutronix.de>,	Rob Herring <robh@kernel.org>,	Scott Branden
- <sbranden@broadcom.com>,	Bjorn Helgaas <bhelgaas@google.com>,	Ray Jui
- <rjui@broadcom.com>,	Manivannan Sadhasivam <mani@kernel.org>,	Krzysztof
- =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>
-Subject: Re: [PATCH v4 5/5] irqchip/gic-its: Rework platform MSI deviceID detection
-In-Reply-To: <20251021124103.198419-6-lpieralisi@kernel.org>
-References: <20251021124103.198419-1-lpieralisi@kernel.org>
-	<20251021124103.198419-6-lpieralisi@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-pci@vger.kernel.org, Frank.Li@nxp.com, sascha.bischoff@arm.com, tglx@linutronix.de, robh@kernel.org, sbranden@broadcom.com, bhelgaas@google.com, rjui@broadcom.com, mani@kernel.org, kwilczynski@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 21 Oct 2025 15:15:48 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4crbPf3q5jz6D8gw;
+	Tue, 21 Oct 2025 23:12:22 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 992A914011A;
+	Tue, 21 Oct 2025 23:15:32 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 21 Oct
+ 2025 16:15:31 +0100
+Date: Tue, 21 Oct 2025 16:15:29 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<arm-scmi@vger.kernel.org>, <sudeep.holla@arm.com>,
+	<james.quinlan@broadcom.com>, <f.fainelli@gmail.com>,
+	<vincent.guittot@linaro.org>, <etienne.carriere@st.com>,
+	<peng.fan@oss.nxp.com>, <michal.simek@amd.com>, <quic_sibis@quicinc.com>,
+	<dan.carpenter@linaro.org>, <d-gole@ti.com>, <souvik.chakravarty@arm.com>
+Subject: Re: [PATCH 06/10] firmware: arm_scmi: Add System Telemetry driver
+Message-ID: <20251021161529.00001468@huawei.com>
+In-Reply-To: <aPdf9lyY9ysq2mPx@pluto>
+References: <20250925203554.482371-1-cristian.marussi@arm.com>
+	<20250925203554.482371-7-cristian.marussi@arm.com>
+	<20251020172328.00002fc3@huawei.com>
+	<aPdf9lyY9ysq2mPx@pluto>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+MIME-Version: 1.0
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_081527_763238_55E46D75 
-X-CRM114-Status: GOOD (  18.98  )
+X-CRM114-CacheID: sfid-20251021_081545_877044_6C478FCC 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,37 +77,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Oct 2025 13:41:03 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> Current code retrieving platform devices MSI devID in the GIC ITS MSI
-> parent helpers suffers from some minor issues:
-> 
-> - It leaks a struct device_node reference
-> - It is duplicated between GICv3 and GICv5 for no good reason
-> - It does not use the OF phandle iterator code that simplifies
->   the msi-parent property parsing
-> 
-> Consolidate GIC v3 and v5 deviceID retrieval in a function that addresses
-> the full set of issues in one go by merging GIC v3 and v5 code and
-> converting the msi-parent parsing loop to the more modern OF phandle
-> iterator API, fixing the struct device_node reference leak in the process.
-> 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Cc: Sascha Bischoff <sascha.bischoff@arm.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Frank Li <Frank.Li@nxp.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/irqchip/irq-gic-its-msi-parent.c | 91 ++++++------------------
->  1 file changed, 23 insertions(+), 68 deletions(-)
+On Tue, 21 Oct 2025 11:27:02 +0100
+Cristian Marussi <cristian.marussi@arm.com> wrote:
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+> On Mon, Oct 20, 2025 at 05:23:28PM +0100, Jonathan Cameron wrote:
+> > On Thu, 25 Sep 2025 21:35:50 +0100
+> > Cristian Marussi <cristian.marussi@arm.com> wrote:
+> >   
+> > > Add a new SCMI System Telemetry driver which gathers platform Telemetry
+> > > data through the new the SCMI Telemetry protocol and expose all of the
+> > > discovered Telemetry data events on a dedicated pseudo-filesystem that
+> > > can be used to interactively configure SCMI Telemetry and access its
+> > > provided data.  
+> >  
+> 
+> Hi,
+>  
+> > I'm not a fan of providing yet another filesystem but you didn't
 
-	M.
+"did" was what this was meant to say.
 
--- 
-Without deviation from the norm, progress is not possible.
+Sorry for the confusing garbage comment from me!
+
+> > lay out reasoning in the cover letter.  
+> 
+> Sorry, I dont understand..you mean here that I did NOT provide enough reasons
+> why I am adopting a new FS approach ? ... or I misunderstood the English ?
+> 
+> .. because I did provide a lot of reasons (for my point-of-view) to go
+> for a new FS in the cover-letter...
+> 
+> > 
+> > One non trivial issue is that you'll have to get filesystem review on this.
+> > My review is rather superficial but a few things stood out.  
+> 
+> Well yes I would have expected that, but now the FS implementation
+> internals of this series is definetely immature and to be reworked (to
+> the extent of using a well-know deprecated FS mount api at first..)
+> 
+> So I posted this V1 to lay-out the ideas and the effective FS API layout
+> but I was planning to extend the review audience once I have reworked fully
+> the series FS bits in the next V2...
+
+I'd suggest ABI docs for v2. That will match what you have in the cover letter
+but put it in the somewhat formal description format of Documentation/ABI/
+
+
+THanks,
+
+Jonathan
+
+> 
+
 
