@@ -4,65 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EDBCCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 15:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 253EBCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 15:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J2ELsVcDnKwRB57E7ogJcKSZ6lVJDxlVGwUTuNiPK3g=; b=J8ESxPh636OS6d+BGqQDxkXkXV
-	Cb53mdeO54aUY5QMLlenlG5zw/VsT49Xu6x9PObyFkh+9MsyB21xBc3DV+ZAEvOlyPYI8agdPDaCX
-	gZSN2yRtXQ2+/h48yasQt+CrbU/19bGrImTI6gWWJ/OI6gV5R68l+3MBbqlsfPGPlp94qzCmlb1wA
-	8rn4fJijyqM98xopLlQYdB4RM3Tfa9EivPf+Nk09JVt7wg8B2ZV337eZCTBJhSAC1sHPynlJ2iDsT
-	c5QGi1vidiQyxNPeasbrjj/03dDmTDFE8+Tg+dhKdjn2prKsKgvortU7ueoWjiy43t/mhw4roDNxX
-	vANTc22w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TMVheGalK8FFbFn0JWrh/VoA/5vQNhUL74QB4lSqKMU=; b=O/n2wDBW0Pon8CIor0HHy8ph8w
+	Gsvoc+k9/PIKawUmAqjhcQNrSc5QIz5DdEFV0fQskZBxietLIhDkpd59x0Pn/Y5hKRoe12GVkCC+/
+	80ek+FPS0q4+s06vW5efPQVWXk1d7YdOt3xQ/HStaG6Ct0+ZzceAqbOlbn1JS8mxsAxDmrTL3z7Ho
+	L7fxxihKf4aEvMzJHNUlaOd5skvM6kBneFhJOtdhAeUhm83TpGNDKTM2u3opH5XI2cLFKjSsAGptJ
+	aU63g3I+gpY43Iq083JYAm9pupjhUzHZppRjd4o0gOm4fjd5El9QrwvAYa7AqR+ACYcCS20kQCu4T
+	R1sPL1Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBE5V-0000000HT2g-0s42;
-	Tue, 21 Oct 2025 15:15:49 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vBECY-0000000HTwf-2Hi9;
+	Tue, 21 Oct 2025 15:23:06 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBE5R-0000000HT0l-2uPb
+	id 1vBECW-0000000HTvp-0QLY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 15:15:48 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4crbPf3q5jz6D8gw;
-	Tue, 21 Oct 2025 23:12:22 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 992A914011A;
-	Tue, 21 Oct 2025 23:15:32 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 21 Oct
- 2025 16:15:31 +0100
-Date: Tue, 21 Oct 2025 16:15:29 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Cristian Marussi <cristian.marussi@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<arm-scmi@vger.kernel.org>, <sudeep.holla@arm.com>,
-	<james.quinlan@broadcom.com>, <f.fainelli@gmail.com>,
-	<vincent.guittot@linaro.org>, <etienne.carriere@st.com>,
-	<peng.fan@oss.nxp.com>, <michal.simek@amd.com>, <quic_sibis@quicinc.com>,
-	<dan.carpenter@linaro.org>, <d-gole@ti.com>, <souvik.chakravarty@arm.com>
-Subject: Re: [PATCH 06/10] firmware: arm_scmi: Add System Telemetry driver
-Message-ID: <20251021161529.00001468@huawei.com>
-In-Reply-To: <aPdf9lyY9ysq2mPx@pluto>
-References: <20250925203554.482371-1-cristian.marussi@arm.com>
-	<20250925203554.482371-7-cristian.marussi@arm.com>
-	<20251020172328.00002fc3@huawei.com>
-	<aPdf9lyY9ysq2mPx@pluto>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Tue, 21 Oct 2025 15:23:05 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b3e234fcd4bso1015069366b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 08:23:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761060182; x=1761664982; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TMVheGalK8FFbFn0JWrh/VoA/5vQNhUL74QB4lSqKMU=;
+        b=NvpKf4RvhKM3QECMcZTYZmseiWc/jMeGp4cTacRtJ33/YeqgNHGF2RW4KC6wmuABwL
+         a/kFCrnF/B68h+Mj4a9j5L8nCpwcrTB3Wa0IFddFCC7pbfG8ZJE/AjhJDdbEzNvUiB3R
+         H+UkbLcGelcORQesEFGAhP/Z76lvqGAInSFykVZmCQDkp8a0N0eo6wjmntI30jDC5/DS
+         zuR9XkWCmADQau7rm3KjSNEZ1pOYSBEmYGQ0VjXH3C3nRvUPZzQ14ooMygG7EgWJpRni
+         PFeg5Rd86bjeDLA34xEMwuDDb4x7IwXvydqqniaNbgH53CnFfigAnoSQcp+2YJM6Wkav
+         jGpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761060182; x=1761664982;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TMVheGalK8FFbFn0JWrh/VoA/5vQNhUL74QB4lSqKMU=;
+        b=kvwqExNsaJ/lGclvgX8l8fODiMCXfgC6hcA1oN5YOVHUy+uV3xuqE1+5hfjKv1caYO
+         7yJfyBtalr0vvDqyi5Hs9D4RB11wDq0N/+SahpeDQjfX+lKVWTZR8pxw6mUtEwVF89Rr
+         z4hcydLl94INhsp0F5eRgo4Neg2DcW3vUdkOdYgcGER0oVqVN14ViAmwY+rZz9aOqjFS
+         YgdQSgPSuXMMYS+OjFCIAyue53xh1k5JcS7q9hhSTO3BWNO7GpdEZsLG7c6K/k1nvtIb
+         1rfRL5aeyoZNyP83dy+HsPB7akL/kuB5IliG9Qi003IvTd7g6y0H3NRf53+qHar+xQhK
+         6vJw==
+X-Forwarded-Encrypted: i=1; AJvYcCVvMXWpIFoeH5iH+GttLTnvm2H27MDH/2fN5nPEdbqHPCSciUgCGBhJX8BreER/L7wsw9/0E+Hrc9PU98AVBQ63@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbKHZ4kFDYO/GGVHAWg8yGygfSRofdz+dO0Qm0dnBvTzSh4Jh9
+	YiUNXlANRDLFe0/xJQiqJqwwwlJabYyO47/0Fp44U02aSOsA72dKUb+h
+X-Gm-Gg: ASbGncvulaNI+lHWpIM5SUFiLuFh1433ArnDI2SZU7prJ3BoELBqgEhi5Hi6VU++xJX
+	CgEQPXlxqWHfg2K/b6hLYhHkFd2P7A1caQt4ovgXNRijUinsYzgmJ7AsM/hao//qBKwl3w1CQRF
+	T6/9ux7MKAnJ1ejo2pJ+GBfDjhgv1JAOS0ih2ULHApKuxBbaYVxCCNPNfJPdrTWzCCSYPEvpnzD
+	OWQKkp3MaK5WCxRB/2sQOLRqBcaUaThc/8f7Dp1xGNDsCEArEUWhBg3mX7jgZt57FpDQtIs/z7p
+	RlD2dLMb07eo8SRz22hDrA5QXR6lvhZbwaIgXIKTDpIHiNEfFGDwl7RTwrqQGyRZh7U85DNvXki
+	wzgA3vC6LRuq9tJUCnXj13ZtBz8e/cuTe5l06OTb1COvzBvE553fP15WJT3y+KZmmRTrwVcYCMb
+	zn2bZ5tvGqLsOQ6uo1cx9wiO1zIsKPJXiUac7D0Q==
+X-Google-Smtp-Source: AGHT+IFjAc5AXcoHcQ988nnPs6wGFM+kl8yEEIE8fwdc9oeO900YlPPXdG3f/j1Bm9ul8xq81jy+LQ==
+X-Received: by 2002:a17:906:fd87:b0:b07:c5b1:b129 with SMTP id a640c23a62f3a-b647195b8c3mr2176066166b.1.1761060181709;
+        Tue, 21 Oct 2025 08:23:01 -0700 (PDT)
+Received: from tearch (pc142.ds2-s.us.edu.pl. [155.158.56.142])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65e8581780sm1082737866b.31.2025.10.21.08.23.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Oct 2025 08:23:01 -0700 (PDT)
+From: muhammed.efecetin.67@gmail.com
+X-Google-Original-From: muhammed.efecetin67@gmail.com
+To: linux-rockchip@lists.infradead.org
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	heiko@sntech.de,
+	neil.armstrong@linaro.org,
+	lee@kernel.org,
+	rafael@kernel.org,
+	efectn@protonmail.com,
+	daniel.lezcano@linaro.org
+Subject: [PATCH v3 0/5] Add Khadas MCU and fan control support for Khadas Edge 2
+Date: Tue, 21 Oct 2025 17:22:40 +0200
+Message-ID: <cover.1761059314.git.efectn@protonmail.com>
+X-Mailer: git-send-email 2.51.1.dirty
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_081545_877044_6C478FCC 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20251021_082304_153646_7C7159F2 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,56 +106,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Oct 2025 11:27:02 +0100
-Cristian Marussi <cristian.marussi@arm.com> wrote:
+From: Muhammed Efe Cetin <efectn@protonmail.com>
 
-> On Mon, Oct 20, 2025 at 05:23:28PM +0100, Jonathan Cameron wrote:
-> > On Thu, 25 Sep 2025 21:35:50 +0100
-> > Cristian Marussi <cristian.marussi@arm.com> wrote:
-> >   
-> > > Add a new SCMI System Telemetry driver which gathers platform Telemetry
-> > > data through the new the SCMI Telemetry protocol and expose all of the
-> > > discovered Telemetry data events on a dedicated pseudo-filesystem that
-> > > can be used to interactively configure SCMI Telemetry and access its
-> > > provided data.  
-> >  
-> 
-> Hi,
->  
-> > I'm not a fan of providing yet another filesystem but you didn't
+This patch series adds support for the Khadas MCU and fan control for Khadas Edge 2 board.
 
-"did" was what this was meant to say.
+The first patch updates the device tree bindings to add new "khadas,mcu-edge2" compatible for Khadas Edge 2.
+The second mfd patch removes unused nvmem code.
+The third patch adds the Khadas Edge 2 registers to the mfd driver.
+The fourth patch adds support for Khadas Edge 2's new fan control registers to MCU thermal driver and the last one adds the Khadas Edge 2 device tree node for the MCU and fan control.
+And the final patch adds the Khadas Edge 2 device tree node for the MCU and fan control.
 
-Sorry for the confusing garbage comment from me!
+Changes in v3:
+- Renamed the compatible "khadas,mcu-v2" to "khadas,mcu-edge2" for Khadas Edge 2.
+- Renamed KHADAS_MCU_V2 registers prefix to KHADAS_MCU_EDGE2.
+- Used of_device_get_match_data instead of of_device_is_compatible to identify the MCU variant.
 
-> > lay out reasoning in the cover letter.  
-> 
-> Sorry, I dont understand..you mean here that I did NOT provide enough reasons
-> why I am adopting a new FS approach ? ... or I misunderstood the English ?
-> 
-> .. because I did provide a lot of reasons (for my point-of-view) to go
-> for a new FS in the cover-letter...
-> 
-> > 
-> > One non trivial issue is that you'll have to get filesystem review on this.
-> > My review is rather superficial but a few things stood out.  
-> 
-> Well yes I would have expected that, but now the FS implementation
-> internals of this series is definetely immature and to be reworked (to
-> the extent of using a well-know deprecated FS mount api at first..)
-> 
-> So I posted this V1 to lay-out the ideas and the effective FS API layout
-> but I was planning to extend the review audience once I have reworked fully
-> the series FS bits in the next V2...
+Changes in v2:
+- Added a new compatible "khadas,mcu-v2" for Khadas Edge 2 instead of cooling-levels property in old variant.
+- Added Khadas Edge 2 registers with KHADAS_MCU_EDGE2 prefix.
 
-I'd suggest ABI docs for v2. That will match what you have in the cover letter
-but put it in the somewhat formal description format of Documentation/ABI/
+Muhammed Efe Cetin (5):
+  dt-bindings: mfd: khadas-mcu: add new compatible for Khadas Edge 2
+  mfd: khadas-mcu: drop unused nvmem code
+  mfd: add Khadas Edge 2 registers to khadas-mcu.
+  thermal: khadas_mcu_fan: add support for Khadas Edge 2
+  arm64: dts: rockchip: add Khadas MCU and fan control nodes
 
+ .../devicetree/bindings/mfd/khadas,mcu.yaml   |  5 +-
+ .../dts/rockchip/rk3588s-khadas-edge2.dts     | 58 +++++++++++++++++++
+ drivers/mfd/khadas-mcu.c                      | 58 ++++++++++++++-----
+ drivers/thermal/khadas_mcu_fan.c              | 20 +++++--
+ include/linux/mfd/khadas-mcu.h                | 32 ++++++++++
+ 5 files changed, 153 insertions(+), 20 deletions(-)
 
-THanks,
-
-Jonathan
-
-> 
+-- 
+2.51.1.dirty
 
 
