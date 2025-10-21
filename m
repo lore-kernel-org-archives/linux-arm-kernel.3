@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF585CCD1AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A5CCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:54:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pspt2qnqiDzo8uNlCYlVpKxaih4oy09rxWGE+CmFitE=; b=VDsbQVqRbR/GUPmzwE8SO1Mefo
-	HHfTUhj4tT4mtRfcuMIy+KUUrkJtCy1D/vT8IB5WPQ8n1M8wKSodRFuWyRj4sWh8F0EZ2bkRWKBfX
-	CZxeFKONy0arqqECYy450eruRSsKo5tpiR9RBblaEHveENP7q1IqlRFlOahS62w4LjtSyf5oVUTtj
-	KZCYTpkZ9mtkScJbsnLbqLu9YbcvSf8zYJh9QO4B5xnMVcftbncCMFXtShrzQUj+YtjgCOVMZKPEF
-	/ZQLuufn+9cPT9DU90fepTN9CW1lKvdUhXIoCDc+yRU4A/2RPywFqv0DDKO+zXfxaUINNNmUIez0L
-	POktzyWA==;
+	bh=3cvXtn5V3UFFlWiour87LsQ22KfnHunhwwWD65loTaI=; b=RRJRayQNBQRfsbLvWit6jKnXl/
+	DTtlEhrqiypGzj+2FuVxAnELlRdSuRaCPAFqDEYeS3vNIJFFpbOkgT5/QX1oeBkncvKvXKi3jPkex
+	X/nX6g/x4FkZcOO0UcejJla5V1JgJuoC9KcgL11PQPD8x1TVmaQP33Xn1YAizSTWmSwsY54EEn4i6
+	gFQ8Q6Uz67pJs7UbK7ozWQX/yZ5H5nIFPdOCImJM79GlexMoGi/l/+wrAu17Vd4NQPJo3bIpywm4r
+	SSmzgV6N3Das9SHqZot1EVMEBDFF+X0ARpsiuBuob4a2S0taxfNUBaS6BmmBUMOh7nBAO2MqwcZ9e
+	H6Y6tS4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBqP-0000000H2go-0nIF;
-	Tue, 21 Oct 2025 12:52:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBBsv-0000000H3F2-10gc;
+	Tue, 21 Oct 2025 12:54:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBqN-0000000H2fj-3Hxc
+	id 1vBBst-0000000H3Dd-3a52
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 12:52:04 +0000
+	Tue, 21 Oct 2025 12:54:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 57C8540C15;
-	Tue, 21 Oct 2025 12:52:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80339C4CEF1;
-	Tue, 21 Oct 2025 12:51:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0493B60415;
+	Tue, 21 Oct 2025 12:53:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55553C4CEF1;
+	Tue, 21 Oct 2025 12:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761051123;
-	bh=xl5f2KWZjnQ0VT+pwG5gNrmtrc3seJnlxSjRbDKcWN4=;
+	s=k20201202; t=1761051234;
+	bh=UY2OSllcqRDaiG/AFNpJ3ozdueOD0RXvdE2EaOV+UH8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eRjJ+BvEoDGSHu34gpVnNaa44gGA0cHKta96VRDLRlAf5tNR7ZIjaJ1DSPYzgxhza
-	 pwhIu22SSHWCUbrb5Ywk0kena7WF6W8i3r5QZicFutmPrxn/kUAJt/822j7fMvCR8P
-	 mmdltnpqYakNtNQhpJQPXt/rjU39SRIGc0AjX+RatiX5Y+MERgucXaLx4xKGPkMKT1
-	 Yw1rRfN2/z9rjlcTe9GI9DEY19tHfLDpAVQqsL6oRNfXHwzPBiqVHHUXPwGwFbH26n
-	 99Ux+gYEzaPkqjIvyFH/Tj3GGIELr4L5wZ6HdcBElUIn+ovpoxSOM2fI7Py/K6392r
-	 jPLlXwa/DwmCw==
-Date: Tue, 21 Oct 2025 14:51:55 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Scott Branden <sbranden@broadcom.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-Subject: Re: [PATCH v3 1/5] of/irq: Add msi-parent check to of_msi_xlate()
-Message-ID: <aPeB6wQKC27gKyQv@lpieralisi>
-References: <20251017084752.1590264-1-lpieralisi@kernel.org>
- <20251017084752.1590264-2-lpieralisi@kernel.org>
- <20251021115517.GA3713879-robh@kernel.org>
+	b=MK13Bz8u0aFDcU4UaydmuPJ94/RJsUSk49QV9YFFxyqro787NvORkZoXkPqM8E0Or
+	 CcLkp8Kp/iS+s/2nVgTWhzegXbjFKaG0dQnO4B6QFI1ixEDoPBJOt7XSEtVyWXmW/9
+	 qKmvDCQDJqrwKvumbdyVJKcuXpfHUfwwRDi51VQT4mskKM6g5KasWj5mm7PRLqrE6c
+	 B3CXCoFC5SN3tUmZYJSoGHIhQnDn1PoTiBLDFfvYKSSvnaVl4L60rXy8axwUHaedHu
+	 j8Yx061Fz6PO6hC23FWr0/8ddRTTlSHTU5475hpeZjVw44HqQt6f44aw9jA8WSg+3y
+	 KYUTqxRmLDd2w==
+Date: Tue, 21 Oct 2025 18:23:29 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andy Shevchenko <andy@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
+Message-ID: <ibdmghl5dg3oda2j5ejp35ydky4xkazewhdvskm7p32vstdegr@36pj32b6dt44>
+References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
+ <hyzzrjn7jzo3tt3oyg7azijouawe3zopfjzq6zfhoo6e6z2m4t@ssl5vl4g557e>
+ <zk4ea5cibrkp4vttuy4evrqybf76b3nop5lnyck4ws4nyf2yc4@ghj2eyswsoow>
+ <CAMRc=MdWmO4wvX6zpzN0-LZF1pF5Y2=sS8fBwr=CKMGWHg+shA@mail.gmail.com>
+ <rfr5cou6jr7wmtxixfgjxhnda6yywlsxsei7md7ne3qge7r3gk@xv6n5pvcjzrm>
+ <CAMRc=Me9Td5G9qZV8A98XkGROKw1D2UeQHpFzt8uApF8995MZw@mail.gmail.com>
+ <rvsyll4u6v4tpaxs4z3k4pbusoktkaocq4o3g6rjt6d2zrzqst@raiuch3hu3ce>
+ <CAMRc=Me+4H6G+-Qj_Gz2cv2MgRHOmrjMyNwJr+ardDR1ndYHvQ@mail.gmail.com>
+ <fydmplp5z4hjic2wlmvcy6yr3s5t5u4qsgo7yzbqq3xu2g6hdk@v4tzjj3ww4s6>
+ <CAMRc=McGuNX42k_HdV20zW+buACBTmTZEHWgS-ddRYsvnfwDSg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251021115517.GA3713879-robh@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_055203_875481_0DC66519 
-X-CRM114-Status: GOOD (  39.15  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=McGuNX42k_HdV20zW+buACBTmTZEHWgS-ddRYsvnfwDSg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,122 +88,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 06:55:17AM -0500, Rob Herring wrote:
-> On Fri, Oct 17, 2025 at 10:47:48AM +0200, Lorenzo Pieralisi wrote:
-> > In some legacy platforms the MSI controller for a PCI host bridge is
-> > identified by an msi-parent property whose phandle points at an MSI
-> > controller node with no #msi-cells property, that implicitly
-> > means #msi-cells == 0.
-> > 
-> > For such platforms, mapping a device ID and retrieving the MSI controller
-> > node becomes simply a matter of checking whether in the device hierarchy
-> > there is an msi-parent property pointing at an MSI controller node with
-> > such characteristics.
-> > 
-> > Add a helper function to of_msi_xlate() to check the msi-parent property in
-> > addition to msi-map and retrieve the MSI controller node (with a 1:1 ID
-> > deviceID-IN<->deviceID-OUT  mapping) to provide support for deviceID
-> > mapping and MSI controller node retrieval for such platforms.
-> > 
-> > Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
-> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Sascha Bischoff <sascha.bischoff@arm.com>
-> > Cc: Rob Herring <robh@kernel.org>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  drivers/of/irq.c | 38 +++++++++++++++++++++++++++++++++++---
-> >  1 file changed, 35 insertions(+), 3 deletions(-)
+On Tue, Oct 21, 2025 at 02:22:46PM +0200, Bartosz Golaszewski wrote:
+> On Tue, Oct 21, 2025 at 2:20 PM Manivannan Sadhasivam <mani@kernel.org> wrote:
+> >
+> > >
+> > > And with the implementation this series proposes it would mean that
+> > > the perst signal will go high after the first endpoint pwrctl driver
+> > > sets it to high and only go down once the last driver sets it to low.
+> > > The only thing I'm not sure about is the synchronization between the
+> > > endpoints - how do we wait for all of them to be powered-up before
+> > > calling the last gpiod_set_value()?
+> > >
+> >
+> > That will be handled by the pwrctrl core. Not today, but in the coming days.
+> >
 > 
-> It all looks good to me other than 1 nit below. How do you propose 
-> merging the series? I can take the first 3 for 6.18 and then patches 4 
-> and 5 can go via their respective trees for 6.19?
-
-Yep, though patch (3) isn't really a fix so not sure it is v6.18 material
-but that's up to you.
-
-I'd leave patch (1) brewing in -next if possible a little bit - it should
-not cause any issues but it might.
-
-> > 
-> > diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-> > index 65c3c23255b7..e67b2041e73b 100644
-> > --- a/drivers/of/irq.c
-> > +++ b/drivers/of/irq.c
-> > @@ -671,6 +671,35 @@ void __init of_irq_init(const struct of_device_id *matches)
-> >  	}
-> >  }
-> >  
-> > +static int of_check_msi_parent(struct device_node *dev_node, struct device_node **msi_node)
-> > +{
-> > +	struct of_phandle_args msi_spec;
-> > +	int ret;
-> > +
-> > +	/*
-> > +	 * An msi-parent phandle with a missing or == 0 #msi-cells
-> > +	 * property identifies a 1:1 ID translation mapping.
-> > +	 *
-> > +	 * Set the msi controller node if the firmware matches this
-> > +	 * condition.
-> > +	 */
-> > +	ret = of_parse_phandle_with_optional_args(dev_node, "msi-parent", "#msi-cells",
-> > +						  0, &msi_spec);
-> > +	if (!ret) {
+> But is this the right approach or are you doing it this way *because*
+> there's no support for enable-counted GPIOs as of yet?
 > 
-> if (ret)
-> 	return ret;
-> 
-> And then save a level of indentation.
 
-Fixed - sent v4.
+This is the right approach since as of today, pwrctrl core scans the bus, tries
+to probe the pwrctrl driver (if one exists for the device to be scanned), powers
+it ON, and deasserts the PERST#. If the device is a PCI bridge/switch, then the
+devices underneath the downstream bus will only be powered ON after the further
+rescan of the downstream bus. But the pwrctrl drivers for those devices might
+get loaded at any time (even after the bus rescan).
 
-Thanks !
-Lorenzo
+This causes several issues with the PCI core as this behavior sort of emulates
+the PCI hot-plug (devices showing up at random times after bus scan). If the
+upstream PCI bridge/switch is not hot-plug capable, then the devices that were
+showing up later will fail to enumerate due to lack of resources. The failure
+is due to PCI core limiting the resources for non hot-plug PCI bridges as it
+doesn't expect the devices to show up later in the downstream port.
 
-> > +		if ((*msi_node && *msi_node != msi_spec.np) || msi_spec.args_count != 0)
-> > +			ret = -EINVAL;
-> > +
-> > +		if (!ret) {
-> > +			/* Return with a node reference held */
-> > +			*msi_node = msi_spec.np;
-> > +			return 0;
-> > +		}
-> > +		of_node_put(msi_spec.np);
-> > +	}
-> > +
-> > +	return ret;
-> > +}
-> > +
-> >  /**
-> >   * of_msi_xlate - map a MSI ID and find relevant MSI controller node
-> >   * @dev: device for which the mapping is to be done.
-> > @@ -678,7 +707,7 @@ void __init of_irq_init(const struct of_device_id *matches)
-> >   * @id_in: Device ID.
-> >   *
-> >   * Walk up the device hierarchy looking for devices with a "msi-map"
-> > - * property. If found, apply the mapping to @id_in.
-> > + * or "msi-parent" property. If found, apply the mapping to @id_in.
-> >   * If @msi_np points to a non-NULL device node pointer, only entries targeting
-> >   * that node will be matched; if it points to a NULL value, it will receive the
-> >   * device node of the first matching target phandle, with a reference held.
-> > @@ -692,12 +721,15 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
-> >  
-> >  	/*
-> >  	 * Walk up the device parent links looking for one with a
-> > -	 * "msi-map" property.
-> > +	 * "msi-map" or an "msi-parent" property.
-> >  	 */
-> > -	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent)
-> > +	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
-> >  		if (!of_map_id(parent_dev->of_node, id_in, "msi-map",
-> >  				"msi-map-mask", msi_np, &id_out))
-> >  			break;
-> > +		if (!of_check_msi_parent(parent_dev->of_node, msi_np))
-> > +			break;
-> > +	}
-> >  	return id_out;
-> >  }
-> >  
-> > -- 
-> > 2.50.1
-> > 
+One way to fix this issue is by making sure all the pwrctrl capable devices
+underneath a PCI bridge getting probed, powered ON, and finally deasserting the
+PERST# for each one of them. If the PERST# happens to be shared, it will be
+deasserted once at the last. And this order has to be ensured by the pwrctrl
+core irrespective of the shared PERST#.
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
