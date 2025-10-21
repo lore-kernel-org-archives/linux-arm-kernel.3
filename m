@@ -4,102 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B6FCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 19:27:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96763CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 19:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d5/SqlA3X/ZkVhbqceO5ccBn+9e7HcyK50UX+eusqGE=; b=GCjGm67x+95RdQX4SnhnbzCFQP
-	Lsm4u8O1gALj3ZOk99yTVE+Q6YfcHShXBqNKtoIYvtJjAeby5+NQhwsqzmJV50Nws7mEqK6KL4otx
-	PwbbrkUwxogsPsocN+dEecY+j3npBtCXIYIq5zUuT8VoW4kngBKQmqZHSGfJNtzlhKKFiGxhY/5rk
-	rEddiZtwg7GSAVN+Bv10vIbeVLXGwa7lEbV+CH+emfpVoHaazBI2S5xTGGWzVtiesVVZPFtMjfkrf
-	v+JYclkfxYQhGSn7EbEorkn4AXr4jzbZWgHkFkRPIInXn+cLmIHgC0Z7Ue1MJu/bX5fGu/yoWvKn2
-	+ef2mHng==;
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OAcllF9nVIfCniwCIoLGKjAXFJuJdiDQqFfGC/k/Yfk=; b=Er8pzoYS+l3KXfphZFsSh3tOnW
+	vCaN+i61aegT5SOXGAyomHrKM6x8c5jGTqFgbLVJoTZoF4+bQUocnKs0rMV3FmnmU0PTyuoBG0O1O
+	/9whtOFvKCv1XztQ/Gb99qKuMVSAaNrcimZJKdMPYtxCCWNk1YCCeYsPhGd7eLthPXoU9NfahaOtC
+	PB8qYmt2EqvhPfAo36MPVprLLZDVCugFcbmq3isF2Jdx0ihkYIuba5oGhBvHFExvO3aboz14MY9+I
+	0nQ7iNC845cr/u78fzzgRnPpZ1cnQC9utx+VoSJIV5XAzcYGhLKvJ5MeA6/X1iXf+2td0xx3MgzS+
+	fZyjl0Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBI0z-00000000TvA-0E60;
-	Tue, 21 Oct 2025 19:27:25 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1vBI2T-00000000UWN-210s;
+	Tue, 21 Oct 2025 19:28:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBI0m-00000000Trw-00br
+	id 1vBI2M-00000000UTd-1xwS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 19:27:13 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-427087ee59cso636927f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 12:27:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761074830; x=1761679630; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=d5/SqlA3X/ZkVhbqceO5ccBn+9e7HcyK50UX+eusqGE=;
-        b=NFV7odLrbmjJHJySKsD7lcFA3q4f0xBHXDijPTC982Ujq3VTZm5d1kEDRwJ/GWJvRY
-         xdiWZUuPeuMl7bBiDtC9fPpdqobcqSEEpWbXoGDVNEhIc+obedDeBpdsNTMm8tPCwaFA
-         12zBaRIEOWxuNHhWfDlbbfQbCy9xPYJVIpmnHNMTTifiJdukNG9bzQOY9YsfxRAELhsO
-         WkZAi8OYOkM9wyQ7+4ww2vAWI0RO3sHWgv5sVLMn2v2g4MhjZrKh9R30IwYObhJlqKsp
-         PZl2TMhqnbYs0uIlPja0P5oKXd3CSYEVge43a8whGFTqz4reGR0gXWf9xua72+RRJaxf
-         2SHQ==
+	Tue, 21 Oct 2025 19:28:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761074929;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OAcllF9nVIfCniwCIoLGKjAXFJuJdiDQqFfGC/k/Yfk=;
+	b=BoB3rluMPOKjB4rHdV4VZTxG6jSvCCtj4bApw1ckBTPdZFe8zJIFQzjNs1uGgcy0SBQTNm
+	Q7F17s5CAGOM9b1evWq/BPA0q9B48fea2rTPB1xLb9jeE4DTW/XW7GqsnnpDJ9xAdVPQtE
+	Qchu0Ys9WMUyWZBJzoaJ/dODMCqcQfM=
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
+ [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-511-NmLzWVvMOO-ZS58qVQW3bQ-1; Tue, 21 Oct 2025 15:28:48 -0400
+X-MC-Unique: NmLzWVvMOO-ZS58qVQW3bQ-1
+X-Mimecast-MFC-AGG-ID: NmLzWVvMOO-ZS58qVQW3bQ_1761074927
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-88f1dad9992so290776385a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 12:28:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761074830; x=1761679630;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=d5/SqlA3X/ZkVhbqceO5ccBn+9e7HcyK50UX+eusqGE=;
-        b=IIGsovHGAAzjUhYd4vYoGgb/1J5966k8oK3gNqZ8PiYlz66h9Mp9cxlyCoizIuT3jU
-         FDVhWD4YwlHrbaquHpf1lPfBOlRfAA4geAKstxfeKJc9Ymfqil1mZBymJOOpNbM1askT
-         nCk+9FSbLtQX960z0eaYcGG+7mioS4MvRRk7rrixxu1+CmFX9cUUCs5TZhtq9C8D/bE8
-         LZGuPhacER11G+2zYglvAxQpYI10mUlInqubmSdYgxNtXvvHC+ZPzaIGYrtRboYVwwwN
-         1ogTfG+6+5I7qjNl4YZQydrjEAV8fqYiQ2UcVkJ20M/GB0rVkEVrOa3WS0PkFgytHn6v
-         qv3g==
-X-Forwarded-Encrypted: i=1; AJvYcCWfPzxGalSDm6aY2MNNi04LyBw8e4eLokdKmQX6PXMoezFXQWp2x88wwvYa0r0fgGq/kTrj25TUs07QG0UX0K9t@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0pyUcKiM07uRrJjl5MGreHZuhuKaUdblhLk5uo97PJmVxoL/l
-	hOYruhbYSYnNmQ7RVz1s4cyxa4xrlkDLqK5e1wA01CGVkVV2G/QpEFQmnmTgxK2acAI=
-X-Gm-Gg: ASbGncsMiJcvVjLeDrrPBgOrVYR2b7YAWUQkyN3XEln3ZopE5eatAa2ymmudnuTL4D2
-	n5oJOx1GPs5uTmlEiK98zKoH2hTM9zrxzHhJ3Yj+LiDgocFupITGpXKzlVvz4cCyhc5gGW5C1Z7
-	YOa8Zs2Tg86to9PVPPdWNiau6eILzTPGw895RFWW1hOfEFIC/+SW+maVA4jEHZLEokyOwOZpOnp
-	gAlqt4j7y+d/QLGivAeHv4tWr2QOEArEumiweObW7BDVqgAmYL2ZdZOKsI0hJCIfb8IZt3pxaqo
-	O8kOpBAdbt5j95KYe3x6zed1twkJjj48tz3KzEzmZGLwPWKgT0kMf1vpfnY1z04gw0cddku9Gx5
-	nSLPDp4+gAY8CKWrUGC0XG9WlyDI8ZAcH68hyNbS3nT/cwXtkIETBTs0zK6Dn9O6O6jBFAPbs7S
-	JhbXZnEofMithkVfsDQ8iNprvV34s=
-X-Google-Smtp-Source: AGHT+IGAOoUW0XD9+qwwI+PbL9VG+MrdXs4rR2dEuVGyu8dEGa1T5rx/ZK+RB3yRzWux75q9C21zPw==
-X-Received: by 2002:a05:600c:3b9d:b0:46e:5cb5:8ca2 with SMTP id 5b1f17b1804b1-474942bf7b2mr23336545e9.2.1761074830178;
-        Tue, 21 Oct 2025 12:27:10 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475c42b48c9sm7839115e9.15.2025.10.21.12.27.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Oct 2025 12:27:09 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>
-Cc: Will McVicker <willmcvicker@google.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- kernel-team@android.com
-In-Reply-To: <20251013-automatic-clocks-v1-4-72851ee00300@linaro.org>
-References: <20251013-automatic-clocks-v1-0-72851ee00300@linaro.org>
- <20251013-automatic-clocks-v1-4-72851ee00300@linaro.org>
-Subject: Re: (subset) [PATCH 4/9] arm64: dts: exynos: gs101: fix clock
- module unit reg sizes
-Message-Id: <176107482865.33931.12362645662957210185.b4-ty@linaro.org>
-Date: Tue, 21 Oct 2025 21:27:08 +0200
+        d=1e100.net; s=20230601; t=1761074927; x=1761679727;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OAcllF9nVIfCniwCIoLGKjAXFJuJdiDQqFfGC/k/Yfk=;
+        b=MQX1LBdgCQkBGX9G5hCjgRzoiAc3RFGhLVySc2GjC6DfXeh1LhwTTj2G3xTnFBOU9J
+         ciySwzsAG05QZ5ZP83COgGbbySJU+UxwhDA18ywtehI2jOPtcSHYmtOVvkyrUFD+sPQ7
+         dQ2eOx+lmkabJen/i33kOsY6XNxv+aMkyz+ok1nS9FtxN/vth4zClaDpb5KxDiLujGgg
+         IxDPaG/P8hCtb72grNXTeYdvVI7P9LR/YEzZLOe09CeNyRngGv//20+sZ750sl3kQXI5
+         2zcLj1XlxWjdtEOoOLeOtIhJzgGlDXL8Iqe+GXXdXbE7keC2fAF0W74/v0DUpc7dgclw
+         uWUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUjxQz/rDSItDKb6q0YRmqFebnzAyrxU4YAxGUI47rURwPCqgPvjm4voZ7JbQLPbkBdNhE641NLfj70gJT9hSX5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjIDlIbuGX0ahxUD5T7BVDGtFMAeBgzTfq4g8QLZxzWH72Ebfj
+	DEH+VH0siSp1CynhTTG0fMFJrF73p4e4uQW/xxOxkcxZlF9U64Sip6yajVChgJF4Tg1tVPY4C2G
+	3RPSWIaOsa6zdhB7wZpmOC6LfLQkcvT3WHigkg196+1jigOOJtsgwH9jReEJZ3xF42kSAnE6dEv
+	Pd
+X-Gm-Gg: ASbGncuUmqgjzpTVJPnT/FtAygXdUnYkRUTT/8B6tQ0mbR1L4WEBBactQxtKwi4Q2xb
+	/Hm0RlMubMAmrzCdQxfEGLxz+azq0s2dXbkjH/iNUXVjQKRjm1XtxwjlHNJOajJzuV0am7BPDxH
+	R1y/AxmKMijcANHqztG0Az3zAFSFadtYbsMFcg9ez0Lt6tUNFpGhy3SmIiw9OUnPiKTfjCgf4MG
+	SCWpRjQ7PG8139Bb4l5o4dUGI1p/dCmq5bZ/ao7vfcSCY1OFMQCUbyMbQh/wfgS8FSmfsQpF4Hg
+	orw5EKrw+tCjPH+GjEuIeOE72PeCQYbHbeGg6k4YFxpmMofSd/Ows1TTN0zLDECV3cem16uWhxy
+	6Mm6KKWWByh3MaUa0RshgXMQtUfXJsP7gBd7zBfC4+EaDkQ==
+X-Received: by 2002:a05:620a:488e:b0:7e8:67b8:476 with SMTP id af79cd13be357-89070114f94mr2346437385a.57.1761074927220;
+        Tue, 21 Oct 2025 12:28:47 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG+u+8bH+lrXiYca/LtZ13ni/QSfiNRKtdF54+j0jtBiSwDvm50yRps0a3A4dxIJsM4iefKKw==
+X-Received: by 2002:a05:620a:488e:b0:7e8:67b8:476 with SMTP id af79cd13be357-89070114f94mr2346432285a.57.1761074926666;
+        Tue, 21 Oct 2025 12:28:46 -0700 (PDT)
+Received: from ?IPV6:2601:600:947f:f020:85dc:d2b2:c5ee:e3c4? ([2601:600:947f:f020:85dc:d2b2:c5ee:e3c4])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-891cefba8f0sm817018785a.40.2025.10.21.12.28.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 21 Oct 2025 12:28:46 -0700 (PDT)
+From: Waiman Long <llong@redhat.com>
+X-Google-Original-From: Waiman Long <longman@redhat.com>
+Message-ID: <a01172d1-d902-4d55-bc1e-c8234985e65a@redhat.com>
+Date: Tue, 21 Oct 2025 15:28:42 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 14/33] sched/isolation: Flush memcg workqueues on cpuset
+ isolated partition change
+To: Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
+ <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-15-frederic@kernel.org>
+ <364e084a-ef37-42ab-a2ae-5f103f1eb212@redhat.com>
+In-Reply-To: <364e084a-ef37-42ab-a2ae-5f103f1eb212@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: MHxsqnA-2kMc9jQEf2yRUs_NGUtoKvC1bnQUNbJloUc_1761074927
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_122712_047641_2DDFD11D 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251021_122851_697690_04734890 
+X-CRM114-Status: GOOD (  21.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,22 +135,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/21/25 3:16 PM, Waiman Long wrote:
+> On 10/13/25 4:31 PM, Frederic Weisbecker wrote:
+>> The HK_TYPE_DOMAIN housekeeping cpumask is now modifyable at runtime. In
+>> order to synchronize against memcg workqueue to make sure that no
+>> asynchronous draining is still pending or executing on a newly made
+>> isolated CPU, the housekeeping susbsystem must flush the memcg
+>> workqueues.
+>>
+>> However the memcg workqueues can't be flushed easily since they are
+>> queued to the main per-CPU workqueue pool.
+>>
+>> Solve this with creating a memcg specific pool and provide and use the
+>> appropriate flushing API.
+>>
+>> Acked-by: Shakeel Butt <shakeel.butt@linux.dev>
+>> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+>> ---
+>>   include/linux/memcontrol.h |  4 ++++
+>>   kernel/sched/isolation.c   |  2 ++
+>>   kernel/sched/sched.h       |  1 +
+>>   mm/memcontrol.c            | 12 +++++++++++-
+>>   4 files changed, 18 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/include/linux/memcontrol.h b/include/linux/memcontrol.h
+>> index 873e510d6f8d..001200df63cf 100644
+>> --- a/include/linux/memcontrol.h
+>> +++ b/include/linux/memcontrol.h
+>> @@ -1074,6 +1074,8 @@ static inline u64 cgroup_id_from_mm(struct 
+>> mm_struct *mm)
+>>       return id;
+>>   }
+>>   +void mem_cgroup_flush_workqueue(void);
+>> +
+>>   extern int mem_cgroup_init(void);
+>>   #else /* CONFIG_MEMCG */
+>>   @@ -1481,6 +1483,8 @@ static inline u64 cgroup_id_from_mm(struct 
+>> mm_struct *mm)
+>>       return 0;
+>>   }
+>>   +static inline void mem_cgroup_flush_workqueue(void) { }
+>> +
+>>   static inline int mem_cgroup_init(void) { return 0; }
+>>   #endif /* CONFIG_MEMCG */
+>>   diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+>> index 95d69c2102f6..9ec365dea921 100644
+>> --- a/kernel/sched/isolation.c
+>> +++ b/kernel/sched/isolation.c
+>> @@ -144,6 +144,8 @@ int housekeeping_update(struct cpumask *mask, 
+>> enum hk_type type)
+>>         synchronize_rcu();
+>>   +    mem_cgroup_flush_workqueue();
+>> +
+>>       kfree(old);
+>>         return 0;
+>> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+>> index 8fac8aa451c6..8bfc0b4b133f 100644
+>> --- a/kernel/sched/sched.h
+>> +++ b/kernel/sched/sched.h
+>> @@ -44,6 +44,7 @@
+>>   #include <linux/lockdep_api.h>
+>>   #include <linux/lockdep.h>
+>>   #include <linux/memblock.h>
+>> +#include <linux/memcontrol.h>
+>>   #include <linux/minmax.h>
+>>   #include <linux/mm.h>
+>>   #include <linux/module.h>
+>> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+>> index 1033e52ab6cf..1aa14e543f35 100644
+>> --- a/mm/memcontrol.c
+>> +++ b/mm/memcontrol.c
+>> @@ -95,6 +95,8 @@ static bool cgroup_memory_nokmem __ro_after_init;
+>>   /* BPF memory accounting disabled? */
+>>   static bool cgroup_memory_nobpf __ro_after_init;
+>>   +static struct workqueue_struct *memcg_wq __ro_after_init;
+>> +
+>>   static struct kmem_cache *memcg_cachep;
+>>   static struct kmem_cache *memcg_pn_cachep;
+>>   @@ -1975,7 +1977,7 @@ static void schedule_drain_work(int cpu, 
+>> struct work_struct *work)
+>>   {
+>>       guard(rcu)();
+>>       if (!cpu_is_isolated(cpu))
+>> -        schedule_work_on(cpu, work);
+>> +        queue_work_on(cpu, memcg_wq, work);
+>>   }
+>>     /*
+>> @@ -5092,6 +5094,11 @@ void mem_cgroup_sk_uncharge(const struct sock 
+>> *sk, unsigned int nr_pages)
+>>       refill_stock(memcg, nr_pages);
+>>   }
+>>   +void mem_cgroup_flush_workqueue(void)
+>> +{
+>> +    flush_workqueue(memcg_wq);
+>> +}
+>> +
+>>   static int __init cgroup_memory(char *s)
+>>   {
+>>       char *token;
+>> @@ -5134,6 +5141,9 @@ int __init mem_cgroup_init(void)
+>>       cpuhp_setup_state_nocalls(CPUHP_MM_MEMCQ_DEAD, 
+>> "mm/memctrl:dead", NULL,
+>>                     memcg_hotplug_cpu_dead);
+>>   +    memcg_wq = alloc_workqueue("memcg", 0, 0);
+>
+> Should we explicitly mark the memcg_wq as WQ_PERCPU even though I 
+> think percpu is the default. The schedule_work_on() schedules work on 
+> the system_percpu_wq. 
 
-On Mon, 13 Oct 2025 21:51:33 +0100, Peter Griffin wrote:
-> The memory map lists each clock module unit as having a size of
-> 0x10000. Additionally there are some undocumented registers in this region
-> that need to be used for automatic clock gating mode. Some of those
-> registers also need to be saved/restored on suspend & resume.
-> 
-> 
+According to commit dadb3ebcf39 ("workqueue: WQ_PERCPU added to 
+alloc_workqueue users"), the default may be changed to WQ_UNBOUND in the 
+future.
 
-Applied, thanks!
-
-[4/9] arm64: dts: exynos: gs101: fix clock module unit reg sizes
-      https://git.kernel.org/krzk/linux/c/ddb2a16804d005a96e8b5ffc0925e2f5bff65767
-
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cheers,
+Longman
 
 
