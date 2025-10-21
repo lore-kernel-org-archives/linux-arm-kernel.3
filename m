@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C7ECCD1A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 00:54:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49ABACCD1A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 01:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pcr1kW1Cwbu0nLWecjkU9G5uno7wO8R2l15zPnlqNOs=; b=FDqnsBkZTWmnyXEcbL+URzYf9K
-	tVG52Ns4PLTq2rSdJ/twmbH15p3nMHg/8nWrzmQVB7RLx6HLqinZx+J4tXIBMSaumgIUSEZnQjBrY
-	6PKJrQsoN2qexWTD8tAUIaiLMXYMZv5AQb95cABDmQSMNmpdpNSnV7BwHBDnUe3SVATO3ZXA1cWXT
-	Al/pD1GXzrlIZyqIhz7ISq5nAHdPWrreU4MA6vLkBFlbv5Weg8vX0OpXbrPO+pfRaHt0cudVJYsp4
-	4sAgYTzKhrqrcD7+QFHN/bxMLajSaq3bgjYcKMZ7lTIUa6CsdP2xxVUSjVdGJaeUANECy6c3aFUNv
-	FdHZy1rQ==;
+	bh=GAijegNyPM7oBl6Suv1pcENTGRAuqXvLaWwH4iuPJ2U=; b=CX3QPH6ydF8Lc1Dio+eDq+wV8Z
+	XuaZ4QQRcHExgJ80OTto6ZMQh7sP6+sw30J3M8gTJ9CkiLlqoflDtmyWAXuFYV5G2BoaV1oeaCL1L
+	mOa/G4IrKTryzJM1I4Q8jgfjAmQrKLFJbTOaDDuu+yyIdkDcL6tKD2Qa8YUxeZ2vAR74tgbo3PiRA
+	VJ1LlWn4TswgdJVFmbe1XiiSbmZyKKYVBvRxA2SxkhAfWzJ6D0ZW7pZPU2CtQgI8fUm6bLF9b47/H
+	WYg/DHlMHZe8kpY5fzIqgPqaV1+Ze6RPjrizbnX/BSGHYga8Qm7oGtETxWg5M22iO/m1cAgUk7dPl
+	UGrAymuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB0di-0000000FPFC-15JV;
-	Tue, 21 Oct 2025 00:54:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vB0md-0000000FQRl-0IX8;
+	Tue, 21 Oct 2025 01:03:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB0df-0000000FPEe-3dsP
+	id 1vB0mc-0000000FQRI-0MOK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 00:54:12 +0000
+	Tue, 21 Oct 2025 01:03:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 84A2644E58;
-	Tue, 21 Oct 2025 00:54:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F40AC4CEFB;
-	Tue, 21 Oct 2025 00:54:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7958960348;
+	Tue, 21 Oct 2025 01:03:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CB3CC4CEFB;
+	Tue, 21 Oct 2025 01:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761008051;
-	bh=GWRxTbKMIALWDNujjpFEp+EgSzbDooDkX5Xj1E6/bxg=;
+	s=k20201202; t=1761008591;
+	bh=kZUG3ekjbgqMUNy0q3i+gFuqeUpAWQ8+S6giYThScJw=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KHLMJ6EyXs5/HPdCNWAj9X+qWyC60ZpVLNY2gqzR2nIfMD7otI0SfuiVYZ8jLavEV
-	 I0ElnaL32TSpS9VKMeZfyOoVVw+F7WM6w3/NBaPsjjxdfmiqNGvnBeOEIAghgsxX/9
-	 QY0Q16Ta26AdMpn+NpjO48Y8fTgmzgBHB3iWZpM6h5PZ8n10U7X4PLNYrceGxODVEh
-	 S/C9zssq5qdlAKcR560nunNsBjDCNmhc9OGkgxfbbyVHdOWrMc5DQe+IK4EGEx9Tx+
-	 i48tm5NU7Dbs7vyEkml57TR+QJTe+kZSS+5fNJPIklFpleWDWgPdQaVoCbpTXBfL96
-	 M5ioOAewcz9JA==
-Date: Mon, 20 Oct 2025 17:54:09 -0700
+	b=KoQlZE7fEp/69DTCsk3mks1FSpdb5anEGzXte01mSzflvCuUOU+bVpIhvRGX6o/iL
+	 4OTw5EJxosg4VkG/ckez1u8WrVPGStAgTIg3CU/bsYmzpqADp/q65xcqUTMbuPCOuC
+	 f/v5G3D9e9nIn2aw1rkiN2dPrdx70JHXNdrW/MaZf/Y7wtsbSSoFZtRZCv4eD61DCJ
+	 /B2b5Amdzzv9vGJgByWu+vKjA9fRj9qnHcmFLjXfOAuHF3frPYU8t74Jog1iMuUtHv
+	 SXqDtdgvs+YLiHAgwRpcOvy5L8B9aqpp05DwKSzlNIel5baHxPmf9AHQu5lbXEbDJ9
+	 5Ey8byknV+a+w==
+Date: Mon, 20 Oct 2025 18:03:09 -0700
 From: Jakub Kicinski <kuba@kernel.org>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@csie.org>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jan Petrous
- <jan.petrous@oss.nxp.com>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org, Maxime Chevallier
- <maxime.chevallier@bootlin.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, Paolo Abeni
- <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
- s32@nxp.com, Samuel Holland <samuel@sholland.org>, Thierry Reding
- <thierry.reding@gmail.com>, Vinod Koul <vkoul@kernel.org>, Vladimir
- Zapolskiy <vz@mleia.com>
-Subject: Re: [PATCH net-next] net: stmmac: replace has_xxxx with core_type
-Message-ID: <20251020175409.5098acd4@kernel.org>
-In-Reply-To: <E1v9gFI-0000000Azbb-44bh@rmk-PC.armlinux.org.uk>
-References: <E1v9gFI-0000000Azbb-44bh@rmk-PC.armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Richard
+ Cochran <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Alexis
+ =?UTF-8?B?TG90aG9yw6k=?= <alexis.lothore@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 2/3] net: stmmac: Allow supporting coarse
+ adjustment mode
+Message-ID: <20251020180309.5e283d90@kernel.org>
+In-Reply-To: <d40cbc17-22fa-4829-8eb0-e9fd26fc54b1@bootlin.com>
+References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
+	<20251015102725.1297985-3-maxime.chevallier@bootlin.com>
+	<20251017182358.42f76387@kernel.org>
+	<d40cbc17-22fa-4829-8eb0-e9fd26fc54b1@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_175411_930134_607AFA8B 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,13 +80,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Oct 2025 09:55:32 +0100 Russell King (Oracle) wrote:
-> Replace the has_gmac, has_gmac4 and has_xgmac ints, of which only one
-> can be set when matching a core to its driver backend, with an
-> enumerated type carrying the DWMAC core type.
+On Sat, 18 Oct 2025 09:42:57 +0200 Maxime Chevallier wrote:
+> > If the HW really needs it, just lob a devlink param at it?  
+> 
+> I'm totally OK with that. I'm not well versed into devlink, working mostly with
+> embedded devices with simple-ish NICs, most of them don't use devlink. Let me
+> give it a try then :)
+> 
+> Thanks for taking a look at this,
 
-Looks like this also conflicts with the just-applied PCS series?
-Either way - doesn't seem to apply for me :(
--- 
-pw-bot: cr
+FWIW I dropped this form PW in an attempt to unblock testing of
+Russell's series. I'm not convinced that the tsconfig API is correct
+here but I don't get how the HW works. Could you perhaps put together
+some pseudocode?
 
