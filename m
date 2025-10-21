@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E760CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 903ABCCD1AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dRItKHoHeP/Luyk8nQVlzb7QSwUwBxc0c3xCNUrv3pc=; b=lKW7D1KVE7KDhD1WsvkZrNoPZ+
-	+I7DNd1vgUrAM90fw3H0DPB+B6U26MoTLtngChZu5Up02wS6cq0U4JUKanLkOa8mLbbdndMkf8r2G
-	2t2haSUuik3iNFzpF26xCgJHdzTHSr1Y68vQwm84VKl+SmVlu8Sw8wIyLUo79wp1kq1zXk43UhYtB
-	vpT4VmeV+pLZkrxyBL/HjzxOXOtC8u8YT6J7RjvBcyqa2LorJEQs5ev2t+SWWfDWYyc8u7CrtujC5
-	Ot3bPj/yU2JA4N1pfBgIxKxtVWbRGHCqwP7teMGZRB3DfdYP34+FI67pmH5eRodB3voZvE/K8oeti
-	sUIVbWaw==;
+	bh=Nw12B7KdWN/wbxxijDvUQZ5OrO1aWstBkEoWMIB2hXM=; b=5AMnpsl6i9JDOlAEzYTGQV+FCo
+	3OAonndEZYCWjeBdflvu4WHOc6051O3y1VEfLVf2zHmUSPBd46F5dkOxe1iaiLl7qRdMvcsIQ/nxl
+	2creKsrVSryJlU+4OL4oJ15l0JL8a72HrKohN25xCKLjpy5L1qMzNuv0LovpicRSzMLgn8nQcTql1
+	MC3hFg+bAEYddXf0YLg9EMN3FedwC6QDQNO3S+VHPLzewRgNhE9l8+TGKm/I70/BG4k4OQMj6MF95
+	50tsD31ZtEnt3oLIHkFioCKG0tpbT/K1SQlfHHvLLcvOBK6aug1GZuVz1YaUl6L/iADTmOyklSk27
+	q5QqDe7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBSE-0000000Gy4v-0Qbw;
-	Tue, 21 Oct 2025 12:27:06 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1vBBUs-0000000GyXb-0WiU;
+	Tue, 21 Oct 2025 12:29:50 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBSB-0000000Gy48-2dIG
+	id 1vBBUp-0000000GyV0-0Hb8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 12:27:04 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-57a960fe78fso7170985e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 05:27:03 -0700 (PDT)
+	Tue, 21 Oct 2025 12:29:48 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-47117f92e32so36485545e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 05:29:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761049622; x=1761654422; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dRItKHoHeP/Luyk8nQVlzb7QSwUwBxc0c3xCNUrv3pc=;
-        b=YsAunkfk4z0mb1gfia159WNQ5DEsEqPnn0nmTZFGCumnaaK+u1B0fZiUgNzaMC0Fmb
-         KBefjqMV7jV+8VFR2HztpvTzih1LT4Ls3JO4Zp7NCw4HODUe7+yDntjOvN8snvQm/oj1
-         shzNwBL6CFutHETL11XeDzQm/QA7ExA75iS1K9Zoy/LegOvZ8QWJ7ScFVXpGnGgyLU++
-         ImXX7XVfEmohZNN96mPpFDaBuYuLAxHNknOb+3JNrrl5rh7luYtQeo+6FXkSvyiLmIzB
-         j/u/Ayottw1mhi3F0z8X86IUA/OwmPNeW7c8b4g624cEmZ/Xfuu1k7D2ijGUTH4TktML
-         JcDA==
+        d=linaro.org; s=google; t=1761049785; x=1761654585; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Nw12B7KdWN/wbxxijDvUQZ5OrO1aWstBkEoWMIB2hXM=;
+        b=Mm28XCfaQypUwvNCm/hTp7uST/H6s9o1y23ZvaYMYgQGELxh9Cm2sygCr6g0lUAnfQ
+         f3CXzYRSrErCrR2U+L1hmWJg9XXlvyX5VzJ5oNgf7ivOWlsclnf9Yjv7ytk5GITDpUtk
+         k9kYdKBVejWuVl8Y7qjAzkvFoMMRrm2xSKhQuBwVGU5DLm4beDwOs7BGDgNDiglE84kd
+         Q8wEkjXN03AzSlpz1uHBSmqYEOrimKN0l/bZ9TRdg+hj0erI/C/D4XkZ5CO/tu8CwKa9
+         y2ZGI29cFNsVk2cqEbBJazSfJf54U6dzyv2d7EtZ7JhgFs8DXOo94FS+knRd5XdQ+brN
+         lgEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761049622; x=1761654422;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1761049785; x=1761654585;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dRItKHoHeP/Luyk8nQVlzb7QSwUwBxc0c3xCNUrv3pc=;
-        b=p/UeKo/5s6eDxrHIYPiWstSmFHN44XqlCd5MH11BUWe6z/Tx6qoK9C4qqdTP3gG0AO
-         KKMx28qAR05o/f6UM9ZBInsUaBjwNwgwGapF4/K1IZyPRLbLVQGAOAxytT4zNwcu2a0l
-         pbsGsjiQGVXyH/cK7FeAaMaV3vu+onzL0H+f7SJbyasOk3B1Ee3VDn7daOqxwoCKvHlM
-         sftwxzALa1IqfUbLnCk79g5ty1qP6rhrfJd1YqmbZE+KskumQzOJouKHTwW12CYPCeee
-         7cxixgMuqzMu0T3JI3xD2X3c5Y7XV256aK9LPFnE9mEGKGm91385ShJzOlOJkxzi930O
-         iZHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWNJJUdTXCeSuZ6VV3XJ9rBUM+jqnhlqA157FqwDY1PvSmLG6fOzD7Abz4hwHTO5bzSufQiM9OybwpcMwJz0Y1x@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw39C9ymn/rPPKDdJjk5iTNPb67ScsTOZsKfvaVwsBL/Y4ZmVN8
-	k/zIRXHt77tcR8AG4vpMmqaEY1y/qNqpAArCfOxZ+OqLtNcHbfGvtj2k/87SsK2sAwffoP1LGi1
-	/L89HzIqkHPipbI+8dSQ+CrQyjvtaHk3GeyzD8gY6Vw==
-X-Gm-Gg: ASbGnctYBP9rkzMwjZmUS2RFboq86LEZ8cT1PH0BTCfH9lV8AWJo1rFnyJAdepOZyT1
-	dOtJtsiIwjLK5ofDPDSyWTgklw356gOYtkcJZhwyp89PBBZu8gwNmd6lgrhQMoAolGpX1YvEZgS
-	94qe8933gORoP9iry6+zSEbfWH1dCUSnenOPnx8URekzfmu7Y467G0F0l60E/HqSGoa1Rd8MEyM
-	0lu6wjRVoxDE/pTrKZsYzDgpXAS5J+wNySeS/fHkiKtSSenCLOnstkY/euNY5PFsYIAKVyfG1c8
-	X3easw==
-X-Google-Smtp-Source: AGHT+IGxlVJN2rvaLyj+Brv4icN7nCu4VjMGW+HovXJOGOXiS4L6UUAPV/sCXKFATKrxTJyz9wkyawu1OYIvSs1RR4k=
-X-Received: by 2002:a05:6512:ba1:b0:591:c8d7:c03b with SMTP id
- 2adb3069b0e04-591d850cf22mr5196408e87.8.1761049621481; Tue, 21 Oct 2025
- 05:27:01 -0700 (PDT)
+        bh=Nw12B7KdWN/wbxxijDvUQZ5OrO1aWstBkEoWMIB2hXM=;
+        b=uSKzXkJYTKd1P7vHpwY5GP807KMd7cIGMb0isYPvk22XAEmeReGc2SgmbYitmSSnW6
+         uaQoXxpaRN7eqvsm6rmEv0y58ckiUURy5orTEkO9KUXcMg/HOrAQTT5AMVbeQRGaSxlQ
+         vhUpS2PezzFAPfMNcar9gotyHAFbzC8uNIB0esoVWxD6fEzHyokwvOJ95PZdhXuGL9xk
+         DZdIWwY8W1Sq42Ri3pZ1+qYntvYAK6U7qdU0hMxZDMheBAk1XqBTBkJq+u4nSk7oRPip
+         bfz2MjSxMfyPwDR4HnZ+qJdxme0KjXpU6MmN9JqXOk4Q7HvyI8G86tXa35T+s2eNs3fP
+         2/Sw==
+X-Forwarded-Encrypted: i=1; AJvYcCWbvuELZ1G4EXXEZ2bkRnK819CHAvhKdHPcRyQKsIeiIVZR3XKeg0TJB1d9EWd/M8Dd0FgprV+kpcPmPCtEvUKc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOMAe9XvMWIn28X+FiH/mzfyZ/QasC3Ne2WjnyfnjnUqXKShsl
+	5/71jKUFT398BpPGEiu36BHVAu9/qewN0Ewhmsj/dCo2o7d103VyP/XlNs8Coif357M=
+X-Gm-Gg: ASbGncsYMjYvVbgcxYNL3d9xx4EYe9Wn3uWwgITmmGZ2l9B0brDzUkuqgZGsU0rtimT
+	drev7/GwMaqWXVBgfCf3TATVibhSrBFC+Wem5Z9pYdbsA+VMiNx907oujryzPJvhsdiRSzr0+r9
+	jNDw0wu1ZsYjjrwoBaGzJvPkM8nvfLbRVWj4wikaeWxC64FI06aUyQxayMBf7EW84zXFerXcccD
+	a1TLX+ZuWNXoQ6drkJ7uBvan3glRLfA8WZFGLwIkix+MNLcStmUu9eK/ToJMbunu86xc8mZ8WAu
+	ao0E+C+Z0c4jDTp2cKUMNzm74KfUrMPzemTECDzHZXX9mgFFA3f2we/JqthbZs5GuL7l07//Kk5
+	Q7ivEichdy7N4C9GoUljpb3VWYzGcDhPv8m8TSV/VsMFAlYZ+JfGVX3Kemr8E1WIXDUOk+n5PkG
+	PKPPgiW4Nfom7Kl3UeBAEND5qoQa1/MqA=
+X-Google-Smtp-Source: AGHT+IGetap4T/Eh1Z+oljdXnfqlancpgAhNO6qspGOxItJqX1hECPXKuLsbg0/AZayCnBvDbJQ07A==
+X-Received: by 2002:a05:6000:4a09:b0:427:62b:7f3 with SMTP id ffacd0b85a97d-427062b07f9mr13782919f8f.33.1761049785129;
+        Tue, 21 Oct 2025 05:29:45 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:52eb:f6ff:feb3:451a])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-427ea5b3c34sm20057043f8f.17.2025.10.21.05.29.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Oct 2025 05:29:44 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Kevin Hilman <khilman@baylibre.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <20250927125006.824293-1-christianshewitt@gmail.com>
+References: <20250927125006.824293-1-christianshewitt@gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: amlogic: add support for Tanix
+ TX9 Pro
+Message-Id: <176104978445.3075289.8934335794181531302.b4-ty@linaro.org>
+Date: Tue, 21 Oct 2025 14:29:44 +0200
 MIME-Version: 1.0
-References: <20251014140451.1009969-1-antonio.borneo@foss.st.com>
- <20251014140451.1009969-10-antonio.borneo@foss.st.com> <20251014-affection-voltage-8b1764273a06@spud>
- <b4eca95eaa0e6f27fc07479d5eab2131d20eb270.camel@foss.st.com>
- <20251015-headstand-impulse-95aa736e7633@spud> <0826a055f6b2e3e6b50a5961e60d1b57d1d596c6.camel@foss.st.com>
- <CACRpkdbeaiNGfOFfVfDNZ=u=4yhCykcdSdHUv-td_DVyr3aWaQ@mail.gmail.com> <9dfdf02b7e5a99c515aff3c6528e2d5f70517201.camel@foss.st.com>
-In-Reply-To: <9dfdf02b7e5a99c515aff3c6528e2d5f70517201.camel@foss.st.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 21 Oct 2025 14:26:50 +0200
-X-Gm-Features: AS18NWCW8_rg5qtH2LgaZCS86vARi5jbxP9hbx6C1qjmUJ3MwBUVy8SVIqQU3O4
-Message-ID: <CACRpkdYRUcQLc07o4epJs41BMkweHp+hKr4KQbBeFW1ZNS3RJw@mail.gmail.com>
-Subject: Re: [PATCH v3 09/10] dt-bindings: pinctrl: stm32: Support I/O
- synchronization parameters
-To: Antonio Borneo <antonio.borneo@foss.st.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, 
-	Christophe Roullier <christophe.roullier@foss.st.com>, 
-	Fabien Dessenne <fabien.dessenne@foss.st.com>, Valentin Caron <valentin.caron@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_052703_705630_E433F02B 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20251021_052947_134971_E151736E 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,31 +105,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 1:49=E2=80=AFPM Antonio Borneo
-<antonio.borneo@foss.st.com> wrote:
+Hi,
 
-> The issue is that parse_dt_cfg(), called by the above mentioned pinconf_g=
-eneric_parse_dt_config(),
-> only uses of_property_read_u32() to get the value of the property.
-> Conor's proposal for replacing my
-> st,io-sync =3D <0>;
-> with
-> st,io-sync =3D "pass-through";
-> doesn't fit in!
->
-> For my use case I'm going to extend parse_dt_cfg() with fwnode_property_m=
-atch_property_string() to extract the index from an array of strings.
-> Then such index would be used for pinconf_to_config_packed().
-> Does this approach look reasonable?
+On Sat, 27 Sep 2025 12:50:05 +0000, Christian Hewitt wrote:
+> The Oranth Tanix TX9 Pro is an Android STB using the Amlogic S912 chip
+> 
+> 
 
-Aha I see the issue.
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.19/arm64-dt)
 
-Hard for me to tell how this will play out since you are the first to try t=
-his,
-but it seems like this could work.
+[1/2] dt-bindings: arm: amlogic: add support for Tanix TX9 Pro
+      https://git.kernel.org/amlogic/c/beaea75ddc2a483e7b2b08a040d418f323510316
+[2/2] arm64: dts: meson: add initial device-tree for Tanix TX9 Pro
+      https://git.kernel.org/amlogic/c/afd1e16c6d3f53810ea29b5269dfcfc233e9b6b9
 
-Let's see how the code looks!
+These changes has been applied on the intermediate git tree [1].
 
-Yours,
-Linus Walleij
+The v6.19/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
+
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
+
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
+
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+
+-- 
+Neil
+
 
