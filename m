@@ -4,95 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB27CCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 06:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F605CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 06:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z2BoxPYyqOK4bolIbnOAqTEAwN1RnM0dwCy8BYozWgc=; b=l8dQvUs5CBDB+uJBSV0WcaxBg1
-	U4dV2LI0gS0SMujtfictVeg968O9P7MbtiqWL/MnJwyl2s6+/p/tB19dQ85NlpYtEJl9R+vSEsg4l
-	FzKEogyl5R9e/e6HNzPUhocw2KuzKXnLo0xFWjT5Ue95JIGns3ZUVs/ga1+Eapl/P6jiEuQVQZAgI
-	MQ/GgKb5fkH01VO3dcEmypWfOQ5DlNKiRxMAJvEeBBn1LwXcTkOJ1VY+SQudmVznv1vjkqfS9AOma
-	CYV0E+1t0RyBoEW1Jp+7NBK8LTnqsizNAG6JWfO44NQ7bLNff/QG2EvokacFY0UOgtJ8QJsz1KZSs
-	9rVcMrjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iRfXu2QO7xv7UAVXNzAFO1Bv8Lgcl05baFC6HoYHlEU=; b=QzbsiYSZcJQJzyxBC3/km4qHkY
+	BuQSuAcDbdbtKZkk5Vxd4wiG2s6HIrNITqhXsdbt6oNGz/wBdjucMre/NiNO9aP8YNTWnG3vlvDLs
+	fG/bZqV1zbb6thKhQp1BCIag34KPA6mP17pygYFgcoc1snknTs20/SWvpMrFou+4sXIfrXNMn2GdM
+	fWU5r2wMJH4QUYFPO6PQXZgvfukkrGtFrmV8o/hPT5ifWVCZZk7IQzHlu3w2WKiYzAmJnF2CS2lEJ
+	Q5yBd51Lga59GYlr072oH0uXWTRefNrJaiaSNFU+vDj+IuCIYklcrveDbJ4BJexsqq9MO+MLOHnhV
+	jxE7czrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB67O-0000000FwwP-3WyQ;
-	Tue, 21 Oct 2025 06:45:14 +0000
-Received: from mx-relay04-hz1.antispameurope.com ([94.100.132.204])
+	id 1vB6AS-0000000FxCM-2wvS;
+	Tue, 21 Oct 2025 06:48:24 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB67H-0000000FwvQ-10SV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 06:45:13 +0000
-ARC-Authentication-Results: i=1; mx-gate04-hz1.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=Z2BoxPYyqOK4bolIbnOAqTEAwN1RnM0dwCy8BYozWgc=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1761028816;
- b=M2KfLcaHo2xsElDq7xgugPfX/upRW/lg1Ng6d2MAztTKFZGTi4J1F9woUpDVPIyK+NDcAled
- fOuiykZEyNCCv7KG08vODIsyDjctlTNOt+56jqAARHbs9CQKAyOrdQX1iv65vByEgL3wYr/l3Px
- jaDtMuHhziJFRaCoL4XA6n55NEa8Xc4+ecCyRGztV9ZEEP8p/L8iy5riNBRrn+jFGamVrAcN5Ge
- sxcIaaIostHMMkzWNW5O9BTwJlU9X3Q7Rkm4AVJf8kLY2LExI90d7sLpJhtkLyiLG/N42WuEIkU
- aIeU6Ld4wYpVG3qkVK3N4Gl1XZvkfmzMZ0V0wp50dnapQ==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1761028816;
- b=g+moJPI7wEEp8SsWV/bxwBy7NuOVUVYwvJbUMHXcJLtkv7UFlnAvxF3dmwrvwrH+S+zKwgoy
- QQQZi2jrF6MnhTDYONjOLZyN25+7yDXiYCP9W0KfFc4U2KnRvM5purDfQS4elX/F1iz1Gkx1BPy
- fjeR+TQdzn5VQuZUOpxf26MP9tMV88wapUks/bwjP0fkZJRApxupdS1pjL31AhTliZgEJDZUCr4
- +saHmR3zv/GUblRyCydGwi+f9zFtGBnjl6K6aY7o9FmgXcdXk55+SzfPC9blQNPAhN+3eKgG9Ne
- RBxtRpiyEciGZTMkdjaMIPU+cbtcpVSNUKoIqHonLRVtA==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay04-hz1.antispameurope.com;
- Tue, 21 Oct 2025 08:40:16 +0200
-Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 82D03CC0CC7;
-	Tue, 21 Oct 2025 08:40:05 +0200 (CEST)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] arm64: dts: fsl-ls1028a: fix USB node compatible
-Date: Tue, 21 Oct 2025 08:40:05 +0200
-Message-ID: <5053235.31r3eYUQgx@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <aPaXaFigEh50sdZC@lizhi-Precision-Tower-5810>
-References: <20251020133754.304387-1-alexander.stein@ew.tq-group.com>
- <aPaXaFigEh50sdZC@lizhi-Precision-Tower-5810>
+	id 1vB6AQ-0000000FxBf-1jar;
+	Tue, 21 Oct 2025 06:48:24 +0000
+Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59L5s7Ln025686;
+	Tue, 21 Oct 2025 06:48:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=corp-2025-04-25; bh=iRfXu2QO7xv7UAVXNzAFO1Bv8Lgcl
+	05baFC6HoYHlEU=; b=ChHmYlDqv7EQNVJY1/pNgATZgU023AronjmV6R+U+XlaP
+	EUUsNj70dT1AMffCqy/V68WBF9VznhDJPyosRDw0RN7WKbEmyEi80nnMiB+Rpn4n
+	8x3PZwXlsWIQelOMRXCcUCXF/+XkfUlWaMxW5+dD+CLT3WnSzoIml8p7r9wKcyaj
+	jotsYGDvH/LGV9R56ErKp/5yy1bTyX1NWeO1cbCX+v/azI0hmGq3RjF9d3SigklW
+	55FkfLwWBoCK/+HQM7cj9gSh9mYqcMkqHGPcYhmTPQcwTThYkBegcEs6TyA88Q4E
+	dhgpziSUnedUPCnJkReCG6o4s5q85PW4kcPGb3ukA==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 49v2wav3ba-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 21 Oct 2025 06:48:16 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 59L5NDHG032449;
+	Tue, 21 Oct 2025 06:48:15 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 49v1bcj8tm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 21 Oct 2025 06:48:15 +0000
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 59L6mF4O027956;
+	Tue, 21 Oct 2025 06:48:15 GMT
+Received: from ca-dev112.us.oracle.com (ca-dev112.us.oracle.com [10.129.136.47])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 49v1bcj8t9-1;
+	Tue, 21 Oct 2025 06:48:15 +0000
+From: Alok Tiwari <alok.a.tiwari@oracle.com>
+To: sean.wang@mediatek.com, nbd@nbd.name, lorenzo@kernel.org,
+        ryder.lee@mediatek.com, shayne.chen@mediatek.com,
+        matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+        linux-wireless@vger.kernel.org, linux-mediatek@lists.infradead.org
+Cc: alok.a.tiwari@oracle.com, linux-arm-kernel@lists.infradead.org
+Subject: [PATCH next] wifi: mt76: mt7996: fix typos in comments
+Date: Mon, 20 Oct 2025 23:48:09 -0700
+Message-ID: <20251021064812.1778297-1-alok.a.tiwari@oracle.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay04-hz1.antispameurope.com with 4crN2Y6qXhzRjXw
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: fc7bbb2e0881c9dff808c6ef9b35ca67
-X-cloud-security: scantime:2.297
-DKIM-Signature: a=rsa-sha256;
- bh=Z2BoxPYyqOK4bolIbnOAqTEAwN1RnM0dwCy8BYozWgc=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1761028816; v=1;
- b=ovcVet+b5l4m32d0bfNTOIQVwxRDpScfmAVEgA3uP24Qtl5gw/5kbzRun04ZC81YIn9/6hlM
- XxeRE+ceaeBfyDWxQoC0SeKl7W7tUBIgw1piNV+51FirTjyMSQrIeWwGNZS9VUp+XrZ/DQHgGiP
- Eqk2+ZO6ZNYmZKAspnkqcD+sEv1FLfvcOPOJwb30ik8ONG1UOQj/UbMKxb0PPGFQiwCsvaMUFkh
- V7/bCF+AynltMvh8wrstdvetOS0HosTo5JG1YphgqeP9Af79KKsEToEbccxIAfMMm75qB09kuod
- EB0gSZkZcsezxv9l+bhGPfMgiIcEiLfzmbQ2Ek87iwesQ==
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-20_07,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 mlxlogscore=999
+ phishscore=0 bulkscore=0 mlxscore=0 adultscore=0 malwarescore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2510020000 definitions=main-2510210052
+X-Proofpoint-ORIG-GUID: pw4Ju7zReEZLduDqRzBrtA87ytdM1skJ
+X-Authority-Analysis: v=2.4 cv=Pf3yRyhd c=1 sm=1 tr=0 ts=68f72cb0 b=1 cx=c_pps
+ a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
+ a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=yPCof4ZbAAAA:8
+ a=gaQq3JutJcUdmgZVJE0A:9 cc=ntf awl=host:13624
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE4MDAyMiBTYWx0ZWRfX3vWivK0Td3SJ
+ B/teuvlGdOp9qzX+pjD+OrpkkBlTngwvk936L8qfR+7T6b18qx7sgXhvWU+NSmey/NIWheS43IS
+ LPNfz7xuR/YJDT5bwGpG6gBXveE7+EdLvgtpzj5sYAyN9VdYiB3dUpBLg0QR2cFIm0QyAb4aywM
+ v0BfQ0yyNXjbEuUkO5ELzVay0bEOQh33NnamJ6I3eszl6T3+wJpP4fXo7+s11kxuobvamafyAnR
+ a6EuS2wbawOHA6ZtUSNmceEindtKSsWhdnANAl8wM9nqlWHmMosorRFYU7y799r23FIXdIh2MSP
+ /v7PFiZjiFe2yjQqKgC1BcIsM06FMJJIhyCrCbtIixcSvAXKNJc6OjE2tWM7LCWLrhaOiFvOrMo
+ tS6pjOl4wBfZ62bWUMV9mtwc9/RCayf7LWEdZjTJ6R83m5D3aHE=
+X-Proofpoint-GUID: pw4Ju7zReEZLduDqRzBrtA87ytdM1skJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_234507_414201_ABC91CB2 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20251020_234822_572355_B8219314 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,68 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+Fix two minor comment typos in the mt7996 driver:
+- "Tx/Tx" -> "Rx/Tx"
+- "tnterrupt" -> "interrupt"
 
-Am Montag, 20. Oktober 2025, 22:11:20 CEST schrieb Frank Li:
-> On Mon, Oct 20, 2025 at 03:37:53PM +0200, Alexander Stein wrote:
-> > usb/fsl,ls1028a.yaml says the compatible is just a simple
-> > 'fsl,ls1028a-dwc3'
-> >
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
->=20
-> Thanks, but it is similar with last patches of
->=20
-> https://lore.kernel.org/imx/20250929-ls_dma_coherence-v5-4-2ebee578eb7e@n=
-xp.com/
->=20
-> Waiting for shanw pick dts part.
+Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 2 +-
+ drivers/net/wireless/mediatek/mt76/mt7996/pci.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-Ah, I missed that. Thanks for the link
-
-Best regards
-Alexander
-
->=20
-> Frank
->=20
-> > ---
-> >  arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi b/arch/arm6=
-4/boot/dts/freescale/fsl-ls1028a.dtsi
-> > index 7d172d7e5737c..ddfb007dda920 100644
-> > --- a/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
-> > @@ -613,7 +613,7 @@ gpio3: gpio@2320000 {
-> >  		};
-> >
-> >  		usb0: usb@3100000 {
-> > -			compatible =3D "fsl,ls1028a-dwc3", "snps,dwc3";
-> > +			compatible =3D "fsl,ls1028a-dwc3";
-> >  			reg =3D <0x0 0x3100000 0x0 0x10000>;
-> >  			interrupts =3D <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
-> >  			snps,dis_rxdet_inp3_quirk;
-> > @@ -623,7 +623,7 @@ usb0: usb@3100000 {
-> >  		};
-> >
-> >  		usb1: usb@3110000 {
-> > -			compatible =3D "fsl,ls1028a-dwc3", "snps,dwc3";
-> > +			compatible =3D "fsl,ls1028a-dwc3";
-> >  			reg =3D <0x0 0x3110000 0x0 0x10000>;
-> >  			interrupts =3D <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
-> >  			snps,dis_rxdet_inp3_quirk;
-> > --
-> > 2.43.0
-> >
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+index 59744e5593b6..c87b03adda69 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+@@ -2551,7 +2551,7 @@ void mt7996_mac_reset_work(struct work_struct *work)
+ 	mt76_wr(dev, MT_MCU_INT_EVENT, MT_MCU_INT_EVENT_RESET_DONE);
+ 	mt7996_wait_reset_state(dev, MT_MCU_CMD_NORMAL_STATE);
+ 
+-	/* enable DMA Tx/Tx and interrupt */
++	/* enable DMA Rx/Tx and interrupt */
+ 	mt7996_dma_start(dev, false, false);
+ 
+ 	if (!is_mt7996(&dev->mt76) && dev->mt76.hwrro_mode == MT76_HWRRO_V3)
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/pci.c b/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
+index 3f49bbbba3b9..c3fdaa7550be 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/pci.c
+@@ -158,7 +158,7 @@ static int mt7996_pci_probe(struct pci_dev *pdev,
+ 		goto free_wed_or_irq_vector;
+ 
+ 	mt76_wr(dev, MT_INT_MASK_CSR, 0);
+-	/* master switch of PCIe tnterrupt enable */
++	/* master switch of PCIe interrupt enable */
+ 	mt76_wr(dev, MT_PCIE_MAC_INT_ENABLE, 0xff);
+ 
+ 	if (hif2) {
+-- 
+2.50.1
 
 
