@@ -4,79 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33978CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 20:38:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4397ECCD1AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 20:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WkfTpNuqej1UoTarvASJEkiFQ49zLY0qzCQi5FcT4uM=; b=KrXTkSvTh/fJGS4GRTn3ZM8a6V
-	JOemke1WPa33T59Yjbd1aA6FM+09mcPPmXRtyNeSecmxfGpuf/Yb/Et7qfB3soRw9gJsOeTabnL7a
-	pMKpdcUtfycmx9Ip7/yeHBLHEZLXrF1h2P0lmmsVqRxVMj5Zt3yb+2DJzApMzWuaxs+7pVRL/CyOy
-	4xZXC4Sl9UA1H9aEISkritpKjbEQY0Yu2MXzlUkWZCnM7jIMU3D6Z2P5XLR9TkS8PVt0MFRbvVxDr
-	vXBCDqXZGOAIQ7DxXq1EsP0jpQcIHaGir+YSacyjexCJZ4Mbo6dXPzUoCTpufVrf8oHz8iRSjDc1C
-	pIs4w11g==;
+	bh=KX1U3LQDhrzk0zMYgAFvq4hyuRv8alrTza4fIy2YOi0=; b=CFo1OqVjtds49FPZsw/ERmLf5b
+	2iqAQfuythzUNc7LZxx6KWUO9GjApK5Dogk/hPcqU86QaHy/alepYd8pkJx+B0qUc66+DJT897gcc
+	es2lkkpkaGyeRNf3xRUZ4pMUjnyvOynEU9Tc36rBlUcxrcN9saGfNtdGc1I6GcgAVBm0PKhsqEFwj
+	xpDsTnvo9CBTwRz30U8MIkXvNVnc5UfhFklEZt/7l+yoHluzTeU9XkyVTxJyEgFCTRdGEqN+ea7Ux
+	0nSzBJ8eimz50KMS/eoxbPAxK0JdwCW38V1UVXSZ0UF/5TA7xyy5heZiYE7MswoLXG+FD6p/Lw3DN
+	vYAf571Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBJ7V-00000000bbn-3llz;
-	Tue, 21 Oct 2025 20:38:13 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1vBJLq-00000000dpL-45FE;
+	Tue, 21 Oct 2025 20:53:02 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBJ7S-00000000bZw-2NeW
+	id 1vBJLo-00000000dmx-3fWw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 20:38:12 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251021203805euoutp01ac68c4569ef66b6ff401b2f1d10dc7f4~wnBj-3b5d2821328213euoutp01L
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 20:38:05 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251021203805euoutp01ac68c4569ef66b6ff401b2f1d10dc7f4~wnBj-3b5d2821328213euoutp01L
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1761079085;
-	bh=WkfTpNuqej1UoTarvASJEkiFQ49zLY0qzCQi5FcT4uM=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=rSyoE7eEsLXh9M8Vms1QePG23J8dvTd+XqkgCf2aNnIF06Guc00f+AK4hNUbm+XLw
-	 pJfmkcyYy9OpTo5HtJVNtSFgUe7ZKlhsHWf2/tt/kDnr4zYtaVbCXvNif9xY70br9D
-	 /h2cMy3Hj9X/n0N535wxwcgZt96u+dAS1Heq4SpQ=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251021203804eucas1p2c091f1cce52c4d08eeacf8c36604f1fb~wnBisd64H0197501975eucas1p21;
-	Tue, 21 Oct 2025 20:38:04 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251021203802eusmtip23e28f0f310780cc696c497752fb587eb~wnBhWTpKN1353213532eusmtip2A;
-	Tue, 21 Oct 2025 20:38:02 +0000 (GMT)
-Message-ID: <2e38e6c2-0548-432f-ae34-daf3972877ac@samsung.com>
-Date: Tue, 21 Oct 2025 22:38:01 +0200
+	Tue, 21 Oct 2025 20:53:02 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47106fc51faso71605265e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 13:53:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761079979; x=1761684779; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KX1U3LQDhrzk0zMYgAFvq4hyuRv8alrTza4fIy2YOi0=;
+        b=EitVobE1VU54q0w8+NZypQVqSZUhkmIY0i0CIGKlhamOHBsPy4DFVdnbWCCDs+EwIG
+         WPHypLYHlUi4umSBbGk3zQQdiJknc0XyzUWJtA12j7QnmWbeODFWX5ywwQiRaWGOD6ha
+         5+MvOZI5doOtX6TwTh0bnbdDRf10lBtYPOhi7uQEv9Fzc9me7qdLMIv4XmIZBIAyxD9L
+         QYZYRF5y0fiHnAjRuC8TvCaJHvNlWmEGzeGiJiB+UMsA7fmLiTI9tmb59uugrdg1Jmge
+         4+sl3GUB5sV6hTuPX26+WgBct88n0swcy2VNRJtgLSv7MLPclFDwlnxc+D40tIMfCbBm
+         bLZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761079979; x=1761684779;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KX1U3LQDhrzk0zMYgAFvq4hyuRv8alrTza4fIy2YOi0=;
+        b=kBQAdeEvzCdiPk5LSMYMcUGFrbzin+dOR/qXVrJo5OraDtGipw7tnyyD42He597lmi
+         bS25O+0P/URHqxEKX4Uqg7hY6niJx4SoKWCzCisTe8WqK83yZ01YT6xvGx00pvgvbfHM
+         Rb0zeQIAn8VXJQDNBAD3yx2xdDe6umg9YfqBu6ODRPtD+p8GHtz5h7Ld7KEJwA3a4GoZ
+         dCyJX/eum7/GuaOD8K9/l+XpkMTnjUN5x6M1kDxBS/VTy0sIxuZcjfmZg8I8Nsw3KFWO
+         FHpgszNWEctzJ6wOHaJ8MJLMCpA6SrTJMk7pdJxbcUvdphtsMBMObSnPGuVUeyA0q/bK
+         y4xA==
+X-Forwarded-Encrypted: i=1; AJvYcCVOB5aeW5VTBnX0Jwyrz9F2tEnNETi3NaLki3t+9fyCqE5bTHmSAZoYkucllqf7OwuJvfDmgEdrI/wBJbjEPyA3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBRfVfNwp+u7v4W9rlUXvmXf4hzlZx5BOZT8KaRoFD+lu+R/z4
+	1oCXJvRy7P/7eTMaZTIFnMB3H91o42MMbmqWf9YRlDAJ8lGaQ+kNcEGm
+X-Gm-Gg: ASbGncszsvHuyfjbmCdrQwrgMhWyMdpswOdmS6l5WhhnF2lJORbAInj12u84pyNf8js
+	VwB//d5/Ax72OM36IGCB1JaNqlreYBr4IWKHg2BDti6FNHpspewW77yJ/tb3dt9x9RYpuclznZI
+	24oTX7x5ckXlpwVQNNvqjpsvdpoG+rJNuNRbXoI67TiUYWo0dqTytju20DtSXnae4uxV51lXfwL
+	JrJ+N2NJovcNHBfvKpcU225b4qnxZ+pXkKdlewZLK8KA6V28eWjVEkViPyZ6qi4yHF3irr3OHIf
+	ys3/MMkClqgoonou+lg6mVDlJApI3JXVOdfAznNPOWY9ensaztFaS9yvBE4n7RXhEvaVE0ysCTG
+	5CJ2aeAiNMkMGzBhim8C9W0yDMIpZ+ofSCiPEwcTtwhtNf39ys46mThio54IRxfeCRVb811VSdM
+	2qE4x2Apja9oqRemzjUrcy8aZdL2O4jyEU3T6G+1+9MSYGzogyBAC+
+X-Google-Smtp-Source: AGHT+IG48cx6eMc3yWVGBT0daBkOovb/80ZhUVtFTOZrtyO8Rw6UMLlSBk12jg9YEQoOEfu4lRZoog==
+X-Received: by 2002:a05:6000:240c:b0:3fc:c90d:9957 with SMTP id ffacd0b85a97d-42704d6c585mr13473049f8f.16.1761079978558;
+        Tue, 21 Oct 2025 13:52:58 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-427f009a797sm21895076f8f.27.2025.10.21.13.52.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Oct 2025 13:52:58 -0700 (PDT)
+Date: Tue, 21 Oct 2025 21:52:54 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Andrew Cooper
+ <andrew.cooper3@citrix.com>, Linus Torvalds
+ <torvalds@linux-foundation.org>, kernel test robot <lkp@intel.com>, Russell
+ King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Heiko
+ Carstens <hca@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ linux-s390@vger.kernel.org, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
+ Palix <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>,
+ Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>, Alexander Viro
+ <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara
+ <jack@suse.cz>, linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V3 07/12] uaccess: Provide scoped masked user access
+ regions
+Message-ID: <20251021215254.673dbd35@pumpkin>
+In-Reply-To: <874irsz581.ffs@tglx>
+References: <20251017085938.150569636@linutronix.de>
+	<20251017093030.253004391@linutronix.de>
+	<20251020192859.640d7f0a@pumpkin>
+	<877bwoz5sp.ffs@tglx>
+	<874irsz581.ffs@tglx>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v3 06/10] pmdomain: samsung: convert to
- regmap_read_poll_timeout()
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, Krzysztof
-	Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Rob
-	Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof
-	Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
-	<tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>,
-	kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20251016-gs101-pd-v3-6-7b30797396e7@linaro.org>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251021203804eucas1p2c091f1cce52c4d08eeacf8c36604f1fb
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20251016155855eucas1p2ccc516861548e963761133fc52fc560e
-X-EPHeader: CA
-X-CMS-RootMailID: 20251016155855eucas1p2ccc516861548e963761133fc52fc560e
-References: <20251016-gs101-pd-v3-0-7b30797396e7@linaro.org>
-	<CGME20251016155855eucas1p2ccc516861548e963761133fc52fc560e@eucas1p2.samsung.com>
-	<20251016-gs101-pd-v3-6-7b30797396e7@linaro.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_133811_177662_8EDCD231 
-X-CRM114-Status: GOOD (  22.08  )
+X-CRM114-CacheID: sfid-20251021_135300_937921_817080A1 
+X-CRM114-Status: GOOD (  28.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,84 +121,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16.10.2025 17:58, André Draszik wrote:
-> Replace the open-coded PD status polling with
-> regmap_read_poll_timeout(). This change simplifies the code without
-> altering functionality.
->
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> ---
->   drivers/pmdomain/samsung/exynos-pm-domains.c | 29 ++++++++--------------------
->   1 file changed, 8 insertions(+), 21 deletions(-)
->
-> diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdomain/samsung/exynos-pm-domains.c
-> index 383126245811cb8e4dbae3b99ced3f06d3093f35..431548ad9a7e40c0a77ac6672081b600c90ddd4e 100644
-> --- a/drivers/pmdomain/samsung/exynos-pm-domains.c
-> +++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
-> @@ -13,7 +13,6 @@
->   #include <linux/platform_device.h>
->   #include <linux/slab.h>
->   #include <linux/pm_domain.h>
-> -#include <linux/delay.h>
->   #include <linux/of.h>
->   #include <linux/pm_runtime.h>
->   #include <linux/regmap.h>
-> @@ -35,7 +34,8 @@ struct exynos_pm_domain {
->   static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
->   {
->   	struct exynos_pm_domain *pd;
-> -	u32 timeout, pwr;
-> +	unsigned int val;
-> +	u32 pwr;
->   	int err;
->   
->   	pd = container_of(domain, struct exynos_pm_domain, pd);
-> @@ -45,25 +45,12 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
->   	if (err)
->   		return err;
->   
-> -	/* Wait max 1ms */
-> -	timeout = 10;
-> -	while (timeout-- > 0) {
-> -		unsigned int val;
-> -
-> -		err = regmap_read(pd->regmap, 0x4, &val);
-> -		if (err || ((val & pd->local_pwr_cfg) != pwr)) {
-> -			cpu_relax();
-> -			usleep_range(80, 100);
-> -			continue;
-> -		}
-> -
-> -		return 0;
-> -	}
-> -
-> -	if (!err)
-> -		err = -ETIMEDOUT;
-> -	pr_err("Power domain %s %sable failed: %d\n", domain->name,
-> -	       power_on ? "en" : "dis", err);
-> +	err = regmap_read_poll_timeout(pd->regmap, 0x4, val,
-> +				       (val & pd->local_pwr_cfg) == pwr,
-> +				       100, 1 * USEC_PER_MSEC);
-> +	if (err)
-> +		pr_err("Power domain %s %sable failed: %d (%#.2x)\n",
-> +		       domain->name, power_on ? "en" : "dis", err, val);
+On Tue, 21 Oct 2025 16:42:22 +0200
+Thomas Gleixner <tglx@linutronix.de> wrote:
 
-I've posted my 'tested-by' tag for this patchset, but in meantime I 
-found that this patch causes regression from time to time on old Exynos 
-SoCs (especially when all debugs are disabled). It looks that there are 
-some subtle differences between reading the status register up to 10 
-times with cpu_relax()+usleep_range() and the 
-regmap_read_poll_timeout(). I will try to analyze this a bit more and 
-provide details, but I suspect that the old loop might take a bit longer 
-than the 1ms from the comment above this code.
+> On Tue, Oct 21 2025 at 16:29, Thomas Gleixner wrote:
+> > On Mon, Oct 20 2025 at 19:28, David Laight wrote:  
+> >> There is no requirement to do the accesses in strict memory order
+> >> (or to access the lowest address first).
+> >> The only constraint is that gaps must be significantly less than 4k.  
+> >
+> > The requirement is that the access is not spilling over into the kernel
+> > address space, which means:
+> >
+> >        USR_PTR_MAX <= address < (1U << 63)
+> >
+> > USR_PTR_MAX on x86 is either
+> >             (1U << 47) - PAGE_SIZE (4-level page tables)
+> >          or (1U << 57) - PAGE_SIZE (5-level page tables)
+> >
+> > Which means at least ~8 EiB of unmapped space in both cases.
+> >
+> > The access order does not matter at all.  
+> 
+> I just noticed that LAM reduces that gap to one page, but then the
+> kernel has a 8EiB gap right at the kernel/user boundary, which means
+> even in the LAM case an access with less than 8EiB offset from
+> USR_PTR_MAX is guaranteed to fault and not to be able to speculatively
+> access actual kernel memory.
 
+It wouldn't be a speculative access, it would be a real access.
+But 4k (eg a single page) is plenty for 'reasonably sequential'.
 
->   	return err;
->   }
->
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Pretty much the only thing that has to be disallowed is a reverse
+order memcpy() (or one that accesses the last bytes first) for
+copy_to/from_user() if the length parameter is ignored completely.
+Linus wasn't brave enough to remove it from the current version
+of access_ok().
+
+I do wonder if any other cpu have the same architectural issues
+that required the guard page between user and kernel on 32bit x86.
+(One is a system call at the end of the last page.)
+
+LAM is one reason why 'masked_user_access' is such a bad name.
+
+	David 
+
+> 
+> Thanks,
+> 
+>         tglx
 
 
