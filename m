@@ -4,86 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A91A3CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 10:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD40ACCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 10:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HrnPQ0Rlpx72jXDSZpvkPNp/2H4jZn3M087QskaFqvA=; b=dLo0W7bvLHtKM+0enM7SmrZ96M
-	E38YVhhCmIBTX3BcsjFl11X6zZTfR2xHzrWw/zyxE/R8pVOeqvPbTujwDg6OigDE+N+I2wYR+d8J8
-	sbjErZq/uElXrW5x5+nPcjgk8TTfr/PMWJgunGLoS+W0LivzweZvutwUqMjXwT273UgBLSEjU3Gak
-	JXvQYcy8XgQ2acJnX9Y0+JRwt3sAM95c3wLb2IloT85ion+Gw7rhMnI6k5C/hzPt4AdzfCKCtonVZ
-	6dJweLLOhKTcAQIPjgPNDJ3op3b6llt0lHlrcFEKm9p8Pjog4xk/C/ybiRdquvxUleWoBa7nLasg+
-	z984EzBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bAdZ2v0KQLCYpU4TBi2UYXKu86U9Ir2WkGk7AE4KPP4=; b=ktSBj5y5p8NvSGobrj4NYTQvPc
+	4ISKYcqWuu9fl9W/henCMbMAE3KlSv2IPnMQnazXWSXp8IM7i85E5LxWODCegM/dPFWoD2V8++TUb
+	gT9x4FlmZ3dFNGW7UPSHXUk5DMpk5lIRE3U9/JkzvZmBfNVwh/MFejHUH1iBAy26OxxFMCawaG4Ct
+	1bl/PPweM0tN4SK8VPT/SbADqBnkvn4mVeGGFH7nvgctTAUfvIC2wIuwQIHr0cufqdiG4JL682b75
+	rWN6+LQBfzh1S7E3raBIuRZ5N1qda2ERY5GQX70LXiJLndFlPHg1jIykRw4L0M5RBoJ+gtBOFcqD0
+	W0+TTSKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB9T1-0000000GbBY-2ka8;
-	Tue, 21 Oct 2025 10:19:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB9Sz-0000000Gb7c-3I76;
-	Tue, 21 Oct 2025 10:19:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=HrnPQ0Rlpx72jXDSZpvkPNp/2H4jZn3M087QskaFqvA=; b=an8aYmt9ymLINtIW/qh1yeZHCa
-	EXkj1qV7rx606IQp1IXg4H5dVvbgV3d968p5IjCE+D5EQK1byW7AAL8rEIdE267zZzycFecNaGbLW
-	KKbleVrjohGUQpWq/nTValT+4Xvzm77UtMTRJ7B39iEwuq2LEEdiAD9O3zjg14gdQCS4aSUm33UQu
-	EuHhaPk0Xbg+E+8S25zuCvIAg56tXd0pnXlhjpVgcj3VFB0Xxn7AO2oWlXj3bhK/SCDlTnEKD6Z54
-	MZPtPxgIBjZ2helZUAWj8gbA+EWOh2NdGfV7A6r8f8cyiyHGHuGrKzUms4e2l8He2ZehuB00/Lcq9
-	sPFdR1Pw==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB8bD-00000000fae-2Q8F;
-	Tue, 21 Oct 2025 09:24:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761041970;
-	bh=2cSPcRcetu19nIiABMe7i4sAQC6sGYCknXIE9y1yPg4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=I/vScD0RgKo6qV+1u18CpreOi5kY6DYeVZmAm5GSw7erjg8HIAw27q8SScgniCurG
-	 Eb2LIyztM/Sum8WHvABFjs90vI2qFlVW+K3+sef2yCYxkm4+bu6yR3YHmZ5TOh3ZJp
-	 he8N1EK3q+mt6j0vZCR/rb2eAF1hkG87JjYVDyeEjDkxBc8ZTEXzSm0IjzgqhfjTZI
-	 pW8tQXPYkAwi5RQ2iRcmgs+4wn9L55Apai/F9IoMb8wAOoZiEHo0DBaqQ2mt2sruf5
-	 r4OEMlF2D007Kfa2ANTUYDChuUCcQcZWLzIl7nnq0LvTVhIGFMFB1GL+cc7jS2GAfu
-	 WsSF/97ewgWWQ==
-Received: from localhost (unknown [82.79.138.145])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id DC98117E13A5;
-	Tue, 21 Oct 2025 12:19:29 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 21 Oct 2025 13:19:15 +0300
-Subject: [PATCH v3 2/5] drm/bridge: dw-hdmi-qp: Handle platform supported
- formats and color depth
+	id 1vB9aA-0000000Gcgp-2eUS;
+	Tue, 21 Oct 2025 10:27:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vB9a7-0000000Gcg3-42AL
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 10:27:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1433F1007;
+	Tue, 21 Oct 2025 03:26:59 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D1EFF3F63F;
+	Tue, 21 Oct 2025 03:27:04 -0700 (PDT)
+Date: Tue, 21 Oct 2025 11:27:02 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, d-gole@ti.com, souvik.chakravarty@arm.com
+Subject: Re: [PATCH 06/10] firmware: arm_scmi: Add System Telemetry driver
+Message-ID: <aPdf9lyY9ysq2mPx@pluto>
+References: <20250925203554.482371-1-cristian.marussi@arm.com>
+ <20250925203554.482371-7-cristian.marussi@arm.com>
+ <20251020172328.00002fc3@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251021-rk3588-10bpc-v3-2-3d3eed00a6db@collabora.com>
-References: <20251021-rk3588-10bpc-v3-0-3d3eed00a6db@collabora.com>
-In-Reply-To: <20251021-rk3588-10bpc-v3-0-3d3eed00a6db@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251020172328.00002fc3@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_102413_357743_EE329F58 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20251021_032708_108921_7B456993 
+X-CRM114-Status: GOOD (  47.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,66 +69,361 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend struct dw_hdmi_qp_plat_data to include the supported display
-output formats and maximum bits per color channel.  When provided by the
-platform driver, use them to setup the HDMI bridge accordingly.
+On Mon, Oct 20, 2025 at 05:23:28PM +0100, Jonathan Cameron wrote:
+> On Thu, 25 Sep 2025 21:35:50 +0100
+> Cristian Marussi <cristian.marussi@arm.com> wrote:
+> 
+> > Add a new SCMI System Telemetry driver which gathers platform Telemetry
+> > data through the new the SCMI Telemetry protocol and expose all of the
+> > discovered Telemetry data events on a dedicated pseudo-filesystem that
+> > can be used to interactively configure SCMI Telemetry and access its
+> > provided data.
+>
 
-Additionally, improve debug logging in dw_hdmi_qp_bridge_atomic_enable()
-to also show the current HDMI output format and bpc.
-
-Acked-by: Daniel Stone <daniels@collabora.com>
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 11 +++++++++--
- include/drm/bridge/dw_hdmi_qp.h              |  4 ++++
- 2 files changed, 13 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index 4ba7b339eff6..fe4c026280f0 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-@@ -868,8 +868,9 @@ static void dw_hdmi_qp_bridge_atomic_enable(struct drm_bridge *bridge,
- 		return;
+Hi,
  
- 	if (connector->display_info.is_hdmi) {
--		dev_dbg(hdmi->dev, "%s mode=HDMI rate=%llu\n",
--			__func__, conn_state->hdmi.tmds_char_rate);
-+		dev_dbg(hdmi->dev, "%s mode=HDMI %s rate=%llu bpc=%u\n", __func__,
-+			drm_hdmi_connector_get_output_format_name(conn_state->hdmi.output_format),
-+			conn_state->hdmi.tmds_char_rate, conn_state->hdmi.output_bpc);
- 		op_mode = 0;
- 		hdmi->tmds_char_rate = conn_state->hdmi.tmds_char_rate;
- 	} else {
-@@ -1287,6 +1288,12 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
- 	hdmi->bridge.vendor = "Synopsys";
- 	hdmi->bridge.product = "DW HDMI QP TX";
- 
-+	if (plat_data->supported_formats)
-+		hdmi->bridge.supported_formats = plat_data->supported_formats;
-+
-+	if (plat_data->max_bpc)
-+		hdmi->bridge.max_bpc = plat_data->max_bpc;
-+
- 	hdmi->bridge.ddc = dw_hdmi_qp_i2c_adapter(hdmi);
- 	if (IS_ERR(hdmi->bridge.ddc))
- 		return ERR_CAST(hdmi->bridge.ddc);
-diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index 76ecf3130199..3f461f6b9bbf 100644
---- a/include/drm/bridge/dw_hdmi_qp.h
-+++ b/include/drm/bridge/dw_hdmi_qp.h
-@@ -25,6 +25,10 @@ struct dw_hdmi_qp_plat_data {
- 	int main_irq;
- 	int cec_irq;
- 	unsigned long ref_clk_rate;
-+	/* Supported output formats: bitmask of @hdmi_colorspace */
-+	unsigned int supported_formats;
-+	/* Maximum bits per color channel: 8, 10 or 12 */
-+	unsigned int max_bpc;
- };
- 
- struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+> I'm not a fan of providing yet another filesystem but you didn't
+> lay out reasoning in the cover letter.
 
--- 
-2.51.0
+Sorry, I dont understand..you mean here that I did NOT provide enough reasons
+why I am adopting a new FS approach ? ... or I misunderstood the English ?
 
+.. because I did provide a lot of reasons (for my point-of-view) to go
+for a new FS in the cover-letter...
+
+> 
+> One non trivial issue is that you'll have to get filesystem review on this.
+> My review is rather superficial but a few things stood out.
+
+Well yes I would have expected that, but now the FS implementation
+internals of this series is definetely immature and to be reworked (to
+the extent of using a well-know deprecated FS mount api at first..)
+
+So I posted this V1 to lay-out the ideas and the effective FS API layout
+but I was planning to extend the review audience once I have reworked fully
+the series FS bits in the next V2...
+
+> 
+> > 
+> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+> 
+> > diff --git a/drivers/firmware/arm_scmi/scmi_system_telemetry.c b/drivers/firmware/arm_scmi/scmi_system_telemetry.c
+> > new file mode 100644
+> > index 000000000000..2fec465b0f33
+> > --- /dev/null
+> > +++ b/drivers/firmware/arm_scmi/scmi_system_telemetry.c
+> 
+> 
+> > +static ssize_t
+> > +scmi_tlm_update_interval_write(struct file *filp, const char __user *buf,
+> > +			       size_t count, loff_t *ppos)
+> > +{
+> > +	struct scmi_tlm_inode *tlmi = to_tlm_inode(file_inode(filp));
+> > +	const struct scmi_tlm_setup *tsp = tlmi->tsp;
+> > +	bool is_group = IS_GROUP(tlmi->cls->flags);
+> > +	unsigned int update_interval_ms = 0, secs = 0;
+> > +	int ret, grp_id, exp = -3;
+> > +	char *kbuf, *p, *token;
+> > +
+> > +	kbuf = memdup_user_nul(buf, count);
+> 
+> I'd use a __free(kfree) as then you can directly return in error paths.
+> Will keep the buffer around a little longer than strictly necessary but
+> I'm not seeing where that will cause problems.
+> 
+
+Ok.
+
+> > +	if (IS_ERR(kbuf))
+> > +		return PTR_ERR(kbuf);
+> > +
+> > +	p = kbuf;
+> > +	token = strsep(&p, " ");
+> > +	if (!token) {
+> > +		/* At least one token must exist to be a valid input */
+> > +		ret = -EINVAL;
+> > +		goto err;
+> > +	}
+> > +
+> > +	ret = kstrtouint(token, 0, &secs);
+> > +	if (ret)
+> > +		goto err;
+> > +
+> > +	token = strsep(&p, " ");
+> > +	if (token) {
+> > +		ret = kstrtoint(token, 0, &exp);
+> > +		if (ret)
+> > +			goto err;
+> > +	}
+> > +
+> > +	kfree(kbuf);
+> > +
+> > +	update_interval_ms = SCMI_TLM_BUILD_UPDATE_INTERVAL(secs, exp);
+> > +
+> > +	grp_id = !is_group ? SCMI_TLM_GRP_INVALID : tlmi->grp->info->id;
+> > +	ret = tsp->ops->collection_configure(tsp->ph, grp_id, !is_group, NULL,
+> > +					     &update_interval_ms, NULL);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	return count;
+> > +
+> > +err:
+> > +	kfree(kbuf);
+> > +	return ret;
+> > +}
+> 
+> 
+> > +
+> > +static int scmi_tlm_bulk_buffer_allocate_and_fill(struct scmi_tlm_inode *tlmi,
+> > +						  struct scmi_tlm_priv *tp)
+> > +{
+> > +	const struct scmi_tlm_setup *tsp = tlmi->tsp;
+> > +	const struct scmi_tlm_class *cls = tlmi->cls;
+> > +	struct scmi_telemetry_de_sample *samples;
+> > +	bool is_group = IS_GROUP(cls->flags);
+> > +	int ret, num_samples, res_id;
+> > +
+> > +	num_samples = !is_group ? tlmi->info->base.num_des :
+> > +		tlmi->grp->info->num_des;
+> > +	tp->buf_sz = num_samples * MAX_BULK_LINE_CHAR_LENGTH;
+> > +	tp->buf = kzalloc(tp->buf_sz, GFP_KERNEL);
+> > +	if (!tp->buf)
+> > +		return -ENOMEM;
+> > +
+> > +	res_id = is_group ? tlmi->grp->info->id : SCMI_TLM_GRP_INVALID;
+> > +	samples = kcalloc(num_samples, sizeof(*samples), GFP_KERNEL);
+> > +	if (!samples) {
+> > +		kfree(tp->buf);
+> > +		return -ENOMEM;
+> > +	}
+> > +
+> > +	ret = tp->bulk_retrieve(tsp, res_id, &num_samples, samples);
+> > +	if (ret) {
+> > +		kfree(samples);
+> Free them in reverse of allocation. Makes it easier to review.
+> 
+
+Ok.
+
+> > +		kfree(tp->buf);
+> > +		return ret;
+> > +	}
+> > +
+> > +	ret = scmi_tlm_buffer_fill(tsp->dev, tp->buf, tp->buf_sz, &tp->buf_len,
+> > +				   num_samples, samples);
+> I'm a little surprised by lifetime of tp->buf if this return an error.
+> Perhaps add a comment on that.
+
+Ok.
+
+> 
+> > +	kfree(samples);
+> > +
+> > +	return ret;
+> > +}
+> 
+> 
+> > +
+> > +static struct scmi_tlm_instance *scmi_tlm_init(struct scmi_tlm_setup *tsp,
+> > +					       int instance_id)
+> > +{
+> > +	struct device *dev = tsp->dev;
+> > +	struct scmi_tlm_instance *ti;
+> > +	int ret;
+> > +
+> > +	ti = devm_kzalloc(dev, sizeof(*ti), GFP_KERNEL);
+> Given use of devm I'm guessing this will only be called from probe().
+> With that in mind...
+
+Yes...
+
+> > +	if (!ti)
+> > +		return ERR_PTR(-ENOMEM);
+> > +
+> > +	ti->info = tsp->ops->info_get(tsp->ph);
+> > +	if (!ti->info) {
+> > +		dev_err(dev, "invalid Telemetry info !\n");
+> > +		return ERR_PTR(-EINVAL);
+> 
+> 		return dev_err_probe()
+> 
+
+Indeed.
+
+> > +	}
+> > +
+> > +	ti->id = instance_id;
+> > +	ti->tsp = tsp;
+> > +
+> > +	ret = scmi_tlm_root_instance_initialize(dev, ti);
+> > +	if (ret)
+> > +		return ERR_PTR(ret);
+> > +
+> > +	ret = scmi_telemetry_des_initialize(dev, ti);
+> > +	if (ret)
+> > +		return ERR_PTR(ret);
+> > +
+> > +	ret = scmi_telemetry_groups_initialize(dev, ti);
+> > +	if (ret)
+> > +		return ERR_PTR(ret);
+> > +
+> > +	return ti;
+> > +}
+> > +
+> > +static int scmi_telemetry_probe(struct scmi_device *sdev)
+> > +{
+> > +	const struct scmi_handle *handle = sdev->handle;
+> > +	struct scmi_protocol_handle *ph;
+> > +	struct device *dev = &sdev->dev;
+> > +	struct scmi_tlm_instance *ti;
+> > +	struct scmi_tlm_setup *tsp;
+> > +	const void *ops;
+> > +
+> > +	if (!handle)
+> > +		return -ENODEV;
+> > +
+> > +	ops = handle->devm_protocol_get(sdev, sdev->protocol_id, &ph);
+> > +	if (IS_ERR(ops))
+> > +		return dev_err_probe(dev, PTR_ERR(ops),
+> > +				     "Cannot access protocol:0x%X\n",
+> > +				     sdev->protocol_id);
+> > +
+> > +	tsp = devm_kzalloc(dev, sizeof(*tsp), GFP_KERNEL);
+> > +	if (!tsp)
+> > +		return -ENOMEM;
+> > +
+> > +	tsp->dev = dev;
+> > +	tsp->ops = ops;
+> > +	tsp->ph = ph;
+> > +
+> > +	ti = scmi_tlm_init(tsp, atomic_fetch_inc(&scmi_tlm_instance_count));
+> > +	if (IS_ERR(ti))
+> > +		return PTR_ERR(ti);
+> > +
+> > +	mutex_lock(&scmi_tlm_mtx);
+> > +	list_add(&ti->node, &scmi_telemetry_instances);
+> > +	if (scmi_tlm_sb) {
+> > +		int ret;
+> > +
+> > +		/*
+> > +		 * If the file system was already mounted by the time this
+> > +		 * instance was probed, register explicitly, since the list
+> > +		 * has been scanned already.
+> > +		 */
+> > +		mutex_unlock(&scmi_tlm_mtx);
+> > +		ret = scmi_telemetry_instance_register(scmi_tlm_sb, ti);
+> > +		if (ret)
+> > +			return ret;
+> > +		mutex_lock(&scmi_tlm_mtx);
+> I guess this will make sense in later patches.  Right now it looks like you should
+> just check scmi_tlb_sb after releasing the lock.
+> E.g.
+> 	mutex_lock(&scmi_tlm_mtx); //I'd spell out mutex
+> 	list_add(&ti->ode, &scam_telemetry_instances);
+> 	mutex_unlock(&scmi_tlm_mtx);
+> 	if (scmi_tlm_sb) {
+> 		ret = scmi....
+> 
+> > +	}
+> If you really have to check if (scmi_tlb_sb) under the lock just take a copy into a local
+> variable and use that after releasing the lock.
+> 
+
+
+Yes a lot to review/rework here...
+
+> > +	mutex_unlock(&scmi_tlm_mtx);
+> > +
+> > +	dev_set_drvdata(&sdev->dev, ti);
+> > +
+> > +	return 0;
+> > +}
+> 
+> > +static const struct scmi_device_id scmi_id_table[] = {
+> > +	{ SCMI_PROTOCOL_TELEMETRY, "telemetry" },
+> > +	{ },
+> 
+> Drop that trailing comma.  Only thing it does is make
+> it easy to introduce a bug by putting something after it.
+> 
+
+I'll do.
+
+> > +};
+> > +MODULE_DEVICE_TABLE(scmi, scmi_id_table);
+> 
+> 
+> > +
+> > +static int __init scmi_telemetry_init(void)
+> > +{
+> > +	int ret;
+> > +
+> > +	ret = scmi_register(&scmi_telemetry_driver);
+> Why do this first?  My immediate assumption is this allows
+> for drivers to register in parallel with the rest of init
+> happening.  Feels like it should be the last thin in init.
+> 
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	ret = sysfs_create_mount_point(fs_kobj, TLM_FS_MNT);
+> > +	if (ret && ret != -EEXIST) {
+> > +		scmi_unregister(&scmi_telemetry_driver);
+> 
+> Given the classic pattern of building up more things to undo.
+> Use gotos and an error handling block as that's what we normally
+> expect to see in the kernel.
+
+Ok.
+
+> 
+> > +		return ret;
+> > +	}
+> > +
+> > +	ret = register_filesystem(&scmi_telemetry_fs);
+> > +	if (ret) {
+> > +		sysfs_remove_mount_point(fs_kobj, TLM_FS_MNT);
+> > +		scmi_unregister(&scmi_telemetry_driver);
+> > +	}
+> > +
+> > +	return ret;
+> > +}
+> > +module_init(scmi_telemetry_init);
+> > +
+> > +static void __exit scmi_telemetry_exit(void)
+> > +{
+> > +	int ret;
+> > +
+> > +	ret = unregister_filesystem(&scmi_telemetry_fs);
+> 
+> Documentation says this only fails if the filesystem isn't found.
+> How can that happen if the init above succeeded?
+> 
+> I noted from a quick scan that most filesystems don't check the
+> return value.  The only one that does uses it to print a message
+> and otherwise continues as if it succeeded.
+
+Ok.
+
+> 
+> 
+> 
+> > +	if (!ret)
+> > +		sysfs_remove_mount_point(fs_kobj, TLM_FS_MNT);
+> > +	else
+> > +		pr_err("Failed to unregister %s\n", TLM_FS_NAME);
+> Given 1 out of 100s of file systems bothers to do this. I'm suspecting
+> it's a thing that won't happen.
+> 
+> I'd just call the sysfs_remove_mount_point() unconditionally.
+> 
+
+Ok.
+
+I wil rework heavily in V2 the FS layer and post also to the related FS
+mailing lists...
+
+Thanks,
+Cristian
 
