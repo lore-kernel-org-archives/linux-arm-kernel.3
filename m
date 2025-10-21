@@ -4,70 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 760FFCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 21:28:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B027CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 21:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=bAnhawfaXG8Qx2JwD0PMBr94jzfSZSvQTY9Zm9gmAtw=; b=CIHlTbXRcYCjXXVNs359ETjV8O
-	dEliTDdW8D/YSTdpCb9WcCtWVW/YUmp5DD+xZ6HxeROsbfW12aQHMSgLpH7UymkLAMpihV81RAuBb
-	W5dDl8vaKGizUwJ0rVuSaKckz7sA2dhmmtYD4XzxlqcLwlZ6GVKmHApF48FqAHiR2SDBWP9Bxuf5c
-	rmkO5dT9QN0Y16EfLdZCwpZsCbvYfPWxZf0V6gq/+h+AYIaXLfHOe2PoAx58Lb1niGR2OOxsnwaCp
-	ZB+EcgTAZUa1W8Y01l+87eWoQZUY+jRu8sjitAsleyHhnghK22G1ui3sux26HaSfDuV6lXzgyIKhm
-	naBXw+EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SSmc773k1ohUjKBtXPg8Ooubnfa2H2zZUHk2E3oNqks=; b=dF6SxTtBN/WysriqM19QnRYyh5
+	zqr/EgzzeDQt6M1sqtSscY6+T4hRsKG3aJd9ERqkcW1VmzT9PIN++q7f9CSuE/DP8nvqNBHDv2Kgl
+	nK9scV+SDWLtaWxMxukaL8jyFci7UUPwCqcnsftGGhofEvpy6T6BDCr7uo15nrE2hVUlZ4z8ryECK
+	AZt3Q+blK6YXZMwy/jm6kIKHsaNEQ0A8TIgTbITV3vZMH2BM9CZbCZY22DA85kwRA2zeY3FqG9yFP
+	RHzJ7DHEGMecWlpUb1RlZKR966vBlO/yo281wvfVV2Iw6LhxGre4B4vSHBlmWUZCM/Cve6aWwHMdq
+	W8nZ5ivg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBJto-00000000imn-33Cy;
-	Tue, 21 Oct 2025 21:28:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vBK0w-00000000jNN-2Q9h;
+	Tue, 21 Oct 2025 21:35:30 +0000
+Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBJtm-00000000imQ-0q5l
+	id 1vBK0t-00000000jMv-3fqw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 21:28:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C468040BC2;
-	Tue, 21 Oct 2025 21:28:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75FFFC4CEF1;
-	Tue, 21 Oct 2025 21:28:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761082082;
-	bh=7DJTlR2G0EM6flcfPIzx+BstQxm35mBy6ZxDp8G+Ikw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=rYILZj0zajYYKNolxEYq945LMlng3mB6nL71U4ToThg2FGUKoR/mjJwlZOLQXeFBV
-	 dAD1ksrur2INevocfXapVPZ+taCoP9FJqSKNNtQq4cg74wPTjTJ1q+PJEVSkmwgZBu
-	 bt98hvQr3fvkgAIocQl4fkv1P7hsuRRgUJw9otfglMOq3zG3XbTVVamxREIn3QzDtY
-	 JmN7OsIYBhI843iNNmUx+bZog6s4+LTknYMXUCtpobN05nu5jUoTCR2se5UaabtnU1
-	 02ddpK9/LNi5FsZG+Job33luBQkvd1uSQDuKSWFAVVKx2jyrHGEQVwcIBa7OiHzDe7
-	 qC9/yZ+QtLzzQ==
-Date: Tue, 21 Oct 2025 16:28:01 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: "Bandi, Ravi Kumar" <ravib@amazon.com>
-Cc: "mani@kernel.org" <mani@kernel.org>,
-	"thippeswamy.havalige@amd.com" <thippeswamy.havalige@amd.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"michal.simek@amd.com" <michal.simek@amd.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>,
-	Stefan Roese <stefan.roese@mailbox.org>,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
-Message-ID: <20251021212801.GA1224310@bhelgaas>
+	Tue, 21 Oct 2025 21:35:29 +0000
+Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id C07911400152;
+	Tue, 21 Oct 2025 17:35:23 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-07.internal (MEProxy); Tue, 21 Oct 2025 17:35:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1761082523; x=1761168923; bh=SSmc773k1o
+	hUjKBtXPg8Ooubnfa2H2zZUHk2E3oNqks=; b=LDDwlNL/Civ8KvUV+4wSIqn9Fp
+	dC6gnUKVTULSO8HojwWFrG0YZyvJvkw047KbdqBA7pfC00sxISkseQmGwM8ejAOE
+	99UrKxGX2dVr3c3gC+DjTGIx7gUjwczI48oyUPRmuP6bFpRZS4oWtedTLRd6IALo
+	1NhTCrbJvbY4KxFA0AJWSHCdhJHb1JW1Vm64AgpwnRzV6gpxaH1eLNqkyUmFz3N0
+	f8GCTKCEaLeOLmz1SEjBIrPUGjcg2MUHuMOPyRBv+S335R3kR441Ij5gQhh+aTvZ
+	9kSHQTNM8/8s8x5ZMPB3nmz5rpEKs9sh7GU+H9oXK2lB7VTeFTthCfJeHJ3Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1761082523; x=1761168923; bh=SSmc773k1ohUjKBtXPg8Ooubnfa2H2zZUHk
+	2E3oNqks=; b=trU68A4YzeRx8nSBoXV7wr6rGsygStp9hhqPoTrWvrwH7020yWy
+	LbwZZQTk1JTQFfsyu7YxbX8GIQDPk4hF8h/qLr8e1zhJpVDaCn0gd+jvvHc/St8U
+	PfTGJ7mUgGZQ5LLORJQiWSHFwv97yTDg8ML1SY5Ehe4Z8JJyFs5kp8VGijgdW12w
+	H+q6zOyeZWpERBinzuxMlrx4mvf/1P20p36MaDEI1FyWT+5HWJGykX2U17KDxH63
+	iuZk4CH7K6ZGiBXNSbr/Te3xOiAL2H0nqorV6bVY4LYcmqrCVlBbeh3pTiWs087G
+	fIURyiYh/cVImYO19CBb9EWzpskuQ3u70GA==
+X-ME-Sender: <xms:mvz3aH6CC7ccxitepgQOV4dRf5ycIb3MyGp5fup00yTr9aRmZcxk8w>
+    <xme:mvz3aNR3WqFDe4caBONWo_J67I3zv6_Kgwz3EemEAqUyQhrxbPcQqCmnF4S39S-wp
+    PzKQ_6NQAcYn3zqdXJ_tGN-swiq389HUvU72M0EfweI5HMXfgcT9pc>
+X-ME-Received: <xmr:mvz3aPmKV8lSi3JXACietOeMwXek-wkDaW7hS6ij3kVUWd7Fu3q5gI9k3nMzzl27h7VZ18xiElJUB3-Q2apck-1pizG1VUQUTK2WKBWCyrun-YkCsA1vAkLbbQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddugedujeelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
+    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgvd
+    ffveelgedujeeffeehheekheelheefgfejffeftedugeethfeuudefheefteenucevlhhu
+    shhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjsehjrghnnhgruh
+    drnhgvthdpnhgspghrtghpthhtohepvddtpdhmohguvgepshhmthhpohhuthdprhgtphht
+    thhopegumhhithhrhidrthhorhhokhhhohhvsehgmhgrihhlrdgtohhmpdhrtghpthhtoh
+    epjhgtrghllhhighgvrhhoshelleesghhmrghilhdrtghomhdprhgtphhtthhopehsvhgv
+    nheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghlhihsshgrsehrohhsvghniiifvg
+    highdrihhopdhrtghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohep
+    lhgvvgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdroh
+    hrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthho
+    pegtohhnohhrodgutheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:mvz3aEKTfwowrvGhnvf4-EXiYQ8vvIQIVEZ1iWF8JuUJEl7pOxPTwQ>
+    <xmx:mvz3aKQDpq6pdomkmnXR8DESBXdjiu6JkQoLsyLelbx_7tE1yw2-gg>
+    <xmx:mvz3aKSM4MHm3ClKfeaqTHWz-nMYXtQafAIa1bNW_e28Sx97dtMPEg>
+    <xmx:mvz3aEzXTHBa5YFFaUthIK9hhDlQyKhib1n9PXB56vtmvPVKipSSUA>
+    <xmx:m_z3aIN6XjMCVaeHimR80BQvfCuR37CLmoygwdxALuTo15O-_yFWnP9x>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 21 Oct 2025 17:35:21 -0400 (EDT)
+Date: Tue, 21 Oct 2025 23:35:20 +0200
+From: Janne Grunau <j@jannau.net>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: James Calligeros <jcalligeros99@gmail.com>,
+	Sven Peter <sven@kernel.org>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
+	linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org,
+	Hector Martin <marcan@marcan.st>
+Subject: Re: [PATCH v2 07/11] input: macsmc-hid: New driver to handle the
+ Apple Mac SMC buttons/lid
+Message-ID: <20251021213520.GA2546203@robin.jannau.net>
+References: <20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com>
+ <20250827-macsmc-subdevs-v2-7-ce5e99d54c28@gmail.com>
+ <qffp7kadq3xojla5k6f5pr37irgytqfsqvabr6ydvulxnkcgnn@bv5mrraxrhhe>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <467D7D30-DC05-4612-87BA-7E980A9C0A4A@amazon.com>
+In-Reply-To: <qffp7kadq3xojla5k6f5pr37irgytqfsqvabr6ydvulxnkcgnn@bv5mrraxrhhe>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_142806_309262_A5DF0671 
-X-CRM114-Status: GOOD (  34.84  )
+X-CRM114-CacheID: sfid-20251021_143528_289326_A2376FAE 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,106 +125,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 08:55:41PM +0000, Bandi, Ravi Kumar wrote:
-> > On Tue, Oct 21, 2025 at 05:46:17PM +0000, Bandi, Ravi Kumar wrote:
-> >>> On Oct 21, 2025, at 10:23 AM, Bjorn Helgaas <helgaas@kernel.org> wrote:
-> >>> On Sat, Sep 20, 2025 at 10:52:32PM +0000, Ravi Kumar Bandi wrote:
-> >>>> The pcie-xilinx-dma-pl driver does not enable INTx interrupts
-> >>>> after initializing the port, preventing INTx interrupts from
-> >>>> PCIe endpoints from flowing through the Xilinx XDMA root port
-> >>>> bridge. This issue affects kernel 6.6.0 and later versions.
-> >>>> 
-> >>>> This patch allows INTx interrupts generated by PCIe endpoints
-> >>>> to flow through the root port. Tested the fix on a board with
-> >>>> two endpoints generating INTx interrupts. Interrupts are
-> >>>> properly detected and serviced. The /proc/interrupts output
-> >>>> shows:
-> >>>> 
-> >>>> [...]
-> >>>> 32:        320          0  pl_dma:RC-Event  16 Level     400000000.axi-pcie, azdrv
-> >>>> 52:        470          0  pl_dma:RC-Event  16 Level     500000000.axi-pcie, azdrv
-> >>>> [...]
-> >>>> 
-> >>>> Changes since v1::
-> >>>> - Fixed commit message per reviewer's comments
-> >>>> 
-> >>>> Fixes: 8d786149d78c ("PCI: xilinx-xdma: Add Xilinx XDMA Root Port driver")
-> >>>> Cc: stable@vger.kernel.org
-> >>>> Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
-> >>> 
-> >>> Hi Ravi, obviously you tested this, but I don't know how to reconcile
-> >>> this with Stefan's INTx fix at
-> >>> https://lore.kernel.org/r/20251021154322.973640-1-stefan.roese@mailbox.org
-> >>> 
-> >>> Does Stefan's fix need to be squashed into this patch?
-> >> 
-> >> Sure, we can squash Stefan’s fix into this.
-> > 
-> > I know we *can* squash them.
-> > 
-> > I want to know why things worked for you and Stefan when they
-> > *weren't* squashed:
-> > 
-> >  - Why did INTx work for you even without Stefan's patch.  Did you
-> >    get INTx interrupts but not the right ones, e.g., did the device
-> >    signal INTA but it was received as INTB?
+On Fri, Aug 29, 2025 at 11:11:22AM +0000, Dmitry Torokhov wrote:
+> Hi James,
 > 
-> I saw that interrupts were being generated by the endpoint device,
-> but I didn’t specifically check if they were correctly translated in
-> the controller. I noticed that the new driver wasn't explicitly
-> enabling the interrupts, so my first approach was to enable them,
-> which helped the interrupts flow through.
-
-OK, I'll assume the interrupts happened but the driver might not have
-been able to handle them correctly, e.g., it was prepared for INTA but
-got INTB or similar.
-
-> >  - Why did Stefan's patch work for him even without your patch.  How
-> >    could Stefan's INTx work without the CSR writes to enable
-> >    interrupts?
+> On Wed, Aug 27, 2025 at 09:22:41PM +1000, James Calligeros wrote:
+> > +static void macsmc_hid_event_button(struct macsmc_hid *smchid, unsigned long event)
+> > +{
+> > +	u8 button = (event >> 8) & 0xff;
+> > +	u8 state = !!(event & 0xff);
+> > +
+> > +	switch (button) {
+> > +	case BTN_POWER:
+> > +	case BTN_TOUCHID:
+> > +		if (smchid->wakeup_mode) {
+> > +			if (state)
+> > +				pm_wakeup_hard_event(smchid->dev);
+> > +		} else {
+> > +			input_report_key(smchid->input, KEY_POWER, state);
+> > +			input_sync(smchid->input);
+> > +		}
 > 
-> I'm not entirely sure if there are any other dependencies in the
-> FPGA bitstream. I'll investigate further and get back to you.
+> I believe you should be using pm_wakeup_event() in all cases so that
+> pressing power would interrupt suspend even if resume() handler has not
+> been run yet.
 
-Stefan clarified in a private message that he had applied your patch
-first, so this mystery is solved.
+pm_wakeup_event() does not wake from s2idle. pm_wakeup_dev_event()'s
+`hard` parameter is explicitily documented to wake from s2idle. So using
+pm_wakeup_dev_event and use `smchid->wakeup_mode && state` as hard
+parameter seems the correct thing to do.
 
-> >  - Why you mentioned "kernel 6.6.0 and later versions."
-> >  8d786149d78c appeared in v6.7, so why would v6.6.0 would be
-> >  affected?
-> 
-> Apologies for not clearly mentioning the version earlier. This is
-> from the linux-xlnx tree on the xlnx_rebase_v6.6 branch, which
-> includes the new Xilinx root port driver with QDMA support:
-> https://github.com/Xilinx/linux-xlnx/blob/xlnx_rebase_v6.6_LTS/drivers/pci/controller/pcie-xilinx-dma-pl.c
-> 
-> In earlier versions, the driver was:
-> https://github.com/Xilinx/linux-xlnx/blob/xlnx_rebase_v6.1_LTS_2023.1_update/drivers/pci/controller/pcie-xdma-pl.c
-> This older driver had no issues with interrupts.
-> 
-> The new driver introduced in v6.7 and later is a rewrite of the old
-> one, now with QDMA support, which has issues with INTx interrupts.
+> Also I do not think suppressing KEY_POWER is needed.
+> Userspace should be smart and decide whether to shutdown the system or
+> not when receiving KEY_POWER depending on the overall system state.
 
-OK, this sounds like out-of-tree history that is not relevant in the
-mainline kernel, so Mani did the right thing in omitting it.
+Not all user space. Using the power button to wake from s2idle while
+showing agetty's login prompt on a tty results in an immediate shutdown.
 
-I think the best thing to do is to squash Stefan's patch into this one
-so we end up with a single patch that makes INTx work correctly.
-
-Ravi and Stefan, does that seem OK to you?
-
-> >>>> +++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
-> >>>> @@ -659,6 +659,12 @@ static int xilinx_pl_dma_pcie_setup_irq(struct pl_dma_pcie *port)
-> >>>>             return err;
-> >>>>     }
-> >>>> 
-> >>>> +     /* Enable interrupts */
-> >>>> +     pcie_write(port, XILINX_PCIE_DMA_IMR_ALL_MASK,
-> >>>> +                XILINX_PCIE_DMA_REG_IMR);
-> >>>> +     pcie_write(port, XILINX_PCIE_DMA_IDRN_MASK,
-> >>>> +                XILINX_PCIE_DMA_REG_IDRN_MASK);
-> >>>> +
-> >>>>     return 0;
-> >>>> }
-> 
+Janne
 
