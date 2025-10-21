@@ -4,74 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D425CCCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 03:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313AACCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 04:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lU61NbIuf1vInzy+Pn+xBUBJmxeYDZOSeRKP9GXZEqE=; b=uMfWuhPBi9VM5a
-	zdKdMXcu5Z8wxRWqX9yp1KOI7k9+cQASy1a3peds2e5vQtPuKRsETn/8xdrugORbfnZSMNWuRve/A
-	6MRkMvHpRj9yyYazzUGGCy5plMaLFqSZT6T9UPgkG0H+OwTlN6weu+onsQKdfH+0HUyFME9UfRc96
-	GeK6qf0RCplNgHPzJfSh4aQTLAcAoVNEYgqh9UxbNFOBPW1ySwWB2CqeWkwyx1Jb+0J2DHBIgQaxh
-	NLUeNwX1xHVz5CpjvtY+E8akwbuGrRdx1bqcgXUtiYxupbHySBp9N3bbrMp53XGWY7ONBZw1CEL/9
-	XEPWgfdpbO2meAgAxgbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ypGPB2dMjd5AmXxY6vdW8x1rXEojijwfr4yyazjH+Dk=; b=20L94AQ9ZFEQtEzFpHEQ863ocH
+	XHHKd4J+41JmVrCcSVL27ZzTXnmJ2j5ZstydXIG3eIgoEo14TWNEr30tmX0QplmbbZytlV/RZfBeh
+	Dsi7JGzGQP6k+8nwfz31Mhx9Pqtkhnkd5s5rO7JhqJTy1dQpviIrrKwHce7HOoqemoDxr9EG34KDL
+	qQ/D5lBye8sz6GYWGfICRTcu+G6CvCJoGhszyUU3zuurHwM4yh5YWHE+3aGk4Bii2aXgvhUK6CwQj
+	5WbOA1OERxX5PKGvHWOKt0dpeq7x7FLCuWo8buEINFheOIxDBCUg2uZxz4I+1XeZh88rdLcZJcoaK
+	TdN0L8yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB3P5-0000000FkU7-3tPq;
-	Tue, 21 Oct 2025 03:51:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vB3aj-0000000FlKq-0NJk;
+	Tue, 21 Oct 2025 04:03:21 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB3P4-0000000FkTZ-3MUk
+	id 1vB3af-0000000FlJv-2WLe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 03:51:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E058D61287
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 03:51:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DF7DC4CEF1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 03:51:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761018663;
-	bh=aJyeINSKb1G3tVPbGfkA5Oqt5hmeaylrgY+aIoalhhg=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=HVgViDMkKZyvApVhmfWv3KaZ8/4va6fCYtgkcHLXNQ7NMfudTTrSY5nHZ4EadmT/9
-	 XwBmth48HLf8nsMOU5qd0efJHOyRa89Y9z72n1dfnMt4DLM/8gqMn9Pix024YQu4RX
-	 5KPKEsfohJLWL9nLdcYixumNDgSRT722sxa8fLY0i83WAIgo7ePG7FZ9F/ir2iRYmy
-	 cG4swh7viqYBG+yUcLIN5Yx6x+seEABCcMcQHdbG3l8Cjx+xJkOlrKMaz/SkjIOfk/
-	 tqjmJKrP7t3jKNYeBUtXjkngniGzDxyiS7POP002wvICcSY2sRx9XWGtYEvfl3Lp+u
-	 yWPkTkLyxh/8A==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-36c0b946cb5so41095231fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 20:51:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX1XPyntIBEGjOMuKlOLK08NgVJIO4Ah3yCG5aQBVoY+IYns2ldvpFqxjG6BCna7PrZicU39ARlaXpAK+8uJ+gj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmMmWLdClBhIVFIB2PpclB6/yw/R0THYu4UtRss5eOHI8qlzjz
-	9oWmkMXjsOTj4QJmjRiapoi2ygQ1RkaXcMJpGbfXsYmvIKM5Z9+VdWSURt20eAGiCMtJY2MwokD
-	ZKu7aI1Z+P45Krai855/N/FnFl/bWfFQ=
-X-Google-Smtp-Source: AGHT+IG8vasmm5hWdGe7KBlLp5chhcRp+eBr/myvEiV96lMVwrmDdir100cF1onLwBZjh0GCzdDPuKXAZ1yS7H+1U/g=
-X-Received: by 2002:a2e:bc81:0:b0:372:9e15:8970 with SMTP id
- 38308e7fff4ca-37797a0ca11mr52596901fa.23.1761018661756; Mon, 20 Oct 2025
- 20:51:01 -0700 (PDT)
+	Tue, 21 Oct 2025 04:03:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761019395;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ypGPB2dMjd5AmXxY6vdW8x1rXEojijwfr4yyazjH+Dk=;
+	b=dMMZ7uHDHXRPNU0DsFqlsRdzCkuNvQ9bLXeHQQZ/BtW2UQ54/YJiSHmXmK3DMY8/wV2hvq
+	4H+mA/uzGM5jMUXv8JP1lPaKTl4s85LledVU7+NLtk4ubrZ85QIwUVeGtP3iQXNOEKLHa1
+	MEEfyqdWT6jNYEQhXdgzTituLCue7VM=
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
+ [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-574-MfqQ7pQxNvugs6VUtjCbgQ-1; Tue, 21 Oct 2025 00:03:13 -0400
+X-MC-Unique: MfqQ7pQxNvugs6VUtjCbgQ-1
+X-Mimecast-MFC-AGG-ID: MfqQ7pQxNvugs6VUtjCbgQ_1761019393
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-88375756116so2780766585a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 21:03:13 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761019393; x=1761624193;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ypGPB2dMjd5AmXxY6vdW8x1rXEojijwfr4yyazjH+Dk=;
+        b=XWqhYj2rAQKN28MldodQtTQkScbvb4NwgvJG33T4xuhCWWhKe+5TqHe9zbzG5qS+el
+         bxKIJwUWDiUt3fdM66XbZqPuUL1VH/nL4HDzzYyJQFE7bjuT8TcZz4iFDdx1YFLLjSu3
+         4Y9StDpRYReR2MUCUoVMnIKzFMAhfrKn6ZQ8Uv+dTXshhauW4bAsoNzXXNuNjxyEws2A
+         08z5jx4OqHBy8xsWj0sConiPpAJOM5mudegYnAGkAcjJSFcnQZ0xb4HOAf7VKRJEWZb0
+         ApAgwLss2IgYFbRX9WGJAh6vaeMwVmaGOS7NE/lnE225TH17twyzfzywL7JXsYfQynC2
+         Rubg==
+X-Forwarded-Encrypted: i=1; AJvYcCWEO/fupaDukUpZqRw1jaNGRt9IAnEo+72U2Zq2XLWImDSBBvovMcFNfWCQ+QWLADUqMhKAY+CjvTkiX3vOxKh5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxa3hTL9S0ZqbWEX8rFLOXrtqY0WwhDbM4gxF22/fMoBzaEuXEx
+	aByTazWyhxDCeIZ/pmIUzctr6gBa+yVJM9+ok4+Kb+nxYvm0CCnrkd1zUO6ag9ajvCVT3Sm4T2t
+	4P7ad0JFn+zK6211/pe2lyg/rIsrmF5H+QuZU8v73heWfNyhHfnE21qPv4RiRWG80jWzvZMPRGt
+	r7
+X-Gm-Gg: ASbGncto5DeBAJa5+7tDBZLQNNMh+UZDU9gwEJG0B9/1qx2Tn+UXdacgxo+CibeYRHm
+	XRJifLBDwRWOR88UMkFj76l7zMLiAPajjiOVb1dq4XEhHD/dyEE6qKBLwUq5bUXHA+/nZExAeOQ
+	SkEbem0u0PnOCV/jCQBBSOhGpktMeVomZCIGNlKpa/KGOU7/Abzf3gtAoCTlzk75qUfqKYo/2vy
+	ginEeYSObPxksW4kO//TCzqMUGb7AunTvoaIr8mOtatCVznUlojkH9cVnmpL1dT5LqTfcNFlocZ
+	WaLVNXDcODMv4RdGTMcFo4Py5vauWak3hKKMWusCnQDgyNdCPWncrAeFOMFCuyDv3yVMmvY9jxX
+	EqLnBQfGTtRbBb/6NnJSPd5suCWSWcYFPaMK0JPRjimBM8w==
+X-Received: by 2002:a05:620a:199c:b0:7e8:3fbd:4190 with SMTP id af79cd13be357-8906e0da740mr1877060785a.2.1761019392968;
+        Mon, 20 Oct 2025 21:03:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH3urjAuZAgtdR076zL6t7beitaw+yMAlWxDfIl37cvi1zbenzxv5j5J3/VNyalxK0zDSKr8w==
+X-Received: by 2002:a05:620a:199c:b0:7e8:3fbd:4190 with SMTP id af79cd13be357-8906e0da740mr1877055485a.2.1761019392392;
+        Mon, 20 Oct 2025 21:03:12 -0700 (PDT)
+Received: from ?IPV6:2601:600:947f:f020:85dc:d2b2:c5ee:e3c4? ([2601:600:947f:f020:85dc:d2b2:c5ee:e3c4])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-891cf58e67esm686026885a.47.2025.10.20.21.03.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 20 Oct 2025 21:03:11 -0700 (PDT)
+From: Waiman Long <llong@redhat.com>
+X-Google-Original-From: Waiman Long <longman@redhat.com>
+Message-ID: <510b0185-51d6-44e6-8c39-dfc4c1721e03@redhat.com>
+Date: Tue, 21 Oct 2025 00:03:05 -0400
 MIME-Version: 1.0
-References: <20251020171059.2786070-1-wens@kernel.org> <20251020171059.2786070-5-wens@kernel.org>
- <13867454.uLZWGnKmhe@jernej-laptop>
-In-Reply-To: <13867454.uLZWGnKmhe@jernej-laptop>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 21 Oct 2025 11:50:48 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65+U2L8=HM6DimzVw=saK6rbR4Bzg7Nwz0Jyq6UXJkf=g@mail.gmail.com>
-X-Gm-Features: AS18NWBDmVKtQm8S428O1qs2kjY6UgewUb3LycjUD4uEQoxwe6OCMS4j1ARdxWY
-Message-ID: <CAGb2v65+U2L8=HM6DimzVw=saK6rbR4Bzg7Nwz0Jyq6UXJkf=g@mail.gmail.com>
-Subject: Re: [PATCH 04/11] ASoC: sun4i-spdif: Support SPDIF output on A523 family
-To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>
-Cc: Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	Mark Brown <broonie@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	linux-sunxi@lists.linux.dev, linux-sound@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, dmaengine@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/33] sched/isolation: Convert housekeeping cpumasks to
+ rcu pointers
+To: Chen Ridong <chenridong@huaweicloud.com>,
+ Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
+ <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-13-frederic@kernel.org>
+ <bb9a75dc-8c34-41da-b064-e31bf5fe6cb2@huaweicloud.com>
+In-Reply-To: <bb9a75dc-8c34-41da-b064-e31bf5fe6cb2@huaweicloud.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 0D_ns2wiTiMxyVEhKaRleE092ft-7H5xJ4A30A5QhIs_1761019393
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251020_210317_722860_ABFB4E6B 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,142 +133,219 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 1:49=E2=80=AFAM Jernej =C5=A0krabec <jernej.skrabec=
-@gmail.com> wrote:
+On 10/20/25 9:46 PM, Chen Ridong wrote:
 >
-> Hi,
+> On 2025/10/14 4:31, Frederic Weisbecker wrote:
+>> HK_TYPE_DOMAIN's cpumask will soon be made modifyable by cpuset.
+>> A synchronization mechanism is then needed to synchronize the updates
+>> with the housekeeping cpumask readers.
+>>
+>> Turn the housekeeping cpumasks into RCU pointers. Once a housekeeping
+>> cpumask will be modified, the update side will wait for an RCU grace
+>> period and propagate the change to interested subsystem when deemed
+>> necessary.
+>>
+>> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+>> ---
+>>   kernel/sched/isolation.c | 58 +++++++++++++++++++++++++---------------
+>>   kernel/sched/sched.h     |  1 +
+>>   2 files changed, 37 insertions(+), 22 deletions(-)
+>>
+>> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+>> index 8690fb705089..b46c20b5437f 100644
+>> --- a/kernel/sched/isolation.c
+>> +++ b/kernel/sched/isolation.c
+>> @@ -21,7 +21,7 @@ DEFINE_STATIC_KEY_FALSE(housekeeping_overridden);
+>>   EXPORT_SYMBOL_GPL(housekeeping_overridden);
+>>   
+>>   struct housekeeping {
+>> -	cpumask_var_t cpumasks[HK_TYPE_MAX];
+>> +	struct cpumask __rcu *cpumasks[HK_TYPE_MAX];
+>>   	unsigned long flags;
+>>   };
+>>   
+>> @@ -33,17 +33,28 @@ bool housekeeping_enabled(enum hk_type type)
+>>   }
+>>   EXPORT_SYMBOL_GPL(housekeeping_enabled);
+>>   
+>> +const struct cpumask *housekeeping_cpumask(enum hk_type type)
+>> +{
+>> +	if (static_branch_unlikely(&housekeeping_overridden)) {
+>> +		if (housekeeping.flags & BIT(type)) {
+>> +			return rcu_dereference_check(housekeeping.cpumasks[type], 1);
+>> +		}
+>> +	}
+>> +	return cpu_possible_mask;
+>> +}
+>> +EXPORT_SYMBOL_GPL(housekeeping_cpumask);
+>> +
+>>   int housekeeping_any_cpu(enum hk_type type)
+>>   {
+>>   	int cpu;
+>>   
+>>   	if (static_branch_unlikely(&housekeeping_overridden)) {
+>>   		if (housekeeping.flags & BIT(type)) {
+>> -			cpu = sched_numa_find_closest(housekeeping.cpumasks[type], smp_processor_id());
+>> +			cpu = sched_numa_find_closest(housekeeping_cpumask(type), smp_processor_id());
+>>   			if (cpu < nr_cpu_ids)
+>>   				return cpu;
+>>   
+>> -			cpu = cpumask_any_and_distribute(housekeeping.cpumasks[type], cpu_online_mask);
+>> +			cpu = cpumask_any_and_distribute(housekeeping_cpumask(type), cpu_online_mask);
+>>   			if (likely(cpu < nr_cpu_ids))
+>>   				return cpu;
+>>   			/*
+>> @@ -59,28 +70,18 @@ int housekeeping_any_cpu(enum hk_type type)
+>>   }
+>>   EXPORT_SYMBOL_GPL(housekeeping_any_cpu);
+>>   
+>> -const struct cpumask *housekeeping_cpumask(enum hk_type type)
+>> -{
+>> -	if (static_branch_unlikely(&housekeeping_overridden))
+>> -		if (housekeeping.flags & BIT(type))
+>> -			return housekeeping.cpumasks[type];
+>> -	return cpu_possible_mask;
+>> -}
+>> -EXPORT_SYMBOL_GPL(housekeeping_cpumask);
+>> -
+>>   void housekeeping_affine(struct task_struct *t, enum hk_type type)
+>>   {
+>>   	if (static_branch_unlikely(&housekeeping_overridden))
+>>   		if (housekeeping.flags & BIT(type))
+>> -			set_cpus_allowed_ptr(t, housekeeping.cpumasks[type]);
+>> +			set_cpus_allowed_ptr(t, housekeeping_cpumask(type));
+>>   }
+>>   EXPORT_SYMBOL_GPL(housekeeping_affine);
+>>   
+>>   bool housekeeping_test_cpu(int cpu, enum hk_type type)
+>>   {
+>> -	if (static_branch_unlikely(&housekeeping_overridden))
+>> -		if (housekeeping.flags & BIT(type))
+>> -			return cpumask_test_cpu(cpu, housekeeping.cpumasks[type]);
+>> +	if (housekeeping.flags & BIT(type))
+>> +		return cpumask_test_cpu(cpu, housekeeping_cpumask(type));
+>>   	return true;
+>>   }
+>>   EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
+>> @@ -96,20 +97,33 @@ void __init housekeeping_init(void)
+>>   
+>>   	if (housekeeping.flags & HK_FLAG_KERNEL_NOISE)
+>>   		sched_tick_offload_init();
+>> -
+>> +	/*
+>> +	 * Realloc with a proper allocator so that any cpumask update
+>> +	 * can indifferently free the old version with kfree().
+>> +	 */
+>>   	for_each_set_bit(type, &housekeeping.flags, HK_TYPE_MAX) {
+>> +		struct cpumask *omask, *nmask = kmalloc(cpumask_size(), GFP_KERNEL);
+>> +
+>> +		if (WARN_ON_ONCE(!nmask))
+>> +			return;
+>> +
+>> +		omask = rcu_dereference(housekeeping.cpumasks[type]);
+>> +
+>>   		/* We need at least one CPU to handle housekeeping work */
+>> -		WARN_ON_ONCE(cpumask_empty(housekeeping.cpumasks[type]));
+>> +		WARN_ON_ONCE(cpumask_empty(omask));
+>> +		cpumask_copy(nmask, omask);
+>> +		RCU_INIT_POINTER(housekeeping.cpumasks[type], nmask);
+>> +		memblock_free(omask, cpumask_size());
+>>   	}
+>>   }
+>>   
+>>   static void __init housekeeping_setup_type(enum hk_type type,
+>>   					   cpumask_var_t housekeeping_staging)
+>>   {
+>> +	struct cpumask *mask = memblock_alloc_or_panic(cpumask_size(), SMP_CACHE_BYTES);
+>>   
+>> -	alloc_bootmem_cpumask_var(&housekeeping.cpumasks[type]);
+>> -	cpumask_copy(housekeeping.cpumasks[type],
+>> -		     housekeeping_staging);
+>> +	cpumask_copy(mask, housekeeping_staging);
+>> +	RCU_INIT_POINTER(housekeeping.cpumasks[type], mask);
+>>   }
+>>   
+>>   static int __init housekeeping_setup(char *str, unsigned long flags)
+>> @@ -162,7 +176,7 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
+>>   
+>>   		for_each_set_bit(type, &iter_flags, HK_TYPE_MAX) {
+>>   			if (!cpumask_equal(housekeeping_staging,
+>> -					   housekeeping.cpumasks[type])) {
+>> +					   housekeeping_cpumask(type))) {
+>>   				pr_warn("Housekeeping: nohz_full= must match isolcpus=\n");
+>>   				goto free_housekeeping_staging;
+>>   			}
+>> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+>> index 1f5d07067f60..0c0ef8999fd6 100644
+>> --- a/kernel/sched/sched.h
+>> +++ b/kernel/sched/sched.h
+>> @@ -42,6 +42,7 @@
+>>   #include <linux/ktime_api.h>
+>>   #include <linux/lockdep_api.h>
+>>   #include <linux/lockdep.h>
+>> +#include <linux/memblock.h>
+>>   #include <linux/minmax.h>
+>>   #include <linux/mm.h>
+>>   #include <linux/module.h>
+> A warning was detected:
 >
-> Dne ponedeljek, 20. oktober 2025 ob 19:10:50 Srednjeevropski poletni =C4=
-=8Das je Chen-Yu Tsai napisal(a):
-> > The TX side of the SPDIF block on the A523 is almost the same the
-> > previous generations, the only difference being that it has separate
-> > module clock inputs for the TX and RX side.
-> >
-> > Since this driver currently only supports TX, add support for a
-> > different clock name so that TX and RX clocks can be separated
-> > if RX support is ever added. Then add support for the A523.
-> >
-> > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> > ---
-> >  sound/soc/sunxi/sun4i-spdif.c | 28 +++++++++++++++++++++++++---
-> >  1 file changed, 25 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/sound/soc/sunxi/sun4i-spdif.c b/sound/soc/sunxi/sun4i-spdi=
-f.c
-> > index 34e5bd94e9af..6a58dc4311de 100644
-> > --- a/sound/soc/sunxi/sun4i-spdif.c
-> > +++ b/sound/soc/sunxi/sun4i-spdif.c
-> > @@ -177,6 +177,7 @@ struct sun4i_spdif_quirks {
-> >       bool has_reset;
-> >       unsigned int val_fctl_ftx;
-> >       unsigned int mclk_multiplier;
-> > +     const char *tx_clk_name;
-> >  };
-> >
-> >  struct sun4i_spdif_dev {
-> > @@ -323,6 +324,7 @@ static int sun4i_spdif_hw_params(struct snd_pcm_sub=
-stream *substream,
-> >       }
-> >       mclk *=3D host->quirks->mclk_multiplier;
-> >
-> > +     dev_info(&pdev->dev, "Setting SPDIF clock rate to %u\n", mclk);
-> >       ret =3D clk_set_rate(host->spdif_clk, mclk);
-> >       if (ret < 0) {
-> >               dev_err(&pdev->dev,
-> > @@ -542,7 +544,6 @@ static struct snd_soc_dai_driver sun4i_spdif_dai =
-=3D {
-> >               .formats =3D SUN4I_FORMATS,
-> >       },
-> >       .ops =3D &sun4i_spdif_dai_ops,
-> > -     .name =3D "spdif",
+> =============================
+> WARNING: suspicious RCU usage
+> 6.17.0-next-20251009-00033-g4444da88969b #808 Not tainted
+> -----------------------------
+> kernel/sched/isolation.c:60 suspicious rcu_dereference_check() usage!
 >
-> Why this change?
+> other info that might help us debug this:
+>
+>
+> rcu_scheduler_active = 2, debug_locks = 1
+> 1 lock held by swapper/0/1:
+>   #0: ffff888100600ce0 (&type->i_mutex_dir_key#3){++++}-{4:4}, at: walk_compone
+>
+> stack backtrace:
+> CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.17.0-next-20251009-00033-g4
+> Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.0-0-gd239
+> Call Trace:
+>   <TASK>
+>   dump_stack_lvl+0x68/0xa0
+>   lockdep_rcu_suspicious+0x148/0x1b0
+>   housekeeping_cpumask+0xaa/0xb0
+>   housekeeping_test_cpu+0x25/0x40
+>   find_get_block_common+0x41/0x3e0
+>   bdev_getblk+0x28/0xa0
+>   ext4_getblk+0xba/0x2d0
+>   ext4_bread_batch+0x56/0x170
+>   __ext4_find_entry+0x17c/0x410
+>   ? lock_release+0xc6/0x290
+>   ext4_lookup+0x7a/0x1d0
+>   __lookup_slow+0xf9/0x1b0
+>   walk_component+0xe0/0x150
+>   link_path_walk+0x201/0x3e0
+>   path_openat+0xb1/0xb30
+>   ? stack_depot_save_flags+0x41e/0xa00
+>   do_filp_open+0xbc/0x170
+>   ? _raw_spin_unlock_irqrestore+0x2c/0x50
+>   ? __create_object+0x59/0x80
+>   ? trace_kmem_cache_alloc+0x1d/0xa0
+>   ? vprintk_emit+0x2b2/0x360
+>   do_open_execat+0x56/0x100
+>   alloc_bprm+0x1a/0x200
+>   ? __pfx_kernel_init+0x10/0x10
+>   kernel_execve+0x4b/0x160
+>   kernel_init+0xe5/0x1c0
+>   ret_from_fork+0x185/0x1d0
+>   ? __pfx_kernel_init+0x10/0x10
+>   ret_from_fork_asm+0x1a/0x30
+>   </TASK>
+> random: crng init done
+>
+It is because bh_lru_install() of fs/buffer.c calls cpu_is_isolated() 
+without holding a rcu_read_lock. Will need to add a rcu_read_lock() there.
 
-Now that you mention it, this looks bogus to me as well. I'll drop it.
+Cheers,
+Longman
 
-> >  };
-> >
-> >  static const struct sun4i_spdif_quirks sun4i_a10_spdif_quirks =3D {
-> > @@ -572,6 +573,14 @@ static const struct sun4i_spdif_quirks sun50i_h6_s=
-pdif_quirks =3D {
-> >       .mclk_multiplier =3D 1,
-> >  };
-> >
-> > +static const struct sun4i_spdif_quirks sun55i_a523_spdif_quirks =3D {
-> > +     .reg_dac_txdata =3D SUN8I_SPDIF_TXFIFO,
-> > +     .val_fctl_ftx   =3D SUN50I_H6_SPDIF_FCTL_FTX,
-> > +     .has_reset      =3D true,
-> > +     .mclk_multiplier =3D 1,
-> > +     .tx_clk_name    =3D "tx",
-> > +};
-> > +
-> >  static const struct of_device_id sun4i_spdif_of_match[] =3D {
-> >       {
-> >               .compatible =3D "allwinner,sun4i-a10-spdif",
-> > @@ -594,6 +603,15 @@ static const struct of_device_id sun4i_spdif_of_ma=
-tch[] =3D {
-> >               /* Essentially the same as the H6, but without RX */
-> >               .data =3D &sun50i_h6_spdif_quirks,
-> >       },
-> > +     {
-> > +             .compatible =3D "allwinner,sun55i-a523-spdif",
-> > +             /*
-> > +              * Almost the same as H6, but has split the TX and RX clo=
-cks,
-> > +              * has a separate reset bit for the RX side, and has some
-> > +              * expanded features for the RX side.
-> > +              */
-> > +             .data =3D &sun55i_a523_spdif_quirks,
-> > +     },
-> >       { /* sentinel */ }
-> >  };
-> >  MODULE_DEVICE_TABLE(of, sun4i_spdif_of_match);
-> > @@ -635,6 +653,7 @@ static int sun4i_spdif_probe(struct platform_device=
- *pdev)
-> >       const struct sun4i_spdif_quirks *quirks;
-> >       int ret;
-> >       void __iomem *base;
-> > +     const char *tx_clk_name =3D "spdif";
->
-> Reverse tree?
-
-I think that only applies to the network tree.
-
-> Otherwise it looks good.
-
-Thanks!
-
-ChenYu
-
-> Best regards,
-> Jernej
->
-> >
-> >       dev_dbg(&pdev->dev, "Entered %s\n", __func__);
-> >
-> > @@ -671,9 +690,12 @@ static int sun4i_spdif_probe(struct platform_devic=
-e *pdev)
-> >               return PTR_ERR(host->apb_clk);
-> >       }
-> >
-> > -     host->spdif_clk =3D devm_clk_get(&pdev->dev, "spdif");
-> > +     if (quirks->tx_clk_name)
-> > +             tx_clk_name =3D quirks->tx_clk_name;
-> > +     host->spdif_clk =3D devm_clk_get(&pdev->dev, tx_clk_name);
-> >       if (IS_ERR(host->spdif_clk)) {
-> > -             dev_err(&pdev->dev, "failed to get a spdif clock.\n");
-> > +             dev_err(&pdev->dev, "failed to get the \"%s\" clock.\n",
-> > +                     tx_clk_name);
-> >               return PTR_ERR(host->spdif_clk);
-> >       }
-> >
-> >
->
->
->
->
 
