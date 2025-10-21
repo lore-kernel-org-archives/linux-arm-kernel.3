@@ -4,103 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F45CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 14:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08151CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 14:09:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=olee1rr9nLhphfZIFxDNoMLGLJzNwbgY6TM9tcztPYA=; b=KHY7sMagQkn5pse2sWDwPiVL2b
-	gM9dGf38cWA8bbv3vCqQo0vfVAHEa7hSjzlh9EtIjk8OCwqeJjmLWHMahfCJtqcNiX/UXONwewvY4
-	g8LLpcLAza25CfwphnF+N0XwgrAmxC5dwL5EZjcPX9F5H9JWFWCjAc7tkig/azxxBxVAoxsR63VuQ
-	GjkEuRvUkHVd8hec1Rp5mVXU491YfxrnzjF9hG1Z9cQGOotUYMsz8fmomDucOazCvny/djZ/y5+L0
-	6B8/es/s022aTF6Qmv8I4JclcLhao8d3Ge7xEHWeyvAwU7ESp2yQzL3iTyliFVEHkGVafsqqyGiTR
-	X+URXpVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/paPCsOWHovYUaw58V1Wdls0f7JXAxMx7itURsvTst4=; b=I7pIdlemvq3LmZcm7KC6P0xPOe
+	/BB1M7u4olmf4zpaepRBX+cwlejAZhASk7n8ugyfjvFkFAoPro8gda4JL5+qGRbhacflOr8PXeyqz
+	rL5qsmNPBqpek7nXlyR8yRaSdMJ2xt1lvop1CAWttzpAcM0LDHjt+V28GmLloN0jAH1F3dFZADe9G
+	NFxwF49VJCpTyIvUfhWtuNWbZGWzilNtJf2m6Etcm/tN5EprbKzQ7odUMSQl1YMlr0nI4qcMBSvYn
+	Zna4WEZAW3kJHfdKc1O9H9NEL+xjEaVkaKzWXlO+9IWm45npkRqJxQ+KdspHpxxiTJ2xIq9NVkF6f
+	/LSY2o8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBCwv-0000000HFSM-3zkk;
-	Tue, 21 Oct 2025 14:02:53 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1vBD2j-0000000HGWP-2cH7;
+	Tue, 21 Oct 2025 14:08:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBCwu-0000000HFRH-1NLe
+	id 1vBD2h-0000000HGVj-0gCt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 14:02:53 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-57b35e176dbso6947516e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 07:02:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761055370; x=1761660170; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=olee1rr9nLhphfZIFxDNoMLGLJzNwbgY6TM9tcztPYA=;
-        b=hR6Ke8ptV8e1oc/8lnaOjrXKRTdmyI2LEfrcKH5be1GkW+sAChIc8L5CtRxldAAIQ+
-         FkTMz6Wb6VXzM4jgCRwy1y9Td9b41fYBjk2ApgQiIJc6wwQjmW1MsQnV0+MqMzUfzZGd
-         V0rZRUh0FXujLINFAZ2ICsejsnW40Yp05pdZ/VMkt+k++4AQhwtX0RrJUxU/5sM/z0h2
-         Q+tWPI3kCOABD0s25URkTfFrIhOOdxL3VxWQNaFcxj9UHA3BiFMU5XyaLbz6sn/AFV4O
-         D/ZOEeD7r/HR7za1Nj0E6a3SrmXMKHp8znbxswtvJ15WIiXRBl226NLcDqYNiKbxeM1/
-         NUMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761055370; x=1761660170;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=olee1rr9nLhphfZIFxDNoMLGLJzNwbgY6TM9tcztPYA=;
-        b=QcDhFRm222dvX8zCPJ3YnM/X/Dyfw5pl271/NkvgHnX6JRAtKMeebx+QE0Roea5Zr/
-         S8dvzWwfTUVKuy+T3GBYFLec9J0ms9opmNHFEovpzOVLcLH1qAWXOrRUGaU+wmmZJcEH
-         t/+DwBNkq6nayOISqgFnVdbKhlGz4KGBCCbtU71Hyn6RmQ25POx1EqRomAPNYVwSViU0
-         gcWfK54zR5Iyfl3iG51e3U66q/OnNgUEwH3dnK8ilhvHp9kSTED9GbWzferqCE+3xo5q
-         yFsjoyieJg0sP+rEBT1um0iHjxGhfCTj7Kahe2cilLc4rq95g4zCpGnx4jXvxONhI2Ru
-         orJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUKmNG9KO7FaqM3KwFUpcXMJlYcB7OJEDYqn+i1LwieyOnxtsTPbPzqwPstlRigZopUX/AVmz5f64EqQ1M0nAia@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJkbgWx6kloAfRokP87lo+ko+CQMG+kxLNCY9AUXVNhxbLdBsh
-	S4BaNJZH6pWfiWK8HLj9+KlNPF1nAZISGUC0l1sw10vLih+Z6gS5x1LBdjZVwDoz7sctZWGqqti
-	ck3w/kejxt62B7Lt4I2TrNBgzAdxr8VusOheX6BGIDg==
-X-Gm-Gg: ASbGnct0EkikZC2+hx/SLuuGRBFn1xNYF7rJJq0ifizsjJ2Tjfo/DJIDYZmwr7GMKOb
-	S+MbqK/16Y5Ks4nHp6rrfFQvdhyOU0U1MlQ3aIkB0bCN18SsyXr6hztRJQPO3tU0chbmBvWpW0x
-	6VNEDrXjL0V+MOZV71WJJ66qkseJgZu4HVf6cGSDKKMwa4d9HP5lmn2p6oJ3RXgFIy+kKbY/mV+
-	Zw6F5FQ4wBs1oPL+FHJWdwM37ETdWEiipuACFUAAfMmyUuFWi9FT+duhQLlk5/g4J7rpeqNuXmc
-	EG+8tIibKQwqcjnVEDLyYQz9s6ymvYQKsZcAjA==
-X-Google-Smtp-Source: AGHT+IFewnoDUUuQMPn380MpZIQ5EUIM65WgPCeHb7zg5fIb+1IVMdwP1nt9v2GuI358+5/Q2YgeRh0HlDcM36QCm+4=
-X-Received: by 2002:a05:6512:3e26:b0:58a:fb2f:4183 with SMTP id
- 2adb3069b0e04-591d853547amr4735531e87.27.1761055369735; Tue, 21 Oct 2025
- 07:02:49 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
- <hyzzrjn7jzo3tt3oyg7azijouawe3zopfjzq6zfhoo6e6z2m4t@ssl5vl4g557e>
- <zk4ea5cibrkp4vttuy4evrqybf76b3nop5lnyck4ws4nyf2yc4@ghj2eyswsoow>
- <CAMRc=MdWmO4wvX6zpzN0-LZF1pF5Y2=sS8fBwr=CKMGWHg+shA@mail.gmail.com>
- <rfr5cou6jr7wmtxixfgjxhnda6yywlsxsei7md7ne3qge7r3gk@xv6n5pvcjzrm>
- <CAMRc=Me9Td5G9qZV8A98XkGROKw1D2UeQHpFzt8uApF8995MZw@mail.gmail.com>
- <rvsyll4u6v4tpaxs4z3k4pbusoktkaocq4o3g6rjt6d2zrzqst@raiuch3hu3ce>
- <CAMRc=Me+4H6G+-Qj_Gz2cv2MgRHOmrjMyNwJr+ardDR1ndYHvQ@mail.gmail.com>
- <fydmplp5z4hjic2wlmvcy6yr3s5t5u4qsgo7yzbqq3xu2g6hdk@v4tzjj3ww4s6>
- <CAMRc=McGuNX42k_HdV20zW+buACBTmTZEHWgS-ddRYsvnfwDSg@mail.gmail.com> <ibdmghl5dg3oda2j5ejp35ydky4xkazewhdvskm7p32vstdegr@36pj32b6dt44>
-In-Reply-To: <ibdmghl5dg3oda2j5ejp35ydky4xkazewhdvskm7p32vstdegr@36pj32b6dt44>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 21 Oct 2025 16:02:37 +0200
-X-Gm-Features: AS18NWDZ-39d1AWC8agc3FHYO9nz9oO2X5fy-6ifkN2xtLGPNmY9-qcvZ1gXQ8w
-Message-ID: <CAMRc=MdmPOHJ2SiO_A4zya3uZH+0VjC=EQKxc7wY3vk56kgMbQ@mail.gmail.com>
+	Tue, 21 Oct 2025 14:08:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C82D404BE;
+	Tue, 21 Oct 2025 14:08:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5FE2C4CEF1;
+	Tue, 21 Oct 2025 14:08:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761055730;
+	bh=6wiuS401xDdRYtvpYyrKEXyzFHQauHIZFmJ3uP/Anok=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=h9EoWC/mq7Q8GB3952OE3all4Y/oQD5FJazcpywTYBebX9RoedVedxpDNHS4PVCJB
+	 clvxh71HKix+go+cCL2UzMsHzRMMZ8ruBpQT5N9lcglWN/kJN7EEWIY1SawDc/vy3o
+	 VEaepM0CQ2LtsiW8Ij1TwZBblsp9XkcJQJ2+x5rfrSWun323p0OHBWApqr0f0X4D65
+	 nRVaaS9OnWqUfefZN1x3dgzkoRCJkh33bjuP8nnXxDN1utdIlbi21X8qf6xPys6ote
+	 HgFMOa390SZZ1ZUrb4qxdlFJIwD91zhb2ENSsirE6jUOlefx5ZFECqK9n6xSPOSLdy
+	 +Xmkzd4fZE6oA==
+Date: Tue, 21 Oct 2025 15:08:43 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>,
+	Mika Westerberg <westeri@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Takashi Iwai <tiwai@suse.com>, Rob Herring <robh@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Will Deacon <will@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>
 Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, Kees Cook <kees@kernel.org>, 
-	Mika Westerberg <westeri@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Message-ID: <0e1f3a1b-46ab-4eb5-ad05-70784f9b9103@sirena.org.uk>
+References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
+ <CAMRc=Me4Fh5pDOF8Z2XY4MG_DYqPRN+UJh_BzKvmULL96wciYw@mail.gmail.com>
+ <81bda56c-f18b-4bd9-abf9-9da7c2251f42@sirena.org.uk>
+ <CAMRc=MdOCHJEyPxN+-g71ux68=Mt_Q5P9611QO7Q8J9e8UJv_A@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="be2R75B6whIQ+eJQ"
+Content-Disposition: inline
+In-Reply-To: <CAMRc=MdOCHJEyPxN+-g71ux68=Mt_Q5P9611QO7Q8J9e8UJv_A@mail.gmail.com>
+X-Cookie: Accordion, n.:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_070252_382633_403A7EF3 
-X-CRM114-Status: GOOD (  30.38  )
+X-CRM114-CacheID: sfid-20251021_070851_240570_AEB9F822 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,70 +93,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 2:53=E2=80=AFPM Manivannan Sadhasivam <mani@kernel.=
-org> wrote:
->
-> On Tue, Oct 21, 2025 at 02:22:46PM +0200, Bartosz Golaszewski wrote:
-> > On Tue, Oct 21, 2025 at 2:20=E2=80=AFPM Manivannan Sadhasivam <mani@ker=
-nel.org> wrote:
-> > >
-> > > >
-> > > > And with the implementation this series proposes it would mean that
-> > > > the perst signal will go high after the first endpoint pwrctl drive=
-r
-> > > > sets it to high and only go down once the last driver sets it to lo=
-w.
-> > > > The only thing I'm not sure about is the synchronization between th=
-e
-> > > > endpoints - how do we wait for all of them to be powered-up before
-> > > > calling the last gpiod_set_value()?
-> > > >
-> > >
-> > > That will be handled by the pwrctrl core. Not today, but in the comin=
-g days.
-> > >
-> >
-> > But is this the right approach or are you doing it this way *because*
-> > there's no support for enable-counted GPIOs as of yet?
-> >
->
-> This is the right approach since as of today, pwrctrl core scans the bus,=
- tries
-> to probe the pwrctrl driver (if one exists for the device to be scanned),=
- powers
-> it ON, and deasserts the PERST#. If the device is a PCI bridge/switch, th=
-en the
-> devices underneath the downstream bus will only be powered ON after the f=
-urther
-> rescan of the downstream bus. But the pwrctrl drivers for those devices m=
-ight
-> get loaded at any time (even after the bus rescan).
->
-> This causes several issues with the PCI core as this behavior sort of emu=
-lates
-> the PCI hot-plug (devices showing up at random times after bus scan). If =
-the
-> upstream PCI bridge/switch is not hot-plug capable, then the devices that=
- were
-> showing up later will fail to enumerate due to lack of resources. The fai=
-lure
-> is due to PCI core limiting the resources for non hot-plug PCI bridges as=
- it
-> doesn't expect the devices to show up later in the downstream port.
->
-> One way to fix this issue is by making sure all the pwrctrl capable devic=
-es
-> underneath a PCI bridge getting probed, powered ON, and finally deasserti=
-ng the
-> PERST# for each one of them. If the PERST# happens to be shared, it will =
-be
-> deasserted once at the last. And this order has to be ensured by the pwrc=
-trl
-> core irrespective of the shared PERST#.
->
 
-Ok, makes sense. In that case this series probably doesn't affect your
-work or PCI in general.
+--be2R75B6whIQ+eJQ
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Bartosz
+On Mon, Oct 20, 2025 at 11:41:52AM +0200, Bartosz Golaszewski wrote:
+> On Fri, Oct 17, 2025 at 7:32=E2=80=AFPM Mark Brown <broonie@kernel.org> w=
+rote:
+
+> > It really should be the actual physical state change that triggers the
+> > event.
+
+> I guess so, but this would require some non-trivial rework of the
+> regulator core. We'd need some list of deferred notifications stored
+> in memory for when the physical state actually changes.
+
+I'm not sure I see the need for deferred notifications?  We'd need to go
+round all the users whenever a physical change to the GPIO happens but
+it's not clear what we'd need to store beyond the list of users?
+
+--be2R75B6whIQ+eJQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmj3k+oACgkQJNaLcl1U
+h9BE1wf/fE5s96hdrurlAFqdd32+YZYJUqEYFJu5LZKnjuA1wTr1MHfqMigev/B6
+b/Jr686Hrm/k7WS6R4q0VG8c660FzZ1zdSt/M3AoQXiQ24DcYxb8MbAexAKFbc6g
+2UYm/hbZOIK49A5XX4XBSm+zUG7c6gII9SKcovXcNVb9N3mRnsiFmnOkyTkBnFJr
+97coLg4GMr7Hh1YQLC1dAXjdfkyttrF0R5/JiVabTqQfyD27tYYedFbfSjChRVA8
+Gw7oS3+X70V6zrG/w/9Pxq2R7ikYQSZoIt9BWSh7mGFcMVudZ/QlT1P1u9q0PpLP
+avLCRl+U9JHws84L5zHfZKX0vHlk7w==
+=8Lgz
+-----END PGP SIGNATURE-----
+
+--be2R75B6whIQ+eJQ--
 
