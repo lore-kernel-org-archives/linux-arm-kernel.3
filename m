@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91CF2CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 08:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BE3CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 08:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=stZPJ4M5bQxptRayTgT6RtHDQjZgxyXiEdqip2m/sjE=; b=YvSSkmGpPasIqtaWAMCPPX+6cF
-	VJ7C8tz5wYRPw2RxXqy0F2sdcTTVT0TRje8cLGhQdORAs0wGz5l7T3Yym0Iyby3x1ha6aSxToN4+3
-	1ub/6bW4FHtM43/0gAzgj58Jf0FK19mugF/gynh8VEE53752kd4iev5r8TUiOzqtW3Icq8rxsszn5
-	Hm8gF0Q4AMujUwkXywmphehk9jM3PNQ+wxZeIX2008U82yUOW5Zxpl/pe+6CgIw7znQPNBZP0axDF
-	Z+UKb7bD2IitOgRxBER4BIzNR6J0nWV3Bx7N5dFlY0+Qcz3ZYFrk1+gNZB4df2faIUqXdHvrrJ2PC
-	UgGBp10Q==;
+	bh=uzjSzcMiMfvyxgchJvQg0UkKHrfCLh0KZ54XotRuE78=; b=K8TohoV0sRWsdRgWt/VnO420Jt
+	XOqJ+OspXRXWOR9NJTeHjDhJH1bhdJUoUlR04IOOJ/SqnV1eYE0MlPj2MJin8yFaxDcmztzyTPonm
+	v6yJGGjoH/qBuhXQDLJNm529n92mMLYhcaseNsPuw7+7mdJcQA5qz45XgoJ+4TdB7GEjCzSz22hPS
+	7C5OzxTFNS+PxBMHYK6sOPDajZyxF2cds9eiSqo7TWphuW5RZ+TUrReZB6RqeL4CNBAOqZc1wLua8
+	SzgMnSOTrTih8Vj62E2UEV5lu6W93gBhaKidy8kIqf8H7lI2TNSAHi2C1wU9dLZ7vK05PxilYhHhS
+	YKMSfAVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB7qc-0000000GIW5-2u65;
-	Tue, 21 Oct 2025 08:36:02 +0000
-Received: from mail-m16.yeah.net ([220.197.32.17])
+	id 1vB7rZ-0000000GIk8-0FXf;
+	Tue, 21 Oct 2025 08:37:01 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB7qZ-0000000GIV0-30AK
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 08:36:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:To:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=stZPJ4M5bQxptRayTgT6RtHDQjZgxyXiEdqip2m/sjE=;
-	b=j+3sVkH7/mAopbBYTH6PAu7sSTkSJr1IQPilH/1KWstydxQt5nMQ+nOgDLjt8I
-	8y4azlN1xpwgyxcEBIOIyUbIvmU+tTQP5NgzSp0QBW/urQ5w7d60DqSpayCm5JZl
-	U6gdlw77C4sR7aWUP8yMJUipBVEArrQ022eLTm0G6L9PY=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgDnB5LjRfdoaIdeAA--.44314S3;
-	Tue, 21 Oct 2025 16:35:49 +0800 (CST)
-Date: Tue, 21 Oct 2025 16:35:47 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Haibo Chen <haibo.chen@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Walle <michael@walle.cc>, Peng Fan <peng.fan@nxp.com>,
-	Frank Li <frank.li@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>,
-	Han Xu <han.xu@nxp.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] arm64: dts: imx: correct the flexspi compatible
- string to match with yaml
-Message-ID: <aPdF4yR9iGFInJeV@dragon>
-References: <20251017-flexspi-dts-v4-1-330fc467f489@nxp.com>
+	id 1vB7rW-0000000GIhw-15AI;
+	Tue, 21 Oct 2025 08:36:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=uzjSzcMiMfvyxgchJvQg0UkKHrfCLh0KZ54XotRuE78=; b=qB5LIpGNS6VFKFLCsQ7oi+wSOg
+	/gArHf6epn6m21W3unoEXDPGUQAXZ9m7K7Rn+oeJ7JoBTN+ERYRDShJuirU885aLX5XyGLpHTXBSC
+	E1YaPDNxlmOwHcY/a/j2vCuQvvkr2tNAxR5Y2lJh7dynyISUinvs6ndeDB5YVgvegEbddLJbE+3r3
+	sita/nZb3YjX638SsaONPcDcq/p9RieF4Nv9+pKLjxP4esookDF/TG2wvF1AkNtYYF3h8sVihnN5a
+	hCy0rvV3e/Eq3GOpFSmgjhDapqEmqGYm44wguRibcHutYarOgTIftclczed7RRtZhSD9Y+Z+PoJaK
+	zMCyixjQ==;
+Received: from [212.111.240.218] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vB7rS-0001TP-CV; Tue, 21 Oct 2025 10:36:54 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: mturquette@baylibre.com, sboyd@kernel.org, sugar.zhang@rock-chips.com,
+ zhangqing@rock-chips.com, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ conor+dt@kernel.org, Elaine Zhang <zhangqing@rock-chips.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, huangtao@rock-chips.com,
+ finley.xiao@rock-chips.com
+Subject: Re: [PATCH v4 6/7] dt-bindings: clock: rockchip: Add RK3506 clock and reset
+ unit
+Date: Tue, 21 Oct 2025 10:36:53 +0200
+Message-ID: <24128799.6Emhk5qWAg@phil>
+In-Reply-To: <20251021065232.2201500-7-zhangqing@rock-chips.com>
+References: <20251021065232.2201500-1-zhangqing@rock-chips.com>
+ <20251021065232.2201500-7-zhangqing@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251017-flexspi-dts-v4-1-330fc467f489@nxp.com>
-X-CM-TRANSID: Mc8vCgDnB5LjRfdoaIdeAA--.44314S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU7Z2-UUUUU
-X-Originating-IP: [121.224.201.6]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiIQaiCGj3ReamqQAA3+
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_013600_059353_939DAF03 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251021_013658_294445_2C16790D 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,14 +75,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 05:25:41PM +0800, Haibo Chen wrote:
-> According to Documentation/devicetree/bindings/spi/spi-nxp-fspi.yaml,
-> imx93/imx95 should use it's own compatible string and fallback
-> compatible with imx8mm.
-> 
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+Hi Elaine,
 
-Applied, thanks!
+Am Dienstag, 21. Oktober 2025, 08:52:31 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb Elaine Zhang:
+> From: Finley Xiao <finley.xiao@rock-chips.com>
+>=20
+> Add device tree bindings for clock and reset unit on RK3506 SoC.
+> Add clock and reset IDs for RK3506 SoC.
+>=20
+> Signed-off-by: Finley Xiao <finley.xiao@rock-chips.com>
+> ---
+>  .../bindings/clock/rockchip,rk3506-cru.yaml   |  45 +++
+>  .../dt-bindings/clock/rockchip,rk3506-cru.h   | 285 ++++++++++++++++++
+>  .../dt-bindings/reset/rockchip,rk3506-cru.h   | 211 +++++++++++++
+>  3 files changed, 541 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk35=
+06-cru.yaml
+>  create mode 100644 include/dt-bindings/clock/rockchip,rk3506-cru.h
+>  create mode 100644 include/dt-bindings/reset/rockchip,rk3506-cru.h
+>=20
+> diff --git a/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.=
+yaml b/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
+> new file mode 100644
+> index 000000000000..43e192d9b2af
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
+> @@ -0,0 +1,45 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/rockchip,rk3506-cru.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip RK3506 Clock and Reset Unit (CRU)
+> +
+> +maintainers:
+> +  - Finley Xiao <finley.xiao@rock-chips.com>
+> +  - Heiko Stuebner <heiko@sntech.de>
+> +
+> +description: |
+> +  The RK3506 CRU generates the clock and also implements reset for SoC
+> +  peripherals.
+> +
+> +properties:
+> +  compatible:
+> +    const: rockchip,rk3506-cru
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +  "#reset-cells":
+> +    const: 1
+> +
+
+I think we want clocks and clock-names properties here for xin24m
+similar to the rv1126b binding (and other modern soc bindings)
+
+Also, I think we'll need
+
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description:
+       Phandle to the syscon managing the "general register files" (GRF),
+       if missing pll rates are not changeable, due to the missing pll
+       lock status.
+
+because, you're using RK3506_GRF_SOC_STATUS
+for the PLL locking status.
+
+
+Heiko
+
 
 
