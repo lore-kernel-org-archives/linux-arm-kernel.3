@@ -4,121 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6774CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 04:10:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 670FACCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 04:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r9OupL1guxMQZzERaZQ5HIFJ+HTh+MX5SgUIo3LTaUY=; b=flpLwKcZEc/n/p64lIxAntPF14
-	7rJY7/VtwIq3H+USshp6eEYXK1s/dny8vgIlXM49kBEyZjeniQkpDuT7UGFmq3CrVExAbFKQ+uvYw
-	j7SWUyBiL9LaL7Ha1PMM8cSFYRLMRcPNK7PyTIMtP5oYO4PKYVr2bjW1QxOvlazLIjomsIFow3Bl5
-	eG6zoYoy5YwX7lOhWzy04Dpwwghggv0A8ApRVjZ9f6H89DFZG5h3RDdy71WFMTZFrPi0erBlm+hw1
-	fH273lLNO3Zk5L/HVErsgDjDtuvgFn6Mo9+eoCy1rO0iYQETMipJeV4qBvmKV1X8Bp4GKTviVuNZH
-	H7ohgcHA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2hiGOwtbn751Z9KEbSua+qX3ZxJnr5e2JNCJKMsP3Nw=; b=XtOqPzG92IE8MoXOPz+ppfLGI3
+	Xs+TIhba7XYhOJqsS9MtU6yszpRsF7KO+y04ocRQ0kpbcnoTjlkcUr3VcT1UCqfWPSXEHF0y4uTZN
+	nLZqtTl9Og6a8FFFxpmP4SVAxpdISRgPfEjum/A0aDarxVlff3XY0NV08YGqHgDGgc4rd++2xrAgz
+	DKIF+0TpuFwVbb1hGEsYD/pG9i9KXZK+Q3oHgPHzVN6vgQErDWsOWScMxdElseyBwgxH8dDtq3KfS
+	LssDIgUbCG6CAiW1nd0JzNwEV+n4lvSPgn0ZOwW9SV5WmDhT4OyhyWM1XSyznL+LJmEpcJBgefAgt
+	hwP4iGEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB3hc-0000000Fm3s-2e8u;
-	Tue, 21 Oct 2025 04:10:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vB3xo-0000000FmrC-0CSu;
+	Tue, 21 Oct 2025 04:27:12 +0000
+Received: from bg4.exmail.qq.com ([43.154.221.58])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB3hY-0000000Fm2z-3bH4
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 04:10:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761019823;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=r9OupL1guxMQZzERaZQ5HIFJ+HTh+MX5SgUIo3LTaUY=;
-	b=EFgCUByoM4QfmSq0a5kM72QLaW+qAi03T14bhkOSK4dFQbUyfcSeVLyLdeRhTkRe7L3Nx1
-	T1Ch37UbLAp2JYx1a0JOUJ1hawISVoyLefHKSiwciYgWYKKCppkZqwHeEPouFcgGYB5w8P
-	uBUQwBTq/+vYXhTkrK8upAhEEPP5SVw=
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
- [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-297-RfsjSXaDODGZLGiyMMbBSA-1; Tue, 21 Oct 2025 00:10:22 -0400
-X-MC-Unique: RfsjSXaDODGZLGiyMMbBSA-1
-X-Mimecast-MFC-AGG-ID: RfsjSXaDODGZLGiyMMbBSA_1761019822
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-79a3c16b276so161214746d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 21:10:22 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761019822; x=1761624622;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=r9OupL1guxMQZzERaZQ5HIFJ+HTh+MX5SgUIo3LTaUY=;
-        b=YQjXEIIUQa2L7wKNs1AO7OmALJUoFGj2ifgIh+RexAvkVtk/PRBa4yJX8aAToxfyW6
-         hUu4Hp0FnVf5tEnQLJTh344CHTh3yQeLN67Au0sH5B3OdUFul5sy99V4B8/uMIBF1KxT
-         7cHxEZ32rix0DDP2lF8b2/KHc9sJyrT7Nlwccdi68PReY7dG3+TVQqzddrEUw1rxfZKB
-         RZ76kFlr2ba1PWozPl1gM9wZ0JLdaFY0XzKzq8mV4uPz9mwXW6cdUwxKmux3phzxM288
-         iM9dhCFqNm8M2t+HKLcW3OpkqW2bIAceSvF6kK7HsYt6h5uqNNi2sq0dYEj5+IP/fEdp
-         FlvA==
-X-Forwarded-Encrypted: i=1; AJvYcCUotfrb9g9wCDQLzYF8CaXbK6qNEXGvfVQnoRmTb38KS4GqT/csrC0ThDMtzOEhiO5BHckvf8/+NcmL5XynumQm@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUQn3tu3gXxlCqPvWf/0m02PByjdbZ3L7urWl60EIm7oVHA15L
-	8IJKQANspkT/4OZct4keKBa1z9Lw/22QaoK9SAV0V0FTQfwxgE2609ez/EuP5Pqgyo5vglW8iTV
-	SavGsEAyaziDMpeVt2EIY3pF/TIVowm1nQQRZ0KNzy2JmcHRW0lPKTbRlseH0Q9zXiMhx5SOSYi
-	8R
-X-Gm-Gg: ASbGncuKN4U5hw1GlOAoE1g/GK3NXSXTskseXjYQzXaSwwNf/H4YufaHonWxgJ9fkjo
-	+y3QCh9sFKoedNorkcjqr2a3W7kCzIa//xI/VtmG04E9D9xFaTM/xU31pbr7AKKSIKkRaTrwtgN
-	8zLMwfBKJXg+2nkfCZ9n7wnq1o6z2RFJvZAQNIPSc60z+VVlblf8XtTpbilyuA5VHv/61ArfB2I
-	RBRAbXIXtCL/JfmL4S+Gu2RGHIDOgTPm0NLe+lPuN3alMpnHwaRNUNYGWJ0M+c1UZKDUgf6VKIj
-	yaAOdekP29O1B5uOMFSVaTurP1I9MqswAsd8jOeVnsJhUfqYpWkXb55wD/vZrwRML3leleRmkjG
-	OWbxlWhAv/nCBAPSR0ZoNNrKWd0sQEIaPdNy+Fqo4Ucnovw==
-X-Received: by 2002:a05:6214:808f:b0:87c:223c:c5c8 with SMTP id 6a1803df08f44-87c223cc6b8mr152674076d6.20.1761019821881;
-        Mon, 20 Oct 2025 21:10:21 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGdm2hwRLRcjdAJaN67gocvEQv/ytDjJvvxgQlCm7/W761K2ldQ2/8L5ftdru4g+9p/5t/b/A==
-X-Received: by 2002:a05:6214:808f:b0:87c:223c:c5c8 with SMTP id 6a1803df08f44-87c223cc6b8mr152673626d6.20.1761019821460;
-        Mon, 20 Oct 2025 21:10:21 -0700 (PDT)
-Received: from ?IPV6:2601:600:947f:f020:85dc:d2b2:c5ee:e3c4? ([2601:600:947f:f020:85dc:d2b2:c5ee:e3c4])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-87d028af525sm62600596d6.51.2025.10.20.21.10.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 21:10:20 -0700 (PDT)
-From: Waiman Long <llong@redhat.com>
-X-Google-Original-From: Waiman Long <longman@redhat.com>
-Message-ID: <0e02915f-bde7-4b04-b760-89f34fb0a436@redhat.com>
-Date: Tue, 21 Oct 2025 00:10:16 -0400
+	id 1vB3xl-0000000Fmqj-0LKR;
+	Tue, 21 Oct 2025 04:27:10 +0000
+X-QQ-mid: zesmtpip2t1761020794t6063e055
+X-QQ-Originating-IP: vMCkboM9fsdjPAzo91wrsqh4saIlE7UDpjoWy4czKSc=
+Received: from [IPV6:240f:10b:7440:1:21fe:b84: ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 21 Oct 2025 12:26:26 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1327726975815582351
+Message-ID: <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
+Date: Tue, 21 Oct 2025 13:26:26 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 13/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
-To: Frederic Weisbecker <frederic@kernel.org>,
- LKML <linux-kernel@vger.kernel.org>
-Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
- <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
- Lai Jiangshan <jiangshanlai@gmail.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
- <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
- Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-14-frederic@kernel.org>
-In-Reply-To: <20251013203146.10162-14-frederic@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: CfJFrW-orJkVoZ0fs_MtZH2kdbZfljBoCoIPDmNDTyw_1761019822
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
+To: Niklas Cassel <cassel@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Damien Le Moal <dlemoal@kernel.org>, Anand Moon <linux.amoon@gmail.com>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Dragan Simic <dsimic@manjaro.org>, linux-rockchip@lists.infradead.org
+References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
 Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpip:radxa.com:qybglogicsvrsz:qybglogicsvrsz4a-0
+X-QQ-XMAILINFO: OU1KiBGGGpgtLA5cQ6nXOsavR+8KCbLlloJVYgpAwH3ElL8iyhDZYMXW
+	RDz2F5dsomu/Bs5OVyaiHWKT9qlvHJS8X7b7Nt3Te6XEP0YpVMyMxeg04IAZVUHXnqFwzDV
+	Yh9JcBR+gd76BPx2DRrerSY3m+XUXoJHdcjn7svrxDlBDf+C4+/xjFC9tbRi4ZZRSBBFMu3
+	qYCG3bcAXsaDgx/8xNc98qsPkV8l7N+y+nBfhM/2+fmiaPOYZUp5phnP+Mw0l4HhCZff73p
+	AlwbHsrg1CLBhUuYFlYwg12lIMgk8E1Ym3b0EijL6J4MN0MOly0Y3cCRPyZfDF+9Nhkf1O/
+	wpxHpHhY3FJEjaW0sN9iPAmJlBrYf8ZxPPJqs8vf49F5Se6R9HdZihKMPYyngxRtQ7k/EPn
+	dSoOFPDTk8yGRHbrZ8IhnL4d9snKI26aRczK/FupDjd7q9E+VZ96ePxYw5B97AwEPdlPHEO
+	xWApJci7TxHYnRdQeEqGhpQQvEhJGvsGw/wjioZ4OUVXhim+dC2qVI9Rib6tGME3jfndSqS
+	AKPBdW3lZf659fUTWGIFFHdjlNueBW5AQo/z/AEYc4q5hzFPloTB8+pLJdyHe87dKChfRaK
+	h0+h4pmuyR/2QDsjTEjJKgBrm6ksUigOY7oh7PesK4CzHNAB1LcOkL0LeroCbJJjfE6InWV
+	h0edgIrhdiO3WB+8f8P9pHc8zkJX4xRf+Q9NUCjgNRYChSMExOoFNibxkEQeWnPffyTM6GW
+	VzKZdUoGMi4097ok9MJWVZnOolyIHdnooXQLoHOqzNxb6G+xTCDlSHwlykKXJ/MM2ITJLGY
+	VYyf+zmPkL3ryJysj1umuDPnILgJiXmUltgL/E2gG/X14Xeacq9SRquO+KmLAmcheKiAaKT
+	SX8UcpC2jSJYNa0/Zpt+oodK2X4LPO/vhjl4ZqBLPfqCI2PMeUrudrQkM0TCydXHmgjIKxq
+	HCkoSiE52iQZ11ykgLnqhoQyW1BhTtXZppYcQ7R8v/Rc4OHTM92RbyRtxgzKTPNnS7gATOi
+	tcZOJGIsLfMRJ7DNZZ
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-SPAM: true
+X-QQ-RECHKSPAM: 3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_211024_974401_2D29BBB1 
-X-CRM114-Status: GOOD (  24.61  )
+X-CRM114-CacheID: sfid-20251020_212709_467541_187A635C 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,103 +93,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/13/25 4:31 PM, Frederic Weisbecker wrote:
-> Until now, HK_TYPE_DOMAIN used to only include boot defined isolated
-> CPUs passed through isolcpus= boot option. Users interested in also
-> knowing the runtime defined isolated CPUs through cpuset must use
-> different APIs: cpuset_cpu_is_isolated(), cpu_is_isolated(), etc...
->
-> There are many drawbacks to that approach:
->
-> 1) Most interested subsystems want to know about all isolated CPUs, not
->    just those defined on boot time.
->
-> 2) cpuset_cpu_is_isolated() / cpu_is_isolated() are not synchronized with
->    concurrent cpuset changes.
->
-> 3) Further cpuset modifications are not propagated to subsystems
->
-> Solve 1) and 2) and centralize all isolated CPUs within the
-> HK_TYPE_DOMAIN housekeeping cpumask.
->
-> Subsystems can rely on RCU to synchronize against concurrent changes.
->
-> The propagation mentioned in 3) will be handled in further patches.
->
-> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+Hi Niklas, Bjorn,
+
+I noticed an issue on the Rockchip RK3588S SoC using the ASMedia ASM2806 
+PCIe bridge where devices behind the bridge fail to probe since v6.14.
+Specifically, this started happening after commit 
+647d69605c70368d54fc012fce8a43e8e5955b04.
+dmesg logs from before and after this commit are available at:
+  https://gist.github.com/RadxaNaoki/fca2bfca2ee80fefee7b00c7967d2e3d
+
+I have confirmed that reverting the following commits fixes the issue:
+  commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we 
+can detect Link Up")
+  commit 0e0b45ab5d77 ("PCI: dw-rockchip: Enumerate endpoints based on 
+dll_link_up IRQ")
+
+On v6.18-rc2, the cold boot behavior has changed somewhat, and I have 
+observed the following three behaviors so far:
+
+- Probe succeeds
+- Probe fails
+- Kernel oops
+
+There seems to be no pattern to these three behaviors. During a warm 
+boot, a successful probe does not seem to occur.
+
+If commit ec9fd499b9c6 is reverted on v6.18-rc2, I have observed the 
+following two behaviors so far:
+
+- Probe succeeds
+- Kernel oops
+
+"Probe fails" has not been observed so far.
+
+The dmesg for the kernel oops is available at:
+  https://gist.github.com/RadxaNaoki/4b2dcd5e41b09004eda2fdeb80ae5e15
+
+Can you please help me with this issue?
+
+Best regards,
+
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+On 1/13/25 19:59, Niklas Cassel wrote:
+> The Root Complex specific device tree binding for pcie-dw-rockchip has the
+> 'sys' interrupt marked as required.
+> 
+> The driver requests the 'sys' IRQ unconditionally, and errors out if not
+> provided.
+> 
+> Thus, we can unconditionally set use_linkup_irq before calling
+> dw_pcie_host_init().
+> 
+> This will skip the wait for link up (since the bus will be enumerated once
+> the link up IRQ is triggered), which reduces the bootup time.
+> 
+> Signed-off-by: Niklas Cassel <cassel@kernel.org>
 > ---
->   include/linux/sched/isolation.h |  2 +
->   kernel/cgroup/cpuset.c          |  2 +
->   kernel/sched/isolation.c        | 75 ++++++++++++++++++++++++++++++---
->   kernel/sched/sched.h            |  1 +
->   4 files changed, 74 insertions(+), 6 deletions(-)
->
-> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
-> index da22b038942a..94d5c835121b 100644
-> --- a/include/linux/sched/isolation.h
-> +++ b/include/linux/sched/isolation.h
-> @@ -32,6 +32,7 @@ extern const struct cpumask *housekeeping_cpumask(enum hk_type type);
->   extern bool housekeeping_enabled(enum hk_type type);
->   extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
->   extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
-> +extern int housekeeping_update(struct cpumask *mask, enum hk_type type);
->   extern void __init housekeeping_init(void);
+>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> 
+> ---
+> base-commit: 2adda4102931b152f35d054055497631ed97fe73
+> change-id: 20250113-rockchip-no-wait-403ffbc42313
+> 
+> Best regards,
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 1170e1107508bd793b610949b0afe98516c177a4..62034affb95fbb965aad3cebc613a83e31c90aee 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -435,6 +435,7 @@ static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
 >   
->   #else
-> @@ -59,6 +60,7 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
->   	return true;
+>   	pp = &rockchip->pci.pp;
+>   	pp->ops = &rockchip_pcie_host_ops;
+> +	pp->use_linkup_irq = true;
+>   
+>   	return dw_pcie_host_init(pp);
 >   }
->   
-> +static inline int housekeeping_update(struct cpumask *mask, enum hk_type type) { return 0; }
->   static inline void housekeeping_init(void) { }
->   #endif /* CONFIG_CPU_ISOLATION */
->   
-> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> index aa1ac7bcf2ea..b04a4242f2fa 100644
-> --- a/kernel/cgroup/cpuset.c
-> +++ b/kernel/cgroup/cpuset.c
-> @@ -1403,6 +1403,8 @@ static void update_unbound_workqueue_cpumask(bool isolcpus_updated)
->   
->   	ret = workqueue_unbound_exclude_cpumask(isolated_cpus);
->   	WARN_ON_ONCE(ret < 0);
-> +	ret = housekeeping_update(isolated_cpus, HK_TYPE_DOMAIN);
-> +	WARN_ON_ONCE(ret < 0);
->   }
->   
->   /**
-> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-> index b46c20b5437f..95d69c2102f6 100644
-> --- a/kernel/sched/isolation.c
-> +++ b/kernel/sched/isolation.c
-> @@ -29,18 +29,48 @@ static struct housekeeping housekeeping;
->   
->   bool housekeeping_enabled(enum hk_type type)
->   {
-> -	return !!(housekeeping.flags & BIT(type));
-> +	return !!(READ_ONCE(housekeeping.flags) & BIT(type));
->   }
->   EXPORT_SYMBOL_GPL(housekeeping_enabled);
->   
-> +static bool housekeeping_dereference_check(enum hk_type type)
-> +{
-> +	if (IS_ENABLED(CONFIG_LOCKDEP) && type == HK_TYPE_DOMAIN) {
-> +		/* Cpuset isn't even writable yet? */
-> +		if (system_state <= SYSTEM_SCHEDULING)
-> +			return true;
-> +
-> +		/* CPU hotplug write locked, so cpuset partition can't be overwritten */
-> +		if (IS_ENABLED(CONFIG_HOTPLUG_CPU) && lockdep_is_cpus_write_held())
-> +			return true;
-> +
-> +		/* Cpuset lock held, partitions not writable */
-> +		if (IS_ENABLED(CONFIG_CPUSETS) && lockdep_is_cpuset_held())
-> +			return true;
-
-I have some doubt about this condition as the cpuset_mutex may be held 
-in the process of making changes to an isolated partition that will 
-impact HK_TYPE_DOMAIN cpumask.
-
-Cheers,
-Longman
 
 
