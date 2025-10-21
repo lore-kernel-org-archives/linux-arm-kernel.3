@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA9FCCD1AF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 15:03:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA94CCD1A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 15:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NFHJZP8r2lu5QOrXI8Bv01U+HSbpD/QkHEGFWRpzvFM=; b=vJqcnULA+D6RxEbZ/xqoep47oo
-	rr+lrbOB7eEYITOtti4EgpG4hLXUKffT7FOSyIWSuifszd6HaXx6qy0gGFQPtCrAvQdwmFABE3xlZ
-	/xxZ99rqbpVu96CpjLM+fJXVdVRCgyoz+FLug3+hBcOt/rrWIXG636wkILuvgXwKvToKfX4sIYMnm
-	3nfRytYSmsby3IAWS1vOYxyHMigkfFTyJx8psWy+ExWn6P/H58ibSoRVOqeu9Z80kqFLeRlEn32N2
-	S/wvOazG12AAmsMCCtxkqADdR6dUyfnNZjItE4j6uvh5cJduqY3fDmP4vvOc69BQ8lyh7YSi2OqrK
-	Ki2Y5LZA==;
+	bh=hcbKy5tNqR5XvaRJ/EYUruL2pTPsg2ZXQfdQqcxcATY=; b=wBpGd4dRxR7HxC3mCauP7otWen
+	+/EHw5PjD9Z74WtRvsqTTQg68Tv+vEGK4IYIPMnu9Pa8+ME2ueL7wXm2jlhF7IdbiwzHxI8MzorBb
+	GCZ4SseTk+aMlKO7Hkt6PDt8gUyBxJiH+tkhY15hnMG5FMJNWwJVQw8PbbT7CaFQIRxXoqKPJ38NG
+	qk9hJaI6GWbYUzq0q5I8tWnmbvzqm7F2ozdpFoZitHXoRCBS8n6zagZELV0btRrrdvpai3S/63FD4
+	nZNJpZPJerhVU1bt/feeYfyNMG0WHGNfhB+sz8vz7SmMHVAW9lD1KZw8fan8QU81zHSk+ycQRJFdB
+	D2HIOWfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBDt4-0000000HQbI-1vVn;
-	Tue, 21 Oct 2025 15:02:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vBDwU-0000000HRRR-0kNz;
+	Tue, 21 Oct 2025 15:06:30 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBDt3-0000000HQbA-12ft
+	id 1vBDwR-0000000HRR4-2ie6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 15:02:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73832624E9;
-	Tue, 21 Oct 2025 15:02:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EC4FC4CEFF;
-	Tue, 21 Oct 2025 15:02:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761058974;
-	bh=vhE+RkNn0col2gY895QKZKl2jXFzW3GNmsKSxd/Byyo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bvWju1/n0Y5xoyyQydKo2kwI/JVdRlyvcUHqYfHuYE0YUuQVMuCAwInNLICiPvhcu
-	 3sV84TP+jJTa6etwgVtT33o8fJ91zPJ9YPgQQvF3VqGkRilB89pJ9mZNbbSaol6ZV4
-	 No8vP6j9z8s5boOQTpvv1e1JmAZ5WWAoC+auLqt53ivk/n9TbXFQIuqCaB1eIOHiln
-	 EyFFk/y51ylFnygyqdH3DLPH16uuCYVilvBOUW1HIYGRbclgYK5kfp1mmw+ic8cLpS
-	 Rg2TMqLZ2fCrw4Y06PRqE3sJ3lHLtdDJT2SZRs6Pe3ocrlV8gyX7bZKdP+ygrm6KWe
-	 oAQWDEkRC4XdA==
-Date: Tue, 21 Oct 2025 16:02:46 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>,
-	Mika Westerberg <westeri@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Takashi Iwai <tiwai@suse.com>, Rob Herring <robh@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Will Deacon <will@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
-Message-ID: <0bd2f438-6151-442a-9ce3-77624e74682d@sirena.org.uk>
-References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
- <CAMRc=Me4Fh5pDOF8Z2XY4MG_DYqPRN+UJh_BzKvmULL96wciYw@mail.gmail.com>
- <81bda56c-f18b-4bd9-abf9-9da7c2251f42@sirena.org.uk>
- <CAMRc=MdOCHJEyPxN+-g71ux68=Mt_Q5P9611QO7Q8J9e8UJv_A@mail.gmail.com>
- <0e1f3a1b-46ab-4eb5-ad05-70784f9b9103@sirena.org.uk>
- <CAMRc=Md1Ve4hnYQOryYEXG6_HSPJrANrr9gj2FMzCwsD+q5Cuw@mail.gmail.com>
+	Tue, 21 Oct 2025 15:06:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761059188; x=1792595188;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=kaQgFgAUjXn571ByFw9JlPd7Orioww62gS7ZpKn0Vvg=;
+  b=fowwPqLrpp4ojCIW7I1pDPnnCTJfF5xMoB1YsSJ4r8BiCQFG5+LhvyEZ
+   HtXQ3VYh/7O0UO/s8NM/j8unj9fgt424Z7w4VsWulhIEDi6W2cHQoBYp9
+   ydiyvy5lziWEexpFqzIDaKDGp+1Menpv+FFkhtoyYgJ8kbs/oHVyJhWFF
+   WHBKBsQu0hQOrLFZwUHl6eYKvBwiar9y6iygvkBzG5fMAMwu96FkBKLdn
+   sUKCrHvvJujZI5SQj1HJuqjB3ax3cNuIvfdU5g8FSnPh8qwX9rokUIRvh
+   smjFTiVSmOKLktBhEwcYVUB3fqomf758TMkflbzifFzRNDktZkLWOJ1tB
+   w==;
+X-CSE-ConnectionGUID: ZInAVoHTTMO8P+lG1h3gGg==
+X-CSE-MsgGUID: A9IoIdZ/SpCp8ppIVsTqaQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63283168"
+X-IronPort-AV: E=Sophos;i="6.19,245,1754982000"; 
+   d="scan'208";a="63283168"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2025 08:06:27 -0700
+X-CSE-ConnectionGUID: tQQvw3RuTnWZ506CmALQMg==
+X-CSE-MsgGUID: jOhEaA77R5WgldYhSU3alw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,245,1754982000"; 
+   d="scan'208";a="207285933"
+Received: from fpallare-mobl4.ger.corp.intel.com (HELO ashevche-desk.local) ([10.245.245.148])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2025 08:06:24 -0700
+Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1vBDwL-00000001We0-1IEe;
+	Tue, 21 Oct 2025 18:06:21 +0300
+Date: Tue, 21 Oct 2025 18:06:21 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: jic23@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+	andy@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
+	linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] iio: adc: clear reference voltage bits before
+ configuring vref
+Message-ID: <aPehbXMDP5xBBSS-@smile.fi.intel.com>
+References: <20251021053918.3008654-1-billy_tsai@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Qt72tdmZbvUAwbO2"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAMRc=Md1Ve4hnYQOryYEXG6_HSPJrANrr9gj2FMzCwsD+q5Cuw@mail.gmail.com>
-X-Cookie: Accordion, n.:
+In-Reply-To: <20251021053918.3008654-1-billy_tsai@aspeedtech.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251021_080627_695927_0C228B9D 
+X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +93,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Oct 21, 2025 at 01:39:18PM +0800, Billy Tsai wrote:
+> Ensures the reference voltage bits are cleared in the ADC engine
+> control register before configuring the voltage reference. This
+> avoids potential misconfigurations caused by residual bits.
 
---Qt72tdmZbvUAwbO2
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> Change-Id: I03c036436f376ced8a19fa5d407b7bbb377ae721
 
-On Tue, Oct 21, 2025 at 04:42:11PM +0200, Bartosz Golaszewski wrote:
-> On Tue, Oct 21, 2025 at 4:08=E2=80=AFPM Mark Brown <broonie@kernel.org> w=
-rote:
+What is this?
 
-> > I'm not sure I see the need for deferred notifications?  We'd need to go
-> > round all the users whenever a physical change to the GPIO happens but
-> > it's not clear what we'd need to store beyond the list of users?
+...
 
-> In my mind I was thinking that we only need to send the notifications
-> to users who already enabled/disabled the regulator too but you're
-> right, it seems like a loop over the relevant pins should be enough.
+Shouldn't be a Fixes tag provided?
 
-Ah, great - yeah, I'd expect notifications either way just to be on the
-safe side.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> In any case: this is outside the scope of this series but I'll see if
-> it's easy enough to add separately.
 
-Yes, definitely outside the scope of the series.  If you do something
-that'd be great but no pressure.
-
---Qt72tdmZbvUAwbO2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmj3oJUACgkQJNaLcl1U
-h9CGegf7BpG/mRuGc435GzxtX0o4gZu98cJAOQC0hGm5PC43OR8VmUUNDzOnrcs2
-N7uW4RYBTDDP15v5VZbKmj7iK9tO+zl7/fW3+sRYf3xTeQc7bxwlKUNJefJO7xkG
-Szrgvpv3f5CfFjyq2GRO/b2ydBRiRPknhYT2oJnKBYM63OMUZp7JcXh8kDnEKcOM
-dzFAVsq5V7b1mOpiA+VVS5KaUNEDascKcMqs8o9fX/0mC9kHIN45dY0SrBbB4bBq
-dG2U2nsSW+AhIWsiad8MQzDr0SEVWwVR5HHhduC8bsSCfwUvAgmP1gG6BVagb3SQ
-wQIcYgbHgVh9jYEzddKFCQpgpc0F7Q==
-=PZYy
------END PGP SIGNATURE-----
-
---Qt72tdmZbvUAwbO2--
 
