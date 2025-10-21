@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A44DCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 10:39:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE0FCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 10:46:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fJHWS12yAIJaYR90psMoG46hRXNnLni76uZ22O2VXLk=; b=3TrVC6hV9tqh8stSLZV7RQP9P3
-	yzldPMkp5eUGuHWudN0SigpNQ0VvR9E32aWgb1H43dmLGWNVWBY1qB9ru4hFmLTs99+Kd6JLibTZE
-	exE+H3JLvwqreBP1zSpaAh0KE0+KcztHc49wv2QiH6AOXuEidauuJJu4xtRIPFyPtJ1uwWE07bg/A
-	8SsmPL5U2d4nwG2vKb+Lc0FSllGJG2yIsMq601IZAmDMOdI/EUaNXgjOmZEszJCXjdD02BDpwl5P/
-	VOHFcVoX4+URbNUzNSS0dUnQ67mRWKv5owek4uQVCrJppM9FyOy6konxSRf0AK6ObmXoEFur2bsMk
-	8nVED1Pg==;
+	bh=MGPMDXDyEdvzseLa55tTi1pUuwUdWYDhAEaapa/IbuE=; b=dCb0gygAJJTrzXo456MBhuFhu3
+	RejDonxqOwB1A/Wb10fXgQ0ncZuIRYwbFn74NyJmrjORbUMiU/zYPt4/DMCevyYWhHpjrqSAfBXoh
+	XSvsCmYo0RZtjH2gIXAFU/Ysi2GulkgPj7zhJnYmF7L3/wrfycM6kiLU+edfEfvqg8jlnYXleGpSu
+	/Rm3ld3yl/zirzDnSImcm4DaD3GIuYUbH5oPgdL96dUF/lEiB3882I9ghFkta4WtMN28X2yduxhpy
+	T7pqV/OArBlWaNVzaNPot6fY2QAaLpY9PzonGQF9+SoWTUTR1NgG71cO5rXZpuzjWL9VtTlvKsJqG
+	abLNmO0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB9li-0000000Gerz-2aVo;
-	Tue, 21 Oct 2025 10:39:06 +0000
+	id 1vB9so-0000000GftL-1q9y;
+	Tue, 21 Oct 2025 10:46:26 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB9lg-0000000GerG-2CDg
+	id 1vB9sl-0000000Gfsn-0cNL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 10:39:05 +0000
+	Tue, 21 Oct 2025 10:46:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C3A640517;
-	Tue, 21 Oct 2025 10:39:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 719B0C4CEF1;
-	Tue, 21 Oct 2025 10:39:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 849A64029F;
+	Tue, 21 Oct 2025 10:46:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D135AC4CEF1;
+	Tue, 21 Oct 2025 10:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761043144;
-	bh=3q6sXrG7VRtYkwyyX371flcjfB6mMLFODYR2Y1GJ5ro=;
+	s=k20201202; t=1761043582;
+	bh=EL/deV2+NAe7Ey9GQFKqJtn+XrkhgmRGr22p3S0Ukmo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lzCFh0QCeSof5RGIYPgGsaVe+nfXHn62yajRTCSVY6Y5LBFLXL7w8glp6OxLn0Ql1
-	 Hc+Wp5iftVS8nioy0xmGRMec1B77StL0+tw4bf91loDKoDzJzgv36l3oX48nXFaQVd
-	 o13FxnAfXbR7x5ewNSPsHfi1WVA5GkKcvTNlSIDovjH1rZuBTvOR6T585csT4M9YnS
-	 Ke9zX83BafZh1gPaY8LFPoqgsWh2dIlqaw+rW4M86Slz5kU+9fcG+O5piM6SmiTeRl
-	 lQulycs9DTZDyOmG9PFRuKgc7yY68DnfnMf3U94ZOUm4fvAbJuvyADTbkM6LDb+Rcw
-	 XzfAdkChKjTSg==
-Date: Tue, 21 Oct 2025 11:38:59 +0100
+	b=n4SqDOKVh+gJNEHY6HdSDpJmWHOIESAZr124vQ1HNd9RrID/5qAeW5AFTR9YzyUZ8
+	 6JnV49iP8P0Si37Q26PuJ9CHjoZnSIBfR/Ew4+8FQa2/awpAPlPUaYrwgPSxVMvbnz
+	 e9IXfTOLz4mlD+PHdm1ORdulFBGR6yk2B6PwXSktNEQopM2H6/AI2ocSx0EPEp9yD4
+	 ycvZoUpgIH+h0hPNue38tY+at0Mc3tI//M+QlKL6aiNUU112LGWYYBdvH3J7KBX0p7
+	 liGreE+LhOiiL4lNhfRJWnSBPK9kxFCORd40b+1ZviJnaAJz2211jdLmKN20H4sQWu
+	 4vyqrMeqtbdgQ==
+Date: Tue, 21 Oct 2025 11:46:15 +0100
 From: Lee Jones <lee@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>, linux-sunxi@lists.linux.dev,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH resend] MAINTAINERS: Update Chen-Yu's email address
-Message-ID: <20251021103859.GB475031@google.com>
-References: <20251020045603.2573544-1-wens@kernel.org>
+To: Andreas Kemnade <andreas@kemnade.info>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alistair Francis <alistair@alistair23.me>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.li@nxp.com>,
+	Andreas Kemnade <akemnade@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: (subset) [PATCH v3 1/3] dt-bindings: mfd: sy7636a: Add missing
+ gpio pins and supply
+Message-ID: <20251021104615.GC475031@google.com>
+References: <20250917-sy7636-rsrc-v3-1-331237d507a2@kernel.org>
+ <175993751776.2584245.7441294249150226238.b4-ty@kernel.org>
+ <20251020151511.1fd8611b@kemnade.info>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251020045603.2573544-1-wens@kernel.org>
+In-Reply-To: <20251020151511.1fd8611b@kemnade.info>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_033904_578358_5DA704F8 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20251021_034623_204277_07CD2DDC 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,23 +85,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Oct 2025, Chen-Yu Tsai wrote:
+On Mon, 20 Oct 2025, Andreas Kemnade wrote:
 
-> The email forwarder I'm using has run into severe problems with Gmail
-> lately. Switch over to my kernel.org address for kernel development.
+> On Wed, 08 Oct 2025 16:31:57 +0100
+> Lee Jones <lee@kernel.org> wrote:
 > 
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> ---
-> (resent to correct dri-devel mailing list address)
-> 
-> This likely needs to go through drm-misc-next following a patch from
-> Maxime that removed himself from the Allwinner DRM driver entries.
-> 
->  .mailmap    | 1 +
->  MAINTAINERS | 8 ++++----
->  2 files changed, 5 insertions(+), 4 deletions(-)
+> > On Wed, 17 Sep 2025 09:14:29 +0200, Andreas Kemnade wrote:
+> > > To be able to fully describe how the SY7636A is connected to the system,
+> > > add properties for the EN and VCOM_EN pins. To squeeze out every bit
+> > > of unused current, in many devices it is possible to power off the
+> > > complete chip. Add an input regulator to allow that.
+> > > 
+> > >   
+> > 
+> > Applied, thanks!
+> > 
+> > [1/3] dt-bindings: mfd: sy7636a: Add missing gpio pins and supply
+> >       commit: 7d983e997cb53d4c48b61b105163c31c92a35823
+> > 
+> hmm, what is the fate of this? I remember having seen this in your
+> for-mfd-next-next branch. But now I cannot find it neither in
+> your mfd-next nor your mfd-next-next nor general linux-next.
 
-Acked-by: Lee Jones <lee@kernel.org>
+It's still applied, only with a different subject line:
+
+https://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git/commit/?h=for-mfd-next&id=cb62b0ea2c88c8a3d38b7b4991adbc0aacdb1418
 
 -- 
 Lee Jones [李琼斯]
