@@ -4,81 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83373CCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 14:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D50CCD1A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 14:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c27Kz3PCpHpOUA2hxoFAn/lgFIxKWu9eCciI5q0PFVA=; b=pqP+SCDB3SWRKl7tjYdkSMPM8i
-	zjyG9QkGo+mXzi3xX7shuXuJHHyEcbaDEypYpf6xU17c2+69N7qgUo3sqTMNMhFJzFqmwoPCFreMl
-	eV3QPp9v5NiiokiCa1HK/P706v1MkAT0SkLiGlPGSYLckG5Di2vvmVpTVd3wMZo/VwW4kt6+vaifr
-	S099a3EWOzOxYz+Uw8LkCKRA6fE8DNNYX2yfb5pssqeg61JCKkwrXCmcXtEBOUEJoip5xRFnBe/VY
-	FGzRsfkTKux9xK7IReQyPqgcHMYeZ4UYOPtXZBXS9+4k/MtCn7mqNeQbQcPo57vU8qrWlIFDlCRBp
-	9qcwoOTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mZCOMUry8QgJDtmQTlzvKx4nzmcRl8rasbY1MAd0sQY=; b=n6Xz2IY/zmW0pgD5SsttVWY7ZY
+	afEZooRVwg6S4jKlOFIXtlVmEOvObaWttQWbGZmW4KffINJJhMVoUgHoRizNPuwiRqN81RxqA+7Kl
+	wuMw81zeo+zoCGm+FzVzemIFFYDRouQ7e/ITcUfp7QXBG5Abuw8b24bKx/b2MmJiBiZTH73a6rbuA
+	tcOy+1vSZY3weJcV7XtuPVoqtAglaBgK8s+GZ/8FzcB3RlxqtAFTy4mjcB9Yedeb6lAqpo0TQ7i7g
+	h4pJvc9kqeRC2EJAwRzuyX9Okiqzh6zunHrPr/PXp8dCANGtj1sGU+X7YdeOoHif37BbnnU1RFzih
+	nCO81LPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBDZD-0000000HMVz-4B3e;
-	Tue, 21 Oct 2025 14:42:27 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vBDZI-0000000HMZ5-2W1N;
+	Tue, 21 Oct 2025 14:42:32 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBDZB-0000000HMU4-21nt;
-	Tue, 21 Oct 2025 14:42:26 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761057743;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=c27Kz3PCpHpOUA2hxoFAn/lgFIxKWu9eCciI5q0PFVA=;
-	b=1/g8k/vY5UCh/boWPJmgNdB7ubbYE/A/fsOkfq3wSrNQGzQ5valPHvmdpxXGZqcnRroQ58
-	Bejn39YCg/SlHMeJklk2aBag1ZZ/ZkJkTivx6X2k6zFCy9QlKITW6ujrMH0xoF2co7FakR
-	/dutCEVT+SfKWOjjeaJTqJRMh89jW+zebxPrs6Ff9MEqAR4Jz/7LUbv+E7A5ITdaxbZChA
-	LQsIRW35kAAcwrybohHORnbCHtCEJbOoM88Ok56KpnArXwbr5s8s3yRrxzfqZOWUQSPOoj
-	HHlLFLvQYsl/+KPI+DNPkp5iCy3GtuWwAiSjCg7LL/RU6tt4yt9gYNWiE4WiKA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761057743;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=c27Kz3PCpHpOUA2hxoFAn/lgFIxKWu9eCciI5q0PFVA=;
-	b=v+qP/IJ72B74NWtVCOdsRXgUn8qUa/Jvf+CPgpV7YyvANjj4e/t31Aew02eNWfxowW2zLI
-	+slcDYUqT+9nxODg==
-To: David Laight <david.laight.linux@gmail.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Andrew Cooper
- <andrew.cooper3@citrix.com>, Linus Torvalds
- <torvalds@linux-foundation.org>, kernel test robot <lkp@intel.com>,
- Russell
- King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
- Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Heiko
- Carstens <hca@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
- linux-s390@vger.kernel.org, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
- Palix <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>,
- Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
- =?utf-8?Q?Andr=C3=A9?= Almeida <andrealmeid@igalia.com>, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan
- Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V3 07/12] uaccess: Provide scoped masked user access
- regions
-In-Reply-To: <877bwoz5sp.ffs@tglx>
-References: <20251017085938.150569636@linutronix.de>
- <20251017093030.253004391@linutronix.de> <20251020192859.640d7f0a@pumpkin>
- <877bwoz5sp.ffs@tglx>
-Date: Tue, 21 Oct 2025 16:42:22 +0200
-Message-ID: <874irsz581.ffs@tglx>
+	id 1vBDZC-0000000HMUm-3zvs
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 14:42:28 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-57bd482dfd2so5463087e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 07:42:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761057745; x=1761662545; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mZCOMUry8QgJDtmQTlzvKx4nzmcRl8rasbY1MAd0sQY=;
+        b=VcLv0oEZn0R5mES0isKVF1c7f29ZHDkGWfEQ/D7BcbSUnAT3aZKfRf+OUJDgDVHDLH
+         3DT0Cd3N0T66DDxQ5FekP63XrjVzTNSbpE1T/Ofo4Phe5ak5NVXqdIMuYIYGw06Tyko9
+         Cq+Km61mSX5H9F3RJRkw3yiZteifgTSO+HTsbntMNwHIgXTghR+GKCLLz2Og8arWqRyM
+         cIoPmqI5v6k2RKNILG0t+qnBk882p0EOjbhfGcV1f4CrG3Pe1zM0paAucOC9iq8Pulmy
+         ecYsAfwyhLfOYdMqJHmSSLd29D2NrzidsYeaHsdKVfxzu2Nt0gd9VEPHVi3gB5ioMHQE
+         EaTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761057745; x=1761662545;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mZCOMUry8QgJDtmQTlzvKx4nzmcRl8rasbY1MAd0sQY=;
+        b=KZw23UKRHpHoLdPK4cLT5V+J9DjvrIjaPzowa+T5Kfszyuf8KvDG2fZeeV1/0yIe5L
+         1a5cluf+cgx6zw2Ol/GXkyRVVfLPB7AEWNasbQWUE4O6KPKtxdJ/VFVgDgMgm/L/H9Zf
+         +JBCCKHT2Dv6+uVPY3WFBou1EN4g4oFkOorq6CYwCAn474flfyAPVmMl5nU7Ts30datU
+         GIK3Wx5VSUN4u4O50L4yFeQ8RBiSoh7QaxJvdwAJX3g9V9DvjN+XdvPmjDy94uJlnHIb
+         n4mTZVVj9WE8mIoZxeZV9rJJNGn74Iq79IbBbXdCvVMqmYv+U+x5MWVxFtcXil6YH7Wr
+         5gzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXtq+NN+95/+6ef+p0Rbk53Vd5SfKcQ4OYhvnw8982Cty2JJ2u72eFDTldBJOu+yGPZZ14JqwxaNeijZMkktdb8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJcAOFkPeV1pHSnGFetYUbtcUto+BVFBqrzRWn+iOEXIsqdK1f
+	fGSV9QrY9i/5q4erP4R0wt6zcoBO2SfZS4T9wrohHKtW0ECOkUWg9oNKTC3pdhncYULSbF2C/cq
+	O3J07ipAxvzz8uFIXRbXGeePQzOVufnTjsq480xj8cA==
+X-Gm-Gg: ASbGncsj8a8H1Rgt2izR+9XLAuPBwtMd1mDyvMedbDHaWzT4RowLzO1ZaUFtPBpJ3Tw
+	VMxa50KegnPP3jJvhLtsa07JDUoCPv1dRE+/RVY4sHltQ1fWz6WycZsm8K1F/TVdohYrdqav1ET
+	KtZ4K+JaDsb13iN7gfDjThfOseHcW+4GKEWvfhJE+yYTIfvQ0NF9A/B9AVjyf+oE0QP3G0DI5wz
+	Tg0spRVOR3gCWZA9XLb3T8YwpSujfeYOIeK+k4jK6gDhcJXfXr2mMgyZgjunW/kDyT2GrTQN0Wy
+	Z9Phhx/dA5jB3zp9
+X-Google-Smtp-Source: AGHT+IEAFGsFmUFG/YnJHTCDdPAr/87ZFEb44yMmd6QhcxQ6kY+xN7c3ywaYXlVUOsQLkH0hiixQGCRd64K7uAmIpvc=
+X-Received: by 2002:a05:6512:4014:b0:586:9636:6e4d with SMTP id
+ 2adb3069b0e04-591d85622ddmr6106679e87.50.1761057744764; Tue, 21 Oct 2025
+ 07:42:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
+ <CAMRc=Me4Fh5pDOF8Z2XY4MG_DYqPRN+UJh_BzKvmULL96wciYw@mail.gmail.com>
+ <81bda56c-f18b-4bd9-abf9-9da7c2251f42@sirena.org.uk> <CAMRc=MdOCHJEyPxN+-g71ux68=Mt_Q5P9611QO7Q8J9e8UJv_A@mail.gmail.com>
+ <0e1f3a1b-46ab-4eb5-ad05-70784f9b9103@sirena.org.uk>
+In-Reply-To: <0e1f3a1b-46ab-4eb5-ad05-70784f9b9103@sirena.org.uk>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 21 Oct 2025 16:42:11 +0200
+X-Gm-Features: AS18NWCeEZ0pLB4tS_IEx2MtW9IQz_axw-1Q3NqtyOuzDmGpEP1ZzpOriXTSxmo
+Message-ID: <CAMRc=Md1Ve4hnYQOryYEXG6_HSPJrANrr9gj2FMzCwsD+q5Cuw@mail.gmail.com>
+Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
+To: Mark Brown <broonie@kernel.org>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Srinivas Kandagatla <srini@kernel.org>, 
+	Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Takashi Iwai <tiwai@suse.com>, Rob Herring <robh@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andy Shevchenko <andy@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Will Deacon <will@kernel.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_074225_655886_3B1C1CF6 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20251021_074227_246003_7B8F27F3 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,32 +109,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21 2025 at 16:29, Thomas Gleixner wrote:
-> On Mon, Oct 20 2025 at 19:28, David Laight wrote:
->> There is no requirement to do the accesses in strict memory order
->> (or to access the lowest address first).
->> The only constraint is that gaps must be significantly less than 4k.
+On Tue, Oct 21, 2025 at 4:08=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
+te:
 >
-> The requirement is that the access is not spilling over into the kernel
-> address space, which means:
+> On Mon, Oct 20, 2025 at 11:41:52AM +0200, Bartosz Golaszewski wrote:
+> > On Fri, Oct 17, 2025 at 7:32=E2=80=AFPM Mark Brown <broonie@kernel.org>=
+ wrote:
 >
->        USR_PTR_MAX <= address < (1U << 63)
+> > > It really should be the actual physical state change that triggers th=
+e
+> > > event.
 >
-> USR_PTR_MAX on x86 is either
->             (1U << 47) - PAGE_SIZE (4-level page tables)
->          or (1U << 57) - PAGE_SIZE (5-level page tables)
+> > I guess so, but this would require some non-trivial rework of the
+> > regulator core. We'd need some list of deferred notifications stored
+> > in memory for when the physical state actually changes.
 >
-> Which means at least ~8 EiB of unmapped space in both cases.
->
-> The access order does not matter at all.
+> I'm not sure I see the need for deferred notifications?  We'd need to go
+> round all the users whenever a physical change to the GPIO happens but
+> it's not clear what we'd need to store beyond the list of users?
 
-I just noticed that LAM reduces that gap to one page, but then the
-kernel has a 8EiB gap right at the kernel/user boundary, which means
-even in the LAM case an access with less than 8EiB offset from
-USR_PTR_MAX is guaranteed to fault and not to be able to speculatively
-access actual kernel memory.
+In my mind I was thinking that we only need to send the notifications
+to users who already enabled/disabled the regulator too but you're
+right, it seems like a loop over the relevant pins should be enough.
 
-Thanks,
+In any case: this is outside the scope of this series but I'll see if
+it's easy enough to add separately.
 
-        tglx
+Bartosz
 
