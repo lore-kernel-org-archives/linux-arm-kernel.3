@@ -4,142 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B31CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 23:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED3C8CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 23:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
-	Content-Type:Subject:From:To:Message-ID:Reply-To:Cc:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Y7EKeS+9ZI1odFiRLbsaH+UeltFt0Bs2UPudnEajAos=; b=w6Wi4UGm6Siy04SrhjiULLUEr4
-	a+ufsI8pJOp9Q9+QubNmn21i2MFvr4X0bmCsne8Z7uxxSRfoA5CbBc4peOlsgNPpKmLXwL33kT3zS
-	sZO6UvtCAB0irjuVS0YS1gk2tbWe4VjDBN1fe/xPPviDKRKXU5gMBVN8q+l2lO1ONeiJfoUq2xPS+
-	tAi8AgNnnZQBrK8k5KB6dSCSYjk/VCTOc8Lz0K+mKnhm4QJbEdgEW8Ozf2gkDT26llbwgXIyjaROn
-	NsPr4xVOQZ2Sfo/MryJb+yeTMzKTxilRUhJHP73XcYbYy6VBtWITxq5TixOMcwOcYXLMPzZ5zxD0V
-	kHzbDInA==;
+	bh=5g7ObkSqnx53X5/V5YJ3w24qsBA4fQoZHAaxTh/BVec=; b=GY+qV/cnAWbvMMOdI7WzN4DkyF
+	+9FSqsUsbDfuSEPWulS3Sj6JV9TDMsj2pbI3G4LTlNDdlTYObYtq74LXIBN2RqaohvVr16AJTb7Wo
+	lnt+i0UKyuLfhQ2XzJgnEJW/f/ukFSAWYKyicHlHDTur+UMBMDMFKGJr7FVPwt7MTJFbzGo2bNkWl
+	S3wjJ+BbPFo2CQVkBMMhbNs5RrXRsEh8LEK476znPpHlzWDuksdUyhxND3M7+8wMti5H43EfoHmCR
+	op/uz+otegkQg4D+wHz4fYkcFCrlE8TyWHo4naMY/QAl01uHzX2LFhXfxBsgOSu8mhTbzP06hHtYK
+	iFn0QkoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBLg1-00000000us3-1l4f;
-	Tue, 21 Oct 2025 23:22:01 +0000
-Received: from mail-japaneastazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c405::] helo=TY3P286CU002.outbound.protection.outlook.com)
+	id 1vBM2o-00000000x7u-1Zwt;
+	Tue, 21 Oct 2025 23:45:34 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBLfx-00000000upx-0tip
+	id 1vBM2l-00000000x6W-28k9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 23:21:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IHwQqkUgxPaBGt0ljtdO3kPp3XyxUdrbBBqw4AZjgV3XEjld+bar36noAKcKp0cypjYhVPOoHkILQUsYmU8rEkZGTBOSCfwDzT4UPO+gSqTK1KNoEHFKyvoCPn5D5YIP0YMdZ7gqHhePZ0VRbhSuMhZ7taXT2oFDGx4DbbzypS/LODO13FG8oc5ZxYz/sJMTI72QktwZz/hXYqIsiUDpNcnprgZwV2vgRVIEylKVEiufkaL5llikUjn9jTOVXi+nUMkRJkgPC6vJZ0LY++9TQzXdFtzrjQQ8WhxJkM+JkYu5O2Sn1hUAEPq5eobNsCbu51j8souoUv/4ag7wHAkD6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y7EKeS+9ZI1odFiRLbsaH+UeltFt0Bs2UPudnEajAos=;
- b=dhhkREi195oW6J9OYdkefpxbc+ACtLhU0Icv19Idxvt5+VSIOq2xB764GgxGx2a590l4o08OyZ91MoSmBhXUwb/2xdesaf0gBjSLVU1eYzf9PqlBgujS5RysO6UALgC8YmLuPNSjF52DOhpOcPxV6uTGzkVui/0QQW7yB5QvBKs+PIrg5PU4S80TKMK5Gq2+YgnjgIjpHdvYXdBHR7bUcjThHO0//ZkgKw6oJyjVr4jSsS3cmwFY1niMbDhuR+/prqRDptN/Aiqv/LkFiW08iJUOY0ileNSYGL3U7gyEeAEDYk5QIJ6w/Xh4k5kDv6tolSIvtd3fViO9iSJbhg5e1w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Y7EKeS+9ZI1odFiRLbsaH+UeltFt0Bs2UPudnEajAos=;
- b=DsrT6qzDBqeDe4G6BxUXUd0Y+LU6wcGx/+SgWc0jd1dXqJgvY3zmdgzTA5fLTDprnxwwstm28Qj0J0JTnTAi1scYP3OJCXBTqG0/VavR/mjOmAHumNTijmgTTb1mIhEzo7231gL6kOF0BZVyw3vMyrQjOhhBa+FlJt1cY33uLvo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11) by TYCPR01MB7043.jpnprd01.prod.outlook.com
- (2603:1096:400:be::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Tue, 21 Oct
- 2025 23:21:48 +0000
-Received: from TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11]) by TYCPR01MB10914.jpnprd01.prod.outlook.com
- ([fe80::c568:1028:2fd1:6e11%3]) with mapi id 15.20.9253.011; Tue, 21 Oct 2025
- 23:21:48 +0000
-Message-ID: <877bwnyh6f.wl-kuninori.morimoto.gx@renesas.com>
-To: Adrian Hunter <adrian.hunter@intel.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Ian Rogers <irogers@google.com>, Ingo Molnar <mingo@redhat.com>, James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>, John Garry <john.g.garry@oracle.com>, Leo Yan <leo.yan@linux.dev>, Mark Rutland <mark.rutland@arm.com>, Mike Leach <mike.leach@linaro.org>, Namhyung Kim <namhyung@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org
-From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Subject: [resend][PATCH] tools: arm64: Add Cortex-A720AE definitions
-Content-Type: text/plain; charset=US-ASCII
-Date: Tue, 21 Oct 2025 23:21:48 +0000
-X-ClientProxiedBy: TY4P301CA0050.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:405:36b::9) To TYCPR01MB10914.jpnprd01.prod.outlook.com
- (2603:1096:400:3a9::11)
+	Tue, 21 Oct 2025 23:45:32 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-426fd62bfeaso2824954f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 16:45:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761090329; x=1761695129; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=5g7ObkSqnx53X5/V5YJ3w24qsBA4fQoZHAaxTh/BVec=;
+        b=lr84i5BHmLZk7odmG12eavKJb1tB/UCSbPVEdABh9/2rgre41gS7X/OHUpni88w42q
+         v4XbttEX1UFHx315D1tk3UOAHMukkFm64x2bIip+tV35rVVNFFiLbkKD7Qy4TGtJ68q0
+         xgpGdqYzPpH9zF11XBMH7jublSG1GZUdCcUXLMVhGElpdFsEnPyxBlSfLSZEm1eL8qpY
+         0sGYQ1xEpyV0/9/5qGmKeZyMNSQLXrB8ehw60vulfFm76jab32i9hV//TTV44xx+O7i8
+         u39j23SvK9OP/1PHWKGk3CiOg7Uv91W5K49n4+d+BzXBUnu/dF1wjLRvAKLRyOhIfJ47
+         cqXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761090329; x=1761695129;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=5g7ObkSqnx53X5/V5YJ3w24qsBA4fQoZHAaxTh/BVec=;
+        b=gwTtfnMyIha3d3iTMxNjv/1pXbyVt21ZGrMBLcai0JBLMcBZY/96K+i2p2NZh2NG0i
+         ca/vqdvL95KRoH0L9n0dzRLGGcLXHisYlv0D0yPEF/llJgFv7KUleZ5YGX82I/dQEOPS
+         TRnYR9SyptpUGkIQcZ2LxGQ5fCi68VsueiIxjtQWOetnzR2tK8CufV41xTD1o/QLspgT
+         Bq94ROgSAxq7S52fHNh/ggPZciMsjn5iJDOFWz4CymJmJAwIN+VYPwly+qECYjzuG7gh
+         bvU3Hu1N6VhoHsq5PWAenbNdosQ9kFZaZyC6Z37szA2ItYD03s42g3sq9FNDqnCsONJT
+         1xyA==
+X-Forwarded-Encrypted: i=1; AJvYcCUMmncgcO46laryKRvBA3ZfL+4b7GN5pRr4TEYcFx1ltxliOuRmVKiskUDaJgQu/np+CcXkxGVQNjs9elX2ZwN5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6kcqa3tG2vAnYZAz+7YWuXxUb1/sr/r8uGMaCekqFcYzBIwUU
+	OOKwMH7tF/zzJmMz0akcT/YHafKnntwuRo4mWfJ4GeGF8LbaNu4CPo5va40xCueW8lgYE8388Em
+	fUR8T
+X-Gm-Gg: ASbGncsc8plI9Pty+LRRfm4EZdOCafE4GY0bwmZI7vqKRhxBn3P4C6LVhog7Rxu8i0F
+	QtxfOhZXUZ3VqIZGb1k2g+xXdpMRsC/p1yBfjKCSYsXLMpNqxB+Dq0a4Yz/imUy4QNtefFMPN9I
+	xkzIHYXFBNnqEdHfZ6VhTxvN6Oa3MLXOrckZLZru6AE3jwMiJszqpus55+nXq0zz745Yw8QAqFg
+	K4ezuvomRmnpMhGVnaid3Lh8mTnQDzwDNr93jNovzMZisb3lrG9WS3VDVy5WpEDkoirWsr6omU5
+	ewlFLxQbltEHzduN4SR0QxkwPxBeWOAKxmPjjY6TkzYZhDxeBglBgKENzILp8lEpjlNZ5DTELg7
+	oFzmQ/IA0mSZGHFT1efDyvjSulMcN0ouKAWZ4bp17HExt1CC5xo1VjEENIdLCxt8xIV+C/FUi8q
+	ekthbUrp1gcTMoVrG488cMdcZTCAdztUFLFC21MImVc7KQhnCQaKeDe0EZ2arZ8qpvl88VAXuWT
+	l5uaJrHJ5GT/ts1MDAhOEUvO2mt
+X-Google-Smtp-Source: AGHT+IFLMuoucFczZUZlkgqlVzRu+z33xFXdk/m+zzZi86FabALi9UPFsvpSS8en0ggRC5DDvJZhRg==
+X-Received: by 2002:a5d:64c7:0:b0:427:8b4:5bee with SMTP id ffacd0b85a97d-42708b45d53mr10602822f8f.56.1761090329369;
+        Tue, 21 Oct 2025 16:45:29 -0700 (PDT)
+Received: from linaro.org (host86-130-206-17.range86-130.btcentralplus.com. [86.130.206.17])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-427ea5a1056sm22247870f8f.2.2025.10.21.16.45.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Oct 2025 16:45:28 -0700 (PDT)
+From: Mike Leach <mike.leach@linaro.org>
+To: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: suzuki.poulose@arm.com,
+	leo.yan@arm.com,
+	james.clark@linaro.org,
+	Mike Leach <mike.leach@linaro.org>
+Subject: [PATCH 0/1] coresight: fix issue with insufficient claim tags
+Date: Wed, 22 Oct 2025 00:45:19 +0100
+Message-Id: <20251021234520.3355-1-mike.leach@linaro.org>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYCPR01MB10914:EE_|TYCPR01MB7043:EE_
-X-MS-Office365-Filtering-Correlation-Id: 026be57f-c703-4c76-758f-08de10f89bc8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|7416014|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nbqiNy66nP26xZcOJrbMX1BW8S+Ug9l9qTMtgWV3ubCxPIAafhd2sIN9qKsf?=
- =?us-ascii?Q?v9K+f6FUx8G6IpH5sIg+WBCWm8GCRXJZ2T4bAbMG3zVxjyXZmXegKTBwlw3k?=
- =?us-ascii?Q?CUonQPvwLRxb50Ee79jsqSEvCDLdBqhgwT3E1Lepr3dno1GqKsv/l0ZOPBLc?=
- =?us-ascii?Q?tvugYpI/Lkc+vRXdULNQg0w/awukr9gdaHW9hxlojcP3SIze4xdO9Zq35p33?=
- =?us-ascii?Q?EUpjiZs6O2F3uYkbDKqjJuHh0DsW7X4b54sSlhazh52kYp0sJNVmZZvEM+Ua?=
- =?us-ascii?Q?YXt5jesyARByMZDXoAPTCcQg+0PCTXpn1+6Ge85C6Ukhbz46aVIs0vgoC1+E?=
- =?us-ascii?Q?gIbTP0Z5fd2yzfuxU4aaIVr3hgURqtmS/oURn7wGIrvvGhzo0cLjYKZekizA?=
- =?us-ascii?Q?7oiK7VbOkg/oMyZeTJgvwH/w6vYozs/fE3dC/XIArsFN1QwxA2XfS+s0jY8J?=
- =?us-ascii?Q?LmjpNkdCk2bVODTkiqZMe+Ta8815490X3TJkrZ+8llXRwOhCUCZR6G3A+Nq0?=
- =?us-ascii?Q?+ipIWw5+VX+iAdziSB7naeATNHDQOTB12F96S45jOZx9XX7ybDaAJbsa1Gh/?=
- =?us-ascii?Q?TycBEZV+GgJ9bJqdSLOneK/uMpgH+bEXStETpdznqvCRh3X2jGESMDKZ2Uog?=
- =?us-ascii?Q?fMo6MK+cDancqgeVv9xb1QlQ0toeWDeGJLC8FnkcKVq9Tbm8P2sRcnkz7vvr?=
- =?us-ascii?Q?f9c9fnoIVzRAh8sAOaGHv4LvAzqbOPJUU+HDEXdca7ST6hmWywzUo/Vc1KLo?=
- =?us-ascii?Q?coqexF5qW19i6JtURZNaEiBZ0q4YABm1jREr2vfIoeqU/SV+eQ9Rj23dZO3i?=
- =?us-ascii?Q?hFL3mmVqyOLywXRwmXyBd7SAXcwwheeMjLT5xVcME/vjnWs1QkxnYIq54Qto?=
- =?us-ascii?Q?HWmbodPO/HQrOpVSi9MAipUxCGTj2ZdBgbFsdsr3vP/zmNZDB2V8s1uOX40v?=
- =?us-ascii?Q?tSzYgstpBkDXmNKIu7ryHqISxfZNcQ8V5V+1lp3+pDRPnt2vMp3y/Tb9DaMq?=
- =?us-ascii?Q?yE0FPYR6mTe0sx9jm9gFLg5VUlIyKh2q9oYzNnSC4iCgqpC7Y49s9hy5QYnP?=
- =?us-ascii?Q?vRYY6WTtD/WCRWkOU3lme5b3co1umAAf6MoK0Govo+JogNESw8lJ4goZgJv4?=
- =?us-ascii?Q?GJCJwGmjmYrnbWh3wBfRBlC34h/UTFNRmqDkn0GmnB4EV67tL70sA9GnrTvt?=
- =?us-ascii?Q?bA91qBLLcdJJD+ZX6hqRlILQa7jVS7SGoQlb4Zk3UYzICnhw9y/HzWruolLr?=
- =?us-ascii?Q?eIcsKfm4kCHHukE7kdDI7/98j7zxNbiYIuzOMY0IldeXAgP1To9S8Kd1Ieme?=
- =?us-ascii?Q?audnMPLKOdXfuVEW1MqZHzEr1IwSpNcZDZHE2Ti+Ee7OQuaXgXmZPaET/m1+?=
- =?us-ascii?Q?cnpSXmOKNkndoifhlxdPplCCS5GRFzr7cKl5wS97ZJG3MNYg5Sv5qeCVCkGW?=
- =?us-ascii?Q?iOPbcD9U2lYdiuXT2kUlnpxgz5n6c5EMwOwEwrTCoyA8HV9/GlaffVTA6fK6?=
- =?us-ascii?Q?pfh/W/06x4x5jCQLLiYn9TLNax7oUUwsmtwKwPXKsrzpH9pSafyWfXA+qA?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10914.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(7416014)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?odrl0+mWBQ7kpUERczvybm96Nz2Yyv+m/b6vkDJuuJYkOrwdszfud9/RegIe?=
- =?us-ascii?Q?6S/QT2EM9WssM8CfGUCMqHOZnZZvhlGXYTc8sZqu+DhDrJsiDjpQWVrRSNm5?=
- =?us-ascii?Q?gxeVfipZ6PRcdIzjByg1cR/cUWc4JVzT7TZ4+yZlnFeEgUH63vZXDnIozhwZ?=
- =?us-ascii?Q?/zHpjOo4At1DMDN9oZ3mTpf+WpG4ehSNRNalm9krc1pnqqtOl6brHQEtnr6c?=
- =?us-ascii?Q?Dt0ZeQgbM8adxSAffN7+43ui/yXR1mj3Prr1Rz7+Xp3hFV+O11Jgf9PmVJbU?=
- =?us-ascii?Q?Ud8lEWzMb3Dx6toFN2u0+EayvawFKkunGkSlsOeToHrYctnxvagjZZNW7F3o?=
- =?us-ascii?Q?En603mp3gMeMV4U4VefI8UTgzB/GkVXt7EOOdCEj3HqFdPuw4P5OlSOhy6ek?=
- =?us-ascii?Q?P/kgw0lfzvnshICn/cuEq1Jz3edrlHZT9Jq4DCfP07GgEwZiKBF2ChHcuw8c?=
- =?us-ascii?Q?FJ5ny8Ow8u6WjHzITg5IXvLYRJYNytnuq94NktQ8Thycf6AcA8Nll7paR24/?=
- =?us-ascii?Q?zRcPOoC3fGmvYV4CQIESQINnW+1swtxRUKvwyzOnKHFHuC5E/ZjlMZOkVrPd?=
- =?us-ascii?Q?/Vj/1iVkVp7Len6DdTOjXQrt9++OPj37uBLdfrn6RFNtDU03iLnHRSzILcRJ?=
- =?us-ascii?Q?e9+GF+rGiTh1iw9JcGrM+D1VoFscaSXcDzZIboA3a3KkEmOmgSHqx1sHObS6?=
- =?us-ascii?Q?znxSmmvurlhfSQ7l99Tzyv2YHmUqGdUKiYp67AQxKo5qLOQnolF1fg+276ui?=
- =?us-ascii?Q?a17D0X76gWvrNMZJmCgwvyWRDv0g5/Wc79nQrj2CjCk6K1yQWcajmCX/cTkI?=
- =?us-ascii?Q?4FIYo2EpsCpEJsHc5AXzB+dckLfUdqs+F6y+pHtLaSg56Kx5iNXO6T/x6JNl?=
- =?us-ascii?Q?8oyN1wlo4lq0216SNsZmA3J3cruiV9WIg5P+B2BPMSGOxFaHnTr7+IGrlUks?=
- =?us-ascii?Q?qEs8NjZgYprK48aGN6rL7NMFSdiXUhyt3Dtd5jGRYgRWhUtkI6nbX8z3LhjQ?=
- =?us-ascii?Q?m1fdUBUafflblAb07TjqBzR2RUR54IWswVi95wElywrntkNH0I34FGBKre3n?=
- =?us-ascii?Q?QcgHMVDC2TfoVE26Nl+PUVNNfwjBR6NLc3qPKx5fwH6uNQjV1b8qtKggne0g?=
- =?us-ascii?Q?qiv7QXe6lDRRQExcXJRWLBGZ6IGUc/q6ZTrEmWWnxKtYoRJdXkIS6qcVu+li?=
- =?us-ascii?Q?oa1iUqXR5wYZdPK3iqPdhTZDINuSgMfSq/zul213KLRf4mT29OpaPnTXH9WP?=
- =?us-ascii?Q?R2PMzl1PN96lZQeTuOEGLgMYtLT/JYsEpcOalZ1VA2ZiKahbmUOjRoqpCcqO?=
- =?us-ascii?Q?LxgoB7QOn+0Wbm2n1kZHCmC/QzXXC2bM1nJC/u2h6/XOcVRHQWYIEAU7FsPa?=
- =?us-ascii?Q?UqOJsL9FO3SuegdROuLw+9Um5YtArdMooCmc7CdLZ8sYaiAeOZi65s+Js8o9?=
- =?us-ascii?Q?zXl3DzRGBmOBiSDLTJP4IqKEl2Ec3brV4ndrsqwvDAxEb2mMXpKn8ikwEe4D?=
- =?us-ascii?Q?ye6XG8ryYJdxczYj3mTDKcG2ZGy41MXCLq3uiXUQvU8Nm0jwhKRjqaIe9uyK?=
- =?us-ascii?Q?4pgMZXoy1YarpYCHl76uk5VlC3NtIjmMnbx3supAkv+/6L/pPd4e1BqMOy4l?=
- =?us-ascii?Q?VAbBUuSQ4UsD+YTCuQaZiyM=3D?=
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 026be57f-c703-4c76-758f-08de10f89bc8
-X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10914.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2025 23:21:48.6021
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DQRCiJhN9kGSex6vRcFw9ZULu+E9b5HU2fAHjVGMde2nVoFrpmt1cAJiODpSui0nE5E6C8UeQ/VG20ebTmF9rrF8oKymMp24LhDPAQkXl0oz01us2sTX371zrHTpEWOc
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB7043
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_162157_499241_60E37157 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20251021_164531_571460_4B173E65 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,55 +103,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add cputype definitions for Cortex-A720AE. These will be used for errata
-detection in subsequent patches.
+All CoreSight compliant components have an implementation defined number
+of 0 to 8 claim tag bits in the claim tag registers.
 
-These values can be found in the Cortex-A720AE TRM:
+These are used to claim the CoreSight resources by system agents.
 
-https://developer.arm.com/documentation/102828/0001/
+ARM recommends implementions have 4 claim tag registers.
 
-... in Table A-187
+The CoreSight drivers implement a 2 claim tag bit protocol to allow
+self hosted and external debug agents to manage access to the hardware.
 
-Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Acked-by: Will Deacon <will@kernel.org>
----
- tools/arch/arm64/include/asm/cputype.h | 2 ++
- tools/perf/util/arm-spe.c              | 1 +
- 2 files changed, 3 insertions(+)
+However, if there are less than 2 claim tags available the protocol
+incorrectly returns an error on device claim, as no checks are made.
 
-diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
-index 139d5e87dc959..0192dc7ec9ca9 100644
---- a/tools/arch/arm64/include/asm/cputype.h
-+++ b/tools/arch/arm64/include/asm/cputype.h
-@@ -96,6 +96,7 @@
- #define ARM_CPU_PART_NEOVERSE_V3	0xD84
- #define ARM_CPU_PART_CORTEX_X925	0xD85
- #define ARM_CPU_PART_CORTEX_A725	0xD87
-+#define ARM_CPU_PART_CORTEX_A720AE	0xD89
- #define ARM_CPU_PART_NEOVERSE_N3	0xD8E
- 
- #define APM_CPU_PART_XGENE		0x000
-@@ -185,6 +186,7 @@
- #define MIDR_NEOVERSE_V3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_V3)
- #define MIDR_CORTEX_X925 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_X925)
- #define MIDR_CORTEX_A725 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A725)
-+#define MIDR_CORTEX_A720AE MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_CORTEX_A720AE)
- #define MIDR_NEOVERSE_N3 MIDR_CPU_MODEL(ARM_CPU_IMP_ARM, ARM_CPU_PART_NEOVERSE_N3)
- #define MIDR_THUNDERX	MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX)
- #define MIDR_THUNDERX_81XX MIDR_CPU_MODEL(ARM_CPU_IMP_CAVIUM, CAVIUM_CPU_PART_THUNDERX_81XX)
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 71be979f50771..9561951a00554 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -571,6 +571,7 @@ static int arm_spe__synth_instruction_sample(struct arm_spe_queue *speq,
- 
- static const struct midr_range common_ds_encoding_cpus[] = {
- 	MIDR_ALL_VERSIONS(MIDR_CORTEX_A720),
-+	MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
- 	MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
- 	MIDR_ALL_VERSIONS(MIDR_CORTEX_X1C),
- 	MIDR_ALL_VERSIONS(MIDR_CORTEX_X3),
+If insufficient claim tags are present in a component then the protocol
+must return success on claim / disclaim to allow components to be used
+normally.
+
+Changes read the CLAIMSET bits to establish the number of available tags,
+and adjust the claim returns accordingly.
+
+Applies to coresignt/next
+
+Mike Leach (1):
+  coresight: fix issue where coresight component has no claimtags
+
+ drivers/hwtracing/coresight/coresight-core.c | 26 ++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-priv.h |  8 ++++++
+ 2 files changed, 34 insertions(+)
+
 -- 
-2.43.0
+2.32.0
 
 
