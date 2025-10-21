@@ -4,61 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 490CACCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 22:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE8CCCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 23:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7H7lYdFJTnnoV20Ubm9IRBI3LFxcikpffIQknO7q020=; b=Plr3zcmtg5SI4ZNMoBh3wO7QiY
-	IETWWYXVs9hYaGq+/79GzX5hS63bGgzUxYzFql/kcWmt0TUfrUcVOkmZ8RK5Wb89bxItYkFvkWbcC
-	JiBaCio1HMNRbGvHIlIWvLqaT78F+9PhfUGB0NfG0XhKo41weiEwHFnH0tWi/NBgVRFENkbfJOPGI
-	3vZg4boZSR65LNcNpT01QDOljrZieChewmiJH7lBWmnC5QEu9IBttqtyF2aZH5Qx7p5GiT0Uzr0p3
-	zpyx4w/uCXdfE/kgbiXoiGyqsW/djiSAJ506dQhXA5SdqDFp5Ly3jhlUXVTL37neQzXM9fKkDgJav
-	G9FhkCRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jebPbjme7P2kWR8ZBbngJLly0Zj7VzPVjORl20HOTyo=; b=faHhw65XzeRZQjRCp1ko+IN0ke
+	Zch6DNvLAQXYc7wFaeCA+v5USyc33LnZfH0e6xm6ZRhGvnK/jDBiWrqpQwtZjcxGpkX0T711gprV2
+	NlWnRHu79+AqLPi1Jl+zwCePobDuzFNTzSybnSAtKRBa6UlBl2fWWQzPTpsKVDUyIOT1mZIZfWdhZ
+	8N/X5kxrvoeSBO2ARb1laRYhvF3lose2YdI1P110jcUw+/XbH0452j61RB9uCRmbdLYetCnm12tcR
+	9ECicD3qdsWq/IvMDSYi6T8JPVlt7aUXHUbV++fmdRgvoIDX6qP6163anluIWdtsMF1Z1hEPIyfJs
+	vSj0vB9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBLCE-00000000riI-20Wv;
-	Tue, 21 Oct 2025 22:51:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBLN3-00000000seG-3SKu;
+	Tue, 21 Oct 2025 23:02:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBLCC-00000000rhv-2Feh
+	id 1vBLN1-00000000sdu-3toV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 22:51:12 +0000
+	Tue, 21 Oct 2025 23:02:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C66762749;
-	Tue, 21 Oct 2025 22:50:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E158C4CEF1;
-	Tue, 21 Oct 2025 22:50:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9B5DB43AFD;
+	Tue, 21 Oct 2025 23:02:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD849C4CEF1;
+	Tue, 21 Oct 2025 23:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761087057;
-	bh=Qk7LUUgm4OTA/65R/5eca+jZCmwBOCQ0+YdsSmes8Bw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FSoV19XbKe7C8UMx+JY6Pj4jaUyBAFBp8/DerOBulBD4fm1gFoy8DcahXxFQGlet6
-	 IRYS11vIuBmB5CsRBqSD949YQbNPklP8BPk2h8A1mQYwdQv/5xOO2UhLS55hDAt+BG
-	 UcXdrfcMGgBPK7mFHXDzfH9ELSQgik8/zAObLXNmGIHlXwsqXiHmhMG8Ds4RzLCG/S
-	 spO/FKr47vGoEBYQdEMY7FyHCIiA2RsnZQytqDSlwApWUJRi+vxqKIoEBj0MaO2/tf
-	 Pofsp1AJAktzC4ySVsD5oTyEdlrGN9ScgTtsK/wEXZhiKXCeabbBk4/F4cqvYu+cNr
-	 3IYQ+6YtXo6XA==
-Date: Wed, 22 Oct 2025 00:50:52 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: linux-i2c@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Alain Volmat <alain.volmat@foss.st.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Pierre-Yves Mordret <pierre-yves.mordret@foss.st.com>, 
-	Wolfram Sang <wsa@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Anand Moon <linux.amoon@gmail.com>, Christophe Jaillet <christophe.jaillet@wanadoo.fr>
-Subject: Re: [PATCH] i2c: stm32: Omit two variable reassignments in
- stm32_i2c_dma_request()
-Message-ID: <s2whbqys4xwn2ant7ftgixwkguqmvtwbguajdtz7bks7avgk7c@efhaves6wzg2>
-References: <f7e0c023-d2d1-40ba-badb-74a7e9c23684@web.de>
+	s=k20201202; t=1761087743;
+	bh=jebPbjme7P2kWR8ZBbngJLly0Zj7VzPVjORl20HOTyo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=o+Z/ffp++yk1l4a4ImWFacO3Xbayi82Qa014hran1qQITfIuDpVRQHXPUH//jEK3O
+	 Sp3sfTP6wr+Aq1Y1W+iTY7TZbNXdQXYG9LoZtDrQ9IR+/y0Il/eHNiT+l9EPyUYdxy
+	 bTWaa0VSOGq7xbLOXAehLsVxJjpdLj6DF2ea17J0pknwn7+CX0FrpuMcDUgAWRL6th
+	 2240836ngUv8ifxU/sqBRS23QAaocFlMDL9Hk80q3kleFhRCiz5XQXrXxWO2YPP7mM
+	 n0v4HGJlMLWsFe+cNsQ8CwNcColVc8bCLgNmjYkH0fYa+V48CZoJUETSScLnKaFwGB
+	 yC6c2+d6T9+zg==
+Date: Tue, 21 Oct 2025 16:02:21 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, Jose Abreu
+ <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Richard
+ Cochran <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Alexis
+ =?UTF-8?B?TG90aG9yw6k=?= <alexis.lothore@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 2/3] net: stmmac: Allow supporting coarse
+ adjustment mode
+Message-ID: <20251021160221.4021a302@kernel.org>
+In-Reply-To: <911372f3-d941-44a8-bec2-dcc1c14d53dd@bootlin.com>
+References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
+	<20251015102725.1297985-3-maxime.chevallier@bootlin.com>
+	<20251017182358.42f76387@kernel.org>
+	<d40cbc17-22fa-4829-8eb0-e9fd26fc54b1@bootlin.com>
+	<20251020180309.5e283d90@kernel.org>
+	<911372f3-d941-44a8-bec2-dcc1c14d53dd@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f7e0c023-d2d1-40ba-badb-74a7e9c23684@web.de>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251021_160223_995609_92453F4D 
+X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,19 +86,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus,
+On Tue, 21 Oct 2025 10:02:01 +0200 Maxime Chevallier wrote:
+> Let me know if you need more clarifications on this
 
-> An error code was assigned to a variable and checked accordingly.
-> This value was passed to a dev_err_probe() call in an if branch.
-> This function is documented in the way that the same value is returned.
-> Thus delete two redundant variable reassignments.
-> 
-> The source code was transformed by using the Coccinelle software.
-> 
-> Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
+The explanation was excellent, thank you. I wonder why it's designed
+in such an odd way, instead of just having current_time with some
+extra/fractional bits not visible in the timestamp. Sigh.
 
-merged to i2c/i2c-host.
-
-Thanks,
-Andi
+In any case, I don't feel strongly but it definitely seems to me like
+the crucial distinction here is not the precision of the timestamp but
+whether the user intends to dial the frequency.
 
