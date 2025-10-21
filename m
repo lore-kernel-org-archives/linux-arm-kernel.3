@@ -4,124 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99715CCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 01:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C89DCCD1A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 01:57:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=izhTeIV2e9xijy8tq2CEayUpGN/P5cZH+g7aMRXy4c8=; b=FXWXX9T2HdxYKpeNUPKbKIVNY6
-	ksvEjpnwRcLQjyMjvInuGZE31I5Z3qOcgP+pHUQmHdKvK/7b5Xh0zcFPsC10ErgnswmVC8UpUyh0r
-	tahZ4cU1BCJK8hu+vxU6PelvhbnVz9zXAu00AN7vxuw/3SehbZRcNAP1C5z3IZOURSPZiavCtTRee
-	gbNBlA0RBp5JDn3HWgYt7/4wb/iZbhgWR82A8hVV4xdPuPxo5YR1DTiScqb/hl6IncJgD48gvzPoN
-	PguuiR8LvwXNckTq7vLx0VgdswSrw1yAo6s33lt6/tJSVJ2crVkzzFceAy+mtIGoL5ws2QEindmh+
-	5lu6AnbQ==;
+	bh=nMD6knG+FtvSz/CPvcFFwCBZBxmwk5Zr9lU22bZxrhs=; b=26ZeP4LBz522kpfpJTYXkGc9Ge
+	Pk015MlIsJZKk/1vqAMfsofTMWNG0VuZ8JlB/8Xk+cvB+FSXCR3Z0kzHkTWGvEobw6eRk6gMIylDT
+	ywwvc6pFq1rR30lEKaGHC2rEjwxz/5pXPuondIDj1KJGPqYzWQ/TyCYqhIVd028VVFHKJQvyixYWG
+	TskxU6AkfcWLAGh8dtJCSTBWZ7bYbyAyV7lqJYSmXq2KoftLEPRMr6dcOebN5NquAqv7VeDy3em8t
+	Pphm8mjnHM3DENKHVyb7isw1gnnEt3P97zPiK/Jpslpfxh0yEd4sCt/Jq6k6AqkLWpru2W4igIMzU
+	XROr6AoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB1cN-0000000FWEv-3FxP;
-	Tue, 21 Oct 2025 01:56:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vB1cr-0000000FWMv-2dY6;
+	Tue, 21 Oct 2025 01:57:25 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB1cK-0000000FWEU-25Uh
+	id 1vB1cn-0000000FWKX-2n8j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 01:56:53 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59KL1pDf028023
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 01:56:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	izhTeIV2e9xijy8tq2CEayUpGN/P5cZH+g7aMRXy4c8=; b=nljDf+BVMHNp6Rvl
-	KarIsPrhhyW2mBIOmLBnKAq5faH/3tzjT/mbnfArA5ADGZrXAolo5kN1DbhDmc78
-	tZYIfLEgUeUxFDjAthFRr0VyHMHn5bGMzEUZAg2+MWewa1tZgr5/5QJhhJXMD68K
-	Sw7P0rob08isnPy1tdagkLRl0TdDdd8mqOzCbfVXsIXJv+jfNLBJg+h/BPjftEv1
-	GpxUbxtwpVIyO6MenkYFg4ImqV77WyaHtBk+xW/QNtzBulkH01uH+riFnP3LZox1
-	A9CSsstHn38kX5m4MkRQKsKcJHBBI6bvZSdtb7RY4bXFza1hLqXgp2GNpvbogH/p
-	lDcExQ==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49v27hxt4g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 01:56:50 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-780f82484faso3530252b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 18:56:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761011809; x=1761616609;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=izhTeIV2e9xijy8tq2CEayUpGN/P5cZH+g7aMRXy4c8=;
-        b=cIQ8NQyveN01L5szTsb/6UsEK+Fp6dzCA4HYMZBhgIl5S7zh8xnXtfi/XHB0gqMulR
-         3pWIunfkWPxS8MWKXPH6JG2qXNNBn9e39VA4u5IhaY12bi0OiWDkx4nwkOfUUVG11Nup
-         DeXLxbfPFCe+Ay08KJqpZ6X1FPPwdHghR8caO6St/XnTv+VBClvEBQMtDAGlfKtUQYm6
-         bRpxMo56L4HCCrlb8zwH3GLoWRncW1dBi8wJIEGZipFuHpmbC61GLuOM2ncxj0fO86vT
-         pUlL+/cx4zuenRx37nYhauQNr6OFENzsi0eQc9dmnPGlBWoKwm0U5gLghw8gi8cDPHS7
-         oxFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUpL8dTVFHRuFKLKTpL73XsJ/g3uPu9eyW/OWJIcC4N3LV1vKZ/XgBmL0jY+2cWhb8WCc8aYyF+84Ih7cki4OuZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEKjPxzB4qBt4muX7gPqO1qYAw8OJ5WrQsS/qb9JVSTynWHPrU
-	JSZ3w/xAVfnCtpxfh1ZOjgtTWlVyKTm9CgxMKvswkFs4WHqoPHeyxVY8p7ceV0blez4PkAVl0h/
-	JImayJ1g3rKdZmwXq+AnQL6iSUPMA5p0YeNUhCD/yLHYF8E8I2R6R6IqLNQqnHQ8+lO2DuVMZhi
-	mGPw==
-X-Gm-Gg: ASbGncu5pEhqrbqOqU1u2l7fyO6hfTpJqNY8MpZY+EioF3hyfkAK0v0oAdJEZl9f2X/
-	Z2d8luwcyklSUoU4l/vYgou3JDajsYXmK/ouIbtnyBRzPpuHsYrsBrAey03RPE6KuCGfmh0AhrF
-	E5c8Cp8ROBDKa5jZPPwwhFvLowH70PP3AF2vgig7vp3CC3EjDucXYPrpl5LxHsJ5jxdQ+fJ6nbs
-	66w/SImnOS9++GJSWtYaO91VhRYhDWZoMeCACeyFqx/5zFfBkoS7kIBIVjmPkyb8Z0P9Yk7Rfnr
-	TSmyJbiOc9XxMkzXADxB8tbuY+AHf+asQKsl0ksBgHNUAcGtha9k63F0kjbSMOXdDyIJQ5YhZrc
-	FUq0fHUsyBfOw4KuGCQWe6NXXV2hJQUs3SCvUnAoufn3BuBP3MXX4SywCKfp/IMqQ
-X-Received: by 2002:a05:6a00:2e03:b0:781:17ba:ad76 with SMTP id d2e1a72fcca58-7a220b34252mr18292566b3a.24.1761011809446;
-        Mon, 20 Oct 2025 18:56:49 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE3UpsB5sbvHyYTrr9etsD3AraqUiTnb3KgXNq2kLmRCdX0oNZ7KV05IVAcmSlESGas5oeemw==
-X-Received: by 2002:a05:6a00:2e03:b0:781:17ba:ad76 with SMTP id d2e1a72fcca58-7a220b34252mr18292534b3a.24.1761011808902;
-        Mon, 20 Oct 2025 18:56:48 -0700 (PDT)
-Received: from [10.133.33.105] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a22ff34adasm9601087b3a.19.2025.10.20.18.56.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 18:56:48 -0700 (PDT)
-Message-ID: <6e6c3034-221c-4e79-8971-7bfbe26f91a6@oss.qualcomm.com>
-Date: Tue, 21 Oct 2025 09:56:43 +0800
+	Tue, 21 Oct 2025 01:57:24 +0000
+Received: from mail.maildlp.com (unknown [172.19.93.142])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4crFl33ZLvzYQtmm
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 09:56:15 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id 6629D1A1329
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 09:57:07 +0800 (CST)
+Received: from [10.67.111.176] (unknown [10.67.111.176])
+	by APP1 (Coremail) with SMTP id cCh0CgBXfVBx6PZo2e08BA--.36902S2;
+	Tue, 21 Oct 2025 09:57:07 +0800 (CST)
+Message-ID: <8028d139-94c1-48d9-a2a5-fd469eb746c5@huaweicloud.com>
+Date: Tue, 21 Oct 2025 09:57:05 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: ETR: Fix ETR buffer use-after-free issue
-To: Leo Yan <leo.yan@arm.com>, Xiaoqi Zhuang <xiaoqi.zhuang@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-References: <20251020-fix_etr_issue-v1-1-902ab51770b4@oss.qualcomm.com>
- <20251020143718.GH281971@e132581.arm.com>
+Subject: Re: [PATCH 12/33] sched/isolation: Convert housekeeping cpumasks to
+ rcu pointers
+From: Chen Ridong <chenridong@huaweicloud.com>
+To: Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
+ <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+ Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+ linux-mm@kvack.org, linux-pci@vger.kernel.org, netdev@vger.kernel.org
+References: <20251013203146.10162-1-frederic@kernel.org>
+ <20251013203146.10162-13-frederic@kernel.org>
+ <bb9a75dc-8c34-41da-b064-e31bf5fe6cb2@huaweicloud.com>
 Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20251020143718.GH281971@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <bb9a75dc-8c34-41da-b064-e31bf5fe6cb2@huaweicloud.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE4MDAxOCBTYWx0ZWRfX67XYq99dRIY3
- FM+fV+JNvAyg/MCZ+ONo5Jn9x0usLKI8k3bA4tjAKe1hnnYg+OdvmWmLA4ZJv4iYs64B/0ODU2K
- /OzZR4mPIwmg/7htwtp0SRYlcLFpMkXuEYRUDxlVrNXHFrVizGjoVfXaerGVni6wnmkDakb7U0g
- FPDP7DB4Ybn75qv3epjfSeyyHJum5D9dX3q8kGWMsFm24FZsIDm0W96oD7c4ilICuov1mHxRh6+
- 6RZ2V/Vwcsa//bEiYszvkdHPGTRX9dJ9HBvJIP6NKqMXsMeLaPHZeeENovp0FTbWnwlTjzm73+V
- 2E1W7BBQKC4GmdM8xnwNAzQG0z5BT+880AaY1DxfmWMM0GaX4fd85KyQBJkxnh7wOghFwP727nu
- pFbSlxR6qoIpN26WGxjiR6tEC9s79Q==
-X-Authority-Analysis: v=2.4 cv=G4UR0tk5 c=1 sm=1 tr=0 ts=68f6e862 cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=U0zv61LCSj-UQdD20V0A:9 a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-GUID: Yk3wCOaZjy0qEmTJac73TmguzRLRwZXC
-X-Proofpoint-ORIG-GUID: Yk3wCOaZjy0qEmTJac73TmguzRLRwZXC
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-20_07,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
- priorityscore=1501 spamscore=0 suspectscore=0 adultscore=0 clxscore=1015
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
- definitions=main-2510180018
+X-CM-TRANSID: cCh0CgBXfVBx6PZo2e08BA--.36902S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxKF1xtw47Xw1UCFWfGw15urg_yoW3AFy7pr
+	Z8WFW3GF4kXr1rG398ZwnrAry5Wwn7Arn2kas3Ga1rCFy7uw1kZry09FnxWryDu3srCry7
+	ZF98tw4S9w1UA37anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8
+	Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
+	CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
+	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvj
+	xUsPfHUUUUU
+X-CM-SenderInfo: hfkh02xlgr0w46kxt4xhlfz01xgou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_185652_679513_10AA49E1 
-X-CRM114-Status: GOOD (  51.52  )
+X-CRM114-CacheID: sfid-20251020_185722_000115_02B0AA39 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,283 +110,220 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 10/20/2025 10:37 PM, Leo Yan wrote:
-> On Mon, Oct 20, 2025 at 05:06:46PM +0800, Xiaoqi Zhuang wrote:
->> When ETR is enabled as CS_MODE_SYSFS, if the buffer size is changed
->> and enabled again, currently sysfs_buf will point to the newly
->> allocated memory(buf_new) and free the old memory(buf_old). But the
->> etr_buf that is being used by the ETR remains pointed to buf_old, not
->> updated to buf_new. In this case, it will result in a memory
->> use-after-free issue.
+On 2025/10/21 9:46, Chen Ridong wrote:
 > 
-> I struggled to understand how to reproduce the issue under the condition
-> "if the buffer size is changed and enabled again."
 > 
-> I don't think the flow below where the trace is re-enabled would cause
-> an issue:
+> On 2025/10/14 4:31, Frederic Weisbecker wrote:
+>> HK_TYPE_DOMAIN's cpumask will soon be made modifyable by cpuset.
+>> A synchronization mechanism is then needed to synchronize the updates
+>> with the housekeeping cpumask readers.
+>>
+>> Turn the housekeeping cpumasks into RCU pointers. Once a housekeeping
+>> cpumask will be modified, the update side will wait for an RCU grace
+>> period and propagate the change to interested subsystem when deemed
+>> necessary.
+>>
+>> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+>> ---
+>>  kernel/sched/isolation.c | 58 +++++++++++++++++++++++++---------------
+>>  kernel/sched/sched.h     |  1 +
+>>  2 files changed, 37 insertions(+), 22 deletions(-)
+>>
+>> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+>> index 8690fb705089..b46c20b5437f 100644
+>> --- a/kernel/sched/isolation.c
+>> +++ b/kernel/sched/isolation.c
+>> @@ -21,7 +21,7 @@ DEFINE_STATIC_KEY_FALSE(housekeeping_overridden);
+>>  EXPORT_SYMBOL_GPL(housekeeping_overridden);
+>>  
+>>  struct housekeeping {
+>> -	cpumask_var_t cpumasks[HK_TYPE_MAX];
+>> +	struct cpumask __rcu *cpumasks[HK_TYPE_MAX];
+>>  	unsigned long flags;
+>>  };
+>>  
+>> @@ -33,17 +33,28 @@ bool housekeeping_enabled(enum hk_type type)
+>>  }
+>>  EXPORT_SYMBOL_GPL(housekeeping_enabled);
+>>  
+>> +const struct cpumask *housekeeping_cpumask(enum hk_type type)
+>> +{
+>> +	if (static_branch_unlikely(&housekeeping_overridden)) {
+>> +		if (housekeeping.flags & BIT(type)) {
+>> +			return rcu_dereference_check(housekeeping.cpumasks[type], 1);
+>> +		}
+>> +	}
+>> +	return cpu_possible_mask;
+>> +}
+>> +EXPORT_SYMBOL_GPL(housekeeping_cpumask);
+>> +
+>>  int housekeeping_any_cpu(enum hk_type type)
+>>  {
+>>  	int cpu;
+>>  
+>>  	if (static_branch_unlikely(&housekeeping_overridden)) {
+>>  		if (housekeeping.flags & BIT(type)) {
+>> -			cpu = sched_numa_find_closest(housekeeping.cpumasks[type], smp_processor_id());
+>> +			cpu = sched_numa_find_closest(housekeeping_cpumask(type), smp_processor_id());
+>>  			if (cpu < nr_cpu_ids)
+>>  				return cpu;
+>>  
+>> -			cpu = cpumask_any_and_distribute(housekeeping.cpumasks[type], cpu_online_mask);
+>> +			cpu = cpumask_any_and_distribute(housekeeping_cpumask(type), cpu_online_mask);
+>>  			if (likely(cpu < nr_cpu_ids))
+>>  				return cpu;
+>>  			/*
+>> @@ -59,28 +70,18 @@ int housekeeping_any_cpu(enum hk_type type)
+>>  }
+>>  EXPORT_SYMBOL_GPL(housekeeping_any_cpu);
+>>  
+>> -const struct cpumask *housekeeping_cpumask(enum hk_type type)
+>> -{
+>> -	if (static_branch_unlikely(&housekeeping_overridden))
+>> -		if (housekeeping.flags & BIT(type))
+>> -			return housekeeping.cpumasks[type];
+>> -	return cpu_possible_mask;
+>> -}
+>> -EXPORT_SYMBOL_GPL(housekeeping_cpumask);
+>> -
+>>  void housekeeping_affine(struct task_struct *t, enum hk_type type)
+>>  {
+>>  	if (static_branch_unlikely(&housekeeping_overridden))
+>>  		if (housekeeping.flags & BIT(type))
+>> -			set_cpus_allowed_ptr(t, housekeeping.cpumasks[type]);
+>> +			set_cpus_allowed_ptr(t, housekeeping_cpumask(type));
+>>  }
+>>  EXPORT_SYMBOL_GPL(housekeeping_affine);
+>>  
+>>  bool housekeeping_test_cpu(int cpu, enum hk_type type)
+>>  {
+>> -	if (static_branch_unlikely(&housekeeping_overridden))
+>> -		if (housekeeping.flags & BIT(type))
+>> -			return cpumask_test_cpu(cpu, housekeeping.cpumasks[type]);
+>> +	if (housekeeping.flags & BIT(type))
+>> +		return cpumask_test_cpu(cpu, housekeeping_cpumask(type));
+>>  	return true;
+>>  }
+>>  EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
+>> @@ -96,20 +97,33 @@ void __init housekeeping_init(void)
+>>  
+>>  	if (housekeeping.flags & HK_FLAG_KERNEL_NOISE)
+>>  		sched_tick_offload_init();
+>> -
+>> +	/*
+>> +	 * Realloc with a proper allocator so that any cpumask update
+>> +	 * can indifferently free the old version with kfree().
+>> +	 */
+>>  	for_each_set_bit(type, &housekeeping.flags, HK_TYPE_MAX) {
+>> +		struct cpumask *omask, *nmask = kmalloc(cpumask_size(), GFP_KERNEL);
+>> +
+>> +		if (WARN_ON_ONCE(!nmask))
+>> +			return;
+>> +
+>> +		omask = rcu_dereference(housekeeping.cpumasks[type]);
+>> +
+>>  		/* We need at least one CPU to handle housekeeping work */
+>> -		WARN_ON_ONCE(cpumask_empty(housekeeping.cpumasks[type]));
+>> +		WARN_ON_ONCE(cpumask_empty(omask));
+>> +		cpumask_copy(nmask, omask);
+>> +		RCU_INIT_POINTER(housekeeping.cpumasks[type], nmask);
+>> +		memblock_free(omask, cpumask_size());
+>>  	}
+>>  }
+>>  
+>>  static void __init housekeeping_setup_type(enum hk_type type,
+>>  					   cpumask_var_t housekeeping_staging)
+>>  {
+>> +	struct cpumask *mask = memblock_alloc_or_panic(cpumask_size(), SMP_CACHE_BYTES);
+>>  
+>> -	alloc_bootmem_cpumask_var(&housekeeping.cpumasks[type]);
+>> -	cpumask_copy(housekeeping.cpumasks[type],
+>> -		     housekeeping_staging);
+>> +	cpumask_copy(mask, housekeeping_staging);
+>> +	RCU_INIT_POINTER(housekeeping.cpumasks[type], mask);
+>>  }
+>>  
+>>  static int __init housekeeping_setup(char *str, unsigned long flags)
+>> @@ -162,7 +176,7 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
+>>  
+>>  		for_each_set_bit(type, &iter_flags, HK_TYPE_MAX) {
+>>  			if (!cpumask_equal(housekeeping_staging,
+>> -					   housekeeping.cpumasks[type])) {
+>> +					   housekeeping_cpumask(type))) {
+>>  				pr_warn("Housekeeping: nohz_full= must match isolcpus=\n");
+>>  				goto free_housekeeping_staging;
+>>  			}
+>> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+>> index 1f5d07067f60..0c0ef8999fd6 100644
+>> --- a/kernel/sched/sched.h
+>> +++ b/kernel/sched/sched.h
+>> @@ -42,6 +42,7 @@
+>>  #include <linux/ktime_api.h>
+>>  #include <linux/lockdep_api.h>
+>>  #include <linux/lockdep.h>
+>> +#include <linux/memblock.h>
+>>  #include <linux/minmax.h>
+>>  #include <linux/mm.h>
+>>  #include <linux/module.h>
 > 
->    - Step 1: Enable trace path between ETM0 -> ETR0;
->    - Step 2: Change the buffer size for ETR0;
->    - Step 3: Disable trace path between ETM0 -> ETR0;
->    - Step 4: Enable again trace path between ETM0 -> ETR0.
+> A warning was detected:
 > 
-> In this case, step3 releases the buffer and update "drvdata->etr_buf" to
-> NULL, and step 4 allocates a new buffer and assign it to
-> "drvdata->etr_buf".
+> =============================
+> WARNING: suspicious RCU usage
+> 6.17.0-next-20251009-00033-g4444da88969b #808 Not tainted
+> -----------------------------
+> kernel/sched/isolation.c:60 suspicious rcu_dereference_check() usage!
 > 
-> The problem should occur when operating on two trace paths, E.g.,
+> other info that might help us debug this:
 > 
->    - Step 1: Enable trace path between ETM0 -> ETR0;
->    - Step 2: Change the buffer size for ETR0;
->    - Step 3: Enable trace path between ETM1 -> ETR0;
 > 
-> In step3, the driver releases the existed buffer and allocate a new one.
-> At the meantime, "drvdata->etr_buf" still holds the buffer allocated in
-> step 1.
+> rcu_scheduler_active = 2, debug_locks = 1
+> 1 lock held by swapper/0/1:
+>  #0: ffff888100600ce0 (&type->i_mutex_dir_key#3){++++}-{4:4}, at: walk_compone
+> 
+> stack backtrace:
+> CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.17.0-next-20251009-00033-g4
+> Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.0-0-gd239
+> Call Trace:
+>  <TASK>
+>  dump_stack_lvl+0x68/0xa0
+>  lockdep_rcu_suspicious+0x148/0x1b0
+>  housekeeping_cpumask+0xaa/0xb0
+>  housekeeping_test_cpu+0x25/0x40
+>  find_get_block_common+0x41/0x3e0
+>  bdev_getblk+0x28/0xa0
+>  ext4_getblk+0xba/0x2d0
+>  ext4_bread_batch+0x56/0x170
+>  __ext4_find_entry+0x17c/0x410
+>  ? lock_release+0xc6/0x290
+>  ext4_lookup+0x7a/0x1d0
+>  __lookup_slow+0xf9/0x1b0
+>  walk_component+0xe0/0x150
+>  link_path_walk+0x201/0x3e0
+>  path_openat+0xb1/0xb30
+>  ? stack_depot_save_flags+0x41e/0xa00
+>  do_filp_open+0xbc/0x170
+>  ? _raw_spin_unlock_irqrestore+0x2c/0x50
+>  ? __create_object+0x59/0x80
+>  ? trace_kmem_cache_alloc+0x1d/0xa0
+>  ? vprintk_emit+0x2b2/0x360
+>  do_open_execat+0x56/0x100
+>  alloc_bprm+0x1a/0x200
+>  ? __pfx_kernel_init+0x10/0x10
+>  kernel_execve+0x4b/0x160
+>  kernel_init+0xe5/0x1c0
+>  ret_from_fork+0x185/0x1d0
+>  ? __pfx_kernel_init+0x10/0x10
+>  ret_from_fork_asm+0x1a/0x30
+>  </TASK>
+> random: crng init done
+> 
 
-That's the scenario of the issue. The system will report a segmentation 
-error when the driver try to sync the freed etr_buf.
+This warning was likely introduced by patch 13, which added the housekeeping_dereference_check
+condition, and is not caused by the current patch.
 
-> 
->> Fix this by checking ETR's mode before updating and releasing buf_old,
->> if the mode is CS_MODE_SYSFS, then skip updating and releasing it.
-
-I agree. We should bail out as earlier as possible to gain some 
-performance efficiency.
-
-> 
-> Given that we now have a couple of reported issues related to ETR mode,
-> I'd like to refactor the ETR mode handling and its reference counting
-> thoroughly.  I've drafted a large change (it's quite big, but we can
-> split it into small patches if we agree to proceed).
-> 
-> Thanks for reporting the issue!
-> 
-> Leo
-> 
-> ---8<---
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index b07fcdb3fe1a..d0fac958c614 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -1241,6 +1241,8 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->   	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->   	struct etr_buf *sysfs_buf = NULL, *new_buf = NULL, *free_buf = NULL;
->   
-> +	WARN_ON(coresight_get_mode(csdev) != CS_MODE_SYSFS);
-
-I think we should check the WARN_ON result and exit if there is an error?
-
-> +
->   	/*
->   	 * If we are enabling the ETR from disabled state, we need to make
->   	 * sure we have a buffer with the right size. The etr_buf is not reset
-> @@ -1263,7 +1265,7 @@ static struct etr_buf *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->   		raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->   	}
->   
-> -	if (drvdata->reading || coresight_get_mode(csdev) == CS_MODE_PERF) {
-> +	if (drvdata->reading) {
->   		ret = -EBUSY;
->   		goto out;
->   	}
-> @@ -1292,30 +1294,14 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
->   	int ret = 0;
->   	unsigned long flags;
->   	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> -	struct etr_buf *sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
-> +	struct etr_buf *sysfs_buf;
->   
-> +	sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
->   	if (IS_ERR(sysfs_buf))
->   		return PTR_ERR(sysfs_buf);
->   
->   	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> -
-> -	/*
-> -	 * In sysFS mode we can have multiple writers per sink.  Since this
-> -	 * sink is already enabled no memory is needed and the HW need not be
-> -	 * touched, even if the buffer size has changed.
-> -	 */
-> -	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
-> -		csdev->refcnt++;
-> -		goto out;
-> -	}
-> -
->   	ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
-> -	if (!ret) {
-> -		coresight_set_mode(csdev, CS_MODE_SYSFS);
-> -		csdev->refcnt++;
-> -	}
-> -
-> -out:
->   	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->   
->   	if (!ret)
-> @@ -1735,11 +1721,6 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
->   	struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
->   
->   	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> -	 /* Don't use this sink if it is already claimed by sysFS */
-> -	if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
-> -		rc = -EBUSY;
-> -		goto unlock_out;
-> -	}
->   
->   	if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
->   		rc = -EINVAL;
-> @@ -1759,18 +1740,14 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
->   	 * No HW configuration is needed if the sink is already in
->   	 * use for this session.
->   	 */
-> -	if (drvdata->pid == pid) {
-> -		csdev->refcnt++;
-> +	if (drvdata->pid == pid)
->   		goto unlock_out;
-> -	}
->   
->   	rc = tmc_etr_enable_hw(drvdata, etr_perf->etr_buf);
->   	if (!rc) {
->   		/* Associate with monitored process. */
->   		drvdata->pid = pid;
-> -		coresight_set_mode(csdev, CS_MODE_PERF);
->   		drvdata->perf_buf = etr_perf->etr_buf;
-> -		csdev->refcnt++;
->   	}
->   
->   unlock_out:
-> @@ -1778,17 +1755,76 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
->   	return rc;
->   }
->   
-> +static int tmc_acquire_mode(struct coresight_device *csdev, enum cs_mode mode)
-> +{
-> +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +
-> +	if (mode != CS_MODE_SYSFS && mode != CS_MODE_PERF)
-> +		return -EINVAL;
-> +
-> +	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock);
-> +
-> +	if (coresight_get_mode(csdev) == CS_MODE_DISABLED) {
-> +		if (!csdev->refcnt)
-> +			coresight_set_mode(csdev, mode);
-> +		csdev->refcnt++;
-> +	} else if (coresight_get_mode(csdev) != mode) {
-> +		ret = -EBUSY;
-> +	}
-> +
-> +	return csdev->refcnt;
-> +}
-> +
-> +static void tmc_release_mode(struct coresight_device *csdev, enum cs_mode mode)
-> +{
-> +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +
-> +	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock);
-> +
-> +	if (WARN_ON(coresight_get_mode(csdev) != mode))
-> +		return;
-
-the mode here could be set to any CS_MODE, so I think it's possible to 
-encounter the secenario below:
-
-coresight_get_mode(csdev) == CS_MODE_DISABLED, mode == CS_MODE_DISABLED,
-
-With the condition, the csdev->refcnt will go to negative number?
-
-> +
-> +	csdev->refcnt--;
-> +	if (!csdev->refcnt)
-> +		coresight_set_mode(csdev, CS_MODE_DISABLED);
-> +}
-> +
->   static int tmc_enable_etr_sink(struct coresight_device *csdev,
->   			       enum cs_mode mode, void *data)
->   {
-> +	unsigned long flags;
-> +	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +	int ret;
-> +
-> +	ret = tmc_acquire_mode(csdev, mode);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	/*
-> +	 * For sysfs mode, the higher level mutex ensures exclusively
-> +	 * enabling sink, it is safe to bail out if this is not the
-> +	 * first time to enable sink.
-> +	 *
-> +	 * A perf session can enable the same sink simultaneously, fall
-> +	 * through to call tmc_enable_etr_sink_perf() to ensure the sink
-> +	 * has been enabled.
-> +	 */
-> +	if (mode == CS_MODE_SYSFS && ret > 1)
-> +		return 0;
-> +
->   	switch (mode) {
->   	case CS_MODE_SYSFS:
-> -		return tmc_enable_etr_sink_sysfs(csdev);
-> +		ret = tmc_enable_etr_sink_sysfs(csdev);
->   	case CS_MODE_PERF:
-> -		return tmc_enable_etr_sink_perf(csdev, data);
-> +		ret = tmc_enable_etr_sink_perf(csdev, data);
->   	default:
-> -		return -EINVAL;
-> +		ret = -EINVAL;
->   	}
-> +
-> +	if (ret)
-> +		tmc_release_mode(csdev, mode);
-> +
-> +	return ret;
->   }
->   
->   static int tmc_disable_etr_sink(struct coresight_device *csdev)
-> @@ -1796,30 +1832,20 @@ static int tmc_disable_etr_sink(struct coresight_device *csdev)
->   	unsigned long flags;
->   	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->   
-> -	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
-> +	tmc_release_mode(csdev, mode);
-
-mode here is undefined?
-
-Thanks,
-Jie
-
->   
-> -	if (drvdata->reading) {
-> -		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> -		return -EBUSY;
-> -	}
-> +	scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock);
->   
-> -	csdev->refcnt--;
-> -	if (csdev->refcnt) {
-> -		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +	if (csdev->refcnt || drvdata->reading)
->   		return -EBUSY;
-> -	}
->   
-> -	/* Complain if we (somehow) got out of sync */
-> -	WARN_ON_ONCE(coresight_get_mode(csdev) == CS_MODE_DISABLED);
-> +	if (drvdata->pid == -1)
-> +		return 0;
-> +
->   	tmc_etr_disable_hw(drvdata);
-> -	/* Dissociate from monitored process. */
-> -	drvdata->pid = -1;
-> -	coresight_set_mode(csdev, CS_MODE_DISABLED);
->   	/* Reset perf specific data */
->   	drvdata->perf_buf = NULL;
->   
-> -	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> -
->   	dev_dbg(&csdev->dev, "TMC-ETR disabled\n");
->   	return 0;
->   }
-> 
+-- 
+Best regards,
+Ridong
 
 
