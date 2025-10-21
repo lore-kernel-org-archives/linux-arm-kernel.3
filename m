@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28AC3CCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 13:55:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A51B4CCD1A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 14:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t7l2S0fTu5SAF3VSsMCSsLrp+bmdGs9v0RGyTD+mw5o=; b=ud94rh+cV+imLgNNXgHulKUoNI
-	WHHjI503K8Dcbf0F4FZTHk2rh2/FM/3HFV17Oj02yd0NTRjGR6DCIGhIq3cJE8YpTEe9sp229UF1m
-	1hVcKnR/L3ly7njbax6DdliOzsfm0wrra2WfZNp+agB0Ci3kREdgtmAb+la7JEyw+d8hI3zdFe1Rz
-	dnlT3lSyvlCz7rmSVX4xiPZCZpbAfqpWS+8CWS5b4m3+A3eK37qEtnXHxVYGtcQ2Sw+pM31tJJcBm
-	JUzdMi2upq169Bm1SuSd5pP8Y6vY+7R+EJcS47QfEpUsbCLJujfZPrqTN0zHU2CJB66namsQlLp9v
-	qTKlr39g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8nozZJqCC7S89kAITGKsgn335gMP4NQ+GS0U9JySwuw=; b=xXCWlZgvMxJgHEguTwShJrL+UT
+	JBpN+/HJnNNTNKcrU993aNoN4NqnXZNbDaCTY9i8p/QQwVyTyCwmYHnDkxC3STAimh5Cjw5Vav6LF
+	xPQV2KliPFs6FW2nMENGHEb9hAdGetvDvM5xLn/bmCEZfBbjg4t5LKErboRk9vmsNpp+dNn6NPCrW
+	+0Ygvijc645+vORFOdk1gsobhb6DEXGriT4V+zVwf+wK3KYKhj3NNU3Da3Cyun4sTsx/4PXYpbMO+
+	G3eKRxLjedQg3nRyv/c7TP/XBsAqJ4/FijeBtF1Z5Ae0wX0Zc8OM7O8IqqJSWHZw8AS611AOx0ZRv
+	ondHQu3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBCpE-0000000HE40-0lXc;
-	Tue, 21 Oct 2025 13:54:56 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1vBCum-0000000HExx-0y4w;
+	Tue, 21 Oct 2025 14:00:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBCpB-0000000HE2V-1jga
+	id 1vBCul-0000000HExm-0oB3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 13:54:54 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-78485808eb3so39346697b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 06:54:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761054892; x=1761659692; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=t7l2S0fTu5SAF3VSsMCSsLrp+bmdGs9v0RGyTD+mw5o=;
-        b=raW4eW9FcGqz18KBEby6PFtv1m2h2vRA/SMsR3XQ5pF/8w6YM3yCKq+5KLS0VXYXEl
-         Nx5R68cpHD3v1jwJsTT+92Y2e19pK32G9P0NIv6ro2Yt57tE9LYH2ptGqtNlWibXKQ/g
-         dFMlXOO/qCaxFs6muz/f7rlCTzgs+vznteIU8eaLMZFkN9ID8CEY72P63zT70APZsASB
-         DGVYUxtjKrgFVbtar+qg1sXqMDEo5ALQEPOQm7SDi5FuPEjfB8y/95/6v5XbmcoGQoZS
-         WGQpTmLrbOhyiuYs5o15u0F+uuKaSGtZpxZURaIZs5WP/Y9cmtEuDx8YVMOfUReGtnA1
-         sJEg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761054892; x=1761659692;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=t7l2S0fTu5SAF3VSsMCSsLrp+bmdGs9v0RGyTD+mw5o=;
-        b=lEo/8IMMsMbmTIrihQx1xcnOrBzi4iyEoOwK7lFFc6ZfC17mOFgsyPA3ZmR4CNtybr
-         9y/R6ke/969k51/ycGb5oM9yZZg+VTKpVxmZ1J2nQO8WMCLAe5qH360tgOyCqSxCReCV
-         +TxgM74it/rbvBCr9JqkDJNyon3CZTmDAUAi+xaiohN2oqjprhYRU+qG3ZEValf6p9Ek
-         Sixe8aBlPOkG29jnkYnwvAA6VcF/mrxYqHschicMSX62UHu+Kkf2axx3f2x5TFe7OLRq
-         fyJaEiG5EWMaUcDwjERIW4fP6VNViS5ojOnSI44y/FLgtducqxX+ZiSHimQQmVXfdslN
-         6AyA==
-X-Forwarded-Encrypted: i=1; AJvYcCU0xUSDZWqeZTrtyQSHJrbkAmTgmTh2XzNO2YIeze3j+vqSlULTVl97b+i64jcZ0/HbTqCUuQgqy6Manmq+VFnF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyX6AJlJ9EzUY3jALzYZco1DfQPfx6lPpIW7uqgKKKuuih/igOH
-	xnpipXng6WLIliezrjSSq07Xs56D9muJc0MYf1LoDU9naCAHY2S0sN+WMIFFhgzcpe6CkLbLgT+
-	OrsuRLsjqGs391EjvEt/VKHGm3015Rd+7ORuloC04qA==
-X-Gm-Gg: ASbGncuAGuI/t+fYUGi3VV8g4tajwfc84nGdkrNawytOpE+Te3LYX9IIHdtgvtmHzQD
-	nTAIqOXyoB63f3XOaPoQsRaG0SGfBdrSeLQS85SqGhRS/Ez5YZWd3ubi/db2LJLjmT7QnmTC255
-	zJt4NRZf0/nOmToc3Chbh4B+Cu+wXzEOtu7hJiqSSw9pBxA48WmenlVjNbnm5oIu2unoiBmyv/i
-	G5420Hmzi61owTCQ/QcNfMU6gLjrejC0JrL9IfmxJBYOuVfunPBhtlrzHVphxpUMiBkQ/sw
-X-Google-Smtp-Source: AGHT+IHBbKVNcuM7l9dFMzW3m4txAHgl/oBl0HllzJAJ6dzOGjsTsg6Juv5F+fWERMC7Ma504B1opcnGXEPDICN6WPQ=
-X-Received: by 2002:a05:690e:134a:b0:63e:34ed:a131 with SMTP id
- 956f58d0204a3-63e34eda971mr6291641d50.31.1761054891971; Tue, 21 Oct 2025
- 06:54:51 -0700 (PDT)
+	Tue, 21 Oct 2025 14:00:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9736362485;
+	Tue, 21 Oct 2025 14:00:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68EE7C4CEF1;
+	Tue, 21 Oct 2025 14:00:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761055236;
+	bh=EFS2ou0OHQmiqS5lDgkHKShR4QgnzFyZtuGoeF4ARw0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aFcoZ9Dl87h0IzZkohYqVR7bDWTyKIXo7EPZD3N/CLgJb1V3GCrrsNDs1BlQl8CO8
+	 4zNuXSJfFA240hc5FqfSrzndQpdxW7cSjCuHuZY9WkhzhsD6upUrZCdHKQ1oEviAD4
+	 jCMLUnq4T2h/vpePY2Ei1czit5VlKa0U32SjzLMwmHZ4JdDKgdW7eopcJ7uDJt/Xmp
+	 spK37robToBy+pQTmGcyFsBTu11wevxnSKZsGYIFMeopxHJsCJTYrhjGbEt06pFz1y
+	 I+QZErFW5h8SWEG+IhIq0ity34oQ9tOYp3SFpOpWLvWHtnb7vbBoltQpmF2LnBA7hq
+	 HNsj1K8TbFsIw==
+Date: Tue, 21 Oct 2025 15:00:30 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Aishwarya.TCV@arm.com
+Subject: Re: [PATCH] KVM: arm64: gic-v3: Only set ICH_HCR traps for v2-on-v3
+ or v3 guests
+Message-ID: <78b0297c-4622-4b75-bcae-45c144c92c45@sirena.org.uk>
+References: <20251007160704.1673584-1-sascha.bischoff@arm.com>
+ <23072856-6b8c-41e2-93d1-ea8a240a7079@sirena.org.uk>
+ <86frbcwv5t.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20251016-gs101-pd-v3-0-7b30797396e7@linaro.org> <20251016-gs101-pd-v3-4-7b30797396e7@linaro.org>
-In-Reply-To: <20251016-gs101-pd-v3-4-7b30797396e7@linaro.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 21 Oct 2025 15:54:16 +0200
-X-Gm-Features: AS18NWDpF262ybo6_Emnnj0aCX8cQdB1lik5qoOWoSB0z0MgCBOGMTnmDv5nouE
-Message-ID: <CAPDyKFpH2p=JhkuXOxL4V3QMH8GObh0qSphPCK=OM9cNe+QmJg@mail.gmail.com>
-Subject: Re: [PATCH v3 04/10] pmdomain: samsung: plug potential memleak during probe
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, stable@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_065453_455587_3CC1EB74 
-X-CRM114-Status: GOOD (  19.56  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wfhFGhe94Stv3FFn"
+Content-Disposition: inline
+In-Reply-To: <86frbcwv5t.wl-maz@kernel.org>
+X-Cookie: Accordion, n.:
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,80 +83,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 16 Oct 2025 at 17:58, Andr=C3=A9 Draszik <andre.draszik@linaro.org>=
- wrote:
->
-> of_genpd_add_provider_simple() could fail, in which case this code
-> leaks the domain name, pd->pd.name.
->
-> Use devm_kstrdup_const() to plug this leak. As a side-effect, we can
-> simplify existing error handling.
->
-> Fixes: c09a3e6c97f0 ("soc: samsung: pm_domains: Convert to regular platfo=
-rm driver")
-> Cc: stable@vger.kernel.org
-> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 
-Applied for fixes, thanks!
+--wfhFGhe94Stv3FFn
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Kind regards
-Uffe
+On Tue, Oct 21, 2025 at 08:50:22AM +0100, Marc Zyngier wrote:
+> Mark Brown <broonie@kernel.org> wrote:
 
+> > It didn't appear in -next since the arm64 KVM fixes tree is not directly
+> > in -next and it was only pulled into Paolo's tree on Saturday, a few
+> > hours before Paolo sent his pull request to Linus, so there was no
+> > opportunity for it to be picked up.  As I've previously suggested it
+> > does seem like it would be a good idea to include the fixes branches for
+> > the KVM arch trees in -next (s390 is there, but I don't see the others),
 
-> ---
-> v2:
-> mark as fix, as this isn't a pure simplification
-> ---
->  drivers/pmdomain/samsung/exynos-pm-domains.c | 11 +++++------
->  1 file changed, 5 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdom=
-ain/samsung/exynos-pm-domains.c
-> index 5d478bb37ad68afc7aed7c6ae19b5fefc94a9035..f53e1bd2479807988f969774b=
-4b7b4c5739c1aba 100644
-> --- a/drivers/pmdomain/samsung/exynos-pm-domains.c
-> +++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
-> @@ -92,13 +92,14 @@ static const struct of_device_id exynos_pm_domain_of_=
-match[] =3D {
->         { },
->  };
->
-> -static const char *exynos_get_domain_name(struct device_node *node)
-> +static const char *exynos_get_domain_name(struct device *dev,
-> +                                         struct device_node *node)
->  {
->         const char *name;
->
->         if (of_property_read_string(node, "label", &name) < 0)
->                 name =3D kbasename(node->full_name);
-> -       return kstrdup_const(name, GFP_KERNEL);
-> +       return devm_kstrdup_const(dev, name, GFP_KERNEL);
->  }
->
->  static int exynos_pd_probe(struct platform_device *pdev)
-> @@ -115,15 +116,13 @@ static int exynos_pd_probe(struct platform_device *=
-pdev)
->         if (!pd)
->                 return -ENOMEM;
->
-> -       pd->pd.name =3D exynos_get_domain_name(np);
-> +       pd->pd.name =3D exynos_get_domain_name(dev, np);
->         if (!pd->pd.name)
->                 return -ENOMEM;
->
->         pd->base =3D of_iomap(np, 0);
-> -       if (!pd->base) {
-> -               kfree_const(pd->pd.name);
-> +       if (!pd->base)
->                 return -ENODEV;
-> -       }
->
->         pd->pd.power_off =3D exynos_pd_power_off;
->         pd->pd.power_on =3D exynos_pd_power_on;
->
-> --
-> 2.51.0.788.g6d19910ace-goog
->
+> As I explained to you more than once, the answer is still no. We keep
+> the two branches separate for good reasons -- for a start, they are
+> manager by different people.
+
+You do keep saying that but I am still unable to understand your
+reasoning here.  Having two separate branches is very standard, it is
+the normal pattern for fixes branches in -next and does not generally
+present any problems that I am aware of.  A bit more than a third of the
+branches merged by -next are fixes branches.  As I said in my earlier
+reply to Sean it can be an advantage to have the fixes in -next
+separately since this allows the fixes to go into pending-fixes, helping
+spot unintended dependencies on work that's targeting the merge window
+and ensure coverage continues even when there is breakage in development
+code.
+
+As I understand it the management of the KVM arm64 tree is very similar
+to that for the arm64 architecture tree.  That has the separate feature and
+fixes branches in -next, each managed by different people and both of
+which are in -next.  So far as I am aware this hasn't been causing Will
+and Catalin any problems, I don't know what would be different about the
+KVM arm64 tree here.
+
+The only thing I can think of is that you are objecting to the idea of
+having the KVM arm64 tree merge it's fixes branch into it's development
+branch.  That is not what I am suggesting, I am suggesting putting the
+fixes branch itself directly into -next to be merged by Stephen.  I am
+not proposing any change to the content of the KVM arm64 branches.
+
+> If you want to manage a -fixes tree, go for it. If you want to take
+> the -fixes branch in your CI, I have no objection.  Do I support this?
+> Absolutely not.
+
+There is no need for anyone to create a -fixes tree since we already
+have pending-fixes, created as part of building -next.  The merge for
+-next pulls in all the fixes branches first, publishes that as
+next/pending-fixes, and then merges the new feature branches on top of
+that to publish as next/master.
+
+--wfhFGhe94Stv3FFn
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmj3kf0ACgkQJNaLcl1U
+h9Dktwf/am3z/Hk2mvzO9eubv9A1vucrl5ffURTfbc37wQsUD3LS3VXXO/mRbU5b
+KEV+tQJZ0p9ZmNbOo2QhOV+9W4SiKZero5lHYMfyFQd2oBxCV8D2mOtZVtLi7neS
+3EJLxL/88s80PhIq7cQCFBPIn8VcBnH98e9a6KsUtI8t2LrU+ZMkb7eO1RfzQK2Q
+4WF/YxBgXPRqpERIJuy58ETpwGDTJ04i76XmboOvuv1d/sLQMgZCp3ovI+IFsgCX
+G+DKm5ydY/bnmuonDatzFCVVt2ifddsDzSiObpDyOGERP2MTp5jm+3bn7B7Z9Y2h
+/hL9bcd+3moRsEiRl8MIJ1YyKdDndQ==
+=Trde
+-----END PGP SIGNATURE-----
+
+--wfhFGhe94Stv3FFn--
 
