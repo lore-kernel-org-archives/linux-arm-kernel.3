@@ -4,116 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1BC1CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 08:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA86CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 08:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=llmJhZD012rxZY/wm+1U/bowfeca4YxBvqXnIKJ9gBs=; b=q/Qktbe5FCI7SsJeU2zSCSczia
-	RJDBydTkMlBRl3c336LbAbfA4/vOFxSnPpeUfaJhxoZnuwl6LwPRG2HUvYRGwDD+5CkmE75iTaoiS
-	fXp2z3KZ6oQQLQw/R94c8LtFVlMgi9ahUkCvt7MJJMoizoVX6kOaEje9fOoKVUYJKORtiqIZmh55J
-	x7mU4b8PG+BGiyxXJBMeXIn/kgDeKmcackQUM4FdI5cw4rx/lqe9ABJMKkRuqAphPF7zQWEWtPP5J
-	bFWwQORfxn+oLxTrSbkF4wEcQybayMax7TIEc2Kbdovfqe0C7K/lG5AfPOBzrkofcXw1knDlVoFSb
-	D0IDvB6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uaJdoHn0NXDruimCAXmm8uA1Fs0q8Xm1i44RzkSnJK0=; b=38HdkMwXIq1k1dck1SJq8Z2Fd7
+	euzTWJ65hwpLXobuc1/Ymplsj62I/ygi0uSQj6kZMnS9O+otGdz34l/zSYlWHofRcpQ/ZsAoLBryH
+	1LSTQslgtIJu2C5EEkByHu8zsNbAIAJvP19RMSsk2nSIuv8tXfBCrEOuwEEAIQzqhp2KKl6umx389
+	vsfQ17LdXdzQaHDIjnPpAhj9X3ixHaOCupRyzeKAYjcb2emIafRorT0KGleJFXTsah+TmM6+X0x64
+	bMe4yrBfN5/qJmefzMhqwElLYfYzea51KoFGLm6Fm+p6p7DP3XLSVN0zl80MyC0wTHzphJJqhp4KL
+	Od+gwhQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB7PM-0000000GDwi-0Zmi;
-	Tue, 21 Oct 2025 08:07:52 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1vB7R1-0000000GEKq-0K0Q;
+	Tue, 21 Oct 2025 08:09:35 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB7PJ-0000000GDvd-3czB
+	id 1vB7Qy-0000000GEJt-3X2W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 08:07:51 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b626a4cd9d6so1070542066b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 01:07:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ffwll.ch; s=google; t=1761034068; x=1761638868; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=llmJhZD012rxZY/wm+1U/bowfeca4YxBvqXnIKJ9gBs=;
-        b=UzvtSiNSCHVrza6aXUG2X4brjFa3Y4TVnwwVDJIawYnvL5dQUBI6PerRPBcklgW0fN
-         bBAA5Y1lilLLnlpbuxtZse+87315naD9yG0aUUPCFvwqfS77Oi+9L3VsGbbyHbO8JFb+
-         1972zUnWR2uEY4vLKSai0+X4+JwX4siOBbyW0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761034068; x=1761638868;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:to:from:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=llmJhZD012rxZY/wm+1U/bowfeca4YxBvqXnIKJ9gBs=;
-        b=rZr3BPWThkkmfo6pJlsyH7uJB5/U5OSTEks7/zQyoYrPPrKIPLP55sWXWe9HB4tMwd
-         IcVyrFJW6htL139FvjiyPzXB7FBSZMWUdTqpwSSDMZzmpqIRpjWtJodrdl/X18QKQIGf
-         kHKc4JEuH2OcXwPmj0sOMAQHi1G7qd3tA+rdz+oxGx+le2JKdo1Kv8toi3+0YywSD0nK
-         MaANBNZl+tCcAMtyVcQzl2eKfV4AZbHlFe4rXDoJKtYxbc++z07oTY5KrOKJxT7JDt6Z
-         ytSN65Rm6zbDoPNXplzDNIhsSQ1NnHi6P6zvHAc9ImW/jWDgAWUxbEb4gUNAqdMjkLOK
-         ngvA==
-X-Forwarded-Encrypted: i=1; AJvYcCVeyM/NsUcEMeKjUIyVKk8lBTRa+PU3JHeBRyoizAv8BHyGki1r8hLfOxLLbgVgVGIhUS3s8S9BjyHSMkIm+hLT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyp+Jx1XC+ThsIIr7ufpJDZf4WlG+LFKiHsWUl5iUkd4WDQdGMx
-	x+f2Bx+YSGkG56i64FZ9laympfoemBebOl2TAhkEX7G/Hhsovcc1umI6c+uZXqSuOm4=
-X-Gm-Gg: ASbGnctfpnSZ7YQnXwk6nsfBB5E7HbgpzurOIAywQrjhOYKW0dl/2+Kg6q1x1RWLafj
-	WTKTUEkpB2rBQg6HfVNeqov0mb6jKRhV5FOF/8xyCk+Ce4uZOeM/9Wdixdb3p+HzuM/DoSFKaxa
-	+brIldJNsVkNo16L40oD9kVQlGNiW3VCEwjlUGTamiYJgkAET5A14YX3BLHs0OV3kZJqGzHLhyy
-	vj2TJMwaF48ohoAq1sDCPdxdHUsp7774apymagjGQfpIdiQtton7fzy5/gp8tfoz6Gvi9kP8AJZ
-	IjNDxgMmAbFjJiaZFGFfGLu9b9EvsuZG+4AVLMdIhzxNCNSYW5/AOs5GhT1Eugb+3VtjJOR9KC+
-	N18Zc1Rfh/3aYrGeRs000nFSCx2MzRKQX5y8ZQ7Ww6aJbWORGpIyMVux8bxN22txRnABgXOPFA+
-	y4DIcZFTVtaHuptuJCzm1/XQ==
-X-Google-Smtp-Source: AGHT+IEGcQ2tB+9FLkcsMzH3Z3OqGyaRZtqOqXHeWD/7JycNzUq8R6JyQRoeUwJtVWAc3tO+BkBXoA==
-X-Received: by 2002:a17:907:2d23:b0:b5c:74fb:b618 with SMTP id a640c23a62f3a-b6472c61933mr1959457166b.12.1761034067061;
-        Tue, 21 Oct 2025 01:07:47 -0700 (PDT)
-Received: from phenom.ffwll.local ([2a02:168:57f4:0:5485:d4b2:c087:b497])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63c48ab65d6sm8600484a12.14.2025.10.21.01.07.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Oct 2025 01:07:46 -0700 (PDT)
-Date: Tue, 21 Oct 2025 10:07:44 +0200
-From: Simona Vetter <simona.vetter@ffwll.ch>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org, rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-	simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org,
-	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	victor.liu@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
-	devicetree@vger.kernel.org, l.stach@pengutronix.de,
-	shengjiu.wang@gmail.com, perex@perex.cz, tiwai@suse.com,
-	linux-sound@vger.kernel.org
-Subject: Re: [PATCH v7 2/7] ALSA: Add definitions for the bits in IEC958
- subframe
-Message-ID: <aPc_UBy5-e6HIW9I@phenom.ffwll.local>
-Mail-Followup-To: Shengjiu Wang <shengjiu.wang@nxp.com>,
-	andrzej.hajda@intel.com, neil.armstrong@linaro.org,
-	rfoss@kernel.org, Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se, jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	lumag@kernel.org, dianders@chromium.org,
-	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	victor.liu@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
-	devicetree@vger.kernel.org, l.stach@pengutronix.de,
-	shengjiu.wang@gmail.com, perex@perex.cz, tiwai@suse.com,
-	linux-sound@vger.kernel.org
-References: <20250923053001.2678596-1-shengjiu.wang@nxp.com>
- <20250923053001.2678596-3-shengjiu.wang@nxp.com>
- <aPc-Wad85lQWbqfa@phenom.ffwll.local>
+	Tue, 21 Oct 2025 08:09:34 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id CF5A94E4123D;
+	Tue, 21 Oct 2025 08:09:30 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9610860680;
+	Tue, 21 Oct 2025 08:09:30 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 66C00102F23E8;
+	Tue, 21 Oct 2025 10:09:19 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761034169; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=uaJdoHn0NXDruimCAXmm8uA1Fs0q8Xm1i44RzkSnJK0=;
+	b=jylajQiNswkpvpiLrpRh5lrXTaTqojw5jEJqLhUpL/ZqFUrnBRcvcO934JwKAlNNYApAXd
+	Sa6UwGEwL9e7y7wlca6U8b/EFgTvmvkMJVHolpYSLiKOPISIh+A1ls3iURh15zFbPzjOu+
+	XPZYQBSdnp9dDMWl/ocXovDmJw7NSZe/lsy3KhCehdtTUqhpdUsOf48DKEO5LRmS4EiS5V
+	AxxsyDVpFYgG13bX5wjCFfPkuhjz12m7mTIg3OtJtfr4P4eDUthaIBQP4U1m2l7Irn8T/4
+	4dNS7GVGHbn9Ynvqgg2jAHkA+XFZjHhCzL/OG2wBsHsoHbLo5zwAWywiJObqZQ==
+Message-ID: <29322269-6d27-48da-a58b-1d2053369833@bootlin.com>
+Date: Tue, 21 Oct 2025 10:09:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aPc-Wad85lQWbqfa@phenom.ffwll.local>
-X-Operating-System: Linux phenom 6.12.38+deb13-amd64 
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v14 00/16] net: phy: Introduce PHY ports
+ representation
+To: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Russell King <linux@armlinux.org.uk>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
+ =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
+ Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+ Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Romain Gantois <romain.gantois@bootlin.com>,
+ Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+References: <20251013143146.364919-1-maxime.chevallier@bootlin.com>
+ <20251020185249.32d93799@kernel.org>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20251020185249.32d93799@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_010749_919407_77A68C23 
-X-CRM114-Status: GOOD (  23.95  )
+X-CRM114-CacheID: sfid-20251021_010933_013908_3DBC0E54 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,62 +97,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 10:03:37AM +0200, Simona Vetter wrote:
-> On Tue, Sep 23, 2025 at 01:29:56PM +0800, Shengjiu Wang wrote:
-> > The IEC958 subframe format SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE are used
-> > in HDMI and DisplayPort to describe the audio stream, but hardware device
-> > may need to reorder the IEC958 bits for internal transmission, so need
-> > these standard bits definitions for IEC958 subframe format.
-> > 
-> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> > Reviewed-by: Takashi Iwai <tiwai@suse.de>
-> > Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> 
-> Would be good to get a formal ack from alsa maintainers before merging
-> through drm, just to be sure.
+Hi Jakub,
 
-Sorry wasn't fully awake yet, I meant that it should be recorded in the
-commit. dim has a check for this stuff now and it fired for your patch.
--Sima
+On 21/10/2025 03:52, Jakub Kicinski wrote:
+> On Mon, 13 Oct 2025 16:31:26 +0200 Maxime Chevallier wrote:
+>> Hi everyone,
+>>
+>> Here is a V14 for the phy_port work, aiming at representing the
+>> connectors and outputs of PHY devices.
+> 
+> I can't help but read the lack of replies from PHY maintainers
+> here as a tacit rejection. Not entirely sure what to do here.
+> Should we discuss this at the netdev call tomorrow (8:30am PT)?
+> Would any PHY maintainer be willing to share their opinion?
 
-> 
-> Thanks, Sima
-> 
-> > ---
-> >  include/sound/asoundef.h | 9 +++++++++
-> >  1 file changed, 9 insertions(+)
-> > 
-> > diff --git a/include/sound/asoundef.h b/include/sound/asoundef.h
-> > index 09b2c3dffb30..c4a929d4fd51 100644
-> > --- a/include/sound/asoundef.h
-> > +++ b/include/sound/asoundef.h
-> > @@ -12,6 +12,15 @@
-> >   *        Digital audio interface					    *
-> >   *                                                                          *
-> >   ****************************************************************************/
-> > +/* IEC958 subframe format */
-> > +#define IEC958_SUBFRAME_PREAMBLE_MASK	(0xfU)
-> > +#define IEC958_SUBFRAME_AUXILIARY_MASK	(0xfU << 4)
-> > +#define IEC958_SUBFRAME_SAMPLE_24_MASK	(0xffffffU << 4)
-> > +#define IEC958_SUBFRAME_SAMPLE_20_MASK	(0xfffffU << 8)
-> > +#define IEC958_SUBFRAME_VALIDITY	(0x1U << 28)
-> > +#define IEC958_SUBFRAME_USER_DATA	(0x1U << 29)
-> > +#define IEC958_SUBFRAME_CHANNEL_STATUS	(0x1U << 30)
-> > +#define IEC958_SUBFRAME_PARITY		(0x1U << 31)
-> >  
-> >  /* AES/IEC958 channel status bits */
-> >  #define IEC958_AES0_PROFESSIONAL	(1<<0)	/* 0 = consumer, 1 = professional */
-> > -- 
-> > 2.34.1
-> > 
-> 
-> -- 
-> Simona Vetter
-> Software Engineer
-> http://blog.ffwll.ch
+I can definitely be there to discuss this, thanks for organizing this.
 
--- 
-Simona Vetter
-Software Engineer
-http://blog.ffwll.ch
+Maxime
 
