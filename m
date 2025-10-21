@@ -4,57 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9245DCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 10:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E34B7CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 10:08:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fwulWsxy+tw0D9Bf2/7cSO96qB2hiooVDbu8LluMyUI=; b=DF1XxHM3CoozTT308+xcbAafWT
-	+Qs+bXTOzveZyFwGInls26NjdZSip+vYNvceswashuhr4hDRYNeatyqVzR3bo8DrVtiOdsBBEci+R
-	ybxtPUeZt0UCH3hvwd9JFiyCc0kAr5djBY8xxqV1JHtZPwKJJDENQjHPStijzJTCM35CinzFPjphx
-	CvGait9piDLysI7vnfiGaJ3flQ1OQU6iSO07g98ZJmITC+mMXVaE4T3BWGkZYiunUxp7SgO/Lbxro
-	h+BzifroFtBP9g3se4isko3icKty4MsdDcPw/p9jS++UHjeQbYrgiRGS84DrV+dzEc98AHOaXQsFx
-	IPYnGyIA==;
+	bh=FcY1WuRhXouiGA4KCWU+G5cXctN3EhAkLVSQq5aIkDA=; b=QpLHFrSNF9kRhT5igZq6MXFajH
+	wpS3tiFpfX3lbD0ALUIkA/tPetCNM24dFovbCb/tONhGga+IGbDxKeT7Ag3ft/z4cvkqoJw81t6rA
+	oaz1n77hQqviSG9DBJ8paRkr3vH16Z+JfP0APlTZY2JCc7t27xyCGW3fuJL8Yk7KphsHWPWu8CwX+
+	zOPFRK6bT74+/y0Sg9oA7g0p7J8gXS6tIEvqHhl8pDtqj3Pk8d+pVWbDX7IIBzRI8eAiiTDCTjOjx
+	1fizgaRH/hhaQEXkjnSmnzGRcOi4DWh7uLmNCfaxsUGXLRgWAL7MDUKnwZD7Q7LB3bVQDk/ZpNi4S
+	Z8p4Twqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB9I1-0000000GZ9h-37rw;
-	Tue, 21 Oct 2025 10:08:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB9Hy-0000000GZ8J-2mL7
+	id 1vB9IJ-0000000GZH1-0Zbz;
+	Tue, 21 Oct 2025 10:08:43 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vB9IG-0000000GZFn-12Ga
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 10:08:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21CC01007;
-	Tue, 21 Oct 2025 03:08:13 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 871993F63F;
-	Tue, 21 Oct 2025 03:08:18 -0700 (PDT)
-Date: Tue, 21 Oct 2025 11:08:16 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org, d-gole@ti.com, souvik.chakravarty@arm.com
-Subject: Re: [PATCH 05/10] firmware: arm_scmi: Add Telemetry protocol support
-Message-ID: <aPdbkHixRsWjsZ3d@pluto>
-References: <20250925203554.482371-1-cristian.marussi@arm.com>
- <20250925203554.482371-6-cristian.marussi@arm.com>
- <20251017163725.0000149e@huawei.com>
+	Tue, 21 Oct 2025 10:08:41 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-78485808eb3so36600537b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 03:08:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761041319; x=1761646119; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FcY1WuRhXouiGA4KCWU+G5cXctN3EhAkLVSQq5aIkDA=;
+        b=GVKSCL540dWg3T2GpRmblRqAgSVn1KIZ+RIXrkcH4x9o0ADLAw54UDxwsl6j1ir+h3
+         2+yIaSKVcpiaKSednYL49OKLNp2RL64UrJLgS548R2FkJ1PnxLL2qh/DEfef/EIVxDaI
+         W08VYMJSqyQk07DBrU9qryVzS6NKyZ2wE8g3pl1rTg43eQqc7YH6P7IsWfIH0e/v/DDC
+         17+w6lGVr6f2fMH5mghaF9JC5DiDVZy3SDlFiGmnxuJwsQ6z3LYZO96EIbQ4wnPRaYmv
+         xcnVzpsoutNIClyPq0m3CdZ3sUyQFxkus4VHMCvao6/HQaL2kAZjGdw/UJuFhT/c6apP
+         1BHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761041319; x=1761646119;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FcY1WuRhXouiGA4KCWU+G5cXctN3EhAkLVSQq5aIkDA=;
+        b=BiTmFfcJpXYbBzeVLhJbbG30A7IkEbWpyJuWnobOQcfg4QPrNMBwJ/V2VVSk0lnlXd
+         MvlCW+YbFfcaiJ++PB8zx2NKo1WhR9VSzM7gtgNNw6FYDfrzZ8OJ1L7+aMfRq8KiQkKs
+         1JnCWKOw9fUazrKihDS+Z2zYEJ04f0xkci1XwJ81MaqzpDuNano5Sa1Hw+0nKsKRs+/J
+         RBbDm9HJgahenpkRVZC2CR/qWX+6EB5QUhtXsMFbiSRrNb5qLRhY1GpFQenk5Tgq+Fei
+         KXjds76iVH2oAUz2vTG3M7nDY9P6OQobmnMchp0Ys3iRvEFZAV5gdPwzIoUtpUHBZS++
+         U5YA==
+X-Forwarded-Encrypted: i=1; AJvYcCWvQi8XG9JkIJo4+JiFvFNYk0G8yJ8APXpgvZ8Waw283aySzjdb0tQpv4Vkx1ykh2oAaxvRwJrvHfNxyA8nEZHD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHnahBhCl84RfjPp0P5nzr6kkDViwRO8J26LYyMtpfxjBLEvw/
+	cMJ0wlGtGEcHjSq3jhGU6cXvhYHgGeoljWLJxhf7mf5kDW9vi61S3BgSn7IiDgn0nF1vv/n5KiA
+	luF0KwbvOJzq/5yXuhA48C3ZjVgxzR/f7tDtpJYu36w==
+X-Gm-Gg: ASbGncuitlG+G8b6jv4ip1gyUrrviK0bi6UvNUR157f4ohYZRuFioVhcma9IC6faTZQ
+	d5Kd/NfaHiRy6RHsb87NPbR9/uq8mOHA0YuaR5FuDjyNnxp/mvlX7WGA1G3419xwM1Cr2re0Yb6
+	8ULXmrClnM+TPMkQHqgZtyNzQ7IKbwFhfn5djeGbQz0hcxY7x4w9k2ucRPtyGRZ9TZ7rzSon6EC
+	IgnO/x0NUf/AnITYZfsiTiCpOCntH98asGo040uCpNiBCBvrVxwK6SpUl5iIQ==
+X-Google-Smtp-Source: AGHT+IER588Lwab2jH1RPVxWEMKtc71AdHZ7rUDhw6Az9ENBa6h+mO9XQH92FP+m3bjNm6autc5uWg5ixjt23yxAFE0=
+X-Received: by 2002:a05:690e:d51:b0:636:d3f9:6418 with SMTP id
+ 956f58d0204a3-63e1610c2eamr12824971d50.22.1761041319091; Tue, 21 Oct 2025
+ 03:08:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251017163725.0000149e@huawei.com>
+References: <20251020141718.150919-1-ulf.hansson@linaro.org>
+ <20251020141718.150919-2-ulf.hansson@linaro.org> <a0120876-0f00-4e1a-aa17-5fe7c3512276@arm.com>
+In-Reply-To: <a0120876-0f00-4e1a-aa17-5fe7c3512276@arm.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 21 Oct 2025 12:08:02 +0200
+X-Gm-Features: AS18NWAG0JIz8WscydJtNeviSVU0idBmTgh-4-AojKeBaYrYkaU30tTtBYxU8G4
+Message-ID: <CAPDyKFrY5kOsoOH-mcWFiaiggV4q84xOtiKHdNN4bMfFmYOQPQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] smp: Introduce a helper function to check for
+ pending IPIs
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
+	Maulik Shah <quic_mkshah@quicinc.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_030822_820335_E9903935 
-X-CRM114-Status: GOOD (  46.38  )
+X-CRM114-CacheID: sfid-20251021_030840_308961_137DFCED 
+X-CRM114-Status: GOOD (  24.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,269 +99,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 04:37:25PM +0100, Jonathan Cameron wrote:
-> On Thu, 25 Sep 2025 21:35:49 +0100
-> Cristian Marussi <cristian.marussi@arm.com> wrote:
-> 
-> > Add basic support for SCMI V4.0-alpha_0 Telemetry protocol including SHMTI,
-> > FastChannels, Notifications and Single Sample Reads collection methods.
-> > 
-> > Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-> 
-> Hi,
-> 
+On Mon, 20 Oct 2025 at 21:11, Ben Horgan <ben.horgan@arm.com> wrote:
+>
+> Hi Ulf,
+>
+> Only a comment on the naming rather than a full review.
+>
+> On 10/20/25 15:17, Ulf Hansson wrote:
+> > When governors used during cpuidle, tries to find the most optimal
+> > idlestate for a CPU or a group of CPUs, they are known to quite often fail.
+> > One reason for this, is that we are not taking into account whether there
+> > has been an IPI scheduled for any of the CPUs that are affected by the
+> > selected idlestate.
+> >
+> > To enable pending IPIs to be taken into account for cpuidle decisions,
+> > let's introduce a new helper function, cpus_may_have_pending_ipi().
+>
+> To me, "may" indicates permission, i.e. is allowed, rather than
+> correctness. Would "likely" be better here, cpus_likely_have_pending_ipi()?
 
-Hi thanks for having a look
+Sure, that sounds better to me too.
 
-> This is very much in the superficial drive by category as reviews
-> go.  A few things noted but I've not looked at the code in enough
-> detail.
+I leave it a few days to allow people to provide their additional
+input, before posting a new version with the new name of the function.
 
-...this is still very early days as a series since I moved across a few
-different implementations in the previous RFCs, so as noted in the
-cover-letter there are in general lots of open-issues...
-
-...BUT I am sure there will be more after this review :P
-
-Thanks for the feedback in the meantime.
-
-> 
-> Jonathan
-> 
-> 
-> > diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-> > new file mode 100644
-> > index 000000000000..f03000c173c2
-> > --- /dev/null
-> > +++ b/drivers/firmware/arm_scmi/telemetry.c
-> > @@ -0,0 +1,2117 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * System Control and Management Interface (SCMI) Telemetry Protocol
-> > + *
-> > + * Copyright (C) 2025 ARM Ltd.
-> > + *
-> My favorite trivial comment applies.  What does this blank line add
-> to readability? I'd drop it.
-> 
-
-... I would say..at the moment felt right :P ... but there is no need
-and I wil drop it.
-
-> > + */
-> 
-> > +
-> > +struct scmi_de_desc {
-> > +	__le32 id;
-> > +	__le32 grp_id;
-> > +	__le32 data_sz;
-> > +	__le32 attr_1;
-> > +#define	IS_NAME_SUPPORTED(d)	((d)->attr_1 & BIT(31))
-> > +#define	IS_FC_SUPPORTED(d)	((d)->attr_1 & BIT(30))
-> > +#define	GET_DE_TYPE(d)		(le32_get_bits((d)->attr_1, GENMASK(29, 22)))
-> > +#define	IS_PERSISTENT(d)	((d)->attr_1 & BIT(21))
-> > +#define GET_DE_UNIT_EXP(d)						\
-> > +	({								\
-> > +		int __signed_exp =					\
-> > +			le32_get_bits((d)->attr_1, GENMASK(20, 13));	\
-> > +									\
-> > +		if (__signed_exp & BIT(7))				\
-> > +			__signed_exp |= GENMASK(31, 8);			\
-> > +		__signed_exp;						\
-> > +	})
-> > +#define	GET_DE_UNIT(d)		(le32_get_bits((d)->attr_1, GENMASK(12, 5)))
-> > +
-> > +#define GET_DE_TSTAMP_EXP(d)						\
-> > +	({								\
-> > +		int __signed_exp =					\
-> > +			FIELD_GET(GENMASK(4, 1), (d)->attr_1);		\
-> > +									\
-> > +		if (__signed_exp & BIT(3))				\
-> > +			__signed_exp |= GENMASK(31, 4);			\
-> > +		__signed_exp;						\
-> See below for sign_extend32() using code to replace these.
-> 
-
-Sadly enough, in the past I am sure I have also searched for something similar
-and did not find it despite being merged since 2010 apparently... :<
-
-> 
-> > +
-> > +struct scmi_msg_resp_telemetry_reading_complete {
-> > +	__le32 num_dwords;
-> > +	__le32 dwords[];
-> __counted_by(num_word);
+>
+> >
+> > Note that, the implementation is intentionally as lightweight as possible,
+> > in favor of always providing the correct information. For cpuidle decisions
+> > this is good enough.
+> >
+> > Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> > ---
+> >
+> > Changes in v2:
+> >       - Implemented a common function, rather than making it arch-specific. As
+> >       suggested by Thomas and Marc.
+> >       - Renamed the function to indicate that it doesn't provide correctness.
+> >       - Clarified function description and commit message.
+> >
+> --
+> Thanks,
+>
+> Ben
 >
 
-Mmmm, this is really used to cast to a variable sized received message
-payload..is the __counted_by gonna work as intended in this case ?
-..because this means a bad sizing could be triggered by a bad FW...
-
-(I suppose I will find my answer looking better at __counted_by inner workings...)
-
-I will check anyway the processing of this var size message...
- 
-> > +};
-> > +
-> > +/* TDCF */
-> > +
-> > +#define TO_CPU_64(h, l)	(((u64)le32_to_cpu((h)) << 32) | le32_to_cpu((l)))
-> Some of this stuff sounds very generic and isn't at all.
-> 
-> Personally I think I'd just drop this one as it may be better to see
-> the implementation wherever it is used.
-
-Ok ...it was to avoid a bit of duplication in some macros down below
-and made the intent more clear from the name..
-
-> 
-> > +static int scmi_telemetry_tdcf_line_parse(struct telemetry_info *ti,
-> > +					  struct payload __iomem *payld,
-> > +					  struct telemetry_shmti *shmti,
-> > +					  bool update)
-> > +{
-> > +	int used_qwords;
-> > +
-> > +	used_qwords = (USE_LINE_TS(payld) && TS_VALID(payld)) ?
-> > +		QWORDS_TS_LINE_DATA_PAYLD : QWORDS_LINE_DATA_PAYLD;
-> > +
-> > +	/*Invalid lines are not an error, could simply be disabled DEs */
-> 
-> Check for inconsistent comment syntax etc.
-
-Ok.
-
-> 
-> > +	if (DATA_INVALID(payld))
-> > +		return used_qwords;
-> 
-> > +
-> > +static int scmi_telemetry_shmti_scan(struct telemetry_info *ti,
-> > +				     unsigned int shmti_id, u64 ts,
-> > +				     bool update)
-> > +{
-> > +	struct telemetry_shmti *shmti = &ti->shmti[shmti_id];
-> > +	struct tdcf __iomem *tdcf = shmti->base;
-> > +	int retries = SCMI_TLM_TDCF_MAX_RETRIES;
-> > +	u64 startm = 0, endm = 0xffffffffffffffff;
-> 
-> No one likes counting fs.  Use a GENMASK probably.
-
-Yes definitely better, even though is not really a mask but just a fixed
-invalid value to use at start...
-
-> 
-> > +	void *eplg = SHMTI_EPLG(shmti);
-> 
-> 
-> > +static void
-> > +scmi_telemetry_msg_payld_process(struct telemetry_info *ti,
-> > +				 unsigned int num_dwords, unsigned int *dwords,
-> 
-> I'd kind of expect something called dwords to have a fixed size. u32, u64 or
-> whatever.
-
-Yes I agree.
-
-> 
-> > +				 ktime_t timestamp)
-> > +{
-> > +	u32 next = 0;
-> > +
-> > +	while (next < num_dwords) {
-> > +		struct payload *payld = (struct payload *)&dwords[next];
-> > +		struct scmi_telemetry_de *de;
-> > +		struct telemetry_de *tde;
-> > +		u32 de_id;
-> > +
-> > +		next += USE_LINE_TS(payld) ?
-> > +			TS_LINE_DATA_PAYLD_WORDS : LINE_DATA_PAYLD_WORDS;
-> > +
-> > +		if (DATA_INVALID(payld)) {
-> > +			dev_err(ti->dev, "MSG - Received INVALID DATA line\n");
-> > +			continue;
-> > +		}
-> > +
-> > +		de_id = le32_to_cpu(payld->id);
-> > +		de = xa_load(&ti->xa_des, de_id);
-> > +		if (!de || !de->enabled) {
-> > +			dev_err(ti->dev,
-> > +				"MSG - Received INVALID DE - ID:%u  enabled:%d\n",
-> > +				de_id, de ? (de->enabled ? 'Y' : 'N') : 'X');
-> > +			continue;
-> > +		}
-> > +
-> > +		tde = to_tde(de);
-> > +		guard(mutex)(&tde->mtx);
-> > +		tde->cached = true;
-> > +		tde->last_val = LINE_DATA_GET(&payld->tsl);
-> > +		//TODO BLK_TS in notification payloads
-> > +		if (USE_LINE_TS(payld) && TS_VALID(payld))
-> > +			tde->last_ts = LINE_TSTAMP_GET(&payld->tsl);
-> > +		else
-> > +			tde->last_ts = 0;
-> > +	}
-> > +}
-> 
-> 
-> > diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-> > index 59527193d6dd..6c6db95d0089 100644
-> > --- a/include/linux/scmi_protocol.h
-> > +++ b/include/linux/scmi_protocol.h
-> 
-> ...
-> 
-> > +#define	SCMI_TLM_GET_UPDATE_INTERVAL_SECS(x)				\
-> > +	(le32_get_bits((x), GENMASK(20, 5)))
-> Why is this one little endian specific and the next just uses assumption of
-> CPU Endian?
-
-Mmmm is not becasue the next one extract a 5 bit value that being < 8bit
-has no endianity issue ?
-
-....haviong said that...I think this version has a lot of endian issue to be
-fixed as pointed out also by the kernel bots...
-
-> 
-> > +#define SCMI_TLM_GET_UPDATE_INTERVAL_EXP(x)				\
-> > +	({								\
-> > +		int __signed_exp = FIELD_GET(GENMASK(4, 0), (x));	\
-> > +									\
-> > +		if (__signed_exp & BIT(4))				\
-> > +			__signed_exp |= GENMASK(31, 5);			\
-> sign_extend32() from bitops.h should work here and is much more self explanatory.
-> That would then make this something like
-> 
-> #define SCMI_TLM_GET_UPDATE_INTERVAL_EXP(x) \
->  	sign_extend32(x, 4);
-> or you can mask it first if you like but I don't think it makes any difference
-> in practice.
-
-Yes using well known helpers is much better...I will rework and
-test...just in case :D
-
-> 
-> > +		__signed_exp;						\
-> > +	})
-> > +
-> > +#define SCMI_TLM_BUILD_UPDATE_INTERVAL(s, e)				    \
-> > +	(FIELD_PREP(GENMASK(20, 5), (s)) | FIELD_PREP(GENMASK(4, 0), (e)))
-> 
-> > +
-> > +struct scmi_telemetry_update_report {
-> > +	ktime_t		timestamp;
-> > +	unsigned int	agent_id;
-> > +	int		status;
-> > +	unsigned int	num_dwords;
-> > +	unsigned int	dwords[];
-> 
-> More places where __counted_by is appropriate. I'll not comment on any others and
-> just assume you'll add them wherever appropriate.
-> 
-
-Sure, but, as said above, I will reason a bit on the places where the struct is used
-to cast a received FW payload (which is NOT the case in this latter example...)
-
-Thanks,
-Crisian
+Kind regards
+Uffe
 
