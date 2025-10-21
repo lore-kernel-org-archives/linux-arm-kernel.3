@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD92CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 19:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F92CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 19:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+SCUkszQLT3jhOeJ8xWYrP1u+Oz6oVJ2BJ9Vl0R1XPo=; b=lFgSO7sCCgh25ubP8iZW4Qqe5Z
-	ZgS4XoBh2f9xFrJ68yzHbOI6IPnqQfABRZ2ixsvG5GD31htJKY+JyJIIa5HjWAw2jN028YNKeZHIP
-	vXrdHyb53Muq9ZoFE58j4X8sYxB8VpRE6tWVeBfJC+ewGL5AuMAJXGjwrN4AHU8zFiDXu4xmvgx/v
-	zAXiCuJ61wZW0w2KLrXH5jTL/zFO0Hq15i94RYEtgqRdwsk8zODh4fRD61cpt0A9wppGaiTHuGWsj
-	D47h8h70NZANtw9nnDABm0EVwJ8+327lPfoaxHI3Vf1Hk7mau7u/4LuHIcPESGZtkxnB52oRdsatr
-	ZGhFcGvQ==;
+	bh=M2AwA2f/f6W+wFYqRdKOL2857kAZtGdLXYTnjc91Eh8=; b=ebpFsKecs4jPbWdX2BThvXK+J2
+	aRDTgFpibNVtodMFuxM32mRjlJRpHVm6Hfs95ryV4XPfIOpJfyqGFJeCP4Bx3e/lnHHYSoWVDIg6L
+	3ifZq1Acuv2cygQpoUcBdx0mWZsLNZi1EntDVin0WX3scGMrRywqSSEDo2lqnDFaFJWzdB0sibrxy
+	+NdgQ5018aLMlOwWF4g2+8W5o0x1qhJvFDPvkNY8zzBclxOfJ72R7pnlH+/C95m4T4YBGO7/dd/FT
+	p2GsNwotMATyWe+/7ZvSgKI0+ZYnr2NCdolEOQ2eDAp8XNkIrsiluScs7eQ4fUXyRT8/bF0sfVDpr
+	bMZISMvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBI0u-00000000Tu3-0TNJ;
-	Tue, 21 Oct 2025 19:27:24 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1vBI0z-00000000Tvr-1SIM;
+	Tue, 21 Oct 2025 19:27:25 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBI0k-00000000Trd-1vFa
+	id 1vBI0n-00000000TsL-2bfm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 19:27:11 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3f4319b8c03so667983f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 12:27:09 -0700 (PDT)
+	Tue, 21 Oct 2025 19:27:14 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-470ff9b5820so9662435e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 12:27:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761074828; x=1761679628; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1761074832; x=1761679632; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+SCUkszQLT3jhOeJ8xWYrP1u+Oz6oVJ2BJ9Vl0R1XPo=;
-        b=ghDDA33YTQ0PiXkLEUqzWyHyVNtHamtkNQ+jA7yfrrYeN06DMEmNiluDMyQTXywn3K
-         Spx6xbczNAvTFJHIb5saEHV2BMRAnEMrihN2zjtaV20+7F9pBO5mnUfHevul0FQuKmY8
-         6+TqFKUujdQmN4i4e2fvFrnG57I2F2jblYjKTjq0AYvUV7jWHtLMrNEYeAmH1Sm1ie59
-         t56wH3yYvEEUq3tMcG+wg5eagf7ji4Cl4FD3/c6VXuYR0L9ZhUzYkYd3GwWbhrxsAgTJ
-         ZuB/vlzpZ3HF1SBm7AZpZcko7F6oi7gD7pKlaOoraZmaiP6bEJpSGVcnyo+CpsA43dv0
-         6WfA==
+        bh=M2AwA2f/f6W+wFYqRdKOL2857kAZtGdLXYTnjc91Eh8=;
+        b=Clb7CLLqD/dh0L8ik4QXkfKKUushuDuf21t2fjehx+gMHxUlxk8cEZHXd6nJZJBaxO
+         vwAbY/Yd0FastOs+sN9M1YO1U/p1rarR94xNXmavx3mHFDM/naQ+wz7po7AfraR0xU2O
+         Kh9nzGjXpjz6NMYk6tEWqcCHMrqR8/FCn2cHuqRU1gR1l/l+Bs8YN5k2bv29uY7m992H
+         4Akx7CiyyNnhkEzRSLm04C+xJYv4ipJUwcUwCwnSvNFRg6Amm6/L3oWESac4SRpGRYwn
+         np4XcuuS0xCbm6XVcCdauKM5QHPBxGaSXA3XHZn1KkGdHn316r6nX6CujrnO3RlZIwS6
+         ASOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761074828; x=1761679628;
+        d=1e100.net; s=20230601; t=1761074832; x=1761679632;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+SCUkszQLT3jhOeJ8xWYrP1u+Oz6oVJ2BJ9Vl0R1XPo=;
-        b=LbkG7OPlFeEpyzE0IEUkBnZC3xn8tY8fZ4oxYboRW088563UrtYCDPkE+6V8TkpLlP
-         5YvVU+K2aLRIuyQqI/Py5aOY0NYLNIrSkT3KN92x0ameUF5LonlW5W/Riw/6LfH9mEnv
-         54LUuo+Ef1Mp9b0hUr49OqRvRuzCf24rgqFfrn6eOhXmWjVYUZqHZw0Siu8HX28bEAlo
-         PK7e1j9oyWEfy95z2mxH1M9vIeUobDYrdjVlNSoHVCF35Q24vcbcRiNAR75tgRyVCuvP
-         usxeinJnyUPuQBBmJMZu6RD1GPyw7UL1L+u3N0Sx7jhnax3y9gffleHcqFYSDU9BJ3N6
-         qsiw==
-X-Forwarded-Encrypted: i=1; AJvYcCVAAHWU4Ffxp18TcUj0dznWk4oNYB9QvXa75TmWYFGNyPkAKk6RCB6UzRLKOldmc9PKeGAi1yltA9lPlF5Djt1K@lists.infradead.org
-X-Gm-Message-State: AOJu0YydACoolu0fSAsAz+58QH8OW5TbVivO0vdUUa/OmZOk+XTTGb7J
-	Is0YJUQioJ+sASITV77nLHP+iRnK9/ahhUQySCPilPNfB6vLT9nhjcYm1D1bW68a9+s=
-X-Gm-Gg: ASbGncubSpNCPXW0GAUpakW6N02CMNCvjvzc9CoYOuGqn3GHmb0acqE/Y943Jg3WWAU
-	XgwlDv39OsSXVZNbArDO/6hI99UvBprFQuT4+EbAo1Nb6ACfX62RTxlnWNy4qkI9ij5RBetHmZp
-	970LSSqyA0IrCUMROR6y/Bu2QHosbgUiggjNEHhcOEEf0AtYHZmT/TO63EWgJtMGA7yrAZuRG1r
-	aUmF45YvZmHDif2HcoOzF/ZDvhmcafIFlbbNk5T1a70pqTxxARJ8mP3V8an9YX41oygvIVC5EDR
-	a1xdXlWL2rt5aLQ11dGOFlOgWgiFVwbkyCNmtksDFFp3445v+Rhe8pFty5Eb2VMZmXCcQnulrB+
-	v+C5iZjkyxWSPZ+KMaYjza2CD5OcYNo+9nMp6B5ZaEhFTH2bbHtX5+1RHmo+4OhIShQsRBAzdO6
-	/yMaeXwHy/S9nVSVSVr4GVVneZ4YVhxt0kBk3ATw==
-X-Google-Smtp-Source: AGHT+IEyLv1lnWbFD6puUzU9WbOWyzqsLRxtSYF5/o3s87IaGKKi+zQdweoF9FjJ4w5n57/TykzA0Q==
-X-Received: by 2002:a05:600c:458a:b0:471:1d8e:3c7c with SMTP id 5b1f17b1804b1-4749435b2b6mr19420285e9.4.1761074828560;
-        Tue, 21 Oct 2025 12:27:08 -0700 (PDT)
+        bh=M2AwA2f/f6W+wFYqRdKOL2857kAZtGdLXYTnjc91Eh8=;
+        b=bO7nZ2Oc8p06B0ehpuLMKrq1+h7bvasSRm3FRuATPBGkXtvA+EYynRJO+WYEoiE9Gg
+         0U2/9hJykkGp2kKxfancxaJntYkLLMPATmZDRGbZs8n0aLNgOYV2hna5+laKpfILkg06
+         L/Op0+FwviVVbE3PBPWf1/7blDjzSjxUuxuX6ciOdow8L2wtL98MPFZwn8Oqr8t3rP5b
+         zMVvkWsxWKIYqOBFCkPIrb4rPXhG/7nRXpHGMneGvSPV4a8COd70Jfe68T8SDjFTcm6D
+         Qkmqr/XZ7JYMRWsbOVjzNrEI/9283u76aikbKsqCPYMpfkEky7Vgem91KGoJRNW2fevc
+         N7oQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXCl6s4GVsUVvTkiHKGqSp4Gkeq+iRQ3W9ws59kSDUXqGsfTX3C9Auz521Wlu/L+DjTENOxYX9O+OSrj35Q/qYC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7TsLCkBE4jKwcek20Qz4WvJWGD7q0gpQZc6NoEJdYS3vSbkmR
+	VvcC8HyBocFI8WdEdbWBI3umVnfjMsJozV5RNmWPDaHK64XrvA2535AvSEZWNRuRXgA=
+X-Gm-Gg: ASbGncvr59UDg5Lt44pGb+hG4okoxQ0Yo4+OLLuyfZfusxhgBHVFcqCCISD7FVRNjFj
+	H5YksCkpsXjdUwdZ163UN0vg8pXdlPz+d4gfXoHBMegv0jVb5quQa7F+bR0NS58p92iMs77nj4D
+	7MvsvQ2gUTXiFh+X9G+fAq77PNoLvtY0ILWRxS5oPTyNdwUOsxTaqJj/7tkuBLUt1drIcAtTYm7
+	CxiSOmMKOeAo8j9VNYudy3vRqrKdAn8K1iVpAbrx2McCWMcNSs+CeS4eyQFP6cFBeYzc4ydbPl2
+	5xjJEQuXoVi3RnjOf4F9vk9IhiR3IoqCuOSooVF5YNiqHqCCxB23osDdZW0aDlJNJWkW8H8FctM
+	5YUmiA7bc7VBSdN+eVOuSGupKJfCwfi3vVcppHDQnzZe/Sxqn8+MQCsXRZLEPQEnwExTs70v24I
+	CaUgbcdhOXc5jk1O5a
+X-Google-Smtp-Source: AGHT+IEAsN4GLGZOi/gLAJB0fdHh2RkmlNERThaNChpJGeL/SOfJubwUVSTNSVXsVki9aW7gKT0ayw==
+X-Received: by 2002:a05:600c:3b04:b0:471:12be:744 with SMTP id 5b1f17b1804b1-47117932dd5mr72625585e9.8.1761074831798;
+        Tue, 21 Oct 2025 12:27:11 -0700 (PDT)
 Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475c42b48c9sm7839115e9.15.2025.10.21.12.27.07
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475c42b48c9sm7839115e9.15.2025.10.21.12.27.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Oct 2025 12:27:07 -0700 (PDT)
+        Tue, 21 Oct 2025 12:27:11 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -85,20 +85,20 @@ Cc: Will McVicker <willmcvicker@google.com>,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
  kernel-team@android.com
-In-Reply-To: <20251013-automatic-clocks-v1-3-72851ee00300@linaro.org>
+In-Reply-To: <20251013-automatic-clocks-v1-5-72851ee00300@linaro.org>
 References: <20251013-automatic-clocks-v1-0-72851ee00300@linaro.org>
- <20251013-automatic-clocks-v1-3-72851ee00300@linaro.org>
-Subject: Re: (subset) [PATCH 3/9] arm64: dts: exynos: gs101: add
- sysreg_misc and sysreg_hsi0 nodes
-Message-Id: <176107482703.33931.10968219434076858681.b4-ty@linaro.org>
-Date: Tue, 21 Oct 2025 21:27:07 +0200
+ <20251013-automatic-clocks-v1-5-72851ee00300@linaro.org>
+Subject: Re: (subset) [PATCH 5/9] arm64: dts: exynos: gs101: fix sysreg_apm
+ reg property
+Message-Id: <176107483030.33931.17680247324177119299.b4-ty@linaro.org>
+Date: Tue, 21 Oct 2025 21:27:10 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_122710_505491_9639A1C8 
-X-CRM114-Status: UNSURE (   7.22  )
+X-CRM114-CacheID: sfid-20251021_122713_670753_6309A0A9 
+X-CRM114-Status: UNSURE (   8.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,16 +115,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 13 Oct 2025 21:51:32 +0100, Peter Griffin wrote:
-> Add syscon DT node for the hsi0 and misc sysreg controllers. These will be
-> referenced by their respective CMU nodes in future patchs.
+On Mon, 13 Oct 2025 21:51:34 +0100, Peter Griffin wrote:
+> Both the start address and size are incorrect for the apm_sysreg DT
+> node. Update to match the TRM (rather than how it was defined downstream).
 > 
 > 
 
 Applied, thanks!
 
-[3/9] arm64: dts: exynos: gs101: add sysreg_misc and sysreg_hsi0 nodes
-      https://git.kernel.org/krzk/linux/c/08d9d0d9ae6f9f83bc1802a3f8ab2a4801ccd3e6
+[5/9] arm64: dts: exynos: gs101: fix sysreg_apm reg property
+      https://git.kernel.org/krzk/linux/c/4348c22a4f15dbef1314f1a353d7f053b24e9ace
 
 Best regards,
 -- 
