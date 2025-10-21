@@ -4,87 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B949ECCD1AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E760CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eOBByLOhLYJTAau9sNVzVsPMxZ5Av4EdfqDyxG5+sQE=; b=PLn/uhEZD0tCq/FFgOsWYY5nbK
-	1D4EafNAxjB1s5v51eqBWBMnujBquCGM4zmZjiUtZ/9r7h0SAjE4t9vyjKFBPPpzJG1krtz1M4oPB
-	dUkXKE5qL+ZYo6KVw3/hZBPhN1jknd3zN1tL/sYf/9Wpey29MomvNdv3/9a1awWJniGcKTp5oHoWU
-	IQ8Lgf375AwWxYdyJXGELIl6+0Pc3bzyCOA7ZES9HQlro5qhOVmsVRHLCRCfUkg/N7JaJynQ+1ez8
-	cuBjefuc6bN2ABXScXOIrgS2N1ec+4Mt6vIAlYffedntSS2w6m2cCwmDs7itC7koUFNqoF/fr/DVh
-	NKbw3fEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dRItKHoHeP/Luyk8nQVlzb7QSwUwBxc0c3xCNUrv3pc=; b=lKW7D1KVE7KDhD1WsvkZrNoPZ+
+	+I7DNd1vgUrAM90fw3H0DPB+B6U26MoTLtngChZu5Up02wS6cq0U4JUKanLkOa8mLbbdndMkf8r2G
+	2t2haSUuik3iNFzpF26xCgJHdzTHSr1Y68vQwm84VKl+SmVlu8Sw8wIyLUo79wp1kq1zXk43UhYtB
+	vpT4VmeV+pLZkrxyBL/HjzxOXOtC8u8YT6J7RjvBcyqa2LorJEQs5ev2t+SWWfDWYyc8u7CrtujC5
+	Ot3bPj/yU2JA4N1pfBgIxKxtVWbRGHCqwP7teMGZRB3DfdYP34+FI67pmH5eRodB3voZvE/K8oeti
+	sUIVbWaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBQQ-0000000GxfL-2mGp;
-	Tue, 21 Oct 2025 12:25:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBBSE-0000000Gy4v-0Qbw;
+	Tue, 21 Oct 2025 12:27:06 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBQO-0000000Gxe7-3rfi
+	id 1vBBSB-0000000Gy48-2dIG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 12:25:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DE767603EB;
-	Tue, 21 Oct 2025 12:25:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F8D7C4CEF5;
-	Tue, 21 Oct 2025 12:25:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761049503;
-	bh=QAp0WH1C/zbfZAC6WrcLNYkAgwamHfqX68wiGHk2Ts8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=JXpsIlZz/zrd/nzfTJJ5XNltOcWIGmTh8FTDJ3uXwKmN9f58zgtXBBZc5sJOJ9iiw
-	 lD4TDc1sDlOtT4mzVIYYdsYL+pkl2h+QwjcqhF7Y6x/xgAaLbz2RjYlIG5XRhSrSgU
-	 4GjTbBa6neRY7T3Cv2pQXbY7LJm3e5zI1NOoqYkhN3NIS57eTrkuyLejkGCOc7VAy9
-	 ez5k+o6N+HgrU8IMjE3GG+n27TgpCXrdL1OdrcaioJ9T3l3NsUci3+WwEWXEefF4C6
-	 RibxOQYv0qMgIdI7tNXdjtE173keuMegx9bQX8vQIYaA/lxdNQGPpNaf6K7AwdboAV
-	 Tgoke2Q5++u+w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vBBQC-0000000FpwD-3dby;
-	Tue, 21 Oct 2025 12:25:00 +0000
-Date: Tue, 21 Oct 2025 13:25:00 +0100
-Message-ID: <86ecqwwig3.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Liao Chang <liaochang1@huawei.com>
-Cc: <corbet@lwn.net>,
-	<catalin.marinas@arm.com>,
-	<will@kernel.org>,
-	<akpm@linux-foundation.org>,
-	<paulmck@kernel.org>,
-	<pawan.kumar.gupta@linux.intel.com>,
-	<mingo@kernel.org>,
-	<bp@alien8.de>,
-	<kees@kernel.org>,
-	<arnd@arndb.de>,
-	<fvdl@google.com>,
-	<broonie@kernel.org>,
-	<oliver.upton@linux.dev>,
-	<yeoreum.yun@arm.com>,
-	<yangyicong@hisilicon.com>,
-	<james.morse@arm.com>,
-	<ardb@kernel.org>,
-	<hardevsinh.palaniya@siliconsignals.io>,
-	<linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] arm64: Add kernel parameter to disable trap EL0 accesses to IMPDEF regs
-In-Reply-To: <20251021115428.557084-1-liaochang1@huawei.com>
-References: <20251021115428.557084-1-liaochang1@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: liaochang1@huawei.com, corbet@lwn.net, catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, paulmck@kernel.org, pawan.kumar.gupta@linux.intel.com, mingo@kernel.org, bp@alien8.de, kees@kernel.org, arnd@arndb.de, fvdl@google.com, broonie@kernel.org, oliver.upton@linux.dev, yeoreum.yun@arm.com, yangyicong@hisilicon.com, james.morse@arm.com, ardb@kernel.org, hardevsinh.palaniya@siliconsignals.io, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 21 Oct 2025 12:27:04 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-57a960fe78fso7170985e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 05:27:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761049622; x=1761654422; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dRItKHoHeP/Luyk8nQVlzb7QSwUwBxc0c3xCNUrv3pc=;
+        b=YsAunkfk4z0mb1gfia159WNQ5DEsEqPnn0nmTZFGCumnaaK+u1B0fZiUgNzaMC0Fmb
+         KBefjqMV7jV+8VFR2HztpvTzih1LT4Ls3JO4Zp7NCw4HODUe7+yDntjOvN8snvQm/oj1
+         shzNwBL6CFutHETL11XeDzQm/QA7ExA75iS1K9Zoy/LegOvZ8QWJ7ScFVXpGnGgyLU++
+         ImXX7XVfEmohZNN96mPpFDaBuYuLAxHNknOb+3JNrrl5rh7luYtQeo+6FXkSvyiLmIzB
+         j/u/Ayottw1mhi3F0z8X86IUA/OwmPNeW7c8b4g624cEmZ/Xfuu1k7D2ijGUTH4TktML
+         JcDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761049622; x=1761654422;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dRItKHoHeP/Luyk8nQVlzb7QSwUwBxc0c3xCNUrv3pc=;
+        b=p/UeKo/5s6eDxrHIYPiWstSmFHN44XqlCd5MH11BUWe6z/Tx6qoK9C4qqdTP3gG0AO
+         KKMx28qAR05o/f6UM9ZBInsUaBjwNwgwGapF4/K1IZyPRLbLVQGAOAxytT4zNwcu2a0l
+         pbsGsjiQGVXyH/cK7FeAaMaV3vu+onzL0H+f7SJbyasOk3B1Ee3VDn7daOqxwoCKvHlM
+         sftwxzALa1IqfUbLnCk79g5ty1qP6rhrfJd1YqmbZE+KskumQzOJouKHTwW12CYPCeee
+         7cxixgMuqzMu0T3JI3xD2X3c5Y7XV256aK9LPFnE9mEGKGm91385ShJzOlOJkxzi930O
+         iZHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWNJJUdTXCeSuZ6VV3XJ9rBUM+jqnhlqA157FqwDY1PvSmLG6fOzD7Abz4hwHTO5bzSufQiM9OybwpcMwJz0Y1x@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw39C9ymn/rPPKDdJjk5iTNPb67ScsTOZsKfvaVwsBL/Y4ZmVN8
+	k/zIRXHt77tcR8AG4vpMmqaEY1y/qNqpAArCfOxZ+OqLtNcHbfGvtj2k/87SsK2sAwffoP1LGi1
+	/L89HzIqkHPipbI+8dSQ+CrQyjvtaHk3GeyzD8gY6Vw==
+X-Gm-Gg: ASbGnctYBP9rkzMwjZmUS2RFboq86LEZ8cT1PH0BTCfH9lV8AWJo1rFnyJAdepOZyT1
+	dOtJtsiIwjLK5ofDPDSyWTgklw356gOYtkcJZhwyp89PBBZu8gwNmd6lgrhQMoAolGpX1YvEZgS
+	94qe8933gORoP9iry6+zSEbfWH1dCUSnenOPnx8URekzfmu7Y467G0F0l60E/HqSGoa1Rd8MEyM
+	0lu6wjRVoxDE/pTrKZsYzDgpXAS5J+wNySeS/fHkiKtSSenCLOnstkY/euNY5PFsYIAKVyfG1c8
+	X3easw==
+X-Google-Smtp-Source: AGHT+IGxlVJN2rvaLyj+Brv4icN7nCu4VjMGW+HovXJOGOXiS4L6UUAPV/sCXKFATKrxTJyz9wkyawu1OYIvSs1RR4k=
+X-Received: by 2002:a05:6512:ba1:b0:591:c8d7:c03b with SMTP id
+ 2adb3069b0e04-591d850cf22mr5196408e87.8.1761049621481; Tue, 21 Oct 2025
+ 05:27:01 -0700 (PDT)
+MIME-Version: 1.0
+References: <20251014140451.1009969-1-antonio.borneo@foss.st.com>
+ <20251014140451.1009969-10-antonio.borneo@foss.st.com> <20251014-affection-voltage-8b1764273a06@spud>
+ <b4eca95eaa0e6f27fc07479d5eab2131d20eb270.camel@foss.st.com>
+ <20251015-headstand-impulse-95aa736e7633@spud> <0826a055f6b2e3e6b50a5961e60d1b57d1d596c6.camel@foss.st.com>
+ <CACRpkdbeaiNGfOFfVfDNZ=u=4yhCykcdSdHUv-td_DVyr3aWaQ@mail.gmail.com> <9dfdf02b7e5a99c515aff3c6528e2d5f70517201.camel@foss.st.com>
+In-Reply-To: <9dfdf02b7e5a99c515aff3c6528e2d5f70517201.camel@foss.st.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 21 Oct 2025 14:26:50 +0200
+X-Gm-Features: AS18NWCW8_rg5qtH2LgaZCS86vARi5jbxP9hbx6C1qjmUJ3MwBUVy8SVIqQU3O4
+Message-ID: <CACRpkdYRUcQLc07o4epJs41BMkweHp+hKr4KQbBeFW1ZNS3RJw@mail.gmail.com>
+Subject: Re: [PATCH v3 09/10] dt-bindings: pinctrl: stm32: Support I/O
+ synchronization parameters
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, 
+	Fabien Dessenne <fabien.dessenne@foss.st.com>, Valentin Caron <valentin.caron@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251021_052703_705630_E433F02B 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,29 +107,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Oct 2025 12:54:28 +0100,
-Liao Chang <liaochang1@huawei.com> wrote:
-> 
-> Add kernel parameter to allow system-wide EL0 access to IMPDEF system
-> regregisters and instructions without trapping to EL1/EL2. Since trap
-> overhead will compromises benefits, and it's even worse in
-> virtualization on CPU where certain IMPDEF registers and instructions
-> are designed for EL0 performance use.
+On Tue, Oct 21, 2025 at 1:49=E2=80=AFPM Antonio Borneo
+<antonio.borneo@foss.st.com> wrote:
 
-Since you mention virtualisation, I want to be clear: there is no way
-I will consider anything like this for KVM. KVM will always trap and
-UNDEF such register accesses, no matter where they come from (EL0 or
-EL1).
+> The issue is that parse_dt_cfg(), called by the above mentioned pinconf_g=
+eneric_parse_dt_config(),
+> only uses of_property_read_u32() to get the value of the property.
+> Conor's proposal for replacing my
+> st,io-sync =3D <0>;
+> with
+> st,io-sync =3D "pass-through";
+> doesn't fit in!
+>
+> For my use case I'm going to extend parse_dt_cfg() with fwnode_property_m=
+atch_property_string() to extract the index from an array of strings.
+> Then such index would be used for pinconf_to_config_packed().
+> Does this approach look reasonable?
 
-Allowing such registers to be accessed from within a guest would make
-it impossible to context-switch or save/restore the guest correctly.
+Aha I see the issue.
 
-You can of course do what you want in your downstream kernel or your
-own hypervisor, but I wanted to set the expectations on the upstream
-side.
+Hard for me to tell how this will play out since you are the first to try t=
+his,
+but it seems like this could work.
 
-	M.
+Let's see how the code looks!
 
--- 
-Without deviation from the norm, progress is not possible.
+Yours,
+Linus Walleij
 
