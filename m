@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45690CCD1AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0599ECCD1AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6FhEdNR91OB7wHcY6CjzagXtafaTpzSURfdhhSy48Jk=; b=j9ZmHxH3AQxs5yjtHgoHbTN/Ru
-	voFnhnZ6klLE2+sKLWL6+YycZ7Xj7WKjn4giPD8VNvzik2QxQlOZIk5JZPTr/xvx/ZPCWyHxBsaVE
-	BZJrdUcy7mgXiH9wUBkbMJcY2yTH8D5oD3laKA5/A0tGbxsk6sCEwuMSS7f/++96SSIfNuKljQvN6
-	zzyy6+1UahsKjzqOvPzwlS6B0z34LTDa4mof4FT2Vc0Ty3oDqxOH1vYgyp+BUqlFB2z+uVwId6uls
-	3hmGbeTv0rkGuL7nMrUwnQmivP62NqjWTU+3kQ+V8KE9YNmlIt5qj289IZOxlHs/gUkVbCsaAqwbi
-	aCkIZRpg==;
+	bh=uwXWn85XnZv9SphS4gUmIrupy+5IqH1mYIDyn/sGI1k=; b=t80EpGDVcH0f/2CnjiNU6peNgc
+	d5m5UXRDhWyv+rgBnyi4jbjbbCVoGGrQU615JCM+4Edn24STU8kvbufvejgshonsoJj2I6T7pKf0j
+	PEb8P1cd1xywMEQYA+MNEBNdMCVFqH++4whU3dEM0xSGH2jJe72UECUQQSOfYqEMkdjfKhsvSCr66
+	kWIEncwzdCvd7QONqy41mB/T1363J/52obE2NXy06axrOGdKVl+PSdmpp3ZaGOUxnD2KJqc7da0bz
+	+yOXUeTj4PVGUeR9M5nPuR+qSEjIfp2QEO5DFEhw4l5Se3ZsuLseZzbRg+EI1dGEAbk1qEu0x7pq5
+	UnZ1Wr2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBfy-0000000H06T-31lG;
-	Tue, 21 Oct 2025 12:41:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBBg5-0000000H0A7-0EP4;
+	Tue, 21 Oct 2025 12:41:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBfw-0000000H049-1P9O
+	id 1vBBg3-0000000H09D-32vR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 12:41:17 +0000
+	Tue, 21 Oct 2025 12:41:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CBBF14525C;
-	Tue, 21 Oct 2025 12:41:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F63DC4CEF1;
-	Tue, 21 Oct 2025 12:41:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 221E762423;
+	Tue, 21 Oct 2025 12:41:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60AFDC4CEFF;
+	Tue, 21 Oct 2025 12:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761050475;
-	bh=r/G+FZpStTM0vbk0p20owxrN91C3+v6SvIg6ZwkVinQ=;
+	s=k20201202; t=1761050480;
+	bh=+KrQ8+/Xpeyyg0XnnZnoOXc5K2eE7Yf3Idw+8Qii2j8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=t41wDtyCzusMv2f+XoJcJNP2U1VOcNslC7ZTMSGIYkeb6Vl21CxUDNgiibrqabq/l
-	 Mc/GWVrBmnGLkZ5dMromcl0cQqI+KCJmRW64VL1pplho/ol8QclamFtQcA5wQcyT4c
-	 vPS74W86Izx13lDO4yX+6zTHbTaVFtoQ8KG5Y/Vgd7d5Y8GX8R3MgYEMNZyVetUhTP
-	 4pp+xS5o9KXvAJmwntx+ba48Nzobun9OHjtwvomac5wL5e/iUzhLDI7pgleO8EnIYu
-	 wk/tbxYn6GGKobMswLSa+EZVe1vAw47vYL4zlD00yZJAWd6PDNxrIUmpA5A43KJK0k
-	 iZup1PZMdPLgg==
+	b=P8kbiDNknMZb/FC+i5v5f+TFVKK+HM/KGJTHGUFkJwM3orpLLSq+vpuZhATlyhVPp
+	 Kzc2YTzXJJqczzz1z9sLQdClMg1HeLI1mcmXTT6/lLPPkhLOhZm6eioJqrQv36oJy6
+	 PLE0gC19x+g6UoJN3oVY9RmI/FloI06eWdJsWKsG6CVKUXSVr7MjMFwYL05YAueJ3X
+	 YyNHG8v0vQVbYX+vPi+pLgbwhVbNizAj8q777TlUPkv5F4OHm9MpAhSTtUACM6Uujg
+	 3TThY0i2tXtfxI+Q8Sc6p5PryAXgUZAUf1r69b/aPRIO7o7/fJJbvNa0oGp93dsgzI
+	 jd29mY0IyC2ig==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	Frank Li <Frank.Li@nxp.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Rob Herring <robh@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Scott Branden <sbranden@broadcom.com>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Ray Jui <rjui@broadcom.com>,
 	Manivannan Sadhasivam <mani@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-Subject: [PATCH v4 1/5] of/irq: Add msi-parent check to of_msi_xlate()
-Date: Tue, 21 Oct 2025 14:40:59 +0200
-Message-ID: <20251021124103.198419-2-lpieralisi@kernel.org>
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Marc Zyngier <maz@kernel.org>
+Subject: [PATCH v4 2/5] of/irq: Fix OF node refcount in of_msi_get_domain()
+Date: Tue, 21 Oct 2025 14:41:00 +0200
+Message-ID: <20251021124103.198419-3-lpieralisi@kernel.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251021124103.198419-1-lpieralisi@kernel.org>
 References: <20251021124103.198419-1-lpieralisi@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_054116_409941_26E071D4 
-X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,99 +79,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In some legacy platforms the MSI controller for a PCI host bridge is
-identified by an msi-parent property whose phandle points at an MSI
-controller node with no #msi-cells property, that implicitly
-means #msi-cells == 0.
+In of_msi_get_domain() if the iterator loop stops early because an
+irq_domain match is detected, an of_node_put() on the iterator node is
+needed to keep the OF node refcount in sync.
 
-For such platforms, mapping a device ID and retrieving the MSI controller
-node becomes simply a matter of checking whether in the device hierarchy
-there is an msi-parent property pointing at an MSI controller node with
-such characteristics.
+Add it.
 
-Add a helper function to of_msi_xlate() to check the msi-parent property in
-addition to msi-map and retrieve the MSI controller node (with a 1:1 ID
-deviceID-IN<->deviceID-OUT  mapping) to provide support for deviceID
-mapping and MSI controller node retrieval for such platforms.
-
-Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Cc: Sascha Bischoff <sascha.bischoff@arm.com>
 Cc: Rob Herring <robh@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
 ---
- drivers/of/irq.c | 39 ++++++++++++++++++++++++++++++++++++---
- 1 file changed, 36 insertions(+), 3 deletions(-)
+ drivers/of/irq.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-index 65c3c23255b7..321d40ec229b 100644
+index 321d40ec229b..ee7d5f0842e8 100644
 --- a/drivers/of/irq.c
 +++ b/drivers/of/irq.c
-@@ -671,6 +671,36 @@ void __init of_irq_init(const struct of_device_id *matches)
+@@ -774,8 +774,10 @@ struct irq_domain *of_msi_get_domain(struct device *dev,
+ 
+ 	of_for_each_phandle(&it, err, np, "msi-parent", "#msi-cells", 0) {
+ 		d = irq_find_matching_host(it.node, token);
+-		if (d)
++		if (d) {
++			of_node_put(it.node);
+ 			return d;
++		}
  	}
- }
  
-+static int of_check_msi_parent(struct device_node *dev_node, struct device_node **msi_node)
-+{
-+	struct of_phandle_args msi_spec;
-+	int ret;
-+
-+	/*
-+	 * An msi-parent phandle with a missing or == 0 #msi-cells
-+	 * property identifies a 1:1 ID translation mapping.
-+	 *
-+	 * Set the msi controller node if the firmware matches this
-+	 * condition.
-+	 */
-+	ret = of_parse_phandle_with_optional_args(dev_node, "msi-parent", "#msi-cells",
-+						  0, &msi_spec);
-+	if (ret)
-+		return ret;
-+
-+	if ((*msi_node && *msi_node != msi_spec.np) || msi_spec.args_count != 0)
-+		ret = -EINVAL;
-+
-+	if (!ret) {
-+		/* Return with a node reference held */
-+		*msi_node = msi_spec.np;
-+		return 0;
-+	}
-+	of_node_put(msi_spec.np);
-+
-+	return ret;
-+}
-+
- /**
-  * of_msi_xlate - map a MSI ID and find relevant MSI controller node
-  * @dev: device for which the mapping is to be done.
-@@ -678,7 +708,7 @@ void __init of_irq_init(const struct of_device_id *matches)
-  * @id_in: Device ID.
-  *
-  * Walk up the device hierarchy looking for devices with a "msi-map"
-- * property. If found, apply the mapping to @id_in.
-+ * or "msi-parent" property. If found, apply the mapping to @id_in.
-  * If @msi_np points to a non-NULL device node pointer, only entries targeting
-  * that node will be matched; if it points to a NULL value, it will receive the
-  * device node of the first matching target phandle, with a reference held.
-@@ -692,12 +722,15 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
- 
- 	/*
- 	 * Walk up the device parent links looking for one with a
--	 * "msi-map" property.
-+	 * "msi-map" or an "msi-parent" property.
- 	 */
--	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent)
-+	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
- 		if (!of_map_id(parent_dev->of_node, id_in, "msi-map",
- 				"msi-map-mask", msi_np, &id_out))
- 			break;
-+		if (!of_check_msi_parent(parent_dev->of_node, msi_np))
-+			break;
-+	}
- 	return id_out;
- }
- 
+ 	return NULL;
 -- 
 2.50.1
 
