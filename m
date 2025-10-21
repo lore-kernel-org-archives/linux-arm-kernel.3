@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CA4ECCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EADECCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WRfbIqhxMV94BhYJFlNG1uPvGd2zSAw0MCwaC23KmcI=; b=B5N7yvrFSsmjOP
-	ZlsXqEgRI+XPEERxLgt6m3vRwawwwDqLKqkz4irwVCOJSniZJkS+GJmutjKWcMnCKHylWSmn9hlkF
-	bmIlu3Ph+76vePFOME4XJCVbQWHL2/Vqp2r8UUlZxlCBGWFhVPxX4WBzsAB0qtCRw4feLACMb+vJM
-	Un8+8unBJh49VUrQWZkyIGGJJAuLG7WYpAMBda24DByg4g5AVlIaAlYSL+rtvABkmwVAq7lqfVDiG
-	P2srMek/VG/MoFYydaYqp8x0khM+APbB4qp8kzJan1MVS6XCFj6JjMQfDtJCTYcxaFBUN/LzChCIM
-	2XfzphdFgzliAwomR5LA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wjsaVsPMd/i3M2GLEMTZ12Tx4fJiPCTF6sF2Z8boweM=; b=N6XfvPDlzLFyeFUvn/WfWTrYuX
+	VH8kIc4/FC63xvzOLqkpKmUuGT2YcOPvdD6LKW0ZhSxw6XzhrCQjbOrWCVUn+nIv2j57FbFDoANBa
+	WJ4XON3oEl2dbqRKUllp/VwMMVCmQLA3pjPRnBVutmPItGARXtcQlDyI8Er9CTw8owxF9YtLiA57C
+	8Cdkws5WHpAUb5it930jdofKLEqKfCLR/kEze0ZXz0uq5eBdghHoELvtmtM0H2TXFKHgFPZ5Ii9gB
+	4wl1/lEj+VfTOgo+nx99s6RUdUU/8B5R2wzGopdOIRS6mKV12X/BuVnr1fL2rZYUu9hVPSvxNZT0p
+	i8ik39Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB727-0000000G7XF-0j1J;
-	Tue, 21 Oct 2025 07:43:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vB78W-0000000GAFY-2Yif;
+	Tue, 21 Oct 2025 07:50:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB722-0000000G7OP-3XzQ
+	id 1vB78U-0000000GADr-0Z2r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 07:43:48 +0000
+	Tue, 21 Oct 2025 07:50:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D36F45D59
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 07:43:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E10A6C116C6
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 07:43:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BD4374588A;
+	Tue, 21 Oct 2025 07:50:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99228C4CEF7;
+	Tue, 21 Oct 2025 07:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761032625;
-	bh=L3OSHu/zykUUrMf0jhQiVo+5X5Tp4yjmsTRArUNbg40=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=D3WmNV5OqWaI36RDmwCXD2zHkNsqyRVCkAn+v3D9hIPGqFKrFzO6zLhOlJXqH0tul
-	 z2283fXiVPnJ7hDSqqg2M+HjvVhmN56pYo48edn5tkLY5Vicm/mg/XjRNHgS0WVnSN
-	 7XEcS/bevwfx8IyxgFijllQXrY6eoIRkx+yCvGhVrHL/CCcXmWMCiJBkM1w81VqTYa
-	 OKEa7Alhk4YQI+8xGmJm2DQ7zD13K8lLbv4/CvcRVwYp/StS+FjZ2U/jxWJ2dU+H+h
-	 x/SRcfVdH1RQ+8bXR8NLU1FvCv5EYUTBr3q8S9eAR2OwLHCDiqP79GOaaB/3gXiPz/
-	 NIhnH7cZbDlIA==
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-363f137bbf8so46893301fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 00:43:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUlRw0zXT/42ZOaF7Lvi6GRadezDn6cAoXIUa3OwAnIH+Dwb4hfabKreCUfmI7mc6SssyfTB0VYXOlAhjkQtNyA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz68M03Ly0TEPgVm4Ism9A8H1bSyboc7YEl3uE5uo5qL3dseUMA
-	IVW3UsyZDBtwOmQOticUcIW3C+70Groy2WaRtFpAATG6FiIjK1up1yBeMLjWgOibwPxoUEw59Iw
-	N6swmD1eVOe1wkx4Zf72W/1ey8UfYtdY=
-X-Google-Smtp-Source: AGHT+IGdlueTEgM73EYjdJJ7MYdcpYR/rotWSKlN7mFY5uUlnnqxOjkAfgQUxRhc1E7On08N06u+r1J6has1Jnhp3yI=
-X-Received: by 2002:a2e:9fcb:0:b0:375:ebfa:2986 with SMTP id
- 38308e7fff4ca-37797a728f1mr44182921fa.34.1761032624223; Tue, 21 Oct 2025
- 00:43:44 -0700 (PDT)
-MIME-Version: 1.0
-References: <E1vB6ld-0000000BIPy-2Qi4@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1vB6ld-0000000BIPy-2Qi4@rmk-PC.armlinux.org.uk>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 21 Oct 2025 15:43:29 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67U1KUeEvQ8yhSHP5NY1-9hGuwuTwgKMWGJB2LZn5pwqw@mail.gmail.com>
-X-Gm-Features: AS18NWBVywV_yRWAV-n1YGVmZIEA5XvU8OAR8wbCjrwgr8Xivfn8oNIG-rClQ6c
-Message-ID: <CAGb2v67U1KUeEvQ8yhSHP5NY1-9hGuwuTwgKMWGJB2LZn5pwqw@mail.gmail.com>
-Subject: Re: [PATCH net-next v2] net: stmmac: replace has_xxxx with core_type
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Jan Petrous <jan.petrous@oss.nxp.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, 
-	linux-tegra@vger.kernel.org, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
-	Richard Cochran <richardcochran@gmail.com>, s32@nxp.com, 
-	Samuel Holland <samuel@sholland.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Vinod Koul <vkoul@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20201202; t=1761033025;
+	bh=wcjQXdXyz4a64xPChG6OrBbIDGawzNQC7URHkyMcw9s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=mKp8C6KkuWJAne+5zLlmaPxKLDRxc161Dmorh/7VwBWhIa4rOhvF+9t5O7TfUkGVN
+	 5J8AZxqfUW3IoY6cvJCxl3akQySI1hE1HTLiqI81hBekdUbevEBVf6wMOpBFCvC4RB
+	 fJK80tE4UebXUiYLIb86fa5viFBux7BXSb+APfw2aW6K7hirWZAP5kC5kJQUaDbXEf
+	 D3+4ubqnMq76+F5kSiWBuuYzKPsHyGvQM5K+bhGM0B6h9NJq29ui1zi8Kz/6un/Y+W
+	 egkYBE9PEBsU0dQDzK+pfmBvipreHtG5jeD0a3d90cYvS/ZpzijvYK7WapUUBhC3kQ
+	 wVKrkvEKqxnYA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vB78R-0000000FkvS-0gGO;
+	Tue, 21 Oct 2025 07:50:23 +0000
+Date: Tue, 21 Oct 2025 08:50:22 +0100
+Message-ID: <86frbcwv5t.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Aishwarya.TCV@arm.com
+Subject: Re: [PATCH] KVM: arm64: gic-v3: Only set ICH_HCR traps for v2-on-v3 or v3 guests
+In-Reply-To: <23072856-6b8c-41e2-93d1-ea8a240a7079@sirena.org.uk>
+References: <20251007160704.1673584-1-sascha.bischoff@arm.com>
+	<23072856-6b8c-41e2-93d1-ea8a240a7079@sirena.org.uk>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com, torvalds@linux-foundation.org, Aishwarya.TCV@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_004346_971729_0E22606F 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20251021_005026_232477_DE74A9E4 
+X-CRM114-Status: GOOD (  28.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +92,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 3:27=E2=80=AFPM Russell King (Oracle)
-<rmk+kernel@armlinux.org.uk> wrote:
->
-> Replace the has_gmac, has_gmac4 and has_xgmac ints, of which only one
-> can be set when matching a core to its driver backend, with an
-> enumerated type carrying the DWMAC core type.
->
-> Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
-> v2:
-> - fix conflict with removal with STMMAC_FLAG_HAS_INTEGRATED_PCS removal
-> - wrap 88 char line in stmmac_xmit()
-> - add Maxime's tested-by
->
-> I haven't added Maxime's r-b because the patch has changed subtly, but
-> not in a way that invalidates testing. Given the minor changes and it's
-> possibilities for further conflicts, can we get this in sooner please?
-> Thanks.
->
->  drivers/net/ethernet/stmicro/stmmac/common.h  |  5 ++
->  .../stmicro/stmmac/dwmac-dwc-qos-eth.c        |  2 +-
->  .../net/ethernet/stmicro/stmmac/dwmac-intel.c |  5 +-
->  .../ethernet/stmicro/stmmac/dwmac-ipq806x.c   |  2 +-
->  .../ethernet/stmicro/stmmac/dwmac-loongson.c  |  2 +-
->  .../ethernet/stmicro/stmmac/dwmac-lpc18xx.c   |  2 +-
->  .../stmicro/stmmac/dwmac-qcom-ethqos.c        |  2 +-
->  .../net/ethernet/stmicro/stmmac/dwmac-rk.c    |  4 +-
->  .../net/ethernet/stmicro/stmmac/dwmac-s32.c   |  2 +-
->  .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |  2 +-
->  .../net/ethernet/stmicro/stmmac/dwmac-sunxi.c |  2 +-
+On Tue, 21 Oct 2025 01:21:56 +0100,
+Mark Brown <broonie@kernel.org> wrote:
+> 
+> On Tue, Oct 07, 2025 at 04:07:13PM +0000, Sascha Bischoff wrote:
+> > The ICH_HCR_EL2 traps are used when running on GICv3 hardware, or when
+> > running a GICv3-based guest using FEAT_GCIE_LEGACY on GICv5
+> > hardware. When running a GICv2 guest on GICv3 hardware the traps are
+> > used to ensure that the guest never sees any part of GICv3 (only GICv2
+> > is visible to the guest), and when running a GICv3 guest they are used
+> > to trap in specific scenarios. They are not applicable for a
+> > GICv2-native guest, and won't be applicable for a(n upcoming) GICv5
+> > guest.
+> 
+> v6.18-rc2 introduces a failure in the KVM no-vgic-v3 selftest on what
+> appears to be all arm64 platforms with a GICv3 in all of VHE, nVHE and
+> pKVM modes:
+> 
+> # selftests: kvm: no-vgic-v3
+> # Random seed: 0x6b8b4567
+> # ==== Test Assertion Failure ====
+> #   arm64/no-vgic-v3.c:66: handled
+> #   pid=3469 tid=3469 errno=4 - Interrupted system call
+> #      1	0x0000000000402ff7: test_run_vcpu at no-vgic-v3.c:128
+> #      2	0x0000000000402213: test_guest_no_gicv3 at no-vgic-v3.c:155
+> #      3	 (inlined by) main at no-vgic-v3.c:174
+> #      4	0x0000ffff7fca7543: ?? ??:0
+> #      5	0x0000ffff7fca7617: ?? ??:0
+> #      6	0x00000000004023af: _start at ??:?
+> #   ICC_PMR_EL1 no read trap
+> not ok 25 selftests: kvm: no-vgic-v3 # exit=254
+> 
+> introduced by this patch, which is commit 3193287ddffb and which never
+> appeared in -next prior to being merged into mainline.
+> 
+> It didn't appear in -next since the arm64 KVM fixes tree is not directly
+> in -next and it was only pulled into Paolo's tree on Saturday, a few
+> hours before Paolo sent his pull request to Linus, so there was no
+> opportunity for it to be picked up.  As I've previously suggested it
+> does seem like it would be a good idea to include the fixes branches for
+> the KVM arch trees in -next (s390 is there, but I don't see the others),
 
-For sunxi,
+As I explained to you more than once, the answer is still no. We keep
+the two branches separate for good reasons -- for a start, they are
+manager by different people.
 
-Acked-by: Chen-Yu Tsai <wens@kernel.org>
+If you want to manage a -fixes tree, go for it. If you want to take
+the -fixes branch in your CI, I have no objection.  Do I support this?
+Absolutely not.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
