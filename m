@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98304CCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 06:52:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC3A5CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 06:52:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vt1xPRkUMcE8svXTy4dUISsmpUifWdbpaIRSmoEuGbY=; b=cvvphqWh/EpNOJ51Pkw3IyJx9l
-	f8rgxcykeY5Ds82xwABwK+yH6veYjuo+amOUJIoUfczZyNgpv694mVuWbXw7Bs2iaT9ojODZB16dm
-	zgMABtg4xVartHc/l3uSGDkd6LRZw0UzFx0R1axyKtsZZnyfDNJdQ8DFilD7TE7a0pMlYe5EmBcQ1
-	j2vCdllOPovkNWKfQcg3n+bVqZWcVRKqYy7AGMGATERCT3mpS0tsULR0l2UGJjmlfYIk4IqIs1roO
-	4DM5DvBd0IaYLop/Gt7FMAyFZpsBHprg68V0Lzat0r8cFvHu6dTA0we7Lk6BEVyrWqXWzTUbrK51U
-	g5jENXOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2BGQT/0zx6/PdcgD8cdOCVtrbxP2MY/Jbm/3GvbRSM0=; b=XrIZ92Z1mKnrWUdZxWlvfQ+PR5
+	6UOCsSZMs3U9hIgJ8vQqTt0e08YYKc9jJ1l3F2lwZrsUqzu3UzOsHlzlzLj/dKUBQV8ijSJM7hbRN
+	ZrXexQtXZ5ObpYk5y0lcA+vnChBM7WvPq/nDaPNu7EyRVC8qJAyvr0mYF6iiSUlkjEA+b0xCfCCdD
+	hVEM84TZxKSDYAIdzxWinnYFC4gmzbYtQMPU7apbIzTGHHOwZ2fn1I/va4FzscHN7swgZuSLc46B/
+	uChpURH3JdYx5F62Mpk+ntJLol7esM0ok/xcWIvbtFAXigEpqQTgEnuhmokvcqGKovClcEc4o/D09
+	0AaYpC+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB6Eh-0000000FxvR-0xsM;
-	Tue, 21 Oct 2025 06:52:47 +0000
-Received: from mail-m32110.qiye.163.com ([220.197.32.110])
+	id 1vB6El-0000000Fy21-21Tp;
+	Tue, 21 Oct 2025 06:52:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB6Ea-0000000Fxr6-2ZJt;
-	Tue, 21 Oct 2025 06:52:41 +0000
-Received: from rockchip.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 269f91a27;
-	Tue, 21 Oct 2025 14:52:35 +0800 (GMT+08:00)
-From: Elaine Zhang <zhangqing@rock-chips.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	sugar.zhang@rock-chips.com,
-	zhangqing@rock-chips.com,
-	heiko@sntech.de,
-	robh@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	conor+dt@kernel.org
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	huangtao@rock-chips.com,
-	finley.xiao@rock-chips.com
-Subject: [PATCH v4 1/7] clk: rockchip: Implement rockchip_clk_register_armclk_multi_pll()
-Date: Tue, 21 Oct 2025 14:52:26 +0800
-Message-Id: <20251021065232.2201500-2-zhangqing@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251021065232.2201500-1-zhangqing@rock-chips.com>
-References: <20251021065232.2201500-1-zhangqing@rock-chips.com>
+	id 1vB6Ef-0000000Fxte-0vVB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 06:52:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C67A143B51;
+	Tue, 21 Oct 2025 06:52:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 119D9C4CEF5;
+	Tue, 21 Oct 2025 06:52:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761029564;
+	bh=kEveI288R5aLgEy1LfWmXLzg1vJMJmJhDW/u+SLA3ys=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ufgJENoWaQrbt1LbWl7US2kpvPAXm6hP4SYC0sBEkppguWvqx4odoeREOZ1hzvcGH
+	 T9puAiLpk8ER0bHDe+9wfqX+bS1+J00ibNQc5Q34vqQUr2Z/VbZaiNtXT5b7nPfxE9
+	 x3thfr7qGTtlUbZ/qk+m0cjtv6PT/V+URbn6Ar+0wMPpOtKABk2ZHCO4ISJUlIxFIl
+	 sBujnreUL9haT+U2tsiifPloDnhX93Helsh60Bhwd484BroWUlphn78V/HSabn7DSR
+	 nEpicEoTQiKy2nsGxdymT+5neEkdjAHbVQW6Df7K3aQe7y0lwCaNsBw10mJ7voRV9f
+	 al5JbcNESGw/g==
+Date: Tue, 21 Oct 2025 08:52:41 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Marek Vasut <marek.vasut@mailbox.org>, 
+	dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH 01/39] dt-bindings: display: imx: Document i.MX95 Display
+ Controller DomainBlend
+Message-ID: <20251021-mighty-artichoke-crayfish-dc85b7@kuoka>
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+ <20251011170213.128907-2-marek.vasut@mailbox.org>
+ <20251015132442.GA3241958-robh@kernel.org>
+ <5c5bb009-3463-4282-946f-3ae93fab11ec@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a058a857f03a3kunm647d21e85ed6f0
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGksYHlYaTENPQxgYQ0IeSU1WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=Yx55h+Sa4TcuTdpd5dsEDMBQaNs/KHOLlQYPSQQWJB3JSzO3bLOIrJPhzBCauDOj40Plc+z1QX3p0Bb8jmUaCIT6YylA0usDWxuw1zvNjjgGajRU4aV5LoTpias4jpYSRBMLzSvVNbRMeUqxLnf0NW3wqyFQ1k9BFVDGntj0CjQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=Vt1xPRkUMcE8svXTy4dUISsmpUifWdbpaIRSmoEuGbY=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <5c5bb009-3463-4282-946f-3ae93fab11ec@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_235240_818753_B9B7931F 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20251020_235245_308286_015DA28D 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,282 +82,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current path will have an independent PLL(LPLL\BPLL)
-exclusively for the CPU to use.
-As follows:
+On Thu, Oct 16, 2025 at 10:07:26AM +0800, Liu Ying wrote:
+> On 10/15/2025, Rob Herring wrote:
+> >> +properties:
+> >> +  compatible:
+> >> +    const: fsl,imx95-dc-domainblend
+> >> +
+> >> +  reg:
+> >> +    maxItems: 1
+> > 
+> > No clocks or other resources?
+> 
+> As patch 39 shows, there are 3 interrupts - domainblend{0,1}_shdload,
+> domainblend{0,1}_framecomplete and domainblend{0,1}_seqcomplete.
 
-            |-\
-    --lpll--|  \
-            |mux|--[gate]--[div]--clk_core--
-    --gpll--|  /
-            |-/
+So they should be here. Just like all other resources, because bindings
+should be complete (see writing-bindings doc).
 
-The new chip does not have a dedicated PLL for the cpu;
-it is distributed nearby from the common PLL.
-If there are special frequency requirements that require the
-use of pvtpll, explanations will be submitted later.
-
-The clock path of new soc CPU simplified as follows:
-
-    --gpll--|--\
-            |   \
-            |    \
-            |     \
-   --v0pll--| mux |--[gate]--[div]--clk_core--
-            |     /
-            |    /
-   --v1pll--|   /
-            |--/
-
-Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
----
- drivers/clk/rockchip/clk-cpu.c | 165 +++++++++++++++++++++++++++++++++
- drivers/clk/rockchip/clk.c     |  24 +++++
- drivers/clk/rockchip/clk.h     |  15 +++
- 3 files changed, 204 insertions(+)
-
-diff --git a/drivers/clk/rockchip/clk-cpu.c b/drivers/clk/rockchip/clk-cpu.c
-index dcc9dcb597ae..6e91a3041a03 100644
---- a/drivers/clk/rockchip/clk-cpu.c
-+++ b/drivers/clk/rockchip/clk-cpu.c
-@@ -396,3 +396,168 @@ struct clk *rockchip_clk_register_cpuclk(const char *name,
- 	kfree(cpuclk);
- 	return ERR_PTR(ret);
- }
-+
-+static int rockchip_cpuclk_multi_pll_pre_rate_change(struct rockchip_cpuclk *cpuclk,
-+						     struct clk_notifier_data *ndata)
-+{
-+	unsigned long new_rate = roundup(ndata->new_rate, 1000);
-+	const struct rockchip_cpuclk_rate_table *rate;
-+	unsigned long flags;
-+
-+	rate = rockchip_get_cpuclk_settings(cpuclk, new_rate);
-+	if (!rate) {
-+		pr_err("%s: Invalid rate : %lu for cpuclk\n",
-+		       __func__, new_rate);
-+		return -EINVAL;
-+	}
-+
-+	if (new_rate > ndata->old_rate) {
-+		spin_lock_irqsave(cpuclk->lock, flags);
-+		rockchip_cpuclk_set_dividers(cpuclk, rate);
-+		spin_unlock_irqrestore(cpuclk->lock, flags);
-+	}
-+
-+	return 0;
-+}
-+
-+static int rockchip_cpuclk_multi_pll_post_rate_change(struct rockchip_cpuclk *cpuclk,
-+						      struct clk_notifier_data *ndata)
-+{
-+	unsigned long new_rate = roundup(ndata->new_rate, 1000);
-+	const struct rockchip_cpuclk_rate_table *rate;
-+	unsigned long flags;
-+
-+	rate = rockchip_get_cpuclk_settings(cpuclk, new_rate);
-+	if (!rate) {
-+		pr_err("%s: Invalid rate : %lu for cpuclk\n",
-+		       __func__, new_rate);
-+		return -EINVAL;
-+	}
-+
-+	if (new_rate < ndata->old_rate) {
-+		spin_lock_irqsave(cpuclk->lock, flags);
-+		rockchip_cpuclk_set_dividers(cpuclk, rate);
-+		spin_unlock_irqrestore(cpuclk->lock, flags);
-+	}
-+
-+	return 0;
-+}
-+
-+static int rockchip_cpuclk_multi_pll_notifier_cb(struct notifier_block *nb,
-+						 unsigned long event, void *data)
-+{
-+	struct clk_notifier_data *ndata = data;
-+	struct rockchip_cpuclk *cpuclk = to_rockchip_cpuclk_nb(nb);
-+	int ret = 0;
-+
-+	pr_debug("%s: event %lu, old_rate %lu, new_rate: %lu\n",
-+		 __func__, event, ndata->old_rate, ndata->new_rate);
-+	if (event == PRE_RATE_CHANGE)
-+		ret = rockchip_cpuclk_multi_pll_pre_rate_change(cpuclk, ndata);
-+	else if (event == POST_RATE_CHANGE)
-+		ret = rockchip_cpuclk_multi_pll_post_rate_change(cpuclk, ndata);
-+
-+	return notifier_from_errno(ret);
-+}
-+
-+struct clk *rockchip_clk_register_cpuclk_multi_pll(const char *name,
-+						   const char *const *parent_names,
-+						   u8 num_parents, void __iomem *base,
-+						   int muxdiv_offset, u8 mux_shift,
-+						   u8 mux_width, u8 mux_flags,
-+						   int div_offset, u8 div_shift,
-+						   u8 div_width, u8 div_flags,
-+						   unsigned long flags, spinlock_t *lock,
-+						   const struct rockchip_cpuclk_rate_table *rates,
-+						   int nrates)
-+{
-+	struct rockchip_cpuclk *cpuclk;
-+	struct clk_hw *hw;
-+	struct clk_mux *mux = NULL;
-+	struct clk_divider *div = NULL;
-+	const struct clk_ops *mux_ops = NULL, *div_ops = NULL;
-+	int ret;
-+
-+	if (num_parents > 1) {
-+		mux = kzalloc(sizeof(*mux), GFP_KERNEL);
-+		if (!mux)
-+			return ERR_PTR(-ENOMEM);
-+
-+		mux->reg = base + muxdiv_offset;
-+		mux->shift = mux_shift;
-+		mux->mask = BIT(mux_width) - 1;
-+		mux->flags = mux_flags;
-+		mux->lock = lock;
-+		mux_ops = (mux_flags & CLK_MUX_READ_ONLY) ? &clk_mux_ro_ops
-+							: &clk_mux_ops;
-+	}
-+
-+	if (div_width > 0) {
-+		div = kzalloc(sizeof(*div), GFP_KERNEL);
-+		if (!div) {
-+			ret = -ENOMEM;
-+			goto free_mux;
-+		}
-+
-+		div->flags = div_flags;
-+		if (div_offset)
-+			div->reg = base + div_offset;
-+		else
-+			div->reg = base + muxdiv_offset;
-+		div->shift = div_shift;
-+		div->width = div_width;
-+		div->lock = lock;
-+		div_ops = (div_flags & CLK_DIVIDER_READ_ONLY)
-+						? &clk_divider_ro_ops
-+						: &clk_divider_ops;
-+	}
-+
-+	hw = clk_hw_register_composite(NULL, name, parent_names, num_parents,
-+				       mux ? &mux->hw : NULL, mux_ops,
-+				       div ? &div->hw : NULL, div_ops,
-+				       NULL, NULL, flags);
-+	if (IS_ERR(hw)) {
-+		ret = PTR_ERR(hw);
-+		goto free_div;
-+	}
-+
-+	cpuclk = kzalloc(sizeof(*cpuclk), GFP_KERNEL);
-+	if (!cpuclk) {
-+		ret = -ENOMEM;
-+		goto unregister_clk;
-+	}
-+
-+	cpuclk->reg_base = base;
-+	cpuclk->lock = lock;
-+	cpuclk->clk_nb.notifier_call = rockchip_cpuclk_multi_pll_notifier_cb;
-+	ret = clk_notifier_register(hw->clk, &cpuclk->clk_nb);
-+	if (ret) {
-+		pr_err("%s: failed to register clock notifier for %s\n",
-+		       __func__, name);
-+		goto free_cpuclk;
-+	}
-+
-+	if (nrates > 0) {
-+		cpuclk->rate_count = nrates;
-+		cpuclk->rate_table = kmemdup(rates,
-+					     sizeof(*rates) * nrates,
-+					     GFP_KERNEL);
-+		if (!cpuclk->rate_table) {
-+			ret = -ENOMEM;
-+			goto free_cpuclk;
-+		}
-+	}
-+
-+	return hw->clk;
-+
-+free_cpuclk:
-+	kfree(cpuclk);
-+unregister_clk:
-+	clk_hw_unregister_composite(hw);
-+free_div:
-+	kfree(div);
-+free_mux:
-+	kfree(mux);
-+
-+	return ERR_PTR(ret);
-+}
-diff --git a/drivers/clk/rockchip/clk.c b/drivers/clk/rockchip/clk.c
-index 19caf26c991b..2601df3b1066 100644
---- a/drivers/clk/rockchip/clk.c
-+++ b/drivers/clk/rockchip/clk.c
-@@ -722,6 +722,30 @@ void rockchip_clk_register_armclk(struct rockchip_clk_provider *ctx,
- }
- EXPORT_SYMBOL_GPL(rockchip_clk_register_armclk);
- 
-+void rockchip_clk_register_armclk_multi_pll(struct rockchip_clk_provider *ctx,
-+					    struct rockchip_clk_branch *list,
-+					    const struct rockchip_cpuclk_rate_table *rates,
-+					    int nrates)
-+{
-+	struct clk *clk;
-+
-+	clk = rockchip_clk_register_cpuclk_multi_pll(list->name, list->parent_names,
-+						     list->num_parents, ctx->reg_base,
-+						     list->muxdiv_offset, list->mux_shift,
-+						     list->mux_width, list->mux_flags,
-+						     list->div_offset, list->div_shift,
-+						     list->div_width, list->div_flags,
-+						     list->flags, &ctx->lock, rates, nrates);
-+	if (IS_ERR(clk)) {
-+		pr_err("%s: failed to register clock %s: %ld\n",
-+		       __func__, list->name, PTR_ERR(clk));
-+		return;
-+	}
-+
-+	rockchip_clk_set_lookup(ctx, clk, list->id);
-+}
-+EXPORT_SYMBOL_GPL(rockchip_clk_register_armclk_multi_pll);
-+
- void rockchip_clk_protect_critical(const char *const clocks[],
- 				   int nclocks)
- {
-diff --git a/drivers/clk/rockchip/clk.h b/drivers/clk/rockchip/clk.h
-index 7c5e74c7a2e2..23653a942403 100644
---- a/drivers/clk/rockchip/clk.h
-+++ b/drivers/clk/rockchip/clk.h
-@@ -622,6 +622,17 @@ struct clk *rockchip_clk_register_cpuclk(const char *name,
- 			const struct rockchip_cpuclk_rate_table *rates,
- 			int nrates, void __iomem *reg_base, spinlock_t *lock);
- 
-+struct clk *rockchip_clk_register_cpuclk_multi_pll(const char *name,
-+						   const char *const *parent_names,
-+						   u8 num_parents, void __iomem *base,
-+						   int muxdiv_offset, u8 mux_shift,
-+						   u8 mux_width, u8 mux_flags,
-+						   int div_offset, u8 div_shift,
-+						   u8 div_width, u8 div_flags,
-+						   unsigned long flags, spinlock_t *lock,
-+						   const struct rockchip_cpuclk_rate_table *rates,
-+						   int nrates);
-+
- struct clk *rockchip_clk_register_mmc(const char *name,
- 				const char *const *parent_names, u8 num_parents,
- 				void __iomem *reg,
-@@ -1208,6 +1219,10 @@ void rockchip_clk_register_armclk(struct rockchip_clk_provider *ctx,
- 			const struct rockchip_cpuclk_reg_data *reg_data,
- 			const struct rockchip_cpuclk_rate_table *rates,
- 			int nrates);
-+void rockchip_clk_register_armclk_multi_pll(struct rockchip_clk_provider *ctx,
-+					    struct rockchip_clk_branch *list,
-+					    const struct rockchip_cpuclk_rate_table *rates,
-+					    int nrates);
- void rockchip_clk_protect_critical(const char *const clocks[], int nclocks);
- void rockchip_register_restart_notifier(struct rockchip_clk_provider *ctx,
- 					unsigned int reg, void (*cb)(void));
--- 
-2.34.1
+Best regards,
+Krzysztof
 
 
