@@ -4,76 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A5CCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3552FCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3cvXtn5V3UFFlWiour87LsQ22KfnHunhwwWD65loTaI=; b=RRJRayQNBQRfsbLvWit6jKnXl/
-	DTtlEhrqiypGzj+2FuVxAnELlRdSuRaCPAFqDEYeS3vNIJFFpbOkgT5/QX1oeBkncvKvXKi3jPkex
-	X/nX6g/x4FkZcOO0UcejJla5V1JgJuoC9KcgL11PQPD8x1TVmaQP33Xn1YAizSTWmSwsY54EEn4i6
-	gFQ8Q6Uz67pJs7UbK7ozWQX/yZ5H5nIFPdOCImJM79GlexMoGi/l/+wrAu17Vd4NQPJo3bIpywm4r
-	SSmzgV6N3Das9SHqZot1EVMEBDFF+X0ARpsiuBuob4a2S0taxfNUBaS6BmmBUMOh7nBAO2MqwcZ9e
-	H6Y6tS4g==;
+	bh=oeq3Tkb9dfp2ojcvlPDjFG08YFVIhXdY2L3p1I6fQEs=; b=cuyOMZClLBCFbsLkQvBfEU2VF8
+	XxivF9giX8oG4lQKZU1w+Z5B6HfOPqx152/c5cqe+46hcQr0kQQHd386OP4xABaigAxPax2HmhTCp
+	2aGM7qq2CJBQ61+U9TIrHrlJ4JaZ4qZHXS7EBd+qdcSf/YAFmQcN94GVr1NjwdgJHOiMx4Nz0DViZ
+	3XpFWUlTn38kpVdg2AyE65ZZaWSOTRrJIg94WmwxX/I0yy5HI6irkOciExm6+ayDLizPieAkq94np
+	kjG+Ajk7+9ypy7MpjUn/WWkC1MBw/lWu0AvMhvOSZX8vSe2Lyz5cPo9EUG7FvliWksImH/+3zVjWP
+	KD5IUtmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBsv-0000000H3F2-10gc;
-	Tue, 21 Oct 2025 12:54:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBBuQ-0000000H3Sl-2rRN;
+	Tue, 21 Oct 2025 12:56:14 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBst-0000000H3Dd-3a52
+	id 1vBBuO-0000000H3SF-1jha
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 12:54:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0493B60415;
-	Tue, 21 Oct 2025 12:53:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55553C4CEF1;
-	Tue, 21 Oct 2025 12:53:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761051234;
-	bh=UY2OSllcqRDaiG/AFNpJ3ozdueOD0RXvdE2EaOV+UH8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MK13Bz8u0aFDcU4UaydmuPJ94/RJsUSk49QV9YFFxyqro787NvORkZoXkPqM8E0Or
-	 CcLkp8Kp/iS+s/2nVgTWhzegXbjFKaG0dQnO4B6QFI1ixEDoPBJOt7XSEtVyWXmW/9
-	 qKmvDCQDJqrwKvumbdyVJKcuXpfHUfwwRDi51VQT4mskKM6g5KasWj5mm7PRLqrE6c
-	 B3CXCoFC5SN3tUmZYJSoGHIhQnDn1PoTiBLDFfvYKSSvnaVl4L60rXy8axwUHaedHu
-	 j8Yx061Fz6PO6hC23FWr0/8ddRTTlSHTU5475hpeZjVw44HqQt6f44aw9jA8WSg+3y
-	 KYUTqxRmLDd2w==
-Date: Tue, 21 Oct 2025 18:23:29 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andy Shevchenko <andy@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
-Message-ID: <ibdmghl5dg3oda2j5ejp35ydky4xkazewhdvskm7p32vstdegr@36pj32b6dt44>
-References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
- <hyzzrjn7jzo3tt3oyg7azijouawe3zopfjzq6zfhoo6e6z2m4t@ssl5vl4g557e>
- <zk4ea5cibrkp4vttuy4evrqybf76b3nop5lnyck4ws4nyf2yc4@ghj2eyswsoow>
- <CAMRc=MdWmO4wvX6zpzN0-LZF1pF5Y2=sS8fBwr=CKMGWHg+shA@mail.gmail.com>
- <rfr5cou6jr7wmtxixfgjxhnda6yywlsxsei7md7ne3qge7r3gk@xv6n5pvcjzrm>
- <CAMRc=Me9Td5G9qZV8A98XkGROKw1D2UeQHpFzt8uApF8995MZw@mail.gmail.com>
- <rvsyll4u6v4tpaxs4z3k4pbusoktkaocq4o3g6rjt6d2zrzqst@raiuch3hu3ce>
- <CAMRc=Me+4H6G+-Qj_Gz2cv2MgRHOmrjMyNwJr+ardDR1ndYHvQ@mail.gmail.com>
- <fydmplp5z4hjic2wlmvcy6yr3s5t5u4qsgo7yzbqq3xu2g6hdk@v4tzjj3ww4s6>
- <CAMRc=McGuNX42k_HdV20zW+buACBTmTZEHWgS-ddRYsvnfwDSg@mail.gmail.com>
+	Tue, 21 Oct 2025 12:56:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761051372; x=1792587372;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+CO+/an1hiocjSGMGzZYAKHx4UcThwwf4NGM2r5oRxc=;
+  b=dknEBuXb9BI+MR6Aq+eAQcIITck4ifvh6rK1HR0aE/XLqmXlOcpNG3Y9
+   O/suK9tFwZWJL1pRQ+V0ytztJJd1huB5U7HV7NwUPMx1BtpOhqZzDTdoJ
+   XWZLf+d0ZPqYmiF5Tyzgq68STCHwD4N5YAg6eLJeErtLRY5TkEO3PCNBP
+   vqTYszY+QEqErD1VYSUw2xTt2T6euzmUhA+yo6hNyfFDFG3dThNZUiMVM
+   ZkaNYDDnX0qVV73K30K3IwDNLCSxZnG2Nm2pfmFdhXpOQtV2cxZyJjuoZ
+   ZhL+JvLYMhS29BmeV6cTY3vnHDczrZl1QuMGpPswyMg6mL7O5iQoKLKDj
+   w==;
+X-CSE-ConnectionGUID: dA2i8UibS+uvvJCud4uSjw==
+X-CSE-MsgGUID: ALPFbyS0T/qSZcG7YDUzPg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="74516877"
+X-IronPort-AV: E=Sophos;i="6.19,245,1754982000"; 
+   d="scan'208";a="74516877"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2025 05:56:12 -0700
+X-CSE-ConnectionGUID: BxovcXqjQZemzDJ3BcibFQ==
+X-CSE-MsgGUID: qYr8i8VcSOqS+siN1Hg8+g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,245,1754982000"; 
+   d="scan'208";a="183443263"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa007.jf.intel.com with ESMTP; 21 Oct 2025 05:56:08 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vBBuI-000App-0T;
+	Tue, 21 Oct 2025 12:56:06 +0000
+Date: Tue, 21 Oct 2025 20:55:47 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Mark Brown <broonie@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-sunxi@lists.linux.dev,
+	linux-sound@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 04/11] ASoC: sun4i-spdif: Support SPDIF output on A523
+ family
+Message-ID: <202510212039.XiolKgXp-lkp@intel.com>
+References: <20251020171059.2786070-5-wens@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=McGuNX42k_HdV20zW+buACBTmTZEHWgS-ddRYsvnfwDSg@mail.gmail.com>
+In-Reply-To: <20251020171059.2786070-5-wens@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251021_055612_663637_24B049EA 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +95,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 02:22:46PM +0200, Bartosz Golaszewski wrote:
-> On Tue, Oct 21, 2025 at 2:20 PM Manivannan Sadhasivam <mani@kernel.org> wrote:
-> >
-> > >
-> > > And with the implementation this series proposes it would mean that
-> > > the perst signal will go high after the first endpoint pwrctl driver
-> > > sets it to high and only go down once the last driver sets it to low.
-> > > The only thing I'm not sure about is the synchronization between the
-> > > endpoints - how do we wait for all of them to be powered-up before
-> > > calling the last gpiod_set_value()?
-> > >
-> >
-> > That will be handled by the pwrctrl core. Not today, but in the coming days.
-> >
-> 
-> But is this the right approach or are you doing it this way *because*
-> there's no support for enable-counted GPIOs as of yet?
-> 
+Hi Chen-Yu,
 
-This is the right approach since as of today, pwrctrl core scans the bus, tries
-to probe the pwrctrl driver (if one exists for the device to be scanned), powers
-it ON, and deasserts the PERST#. If the device is a PCI bridge/switch, then the
-devices underneath the downstream bus will only be powered ON after the further
-rescan of the downstream bus. But the pwrctrl drivers for those devices might
-get loaded at any time (even after the bus rescan).
+kernel test robot noticed the following build warnings:
 
-This causes several issues with the PCI core as this behavior sort of emulates
-the PCI hot-plug (devices showing up at random times after bus scan). If the
-upstream PCI bridge/switch is not hot-plug capable, then the devices that were
-showing up later will fail to enumerate due to lack of resources. The failure
-is due to PCI core limiting the resources for non hot-plug PCI bridges as it
-doesn't expect the devices to show up later in the downstream port.
+[auto build test WARNING on sunxi/sunxi/for-next]
+[also build test WARNING on broonie-sound/for-next vkoul-dmaengine/next linus/master v6.18-rc2 next-20251021]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-One way to fix this issue is by making sure all the pwrctrl capable devices
-underneath a PCI bridge getting probed, powered ON, and finally deasserting the
-PERST# for each one of them. If the PERST# happens to be shared, it will be
-deasserted once at the last. And this order has to be ensured by the pwrctrl
-core irrespective of the shared PERST#.
+url:    https://github.com/intel-lab-lkp/linux/commits/Chen-Yu-Tsai/dt-bindings-dma-allwinner-sun50i-a64-dma-Add-compatibles-for-A523/20251021-011340
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
+patch link:    https://lore.kernel.org/r/20251020171059.2786070-5-wens%40kernel.org
+patch subject: [PATCH 04/11] ASoC: sun4i-spdif: Support SPDIF output on A523 family
+config: loongarch-allyesconfig (https://download.01.org/0day-ci/archive/20251021/202510212039.XiolKgXp-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 754ebc6ebb9fb9fbee7aef33478c74ea74949853)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251021/202510212039.XiolKgXp-lkp@intel.com/reproduce)
 
-- Mani
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510212039.XiolKgXp-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   Warning: sound/soc/sunxi/sun4i-spdif.c:180 struct member 'mclk_multiplier' not described in 'sun4i_spdif_quirks'
+>> Warning: sound/soc/sunxi/sun4i-spdif.c:180 struct member 'tx_clk_name' not described in 'sun4i_spdif_quirks'
 
 -- 
-மணிவண்ணன் சதாசிவம்
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
