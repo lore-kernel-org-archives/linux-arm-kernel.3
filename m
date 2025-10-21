@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6902FCCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 13:46:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC0CCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 13:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nzu3PfYc3sydq5pp+G2nVVL0CaJQ2hp5gtb+4Lvg/kw=; b=ABBoWqaVD9G0zKzwR1aoohXTQe
-	ImpkqGeSRM5XsAc78nMwlBRrmxvG+3IQhNlItpkFkzJ65PrsYcIoecnvmqneHs5sfBNhhVPd0/kVQ
-	33eyD/P76391oV2+u1tpAwXMY2+RBkv5KiD3FcxL+jl/LAAzXscR9VwV8NXS3iSIJ5QwKJZUif59S
-	DQva/PZo+99+9tP58SftOIXX47mVOZpfD0+yeLuiXsS4xhzj0UbaBuhYCrMsYknqOmXnmAPvh+5C0
-	AEcEH38V+w8TpuZRjsLzRJggBQlGceDqc7RZESkbutcIghqVnHziP9rIMCPa59v3Td6I8bhHUAZBG
-	2ayXsVZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aok4Q7VCeJwiry1qOMn1QTGAWgJx8h8keP6SSm7tHlQ=; b=mexvwYFydaOTXGvu/WSfjParO3
+	cZ13d9hihLiUu06gFHvK3lFLp0drauUB3tWazKI45HM3yx0DHWxeZA+3CKBtlbYqUlAZj0XKNJEBe
+	OGpeTiShbrzBI+CnI7ZsWxGnCvy67zUM+uQ/YgkJoWQZLG5wlXhbVgfkuZ7WPt5ltjYjLRI2zTpha
+	QdnhEDH0OcmzqzxI0vezQUWWbtI8zUzyc8SDwKh25PKfWGqoF67wu2FIsUGyChduKm1mNAdsI6q4L
+	Q6QKNPU7fFvgbl7/RW1Fkn1H5GbFDPl53V3bIZ5SK/vFscpizTGzF/YoIMn02hO4BSlVMxQTZpIF5
+	R2YYWRFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBCge-0000000HCHT-0M7S;
-	Tue, 21 Oct 2025 13:46:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBCgb-0000000HCGk-07ht
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 13:46:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BAA281063;
-	Tue, 21 Oct 2025 06:45:49 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D22043F63F;
-	Tue, 21 Oct 2025 06:45:56 -0700 (PDT)
-Message-ID: <8ca00b05-d402-4359-9403-32dc714e3cb0@arm.com>
-Date: Tue, 21 Oct 2025 14:45:55 +0100
+	id 1vBChq-0000000HCUB-44tq;
+	Tue, 21 Oct 2025 13:47:18 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBCho-0000000HCTX-1Be9;
+	Tue, 21 Oct 2025 13:47:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=aok4Q7VCeJwiry1qOMn1QTGAWgJx8h8keP6SSm7tHlQ=; b=Mlh89lu7wtQLx4mdH9MuwJQYFv
+	XjIltf3atCUoXi+p5e7lCcYpM4UyPbUFJm+8eFFY+UGuhKQeQyluZp0Rp4Gf4KwNQsQVqVsmdQKY+
+	QfyOik/etf8+aeNaxMM/M03AgFlf+oK63yjolN12SLXGnWrPaev6B6BdbNe2fOhTph+snLAMKMkhY
+	tcRNX0V96K6d+lekXsAm4R1AqXuq0oeJ40GsiSjyl8xqwkVAVmp1V1ul5J5fikDlL9QxhJDmoJg67
+	DL6D3FDSRj9khpecMAgByuCCTkYyfhzqrDg4gHSGMBAQLBa3rTWPA0cNDLF1L2DZ2nEzDHOmZ2UG1
+	ltdW8tjw==;
+Received: from i53875b19.versanet.de ([83.135.91.25] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vBChk-0003Zt-HY; Tue, 21 Oct 2025 15:47:12 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: mturquette@baylibre.com, sboyd@kernel.org, sugar.zhang@rock-chips.com,
+ zhangqing@rock-chips.com, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+ conor+dt@kernel.org, Elaine Zhang <zhangqing@rock-chips.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, huangtao@rock-chips.com,
+ finley.xiao@rock-chips.com
+Subject: Re: [PATCH v4 5/7] clk: rockchip: add support for pvtpll clk
+Date: Tue, 21 Oct 2025 15:47:11 +0200
+Message-ID: <13871591.dW097sEU6C@phil>
+In-Reply-To: <20251021065232.2201500-6-zhangqing@rock-chips.com>
+References: <20251021065232.2201500-1-zhangqing@rock-chips.com>
+ <20251021065232.2201500-6-zhangqing@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64/mm: Add remaining TLBI_XXX_MASK macros
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-kernel@vger.kernel.org
-References: <20251021052022.2898275-1-anshuman.khandual@arm.com>
- <20251021052022.2898275-3-anshuman.khandual@arm.com>
- <1148d823-5a89-4f32-911b-f009a8ea5641@arm.com>
- <875f379a-c3eb-4b1b-bb42-46183a879d69@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <875f379a-c3eb-4b1b-bb42-46183a879d69@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_064601_196604_91DFFAA0 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20251021_064716_349399_9AA29B41 
+X-CRM114-Status: GOOD (  18.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,106 +74,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Anshuman,
+Am Dienstag, 21. Oktober 2025, 08:52:30 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb Elaine Zhang:
+> Support to adjust pvtpll by volt-sel and otp.
+> Support calibrate pvtpll init frequency.
+>=20
+> PVTPLL is used to monitor the chip performance variance caused by chip
+> process, voltage and temperature, and generate a set of reference signals
+> for adjusting the voltage of the chip.
+>=20
+> PVTPLL supports the following features:
+>=20
+> 1. A clock oscillation ring is integrated and used to generate a clock
+> like signal (osc_clk),the frequency of this clock is determined
+> by the cell delay value of clock oscillation ring circuit
+>=20
+> 2. A frequency counter(osc_cnt) is used to measure the frequency of osc_c=
+lk.
+>=20
+> 3. A externally input clock (ref_clk) is used as a reference clock for
+> detecting the frequency of osc_clk.
+>=20
+> 4. A calculation counter uses ref_clk to generate a configurable
+> periodic timing window.
+>=20
+> 5. Two clock counters are used to measure the frequency of the clock
+> generated by OSC_WRAPPER?
+>=20
+> 6. Support for dividing the ref_clk and osc_clk
+>=20
+> 7. Support for configuring the effective polarity of the voltage
+> regulator signal 'OUT'
+>=20
+> The clock path of cpu used pvtpll:
+>=20
+>     --gpll--|--\
+>             |   \                                 | \
+>             |    \                                |  \
+>             |     \                               |   \
+>    --v0pll--| mux |--[gate]--[div]--clk_core_src--|mux |--clk_core
+>             |     /                               |   /
+>             |    /   --ref_clk--[div]-cpu_pvtpll--|  /
+>    --v1pll--|   /                                 | /
+>             |--/
+>=20
+> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
 
-On 10/21/25 13:45, Anshuman Khandual wrote:
-> 
-> 
-> On 21/10/25 2:30 PM, Ben Horgan wrote:
->> Hi Anshuman,
->>
->> On 10/21/25 06:20, Anshuman Khandual wrote:
->>> Add remaining TLBI_XXX_MASK macros and replace current open encoded fields.
->>> While here replace hard coded page size based shifts but with derived ones
->>> via ilog2() thus adding some required context.
->>>
->>> Cc: Catalin Marinas <catalin.marinas@arm.com>
->>> Cc: Will Deacon <will@kernel.org>
->>> Cc: linux-arm-kernel@lists.infradead.org
->>> Cc: linux-kernel@vger.kernel.org
->>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->>> ---
->>>  arch/arm64/include/asm/tlbflush.h | 26 ++++++++++++++++++--------
->>>  1 file changed, 18 insertions(+), 8 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
->>> index 131096094f5b..cf75fc2a06c3 100644
->>> --- a/arch/arm64/include/asm/tlbflush.h
->>> +++ b/arch/arm64/include/asm/tlbflush.h
 [...]
->>> @@ -100,8 +101,17 @@ static inline unsigned long get_trans_granule(void)
->>>   *
->>>   * For Stage-2 invalidation, use the level values provided to that effect
->>>   * in asm/stage2_pgtable.h.
->>> + *
->>> + * +----------+------+-------+--------------------------------------+
->>> + * |   ASID   |  TG  |  TTL  |                 BADDR                |
->>> + * +-----------------+-------+--------------------------------------+
->>> + * |63      48|47  46|45   44|43                                   0|
->>> + * +----------+------+-------+--------------------------------------+
->>>   */
->>> -#define TLBI_TTL_MASK		GENMASK_ULL(47, 44)
->>> +#define TLBI_ASID_MASK		GENMASK_ULL(63, 48)
->>> +#define TLBI_TG_MASK		GENMASK_ULL(47, 46)
->>> +#define TLBI_TTL_MASK		GENMASK_ULL(45, 44)
->>
->> The definition of TLBI_TTL_MASK changes here. This might be the correct
->> thing to do but it should be mentioned in the commit message and the
-> 
-> Sure, will update the commit message.
->> other user, arch/arm64/kvm/nested.c, needs to be updated in tandem.
-> 
-> Right, missed that one. Probably something like the following change
-> might do it for KVM without much code churn.
-> 
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -540,7 +540,7 @@ unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu, u64 val)
->         unsigned long max_size;
->         u8 ttl;
-> 
-> -       ttl = FIELD_GET(TLBI_TTL_MASK, val);
-> +       ttl = FIELD_GET(TLBI_TTL_MASK, val) | FIELD_GET(TLBI_TG_MASK, val);
 
-This and the other changed lines are missing a shift, but otherwise
-seems reasonable.
+> +	pvtpll->regmap_cru =3D syscon_regmap_lookup_by_phandle_optional(np, "ro=
+ckchip,cru");
 
-> 
->         if (!ttl || !kvm_has_feat(kvm, ID_AA64MMFR2_EL1, TTL, IMP)) {
->                 /* No TTL, check the shadow S2 for a hint */
-> @@ -963,7 +963,7 @@ static void compute_s1_tlbi_range(struct kvm_vcpu *vcpu, u32 inst, u64 val,
->         case OP_TLBI_VALE1ISNXS:
->         case OP_TLBI_VALE1OSNXS:
->                 scope->type = TLBI_VA;
-> -               scope->size = ttl_to_size(FIELD_GET(TLBI_TTL_MASK, val));
-> +               scope->size = ttl_to_size(FIELD_GET(TLBI_TTL_MASK, val) | FIELD_GET(TLBI_TG_MASK, val));
->                 if (!scope->size)
->                         scope->size = SZ_1G;
->                 scope->va = tlbi_va_s1_to_va(val) & ~(scope->size - 1);
-> @@ -991,7 +991,7 @@ static void compute_s1_tlbi_range(struct kvm_vcpu *vcpu, u32 inst, u64 val,
->         case OP_TLBI_VAALE1ISNXS:
->         case OP_TLBI_VAALE1OSNXS:
->                 scope->type = TLBI_VAA;
-> -               scope->size = ttl_to_size(FIELD_GET(TLBI_TTL_MASK, val));
-> +               scope->size = ttl_to_size(FIELD_GET(TLBI_TTL_MASK, val) | FIELD_GET(TLBI_TG_MASK, val));
->                 if (!scope->size)
->                         scope->size = SZ_1G;
->                 scope->va = tlbi_va_s1_to_va(val) & ~(scope->size - 1);
-> 
->>
->>> +#define TLBI_BADDR_MASK		GENMASK_ULL(43, 0)
->>>  
->>>  #define TLBI_TTL_UNKNOWN	INT_MAX
->>>  
->>
->> Thanks,
->>
->> Ben
->>
-> 
+Not convinced about that :-) .
 
-Thanks,
+(1) the cru itself already ioremaps the CRU memory, so having a syscon
+    there would ioremap that memory a second time.
+(2) we should definitly not expose the whole CRU io-memory to other
+    drivers to write "random" stuff to. This will just invited further
+    hacks, where people want to take shortcuts with clock settings.
 
-Ben
+Also this seems highly specific to the rv1126b.
+
+Looking at the registers, this is a clk-mux between that deepslow clock
+and the actual pvtpll output and the config function really only
+reparents to the pvtpll in all cases.
+
+So I believe this should in the worst case just be mux clock, but also
+I see that the "correct" setting will already be set by the
+
+        /* pvtpll src init */
+        writel_relaxed(PVTPLL_SRC_SEL_PVTPLL, reg_base + RV1126B_CORECLKSEL=
+_CON(0));
+        writel_relaxed(PVTPLL_SRC_SEL_PVTPLL, reg_base + RV1126B_NPUCLKSEL_=
+CON(0));
+        writel_relaxed(PVTPLL_SRC_SEL_PVTPLL, reg_base + RV1126B_VICLKSEL_C=
+ON(0));
+        writel_relaxed(PVTPLL_SRC_SEL_PVTPLL, reg_base + RV1126B_VEPUCLKSEL=
+_CON(0));
+        writel_relaxed(PVTPLL_SRC_SEL_PVTPLL, reg_base + RV1126B_VCPCLKSEL_=
+CON(0));
+
+in the rv1126b clock driver?
+
+So that whole mode setting should not be necessary at all maybe?
+
+Thanks
+Heiko
+
 
 
