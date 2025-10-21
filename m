@@ -4,63 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65BE4CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 11:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E2ACCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 11:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+wVA+Y8ZRjs8khCvkibhIqHLBC+tv3RGaU5s7skx3g=; b=nQpQTh84a59rmAV/gx/BueuDMA
-	+Iw4tIQD42HE2cr8whbr3Ix6vMQIYvEBhSuN+3q5n+PB1DJ/ZBfg+H3mACITTwAR6ztraYzjs4dJk
-	+bkQ3PL29+WubZiJDkBCr83+2MONnfDH4/YMKZ6jMEhhfGQ836cDRvueMax/asacYJmwtr8BU+tVE
-	FYZRzuPDJvbhBUBqPCqSeMnAITk+iqBvujL9YqYUjY1MlHrgP2sMGWooiwu6HQ5EN0cNcgcNAYS4u
-	iOW8TPKjaV4qMXCGudbljh8I3pJii99ohieitljHpLsScRf5yjY1svy/kWJkutNSwTONiXAMSYbGP
-	WQ2RKlyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qPRSdSQE0bLnU693LJLxkchAwzL3R1o8wQQaHCAimXE=; b=WsJ2HPgUpjcx9KCzOEvZueS6Dt
+	tclssP/S05RZ1q+zv9X4lPlYW3Q7UE40mW/AY0bP0236FFbQH1PcKazhrmDOkCpHUdZD/PEZdaAa1
+	GHbUVN+xfHMBEbgPAoiObCPRDCSis0f0uUNsIoPOXPsJgZgZR+zL3xMwY+GE1MB7A9Fbn57oRczdQ
+	xrYF6KzwmKSnIxllVDhS7j9gIzddemr6YDJYe7WvbsWWHGqMkYAfoQ+mFOcrbj/v5+3LmWxqGq5OJ
+	fz8mm8o6IMFyxfNyfywYQ04zFqZhG/2shW18xJXWn81U/C7IMZG+3O6OEQoULrWaO+z1xBf3IvbeE
+	UHPGcz7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBAQC-0000000GkT6-1kEa;
-	Tue, 21 Oct 2025 11:20:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBAUh-0000000Gl99-3SKd;
+	Tue, 21 Oct 2025 11:25:35 +0000
+Received: from mx-relay138-hz1.antispameurope.com ([94.100.132.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBAQB-0000000GkSM-13ej;
-	Tue, 21 Oct 2025 11:20:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42E78623CC;
-	Tue, 21 Oct 2025 11:20:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4677C4CEF1;
-	Tue, 21 Oct 2025 11:20:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761045639;
-	bh=+VaSZVBmZz5ORjS1Wb6KdbQodfWLfvpUe4sWk4+bHv4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=YW1znFsumFVytyxSSC/x9NGDtSKDa95wxqD2GVitcp9zBDvj58z7i4UVfsYqyMESb
-	 0756yvamIZ5JBhICt1yrOhmGulkkWKUjuXg9nEXtxL2d1R5NXWyktgM1ONo1BM3+9D
-	 eM3u7SzC32ZvUTi8W9M9Npo2v2ZkjZ9NH1QfoVbSzjcBX6tRiUSkmRnEQsffdaiw0y
-	 na/QZqlQUaeMUVNggBSrFzt607Gl9yD8TApx2OmB/txPEG33msJMaGvo4oi432rB/6
-	 EsFxp0BhffTuDlM20IErb2ih6IgyYqB8TfoMmyUlMdQAgug5V45/0r9BQMV4F9FUx1
-	 C9mqq2/7zXWdA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE3A3A55ED9;
-	Tue, 21 Oct 2025 11:20:22 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1vBAUc-0000000Gl8Y-2y2q
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 11:25:33 +0000
+ARC-Authentication-Results: i=1; mx-gate138-hz1.hornetsecurity.com 1;
+ spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=qPRSdSQE0bLnU693LJLxkchAwzL3R1o8wQQaHCAimXE=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1761045911;
+ b=CoMAOZOvWXOqzenR7x+rmG1hWnW5cQZPrLeoNEJxNEe3uX7SM/LoLaRTSCJm2rDadiJ5mgGZ
+ kw5H50g9RLq/TYRuPhKwKVT7aPWmW3Yw5b825bDQY3/yjpFAbcEnuhzQDWVjx/WB3vIZon44541
+ i+RMDiIoyRP+gzRERPJKTZUUP6cQPDrKL+FDc+nyRSgwXpDSGwLO+6gDXhsa/ipPugpWq9fd7fa
+ C3ULEjDfeR7N7cqrBpZ3SRG3WdMgfZ4GpTdJSycBqehl8utgVJZDkzWo2FjJkGPVKYep+u/I/X0
+ pjmnFMcPhClRZEadJPRECcrEzqAJtRcEiP5OzqHFtOq/g==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1761045911;
+ b=aCoMXBmKGoIFHTbIhQF1xBi/T2wUlGG/yYJJMT+ck2cHWcyl4YQkEHc/XINI8KZCLRZU5L76
+ IhJdccNh7P6vYDm5t1ruDiOMWPYf5b7BSiajRiPwSaY9tpDmnkVtBg+TWFpXk1FJ382RWDkfUvp
+ 4fJiPOAApTfw4CpL8U8xA5zoJX55QosG2NARE9saxFU7f5UxV3IhoXbTvaqodIy37/C8OSvIueN
+ Ztq/6NnN+QANHoYUQwmfHXHXmrVnd/ZtyXhE+qglS+M23PaOlHxpvD5w6LcRD/0cFajaqkAjln5
+ YZW5Ui+wto7PxGOzXl55yXTYVA5UggnPivbscVNuBIm9w==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay138-hz1.antispameurope.com;
+ Tue, 21 Oct 2025 13:25:11 +0200
+Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 56DCEA404BD;
+	Tue, 21 Oct 2025 13:24:53 +0200 (CEST)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Gregor Herburger <gregor.herburger@tq-group.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
+Subject: Re: [PATCH v2 2/2] arm64: dts: ls1028a: Add mbls1028a and mbls1028a-ind
+ devicetrees
+Date: Tue, 21 Oct 2025 13:24:52 +0200
+Message-ID: <13873811.uLZWGnKmhe@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <14f52170-cc5b-4808-8fc1-28685ba349dd@lunn.ch>
+References: <20251020133536.303471-1-alexander.stein@ew.tq-group.com>
+ <20251020133536.303471-2-alexander.stein@ew.tq-group.com>
+ <14f52170-cc5b-4808-8fc1-28685ba349dd@lunn.ch>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3 00/13] net: airoha: Add AN7583 ethernet
- controller support
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176104562151.1030909.1115814969731162849.git-patchwork-notify@kernel.org>
-Date: Tue, 21 Oct 2025 11:20:21 +0000
-References: <20251017-an7583-eth-support-v3-0-f28319666667@kernel.org>
-In-Reply-To: <20251017-an7583-eth-support-v3-0-f28319666667@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org, horms@kernel.org,
- ansuelsmth@gmail.com
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay138-hz1.antispameurope.com with 4crVMB1Y5zz1NGLl
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 0a6c4bbb931b6e0c1b6e99bc4c54eeb4
+X-cloud-security: scantime:2.297
+DKIM-Signature: a=rsa-sha256;
+ bh=qPRSdSQE0bLnU693LJLxkchAwzL3R1o8wQQaHCAimXE=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1761045911; v=1;
+ b=dizRtntOG4a+w3XbANZt3A8xPrXPX7vG5Ni/HR7BFsq5rK0g8WzhjyRSHh6pOu6ASRUyNj23
+ Ri3qGSdVxP22TwOMGHvf2GSBa5LHHlGo9o0jbr9Tg+K/e5HMqFEo+KWYu7veWk0D7jpBqnLbqgO
+ UfizKS5/nvNheo/tdwyNs2ISELuwbP/rYEhQ/gL8mrjOjfkGF0uX/Gy7PX2o+mUZ0dzJnELkdoz
+ j6tWHoqzg3zNPnVpTVIgpFt11/9oJiMzzOJ3SNIFna6BF5ZyXv019zSX6WpLlWDHyhQtCrNo3bp
+ vdnaeliQDjdhQrEHlfL5fzJOHxwlPpdCkNCKs0wd33nlg==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251021_042530_992831_B8897A98 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,57 +112,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Andrew,
 
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+Am Montag, 20. Oktober 2025, 20:34:16 CEST schrieb Andrew Lunn:
+> > +&enetc_mdio_pf3 {
+> > +	mdio0_rgmii_phy00: ethernet-phy@0 {
+> > +		compatible =3D "ethernet-phy-ieee802.3-c22";
+> > +		reg =3D <0x00>;
+> > +		reset-gpios =3D <&gpio_exp_1v8 1 GPIO_ACTIVE_LOW>;
+> > +		reset-assert-us =3D <1>;
+> > +		reset-deassert-us =3D <200>;
+> > +		interrupt-parent =3D <&gpio_exp_1v8>;
+> > +		interrupts =3D <0 IRQ_TYPE_EDGE_FALLING>;
+>=20
+> PHY interrupts are generally level not edge. So this is probably
+> wrong.
 
-On Fri, 17 Oct 2025 11:06:09 +0200 you wrote:
-> Introduce support for AN7583 ethernet controller to airoha-eth dirver.
-> The main differences between EN7581 and AN7583 is the latter runs a
-> single PPE module while EN7581 runs two of them. Moreover PPE SRAM in
-> AN7583 SoC is reduced to 8K (while SRAM is 16K on EN7581).
-> 
-> ---
-> Changes in v3:
-> - improve device-tree binding
-> - rebase on top of net-next main branch
-> - Link to v2: https://lore.kernel.org/r/20251016-an7583-eth-support-v2-0-ea6e7e9acbdb@kernel.org
-> 
-> [...]
+Thanks for the pointer.
 
-Here is the summary with links:
-  - [net-next,v3,01/13] dt-bindings: net: airoha: Add AN7583 support
-    https://git.kernel.org/netdev/net-next/c/51538c0c9d8c
-  - [net-next,v3,02/13] net: airoha: ppe: Dynamically allocate foe_check_time array in airoha_ppe struct
-    https://git.kernel.org/netdev/net-next/c/6d5b601d52a2
-  - [net-next,v3,03/13] net: airoha: Add airoha_ppe_get_num_stats_entries() and airoha_ppe_get_num_total_stats_entries()
-    https://git.kernel.org/netdev/net-next/c/15f357cd4581
-  - [net-next,v3,04/13] net: airoha: Add airoha_eth_soc_data struct
-    https://git.kernel.org/netdev/net-next/c/5863b4e065e2
-  - [net-next,v3,05/13] net: airoha: Generalize airoha_ppe2_is_enabled routine
-    https://git.kernel.org/netdev/net-next/c/ef9449f080b6
-  - [net-next,v3,06/13] net: airoha: ppe: Move PPE memory info in airoha_eth_soc_data struct
-    https://git.kernel.org/netdev/net-next/c/5bd1d1fd48ea
-  - [net-next,v3,07/13] net: airoha: ppe: Remove airoha_ppe_is_enabled() where not necessary
-    https://git.kernel.org/netdev/net-next/c/41139125f5c7
-  - [net-next,v3,08/13] net: airoha: ppe: Configure SRAM PPE entries via the cpu
-    https://git.kernel.org/netdev/net-next/c/306b78f5035a
-  - [net-next,v3,09/13] net: airoha: ppe: Flush PPE SRAM table during PPE setup
-    https://git.kernel.org/netdev/net-next/c/620d7b91aadb
-  - [net-next,v3,10/13] net: airoha: Select default ppe cpu port in airoha_dev_init()
-    https://git.kernel.org/netdev/net-next/c/c71a7a861ef0
-  - [net-next,v3,11/13] net: airoha: Refactor src port configuration in airhoha_set_gdm2_loopback
-    https://git.kernel.org/netdev/net-next/c/9d5b5219f672
-  - [net-next,v3,12/13] net: airoha: ppe: Do not use magic numbers in airoha_ppe_foe_get_entry_locked()
-    https://git.kernel.org/netdev/net-next/c/63f283d36b1f
-  - [net-next,v3,13/13] net: airoha: Add AN7583 SoC support
-    https://git.kernel.org/netdev/net-next/c/e4e5ce823bdd
+> > +		ti,rx-internal-delay =3D <DP83867_RGMIIDCTL_2_50_NS>;
+> > +		ti,tx-internal-delay =3D <DP83867_RGMIIDCTL_2_00_NS>;
+> > +		ti,led-function =3D <0x05b0>;
+> > +		ti,led-ctrl =3D <0x1001>;
+>=20
+> I really would prefer /sys/class/leds was used. In fact, these are not
+> documented, and don't even seem to be implemented in mainline. So you
+> need to drop them.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Ah, sorry, this slipped in from downstream kernel. Will be removed.
+
+Thanks and best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
 
 
