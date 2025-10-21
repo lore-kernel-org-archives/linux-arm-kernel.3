@@ -4,92 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D85CCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 16:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A74CCD1A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 16:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z/IdadGFev8EMGQWIIqEHXt78w+GzasFDdOM6t/N/dU=; b=MB/ChlxbSq90O3DpFaLrNp5auD
-	i1ajMf/3SCB2vWbqrhQmHXu9fYwmX4/sg709ey8rtiPiErVbd2fuvMcZ9o92akfG/iwhNMsuxEE0G
-	YeJBvZ7id3YKvfXyNfenL0w7sGpSr2rZ2AmrVholyqRV4l4q4zxPn2Hrw82rfsknFlnf+4Eh6j7w8
-	z2PWIwrLGubGQoZXNsib5hNSoKOUXjbEWe2U4yQVwhL35bLwvmtDBguK4sPOHk7BJHRENbWc6whdb
-	AKkK6C6knyzxeHD1PK3hmFvnv/1cO/S7wPllI7/Sob5djCpSBMpJuQba/J/ZzdQd7zPqRzENG+Evf
-	VevwjilA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=paRKTns1WT8quydNofkJCuHKZQbF54gWy9Rd/nrzvfk=; b=YNWC0PT3oZ2HKu1qp/E8SfJDpF
+	4GZxF/kUyOKHK6UQtoQyxR9J/44EfhXhYq6Fe7f1osGhuveQVwvfOF7eXHiICnSUiNIm4vUfnG+Xj
+	jDffB+f2LW31ydJuwzA1Q8GHh8lgZwpGM++41NFN05RwLPtNHHGAWoDq20xmIREyoXy/izWWmQX2Q
+	tx6ekL4+tvuBeTQdhH9MumaN01r+/gDrWWuYxqzmwmxH3n8dCdfKkD36mRgcqP5gLuU1IVAhQE/5m
+	3nSpiQQdEcJsRQVxAFVSGASjVXqLem7GMT7Dy4LqeztoLCJUGQCosKq7HQbfI+ZtUC2mltgk7k7sg
+	cK26jlAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBFM1-000000007kH-39AB;
-	Tue, 21 Oct 2025 16:36:57 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1vBFb3-00000000A8d-2DvB;
+	Tue, 21 Oct 2025 16:52:29 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBFLy-000000007iq-3kKV
+	id 1vBFb1-00000000A8H-1OGu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 16:36:56 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b552f91033cso8706935a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 09:36:54 -0700 (PDT)
+	Tue, 21 Oct 2025 16:52:28 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-373a56498b9so787211fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 09:52:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761064613; x=1761669413; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=z/IdadGFev8EMGQWIIqEHXt78w+GzasFDdOM6t/N/dU=;
-        b=KhTdc6Sd9alH3T5gNBzJdJ8R5LGqXBp0o6/9ZsBtVthNtKKoMUpKbcW/UW1QPz83Bi
-         OyRndQzDBUVtKgw/gMFIA/WTrCnAIC4IpB4OZRxlJx8K9XMc4AcC+Hy53VuCapgAfVjv
-         gS0n3RWTmRy8Giwjn55o1etmIF0H5qivWSuJJ20vSFjtUyZIUlfWVL286MtVIUJRHdH2
-         oVN9pjLS5jeaTjfo/jMiA5+DhmnZh+wxa2e6aqgs5rCsGEbcEH+fw6eIwQMlMKUPUeib
-         cAaTFTPhwcQpYDBZvnJIvlE6D4SRX0w3v4bzu4EAWCukJXNFmKcCdSsn2taqdhhAnsjn
-         6fJw==
+        d=gmail.com; s=20230601; t=1761065545; x=1761670345; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=paRKTns1WT8quydNofkJCuHKZQbF54gWy9Rd/nrzvfk=;
+        b=QprKlK1Rq/6QsXgZlcrzTw3h8UH7gswjPZ3wD1z1yBITGC0OyHysZluIPRUKI9UTsh
+         s1ThJP3e3SgPnNmfaSgM0KtM6UujA3gaD9RGtVOOpTus9EvgunDrA7tBLMMdKO47j87K
+         eFUuH1wnYFgycUvpH9MsB/OlBhJY/16OH9OCSEfSXp9W5bUxlnGMd05m3BUpeVu8ubVB
+         O6EpBnniCd//xKsOhU+CE5gli6UZn4lDTZfpkDJRgt/cLH260m6kN65/NliortzZ7lEM
+         JcmpxOlJZBUV/BrqimeqK+xHwtQoaiNp6P6qAhWLTQO4v3mtx531OVdGgEB3Lw0N9Iar
+         57Kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761064613; x=1761669413;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=z/IdadGFev8EMGQWIIqEHXt78w+GzasFDdOM6t/N/dU=;
-        b=RjQGLmznq1/wNNaU0W9iE3F6IH7DRyB/tiQNF5/iJH8UgbRRrO0cDCP8x2HJaA1qdc
-         0nuguQHTqKd5OSK+egGYa9eGMN80O/8754bDchIEOwHDgFfuCU2SfLsq4pBBj0SrOHgZ
-         9Jmo33uqTgdj1AX/VgV6oYde2zx5K5AVf9oQSCjzZxjTYiScXlc3oMQMg6077QyeNsg2
-         IwLg76fUq2IThBcxTWD1H4KTo2byW2yiNg6MVErAAj98QIbA8TF84PS0aN0GVF82JFja
-         BVmpcMtI3vnjxIAwkTBamC2XPe8kOdTNbxU+jAAcUy1lU7+V4oJKiUSOdAtbTYyzlV2l
-         pu0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWm1iBAEMkz4CgK0d/Vxr+kNDogHO3ScBdDvush1gjJPYKjgMwfFcvMZHvd9A22v/WITYZDY6J/DjxS6JVsD2W2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeG+MmUmYT+ba2W1pPuWp2rkGEImzTuINfyXyEXOjydkaR7fEy
-	jmAokq2c3m17KfbSoHw7xZn7VfC+IxFfqe/Yj+WpmPEOu0/EKygdviT3wg28KstIilwzBq9GzTv
-	F7JCJ4g==
-X-Google-Smtp-Source: AGHT+IES6ELYoVnXS8by0geR6jOr+Qyair+TP7lX0bGCC8OGD3dU25vj5A6KyxRj4XG+s9p6uoHaw2v+jQs=
-X-Received: from pjbnk17.prod.google.com ([2002:a17:90b:1951:b0:32e:ca6a:7ca9])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:3d0b:b0:32b:7220:8536
- with SMTP id adf61e73a8af0-334a856d5bbmr22480858637.16.1761064613440; Tue, 21
- Oct 2025 09:36:53 -0700 (PDT)
-Date: Tue, 21 Oct 2025 09:36:52 -0700
-In-Reply-To: <aPcG3LMA0qX5H5YI@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-5-seanjc@google.com>
- <aPcG3LMA0qX5H5YI@yzhao56-desk.sh.intel.com>
-Message-ID: <aPe2pDYSpVFxDRWv@google.com>
-Subject: Re: [PATCH v3 04/25] KVM: x86/mmu: Add dedicated API to map
- guest_memfd pfn into TDP MMU
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Michael Roth <michael.roth@amd.com>, Vishal Annapurve <vannapurve@google.com>, 
-	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Binbin Wu <binbin.wu@linux.intel.com>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20230601; t=1761065545; x=1761670345;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=paRKTns1WT8quydNofkJCuHKZQbF54gWy9Rd/nrzvfk=;
+        b=wl6jKh4RMhSkTtwLGHl2WePuL1HxASvNRnjQNxAYznc0LcE5RCG0Wl9eqqJGFewu6z
+         YXtrOw8Fa0WedeRBzaqTHHmdg489y6EM4QIC/uRp4XMJ/ht6gR1Eour77UfBRe7SIRJ3
+         eyvyIkVLIIr1wWdKRdhtGIXbqnZHdemrHj83WB0PhjBjgHFspacdu4moX5jmGZS8jAsf
+         iH90xV4YlTEfdKYkgEY2MNDKmQBgrevJQG8efBPNt4OZqepcxvnli+dvdFV5i9dy1EPy
+         Lf9f0FFCb2IuMIPCmQu59p7Vvtb5P4S/r2BtflTrwMgNoBD8yTaC0ZaE9JGvgqd+0tZW
+         6Yzw==
+X-Forwarded-Encrypted: i=1; AJvYcCV5YyaJSJ7s1pHaFQnvGTcRmWrBb+Qk9akWRyJxu87fvQtItgUn1hKlaxNsMlfq8Cb6b/Tuf+YhGrV+Lf6reUPQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4MBjTpoaZO5EeOEfKgAparr9ZDXhq/hJy5SSgQyrsM7YqQ7jj
+	kO/3foJsQGqD7RzuDhHOXnmBsE0kTbbZpMRHyOn5Mn8dCRt03+x1UeP51+Xb5JbOhcw=
+X-Gm-Gg: ASbGncuxlVwyqczyqzBs6PLYkWY37r8NzhFO6cc1xGT9Kog46arwMzK5d/TqwoRI5ME
+	gpNSWszrMu00KzaFFOnGDgtWHQT2xXrTb1vpCKHDwCYnHmGCLJ3oydyPsgctrtHj+MF6x0LZbGI
+	rfJRZ0n99rIVG/gvGX4TTl+yiaFuHHYUj7B8IkGVgd+cPiHXYqKiFc6A5wfkg82RRX9hxzvbIhM
+	4z36yRAlkX4af/8f0LZziSkxBEqfCT8AWIH4RoDtIUe6eaQyu0NGizqP/jy60CAvU04n4Y1kAL5
+	Ac3ZD/4dBC8VCcA/T0p7r05pIP6DrV1qtQCSQrzOLIcIJKcYWR0dGDaifXrI11Rl8ToMA1JWNvT
+	3PCt63yWXF4dRDHIUSQ9kgHR7D2OiMaUJgEBfBYyq0prkqaLYr6Q1lPfqHr7r2hZjvvPyfDk/Ib
+	grsgaV7eWdDWJSAjEawQ==
+X-Google-Smtp-Source: AGHT+IGjAkRj9soa7GWukQ8Cihq7HSi/Un2xv4fuxCxdBhttxHc7UDbrzdxzRB84sxHyktFpcpbArg==
+X-Received: by 2002:a05:651c:25d3:10b0:377:991f:c1bc with SMTP id 38308e7fff4ca-378bb007751mr918501fa.5.1761065544634;
+        Tue, 21 Oct 2025 09:52:24 -0700 (PDT)
+Received: from NB-6746.corp.yadro.com ([188.243.183.84])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-377a9506367sm30738001fa.34.2025.10.21.09.52.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Oct 2025 09:52:24 -0700 (PDT)
+From: Artem Shimko <a.shimko.dev@gmail.com>
+To: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Cc: a.shimko.dev@gmail.com,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] firmware: arm_scmi: Add new sensor unit types
+Date: Tue, 21 Oct 2025 19:52:11 +0300
+Message-ID: <20251021165212.749372-1-a.shimko.dev@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_093654_931424_876BCD1C 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20251021_095227_410128_06431ED8 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,81 +99,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025, Yan Zhao wrote:
-> On Thu, Oct 16, 2025 at 05:32:22PM -0700, Sean Christopherson wrote:
-> > diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-> > index 18d69d48bc55..ba5cca825a7f 100644
-> > --- a/arch/x86/kvm/mmu/mmu.c
-> > +++ b/arch/x86/kvm/mmu/mmu.c
-> > @@ -5014,6 +5014,65 @@ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-> >  	return min(range->size, end - range->gpa);
-> >  }
-> >  
-> > +int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn)
-> > +{
-> > +	struct kvm_page_fault fault = {
-> > +		.addr = gfn_to_gpa(gfn),
-> > +		.error_code = PFERR_GUEST_FINAL_MASK | PFERR_PRIVATE_ACCESS,
-> > +		.prefetch = true,
-> > +		.is_tdp = true,
-> > +		.nx_huge_page_workaround_enabled = is_nx_huge_page_enabled(vcpu->kvm),
-> > +
-> > +		.max_level = PG_LEVEL_4K,
-> > +		.req_level = PG_LEVEL_4K,
-> > +		.goal_level = PG_LEVEL_4K,
-> > +		.is_private = true,
-> > +
-> > +		.gfn = gfn,
-> > +		.slot = kvm_vcpu_gfn_to_memslot(vcpu, gfn),
-> > +		.pfn = pfn,
-> > +		.map_writable = true,
-> > +	};
-> > +	struct kvm *kvm = vcpu->kvm;
-> > +	int r;
-> > +
-> > +	lockdep_assert_held(&kvm->slots_lock);
-> Do we need to assert that filemap_invalidate_lock() is held as well?
+Add support for two new sensor unit types introduced in Arm SCMI
+- STATE_BINARY (0x5E): Binary state (1: enabled/on, 0: disabled/off)
+- BYTES_SEC (0x5F): Bytes per second
 
-Hrm, a lockdep assertion would be nice to have, but it's obviously not strictly
-necessary, and I'm not sure it's worth the cost.  To safely assert, KVM would need
-to first assert that the file refcount is elevated, e.g. to guard against
-guest_memfd _really_ screwing up and not grabbing a reference to the underlying
-file.
+These unit types are used for sensors that report binary state information
+and data transfer rate measurements respectively.
 
-E.g. it'd have to be something like this:
+Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
+---
+Hello,
 
-diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-index 94d7f32a03b6..5d46b2ac0292 100644
---- a/arch/x86/kvm/mmu/mmu.c
-+++ b/arch/x86/kvm/mmu/mmu.c
-@@ -5014,6 +5014,18 @@ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-        return min(range->size, end - range->gpa);
- }
+This patch adds definitions for two new sensor unit types that were
+introduced in the Arm System Control and Management Interface (SCMI)
+Specification version 4.0:
+
+STATE_BINARY (0x5E) - Used for sensors that represent binary states
+where:
+1 indicates enabled/on state
+0 indicates disabled/off state
+
+BYTES_SEC (0x5F) - Used for sensors that measure data transfer rates
+in bytes per second
+
+These additions ensure compatibility with SCMIv4.0 and allow proper
+handling of binary state sensors and bandwidth measurement sensors
+in the Linux SCMI driver.
+
+The patch follows the existing pattern for sensor unit type definitions
+and maintains backward compatibility with previous SCMI versions.
+
+Thank you for your consideration.
+
+Best regards,
+Artem Shimko
+
+ include/linux/scmi_protocol.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index aafaac1496b0..629acb7831eb 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -488,6 +488,8 @@ enum scmi_sensor_class {
+ 	CUBIC_METERS_SEC = 0x5B,
+ 	MM_MERCURY = 0x5C,
+ 	RADIANS_SEC_SQUARED = 0x5D,
++	STATE_BINARY = 0x5E,
++	BYTES_SEC = 0x5F,
+ 	OEM_UNIT = 0xFF
+ };
  
-+static void kvm_assert_gmem_invalidate_lock_held(struct kvm_memory_slot *slot)
-+{
-+#ifdef CONFIG_PROVE_LOCKING
-+       if (WARN_ON_ONCE(!kvm_slot_has_gmem(slot)) ||
-+           WARN_ON_ONCE(!slot->gmem.file) ||
-+           WARN_ON_ONCE(!file_count(slot->gmem.file)))
-+               return;
-+
-+       lockdep_assert_held(file_inode(&slot->gmem.file)->i_mapping->invalidate_lock));
-+#endif
-+}
-+
- int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn)
- {
-        struct kvm_page_fault fault = {
-@@ -5038,6 +5050,8 @@ int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn)
- 
-        lockdep_assert_held(&kvm->slots_lock);
- 
-+       kvm_assert_gmem_invalidate_lock_held(fault.slot);
-+
-        if (KVM_BUG_ON(!tdp_mmu_enabled, kvm))
-                return -EIO;
---
+-- 
+2.43.0
 
-Which I suppose isn't that terrible?
 
