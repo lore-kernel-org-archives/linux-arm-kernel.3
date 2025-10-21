@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C20CCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 00:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D14CCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 00:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z8yxCV1rihdgNW06yNi6btHIMFL2Tl2MiLb3GZKvv6k=; b=qF8gr/KnacaWBIQJewpgq0jmY7
-	jtavKBJ6yo55n16iPhavcm/DPml/BqH2pVBk43XmwfAEr7u89wsrrTxQltvc53U/spivZ3m0YD2TX
-	w8Aisy4vOfRrDV50j7/R6Zzfy9f02qNSZBNBRhjuaYZXBnkQR1Sfa6SgQ01gaVSOtmVRFLX5MDrNU
-	jFjxnlstybsESWrrnrPVcqlB4hxOW+JXdAvNS2dBU/mM6ah+0WqQflczrsp3/Mb9IrkHL/5ty6W1f
-	wXx4pSJUaitqIZ/udouzNdMps/XReiJmOYYPPS1lpyaFLhqzfqkL6lc30HPxC5LJ21Z2t0KPpuiLF
-	LDh5Rxhw==;
+	bh=jDGV2yg5lpkIovG1s0kMsaTuCjjJwIpbrURQLu7sgUc=; b=D7ydFOoBORv8KiWXdIfLiMqfp2
+	4tfMF47TpGwPsRTidKG6qqoZTBkbKkvytm1Os4Wiaw0y50Javxt5QhRGnA16zjdrAxDS3hprEOWOW
+	d/kO7n8/i7LjKgCKClFWq44j0E/IYtGl+hiTpHejuOuKB6PcdA4OXgSQn+tvQy1+hWmP7C6LTbFqY
+	1bxye9Etam78CVYUdr3KIoOJdtJUWQdHzyGZQrbWs64nhg2IZ8R5cTKi2NTABZgrAR0RwpEHb+53g
+	bp+908VChSHtUFFk3OLKb8Wn7+MJmXqffusVJDzpoKwUFhrtaoI5UVWQLgk8wczZvyrrBiPyhkgpx
+	Ujzn2IoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB0R2-0000000FN7n-1B57;
-	Tue, 21 Oct 2025 00:41:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vB0T5-0000000FNQv-3WrP;
+	Tue, 21 Oct 2025 00:43:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB0R0-0000000FN6r-1SsS
+	id 1vB0T4-0000000FNOr-0HLL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 00:41:06 +0000
+	Tue, 21 Oct 2025 00:43:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1601461407;
-	Tue, 21 Oct 2025 00:40:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8F8AC4CEFB;
-	Tue, 21 Oct 2025 00:40:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E6CCD43E40;
+	Tue, 21 Oct 2025 00:43:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65B00C4CEFB;
+	Tue, 21 Oct 2025 00:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761007250;
-	bh=UU1RkXwZN8NwOrfKRqz1pbaC+bNTIeLHOSMus2MSmCI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=RuVmwOUXaDCl969T+Def4jubbj5ikNZL1Jx+dMTQsZsDS/LntPH3l06U4H+N30OaJ
-	 0iJUOXcIrix6lyQw/c0S5arVQH19mYzFYMxfDmHLYV10LYhcnA5wToKukUmz3TfFcd
-	 UhpG5GehVxOG9PrEA2NWHu+QaoG8iQz6vY19Zow4+5SvQh/B6T4o8Qt7dcHJJb+rtm
-	 7fYIZnsdZxRgs52WtPeOThufbn/RooNRUOnd9shGeA16HyvZItmqx7NAU2AILD2gsQ
-	 3jyVQv/3Yup5sCGwmxrLirr0UYNWqw4fgY+Vl3YUdBeWN8UHqdQgqEtwYAIwlfFEoz
-	 8ARJgAhOeJJSw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADEF33A4102D;
-	Tue, 21 Oct 2025 00:40:33 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1761007390;
+	bh=4RCzmBSn1YK3dNU1eu6WlsS+oiC3sOWT4kMWZcs60Is=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cEtkjrjSI92wIHZJsTGhCickdT6aybd2B/sEoCNPQBq/fTzMFYu6KnoutQup+d3Ro
+	 lM5gStw8JWQUxulUM1ObqQoPovLRzmAZd6pDkxLZNOvipZeJs8WuC5drCdqW3pVzlM
+	 h/BndLLXV6OHUq6iIpQRcM7bJYk9icyWPTB5HiUu6//tb+H7Qb/DdZ+aG3zjCUS/Ty
+	 PRoWZxS854wCjMVNWDg3mNdhBMvr5w0gjQF3eaI2lbwC9unraJMT4P1SItRyPIjrWH
+	 8Pxo7LIrp/88tlKL+LQ5d1imWkZr7hsHbzmQNAOzfATefCser5tkqQeUtnFxqAIwLz
+	 OaSBPwcvab96Q==
+Date: Mon, 20 Oct 2025 17:43:08 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Meghana Malladi <m-malladi@ti.com>
+Cc: <horms@kernel.org>, <namcao@linutronix.de>, <jacob.e.keller@intel.com>,
+ <christian.koenig@amd.com>, <sumit.semwal@linaro.org>, <sdf@fomichev.me>,
+ <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
+ <ast@kernel.org>, <pabeni@redhat.com>, <edumazet@google.com>,
+ <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+ <linaro-mm-sig@lists.linaro.org>, <dri-devel@lists.freedesktop.org>,
+ <linux-media@vger.kernel.org>, <bpf@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
+ <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: Re: [PATCH net-next v3 0/6] Add AF_XDP zero copy support
+Message-ID: <20251020174308.59b87130@kernel.org>
+In-Reply-To: <20251014105613.2808674-1-m-malladi@ti.com>
+References: <20251014105613.2808674-1-m-malladi@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2 00/14] net: stmmac: phylink PCS conversion
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176100723252.470828.3402215548050414141.git-patchwork-notify@kernel.org>
-Date: Tue, 21 Oct 2025 00:40:32 +0000
-References: <aPECqg0vZGnBFCbh@shell.armlinux.org.uk>
-In-Reply-To: <aPECqg0vZGnBFCbh@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, quic_abchauha@quicinc.com,
- alexandre.torgue@foss.st.com, alexis.lothore@bootlin.com,
- andrew+netdev@lunn.ch, boon.khai.ng@altera.com,
- yong.liang.choong@linux.intel.com, daniel.machon@microchip.com,
- davem@davemloft.net, dfustini@tenstorrent.com,
- emil.renner.berthing@canonical.com, edumazet@google.com,
- faizal.abdul.rahim@linux.intel.com, 0x1207@gmail.com, inochiama@gmail.com,
- jacob.e.keller@intel.com, kuba@kernel.org, jan.petrous@oss.nxp.com,
- jszhang@kernel.org, kees@kernel.org, hayashi.kunihiko@socionext.com,
- prabhakar.mahadev-lad.rj@bp.renesas.com, leyfoon.tan@starfivetech.com,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, matthew.gerlach@altera.com,
- maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
- michal.swiatkowski@linux.intel.com, netdev@vger.kernel.org,
- o.rempel@pengutronix.de, pabeni@redhat.com, rohan.g.thomas@altera.com,
- shenwei.wang@nxp.com, horms@kernel.org, yoong.siang.song@intel.com,
- swathi.ks@samsung.com, yangtiezhu@loongson.cn, vkoul@kernel.org,
- olteanv@gmail.com, vladimir.oltean@nxp.com, eleanor15x@gmail.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251020_174314_137611_B4A72118 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +80,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Thu, 16 Oct 2025 15:35:22 +0100 you wrote:
-> This series is radical - it takes the brave step of ripping out much of
-> the existing PCS support code and throwing it all away.
+On Tue, 14 Oct 2025 16:26:06 +0530 Meghana Malladi wrote:
+> This series adds AF_XDP zero coppy support to icssg driver.
 > 
-> I have discussed the introduction of the STMMAC_FLAG_HAS_INTEGRATED_PCS
-> flag with Bartosz Golaszewski, and the conclusion I came to is that
-> this is to workaround the breakage that I've been going on about
-> concerning the phylink conversion for the last five or six years.
+> Tests were performed on AM64x-EVM with xdpsock application [1].
 > 
-> [...]
+> A clear improvement is seen Transmit (txonly) and receive (rxdrop)
+> for 64 byte packets. 1500 byte test seems to be limited by line
+> rate (1G link) so no improvement seen there in packet rate
+> 
+> Having some issue with l2fwd as the benchmarking numbers show 0
+> for 64 byte packets after forwading first batch packets and I am
+> currently looking into it.
 
-Here is the summary with links:
-  - [net-next,v2,01/14] net: stmmac: remove broken PCS code
-    https://git.kernel.org/netdev/net-next/c/813882ae2275
-  - [net-next,v2,02/14] net: stmmac: remove xstats.pcs_* members
-    https://git.kernel.org/netdev/net-next/c/14f74bc6dc69
-  - [net-next,v2,03/14] net: stmmac: remove SGMII/RGMII/SMII interrupt handling
-    https://git.kernel.org/netdev/net-next/c/2e2c878a3141
-  - [net-next,v2,04/14] net: stmmac: remove PCS "mode" pause handling
-    https://git.kernel.org/netdev/net-next/c/ebc5d656b78c
-  - [net-next,v2,05/14] net: stmmac: remove unused PCS loopback support
-    https://git.kernel.org/netdev/net-next/c/19064a58bd3c
-  - [net-next,v2,06/14] net: stmmac: remove hw->ps xxx_core_init() hardware setup
-    https://git.kernel.org/netdev/net-next/c/aa1b6775aef7
-  - [net-next,v2,07/14] net: stmmac: remove RGMII "pcs" mode
-    https://git.kernel.org/netdev/net-next/c/70589b05a03e
-  - [net-next,v2,08/14] net: stmmac: move reverse-"pcs" mode setup to stmmac_check_pcs_mode()
-    https://git.kernel.org/netdev/net-next/c/c7b0d7874de0
-  - [net-next,v2,09/14] net: stmmac: simplify stmmac_check_pcs_mode()
-    https://git.kernel.org/netdev/net-next/c/412d5f32cb36
-  - [net-next,v2,10/14] net: stmmac: hw->ps becomes hw->reverse_sgmii_enable
-    https://git.kernel.org/netdev/net-next/c/5d1e7621f869
-  - [net-next,v2,11/14] net: stmmac: do not require snps,ps-speed for SGMII
-    https://git.kernel.org/netdev/net-next/c/5c61db08d9ae
-  - [net-next,v2,12/14] net: stmmac: only call stmmac_pcs_ctrl_ane() for integrated SGMII PCS
-    https://git.kernel.org/netdev/net-next/c/045d7e5727c4
-  - [net-next,v2,13/14] net: stmmac: provide PCS initialisation hook
-    https://git.kernel.org/netdev/net-next/c/237e54caeaef
-  - [net-next,v2,14/14] net: stmmac: convert to phylink PCS support
-    https://git.kernel.org/netdev/net-next/c/2c81f3357136
-
-You are awesome, thank you!
+This series stopped applying, could you please respin?
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+pw-bot: cr
 
