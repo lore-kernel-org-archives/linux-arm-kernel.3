@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A74CCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 16:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91403CCD1A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 16:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=paRKTns1WT8quydNofkJCuHKZQbF54gWy9Rd/nrzvfk=; b=YNWC0PT3oZ2HKu1qp/E8SfJDpF
-	4GZxF/kUyOKHK6UQtoQyxR9J/44EfhXhYq6Fe7f1osGhuveQVwvfOF7eXHiICnSUiNIm4vUfnG+Xj
-	jDffB+f2LW31ydJuwzA1Q8GHh8lgZwpGM++41NFN05RwLPtNHHGAWoDq20xmIREyoXy/izWWmQX2Q
-	tx6ekL4+tvuBeTQdhH9MumaN01r+/gDrWWuYxqzmwmxH3n8dCdfKkD36mRgcqP5gLuU1IVAhQE/5m
-	3nSpiQQdEcJsRQVxAFVSGASjVXqLem7GMT7Dy4LqeztoLCJUGQCosKq7HQbfI+ZtUC2mltgk7k7sg
-	cK26jlAA==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iydNKmh3DHrg3Fmi3TNTs2HmFzP28UN/uMQrY2wNwaM=; b=rCeFOHnNiKEHh0arr17EnVE/Xg
+	yw8nhtgJqyzHGbSGNZ9yzk3b8IDBPs8PscBqYZUus+GTeAOrFflYdUvdvrr6RHXk7bds1C50XcVgp
+	60bBZBD3zWUGhakGdhgpopW7qGYFc6WiZKftHcbkn3LW4z88a7FpcuHQvJfhfVtQwkWlv8k0OPhaj
+	HybqSTXRfgFAX2hKzQLTnrN++wlvlL9uxGyqNjMdtA7sgClTxETlKXMfF/qz6Rmis8Kfce0yMEaTK
+	FK0zlcuvO7DvYTCroVOrGmlwWAWXfSp23Ik5vopQMWUf7aDta1YNKO170Wi2Jd7Msp9wCi3GeJ6mi
+	6NT3t2rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBFb3-00000000A8d-2DvB;
-	Tue, 21 Oct 2025 16:52:29 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1vBFdc-00000000AT0-2CX3;
+	Tue, 21 Oct 2025 16:55:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBFb1-00000000A8H-1OGu
+	id 1vBFda-00000000ASf-34yz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 16:52:28 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-373a56498b9so787211fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 09:52:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761065545; x=1761670345; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=paRKTns1WT8quydNofkJCuHKZQbF54gWy9Rd/nrzvfk=;
-        b=QprKlK1Rq/6QsXgZlcrzTw3h8UH7gswjPZ3wD1z1yBITGC0OyHysZluIPRUKI9UTsh
-         s1ThJP3e3SgPnNmfaSgM0KtM6UujA3gaD9RGtVOOpTus9EvgunDrA7tBLMMdKO47j87K
-         eFUuH1wnYFgycUvpH9MsB/OlBhJY/16OH9OCSEfSXp9W5bUxlnGMd05m3BUpeVu8ubVB
-         O6EpBnniCd//xKsOhU+CE5gli6UZn4lDTZfpkDJRgt/cLH260m6kN65/NliortzZ7lEM
-         JcmpxOlJZBUV/BrqimeqK+xHwtQoaiNp6P6qAhWLTQO4v3mtx531OVdGgEB3Lw0N9Iar
-         57Kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761065545; x=1761670345;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=paRKTns1WT8quydNofkJCuHKZQbF54gWy9Rd/nrzvfk=;
-        b=wl6jKh4RMhSkTtwLGHl2WePuL1HxASvNRnjQNxAYznc0LcE5RCG0Wl9eqqJGFewu6z
-         YXtrOw8Fa0WedeRBzaqTHHmdg489y6EM4QIC/uRp4XMJ/ht6gR1Eour77UfBRe7SIRJ3
-         eyvyIkVLIIr1wWdKRdhtGIXbqnZHdemrHj83WB0PhjBjgHFspacdu4moX5jmGZS8jAsf
-         iH90xV4YlTEfdKYkgEY2MNDKmQBgrevJQG8efBPNt4OZqepcxvnli+dvdFV5i9dy1EPy
-         Lf9f0FFCb2IuMIPCmQu59p7Vvtb5P4S/r2BtflTrwMgNoBD8yTaC0ZaE9JGvgqd+0tZW
-         6Yzw==
-X-Forwarded-Encrypted: i=1; AJvYcCV5YyaJSJ7s1pHaFQnvGTcRmWrBb+Qk9akWRyJxu87fvQtItgUn1hKlaxNsMlfq8Cb6b/Tuf+YhGrV+Lf6reUPQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4MBjTpoaZO5EeOEfKgAparr9ZDXhq/hJy5SSgQyrsM7YqQ7jj
-	kO/3foJsQGqD7RzuDhHOXnmBsE0kTbbZpMRHyOn5Mn8dCRt03+x1UeP51+Xb5JbOhcw=
-X-Gm-Gg: ASbGncuxlVwyqczyqzBs6PLYkWY37r8NzhFO6cc1xGT9Kog46arwMzK5d/TqwoRI5ME
-	gpNSWszrMu00KzaFFOnGDgtWHQT2xXrTb1vpCKHDwCYnHmGCLJ3oydyPsgctrtHj+MF6x0LZbGI
-	rfJRZ0n99rIVG/gvGX4TTl+yiaFuHHYUj7B8IkGVgd+cPiHXYqKiFc6A5wfkg82RRX9hxzvbIhM
-	4z36yRAlkX4af/8f0LZziSkxBEqfCT8AWIH4RoDtIUe6eaQyu0NGizqP/jy60CAvU04n4Y1kAL5
-	Ac3ZD/4dBC8VCcA/T0p7r05pIP6DrV1qtQCSQrzOLIcIJKcYWR0dGDaifXrI11Rl8ToMA1JWNvT
-	3PCt63yWXF4dRDHIUSQ9kgHR7D2OiMaUJgEBfBYyq0prkqaLYr6Q1lPfqHr7r2hZjvvPyfDk/Ib
-	grsgaV7eWdDWJSAjEawQ==
-X-Google-Smtp-Source: AGHT+IGjAkRj9soa7GWukQ8Cihq7HSi/Un2xv4fuxCxdBhttxHc7UDbrzdxzRB84sxHyktFpcpbArg==
-X-Received: by 2002:a05:651c:25d3:10b0:377:991f:c1bc with SMTP id 38308e7fff4ca-378bb007751mr918501fa.5.1761065544634;
-        Tue, 21 Oct 2025 09:52:24 -0700 (PDT)
-Received: from NB-6746.corp.yadro.com ([188.243.183.84])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-377a9506367sm30738001fa.34.2025.10.21.09.52.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Oct 2025 09:52:24 -0700 (PDT)
-From: Artem Shimko <a.shimko.dev@gmail.com>
-To: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: a.shimko.dev@gmail.com,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] firmware: arm_scmi: Add new sensor unit types
-Date: Tue, 21 Oct 2025 19:52:11 +0300
-Message-ID: <20251021165212.749372-1-a.shimko.dev@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 21 Oct 2025 16:55:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 197D845153;
+	Tue, 21 Oct 2025 16:54:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5B5BC4CEF5;
+	Tue, 21 Oct 2025 16:54:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761065691;
+	bh=kcJe89EUvp59KaUJ7RAP9IH7lYX00mLmtsiVqwhSc4c=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=oYBpIhKLxjvi6aQi1PUCD8cDzSPRZZ3c1fX2T8pHwltHk42aIqAM0qvDpKkD+HAfO
+	 GHkAgLKzPV5OkBlO9bdFHELLZrIbQlesC2RkfVeBNZniAdfbHY8LIKorsZNwcIlhI6
+	 tovf2fK83OEhMhFU9Gu/7tX4FInFo6K6wk2EormtE0eDX5Gq65jBAQdo1jp2VdJOTn
+	 y0D0CgvSjhYN4dpdjBuxiPcotHG/wzKeHIj6MKc96PHQwxEHp9g+qxfWpSnG9inQ2/
+	 tUwvxljR9/TM3gfjwAZNXVkD3Wb9rW3TcHTZBIIHToJ3YCgAOSnpxitnQjeaTTlUAU
+	 v1NGmzaRRZDlg==
+Received: from wens.tw (localhost [127.0.0.1])
+	by wens.tw (Postfix) with ESMTP id E4A4C5FBE4;
+	Wed, 22 Oct 2025 00:54:48 +0800 (CST)
+From: Chen-Yu Tsai <wens@kernel.org>
+To: wens@csie.org, samuel@sholland.org, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20251020152704.4804-1-jernej.skrabec@gmail.com>
+References: <20251020152704.4804-1-jernej.skrabec@gmail.com>
+Subject: Re: [PATCH v2] clk: sunxi-ng: Mark A523 bus-r-cpucfg clock as
+ critical
+Message-Id: <176106568889.3123154.11081141825428499092.b4-ty@kernel.org>
+Date: Wed, 22 Oct 2025 00:54:48 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_095227_410128_06431ED8 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20251021_095506_784656_349405D0 
+X-CRM114-Status: UNSURE (   7.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,58 +79,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for two new sensor unit types introduced in Arm SCMI
-- STATE_BINARY (0x5E): Binary state (1: enabled/on, 0: disabled/off)
-- BYTES_SEC (0x5F): Bytes per second
+On Mon, 20 Oct 2025 17:27:04 +0200, Jernej Skrabec wrote:
+> bus-r-cpucfg clock is important for peripheral which takes care of
+> powering CPU cores on and off. Since this operation is done by firmware
+> (TF-A), mark it as critical. That way Linux won't interfere with that
+> clock.
+> 
+> 
 
-These unit types are used for sensors that report binary state information
-and data transfer rate measurements respectively.
+Applied to sunxi/clk-fixes-for-6.18 in local tree, thanks!
 
-Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
----
-Hello,
-
-This patch adds definitions for two new sensor unit types that were
-introduced in the Arm System Control and Management Interface (SCMI)
-Specification version 4.0:
-
-STATE_BINARY (0x5E) - Used for sensors that represent binary states
-where:
-1 indicates enabled/on state
-0 indicates disabled/off state
-
-BYTES_SEC (0x5F) - Used for sensors that measure data transfer rates
-in bytes per second
-
-These additions ensure compatibility with SCMIv4.0 and allow proper
-handling of binary state sensors and bandwidth measurement sensors
-in the Linux SCMI driver.
-
-The patch follows the existing pattern for sensor unit type definitions
-and maintains backward compatibility with previous SCMI versions.
-
-Thank you for your consideration.
+[1/1] clk: sunxi-ng: Mark A523 bus-r-cpucfg clock as critical
+      commit: 1dba74abf3e2fa4484b924d8ba6e54e64ebb8c82
 
 Best regards,
-Artem Shimko
-
- include/linux/scmi_protocol.h | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index aafaac1496b0..629acb7831eb 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -488,6 +488,8 @@ enum scmi_sensor_class {
- 	CUBIC_METERS_SEC = 0x5B,
- 	MM_MERCURY = 0x5C,
- 	RADIANS_SEC_SQUARED = 0x5D,
-+	STATE_BINARY = 0x5E,
-+	BYTES_SEC = 0x5F,
- 	OEM_UNIT = 0xFF
- };
- 
 -- 
-2.43.0
+Chen-Yu Tsai <wens@kernel.org>
 
 
