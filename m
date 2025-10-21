@@ -4,176 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42533CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 08:55:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28781CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 08:59:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QnddnIgJS1wjXiS3Hbn23j3halwdtLkLaxLIAKe8HUM=; b=X496DUkIyIBXaNfIA8i0aN8oC9
-	GpJpnnAC00XtWaM1H2rBvDoLJEmIZVePWBbeqr9ujLxfX81QMqpTQ9k49qGgmxNmZ/fRbm3S4LWr0
-	ogSJaRjTPgxCC2xfplxefpkz0uA9pEjf5ACQmGQNNOK+Cb4FMI3ROC+yMloJr3J3o8MNnpprrOPqc
-	QOZQT/b0Vcms4peL+G6RXrJiFUksL6EV4jjSXr2Un10cPoefQUtnjLlt9S0Ju3sKo9fi3cuGcH4l7
-	I5osFUcXfHaX1GCCeN4F5TujsARFkEvHmYA7x5wVzgC3FofaLRakCjdq/tV+XoBIgPsSAr+/D2Wzw
-	dZ9oZ4LA==;
+	bh=6IhEXhH0GzZkxVr6xhPi4zF+UYRepWWZmFoVPtiXnCQ=; b=rvX8xi6zZ11TgcJYwJ50x0zJZY
+	Ea7VN3HlnTcb3DE1R+EcU82WotU426cIwHIWEVxvpWCmge7dCeyVRHLBC7wwmUjBTATBOBrvtGvnf
+	wQQiDr34x6N1dDZHGMpaIwD6b/K1nwvnwEAS0FgLkPDy3at1EwtKHyoNABrOvW/09gIhslZhanYd7
+	956DIB+KnGVx78PCYH6fCsZsDOHSWJmnx4BVOQls2IVJYJeY+d4S26ogUhK2IIyxLtwYBkOwutQvQ
+	00hYjTvIaqs6WU1y0KlsPsiYe8Az50qxBY/aaXT7iu4dEz9zYxXZHCMpCKDDJSAyUjxJfIDeRPCTC
+	IE6L3NJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB897-0000000GMFZ-3Vma;
-	Tue, 21 Oct 2025 08:55:09 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vB8Cx-0000000GMlA-3t8H;
+	Tue, 21 Oct 2025 08:59:07 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB895-0000000GMEY-1AfP
+	id 1vB8Cv-0000000GMki-0A9a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 08:55:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xTmzZ8bsVqLMcSMZOkGFKHDG+C7t6G+a5Tlhv4HR1ulNK4NDX1JWOFWQsc7/IYqhXbqwVdfeDBsUkvc6zlU76zylqh0VOsmNTJzO7/40umtYuIciu6zciGox6VJYual+BWo7RH86VgRPmBe9quyGG8IrW4FYbvmm2l22v0WcFEXNQswQc7FDe5JWmqamlp0taWP+MHIdMmQqUPo+is2G28xkeoT5aW58cxPnl9QLybakB4pxOLBQHyXkLCX3g2dCpj8x4N3jOCx2W2FiDE6CE/mkfN5szxmJIjKWprv868TjezIxvRoSaC4y4q1YZxb0Nu6M+ZSmngurWwwW6dQg8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QnddnIgJS1wjXiS3Hbn23j3halwdtLkLaxLIAKe8HUM=;
- b=OQulogk5ubWmluiD4HOLqDCNUkzf51N1SpwGrIsaFWxb1LlBHsMk2YL9mlryChbnZV/T59VMrJSqKxUVCNxHn+CujBNBTmSzrfhIWAKlP2qARgwV4fFY/xtr8+U/Fp6XZ+8oGOwIWQX5SgMZ0tb45Glmi2VQxKFrqcu3E067nzBp+o8L75UNAO/dcRg1PzGTEyyrl60KmVmbDdg8agqAHfCzdKaAIBfkcpeaXG+A1pIRxl8YJzek6/q8ic35IJX89cXfTL3gtBl3hcBmRVK+rKgB7V/14GNgRUhQ9Ab6YQ2UEtO2nF3U+A+0mGQ2v4ZJSIDr5rV+2qLLEdgW3+Rm1Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QnddnIgJS1wjXiS3Hbn23j3halwdtLkLaxLIAKe8HUM=;
- b=NxWU6mbcZWAZPKJyg2n1pzE901XOhyazHh8K1MJ9vb1FX7BNqK+rcYOFPetmOWffpgU/OLw9722FRQARNGH3UTzkQtwido6QTSRSDk5RL5d3lUUiiW/6h9TbXg6frp+ltw4UfrXBqwDlL/JttuXG9rMuVZMFbUSgQ+vkGcajdmB1OaaiU8CeamUOK1nlRrc6YQwA/Som2/9bLeG6hBaAM2A2wVF+kXpWn557RXqJHDC/u1uCUGWeXtsKDPBCE22U2aSosXsfujY7nJmBvgNAubsJOrdSA5wA4ldiQ+wLYcUIA+RPSPXJOMaUmrKw6qt9schn2vWMCggKd9O7QgtXjw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by PA1PR04MB10627.eurprd04.prod.outlook.com (2603:10a6:102:48b::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.16; Tue, 21 Oct
- 2025 08:54:58 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9253.011; Tue, 21 Oct 2025
- 08:54:58 +0000
-Message-ID: <47c802d1-bf26-4d02-b86d-1ca9ddda0fa5@nxp.com>
-Date: Tue, 21 Oct 2025 16:55:18 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 2/7] ALSA: Add definitions for the bits in IEC958
- subframe
-To: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- lumag@kernel.org, dianders@chromium.org, cristian.ciocaltea@collabora.com,
- luca.ceresoli@bootlin.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de, devicetree@vger.kernel.org,
- l.stach@pengutronix.de, shengjiu.wang@gmail.com, perex@perex.cz,
- tiwai@suse.com, linux-sound@vger.kernel.org
-References: <20250923053001.2678596-1-shengjiu.wang@nxp.com>
- <20250923053001.2678596-3-shengjiu.wang@nxp.com>
- <aPc-Wad85lQWbqfa@phenom.ffwll.local>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <aPc-Wad85lQWbqfa@phenom.ffwll.local>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SGXP274CA0012.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::24)
- To AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+	Tue, 21 Oct 2025 08:59:06 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47109187c32so25471395e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 01:59:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1761037143; x=1761641943; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6IhEXhH0GzZkxVr6xhPi4zF+UYRepWWZmFoVPtiXnCQ=;
+        b=KfjkqODztaDeCrSm7xZlIcQ/ZMNeC0VOtcPH7IUT1hTgPXRsPcVDY3g/H7PxXWt6Sf
+         iGCJA4Io9nL4tn0tRJV7f+3y5Zjz3aDiIUCaCELX8rLiAb6z9dRITTMqxFGtAwlgKw3H
+         pV4eNrQ0Ggynm5q1rjY68c1e5tbeT0fvsYSgpVESaDvKGMemz/lPb78Yhb8aznMgpiqL
+         Xd8TMmhoXaUPN9+eUgbGUt/DwAPWil4lR07XM7/ETasO4KwFjA/tv4URMkzbp/RcSjX+
+         qt2MMB36JiNIor7480t/aCouSLDJ0umehIWHav7NIBWiZKjSR/2rutPUyV0fRP0ePd7A
+         RcrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761037143; x=1761641943;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6IhEXhH0GzZkxVr6xhPi4zF+UYRepWWZmFoVPtiXnCQ=;
+        b=TdHCU7KcCsz12nRKYP4V99ImlBMTyHZrguKADMRfoBkcTYrk3VO1/6KEIZrllkBLsx
+         ry2o74/zn4oghoc5KRfWCH0Yx5yXQuxi1owSgornVcERMsyTypfSvPZTsT6P0s3guzUH
+         AMojAhmH8Q4dxO0Z0dtHfqHiSJQi0QX/4dLUk5+n9pPAQyLufs4PQR6rW9RwVoT+X0DG
+         NOgV07UtEdYMJk5aUDSnjJFSe6LTa3f38yQdu5ZxgiyfuBKFbttp/s3/+TNOPWI8Cn2u
+         WQb3BTv3EFxg0OTudPoQtVlFehwPh68+5bJgXRaXrK+fMiYTQ0m66mDUaaSCF6c1rvGF
+         6Usw==
+X-Forwarded-Encrypted: i=1; AJvYcCX0KZNn0y9fyW/vuHa4Pyd6qkMPOJbv0UTnJfDfNhh5z137KtCHu1pWfj6i7+R4LrPmCUOY+ojoXaXDMxtHU5YI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnJuQ8IKEdahjqmfI6o/TJEo+jUscvY4FaTwJbWbgziTHzaZiF
+	psZlyBMy+xo4IQGgMJqhEi1XTSO0zw8FAubjdG7z+vgxkWID9Zoztx+DgLxHHkm4UYE=
+X-Gm-Gg: ASbGncuc3MWcFnK8iq2rKSX4wAoljUtu0KTLPX6i/clEtNQhl0/lEcs47ppqjJ/m4Fr
+	b43MB92/IRFXqgyFl6AjdjefCKF0/dLwxcYmgTEKWvWTVR6WmPq1eD4U1nH8/D8mQ8Mv32qxTJ7
+	dQ12F7AyBIPL4ImZtqpOZoFVogRGJRW1DB2FzyJ4Lc2BVnz042FTc52VOg92L+T4lt+bN0Ojupm
+	VPgv256THyOMNptODkEE6QF/hItbRnRIFhhiKM7ksl7e96+HmZXzlLwqcuACf+YZ7WiQipbmTT7
+	pFEsuTzh0aHwBhexLQRcz2+KmIg+ulF36TkR6m3Bf2A6Zf5zetfvKWd4IKHm5ftPiSNNfuLqkmT
+	3TQdBR9wuaeC64a65xCe88mrpv5vh5fEyycT/SgMByQVJd1tejxgz4qrOJcYZJOjDr07jvyW8RR
+	RCuVJ1eKKdi9394NwY3k9evSxsTv46az+/YEHqhhe2CTgY+u/H9/Hx
+X-Google-Smtp-Source: AGHT+IEPcLd9/n5F1+QuIF7nieqqGGUi36BPkr1gfJfsN/uEgAe7OHzy0yVFsDSD/cg47SwqEIucgQ==
+X-Received: by 2002:a05:600c:4e89:b0:46f:b42e:e392 with SMTP id 5b1f17b1804b1-47117931c1dmr109512065e9.39.1761037142883;
+        Tue, 21 Oct 2025 01:59:02 -0700 (PDT)
+Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-47496cf3b51sm11749855e9.9.2025.10.21.01.59.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 21 Oct 2025 01:59:02 -0700 (PDT)
+Date: Tue, 21 Oct 2025 10:59:01 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
+Subject: Re: [PATCH] serial: imx: allow CRTSCTS with RTS/CTS GPIOs
+Message-ID: <lgse44as4k6fpzarztfnfl7wbxq2bfg5k7m7l6xlsyx23pmem4@khal3tytgwjn>
+References: <20251016113730.245341-1-matthias.schiffer@ew.tq-group.com>
+ <cdkpp74ra2ltr7h46psutkwnzyvl4iegcicnhqqj7svm5trltm@w2egfj5nryjm>
+ <7d3df04c482e71760ccc941469c99412b608c92b.camel@ew.tq-group.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PA1PR04MB10627:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5e756faf-35d8-447d-966d-08de107f8329
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MHA4VldSRnRUNUFGYlcvUTBUdHkzMG13UFZvSGNtWXlMSFg5ekI5TW4xRGZi?=
- =?utf-8?B?RW5PMEIvWXFZNlIzcFBDaGNqWkFZOTFzSDYxY0E3aVlZcDQvV3JOUThYYndo?=
- =?utf-8?B?QWJscEtDcW9vd0VFREl2VkZta25JbFNoOUNia3EzdGxXOUtFN3lCWUNJOHVw?=
- =?utf-8?B?SUU1UitxeTNSWnFMMGZwc2F0dWExZHl5MWtvVEVYeWdmVDJCcnNjYkxLVEND?=
- =?utf-8?B?bWE4VzFYNmpteVdFOWM0TWlTZmhGOXJJOWZudExzdmZDcWpybzQ4VDJVdSs5?=
- =?utf-8?B?Y2pRWElBSTVwdmp0MXZKcVZES2ljeXZ4THVrSk5VbG90VmJKVHFLVmVESTdN?=
- =?utf-8?B?SFdwMHlOMy9aS2RydDBxa0Vtam9QZ0M5WTZ1VDBOVUFsK2tGMWlQd0dPbVFX?=
- =?utf-8?B?cmxCdldiclV6VkxObVFheWtOUXNGamhyVkxtdFdDenJxKzMzdFhKRlRHUGQr?=
- =?utf-8?B?OTdMcm5Rdk5Qdm5SR0FPNFI0c3FTWkFSZDRPMzNWZHU5aXRyVTJKU3ZDMG9z?=
- =?utf-8?B?MVRKcUxIc3hydGtLR0hVMFUyYlQ5SzdxbzJBMWRReEVFZVA2NTVaTTlqSGpw?=
- =?utf-8?B?dFkzdzVuK2hMeFpSdzEvZVc1MjlUU0c5cmVBNTM4UHVkbk0yWkI0OXZiY1ow?=
- =?utf-8?B?Y1NaeUdlU0dhZE5JN1VDRFZwUFduODkxbUxhSWZkT0dUY0hDQU5oWmZINGE3?=
- =?utf-8?B?YXJ4MG1rbUZBRzJqanNFVXQvMExoZ3pVNnUrSXhxMHU2MFU2V1FLUzNKUkF5?=
- =?utf-8?B?VjJSRkZQZTEwd1FMcVhJVzRpMURKMVByZGFzODFwU1VDMkViKzM3NXlEVjlN?=
- =?utf-8?B?NzBwNE1iV2RLRkRBWlh2eUtFbTdYR2toRitXQldGSUZFcmtmTkdmU2c0QnhZ?=
- =?utf-8?B?NEoxcTNhdDFieFBSam9laFAyZXlxd1NiSS84VER0eVg0djRlbDJkaTlSZld5?=
- =?utf-8?B?THE1cnZ2SFhXVHNHQzB2NnFzZVFsVDBBSWxJdlJRSGdidm40ZHZmSWh3di9a?=
- =?utf-8?B?TUdwTG9RR3lZOTBma2ZwUnpNWEYxOXE5UjZkVitxL1UyeTBlUG5aZE0yNVZZ?=
- =?utf-8?B?eFlwbzZCbG03Z2tpbk9BaERodThWOWtPK2hqYzFqR1RuTnZhQU9Tdk9hN3ZV?=
- =?utf-8?B?OExtbXJBSFF1RkR4RzRJcHBFNG9RMVRDRkdzdlVhSVZpbnNYQ2lyZlVaaitK?=
- =?utf-8?B?VFcvK3NDK0JIK3F6OEdGb3NyUklKcXVIOElWUkU4MGNUMnlWd3p5TGpiZ1RP?=
- =?utf-8?B?V1FHZm03KzBadXY5K0pKUUtrMW1SRnZHUU1xamtESjBXQkpGMTcxNXQvYTVY?=
- =?utf-8?B?aWhVdDhqS0g2cW5PZENGUVltMzdMZHpualg0N1RwYVd1YkhKWnUwTWpJd1Vq?=
- =?utf-8?B?SDhqN2RsRTFUajRzNC9YYTRZaVRlMlRYOVVXT0FHMDlwWkd1VENYYlYxUzRa?=
- =?utf-8?B?c1UzTU1iN0NEN1R1K3M4U3N1cDM1TXoyYVlUVmVXUDgyWm5VL3k5d3VEVUxU?=
- =?utf-8?B?Q1BYejVxdEFqMHltTmR3UnY4NXdOSDE5RFJpVGFqREdTRE5nZ1FLZnlGYmpJ?=
- =?utf-8?B?cjk4dzNHUjdPWlZMQ1BrVkI4TTRkWVZhUkloY3RFU21lTW1VbjZKcVQvVm15?=
- =?utf-8?B?YWZpSU5VWVZnOEpzRExSUDM2bEtZOTI3TElsb0FWVVFzTjdQd2R1U3F1NTZm?=
- =?utf-8?B?NDJOZ0ZtMTRnSUxsZDM5eStySVZDVkNXM0NwNXhRRUVqOGQxbVBncFIzRitN?=
- =?utf-8?B?R0JFZHBIeW1zZStrMTRSN3kwQ3R6Q2tKZlFPY2xFQ3orT2V4aXhlVS9hQUR1?=
- =?utf-8?B?QytIRzAzTGxLNXhiazV1bjJHUndVcnEzZE00dUlsaFpscnZhWlRoMGhYOVkz?=
- =?utf-8?B?N2pYQ2RQWUFweDhWcXJ3QlVIZ2FuRmxqSFdjenpSb1VvQ2pPcHU3YXM2bEFn?=
- =?utf-8?B?MFhVckJMaVZYck9NTjJsTGVoSERNWTlOc3BKM1pEUFFqZlRDRE9nOG5aajhO?=
- =?utf-8?Q?9cynOOPF3ahBGGSG3C4q6BLCt8Mo3s=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Uzk4SjZMMm1sYWZIWkFLODhPT20zbHZaOCtDYjc2aVJodmhyZzdHeVcxemR0?=
- =?utf-8?B?aUxWZXVGWjNnT1pPR3R0aEs4L1BwblQ3VXBwdVNxTUpWRmtxUERITnVxanJX?=
- =?utf-8?B?RlNPL3ppSlBLTFJ3NjRPeFlsQjlYR1lORU8wdkxsb1Q5MVZUUFhUUlFtMmtX?=
- =?utf-8?B?WHFRdGNxcE1GcXIvdFZXSzBpajF4NTRlWUd3Z0dyajJaeERVTzFva0NoKzFF?=
- =?utf-8?B?cXVvT0tTZHlvZjZTS0V1VjdDZjQzUmtHWHFxQjNhbWorQUg1aWhMMk41WE9z?=
- =?utf-8?B?eXZPV1B0NFFiRGFuWE9NZHcxVmVHa010VWNKa0lXTHV2M1dXelh1eVVRRmhX?=
- =?utf-8?B?bG1PT1BGZUhjaUJHQVk5ZEhGWVlubVp1Y2dtY1dXdmEzVGJtZFdnRnNIWTVG?=
- =?utf-8?B?QjNEMzk4M3BLNU9xQUNmVXE2ZkkxRmRmM0hEYzA0bG5FTG5TMlU4ZnlJSnpN?=
- =?utf-8?B?M09XRWJqbTcveWw5SjBuQkRFd2ZITWVKdXc1UEJZSGJBVUFuRnFPK2dFL2FC?=
- =?utf-8?B?YXVZaWNIN05zNHZCeFBLNElQWFRKMzlaem1Pb2JTSEtUZVBSZzRJUEpRWGNW?=
- =?utf-8?B?cXdRb1ViZTFvbDJVRmRjemlwTGJCVUE2Q0RUQVZaNC95bXFZaW1KUFZXYll2?=
- =?utf-8?B?aDI2TXhOQ0FaN1RnT2pZQzFDWWRmekZESS9GNllkVlRNQVlLLzcxYnhSNTJF?=
- =?utf-8?B?VGVZNzhQY0d5bkY1KzZHZ1NkbmQvRGJVYnhxMjJzMTJ2Sm0wZzJ1UXlwejNo?=
- =?utf-8?B?Tk02d2wzci9JaGhUN1U0K0RXMmVtZTFVaXdrR3NvQmNHR3hXZnV3ZnZ4UGtY?=
- =?utf-8?B?ODJ2cDNuRllnWFJCMlZHK1JXaDUyc3ovckZIbzUvbUowS0tXN2FWeE9GbFNz?=
- =?utf-8?B?WkFDVERnYVYxR2lZUHJxcURuSFV5VW9oSkQvTHhIbzRPbS9hWGhMdkczeUoz?=
- =?utf-8?B?S2M4cEozdkw1VUtxeHIyZnBKZnh2Zm5HTXk5VUZMS3ExczFYcjl2djh6OC9w?=
- =?utf-8?B?L0JsWkNwU2VhRjZsWmY2MVpZUnZoZ2ExNFV3N0l2UjdUMTdQZmZRd3p1bFd2?=
- =?utf-8?B?RHV4N0ZHbVgvSk13dnRCV1NKK0dxV214alVQMFVoU1FjbHNXdVRuUUp0MURk?=
- =?utf-8?B?a3pwSzFJaE1zOTFuK0h0SUZWaG5hd3RJSnhKYlFoOUdIdXZPcmtNcVdjV0NY?=
- =?utf-8?B?YnFINVBUM09pTUZUNGdxb2Y5VGhIWGxjS2xQejluN0pkQU9obnpwdWxSaVcw?=
- =?utf-8?B?TVpvbGk4SFdkc0paNTZUL1gxUEZJVGpLUlpBN3grK2IxN3FVUjhsbUErRTVu?=
- =?utf-8?B?blZsMjVza2JhV1JkUngwL0hWQWZoUURyZnZ3OFh2M0tXclJQeXZQbmVCNGQ3?=
- =?utf-8?B?TXA3NFduaE5iLzlJSmdsMlBMbEplenFwbXR0ZGlzWnc0YUlFUHE0OXM4NDhx?=
- =?utf-8?B?ejNJenU0RWNGa0xKUUtKT20wT2hhRGs1RXp1UXlpamVXYmFXbWRiTlNUYkVq?=
- =?utf-8?B?UlRnTWxDS2lLQUY4dE51aldGZHZoNkRyYkthRnowaVdXdkVkN0RxZytzMkxY?=
- =?utf-8?B?TUlzeHFQcXJ5dVIxM1ZIWGE0N1p3cGdJS1BoSnhWWTU3K3RVZ0RieWxZTmc3?=
- =?utf-8?B?RmowbS9rWWZZNTYraGloZHMwSXlCS2hFK29veXVqVFhnY3ZIUmdGNktBRHY3?=
- =?utf-8?B?ZGZaR3VtZkVQSXBwNCszVUl3U0g5MzZXemNHUnlCb0xKaWVKQTA5TGRud2hJ?=
- =?utf-8?B?OS96UjAzeTdLSXZlZWdTNEVWTXF2YUcrQ3JERGlvSklYdzBHOFZFUlg5Vmpz?=
- =?utf-8?B?c0xZMENNLzVLd3ZEclh6eU8zTWU1VmY4aDBsdkhaTHpsL1liTUljSVhPR1Ri?=
- =?utf-8?B?aWd5WEQ1Tkg5TS94akpmRDRuQy8rSjliRG10ZmVmNWpQZVdwSnFLbENhdG82?=
- =?utf-8?B?Q2tXQWVCQmJvblN4ZkY0TVFDdEJ0Yjh1K1A2YUxlMk9tTzBZckxuYXZrdk9k?=
- =?utf-8?B?MnJtdG5Mb0c1cWd5bnEzc3NwcDB1MTRSRWhOc0FyL0Qxb3NrRjJJMjQ3aTdG?=
- =?utf-8?B?aStLeW9sSHpOdlo1VlhMTTVXWTZUaVFJaGhrbExrUjRVYnQxMWRSYkZtSzZ3?=
- =?utf-8?Q?H6OeKEnOyoAapWEPP+Gu+2YkR?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5e756faf-35d8-447d-966d-08de107f8329
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2025 08:54:58.4727
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7Zi16hPRUnWrg+yZ5pOFwoqAUdF4VydvGWKIZhKJV6S7GhTapyYX63vvPh3B6I8DX3ueKJB4nRYSENGKpBU9kQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10627
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="zf3jpk3mzmqfofqf"
+Content-Disposition: inline
+In-Reply-To: <7d3df04c482e71760ccc941469c99412b608c92b.camel@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_015507_349638_19FDA07C 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20251021_015905_138697_90E96C3A 
+X-CRM114-Status: GOOD (  57.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,59 +104,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sima,
 
-On 10/21/2025, Simona Vetter wrote:
-> On Tue, Sep 23, 2025 at 01:29:56PM +0800, Shengjiu Wang wrote:
->> The IEC958 subframe format SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE are used
->> in HDMI and DisplayPort to describe the audio stream, but hardware device
->> may need to reorder the IEC958 bits for internal transmission, so need
->> these standard bits definitions for IEC958 subframe format.
->>
->> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
->> Reviewed-by: Takashi Iwai <tiwai@suse.de>
->> Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> 
-> Would be good to get a formal ack from alsa maintainers before merging
-> through drm, just to be sure.
+--zf3jpk3mzmqfofqf
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] serial: imx: allow CRTSCTS with RTS/CTS GPIOs
+MIME-Version: 1.0
 
-Yes, we've got an ack from Takashi for that in the cover letter.  I should
-have recorded that in commit.  Sorry for missing that.
+Hello Matthias,
 
-> 
-> Thanks, Sima
-> 
->> ---
->>  include/sound/asoundef.h | 9 +++++++++
->>  1 file changed, 9 insertions(+)
->>
->> diff --git a/include/sound/asoundef.h b/include/sound/asoundef.h
->> index 09b2c3dffb30..c4a929d4fd51 100644
->> --- a/include/sound/asoundef.h
->> +++ b/include/sound/asoundef.h
->> @@ -12,6 +12,15 @@
->>   *        Digital audio interface					    *
->>   *                                                                          *
->>   ****************************************************************************/
->> +/* IEC958 subframe format */
->> +#define IEC958_SUBFRAME_PREAMBLE_MASK	(0xfU)
->> +#define IEC958_SUBFRAME_AUXILIARY_MASK	(0xfU << 4)
->> +#define IEC958_SUBFRAME_SAMPLE_24_MASK	(0xffffffU << 4)
->> +#define IEC958_SUBFRAME_SAMPLE_20_MASK	(0xfffffU << 8)
->> +#define IEC958_SUBFRAME_VALIDITY	(0x1U << 28)
->> +#define IEC958_SUBFRAME_USER_DATA	(0x1U << 29)
->> +#define IEC958_SUBFRAME_CHANNEL_STATUS	(0x1U << 30)
->> +#define IEC958_SUBFRAME_PARITY		(0x1U << 31)
->>  
->>  /* AES/IEC958 channel status bits */
->>  #define IEC958_AES0_PROFESSIONAL	(1<<0)	/* 0 = consumer, 1 = professional */
->> -- 
->> 2.34.1
->>
-> 
+On Mon, Oct 20, 2025 at 10:09:29AM +0200, Matthias Schiffer wrote:
+> On Fri, 2025-10-17 at 17:01 +0200, Uwe Kleine-K=F6nig wrote:
+> > On Thu, Oct 16, 2025 at 01:37:30PM +0200, Matthias Schiffer wrote:
+> > > The CTS GPIO is only evaluated when the CRTSCTS termios flag is enabl=
+ed;
+> > > it should be possible to enable the flag when only GPIO and no hardwa=
+re-
+> > > controlled RTS/CTS are available. UCR2_IRTS is kept enabled in this c=
+ase,
+> > > so the hardware CTS is ignored.
+> > >=20
+> > > Fixes: 58362d5be352 ("serial: imx: implement handshaking using gpios =
+with the mctrl_gpio helper")
+> > > Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+> > > ---
+> > >  drivers/tty/serial/imx.c | 10 +++++-----
+> > >  1 file changed, 5 insertions(+), 5 deletions(-)
+> > >=20
+> > > diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
+> > > index 500dfc009d03e..4a54a689a0603 100644
+> > > --- a/drivers/tty/serial/imx.c
+> > > +++ b/drivers/tty/serial/imx.c
+> > > @@ -1117,8 +1117,8 @@ static void imx_uart_set_mctrl(struct uart_port=
+ *port, unsigned int mctrl)
+> > >  			ucr2 |=3D UCR2_CTS;
+> > >  			/*
+> > >  			 * UCR2_IRTS is unset if and only if the port is
+> > > -			 * configured for CRTSCTS, so we use inverted UCR2_IRTS
+> > > -			 * to get the state to restore to.
+> > > +			 * configured for hardware-controlled CRTSCTS, so we use
+> > > +			 * inverted UCR2_IRTS to get the state to restore to.
+> > >  			 */
+> > >  			if (!(ucr2 & UCR2_IRTS))
+> > >  				ucr2 |=3D UCR2_CTSC;
+> > > @@ -1780,7 +1780,7 @@ imx_uart_set_termios(struct uart_port *port, st=
+ruct ktermios *termios,
+> > >  	if ((termios->c_cflag & CSIZE) =3D=3D CS8)
+> > >  		ucr2 |=3D UCR2_WS;
+> > > =20
+> > > -	if (!sport->have_rtscts)
+> > > +	if (!sport->have_rtscts && !sport->have_rtsgpio)
+> > >  		termios->c_cflag &=3D ~CRTSCTS;
+> > > =20
+> > >  	if (port->rs485.flags & SER_RS485_ENABLED) {
+> >=20
+> > This hunk makes sense.
+> >=20
+> > > @@ -1794,7 +1794,7 @@ imx_uart_set_termios(struct uart_port *port, st=
+ruct ktermios *termios,
+> > >  		else
+> > >  			imx_uart_rts_inactive(sport, &ucr2);
+> > > =20
+> > > -	} else if (termios->c_cflag & CRTSCTS) {
+> > > +	} else if ((termios->c_cflag & CRTSCTS) && sport->have_rtscts) {
+> >=20
+> > I agree to add the parens here and consider this more readable than the
+> > alternative
+> >=20
+> > 	} else if (termios->c_cflag & CRTSCTS && sport->have_rtscts) {
+> >=20
+> > . Note there is no real win here. If the port doesn't have RTS/CTS it
+> > doesn't matter if it tries to control the RTS line. While you could
+> > argue it shouldn't set the line, it only makes an externally observable
+> > difference if one of the SoC's pads is muxed to its RTS function.
+> > I claim it's more robust in this case (i.e. no uart-has-rtscts property
+> > but a pinmux for the RTS line) to control the line according to the RTS
+> > setting. This is (at least IMO) better and more expected than driving
+> > this line to a constant level. So I oppose to this hunk.
+> >=20
+> > >  		/*
+> > >  		 * Only let receiver control RTS output if we were not requested
+> > >  		 * to have RTS inactive (which then should take precedence).
+> > > @@ -1803,7 +1803,7 @@ imx_uart_set_termios(struct uart_port *port, st=
+ruct ktermios *termios,
+> > >  			ucr2 |=3D UCR2_CTSC;
+> > >  	}
+> > > =20
+> > > -	if (termios->c_cflag & CRTSCTS)
+> > > +	if ((termios->c_cflag & CRTSCTS) && sport->have_rtscts)
+> > >  		ucr2 &=3D ~UCR2_IRTS;
+> > >  	if (termios->c_cflag & CSTOPB)
+> > >  		ucr2 |=3D UCR2_STPB;
+> >=20
+> > Hmm, not sure. On one hand the same argument applies as above, but on
+> > the other if there are pins that are not explicitly configured but still
+> > in their CTS function this might affect operation in a bad way.
+> > Also this affects the (very usual) configuration where only RX, TX and
+> > RTS are used and CTS is not. In this case have_rtscts is true (right?)
+> > and then if there is an accidental CTS pin this is bad and not fixed by
+> > your change. Hmmm...
+>=20
+> I think it makes sense to always keep UCR2_IRTS set when have_rtscts is u=
+nset,
+> as otherwise there might be two separate CTS signals in the accidental CT=
+S pin
+> case - the hardware + the GPIO one, both affecting the UART operation.
 
+With that change you break setups that have an RTS-GPIO but rely on the
+HW pin for the CTS function. Not sure how common that is, but in this
+case you only want the first code change. You could argue that in that
+case have_rtscts should be set, but that's somewhat fuzzy.
 
--- 
-Regards,
-Liu Ying
+> If we keep this change (the 3rd), the 2nd should also be included for
+> consistency in the code path where I just changed a comment - there, UCR2=
+_CTSC
+> is set only when UCR2_IRTS is unset. The 2nd and 3rd change together keep
+> imx_uart_set_mctrl and imx_uart_set_termios aligned.
+>=20
+> >=20
+> > So in sum the 2nd and 3rd code change is controversial. If the first one
+> > already fixes the problem you're facing, I suggest to go for only that.
+> > If you still think that the 3rd (and maybe even the 2nd) change is a
+> > good idea, I'd request to do that in a separate commit as this is a
+> > separate problem. Also the commit log only describes the first change,
+> > doesn't it?
+>=20
+> The commit message describes the first and third change; the second is in=
+cluded
+> to keep the setup consistent. I don't think these changes can be separate=
+d well
+> - the second and third change only affect a case that couldn't occur with=
+out the
+> first (as (termios->c_cflag & CRTSCTS) && !sport->have_rtscts would never=
+ have
+> been true). My suggestion would be that I extend the commit message to ex=
+plain
+> each change in detail.
+
+I'd still request to split the patch in at least two patches. The first
+code change is to allow rts-gpios to work at all. The two later patches
+change details about how HW pins are controlled in the presence of
+rts-gpios
+
+Best regards
+Uwe
+
+--zf3jpk3mzmqfofqf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmj3S1IACgkQj4D7WH0S
+/k7Z8Af/cWYKmLfxl83DzxoQYDzAkl5mc0eGGuFSd+935aXR3UXsKCXljIplfmlo
+73v0Jo4EYPsEco0YCWBDGKPINHThAqK3lhrsirCAUr9BakxqQIjdBYMTk4QBmGWT
+M8x1wYdlUr4u0qotAftYkNkQMrcJyGft6Esgw3OcYTdI/mXhvWs1abPlt8C5aUHz
+/pC1rnJcUfjcMpHmiJ1foMw+p4qv4LtoJUveI39CRpVcroqA4pLrsux/9bTkyTvw
+dZDtQ/bWgkC08BU7FXOPF/8oE9vKtKLjMUQfHvxWyaAG9nxnEWhJQ/8JYVuFmqk0
+9PDRESuEIsEEFaFupc+7hBuznu85PA==
+=sWEK
+-----END PGP SIGNATURE-----
+
+--zf3jpk3mzmqfofqf--
 
