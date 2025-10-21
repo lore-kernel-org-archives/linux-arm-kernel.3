@@ -4,106 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1329CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 08:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A77CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 08:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z7oyuGf+YmrdjdAlCdljzaOoBcmjt3nedZ0w+/dyCrI=; b=OWKdN0VMYnB7yxyJN/p8qssyyK
-	NlV39K3uJT3ZAUL9l0fDbG0M6hmsyKOS2a6xxhM95kL2QVxSgk78rer7nvyb7R1QNaFxLQmn+HSic
-	NBSI0tXnfkAUf4uz1dlcH23lIziX+rKZaNMH87yzP9LmlcE4+C4IQ9+RQLuoTU1eEn7Oou0ZVcQEA
-	itCeFXq89RnHPxRrNfWNOKxnrGetfOvPuukxzio7Bi0KxxII/CUvv4Hm/v+FlwP770MFF7LpLLbAQ
-	iwDdDarmQO+d7pQ7L4KroX+CoFkUs0BqyKY4hvBd+JrzliB3MXryLTrXYEVg6Sk+O9ZszD+hPTmr+
-	rMyVNlyg==;
+	bh=CZFk72uDsBhOQIdijnJYK6BskCHkHiVS4xUhthivpZk=; b=lLncrp1I7snifJJanayYhlINmV
+	I9EwBNlmeWeVE+cTeV6OyBNu5NklfIX5AfTvNEhn+eQTPlj7nCOx+QQGurjE8cFCyvUA8MwnqyGHw
+	kWLlzR2DrLkePlh0WMjG9dNqUguFiq6TaAfzVaqSMqz38jKcODoTYlpACblX2K8abvdfJziXZBmV1
+	/kcdGcauAzVxj07W82r2PRbd0SvyPnNX96oeEMf5cykhIy9AKG7su6F/S839Na6l5tgn6F9xBlhAJ
+	NWt+ssqQiF0Ps7ixA8TUJjE7nUaSsUZAW/I39YEoDd5A/nr04VVzD8crSznXa95ncECURl/TD9Y0g
+	TCAMvNIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB82u-0000000GLKQ-2n2G;
-	Tue, 21 Oct 2025 08:48:44 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vB83A-0000000GLRs-3F89;
+	Tue, 21 Oct 2025 08:49:00 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB82s-0000000GLH9-3FuW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 08:48:44 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59L5lgc1020450;
-	Tue, 21 Oct 2025 08:48:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=z7oyuGf+YmrdjdAlCdljzaOoBcmjt3
-	nedZ0w+/dyCrI=; b=sMUMWAXX/8sY8Do1huxbrboQr5eFVQnwPlBEki6stGqniW
-	ldYu1HZKhMzVPDElU1aXezrbtB4lgLP8ckyaP/GumTFfxl2oZrCEBQQqbhm4UcN3
-	LFaGusmctrYMbp18Tvh8JsC0xmCrJ3TfUinBLPP2/NsjVyMa+mFTZWpsC+CfwlMs
-	w3YcPLvERjs41TDcxL8HAEhvLtHRZQFTHZCklpYDCImAxYdisewiSNb+G3gA8cOZ
-	iaJresCsFCo7vBE5SNattGsJ0uX6iv7hgIYsiDjUeIsjMRQ7LRuiVVzXMd3jLuoH
-	Z+0jFkX+m/p6lcWSKuc2N99ZxVl1E9s7o5IZ1p9A==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49v31c4sc8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Oct 2025 08:48:25 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59L6CiX8014658;
-	Tue, 21 Oct 2025 08:48:24 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 49vn7s22hc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 21 Oct 2025 08:48:24 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59L8mMtt16974242
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 21 Oct 2025 08:48:22 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 653A120043;
-	Tue, 21 Oct 2025 08:48:22 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E5C9720040;
-	Tue, 21 Oct 2025 08:48:21 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.75.81])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Tue, 21 Oct 2025 08:48:21 +0000 (GMT)
-Date: Tue, 21 Oct 2025 10:48:20 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-        linux-s390@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        virtualization@lists.linux.dev
-Subject: Re: [PATCH] mm: Make INVALID_PHYS_ADDR a generic macro
-Message-ID: <8ef6bea9-5905-4d15-be77-f58645d967d0-agordeev@linux.ibm.com>
-References: <20251021025638.2420216-1-anshuman.khandual@arm.com>
+	id 1vB837-0000000GLOQ-2KLO;
+	Tue, 21 Oct 2025 08:48:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761036538; x=1792572538;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ixN0SnuQ8N2jtGJB1Dvgz9zJy2AHG8oUKIXx/yt/S8w=;
+  b=ktSh5prXMw9y99evlhcjqnUUs5FcOxox0rlz2Sg8JkR3N6aaEHJHv0k2
+   KFeg1UxvmF5s2eOpTcM++8CXDMIEPxrcqDHPBhSSEr1QUyCeg05KtRtJ+
+   ugaf/GhtBVvLWmn9pSmf/A/DauVgZMvpKKNs5s2H/yZD7f8vJ2DCsHKbh
+   zF78Be8G0N7GUxQxa5+AxjygxXS0NQG87xpxRmSokd1WzsyDuhquGbMWH
+   UpHBcx2JAHvY250D0PUO6pF1Ixz2DMyUYO5l6zwyp99LR5vizsDHF788d
+   FWUE2wj7ZONkWa3o7HlfSEr2AqTXqFfixTkBi3DDnuxfGhD6NX1C+r4eQ
+   g==;
+X-CSE-ConnectionGUID: ofn0cztuSFOC1Ab+dCsjRQ==
+X-CSE-MsgGUID: A0ciot2mScmxrxVM4pKYmw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="62190159"
+X-IronPort-AV: E=Sophos;i="6.19,244,1754982000"; 
+   d="scan'208";a="62190159"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Oct 2025 01:48:56 -0700
+X-CSE-ConnectionGUID: eCD/H1/RSIKfOQZXnX6Vww==
+X-CSE-MsgGUID: 5oEWrWiFR5aYJfjpPgNG5g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,244,1754982000"; 
+   d="scan'208";a="183099996"
+Received: from mgerlach-mobl1.amr.corp.intel.com (HELO kuha.fi.intel.com) ([10.124.220.224])
+  by orviesa009.jf.intel.com with SMTP; 21 Oct 2025 01:48:47 -0700
+Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Tue, 21 Oct 2025 11:48:45 +0300
+Date: Tue, 21 Oct 2025 11:48:45 +0300
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Chaoyi Chen <kernel@airkyi.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v6 1/8] usb: typec: Add default HPD device when register
+ DisplayPort altmode
+Message-ID: <aPdI7Vb_djrfCfbT@kuha.fi.intel.com>
+References: <20251016022741.91-1-kernel@airkyi.com>
+ <20251016022741.91-2-kernel@airkyi.com>
+ <aPYImGmesrZWwyqh@kuha.fi.intel.com>
+ <954a67d1-1759-4e18-8eef-3fa14fb3cef5@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251021025638.2420216-1-anshuman.khandual@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: SFsr08sj6VOHWyp68BfmatDwsVOqiBAF
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE4MDAyMiBTYWx0ZWRfXybe+b5Oqvt21
- 7nQzCRWt0Qdz0L6NetKOeEaFWC9/bRTheXys9Jo0yPruZzS8K1X5soLFYF64NcSmqjVmSyDC5k7
- ecAg26cW+S87fUIL3yYns3aen8OVIZD9HAosIUS/itSROuTxJahgvxsQ9eTLyCOX3V+9XbM18Ux
- srZPJXF0zBCi/JPzlDtS6TSEVgZ8QMfo9UBC3MMgfAsge8DoTecVq1HmUygmZIYfkQHQ1VBWHr4
- MkNT+sO9OhvDdmRk9hEKXAmmD0Z+/PVMR94eMBvCLLoe9Pedp+1Eh5J7uwYNuoGZ8FKyYreVc7L
- MISNLC2tSYEN2woAfEBhoNkzvNR0Cg5qmF16Lu+Rj2FPXRxwP241fYzx4PO6UF+Z7hfl1eOTFgk
- OALOr+UD8heOc/vPfeqdN+n37aFx9Q==
-X-Proofpoint-GUID: SFsr08sj6VOHWyp68BfmatDwsVOqiBAF
-X-Authority-Analysis: v=2.4 cv=SKNPlevH c=1 sm=1 tr=0 ts=68f748d9 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=kj9zAlcOel0A:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=37rDS-QxAAAA:8 a=JfrnYn6hAAAA:8 a=7CQSdrXTAAAA:8
- a=VnNF1IyMAAAA:8 a=mrUCOdJJ3iSU8PumKu0A:9 a=CjuIK1q_8ugA:10
- a=k1Nq6YrhK2t884LQW06G:22 a=1CNFftbPRP8L7MoqJWF3:22 a=a-qgeE7W1pNrGK8U0ZQC:22
- a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-20_07,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 suspectscore=0 clxscore=1011 priorityscore=1501
- spamscore=0 impostorscore=0 bulkscore=0 lowpriorityscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510180022
+In-Reply-To: <954a67d1-1759-4e18-8eef-3fa14fb3cef5@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_014842_929940_B57506E6 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20251021_014857_627178_5263CF80 
+X-CRM114-Status: GOOD (  26.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,40 +106,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 03:56:38AM +0100, Anshuman Khandual wrote:
-> INVALID_PHYS_ADDR has very similar definitions across the code base. Hence
-> just move that inside header <liux/mm.h> for more generic usage. Also drop
-> the now redundant ones which are no longer required.
+Hi,
+
+On Mon, Oct 20, 2025 at 07:07:46PM +0800, Chaoyi Chen wrote:
+> Hi Heikki,
 > 
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> Cc: iommu@lists.linux.dev
-> Cc: linux-s390@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: virtualization@lists.linux.dev
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  arch/arm64/mm/mmu.c                  | 2 --
->  arch/s390/boot/vmem.c                | 1 -
->  drivers/vdpa/vdpa_user/iova_domain.h | 2 --
->  include/linux/mm.h                   | 2 ++
->  kernel/dma/swiotlb.c                 | 2 --
->  5 files changed, 2 insertions(+), 7 deletions(-)
-...
-> diff --git a/arch/s390/boot/vmem.c b/arch/s390/boot/vmem.c
-> index cea3de4dce8c..fbe64ffdfb96 100644
-> --- a/arch/s390/boot/vmem.c
-> +++ b/arch/s390/boot/vmem.c
-> @@ -16,7 +16,6 @@
->  #include "decompressor.h"
->  #include "boot.h"
->  
-> -#define INVALID_PHYS_ADDR (~(phys_addr_t)0)
->  struct ctlreg __bootdata_preserved(s390_invalid_asce);
->  
->  #ifdef CONFIG_PROC_FS
+> On 10/20/2025 6:02 PM, Heikki Krogerus wrote:
+> > On Thu, Oct 16, 2025 at 10:27:34AM +0800, Chaoyi Chen wrote:
+> > > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> > > 
+> > > Add default DRM AUX HPD bridge device when register DisplayPort
+> > > altmode. That makes it redundant for each Type-C driver to implement
+> > > a similar registration process in embedded scenarios.
+> > > 
+> > > Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> > > ---
+> > > 
+> > > Changes in v6:
+> > > - Fix depend in Kconfig.
+> > > 
+> > > Changes in v5:
+> > > - Remove the calls related to `drm_aux_hpd_bridge_notify()`.
+> > > - Place the helper functions in the same compilation unit.
+> > > - Add more comments about parent device.
+> > > 
+> > >   drivers/usb/typec/Kconfig         |  2 ++
+> > >   drivers/usb/typec/class.c         | 26 ++++++++++++++++++++++++++
+> > >   include/linux/usb/typec_altmode.h |  2 ++
+> > >   3 files changed, 30 insertions(+)
+> > > 
+> > > diff --git a/drivers/usb/typec/Kconfig b/drivers/usb/typec/Kconfig
+> > > index 2f80c2792dbd..a6730fbb576b 100644
+> > > --- a/drivers/usb/typec/Kconfig
+> > > +++ b/drivers/usb/typec/Kconfig
+> > > @@ -2,6 +2,8 @@
+> > >   menuconfig TYPEC
+> > >   	tristate "USB Type-C Support"
+> > > +	depends on DRM || DRM=n
+> > > +	select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
+> > This is wrong. DRM should not dictate how this entire subsystem core
+> > is configured. The dependency needs to be on the DRM bridge side.
+> > 
+> > You can for example use the bus notification there to see when a new
+> > alternate mode is being registered, or use some other notification
+> > mechanism.
+> 
+> Is it a good idea to implement notification functions like
+> drivers/usb/core/notify.c in TCPM, and then let other subsystems (such as DRM)
+> listen to these notifications?
 
-Acked-by: Alexander Gordeev <agordeev@linux.ibm.com>	# s390
+Don't limit this to tcpm only. I would suggest something similar what
+we have for usb bus: drivers/usb/core/notify.c
 
-Thanks!
+So that, but for the typec bus. Then in DRM bridge code you just use
+typec_register/unregister_notify().
+
+thanks,
+
+-- 
+heikki
 
