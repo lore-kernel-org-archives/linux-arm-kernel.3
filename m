@@ -4,65 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B27CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:10:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3267ECCD19F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FqKFwJTtAHqh86lEqRIcwq3CBA+ub4FQsb9uC2nRB3g=; b=M/g3Gxe9qqaOY352tfxMyL02CV
-	weHnxye9DpSJLjWOsI56L3LuR34CS0OXPP4Bn4jPklUe7oMx63efVRLMeLH1iyDsNNfZEvuxtobQK
-	Dusa/eQy44Y/E5H63imUKvaswhIC8km3Rr8tddt2iuHVhzMANHliBcFA+YOykELtjY/S/G4WMCQOY
-	cucUW9rw/7YtGqfqaRl7mPx4XqZwo1aQYhsUbmw18UArjMpENeOM2mfYDXByhzvm1D0ZXAAeeZVnF
-	G2VLYf4Dh14A7zNegVdgWeCFwW/1/25gY2pqz4S5RZ8VPrV9mDz/Z4a7WJM47+oj53msL+Jd7BONV
-	jb6bgtqQ==;
+	bh=HXWI+Ts8pCwgXlqF9ZX9c6QddSbtqcgR4wef2xM111k=; b=PC++EKtmGvR+pVR98AbVOyHw2I
+	qj0AQoOwrcb3XrCgeRpDETK1BmXCU/lbSCpqhSIyS+SExVDF6ussGPYvGP71Nqao/89NBdipw/gi1
+	TEjjFRgyxXdHJly02YZC2926mLc1DFze/xK4a+rv7+okNRmyYfapTtiHx8OTDTTMjjqNMT72RTqje
+	u9iKBaVNrYTILKb5C/NKE3xKk1QzGMbMtyyXQ6cJ3N0A5+wEAazlZMKThXKnrEfhy2KSvtNmqxI50
+	R40VLXnqLu9Z29XYxQQP3793NSjCcOr5FFcdelSG5tBnWVkSKSRvRMJw0ogSiZf9LdKMNWMtNTria
+	neuQLO9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB6Vo-0000000G1uc-0Omo;
-	Tue, 21 Oct 2025 07:10:28 +0000
-Received: from mail-m49209.qiye.163.com ([45.254.49.209])
+	id 1vB6jF-0000000G3vW-0OH8;
+	Tue, 21 Oct 2025 07:24:21 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB6Vj-0000000G1sN-3eNK;
-	Tue, 21 Oct 2025 07:10:25 +0000
-Received: from [172.16.12.129] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 26a04dd28;
-	Tue, 21 Oct 2025 15:10:15 +0800 (GMT+08:00)
-Message-ID: <6e87b611-13ea-4d89-8dbf-85510dd86fa6@rock-chips.com>
-Date: Tue, 21 Oct 2025 15:10:13 +0800
+	id 1vB6jC-0000000G3v5-0Zud
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 07:24:19 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59L20BGw018800;
+	Tue, 21 Oct 2025 07:24:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=HXWI+T
+	s8pCwgXlqF9ZX9c6QddSbtqcgR4wef2xM111k=; b=XZOn2LlOvM6qvoqbJmxE9I
+	m4ahI8rTLcbTLW89JgfMRUd76WCDAdhV4Re0fYa4hAhVurGbx015Kr7Epp7PPM7V
+	/sEofMOiX4bT05Qn7VFEvC1ZGozLmQDvCwBmlCIT6bedUFp23EDoWWr+QvGWe+Jl
+	CD4lopNDsxOxxwf63UrBYeBYoE7kv4SGSrFRVb7Bh/leiIGtN7k/+yIzkuM6/oUj
+	RNe4RZHvSgvZCC+cwyOfdOxZtiRk814bETwB39R5opogKq7vyFmWM3ema1j8z+cY
+	IJ9xzJ8oeP1rsnMSBtqlLhEJLm1C1G52oCFyTDMcXTGNj7dpY7crPrY+iIogzO9w
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49v31rwn5w-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Oct 2025 07:24:10 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59L4iK3P011020;
+	Tue, 21 Oct 2025 07:24:09 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 49vqx11aem-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Oct 2025 07:24:09 +0000
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59L7O7ts57410014
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 21 Oct 2025 07:24:07 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9A02220043;
+	Tue, 21 Oct 2025 07:24:07 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 62F4420040;
+	Tue, 21 Oct 2025 07:24:07 +0000 (GMT)
+Received: from [9.111.135.235] (unknown [9.111.135.235])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 21 Oct 2025 07:24:07 +0000 (GMT)
+Message-ID: <29e766ca-54e4-453d-9dfc-ea47e2a1f860@linux.ibm.com>
+Date: Tue, 21 Oct 2025 09:24:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, Damien Le Moal <dlemoal@kernel.org>,
- Anand Moon <linux.amoon@gmail.com>, linux-pci@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Dragan Simic <dsimic@manjaro.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH] PCI: dw-rockchip: Skip waiting for link up
-To: FUKAUMI Naoki <naoki@radxa.com>, Niklas Cassel <cassel@kernel.org>
-References: <20250113-rockchip-no-wait-v1-1-25417f37b92f@kernel.org>
- <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 15/17] lib/crypto: s390/sha3: Migrate optimized code into
+ library
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: David Howells <dhowells@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
+        "Jason A . Donenfeld" <Jason@zx2c4.com>, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-crypto@vger.kernel.org,
+        Harald Freudenberger <freude@linux.ibm.com>
+References: <20251020005038.661542-1-ebiggers@kernel.org>
+ <20251020005038.661542-16-ebiggers@kernel.org>
+ <51fc91b6-3a6e-44f7-ae93-aef0bcb48964@linux.ibm.com>
+ <20251020175736.GC1644@sol>
+From: Holger Dengler <dengler@linux.ibm.com>
+Content-Language: en-US
+In-Reply-To: <20251020175736.GC1644@sol>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a059ab03d09cckunm368fe7546378e8
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRlMHlZMGEkdT0oYHUhDQx5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	xVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=Xos0oDM9U+/0NylMEL8BB6RuBd69z3lnV+GumxjkBut/AP4cPRzd/vEwQFu9Y0yZl9ylfTifD4WYmtQLfDFSTfDUOm6IrlAU9x4wRdv7I2pZ6NGG00jyiBi+qLpg8afql3x9baCOQsYhc1URYAHef4Q4vfCHixVaDZf/eS4A/cQ=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=FqKFwJTtAHqh86lEqRIcwq3CBA+ub4FQsb9uC2nRB3g=;
-	h=date:mime-version:subject:message-id:from;
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: zT6buMclKWapWi4nnatfkPLQYCGf-j05
+X-Proofpoint-GUID: zT6buMclKWapWi4nnatfkPLQYCGf-j05
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE4MDAyMiBTYWx0ZWRfX321FNgZAcduS
+ SdqJvBMeFQRxpszMW1n5bOfEQgQ8fDxDBqytFvndUsVQOND990+XWCFt88GZCq6kjsAkWj7/QNQ
+ t/ffVRUrQD+NdMDPZtWYHKG/gh1Tx89yw6eZI7LyaP5ggY2hpe03aQsO4mtA1TSwbtGD4EW4C5Z
+ qF50iXcsC5yaCIySujOzUY1XEwb06+DqeIyVwJ6oJqM2zcF4dy4mz4LR/Bb7cLFjwLlpcxI+8c9
+ a8X68CcmXuHKYN3juKdom4GVr6bOtZoE9p5i3X599IHoUFXAowsf/3u8zvUzlc42znfcHd6O/0N
+ sRUOP7jz8DffEffmRGOBvnZXcWBvK3e+PCJcLCdrR814lJngfyn0A7tVSIRNqZfQXADAq8XIDVA
+ jZIjqvkuy/mbbjbUam4sMSPkFMGpAg==
+X-Authority-Analysis: v=2.4 cv=IJYPywvG c=1 sm=1 tr=0 ts=68f7351a cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=otLEo-FC9tDJaZkyYbEA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-20_07,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 clxscore=1015 suspectscore=0 spamscore=0
+ bulkscore=0 adultscore=0 impostorscore=0 malwarescore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510180022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_001024_099032_AB69AEDD 
-X-CRM114-Status: GOOD (  29.84  )
+X-CRM114-CacheID: sfid-20251021_002418_525976_A2486DEF 
+X-CRM114-Status: GOOD (  43.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,119 +125,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/10/21 星期二 12:26, FUKAUMI Naoki 写道:
-> Hi Niklas, Bjorn,
+On 20/10/2025 19:57, Eric Biggers wrote:
+> On Mon, Oct 20, 2025 at 04:00:42PM +0200, Holger Dengler wrote:
+>> On 20/10/2025 02:50, Eric Biggers wrote:
+>>> Instead of exposing the s390-optimized SHA-3 code via s390-specific
+>>> crypto_shash algorithms, instead just implement the sha3_absorb_blocks()
+>>> and sha3_keccakf() library functions.  This is much simpler, it makes
+>>> the SHA-3 library functions be s390-optimized, and it fixes the
+>>> longstanding issue where the s390-optimized SHA-3 code was disabled by
+>>> default.  SHA-3 still remains available through crypto_shash, but
+>>> individual architectures no longer need to handle it.
+>>>
+>>> Note that the existing code used both CPACF_KIMD_SHA3_224 and
+>>> CPACF_KIMD_SHA3_256 after checking for just CPACF_KIMD_SHA3_256, and
+>>> similarly for 384 and 512.  I've preserved that behavior.
+>>>
+>>> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+>> The current code also cover a performance feature, which allows (on
+>> supported hardware, e.g. z17) to skip the ICV initialization.
 > 
-> I noticed an issue on the Rockchip RK3588S SoC using the ASMedia ASM2806 
-> PCIe bridge where devices behind the bridge fail to probe since v6.14.
-> Specifically, this started happening after commit 
-> 647d69605c70368d54fc012fce8a43e8e5955b04.
-> dmesg logs from before and after this commit are available at:
->   https://gist.github.com/RadxaNaoki/fca2bfca2ee80fefee7b00c7967d2e3d
-> 
-> I have confirmed that reverting the following commits fixes the issue:
->   commit ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we 
-> can detect Link Up")
->   commit 0e0b45ab5d77 ("PCI: dw-rockchip: Enumerate endpoints based on 
-> dll_link_up IRQ")
-> 
+> I'm not sure if by "ICV" you mean "Integrity Check Value" or "Initial
+> Chaining Value", but SHA-3 doesn't have either of those.  It just starts
+> with a state of all zeroes.  I assume that skipping the
+> zero-initialization of the state is what you're referring to?
 
-Then these two commits would like to reply on link up irq instead of
-fixed delay in dwc framework. Here is a not very precise timeline
-description.
+I meant "Initial Chaining Value". On s390, this memory is set to zero by the
+KIMD/KLMD instructions so that it can be skipped in the init() calls.
 
-time(ms) |  dw_pcie_wait_for_link（）     | sys irq_thread() | Hot reset
--------------------------------------------------------------------------
-0:       |  dw_pcie_link_up return false  |  link up irq     |
-1x       |  Physical link up happend      |                  |
-90:      |  dw_pcie_link_up return true   |                  |
-100:     |                                |  msleep(100) done|
-10x:     |                                |  pci_rescan_bus  |
-1xx:     |                                |                  | <==occur
-190:     |  msleep(90) done               |                  |
-19x:     |  pci_host_probe                |                  |
+>> support has been introduced with 88c02b3f79a6 ("s390/sha3: Support
+>> sha3 performance enhancements"). Unfortunately, this patch removes
+>> this support. Was this intended?
+> 
+> For now, yes.  I should have explained more in the patch, sorry.
+> 
+> As currently proposed, lib/crypto/sha3.c supports arch-specific
+> overrides of sha3_absorb_blocks() and sha3_keccakf().  Those cover the
+> Keccak-f permutation which is by far the most performance critical part.
+> This strategy is working well in the SHA-2, SHA-1, and MD5 libraries,
+> which support the same level of arch overrides.
+> 
+> We could update lib/crypto/sha3.c to allow architectures to override
+> more of the code.  But we need to consider the tradeoffs:
+> 
+> - Risk of bugs.  QEMU doesn't support the s390 SHA-3 instructions, so no
+>   one except the s390 folks can test the code.  I can try to write code
+>   for you, but I can't test it.  And the s390 SHA-3 code has had bugs;
+>   see commits 992b7066800f, 68279380266a5, 73c2437109c3.
+> 
+>   The first priority should be correctness.
 
-What if the hot reset happens when pci_rescan_bus() starts. I think
-scan devices possible fail when seeing 0xffffffff from cfg read. But
-a 90ms delay perfectly avoids this event in dw_pcie_wait_for_link(), and 
-by the time the 90ms delay is completed, the link is actually in an
-accessible state.
+Let me figure out, if me and my colleagues can do the testing for you.
+Unfortunately, I'll be unavailable for the next two weeks. But I'll come back
+with a solution for the testing.
 
-> On v6.18-rc2, the cold boot behavior has changed somewhat, and I have 
-> observed the following three behaviors so far:
+> - The proposed change to the init functions would cause the format of
+>   'struct __sha3_ctx' to be architecture-dependent.  While we can do
+>   that if really needed, it's something that's best avoided for
+>   simplicity.  It opens up more opportunity for error.
+
+Would it make sense to provide a delayed zeroize mechanism of the initial
+chaining value (ICV), and architectures may implement it or not? The feature
+on s390 is exactly that: a delayed zeroize of the ICV, done by the instruction.
+
+> - As I mentioned, Keccak-f is by far the most performance critical part
+>   anyway.  The initial state is just all zeroes, and initializing it is
+>   very lightweight.  Also consider that these contexts are often on the
+>   stack, and people increasingly set the "init all stack variables to
+>   zero" kernel hardening option anyway.
 > 
-> - Probe succeeds
-> - Probe fails
-> - Kernel oops
+>   I'll also note that commit 88c02b3f79a6 has no performance data in it.
+>   So it's not clear that it actually helped much.
 > 
-> There seems to be no pattern to these three behaviors. During a warm 
-> boot, a successful probe does not seem to occur.
+> - The library has an optimization to greatly reduce the size of the
+>   context: instead of buffering data separately, it just XOR's data into
+>   the state.  So, if there's a sha3_*_init() followed by a sha3_update()
+>   of less than 1 block, it will have to initialize the state anyway.  We
+>   can delay it until that point on s390.  But again: complexity.
 > 
-> If commit ec9fd499b9c6 is reverted on v6.18-rc2, I have observed the 
-> following two behaviors so far:
+> - These potential additional s390 optimizations would presumably help
+>   the most on short messages.  However, on short messages, merely
+>   switching to the library often gives a large performance improvement
+>   due to eliminating the very slow call to crypto_alloc_shash().  That's
+>   actually a lot more important.
 > 
-> - Probe succeeds
-> - Kernel oops
+> I would suggest that we drop the sha3_*_init() optimization from
+> consideration for now.  Providing overrides for the one-shot functions
+> sha3_{224,256,384,512}() should be simpler as well as possibly a bit
+> more useful, and I would suggest exploring that.
+
+Ok, sounds reasonable.
+
+> I guess I can try to write the code for you again.  But again, without
+> QEMU support I cannot test it.  The first priority in cryptography code
+> is correctness, so that's not a great position to be in.
 > 
-> "Probe fails" has not been observed so far.
+> Note that for new optimized code I'm requiring QEMU support for the
+> instructions it uses.  This one would only be allowed because code that
+> used these instructions already existed in arch/s390/crypto/.
+
+Ok, I'll come back to you on that.
+
+>> Please also add me and Harald Freudenberger to the cc: list for this patch.
 > 
-> The dmesg for the kernel oops is available at:
->   https://gist.github.com/RadxaNaoki/4b2dcd5e41b09004eda2fdeb80ae5e15
+> Will do, thanks.
 > 
-> Can you please help me with this issue?
-> 
-> Best regards,
-> 
-> -- 
-> FUKAUMI Naoki
-> Radxa Computer (Shenzhen) Co., Ltd.
-> 
-> On 1/13/25 19:59, Niklas Cassel wrote:
->> The Root Complex specific device tree binding for pcie-dw-rockchip has 
->> the
->> 'sys' interrupt marked as required.
->>
->> The driver requests the 'sys' IRQ unconditionally, and errors out if not
->> provided.
->>
->> Thus, we can unconditionally set use_linkup_irq before calling
->> dw_pcie_host_init().
->>
->> This will skip the wait for link up (since the bus will be enumerated 
->> once
->> the link up IRQ is triggered), which reduces the bootup time.
->>
->> Signed-off-by: Niklas Cassel <cassel@kernel.org>
->> ---
->>   drivers/pci/controller/dwc/pcie-dw-rockchip.c | 1 +
->>   1 file changed, 1 insertion(+)
->>
->>
->> ---
->> base-commit: 2adda4102931b152f35d054055497631ed97fe73
->> change-id: 20250113-rockchip-no-wait-403ffbc42313
->>
->> Best regards,
->>
->> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/ 
->> pci/controller/dwc/pcie-dw-rockchip.c
->> index 
->> 1170e1107508bd793b610949b0afe98516c177a4..62034affb95fbb965aad3cebc613a83e31c90aee 100644
->> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
->> @@ -435,6 +435,7 @@ static int rockchip_pcie_configure_rc(struct 
->> rockchip_pcie *rockchip)
->>       pp = &rockchip->pci.pp;
->>       pp->ops = &rockchip_pcie_host_ops;
->> +    pp->use_linkup_irq = true;
->>       return dw_pcie_host_init(pp);
->>   }
-> 
-> 
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
-> 
+> - Eric
+
+-- 
+Mit freundlichen Grüßen / Kind regards
+Holger Dengler
+--
+IBM Systems, Linux on IBM Z Development
+dengler@linux.ibm.com
 
 
