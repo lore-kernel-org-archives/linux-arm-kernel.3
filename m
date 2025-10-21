@@ -4,97 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D50CCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 14:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DDBCCD1A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 14:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mZCOMUry8QgJDtmQTlzvKx4nzmcRl8rasbY1MAd0sQY=; b=n6Xz2IY/zmW0pgD5SsttVWY7ZY
-	afEZooRVwg6S4jKlOFIXtlVmEOvObaWttQWbGZmW4KffINJJhMVoUgHoRizNPuwiRqN81RxqA+7Kl
-	wuMw81zeo+zoCGm+FzVzemIFFYDRouQ7e/ITcUfp7QXBG5Abuw8b24bKx/b2MmJiBiZTH73a6rbuA
-	tcOy+1vSZY3weJcV7XtuPVoqtAglaBgK8s+GZ/8FzcB3RlxqtAFTy4mjcB9Yedeb6lAqpo0TQ7i7g
-	h4pJvc9kqeRC2EJAwRzuyX9Okiqzh6zunHrPr/PXp8dCANGtj1sGU+X7YdeOoHif37BbnnU1RFzih
-	nCO81LPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6ILMESNSOf5QdewnslggdfCw5V9Bew387mrpU6L1Boo=; b=gqCXiUSrDkCZs6ULq03kB3VkLf
+	ZmNVU5LwRyQC9WCJ06eC3z9Ja0k5W75KDlPSLzkcW8H1lZvm5oOVf5Y2RXK1Gn/jHKY4bmXg5Q0v9
+	BVZf/jO8cVoMQyAd4yWOZ9m0hA8Lzoq4ddraHat/kNlNrRU+O8v1v3koGN0/iY+itX/nXsykeb/Gs
+	KmAU/E0INDCX5OWm/5dSQXRjegckigpiUFfZgLNoQrp3bDOcnzkvo7pa7RUW0iuUV5ChZ0n4o+hFe
+	CgE5u0GjQfdBAWIqLQKg3T/84SX/aEzjgdYk54yNGxfnqQLmF3alqPBcD9WQxFvks4T9121VD1RZS
+	9VH6Xe2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBDZI-0000000HMZ5-2W1N;
-	Tue, 21 Oct 2025 14:42:32 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1vBDdf-0000000HNZQ-1fFk;
+	Tue, 21 Oct 2025 14:47:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBDZC-0000000HMUm-3zvs
+	id 1vBDdc-0000000HNYZ-3L8U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 14:42:28 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-57bd482dfd2so5463087e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 07:42:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761057745; x=1761662545; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mZCOMUry8QgJDtmQTlzvKx4nzmcRl8rasbY1MAd0sQY=;
-        b=VcLv0oEZn0R5mES0isKVF1c7f29ZHDkGWfEQ/D7BcbSUnAT3aZKfRf+OUJDgDVHDLH
-         3DT0Cd3N0T66DDxQ5FekP63XrjVzTNSbpE1T/Ofo4Phe5ak5NVXqdIMuYIYGw06Tyko9
-         Cq+Km61mSX5H9F3RJRkw3yiZteifgTSO+HTsbntMNwHIgXTghR+GKCLLz2Og8arWqRyM
-         cIoPmqI5v6k2RKNILG0t+qnBk882p0EOjbhfGcV1f4CrG3Pe1zM0paAucOC9iq8Pulmy
-         ecYsAfwyhLfOYdMqJHmSSLd29D2NrzidsYeaHsdKVfxzu2Nt0gd9VEPHVi3gB5ioMHQE
-         EaTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761057745; x=1761662545;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mZCOMUry8QgJDtmQTlzvKx4nzmcRl8rasbY1MAd0sQY=;
-        b=KZw23UKRHpHoLdPK4cLT5V+J9DjvrIjaPzowa+T5Kfszyuf8KvDG2fZeeV1/0yIe5L
-         1a5cluf+cgx6zw2Ol/GXkyRVVfLPB7AEWNasbQWUE4O6KPKtxdJ/VFVgDgMgm/L/H9Zf
-         +JBCCKHT2Dv6+uVPY3WFBou1EN4g4oFkOorq6CYwCAn474flfyAPVmMl5nU7Ts30datU
-         GIK3Wx5VSUN4u4O50L4yFeQ8RBiSoh7QaxJvdwAJX3g9V9DvjN+XdvPmjDy94uJlnHIb
-         n4mTZVVj9WE8mIoZxeZV9rJJNGn74Iq79IbBbXdCvVMqmYv+U+x5MWVxFtcXil6YH7Wr
-         5gzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXtq+NN+95/+6ef+p0Rbk53Vd5SfKcQ4OYhvnw8982Cty2JJ2u72eFDTldBJOu+yGPZZ14JqwxaNeijZMkktdb8@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJcAOFkPeV1pHSnGFetYUbtcUto+BVFBqrzRWn+iOEXIsqdK1f
-	fGSV9QrY9i/5q4erP4R0wt6zcoBO2SfZS4T9wrohHKtW0ECOkUWg9oNKTC3pdhncYULSbF2C/cq
-	O3J07ipAxvzz8uFIXRbXGeePQzOVufnTjsq480xj8cA==
-X-Gm-Gg: ASbGncsj8a8H1Rgt2izR+9XLAuPBwtMd1mDyvMedbDHaWzT4RowLzO1ZaUFtPBpJ3Tw
-	VMxa50KegnPP3jJvhLtsa07JDUoCPv1dRE+/RVY4sHltQ1fWz6WycZsm8K1F/TVdohYrdqav1ET
-	KtZ4K+JaDsb13iN7gfDjThfOseHcW+4GKEWvfhJE+yYTIfvQ0NF9A/B9AVjyf+oE0QP3G0DI5wz
-	Tg0spRVOR3gCWZA9XLb3T8YwpSujfeYOIeK+k4jK6gDhcJXfXr2mMgyZgjunW/kDyT2GrTQN0Wy
-	Z9Phhx/dA5jB3zp9
-X-Google-Smtp-Source: AGHT+IEAFGsFmUFG/YnJHTCDdPAr/87ZFEb44yMmd6QhcxQ6kY+xN7c3ywaYXlVUOsQLkH0hiixQGCRd64K7uAmIpvc=
-X-Received: by 2002:a05:6512:4014:b0:586:9636:6e4d with SMTP id
- 2adb3069b0e04-591d85622ddmr6106679e87.50.1761057744764; Tue, 21 Oct 2025
- 07:42:24 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
- <CAMRc=Me4Fh5pDOF8Z2XY4MG_DYqPRN+UJh_BzKvmULL96wciYw@mail.gmail.com>
- <81bda56c-f18b-4bd9-abf9-9da7c2251f42@sirena.org.uk> <CAMRc=MdOCHJEyPxN+-g71ux68=Mt_Q5P9611QO7Q8J9e8UJv_A@mail.gmail.com>
- <0e1f3a1b-46ab-4eb5-ad05-70784f9b9103@sirena.org.uk>
-In-Reply-To: <0e1f3a1b-46ab-4eb5-ad05-70784f9b9103@sirena.org.uk>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 21 Oct 2025 16:42:11 +0200
-X-Gm-Features: AS18NWCeEZ0pLB4tS_IEx2MtW9IQz_axw-1Q3NqtyOuzDmGpEP1ZzpOriXTSxmo
-Message-ID: <CAMRc=Md1Ve4hnYQOryYEXG6_HSPJrANrr9gj2FMzCwsD+q5Cuw@mail.gmail.com>
-Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Srinivas Kandagatla <srini@kernel.org>, 
-	Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Takashi Iwai <tiwai@suse.com>, Rob Herring <robh@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andy Shevchenko <andy@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Will Deacon <will@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 21 Oct 2025 14:47:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 25A31438CD;
+	Tue, 21 Oct 2025 14:47:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0A63C4CEF1;
+	Tue, 21 Oct 2025 14:46:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761058020;
+	bh=XbAA3W5mct8frTpWL2bmNzbWCnA2MA5cBXxZMhoUUdE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=N6bpsQWG/VKmmjyO8RI3gbKUG4IwOOeuOHQYCyZTKXOy61PXzC11IiGYXcD+f2exZ
+	 F1rItw9xz7HYBnyPYdE8W1AJbw6hEC862A7G7cjndvy/GFiLiDuzHviozxzAEM3wQq
+	 B2hGgOwe8t8zXzJAxNGG3oBryXlBcQxhJqBh1BKCym38kJkAQ8DbmMWaaMEzHAiBgi
+	 xjSSWxyNU8XOtX1wjwO9BowIqkKlzfhrFW/vIHuECBhB/E2/JIM+s6Ppa2n7vrFtba
+	 FhiZsJ3VnIYF7eRiP7hwcJruGcnz9NRrjzBGp+LtxhJs2LGv2w1TpeiTGGkq1jDgAN
+	 tMhbX2I/Io81g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vBDdZ-0000000FsgJ-3XVe;
+	Tue, 21 Oct 2025 14:46:57 +0000
+Date: Tue, 21 Oct 2025 15:46:57 +0100
+Message-ID: <86a51kwbvi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Kunkun Jiang <jiangkunkun@huawei.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"moderated list:KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)"
+	<linux-arm-kernel@lists.infradead.org>,
+	"open list:KERNEL VIRTUAL MACHINE FOR\
+ ARM64 (KVM/arm64)" <kvmarm@lists.linux.dev>,
+	open list
+	<linux-kernel@vger.kernel.org>,
+	"wanghaibin.wang@huawei.com"
+	<wanghaibin.wang@huawei.com>
+Subject: Re: [Question] Received vtimer interrupt but ISTATUS is 0
+In-Reply-To: <f9a37a7d-2141-ee82-c7d6-23d8de9db2c1@huawei.com>
+References: <14b30b59-12bb-fc69-8447-aae86fcafcd1@huawei.com>
+	<87frblxx3b.wl-maz@kernel.org>
+	<f9a37a7d-2141-ee82-c7d6-23d8de9db2c1@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: jiangkunkun@huawei.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, wanghaibin.wang@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_074227_246003_7B8F27F3 
-X-CRM114-Status: GOOD (  18.30  )
+X-CRM114-CacheID: sfid-20251021_074700_895340_8AE5EAED 
+X-CRM114-Status: GOOD (  57.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +97,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 4:08=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
-te:
->
-> On Mon, Oct 20, 2025 at 11:41:52AM +0200, Bartosz Golaszewski wrote:
-> > On Fri, Oct 17, 2025 at 7:32=E2=80=AFPM Mark Brown <broonie@kernel.org>=
- wrote:
->
-> > > It really should be the actual physical state change that triggers th=
-e
-> > > event.
->
-> > I guess so, but this would require some non-trivial rework of the
-> > regulator core. We'd need some list of deferred notifications stored
-> > in memory for when the physical state actually changes.
->
-> I'm not sure I see the need for deferred notifications?  We'd need to go
-> round all the users whenever a physical change to the GPIO happens but
-> it's not clear what we'd need to store beyond the list of users?
+On Tue, 21 Oct 2025 14:38:26 +0100,
+Kunkun Jiang <jiangkunkun@huawei.com> wrote:
+> 
+> Hi Marc,
+> 
+> On 2025/10/15 0:32, Marc Zyngier wrote:
+> > On Tue, 14 Oct 2025 15:45:37 +0100,
+> > Kunkun Jiang <jiangkunkun@huawei.com> wrote:
+> >> 
+> >> Hi all,
+> >> 
+> >> I'm having a very strange problem that can be simplified to a vtimer
+> >> interrupt being received but ISTATUS is 0. Why dose this happen?
+> >> According to analysis, it may be the timer condition is met and the
+> >> interrupt is generated. Maybe some actions(cancel timer?) are done in
+> >> the VM, ISTATUS becomes 0 and he hardware needs to clear the
+> >> interrupt. But the clear command is sent too slowly, the OS has
+> >> already read the ICC_IAR_EL1. So hypervisor executed
+> >> kvm_arch_timer_handler but ISTATUS is 0.
+> > 
+> > If what you describe is accurate, and that the HW takes so long to
+> > retire the timer interrupt that we cannot trust having taken an
+> > interrupt, how long until we can trust that what we have is actually
+> > correct?
+> > 
+> > Given that it takes a full exit from the guest before we can handle
+> > the interrupt, I am rather puzzled that you observe this sort of bad
+> > behaviours on modern HW. You either have an insanely fast CPU with a
+> > very slow GIC, or a very bizarre machine (a bit like a ThunderX -- not
+> > a compliment).
+> I added dump_stack in the exception branch, and the following is the
+> stack when the problem occurred.
+> > [ 2669.521569] Call trace:
+> > [ 2669.521577]  dump_backtrace+0x0/0x220
+> > [ 2669.521579]  show_stack+0x20/0x2c
+> > [ 2669.521583]  dump_stack+0xf0/0x138
+> > [ 2669.521588]  kvm_arch_timer_handler+0x138/0x194
+> > [ 2669.521592]  handle_percpu_devid_irq+0x90/0x1f4
+> > [ 2669.521598]  __handle_domain_irq+0x84/0xfc
+> > [ 2669.521600]  gic_handle_irq+0xfc/0x320
+> > [ 2669.521601]  el1_irq+0xb8/0x140
+> > [ 2669.521604]  kvm_arch_vcpu_ioctl_run+0x258/0x6fc
+> > [ 2669.521607]  kvm_vcpu_ioctl+0x334/0xa94
+> > [ 2669.521612]  __arm64_sys_ioctl+0xb0/0xf4
+> > [ 2669.521614]  el0_svc_common.constprop.0+0x7c/0x1bc
+> > [ 2669.521616]  do_el0_svc+0x2c/0xa4
+> > [ 2669.521619]  el0_svc+0x20/0x30
+> > [ 2669.521620]  el0_sync_handler+0xb0/0xb4
+> > [ 2669.521621]  el0_sync+0x160/0x180By analyzing this stack, it should indeed take a full exit from the 
+> guest.Do you think this is a hardware issue?
 
-In my mind I was thinking that we only need to send the notifications
-to users who already enabled/disabled the regulator too but you're
-right, it seems like a loop over the relevant pins should be enough.
+Of course this is a HW issue. Your GIC is slow to retire a pending
+interrupt, you pay the consequences.
 
-In any case: this is outside the scope of this series but I'll see if
-it's easy enough to add separately.
+> > 
+> > How does it work when context-switching from a vcpu that has a pending
+> > timer interrupt to one that doesn't? Do you also see spurious
+> > interrupts?
+> I added a log under the 'if(!vcpu)' branch and tested it, but it did
+> not go to this branch. In addition, I have set the vcpu to be bound to
+> the core, and only one vcpu is running on one core.
 
-Bartosz
+Well, that's hardly testing the conditions I have outlined.
+
+> > 
+> >> The code flow is as follows:
+> >> kvm_arch_timer_handler
+> >>      ->if (kvm_timer_should_fire)
+> >>          ->the value of SYS_CNTV_CTL is 0b001(ISTATUS=0,IMASK=0,ENABLE=1)
+> >>      ->return IRQ_HANDLED
+> >> 
+> >> Because ISTATUS is 0, kvm_timer_update_irq will not be executed to
+> >> inject this interrupt into the VM. Since EOImode is 1 and the vtimer
+> >> interrupt has IRQD_FORWARDED_TO_VCPU flag, hypervisor will not write
+> >> ICC_DIR_EL1 to deactivate the interrupt. This interrupt remains in
+> >> active state, blocking subsequent interrupt from being
+> >> process. Fortunately, in kvm_timer_vcpu_load it will be determined
+> >> again whether an interrupt needs to be injected into the VM. But the
+> >> delay will definitely increase.
+> > 
+> > Right, so you are at most a context switch away from your next
+> > interrupt, just like in the !vcpu case. While not ideal, that's not
+> > fatal.
+> > 
+> >> 
+> >> What I want to discuss is the solution to this problem. My solution is
+> >> to add a deactivation action:
+> >> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> >> index dbd74e4885e2..46baba531d51 100644
+> >> --- a/arch/arm64/kvm/arch_timer.c
+> >> +++ b/arch/arm64/kvm/arch_timer.c
+> >> @@ -228,8 +228,13 @@ static irqreturn_t kvm_arch_timer_handler(int
+> >> irq, void *dev_id)
+> >>          else
+> >>                  ctx = map.direct_ptimer;
+> >> 
+> >> -       if (kvm_timer_should_fire(ctx))
+> >> +       if (kvm_timer_should_fire(ctx)) {
+> >>                  kvm_timer_update_irq(vcpu, true, ctx);
+> >> +       } else {
+> >> +               struct vgic_irq *irq;
+> >> +               irq = vgic_get_vcpu_irq(vcpu, timer_irq(timer_ctx));
+> >> +               gic_write_dir(irq->hwintid);
+> >> +       }
+> >> 
+> >>          if (userspace_irqchip(vcpu->kvm) &&
+> >>              !static_branch_unlikely(&has_gic_active_state))
+> >> 
+> >> If you have any new ideas or other solutions to this problem, please
+> >> let me know.
+> > 
+> > That's not right.
+> > 
+> > For a start, this is GICv3 specific, and will break on everything
+> > else. Also, why the round-trip via the vgic_irq when you already have
+> > the interrupt number that has fired *as a parameter*?
+> > 
+> > Finally, this breaks with NV, as you could have switched between EL1
+> > and EL2 timers, and since you cannot trust you are in the correct
+> > interrupt context (interrupt firing out of context), you can't trust
+> > irq->hwintid either, as the mappings will have changed.
+> > 
+> > Something like the patchlet below should do the trick, but I'm
+> > definitely not happy about this sort of sorry hacks.
+> > 
+> > 	M.
+> > 
+> > diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> > index dbd74e4885e24..3db7c6bdffbc0 100644
+> > --- a/arch/arm64/kvm/arch_timer.c
+> > +++ b/arch/arm64/kvm/arch_timer.c
+> > @@ -206,6 +206,13 @@ static void soft_timer_cancel(struct hrtimer *hrt)
+> >   	hrtimer_cancel(hrt);
+> >   }
+> >   +static void set_timer_irq_phys_active(struct arch_timer_context
+> > *ctx, bool active)
+> > +{
+> > +	int r;
+> > +	r = irq_set_irqchip_state(ctx->host_timer_irq, IRQCHIP_STATE_ACTIVE, active);
+> > +	WARN_ON(r);
+> > +}
+> > +
+> >   static irqreturn_t kvm_arch_timer_handler(int irq, void *dev_id)
+> >   {
+> >   	struct kvm_vcpu *vcpu = *(struct kvm_vcpu **)dev_id;
+> > @@ -230,6 +237,8 @@ static irqreturn_t kvm_arch_timer_handler(int irq, void *dev_id)
+> >     	if (kvm_timer_should_fire(ctx))
+> >   		kvm_timer_update_irq(vcpu, true, ctx);
+> > +	else
+> > +		set_timer_irq_phys_active(ctx, false);
+> >     	if (userspace_irqchip(vcpu->kvm) &&
+> >   	    !static_branch_unlikely(&has_gic_active_state))
+> > @@ -659,13 +668,6 @@ static void timer_restore_state(struct arch_timer_context *ctx)
+> >   	local_irq_restore(flags);
+> >   }
+> >   -static inline void set_timer_irq_phys_active(struct
+> > arch_timer_context *ctx, bool active)
+> > -{
+> > -	int r;
+> > -	r = irq_set_irqchip_state(ctx->host_timer_irq, IRQCHIP_STATE_ACTIVE, active);
+> > -	WARN_ON(r);
+> > -}
+> > -
+> >   static void kvm_timer_vcpu_load_gic(struct arch_timer_context *ctx)
+> >   {
+> >   	struct kvm_vcpu *vcpu = ctx->vcpu;
+> > 
+> After extensive testing, this patch was able to resolve the issue I
+> encountered.
+> Tested-by: Kunkun Jiang <jiangkunkun@huawei.com>
+
+Just to be clear: a similar discussion took place over 5 years ago on
+the same subject[1], and I was pretty clear about the conclusion.
+
+There is no bug here. Only a slow HW implementation that leads to
+suboptimal behaviours. There is no state loss, no lack of forward
+progress, and the interrupts still get delivered in finite time. As
+far as I am concerned, things work OK.
+
+Thanks,
+
+	M.
+
+[1] https://lore.kernel.org/r/1595584037-6877-1-git-send-email-zhangshaokun@hisilicon.com
+
+-- 
+Without deviation from the norm, progress is not possible.
 
