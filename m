@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D53CCD1B0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE349CCD1BA
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,34 +12,34 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AP5GZTY+6u3putkH9wiit+MCCXjcLlm9TffEsIJtyyg=; b=ge8IteQbIyL5q/s4DudDY/CrZ4
-	UQcS5mzRwc0Z9QPI6eN5eGOFImoIflqlgFDpEcI9wa1anYTkKMCJ5fHj/+yDktMawDy3qj9iOYe5G
-	UJtZtuejdduElj2SkhQGKIaiwYVQgWZVonbD3mgu5kjatLmuMgBKYASqeW7FTMlfhxxfkDIR4FBbl
-	E0QUYVMj776dUkel68D6r3NEHtFkmyCVCfszT6S9qocNghxEOo7rIejPPPBm2/JEXqJ/crzMSeOW6
-	VkVBxlUUqvVwuC8KbElPpnTduTHFGz27zX3oxeC+jVXk1/kRRB5foyBloI+RCI2brg4hTOZy4m6SW
-	5XV1poZg==;
+	bh=oU5xEPT8aEVLQudNuyzuo82/ZEcqDr2Z0zwtb+h3Wiw=; b=r9L+/z7L6qCyE15YzQyQaaGyXD
+	34F+Kv4kfWFvvJ5eYA9CDUI2fc9/J4EhD2RhCGQu9p1RkPjYxSHC+wxdQW9ClVFy4MzRxg578XcsF
+	W56GxaLRAgPyPE38kxhKYhghGJvXts1z7QaxDx9eWV29SXejtTVEgmJsx3i9soOGqAG0Lre1LljuD
+	hrHpFWtsz3POs8V2ub2O5bUxGUHG+Ke6lMkyE++tIffVmVDh94KeWqSl/QUq1Ip2TkRkPNRD5BDAF
+	aitae+WSUKx7SqtCHsRy6UWJeiD3QVvNshnwLG3i/FHAZEJuKdK65y8UW/Cpb5mHCRsKAkBDjC6ND
+	4nj/K0uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB71o-0000000G6wZ-1IP9;
-	Tue, 21 Oct 2025 07:43:32 +0000
+	id 1vB71q-0000000G71L-3ARW;
+	Tue, 21 Oct 2025 07:43:34 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB71i-0000000G6nk-1PPB;
+	id 1vB71i-0000000G6nh-1OQ0;
 	Tue, 21 Oct 2025 07:43:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=AP5GZTY+6u3putkH9wiit+MCCXjcLlm9TffEsIJtyyg=; b=zzlF/GQwOQQvsH29acgbHn7dAx
-	ACbGisNDNz3tl3h2hrkFyVvLWA7oGx+H+Mjp9DE5lsHALp/RE3JLcsKaUW0c41i9v1/4crFVVedG2
-	AlMSHCTLWmg0ZUJiaGLcwNPRcaW+pIXnCMdDKCKMjz0bNglzD62Dy9PAE9AYVWanGk4uF3AsL08f9
-	MCkKHHAX6WVwftxB2eModVhyUOeW9OlIqjeUIJljygAa8bS7J7I4H4CN8alGbp8VIRwOlTCk95b97
-	GzbLFTjxfpAMAwe3p1gEhed5lRb6+VwZJGuv+dES2UvxABVI9HXUFrUFAevlrxM54coSPlW7qmrR/
-	AecrvQkg==;
+	bh=oU5xEPT8aEVLQudNuyzuo82/ZEcqDr2Z0zwtb+h3Wiw=; b=GjKO6I/QtwVjj13ledu/xMmPUe
+	ZV6r46SGUe+AyFZb1Vv+LsGdd54kxGePylhi8/PAUCAXHYYr0JnYXQOcFAlt3BZI2rDYxVwYTpVL2
+	MZsCyiaYbPRbghR5YnbrEEJ6jRulARZZyjEa2TK2uLgQ/6OWKYIv+qMyCjnJSRFvuROnItkj7nDRk
+	O8nYDAOGe1MbTlD90KH37JZjOqWG7vI4kL3XGVq4ld4IEHgfWTjyItBz3NjiFHqHIStJ2wsoSGeTf
+	rd3WlKeWoZlz54wClaKPlxoseWUdGzlk+/gYnia8zEJEfCSz60AP34kIWVAYi3YOyiCdMkb36c7Zj
+	GHfIdC8A==;
 Received: from [212.111.240.218] (helo=phil.guestnet.ukdd.de)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1vB71M-0000uy-Mp; Tue, 21 Oct 2025 09:43:04 +0200
+	id 1vB71N-0000uy-OF; Tue, 21 Oct 2025 09:43:05 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: heiko@sntech.de
 Cc: maarten.lankhorst@linux.intel.com,
@@ -56,19 +56,18 @@ Cc: maarten.lankhorst@linux.intel.com,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	cn.liweihao@gmail.com,
-	Heiko Stuebner <heiko.stuebner@cherry.de>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 1/9] dt-bindings: display: rockchip: dw-hdmi: Add compatible for RK3368 HDMI
-Date: Tue, 21 Oct 2025 09:42:46 +0200
-Message-ID: <20251021074254.87065-2-heiko@sntech.de>
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH v2 3/9] soc: rockchip: grf: Add select correct PWM implementation on RK3368
+Date: Tue, 21 Oct 2025 09:42:48 +0200
+Message-ID: <20251021074254.87065-4-heiko@sntech.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20251021074254.87065-1-heiko@sntech.de>
 References: <20251021074254.87065-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_004326_386577_FFAAD755 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20251021_004326_403909_4CFEBF99 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,30 +84,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-Define a new compatible for RK3368 HDMI.
+Similar to the RK3288, the RK3368 has two different implementations of
+the PWM block inside the SoC - the newer ones that we have a driver for
+and that is used on every SoC and a previous variant that was likely
+left as a fallback if the new one creates problems.
 
-The RK3368 HDMI also uses a PHY internal to the controller, so works
-similar to other controllers, with the exception that the RK3368
-only has one VOP, so there is no source selection needed.
+The devicetree is already set up for the new variant, so make sure
+we actually use it - similar to the RK3288.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 ---
- .../devicetree/bindings/display/rockchip/rockchip,dw-hdmi.yaml   | 1 +
+ drivers/soc/rockchip/grf.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-hdmi.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-hdmi.yaml
-index 9d096856a79a..29716764413a 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-hdmi.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-hdmi.yaml
-@@ -23,6 +23,7 @@ properties:
-       - rockchip,rk3228-dw-hdmi
-       - rockchip,rk3288-dw-hdmi
-       - rockchip,rk3328-dw-hdmi
-+      - rockchip,rk3368-dw-hdmi
-       - rockchip,rk3399-dw-hdmi
-       - rockchip,rk3568-dw-hdmi
+diff --git a/drivers/soc/rockchip/grf.c b/drivers/soc/rockchip/grf.c
+index 344870da7675..963cdea01ce7 100644
+--- a/drivers/soc/rockchip/grf.c
++++ b/drivers/soc/rockchip/grf.c
+@@ -91,6 +91,7 @@ static const struct rockchip_grf_info rk3328_grf __initconst = {
  
+ static const struct rockchip_grf_value rk3368_defaults[] __initconst = {
+ 	{ "jtag switching", RK3368_GRF_SOC_CON15, FIELD_PREP_WM16_CONST(BIT(13), 0) },
++	{ "pwm select", RK3368_GRF_SOC_CON15, FIELD_PREP_WM16_CONST(BIT(12), 1) },
+ };
+ 
+ static const struct rockchip_grf_info rk3368_grf __initconst = {
 -- 
 2.47.2
 
