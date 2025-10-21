@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEFECCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 17:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D667ACCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 17:23:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPb5YPaWSZdkItkJJaJl2C7Q5kQCQt+rXUtIhb3OB4A=; b=z8/mSxYNYaJK2bOB04/gkEKYZL
-	080ydO5cOkEsyIPE9I897Im48Kvi3eUd/wNulxne/xPifwwkdDVncHQiDN1xwfImaSdZBuo2RBitZ
-	MiYeomt5FfrC8wT74QHXW/GxnFcbNr1Ucp8p5hPOXgf1SXursMrssO5cEvb5IBu10+U6tXv4/3uGr
-	1N2ak3GaMn4xfa0gyiKoedZWISnzXUwrFy4hx/3Nz3PKgyj/l077p7+g6nkWGGOZSeYwpYgb7OIb+
-	9T7nsy8E7/GAfRvGYISKTTvvVpeiiALmr9wAQpkNH1wXfSrqO4OAapbQdbsYcyK7zSLPskfBOAZ3e
-	KEdAibtw==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=KpB+B15OVXzo8/vLye/2HUIXanlBDK6L57ZK7ZUWtEg=; b=LMPtFka0X0J/Ak
+	frd6ycOW0SJTEkKjAufY7mbndsSniEYfh3ossAmrdFxD9iUdpAk1xsRwTGAiToBXKpZSuSn/NeyaM
+	kJ0A/KYIaSgCKLSIQ98zFq1qW63N+zD5k/VzADloObb90s+E1iaigi3PQOkvpYpiXdz4DMfsVETEk
+	lzUjCW9KbTtZw6LP00P51M2agc4sEHpsWNtJQuvChuHsPBIObi/v5xQOWabESbn8vJx20qtkZH/8u
+	VpdV3mD0klFa+iasYYMhh/wxP7G7rBL3EpYl4RkiC+j/HurjtzzllOyxImxxV7Lnijv4Rn8u0MoK4
+	rHz+NzzeJt5kvx8IFglQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBG49-00000000EIe-01Ht;
-	Tue, 21 Oct 2025 17:22:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBG45-00000000EH8-2lhd
+	id 1vBG4p-00000000EUC-1RmZ;
+	Tue, 21 Oct 2025 17:23:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBG4n-00000000ETJ-1uad
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 17:22:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF6672F;
-	Tue, 21 Oct 2025 10:22:18 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B5653F63F;
-	Tue, 21 Oct 2025 10:22:26 -0700 (PDT)
-Date: Tue, 21 Oct 2025 18:22:24 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Mike Leach <mike.leach@linaro.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
+	Tue, 21 Oct 2025 17:23:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E494044384;
+	Tue, 21 Oct 2025 17:23:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3E29C4CEF1;
+	Tue, 21 Oct 2025 17:23:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761067390;
+	bh=WtDAPjj2uGIdoRAWnE+iIkBURVgXeLBKvep422kdXHE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=FZjJF+4r91jouTqR4ZCGqzgg0rVgTjnvGMOtExNJniwX5dWlP4jCwmBXfEbVJuqti
+	 7IXt4pidP071Ogg9iGMBn38tmDXu75p9f2J92QJqiccOw/kxe0mEufMpxqK+n/b6dM
+	 JQAKYV8Ne/rBstqxIewQZaV49n8p7GNi8MD9GN0UDraKVCTlcY1S4/GjbsiBtM/wzp
+	 46uYfybDE61g6tR53qeFxSYdNJeFgsV+m+ov7nVifWmTKiUzdoU5abyz9XKoCaj+2l
+	 zIsZH9Tdg/O/QqQ2UaxeiOqnNWBbkVyDpD702xmI0jgsENuk+XdJ+za6yM1daKa4Aa
+	 hOm1C5wxr6JfQ==
+Date: Tue, 21 Oct 2025 12:23:09 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Ravi Kumar Bandi <ravib@amazon.com>
+Cc: mani@kernel.org, thippeswamy.havalige@amd.com, lpieralisi@kernel.org,
+	bhelgaas@google.com, linux-pci@vger.kernel.org,
+	kwilczynski@kernel.org, robh@kernel.org, michal.simek@amd.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v3 4/5] coresight: Add format attribute for setting the
- timestamp interval
-Message-ID: <20251021172224.GO281971@e132581.arm.com>
-References: <20251002-james-cs-syncfreq-v3-0-fe5df2bf91d1@linaro.org>
- <20251002-james-cs-syncfreq-v3-4-fe5df2bf91d1@linaro.org>
- <CAJ9a7Vj1NnikoJyabXnad+=3SDULKCyqoZiNb_S66SkG+HD+dw@mail.gmail.com>
- <bfce6b68-783f-4aa1-b9db-d905230be609@linaro.org>
+	stable@vger.kernel.org, Stefan Roese <stefan.roese@mailbox.org>,
+	Sean Anderson <sean.anderson@linux.dev>
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Message-ID: <20251021172309.GA1198438@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <bfce6b68-783f-4aa1-b9db-d905230be609@linaro.org>
+In-Reply-To: <20250920225232.18757-1-ravib@amazon.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_102229_787283_EEEB3DDD 
-X-CRM114-Status: GOOD (  37.73  )
+X-CRM114-CacheID: sfid-20251021_102313_729616_7DEC8F59 
+X-CRM114-Status: GOOD (  18.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,138 +74,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 15, 2025 at 04:19:04PM +0100, James Clark wrote:
+[+cc Stefan, Sean]
 
-[...]
-
-> > > -static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
-> > > +static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
-> > > +                                      struct perf_event_attr *attr)
-> > >   {
-> > >          int ctridx;
-> > >          int rselector;
-> > >          struct etmv4_config *config = &drvdata->config;
-> > > +       u8 ts_level = ATTR_CFG_GET_FLD(attr, ts_level);
-> > > +
-> > > +       /* Disable when ts_level == MAX */
-> > > +       if (ts_level == FIELD_GET(ATTR_CFG_FLD_ts_level_MASK, UINT_MAX))
-> > > +               return 0;
-> > > 
-> > 
-> > Returning 0 from this function _enables_ the timestamps
-> > 
+On Sat, Sep 20, 2025 at 10:52:32PM +0000, Ravi Kumar Bandi wrote:
+> The pcie-xilinx-dma-pl driver does not enable INTx interrupts
+> after initializing the port, preventing INTx interrupts from
+> PCIe endpoints from flowing through the Xilinx XDMA root port
+> bridge. This issue affects kernel 6.6.0 and later versions.
 > 
-> Returning 0 just means that etm4_parse_event_config() doesn't exit with an
-> error. For ts_level == MAX we want to disable timestamps generated by the
-> counter, but we still want the minimum periodic timestamps.
+> This patch allows INTx interrupts generated by PCIe endpoints
+> to flow through the root port. Tested the fix on a board with
+> two endpoints generating INTx interrupts. Interrupts are
+> properly detected and serviced. The /proc/interrupts output
+> shows:
 > 
-> To disable all timestamps you'd need to have attr->config & BIT(ETM_OPT_TS)
-> == false. This is set by the "timestamp" format flag which I tried to
-> explain that in the docs change.
+> [...]
+> 32:        320          0  pl_dma:RC-Event  16 Level     400000000.axi-pcie, azdrv
+> 52:        470          0  pl_dma:RC-Event  16 Level     500000000.axi-pcie, azdrv
+> [...]
 > 
-> I could also change the comment to say "/* Disable counter generated
-> timestamps with ts_level == MAX */"
+> Changes since v1::
+> - Fixed commit message per reviewer's comments
 > 
-> It's unfortunate that there are now two format options for timestamps. Maybe
-> instead of adding a second option we can change "timestamp" from a 1 bit
-> field to 4 bits, with the following meanings:
+> Fixes: 8d786149d78c ("PCI: xilinx-xdma: Add Xilinx XDMA Root Port driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
+
+Hi Ravi, obviously you tested this, but I don't know how to reconcile
+this with Stefan's INTx fix at
+https://lore.kernel.org/r/20251021154322.973640-1-stefan.roese@mailbox.org
+
+Does Stefan's fix need to be squashed into this patch?
+
+> ---
+>  drivers/pci/controller/pcie-xilinx-dma-pl.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
->  0:     No counter timestamps or SYNC timestamps
->  1-14:  Counter timestamps = 2 ^ x. Plus SYNC timestamps
->  15:    Only SYNC timestamps
-
-I am just wandering how can extend "timestamp" from 1 bit to 4 bits.
-
-  #define ETM_OPT_TS              28
-  #define ETM_OPT_RETSTK          29
-
-  PMU_FORMAT_ATTR(timestamp,      "config:" __stringify(ETM_OPT_TS));
-  PMU_FORMAT_ATTR(retstack,       "config:" __stringify(ETM_OPT_RETSTK));
-
-"retstack" has occupied a higher bit, we cannot naturelly extend
-"timestamp" field?
-
-Even we can extend "timestamp" format to 4 bits, it will be mess when
-run the updated perf on old kernels.  Let's see an example:
-
-  perf record -e cs_etm/timestamp=0/ -- test
-  perf record -e cs_etm/timestamp=2/ -- test
-
-Because the lowest bit is cleared for both timestamp=0 and timestamp=2,
-the old kernel support only one bit always treats these two setting as
-timestamp disabled, or the perf tool needs to do extra checking for
-old kernel.
-
-> Now we basically have the same meanings except you also have to set the
-> timestamp bit. Seems a bit pointless.
-
-> Previous versions of Perf were hard coding the timestamp format bit rather
-> than reading it out of
-> "/sys/bus/event_source/devices/cs_etm/format/timestamp" though:
-> 
-> -       /* All good, let the kernel know */
-> -       evsel->core.attr.config |= (1 << ETM_OPT_TS);
-> 
-> For that reason we'd have to leave that one where it is for backwards
-> compatibility. If it's set it would be equivalent to the new wider timestamp
-> field == 1.
-
-Are you suggesting the timestamp field to be extended to two
-non-consecutive fields?
-
-For me, this is even worse than current two discrete formats. The reason
-is it is complex in implementation, and it is not directive for usage
-(users need to digest the field for three different semantics: on/off,
-counter, and SYNC mode only).
-
-Thanks,
-Leo
-
-> I don't know if there's any precedent for changing the bitfield that backs a
-> format field, but presumably that's the point of publishing them in files
-> rather than a header.
-
-
-> 
-> > >          /* No point in trying if we don't have at least one counter */
-> > >          if (!drvdata->nr_cntr)
-> > > @@ -667,12 +674,8 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
-> > >                  return -ENOSPC;
-> > >          }
-> > > 
-> > > -       /*
-> > > -        * Initialise original and reload counter value to the smallest
-> > > -        * possible value in order to get as much precision as we can.
-> > > -        */
-> > > -       config->cntr_val[ctridx] = 1;
-> > > -       config->cntrldvr[ctridx] = 1;
-> > > +       /* Initialise original and reload counter value. */
-> > > +       config->cntr_val[ctridx] = config->cntrldvr[ctridx] = 1 << ts_level;
-> > > 
-> > >          /*
-> > >           * Trace Counter Control Register TRCCNTCTLRn
-> > > @@ -762,7 +765,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
-> > >                   * order to correlate instructions executed on different CPUs
-> > >                   * (CPU-wide trace scenarios).
-> > >                   */
-> > > -               ret = etm4_config_timestamp_event(drvdata);
-> > > +               ret = etm4_config_timestamp_event(drvdata, attr);
-> > > 
-> > >                  /*
-> > >                   * No need to go further if timestamp intervals can't
-> > > 
-> > > --
-> > > 2.34.1
-> > > 
-> > 
-> > Regards
-> > 
-> > 
-> > Mike
-> > 
-> > --
-> > Mike Leach
-> > Principal Engineer, ARM Ltd.
-> > Manchester Design Centre. UK
+> diff --git a/drivers/pci/controller/pcie-xilinx-dma-pl.c b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+> index b037c8f315e4..cc539292d10a 100644
+> --- a/drivers/pci/controller/pcie-xilinx-dma-pl.c
+> +++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+> @@ -659,6 +659,12 @@ static int xilinx_pl_dma_pcie_setup_irq(struct pl_dma_pcie *port)
+>  		return err;
+>  	}
+>  
+> +	/* Enable interrupts */
+> +	pcie_write(port, XILINX_PCIE_DMA_IMR_ALL_MASK,
+> +		   XILINX_PCIE_DMA_REG_IMR);
+> +	pcie_write(port, XILINX_PCIE_DMA_IDRN_MASK,
+> +		   XILINX_PCIE_DMA_REG_IDRN_MASK);
+> +
+>  	return 0;
+>  }
+>  
+> -- 
+> 2.47.3
 > 
 
