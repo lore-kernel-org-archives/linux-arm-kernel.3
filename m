@@ -4,105 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1009CCCD1A7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 13:29:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073CCCCD1A7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 13:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2MjRgcldGg2mmGajzEcoEKX1puEip+1DdudZDzeYLXo=; b=tXXKYMN8hL4s4IXl9E4+twyF2z
-	/9PrqPuYu1DY0/RZzsUHtA4rKLsQzS4t0F+iGrE226lb4920CIk6YIJpzAhu6z7R49BDA1TLbvgSR
-	zJeBgT+ZpogW0k5DUqx3EwUJH1WZXJLZ7bbKTjmT8h3MXUpYXg8zeJ9p+UR7zT+SuGmObQHAS0D/Y
-	+vXuiJb9O2vd8HqNBtjckbWYMG2OFvVR5YOtGBmzxkzDJMCI8MWIpa9JpMJlW3NoV8r2ng1OM2i+M
-	pHVQcQCtCFtxzagCEBveP8pTGr0KgOcH0YQ4ilfRP6zHnQBSVbFg2qcWS72cjMUCQ/lpjxJikDiKt
-	jmEs4bvg==;
+	bh=Lu/YSRFYNTWn2sHbKkcgJG3Xsw6PYI6j/HckrM3pqQs=; b=OJGatzy0bT2A8jaxQwQMdotjlh
+	3M8y8R9Bnc+lDOaxDspwWrODpa0XknBZDWUSh1iBE9uIkm1uw6sEFM/SQg1oqqtYfd5W5IXfZgDJu
+	FLrOZT/OIkj2CSRbZA4in1qDkRTEw9AKYNu1xV8JekAb93cVx9LH9NrZaRkk5yzixJsnJy6gJ5MQd
+	4onX+HkOa3cOwoDw6OuP1gso1F1C0tkAbKeOIcoFe4BwOOlu1+uydPyhEdtgen/9mzZrmDaUSJPT5
+	2jZ+D9JcUP3xIKcsHR+AHS3RvqnL8jgwVXCmMinwz/9aSTqBRWsWYxEcz5J5qMloj/d1rsnPHxmo6
+	p04bu52Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBCQT-0000000H9NP-38XF;
-	Tue, 21 Oct 2025 13:29:21 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vBCa2-0000000HBA2-3pG8;
+	Tue, 21 Oct 2025 13:39:14 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBCQQ-0000000H9M2-3AN6
+	id 1vBCa0-0000000HB8a-0CJ0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 13:29:20 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A6D036A6;
-	Tue, 21 Oct 2025 15:27:27 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1761053248;
-	bh=TdmnHYraVLXyq2KpB8KKjs8nVP++3l4uw6Cj2Qx6icU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TLmFnjHZ7QGrJGGch1/PS5cm/SEPmEHLgfnRuKGU633tUbrafTejahnxqwDqb8WUA
-	 BzvQIu/AKRvUSlGdmWCAqjQjW9PUt5VL1fWjA2Ktkz5YhQDUq8+cEhbqslGSWERmTI
-	 Acn2+DbnOn3ka05kWMPm1BmHMJcyPmrIx4Z+WbUg=
-Message-ID: <5ae8b52a-ff6c-4ab6-b2e6-83bd858b206a@ideasonboard.com>
-Date: Tue, 21 Oct 2025 16:29:08 +0300
+	Tue, 21 Oct 2025 13:39:13 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Lu/YSRFYNTWn2sHbKkcgJG3Xsw6PYI6j/HckrM3pqQs=;
+	b=OEliUXtze1ysDGiXebc8aOkkfcO6F8sq5bQfW/8h9+NAyXEd9E1D55qVscDhErXCkjF4CR9it
+	+ccNru3QBKFMcneNKNZJ4iyEtNqrPU50yHK48KGzTP5hUnodQQiJdci9PW6zCm4OnN71GRN3hQt
+	Aah6GlwadXT64oz3XZTFhVk=
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4crYK66cMGzKm6m;
+	Tue, 21 Oct 2025 21:38:18 +0800 (CST)
+Received: from kwepemh200008.china.huawei.com (unknown [7.202.181.115])
+	by mail.maildlp.com (Postfix) with ESMTPS id DCC4818001B;
+	Tue, 21 Oct 2025 21:38:42 +0800 (CST)
+Received: from [10.174.176.125] (10.174.176.125) by
+ kwepemh200008.china.huawei.com (7.202.181.115) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 21 Oct 2025 21:38:42 +0800
+Subject: Re: [Question] Received vtimer interrupt but ISTATUS is 0
+To: Marc Zyngier <maz@kernel.org>
+CC: Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	"moderated list:KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)"
+	<linux-arm-kernel@lists.infradead.org>, "open list:KERNEL VIRTUAL MACHINE FOR
+ ARM64 (KVM/arm64)" <kvmarm@lists.linux.dev>, open list
+	<linux-kernel@vger.kernel.org>, "wanghaibin.wang@huawei.com"
+	<wanghaibin.wang@huawei.com>
+References: <14b30b59-12bb-fc69-8447-aae86fcafcd1@huawei.com>
+ <87frblxx3b.wl-maz@kernel.org>
+From: Kunkun Jiang <jiangkunkun@huawei.com>
+Message-ID: <f9a37a7d-2141-ee82-c7d6-23d8de9db2c1@huawei.com>
+Date: Tue, 21 Oct 2025 21:38:26 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] drm/client: Add client free callback to unprepare
- fb_helper
-To: Thomas Zimmermann <tzimmermann@suse.de>, jfalempe@redhat.com,
- javierm@redhat.com, mripard@kernel.org, maarten.lankhorst@linux.intel.com
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, linux-arm-msm@vger.kernel.org,
- freedreno@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
- linux-tegra@vger.kernel.org
-References: <20251009132006.45834-1-tzimmermann@suse.de>
- <20251009132006.45834-2-tzimmermann@suse.de>
+In-Reply-To: <87frblxx3b.wl-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"; format=flowed
 Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20251009132006.45834-2-tzimmermann@suse.de>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.176.125]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemh200008.china.huawei.com (7.202.181.115)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_062919_065979_6F68E3AA 
-X-CRM114-Status: GOOD (  23.26  )
+X-CRM114-CacheID: sfid-20251021_063912_389057_1BC4887F 
+X-CRM114-Status: GOOD (  45.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,276 +86,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/10/2025 16:16, Thomas Zimmermann wrote:
-> Add free callback to struct drm_client_funcs. Invoke function to
-> free the client memory as part of the release process. Implement
-> free for fbdev emulation.
-> 
-> Fbdev emulation allocates and prepares client memory in
-> drm_fbdev_client_setup(). The release happens in fb_destroy from
-> struct fb_ops. Multiple implementations of this callback exist in
-> the various drivers that provide fbdev implementation. Each of them
-> needs to follow the implementation details of the fbdev setup code.
-> 
-> Adding a free callback for the client puts the unprepare and release
-> of the fbdev client in a single place.
-> 
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-> ---
->  drivers/gpu/drm/armada/armada_fbdev.c      |  2 --
->  drivers/gpu/drm/clients/drm_fbdev_client.c | 17 +++++++++++++++--
->  drivers/gpu/drm/drm_client.c               |  4 ++++
->  drivers/gpu/drm/drm_fbdev_dma.c            |  4 ----
->  drivers/gpu/drm/drm_fbdev_shmem.c          |  2 --
->  drivers/gpu/drm/drm_fbdev_ttm.c            |  2 --
->  drivers/gpu/drm/exynos/exynos_drm_fbdev.c  |  2 --
->  drivers/gpu/drm/gma500/fbdev.c             |  3 ---
->  drivers/gpu/drm/i915/display/intel_fbdev.c |  2 --
->  drivers/gpu/drm/msm/msm_fbdev.c            |  2 --
->  drivers/gpu/drm/omapdrm/omap_fbdev.c       |  2 --
+Hi Marc,
 
-For omapdrm:
-
-Acked-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-
- Tomi
-
->  drivers/gpu/drm/radeon/radeon_fbdev.c      |  2 --
->  drivers/gpu/drm/tegra/fbdev.c              |  2 --
->  include/drm/drm_client.h                   | 10 ++++++++++
->  14 files changed, 29 insertions(+), 27 deletions(-)
+On 2025/10/15 0:32, Marc Zyngier wrote:
+> On Tue, 14 Oct 2025 15:45:37 +0100,
+> Kunkun Jiang <jiangkunkun@huawei.com> wrote:
+>>
+>> Hi all,
+>>
+>> I'm having a very strange problem that can be simplified to a vtimer
+>> interrupt being received but ISTATUS is 0. Why dose this happen?
+>> According to analysis, it may be the timer condition is met and the
+>> interrupt is generated. Maybe some actions(cancel timer?) are done in
+>> the VM, ISTATUS becomes 0 and he hardware needs to clear the
+>> interrupt. But the clear command is sent too slowly, the OS has
+>> already read the ICC_IAR_EL1. So hypervisor executed
+>> kvm_arch_timer_handler but ISTATUS is 0.
 > 
-> diff --git a/drivers/gpu/drm/armada/armada_fbdev.c b/drivers/gpu/drm/armada/armada_fbdev.c
-> index cb53cc91bafb..22e2081bfa04 100644
-> --- a/drivers/gpu/drm/armada/armada_fbdev.c
-> +++ b/drivers/gpu/drm/armada/armada_fbdev.c
-> @@ -28,8 +28,6 @@ static void armada_fbdev_fb_destroy(struct fb_info *info)
->  	fbh->fb->funcs->destroy(fbh->fb);
->  
->  	drm_client_release(&fbh->client);
-> -	drm_fb_helper_unprepare(fbh);
-> -	kfree(fbh);
->  }
->  
->  static const struct fb_ops armada_fb_ops = {
-> diff --git a/drivers/gpu/drm/clients/drm_fbdev_client.c b/drivers/gpu/drm/clients/drm_fbdev_client.c
-> index f894ba52bdb5..5336accab1b6 100644
-> --- a/drivers/gpu/drm/clients/drm_fbdev_client.c
-> +++ b/drivers/gpu/drm/clients/drm_fbdev_client.c
-> @@ -13,16 +13,28 @@
->   * struct drm_client_funcs
->   */
->  
-> +static void drm_fbdev_client_free(struct drm_client_dev *client)
+> If what you describe is accurate, and that the HW takes so long to
+> retire the timer interrupt that we cannot trust having taken an
+> interrupt, how long until we can trust that what we have is actually
+> correct?
+> 
+> Given that it takes a full exit from the guest before we can handle
+> the interrupt, I am rather puzzled that you observe this sort of bad
+> behaviours on modern HW. You either have an insanely fast CPU with a
+> very slow GIC, or a very bizarre machine (a bit like a ThunderX -- not
+> a compliment).
+I added dump_stack in the exception branch, and the following is the 
+stack when the problem occurred.
+> [ 2669.521569] Call trace:
+> [ 2669.521577]  dump_backtrace+0x0/0x220
+> [ 2669.521579]  show_stack+0x20/0x2c
+> [ 2669.521583]  dump_stack+0xf0/0x138
+> [ 2669.521588]  kvm_arch_timer_handler+0x138/0x194
+> [ 2669.521592]  handle_percpu_devid_irq+0x90/0x1f4
+> [ 2669.521598]  __handle_domain_irq+0x84/0xfc
+> [ 2669.521600]  gic_handle_irq+0xfc/0x320
+> [ 2669.521601]  el1_irq+0xb8/0x140
+> [ 2669.521604]  kvm_arch_vcpu_ioctl_run+0x258/0x6fc
+> [ 2669.521607]  kvm_vcpu_ioctl+0x334/0xa94
+> [ 2669.521612]  __arm64_sys_ioctl+0xb0/0xf4
+> [ 2669.521614]  el0_svc_common.constprop.0+0x7c/0x1bc
+> [ 2669.521616]  do_el0_svc+0x2c/0xa4
+> [ 2669.521619]  el0_svc+0x20/0x30
+> [ 2669.521620]  el0_sync_handler+0xb0/0xb4
+> [ 2669.521621]  el0_sync+0x160/0x180By analyzing this stack, it should indeed take a full exit from the 
+guest.Do you think this is a hardware issue?
+> 
+> How does it work when context-switching from a vcpu that has a pending
+> timer interrupt to one that doesn't? Do you also see spurious
+> interrupts?
+I added a log under the 'if(!vcpu)' branch and tested it, but it did not 
+go to this branch. In addition, I have set the vcpu to be bound to the 
+core, and only one vcpu is running on one core.
+> 
+>> The code flow is as follows:
+>> kvm_arch_timer_handler
+>>      ->if (kvm_timer_should_fire)
+>>          ->the value of SYS_CNTV_CTL is 0b001(ISTATUS=0,IMASK=0,ENABLE=1)
+>>      ->return IRQ_HANDLED
+>>
+>> Because ISTATUS is 0, kvm_timer_update_irq will not be executed to
+>> inject this interrupt into the VM. Since EOImode is 1 and the vtimer
+>> interrupt has IRQD_FORWARDED_TO_VCPU flag, hypervisor will not write
+>> ICC_DIR_EL1 to deactivate the interrupt. This interrupt remains in
+>> active state, blocking subsequent interrupt from being
+>> process. Fortunately, in kvm_timer_vcpu_load it will be determined
+>> again whether an interrupt needs to be injected into the VM. But the
+>> delay will definitely increase.
+> 
+> Right, so you are at most a context switch away from your next
+> interrupt, just like in the !vcpu case. While not ideal, that's not
+> fatal.
+> 
+>>
+>> What I want to discuss is the solution to this problem. My solution is
+>> to add a deactivation action:
+>> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+>> index dbd74e4885e2..46baba531d51 100644
+>> --- a/arch/arm64/kvm/arch_timer.c
+>> +++ b/arch/arm64/kvm/arch_timer.c
+>> @@ -228,8 +228,13 @@ static irqreturn_t kvm_arch_timer_handler(int
+>> irq, void *dev_id)
+>>          else
+>>                  ctx = map.direct_ptimer;
+>>
+>> -       if (kvm_timer_should_fire(ctx))
+>> +       if (kvm_timer_should_fire(ctx)) {
+>>                  kvm_timer_update_irq(vcpu, true, ctx);
+>> +       } else {
+>> +               struct vgic_irq *irq;
+>> +               irq = vgic_get_vcpu_irq(vcpu, timer_irq(timer_ctx));
+>> +               gic_write_dir(irq->hwintid);
+>> +       }
+>>
+>>          if (userspace_irqchip(vcpu->kvm) &&
+>>              !static_branch_unlikely(&has_gic_active_state))
+>>
+>> If you have any new ideas or other solutions to this problem, please
+>> let me know.
+> 
+> That's not right.
+> 
+> For a start, this is GICv3 specific, and will break on everything
+> else. Also, why the round-trip via the vgic_irq when you already have
+> the interrupt number that has fired *as a parameter*?
+> 
+> Finally, this breaks with NV, as you could have switched between EL1
+> and EL2 timers, and since you cannot trust you are in the correct
+> interrupt context (interrupt firing out of context), you can't trust
+> irq->hwintid either, as the mappings will have changed.
+> 
+> Something like the patchlet below should do the trick, but I'm
+> definitely not happy about this sort of sorry hacks.
+> 
+> 	M.
+> 
+> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> index dbd74e4885e24..3db7c6bdffbc0 100644
+> --- a/arch/arm64/kvm/arch_timer.c
+> +++ b/arch/arm64/kvm/arch_timer.c
+> @@ -206,6 +206,13 @@ static void soft_timer_cancel(struct hrtimer *hrt)
+>   	hrtimer_cancel(hrt);
+>   }
+>   
+> +static void set_timer_irq_phys_active(struct arch_timer_context *ctx, bool active)
 > +{
-> +	struct drm_fb_helper *fb_helper = drm_fb_helper_from_client(client);
-> +
-> +	drm_fb_helper_unprepare(fb_helper);
-> +	kfree(fb_helper);
+> +	int r;
+> +	r = irq_set_irqchip_state(ctx->host_timer_irq, IRQCHIP_STATE_ACTIVE, active);
+> +	WARN_ON(r);
 > +}
 > +
->  static void drm_fbdev_client_unregister(struct drm_client_dev *client)
->  {
->  	struct drm_fb_helper *fb_helper = drm_fb_helper_from_client(client);
->  
->  	if (fb_helper->info) {
-> +		/*
-> +		 * Fully probed framebuffer device
-> +		 */
->  		drm_fb_helper_unregister_info(fb_helper);
->  	} else {
-> +		/*
-> +		 * Partially initialized client, no framebuffer device yet
-> +		 */
->  		drm_client_release(&fb_helper->client);
-> -		drm_fb_helper_unprepare(fb_helper);
-> -		kfree(fb_helper);
->  	}
->  }
->  
-> @@ -88,6 +100,7 @@ static int drm_fbdev_client_resume(struct drm_client_dev *client, bool holds_con
->  
->  static const struct drm_client_funcs drm_fbdev_client_funcs = {
->  	.owner		= THIS_MODULE,
-> +	.free		= drm_fbdev_client_free,
->  	.unregister	= drm_fbdev_client_unregister,
->  	.restore	= drm_fbdev_client_restore,
->  	.hotplug	= drm_fbdev_client_hotplug,
-> diff --git a/drivers/gpu/drm/drm_client.c b/drivers/gpu/drm/drm_client.c
-> index 3fa38d4ac70b..fe9c6d7083ea 100644
-> --- a/drivers/gpu/drm/drm_client.c
-> +++ b/drivers/gpu/drm/drm_client.c
-> @@ -168,6 +168,10 @@ void drm_client_release(struct drm_client_dev *client)
->  
->  	drm_client_modeset_free(client);
->  	drm_client_close(client);
-> +
-> +	if (client->funcs && client->funcs->free)
-> +		client->funcs->free(client);
-> +
->  	drm_dev_put(dev);
->  }
->  EXPORT_SYMBOL(drm_client_release);
-> diff --git a/drivers/gpu/drm/drm_fbdev_dma.c b/drivers/gpu/drm/drm_fbdev_dma.c
-> index 8bd626ef16c7..c6196293e424 100644
-> --- a/drivers/gpu/drm/drm_fbdev_dma.c
-> +++ b/drivers/gpu/drm/drm_fbdev_dma.c
-> @@ -57,8 +57,6 @@ static void drm_fbdev_dma_fb_destroy(struct fb_info *info)
->  	drm_client_buffer_vunmap(fb_helper->buffer);
->  	drm_client_framebuffer_delete(fb_helper->buffer);
->  	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->  }
->  
->  static const struct fb_ops drm_fbdev_dma_fb_ops = {
-> @@ -92,8 +90,6 @@ static void drm_fbdev_dma_shadowed_fb_destroy(struct fb_info *info)
->  	drm_client_buffer_vunmap(fb_helper->buffer);
->  	drm_client_framebuffer_delete(fb_helper->buffer);
->  	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->  }
->  
->  static const struct fb_ops drm_fbdev_dma_shadowed_fb_ops = {
-> diff --git a/drivers/gpu/drm/drm_fbdev_shmem.c b/drivers/gpu/drm/drm_fbdev_shmem.c
-> index 1e827bf8b815..51573058df6f 100644
-> --- a/drivers/gpu/drm/drm_fbdev_shmem.c
-> +++ b/drivers/gpu/drm/drm_fbdev_shmem.c
-> @@ -65,8 +65,6 @@ static void drm_fbdev_shmem_fb_destroy(struct fb_info *info)
->  	drm_client_buffer_vunmap(fb_helper->buffer);
->  	drm_client_framebuffer_delete(fb_helper->buffer);
->  	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->  }
->  
->  static const struct fb_ops drm_fbdev_shmem_fb_ops = {
-> diff --git a/drivers/gpu/drm/drm_fbdev_ttm.c b/drivers/gpu/drm/drm_fbdev_ttm.c
-> index 85feb55bba11..ccf460fbc1f0 100644
-> --- a/drivers/gpu/drm/drm_fbdev_ttm.c
-> +++ b/drivers/gpu/drm/drm_fbdev_ttm.c
-> @@ -53,8 +53,6 @@ static void drm_fbdev_ttm_fb_destroy(struct fb_info *info)
->  	drm_client_framebuffer_delete(fb_helper->buffer);
->  
->  	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->  }
->  
->  static const struct fb_ops drm_fbdev_ttm_fb_ops = {
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-> index 93de25b77e68..a3bd21a827ad 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-> @@ -42,8 +42,6 @@ static void exynos_drm_fb_destroy(struct fb_info *info)
->  	drm_framebuffer_remove(fb);
->  
->  	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->  }
->  
->  static const struct fb_ops exynos_drm_fb_ops = {
-> diff --git a/drivers/gpu/drm/gma500/fbdev.c b/drivers/gpu/drm/gma500/fbdev.c
-> index a6af21514cff..bc92fa24a1e2 100644
-> --- a/drivers/gpu/drm/gma500/fbdev.c
-> +++ b/drivers/gpu/drm/gma500/fbdev.c
-> @@ -84,9 +84,6 @@ static void psb_fbdev_fb_destroy(struct fb_info *info)
->  	drm_gem_object_put(obj);
->  
->  	drm_client_release(&fb_helper->client);
+>   static irqreturn_t kvm_arch_timer_handler(int irq, void *dev_id)
+>   {
+>   	struct kvm_vcpu *vcpu = *(struct kvm_vcpu **)dev_id;
+> @@ -230,6 +237,8 @@ static irqreturn_t kvm_arch_timer_handler(int irq, void *dev_id)
+>   
+>   	if (kvm_timer_should_fire(ctx))
+>   		kvm_timer_update_irq(vcpu, true, ctx);
+> +	else
+> +		set_timer_irq_phys_active(ctx, false);
+>   
+>   	if (userspace_irqchip(vcpu->kvm) &&
+>   	    !static_branch_unlikely(&has_gic_active_state))
+> @@ -659,13 +668,6 @@ static void timer_restore_state(struct arch_timer_context *ctx)
+>   	local_irq_restore(flags);
+>   }
+>   
+> -static inline void set_timer_irq_phys_active(struct arch_timer_context *ctx, bool active)
+> -{
+> -	int r;
+> -	r = irq_set_irqchip_state(ctx->host_timer_irq, IRQCHIP_STATE_ACTIVE, active);
+> -	WARN_ON(r);
+> -}
 > -
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->  }
->  
->  static const struct fb_ops psb_fbdev_fb_ops = {
-> diff --git a/drivers/gpu/drm/i915/display/intel_fbdev.c b/drivers/gpu/drm/i915/display/intel_fbdev.c
-> index 3fbdf75415cc..d5f26c8bb102 100644
-> --- a/drivers/gpu/drm/i915/display/intel_fbdev.c
-> +++ b/drivers/gpu/drm/i915/display/intel_fbdev.c
-> @@ -146,8 +146,6 @@ static void intel_fbdev_fb_destroy(struct fb_info *info)
->  	drm_framebuffer_remove(fb_helper->fb);
->  
->  	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->  }
->  
->  __diag_push();
-> diff --git a/drivers/gpu/drm/msm/msm_fbdev.c b/drivers/gpu/drm/msm/msm_fbdev.c
-> index b5969374d53f..aad6fb77f0de 100644
-> --- a/drivers/gpu/drm/msm/msm_fbdev.c
-> +++ b/drivers/gpu/drm/msm/msm_fbdev.c
-> @@ -52,8 +52,6 @@ static void msm_fbdev_fb_destroy(struct fb_info *info)
->  	drm_framebuffer_remove(fb);
->  
->  	drm_client_release(&helper->client);
-> -	drm_fb_helper_unprepare(helper);
-> -	kfree(helper);
->  }
->  
->  static const struct fb_ops msm_fb_ops = {
-> diff --git a/drivers/gpu/drm/omapdrm/omap_fbdev.c b/drivers/gpu/drm/omapdrm/omap_fbdev.c
-> index 948af7ec1130..b5df2923d2a6 100644
-> --- a/drivers/gpu/drm/omapdrm/omap_fbdev.c
-> +++ b/drivers/gpu/drm/omapdrm/omap_fbdev.c
-> @@ -103,8 +103,6 @@ static void omap_fbdev_fb_destroy(struct fb_info *info)
->  	drm_framebuffer_remove(fb);
->  
->  	drm_client_release(&helper->client);
-> -	drm_fb_helper_unprepare(helper);
-> -	kfree(helper);
->  }
->  
->  /*
-> diff --git a/drivers/gpu/drm/radeon/radeon_fbdev.c b/drivers/gpu/drm/radeon/radeon_fbdev.c
-> index dc81b0c2dbff..4df6c9167bf0 100644
-> --- a/drivers/gpu/drm/radeon/radeon_fbdev.c
-> +++ b/drivers/gpu/drm/radeon/radeon_fbdev.c
-> @@ -184,8 +184,6 @@ static void radeon_fbdev_fb_destroy(struct fb_info *info)
->  	radeon_fbdev_destroy_pinned_object(gobj);
->  
->  	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->  }
->  
->  static const struct fb_ops radeon_fbdev_fb_ops = {
-> diff --git a/drivers/gpu/drm/tegra/fbdev.c b/drivers/gpu/drm/tegra/fbdev.c
-> index 1b70f5e164af..91aece6f34e0 100644
-> --- a/drivers/gpu/drm/tegra/fbdev.c
-> +++ b/drivers/gpu/drm/tegra/fbdev.c
-> @@ -53,8 +53,6 @@ static void tegra_fbdev_fb_destroy(struct fb_info *info)
->  	drm_framebuffer_remove(fb);
->  
->  	drm_client_release(&helper->client);
-> -	drm_fb_helper_unprepare(helper);
-> -	kfree(helper);
->  }
->  
->  static const struct fb_ops tegra_fb_ops = {
-> diff --git a/include/drm/drm_client.h b/include/drm/drm_client.h
-> index bdd845e383ef..eecb8d6e15c7 100644
-> --- a/include/drm/drm_client.h
-> +++ b/include/drm/drm_client.h
-> @@ -28,6 +28,16 @@ struct drm_client_funcs {
->  	 */
->  	struct module *owner;
->  
-> +	/**
-> +	 * @free:
-> +	 *
-> +	 * Called when the client gets unregistered. Implementations should
-> +	 * release all client-specific data and free the memory.
-> +	 *
-> +	 * This callback is optional.
-> +	 */
-> +	void (*free)(struct drm_client_dev *client);
-> +
->  	/**
->  	 * @unregister:
->  	 *
+>   static void kvm_timer_vcpu_load_gic(struct arch_timer_context *ctx)
+>   {
+>   	struct kvm_vcpu *vcpu = ctx->vcpu;
+> 
+After extensive testing, this patch was able to resolve the issue I 
+encountered.
+Tested-by: Kunkun Jiang <jiangkunkun@huawei.com>
 
+Thanks,
+Kunkun Jiang
 
