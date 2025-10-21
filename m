@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DBACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:43:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190B3CCD1AF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eRts01yY6wbXoZJiKV8EilNEez97RUtFkZlyQpaiO4k=; b=0f8NKkj4Dyzio8+pmRj1RhVAja
-	0zUV3tvEddhQV6X91UrDI4+JXi0wtmbO6pNE2pjrf/D47ZZ41fq14fxkKsdZCCFVLx/Nwfq8Epd2c
-	yVxjLS+XkIfX2AmkgYiWch+N27BmfkkEKj2FzldANvCjPa4sUIww3aMlj2R/wKPwzOrxWWTR8gA9x
-	OIwKcFIaQaVDBcdf1Kej9H9hcXJK09mU3DCmxIe1sA9MewbRwWZfm+ieKLEU/UsYJsZq/v5Ev60BT
-	9wUYkDjWKDP/wMyWVG23WEEl6cYUEuZsy7ArZzOKzffoWVB7l3Ere0FQGVEnRKM5Gfbzr9PdiX78z
-	QRVWbKLg==;
+	bh=Cc1STdILGLg5BzAaHuh5zXaUjmHX9akYX2GxkMZPRDo=; b=nFbrSSsN59vYyFfPatEQkUzOPf
+	dQafBZwocwmhJOWyxlnyc+db8p9OyWVlnSrRXndCwyJbHf5GlEkTnskxfdH9deFS1ftApkwh21eta
+	rJWtjkaGx/acbuItEmvzpD4hFk4d/baDPvB6sTboKg4H5Kqfj8SiPqqUNqriNjTfap6pOfGXtnSlS
+	5RoGHRzkOt9IQQ3m3oyQE/QvMKactA9QQmWAXxR63mkkIvFPjLG7gdXJiw9NZclW5kvM15jdyleUS
+	Xi2sXgboDvbnplC1KJd+ErgiwHyP4I/CsVwdU/n7+QjrLOS/bJMNJnstyujaKi3JB2sRGYZf6MHiw
+	c78f7+jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB71r-0000000G73Y-3Q5V;
-	Tue, 21 Oct 2025 07:43:35 +0000
+	id 1vB71t-0000000G77t-2iI8;
+	Tue, 21 Oct 2025 07:43:37 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB71i-0000000G6nn-1toc;
+	id 1vB71i-0000000G6nw-472u;
 	Tue, 21 Oct 2025 07:43:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=eRts01yY6wbXoZJiKV8EilNEez97RUtFkZlyQpaiO4k=; b=o3JiK/qO0Q1QURZtQaMB92OVLg
-	KcQi0S6p76uT0t7rrAqusF7W6eDq3ykTRx0KvDUS4QKZFHliSmQtCizSAq0hyER6kPZ//8tuQCjBr
-	C6SEHhEdr3NW30ccK+RexkPd2SteNu86isiZi7OC4iCKN7LHCf0T+6RsKswlpLLkAVs8crd99U/we
-	26UUU0ScevKW0l84TnFae557F8GV5W8FzLY9fhza2GRgODxucHkUVpbFSqtJ2GuN08mNmpO5YVi2Z
-	KRzCizW1diu9kFScYxZttCUAu/FjfVQceAnizjykbuALdMyaIaiPEvSSHkFPGWwa9BIyK9v334Wp2
-	hIkidzNw==;
+	bh=Cc1STdILGLg5BzAaHuh5zXaUjmHX9akYX2GxkMZPRDo=; b=tiN9QwShaieVMZNJTQ68si1pga
+	Zxp8KYENwm/k4gjxvACQYAYGBpU8bsxOR6KJmC+BJttX9VsNBOppu3fXQ/SUy8a2rGmc2fRaZKYwf
+	/uo/dACxUSuoYoulrbvNvAteTskJtqPb0E7Fozfm1ZPTBcgIG3C8R8WbqOaZ+5ZNWFkVQGxggtbOh
+	X8kIs6BShjydMCC+amlR84XBKw1Y2eOwlR0QA+HXHY4iFbC3Seb3Y3ntwlJeIdU7Z0ucqdEy+tTqt
+	UYz8TuPkSPOATWKnueiw+X0xKpqilGOSh13xt0xmD9OdCsRLtQghAt1Bb8s3kvzfpKc/WSRHRdK16
+	kg6vvl7Q==;
 Received: from [212.111.240.218] (helo=phil.guestnet.ukdd.de)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1vB71O-0000uy-Uj; Tue, 21 Oct 2025 09:43:06 +0200
+	id 1vB71P-0000uy-Bm; Tue, 21 Oct 2025 09:43:07 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: heiko@sntech.de
 Cc: maarten.lankhorst@linux.intel.com,
@@ -57,17 +57,17 @@ Cc: maarten.lankhorst@linux.intel.com,
 	linux-kernel@vger.kernel.org,
 	cn.liweihao@gmail.com,
 	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: [PATCH v2 6/9] arm64: dts: rockchip: Use phandle for i2c_lvds_blc on rk3368-lion haikou
-Date: Tue, 21 Oct 2025 09:42:51 +0200
-Message-ID: <20251021074254.87065-7-heiko@sntech.de>
+Subject: [PATCH v2 7/9] arm64: dts: rockchip: Add HDMI node to RK3368
+Date: Tue, 21 Oct 2025 09:42:52 +0200
+Message-ID: <20251021074254.87065-8-heiko@sntech.de>
 X-Mailer: git-send-email 2.47.2
 In-Reply-To: <20251021074254.87065-1-heiko@sntech.de>
 References: <20251021074254.87065-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_004326_489929_8CD68723 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20251021_004327_018500_56665AC8 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,53 +84,82 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-i2c@0 on i2cmux2 does already have a phandle i2c_lvds_blc defined.
-
-Use this one instead of replicating the hierarchy again, as this might
-result in strange errors if the lion dtsi is changed at some point
-in the future.
+Add the HDMI controller node to the main SoC devicetree and hook
+it into the VOP.
 
 Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 ---
- .../boot/dts/rockchip/rk3368-lion-haikou.dts   | 18 ++++++++----------
- 1 file changed, 8 insertions(+), 10 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3368.dtsi | 43 ++++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
-index ab70ee5f561a..abd1af97456a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
-@@ -18,16 +18,6 @@ chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
- 
--	i2cmux2 {
--		i2c@0 {
--			eeprom: eeprom@50 {
--				compatible = "atmel,24c01";
--				pagesize = <8>;
--				reg = <0x50>;
--			};
--		};
--	};
--
- 	leds {
- 		pinctrl-0 = <&module_led_pins>, <&sd_card_led_pin>;
- 
-@@ -68,6 +58,14 @@ vcc5v0_otg: regulator-vcc5v0-otg {
- 	};
- };
- 
-+&i2c_lvds_blc {
-+	eeprom: eeprom@50 {
-+		compatible = "atmel,24c01";
-+		pagesize = <8>;
-+		reg = <0x50>;
-+	};
-+};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3368.dtsi b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
+index ce4b112b082b..892d35242259 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3368.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3368.dtsi
+@@ -875,6 +875,11 @@ vop_out_dsi: endpoint@0 {
+ 				reg = <0>;
+ 				remote-endpoint = <&dsi_in_vop>;
+ 			};
 +
- &sdmmc {
- 	bus-width = <4>;
- 	cap-mmc-highspeed;
++			vop_out_hdmi: endpoint@1 {
++				reg = <1>;
++				remote-endpoint = <&hdmi_in_vop>;
++			};
+ 		};
+ 	};
+ 
+@@ -933,6 +938,37 @@ dphy: phy@ff968000 {
+ 		status = "disabled";
+ 	};
+ 
++	hdmi: hdmi@ff980000 {
++		compatible = "rockchip,rk3368-dw-hdmi";
++		reg = <0x0 0xff980000 0x0 0x20000>;
++		interrupts = <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&cru PCLK_HDMI_CTRL>, <&cru SCLK_HDMI_HDCP>, <&cru SCLK_HDMI_CEC>;
++		clock-names = "iahb", "isfr", "cec";
++		pinctrl-names = "default";
++		pinctrl-0 = <&hdmi_i2c_xfer>;
++		power-domains = <&power RK3368_PD_VIO>;
++		reg-io-width = <4>;
++		rockchip,grf = <&grf>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			hdmi_in: port@0 {
++				reg = <0>;
++
++				hdmi_in_vop: endpoint {
++					remote-endpoint = <&vop_out_hdmi>;
++				};
++			};
++
++			hdmi_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
+ 	hevc_mmu: iommu@ff9a0440 {
+ 		compatible = "rockchip,iommu";
+ 		reg = <0x0 0xff9a0440 0x0 0x40>,
+@@ -1196,6 +1232,13 @@ rmii_pins: rmii-pins {
+ 			};
+ 		};
+ 
++		hdmi {
++			hdmi_i2c_xfer: hdmi-i2c-xfer {
++				rockchip,pins = <3 RK_PD2 1 &pcfg_pull_none>,
++						<3 RK_PD3 1 &pcfg_pull_none>;
++			};
++		};
++
+ 		i2c0 {
+ 			i2c0_xfer: i2c0-xfer {
+ 				rockchip,pins = <0 RK_PA6 1 &pcfg_pull_none>,
 -- 
 2.47.2
 
