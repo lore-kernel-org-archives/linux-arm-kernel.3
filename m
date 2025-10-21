@@ -4,124 +4,195 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313AACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 04:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F20CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 04:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	In-Reply-To:Content-Type:References:Message-ID:Subject:CC:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ypGPB2dMjd5AmXxY6vdW8x1rXEojijwfr4yyazjH+Dk=; b=20L94AQ9ZFEQtEzFpHEQ863ocH
-	XHHKd4J+41JmVrCcSVL27ZzTXnmJ2j5ZstydXIG3eIgoEo14TWNEr30tmX0QplmbbZytlV/RZfBeh
-	Dsi7JGzGQP6k+8nwfz31Mhx9Pqtkhnkd5s5rO7JhqJTy1dQpviIrrKwHce7HOoqemoDxr9EG34KDL
-	qQ/D5lBye8sz6GYWGfICRTcu+G6CvCJoGhszyUU3zuurHwM4yh5YWHE+3aGk4Bii2aXgvhUK6CwQj
-	5WbOA1OERxX5PKGvHWOKt0dpeq7x7FLCuWo8buEINFheOIxDBCUg2uZxz4I+1XeZh88rdLcZJcoaK
-	TdN0L8yQ==;
+	bh=Ifi6FzgI1ycRclmmJV790rJS8TJHTSfD7Ay0MVnruqc=; b=3uG+JipWoDVwwwn+99xGOGQJAm
+	hniiw93n7m8+kMuyB1d39b8sCy09Aki2w52R1093rQsi5xjXhrWLUHDmCL9pHhmdil1t5Ho7cjsIw
+	ZTIED5DiQrl69cM0TAibpzorOSLAvNgTQnDpz5CB7v8YyIo5UGsZYigTnk6m6r/DToBTomh+zf7Ut
+	67wvCvzEJqQV1MGgykilPIgvcB+je5Ec8tYngIkXw3maZbVz5rWr3Lnk1x79opUnkSc5L24Ozpe+f
+	ZQDZY73AmWKrL5aoXTm6L68mQ/w0x1VwWV7KXhjMrixCgPmnhsfqAilBQ+OM3Q2cP74jGYUY3koGD
+	hTOJvacw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB3aj-0000000FlKq-0NJk;
-	Tue, 21 Oct 2025 04:03:21 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vB3gJ-0000000FlmZ-02Em;
+	Tue, 21 Oct 2025 04:09:07 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB3af-0000000FlJv-2WLe
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 04:03:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761019395;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ypGPB2dMjd5AmXxY6vdW8x1rXEojijwfr4yyazjH+Dk=;
-	b=dMMZ7uHDHXRPNU0DsFqlsRdzCkuNvQ9bLXeHQQZ/BtW2UQ54/YJiSHmXmK3DMY8/wV2hvq
-	4H+mA/uzGM5jMUXv8JP1lPaKTl4s85LledVU7+NLtk4ubrZ85QIwUVeGtP3iQXNOEKLHa1
-	MEEfyqdWT6jNYEQhXdgzTituLCue7VM=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-574-MfqQ7pQxNvugs6VUtjCbgQ-1; Tue, 21 Oct 2025 00:03:13 -0400
-X-MC-Unique: MfqQ7pQxNvugs6VUtjCbgQ-1
-X-Mimecast-MFC-AGG-ID: MfqQ7pQxNvugs6VUtjCbgQ_1761019393
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-88375756116so2780766585a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 20 Oct 2025 21:03:13 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761019393; x=1761624193;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ypGPB2dMjd5AmXxY6vdW8x1rXEojijwfr4yyazjH+Dk=;
-        b=XWqhYj2rAQKN28MldodQtTQkScbvb4NwgvJG33T4xuhCWWhKe+5TqHe9zbzG5qS+el
-         bxKIJwUWDiUt3fdM66XbZqPuUL1VH/nL4HDzzYyJQFE7bjuT8TcZz4iFDdx1YFLLjSu3
-         4Y9StDpRYReR2MUCUoVMnIKzFMAhfrKn6ZQ8Uv+dTXshhauW4bAsoNzXXNuNjxyEws2A
-         08z5jx4OqHBy8xsWj0sConiPpAJOM5mudegYnAGkAcjJSFcnQZ0xb4HOAf7VKRJEWZb0
-         ApAgwLss2IgYFbRX9WGJAh6vaeMwVmaGOS7NE/lnE225TH17twyzfzywL7JXsYfQynC2
-         Rubg==
-X-Forwarded-Encrypted: i=1; AJvYcCWEO/fupaDukUpZqRw1jaNGRt9IAnEo+72U2Zq2XLWImDSBBvovMcFNfWCQ+QWLADUqMhKAY+CjvTkiX3vOxKh5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxa3hTL9S0ZqbWEX8rFLOXrtqY0WwhDbM4gxF22/fMoBzaEuXEx
-	aByTazWyhxDCeIZ/pmIUzctr6gBa+yVJM9+ok4+Kb+nxYvm0CCnrkd1zUO6ag9ajvCVT3Sm4T2t
-	4P7ad0JFn+zK6211/pe2lyg/rIsrmF5H+QuZU8v73heWfNyhHfnE21qPv4RiRWG80jWzvZMPRGt
-	r7
-X-Gm-Gg: ASbGncto5DeBAJa5+7tDBZLQNNMh+UZDU9gwEJG0B9/1qx2Tn+UXdacgxo+CibeYRHm
-	XRJifLBDwRWOR88UMkFj76l7zMLiAPajjiOVb1dq4XEhHD/dyEE6qKBLwUq5bUXHA+/nZExAeOQ
-	SkEbem0u0PnOCV/jCQBBSOhGpktMeVomZCIGNlKpa/KGOU7/Abzf3gtAoCTlzk75qUfqKYo/2vy
-	ginEeYSObPxksW4kO//TCzqMUGb7AunTvoaIr8mOtatCVznUlojkH9cVnmpL1dT5LqTfcNFlocZ
-	WaLVNXDcODMv4RdGTMcFo4Py5vauWak3hKKMWusCnQDgyNdCPWncrAeFOMFCuyDv3yVMmvY9jxX
-	EqLnBQfGTtRbBb/6NnJSPd5suCWSWcYFPaMK0JPRjimBM8w==
-X-Received: by 2002:a05:620a:199c:b0:7e8:3fbd:4190 with SMTP id af79cd13be357-8906e0da740mr1877060785a.2.1761019392968;
-        Mon, 20 Oct 2025 21:03:12 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH3urjAuZAgtdR076zL6t7beitaw+yMAlWxDfIl37cvi1zbenzxv5j5J3/VNyalxK0zDSKr8w==
-X-Received: by 2002:a05:620a:199c:b0:7e8:3fbd:4190 with SMTP id af79cd13be357-8906e0da740mr1877055485a.2.1761019392392;
-        Mon, 20 Oct 2025 21:03:12 -0700 (PDT)
-Received: from ?IPV6:2601:600:947f:f020:85dc:d2b2:c5ee:e3c4? ([2601:600:947f:f020:85dc:d2b2:c5ee:e3c4])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-891cf58e67esm686026885a.47.2025.10.20.21.03.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 20 Oct 2025 21:03:11 -0700 (PDT)
-From: Waiman Long <llong@redhat.com>
-X-Google-Original-From: Waiman Long <longman@redhat.com>
-Message-ID: <510b0185-51d6-44e6-8c39-dfc4c1721e03@redhat.com>
-Date: Tue, 21 Oct 2025 00:03:05 -0400
+	id 1vB3gF-0000000Fllu-1WY0;
+	Tue, 21 Oct 2025 04:09:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761019743; x=1792555743;
+  h=date:from:to:cc:subject:message-id:reply-to:references:
+   in-reply-to:mime-version;
+  bh=L47OiHBXBe380poBuH7nuFhhF9IJ4xFdGbem4KTP6kU=;
+  b=MJbYLB1JD4VB0g6eyiY4ZfqHAy98fNp+G+4sUY1oSWzC0XdBpj06GkeL
+   AzvaP/JM9sEG/we7CBLdveVfvKDC8D6e0nGL5MAvd616brSii4cRf6pTm
+   NINBxOg/EhxWEGIHFpIDzBwVTVa0nhS39fNm7P6ehqK7tnUw0P4IROXpW
+   xaUJC9ZNHbk9W5BF8tNjUJFVaL6TAEMmRjv1K2S4w1q/2gZRs0/Ln4y4R
+   5Tu3f90cCSbvknbulbq0U0dAq2UV8qfKit8fbSQ4L1IncIHIg2atQqLNN
+   sorbCOinlTZtAZBC6YMCbr0y+Zc8SSVHT8MpYJrz0JhBIHUt1gIbUbOgO
+   A==;
+X-CSE-ConnectionGUID: rg9aJykzRNufiOnFHZC7Ew==
+X-CSE-MsgGUID: oirR8a3MTuO5svoPDqCdMg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="80580658"
+X-IronPort-AV: E=Sophos;i="6.19,244,1754982000"; 
+   d="scan'208";a="80580658"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2025 21:09:00 -0700
+X-CSE-ConnectionGUID: yYcYeic1R/OkMsuLATu+Mw==
+X-CSE-MsgGUID: as9fsLapSv+kr41LIkc3qg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,244,1754982000"; 
+   d="scan'208";a="214116142"
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Oct 2025 21:09:00 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Mon, 20 Oct 2025 21:08:59 -0700
+Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27 via Frontend Transport; Mon, 20 Oct 2025 21:08:59 -0700
+Received: from PH8PR06CU001.outbound.protection.outlook.com (40.107.209.15) by
+ edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Mon, 20 Oct 2025 21:08:59 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xqs5RhdgTwSrpaebHs2/v1dZMfAoxZDlfw+P41AbrAtpFHgZxZV48x5Sv8QR11D8eIxeRbdOncJWH5gZ9ox0m9p+4lgHnDef/7l6r58vBigcBFgOijA0yGxJqtsKMq6puAaMPPmDUD+EZiKIGAC5ZHsF8jOWon4p3zolJh9JBLP/nMWggTBgBbFTLGVNe7EBOXJ8KeJnvrudHsleXAHeX8Sa4ECESgW0nG+rhxYRG4fy14v11o/oFHuwXmftjYmjAWyLIgjpEsXmoQxdUplFcvIz2RidM6cUtWLZbXqSA0quIPTUxblIaeKKSs1Kk+B2AopVAusliFasv95uBljWjg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ifi6FzgI1ycRclmmJV790rJS8TJHTSfD7Ay0MVnruqc=;
+ b=AkS3k7LJxKZEv+vGbzhRR/gD1c/g7ZjHdY2w76Nxy4JLiyDsL+0AzYTUkCUqpHrHDzEXoWBpiFeopmfGQAFvcN3pnA6/e2wNTVLL3MK07dHKj/gwTnqAAnIQAfjkuZ2SSfo2IHz1rkgsUkigug7QNjt1C2jv985XApmhVyEuKX7EwcKnt7FLHEfgpPikSmEX28l6/53BIYUmmGrlchouJ2E0NyN3bRdZbQMV3oQs6bQ/NlNXLxa9Bkn3+tIJqT8IbdVRKCfun9b7MB0ZPvjv3+xNZXbHwgp92kEF5DJ0iCURFjdoqJLsoU4x7pG2JDx0Iz/OMuTlIvuLYz1LXvhoaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com (2603:10b6:8:71::6) by
+ SA1PR11MB7087.namprd11.prod.outlook.com (2603:10b6:806:2b5::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.16; Tue, 21 Oct
+ 2025 04:08:51 +0000
+Received: from DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca]) by DS7PR11MB5966.namprd11.prod.outlook.com
+ ([fe80::e971:d8f4:66c4:12ca%6]) with mapi id 15.20.9228.015; Tue, 21 Oct 2025
+ 04:08:50 +0000
+Date: Tue, 21 Oct 2025 12:06:52 +0800
+From: Yan Zhao <yan.y.zhao@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
+	<maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>, Paul Walmsley
+	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda
+	<imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, "Kirill A.
+ Shutemov" <kas@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
+	<linux-mips@vger.kernel.org>, <linuxppc-dev@lists.ozlabs.org>,
+	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
+	<x86@kernel.org>, <linux-coco@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, Kai Huang
+	<kai.huang@intel.com>, Michael Roth <michael.roth@amd.com>, Vishal Annapurve
+	<vannapurve@google.com>, Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Ackerley Tng <ackerleytng@google.com>, Binbin Wu <binbin.wu@linux.intel.com>
+Subject: Re: [PATCH v3 04/25] KVM: x86/mmu: Add dedicated API to map
+ guest_memfd pfn into TDP MMU
+Message-ID: <aPcG3LMA0qX5H5YI@yzhao56-desk.sh.intel.com>
+References: <20251017003244.186495-1-seanjc@google.com>
+ <20251017003244.186495-5-seanjc@google.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20251017003244.186495-5-seanjc@google.com>
+X-ClientProxiedBy: KL1PR0401CA0012.apcprd04.prod.outlook.com
+ (2603:1096:820:f::17) To DS7PR11MB5966.namprd11.prod.outlook.com
+ (2603:10b6:8:71::6)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 12/33] sched/isolation: Convert housekeeping cpumasks to
- rcu pointers
-To: Chen Ridong <chenridong@huaweicloud.com>,
- Frederic Weisbecker <frederic@kernel.org>,
- LKML <linux-kernel@vger.kernel.org>
-Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
- <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
- Lai Jiangshan <jiangshanlai@gmail.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
- <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
- Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-13-frederic@kernel.org>
- <bb9a75dc-8c34-41da-b064-e31bf5fe6cb2@huaweicloud.com>
-In-Reply-To: <bb9a75dc-8c34-41da-b064-e31bf5fe6cb2@huaweicloud.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 0D_ns2wiTiMxyVEhKaRleE092ft-7H5xJ4A30A5QhIs_1761019393
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR11MB5966:EE_|SA1PR11MB7087:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6e098889-4d24-46e9-dd08-08de10578a8d
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9sN25FzY8AbMpnLOAmcJOzpeqUzJLs9uEPXvTkWoonORC5cFeIWH0s49W1Ck?=
+ =?us-ascii?Q?xO/ssu0tL/fYPcB4+Hb9pcc2IqZ/Xke6RZB04IHLx/RpaHdS0ybvrMBnc5K0?=
+ =?us-ascii?Q?B6oxsc/m/UB1s0Eh7N9Nyzy3CtZwhkm/b+rdH2ooG6jOOBRpi8kqhiEjO55E?=
+ =?us-ascii?Q?8ljhJ8ABlK54Ub8mitNKB5fxu/INUS/tPBeBO58o2SWNf1cR1ccYct9Q+AGk?=
+ =?us-ascii?Q?4IOYucMsFpqprJnCb9jTqrFRlJm3a3Gv5KBcRa/mlOFyCJZgrF3ADHAd2ze6?=
+ =?us-ascii?Q?q5AUL7b288B7zYJHL3tAu388V2cue0X+fRyog1q/pEy1kyqPY0Q/X5MOtHwu?=
+ =?us-ascii?Q?MVLbCeF7p/25AFYlqPmsp+5nDJqH96xI2CJdU3Kza23ltDt0jCmlKTQdj7fc?=
+ =?us-ascii?Q?x/QfYV+FyXGPHzMYKS3VhEsPmQvIs/u6V+3MCLhpkDEAxzgRND0r6IoliXCw?=
+ =?us-ascii?Q?lbvaI+gEb2AguLUcgy4lFjBrYNlywNP/51QvYjU3oCoXLxpGg6/lJroNc/8E?=
+ =?us-ascii?Q?riJEFvr3KZmf+V503B/W8NF0InFe4t7tcmiYr/pbedhKCuzYj+FR0PeQr9Dc?=
+ =?us-ascii?Q?KGG2z6rQwQWx0ef719BOy//lk/UCP8QRKIVtrLLzgy/lVXD8prHjyVrg952O?=
+ =?us-ascii?Q?8zgngJAja8G3gIm+dZKWfqjYYZDIJfwroDZ7hQLks27uWKbaOuEE5i7zbhnR?=
+ =?us-ascii?Q?FpYX2ZoUNFohLCuN0HoHVIPteXyFiZhd6EOOWpge3PaBByskUh3yK0GpOPdL?=
+ =?us-ascii?Q?XLObogB4MrpmGU5iUJrVvgJAsxJ3RIn8UYkIW2GwA2JRpqEkpq2LbeAMN/yE?=
+ =?us-ascii?Q?jCVeFQTTU87nsC3PcbwXrAXeIhgucb1BVwJCzIUL2ETuCPEPsOwiM7YQUkY5?=
+ =?us-ascii?Q?yNHG/i+8PtMwqCcJhYePm22DYlthfCM1vvAxYwvFuI2MgxF5MJMR/MgzrFqj?=
+ =?us-ascii?Q?vNoIJ0oEBqb/M5oh65Yx89rKWN9n2Ix4mWHYQICy7je61IoNWBc0swkmhtqV?=
+ =?us-ascii?Q?2OAnUcfIc4C5FZsbzrfvHpRmhssZzVDvP3LWJTAHc/x4z+cJu4odo5aqsa+2?=
+ =?us-ascii?Q?z0RhUFv1MrJMnLOYtGQJQT2llFNvMrPpBOiY4W18SkNDE5ROXX1OCh5cEs2T?=
+ =?us-ascii?Q?EY/Lf7QIbkbFwGAblhcAAPS7OYiA4AliYYI3bmCwFkwqDprAsNtOibvf+KKh?=
+ =?us-ascii?Q?9D8l/vSPbwapkygD7ndqU2MX8Mw3GCJ1O6WKC+K3wcV/3UPKQ8MLcuOR3Qcq?=
+ =?us-ascii?Q?/sWRmUF/8PoaETkw//XEyqs8qf17veg5roR+t83JLUJOCihAEPFZPxWtOz0a?=
+ =?us-ascii?Q?qHD1uygVhLnESYXn6gXjpkdRVEkO5R6JFP/533VDLJLWu4qbLeaP8SQg3XBA?=
+ =?us-ascii?Q?O6+NSEDdYv5L3e3JhbfisLwRk6EDsEb6M8jsYpeIodZhvW3QUJcdo7h7yE9n?=
+ =?us-ascii?Q?4MwXxpLcTcuBVngkc3Ug2ZQzN/uyPtNC?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR11MB5966.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uJq0KgsCSwPiWHhRJka5L8dtnu4YIHpKDcGb+fnavfoE6z2lFGl1WTn3g2He?=
+ =?us-ascii?Q?MoN/J2luVeo/A/kCUrPpj3C4EQp3SJC0n7ueJa+y5x+9uJ5IeXd3e6b5WRny?=
+ =?us-ascii?Q?Gu9WX5Rd1/YNA59xAL8KAwun57kcLdPtq6not/IIMU2YmpsKkQEzthz5RACf?=
+ =?us-ascii?Q?g1SdRrU++DZqYQh7frE09dAzl3PiR4xeYFB7lDBUC8EESPrb2QvHOMUp1WbU?=
+ =?us-ascii?Q?oFaVCe/8OFJZKn0lMasfrDVg01jIQArwyizWAGTkwnOjOekhxU96JNE/laqj?=
+ =?us-ascii?Q?1+/KutmikBy1rQVcf4ZkBnT+NnExlRZxadPQmpnjApMv26pSt2j8+I7yreb+?=
+ =?us-ascii?Q?6vUTqYPa8vViKta8KGdEAAC1v77NrvBS/iea57tgLzfVcoaZtxiqmKuadTr0?=
+ =?us-ascii?Q?EYu6XZ69wIICg2nrtOZRiF4M8otAgUicVB4BQIKidjJKQIIpKCbBOhOYBzWI?=
+ =?us-ascii?Q?4Pw3V/6IbzgeZ4gSNpjJ2SmFsUZeC93S2155EqI1+h19g3wqpylg0VXlgJKB?=
+ =?us-ascii?Q?DKDfRw0mxmT5dBBGl2ZQziQVNGAuI+sAZ9N6AaKd6wv8LLt4yHcmETElUz8N?=
+ =?us-ascii?Q?CqjVF2rV6f1Bd81jfhd3DDAGTU/XZGkhrKxI0wY6cLP7ubZItq2CkXagUaMm?=
+ =?us-ascii?Q?pD6JmPOETa0Y96dgM97bEk4+hmBWjn88clKQE6k7V3NJDu/LlHpczRLHM0YQ?=
+ =?us-ascii?Q?QmO/SThLYPfjhox0iRkzIkBZjMJAVRzpyz9gg/r3GbsHDgiIqx0YcXp4n7Pn?=
+ =?us-ascii?Q?1z1nC9Ckt66Jfv7fYMJvBaLgh+wEpJo74dCqLcUDlJwBOOTDcCmwwVQFbSu+?=
+ =?us-ascii?Q?ZZCM29EEXRRdLklgDeTycyePJrrtU3C1n5DadeDyHtfNm9dBiUlKFsFLKL0y?=
+ =?us-ascii?Q?QWvSl8Kf6CJw0fq5kMq2mNpEWvSR5HHKddMU7jKiep1p8L1wuD/YfijY3/Ip?=
+ =?us-ascii?Q?T29oAdIQFZueL5HIcbbU/+pEdZvQWFWqxMI9FenkaCqyYpnSkWukE1kQY2Av?=
+ =?us-ascii?Q?7MkrnnTumZW6jowgJweIy/Za/UUqRTEnh+0XVe5lVQi6U87CxIAGCKjGY0rj?=
+ =?us-ascii?Q?NC7vRveMWY7N7mgRXu2fNpOqcnouKSPkeVkvhDTH5+ouHSmaM+vkA9HmNL0+?=
+ =?us-ascii?Q?k1h9ELY7z9tc9nWjuLWaN2HAtvDIMH++e4QAO7qzD+YDIwLreFtNAEHt+JxQ?=
+ =?us-ascii?Q?tgNTcIAguO/igMArgP2n326PmNuMcNFLcHFgkGVFqBjp80Y5gPKAdTASQA+b?=
+ =?us-ascii?Q?I2JnZsH8ltmolkMNzxttYIaRpjJAvY2FM6xoI7ASOzWnqDtX3MvtSI+rSSnt?=
+ =?us-ascii?Q?D+hLPTsuByfo9Fnjws171K3tNyt+48wMKtXJ7RZz4L9ZfYDjSZtL7xzSnlp0?=
+ =?us-ascii?Q?MnCCwvjZFlA5dDtSNi1MytgcjQJSMFeHU9KihTUl8O+SF0oLv4IjfIUXP6Ko?=
+ =?us-ascii?Q?SG/TfLLTGZWXPHBhi36lBMo0YRR3FuCnXJC6v//WLISK4YYXkQZW6G4dvFmJ?=
+ =?us-ascii?Q?lOUQvSoOblMQmSmuG00oFroB8xz9teH0SFZgBmmOlFGWcVrj2Nn647pOr4tp?=
+ =?us-ascii?Q?B1xrOLztuO9XH9LewZJ48qq2OVjNl5GrmaQC6u5U?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e098889-4d24-46e9-dd08-08de10578a8d
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR11MB5966.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2025 04:08:50.7978
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0leKKKNfpe3FOF2Wyg8kBZyGFOtR6A9rZGsI/YixEjygwwFaO8QMIcxZJ2hstsPAkG1TInbvdNRU448SeZSyeg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB7087
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_210317_722860_ABFB4E6B 
-X-CRM114-Status: GOOD (  21.22  )
+X-CRM114-CacheID: sfid-20251020_210903_510409_220744BB 
+X-CRM114-Status: GOOD (  24.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,219 +204,173 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Yan Zhao <yan.y.zhao@intel.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/20/25 9:46 PM, Chen Ridong wrote:
->
-> On 2025/10/14 4:31, Frederic Weisbecker wrote:
->> HK_TYPE_DOMAIN's cpumask will soon be made modifyable by cpuset.
->> A synchronization mechanism is then needed to synchronize the updates
->> with the housekeeping cpumask readers.
->>
->> Turn the housekeeping cpumasks into RCU pointers. Once a housekeeping
->> cpumask will be modified, the update side will wait for an RCU grace
->> period and propagate the change to interested subsystem when deemed
->> necessary.
->>
->> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
->> ---
->>   kernel/sched/isolation.c | 58 +++++++++++++++++++++++++---------------
->>   kernel/sched/sched.h     |  1 +
->>   2 files changed, 37 insertions(+), 22 deletions(-)
->>
->> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
->> index 8690fb705089..b46c20b5437f 100644
->> --- a/kernel/sched/isolation.c
->> +++ b/kernel/sched/isolation.c
->> @@ -21,7 +21,7 @@ DEFINE_STATIC_KEY_FALSE(housekeeping_overridden);
->>   EXPORT_SYMBOL_GPL(housekeeping_overridden);
->>   
->>   struct housekeeping {
->> -	cpumask_var_t cpumasks[HK_TYPE_MAX];
->> +	struct cpumask __rcu *cpumasks[HK_TYPE_MAX];
->>   	unsigned long flags;
->>   };
->>   
->> @@ -33,17 +33,28 @@ bool housekeeping_enabled(enum hk_type type)
->>   }
->>   EXPORT_SYMBOL_GPL(housekeeping_enabled);
->>   
->> +const struct cpumask *housekeeping_cpumask(enum hk_type type)
->> +{
->> +	if (static_branch_unlikely(&housekeeping_overridden)) {
->> +		if (housekeeping.flags & BIT(type)) {
->> +			return rcu_dereference_check(housekeeping.cpumasks[type], 1);
->> +		}
->> +	}
->> +	return cpu_possible_mask;
->> +}
->> +EXPORT_SYMBOL_GPL(housekeeping_cpumask);
->> +
->>   int housekeeping_any_cpu(enum hk_type type)
->>   {
->>   	int cpu;
->>   
->>   	if (static_branch_unlikely(&housekeeping_overridden)) {
->>   		if (housekeeping.flags & BIT(type)) {
->> -			cpu = sched_numa_find_closest(housekeeping.cpumasks[type], smp_processor_id());
->> +			cpu = sched_numa_find_closest(housekeeping_cpumask(type), smp_processor_id());
->>   			if (cpu < nr_cpu_ids)
->>   				return cpu;
->>   
->> -			cpu = cpumask_any_and_distribute(housekeeping.cpumasks[type], cpu_online_mask);
->> +			cpu = cpumask_any_and_distribute(housekeeping_cpumask(type), cpu_online_mask);
->>   			if (likely(cpu < nr_cpu_ids))
->>   				return cpu;
->>   			/*
->> @@ -59,28 +70,18 @@ int housekeeping_any_cpu(enum hk_type type)
->>   }
->>   EXPORT_SYMBOL_GPL(housekeeping_any_cpu);
->>   
->> -const struct cpumask *housekeeping_cpumask(enum hk_type type)
->> -{
->> -	if (static_branch_unlikely(&housekeeping_overridden))
->> -		if (housekeeping.flags & BIT(type))
->> -			return housekeeping.cpumasks[type];
->> -	return cpu_possible_mask;
->> -}
->> -EXPORT_SYMBOL_GPL(housekeeping_cpumask);
->> -
->>   void housekeeping_affine(struct task_struct *t, enum hk_type type)
->>   {
->>   	if (static_branch_unlikely(&housekeeping_overridden))
->>   		if (housekeeping.flags & BIT(type))
->> -			set_cpus_allowed_ptr(t, housekeeping.cpumasks[type]);
->> +			set_cpus_allowed_ptr(t, housekeeping_cpumask(type));
->>   }
->>   EXPORT_SYMBOL_GPL(housekeeping_affine);
->>   
->>   bool housekeeping_test_cpu(int cpu, enum hk_type type)
->>   {
->> -	if (static_branch_unlikely(&housekeeping_overridden))
->> -		if (housekeeping.flags & BIT(type))
->> -			return cpumask_test_cpu(cpu, housekeeping.cpumasks[type]);
->> +	if (housekeeping.flags & BIT(type))
->> +		return cpumask_test_cpu(cpu, housekeeping_cpumask(type));
->>   	return true;
->>   }
->>   EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
->> @@ -96,20 +97,33 @@ void __init housekeeping_init(void)
->>   
->>   	if (housekeeping.flags & HK_FLAG_KERNEL_NOISE)
->>   		sched_tick_offload_init();
->> -
->> +	/*
->> +	 * Realloc with a proper allocator so that any cpumask update
->> +	 * can indifferently free the old version with kfree().
->> +	 */
->>   	for_each_set_bit(type, &housekeeping.flags, HK_TYPE_MAX) {
->> +		struct cpumask *omask, *nmask = kmalloc(cpumask_size(), GFP_KERNEL);
->> +
->> +		if (WARN_ON_ONCE(!nmask))
->> +			return;
->> +
->> +		omask = rcu_dereference(housekeeping.cpumasks[type]);
->> +
->>   		/* We need at least one CPU to handle housekeeping work */
->> -		WARN_ON_ONCE(cpumask_empty(housekeeping.cpumasks[type]));
->> +		WARN_ON_ONCE(cpumask_empty(omask));
->> +		cpumask_copy(nmask, omask);
->> +		RCU_INIT_POINTER(housekeeping.cpumasks[type], nmask);
->> +		memblock_free(omask, cpumask_size());
->>   	}
->>   }
->>   
->>   static void __init housekeeping_setup_type(enum hk_type type,
->>   					   cpumask_var_t housekeeping_staging)
->>   {
->> +	struct cpumask *mask = memblock_alloc_or_panic(cpumask_size(), SMP_CACHE_BYTES);
->>   
->> -	alloc_bootmem_cpumask_var(&housekeeping.cpumasks[type]);
->> -	cpumask_copy(housekeeping.cpumasks[type],
->> -		     housekeeping_staging);
->> +	cpumask_copy(mask, housekeeping_staging);
->> +	RCU_INIT_POINTER(housekeeping.cpumasks[type], mask);
->>   }
->>   
->>   static int __init housekeeping_setup(char *str, unsigned long flags)
->> @@ -162,7 +176,7 @@ static int __init housekeeping_setup(char *str, unsigned long flags)
->>   
->>   		for_each_set_bit(type, &iter_flags, HK_TYPE_MAX) {
->>   			if (!cpumask_equal(housekeeping_staging,
->> -					   housekeeping.cpumasks[type])) {
->> +					   housekeeping_cpumask(type))) {
->>   				pr_warn("Housekeeping: nohz_full= must match isolcpus=\n");
->>   				goto free_housekeeping_staging;
->>   			}
->> diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
->> index 1f5d07067f60..0c0ef8999fd6 100644
->> --- a/kernel/sched/sched.h
->> +++ b/kernel/sched/sched.h
->> @@ -42,6 +42,7 @@
->>   #include <linux/ktime_api.h>
->>   #include <linux/lockdep_api.h>
->>   #include <linux/lockdep.h>
->> +#include <linux/memblock.h>
->>   #include <linux/minmax.h>
->>   #include <linux/mm.h>
->>   #include <linux/module.h>
-> A warning was detected:
->
-> =============================
-> WARNING: suspicious RCU usage
-> 6.17.0-next-20251009-00033-g4444da88969b #808 Not tainted
-> -----------------------------
-> kernel/sched/isolation.c:60 suspicious rcu_dereference_check() usage!
->
-> other info that might help us debug this:
->
->
-> rcu_scheduler_active = 2, debug_locks = 1
-> 1 lock held by swapper/0/1:
->   #0: ffff888100600ce0 (&type->i_mutex_dir_key#3){++++}-{4:4}, at: walk_compone
->
-> stack backtrace:
-> CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.17.0-next-20251009-00033-g4
-> Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.0-0-gd239
-> Call Trace:
->   <TASK>
->   dump_stack_lvl+0x68/0xa0
->   lockdep_rcu_suspicious+0x148/0x1b0
->   housekeeping_cpumask+0xaa/0xb0
->   housekeeping_test_cpu+0x25/0x40
->   find_get_block_common+0x41/0x3e0
->   bdev_getblk+0x28/0xa0
->   ext4_getblk+0xba/0x2d0
->   ext4_bread_batch+0x56/0x170
->   __ext4_find_entry+0x17c/0x410
->   ? lock_release+0xc6/0x290
->   ext4_lookup+0x7a/0x1d0
->   __lookup_slow+0xf9/0x1b0
->   walk_component+0xe0/0x150
->   link_path_walk+0x201/0x3e0
->   path_openat+0xb1/0xb30
->   ? stack_depot_save_flags+0x41e/0xa00
->   do_filp_open+0xbc/0x170
->   ? _raw_spin_unlock_irqrestore+0x2c/0x50
->   ? __create_object+0x59/0x80
->   ? trace_kmem_cache_alloc+0x1d/0xa0
->   ? vprintk_emit+0x2b2/0x360
->   do_open_execat+0x56/0x100
->   alloc_bprm+0x1a/0x200
->   ? __pfx_kernel_init+0x10/0x10
->   kernel_execve+0x4b/0x160
->   kernel_init+0xe5/0x1c0
->   ret_from_fork+0x185/0x1d0
->   ? __pfx_kernel_init+0x10/0x10
->   ret_from_fork_asm+0x1a/0x30
->   </TASK>
-> random: crng init done
->
-It is because bh_lru_install() of fs/buffer.c calls cpu_is_isolated() 
-without holding a rcu_read_lock. Will need to add a rcu_read_lock() there.
+On Thu, Oct 16, 2025 at 05:32:22PM -0700, Sean Christopherson wrote:
+> Add and use a new API for mapping a private pfn from guest_memfd into the
+> TDP MMU from TDX's post-populate hook instead of partially open-coding the
+> functionality into the TDX code.  Sharing code with the pre-fault path
+> sounded good on paper, but it's fatally flawed as simulating a fault loses
+> the pfn, and calling back into gmem to re-retrieve the pfn creates locking
+> problems, e.g. kvm_gmem_populate() already holds the gmem invalidation
+> lock.
+> 
+> Providing a dedicated API will also removing several MMU exports that
+> ideally would not be exposed outside of the MMU, let alone to vendor code.
+> On that topic, opportunistically drop the kvm_mmu_load() export.  Leave
+> kvm_tdp_mmu_gpa_is_mapped() alone for now; the entire commit that added
+> kvm_tdp_mmu_gpa_is_mapped() will be removed in the near future.
+> 
+> Cc: Michael Roth <michael.roth@amd.com>
+> Cc: Yan Zhao <yan.y.zhao@intel.com>
+> Cc: Ira Weiny <ira.weiny@intel.com>
+> Cc: Vishal Annapurve <vannapurve@google.com>
+> Cc: Rick Edgecombe <rick.p.edgecombe@intel.com>
+> Link: https://lore.kernel.org/all/20250709232103.zwmufocd3l7sqk7y@amd.com
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/mmu.h     |  1 +
+>  arch/x86/kvm/mmu/mmu.c | 60 +++++++++++++++++++++++++++++++++++++++++-
+>  arch/x86/kvm/vmx/tdx.c | 10 +++----
+>  3 files changed, 63 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/x86/kvm/mmu.h b/arch/x86/kvm/mmu.h
+> index f63074048ec6..2f108e381959 100644
+> --- a/arch/x86/kvm/mmu.h
+> +++ b/arch/x86/kvm/mmu.h
+> @@ -259,6 +259,7 @@ extern bool tdp_mmu_enabled;
+>  
+>  bool kvm_tdp_mmu_gpa_is_mapped(struct kvm_vcpu *vcpu, u64 gpa);
+>  int kvm_tdp_map_page(struct kvm_vcpu *vcpu, gpa_t gpa, u64 error_code, u8 *level);
+> +int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn);
+>  
+>  static inline bool kvm_memslots_have_rmaps(struct kvm *kvm)
+>  {
+> diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+> index 18d69d48bc55..ba5cca825a7f 100644
+> --- a/arch/x86/kvm/mmu/mmu.c
+> +++ b/arch/x86/kvm/mmu/mmu.c
+> @@ -5014,6 +5014,65 @@ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
+>  	return min(range->size, end - range->gpa);
+>  }
+>  
+> +int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn)
+> +{
+> +	struct kvm_page_fault fault = {
+> +		.addr = gfn_to_gpa(gfn),
+> +		.error_code = PFERR_GUEST_FINAL_MASK | PFERR_PRIVATE_ACCESS,
+> +		.prefetch = true,
+> +		.is_tdp = true,
+> +		.nx_huge_page_workaround_enabled = is_nx_huge_page_enabled(vcpu->kvm),
+> +
+> +		.max_level = PG_LEVEL_4K,
+> +		.req_level = PG_LEVEL_4K,
+> +		.goal_level = PG_LEVEL_4K,
+> +		.is_private = true,
+> +
+> +		.gfn = gfn,
+> +		.slot = kvm_vcpu_gfn_to_memslot(vcpu, gfn),
+> +		.pfn = pfn,
+> +		.map_writable = true,
+> +	};
+> +	struct kvm *kvm = vcpu->kvm;
+> +	int r;
+> +
+> +	lockdep_assert_held(&kvm->slots_lock);
+Do we need to assert that filemap_invalidate_lock() is held as well?
+Otherwise, a concurrent kvm_gmem_punch_hole(), which does not hold slots_lock,
+could make the pfn stale.
 
-Cheers,
-Longman
-
+Or check for stale mapping?
+> +
+> +	if (KVM_BUG_ON(!tdp_mmu_enabled, kvm))
+> +		return -EIO;
+> +
+> +	if (kvm_gfn_is_write_tracked(kvm, fault.slot, fault.gfn))
+> +		return -EPERM;
+> +
+> +	r = kvm_mmu_reload(vcpu);
+> +	if (r)
+> +		return r;
+> +
+> +	r = mmu_topup_memory_caches(vcpu, false);
+> +	if (r)
+> +		return r;
+> +
+> +	do {
+> +		if (signal_pending(current))
+> +			return -EINTR;
+> +
+> +		if (kvm_test_request(KVM_REQ_VM_DEAD, vcpu))
+> +			return -EIO;
+> +
+> +		cond_resched();
+> +
+> +		guard(read_lock)(&kvm->mmu_lock);
+> +
+> +		r = kvm_tdp_mmu_map(vcpu, &fault);
+> +	} while (r == RET_PF_RETRY);
+> +
+> +	if (r != RET_PF_FIXED)
+> +		return -EIO;
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_tdp_mmu_map_private_pfn);
+> +
+>  static void nonpaging_init_context(struct kvm_mmu *context)
+>  {
+>  	context->page_fault = nonpaging_page_fault;
+> @@ -5997,7 +6056,6 @@ int kvm_mmu_load(struct kvm_vcpu *vcpu)
+>  out:
+>  	return r;
+>  }
+> -EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_mmu_load);
+>  
+>  void kvm_mmu_unload(struct kvm_vcpu *vcpu)
+>  {
+> diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+> index 4c3014befe9f..29f344af4cc2 100644
+> --- a/arch/x86/kvm/vmx/tdx.c
+> +++ b/arch/x86/kvm/vmx/tdx.c
+> @@ -3157,15 +3157,12 @@ struct tdx_gmem_post_populate_arg {
+>  static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+>  				  void __user *src, int order, void *_arg)
+>  {
+> -	u64 error_code = PFERR_GUEST_FINAL_MASK | PFERR_PRIVATE_ACCESS;
+> -	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
+>  	struct tdx_gmem_post_populate_arg *arg = _arg;
+> -	struct kvm_vcpu *vcpu = arg->vcpu;
+> +	struct kvm_tdx *kvm_tdx = to_kvm_tdx(kvm);
+> +	u64 err, entry, level_state;
+>  	gpa_t gpa = gfn_to_gpa(gfn);
+> -	u8 level = PG_LEVEL_4K;
+>  	struct page *src_page;
+>  	int ret, i;
+> -	u64 err, entry, level_state;
+>  
+>  	/*
+>  	 * Get the source page if it has been faulted in. Return failure if the
+> @@ -3177,7 +3174,7 @@ static int tdx_gmem_post_populate(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
+>  	if (ret != 1)
+>  		return -ENOMEM;
+>  
+> -	ret = kvm_tdp_map_page(vcpu, gpa, error_code, &level);
+> +	ret = kvm_tdp_mmu_map_private_pfn(arg->vcpu, gfn, pfn);
+>  	if (ret < 0)
+>  		goto out;
+>  
+> @@ -3240,7 +3237,6 @@ static int tdx_vcpu_init_mem_region(struct kvm_vcpu *vcpu, struct kvm_tdx_cmd *c
+>  	    !vt_is_tdx_private_gpa(kvm, region.gpa + (region.nr_pages << PAGE_SHIFT) - 1))
+>  		return -EINVAL;
+>  
+> -	kvm_mmu_reload(vcpu);
+>  	ret = 0;
+>  	while (region.nr_pages) {
+>  		if (signal_pending(current)) {
+> -- 
+> 2.51.0.858.gf9c4a03a3a-goog
+> 
 
