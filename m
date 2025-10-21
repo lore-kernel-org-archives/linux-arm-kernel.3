@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14912CCD1AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF585CCD1AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVBs5E3IrDShRMqJSob7W9r3Q2rnou+h3QXZROh8of0=; b=rRjrHXOb+QKzBMclPHfI3e7plu
-	nwCRq71PGp9wiikgbpnu0I+/X7rSiKIb11tq2WC1rZGPGDH/XFVdHYNGJbhHtfodN67y1ZChVYS+c
-	Xezb+qeDMP7KGiG4uFjytoinF8dwS8tb2YwWkSB0tD8mO1oGFlKhTQVFUMbqWmlBxSZ4xggiRzwa+
-	f0XHwTU/viZLcoWAX5AACnVEBHKbb5ZDFk31qmaQqdf1Cc/brgBT750K8rYDoDZldyGDOra/zFdEj
-	V5Zf8kTDiYCoytT2k1jbOM/h1Dol+NaF6E/LE+1J7XOZ+XF77hGqNifK3598G/0eldYazDu9Qkt/3
-	uB9YDeXw==;
+	bh=Pspt2qnqiDzo8uNlCYlVpKxaih4oy09rxWGE+CmFitE=; b=VDsbQVqRbR/GUPmzwE8SO1Mefo
+	HHfTUhj4tT4mtRfcuMIy+KUUrkJtCy1D/vT8IB5WPQ8n1M8wKSodRFuWyRj4sWh8F0EZ2bkRWKBfX
+	CZxeFKONy0arqqECYy450eruRSsKo5tpiR9RBblaEHveENP7q1IqlRFlOahS62w4LjtSyf5oVUTtj
+	KZCYTpkZ9mtkScJbsnLbqLu9YbcvSf8zYJh9QO4B5xnMVcftbncCMFXtShrzQUj+YtjgCOVMZKPEF
+	/ZQLuufn+9cPT9DU90fepTN9CW1lKvdUhXIoCDc+yRU4A/2RPywFqv0DDKO+zXfxaUINNNmUIez0L
+	POktzyWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBpf-0000000H2Oc-0qn2;
-	Tue, 21 Oct 2025 12:51:19 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vBBqP-0000000H2go-0nIF;
+	Tue, 21 Oct 2025 12:52:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBBpc-0000000H2Na-2rpn;
-	Tue, 21 Oct 2025 12:51:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761051051; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=lzHgoYFKgS6RXH252NfGtH5MKLPjYZwcdKP6Hm4hhKvhh636hEasRNBCz0mEkhfymDtl1ejemeWqMlWmODTub2iEZZp3GRJGhyli0ze1rLtq9YjFUZSu3TKDs+b/9alKnoppTOSErgWicKM2N9ogMy2pkqQuvCyO50Iorv/EEPY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761051051; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=sVBs5E3IrDShRMqJSob7W9r3Q2rnou+h3QXZROh8of0=; 
-	b=cL/tOcRYcCRSBuBtSMMvi1aTFLCeP5/8SZ0nHgqqq+TJeY9N+wOHSS9cqiBayakZwbwnrSYt5LKpvdSRU+MPagz0GamYHbEruDK33UBSqbNeyJmsQVzIWJpCAG6RQbuCLaTCZFzh4KmPHQnZ36HQM4Xdq3VNqPk5AoD0rImhvXc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761051051;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=sVBs5E3IrDShRMqJSob7W9r3Q2rnou+h3QXZROh8of0=;
-	b=CIUe4zA6cMdyn5fizicruc74iBFytep1RKW60SFwRu2m09eg64yshzB4DdS8YG+V
-	hjFD0Lc2hHrB5/XfgXLwcAM0BhvMtkbixfllwJmnfyTwJHWNTHC9a52Qk8Cvj6L+O//
-	OyDVd2WN0Gqqa9N/nDFvdGZI4KkHU8dwhnJs5ZCQ=
-Received: by mx.zohomail.com with SMTPS id 1761051048276913.6194416974873;
-	Tue, 21 Oct 2025 05:50:48 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id D227918374D; Tue, 21 Oct 2025 14:50:39 +0200 (CEST)
-Date: Tue, 21 Oct 2025 14:50:39 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, kernel@collabora.com, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Conor Dooley <conor.dooley@microchip.com>, Boris Brezillon <boris.brezillon@collabora.com>, 
-	Steven Price <steven.price@arm.com>
-Subject: Re: [PATCH v2 0/3] Add Mali GPU support for Mediatek MT8365 SoC
-Message-ID: <e3hyej2bjtyjlwcpzupomvjzyqkwyclhvoyesgzq3byk3slom4@7bs5zsaxjq6t>
-References: <20251021-mt8365-enable-gpu-v2-0-17e05cff2c86@collabora.com>
- <0e5ca992-730d-42c5-b5b8-5ad04116b8d4@collabora.com>
+	id 1vBBqN-0000000H2fj-3Hxc
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 12:52:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 57C8540C15;
+	Tue, 21 Oct 2025 12:52:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80339C4CEF1;
+	Tue, 21 Oct 2025 12:51:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761051123;
+	bh=xl5f2KWZjnQ0VT+pwG5gNrmtrc3seJnlxSjRbDKcWN4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eRjJ+BvEoDGSHu34gpVnNaa44gGA0cHKta96VRDLRlAf5tNR7ZIjaJ1DSPYzgxhza
+	 pwhIu22SSHWCUbrb5Ywk0kena7WF6W8i3r5QZicFutmPrxn/kUAJt/822j7fMvCR8P
+	 mmdltnpqYakNtNQhpJQPXt/rjU39SRIGc0AjX+RatiX5Y+MERgucXaLx4xKGPkMKT1
+	 Yw1rRfN2/z9rjlcTe9GI9DEY19tHfLDpAVQqsL6oRNfXHwzPBiqVHHUXPwGwFbH26n
+	 99Ux+gYEzaPkqjIvyFH/Tj3GGIELr4L5wZ6HdcBElUIn+ovpoxSOM2fI7Py/K6392r
+	 jPLlXwa/DwmCw==
+Date: Tue, 21 Oct 2025 14:51:55 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Scott Branden <sbranden@broadcom.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
+Subject: Re: [PATCH v3 1/5] of/irq: Add msi-parent check to of_msi_xlate()
+Message-ID: <aPeB6wQKC27gKyQv@lpieralisi>
+References: <20251017084752.1590264-1-lpieralisi@kernel.org>
+ <20251017084752.1590264-2-lpieralisi@kernel.org>
+ <20251021115517.GA3713879-robh@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <0e5ca992-730d-42c5-b5b8-5ad04116b8d4@collabora.com>
-X-ZohoMailClient: External
+In-Reply-To: <20251021115517.GA3713879-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_055116_738984_01058942 
-X-CRM114-Status: GOOD (  27.24  )
+X-CRM114-CacheID: sfid-20251021_055203_875481_0DC66519 
+X-CRM114-Status: GOOD (  39.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,139 +81,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+cc Boris, Steven]
-
-Hi,
-
-On Tue, Oct 21, 2025 at 10:03:52AM +0200, AngeloGioacchino Del Regno wrote:
-> Il 21/10/25 09:30, Louis-Alexis Eyraud ha scritto:
-> > This patchset adds the support of the ARM Mali G52 MC1 GPU (Bifrost),
-> > integrated to the Mediatek MT8365 SoC, and its enablement to the
-> > Mediatek Genio 350-EVK board.
+On Tue, Oct 21, 2025 at 06:55:17AM -0500, Rob Herring wrote:
+> On Fri, Oct 17, 2025 at 10:47:48AM +0200, Lorenzo Pieralisi wrote:
+> > In some legacy platforms the MSI controller for a PCI host bridge is
+> > identified by an msi-parent property whose phandle points at an MSI
+> > controller node with no #msi-cells property, that implicitly
+> > means #msi-cells == 0.
 > > 
-> > I've tested this patchset on a Mediatek Genio 350-EVK board,
-> > with a kernel based on linux-next (tag: next-20251021).
+> > For such platforms, mapping a device ID and retrieving the MSI controller
+> > node becomes simply a matter of checking whether in the device hierarchy
+> > there is an msi-parent property pointing at an MSI controller node with
+> > such characteristics.
 > > 
-> 
-> Thanks for this one! This series is ready to be merged.
-> 
-> However, in order to take the DT patches I need someone to pick
-> the binding first.
-
-The binding patch submission is missing most of the maintainers
-potentially doing that in To/Cc ;)
-
-Somebody should update the MAINTAINERS entry for "ARM MALI PANFROST
-DRM DRIVER" to include the binding file, just like it is handled for
-the PANTHOR driver in the next section.
-
-Greetings,
-
--- Sebastian
-
-
-> 
-> Cheers,
-> Angelo
-> 
-> > The panfrost driver probed with the following messages:
-> > ```
-> > panfrost 13040000.gpu: clock rate = 450000031
-> > panfrost 13040000.gpu: mali-g52 id 0x7402 major 0x1 minor 0x0 status
-> >    0x0
-> > panfrost 13040000.gpu: features: 00000000,00000df7, issues: 00000000,
-> >    00000400
-> > panfrost 13040000.gpu: Features: L2:0x07110206 Shader:0x00000003
-> >   Tiler:0x00000209 Mem:0x1 MMU:0x00002823 AS:0xff JS:0x7
-> > panfrost 13040000.gpu: shader_present=0x1 l2_present=0x1
-> > [drm] Initialized panfrost 1.5.0 for 13040000.gpu on minor 0
-> > ```
+> > Add a helper function to of_msi_xlate() to check the msi-parent property in
+> > addition to msi-map and retrieve the MSI controller node (with a 1:1 ID
+> > deviceID-IN<->deviceID-OUT  mapping) to provide support for deviceID
+> > mapping and MSI controller node retrieval for such platforms.
 > > 
-> > Running glmark2-es2-drm with MESA 25.2 is also OK:
-> > ```
-> > =======================================================
-> >      glmark2 2023.01
-> > =======================================================
-> >      OpenGL Information
-> >      GL_VENDOR:      Mesa
-> >      GL_RENDERER:    Mali-G52 r1 (Panfrost)
-> >      GL_VERSION:     OpenGL ES 3.1 Mesa 25.2.5-1
-> >      Surface Config: buf=32 r=8 g=8 b=8 a=8 depth=24 stencil=0 samples=0
-> >      Surface Size:   1200x1920 fullscreen
-> > =======================================================
-> > [build] use-vbo=false: FPS: 513 FrameTime: 1.952 ms
-> > [build] use-vbo=true: FPS: 514 FrameTime: 1.947 ms
-> > [texture] texture-filter=nearest: FPS: 489 FrameTime: 2.046 ms
-> > [texture] texture-filter=linear: FPS: 486 FrameTime: 2.061 ms
-> > [texture] texture-filter=mipmap: FPS: 476 FrameTime: 2.101 ms
-> > [shading] shading=gouraud: FPS: 436 FrameTime: 2.296 ms
-> > [shading] shading=blinn-phong-inf: FPS: 387 FrameTime: 2.585 ms
-> > [shading] shading=phong: FPS: 253 FrameTime: 3.955 ms
-> > [shading] shading=cel: FPS: 232 FrameTime: 4.328 ms
-> > [bump] bump-render=high-poly: FPS: 266 FrameTime: 3.765 ms
-> > [bump] bump-render=normals: FPS: 421 FrameTime: 2.376 ms
-> > [bump] bump-render=height: FPS: 343 FrameTime: 2.922 ms
-> > [effect2d] kernel=0,1,0;1,-4,1;0,1,0;: FPS: 133 FrameTime: 7.521 ms
-> > [effect2d] kernel=1,1,1,1,1;1,1,1,1,1;1,1,1,1,1;: FPS: 46 FrameTime:
-> >    21.990 ms
-> > [pulsar] light=false:quads=5:texture=false: FPS: 379 FrameTime: 2.645 ms
-> > [desktop] blur-radius=5:effect=blur:passes=1:separable=true:windows=4:
-> >    FPS: 57 FrameTime: 17.735 ms
-> > [desktop] effect=shadow:windows=4: FPS: 249 FrameTime: 4.018 ms
-> > [buffer] columns=200:interleave=false:update-dispersion=0.9:update-fraction
-> >    =0.5:update-method=map: FPS: 81 FrameTime: 12.447 ms
-> > [buffer] columns=200:interleave=false:update-dispersion=0.9:update-fraction
-> >    =0.5:update-method=subdata: FPS: 81 FrameTime: 12.388 ms
-> > [buffer] columns=200:interleave=true:update-dispersion=0.9:update-fraction
-> >    =0.5:update-method=map: FPS: 99 FrameTime: 10.127 ms
-> > [ideas] speed=duration: FPS: 287 FrameTime: 3.492 ms
-> > [jellyfish] <default>: FPS: 114 FrameTime: 8.842 ms
-> > [terrain] <default>: FPS: 14 FrameTime: 76.911 ms
-> > [shadow] <default>: FPS: 156 FrameTime: 6.432 ms
-> > [refract] <default>: FPS: 29 FrameTime: 34.791 ms
-> > [conditionals] fragment-steps=0:vertex-steps=0: FPS: 529 FrameTime: 1.890 ms
-> > [conditionals] fragment-steps=5:vertex-steps=0: FPS: 326 FrameTime: 3.076 ms
-> > [conditionals] fragment-steps=0:vertex-steps=5: FPS: 532 FrameTime: 1.880 ms
-> > [function] fragment-complexity=low:fragment-steps=5: FPS: 475 FrameTime:
-> >    2.106 ms
-> > [function] fragment-complexity=medium:fragment-steps=5: FPS: 227
-> >    FrameTime: 4.417 ms
-> > [loop] fragment-loop=false:fragment-steps=5:vertex-steps=5: FPS: 475
-> >    FrameTime: 2.108 ms
-> > [loop] fragment-steps=5:fragment-uniform=false:vertex-steps=5: FPS: 474
-> >    FrameTime: 2.110 ms
-> > [loop] fragment-steps=5:fragment-uniform=true:vertex-steps=5: FPS: 226
-> >    FrameTime: 4.428 ms
-> > =======================================================
-> >                                    glmark2 Score: 296
-> > =======================================================
-> > ```
-> > 
-> > Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> > Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
+> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > Cc: Sascha Bischoff <sascha.bischoff@arm.com>
+> > Cc: Rob Herring <robh@kernel.org>
+> > Cc: Marc Zyngier <maz@kernel.org>
 > > ---
-> > Changes in v2:
-> > - Rebased on next-20251021 tag
-> > - Fixed missing blank lines in 'arm64: dts: mediatek: mt8365: Add GPU
-> >    support' patch
-> > - Added reviewed-by and acked-by trailers
-> > - Updated cover letter
-> > - Link to v1: https://lore.kernel.org/r/20250813-mt8365-enable-gpu-v1-0-46c44c6c1566@collabora.com
-> > 
-> > ---
-> > Louis-Alexis Eyraud (3):
-> >        dt-bindings: gpu: mali-bifrost: Add compatible for MT8365 SoC
-> >        arm64: dts: mediatek: mt8365: Add GPU support
-> >        arm64: dts: mediatek: mt8365-evk: Enable GPU support
-> > 
-> >   .../devicetree/bindings/gpu/arm,mali-bifrost.yaml  |  1 +
-> >   arch/arm64/boot/dts/mediatek/mt8365-evk.dts        |  9 +++++
-> >   arch/arm64/boot/dts/mediatek/mt8365.dtsi           | 43 +++++++++++++++++++++-
-> >   3 files changed, 52 insertions(+), 1 deletion(-)
-> > ---
-> > base-commit: 853c202e4aec8006c2c1367b052c9f8949db019a
-> > change-id: 20250812-mt8365-enable-gpu-a39835dca7fc
-> > 
-> > Best regards,
+> >  drivers/of/irq.c | 38 +++++++++++++++++++++++++++++++++++---
+> >  1 file changed, 35 insertions(+), 3 deletions(-)
 > 
+> It all looks good to me other than 1 nit below. How do you propose 
+> merging the series? I can take the first 3 for 6.18 and then patches 4 
+> and 5 can go via their respective trees for 6.19?
+
+Yep, though patch (3) isn't really a fix so not sure it is v6.18 material
+but that's up to you.
+
+I'd leave patch (1) brewing in -next if possible a little bit - it should
+not cause any issues but it might.
+
+> > 
+> > diff --git a/drivers/of/irq.c b/drivers/of/irq.c
+> > index 65c3c23255b7..e67b2041e73b 100644
+> > --- a/drivers/of/irq.c
+> > +++ b/drivers/of/irq.c
+> > @@ -671,6 +671,35 @@ void __init of_irq_init(const struct of_device_id *matches)
+> >  	}
+> >  }
+> >  
+> > +static int of_check_msi_parent(struct device_node *dev_node, struct device_node **msi_node)
+> > +{
+> > +	struct of_phandle_args msi_spec;
+> > +	int ret;
+> > +
+> > +	/*
+> > +	 * An msi-parent phandle with a missing or == 0 #msi-cells
+> > +	 * property identifies a 1:1 ID translation mapping.
+> > +	 *
+> > +	 * Set the msi controller node if the firmware matches this
+> > +	 * condition.
+> > +	 */
+> > +	ret = of_parse_phandle_with_optional_args(dev_node, "msi-parent", "#msi-cells",
+> > +						  0, &msi_spec);
+> > +	if (!ret) {
 > 
+> if (ret)
+> 	return ret;
+> 
+> And then save a level of indentation.
+
+Fixed - sent v4.
+
+Thanks !
+Lorenzo
+
+> > +		if ((*msi_node && *msi_node != msi_spec.np) || msi_spec.args_count != 0)
+> > +			ret = -EINVAL;
+> > +
+> > +		if (!ret) {
+> > +			/* Return with a node reference held */
+> > +			*msi_node = msi_spec.np;
+> > +			return 0;
+> > +		}
+> > +		of_node_put(msi_spec.np);
+> > +	}
+> > +
+> > +	return ret;
+> > +}
+> > +
+> >  /**
+> >   * of_msi_xlate - map a MSI ID and find relevant MSI controller node
+> >   * @dev: device for which the mapping is to be done.
+> > @@ -678,7 +707,7 @@ void __init of_irq_init(const struct of_device_id *matches)
+> >   * @id_in: Device ID.
+> >   *
+> >   * Walk up the device hierarchy looking for devices with a "msi-map"
+> > - * property. If found, apply the mapping to @id_in.
+> > + * or "msi-parent" property. If found, apply the mapping to @id_in.
+> >   * If @msi_np points to a non-NULL device node pointer, only entries targeting
+> >   * that node will be matched; if it points to a NULL value, it will receive the
+> >   * device node of the first matching target phandle, with a reference held.
+> > @@ -692,12 +721,15 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
+> >  
+> >  	/*
+> >  	 * Walk up the device parent links looking for one with a
+> > -	 * "msi-map" property.
+> > +	 * "msi-map" or an "msi-parent" property.
+> >  	 */
+> > -	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent)
+> > +	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
+> >  		if (!of_map_id(parent_dev->of_node, id_in, "msi-map",
+> >  				"msi-map-mask", msi_np, &id_out))
+> >  			break;
+> > +		if (!of_check_msi_parent(parent_dev->of_node, msi_np))
+> > +			break;
+> > +	}
+> >  	return id_out;
+> >  }
+> >  
+> > -- 
+> > 2.50.1
+> > 
 
