@@ -4,69 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 114F0CCD1A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 02:32:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D51CCCD1A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 02:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aq47q2erZ4labhGNhKxggmDjNAXQgGxMUcPu49X1w1g=; b=2fKQRBifL33DaCiJc2Gjm703vr
-	IKPCvLbC/uryH3RDaLbIDNCJ8JxAIkrP43hgWDYS06PDOYCz363MN8qg95EPBINXQHC6DxGRdNs5d
-	bhCBY+HvO+l8H1iFplTOGxzT5LEcLvK8eQJdsGGEtrjaNYddFHkJcXzvmhC81ig47K7Y8+fvk7pTO
-	ItdqKFd4tnaKYETOpAG5SoU6e+Ej1uaesHYLgzSJRMfkfIIZ+fY115sTwjRbWC6tsMQua5lBdmvci
-	rtC0kBVQLdlAnI91VoqvMEGT/hpcQxOIZGYv7cpZZ86mv9HGzdpU2YMztmBWGBnAw2iLL0GttWcPm
-	88bIzMJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z6XpUeE8zoDoSFMUX5SO9d2HLBX2jZRTksAC/b3VfJU=; b=KAK9+KHv7lAcr2t7R1TqTxy+Cb
+	fGxhBu32QiRWKNwmTtLEzpnC0d7QelLuZ8oQhiiE6suZOBMUi14BQq7TWpk7RhQ53vJW77vVEnWKq
+	Vn/chUC3ypadBpn5YrwiwuIPKa3X23dv1r3poBfPmWa8t4QQwKT8FrUp2AecC3lDj3IR1uihGXWsc
+	s9sOmohszKScN2W4aZST3u+5KoRQ7Pz9DQV0KZz4irLu9pKMuAN0mf9XxmCrF8X9mPM+unsHrLARa
+	KIzNt5/TRJsa/dclnfmXdMswoiAKtpwHN053bS6ayFNpEcJlt54pGmYps1DPFLcLsDxCT4nxE3AR4
+	pIPGsHLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB2AZ-0000000Fa8a-2jYr;
-	Tue, 21 Oct 2025 02:32:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vB2Ay-0000000FaK3-0Fye;
+	Tue, 21 Oct 2025 02:32:40 +0000
+Received: from mail-m49240.qiye.163.com ([45.254.49.240])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB2AX-0000000Fa7W-3z0g;
-	Tue, 21 Oct 2025 02:32:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B5E440966;
-	Tue, 21 Oct 2025 02:32:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E68ABC116C6;
-	Tue, 21 Oct 2025 02:32:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761013933;
-	bh=8UAGN1YhXZIbc93snwY/CRtubSt6sDkHXFrJ7cAY2Ms=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BHcnkSfVYUiNs1+laZL/oTzN3Hwxulz3SDXzmd39w+CmT5bYFjNvL3B2LlK9tR2EZ
-	 MsV+kFf0G0g34cY2gCGrybn3d+8LVj5mPlzQx65l6HFVpSX90tezuAsndIbl8dwdM/
-	 IIKkMsR6N2dMg011uJPL28VumrpkuIW5fMBZPytwtZrLDtraufFed0Xf55NANa26OJ
-	 OLhoySAkQjU6VOn+Ojr32RTbf4nUiTFyJ+SUYaQechFw9ycmSg9Iyn1bkx8nlbpYjx
-	 7l0l0rKtIRP7EIY2QMIhZwgN9s49EkHms8o4WL/BnTnrMl27ydTB3EENp18Fo/09Ro
-	 tIPFNNyq18iiw==
-Date: Tue, 21 Oct 2025 08:02:01 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>, 
-	Kever Yang <kever.yang@rock-chips.com>, Simon Xue <xxm@rock-chips.com>, 
-	Damien Le Moal <dlemoal@kernel.org>, Dragan Simic <dsimic@manjaro.org>, 
-	FUKAUMI Naoki <naoki@radxa.com>, Diederik de Haas <diederik@cknow-tech.com>, 
-	stable@vger.kernel.org, Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3] PCI: dw-rockchip: Prevent advertising L1 Substates
- support
-Message-ID: <aaug44bngs5amid7un4plotcjpbc6ym44cztnhet7z44ybywgc@apzhg6enhxgy>
-References: <20251017164558.GA1034609@bhelgaas>
- <54FD6159-AE45-432B-8F0E-4654721D16A6@kernel.org>
+	id 1vB2Av-0000000FaIF-0elc;
+	Tue, 21 Oct 2025 02:32:38 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 26966e5d6;
+	Tue, 21 Oct 2025 10:32:32 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	inki.dae@samsung.com,
+	sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com,
+	krzk@kernel.org,
+	alim.akhtar@samsung.com,
+	jingoohan1@gmail.com,
+	p.zabel@pengutronix.de,
+	hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	luca.ceresoli@bootlin.com,
+	jani.nikula@intel.com,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v7 01/18] drm/display: bridge_connector: Ensure last bridge determines EDID/modes detection capabilities
+Date: Tue, 21 Oct 2025 10:31:13 +0800
+Message-Id: <20251021023130.1523707-2-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251021023130.1523707-1-damon.ding@rock-chips.com>
+References: <20251021023130.1523707-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <54FD6159-AE45-432B-8F0E-4654721D16A6@kernel.org>
+X-HM-Tid: 0a9a049c6e9903a3kunm42a8e83d59a55d
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR4dTFZCQkhJT0xCH01LGEhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=cGCXVsjvej/FbDt0ArDJP2LEZNBa2oyFzE8eYGLd1fLo3vzR0FP0eUCmj8A+0jnELOW7EYa4Wk7rGXC5tFdG85ouz/Pie0OkGEA4NqQmKA1Ne1ctdm2upQZOHUJ6uGiEUP5uii9ne6mm8A5O2ZOrbgGm6lKsm8lT3NWymdSqw4c=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=z6XpUeE8zoDoSFMUX5SO9d2HLBX2jZRTksAC/b3VfJU=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_193214_008697_733FDE0C 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20251020_193237_407759_6FF0B558 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,38 +102,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 18, 2025 at 07:07:35AM +0200, Niklas Cassel wrote:
-> On 17 October 2025 18:45:58 CEST, Bjorn Helgaas <helgaas@kernel.org> wrote:
-> 
-> (snip)
-> 
-> >> 
-> >> Thus, prevent advertising L1 Substates support until proper driver support
-> >> is added.
-> >
-> >I think Mani is planning a change so we don't try to enable L1
-> >Substates by default, which should avoid the regression even without a
-> >patch like this.
-> 
-> Sounds good, I suggested the same:
-> https://lore.kernel.org/linux-pci/aO9tWjgHnkATroNa@ryzen/
-> 
-> 
-> >
-> >That will still leave the existing CONFIG_PCIEASPM_POWER_SUPERSAVE=y
-> >and sysfs l1_1_aspm problems.
-> 
-> Indeed, which is why I think that this patch is v6.18 material.
-> 
+When multiple bridges are present, EDID detection capability
+(DRM_BRIDGE_OP_EDID) takes precedence over modes detection
+(DRM_BRIDGE_OP_MODES). To ensure the above two capabilities are
+determined by the last bridge in the chain, we handle three cases:
 
-Not strictly a 6.18 material as the Kconfig/sysfs/cmdline issues existed even
-before we enabled the ASPM states by default in v6.18-rc1.
+Case 1: The later bridge declares only DRM_BRIDGE_OP_MODES
+ - If the previous bridge declares DRM_BRIDGE_OP_EDID, set
+   &drm_bridge_connector.bridge_edid to NULL and set
+   &drm_bridge_connector.bridge_modes to the later bridge.
+ - Ensure modes detection capability of the later bridge will not
+   be ignored.
 
-The default ASPM issue will be fixed by a separate patch which will be generic
-for all platforms. I'll apply this patch for v6.19.
+Case 2: The later bridge declares only DRM_BRIDGE_OP_EDID
+ - If the previous bridge declares DRM_BRIDGE_OP_MODES, set
+   &drm_bridge_connector.bridge_modes to NULL and set
+   &drm_bridge_connector.bridge_edid to the later bridge.
+ - Although EDID detection capability has higher priority, this
+   operation is for balance and makes sense.
 
-- Mani
+Case 3: the later bridge declares both of them
+ - Assign later bridge as &drm_bridge_connector.bridge_edid and
+   and &drm_bridge_connector.bridge_modes to this bridge.
+ - Just leave transfer of these two capabilities as before.
 
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+
+---
+
+Changes in v7:
+- As Luca suggested, simplify the code and related comment.
+---
+ drivers/gpu/drm/display/drm_bridge_connector.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index baacd21e7341..7c2936d59517 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -673,14 +673,22 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+ 		if (!bridge->ycbcr_420_allowed)
+ 			connector->ycbcr_420_allowed = false;
+ 
+-		if (bridge->ops & DRM_BRIDGE_OP_EDID)
+-			bridge_connector->bridge_edid = bridge;
++		/*
++		 * Ensure the last bridge declares OP_EDID or OP_MODES or both.
++		 */
++		if (bridge->ops & DRM_BRIDGE_OP_EDID || bridge->ops & DRM_BRIDGE_OP_MODES) {
++			bridge_connector->bridge_edid = NULL;
++			bridge_connector->bridge_modes = NULL;
++			if (bridge->ops & DRM_BRIDGE_OP_EDID)
++				bridge_connector->bridge_edid = bridge;
++			if (bridge->ops & DRM_BRIDGE_OP_MODES)
++				bridge_connector->bridge_modes = bridge;
++		}
+ 		if (bridge->ops & DRM_BRIDGE_OP_HPD)
+ 			bridge_connector->bridge_hpd = bridge;
+ 		if (bridge->ops & DRM_BRIDGE_OP_DETECT)
+ 			bridge_connector->bridge_detect = bridge;
+-		if (bridge->ops & DRM_BRIDGE_OP_MODES)
+-			bridge_connector->bridge_modes = bridge;
++
+ 		if (bridge->ops & DRM_BRIDGE_OP_HDMI) {
+ 			if (bridge_connector->bridge_hdmi)
+ 				return ERR_PTR(-EBUSY);
 -- 
-மணிவண்ணன் சதாசிவம்
+2.34.1
+
 
