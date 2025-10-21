@@ -4,100 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E2ACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 11:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5472CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 11:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qPRSdSQE0bLnU693LJLxkchAwzL3R1o8wQQaHCAimXE=; b=WsJ2HPgUpjcx9KCzOEvZueS6Dt
-	tclssP/S05RZ1q+zv9X4lPlYW3Q7UE40mW/AY0bP0236FFbQH1PcKazhrmDOkCpHUdZD/PEZdaAa1
-	GHbUVN+xfHMBEbgPAoiObCPRDCSis0f0uUNsIoPOXPsJgZgZR+zL3xMwY+GE1MB7A9Fbn57oRczdQ
-	xrYF6KzwmKSnIxllVDhS7j9gIzddemr6YDJYe7WvbsWWHGqMkYAfoQ+mFOcrbj/v5+3LmWxqGq5OJ
-	fz8mm8o6IMFyxfNyfywYQ04zFqZhG/2shW18xJXWn81U/C7IMZG+3O6OEQoULrWaO+z1xBf3IvbeE
-	UHPGcz7w==;
+	bh=g1JTp8mNNWs1T7ocHgPP9pkNd6viY216CTNDvbwsE0I=; b=B2Qaiu5KO16zXXFCoHZFm8fPJ9
+	sY5+oUx5S2zbNcy2BN4lQ4yfUUG8cm37ANz8hgC5QtGUsc3vwiV3rh3WppFvTH7rSmvVD2LAEZNjb
+	IgMEOmgnui407gBDGqN39G0QdqTJEFD/pUQ4OYG1LNcwBmXeeB5sHgo8a+cr8kakgl7X1XT0T+ls/
+	dnuxrcUm5wr4gbf8qqEodCj8Nvveeu1/96hyKqZ4NW9TowGArZd73IadeXFBYvyjgiLCaa/MrvbCG
+	VRunimsK2ZHqwCzXOgKbWvrtW+3xf362ytKZcF4+c95LTVAMMmi6RT4JYeXq1XyIkt2VpH7KqFltu
+	ATuayuTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBAUh-0000000Gl99-3SKd;
-	Tue, 21 Oct 2025 11:25:35 +0000
-Received: from mx-relay138-hz1.antispameurope.com ([94.100.132.197])
+	id 1vBAia-0000000GnXT-1udo;
+	Tue, 21 Oct 2025 11:39:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBAUc-0000000Gl8Y-2y2q
+	id 1vBAiX-0000000GnWk-42xG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 11:25:33 +0000
-ARC-Authentication-Results: i=1; mx-gate138-hz1.hornetsecurity.com 1;
- spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=qPRSdSQE0bLnU693LJLxkchAwzL3R1o8wQQaHCAimXE=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1761045911;
- b=CoMAOZOvWXOqzenR7x+rmG1hWnW5cQZPrLeoNEJxNEe3uX7SM/LoLaRTSCJm2rDadiJ5mgGZ
- kw5H50g9RLq/TYRuPhKwKVT7aPWmW3Yw5b825bDQY3/yjpFAbcEnuhzQDWVjx/WB3vIZon44541
- i+RMDiIoyRP+gzRERPJKTZUUP6cQPDrKL+FDc+nyRSgwXpDSGwLO+6gDXhsa/ipPugpWq9fd7fa
- C3ULEjDfeR7N7cqrBpZ3SRG3WdMgfZ4GpTdJSycBqehl8utgVJZDkzWo2FjJkGPVKYep+u/I/X0
- pjmnFMcPhClRZEadJPRECcrEzqAJtRcEiP5OzqHFtOq/g==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1761045911;
- b=aCoMXBmKGoIFHTbIhQF1xBi/T2wUlGG/yYJJMT+ck2cHWcyl4YQkEHc/XINI8KZCLRZU5L76
- IhJdccNh7P6vYDm5t1ruDiOMWPYf5b7BSiajRiPwSaY9tpDmnkVtBg+TWFpXk1FJ382RWDkfUvp
- 4fJiPOAApTfw4CpL8U8xA5zoJX55QosG2NARE9saxFU7f5UxV3IhoXbTvaqodIy37/C8OSvIueN
- Ztq/6NnN+QANHoYUQwmfHXHXmrVnd/ZtyXhE+qglS+M23PaOlHxpvD5w6LcRD/0cFajaqkAjln5
- YZW5Ui+wto7PxGOzXl55yXTYVA5UggnPivbscVNuBIm9w==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay138-hz1.antispameurope.com;
- Tue, 21 Oct 2025 13:25:11 +0200
-Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 56DCEA404BD;
-	Tue, 21 Oct 2025 13:24:53 +0200 (CEST)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Gregor Herburger <gregor.herburger@tq-group.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
-Subject: Re: [PATCH v2 2/2] arm64: dts: ls1028a: Add mbls1028a and mbls1028a-ind
- devicetrees
-Date: Tue, 21 Oct 2025 13:24:52 +0200
-Message-ID: <13873811.uLZWGnKmhe@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <14f52170-cc5b-4808-8fc1-28685ba349dd@lunn.ch>
-References: <20251020133536.303471-1-alexander.stein@ew.tq-group.com>
- <20251020133536.303471-2-alexander.stein@ew.tq-group.com>
- <14f52170-cc5b-4808-8fc1-28685ba349dd@lunn.ch>
+	Tue, 21 Oct 2025 11:39:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7072D48771;
+	Tue, 21 Oct 2025 11:39:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9721EC4CEF5;
+	Tue, 21 Oct 2025 11:39:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761046793;
+	bh=llPFiZH+aiQPzZXfintNmyQgVxx+gMTiwzDrdBfE+bo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n6700cTObtZNDOH9FVsMQfq3yzftqps5t8d4UxS4JaixHMiSTTeBGgIoIhWD+I8H+
+	 p+diSJ9wQjqcJ7s2cIySx3286tiZc47raTtJmTo0mPhQNn86LT1eLomO9cu5cVNNhx
+	 jxwATcEeqwHL8dCGtAChVuW8TSbt8NWd4wAN8V0Pg8tqDBMdE7j80Z8Sqm5RpKaHFZ
+	 +kj04UOyaEPUF2j1qexGH1FdihBU5fmKvep4/ONRoSryZdZATUZYxMMGI62e3M5hfx
+	 pgWLemmbmWGlex8Sr9bhD/94OM9kctzF0Sc7CSHRpI72+wdz2lkwStHh3Sp57EDdQ6
+	 Y6IH9HZvG11hg==
+Date: Tue, 21 Oct 2025 12:39:47 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Aishwarya.TCV@arm.com
+Subject: Re: [PATCH] KVM: arm64: gic-v3: Only set ICH_HCR traps for v2-on-v3
+ or v3 guests
+Message-ID: <0a381733-6b5d-4aa0-bb3d-15a98a665c1c@sirena.org.uk>
+References: <20251007160704.1673584-1-sascha.bischoff@arm.com>
+ <23072856-6b8c-41e2-93d1-ea8a240a7079@sirena.org.uk>
+ <aPbYuvlLzLENTCcP@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay138-hz1.antispameurope.com with 4crVMB1Y5zz1NGLl
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 0a6c4bbb931b6e0c1b6e99bc4c54eeb4
-X-cloud-security: scantime:2.297
-DKIM-Signature: a=rsa-sha256;
- bh=qPRSdSQE0bLnU693LJLxkchAwzL3R1o8wQQaHCAimXE=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1761045911; v=1;
- b=dizRtntOG4a+w3XbANZt3A8xPrXPX7vG5Ni/HR7BFsq5rK0g8WzhjyRSHh6pOu6ASRUyNj23
- Ri3qGSdVxP22TwOMGHvf2GSBa5LHHlGo9o0jbr9Tg+K/e5HMqFEo+KWYu7veWk0D7jpBqnLbqgO
- UfizKS5/nvNheo/tdwyNs2ISELuwbP/rYEhQ/gL8mrjOjfkGF0uX/Gy7PX2o+mUZ0dzJnELkdoz
- j6tWHoqzg3zNPnVpTVIgpFt11/9oJiMzzOJ3SNIFna6BF5ZyXv019zSX6WpLlWDHyhQtCrNo3bp
- vdnaeliQDjdhQrEHlfL5fzJOHxwlPpdCkNCKs0wd33nlg==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wMof+NrnbH5Ys3bd"
+Content-Disposition: inline
+In-Reply-To: <aPbYuvlLzLENTCcP@google.com>
+X-Cookie: Accordion, n.:
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_042530_992831_B8897A98 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20251021_043954_022545_AE5DA635 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,42 +87,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
 
-Am Montag, 20. Oktober 2025, 20:34:16 CEST schrieb Andrew Lunn:
-> > +&enetc_mdio_pf3 {
-> > +	mdio0_rgmii_phy00: ethernet-phy@0 {
-> > +		compatible =3D "ethernet-phy-ieee802.3-c22";
-> > +		reg =3D <0x00>;
-> > +		reset-gpios =3D <&gpio_exp_1v8 1 GPIO_ACTIVE_LOW>;
-> > +		reset-assert-us =3D <1>;
-> > +		reset-deassert-us =3D <200>;
-> > +		interrupt-parent =3D <&gpio_exp_1v8>;
-> > +		interrupts =3D <0 IRQ_TYPE_EDGE_FALLING>;
->=20
-> PHY interrupts are generally level not edge. So this is probably
-> wrong.
+--wMof+NrnbH5Ys3bd
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Thanks for the pointer.
+On Mon, Oct 20, 2025 at 05:50:02PM -0700, Sean Christopherson wrote:
+> On Tue, Oct 21, 2025, Mark Brown wrote:
 
-> > +		ti,rx-internal-delay =3D <DP83867_RGMIIDCTL_2_50_NS>;
-> > +		ti,tx-internal-delay =3D <DP83867_RGMIIDCTL_2_00_NS>;
-> > +		ti,led-function =3D <0x05b0>;
-> > +		ti,led-ctrl =3D <0x1001>;
->=20
-> I really would prefer /sys/class/leds was used. In fact, these are not
-> documented, and don't even seem to be implemented in mainline. So you
-> need to drop them.
+> > hours before Paolo sent his pull request to Linus, so there was no
+> > opportunity for it to be picked up.  As I've previously suggested it
+> > does seem like it would be a good idea to include the fixes branches for
+> > the KVM arch trees in -next (s390 is there, but I don't see the others),
 
-Ah, sorry, this slipped in from downstream kernel. Will be removed.
+> FWIW, "kvm-x86 fixes" is in -next (unless I've screwed up recently), it just gets
+> routed in via "kvm-x86 next" via an octopus merge.
 
-Thanks and best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+Ah, excellent - I was just checking for separate fixes branches.  It
+would still be nice to have your fixes branch in -next directly so that
+it can be included in pending-fixes (which merges only fixes branches),
+that does get some specific coverage so we notice if there's any
+dependencies on -next changes that wasn't noticed (it exists because
+there were a few issues with that a while back).  It's very rare for it
+to find anything but it doesn't hurt.
 
+--wMof+NrnbH5Ys3bd
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmj3cQMACgkQJNaLcl1U
+h9A40gf/aaANZDnWqhhx+mSZBlw2rbf8bqMSmgRJ6VFS8ELP0KHboeZabgh045zd
+j0xhy3XpKfrCHSwftbmkHp4w3Jrh/R5lRJPMVObbgiBSqyfipHXssSWkNnUXFknn
+yUZEsQJM25WgRuz662AosWQHvS/OEvJt21is91pE6cT/OYueZj5hq0MW6NKMurte
+7vNjMy66T1FAZtID/Szt+5eY4U4uhrhOKbuAGzfPWurUCp879BVeKx0rkQG9nYeK
+p1B2vl94Bvh0HO//lh72KkFpTQn/n6FiZA2qRR+LDOC8+LvydYZadAYvKudbFfcX
+GO0ZZdjwgu1wfE6vvHoQIRontp/hpw==
+=coCr
+-----END PGP SIGNATURE-----
+
+--wMof+NrnbH5Ys3bd--
 
