@@ -4,95 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87ABFCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 16:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9EFCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 17:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QUj6Jzqtl7pAwgzbknudC50aTFamgZNMeXgKkiBAGZE=; b=qe8zJWoS+5vEuMpIEk4XiuxVc1
-	arRvYNgpRkuIqOWoriCE0V0veKUXlup6BnFBqrWe1ZpU5wzOL1cdVUB3a4rkZ2G63I751MDZ90bLM
-	LAnPF4IVeajC7vN5UAhT858LBApvO4SdrnJx4zlZEEMq0gu4A/UtWwOttpIGv/RKoyu2m323u1cpu
-	KdraXgE59U0UgnPisw7W1rQwEi7LNUyw5GJngXQVV3OMaQHoc8r+pqLsM7LiYIFW4FGjdF4w5n4ZK
-	gO6QEswBpYqrqiitQumkxIP2eRjUUjq4uUhAr0kM2jsTfgIpC3/hizOmb5VzcCbEXNaI65Rtj78fh
-	7QsOPKDw==;
+	bh=GiBz0AD+U5higfP54JTIWbURN7LMLdXTQYQaOgJ+Bl0=; b=dYqTcCEqaKyQTZEk0X4/A4OoYJ
+	f5BKtmcYJ6Z97irk/b/mJ1TtZYo0jBaOZ5kujeY2WFNNaGg4VplhApD7jzzUVfEMdVj0X2zFsTeTs
+	3/ZR+N00f5QvALkYnOC1Y/dFyGMEtFR53Zlmmypbdg2EF7KtOjTHSFalFwp+8xxchvLdg920ZY4oH
+	gYRWWVwdPYiqvQbSy0MFkO9Lm6/QAq09c+JaNC9A3IxRotltMj0+qoh1VkPU5NGqNK5qpuJP376yI
+	fBSNS9BZKc2BUglIjVGluk+Kv0FRyG0g3ZNx4XaKFTpuec32t2D/guHljE+C05Xaz8lhl8cYH7JjC
+	++0g3cGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBFeq-00000000AdX-3lLT;
-	Tue, 21 Oct 2025 16:56:24 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1vBG0o-00000000DBz-0DH6;
+	Tue, 21 Oct 2025 17:19:06 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBFeo-00000000AcP-3lZH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 16:56:23 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b6a2409137dso4628189a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 09:56:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761065781; x=1761670581; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QUj6Jzqtl7pAwgzbknudC50aTFamgZNMeXgKkiBAGZE=;
-        b=M09Ic7L3EXTJomsPutM35QBkir6X7cyP+8irAAyksRHaxK+cRdAYS1HdGVczkSXIim
-         ExhRkrw1QfyHFGUweVcKblhccGB24mBEeb1TVHdfmPWZX547JLAv5axjcru5fk7MjOHA
-         IYGYWjx6CCXLPNI78yOOQ7QIMsK0LZwxIzdoBA8A20LKWylO4aAVHwg4/vKM72PHClVs
-         KEVmfxNoQgo/QjAEftgAmJcYlS+7mW90YfyFne+dglikYs3+3u5XfK/Y/1112giztTm4
-         viSRjgtNzx+d7gF4lFJdJdjBVoDSl4tdcJDb3FBH+yXbBRnykz/Sm+gj0k049CEd3SQn
-         ZOqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761065781; x=1761670581;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QUj6Jzqtl7pAwgzbknudC50aTFamgZNMeXgKkiBAGZE=;
-        b=hNDJlPzQhSATWEZyTBjTaNiOmfG1ygmSc2H4zona+DnB3CLU69j1aCgfd9n3WW7oRO
-         cH0xA1Z0qhEvzXZEVl+1nDzWgFGOG9L0W6/yGSkjszOEuH1L+8O9KK31Es3q/D0/mfun
-         A10ZwoQb58SEx9PTlh+hAGC0Gpc7/k7ysThW9n/vRoo+JcG2KxZ5cmrhiHp6zHlQcLoh
-         tQorhHc6GWTRARYaMTGfqR9JbnwF27yZt1Vi6cQculWRC6nMjpNMyDwAs2o38HriurGD
-         G/eb24CHeyzyhalLCXIGrUKvL1WZ7JBdGieNzHtiilmbBs4KcUuMLZqinxCvw0u8qMGy
-         jTYg==
-X-Forwarded-Encrypted: i=1; AJvYcCXMxMyCkKed807NKUA9tgu7tdawGpZzWY2VQOzZWKhZEc6fbk6HFNdJRnJ9s5pogskejfs1J5yBMUYbvPA1vifb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWLCISz7clpaFk/QXjc6pUn8mKoOEjthJA9T+J7w6Q6BiI/M9d
-	wM4nyJFZIzGqS4j1u/3Xsne92QUosJIfHhuIydECKULMyMN4cUYn7OandNSmjyIxc4TqzE45vWs
-	/iHSw4g==
-X-Google-Smtp-Source: AGHT+IGOqKmUzCbfjGYr8B2jY/C1mdIZnvxK8+ss+AVkwVotQdjiGEd+3SJ7VfMTaFoQGYSh7+8f99sR5n0=
-X-Received: from pjre3.prod.google.com ([2002:a17:90a:b383:b0:33b:51fe:1a75])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e88e:b0:250:1c22:e78
- with SMTP id d9443c01a7336-290c9c89c9amr235880025ad.1.1761065780727; Tue, 21
- Oct 2025 09:56:20 -0700 (PDT)
-Date: Tue, 21 Oct 2025 09:56:19 -0700
-In-Reply-To: <d0b369c65e33518d57a40a70c0d13f70bd64db47.camel@intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-24-seanjc@google.com>
- <d0b369c65e33518d57a40a70c0d13f70bd64db47.camel@intel.com>
-Message-ID: <aPe7M1aUPwqDmQbY@google.com>
-Subject: Re: [PATCH v3 23/25] KVM: TDX: Use guard() to acquire kvm->lock in tdx_vm_ioctl()
-From: Sean Christopherson <seanjc@google.com>
-To: Rick P Edgecombe <rick.p.edgecombe@intel.com>
-Cc: "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>, 
-	"maz@kernel.org" <maz@kernel.org>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, 
-	"pjw@kernel.org" <pjw@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
-	"kas@kernel.org" <kas@kernel.org>, "maobibo@loongson.cn" <maobibo@loongson.cn>, 
-	"pbonzini@redhat.com" <pbonzini@redhat.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>, 
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, 
-	"zhaotianrui@loongson.cn" <zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>, 
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>, Kai Huang <kai.huang@intel.com>, 
-	Yan Y Zhao <yan.y.zhao@intel.com>, "michael.roth@amd.com" <michael.roth@amd.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, 
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
-	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>, 
-	"ackerleytng@google.com" <ackerleytng@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-	Vishal Annapurve <vannapurve@google.com>, 
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, 
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_095622_939615_DD408C75 
-X-CRM114-Status: GOOD (  11.80  )
+	id 1vBG0l-00000000DB6-3QHb;
+	Tue, 21 Oct 2025 17:19:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=GiBz0AD+U5higfP54JTIWbURN7LMLdXTQYQaOgJ+Bl0=; b=sH0HieRSdZyPzGqjC4vCbXfpKm
+	yJYGFutbqau5ccJh8yltYVSlMxcWDKcGbOGU4jJV41RHFabFrviYfBHkfbfgHkEhT65jW/+WtN/BL
+	/JZBkhTiW1CQiN61+JYIPfkeX6l7+16NHnxi9t5Stb5JTGZE+MLm2+Spsne7Sf5XZhUrTnDMLwfSB
+	ubssjtmD6B6nzIu2WKaMg7Ara+KYNFOyr8oi0Rk2NLElQQamfPbvsKOYiPJIpjTB+WhyawvIwepF1
+	MyB4q32gQfgNBHsGLOaN8szWOf/1dB+Wy+JdaoUCsRYypGjKRUX6jnpoN3m9m1Qod3sGovfmn720/
+	OZ4MifGg==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBG0e-0000000DsZ0-2xKs;
+	Tue, 21 Oct 2025 17:18:58 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id F40E13031AF; Tue, 21 Oct 2025 16:44:35 +0200 (CEST)
+Date: Tue, 21 Oct 2025 16:44:35 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: David Laight <david.laight.linux@gmail.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Andrew Cooper <andrew.cooper3@citrix.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	kernel test robot <lkp@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>, linuxppc-dev@lists.ozlabs.org,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Nicolas Palix <nicolas.palix@imag.fr>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V3 07/12] uaccess: Provide scoped masked user access
+ regions
+Message-ID: <20251021144435.GG4067720@noisy.programming.kicks-ass.net>
+References: <20251017085938.150569636@linutronix.de>
+ <20251017093030.253004391@linutronix.de>
+ <20251020192859.640d7f0a@pumpkin>
+ <877bwoz5sp.ffs@tglx>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <877bwoz5sp.ffs@tglx>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +94,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025, Rick P Edgecombe wrote:
-> On Thu, 2025-10-16 at 17:32 -0700, Sean Christopherson wrote:
-> > Use guard() in tdx_vm_ioctl() to tidy up the code a small amount, but more
-> > importantly to minimize the diff of a future change, which will use
-> > guard-like semantics to acquire and release multiple locks.
-> > 
-> > No functional change intended.
-> 
-> There is a tiny functional change. In the default case it no longer re-copies
-> the struct back to userspace.
+On Tue, Oct 21, 2025 at 04:29:58PM +0200, Thomas Gleixner wrote:
 
-No?  The default case doesn't copy the struct back even before this patch, it
-explicitly skips the copy_to_user().
+> So simply naming it scoped_user_$MODE_access() is probably the least
+> confusing of all.
 
-	mutex_lock(&kvm->lock);
-
-	switch (tdx_cmd.id) {
-	case KVM_TDX_CAPABILITIES:
-		r = tdx_get_capabilities(&tdx_cmd);
-		break;
-	case KVM_TDX_INIT_VM:
-		r = tdx_td_init(kvm, &tdx_cmd);
-		break;
-	case KVM_TDX_FINALIZE_VM:
-		r = tdx_td_finalize(kvm, &tdx_cmd);
-		break;
-	default:
-		r = -EINVAL;
-		goto out;  <====================
-	}
-
-	if (copy_to_user(argp, &tdx_cmd, sizeof(struct kvm_tdx_cmd)))
-		r = -EFAULT;
-
-out:
-	mutex_unlock(&kvm->lock);
-	return r;
+Yeah, that makes sense.
 
