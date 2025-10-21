@@ -4,68 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78CCFCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 08:41:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26860CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 08:43:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OMqtz21WxbMi8VBZjYtytcrz+hZpM9P8lLYQDAdVBZc=; b=U08ryuoZYkim1r6zyni4wsN6I3
-	dpb0jrEcOiHNfNf3yXQbkNeaSoCYUuKBRjwO4IXYYfU0/NOkSW5RNG/pKni6gJYKzo6r9Vd5FlemI
-	7WpTCxj1A6DPqnBn5Pooi9fjQwfzfAsz4B1/YvhPzvQL86y4B0Xx0G+G+l+GWS+FJkEiiahVt+uGa
-	AxnaQH4aaNgL5rdk7uN5MpnR1iZum6hI4H7hn0XTLrEt0Pq/T0eQUUzlsjGUiZqLIqLhlGN7xgSmX
-	LY/hb6o1y3plhAHWlZVZoGjy160TTnmBgsQwSFFIgbVBpNEj5iOyFqzdyiAK58/MFQz6szVjov8+t
-	cJZyd0bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m+PGxgH4B1ba9aPC0MCTfuQEhemc8eYzkzRGLtN3e2Q=; b=jpMerUfGQcamZUZ4jI6C7Fl0kC
+	MZ1q0WcXU7c1rmsH/idKEdfinWxaT8zfr0a7PWWOcCsEKw6WdW4KdAADFrLpFA8Oxy2U85qewQg/3
+	5Le+oEBGjTzAfLiXjDTOZy6cVcBzHYbtTtyP3NapmnUEfrnKiSLDejNOFovUdJLNyY9pc0XXRuIoY
+	5BTJZElS6M5Sh7vTudBTIoF3BrUeLfB/nes5gZuRtzUWnQ/MRGn7pBIdjhtR5xeCc5X3X968rcLof
+	mQb9uvGOcZTucuktIhfAIX61Y2L6mJC17QaECrxJW9tRZrkUc82dnaB7n1dpOKNBcjz+zbAY7fXKQ
+	mGDbrCnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB7vp-0000000GJov-2qUD;
-	Tue, 21 Oct 2025 08:41:25 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vB7xU-0000000GKB0-1T5c;
+	Tue, 21 Oct 2025 08:43:08 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB7vm-0000000GJno-0Gxm;
-	Tue, 21 Oct 2025 08:41:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=OMqtz21WxbMi8VBZjYtytcrz+hZpM9P8lLYQDAdVBZc=; b=JeutWjWfFw7/Z6LO+JooK0rt9M
-	MhJp80ndS4eV7655BwHzm5EZqINVFQq9RCIyXPsS8ie7ScQnMmmwNGyvscr46QqnXAJ00kLUmDnXk
-	anL12s+RnLboKyspfEBOqBU5Y24WFCdLEide841YtSCUv9AF1dNDy1oZEG0n/U4HxF7ugmz1okiHV
-	/Tu5nLLxJQaVgT7bwwtmS4F8NYlFbZ34dEo5AchB+c2zrTEVvYbelYojpn7pfCC4508OmBOoyR392
-	BM0VDanby9lrU3gzfYFZkrOfLOG2CsdRtAkHad5mRTYUdpyN5YE2MmGTo0RhubRHGaMaHpvjYd+tE
-	/QKCraag==;
-Received: from [212.111.240.218] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vB7vc-0001Wr-GZ; Tue, 21 Oct 2025 10:41:12 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Alexey Charkov <alchark@gmail.com>, Algea Cao <algea.cao@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Cenk Uluisik <cenk.uluisik@googlemail.com>,
- Conor Dooley <conor+dt@kernel.org>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Jimmy Hon <honyuenkwun@gmail.com>, Kever Yang <kever.yang@rock-chips.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>,
- Muhammed Efe Cetin <efectn@6tel.net>, Ondrej Jirman <megi@xff.cz>,
- Rob Herring <robh@kernel.org>, Sandy Huang <hjc@rock-chips.com>
-Subject: Re: [PATCH v2 0/5] arm64: dts: rockchip: Add device tree for the Orange Pi
- CM5 Base board
-Date: Tue, 21 Oct 2025 10:41:11 +0200
-Message-ID: <3720286.R56niFO833@phil>
-In-Reply-To: <20251020154625.GB6159@pendragon.ideasonboard.com>
-References: <20251005235542.1017-1-laurent.pinchart@ideasonboard.com>
- <2328202.iZASKD2KPV@phil> <20251020154625.GB6159@pendragon.ideasonboard.com>
+	id 1vB7xS-0000000GK9V-0rYy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 08:43:07 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59L2cFG6018793;
+	Tue, 21 Oct 2025 08:43:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=m+PGxg
+	H4B1ba9aPC0MCTfuQEhemc8eYzkzRGLtN3e2Q=; b=Rcdo1r2bzj1jwvmC9T0vq/
+	xqq8N1gQ7ORmhthAy1Rr+IqNttolJq4p0BUdSzM664+wuvdvYPcJPpVoojOXTcAA
+	yPBbjtzC6+/f18cD2LuaaeP4za5O0cwKRTNeHbzQFWYDVugtZVdVMONOU0W72/xg
+	1w2uV2oCRDJR9gyiwekoLV2vhhyBUgAGW7z7NqCuEe3Y4/7QZnpVELNwM+gBRBTn
+	nEs2rjd7pKlN3t18saRfLXiDWRIsiLo3QTnAviffu6wrmMgo1/GnwAK9MRZgUjU3
+	aeA5aTso91UiwdpFH3b7rMtf9d+tn1x5e2tH72Qu2WflZjEMkvj4uAoW68M1LI2A
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49v326nysc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Oct 2025 08:43:04 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59L88EoD024677;
+	Tue, 21 Oct 2025 08:43:03 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 49vpqjss2d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 21 Oct 2025 08:43:02 +0000
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59L8h0GD12583286
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 21 Oct 2025 08:43:01 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DA39320043;
+	Tue, 21 Oct 2025 08:43:00 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A326520040;
+	Tue, 21 Oct 2025 08:43:00 +0000 (GMT)
+Received: from [9.111.135.235] (unknown [9.111.135.235])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Tue, 21 Oct 2025 08:43:00 +0000 (GMT)
+Message-ID: <5895ed68-dd6e-4f3d-9e6f-c27459556ff7@linux.ibm.com>
+Date: Tue, 21 Oct 2025 10:43:00 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 15/17] lib/crypto: s390/sha3: Migrate optimized code into
+ library
+From: Holger Dengler <dengler@linux.ibm.com>
+To: Eric Biggers <ebiggers@kernel.org>,
+        Harald Freudenberger <freude@linux.ibm.com>
+Cc: David Howells <dhowells@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
+        "Jason A . Donenfeld" <Jason@zx2c4.com>, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-crypto@vger.kernel.org
+References: <20251020005038.661542-1-ebiggers@kernel.org>
+ <20251020005038.661542-16-ebiggers@kernel.org>
+ <51fc91b6-3a6e-44f7-ae93-aef0bcb48964@linux.ibm.com>
+ <20251020175736.GC1644@sol>
+ <29e766ca-54e4-453d-9dfc-ea47e2a1f860@linux.ibm.com>
+Content-Language: de-DE
+In-Reply-To: <29e766ca-54e4-453d-9dfc-ea47e2a1f860@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=EJELElZC c=1 sm=1 tr=0 ts=68f74798 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VnNF1IyMAAAA:8 a=w4HzK-rsqA_2YikTyBoA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE4MDAyMiBTYWx0ZWRfX8j24ejwHFVb9
+ F2wIjL2oSQTN4WzBz8x+S+mSBTjDI5wQ8epCJHQMTbtcwJZFGvvXSK71SuQMre3/JuQt9V3vIQ4
+ HqcOXA0J1jmQ3eaRnnhi3jdOU2OsdvbvHX2RevYDlrk687vDT2o9yelcXco4ek/pZ/EurTgNkeB
+ 82iL//vWaEM7Kxe7nIEPDHvIHDt4dLVOWihhZhAgrayMgl8JxHqYhwv2+ZqzSmsICQ3DSCmnUhb
+ 9gXxeZPZB6cqCGwHtmNVa7E6iFO9Bq2gcOLtKW8HWyYgEgl7nxU4Fado3fNSgNNDjIafOp6yUWE
+ eLHpLRy+PgJFoj9VwRUkYYxpVaa2FsY862fDl3UijlUCiiRyx6+IFl0XYZGTTzlfC53E745j52x
+ ppzGxl/1LeVGdU9qd07hy9mEGkP7ZA==
+X-Proofpoint-GUID: R9cfW4_GrmPKJX5GD5hk9lL8OIjZ1tLv
+X-Proofpoint-ORIG-GUID: R9cfW4_GrmPKJX5GD5hk9lL8OIjZ1tLv
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-20_07,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 priorityscore=1501 suspectscore=0 bulkscore=0 spamscore=0
+ malwarescore=0 phishscore=0 adultscore=0 lowpriorityscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510180022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_014122_096044_B70AEA90 
-X-CRM114-Status: GOOD (  34.77  )
+X-CRM114-CacheID: sfid-20251021_014306_593588_8D37E387 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,73 +126,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 20. Oktober 2025, 17:46:25 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Laurent Pinchart:
-> On Mon, Oct 20, 2025 at 04:44:21PM +0200, Heiko Stuebner wrote:
-> > Am Montag, 6. Oktober 2025, 01:55:36 Mitteleurop=C3=A4ische Sommerzeit =
-schrieb Laurent Pinchart:
-> > > Hello,
-> > >=20
-> > > This patch series adds a device tree for the Orange Pi CM5 Base board
-> > > from Xunlong. This is a combination of a compute module and a carrier
-> > > board, so the device tree is split in two files.
-> > >=20
-> > > The work is based on a combination of upstream device trees for other
-> > > RK3588-based Orange Pi boards and the downstream device tree, all
-> > > checked against the available schematics for the carrier board. The
-> > > compute module schematics is unfortunately not available.
-> > >=20
-> > > The series starts with three patches that add a new tmds-enable-gpios
-> > > property to the rk3588-dw-hdmi-qp DT binding (1/5) and update the dri=
-ver
-> > > accordingly (2/5 and 3/5). Those patches have been authored by Cristi=
-an
-> > > Ciocaltea as part of a larger series, I have incorporated them here
-> > > as-is.
-> > >=20
-> > > Patch 4/5 then add a new compatible for the board to arm/rockchip.yam=
-l.
-> > > The last patch (5/5) adds the device tree for the board.
-> > >=20
-> > > Patches 2/5 and 3/5 could be merged separately through the DRM tree,
-> > > but patch 1/5 needs to be merged with the device tree in 5/5 to avoid
-> > > introducing DT validation warnings. I'd appreciate advice from the DT
-> > > maintainers regarding how to handle this, as I have been told before
-> > > that DT bindings and DT sources can't be merged through the same tree.
-> >=20
-> > I think we generally only care about binding warnings happening
-> > in linux-next.
-> >=20
-> > I.e. in most cases, the binding is merged with the driver and
-> > the dts then into a separate tree - sort of ignoring the local
-> > binding error, because everything will be fine once stuff comes
-> > together in linux-next.
->=20
-> Assuming they get merged together in linux-next. If there's a delay,
-> linux-next will exhibit warnings for some time. I don't know what the
-> rule is regarding that.
+Hi Eric,
 
-Normally once the driver-maintainer has applied binding + driver
-change, I also pick up the devicetree shortly change after that.
+On 21/10/2025 09:24, Holger Dengler wrote:
+> On 20/10/2025 19:57, Eric Biggers wrote:
+[...]>> - Risk of bugs.  QEMU doesn't support the s390 SHA-3 instructions, so no
+>>   one except the s390 folks can test the code.  I can try to write code
+>>   for you, but I can't test it.  And the s390 SHA-3 code has had bugs;
+>>   see commits 992b7066800f, 68279380266a5, 73c2437109c3.
+>>
+>>   The first priority should be correctness.
+> 
+> Let me figure out, if me and my colleagues can do the testing for you.
+> Unfortunately, I'll be unavailable for the next two weeks. But I'll come back
+> with a solution for the testing.
 
-And in most cases the driver change will be in -next the next day,
-and the dts change as well or 1-2 days later.
+I talked to Harald: we can do the testing for you on our development machines.
+Please send new series to us or provide them in your git repo.
 
-If a CI bot complains, one then goes looking if something went wrong :-) .
-But in 99.9% of cases, things just work out.
-
-
-> > Speaking of bindings, does your board _need_ the frl-gpio to produce
-> > any hdmi output? Like could we merge the board without the (optional)
-> > gpio and then add it later, once the binding+driver have made it in?
->=20
-> With a suitable pull-up I think so. I can submit a v3 with that.
-
-I guess that might be a nice way to go, as then the main board dts
-doesn't has to wait for the drm changes to be finalized :-)
-
-
-Heiko
-
+-- 
+Mit freundlichen Grüßen / Kind regards
+Holger Dengler
+--
+IBM Systems, Linux on IBM Z Development
+dengler@linux.ibm.com
 
 
