@@ -4,92 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E648CCD1A2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 02:55:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C875CCD1A2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 02:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W7hscjxrhMolqP2gEq4HitXov1btGjuXKeTkNPaU3R8=; b=p9VOBSmDvNf7WMuGr1I0qtm7c+
-	eLFDSCFDB80sT79UqXfo5iQJF8bCCXQAPplXt9PyL+B1VS67ttJgD/i8+ePtUpHpn4uPaaEuj0eQp
-	Yq8z1dJxqb/SESOqNz7/T5Zr2Cvcp3kUNJyJnRWUPqLy8jotTWzTJqstnHCrFUVcuXLDSoEq9G6BI
-	/c0Wn1Yo7MMKl90OCfFEQxEgtUYQDyCo+kutOwoNqQxi+4uaMGNbdiJEIIcv7T+FzpYwEzQnyjOlO
-	u9buyrsjJodeHRYA0hqPMOi5PjmskVAZspijgBOt/dJQq8bElM7bwoUDl7vl3SwYS0OlEuAjpQdVV
-	kbn9ZcGQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yOM1PN5czx7scwUKwUhx6A2SYy7dvS5ZXaKI/E17uTQ=; b=0MlwE1y4YEWHvr3hFV6Y+CpAIq
+	nQ1k8CaJZbxJclZd3C8jiFT9apXTygdu0nsc5OtJ4Z+FUPi0dDF91ai4Qm/f5fg+fhGc92r1FXcQF
+	yAAgX6CDLOkPlrKL/6FvwEm+zoABM+JJtsmxfXAFyemNC67derbmuPhIj4z/aKigPcJOr9uy2QpWe
+	Dl9pC1ZsXY7DXtWCCJobXxFbQKuvHf8R56/5N/aJlp8ugskI1mvWHuxQPysY2upq05JKcKPMVw2+m
+	DtzcD9R7/fm6GTGIt2r50hIKf4++03l9GNB2IVri2qE09jy9GNZ1rqpVyPGC9Jxfw7PNLpwAmH6Jb
+	sI0/DnXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB2Wv-0000000FcRg-3YzS;
-	Tue, 21 Oct 2025 02:55:21 +0000
-Received: from mail-m15598.qiye.163.com ([101.71.155.98])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB2Wr-0000000FcOy-1W1b;
-	Tue, 21 Oct 2025 02:55:18 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 26979c379;
-	Tue, 21 Oct 2025 10:55:12 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com,
-	jingoohan1@gmail.com,
-	p.zabel@pengutronix.de,
-	hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	dianders@chromium.org,
-	m.szyprowski@samsung.com,
-	luca.ceresoli@bootlin.com,
-	jani.nikula@intel.com,
+	id 1vB2YM-0000000Fchw-1v3c;
+	Tue, 21 Oct 2025 02:56:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vB2YJ-0000000Fcgj-3oyc
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 02:56:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D39371063;
+	Mon, 20 Oct 2025 19:56:36 -0700 (PDT)
+Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 852D03F59E;
+	Mon, 20 Oct 2025 19:56:43 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
 	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
+	iommu@lists.linux.dev,
+	linux-s390@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v7 07/18] drm/exynos: exynos_dp: Remove unused &exynos_dp_device.connector
-Date: Tue, 21 Oct 2025 10:52:40 +0800
-Message-Id: <20251021025240.1524169-5-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251021025240.1524169-1-damon.ding@rock-chips.com>
-References: <20251021023130.1523707-1-damon.ding@rock-chips.com>
- <20251021025240.1524169-1-damon.ding@rock-chips.com>
+	virtualization@lists.linux.dev
+Subject: [PATCH] mm: Make INVALID_PHYS_ADDR a generic macro
+Date: Tue, 21 Oct 2025 03:56:38 +0100
+Message-Id: <20251021025638.2420216-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9a04b131cc03a3kunmb53d69df5a3393
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0NIHlYaTB5JGE8fSh9OS0JWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=CJkbMPzbUAGm0xogQl46UIE1Z5Vr3LqunUJq/9ePdo+rh27b5l+sxJZJYwen5dyYgC0Dw/B9dFbLOPAW3XJALpTed2MoBCRJNmVzUVK56qEj///WnKkT8xc9rCyQE/o3q6BXeOC3FQlXLfAzf8FMPZnmSHm89az3H0alXBqOFCQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=W7hscjxrhMolqP2gEq4HitXov1btGjuXKeTkNPaU3R8=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_195517_564340_415B8682 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251020_195647_985763_3C2F5604 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +64,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The &exynos_dp_device.connector is assigned in exynos_dp_bridge_attach()
-but never used. It should make sense to remove it.
+INVALID_PHYS_ADDR has very similar definitions across the code base. Hence
+just move that inside header <liux/mm.h> for more generic usage. Also drop
+the now redundant ones which are no longer required.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: iommu@lists.linux.dev
+Cc: linux-s390@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: virtualization@lists.linux.dev
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
+ arch/arm64/mm/mmu.c                  | 2 --
+ arch/s390/boot/vmem.c                | 1 -
+ drivers/vdpa/vdpa_user/iova_domain.h | 2 --
+ include/linux/mm.h                   | 2 ++
+ kernel/dma/swiotlb.c                 | 2 --
+ 5 files changed, 2 insertions(+), 7 deletions(-)
 
-Changes in v5:
-- Fix the 'drm/bridge' to 'drm/exynos' in commit message.
----
- drivers/gpu/drm/exynos/exynos_dp.c | 3 ---
- 1 file changed, 3 deletions(-)
-
-diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
-index f469ac5b3c2a..e20513164032 100644
---- a/drivers/gpu/drm/exynos/exynos_dp.c
-+++ b/drivers/gpu/drm/exynos/exynos_dp.c
-@@ -35,7 +35,6 @@
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index e80bb623ef53..1da02d908c30 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -470,8 +470,6 @@ static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ 	mutex_unlock(&fixmap_lock);
+ }
  
- struct exynos_dp_device {
- 	struct drm_encoder         encoder;
--	struct drm_connector       *connector;
- 	struct drm_device          *drm_dev;
- 	struct device              *dev;
- 
-@@ -102,8 +101,6 @@ static int exynos_dp_bridge_attach(struct analogix_dp_plat_data *plat_data,
- 	struct exynos_dp_device *dp = to_dp(plat_data);
- 	int ret;
- 
--	dp->connector = connector;
+-#define INVALID_PHYS_ADDR	(-1ULL)
 -
- 	/* Pre-empt DP connector creation if there's a bridge */
- 	if (plat_data->next_bridge) {
- 		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge,
+ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
+ 				       enum pgtable_type pgtable_type)
+ {
+diff --git a/arch/s390/boot/vmem.c b/arch/s390/boot/vmem.c
+index cea3de4dce8c..fbe64ffdfb96 100644
+--- a/arch/s390/boot/vmem.c
++++ b/arch/s390/boot/vmem.c
+@@ -16,7 +16,6 @@
+ #include "decompressor.h"
+ #include "boot.h"
+ 
+-#define INVALID_PHYS_ADDR (~(phys_addr_t)0)
+ struct ctlreg __bootdata_preserved(s390_invalid_asce);
+ 
+ #ifdef CONFIG_PROC_FS
+diff --git a/drivers/vdpa/vdpa_user/iova_domain.h b/drivers/vdpa/vdpa_user/iova_domain.h
+index 775cad5238f3..a923971a64f5 100644
+--- a/drivers/vdpa/vdpa_user/iova_domain.h
++++ b/drivers/vdpa/vdpa_user/iova_domain.h
+@@ -17,8 +17,6 @@
+ 
+ #define IOVA_START_PFN 1
+ 
+-#define INVALID_PHYS_ADDR (~(phys_addr_t)0)
+-
+ #define BOUNCE_MAP_SHIFT	12
+ #define BOUNCE_MAP_SIZE	(1 << BOUNCE_MAP_SHIFT)
+ #define BOUNCE_MAP_MASK	(~(BOUNCE_MAP_SIZE - 1))
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index d16b33bacc32..543a5f780874 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -105,6 +105,8 @@ extern int mmap_rnd_compat_bits __read_mostly;
+ # endif
+ #endif
+ 
++#define INVALID_PHYS_ADDR (~(phys_addr_t)0)
++
+ #include <asm/page.h>
+ #include <asm/processor.h>
+ 
+diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+index 0d37da3d95b6..a547c7693135 100644
+--- a/kernel/dma/swiotlb.c
++++ b/kernel/dma/swiotlb.c
+@@ -61,8 +61,6 @@
+  */
+ #define IO_TLB_MIN_SLABS ((1<<20) >> IO_TLB_SHIFT)
+ 
+-#define INVALID_PHYS_ADDR (~(phys_addr_t)0)
+-
+ /**
+  * struct io_tlb_slot - IO TLB slot descriptor
+  * @orig_addr:	The original address corresponding to a mapped entry.
 -- 
-2.34.1
+2.30.2
 
 
