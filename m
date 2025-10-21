@@ -4,65 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E80CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 11:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F750CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 12:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wonPNlWchsA1qXbGSjFZR1auIRLgsv2ySZ9se4osWqQ=; b=Ex8uvLz6RgBYkx67mED5HuyvBU
-	VypzKqhdgZGe32pGyl/gQiOfbaR3NM5nDBD2J0Wg5ajssB5gdASK6cMWsobNlQvaL6XCk81SUNTQm
-	zODqKpDhP2vPlNor4JNqplJ9ppngbjJh/FN/t4lAD8cFzcwsCdtx7nsj0f+VZ2gcNDmfMtgoa6Wc1
-	S3EnofQMm5KP2708AI7bE3dllymFy1L2ajVN7kxkX7Mzj+st481sTYH5Z0vlkvwyj4eVREWc2JzEr
-	Y5abwYO6AoVkbcEA/GGxUZqtxnvx+KJpBoN96r+vHIRU7p1PD1R7d/NA5s5BmPKj6SKkMk6RWPqD+
-	8OmK6/HQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t2LFO3Id5PU7ftFHyhtH9UbJzb29dd0urW6inqON3e4=; b=SzdVwwMCD8WG9lqN/gxgVZ8Ztc
+	9DLzVhB5n4fGcA+Z4mj9JfEQ43wHIBiSWkf4/ekGzYIHxJVVXOMf4wWOn7IMUwC9oWsnSUTZM7HiX
+	Cxgp+Rihs1yEe4n1Ezj5cTTnkfEws6Z9ns+AhiI2qjAHZlXvWbOZOQCF/gvah3QUz3a5uu2i2z0xV
+	M2QttFm0H83hqzD4idT58zVsH/LEdLamlpPJcnw1JPIoh0barPXQJ1UOTNfVfexA2czBAnFps3u+T
+	mAeqh+jBDijzTb7+DtBB9oyMh5RrfWzgG4ZThgXWzGf66P/wsaPL6Hd9TvL8X8ib3ZxbiZDs+YnhP
+	V1y3qQKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBAxk-0000000Gqxy-0TOQ;
-	Tue, 21 Oct 2025 11:55:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vBB8a-0000000Gtam-3Pr8;
+	Tue, 21 Oct 2025 12:06:48 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBAxi-0000000Gqxj-3CMQ
+	id 1vBB8Y-0000000GtZl-31qT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 11:55:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 309E7623E7;
-	Tue, 21 Oct 2025 11:55:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 915FCC4CEF5;
-	Tue, 21 Oct 2025 11:55:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761047719;
-	bh=jd/Bf81nqyDyDpW6x/DkkmJv1ZNZPuhb0Hccb0F61Ds=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oSQUZiuqFcr27MLiTsBV7/eyu+B9tAd9+WiNR/+vYCq4Kyor8RVuhDgiZJ7PrEwfu
-	 0VVkCrosaoYXdn/ORSKBg6lbpOH/HK6MmzA4qX3zbXbp/sgVFzT6q+MDILz/7GnYgR
-	 2mU4fZ5y7I5QguVmO0rDJ/J3AFUUNcR1AZdiy/YyGr/KyU5pTzUaorijRexd6t5MYR
-	 bFTC9T+UMUfokIJqzVLZMAauWnt4wDYPwWG/szPZcobpG8MVs6lbRO0lFpLTL1KP/D
-	 Y7vGTvFSOfJlpOAN7YaqBeFBxNX5G5UpbyeNwhRyPynE6ctLyMNzbNcJAzAsf3FOxS
-	 9Y8IOc1WcwYcw==
-Date: Tue, 21 Oct 2025 06:55:17 -0500
-From: Rob Herring <robh@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Scott Branden <sbranden@broadcom.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-Subject: Re: [PATCH v3 1/5] of/irq: Add msi-parent check to of_msi_xlate()
-Message-ID: <20251021115517.GA3713879-robh@kernel.org>
-References: <20251017084752.1590264-1-lpieralisi@kernel.org>
- <20251017084752.1590264-2-lpieralisi@kernel.org>
+	Tue, 21 Oct 2025 12:06:48 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-591ec0e4b3fso559910e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 05:06:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761048404; x=1761653204; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t2LFO3Id5PU7ftFHyhtH9UbJzb29dd0urW6inqON3e4=;
+        b=bMTzVEwLzv2Lfw5NnZtWG5f9BY7a+p9xQxsNvRDd5mywP+FVHJx8+PRG9J3uZbJe/K
+         Jr3QM7JNz7tavsw7R3yKbm4Z8xBCNxR8xNksRkqSTbPQNX/hflDhPU1AeHg/N6WQMDTq
+         utjLosJnqnSSMnaUDffpFM2KnuOe/gpZp6/eg2U7o0tcU/ajkNSFtEH7/Nuaws07le6k
+         L8n272fO9quaX/h4lwj3q9Ap6MJY6WEUkK4rDTh1yyRdz2cDExPNRIlcRDQUmQRleceu
+         NHvARH6GxLVLJ5jSwXddbbIFfWicSGcPT4IZT1Ps6xEcBF2EMNA02hhyiPsd/ji9lh7G
+         p5iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761048404; x=1761653204;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=t2LFO3Id5PU7ftFHyhtH9UbJzb29dd0urW6inqON3e4=;
+        b=GlbNlzh6pUXe3ffmy+nm409lM8qqWzOxUHEWZZyRRHsWEupmu0qrxK7u3h3YxLKPUY
+         4Zayd/9BW935kpwTsMdy7IeYAqcMG9HyNEJg8Cdm6n7aoHOBFgC2THzrF2LbefaoOkK9
+         HAzJK67I0Ke9XTfacS8qVHRkIrNkBcQhvvHZO1yG40CO/I3v1HYdgfzGbqwRW1XDpJil
+         akHn6IL6H8l3/S7jTZtdlQIAzvrrsEfRoI9r0629sHNtMeo8O6nEgzcBml+ZdIOW6tEr
+         o8slbXWwu0//+81GZzoPgZ0P3cEYfkgiPNU06F8R3EraJ7m+B19Thy+KJ098IgdwlIQ1
+         +EYA==
+X-Forwarded-Encrypted: i=1; AJvYcCVc6CZu4FeGCNwuhySF02nU4NUjINMqrsAc4QL0Ai6AEnFJzU9UgCMqi03thd5qEYYuibL6evP2ZiURjRSyOfRD@lists.infradead.org
+X-Gm-Message-State: AOJu0YztRz9bYg7Awq0ogIUL7NPrZyYVyK82JW9SQjld/dRIRk0LaIZy
+	0jT8nGV3f/pFgOj3kwfADK88YvZh2i/6lMyNnbdc9S255ou3LTbCTH1R8JZp3Mb9fI35ryAoxRV
+	WNWYsPL1ktIqNfcAfaNRIga/MbTEmVYLHAROm4Vj4Lw==
+X-Gm-Gg: ASbGncuHO1LWzSjcqg1E2UEXPAVBtwlKecWuApArsrklA9/IwaW8mDdPfNq2lCehLqB
+	kt9CJc3a7W4B0tGp/B3dV+2eaaWheCHGnih3YUSnp5Espxkx05CfPMoAdutdynnIIpelWwT4MNn
+	FUIEakbHYah4cNMxs1lBCgA/+kq3eMgPZ5CKJiCQwPnjZ9/+Gv8ZdaQ8G1D788/EAAkY+9b2wS/
+	E0ksXR33W55s/yw2dKIXkVx16pzCd56Y6RiwklVs0jVqIQ6vruFcY4FjrslobMLpn8aG6SuEmWJ
+	cHDYQQnQrQafyVN+
+X-Google-Smtp-Source: AGHT+IEeA2p1C9mduUxezytlThTWwIAafPtXXWLk0U+AE68AlD8B/b+fLCobL77uAw7zXcaVlFRH47WXQcM6fRGa51M=
+X-Received: by 2002:a05:6512:130c:b0:578:f613:ed9c with SMTP id
+ 2adb3069b0e04-591d85516cdmr5498056e87.43.1761048404206; Tue, 21 Oct 2025
+ 05:06:44 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251017084752.1590264-2-lpieralisi@kernel.org>
+References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
+ <hyzzrjn7jzo3tt3oyg7azijouawe3zopfjzq6zfhoo6e6z2m4t@ssl5vl4g557e>
+ <zk4ea5cibrkp4vttuy4evrqybf76b3nop5lnyck4ws4nyf2yc4@ghj2eyswsoow>
+ <CAMRc=MdWmO4wvX6zpzN0-LZF1pF5Y2=sS8fBwr=CKMGWHg+shA@mail.gmail.com>
+ <rfr5cou6jr7wmtxixfgjxhnda6yywlsxsei7md7ne3qge7r3gk@xv6n5pvcjzrm>
+ <CAMRc=Me9Td5G9qZV8A98XkGROKw1D2UeQHpFzt8uApF8995MZw@mail.gmail.com> <rvsyll4u6v4tpaxs4z3k4pbusoktkaocq4o3g6rjt6d2zrzqst@raiuch3hu3ce>
+In-Reply-To: <rvsyll4u6v4tpaxs4z3k4pbusoktkaocq4o3g6rjt6d2zrzqst@raiuch3hu3ce>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 21 Oct 2025 14:06:30 +0200
+X-Gm-Features: AS18NWCS0bDo5asDO54GB6xpnkDJCZdNkOPsf7p5f8WdpHmgmskO8LgWJsfISW8
+Message-ID: <CAMRc=Me+4H6G+-Qj_Gz2cv2MgRHOmrjMyNwJr+ardDR1ndYHvQ@mail.gmail.com>
+Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, Kees Cook <kees@kernel.org>, 
+	Mika Westerberg <westeri@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251021_050647_014557_D2F3649D 
+X-CRM114-Status: GOOD (  27.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,110 +111,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 10:47:48AM +0200, Lorenzo Pieralisi wrote:
-> In some legacy platforms the MSI controller for a PCI host bridge is
-> identified by an msi-parent property whose phandle points at an MSI
-> controller node with no #msi-cells property, that implicitly
-> means #msi-cells == 0.
-> 
-> For such platforms, mapping a device ID and retrieving the MSI controller
-> node becomes simply a matter of checking whether in the device hierarchy
-> there is an msi-parent property pointing at an MSI controller node with
-> such characteristics.
-> 
-> Add a helper function to of_msi_xlate() to check the msi-parent property in
-> addition to msi-map and retrieve the MSI controller node (with a 1:1 ID
-> deviceID-IN<->deviceID-OUT  mapping) to provide support for deviceID
-> mapping and MSI controller node retrieval for such platforms.
-> 
-> Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Sascha Bischoff <sascha.bischoff@arm.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/of/irq.c | 38 +++++++++++++++++++++++++++++++++++---
->  1 file changed, 35 insertions(+), 3 deletions(-)
+On Tue, Oct 21, 2025 at 3:53=E2=80=AFAM Manivannan Sadhasivam <mani@kernel.=
+org> wrote:
+> >
+> > That only happens if the driver uses the reset API. If you go with the
+> > GPIOLIB then none of this matters. I definitely don't want to change
+> > the existing DT sources either but I want to find out if the code in
+> > this series is suitable (with some modifications) for supporting the
+> > PERST# line or if the logic behind it is more complex and possibly
+> > requires separate, more fine-grained handling.
+> >
+>
+> All PCI controllers relied on '{reset/perst}-gpios' property for handling=
+ the
+> PERST# signal. Now if we change it to a reset line, then the drivers have=
+ to
+> first detect it as a reset line and use the reset APIs, if not fallback t=
+o gpiod
+> APIs (for DT backwards compatibility), which will add unncessary churn IM=
+O.
+>
 
-It all looks good to me other than 1 nit below. How do you propose 
-merging the series? I can take the first 3 for 6.18 and then patches 4 
-and 5 can go via their respective trees for 6.19?
+Ok so some platforms define perst-gpios while others use reset-gpios,
+I see now. Yeah, it's better to go with explicit GPIOs then.
 
-> 
-> diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-> index 65c3c23255b7..e67b2041e73b 100644
-> --- a/drivers/of/irq.c
-> +++ b/drivers/of/irq.c
-> @@ -671,6 +671,35 @@ void __init of_irq_init(const struct of_device_id *matches)
->  	}
->  }
->  
-> +static int of_check_msi_parent(struct device_node *dev_node, struct device_node **msi_node)
-> +{
-> +	struct of_phandle_args msi_spec;
-> +	int ret;
-> +
-> +	/*
-> +	 * An msi-parent phandle with a missing or == 0 #msi-cells
-> +	 * property identifies a 1:1 ID translation mapping.
-> +	 *
-> +	 * Set the msi controller node if the firmware matches this
-> +	 * condition.
-> +	 */
-> +	ret = of_parse_phandle_with_optional_args(dev_node, "msi-parent", "#msi-cells",
-> +						  0, &msi_spec);
-> +	if (!ret) {
+> But if there is no way the GPIO subsystem is going to support shared GPIO=
+s, then
+> we have to live with it.
+>
 
-if (ret)
-	return ret;
+Well, there is going to be. We already de-facto have it but it doesn't
+work very well and is fragile (I'm talking about the non-exclusive
+flag). I very much intend to bring this upstream.
 
-And then save a level of indentation.
+My question wrt PCI PERST# was whether this is useful for it because
+IIRC all endpoints sharing the signal will assert it (or rather their
+pwrctl drivers will) and then only deassert it once all endpoints are
+powered up. This would translate to the pwrctl driver doing the
+following for each endpoint:
 
-> +		if ((*msi_node && *msi_node != msi_spec.np) || msi_spec.args_count != 0)
-> +			ret = -EINVAL;
-> +
-> +		if (!ret) {
-> +			/* Return with a node reference held */
-> +			*msi_node = msi_spec.np;
-> +			return 0;
-> +		}
-> +		of_node_put(msi_spec.np);
-> +	}
-> +
-> +	return ret;
-> +}
-> +
->  /**
->   * of_msi_xlate - map a MSI ID and find relevant MSI controller node
->   * @dev: device for which the mapping is to be done.
-> @@ -678,7 +707,7 @@ void __init of_irq_init(const struct of_device_id *matches)
->   * @id_in: Device ID.
->   *
->   * Walk up the device hierarchy looking for devices with a "msi-map"
-> - * property. If found, apply the mapping to @id_in.
-> + * or "msi-parent" property. If found, apply the mapping to @id_in.
->   * If @msi_np points to a non-NULL device node pointer, only entries targeting
->   * that node will be matched; if it points to a NULL value, it will receive the
->   * device node of the first matching target phandle, with a reference held.
-> @@ -692,12 +721,15 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
->  
->  	/*
->  	 * Walk up the device parent links looking for one with a
-> -	 * "msi-map" property.
-> +	 * "msi-map" or an "msi-parent" property.
->  	 */
-> -	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent)
-> +	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
->  		if (!of_map_id(parent_dev->of_node, id_in, "msi-map",
->  				"msi-map-mask", msi_np, &id_out))
->  			break;
-> +		if (!of_check_msi_parent(parent_dev->of_node, msi_np))
-> +			break;
-> +	}
->  	return id_out;
->  }
->  
-> -- 
-> 2.50.1
-> 
+perst =3D gpiod_get(dev, "perst");
+gpiod_set_value_cansleep(perst, 1);
+
+Do the power up.
+
+gpiod_set_value_cansleep(perst, 0);
+
+And with the implementation this series proposes it would mean that
+the perst signal will go high after the first endpoint pwrctl driver
+sets it to high and only go down once the last driver sets it to low.
+The only thing I'm not sure about is the synchronization between the
+endpoints - how do we wait for all of them to be powered-up before
+calling the last gpiod_set_value()?
+
+Bartosz
 
