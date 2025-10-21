@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CA1CCD19F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD2EDCCD1AB
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:04:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ehfiuk//1JrsyruokWTj4WAzfPbmII+v964/at++0u8=; b=bOMEzs4r1cgRTJbP7F2ChRC2GA
-	7NnsshG7Hx3wWtJFnrPDwF+8wYMBmiNc9aadepuVgg2rZWcZW2vwqqHNQvtKbJ8rv6mRi8BPyBHIZ
-	Z52vr8WHDZ+E1w8dvlYE3RGdXkLRwNWJlpMbDoBojvjOhbaZa1jVub89i/qTM9mVtW7n2b9UW0Bjo
-	2CmTSLin2qOhMeTpLXbJbZrUVhv4AapAGtvzdATroVnc8pddC59JxeGH4U7rs23aeudJanaWLUoV5
-	i6V6oNOe84DHYg/0hNs+TCwHt12h9jUTG/bT5P88eKvoQGxZm0jMz2w1gJnFjERzdcejfnYp6qCyQ
-	9y2nK9Ow==;
+	bh=bLspKuWn/vZa6/2n5uWqNOmKONoWfGYNkgrw1i4pEbA=; b=u3iu7IWKup4RlCX0UA5ZLNHT2K
+	S2Glomokg2ei3iFb0VbnQgI7lb8S1tbKFf6zVOZAuAI9tAc2ioRinR5ZjErsZj+D4rXVEpg/hur9t
+	z7BWtEs11PAMOqhO6gEaWXfdgQzQSauZ552pqio76ZuDZID2Fg18zNsh2gor3JkSkMVCuDHyuAUz9
+	FBzwL3P51xFA7vdUCS9eUuiR4R3m7fmvsueIc86zpLX4ySPETN5MGgMAGmpBfooWkyk4In7iUY9XU
+	ab2ECeV6DTrd/+un7Er3YFs6tCqjshH6AtHc2byIBTIWe4OKiqUWqnuJ9xloczguBT93x9nK8PRc2
+	pDgsnl+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB6Q0-0000000G0bg-2QPH;
-	Tue, 21 Oct 2025 07:04:28 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB6Pu-0000000G0XM-0RIe
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vB6Pv-0000000G0ZK-0zcy;
 	Tue, 21 Oct 2025 07:04:23 +0000
+Received: from mail-japaneastazon11022128.outbound.protection.outlook.com ([52.101.126.128] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vB6Ps-0000000G0X1-1kEV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 07:04:22 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EBvXukHEiZGpIpvXQ59EIj8TowPDO4RcCfPokzr9fS+M4oU03JV1r+sWEeW3bm+agbsAURFB38yQd8M6a9jbudpDSbU2pm6wRjB0JbqgVc5UsT1Ji7FjiTpGomoavSCl40khMVKegv/yXNdw8i2Xs+WIOjcLJj2kCGOnJfm28DNOZ1u+3rDyu6SyaihsYIqmA0Kw5Gop/eG3sKwaEFuJtuLISms7DVH+AMY1pr7FXk5slvyhqkwGqw8QuMrj59dgwkI/OvZsoM4IePa69qqJqO7yGphRpiytjW5KAhy4MmYJ+Qe79ioku+3/059g9z/XYAfDNUWx7oX0u6u+Fi63eA==
+ b=nAFduce36Ojj7/FHY/iWbL59T8l6O16RrmkQ18CyHvGfpPHqn58/Uzwe2bMWn38izbqc4y9JKWdt5NDJL7jFIWfWOl7/KRJp0i074lF2f2QltYOYBaWZn0Lp2pSvnotsbgHu9M823JeaUxih9grkQ9H588/LprIypk15Kvjlh9jN4k7djxpg+0/o/PrCBx/dp8duT+Hc9PDeRS3aMSHR5RvdbOJVl/DJ46Vs/j4I4J4tSPUzXuMCN19a6nhDhdZ1dwEvsIsR8T+dhgPZuLkY6MInFrAxM4Qu+7xiI7QqMj6HprU5OZlU0X28BRmuKT66OccAXpYtffEXNBiIZzPS6g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ehfiuk//1JrsyruokWTj4WAzfPbmII+v964/at++0u8=;
- b=bW3tUzZ4qH+SEwEHFzFUCOrCfCteNxPKDnU8arN+PDwzhEC31Pd/sYI/4O7g+FP1wMChqRs16I8D7PdKXn6ZkvznRQ2n/h+y7vcOL2HAC1Anjg2wxnio09P+3yiJ0gLYvs7lv8EXshsgl06Gi42DYP03IG2Ft6tz++hJIto9/6YvKLMgQZdcA+cf1GXrQShfjoJ2+ZsZp0oHABGQWIPSMqv+Tm4oqUxDkkE0sl+8RLhjDfKgQK0bXI0nbTlX/qI1KXqXuQEQBYshCpElLLGmsgUCAyNbkuegdvARZUA6J9h9bDmhzD1bTZbvxB3muVGrdtyngleLHjCpF3PKTgNcLQ==
+ bh=bLspKuWn/vZa6/2n5uWqNOmKONoWfGYNkgrw1i4pEbA=;
+ b=oCQD7sMtg4C/dOS5USR3HaeX+ToYqmwZkL89r7CctwLEmQ1IQHfTWrNwjoihOqQlaWm3E9OjBC2kc1D1za6gP964j05P/Ln8NNDIzA7YMvow0wiTrwf5Sjx++Mg9/yOZX67GOUCOrUVDKtZWnAxZVitC0pRq1m6ytXyFeBKbKAZRQoZKiicEb/9FgZUwMydLTrMGO6f9txM4O7DIERbKoouZ4asFyu/7/slOCF/7Ir7xNXHmMGsnsLw+aamVrGjxNAkcnp/s0PNwR8ab/+m5d+e4HUmI9jB611XW8jMJV3Y1mbMBbrFqHnvUasIPKliVYJDq0eIy3EKu5IoSwnkPaA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from SG3P274CA0018.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::30) by
- PUZPR06MB6128.apcprd06.prod.outlook.com (2603:1096:301:116::12) with
+Received: from TYCP301CA0037.JPNP301.PROD.OUTLOOK.COM (2603:1096:400:380::9)
+ by JH0PR06MB6678.apcprd06.prod.outlook.com (2603:1096:990:36::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.16; Tue, 21 Oct
- 2025 07:04:13 +0000
-Received: from SG1PEPF000082E2.apcprd02.prod.outlook.com
- (2603:1096:4:be:cafe::2c) by SG3P274CA0018.outlook.office365.com
- (2603:1096:4:be::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.17; Tue, 21 Oct
+ 2025 07:04:12 +0000
+Received: from TY2PEPF0000AB88.apcprd03.prod.outlook.com
+ (2603:1096:400:380:cafe::f8) by TYCP301CA0037.outlook.office365.com
+ (2603:1096:400:380::9) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9228.17 via Frontend Transport; Tue,
- 21 Oct 2025 07:04:13 +0000
+ 21 Oct 2025 07:04:09 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -55,11 +55,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG1PEPF000082E2.mail.protection.outlook.com (10.167.240.5) with Microsoft
+ TY2PEPF0000AB88.mail.protection.outlook.com (10.167.253.11) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.7 via Frontend Transport; Tue, 21 Oct 2025 07:04:11 +0000
+ 15.20.9253.7 via Frontend Transport; Tue, 21 Oct 2025 07:04:12 +0000
 Received: from localhost.localdomain (unknown [172.16.64.196])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 057594143A8D;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 275BB41C0146;
 	Tue, 21 Oct 2025 15:04:11 +0800 (CST)
 From: Gary Yang <gary.yang@cixtech.com>
 To: linus.walleij@linaro.org,
@@ -72,9 +72,9 @@ Cc: linux-gpio@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	cix-kernel-upstream@cixtech.com,
 	Gary Yang <gary.yang@cixtech.com>
-Subject: [PATCH v5 1/3] dt-bindings: pinctrl: Add cix,sky1-pinctrl
-Date: Tue, 21 Oct 2025 15:04:08 +0800
-Message-ID: <20251021070410.3585997-2-gary.yang@cixtech.com>
+Subject: [PATCH v5 3/3] arm64: dts: cix: Add pinctrl nodes for sky1
+Date: Tue, 21 Oct 2025 15:04:10 +0800
+Message-ID: <20251021070410.3585997-4-gary.yang@cixtech.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20251021070410.3585997-1-gary.yang@cixtech.com>
 References: <20251021070410.3585997-1-gary.yang@cixtech.com>
@@ -82,52 +82,53 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E2:EE_|PUZPR06MB6128:EE_
+X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB88:EE_|JH0PR06MB6678:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: faec0787-a14c-47bc-d75e-08de10700a16
+X-MS-Office365-Filtering-Correlation-Id: b12f2213-3538-480d-bbe5-08de107009f3
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1+mO1y4ZEJ/DL6TgrgfD9xmC6CLgzmspJkzHgmuoy3gQZW9nPwOieEzt6X9d?=
- =?us-ascii?Q?khEPehZ5qXCL1zuniyi6Tt7YIuB9Uhpx1Y3yOfiLOubCcNUSFwN2dLsf9Xvt?=
- =?us-ascii?Q?J307Z/rtp12AzLRsnQL6OhMgQwbv0B46X2t7969/5KFuPG+q4fchFk/pDFYC?=
- =?us-ascii?Q?h2E5tYGsFaBcRJOku3vLcii+N/T3g6OHfmzCoTnCp4z9CWoV7fbZgypqU/p8?=
- =?us-ascii?Q?FFC3ULYYyNi7D1IhYffFh2Da/NQXGWcDLf3/1+MXYKfuF7yAI5Lc5f0uiXYw?=
- =?us-ascii?Q?/7o+V5tzL6/iClCoeghwx5IrgZZDvem+hRNOMmoVzsMqyv/BvibIEfqEZon+?=
- =?us-ascii?Q?sM0IpHQ+xugKnlKGUILsGCkdQ/H+2uv8PKeWCTMK1mBfUNdN3/2Po807EdS5?=
- =?us-ascii?Q?VaKmgVsxXPdGMmnpURs9YYgTUemkHtXvgW/NOw6NhuUSuFsGPId2f+Grj9z0?=
- =?us-ascii?Q?K9937Ola4gdUHyGc10yz2VWSZITKSuc+VJauzhfUVfm3CpBT05M2hcLCC3iD?=
- =?us-ascii?Q?O/KkFQDyvv2DfIO2hxVY9Ma4MBumx42r7A8pw5xvdaWuF0t9Z8PaNVw5AoqP?=
- =?us-ascii?Q?tKeNT6aHFcMXD0AIyIblrYP+3CwkkwoUUrzzCeamsqnqW/J6lfr3EBrDSP5u?=
- =?us-ascii?Q?mvwKC05cEnIT3RKHoeCmkerGPmDzfWRtRvKhVQCSw6oWkMYlnLAm1JpQGRLk?=
- =?us-ascii?Q?Shhs1PP6wNmfVvX9On6YLNXMjkebPGeeRx5rpFU2VuxUb2VbFss/pD1kb8FM?=
- =?us-ascii?Q?4bFb47B1Tta92Gj9nOFrQiK6BwDBbshaRnSNdonUBRTNYHDPNEWzXxPiIWrG?=
- =?us-ascii?Q?Ta6/BEilpHC8AB4uIRO3amZCVAo66o255Magmtd7Eoi3nw9DabsaeRwQYugu?=
- =?us-ascii?Q?u7aHM/z+A7rVyI2OpPh3ghE2xjCFF6hMax8yQET+w8Y4M+4fhTPKnFWLe0M8?=
- =?us-ascii?Q?TIbxtr1SdZ/9AT4/DpD4uUiBgxUZZgiY06Hu/D/wSIkHGbAXR5ez+Ix3VR3U?=
- =?us-ascii?Q?CkjMyiFwGdEoHlspOHl9KUV2IiHsrXwLBCvxrAI3Q0VBMtP4bt0hvX4H99wT?=
- =?us-ascii?Q?6A0rxTfVLOhpC8EyWzgW7sz4TZsQbnsUDC//U7LwDGQclyJ+eg+lFRtzexVQ?=
- =?us-ascii?Q?RJ8pUOPgYZzI6hjkME5K67OIUjUn9HcUyGDhfxtVCSGEs1kTsDXUdp2gjx5N?=
- =?us-ascii?Q?o4MU8/2oCOGJ8+oCiSjGlbdmGqmQo+CW6QX5fFKZp9Xi6H8b9sDFkwWly8H+?=
- =?us-ascii?Q?ozlP8Bc+rif/zdN5iaX/07cKgHih7itZShoM0eJ1ZPwmvRYz6PMh/HymYnFE?=
- =?us-ascii?Q?ZYaMkq9TXkjvn6HDcj8W9JXjB5lUK3RjG15NvZxFlS4lysDK2B1RAPXskbNN?=
- =?us-ascii?Q?rQEhSGD3AbRESbLNag2D9qjzNUQ2Y7v7+OG3kSN/I92BrDGZVVTRKodYxd7Y?=
- =?us-ascii?Q?RWthsEpHIarUklFfrFyo8SxL5772VS2dUsiiZZ4PkhfggNEkkuCeHKVwgFLq?=
- =?us-ascii?Q?P4tNoAdg09ihoI7ZctTPiiUxYHHFrP4Q6tKy?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(1800799024)(376014);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?iPs9Kcq//GNcjLsfnvKLH+bHE8NVf3CZAJxz1Lh83n97mRbWtYF6TjP9mVTt?=
+ =?us-ascii?Q?B1X8QT6+M9WYc8VnHWsOc3NWooJanuxpUqv27rDVNbhMGCA6y9bUySdkQgBy?=
+ =?us-ascii?Q?5LHwQrD5syPR3JRSCqFQ+7zQRbxfLrex2b2g6OCfwjkqbVCDvC7QrS6jI+vV?=
+ =?us-ascii?Q?c66EK1sSyOfxP5KyM4jsrEbWnj9US8Gomcc/v4zRKLovADRZ3bYWa9NM8uLh?=
+ =?us-ascii?Q?SL67vc3hq0mjOUqYygsE6ndXN6MpSfCj7tgju6rdpYw9tUnBGBeGrZrvCvsW?=
+ =?us-ascii?Q?U49d1VlWTS+x4PGlc9NRJbsqNixMFpvEPO8fPBFjKqADFX1M4n3/lQvKIf/g?=
+ =?us-ascii?Q?L2EYU1kvZQ66eXjvdyhdBHhBi8/8vRBB1n2Y4bQd9u3JYAR2do//d55hw79O?=
+ =?us-ascii?Q?+1By5y5zY+nmP6oH45vgndrRtya3pnrh+quAMgYHSHUvs3ZtS+njMXwPfCUu?=
+ =?us-ascii?Q?sEkID+9/hmGWW9A3hNFP0ZBFYQ5Bu8B8TFSz2mhR0ouZctrrTkXiGmAc5iDE?=
+ =?us-ascii?Q?S6JVCLfTtM1Tw9XvvGJLh0CvyabVLkQgHJBvj2lk/Er9hL5h8/RD0HHevfjj?=
+ =?us-ascii?Q?hPkoxnkNZ0c8UewbJgAviBFdfJ+5tVSQdPYO1hwtfLR2N8yeRMU65qFCgOU7?=
+ =?us-ascii?Q?MhoXc2IVlLZZrFwYnxtD267np6ScDXn4VmDL7KG/+DfMxUYWM+NPJDz/CCwi?=
+ =?us-ascii?Q?qo1GvuDW7q/XFgHsqo0p5EpgVjsXSCrBimiOX6eVUNARJ4FYXMoXwr7WjMob?=
+ =?us-ascii?Q?jRJum0JoVIt4C/q4SDRZwZOLhI64mPjGYy8auUehNJwUAIiWNHRqtL61SrIp?=
+ =?us-ascii?Q?2laOPTlFcz2NJIXVL/5AX+8QBksX3LiumSnKU1t7kcdFU496JTfPcpxpCsHK?=
+ =?us-ascii?Q?rOZSqaRYxaXIvGerifRhuxewUUoAKf3t32VMpGJ3wzWiLySUMnTi/vbaDXGB?=
+ =?us-ascii?Q?bO9DnZD3raZlsMBlq8ODogdS6fVNob8ZzLPg6WEUURVhA6r5u83FRafAg7l9?=
+ =?us-ascii?Q?hFkWwqPTgKvLxdWCjpOGZqtGSgoyrU4DpAMTqaUPJEdffq7lE3sOodnUD8eW?=
+ =?us-ascii?Q?xwzkKOYSjBycRxuAexG7ZzcE1YpWklsd1q8GTh/xoA43JZkjD7ft+natFAAD?=
+ =?us-ascii?Q?u2EnajjZ+Q6Or+hGhJlofWELszXnCQp7exbK0fc7FmiOTGYiT/Q6zo2yPMnA?=
+ =?us-ascii?Q?lw/aoiOunV19f/MgaTaSL0coTxYLvCA+aSYSxfmfckHlhXGQbId5dNE7EaYv?=
+ =?us-ascii?Q?Pn2G1KDZC1MGkhIIkXlJn8SvJIEYNufDOg1qAolqwpwY0jZ3lCKaZS5kdEL8?=
+ =?us-ascii?Q?03jjaNtJotIhdjgimmSZ652T0GgShWvKLb5c9KlcIJFPHVk1SAs6DRTsPYon?=
+ =?us-ascii?Q?DipYBaEdxtGulX8+e0n7bEnq0a5ekDbV2Xnr8TP2wRBdACgc02KccH171cJk?=
+ =?us-ascii?Q?Swn/9vKhQoee+tR+usErHBACffcoqYj2otj0qlyQW00iD+QL+WIt/l37Awa/?=
+ =?us-ascii?Q?VvwLlhhxLAgUrSsorA4VNSTJz2PKMkaXkae7d33QoQ1/hmgSoOebEeURAl7r?=
+ =?us-ascii?Q?cvQ5MHqxgqtYn9Xn/rc=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1102;
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2025 07:04:11.9833
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2025 07:04:12.0482
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: faec0787-a14c-47bc-d75e-08de10700a16
+X-MS-Exchange-CrossTenant-Network-Message-Id: b12f2213-3538-480d-bbe5-08de107009f3
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E2.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB88.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB6128
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB6678
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_000422_152566_7540AE47 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20251021_000420_603342_626F33CF 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,115 +143,501 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pin-controller is used to control the Soc pins.
-There are two pin-controllers on Cix Sky1 platform.
-One is used under S0 state, the other is used under
-S0 and S5 state.
+Add the pin-controller nodes for Sky1 platform.
 
 Signed-off-by: Gary Yang <gary.yang@cixtech.com>
 ---
- .../bindings/pinctrl/cix,sky1-pinctrl.yaml    | 92 +++++++++++++++++++
- 1 file changed, 92 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
+ arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  32 ++
+ arch/arm64/boot/dts/cix/sky1-pinfunc.h    | 401 ++++++++++++++++++++++
+ arch/arm64/boot/dts/cix/sky1.dtsi         |  10 +
+ 3 files changed, 443 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/cix/sky1-pinfunc.h
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
+diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+index d74964d53c3b..cdaca197edda 100644
+--- a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
++++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+@@ -7,6 +7,8 @@
+ /dts-v1/;
+ 
+ #include "sky1.dtsi"
++#include "sky1-pinfunc.h"
++
+ / {
+ 	model = "Radxa Orion O6";
+ 	compatible = "radxa,orion-o6", "cix,sky1";
+@@ -34,6 +36,36 @@ linux,cma {
+ 
+ };
+ 
++&iomuxc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_hog>;
++
++	pinctrl_hog: hog-cfg {
++		pins {
++			pinmux = <CIX_PAD_GPIO144_FUNC_GPIO144>,
++				<CIX_PAD_GPIO145_FUNC_GPIO145>,
++				<CIX_PAD_GPIO146_FUNC_GPIO146>,
++				<CIX_PAD_GPIO147_FUNC_GPIO147>;
++			bias-pull-down;
++			drive-strength = <8>;
++		};
++	};
++};
++
++&iomuxc_s5 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_hog_s5>;
++
++	pinctrl_hog_s5: hog-s5-cfg {
++		pins {
++			pinmux = <CIX_PAD_GPIO014_FUNC_GPIO014>;
++			bias-pull-up;
++			drive-strength = <8>;
++
++		};
++	};
++};
++
+ &uart2 {
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/cix/sky1-pinfunc.h b/arch/arm64/boot/dts/cix/sky1-pinfunc.h
 new file mode 100644
-index 000000000000..36977b0d745b
+index 000000000000..ebe9f6fef403
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
-@@ -0,0 +1,92 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/cix,sky1-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/arch/arm64/boot/dts/cix/sky1-pinfunc.h
+@@ -0,0 +1,401 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright 2024-2025 Cix Technology Group Co., Ltd.
++ */
 +
-+title: Cix Sky1 Soc Pin Controller
++#ifndef __CIX_SKY1_H
++#define __CIX_SKY1_H
 +
-+maintainers:
-+  - Gary Yang <gary.yang@cixtech.com>
++/* s5 pads */
++#define CIX_PAD_GPIO001_FUNC_GPIO001				   (0 << 8 | 0x0)
++#define CIX_PAD_GPIO002_FUNC_GPIO002				   (1 << 8 | 0x0)
++#define CIX_PAD_GPIO003_FUNC_GPIO003				   (2 << 8 | 0x0)
++#define CIX_PAD_GPIO004_FUNC_GPIO004				   (3 << 8 | 0x0)
++#define CIX_PAD_GPIO005_FUNC_GPIO005				   (4 << 8 | 0x0)
++#define CIX_PAD_GPIO006_FUNC_GPIO006				   (5 << 8 | 0x0)
++#define CIX_PAD_GPIO007_FUNC_GPIO007				   (6 << 8 | 0x0)
++#define CIX_PAD_GPIO008_FUNC_GPIO008				   (7 << 8 | 0x0)
++#define CIX_PAD_GPIO009_FUNC_GPIO009				   (8 << 8 | 0x0)
++#define CIX_PAD_GPIO010_FUNC_GPIO010				   (9 << 8 | 0x0)
++#define CIX_PAD_GPIO011_FUNC_GPIO011				   (10 << 8 | 0x0)
++#define CIX_PAD_GPIO012_FUNC_GPIO012				   (11 << 8 | 0x0)
++#define CIX_PAD_GPIO013_FUNC_GPIO013				   (12 << 8 | 0x0)
++#define CIX_PAD_GPIO014_FUNC_GPIO014				   (13 << 8 | 0x0)
++#define CIX_PAD_SFI_I2C0_SCL_FUNC_SFI_I2C0_SCL			   (28 << 8 | 0x0)
++#define CIX_PAD_SFI_I2C0_SCL_FUNC_SFI_I3C0_SCL			   (28 << 8 | 0x1)
++#define CIX_PAD_SFI_I2C0_SDA_FUNC_SFI_I2C0_SDA			   (29 << 8 | 0x0)
++#define CIX_PAD_SFI_I2C0_SDA_FUNC_SFI_I3C0_SDA			   (29 << 8 | 0x1)
++#define CIX_PAD_SFI_I2C1_SCL_FUNC_SFI_I2C1_SCL			   (30 << 8 | 0x0)
++#define CIX_PAD_SFI_I2C1_SCL_FUNC_SFI_I3C1_SCL			   (30 << 8 | 0x1)
++#define CIX_PAD_SFI_I2C1_SCL_FUNC_SFI_SPI_CS0			   (30 << 8 | 0x2)
++#define CIX_PAD_SFI_I2C1_SDA_FUNC_SFI_I2C1_SDA			   (31 << 8 | 0x0)
++#define CIX_PAD_SFI_I2C1_SDA_FUNC_SFI_I3C1_SDA			   (31 << 8 | 0x1)
++#define CIX_PAD_SFI_I2C1_SDA_FUNC_SFI_SPI_CS1			   (31 << 8 | 0x2)
++#define CIX_PAD_SFI_GPIO0_FUNC_GPIO015				   (32 << 8 | 0x0)
++#define CIX_PAD_SFI_GPIO0_FUNC_SFI_SPI_SCK			   (32 << 8 | 0x1)
++#define CIX_PAD_SFI_GPIO0_FUNC_SFI_GPIO0			   (32 << 8 | 0x2)
++#define CIX_PAD_SFI_GPIO1_FUNC_GPIO016				   (33 << 8 | 0x0)
++#define CIX_PAD_SFI_GPIO1_FUNC_SFI_SPI_MOSI			   (33 << 8 | 0x1)
++#define CIX_PAD_SFI_GPIO1_FUNC_SFI_GPIO1			   (33 << 8 | 0x2)
++#define CIX_PAD_SFI_GPIO2_FUNC_GPIO017				   (34 << 8 | 0x0)
++#define CIX_PAD_SFI_GPIO2_FUNC_SFI_SPI_MISO			   (34 << 8 | 0x1)
++#define CIX_PAD_SFI_GPIO2_FUNC_SFI_GPIO2			   (34 << 8 | 0x2)
++#define CIX_PAD_GPIO018_FUNC_SFI_GPIO3				   (35 << 8 | 0x0)
++#define CIX_PAD_GPIO018_FUNC_GPIO018				   (35 << 8 | 0x1)
++#define CIX_PAD_GPIO019_FUNC_SFI_GPIO4				   (36 << 8 | 0x0)
++#define CIX_PAD_GPIO019_FUNC_GPIO019				   (36 << 8 | 0x1)
++#define CIX_PAD_GPIO020_FUNC_SFI_GPIO5				   (37 << 8 | 0x0)
++#define CIX_PAD_GPIO020_FUNC_GPIO020				   (37 << 8 | 0x1)
++#define CIX_PAD_GPIO021_FUNC_SFI_GPIO6				   (38 << 8 | 0x0)
++#define CIX_PAD_GPIO021_FUNC_GPIO021				   (38 << 8 | 0x1)
++#define CIX_PAD_GPIO022_FUNC_SFI_GPIO7				   (39 << 8 | 0x0)
++#define CIX_PAD_GPIO022_FUNC_GPIO022				   (39 << 8 | 0x1)
++#define CIX_PAD_GPIO023_FUNC_SFI_GPIO8				   (40 << 8 | 0x0)
++#define CIX_PAD_GPIO023_FUNC_GPIO023				   (40 << 8 | 0x1)
++#define CIX_PAD_GPIO023_FUNC_SFI_I3C0_PUR_EN_L			   (40 << 8 | 0x2)
++#define CIX_PAD_GPIO024_FUNC_SFI_GPIO9				   (41 << 8 | 0x0)
++#define CIX_PAD_GPIO024_FUNC_GPIO024				   (41 << 8 | 0x1)
++#define CIX_PAD_GPIO024_FUNC_SFI_I3C1_PUR_EN_L			   (41 << 8 | 0x2)
++#define CIX_PAD_SPI1_MISO_FUNC_SPI1_MISO			   (42 << 8 | 0x0)
++#define CIX_PAD_SPI1_MISO_FUNC_GPIO025				   (42 << 8 | 0x1)
++#define CIX_PAD_SPI1_CS0_FUNC_SPI1_CS0				   (43 << 8 | 0x0)
++#define CIX_PAD_SPI1_CS0_FUNC_GPIO026				   (43 << 8 | 0x1)
++#define CIX_PAD_SPI1_CS1_FUNC_SPI1_CS1				   (44 << 8 | 0x0)
++#define CIX_PAD_SPI1_CS1_FUNC_GPIO027				   (44 << 8 | 0x1)
++#define CIX_PAD_SPI1_MOSI_FUNC_SPI1_MOSI			   (45 << 8 | 0x0)
++#define CIX_PAD_SPI1_MOSI_FUNC_GPIO028				   (45 << 8 | 0x1)
++#define CIX_PAD_SPI1_CLK_FUNC_SPI1_CLK				   (46 << 8 | 0x0)
++#define CIX_PAD_SPI1_CLK_FUNC_GPIO029				   (46 << 8 | 0x1)
++#define CIX_PAD_GPIO030_FUNC_GPIO030				   (47 << 8 | 0x0)
++#define CIX_PAD_GPIO030_FUNC_USB_OC0_L				   (47 << 8 | 0x1)
++#define CIX_PAD_GPIO031_FUNC_GPIO031				   (48 << 8 | 0x0)
++#define CIX_PAD_GPIO031_FUNC_USB_OC1_L				   (48 << 8 | 0x1)
++#define CIX_PAD_GPIO032_FUNC_GPIO032				   (49 << 8 | 0x0)
++#define CIX_PAD_GPIO032_FUNC_USB_OC2_L				   (49 << 8 | 0x1)
++#define CIX_PAD_GPIO033_FUNC_GPIO033				   (50 << 8 | 0x0)
++#define CIX_PAD_GPIO033_FUNC_USB_OC3_L				   (50 << 8 | 0x1)
++#define CIX_PAD_GPIO034_FUNC_GPIO034				   (51 << 8 | 0x0)
++#define CIX_PAD_GPIO034_FUNC_USB_OC4_L				   (51 << 8 | 0x1)
++#define CIX_PAD_GPIO035_FUNC_GPIO035				   (52 << 8 | 0x0)
++#define CIX_PAD_GPIO035_FUNC_USB_OC5_L				   (52 << 8 | 0x1)
++#define CIX_PAD_GPIO036_FUNC_GPIO036				   (53 << 8 | 0x0)
++#define CIX_PAD_GPIO036_FUNC_USB_OC6_L				   (53 << 8 | 0x1)
++#define CIX_PAD_GPIO037_FUNC_GPIO037				   (54 << 8 | 0x0)
++#define CIX_PAD_GPIO037_FUNC_USB_OC7_L				   (54 << 8 | 0x1)
++#define CIX_PAD_GPIO038_FUNC_GPIO038				   (55 << 8 | 0x0)
++#define CIX_PAD_GPIO038_FUNC_USB_OC8_L				   (55 << 8 | 0x1)
++#define CIX_PAD_GPIO039_FUNC_GPIO039				   (56 << 8 | 0x0)
++#define CIX_PAD_GPIO039_FUNC_USB_OC9_L				   (56 << 8 | 0x1)
++#define CIX_PAD_GPIO040_FUNC_GPIO040				   (57 << 8 | 0x0)
++#define CIX_PAD_GPIO040_FUNC_USB_DRIVE_VBUS0			   (57 << 8 | 0x1)
++#define CIX_PAD_GPIO041_FUNC_GPIO041				   (58 << 8 | 0x0)
++#define CIX_PAD_GPIO041_FUNC_USB_DRIVE_VBUS4			   (58 << 8 | 0x1)
++#define CIX_PAD_GPIO042_FUNC_GPIO042				   (59 << 8 | 0x0)
++#define CIX_PAD_GPIO042_FUNC_USB_DRIVE_VBUS5			   (59 << 8 | 0x1)
++#define CIX_PAD_SE_QSPI_CLK_FUNC_SE_QSPI_CLK			   (60 << 8 | 0x0)
++#define CIX_PAD_SE_QSPI_CLK_FUNC_QSPI_CLK			   (60 << 8 | 0x1)
++#define CIX_PAD_SE_QSPI_CS_L_FUNC_SE_QSPI_CS_L			   (61 << 8 | 0x0)
++#define CIX_PAD_SE_QSPI_CS_L_FUNC_QSPI_CS_L			   (61 << 8 | 0x1)
++#define CIX_PAD_SE_QSPI_DATA0_FUNC_SE_QSPI_DATA0		   (62 << 8 | 0x0)
++#define CIX_PAD_SE_QSPI_DATA0_FUNC_QSPI_DATA0			   (62 << 8 | 0x1)
++#define CIX_PAD_SE_QSPI_DATA1_FUNC_SE_QSPI_DATA1		   (63 << 8 | 0x0)
++#define CIX_PAD_SE_QSPI_DATA1_FUNC_QSPI_DATA1			   (63 << 8 | 0x1)
++#define CIX_PAD_SE_QSPI_DATA2_FUNC_SE_QSPI_DATA2		   (64 << 8 | 0x0)
++#define CIX_PAD_SE_QSPI_DATA2_FUNC_QSPI_DATA2			   (64 << 8 | 0x1)
++#define CIX_PAD_SE_QSPI_DATA3_FUNC_SE_QSPI_DATA3		   (65 << 8 | 0x0)
++#define CIX_PAD_SE_QSPI_DATA3_FUNC_QSPI_DATA3			   (65 << 8 | 0x1)
++/* s0 pads */
++#define CIX_PAD_GPIO043_FUNC_GPIO043				   (0 << 8 | 0x0)
++#define CIX_PAD_GPIO044_FUNC_GPIO044				   (1 << 8 | 0x0)
++#define CIX_PAD_GPIO045_FUNC_GPIO045				   (2 << 8 | 0x0)
++#define CIX_PAD_GPIO046_FUNC_GPIO046				   (3 << 8 | 0x0)
++#define CIX_PAD_DP2_DIGON_FUNC_DP2_DIGON			   (18 << 8 | 0x0)
++#define CIX_PAD_DP2_BLON_FUNC_DP2_BLON				   (19 << 8 | 0x0)
++#define CIX_PAD_DP2_VARY_BL_FUNC_DP2_VARY_BL			   (20 << 8 | 0x0)
++#define CIX_PAD_I2C7_SCL_FUNC_I2C7_SCL				   (21 << 8 | 0x0)
++#define CIX_PAD_I2C7_SDA_FUNC_I2C7_SDA				   (22 << 8 | 0x0)
++#define CIX_PAD_I2C5_SCL_FUNC_I2C5_SCL				   (26 << 8 | 0x0)
++#define CIX_PAD_I2C5_SCL_FUNC_GPIO047				   (26 << 8 | 0x1)
++#define CIX_PAD_I2C5_SDA_FUNC_I2C5_SDA				   (27 << 8 | 0x0)
++#define CIX_PAD_I2C5_SDA_FUNC_GPIO048				   (27 << 8 | 0x1)
++#define CIX_PAD_I2C6_SCL_FUNC_I2C6_SCL				   (28 << 8 | 0x0)
++#define CIX_PAD_I2C6_SCL_FUNC_GPIO049				   (28 << 8 | 0x1)
++#define CIX_PAD_I2C6_SDA_FUNC_I2C6_SDA				   (29 << 8 | 0x0)
++#define CIX_PAD_I2C6_SDA_FUNC_GPIO050				   (29 << 8 | 0x1)
++#define CIX_PAD_I2C0_CLK_FUNC_I2C0_CLK				   (30 << 8 | 0x0)
++#define CIX_PAD_I2C0_CLK_FUNC_GPIO051				   (30 << 8 | 0x1)
++#define CIX_PAD_I2C0_SDA_FUNC_I2C0_SDA				   (31 << 8 | 0x0)
++#define CIX_PAD_I2C0_SDA_FUNC_GPIO052				   (31 << 8 | 0x1)
++#define CIX_PAD_I2C1_CLK_FUNC_I2C1_CLK				   (32 << 8 | 0x0)
++#define CIX_PAD_I2C1_CLK_FUNC_GPIO053				   (32 << 8 | 0x1)
++#define CIX_PAD_I2C1_SDA_FUNC_I2C1_SDA				   (33 << 8 | 0x0)
++#define CIX_PAD_I2C1_SDA_FUNC_GPIO054				   (33 << 8 | 0x1)
++#define CIX_PAD_I2C2_SCL_FUNC_I2C2_SCL				   (34 << 8 | 0x0)
++#define CIX_PAD_I2C2_SCL_FUNC_I3C0_SCL				   (34 << 8 | 0x1)
++#define CIX_PAD_I2C2_SCL_FUNC_GPIO055				   (34 << 8 | 0x2)
++#define CIX_PAD_I2C2_SDA_FUNC_I2C2_SDA				   (35 << 8 | 0x0)
++#define CIX_PAD_I2C2_SDA_FUNC_I3C0_SDA				   (35 << 8 | 0x1)
++#define CIX_PAD_I2C2_SDA_FUNC_GPIO056				   (35 << 8 | 0x2)
++#define CIX_PAD_GPIO057_FUNC_GPIO057				   (36 << 8 | 0x0)
++#define CIX_PAD_GPIO057_FUNC_I3C0_PUR_EN_L			   (36 << 8 | 0x1)
++#define CIX_PAD_I2C3_CLK_FUNC_I2C3_CLK				   (37 << 8 | 0x0)
++#define CIX_PAD_I2C3_CLK_FUNC_I3C1_CLK				   (37 << 8 | 0x1)
++#define CIX_PAD_I2C3_CLK_FUNC_GPIO058				   (37 << 8 | 0x2)
++#define CIX_PAD_I2C3_SDA_FUNC_I2C3_SDA				   (38 << 8 | 0x0)
++#define CIX_PAD_I2C3_SDA_FUNC_I3C1_SDA				   (38 << 8 | 0x1)
++#define CIX_PAD_I2C3_SDA_FUNC_GPIO059				   (38 << 8 | 0x2)
++#define CIX_PAD_GPIO060_FUNC_GPIO060				   (39 << 8 | 0x0)
++#define CIX_PAD_GPIO060_FUNC_I3C1_PUR_EN_L			   (39 << 8 | 0x1)
++#define CIX_PAD_I2C4_CLK_FUNC_I2C4_CLK				   (40 << 8 | 0x0)
++#define CIX_PAD_I2C4_CLK_FUNC_GPIO061				   (40 << 8 | 0x1)
++#define CIX_PAD_I2C4_SDA_FUNC_I2C4_SDA				   (41 << 8 | 0x0)
++#define CIX_PAD_I2C4_SDA_FUNC_GPIO062				   (41 << 8 | 0x1)
++#define CIX_PAD_HDA_BITCLK_FUNC_HDA_BITCLK			   (42 << 8 | 0x0)
++#define CIX_PAD_HDA_BITCLK_FUNC_I2S0_SCK			   (42 << 8 | 0x1)
++#define CIX_PAD_HDA_BITCLK_FUNC_I2S9_RSCK_DBG			   (42 << 8 | 0x2)
++#define CIX_PAD_HDA_RST_L_FUNC_HDA_RST_L			   (43 << 8 | 0x0)
++#define CIX_PAD_HDA_RST_L_FUNC_I2S0_DATA_IN			   (43 << 8 | 0x1)
++#define CIX_PAD_HDA_RST_L_FUNC_I2S9_DATA_IN0_DBG		   (43 << 8 | 0x2)
++#define CIX_PAD_HDA_SDIN0_FUNC_HDA_SDIN0			   (44 << 8 | 0x0)
++#define CIX_PAD_HDA_SDIN0_FUNC_I2S0_MCLK			   (44 << 8 | 0x1)
++#define CIX_PAD_HDA_SDIN0_FUNC_I2S9_TSCK_DBG			   (44 << 8 | 0x2)
++#define CIX_PAD_HDA_SDOUT0_FUNC_HDA_SDOUT0			   (45 << 8 | 0x0)
++#define CIX_PAD_HDA_SDOUT0_FUNC_I2S0_DATA_OUT			   (45 << 8 | 0x1)
++#define CIX_PAD_HDA_SDOUT0_FUNC_I2S9_TWS_DBG		           (45 << 8 | 0x2)
++#define CIX_PAD_HDA_SYNC_FUNC_HDA_SYNC				   (46 << 8 | 0x0)
++#define CIX_PAD_HDA_SYNC_FUNC_I2S0_WS				   (46 << 8 | 0x1)
++#define CIX_PAD_HDA_SYNC_FUNC_I2S9_RWS_DBG			   (46 << 8 | 0x2)
++#define CIX_PAD_HDA_SDIN1_FUNC_HDA_SDIN1			   (47 << 8 | 0x0)
++#define CIX_PAD_HDA_SDIN1_FUNC_GPIO063				   (47 << 8 | 0x1)
++#define CIX_PAD_HDA_SDIN1_FUNC_I2S9_DATA_IN1_DBG		   (47 << 8 | 0x2)
++#define CIX_PAD_HDA_SDOUT1_FUNC_HDA_SDOUT1			   (48 << 8 | 0x0)
++#define CIX_PAD_HDA_SDOUT1_FUNC_GPIO064				   (48 << 8 | 0x1)
++#define CIX_PAD_HDA_SDOUT1_FUNC_I2S9_DATA_OUT0_DBG		   (48 << 8 | 0x2)
++#define CIX_PAD_I2S1_MCLK_FUNC_I2S1_MCLK			   (49 << 8 | 0x0)
++#define CIX_PAD_I2S1_MCLK_FUNC_GPIO065				   (49 << 8 | 0x1)
++#define CIX_PAD_I2S1_SCK_FUNC_I2S1_SCK				   (50 << 8 | 0x0)
++#define CIX_PAD_I2S1_SCK_FUNC_GPIO066				   (50 << 8 | 0x1)
++#define CIX_PAD_I2S1_WS_FUNC_I2S1_WS				   (51 << 8 | 0x0)
++#define CIX_PAD_I2S1_WS_FUNC_GPIO067				   (51 << 8 | 0x1)
++#define CIX_PAD_I2S1_DATA_IN_FUNC_I2S1_DATA_IN			   (52 << 8 | 0x0)
++#define CIX_PAD_I2S1_DATA_IN_FUNC_GPIO068			   (52 << 8 | 0x1)
++#define CIX_PAD_I2S1_DATA_OUT_FUNC_I2S1_DATA_OUT		   (53 << 8 | 0x0)
++#define CIX_PAD_I2S1_DATA_OUT_FUNC_GPIO069			   (53 << 8 | 0x1)
++#define CIX_PAD_I2S2_MCLK_FUNC_I2S2_MCLK			   (54 << 8 | 0x0)
++#define CIX_PAD_I2S2_MCLK_FUNC_GPIO070				   (54 << 8 | 0x1)
++#define CIX_PAD_I2S2_RSCK_FUNC_I2S2_RSCK			   (55 << 8 | 0x0)
++#define CIX_PAD_I2S2_RSCK_FUNC_GPIO071				   (55 << 8 | 0x1)
++#define CIX_PAD_I2S2_RSCK_FUNC_I2S5_RSCK_DBG			   (55 << 8 | 0x2)
++#define CIX_PAD_I2S2_RSCK_FUNC_I2S6_RSCK_DBG			   (55 << 8 | 0x3)
++#define CIX_PAD_I2S2_RWS_FUNC_I2S2_RWS				   (56 << 8 | 0x0)
++#define CIX_PAD_I2S2_RWS_FUNC_GPIO072				   (56 << 8 | 0x1)
++#define CIX_PAD_I2S2_RWS_FUNC_I2S5_RWS_DBG			   (56 << 8 | 0x2)
++#define CIX_PAD_I2S2_RWS_FUNC_I2S6_RWS_DBG			   (56 << 8 | 0x3)
++#define CIX_PAD_I2S2_TSCK_FUNC_I2S2_TSCK			   (57 << 8 | 0x0)
++#define CIX_PAD_I2S2_TSCK_FUNC_GPIO073				   (57 << 8 | 0x1)
++#define CIX_PAD_I2S2_TSCK_FUNC_I2S5_TSCK_DBG			   (57 << 8 | 0x2)
++#define CIX_PAD_I2S2_TSCK_FUNC_I2S6_TSCK_DBG			   (57 << 8 | 0x3)
++#define CIX_PAD_I2S2_TWS_FUNC_I2S2_TWS				   (58 << 8 | 0x0)
++#define CIX_PAD_I2S2_TWS_FUNC_GPIO074				   (58 << 8 | 0x1)
++#define CIX_PAD_I2S2_TWS_FUNC_I2S5_TWS_DBG			   (58 << 8 | 0x2)
++#define CIX_PAD_I2S2_TWS_FUNC_I2S6_TWS_DBG			   (58 << 8 | 0x3)
++#define CIX_PAD_I2S2_DATA_IN0_FUNC_I2S2_DATA_IN0		   (59 << 8 | 0x0)
++#define CIX_PAD_I2S2_DATA_IN0_FUNC_GPIO075			   (59 << 8 | 0x1)
++#define CIX_PAD_I2S2_DATA_IN0_FUNC_I2S5_DATA_IN0_DBG		   (59 << 8 | 0x2)
++#define CIX_PAD_I2S2_DATA_IN0_FUNC_I2S6_DATA_IN0_DBG		   (59 << 8 | 0x3)
++#define CIX_PAD_I2S2_DATA_IN1_FUNC_I2S2_DATA_IN1		   (60 << 8 | 0x0)
++#define CIX_PAD_I2S2_DATA_IN1_FUNC_GPIO076			   (60 << 8 | 0x1)
++#define CIX_PAD_I2S2_DATA_IN1_FUNC_I2S5_DATA_IN1_DBG		   (60 << 8 | 0x2)
++#define CIX_PAD_I2S2_DATA_IN1_FUNC_I2S6_DATA_IN1_DBG		   (60 << 8 | 0x3)
++#define CIX_PAD_I2S2_DATA_OUT0_FUNC_I2S2_DATA_OUT0		   (61 << 8 | 0x0)
++#define CIX_PAD_I2S2_DATA_OUT0_FUNC_GPIO077			   (61 << 8 | 0x1)
++#define CIX_PAD_I2S2_DATA_OUT0_FUNC_I2S5_DATA_OUT0_DBG		   (61 << 8 | 0x2)
++#define CIX_PAD_I2S2_DATA_OUT0_FUNC_I2S6_DATA_OUT0_DBG		   (61 << 8 | 0x3)
++#define CIX_PAD_I2S2_DATA_OUT1_FUNC_I2S2_DATA_OUT1		   (62 << 8 | 0x0)
++#define CIX_PAD_I2S2_DATA_OUT1_FUNC_GPIO078			   (62 << 8 | 0x1)
++#define CIX_PAD_I2S2_DATA_OUT1_FUNC_I2S5_DATA_OUT1_DBG		   (62 << 8 | 0x2)
++#define CIX_PAD_I2S2_DATA_OUT1_FUNC_I2S6_DATA_OUT1_DBG		   (62 << 8 | 0x3)
++#define CIX_PAD_I2S2_DATA_OUT2_FUNC_I2S2_DATA_OUT2		   (63 << 8 | 0x0)
++#define CIX_PAD_I2S2_DATA_OUT2_FUNC_GPIO079			   (63 << 8 | 0x1)
++#define CIX_PAD_I2S2_DATA_OUT3_FUNC_I2S2_DATA_OUT3		   (64 << 8 | 0x0)
++#define CIX_PAD_I2S2_DATA_OUT3_FUNC_GPIO080			   (64 << 8 | 0x1)
++#define CIX_PAD_I2S2_DATA_OUT3_FUNC_I2S9_DATA_OUT1_DBG		   (64 << 8 | 0x2)
++#define CIX_PAD_I2S3_MCLK_FUNC_I2S3_MCLK			   (65 << 8 | 0x0)
++#define CIX_PAD_I2S3_MCLK_FUNC_GPIO081				   (65 << 8 | 0x1)
++#define CIX_PAD_I2S3_RSCK_FUNC_I2S3_RSCK			   (66 << 8 | 0x0)
++#define CIX_PAD_I2S3_RSCK_FUNC_GPIO082				   (66 << 8 | 0x1)
++#define CIX_PAD_I2S3_RSCK_FUNC_I2S7_RSCK_DBG			   (66 << 8 | 0x2)
++#define CIX_PAD_I2S3_RSCK_FUNC_I2S8_RSCK_DBG			   (66 << 8 | 0x3)
++#define CIX_PAD_I2S3_RWS_FUNC_I2S3_RWS				   (67 << 8 | 0x0)
++#define CIX_PAD_I2S3_RWS_FUNC_GPIO083				   (67 << 8 | 0x1)
++#define CIX_PAD_I2S3_RWS_FUNC_I2S7_RWS_DBG			   (67 << 8 | 0x2)
++#define CIX_PAD_I2S3_RWS_FUNC_I2S8_RWS_DBG			   (67 << 8 | 0x3)
++#define CIX_PAD_I2S3_TSCK_FUNC_I2S3_TSCK			   (68 << 8 | 0x0)
++#define CIX_PAD_I2S3_TSCK_FUNC_GPIO084				   (68 << 8 | 0x1)
++#define CIX_PAD_I2S3_TSCK_FUNC_I2S7_TSCK_DBG			   (68 << 8 | 0x2)
++#define CIX_PAD_I2S3_TSCK_FUNC_I2S8_TSCK_DBG			   (68 << 8 | 0x3)
++#define CIX_PAD_I2S3_TWS_FUNC_I2S3_TWS				   (69 << 8 | 0x0)
++#define CIX_PAD_I2S3_TWS_FUNC_GPIO085				   (69 << 8 | 0x1)
++#define CIX_PAD_I2S3_TWS_FUNC_I2S7_TWS_DBG			   (69 << 8 | 0x2)
++#define CIX_PAD_I2S3_TWS_FUNC_I2S8_TWS_DBG			   (69 << 8 | 0x3)
++#define CIX_PAD_I2S3_DATA_IN0_FUNC_I2S3_DATA_IN0		   (70 << 8 | 0x0)
++#define CIX_PAD_I2S3_DATA_IN0_FUNC_GPIO086			   (70 << 8 | 0x1)
++#define CIX_PAD_I2S3_DATA_IN0_FUNC_I2S7_DATA_IN0_DBG		   (70 << 8 | 0x2)
++#define CIX_PAD_I2S3_DATA_IN0_FUNC_I2S8_DATA_IN0_DBG		   (70 << 8 | 0x3)
++#define CIX_PAD_I2S3_DATA_IN1_FUNC_I2S3_DATA_IN1		   (71 << 8 | 0x0)
++#define CIX_PAD_I2S3_DATA_IN1_FUNC_GPIO087			   (71 << 8 | 0x1)
++#define CIX_PAD_I2S3_DATA_IN1_FUNC_I2S7_DATA_IN1_DBG		   (71 << 8 | 0x2)
++#define CIX_PAD_I2S3_DATA_IN1_FUNC_I2S8_DATA_IN1_DBG		   (71 << 8 | 0x3)
++#define CIX_PAD_I2S3_DATA_OUT0_FUNC_I2S3_DATA_OUT0		   (72 << 8 | 0x0)
++#define CIX_PAD_I2S3_DATA_OUT0_FUNC_GPIO088			   (72 << 8 | 0x1)
++#define CIX_PAD_I2S3_DATA_OUT0_FUNC_I2S7_DATA_OUT0_DBG		   (72 << 8 | 0x2)
++#define CIX_PAD_I2S3_DATA_OUT0_FUNC_I2S8_DATA_OUT0_DBG		   (72 << 8 | 0x3)
++#define CIX_PAD_I2S3_DATA_OUT1_FUNC_I2S3_DATA_OUT1		   (73 << 8 | 0x0)
++#define CIX_PAD_I2S3_DATA_OUT1_FUNC_GPIO089			   (73 << 8 | 0x1)
++#define CIX_PAD_I2S3_DATA_OUT1_FUNC_I2S7_DATA_OUT1_DBG		   (73 << 8 | 0x2)
++#define CIX_PAD_I2S3_DATA_OUT1_FUNC_I2S8_DATA_OUT1_DBG		   (73 << 8 | 0x3)
++#define CIX_PAD_GPIO090_FUNC_GPIO090				   (74 << 8 | 0x0)
++#define CIX_PAD_GPIO090_FUNC_I2S4_MCLK_LB			   (74 << 8 | 0x1)
++#define CIX_PAD_GPIO091_FUNC_GPIO091				   (75 << 8 | 0x0)
++#define CIX_PAD_GPIO091_FUNC_I2S4_SCK_LB			   (75 << 8 | 0x1)
++#define CIX_PAD_GPIO092_FUNC_GPIO092				   (76 << 8 | 0x0)
++#define CIX_PAD_GPIO092_FUNC_I2S4_WS_LB				   (76 << 8 | 0x1)
++#define CIX_PAD_GPIO093_FUNC_GPIO093				   (77 << 8 | 0x0)
++#define CIX_PAD_GPIO093_FUNC_I2S4_DATA_IN_LB			   (77 << 8 | 0x1)
++#define CIX_PAD_GPIO094_FUNC_GPIO094				   (78 << 8 | 0x0)
++#define CIX_PAD_GPIO094_FUNC_I2S4_DATA_OUT_LB			   (78 << 8 | 0x1)
++#define CIX_PAD_UART0_TXD_FUNC_UART0_TXD			   (79 << 8 | 0x0)
++#define CIX_PAD_UART0_TXD_FUNC_PWM0				   (79 << 8 | 0x1)
++#define CIX_PAD_UART0_TXD_FUNC_GPIO095				   (79 << 8 | 0x2)
++#define CIX_PAD_UART0_RXD_FUNC_UART0_RXD			   (80 << 8 | 0x0)
++#define CIX_PAD_UART0_RXD_FUNC_PWM1				   (80 << 8 | 0x1)
++#define CIX_PAD_UART0_RXD_FUNC_GPIO096				   (80 << 8 | 0x2)
++#define CIX_PAD_UART0_CTS_FUNC_UART0_CTS			   (81 << 8 | 0x0)
++#define CIX_PAD_UART0_CTS_FUNC_FAN_OUT2				   (81 << 8 | 0x1)
++#define CIX_PAD_UART0_CTS_FUNC_GPIO097				   (81 << 8 | 0x2)
++#define CIX_PAD_UART0_RTS_FUNC_UART0_RTS			   (82 << 8 | 0x0)
++#define CIX_PAD_UART0_RTS_FUNC_FAN_TACH2			   (82 << 8 | 0x1)
++#define CIX_PAD_UART0_RTS_FUNC_GPIO098				   (82 << 8 | 0x2)
++#define CIX_PAD_UART1_TXD_FUNC_UART1_TXD			   (83 << 8 | 0x0)
++#define CIX_PAD_UART1_TXD_FUNC_FAN_OUT0				   (83 << 8 | 0x1)
++#define CIX_PAD_UART1_TXD_FUNC_GPIO099				   (83 << 8 | 0x2)
++#define CIX_PAD_UART1_RXD_FUNC_UART1_RXD			   (84 << 8 | 0x0)
++#define CIX_PAD_UART1_RXD_FUNC_FAN_TACH0			   (84 << 8 | 0x1)
++#define CIX_PAD_UART1_RXD_FUNC_GPIO100				   (84 << 8 | 0x2)
++#define CIX_PAD_UART1_CTS_FUNC_UART1_CTS			   (85 << 8 | 0x0)
++#define CIX_PAD_UART1_CTS_FUNC_FAN_OUT1				   (85 << 8 | 0x1)
++#define CIX_PAD_UART1_CTS_FUNC_GPIO101				   (85 << 8 | 0x2)
++#define CIX_PAD_UART1_RTS_FUNC_UART1_RTS			   (86 << 8 | 0x0)
++#define CIX_PAD_UART1_RTS_FUNC_FAN_TACH1			   (86 << 8 | 0x1)
++#define CIX_PAD_UART1_RTS_FUNC_GPIO102				   (86 << 8 | 0x2)
++#define CIX_PAD_UART2_TXD_FUNC_UART2_TXD			   (87 << 8 | 0x0)
++#define CIX_PAD_UART2_TXD_FUNC_GPIO103				   (87 << 8 | 0x1)
++#define CIX_PAD_UART2_RXD_FUNC_UART2_RXD			   (88 << 8 | 0x0)
++#define CIX_PAD_UART2_RXD_FUNC_GPIO104				   (88 << 8 | 0x1)
++#define CIX_PAD_UART3_TXD_FUNC_UART3_TXD			   (89 << 8 | 0x0)
++#define CIX_PAD_UART3_TXD_FUNC_GPIO105				   (89 << 8 | 0x1)
++#define CIX_PAD_UART3_RXD_FUNC_UART3_RXD			   (90 << 8 | 0x0)
++#define CIX_PAD_UART3_RXD_FUNC_GPIO106				   (90 << 8 | 0x1)
++#define CIX_PAD_UART3_CTS_FUNC_UART3_CTS			   (91 << 8 | 0x0)
++#define CIX_PAD_UART3_CTS_FUNC_GPIO107				   (91 << 8 | 0x1)
++#define CIX_PAD_UART3_CTS_FUNC_TRIGIN0				   (91 << 8 | 0x2)
++#define CIX_PAD_UART3_RTS_FUNC_UART3_RTS			   (92 << 8 | 0x0)
++#define CIX_PAD_UART3_RTS_FUNC_GPIO108				   (92 << 8 | 0x1)
++#define CIX_PAD_UART3_RTS_FUNC_TRIGIN1				   (92 << 8 | 0x2)
++#define CIX_PAD_UART4_CSU_PM_TXD_FUNC_UART4_CSU_PM_TXD		   (93 << 8 | 0x0)
++#define CIX_PAD_UART4_CSU_PM_TXD_FUNC_GPIO109			   (93 << 8 | 0x1)
++#define CIX_PAD_UART4_CSU_PM_RXD_FUNC_UART4_CSU_PM_RXD		   (94 << 8 | 0x0)
++#define CIX_PAD_UART4_CSU_PM_RXD_FUNC_GPIO110			   (94 << 8 | 0x1)
++#define CIX_PAD_UART5_CSU_SE_TXD_FUNC_UART5_CSU_SE_TXD		   (95 << 8 | 0x0)
++#define CIX_PAD_UART5_CSU_SE_TXD_FUNC_GPIO111			   (95 << 8 | 0x1)
++#define CIX_PAD_UART5_CSU_SE_RXD_FUNC_UART5_CSU_SE_RXD		   (96 << 8 | 0x0)
++#define CIX_PAD_UART5_CSU_SE_RXD_FUNC_GPIO112			   (96 << 8 | 0x1)
++#define CIX_PAD_UART6_CSU_SE_RXD_FUNC_UART6_CSU_SE_RXD		   (97 << 8 | 0x0)
++#define CIX_PAD_UART6_CSU_SE_RXD_FUNC_GPIO113			   (97 << 8 | 0x1)
++#define CIX_PAD_CLK_REQ0_L_FUNC_CLK_REQ0_L			   (98 << 8 | 0x0)
++#define CIX_PAD_CLK_REQ0_L_FUNC_GPIO114				   (98 << 8 | 0x1)
++#define CIX_PAD_CLK_REQ2_L_FUNC_CLK_REQ2_L			   (99 << 8 | 0x0)
++#define CIX_PAD_CLK_REQ2_L_FUNC_GPIO115				   (99 << 8 | 0x1)
++#define CIX_PAD_CLK_REQ4_L_FUNC_CLK_REQ4_L			   (100 << 8 | 0x0)
++#define CIX_PAD_CLK_REQ4_L_FUNC_GPIO116				   (100 << 8 | 0x1)
++#define CIX_PAD_CSI0_MCLK0_FUNC_CSI0_MCLK0			   (101 << 8 | 0x0)
++#define CIX_PAD_CSI0_MCLK0_FUNC_GPIO117				   (101 << 8 | 0x1)
++#define CIX_PAD_CSI0_MCLK1_FUNC_CSI0_MCLK1			   (102 << 8 | 0x0)
++#define CIX_PAD_CSI0_MCLK1_FUNC_GPIO118				   (102 << 8 | 0x1)
++#define CIX_PAD_CSI1_MCLK0_FUNC_CSI1_MCLK0			   (103 << 8 | 0x0)
++#define CIX_PAD_CSI1_MCLK0_FUNC_GPIO119				   (103 << 8 | 0x1)
++#define CIX_PAD_CSI1_MCLK1_FUNC_CSI1_MCLK1			   (104 << 8 | 0x0)
++#define CIX_PAD_CSI1_MCLK1_FUNC_GPIO120				   (104 << 8 | 0x1)
++#define CIX_PAD_GPIO121_FUNC_GPIO121				   (105 << 8 | 0x0)
++#define CIX_PAD_GPIO121_FUNC_GMAC0_REFCLK_25M			   (105 << 8 | 0x1)
++#define CIX_PAD_GPIO122_FUNC_GPIO122				   (106 << 8 | 0x0)
++#define CIX_PAD_GPIO122_FUNC_GMAC0_TX_CTL			   (106 << 8 | 0x1)
++#define CIX_PAD_GPIO123_FUNC_GPIO123				   (107 << 8 | 0x0)
++#define CIX_PAD_GPIO123_FUNC_GMAC0_TXD0				   (107 << 8 | 0x1)
++#define CIX_PAD_GPIO124_FUNC_GPIO124				   (108 << 8 | 0x0)
++#define CIX_PAD_GPIO124_FUNC_GMAC0_TXD1				   (108 << 8 | 0x1)
++#define CIX_PAD_GPIO125_FUNC_GPIO125				   (109 << 8 | 0x0)
++#define CIX_PAD_GPIO125_FUNC_GMAC0_TXD2				   (109 << 8 | 0x1)
++#define CIX_PAD_GPIO126_FUNC_GPIO126				   (110 << 8 | 0x0)
++#define CIX_PAD_GPIO126_FUNC_GMAC0_TXD3				   (110 << 8 | 0x1)
++#define CIX_PAD_GPIO127_FUNC_GPIO127				   (111 << 8 | 0x0)
++#define CIX_PAD_GPIO127_FUNC_GMAC0_TX_CLK			   (111 << 8 | 0x1)
++#define CIX_PAD_GPIO128_FUNC_GPIO128				   (112 << 8 | 0x0)
++#define CIX_PAD_GPIO128_FUNC_GMAC0_RX_CTL			   (112 << 8 | 0x1)
++#define CIX_PAD_GPIO129_FUNC_GPIO129				   (113 << 8 | 0x0)
++#define CIX_PAD_GPIO129_FUNC_GMAC0_RXD0				   (113 << 8 | 0x1)
++#define CIX_PAD_GPIO130_FUNC_GPIO130				   (114 << 8 | 0x0)
++#define CIX_PAD_GPIO130_FUNC_GMAC0_RXD1				   (114 << 8 | 0x1)
++#define CIX_PAD_GPIO131_FUNC_GPIO131				   (115 << 8 | 0x0)
++#define CIX_PAD_GPIO131_FUNC_GMAC0_RXD2				   (115 << 8 | 0x1)
++#define CIX_PAD_GPIO132_FUNC_GPIO132				   (116 << 8 | 0x0)
++#define CIX_PAD_GPIO132_FUNC_GMAC0_RXD3				   (116 << 8 | 0x1)
++#define CIX_PAD_GPIO133_FUNC_GPIO133				   (117 << 8 | 0x0)
++#define CIX_PAD_GPIO133_FUNC_GMAC0_RX_CLK			   (117 << 8 | 0x1)
++#define CIX_PAD_GPIO134_FUNC_GPIO134				   (118 << 8 | 0x0)
++#define CIX_PAD_GPIO134_FUNC_GMAC0_MDC				   (118 << 8 | 0x1)
++#define CIX_PAD_GPIO135_FUNC_GPIO135				   (119 << 8 | 0x0)
++#define CIX_PAD_GPIO135_FUNC_GMAC0_MDIO				   (119 << 8 | 0x1)
++#define CIX_PAD_GPIO136_FUNC_GPIO136				   (120 << 8 | 0x0)
++#define CIX_PAD_GPIO136_FUNC_GMAC1_REFCLK_25M			   (120 << 8 | 0x1)
++#define CIX_PAD_GPIO137_FUNC_GPIO137				   (121 << 8 | 0x0)
++#define CIX_PAD_GPIO137_FUNC_GMAC1_TX_CTL			   (121 << 8 | 0x1)
++#define CIX_PAD_GPIO138_FUNC_GPIO138				   (122 << 8 | 0x0)
++#define CIX_PAD_GPIO138_FUNC_GMAC1_TXD0				   (122 << 8 | 0x1)
++#define CIX_PAD_GPIO138_FUNC_SPI2_MISO				   (122 << 8 | 0x2)
++#define CIX_PAD_GPIO139_FUNC_GPIO139				   (123 << 8 | 0x0)
++#define CIX_PAD_GPIO139_FUNC_GMAC1_TXD1				   (123 << 8 | 0x1)
++#define CIX_PAD_GPIO139_FUNC_SPI2_CS0				   (123 << 8 | 0x2)
++#define CIX_PAD_GPIO140_FUNC_GPIO140				   (124 << 8 | 0x0)
++#define CIX_PAD_GPIO140_FUNC_GMAC1_TXD2				   (124 << 8 | 0x1)
++#define CIX_PAD_GPIO140_FUNC_SPI2_CS1				   (124 << 8 | 0x2)
++#define CIX_PAD_GPIO141_FUNC_GPIO141				   (125 << 8 | 0x0)
++#define CIX_PAD_GPIO141_FUNC_GMAC1_TXD3				   (125 << 8 | 0x1)
++#define CIX_PAD_GPIO141_FUNC_SPI2_MOSI				   (125 << 8 | 0x2)
++#define CIX_PAD_GPIO142_FUNC_GPIO142				   (126 << 8 | 0x0)
++#define CIX_PAD_GPIO142_FUNC_GMAC1_TX_CLK			   (126 << 8 | 0x1)
++#define CIX_PAD_GPIO142_FUNC_SPI2_CLK				   (126 << 8 | 0x2)
++#define CIX_PAD_GPIO143_FUNC_GPIO143				   (127 << 8 | 0x0)
++#define CIX_PAD_GPIO143_FUNC_GMAC1_RX_CTL			   (127 << 8 | 0x1)
++#define CIX_PAD_GPIO144_FUNC_GPIO144				   (128 << 8 | 0x0)
++#define CIX_PAD_GPIO144_FUNC_GMAC1_RXD0				   (128 << 8 | 0x1)
++#define CIX_PAD_GPIO145_FUNC_GPIO145				   (129 << 8 | 0x0)
++#define CIX_PAD_GPIO145_FUNC_GMAC1_RXD1				   (129 << 8 | 0x1)
++#define CIX_PAD_GPIO146_FUNC_GPIO146				   (130 << 8 | 0x0)
++#define CIX_PAD_GPIO146_FUNC_GMAC1_RXD2				   (130 << 8 | 0x1)
++#define CIX_PAD_GPIO147_FUNC_GPIO147				   (131 << 8 | 0x0)
++#define CIX_PAD_GPIO147_FUNC_GMAC1_RXD3				   (131 << 8 | 0x1)
++#define CIX_PAD_GPIO148_FUNC_GPIO148				   (132 << 8 | 0x0)
++#define CIX_PAD_GPIO148_FUNC_GMAC1_RX_CLK			   (132 << 8 | 0x1)
++#define CIX_PAD_GPIO149_FUNC_GPIO149				   (133 << 8 | 0x0)
++#define CIX_PAD_GPIO149_FUNC_GMAC1_MDC				   (133 << 8 | 0x1)
++#define CIX_PAD_GPIO150_FUNC_GPIO150				   (134 << 8 | 0x0)
++#define CIX_PAD_GPIO150_FUNC_GMAC1_MDIO				   (134 << 8 | 0x1)
++#define CIX_PAD_GPIO151_FUNC_GPIO151				   (135 << 8 | 0x0)
++#define CIX_PAD_GPIO151_FUNC_PM_GPIO0				   (135 << 8 | 0x1)
++#define CIX_PAD_GPIO152_FUNC_GPIO152				   (136 << 8 | 0x0)
++#define CIX_PAD_GPIO152_FUNC_PM_GPIO1				   (136 << 8 | 0x1)
++#define CIX_PAD_GPIO153_FUNC_GPIO153				   (137 << 8 | 0x0)
++#define CIX_PAD_GPIO153_FUNC_PM_GPIO2				   (137 << 8 | 0x1)
 +
-+description:
-+  The pin-controller is used to control Soc pins. There are two pin-controllers
-+  on Cix Sky1 platform. one is used under S0 state, the other one is used under
-+  S0 and S5 state.
++#endif
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index 2fb2c99c0796..bc28e5b0f065 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -328,6 +328,11 @@ i3c1: i3c@4100000 {
+ 			status = "disabled";
+ 		};
+ 
++		iomuxc: pinctrl@4170000 {
++			compatible = "cix,sky1-pinctrl";
++			reg = <0x0 0x04170000 0x0 0x1000>;
++		};
 +
-+properties:
-+  compatible:
-+    enum:
-+      - cix,sky1-pinctrl
-+      - cix,sky1-pinctrl-s5
+ 		mbox_ap2se: mailbox@5060000 {
+ 			compatible = "cix,sky1-mbox";
+ 			reg = <0x0 0x05060000 0x0 0x10000>;
+@@ -416,6 +421,11 @@ ppi_partition1: interrupt-partition-1 {
+ 				};
+ 			};
+ 		};
 +
-+  reg:
-+    items:
-+      - description: gpio base
-+
-+patternProperties:
-+  '-cfg$':
-+    type: object
-+    additionalProperties: false
-+
-+    description:
-+      A pinctrl node should contain at least one subnode representing the
-+      pinctrl groups available on the machine.
-+
-+    patternProperties:
-+      'pins$':
-+        type: object
-+        additionalProperties: false
-+
-+        description:
-+          Each subnode will list the pins it needs, and how they should
-+          be configured, with regard to muxer configuration, bias pull,
-+          and drive strength.
-+
-+        allOf:
-+          - $ref: pincfg-node.yaml#
-+          - $ref: pinmux-node.yaml#
-+
-+        properties:
-+          pinmux:
-+            description:
-+              Values are constructed from pin number and mux setting, pin
-+              number is left shifted by 8 bits, then ORed with mux setting
-+
-+          bias-disable: true
-+
-+          bias-pull-up: true
-+
-+          bias-pull-down: true
-+
-+          drive-strength:
-+            description:
-+              typical current when output high level.
-+            enum: [ 2, 3, 5, 6, 8, 9, 11, 12, 13, 14, 17, 18, 20, 21, 23,
-+                    24 ]
-+
-+
-+        required:
-+          - pinmux
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #define CIX_PAD_GPIO012_FUNC_GPIO012 (11 << 8 | 0x0)
-+    pinctrl@4170000 {
-+        compatible = "cix,sky1-pinctrl";
-+        reg = <0x4170000 0x1000>;
-+
-+        wifi_vbat_gpio: wifi-vbat-gpio-cfg {
-+            pins {
-+                pinmux = <CIX_PAD_GPIO012_FUNC_GPIO012>;
-+                bias-pull-up;
-+                drive-strength = <8>;
-+           };
-+        };
-+    };
++		iomuxc_s5: pinctrl@16007000 {
++			compatible = "cix,sky1-pinctrl-s5";
++			reg = <0x0 0x16007000 0x0 0x1000>;
++		};
+ 	};
+ 
+ 	timer {
 -- 
 2.49.0
 
