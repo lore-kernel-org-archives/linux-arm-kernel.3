@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82AC6CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 09:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB8ECCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 09:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qUewYvs5quWL8CZ5KUc8yRAa2rvIV3/2PN0yp7OZqoo=; b=plItHZszrbLr2xF9K1qihpX6Xi
-	PUk4lwl62BaDaL4UHBpGUaQhr2jygSBh2d4HiRQy+e3OxqfOhjqNO4j5odPUtsaiVEx3WBGcGHWu2
-	gQCGb4nLIvq5omYukekVhZoQHRs1qnybkljEIlF/lMldDXvi9dUqVfc0Y8lBmttR8xB/OJo03wJ5u
-	lF4C9GQx0/261+xut53lOYR6mQdiaLwRLh8GAn1N0sxI5Jmb7pv+0JGgBefwv/aycZp6LRQp7ry+7
-	6dVHD9+8CPkCJicxE/mdAvX4LMgj+COLskJrocHx2W/4x/ASzDoYgN77nAoByHhKqIUnANrV35EHx
-	vF15aDBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A1REa0dzHBKzz3cn0Ab7+SHLOniVTgR9AY4Q1QKl0Cc=; b=Bco90aS7znUwe40Upi6lsA5ZrM
+	ekLl2jKTOd1U5V3WMBNAUxj45SzSwnYBpZuraL+CTuDWOzUB2sDzLBmPLSb3i6LKsB/58vpWcSKHt
+	mlSX/Q968sSKu+HDkVsAGzWXpbAk2FRwXxQUEua4h5rzacuIrhNhqtpPmT5NHnfxph2TT3RIeV5LO
+	9TLATvI2elzlEdWia8aqqY90Yzi4R64UguGINszgYof8wGYIepq/I+7/xUR201sFex5MGbrOub8sz
+	Aayh8pS+cgXr8TTJiURqi9D032Rl9cjOQdzw8X8AZjZIZCrR5p/jdp3og0/rOdXh8Ce17NKwbKHoY
+	HAOoXwfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB8un-0000000GUqS-0XVv;
-	Tue, 21 Oct 2025 09:44:25 +0000
-Received: from mail-m19731106.qiye.163.com ([220.197.31.106])
+	id 1vB90h-0000000GX2S-0jEJ;
+	Tue, 21 Oct 2025 09:50:31 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB8uj-0000000GUoN-13KX;
-	Tue, 21 Oct 2025 09:44:23 +0000
-Received: from [172.16.12.149] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 26a698a5f;
-	Tue, 21 Oct 2025 17:44:12 +0800 (GMT+08:00)
-Message-ID: <1221dd6c-2035-4e5d-8052-341da279fe81@rock-chips.com>
-Date: Tue, 21 Oct 2025 17:44:11 +0800
+	id 1vB90e-0000000GX1e-29gd
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 09:50:29 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vB90U-0007Cl-PC; Tue, 21 Oct 2025 11:50:18 +0200
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vB90S-004hSx-16;
+	Tue, 21 Oct 2025 11:50:16 +0200
+Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 087BF48BFEE;
+	Tue, 21 Oct 2025 09:50:16 +0000 (UTC)
+Date: Tue, 21 Oct 2025 11:50:13 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
+	upstream@lists.phytec.de, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: Add phyBOARD-Segin-i.MX91
+ support
+Message-ID: <20251021-bright-brave-dolphin-906891-mkl@pengutronix.de>
+References: <20251021093704.690410-1-primoz.fiser@norik.com>
+ <20251021093704.690410-2-primoz.fiser@norik.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/8] usb: typec: Add default HPD device when register
- DisplayPort altmode
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: Chaoyi Chen <kernel@airkyi.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
- Diederik de Haas <didi.debian@cknow.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-References: <20251016022741.91-1-kernel@airkyi.com>
- <20251016022741.91-2-kernel@airkyi.com> <aPYImGmesrZWwyqh@kuha.fi.intel.com>
- <954a67d1-1759-4e18-8eef-3fa14fb3cef5@rock-chips.com>
- <aPdI7Vb_djrfCfbT@kuha.fi.intel.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <aPdI7Vb_djrfCfbT@kuha.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9a0627a3a903abkunm5cd7977fb8e2b1
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUpDS1YaGRpIHUpDTBlKGU1WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
-	9VSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=g6OhVZ/yiqpa03UuI1XX7K9vWZ8zWP3G2Gzz5rhk0AcJK/U+UJws7ashU78Y+//2Cp1XYy8iR5A+1sB1SdjmB78dMX58786reFgEn7dhTHoMucj84RbJ6zYHbg7CDu7vWXLe8oopZFd6uuDFaXjD2L3+MUHefnrApM/1yNbvoa0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=qUewYvs5quWL8CZ5KUc8yRAa2rvIV3/2PN0yp7OZqoo=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7y2hkmghfrzgq4ye"
+Content-Disposition: inline
+In-Reply-To: <20251021093704.690410-2-primoz.fiser@norik.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_024421_821609_751BE74B 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20251021_025028_553178_6AE2883A 
+X-CRM114-Status: GOOD (  23.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,69 +85,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/21/2025 4:48 PM, Heikki Krogerus wrote:
 
-> Hi,
->
-> On Mon, Oct 20, 2025 at 07:07:46PM +0800, Chaoyi Chen wrote:
->> Hi Heikki,
->>
->> On 10/20/2025 6:02 PM, Heikki Krogerus wrote:
->>> On Thu, Oct 16, 2025 at 10:27:34AM +0800, Chaoyi Chen wrote:
->>>> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>>
->>>> Add default DRM AUX HPD bridge device when register DisplayPort
->>>> altmode. That makes it redundant for each Type-C driver to implement
->>>> a similar registration process in embedded scenarios.
->>>>
->>>> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>>> ---
->>>>
->>>> Changes in v6:
->>>> - Fix depend in Kconfig.
->>>>
->>>> Changes in v5:
->>>> - Remove the calls related to `drm_aux_hpd_bridge_notify()`.
->>>> - Place the helper functions in the same compilation unit.
->>>> - Add more comments about parent device.
->>>>
->>>>    drivers/usb/typec/Kconfig         |  2 ++
->>>>    drivers/usb/typec/class.c         | 26 ++++++++++++++++++++++++++
->>>>    include/linux/usb/typec_altmode.h |  2 ++
->>>>    3 files changed, 30 insertions(+)
->>>>
->>>> diff --git a/drivers/usb/typec/Kconfig b/drivers/usb/typec/Kconfig
->>>> index 2f80c2792dbd..a6730fbb576b 100644
->>>> --- a/drivers/usb/typec/Kconfig
->>>> +++ b/drivers/usb/typec/Kconfig
->>>> @@ -2,6 +2,8 @@
->>>>    menuconfig TYPEC
->>>>    	tristate "USB Type-C Support"
->>>> +	depends on DRM || DRM=n
->>>> +	select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
->>> This is wrong. DRM should not dictate how this entire subsystem core
->>> is configured. The dependency needs to be on the DRM bridge side.
->>>
->>> You can for example use the bus notification there to see when a new
->>> alternate mode is being registered, or use some other notification
->>> mechanism.
->> Is it a good idea to implement notification functions like
->> drivers/usb/core/notify.c in TCPM, and then let other subsystems (such as DRM)
->> listen to these notifications?
-> Don't limit this to tcpm only. I would suggest something similar what
-> we have for usb bus: drivers/usb/core/notify.c
->
-> So that, but for the typec bus. Then in DRM bridge code you just use
-> typec_register/unregister_notify().
+--7y2hkmghfrzgq4ye
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: Add phyBOARD-Segin-i.MX91
+ support
+MIME-Version: 1.0
 
-I will try to add drivers/usb/typec/notify.c in v7 to implement this. Thank you.
+On 21.10.2025 11:37:04, Primoz Fiser wrote:
+> Add initial support for the PHYTEC phyBOARD-Segin-i.MX91 board [1] based
+> on the PHYTEC phyCORE-i.MX91 SoM (System-on-Module) [2].
+>=20
+> Supported features:
+> * Audio
+> * CAN
+> * eMMC
+> * Ethernet
+> * I2C
+> * RTC
+> * SD-Card
+> * UART
+> * USB
+>=20
+> For more details see the product pages for the development board and the
+> SoM:
+>=20
+> [1] https://www.phytec.eu/en/produkte/development-kits/phyboard-segin-kit/
+> [2] https://www.phytec.eu/en/produkte/system-on-modules/phycore-imx-91-93/
+>=20
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile        |   1 +
+>  .../dts/freescale/imx91-phyboard-segin.dts    | 344 ++++++++++++++++++
+>  .../boot/dts/freescale/imx91-phycore-som.dtsi | 304 ++++++++++++++++
+>  3 files changed, 649 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts=
+/freescale/Makefile
+> index 525ef180481d..34a81d34de39 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -344,6 +344,7 @@ dtb-$(CONFIG_ARCH_MXC) +=3D imx8qxp-tqma8xqps-mb-smar=
+c-2.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx8ulp-9x9-evk.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx8ulp-evk.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx91-11x11-evk.dtb
+> +dtb-$(CONFIG_ARCH_MXC) +=3D imx91-phyboard-segin.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx91-tqma9131-mba91xxca.dtb
+>  dtb-$(CONFIG_ARCH_MXC) +=3D imx93-9x9-qsb.dtb
+> =20
+> diff --git a/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts b/arc=
+h/arm64/boot/dts/freescale/imx91-phyboard-segin.dts
+> new file mode 100644
+> index 000000000000..bb631439f9cf
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts
+> @@ -0,0 +1,344 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
+> + * Author: Christoph Stoidner <c.stoidner@phytec.de>
+> + *
+> + * Product homepage:
+> + * phyBOARD-Segin carrier board is reused for the i.MX91 design.
+> + * https://www.phytec.eu/en/produkte/single-board-computer/phyboard-segi=
+n-imx6ul/
+> + */
+> +/dts-v1/;
+> +
+> +#include "imx91-phycore-som.dtsi"
+> +
+> +/{
+> +	model =3D "PHYTEC phyBOARD-Segin-i.MX91";
+> +	compatible =3D "phytec,imx91-phyboard-segin", "phytec,imx91-phycore-som=
+",
+> +		     "fsl,imx91";
+> +
+> +	aliases {
+> +		ethernet1 =3D &eqos;
+> +		gpio0 =3D &gpio1;
+> +		gpio1 =3D &gpio2;
+> +		gpio2 =3D &gpio3;
+> +		gpio3 =3D &gpio4;
+> +		i2c0 =3D &lpi2c1;
+> +		i2c1 =3D &lpi2c2;
+> +		mmc0 =3D &usdhc1;
+> +		mmc1 =3D &usdhc2;
+> +		rtc0 =3D &i2c_rtc;
+> +		rtc1 =3D &bbnsm_rtc;
+> +		serial0 =3D &lpuart1;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path =3D &lpuart1;
+> +	};
+> +
+> +	flexcan1_tc: can-phy0 {
+> +		compatible =3D "ti,tcan1043";
+> +		#phy-cells =3D <0>;
+> +		max-bitrate =3D <1000000>;
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&pinctrl_flexcan1_tc>;
+> +		enable-gpios =3D <&gpio4 16 GPIO_ACTIVE_HIGH>;
+> +	};
 
+I think the tcan1043 is a CAN-FD transceiver. According to the datasheet
+it support 2 MBit/s and 5 MBit/s in the "G" variant. However due to the
+board layout, etc, the actual bit rate might still be limited to 1
+MBit/s. Ask the HW engineers if in doubt.
 
->
-> thanks,
->
--- 
-Best,
-Chaoyi
+regards,
+Marc
 
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--7y2hkmghfrzgq4ye
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmj3V1IACgkQDHRl3/mQ
+kZxWzAf/fxSz9NDY21Y3KxeV/w5epdWrucWsqqjsdEU0ACBO7vaDLgzQBWrWylM3
+SbMwTG47o3YVQKQN9VZAz+niqnsspW+Zd5rka7aOkKN0m7omFZ0WZOqiLlURa1Xb
+rXCDGM6ac6ZoCR9QBQkOvFjEEdPriF/nF5IUNiL+ks5846ZXclCTvoEjtDTuioxP
+3Hjb3c3QyssbVWhUaHrSqnhqasjk54wRXEpnJjylB/Q2Qp5uuaETw2X4J1bowuDf
+Z4GCVUwENM2y5kG7PW5Jz4fQgHc+AZJiMBPDQ3viDtZHBNlAJjybRdJE9k/p9ONq
+gjwagBiM9rNg3GWhkkg0k8VTAv+5mw==
+=pBli
+-----END PGP SIGNATURE-----
+
+--7y2hkmghfrzgq4ye--
 
