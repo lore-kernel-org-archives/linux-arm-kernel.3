@@ -4,62 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3717ECCD19F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 06:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE36BCCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 07:04:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GDcK8E3M5R8B2VvEQJW+iEfSUDxX2Oq3t5ONK/ap61Q=; b=bSBqkp0xP/eoaDDViSq32spbLH
-	BOOuue65xLSob7dSOqfmmu0pPRttl626I2bWI+JYf4aImDkwzejgIrYqZk3hiidmLuvxxdvt4Xmko
-	+LhAwh32E8OKwXA8RyB54grGp8tcJz7DxFcu1hVEoyflp+d5lwwHC51KTGlxk5D89Xs7sOSRGfcRP
-	/cnz6UwYJ6X3ENEcrAG3HHniF5rncp/Bq3zYRlaUhiKvLytM3V93Pa7t1MDb5/Oa0V2aihe2+Nn6O
-	o1OcTot/tJSQ31WMbqTSJUhdnSSTbx1pFSxssmWHE99idS8oGx3OC+A/skQuJ6QmAyYd3jvqEHrmb
-	tWxXM9NQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JRbUH1Gk2F/DqqOe3Lo8C8pbcAI8AgY8SLKVFuqNhZg=; b=ujZ58aj5JkuSMaojqVOctmA5yN
+	x/dy8I5T8MnOhMoDpAea8M3mI1PDDOF/Q355ClBvH1BrXKXXfHsJCpGNa7dl46sGRuyN6wvLmsJxo
+	Dy+qghf362aqkIsdH82n/VN9Himp6v5BQpbvm2qqjXltJxboCEU9oCrz7ypfeVvQjY9QzpudnupF4
+	354ufGW7eZWUCiH3QByVdOdf83y/tt8bQQWFKb+jJJHGdDLhnxXfzBfTCbLcaR8PaXwET1Vmvi7WW
+	QbQKUf3N0vSggAPNaY5IuQLdwMg+ipvXI+eZGmwqDAy8MgzaBIJnTxi4xuSnuJupijlumVe/Xy5l4
+	B6Ba3Vyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB6LX-0000000FzxX-0Wgx;
-	Tue, 21 Oct 2025 06:59:51 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vB6Q0-0000000G0bF-11xP;
+	Tue, 21 Oct 2025 07:04:28 +0000
+Received: from mail-japanwestazon11022108.outbound.protection.outlook.com ([40.107.75.108] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vB6LU-0000000Fzx4-1hZc;
-	Tue, 21 Oct 2025 06:59:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=GDcK8E3M5R8B2VvEQJW+iEfSUDxX2Oq3t5ONK/ap61Q=; b=pwf2c2XmLc1x9Iteap7pq75l+l
-	XMKItSA/Vz+pZ05mkpOVOVin98sEmrDl8VIhpjsjaCzCqts3AClXE0Jvu7j0kBc50J44V2ziAcIXi
-	QREg7tt8/FJEWg3SwTKVCZA+tUTs+MLi6vs+rAU4crv2tiVW3tE9JKkl7RSiKpieBQof97eUW4ZHf
-	dmPLnSvHqd2K/aIHHF4642k3IZVD2a8a9UTifLCtOxFwpJGL24YE5u9xNYIOjaQjTT2jTwY+jqZts
-	WgkcACXigHyS2JUvFr2WYlLDwYwahAxnAfJh5eurQHINPhjST6XZ2ubYup6qd3o6r2w/8IJGp0pO3
-	ugUfCO3A==;
-Received: from [212.111.240.218] (helo=phil.guestnet.ukdd.de)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vB6LS-0000ZO-J5; Tue, 21 Oct 2025 08:59:46 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: quentin.schulz@cherry.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
+	id 1vB6Pt-0000000G0XY-2b5d
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 21 Oct 2025 07:04:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Mu4cha0vVPBDdn7bAVWM4w8/6Lw8LwagFnyklcnzc9Uo8oskDGdzWOI8QFAEx3ragGj+NkMunTcO/wHYgbNSQHvLDDMmrfNUvXozaoardZvmxT9b6V/PYCnUpvK67ryneDzptnIL86/b0s7DEyIcLKDyRGTY2VPEFWHv/tVo/MlUEJe/Hf35sw0K5c8jstTsYBcFEVOP0WLvO+ZufaLkXLzIuCstSQuNqg2Rm/g6pXcR5U0n9oIwOyYHYCc8wb9fcdmgnM9GV0vFsGKCk9/pnzdLRuEe3u8kQF/gOSIt4JmUpWL8tOJ81hsMvQLrwncQHcEnvbhQYajz7zwIp3/6YA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JRbUH1Gk2F/DqqOe3Lo8C8pbcAI8AgY8SLKVFuqNhZg=;
+ b=p0AvJNXeBdbxyQ8twrH00xecuiwqwOTqFsbIA6rv7blSbx7s17c/76GvddWBEa+qnCnfs5AjaMuJEq3sjUA/pTTXKf1Mg7+zZr+ju4pwC7WhzJ7Od+S47ULOIa1IoTk6GvqLxKQGQ8Wscj6u6YekAfrxoh1UZFkiaIFlZpzz234M6wYX9hoJydulnwK7/mSUcD2FcJDKPOUyrfT9jBZx5hHp7tuMB8fT3bX2H0ptyF476nSa+WDRECaNvRIUfYQqebCO+bFx3fvMff2XTp34oHMtU1mG3Ven0ITGewHulsYar7xjx3yBf3ucHUmtwrQWzt0Nx79u0F+HXePCOV1ebg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SI2P153CA0034.APCP153.PROD.OUTLOOK.COM (2603:1096:4:190::17) by
+ TYSPR06MB7046.apcprd06.prod.outlook.com (2603:1096:400:46b::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9228.16; Tue, 21 Oct 2025 07:04:13 +0000
+Received: from SG1PEPF000082E1.apcprd02.prod.outlook.com
+ (2603:1096:4:190:cafe::20) by SI2P153CA0034.outlook.office365.com
+ (2603:1096:4:190::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9275.4 via Frontend Transport; Tue,
+ 21 Oct 2025 07:04:08 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG1PEPF000082E1.mail.protection.outlook.com (10.167.240.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9253.7 via Frontend Transport; Tue, 21 Oct 2025 07:04:11 +0000
+Received: from localhost.localdomain (unknown [172.16.64.196])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 0266F4143A8B;
+	Tue, 21 Oct 2025 15:04:11 +0800 (CST)
+From: Gary Yang <gary.yang@cixtech.com>
+To: linus.walleij@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix indentation on rk3399 haikou demo dtso
-Date: Tue, 21 Oct 2025 08:59:45 +0200
-Message-ID: <176102998080.81864.1578466787311951738.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20251020091139.3652738-1-heiko@sntech.de>
-References: <20251020091139.3652738-1-heiko@sntech.de>
+	linux-arm-kernel@lists.infradead.org,
+	cix-kernel-upstream@cixtech.com,
+	Gary Yang <gary.yang@cixtech.com>
+Subject: [PATCH v5 0/3] Add pinctrl support for Sky1
+Date: Tue, 21 Oct 2025 15:04:07 +0800
+Message-ID: <20251021070410.3585997-1-gary.yang@cixtech.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E1:EE_|TYSPR06MB7046:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 01167e65-69e2-4bce-0aed-08de107009d4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?M5tcC59ZyazJf8M6kxiBP8Gjuuo+vAZtlKj058O6D4hbGIgJ6yaoyAQWyJqd?=
+ =?us-ascii?Q?8PqV627chLCEIdKzX/156eJU/VFtjTXllgRnlVbrbFFKZMPQqEBwpqHBGZNA?=
+ =?us-ascii?Q?IUL2NGzd/HrRoxjddw2VErCYlXQExeKz7N7m15w+S1lcTx8b/QJsu26MUlTP?=
+ =?us-ascii?Q?9tFBHtnO3ooXCgD40gczm415Aq5CMas9Qa5wWoNt04IWnsPdMfDIZQVfLZiq?=
+ =?us-ascii?Q?HzUuuNsc9oK4yOC1v6wVJ2dlymDRUdXfEBibNpERQVaVlrhcwqpD3RWXC74K?=
+ =?us-ascii?Q?vsLbQ0Jlc047LSeGve2nQTygjsyCzSnaCARrw9OdMOZBU4QRxXwY25ICPqv1?=
+ =?us-ascii?Q?ZYGXpnevg2T+kHn4Sz33WR+P0hquTKDc1CJuBH/vcAdRZ0uklpPaCU3ZxyfP?=
+ =?us-ascii?Q?djCtXsb3z3NX7uAa0jvKX1XWAIl2HDsTGwkvE+bsTxnm2dk/JGgmNy7lkPFY?=
+ =?us-ascii?Q?nU0LzLal85Zv9ilwJ2qxmiGNdd3q41B8yzF1kHzBvXmBB+6dfOcpyQOTTY7Q?=
+ =?us-ascii?Q?e9g8Ivi+fCQt7jpXltv9zrc1FYg1q8ioUEf+ErW8wRcTkipkFbATFk4/2x73?=
+ =?us-ascii?Q?/vCkpdS4W5FJDOHoOSekODpLfRgSuwBKxjs5GeRc/pKnUDanAEdPIK0YYDm+?=
+ =?us-ascii?Q?RWSwIYgHU6xH8zaLsaUrCuY9bUTOjG9jDGO5YhHRgmj2L/VOlq1DXmmrT+HV?=
+ =?us-ascii?Q?LTMls6F8qbyyv/2Li0kkAn9dkL2AV8o5UrLuPTd+3/THv3WdsBvBc3BqnzfO?=
+ =?us-ascii?Q?hgEWyZuyyryZhR76i68pfv9n26hTG+hmNbvsSXR6kPNvQ+sDi1Lw2vxyNs6C?=
+ =?us-ascii?Q?/CU+zvJhFMHV9JQ00boPUVFvwQf9Rg8D7qCa1erGR6cSaJg94JZyVWsUekSD?=
+ =?us-ascii?Q?2vKnHCLLC2Ys5x7x3dO2TVF2Orp3LSpNGEmL+QtbkRp612d3xHrfu2elLEIR?=
+ =?us-ascii?Q?4uJgxRiWeT0xKA+oAAVOEBdIi61PYMMp6sGqDJbtJSG1F4dEjY4HiSIcnXmM?=
+ =?us-ascii?Q?FWm16pZXaYbtZ2usgGxiF9MF8EnESGdOmMZgzSitbv4HQ9mxCeGd0ABQNUMp?=
+ =?us-ascii?Q?8mTYvaC2rI2y3pYfQVbVtDPRkUmXAB94HjeqhRghXCorzpQNAbg+SY8o5KgA?=
+ =?us-ascii?Q?h8Jq+0W5aj6Klahqy4bUM0zYJjIt6iZ5Evudh8hFnXTsAIyS5tapmdf8WUay?=
+ =?us-ascii?Q?3QujxVFUDRA57Mw78p6oMDvlvxgaIRv8HpTMC8nRrAkihetxCCn4DYb+TnvG?=
+ =?us-ascii?Q?WWD0Il7daJ8kTwaK7j7CjtnaLphDxTw6Ir1Xql0+JGwgAQxVQ3y2sniXM9Zz?=
+ =?us-ascii?Q?gnCRebQiN6HMlfjymrlJuRfs/AWC2hh7rskf67iZMFMk3+dcm+ZvcxsSxSGe?=
+ =?us-ascii?Q?RbOrWDmWAHTRVXPg8lecZI0yjHLl/+PshKw4xuZoaeUd1Md2rkDJee4hALmH?=
+ =?us-ascii?Q?CSVBFvmPYWJCInC/MVuUZH8iq6Da8vxxQSPJaiH6nmPI6ZU67cuiSlnl66L+?=
+ =?us-ascii?Q?wurDUxtd/eS+Suk6oaTFLdYuMra7jY31t8WkYxkkzf2qP9AyUOe+hnFp3v+m?=
+ =?us-ascii?Q?HrACoUROoZ+GL5uBNT8=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Oct 2025 07:04:11.8675
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 01167e65-69e2-4bce-0aed-08de107009d4
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E1.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR06MB7046
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251020_235948_465058_FE12BAE8 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251021_000421_668103_B3386A2B 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,19 +140,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Patch 1: Add dt-binding doc for pinctrl on Sky1
+Patch 2: Add pin-controller driver for sky1
+Patch 3: Add pinctrl nodes for sky1
 
-On Mon, 20 Oct 2025 11:11:39 +0200, Heiko Stuebner wrote:
-> The regulator-cam-dovdd-1v8 uses spaces for indentation, where it should
-> use tabs. Fix this.
-> 
-> 
+Changes for v5:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-pinctrl.yaml
+scripts/checkpatch.pl 000*.patch
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+- Drop DS_LEVELX macro
+- Fix dt-bindings style
+- Fix build warning
 
-Applied, thanks!
+Changes for v4:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-pinctrl.yaml
+scripts/checkpatch.pl 000*.patch
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+- support driver_strength = <8> (mA)
+- Fix dt-bindings style
 
-[1/1] arm64: dts: rockchip: Fix indentation on rk3399 haikou demo dtso
-      commit: 26f0f122f92f2e8c384c08a05956417bfb5f6fbe
+Changes for v3:
+- Pass dts build check with below commands:
+make O=$OUTKNL dt_binding_check
+make O=$OUTKNL dt_binding_check DT_SCHEMA_FILES=cix,sky1-pinctrl.yaml
+scripts/checkpatch.pl 000*.patch
+make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb
+- Re-order the patch set, and move dt-bindings to the 1st patch.
+- Refine the pinctrl driver with SKY_PINFUNCTION macro
+- Fix warnings when make dt_binding_check
 
-Best regards,
+Changes for v2:
+- restructure the pinctrl driver to support pinmux=<..>
+- redefine pinmux macros
+- move header file from dt-bindings to dts
+- fix the code-style issues
+
+Gary Yang (3):
+  dt-bindings: pinctrl: Add cix,sky1-pinctrl
+  pinctrl: cix: Add pin-controller support for sky1
+  arm64: dts: cix: Add pinctrl nodes for sky1
+
+ .../bindings/pinctrl/cix,sky1-pinctrl.yaml    |  92 +++
+ arch/arm64/boot/dts/cix/sky1-orion-o6.dts     |  32 +
+ arch/arm64/boot/dts/cix/sky1-pinfunc.h        | 401 ++++++++++++
+ arch/arm64/boot/dts/cix/sky1.dtsi             |  10 +
+ drivers/pinctrl/Kconfig                       |   1 +
+ drivers/pinctrl/Makefile                      |   1 +
+ drivers/pinctrl/cix/Kconfig                   |  14 +
+ drivers/pinctrl/cix/Makefile                  |   4 +
+ drivers/pinctrl/cix/pinctrl-sky1-base.c       | 573 ++++++++++++++++++
+ drivers/pinctrl/cix/pinctrl-sky1.c            | 559 +++++++++++++++++
+ drivers/pinctrl/cix/pinctrl-sky1.h            |  48 ++
+ 11 files changed, 1735 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/cix,sky1-pinctrl.yaml
+ create mode 100644 arch/arm64/boot/dts/cix/sky1-pinfunc.h
+ create mode 100644 drivers/pinctrl/cix/Kconfig
+ create mode 100644 drivers/pinctrl/cix/Makefile
+ create mode 100644 drivers/pinctrl/cix/pinctrl-sky1-base.c
+ create mode 100644 drivers/pinctrl/cix/pinctrl-sky1.c
+ create mode 100644 drivers/pinctrl/cix/pinctrl-sky1.h
+
 -- 
-Heiko Stuebner <heiko@sntech.de>
+2.49.0
+
 
