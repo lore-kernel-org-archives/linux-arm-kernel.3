@@ -4,52 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62FE2CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 10:25:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B58CCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 10:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KLGcj7/Q1TNmma4fA/m9uysTtoYsuzbQbqU32l2LFZs=; b=z+lvo17IvJ/HOHWgzafPpqH5tB
-	PJlgNIZpKtMJ1OzzEIYszcJGRHWaIeB9ircP0cp+4NY+1zSFSISYrE6/Pxq6yealfCzEFLc0jPSUy
-	PtSwUw4UvGafgKCvwg+ppXwi4yyqbMd0JHmBuGShqHhwcCGj2bDvvbL1Uxj+4nQYGq8i0ghzs/LnI
-	Pu6Ib0RfyB3J6SMz6a8UuHHnSOXay0RundEkOLEMFfUs3WM0UblmRgt9DCOsmWCqkSkACVEqBQ2HN
-	dzocnrv724uIfLDhzWujZibS/NIaXrPsfFy3tmFTk3bzTiv0OQjXgCf+Dd4OeiDV+XougeCmiEbRy
-	cNPACAfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HLKJLesmnHwXx2XikCwASNlIwcklIUwXeC84BOMI5XY=; b=rZvlulnm9Z1O1xz1Fv2SiBsIT1
+	MyMUqjwNaz4OZU4gdP5MMGC9bdV3JrJsZpdQ/rMj4ykZPJtKqeUWPIQPEAKn8JbOdSV/2vMCSs5Wd
+	AaAGW5xpfkwYzd3ltQCo9lmyGw9GYnn9IfKU1l6QV8NDRHdl4NICr6teBLrPlWpSXo0M1icrzils0
+	r97GKjorEkaFClzJ9ZatDq75hYurg5ZfeUvuBA/jP1DCy6VK5sshrEZWRq4cogudzJa+bWCAdEoSm
+	KC6hdRg1IZEHrywZ7864Oeiw496WABMoVbospLnSOu4sLVQ2Pbua8KbVMB/4EnKZ9rTAiNCcXPcCo
+	AOKCpAuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBW2G-00000002U2s-1gb5;
-	Wed, 22 Oct 2025 10:25:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBW24-00000002TyK-1TsQ
+	id 1vBW97-00000002VB6-0KvZ;
+	Wed, 22 Oct 2025 10:32:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBW96-00000002VAx-11Op
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 10:25:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1FD911C00;
-	Wed, 22 Oct 2025 03:25:20 -0700 (PDT)
-Received: from donnerap.arm.com (donnerap.manchester.arm.com [10.33.8.67])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 39D653F63F;
-	Wed, 22 Oct 2025 03:25:27 -0700 (PDT)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Dave Martin <dave.martin@arm.com>
-Subject: [boot-wrapper PATCH 4/4] aarch64: enable access to FEAT_RASv1p1 system registers
-Date: Wed, 22 Oct 2025 11:25:03 +0100
-Message-Id: <20251022102503.2878048-5-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20251022102503.2878048-1-andre.przywara@arm.com>
-References: <20251022102503.2878048-1-andre.przywara@arm.com>
+	Wed, 22 Oct 2025 10:32:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A2925625EF;
+	Wed, 22 Oct 2025 10:32:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64E1CC4CEE7;
+	Wed, 22 Oct 2025 10:32:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761129163;
+	bh=pthV249690+bxt4qEoz+3ETbTdGxtqcVr3KdLoT939s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BDzuCQ2Mfhig0YTQvfzARO/PTzrmYuTW0SZj93iecwA4/7oe5JtmZmmp6/qVpCYYG
+	 GyFSAUIGef+dN6ZRbvc9iT5jwJmv7bydWmphnD169Ask9EBuWjbW4Iz0TNU+AHqDz1
+	 8SUbn0BROumIO52TmQ+913ONC4PTVTJDPWD4QeaOCIbGjdQSu0wJoaQomcOWZ6uaPF
+	 GF3aYIARD/pjMVNWBOL6Ipk5M7ga9dqzCO90hbiVneEcKvx4w4D1kHinXJKRXSh3Vv
+	 RMxepOxny8YlOJkwzSPVl6NVleL4Bd1j5JxqD90OnPI6XF3Lqdlqev1FhXYZCzzmI7
+	 ZFo8C6hIGN0bQ==
+Date: Wed, 22 Oct 2025 16:02:24 +0530
+From: "mani@kernel.org" <mani@kernel.org>
+To: "Havalige, Thippeswamy" <thippeswamy.havalige@amd.com>
+Cc: Stefan Roese <stefan.roese@mailbox.org>, 
+	Bjorn Helgaas <helgaas@kernel.org>, "Bandi, Ravi Kumar" <ravib@amazon.com>, 
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>, 
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
+	"robh@kernel.org" <robh@kernel.org>, "Simek, Michal" <michal.simek@amd.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"stable@vger.kernel.org" <stable@vger.kernel.org>, Sean Anderson <sean.anderson@linux.dev>
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Message-ID: <brekq5jmgnotwpshcksxefpg2adm4vlsbuncazdg32sdpxqjwj@annnvyzshrys>
+References: <20251021212801.GA1224310@bhelgaas>
+ <ab1f7c51-bc41-4774-a0dc-850e53c412eb@mailbox.org>
+ <3it5l556vmfpuu6kz5yvulwosi4ecmcgfbzcizrc5wi7ifddkh@mpzfxf2v6v3f>
+ <72267a6c-13c7-40bd-babb-f73a28625ca4@mailbox.org>
+ <SN7PR12MB7201CF621AF0A38AA905799D8BF3A@SN7PR12MB7201.namprd12.prod.outlook.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_032528_427018_40A6B03A 
-X-CRM114-Status: UNSURE (   9.00  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <SN7PR12MB7201CF621AF0A38AA905799D8BF3A@SN7PR12MB7201.namprd12.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,46 +78,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_RASv1p1 introduces RAS error injection system registers, access to
-which is protected by an SCR_EL3 bit.
+On Wed, Oct 22, 2025 at 10:08:44AM +0000, Havalige, Thippeswamy wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
+> 
+> Hi Stefan,
+> 
+> > -----Original Message-----
+> > From: Stefan Roese <stefan.roese@mailbox.org>
+> > Sent: Wednesday, October 22, 2025 3:29 PM
+> > To: mani@kernel.org
+> > Cc: Bjorn Helgaas <helgaas@kernel.org>; Bandi, Ravi Kumar
+> > <ravib@amazon.com>; Havalige, Thippeswamy
+> > <thippeswamy.havalige@amd.com>; lpieralisi@kernel.org;
+> > bhelgaas@google.com; linux-pci@vger.kernel.org; kwilczynski@kernel.org;
+> > robh@kernel.org; Simek, Michal <michal.simek@amd.com>; linux-arm-
+> > kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
+> > stable@vger.kernel.org; Sean Anderson <sean.anderson@linux.dev>
+> > Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+> >
+> > On 10/22/25 11:55, mani@kernel.org wrote:
+> > > On Wed, Oct 22, 2025 at 08:59:19AM +0200, Stefan Roese wrote:
+> > >> Hi Bjorn,
+> > >> Hi Ravi,
+> > >>
+> > >> On 10/21/25 23:28, Bjorn Helgaas wrote:
+> > >>> On Tue, Oct 21, 2025 at 08:55:41PM +0000, Bandi, Ravi Kumar wrote:
+> > >>>>> On Tue, Oct 21, 2025 at 05:46:17PM +0000, Bandi, Ravi Kumar wrote:
+> > >>>>>>> On Oct 21, 2025, at 10:23 AM, Bjorn Helgaas <helgaas@kernel.org>
+> > wrote:
+> > >>>>>>> On Sat, Sep 20, 2025 at 10:52:32PM +0000, Ravi Kumar Bandi
+> > wrote:
+> > >>>>>>>> The pcie-xilinx-dma-pl driver does not enable INTx interrupts
+> > >>>>>>>> after initializing the port, preventing INTx interrupts from
+> > >>>>>>>> PCIe endpoints from flowing through the Xilinx XDMA root port
+> > >>>>>>>> bridge. This issue affects kernel 6.6.0 and later versions.
+> > >>>>>>>>
+> > >>>>>>>> This patch allows INTx interrupts generated by PCIe endpoints
+> > >>>>>>>> to flow through the root port. Tested the fix on a board with
+> > >>>>>>>> two endpoints generating INTx interrupts. Interrupts are
+> > >>>>>>>> properly detected and serviced. The /proc/interrupts output
+> > >>>>>>>> shows:
+> > >>>>>>>>
+> > >>>>>>>> [...]
+> > >>>>>>>> 32:        320          0  pl_dma:RC-Event  16 Level     400000000.axi-pcie,
+> > azdrv
+> > >>>>>>>> 52:        470          0  pl_dma:RC-Event  16 Level     500000000.axi-pcie,
+> > azdrv
+> > >>>>>>>> [...]
+> > >>
+> > >> First a comment on this IRQ logging:
+> > >>
+> > >> These lines do NOT refer to the INTx IRQ(s) but the controller
+> > >> internal "events" (errors etc). Please see this log for INTx on my
+> > >> Versal platform with pci_irqd_intx_xlate added:
+> > >>
+> > >>   24:          0          0  pl_dma:RC-Event   0 Level     LINK_DOWN
+> > >>   25:          0          0  pl_dma:RC-Event   3 Level     HOT_RESET
+> > >>   26:          0          0  pl_dma:RC-Event   8 Level     CFG_TIMEOUT
+> > >>   27:          0          0  pl_dma:RC-Event   9 Level     CORRECTABLE
+> > >>   28:          0          0  pl_dma:RC-Event  10 Level     NONFATAL
+> > >>   29:          0          0  pl_dma:RC-Event  11 Level     FATAL
+> > >>   30:          0          0  pl_dma:RC-Event  20 Level     SLV_UNSUPP
+> > >>   31:          0          0  pl_dma:RC-Event  21 Level     SLV_UNEXP
+> > >>   32:          0          0  pl_dma:RC-Event  22 Level     SLV_COMPL
+> > >>   33:          0          0  pl_dma:RC-Event  23 Level     SLV_ERRP
+> > >>   34:          0          0  pl_dma:RC-Event  24 Level     SLV_CMPABT
+> > >>   35:          0          0  pl_dma:RC-Event  25 Level     SLV_ILLBUR
+> > >>   36:          0          0  pl_dma:RC-Event  26 Level     MST_DECERR
+> > >>   37:          0          0  pl_dma:RC-Event  27 Level     MST_SLVERR
+> > >>   38:         94          0  pl_dma:RC-Event  16 Level     84000000.axi-pcie
+> > >>   39:         94          0  pl_dma:INTx   0 Level     nvme0q0, nvme0q1
+> > >>
+> > >> The last line shows the INTx IRQs here ('pl_dma:INTx' vs 'pl_dma:RC-
+> > >> Event').
+> > >>
+> > >> More below...
+> > >>
+> > >>>>>>>>
+> > >>>>>>>> Changes since v1::
+> > >>>>>>>> - Fixed commit message per reviewer's comments
+> > >>>>>>>>
+> > >>>>>>>> Fixes: 8d786149d78c ("PCI: xilinx-xdma: Add Xilinx XDMA Root
+> > >>>>>>>> Port driver")
+> > >>>>>>>> Cc: stable@vger.kernel.org
+> > >>>>>>>> Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
+> > >>>>>>>
+> > >>>>>>> Hi Ravi, obviously you tested this, but I don't know how to
+> > >>>>>>> reconcile this with Stefan's INTx fix at
+> > >>>>>>> https://lore.kernel.org/r/20251021154322.973640-1-
+> > stefan.roese@m
+> > >>>>>>> ailbox.org
+> > >>>>>>>
+> > >>>>>>> Does Stefan's fix need to be squashed into this patch?
+> > >>>>>>
+> > >>>>>> Sure, we can squash Stefan’s fix into this.
+> > >>>>>
+> > >>>>> I know we *can* squash them.
+> > >>>>>
+> > >>>>> I want to know why things worked for you and Stefan when they
+> > >>>>> *weren't* squashed:
+> > >>>>>
+> > >>>>>    - Why did INTx work for you even without Stefan's patch.  Did you
+> > >>>>>      get INTx interrupts but not the right ones, e.g., did the device
+> > >>>>>      signal INTA but it was received as INTB?
+> > >>>>
+> > >>>> I saw that interrupts were being generated by the endpoint device,
+> > >>>> but I didn’t specifically check if they were correctly translated
+> > >>>> in the controller. I noticed that the new driver wasn't explicitly
+> > >>>> enabling the interrupts, so my first approach was to enable them,
+> > >>>> which helped the interrupts flow through.
+> > >>>
+> > >>> OK, I'll assume the interrupts happened but the driver might not
+> > >>> have been able to handle them correctly, e.g., it was prepared for
+> > >>> INTA but got INTB or similar.
+> > >>>
+> > >>>>>    - Why did Stefan's patch work for him even without your patch.  How
+> > >>>>>      could Stefan's INTx work without the CSR writes to enable
+> > >>>>>      interrupts?
+> > >>>>
+> > >>>> I'm not entirely sure if there are any other dependencies in the
+> > >>>> FPGA bitstream. I'll investigate further and get back to you.
+> > >>>
+> > >>> Stefan clarified in a private message that he had applied your patch
+> > >>> first, so this mystery is solved.
+> > >>
+> > >> Yes. I applied Ravi's patch first and still got no INTx delivered to
+> > >> the nvme driver. That's what me triggered to dig deeper here and
+> > >> resulted in this v2 patch with pci_irqd_intx_xlate added.
+> > >>
+> > >> BTW:
+> > >> I re-tested just now w/o Ravi's patch and the INTx worked. Still I
+> > >> think Ravi's patch is valid and should be applied...
+> > >
+> > > How come INTx is working without the patch from Ravi which enabled
+> > > INTx routing in the controller? Was it enabled by default in the hardware?
+> >
+> > Yes, this is my best guess right now. I could double-check here, but IMHO it
+> > makes sense to enable it "manually" as done with Ravi's patch to not rely on
+> > this default setup at all.
+> Hardware doesn't enable this bits by default, INTx didn't work since there is a miss match in the DT property which doesn't require pci_irqd_intx_xlate.
+> 
+> interrupt-map = <0 0 0 1 &pcie_intc_0 0>,
+> <0 0 0 2 &pcie_intc_0 1>,
+> <0 0 0 3 &pcie_intc_0 2>,
+> <0 0 0 4 &pcie_intc_0 3>;
+> 
 
-Since boot-wrapper has no business in limiting those features or trapping
-access to those register, set the no-trap bit in SCR_EL3, if we detect
-the respective CPU feature bit.
+Ok. This makes me believe that we do not need Stefan's patch [1] and need just
+this patch from Ravi.
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- arch/aarch64/include/asm/cpu.h | 1 +
- arch/aarch64/init.c            | 3 +++
- 2 files changed, 4 insertions(+)
+- Mani
 
-diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
-index 9c794be..f4b7818 100644
---- a/arch/aarch64/include/asm/cpu.h
-+++ b/arch/aarch64/include/asm/cpu.h
-@@ -68,6 +68,7 @@
- #define SCR_EL3_RW			BIT(10)
- #define SCR_EL3_APK			BIT(16)
- #define SCR_EL3_API			BIT(17)
-+#define SCR_EL3_FIEN			BIT(21)
- #define SCR_EL3_ATA			BIT(26)
- #define SCR_EL3_FGTEN			BIT(27)
- #define SCR_EL3_ECVEN			BIT(28)
-diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
-index 05637d4..704471f 100644
---- a/arch/aarch64/init.c
-+++ b/arch/aarch64/init.c
-@@ -133,6 +133,9 @@ static void cpu_init_el3(void)
- 	if (mrs_field(ID_AA64PFR1_EL1, THE))
- 		scr |= SCR_EL3_RCWMASKEn;
- 
-+	if (mrs_field(ID_AA64PFR0_EL1, RAS) >= 0b0010)
-+		scr |= SCR_EL3_FIEN;
-+
- 	if (mrs_field(ID_AA64PFR2_EL1, FPMR))
- 		scr |= SCR_EL3_EnFPM;
- 
+[1] https://lore.kernel.org/linux-pci/20251021154322.973640-1-stefan.roese@mailbox.org/
+
 -- 
-2.25.1
-
+மணிவண்ணன் சதாசிவம்
 
