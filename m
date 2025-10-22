@@ -4,181 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47BE5CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 00:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B36CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 00:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m7CFn3JgqNpTb9fH7UBGqn2RGEy2Qw1SF2jltO5f1x4=; b=JG9WLLrgqUBgIzmLGZ6Cro1q6t
-	wBpvd1El0YQaym5m/yAUUKTnyh9sg9PS2kvuTPKp+7ThOVuLA56RvNAYkruPsK3d6z0PrMVdXqcQJ
-	39Uif9boGLRaoe6iMBsd525sJMT7ZfoQ/acfLEuq3lHXsbq7yjkfVNAz/JWOzd7O5wi07PISTcPMa
-	4tdi8x2x4Yw768MtZAld2psc+U8hpcQ+nfRKsDYPq1UTAlI0OiQ044ehck9Uay+ReOJxIiAXzPpFX
-	L6xxoQA60T5SXw/uXNlQ26NtRhv4widEwI/0lt4U6aQDDfPHzF3aAln4jZjtU6zfoBUB6qIHYCGLI
-	IgznT/sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RsCiTjfAJVGKd8jls9/TBL277kk9xNpzA5VJ2++/V68=; b=4pXMuvQDQn8rezGDlbOzSjOe0E
+	OXFSSXTWh2BpCIxMmIPQGljv9JxjhSPCW10eC9Sl20T7z5wBBTi5pXwFI02380uATHZpwaWnV2iwJ
+	4xmfK5elh6JmRt0kvScDu5rlbTdlpSGDOw8fhSZM4TPkatKBh2HYd++U5wEVGWfZFCPVgwe0rPCYW
+	KDK1KcxGFPfPN4ssM40LsOKDlpSPIfLdXObgxOfxZwRtSHSWm8tVRpzwJYDUTgqcc5qjVBNC0EDni
+	YFTMrgWTh+ne2wScsGfVKSI8JjlLoRsqpBHavekVsh0PVACvV2pgi+RikmwL5+zn4nZoRPI56JZ8K
+	6GTE7W3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBMj4-000000012tW-1Vr7;
-	Wed, 22 Oct 2025 00:29:14 +0000
-Received: from mail-westus3azon11010004.outbound.protection.outlook.com ([52.101.201.4] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1vBMvW-000000014CV-3BxD;
+	Wed, 22 Oct 2025 00:42:06 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBMj1-000000012sz-0LI8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 00:29:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KhGJOFyVy0ERVRl4OqgOptH5UfB3e4xZZllE9jqtdY0vTiUeGDi+K9+vfqzDArnYmISXhVfn5C5Ngof42JipXFbet3Sc3epR1a799GznyEsagXDbbAvH3BxNEwgF5tweUcWxLVokMvgbFyT57XbTG7Q73VKYnymQ2srgO31IZsigieu1hHYtvlvGgcH0aXeS+jhwlwZ7cVP6pKQawKQsdGxAwRBau2xun0tc3N99r1XQ246mwqWJg2PM4GEgaHQNLu6/nM9v9HCC38RLQdtmB656mbvlsnDvp3D9FDkxEj5bBppV15L2OCBSnTXXTDLEcE0u3/kS828a2GC1rnLTlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m7CFn3JgqNpTb9fH7UBGqn2RGEy2Qw1SF2jltO5f1x4=;
- b=OrJWvQLuajMSfYmg6a0ciDG7OUqK6vXG3VLi7bjN+hFTAs2n0R4XSoP0Ufa5DkJKbB85ttxF16smZ5mTRB817jk4P8gwcvT72H5Ya/cSWSM8vlTweZ0THn25UY/NmrchsITU8RixYF9q7kXgdiQSaleT0Y54aUN5i0MueAyicOYZQY8wLNc+NjH2qHMwGjjNRJMBWHkZfjXOpmPsyYaQLXRVteL/ynWQTPT8If6MUGDP2xqjRTbVfebY7dD5R6QPzI+2Tl/hu3A2RvzGNx2e/6L2bWDVjipkuHjHoXMPWqO+XgbGpTMpV3KkKi04+kKJwlzbFv4ESwCdtDBCuOPcfg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=m7CFn3JgqNpTb9fH7UBGqn2RGEy2Qw1SF2jltO5f1x4=;
- b=dupHr21swUnvvNZPWThbaQL0x8ojvsY/132+IEhGpGxUFZ7Q6aPcuG6k00OoxlYeaHlWXFqfpKUmxTziuOqAp9KlK0DYmhXFcEGs+Tyid+kaqJQ9nVMaEwEuQhmS6psA41EDBmQOn9+dBuTM9D16rK09az6zBcwllRfEuP7/dE7IUdH56kttp4IinAFRFmKjwkARMr0YERrvNohqV2kNYiX9EZ+5ON5YdaCz5Ww+9kTDWCpbSAPPIYiOy86+3VnDKJF85ttgJUsbLa2O131sSxFe2gfeicEhi15A21uqV+tmv3pgaLCWXI7dgoJgemvJKlll5JH8n6iF68OOLYWLgw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- SJ0PR12MB5609.namprd12.prod.outlook.com (2603:10b6:a03:42c::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.17; Wed, 22 Oct
- 2025 00:29:04 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9228.016; Wed, 22 Oct 2025
- 00:29:03 +0000
-Message-ID: <fa5187f0-293e-48f0-ab75-6641e284e8b4@nvidia.com>
-Date: Tue, 21 Oct 2025 17:29:00 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/29] arm_mpam: Add probe/remove for mpam msc driver
- and kbuild boiler plate
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Gavin Shan <gshan@redhat.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
- <20251017185645.26604-8-james.morse@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20251017185645.26604-8-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BYAPR08CA0027.namprd08.prod.outlook.com
- (2603:10b6:a03:100::40) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
+	id 1vBMvV-000000014Bp-11He;
+	Wed, 22 Oct 2025 00:42:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Reply-To:Content-Type:In-Reply-To:References;
+	bh=RsCiTjfAJVGKd8jls9/TBL277kk9xNpzA5VJ2++/V68=; b=ZOq55LUqsOYpHtsTa8MaDcX+xO
+	MWsY9mqJYPBQLKWK0jBiOqVABz8CCKXIdOlnZbJ/jChV/HH3dxjEExavHZsP4ixZL7yL/78kJXuWW
+	iqw/d5lbXy7Q/bs3kZzWa5xdZMUZzoQYT9DdKDnzxBU2b7mJaQTlVNMpXlpinoTJ5h3G+CVeToGAS
+	/IkJGwW++ZpcQTNLFTaLmjPHjdbC8xnWrRuMWRkQazqLafdKH9xutHlcXEJnU1LfdByJPCPX87Uye
+	IDJ/x85EeC1MjNm5QwLJv36Vrjjpbkk8leqpIsj3lmO9TvBoS+UAO+29vVUCBYV5+jGyxECr6XnRY
+	uc96Ttkw==;
+Received: from i53875b19.versanet.de ([83.135.91.25] helo=phil.fritz.box)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vBMvT-0007Tx-2P; Wed, 22 Oct 2025 02:42:03 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: broonie@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: spi: spi-rockchip: Add RK3506 compatible
+Date: Wed, 22 Oct 2025 02:41:59 +0200
+Message-ID: <20251022004200.204276-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|SJ0PR12MB5609:EE_
-X-MS-Office365-Filtering-Correlation-Id: 59e62d2a-b6ca-462a-afa2-08de11020083
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?empId20xSXBCZGFCci9MUkR2U3pReWI4YUFJNTEyR1BFcjVzWmhtQno3TmhY?=
- =?utf-8?B?VUg2TjlBdVhYMklSYVB3elRoaEtTM1h5eTF6aU5PZHB1aC91VTFnSERQV2RI?=
- =?utf-8?B?UkdVL0kwR2pXd3E0SHVzM09wc2w0MHQzVEhXUEdOWmZ3OXJXcHB2SUJUeXpM?=
- =?utf-8?B?OEZKMjl3T2FsY0JpOGRUa2lTVVNldG8xSHVvcXlJajZXanJmb2QrazBpUG5i?=
- =?utf-8?B?L1pwNDh3RXREblpkcFJpejJUZnUxc3c2U2padjdJTWg5YmY4ZG92OTZSMGM2?=
- =?utf-8?B?UDNicU1ackxXRWs3Zzg1NEc5VHowMmFjRUdkRXBicGlOVTVUWTlxS3ArS2Nw?=
- =?utf-8?B?ajlVUmx2dW41RzRGUkNHaStBSG5wNVd5NERmR3RoWmFVWDV1d3dSM1QrKzVs?=
- =?utf-8?B?ZGZmWGVpMVdoZmJGUFVwNWplYjI0S3Rmb1M4YmNRNzFpMVBWa0JnMy9PdlJr?=
- =?utf-8?B?WW02YlIyYTN5ck1PZEFjT0JRdW82THB3NzZrclpRSzNZbEdtMlI0VUhlSm1S?=
- =?utf-8?B?Nkx2YVo2MmJaaVZLRDVLMnFyR2YxMk8wMy9Xb0E0VHNKSWEvYWU3cGJmRjdv?=
- =?utf-8?B?YTNTcllaV2NOSFVvb2tBa1FySkkrS0t4RXZaQ0lCQWgzd3JNVEhxc0R0OFE0?=
- =?utf-8?B?S3dPbU8yd091a3ZrQlpkQzFxZTdwODNKbnJKYStERUhsdXhmV3MrbkJTQW1p?=
- =?utf-8?B?Tkg1Vm5ubGpnK2NBbkVkZ0txNkMvSlAveUF4MTBqRXVNdm42T0w0QWFDMEtj?=
- =?utf-8?B?UTA2ODI5ZVVFTmMrLytrbzVITWU3d2xsU3pHTTRFSVlKTkJyb2VtOHNKOXZr?=
- =?utf-8?B?TFppckl0cHA5RjV5MHBQNDIyQTFqU2twZytaQkVNMi9xZWRDbkJEZndENm0z?=
- =?utf-8?B?cVFPaC9ORm8vNEtuV3Y4TG1CM1hOd3RQUTRCVWgzbWJ4QzlzdmVaaGdFWTJ2?=
- =?utf-8?B?WHoyeUFma2N1Z3B2ZDlNRzZvZFBiamFCZWYrcHMzbGR6VUtoY1NESEJybFlQ?=
- =?utf-8?B?YU8wY2QvSjZON1dsNlkycDMrSlh6RStUdk52UHdtSUVTSWVORDFZU1N6MHp6?=
- =?utf-8?B?YkJDTU8vdnRvd2x4MkY2R3d2ZkxHeS9pQmxDdUFHZGgrdW5KR0VDV01nc0JK?=
- =?utf-8?B?QlA2RUlTTDcxeWR4ZFdoaUFEZ1hva0NOcmJwZHZDL2JwSnBESDBhdXkwTGxj?=
- =?utf-8?B?SjI2UVNBMmRzbnZZN0h5c0ZiZS9tMDFpcmJDamN6UzM5cE1zQTlYR2V5Mm1E?=
- =?utf-8?B?NC9BUEZQSTM2VW8xc25rNHNydE0xM0NFMzhncTFxbTUwbWNzSE1IOURLUkND?=
- =?utf-8?B?SG94Z3hISFJXWUNjTndnOVczY1VDb3JmT3VYV2IvOTJzVXdFZUhBeXkvUXpP?=
- =?utf-8?B?cE9ROVp3YVRpcWx5akdYR2ZzMmNOcVdQM1ZPcHFBcWhQTUFycUtyTzNpN05u?=
- =?utf-8?B?WUMwTFU0MG1oVmttaldvNjBHNUhUQTJKaFZ3bXArSzdMRkpZS25ONnN3Ny9i?=
- =?utf-8?B?YzB2bHFRUTA0NXN5WXhkdXpya3RLWEErTUFrTVJXdUpGR3FwRjlvZSs1RDhC?=
- =?utf-8?B?SmJwZVEzRGZQUFZ2M2ZxZk9rNmp6ZDlvNHVIY0EvbGk4bisyeS80OEJBZS9N?=
- =?utf-8?B?MzlxM21kaFRRalhZRnRmZVdWZktkTnNIS3JwRStQL1BPSFA2Ujd5enVTYjNr?=
- =?utf-8?B?OFlmMHRaY0E5RDdZUy9BUVdUZWdkZlFxMXVkbmJSWEtodFMvbC84T09sTmxh?=
- =?utf-8?B?Sk1pcUVta1g1a0dFSkR1SU5FQnZvRDlLdjM3Ykp5ODdvQXN1N29tTEQvRHVB?=
- =?utf-8?B?Z3dYMDBLUnZDQUtCang2WGFWbzU3Q0JNTmJlcUlFNkV1Z3hzR0h4a25vYkF0?=
- =?utf-8?B?QnZ5YW1hTG9YYkFlS3RoSlVhZnRaT0xYRnlmTlpiYzJDTjJKSlRoTktYZVNS?=
- =?utf-8?Q?9JGZixJ6cYHcjWzxuC0+4IvXSz6Ffp1g?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TEFFQ3Fmc3VpTEZmUlE2eURaMHM2M05qQWx0Y0FwNXZ6eEU4VHREcFJpS3BS?=
- =?utf-8?B?TnN0NFZLM2pXRTVwMk9KY3QxVDRIVjNDbUN5ak9tanlHZU02YnVkckJmRUZD?=
- =?utf-8?B?SU5rak0xZnZZODl1QUtEQjhHTlhGWDdBYUNhYnJkZjhmMklscWFkNTNXUVl6?=
- =?utf-8?B?OWNNblRjMW9SbFRoSkJiZmx6M3dXQ1I0YTlOVWNyQ1hCT0RkdXROMzdGNnBv?=
- =?utf-8?B?MkNabXVlcVNucStMbzQ2U1JEeEdZYmNhQzBzbWRmRTJqWDd0ZjBobUVhdVg0?=
- =?utf-8?B?Wko0dnk3TGV6ZC9GRkhSdDV0bEp4UFVmV2s0N3NxWTlUMzJVOEp4N2RYNGQw?=
- =?utf-8?B?ZE91djJHM3pTZk85Yy84WUZ6WlA3QVIreU5nRzZIMnJaL05tV0Z6S0x5M0Rv?=
- =?utf-8?B?eW5BR2JXVndaNkJKT0tKYzFaOVVSMG1wZXFKZFhmMnczc2FkLzR4Ui9RZ21G?=
- =?utf-8?B?YmhIdXlCcng4T292UHVmdW1JZHpmYmJNNDNscmlFbVNWdGY4WXVvKzVJcU1u?=
- =?utf-8?B?T3cyUUNmRUo5dTRlcmVhMUdsUDJIK2kxbVJzcGU2eVgrcWozcmdOcVBncmRu?=
- =?utf-8?B?RWZUKzgwbFFSTS8yUTQ3djRxallXOWg5RU0rTmJmVWJKUlVocTlrZTg1bGlI?=
- =?utf-8?B?NWRBMDVVVUFEWU5KbWcxT2R5dWwrNy9VRTJFVGlnQlp4THFFVnZQZEdLaFBj?=
- =?utf-8?B?YWJvdE8xLzAwenpwTGdML0lmMWhSQTRqaWJ1NXorK2ZYcC9DV0NCUS9IVTYy?=
- =?utf-8?B?aW1QdjdrbGNvajRyby9Tcnc2ZUVXRVdvUlkyMUFEQnBIM2FqcUdrRlFlbzBH?=
- =?utf-8?B?TVRvbjVidnlUUUJQRUtIRTNIY3NjQ3h4VTdVa2hPbURCZ1ZIUzNLaUkzMWZT?=
- =?utf-8?B?VW5kaVQ3ZERVODhNVnJJd1lHUmpHelREMEt3V3liVlRJUVVRNXRMNnlNbFIr?=
- =?utf-8?B?RW1pVWpxem9NYXZnRmdBWHV2SWYwZStWL3Y1a0VkYWNjQy9YaVZxTFdKYVdq?=
- =?utf-8?B?ZHAwKytqWjVtM3FnYjVFS2pqdzR2alBjV01SR1l0ZmRtQjZ2RDUyajMyQkpt?=
- =?utf-8?B?c1dueFVqNks4ZjNIaFJuQ0Jpa1MrYjNJdTVYblpBUnRJQWY2OTFMVzVvUWRr?=
- =?utf-8?B?THlUeTlrcGtFb1FlVkdRcCtKOVBqM1ZQTEtnSjAyQTdESFJGd1o4SUxlVElI?=
- =?utf-8?B?M2hrd2dXNEo0NkxYMVJuK0VGblVwcHd3VVJlNjJsaEw5ZjRnNlVCM21tcUZo?=
- =?utf-8?B?b2dBNUp3QTYwQ1lPUHR0a1VkSStLSVhLVzhGRHA0Y3JBWG52YmtIZmxacUho?=
- =?utf-8?B?TG9aeE1RdkwvTC90SktGcWtFWmM4T1VNUStkeHU2d0U3UCt5STRobkZZYSs4?=
- =?utf-8?B?SUZsNmI5RXFQRGhiMHNSMTUzb1V2cnJxSGFhajhiWk9jTHFCZ1luQUdBSmFF?=
- =?utf-8?B?U2QrVmhpa2c1cDVNY0JMRlZiUUQwZXdjaDRPY0cvcTh1MTBmTUdqSU0zWmd4?=
- =?utf-8?B?d3Uvc2M3Nnd6UjFpVFo2am1mZmNCTmRIMGxOdVJZRWlUcXJCR3kzcjlGQjFN?=
- =?utf-8?B?NFB6UWxjZHMrbXYxU3F3YnBxZWkra3c5RDYzTE5NZCt6NTlnWisycDJ2Sjh5?=
- =?utf-8?B?b0p2ZHNWMDhZTlpNV2hZNzJpeG4rQ2c3a0hsZFJhU1VvdDJQa25zNHhKQnlp?=
- =?utf-8?B?T3NCUXNMUTBQOFluNjY2OHF4MzFJM3ZKU2F2ai8xVkNvVTh5Z0F5NlVIWEl2?=
- =?utf-8?B?ZmZqaEh5STVQRUtGS3FzV2dzY3M2d2NETGU3VDdNemlSTDFBbHdCaEJsS3RK?=
- =?utf-8?B?Qk83c3BNbjM4KzJvL1B4RjFaMGhHY2ZhdWRXS0VoL3JMVzBHYnBPUUhJNnVv?=
- =?utf-8?B?NjNDVFJXQ2xmMjBtTDlCOVZrTUE1MnJMdWp1cFlDbFgveTJQMXZMWCtINElQ?=
- =?utf-8?B?V3ZLdEMxd0xhaFRUVmpMcklvYkliQkt5YjZJNVBQWEkxaWpPUC8wUE56RG5s?=
- =?utf-8?B?MDN0UVZwaGx5dHlqcWVqT1lPZ1ZaaW45c0RxTlNFWHYyejliWmVuZzMxelpr?=
- =?utf-8?B?N2FCS3ZNN0ZqYjJGZ1RDaFJiQ1lwMnAzV0NwK3h0UEQzY081MWlkMytTNysr?=
- =?utf-8?Q?Sk939QvEiS24p8gR2YIVuGJyc?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 59e62d2a-b6ca-462a-afa2-08de11020083
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 00:29:03.4597
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: udAVV6Y7bAZZFAq97UBnP26vSkK4nfijVDdEvLbw/kEQ58XTBIlTi9QXfFy7wok1bj/hJkefOKJPjnJqCoYGqg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB5609
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_172911_160727_61098CEC 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20251021_174205_303934_798DD111 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,110 +74,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, James,
+The SPI controller found in the RK3506 SoC is still compatible to the
+original one introduced with the RK3066, so add the RK3506 compatible
+to the list of its variants.
 
-On 10/17/25 11:56, James Morse wrote:
-> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
-> only be accessible from those CPUs, and they may not be online.
-> Touching the hardware early is pointless as MPAM can't be used until
-> the system-wide common values for num_partid and num_pmg have been
-> discovered.
-> 
-> Start with driver probe/remove and mapping the MSC.
-> 
-> CC: Carl Worth <carl@os.amperecomputing.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-[SNIP]> +/*
-> + * An MSC can control traffic from a set of CPUs, but may only be accessible
-> + * from a (hopefully wider) set of CPUs. The common reason for this is power
-> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
-> + * corresponding cache may also be powered off. By making accesses from
-> + * one of those CPUs, we ensure this isn't the case.
-> + */
-> +static int update_msc_accessibility(struct mpam_msc *msc)
-> +{
-> +	u32 affinity_id;
-> +	int err;
-> +
-> +	err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
-> +				       &affinity_id);
-> +	if (err)
-> +		cpumask_copy(&msc->accessibility, cpu_possible_mask);
-> +	else
-> +		acpi_pptt_get_cpus_from_container(affinity_id,
-> +						  &msc->accessibility);
-> +	return err;
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ Documentation/devicetree/bindings/spi/spi-rockchip.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-The error is handled and there is no need to return the error to caller.
-Returning the error causes probe failure and the mpam_msc driver cannot 
-be installed.
-
-s/return err;/return 0;/
-
-> +}
-> +
-> +static int fw_num_msc;
-> +
-> +static void mpam_msc_destroy(struct mpam_msc *msc)
-> +{
-> +	struct platform_device *pdev = msc->pdev;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	list_del_rcu(&msc->all_msc_list);
-> +	platform_set_drvdata(pdev, NULL);
-> +}
-> +
-> +static void mpam_msc_drv_remove(struct platform_device *pdev)
-> +{
-> +	struct mpam_msc *msc = platform_get_drvdata(pdev);
-> +
-> +	if (!msc)
-> +		return;
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +	mpam_msc_destroy(msc);
-> +	mutex_unlock(&mpam_list_lock);
-> +
-> +	synchronize_srcu(&mpam_srcu);
-> +}
-> +
-> +static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
-> +{
-> +	int err;
-> +	u32 tmp;
-> +	struct mpam_msc *msc;
-> +	struct resource *msc_res;
-> +	struct device *dev = &pdev->dev;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
-> +	if (!msc)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	mutex_init(&msc->probe_lock);
-> +	mutex_init(&msc->part_sel_lock);
-> +	msc->id = pdev->id;
-> +	msc->pdev = pdev;
-> +	INIT_LIST_HEAD_RCU(&msc->all_msc_list);
-> +	INIT_LIST_HEAD_RCU(&msc->ris);
-> +
-> +	err = update_msc_accessibility(msc);
-> +	if (err)
-> +		return ERR_PTR(err);
-
-The returned error causes probe failure and the driver cannot be 
-installed. Return 0 will make the probe succeed.
-
-There is no probe failure in mpam/snapshot/v6.18-rc1 because its 
-returned err=0.
-
-[SNIP]
-
-Thanks.
-
--Fenghua
+diff --git a/Documentation/devicetree/bindings/spi/spi-rockchip.yaml b/Documentation/devicetree/bindings/spi/spi-rockchip.yaml
+index 748faf7f7081..ce6762c92fda 100644
+--- a/Documentation/devicetree/bindings/spi/spi-rockchip.yaml
++++ b/Documentation/devicetree/bindings/spi/spi-rockchip.yaml
+@@ -34,6 +34,7 @@ properties:
+               - rockchip,rk3328-spi
+               - rockchip,rk3368-spi
+               - rockchip,rk3399-spi
++              - rockchip,rk3506-spi
+               - rockchip,rk3528-spi
+               - rockchip,rk3562-spi
+               - rockchip,rk3568-spi
+-- 
+2.47.2
 
 
