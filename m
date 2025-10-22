@@ -4,61 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E56BCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:12:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F81CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:13:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aCOhMXeNcRlLEJFFTCWsYH3yznwlPc3/uJAlYhMI6lo=; b=ygN+nMqFf3T/pZds7rAIaBOAvC
-	Ug2fBF8GWtUk94vZohK5UPAKdsLcHLpd2CRI4vHhDnhXIPm3R6gH8gxpBzN5CSR+xNre1PquOaXok
-	9CNmGnzssL/hPZK8aQwvWQD8wdZAAEdgTEGrBkfzDrHtU1C7jrN2mh4VDT0ePfDlGOFyMIEdXAXlZ
-	D9HWu+j8foAEd5+we/4Mf7ICU7YQ5qIvRB6KrrbcpLc6vcLKzwbN8aR3vM74Z9W9g+/7UbETHmr6q
-	yBZVZILG2aJOlxzpcisMziScD03+wWhaNwm41s9KPdW9KKQXQXvUAIYOa8z0XWO36efCCYXK51FXU
-	L1H0tHsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wqMreim9nAYer1KCbouUlT+cwbSr2tN/sZopAV8oBn4=; b=J0MPl9ImSVtz/hZOfVvTuFGSLC
+	SqWE3QJg9vAIV4lnW9qPFUXwG6haZOE4FSkGLDg6bbVY0ZDqtvHH9/zoXEyFHi+tBboizjeXvVUb+
+	7MNhvLhAGvX03+mwOFLloMyMRrmAwnls0O9wbtt/N9mOZUQzXQPqwHg7N1cz0QgHgU42K+dAdeMhw
+	i9i8S6xOwGuHEysY9U7mKSQW7KjNsFluu5TA5/IrckshXdAT8O9khNPMLv1F+D4xNxbQS1hlus+gQ
+	EMI54LqvoJwrpUEYUjXOnWD0vW/hfTLyRbxJ1Nkb7Pifmt++cqjQbyHfoGxR8GwwGQfsmWUQ4Yg3b
+	bMd1muOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBT1f-00000001pHS-0RkG;
-	Wed, 22 Oct 2025 07:12:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBT2V-00000001pQN-0Y36;
+	Wed, 22 Oct 2025 07:13:43 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBT1d-00000001pH1-1PPT;
-	Wed, 22 Oct 2025 07:12:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A534C6287A;
-	Wed, 22 Oct 2025 07:12:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 099D4C4CEE7;
-	Wed, 22 Oct 2025 07:12:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761117168;
-	bh=aCOhMXeNcRlLEJFFTCWsYH3yznwlPc3/uJAlYhMI6lo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=P20bzHE882yA6YpVwda4fjhuxkc1B1YP8vfan0Thd1UpfWY5E5Ai1Fa3iBvGDLdHo
-	 uHXRDqdfzWzSpBVY6fobdgGoVR57prFL3IAz/xKKrnyRdCB5oDF5znTcGusdVjqKNw
-	 /A2UlLm3syA+BDqsDTX8NW1Qdg18kcHNpq4o+G4HOCBsS8W92gxbsyEaT5lch7WEnC
-	 NIcdRgjZANy5OVG8M2BGmsa09g8zZi6mxBRjtBxUAsBP6+utl+22nBVSdM/EuknISt
-	 1p94l6tXZ1b3w9h1/xrpN2H3V81HhknAgRoxeMIX0np4FlDu718+UfWK3C2EnAxbIG
-	 Kj7KUzfAzpOng==
-Date: Wed, 22 Oct 2025 09:12:45 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Remove code duplication in
- airoha_regs.h
-Message-ID: <aPiD7WTSGbJq_xKO@lore-desk>
-References: <20251018-airoha-regs-cosmetics-v1-1-bbf6295c45fd@kernel.org>
- <20251021182800.2c736d21@kernel.org>
+	id 1vBT2R-00000001pPN-3AAB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Oct 2025 07:13:41 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-471bde1e8f8so15942685e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 00:13:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761117218; x=1761722018; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wqMreim9nAYer1KCbouUlT+cwbSr2tN/sZopAV8oBn4=;
+        b=guOVZ8Yn4HjBEu+d0GDVVxdt+igGOHDH+XTbaLN0EptfLPZ+JZukMbrSOSbIbPTAd2
+         zyGrHHKnyHtdUi0oPmlGVVPr/aPbKTkwa/GRKRs7tUVlmBrYpSNfDe/PIJd8n2kuWXb2
+         XR86MyxvBejXb4FKIBR3oeuSuN5MGiZiko3DeT6DWeQitRtIq71mENfCOZk1rLZ6fSA/
+         9rDNFE/jtyxKaH/oyAUDAo72WFY/nbdhlRKHYhzdzkjtD14j6YEveuBM4XCpm2V8wNar
+         TepV7HQqQLOs/SBKRvgWBb8ATHoaLGRmQ+0rm1oSChtTe4XGXKCDsDYn6NmGa/AYkaf8
+         s2sA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761117218; x=1761722018;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wqMreim9nAYer1KCbouUlT+cwbSr2tN/sZopAV8oBn4=;
+        b=CuA8NjpsNTEzbvp/hFUofGWk5mVIYJiu8+i8V1iec9wq2xmpo+MeLT5waKvhZYQU4a
+         +Vu5pXr/jr+GqV860WgsUrbT3PDrPc22Z4cLFYlkbSFj1NE5+6N61/xQwCFMDXDCitO7
+         3QZZn7vx5CujwOQhRcw/xwGsN9cAbAd8+cKR4aaa/U7yHlkK9hZP5qxS7yLvY9H4OGpM
+         N37LFvnhPf/eG6M+NptD/Wq3oAe1S7AiySb+GI0v+urXWhT6SytxOobEkt0yeEeWO7v9
+         aWNgMD7ZQuBepS7p2wRlQH8ypkMCET4uMyVAjlrVL2CdiUd5rX/usV4unyCrN+xQ9fxT
+         RMyQ==
+X-Gm-Message-State: AOJu0YyKBUc/KNNbiLitB0aTU9NJ7u86fiPSa9cAzzJjJzAmazXH5AAO
+	YU4UYHCmWpGOS3RmYICNdg2FQXgkDN2+I2nIDDKvKKikdKsf/qYqsv6iMjhGjFNeqDw=
+X-Gm-Gg: ASbGncu/naef/YmNXSgUqCZdexVJRZmsjyEx1ZeGAoEF1mw214kOy17xLL7UiIz92Oe
+	zJEoz2y9+ocAhbe0Ow1VrZlhizld1y7uxi3bIIx10CEluYaloig5EyZ56nOdDSDgYlUsl9kN2BP
+	9He5TubSEJAbyFYSeNAfWziqfD0j/aUONZx4DtfIC42joCYC0E0P1j+Fff9xdswtfvKe0eZEhs5
+	VbLR2G4dZ611UVHZ+OOM9Fn+keL3yiTDdlnv+sF7W2JBW4t2IB88D71wNHD/TMxCmZcOAuAbU/n
+	IBJR0p/0/zBRRSAf3qAN8Ri5jhTfrsJvbnxDCb4iIds7uof7pdeUEDVcKoMog9PUMnOV9wPC9aD
+	FmubnBmXp2T1EmdPqqk9L/biVlPkmpxALy1y0lFoBxyzyebc5IDK7LRqrWK+CK4sruOB0+HBb3b
+	c5UHzbJGF1mkFiB97fpoNZ
+X-Google-Smtp-Source: AGHT+IFrToHcy6QNjmKjXvKbtPCmRCoAalFEfH2Sz994Kb8x9DVcmCsK+N+zANuRJUkEATjH9AeXLw==
+X-Received: by 2002:a05:600c:670a:b0:45d:d97c:236c with SMTP id 5b1f17b1804b1-471179017f3mr128014945e9.21.1761117217823;
+        Wed, 22 Oct 2025 00:13:37 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:8261:5fff:fe11:bdda])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475c427c3casm29428155e9.4.2025.10.22.00.13.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Oct 2025 00:13:37 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Kevin Hilman <khilman@baylibre.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20251022-a5-pinctrl-node-v4-1-a71911852c4b@amlogic.com>
+References: <20251022-a5-pinctrl-node-v4-1-a71911852c4b@amlogic.com>
+Subject: Re: [PATCH v4] dts: arm64: amlogic: add a5 pinctrl node
+Message-Id: <176111721718.2414958.3337470167774710768.b4-ty@linaro.org>
+Date: Wed, 22 Oct 2025 09:13:37 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="z+kCoUsYQ/MpQx5l"
-Content-Disposition: inline
-In-Reply-To: <20251021182800.2c736d21@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251022_001339_815391_DAACE104 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,38 +103,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---z+kCoUsYQ/MpQx5l
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, 22 Oct 2025 13:04:48 +0800, Xianwei Zhao wrote:
+> Add pinctrl device to support Amlogic A5.
+> 
+> 
 
-On Oct 21, Jakub Kicinski wrote:
-> On Sat, 18 Oct 2025 11:21:47 +0200 Lorenzo Bianconi wrote:
-> > This patch does not introduce any logical change, it just removes
-> > duplicated code in airoha_regs.h.
-> > Fix naming conventions in airoha_regs.h.
->=20
-> Appears not to apply
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.19/arm64-dt)
 
-ack, I will rebase and post v2.
+[1/1] dts: arm64: amlogic: add a5 pinctrl node
+      https://git.kernel.org/amlogic/c/a8b41683186d1465c06aabfee6e66ae0bb29f5fe
 
-Regards,
-Lorenzo
+These changes has been applied on the intermediate git tree [1].
 
-> --=20
-> pw-bot: cr
+The v6.19/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
 
---z+kCoUsYQ/MpQx5l
-Content-Type: application/pgp-signature; name=signature.asc
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
 
------BEGIN PGP SIGNATURE-----
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaPiD7QAKCRA6cBh0uS2t
-rIUJAP9sOdpMJGpik1zGfDRuiTGJVOSOzifTwnhJUXdgIC5RJgD+PW8POUZxObMS
-MPTuJ+Zw2b8Oy+Ww44Da7DmnCcrRDg4=
-=Cu9m
------END PGP SIGNATURE-----
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
 
---z+kCoUsYQ/MpQx5l--
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+
+-- 
+Neil
+
 
