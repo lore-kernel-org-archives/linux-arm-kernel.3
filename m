@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D258FCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34893CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:08:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C40h/x8gJR0SzNdMARATsgY0PnBhg2gqDFcm+z5oKOQ=; b=3flQ8HETs5thzITt6Z1eFUhsz3
-	UTMogkC6i6eoOUBhY0rPLv5d2a0mqJCBuM2UAWsu4slqLp30xvMoUs7S7lBkypcbF2hrsbzozUnDd
-	C68QnTxHxjX4CvJ/sD7irpx74cBWyjgZQGLWeb9orI2pAXiCtTp4p8UJLtRC9A67+Exdn9BKAMa0m
-	mcolran45ybH6Hy1jOhFvHgwrP3qDp+O5yyP8m+aBpmoG9G3ahR++9qnl5qv+FaE/mFT2nu2SdD4j
-	bxkYiOJ3Y/S8tbH1lRbqOws0aXMh/TUiAimM9nMte3V/RduJQf6t2GL1dL/212OzvHZDJRNzI3WKm
-	sgJ/IWqQ==;
+	bh=mU1PzAZ1BNV26YpxLxNOHYihlxsG75VaTbtBXC0551E=; b=OL5CrZi02NoNxBNwai+Ppg1QT5
+	RBzEnXMwigh7p9J38G2/9QHuP72C18ki37FKJQd2Fcn+2JcXnFmg92mYIMya2bkQQFAfnRn34Qhn8
+	0Ws3CZtF/oYWf26IFUrQd1IbEOpynrZCl+5IpGA/TN8Wzp0ALlwszBqyOV7puBe4cGj9QREfvBxpe
+	cVtRWpR3cAgrVAPEsTtsUbq4O16GOtoX/ybrWVtd36MMVfH1HriK/nYTKG8vt77OJfcGbueAMnl2p
+	2f2wQrTqMvTtkViDVJb/th6I2q/kwdzhSbsAMP7br9bm5EBr6UgAbBKHu8Fju3Xq2kAEIRYOzk6SL
+	JbEHeJ9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSv2-00000001nGU-22sr;
-	Wed, 22 Oct 2025 07:06:00 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vBSxb-00000001oAg-3yAH;
+	Wed, 22 Oct 2025 07:08:40 +0000
+Received: from out-179.mta1.migadu.com ([2001:41d0:203:375::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSux-00000001n6i-0002
+	id 1vBSxY-00000001o9l-3CHB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 07:05:56 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 22 Oct
- 2025 15:05:44 +0800
-Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 22 Oct 2025 15:05:44 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: ryan_chen <ryan_chen@aspeedtech.com>, <bmc-sw@aspeedtech.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>, <jk@codeconstruct.com.au>, Lee Jones
-	<lee@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
-	<will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Bjorn Andersson
-	<bjorn.andersson@oss.qualcomm.com>, Geert Uytterhoeven
-	<geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
-	<nfraprado@collabora.com>, Taniya Das <quic_tdas@quicinc.com>, Lad Prabhakar
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Kuninori Morimoto
-	<kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v6 5/6] arm64: dts: aspeed: Add AST2700 Evaluation Board
-Date: Wed, 22 Oct 2025 15:05:42 +0800
-Message-ID: <20251022070543.1169173-6-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
-References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
+	Wed, 22 Oct 2025 07:08:38 +0000
+Date: Wed, 22 Oct 2025 00:08:25 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1761116910;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mU1PzAZ1BNV26YpxLxNOHYihlxsG75VaTbtBXC0551E=;
+	b=sgn4JcuBKRbZ9ae67O0U5ghHOKcyKfbwWuz5hcPwtARVGDEHH6RES+XCYIzpKBwCm7E/7p
+	j65wKvesFRXwarjIcFP4aDZbysyOi0biVw/hQEExKmEnHfFd5t+vAdAsqxqp5aQSnHdUH2
+	fdGmS+qMSB/aT3Xu8ACduhCLI8Gybks=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Maydell <peter.maydell@linaro.org>
+Subject: Re: [PATCH 3/3] KVM: arm64: Limit clearing of
+ ID_{AA64PFR0,PFR1}_EL1.GIC to userspace irqchip
+Message-ID: <aPiCmpn-Qhysv6Dn@linux.dev>
+References: <20251013083207.518998-1-maz@kernel.org>
+ <20251013083207.518998-4-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251013083207.518998-4-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_000555_046061_CA01E26F 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20251022_000836_960415_9F218ADB 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,69 +72,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ASPEED AST2700 EVB is prototype development board based
-on AST2700 SOC.
+On Mon, Oct 13, 2025 at 09:32:07AM +0100, Marc Zyngier wrote:
+> Now that the idreg's GIC field is in sync with the irqchip, limit
+> the runtime clearing of these fields to the pathological case where
+> we do not have an in-kernel GIC.
+> 
+> Fixes: 5cb57a1aff755 ("KVM: arm64: Zero ID_AA64PFR0_EL1.GIC when no GICv3 is presented to the guest")
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/sys_regs.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 73dcefe51a3e7..25cfd0f9541f5 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -5494,9 +5494,7 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu)
+>  
+>  	guard(mutex)(&kvm->arch.config_lock);
+>  
+> -	if (!(static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif) &&
+> -	      irqchip_in_kernel(kvm) &&
+> -	      kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V3)) {
+> +	if (!irqchip_in_kernel(kvm)) {
+>  		kvm->arch.id_regs[IDREG_IDX(SYS_ID_AA64PFR0_EL1)] &= ~ID_AA64PFR0_EL1_GIC_MASK;
+>  		kvm->arch.id_regs[IDREG_IDX(SYS_ID_PFR1_EL1)] &= ~ID_PFR1_EL1_GIC_MASK;
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- arch/arm64/boot/dts/Makefile               |  1 +
- arch/arm64/boot/dts/aspeed/Makefile        |  4 ++++
- arch/arm64/boot/dts/aspeed/ast2700-evb.dts | 22 ++++++++++++++++++++++
- 3 files changed, 27 insertions(+)
- create mode 100644 arch/arm64/boot/dts/aspeed/Makefile
- create mode 100644 arch/arm64/boot/dts/aspeed/ast2700-evb.dts
+Pre-existing, but converting this to the accessors would be a good idea.
 
-diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-index b0844404eda1..5b8fbf5b1061 100644
---- a/arch/arm64/boot/dts/Makefile
-+++ b/arch/arm64/boot/dts/Makefile
-@@ -9,6 +9,7 @@ subdir-y += amlogic
- subdir-y += apm
- subdir-y += apple
- subdir-y += arm
-+subdir-y += aspeed
- subdir-y += axiado
- subdir-y += bitmain
- subdir-y += blaize
-diff --git a/arch/arm64/boot/dts/aspeed/Makefile b/arch/arm64/boot/dts/aspeed/Makefile
-new file mode 100644
-index 000000000000..ffe7e15017cc
---- /dev/null
-+++ b/arch/arm64/boot/dts/aspeed/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+dtb-$(CONFIG_ARCH_ASPEED) += \
-+	ast2700-evb.dtb
-diff --git a/arch/arm64/boot/dts/aspeed/ast2700-evb.dts b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-new file mode 100644
-index 000000000000..654b36ec24de
---- /dev/null
-+++ b/arch/arm64/boot/dts/aspeed/ast2700-evb.dts
-@@ -0,0 +1,22 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+
-+/dts-v1/;
-+#include "aspeed-g7.dtsi"
-+
-+/ {
-+	model = "AST2700 EVB";
-+	compatible = "aspeed,ast2700-evb", "aspeed,ast2700";
-+
-+	chosen {
-+		stdout-path = "serial12:115200n8";
-+	};
-+
-+	memory@400000000 {
-+		device_type = "memory";
-+		reg = <0x4 0x00000000 0x0 0x40000000>;
-+	};
-+};
-+
-+&uart12 {
-+	status = "okay";
-+};
--- 
-2.34.1
-
+Thanks,
+Oliver
 
