@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76612CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 06:59:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F28CCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 06:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MRJHzwWILJaKHX3S9R5nSeKevP2u4zN/97XMea908Xs=; b=QUAkt7/vS909YnOlkfuLoNBXg9
-	/+aOex3Qsl5/wraj61XAp/sqm5AQDdslq/VGuVJ++tgfSUNB/TJoEUSlp+DiuGO3f4+jfE7VqjJPb
-	MisUWi9I/6uhq2ImSvc0au6pZ69DudD29GDfV2k4iFI3R4aLQ0cHpWBu7UCDxa0rn39r81V4QzmX9
-	Jngjxey1zxX14xYeJKazA/nIrFL6p6MG1avT3MbNTSO0r8MXcjDNeSysSVcsQZhiMf3kdFOA4A3RI
-	4YjSreavR5X/mNG9GWpIRFQs5R5X6DsgX0nzcSIeQlGAiZsthsZeIvcWbLghpvtx2ejL2nXq0Agv1
-	eRo5t8eg==;
+	bh=j1fnAapxocpS1PzNNod6wJpD/egeyzDYB/Jrd9dgM4U=; b=Fr0WAQHpWzE14/PaeZtTEczElW
+	6P7+PC2kyOYiCUsBiw3HvjaNCWFMjyK4Tz8cShtkKRVQZ1DHzgmjWwFRUZvsJr/aBIDyjuG0i2Bz7
+	3vQtwqlDJ/ZvpP9T5aBgu9gM/rP+FjMukZE8eI9WpUzwjGg8Y8+KyWjzThasj13jJiok1zQOqk+wR
+	UEhMZ5yM8gUwaUYcU6EQ+lX18WtYTpJ0YUHMsmRQ1UT38O0ZcLI8cs834rmxkTdOUIHEmWVlFKb6F
+	OagS7nl+p4Wrz0suDhVSYZ8cIbEYAG1IHVaAsCmpFUUYyfgYaJ1+8gKuM3d3Rw6pllWfuq6GdRdxU
+	7kPlVPng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSoR-00000001lFt-2vC1;
-	Wed, 22 Oct 2025 06:59:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vBSon-00000001lYP-0XTR;
+	Wed, 22 Oct 2025 06:59:33 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSoJ-00000001l8q-1GTp;
-	Wed, 22 Oct 2025 06:59:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0FB6490FD;
-	Wed, 22 Oct 2025 06:59:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7ACB6C113D0;
-	Wed, 22 Oct 2025 06:59:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761116342;
-	bh=tNpHlIQUBTD9AQUIV9HOebg+Mv18j60jJ2qTKmd3Clc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=f1fLx0DeQTCDXFzWn9RNlHFljJGeP+4/aI4o4AbDw3WEYh9/dZChmaImw4Avn3otF
-	 Tu09h3sQ00nFFvTc95+87SwvpKOq65UPG1MM/SH1ZwSqf9mYhujhYECftsAI7XLHmM
-	 6+PGGSlVeew2zF33q8xTkqWM95445oQxTB4cQVXUYhgYxXtkRzxQTd56moc/X4jic4
-	 +/w97Cw2AHUS4YxWB5sOKMDkafgw48224tYobLD7AVEFK1oBSi/f+Axq0i9ECovy0w
-	 KBUN3oJRQZd9g0WJbqzgX8twg8BGvliyDmJxkqulFyjAHXVPf3I20mFcZCqN0Lk6+e
-	 TRWveLQqWyDVw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6E48DCCD1BE;
-	Wed, 22 Oct 2025 06:59:02 +0000 (UTC)
-From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Wed, 22 Oct 2025 14:58:52 +0800
-Subject: [PATCH 2/3] clk: amlogic: Optimize PLL enable timing
+	id 1vBSok-00000001lU5-1WMl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Oct 2025 06:59:31 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4cs0QL4pgbz9t8W;
+	Wed, 22 Oct 2025 08:59:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761116362;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=j1fnAapxocpS1PzNNod6wJpD/egeyzDYB/Jrd9dgM4U=;
+	b=JNWpi4drdUs+btd7VToiRgbE6iRRVDP3jzDGp4IdtZxspVPgXzrkVyw6XfZ6VoltxsDAme
+	2cht2i0/8JrZc9EQ0dSFhPa2tbjjnQ8bG+3qZYq9K+j+DgLoSa0jFlhn5wEEsINMOYgadA
+	sWs6weTLZ2y5Br7G+yMjqd7lc9Dj7wFW43WKaehGIb0uF9weDQ4aqUMzGVd23ZJX7dM78D
+	6cbkMfzb6nIZozbWJ6FgZD96p/5LwJZg76fWkSFTnYsyFob3539fRhtxakP3+goUS0/BK8
+	Tv52QQPI/RSlQl6HSAde3lxR5xApuQkjeJ6zgMcbwp3emdxPI+Dp6eg8agHksg==
+Message-ID: <ab1f7c51-bc41-4774-a0dc-850e53c412eb@mailbox.org>
+Date: Wed, 22 Oct 2025 08:59:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+To: Bjorn Helgaas <helgaas@kernel.org>, "Bandi, Ravi Kumar" <ravib@amazon.com>
+Cc: "mani@kernel.org" <mani@kernel.org>,
+ "thippeswamy.havalige@amd.com" <thippeswamy.havalige@amd.com>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "michal.simek@amd.com" <michal.simek@amd.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "stable@vger.kernel.org" <stable@vger.kernel.org>,
+ Sean Anderson <sean.anderson@linux.dev>
+References: <20251021212801.GA1224310@bhelgaas>
+Content-Language: en-US
+From: Stefan Roese <stefan.roese@mailbox.org>
+In-Reply-To: <20251021212801.GA1224310@bhelgaas>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251022-optimize_pll_driver-v1-2-a275722fb6f4@amlogic.com>
-References: <20251022-optimize_pll_driver-v1-0-a275722fb6f4@amlogic.com>
-In-Reply-To: <20251022-optimize_pll_driver-v1-0-a275722fb6f4@amlogic.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Chuan Liu <chuan.liu@amlogic.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761116340; l=4402;
- i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=bsdTchbiRzU7fQnKSjIW161Jtz+ZayPt5sUS3k0V7QU=;
- b=AEy5PXpFUMdDMXW6q9jCnGv15v8j0xAtKltUNJgWlUAFVhON3sKl2AoUsoePKRadfRMVcNgjv
- Qj49HwbWa0bDBPIE1TIVUT3cZvV2sp/7ONf6SARkAIpNAB4XiYubxvF
-X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
- pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
-X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
- auth_id=203
-X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
+X-MBO-RS-ID: dacca2ed9550b966657
+X-MBO-RS-META: 33d8grajrud4g8etgcmen193gr4s35jn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_235903_400161_BA1DCA73 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20251021_235930_601028_47A2207B 
+X-CRM114-Status: GOOD (  31.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,139 +85,154 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chuan Liu <chuan.liu@amlogic.com>
+Hi Bjorn,
+Hi Ravi,
 
-Amlogic PLL locking procedure shall follow this timing sequence:
-1 Assert reset signal: Ensures PLL circuits enter known initial state.
-2 Deassert lock-detect signal: Avoid lock signal false triggering.
-3 Assert enable signal: Powers up PLL supply.
-4 udelay(20): Wait for Bandgap and LDO to power up and stabilize.
-5 Enable self-adaptation current module (Optional).
-6 Deassert reset signal: Releases PLL to begin normal operation.
-7 udelay(20): Wait for PLL loop stabilization.
-8 Assert lock-detect signal: lock detection circuit starts to work.
-9 Monitor lock status signal: Wait for PLL lock completion.
-10 If the PLL fails to lock, it should be disabled, This makes the
-logic more complete, and also helps save unnecessary power consumption
-when the PLL is malfunctioning.
+On 10/21/25 23:28, Bjorn Helgaas wrote:
+> On Tue, Oct 21, 2025 at 08:55:41PM +0000, Bandi, Ravi Kumar wrote:
+>>> On Tue, Oct 21, 2025 at 05:46:17PM +0000, Bandi, Ravi Kumar wrote:
+>>>>> On Oct 21, 2025, at 10:23 AM, Bjorn Helgaas <helgaas@kernel.org> wrote:
+>>>>> On Sat, Sep 20, 2025 at 10:52:32PM +0000, Ravi Kumar Bandi wrote:
+>>>>>> The pcie-xilinx-dma-pl driver does not enable INTx interrupts
+>>>>>> after initializing the port, preventing INTx interrupts from
+>>>>>> PCIe endpoints from flowing through the Xilinx XDMA root port
+>>>>>> bridge. This issue affects kernel 6.6.0 and later versions.
+>>>>>>
+>>>>>> This patch allows INTx interrupts generated by PCIe endpoints
+>>>>>> to flow through the root port. Tested the fix on a board with
+>>>>>> two endpoints generating INTx interrupts. Interrupts are
+>>>>>> properly detected and serviced. The /proc/interrupts output
+>>>>>> shows:
+>>>>>>
+>>>>>> [...]
+>>>>>> 32:        320          0  pl_dma:RC-Event  16 Level     400000000.axi-pcie, azdrv
+>>>>>> 52:        470          0  pl_dma:RC-Event  16 Level     500000000.axi-pcie, azdrv
+>>>>>> [...]
 
-Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
----
- drivers/clk/meson/clk-pll.c | 68 ++++++++++++++++++++++++++-------------------
- 1 file changed, 40 insertions(+), 28 deletions(-)
+First a comment on this IRQ logging:
 
-diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
-index b07e1eb19d12..26c83db487e8 100644
---- a/drivers/clk/meson/clk-pll.c
-+++ b/drivers/clk/meson/clk-pll.c
-@@ -353,6 +353,23 @@ static int meson_clk_pcie_pll_enable(struct clk_hw *hw)
- 	return -EIO;
- }
- 
-+static void meson_clk_pll_disable(struct clk_hw *hw)
-+{
-+	struct clk_regmap *clk = to_clk_regmap(hw);
-+	struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
-+
-+	/* Put the pll is in reset */
-+	if (MESON_PARM_APPLICABLE(&pll->rst))
-+		meson_parm_write(clk->map, &pll->rst, 1);
-+
-+	/* Disable the pll */
-+	meson_parm_write(clk->map, &pll->en, 0);
-+
-+	/* Disable PLL internal self-adaption current module */
-+	if (MESON_PARM_APPLICABLE(&pll->current_en))
-+		meson_parm_write(clk->map, &pll->current_en, 0);
-+}
-+
- static int meson_clk_pll_enable(struct clk_hw *hw)
- {
- 	struct clk_regmap *clk = to_clk_regmap(hw);
-@@ -366,53 +383,48 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
- 	if (MESON_PARM_APPLICABLE(&pll->rst))
- 		meson_parm_write(clk->map, &pll->rst, 1);
- 
-+	/* Disable the PLL lock-detect module */
-+	if (MESON_PARM_APPLICABLE(&pll->l_detect))
-+		meson_parm_write(clk->map, &pll->l_detect, 1);
-+
- 	/* Enable the pll */
- 	meson_parm_write(clk->map, &pll->en, 1);
--
--	/* Take the pll out reset */
--	if (MESON_PARM_APPLICABLE(&pll->rst))
--		meson_parm_write(clk->map, &pll->rst, 0);
-+	/* Wait for Bandgap and LDO to power up and stabilize */
-+	udelay(20);
- 
- 	/*
- 	 * Compared with the previous SoCs, self-adaption current module
- 	 * is newly added for A1, keep the new power-on sequence to enable the
- 	 * PLL. The sequence is:
--	 * 1. enable the pll, delay for 10us
-+	 * 1. enable the pll, ensure a minimum delay of 10μs
- 	 * 2. enable the pll self-adaption current module, delay for 40us
- 	 * 3. enable the lock detect module
- 	 */
- 	if (MESON_PARM_APPLICABLE(&pll->current_en)) {
--		udelay(10);
- 		meson_parm_write(clk->map, &pll->current_en, 1);
--		udelay(40);
--	}
--
--	if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
--		meson_parm_write(clk->map, &pll->l_detect, 1);
--		meson_parm_write(clk->map, &pll->l_detect, 0);
-+		udelay(20);
- 	}
- 
--	if (meson_clk_pll_wait_lock(hw))
--		return -EIO;
-+	/* Take the pll out reset */
-+	if (MESON_PARM_APPLICABLE(&pll->rst))
-+		meson_parm_write(clk->map, &pll->rst, 0);
- 
--	return 0;
--}
-+	/* Wait for PLL loop stabilization */
-+	udelay(20);
- 
--static void meson_clk_pll_disable(struct clk_hw *hw)
--{
--	struct clk_regmap *clk = to_clk_regmap(hw);
--	struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
-+	/* Enable the lock-detect module */
-+	if (MESON_PARM_APPLICABLE(&pll->l_detect))
-+		meson_parm_write(clk->map, &pll->l_detect, 0);
- 
--	/* Put the pll is in reset */
--	if (MESON_PARM_APPLICABLE(&pll->rst))
--		meson_parm_write(clk->map, &pll->rst, 1);
-+	if (meson_clk_pll_wait_lock(hw)) {
-+		/* disable PLL when PLL lock failed. */
-+		meson_clk_pll_disable(hw);
-+		pr_warn("%s: PLL lock failed!!!\n", clk_hw_get_name(hw));
- 
--	/* Disable the pll */
--	meson_parm_write(clk->map, &pll->en, 0);
-+		return -EIO;
-+	}
- 
--	/* Disable PLL internal self-adaption current module */
--	if (MESON_PARM_APPLICABLE(&pll->current_en))
--		meson_parm_write(clk->map, &pll->current_en, 0);
-+	return 0;
- }
- 
- static int meson_clk_pll_set_rate(struct clk_hw *hw, unsigned long rate,
+These lines do NOT refer to the INTx IRQ(s) but the controller internal
+"events" (errors etc). Please see this log for INTx on my Versal
+platform with pci_irqd_intx_xlate added:
 
--- 
-2.42.0
+  24:          0          0  pl_dma:RC-Event   0 Level     LINK_DOWN
+  25:          0          0  pl_dma:RC-Event   3 Level     HOT_RESET
+  26:          0          0  pl_dma:RC-Event   8 Level     CFG_TIMEOUT
+  27:          0          0  pl_dma:RC-Event   9 Level     CORRECTABLE
+  28:          0          0  pl_dma:RC-Event  10 Level     NONFATAL
+  29:          0          0  pl_dma:RC-Event  11 Level     FATAL
+  30:          0          0  pl_dma:RC-Event  20 Level     SLV_UNSUPP
+  31:          0          0  pl_dma:RC-Event  21 Level     SLV_UNEXP
+  32:          0          0  pl_dma:RC-Event  22 Level     SLV_COMPL
+  33:          0          0  pl_dma:RC-Event  23 Level     SLV_ERRP
+  34:          0          0  pl_dma:RC-Event  24 Level     SLV_CMPABT
+  35:          0          0  pl_dma:RC-Event  25 Level     SLV_ILLBUR
+  36:          0          0  pl_dma:RC-Event  26 Level     MST_DECERR
+  37:          0          0  pl_dma:RC-Event  27 Level     MST_SLVERR
+  38:         94          0  pl_dma:RC-Event  16 Level     84000000.axi-pcie
+  39:         94          0  pl_dma:INTx   0 Level     nvme0q0, nvme0q1
 
+The last line shows the INTx IRQs here ('pl_dma:INTx' vs 'pl_dma:RC-
+Event').
 
+More below...
+
+>>>>>>
+>>>>>> Changes since v1::
+>>>>>> - Fixed commit message per reviewer's comments
+>>>>>>
+>>>>>> Fixes: 8d786149d78c ("PCI: xilinx-xdma: Add Xilinx XDMA Root Port driver")
+>>>>>> Cc: stable@vger.kernel.org
+>>>>>> Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
+>>>>>
+>>>>> Hi Ravi, obviously you tested this, but I don't know how to reconcile
+>>>>> this with Stefan's INTx fix at
+>>>>> https://lore.kernel.org/r/20251021154322.973640-1-stefan.roese@mailbox.org
+>>>>>
+>>>>> Does Stefan's fix need to be squashed into this patch?
+>>>>
+>>>> Sure, we can squash Stefan’s fix into this.
+>>>
+>>> I know we *can* squash them.
+>>>
+>>> I want to know why things worked for you and Stefan when they
+>>> *weren't* squashed:
+>>>
+>>>   - Why did INTx work for you even without Stefan's patch.  Did you
+>>>     get INTx interrupts but not the right ones, e.g., did the device
+>>>     signal INTA but it was received as INTB?
+>>
+>> I saw that interrupts were being generated by the endpoint device,
+>> but I didn’t specifically check if they were correctly translated in
+>> the controller. I noticed that the new driver wasn't explicitly
+>> enabling the interrupts, so my first approach was to enable them,
+>> which helped the interrupts flow through.
+> 
+> OK, I'll assume the interrupts happened but the driver might not have
+> been able to handle them correctly, e.g., it was prepared for INTA but
+> got INTB or similar.
+> 
+>>>   - Why did Stefan's patch work for him even without your patch.  How
+>>>     could Stefan's INTx work without the CSR writes to enable
+>>>     interrupts?
+>>
+>> I'm not entirely sure if there are any other dependencies in the
+>> FPGA bitstream. I'll investigate further and get back to you.
+> 
+> Stefan clarified in a private message that he had applied your patch
+> first, so this mystery is solved.
+
+Yes. I applied Ravi's patch first and still got no INTx delivered
+to the nvme driver. That's what me triggered to dig deeper here and
+resulted in this v2 patch with pci_irqd_intx_xlate added.
+
+BTW:
+I re-tested just now w/o Ravi's patch and the INTx worked. Still I think
+Ravi's patch is valid and should be applied...
+>>>   - Why you mentioned "kernel 6.6.0 and later versions."
+>>>   8d786149d78c appeared in v6.7, so why would v6.6.0 would be
+>>>   affected?
+>>
+>> Apologies for not clearly mentioning the version earlier. This is
+>> from the linux-xlnx tree on the xlnx_rebase_v6.6 branch, which
+>> includes the new Xilinx root port driver with QDMA support:
+>> https://github.com/Xilinx/linux-xlnx/blob/xlnx_rebase_v6.6_LTS/drivers/pci/controller/pcie-xilinx-dma-pl.c
+>>
+>> In earlier versions, the driver was:
+>> https://github.com/Xilinx/linux-xlnx/blob/xlnx_rebase_v6.1_LTS_2023.1_update/drivers/pci/controller/pcie-xdma-pl.c
+>> This older driver had no issues with interrupts.
+>>
+>> The new driver introduced in v6.7 and later is a rewrite of the old
+>> one, now with QDMA support, which has issues with INTx interrupts.
+> 
+> OK, this sounds like out-of-tree history that is not relevant in the
+> mainline kernel, so Mani did the right thing in omitting it.
+> 
+> I think the best thing to do is to squash Stefan's patch into this one
+> so we end up with a single patch that makes INTx work correctly.
+> 
+> Ravi and Stefan, does that seem OK to you?
+
+Yes, please either apply both separately or squash them. Whatever you
+prefer.
+
+Many thanks,
+Stefan
+>>>>>> +++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
+>>>>>> @@ -659,6 +659,12 @@ static int xilinx_pl_dma_pcie_setup_irq(struct pl_dma_pcie *port)
+>>>>>>              return err;
+>>>>>>      }
+>>>>>>
+>>>>>> +     /* Enable interrupts */
+>>>>>> +     pcie_write(port, XILINX_PCIE_DMA_IMR_ALL_MASK,
+>>>>>> +                XILINX_PCIE_DMA_REG_IMR);
+>>>>>> +     pcie_write(port, XILINX_PCIE_DMA_IDRN_MASK,
+>>>>>> +                XILINX_PCIE_DMA_REG_IDRN_MASK);
+>>>>>> +
+>>>>>>      return 0;
+>>>>>> }
+>>
 
