@@ -4,74 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ADBDCCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91AC2CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=d76vowrq1Br9kf9II67EgzEFhPQqDVyfxrqRaTtdHD4=; b=uDJ6B1hcGhFNPyCxHX8C61HVzD
-	OHwxPFgoyrkT6JiXtdNKgpACZAUiGj9+rrPbvOc+dBwh4sqorof3YSx7CHiKm2Ew+zd74jOIlaR7X
-	pDYDlu9cQOe8/xbfW6qg/kOsKI97CzDpQEOgyE2J6QP4ES+moeFj053l4UXe9i7PlPK4U79NbugGx
-	zDLPAha25GrsCCiBXEZrtOCw1/Zd2sxw++Geuvm7Ivf79LhV+uQg9VEE01YksiCRa+sOrVrhjvKOz
-	P89rDFanPNX82Icy3njolZ7XA4KuNr6Pw9oCedYONPz7seOaSdc/0JhZ9n9Z1sSOq7SUUfrlKMdiF
-	vzfAOFxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nvWvVWsMp2HvZc/pRVfJNYeSWgEzu4aPg/sGoBmwFsM=; b=ZESvLaUqisugkwrgwPsS64cx0z
+	+4CoxyT0UW3NIPaymZwmfqe4LDe7tnKH+V+KN8RVnqtny3eVzIt2+dADLeDJeOT/rhCLvYg4ZnNQ4
+	ms/t+7q5ReguC+/dKpDBtph3iZ496aicRZpmp24gfTSIJMsWLKUvLIT4ln9srviDQmkTqdLPq+aKe
+	fgigITb77Y8cIROZZNXqwNkn3wTBk0R3QRIu0dLmqpp8Ppq3b0I0ZL22HX9mys/hgYaurDFLXXoud
+	cZdpLalEVgcaNWyNjR2a0kmP7sjKq6dN8c/3J0AxVWONm2nF5Vd6Euzqm6JgvsfGk+4si9P2Kn2A4
+	xgAsCGtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBXPa-00000002itb-2Exh;
-	Wed, 22 Oct 2025 11:53:50 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vBXTQ-00000002jPo-36l3;
+	Wed, 22 Oct 2025 11:57:48 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBXPW-00000002isQ-46Ru
+	id 1vBXTL-00000002jOc-0FW8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 11:53:49 +0000
-Received: from localhost.localdomain (unknown [202.112.113.212])
-	by APP-01 (Coremail) with SMTP id qwCowACnAaS3xfho7Kr3Ew--.6894S2;
-	Wed, 22 Oct 2025 19:53:35 +0800 (CST)
-From: Ma Ke <make24@iscas.ac.cn>
-To: will@kernel.org,
-	mark.rutland@arm.com,
-	robin.murphy@arm.com,
-	james.clark@linaro.org,
-	ilkka@os.amperecomputing.com,
-	make24@iscas.ac.cn,
-	u.kleine-koenig@baylibre.com,
-	bwicaksono@nvidia.com,
-	suzuki.poulose@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	akpm@linux-foundation.org,
-	stable@vger.kernel.org
-Subject: [PATCH RESEND] perf: arm_cspmu: fix error handling in arm_cspmu_impl_unregister()
-Date: Wed, 22 Oct 2025 19:53:25 +0800
-Message-Id: <20251022115325.25900-1-make24@iscas.ac.cn>
-X-Mailer: git-send-email 2.17.1
-X-CM-TRANSID: qwCowACnAaS3xfho7Kr3Ew--.6894S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ZF1DtrWrtF1DCry5Xr43KFg_yoW8GryUpF
-	47CFW5ZFyvgr4UK39rA3yUZFWUCa1YkwnYkry8G34F9Fn3Zry3t348Kr9ag3W8JFZ8Jayj
-	q34aqrn5G3W5t3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
-	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr
-	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IE
-	rcIFxwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCY02Avz4vE14
-	v_Gw4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AK
-	xVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrx
-	kI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v2
-	6r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8Jw
-	CI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUO38nUUUU
-	U
-X-Originating-IP: [202.112.113.212]
-X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
+	Wed, 22 Oct 2025 11:57:45 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-471bde1e8f8so17428475e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 04:57:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1761134261; x=1761739061; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nvWvVWsMp2HvZc/pRVfJNYeSWgEzu4aPg/sGoBmwFsM=;
+        b=Phavu5UevBu5aBkp0/ZIlmPv+7T/5eTOy9BHfw5DlBBhqADtDUM6ugKhStNf2tFlgq
+         uITu1bgTeMBevhGpyRK7Jpvf8n/+Xm+veKEa3nDBuAvetrBAyAq2JN9bscrmADcJzakU
+         cMtuGNt3jFSzmR0/FxWChwjzFdSOsYqDhBqBsqYl9a8IIYSOhXD6oYxyAN3C9tlVIp7N
+         8O2pYTT0fImAq6qu8e0KQ+TwA+nMtDohUixygs5SNPI3OoC3Eug06zKP/PvhYSxwYgpf
+         4nfrrrnMG+3kWSalvuuvJvgs1xiiwPoN9EJrkC1gHOghg503XO4nPnv4BYMP9rlGKoC2
+         eKcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761134261; x=1761739061;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nvWvVWsMp2HvZc/pRVfJNYeSWgEzu4aPg/sGoBmwFsM=;
+        b=H/MjR+4S6oohmukz1TuUq563a/QOTR2DX3XgMQ2tOx2b306+WUCiTZ3JusyQ6OkQXt
+         76rf05rb+NejOeMiQ8PoViqKjbzrL5+FxaqZYEiSqgoK/XAlKR+DmFQkWbyFj+F6m3P6
+         bTPO0DpmTngZxLksBNPkCvBTc4XhVjS+9lVV/dNdD8RrzcgAOCaPWN3BUlNFyBaxhF5P
+         ZudyAyfUoDX2H8rGzZRZtMMnZ9Ksnv4FrPRrilQQEbR9A14Ook+b6+2mIoLrg6hx5EoM
+         DsKNnJPO5tyliwmAb9qhcJXsaGJP32zoE6ZHJN3+oOorXdeqn8e+3HjOC/amZKKoZ+Xv
+         kHAg==
+X-Forwarded-Encrypted: i=1; AJvYcCWAKW2Sva0W61mWoRo9TuAvl0f99UwAq0PSxdJLQc3x1WKCCLD5eWMydazvcHSyX/cSOYST2S9PnSNZhl1QENOd@lists.infradead.org
+X-Gm-Message-State: AOJu0YysilquPlIVCVlwGru9xk+hyaN6zrWOAVSCN6hpFdKLwhY7j8cs
+	dxBNBamzM7yWIl/lP+X7XDyI5zEBbO9dPvFTrzjSmBNRMEK/dKrCIeFIkplC1nmjXS8=
+X-Gm-Gg: ASbGncuFANqHy8Jml1Hg+PspSGw1XrxDJM9DMvkmc9RwLktJxqjHLFIFN0+oAbkVUvh
+	w7eUn2IQc19CU57SfmiFTLqjcH2kHnwMRXNYdvxOEL4uGohCLUzZyQD4lDk5d9iJElyZXeTYxjs
+	9a7hSTE2cqYvtihNelN7w/ymqxyf3kZiihF4PI5vvjIzsiD7tvJ/h9TjMhKPyl7AypO9Db/suDk
+	KUEh5EDu41HQzGOdMTEAlSORRjwRKuAiT0CSmb1FDnCYroohKubGEnv2vCPNQJNqSM+GkNx7BHB
+	qgXSDhiluOfQvDFqvpTOJw27qbHuHY+oHYnMgZK4j7rdP/jKMOaDwvsTmhLi8xZLXDizDN7KfSp
+	f0RBAFicPCWw7UGIx5AtCOYdIoR8M/zJyUjYh7KfeNNJ26WeSLpEFUBLgJzfqkWzY364T9ikf34
+	xal+wXvZprDg==
+X-Google-Smtp-Source: AGHT+IHU1kUQ/j+2c0DWldc7DeJQPageEV0i7vez8IloaeUnW6bD/qTCz4m2QvWTUpZaGhquDY3CAg==
+X-Received: by 2002:a05:600c:6385:b0:458:a7fa:211d with SMTP id 5b1f17b1804b1-47117912365mr156602265e9.29.1761134260710;
+        Wed, 22 Oct 2025 04:57:40 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:bdae:f4f4:58be:ea26])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-475c42d9524sm39570535e9.18.2025.10.22.04.57.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Oct 2025 04:57:40 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,  Michael Turquette
+ <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,  Kevin Hilman
+ <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  chuan.liu@amlogic.com,
+  linux-amlogic@lists.infradead.org,  linux-clk@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] clk: amlogic: Fix out-of-range PLL frequency setting
+In-Reply-To: <20251022-optimize_pll_driver-v1-1-a275722fb6f4@amlogic.com>
+	(Chuan Liu via's message of "Wed, 22 Oct 2025 14:58:51 +0800")
+References: <20251022-optimize_pll_driver-v1-0-a275722fb6f4@amlogic.com>
+	<20251022-optimize_pll_driver-v1-1-a275722fb6f4@amlogic.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Wed, 22 Oct 2025 13:57:39 +0200
+Message-ID: <1j8qh34098.fsf@starbuckisacylon.baylibre.com>
+MIME-Version: 1.0
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_045347_411843_D05B830B 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20251022_045743_460549_49ABFB54 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,39 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-driver_find_device() calls get_device() to increment the reference
-count once a matching device is found. device_release_driver()
-releases the driver, but it does not decrease the reference count that
-was incremented by driver_find_device(). At the end of the loop, there
-is no put_device() to balance the reference count. To avoid reference
-count leakage, add put_device() to decrease the reference count.
+On Wed 22 Oct 2025 at 14:58, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
 
-Found by code review.
+> From: Chuan Liu <chuan.liu@amlogic.com>
+>
+> meson_clk_get_pll_range_index incorrectly determines the maximum value
+> of 'm'.
 
-Cc: stable@vger.kernel.org
-Fixes: bfc653aa89cb ("perf: arm_cspmu: Separate Arm and vendor module")
-Signed-off-by: Ma Ke <make24@iscas.ac.cn>
----
- drivers/perf/arm_cspmu/arm_cspmu.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+This explanation is little light !
 
-diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-index efa9b229e701..e0d4293f06f9 100644
---- a/drivers/perf/arm_cspmu/arm_cspmu.c
-+++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-@@ -1365,8 +1365,10 @@ void arm_cspmu_impl_unregister(const struct arm_cspmu_impl_match *impl_match)
- 
- 	/* Unbind the driver from all matching backend devices. */
- 	while ((dev = driver_find_device(&arm_cspmu_driver.driver, NULL,
--			match, arm_cspmu_match_device)))
-+			match, arm_cspmu_match_device))) {
- 		device_release_driver(dev);
-+		put_device(dev);
-+	}
- 
- 	mutex_lock(&arm_cspmu_lock);
- 
+How did the problem show up ? Under which condition ? How did you come
+this conclusion ?
+
+Other people having problems might benefit from the explanation 
+
+>
+> Fixes: 8eed1db1adec6 ("clk: meson: pll: update driver for the g12a")
+> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+> ---
+>  drivers/clk/meson/clk-pll.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
+> index 1ea6579a760f..b07e1eb19d12 100644
+> --- a/drivers/clk/meson/clk-pll.c
+> +++ b/drivers/clk/meson/clk-pll.c
+> @@ -191,7 +191,7 @@ static int meson_clk_get_pll_range_index(unsigned long rate,
+>  	*m = meson_clk_get_pll_range_m(rate, parent_rate, *n, pll);
+>  
+>  	/* the pre-divider gives a multiplier too big - stop */
+> -	if (*m >= (1 << pll->m.width))
+> +	if (*m > pll->range->max)
+
+Making sure m does not exceed the maximum value is valid too.
+You should check both conditions then
+
+>  		return -EINVAL;
+>  
+>  	return 0;
+
 -- 
-2.17.1
-
+Jerome
 
