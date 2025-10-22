@@ -4,155 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB578CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 16:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85F4CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 16:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mfQqVCG12lBJlXYf9B66eJPuYwDEyTjrGd2+YlGQqO0=; b=VrdR8FTu6U0H5HuxfC8NX4Zi2T
-	BONSvIZydqCsVgJDiVJ/K37CqjSv676bZg674v1Mt3kVDeAcdp6ApZKCDTItJANP15QBZ0h3kk1h5
-	5aUL9MAL+ry0EYaHT6O+nfMdh7n55wjtgRqeGI5qko20I/1+Ecx+UMRhASy/PzvowwyaMEtLN8TCd
-	qHsaFvqyHxdztWw+4kkWsEW6gdZngrZZVJZUyRKlBq0FTxNiHsLw1s7tb9c46tVVX5/COKSmyzWDU
-	qOmEkuOra3eVj5lqtKPyUqPslynrO6sFBZhHKnddt9XB1QZv1VxbxW/2odfgQAPEIX+iC1FTkd4+x
-	vQsj/CBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+44DE2G4f1/7YZbZqxOiiYJAlP6TZQr865INBC/oNKU=; b=48S7LkpN6mbmsSTbspkYH4UtRO
+	7Jga6OiHvlX22TZlRF2i5MzzhwgqG4CnTa/0FT1HKVBW6po5ZGrtDgMKS0el+EAI08HMkr1uxcjUe
+	WGAM5Dw4b9H8Z2GtaWZfzzfXk/3k92SbXCUSKQ4rhtS4soxKqyvUsp1GdbjE4zfOgLw6LiUl4Vxbk
+	NHj9/hS3EfMLPqLLkTXHmdPcI68Zos4iK6fGZxH1AsNQHJzsMIF7bmgye5y4tGTj1uTazOvO4cneU
+	WlCy/Er8cBkhJsBGBm0CxNtAy3IEyjw0Ig8rXM8vEMQvwLNt8eQFBzwgvJP+IwBY5pqp16hhVqNCw
+	nnrG6aDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBbW5-00000003Vlo-1cCg;
-	Wed, 22 Oct 2025 16:16:49 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBbW2-00000003VjP-3PGE
+	id 1vBbWy-00000003W35-3HAu;
+	Wed, 22 Oct 2025 16:17:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBbWw-00000003Vyx-1HSA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 16:16:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uT+mSMEC5apJkipylODFuP5Szff9JkpBLwCZXZHRdHY0TtEa7Op3318dc4kJiCklnI0+Q9w/kifWN8ZlpwFmxOCSeBDbRYahsVjCqpLLZZ6myO5XUcXvSnQ+pQcZKHDqOTM7+33+kac8plCh6pU7Mf29p2D0q7yPhEr91T2cyZOlcwxLM3tFpmNzVT2ZxtuqfP18B3L599doGiMSzgaga8oQR90azk8tM889Yvgp69TATpHjxTGPn+ZPeDsLMzOuofyh7Y9ptkEWb7SZgYhuFiMHWoHyp63bqwHbdCtAzpf1DfT/3uj9BIW3QA9f0BoZeYDGq88V7nMCy7/687AQ6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mfQqVCG12lBJlXYf9B66eJPuYwDEyTjrGd2+YlGQqO0=;
- b=NhL+0QiTy4OEm2UbLuZOvcGNFKN73bR5XWjbkf1cUgxEeSxGFNrWMhS2qej6ccLZ8IMM4JoYmj848BgxhggU2lMbvAzASlacTFnDOaNS1Zl7iRwVSX7SUyAh/WGAZhOX73TOgqwmKOt74gaGUUXDm95XBWJM7ambIiGhRTSIXC321o5iXerGSi2Nf0rP6WOGAp/Y1Z3yDn2T8pkPl36nb1A6yJu4WvQ9j3YRg83oQ4ST4kZiyd5o+aDT+6uNsMIl0FqFYqE/A5eClZ9w9UwBOopCqsmupMFWd9jnLORK2Z31HajojapIbWG7OAPTDTCs4o47AGfAPK1HFsWNRsZMeg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mfQqVCG12lBJlXYf9B66eJPuYwDEyTjrGd2+YlGQqO0=;
- b=VD9OAhqth0RyWF6aJ+BoYeFPOSQIxsO4RMKf2hn4KrY4BpAqgbKndn+1V8VxWSGyC9HBSHKkS1UQuH5WHflW2kE4GIy3mK/pqlbIpRsp6kBff47Zg1NuFV6b1wLZ/H18oipFfr5ZsNQMWn9AKoQrLRInohejvvSo5DRIf24a4v4z9G66q1yOIN5w1UdDyOEqGmet2S0tYnSrmlO2VJazZU1Res5ZjwZi+X8b1hbmyblB9gOmENyVTE2TsYmh5LW1YX9APUa6mKOxG9vi7HRd7X5D855cHuWMOnTfNqksThPDGMqe/Tdz664y3a3k/JhA4Kx7WPQDs7crMwA8YzfvwA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by DU2PR04MB9130.eurprd04.prod.outlook.com (2603:10a6:10:2f5::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Wed, 22 Oct
- 2025 16:16:33 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9253.011; Wed, 22 Oct 2025
- 16:16:33 +0000
-Date: Wed, 22 Oct 2025 12:16:22 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
-	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: Re: [PATCH v2 2/8] dt-bindings: clock: document 8ULP's SIM LPAV
-Message-ID: <aPkDVqRGBG9ILnQ9@lizhi-Precision-Tower-5810>
-References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
- <20251017112025.11997-3-laurentiumihalcea111@gmail.com>
- <20251022140841.GB11174@nxa18884-linux.ap.freescale.net>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251022140841.GB11174@nxa18884-linux.ap.freescale.net>
-X-ClientProxiedBy: BYAPR21CA0007.namprd21.prod.outlook.com
- (2603:10b6:a03:114::17) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Wed, 22 Oct 2025 16:17:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A6AA1655;
+	Wed, 22 Oct 2025 09:17:31 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FAEC3F59E;
+	Wed, 22 Oct 2025 09:17:34 -0700 (PDT)
+Message-ID: <8e22c81e-5e78-41e0-a81e-0f9826e5edf0@arm.com>
+Date: Wed, 22 Oct 2025 17:17:32 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|DU2PR04MB9130:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4e7bc176-213e-45f4-dbb6-08de11865de4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|366016|52116014|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JWOjBVHZTvl2iZ3oKmI48R/hXLHxNjHaxjWnSRzE0VSRbvtImJENdd29MaXi?=
- =?us-ascii?Q?oKjRfLTcGTYBzSwz9gnV34934Hn+vlj6RosI7oFN0FLKt6ePS0zeU0lJxKu0?=
- =?us-ascii?Q?A8thc+MmLBUXg1jE7XewSQHRVVaNBV31bif/7MB94uRaIiWR596CUejWi3LR?=
- =?us-ascii?Q?Edho/JFqSVKWqRtIpyjEw4tB1eWp3PkvIwiBiniVPpDtxqNceb5bm+8az+Cg?=
- =?us-ascii?Q?72mc0Gt3uRbe8SEvHa3iCjh83y91inhOZhJARu2jn27yaF/JZUWaPJajV0Lh?=
- =?us-ascii?Q?tK0r/B7ItOXZSEboNMdDTiRt9JA1AQNroUU98+vXxQrQa+9Lm6xqY4PNTf6F?=
- =?us-ascii?Q?NxmXMbuSNRokZdSfBfSlqvttFjBzLfbQ3sEhulKaKUPh+3ErN7pFYrQRkiWv?=
- =?us-ascii?Q?pjWIMv3n/IzzLG7TE8y5ZXS0jI5a1gjCZyPwZxCYMJHRYJa5jaK8CxbdOp0k?=
- =?us-ascii?Q?bD1+bXgFd6O/tQOUYcv/N5fAIus+pDwAuHP5wpv+MFlqWyDV7M1W3X0ZS04G?=
- =?us-ascii?Q?gfYhIp5+97/edDa3AdhfhxPmnKrwEezw9j/VrAHoLekfEEQ0gXgBNDpuxR6h?=
- =?us-ascii?Q?/C+w5KhTeA34UZQvGE1ljFiyn3sLZPJRq7Jf5HH+TchtJBQ4VWwCp8DLUzpb?=
- =?us-ascii?Q?B3KeFnYdPlnwwTLx9Mgpohi27VovL2U1i0lXwCIApJ4NV/IF7isI8Q5KStpa?=
- =?us-ascii?Q?B6jKPgz7RSZxhcMTRZOG4Z1pNGgsRlXGQOUstevIWw18TNRsAAUSWPqRc48u?=
- =?us-ascii?Q?uKhGhqiX+NBhnye5yuer8xHVd8cCAagmSG1iy9vQ+9tYCA+3WZiNZJuDgAgA?=
- =?us-ascii?Q?USUbkARxEXYqKK+fSTNSXvfGfsw4BOq6YMgHfcwao7U7tFQoCgsfs33iXAVU?=
- =?us-ascii?Q?IugVnqscxTpSuRjn4x0WAiwloTE5+4lIxenKx2G7z9j/Xi4nIn4MwZFhfIwM?=
- =?us-ascii?Q?ZlV9n7Q13WgXsyZj2HlbLDs8Go+wGSrz2SXj5/5JObXxJqdBekq8qrasE5RG?=
- =?us-ascii?Q?J1I10spc7x1GxQ5o68l7UAhp+OK3Q+zEsG7d9h7O15vWA0Htu7aM8WDevIW3?=
- =?us-ascii?Q?5oII+3XL1O4BXQu55hdOuT8ISiXydHRmEWWrkUlQnH6EzIH24LjklHlCRfyT?=
- =?us-ascii?Q?SSjA5b+WXZvg4cv91Vc9tSw8EN6ObsADTD7uZr2pqgqJTcQXl5S7OKjXkSDT?=
- =?us-ascii?Q?kjCkLiuDZ4YVvpz2sxHjq1tn/9oOjdPgwy5m6JseZMKP3Lsx2Lh4KyXfNI7N?=
- =?us-ascii?Q?tm2UbPBbbUbgT0ZBV04OD4RDRJk8gVQ67ePsCAOXI86pbcRIFndGBtX3VxSN?=
- =?us-ascii?Q?SUM/1EwzhZVfSulUNaBT0nxbM4i/EPxODmuDI3q1ddKN20JVPDzvNSJqMlPO?=
- =?us-ascii?Q?HqiaAaNbH+Ay5S8OtOKdSBPvgbYj?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(366016)(52116014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vVIxT1kjgjpWCW9AoD5niUM+KNefbqBpulFnuOLHuQKoJgRHD7UZDUPDFJcn?=
- =?us-ascii?Q?XRcfLY7EvtS4eenmTzY5eotQjatdX9zmhkbXeZwd+n7CKj/cEjbLcT6jI81A?=
- =?us-ascii?Q?hv25tfOvV23qyxPA5uQSYYL7VCn1BiXfSujDv4qrfpoyHg8ZzC0d4MbnJOHr?=
- =?us-ascii?Q?bmlMauiJlkt6DiPwWPTJFqDocbqeyd+at4dhNWrJ/pKaPEgRjd2+tHUebKnk?=
- =?us-ascii?Q?N5/nelV7o29WqpcraK9y8iqWeevQxcvSyZcNXRGATT5jEaJaDmdiAN8+Ia0V?=
- =?us-ascii?Q?RNLl13TeN6Q9QpjjibJ7ZyGAtiI7+kAeeoz+IOURmJD9HqM7KbixU8WRxgoY?=
- =?us-ascii?Q?ntUeW7XZT1UXYPjMkQhLUrX75hwjMV0SWVT7RZSb6oDn/vG+gOh//avr5gxT?=
- =?us-ascii?Q?tcolA3QLISd7DDDNH68u8ZgUIeq4AAfNINaf+cWhzDoV5m6I/9GwrjbmIpNX?=
- =?us-ascii?Q?hV36aF7jEjETy5ij80c2moihb5azL7ZpAf265O8UFukPndCTKN6ijn2nXrRn?=
- =?us-ascii?Q?85978HvA4IsuSsHjNyOrV4/18VKy85wyhlo/LJBPYtfypn2Jha9uGzHYppRZ?=
- =?us-ascii?Q?lnBPVBv5r1Q/Gix4sD5YdVfV1lNwJVjO2C92eirUgUxet3htOusEa3UeuszB?=
- =?us-ascii?Q?M0QRZoReMyH1vVvhbe2IM+8tkqKjhpNGPBbGAKY+ZVLish8wRj1uqtu8rN/Y?=
- =?us-ascii?Q?KNQv9w4VfjWGGT6PM/kZZavnSSWuHhFAOlFiwdW1eKU8qGIrI1AYLm/ocbmE?=
- =?us-ascii?Q?cqbIXuNIlZ3O5f4P9QmmmElDohqoD71900i4S+T0BuYDN/AydeWqSkgUyRnd?=
- =?us-ascii?Q?akdIE6bMN8L1IXUTa8oyZid5XC2vWq6T5gcw4R/XSto+W3upGYIJvKQ8eNxe?=
- =?us-ascii?Q?cJG9zqjKgvFcywaJMj7vCvdJ789ZjAot98xRsZQljDDUZu6EhUxNVtIrphIK?=
- =?us-ascii?Q?skfA2lwiaMh7Lv+sddbo85BIA2s1VVI+RgwTATl10N7+2X+DfiUlPi8hpoLL?=
- =?us-ascii?Q?c/AhjQlNoSE0zqNytErGqKYZcHlDSre1zPFX525VvsC8K35/ukBqbQukp/x+?=
- =?us-ascii?Q?6/UXUh4J3R9qrhVjawsLzyLFSzLl3ca/IZ1hQ2w1M7nH4HXBcfqxFuKIkq1q?=
- =?us-ascii?Q?Gy3T8wU/OAFZA/SaNhOd/klzVXARG2HxISHv92Z+bjWpLqV22Q+GvaguvXJ2?=
- =?us-ascii?Q?4YeH7LmDtR4AxqJH+YPKd0C9Oo3hIH1D3KM4Nm9rvRnYX+LA4tHLFe10dUGX?=
- =?us-ascii?Q?SFdooOGL7HJ2JEeynsLdUZfl++LxCiWB9HZvnhHx5qA2wO/NpNH61lv/mdMF?=
- =?us-ascii?Q?WMnos67WrE4rYzoEhETSpgxE1v4lOoew9eR2EkD9J68xxf33DeFsbAg0juT9?=
- =?us-ascii?Q?1P8RHvkQzKB7fj2AEFOkjGdCuksFNdXzTsk6wFn8ANEc7mfEWf4USmvbaaON?=
- =?us-ascii?Q?fTyaZSmY2cn0EDU3AoLOPms8Ocn87/DOgYQMYCcc+rAsVHoJLS5Q9J76KyLE?=
- =?us-ascii?Q?pS/Mbf5Q6JhmZvpJnOJmgHyfit5w/Cv8nktl2ZXkJHt0tL2ZNiAdSsS6mPTn?=
- =?us-ascii?Q?E2yH0khchQ8wRRS/vQPuKEz4VIwUlXRs+yIq9oEJ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e7bc176-213e-45f4-dbb6-08de11865de4
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 16:16:33.6045
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VbRgrkdUiVMAnPt0HmmKRG03smQqKyqk+Vplo4cx81IguMFLHuTmuCMRMW/nrn52EO6ds5rlWWbredMIyJZGIg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9130
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH mpam mpam/snapshot/v6.14-rc1] arm64/mpam: Fix MBWU monitor
+ overflow handling
+To: Zeng Heng <zengheng4@huawei.com>, james.morse@arm.com
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
+ guohanjun@huawei.com, jeremy.linton@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com, lenb@kernel.org,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, lpieralisi@kernel.org, peternewman@google.com,
+ quic_jiles@quicinc.com, rafael@kernel.org, robh@kernel.org,
+ rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ sudeep.holla@arm.com, tan.shaopeng@fujitsu.com, will@kernel.org,
+ xhao@linux.alibaba.com, wangkefeng.wang@huawei.com
+References: <20251017185645.26604-25-james.morse@arm.com>
+ <20251022133913.629859-1-zengheng4@huawei.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20251022133913.629859-1-zengheng4@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_091647_037067_A015DBD4 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20251022_091742_476715_9ACB8B96 
+X-CRM114-Status: GOOD (  20.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,38 +77,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 10:08:41PM +0800, Peng Fan wrote:
-> Hi Laurentiu,
->
-> On Fri, Oct 17, 2025 at 04:20:19AM -0700, Laurentiu Mihalcea wrote:
-> >From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >
-> >Add documentation for i.MX8ULP's SIM LPAV module.
-> >
-> >Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >---
-> >+description:
-> >+  The i.MX8ULP LPAV subsystem contains a block control module known as
-> >+  SIM LPAV, which offers functionalities such as clock gating or reset
-> >+  line assertion/de-assertion.
-> >+
-> >+properties:
-> >+  compatible:
-> >+    const: fsl,imx8ulp-sim-lpav
->
-> This block also contains QoS registers, General purpose registers, HIFI
+Hi Zeng,
 
-Qos should go though interconnect interface.
+On 10/22/25 14:39, Zeng Heng wrote:
+> Bandwidth counters need to run continuously to correctly reflect the
+> bandwidth. When reading the previously configured MSMON_CFG_MBWU_CTL,
+> software must recognize that the MSMON_CFG_x_CTL_OFLOW_STATUS bit may
+> have been set by hardware because of the counter overflow.
+> 
+> The existing logic incorrectly treats this bit as an indication that the
+> monitor configuration has been changed and consequently zeros the MBWU
+> statistics by mistake.
 
-'#interconnect-cells' = <n>;
+By zero-ing when the overflow bit is set we miss out on the counts after
+the overflow and before the zero-ing. Do I understand correctly, that
+this what this patch is aiming to fix?
 
-Frank
+> 
+> Also fix the handling of overflow amount calculation. There's no need to
+> subtract mbwu_state->prev_val when calculating overflow_val.
 
-> general purpose registers, and others.
->
-> I am not sure whether need to add a syscon fallback here. dt maintainer may
-> help comment.
->
-> Regards,
-> Peng
+Why not? Isn't this the pre-overflow part that we are missing from the
+running count?
+
+> 
+> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+> ---
+>  drivers/resctrl/mpam_devices.c | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 0dd048279e02..06f3ec9887d2 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -1101,7 +1101,8 @@ static void __ris_msmon_read(void *arg)
+>  	clean_msmon_ctl_val(&cur_ctl);
+>  	gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
+>  	config_mismatch = cur_flt != flt_val ||
+> -			  cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
+> +			 (cur_ctl & ~MSMON_CFG_x_CTL_OFLOW_STATUS) !=
+> +			 (ctl_val | MSMON_CFG_x_CTL_EN);
+
+This only considers 31 bit counters. I would expect any change here to
+consider all lengths of counter. Also, as the overflow bit is no longer
+reset due to the config mismatch it needs to be reset somewhere else.
+
+>  
+>  	if (config_mismatch || reset_on_next_read)
+>  		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
+> @@ -1138,8 +1139,9 @@ static void __ris_msmon_read(void *arg)
+>  		mbwu_state = &ris->mbwu_state[ctx->mon];
+>  
+>  		/* Add any pre-overflow value to the mbwu_state->val */
+> -		if (mbwu_state->prev_val > now)
+> -			overflow_val = mpam_msmon_overflow_val(m->type) - mbwu_state->prev_val;
+> +		if (mbwu_state->prev_val > now &&
+> +		   (cur_ctl & MSMON_CFG_x_CTL_OFLOW_STATUS))
+> +			overflow_val = mpam_msmon_overflow_val(ris);
+>  
+>  		mbwu_state->prev_val = now;
+>  		mbwu_state->correction += overflow_val;
+
+
+Thanks,
+
+Ben
+
 
