@@ -4,62 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 371A3CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 15:05:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6F8CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 15:17:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CoQwEZYn2xB534gafivMu3yIICCA9cGEHVOt84fCk+U=; b=lQOThSjBhId15RYLtELusQM02r
-	HABPICEASOJkoUFmZoczYSlcT1vaWssZRjGC23AFs5C4WkErhRkEqtNIofUCWvaFLqx4KtwWreD9D
-	H7xMWRF3hpdlPZmp+pG7ADyweNcGpS5sjYb5UAewObIab+uxY7wJII5gbY5Y8XN6KovshupbjupRu
-	2qJy++OmuyJRyYk+0XG7QTJKhWmlXgcdTbtX7BUipjV558N26YOk6FccXyWizBJzldrql+gac0L9U
-	UzY3SZCuZRqfquF8FKY+i9uv2rjVFvRQRAPdor7gdQrS46mogwyMrbbjjzMvXiM/wKcZKDGVFuZ3y
-	7traEjEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y8Ks3283lFKT/3or/kKLaFk/rSeUKOKq+L7qyJbrS/M=; b=yKCF3fqQXEDCO+U+0pVhbD1EYA
+	7oseD+bNawV05BpRyjH9iJkJ5aOOKAqWroWj/aJVEVOFr+ERCgCNTZXpF8/8uhx7LOCmYk2wUyBwW
+	da/dt8lGKrJm8v9sUzGXbUPGtM9l3aZ+NglswOOCmhFc7u3cu0caBSEOrKjC7n4Jt+ZPM3FUtk0Fr
+	gfCfRVN6nwxbKkOowr13MnWjIs/a8DaGNZE/6M7YWaRfXRjwWk+JZt92cgiWJIqm0BsWpelcW1AZj
+	meY+lCeL91zRcbOaZV7IiEcqnFrlxvTPBIdvM4eF5ZQ1ZY/+gInwjU2yb2IMfTumacf0oC/L5tEWb
+	2dLb+8zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBaPA-00000003KUk-03nk;
-	Wed, 22 Oct 2025 15:05:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBaP4-00000003KSg-08gh
+	id 1vBaaF-00000003MEq-3ptN;
+	Wed, 22 Oct 2025 15:17:03 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBaaD-00000003MDr-0tw2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 15:05:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 789BD1063;
-	Wed, 22 Oct 2025 08:05:19 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 04A603F63F;
-	Wed, 22 Oct 2025 08:05:24 -0700 (PDT)
-Message-ID: <c7bd3c00-ea1a-40ad-9d6e-2314217db906@arm.com>
-Date: Wed, 22 Oct 2025 16:05:23 +0100
+	Wed, 22 Oct 2025 15:17:02 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b40f11a1027so1391144066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 08:17:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1761146219; x=1761751019; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y8Ks3283lFKT/3or/kKLaFk/rSeUKOKq+L7qyJbrS/M=;
+        b=Q8QvdBGETDSYFSPghTwgBjlFK+3jKoRV11CQhcY2jW5oGLlm9TSnWV/07jIVXGfMJr
+         OEWvrNY3IgD8/zKeN7FFjjLn1k+KzizGdsePp8m8RVe/3tIvfYGdoKPxVdTEBrh7l+Or
+         EJugFuRC5dShVduV3i93pK8gyA3P9SBxRetXQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761146219; x=1761751019;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Y8Ks3283lFKT/3or/kKLaFk/rSeUKOKq+L7qyJbrS/M=;
+        b=Hc5BDrQHoxJeKj4EtEnTsViJw3PSlxZ1LtId/lRVuDZ53ljBQMTFRvGHHDNs3I8ndk
+         PH6uT8Z16w1X0vZQVP9DZ05une1CZVu6YGEv9VzwDviggzZkhMclSp+urDp86SinTuYX
+         AQ6nCjpahzZTDqUe+OOv0TH+Q7wAdhWvj2J7frZug4TqYhowX/R/1s2hnM0rRHegiYy2
+         K+V8ayldrn/Jq+mcK1YFurNNnk2uuJyK4cm4pQJm+KVNPYID2djR8GlDazJtakTWxcFT
+         XJmyk12QEXq88MGLmaeqOFDuEXQkJ3nbLsyADH4W/2Cpf/BW7nzCnXs6f2GNM2cJp+DM
+         dhJg==
+X-Forwarded-Encrypted: i=1; AJvYcCXcqKprY1JLSpokipf8CCSpGJYQcf46Zy97ObAb3MzEAVfvNTCqiESaoPCaj4NpMdblO/CXcLrq8i0h+051RMqS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSAnADtW3pKE6L+SNM1qG0+OWBXAvO8Wa0o9Vw9TQDGiNCpSjU
+	vY/7XrgFLyzapanYRenU+0UKBaJVCPdXqnWhVzouEQC2/5nAES3TltZxJAlhZo2x8SbeLgf+UYS
+	i5dAPeUs=
+X-Gm-Gg: ASbGnctFthxZBE6BLylCQE4FleqkQC/TJQz3+Gsp2eWJ9kfN5kqNrSOOEVSoHNO5t+b
+	2D1eYfNqd3wFizGylUC1aiLQXD5NRc4T9HwAbgFJ3TW0l74r5LJtl9sHGLaVfnqIe+0vmBywzBX
+	1WS79c4fc1roh/zSBKDlDIHKZI10Lj8bTOGP/mT8NPpBtrBUemaRggh8BG6mhBmvlT8u4/oTnGy
+	Qxx23fsOKAgE6ncCZVuYG33fATavUFAKJPQ3QE13gfKHyjrg6huM/9wIxYSjCHz8i9pJ6+PG7J3
+	SCvG8xgUUwD1ggFtb+3OWgfD7TLKsy9f+9YyhIumcZ50inDLo/Mll5uf+vfCxMWlN05VElwNHUm
+	K1HbjFsuRm9j7nP+Y9jl2xmYfkVaN3fRdo19W5MIMLqb5gGgixNr9E59KaobkhfvxXXnCGE+kVg
+	Qjg/l1JxJr4zIXGDF36Dr6+Z1hVqvii6r5duVkgE+nhc4DQ4yyyKYXRLYv31Mb
+X-Google-Smtp-Source: AGHT+IG8+pg5noTpLT0s/6oUbIq/c7IflRNhaxoFB1Ejt6U9JVHMtttIJ4VL22Gk7HDtFzRa5LYBDw==
+X-Received: by 2002:a17:907:3d91:b0:b30:2f6b:448f with SMTP id a640c23a62f3a-b6473245877mr2708298266b.25.1761146218559;
+        Wed, 22 Oct 2025 08:16:58 -0700 (PDT)
+Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com. [209.85.218.46])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65eb035f5bsm1375673566b.43.2025.10.22.08.16.57
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Oct 2025 08:16:57 -0700 (PDT)
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-b4aed12cea3so1161451166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 08:16:57 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVYr0HP1tdhDwcr+7sgTofXwwz0J9+4rB63eWjChpBRcCzTI7nq6ESef30rL0RCUbSxP7+Pq8k6as8qoEMSPiw/@lists.infradead.org
+X-Received: by 2002:a17:906:c144:b0:b04:48b5:6e8a with SMTP id
+ a640c23a62f3a-b6472d5d715mr2448051866b.7.1761146216891; Wed, 22 Oct 2025
+ 08:16:56 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 04/23] perf: arm_pmuv3: Introduce method to partition
- the PMU
-To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>,
- Shuah Khan <shuah@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20250714225917.1396543-1-coltonlewis@google.com>
- <20250714225917.1396543-5-coltonlewis@google.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250714225917.1396543-5-coltonlewis@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20251022102427.400699796@linutronix.de> <20251022103112.478876605@linutronix.de>
+In-Reply-To: <20251022103112.478876605@linutronix.de>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Wed, 22 Oct 2025 05:16:40 -1000
+X-Gmail-Original-Message-ID: <CAHk-=wgLAJuJ8SP8NiSGbXJQMdxiPkBN32EvAy9R8kCnva4dfg@mail.gmail.com>
+X-Gm-Features: AS18NWAqLsXEY6bsEV3yJ0KWUZmBC6kMtZXzbsnMf3ubAyGEsrR55YgMKptZqjM
+Message-ID: <CAHk-=wgLAJuJ8SP8NiSGbXJQMdxiPkBN32EvAy9R8kCnva4dfg@mail.gmail.com>
+Subject: Re: [patch V4 10/12] futex: Convert to scoped user access
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
+	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
+	kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>, 
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
+	Heiko Carstens <hca@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Andrew Cooper <andrew.cooper3@citrix.com>, 
+	David Laight <david.laight.linux@gmail.com>, Julia Lawall <Julia.Lawall@inria.fr>, 
+	Nicolas Palix <nicolas.palix@imag.fr>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_080530_157998_662862E2 
-X-CRM114-Status: GOOD (  37.49  )
+X-CRM114-CacheID: sfid-20251022_081701_292784_9BB16D71 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,278 +117,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/07/2025 23:58, Colton Lewis wrote:
-> For PMUv3, the register field MDCR_EL2.HPMN partitiones the PMU
-> counters into two ranges where counters 0..HPMN-1 are accessible by
-> EL1 and, if allowed, EL0 while counters HPMN..N are only accessible by
-> EL2.
-> 
-> Create module parameter reserved_host_counters to reserve a number of
-> counters for the host. This number is set at boot because the perf
-> subsystem assumes the number of counters will not change after the PMU
-> is probed.
-> 
-> Introduce the function armv8pmu_partition() to modify the PMU driver's
-> cntr_mask of available counters to exclude the counters being reserved
-> for the guest and record reserved_guest_counters as the maximum
-> allowable value for HPMN.
-> 
-> Due to the difficulty this feature would create for the driver running
-> in nVHE mode, partitioning is only allowed in VHE mode. In order to
-> support a partitioned on nVHE we'd need to explicitly disable guest
-> counters on every exit and reset HPMN to place all counters in the
-> first range.
-> 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->   arch/arm/include/asm/arm_pmuv3.h   | 14 ++++++
->   arch/arm64/include/asm/arm_pmuv3.h |  5 ++
->   arch/arm64/include/asm/kvm_pmu.h   |  6 +++
->   arch/arm64/kvm/Makefile            |  2 +-
->   arch/arm64/kvm/pmu-direct.c        | 22 +++++++++
->   drivers/perf/arm_pmuv3.c           | 74 +++++++++++++++++++++++++++++-
->   include/linux/perf/arm_pmu.h       |  1 +
->   7 files changed, 121 insertions(+), 3 deletions(-)
->   create mode 100644 arch/arm64/kvm/pmu-direct.c
-> 
-> diff --git a/arch/arm/include/asm/arm_pmuv3.h b/arch/arm/include/asm/arm_pmuv3.h
-> index 2ec0e5e83fc9..49b1f2d7842d 100644
-> --- a/arch/arm/include/asm/arm_pmuv3.h
-> +++ b/arch/arm/include/asm/arm_pmuv3.h
-> @@ -221,6 +221,10 @@ static inline bool kvm_pmu_counter_deferred(struct perf_event_attr *attr)
->   	return false;
->   }
->   
-> +static inline bool kvm_pmu_partition_supported(void)
-> +{
-> +	return false;
-> +}
->   static inline bool kvm_set_pmuserenr(u64 val)
->   {
->   	return false;
-> @@ -228,6 +232,11 @@ static inline bool kvm_set_pmuserenr(u64 val)
->   
->   static inline void kvm_vcpu_pmu_resync_el0(void) {}
->   
-> +static inline bool has_vhe(void)
-> +{
-> +	return false;
-> +}
-> +
->   /* PMU Version in DFR Register */
->   #define ARMV8_PMU_DFR_VER_NI        0
->   #define ARMV8_PMU_DFR_VER_V3P1      0x4
-> @@ -242,6 +251,11 @@ static inline bool pmuv3_implemented(int pmuver)
->   		 pmuver == ARMV8_PMU_DFR_VER_NI);
->   }
->   
-> +static inline bool is_pmuv3p1(int pmuver)
-> +{
-> +	return pmuver >= ARMV8_PMU_DFR_VER_V3P1;
-> +}
-> +
->   static inline bool is_pmuv3p4(int pmuver)
->   {
->   	return pmuver >= ARMV8_PMU_DFR_VER_V3P4;
-> diff --git a/arch/arm64/include/asm/arm_pmuv3.h b/arch/arm64/include/asm/arm_pmuv3.h
-> index cf2b2212e00a..27c4d6d47da3 100644
-> --- a/arch/arm64/include/asm/arm_pmuv3.h
-> +++ b/arch/arm64/include/asm/arm_pmuv3.h
-> @@ -171,6 +171,11 @@ static inline bool pmuv3_implemented(int pmuver)
->   		 pmuver == ID_AA64DFR0_EL1_PMUVer_NI);
->   }
->   
-> +static inline bool is_pmuv3p1(int pmuver)
-> +{
-> +	return pmuver >= ID_AA64DFR0_EL1_PMUVer_V3P1;
-> +}
-> +
->   static inline bool is_pmuv3p4(int pmuver)
->   {
->   	return pmuver >= ID_AA64DFR0_EL1_PMUVer_V3P4;
-> diff --git a/arch/arm64/include/asm/kvm_pmu.h b/arch/arm64/include/asm/kvm_pmu.h
-> index 6c961e877804..8a2ed02e157d 100644
-> --- a/arch/arm64/include/asm/kvm_pmu.h
-> +++ b/arch/arm64/include/asm/kvm_pmu.h
-> @@ -46,6 +46,7 @@ struct arm_pmu_entry {
->   };
->   
->   bool kvm_supports_guest_pmuv3(void);
-> +bool kvm_pmu_partition_supported(void);
->   #define kvm_arm_pmu_irq_initialized(v)	((v)->arch.pmu.irq_num >= VGIC_NR_SGIS)
->   u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu, u64 select_idx);
->   void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu, u64 select_idx, u64 val);
-> @@ -115,6 +116,11 @@ static inline bool kvm_supports_guest_pmuv3(void)
->   	return false;
->   }
->   
-> +static inline bool kvm_pmu_partition_supported(void)
-> +{
-> +	return false;
-> +}
-> +
->   #define kvm_arm_pmu_irq_initialized(v)	(false)
->   static inline u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu,
->   					    u64 select_idx)
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> index 86035b311269..7ce842217575 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -23,7 +23,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
->   	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
->   	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o
->   
-> -kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
-> +kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu-direct.o pmu.o
->   kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
->   kvm-$(CONFIG_PTDUMP_STAGE2_DEBUGFS) += ptdump.o
->   
-> diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
-> new file mode 100644
-> index 000000000000..9423d6f65059
-> --- /dev/null
-> +++ b/arch/arm64/kvm/pmu-direct.c
-> @@ -0,0 +1,22 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2025 Google LLC
-> + * Author: Colton Lewis <coltonlewis@google.com>
-> + */
-> +
-> +#include <linux/kvm_host.h>
-> +
-> +#include <asm/kvm_pmu.h>
-> +
-> +/**
-> + * kvm_pmu_partition_supported() - Determine if partitioning is possible
-> + *
-> + * Partitioning is only supported in VHE mode (with PMUv3, assumed
-> + * since we are in the PMUv3 driver)
-> + *
-> + * Return: True if partitioning is possible, false otherwise
-> + */
-> +bool kvm_pmu_partition_supported(void)
-> +{
-> +	return has_vhe();
-> +}
-> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
-> index c2e3672e1228..294ccbdc3816 100644
-> --- a/drivers/perf/arm_pmuv3.c
-> +++ b/drivers/perf/arm_pmuv3.c
-> @@ -40,6 +40,12 @@
->   #define ARMV8_THUNDER_PERFCTR_L1I_CACHE_PREF_ACCESS		0xEC
->   #define ARMV8_THUNDER_PERFCTR_L1I_CACHE_PREF_MISS		0xED
->   
-> +static int reserved_host_counters __read_mostly = -1;
-> +
-> +module_param(reserved_host_counters, int, 0);
-> +MODULE_PARM_DESC(reserved_host_counters,
-> +		 "PMU Partition: -1 = No partition; +N = Reserve N counters for the host");
-> +
->   /*
->    * ARMv8 Architectural defined events, not all of these may
->    * be supported on any given implementation. Unsupported events will
-> @@ -505,6 +511,11 @@ static void armv8pmu_pmcr_write(u64 val)
->   	write_pmcr(val);
->   }
->   
-> +static u64 armv8pmu_pmcr_n_read(void)
-> +{
-> +	return FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read());
-> +}
-> +
->   static int armv8pmu_has_overflowed(u64 pmovsr)
->   {
->   	return !!(pmovsr & ARMV8_PMU_OVERFLOWED_MASK);
-> @@ -1200,6 +1211,58 @@ struct armv8pmu_probe_info {
->   	bool present;
->   };
->   
-> +/**
-> + * armv8pmu_reservation_is_valid() - Determine if reservation is allowed
-> + * @host_counters: Number of host counters to reserve
-> + *
-> + * Determine if the number of host counters in the argument is an
-> + * allowed reservation, 0 to NR_COUNTERS inclusive.
-> + *
-> + * Return: True if reservation allowed, false otherwise
-> + */
-> +static bool armv8pmu_reservation_is_valid(int host_counters)
-> +{
-> +	return host_counters >= 0 &&
-> +		host_counters <= armv8pmu_pmcr_n_read();
-> +}
-> +
-> +/**
-> + * armv8pmu_partition() - Partition the PMU
-> + * @pmu: Pointer to pmu being partitioned
-> + * @host_counters: Number of host counters to reserve
-> + *
-> + * Partition the given PMU by taking a number of host counters to
-> + * reserve and, if it is a valid reservation, recording the
-> + * corresponding HPMN value in the hpmn_max field of the PMU and
-> + * clearing the guest-reserved counters from the counter mask.
-> + *
-> + * Return: 0 on success, -ERROR otherwise
-> + */
-> +static int armv8pmu_partition(struct arm_pmu *pmu, int host_counters)
-> +{
-> +	u8 nr_counters;
-> +	u8 hpmn;
-> +
-> +	if (!armv8pmu_reservation_is_valid(host_counters))
-> +		return -EINVAL;
-> +
-> +	nr_counters = armv8pmu_pmcr_n_read();
-> +	hpmn = nr_counters - host_counters;
-> +
-> +	pmu->hpmn_max = hpmn;
-> +
-> +	bitmap_clear(pmu->cntr_mask, 0, hpmn);
-> +	bitmap_set(pmu->cntr_mask, hpmn, host_counters);
-> +	clear_bit(ARMV8_PMU_CYCLE_IDX, pmu->cntr_mask);
-> +
-> +	if (pmuv3_has_icntr())
-> +		clear_bit(ARMV8_PMU_INSTR_IDX, pmu->cntr_mask);
-> +
-> +	pr_info("Partitioned PMU with HPMN %u", hpmn);
-> +
-> +	return 0;
-> +}
-> +
->   static void __armv8pmu_probe_pmu(void *info)
->   {
->   	struct armv8pmu_probe_info *probe = info;
-> @@ -1214,10 +1277,10 @@ static void __armv8pmu_probe_pmu(void *info)
->   
->   	cpu_pmu->pmuver = pmuver;
->   	probe->present = true;
-> +	cpu_pmu->hpmn_max = -1;
->   
->   	/* Read the nb of CNTx counters supported from PMNC */
-> -	bitmap_set(cpu_pmu->cntr_mask,
-> -		   0, FIELD_GET(ARMV8_PMU_PMCR_N, armv8pmu_pmcr_read()));
-> +	bitmap_set(cpu_pmu->cntr_mask, 0, armv8pmu_pmcr_n_read());
->   
->   	/* Add the CPU cycles counter */
->   	set_bit(ARMV8_PMU_CYCLE_IDX, cpu_pmu->cntr_mask);
-> @@ -1226,6 +1289,13 @@ static void __armv8pmu_probe_pmu(void *info)
->   	if (pmuv3_has_icntr())
->   		set_bit(ARMV8_PMU_INSTR_IDX, cpu_pmu->cntr_mask);
->   
-> +	if (reserved_host_counters >= 0) {
-> +		if (kvm_pmu_partition_supported())
-> +			WARN_ON(armv8pmu_partition(cpu_pmu, reserved_host_counters));
+On Wed, 22 Oct 2025 at 02:49, Thomas Gleixner <tglx@linutronix.de> wrote:
+>
+> From: Thomas Gleixner <tglx@linutronix.de>
+>
+> Replace the open coded implementation with the new get/put_user_scoped()
+> helpers.
 
-Does this really warrant a WARN_ON ? Given we
+Well, "scoped" here makes no sense in the name, since it isn't scoped
+in any way, it just uses the scoped helpers.
 
-1. This can be easily triggered by a user (e.g. with modprobe)
-2. We gracefully handle it and init to a safe setting.
+I also wonder if we should just get rid of the futex_get/put_value()
+macros entirely. I did those masked user access things them long ago
+because that code used "__get_user()" and "__put_user()", and I was
+removing those helpers and making it match the pattern elsewhere, but
+I do wonder if there is any advantage left to them all.
 
-A pr_warn is sufficient ?
+On x86, just using "get_user()" and "put_user()" should work fine now.
+Yes, they check the address, but these days *those* helpers use that
+masked user address trick too, so there is no real cost to it.
 
-Otherwise looks good to me.
+The only cost would be the out-of-line function call, I think. Maybe
+that is a sufficiently big cost here.
 
-Suzuki
-
+             Linus
 
