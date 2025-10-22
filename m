@@ -4,167 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B22CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40ADACCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/bEvHpV3yKR755FH2QqqBlJv9jNl9uBTW98Xu7ShwC0=; b=m+lg/FxJzlbsfD6HcUxcUMwfgf
-	8QF84h2OHUWjbPG18aMhs8rcHPo9JAICcXnomaiOWIWzFtykmW4doQ9y21a1KkgXzYAQlQrJev6a+
-	OPS5O2zqNouexMGMGOGTEu+08BPpwsYOY7Z5UaEI5C0Xh3VwFgLjvaJUdnLh6na3Lgpob8bpQtWvH
-	9DIx2/3lLHSwWHAWyKDjjzjIsApd5Sz47eKH8WwPcH7I2Q+WV5kIbO7LxyXZet5qpGgA5spuNrBIM
-	wve0IF3/KRXMfftFTuLQebgqfHVpn4nqGkOHoehisLmtbpKjbjnq19n217n+EhvPuljDsdB9YZTBE
-	2Y7PVjtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O1wkwa2sbgbrgVXmpX6aURjXnmTYmvjQpNTyuKJo+Jg=; b=rZ/+pHisMfHJb2nKHy9yTSMr+c
+	briVdhSxtEbhlFhxA2w1P8CWO97s9Eu6Y2qk7LuQYB1NyHSu+m1FWR6nJ8kHR1FplAmHOFj6sxnKY
+	km7jiCaOFjD0I+M0+mFEsU9u2jV69xUJ97wWplcPwDDoExns/YunMG5JThfCqBgRe0CVihx0mRqLH
+	tgMjnovULEKr4G0PsdAFqKma+cxwyvMmwHt7Y9QsFkTTyTQAwLLYhHKM4UZotMkcwWAI/+IIfpc3L
+	dSpvR3fTiIVmB2YFaysofnNXdgnstII+so93mtosoTKJdeJItcZ/Z8a5H1/j5pDU2nU7JQVE8cjRu
+	ua/Hrsxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZVl-000000039a1-2Q4C;
-	Wed, 22 Oct 2025 14:08:21 +0000
-Received: from mail-japaneastazon11022094.outbound.protection.outlook.com ([52.101.126.94] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1vBZZG-00000003A7k-35bn;
+	Wed, 22 Oct 2025 14:11:58 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZVi-000000039Z9-1Mr4;
-	Wed, 22 Oct 2025 14:08:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uUSP1qO5d6+Dz2ysgvMgrQtk3caBX2P3lDuDTioa78ijdVx15n/75K8LUPnZFm+J6YZsGMr87102z4VILsgjdypEU5d5jX6LcyqhtlyRC3Y0KcLAktMKcM9BNgEH6B1v7Mo6HlS018893cP8M9XcUBbpDAA5cD0qJLQEfO7rrAvL/Z1/TcEA3NxegFAxoFFI125KFW3kdVwJfKDldzP0OS53pzD4q4TM0VC/6Wtg3rYlFnfZ3B3zGNbHpjHavkkpiitmNkJb4JUw0LecO0/8EGius1osREBY6BHfCAijh74VW9K+bUjArgeugjeG/AHcYHjdK1V8leBzr0cIi+4iEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/bEvHpV3yKR755FH2QqqBlJv9jNl9uBTW98Xu7ShwC0=;
- b=Hz0N8nzVlD8amCzJ+PQlXueOvp3p5s5UkQNR/GoKe8ZiANcEh1YR8qfvNL5/qZ2PRUMQoaUuTsIkAEJnO41DnDjP0pLwA2vcQPkcJBC4x8rvzZjzb1pNzqFtM9krxW31D46cG4xL9f2Xv1iiDFaztkrUGKTDDVSRvh2CPjFFS4b+RzXr0k9sRwMGORgkuSqfusWB+0eIX9u5xHbidPg3yAShcwgU4xj9i6lLe8bxeEUpi49KmbVhBooEbGFWsuLjA/M2GW6n50ptnRALNYYmkaHt5mZi2wftFxd8Or5xT3guAGTmcc1JZgTkx8MpPgkXCZdVYGDkELfJSvLey9zzYw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/bEvHpV3yKR755FH2QqqBlJv9jNl9uBTW98Xu7ShwC0=;
- b=FN+A5Zdz5qE+CONExE77dZ7xsIqiGOvV6YhxfOOVrI1d3ZJlwy8t+enB8rztoqjr4+C08MUe4dOZ0OlDdWGJ3oFTLDPsWCO/wx5+7lCY+esQMt3mNxODwYaFmsIeAj2lG2FXPSDmvrfS+Fphz7wCRcw5z3l1q6fM6SwOIRna4c4qUJlEDZkP4hXl6gQQjWHPN7zEL5tl2gIwhvCQJahy202HIiC0A38RLM+aEUmq/PPjlZuwoJJ+ebT466lMbG+kMiWCnKsZxq6GltMuaWVwGIUydmgd1G8e9iRKvdPMy0z1ITmGulXaPu1tlvEfEWon5XqFIE8rqJB02Dh9WSM2aw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
- by OSQPR03MB8713.apcprd03.prod.outlook.com (2603:1096:604:2a0::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Wed, 22 Oct
- 2025 14:08:12 +0000
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::e1e:5c95:a889:828e]) by KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::e1e:5c95:a889:828e%5]) with mapi id 15.20.9253.011; Wed, 22 Oct 2025
- 14:08:12 +0000
-Message-ID: <61c2738d-7291-4a45-aa73-f18528c81ba8@amlogic.com>
-Date: Wed, 22 Oct 2025 22:07:43 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] clk: amlogic: Optimize PLL enable timing
-To: Jerome Brunet <jbrunet@baylibre.com>,
- Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251022-optimize_pll_driver-v1-0-a275722fb6f4@amlogic.com>
- <20251022-optimize_pll_driver-v1-2-a275722fb6f4@amlogic.com>
- <1j347b403i.fsf@starbuckisacylon.baylibre.com>
-From: Chuan Liu <chuan.liu@amlogic.com>
-In-Reply-To: <1j347b403i.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SGBP274CA0004.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b0::16)
- To KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+	id 1vBZZD-00000003A73-3Ery
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Oct 2025 14:11:57 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id CDC4F1A15D2;
+	Wed, 22 Oct 2025 14:11:53 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A568C606DC;
+	Wed, 22 Oct 2025 14:11:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8F9E6102F243C;
+	Wed, 22 Oct 2025 16:11:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761142312; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=O1wkwa2sbgbrgVXmpX6aURjXnmTYmvjQpNTyuKJo+Jg=;
+	b=PlCr3ESSO1Lz6NgyqsmCsc1gCdHzwwzaG3F97GJRmw4UNWoV2zZ7Ztz+vBarrcv14hkeb8
+	ZLPyeJOQdJJxqxldUujAfOpz33WY+OHATCTElWRKckQ/Ao6vOezLXmeOxFjsgz8Ib59lKc
+	KOBnSv4diphrnuyCutb1P4DEV6thLTLIDScVZTqXqHAXxApOGGUkZyKzkHQfaJ5DMdHlIR
+	UcoROB9m1xZ6RUPIQK45ACSpJdTwH8G7+HERmtTQdCAu98NXgRY+WY8lMt9LedzckEgQhl
+	R52xwpALs7xqwSF7Kihb4yMXFpVU2h4Q5re8uyNBZYkMBuKNSFr+syWzkkktWg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>,  Gregory Clement
+ <gregory.clement@bootlin.com>,  Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Michael
+ Turquette <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,
+  Linus Walleij <linus.walleij@linaro.org>,  Richard Cochran
+ <richardcochran@gmail.com>,  linux-arm-kernel@lists.infradead.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-clk@vger.kernel.org,  linux-gpio@vger.kernel.org,
+  netdev@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: arm: Convert Marvell CP110 System
+ Controller to DT schema
+In-Reply-To: <20251014153021.3783485-1-robh@kernel.org> (Rob Herring's message
+	of "Tue, 14 Oct 2025 10:30:19 -0500")
+References: <20251014153021.3783485-1-robh@kernel.org>
+User-Agent: mu4e 1.12.7; emacs 30.2
+Date: Wed, 22 Oct 2025 16:11:48 +0200
+Message-ID: <87ldl3rpp7.fsf@bootlin.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|OSQPR03MB8713:EE_
-X-MS-Office365-Filtering-Correlation-Id: a90824ea-ea64-4d64-b9c6-08de11746f9b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?b1RuVGxsbTBIMitIZnhhdlh4R3kwblM0MHdSWENQRnhMQ3lIL1NrTEJXQldS?=
- =?utf-8?B?bVp0VmlaRE4vS09UMmpIblpTUDBPclh1NjUvYzdPWDc3WGtnYkJWdkJOZjVK?=
- =?utf-8?B?RlNmSVEzdWlDanVXbDh0dERUQkdDUSt5MmdiMHBHTlZuemdqdnNXZ05hWnM4?=
- =?utf-8?B?M2VXSjJDUElLTWUzbTFVNG1UUThBd2JabFYveXUvbEEwTlQzR1laQy9PSHNl?=
- =?utf-8?B?bFFmenQ0ZkdsZWVGUDhSbzNBTkM5RXMxN2dqdDhKb1YyeENnNis3ZW5mTFJY?=
- =?utf-8?B?RE96elFjQmFyYjJBS3BMMTYzM3JvZHMzcHpZZGQzbHdtT2ZRa3Z2VlpWWE1v?=
- =?utf-8?B?dFZLQ2V5MFlzbXBUTTVmcllERUpoYWZpWndWNmFrOXJ5TVlSOGg0aTVXd3lk?=
- =?utf-8?B?Zzd4UVZFZEFpczZZZlg2eXpIdU5qdjJzZVhWRExuUTZQRTNCMFNVNW15ek1l?=
- =?utf-8?B?NjY3aDZXZVlMQmlSNW9seDVaT29Vb1BGR2RodkpvdDROYitYdzlMMHBGWU43?=
- =?utf-8?B?dmVKaUVPYU9DV2wrTlBnNVpmcldVaEk5UCsrWUFpY3Z2V2NEM1F1YjJaanYx?=
- =?utf-8?B?Y3l0cUk0VGVvUHgvOWN0azdsL2FmT0FKOG8yQlp5WEgrRWRETWZ2SlM4UENt?=
- =?utf-8?B?WTNpUTl5STQxSnN6S2wzYTdVcTA5RlhOK2p2aWRFMnhtZWhiRjNLR1BaQkNt?=
- =?utf-8?B?MjY5ZFpjMStEMWlWekdhS0N3VFVkT3lqRnBSNHFVZUNidTlCcW5GYmQralpE?=
- =?utf-8?B?QmdqbVg4NGlRNFBPQWloWUxNZXJRMkRvT0ZLQWJOdzBKaDduZE9wS1dVbHRS?=
- =?utf-8?B?K2RxN0NQaWF1Qi9KSEc4dVBoVzZRd0ZibXE5TjFJbXRKanh0S0R5NnlhUDFV?=
- =?utf-8?B?MjZkMW5SbWFLcDV6bm5SenZMN0xFYW9jb0FzUGdBZndKNnBDREQ4WTh6NHM3?=
- =?utf-8?B?UmYybkx6MzVqTTZ5bVFNTHlQQWo2MlpiZitDZ05KMkNGYThoZVQ1T09sMlJC?=
- =?utf-8?B?RjZnZDc0ZFZUangyaVRPVk9ncVRoS1BHZkwzMHhVOTJRVSthWUwxZTA0K0hv?=
- =?utf-8?B?SUd4YjV4Kzd5TnR0OFpUVFFmdjU1dkl2VHVzQThYUnJ3aWlMQ0ZSZDZrTERO?=
- =?utf-8?B?dk85TldJamFGRDM4aloxckZxUUVYMWFRMm5adnVVVkc2VHNVRjVZa2pyQmp3?=
- =?utf-8?B?UVRJNWlnVGllbU0wQ2wwM2p2L3VsaUpmL2NtOXVraThkVU5oQ0lBd1dRNVpT?=
- =?utf-8?B?eGtDRWlCUXorSmluditONWhCaE9nOEF4cHJnZUI4VFZRYzZuYUNZai83VVRo?=
- =?utf-8?B?SXR0Z0NuUy85L29Rd1d0NmVjeVVhNHdvTVdINVpZUmRkcjUrOGVDU0w1TE05?=
- =?utf-8?B?VWFscmlGRjl4UmZzM09xYVptclJrR3Q5N3lwZGF4WmlKelBWYnFaV29hRFJL?=
- =?utf-8?B?cm5OWkQvMWFFVU5JZEtLMTZFZTlrZVQzUVNSNFlZbjJRd21SenNUTDZUUXJS?=
- =?utf-8?B?dFBsTFVrU2FaUnBXeFVGQzBLd0c1aldVeVJvZzZWN2FQMmY5RHFoakE3TEtS?=
- =?utf-8?B?QmtScEpuQjNDVTNieVlYL1JRMm9qM25DZnJZWktkSmJId1NzTG9qdE5makRZ?=
- =?utf-8?B?dUJkR1JPaXAybG1PQ3Q3M2NXcWRyU3JCRXdvaTJXZTE3QnNPaCtPNEdrRHBl?=
- =?utf-8?B?d2ZxQkhnRW0wM2tNNDRaZFU5RzRkb2h1czhpbWRiZ1QvR2JiMGMvVmxqTEdv?=
- =?utf-8?B?eC9mbm4yVFZvNmVUNnY4RGxGNndaOWlSV1lMYitTei9oTHdYU3p2UHRrMXA5?=
- =?utf-8?B?OU50L2V3a1h3V3lhWFY5R2ZXVm1FajZvelc3c0l2STJYNU1nTEk0MVNGclV0?=
- =?utf-8?B?ZlQxVDBLaEN2RXNydi95SFNpRDVhVXFtT3o1NGtYZTAzODFPMVFVWTZPeHgz?=
- =?utf-8?Q?bFZKLIJ24Gmvj6ignvcxHV54/pau0D6e?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZVJhQ0lCM1pteDJmUDhEN2FHYVFLczJDcUlBeXJQTkUrd0hoQ3VRTC9uaWxh?=
- =?utf-8?B?UW5IRUl5NTMvSEZSMjBjcGYwYUQ3V3c2eHZBYkpBamZzNXR3WkxnL3F0VEZP?=
- =?utf-8?B?NGFieHUySmhZRFRkZ1NScTMwWEdKekNzcUFiNkJDRTgybEVoeXlrYnVURDZR?=
- =?utf-8?B?NFJtL09NTkZxeHgvejdSam5jSDkrZ2tJYWlNTEhDYWIyd3B6b0JpSWxQdHZY?=
- =?utf-8?B?dWdUQ0xWL0ZWSFV4UkI0QXl0SzFUKzVlRTNoNTc1Rk12NStsTmFPQzBoYUVE?=
- =?utf-8?B?aVJaVUlTMkNSZDRVKzEvKys1K0k1ampjazNLcjVtWnllRWp4eTZ4TUZ1MWFU?=
- =?utf-8?B?L0RzUEVIdE1lRjRkVVM2SmpSWVVjYjI3b3puRmJLeW9UTTQ5cWQ3RXlMOEhv?=
- =?utf-8?B?dlZMT0pXNGkzbDNyM2tJZU1hYk4xTGorQVVmMElPSkJJbUVoYVRYVWVDMUpr?=
- =?utf-8?B?SWd0M1ZLVWVYc2V2SUgzTFNwdVZGOGtmd3NQSVlhSUw3YThKMGhvT3JhOFVV?=
- =?utf-8?B?R2hla3RIL0sxZXlQeTM3OHd4QXo3anV4bUxnbmFCbWlNTGswK3lxVzRaWXc4?=
- =?utf-8?B?ZThqWGtRdkpUdDZRR29PQS8ybzlWQ1F0dm40NkUwQlB2Z0drbzFlazFDZjlB?=
- =?utf-8?B?K1lmRjBlMFVaZGdMQlRHSU9HWGwxQ0EzQ0ZCVDZJT1VwdnVxOVQ0QmJyc0ph?=
- =?utf-8?B?OWZqWWJNaE5DSEV5SjVaRGYzcjFkZHQ5OFQ5cUVZOXdoOUoxeUtwMzVacXpi?=
- =?utf-8?B?clI0Qk5vQ2wySzhtY0NBVnJvTDlCTll1eGZFR2lXZjNlYTMyOVJLcTErUkQr?=
- =?utf-8?B?MUQraXdwSFFIWGU0NGMyRVF4clBLR25iczlsSHhpRDZza2d6NWh1WUY1dEZ1?=
- =?utf-8?B?VDdlK2RqSGdjYS9hZzFWSnlPRytFNWhoVWtuamlEU0hWYnNPNlpZb0pRVmdu?=
- =?utf-8?B?MmV1S3BiOFNxZ1NtalRPRTUvTXhod1BUQk5GTXlsL0IzMW0rYmVOMmlLQ1N4?=
- =?utf-8?B?RTRic3BRS0FoQWRRa0UyOEtXczRHcXhQT1NNNUVrZmFzR25FeW9sS3M4LzZY?=
- =?utf-8?B?NS9YdVQzeWpYRGhNODBFRjA4WW9ZaTRaVE9nNmNqM1F1Y0NpNmx5M1FLakkw?=
- =?utf-8?B?dGl2cmZrejlXRmprYURYSGxYM1BnV1BaK2xIMmt0RE1vbE9oME5OUVBRNzYz?=
- =?utf-8?B?czNldlJVZkRnUnZBdDF6MUl4VDRyMUdDcEI1ejZnOHppR2ZJT29vS3A4eWs0?=
- =?utf-8?B?Sk5OS3d5YlhpeU1WaTdxaGFFdGRPZXYwcFFWU3dYdGYxWmVQU0RNdUZlYjVP?=
- =?utf-8?B?K3F5UjRPSkQ4K2RVTXBkUCtTdVByTjR0S0JQQ25ZOEhFakRESkRVMHhhRVFS?=
- =?utf-8?B?ZW1tNldkNmRkQm1sZEQ4a0kvQkJxNk8wbjJVRTBSQ3hLUzBZNkk2bkxXVmlH?=
- =?utf-8?B?VmNLZWdhakRUQUZiKytCUlVvbGhLamY3Q3Y4SFVOSHpEcFdWL0ExWEZSWG53?=
- =?utf-8?B?Y2s2UmJlUjRFb1hTUFE0S3ExYXRZaFVMU1E3MUtyRnh0VnhTVlNzaFRsWVY5?=
- =?utf-8?B?NjN1T0ZJZkZHSkt3RG8vZFlIZUhGMzNnbnorQ1NBalhSWW5pOExmTG5GdFlk?=
- =?utf-8?B?aGVNbjVxeFFwWnVIOXVVTGJTQ3pNRkdmUTdlZkphUit6OWlMbEVydnBsUUdu?=
- =?utf-8?B?L0ZaZlYrV1J3dE8vd3JUcGZ5Z3N6elV6eXBycVZuQkw2cjJKcHgxUHlVR3Ir?=
- =?utf-8?B?VVk5R2gzZzlVaXZ2MURoVG1adWk4SUVIUWdDTU9YNDVtYWNKOFZqMGZFelNo?=
- =?utf-8?B?U09BZGJmWHhWaUNwb1VrWXhPVWVFdGVieGNVcHU1alRxZkVVdSs3OEhFK1VH?=
- =?utf-8?B?cmREeDU2ODdTcGtIV0lpSkROeDh3UnNuWnhvUTF2dmRsODVPNHFoYUtIMjBU?=
- =?utf-8?B?S2FKVmdrclB0aGxZY2hQL0RYVytaR09MRlVsNTFiVzVpWU9hT3RXa0Z2Nm1T?=
- =?utf-8?B?bGkrWGJSblFoZldqNEJBRmtKc3YzQTE2NEtBWGdHbnM1SFpPdi8yQWJXa0pw?=
- =?utf-8?B?T1pRUXYzSmdWSVExbTFXRWhLcU5uRGdPaitlZWI0SGFiZHRyd1dHK3h6aEVM?=
- =?utf-8?Q?gPV6Sq04H4qSdcL7/qgXbUKQv?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a90824ea-ea64-4d64-b9c6-08de11746f9b
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 14:08:12.0928
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UDAYPFmM9C6a0exscn6b/EHtmbAPU3KWuVE/Kkbf74h61xdhNXSYqbZbUkSJoveX20D5URlTQiwsBxq0xIjZ+w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSQPR03MB8713
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_070818_504511_7E5F18B6 
-X-CRM114-Status: GOOD (  25.89  )
+X-CRM114-CacheID: sfid-20251022_071155_941489_ED1D41BB 
+X-CRM114-Status: GOOD (  19.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,178 +85,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jerome,
+Hi Rob,
 
+Thanks for the conversion!
 
-On 10/22/2025 8:01 PM, Jerome Brunet wrote:
-> [ EXTERNAL EMAIL ]
-> 
-> On Wed 22 Oct 2025 at 14:58, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
-> 
->> From: Chuan Liu <chuan.liu@amlogic.com>
->>
->> Amlogic PLL locking procedure shall follow this timing sequence:
->> 1 Assert reset signal: Ensures PLL circuits enter known initial state.
->> 2 Deassert lock-detect signal: Avoid lock signal false triggering.
->> 3 Assert enable signal: Powers up PLL supply.
->> 4 udelay(20): Wait for Bandgap and LDO to power up and stabilize.
->> 5 Enable self-adaptation current module (Optional).
->> 6 Deassert reset signal: Releases PLL to begin normal operation.
->> 7 udelay(20): Wait for PLL loop stabilization.
->> 8 Assert lock-detect signal: lock detection circuit starts to work.
->> 9 Monitor lock status signal: Wait for PLL lock completion.
->> 10 If the PLL fails to lock, it should be disabled, This makes the
->> logic more complete, and also helps save unnecessary power consumption
->> when the PLL is malfunctioning.
-> 
-> Is this applicable to all supported SoC ? from meson8 to s4 ?
+On 14/10/2025 at 10:30:19 -05, "Rob Herring (Arm)" <robh@kernel.org> wrote:
 
-Yes.
+> Convert the Marvell CP110 System Controller binding to DT schema
+> format.
+>
+> There's not any specific compatible for the whole block which is a
+> separate problem, so just the child nodes are documented. Only the
+> pinctrl and clock child nodes need to be converted as the GPIO node
+> already has a schema.
+>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
 
-> 
-> What did you test ?
+...
 
-We have tested this on the G12A and later SoCs without any issues.
-Internally, we have adopted this configuration sequence in our branch
-and verified it on a large number of SoCs.
+> -Those clocks can be referenced by other Device Tree nodes using two
+> -cells:
+> - - The first cell must be 0 or 1. 0 for the core clocks and 1 for the
+> -   gateable clocks.
+> - - The second cell identifies the particular core clock or gateable
+> -   clocks.
+> -
+> -The following clocks are available:
+> - - Core clocks
+> -   - 0 0	APLL
+> -   - 0 1	PPv2 core
+> -   - 0 2	EIP
+> -   - 0 3	Core
+> -   - 0 4	NAND core
+> -   - 0 5	SDIO core
+> - - Gateable clocks
+> -   - 1 0	Audio
+> -   - 1 1	Comm Unit
+> -   - 1 2	NAND
+> -   - 1 3	PPv2
+> -   - 1 4	SDIO
+...
 
-We haven't maintained the meson series for a while, so it hasn't been
-included in our recent validation. I also don't have any meson boards
-on hand. If you have one available, it would be appreciated if you
-could help verify this, Thanks.
+Why do you want to drop this information? Telling
 
-This PLL sequence adjustment for meson SoCs adds a 20us delay after
-enabling the PLL and after releasing its reset. The delay addresses
-rare PLL lock failures observed under low temperatures. As a result,
-it slightly increases enable time but improves stability.
+    #clock-cells =3D <2>
 
-> 
-> 
->>
->> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
->> ---
->>   drivers/clk/meson/clk-pll.c | 68 ++++++++++++++++++++++++++-------------------
->>   1 file changed, 40 insertions(+), 28 deletions(-)
->>
->> diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
->> index b07e1eb19d12..26c83db487e8 100644
->> --- a/drivers/clk/meson/clk-pll.c
->> +++ b/drivers/clk/meson/clk-pll.c
->> @@ -353,6 +353,23 @@ static int meson_clk_pcie_pll_enable(struct clk_hw *hw)
->>        return -EIO;
->>   }
->>
->> +static void meson_clk_pll_disable(struct clk_hw *hw)
->> +{
->> +     struct clk_regmap *clk = to_clk_regmap(hw);
->> +     struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
->> +
->> +     /* Put the pll is in reset */
->> +     if (MESON_PARM_APPLICABLE(&pll->rst))
->> +             meson_parm_write(clk->map, &pll->rst, 1);
->> +
->> +     /* Disable the pll */
->> +     meson_parm_write(clk->map, &pll->en, 0);
->> +
->> +     /* Disable PLL internal self-adaption current module */
->> +     if (MESON_PARM_APPLICABLE(&pll->current_en))
->> +             meson_parm_write(clk->map, &pll->current_en, 0);
->> +}
-> 
-> I don't get why you moved that code around and make the diff even harder
-> to read
+is not enough IMO, we must tell people what is expected in these
+cells. At the very least the cell values can be constrained to [0-1] for th=
+e first
+one and [0-5] or [0-26] respectively for the second one.
 
-Sorry about the misaligned formatting. I moved meson_clk_pll_disable()
-earlier in the code because I added handling for PLL lock failures,
-which unintentionally broke the alignment.
+But giving their meaning I think makes sense. I agree, these should have be=
+en
+defined inside a shared header, that would have been a better way to
+keep track of their meaning, but if we don't have that, I would propose
+to keep the information here?
 
-I'll split the PLL lock failure handling into a separate patch in the
-next version to make review easier.
+[...]
 
-> 
->> +
->>   static int meson_clk_pll_enable(struct clk_hw *hw)
->>   {
->>        struct clk_regmap *clk = to_clk_regmap(hw);
->> @@ -366,53 +383,48 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
->>        if (MESON_PARM_APPLICABLE(&pll->rst))
->>                meson_parm_write(clk->map, &pll->rst, 1);
->>
->> +     /* Disable the PLL lock-detect module */
->> +     if (MESON_PARM_APPLICABLE(&pll->l_detect))
->> +             meson_parm_write(clk->map, &pll->l_detect, 1);
->> +
->>        /* Enable the pll */
->>        meson_parm_write(clk->map, &pll->en, 1);
->> -
->> -     /* Take the pll out reset */
->> -     if (MESON_PARM_APPLICABLE(&pll->rst))
->> -             meson_parm_write(clk->map, &pll->rst, 0);
->> +     /* Wait for Bandgap and LDO to power up and stabilize */
->> +     udelay(20);
->>
->>        /*
->>         * Compared with the previous SoCs, self-adaption current module
->>         * is newly added for A1, keep the new power-on sequence to enable the
->>         * PLL. The sequence is:
->> -      * 1. enable the pll, delay for 10us
->> +      * 1. enable the pll, ensure a minimum delay of 10μs
->>         * 2. enable the pll self-adaption current module, delay for 40us
->>         * 3. enable the lock detect module
->>         */
->>        if (MESON_PARM_APPLICABLE(&pll->current_en)) {
->> -             udelay(10);
->>                meson_parm_write(clk->map, &pll->current_en, 1);
->> -             udelay(40);
->> -     }
->> -
->> -     if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
->> -             meson_parm_write(clk->map, &pll->l_detect, 1);
->> -             meson_parm_write(clk->map, &pll->l_detect, 0);
->> +             udelay(20);
->>        }
->>
->> -     if (meson_clk_pll_wait_lock(hw))
->> -             return -EIO;
->> +     /* Take the pll out reset */
->> +     if (MESON_PARM_APPLICABLE(&pll->rst))
->> +             meson_parm_write(clk->map, &pll->rst, 0);
->>
->> -     return 0;
->> -}
->> +     /* Wait for PLL loop stabilization */
->> +     udelay(20);
->>
->> -static void meson_clk_pll_disable(struct clk_hw *hw)
->> -{
->> -     struct clk_regmap *clk = to_clk_regmap(hw);
->> -     struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
->> +     /* Enable the lock-detect module */
->> +     if (MESON_PARM_APPLICABLE(&pll->l_detect))
->> +             meson_parm_write(clk->map, &pll->l_detect, 0);
->>
->> -     /* Put the pll is in reset */
->> -     if (MESON_PARM_APPLICABLE(&pll->rst))
->> -             meson_parm_write(clk->map, &pll->rst, 1);
->> +     if (meson_clk_pll_wait_lock(hw)) {
->> +             /* disable PLL when PLL lock failed. */
->> +             meson_clk_pll_disable(hw);
->> +             pr_warn("%s: PLL lock failed!!!\n", clk_hw_get_name(hw));
->>
->> -     /* Disable the pll */
->> -     meson_parm_write(clk->map, &pll->en, 0);
->> +             return -EIO;
->> +     }
->>
->> -     /* Disable PLL internal self-adaption current module */
->> -     if (MESON_PARM_APPLICABLE(&pll->current_en))
->> -             meson_parm_write(clk->map, &pll->current_en, 0);
->> +     return 0;
->>   }
->>
->>   static int meson_clk_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-> 
-> --
-> Jerome
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pinctrl/marvell,armada-7k-pinctrl=
+.yaml
+> @@ -0,0 +1,73 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pinctrl/marvell,armada-7k-pinctrl.yam=
+l#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Marvell Armada 7K/8K pin controller
 
+...
+
+> +        enum: [
+> +          au, dev, ge, ge0, ge1, gpio, i2c0, i2c1, io, led, link,
+> mii,
+
+I don't think "io" has ever been a valid value, it probably comes from a
+typo while sorting out all the possibilities ;-) (probably a left over
+of a gpio, mdio or sdio string).
+
+> +          mss_gpio0, mss_gpio1, mss_gpio2, mss_gpio3, mss_gpio4, mss_gpi=
+o5,
+> +          mss_gpio6, mss_gpio7, mss_i2c, mss_spi, mss_uart, nf, pcie, pc=
+ie0,
+> +          pcie1, pcie2, ptp, rei, sata0, sata1, sdio, sdio_cd, sdio_wp, =
+sei,
+> +          spi0, spi1, synce1, synce2, tdm, uart0, uart1, uart2, uart3, w=
+akeup,
+> +          xg
+
+Rest LGTM otherwise.
+
+Thanks,
+Miqu=C3=A8l
 
