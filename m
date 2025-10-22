@@ -4,60 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 567F4CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 17:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9A3CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 18:04:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hw4Qw8EBJ7SWXYCbg5AlxrDZQV9CyZufcCdtO9ZOUzE=; b=EQbmVl+87wb4PPFM/n4JEe3M86
-	MFLJ7ptuNIbADFjhA9YIn0QFJDOMvjdVVKz3e+aCS9B3JBm5KfCxCZYLrf9NS89DdC9teEvr53Sak
-	aJicHkq6YjEuJRQu2H0t72s5yoJ0hu2Lkxz6F+FtAs3AkwOaJUKTHvyh873BaSx0A1x1xbjxxcADj
-	dGiFMZQaO5irEWTFTo16yNVQTqYFR4YJrfq/Geic154ZxXKLpwd10jflNWvuYG30hOhfmHK9kGGfS
-	NiB21ApxmCl76zHKxO0RKUBIrCj+BLSkKCw5carvqa2ufJgr7TxdYsDVlRbJTjmNC0rLH7cTVq4+b
-	MSA2cEFQ==;
+	bh=bxX0M8Q9AeR4bXwnooJF10CMIgG9FjWwDoGlh/evr1M=; b=mpKOB32/RxdjxB1q2ZH6H3ThFR
+	QKfdnZoYD9GobKRAV7v5IkZVtMydGIjFljH4mrXOYl86pjjFKB2u7a5Dc5BEwbyZiFkqFc9nvT3Pf
+	GvtJGqapYAGmdmx/sI7hu2o64XwB8R7bj82lLOk+aFRKuRP5JyixZ+eeoRNDSHoTc2Yo1t6YHSiyF
+	711UBngUoJKDEkmbWX6tNtRIQhEZPmCvz5jTu+qPUsAlezJpRbxU20leQblJsPtphmZ1zZmMkZmTE
+	nm1DlsAMUtDiR0zuyCCCSRlPKfR1yk66aqynNmd/AItdL7uFR0zIzPEjgyAJnskXohkgoYioFUOci
+	qYVW2jqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBd7b-00000003v9u-36Ul;
-	Wed, 22 Oct 2025 17:59:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vBdCM-00000003vsI-2kpB;
+	Wed, 22 Oct 2025 18:04:34 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBd7Z-00000003v9L-3F6V
+	id 1vBdCK-00000003vqm-3BQv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 17:59:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 54C7D62676;
-	Wed, 22 Oct 2025 17:59:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAEF8C4CEE7;
-	Wed, 22 Oct 2025 17:59:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761155976;
-	bh=9gx3OGdb0uIusRT1OUkumJNGerW8QboTuA02KwXp8SA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XNZ/D84OnEvWq0hPHRa2JfYwECvRchIFPwxWBOcwmcTyOTRVtou0qZVOs0Hzqtt55
-	 bmhRtjKgQLPobPbaWutj5XMInarn6n3p0Ci7nSAAhvZol1PyIZz4FlhCO5Xzybk5Ap
-	 p5PPk5+QbMfgNKZVTQwB/ah5K80YdWgL2/CcqClk9T2bsGuUHE7Le1JA0Z27yGsPoC
-	 131sA5lcua4B/QAOwg2wm1MFmn0xbE9nejABosRPJ6wXpLVFtI3oNq5rVu4k6JTrQQ
-	 Zh9fn3pfxrHxaregnyfdSIH+VrcbN5/sPU78OnCS1/MJ/8Ygd7tPpcmt1gMWISTFxL
-	 iTbRaCRExEjXw==
-Date: Wed, 22 Oct 2025 10:59:34 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: David Sterba <dsterba@suse.cz>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-btrfs@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [PATCH 10/10] btrfs: switch to library APIs for checksums
-Message-ID: <20251022175934.GA1646@quark>
-References: <20251018043106.375964-1-ebiggers@kernel.org>
- <20251018043106.375964-11-ebiggers@kernel.org>
- <20251022071141.GV13776@twin.jikos.cz>
+	Wed, 22 Oct 2025 18:04:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761156273; x=1792692273;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=LX84Ld6O6Uc5VIZ8xp7cMpdz1V/yl1HsOQOPlaYWJeQ=;
+  b=YafrLs3EEa/RZEE8/msz9g0SsdlTEv8oKB+PKVWQr6u7zYnr9l+OTiiH
+   /n5lJDXqq0iP6aNhejZg5nL2zBDbOqYvD/fRQIRp14WsZ9ujy5U7QR9Sf
+   z4KKwDMLWu1cmG+KyEzzoApESzTI2Z/OC/uLzIcSXnPpHtzBaKzhS/7bN
+   JcoFxD+q+6b+DgXhDb5w3TUJYTFLcTY7HD3ihbrspWV6GpDLgx0ZBBbyz
+   Q0P1ca6/tMKfW+u+i16zHF6lYIIQaBU32PDBU01NgmwhXyE2oZKoAQLja
+   JD7ATCd1gqLU40wUERh7HsGqA3A1VvulZnxaRNNRliMsHL5JbCx+HZoDS
+   g==;
+X-CSE-ConnectionGUID: iYop8lVNQOmJ11/bBZdnDA==
+X-CSE-MsgGUID: 9/dQf9WOQp6UX5lXeEStNg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="80752964"
+X-IronPort-AV: E=Sophos;i="6.19,247,1754982000"; 
+   d="scan'208";a="80752964"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 11:04:31 -0700
+X-CSE-ConnectionGUID: hQfoa2/xR6+4lGjcBV8xAQ==
+X-CSE-MsgGUID: ZsI4OgiDTWux522dWpJ23g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,247,1754982000"; 
+   d="scan'208";a="184332231"
+Received: from cpetruta-mobl1.ger.corp.intel.com (HELO ashevche-desk.local) ([10.245.244.83])
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 11:04:25 -0700
+Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1vBdC9-00000001lJ5-3WrO;
+	Wed, 22 Oct 2025 21:04:21 +0300
+Date: Wed, 22 Oct 2025 21:04:21 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v2 04/10] gpio: shared-proxy: implement the shared GPIO
+ proxy driver
+Message-ID: <aPkcpTWfTb0HOF51@smile.fi.intel.com>
+References: <20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org>
+ <20251022-gpio-shared-v2-4-d34aa1fbdf06@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251022071141.GV13776@twin.jikos.cz>
+In-Reply-To: <20251022-gpio-shared-v2-4-d34aa1fbdf06@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251022_110432_843485_AD740CA3 
+X-CRM114-Status: GOOD (  24.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,52 +110,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 09:11:41AM +0200, David Sterba wrote:
-> On Fri, Oct 17, 2025 at 09:31:06PM -0700, Eric Biggers wrote:
-> > Make btrfs use the library APIs instead of crypto_shash, for all
-> > checksum computations.  This has many benefits:
-> > 
-> > - Allows future checksum types, e.g. XXH3 or CRC64, to be more easily
-> >   supported.  Only a library API will be needed, not crypto_shash too.
-> > 
-> > - Eliminates the overhead of the generic crypto layer, including an
-> >   indirect call for every function call and other API overhead.  A
-> >   microbenchmark of btrfs_check_read_bio() with crc32c checksums shows a
-> >   speedup from 658 cycles to 608 cycles per 4096-byte block.
-> > 
-> > - Decreases the stack usage of btrfs by reducing the size of checksum
-> >   contexts from 384 bytes to 240 bytes, and by eliminating the need for
-> >   some functions to declare a checksum context at all.
-> > 
-> > - Increases reliability.  The library functions always succeed and
-> >   return void.  In contrast, crypto_shash can fail and return errors.
-> >   Also, the library functions are guaranteed to be available when btrfs
-> >   is loaded; there's no longer any need to use module softdeps to try to
-> >   work around the crypto modules sometimes not being loaded.
-> > 
-> > - Fixes a bug where blake2b checksums didn't work on kernels booted with
-> >   fips=1.  Since btrfs checksums are for integrity only, it's fine for
-> >   them to use non-FIPS-approved algorithms.
-> > 
-> > Note that with having to handle 4 algorithms instead of just 1-2, this
-> > commit does result in a slightly positive diffstat.  That being said,
-> > this wouldn't have been the case if btrfs had actually checked for
-> > errors from crypto_shash, which technically it should have been doing.
-> > 
-> > Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+On Wed, Oct 22, 2025 at 03:10:43PM +0200, Bartosz Golaszewski wrote:
 > 
-> Thanks, this simplifies quite a few things. I'd like to take it via the
-> btrfs tree as there may be the hash additions (XXH3, BLAKE3) but
-> currently I'm not sure if it won't make things more complicated. I
-> haven't started the kernel part yet so I can use this patchset for
-> development and rebase once it's merged. 
+> Add a virtual GPIO proxy driver which arbitrates access to a single
+> shared GPIO by multiple users. It works together with the core shared
+> GPIO support from GPIOLIB and functions by acquiring a reference to a
+> shared GPIO descriptor exposed by gpiolib-shared and making sure that
+> the state of the GPIO stays consistent.
+> 
+> In general: if there's only one user at the moment: allow it to do
+> anything as if this was a normal GPIO (in essence: just propagate calls
+> to the underlying real hardware driver). If there are more users: don't
+> allow to change the direction set by the initial user, allow to change
+> configuration options but warn about possible conflicts and finally:
+> treat the output-high value as a reference counted, logical "GPIO
+> enabled" setting, meaning: the GPIO value is set to high when the first
+> user requests it to be high and back to low once the last user stops
+> "voting" for high.
 
-Great.  I'm planning to take patches 1-9 through libcrypto-next for
-6.19.  You can then take patch 10 through the btrfs tree for 6.20.  Does
-that sound good?  We can work out the XXH3 and BLAKE3 support later.  If
-you'd like to add another checksum algorithm, I'd suggest picking just
-one.  btrfs already supports an awful lot of choices for the checksum.
-But we can discuss that later.
+I have two Q:s about the design:
+1) why can't the value be counted on the struct gpio_desc level?
+2) can gpio-aggregator facilities be reused (to some extent)?
 
-- Eric
+...
+
+> +#include <linux/auxiliary_bus.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/device.h>
+> +#include <linux/gpio/consumer.h>
+> +#include <linux/gpio/driver.h>
+> +#include <linux/module.h>
+
++ types.h
+
+> +#include "gpiolib-shared.h"
+
+...
+
+> +out:
+> +	if (shared_desc->highcnt)
+> +		dev_dbg(proxy->dev,
+> +			"Voted for value '%s', effective value is 'high', number of votes for 'high': %u\n",
+> +			value ? "high" : "low", shared_desc->highcnt);
+> +	else
+> +		dev_dbg(proxy->dev, "Voted for value 'low', effective value is 'low'\n");
+
+You can unify and maybe save a few bytes here and there by doing something like
+this:
+
+	const char *tmp; // name is a placeholder
+
+	tmp = str_high_low(shared_desc->highcnt);
+	dev_dbg(proxy->dev,
+		"Voted for value '%s', effective value is '%s', number of votes for '%s': %u\n",
+		str_high_low(value), tmp, tmp, shared_desc->highcnt);
+
+...
+
+> +		dev_dbg(proxy->dev,
+> +			"Only one user of this shared GPIO, allowing to set direction to output with value '%s'\n",
+> +			value ? "high" : "low");
+
+str_high_low() ?
+
+> +		ret = gpiod_direction_output(desc, value);
+> +		if (ret)
+> +			return ret;
+> +
+> +		if (value) {
+> +			proxy->voted_high = true;
+> +			shared_desc->highcnt = 1;
+> +		} else {
+> +			proxy->voted_high = false;
+> +			shared_desc->highcnt = 0;
+> +		}
+> +
+> +		return 0;
+> +	}
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
