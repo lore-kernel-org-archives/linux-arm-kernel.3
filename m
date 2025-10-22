@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0732DCCD1AB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2462ACCD1BB
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 13:11:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,86 +12,85 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSTA3g5ank1TH+h8Aobptwj96daqy8jbcBAobAq2Oqo=; b=shKlviOwdWI9nBPVG9Tvlbl/qg
-	hhl5D6qn67qorgwVQObbsGg9LO2yrtElnN6Vlp2TF8PpCQVZcvIli3WeasCvjXcN/7dWl4VXxBkQa
-	o2wo6FT2jYdbCUSndxSceN9K4TAzC+1suRQV2rOzJYwstQJ5iv9iJjkKRPOv3hhAcO+ARqUcuCEMM
-	UKuU5LZ210OLyJRE+PlllHCBlwYGfZ6W8NAAAq9fcMJnp/+6UvP3kyB6ZfS1Mt5vJ1qNuoBBTbodV
-	ZG/DuPiFEsovJHyqi0w9La1EPpRr8L52iTsC9x8WqGkmcCoPYGpr4YHiHFbtIXBPeranlN0KzMrtR
-	KdhWStcA==;
+	bh=NmyJwyGotfh3JyXhmJS/1rlzs+tHyJOuYkq2PFxtZmQ=; b=Xc86wDeGiYSksSyWuCZ63cG6j3
+	uykxtIXdCHG+wZoV/YM+V806ll16vIxaTTKWeU6vdALQtWGhWAhQrIsLIx8MvLNxlEBKGNwPjUwqE
+	RzIrsHZtmFYCyg/y5gWRCXNr2x0ejJ3U8ZDP8usokaGtlRQKvFvlFPT8Ua0EhOWNW5g7zayhzTKZE
+	I/B8fVblqjDrBC9v5n0/wvRtNN9DzfR9WMjtF+GGDSpEHi4MnK9OKi0P+0qsPcqRNt159wKCt0X0K
+	QlRNcS8uVDRlIUAJu7QXvXFvMxgk2iIXC2eGqxGOKWMZH9rbmChUqBouYhwWnTbqtGlYvyEnNZT/w
+	Pti3LjsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYcr-00000002wOQ-2rKX;
-	Wed, 22 Oct 2025 13:11:37 +0000
+	id 1vBYcn-00000002wKX-2MZc;
+	Wed, 22 Oct 2025 13:11:33 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYcd-00000002wE8-0sbo
+	id 1vBYcX-00000002wCq-3Yxs
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 22 Oct 2025 13:11:26 +0000
+	Wed, 22 Oct 2025 13:11:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=JSTA3g5ank1TH+h8Aobptwj96daqy8jbcBAobAq2Oqo=; b=glN1i7hdkHdhdnW2F1cB6NWd6B
-	nJgExm58CoqojMOSg0B2zPrypk25SP3+hdBHu/KjK8oW81CPE2f/OsaOUO7lIfoJXvGNK+38M5YEB
-	xsUXDUfcXhqw7W+5kH+HV9JJ+rd7qttzPdJwohMA2ZbHLvShTu6CBaWgbpNG60LD7T3DMPrxv+6B9
-	pdPtEYtK7v3Q/40ihVE2GaJ3uI6AKpcI7DJJ58A9k8vxsWRcJ1cOdoChsSdDSOxensO9XlkoGAoYd
-	HpZPz3ImKEttDCoYGaAC1lXSnpdAJbIdZs0/xPOvsGztieenjEa77F/iLo5FrnPndmpgrQLCftjD6
-	YlgwwL8w==;
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	bh=NmyJwyGotfh3JyXhmJS/1rlzs+tHyJOuYkq2PFxtZmQ=; b=Y5gPQeIEfnwZSfomC2Wh1bgViC
+	Qk4WeTL8a7V9c2JMEEd3x/0CLyKYZtlrVl+DOieFM32N3KdAZev+3uV1O+n8Ok7vDMaUFPndpzuKa
+	mfJWBWaKKh2W9Nc++LYtknxcXmNelbuZ3ZsIw3HnuX5W9jJjtwjWfcE9U/1AQ9I5ecOK4F8YMgm1A
+	nuTeehvwCNbPJc8JZSX+AdIZ95wexrxPFgXzL3VS4NilCG50pliFbv7byRUEZs8W7eOT55/woow9S
+	7AG2cPFnz3kmd+BwM2XB9XJodbG9DAjRPBExCQT75BfC/LCFraEAGKms2SzGiUlmBhXOJQ1Cdc/mQ
+	Vi19leqw==;
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBXkt-00000000ZTh-3xhZ
+	id 1vBXkp-00000000ZSg-02pe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 12:15:54 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-471b80b994bso51756805e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 06:11:19 -0700 (PDT)
+	Wed, 22 Oct 2025 12:15:48 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-47106fc51faso81677465e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 06:11:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761138678; x=1761743478; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761138673; x=1761743473; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=JSTA3g5ank1TH+h8Aobptwj96daqy8jbcBAobAq2Oqo=;
-        b=3ZcjFJLXM9jG+js89xhOCxAmBZbvZapF5oMnhiTfGUGqPpPoGs7foPgnGKt7hP/Qla
-         jmUilBnxG5WXdKfexFCyZsC7B47SNN2CaxIIqSl3wESGsx7YDm88MF2JuyFlkG00W9vI
-         sI3Nf36eMN24jEfe05YPLuUrn1HrbcspTaW6pSMh/T4e05giOayfijV1NuO8B4w2mp/F
-         907Gq0mofLdo3WfBbCf79P2k12xydQqmb2E73pdcrbfAhrGLKlNZ86wffmVgQJWGm+4N
-         UzXPc4XxVImfpe4fhJqngacsadodwPnkL+gSEfvqelmvpc0k4vAHQWblGYGc9aSNF6yy
-         RO+g==
+        bh=NmyJwyGotfh3JyXhmJS/1rlzs+tHyJOuYkq2PFxtZmQ=;
+        b=Jj8x5G0yAjEMRyw9//yWwC6T5b784e06mkdJtbRG7oS84HAUzcy/2hOhL3hexBz77L
+         yHIn2WPNYzXBNbmQDyqvT9CDGrIGhTaGT2Qp3zArOaxKn9oeeuHtMLN4BWK69erylQ8O
+         fVhpSeiqjpWczXFPzr4bg8RYsCZvZiweoDYm+r58sDkzVmcQfSXVxIRz7qYm4utuoGTW
+         rSqnA/QpWx3y8aCzXeBvgEFV5NPIhtHDmv66qvNmC5b0jFu38eyxV8xYyJ4GMpXKgxTo
+         7HbbbjX7VNRoi9m4DDM+CcfWs3em4qt45fPlqas5Yt+kgUdTJ8bBaTKP6Uhq5IP6xevT
+         qPtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761138678; x=1761743478;
+        d=1e100.net; s=20230601; t=1761138673; x=1761743473;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JSTA3g5ank1TH+h8Aobptwj96daqy8jbcBAobAq2Oqo=;
-        b=ogFRfB7wKkhe6DTDXwHhsRviXy8j2n514xXpwGt7l3JTlmDIDr34T0rMqaDCkQwnGo
-         WGaWAPqn5+7YMjcmNJoZbtaclVjMR2drrvwuWpjVWAWbkXcwRH+eXqLSG52ipRBpKnB6
-         6yovysD0RKrBltP5823X8kS6LxN5sFRQk3Kl17tBG8DtCgVd0PiXNZraXhorSpzlqTWt
-         CKefaffVcRxGrwjS5ofdE5k5v59jSJ30jzhzdzxi/FfFxAsGJP90kgqZj9BnJMl5DQIC
-         onBAq/X67PoJ/TXDzH2P94ehdT0jC296LVnHiL0B0SUAU5cCTYxKs+G8rx4XBEx0tZFW
-         A94w==
-X-Forwarded-Encrypted: i=1; AJvYcCVSUthtQQUkIVL7gFBcjOUcBYEKgm745ExRnDCxw7o3NXJqcAMC0k2l35lRmhhoF7R6e/oj2Itku4nrRzsxc23I@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDD63NFKGZLOC/iouqe27MPi8whE3i7kLRgFZcYRDKuYsfYhJV
-	UQFXp8QSENAEgh/2C0p8yIALcFKeOnYjmE7sV3UyNO6vRazBVqe17C13RQqDioY6eCc=
-X-Gm-Gg: ASbGncujbCatLcKqHGM/XHfJm19/EoEnrNIiHtAP6bHCk54snFhAuB+SMnPxn83Vzv7
-	s3aEW4g0TByb/ejAeDsB2ilqELbdQIoWsc9CdtHpCyYIVcJiG/lf/HQQp3Z1L5uBzKRMhXjc09Y
-	kVFSe1o8qXRhl0TDxdKXzSh7gEmramU9JtoeZg0IbwyV0NUCjn9SRhdwoWizPjvEGj7s6R2kDUN
-	3F2RnxaU6RY+g3wFXkx3c83iThDWzgqVOnPhjuahvfZgBHXGXEoZX4UeleinQA3FyeXKevHz40O
-	u1sus4u/2fKQ63FfkUU/8nmzV+YfiJkhGR7NgURDoFkfT6jvAegL0wJpOxZ03EKM81XvLbMdi1E
-	rqMc5x61qTS9FNYd9kfcRT4v5fSS5rav0rfepSXCMfV3UrqAlHxfoPCGmFbVnh7iYyUcYTZE=
-X-Google-Smtp-Source: AGHT+IFPbcXLAtn4sbFkYplsW0U9MyKC7XwA3JcXcQOZluMyTLcgHp4ST5MfcutgxyGiqz0u3cVNNQ==
-X-Received: by 2002:a05:600c:a214:b0:471:ff3:a7fe with SMTP id 5b1f17b1804b1-471179123b8mr105019195e9.19.1761138678192;
-        Wed, 22 Oct 2025 06:11:18 -0700 (PDT)
+        bh=NmyJwyGotfh3JyXhmJS/1rlzs+tHyJOuYkq2PFxtZmQ=;
+        b=pNt4zFcMmT6+/vclR3XjP0VN9OFYKBml4dn4dH2hJPdx0zIqLFLgVz9Jy0ndISD3Rt
+         cTa9CZdN4KahqFwsC9vmVuhwWkY9RRWFLE98yZd7/SjDoIJ90HLil4Wmf6GaGfduOUE2
+         SpQaEtKL1OhcvAd0K6WGU9Zjtoh79BToNqin3YCtHDA7xI0L6kQZL0L4Yg5G+gY4nuFv
+         C8RgXXqWQm1XUo7X/FWTAbk6TcJiDHhlU5XuEbWHH+bP++Ect9WgHS6KLzqo3Zeh1nUR
+         kgUXRPx7HIQ5B+ME6XaIsIDXCRHWEhRkZ9I7NNogjC9AODtdPsntavPhl7wvV3t9WAYu
+         ZyFw==
+X-Forwarded-Encrypted: i=1; AJvYcCUA+Z8seha4o3pZuLRgJCC261hMiL37iKMrhQt3E4PItJj3Ef7xJonwuFZxje+au79WylCjyLWynNXbUM6dwI32@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy61Cue0yYRGugiAFbPlWw5AFq3bOFWeeHzcXr+z75G+uSnMk1k
+	bTdS3qSLLzP+PeG9pdfXWrfUfjXmymWWcaZt0nrfIC04Q6HesOf4aU1xEPaYfAvYPGA=
+X-Gm-Gg: ASbGncvefycczTIIxkOfy6vGoFbw0o1e7eEE4pV+6C/olaG7im5WPlul9wnfsGt6/Jd
+	BFt2a9vbfyCSjRyBnsG39Nyto2WCwwo7ghXGOlmYV4gsXMSQ4v9OV0EksxkWOOX8DINGASKS9EI
+	mc0DpKwSss2q5E1DsAmzmYrC7LV5Wg/jEeB2EBmdn2/Toyg+/7NkAuicli6/IVFuEjT9CmZMalb
+	S2yJZoNqsm8Xnq70S5+jui23WoIX68rvmwhkW97Kw5f5UyJElaCIQh7FfL8JfcfsCkwsBq7inrf
+	614MQ42kfC8TmyRqUNeOMkQXV2kuNsOWPvxLflGKfIBoZajWCgJX6YVxgI9TCIt9bR/csjb8WEM
+	V+QQyEU5pbLDXraYAxFP9g8MnO4q34VBEjb/GBLiUDV1ucYKNXD5Etf/N7sv6wxxQwNHE27o=
+X-Google-Smtp-Source: AGHT+IFvKb3JoyG866nslJyNC3Ibg/oUQ/wlCU6/03uxa7bXbKsZVrSqlRlb8S4Ya6isf5ldIVuivg==
+X-Received: by 2002:a05:600d:14:b0:46e:4705:4958 with SMTP id 5b1f17b1804b1-471179174f4mr126289245e9.30.1761138673264;
+        Wed, 22 Oct 2025 06:11:13 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:69df:73af:f16a:eada])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47496afd459sm38839905e9.1.2025.10.22.06.11.15
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47496afd459sm38839905e9.1.2025.10.22.06.11.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Oct 2025 06:11:16 -0700 (PDT)
+        Wed, 22 Oct 2025 06:11:11 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 22 Oct 2025 15:10:47 +0200
-Subject: [PATCH v2 08/10] ASoC: wsa881x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE
- flag from GPIO lookup
+Date: Wed, 22 Oct 2025 15:10:45 +0200
+Subject: [PATCH v2 06/10] gpio: provide gpiod_is_shared()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251022-gpio-shared-v2-8-d34aa1fbdf06@linaro.org>
+Message-Id: <20251022-gpio-shared-v2-6-d34aa1fbdf06@linaro.org>
 References: <20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org>
 In-Reply-To: <20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org>
 To: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
@@ -112,26 +111,26 @@ Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=937;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4760;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=vspstOLquen8UYYEalfT4SF6xCukX3qfgdJchdoYapg=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBo+NfeRZqOvOB01WUMzaKtGFbfDIcDIo9Al+qfC
- +wjKxE0T0eJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaPjX3gAKCRARpy6gFHHX
- cqOBD/wJGzpam5upjt4XFG3ZtnI76Qt73nTbQAr6FUYWgq99m4KBvN2kA12dfb4qlkwNn7EoUjW
- SRmIlbN0zVeIoKGUrYP1ZX2Td4/d5eE//J5BAx70ZFkCnbIe2cQQdyMR3Qml7oKKdtE63vg8dCr
- Qu5FHzCdTlgUfT2/2uIPdU9r6i0ALa5XvaEjLLC82mevOPG1gtrUf83JWiVqWWwZ6msRsyR8GY2
- XrTb6OI6XEkj3q/1E0iIviuAujfBeq9T1Ownl5xR7pdIBs5WOa80hNH447+vcOFh7AzkfCBK3iX
- 6dwc9e7MuhS5qhlfytzC6kern1Q2LyAbPgbSF0K2lTcpStRr+TL0C5u+/v/u2dlWaiQV/5vgsY3
- M38/d/+SMR9NIR6RIIk+gmsuODW5tcXiet+FSnoN/NdlEC6CgSZxjOwHiOrYi4WnmtXcBEdGzgE
- r5xh4lhOWKOX9bb3Om8wiUdg+R24dQXyNu8yvSMPq85qlKROmlzenKwAeuC2YAJy++X+TSWMIgj
- 4lglVWusNTJscQ4jiIfdA4WEfjPwEeFljCXRMAex66b/J+Id6R/Z2yCKTeEXey+5tirG4UwEmbN
- 6fQ70BxWL5mmJU+NhsjvDwKCH7yVfWqNhcvZptN3Ji+1XZMmeTXbss4HoAjdl2x6n0ko6/T6ydQ
- TFgFaXpvdEUEjSw==
+ bh=x7L0RijU+LCdHfGCAJ/VkOYZp/t4v/DX9On78RPb0YU=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBo+NfdZs8MgTMizrWDvDv1UjUZTogiIeLTWekA/
+ YC4FrScCIGJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaPjX3QAKCRARpy6gFHHX
+ cnAgEADBzLwtXPh2XKMVjNVTb3+/+na90OoVl87WRHstD2bKhyf3X1zCGxWwdcpFH7ZAY3X5cj6
+ /QMO3st1TRPyuwvJjld52dtJWPYqkpxKokQOroUrZUNtkurk1CW87T3aGzO8lOZbo0Lfm23dQwO
+ sBkrJTztEWsGyJiq6ofdmzamQhN1EVEQJRWC/c2QY1lozPK2lp5Egdi0Z0tlhxeqpA/phf9Ncw7
+ Qe8kksbK1r5OO4SyBZZxCe9gNQYH04PEzWsgCI5oT0pKIyaFaQXAtEhUI8S70m+77npYxr8Mzz0
+ xBzSAFPuVIYx3RLeQFPnpxMpT5XgGTzD4knJaa0ONGXTZGLYvUg7VJK2tmwb1bhL3aShR73MpDv
+ MTeQjM7Ss/oksGzF5/Pt+VPnNBESFJ2cwYIuCP0S14CuOoqZwvMmrU4Afd8ZyS8CnQjfbzNkp/n
+ abe0kCW+B8VEJMnXQiboWKlmEvmOSpmPFAlv8e/jNV8e/JV9stT4bXTjKxHtoQBjC1Df4Va/24w
+ 0o/JgFDARBNyFVOM3GYNWuZjFv8lSd/Ux3+vFPnWEhyVDjDbAqoeZrJL3fbWfiCfZmlup58aZPA
+ PzJmNLr/bcmpc/+f4I4gy+TNt7c88z+qB7fnIdOPkbYuTBDtkrGpHMutGANHANOxN3C7Pt+Uy1f
+ 5DYXoQM9Pkhsz0Q==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_131552_665102_B291467B 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20251022_131547_169932_9F18530C 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,28 +147,123 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-This driver is only used on Qualcomm platforms which now select
-HAVE_SHARED_GPIOS so this flag can be dropped.
+Provide an interface allowing consumers to check if a GPIO descriptor
+represents a GPIO that can potentially be shared by multiple consumers
+at the same time. This is exposed to allow subsystems that already
+work around the limitations of the current non-exclusive GPIO handling
+in some ways, to gradually convert to relying on the new shared GPIO
+feature of GPIOLIB.
+
+Extend the gpiolib-shared module to mark the GPIO shared proxy
+descriptors with a flag checked by the new interface.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- sound/soc/codecs/wsa881x.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/gpio/gpiolib-shared.c | 18 ++++++++++++++++++
+ drivers/gpio/gpiolib.c        | 20 ++++++++++++++++++++
+ drivers/gpio/gpiolib.h        |  1 +
+ include/linux/gpio/consumer.h |  9 +++++++++
+ 4 files changed, 48 insertions(+)
 
-diff --git a/sound/soc/codecs/wsa881x.c b/sound/soc/codecs/wsa881x.c
-index 636e59abc3772fc0b333873a329b65f4213c3ef3..92a1e3bb8371e178571a6c1ed6f1185fe6c2e757 100644
---- a/sound/soc/codecs/wsa881x.c
-+++ b/sound/soc/codecs/wsa881x.c
-@@ -1112,8 +1112,7 @@ static int wsa881x_probe(struct sdw_slave *pdev,
- 	if (!wsa881x)
- 		return -ENOMEM;
+diff --git a/drivers/gpio/gpiolib-shared.c b/drivers/gpio/gpiolib-shared.c
+index d2087d0df4ab7bcd23d3736e341c0f57cd748af4..b5c33bccff0765eb940fedd5d678c47a05f1a25d 100644
+--- a/drivers/gpio/gpiolib-shared.c
++++ b/drivers/gpio/gpiolib-shared.c
+@@ -309,6 +309,24 @@ int gpio_device_setup_shared(struct gpio_device *gdev)
  
--	wsa881x->sd_n = devm_gpiod_get_optional(dev, "powerdown",
--						GPIOD_FLAGS_BIT_NONEXCLUSIVE);
-+	wsa881x->sd_n = devm_gpiod_get_optional(dev, "powerdown", 0);
- 	if (IS_ERR(wsa881x->sd_n))
- 		return dev_err_probe(dev, PTR_ERR(wsa881x->sd_n),
- 				     "Shutdown Control GPIO not found\n");
+ 	guard(mutex)(&gpio_shared_lock);
+ 
++	list_for_each_entry(entry, &gpio_shared_list, list) {
++		list_for_each_entry(ref, &entry->refs, list) {
++			if (gdev->dev.parent == &ref->adev.dev) {
++				/*
++				 * This is a shared GPIO proxy. Mark its
++				 * descriptor as such and return here.
++				 */
++				set_bit(GPIOD_FLAG_SHARED_PROXY,
++					&gdev->descs[0].flags);
++				return 0;
++			}
++		}
++	}
++
++	/*
++	 * This is not a shared GPIO proxy but it still may be the device
++	 * exposing shared pins. Find them and create the proxy devices.
++	 */
+ 	list_for_each_entry(entry, &gpio_shared_list, list) {
+ 		if (!device_match_fwnode(&gdev->dev, entry->fwnode))
+ 			continue;
+diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+index 03fd60e787fcf5846519fb2db9a701770ed15d6b..d689065471a1269ac0671b964c67670df5c95dd7 100644
+--- a/drivers/gpio/gpiolib.c
++++ b/drivers/gpio/gpiolib.c
+@@ -3984,6 +3984,26 @@ int gpiod_set_consumer_name(struct gpio_desc *desc, const char *name)
+ }
+ EXPORT_SYMBOL_GPL(gpiod_set_consumer_name);
+ 
++/**
++ * gpiod_is_shared() - check if this GPIO can be shared by multiple consumers
++ * @desc: GPIO to inspect
++ *
++ * Returns:
++ * True if this GPIO can be shared by multiple consumers at once. False if it's
++ * a regular, exclusive GPIO.
++ *
++ * Note:
++ * This function returning true does not mean that this GPIO is currently being
++ * shared. It means the GPIO core has registered the fact that the firmware
++ * configuration indicates that it can be shared by multiple consumers and is
++ * in charge of arbitrating the access.
++ */
++bool gpiod_is_shared(const struct gpio_desc *desc)
++{
++	return test_bit(GPIOD_FLAG_SHARED_PROXY, &desc->flags);
++}
++EXPORT_SYMBOL_GPL(gpiod_is_shared);
++
+ /**
+  * gpiod_to_irq() - return the IRQ corresponding to a GPIO
+  * @desc: gpio whose IRQ will be returned (already requested)
+diff --git a/drivers/gpio/gpiolib.h b/drivers/gpio/gpiolib.h
+index ae9aa145ca055c08dad55a537567a27de57f7066..8deed8a7d1128f01f0696af040d06f5fe140c7f8 100644
+--- a/drivers/gpio/gpiolib.h
++++ b/drivers/gpio/gpiolib.h
+@@ -205,6 +205,7 @@ struct gpio_desc {
+ #define GPIOD_FLAG_EVENT_CLOCK_REALTIME	18 /* GPIO CDEV reports REALTIME timestamps in events */
+ #define GPIOD_FLAG_EVENT_CLOCK_HTE	19 /* GPIO CDEV reports hardware timestamps in events */
+ #define GPIOD_FLAG_SHARED		20 /* GPIO is shared by multiple consumers */
++#define GPIOD_FLAG_SHARED_PROXY		21 /* GPIO is a virtual proxy to a physically shared pin. */
+ 
+ 	/* Connection label */
+ 	struct gpio_desc_label __rcu *label;
+diff --git a/include/linux/gpio/consumer.h b/include/linux/gpio/consumer.h
+index 00df68c514051434e6fa67dc2307c6a8ce4ce3df..a8acb7c0b5af5066fd05e533468fc28616c68d78 100644
+--- a/include/linux/gpio/consumer.h
++++ b/include/linux/gpio/consumer.h
+@@ -167,6 +167,8 @@ int gpiod_cansleep(const struct gpio_desc *desc);
+ int gpiod_to_irq(const struct gpio_desc *desc);
+ int gpiod_set_consumer_name(struct gpio_desc *desc, const char *name);
+ 
++bool gpiod_is_shared(const struct gpio_desc *desc);
++
+ /* Convert between the old gpio_ and new gpiod_ interfaces */
+ struct gpio_desc *gpio_to_desc(unsigned gpio);
+ int desc_to_gpio(const struct gpio_desc *desc);
+@@ -520,6 +522,13 @@ static inline int gpiod_set_consumer_name(struct gpio_desc *desc,
+ 	return -EINVAL;
+ }
+ 
++static inline bool gpiod_is_shared(const struct gpio_desc *desc)
++{
++	/* GPIO can never have been requested */
++	WARN_ON(desc);
++	return false;
++}
++
+ static inline struct gpio_desc *gpio_to_desc(unsigned gpio)
+ {
+ 	return NULL;
 
 -- 
 2.48.1
