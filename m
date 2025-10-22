@@ -4,79 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11475CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC37CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UyoPBYs05l+FWcxyJhAInNTwl0HGR8hcUkT7z6lFnpg=; b=YVvFZchnU6lPZJOC2DqVntAUgj
-	6ydHu6tvup/bbNI+cudVxFub0FGj0tC1m69Hb+4GOXsTWak7/qnOZHjd1oo6Ohbmuj/NnezxKmuXe
-	ZgFCE9EbftcDazJHrntTEl/c745EFEeXs4xJ+6XFxmn9PLECIX6K+NQmo5FRVI1HDJXjHMaW2jX2k
-	MQjZr5uB46LTGz70PpoE4DtWcOhOZGZme7NUahStL/WrS2dmGtu0s6566Uhm7jpnMRcT6JAlPXpM2
-	sxfzW8X9qF5ip4Qsq1fR1AMysgCj+pXkJCr94/5mes6HC8WSGdjT2m7d8NY2flcrImpVlRzXpdMDS
-	Jfp2E30A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jQbMCxbpPfrhzFinfDjeulS4YqB0f4rNQARialM8XFo=; b=WfhMkMEe8y+Wb9S5hUG5SSS+qk
+	18zZWev6p8dcEZHoKaph5R8BnU964zv20L5rf5OFG3MqAKgRgXuTWU+o0UgjGDR2qgF7MODGrxGJ1
+	VdUus67ll0SNhTxi4xfxEGPg1x6XCeA4arMG7GS4CYvOCdYHOzQ8C4b36krZKf/gQVjE2Y0X2rQOk
+	qZ8s1+CfcgKpI2iW4zenM9MV7M3zZzGqPPu67Wlj5QFhTy/7x9hpwlsIMV6Z0B7NMBKPduhs5hZni
+	HmhO8+cu3oGYlrzZTSA6qvUOEHBJ54xfppvptFO9eE8Y+VVLqf1PtJjaZ3nij5COUZTCHDHCwr/rb
+	oGOC4I+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBTBO-00000001qh1-07zi;
-	Wed, 22 Oct 2025 07:22:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBTCA-00000001rCv-2os1;
+	Wed, 22 Oct 2025 07:23:42 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBTBG-00000001qbD-0MaW
+	id 1vBTC7-00000001rAH-0nQI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 07:22:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6017D4A2B7;
-	Wed, 22 Oct 2025 07:22:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 33914C19425;
-	Wed, 22 Oct 2025 07:22:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761117765;
-	bh=2bqYm6J9EUJjkgk41MZ1TMvkkzc3oa+gOTi6dSOFEik=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=S1ewYoLKl+tS0T/O2UxPaaORkvmp1Gd8BSkGhufLY/l/VCJO9LwT5o3YPeQc6W74q
-	 FSBqBU98AxSXnb5Y3Ln4sBXMrfQw++ozU6KDSCA/44V705jDKZKyOWQz5BHKHG6deP
-	 LOA/2BzHNIEFdbKAROsRVlzYEwmxUGJJP2GbhuQMaa+MKSD0/3t4lXY3hamNah22sm
-	 /yG+WS+hilxe5aiOh1VhCwl6BwGkr+Fe1nl0f1Pkca1b6pBmsxe+ITmdp0u2X2faxu
-	 QI6OeI/c61sZJZ/tpOF5p83Lv8Djewben/ncwXg52A//I620JkyU0+mfSOyvV4VXQJ
-	 A91DWLZYTVV6g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A9E3CCF9E1;
-	Wed, 22 Oct 2025 07:22:45 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Wed, 22 Oct 2025 09:22:41 +0200
-Subject: [PATCH v2 5/5] arm64: dts: freescale: Add the GOcontroll Moduline
- Mini
+	Wed, 22 Oct 2025 07:23:40 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59M24wvH024550
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 07:23:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=jQbMCxbpPfrhzFinfDjeulS4YqB0f4rNQAR
+	ialM8XFo=; b=D5tEew0VV8bv0QeKM5DVdTHh4RsBXQW+zw14Awj7vpk1LRG47du
+	S4omI6pFIX6wbSrAOmJ8jMEw6nIT63Xp8VVokkOUAn9/Ckde14+0XLo2oPOSiw3G
+	lw/sEo84TiRoRoXp7Zve/BRRJULjYmum/dVTgDyhuqHa9Q2/CJxexJzmHmOP0YuR
+	+SwUEpoVK0AawY25hIrvHcHCKLy+SUrYRKiuZsO2jG3nDHVFbwFLJa/igZlHzXp8
+	xPfKJa7tF8dlzohzeydGic5qq8cdZF2i1faovfWIAkOWN2sV+zRK02sQ6n1kQIMv
+	3rfwHMCn2raj+6N8jBoykFSvacIKGBXTV8Q==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49wsws62md-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 07:23:37 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-33bcb779733so5670141a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 00:23:37 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761117816; x=1761722616;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jQbMCxbpPfrhzFinfDjeulS4YqB0f4rNQARialM8XFo=;
+        b=v9A32VnUNTXjrOu4H7Sr62NI1cF4FQmJ6BASAKm4JYe/xtY16trZGPlLg8OCzXTwnv
+         yH+z3HaG3ZGEVApwcbR+4DnXjYk9lslq9SRgzkBu1hf9hFPOYzad2FcfjUuYyJCvkxfO
+         kMF/D6tJJxIMY5kLQTiH4+TwBJR/T/Xw8kj0auin4An1fs06k5liNFpoa4j7NfsaM55B
+         n2Zp4E1OprYJuOlhlYVZVdqxZRlVymw6/JMw+Seg4voRjYXhPwmrOTRubYIzjQqCeB2H
+         fvAdaf2vcKQ9BEPWHBFRhK2BdFRVx5kqMILyYYOYqqaXvRydAIugqYlK5ZgKPn0IoAjd
+         XU1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXSawRLysgRmtbSkmAsmumnMAq8kxnhjAF+djFYo8rtqhrf97iqFjFLTKlphjtz+8jRvp+yFDdRT0m78sTpfrPn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdSyXl4AZD+xk8Y2Sj2qoZWmekions6d8WGsDZ1A/tCwRyAJCo
+	3GynmrCHcJLRCK49Ptw6RV5fWNT8bhf5oEfW4WkD4rOg29jjgw+jbkWYohn+GbT+CARgMDhrKKl
+	04nZRubbyx6Rt6FCtuft0GqHHXgdCHb2GUhR3uVslHXa+FoBqpaRmFktNFlee92ZlIJcdDd65tz
+	SZIA==
+X-Gm-Gg: ASbGncu/Nu5odTK+oMtbw7P9Ra0KR+F8lvh9FC6N4wXlC0gXlW87nsrvzn4t75J4n75
+	zQRcvqRbmed5QH7F4Zfe/2ITAAQjzaHb6Jv0wHEFRVmXmDjYoBhraeGb2FOjZXhvkdzGeads5JP
+	2oNqvCVTFnmkuGf7BTv+uv5xcnHi+yY1FCuRm1o70oBzvueuv9lle4l1nuEaPDYg42fk/iSs6TS
+	/nMGTfcz0/QtZcSISZTxM1DWW27HlWoYbXoEcT4DNs7vc8+fLNHZbDcD8kbwMuHY4X7pOxx0AOi
+	rmdv9SgmwXHKmNu8qLrUlRUU8n2fcdq7fMGUasWM8SpD2Mu+67dx+ynrLtW6sbYzFlctNBgkPJR
+	Lolefzh2OSwswjbAfHYJNCp+AZMyt1jSjRmhsEoBy1qYV1WAHagp0+UxiKZA8a4OIuhE=
+X-Received: by 2002:a17:90b:3fcc:b0:33b:cb9c:6f71 with SMTP id 98e67ed59e1d1-33bcf85a9f4mr23984838a91.1.1761117816195;
+        Wed, 22 Oct 2025 00:23:36 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGDxR3o7v8rSGdDOSOtPiAeegaDr0tXs44OIwJVMqccRN926+CF1wCU9+iGlDSpgmUzi6qB4A==
+X-Received: by 2002:a17:90b:3fcc:b0:33b:cb9c:6f71 with SMTP id 98e67ed59e1d1-33bcf85a9f4mr23984793a91.1.1761117815540;
+        Wed, 22 Oct 2025 00:23:35 -0700 (PDT)
+Received: from jinlmao-gv.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6a7aa27ff1sm11377217a12.32.2025.10.22.00.23.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Oct 2025 00:23:35 -0700 (PDT)
+From: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+To: Steven Rostedt <rostedt@goodmis.org>,
+        Masami Hiramatsu <mhiramat@kernel.org>,
+        Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+        linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, quic_yingdeng@quicinc.com,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+Subject: [PATCH v3] stm: class: Add MIPI OST protocol support
+Date: Wed, 22 Oct 2025 15:18:31 +0800
+Message-ID: <20251022071834.1658684-1-yingchao.deng@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251022-mini_iv-v2-5-20af8f9aac14@gocontroll.com>
-References: <20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com>
-In-Reply-To: <20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761117763; l=18111;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=c1j6M5FpVTH4khu05X8ktGS0n6y7D2uDD1iFw/gPnz0=;
- b=jC5t1dxnpR/Kbje5/5pI6vBqSXQkCrYPE0Jpt8A/85MrZ0ny5zxRJebWGVH7xWjZ8Wl5NmnR3
- p4xc3nN6mwYATd9HXes1WSTodpFw9NsCSY2Fr6gIeqTHQB/Eb23Ri+C
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDIwMDE0OCBTYWx0ZWRfX8CmLIjmQ1fOu
+ RF3BidSyg9q7SC7P/dO+pr2BTBdWqmdPmfcZl+YGz0NbEsgQUA7m7URTD12ZvMD8jBWRv9rFy58
+ 8aEL2LI4HFl0cOEJFUeUKKKy7QnHDt54/HO4Ii1rueCkACZ65ytLqV/k8FhdPJGDIyCibboqNIY
+ psBwU6GS/MB/4tujw8llTfaNbrRj0+d/hf52KHFr+qS/Z9SLtf49OT47tVcz/8fW3EnRIv6953P
+ 5pt6ftrJBGrpcdIqe4WH7q+PaIbqsBygSih1N7GcO5fIJasRXHydsXbGaCgxka8L8oVhneP2LfD
+ ZJYqEHguSzWrCVn/Ypj0eHRn21/pvu+NAvRDEgMH4t8iHtzTRKFJHKwUZjRUqdzl0Kpri0ozvPH
+ J6H4lBwtnPIdqzrSba0m5vfqDf2z8A==
+X-Proofpoint-GUID: HgfPUQXJAXFa3X1Fm2A7M7zswezAOSlF
+X-Proofpoint-ORIG-GUID: HgfPUQXJAXFa3X1Fm2A7M7zswezAOSlF
+X-Authority-Analysis: v=2.4 cv=a+E9NESF c=1 sm=1 tr=0 ts=68f88679 cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8
+ a=eBY3WRN5359KEgwcfnIA:9 a=iS9zxrgQBfv6-_F4QbHw:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-22_02,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 spamscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ bulkscore=0 suspectscore=0 malwarescore=0 impostorscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510200148
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_002246_350079_F58AA510 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20251022_002339_350131_61376CC9 
+X-CRM114-Status: GOOD (  31.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,743 +133,408 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
+Add MIPI OST(Open System Trace) protocol support for stm to format the
+traces. The OST Protocol abstracts the underlying layers from the sending
+and receiving applications, thus removing dependencies on the connection
+media and platform implementation.
 
-The Moduline Mini is a part of the wider GOcontroll Moduline ecosystem. These
-are embedded controllers that focus on modularity with their swappable IO
-modules.
+OST over STP packet consists of Header/Payload/End. Header is designed to
+include the information required by all OST packets. Information  that is
+not shared by all packets is left to the higher layer protocols. Thus, the
+OST Protocol Header can be regarded as the first part of a complete OST
+Packet Header, while a higher layer header can be regarded as an extension
+designed for a specific purpose.
 
-Features:
-- up to 4 Moduline IO modules
-- 2 CAN busses
-- 1 Ethernet
-- 4 RGB leds
-- 1 3D accelerometer
-- optional Wi-Fi/Bluetooth
-- optional 4G/GPS
++--------+--------+--------+--------+
+| start  |version |entity  |protocol|
++--------+--------+--------+--------+
+|    stm version  |      magic      |
++-----------------------------------+
+|                cpu                |
++-----------------------------------+
+|              timestamp            |
+|                                   |
++-----------------------------------+
+|                tgid               |
+|                                   |
++-----------------------------------+
+|               payload             |
++-----------------------------------+
+|                 ...      |  end   |
++-----------------------------------+
 
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+In header, there will be STARTSIMPLE/VERSION/ENTITY/PROTOCOL.
+STARTSIMPLE is used to signal the beginning of a simplified OST protocol.
+The Version field is a one byte, unsigned number identifying the version
+of the OST Protocol. The Entity ID field is a one byte unsigned number
+that identifies the source.
+
+The Protocol ID field is a one byte unsigned number identifying the higher
+layer protocol of the OST Packet, i.e. identifying the format of the data
+after the OST Protocol Header. OST Control Protocol ID value represents
+the common control protocol, the remaining Protocol ID values may be used
+by any higher layer protocols capable of being transported by the OST
+Protocol.
+
+Signed-off-by: Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+Signed-off-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
 ---
- arch/arm64/boot/dts/freescale/Makefile             |   1 +
- .../imx8mm-tx8m-1610-moduline-mini-111.dts         | 691 +++++++++++++++++++++
- 2 files changed, 692 insertions(+)
+ .../ABI/testing/configfs-stp-policy-p_ost     |   6 +
+ Documentation/trace/p_ost.rst                 |  36 +++
+ drivers/hwtracing/stm/Kconfig                 |  14 +
+ drivers/hwtracing/stm/Makefile                |   2 +
+ drivers/hwtracing/stm/p_ost.c                 | 239 ++++++++++++++++++
+ 5 files changed, 297 insertions(+)
+ create mode 100644 Documentation/ABI/testing/configfs-stp-policy-p_ost
+ create mode 100644 Documentation/trace/p_ost.rst
+ create mode 100644 drivers/hwtracing/stm/p_ost.c
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index b2fef44e0a370..0a84c7dc89e39 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -125,6 +125,7 @@ imx8mm-evkb-pcie-ep-dtbs += imx8mm-evkb.dtb imx-pcie0-ep.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-evk-pcie-ep.dtb imx8mm-evkb-pcie-ep.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-tx8m-1610-moduline-iv-306-d.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-tx8m-1610-moduline-mini-111.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-icore-mx8mm-ctouch2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-icore-mx8mm-edimm2.2.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
+diff --git a/Documentation/ABI/testing/configfs-stp-policy-p_ost b/Documentation/ABI/testing/configfs-stp-policy-p_ost
 new file mode 100644
-index 0000000000000..651524781a7ba
+index 000000000000..498739b49da0
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
-@@ -0,0 +1,691 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++++ b/Documentation/ABI/testing/configfs-stp-policy-p_ost
+@@ -0,0 +1,6 @@
++What:		/config/stp-policy/<device>:p_ost.<policy>/<node>/entity
++Date:		Oct 2025
++KernelVersion:	6.18
++Description:
++		Set the entity which is to identify the source, RW.
++
+diff --git a/Documentation/trace/p_ost.rst b/Documentation/trace/p_ost.rst
+new file mode 100644
+index 000000000000..df93b889eb4c
+--- /dev/null
++++ b/Documentation/trace/p_ost.rst
+@@ -0,0 +1,36 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++===================
++MIPI OST over STP
++===================
++
++The OST(Open System Trace) driver is used with STM class devices to
++generate standardized trace stream. Trace sources can be identified
++by different entity ids.
++
++CONFIG_STM_PROTO_OST is for p_ost driver enablement. Once this config
++is enabled, you can select the p_ost protocol by command below:
++
++# mkdir /sys/kernel/config/stp-policy/stm0:p_ost.policy
++
++The policy name format is extended like this:
++    <device_name>:<protocol_name>.<policy_name>
++
++With coresight-stm device, it will be look like "stm0:p_ost.policy".
++
++With MIPI OST protocol driver, the attributes for each protocol node is:
++# mkdir /sys/kernel/config/stp-policy/stm0:p_ost.policy/default
++# ls /sys/kernel/config/stp-policy/stm0:p_ost.policy/default
++channels  entity    masters
++
++The entity here is the set the entity that p_ost supports. Currently
++p_ost supports ftrace, console and diag entity.
++
++Set entity:
++# echo 'ftrace' > /sys/kernel/config/stp-policy/stm0:p_ost.policy/default/entity
++
++Get available and currently selected (shown in square brackets) entity that p_ost supports:
++# cat /sys/kernel/config/stp-policy/stm0:p_ost.policy/default/entity
++[ftrace] console diag
++
++See Documentation/ABI/testing/configfs-stp-policy-p_ost for more details.
+diff --git a/drivers/hwtracing/stm/Kconfig b/drivers/hwtracing/stm/Kconfig
+index eda6b11d40a1..daa4aa09f64d 100644
+--- a/drivers/hwtracing/stm/Kconfig
++++ b/drivers/hwtracing/stm/Kconfig
+@@ -40,6 +40,20 @@ config STM_PROTO_SYS_T
+ 
+ 	  If you don't know what this is, say N.
+ 
++config STM_PROTO_OST
++	tristate "MIPI OST STM framing protocol driver"
++	default CONFIG_STM
++	help
++	  This is an implementation of MIPI OST protocol to be used
++	  over the STP transport. In addition to the data payload, it
++	  also carries additional metadata for entity, better
++	  means of trace source identification, etc.
++
++	  The receiving side must be able to decode this protocol in
++	  addition to the MIPI STP, in order to extract the data.
++
++	  If you don't know what this is, say N.
++
+ config STM_DUMMY
+ 	tristate "Dummy STM driver"
+ 	help
+diff --git a/drivers/hwtracing/stm/Makefile b/drivers/hwtracing/stm/Makefile
+index 1692fcd29277..d9c8615849b9 100644
+--- a/drivers/hwtracing/stm/Makefile
++++ b/drivers/hwtracing/stm/Makefile
+@@ -5,9 +5,11 @@ stm_core-y		:= core.o policy.o
+ 
+ obj-$(CONFIG_STM_PROTO_BASIC) += stm_p_basic.o
+ obj-$(CONFIG_STM_PROTO_SYS_T) += stm_p_sys-t.o
++obj-$(CONFIG_STM_PROTO_OST)   += stm_p_ost.o
+ 
+ stm_p_basic-y		:= p_basic.o
+ stm_p_sys-t-y		:= p_sys-t.o
++stm_p_ost-y		:= p_ost.o
+ 
+ obj-$(CONFIG_STM_DUMMY)	+= dummy_stm.o
+ 
+diff --git a/drivers/hwtracing/stm/p_ost.c b/drivers/hwtracing/stm/p_ost.c
+new file mode 100644
+index 000000000000..98bb62dfc5d3
+--- /dev/null
++++ b/drivers/hwtracing/stm/p_ost.c
+@@ -0,0 +1,239 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Copyright (C) 2025 Maud Spierings <maudspierings@gocontroll.com>
++ * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
++ *
++ * MIPI OST framing protocol for STM devices.
 + */
 +
-+/dts-v1/;
++#include <linux/configfs.h>
++#include <linux/module.h>
++#include <linux/device.h>
++#include <linux/sched/clock.h>
++#include <linux/slab.h>
++#include <linux/stm.h>
++#include "stm.h"
 +
-+#include "imx8mm-tx8m-1610.dtsi"
-+#include <dt-bindings/leds/common.h>
++/*
++ * OST Base Protocol Header
++ *
++ * Position	Bits	Field Name
++ *      0       8       STARTSIMPLE
++ *      1       8       Version
++ *      2       8       Entity ID
++ *      3       8       protocol ID
++ */
++#define OST_FIELD_STARTSIMPLE		0
++#define OST_FIELD_VERSION		8
++#define OST_FIELD_ENTITY		16
++#define OST_FIELD_PROTOCOL		24
 +
-+/ {
-+	chassis-type = "embedded";
-+	compatible = "gocontroll,moduline-mini", "fsl,imx8mm";
-+	hardware = "Moduline Mini V1.11";
-+	model = "GOcontroll Moduline Mini";
++#define OST_TOKEN_STARTSIMPLE		0x10
++#define OST_VERSION_MIPI1		0x10
 +
-+	aliases {
-+		usb-host = &usbotg2;
-+		usbotg = &usbotg1;
-+		spi0 = &ecspi2; /* spidev number compatibility */
-+		spi1 = &ecspi3; /* spidev number compatibility */
-+		spi2 = &ecspi1; /* spidev number compatibility */
-+	};
++/* entity id to identify the source*/
++#define OST_ENTITY_FTRACE		0x01
++#define OST_ENTITY_CONSOLE		0x02
++#define OST_ENTITY_DIAG			0xEE
 +
-+	chosen {
-+		stdout-path = "serial2:115200n8";
-+	};
++#define OST_CONTROL_PROTOCOL		0x0
 +
-+	mcp_clock: mcp-clock {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <20000000>;
-+	};
++#define DATA_HEADER ((OST_TOKEN_STARTSIMPLE << OST_FIELD_STARTSIMPLE) | \
++		     (OST_VERSION_MIPI1 << OST_FIELD_PROTOCOL) | \
++		     (OST_CONTROL_PROTOCOL << OST_FIELD_PROTOCOL))
 +
-+	reg_3v3_comm: regulator-3v3-communication {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio1 11 GPIO_ACTIVE_HIGH>;
-+		pinctrl-0 = <&pinctrl_reg_comm>;
-+		pinctrl-names = "default";
-+		power-supply = <&reg_6v4>;
-+		/* also powers the cellular modem which can't vote on the regulator */
-+		regulator-always-on;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "3v3_comm";
-+	};
++#define STM_MAKE_VERSION(ma, mi)	(((ma) << 8) | (mi))
++#define STM_HEADER_MAGIC		(0x5953)
 +
-+	reg_5v0: regulator-5v0 {
-+		compatible = "regulator-fixed";
-+		power-supply = <&reg_6v4>;
-+		regulator-always-on;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-name = "5v0";
-+	};
-+
-+	reg_6v4: regulator-6v4 {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-max-microvolt = <6400000>;
-+		regulator-min-microvolt = <6400000>;
-+		regulator-name = "6v4";
-+	};
-+
-+	reg_can1_stby: regulator-can1-stby {
-+		compatible = "regulator-fixed";
-+		gpio = <&gpio2 12 GPIO_ACTIVE_LOW>;
-+		pinctrl-0 = <&pinctrl_can1_reg>;
-+		pinctrl-names = "default";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "can1-stby";
-+	};
-+
-+	reg_can2_stby: regulator-can2-stby {
-+		compatible = "regulator-fixed";
-+		gpio = <&gpio3 15 GPIO_ACTIVE_LOW>;
-+		pinctrl-0 = <&pinctrl_can2_reg>;
-+		pinctrl-names = "default";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "can2-stby";
-+	};
-+
-+	wifi_pwrseq: wifi-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		pinctrl-0 = <&pinctrl_wl_reg>;
-+		pinctrl-names = "default";
-+		post-power-on-delay-ms = <100>;
-+		power-off-delay-us = <500000>;
-+		reset-gpios = <&gpio5 28 GPIO_ACTIVE_LOW>;
-+	};
++enum ost_entity_type {
++	OST_ENTITY_TYPE_NONE,
++	OST_ENTITY_TYPE_FTRACE,
++	OST_ENTITY_TYPE_CONSOLE,
++	OST_ENTITY_TYPE_DIAG,
 +};
 +
-+&ecspi1 {
-+	pinctrl-0 = <&pinctrl_ecspi1>;
-+	pinctrl-names = "default";
-+	cs-gpios = <
-+		&gpio4 27 GPIO_ACTIVE_LOW
-+		&gpio3 23 GPIO_ACTIVE_LOW
-+		&gpio3 1 GPIO_ACTIVE_LOW
-+	>;
-+	status = "okay";
-+
-+	connector@0 {
-+		compatible = "gocontroll,moduline-module-slot";
-+		reg = <0>;
-+		i2c-bus = <&i2c2>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <26 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpio4 28 GPIO_ACTIVE_LOW>;
-+		slot-number = <3>;
-+		spi-max-frequency = <54000000>;
-+		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
-+		vddhpp-supply = <&reg_6v4>;
-+		vddp-supply = <&reg_5v0>;
-+		vdd-supply = <&reg_vdd_3v3>;
-+	};
-+
-+	connector@1 {
-+		compatible = "gocontroll,moduline-module-slot";
-+		reg = <1>;
-+		i2c-bus = <&i2c2>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <19 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpio3 21 GPIO_ACTIVE_LOW>;
-+		slot-number = <4>;
-+		spi-max-frequency = <54000000>;
-+		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
-+		vddhpp-supply = <&reg_6v4>;
-+		vddp-supply = <&reg_5v0>;
-+		vdd-supply = <&reg_vdd_3v3>;
-+	};
-+
-+	adc@2 {
-+		compatible = "microchip,mcp3004";
-+		reg = <2>;
-+		spi-max-frequency = <2300000>;
-+		vref-supply = <&reg_vdd_3v3>;
-+	};
++static const char * const str_ost_entity_type[] = {
++	[OST_ENTITY_TYPE_NONE]		= "none",
++	[OST_ENTITY_TYPE_FTRACE]	= "ftrace",
++	[OST_ENTITY_TYPE_CONSOLE]	= "console",
++	[OST_ENTITY_TYPE_DIAG]		= "diag",
 +};
 +
-+&ecspi2 {
-+	pinctrl-0 = <&pinctrl_ecspi2>;
-+	pinctrl-names = "default";
-+	cs-gpios = <
-+		&gpio3 24  GPIO_ACTIVE_LOW
-+		&gpio3 9  GPIO_ACTIVE_LOW
-+	>;
-+	status = "okay";
-+
-+	can@0 {
-+		compatible = "microchip,mcp25625";
-+		reg = <0>;
-+		clocks = <&mcp_clock>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <22 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-0 = <&pinctrl_can1>;
-+		pinctrl-names = "default";
-+		spi-max-frequency = <10000000>;
-+		xceiver-supply = <&reg_can1_stby>;
-+	};
-+
-+	can@1 {
-+		compatible = "microchip,mcp25625";
-+		reg = <1>;
-+		clocks = <&mcp_clock>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-0 = <&pinctrl_can2>;
-+		pinctrl-names = "default";
-+		spi-max-frequency = <10000000>;
-+		xceiver-supply = <&reg_can2_stby>;
-+	};
++static const u32 ost_entity_value[] = {
++	[OST_ENTITY_TYPE_NONE]		= 0,
++	[OST_ENTITY_TYPE_FTRACE]	= OST_ENTITY_FTRACE,
++	[OST_ENTITY_TYPE_CONSOLE]	= OST_ENTITY_CONSOLE,
++	[OST_ENTITY_TYPE_DIAG]		= OST_ENTITY_DIAG,
 +};
 +
-+&ecspi3 {
-+	pinctrl-0 = <&pinctrl_ecspi3>;
-+	pinctrl-names = "default";
-+	cs-gpios = <
-+		&gpio1 9 GPIO_ACTIVE_LOW
-+		&gpio1 2 GPIO_ACTIVE_LOW
-+	>;
-+	status = "okay";
-+
-+	connector@0 {
-+		compatible = "gocontroll,moduline-module-slot";
-+		reg = <0>;
-+		i2c-bus = <&i2c2>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <10 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpio1 7 GPIO_ACTIVE_LOW>;
-+		slot-number = <1>;
-+		spi-max-frequency = <54000000>;
-+		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
-+		vddhpp-supply = <&reg_6v4>;
-+		vddp-supply = <&reg_5v0>;
-+		vdd-supply = <&reg_vdd_3v3>;
-+	};
-+
-+	connector@1 {
-+		compatible = "gocontroll,moduline-module-slot";
-+		reg = <1>;
-+		i2c-bus = <&i2c2>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpio5 21 GPIO_ACTIVE_LOW>;
-+		slot-number = <2>;
-+		spi-max-frequency = <54000000>;
-+		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
-+		vddhpp-supply = <&reg_6v4>;
-+		vddp-supply = <&reg_5v0>;
-+		vdd-supply = <&reg_vdd_3v3>;
-+	};
++struct ost_policy_node {
++	enum ost_entity_type	entity_type;
 +};
 +
-+&gpu_2d {
-+	status = "disabled";
++struct ost_output {
++	struct ost_policy_node	node;
 +};
 +
-+&gpu_3d {
-+	status = "disabled";
++/* Set default entity type as none */
++static void ost_policy_node_init(void *priv)
++{
++	struct ost_policy_node *pn = priv;
++
++	pn->entity_type = OST_ENTITY_TYPE_NONE;
++}
++
++static int ost_output_open(void *priv, struct stm_output *output)
++{
++	struct ost_policy_node *pn = priv;
++	struct ost_output *opriv;
++
++	opriv = kzalloc(sizeof(*opriv), GFP_ATOMIC);
++	if (!opriv)
++		return -ENOMEM;
++
++	memcpy(&opriv->node, pn, sizeof(opriv->node));
++	output->pdrv_private = opriv;
++	return 0;
++}
++
++static void ost_output_close(struct stm_output *output)
++{
++	kfree(output->pdrv_private);
++}
++
++static ssize_t ost_t_policy_entity_show(struct config_item *item,
++					char *page)
++{
++	ssize_t sz = 0;
++	int i;
++	struct ost_policy_node *pn = to_pdrv_policy_node(item);
++
++	for (i = 1; i < ARRAY_SIZE(str_ost_entity_type); i++) {
++		if (i == pn->entity_type)
++			sz += sysfs_emit_at(page, sz, "[%s] ", str_ost_entity_type[i]);
++		else
++			sz += sysfs_emit_at(page, sz, "%s ", str_ost_entity_type[i]);
++	}
++
++	sz += sysfs_emit_at(page, sz, "\n");
++	return sz;
++}
++
++static int entity_index(const char *str)
++{
++	int i;
++
++	for (i = 1; i < ARRAY_SIZE(str_ost_entity_type); i++) {
++		if (sysfs_streq(str, str_ost_entity_type[i]))
++			return i;
++	}
++
++	return 0;
++}
++
++static ssize_t
++ost_t_policy_entity_store(struct config_item *item, const char *page,
++			  size_t count)
++{
++	struct ost_policy_node *pn = to_pdrv_policy_node(item);
++	int i;
++
++	i = entity_index(page);
++	if (i)
++		pn->entity_type = i;
++	else
++		return -EINVAL;
++
++	return count;
++}
++CONFIGFS_ATTR(ost_t_policy_, entity);
++
++static struct configfs_attribute *ost_t_policy_attrs[] = {
++	&ost_t_policy_attr_entity,
++	NULL,
 +};
 +
-+&i2c2 {
-+	clock-frequency = <400000>;
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+	pinctrl-1 = <&pinctrl_i2c2_gpio>;
-+	pinctrl-names = "default", "gpio";
-+	scl-gpios = <&gpio5 16 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio5 17 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	status = "okay";
++static ssize_t
++notrace ost_write(struct stm_data *data, struct stm_output *output,
++		  unsigned int chan, const char *buf, size_t count,
++		  struct stm_source_data *source)
++{
++	unsigned int c = output->channel + chan;
++	unsigned int m = output->master;
++	const unsigned char nil = 0;
++	u32 header = DATA_HEADER;
++	struct trc_hdr {
++		u16 version;
++		u16 magic;
++		u32 cpu;
++		u64 timestamp;
++		u64 tgid;
++	} hdr;
++	ssize_t sz;
++	int i;
++	struct ost_output *op = output->pdrv_private;
++
++	/*
++	 * Identify the source by entity type.
++	 * If entity type is not set, return error value.
++	 */
++	if (op->node.entity_type)
++		header |= ost_entity_value[op->node.entity_type];
++	else
++		return -EINVAL;
++
++	/*
++	 * STP framing rules for OST frames:
++	 *   * the first packet of the OST frame is marked;
++	 *   * the last packet is a FLAG with timestamped tag.
++	 */
++	/* Message layout: HEADER / DATA / TAIL */
++	/* HEADER */
++	sz = data->packet(data, m, c, STP_PACKET_DATA, STP_PACKET_MARKED,
++			  4, (u8 *)&header);
++	if (sz <= 0)
++		return sz;
++
++	/* DATA */
++	hdr.version	= STM_MAKE_VERSION(0, 3);
++	hdr.magic	= STM_HEADER_MAGIC;
++	hdr.cpu		= raw_smp_processor_id();
++	hdr.timestamp = sched_clock();
++	hdr.tgid	= task_tgid_nr(current);
++	sz = stm_data_write(data, m, c, false, &hdr, sizeof(hdr));
++	if (sz <= 0)
++		return sz;
++
++	sz = stm_data_write(data, m, c, false, buf, count);
++
++	/* TAIL */
++	if (sz > 0)
++		data->packet(data, m, c, STP_PACKET_FLAG,
++			STP_PACKET_TIMESTAMPED, 0, &nil);
++
++	return sz;
++}
++
++static const struct stm_protocol_driver ost_pdrv = {
++	.owner			= THIS_MODULE,
++	.name			= "p_ost",
++	.write			= ost_write,
++	.policy_attr		= ost_t_policy_attrs,
++	.output_open		= ost_output_open,
++	.output_close		= ost_output_close,
++	.policy_node_init	= ost_policy_node_init,
 +};
 +
-+&i2c3 {
-+	clock-frequency = <400000>;
-+	pinctrl-0 = <&pinctrl_i2c3>;
-+	pinctrl-1 = <&pinctrl_i2c3_gpio>;
-+	pinctrl-names = "default", "gpio";
-+	scl-gpios = <&gpio5 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	sda-gpios = <&gpio5 19 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+	status = "okay";
++static int ost_stm_init(void)
++{
++	return stm_register_protocol(&ost_pdrv);
++}
++module_init(ost_stm_init);
 +
-+	lp5012@14 {
-+		compatible = "ti,lp5012";
-+		reg = <0x14>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
++static void ost_stm_exit(void)
++{
++	stm_unregister_protocol(&ost_pdrv);
++}
++module_exit(ost_stm_exit);
 +
-+		multi-led@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+			color = <LED_COLOR_ID_RGB>;
-+			label = "case-led1";
-+
-+			led@0 {
-+				reg = <0>;
-+				color = <LED_COLOR_ID_RED>;
-+			};
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_GREEN>;
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_BLUE>;
-+			};
-+		};
-+
-+		multi-led@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+			color = <LED_COLOR_ID_RGB>;
-+			label = "case-led2";
-+
-+			led@0 {
-+				reg = <0>;
-+				color = <LED_COLOR_ID_RED>;
-+			};
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_GREEN>;
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_BLUE>;
-+			};
-+		};
-+
-+		multi-led@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+			color = <LED_COLOR_ID_RGB>;
-+			label = "case-led3";
-+
-+			led@0 {
-+				reg = <0>;
-+				color = <LED_COLOR_ID_RED>;
-+			};
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_GREEN>;
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_BLUE>;
-+			};
-+		};
-+
-+		multi-led@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+			color = <LED_COLOR_ID_RGB>;
-+			label = "case-led4";
-+
-+			led@0 {
-+				reg = <0>;
-+				color = <LED_COLOR_ID_RED>;
-+			};
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_GREEN>;
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_BLUE>;
-+			};
-+		};
-+	};
-+
-+	accelerometer@18 {
-+		compatible = "st,lis2dw12";
-+		reg = <0x18>;
-+		interrupt-parent = <&gpio5>;
-+		interrupts = <3 IRQ_TYPE_EDGE_RISING>, <5 IRQ_TYPE_EDGE_RISING>;
-+		pinctrl-0 = <&pinctrl_lis_int>;
-+		pinctrl-names = "default";
-+		vddio-supply = <&reg_vdd_3v3>;
-+		vdd-supply = <&reg_vdd_3v3>;
-+	};
-+
-+	humidity-sensor@5f {
-+		compatible = "st,hts221";
-+		reg = <0x5f>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <10 IRQ_TYPE_EDGE_RISING>;
-+		pinctrl-0 = <&pinctrl_hts_int>;
-+		pinctrl-names = "default";
-+		vdd-supply = <&reg_vdd_3v3>;
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_bt: btgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_GPIO1_IO01_GPIO1_IO1
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_SAI5_MCLK_GPIO3_IO25
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
-+			MX8MM_IOMUXC_ECSPI2_SS0_GPIO5_IO13
-+				MX8MM_DSE_X1
-+		>;
-+	};
-+
-+	pinctrl_can1: can1grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SAI2_TXC_GPIO4_IO25
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SAI5_RXD1_GPIO3_IO22
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
-+		>;
-+	};
-+
-+	pinctrl_can1_reg: can1reggrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD2_CD_B_GPIO2_IO12
-+				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_can2: can2grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_NAND_CLE_GPIO3_IO5
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_NAND_DATA00_GPIO3_IO6
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
-+		>;
-+	};
-+
-+	pinctrl_can2_reg: can2reggrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_NAND_RE_B_GPIO3_IO15
-+				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_ecspi1: ecspi1grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ECSPI1_MOSI_ECSPI1_MOSI
-+				MX8MM_DSE_X4
-+			MX8MM_IOMUXC_ECSPI1_MISO_ECSPI1_MISO
-+				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
-+			MX8MM_IOMUXC_ECSPI1_SCLK_ECSPI1_SCLK
-+				MX8MM_DSE_X4
-+			MX8MM_IOMUXC_SAI2_MCLK_GPIO4_IO27
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_SAI5_RXD2_GPIO3_IO23
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_NAND_CE0_B_GPIO3_IO1
-+				MX8MM_DSE_X1
-+		>;
-+	};
-+
-+	pinctrl_ecspi2: ecspi2grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_ECSPI2_MOSI_ECSPI2_MOSI
-+				MX8MM_DSE_X4
-+			MX8MM_IOMUXC_ECSPI2_MISO_ECSPI2_MISO
-+				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
-+			MX8MM_IOMUXC_ECSPI2_SCLK_ECSPI2_SCLK
-+				MX8MM_DSE_X4
-+			MX8MM_IOMUXC_SAI5_RXD3_GPIO3_IO24
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_NAND_DATA03_GPIO3_IO9
-+				MX8MM_DSE_X1
-+		>;
-+	};
-+
-+	pinctrl_ecspi3: ecspi3grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_UART1_TXD_ECSPI3_MOSI
-+				MX8MM_DSE_X4
-+			MX8MM_IOMUXC_UART2_RXD_ECSPI3_MISO
-+				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
-+			MX8MM_IOMUXC_UART1_RXD_ECSPI3_SCLK
-+				MX8MM_DSE_X4
-+			MX8MM_IOMUXC_GPIO1_IO09_GPIO1_IO9
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_GPIO1_IO02_GPIO1_IO2
-+				MX8MM_DSE_X1
-+		>;
-+	};
-+
-+	pinctrl_hts_int: htsintgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_NAND_DATA04_GPIO3_IO10
-+				(MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
-+		>;
-+	};
-+
-+	pinctrl_i2c2: i2c2grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C2_SCL_I2C2_SCL
-+				MX8MM_I2C_DEFAULT
-+			MX8MM_IOMUXC_I2C2_SDA_I2C2_SDA
-+				MX8MM_I2C_DEFAULT
-+		>;
-+	};
-+
-+	pinctrl_i2c2_gpio: i2c2-gpiogrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C2_SCL_GPIO5_IO16
-+				MX8MM_I2C_DEFAULT
-+			MX8MM_IOMUXC_I2C2_SDA_GPIO5_IO17
-+				MX8MM_I2C_DEFAULT
-+		>;
-+	};
-+
-+	pinctrl_i2c3: i2c3grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C3_SCL_I2C3_SCL
-+				MX8MM_I2C_DEFAULT
-+			MX8MM_IOMUXC_I2C3_SDA_I2C3_SDA
-+				MX8MM_I2C_DEFAULT
-+		>;
-+	};
-+
-+	pinctrl_i2c3_gpio: i2c3-gpiogrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_I2C3_SCL_GPIO5_IO18
-+				MX8MM_I2C_DEFAULT
-+			MX8MM_IOMUXC_I2C3_SDA_GPIO5_IO19
-+				MX8MM_I2C_DEFAULT
-+		>;
-+	};
-+
-+	pinctrl_lis_int: lisintgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SPDIF_TX_GPIO5_IO3
-+				(MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
-+			MX8MM_IOMUXC_SPDIF_EXT_CLK_GPIO5_IO5
-+				(MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
-+		>;
-+	};
-+
-+	pinctrl_reg_comm: reg_commgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_GPIO1_IO11_GPIO1_IO11
-+				MX8MM_DSE_X1
-+		>;
-+	};
-+
-+	pinctrl_sysfs_gpios: sysfsgpiogrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_GPIO1_IO07_GPIO1_IO7
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_I2C4_SDA_GPIO5_IO21
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_SAI3_RXFS_GPIO4_IO28
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_SAI5_RXD0_GPIO3_IO21
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_SD2_WP_GPIO2_IO20
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_GPIO1_IO00_GPIO1_IO0
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_GPIO1_IO04_GPIO1_IO4
-+				MX8MM_DSE_X1
-+			MX8MM_IOMUXC_GPIO1_IO06_GPIO1_IO6
-+				MX8MM_DSE_X1
-+		>;
-+	};
-+
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_uart2: uart2grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SAI3_TXFS_UART2_DCE_RX
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SAI3_TXC_UART2_DCE_TX
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SAI3_RXD_UART2_DCE_RTS_B
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SAI3_RXC_UART2_DCE_CTS_B
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_uart3: uart3grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_UART3_TXD_UART3_DCE_TX
-+				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_usdhc2: pinctrlusdhc2grp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK
-+				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_ENABLE)
-+			MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3
-+				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
-+		>;
-+	};
-+
-+	pinctrl_wl_int: wlintgrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_SAI5_RXC_GPIO3_IO20
-+				(MX8MM_PULL_UP | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
-+		>;
-+	};
-+
-+	pinctrl_wl_reg: wlreggrp {
-+		fsl,pins = <
-+			MX8MM_IOMUXC_UART4_RXD_GPIO5_IO28
-+				MX8MM_DSE_X1
-+		>;
-+	};
-+};
-+
-+&uart1 {
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	pinctrl-names = "default";
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "infineon,cyw43439-bt", "brcm,bcm4329-bt";
-+		device-wakeup-gpios = <&gpio5 13 GPIO_ACTIVE_HIGH>;
-+		interrupt-names = "host-wakeup";
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <25 IRQ_TYPE_EDGE_FALLING>;
-+		max-speed = <921600>;
-+		pinctrl-0 = <&pinctrl_bt>;
-+		pinctrl-names = "default";
-+		shutdown-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
-+		vbat-supply = <&reg_3v3_comm>;
-+		vddio-supply = <&reg_3v3_comm>;
-+	};
-+};
-+
-+&uart2 {
-+	pinctrl-0 = <&pinctrl_uart2>;
-+	pinctrl-names = "default";
-+	uart-has-rtscts;
-+	status = "okay";
-+};
-+
-+&uart3 {
-+	pinctrl-0 = <&pinctrl_uart3>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&usbotg1 {
-+	disable-over-current;
-+	dr_mode = "peripheral";
-+	status = "okay";
-+};
-+
-+&usbotg2 {
-+	disable-over-current;
-+	dr_mode = "host";
-+	vbus-supply = <&reg_5v0>;
-+	status = "okay";
-+};
-+
-+&usdhc2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	cap-power-off-card;
-+	keep-power-in-suspend;
-+	max-frequency = <50000000>;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	non-removable;
-+	pinctrl-0 = <&pinctrl_usdhc2>;
-+	pinctrl-names = "default";
-+	sd-uhs-sdr25;
-+	vmmc-supply = <&reg_3v3_comm>;
-+	status = "okay";
-+
-+	wifi@1 {
-+		compatible = "infineon,cyw43439-fmac", "brcm,bcm4329-fmac";
-+		reg = <1>;
-+		pinctrl-0 = <&pinctrl_wl_int>;
-+		pinctrl-names = "default";
-+		interrupt-names = "host-wake";
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <20 IRQ_TYPE_LEVEL_LOW>;
-+		brcm,board-type = "GOcontroll,moduline";
-+	};
-+};
-+
-+&vpu_blk_ctrl {
-+	status = "disabled";
-+};
-+
-+&vpu_g1 {
-+	status = "disabled";
-+};
-+
-+&vpu_g2 {
-+	status = "disabled";
-+};
-+
-+&wdog1 {
-+	status = "okay";
-+};
-
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("MIPI Open System Trace STM framing protocol driver");
 -- 
-2.51.1
-
+2.43.0
 
 
