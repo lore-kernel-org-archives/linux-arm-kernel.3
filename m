@@ -4,153 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD068CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 19:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A6ECCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 20:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nPtU1Dl37CF08iSWfaNAYIaCr+MvCHInhNkdnO9Mk98=; b=AaXDjBhu00axlatJ3oOlZIJ1f3
-	pnWlYN1ydaD+noXF61ldmT1rlnGc8rG3+sfbheFSEPBtz8bQKqGe0jerBUUAosDot2Cyd7PyXZUW6
-	ztuVQP8Uun3yaLhNohbUE3xfO84R5/CmQQ3KpknxN0eTtqR9oHhrQDKEm45TeEN43A/IHTqpxSUIk
-	Rvsplt1rzo2YGVJot9IuYtBotWjOKvurlnXIkzdy70FCzkqDO4oTbFF04Ckbu440FANKwVuM/pAFA
-	nR0t3KmoYLGAjSRxNBXV/G+gxpfLqvGLVZiXyWh4wFd6M1WRHLFU+51ELrjWcuRWmQIiQy97fKKij
-	hcRUFMag==;
+	bh=vBHCArIrmKWJj7F8K/MoPeEK7UtH9JL6UMvk/qyQGc8=; b=s0YmEvPHR5qTJYTsGFC2I96qPP
+	lCWEvyt03HWKRpof9cEpX3Tnx8gUwlQ9h/cfTZqgom++anTmD5uOx2CfO9UFmB9AoUexISEB/L8LC
+	+EaUItpaJShcRQ7DkxpP2GbiWB3FMm7IACqKIDf4WMSknBPCKQgq7Qvbodq76erAftdVOUCLqi7cX
+	Vhk6cbj8gy0+rsoMa9PyNiJLe29M3KpPLq+4UP0a3n/79x3B0dofx2HzsNuRo5sTmXTEx3vguwJa6
+	k/wGMAvt4Rh8LXFSWWvTUuUxaWFRZOzQM7AAXaEPltef1h1Y4KenoAMMVKbn3svl9KZVpM3BjgmBh
+	qeOQd2dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBekt-00000004ATK-2zgD;
-	Wed, 22 Oct 2025 19:44:19 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vBfS6-00000004FOG-403z;
+	Wed, 22 Oct 2025 20:28:59 +0000
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBekr-00000004ASN-1f6n
+	id 1vBfS3-00000004FN9-3Db7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 19:44:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f/cdwKYCN0NAmV8Fy8oKUZ4t14VsN11jWpF5qo8sStQT1mZZdbg/u4YOxm35U8MpIyXIDTeFcBL42rqXWaOH1rpQCk2xPorF8htKUEswq6I7/Qf9KjV/gT5Qa79MxJ/WLa7BwFRNv6KesXQy3NsQzfSa3r9y5bw3sHDXmquFR+Hs69OEb/HEUW3JgW+9i0r6U56AdbqSmGf8KumWs8ph6hILsKONDd3LxL4yTqDZehbRozpsbo0d4cs6yClhleiGVi731DSAPDgC3VymwnGTuZhsCXaJdurMq+JJuYPsicrvt8LWLzHiAavhBGmiz6SO0Vs1xFd/eDNoXR5umGRiJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nPtU1Dl37CF08iSWfaNAYIaCr+MvCHInhNkdnO9Mk98=;
- b=i7rXjDTTFDG+0xwYZOFJJlqNBJ7ce5Kr3TFIt+dUuT2Sgp45aELpoWT7LF3DuP1R06n2ZwNYLR9c3uQwMS67JOtb7Vvx5fAJY8IskTxJcMDN8iEwBqztTW4Uu7THKeQxPEvf6pVubujlrnqcwYSR8p1MKzPUwmsdRjkT3tTDTpZa9aFilWKlhdmdLuAXlFmPbRSfWpnRbLFVpzVbTCKAxUWzIV7FrlEVMHr6NXSzGHS+ffqdyMw1Bk5mEHO8nuyPpz/qb2oEToEU7PLpmmPCG1xmle+nkg+PclgMAlXYEDK6vfxzJu/bJlO/BODEoA2VgtybqcdtsAGk8Mame8PrXw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nPtU1Dl37CF08iSWfaNAYIaCr+MvCHInhNkdnO9Mk98=;
- b=oN1NpNUpXUyAWAHQnEwGA3yqAIJBlLB7zCX3KE5H8vhj1iF4/CB02rXYvV/O5tQuF0JA6voT0C5yEIM1IwdVCr/lK1VKXYeAdwBL1VBlICY1I8Q7VRmzZhyKg53epAR0SjuqddpFqaL9SdH6Ld1+xDDNjAN78rjbQjh7jwz+vyoq8CX5h4sYcXkI5II3yDSgQetgAV4laByHSDDTbORSx1sz0D1jrlARTOs5E7cXahb62bahekjv0fcNI1xEeMDGM09/XlGyOYRv7R+qXg8nCyF+JKum0PkP5NbsFWDTGLXQ+uCGrqrleGD/nIHZ2DkhL+upjCaQxpfMhvJvutVGXA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by AM9PR04MB8553.eurprd04.prod.outlook.com (2603:10a6:20b:434::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Wed, 22 Oct
- 2025 19:44:11 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9253.011; Wed, 22 Oct 2025
- 19:44:11 +0000
-Date: Wed, 22 Oct 2025 15:44:00 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: chester62515@gmail.com, mbrugger@suse.com,
-	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com,
-	jingoohan1@gmail.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
-	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com,
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com,
-	bogdan.hamciuc@nxp.com, linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	cassel@kernel.org
-Subject: Re: [PATCH 3/4 v3] PCI: s32g: Add initial PCIe support (RC)
-Message-ID: <aPk0ANXxF4cU9nfm@lizhi-Precision-Tower-5810>
-References: <20251022174309.1180931-1-vincent.guittot@linaro.org>
- <20251022174309.1180931-4-vincent.guittot@linaro.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251022174309.1180931-4-vincent.guittot@linaro.org>
-X-ClientProxiedBy: SJ0PR03CA0040.namprd03.prod.outlook.com
- (2603:10b6:a03:33e::15) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Wed, 22 Oct 2025 20:28:57 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-wsw7.prod.antispam.mailspamprotection.com; s=arckey; t=1761164935;
+	 b=FY1YW7lvqQuM6T6vQf6FhqvLSoVGXEgsCqHS+LEmG8ChxtAO4urWAFwuKwJLsC0SBL3pyEeu7H
+	  zf5JtLCjOPLTyeii1aF0SOgkUHdwoIuXVDDf2FnO8p7nHSkhxsx2ohV2kjOFGqMaN4F3FSAA/M
+	  97lmhl9yGHFrPODoB/qTJRsFimjhwd3IRQuopdpoqpWtzdPL/wVsCi+smEeotWqxOYefpdwrzY
+	  fWtC2l+LHImyqccgIgu8lXGA0W01K+DZRv5XZf39RKsxoqFvcl7+XnuuYPe/R3TYVygzVFYo8I
+	  RahD+lIrY8NR6523mxb3iBtJSrKw6pt4aqzjnIln2vYClw==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-wsw7.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-wsw7.prod.antispam.mailspamprotection.com; s=arckey; t=1761164935;
+	bh=uUfGEAeYyifWrp8y/COgMEQdLshb4racSmBCT0YjRcU=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	  Message-ID:Date:Subject:Cc:To:From:DKIM-Signature:DKIM-Signature;
+	b=hzzFNGuIJPQMo6qqGPQhRkbpcF+qlV9bz6sOx0LUTSSgrqNIc9xC2iYLzU1Hy88W/ncxnfceoE
+	  MrkV1EW6jv7zRZk1apfnNrLxUxZl/dZKfMuH0DbiVHiwUX+IIlrDStSIF6FtcSgOVdEGGv/3tX
+	  eZj/s6/9NpHURO8QQ4c/0I2E0i3QW0A7l03kHnO2fHG32CuUw1OY32H4Nw5NeXqAXUnSG8ZQvM
+	  m/Q/SQmT6fSqJnKE7Wd49T355DQD23p5VcSjozGWb/A23BGB0YKXS0e73kZ+cPgN0VE4gx2qSu
+	  Coit0pcnAyoMvc+Kl514OFg+8b3K9YdLrVWoKTuBpdn5qw==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:
+	Cc:To:From:Reply-To:List-Unsubscribe;
+	bh=vBHCArIrmKWJj7F8K/MoPeEK7UtH9JL6UMvk/qyQGc8=; b=ycdRt7tHJtaSPDPdBatJ1GHpls
+	T4IgVTPpoSlNB/dZCYmjhMvO98+b/91zs2QXWTngiAws7YFdwVEDqszYM/n9QFy/0FpucIB3zrCI5
+	Q2Cv9ZxjfN9e0v5TOi8fWz/tirqRgQc2FpU5QSP4SbbHZjSHr7IUcG6WirKfx7Yp5skw=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-wsw7.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <francesco@valla.it>)
+	id 1vBfRs-00000001iYG-3yKY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Oct 2025 20:28:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Date:Subject:Cc:To:From:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=vBHCArIrmKWJj7F8K/MoPeEK7UtH9JL6UMvk/qyQGc8=; b=aFdPVTw6bihxKTm3hpC21QQXao
+	DVrjJOFgrgsNdrWusnL+fNE/e7oaByxVS3VjUgLjhT1bTIk0+7G9mddyk+tUw+uf0QrQHbBqobBne
+	chqfznM/4hqtUmJklPS+Xw4QtUOGJTq1X1vR/NM/IPoanB5jxsik0BiVXTEobZNEgg5I=;
+Received: from [95.239.58.48] (port=63324 helo=fedora.fritz.box)
+	by esm19.siteground.biz with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <francesco@valla.it>)
+	id 1vBfRc-000000008l3-06PG;
+	Wed, 22 Oct 2025 20:28:28 +0000
+From: Francesco Valla <francesco@valla.it>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Fabian Pflug <f.pflug@pengutronix.de>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Fabian Pflug <f.pflug@pengutronix.de>, Haidong Zheng <haidong.zheng@nxp.com>,
+ Danwei Luo <danwei.luo@nxp.com>, Lei Xu <lei.xu@nxp.com>
+Subject: Re: [PATCH v3 2/2] arm64: dts: freescale: add support for NXP i.MX93 FRDM
+Date: Wed, 22 Oct 2025 22:28:22 +0200
+Message-ID: <7192181.9J7NaK4W3v@fedora.fritz.box>
+In-Reply-To: <20251022-fpg-nxp-imx93-frdm-v3-2-03ec40a1ccc0@pengutronix.de>
+References: <20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de>
+ <20251022-fpg-nxp-imx93-frdm-v3-2-03ec40a1ccc0@pengutronix.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AM9PR04MB8553:EE_
-X-MS-Office365-Filtering-Correlation-Id: c6248d52-efe8-4035-3b1d-08de11a35f85
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|52116014|376014|1800799024|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vdijQlOvDhMVT+jV1Y8BgaEvWJk/GJ3jO17LMEcu1duNMrb8EutisKFyuh5W?=
- =?us-ascii?Q?bCx/sTTpdula608dgLJQ8k2KnxxJ6T7+gINyPkSIHuCA9mFoMyJZeAxo7a3q?=
- =?us-ascii?Q?IW13oFNKkg8KaMeNNM1OPVkS3hRDWj7QrTdB0h2XBh8/PqSsOpsf2V7E4GFH?=
- =?us-ascii?Q?s/o18Y2vAX84b27Z1PSow6xL5Av7T1Y7k90H6D8Gi87KPd87TSH9WlhAcHxq?=
- =?us-ascii?Q?v94fiZtbd7X7dsUfYw1HbmMsYvOp/xOrHvtnF0peIJ9jv9xDJqPiBX5qzxSX?=
- =?us-ascii?Q?XVNKpphzjWcEM5iovhcphdy+rdeOydrJGRywZdbSnn5lnrFHk4I0zYU28piw?=
- =?us-ascii?Q?zPUv9k6BpY4GyqaeaDISdouMmhaQLcuQazlaxkZs77TBm7N1ZzQYs6M2ZFeu?=
- =?us-ascii?Q?jl0/O/X1zzJ8xNK0mrRv2Fj9Uh0xwpoJC36QBWb8XdbGbLC2YsEDzNh2c6PU?=
- =?us-ascii?Q?vqYnm4pfSiJN84bwEfw3HFSu2QcOhUXQum4naVfgyyTbEUn+QwWarriMtbaB?=
- =?us-ascii?Q?8rQUnvlsoDgVhYzbScqrUrW1BjDT4VlsAsQyo115IXYdrwue3qadTv/A/hMJ?=
- =?us-ascii?Q?NAOgJ67BsWjfOp6uQIUHwLOzcTgvklH/oOm9FYwsLbIthwH3rQIbKcjGGX2W?=
- =?us-ascii?Q?IUTTZH4JGbsukCrU9jFQndu0NWYpIhEHIMEb9vKCZqjUJ8f8OX0/FgMusnh3?=
- =?us-ascii?Q?GjMF8pLsxj/lQMDLlfx0fiTwryiDJsBovsx6t98G2ZOVzATPomyRmqdxzxvq?=
- =?us-ascii?Q?DdGe/MI34iFEt4VcqPJXsip3nh7Wx0XJbnhIafUtBh+moeFZYAmY07ack2+W?=
- =?us-ascii?Q?Rk/vovEDZWdpjaXcKBWwpumlI9cPf2TzWwy0Yp99cvGKjulkPInNrksuVGh0?=
- =?us-ascii?Q?LR36uSsv4nT797Km61QFPCApPOJUdK7uhANrDPUopQtPygKuf8cgtOE9XCDl?=
- =?us-ascii?Q?HBHg2hiWABJIp0J7L5qhgSfGC5JRAr8vo6SHcA3w1zrqhXUTZvwF5YUmxwJ7?=
- =?us-ascii?Q?58EbYCSfByxYQdCSj8hza95mPqA5Ve5WPvqpaGq6ZWwS+lOEFlp1558TufF3?=
- =?us-ascii?Q?8mTWXZW5cLiq7jvMKO83ZDywaoIpDMDEjQP/WHmRVL7yFcMGz6LRLi43usWt?=
- =?us-ascii?Q?FlGejOJPmR5UB6WMScO+14n0vYOPIryYLpXsKKAWWheBSUfF2hs3B7+sQ4ex?=
- =?us-ascii?Q?cE/5TNLdLfIYsCcAE9Pg+BqtLgTLa/vfIfmxoRLc8ARf5mT4Kx8NmfDi3Z0O?=
- =?us-ascii?Q?M0hBipxPtTl/u0ZUAonXILIS+EtpidqG/YMcIlAN0dNm1nKlfzaxrq3equ9p?=
- =?us-ascii?Q?yaozItsMiYDxBcFe+JjJocDn7g9o1KszAx8koRAQ9eh3OFSh6lnpKA9kRkLk?=
- =?us-ascii?Q?GDuUl1Ig2qboxf/fqH2UJeVAAxJrL5WHuSjKXL1XjSPDiiAgUVBpArVoRmxE?=
- =?us-ascii?Q?5Eu42dslLJLqXT0msyoIj44tICOn1wTw497JKgZxdtNzrkJIj5DuPxSkOfgn?=
- =?us-ascii?Q?Pgp7m0t0VjY+zDTqe4/RXwJ3egvF923WwTd8?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(52116014)(376014)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9Q2ZanHW5JDwY+cD/cQ6GHo0zV17OAtDXiQyW62LcTdHczZ0PZK7Z4sMMB1A?=
- =?us-ascii?Q?+wfQWjB4yEE8KU+zTjRo722E3GTKgRjqHUFbk71wmitSpEcBK5aUUxv7ow3V?=
- =?us-ascii?Q?gJ1mJMy5QylNwMIyg4KA9EqDhhTfWjOqXNtDrmdzGIqO7crD+Z8AW6Ws1bdP?=
- =?us-ascii?Q?pW+T/kmrujZZH9zvIwVbp9XKpe5zHXjUw0kAvqrYVcfEwf5A2H61NfyLj+p0?=
- =?us-ascii?Q?tYRYz+ET1TaYqHHsrYSaGH2N+kjNJJaxTK2e0uP56i5KOD8DBbkgObKIoBp8?=
- =?us-ascii?Q?Khw8pqrBQ3HaEiPCaUK0CWXYwztHt2Afw8jNHWhYmiCgUIYXlPyHlyqer8Ou?=
- =?us-ascii?Q?kISwaVeuw9hDpUneR00QfzX5v8iZlowW00b1bDgs8edNKDu8LpP7MBmiunyZ?=
- =?us-ascii?Q?k6qyHUmTYwwRiwN/ZoFIKlisG7gPcfWEHsk8EWJgBAju2kMy2PWdARRXIM5m?=
- =?us-ascii?Q?e+Ct+j4M3lBO6FpUkHtNyEgrn5RoUKcrN7JfZbCENFRSKG6Be+i7VLGCP91L?=
- =?us-ascii?Q?flltjkDEcoyGDHsOWNLqKUp2mNO6v+oT8jOU51SkzSXzU3Ut1x4IoJ6h0i9x?=
- =?us-ascii?Q?/1jkqlimYifsa9Cbfe5YiwUTD/zcLTfwleEq0x9IpA2OZ9vEiBkgKgPx3kbo?=
- =?us-ascii?Q?V1aom1gerEDqZliVZMi9g8UFbqoTNTibwzPGHZmTDorDeSulfX5CrRp97Xv4?=
- =?us-ascii?Q?JO8uJR7qSdI5y0ukZKAiSR+sQ01bnwblC0q55FUzUNjiN+WuqkC2jHqEBE19?=
- =?us-ascii?Q?csH072K0qJvRUx5B9DfV+CZoFWy0L55OcyKw484aCOlxR7gCkWcI1ZVvI8zK?=
- =?us-ascii?Q?6/ILowmvgr4AO8LxG9zZ0CzKuuMiwrBg12kw1/Zgl6qm6DR7WFltA3lVkIPp?=
- =?us-ascii?Q?tTAdGBK269sC+eUmtK+OGsXEThEHKc5ihFah77vTgWbsJfkXwpijcI7NhNmA?=
- =?us-ascii?Q?Ph58AKaAQ5TbEJ5P7okb0cT9pkgUTJHWwbGilim5MMffMa8tKMQ2UF7cLOtW?=
- =?us-ascii?Q?FHIJj2AAjYPBwWkt7F+0n4luhuZD88j7RcVLNqsHCcZA2rHg/HkHEjVcw2Ib?=
- =?us-ascii?Q?LWEuBooQlNJ3UsFFSgdSYJqR1EN5zVDBoKJilOGboTHincaZcmAF0ONgiqzD?=
- =?us-ascii?Q?57qDu5uC85PaGLyuQTiSWqbsfn8oF9Mm1XexoLhyKvv9qvuAwhxiI8mHXftd?=
- =?us-ascii?Q?/e19xCY/LEb0kXhQPPP6nHVvw3TxYmUSbuyrx97OIyAb0SveMyRjWsH327hn?=
- =?us-ascii?Q?khi7njIag8oAs0vWzMrL6aw/nd4FL6f/Ttne5+2yKT3GF/EzWAvsXSbI1jV6?=
- =?us-ascii?Q?7y04Pmuaown+RHU4H9AUdq3MRD5wwvHWWymduJCqQpoH83LIKCVv8ZWHvO+t?=
- =?us-ascii?Q?8U9YXANcNLuWTLWQaHTdPIOOagpRU/RCISR73cft89800xsq7ldD1m3ygcyq?=
- =?us-ascii?Q?qzWESCimCOjDwYNZwUKY/xitLOMzbl8wmsnsKHP1N3uOWWDHRxdLaEN8BaWl?=
- =?us-ascii?Q?q7xO7IooWd7Utw1eo6vt0MAe/H2JzgSfCX6VVd4n16KBg4+MBrMV4fQGLEpr?=
- =?us-ascii?Q?2tD1X291rZqWBVnDCtlnlwRlmhpzKQw/+ZPbaiTP?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c6248d52-efe8-4035-3b1d-08de11a35f85
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 19:44:11.6102
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AiNWVir37CUMByVjYKyAJ9n6SNBgNLyfkM4u+11b9V+kghL5D6aEWNSy0R/DYGN0x3pkSSdkvOgcHd1PsoiHng==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8553
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: dc0f998cc67a229f849961d6b5044d0a
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1vBfRs-00000001iYG-3yKY-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-wsw7.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_124417_603318_E0993800 
-X-CRM114-Status: GOOD (  25.12  )
+X-CRM114-CacheID: sfid-20251022_132856_103477_ADCA2A4E 
+X-CRM114-Status: GOOD (  24.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,575 +129,754 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 07:43:08PM +0200, Vincent Guittot wrote:
-> Add initial support of the PCIe controller for S32G Soc family. Only
-> host mode is supported.
->
-> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-> Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+Hi Fabian,
+
+I restarted working on my FRDM just a couple of days ago, so this will
+probably feel like a late review for the v2. Anyhow...
+
+On Wednesday, 22 October 2025 at 16:05:23 Fabian Pflug <f.pflug@pengutronix.de> wrote:
+> The FRDM i.MX 93 development board is a low-cost and compact development
+> board featuring the i.MX93 applications processor.
+> 
+> It features:
+> - Dual Cortex-A55
+> - 2 GB LPDDR4X / LPDDR4
+> - 32 GB eMMC5.1
+> - MicroSD slot
+> - GbE RJ45 x 2
+> - USB2.0 1x Type C, 1x Type A
+> 
+> This file is based upon the one provided by nxp in their own kernel and
+> yocto meta layer for the device, but adapted for mainline.
+> 
+> Signed-off-by: Haidong Zheng <haidong.zheng@nxp.com>
+> Signed-off-by: Danwei Luo <danwei.luo@nxp.com>
+> Signed-off-by: Lei Xu <lei.xu@nxp.com>
+> Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
 > ---
->  drivers/pci/controller/dwc/Kconfig            |  10 +
->  drivers/pci/controller/dwc/Makefile           |   1 +
->  .../pci/controller/dwc/pcie-nxp-s32g-regs.h   |  37 ++
->  drivers/pci/controller/dwc/pcie-nxp-s32g.c    | 439 ++++++++++++++++++
->  4 files changed, 487 insertions(+)
->  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
->  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g.c
->
-> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-> index 349d4657393c..3f3172a0cd95 100644
-> --- a/drivers/pci/controller/dwc/Kconfig
-> +++ b/drivers/pci/controller/dwc/Kconfig
-> @@ -406,6 +406,16 @@ config PCIE_UNIPHIER_EP
->  	  Say Y here if you want PCIe endpoint controller support on
->  	  UniPhier SoCs. This driver supports Pro5 SoC.
->
-> +config PCIE_NXP_S32G
-> +	tristate "NXP S32G PCIe controller (host mode)"
-> +	depends on ARCH_S32 || COMPILE_TEST
-> +	select PCIE_DW_HOST
-> +	help
-> +	  Enable support for the PCIe controller in NXP S32G based boards to
-> +	  work in Host mode. The controller is based on DesignWare IP and
-> +	  can work either as RC or EP. In order to enable host-specific
-> +	  features PCIE_S32G must be selected.
-> +
->  config PCIE_SOPHGO_DW
->  	bool "Sophgo DesignWare PCIe controller (host mode)"
->  	depends on ARCH_SOPHGO || COMPILE_TEST
-> diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
-> index 7ae28f3b0fb3..3301bbbad78c 100644
-> --- a/drivers/pci/controller/dwc/Makefile
-> +++ b/drivers/pci/controller/dwc/Makefile
-> @@ -10,6 +10,7 @@ obj-$(CONFIG_PCI_DRA7XX) += pci-dra7xx.o
->  obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
->  obj-$(CONFIG_PCIE_FU740) += pcie-fu740.o
->  obj-$(CONFIG_PCI_IMX6) += pci-imx6.o
-> +obj-$(CONFIG_PCIE_NXP_S32G) += pcie-nxp-s32g.o
->  obj-$(CONFIG_PCIE_SPEAR13XX) += pcie-spear13xx.o
->  obj-$(CONFIG_PCI_KEYSTONE) += pci-keystone.o
->  obj-$(CONFIG_PCI_LAYERSCAPE) += pci-layerscape.o
-> diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
+>  arch/arm64/boot/dts/freescale/Makefile             |   1 +
+>  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 658 +++++++++++++++++++++
+>  2 files changed, 659 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index 525ef180481d3..a7e5fdd6faff1 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -351,6 +351,7 @@ imx93-9x9-qsb-i3c-dtbs += imx93-9x9-qsb.dtb imx93-9x9-qsb-i3c.dtbo
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-i3c.dtb
+>  
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-evk.dtb
+> +dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-frdm.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-14x14-evk.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
 > new file mode 100644
-> index 000000000000..6f04204054dd
+> index 0000000000000..1f21eeb15b721
 > --- /dev/null
-> +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
-> @@ -0,0 +1,37 @@
-> +/* SPDX-License-Identifier: GPL-2.0+ */
-> +/*
-> + * Copyright 2015-2016 Freescale Semiconductor, Inc.
-> + * Copyright 2016-2023, 2025 NXP
-> + */
+> +++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+> @@ -0,0 +1,658 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/dts-v1/;
 > +
-> +#ifndef PCIE_S32G_REGS_H
-> +#define PCIE_S32G_REGS_H
+> +#include <dt-bindings/usb/pd.h>
+> +#include "imx93.dtsi"
 > +
-> +/* PCIe controller Sub-System */
+> +/ {
+> +	compatible = "fsl,imx93-11x11-frdm", "fsl,imx93";
+> +	model = "NXP i.MX93 11X11 FRDM board";
 > +
-> +/* Link Interrupt Control And Status */
-> +#define PCIE_S32G_LINK_INT_CTRL_STS		0x40
-> +#define LINK_REQ_RST_NOT_INT_EN			BIT(1)
-> +#define LINK_REQ_RST_NOT_CLR			BIT(2)
+> +	aliases {
+> +		ethernet0 = &fec;
+> +		ethernet1 = &eqos;
+> +		i2c0 = &lpi2c1;
+> +		i2c1 = &lpi2c2;
+> +		i2c2 = &lpi2c3;
+> +		mmc0 = &usdhc1; /* EMMC */
+> +		mmc1 = &usdhc2; /* uSD */
+> +		rtc0 = &pcf2131;
+> +		serial0 = &lpuart1;
+> +	};
 > +
-> +/* PCIe controller 0 General Control 1 */
-> +#define PCIE_S32G_PE0_GEN_CTRL_1		0x50
-> +#define DEVICE_TYPE_MASK			GENMASK(3, 0)
-> +#define DEVICE_TYPE(x)				FIELD_PREP(DEVICE_TYPE_MASK, x)
-> +#define SRIS_MODE				BIT(8)
+> +	chosen {
+> +		stdout-path = &lpuart1;
+> +	};
 > +
-> +/* PCIe controller 0 General Control 3 */
-> +#define PCIE_S32G_PE0_GEN_CTRL_3		0x58
-> +#define LTSSM_EN				BIT(0)
+> +	reg_usdhc2_vmmc: regulator-usdhc2 {
+> +		compatible = "regulator-fixed";
+> +		off-on-delay-us = <12000>;
+> +		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
+> +		pinctrl-names = "default";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-name = "VSD_3V3";
+> +		vin-supply = <&buck4>;
+> +		gpio = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		enable-active-high;
+> +	};
+> +
+> +	reg_usdhc3_vmmc: regulator-usdhc3 {
 
-Need S32G prefix for register field to avoid name collision.
+This is not used - maybe it should be disabled?
 
-> +
-> +/* PCIe Controller 0 Transmit Message Request */
-> +#define PCIE_S32G_PE0_TX_MSG_REQ		0x80
-> +#define PME_TURN_OFF_REQ			BIT(19)
+> +		compatible = "regulator-fixed";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-name = "WLAN_EN";
+> +		vin-supply = <&buck4>;
+> +		gpio = <&pcal6524 20 GPIO_ACTIVE_HIGH>;
 
-I think needn't use customized pme_turn_off. You can use common
-dw_pcie_pme_turn_off(), which use iatu map a windows to send out pcie msg.
-That's fit all new version dwc controller. I think s32 should be new enough.
+This does not seem to match the design files available for the FRDM on the NXP
+website. The WiFi chip connected to the usdhc3 port is in fact powered by the
+VPCIe_3V3 power rail, which is enabled by the EXT1_PWREN signal that is in turn
+connected to GPIO 13 of the pcal6524 expander.
 
+GPIO 20 of the pcal6524 expander should be driving M2_nDIS1 and then W2_nDIS1
+and finally PDn/PCAL6408_RST, which is connected to the reset signal for a
+PCAL6408 GPIO expander (U748).
+
+This is at least what I understood, but you may have more information on the
+DNP (Do Not Populated) madness inside the schematic.
+
+> +		enable-active-high;
+> +		/*
+> +		 * IW612 wifi chip needs more delay than other wifi chips to complete
+> +		 * the host interface initialization after power up, otherwise the
+> +		 * internal state of IW612 may be unstable, resulting in the failure of
+> +		 * the SDIO3.0 switch voltage.
+> +		 */
+> +		startup-delay-us = <20000>;
+> +	};
 > +
-> +/* PCIe Controller 0 Link Debug 2 */
-> +#define PCIE_S32G_PE0_LINK_DBG_2		0xB4
-> +#define SMLH_LTSSM_STATE_MASK			GENMASK(5, 0)
-> +#define SMLH_LINK_UP				BIT(6)
-> +#define RDLH_LINK_UP				BIT(7)
+> +	reserved-memory {
+> +		ranges;
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
 > +
-> +#endif  /* PCI_S32G_REGS_H */
-> diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> new file mode 100644
-> index 000000000000..53529f63c555
-> --- /dev/null
-> +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> @@ -0,0 +1,439 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * PCIe host controller driver for NXP S32G SoCs
-> + *
-> + * Copyright 2019-2025 NXP
-> + */
+> +		linux,cma {
+> +			compatible = "shared-dma-pool";
+> +			alloc-ranges = <0 0x80000000 0 0x30000000>;
+> +			reusable;
+> +			size = <0 0x10000000>;
+> +			linux,cma-default;
+> +		};
 > +
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/memblock.h>
-> +#include <linux/module.h>
-> +#include <linux/of_device.h>
-> +#include <linux/of_address.h>
-> +#include <linux/pci.h>
-> +#include <linux/phy/phy.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/sizes.h>
-> +#include <linux/types.h>
+> +		rsc_table: rsc-table@2021e000 {
+> +			reg = <0 0x2021e000 0 0x1000>;
+> +			no-map;
+> +		};
 > +
-> +#include "pcie-designware.h"
-> +#include "pcie-nxp-s32g-regs.h"
+> +		vdev0vring0: vdev0vring0@a4000000 {
+> +			reg = <0 0xa4000000 0 0x8000>;
+> +			no-map;
+> +		};
 > +
-> +struct s32g_pcie {
-> +	struct dw_pcie	pci;
-> +	void __iomem *ctrl_base;
-> +	struct phy *phy;
+> +		vdev0vring1: vdev0vring1@a4008000 {
+> +			reg = <0 0xa4008000 0 0x8000>;
+> +			no-map;
+> +		};
+> +
+> +		vdev1vring0: vdev1vring0@a4010000 {
+> +			reg = <0 0xa4010000 0 0x8000>;
+> +			no-map;
+> +		};
+> +
+> +		vdev1vring1: vdev1vring1@a4018000 {
+> +			reg = <0 0xa4018000 0 0x8000>;
+> +			no-map;
+> +		};
+> +
+> +		vdevbuffer: vdevbuffer@a4020000 {
+> +			compatible = "shared-dma-pool";
+> +			reg = <0 0xa4020000 0 0x100000>;
+> +			no-map;
+> +		};
+> +	};
+> +
+> +	usdhc3_pwrseq: usdhc3_pwrseq {
+
+This is also not used.
+
+> +		compatible = "mmc-pwrseq-simple";
+> +		reset-gpios = <&pcal6524 12 GPIO_ACTIVE_LOW>;
+> +	};
 > +};
 > +
-> +#define to_s32g_from_dw_pcie(x) \
-> +	container_of(x, struct s32g_pcie, pci)
-> +
-> +static void s32g_pcie_writel_ctrl(struct s32g_pcie *s32g_pp, u32 reg, u32 val)
-> +{
-> +	writel(val, s32g_pp->ctrl_base + reg);
-> +}
-> +
-> +static u32 s32g_pcie_readl_ctrl(struct s32g_pcie *s32g_pp, u32 reg)
-> +{
-> +	return readl(s32g_pp->ctrl_base + reg);
-> +}
-> +
-> +static void s32g_pcie_enable_ltssm(struct s32g_pcie *s32g_pp)
-> +{
-> +	u32 reg;
-> +
-> +	reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3);
-> +	reg |= LTSSM_EN;
-> +	s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3, reg);
-> +}
-> +
-> +static void s32g_pcie_disable_ltssm(struct s32g_pcie *s32g_pp)
-> +{
-> +	u32 reg;
-> +
-> +	reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3);
-> +	reg &= ~LTSSM_EN;
-> +	s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3, reg);
-> +}
-> +
-> +static bool is_s32g_pcie_ltssm_enabled(struct s32g_pcie *s32g_pp)
-> +{
-> +	return (s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3) & LTSSM_EN);
-> +}
-> +
-> +static enum dw_pcie_ltssm s32g_pcie_get_ltssm(struct dw_pcie *pci)
-> +{
-> +	struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
-> +	u32 reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_LINK_DBG_2);
-> +
-> +	return (enum dw_pcie_ltssm)FIELD_GET(SMLH_LTSSM_STATE_MASK, reg);
-> +}
-
-Does dw_pcie_readl_dbi(pci, PCIE_PORT_DEBUG0); work for s32?
-
-> +
-> +#define PCIE_LINKUP	(SMLH_LINK_UP | RDLH_LINK_UP)
-> +
-> +static bool s32g_has_data_phy_link(struct s32g_pcie *s32g_pp)
-> +{
-> +	u32 reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_LINK_DBG_2);
-> +
-> +	if ((reg & PCIE_LINKUP) == PCIE_LINKUP) {
-> +		switch (FIELD_GET(SMLH_LTSSM_STATE_MASK, reg)) {
-> +		case DW_PCIE_LTSSM_L0:
-> +		case DW_PCIE_LTSSM_L0S:
-> +		case DW_PCIE_LTSSM_L1_IDLE:
-> +			return true;
-> +		default:
-> +			return false;
-> +		}
-> +	}
-> +
-> +	return false;
-> +}
-> +
-> +static bool s32g_pcie_link_up(struct dw_pcie *pci)
-> +{
-> +	struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
-> +
-> +	if (!is_s32g_pcie_ltssm_enabled(s32g_pp))
-> +		return false;
-> +
-> +	return s32g_has_data_phy_link(s32g_pp);
-> +}
-> +
-> +static int s32g_pcie_start_link(struct dw_pcie *pci)
-> +{
-> +	struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
-> +
-> +	s32g_pcie_enable_ltssm(s32g_pp);
-> +
-> +	return 0;
-> +}
-> +
-> +static void s32g_pcie_stop_link(struct dw_pcie *pci)
-> +{
-> +	struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
-> +
-> +	s32g_pcie_disable_ltssm(s32g_pp);
-> +}
-> +
-> +static struct dw_pcie_ops s32g_pcie_ops = {
-> +	.get_ltssm = s32g_pcie_get_ltssm,
-> +	.link_up = s32g_pcie_link_up,
-> +	.start_link = s32g_pcie_start_link,
-> +	.stop_link = s32g_pcie_stop_link,
+> +&adc1 {
+> +	vref-supply = <&buck5>;
+> +	status = "okay";
 > +};
 > +
-> +static void s32g_pcie_pme_turn_off(struct dw_pcie_rp *pp)
-> +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +	struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
-> +	u32 reg;
-> +
-> +	reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_TX_MSG_REQ);
-> +	reg |= PME_TURN_OFF_REQ;
-> +	s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_TX_MSG_REQ, reg);
-> +}
-> +
-> +static const struct dw_pcie_host_ops s32g_pcie_host_ops = {
-> +	.pme_turn_off = s32g_pcie_pme_turn_off,
-> +};
-
-See above comments, I think common dwc pme_turn_off() should work for s32g.
-
-> +
-> +static void s32g_pcie_disable_equalization(struct dw_pcie *pci)
-> +{
-> +	u32 reg;
-> +
-> +	reg = dw_pcie_readl_dbi(pci, GEN3_EQ_CONTROL_OFF);
-> +	reg &= ~(GEN3_EQ_CONTROL_OFF_FB_MODE |
-> +		 GEN3_EQ_CONTROL_OFF_PSET_REQ_VEC);
-> +	reg |= FIELD_PREP(GEN3_EQ_CONTROL_OFF_FB_MODE, 1) |
-> +	       FIELD_PREP(GEN3_EQ_CONTROL_OFF_PSET_REQ_VEC, 0x84);
-> +
-> +	dw_pcie_dbi_ro_wr_en(pci);
-> +	dw_pcie_writel_dbi(pci, GEN3_EQ_CONTROL_OFF, reg);
-> +	dw_pcie_dbi_ro_wr_dis(pci);
-> +}
-> +
-> +/* Configure the AMBA AXI Coherency Extensions (ACE) interface */
-> +static void s32g_pcie_reset_mstr_ace(struct dw_pcie *pci, u64 ddr_base_addr)
-> +{
-> +	u32 ddr_base_low = lower_32_bits(ddr_base_addr);
-> +	u32 ddr_base_high = upper_32_bits(ddr_base_addr);
-> +
-> +	dw_pcie_dbi_ro_wr_en(pci);
-> +	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_3_OFF, 0x0);
-> +
-> +	/*
-> +	 * Ncore is a cache-coherent interconnect module that enables the
-> +	 * integration of heterogeneous coherent and non-coherent agents in
-> +	 * the chip. Ncore Transactions to peripheral should be non-coherent
-> +	 * or it might drop them.
-> +	 * One example where this is needed are PCIe MSIs, which use NoSnoop=0
-> +	 * and might end up routed to Ncore.
-> +	 * Define the start of DDR as seen by Linux as the boundary between
-> +	 * "memory" and "peripherals", with peripherals being below.
-> +	 */
-> +	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_1_OFF,
-> +			   (ddr_base_low & CFG_MEMTYPE_BOUNDARY_LOW_ADDR_MASK));
-> +	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_2_OFF, ddr_base_high);
-> +	dw_pcie_dbi_ro_wr_dis(pci);
-> +}
-> +
-> +static void s32g_init_pcie_controller(struct s32g_pcie *s32g_pp)
-> +{
-> +	struct dw_pcie *pci = &s32g_pp->pci;
-> +	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-> +	u32 val;
-> +
-> +	/* Set RP mode */
-> +	val = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_1);
-> +	val &= ~DEVICE_TYPE_MASK;
-> +	val |= DEVICE_TYPE(PCI_EXP_TYPE_ROOT_PORT);
-> +
-> +	/* Use default CRNS */
-> +	val &= ~SRIS_MODE;
-> +
-> +	s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_1, val);
-> +
-> +	/* Disable phase 2,3 equalization */
-> +	s32g_pcie_disable_equalization(pci);
-> +
-> +	/*
-> +	 * Make sure we use the coherency defaults (just in case the settings
-> +	 * have been changed from their reset values)
-> +	 */
-> +	s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
-> +
-> +	dw_pcie_dbi_ro_wr_en(pci);
-> +
-> +	val = dw_pcie_readl_dbi(pci, PCIE_PORT_FORCE);
-> +	val |= PORT_FORCE_DO_DESKEW_FOR_SRIS;
-> +	dw_pcie_writel_dbi(pci, PCIE_PORT_FORCE, val);
-> +
-> +	/*
-> +	 * Set max payload supported, 256 bytes and
-> +	 * relaxed ordering.
-> +	 */
-> +	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
-> +	val &= ~(PCI_EXP_DEVCTL_RELAX_EN |
-> +		 PCI_EXP_DEVCTL_PAYLOAD |
-> +		 PCI_EXP_DEVCTL_READRQ);
-> +	val |= PCI_EXP_DEVCTL_RELAX_EN |
-> +	       PCI_EXP_DEVCTL_PAYLOAD_256B |
-> +	       PCI_EXP_DEVCTL_READRQ_256B;
-> +	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
-> +
-> +	/* Enable errors */
-> +	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
-> +	val |= PCI_EXP_DEVCTL_CERE |
-> +	       PCI_EXP_DEVCTL_NFERE |
-> +	       PCI_EXP_DEVCTL_FERE |
-> +	       PCI_EXP_DEVCTL_URRE;
-> +	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
-> +
-> +	val = dw_pcie_readl_dbi(pci, GEN3_RELATED_OFF);
-> +	val |= GEN3_RELATED_OFF_EQ_PHASE_2_3;
-> +	dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
-> +
-> +	dw_pcie_dbi_ro_wr_dis(pci);
-> +}
-> +
-> +static int s32g_init_pcie_phy(struct s32g_pcie *s32g_pp)
-> +{
-> +	struct dw_pcie *pci = &s32g_pp->pci;
-> +	struct device *dev = pci->dev;
-> +	int ret;
-> +
-> +	ret = phy_init(s32g_pp->phy);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to init serdes PHY\n");
-> +		return ret;
-> +	}
-> +
-> +	ret = phy_set_mode_ext(s32g_pp->phy, PHY_MODE_PCIE, 0);
-
-0 use PHY_MODE_PCIE_RC
-
-> +	if (ret) {
-> +		dev_err(dev, "Failed to set mode on serdes PHY\n");
-> +		goto err_phy_exit;
-> +	}
-> +
-> +	ret = phy_power_on(s32g_pp->phy);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to power on serdes PHY\n");
-> +		goto err_phy_exit;
-> +	}
-> +
-> +	return 0;
-> +
-> +err_phy_exit:
-> +	phy_exit(s32g_pp->phy);
-> +	return ret;
-> +}
-> +
-> +static int s32g_deinit_pcie_phy(struct s32g_pcie *s32g_pp)
-> +{
-> +	struct dw_pcie *pci = &s32g_pp->pci;
-> +	struct device *dev = pci->dev;
-> +	int ret;
-> +
-> +	ret = phy_power_off(s32g_pp->phy);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to power off serdes PHY\n");
-> +		return ret;
-> +	}
-> +
-> +	ret = phy_exit(s32g_pp->phy);
-> +	if (ret) {
-> +		dev_err(dev, "Failed to exit serdes PHY\n");
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int s32g_pcie_init(struct device *dev,
-> +			  struct s32g_pcie *s32g_pp)
-> +{
-> +	int ret;
-> +
-> +	s32g_pcie_disable_ltssm(s32g_pp);
-> +
-> +	ret = s32g_init_pcie_phy(s32g_pp);
-> +	if (ret)
-> +		return ret;
-> +
-> +	s32g_init_pcie_controller(s32g_pp);
-> +
-> +	return 0;
-> +}
-> +
-> +static void s32g_pcie_deinit(struct s32g_pcie *s32g_pp)
-> +{
-> +	s32g_pcie_disable_ltssm(s32g_pp);
-> +	s32g_deinit_pcie_phy(s32g_pp);
-> +}
-> +
-> +static int s32g_pcie_host_init(struct s32g_pcie *s32g_pp)
-> +{
-> +	struct dw_pcie *pci = &s32g_pp->pci;
-> +	struct dw_pcie_rp *pp = &pci->pp;
-> +	int ret;
-> +
-> +	pp->ops = &s32g_pcie_host_ops;
-> +
-> +	ret = dw_pcie_host_init(pp);
-> +
-> +	return ret;
-> +}
-> +
-> +static int s32g_pcie_get_resources(struct platform_device *pdev,
-> +				   struct s32g_pcie *s32g_pp)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct dw_pcie *pci = &s32g_pp->pci;
-> +
-> +	s32g_pp->phy = devm_phy_get(dev, NULL);
-> +	if (IS_ERR(s32g_pp->phy))
-> +		return dev_err_probe(dev, PTR_ERR(s32g_pp->phy),
-> +				"Failed to get serdes PHY\n");
-> +	s32g_pp->ctrl_base = devm_platform_ioremap_resource_byname(pdev, "ctrl");
-> +	if (IS_ERR(s32g_pp->ctrl_base))
-> +		return PTR_ERR(s32g_pp->ctrl_base);
-> +
-> +	pci->dbi_base = devm_platform_ioremap_resource_byname(pdev, "dbi");
-> +	if (IS_ERR(pci->dbi_base))
-> +		return PTR_ERR(pci->dbi_base);
-
-suppose dw_pcie_get_resources() already fetch dbi resource for you.
-
-> +
-> +	pci->dev = dev;
-> +	pci->ops = &s32g_pcie_ops;
-> +
-> +	platform_set_drvdata(pdev, s32g_pp);
-> +
-> +	return 0;
-> +}
-> +
-> +static int s32g_pcie_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct s32g_pcie *s32g_pp;
-> +	int ret;
-> +
-> +	s32g_pp = devm_kzalloc(dev, sizeof(*s32g_pp), GFP_KERNEL);
-> +	if (!s32g_pp)
-> +		return -ENOMEM;
-> +
-> +	ret = s32g_pcie_get_resources(pdev, s32g_pp);
-> +	if (ret)
-> +		return ret;
-> +
-> +	pm_runtime_no_callbacks(dev);
-> +	devm_pm_runtime_enable(dev);
-> +	ret = pm_runtime_get_sync(dev);
-> +	if (ret < 0)
-> +		goto err_pm_runtime_put;
-> +
-> +	ret = s32g_pcie_init(dev, s32g_pp);
-> +	if (ret)
-> +		goto err_pm_runtime_put;
-> +
-> +	ret = s32g_pcie_host_init(s32g_pp);
-> +	if (ret)
-> +		goto err_pcie_deinit;
-> +
-> +	return 0;
-> +
-> +err_pcie_deinit:
-> +	s32g_pcie_deinit(s32g_pp);
-> +err_pm_runtime_put:
-> +	pm_runtime_put(dev);
-> +
-> +	return ret;
-> +}
-> +
-> +static int s32g_pcie_suspend_noirq(struct device *dev)
-> +{
-> +	struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
-> +	struct dw_pcie *pci = &s32g_pp->pci;
-> +
-> +	if (!dw_pcie_link_up(pci))
-> +		return 0;
-> +
-> +	return dw_pcie_suspend_noirq(pci);
-> +}
-> +
-> +static int s32g_pcie_resume_noirq(struct device *dev)
-> +{
-> +	struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
-> +	struct dw_pcie *pci = &s32g_pp->pci;
-> +
-> +	s32g_init_pcie_controller(s32g_pp);
-
-I think it should belong to host_init();
-
-Frank
-
-> +
-> +	return dw_pcie_resume_noirq(pci);
-> +}
-> +
-> +static const struct dev_pm_ops s32g_pcie_pm_ops = {
-> +	NOIRQ_SYSTEM_SLEEP_PM_OPS(s32g_pcie_suspend_noirq,
-> +				  s32g_pcie_resume_noirq)
+> +&mu1 {
+> +	status = "okay";
 > +};
 > +
-> +static const struct of_device_id s32g_pcie_of_match[] = {
-> +	{ .compatible = "nxp,s32g2-pcie"},
-> +	{ /* sentinel */ },
-> +};
-> +MODULE_DEVICE_TABLE(of, s32g_pcie_of_match);
-> +
-> +static struct platform_driver s32g_pcie_driver = {
-> +	.driver = {
-> +		.name	= "s32g-pcie",
-> +		.of_match_table = s32g_pcie_of_match,
-> +		.suppress_bind_attrs = true,
-> +		.pm = pm_sleep_ptr(&s32g_pcie_pm_ops),
-> +		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-> +	},
-> +	.probe = s32g_pcie_probe,
+> +&cm33 {
+> +	mboxes = <&mu1 0 1>,
+> +		 <&mu1 1 1>,
+> +		 <&mu1 3 1>;
+> +	mbox-names = "tx", "rx", "rxdb";
+> +	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
+> +			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>;
+> +	status = "okay";
 > +};
 > +
-> +module_platform_driver(s32g_pcie_driver);
+> +&eqos {
+> +	pinctrl-names = "default", "sleep";
+> +	pinctrl-0 = <&pinctrl_eqos>;
+> +	pinctrl-1 = <&pinctrl_eqos_sleep>;
+> +	phy-handle = <&ethphy1>;
+> +	phy-mode = "rgmii-id";
+> +	status = "okay";
 > +
-> +MODULE_AUTHOR("Ionut Vicovan <Ionut.Vicovan@nxp.com>");
-> +MODULE_DESCRIPTION("NXP S32G PCIe Host controller driver");
-> +MODULE_LICENSE("GPL");
-> --
-> 2.43.0
->
+> +	mdio {
+> +		compatible = "snps,dwmac-mdio";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		clock-frequency = <5000000>;
+> +
+> +		ethphy1: ethernet-phy@1 {
+> +			reg = <1>;
+> +			reset-assert-us = <10000>;
+> +			reset-deassert-us = <80000>;
+> +			reset-gpios = <&pcal6524 15 GPIO_ACTIVE_LOW>;
+> +			realtek,clkout-disable;
+> +		};
+> +	};
+> +};
+> +
+> +&fec {
+> +	pinctrl-names = "default", "sleep";
+> +	pinctrl-0 = <&pinctrl_fec>;
+> +	pinctrl-1 = <&pinctrl_fec_sleep>;
+> +	phy-mode = "rgmii-id";
+> +	phy-handle = <&ethphy2>;
+> +	fsl,magic-packet;
+> +	status = "okay";
+> +
+> +	mdio {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		clock-frequency = <5000000>;
+> +
+> +		ethphy2: ethernet-phy@2 {
+> +			reg = <2>;
+> +			eee-broken-1000t;
+
+eee-broken-1000t should not be required, see:
+
+https://lore.kernel.org/all/20250901103632.3409896-6-joy.zou@nxp.com/
+
+> +			reset-assert-us = <10000>;
+> +			reset-deassert-us = <80000>;
+> +			reset-gpios = <&pcal6524 16 GPIO_ACTIVE_LOW>;
+> +			realtek,clkout-disable;
+> +		};
+> +	};
+> +};
+> +
+> +&lpi2c1 {
+> +	clock-frequency = <400000>;
+> +	pinctrl-0 = <&pinctrl_lpi2c1>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +
+> +	it6263: hdmi@4c {
+> +		compatible = "ite,it6263";
+> +		reg = <0x4c>;
+> +		ivdd-supply = <&buck5>;
+> +		ovdd-supply = <&buck4>;
+> +		txavcc18-supply = <&buck5>;
+> +		txavcc33-supply = <&buck4>;
+> +		pvcc1-supply = <&buck5>;
+> +		pvcc2-supply = <&buck5>;
+> +		avcc-supply = <&buck4>;
+> +		anvdd-supply = <&buck5>;
+> +		apvdd-supply = <&buck5>;
+> +	};
+> +};
+> +
+> +&lpi2c2 {
+> +	clock-frequency = <400000>;
+> +	pinctrl-0 = <&pinctrl_lpi2c2>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +
+> +	pcal6524: gpio@22 {
+> +		compatible = "nxp,pcal6524";
+> +		reg = <0x22>;
+> +		#interrupt-cells = <2>;
+> +		interrupt-controller;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
+> +		#gpio-cells = <2>;
+> +		gpio-controller;
+> +		pinctrl-0 = <&pinctrl_pcal6524>;
+> +		pinctrl-names = "default";
+> +		/* does not boot with supplier set, because it is the bucks interrupt parent */
+> +		/* vcc-supply = <&buck4>; */
+> +	};
+> +
+> +	pmic@25 {
+> +		compatible = "nxp,pca9451a";
+> +		reg = <0x25>;
+> +		interrupt-parent = <&pcal6524>;
+> +		interrupts = <11 IRQ_TYPE_EDGE_FALLING>;
+> +
+> +		regulators {
+> +
+> +			buck1: BUCK1 {
+> +				regulator-name = "VDD_SOC_0V8";
+> +				regulator-min-microvolt = <650000>;
+> +				regulator-max-microvolt = <950000>;
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-ramp-delay = <3125>;
+> +			};
+> +
+> +			buck2: BUCK2 {
+> +				regulator-name = "LPD4_x_VDDQ_0V6";
+> +				regulator-min-microvolt = <600000>;
+> +				regulator-max-microvolt = <670000>;
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +				regulator-ramp-delay = <3125>;
+> +			};
+> +
+> +			buck4: BUCK4 {
+> +				regulator-name = "VDD_3V3";
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +			};
+> +
+> +			buck5: BUCK5 {
+> +				regulator-name = "VDD_1V8";
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +			};
+> +
+> +			buck6: BUCK6 {
+> +				regulator-name = "LPD4_x_VDD2_1V1";
+> +				regulator-min-microvolt = <1100000>;
+> +				regulator-max-microvolt = <1100000>;
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +			};
+> +
+> +			ldo1: LDO1 {
+> +				regulator-name = "NVCC_BBSM_1V8";
+> +				regulator-min-microvolt = <1620000>;
+> +				regulator-max-microvolt = <1980000>;
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +			};
+> +
+> +			ldo4: LDO4 {
+> +				regulator-name = "VDD_ANA_0V8";
+> +				regulator-min-microvolt = <800000>;
+> +				regulator-max-microvolt = <840000>;
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +			};
+> +
+> +			ldo5: LDO5 {
+> +				regulator-name = "NVCC_SD";
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-always-on;
+> +				regulator-boot-on;
+> +			};
+> +		};
+> +	};
+> +
+> +	eeprom: eeprom@50 {
+> +		compatible = "atmel,24c256";
+> +		reg = <0x50>;
+> +		pagesize = <64>;
+> +		vcc-supply = <&buck4>;
+> +	};
+> +};
+> +
+> +&lpi2c3 {
+> +	clock-frequency = <400000>;
+> +	pinctrl-0 = <&pinctrl_lpi2c3>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +
+> +	ptn5110: tcpc@50 {
+> +		compatible = "nxp,ptn5110", "tcpci";
+> +		reg = <0x50>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <27 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		typec1_con: connector {
+> +			compatible = "usb-c-connector";
+> +			data-role = "dual";
+> +			label = "USB-C";
+> +			op-sink-microwatt = <15000000>;
+> +			power-role = "dual";
+> +			self-powered;
+> +			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)
+> +					PDO_VAR(5000, 20000, 3000)>;
+> +			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
+> +			try-power-role = "sink";
+> +
+> +			ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +
+> +					typec1_dr_sw: endpoint {
+> +						remote-endpoint = <&usb1_drd_sw>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	pcf2131: rtc@53 {
+> +		compatible = "nxp,pcf2131";
+> +		reg = <0x53>;
+> +		interrupt-parent = <&pcal6524>;
+> +		interrupts = <1 IRQ_TYPE_EDGE_FALLING>;
+> +	};
+> +};
+> +
+> +&lpuart1 { /* console */
+> +	pinctrl-0 = <&pinctrl_uart1>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +};
+> +
+> +&usbotg1 {
+> +	adp-disable;
+> +	disable-over-current;
+> +	dr_mode = "otg";
+> +	hnp-disable;
+> +	srp-disable;
+> +	usb-role-switch;
+> +	samsung,picophy-dc-vol-level-adjust = <7>;
+> +	samsung,picophy-pre-emp-curr-control = <3>;
+> +	status = "okay";
+> +
+> +	port {
+> +
+
+This white line should probably be removed.
+
+> +		usb1_drd_sw: endpoint {
+> +			remote-endpoint = <&typec1_dr_sw>;
+> +		};
+> +	};
+> +};
+> +
+> +&usbotg2 {
+> +	disable-over-current;
+> +	dr_mode = "host";
+> +	samsung,picophy-dc-vol-level-adjust = <7>;
+> +	samsung,picophy-pre-emp-curr-control = <3>;
+> +	status = "okay";
+> +};
+> +
+> +&usdhc1 {
+> +	bus-width = <8>;
+> +	non-removable;
+> +	pinctrl-0 = <&pinctrl_usdhc1>;
+> +	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
+> +	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
+> +	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+> +	vmmc-supply = <&buck4>;
+> +	status = "okay";
+> +};
+> +
+> +&usdhc2 {
+> +	bus-width = <4>;
+> +	cd-gpios = <&gpio3 00 GPIO_ACTIVE_LOW>;
+> +	no-mmc;
+> +	no-sdio;
+> +	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
+> +	pinctrl-3 = <&pinctrl_usdhc2_sleep>, <&pinctrl_usdhc2_gpio_sleep>;
+> +	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
+> +	vmmc-supply = <&reg_usdhc2_vmmc>;
+> +	status = "okay";
+> +};
+> +
+> +&wdog3 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_wdog>;
+> +	fsl,ext-reset-output;
+> +	status = "okay";
+> +};
+> +
+> +&iomuxc {
+> +
+> +	pinctrl_eqos: eqosgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_ENET1_MDC__ENET_QOS_MDC			0x57e
+> +			MX93_PAD_ENET1_MDIO__ENET_QOS_MDIO			0x57e
+> +			MX93_PAD_ENET1_RD0__ENET_QOS_RGMII_RD0			0x57e
+> +			MX93_PAD_ENET1_RD1__ENET_QOS_RGMII_RD1			0x57e
+> +			MX93_PAD_ENET1_RD2__ENET_QOS_RGMII_RD2			0x57e
+> +			MX93_PAD_ENET1_RD3__ENET_QOS_RGMII_RD3			0x57e
+> +			MX93_PAD_ENET1_RXC__CCM_ENET_QOS_CLOCK_GENERATE_RX_CLK	0x58e
+> +			MX93_PAD_ENET1_RX_CTL__ENET_QOS_RGMII_RX_CTL		0x57e
+> +			MX93_PAD_ENET1_TD0__ENET_QOS_RGMII_TD0			0x57e
+> +			MX93_PAD_ENET1_TD1__ENET_QOS_RGMII_TD1			0x57e
+> +			MX93_PAD_ENET1_TD2__ENET_QOS_RGMII_TD2			0x57e
+> +			MX93_PAD_ENET1_TD3__ENET_QOS_RGMII_TD3			0x57e
+> +			MX93_PAD_ENET1_TXC__CCM_ENET_QOS_CLOCK_GENERATE_TX_CLK	0x58e
+> +			MX93_PAD_ENET1_TX_CTL__ENET_QOS_RGMII_TX_CTL		0x57e
+> +		>;
+> +	};
+> +
+> +	pinctrl_eqos_sleep: eqossleepgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_ENET1_MDC__GPIO4_IO00			0x31e
+> +			MX93_PAD_ENET1_MDIO__GPIO4_IO01			0x31e
+> +			MX93_PAD_ENET1_RD0__GPIO4_IO10			0x31e
+> +			MX93_PAD_ENET1_RD1__GPIO4_IO11			0x31e
+> +			MX93_PAD_ENET1_RD2__GPIO4_IO12			0x31e
+> +			MX93_PAD_ENET1_RD3__GPIO4_IO13			0x31e
+> +			MX93_PAD_ENET1_RXC__GPIO4_IO09			0x31e
+> +			MX93_PAD_ENET1_RX_CTL__GPIO4_IO08		0x31e
+> +			MX93_PAD_ENET1_TD0__GPIO4_IO05			0x31e
+> +			MX93_PAD_ENET1_TD1__GPIO4_IO04			0x31e
+> +			MX93_PAD_ENET1_TD2__GPIO4_IO03			0x31e
+> +			MX93_PAD_ENET1_TD3__GPIO4_IO02			0x31e
+> +			MX93_PAD_ENET1_TXC__GPIO4_IO07			0x31e
+> +			MX93_PAD_ENET1_TX_CTL__GPIO4_IO06		0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_fec: fecgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_ENET2_MDC__ENET1_MDC			0x57e
+> +			MX93_PAD_ENET2_MDIO__ENET1_MDIO			0x57e
+> +			MX93_PAD_ENET2_RD0__ENET1_RGMII_RD0		0x57e
+> +			MX93_PAD_ENET2_RD1__ENET1_RGMII_RD1		0x57e
+> +			MX93_PAD_ENET2_RD2__ENET1_RGMII_RD2		0x57e
+> +			MX93_PAD_ENET2_RD3__ENET1_RGMII_RD3		0x57e
+> +			MX93_PAD_ENET2_RXC__ENET1_RGMII_RXC		0x58e
+> +			MX93_PAD_ENET2_RX_CTL__ENET1_RGMII_RX_CTL	0x57e
+> +			MX93_PAD_ENET2_TD0__ENET1_RGMII_TD0		0x57e
+> +			MX93_PAD_ENET2_TD1__ENET1_RGMII_TD1		0x57e
+> +			MX93_PAD_ENET2_TD2__ENET1_RGMII_TD2		0x57e
+> +			MX93_PAD_ENET2_TD3__ENET1_RGMII_TD3		0x57e
+> +			MX93_PAD_ENET2_TXC__ENET1_RGMII_TXC		0x58e
+> +			MX93_PAD_ENET2_TX_CTL__ENET1_RGMII_TX_CTL	0x57e
+> +		>;
+> +	};
+> +
+> +	pinctrl_fec_sleep: fecsleepgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_ENET2_MDC__GPIO4_IO14			0x51e
+> +			MX93_PAD_ENET2_MDIO__GPIO4_IO15			0x51e
+> +			MX93_PAD_ENET2_RD0__GPIO4_IO24			0x51e
+> +			MX93_PAD_ENET2_RD1__GPIO4_IO25			0x51e
+> +			MX93_PAD_ENET2_RD2__GPIO4_IO26			0x51e
+> +			MX93_PAD_ENET2_RD3__GPIO4_IO27			0x51e
+> +			MX93_PAD_ENET2_RXC__GPIO4_IO23			0x51e
+> +			MX93_PAD_ENET2_RX_CTL__GPIO4_IO22		0x51e
+> +			MX93_PAD_ENET2_TD0__GPIO4_IO19			0x51e
+> +			MX93_PAD_ENET2_TD1__GPIO4_IO18			0x51e
+> +			MX93_PAD_ENET2_TD2__GPIO4_IO17			0x51e
+> +			MX93_PAD_ENET2_TD3__GPIO4_IO16			0x51e
+> +			MX93_PAD_ENET2_TXC__GPIO4_IO21			0x51e
+> +			MX93_PAD_ENET2_TX_CTL__GPIO4_IO20		0x51e
+> +		>;
+> +	};
+> +
+> +	pinctrl_flexcan2: flexcan2grp {
+> +		fsl,pins = <
+> +			MX93_PAD_GPIO_IO25__CAN2_TX			0x139e
+> +			MX93_PAD_GPIO_IO27__CAN2_RX			0x139e
+> +		>;
+> +	};
+> +
+> +	pinctrl_lpi2c1: lpi2c1grp {
+> +		fsl,pins = <
+> +			MX93_PAD_I2C1_SCL__LPI2C1_SCL			0x40000b9e
+> +			MX93_PAD_I2C1_SDA__LPI2C1_SDA			0x40000b9e
+> +		>;
+> +	};
+> +
+> +	pinctrl_lpi2c2: lpi2c2grp {
+> +		fsl,pins = <
+> +			MX93_PAD_I2C2_SCL__LPI2C2_SCL			0x40000b9e
+> +			MX93_PAD_I2C2_SDA__LPI2C2_SDA			0x40000b9e
+> +		>;
+> +	};
+> +
+> +	pinctrl_lpi2c3: lpi2c3grp {
+> +		fsl,pins = <
+> +			MX93_PAD_GPIO_IO28__LPI2C3_SDA			0x40000b9e
+> +			MX93_PAD_GPIO_IO29__LPI2C3_SCL			0x40000b9e
+> +		>;
+> +	};
+> +
+> +	pinctrl_pcal6524: pcal6524grp {
+> +		fsl,pins = <
+> +			MX93_PAD_CCM_CLKO2__GPIO3_IO27			0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD2_RESET_B__GPIO3_IO07		0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart1: uart1grp {
+> +		fsl,pins = <
+> +			MX93_PAD_UART1_RXD__LPUART1_RX			0x31e
+> +			MX93_PAD_UART1_TXD__LPUART1_TX			0x31e
+> +		>;
+> +	};
+> +
+> +	/* need to config the SION for data and cmd pad, refer to ERR052021 */
+> +	pinctrl_usdhc1: usdhc1grp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD1_CLK__USDHC1_CLK		0x1582
+> +			MX93_PAD_SD1_CMD__USDHC1_CMD		0x40001382
+> +			MX93_PAD_SD1_DATA0__USDHC1_DATA0	0x40001382
+> +			MX93_PAD_SD1_DATA1__USDHC1_DATA1	0x40001382
+> +			MX93_PAD_SD1_DATA2__USDHC1_DATA2	0x40001382
+> +			MX93_PAD_SD1_DATA3__USDHC1_DATA3	0x40001382
+> +			MX93_PAD_SD1_DATA4__USDHC1_DATA4	0x40001382
+> +			MX93_PAD_SD1_DATA5__USDHC1_DATA5	0x40001382
+> +			MX93_PAD_SD1_DATA6__USDHC1_DATA6	0x40001382
+> +			MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x40001382
+> +			MX93_PAD_SD1_STROBE__USDHC1_STROBE	0x1582
+> +		>;
+> +	};
+> +
+> +	/* need to config the SION for data and cmd pad, refer to ERR052021 */
+> +	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD1_CLK__USDHC1_CLK		0x158e
+> +			MX93_PAD_SD1_CMD__USDHC1_CMD		0x4000138e
+> +			MX93_PAD_SD1_DATA0__USDHC1_DATA0	0x4000138e
+> +			MX93_PAD_SD1_DATA1__USDHC1_DATA1	0x4000138e
+> +			MX93_PAD_SD1_DATA2__USDHC1_DATA2	0x4000138e
+> +			MX93_PAD_SD1_DATA3__USDHC1_DATA3	0x4000138e
+> +			MX93_PAD_SD1_DATA4__USDHC1_DATA4	0x4000138e
+> +			MX93_PAD_SD1_DATA5__USDHC1_DATA5	0x4000138e
+> +			MX93_PAD_SD1_DATA6__USDHC1_DATA6	0x4000138e
+> +			MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x4000138e
+> +			MX93_PAD_SD1_STROBE__USDHC1_STROBE	0x158e
+> +		>;
+> +	};
+> +
+> +	/* need to config the SION for data and cmd pad, refer to ERR052021 */
+> +	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD1_CLK__USDHC1_CLK		0x15fe
+> +			MX93_PAD_SD1_CMD__USDHC1_CMD		0x400013fe
+> +			MX93_PAD_SD1_DATA0__USDHC1_DATA0	0x400013fe
+> +			MX93_PAD_SD1_DATA1__USDHC1_DATA1	0x400013fe
+> +			MX93_PAD_SD1_DATA2__USDHC1_DATA2	0x400013fe
+> +			MX93_PAD_SD1_DATA3__USDHC1_DATA3	0x400013fe
+> +			MX93_PAD_SD1_DATA4__USDHC1_DATA4	0x400013fe
+> +			MX93_PAD_SD1_DATA5__USDHC1_DATA5	0x400013fe
+> +			MX93_PAD_SD1_DATA6__USDHC1_DATA6	0x400013fe
+> +			MX93_PAD_SD1_DATA7__USDHC1_DATA7	0x400013fe
+> +			MX93_PAD_SD1_STROBE__USDHC1_STROBE	0x15fe
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD2_CD_B__GPIO3_IO00		0x31e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2_gpio_sleep: usdhc2gpiosleepgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD2_CD_B__GPIO3_IO00		0x51e
+> +		>;
+> +	};
+> +
+> +	/* need to config the SION for data and cmd pad, refer to ERR052021 */
+> +	pinctrl_usdhc2: usdhc2grp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD2_CLK__USDHC2_CLK		0x1582
+> +			MX93_PAD_SD2_CMD__USDHC2_CMD		0x40001382
+> +			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x40001382
+> +			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x40001382
+> +			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x40001382
+> +			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x40001382
+> +			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+> +		>;
+> +	};
+> +
+> +	/* need to config the SION for data and cmd pad, refer to ERR052021 */
+> +	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD2_CLK__USDHC2_CLK		0x158e
+> +			MX93_PAD_SD2_CMD__USDHC2_CMD		0x4000138e
+> +			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x4000138e
+> +			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x4000138e
+> +			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x4000138e
+> +			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x4000138e
+> +			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+> +		>;
+> +	};
+> +
+> +	/* need to config the SION for data and cmd pad, refer to ERR052021 */
+> +	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD2_CLK__USDHC2_CLK		0x15fe
+> +			MX93_PAD_SD2_CMD__USDHC2_CMD		0x400013fe
+> +			MX93_PAD_SD2_DATA0__USDHC2_DATA0	0x400013fe
+> +			MX93_PAD_SD2_DATA1__USDHC2_DATA1	0x400013fe
+> +			MX93_PAD_SD2_DATA2__USDHC2_DATA2	0x400013fe
+> +			MX93_PAD_SD2_DATA3__USDHC2_DATA3	0x400013fe
+> +			MX93_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2_sleep: usdhc2-sleepgrp {
+> +		fsl,pins = <
+> +			MX93_PAD_SD2_CLK__GPIO3_IO01		0x51e
+> +			MX93_PAD_SD2_CMD__GPIO3_IO02		0x51e
+> +			MX93_PAD_SD2_DATA0__GPIO3_IO03		0x51e
+> +			MX93_PAD_SD2_DATA1__GPIO3_IO04		0x51e
+> +			MX93_PAD_SD2_DATA2__GPIO3_IO05		0x51e
+> +			MX93_PAD_SD2_DATA3__GPIO3_IO06		0x51e
+> +			MX93_PAD_SD2_VSELECT__GPIO3_IO19	0x51e
+> +		>;
+> +	};
+> +
+> +	pinctrl_wdog: wdoggrp {
+> +		fsl,pins = <
+> +			MX93_PAD_WDOG_ANY__WDOG1_WDOG_ANY	0x31e
+> +		>;
+> +	};
+> +};
+> 
+> 
+
+
+Just FYI: there is a open bug on v6.18-rc2 which prevent the Bluetooth chip to
+work correctly. Just a heads up, as I wasted some _hours_ chasing it yesterday:
+
+https://lore.kernel.org/all/6837167.ZASKD2KPVS@fedora.fritz.box/
+
+
+Thank you!
+
+Regards,
+Francesco
+
+
+
+
 
