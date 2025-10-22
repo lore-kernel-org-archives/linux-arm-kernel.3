@@ -4,98 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9A3CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 18:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75FACCCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 18:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bxX0M8Q9AeR4bXwnooJF10CMIgG9FjWwDoGlh/evr1M=; b=mpKOB32/RxdjxB1q2ZH6H3ThFR
-	QKfdnZoYD9GobKRAV7v5IkZVtMydGIjFljH4mrXOYl86pjjFKB2u7a5Dc5BEwbyZiFkqFc9nvT3Pf
-	GvtJGqapYAGmdmx/sI7hu2o64XwB8R7bj82lLOk+aFRKuRP5JyixZ+eeoRNDSHoTc2Yo1t6YHSiyF
-	711UBngUoJKDEkmbWX6tNtRIQhEZPmCvz5jTu+qPUsAlezJpRbxU20leQblJsPtphmZ1zZmMkZmTE
-	nm1DlsAMUtDiR0zuyCCCSRlPKfR1yk66aqynNmd/AItdL7uFR0zIzPEjgyAJnskXohkgoYioFUOci
-	qYVW2jqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FMQtFFxEEsqRDxbkrZxdDgeMxhSRyhXbpWRw8AN98fY=; b=fWMaz6Zt6KFGnuj8/bFDkpFPmt
+	FGSCYimfRKvQhnqR6SQN8ySRBA+Og8fzUnHdIDEgZEgzIu7EBo/914PIMqe1CYGU+UWsa8OHyOM2p
+	zm/2nqY1fygtF2Jjbg77mmda3MzLzhOUfLAdLimhejA9whxoAZVTgnn9yX8R7OH8XxqRoc48Xz7Ct
+	GWjl06Q5KARSxXNVtLplHQZCZUmN+kw+HkVjykybcUoRL40ISO5yQ+jXC/r4CXLvEH5l/Y2WIPrAm
+	q9QbkniD67uzx49xeCB4F78jcmeTAwxtxxDFYkbpdvVH/k+jx49OQ5+Px2MZOfZsleBtnZwTMUGls
+	9XbGZFXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBdCM-00000003vsI-2kpB;
-	Wed, 22 Oct 2025 18:04:34 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1vBdFz-00000003wD7-1kXR;
+	Wed, 22 Oct 2025 18:08:19 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBdCK-00000003vqm-3BQv
+	id 1vBdFw-00000003wCh-3uoD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 18:04:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761156273; x=1792692273;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=LX84Ld6O6Uc5VIZ8xp7cMpdz1V/yl1HsOQOPlaYWJeQ=;
-  b=YafrLs3EEa/RZEE8/msz9g0SsdlTEv8oKB+PKVWQr6u7zYnr9l+OTiiH
-   /n5lJDXqq0iP6aNhejZg5nL2zBDbOqYvD/fRQIRp14WsZ9ujy5U7QR9Sf
-   z4KKwDMLWu1cmG+KyEzzoApESzTI2Z/OC/uLzIcSXnPpHtzBaKzhS/7bN
-   JcoFxD+q+6b+DgXhDb5w3TUJYTFLcTY7HD3ihbrspWV6GpDLgx0ZBBbyz
-   Q0P1ca6/tMKfW+u+i16zHF6lYIIQaBU32PDBU01NgmwhXyE2oZKoAQLja
-   JD7ATCd1gqLU40wUERh7HsGqA3A1VvulZnxaRNNRliMsHL5JbCx+HZoDS
-   g==;
-X-CSE-ConnectionGUID: iYop8lVNQOmJ11/bBZdnDA==
-X-CSE-MsgGUID: 9/dQf9WOQp6UX5lXeEStNg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="80752964"
-X-IronPort-AV: E=Sophos;i="6.19,247,1754982000"; 
-   d="scan'208";a="80752964"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 11:04:31 -0700
-X-CSE-ConnectionGUID: hQfoa2/xR6+4lGjcBV8xAQ==
-X-CSE-MsgGUID: ZsI4OgiDTWux522dWpJ23g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,247,1754982000"; 
-   d="scan'208";a="184332231"
-Received: from cpetruta-mobl1.ger.corp.intel.com (HELO ashevche-desk.local) ([10.245.244.83])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 11:04:25 -0700
-Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1vBdC9-00000001lJ5-3WrO;
-	Wed, 22 Oct 2025 21:04:21 +0300
-Date: Wed, 22 Oct 2025 21:04:21 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v2 04/10] gpio: shared-proxy: implement the shared GPIO
- proxy driver
-Message-ID: <aPkcpTWfTb0HOF51@smile.fi.intel.com>
-References: <20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org>
- <20251022-gpio-shared-v2-4-d34aa1fbdf06@linaro.org>
+	Wed, 22 Oct 2025 18:08:18 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b626a4cd9d6so1422317366b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 11:08:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761156495; x=1761761295; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FMQtFFxEEsqRDxbkrZxdDgeMxhSRyhXbpWRw8AN98fY=;
+        b=ig9B5VFzj94L9Bez7xVoWRZyJaHgr1qFDWgX2wHqwI/P+8r2/H3+lAfLDDZr95IhKj
+         +i92kYHOlcsg/P63/SFhS/bSbYdC+v8NR2OtnXK8GOcWHiHNrpRnqkSiNozFrYQrp5th
+         UU7n+GJWv1CpfwxdXmjtUp044pLv0E8XgsdwE35gxR9WOoCF3OXCh9fzkc0/YF8XrguG
+         wjBC699phpuMXjJBQXf03ctXD7cLZ9ibrO8K5zbXtrDlY9ULPdzCZtsDvTbFHi0owyIB
+         01O4SS59NTjNfkm+4XJJwu2QRd7+zCq/6NOvhOBKI6JCG/uEyX6sO5ZCk8qa5uQlvWTU
+         p5Nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761156495; x=1761761295;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FMQtFFxEEsqRDxbkrZxdDgeMxhSRyhXbpWRw8AN98fY=;
+        b=u4jf8hNk9/CMI5emGBm3FLXZdXKNDsaEVJtvpNLV9zAGmsS7lKoUPwvpbk5MxuXGRF
+         YpIQITtNxJpN9dZFwOjCFdXOIVtRd6kepJk+SQ12/2NNV0RxiWHiXFjvgM4T4I9lJMfD
+         36LDlGJgRSi592MPmQIQDzEp2SgGInoGFZnpubWLu4OpPDUuT3XEL3uoW+9d2UGcn3ru
+         xULi297NZPWdDYWJF71skunBqVnEVZYhZEXQP9AN/YSw7RaXk8mDvu8nxQWD22RRMJfA
+         15BSMbCjZcAPpG8y6lsL7/s0g1yGLUShQyAwAprAs6DsoQDeOVy/yl/vSDQPyvUZKsY0
+         81Ig==
+X-Gm-Message-State: AOJu0Yyug7Ct4WCwBttAAkJJiuzX3v3mttKfREZdorwKb187kHlKPBUd
+	v6d4i1Y6LZnodGRmIoADLSd/GHL/U6qMz71JIiwIWJNB+cJVvGjXIRLlR5OFEOMYrhEQ7jVI7aX
+	tpFJnRdwsXmh71BksPkljH7n41H/71oE=
+X-Gm-Gg: ASbGncthjnjTNq4W/oFdvacwDaqKTLBMTf3uhtgiUZtiz3fXTG6nzmOTStarb/thFwR
+	MtkiTlHoYRkkFe0w0ZqhqIDN1u5+f0bLNe5EpQZlyFMxHGx9XDCowio965JOz0TunxL5j5Wo3FK
+	9qqFj6gA4EBi3Jitm6KblRLjUM2DUEW6pSdnbsQlHIShLr9cFHFbSLDvOc1WqFGRh9UdlWy3WPn
+	1BKo3CxsjfL/ZMrmL0TlCHlkR+1NcgcifIf/OggdZ+C157mWeZIbRbzL9P3VT3kqi16FHeLRg==
+X-Google-Smtp-Source: AGHT+IH7M+imCkUPIEM0gojaqd/rG3Zx43O7A6mvp4uWZ0+fXegjfowMFGF2jPMC9fA+q+PtLYZiTxzhKO7/x560Dos=
+X-Received: by 2002:a17:907:25cc:b0:b40:c49b:710 with SMTP id
+ a640c23a62f3a-b6475129316mr2333654966b.47.1761156494265; Wed, 22 Oct 2025
+ 11:08:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251022-gpio-shared-v2-4-d34aa1fbdf06@linaro.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20251022101704.4015055-1-catalin.marinas@arm.com>
+In-Reply-To: <20251022101704.4015055-1-catalin.marinas@arm.com>
+From: Yang Shi <shy828301@gmail.com>
+Date: Wed, 22 Oct 2025 11:08:02 -0700
+X-Gm-Features: AS18NWC2FvbWTzA8C7rrkZW5hEdgmLMERlEUwWO1avl88qM2ea0eHvXPjFT8k2c
+Message-ID: <CAHbLzkoG7zXHubYoh3gSWkdmsLEsMDrBzdAuViRzTEwQNHkpNw@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: mte: Do not warn if the page is already tagged
+ in copy_highpage()
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, 
+	syzbot+d1974fc28545a3e6218b@syzkaller.appspotmail.com, 
+	David Hildenbrand <david@redhat.com>, Will Deacon <will@kernel.org>, 
+	Kefeng Wang <wangkefeng.wang@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_110432_843485_AD740CA3 
-X-CRM114-Status: GOOD (  24.47  )
+X-CRM114-CacheID: sfid-20251022_110817_008070_8952D764 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,87 +97,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 03:10:43PM +0200, Bartosz Golaszewski wrote:
-> 
-> Add a virtual GPIO proxy driver which arbitrates access to a single
-> shared GPIO by multiple users. It works together with the core shared
-> GPIO support from GPIOLIB and functions by acquiring a reference to a
-> shared GPIO descriptor exposed by gpiolib-shared and making sure that
-> the state of the GPIO stays consistent.
-> 
-> In general: if there's only one user at the moment: allow it to do
-> anything as if this was a normal GPIO (in essence: just propagate calls
-> to the underlying real hardware driver). If there are more users: don't
-> allow to change the direction set by the initial user, allow to change
-> configuration options but warn about possible conflicts and finally:
-> treat the output-high value as a reference counted, logical "GPIO
-> enabled" setting, meaning: the GPIO value is set to high when the first
-> user requests it to be high and back to low once the last user stops
-> "voting" for high.
+On Wed, Oct 22, 2025 at 3:20=E2=80=AFAM Catalin Marinas <catalin.marinas@ar=
+m.com> wrote:
+>
+> The arm64 copy_highpage() assumes that the destination page is newly
+> allocated and not MTE-tagged (PG_mte_tagged unset) and warns
+> accordingly. However, following commit 060913999d7a ("mm: migrate:
+> support poisoned recover from migrate folio"), folio_mc_copy() is called
+> before __folio_migrate_mapping(). If the latter fails (-EAGAIN), the
+> copy will be done again to the same destination page. Since
+> copy_highpage() already set the PG_mte_tagged flag, this second copy
+> will warn.
+>
+> Replace the WARN_ON_ONCE(page already tagged) in the arm64
+> copy_highpage() with a comment.
+>
+> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> Reported-by: syzbot+d1974fc28545a3e6218b@syzkaller.appspotmail.com
+> Link: https://lore.kernel.org/r/68dda1ae.a00a0220.102ee.0065.GAE@google.c=
+om
+> Reviewed-by: David Hildenbrand <david@redhat.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+> Cc: <stable@vger.kernel.org> # 6.12.x
+> ---
+>
+> v2:
+> - Also remove the WARN_ON_ONCE for hugetlb pages
+> - Drop a double-underscore in the commit log
 
-I have two Q:s about the design:
-1) why can't the value be counted on the struct gpio_desc level?
-2) can gpio-aggregator facilities be reused (to some extent)?
+Reviewed-by: Yang Shi <yang@os.amperecomputing.com>
 
-...
-
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/cleanup.h>
-> +#include <linux/device.h>
-> +#include <linux/gpio/consumer.h>
-> +#include <linux/gpio/driver.h>
-> +#include <linux/module.h>
-
-+ types.h
-
-> +#include "gpiolib-shared.h"
-
-...
-
-> +out:
-> +	if (shared_desc->highcnt)
-> +		dev_dbg(proxy->dev,
-> +			"Voted for value '%s', effective value is 'high', number of votes for 'high': %u\n",
-> +			value ? "high" : "low", shared_desc->highcnt);
-> +	else
-> +		dev_dbg(proxy->dev, "Voted for value 'low', effective value is 'low'\n");
-
-You can unify and maybe save a few bytes here and there by doing something like
-this:
-
-	const char *tmp; // name is a placeholder
-
-	tmp = str_high_low(shared_desc->highcnt);
-	dev_dbg(proxy->dev,
-		"Voted for value '%s', effective value is '%s', number of votes for '%s': %u\n",
-		str_high_low(value), tmp, tmp, shared_desc->highcnt);
-
-...
-
-> +		dev_dbg(proxy->dev,
-> +			"Only one user of this shared GPIO, allowing to set direction to output with value '%s'\n",
-> +			value ? "high" : "low");
-
-str_high_low() ?
-
-> +		ret = gpiod_direction_output(desc, value);
-> +		if (ret)
-> +			return ret;
-> +
-> +		if (value) {
-> +			proxy->voted_high = true;
-> +			shared_desc->highcnt = 1;
-> +		} else {
-> +			proxy->voted_high = false;
-> +			shared_desc->highcnt = 0;
-> +		}
-> +
-> +		return 0;
-> +	}
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+>
+>  arch/arm64/mm/copypage.c | 11 ++++++++---
+>  1 file changed, 8 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/arm64/mm/copypage.c b/arch/arm64/mm/copypage.c
+> index a86c897017df..cd5912ba617b 100644
+> --- a/arch/arm64/mm/copypage.c
+> +++ b/arch/arm64/mm/copypage.c
+> @@ -35,7 +35,7 @@ void copy_highpage(struct page *to, struct page *from)
+>                     from !=3D folio_page(src, 0))
+>                         return;
+>
+> -               WARN_ON_ONCE(!folio_try_hugetlb_mte_tagging(dst));
+> +               folio_try_hugetlb_mte_tagging(dst);
+>
+>                 /*
+>                  * Populate tags for all subpages.
+> @@ -51,8 +51,13 @@ void copy_highpage(struct page *to, struct page *from)
+>                 }
+>                 folio_set_hugetlb_mte_tagged(dst);
+>         } else if (page_mte_tagged(from)) {
+> -               /* It's a new page, shouldn't have been tagged yet */
+> -               WARN_ON_ONCE(!try_page_mte_tagging(to));
+> +               /*
+> +                * Most of the time it's a new page that shouldn't have b=
+een
+> +                * tagged yet. However, folio migration can end up reusin=
+g the
+> +                * same page without untagging it. Ignore the warning if =
+the
+> +                * page is already tagged.
+> +                */
+> +               try_page_mte_tagging(to);
+>
+>                 mte_copy_page_tags(kto, kfrom);
+>                 set_page_mte_tagged(to);
+>
 
