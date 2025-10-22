@@ -4,79 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82320CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 08:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317BBCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 08:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qo1GdKEn3CCuaK6Y8fWzfgLn1TKUz0pavTTMmOLW4qw=; b=elwVDw3d1UO7Sd2fX0HGXwN6DO
-	ba76raKFyvORJYosMavGBAVekLQ+wa6DsDULuauOSUMVXsMffroRbK2bA1M5xih2RIK9r5jE5x8AV
-	btYOG+eHRc38EeLLFP0x9DwA20W7Es6JznGBxf6xgLY+iAqj9WsgeKEyHs8ukWe8DXbE4fQSAolO/
-	Y1QPNj7yViGglpKRrqosBijOAfhgFxQ2TMKJaSKBg9kdGEGPIMSyrjLD/hRa9+Jjkftn1gh1bKWyH
-	jcfsEBgOufzxhpfSWEvYKL3FVbz6AnEkDSh3ZTYdz+y/j6bnnriG2EqbQZz6be1pf2SN/2ceqTltQ
-	IItZ+kxQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RjqnaQzwvKN746TGLFg0lmIKh5/wER3lKZ4GlT/JgOk=; b=ldf7XANLsr3WW59saujdTSyReG
+	XysAGq6zcK+EoKXDtO+npO2h8+riqebB3M5lHRZta0pqv+yM3WYDBG14aiKRX4Oy9KIBd2v3AZqMW
+	AasqFCkRaA9I9CcIIDRAY8mYrhnOYPJumEXO026u3bULkVFClFWufqwqWvDGZWww+k9DC3hlb95MV
+	mtYDdAEp63DDbwjrTU6EraRqk+E4PiJssnVPoCLRtI8vWeCef0BBSQYJjLP1AHcNrwTjAgGfi7Gh5
+	flbOZdQAukw2Xd/DsZVk3Qo+heYUXz3O1hrCkqHQBVVuBm/a1NH+YDGw7JiiXXcEAHiEEiJisNOwl
+	/P+bERTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUJn-000000027F6-3fqT;
-	Wed, 22 Oct 2025 08:35:39 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1vBUSX-000000028V0-0fUx;
+	Wed, 22 Oct 2025 08:44:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUJk-000000027CY-3p64
+	id 1vBUSV-000000028Uo-2jFI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 08:35:39 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=qo1GdKEn3CCuaK6Y8fWzfgLn1TKUz0pavTTMmOLW4qw=;
-	b=glKVQn8wj18tptFHj8m6X5rYciJNYiahJQxQ+3zbj7Q4ExWpMvMroXlg3ZvPQXw6dxR/zXFFl
-	rRaPRt4O6Syb5VhyQSxmipNs6sZdz3hAeQgjoQ020iNkQ0m8bubRYe0CrapIFzfH/gbZ3cIKjGl
-	T97n9lWyswlVmYs5kri1Crs=
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4cs2XT3rwTz12LKG;
-	Wed, 22 Oct 2025 16:34:49 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id BA489180495;
-	Wed, 22 Oct 2025 16:35:30 +0800 (CST)
-Received: from kwepemq200011.china.huawei.com (7.202.195.155) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 22 Oct 2025 16:35:30 +0800
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemq200011.china.huawei.com (7.202.195.155) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 22 Oct 2025 16:35:29 +0800
-Message-ID: <904828da-402f-499d-8904-250e78feafcf@huawei.com>
-Date: Wed, 22 Oct 2025 16:35:27 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Add kernel parameter to disable trap EL0 accesses
- to IMPDEF regs
-To: Marc Zyngier <maz@kernel.org>
-CC: <corbet@lwn.net>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<akpm@linux-foundation.org>, <paulmck@kernel.org>,
-	<pawan.kumar.gupta@linux.intel.com>, <mingo@kernel.org>, <bp@alien8.de>,
-	<kees@kernel.org>, <arnd@arndb.de>, <fvdl@google.com>, <broonie@kernel.org>,
-	<oliver.upton@linux.dev>, <yeoreum.yun@arm.com>, <james.morse@arm.com>,
-	<ardb@kernel.org>, <hardevsinh.palaniya@siliconsignals.io>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	Wed, 22 Oct 2025 08:44:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 100BC628F2;
+	Wed, 22 Oct 2025 08:44:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1683C4CEE7;
+	Wed, 22 Oct 2025 08:44:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761122678;
+	bh=jbN+CoRUpR8I4L1UUX+XaVKaNlIDiMfIKInpFU2+ytw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nF4ve3k3M7eA7mCBacJC4eLH4VVlErlCmFl/H8dDw9mGDnKmyY/KcDahvFn1lRBUv
+	 fUxvm9rCOF0djLvPmdw0ox4keTjao+QL8n1OZeTN+5BPIe5VvM6F/+N84QATAQxEAD
+	 /vM0tZ6oGwOsrPT+fENEuUwywwncl3ujmK2Up+exwkOI8Qm1o/Ny617xyDzaRL099l
+	 DypuJ7u6vlmRCbMFcd1EZdK/7poBZmeDIspnlDej3QGeTUkjqLnkgj0t3JM6QXahIY
+	 GNszmZLl9Ag5xESeAl1CzD3mbCksBrPEWEL/Tg9a3bqeILRXIATYt3ur9ap/P1mDJB
+	 Am2N7+2cWpIzQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vBUSS-0000000G7OH-0TGl;
+	Wed, 22 Oct 2025 08:44:36 +0000
+Date: Wed, 22 Oct 2025 09:44:35 +0100
+Message-ID: <865xc7wcjw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Liao, Chang" <liaochang1@huawei.com>
+Cc: <corbet@lwn.net>,
+	<catalin.marinas@arm.com>,
+	<will@kernel.org>,
+	<akpm@linux-foundation.org>,
+	<paulmck@kernel.org>,
+	<pawan.kumar.gupta@linux.intel.com>,
+	<mingo@kernel.org>,
+	<bp@alien8.de>,
+	<kees@kernel.org>,
+	<arnd@arndb.de>,
+	<fvdl@google.com>,
+	<broonie@kernel.org>,
+	<oliver.upton@linux.dev>,
+	<yeoreum.yun@arm.com>,
+	<yangyicong@hisilicon.com>,
+	<james.morse@arm.com>,
+	<ardb@kernel.org>,
+	<hardevsinh.palaniya@siliconsignals.io>,
+	<linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] arm64: Add kernel parameter to disable trap EL0 accesses to IMPDEF regs
+In-Reply-To: <0e885995-c85e-4f0f-b0e6-edac9928d854@huawei.com>
 References: <20251021115428.557084-1-liaochang1@huawei.com>
- <86ecqwwig3.wl-maz@kernel.org>
- <a3663aaf-14c9-4601-90e2-49650af90d7a@huawei.com>
- <867bwnwec8.wl-maz@kernel.org>
-From: "Liao, Chang" <liaochang1@huawei.com>
-In-Reply-To: <867bwnwec8.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemq200011.china.huawei.com (7.202.195.155)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_013537_579717_01B33E45 
-X-CRM114-Status: GOOD (  12.56  )
+	<86ecqwwig3.wl-maz@kernel.org>
+	<0e885995-c85e-4f0f-b0e6-edac9928d854@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: liaochang1@huawei.com, corbet@lwn.net, catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, paulmck@kernel.org, pawan.kumar.gupta@linux.intel.com, mingo@kernel.org, bp@alien8.de, kees@kernel.org, arnd@arndb.de, fvdl@google.com, broonie@kernel.org, oliver.upton@linux.dev, yeoreum.yun@arm.com, yangyicong@hisilicon.com, james.morse@arm.com, ardb@kernel.org, hardevsinh.palaniya@siliconsignals.io, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,46 +102,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/10/22 16:05, Marc Zyngier 写道:
-> On Wed, 22 Oct 2025 02:35:02 +0100,
-> "Liao, Chang" <liaochang1@huawei.com> wrote:
->>
->> 在 2025/10/21 20:25, Marc Zyngier 写道:
->>> On Tue, 21 Oct 2025 12:54:28 +0100,
->>> Liao Chang <liaochang1@huawei.com> wrote:
->>>>
->>>> Add kernel parameter to allow system-wide EL0 access to IMPDEF system
->>>> regregisters and instructions without trapping to EL1/EL2. Since trap
->>>> overhead will compromises benefits, and it's even worse in
->>>> virtualization on CPU where certain IMPDEF registers and instructions
->>>> are designed for EL0 performance use.
->>>
->>> Since you mention virtualisation, I want to be clear: there is no way
->>> I will consider anything like this for KVM. KVM will always trap and
->>> UNDEF such register accesses, no matter where they come from (EL0 or
->>> EL1).
->>>
->>> Allowing such registers to be accessed from within a guest would make
->>> it impossible to context-switch or save/restore the guest correctly.
->>
->> You've got that right, it seems like both the guest and the host would
->> need to save and restore those IMDDEF registers with the VM or task
->> context.The only exception would be if the registers aren't for saving
->> state or configuration, but instead just act as an interface to trigger
->> a special CPU function, such as ICC_IAR1.
-> 
-> Funny that you mention the IAR register. Because contrary to what you
-> seem to indicate, IAR does impact state outside of simply acknowledging
-> an interrupt. What do you think happens to PMR, APRs, and so on?
+On Wed, 22 Oct 2025 03:37:04 +0100,
+"Liao, Chang" <liaochang1@huawei.com> wrote:
+>=20
+> Hi Marc,
+>=20
+> =E5=9C=A8 2025/10/21 20:25, Marc Zyngier =E5=86=99=E9=81=93:
+> > On Tue, 21 Oct 2025 12:54:28 +0100,
+> > Liao Chang <liaochang1@huawei.com> wrote:
+> >>
+> >> Add kernel parameter to allow system-wide EL0 access to IMPDEF system
+> >> regregisters and instructions without trapping to EL1/EL2. Since trap
+> >> overhead will compromises benefits, and it's even worse in
+> >> virtualization on CPU where certain IMPDEF registers and instructions
+> >> are designed for EL0 performance use.
+> >=20
+> > Since you mention virtualisation, I want to be clear: there is no way
+> > I will consider anything like this for KVM. KVM will always trap and
+> > UNDEF such register accesses, no matter where they come from (EL0 or
+> > EL1).
+> >=20
+> > Allowing such registers to be accessed from within a guest would make
+> > it impossible to context-switch or save/restore the guest correctly.
+> >=20
+> > You can of course do what you want in your downstream kernel or your
+> > own hypervisor, but I wanted to set the expectations on the upstream
+> > side.
+>=20
+> Does it make sense to allow EL0 access IMPDEF without trapping for some
+> special vendor CPUID, instead of forbidding it as the default setting on
+> the upstream code?
 
-Understood, acknowledging an interrupt will modify the active priority in
-APR and current running priority in RPR.
+Let me answer your question with my own questions:
 
-BR
-Liao, Chang
+How can supervisory software (kernel or hypervisor) save and restore
+state that it doesn't know about? How can it ensure isolation of state
+if there are unspecified registers that can change unspecified things
+behind its back?
 
-> 
-> 	M.
-> 
+You'd need to add CPU-specific code to the kernel to make that work,
+and SW written to make use of these functionalities wouldn't work
+anywhere else. So if you end-up with a custom userspace, why should
+upstream care? There is zero benefit to the ecosystem.
 
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
