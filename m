@@ -4,168 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 727E1CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 13:51:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E37CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 13:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5/gH7evc9urr0jmbJLRT3jh3pmc/vRdSMeNjhGo4qlg=; b=fLSrMbj39IXDtfMcXFi+rTX4pJ
-	tyABRawdM5QWWSQNV8z/W5+OD1UqQFeC9eFLKYngwZrt2hJQQPCcTtUPfQ8ctMeShuyiOEXjxjmHp
-	3yEtINqU5TGaugTuji+Vvi4TVLbLOilWEPV2/VI+uvAR/f+vS94kwXLEt/7ChoCBI/YQuMTgH4+6x
-	haeDrOiOg4A7AfEjUvReigY/MsC6lOyoe27lLxK81O9XodUlJqJdaKfpqaOa1wGcRfndIIv//pK15
-	xOUbTt6GnsMmE8xz4jEZDQyl1XmS+7Tq8FYmZlLQsdgEXJIEtYCHrVt+y5GFo8kyboVt1GBJBLQUP
-	gWHGdGJQ==;
+	bh=LYS7fsNT9R9oAO3puCikrVTLce7BJXCsPPRVeJdhmFw=; b=n2iyMJY0G1dCnMIGRS6mYScgtc
+	OgBEhpfsjK+bQNPTjoJ9goSboNE3YjGHbDtsFAf+IKLWAhVcAhI5gc9bXo4RHsaemityyElEkwXSt
+	D8puHr8WmlvdfEAJ3D8BH/92v6mWAUpuyPGwH7F/SXDEftyOBf7NLFxsTVTaH5E2e4MiTmDmt0XQD
+	s79IweJyqBAsVeulv3175H1xWcslXsgDCgRApG/75Idbu93I73ApTx9KrC3V8wknIBBbbAvY7cGwP
+	M0xG64FG/WEJ5g8bRfuav456u1rK2hmGcb7TivK/v1s8MPhTEO64gv/WiTAoDoyTQZ3YXLZ5nAtQ3
+	Eip5LPqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZFS-000000036Bo-0qqC;
-	Wed, 22 Oct 2025 13:51:30 +0000
-Received: from mail-japanwestazon11022128.outbound.protection.outlook.com ([40.107.75.128] helo=OS8PR02CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZFP-000000036Al-3Uci;
-	Wed, 22 Oct 2025 13:51:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=u2womspi+Jx9ymvgU8CO5rzw8DhvbVf4teDjNHKl3GUuPXS3/zaAwK9sf7YW89IO5DdRVIZ2raMLj6uXXe3nuBvtViR21UwIQSeLqAE6ooL/XbI10h7p+AL2AEMo919i3fyQ8juGKgvFNe9Z8eGjU4UVRACz4Lk5RJzVucZqkQs5Epo1o2ClM7gRZRMi4tmUABl1o+q2oNI/USxM5YYIgFH8v9rakO+zMSQR/X6fmHO/uFfXAQZASnot0r/BbqIawO97gS2th/KwS3974WVNonTVYUjdhvdBrQDBOp6LBf8040aGy3V23RGiC3HIBZXDgjDzkA2ejL9udP8MEqmL2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5/gH7evc9urr0jmbJLRT3jh3pmc/vRdSMeNjhGo4qlg=;
- b=gB3lQdZEEbaqbYVv22Z74MgYUeLpx6qjw0QZjGGso4QZ3w4CGuzTOypekivMUBgbiJynbVwEeMIhqlgathp5T/5/Fy84iQ5hYzo7QddcgsAdXfZpMR/dPhtqpn9tge2SeowzZWK4c41jjy74IyJIp4AaC/TctqG9uzLaPW0eFjPRznuLvsjlL9Im8Vvj2kXDeBLs/Ggl9/5tigcYMmDEWfHPGWZbNt40thxTzbZx2BVAsrtWBRB2wMSFG6xTdBdNNlgqZsmHN9uxkH91hz4reM3qYwz0pEvXJqzgQx9f8fD+V5AG7kiAEJO6zXhMOisL2gf5OQ0i44QUvnKrFCyD6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5/gH7evc9urr0jmbJLRT3jh3pmc/vRdSMeNjhGo4qlg=;
- b=su1un/vTk/sH+WH5vox7IFnhoWKuhZpf57h9xHjquUK6fz+6dJBWXNqJzkgoVc9uZv5N5UL30HVYIIj2EGY0MBaq84obyXK001bPNu61X+xTscipBVzQOPo1VcmqjbVbK5H8IOA1Xtu2C6KbnPwSiJzMasxMeqUueTEpd+wo4/5FzLn3NLUYFTIkUIGE2P3JnZ3btqIBbT6XzfAAtcuhuM5qeorBogyU33YvsH4972e0PA/DMETsv/mrT4GYRrFu2/aAtTKZVRABP4tsWBuFuLiKOtzizJyGPIHIkk9k3CeVBLVwRP3xdF0bJ5mDJDJaU5hLZBFrJTn0j7+09QswhA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
- by KL1PR03MB6975.apcprd03.prod.outlook.com (2603:1096:820:ba::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Wed, 22 Oct
- 2025 13:51:19 +0000
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::e1e:5c95:a889:828e]) by KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::e1e:5c95:a889:828e%5]) with mapi id 15.20.9253.011; Wed, 22 Oct 2025
- 13:51:19 +0000
-Message-ID: <7be1f72e-00b1-4e86-88b2-260200b10480@amlogic.com>
-Date: Wed, 22 Oct 2025 21:50:47 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] clk: amlogic: Fix out-of-range PLL frequency setting
-To: Jerome Brunet <jbrunet@baylibre.com>,
- Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251022-optimize_pll_driver-v1-0-a275722fb6f4@amlogic.com>
- <20251022-optimize_pll_driver-v1-1-a275722fb6f4@amlogic.com>
- <1j8qh34098.fsf@starbuckisacylon.baylibre.com>
-From: Chuan Liu <chuan.liu@amlogic.com>
-In-Reply-To: <1j8qh34098.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TY4PR01CA0071.jpnprd01.prod.outlook.com
- (2603:1096:405:370::6) To KL1PR03MB5778.apcprd03.prod.outlook.com
- (2603:1096:820:6d::13)
+	id 1vBZGz-000000036ba-0edW;
+	Wed, 22 Oct 2025 13:53:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBZGu-000000036a8-2eV7
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Oct 2025 13:53:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EE9561063;
+	Wed, 22 Oct 2025 06:52:48 -0700 (PDT)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.68])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE0763F59E;
+	Wed, 22 Oct 2025 06:52:55 -0700 (PDT)
+Date: Wed, 22 Oct 2025 14:52:49 +0100
+From: Dave Martin <Dave.Martin@arm.com>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: Re: [boot-wrapper PATCH 1/4] aarch64: do not trap MPAM register
+ accesses
+Message-ID: <aPjhsa9ZTSK5EEtE@e133380.arm.com>
+References: <20251022102503.2878048-1-andre.przywara@arm.com>
+ <20251022102503.2878048-2-andre.przywara@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|KL1PR03MB6975:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2b7294ed-b629-4198-369b-08de117213a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SDNCa0ZpQkVHUy95eWNSeGpoT2NvaC9kVSthMUlqdXducFZUSHpvOWFPSSs5?=
- =?utf-8?B?SjM0azRFWU84MVVNYTFQT2cyUjZlVlZEY1JKOHAwc2ZXdDZMZDBuWWliL3dn?=
- =?utf-8?B?VGR3RklHM29yOXBGUFk4RllHNDIvSEhZTVhmTkV1NU0vWjRaNVFJZ0VpMi9k?=
- =?utf-8?B?cGVrSWE1S29BZkRIWVhhWGJRV1lPR0NNUGYrTFJhVkMwRHpJRzBKVFlFN3hH?=
- =?utf-8?B?aWEzbWE1ajRoQ2wvOTcyWXJlM3d5QkxVNWZxVnJ4MWdJNkkyOUpaY1dYUlp6?=
- =?utf-8?B?OUhBUjVhVUM4aGJlQk9kekpwc0h4VmVhTWYxK3pEUkF4SWt6Q0pHL3A4ZVBD?=
- =?utf-8?B?L3UyQmNQbENDSjViTnQ4RCsrZ1ZZTmU1MlVKS1BqQTZTU3kvRDlVQzR1dWxP?=
- =?utf-8?B?NmZGR2xLdENURVBxZW9tTVRxSU5xRW1LQWlPbE1OQVNwRFlUYkYyd0hYRU9B?=
- =?utf-8?B?OXFXOEdUYkRuMm5UQ0dIemNMeGU5b2N6VnFsMU1sejdTMGFGai9rcmswQmhS?=
- =?utf-8?B?VjIybjU5S2JqZkxpK3Z0RVA0VHpDWWVFMFE1RVh2TU9TaGxML1U5TFVBN2NZ?=
- =?utf-8?B?cGxsN1FkVExPWE9HdVVrUU13c2QvNlk1dkM0ZGZyN29qc0JFNy9PTU5lcHlE?=
- =?utf-8?B?SVhhaGMwUVdUTm80ZDV4VVVvMG93aHZKMDdRaUxvNlFzbE1vZzlGY0hTT28y?=
- =?utf-8?B?NHdFaDFvSGt5WkhPUWRYYjZJeWFIT0FrSmZ2b0FHU21FZ3lLUU9kVWdTMnFY?=
- =?utf-8?B?clZXeERNMEUybDRRNEpDTnVZQk9WZ3FZVlBzS2h0MHlJb0dCWUtKV3g2TDV1?=
- =?utf-8?B?MkdOT3VXTmJuR0pwQ2JrSFRzb1lXeGZZVUJPTEVMRm5KS0psUnY3cTZyTEUz?=
- =?utf-8?B?OUFwVkhYbnk4VzBWWHpsZkIxcjd5dHQ2ZmE5SERUazcrMDNOZGdzc3Bxc3J5?=
- =?utf-8?B?RmkvRWdYdlY0VmxqZGxxa1BvbjJUUEZtSTR5MEZ6cEVUME5CeTl5WmpOaGpP?=
- =?utf-8?B?c3R6QU13ck1mOXRDcjhjQWFGQjlkVk1nVkVvcmt0bk83STEvMC9tSHNHZ0lE?=
- =?utf-8?B?SHd5aHRkTnAxZGVNRllueVVCL1kxSDI0RDV0Z2dSNFNYcWhEb1dmM2NkUFN0?=
- =?utf-8?B?bmc5UWtQS2cvUDk2ck9kOXZRakJEOTcyQWhBdW5mOWF5S003MHhjbEM5VFBa?=
- =?utf-8?B?MG96VUVJQUZFY1NEZXZjSGdtd0RpM2pVenBuYVdzdEJIWklhU2dhQmZLaERW?=
- =?utf-8?B?TStiNHFMSGRMQVU2d1VMQndHT1dBSE5XOG4yODBCalRUdnJoM05rZXdmZjU3?=
- =?utf-8?B?TGpvZlp0ZERhdUlxcU9rYVc0bFk1ZEk1VnFRLzBLQWxGZnVabERCNWtCZzZ3?=
- =?utf-8?B?dzkyYmlUTzRqY3IxVk9NTlQ5bXVOSFk5OUR2VFlUeitBY3A2RXk3QnJxNmlv?=
- =?utf-8?B?bEkrV010V1RjZUVrSUpJQmdyU1Q5NHl3SFZoWVEvL01TeTluT21rWGh6Q0FK?=
- =?utf-8?B?Tmtwd3o5cWI0Wmg4VDUzMCtCRmlkcVlSMDEzNlVxbFhBRFlRSG5KZHNvRHNB?=
- =?utf-8?B?T0ZSMXlERVFRTHBGcGJnYTVSNFFqY3R2Y2ROakptSzl4UUozczh6TW9ZcUdV?=
- =?utf-8?B?YVRQNlRaMVlhKzFvTWxDeDA3bEFJZnRHSEYra2JKdXE1U0xIdjkzOTRCTnZP?=
- =?utf-8?B?bWNKMXIxMk4wYkw3UWJxVUdkck44YXg1aFVpTzgyeGtyOTBMcUNZdXYvbFdL?=
- =?utf-8?B?cFBLdmNoVmhXeUlMa0k2ZUozMUtKTWJoSHpKbkwrRGpNaTIxbXYzOFRZRWFL?=
- =?utf-8?B?WUJNMDhxODVJaDFuTzZiYmVJVGQ2dmV5MkVIbjNaRlJrczQ4TE53ZlJjaXRv?=
- =?utf-8?B?eEs3bjJRMEplNVB4bE13MXhXWU9rcVFzV0lxSmtOalFyaEh1bmdhQ1RBQ1hH?=
- =?utf-8?Q?slFnfvUwnrS2tsJlw3DBtYISvh5wL+Jy?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SFFYZnpzUFZmMkhrL3UvaUF2OSs3dU1wMWd6bXg4SVg1WlVKaTk1WE5FZ080?=
- =?utf-8?B?ZHh1RDROUWNmMC83QnpwZHRXaXlvTEVVa1NnTlNCeVBoRUkzUW9OZFREWkNo?=
- =?utf-8?B?TDg5YmZmTlFadklJeUVwMnZrQlhlTVhhSVFwV3VvL2w1bGJtWWJKQVZQTWp1?=
- =?utf-8?B?K2xZRm1XajJRaHdRNjZ4U2xWd2oyTlJrOHIwWXNIbVhrWXM0NnRjdzZVWm96?=
- =?utf-8?B?bGdObzN3T21rRVBFbW5NdUl4U3NrYmt6bXhyenFIRVNNV3FpamFTRmlMR3R0?=
- =?utf-8?B?c1N6Ti8ya2JrbVo3eVRMcTc5bjBscTNpQnorWkVoOXJmU01zaW9QSFdJMGNU?=
- =?utf-8?B?Yk50c0xUWW9sNHRNaWJqRUJUMnQ5T29kYkZZZDB0OGx1MlZOUzl1QitnUXpl?=
- =?utf-8?B?Q2d5SnBrdVNUN2Jkak9SSWU0cm9LVzJpVk4ydG4vSXdLRG11bUhpbWM3WEQ4?=
- =?utf-8?B?VytDcktGQlYyN3hscUNTSlV2MU9LMnhJaHd5MXlPSlZSV1l2QWhoZUVYMzVD?=
- =?utf-8?B?WCtyaUxVVFQ1LzVNdHFjbEYzOTQyL0FBMkplNThva3piYmJOWEMzbklmbkJh?=
- =?utf-8?B?VDhIaWV2NkVldHl0eGFwWFUxNEpqenp4Q1ZjOGh4eDB2TXhhWWlyNCtVSlp1?=
- =?utf-8?B?eTBWVmVtUUFBSVZpeHhjbE5OOERDMUNWdjFjb1lZR05wM0VtNFZmZ3hsM1ht?=
- =?utf-8?B?NGJxRVdGekRkdGczQ3M3Y3F0RVZ0UTZ3MWJ6RVR4eksxSzY4OEdQcFlvcUhh?=
- =?utf-8?B?RHA3Sk1NRFVNcmlRTWUxN2M1MElBQjFGcVVOcUlDTm95U294S2U4YlF5ZS9G?=
- =?utf-8?B?YVh3cGtycjlzK1lETFVTdGx6TDFwd25aRCtXeTZTUnFJTW9iTWxpa3plSzdD?=
- =?utf-8?B?Mi9ERFl5dFJOYjVtSU9mZFpuTk9OS1hNZmRXL1hoa3dHQzRUU0lWalp5aFlS?=
- =?utf-8?B?aWVaa01rOHFJTHFUM1NXMlQwamc3WEd4VlUraEwwOVV6NE5OblNTQVZJbzU0?=
- =?utf-8?B?K3VXbnZjSHd2aEUxWHNHVEhmeXFhcWdGYzN5bjFiREJST1QvK2ZnT2gxTTJr?=
- =?utf-8?B?bFVxa3JwUCsvZWo5c01wOFZBZVZLUmZqY0pEaDN1MUF1Q0p1WjVoL1VJYktK?=
- =?utf-8?B?WDZHclZ1eEpNcE8yREdLZ2M0N253Q1c5eWhCUm1oL0RBV2c0b1dFajJIbENR?=
- =?utf-8?B?TzV2MW1vcWRiN1NHY05NZmZUeXRTZG1tZUdsamtxZG56alpKeDB1ajVPTWpP?=
- =?utf-8?B?L2VSNHMyVGtsUHNMZ1VJUW1MNHpXRnAyMklWNi9mVjVXelczV2VKYjF5c05N?=
- =?utf-8?B?S1BHTXlsb2RuM0ZsNjBEWVJuT2MxbUZSVU1nb3hOQnRoWFpSdUFOanAvTlYy?=
- =?utf-8?B?OGRyalgrQ3lxbDlSdEZDVHVXUG1YUDIrRXRES3JqL3F3VWZaeVIxeE52OWRS?=
- =?utf-8?B?clVvQUl5Vk00Z2crZHp0Si9Fa3V5ZXF6eGNybFVPRG9GbTRWdEpJYUJWSG55?=
- =?utf-8?B?RjcyaWFGR0xVMm5oQ0VLMEJ3clBUU0J6bWROeTJxMFl1K1Y5bVJOb1ZueFlQ?=
- =?utf-8?B?MzZNUFdDVU41MktqRGgvUnVjdWtXRGRpR2YwTlJjL1lSR0svQjVmdGFOQ3VM?=
- =?utf-8?B?Q0o3QlVWeUZnVE0yeXdrVk1Bc3F6NU00ajJYWFpjbUlNbHdEd0xtdVB5dGVM?=
- =?utf-8?B?RUp6Wi9FMEpXcUtKWEFwNmY0UjBFZk5wdE5LZ2dFZnNhYnFpQ2hSL2s0MTll?=
- =?utf-8?B?U3B3ZGdwaGpHRktzOHpsNVZ6VXNkTkdiVUtaSzVBOFRQb2VxSE9OaDk4Nmt0?=
- =?utf-8?B?VzRUVnBGS2RqeXFJN2VVdEtuWXRJUk8yZG9nTzJNaFRDcUxhcjFzdFNNWmpO?=
- =?utf-8?B?NDF4aGNGUXhnZ3g2NlFyTWVQUVJTb3kyaFdxZENieXdINGFHeFFUWmdrUE9X?=
- =?utf-8?B?REx3RkhGdTdxSDNhMjZIMi9MSFhIbHZReHNnaXFNejM0RlNZMktpUExpVitp?=
- =?utf-8?B?S3RjRDFKQVdYSUs5aHFMTGtzZmhpcWVEcEU5ZTE1dmF5M2I3WFJ3R3praHVx?=
- =?utf-8?B?bDlmdnRtWnNBT0dxcGxFa2xBak9BSzBCdDVYbTBGU1MwYmJCN0huNWlRREFC?=
- =?utf-8?Q?8Eo0GISOCcNC9rWpJQUap9glB?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b7294ed-b629-4198-369b-08de117213a1
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 13:51:18.9044
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rZnMkNV7uQg2BBY6hmbACrQgdrLjPsTTBzmk8JXXDv/vJNxx+RsskSwMOh3WZHBV62volQv3XmTNIfdyQXDULA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB6975
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251022102503.2878048-2-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_065127_887763_7B77ABB7 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20251022_065300_796740_07AFB0C8 
+X-CRM114-Status: GOOD (  25.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,66 +65,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jerome,
-Thanks for your review.
+Hi Andre,
+
+On Wed, Oct 22, 2025 at 11:25:00AM +0100, Andre Przywara wrote:
+> The architectural MPAM system registers in lower ELs are controlled by
+> an EL3 control bit. To allow access to registers like MPAM2_EL2 or
+> MPAM_EL1, clear the TRAPLOWER bit in the MPAM3_EL3 system register, to
+> avoid an unhandled trap into the boot-wrapper code.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  arch/aarch64/include/asm/cpu.h | 4 ++++
+>  arch/aarch64/init.c            | 3 +++
+>  2 files changed, 7 insertions(+)
+> 
+> diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
+> index ac50474..0f6e2ce 100644
+> --- a/arch/aarch64/include/asm/cpu.h
+> +++ b/arch/aarch64/include/asm/cpu.h
+> @@ -29,6 +29,9 @@
+>  #define HFGWTR2_EL2		s3_4_c3_c1_3
+>  #define HFGITR2_EL2		s3_4_c3_c1_7
+>  
+> +#define MPAM3_EL3		s3_6_c10_c5_0
+> +#define MPAM3_EL3_TRAPLOWER	BIT(62)
+> +
+>  /*
+>   * RES1 bit definitions definitions as of ARM DDI 0487G.b
+>   *
+> @@ -120,6 +123,7 @@
+>  
+>  #define ID_AA64PFR0_EL1_RAS		BITS(31, 28)
+>  #define ID_AA64PFR0_EL1_SVE		BITS(35, 32)
+> +#define ID_AA64PFR0_EL1_MPAM		BITS(43, 40)
+>  #define ID_AA64PFR0_EL1_CSV2		BITS(59, 56)
+>  
+>  #define ID_AA64PFR1_EL1_MTE		BITS(11, 8)
+> diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
+> index cb24f4e..99e43cf 100644
+> --- a/arch/aarch64/init.c
+> +++ b/arch/aarch64/init.c
+> @@ -198,6 +198,9 @@ static void cpu_init_el3(void)
+>  
+>  		msr(SMCR_EL3, smcr);
+>  	}
+> +
+> +	if (mrs_field(ID_AA64PFR0_EL1, MPAM))
+> +		msr(MPAM3_EL3, mrs(MPAM3_EL3) & ~MPAM3_EL3_TRAPLOWER);
+>  }
+
+This enables register access to the MPAM-related CPU regs for lower ELs,
+but doesn't fully enable MPAM.
+
+There is a global switch to turn MPAM on (MPAMn_ELn.MPAMEN, where ELn
+is the highest implemented EL).  It defaults to off, and lower ELs
+can't turn it on.  Because it's off by default, most other CPU state
+relating to MPAM is not in a defined state out of reset.
 
 
-On 10/22/2025 7:57 PM, Jerome Brunet wrote:
-> [ EXTERNAL EMAIL ]
-> 
-> On Wed 22 Oct 2025 at 14:58, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
-> 
->> From: Chuan Liu <chuan.liu@amlogic.com>
->>
->> meson_clk_get_pll_range_index incorrectly determines the maximum value
->> of 'm'.
-> 
-> This explanation is little light !
-> 
-> How did the problem show up ? Under which condition ? How did you come
-> this conclusion ?
+...So, I suspect we may need more steps here if we want MPAM to be
+usable.
 
-In actual use cases, we haven't encountered any issues caused by this,
-because we ensure that range->max <= (1 << pll->m.width) when
-configuring the range.
+The platform should initialise resource controls in the memory system
+for PARTID 0 in a sensible way without software having to do anything,
+but we have to make sure that EL3 uses this PARTID and not something
+random, and make lower ELs start out using it.  So, probably:
 
-If the calculated 'm' falls into the range:
-- range->max < m < (1 << pll->m.width)
-An incorrect 'm' value may be selected here. Therefore, comparing
-against range->max is more appropriate in this case.
+ 	MPAM3_EL3.{PARTID,PMG}_{I,D} should be initialised to 0.
+ 	MPAM2_EL2.{PARTID,PMG}_{I,D} should be initialised to 0.
 
-> 
-> Other people having problems might benefit from the explanation
-> 
->>
->> Fixes: 8eed1db1adec6 ("clk: meson: pll: update driver for the g12a")
->> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
->> ---
->>   drivers/clk/meson/clk-pll.c | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
->> index 1ea6579a760f..b07e1eb19d12 100644
->> --- a/drivers/clk/meson/clk-pll.c
->> +++ b/drivers/clk/meson/clk-pll.c
->> @@ -191,7 +191,7 @@ static int meson_clk_get_pll_range_index(unsigned long rate,
->>        *m = meson_clk_get_pll_range_m(rate, parent_rate, *n, pll);
->>
->>        /* the pre-divider gives a multiplier too big - stop */
->> -     if (*m >= (1 << pll->m.width))
->> +     if (*m > pll->range->max)
-> 
-> Making sure m does not exceed the maximum value is valid too.
-> You should check both conditions then
+(Do we ever run the payload directly at EL1?  Hopefully not, but tf so
+then we would need to initialise the IDs in MPAM1_EL1 also, and
+initialise trap controls in MPAM2_EL2 and MPAMHCR_EL2 and make sure
+that PARTID virtualisation controls are off in MPAMHCR_EL2.)
 
-Ok, fix it in the next version.
+Many other controls require platform-specific knowledge in order to know
+how to initialise them sensibly, even though the architecture resets
+them to junk.
 
-> 
->>                return -EINVAL;
->>
->>        return 0;
-> 
-> --
-> Jerome
+Since the bootwrapper is not attempting to define a security boundary,
+it is probably reasonable to hand everything over to Non-secure, so far
+as possible, so in MPAM3_EL3:
 
+	SDEFLT should probably be 0.  (*)
+	FORCE_NS should probably be 0.  (*)
+	ALTSP_HEN should probably be 1.  (*; James might have a view.)
+	ALTSP_EL3 should probably by 0, or left untouched  (*)(+)
+
+(*) Feature-dependent -- in some cases the features that they depend on
+have already been declared obsolete, but hopefully we can trust the
+architects not to recycle the bits for other purposes.  I'm not sure
+what the usual policy is on that.
+
+(+) Architectural reset is IMP DEF.  So maybe it's something sane and
+appropriate for the platform but then again, maybe not.
+
+Then:
+
+	ISB
+
+and
+
+	Initialise MPAM3_EL3.MPAMEN to 1.
+
+(This is a global control.  Lower ELs can't turn it on for themselves,
+but without it, IDs that they specify in MPAMx_ELx are ignored and
+squashed to 0.)
+
+The architecture says that MCSs out in the system will be initialised
+with a sensible resource control configuration for PARTID 0.
+We probably just have to trust that, otherwise we're in a world of
+pain.
+
+
+I can't promise that I haven't missed some stuff, here!
+
+Cheers
+---Dave
 
