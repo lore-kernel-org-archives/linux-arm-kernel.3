@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85F4CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 16:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 621ACCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 16:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+44DE2G4f1/7YZbZqxOiiYJAlP6TZQr865INBC/oNKU=; b=48S7LkpN6mbmsSTbspkYH4UtRO
-	7Jga6OiHvlX22TZlRF2i5MzzhwgqG4CnTa/0FT1HKVBW6po5ZGrtDgMKS0el+EAI08HMkr1uxcjUe
-	WGAM5Dw4b9H8Z2GtaWZfzzfXk/3k92SbXCUSKQ4rhtS4soxKqyvUsp1GdbjE4zfOgLw6LiUl4Vxbk
-	NHj9/hS3EfMLPqLLkTXHmdPcI68Zos4iK6fGZxH1AsNQHJzsMIF7bmgye5y4tGTj1uTazOvO4cneU
-	WlCy/Er8cBkhJsBGBm0CxNtAy3IEyjw0Ig8rXM8vEMQvwLNt8eQFBzwgvJP+IwBY5pqp16hhVqNCw
-	nnrG6aDQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FdcrSneWicl1pfGMcZk6PTeqOTBE1QoowN6eLnXOcgU=; b=nc2ikaarr3875R2cMYDDMIrzEF
+	bkIfwSJ72Zomj6fKBV1JDoob9fHDN7rmsvefHtTgv1m+oNtZi4LWHD/S2P+LLjMaKd9K5+xaZ1pYt
+	bqzmvlc/teA/330MtLzUd2T35H7etsTFpl8cbJDvOFI/8K0wdA2B4HkILh0aUCUQEAzkxX4V+jD+Z
+	5ZznfEF/pXk+dJRKb7kvWdDlbE4I0Sy3Nm4ZsxXsEXs/s66y35d5I6efAfrrwwI1EjTJuZ66ybavM
+	fHpHVg9Jor31MnAPHMTZVCwmeUrZ1mjGL8lqypodc8Qw/Sg0kGFuwj9QpwPWCTao21xoTv3DRq5W/
+	APR8gg0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBbWy-00000003W35-3HAu;
-	Wed, 22 Oct 2025 16:17:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBbWw-00000003Vyx-1HSA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 16:17:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A6AA1655;
-	Wed, 22 Oct 2025 09:17:31 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FAEC3F59E;
-	Wed, 22 Oct 2025 09:17:34 -0700 (PDT)
-Message-ID: <8e22c81e-5e78-41e0-a81e-0f9826e5edf0@arm.com>
-Date: Wed, 22 Oct 2025 17:17:32 +0100
+	id 1vBbaZ-00000003XEN-1Lrr;
+	Wed, 22 Oct 2025 16:21:27 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBbaW-00000003XBF-2Sae;
+	Wed, 22 Oct 2025 16:21:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761150069; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lGCaflefZf9vW0sZUzl5R9DP8UEulwgyXUiaW+glHfUz31zKUpTCTtzJhn7nKRV0XYHMe7hwwkqRlSa6DNzkt2GWlia9O4YhjkvqdkVVK26uawqepgwLMmFOxxCjLnYK2zAf72kvwsYU66EU6Zi/alQaHMmDkjkIijxYYPMrAGU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1761150069; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=FdcrSneWicl1pfGMcZk6PTeqOTBE1QoowN6eLnXOcgU=; 
+	b=H/uwlob0aAvM70DEBoKO/53Mu77vNhN7nV3svwqA6OZXj1Q6xieeknEwj66tK4ofB4Xf9p4A4IdPW5bZbAQvfXfcsKcAEkxBaitzg6enV8Di4F5cfOMwui4ZPwCgKiQyceNyTS3xXWS7PC/vy2LSLVcG9efvqFg04Lf/pbR8Bfs=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
+	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761150068;
+	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=FdcrSneWicl1pfGMcZk6PTeqOTBE1QoowN6eLnXOcgU=;
+	b=HjoYVDdPhe2UO4MEseYlCzsf5PLSkSqmQ3FBRRpzmXJYnVSgD+EsF1o8xOmD2lBO
+	QQW8K+SkhZYDmAJBDqyWPe+4t7rnakJ4ZJOOGeB85q9hxtMI7pc4+4efkg7d7kQPxYi
+	5PV1jfVkEizK87x9AmLdRXkEczkClnEiczdwOHWE=
+Received: by mx.zohomail.com with SMTPS id 1761150066573669.259808258432;
+	Wed, 22 Oct 2025 09:21:06 -0700 (PDT)
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Daniel Stone <daniels@collabora.com>
+Cc: kernel@collabora.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: [PATCH v1] drm/rockchip: Set VOP for the DRM DMA device
+Date: Wed, 22 Oct 2025 19:19:48 +0300
+Message-ID: <20251022161948.199731-1-dmitry.osipenko@collabora.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mpam mpam/snapshot/v6.14-rc1] arm64/mpam: Fix MBWU monitor
- overflow handling
-To: Zeng Heng <zengheng4@huawei.com>, james.morse@arm.com
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
- guohanjun@huawei.com, jeremy.linton@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com, lenb@kernel.org,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, lpieralisi@kernel.org, peternewman@google.com,
- quic_jiles@quicinc.com, rafael@kernel.org, robh@kernel.org,
- rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- sudeep.holla@arm.com, tan.shaopeng@fujitsu.com, will@kernel.org,
- xhao@linux.alibaba.com, wangkefeng.wang@huawei.com
-References: <20251017185645.26604-25-james.morse@arm.com>
- <20251022133913.629859-1-zengheng4@huawei.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20251022133913.629859-1-zengheng4@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_091742_476715_9ACB8B96 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20251022_092124_682797_31C661A0 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +83,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zeng,
+Use VOP for DMA operations performed by DRM core. Rockchip DRM driver
+is backed by a virtual device that isn't IOMMU-capable, while VOP is the
+actual display controller device backed by IOMMU. Fixes "swiotlb buffer
+is full" warning messages originated from GEM prime code paths.
 
-On 10/22/25 14:39, Zeng Heng wrote:
-> Bandwidth counters need to run continuously to correctly reflect the
-> bandwidth. When reading the previously configured MSMON_CFG_MBWU_CTL,
-> software must recognize that the MSMON_CFG_x_CTL_OFLOW_STATUS bit may
-> have been set by hardware because of the counter overflow.
-> 
-> The existing logic incorrectly treats this bit as an indication that the
-> monitor configuration has been changed and consequently zeros the MBWU
-> statistics by mistake.
+Note, that backporting is non-trivial as this depends on 143ec8d3f9396
+("drm/prime: Support dedicated DMA device for dma-buf imports"), which
+landed in v6.16 and 421be3ee36a4 ("drm/rockchip: Refactor IOMMU
+initialisation"), which landed in v5.19.
 
-By zero-ing when the overflow bit is set we miss out on the counts after
-the overflow and before the zero-ing. Do I understand correctly, that
-this what this patch is aiming to fix?
+Reported-by: Daniel Stone <daniels@collabora.com>
+Fixes: 2048e3286f34 ("drm: rockchip: Add basic drm driver")
+Cc: stable@vger.kernel.org # v6.16+
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+---
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-> 
-> Also fix the handling of overflow amount calculation. There's no need to
-> subtract mbwu_state->prev_val when calculating overflow_val.
-
-Why not? Isn't this the pre-overflow part that we are missing from the
-running count?
-
-> 
-> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
-> ---
->  drivers/resctrl/mpam_devices.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 0dd048279e02..06f3ec9887d2 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -1101,7 +1101,8 @@ static void __ris_msmon_read(void *arg)
->  	clean_msmon_ctl_val(&cur_ctl);
->  	gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
->  	config_mismatch = cur_flt != flt_val ||
-> -			  cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
-> +			 (cur_ctl & ~MSMON_CFG_x_CTL_OFLOW_STATUS) !=
-> +			 (ctl_val | MSMON_CFG_x_CTL_EN);
-
-This only considers 31 bit counters. I would expect any change here to
-consider all lengths of counter. Also, as the overflow bit is no longer
-reset due to the config mismatch it needs to be reset somewhere else.
-
->  
->  	if (config_mismatch || reset_on_next_read)
->  		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
-> @@ -1138,8 +1139,9 @@ static void __ris_msmon_read(void *arg)
->  		mbwu_state = &ris->mbwu_state[ctx->mon];
->  
->  		/* Add any pre-overflow value to the mbwu_state->val */
-> -		if (mbwu_state->prev_val > now)
-> -			overflow_val = mpam_msmon_overflow_val(m->type) - mbwu_state->prev_val;
-> +		if (mbwu_state->prev_val > now &&
-> +		   (cur_ctl & MSMON_CFG_x_CTL_OFLOW_STATUS))
-> +			overflow_val = mpam_msmon_overflow_val(ris);
->  
->  		mbwu_state->prev_val = now;
->  		mbwu_state->correction += overflow_val;
-
-
-Thanks,
-
-Ben
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
+index eb77bde9f628..e693160e9b7f 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
+@@ -96,6 +96,9 @@ void rockchip_drm_dma_init_device(struct drm_device *drm_dev,
+ 		private->iommu_dev = ERR_PTR(-ENODEV);
+ 	else if (!private->iommu_dev)
+ 		private->iommu_dev = dev;
++
++	if (!IS_ERR(private->iommu_dev))
++		drm_dev_set_dma_dev(drm_dev, private->iommu_dev);
+ }
+ 
+ static int rockchip_drm_init_iommu(struct drm_device *drm_dev)
+-- 
+2.51.0
 
 
