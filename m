@@ -4,96 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F25CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 15:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF12CCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 15:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWO4yOCaMUYjGeCQQA0uyhzhbdrG4m6pu8cUif/JpM0=; b=GEqCn8f9xd83/ts5vK5ti/poZz
-	ws/UgabMEfXRB5VTu6sZRXuvPe/B0ZCltYiFivQ3680xuI1l8WOKbAqJJpHqVxLJ50EP5Y1onOsA9
-	ubGtNRu2445jKx8z7borxCXHcUrVl1NkBmCi0hPxTEc5o6M6g7ztutJa70FbZNM/hUJYoiSZUBSqV
-	CKci7d6z6oJf/ILHfhdwhi0SaU4rGJELL2zv3j0GAF/VVpFcCt13h6ZHEOW6wFvFt3WBqUroA0JjP
-	7ETzKqBDaqfQY8kC/Rv3PT+BrDhPMdvVclyZvG2z7KY4q6NMSiXI4yYrCIKG2EYTNP8Z6a1Atyypf
-	AUAGMZpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nQKCc3o8CpOmEjXqvj1OmhWFZYzGoBkXsANUxN2NNQk=; b=mJ1xSd3xg/yTKCBIxXbfjJL/VR
+	kIwGpetsjFvM1m2t2sirVbeMs6WiKOXVpD9klf9eqMDbwm+yVAsnf3+1d3Fh9fjZxNU1W3FKBVdGV
+	PNpnStNxcwfXiGL7UQxZOXLiws0NewYVaO6bdxHak4gvZdFgjso2ePSWLIK4Udl5gbC36HUsD4/LI
+	e5WjnrgH7MOymbJcXFUkYK4EZTKonAv7lC77gpY9wLlPZfkiRJ9DFoXCF0lE1hkgU/hgrPEDgNQN6
+	aKQ021YuThQDKI51kmOZLCOyyPjgORc5SQVqFRBC2kLNh/xOBN6ZNVS7UAEakzIQab5VCByPWhy11
+	N9qI0mGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBb4r-00000003Rsh-0uMM;
-	Wed, 22 Oct 2025 15:48:41 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vBb58-00000003RyS-3NR7;
+	Wed, 22 Oct 2025 15:48:58 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBb4p-00000003Rrt-01cF
+	id 1vBb56-00000003Rwt-2CIo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 15:48:40 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-4283be7df63so2234629f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 08:48:38 -0700 (PDT)
+	Wed, 22 Oct 2025 15:48:58 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-4270a3464caso3033728f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 08:48:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761148117; x=1761752917; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=XWO4yOCaMUYjGeCQQA0uyhzhbdrG4m6pu8cUif/JpM0=;
-        b=lC2zIz+FmDnlBryjxudxniKGjYVMnY94fu0cXGJ+yRxm++vE2FJJA8KP42+ijipsRm
-         uA1/gdbCqA17wfihyTJhH01WVwCvWtrbWevuuhhSsLBBzIlPb+kfBSk01HQIFzaV5Ylk
-         j0enlYXWV6yjvMeYy0Vtss1/TNhZw4+dfEUHvx892YtHMD969/oxSByz7wi4q/5Pa2tC
-         BRM4D8cvPDwYLyDQXAmyc/tWTn44XLODpNb7VJU2c1NPXxgitu9Gcr/r2w7u7ZtdcwFw
-         gyeeBWRpbQRtfN0hYRKrn/6TljVg7A1iTCXj8rwYCYMJcTj1rz03DVaIkLtqV1Iz/F/h
-         4veQ==
+        d=linaro.org; s=google; t=1761148135; x=1761752935; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=nQKCc3o8CpOmEjXqvj1OmhWFZYzGoBkXsANUxN2NNQk=;
+        b=k4FJ6PjLUM7xMiHiv6DPyMw5qjl1/NovHRcVSs8itlIBTWCZvi3tmDSiJh06A03YAU
+         do/vHh+LKNRUWt9IQbQCIP0pzl68/gAb/EXS7qIT10x5edOGXGpA9V9ruFqYCeItBhbx
+         dgv8M2UMoMlrgUnnHGKG7XLJJBWoqTRXj42hcu0MTCB/aN49UeJMS1CCQsN4VhzpvUcp
+         MR3vLFdJYIVm1RlOZqBaiMNVO5KUbbJcRooOy8rwen56ra5d7fxb3Jbow3w3ThOjCn6Q
+         NTG9H37PRAZmM4pya3Lpcjoiv2X+WiNiQ5ql3lqPCqRrXglFCd+M1n5TimH8/bH1f2x2
+         SziA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761148117; x=1761752917;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XWO4yOCaMUYjGeCQQA0uyhzhbdrG4m6pu8cUif/JpM0=;
-        b=IGNIfJ2DoZp96CJ0mu2+93lXgxV5pBnq9gCHamOSvPRiF9FOiIjpNEXrSt6AGqrOGT
-         jwzmAaRLEvr8TZUtMYeNTOpXeF6UF+KrpRi1BFhVta/LUs51Gv/UHT0Tw7P49BOTcdVA
-         PDQ4x7A5q5w3+Pk7bgShCKwOaDSvgfzz8YYbf3kzJlXJM6sxxnc3v5m2YroTejLytUR5
-         yngLTKm87hzXfA6vx1N9pd4Xqck1dcZN/VlYhghbGBow3PFED8gBpwewsvNJDmdoJ+fH
-         8+8lSay+Ip5RMQM6gETz99rVCqAJNWerU2dw0k+q8FZi31TTWIAiOIr57cBY6ZxrrDnv
-         zYlg==
-X-Forwarded-Encrypted: i=1; AJvYcCXFVbcdsgfJaOiHQ01Cg3bFnYyWTJTxT3Tz/NAb/aP3EERowZ4C5K+ARGZ6bYempDKBgf7nfuyh79WjfGgqeRXP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHXJOyQ/UZsEvr4cDJuLxh88wdvDGFGpvhl9c/0E9VW4olKKIk
-	FOynTUbvHSfJ2ZRObBqMCngMbcyzD6+CtMoN95wkc05lXc4e5H/IWFStnOkujQ==
-X-Gm-Gg: ASbGncuCWqEvieDI9WJhN/usVyZp9dIU9vx+3Q/z3c5v8w7fNX4OF+kjAVDP+zk9YDB
-	fcyymMfFVkS9D5tY+06l7O05XNJAYhC/lTqvuXLNVolakxYMHOgLt5dLHpjuRM2XLjm5Cmtn4Re
-	9/+4WgpfTslL83cteO1Qg3QjqWl5UgsRJjkYQZZkbFD8Ff/T7CpaF1AP24XyGZ8M/ctM1NbVw9n
-	GYWIY2Z93tw8ED+TSz1DASbe/bJ2B00DR7SVLqpwcUgGBHgARuiMWPFLNtfBM3MUn/niANQalYg
-	57pyonnN0g7mIF3ZNDiKslQet3c3VpKVLCs8TyF8vLAVrczudHxZATvrQDREjtLkhzrnTrDtWze
-	wEc6n/UZWLVQc9FpT80927zN0AEamEsIl875XfkP4paucKgNMa8r85E5KCrV7YyvF7/vXaIM+eV
-	AGMJJRnET6NuLlD/iAwTj5aTDerqVhynT+NGDqhM0=
-X-Google-Smtp-Source: AGHT+IHAoVbOJakh16O5eBX5PTSAHI2xQcrVoDpyDPxM5ZW2+gUYAv5HKBvRB8LcVZCJLd8co8c93A==
-X-Received: by 2002:a5d:5d01:0:b0:428:55c3:cecc with SMTP id ffacd0b85a97d-42855c3d3femr1634009f8f.37.1761148116971;
-        Wed, 22 Oct 2025 08:48:36 -0700 (PDT)
-Received: from Ansuel-XPS. (93-34-90-37.ip49.fastwebnet.it. [93.34.90.37])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-427f00b97f8sm25309390f8f.36.2025.10.22.08.48.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Oct 2025 08:48:36 -0700 (PDT)
-Message-ID: <68f8fcd4.df0a0220.60f68.1bc1@mx.google.com>
-X-Google-Original-Message-ID: <aPj80atNusRChjjG@Ansuel-XPS.>
-Date: Wed, 22 Oct 2025 17:48:33 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Simon Horman <horms@kernel.org>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [net-next PATCH 2/2] net: airoha: add phylink support for GDM1
-References: <20251021193315.2192359-1-ansuelsmth@gmail.com>
- <20251021193315.2192359-3-ansuelsmth@gmail.com>
- <aPj8J5ntvDGLPYaY@horms.kernel.org>
+        d=1e100.net; s=20230601; t=1761148135; x=1761752935;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nQKCc3o8CpOmEjXqvj1OmhWFZYzGoBkXsANUxN2NNQk=;
+        b=XeihBxTwq1hyBbbXVcP4wRfCKieG62O0Bn8J7UwR32Gh0mkHSpLULsJK4Qt7YbXnRr
+         rfW0IOY/J6QKq9z8BTd44Sakdm8cw0Sm4iJVZQaHLUvoZJ/FSHhWFJhxiJQrRwkbDBfw
+         j13UQyGvRNoXagvxgTBjSU62xJj+ndIjyrodkOaXHWgwxjYwI/LLY7CqqxYLrvvPttqE
+         DUB4JxXLvIbHdDaLYrc7BMfEx2cuFa34EvfQmbIwzevXPYDj0lBJo7igf+peiRPiuaM0
+         /N0RgDLcMnzTLVkeWjNd0mavdQ9mp/USMLGAWJFxYA2kyb20pfSuT/yU3sPlwrq6YHaE
+         s7Fw==
+X-Forwarded-Encrypted: i=1; AJvYcCUecVwmJULzTv+DssvH0aXz6TfqqgOlq2lZp8eqFZ0tGi0PonD714JzgJl+Dz5bFU4AkbzZ/Q0yZufHqrr3vHn5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+E9/dF/KM9IqGU+ybMujbbXyPKtfiPHizigTzdnoGsv5q6yWm
+	uzsgEGSgCG71b6jQF0Eds27rqnePDpvIsNtT8rd+u8jH7zgaVggYX93azRcKAuS9N6U=
+X-Gm-Gg: ASbGncuzP0ZgxceUgFbVFRbmkC1uUaeTNJPMYDG2AN3AhLJ+NeTYhe+yAY5453PTTxX
+	D9tSngYd/rim70is8WmHtrexeIwGJK8Esyy6dNfbYP3kbRLfO52PCT5qsLXiBckBWmwz+MbYkrW
+	m486/imlp86zevefBn6+J3l4xIbI9U6/18pWVJiyh3zWB/mKWYnK0UwOKPRGTtyfIvCOiunX3Eu
+	kIMkmizVMNB2hLQg3nBK6j8hiXuwa8ZTN5GJvLqpjYbdWQsLYLSu0oKLrGTKgtRUIAQ8h1C9/Ja
+	RZ/mJZMDnlGnlo/YXetqcBpO79uKnUNXN+u9glfSF7kjgU+CVpFxPqFZQqAzphtv7x5kU0KbTXO
+	dCEszkvJ0ZHJX1a/jM7vz/J4kFFpWVigvGlYC92q+5nZfeWGzLKxr2RLn5XK6DUSR99zfUI1ogH
+	N05jRX+g==
+X-Google-Smtp-Source: AGHT+IHOKlM9ZXbVarUrdxd9Z6TXrWDN7PTBigcURwaaklRyyWxBtRFHep1+wcz22TEjatLqlseBVg==
+X-Received: by 2002:a5d:5886:0:b0:428:1475:6a17 with SMTP id ffacd0b85a97d-42814756be9mr12100399f8f.53.1761148134341;
+        Wed, 22 Oct 2025 08:48:54 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-427ea5b3ae9sm25465267f8f.13.2025.10.22.08.48.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Oct 2025 08:48:53 -0700 (PDT)
+Message-ID: <6cb692cf-cb7a-4d47-9694-e3db4478fa4c@linaro.org>
+Date: Wed, 22 Oct 2025 16:48:52 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aPj8J5ntvDGLPYaY@horms.kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf cs-etm: Mute enumeration value warning
+To: Leo Yan <leo.yan@arm.com>
+References: <20251022142849.1537706-1-leo.yan@arm.com>
+Content-Language: en-US
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251022142849.1537706-1-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_084839_079674_B69D6960 
-X-CRM114-Status: GOOD (  21.92  )
+X-CRM114-CacheID: sfid-20251022_084856_597143_227A7797 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,68 +106,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 04:45:43PM +0100, Simon Horman wrote:
-> On Tue, Oct 21, 2025 at 09:33:12PM +0200, Christian Marangi wrote:
-> 
-> ...
-> 
-> > +static int airoha_setup_phylink(struct net_device *netdev)
-> > +{
-> > +	struct airoha_gdm_port *port = netdev_priv(netdev);
-> > +	struct device *dev = &netdev->dev;
-> > +	phy_interface_t phy_mode;
-> 
-> Hi Christian,
-> 
-> phy_interface_t is an enum and thus may in practice be unsigned...
-> 
-> > +	struct phylink *phylink;
-> > +
-> > +	phy_mode = device_get_phy_mode(dev);
-> > +	if (phy_mode < 0) {
-> 
-> ... if so, this condition will always be false.
-> 
-> I suspect the correct approach here is to change the type of phy_mode to int.
-> 
-> Flagged by Smatch.
->
 
-Thanks a lot for pointing this out. Also I'm a bit confused of why
-device_get_phy_mode changed the args deviated from the of variant that
-return int and required an additional arg for the interface...
 
-> > +		dev_err(dev, "incorrect phy-mode\n");
-> > +		return phy_mode;
-> > +	}
-> > +
-> > +	port->phylink_config.dev = dev;
-> > +	port->phylink_config.type = PHYLINK_NETDEV;
-> > +	port->phylink_config.mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-> > +						MAC_10000FD;
-> > +
-> > +	__set_bit(PHY_INTERFACE_MODE_INTERNAL,
-> > +		  port->phylink_config.supported_interfaces);
-> > +
-> > +	phylink = phylink_create(&port->phylink_config, dev_fwnode(dev),
-> > +				 phy_mode, &airoha_phylink_ops);
-> > +	if (IS_ERR(phylink))
-> > +		return PTR_ERR(phylink);
-> > +
-> > +	port->phylink = phylink;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> >  static int airoha_alloc_gdm_port(struct airoha_eth *eth,
-> >  				 struct device_node *np, int index)
-> >  {
+On 22/10/2025 3:28 pm, Leo Yan wrote:
+> When the OpenCSD library introduces a new enumeration value (for example,
+> in the v1.7.1 release), the perf build fails with an error:
 > 
-> ...
+>    util/cs-etm-decoder/cs-etm-decoder.c:600:10: error: enumeration value 'OCSD_GEN_TRC_ELEM_ITMTRACE' not explicitly handled in switch [-Werror, -Wswitch-enum]
+>      600 |         switch (elem->elem_type) {
+> 	|                 ^~~~~~~~~~~~~~~
+>    1 error generated.
 > 
-> -- 
-> pw-bot: cr
+> Convert to if-else sentences to mute the enumeration value warning,
+> which can avoid build failures whenever the lib is updated.
+> 
+> No functional change.
+> 
+> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 
--- 
-	Ansuel
+Reviewed-by: James Clark <james.clark@linaro.org>
+
+> ---
+>   .../perf/util/cs-etm-decoder/cs-etm-decoder.c | 44 +++++--------------
+>   1 file changed, 11 insertions(+), 33 deletions(-)
+> 
+> diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+> index b85a8837bddc..3050fe212666 100644
+> --- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+> +++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+> @@ -588,6 +588,7 @@ static ocsd_datapath_resp_t cs_etm_decoder__gen_trace_elem_printer(
+>   				const ocsd_generic_trace_elem *elem)
+>   {
+>   	ocsd_datapath_resp_t resp = OCSD_RESP_CONT;
+> +	ocsd_gen_trc_elem_t type;
+>   	struct cs_etm_decoder *decoder = (struct cs_etm_decoder *) context;
+>   	struct cs_etm_queue *etmq = decoder->data;
+>   	struct cs_etm_packet_queue *packet_queue;
+> @@ -597,52 +598,29 @@ static ocsd_datapath_resp_t cs_etm_decoder__gen_trace_elem_printer(
+>   	if (!packet_queue)
+>   		return OCSD_RESP_FATAL_SYS_ERR;
+>   
+> -	switch (elem->elem_type) {
+> -	case OCSD_GEN_TRC_ELEM_UNKNOWN:
+> -		break;
+> -	case OCSD_GEN_TRC_ELEM_EO_TRACE:
+> -	case OCSD_GEN_TRC_ELEM_NO_SYNC:
+> -	case OCSD_GEN_TRC_ELEM_TRACE_ON:
+> +	type = elem->elem_type;
+> +
+> +	if (type == OCSD_GEN_TRC_ELEM_EO_TRACE ||
+> +	    type == OCSD_GEN_TRC_ELEM_NO_SYNC ||
+> +	    type == OCSD_GEN_TRC_ELEM_TRACE_ON)
+>   		resp = cs_etm_decoder__buffer_discontinuity(etmq, packet_queue,
+>   							    trace_chan_id);
+> -		break;
+> -	case OCSD_GEN_TRC_ELEM_INSTR_RANGE:
+> +	else if (type == OCSD_GEN_TRC_ELEM_INSTR_RANGE)
+>   		resp = cs_etm_decoder__buffer_range(etmq, packet_queue, elem,
+>   						    trace_chan_id);
+> -		break;
+> -	case OCSD_GEN_TRC_ELEM_EXCEPTION:
+> +	else if (type == OCSD_GEN_TRC_ELEM_EXCEPTION)
+>   		resp = cs_etm_decoder__buffer_exception(etmq, packet_queue, elem,
+>   							trace_chan_id);
+> -		break;
+> -	case OCSD_GEN_TRC_ELEM_EXCEPTION_RET:
+> +	else if (type == OCSD_GEN_TRC_ELEM_EXCEPTION_RET)
+>   		resp = cs_etm_decoder__buffer_exception_ret(etmq, packet_queue,
+>   							    trace_chan_id);
+> -		break;
+> -	case OCSD_GEN_TRC_ELEM_TIMESTAMP:
+> +	else if (type == OCSD_GEN_TRC_ELEM_TIMESTAMP)
+>   		resp = cs_etm_decoder__do_hard_timestamp(etmq, elem,
+>   							 trace_chan_id,
+>   							 indx);
+> -		break;
+> -	case OCSD_GEN_TRC_ELEM_PE_CONTEXT:
+> +	else if (type == OCSD_GEN_TRC_ELEM_PE_CONTEXT)
+>   		resp = cs_etm_decoder__set_tid(etmq, packet_queue,
+>   					       elem, trace_chan_id);
+> -		break;
+> -	/* Unused packet types */
+> -	case OCSD_GEN_TRC_ELEM_I_RANGE_NOPATH:
+> -	case OCSD_GEN_TRC_ELEM_ADDR_NACC:
+> -	case OCSD_GEN_TRC_ELEM_CYCLE_COUNT:
+> -	case OCSD_GEN_TRC_ELEM_ADDR_UNKNOWN:
+> -	case OCSD_GEN_TRC_ELEM_EVENT:
+> -	case OCSD_GEN_TRC_ELEM_SWTRACE:
+> -	case OCSD_GEN_TRC_ELEM_CUSTOM:
+> -	case OCSD_GEN_TRC_ELEM_SYNC_MARKER:
+> -	case OCSD_GEN_TRC_ELEM_MEMTRANS:
+> -#if (OCSD_VER_NUM >= 0x010400)
+> -	case OCSD_GEN_TRC_ELEM_INSTRUMENTATION:
+> -#endif
+> -	default:
+> -		break;
+> -	}
+>   
+>   	return resp;
+>   }
+
 
