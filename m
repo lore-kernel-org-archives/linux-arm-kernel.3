@@ -4,76 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11F28CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 06:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03639CCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j1fnAapxocpS1PzNNod6wJpD/egeyzDYB/Jrd9dgM4U=; b=Fr0WAQHpWzE14/PaeZtTEczElW
-	6P7+PC2kyOYiCUsBiw3HvjaNCWFMjyK4Tz8cShtkKRVQZ1DHzgmjWwFRUZvsJr/aBIDyjuG0i2Bz7
-	3vQtwqlDJ/ZvpP9T5aBgu9gM/rP+FjMukZE8eI9WpUzwjGg8Y8+KyWjzThasj13jJiok1zQOqk+wR
-	UEhMZ5yM8gUwaUYcU6EQ+lX18WtYTpJ0YUHMsmRQ1UT38O0ZcLI8cs834rmxkTdOUIHEmWVlFKb6F
-	OagS7nl+p4Wrz0suDhVSYZ8cIbEYAG1IHVaAsCmpFUUYyfgYaJ1+8gKuM3d3Rw6pllWfuq6GdRdxU
-	7kPlVPng==;
+	bh=UZ0zLiQMjHfWfIrETWEpgf86vfPQWqa3rEBNo24tR5I=; b=CyH4S7uoGcqWnu7ETdMDeYFAgs
+	VVd5fyLjsh2CoL/THtyVhC1RsxH87rEWsjDoU55bjtLfw6cIVja1g+Hfyb/bb/4m83vY8G7x33n+d
+	+M3TUTW4VDbX2QhMB0Mt45Q6XuWAdQuM3KqQrKSiGIDhBsC+g/9BGKdQesL9xDE1a7kpiT1zmfFDp
+	ANDHKSSPSY80UyMqzuiMy1p6UfTJFIW1NpmtOv/7OJe2vV43thxB+Dq+M6f8ZTEjot3OLoynuvkY+
+	e5fnTfLnSwD6z79U8WVZJ1IewMB3y7QTHUbWoIKILTjnrSvMAy/hb2k9s0XiTBWX4yJ/TYjryYHFG
+	9qCj+Uww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSon-00000001lYP-0XTR;
-	Wed, 22 Oct 2025 06:59:33 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1vBSpW-00000001lu0-2sUz;
+	Wed, 22 Oct 2025 07:00:18 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSok-00000001lU5-1WMl
+	id 1vBSpT-00000001lsC-3woI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 06:59:31 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4cs0QL4pgbz9t8W;
-	Wed, 22 Oct 2025 08:59:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1761116362;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=j1fnAapxocpS1PzNNod6wJpD/egeyzDYB/Jrd9dgM4U=;
-	b=JNWpi4drdUs+btd7VToiRgbE6iRRVDP3jzDGp4IdtZxspVPgXzrkVyw6XfZ6VoltxsDAme
-	2cht2i0/8JrZc9EQ0dSFhPa2tbjjnQ8bG+3qZYq9K+j+DgLoSa0jFlhn5wEEsINMOYgadA
-	sWs6weTLZ2y5Br7G+yMjqd7lc9Dj7wFW43WKaehGIb0uF9weDQ4aqUMzGVd23ZJX7dM78D
-	6cbkMfzb6nIZozbWJ6FgZD96p/5LwJZg76fWkSFTnYsyFob3539fRhtxakP3+goUS0/BK8
-	Tv52QQPI/RSlQl6HSAde3lxR5xApuQkjeJ6zgMcbwp3emdxPI+Dp6eg8agHksg==
-Message-ID: <ab1f7c51-bc41-4774-a0dc-850e53c412eb@mailbox.org>
-Date: Wed, 22 Oct 2025 08:59:19 +0200
+	Wed, 22 Oct 2025 07:00:17 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-8909f01bd00so736400385a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 00:00:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=me-ssier-org.20230601.gappssmtp.com; s=20230601; t=1761116413; x=1761721213; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UZ0zLiQMjHfWfIrETWEpgf86vfPQWqa3rEBNo24tR5I=;
+        b=BafdJ6MriAfGoxlCduAis3ACdbWbujAvBP0bQdTRGjdxKXxA3bHBkdqC/BZ4Anod+5
+         6oNiEH1DPxUQNR/SnQqOlI7wBAO87wEdqo6DgBr1yk9DCGBQZQsDCtkuh/NoqM2prB1d
+         crBl0bT3dYhDn6bFkWHXJhkVwx/VM2wzNNYwm/j1Q4YKSOAlV06Zyg13GMFWjBwk9EyC
+         byGyDmSWhZyIaSnWbOB7Rse4qcd5mj3IkDnluJbIiUsYqW0gf5UHQ0us7/lqcXH+AFso
+         8Ywb19nqnJRznb+idQfp0350EBiPeqmQiFQO3rf+N6qsvlopeRHKiFRkwA2zzEsIhyS/
+         qX3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761116413; x=1761721213;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UZ0zLiQMjHfWfIrETWEpgf86vfPQWqa3rEBNo24tR5I=;
+        b=m0EvnHeQ/Jm1evnnW+la0UryjWNW7C1SV51Dan4GeoG1E7PkaUkfo0NWqVV2KrXLOC
+         emkJiMuGuqqJFEkBKEY5M9SFbBYFIqhrqmi4KEdGVeETUJdv3skFKoa7P8GIPucXZ0zj
+         UDmo3CAvKJf6jIxINKbuZZu5JR6NAREZIHxyixDcL4Q4YjAmI/6A/yCwUgVLmsGHHBBB
+         YFHPiPrt5/s25Q6yBg010Jl9yX/y1DAx9s1UBxs8eMBrpf7tUJgGRAoA52lR5rofLl7F
+         mReRFZ4/CKJ74W+6UzgcflyfQt0LHy8UzE5UNFk2D1pyaidroht31iUYNCiGzYznxjvn
+         rT1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXtNEJEZAGmD7Z6HrVgkajDoqTAASZf+v0rlf8aYMji6LYxRuBq6iP6v/T6MW7cSdY5L2IPOw1pot+t1yYN/tSC@lists.infradead.org
+X-Gm-Message-State: AOJu0YybJR93H3bffiuBv8cppMEBEAzuLg/H+o0QFTEzNCdRJMELWOcl
+	HdsSJ5Fw962ikcx8ukiB7lNTRPFw7P2Z13hrMsNVngkVPYMMGEtuPgub1Il/Dh2nlfm3a44tHTL
+	sxBzynsA=
+X-Gm-Gg: ASbGncsHhnYxaOTTl8ZwcymE7de2hRH9ED6qNJv16YeG8ChiVIFWqIVj/Fk+MXuGjJ6
+	QzSOsXEkJbc8wrn8wwC/tpxQ+e/nAH2FDhuU8P0PXk01Gu2FpexQHNv4eEP0LFBIdciWj0QHVS2
+	5OUqFHH0dl59HODW1yF1oijwiV3zF8wMxs2ukm2B+BBfJd+kikYndk4fwFzHDpMAjmRvTdCcfAZ
+	0hrbtmFlwzXCio/Go8dzqkGWSMxQaNuijYc1hZiBmOkuf4Yl3JLuvcTzl9I5N1ilgzkI+XdTVCA
+	QWnIBgktl/HVNemdePyEU91JX1MrsGEAdSOnMM4nyYofPg2mF2520wlO9+hHFhRHqL6LgESBkoW
+	lUsVYNEUk7SfrBZuNi1bZgqOysz9pksL0Bg18zbMXsQMkSl8t/WjLCTQ9FErgZE3E1/Q/Fbeh4k
+	4Wzheq7wzXlA==
+X-Google-Smtp-Source: AGHT+IFP1Egld4e4M3O9ldes+hPt4it1nCGP1bODqWck6WjBakPWZGeujTTjHQoGUKEqPL4vEcQSIw==
+X-Received: by 2002:a05:620a:4621:b0:88f:228c:c6a0 with SMTP id af79cd13be357-8906e8af048mr2096261085a.24.1761116412834;
+        Wed, 22 Oct 2025 00:00:12 -0700 (PDT)
+Received: from [192.168.2.8] ([74.14.126.215])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-891cd6717desm915892985a.26.2025.10.22.00.00.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Oct 2025 00:00:12 -0700 (PDT)
+Message-ID: <77efe2a2-ee81-4096-9145-a76e35954e84@me.ssier.org>
+Date: Wed, 22 Oct 2025 03:00:01 -0400
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
-To: Bjorn Helgaas <helgaas@kernel.org>, "Bandi, Ravi Kumar" <ravib@amazon.com>
-Cc: "mani@kernel.org" <mani@kernel.org>,
- "thippeswamy.havalige@amd.com" <thippeswamy.havalige@amd.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "michal.simek@amd.com" <michal.simek@amd.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "stable@vger.kernel.org" <stable@vger.kernel.org>,
- Sean Anderson <sean.anderson@linux.dev>
-References: <20251021212801.GA1224310@bhelgaas>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] ARM: dts: qcom: msm8974pro-htc-m8: add status LEDs
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Pavel Machek <pavel@kernel.org>
+Cc: Luca Weiss <luca@lucaweiss.eu>, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
+ phone-devel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20251007-m8-dts-additions-v1-0-53d7ab3594e7@me.ssier.org>
+ <20251007-m8-dts-additions-v1-1-53d7ab3594e7@me.ssier.org>
+ <6c791f05-70e7-49c9-a3ce-50fb82b0c894@oss.qualcomm.com>
+ <fef52764-3092-4375-b9c7-793d85adc102@me.ssier.org>
+ <41c63020-9226-45d9-979d-429b7299da41@oss.qualcomm.com>
 Content-Language: en-US
-From: Stefan Roese <stefan.roese@mailbox.org>
-In-Reply-To: <20251021212801.GA1224310@bhelgaas>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: dacca2ed9550b966657
-X-MBO-RS-META: 33d8grajrud4g8etgcmen193gr4s35jn
+From: Alexandre Messier <alex@me.ssier.org>
+In-Reply-To: <41c63020-9226-45d9-979d-429b7299da41@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_235930_601028_47A2207B 
-X-CRM114-Status: GOOD (  31.27  )
+X-CRM114-CacheID: sfid-20251022_000016_234834_0C904B60 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,151 +112,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bjorn,
-Hi Ravi,
-
-On 10/21/25 23:28, Bjorn Helgaas wrote:
-> On Tue, Oct 21, 2025 at 08:55:41PM +0000, Bandi, Ravi Kumar wrote:
->>> On Tue, Oct 21, 2025 at 05:46:17PM +0000, Bandi, Ravi Kumar wrote:
->>>>> On Oct 21, 2025, at 10:23 AM, Bjorn Helgaas <helgaas@kernel.org> wrote:
->>>>> On Sat, Sep 20, 2025 at 10:52:32PM +0000, Ravi Kumar Bandi wrote:
->>>>>> The pcie-xilinx-dma-pl driver does not enable INTx interrupts
->>>>>> after initializing the port, preventing INTx interrupts from
->>>>>> PCIe endpoints from flowing through the Xilinx XDMA root port
->>>>>> bridge. This issue affects kernel 6.6.0 and later versions.
->>>>>>
->>>>>> This patch allows INTx interrupts generated by PCIe endpoints
->>>>>> to flow through the root port. Tested the fix on a board with
->>>>>> two endpoints generating INTx interrupts. Interrupts are
->>>>>> properly detected and serviced. The /proc/interrupts output
->>>>>> shows:
->>>>>>
->>>>>> [...]
->>>>>> 32:        320          0  pl_dma:RC-Event  16 Level     400000000.axi-pcie, azdrv
->>>>>> 52:        470          0  pl_dma:RC-Event  16 Level     500000000.axi-pcie, azdrv
->>>>>> [...]
-
-First a comment on this IRQ logging:
-
-These lines do NOT refer to the INTx IRQ(s) but the controller internal
-"events" (errors etc). Please see this log for INTx on my Versal
-platform with pci_irqd_intx_xlate added:
-
-  24:          0          0  pl_dma:RC-Event   0 Level     LINK_DOWN
-  25:          0          0  pl_dma:RC-Event   3 Level     HOT_RESET
-  26:          0          0  pl_dma:RC-Event   8 Level     CFG_TIMEOUT
-  27:          0          0  pl_dma:RC-Event   9 Level     CORRECTABLE
-  28:          0          0  pl_dma:RC-Event  10 Level     NONFATAL
-  29:          0          0  pl_dma:RC-Event  11 Level     FATAL
-  30:          0          0  pl_dma:RC-Event  20 Level     SLV_UNSUPP
-  31:          0          0  pl_dma:RC-Event  21 Level     SLV_UNEXP
-  32:          0          0  pl_dma:RC-Event  22 Level     SLV_COMPL
-  33:          0          0  pl_dma:RC-Event  23 Level     SLV_ERRP
-  34:          0          0  pl_dma:RC-Event  24 Level     SLV_CMPABT
-  35:          0          0  pl_dma:RC-Event  25 Level     SLV_ILLBUR
-  36:          0          0  pl_dma:RC-Event  26 Level     MST_DECERR
-  37:          0          0  pl_dma:RC-Event  27 Level     MST_SLVERR
-  38:         94          0  pl_dma:RC-Event  16 Level     84000000.axi-pcie
-  39:         94          0  pl_dma:INTx   0 Level     nvme0q0, nvme0q1
-
-The last line shows the INTx IRQs here ('pl_dma:INTx' vs 'pl_dma:RC-
-Event').
-
-More below...
-
->>>>>>
->>>>>> Changes since v1::
->>>>>> - Fixed commit message per reviewer's comments
->>>>>>
->>>>>> Fixes: 8d786149d78c ("PCI: xilinx-xdma: Add Xilinx XDMA Root Port driver")
->>>>>> Cc: stable@vger.kernel.org
->>>>>> Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
->>>>>
->>>>> Hi Ravi, obviously you tested this, but I don't know how to reconcile
->>>>> this with Stefan's INTx fix at
->>>>> https://lore.kernel.org/r/20251021154322.973640-1-stefan.roese@mailbox.org
->>>>>
->>>>> Does Stefan's fix need to be squashed into this patch?
+On 2025-10-20 08:02, Konrad Dybcio wrote:
+> On 10/12/25 8:03 AM, Alexandre Messier wrote:
+>> On 2025-10-07 06:03, Konrad Dybcio wrote:
+>>> On 10/7/25 7:55 AM, Alexandre Messier via B4 Relay wrote:
+>>>> From: Alexandre Messier <alex@me.ssier.org>
 >>>>
->>>> Sure, we can squash Stefan’s fix into this.
+>>>> Add support for the notification LEDs on the HTC One M8.
+>>>>
+>>>> Two LEDs are available, one amber and one green.
 >>>
->>> I know we *can* squash them.
->>>
->>> I want to know why things worked for you and Stefan when they
->>> *weren't* squashed:
->>>
->>>   - Why did INTx work for you even without Stefan's patch.  Did you
->>>     get INTx interrupts but not the right ones, e.g., did the device
->>>     signal INTA but it was received as INTB?
+>>> Do they form a single notification led, or are they supposed
+>>> to act separately?
 >>
->> I saw that interrupts were being generated by the endpoint device,
->> but I didn’t specifically check if they were correctly translated in
->> the controller. I noticed that the new driver wasn't explicitly
->> enabling the interrupts, so my first approach was to enable them,
->> which helped the interrupts flow through.
-> 
-> OK, I'll assume the interrupts happened but the driver might not have
-> been able to handle them correctly, e.g., it was prepared for INTA but
-> got INTB or similar.
-> 
->>>   - Why did Stefan's patch work for him even without your patch.  How
->>>     could Stefan's INTx work without the CSR writes to enable
->>>     interrupts?
+>> Good point, I had to check the phone user manual to confirm. Indeed, it is
+>> referred to as a one logical notification LED. It also mentions the color can
+>> be either green or orange, it does not mention using the combined color of
+>> the two LEDs.
 >>
->> I'm not entirely sure if there are any other dependencies in the
->> FPGA bitstream. I'll investigate further and get back to you.
+>> So I would say they are supposed to act separately.
+>>
+>> Hope this answers your question, and let me know if more details are needed.
+>>
+>> BTW: I will be sending a V2 to update the color name, since the user
+>> manual says the color is orange, not amber.
 > 
-> Stefan clarified in a private message that he had applied your patch
-> first, so this mystery is solved.
+> Let's describe it as a single LED then:
+> 
+> multi-led {
+>         color = <LED_COLOR_ID_MULTI>; // notice it's not RGB
+>         function = LED_FUNCTION_STATUS;
+> 
+>         #address-cells = <1>;
+>         #size-cells = <0>;
+> 
+>         led@6 {
+>                 reg = <6>;
+>                 color = <LED_COLOR_ID_GREEN>;
+>         };
+> 
+>         led@7 {
+>                 reg = <7>;
+>                 color = <LED_COLOR_ID_ORANGE>;
+>         };
+> };
 
-Yes. I applied Ravi's patch first and still got no INTx delivered
-to the nvme driver. That's what me triggered to dig deeper here and
-resulted in this v2 patch with pci_irqd_intx_xlate added.
+Using multi-led is fine for me.
 
-BTW:
-I re-tested just now w/o Ravi's patch and the INTx worked. Still I think
-Ravi's patch is valid and should be applied...
->>>   - Why you mentioned "kernel 6.6.0 and later versions."
->>>   8d786149d78c appeared in v6.7, so why would v6.6.0 would be
->>>   affected?
->>
->> Apologies for not clearly mentioning the version earlier. This is
->> from the linux-xlnx tree on the xlnx_rebase_v6.6 branch, which
->> includes the new Xilinx root port driver with QDMA support:
->> https://github.com/Xilinx/linux-xlnx/blob/xlnx_rebase_v6.6_LTS/drivers/pci/controller/pcie-xilinx-dma-pl.c
->>
->> In earlier versions, the driver was:
->> https://github.com/Xilinx/linux-xlnx/blob/xlnx_rebase_v6.1_LTS_2023.1_update/drivers/pci/controller/pcie-xdma-pl.c
->> This older driver had no issues with interrupts.
->>
->> The new driver introduced in v6.7 and later is a rewrite of the old
->> one, now with QDMA support, which has issues with INTx interrupts.
-> 
-> OK, this sounds like out-of-tree history that is not relevant in the
-> mainline kernel, so Mani did the right thing in omitting it.
-> 
-> I think the best thing to do is to squash Stefan's patch into this one
-> so we end up with a single patch that makes INTx work correctly.
-> 
-> Ravi and Stefan, does that seem OK to you?
+But currently, the "qcom-lpg" driver doesn't support LED_COLOR_ID_MULTI, only
+LED_COLOR_ID_RGB. Adding support for LED_COLOR_ID_MULTI is trivial, I tested it
+and it works.
 
-Yes, please either apply both separately or squash them. Whatever you
-prefer.
+Or I can also use the "leds-group-multicolor" driver, using the two individual
+LEDs. I also tested this method and it works.
 
-Many thanks,
-Stefan
->>>>>> +++ b/drivers/pci/controller/pcie-xilinx-dma-pl.c
->>>>>> @@ -659,6 +659,12 @@ static int xilinx_pl_dma_pcie_setup_irq(struct pl_dma_pcie *port)
->>>>>>              return err;
->>>>>>      }
->>>>>>
->>>>>> +     /* Enable interrupts */
->>>>>> +     pcie_write(port, XILINX_PCIE_DMA_IMR_ALL_MASK,
->>>>>> +                XILINX_PCIE_DMA_REG_IMR);
->>>>>> +     pcie_write(port, XILINX_PCIE_DMA_IDRN_MASK,
->>>>>> +                XILINX_PCIE_DMA_REG_IDRN_MASK);
->>>>>> +
->>>>>>      return 0;
->>>>>> }
->>
+> 
+> + Pavel the LED maintainer, please take a look if you think it makes sense
+
+If Pavel agrees using multi-led makes sense, I think the first option is the
+best. I will separate the LED patch into a new series, along with the change to
+the qcom-lpg driver to support LED_COLOR_ID_MULTI.
+
+Thanks
+Alex
+
+> 
+> Konrad
+
 
