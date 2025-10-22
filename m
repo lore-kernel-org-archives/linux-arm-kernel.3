@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DDACCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72CD2CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R95DGcQ4LYALHG8T4SNxi7BAAXg7er7ggzkRbLh42No=; b=ibK/8N+pbgCKWHhSMr6xESwnmm
-	ESpeo7m980Lnn8T0L1qWTSeOegEmhP0moOy7dIfwbQ+w0NgK5lbBBE3cwKj0cKAYiWsVcqB8YJOhw
-	JeLRBhxAc0WDJcqwZtfUud24ljjr7HEFx/nuktNx/pxOLsBF4Sdu6d4UANyMdP62viIK8joUfDF1C
-	z2EbEpIq9lFU3DceLd/G8RTqWSI6VPXqnJ9+A4jowfCLhqw4ZNTynZ6qnyYxSZQPyJ7TckfQkxRoI
-	4Vw/uclu9AGreXpfUbiYJppBjDuB5OU5oN4rg0X30TGR3mwFBHL3F4O17fxV4WaQFZeXVi94GX25n
-	ET+x2Nww==;
+	bh=QEqNt/+ao/gTJBdF0+NXGKTXYzKL+8Jvqheq+IJLDJE=; b=bsDNuOZpOsTpNwkyRUzsKubwVv
+	LY8XS1rhH6seCni4dI/+mYB3/4XGX2UDTlihyFUmltwQjfQ8nT3UY/lNSXo/n1JH6gMyHx3CPRCUm
+	xQMKzsHUEhTQWqC5lgGHcZAndVls7REJaQNpZL48ZaMSnvTYw43F2gXPhNHWO+FfwnbiE4zGPFzEJ
+	FEG5MMm9thQ6mdrXzdKPJ6GjE/ZSK5q7tz9dt0r+1guGfHZJGp+aowKztJG9+VbB4vER+7O1nPI8S
+	1nxHCmHjAhi3CFydhYFRJCqFKi2S3apXasuUF5Zg9YdGDNeORIaVglnAPh4AA7lIs1VgJMi+1YbVv
+	u7Z9kjBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBY4K-00000002ori-23Zn;
-	Wed, 22 Oct 2025 12:35:56 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vBY4S-00000002ouW-1J9v;
+	Wed, 22 Oct 2025 12:36:04 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBY4H-00000002oqu-2aKb;
-	Wed, 22 Oct 2025 12:35:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=R95DGcQ4LYALHG8T4SNxi7BAAXg7er7ggzkRbLh42No=; b=QSk6D6ZIL39KWQjpQVXzyu/daU
-	CkHCg8qd7kd0YqSVIzxh2OYFZ1Gtf6Zy1PMvilS2ibzw5vrduZP1N74w4P6Tj1JfPOXck0ka2IkIN
-	G3R9KHuq/zrSWxPK36Hjw1+QvspeXZMa8vN0KtQZWpHSk2jPm3N1Cw59r3FE3Ov57v3Y=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vBY3w-00Bkxo-MY; Wed, 22 Oct 2025 14:35:32 +0200
-Date: Wed, 22 Oct 2025 14:35:32 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Sjoerd Simons <sjoerd@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Lee Jones <lee@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
-	kernel@collabora.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-phy@lists.infradead.org, netdev@vger.kernel.org,
-	Daniel Golle <daniel@makrotopia.org>,
-	Bryan Hinton <bryan@bryanhinton.com>
-Subject: Re: [PATCH 15/15] arm64: dts: mediatek: mt7981b-openwrt-one: Enable
- leds
-Message-ID: <9ecffb7f-839c-4e4d-bef1-f59747d020b2@lunn.ch>
-References: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
- <20251016-openwrt-one-network-v1-15-de259719b6f2@collabora.com>
- <d8077ee4-21c2-43c5-b130-7ff270b09791@lunn.ch>
- <79d4a7379bce245d22b56c677fd7b3a263836239.camel@collabora.com>
+	id 1vBY4M-00000002oso-365M
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Oct 2025 12:36:00 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-87c11268b97so99752356d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 05:35:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761136557; x=1761741357; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=QEqNt/+ao/gTJBdF0+NXGKTXYzKL+8Jvqheq+IJLDJE=;
+        b=ZZjsOGpT2Y87eokJUuNDQQ/hlGVUCVL/FzJDGQhUJUv/MC8LankkDpDIsR8bLwKuHw
+         yH36fzXXrPYKX0yHjn1XBYKeHlziUeRVmtQm37vgEgkXJxGxt94O4KhjKJUkwwv+MgYw
+         GDDDIqARnyc1noKbKoQvqGWoNwPNUwMqWtZtos2+rHnu/2pBTfZPLi5Pxf3l3xs9QGH+
+         kEXpetpKgX1YtCgDrTre/ZnGsxt0pZcnwETWoqX7UjohZGP+OBi96hki3kw0C6lN1TYN
+         mivlSHB0R70BoDkkbUIEUFuwqqOgz1xZvrm2TlAFPGIx/5MuSPOau+S0vuN8C1V65skX
+         BBAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761136557; x=1761741357;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QEqNt/+ao/gTJBdF0+NXGKTXYzKL+8Jvqheq+IJLDJE=;
+        b=C97z1bZd6BKyK0py81pAm8L9naAlE7UMEyFj8DG0J+uJc5tgOgRX/jrhkVGbG8xcQZ
+         7v6TW6VcDsRPIdY27xWGvxjk6xg7UUhZ/IiKQRgbVoor1W15JLdGoScn183y/g09zSYw
+         q0kVdhmTgrqQnDplCu+o1zNLsuWbNwyg90C4YhEZu3yeCvF9jpRRxmaq1XUZ4DgxSYXG
+         rhcM6yVQCXEWJFfaLV3eVzL9ELjPjW6A4jDzRzEhKaX7M9p66DwIWUiyAbWWSqCW8ZSz
+         lpmh+4KReWHXOaitSKZIKpymxdBBI1OJDTUX5nYXydKqC0t+z5g1XiCAJvsWo54yjyn8
+         kyuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWI+mbOKZYbIDdYDVc8H1dW03Us3VP3K/B8cELLqVRMuTRkZGXgIzFmB0b8cAf0gXH9j/ETm46CfL44JzFIq0QT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2M8pL0Q6v3uH1xgolAbnDtyIMydoxI5rSRL/Wa5l7rujlTDW6
+	VmFCKpsG+3oOf7lkXdhriDaW7r/zkWwxEs5Awd6Reiy5Q3t4PCjecdE1E7mtdXzlEmXOduNZjVy
+	yrlG/0dkLJhSxR2ChfBz/mBZXx2K33GTW1JU6Urz/7g==
+X-Gm-Gg: ASbGncuVSyrmO4KYTRufaN+y0iuJilIQLIntPEvikuO5Sj9neEYJRxdecdjBXy8qUSm
+	XZ/woGxsm2MIu5nE43SRvbFS3w0KAz45XLG/p7IKb5UYHMNbIcNufofw9uTFK0Oj2k9rj27Djyb
+	Zm/fwwnxxGrp2cnhObRbEVHPUQmWXkYGvjMNmJryaycdWHLTXjeSDUnZN7I2B6n/VzBLlfJ3Tyx
+	c2R/1tWJxLj5u1fV653fec3s6BpekygtIR0dcZU3Jvxp1yrqfmtIH2Paqh+Onqna01MdauEHP3t
+	y+uHi69APBfW7LyBCsCVxJ+9riKi
+X-Google-Smtp-Source: AGHT+IH7JGEMGpygwX6/uhEgxtQ7L6U5hDBowTCRaOx0iT0Qi0sOgs5c5C19JMyMWTGH62mvocMghuMDJSwmqlWfDhA=
+X-Received: by 2002:a05:6214:8006:b0:7cd:91ff:6215 with SMTP id
+ 6a1803df08f44-87c20824c74mr226324176d6.61.1761136557306; Wed, 22 Oct 2025
+ 05:35:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <79d4a7379bce245d22b56c677fd7b3a263836239.camel@collabora.com>
+References: <20251021234520.3355-1-mike.leach@linaro.org> <20251021234520.3355-2-mike.leach@linaro.org>
+ <20251022092958.GQ281971@e132581.arm.com>
+In-Reply-To: <20251022092958.GQ281971@e132581.arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Wed, 22 Oct 2025 13:35:46 +0100
+X-Gm-Features: AS18NWBuh7X2EdT2ACmWcHMWER71d1F1K6PHqDwZ8lOLPAaG8TyZVWGaJ3MvXUc
+Message-ID: <CAJ9a7Vi+Oq3Zma0Cs+w8m0kRE0pG6ax3=26EQK=u7d=vQfNFQw@mail.gmail.com>
+Subject: Re: [PATCH 1/1] coresight: fix issue where coresight component has no claimtags
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, james.clark@linaro.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_053553_653835_19EA5E2D 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20251022_053558_816215_7E9031DC 
+X-CRM114-Status: GOOD (  33.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,46 +95,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 09:26:11AM +0200, Sjoerd Simons wrote:
-> Hey,
-> 
-> On Fri, 2025-10-17 at 19:35 +0200, Andrew Lunn wrote:
-> > On Thu, Oct 16, 2025 at 12:08:51PM +0200, Sjoerd Simons wrote:
-> > > The Openwrt One has 3 status leds at the front (red, white, green) as
-> > > well as 2 software controlled leds for the LAN jack (amber, green).
-> > 
-> > A previous patch in this series added 2 PHY LEDs. Are they connected
-> > to a LAN jack? Are there multiple RJ45 connectors? Is it clear from
-> > /sys/class/leds what LED is what?
-> 
-> Yeah there are two RJ45 jacks. One referred to as WAN in the openwrt one
-> documentation (2.5G), which uses phy integrated leds. One referred to as LAN,
-> which for some reason is using software controlled leds rather then the phy's
-> led controller, which this patch adds support for.
-> 
-> When applying this set you'll get:
-> ```
-> root@openwrt-debian:/sys/class/leds# ls -1                                     
-> amber:lan                                                                      
-> green:lan                                                                      
-> green:status                                                                   
-> mdio-bus:0f:amber:wan                                                          
-> mdio-bus:0f:green:wan                                                          
-> mt76-phy0                                                                      
-> mt76-phy1                                                                      
-> red:status                                                                     
-> white:status                       
-> ```
-> 
-> Which is hopefully clear enough
+Hi Leo
 
-You can also get to the LEDs associated to a MAC via
-/sys/class/net/eth42/leds, or a subdirectory.
+On Wed, 22 Oct 2025 at 10:30, Leo Yan <leo.yan@arm.com> wrote:
+>
+> On Wed, Oct 22, 2025 at 12:45:20AM +0100, Mike Leach wrote:
+>
+> [...]
+>
+> > +/*
+> > + * Reading CLIAMSET returns  a bitfield representing the number of claim tags
+> > + * implemented from bit 0 to bit nTag-1, valid bits set to 1.
+> > + *
+> > + * Claim protocol requires 2 bits so test for highest bit required,
+> > + * bit 1 -  CORESIGHT_CLAIM_SELF_HOSTED_BIT
+> > + *
+> > + * return true if sufficient claim tags implemented for protocol
+> > + */
+> > +static bool coresight_claim_tags_implemented_unlocked(struct csdev_access *csa)
+> > +{
+> > +     u32 claim_bits_impl = FIELD_GET(CORESIGHT_CLAIM_BITS_MAX_MASK,
+> > +                      csdev_access_relaxed_read32(csa, CORESIGHT_CLAIMSET));
+> > +     return ((claim_bits_impl & CORESIGHT_CLAIM_SELF_HOSTED_BIT) != 0);
+> > +}
+> > +
+>
+> The logic looks good to me.
+>
+> Can we improve a bit with a cached flag to avoid every time checking the
+> CLAIMSET, we can read it only once at init time instead.
+>
 
-Please could you expand the commit message with more details of the
-different RJ45 connectors, and how the different LEDs map to them.
+When I considered how often we use the claim tags - compared to all
+the other programming of devices, a single extra read did not seem
+excessive.
+
+> - We can add a new flag ("bool claim_impl" in the struct csdev_access),
+>   by default the field will be zero.
+>
+
+I considered a bool - but the correct place for this would be
+coresight_device - where we keep all the information about the
+hardware features.
+
+> - The drivers support claim tags call coresight_clear_self_claim_tag()
+>   in probe (see __catu_probe() as an example), we can call a new
+>   function coresight_init_claim_tag() to replace it, this function sets
+>   "claim_impl" properly and clear the tag if supported.
+>
+
+I considered moving this initialisation to the common coresight code
+where we create the coresight_device. Certainly with the new check for
+number of claim tags it is safe for all devices, and there would
+appear to be no reason to do it as early as it appears in some of the
+drivers. However that would be a larger change.
+
+> - Afterwards, simply check the "claim_impl" flag.
+
+
+>
+> [...]
+>
+> > +/*
+> > + * Coresight specification defines a maximum of 8 claim tag bits.
+> > + * The precise number is implementation defined, and may be obtained by
+> > + * reading the CLAIMSET register.
+> > + */
+> > +#define CORESIGHT_CLAIM_BITS_MAX_MASK        GENMASK(7, 0)
+> > +#define CORESIGHT_CLAIM_SELF_HOSTED_BIT      BIT(1)
+>
+> Now we only care about the self-host bit. Can reuse existed macros ?
+>
+
+I feel that drivers should be written to match the specification - the
+macros above are a correct mask value per specification and the
+correct bitfield comparison for the MSBit of the protocol.
+
+The ones below are a protocol masks field, and a specific protocol
+value that is used in value rather than bit comparisons in the
+claimtag code. I felt it clearer to differentiate between the uses
+when reading the code.
+
+>   CORESIGHT_CLAIM_MASK
+>   CORESIGHT_CLAIM_SELF_HOSTED
+>
+> I don't mind if extend CORESIGHT_CLAIM_MASK to 8 bits and even remove
+> CORESIGHT_CLAIM_INVALID (as it cannot cover other invalid values). Or we
+> can defer the extension as needed later.
+>
+
+The invalid value is used to as a value comparison to check for a race
+condition with both protocol bits set.
 
 Thanks
 
-	Andrew
+Mike
+
+
+> Thanks,
+> Leo
+
+
+
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
