@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24154CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 20:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 002BACCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 20:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=amyp0bQQLpeK8dKZTAb4WHpNFpX9yDj0u1UHnTXihyk=; b=B2OVsAY9Gb6CuC5iBufB4qrNpK
-	4VMQyR1K5EPNBAUy7oie2TUIwQFhpBctBCTVgMyBj6X2iv/SEgi+8i0y01ytzNQFBBLzmTaRW4rVH
-	GnlYNJqZj94Mol9uKbcQkWnrTKamEaRYrbB26xJhH16r/e8jUN6JagzpqEJ9quziBuXKxRrSu8tAu
-	qh1flgFlBLfnLBGnY8bGuwwuO5vOo75BadkXM5NypkwkPtGsKeMTGu9ImNDTf/YxGHF3Kd/GmgqLq
-	LQMtcd93YNNOYt+ZzV4BtkrOakAA+MtLgiiCM/X2tRHUja9oCvtwH9Z0D+zpi+DEPcc0wbwPLVJhd
-	KwiVX36Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S0wz2Pp5BKXToP4WWrNmtTLcJUcbxzUiav7sBmIskes=; b=2qalHiYJ2NV6wkoqoZh2ekPFy+
+	cNf3vP6kwgjrKOqsgNToTf3u3hvBUPn7VeSCOpxOpQxGLYeDiQ0wPt+MFDkFdK+FzKjDO1s9If5jq
+	6/Kln3hq2wGPljGxNhOH6wHN5HMboGwQcVTxG3tGUuUsBtYXrmKwXQ+uRJ5jBauUZCAZslCL3dm8C
+	YeJchWLWCe/9GcvoGxDWCnzvmt1NdvYnJxCVd7+vosM6eJEySYyGz1f0YeqdTumiXTIK/5nFiUJ8p
+	Jf+wBqHI4J4dqt9+iZB9MRutwAW7NBTC7dvkpT6h2ZZCRlZ5Y44rFeg+nYY0nHAgEAjmqBO5GPUWa
+	azBM1RgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBfkF-00000004HjB-1zyd;
-	Wed, 22 Oct 2025 20:47:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBftp-00000004IYm-4AWH;
+	Wed, 22 Oct 2025 20:57:38 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBfkC-00000004Hi6-2E42
+	id 1vBftn-00000004IXh-1ux2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 20:47:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D513A4533F;
-	Wed, 22 Oct 2025 20:47:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F71BC4CEE7;
-	Wed, 22 Oct 2025 20:47:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761166047;
-	bh=e4wpAeuwnWxwPsv6xR22bTAFdrGhHjpoATj1khsZ/3E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eMDWLrfV+vZznUoPf7CPswB3dBThpbX2cO+2bWvkQ50o2TCrvoCdE1Cd8xXrUFRoi
-	 4RQOPMKhr+0tnSOK+DiKcMtj1oDkCTxPA4mHmnI44BotWVAjb9ldTnLMyTQjyS1Glb
-	 ijl24xdpzSdzrCZEKhn++IHDQPpZbUdTkCvlJsrAxJb/YRqToadM7K56X3TBjl4HEM
-	 Kyj7DofAye5roHM4RI4hcbcHBS9HAWzaMufkLYbmgqUo5c4mw2HV49+ecHPYhV766I
-	 BEuFIsEhcM7FbKPeKnO/YdST5KXQbtfPvLsfWmyESS1GnxaOKoG42xaOoXjHPKwp4J
-	 2Yalv6aXeJwRQ==
-Date: Wed, 22 Oct 2025 21:47:21 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-cxl@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org,
-	Dan Williams <dan.j.williams@intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>, james.morse@arm.com,
-	Will Deacon <will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	linuxarm@huawei.com, Yushan Wang <wangyushan12@huawei.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org, Andy Lutomirski <luto@kernel.org>,
-	Dave Jiang <dave.jiang@intel.com>
-Subject: Re: [PATCH v4 0/6] Cache coherency management subsystem
-Message-ID: <20251022-harsh-juggling-2d4778b0649e@spud>
-References: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
- <20251022122241.d2aa0d7864f67112aa7691bf@linux-foundation.org>
+	Wed, 22 Oct 2025 20:57:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1761166653;
+ bh=S0wz2Pp5BKXToP4WWrNmtTLcJUcbxzUiav7sBmIskes=;
+ b=g5HhySgOMIRIQQ+gf8ng3KwLd8Hnbq5lJKl8omwtsClBZEWES/zKYr3ZJlElu66QVQtwnKgb+
+ fboug6CMUHLJTHiD60b8p4DXEt7Xr3h9h3hiGtFkesWWaGJRt/LYzAH00TYoHVNw9D2xGdrivpN
+ yrYp9JSkGEXphaC+Jx644Y5KuRpi/xQ+P3hIy8Cg2RoKa55KSVpAtVqP8u84h41f4UwXS4kg+cF
+ /1+GuGmJ0wtbWX5dKCFQ1FA5WOdzOB2PCAZTJ/rfXZwJ8AlHgHgToh1GMqqet9qX1AnkJGJ6Cxf
+ 3JbeaVxEnSlRz7OIWS0m8HND6b7ruXf3TS5CSeGj8WLA==
+X-Forward-Email-ID: 68f945387ffe5c5c38c08363
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.3.0
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <5d2f3b9c-3d1a-47a5-93f1-1a6d6ce540f3@kwiboo.se>
+Date: Wed, 22 Oct 2025 22:57:22 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="S6HWZzkHmuKfgcDz"
-Content-Disposition: inline
-In-Reply-To: <20251022122241.d2aa0d7864f67112aa7691bf@linux-foundation.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 08/15] media: rkvdec: Add generic configuration for
+ variants
+To: Detlev Casanova <detlev.casanova@collabora.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Heiko Stuebner <heiko@sntech.de>, Ricardo Ribalda <ribalda@chromium.org>,
+ Hans Verkuil <hverkuil@kernel.org>, Hans de Goede <hansg@kernel.org>,
+ Yunke Cao <yunkec@google.com>, Jonathan Corbet <corbet@lwn.net>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ James Cowgill <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com, Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Diederik de Haas <didi.debian@cknow.org>, linux-kernel@vger.kernel.org
+References: <20251022174508.284929-1-detlev.casanova@collabora.com>
+ <20251022174508.284929-9-detlev.casanova@collabora.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20251022174508.284929-9-detlev.casanova@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_134740_621748_4A15FFC2 
-X-CRM114-Status: GOOD (  25.83  )
+X-CRM114-CacheID: sfid-20251022_135735_594906_52BD449B 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,58 +87,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Detlev,
 
---S6HWZzkHmuKfgcDz
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On 10/22/2025 7:45 PM, Detlev Casanova wrote:
+> This is to prepare for adding new versions of the decoder and
+> support specific formats and ops per version.
+> 
+> Different rkvdec_variant instances will be able to share generic
+> decoder configs.
+> 
+> Tested-by: Diederik de Haas <didi.debian@cknow.org>  # Rock 5B
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+>  .../media/platform/rockchip/rkvdec/rkvdec.c   | 37 ++++++++++++-------
+>  .../media/platform/rockchip/rkvdec/rkvdec.h   |  6 +++
+>  2 files changed, 30 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> index 776149f871b0..a7af1e3fdebd 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -373,15 +373,16 @@ static bool rkvdec_is_capable(struct rkvdec_ctx *ctx, unsigned int capability)
+>  static const struct rkvdec_coded_fmt_desc *
+>  rkvdec_enum_coded_fmt_desc(struct rkvdec_ctx *ctx, int index)
+>  {
+> +	const struct rkvdec_config *cfg = ctx->dev->variant->config;
+>  	int fmt_idx = -1;
+>  	unsigned int i;
+>  
+> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+> -		if (!rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
+> +	for (i = 0; i < cfg->coded_fmts_num; i++) {
+> +		if (!rkvdec_is_capable(ctx, cfg->coded_fmts[i].capability))
+>  			continue;
+>  		fmt_idx++;
+>  		if (index == fmt_idx)
+> -			return &rkvdec_coded_fmts[i];
+> +			return &cfg->coded_fmts[i];
+>  	}
+>  
+>  	return NULL;
+> @@ -390,12 +391,13 @@ rkvdec_enum_coded_fmt_desc(struct rkvdec_ctx *ctx, int index)
+>  static const struct rkvdec_coded_fmt_desc *
+>  rkvdec_find_coded_fmt_desc(struct rkvdec_ctx *ctx, u32 fourcc)
+>  {
+> +	const struct rkvdec_config *cfg = ctx->dev->variant->config;
+>  	unsigned int i;
+>  
+> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability) &&
+> -		    rkvdec_coded_fmts[i].fourcc == fourcc)
+> -			return &rkvdec_coded_fmts[i];
+> +	for (i = 0; i < cfg->coded_fmts_num; i++) {
+> +		if (rkvdec_is_capable(ctx, cfg->coded_fmts[i].capability) &&
+> +		    cfg->coded_fmts[i].fourcc == fourcc)
+> +			return &cfg->coded_fmts[i];
+>  	}
+>  
+>  	return NULL;
+> @@ -1014,18 +1016,19 @@ static int rkvdec_add_ctrls(struct rkvdec_ctx *ctx,
+>  
+>  static int rkvdec_init_ctrls(struct rkvdec_ctx *ctx)
+>  {
+> +	const struct rkvdec_config *cfg = ctx->dev->variant->config;
+>  	unsigned int i, nctrls = 0;
+>  	int ret;
+>  
+> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++)
+> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
+> -			nctrls += rkvdec_coded_fmts[i].ctrls->num_ctrls;
+> +	for (i = 0; i < cfg->coded_fmts_num; i++)
+> +		if (rkvdec_is_capable(ctx, cfg->coded_fmts[i].capability))
+> +			nctrls += cfg->coded_fmts[i].ctrls->num_ctrls;
+>  
+>  	v4l2_ctrl_handler_init(&ctx->ctrl_hdl, nctrls);
+>  
+> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability)) {
+> -			ret = rkvdec_add_ctrls(ctx, rkvdec_coded_fmts[i].ctrls);
+> +	for (i = 0; i < cfg->coded_fmts_num; i++) {
+> +		if (rkvdec_is_capable(ctx, cfg->coded_fmts[i].capability)) {
+> +			ret = rkvdec_add_ctrls(ctx, cfg->coded_fmts[i].ctrls);
+>  			if (ret)
+>  				goto err_free_handler;
+>  		}
+> @@ -1240,13 +1243,20 @@ static void rkvdec_watchdog_func(struct work_struct *work)
+>  	}
+>  }
+>  
+> +static const struct rkvdec_config config_rkvdec = {
+> +	.coded_fmts = rkvdec_coded_fmts,
+> +	.coded_fmts_num = ARRAY_SIZE(rkvdec_coded_fmts),
+> +};
+> +
+>  static const struct rkvdec_variant rk3288_rkvdec_variant = {
+>  	.num_regs = 68,
+> +	.config = &config_rkvdec,
+>  	.capabilities = RKVDEC_CAPABILITY_HEVC,
+>  };
+>  
+>  static const struct rkvdec_variant rk3328_rkvdec_variant = {
+>  	.num_regs = 109,
+> +	.config = &config_rkvdec,
+>  	.capabilities = RKVDEC_CAPABILITY_HEVC |
+>  			RKVDEC_CAPABILITY_H264 |
+>  			RKVDEC_CAPABILITY_VP9,
+> @@ -1255,6 +1265,7 @@ static const struct rkvdec_variant rk3328_rkvdec_variant = {
+>  
+>  static const struct rkvdec_variant rk3399_rkvdec_variant = {
+>  	.num_regs = 78,
+> +	.config = &config_rkvdec,
+>  	.capabilities = RKVDEC_CAPABILITY_HEVC |
+>  			RKVDEC_CAPABILITY_H264 |
+>  			RKVDEC_CAPABILITY_VP9,
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> index f35f6e80ea2e..3b1cc511412e 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> @@ -71,6 +71,7 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
+>  
+>  struct rkvdec_variant {
+>  	unsigned int num_regs;
+> +	const struct rkvdec_config *config;
+>  	unsigned int capabilities;
+>  	unsigned int quirks;
+>  };
+> @@ -113,6 +114,11 @@ struct rkvdec_coded_fmt_desc {
+>  	unsigned int capability;
+>  };
+>  
+> +struct rkvdec_config {
+> +	const struct rkvdec_coded_fmt_desc *coded_fmts;
+> +	size_t coded_fmts_num;
+> +};
 
-On Wed, Oct 22, 2025 at 12:22:41PM -0700, Andrew Morton wrote:
-> On Wed, 22 Oct 2025 12:33:43 +0100 Jonathan Cameron <Jonathan.Cameron@hua=
-wei.com> wrote:
->=20
-> > Support system level interfaces for cache maintenance as found on some
-> > ARM64 systems. This is needed for correct functionality during various
-> > forms of memory hotplug (e.g. CXL). Typical hardware has MMIO interface
-> > found via ACPI DSDT.
-> >=20
-> > Includes parameter changes to cpu_cache_invalidate_memregion() but no
-> > functional changes for architectures that already support this call.
->=20
-> I see additions to lib/ so presumably there is an expectation that
-> other architectures might use this.
->=20
-> Please expand on this.  Any particular architectures in mind?  Any
-> words of wisdom which maintainers of those architectures might benefit
-> from?
+Do we really need a separate config struct? This chould/should me merged
+with the variant struct.
 
-It seems fairly probable that we're gonna end up with riscv systems
-where drivers are being used for both this and the existing non-standard
-cache ops stuff.
+Using a two layer variant/config mostly seem to complicate things based
+on an initial review.
 
-> > How to merge?  When this is ready to proceed (so subject to review
-> > feedback on this version), I'm not sure what the best route into the
-> > kernel is. Conor could take the lot via his tree for drivers/cache but
-> > the generic changes perhaps suggest it might be better if Andrew
-> > handles this?  Any merge conflicts in drivers/cache will be trivial
-> > build file stuff. Or maybe even take it throug one of the affected
-> > trees such as CXL.
->=20
-> Let's not split the series up.  Either CXL or COnor's tree is fine my
-> me.
+Regards,
+Jonas
 
-CXL is fine by me, greater volume there probably by orders of magnitude.
+> +
+>  struct rkvdec_dev {
+>  	struct v4l2_device v4l2_dev;
+>  	struct media_device mdev;
 
---S6HWZzkHmuKfgcDz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPlC2QAKCRB4tDGHoIJi
-0tdvAQDJHGwCvxYrXGJs6nPPk7w5pV6+UajlzpKhldIVtCgm2QD/XrQK+qDLbAJA
-ymsJdZLdZoCSVVQ542yRJc4RjGzDnA8=
-=4U3B
------END PGP SIGNATURE-----
-
---S6HWZzkHmuKfgcDz--
 
