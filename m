@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA754CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03EBCCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6yeLxlHF1ExWB5DZwZRxEYNkaxzkbdpoSKjymzjUJmE=; b=N9zD4alrUOphKtYUZsbR7f/wkB
-	AOOJKT6o0gewLXJKTksroZjUM3WW9lOwrwiaGehua7jNW+m6lDRs2XaSi1uQRuPBcUP/0W9WCaGKA
-	UalcK4C7NbElwcFKsF9asloDxRQBPQTHM72M4sc/9HVp/KElufxbz+k/3jHu//YYzCM6m/+pdCOtX
-	G2kImPSMJ6d0jrkMPdgkHh+4oJL5dFhlTwzDmMGiImbeLjp5YWQYGG/Rz2qgSOGrvrYD8pDEDaYYP
-	vKBQJwJ4yL5UL5be+JWRE+2+Vzk1z0ZlhBvOv+igq3TrJ9D3V5XV2pW0frllmq6B5hfvPIKXEFy5O
-	NdBay+3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s613xJw9WuhBSPa3AbLHWluaS1QWKgR2WYDDJZIsIIo=; b=29imUTMrChV30YOA2knjxDy9Zl
+	50OC8etVGIgosKGSGNTZgP1mN2K4BYaw95YP4/r/lnGHmmatjCSwGuxNeZaKQAAk/EeaxQ7faanjK
+	HsfrgDJapT4zvhoWU3IDT7wKKcfmlKS5xROvIgvfx2GVI8yFqQg4uwCrFpWMsxRbHhdS68nFxhT4V
+	6F+86eVD8HNYzFrvDCN9LdYcwbIvDPXoJaZIs74ykISx4hp1u2Wo+XIVZpZTRNjPloEQpy9jYFi8G
+	emshKcSaIsfpR5FqZAwmVzI74Zxsl6ylm5rVMC1ViZ7pUCc3R1K2lLHkEtblhec6z4kAs3eZb1kN+
+	T0IY7QpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUmS-00000002BgL-49vH;
-	Wed, 22 Oct 2025 09:05:17 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vBUof-00000002CGI-32su;
+	Wed, 22 Oct 2025 09:07:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUmQ-00000002Bew-0n6q
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 09:05:15 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id C51B3C0B8B2;
-	Wed, 22 Oct 2025 09:04:51 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 86033606DC;
-	Wed, 22 Oct 2025 09:05:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5D3DE102F2424;
-	Wed, 22 Oct 2025 11:05:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761123910; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=6yeLxlHF1ExWB5DZwZRxEYNkaxzkbdpoSKjymzjUJmE=;
-	b=n2Z4tkf6o5U9c0lipN+o3XifhRcaEsIcWUSNkB4T/+bkjiLI0YovdjgK0wcw/J7+w+RMbP
-	XXXJAB5sk0AgXJ84LV6w1+bAF7TfewA7Ru9eQQUYtqRfc5Mz8hPSjomJ0vzJimC6f6WSwx
-	/RxHncJUqmBumvBArZb2tIXudRxorWrI/LUSkof3LpNucgeWNsVEkRp5WEsVVZK+YJCiDt
-	2WpyPYSkFUyw42NtZYWtYA8vW4rVY8qo9IfQUOl2gFlEZkXCUFjf+zwFrTIIUZqhmy41P1
-	zPVa0GTV+6s2TmWVoPZN/nw4n5xoyv9dLP8khMJ85WIi/0FKybbmO1lGqDabAQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Richard Genoud <richard.genoud@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Chen-Yu Tsai
- <wens@csie.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel
- Holland <samuel@sholland.org>,  Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=
- <u.kleine-koenig@baylibre.com>,  Wentao Liang <vulab@iscas.ac.cn>,  Johan
- Hovold <johan@kernel.org>,  Maxime Ripard <mripard@kernel.org>,  Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>,  linux-mtd@lists.infradead.org,
-  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-sunxi@lists.linux.dev,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 07/15] mtd: rawnand: sunxi: introduce ecc_mode_mask
- in sunxi_nfc_caps
-In-Reply-To: <20251020101311.256819-8-richard.genoud@bootlin.com> (Richard
-	Genoud's message of "Mon, 20 Oct 2025 12:13:03 +0200")
+	id 1vBUoe-00000002CFm-0dXa;
+	Wed, 22 Oct 2025 09:07:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 954E360345;
+	Wed, 22 Oct 2025 09:07:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F861C4CEFD;
+	Wed, 22 Oct 2025 09:07:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761124051;
+	bh=CFgRIFMDLlRvna1V1YNxpinel1qHj26Ym1dQevPLhM4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=k0dXllMzAkMxnW5/HCfpu5O8VnH8RRiG0N1ipd4KFgGQY8kTTafhn3lKe3yUz2jo4
+	 b3CI8iQggy9x6/LpG1XyflkUFqDDr+2xBzq3b9N3BCdseLEI0bIeGS717z5P+mLIsg
+	 LCfRwkRXNVCXYM6geprxjBkTuMLOpVnabM5vVxhSe7uCyk6mpLQgdoiJnNSvkrYviN
+	 k2gOc5yuh4cGN78HDSwEqWfUp8f4R5zDHx3Ibkj+6czn1Qkn5Wb5vjAmGD0ddUcdin
+	 vaC2ZPaA0RtTNyyLliSJ6st/5k/NJJ4m51PKxHiAfyrQW9cSBwwHvaoX4e73SuOPAC
+	 gOG/SPC8CGUwg==
+Received: from johan by xi.lan with local (Exim 4.98.2)
+	(envelope-from <johan@kernel.org>)
+	id 1vBUoh-000000004Ty-2gqA;
+	Wed, 22 Oct 2025 11:07:36 +0200
+Date: Wed, 22 Oct 2025 11:07:35 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Richard Genoud <richard.genoud@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 04/15] mtd: rawnand: sunxi: introduce reg_user_data in
+ sunxi_nfc_caps
+Message-ID: <aPie167O32Jc6BHw@hovoldconsulting.com>
 References: <20251020101311.256819-1-richard.genoud@bootlin.com>
-	<20251020101311.256819-8-richard.genoud@bootlin.com>
-User-Agent: mu4e 1.12.7; emacs 30.2
-Date: Wed, 22 Oct 2025 11:05:02 +0200
-Message-ID: <87jz0ntigx.fsf@bootlin.com>
+ <20251020101311.256819-5-richard.genoud@bootlin.com>
+ <87y0p3tiz9.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_020514_513627_875E39D5 
-X-CRM114-Status: GOOD (  14.24  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87y0p3tiz9.fsf@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,42 +87,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Richard,
+On Wed, Oct 22, 2025 at 10:54:02AM +0200, Miquel Raynal wrote:
+> On 20/10/2025 at 12:13:00 +02, Richard Genoud <richard.genoud@bootlin.com> wrote:
 
-On 20/10/2025 at 12:13:03 +02, Richard Genoud <richard.genoud@bootlin.com> =
-wrote:
+> > @@ -723,8 +726,8 @@ static void sunxi_nfc_hw_ecc_get_prot_oob_bytes(struct nand_chip *nand, u8 *oob,
+> >  {
+> >  	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
+> >  
+> > -	sunxi_nfc_user_data_to_buf(readl(nfc->regs + NFC_REG_USER_DATA(step)),
+> > -				   oob);
+> > +	sunxi_nfc_user_data_to_buf(readl(nfc->regs +
+> > +					 NFC_REG_USER_DATA(nfc, step)),
+> > oob);
+> 
+> Minor nit, column limit is 100 now, so typically for this kind of
+> situation everything would fit on a single line.
 
-> The H6/H616 ECC_MODE field is not at the same offset, and has not the
-> same size.
-> So move the mask into sunxi_nfc_caps.
->
-> No functional change.
->
-> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
-> ---
->  drivers/mtd/nand/raw/sunxi_nand.c | 13 +++++++++----
->  1 file changed, 9 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sun=
-xi_nand.c
-> index 70c940840dda..4118307cac15 100644
-> --- a/drivers/mtd/nand/raw/sunxi_nand.c
-> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-> @@ -29,8 +29,9 @@
->  #include <linux/iopoll.h>
->  #include <linux/reset.h>
->=20=20
-> -/* non compile-time field get */
-> +/* non compile-time field get/prep */
->  #define field_get(_mask, _reg) (((_reg) & (_mask)) >> (ffs(_mask) - 1))
-> +#define field_prep(_mask, _val) (((_val) << (ffs(_mask) - 1)) &
-> (_mask))
+Just a drive-by comment:
 
-This could probably require a mention in the commit message, as for the
-introduction of the field_get() helper.
+The preferred limit is still 80 chars, unless exceeding it significantly
+increases readability.
 
-No need to resend just for this either.
+I guess here such an exception may be warranted.
 
-Thanks,
-Miqu=C3=A8l
+Johan
 
