@@ -4,66 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A49F0CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F1DCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bH/S5+7ONDd+JW/4HboOqr7In0XCDk2F2dO2eyu5IF0=; b=DlU3iPfT0AjG+s5NV50SM0BVYD
-	jt0tN0hM0I0gqiiTkiCphQ3RgxAtVrkIMN3MmlXC+DKBKLO9MI2bQPWSBPHXMN0SyBXOFOIIPYnNL
-	pyREvf1pHdzSD3mXVg+ECL3hduJ/19RAkr/Yr0PJnofENq2pc7zOc0G91PVMX1DRoS6c9dpOvGFmw
-	odhu0NqR8qDeFvmJ6jsCA4qPk3mMlVakaW3NmLJiUOlUz4rP3TENEgnoCD2+jqn/W3EbSuYawVn+F
-	py3hbUIqqxwgIPJcbT+5WGRemIUamNUz/lbWj3yN5k5hvELSdAlTZ9ClHQKEH+FJbrJZEecD3T335
-	16QoeyFQ==;
+	bh=1rU8H/rU2g3WfGccOFtwT7WjZ5YfIx7nNgO5laRekGY=; b=Pkeqp5oriveGiypbmusmIykLRG
+	QIexqsVDzsypWXoVlAyr7088jXHrPPNIR2X/aW+L3k/bTPlJkc2Y4EboOyrBmreVmdTNtdS08QQ/f
+	BsJJhlLvPxWF8Nq+m1KpmPdveD9dO/lAiSaXdvrpNi/wTWfHTDGu9mKd7pvaAFYqXFo0c3RH9gBAS
+	l6+ucl5QWZQxtcDJJkYY/du0FgeQKgEXnh+bxFFeaX7ma5kDUj4qABAFfwdxvIZdXrbg8PMk9icpl
+	k/vkQHRpKnfhlPGHY0Pi480S3O77DVk70wjzVvcQafkBXr5zz7xa8obJiG2iHPvnhsVoA8igoJI5r
+	z1hkgnQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBTHD-00000001sqT-292K;
-	Wed, 22 Oct 2025 07:28:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBTHB-00000001sp3-0fE8;
-	Wed, 22 Oct 2025 07:28:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6969741ADB;
-	Wed, 22 Oct 2025 07:28:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD65FC4CEE7;
-	Wed, 22 Oct 2025 07:28:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761118132;
-	bh=wky3URqf3O2vjJEMF4Q+odzCED58MXfczjQc4betxSE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ElS/csoGEHpJmV/kJZ7zuPyLrDswCqt9GQnk/p6LWrUGFIBhTPs5gFJ7NST0aJSZy
-	 z/fkns0R+F7yEV6KvABFJPZ+Wci6G/nJ3op+4NcvOVypo660UhZQiLx9qkuScOZkXt
-	 Qty5ROWtQvqJhun7JmenYfNWYgCiSDqKS1W8hMWRjh4L9Vf1CmnZ/a84giCfADKpXw
-	 vUKTOZXNal36pWO6VqQUSwNR7YmQ/axf4nIq/zljJZj7GtuDWP5k3jOZVoQymg+RzK
-	 nk+0oyfRN7OTXapqGzcXMsjbe5zrIMO1GwaTBxa2oO3C8vYNkgjgJmH23vDRCxxHB1
-	 1ZJnm5Hm3zMiw==
-Date: Wed, 22 Oct 2025 09:28:49 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [net-next PATCH 2/2] net: airoha: add phylink support for GDM1
-Message-ID: <aPiHsYquV0NEc8zc@lore-desk>
-References: <20251021193315.2192359-1-ansuelsmth@gmail.com>
- <20251021193315.2192359-3-ansuelsmth@gmail.com>
+	id 1vBTIo-00000001tKx-0vAZ;
+	Wed, 22 Oct 2025 07:30:34 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBTIm-00000001tJW-0QvD;
+	Wed, 22 Oct 2025 07:30:32 +0000
+Date: Wed, 22 Oct 2025 00:30:32 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: xion.wang@mediatek.com
+Cc: Paul Moore <paul@paul-moore.com>,
+	Stephen Smalley <stephen.smalley.work@gmail.com>,
+	Ondrej Mosnacek <omosnace@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	wsd_upstream@mediatek.com, huadian.liu@mediatek.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 0/1] selinux: export current_sid API for use in other
+ kernel modules
+Message-ID: <aPiIGG1Zw5hJ2O3k@infradead.org>
+References: <20251022072729.14820-1-xion.wang@mediatek.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kazh4dQb53u+N7RG"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251021193315.2192359-3-ansuelsmth@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_002853_246102_36B22A88 
-X-CRM114-Status: GOOD (  20.78  )
+In-Reply-To: <20251022072729.14820-1-xion.wang@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,134 +58,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 22, 2025 at 03:27:17PM +0800, xion.wang@mediatek.com wrote:
+> From: Xion Wang <xion.wang@mediatek.com>
+> 
+> We have a kernel driver designed to monitor the status of the Android
+> userspace watchdog.
 
---kazh4dQb53u+N7RG
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+That module is not included in the patch series, making the export
+directly unacceptable.
 
-[...]
->  static int airoha_alloc_gdm_port(struct airoha_eth *eth,
->  				 struct device_node *np, int index)
->  {
-> @@ -2931,19 +2995,30 @@ static int airoha_alloc_gdm_port(struct airoha_et=
-h *eth,
->  	port->id =3D id;
->  	eth->ports[p] =3D port;
-> =20
-> -	err =3D airoha_metadata_dst_alloc(port);
-> -	if (err)
-> -		return err;
-> +	return airoha_metadata_dst_alloc(port);
-> +}
-> =20
-> -	err =3D register_netdev(dev);
-> -	if (err)
-> -		goto free_metadata_dst;
-> +static int airoha_register_gdm_ports(struct airoha_eth *eth)
-> +{
-> +	int i;
-> =20
-> -	return 0;
-> +	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
-> +		struct airoha_gdm_port *port =3D eth->ports[i];
-> +		int err;
-> =20
-> -free_metadata_dst:
-> -	airoha_metadata_dst_free(port);
-> -	return err;
-> +		if (!port)
-> +			continue;
-> +
-> +		err =3D airoha_setup_phylink(port->dev);
-> +		if (err)
-> +			return err;
-> +
-> +		err =3D register_netdev(port->dev);
-> +		if (err)
-> +			return err;
-> +	}
-> +
-> +	return 0;
->  }
-> =20
->  static int airoha_probe(struct platform_device *pdev)
-> @@ -3034,6 +3109,10 @@ static int airoha_probe(struct platform_device *pd=
-ev)
->  		}
->  	}
-> =20
-> +	err =3D airoha_register_gdm_ports(eth);
-
-is there any specific reason we need to alloc all netdevs before registering
-the given phylink? I guess you can just do it in airoha_alloc_gdm_port(),
-right?
-
-Regards,
-Lorenzo
-
-> +	if (err)
-> +		goto error_napi_stop;
-> +
->  	return 0;
-> =20
->  error_napi_stop:
-> @@ -3047,10 +3126,14 @@ static int airoha_probe(struct platform_device *p=
-dev)
->  	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
->  		struct airoha_gdm_port *port =3D eth->ports[i];
-> =20
-> -		if (port && port->dev->reg_state =3D=3D NETREG_REGISTERED) {
-> +		if (!port)
-> +			continue;
-> +
-> +		if (port->dev->reg_state =3D=3D NETREG_REGISTERED) {
->  			unregister_netdev(port->dev);
-> -			airoha_metadata_dst_free(port);
-> +			phylink_destroy(port->phylink);
->  		}
-> +		airoha_metadata_dst_free(port);
->  	}
->  	free_netdev(eth->napi_dev);
->  	platform_set_drvdata(pdev, NULL);
-> @@ -3076,6 +3159,7 @@ static void airoha_remove(struct platform_device *p=
-dev)
-> =20
->  		airoha_dev_stop(port->dev);
->  		unregister_netdev(port->dev);
-> +		phylink_destroy(port->phylink);
->  		airoha_metadata_dst_free(port);
->  	}
->  	free_netdev(eth->napi_dev);
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index eb27a4ff5198..c144c1ece23b 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -531,6 +531,9 @@ struct airoha_gdm_port {
->  	struct net_device *dev;
->  	int id;
-> =20
-> +	struct phylink *phylink;
-> +	struct phylink_config phylink_config;
-> +
->  	struct airoha_hw_stats stats;
-> =20
->  	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
-> --=20
-> 2.51.0
->=20
-
---kazh4dQb53u+N7RG
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaPiHsQAKCRA6cBh0uS2t
-rCv/APwLqOVbfi/DsCOVxc0WBmL8YmDTSl9WyN+GAxmI89XOBgD+K69sz2/U+4uw
-IJ5/VGNGbObQDMmPdHC4ZwXdx//AmgI=
-=FUxz
------END PGP SIGNATURE-----
-
---kazh4dQb53u+N7RG--
 
