@@ -4,58 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F26CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15DD0CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:34:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BO9B7XrcsbLTZBYYkoG9n50DYuVN9Mxnkq7TtWPsbFA=; b=ITKT1tQR3zg0K5Rybem1TQU4H+
-	QGz9C+9Gdk5hv6K7EjAjRVwlnUBGInnOlyDUhhUYN6Xdxu/JCkEfkqYMSiCxqZyIvqVNGJNvF8Cmb
-	Wa9p7kKeC2wEVeDB4oxx2XxZEm29PWVGMILnvyzAd6G6pC/3ImdRw5IG7ZIeNolQGPl+4M7w3w2AU
-	tWwN22mFhYIQxvOfUI9Rp/+RBBTEvQcxq8WWHSY9fHjnfvBfLOCixTFJHgbCQ6hHvN2UXyT27chDu
-	nOjXXrOL+KEpOKhcW6jEfXm1lwdJlakOcIm+do7Ul8kSKVuOfMd4/Yzm5+PMX9CdGQZup/v7fB4eD
-	UhoLMoug==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SQ7q/4zySaM4MOZEvp5XgJfMQC2PsHs4Sv4JNvspi/g=; b=jIEkKlmawcflp7GUyLE3J2q13k
+	BCK7PRBrVJCGjx49rvJ+fmJZM/wye+bTmuzKgWzIoosD4GfmFYay7XlzVWbbhQN5DNDeJ9ybS4tul
+	M5dCVHPeyEiJbHVLKwbCZUVVmb9RQOex+xqIq/eVp3cfnSg3mVIh5BKWswOhwtpY+Hm6bXiReikiW
+	Dz3Z1dySqiLKYX4n8bcUphHGpeftqot1S2MKPNI52HUxypko0ah6hYxZZzWTwIfXF4w9MM7OG7j9J
+	S86dq4adsgDWIF7jwbgbA6LJolJuF6ZwbEOZupP4FdnVvSJMPVdITdMenqjqFCf91V1zX372c2Pru
+	i4gKyP+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZpv-00000003Dt8-28do;
-	Wed, 22 Oct 2025 14:29:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZps-00000003DsK-3O04
+	id 1vBZuY-00000003Erj-372M;
+	Wed, 22 Oct 2025 14:33:58 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBZuU-00000003Eoa-37Ia
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 14:29:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A0511063;
-	Wed, 22 Oct 2025 07:28:59 -0700 (PDT)
-Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5BF293F59E;
-	Wed, 22 Oct 2025 07:29:05 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH] perf cs-etm: Mute enumeration value warning
-Date: Wed, 22 Oct 2025 15:28:49 +0100
-Message-Id: <20251022142849.1537706-1-leo.yan@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 22 Oct 2025 14:33:56 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4csBVb60xNz9slv;
+	Wed, 22 Oct 2025 16:33:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761143623;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SQ7q/4zySaM4MOZEvp5XgJfMQC2PsHs4Sv4JNvspi/g=;
+	b=saBzREJLydm0tA2LYr2BcmhoAY+acV8mtBdecGgVwtS5lAD7t7wErTCFt5F0w/c0GiUF2i
+	WDrvvwugbxLNoe+ZsurdYiiwWveLQl1EIzx7jDgtuErJXLAjROsilTamuao/whxy2lJ1qW
+	iHp24gK+G+gVTZKIYMtH1eLBw5V7UOfWRaNh4pGeYFMmC2HWLSV7YyHGdkUoI4KwnExaJQ
+	VxdfBAwafcPvzjMzN6eH21M/KmZ/W6xoQ5h8LWxrIYrusjsU4B+M1Ag1yVBJo+SXTSrWtn
+	1jn+vtnFk9w+BpMk48s9cwSw4sf9J4jSlhvQATbNyMNLBhMo84vxzjZv0uvfuw==
+Message-ID: <07391913-aab6-4d92-b75f-278506f51397@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761143622;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=SQ7q/4zySaM4MOZEvp5XgJfMQC2PsHs4Sv4JNvspi/g=;
+	b=r4VMeBRi3apHe8m5FEEmVn6aErJV/mNboAPeRwAlhvbJwqmIu7ZAVBGmuPsUtG2lE+ghyN
+	XGrxPJrtFpspdNAZQxwsh5lsiwHCar6A0ARJqxPgBefbPpBujTdL9ZaQjPEzzCCG1UUXR6
+	O8djyPLNAaV1hD29wHC1tduFzGwCZtDbCZqx8BzFPEen5JZGQxNJuVE6v2PTBovh0xPBv/
+	zkWO/QUutbLLd0LuxRQ6mEbtMlM24JbKxr6QlOslEbSsVCVrGJfjj16iUyo4+eFlb4ItGw
+	CX2DX2axJ2MzCIkRCiu0v1hV2ysjFbd9IwhTUSXBxB/wS1S6/scdRO1UtdSXpw==
+Date: Wed, 22 Oct 2025 16:33:38 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] arm64: guard AMU register access with ARM64_HAS_AMU_EXTN
+To: Marc Zyngier <maz@kernel.org>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+ Yicong Yang <yangyicong@hisilicon.com>, linux-renesas-soc@vger.kernel.org
+References: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
+ <86347bvx0f.wl-maz@kernel.org>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <86347bvx0f.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: cj3tsrj4fhfswqme59bzu1bbbxce1pa8
+X-MBO-RS-ID: 39483152c3182c61913
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_072908_972164_485859BC 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20251022_073354_944232_722324E0 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,101 +95,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the OpenCSD library introduces a new enumeration value (for example,
-in the v1.7.1 release), the perf build fails with an error:
+On 10/22/25 4:20 PM, Marc Zyngier wrote:
+> On Wed, 22 Oct 2025 14:35:28 +0100,
+> Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
+>>
+>> The AMU configuration register access may fault and prevent successful
+>> kernel boot. This can occur for example in case the firmware does not
+>> allow AMU counter access from EL1. Guard the AMU configuration register
+>> access with ARM64_HAS_AMU_EXTN to prevent this fault if ARM64_HAS_AMU_EXTN
+>> Kconfig option is explicitly disabled. Other interaction with the AMU is
+>> already guarded by similar ifdeffery.
+>>
+>> Fixes: 87a1f063464a ("arm64: trap to EL1 accesses to AMU counters from EL0")
+>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+>> ---
+>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Yicong Yang <yangyicong@hisilicon.com>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-renesas-soc@vger.kernel.org
+>> ---
+>>   arch/arm64/mm/proc.S | 4 ++++
+>>   1 file changed, 4 insertions(+)
+>>
+>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+>> index 86818511962b6..123538ffeda6b 100644
+>> --- a/arch/arm64/mm/proc.S
+>> +++ b/arch/arm64/mm/proc.S
+>> @@ -145,7 +145,9 @@ SYM_FUNC_START(cpu_do_resume)
+>>   	ubfx	x11, x11, #1, #1
+>>   	msr	oslar_el1, x11
+>>   	reset_pmuserenr_el0 x0			// Disable PMU access from EL0
+>> +alternative_if ARM64_HAS_AMU_EXTN
+>>   	reset_amuserenr_el0 x0			// Disable AMU access from EL0
+>> +alternative_else_nop_endif
+> 
+> Why?
+> 
+> We ensure that the AMU is available in the macro itself by checking
+> for ID_AA64PFR0_EL1.AMU. If the AMu isn't present on this CPU, we skip
+> the offending sysreg access. This is similar to what we do for the
+> PMU.
+> 
+> Does your HW advertise an AMU, but doesn't actually have one?
+The hardware does have AMU, but it is currently blocked in old TFA 
+version and access to this AMU register here causes a fault. That's why 
+I have to disable ARM64_HAS_AMU_EXTN until the TFA is updated and the 
+AMU access is made available on this hardware. But even if I do disable 
+ARM64_HAS_AMU_EXTN=n , I get a fault.
 
-  util/cs-etm-decoder/cs-etm-decoder.c:600:10: error: enumeration value 'OCSD_GEN_TRC_ELEM_ITMTRACE' not explicitly handled in switch [-Werror, -Wswitch-enum]
-    600 |         switch (elem->elem_type) {
-	|                 ^~~~~~~~~~~~~~~
-  1 error generated.
-
-Convert to if-else sentences to mute the enumeration value warning,
-which can avoid build failures whenever the lib is updated.
-
-No functional change.
-
-Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- .../perf/util/cs-etm-decoder/cs-etm-decoder.c | 44 +++++--------------
- 1 file changed, 11 insertions(+), 33 deletions(-)
-
-diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-index b85a8837bddc..3050fe212666 100644
---- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-+++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
-@@ -588,6 +588,7 @@ static ocsd_datapath_resp_t cs_etm_decoder__gen_trace_elem_printer(
- 				const ocsd_generic_trace_elem *elem)
- {
- 	ocsd_datapath_resp_t resp = OCSD_RESP_CONT;
-+	ocsd_gen_trc_elem_t type;
- 	struct cs_etm_decoder *decoder = (struct cs_etm_decoder *) context;
- 	struct cs_etm_queue *etmq = decoder->data;
- 	struct cs_etm_packet_queue *packet_queue;
-@@ -597,52 +598,29 @@ static ocsd_datapath_resp_t cs_etm_decoder__gen_trace_elem_printer(
- 	if (!packet_queue)
- 		return OCSD_RESP_FATAL_SYS_ERR;
- 
--	switch (elem->elem_type) {
--	case OCSD_GEN_TRC_ELEM_UNKNOWN:
--		break;
--	case OCSD_GEN_TRC_ELEM_EO_TRACE:
--	case OCSD_GEN_TRC_ELEM_NO_SYNC:
--	case OCSD_GEN_TRC_ELEM_TRACE_ON:
-+	type = elem->elem_type;
-+
-+	if (type == OCSD_GEN_TRC_ELEM_EO_TRACE ||
-+	    type == OCSD_GEN_TRC_ELEM_NO_SYNC ||
-+	    type == OCSD_GEN_TRC_ELEM_TRACE_ON)
- 		resp = cs_etm_decoder__buffer_discontinuity(etmq, packet_queue,
- 							    trace_chan_id);
--		break;
--	case OCSD_GEN_TRC_ELEM_INSTR_RANGE:
-+	else if (type == OCSD_GEN_TRC_ELEM_INSTR_RANGE)
- 		resp = cs_etm_decoder__buffer_range(etmq, packet_queue, elem,
- 						    trace_chan_id);
--		break;
--	case OCSD_GEN_TRC_ELEM_EXCEPTION:
-+	else if (type == OCSD_GEN_TRC_ELEM_EXCEPTION)
- 		resp = cs_etm_decoder__buffer_exception(etmq, packet_queue, elem,
- 							trace_chan_id);
--		break;
--	case OCSD_GEN_TRC_ELEM_EXCEPTION_RET:
-+	else if (type == OCSD_GEN_TRC_ELEM_EXCEPTION_RET)
- 		resp = cs_etm_decoder__buffer_exception_ret(etmq, packet_queue,
- 							    trace_chan_id);
--		break;
--	case OCSD_GEN_TRC_ELEM_TIMESTAMP:
-+	else if (type == OCSD_GEN_TRC_ELEM_TIMESTAMP)
- 		resp = cs_etm_decoder__do_hard_timestamp(etmq, elem,
- 							 trace_chan_id,
- 							 indx);
--		break;
--	case OCSD_GEN_TRC_ELEM_PE_CONTEXT:
-+	else if (type == OCSD_GEN_TRC_ELEM_PE_CONTEXT)
- 		resp = cs_etm_decoder__set_tid(etmq, packet_queue,
- 					       elem, trace_chan_id);
--		break;
--	/* Unused packet types */
--	case OCSD_GEN_TRC_ELEM_I_RANGE_NOPATH:
--	case OCSD_GEN_TRC_ELEM_ADDR_NACC:
--	case OCSD_GEN_TRC_ELEM_CYCLE_COUNT:
--	case OCSD_GEN_TRC_ELEM_ADDR_UNKNOWN:
--	case OCSD_GEN_TRC_ELEM_EVENT:
--	case OCSD_GEN_TRC_ELEM_SWTRACE:
--	case OCSD_GEN_TRC_ELEM_CUSTOM:
--	case OCSD_GEN_TRC_ELEM_SYNC_MARKER:
--	case OCSD_GEN_TRC_ELEM_MEMTRANS:
--#if (OCSD_VER_NUM >= 0x010400)
--	case OCSD_GEN_TRC_ELEM_INSTRUMENTATION:
--#endif
--	default:
--		break;
--	}
- 
- 	return resp;
- }
--- 
-2.34.1
-
+This patch is mainly meant to prevent a surprise in case someone does 
+set ARM64_HAS_AMU_EXTN=n , and the system still faults on AMU register 
+access.
 
