@@ -4,183 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD0FCCF9E1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 19:01:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF413CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 19:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uLpi83YtaPPTf6HlkOIBuuGYuTWggmWH1mlBBal7Rv0=; b=P/R5r0DS+nwrq0AIXHi7ew9T9K
-	moYwBDDU0nbhYUr610cRT6QVn4x7IcCfbYbVNc/nSnFN1sECNyHHFv1Mrj3tCqIH7NlHbbkw0VX9V
-	vEak7d04xKalChHd2Syc14I9O7OCG+q1h5AH3g1pPwzHoUlhMJec3YQP7sAGDrFjrzqMU8FJfNgml
-	2Zu2SoB1YH14Oh4VPJhwjS2hOz7bHg1hYygeqw857pxdYRBC0qhtu1CAzONvT5F2owX6cCSwP1aIV
-	4Bm4uFoc/kgkR+Vo08wsjq/JbmobRC1xLmBSyxke0Msh8ZNTGHxVJ1gQHgwqdx40k37C/vDfZHYeT
-	hOGMOdEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=nggBr7VMI2yCU4cQrDQmx375+miBYKjpwzxd44hAZQs=; b=k/hHURIwjjm4ET
+	3u/DEJVHuYkaKmjNZNPBy4jy7pF8u44kngPQqyClsz+KcHkOcVkwhvQH/wro953GpHdXx84E8am/q
+	6ImUFZSRNxeH2dbqWoxnys50iOt6esNMtcAlrN8la3rJVDEDpElvpaHz1FCV7JsUSVga2FCQG9Br8
+	f1W+lg2J+hEJGL5nQQbEl9iHY2hZWlaTszHQbr/EaBrK6DC6bv64KLBWc93VeGwNG2DyNogEHRajr
+	ESaRNCUMLe/Qg0dolM8XPw8qbiM3Gj+d3MZqwEh+9QtFTDiw7LSklSLnN5EIYma0ibunFpY3G3H/q
+	ddTHsspmKUBIssd92y2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBe57-000000044gh-1vTu;
-	Wed, 22 Oct 2025 19:01:09 +0000
-Received: from mail-eastusazon11012048.outbound.protection.outlook.com ([52.101.53.48] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1vBe7x-0000000457E-4255;
+	Wed, 22 Oct 2025 19:04:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBe51-000000044fQ-47Eq
+	id 1vBe7w-00000004577-2FLe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 19:01:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CyJe84d91oUSDy/UvXUNheJZKkjox3PtdRJVeIfQ3J+3H2pGcdkCe7Lf71/lwGqoTXyDqJBobDkasNiG5eEV2f+/kRLtA36ypGJFa13yseFYYL98GxZWCFlx8XKcwncoVgJav9JgUoVu9hnSKfXjXrZM7FbckKwbN/3qlb8367J0xwgsAGtAKRHjDOAqy2wLIPyyd4QdS6Qja0kq0pEKzzAnxMRz0T64A+VXdTqMykXfIZK6NbF7rVivgpg0S/NRVgSy8VzS7hdfvo50Qg5aeDw7SaD5tFtNe67HMYYIkuHdcRsTZgDiOBMKwVqpxVgNhMAMbWKrrIVTipuI5D1JdQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uLpi83YtaPPTf6HlkOIBuuGYuTWggmWH1mlBBal7Rv0=;
- b=pQRzDeThKI/9qTcdSu1nxVQjaaz6oOllt4iJbUZ8/cJ5HQ5nECHtfa5uiuFojQ7/H7DJUq9fRql/qMXh1o0ZJwJhoTNvBCgwKzHMeNDKXoNaEYwwSMy7MsF7W4AM6hiBdrGoKT+bvmq+3hsEW7CcRI0F4Ykw8wD/0PlqrAEvtp1vR7P3RKBRV1gDp8RzQu1bu82JjMX+KrHswjhS7SnK64ngf3rb1YomrwlxyJArdBSqPgCHp5TjreaSwsm2VBWYevmBsEwF+KeFJ/vxp7voxMerqfwQvlZyVt9Mp/0zS12yLpcvN32Zg3LEswYDuQOtm2KxwIOkimBFXwZsFKUjTQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uLpi83YtaPPTf6HlkOIBuuGYuTWggmWH1mlBBal7Rv0=;
- b=GYzw8crDst8pTC+Oc08GpeEUoeMSt3z3+sDIPvQcWDB6vtTMjd4/0BzP9w/BK5eZCYteN/VvmHsmmKT4v2CXPF43mDvK9au18tDpX26k//mwUGnq4gvz+wP5emLYx+/jmvZScrd4hwoeR0rheZs7m40iul1rHzjCp+QCyHtrryOgSjNauxIP1gPRv2gVN84H5CPng8nxsMBvn0eO5TxUMVMeh3qx+n2bI1h6TchNBZ5XxgashNpqQZrmMP2iditJyGg2/LxLwZ+prMEnUhaERfBNme31ROqptccL5kbVJ3btmMGYyqK6sCtr0ve8KaXd89Hl3yliRWAeI5fYCR6rfw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB4186.namprd12.prod.outlook.com (2603:10b6:5:21b::11)
- by SN7PR12MB7300.namprd12.prod.outlook.com (2603:10b6:806:298::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Wed, 22 Oct
- 2025 19:00:51 +0000
-Received: from DM6PR12MB4186.namprd12.prod.outlook.com
- ([fe80::af59:1fd0:6ccf:2086]) by DM6PR12MB4186.namprd12.prod.outlook.com
- ([fe80::af59:1fd0:6ccf:2086%5]) with mapi id 15.20.9253.011; Wed, 22 Oct 2025
- 19:00:51 +0000
-Message-ID: <183a54d5-0f07-4d37-915a-55ff9ab0e86d@nvidia.com>
-Date: Wed, 22 Oct 2025 14:00:46 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 07/29] arm_mpam: Add probe/remove for mpam msc driver
- and kbuild boiler plate
-To: Fenghua Yu <fenghuay@nvidia.com>, James Morse <james.morse@arm.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Gavin Shan <gshan@redhat.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
- <20251017185645.26604-8-james.morse@arm.com>
- <fa5187f0-293e-48f0-ab75-6641e284e8b4@nvidia.com>
-Content-Language: en-US
-From: Tushar Dave <tdave@nvidia.com>
-In-Reply-To: <fa5187f0-293e-48f0-ab75-6641e284e8b4@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BY3PR03CA0019.namprd03.prod.outlook.com
- (2603:10b6:a03:39a::24) To DM6PR12MB4186.namprd12.prod.outlook.com
- (2603:10b6:5:21b::11)
+	Wed, 22 Oct 2025 19:04:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E69BD60200;
+	Wed, 22 Oct 2025 19:04:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 662DCC4CEE7;
+	Wed, 22 Oct 2025 19:04:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761159843;
+	bh=HynxvFvL63x3qBAv6jyUnbljlrqHMAy78xfcOCsEeHI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=NSN9tBv0CifB0arwpVmfBmqmRO3mJaAIUdXhdzNTFPa4msh/y2tHxQiwcHbr/DwcA
+	 z1N7+0NQju/bE5zoxNg1TGM7GBw420UlQCuaXYRJ3wmy0nexThFKJtMqsf5Dcs2FgX
+	 tpN3WAZBAMXoqQnA8R62MNnpjvolmTl5kvnlu7A6FZjEI0hx+/2QdeICA1p0IelyEe
+	 jrOpLfyO4ZO0EYFVpc8ci7iRiYZ3/f7dwjUPUa5AdFgVAhS/KoFXUc9FDHwjRgdc7B
+	 l1d+gi+PrflsqymNwaVZwrxyYzozhbhysAwFXF6BJrS/PHOxPDQMgWY2+YuQUf1yzx
+	 d/d0YZi/M30kg==
+Date: Wed, 22 Oct 2025 14:04:02 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: chester62515@gmail.com, mbrugger@suse.com,
+	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com,
+	jingoohan1@gmail.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com,
+	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com,
+	bogdan.hamciuc@nxp.com, Frank.li@nxp.com,
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, cassel@kernel.org
+Subject: Re: [PATCH 3/4 v3] PCI: s32g: Add initial PCIe support (RC)
+Message-ID: <20251022190402.GA1262472@bhelgaas>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB4186:EE_|SN7PR12MB7300:EE_
-X-MS-Office365-Filtering-Correlation-Id: e6b62aca-62d4-49d2-0f37-08de119d517d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dmFIM2pQOG41R24xcDVCRXA1REdEa1dURzNkOXU5bHdWeXpIQkF4RjNldmJt?=
- =?utf-8?B?ZWtvS05Zclh4M1NlRDVkT0tNTnA1dll0cWozUjhLYjJ1Q0Uyek5CZXZwenEz?=
- =?utf-8?B?anc5a0dZd1VWdUxkalphOUJlQUhaUVhQcU9Pa25lV0FDN1J2aGxDVU9XTXo0?=
- =?utf-8?B?U1B0SjNnUis5QzQya3lnYjBoM2xIVDl0SzR6b3g0dnJHZDZ1S1BvUERpUWE0?=
- =?utf-8?B?bFRQaDdHOWU4UGQ4QkMrNmMvN056K3pvYjBUV20xMGhNdGpUbm4rMHZ3emFF?=
- =?utf-8?B?MXdHWlRZREp0c2VHbldEcW5kN3RiVEVtaW01ZjlHN0x3MUEvTTZKeGpqUGdZ?=
- =?utf-8?B?ZjcwZlprZzQzZFFpNVdqbjF0Z29CNnJsbW1iS1ErK3diQnhMWko4ZzRKQjZH?=
- =?utf-8?B?S2hUZm40eUQ3Zm14RGxKTDg2YlJwRndleE0wSUxQeGVhVUpXTjhaSkdtenIr?=
- =?utf-8?B?M3EwRkdWSXlrM0owRmJBaml5eWtmQVhKeU9TellqL1hHTnBGd0pBaG91WmhN?=
- =?utf-8?B?bURvQUw0MWZXY0RjQkNzYkZIUXNDZjdMYXJqNldhQlgxL0xnTVRWbFk0ZW5x?=
- =?utf-8?B?MC9uSXBtMjViRDlBQ2N0ejZ5enFaMWZ2OG9zWTJ0djFRczBHMWdBMkxhSTBM?=
- =?utf-8?B?WXdpMDRZNldzSjRYem9weDlqVEdsRmROa01FTUtER3I2b2lCakVTVHlpQ3Vt?=
- =?utf-8?B?QzV2Ti8vL3JCS1pLa05HazZXdWFERUpDOTRkWmQxajcwOHNTaTJ2ck9na0d6?=
- =?utf-8?B?YXNRN3pMQ2l0R21EQS9YWWMvNEszUmNWYTJuSTFUSHRveCtNVkM4QzZRc3BO?=
- =?utf-8?B?bVdwb2IxLzZjSFVnRjR2M0IvWk5sUDdiQzJRaDRkRXFaeCsxV3prZEdLRGNY?=
- =?utf-8?B?STdRWjU2K25oSzZIS3RNQkZsam56cG91NXdsRFpOR3REU3pXeld0MDZmQi9Y?=
- =?utf-8?B?UXZqcDIyMGQrNi9BcWMxdDlpVjZTYVEyR2ZFdW1ISWkwNjJqY1hnR2JTWHlj?=
- =?utf-8?B?eW1TTEY2cjdsOVVxMGxKWUxSYVU2NWwwcFJCeXNodXZKbC9UUXFpbG1FM1hD?=
- =?utf-8?B?a3paZW51L25UTnVId3VQK1VqeEU3ekcvbG82Y3JJT3pSS3l6aFpobVFvRlBo?=
- =?utf-8?B?a3JJNFpxTUQwVzBxOWhscDlKTlNteFczd0t1ZVNob3dSSlIydENhaHZucU9G?=
- =?utf-8?B?b2VJLzQ0N3dWTm51ODBiOWNuR1BIVzdyNmEybjk2L2lhczRVR1FXWExpbzQw?=
- =?utf-8?B?cjhHMjdncm9iWlk3R1p6enBzL2dpTFB4c21oSkwrL1d4Z1p4UjFEOGlkUjVF?=
- =?utf-8?B?K1lSc0ZlQzl2NDlkYzQ4NlBHNGFHNzJsaHN0NVVRUmV6UU5Qbk82TG9JL25Z?=
- =?utf-8?B?RXRZL2Jncmo4YkI5SUVycm9LMitEVklEN0kxN3dnYUc3RWxtY2ZLRElLZkFD?=
- =?utf-8?B?cDBQNmhqRlpwTjk0aDlYV2hKSjJmQmdYQXBHbERXSnZMRENUenhSbll2dWpD?=
- =?utf-8?B?YzluVW9XcUF5Y2I1dkg5cXg0YU8vWlNrZnAzQ3p0V25xeXFXcHVXZEJlSlN1?=
- =?utf-8?B?alFtckg4UHc5T0NyWHNIWFBFbVVXVjhpWG9tRzNvbVU4ZVlPa1NJazgvaDJ2?=
- =?utf-8?B?bEVlemxWODBOdGp2ZUJUTjB6b1FCd2U3bmRILzVMdlA3Vi9TYVI1Z2luTTNy?=
- =?utf-8?B?L0VMNXlCZDA1dlQ3azR0V1N2R1k4eENtdndiTWY2NTI3OVZUQTBuSGJIcitl?=
- =?utf-8?B?RkREUkMyQWFOOGNqL3BEd2daVFEwcFNUTitaV0lKQkJmVGFLbCt6QnBjVnFk?=
- =?utf-8?B?cUE5NWlaVUhCVXFBdGdaM2Q4OXh4amMvN0hFTWUxZUViNDhjZ04wRlVpU0t1?=
- =?utf-8?B?b21WVkhoM3dVOWx3U0pidFcxVkdjcXBnZ2p1NktxNTgwbHp4cXUxMnVnc3FS?=
- =?utf-8?Q?QyR5ANbGzhcAgeS5R0OQskjS6SO7GosI?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4186.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UFZaVW90N2dsbXVhcUV4NzlGRXBpUEg0QkFFUlg5S3lBSWNSdXovOTF5MDlE?=
- =?utf-8?B?SDhGaHd6UjlFUUpvMjZmdW9sdHZZV2owSklYbXhIWk5GVXBRWTlKdmN2MVpS?=
- =?utf-8?B?MXYzb2NLdFN0bzZ6RlBsS1VNVWFoODl1Y0d0dUQzWlluRmxENkpFWnBRL1lr?=
- =?utf-8?B?S2pJOUpUMis2WG9KUjlFVkdwNnZWQ09NTlg3b0FuZEdtTjk3N1ZBL0QrdkNY?=
- =?utf-8?B?ZGwrdUoyako0YjNWS0lYWlZMdk1kQTRvV0s4YkMySEFuRkZSdUlUWUdvNDRL?=
- =?utf-8?B?bkFKMElpcGNMbm1FenFMVk9QZXlnRStjUVNpSVprREU5MFhqUXNkY1N6VkFC?=
- =?utf-8?B?cHVtSDRqWWNDN2tIdmtVRWJpN2I5Y012bGFYTWV3SEF3RUtncGo1dDdWMFJI?=
- =?utf-8?B?TjA5RGQwNGlMRDBrUHp4SWlxVk5IYlJTSHR4a0J1TUY1S3JPeWNSYmYzaWMz?=
- =?utf-8?B?enJWYkZwN1FKdlk0RXQrUWpYUlpBY3pkU0pDbHhvRk1PM1Q1Z0kyc0dENHZU?=
- =?utf-8?B?ampvSm54OFNFOG1VSkJzeFVHR0pYL3VjclM4dlN5Qi9iYXRiZWRUd1hyTy9x?=
- =?utf-8?B?ay9zRSs5aEhGYVZxVTkzUkNvakN3RkI0MDBHdlVSa0x0blRNNUcwcmVKVEc3?=
- =?utf-8?B?elc2VFphMlpMNVZab21sUjl6a3N5dXcxcmlTd1lQM1BmdXMrdXFkMEJhNHRS?=
- =?utf-8?B?T3A0WVpPNmp3K1FZc2JGcHRwUDlncDFIMnRBdlRDdmk2Wis5UTZ5SXpzQmlj?=
- =?utf-8?B?bE9jSzZsSFhPOVVnNjAwZjNGRGhIaDRnSDhEcEIyZEZ2dEFkbkhOazJBbFB0?=
- =?utf-8?B?Q3dVS3Ewc1o0c21yWllFU2ZSUjY0S0R3dlJQTDJ3OVlVK1RCbkN2S1lYbUYv?=
- =?utf-8?B?bUhyd2xVdXM3YkhzejZNUlpRVjVOeVJKR2N3TzZZS0dSaWhWRHVZQ3NZUlV5?=
- =?utf-8?B?SVAyUFI3NW9RbkNVL3k4ZlpWQ2NxS3hkTTRBWnZnWTJvRUdZbmpFdGUyUWQ2?=
- =?utf-8?B?VFFWNW5kY2J0eVJ2VXhqT29vVTl5U2EyTnYzVTErL0N6MTRZN3NTdVFlL0Q4?=
- =?utf-8?B?UGppY2lncUFVOXZGbGw1bnRPMjZlTkpwY0kvS2E3UXAwWGdPNTJlNE9VVkhE?=
- =?utf-8?B?VzJ1SUZHdXB5UmRjYmNBd1VFSTJsdlNHVXJ2TnZvMmk1bnRuMlZFcTBZUFBj?=
- =?utf-8?B?TzIxaVNONGVtZG9VTGtZUWhnTzZ5ZFhJV3NFdUtpMFdQU3VWZVU2TW5MUVhv?=
- =?utf-8?B?aUZlZ25JMHlZUjFXZUpZY04yWEVIWlhIT01SZ3RCQzZ3WERCNnZFc1UyeGgy?=
- =?utf-8?B?NjVZU0Q3TEZDSGsyS2RiYzh0WS9KMkhYRmxLV0ZJVjA3RTNrNTZuY0djVE5O?=
- =?utf-8?B?NEk3Yll3UE9pdm1TTzd3TGZ3cytONkRUdERBTGY1VGt4eng5M1Jjd3BMN1Ny?=
- =?utf-8?B?QWNWUHJnWmdJazZwUzhuYkpuc3BNamdEUUIvTVNQelRrYmJkOE1vUFRaT2tt?=
- =?utf-8?B?clNxYkd4SU1QSTBjVXd4cDk5bEcxTkphcTlaWmo1MDR0eFRNU1MwdzQwMHhG?=
- =?utf-8?B?aWZwVFVucW5GaXhEVjVjb2tuVkxQT2xSckhDSlFtcHBOT1pYZjVObFdCQUJs?=
- =?utf-8?B?dHc3U0dmUWkxNHNMeDd4aWxSSEVkaXpLUjdvWlMzWnJPQVFyOXo1Ni9abXl0?=
- =?utf-8?B?NlJHSHlrY21KRVZ1SlplNUJxMVhVSFAzZ3F0V3dRL1BSeEVUemdEQlc3L3la?=
- =?utf-8?B?dE1kQTFucE0rWFV6ZS9CMUFrMW9wM1J5aGMvK1pmbDc5cWE1TFRHMlhDS0FP?=
- =?utf-8?B?eDNMSyt3WXgrZDVaS0RoaWJYZ1FycEEzcHRkSU9jdmVCNE5tMHNrTWZrSEh2?=
- =?utf-8?B?TVd6QTVRa1VGdUdUWE8wc2JUbGpiWkdldUhjWDEwNDlYcmpzUnFid3RTckkw?=
- =?utf-8?B?SXNxbm1teDE1d2xjUUxwd08wRlJkcUFEUERUcVpDSU9STk5TelBiVzVsT1A3?=
- =?utf-8?B?VGFubW5kYjFuMHlBbGxTQlZqWHhuUXlIODNWMFd6YkFidXhtVWRmcXo2Yjdt?=
- =?utf-8?B?Z1diZW9zcktJTHI4RVZlWWY4MlYwM21CWnkrQVVJZXVsVVh4ZlBoU1hXaFk4?=
- =?utf-8?Q?8+XCFtQLQjgeXwmmV7RB4LFuH?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e6b62aca-62d4-49d2-0f37-08de119d517d
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4186.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 19:00:51.0085
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MjMsea/Hy17q5L1N7frZO7cfN0PuzP1+95Dmt1/XVWYwHd260Bt/WQUu1EwWbOMETysZu/YisZWgrNIXoIRxkA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7300
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_120104_120950_1DCAE4AA 
-X-CRM114-Status: GOOD (  20.79  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251022174309.1180931-4-vincent.guittot@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -195,140 +75,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 22, 2025 at 07:43:08PM +0200, Vincent Guittot wrote:
+> Add initial support of the PCIe controller for S32G Soc family. Only
+> host mode is supported.
 
+> +++ b/drivers/pci/controller/dwc/Kconfig
+> @@ -406,6 +406,16 @@ config PCIE_UNIPHIER_EP
+>  	  Say Y here if you want PCIe endpoint controller support on
+>  	  UniPhier SoCs. This driver supports Pro5 SoC.
+>  
+> +config PCIE_NXP_S32G
+> +	tristate "NXP S32G PCIe controller (host mode)"
+> +	depends on ARCH_S32 || COMPILE_TEST
+> +	select PCIE_DW_HOST
+> +	help
+> +	  Enable support for the PCIe controller in NXP S32G based boards to
+> +	  work in Host mode. The controller is based on DesignWare IP and
+> +	  can work either as RC or EP. In order to enable host-specific
+> +	  features PCIE_S32G must be selected.
 
-On 10/21/25 7:29 PM, Fenghua Yu wrote:
-> Hi, James,
-> 
-> On 10/17/25 11:56, James Morse wrote:
->> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
->> only be accessible from those CPUs, and they may not be online.
->> Touching the hardware early is pointless as MPAM can't be used until
->> the system-wide common values for num_partid and num_pmg have been
->> discovered.
->>
->> Start with driver probe/remove and mapping the MSC.
->>
->> CC: Carl Worth <carl@os.amperecomputing.com>
->> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
-> [SNIP]> +/*
->> + * An MSC can control traffic from a set of CPUs, but may only be accessible
->> + * from a (hopefully wider) set of CPUs. The common reason for this is power
->> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
->> + * corresponding cache may also be powered off. By making accesses from
->> + * one of those CPUs, we ensure this isn't the case.
->> + */
->> +static int update_msc_accessibility(struct mpam_msc *msc)
->> +{
->> +    u32 affinity_id;
->> +    int err;
->> +
->> +    err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
->> +                       &affinity_id);
->> +    if (err)
->> +        cpumask_copy(&msc->accessibility, cpu_possible_mask);
->> +    else
->> +        acpi_pptt_get_cpus_from_container(affinity_id,
->> +                          &msc->accessibility);
->> +    return err;
-> 
-> The error is handled and there is no need to return the error to caller.
-> Returning the error causes probe failure and the mpam_msc driver cannot be 
-> installed.
+Reorder this so the menu item is sorted by vendor name.
 
-Ack. I see the probe failure too.
+> +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
 
-e.g.
+> +/* Link Interrupt Control And Status */
+> +#define PCIE_S32G_LINK_INT_CTRL_STS		0x40
+> +#define LINK_REQ_RST_NOT_INT_EN			BIT(1)
+> +#define LINK_REQ_RST_NOT_CLR			BIT(2)
 
-[    7.118297] mpam_msc mpam_msc.183: probe with driver mpam_msc failed with 
-error -22
-[    7.118383] mpam_msc mpam_msc.370: probe with driver mpam_msc failed with 
-error -22
-[   10.208127]     # Subtest: mpam_devices_test_suite
-[   10.208129]     # module: mpam
-[   10.208215]     ok 1 test_mpam_reset_msc_bitmap
-[   10.208275] mpam:__props_mismatch: __props_mismatch took the min cmax_wd
-[   10.208285] mpam:__props_mismatch: cleared cpor_part
-[   10.208287] mpam:__props_mismatch: cleared mbw_part
-[   10.208294] mpam:__props_mismatch: took the min bwa_wd
-[   10.208296] mpam:__props_mismatch: __props_mismatch took the min cmax_wd
-[   10.208310] mpam:__props_mismatch: __props_mismatch took the min cmax_wd
-[   10.208345]     ok 2 test_mpam_enable_merge_features
-[   10.208411] # mpam_devices_test_suite: pass:3 fail:0 skip:0 total:3
-[   10.208413] ok 1 mpam_devices_test_suite
+None of these are used; remove until you need them.
 
-> 
-> s/return err;/return 0;/
+> +/* PCIe controller 0 General Control 1 */
+> +#define PCIE_S32G_PE0_GEN_CTRL_1		0x50
+> +#define DEVICE_TYPE_MASK			GENMASK(3, 0)
+> +#define DEVICE_TYPE(x)				FIELD_PREP(DEVICE_TYPE_MASK, x)
 
-Yes, this resolve the probe failure.
+Not sure this adds much over just doing this:
 
-Tested-by: Tushar Dave <tdave@nvidia.com>
+  #define DEVICE_TYPE   GENMASK(3, 0)
 
-> 
->> +}
->> +
->> +static int fw_num_msc;
->> +
->> +static void mpam_msc_destroy(struct mpam_msc *msc)
->> +{
->> +    struct platform_device *pdev = msc->pdev;
->> +
->> +    lockdep_assert_held(&mpam_list_lock);
->> +
->> +    list_del_rcu(&msc->all_msc_list);
->> +    platform_set_drvdata(pdev, NULL);
->> +}
->> +
->> +static void mpam_msc_drv_remove(struct platform_device *pdev)
->> +{
->> +    struct mpam_msc *msc = platform_get_drvdata(pdev);
->> +
->> +    if (!msc)
->> +        return;
->> +
->> +    mutex_lock(&mpam_list_lock);
->> +    mpam_msc_destroy(msc);
->> +    mutex_unlock(&mpam_list_lock);
->> +
->> +    synchronize_srcu(&mpam_srcu);
->> +}
->> +
->> +static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->> +{
->> +    int err;
->> +    u32 tmp;
->> +    struct mpam_msc *msc;
->> +    struct resource *msc_res;
->> +    struct device *dev = &pdev->dev;
->> +
->> +    lockdep_assert_held(&mpam_list_lock);
->> +
->> +    msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
->> +    if (!msc)
->> +        return ERR_PTR(-ENOMEM);
->> +
->> +    mutex_init(&msc->probe_lock);
->> +    mutex_init(&msc->part_sel_lock);
->> +    msc->id = pdev->id;
->> +    msc->pdev = pdev;
->> +    INIT_LIST_HEAD_RCU(&msc->all_msc_list);
->> +    INIT_LIST_HEAD_RCU(&msc->ris);
->> +
->> +    err = update_msc_accessibility(msc);
->> +    if (err)
->> +        return ERR_PTR(err);
-> 
-> The returned error causes probe failure and the driver cannot be installed. 
-> Return 0 will make the probe succeed.
-> 
-> There is no probe failure in mpam/snapshot/v6.18-rc1 because its returned err=0.
-> 
-> [SNIP]
-> 
-> Thanks.
-> 
-> -Fenghua
-> 
+  val |= FIELD_PREP(DEVICE_TYPE, PCI_EXP_TYPE_ROOT_PORT);
 
+> +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
+
+> +static void s32g_pcie_reset_mstr_ace(struct dw_pcie *pci, u64 ddr_base_addr)
+> +{
+> +	u32 ddr_base_low = lower_32_bits(ddr_base_addr);
+> +	u32 ddr_base_high = upper_32_bits(ddr_base_addr);
+> +
+> +	dw_pcie_dbi_ro_wr_en(pci);
+> +	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_3_OFF, 0x0);
+> +
+> +	/*
+> +	 * Ncore is a cache-coherent interconnect module that enables the
+> +	 * integration of heterogeneous coherent and non-coherent agents in
+> +	 * the chip. Ncore Transactions to peripheral should be non-coherent
+> +	 * or it might drop them.
+> +	 * One example where this is needed are PCIe MSIs, which use NoSnoop=0
+> +	 * and might end up routed to Ncore.
+> +	 * Define the start of DDR as seen by Linux as the boundary between
+> +	 * "memory" and "peripherals", with peripherals being below.
+
+Add blank lines between paragraphs.
+
+> +	 */
+> +	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_1_OFF,
+> +			   (ddr_base_low & CFG_MEMTYPE_BOUNDARY_LOW_ADDR_MASK));
+> +	dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_2_OFF, ddr_base_high);
+> +	dw_pcie_dbi_ro_wr_dis(pci);
+> +}
+> +
+> +static void s32g_init_pcie_controller(struct s32g_pcie *s32g_pp)
+> +{
+> +	struct dw_pcie *pci = &s32g_pp->pci;
+> +	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+> +	u32 val;
+> +
+> +	/* Set RP mode */
+> +	val = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_1);
+> +	val &= ~DEVICE_TYPE_MASK;
+> +	val |= DEVICE_TYPE(PCI_EXP_TYPE_ROOT_PORT);
+> +
+> +	/* Use default CRNS */
+> +	val &= ~SRIS_MODE;
+> +
+> +	s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_1, val);
+> +
+> +	/* Disable phase 2,3 equalization */
+> +	s32g_pcie_disable_equalization(pci);
+> +
+> +	/*
+> +	 * Make sure we use the coherency defaults (just in case the settings
+> +	 * have been changed from their reset values)
+> +	 */
+> +	s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
+
+This seems sketchy and no other driver uses memblock_start_of_DRAM().
+Shouldn't a physical memory address like this come from devicetree
+somehow?
+
+> +	dw_pcie_dbi_ro_wr_en(pci);
+> +
+> +	val = dw_pcie_readl_dbi(pci, PCIE_PORT_FORCE);
+> +	val |= PORT_FORCE_DO_DESKEW_FOR_SRIS;
+> +	dw_pcie_writel_dbi(pci, PCIE_PORT_FORCE, val);
+> +
+> +	/*
+> +	 * Set max payload supported, 256 bytes and
+> +	 * relaxed ordering.
+> +	 */
+> +	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
+> +	val &= ~(PCI_EXP_DEVCTL_RELAX_EN |
+> +		 PCI_EXP_DEVCTL_PAYLOAD |
+> +		 PCI_EXP_DEVCTL_READRQ);
+> +	val |= PCI_EXP_DEVCTL_RELAX_EN |
+> +	       PCI_EXP_DEVCTL_PAYLOAD_256B |
+> +	       PCI_EXP_DEVCTL_READRQ_256B;
+> +	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
+
+MPS and relaxed ordering should be configured by the PCI core.  Is
+there some s32g-specific restriction about these?
+
+> +	/* Enable errors */
+> +	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
+> +	val |= PCI_EXP_DEVCTL_CERE |
+> +	       PCI_EXP_DEVCTL_NFERE |
+> +	       PCI_EXP_DEVCTL_FERE |
+> +	       PCI_EXP_DEVCTL_URRE;
+> +	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
+
+Enabling these errors doesn't really seem device-specific, and
+pci_enable_pcie_error_reporting() would enable all these.
+
+But that only happens with CONFIG_PCIEAER=y, and since this is
+DWC-based, you probably don't have standard interrupts for AER and
+CONFIG_PCIEAER isn't useful.  Someday we might have support for
+non-standard AER interrupts, but we don't have it yet.
+
+I guess you get platform-specific System Errors when any of these
+errors are detected (see PCIe r7.0, sec 6.2.6)?  What is the handler
+for these?
+
+> +static int s32g_pcie_host_init(struct s32g_pcie *s32g_pp)
+> +{
+> +	struct dw_pcie *pci = &s32g_pp->pci;
+> +	struct dw_pcie_rp *pp = &pci->pp;
+> +	int ret;
+> +
+> +	pp->ops = &s32g_pcie_host_ops;
+> +
+> +	ret = dw_pcie_host_init(pp);
+> +
+> +	return ret;
+
+  return dw_pcie_host_init(pp);
+
+Not sure this is really worth a wrapper.
+
+> +static int s32g_pcie_get_resources(struct platform_device *pdev,
+> +				   struct s32g_pcie *s32g_pp)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct dw_pcie *pci = &s32g_pp->pci;
+> +
+> +	s32g_pp->phy = devm_phy_get(dev, NULL);
+> +	if (IS_ERR(s32g_pp->phy))
+> +		return dev_err_probe(dev, PTR_ERR(s32g_pp->phy),
+> +				"Failed to get serdes PHY\n");
+
+Add blank line here.
+
+> +	s32g_pp->ctrl_base = devm_platform_ioremap_resource_byname(pdev, "ctrl");
+> +	if (IS_ERR(s32g_pp->ctrl_base))
+> +		return PTR_ERR(s32g_pp->ctrl_base);
+
+This looks like the first DWC driver that uses a "ctrl" resource.  Is
+this something unique to s32g, or do other drivers have something
+similar but use a different name?
+
+> +	pci->dbi_base = devm_platform_ioremap_resource_byname(pdev, "dbi");
+> +	if (IS_ERR(pci->dbi_base))
+> +		return PTR_ERR(pci->dbi_base);
+
+Isn't this already done by dw_pcie_get_resources()?
+
+> +static int s32g_pcie_suspend_noirq(struct device *dev)
+> +{
+> +	struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
+> +	struct dw_pcie *pci = &s32g_pp->pci;
+> +
+> +	if (!dw_pcie_link_up(pci))
+> +		return 0;
+
+Does something bad happen if you omit the link up check and the link
+is not up when we get here?  The check is racy (the link could go down
+between dw_pcie_link_up() and dw_pcie_suspend_noirq()), so it's not
+completely reliable.
+
+If you have to check, please add a comment about why this driver needs
+it when no other driver does.
+
+> +	return dw_pcie_suspend_noirq(pci);
+> +}
+> +
+> +static int s32g_pcie_resume_noirq(struct device *dev)
+> +{
+> +	struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
+> +	struct dw_pcie *pci = &s32g_pp->pci;
+> +
+> +	s32g_init_pcie_controller(s32g_pp);
+
+Odd that you need this.  Other drivers really don't do anything
+similar, probably because this could be done by the
+pci->pp.ops->init() call in dw_pcie_resume_noirq().
+
+> +	return dw_pcie_resume_noirq(pci);
+> +}
+
+> +static const struct of_device_id s32g_pcie_of_match[] = {
+> +	{ .compatible = "nxp,s32g2-pcie"},
+
+Add space before "}"
+
+> +	{ /* sentinel */ },
+> +};
 
