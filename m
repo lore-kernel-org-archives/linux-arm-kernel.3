@@ -4,99 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB97FCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F386DCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yO34qPsn7QHCTVDfDKcQas0jsSh3wLko8YufcBfx8as=; b=JzG9Kefcs2yi5pZTtWlSwPkNu6
-	/w3USL7AZEgk8qpDyOn/2zXISzq25fzNjH/rRoaDZw53+IUgDCTeGQMugcL66VsrN3dVpbEJU701g
-	3Ffxr9VY/LhZWMNEPqfwp2rERFMn06ZmI3uPS6wQgnfkLwLiC/amqHB4uVltgdFA0UiQGMHNTO17I
-	qZx5Rd+FRq3ZGx1Tf6MmQs1hpwZGv3Woaa+VgobKB4uu+e1YNASROFE5+MQIHnKcMfg6W9CqTpo/9
-	nZRbvr5kAYr8TbmcnZGDvTA/1J2pg8K/zZnOFlbg9joCCOXJa5cNKPcg4VZGIxAb4Ql8dneukuncn
-	UlyM3uXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0hUeueAKdE34Qo3VZOJ6aJ5ZxPyGds2vlszfFVEg4FM=; b=Xg7evv7XQZmu+YPudE+3bEorIh
+	EQ9BhoESBHbjcrWOwdzAKwtFbVprNL6uRoVl0wT/89N8v5QwAfV/V1eQVcIdpLmBT+JwKP7J30IC/
+	rfHYjCKzICnZpnvyX7MJoSgSHE8t6DFVO6F4ztY1xkkYpbeOGakONbnkgeuNmILyV5KSyj48LLzW4
+	ZRc8jpHFH6/b6vWjAW26K38C+59ZTLXTKnueQSZ+bDJUFANM0X1VIQcRWmLZQOBf3iDyTq7jLYaTC
+	fZppVXSaZMiZWHrX5FlSdGqzznnmm+Jpb33NCM3Lton1t4aaJ8fHQ2mMH21310tOSuqn/kF8IUT1q
+	QygLnGPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBX7Y-00000002fVM-2FND;
-	Wed, 22 Oct 2025 11:35:12 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1vBX7v-00000002ffr-3foy;
+	Wed, 22 Oct 2025 11:35:35 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBX7Q-00000002fRD-2g7X
+	id 1vBX7r-00000002fay-0tAa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 11:35:07 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b5e19810703so1098919266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 04:35:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761132903; x=1761737703; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yO34qPsn7QHCTVDfDKcQas0jsSh3wLko8YufcBfx8as=;
-        b=PrQ5zmIjkbY9LjbceJEt+mxQ+/cBFuwUzKZl9iYPm6tzBDUQbCHt5IxC7WJ5M5XtFj
-         DnsuPDin1zMGfz0jvMeIDGLQgSF6RGTpY1bnJMmAls+sCt/UvwjCjimPdTCJrTOR0HQB
-         lOZDXicFvFXYo8tR9VVzmj6e/1J4+PSOWco1lt9CXYozzvlMp421Fl4L+wy8xj+8VG4Q
-         0Lb7hW0uXqtw8WkZSwYUZ0U0YS5c1z0Yr7SPz5YZ8FOCri/3ypDQI/aE3wsyZKznQ9Zr
-         LufTBlSR3su0ItAL6sSRQcgwu0CE1sFOHGAn6Vqte9JtAXzL/M+NYcZbvoIl3Qo33I2J
-         rVCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761132903; x=1761737703;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yO34qPsn7QHCTVDfDKcQas0jsSh3wLko8YufcBfx8as=;
-        b=m42cyUbfKi9FOVZf4BuhoyKDbXwfjl1LC7Ancr+bZ/D0RL1enTu+DA9udNoUknOs0p
-         zBG15mnyGwmNiLwY/kWUnoDv1Lfrl+7Mn637hoUxP/2MtA+EgbjypcDmwOcVtKo39qeV
-         XKgHmtHj1rzosWnQmFA1xfB+/Pf7ryI5LVt05AgCrPUVmdq4pXCX1gbGGEomQaWQrrpN
-         1OKT875oSnM7ldjyBRoU4taIy9L7l2hZKNNVGtjBtgWIaPtAGMMprUU4A7QDtEP00iVI
-         kL0JHZvhO9iK287crppm0iBuOHJxguOHIH838E/ObS+1tkNZUYigcz4UtNAXfhhJBKjR
-         WRig==
-X-Forwarded-Encrypted: i=1; AJvYcCXqOd3LaU7qDmn6O0swK1OzBsJ/dnXY9/iwGfS6SxJ1ohhRaIFovg2F7HYjXWNikYr9BZlXuWwJEcDlgxtd1F4s@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQYxH/XD6/rLvFzH9iWGBNY7TKT/GTGOU6fem5KlmIHeoXBq+n
-	i+jLvFMa5YS5UR900CV4E/uWQXNfdKtFkccEf3u8UCYDwn/Vxp1w4kLE
-X-Gm-Gg: ASbGncsZMGnCvBcpmUwmyFoD/f1bV5LZxvQfUK2beXfgSBedydOGkAKzjuGEXOBy7rf
-	aWaR6EDfrdQMhIe4UXFIUL9S2nNNke5KgeRebOTpv3InSR8DUDWIfGR9TRH+0uI3yTCxdqguY3p
-	On/yOBkVWpOJ99QNgwYdCibzohbh+aMC1NzSXWW730EgeN/eIMRg3F3JaJt4tSjqKc+gYuvQHtg
-	vH9tDjrTJnyGEfq5pHjTfZQNekCbkRIVUQnzHqcSeZ94ckhhxh1d1vTacIDRGJPxEsLLQzdzAkK
-	KKdZnx1A0Nh7JQchz6FLgIOT4UNEr9nJ9KEyzno+e2R9sdSIQmNk3+Eo/fj60t0oTPmJ3TiMjr2
-	WCVcS+inEpMEyWiKgrBolxrdAl/xFOZmdYYCwre9EqyOuSj9uARQPCVYFG+woiF/LiWXCEu7A/u
-	QMtrA3DYwgpQJZvw/rEfxL+4rBzrovJOIlx8QKxhkCt/A=
-X-Google-Smtp-Source: AGHT+IHfqiWBy7zfGoCqLQpI11jm6dwQ/WE7NiaPb8Gr8GzjB9HYaKJgVjiXf/jFs4wJwPRiCS9gYA==
-X-Received: by 2002:a17:907:1c82:b0:b4e:a47f:715d with SMTP id a640c23a62f3a-b6472a6a145mr2430377866b.17.1761132902443;
-        Wed, 22 Oct 2025 04:35:02 -0700 (PDT)
-Received: from [10.25.209.134] ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65ebb4dcf2sm1303250766b.75.2025.10.22.04.35.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Oct 2025 04:35:02 -0700 (PDT)
-Message-ID: <804dd1f5-7e79-4bfa-b777-c97bb89a713a@gmail.com>
-Date: Wed, 22 Oct 2025 04:35:00 -0700
+	Wed, 22 Oct 2025 11:35:35 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cs6T958zHz6GDK0;
+	Wed, 22 Oct 2025 19:32:13 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 33BCC1402F7;
+	Wed, 22 Oct 2025 19:35:26 +0800 (CST)
+Received: from SecurePC-101-06.huawei.com (10.122.19.247) by
+ dubpeml100005.china.huawei.com (7.214.146.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 22 Oct 2025 12:35:25 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Conor Dooley <conor@kernel.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-arch@vger.kernel.org>,
+	<linux-mm@kvack.org>, Dan Williams <dan.j.williams@intel.com>, "H . Peter
+ Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, Andrew Morton
+	<akpm@linux-foundation.org>
+CC: <james.morse@arm.com>, Will Deacon <will@kernel.org>, Davidlohr Bueso
+	<dave@stgolabs.net>, <linuxarm@huawei.com>, Yushan Wang
+	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
+	<luto@kernel.org>, Dave Jiang <dave.jiang@intel.com>
+Subject: [PATCH v4 3/6] lib: Support ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+Date: Wed, 22 Oct 2025 12:33:46 +0100
+Message-ID: <20251022113349.1711388-4-Jonathan.Cameron@huawei.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
+References: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/8] reset: imx8mp-audiomix: Switch to using regmap API
-To: Frank Li <Frank.li@nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang
- <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
-References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
- <20251017112025.11997-6-laurentiumihalcea111@gmail.com>
- <aPJXdPVrofYGQgIP@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <aPJXdPVrofYGQgIP@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.122.19.247]
+X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_043504_748930_3BE42947 
-X-CRM114-Status: GOOD (  32.00  )
+X-CRM114-CacheID: sfid-20251022_043531_797742_D92A62E0 
+X-CRM114-Status: GOOD (  30.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,258 +80,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-On 10/17/2025 7:49 AM, Frank Li wrote:
-> On Fri, Oct 17, 2025 at 04:20:22AM -0700, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->>
->> As far as the Linux kernel is concerned, block devices such as i.MX8MP's
->> AUDIOMIX block control or i.MX8ULP's SIM LPAV can simultaneously act as
->> clock controllers, reset controllers or mux controllers. Since these IPs
->> offer different functionalities through different subsystem APIs, it's
->> important to make sure that the register R-M-W cycles are performed under
->> the same lock across all subsystem APIs. This will ensure that registers
->> will not end up with the wrong values because of race conditions (e.g.
->> clock consumer tries to update block control register A, while, at the
->> same time, reset consumer tries to update the same block control register).
->>
->> However, the aforementioned race conditions will only impact block control
->> IPs which use the same register for multiple functionalities. For example,
->> i.MX8MP's AUDIOMIX block control IP provides clock gating functionalities
->> and reset control functionalities through different registers. This is why
->> the current approach (i.e. clock control and reset control work using
->> different locks) has worked well so far.
->>
->> Since we want to extend this driver to be usable for i.MX8ULP's SIM LPAV
->> block control IP, we need to make sure that clock control, reset control,
->> and mux control APIs use the same lock since all of these functionalities
->> are performed using the SYSCTRL0 register.
->>
->> To do so, we need to switch to the regmap API and, if possible, use the
->> parent device's regmap, which, in the case of i.MX8ULP, will be the clock
->> controller. This way, we can make sure that the clock gates and the reset
->> controller will use the same lock to perform the register R-M-W cycles.
->>
->> This change will also work fine for cases where we don't really need to
->> share the lock across multiple APIs (e.g. i.MX8MP's AUDIOMIX block
->> control) since regmap will take care of the locking we were previously
->> explicitly performing in the driver.
->>
->> The transition to the regmap API also involves some cleanup. Specifically,
->> we can make use of devres to unmap the device's memory and get rid of the
->> memory mapping-related error paths and the remove() function altogether.
->>
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->> ---
->>  drivers/reset/reset-imx8mp-audiomix.c | 95 +++++++++++++++++----------
->>  1 file changed, 61 insertions(+), 34 deletions(-)
->>
->> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
->> index e9643365a62c..c74ce6e04177 100644
->> --- a/drivers/reset/reset-imx8mp-audiomix.c
->> +++ b/drivers/reset/reset-imx8mp-audiomix.c
->> @@ -11,6 +11,7 @@
->>  #include <linux/module.h>
->>  #include <linux/of.h>
->>  #include <linux/of_address.h>
->> +#include <linux/regmap.h>
->>  #include <linux/reset-controller.h>
->>
->>  #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
->> @@ -19,6 +20,7 @@
->>  struct imx8mp_reset_map {
->>  	unsigned int offset;
->>  	unsigned int mask;
->> +	unsigned int shift;
->>  	bool active_low;
->>  };
->>
->> @@ -26,24 +28,27 @@ static const struct imx8mp_reset_map reset_map[] = {
->>  	[IMX8MP_AUDIOMIX_EARC_RESET] = {
->>  		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
->>  		.mask = BIT(0),
->> +		.shift = 0,
->>  		.active_low = true,
->>  	},
->>  	[IMX8MP_AUDIOMIX_EARC_PHY_RESET] = {
->>  		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
->>  		.mask = BIT(1),
->> +		.shift = 1,
->>  		.active_low = true,
->>  	},
->>  	[IMX8MP_AUDIOMIX_DSP_RUNSTALL] = {
->>  		.offset	= IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET,
->>  		.mask = BIT(5),
->> +		.shift = 5,
-> why need shift?  you can use ffs(mask) to get shift.
->
->>  		.active_low = false,
->>  	},
->>  };
->>
->>  struct imx8mp_audiomix_reset {
->>  	struct reset_controller_dev rcdev;
->> -	spinlock_t lock; /* protect register read-modify-write cycle */
->>  	void __iomem *base;
->> +	struct regmap *regmap;
->>  };
->>
->>  static struct imx8mp_audiomix_reset *to_imx8mp_audiomix_reset(struct reset_controller_dev *rcdev)
->> @@ -55,26 +60,15 @@ static int imx8mp_audiomix_update(struct reset_controller_dev *rcdev,
->>  				  unsigned long id, bool assert)
->>  {
->>  	struct imx8mp_audiomix_reset *priv = to_imx8mp_audiomix_reset(rcdev);
->> -	void __iomem *reg_addr = priv->base;
->> -	unsigned int mask, offset, active_low;
->> -	unsigned long reg, flags;
->> +	unsigned int mask, offset, active_low, shift, val;
->>
->>  	mask = reset_map[id].mask;
->>  	offset = reset_map[id].offset;
->>  	active_low = reset_map[id].active_low;
->> +	shift = reset_map[id].shift;
->> +	val = (active_low ^ assert) << shift;
->>
->> -	spin_lock_irqsave(&priv->lock, flags);
->> -
->> -	reg = readl(reg_addr + offset);
->> -	if (active_low ^ assert)
->> -		reg |= mask;
->> -	else
->> -		reg &= ~mask;
->> -	writel(reg, reg_addr + offset);
->> -
->> -	spin_unlock_irqrestore(&priv->lock, flags);
->> -
->> -	return 0;
->> +	return regmap_update_bits(priv->regmap, offset, mask, val);
->>  }
->>
->>  static int imx8mp_audiomix_reset_assert(struct reset_controller_dev *rcdev,
->> @@ -94,6 +88,50 @@ static const struct reset_control_ops imx8mp_audiomix_reset_ops = {
->>  	.deassert = imx8mp_audiomix_reset_deassert,
->>  };
->>
->> +static const struct regmap_config regmap_config = {
->> +	.reg_bits = 32,
->> +	.val_bits = 32,
->> +	.reg_stride = 4,
->> +};
->> +
->> +/* assumption: registered only if not using parent regmap */
->> +static void imx8mp_audiomix_reset_iounmap(void *data)
->> +{
->> +	struct imx8mp_audiomix_reset *priv = dev_get_drvdata(data);
->> +
->> +	iounmap(priv->base);
->> +}
->> +
->> +/* assumption: dev_set_drvdata() is called before this */
->> +static int imx8mp_audiomix_reset_get_regmap(struct device *dev)
->> +{
->> +	struct imx8mp_audiomix_reset *priv;
->> +	int ret;
->> +
->> +	priv = dev_get_drvdata(dev);
->> +
->> +	/* try to use the parent's regmap */
->> +	priv->regmap = dev_get_regmap(dev->parent, NULL);
->> +	if (priv->regmap)
->> +		return 0;
->> +
->> +	/* ... if that's not possible then initialize the regmap right now */
->> +	priv->base = of_iomap(dev->parent->of_node, 0);
->> +	if (!priv->base)
->> +		return dev_err_probe(dev, -ENOMEM, "failed to iomap address space\n");
->> +
->> +	ret = devm_add_action_or_reset(dev, imx8mp_audiomix_reset_iounmap, dev);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "failed to register action\n");
->> +
->> +	priv->regmap = devm_regmap_init_mmio(dev, priv->base, &regmap_config);
->> +	if (IS_ERR(priv->regmap))
->> +		return dev_err_probe(dev, PTR_ERR(priv->regmap),
->> +				     "failed to initialize regmap\n");
->> +
->> +	return 0;
->> +}
->> +
->>  static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
->>  				       const struct auxiliary_device_id *id)
->>  {
->> @@ -105,36 +143,26 @@ static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
->>  	if (!priv)
->>  		return -ENOMEM;
->>
->> -	spin_lock_init(&priv->lock);
->> -
->>  	priv->rcdev.owner     = THIS_MODULE;
->>  	priv->rcdev.nr_resets = ARRAY_SIZE(reset_map);
->>  	priv->rcdev.ops       = &imx8mp_audiomix_reset_ops;
->>  	priv->rcdev.of_node   = dev->parent->of_node;
->>  	priv->rcdev.dev	      = dev;
->>  	priv->rcdev.of_reset_n_cells = 1;
->> -	priv->base            = of_iomap(dev->parent->of_node, 0);
->> -	if (!priv->base)
->> -		return -ENOMEM;
->>
->> +	/* keep before call to imx8mp_audiomix_reset_init_regmap() */
->>  	dev_set_drvdata(dev, priv);
->>
->> +	ret = imx8mp_audiomix_reset_get_regmap(dev);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "failed to get regmap\n");
->> +
->>  	ret = devm_reset_controller_register(dev, &priv->rcdev);
->>  	if (ret)
->> -		goto out_unmap;
->> +		return dev_err_probe(dev, ret,
->> +				     "failed to register reset controller\n");
->>
->>  	return 0;
->> -
->> -out_unmap:
->> -	iounmap(priv->base);
->> -	return ret;
->> -}
->> -
->> -static void imx8mp_audiomix_reset_remove(struct auxiliary_device *adev)
->> -{
->> -	struct imx8mp_audiomix_reset *priv = dev_get_drvdata(&adev->dev);
->> -
->> -	iounmap(priv->base);
->>  }
->>
->>  static const struct auxiliary_device_id imx8mp_audiomix_reset_ids[] = {
->> @@ -147,7 +175,6 @@ MODULE_DEVICE_TABLE(auxiliary, imx8mp_audiomix_reset_ids);
->>
->>  static struct auxiliary_driver imx8mp_audiomix_reset_driver = {
->>  	.probe		= imx8mp_audiomix_reset_probe,
->> -	.remove		= imx8mp_audiomix_reset_remove,
-> cleanup imx8mp_audiomix_reset_remove need seperate patch.
+ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION provides the mechanism for
+invalidating certain memory regions in a cache-incoherent manner. Currently
+this is used by NVDIMM and CXL memory drivers in cases where it is
+necessary to flush all data from caches by physical address range.
 
+In some architectures these operations are supported by system components
+that may become available only later in boot as they are either present
+on a discoverable bus, or via a firmware description of an MMIO interface
+(e.g. ACPI DSDT). Provide a framework to handle this case.
 
-as things stand now, this bit belongs in the same patch as the switch to the regmap
+Architectures can opt in for this support via
+CONFIG_GENERIC_CPU_CACHE_MAINTENANCE
 
-API because of the introduction of imx8mp_audiomix_reset_get_regmap(), which
+Add a registration framework. Each driver provides an ops structure and
+the first op is Write Back and Invalidate by PA Range. The driver may
+over invalidate.
 
-uses devres. This makes the remove() function incorrect and, thus, needs to be dropped.
+An optional completion check operation is also provided. If present
+that should be called to ensure that the action has finished.
 
+When multiple agents are present in the system each should register with
+this framework and the core code will issue the invalidate to all of them
+before checking for completion on each. This is done to avoid need for
+filtering in the core code which can become complex when interleave,
+potentially across different cache coherency hardware is going on, so it
+is easier to tell everyone and let those who don't care do nothing.
 
-since the cleanup is quite trivial, I don't think this would justify purposely
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+Co-developed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+---
+v4:
+ - Improve formatting of Returns documentation.  (Randy Dunlap)
+ - select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION as this is providing the
+   implementation if this selected by an architecture (Catalin Marinas)
+ - Avoid use of device in naming as no struct device involved any more.
+   Instead use cache_coherency_ops for the callback structure and
+   cache_coherency_ops_inst for a single register instance.
+   Rename the allocation and registration functions to reflect this
+   (based on feedback from Dan Williams)
+ - Use a kref to avoid the oddity of calling free on an embedded structure.
+   (Dan Williams)
+---
+ include/linux/cache_coherency.h |  61 ++++++++++++++
+ lib/Kconfig                     |   4 +
+ lib/Makefile                    |   2 +
+ lib/cache_maint.c               | 138 ++++++++++++++++++++++++++++++++
+ 4 files changed, 205 insertions(+)
 
-making imx8mp_audiomix_reset_get_regmap() not use devres in this patch
+diff --git a/include/linux/cache_coherency.h b/include/linux/cache_coherency.h
+new file mode 100644
+index 000000000000..cc81c5733e31
+--- /dev/null
++++ b/include/linux/cache_coherency.h
+@@ -0,0 +1,61 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Cache coherency maintenance operation device drivers
++ *
++ * Copyright Huawei 2025
++ */
++#ifndef _LINUX_CACHE_COHERENCY_H_
++#define _LINUX_CACHE_COHERENCY_H_
++
++#include <linux/list.h>
++#include <linux/kref.h>
++#include <linux/types.h>
++
++struct cc_inval_params {
++	phys_addr_t addr;
++	size_t size;
++};
++
++struct cache_coherency_ops_inst;
++
++struct cache_coherency_ops {
++	int (*wbinv)(struct cache_coherency_ops_inst *cci,
++		     struct cc_inval_params *invp);
++	int (*done)(struct cache_coherency_ops_inst *cci);
++};
++
++struct cache_coherency_ops_inst {
++	struct kref kref;
++	struct list_head node;
++	const struct cache_coherency_ops *ops;
++};
++
++int cache_coherency_ops_instance_register(struct cache_coherency_ops_inst *cci);
++void cache_coherency_ops_instance_unregister(struct cache_coherency_ops_inst *cci);
++
++struct cache_coherency_ops_inst *
++_cache_coherency_ops_instance_alloc(const struct cache_coherency_ops *ops,
++				    size_t size);
++/**
++ * cache_coherency_ops_instance_alloc - Allocate cache coherency ops instance
++ * @ops: Cache maintenance operations
++ * @drv_struct: structure that contains the struct cache_coherency_ops_inst
++ * @member: Name of the struct cache_coherency_ops_inst member in @drv_struct.
++ *
++ * This allocates a driver specific structure and initializes the
++ * cache_coherency_ops_inst embedded in the drv_struct. Upon success the
++ * pointer must be freed via cache_coherency_ops_instance_put().
++ *
++ * Returns a &drv_struct * on success, %NULL on error.
++ */
++#define cache_coherency_ops_instance_alloc(ops, drv_struct, member)	    \
++	({								    \
++		static_assert(__same_type(struct cache_coherency_ops_inst,  \
++					  ((drv_struct *)NULL)->member));   \
++		static_assert(offsetof(drv_struct, member) == 0);	    \
++		(drv_struct *)_cache_coherency_ops_instance_alloc(ops,	    \
++			sizeof(drv_struct));				    \
++	})
++void cache_coherency_ops_instance_put(struct cache_coherency_ops_inst *cci);
++
++#endif
+diff --git a/lib/Kconfig b/lib/Kconfig
+index e629449dd2a3..e11136d188ae 100644
+--- a/lib/Kconfig
++++ b/lib/Kconfig
+@@ -542,6 +542,10 @@ config MEMREGION
+ config ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+ 	bool
+ 
++config GENERIC_CPU_CACHE_MAINTENANCE
++	bool
++	select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
++
+ config ARCH_HAS_MEMREMAP_COMPAT_ALIGN
+ 	bool
+ 
+diff --git a/lib/Makefile b/lib/Makefile
+index 1ab2c4be3b66..aaf677cf4527 100644
+--- a/lib/Makefile
++++ b/lib/Makefile
+@@ -127,6 +127,8 @@ obj-$(CONFIG_HAS_IOMEM) += iomap_copy.o devres.o
+ obj-$(CONFIG_CHECK_SIGNATURE) += check_signature.o
+ obj-$(CONFIG_DEBUG_LOCKING_API_SELFTESTS) += locking-selftest.o
+ 
++obj-$(CONFIG_GENERIC_CPU_CACHE_MAINTENANCE) += cache_maint.o
++
+ lib-y += logic_pio.o
+ 
+ lib-$(CONFIG_INDIRECT_IOMEM) += logic_iomem.o
+diff --git a/lib/cache_maint.c b/lib/cache_maint.c
+new file mode 100644
+index 000000000000..9256a9ffc34c
+--- /dev/null
++++ b/lib/cache_maint.c
+@@ -0,0 +1,138 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Generic support for Memory System Cache Maintenance operations.
++ *
++ * Coherency maintenance drivers register with this simple framework that will
++ * iterate over each registered instance to first kick off invalidation and
++ * then to wait until it is complete.
++ *
++ * If no implementations are registered yet cpu_cache_has_invalidate_memregion()
++ * will return false. If this runs concurrently with unregistration then a
++ * race exists but this is no worse than the case where the operations instance
++ * responsible for a given memory region has not yet registered.
++ */
++#include <linux/cache_coherency.h>
++#include <linux/cleanup.h>
++#include <linux/container_of.h>
++#include <linux/export.h>
++#include <linux/kref.h>
++#include <linux/list.h>
++#include <linux/memregion.h>
++#include <linux/module.h>
++#include <linux/rwsem.h>
++#include <linux/slab.h>
++
++static LIST_HEAD(cache_ops_instance_list);
++static DECLARE_RWSEM(cache_ops_instance_list_lock);
++
++static void __cache_coherency_ops_instance_free(struct kref *kref)
++{
++	struct cache_coherency_ops_inst *cci =
++		container_of(kref, struct cache_coherency_ops_inst, kref);
++	kfree(cci);
++}
++
++void cache_coherency_ops_instance_put(struct cache_coherency_ops_inst *cci)
++{
++	kref_put(&cci->kref, __cache_coherency_ops_instance_free);
++}
++EXPORT_SYMBOL_GPL(cache_coherency_ops_instance_put);
++
++static int cache_inval_one(struct cache_coherency_ops_inst *cci, void *data)
++{
++	if (!cci->ops)
++		return -EINVAL;
++
++	return cci->ops->wbinv(cci, data);
++}
++
++static int cache_inval_done_one(struct cache_coherency_ops_inst *cci)
++{
++	if (!cci->ops)
++		return -EINVAL;
++
++	if (!cci->ops->done)
++		return 0;
++
++	return cci->ops->done(cci);
++}
++
++static int cache_invalidate_memregion(phys_addr_t addr, size_t size)
++{
++	int ret;
++	struct cache_coherency_ops_inst *cci;
++	struct cc_inval_params params = {
++		.addr = addr,
++		.size = size,
++	};
++
++	guard(rwsem_read)(&cache_ops_instance_list_lock);
++	list_for_each_entry(cci, &cache_ops_instance_list, node) {
++		ret = cache_inval_one(cci, &params);
++		if (ret)
++			return ret;
++	}
++	list_for_each_entry(cci, &cache_ops_instance_list, node) {
++		ret = cache_inval_done_one(cci);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++struct cache_coherency_ops_inst *
++_cache_coherency_ops_instance_alloc(const struct cache_coherency_ops *ops,
++				    size_t size)
++{
++	struct cache_coherency_ops_inst *cci;
++
++	if (!ops || !ops->wbinv)
++		return NULL;
++
++	cci = kzalloc(size, GFP_KERNEL);
++	if (!cci)
++		return NULL;
++
++	cci->ops = ops;
++	INIT_LIST_HEAD(&cci->node);
++	kref_init(&cci->kref);
++
++	return cci;
++}
++EXPORT_SYMBOL_NS_GPL(_cache_coherency_ops_instance_alloc, "CACHE_COHERENCY");
++
++int cache_coherency_ops_instance_register(struct cache_coherency_ops_inst *cci)
++{
++	guard(rwsem_write)(&cache_ops_instance_list_lock);
++	list_add(&cci->node, &cache_ops_instance_list);
++
++	return 0;
++}
++EXPORT_SYMBOL_NS_GPL(cache_coherency_ops_instance_register, "CACHE_COHERENCY");
++
++void cache_coherency_ops_instance_unregister(struct cache_coherency_ops_inst *cci)
++{
++	guard(rwsem_write)(&cache_ops_instance_list_lock);
++	list_del(&cci->node);
++}
++EXPORT_SYMBOL_NS_GPL(cache_coherency_ops_instance_unregister, "CACHE_COHERENCY");
++
++int cpu_cache_invalidate_memregion(phys_addr_t start, size_t len)
++{
++	return cache_invalidate_memregion(start, len);
++}
++EXPORT_SYMBOL_NS_GPL(cpu_cache_invalidate_memregion, "DEVMEM");
++
++/*
++ * Used for optimization / debug purposes only as removal can race
++ *
++ * Machines that do not support invalidation, e.g. VMs, will not have any
++ * operations instance to register and so this will always return false.
++ */
++bool cpu_cache_has_invalidate_memregion(void)
++{
++	guard(rwsem_read)(&cache_ops_instance_list_lock);
++	return !list_empty(&cache_ops_instance_list);
++}
++EXPORT_SYMBOL_NS_GPL(cpu_cache_has_invalidate_memregion, "DEVMEM");
+-- 
+2.48.1
 
-and then transitioning to it in a subsequent patch.
-
-
->
-> Frank
->
->>  	.id_table	= imx8mp_audiomix_reset_ids,
->>  };
->>
->> --
->> 2.43.0
->>
 
