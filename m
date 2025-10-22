@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90172CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:05:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA70ECCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K19L2aHElqRDVFLnCjL4YIGWgK0Aw5CS4Yc/zP5tjrc=; b=lxN2Llotc6yovejak0MMvtTWdv
-	4wBBaahtLogUp0lzSlFAjHmXfPWPhuO9b0EqgYw8Pffu84fvuMMU2qe7ZTOlCPnu4Udt8zd165a9S
-	APZDAf96VmAIw/jllRk5BSaFqs6RTdnLCr/HIxJj1cXoXVy6nPoUV5cIp8syTzHVVSzp1frU74dtr
-	FGXRVeUmAvyRrY2Z8aj0kbmFeLoy1gF19OpCl7AQxjksJ/mHYa8Swq1VXWpn3H67IZypA4oby+WLH
-	XlTFFClqVj/MWJwty6GJYKdO6rcFhemKl8rz/hBxs0IEIdblkSBrzr2MV3lFi6vGMKzem8Q/5OtJe
-	kuLO8hDQ==;
+	bh=Vz0IKsDXEV/iEkAiGPoQTBssbJuJT4Ke4vWuoRvmiu8=; b=lxohotgTXpytYXk2/hsxe+5B11
+	TpK/r6htRzUnAweetTjRNeZEdbCf5EijAueDkGVLUD7yu5JY98dpFe3VWPAiqUBwgge5tPHvvSru4
+	eowsoWGu+f7AFmnq8eykitQKZ6PmGig80ZWuaZr23eF/y/vrxF+ymvzojKoGEFSqLOQQ1+ym3h0KX
+	50QXvIoi7+E1mRr1POldQ/YrbxaEsrbOFIdV/BC0ebjVAFOuDLt0cXP3WaDFUhtIanBk5MMhCNsvO
+	Cx3tS1F731sV3i6boxvLp80p0lYOmn9cJhrjxF7zpcfigNmEqLx0D9UhlgHr4sdyEWrjUz7GbJsjb
+	AoF+AJAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSuv-00000001nAb-2R3X;
+	id 1vBSuv-00000001nAE-0wIg;
 	Wed, 22 Oct 2025 07:05:53 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSur-00000001n6i-2CVg
+	id 1vBSup-00000001n6i-3CJp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 07:05:50 +0000
+	Wed, 22 Oct 2025 07:05:48 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 22 Oct
- 2025 15:05:44 +0800
+ 2025 15:05:43 +0800
 Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 22 Oct 2025 15:05:44 +0800
+ Transport; Wed, 22 Oct 2025 15:05:43 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
 To: ryan_chen <ryan_chen@aspeedtech.com>, <bmc-sw@aspeedtech.com>, Rob Herring
 	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -48,9 +48,10 @@ To: ryan_chen <ryan_chen@aspeedtech.com>, <bmc-sw@aspeedtech.com>, Rob Herring
 	<kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v6 2/6] arm64: Kconfig: Add Aspeed SoC family (ast27XX) Kconfig support
-Date: Wed, 22 Oct 2025 15:05:39 +0800
-Message-ID: <20251022070543.1169173-3-ryan_chen@aspeedtech.com>
+CC: Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v6 1/6] dt-bindings: arm: aspeed: Add AST2700 board compatible
+Date: Wed, 22 Oct 2025 15:05:38 +0800
+Message-ID: <20251022070543.1169173-2-ryan_chen@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
 References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
@@ -58,8 +59,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_000549_560987_D58012CC 
-X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-CacheID: sfid-20251022_000547_867015_3264305B 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,30 +76,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support for Aspeed ast27XX 8th generation Aspeed BMCs.
+Add device tree compatible string for AST2700 based boards
+("aspeed,ast2700-evb" and "aspeed,ast2700") to the Aspeed SoC
+board bindings. This allows proper schema validation and
+enables support for AST2700 platforms.
 
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/arm64/Kconfig.platforms | 6 ++++++
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 6 ++++++
  1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index 13173795c43d..d2746107ceca 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -47,6 +47,12 @@ config ARCH_ARTPEC
- 	help
- 	   This enables support for the ARMv8 based ARTPEC SoC Family.
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index aedefca7cf4a..1c1a12fc3a91 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -109,4 +109,10 @@ properties:
+               - ufispace,ncplite-bmc
+           - const: aspeed,ast2600
  
-+config ARCH_ASPEED
-+	bool "Aspeed SoC family"
-+	help
-+	  Say yes if you intend to run on an Aspeed ast27XX 8th generation
-+          Aspeed BMCs.
++      - description: AST2700 based boards
++        items:
++          - enum:
++              - aspeed,ast2700-evb
++          - const: aspeed,ast2700
 +
- config ARCH_AXIADO
- 	bool "Axiado SoC Family"
- 	select GPIOLIB
+ additionalProperties: true
 -- 
 2.34.1
 
