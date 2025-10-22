@@ -4,87 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D968DCCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B22CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ga2wjic9T8VzJuXCWKH+Uj/T9PGjvabNwcCK7WxQpK0=; b=o/G4dgEuLHpCde7Tvl+bbD6Rc6
-	+7xn2OVb1XlFeAPlYXXQ8rfZNva6Gh9np82HF+iUcEGwifqS708pl8r9FAshau5gtS5TK+0lOkV54
-	OHeGkOsbPkufj+utvgZhgm4HUzGaKnkiFPPRJEyGV19S2C8X3KOguE1Gf5DD57/kplDF7sBleRhlN
-	zn2JnD5dAJpMrGtseoWlCNdfIwNHBapAV+vOW3wJT0Ww0rdA3ySUPJNOcsHbb5gTSBUNZu96NNsEz
-	IW1eB28dD+i2zsWPCAovMF+HJ/8YczduRQWVLbu+O3mHzTEg5YEHnsFCbB8Pu+JFs19auI6er0B+P
-	Xw6m0xfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/bEvHpV3yKR755FH2QqqBlJv9jNl9uBTW98Xu7ShwC0=; b=m+lg/FxJzlbsfD6HcUxcUMwfgf
+	8QF84h2OHUWjbPG18aMhs8rcHPo9JAICcXnomaiOWIWzFtykmW4doQ9y21a1KkgXzYAQlQrJev6a+
+	OPS5O2zqNouexMGMGOGTEu+08BPpwsYOY7Z5UaEI5C0Xh3VwFgLjvaJUdnLh6na3Lgpob8bpQtWvH
+	9DIx2/3lLHSwWHAWyKDjjzjIsApd5Sz47eKH8WwPcH7I2Q+WV5kIbO7LxyXZet5qpGgA5spuNrBIM
+	wve0IF3/KRXMfftFTuLQebgqfHVpn4nqGkOHoehisLmtbpKjbjnq19n217n+EhvPuljDsdB9YZTBE
+	2Y7PVjtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZTp-000000038wu-3BKl;
-	Wed, 22 Oct 2025 14:06:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vBZVl-000000039a1-2Q4C;
+	Wed, 22 Oct 2025 14:08:21 +0000
+Received: from mail-japaneastazon11022094.outbound.protection.outlook.com ([52.101.126.94] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZTo-000000038wN-2cQm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 22 Oct 2025 14:06:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Ga2wjic9T8VzJuXCWKH+Uj/T9PGjvabNwcCK7WxQpK0=; b=Gat0gP1FPtLhdLMGLXRNLMBJkM
-	H1obw/Jnq04PM8GCRifUVJw1nNpyF2o7esK1pHtXNDSw6vjKD/yfX1rvEh3NK+3do3TouvIPLJD40
-	4gB1NNXXTI8pg4d2nr6MMt82Jih6ydHy2acfTfmQ0pBd+uX/4QQnAvCMu9ZHUnoSTeZ+qe4J6TeBH
-	aJ6vAaLJ6Gfvtcru5YbbBtxIn1/HKvyqbQKFfN87BuTcgdEbwRuhvUMGEPo2X/DKFlUfwYdqalTEu
-	I9lIJlA6x4ytkk9IxD0Iccdgtj5bxvLLMCZXndObVOWw9ZGVxsLqFtvu416bY6kOfVpkmMcLoEURs
-	aFp23O6w==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYc5-00000000byK-1jQZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 13:10:51 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id ED47E4E4127B;
-	Wed, 22 Oct 2025 14:06:07 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C0FC1606DC;
-	Wed, 22 Oct 2025 14:06:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 87CC2102F2432;
-	Wed, 22 Oct 2025 16:06:01 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761141966; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Ga2wjic9T8VzJuXCWKH+Uj/T9PGjvabNwcCK7WxQpK0=;
-	b=uhgD8tnXycbKWWz5/zQAf9epeYRRcbjwqUoYWkhSy+Q7x5JzjSwiDg4V1UBIqksCE44Q/A
-	hweWz1G8s6OwRRYaQFO25S/OcoQjoL7mdqn7RQXBY2tlc1fC+ONVDuEdwwe7bsO2F3h9lo
-	H5PzwXHW8NeYz3TVLMrpmGK855qDx7pf5wCqJ/Bftal8BNMjLD8iOzOrh+jQQBtxF27td3
-	ASxenBJlVqMtIyleCBai2rQPTb16hBit41QDcxU8ja5nWvQvHUCry9UGBrhKabn3Ixy5ln
-	w5EzkMIAHgrO86PS2sp3SbM10IjWv8rlZmnir+b08i3EbNptabQ62SVpIm71MQ==
-Message-ID: <6bff48d0-dd19-48d4-91e6-0d991365b8f9@bootlin.com>
-Date: Wed, 22 Oct 2025 16:06:00 +0200
-MIME-Version: 1.0
+	id 1vBZVi-000000039Z9-1Mr4;
+	Wed, 22 Oct 2025 14:08:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uUSP1qO5d6+Dz2ysgvMgrQtk3caBX2P3lDuDTioa78ijdVx15n/75K8LUPnZFm+J6YZsGMr87102z4VILsgjdypEU5d5jX6LcyqhtlyRC3Y0KcLAktMKcM9BNgEH6B1v7Mo6HlS018893cP8M9XcUBbpDAA5cD0qJLQEfO7rrAvL/Z1/TcEA3NxegFAxoFFI125KFW3kdVwJfKDldzP0OS53pzD4q4TM0VC/6Wtg3rYlFnfZ3B3zGNbHpjHavkkpiitmNkJb4JUw0LecO0/8EGius1osREBY6BHfCAijh74VW9K+bUjArgeugjeG/AHcYHjdK1V8leBzr0cIi+4iEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/bEvHpV3yKR755FH2QqqBlJv9jNl9uBTW98Xu7ShwC0=;
+ b=Hz0N8nzVlD8amCzJ+PQlXueOvp3p5s5UkQNR/GoKe8ZiANcEh1YR8qfvNL5/qZ2PRUMQoaUuTsIkAEJnO41DnDjP0pLwA2vcQPkcJBC4x8rvzZjzb1pNzqFtM9krxW31D46cG4xL9f2Xv1iiDFaztkrUGKTDDVSRvh2CPjFFS4b+RzXr0k9sRwMGORgkuSqfusWB+0eIX9u5xHbidPg3yAShcwgU4xj9i6lLe8bxeEUpi49KmbVhBooEbGFWsuLjA/M2GW6n50ptnRALNYYmkaHt5mZi2wftFxd8Or5xT3guAGTmcc1JZgTkx8MpPgkXCZdVYGDkELfJSvLey9zzYw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/bEvHpV3yKR755FH2QqqBlJv9jNl9uBTW98Xu7ShwC0=;
+ b=FN+A5Zdz5qE+CONExE77dZ7xsIqiGOvV6YhxfOOVrI1d3ZJlwy8t+enB8rztoqjr4+C08MUe4dOZ0OlDdWGJ3oFTLDPsWCO/wx5+7lCY+esQMt3mNxODwYaFmsIeAj2lG2FXPSDmvrfS+Fphz7wCRcw5z3l1q6fM6SwOIRna4c4qUJlEDZkP4hXl6gQQjWHPN7zEL5tl2gIwhvCQJahy202HIiC0A38RLM+aEUmq/PPjlZuwoJJ+ebT466lMbG+kMiWCnKsZxq6GltMuaWVwGIUydmgd1G8e9iRKvdPMy0z1ITmGulXaPu1tlvEfEWon5XqFIE8rqJB02Dh9WSM2aw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+ by OSQPR03MB8713.apcprd03.prod.outlook.com (2603:1096:604:2a0::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Wed, 22 Oct
+ 2025 14:08:12 +0000
+Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e]) by KL1PR03MB5778.apcprd03.prod.outlook.com
+ ([fe80::e1e:5c95:a889:828e%5]) with mapi id 15.20.9253.011; Wed, 22 Oct 2025
+ 14:08:12 +0000
+Message-ID: <61c2738d-7291-4a45-aa73-f18528c81ba8@amlogic.com>
+Date: Wed, 22 Oct 2025 22:07:43 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/6] net: phylink: add phylink managed MAC
- Wake-on-Lan support
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-References: <aPIwqo9mCEOb7ZQu@shell.armlinux.org.uk>
- <E1v9jCT-0000000B2Ob-1yo3@rmk-PC.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <E1v9jCT-0000000B2Ob-1yo3@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Subject: Re: [PATCH 2/3] clk: amlogic: Optimize PLL enable timing
+To: Jerome Brunet <jbrunet@baylibre.com>,
+ Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251022-optimize_pll_driver-v1-0-a275722fb6f4@amlogic.com>
+ <20251022-optimize_pll_driver-v1-2-a275722fb6f4@amlogic.com>
+ <1j347b403i.fsf@starbuckisacylon.baylibre.com>
+From: Chuan Liu <chuan.liu@amlogic.com>
+In-Reply-To: <1j347b403i.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SGBP274CA0004.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b0::16)
+ To KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|OSQPR03MB8713:EE_
+X-MS-Office365-Filtering-Correlation-Id: a90824ea-ea64-4d64-b9c6-08de11746f9b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?b1RuVGxsbTBIMitIZnhhdlh4R3kwblM0MHdSWENQRnhMQ3lIL1NrTEJXQldS?=
+ =?utf-8?B?bVp0VmlaRE4vS09UMmpIblpTUDBPclh1NjUvYzdPWDc3WGtnYkJWdkJOZjVK?=
+ =?utf-8?B?RlNmSVEzdWlDanVXbDh0dERUQkdDUSt5MmdiMHBHTlZuemdqdnNXZ05hWnM4?=
+ =?utf-8?B?M2VXSjJDUElLTWUzbTFVNG1UUThBd2JabFYveXUvbEEwTlQzR1laQy9PSHNl?=
+ =?utf-8?B?bFFmenQ0ZkdsZWVGUDhSbzNBTkM5RXMxN2dqdDhKb1YyeENnNis3ZW5mTFJY?=
+ =?utf-8?B?RE96elFjQmFyYjJBS3BMMTYzM3JvZHMzcHpZZGQzbHdtT2ZRa3Z2VlpWWE1v?=
+ =?utf-8?B?dFZLQ2V5MFlzbXBUTTVmcllERUpoYWZpWndWNmFrOXJ5TVlSOGg0aTVXd3lk?=
+ =?utf-8?B?Zzd4UVZFZEFpczZZZlg2eXpIdU5qdjJzZVhWRExuUTZQRTNCMFNVNW15ek1l?=
+ =?utf-8?B?NjY3aDZXZVlMQmlSNW9seDVaT29Vb1BGR2RodkpvdDROYitYdzlMMHBGWU43?=
+ =?utf-8?B?dmVKaUVPYU9DV2wrTlBnNVpmcldVaEk5UCsrWUFpY3Z2V2NEM1F1YjJaanYx?=
+ =?utf-8?B?Y3l0cUk0VGVvUHgvOWN0azdsL2FmT0FKOG8yQlp5WEgrRWRETWZ2SlM4UENt?=
+ =?utf-8?B?WTNpUTl5STQxSnN6S2wzYTdVcTA5RlhOK2p2aWRFMnhtZWhiRjNLR1BaQkNt?=
+ =?utf-8?B?MjY5ZFpjMStEMWlWekdhS0N3VFVkT3lqRnBSNHFVZUNidTlCcW5GYmQralpE?=
+ =?utf-8?B?QmdqbVg4NGlRNFBPQWloWUxNZXJRMkRvT0ZLQWJOdzBKaDduZE9wS1dVbHRS?=
+ =?utf-8?B?K2RxN0NQaWF1Qi9KSEc4dVBoVzZRd0ZibXE5TjFJbXRKanh0S0R5NnlhUDFV?=
+ =?utf-8?B?MjZkMW5SbWFLcDV6bm5SenZMN0xFYW9jb0FzUGdBZndKNnBDREQ4WTh6NHM3?=
+ =?utf-8?B?UmYybkx6MzVqTTZ5bVFNTHlQQWo2MlpiZitDZ05KMkNGYThoZVQ1T09sMlJC?=
+ =?utf-8?B?RjZnZDc0ZFZUangyaVRPVk9ncVRoS1BHZkwzMHhVOTJRVSthWUwxZTA0K0hv?=
+ =?utf-8?B?SUd4YjV4Kzd5TnR0OFpUVFFmdjU1dkl2VHVzQThYUnJ3aWlMQ0ZSZDZrTERO?=
+ =?utf-8?B?dk85TldJamFGRDM4aloxckZxUUVYMWFRMm5adnVVVkc2VHNVRjVZa2pyQmp3?=
+ =?utf-8?B?UVRJNWlnVGllbU0wQ2wwM2p2L3VsaUpmL2NtOXVraThkVU5oQ0lBd1dRNVpT?=
+ =?utf-8?B?eGtDRWlCUXorSmluditONWhCaE9nOEF4cHJnZUI4VFZRYzZuYUNZai83VVRo?=
+ =?utf-8?B?SXR0Z0NuUy85L29Rd1d0NmVjeVVhNHdvTVdINVpZUmRkcjUrOGVDU0w1TE05?=
+ =?utf-8?B?VWFscmlGRjl4UmZzM09xYVptclJrR3Q5N3lwZGF4WmlKelBWYnFaV29hRFJL?=
+ =?utf-8?B?cm5OWkQvMWFFVU5JZEtLMTZFZTlrZVQzUVNSNFlZbjJRd21SenNUTDZUUXJS?=
+ =?utf-8?B?dFBsTFVrU2FaUnBXeFVGQzBLd0c1aldVeVJvZzZWN2FQMmY5RHFoakE3TEtS?=
+ =?utf-8?B?QmtScEpuQjNDVTNieVlYL1JRMm9qM25DZnJZWktkSmJId1NzTG9qdE5makRZ?=
+ =?utf-8?B?dUJkR1JPaXAybG1PQ3Q3M2NXcWRyU3JCRXdvaTJXZTE3QnNPaCtPNEdrRHBl?=
+ =?utf-8?B?d2ZxQkhnRW0wM2tNNDRaZFU5RzRkb2h1czhpbWRiZ1QvR2JiMGMvVmxqTEdv?=
+ =?utf-8?B?eC9mbm4yVFZvNmVUNnY4RGxGNndaOWlSV1lMYitTei9oTHdYU3p2UHRrMXA5?=
+ =?utf-8?B?OU50L2V3a1h3V3lhWFY5R2ZXVm1FajZvelc3c0l2STJYNU1nTEk0MVNGclV0?=
+ =?utf-8?B?ZlQxVDBLaEN2RXNydi95SFNpRDVhVXFtT3o1NGtYZTAzODFPMVFVWTZPeHgz?=
+ =?utf-8?Q?bFZKLIJ24Gmvj6ignvcxHV54/pau0D6e?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZVJhQ0lCM1pteDJmUDhEN2FHYVFLczJDcUlBeXJQTkUrd0hoQ3VRTC9uaWxh?=
+ =?utf-8?B?UW5IRUl5NTMvSEZSMjBjcGYwYUQ3V3c2eHZBYkpBamZzNXR3WkxnL3F0VEZP?=
+ =?utf-8?B?NGFieHUySmhZRFRkZ1NScTMwWEdKekNzcUFiNkJDRTgybEVoeXlrYnVURDZR?=
+ =?utf-8?B?NFJtL09NTkZxeHgvejdSam5jSDkrZ2tJYWlNTEhDYWIyd3B6b0JpSWxQdHZY?=
+ =?utf-8?B?dWdUQ0xWL0ZWSFV4UkI0QXl0SzFUKzVlRTNoNTc1Rk12NStsTmFPQzBoYUVE?=
+ =?utf-8?B?aVJaVUlTMkNSZDRVKzEvKys1K0k1ampjazNLcjVtWnllRWp4eTZ4TUZ1MWFU?=
+ =?utf-8?B?L0RzUEVIdE1lRjRkVVM2SmpSWVVjYjI3b3puRmJLeW9UTTQ5cWQ3RXlMOEhv?=
+ =?utf-8?B?dlZMT0pXNGkzbDNyM2tJZU1hYk4xTGorQVVmMElPSkJJbUVoYVRYVWVDMUpr?=
+ =?utf-8?B?SWd0M1ZLVWVYc2V2SUgzTFNwdVZGOGtmd3NQSVlhSUw3YThKMGhvT3JhOFVV?=
+ =?utf-8?B?R2hla3RIL0sxZXlQeTM3OHd4QXo3anV4bUxnbmFCbWlNTGswK3lxVzRaWXc4?=
+ =?utf-8?B?ZThqWGtRdkpUdDZRR29PQS8ybzlWQ1F0dm40NkUwQlB2Z0drbzFlazFDZjlB?=
+ =?utf-8?B?K1lmRjBlMFVaZGdMQlRHSU9HWGwxQ0EzQ0ZCVDZJT1VwdnVxOVQ0QmJyc0ph?=
+ =?utf-8?B?OWZqWWJNaE5DSEV5SjVaRGYzcjFkZHQ5OFQ5cUVZOXdoOUoxeUtwMzVacXpi?=
+ =?utf-8?B?clI0Qk5vQ2wySzhtY0NBVnJvTDlCTll1eGZFR2lXZjNlYTMyOVJLcTErUkQr?=
+ =?utf-8?B?MUQraXdwSFFIWGU0NGMyRVF4clBLR25iczlsSHhpRDZza2d6NWh1WUY1dEZ1?=
+ =?utf-8?B?VDdlK2RqSGdjYS9hZzFWSnlPRytFNWhoVWtuamlEU0hWYnNPNlpZb0pRVmdu?=
+ =?utf-8?B?MmV1S3BiOFNxZ1NtalRPRTUvTXhod1BUQk5GTXlsL0IzMW0rYmVOMmlLQ1N4?=
+ =?utf-8?B?RTRic3BRS0FoQWRRa0UyOEtXczRHcXhQT1NNNUVrZmFzR25FeW9sS3M4LzZY?=
+ =?utf-8?B?NS9YdVQzeWpYRGhNODBFRjA4WW9ZaTRaVE9nNmNqM1F1Y0NpNmx5M1FLakkw?=
+ =?utf-8?B?dGl2cmZrejlXRmprYURYSGxYM1BnV1BaK2xIMmt0RE1vbE9oME5OUVBRNzYz?=
+ =?utf-8?B?czNldlJVZkRnUnZBdDF6MUl4VDRyMUdDcEI1ejZnOHppR2ZJT29vS3A4eWs0?=
+ =?utf-8?B?Sk5OS3d5YlhpeU1WaTdxaGFFdGRPZXYwcFFWU3dYdGYxWmVQU0RNdUZlYjVP?=
+ =?utf-8?B?K3F5UjRPSkQ4K2RVTXBkUCtTdVByTjR0S0JQQ25ZOEhFakRESkRVMHhhRVFS?=
+ =?utf-8?B?ZW1tNldkNmRkQm1sZEQ4a0kvQkJxNk8wbjJVRTBSQ3hLUzBZNkk2bkxXVmlH?=
+ =?utf-8?B?VmNLZWdhakRUQUZiKytCUlVvbGhLamY3Q3Y4SFVOSHpEcFdWL0ExWEZSWG53?=
+ =?utf-8?B?Y2s2UmJlUjRFb1hTUFE0S3ExYXRZaFVMU1E3MUtyRnh0VnhTVlNzaFRsWVY5?=
+ =?utf-8?B?NjN1T0ZJZkZHSkt3RG8vZFlIZUhGMzNnbnorQ1NBalhSWW5pOExmTG5GdFlk?=
+ =?utf-8?B?aGVNbjVxeFFwWnVIOXVVTGJTQ3pNRkdmUTdlZkphUit6OWlMbEVydnBsUUdu?=
+ =?utf-8?B?L0ZaZlYrV1J3dE8vd3JUcGZ5Z3N6elV6eXBycVZuQkw2cjJKcHgxUHlVR3Ir?=
+ =?utf-8?B?VVk5R2gzZzlVaXZ2MURoVG1adWk4SUVIUWdDTU9YNDVtYWNKOFZqMGZFelNo?=
+ =?utf-8?B?U09BZGJmWHhWaUNwb1VrWXhPVWVFdGVieGNVcHU1alRxZkVVdSs3OEhFK1VH?=
+ =?utf-8?B?cmREeDU2ODdTcGtIV0lpSkROeDh3UnNuWnhvUTF2dmRsODVPNHFoYUtIMjBU?=
+ =?utf-8?B?S2FKVmdrclB0aGxZY2hQL0RYVytaR09MRlVsNTFiVzVpWU9hT3RXa0Z2Nm1T?=
+ =?utf-8?B?bGkrWGJSblFoZldqNEJBRmtKc3YzQTE2NEtBWGdHbnM1SFpPdi8yQWJXa0pw?=
+ =?utf-8?B?T1pRUXYzSmdWSVExbTFXRWhLcU5uRGdPaitlZWI0SGFiZHRyd1dHK3h6aEVM?=
+ =?utf-8?Q?gPV6Sq04H4qSdcL7/qgXbUKQv?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a90824ea-ea64-4d64-b9c6-08de11746f9b
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 14:08:12.0928
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UDAYPFmM9C6a0exscn6b/EHtmbAPU3KWuVE/Kkbf74h61xdhNXSYqbZbUkSJoveX20D5URlTQiwsBxq0xIjZ+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSQPR03MB8713
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_141049_543687_15FD1A43 
-X-CRM114-Status: GOOD (  40.39  )
+X-CRM114-CacheID: sfid-20251022_070818_504511_7E5F18B6 
+X-CRM114-Status: GOOD (  25.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,253 +179,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jerome,
 
 
-On 17/10/2025 14:04, Russell King (Oracle) wrote:
-> Add core phylink managed Wake-on-Lan support, which is enabled when the
-> MAC driver fills in the new .mac_wol_set() method that this commit
-> creates.
+On 10/22/2025 8:01 PM, Jerome Brunet wrote:
+> [ EXTERNAL EMAIL ]
 > 
-> When this feature is disabled, phylink acts as it has in the past,
-> merely passing the ethtool WoL calls to phylib whenever a PHY exists.
-> No other new functionality provided by this commit is enabled.
+> On Wed 22 Oct 2025 at 14:58, Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
 > 
-> When this feature is enabled, a more inteligent approach is used.
-> Phylink will first pass WoL options to the PHY, read them back, and
-> attempt to set any options that were not set at the PHY at the MAC.
+>> From: Chuan Liu <chuan.liu@amlogic.com>
+>>
+>> Amlogic PLL locking procedure shall follow this timing sequence:
+>> 1 Assert reset signal: Ensures PLL circuits enter known initial state.
+>> 2 Deassert lock-detect signal: Avoid lock signal false triggering.
+>> 3 Assert enable signal: Powers up PLL supply.
+>> 4 udelay(20): Wait for Bandgap and LDO to power up and stabilize.
+>> 5 Enable self-adaptation current module (Optional).
+>> 6 Deassert reset signal: Releases PLL to begin normal operation.
+>> 7 udelay(20): Wait for PLL loop stabilization.
+>> 8 Assert lock-detect signal: lock detection circuit starts to work.
+>> 9 Monitor lock status signal: Wait for PLL lock completion.
+>> 10 If the PLL fails to lock, it should be disabled, This makes the
+>> logic more complete, and also helps save unnecessary power consumption
+>> when the PLL is malfunctioning.
 > 
-> Since we have PHY drivers that report they support WoL, and accept WoL
-> configuration even though they aren't wired up to be capable of waking
-> the system, we need a way to differentiate between PHYs that think
-> they support WoL and those which actually do. As PHY drivers do not
-> make use of the driver model's wake-up infrastructure, but could, we
-> use this to determine whether PHY drivers can participate. This gives
-> a path forward where, as MAC drivers are converted to this, it
-> encourages PHY drivers to also be converted.
+> Is this applicable to all supported SoC ? from meson8 to s4 ?
+
+Yes.
+
 > 
-> Phylink will also ignore the mac_wol argument to phylink_suspend() as
-> it now knows the WoL state at the MAC.
+> What did you test ?
+
+We have tested this on the G12A and later SoCs without any issues.
+Internally, we have adopted this configuration sequence in our branch
+and verified it on a large number of SoCs.
+
+We haven't maintained the meson series for a while, so it hasn't been
+included in our recent validation. I also don't have any meson boards
+on hand. If you have one available, it would be appreciated if you
+could help verify this, Thanks.
+
+This PLL sequence adjustment for meson SoCs adds a 20us delay after
+enabling the PLL and after releasing its reset. The delay addresses
+rare PLL lock failures observed under low temperatures. As a result,
+it slightly increases enable time but improves stability.
+
 > 
-> MAC drivers are expected to record/configure the Wake-on-Lan state in
-> their .mac_set_wol() method, and deal appropriately with it in their
-> suspend/resume methods. The driver model provides assistance to set the
-> IRQ wake support which may assist driver authors in achieving the
-> necessary configuration.
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/phy/phylink.c | 80 +++++++++++++++++++++++++++++++++++++--
->  include/linux/phylink.h   | 26 +++++++++++++
->  2 files changed, 102 insertions(+), 4 deletions(-)
+>>
+>> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+>> ---
+>>   drivers/clk/meson/clk-pll.c | 68 ++++++++++++++++++++++++++-------------------
+>>   1 file changed, 40 insertions(+), 28 deletions(-)
+>>
+>> diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
+>> index b07e1eb19d12..26c83db487e8 100644
+>> --- a/drivers/clk/meson/clk-pll.c
+>> +++ b/drivers/clk/meson/clk-pll.c
+>> @@ -353,6 +353,23 @@ static int meson_clk_pcie_pll_enable(struct clk_hw *hw)
+>>        return -EIO;
+>>   }
+>>
+>> +static void meson_clk_pll_disable(struct clk_hw *hw)
+>> +{
+>> +     struct clk_regmap *clk = to_clk_regmap(hw);
+>> +     struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
+>> +
+>> +     /* Put the pll is in reset */
+>> +     if (MESON_PARM_APPLICABLE(&pll->rst))
+>> +             meson_parm_write(clk->map, &pll->rst, 1);
+>> +
+>> +     /* Disable the pll */
+>> +     meson_parm_write(clk->map, &pll->en, 0);
+>> +
+>> +     /* Disable PLL internal self-adaption current module */
+>> +     if (MESON_PARM_APPLICABLE(&pll->current_en))
+>> +             meson_parm_write(clk->map, &pll->current_en, 0);
+>> +}
 > 
-> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-> index 9d7799ea1c17..939438a6d6f5 100644
-> --- a/drivers/net/phy/phylink.c
-> +++ b/drivers/net/phy/phylink.c
-> @@ -93,6 +93,9 @@ struct phylink {
->  	u8 sfp_port;
->  
->  	struct eee_config eee_cfg;
-> +
-> +	u32 wolopts_mac;
-> +	u8 wol_sopass[SOPASS_MAX];
->  };
->  
->  #define phylink_printk(level, pl, fmt, ...) \
-> @@ -2562,6 +2565,17 @@ void phylink_rx_clk_stop_unblock(struct phylink *pl)
->  }
->  EXPORT_SYMBOL_GPL(phylink_rx_clk_stop_unblock);
->  
-> +static bool phylink_mac_supports_wol(struct phylink *pl)
-> +{
-> +	return !!pl->mac_ops->mac_wol_set;
-> +}
-> +
-> +static bool phylink_phy_supports_wol(struct phylink *pl,
-> +				     struct phy_device *phydev)
-> +{
-> +	return phydev && (pl->config->wol_phy_legacy || phy_can_wakeup(phydev));
-> +}
-> +
->  /**
->   * phylink_suspend() - handle a network device suspend event
->   * @pl: a pointer to a &struct phylink returned from phylink_create()
-> @@ -2575,11 +2589,17 @@ EXPORT_SYMBOL_GPL(phylink_rx_clk_stop_unblock);
->   *   can also bring down the link between the MAC and PHY.
->   * - If Wake-on-Lan is active, but being handled by the MAC, the MAC
->   *   still needs to receive packets, so we can not bring the link down.
-> + *
-> + * Note: when phylink managed Wake-on-Lan is in use, @mac_wol is ignored.
-> + * (struct phylink_mac_ops.mac_set_wol populated.)
->   */
->  void phylink_suspend(struct phylink *pl, bool mac_wol)
->  {
->  	ASSERT_RTNL();
->  
-> +	if (phylink_mac_supports_wol(pl))
-> +		mac_wol = !!pl->wolopts_mac;
-> +
->  	if (mac_wol && (!pl->netdev || pl->netdev->ethtool->wol_enabled)) {
->  		/* Wake-on-Lan enabled, MAC handling */
->  		mutex_lock(&pl->state_mutex);
-> @@ -2689,8 +2709,24 @@ void phylink_ethtool_get_wol(struct phylink *pl, struct ethtool_wolinfo *wol)
->  	wol->supported = 0;
->  	wol->wolopts = 0;
->  
-> -	if (pl->phydev)
-> -		phy_ethtool_get_wol(pl->phydev, wol);
-> +	if (phylink_mac_supports_wol(pl)) {
-> +		if (phylink_phy_supports_wol(pl, pl->phydev))
-> +			phy_ethtool_get_wol(pl->phydev, wol);
-> +
-> +		/* Where the MAC augments the WoL support, merge its support and
-> +		 * current configuration.
-> +		 */
-> +		if (~wol->wolopts & pl->wolopts_mac & WAKE_MAGICSECURE)
-> +			memcpy(wol->sopass, pl->wol_sopass,
-> +			       sizeof(wol->sopass));
-> +
-> +		wol->supported |= pl->config->wol_mac_support;
-> +		wol->wolopts |= pl->wolopts_mac;
-> +	} else {
-> +		/* Legacy */
-> +		if (pl->phydev)
-> +			phy_ethtool_get_wol(pl->phydev, wol);
-> +	}
->  }
->  EXPORT_SYMBOL_GPL(phylink_ethtool_get_wol);
->  
-> @@ -2707,12 +2743,48 @@ EXPORT_SYMBOL_GPL(phylink_ethtool_get_wol);
->   */
->  int phylink_ethtool_set_wol(struct phylink *pl, struct ethtool_wolinfo *wol)
->  {
-> +	struct ethtool_wolinfo w;
->  	int ret = -EOPNOTSUPP;
-> +	bool changed;
-> +	u32 wolopts;
->  
->  	ASSERT_RTNL();
->  
-> -	if (pl->phydev)
-> -		ret = phy_ethtool_set_wol(pl->phydev, wol);
-> +	if (phylink_mac_supports_wol(pl)) {
-> +		wolopts = wol->wolopts;
-> +
-> +		if (phylink_phy_supports_wol(pl, pl->phydev)) {
-> +			ret = phy_ethtool_set_wol(pl->phydev, wol);
-> +			if (ret != 0 && ret != -EOPNOTSUPP)
-> +				return ret;
-> +
-> +			phy_ethtool_get_wol(pl->phydev, &w);
-> +
-> +			/* Any Wake-on-Lan modes which the PHY is handling
-> +			 * should not be passed on to the MAC.
-> +			 */
-> +			wolopts &= ~w.wolopts;
+> I don't get why you moved that code around and make the diff even harder
+> to read
 
-When PHY drivers gets converted to the new model, we'll have to look at
-how the .get_wol() behave WRT how they fill-in their wolopts.
+Sorry about the misaligned formatting. I moved meson_clk_pll_disable()
+earlier in the code because I added handling for PLL lock failures,
+which unintentionally broke the alignment.
 
-The Broadcom driver for example may not set w.wolopts to 0 :
+I'll split the PLL lock failure handling into a separate patch in the
+next version to make review easier.
 
-  https://elixir.bootlin.com/linux/v6.17.4/source/drivers/net/phy/broadcom.c#L1121
-
-You'd probably end-up with garbage here then. But not blocking for your series.
-
-> +		}
-> +
-> +		wolopts &= pl->config->wol_mac_support;
-> +		changed = pl->wolopts_mac != wolopts;
-> +		if (wolopts & WAKE_MAGICSECURE)
-> +			changed |= !!memcmp(wol->sopass, pl->wol_sopass,
-> +					    sizeof(wol->sopass));
-> +		memcpy(pl->wol_sopass, wol->sopass, sizeof(pl->wol_sopass));
-> +
-> +		if (changed) {
-> +			ret = pl->mac_ops->mac_wol_set(pl->config, wolopts,
-> +						       wol->sopass);
-> +			if (!ret)
-> +				pl->wolopts_mac = wolopts;
-> +		} else {
-> +			ret = 0;
-> +		}
-> +	} else {
-> +		if (pl->phydev)
-> +			ret = phy_ethtool_set_wol(pl->phydev, wol);
-> +	}
->  
->  	return ret;
->  }
-> diff --git a/include/linux/phylink.h b/include/linux/phylink.h
-> index 9af0411761d7..59cb58b29d1d 100644
-> --- a/include/linux/phylink.h
-> +++ b/include/linux/phylink.h
-> @@ -156,6 +156,8 @@ enum phylink_op_type {
->   * @lpi_capabilities: MAC speeds which can support LPI signalling
->   * @lpi_timer_default: Default EEE LPI timer setting.
->   * @eee_enabled_default: If set, EEE will be enabled by phylink at creation time
-> + * @wol_phy_legacy: Use Wake-on-Lan with PHY even if phy_can_wakeup() is false
-> + * @wol_mac_support: Bitmask of MAC supported %WAKE_* options
->   */
->  struct phylink_config {
->  	struct device *dev;
-> @@ -173,6 +175,10 @@ struct phylink_config {
->  	unsigned long lpi_capabilities;
->  	u32 lpi_timer_default;
->  	bool eee_enabled_default;
-> +
-> +	/* Wake-on-Lan support */
-> +	bool wol_phy_legacy;
-> +	u32 wol_mac_support;
->  };
->  
->  void phylink_limit_mac_speed(struct phylink_config *config, u32 max_speed);
-> @@ -188,6 +194,7 @@ void phylink_limit_mac_speed(struct phylink_config *config, u32 max_speed);
->   * @mac_link_up: allow the link to come up.
->   * @mac_disable_tx_lpi: disable LPI.
->   * @mac_enable_tx_lpi: enable and configure LPI.
-> + * @mac_wol_set: configure Wake-on-Lan settings at the MAC.
->   *
->   * The individual methods are described more fully below.
->   */
-> @@ -211,6 +218,9 @@ struct phylink_mac_ops {
->  	void (*mac_disable_tx_lpi)(struct phylink_config *config);
->  	int (*mac_enable_tx_lpi)(struct phylink_config *config, u32 timer,
->  				 bool tx_clk_stop);
-> +
-> +	int (*mac_wol_set)(struct phylink_config *config, u32 wolopts,
-> +			   const u8 *sopass);
->  };
->  
->  #if 0 /* For kernel-doc purposes only. */
-> @@ -440,6 +450,22 @@ void mac_disable_tx_lpi(struct phylink_config *config);
->   */
->  int mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
->  		      bool tx_clk_stop);
-> +
-> +/**
-> + * mac_wol_set() - configure the Wake-on-Lan parameters
-> + * @config: a pointer to a &struct phylink_config.
-> + * @wolopts: Bitmask of %WAKE_* flags for enabled Wake-On-Lan modes.
-> + * @sopass: SecureOn(tm) password; meaningful only for %WAKE_MAGICSECURE
-> + *
-> + * Enable the specified Wake-on-Lan options at the MAC. Options that the
-> + * PHY can handle will have been removed from @wolopts.
-> + *
-> + * The presence of this method enables phylink-managed WoL support.
-> + *
-> + * Returns: 0 on success.
-> + */
-> +int (*mac_wol_set)(struct phylink_config *config, u32 wolopts,
-> +		   const u8 *sopass);
->  #endif
->  
->  struct phylink_pcs_ops;
-
-As far as my current WoL knowedge goes, this looks good to me.
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
+> 
+>> +
+>>   static int meson_clk_pll_enable(struct clk_hw *hw)
+>>   {
+>>        struct clk_regmap *clk = to_clk_regmap(hw);
+>> @@ -366,53 +383,48 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
+>>        if (MESON_PARM_APPLICABLE(&pll->rst))
+>>                meson_parm_write(clk->map, &pll->rst, 1);
+>>
+>> +     /* Disable the PLL lock-detect module */
+>> +     if (MESON_PARM_APPLICABLE(&pll->l_detect))
+>> +             meson_parm_write(clk->map, &pll->l_detect, 1);
+>> +
+>>        /* Enable the pll */
+>>        meson_parm_write(clk->map, &pll->en, 1);
+>> -
+>> -     /* Take the pll out reset */
+>> -     if (MESON_PARM_APPLICABLE(&pll->rst))
+>> -             meson_parm_write(clk->map, &pll->rst, 0);
+>> +     /* Wait for Bandgap and LDO to power up and stabilize */
+>> +     udelay(20);
+>>
+>>        /*
+>>         * Compared with the previous SoCs, self-adaption current module
+>>         * is newly added for A1, keep the new power-on sequence to enable the
+>>         * PLL. The sequence is:
+>> -      * 1. enable the pll, delay for 10us
+>> +      * 1. enable the pll, ensure a minimum delay of 10μs
+>>         * 2. enable the pll self-adaption current module, delay for 40us
+>>         * 3. enable the lock detect module
+>>         */
+>>        if (MESON_PARM_APPLICABLE(&pll->current_en)) {
+>> -             udelay(10);
+>>                meson_parm_write(clk->map, &pll->current_en, 1);
+>> -             udelay(40);
+>> -     }
+>> -
+>> -     if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
+>> -             meson_parm_write(clk->map, &pll->l_detect, 1);
+>> -             meson_parm_write(clk->map, &pll->l_detect, 0);
+>> +             udelay(20);
+>>        }
+>>
+>> -     if (meson_clk_pll_wait_lock(hw))
+>> -             return -EIO;
+>> +     /* Take the pll out reset */
+>> +     if (MESON_PARM_APPLICABLE(&pll->rst))
+>> +             meson_parm_write(clk->map, &pll->rst, 0);
+>>
+>> -     return 0;
+>> -}
+>> +     /* Wait for PLL loop stabilization */
+>> +     udelay(20);
+>>
+>> -static void meson_clk_pll_disable(struct clk_hw *hw)
+>> -{
+>> -     struct clk_regmap *clk = to_clk_regmap(hw);
+>> -     struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
+>> +     /* Enable the lock-detect module */
+>> +     if (MESON_PARM_APPLICABLE(&pll->l_detect))
+>> +             meson_parm_write(clk->map, &pll->l_detect, 0);
+>>
+>> -     /* Put the pll is in reset */
+>> -     if (MESON_PARM_APPLICABLE(&pll->rst))
+>> -             meson_parm_write(clk->map, &pll->rst, 1);
+>> +     if (meson_clk_pll_wait_lock(hw)) {
+>> +             /* disable PLL when PLL lock failed. */
+>> +             meson_clk_pll_disable(hw);
+>> +             pr_warn("%s: PLL lock failed!!!\n", clk_hw_get_name(hw));
+>>
+>> -     /* Disable the pll */
+>> -     meson_parm_write(clk->map, &pll->en, 0);
+>> +             return -EIO;
+>> +     }
+>>
+>> -     /* Disable PLL internal self-adaption current module */
+>> -     if (MESON_PARM_APPLICABLE(&pll->current_en))
+>> -             meson_parm_write(clk->map, &pll->current_en, 0);
+>> +     return 0;
+>>   }
+>>
+>>   static int meson_clk_pll_set_rate(struct clk_hw *hw, unsigned long rate,
+> 
+> --
+> Jerome
 
 
