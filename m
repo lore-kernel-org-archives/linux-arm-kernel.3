@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14119CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D775CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+sizCfIM05cDrmi7+3yIo9aCWsp9ITR4j2/POG76eE8=; b=1dubocRncTOIAz4XbLwrNABr86
-	8sRk2CRZm29HHJ7KMCLgaz33uTHzOvLcVk9VKZ4R3GMhNmABmo8xFBe4zHGFUJp/U7hS8f7L3Pw6r
-	0KNrsH8IQG2ZL3eiNLRyuEVCRsLDF3s0O5dWmC7y7vr50qaBaTKxTOgZW1g0ChfIr/NQEHd/F8Yj3
-	AVdqEk86nQh+M7grHdI71vGBbtMEspd7mdNq7R1xYzEyoF1YxRd+7v5psO/6qnfdhK8eL3ZqBvaoV
-	XSFcvqFUikOJuXOkjyro5eVI3Kh7AJrqGmOasapuqVwpfqVhdwQv8mbl9T0uH9j0yVNB/oAKEtoeO
-	w0vxbkOA==;
+	bh=yKEKkv88SxzGZlADstsG/Fbxrmrq7lIkkBDm4MSpY14=; b=XSM4Z0m3OOlY/mEVuirSVcqer0
+	t2Fv4k9UuFWfXJnYggWeUykH/BNnqwZIdXLScojc34etO7C0KA1kFBSX7R4gdmurYayZurrNcxo0Q
+	/VlD6jYS3WNwU22lWaVkkeV5YQRZj66VOKcu9HoH+3p2Cu0ZNmkwimuR54g5bTLkmGjky+6TeKe48
+	FW8xK8MP0Jq0DAtHh8/7vUI65GQQk8Ee8/OzfMGw0gNbQP3MCeS78bSCreEa4XTQuswc49SvJupdo
+	7h0vJ3Uyt8zBczTTj7m/V++Ns6pjIjyQ4ywcZBcgBRPw8aSP6xG3gh1/pbcSdRSwSdybuoGkmxRsl
+	B6kyKxtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUvP-00000002Drv-2QsJ;
-	Wed, 22 Oct 2025 09:14:31 +0000
+	id 1vBUvh-00000002Dzo-0WAn;
+	Wed, 22 Oct 2025 09:14:49 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUvK-00000002Dok-0fd1
+	id 1vBUvb-00000002Dxq-12cj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 09:14:30 +0000
+	Wed, 22 Oct 2025 09:14:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1761124466; x=1792660466;
+  t=1761124483; x=1792660483;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=5jHDW6zklN2Co7QB/SGhS3I/3RAAtsMtKENU/P5+vsE=;
-  b=jDOxKZ0kbN0XsWUyCbj1gtoQMjv3CQzvphwdoxXea7tHjZUwYuYL8iyJ
-   OYw9oKAJXcaQzRt32eEjWDeJKVqNhmyD6yRR2/CES5m2ufnuOBIO5gq97
-   aH1ee2YvSgLbVEH2Lin9yG/YwWDtaafbhsE/UbXEN9dH3tdQUAq9krKB1
-   kdKkMGPqFAcqsQJBEFDF5UuI5aUwJwLym4E9xXGPuWL64YopcPC2bbza5
-   IuZz7AoQ5YzwOufhDkeG2CYWp+EoDvEF21nx+LVNs2xJsb/DGcnw1QmMP
-   xSOWI9W1esqeTpqsLBx50oq+XdqCfuAeRMfIVthD1uA1cHujHcxhu32Gf
+  bh=/7pxWw6uBCFsv70rXCaVqS+CUBebxIbPCXR25o/IlmM=;
+  b=Famyq5GPf8nam30Gt/rPLYqQIKRo0ztlrZkZ2uYp7147YlZdBgbXavoj
+   VX/1tSTNgMRERBgO32jeCSVN2nmBhH5EV9U8YpQT0x0RZSCV313WO69Af
+   cqF0Xuphxu614N/j5TioOqWjEo6fxByDB9IkzDLtU768WfjH5M6a/f2Y5
+   9mCRSETNc9Cv55KfYASONT+Nv/iQnXv3pNUOZU5SXkVRZ5BU11a1U0aZc
+   Ojzg/scHV2CFauSXDByhgTDHMYBpm0oiDW9xbh+RPID2INg5L2BzUm+ku
+   8oByiGFz3W/lfvqpBvif/u8FiuAmo0+4CY02KNwhipiulIUe8rRXEjWtG
    A==;
-X-CSE-ConnectionGUID: xz18o7SaSPijanOUbqr0Yg==
-X-CSE-MsgGUID: dwjrBljoQ4WO9owt2kacRg==
+X-CSE-ConnectionGUID: 44o3miGgTiO24jOPrvPsAw==
+X-CSE-MsgGUID: DyNUS5EQQ+y63oB8Tbd8NQ==
 X-IronPort-AV: E=Sophos;i="6.19,246,1754982000"; 
-   d="scan'208";a="48611258"
+   d="scan'208";a="48611281"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Oct 2025 02:14:22 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Oct 2025 02:14:42 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Wed, 22 Oct 2025 02:13:58 -0700
+ 15.1.2507.58; Wed, 22 Oct 2025 02:14:14 -0700
 Received: from che-lt-i67131.microchip.com (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Wed, 22 Oct 2025 02:13:53 -0700
+ 15.1.2507.58 via Frontend Transport; Wed, 22 Oct 2025 02:14:09 -0700
 From: Manikandan Muralidharan <manikandan.m@microchip.com>
 To: <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
 	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
@@ -62,9 +62,9 @@ To: <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
 	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
 CC: <manikandan.m@microchip.com>, <dharma.b@microchip.com>
-Subject: [PATCH v2 RESEND 1/3] drm: atmel-hlcdc: add support for LVDS encoder type
-Date: Wed, 22 Oct 2025 14:43:49 +0530
-Message-ID: <20251022091351.472331-2-manikandan.m@microchip.com>
+Subject: [PATCH v2 RESEND 3/3] drm: atmel-hlcdc: set LVDS PLL clock rate for LVDS Displays
+Date: Wed, 22 Oct 2025 14:43:51 +0530
+Message-ID: <20251022091351.472331-4-manikandan.m@microchip.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20251022091351.472331-1-manikandan.m@microchip.com>
 References: <20251022091351.472331-1-manikandan.m@microchip.com>
@@ -72,8 +72,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_021426_358641_36D0B094 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20251022_021443_438449_F2F9A765 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,77 +90,108 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Dharma Balasubiramani <dharma.b@microchip.com>
 
-Add support for encoder type "DRM_MODE_ENCODER_LVDS" with the following
-bus formats:
-	- RGB888_1X7X4_SPWG
-	- RGB888_1X7X4_JEIDA
-	- RGB666_1X7X3_SPWG
-	- RGB666_1X18
+The LVDS PLL clock runs at 7 times the panel pixel clock.
+For LVDS displays, the PLL clock rate is set based on the
+panel pixel clock, eliminating the need for the assigned-clock-rates
+Device Tree property for lvds_pll_clk in the LCD node.
 
 Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
-[manikandan.m@microchip.com: move modifications inside the
-atmel_xlcdc_connector_output_lvds fn]
 Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 ---
- .../gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c    | 38 +++++++++++++++++++
- 1 file changed, 38 insertions(+)
+Changes in v2:
+- Rephrase commit message and comment block
+---
+ .../gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c    | 48 ++++++++++++++++---
+ 1 file changed, 42 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
-index e0efc7309b1b..beb825fc4d5d 100644
+index beb825fc4d5d..67860947c466 100644
 --- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
 +++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
-@@ -357,6 +357,42 @@ static int atmel_xlcdc_connector_output_dsi(struct drm_encoder *encoder,
- 	return supported_fmts;
+@@ -100,9 +100,15 @@ static void atmel_hlcdc_crtc_mode_set_nofb(struct drm_crtc *c)
+ 		drm_connector_list_iter_end(&iter);
+ 	}
+ 
+-	ret = clk_prepare_enable(crtc->dc->hlcdc->sys_clk);
+-	if (ret)
+-		return;
++	if (crtc->dc->hlcdc->lvds_pll_clk) {
++		ret = clk_prepare_enable(crtc->dc->hlcdc->lvds_pll_clk);
++		if (ret)
++			return;
++	} else {
++		ret = clk_prepare_enable(crtc->dc->hlcdc->sys_clk);
++		if (ret)
++			return;
++	}
+ 
+ 	vm.vfront_porch = adj->crtc_vsync_start - adj->crtc_vdisplay;
+ 	vm.vback_porch = adj->crtc_vtotal - adj->crtc_vsync_end;
+@@ -187,7 +193,10 @@ static void atmel_hlcdc_crtc_mode_set_nofb(struct drm_crtc *c)
+ 			   ATMEL_XLCDC_DPI : ATMEL_HLCDC_MODE_MASK),
+ 			   cfg);
+ 
+-	clk_disable_unprepare(crtc->dc->hlcdc->sys_clk);
++	if (crtc->dc->hlcdc->lvds_pll_clk)
++		clk_disable_unprepare(crtc->dc->hlcdc->lvds_pll_clk);
++	else
++		clk_disable_unprepare(crtc->dc->hlcdc->sys_clk);
  }
  
-+static int atmel_xlcdc_connector_output_lvds(struct drm_encoder *encoder,
-+					     struct drm_display_info *info)
-+{
-+	int j;
-+	unsigned int supported_fmts = 0;
-+
-+	switch (atmel_hlcdc_encoder_get_bus_fmt(encoder)) {
-+	case 0:
-+		break;
-+	case MEDIA_BUS_FMT_RGB666_1X7X3_SPWG:
-+	case MEDIA_BUS_FMT_RGB666_1X18:
-+		return ATMEL_HLCDC_RGB666_OUTPUT;
-+	case MEDIA_BUS_FMT_RGB888_1X7X4_SPWG:
-+	case MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA:
-+		return ATMEL_HLCDC_RGB888_OUTPUT;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	for (j = 0; j < info->num_bus_formats; j++) {
-+		switch (info->bus_formats[j]) {
-+		case MEDIA_BUS_FMT_RGB666_1X7X3_SPWG:
-+		case MEDIA_BUS_FMT_RGB666_1X18:
-+			supported_fmts |= ATMEL_HLCDC_RGB666_OUTPUT;
-+			break;
-+		case MEDIA_BUS_FMT_RGB888_1X7X4_SPWG:
-+		case MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA:
-+			supported_fmts |= ATMEL_HLCDC_RGB888_OUTPUT;
-+			break;
-+		default:
-+			break;
-+		}
-+	}
-+	return supported_fmts;
-+}
-+
- static int atmel_hlcdc_connector_output_mode(struct drm_connector_state *state)
- {
- 	struct drm_connector *connector = state->connector;
-@@ -375,6 +411,8 @@ static int atmel_hlcdc_connector_output_mode(struct drm_connector_state *state)
- 	 */
- 	if (encoder->encoder_type == DRM_MODE_ENCODER_DSI)
- 		return atmel_xlcdc_connector_output_dsi(encoder, info);
-+	else if (encoder->encoder_type == DRM_MODE_ENCODER_LVDS)
-+		return atmel_xlcdc_connector_output_lvds(encoder, info);
+ static enum drm_mode_status
+@@ -243,7 +252,11 @@ static void atmel_hlcdc_crtc_atomic_disable(struct drm_crtc *c,
+ 				    10, 1000))
+ 		drm_warn(dev, "Atmel LCDC status register CLKSTS timeout\n");
  
- 	switch (atmel_hlcdc_encoder_get_bus_fmt(encoder)) {
- 	case 0:
+-	clk_disable_unprepare(crtc->dc->hlcdc->sys_clk);
++	if (crtc->dc->hlcdc->lvds_pll_clk)
++		clk_disable_unprepare(crtc->dc->hlcdc->lvds_pll_clk);
++	else
++		clk_disable_unprepare(crtc->dc->hlcdc->sys_clk);
++
+ 	pinctrl_pm_select_sleep_state(dev->dev);
+ 
+ 	pm_runtime_allow(dev->dev);
+@@ -256,15 +269,38 @@ static void atmel_hlcdc_crtc_atomic_enable(struct drm_crtc *c,
+ {
+ 	struct drm_device *dev = c->dev;
+ 	struct atmel_hlcdc_crtc *crtc = drm_crtc_to_atmel_hlcdc_crtc(c);
++	struct drm_display_mode *adj = &c->state->adjusted_mode;
+ 	struct regmap *regmap = crtc->dc->hlcdc->regmap;
+ 	unsigned int status;
++	int ret;
+ 
+ 	pm_runtime_get_sync(dev->dev);
+ 
+ 	pm_runtime_forbid(dev->dev);
+ 
+ 	pinctrl_pm_select_default_state(dev->dev);
+-	clk_prepare_enable(crtc->dc->hlcdc->sys_clk);
++
++	if (crtc->dc->hlcdc->lvds_pll_clk) {
++		/*
++		 * For LVDS displays, retrieve the pixel clock from the panel
++		 * and set the LVDS PLL clock rate accordingly.
++		 * According to the datasheet,the LVDS PLL clock is 7 times the pixel clock.
++		 */
++		ret = clk_set_rate(crtc->dc->hlcdc->lvds_pll_clk,
++				   (adj->clock * 7 * 1000));
++		if (ret) {
++			dev_err(dev->dev, "Failed to set LVDS PLL clk rate: %d\n", ret);
++			return;
++		}
++
++		ret = clk_prepare_enable(crtc->dc->hlcdc->lvds_pll_clk);
++		if (ret)
++			return;
++	} else {
++		ret = clk_prepare_enable(crtc->dc->hlcdc->sys_clk);
++		if (ret)
++			return;
++	}
+ 
+ 	regmap_write(regmap, ATMEL_HLCDC_EN, ATMEL_HLCDC_PIXEL_CLK);
+ 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
 -- 
 2.25.1
 
