@@ -4,95 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E05CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F100ACCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zhkH+62s9AhGNEt/gcdilWodKjE5uLzcv1BGhnCuNyc=; b=bkbAVB9qeB3Qe5SO24b0Crript
-	q9/ERC3eUSv4TAEMVs6rF46FRdo0hYQAYRqFSiGIJUr67+IMbuLDxEl2IRoB0wfTiIh4wAubHGqJQ
-	irWg+wbfuOmCg38RTkhfniGSzDOtnEoobY1EZdhxmNAGFb3NUml/MhT5lKy8CDap1EDz2B08U6mnf
-	VbDWPoHk5q3ul0GvByU0O+lvOe4Nhp1ZFsuTF+YKatDBjeN3QBu2DCTQ0znS71xu+kkOYFbncRQPX
-	9lDzhZ2lSOO2s4k4Ccb40TK3fkVaN9IgNu33CqgjsD3PYAAOwwFGTanVmWjNbepzWW5vJhrLO/+1D
-	ZJtE73Wg==;
+	bh=LNEtH9lG/yvOebKMsji3DJq4oD0CU5SvCjoqyEyuZJY=; b=o8DeeAk7+22KFDb0KTBAPmRliY
+	RY9+ubRzNPfFNIkvNQSDhoOduDmxKStbxCS9D2iosGYkhGkWLdcrywpPHiJu5eR+KbabRLle4OmWW
+	RZAeC1/dhgRvWmmax1jr4MPU1xiRFS8rS+ZqcmqNBYlitPA7h9480FEP7yN2JBJ/wrDMvWZf4e3rf
+	EgaOGmC4ghez3nbqsVubnO2yATFwf08zl/wNB5eWQx73fBNZglQfd47g4IHPzSR/OZEVXybaADRdx
+	qzSpm9ZCFn/gg6rGniA7qX1/6op/21GOloYcRtY2+BN91GuqFbvxyuGUOVQBN17EZnW6yIwEfUgYt
+	Nz+P8vmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUyx-00000002Emm-3NJT;
-	Wed, 22 Oct 2025 09:18:11 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1vBUzG-00000002Ew1-0uSr;
+	Wed, 22 Oct 2025 09:18:30 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUyu-00000002Em5-3Mxt
+	id 1vBUz8-00000002ErP-3REt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 09:18:10 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-85a4ceb4c3dso875409785a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 02:18:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761124687; x=1761729487; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zhkH+62s9AhGNEt/gcdilWodKjE5uLzcv1BGhnCuNyc=;
-        b=aiOLv60CJ1U6tMM7t/7VoqFM6nnAPIWEsiJ9hYP+81ExdEIh8UUM5ya7FbSwxT3IiM
-         IzM3SxMwaa1+DREQBj79SYCeFrpE2/eNXDEhQcs7AOGyXGMpeXE2RHJDFAilvay4xKyC
-         RgsT/AiQc/RBWRGH/f6dwzXWz5/PWYmreb8OaUFrH914CFMTKUviHu1CaM+3wJOvAfxl
-         cfQ/SRxZzojfxfds6D05zB7EQgXvZxmMGMShMspxIyuDOmkSxgcirjq05ANsHGKNcExg
-         8XCfJx/aYyxSLqr/IDB9V8PQik8cTde0kr1ADIX0jq7zACk+nh36qGy1GdQ1lABYxg2m
-         dcdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761124687; x=1761729487;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zhkH+62s9AhGNEt/gcdilWodKjE5uLzcv1BGhnCuNyc=;
-        b=h3v2HwwEerL+6nXmF7VbdDmVooBxomSwZSiCOSm4VO+ovrnzTWBVcc4BGgj12NlBU1
-         Jez2TVGKPozM45Bzkn/656HO53M6bVGiu66V3huB1f9VITi6ooAGSjg0VBQd8c7Ag/46
-         f48YT34qf7E/50cX1P6gGeaqa4CDLzSgfANnMDts1Dc34mYicoKKQC2+SdMehqqszRdH
-         uPb8IeFfzkshAiOeTa5gFbpgtLQYi/l7k6aoD6PJrhHm5Ef1r9E2AFrp7ocRHOU7pKhf
-         cg+amuqMwLBZ47ogP58Gv1wo6LY++dkoVaU4KBE6x3WYC0CRLxQMSoCtfzwOQt0pWoPV
-         fB4A==
-X-Forwarded-Encrypted: i=1; AJvYcCVdi1+BT9KER+q7Yq5L0Dih5FWyptBBvHe868T0bvMF4Mom4BxtYeQ0FlIgutQcwnGqAJJloDt+Flvsv8/MYCQ6@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywjd1ZKR/hlUPIeohxjVX56BE7n8fMxkqkoIaMqCo7CwNFhD6Ey
-	oLuyUV2Pby7TlnGpi+C3IcWoxnyCluydY9EiejTXBe/Bbxt9hNUOlM8Qo5B3n0YTBAMwY0TzKXG
-	8BKywWe4tRq25Fb8CINayEUxhbfKgh84=
-X-Gm-Gg: ASbGncvAzyT2bGt4WQW63UMrm7KjH/Y+2TfFTsrKvREHi9moEYChSMJj2MARPd2uXd9
-	HMrrVwF/YJg/btk65kSTSseYlX/k0DoNpsFxXjWfSF2SJ6RO/GLNlv1JeAS5DahvA/tn3o6uxO3
-	liEx2WpSK8y1E+O0Ii3S3qdlVA7Z4tp7yZ4gHMuPBUNN2aB/ze6Pqd3Bv2ZfhoDCi3IANgZqWgS
-	CSejXII87LZxfn5lD3bVsb6vhekpQlA/b0ZNXnIs1wwLGiSb/ZMAkhG76HxPgFtI9PBIyWX3//v
-	qbi4/iA4bYAdgNsD
-X-Google-Smtp-Source: AGHT+IF8ppZ20Wu/vkfm6iPYBWUkrNxb51/1c5/VT0XmJ/5FqE678G9roI4AMEu38Z7ygSJiTsaYJgwfrr18a9ZMw5I=
-X-Received: by 2002:a05:620a:4710:b0:892:501a:290 with SMTP id
- af79cd13be357-892501a057amr1576601285a.86.1761124687335; Wed, 22 Oct 2025
- 02:18:07 -0700 (PDT)
+	Wed, 22 Oct 2025 09:18:24 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 69785C0B8B2;
+	Wed, 22 Oct 2025 09:18:00 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1FD07606DC;
+	Wed, 22 Oct 2025 09:18:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BB8D8102F2424;
+	Wed, 22 Oct 2025 11:18:09 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1761124698; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=LNEtH9lG/yvOebKMsji3DJq4oD0CU5SvCjoqyEyuZJY=;
+	b=OF2J3E5AqsRwJZUe/GRi6I4GRKXFbvqbO/tcH7qL3QxWQQyacXCI2N81rs8SHmBRk42pei
+	mDcgLvkOpYtZ128tfw0QgBcbY/E2k4MUV7t/gHmWJHKhdVhNl+2JV4byn2kuJ3Fb38Zsif
+	wpRUDMbFz+ApprQLi2TiA/7Lx9AvfUPkrFwOFsBlUEtUARyAwZIjKZ2yNUEO0IVZruZaFf
+	6hL7qd09YkaJz04E2Nuj0oSbPtlR8xHZsN9HavVDoyhWhsS2LPUifxn/pvZzIR5unzRj2j
+	YtuqYc8IuOEKk7cQUYupHAyPUGw8jaHFhFGi667+wSvG5a5gvBhR5n9ZA2yHfw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Genoud <richard.genoud@bootlin.com>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Chen-Yu Tsai
+ <wens@csie.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel
+ Holland <samuel@sholland.org>,  Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=
+ <u.kleine-koenig@baylibre.com>,  Wentao Liang <vulab@iscas.ac.cn>,  Johan
+ Hovold <johan@kernel.org>,  Maxime Ripard <mripard@kernel.org>,  Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>,  linux-mtd@lists.infradead.org,
+  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-sunxi@lists.linux.dev,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 13/15] mtd: rawnand: sunxi: Add support for H616 nand
+ controller
+In-Reply-To: <20251020101311.256819-14-richard.genoud@bootlin.com> (Richard
+	Genoud's message of "Mon, 20 Oct 2025 12:13:09 +0200")
+References: <20251020101311.256819-1-richard.genoud@bootlin.com>
+	<20251020101311.256819-14-richard.genoud@bootlin.com>
+User-Agent: mu4e 1.12.7; emacs 30.2
+Date: Wed, 22 Oct 2025 11:18:07 +0200
+Message-ID: <87ecqvthv4.fsf@bootlin.com>
 MIME-Version: 1.0
-References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
- <20251013092038.6963-3-ying.huang@linux.alibaba.com> <CAGsJ_4xaA8QRjP9H=n1hQfEfGop7vOd5Y=J+KQzuOyfa8GK-kQ@mail.gmail.com>
- <87a51jfl44.fsf@DESKTOP-5N7EMDA> <CAGsJ_4zPH0fwBOLQwh1y6jG3tCXHLGRCTyVVSCWb+NfLCEMV0Q@mail.gmail.com>
- <871pmv9unr.fsf@DESKTOP-5N7EMDA>
-In-Reply-To: <871pmv9unr.fsf@DESKTOP-5N7EMDA>
-From: Barry Song <21cnbao@gmail.com>
-Date: Wed, 22 Oct 2025 22:17:56 +1300
-X-Gm-Features: AS18NWD3ObRkO5HEsMcrxUcjKoB8vtoXwTiGu2WDg5GLSA8-uJXsohVYB76Ay-4
-Message-ID: <CAGsJ_4zW6ogVdi=t9JCuvGD9N21mA_ORXRCakw4Av68d9n+DDw@mail.gmail.com>
-Subject: Re: [PATCH -v2 2/2] arm64, tlbflush: don't TLBI broadcast if page
- reused in write fault
-To: "Huang, Ying" <ying.huang@linux.alibaba.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@redhat.com>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, Zi Yan <ziy@nvidia.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Yang Shi <yang@os.amperecomputing.com>, "Christoph Lameter (Ampere)" <cl@gentwo.org>, Dev Jain <dev.jain@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Yicong Yang <yangyicong@hisilicon.com>, 
-	Kefeng Wang <wangkefeng.wang@huawei.com>, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	Yin Fengwei <fengwei_yin@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_021808_895775_2BFC78BF 
-X-CRM114-Status: GOOD (  24.98  )
+X-CRM114-CacheID: sfid-20251022_021823_070570_09C10E80 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,97 +86,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 10:02=E2=80=AFPM Huang, Ying
-<ying.huang@linux.alibaba.com> wrote:
+Hello Richard,
+
+On 20/10/2025 at 12:13:09 +02, Richard Genoud <richard.genoud@bootlin.com> =
+wrote:
+
+> The H616 nand controller has the same base as A10/A23, with some
+> differences:
+> - mdma is based on chained buffers
+> - its ECC supports up to 80bit per 1024bytes
+> - some registers layouts are a bit different, mainly due do the stronger
+>   ECC.
+> - it uses USER_DATA_LEN registers along USER_DATA registers.
+> - it needs a specific clock for ECC and MBUS.
 >
-> Barry Song <21cnbao@gmail.com> writes:
+> Introduce the basic support, with ECC and scrambling, but without
+> DMA/MDMA.
 >
-> >> >
-> >> > static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
-> >> >                                            unsigned long uaddr)
-> >> > {
-> >> >         unsigned long addr;
-> >> >
-> >> >         dsb(ishst);
-> >> >         addr =3D __TLBI_VADDR(uaddr, ASID(mm));
-> >> >         __tlbi(vale1is, addr);
-> >> >         __tlbi_user(vale1is, addr);
-> >> >         mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE=
-_MASK,
-> >> >                                                 (uaddr & PAGE_MASK) =
-+
-> >> > PAGE_SIZE);
-> >> > }
-> >>
-> >> IIUC, _nosync() here means doesn't synchronize with the following code=
-.
-> >> It still synchronizes with the previous code, mainly the page table
-> >> changing.  And, Yes.  There may be room to improve this.
-> >>
-> >> > On the other hand, __ptep_set_access_flags() doesn=E2=80=99t seem to=
- use
-> >> > set_ptes(), so there=E2=80=99s no guarantee the updated PTEs are vis=
-ible to all
-> >> > cores. If a remote CPU later encounters a page fault and performs a =
-TLB
-> >> > invalidation, will it still see a stable PTE?
-> >>
-> >> I don't think so.  We just flush local TLB in local_flush_tlb_page()
-> >> family functions.  So, we only needs to guarantee the page table chang=
-es
-> >> are available for the local page table walking.  If a page fault occur=
-s
-> >> on a remote CPU, we will call local_flush_tlb_page() on the remote CPU=
-.
-> >>
-> >
-> > My concern is that:
-> >
-> > We don=E2=80=99t have a dsb(ish) to ensure the PTE page table is visibl=
-e to remote
-> > CPUs, since you=E2=80=99re using dsb(nsh). So even if a remote CPU perf=
-orms
-> > local_flush_tlb_page(), the memory may not be synchronized yet, and it =
-could
-> > still see the old PTE.
+> Tested on Whatsminer H616 board (with and without scrambling, ECC)
 >
-> So, do you think that after the load/store unit of the remote CPU have
-> seen the new PTE, the page table walker could still see the old PTE?  I
+> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 
-Without a barrier in the ish domain, remote CPUs=E2=80=99 load/store units =
-may not
-see the new PTE written by the first CPU performing the reuse.
+...
 
-That=E2=80=99s why we need a barrier in the ish domain to ensure the PTE is
-actually visible across the SMP domain. A store instruction doesn=E2=80=99t=
- guarantee
-that the data is immediately visible to other CPUs =E2=80=94 at least not f=
-or load
-instructions.
+>=20=20
+> +#define NFC_TIMING_CFG2(tCDQSS, tSC, tCLHZ, tCSS, tWC)		\
+> +	((((tCDQSS) & 0x1) << 11) | (((tSC) & 0x3) << 12) |	\
+> +	 (((tCLHZ) & 0x3) << 14) | (((tCSS) & 0x3) << 16) |	\
+> +	 (((tWC) & 0x3) << 18))
+> +
+>  /* define bit use in NFC_CMD */
+>  #define NFC_CMD_LOW_BYTE_MSK	GENMASK(7, 0)
+> -#define NFC_CMD_HIGH_BYTE_MSK	GENMASK(15, 8)
+> +#define NFC_CMD_HIGH_BYTE_MSK	GENMASK(15, 8)  // 15-10 reserved on H6
 
-Though, I=E2=80=99m not entirely sure about the page table walker case.
+Wrong comment type :-)
 
-> doubt it.  Even if so, the worse case is one extra spurious page fault?
-> If the possibility of the worst case is low enough, that should be OK.
+> +#define NFC_CMD_ADR_NUM_MSK	GENMASK(9, 8)
+>  #define NFC_CMD(x)		(x)
+>  #define NFC_ADR_NUM_MSK		GENMASK(18, 16)
+>  #define NFC_ADR_NUM(x)		(((x) - 1) << 16)
+> @@ -122,6 +156,7 @@
+>  #define NFC_SEQ			BIT(25)
+>  #define NFC_DATA_SWAP_METHOD	BIT(26)
+>  #define NFC_ROW_AUTO_INC	BIT(27)
+> +#define NFC_H6_SEND_RND_CMD2	BIT(27)
+>  #define NFC_SEND_CMD3		BIT(28)
+>  #define NFC_SEND_CMD4		BIT(29)
+>  #define NFC_CMD_TYPE_MSK	GENMASK(31, 30)
+> @@ -133,6 +168,7 @@
+>  #define NFC_READ_CMD_MSK	GENMASK(7, 0)
+>  #define NFC_RND_READ_CMD0_MSK	GENMASK(15, 8)
+>  #define NFC_RND_READ_CMD1_MSK	GENMASK(23, 16)
+> +#define NFC_RND_READ_CMD2_MSK	GENMASK(31, 24)
 
-CPU0:                    CPU1:
+...
 
-write pte;
+> @@ -858,6 +967,8 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_ch=
+ip *nand,
+>  	if (ret)
+>  		return ret;
+>=20=20
+> +	sunxi_nfc_reset_user_data_len(nfc);
+> +	sunxi_nfc_set_user_data_len(nfc, 4, 0);
 
-do local tlbi;
+I'm not sure I understand this properly. Why isn't this a fixed setting?
+Also, what is 4? It is not obvious to me and my require either a comment
+or a define (or maybe a sizeof()).
 
-                                       page fault;
-                                       do local tlbi; -> still old PTE
+>  	sunxi_nfc_randomizer_config(nand, page, false);
+>  	sunxi_nfc_randomizer_enable(nand);
+>  	writel(NFC_DATA_TRANS | NFC_DATA_SWAP_METHOD | NFC_ECC_OP,
+> @@ -968,6 +1079,8 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct n=
+and_chip *nand, uint8_t *buf
+>  		return ret;
+>=20=20
+>  	sunxi_nfc_hw_ecc_enable(nand);
+> +	sunxi_nfc_reset_user_data_len(nfc);
+> +	sunxi_nfc_set_user_data_len(nfc, 4, 0);
+>  	sunxi_nfc_randomizer_config(nand, page, false);
+>  	sunxi_nfc_randomizer_enable(nand);
+>=20=20
+> @@ -1100,6 +1213,8 @@ static int sunxi_nfc_hw_ecc_write_chunk(struct nand=
+_chip *nand,
+>=20=20
+>  	sunxi_nfc_randomizer_config(nand, page, false);
+>  	sunxi_nfc_randomizer_enable(nand);
+> +	sunxi_nfc_reset_user_data_len(nfc);
+> +	sunxi_nfc_set_user_data_len(nfc, 4, 0);
+>  	sunxi_nfc_hw_ecc_set_prot_oob_bytes(nand, oob, 0, bbm, page);
+>=20=20
+>  	writel(NFC_DATA_TRANS | NFC_DATA_SWAP_METHOD |
+> @@ -1344,10 +1459,12 @@ static int sunxi_nfc_hw_ecc_write_page_dma(struct=
+ nand_chip *nand,
+>  	if (ret)
+>  		goto pio_fallback;
+>=20=20
+> +	sunxi_nfc_reset_user_data_len(nfc);
+>  	for (i =3D 0; i < ecc->steps; i++) {
+>  		const u8 *oob =3D nand->oob_poi + (i * (ecc->bytes + 4));
+>=20=20
+>  		sunxi_nfc_hw_ecc_set_prot_oob_bytes(nand, oob, i, !i, page);
+> +		sunxi_nfc_set_user_data_len(nfc, 4, i);
 
-pte visible to CPU1
+Here you use it differently, maybe a bit of explanation in a comment
+could help.
 
->
-> Additionally, the page table lock is held when writing PTE on this CPU
-> and re-reading PTE on the remote CPU.  That provides some memory order
-> guarantee too.
+>  	}
+>=20=20
+>  	nand_prog_page_begin_op(nand, page, 0, NULL, 0);
+> @@ -2148,6 +2265,10 @@ static int sunxi_nfc_probe(struct platform_device =
+*pdev)
+>  	if (irq < 0)
+>  		return irq;
+>=20=20
+> +	nfc->caps =3D of_device_get_match_data(dev);
+> +	if (!nfc->caps)
+> +		return -EINVAL;
+> +
+>  	nfc->ahb_clk =3D devm_clk_get_enabled(dev, "ahb");
+>  	if (IS_ERR(nfc->ahb_clk)) {
+>  		dev_err(dev, "failed to retrieve ahb clk\n");
+> @@ -2160,6 +2281,22 @@ static int sunxi_nfc_probe(struct platform_device =
+*pdev)
+>  		return PTR_ERR(nfc->mod_clk);
+>  	}
+>=20=20
 
-Right, the PTL might take care of it automatically.
+...
 
-Thanks
-Barry
+>  static const struct sunxi_nfc_caps sunxi_nfc_a10_caps =3D {
+>  	.has_ecc_block_512 =3D true,
+> +	.has_ecc_clk =3D false,
+> +	.has_mbus_clk =3D false,
+
+As you want, but setting these fields (and below) to false is not
+strictly required as they will be set to 0 (which means false,
+automatically).
+
+>  	.reg_io_data =3D NFC_REG_A10_IO_DATA,
+>  	.reg_ecc_err_cnt =3D NFC_REG_A10_ECC_ERR_CNT,
+>  	.reg_user_data =3D NFC_REG_A10_USER_DATA,
+> @@ -2242,11 +2383,14 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_=
+caps =3D {
+>  	.dma_maxburst =3D 4,
+>  	.ecc_strengths =3D sunxi_ecc_strengths_a10,
+>  	.nstrengths =3D ARRAY_SIZE(sunxi_ecc_strengths_a10),
+> +	.max_ecc_steps =3D 16,
+>  	.sram_size =3D 1024,
+>  };
+>=20=20
+
+> +static const struct sunxi_nfc_caps sunxi_nfc_h616_caps =3D {
+> +	.has_mdma =3D false, // H616 supports only chained descriptors
+
+Wrong comment type :-)
+
+LGTM otherwise.
+
+Thanks,
+Miqu=C3=A8l
 
