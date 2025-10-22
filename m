@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C1BCCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:47:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B22CCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hKMaKsqQeSyKJ0VOHurfh1R0fk/3kLmtTygBI3w0m+g=; b=dFjORsLzbNhYYApYAaphcxZRRv
-	o3JX0BvQWGTsxSrKmLTUQj1XfsQXvbq/OWjXRPjjK6QxA2CbGwZ3BjZ5gfeFsWUYSGAnGf93Vs85c
-	zcrdDn930KUKOUPmbQ3xkop5xYD7anzTYKOaIoBi6F5m4LxaWvSFmEWSxBO3VDw9pQKrXtn2rr/BY
-	d/Ru4brQNNH8AelBVVtFiAEh93Fo+Kl2gqdsqiGi/AiPL8tsPP2/WkF4nNki+qUzIfGF1RxK/DS6Q
-	Pk+ZVTieC2aswnHzWt4xrFedS5X/zUnMRkjiYZ/Q7JmA18dBQKTMSs+VRblQBZJZBQ1q/qVDbysox
-	s+socXGg==;
+	bh=KM2lTYzLW/GkUVn27cris7elo+2lNEukKI+VCyXcIFc=; b=QB/3FwUkIyKquq7KtQnpVYM/Ps
+	XZCAv4h7ReL3z/iTKKI6NGoecajYuiVNRiLslQC7bxAowfznjLw8t7ZPtSNqym7WcKgYl/wGOnhU8
+	yOZyo/+n4jiU8ekspxqVlrtRKK9Q7gDmGlkz8a/kRnCSdb4EVAbAPdfMWHCtP4NaBStjSEdsM9o5E
+	FH2pisNJ7sTApSDlXVZdOlWpgdZjgAF7D1gCOPBVujhFupWN3CttkPfi6tmRFHiM/3kE/XNF/Re0f
+	nepz0nj2AMUt6zhU78/zxoeAddgeHdjqqc6ZCtrTyFkqjN08UZJ8uZp8gbtRhenoJqS76xfouMwMX
+	fJ8hN8BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBTZN-00000001w6v-0FJe;
-	Wed, 22 Oct 2025 07:47:41 +0000
+	id 1vBTZM-00000001w6S-34Rk;
+	Wed, 22 Oct 2025 07:47:40 +0000
 Received: from mail-koreacentralazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c40f::2] helo=SE2P216CU007.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBTZH-00000001vzE-2Xn5
+	id 1vBTZF-00000001vzC-47VK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 07:47:36 +0000
+	Wed, 22 Oct 2025 07:47:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=elKsqovYSctqrvDKlJ4wiRKBa+HKz7V18UErWp2qqdx6L7FAcbSCwF/BW4PWKvO6SG+VFpD/92LH3tDmgcUX9u38RN4XjIaet2OXpUvHbI+3EFKfyBcbt68aBRBxGJEH6Luj5l+76/O2mlc39PUMpbHrJG0phM/DmzErhU80AJslgizg2aXOjnOTkacfcgBNtd6fBp1sK7udMctzAVLa8QYUBfZEmXnK7HS0T//dN1MrXV82X+ElhqplJh3iZnZsrvsnkTngeY1ANowvU/cbYJnC/zwosHeyNMXzNVROAREIz4SmjsnuUvAYKUxYCtwG2fFh+hFIrVoBIHnRvWUBSw==
+ b=THO+4FUT3lipYF4eX1Lv2Jq+1KHcXlX8WrUAqA1d9PeGBHg1yUkIiyqZgzT6Jq6hX+cFvyem+Eh68Hlc2ZQHzmMFWgrHHJxP9a0XSleVkdQRCSHwF70VExKgUbwzDzssmJdSInKQ+Ia/0uJ+MyBcgQbxkW+xdnuPQWkqWdL77GoMzYEcwMFFt7PxTMqULPDzgWhwL8+1nQfT/wYQ26jDe5J4UdPOdX+OxZDQRsLlS0YRlluSfExKg8bR8EoXSdhtGidf0IIDxCFIr3//fAEnwu4GzGlDzzEDlDdKfmXIOqz4mDjq0f8kdHrtPix6O1j/HOGML19gRr3aOOIoGwe97w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hKMaKsqQeSyKJ0VOHurfh1R0fk/3kLmtTygBI3w0m+g=;
- b=hI1m2UGIJxCOmCovrn3gecvKFVrpBFS5rhsRxkrLHM7D1GdFqxWZJ9WcthwMnRWHPPm6CSkQv4iA+lbdZfRXutC0F+thtIHjvEphL9OZzsJVMqQs4fz6zdLzUCIx5iBf9Xx53hfmSmmlQaLs9IesaOKQqVtDtvYwI22WhJobXvaSmNO7CHnBRMUTYeI206nxmDCkN+T0hSNdWhkNAQxHjg8RstI76PNREY4mtUpbfrO9mf5lwKEqkBE2EmN3yNXwJ7tDu7HhMQDTM5qDzLoFGTaCpgdjgIAnnDwKGXIxUkz9O2SRMZsSDPjV2nQWTN+r8mQ8QPqjSEYbu13DweEGtg==
+ bh=KM2lTYzLW/GkUVn27cris7elo+2lNEukKI+VCyXcIFc=;
+ b=LKV4VyvpQb6bVN5jUaALMPLIfUj0PmuCRD8+sSuAPsUiaGulAv9dA9ph+G8fMLQ4/MY4jZd/+/yR7AZH9ggR4ii412oqwKTCTiyE7kEu23sdp1vzaUz34H+rVVQzmmOpHQPo3VuGhHaZO35xYSGGbfyzsAZiM08s0ztdbbQ9HlD2fFHXEmlVvc4hBow/gWMXf0/tz7ZVgqP/liPtHIGItX+WEsWXRrGEmDST2wB4aKoM4fJDjeXsVzN5BZ30G/8MjaebQpBgvRTiS1x9ZyxNDO3MXvMrOxi4R81n6tJX23n0T1zeBv9Ai9kh9CQFGkR4caJ1H2RK8pMLntyy3Tfv9w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
  header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hKMaKsqQeSyKJ0VOHurfh1R0fk/3kLmtTygBI3w0m+g=;
- b=cYV7H/yMLgnwTKzVXQg3nWomBG/wf2eW+Xb93uMft91wAZSOCzWzslrG0+GA8m3ManKb+xIgr2GXF7ur0grIu/Mk9m3oR3+HlAZcjtajeC0DFdBJyENU8HiCKn/ZVX5vcE41nAGU3/M5XYJPcA+UZ8NWKhpU9vIU4qG9qwOP3NM=
+ bh=KM2lTYzLW/GkUVn27cris7elo+2lNEukKI+VCyXcIFc=;
+ b=KHxGBLTNpQc4gvFjxxpJvTdOU9/lVKalCMlCb7UWpQYNEMgdZ9LcTYmn8zOFfWyhvTojxNfWiAGO2jGdNKCtGZ0Gipd7VKXKup0ouow3EwbBck7lBD420z+d3bOZJaUtW3Q1HFHkIc1jKsE39YiSEWd4oyaP5ZPtsbay6pMHDk4=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
 Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
- PUYP216MB2918.KORP216.PROD.OUTLOOK.COM (2603:1096:301:159::11) with Microsoft
+ SE2P216MB3135.KORP216.PROD.OUTLOOK.COM (2603:1096:101:28c::6) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9228.16; Wed, 22 Oct 2025 07:47:27 +0000
+ 15.20.9253.12; Wed, 22 Oct 2025 07:47:24 +0000
 Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
  ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
  ([fe80::9e3d:ee20:8cc7:3c07%5]) with mapi id 15.20.9228.009; Wed, 22 Oct 2025
- 07:47:27 +0000
+ 07:47:24 +0000
 From: Nas Chung <nas.chung@chipsnmedia.com>
 To: mchehab@kernel.org,
 	hverkuil@xs4all.nl,
@@ -68,11 +68,10 @@ Cc: linux-media@vger.kernel.org,
 	jackson.lee@chipsnmedia.com,
 	lafley.kim@chipsnmedia.com,
 	marek.vasut@mailbox.org,
-	Nas Chung <nas.chung@chipsnmedia.com>,
-	Ming Qian <ming.qian@oss.nxp.com>
-Subject: [PATCH v4 7/9] media: chips-media: wave6: Add Wave6 thermal cooling device
-Date: Wed, 22 Oct 2025 16:47:08 +0900
-Message-Id: <20251022074710.575-8-nas.chung@chipsnmedia.com>
+	Nas Chung <nas.chung@chipsnmedia.com>
+Subject: [PATCH v4 2/9] dt-bindings: media: nxp: Add Wave6 video codec device
+Date: Wed, 22 Oct 2025 16:47:03 +0900
+Message-Id: <20251022074710.575-3-nas.chung@chipsnmedia.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20251022074710.575-1-nas.chung@chipsnmedia.com>
 References: <20251022074710.575-1-nas.chung@chipsnmedia.com>
@@ -83,81 +82,80 @@ X-ClientProxiedBy: SEWP216CA0122.KORP216.PROD.OUTLOOK.COM
  (2603:1096:101:a::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SL2P216MB1246:EE_|PUYP216MB2918:EE_
-X-MS-Office365-Filtering-Correlation-Id: 98a1d2cc-0fbe-4a83-a98b-08de113f3f11
+X-MS-TrafficTypeDiagnostic: SL2P216MB1246:EE_|SE2P216MB3135:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7ea6a9dc-c04c-4969-19d5-08de113f3d8f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t2npnKQ8sBtMsevXDO5+zjvHTp63Citbh0M+33QCF2lzRYXk5SUHBvK2kVnA?=
- =?us-ascii?Q?9dbfcxsYMsqcvVskvtnh6kG+30Ilfa3xdjrVU6GhRM0uhlG4eN5NzK/HF089?=
- =?us-ascii?Q?OeYdF8KW044z5uXn3131HVscdc7b02TlIbqYsFNI2zOiO1sP/LrNeCYMs8iN?=
- =?us-ascii?Q?Ptsu3WHy8kP9qEKNKl45S/vNkAghNWjkhC9VRPIH7IozSJJej0D2DzxYzvpJ?=
- =?us-ascii?Q?OWVBwrUToFK7YdUoZgiV+YEjbnQMWxlL6tZpHBYwd9Tr95f1Ps9uZhsaZgaC?=
- =?us-ascii?Q?cMzyTgBRIcAJDGSG9FOGnZ0iWAJzu+V/Y+rEA3cWX7kOuDwJ27ITNq0d8nsI?=
- =?us-ascii?Q?SOm6TUnm+OHwt4bedQTb6biDmVkvJg47UYO7cuFhAtvwUJXUhdjSgcKfl+gQ?=
- =?us-ascii?Q?OygFzwEOLQ+HC+A+dngc0GDrXU1/kmemOjK9/q40AXb+0ef54YdNGffX8m0k?=
- =?us-ascii?Q?6j70RXxWNMMzh5450TlbqDxYzUQvkvcW+oNeCKTF/hHEO0ls8Ge35HFKuLnZ?=
- =?us-ascii?Q?fBg3JMjaHr/8XHAI0j8GZys+Shr/Tb4g0Jufa/qRSNA9SWO6E3a7G55GgRno?=
- =?us-ascii?Q?ERHMwULvMHAGhYo0IM9a2Y82Ez8btpCz9iXHhq0k/CfGhVDea6XDfq4fHPVD?=
- =?us-ascii?Q?Q+rt489chpTayeUa15BKuqar2nNkf2zMxu+NPQIENJqOvJRGPbv1sjX0bLBt?=
- =?us-ascii?Q?wLaM9/G2KfinDX9oXXAdJP7tNKKARib9soEZNPJ+11kNDU3RTygarxXp2U3J?=
- =?us-ascii?Q?zIFz+feLM6f6pZ9k4XBQk9bU+lAXAXw1lUbyNeH33QMtWRgaAa5T02cUM+yk?=
- =?us-ascii?Q?Tq/X9kBV5uMmUcwlIbZACN9zdJ9txxSVogSwfFonXV8qc1hdNL9R94//QJ3b?=
- =?us-ascii?Q?E93UROetVbRLTAqdWW+d6Tj/ate2Qho4CVKRuFKNpnV1eEbHGXj+gxb1TkE4?=
- =?us-ascii?Q?sWA91J79QcV0PlpSG+Y2ks80VXm0s8TMrBC1ueLzczjLIMYLk6LWyUkS6UwS?=
- =?us-ascii?Q?jabEwWhfrj6seceR4FTTfVq1iDoJoiaQNWoATEYLjgaa2vdCv34AlNYlTUgw?=
- =?us-ascii?Q?TNY9VFA4mH2HtpIAsVQEezmiq2jnA+k+1UqxUGTuWGE4k2WFQ9oKt/6Z5zjK?=
- =?us-ascii?Q?jYQ/lCRvJCIOVSVWp9+JtQKGnOMJWOqe+A6TmVC/bXZjaKowYaz4Ad6yY8xS?=
- =?us-ascii?Q?WoxS/fRXe9I7TVyhmZGB/wHg3jwdhPSGEzZH9YCsQGEF1+5uOSBY2d4vDN2u?=
- =?us-ascii?Q?iU5SCgNMP/gzcFFUE1XWdqEKynOzsbMtkh+ACpTPOKQxOJQauSxqMypMBYPm?=
- =?us-ascii?Q?w9EwSCMU/25Ad2dZCeHI9jmcO/gQlTC87iNWYTbxD+EduPjNIQRnf84JXrx5?=
- =?us-ascii?Q?DVb0qqMhrxrpjz9PfT9wCFQKKKEUm44U9oczlPQOq6oF2vZQudO8PHQVnCdq?=
- =?us-ascii?Q?G6MUzhvpY4TpYXvk+71shc7zbCmiPsGvrbuU8O1cRXOg7crRlN10t2FS6pPx?=
- =?us-ascii?Q?H/URf+WIs2Eo12MkC6i59KtP5v3hkFLxOlau?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UIvSh6+dea5hU0lrEwad442UAdlDstDdEjaICmogpjFGaMk99JtfMEoP1yAs?=
+ =?us-ascii?Q?j365GPuXptCyvVBue1KnHj25QEV5W4MPKoDmmUiK47qHplonmbWqclVM63bj?=
+ =?us-ascii?Q?w+kCaFzKmp0cgOT+9eSDdFhodntJrbwzzkdcMZHwPfqHtzt785jMd4Yx+V64?=
+ =?us-ascii?Q?30kg+EUdHhuPT7DfIpmwiShtWWKSyPlXaxrKJSBztmalXHdPP5M9SAsGQwzi?=
+ =?us-ascii?Q?A87oTtOM9tSIO2twSGJoENfeUGyRBuURk4Wg0HFW4dchc5Ku1hLUCdnohaNG?=
+ =?us-ascii?Q?lOOUpM1o8zuGiGmwZ8Wo9cgvhGPA8qERZadxYkNm6swum1HKfyX6LjHwWfQ/?=
+ =?us-ascii?Q?Ra5IHIK79mLEvon+at+Gsj/U2eFkoPOYULy3hWbFCjMRPAt3Dicvhme/aRfY?=
+ =?us-ascii?Q?TLem6UxmoBDUZsdV50fQcZlsVPDMYHEEE8zGEComCV/lttVeCFl4l2xiUCa3?=
+ =?us-ascii?Q?kEQfKoqH6PShBXs0P2AwdO+RhBB58WJsZavsYOfW6vMg9RB8piW2dWkgaw07?=
+ =?us-ascii?Q?DEw3hr48Gry242g97LZyxqJbGMVxp0kMMrCnkX+sTIABZamtHRsX333ehZ1v?=
+ =?us-ascii?Q?DfVCLEFP8x7YEIwixd/tdRK7lOMXf1i/B9/Klzb/rwjOe3hvu1Fjmchv/Llp?=
+ =?us-ascii?Q?z13w0zZWkD07LDi3HGcteIZaqjeSEz2wGhm7rPsQrk7W3sxc00OYCuQyw2hA?=
+ =?us-ascii?Q?mtSudBkaCRSMjs0e8N6W1NSrgJnU+aDgos9531jFmNDCMoQtEDu35FFUfdfD?=
+ =?us-ascii?Q?a8DeWfmlU66M/jfpBRDx71I4FQb5zc0bjW2Xpt/z6aZN6PYhoPLdmt31kEMF?=
+ =?us-ascii?Q?DcmpQHhVcFeFnCENDWO4WK+L4sxP3qXxpugsQrJry7BAEvEiK19OYokNlBYG?=
+ =?us-ascii?Q?i6lxMotk3HhrimSoAnYJ8nwcZmmIAYHRBmXgWZjoxrWFrOseXp0aqijyAC3y?=
+ =?us-ascii?Q?ZeeEfh1BoFPbTVWL4E/BzYDaBbMR3C/JkvMRpjmU/OHr9MNMP988OgPIbMHH?=
+ =?us-ascii?Q?6Px2HAeeq49ZKWFqatxaHeu5tdnaUbU16dJjQz0eHtA2xcqVrmkSXsWTo8DI?=
+ =?us-ascii?Q?ufv3d+/QnWqJ8x0hj8BiJogQoVGxIHUVSREudmE+o6JATsXCV7lA5xZ7It46?=
+ =?us-ascii?Q?W26xH42sIxBMPEURDdiIjT0aNpWKt4sLu2V61H7yX7o0f0nIxCFNbO4zCYy6?=
+ =?us-ascii?Q?U62y2YZXBfUSabvH5dK9s2UsD+5RltKi8BBt9WBph4DNYG7tBrvTMtuh/v+F?=
+ =?us-ascii?Q?16/bgF1ZmlQqSBy+6DQ7xoD7NfoxRMi06h48wxjWqch5uIZ2m2/05b3RaeXS?=
+ =?us-ascii?Q?1nQyHDJePvfkGUY3XwytAgLBiosiw6FU6tDqxdgqFM4eiiUB+W0OAFg9zT93?=
+ =?us-ascii?Q?M2bYyFmPj9a1/vJHQe2cTm/5MjXdvCwgeccNzfmAmDVOeCFlrr6ucfPiu+yD?=
+ =?us-ascii?Q?MFpwAvPpIjBIcsaH4dyYZRtIA3DBloFG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hOLXjJm++dSZigjBmxdytoai1Gu5iFMgrgwp3IkdUCfNxaVCWw1kP9d55GDe?=
- =?us-ascii?Q?eAVG/OrsmFo08/pFhZ0b/vt9gFsFYt2P0fl0XH3NZjhRZVp7O9EM32zTCk5s?=
- =?us-ascii?Q?Mqgr/HOR7YrvZa73wpaPbQ24BQfdVRxxKwqRHWkjvaBGgBnudgkK9kD9bNjZ?=
- =?us-ascii?Q?iLhI2evOBvJfZu3uhuLYlN1RdeYyXhI3iLi5pCJXXlmV+dx0N7GCU+xR+FDz?=
- =?us-ascii?Q?Ff4UpZgwbm6PaF13LguNRdSRMe6wTbRb0I9aIx4w/GLsXAFPjb80+IyeDUNz?=
- =?us-ascii?Q?cA22o+m5tZ8SKGV5GJxYv+W8+vLAeCq6ZJWmiyARe9sdDpNyNR1MrUXdjEmx?=
- =?us-ascii?Q?YaiQ18Wok066XgOreYEp9WG5FEzvI+wpUGgoGpC1ggNcH+qc0ZnJDiA2kP9u?=
- =?us-ascii?Q?sJe59Bhx12NdsY68W9WXawQGluz9zMP9egQqeUxQyNa00i7M+wELijzkSwlX?=
- =?us-ascii?Q?e+o/oEqDK/2NQ7bug943F8EGtv84Aaf5FYk6sSrAIpJ+uaeGNVIwcgV/GIW3?=
- =?us-ascii?Q?8/DDMGmnS/kI/JptjwTlsRK1xnAlh/M4h9chjpiy5zKpfv5ZdMFyRwywtDi0?=
- =?us-ascii?Q?sSUBkAjeK7AySLm92DkkhrkPWJS4sb95FxyHLhbQrLSZ2EWWwrcSHIGqOtoU?=
- =?us-ascii?Q?AIvhfl11BAE3sgEph5vCuJ3OLJqUDmIC6IlTUuzGK1aP62itnJIgW5sbFwI4?=
- =?us-ascii?Q?4vbglGXhPKvpdw/CAl7sRXFAZU7ImBg6kL6r5HzadNdpZxIVF0wgzdljn5Cb?=
- =?us-ascii?Q?fw1Vw3tvrJppU9Fa7kxjhhMJWN33iDN0t0WHfMJZaCNhqjT5h3qvTuttKp+2?=
- =?us-ascii?Q?5lX1PiB/gOh08truGJYMjGKwLXikNgTIVMBALaHK44EWqO9RoutRwCV3FF+p?=
- =?us-ascii?Q?ut0O3ZTf3BTCK6UcvU7qTeS+ZaBcKqkj7HZExu2gvqWHZRF+0SlNgsruyKTD?=
- =?us-ascii?Q?Pu6CXDwt57t8aYuOS1VktzgQe6OoqhsbSWOqDO5OIYVEhHBG7qbx2EwsoWMD?=
- =?us-ascii?Q?ou43FrWCpP1rXuRGvWBdfZY0PZEQrhBfA8ubUEjJLLFbjQAI31APHlzKDp4l?=
- =?us-ascii?Q?z9YKMeiGMbXOLJ1xnjxU3A+d6Zymtre6x0kio3yu9VIg4GjhwMmbiShR7IU7?=
- =?us-ascii?Q?aKi4xKIUtmbiB/xhcJYdBqpJZQbsUcjVMklg6SuRCP+YKIN6HpafscMFpuIC?=
- =?us-ascii?Q?BQDUmr5M6AwGTMheeqydiw5rDU96Ge4RDpKnR8Bz2a/sCgyB3PA7HENrv4CJ?=
- =?us-ascii?Q?fjVtzb2Ml/MPSg4SwpkQYsy17lRGpdI/Lh0n7KN8S5Z+/GOzmCpJepFr27G0?=
- =?us-ascii?Q?NLcfzAm799PbkWgvJHrGAXvgMBjFpN6YF1rILi/uYGcTkFz9JAxJxXTpydO1?=
- =?us-ascii?Q?b6v6bcB9Bo/X0kcxPXO4efTx+20QnFKOdC/jqVIyuY72JauvjKvFQaAGSs/H?=
- =?us-ascii?Q?0SiAMym2Og9O8crM6kzhYx3iYVU7TZcAQ66dxHY16KXsKahqp9mB12QzI/hb?=
- =?us-ascii?Q?36lr/5cIPcwf6o2pHnwGzn8kvarF6IdWUkBwwTMV8ipHawSK1oMj9cj6eM7L?=
- =?us-ascii?Q?MQWWRrItMIQrMhrAA9McBpIPUcB392xmKIAef7jUMx/73mu9A12+F6zc6ATv?=
- =?us-ascii?Q?Vg=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tj5SahybgWtKvO9IiXg+Mu5GKnDxMqDfjY76DB1IveaoJuWDjCqw+UMTXOEP?=
+ =?us-ascii?Q?4iO0JSM3v2RXFyeEn54BXwNgxcRPM/ibjjUCR+x9GG1nYDJXPABjw0nAlC9l?=
+ =?us-ascii?Q?dDthqgBY75xgVwHrHp+ScODgCd19uUEHlUhxsEdit/G4KrvOJZX+BHvntKa+?=
+ =?us-ascii?Q?JYX4mWyaeOJavy58rhS5Au8sd53iic/VQXoz1RNc3XnqwylmkvQiTrundLq3?=
+ =?us-ascii?Q?7c84yttBqAb3Q5fVYsPoTvJysjiGISdKPbLSx0DLh/23VzTUgPb7oLXZhsaC?=
+ =?us-ascii?Q?XiKJNXwW9G7HETMPew3D7wLuLRhHs6TEkyj8ULCkNEUiyKf+Bhdo9gRKKI6s?=
+ =?us-ascii?Q?fNfF6d22Y70ygANreXYBwNP6WGax5Hdi7rt5JbUI693lg66c5M+23t/4MKjz?=
+ =?us-ascii?Q?diXUV2XfnAzxJrbhDHw0fhEIAPr3++qvGaZ+oj141D+b7+Ui3NTAVs2YxXOF?=
+ =?us-ascii?Q?4wwI5TF6UwLp00Id/I90NYwLfEKth5x+IiceDiQvdlDiJPBDqdpY6Gqrnolc?=
+ =?us-ascii?Q?qDvve8zN3qa3Aluw4s7w+St43T6mrsBe6UAUJ+FfTmIDQJU1sh7xKIqZGzUW?=
+ =?us-ascii?Q?yetYpB+1oWuGmhoHcYpd34amy2S0SafrMunaXxZSwUQQL44u1UYC2tqW6l48?=
+ =?us-ascii?Q?7zYs3CEk9RuAYaqv10yKQ+MDNxsBN8XgBnZT29HEVJbPs4P9YQxJYuGWF8HV?=
+ =?us-ascii?Q?U4NrPkhzZd+E0RK0pLobLMdbvuZRC5nPCIsLKT8t8A3Btm1n0B/28DmYxqqq?=
+ =?us-ascii?Q?UL3+c1w/OFJT0XGw5x6UAahcoMtjj08t9o4rLILrKMQ0ro1b3IbzDN5U3HVI?=
+ =?us-ascii?Q?yxG/IpJBmL+RgAPbB9s2+sRlgzSZ/JezQsS6iKwu1TAVYYWDwyKD1HPpx+HB?=
+ =?us-ascii?Q?ZXdKkol3c2BsiDdGP7GKaeiwtyY4s28LrkSP9VgdtqkDDbFPWS/AlGP1dRV5?=
+ =?us-ascii?Q?uBt/aXih2nEAu0dsDQNPVOwv/6dJTkoLYMKO+dDxbmqCIwepYU8PeQiITAEB?=
+ =?us-ascii?Q?JYwB42Vsc8T4HqWYxgYakWwbDM+45e7cS5PPbIzpXgTK/y+OMfb/lcbKXeXf?=
+ =?us-ascii?Q?0VUJzRGPgTH/61cGi6RBIMEjMJB4yMbNohVFapJSX3JzYd2fz/337VeRZ4Gd?=
+ =?us-ascii?Q?qh9w94DiogUKlbZ8U52ZPuqkCexnGyYZCyoeG18wXWNEolOcqafwbx70Hdc6?=
+ =?us-ascii?Q?ZAfKmxNLQsXqS4Ij76A+W97are9No/mwDYfd/0C6ui/O5m/0TJ81zQ2K5cRN?=
+ =?us-ascii?Q?U/DdRPsWjibSS4ioO7crwCwquE1RXYq2NyBL65zMXFFWqA/kbeVJs8mWI903?=
+ =?us-ascii?Q?IQ/jzlz1uZNCFBpruLk2xK8CxkP7JPbeElc/+rTTt7Q40MzeVx1co2qwPTba?=
+ =?us-ascii?Q?gdOYGNugjxHethkIvXRxmlTNRNDwdh4Lva7Yahdzj1yELwmRbu4pxcqa7j7j?=
+ =?us-ascii?Q?DoXGx3QS0aID2pnkcFIpSvwE4eSbe3DqPgS8bn/F2lhCf8NmsSbMhMCiQ47E?=
+ =?us-ascii?Q?GngNCvlaxD+UxjSoUTbRkZRvPVy3An3YaVn5CbOzuLUBzd7xAYmROC+Jo71l?=
+ =?us-ascii?Q?oi7NHj3IpTuuFOOWToE7LLlgq6825F1citTOYZFQfLPZheNO4WM4tmvG5BL5?=
+ =?us-ascii?Q?Hg=3D=3D?=
 X-OriginatorOrg: chipsnmedia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 98a1d2cc-0fbe-4a83-a98b-08de113f3f11
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7ea6a9dc-c04c-4969-19d5-08de113f3d8f
 X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 07:47:27.3039
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 07:47:24.7728
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: W9WqMmrNUGMmfxTBJHIgWfTj26T02QMfDRhTFnBXXyQ5NN7NY2pWu5QswbrRlVK8sBLBnH8GqvASJlXvpxz9NQfuZkS0fk9Rl+JSUbN2iHI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUYP216MB2918
+X-MS-Exchange-CrossTenant-UserPrincipalName: cPCeYhvqLcDXecHb/Ox4YzIIq5lLAlFRo13Vx6C5S7sEwH7G1TxJ2KxHGe0ER8dLSuRTA9ahLXR0AAqPwqVI8Wzl+c8wZqADDJdKqynztrs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE2P216MB3135
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_004735_757153_58FAACB2 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20251022_004734_063370_AA83AD5B 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,194 +170,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a thermal cooling device for the Wave6 VPU.
-The device operates within the Linux thermal framework,
-adjusting the VPU performance state based on thermal conditions.
+Add documentation for the Chips&Media Wave6 video codec on
+NXP i.MX SoCs.
+
+The Wave6 video codec functionality is split between a VPU
+control region and VPU core regions.
+The VPU control region is represented as the parent node and
+manages shared resources such as firmware memory. Each VPU
+core region is represented as a child node and provides the
+actual encoding and decoding capabilities.
+
+Both the control and core regions may be assigned IOMMU
+stream IDs for DMA isolation.
 
 Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
-Tested-by: Ming Qian <ming.qian@oss.nxp.com>
-Tested-by: Marek Vasut <marek.vasut@mailbox.org>
 ---
- .../chips-media/wave6/wave6-vpu-thermal.c     | 137 ++++++++++++++++++
- .../chips-media/wave6/wave6-vpu-thermal.h     |  25 ++++
- 2 files changed, 162 insertions(+)
- create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.c
- create mode 100644 drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.h
+ .../bindings/media/nxp,imx95-vpu.yaml         | 162 ++++++++++++++++++
+ MAINTAINERS                                   |   7 +
+ 2 files changed, 169 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/media/nxp,imx95-vpu.yaml
 
-diff --git a/drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.c b/drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.c
+diff --git a/Documentation/devicetree/bindings/media/nxp,imx95-vpu.yaml b/Documentation/devicetree/bindings/media/nxp,imx95-vpu.yaml
 new file mode 100644
-index 000000000000..9ca4f343187a
+index 000000000000..2ee8d22ba468
 --- /dev/null
-+++ b/drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.c
-@@ -0,0 +1,137 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
-+/*
-+ * Wave6 series multi-standard codec IP - wave6 thermal cooling interface
-+ *
-+ * Copyright (C) 2025 CHIPS&MEDIA INC
-+ *
-+ */
++++ b/Documentation/devicetree/bindings/media/nxp,imx95-vpu.yaml
+@@ -0,0 +1,162 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/nxp,imx95-vpu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/pm_domain.h>
-+#include <linux/pm_opp.h>
-+#include <linux/units.h>
-+#include <linux/slab.h>
-+#include "wave6-vpu-thermal.h"
++title: Chips&Media Wave6 Series multi-standard codec IP on NXP i.MX SoCs
 +
-+static int wave6_vpu_thermal_cooling_update(struct vpu_thermal_cooling *thermal,
-+					    int state)
-+{
-+	unsigned long new_clock_rate;
-+	int ret;
++maintainers:
++  - Nas Chung <nas.chung@chipsnmedia.com>
++  - Jackson Lee <jackson.lee@chipsnmedia.com>
 +
-+	if (state > thermal->thermal_max || !thermal->cooling)
-+		return 0;
++description:
++  The Chips&Media Wave6 codec IP is a multi-standard video encoder/decoder.
++  On NXP i.MX SoCs, Wave6 codec IP functionality is split between
++  the VPU control region and the VPU core region.
++  The VPU control region manages shared resources such as firmware memory,
++  while the VPU core region provides encoding and decoding
++  capabilities. The VPU core cannot operate independently without
++  the VPU control region.
++  Both the VPU control and core regions may be assigned IOMMU stream IDs for
++  DMA isolation.
 +
-+	new_clock_rate = DIV_ROUND_UP(thermal->freq_table[state], HZ_PER_KHZ);
-+	dev_dbg(thermal->dev, "receive cooling state: %d, new clock rate %ld\n",
-+		state, new_clock_rate);
++properties:
++  compatible:
++    enum:
++      - nxp,imx95-vpu
 +
-+	ret = dev_pm_genpd_set_performance_state(thermal->dev, new_clock_rate);
-+	if (ret && !((ret == -ENODEV) || (ret == -EOPNOTSUPP))) {
-+		dev_err(thermal->dev, "failed to set perf to %lu, ret = %d\n",
-+			new_clock_rate, ret);
-+		return ret;
-+	}
++  reg:
++    maxItems: 1
 +
-+	return 0;
-+}
++  clocks:
++    maxItems: 1
 +
-+static int wave6_vpu_cooling_get_max_state(struct thermal_cooling_device *cdev,
-+					   unsigned long *state)
-+{
-+	struct vpu_thermal_cooling *thermal = cdev->devdata;
++  power-domains:
++    maxItems: 1
 +
-+	*state = thermal->thermal_max;
++  iommus:
++    maxItems: 1
 +
-+	return 0;
-+}
++  memory-region:
++    maxItems: 1
 +
-+static int wave6_vpu_cooling_get_cur_state(struct thermal_cooling_device *cdev,
-+					   unsigned long *state)
-+{
-+	struct vpu_thermal_cooling *thermal = cdev->devdata;
++  sram:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: phandle of the SRAM memory region node.
 +
-+	*state = thermal->thermal_event;
++  "#cooling-cells":
++    const: 2
 +
-+	return 0;
-+}
++  "#address-cells":
++    const: 2
 +
-+static int wave6_vpu_cooling_set_cur_state(struct thermal_cooling_device *cdev,
-+					   unsigned long state)
-+{
-+	struct vpu_thermal_cooling *thermal = cdev->devdata;
++  "#size-cells":
++    const: 2
 +
-+	thermal->thermal_event = state;
-+	wave6_vpu_thermal_cooling_update(thermal, state);
++  ranges: true
 +
-+	return 0;
-+}
++patternProperties:
++  "^video-core@[0-9a-f]+$":
++    type: object
++    description:
++      A VPU core region within the Chips&Media Wave6 codec IP.
++      Each core provides encoding and decoding capabilities and operates
++      under the control of the VPU control region.
++    additionalProperties: false
 +
-+static struct thermal_cooling_device_ops wave6_cooling_ops = {
-+	.get_max_state = wave6_vpu_cooling_get_max_state,
-+	.get_cur_state = wave6_vpu_cooling_get_cur_state,
-+	.set_cur_state = wave6_vpu_cooling_set_cur_state,
-+};
++    properties:
++      compatible:
++        enum:
++          - nxp,imx95-vpu-core
 +
-+int wave6_vpu_cooling_init(struct vpu_thermal_cooling *thermal)
-+{
-+	int i;
-+	int num_opps;
-+	unsigned long freq;
++      reg:
++        maxItems: 1
 +
-+	if (WARN_ON(!thermal || !thermal->dev))
-+		return -EINVAL;
++      clocks:
++        maxItems: 1
 +
-+	num_opps = dev_pm_opp_get_opp_count(thermal->dev);
-+	if (num_opps <= 0) {
-+		dev_err(thermal->dev, "fail to get pm opp count, ret = %d\n", num_opps);
-+		return -ENODEV;
-+	}
++      power-domains:
++        maxItems: 1
 +
-+	thermal->freq_table = kcalloc(num_opps, sizeof(*thermal->freq_table), GFP_KERNEL);
-+	if (!thermal->freq_table)
-+		goto error;
++      iommus:
++        maxItems: 1
 +
-+	for (i = 0, freq = ULONG_MAX; i < num_opps; i++, freq--) {
-+		struct dev_pm_opp *opp;
++      interrupts:
++        maxItems: 1
 +
-+		opp = dev_pm_opp_find_freq_floor(thermal->dev, &freq);
-+		if (IS_ERR(opp))
-+			break;
++    required:
++      - compatible
++      - reg
++      - clocks
++      - power-domains
++      - interrupts
 +
-+		dev_pm_opp_put(opp);
++required:
++  - compatible
++  - reg
++  - clocks
++  - power-domains
++  - memory-region
 +
-+		dev_dbg(thermal->dev, "[%d] = %ld\n", i, freq);
-+		if (freq < 100 * HZ_PER_MHZ)
-+			break;
++additionalProperties: false
 +
-+		thermal->freq_table[i] = freq;
-+		thermal->thermal_max = i;
-+	}
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/clock/nxp,imx95-clock.h>
 +
-+	if (!thermal->thermal_max)
-+		goto error;
++    soc {
++      #address-cells = <2>;
++      #size-cells = <2>;
 +
-+	thermal->thermal_event = 0;
-+	thermal->cooling = thermal_of_cooling_device_register(thermal->dev->of_node,
-+							      dev_name(thermal->dev),
-+							      thermal,
-+							      &wave6_cooling_ops);
-+	if (IS_ERR(thermal->cooling)) {
-+		dev_err(thermal->dev, "register cooling device failed\n");
-+		goto error;
-+	}
++      video-codec@4c4c0000 {
++        compatible = "nxp,imx95-vpu";
++        reg = <0x0 0x4c4c0000 0x0 0x10000>;
++        clocks = <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
++        power-domains = <&scmi_perf 10>;
++        iommus = <&smmu 0x32>;
++        memory-region = <&vpu_boot>;
++        sram = <&sram1>;
++        #cooling-cells = <2>;
++        #address-cells = <2>;
++        #size-cells = <2>;
++        ranges;
 +
-+	return 0;
++        video-core@4c480000 {
++          compatible = "nxp,imx95-vpu-core";
++          reg = <0x0 0x4c480000 0x0 0x10000>;
++          clocks = <&scmi_clk 115>;
++          power-domains = <&scmi_devpd 21>;
++          iommus = <&smmu 0x33>;
++          interrupts = <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
++        };
 +
-+error:
-+	wave6_vpu_cooling_remove(thermal);
++        video-core@4c490000 {
++          compatible = "nxp,imx95-vpu-core";
++          reg = <0x0 0x4c490000 0x0 0x10000>;
++          clocks = <&scmi_clk 115>;
++          power-domains = <&scmi_devpd 21>;
++          iommus = <&smmu 0x34>;
++          interrupts = <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
++        };
 +
-+	return -EINVAL;
-+}
++        video-core@4c4a0000 {
++          compatible = "nxp,imx95-vpu-core";
++          reg = <0x0 0x4c4a0000 0x0 0x10000>;
++          clocks = <&scmi_clk 115>;
++          power-domains = <&scmi_devpd 21>;
++          iommus = <&smmu 0x35>;
++          interrupts = <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>;
++        };
 +
-+void wave6_vpu_cooling_remove(struct vpu_thermal_cooling *thermal)
-+{
-+	thermal_cooling_device_unregister(thermal->cooling);
-+	kfree(thermal->freq_table);
-+	thermal->freq_table = NULL;
-+}
-diff --git a/drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.h b/drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.h
-new file mode 100644
-index 000000000000..b8c45f6785c5
---- /dev/null
-+++ b/drivers/media/platform/chips-media/wave6/wave6-vpu-thermal.h
-@@ -0,0 +1,25 @@
-+/* SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause) */
-+/*
-+ * Wave6 series multi-standard codec IP - wave6 thermal cooling interface
-+ *
-+ * Copyright (C) 2025 CHIPS&MEDIA INC
-+ *
-+ */
++        video-core@4c4b0000 {
++          compatible = "nxp,imx95-vpu-core";
++          reg = <0x0 0x4c4b0000 0x0 0x10000>;
++          clocks = <&scmi_clk 115>;
++          power-domains = <&scmi_devpd 21>;
++          iommus = <&smmu 0x36>;
++          interrupts = <GIC_SPI 302 IRQ_TYPE_LEVEL_HIGH>;
++        };
++      };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index f7351fced572..a57fee506d57 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -27558,6 +27558,13 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/media/cnm,wave521c.yaml
+ F:	drivers/media/platform/chips-media/wave5/
+ 
++WAVE6 VPU CODEC DRIVER
++M:	Nas Chung <nas.chung@chipsnmedia.com>
++M:	Jackson Lee <jackson.lee@chipsnmedia.com>
++L:	linux-media@vger.kernel.org
++S:	Maintained
++F:	Documentation/devicetree/bindings/media/nxp,imx95-vpu.yaml
 +
-+#ifndef __WAVE6_VPU_THERMAL_H__
-+#define __WAVE6_VPU_THERMAL_H__
-+
-+#include <linux/thermal.h>
-+
-+struct vpu_thermal_cooling {
-+	struct device *dev;
-+	int thermal_event;
-+	int thermal_max;
-+	struct thermal_cooling_device *cooling;
-+	unsigned long *freq_table;
-+};
-+
-+int wave6_vpu_cooling_init(struct vpu_thermal_cooling *thermal);
-+void wave6_vpu_cooling_remove(struct vpu_thermal_cooling *thermal);
-+
-+#endif /* __WAVE6_VPU_THERMAL_H__ */
+ WHISKEYCOVE PMIC GPIO DRIVER
+ M:	Kuppuswamy Sathyanarayanan <sathyanarayanan.kuppuswamy@linux.intel.com>
+ L:	linux-gpio@vger.kernel.org
 -- 
 2.31.1
 
