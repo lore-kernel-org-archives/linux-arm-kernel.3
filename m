@@ -4,64 +4,204 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF769CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:56:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C265DCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hw8axk8L0LiGYZ9BbA/74Y3kxYyeDWvD8iGv4yL1a8U=; b=rbWeWgllh/qV7LMSZsHhiR7uqy
-	YXCUctjt0USgcRImuzxtZQMYODI9TJkccHJsE04kwER5RbV4LzVFx1b1hq65mNIMLuj6yh4orbuUj
-	kmo+y5PUqfJTsCWSEEG/Z5cwRoJFn3ehcPRgL0V1scLwBNW9C4RX9RuFfEIwU+6uHgHsqbw4QBl5Q
-	K90W1vb/WIiKIUXCZid2iNPVb+/jPbeVhnLwzDfw8yqipFDaNKw1yX3/ghyRPAa+BnvOqXMp788eN
-	iRP/3XBnuG4vyNLaPhi9lL9II5H+8tdQm4A0Ff4+sar+Ag8C2U2g2QfPMYJmZ2+ALStzZ1gOdYDz0
-	x2lkX8+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KYDWLcxcyhFBW+EkuV169Uc33mwlOCDm9y2kPU+XFI0=; b=ze24hTiebGFs5MVSNF5dsxwKH0
+	t0xwI+zHw9DVhTHNprk86eAEBTVwGPZcvX8KlPyEx8Y3Bv2wWgrk8W/2+l46JHEmwMN0sUg8M1OMF
+	I0hUyJzXtIRnEzJJ+PFUtCc+C5Vj1LHmcOJUqtOaj/Y1adRUhxptklZGbOTBRxC2mI50kwyWXMs8D
+	1s3Fv03+1hMBHc57w/rcClR7qGmbupazC0n3smXhrkYQws9WP65SGDlJL8OdqKQ4qRTgOQJKA1z4c
+	mWIuadPYKLRiJbyzj69icfTNrioedOO3LWHwo/a8eUDRFqEDzXsafEzduernV1HgH3+VOboy/RgYr
+	9wViWX2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBThw-00000001y1K-41PL;
-	Wed, 22 Oct 2025 07:56:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBTjw-00000001yGE-2IMr;
+	Wed, 22 Oct 2025 07:58:36 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBTht-00000001y0r-3p1f
+	id 1vBTjt-00000001yFq-2jPM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 07:56:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 341564453B;
-	Wed, 22 Oct 2025 07:56:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7802C4CEF5;
-	Wed, 22 Oct 2025 07:56:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761119789;
-	bh=xwEauBPEHJrofe1MoLxXmJ4AZ4uBT0GSA7wT/TN6xso=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ycu3NBZljVs6uSEdPzZQx01UnpxSg8des4ZxUjbESf/JCfjShD5hjY1BnO7bQPcxr
-	 FXcrDkKWfEBH3ldYc0V792BrueZ+zXQUKvhdKQoI3iHnLBLcoV9V7qm8dnz6XENWjq
-	 7LJzMb3SvLSo7W5vjh4p5U2pj87CvbDNUTaWg7L+fER8Nek94/XvBNxaGUrlDVWadA
-	 VP2FRMB9piQYUgP95kJQuh3/hMjI5kpgbhE1lLqkAmbP1YtzCdcWuRCn4ykTqf3cNl
-	 QSZeFsp+moMgkWCQCeuvg82BPwCg4wlHm6Agf0SR9qcffnQABmEABOeNr8AeOq+BuA
-	 K/pyDbcemR8Ww==
-Date: Wed, 22 Oct 2025 09:56:26 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Peter Griffin <peter.griffin@linaro.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/5] clk: samsung: introduce exynos8890 clock driver
-Message-ID: <20251022-savvy-sly-auk-a60073@kuoka>
-References: <20251017161334.1295955-1-ivo.ivanov.ivanov1@gmail.com>
- <20251017161334.1295955-6-ivo.ivanov.ivanov1@gmail.com>
+	Wed, 22 Oct 2025 07:58:35 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59M7iESI022220;
+	Wed, 22 Oct 2025 09:58:25 +0200
+Received: from du2pr03cu002.outbound.protection.outlook.com (mail-northeuropeazon11011034.outbound.protection.outlook.com [52.101.65.34])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 49vnumeg12-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 22 Oct 2025 09:58:24 +0200 (MEST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LStjffznGk/h7wFj7FxjQkFV8KvvU6SvGB9TbHQHk4T/A5rORvD4e831Sf+y4WYxNHsS5V1ty/vbLh6L58zPWN9TUhd3j9H51LOpBTEXz3WEGM7M3nt/4QxRxa0C8NafuZvdtElK3a4FwG+opedfKErJdkwtjIzsdmCHGwpS9tw3P7yhsHSXWo8D1DMXUM4HWvxJzbA3pC2MzcKbgAxGBJAgw4grLOo+R0/srbme4XD/oeF1f/eMOombO0XvSae2WNxZwWX1YQbT+eAYLurkOEDA3sB/HnxRGsvU7O/xfpEzeTX5t8/aK6pzbfFqDfMIDVy3qgn7lAnGbseyEmt8eA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KYDWLcxcyhFBW+EkuV169Uc33mwlOCDm9y2kPU+XFI0=;
+ b=vl6TyvUYBADHNrcyaSFRF27AFPtUsirU+Z89G3RCg7m9nqve5c4bWhWwbwbxAhyWV3fBrqqqCET9xhxVydsn1W3A/LrmXxCSbbfuTYUz47RsQHg3+JV+Q+sFYigj/3k2ZmqLX8+FwpmYNxa8B/Az6Afa6lUmvluhN8Qrdxah3UOJdKDwRc/ik35y3azgd3lAaybBLUxxXcTlsn1Qlf4uieG7aGnmpZeJzvIMunz5yRtrt92+iy7IaNWUF9Z+EEpYF7yIhdfH1fJiHV93cNda0w5NXDBUxOWu/O6z3BrzQtnrC0WoEixaDyAdcq5AGzAMIKHkG7WwLtc+AMbv/UNUNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.43) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KYDWLcxcyhFBW+EkuV169Uc33mwlOCDm9y2kPU+XFI0=;
+ b=Mzg6JbiJPI2CfcZSpyvdXM6ReoBbbUMisupk7HVOTnExExhDl0yx2pw8rvMbEwPIP+7jb/gk83OLwrQdNztQJ0HXKPnbNzB4u2oL7hnNFOipldAhv+tpYrQ9LZjXAqF9Gy174lCLUNU0IGwcd0XX7jKrdH6/CmgrovfwSKHJBMLUqn9vP2NcyZQqNXYvWjpL0+r0FP4gwL8/2AfFqlrOHf8LLZCeOltEpZx2ga0jrZY4C5sXFbCZnHSgJpcX+s1Kxv0WyWc6uS3RpR5buDQI+B3/a5ZNFeJ0m+OJcUaBbrBGOCZYrxQ2uKM5ZQ8/s3ukmSGJhoc6TdT1r7OOFo7F1w==
+Received: from AS4PR09CA0013.eurprd09.prod.outlook.com (2603:10a6:20b:5e0::19)
+ by DU2PR10MB7786.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:46e::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Wed, 22 Oct
+ 2025 07:58:22 +0000
+Received: from AMS0EPF0000019E.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5e0:cafe::13) by AS4PR09CA0013.outlook.office365.com
+ (2603:10a6:20b:5e0::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.12 via Frontend Transport; Wed,
+ 22 Oct 2025 07:58:22 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.43)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.43 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.43; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.43) by
+ AMS0EPF0000019E.mail.protection.outlook.com (10.167.16.250) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9253.7 via Frontend Transport; Wed, 22 Oct 2025 07:58:21 +0000
+Received: from EQNCAS1NODE4.st.com (10.75.129.82) by smtpO365.st.com
+ (10.250.44.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 22 Oct
+ 2025 09:55:56 +0200
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNCAS1NODE4.st.com
+ (10.75.129.82) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 22 Oct
+ 2025 09:58:20 +0200
+Received: from [10.48.87.127] (10.48.87.127) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Wed, 22 Oct
+ 2025 09:58:20 +0200
+Message-ID: <d28d2c51-1b73-4d72-822a-3778a81a7434@foss.st.com>
+Date: Wed, 22 Oct 2025 09:58:20 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251017161334.1295955-6-ivo.ivanov.ivanov1@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: (subset) [PATCH v3 1/4] dt-bindings: remoteproc: imx_rproc: Add
+ "rpmsg" subnode support
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        "Rob
+ Herring" <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        "Conor
+ Dooley" <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+        Sascha Hauer
+	<s.hauer@pengutronix.de>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        "Bartosz
+ Golaszewski" <brgl@bgdev.pl>,
+        Shenwei Wang <shenwei.wang@nxp.com>
+CC: Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam
+	<festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+        <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <linux-imx@nxp.com>
+References: <20251009222716.394806-1-shenwei.wang@nxp.com>
+ <20251009222716.394806-2-shenwei.wang@nxp.com>
+ <176095488745.45867.896865155474758901.b4-ty@linaro.org>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+In-Reply-To: <176095488745.45867.896865155474758901.b4-ty@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.127]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS0EPF0000019E:EE_|DU2PR10MB7786:EE_
+X-MS-Office365-Filtering-Correlation-Id: 26b4a1dd-1e93-40fd-0485-08de1140c532
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SFNPSnJkZWtLQ2pJdnJVRDVHcHhLRDlIdnFUNTcraW5qaUdHR0xsOGdsbk9y?=
+ =?utf-8?B?cGJXUXBmaEp3Vms1WG50bnlvQjVPMlFFTmJWUG9HZjloRjdQWTV3dG9nUEJR?=
+ =?utf-8?B?VkNHVTVyK1k4QkxGdmVST2RQRDExbkJuSnNFQWpiNWdnR1FCazE5S0l5WGNH?=
+ =?utf-8?B?Nm16alhBOGpaK1RVZmpXNzZzWnQwenFMMW9KSlRJdjcwWlMrQ2FoWGJSNVlO?=
+ =?utf-8?B?bmN3cXQ3c1JyMTRQOFM3V3NUaDUxTjB5alJadWhVeSthQStCZkJ4VkRMdEw3?=
+ =?utf-8?B?UVQzSDZHQVJGdWhybEdMVjhzMmZUUzFkL1BWd0NjQUl4NjFJTUZ1OTN4VEZC?=
+ =?utf-8?B?ZU96UHozWjFhQTBuaW4xdVpXMHVZMTlYTHFCNmRQdjUxWmk1WXhkcmVYeXlv?=
+ =?utf-8?B?NVNYSjBaSlQ4ZXZYUGFNcGJXYlREQVRsWlY0cmlKdFdUakxuc2FqNUJsbGox?=
+ =?utf-8?B?T3UyWjVDL291dTJ1NUdzZ1R1TmVVZjVjb0Y5VEIwTVlmam53NXMyWng5VVMy?=
+ =?utf-8?B?NngzOURDakNuUWhzd0hwWnh5OE5iZXArZG9uc0JUcEpJTks2cWRBVHgzdVY3?=
+ =?utf-8?B?Yi9YQXRQZWN0QVhoeVovcVlRdExBVG5uZDByWjdWQVJWWitnY29yVzlmMUpn?=
+ =?utf-8?B?azBMRHNmSEZEd3ZDR1FVV01FalhPWFV6ZVNaTm9CKzlDME5SbndrbGtGY2tS?=
+ =?utf-8?B?LzdTVUtLalY3OTZrOTkrbzFVWENIZktHZCtnZTBiUi9KdUVNd0lqRlRScE1B?=
+ =?utf-8?B?eit6RHBzTHJSQy9HT04yVnZBU0N6TXRuZTJLRkdHdzRYVURVODhRYmxSR3dk?=
+ =?utf-8?B?bmdYMkVxMDk4UVR6a3FYVElPUmphaDNHRjZ1d0d0V2VnSHQxRnRUUUxhYTN6?=
+ =?utf-8?B?SE5XSWRUK0ZiM0FlVTRqaUlZcDFjMUZnQjJ0VzRQckg4c0c4bHViYmVPTTVI?=
+ =?utf-8?B?ZTFWVUtqbXpNREVDRStQSUFHOW5PamdiVDlhT1lOamhQQmxZSC9GenJMRC9l?=
+ =?utf-8?B?dzl2Z1Y2TXBMZTZvWTVxdHlQWUVCQTloR1MxSXJCTUVNSGR4RTdNcTFjT0ZY?=
+ =?utf-8?B?ZEY1Yk1pYTVzMVNhUUdDMXd5ZmxLQmlVc1R6UHI5NVlrWkVTODMzSFBHUy84?=
+ =?utf-8?B?U2xhMHR5WFc1N0RKejFmNlN5YUpNekNPMTFkV1hzRU1KVzRyMzhTL3R2Z2x2?=
+ =?utf-8?B?VkNrUlhVMHNaNzNXbXkvSjJpczUyUWY5RkFlVmNxZmJ3RGJaWDNlVWt6a1Ev?=
+ =?utf-8?B?eUpOTXBZRlp5L3FDTEhqMWJjNkhtcmU5dzFOK1Awd0IwR2RFU0dmL1ZaKzFO?=
+ =?utf-8?B?Q0JSMGl6NVhWTm1iNCtJVUFkbUM1K2ZDbW1WdW0vT1NHdzFWbEJCQ1pWaktB?=
+ =?utf-8?B?RG9rTUNvL3FlbnZUK2syN2k0MHErdmY3UUdTeFl4T1phUDQ3K2NIQW1UcmJC?=
+ =?utf-8?B?UlB2MjJNbytvSHRaN2E4OVNrZ2pwdTgvWkw3Nm5zaDI4RnF6OStFWXpKM1hr?=
+ =?utf-8?B?WHVWdjlXL2RISHREWjBJSjR2WVBqNHgwSi96ZlY4em0vQWs4YXh2cU1vV1Qy?=
+ =?utf-8?B?TzEyTTBSYTYzdCtrWWUyV2Y0WXk3SHN3WWNXYmpzT3c4RXhRdHVYVXNGRS9L?=
+ =?utf-8?B?d1NtRVhIRytrN2tEU1FtNUZELzJTNVVXMng3U0NRMllvT1pESlU3Q3NyN01j?=
+ =?utf-8?B?ekJrbGkwVXFSaU05cUhweHN5RStKeTBqZDFFWi95OUtFVXJBa094L1pXY3Za?=
+ =?utf-8?B?Uk9hMWkvSkVvd3FPOXRuT1JTY3VJK0YrSGxYSG5DN0pWUk1Ha3dvRWw2aXk4?=
+ =?utf-8?B?ZjNVa0srY3hNQlV3Yk5USG1KVFoxNkhxTzJqa01ObXl3Q3JHYy9MVCsyT1Vl?=
+ =?utf-8?B?OFFLanYyZmZzMERXVlM4OEN6anNwWXBzeE1ocFNIbG0vTFh5RWJQTEt0dStB?=
+ =?utf-8?B?ZFFFLzFJYzRGZDVVNFkwUzB5RExXd2twbnFkaDNrZUxnbWUvUEp1dVRPWHoz?=
+ =?utf-8?B?Nk1IbVBKTWVIM3hlMTh5WDFtWkVEWVkvL044M016MlpCbHVNUlBEU3M2eDFY?=
+ =?utf-8?B?cnkxek9WUGtLUm1aamxEVVhyTnJGN2lYdGllSVcrOXFsWjVMMlBOazVKZ09M?=
+ =?utf-8?Q?zUQh2yt/EoGBV2zXOWW0DJvzB?=
+X-Forefront-Antispam-Report: CIP:164.130.1.43;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013)(7416014)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 07:58:21.5939
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26b4a1dd-1e93-40fd-0485-08de1140c532
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.43];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF0000019E.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR10MB7786
+X-Authority-Analysis: v=2.4 cv=Wt4m8Nfv c=1 sm=1 tr=0 ts=68f88ea1 cx=c_pps
+ a=LJBxCQyVg3xmomCYv/4OGw==:117 a=peP7VJn1Wk7OJvVWh4ABVQ==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=FOPVHIcnkjUA:10 a=IkcTkHD0fZMA:10
+ a=x6icFKpwvdMA:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=D19gQVrFAAAA:8 a=9Tk4aT_6JJQB9VmfOvwA:9
+ a=QEXdDO2ut3YA:10 a=W4TVW4IDbPiebHqcZpNg:22 a=nl4s5V0KI7Kw-pW0DWrs:22
+ a=pHzHmUro8NiASowvMSCR:22 a=xoEH_sTeL_Rfw54TyV31:22
+X-Proofpoint-GUID: T80p8zZy4-HD39F1QgdKUAOr5_8xU-vl
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE5MDAwNCBTYWx0ZWRfX/IcAzRo33mzy
+ ewcZw054S40u/s0cWMj3vDHXDgh5uNEw8wSlLXhzeU5ibL6yd1oFZdaidZDralBIz9I1+OjGtOc
+ POf2PTeKAxuSdgrMkit2iOUjkK4mSIWkMYpvleYzTJ3jl/WHgVE9/TaB1RzFV97QVFHdx//KCZe
+ GMJZ/f2IIcKuGWS7jgvWXmALYujghF/AcaNuufvAjdMQAOwcooHK5xjCyven0mi0aXtHnd8nXLT
+ hbAvbBRTnkeXqZQy/2FGZ6JN8TxXCTFFldo3elj3hDPEB7fUimLjj3CryGnvOhik5enJFGKxVzF
+ e9GnYq7yB2XVpJgdWNziSWzIG7p5l7XVNEPDakgYYpHLeVDxp4joNPCYz9RvWGxl3PFcrYHu2NH
+ is8SM/kIHdzVbItYDhim9QCt5+pJ+A==
+X-Proofpoint-ORIG-GUID: T80p8zZy4-HD39F1QgdKUAOr5_8xU-vl
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-22_03,2025-10-13_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 clxscore=1011
+ impostorscore=0 priorityscore=1501 bulkscore=0 adultscore=0
+ lowpriorityscore=0 suspectscore=0 malwarescore=0 spamscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510190004
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_005630_009606_415197E7 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20251022_005834_337607_7003AB20 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +216,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 17, 2025 at 07:13:33PM +0300, Ivaylo Ivanov wrote:
-> Introduce a clocks management driver for exynos8890, providing clocks
-> for the peripherals of that SoC.
+Hello Krzysztof,
+
+On 10/20/25 12:08, Krzysztof Kozlowski wrote:
 > 
-> As exynos8890 is the first exynos SoC to feature Hardware Auto Clock
-> Gating (HWACG), it differs from newer SoCs. Q-channel and Q-state bits
-> are separate registers, unlike the CLK_CON_GAT_* ones that feature HWACG
-> bits in the same register that controls manual gating. Hence, don't use
-> the clk-exynos-arm64 helper, but implement logic that enforces manual
-> gating.
+> On Thu, 09 Oct 2025 17:27:13 -0500, Shenwei Wang wrote:
+>> Remote processors may announce multiple devices (e.g., I2C, GPIO) over
+>> an RPMSG channel. These devices may require corresponding device tree
+>> nodes, especially when acting as providers, to supply phandles for their
+>> consumers.
+>>
+>> Define an RPMSG node to work as a container for a group of RPMSG channels
+>> under the imx_rproc node.
+>>
+>> [...]
+> 
+> Applied, thanks!
 
-Please CC @Peter Griffin in future versions.
+For your information, there are requirements to make the rpmsg-gpio 
+driver generic [1]. This could impact these bindings.
 
-How much of this can be shared between this and GS101?
-https://lore.kernel.org/all/20251013-automatic-clocks-v1-0-72851ee00300@linaro.org/
+Best Regards,
+Arnaud
 
+[1] https://lkml.org/lkml/2025/10/13/790
 
-Best regards,
-Krzysztof
+> 
+> [1/4] dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
+>        (no commit info)
+> 
+> Best regards,
 
 
