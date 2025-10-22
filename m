@@ -4,99 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F70CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:24:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0E8CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NE6ALi4oCIm+yd7a3yOvtFqmufCiCdrMy/7EGT/KVX4=; b=xMXWs9ZMlEG2lNSaMvHeU0COZf
-	gVhHHI8DicS71RpdqcXMO3no7YJ/+vtIRHQZ4/71geea8YMdtMiMfPZM8HTAdZIV49MfSqOOalf4M
-	FPVKXeL/G4Gj7n+wxBFrNBkTYNZTngBQchh5ivUY+7PzbsrNdskKchaa+QLm9Oq8UQ6sZm+nvcqVr
-	RDQj5CAoCZ66z/vOO3XKhQ5nRPCGfaF3LbJwt5p9Y3xkbduSzu2njvx0+cfjSFOyHlxZsTkS9pK4o
-	gejqFLU1wvxZUmt7TedXT/dZfbu7E/RpSPDw8xLgla1cZA/x+Y+G/JA8n3NH81/YDtj9TiRPmfkqr
-	s4GTWi7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ws6nqB6HgODTdo+oD3MhV0Xqtt/ibjBkouNJ7xdECKg=; b=hv9TspRWIYubMRk69K2WW4N2Ec
+	ufF7HDxpQR5k5LDSEGDanHi8O3yK7BHkJH8Sn9vHcGzBJXW0mdQyGbK7f78tI0NjujRaW+3RQaTJT
+	/NW/m78mpVtJ5s9wkQjQmV1++CGQ+dikzU1LauvV/6lSY9xYz/fz69tzlZ1wP46PCTfOF2YdOHH3n
+	Q0Ki6C5p3d8H+yVHz3b7esm1YHGS95KQ1beRtCgoFuUVNwchBc2fmG7whsHYHyQZrVElfjuIZ5123
+	vktaARZp/eruAiO0NZh36lYUZM3xMqTW6I5czhCzQlT6SkCgjb3mluAz//P4+joOkNgPUQxrFafO2
+	n1C14/YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBWxM-00000002e8h-2a4w;
-	Wed, 22 Oct 2025 11:24:40 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vBX6O-00000002f5F-2kIW;
+	Wed, 22 Oct 2025 11:34:00 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBWxH-00000002e73-3jxs
+	id 1vBX6L-00000002f45-0EpG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 11:24:37 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-46e6a689bd0so63696465e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 04:24:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761132274; x=1761737074; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NE6ALi4oCIm+yd7a3yOvtFqmufCiCdrMy/7EGT/KVX4=;
-        b=VLU6tjwKiAlyo8b3VRWfdbLowdX4dp1QpkNHvQwASyxb/Iukv5eVCOoFaGQvCKiSq+
-         GssttSfQz8hN9IcN8hFf5HK6Mfd9ihmUwBXb1hhamv/9SGgWbtLSGOA6TZR3eMCqjmzN
-         /HJpZ1cz4qyItfBIrT3ulxLfbV3YhYFe9u5Dt3++i7WrRYg1cBSz9fPQ7L0/jL4cog3E
-         xhW9fdNcERvTp1xK1CwHSy9NrAsWw1mgxCVs/0Kwxdd39fCraAjaGEGkX9KyKJlNH8JL
-         lE51nRZtQgF3KfRDlmAHa89q0MIPj0W/IuzpPXNVGvYYvlQw1CkW8EaYC2ZXnjKx/Y1y
-         gD2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761132274; x=1761737074;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NE6ALi4oCIm+yd7a3yOvtFqmufCiCdrMy/7EGT/KVX4=;
-        b=ui/nxzl656pjGsCCnHkvHBWVP1o5EIjCRRfWuz7YJVby5k8o+b++jXX/KrE2mDt0I9
-         Obruc8WkGObB97kLzhbZSjK7ZxdvDYW8qwZvDV89ou25QOWF4HLVszI+CqXSf+zh7PSV
-         b3t9YUhzTFa2NdA2lmZVDjm2dsL7VIa92llqFQMO+qG2DGicUbqnpQ8edi7o8BcTNcgG
-         /wK6o3g1LYmso+rhguQzVU0vMPS9gk1G8x6x+7VeRf9bx6CjLfanIK9hmxP1wHhqt37x
-         I4YF2RjZHAwqNoMcutBcFw/hjzD9tutQRWHG8Euj59RoLNL2DKpaMhcm/4zG2WPWUFb9
-         cjAg==
-X-Forwarded-Encrypted: i=1; AJvYcCXdKyu01fWViuMpzZ8+8xX6AV+ombba4pBy6o57JoLCL8Axal/9jyX+cBtgQsyhtLd2UJ6NePhVx5YGWA0s0Ji3@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywvv54nMMYIi6sjY/pF3xntVnyjLgGHHgLx2oQemV4YQfoT+T5l
-	kJSynWEDjJthfwiDzMKulWsoeYefn4gES67Znd92P96emE1J9fkOLDst00itcw7P+05O87cLyON
-	vhZnmOq0=
-X-Gm-Gg: ASbGncuF/hcbAS9XOo9CeS3t97i0/BxC+JZw3wVIU1E65EBupjLQCqWxyjbJO62wwEF
-	UZwFkRuyEESUAZmIf8yn7AJm4jiPWJc5i5O5D5njKRRdO8QDzg2D1pBVhY9OEJQR0YDt6xsOmFL
-	ppKzKlwwEnA15OT3fknKr3nDlmvhxWUTG+0iJ4ycgMbr1FZXute80q2PTmG3CfwFdIQbp7VEdLg
-	3zEwTbo9fZSL4o6PHzxd2LqMpztJrUf7KnKoexZRruuJOvZ0njWukFUsVQjZDYYrS+/ra0SJDy6
-	fi2+pVXK4mZjycyHS7Gh6Xl9qSd7ahsEfCbfwBXhNfUXI+iJzG/6FLAnkwOL40sC4Cy4JPx0F/M
-	c4ioqIUUjhhs/uQHv02kmyui1qClyEaL0b/F9vQIAeJQbYM0sEAYCva0O+NXfeKM4c1RmKo/ZKh
-	oc0kJQe/J2sLWBy62rDvo=
-X-Google-Smtp-Source: AGHT+IFHudZFCqpsdF3BziLjxKHgkZc7fTsjSbocAq1uyR2DAIJq/pryZEZ8IbOeeE5y3RSm6MSLNg==
-X-Received: by 2002:a05:600c:3e12:b0:45b:7d77:b592 with SMTP id 5b1f17b1804b1-471178a74demr147513535e9.12.1761132274047;
-        Wed, 22 Oct 2025 04:24:34 -0700 (PDT)
-Received: from [10.11.12.107] ([79.115.63.145])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475c428a534sm45864405e9.6.2025.10.22.04.24.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Oct 2025 04:24:33 -0700 (PDT)
-Message-ID: <61813f89-3015-4fdb-a182-5c4159f7bb1e@linaro.org>
-Date: Wed, 22 Oct 2025 12:24:31 +0100
+	Wed, 22 Oct 2025 11:33:59 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cs6RM1Yb4z6GDLk;
+	Wed, 22 Oct 2025 19:30:39 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id ABDEB1400C8;
+	Wed, 22 Oct 2025 19:33:51 +0800 (CST)
+Received: from SecurePC-101-06.huawei.com (10.122.19.247) by
+ dubpeml100005.china.huawei.com (7.214.146.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 22 Oct 2025 12:33:50 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Conor Dooley <conor@kernel.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-arch@vger.kernel.org>,
+	<linux-mm@kvack.org>, Dan Williams <dan.j.williams@intel.com>, "H . Peter
+ Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, Andrew Morton
+	<akpm@linux-foundation.org>
+CC: <james.morse@arm.com>, Will Deacon <will@kernel.org>, Davidlohr Bueso
+	<dave@stgolabs.net>, <linuxarm@huawei.com>, Yushan Wang
+	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
+	<luto@kernel.org>, Dave Jiang <dave.jiang@intel.com>
+Subject: [PATCH v4 0/6] Cache coherency management subsystem
+Date: Wed, 22 Oct 2025 12:33:43 +0100
+Message-ID: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] hwrng: exynos: enable GS101 TRNG support
-To: =?UTF-8?Q?=C5=81ukasz_Stelmach?= <l.stelmach@samsung.com>,
- Olivia Mackall <olivia@selenic.com>, Herbert Xu
- <herbert@gondor.apana.org.au>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, semen.protsenko@linaro.org,
- willmcvicker@google.com, kernel-team@android.com,
- linux-samsung-soc@vger.kernel.org, linux-crypto@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251022-gs101-trng-v1-0-8817e2d7a6fc@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20251022-gs101-trng-v1-0-8817e2d7a6fc@linaro.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.122.19.247]
+X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_042436_044753_E92FBF8D 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20251022_043357_401140_4BA3B96E 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,80 +78,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Support system level interfaces for cache maintenance as found on some
+ARM64 systems. This is needed for correct functionality during various
+forms of memory hotplug (e.g. CXL). Typical hardware has MMIO interface
+found via ACPI DSDT.
+
+Includes parameter changes to cpu_cache_invalidate_memregion() but no
+functional changes for architectures that already support this call.
+
+How to merge?  When this is ready to proceed (so subject to review
+feedback on this version), I'm not sure what the best route into the
+kernel is. Conor could take the lot via his tree for drivers/cache but
+the generic changes perhaps suggest it might be better if Andrew
+handles this?  Any merge conflicts in drivers/cache will be trivial
+build file stuff. Or maybe even take it throug one of the affected
+trees such as CXL.
+
+v4: (Small changes called out in each patch)
+- Drop the ACPI driver. It has done it's job as a second implementation
+  to help with generality testing. I have heard zero interest in actually
+  doing the specification work needed to make that official. Easy to bring
+  back if needed in future. I have it locally still as a second test
+  case.
+- Add a cpu_cache_invalidate_all() helper for the 0,-1 case that is used
+  to indicate everything should be flushed as no fine grained range info
+  available.
+- Simplify the necessary symbols to be selected by architectures by
+  making CONFIG_GENERIC_CPU_CACHE_MAINTENANCE select
+  ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
+- Avoid naming mentioning devices as there is no struct device.
+- Use a kref so as to have something on which a _put() operation makes
+  sense avoiding rather confusing freeing of an internal structure pointer
+  that was seen in v3.
+- Gather tags given.
+- Various minor things like typos, header tweaks etc.
+Thanks to all who reviewed v3.
+
+On current ARM64 systems (and likely other architectures) the
+implementation of cache flushing need for actions such as CXL memory
+hotplug e.g. cpu_cache_invalidate_memregion(), is performed by system
+components outside of the CPU, controlled via either firmware or MMIO
+interfaces.
+
+These control units run the necessary coherency protocol operations to
+cause the write backs and cache flushes to occur asynchronously. They allow
+filtering by PA range to reduce disruption to the system. Systems
+supporting this interface must be designed to ensure that, when complete,
+all cache lines in the range are in invalid state or clean state
+(prefetches may have raced with the invalidation). This must include
+memory-side caches and other non architectural caches beyond the Point
+of Coherence (ARM terminology) such that writes will reach memory even
+after OS programmable address decoders are modified (for CXL this is
+any HDM decoders that aren't locked). Software will guarantee that no
+writes to these memory ranges race with this operation. Whilst this is
+subtly different from write backs must reach the physical memory that
+difference probably doesn't matter to those reading this series.
+
+The often distributed nature of the relevant coherency management units
+(e.g. due to interleaving) requires the appropriate commands to be issued
+to multiple (potentially heterogeneous) units. To enable this a
+registration framework is provided to which drivers may register a set
+of callbacks. Upon a request for a cache maintenance operation the
+framework iterates over all registered callback sets, calling first a
+command to write back and invalidate, and then optionally a command to wait
+for completion. Filtering on relevance if a give request is left to the
+individual drivers.
+
+In this version only one driver is included. This is the HiSilicon Hydra
+Home Agent driver which controls hardware found on some of our relevant
+server SoCs. Also available (I can post if anyone is interested)
+is an ACPI driver based on a firmware interface that was in a public
+PSCI specification alpha version
+
+QEMU emulation code at
+http://gitlab.com/jic23/qemu cxl-2025-03-20 
+
+Notes:
+- I don't particularly like defining 'generic' infrastructure with so few
+  implementations. If anyone can point me at docs for another one or two,
+  or confirm that they think this is fine that would be great!
+  The converse to this is I don't want to wait longer for those to surface
+  given the necessity to support this one platform that I do know about!
 
 
-On 10/22/25 12:19 PM, Tudor Ambarus wrote:
-> Hi,
-> 
-> I propose the bindings to go through the Samsung tree as well so that we
-> can match the compatible with the schema when pulling the DT patch.
-> 
-> Thanks!
-> ta
-> 
-> ---
-> Enable GS101 TRNG support. It works well with the current Exynos850 TRNG
-> support. Tested on pixel 6 like this:
-> 
+Jonathan Cameron (3):
+  memregion: Drop unused IORES_DESC_* parameter from
+    cpu_cache_invalidate_memregion()
+  arm64: Select GENERIC_CPU_CACHE_MAINTENANCE
+  MAINTAINERS: Add Jonathan Cameron to drivers/cache and add
+    lib/cache_maint.c + header
 
-the commands started with # and were removed from the cover letter.
-I fill them in to avoid a resubmit:
+Yicong Yang (2):
+  memregion: Support fine grained invalidate by
+    cpu_cache_invalidate_memregion()
+  lib: Support ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
 
-# cat /sys/devices/virtual/misc/hw_random/rng_current> 10141400.rng
-> 
+Yushan Wang (1):
+  cache: Support cache maintenance for HiSilicon SoC Hydra Home Agent
 
-dd if=/dev/hwrng bs=100000 count=1 > /dev/null> 1+0 records in
-> 1+0 records out
-> 100000 bytes (100 kB, 98 KiB) copied, 2.03619 s, 49.1 kB/s
-> 
+ MAINTAINERS                     |   3 +
+ arch/arm64/Kconfig              |   1 +
+ arch/x86/mm/pat/set_memory.c    |   2 +-
+ drivers/cache/Kconfig           |  15 +++
+ drivers/cache/Makefile          |   2 +
+ drivers/cache/hisi_soc_hha.c    | 191 ++++++++++++++++++++++++++++++++
+ drivers/cxl/core/region.c       |   5 +-
+ drivers/nvdimm/region.c         |   2 +-
+ drivers/nvdimm/region_devs.c    |   2 +-
+ include/linux/cache_coherency.h |  61 ++++++++++
+ include/linux/memregion.h       |  16 ++-
+ lib/Kconfig                     |   4 +
+ lib/Makefile                    |   2 +
+ lib/cache_maint.c               | 138 +++++++++++++++++++++++
+ 14 files changed, 436 insertions(+), 8 deletions(-)
+ create mode 100644 drivers/cache/hisi_soc_hha.c
+ create mode 100644 include/linux/cache_coherency.h
+ create mode 100644 lib/cache_maint.c
 
-# rngtest -c 1000 < /dev/hwrng> rngtest 6.17
-> ...
-> rngtest: starting FIPS tests...
-> rngtest: bits received from input: 20000032
-> rngtest: FIPS 140-2 successes: 1000
-> rngtest: FIPS 140-2 failures: 0
-> rngtest: FIPS 140-2(2001-10-10) Monobit: 0
-> rngtest: FIPS 140-2(2001-10-10) Poker: 0
-> rngtest: FIPS 140-2(2001-10-10) Runs: 0
-> rngtest: FIPS 140-2(2001-10-10) Long run: 0
-> rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
-> rngtest: input channel speed: (min=380.570; avg=385.422; max=386.964)Kibits/s
-> rngtest: FIPS tests speed: (min=75.092; avg=81.784; max=84.771)Mibits/s
-> rngtest: Program run time: 50908949 microseconds
-> 
-> To: Łukasz Stelmach <l.stelmach@samsung.com>
-> To: Olivia Mackall <olivia@selenic.com>
-> To: Herbert Xu <herbert@gondor.apana.org.au>
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Alim Akhtar <alim.akhtar@samsung.com>
-> To: Peter Griffin <peter.griffin@linaro.org>
-> To: André Draszik <andre.draszik@linaro.org>
-> Cc: Krzysztof Kozlowski <krzk@kernel.org>
-> Cc: semen.protsenko@linaro.org
-> Cc: willmcvicker@google.com
-> Cc: kernel-team@android.com
-> Cc: linux-samsung-soc@vger.kernel.org
-> Cc: linux-crypto@vger.kernel.org
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> 
-> ---
-> Tudor Ambarus (2):
->       dt-bindings: rng: add google,gs101-trng compatible
->       arm64: dts: exynos: gs101: add TRNG node
-> 
->  .../devicetree/bindings/rng/samsung,exynos5250-trng.yaml       | 10 +++++++---
->  arch/arm64/boot/dts/exynos/google/gs101.dtsi                   |  9 +++++++++
->  2 files changed, 16 insertions(+), 3 deletions(-)
-> ---
-> base-commit: 8ebc2add3e2d076adc5cc3e8c9bef268f7f1cb31
-> change-id: 20251022-gs101-trng-54b710218424
-> 
-> Best regards,
+-- 
+2.48.1
 
 
