@@ -4,180 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428F0CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 06:19:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACAECCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 06:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g273XvRwMFTMiQkCR+ra8EE3Xhwqr8fjDxJ+4NXbLiQ=; b=n1eg54tqjF1A6IuEXoahZDbsZS
-	DgwnQKWH+WB4tTFkgKj0UrIu8Nnk2kAk3MNZDv7mlDZ4l5dDxrH9yDkaMT5HGvV8bbb6iZOGq8XkE
-	TySDDeFmsZKhsAWtTjLQk9deWrZXDrInbpjX/4ad8gujxV4Db6k0qJlcUIzC10iOiZzYehJ9UtEiN
-	adazfbWSTqlWeiCSfJHIVlxToNB0C3V4VeE+PtiO+qJMaEhfswVSNQ0aQm+vPkEBmX2XpDVxtQKjv
-	QhoRf7SjXEX3ZpSt74DPlqHTrlGUhQUn/C8g4+c+A05lOi7EEE2Qj6AZtQMMta3Y9gVnMF0IrbYwj
-	RXvRVBNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=meUdmos9kizDlu8CgoRudmdRK0uwEePyLqtSln8LbHo=; b=W1wU9mR68dujLR88/dE2XcRMrP
+	c4yQPyb8eYrywqUrRUbLHskVjwH0fLNAIAPkwWEzS6D21Wy0IKNXQlofr3KI+sQHUCFXwE9PkCtxU
+	QyFwzHkvK6i4WIFWMyvk5E4yB3aWfjNTvDCmN9PhQjs1KHEeLvH0zR9aUaw6uzx287kWM6vBSFTHU
+	NNJ0UxB12zxk/X6iXB3d/+8iiitLTESpyw9WQwRybEwP8qzEBj9+9EjneWWaWcq+8bkSier050ClN
+	SUvfqKZQ3naEwuIFhZi2w/4fPnngo3AnsyqP1k1eiumniTBvD/WPq89b9uzozJxAEwJnjSEeP6jLi
+	eZ0vvODA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSBo-00000001dOx-0oif;
-	Wed, 22 Oct 2025 06:19:16 +0000
-Received: from mail-francesouthazon11021116.outbound.protection.outlook.com ([40.107.130.116] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vBSCC-00000001dWl-2VdM;
+	Wed, 22 Oct 2025 06:19:40 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSBi-00000001dO7-3ZHG
+	id 1vBSC9-00000001dUU-0ClR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 06:19:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HQ74s9gFyOHuNIkKLTvWykvvcJDrnfruz5YF9imZ3JZLJHZSXApESF3nVZqNTYJg7wuFaB2TdFw+tG5mhuBDeqcoHhSYuUhADrYF0VG+TYsU3124GYMDrgGLPBfUxVmZdorIJ8eg7POUx26aa67hhKiVVs6aKIBDhyoEQZKo84X4qmEc0Pqa0XzZKg+mihr66VhzjRMER+9rHVS+psFQnisyqZS7GbSCMaUhaCkGALGwzgZeP9DQxssWAKsGlYrO/6anlXDo4+Q1gkLMmfvlGQyvgQhBiirT/uOo/SArnHGcq57wxKxkvLuGKOB0PJeX1GQlkWcGVMlOxp2Y2+HisQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g273XvRwMFTMiQkCR+ra8EE3Xhwqr8fjDxJ+4NXbLiQ=;
- b=wwuQXJfHpoL3c7es8WMlx1qCwp3DS/xUlP3dinf4KJVk7vV4CnNY++bskgJwt+Yqrpka74EK+8HRIrPagbg+qCk/bIlYafAKBqYPj3HKoD4f16FxeulSfK4Ka7w0ntulhHlFSw4RZcrmyAkEjCfGQIRa+co48JRlSUR3Dj6Om0OY4XfKVis9fTzvEBJl9D/W32q1I450GuD6FjAyeCK9XluMqNvN1vrsS762NkpvcHdZogh3o6UvzqENWz6SHlH8fZmmuvGA5UnYKuuXdBaSPd51TV0U/zL5qirvmXYSfdNJaBcQKrz5q7mY7CzH/lKukwoHYnSRuBj05MmR30SIvA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g273XvRwMFTMiQkCR+ra8EE3Xhwqr8fjDxJ+4NXbLiQ=;
- b=uJ7Qp5Oj1iWh7+URXJaJItszTQK51zJpqQ4CbLiNnzQTJtRd7uQqfDZEY8KSDgSFeFnM/US/CQknZcVQzaWJZRovPYJlNFpGzrgH/qgjGqIx7rdLHJ6YR9pxy40zzWEwZT81M3y/Eak92oiIc+rPGWlRV/zh76SXk6d3lWyOFYjArpPXUVbCADuCtwuMS+ad+z6YQn5dWvZ/2RuNnlUTYhMwF30VnFpKbWHXunSAy7X2YGjo3vjdzW5C2q1J8qyDjzjoCpNGtM8bNCAoBWOqtGogDNrH8Ye5vcl3dxmB+lIp+U++n+vDfY605B4Q9QNUQYAp6kmskwSy01aLDL21iA==
-Received: from VI2P195MB2491.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:22f::14)
- by GV4P195MB3048.EURP195.PROD.OUTLOOK.COM (2603:10a6:150:2b8::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Wed, 22 Oct
- 2025 06:18:53 +0000
-Received: from VI2P195MB2491.EURP195.PROD.OUTLOOK.COM
- ([fe80::4131:8d3c:f0c6:c414]) by VI2P195MB2491.EURP195.PROD.OUTLOOK.COM
- ([fe80::4131:8d3c:f0c6:c414%6]) with mapi id 15.20.9253.011; Wed, 22 Oct 2025
- 06:18:52 +0000
-From: Yannic Moog <y.moog@phytec.de>
-To: "Frank.li@nxp.com" <Frank.li@nxp.com>
-CC: "kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"robh@kernel.org" <robh@kernel.org>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"upstream@lists.phytec.de" <upstream@lists.phytec.de>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 2/4] arm64: dts: imx8mp-phycore-som: add spi-nor supply
- vcc
-Thread-Topic: [PATCH 2/4] arm64: dts: imx8mp-phycore-som: add spi-nor supply
- vcc
-Thread-Index: AQHcQcMQOuwPfsLsJE6PDd+SFN6y3rTLKyIAgAKIzgA=
-Date: Wed, 22 Oct 2025 06:18:52 +0000
-Message-ID: <d935b1243b1256293b5a0b31069983ad56555407.camel@phytec.de>
-References: <20251020-imx8mp-dts-additions-v1-0-ea9ac5652b8b@phytec.de>
-	 <20251020-imx8mp-dts-additions-v1-2-ea9ac5652b8b@phytec.de>
-	 <aPZXCJZQaNnrxC7p@lizhi-Precision-Tower-5810>
-In-Reply-To: <aPZXCJZQaNnrxC7p@lizhi-Precision-Tower-5810>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI2P195MB2491:EE_|GV4P195MB3048:EE_
-x-ms-office365-filtering-correlation-id: e237e4c3-135f-4e73-0479-08de1132df46
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|10070799003|366016|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?bTkwUmdseFhyNnNYUWpmc3FXWlRMU3RIb3JCbjhpTVhkYjZIQVRqOFFta25R?=
- =?utf-8?B?NWpDUVM5dTg2Y1ZzSlV6cGVBMFhCMzZMVDZuL0wrM210Rm51a2VwQkVJeWdM?=
- =?utf-8?B?d2dMRnZZTko4OXk5ZjVjQVRTT2JEOExqVFJBNkxKejRyaXBlTDVFUnhwN2V0?=
- =?utf-8?B?UmU4VS8veGpWSlNUUlF3SmwyQlQ5VW9YbGVsRm9BV2VjS1ZrcTRVaHprTEts?=
- =?utf-8?B?NW02SmdGbWJLazR6Zm1Gb2NqbTVTeTVVd0pyenExcEozeEZLOXF2SWg4bGJV?=
- =?utf-8?B?V2N4NVBtSWpqWDBZSmRxR0RBM25QVjVrOTBNb3hrWHh1VjJ6S2N5U3R1RzYx?=
- =?utf-8?B?OVI4M3BkY0NUb2xBMVVrNDVoOVdCcC81SUNIZHc5NlJUQkJhdDg3aTd3anVY?=
- =?utf-8?B?VVo4WVA5VE9RV21rQ3l4YWUvcVhXVjlyRVZjR1AxbS8wWFMxK3B4UFZtRlNX?=
- =?utf-8?B?enZONStyM2lBeHNNTlliWFcvSHNFYjk5dUhOd2MyN3hraTJrdEp1Y3dzYksw?=
- =?utf-8?B?MFFnN2lRNDFpbUZoOGdLRENxWW1PODRFV2FJeUZabHpoZXVMaEErQWRQcjla?=
- =?utf-8?B?Sm1TcVN4cmJPYzVvWXhaMmVEckxIam9McnRqRUt6amtRMHNmcUdWWDY5MEJy?=
- =?utf-8?B?cHl0aXBGMENjRG5uQjVuclM0UFZWTUJsZnE2WWNnN2NMMkZGWUNPc2JRbW1i?=
- =?utf-8?B?WGZIWWkrRTBzRmJ2S214SkQvdjlpWXlzdWhMWGVHTmFhb2hmWTY0aW15dFo1?=
- =?utf-8?B?a0xTSUwvOXBxOVE0d2RyaDZESjFscjV4eThlSFc5eDlSNFdMNkpYajF0NmFn?=
- =?utf-8?B?UDNNWTlYMHd0c3Z4RkhjZWV2K01rbGI0M0UvS0tBcStPY21qVFliZERncHIv?=
- =?utf-8?B?MmNmbTNlUXgrUFdFSEpEZjNwQit6a0RPK3h5ejYvMjRhTkxrT21nTkxmUExs?=
- =?utf-8?B?MXpoM0dBdmR3cFh3dXdVNHN6UnRIWlBXWXBidGhjekt3REVsejYxeUJpSU50?=
- =?utf-8?B?bVdKL0VvZUxSeGlmZU1SRzZwMWQvdWJwakRDVHEydjdrZzZmV3QzSHRXaEJm?=
- =?utf-8?B?UGQ5ZDZiQVlaWGpnMmpxV3V1ZzBYdzR6NndNYmIwcU9ZTWVCcVlSeGdnd0pq?=
- =?utf-8?B?UTNhUW9YcFhCdmRWYWdDYzJzWkpSWjNFdGdkcGI0MzNqRHR3MUJoQ3dCdEVn?=
- =?utf-8?B?blJtK0xISTUrMHRqd2RDQ1ZjU2lzM09OSUJEQitSc2pvRng5M0s1dFVIN3Nl?=
- =?utf-8?B?eHdnNTAxdTJWYUdrVWpQcVpWYVJUSFd4OFd4Y2tsVExTZmp0SCtPelU5WVZP?=
- =?utf-8?B?MUg5TnBlZ1NjaXJ6RWVJR3A4SCsrQTVmeHlvUXZsWkRYLy93VERlcXZtSUZw?=
- =?utf-8?B?RFNXcnB3bmFmTFV3STJuYkEvZC83ejdVWjUvWDEvL2taMy9MWVJ0Zyt2bjBY?=
- =?utf-8?B?bWptUmx6b1NxUG55UlFoNlQwTm5vV1ZNcGdWQzhnN1o5Y09yWUM2NVB4cUZw?=
- =?utf-8?B?RkEvRk1GeFMxN0xGNzN0Tk5RLzdBYUFneFlqQjdGMXBaNS9jcnJUQnBGNGd3?=
- =?utf-8?B?cm9Qc09wWlVyeTMwYUNqL2xqK3YwWlhGUkMxTHdtNW9NL2wzeXM4SUZnS0p2?=
- =?utf-8?B?MEIrc29HKzVEaDl3ZkNFYVIrVWE1NjJuc2FyYXFVNlRDaC9zdndFU1kvcGlw?=
- =?utf-8?B?Z3ByUEtIR0dua0JpNW8yTnM1NkxvdjRqVVc3MVhFRzhXSThLaDdoVlhCa2xw?=
- =?utf-8?B?dHBVU1FWcHhXakREMFZtNGlMd1JyK25IWURkeWNCR0o1UlppRFdaQ2VId0gw?=
- =?utf-8?B?TTFQaVZMNjBrTzlrbk04dlllQUVQYVFNakRzNXd5MUh3bnNLZVVEcE9GR0dX?=
- =?utf-8?B?Q0V2ZkNNd2pVM3EyOFZwaWVIY0ZaYjlidG5QMVpUaHVFeUFCdngzdno0R2hL?=
- =?utf-8?B?bVpCNWVLajlDR04vS2w4YThSaWdJRmZ3bm03RTNOcE5yVGdCWUlIb0RTei9K?=
- =?utf-8?B?UitlYkF2cG9Nd3c3UW9sdFdTU2lCN1BmakxvREc5aDFHUTBCZGNPTkYzSXdx?=
- =?utf-8?Q?y8ypTi?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2P195MB2491.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(10070799003)(366016)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?REVBckV0VDczTEgvT2xOYVV5L01sRkoyVHpUbW9hemdvMkFSZkFJa0xhOHdL?=
- =?utf-8?B?cjEybzJOL0Q5Mms1SEFEeFFXaDA3VDlYN0U1VGc1UVptN1FRRVUzb0UwaDFj?=
- =?utf-8?B?d0x2ZGFMTitkQXpjVHorRWY0bzc0OXYwaDNZYzdwMkVIeUV4cndMZFcyUm1X?=
- =?utf-8?B?dlFsRHVVbm5QL2FvZXQwWHdmWFV0UUQ3QUpjbm0xV1gybjV3NmlDcTM3MkFz?=
- =?utf-8?B?T3VISzBDcjYvL1kyeVZ3ZlJBeWFXWVJ3dEhRWk5jYm1ZTXJ0VFZWZ1U5QUJX?=
- =?utf-8?B?cWpzdGdOeG9LUFR2N3ZkQWYwUmJMMERrUnhVT1RHd3JtSzhiekd3dE1mSnZn?=
- =?utf-8?B?S0tZZGp1blJpdjlXZUZFb3pERnhETXBxRWdDbW5pYURlYnZ4aU5xU21xaW4y?=
- =?utf-8?B?T2hVdUt3b3ZBekt4Y0dnM0JQNG16bFJibFVwcUl6Y3RGa2E2MmtKVms3WENO?=
- =?utf-8?B?VExlbTJXaFNjZG9uOTZ6TnhMZmw4cFlqQzhaN25qNHhXVVhvSWhHT1k2bkZV?=
- =?utf-8?B?cmRNcGpRMDVKN0NsbkptQ2IxaEp3cTVUQUo2V1poQkJrUzlrK2IrMWhxc2VF?=
- =?utf-8?B?dm05WFRIS1NUWUhNcmNkb0hNcXpES21OMFUwSFF6alNEaHpLQWtxUDdTemgz?=
- =?utf-8?B?OEd2K2pkODd0MFh3MzA3WWhWNXE0ZDhXdkZVSWM4cHY5Z2FpWExGTjNNRkxT?=
- =?utf-8?B?RDNEajhqVkgrcUNGMWVrTXpDYUM0eklOdm9FRi82OW9RdWgwR0ZldGtkaERk?=
- =?utf-8?B?NEhXNEM1N2d6R3pGNS9kYUpCcmU3Lyt6V1ViSThlRDl2ZVZYRzF6aVhjL3B2?=
- =?utf-8?B?dFA1QTZiWU1iNWxCMDl0TVRuREZ3bXBJSm5sNkV4L01FdTlldGJKdkk4b3du?=
- =?utf-8?B?Y2VJUmREK2xJQ0hmYTJTY2pvS0k2cHl2c25LbTBHQ2wzY2pkZkFsR3dzekFL?=
- =?utf-8?B?dXYya2dRdzN4a3VIK252Mmt5YURzd1lDVFpBcTlpWlNMM240S3A4K09WNXJ6?=
- =?utf-8?B?Y0h5TnJhNUhrU2l2M2RzZHU4K1FsK2lQNXdrRmJkaGhRaDIrRk1mbDZvby9o?=
- =?utf-8?B?Z2k0RTRkcU9heWducC9pTHB6V050RlljY2h6ZU9obXdscXk1UlViOUFlckxS?=
- =?utf-8?B?bDBSU2trS2xVNytIYjlOL1pTYnlkVUFpZzdZWGhJamRQMU5TeXhTK3ludW5a?=
- =?utf-8?B?Z3J1L0xTV1p1YzJDeWYzS3UwZ3VCZkhYejlIQUpjdHRmZUhQTVlWVGkzK01u?=
- =?utf-8?B?UkczYXk3aXBISXhGYm1leHN5dkcyWkpoZWhOQy9sRVUrMWRQdkRRM2lQNnVa?=
- =?utf-8?B?cktCQ1BpeEV5UnRjeWNYbXFhQWx4OVQwVmhJMFllUmdjWmpyMk9qU2pVK0cz?=
- =?utf-8?B?TDRJMmdZQVpUdURmcmR3VTRSejRMWUtwcjNJNVJJc2Y2MVkwUG14V1J2bzRG?=
- =?utf-8?B?Q2VwNlNGYjg5a1h0VkNpR2Y5dkdVMHA0UjJPeE93VC9ITGFTWDRsL21MZUpC?=
- =?utf-8?B?SFgyUktZNkk0V3VUR0JUMGh1ZlhJTVR4RytwaWFldGJEZUF6NDRkN3ZjNDla?=
- =?utf-8?B?TkdUQ0g3MG5WNGZqd3grbXZ5c1dwT08rVmluNEQvUU50Rnh1RHVyazNWQVQ5?=
- =?utf-8?B?NEtOZDMwNS9qVnNvM21sdFY2ZytaN2h6QmRXN0UzSFlCTkZWbXBTSkEyVzg5?=
- =?utf-8?B?OXRoaTdSaHp2QW1vdlJwZmxnYWNGZVVWK3NhbXVMTlNEb2ZMZTU5d1dUTWZW?=
- =?utf-8?B?KzNjTFlKYzd2U21DN3laS1kxMC81dEFINXJXMzFSTThhWXZLKzh3dlQ2QWNl?=
- =?utf-8?B?NjJ1QXZmRDVBb2wzTE9QanlyQTFVMUZ4cktoSjNtNEgwVWpaTnZDZVU1aXd1?=
- =?utf-8?B?RUhnVW1sNnFycnJKdmR1MVJES0piMlNPZTEwUkV0R2MwTCsySm1HQ2VKRjhV?=
- =?utf-8?B?QUVuaG5nbndvcmFYMkhnQmtsWWs1MkRNWU55S2JWNnJKekhmRllHeFFEeG1l?=
- =?utf-8?B?cFJHMll3OUpQRk9kMzQya2dvRmd4cmREL2dmZWsvVWNMNkhheFBvNk1Kamdi?=
- =?utf-8?B?N1R6aWJ3STlQRlpIU09oRUMya09FNDFFRWE5c3RoODloeGJ3ak1TRUR4YTlH?=
- =?utf-8?B?dzFISDhHWmdTWDJyOGJyaTVVaXpLQzZRQllEeFp5YXR0ZjZqNHBXbkVjN0x4?=
- =?utf-8?Q?ZstvcDTOUbfeijETBwmG9hU4wH8BLzY5YVAUYNpwFsxH?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <4D5D18CFF282074293F276C6797E5314@EURP195.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+	Wed, 22 Oct 2025 06:19:38 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=meUdmos9kizDlu8CgoRudmdRK0uwEePyLqtSln8LbHo=;
+	b=yzcAOevmafGW2CJiWtKvyITW2LJ0FSsPf5vlpv24nmQwx1dMBCEyfQKIG4DXZSJ14pXFJTIRQ
+	Y9oDTQmdM/Pp0jz9qP+qUTHbztfrRFwn8bm2E3likMLSDkJgAYoZBFx1+qpWtRCiZfSJQTpuO8O
+	YgSJIrymsljiTMHrBKJ6k7M=
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4crzWN1nxqznTWP;
+	Wed, 22 Oct 2025 14:18:40 +0800 (CST)
+Received: from dggpemf100008.china.huawei.com (unknown [7.185.36.138])
+	by mail.maildlp.com (Postfix) with ESMTPS id 79C4C1A0188;
+	Wed, 22 Oct 2025 14:19:21 +0800 (CST)
+Received: from [10.174.177.243] (10.174.177.243) by
+ dggpemf100008.china.huawei.com (7.185.36.138) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 22 Oct 2025 14:19:20 +0800
+Message-ID: <b9520113-9236-4157-a4ab-fd6908f1b577@huawei.com>
+Date: Wed, 22 Oct 2025 14:19:19 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI2P195MB2491.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: e237e4c3-135f-4e73-0479-08de1132df46
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Oct 2025 06:18:52.4515
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: tHiPWFLMAr9IXrrSpGEGM4x/AD+/4cOca5cQXhWubRRRxu93OuI4OoMjYUFjwJLqv6VQTTaLFjoZBTr8ctJeCg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4P195MB3048
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: mte: Do not warn if the page is already tagged in
+ copy_highpage()
+To: Yang Shi <shy828301@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
+	<syzbot+d1974fc28545a3e6218b@syzkaller.appspotmail.com>, Will Deacon
+	<will@kernel.org>, David Hildenbrand <david@redhat.com>
+References: <20251021181353.3842660-1-catalin.marinas@arm.com>
+ <CAHbLzkpd8awNe=bZVv9fTux+Fx-HT8qL4ENZ-uC4YcPjf9e=KQ@mail.gmail.com>
+Content-Language: en-US
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+In-Reply-To: <CAHbLzkpd8awNe=bZVv9fTux+Fx-HT8qL4ENZ-uC4YcPjf9e=KQ@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.174.177.243]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf100008.china.huawei.com (7.185.36.138)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_231911_189947_B2D45C58 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20251021_231937_402194_D32B25C9 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,37 +81,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI1LTEwLTIwIGF0IDExOjM2IC0wNDAwLCBGcmFuayBMaSB3cm90ZToNCj4gT24g
-TW9uLCBPY3QgMjAsIDIwMjUgYXQgMDM6MTE6MjNQTSArMDIwMCwgWWFubmljIE1vb2cgd3JvdGU6
-DQo+ID4gVGhlIHNwaSBmbGFzaCBvbiB0aGUgU29NIGlzIG1pc3NpbmcgaXRzIHZjYyBzdXBwbHkg
-ZGVmaW5pdGlvbi4gQWRkDQo+ID4gbWlzc2luZyByZWd1bGF0b3Igd2hpY2ggc3VwcGxpZXMgdGhl
-IGZsYXNoIHdpdGggMS44Vi4NCj4gPiANCj4gPiBTaWduZWQtb2ZmLWJ5OiBZYW5uaWMgTW9vZyA8
-eS5tb29nQHBoeXRlYy5kZT4NCj4gPiAtLS0NCj4gPiDCoGFyY2gvYXJtNjQvYm9vdC9kdHMvZnJl
-ZXNjYWxlL2lteDhtcC1waHljb3JlLXNvbS5kdHNpIHwgMTAgKysrKysrKysrKw0KPiA+IMKgMSBm
-aWxlIGNoYW5nZWQsIDEwIGluc2VydGlvbnMoKykNCj4gPiANCj4gPiBkaWZmIC0tZ2l0IGEvYXJj
-aC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OG1wLXBoeWNvcmUtc29tLmR0c2kNCj4gPiBi
-L2FyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhtcC1waHljb3JlLXNvbS5kdHNpDQo+
-ID4gaW5kZXggODg4MzFjMGZiYjdiZTNkYjE4OTEwMzg1ZTRlMTU2OTFiMWM3NGVmMi4uZDM3MGUy
-YTNhMDBjNWUzZTkxYTYwNmFjMGZiZWQzMGNmNWU2ZjliMiAxMDA2NDQNCj4gPiAtLS0gYS9hcmNo
-L2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4bXAtcGh5Y29yZS1zb20uZHRzaQ0KPiA+ICsr
-KyBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhtcC1waHljb3JlLXNvbS5kdHNp
-DQo+ID4gQEAgLTI4LDYgKzI4LDE1IEBAIHJlZ192ZGRfaW86IHJlZ3VsYXRvci12ZGQtaW8gew0K
-PiA+IMKgCQlyZWd1bGF0b3ItbWluLW1pY3Jvdm9sdCA9IDwzMzAwMDAwPjsNCj4gPiDCoAkJcmVn
-dWxhdG9yLW5hbWUgPSAiVkREX0lPIjsNCj4gPiDCoAl9Ow0KPiA+ICsNCj4gPiArCXJlZ192ZGRf
-MXY4OiByZWd1bGF0b3ItdmRkLTF2OCB7DQo+ID4gKwkJY29tcGF0aWJsZSA9ICJyZWd1bGF0b3It
-Zml4ZWQiOw0KPiA+ICsJCXJlZ3VsYXRvci1hbHdheXMtb247DQo+ID4gKwkJcmVndWxhdG9yLWJv
-b3Qtb247DQo+IA0KPiBOZWVkbid0IHJlZ3VsYXRvci1hbHdheXMtb24gYW5kIHJlZ3VsYXRvci1i
-b290LW9uIGJlY2F1c2UgaXQgaXMgcmVmZXJlZA0KPiBieSBmbGFzaEAwLg0KDQpJIGFkZGVkIHRo
-ZXNlIHByb3BlcnRpZXMgdG8gbWFrZSBpdCBjbGVhciBmb3IgdGhlIHJlYWRlciB0aGF0IHRoaXMg
-cmVndWxhdG9yIGlzIG5vdCBTb2Z0d2FyZQ0KY29udHJvbGxlZCBhbmQgc2hvdWxkIG5vdCBiZSBk
-aXNhYmxlZC4gSW1vIHRoaXMgaXMgcGFydCBvZiBoYXJkd2FyZSBkZXNjcmlwdGlvbi4NClNob3Vs
-ZCBJIHJlbW92ZSB0aGUgcHJvcGVydGllcz8NCg0KWWFubmljDQoNCj4gDQo+IEZyYW5rDQo+IA0K
-PiA+ICsJCXJlZ3VsYXRvci1tYXgtbWljcm92b2x0ID0gPDE4MDAwMDA+Ow0KPiA+ICsJCXJlZ3Vs
-YXRvci1taW4tbWljcm92b2x0ID0gPDE4MDAwMDA+Ow0KPiA+ICsJCXJlZ3VsYXRvci1uYW1lID0g
-IlZERF8xVjgiOw0KPiA+ICsJfTsNCj4gPiDCoH07DQo+ID4gDQo+ID4gwqAmQTUzXzAgew0KPiA+
-IEBAIC04Myw2ICs5Miw3IEBAIHNvbV9mbGFzaDogZmxhc2hAMCB7DQo+ID4gwqAJCXNwaS1tYXgt
-ZnJlcXVlbmN5ID0gPDgwMDAwMDAwPjsNCj4gPiDCoAkJc3BpLXJ4LWJ1cy13aWR0aCA9IDw0PjsN
-Cj4gPiDCoAkJc3BpLXR4LWJ1cy13aWR0aCA9IDwxPjsNCj4gPiArCQl2Y2Mtc3VwcGx5ID0gPCZy
-ZWdfdmRkXzF2OD47DQo+ID4gwqAJfTsNCj4gPiDCoH07DQo+ID4gDQo+ID4gDQo+ID4gLS0NCj4g
-PiAyLjUxLjANCj4gPiANCg==
+
+
+On 2025/10/22 3:00, Yang Shi wrote:
+> On Tue, Oct 21, 2025 at 11:14 AM Catalin Marinas
+> <catalin.marinas@arm.com> wrote:
+>>
+>> The arm64 copy_highpage() assumes that the destination page is newly
+>> allocated and not MTE-tagged (PG_mte_tagged unset) and warns
+>> accordingly. However, following commit 060913999d7a ("mm: migrate:
+>> support poisoned recover from migrate folio"), __folio_mc_copy() is
+
+no "__" prefix
+
+>> called before __folio_migrate_mapping(). If the latter fails (-EAGAIN),
+>> the copy will be done again to the same destination page. Since
+>> copy_highpage() already set the PG_mte_tagged flag, this second copy
+>> will warn.
+>>
+>> Replace the WARN_ON(page already tagged) in the arm64 copy_highpage()
+>> with a comment.
+>>
+>> Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+>> Reported-by: syzbot+d1974fc28545a3e6218b@syzkaller.appspotmail.com
+>> Link: https://lore.kernel.org/r/68dda1ae.a00a0220.102ee.0065.GAE@google.com
+>> Cc: <stable@vger.kernel.org> # 6.12.x
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: David Hildenbrand <david@redhat.com>
+>> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
+>> ---
+>>   arch/arm64/mm/copypage.c | 9 +++++++--
+>>   1 file changed, 7 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/mm/copypage.c b/arch/arm64/mm/copypage.c
+>> index a86c897017df..40749d0a385c 100644
+>> --- a/arch/arm64/mm/copypage.c
+>> +++ b/arch/arm64/mm/copypage.c
+>> @@ -51,8 +51,13 @@ void copy_highpage(struct page *to, struct page *from)
+>>                  }
+>>                  folio_set_hugetlb_mte_tagged(dst);
+>>          } else if (page_mte_tagged(from)) {
+>> -               /* It's a new page, shouldn't have been tagged yet */
+>> -               WARN_ON_ONCE(!try_page_mte_tagging(to));
+> 
+> I think you should remove the WARN_ON_ONCE in the above hugetlb chunk
+> too IIUC. migrate_huge_page_move_mapping() does the similar thing.
+> 
+
+Yes, it's better to remove WARN_ON_ONCE for hugetlb too.
+
+> Thanks,
+> Yang
+> 
+>> +               /*
+>> +                * Most of the time it's a new page that shouldn't have been
+>> +                * tagged yet. However, folio migration can end up reusing the
+>> +                * same page without untagging it. Ignore the warning if the
+>> +                * page is already tagged.
+>> +                */
+>> +               try_page_mte_tagging(to);
+>>
+>>                  mte_copy_page_tags(kto, kfrom);
+>>                  set_page_mte_tagged(to);
+>>
+
 
