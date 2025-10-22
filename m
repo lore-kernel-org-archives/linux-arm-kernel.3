@@ -4,85 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3202ECCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE92CCCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 13:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z3+g8QgbJ4ouhcFUC6b8oTXkttNaHvlDLLDaw/S0vBo=; b=u8CVVKt9eDWnhOC8je2j6xG4v+
-	L0SnHMyJJ0+y7f3Z7y2ff2MdyOMeWEBZwesrua9h9gB09Q/mnIVLVg7Z7+JX11tL1W+J74dd5HGDe
-	7kNhfDe0/XQE/V9BpnbFHtwamC8Jr78eF4L2n7bBRVx3bbxV9+xIBdKOsAGRFJRhNYaI/yIHJWlCX
-	4J47V6IIqajA6csQkSU+QO/KI62V9ZZ8bSK0aAceg0aG4JllHd7Z61w2OxaQcae4jwDggy4pzDoQ2
-	00RAmvZEdZIauFBd5PoRCqdasEo2Uc5pQ7I3fe9fH+F5yotaqKrVR5FWhZxHeW1Tu5ZDcApUKUeRj
-	qTD1LXfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6+ExbpWFOOJAfhuE56eVMgbxFETh2ovCTTLmSP3GfYA=; b=K5Gg2fG6XEFoIARUKR/IEAIvr9
+	hTCUkw2aqEEJl9L5iBgidoCmxHvi0XkhJ6fV97TExQEimPM3hmVXIwhAmlzUu9MGED7vIgXhAZBY9
+	oLHvWMOrIT2BilH6Vdtnq4uPEsMphCN6YxNMelGpi1c3VuZWKJfcVKG95yLNLlLakKcnZxZjpeW6v
+	MWEN+XWOo3GfEgrgEloGQGdQ27Sd+c/t66AxOzLQZGYCp/rqwJGH+aie/M8YGl3MC9kwx6braeBzC
+	RkvWV2t8gcBousgCtQYaHOsW3KfLlHtk7MREULy/4W+UUd66guVBQi0KjWVnoUwmDxoIc4qL2y67B
+	w6stTnwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYQZ-00000002uG8-0ULb;
-	Wed, 22 Oct 2025 12:58:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vBYbo-00000002vxa-3CLL;
+	Wed, 22 Oct 2025 13:10:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYQU-00000002uDq-3krc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 22 Oct 2025 12:58:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=z3+g8QgbJ4ouhcFUC6b8oTXkttNaHvlDLLDaw/S0vBo=; b=RVbdpjerUuTdbNldHDa94mXQ21
-	fGS7lVZyhMNuhHtdmducZr/gigf07i9GB0UCrm2AAYUeJ7HaFoQEBw+ZlyLKDbzo8vOFSmK9coXTS
-	bDnb8WRSwy3c3P2iqsXcCiB4wICb8pUeseUGwIUKo0O2gO1fdI9Z5d88P/3Ai6lSwtjNmX+o5t4I2
-	JNItrcJTJwdbwV1d7Y9MY7/e5g/ILBjCAZOXU9JhpCw0FRyEstepTQNcg/0NWox6X3+YLeLhUmAIv
-	1zpDMVCEDu2QvbMOv8pReu2/2zpTGYLjwGJCbyKtIGvjD1GjVKRmZqQEa+9ZSCD52F/6UXa5n22VK
-	1EJsuE0Q==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBXYl-00000000YYC-2NBM
+	id 1vBYbl-00000002vx5-2ro1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 12:03:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1C7E1063;
-	Wed, 22 Oct 2025 05:58:37 -0700 (PDT)
-Received: from [172.27.251.126] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A177C3F59E;
-	Wed, 22 Oct 2025 05:58:38 -0700 (PDT)
-Message-ID: <50a8cc38-810b-4bea-9a73-2463a6160b9f@arm.com>
-Date: Wed, 22 Oct 2025 07:58:36 -0500
+	Wed, 22 Oct 2025 13:10:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E82DF60208;
+	Wed, 22 Oct 2025 13:10:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FF10C4CEE7;
+	Wed, 22 Oct 2025 13:10:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761138628;
+	bh=/Du5gzKBdKt8tqyC45JQnXFk1Z9z8QIef1GN10pPqr0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PdOkQuHjijIbrgNvUDgLeRdcApQcVl+2xdnazoVj3aGHORXg0hirLD26RyZrzLdeX
+	 +wGPxukw9liYXeK8sWXd+BGoHZoLch7IYNvV/3YQErZN0mCvMSGZGHbfVs2vAnR2az
+	 l51Jry+rGzyPjFiKs+kjaqkLKhZuzSYVvoSTizNShSwEbRwTYygKSk2MdsONIofIBn
+	 LnfEv9ao/454CBsQUeHLhyuAGESf+S0VhrXfz2U+Qx8ZTwQV0igFfn4RW70YM138Ap
+	 SIVbGaUl8sjUXCM51misK0x3Eh8FU/PtLtfMHjoB4KCXt9wfy6qMLma3iV8eMxejj3
+	 JRJPuLpWRgRZg==
+Date: Wed, 22 Oct 2025 18:40:16 +0530
+From: "mani@kernel.org" <mani@kernel.org>
+To: "Musham, Sai Krishna" <sai.krishna.musham@amd.com>
+Cc: "Havalige, Thippeswamy" <thippeswamy.havalige@amd.com>, 
+	Stefan Roese <stefan.roese@mailbox.org>, Bjorn Helgaas <helgaas@kernel.org>, 
+	"Bandi, Ravi Kumar" <ravib@amazon.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>, 
+	"bhelgaas@google.com" <bhelgaas@google.com>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
+	"Simek, Michal" <michal.simek@amd.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"stable@vger.kernel.org" <stable@vger.kernel.org>, Sean Anderson <sean.anderson@linux.dev>, 
+	"Yeleswarapu, Nagaradhesh" <nagaradhesh.yeleswarapu@amd.com>
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Message-ID: <je532spw436aprfqtntmffq7faa2ghpbws2ph4zjplvbf7rnaa@gmrekmta6yh4>
+References: <20251021212801.GA1224310@bhelgaas>
+ <ab1f7c51-bc41-4774-a0dc-850e53c412eb@mailbox.org>
+ <3it5l556vmfpuu6kz5yvulwosi4ecmcgfbzcizrc5wi7ifddkh@mpzfxf2v6v3f>
+ <72267a6c-13c7-40bd-babb-f73a28625ca4@mailbox.org>
+ <SN7PR12MB7201CF621AF0A38AA905799D8BF3A@SN7PR12MB7201.namprd12.prod.outlook.com>
+ <brekq5jmgnotwpshcksxefpg2adm4vlsbuncazdg32sdpxqjwj@annnvyzshrys>
+ <SN7PR12MB7201C6B5B64F8847DD6D816D8BF3A@SN7PR12MB7201.namprd12.prod.outlook.com>
+ <zuj6puxpqgjmaa3y3wwyixlru7e7locplnjev37i5fnh6zummw@72t5prkfsrpk>
+ <DM4PR12MB6158ACBA7BCEDB99A55ACA03CDF3A@DM4PR12MB6158.namprd12.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 04/29] ACPI / PPTT: Add a helper to fill a cpumask from
- a cache_id
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Gavin Shan <gshan@redhat.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
- <20251017185645.26604-5-james.morse@arm.com>
-Content-Language: en-US
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <20251017185645.26604-5-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_130319_909377_6B8DB5CD 
-X-CRM114-Status: GOOD (  30.21  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <DM4PR12MB6158ACBA7BCEDB99A55ACA03CDF3A@DM4PR12MB6158.namprd12.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,170 +84,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-This is largely looking pretty solid, but..
-
-
-On 10/17/25 1:56 PM, James Morse wrote:
-> MPAM identifies CPUs by the cache_id in the PPTT cache structure.
+On Wed, Oct 22, 2025 at 12:48:27PM +0000, Musham, Sai Krishna wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
 > 
-> The driver needs to know which CPUs are associated with the cache.
-> The CPUs may not all be online, so cacheinfo does not have the
-> information.
+> Hi Mani,
 > 
-> Add a helper to pull this information out of the PPTT.
+> > -----Original Message-----
+> > From: mani@kernel.org <mani@kernel.org>
+> > Sent: Wednesday, October 22, 2025 4:28 PM
+> > To: Havalige, Thippeswamy <thippeswamy.havalige@amd.com>
+> > Cc: Stefan Roese <stefan.roese@mailbox.org>; Bjorn Helgaas
+> > <helgaas@kernel.org>; Bandi, Ravi Kumar <ravib@amazon.com>;
+> > lpieralisi@kernel.org; bhelgaas@google.com; linux-pci@vger.kernel.org;
+> > kwilczynski@kernel.org; robh@kernel.org; Simek, Michal
+> > <michal.simek@amd.com>; linux-arm-kernel@lists.infradead.org; linux-
+> > kernel@vger.kernel.org; stable@vger.kernel.org; Sean Anderson
+> > <sean.anderson@linux.dev>; Yeleswarapu, Nagaradhesh
+> > <nagaradhesh.yeleswarapu@amd.com>; Musham, Sai Krishna
+> > <sai.krishna.musham@amd.com>
+> > Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+> >
+> > Caution: This message originated from an External Source. Use proper caution
+> > when opening attachments, clicking links, or responding.
+> >
+> >
+> > On Wed, Oct 22, 2025 at 10:36:28AM +0000, Havalige, Thippeswamy wrote:
+> > > [AMD Official Use Only - AMD Internal Distribution Only]
+> > >
+> > > Hi Mani,
+> > >
+> > > > -----Original Message-----
+> > > > From: mani@kernel.org <mani@kernel.org>
+> > > > Sent: Wednesday, October 22, 2025 4:02 PM
+> > > > To: Havalige, Thippeswamy <thippeswamy.havalige@amd.com>
+> > > > Cc: Stefan Roese <stefan.roese@mailbox.org>; Bjorn Helgaas
+> > > > <helgaas@kernel.org>; Bandi, Ravi Kumar <ravib@amazon.com>;
+> > > > lpieralisi@kernel.org; bhelgaas@google.com;
+> > > > linux-pci@vger.kernel.org; kwilczynski@kernel.org; robh@kernel.org;
+> > > > Simek, Michal <michal.simek@amd.com>;
+> > > > linux-arm-kernel@lists.infradead.org; linux- kernel@vger.kernel.org;
+> > > > stable@vger.kernel.org; Sean Anderson <sean.anderson@linux.dev>
+> > > > Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+> > > >
+> > > > On Wed, Oct 22, 2025 at 10:08:44AM +0000, Havalige, Thippeswamy wrote:
+> > > > > [AMD Official Use Only - AMD Internal Distribution Only]
+> > > > >
+> > > > > Hi Stefan,
+> > > > >
+> > > > > > -----Original Message-----
+> > > > > > From: Stefan Roese <stefan.roese@mailbox.org>
+> > > > > > Sent: Wednesday, October 22, 2025 3:29 PM
+> > > > > > To: mani@kernel.org
+> > > > > > Cc: Bjorn Helgaas <helgaas@kernel.org>; Bandi, Ravi Kumar
+> > > > > > <ravib@amazon.com>; Havalige, Thippeswamy
+> > > > > > <thippeswamy.havalige@amd.com>; lpieralisi@kernel.org;
+> > > > > > bhelgaas@google.com; linux-pci@vger.kernel.org;
+> > > > > > kwilczynski@kernel.org; robh@kernel.org; Simek, Michal
+> > > > > > <michal.simek@amd.com>; linux-arm- kernel@lists.infradead.org;
+> > > > > > linux-kernel@vger.kernel.org; stable@vger.kernel.org; Sean
+> > > > > > Anderson <sean.anderson@linux.dev>
+> > > > > > Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+> > > > > >
+> > > > > > On 10/22/25 11:55, mani@kernel.org wrote:
+> > > > > > > On Wed, Oct 22, 2025 at 08:59:19AM +0200, Stefan Roese wrote:
+> > > > > > >> Hi Bjorn,
+> > > > > > >> Hi Ravi,
+> > > > > > >>
+> > > > > > >> On 10/21/25 23:28, Bjorn Helgaas wrote:
+> > > > > > >>> On Tue, Oct 21, 2025 at 08:55:41PM +0000, Bandi, Ravi Kumar wrote:
+> > > > > > >>>>> On Tue, Oct 21, 2025 at 05:46:17PM +0000, Bandi, Ravi
+> > > > > > >>>>> Kumar
+> > > > wrote:
+> > > > > > >>>>>>> On Oct 21, 2025, at 10:23 AM, Bjorn Helgaas
+> > > > > > >>>>>>> <helgaas@kernel.org>
+> > > > > > wrote:
+> > > > > > >>>>>>> On Sat, Sep 20, 2025 at 10:52:32PM +0000, Ravi Kumar
+> > > > > > >>>>>>> Bandi
+> > > > > > wrote:
+> > > > > > >>>>>>>> The pcie-xilinx-dma-pl driver does not enable INTx
+> > > > > > >>>>>>>> interrupts after initializing the port, preventing INTx
+> > > > > > >>>>>>>> interrupts from PCIe endpoints from flowing through the
+> > > > > > >>>>>>>> Xilinx XDMA root port bridge. This issue affects kernel
+> > > > > > >>>>>>>> 6.6.0 and
+> > > > later versions.
+> > > > > > >>>>>>>>
+> > > > > > >>>>>>>> This patch allows INTx interrupts generated by PCIe
+> > > > > > >>>>>>>> endpoints to flow through the root port. Tested the fix
+> > > > > > >>>>>>>> on a board with two endpoints generating INTx interrupts.
+> > > > > > >>>>>>>> Interrupts are properly detected and serviced. The
+> > > > > > >>>>>>>> /proc/interrupts output
+> > > > > > >>>>>>>> shows:
+> > > > > > >>>>>>>>
+> > > > > > >>>>>>>> [...]
+> > > > > > >>>>>>>> 32:        320          0  pl_dma:RC-Event  16 Level
+> > 400000000.axi-
+> > > > pcie,
+> > > > > > azdrv
+> > > > > > >>>>>>>> 52:        470          0  pl_dma:RC-Event  16 Level
+> > 500000000.axi-
+> > > > pcie,
+> > > > > > azdrv
+> > > > > > >>>>>>>> [...]
+> > > > > > >>
+> > > > > > >> First a comment on this IRQ logging:
+> > > > > > >>
+> > > > > > >> These lines do NOT refer to the INTx IRQ(s) but the
+> > > > > > >> controller internal "events" (errors etc). Please see this
+> > > > > > >> log for INTx on my Versal platform with pci_irqd_intx_xlate added:
+> > > > > > >>
+> > > > > > >>   24:          0          0  pl_dma:RC-Event   0 Level     LINK_DOWN
+> > > > > > >>   25:          0          0  pl_dma:RC-Event   3 Level     HOT_RESET
+> > > > > > >>   26:          0          0  pl_dma:RC-Event   8 Level     CFG_TIMEOUT
+> > > > > > >>   27:          0          0  pl_dma:RC-Event   9 Level     CORRECTABLE
+> > > > > > >>   28:          0          0  pl_dma:RC-Event  10 Level     NONFATAL
+> > > > > > >>   29:          0          0  pl_dma:RC-Event  11 Level     FATAL
+> > > > > > >>   30:          0          0  pl_dma:RC-Event  20 Level     SLV_UNSUPP
+> > > > > > >>   31:          0          0  pl_dma:RC-Event  21 Level     SLV_UNEXP
+> > > > > > >>   32:          0          0  pl_dma:RC-Event  22 Level     SLV_COMPL
+> > > > > > >>   33:          0          0  pl_dma:RC-Event  23 Level     SLV_ERRP
+> > > > > > >>   34:          0          0  pl_dma:RC-Event  24 Level     SLV_CMPABT
+> > > > > > >>   35:          0          0  pl_dma:RC-Event  25 Level     SLV_ILLBUR
+> > > > > > >>   36:          0          0  pl_dma:RC-Event  26 Level     MST_DECERR
+> > > > > > >>   37:          0          0  pl_dma:RC-Event  27 Level     MST_SLVERR
+> > > > > > >>   38:         94          0  pl_dma:RC-Event  16 Level     84000000.axi-pcie
+> > > > > > >>   39:         94          0  pl_dma:INTx   0 Level     nvme0q0, nvme0q1
+> > > > > > >>
+> > > > > > >> The last line shows the INTx IRQs here ('pl_dma:INTx' vs
+> > > > > > >> 'pl_dma:RC- Event').
+> > > > > > >>
+> > > > > > >> More below...
+> > > > > > >>
+> > > > > > >>>>>>>>
+> > > > > > >>>>>>>> Changes since v1::
+> > > > > > >>>>>>>> - Fixed commit message per reviewer's comments
+> > > > > > >>>>>>>>
+> > > > > > >>>>>>>> Fixes: 8d786149d78c ("PCI: xilinx-xdma: Add Xilinx XDMA
+> > > > > > >>>>>>>> Root Port driver")
+> > > > > > >>>>>>>> Cc: stable@vger.kernel.org
+> > > > > > >>>>>>>> Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
+> > > > > > >>>>>>>
+> > > > > > >>>>>>> Hi Ravi, obviously you tested this, but I don't know how
+> > > > > > >>>>>>> to reconcile this with Stefan's INTx fix at
+> > > > > > >>>>>>> https://lore.kernel.org/r/20251021154322.973640-1-
+> > > > > > stefan.roese@m
+> > > > > > >>>>>>> ailbox.org
+> > > > > > >>>>>>>
+> > > > > > >>>>>>> Does Stefan's fix need to be squashed into this patch?
+> > > > > > >>>>>>
+> > > > > > >>>>>> Sure, we can squash Stefan’s fix into this.
+> > > > > > >>>>>
+> > > > > > >>>>> I know we *can* squash them.
+> > > > > > >>>>>
+> > > > > > >>>>> I want to know why things worked for you and Stefan when
+> > > > > > >>>>> they
+> > > > > > >>>>> *weren't* squashed:
+> > > > > > >>>>>
+> > > > > > >>>>>    - Why did INTx work for you even without Stefan's patch.  Did you
+> > > > > > >>>>>      get INTx interrupts but not the right ones, e.g., did the device
+> > > > > > >>>>>      signal INTA but it was received as INTB?
+> > > > > > >>>>
+> > > > > > >>>> I saw that interrupts were being generated by the endpoint
+> > > > > > >>>> device, but I didn’t specifically check if they were
+> > > > > > >>>> correctly translated in the controller. I noticed that the
+> > > > > > >>>> new driver wasn't explicitly enabling the interrupts, so my
+> > > > > > >>>> first approach was to enable them, which helped the interrupts flow
+> > through.
+> > > > > > >>>
+> > > > > > >>> OK, I'll assume the interrupts happened but the driver might
+> > > > > > >>> not have been able to handle them correctly, e.g., it was
+> > > > > > >>> prepared for INTA but got INTB or similar.
+> > > > > > >>>
+> > > > > > >>>>>    - Why did Stefan's patch work for him even without your patch.
+> > > > How
+> > > > > > >>>>>      could Stefan's INTx work without the CSR writes to enable
+> > > > > > >>>>>      interrupts?
+> > > > > > >>>>
+> > > > > > >>>> I'm not entirely sure if there are any other dependencies
+> > > > > > >>>> in the FPGA bitstream. I'll investigate further and get back to you.
+> > > > > > >>>
+> > > > > > >>> Stefan clarified in a private message that he had applied
+> > > > > > >>> your patch first, so this mystery is solved.
+> > > > > > >>
+> > > > > > >> Yes. I applied Ravi's patch first and still got no INTx
+> > > > > > >> delivered to the nvme driver. That's what me triggered to dig
+> > > > > > >> deeper here and resulted in this v2 patch with pci_irqd_intx_xlate added.
+> > > > > > >>
+> > > > > > >> BTW:
+> > > > > > >> I re-tested just now w/o Ravi's patch and the INTx worked.
+> > > > > > >> Still I think Ravi's patch is valid and should be applied...
+> > > > > > >
+> > > > > > > How come INTx is working without the patch from Ravi which
+> > > > > > > enabled INTx routing in the controller? Was it enabled by default in the
+> > hardware?
+> > > > > >
+> > > > > > Yes, this is my best guess right now. I could double-check here,
+> > > > > > but IMHO it makes sense to enable it "manually" as done with
+> > > > > > Ravi's patch to not rely on this default setup at all.
+> > > > > Hardware doesn't enable this bits by default, INTx didn't work
+> > > > > since there is a
+> > > > miss match in the DT property which doesn't require pci_irqd_intx_xlate.
+> > > > >
+> > > > > interrupt-map = <0 0 0 1 &pcie_intc_0 0>,
+> > > > > <0 0 0 2 &pcie_intc_0 1>,
+> > > > > <0 0 0 3 &pcie_intc_0 2>,
+> > > > > <0 0 0 4 &pcie_intc_0 3>;
+> > > > >
+> > > >
+> > > > Ok. This makes me believe that we do not need Stefan's patch [1] and
+> > > > need just this patch from Ravi.
+> > > >
+> > > > - Mani
+> > > >
+> > > > [1] https://lore.kernel.org/linux-pci/20251021154322.973640-1-
+> > > > stefan.roese@mailbox.org/
+> > >
+> > > We even don’t need ravi patch, as we have tested this at our end it
+> > > works fine by just updating interrupt-map Property. We need to now understand the
+> > difference in design.
+> >
+> > Ok, please let us know with your findings. In the meantime, I'll keep Ravi's patch in
+> > tree, as it seems to be required on his setup.
+> >
 > 
-> CC: Rohit Mathew <Rohit.Mathew@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> ---
-> Changes since v2:
->   * Removed stray cleanup useage in preference for acpi_get_pptt().
->   * Removed WARN_ON_ONCE() for symmetry with other helpers.
->   * Dropped restriction on unified caches.
-> 
-> Changes since v1:
->   * Added punctuation to the commit message.
->   * Removed a comment about an alternative implementaion.
->   * Made the loop continue with a warning if a CPU is missing from the PPTT.
-> 
-> Changes since RFC:
->   * acpi_count_levels() now returns a value.
->   * Converted the table-get stuff to use Jonathan's cleanup helper.
->   * Dropped Sudeep's Review tag due to the cleanup change.
-> ---
->   drivers/acpi/pptt.c  | 64 ++++++++++++++++++++++++++++++++++++++++++++
->   include/linux/acpi.h |  6 +++++
->   2 files changed, 70 insertions(+)
-> 
-> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> index 50c8f2a3c927..2f86f58699a6 100644
-> --- a/drivers/acpi/pptt.c
-> +++ b/drivers/acpi/pptt.c
-> @@ -985,3 +985,67 @@ int find_acpi_cache_level_from_id(u32 cache_id)
->   
->   	return -ENOENT;
->   }
-> +
-> +/**
-> + * acpi_pptt_get_cpumask_from_cache_id() - Get the cpus associated with the
-> + *					   specified cache
-> + * @cache_id: The id field of the cache
-> + * @cpus: Where to build the cpumask
-> + *
-> + * Determine which CPUs are below this cache in the PPTT. This allows the property
-> + * to be found even if the CPUs are offline.
-> + *
-> + * The PPTT table must be rev 3 or later,
-> + *
-> + * Return: -ENOENT if the PPTT doesn't exist, or the cache cannot be found.
-> + * Otherwise returns 0 and sets the cpus in the provided cpumask.
-> + */
-> +int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus)
-> +{
-> +	int level, cpu;
-> +	u32 acpi_cpu_id;
-> +	struct acpi_pptt_cache *cache;
-> +	struct acpi_table_header *table;
-> +	struct acpi_pptt_cache_v1 *cache_v1;
-> +	struct acpi_pptt_processor *cpu_node;
-> +
-> +	cpumask_clear(cpus);
-> +
-> +	table = acpi_get_pptt();
-> +	if (!table)
-> +		return -ENOENT;
-> +
-> +	if (table->revision < 3)
-> +		return -ENOENT;
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
-> +		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
-> +		if (!cpu_node)
-> +			continue;
-> +
-> +		/* Start at 1 for L1 */
-> +		level = 1;
-> +		cache = acpi_find_any_type_cache_node(table, acpi_cpu_id, level,
-> +						      &cpu_node);
-> +		while (cache) {
-> +			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
-> +						cache, sizeof(*cache));
+> We tested on Linux version 6.12.40 without applying either Stefan's or Ravi's patches.
 
-Is the core acpi definition in actbl2.h correct? Shouldn't it be 
-something along the lines of:
+Please test with v6.18-rc1 kernel.
 
-struct acpi_pptt_cache_v1 {
-  struct acpi_subtable_header header;
-  u16 reservedd;
-  u32 flags;
-  u32 next_level_of_cache;
-  u32 size;
-  u32 number_of_sets;
-  u8 associativity;
-  u8 attributes;
-  u16 lines_size;
-  u32 cache_id;
-}
+Any clue on what is going wrong with Ravi's setup?
+https://lore.kernel.org/linux-pci/467D7D30-DC05-4612-87BA-7E980A9C0A4A@amazon.com/
 
+- Mani
 
-Then that solves the detection of the additional field problem correctly 
-because the length (24 vs 28) of the subtable then tells you which 
-version your dealing with. (and goes back to why much of this is coded 
-to use ACPI_ADD_PTR rather than structure+ logic.)
-
-
-Thanks,
-
-
-
-
-
-
-> +			if (!cache)
-> +				continue;
-> +
-> +			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
-> +						cache, sizeof(*cache));
-> +
-> +			if (cache->flags & ACPI_PPTT_CACHE_ID_VALID &&
-> +			    cache_v1->cache_id == cache_id)
-> +				cpumask_set_cpu(cpu, cpus);
-> +
-> +			level++;
-> +			cache = acpi_find_any_type_cache_node(table, acpi_cpu_id,
-> +							      level, &cpu_node);
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-> index be074bdfd4d1..a9dbacabdf89 100644
-> --- a/include/linux/acpi.h
-> +++ b/include/linux/acpi.h
-> @@ -1543,6 +1543,7 @@ int find_acpi_cpu_topology_package(unsigned int cpu);
->   int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
->   void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
->   int find_acpi_cache_level_from_id(u32 cache_id);
-> +int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus);
->   #else
->   static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
->   {
-> @@ -1570,6 +1571,11 @@ static inline int find_acpi_cache_level_from_id(u32 cache_id)
->   {
->   	return -ENOENT;
->   }
-> +static inline int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id,
-> +						      cpumask_t *cpus)
-> +{
-> +	return -ENOENT;
-> +}
->   #endif
->   
->   void acpi_arch_init(void);
-
+-- 
+மணிவண்ணன் சதாசிவம்
 
