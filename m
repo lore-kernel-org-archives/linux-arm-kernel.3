@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CAEDCCD1AB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA2FCCCD1BE
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=PLAAXJFMtp0N5zL2GmpZvClGgvnays4YyzT3A279+hg=; b=rKLVWzaoIoRz3+
-	zr9ENdU7Ziyo65d1uBp9GSJtVWEYUw3iN0M61s+iiwGc4fZJxSgSrC+MCaTHtqmYaBfULzojXl7Ot
-	jNHr8dv4VXcOOXWYCdhYQ5B/21Rj+XzPZd6zsQA9Uerax02jq2b38159/BFBcITtX+qydi9yfbr1c
-	pN8+UTmDQD/5w8kZHxOX6lA9szc/FExNbheIKk4he5mDhLszn/IqOX/t2Sp2lqP2KBITAThXGD5zS
-	aoz3V57TpxFGR49Iy24T4tt8AdS/j7i8ClUz/PrDVZ2quMv4NQFhPYNXCApvmxAtTsN/huwhxZpAa
-	JvOk6/9SX5i/eBFprH0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hf3RQHfBI1exYRDe7wVi0KejPmmPdvz3NbNtZvpU6Ds=; b=bnlPgWIX+fwSOyLayntdNsH79g
+	CwkTBGMCP9jZovI9+2MznUuokeUjsDYODAObyd2s7tTTyef5E0LfO0R1ChVn8AJcVv7aJGZcCblil
+	Ihq9A1m0b7gFmwvut4kpchM4Qbswumaf+P5yYuz/mr1eoIiqREI48atzVQ6oG0ONiKl2smRq0oVNR
+	8llmDlhxZEJArySnxVy5r0VLWyBODgqO/+gfJQWcE+5tPYlrOAg8UcD82RrdRJ5YlMls+/dFzby1s
+	WuAP6+bmWhEEmaN/H7xNgnSEyyqqX5ZK/Dm/9t6fcobY/oaH8owzKM9MFeCw5eyiTO0prDI5DeaGP
+	VF9ZA3cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZTR-000000038lo-2Rho;
-	Wed, 22 Oct 2025 14:05:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vBZTR-000000038lz-3dDI;
+	Wed, 22 Oct 2025 14:05:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZTM-000000038k7-2Xjm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 22 Oct 2025 14:05:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=PLAAXJFMtp0N5zL2GmpZvClGgvnays4YyzT3A279+hg=; b=kIGaW8DVLGVlNo2fqyfvw45PLq
-	cfL08/w9pqc0K+dNKxzWvha42dI7gNYqPvL0VD5MFmgxbpowBllNmdIVg4yOMsPPZpsSBr2yDz7I6
-	BcicV546+14YneculzJlzOs7t723pq1NU8KoK+lYXofDUmvYxgQvlLtK8qeijyQMm7bBqVKmnw2pS
-	QZThQWoEKUQGwrhTVTMQsyvSnqmthQOP3qoDw+6NC8/nNrXNr8Qc1d9zXBxeKXpxfdIv9QJSnGZLf
-	nVd87LiLruLPQ6T4QDjvKvcz+2RqgPsK1NnROy6+a9xROgQDqrI/nSNfo2xQirTY83TX58Gvb6sYu
-	b3SS+ECw==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYbd-00000000bwX-2eof
+	id 1vBZTJ-000000038j0-13UI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 13:10:23 +0000
-Received: from dude06.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::5c])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <f.pflug@pengutronix.de>)
-	id 1vBZTI-0000vR-9a; Wed, 22 Oct 2025 16:05:48 +0200
-From: Fabian Pflug <f.pflug@pengutronix.de>
-Subject: [PATCH v3 0/2] Add devicetree for NXP i.MX93 FRDM board
-Date: Wed, 22 Oct 2025 16:05:21 +0200
-Message-Id: <20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de>
+	Wed, 22 Oct 2025 14:05:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 81CFE4425B;
+	Wed, 22 Oct 2025 14:05:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B9E8C4CEF5;
+	Wed, 22 Oct 2025 14:05:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761141947;
+	bh=vX0gXdN6jv2zlOWrLKcyRh+bVnN+mK0EFHUlCY63Z1k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fvMK3vyBbV4PLL1HkhvCld7i9mlFxwPA6kg4WyEt4jlaMNpXy9E1aCRDM9EceZETB
+	 cUAmICAHoVOk6nX93XGnqte7ip9eJVo5gzjb6DgZ6ek4R0SSiJ4LSp/seWWamZ/ZuG
+	 wBBac6K5/RgjgWGadgXGWowzuBDJg6P5nx50MOQE+i/hGou4w9mPh2IBSBgVQzu44a
+	 qbKOM57k3x8kzkYqx5J3YivQ0blkt28Dr1G6Q/VA596R3zPQM/tE5k7w+t8HevXRjy
+	 dYu2l2BvCNhj/CyOzudz5FaMN6kpBywmrSZBXsLYB3FZ5b5vOz3QcONT1G6TAHjlDj
+	 Ve8+GP3ZETBgw==
+Date: Wed, 22 Oct 2025 09:05:45 -0500
+From: Rob Herring <robh@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH v4 0/5] of/irq: Misc msi-parent handling fixes/clean-ups
+Message-ID: <20251022140545.GB3390144-robh@kernel.org>
+References: <20251021124103.198419-1-lpieralisi@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKLk+GgC/33NTQ6CMBCG4auQrq3pDyXgynsYF7WdwiwoTYukh
- nB3CysTjcv3S+aZlSSICIlcqpVEWDDh5EvIU0XMoH0PFG1pIphQTAlJXeipz4HimLtS0Y5UGcN
- bprmzuiPlMERwmA/0di89YJqn+Dp+LHxf/3ILp4yqunkIK2vRKnUN4PvnHCeP+WyB7OYiPp3mp
- yOKA0pbBk6DkfLL2bbtDU5DSxQBAQAA
-X-Change-ID: 20250523-fpg-nxp-imx93-frdm-5cc180a1fda9
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Fabian Pflug <f.pflug@pengutronix.de>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Daniel Baluta <daniel.baluta@nxp.com>, 
- Haidong Zheng <haidong.zheng@nxp.com>, Danwei Luo <danwei.luo@nxp.com>, 
- Lei Xu <lei.xu@nxp.com>
-X-Mailer: b4 0.14.3
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::5c
-X-SA-Exim-Mail-From: f.pflug@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251021124103.198419-1-lpieralisi@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_141021_802648_35C432BC 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20251022_070549_613334_0B9CE48D 
+X-CRM114-Status: GOOD (  18.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,67 +80,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I could not test all features of the board, therefore a lot of stuff is
-omitted from the devicetree. but this is enough to have the board boot
-via eMMC or SD-Card, debug via debug USB connector and have a network
-connection.
+On Tue, Oct 21, 2025 at 02:40:58PM +0200, Lorenzo Pieralisi wrote:
+> This is series is a follow up to [1] - with additional patches that are
+> addressing Rob's feedback (pcie-layerscape-gen4 was removed from the
+> kernel, Yay !) and other bits and bobs I noticed while staring at the code.
+> 
+> Patch (1) is a fix and technically we would like to get it in v6.18 please.
+> 
+> Patch (4) is compile-tested only, I can not run it on HW, I do not have it,
+> Scott, Ray please test it if you can.
+> 
+> v3 -> v4:
+> 	- Addressed Rob's review
+> 	- Added trailers
+> 	- Rebased against v6.18-rc2
+> 
+> v2 -> v3:
+> 	- Added additional patch to export of_msi_xlate()
+> 	- Addressed review feedback
+> 
+> v3: https://lore.kernel.org/lkml/20251017084752.1590264-1-lpieralisi@kernel.org/
+> v2: https://lore.kernel.org/lkml/20251014095845.1310624-1-lpieralisi@kernel.org/
+> v1: https://lore.kernel.org/lkml/20250916091858.257868-1-lpieralisi@kernel.org/
+> 
+> [1] https://lore.kernel.org/lkml/20250916091858.257868-1-lpieralisi@kernel.org/
+> 
+> Cc: Sascha Bischoff <sascha.bischoff@arm.com>
+> Cc: Scott Branden <sbranden@broadcom.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Ray Jui <rjui@broadcom.com>
+> Cc: Frank Li <Frank.Li@nxp.com>
+> Cc: Manivannan Sadhasivam <mani@kernel.org>
+> Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> 
+> Lorenzo Pieralisi (5):
+>   of/irq: Add msi-parent check to of_msi_xlate()
+>   of/irq: Fix OF node refcount in of_msi_get_domain()
 
-The FRDM i.MX 93 development board is a low-cost and compact development
-board featuring the i.MX93 applications processor.
+I've applied these 2 for 6.18.
 
-It features:
-- Dual Cortex-A55
-- 2 GB LPDDR4X / LPDDR4
-- 32 GB eMMC5.1
-- MicroSD slot
-- GbE RJ45 x 2
-- USB2.0 1x Type C, 1x Type A
-
-This file is based upon the one provided by nxp in their own kernel and
-yocto meta layer for the device, but adapted for mainline.
-
-Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
----
-Changes in v3:
-- Add Signed-off for original NXP contributors.
-- Fixed whitespace errors (Thanks Francesco Valla)
-- Added mu1 with status okay (Thanks Francesco Valla)
-- Removed address cells from lpi2c3 (Thanks Frank Li)
-- Configure pin for watchdog (Thanks Peng Fan)
-- Updated regulator config
-- Configure i2c0
-- Link to v2: https://lore.kernel.org/r/20250526-fpg-nxp-imx93-frdm-v2-0-e5ad0efaec33@pengutronix.de
-
-Changes in v2:
-- 1/2: remove CAN node, as it has not been tested.
-- 1/2: ran dt-format (Thanks Frank Li)
-	But also reordered some nodes afterwards again to have
-	regulator-min before regulator-max, have the pinmux at the end
-	of the file, and have the regulator-name as the first node
-	inside the regulators.
-	Re-added comments, that were deleted.
-- 1/2: changes subjet to ar64:dts (Thanks Fabio Estevan)
-- 1/2: removed reg_vdd_12v (Tanks Fabio Estevan)
-- 1/2: added aliases for rtc, emmc, serial (Thanks Fabio Estevan)
-- reordered the series to have documentation before dts. (Thanks
-  Krzystof Kozlowski)
-- Link to v1: https://lore.kernel.org/r/20250523-fpg-nxp-imx93-frdm-v1-0-546b2d342855@pengutronix.de
-
----
-Fabian Pflug (2):
-      dt-bindings: arm: fsl: add i.MX93 11x11 FRDM board
-      arm64: dts: freescale: add support for NXP i.MX93 FRDM
-
- Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
- arch/arm64/boot/dts/freescale/Makefile             |   1 +
- arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 658 +++++++++++++++++++++
- 3 files changed, 660 insertions(+)
----
-base-commit: 552c50713f273b494ac6c77052032a49bc9255e2
-change-id: 20250523-fpg-nxp-imx93-frdm-5cc180a1fda9
-
-Best regards,
--- 
-Fabian Pflug <f.pflug@pengutronix.de>
-
+>   of/irq: Export of_msi_xlate() for module usage
+>   PCI: iproc: Implement MSI controller node detection with
+>     of_msi_xlate()
+>   irqchip/gic-its: Rework platform MSI deviceID detection
+> 
+>  drivers/irqchip/irq-gic-its-msi-parent.c | 91 ++++++------------------
+>  drivers/of/irq.c                         | 44 ++++++++++--
+>  drivers/pci/controller/pcie-iproc.c      | 22 ++----
+>  3 files changed, 68 insertions(+), 89 deletions(-)
+> 
+> -- 
+> 2.50.1
+> 
 
