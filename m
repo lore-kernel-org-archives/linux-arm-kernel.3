@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 421D1CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:49:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 432B8CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:cc:Content-Type:
+	MIME-Version:References:Subject:To:From:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=MKNcUChSn/NfFd+dS8+uLnvvYuPvhQsaUPbuMoERc+Y=; b=YL7OQFjZOR80QS
-	vcaCrCb4L3UssYzO/Wvyf0giMnZugTq9VoyMIRzQdnFj7iUngumU3UtjUfIT+F/767srBAUano3hL
-	nKGp9DIpttr7p9BTwzCPcG6ddz3ZFQbroAOQej6g5U6/MQthbSuS417PnMDn2VIFyzYHsWDfF3TbG
-	aCAwzLjSxKeUZK/yA78WvxDsEbr2sJM1d9wta0OeS5vjYPx4+TT0EdY8oy9QH/EyMMBGU6kf4qCOt
-	gv9cD1H6rEQMhpiYcm3Rz+7hsAKhiWEUGydjydOHiHaARi+Kd8RLX3AoLDenEc+GATjRQcdNQrh1G
-	BoPZckxYC8VRaXpj/INg==;
+	List-Owner; bh=QD4vFggFMuOeGOcQhDOiteuemKWf4EcukV9nF7jSRjE=; b=UWYMih3fqfr8Zc
+	MdCc4CwIEz8pXIjYmP+x6ulU8z5vPuAPtaexttCURJIgJZkJPulu+4+7baRPbWv5YtNknFv50DrHN
+	xLT2vVW9Rh3xZmkuO3oxCaJKaaFzBc+NLEfP2Lf4C/CxXaP9iSZiLar8MnZls0PahKzGh2mluidaQ
+	xGYgn6qs7tYsM/5NozYebgbHkkhcR/rHCljbkcUOdPSJmgRAfboe3U8Fk9jd75rjzmRZPiBPsyy7n
+	aX4OxgANvnmfuJKl4uiG37qaqTvBM3PiG2vH3Bw2q2WJcZSaNBpLkgU0AYa0IJ827lg5gYHf5MwvT
+	5k8fdqdBJ2bov/5blQtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYHh-00000002qrf-3ps6;
-	Wed, 22 Oct 2025 12:49:46 +0000
+	id 1vBYHv-00000002r79-0WGS;
+	Wed, 22 Oct 2025 12:49:59 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYHC-00000002qPa-3FNS;
-	Wed, 22 Oct 2025 12:49:14 +0000
+	id 1vBYHE-00000002qSS-1FqU;
+	Wed, 22 Oct 2025 12:49:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Content-Type:MIME-Version:
-	References:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
+	d=infradead.org; s=desiato.20200630; h=Date:cc:Content-Type:MIME-Version:
+	References:Subject:To:From:Message-ID:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
-	bh=MKNcUChSn/NfFd+dS8+uLnvvYuPvhQsaUPbuMoERc+Y=; b=HK48sjs9iihPu5cScYoOSCpYcW
-	c7H2csDT04hjOZSZFbdy1cEtgPiQBV+tcYZNB1IQYDvUAXVAT8zqqaR2fyaDO7lrOgJ26h306k6TP
-	Tj8OGsxPAYEBmWfmpxubp3jmM+34gIAcjM8s7ChR+tsUbwgXU7OJQ2jGgYHKugFySuNRHek89xoHQ
-	GKTaCrI5jB/ZCR/c+g6VF2ty22Hg9PCAT2XM5wXNzRAOzIemU39Edu/Xd2uysIKjgu1/GW3oYLJVl
-	e/XeK91zOS8O1HGKG6skcMPcBdyOzE1ugKj077gp3mvxQNqdzATkpdtEzWfhAiYKfUdYVb0L/0Xbe
-	8Reexfog==;
+	bh=QD4vFggFMuOeGOcQhDOiteuemKWf4EcukV9nF7jSRjE=; b=TmtYU0ZkVamBJ9CGZW/9rvvCp/
+	WlpOuT6VSYKMpTpJaFFF0SIisZ3CoxyAqfWaIZVrrPKt5DQJGpvsFWMM6osZ3sMt5gTP7GvW05dyl
+	cqwM20sVr4EDlOPe22zAu0j5Mru8OyOZaTfmVFFp3eQUiF8kqkFrtCEzYt9VA8cuDV2NuyCnQ7FGr
+	ATxisgs0QNHlA4yaNutOxqkMEX3SFRVoHiAxQm8X1K0XqYtXo6BAtOqwJexfegvNUQTpgiW5vzrf6
+	UYOjOA/PeJcdQa+YhIdoRFWtNqzSZj6QnhPwIFheQLQnXNBSi4xjpDm7sbxV7XTY//UgmXYewBj9G
+	7OUi/n8Q==;
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBXPT-00000000X3L-3Slm;
-	Wed, 22 Oct 2025 11:53:45 +0000
-Message-ID: <20251022103112.232389777@linutronix.de>
+	id 1vBXPV-00000000X4G-0ctG;
+	Wed, 22 Oct 2025 11:53:47 +0000
+Message-ID: <20251022103112.358808928@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761137349;
+	s=2020; t=1761137352;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=MKNcUChSn/NfFd+dS8+uLnvvYuPvhQsaUPbuMoERc+Y=;
-	b=a+rP69sfJ/Qp9q3znoDwceoCND840rG89ZVmZnuwGf5auP3gibFmiK9GeAwPeKlsQPgjSC
-	IEqDkhxWDgRylSHXUcBaufuyU0/+DeBR9LE0wMGuAySTKPrhbWb7NBxN01PMlZG65ZnUdx
-	9nQhGFU8gZHZZ5xxFRf2aI6pAPw7iR+PiAlFiq3RxntxNFyLAqDnifIWEG+9PAntrrgwZi
-	rDCWm4zogflzWQHer9+U8mqmPmY7BGAZCUtifi/nt78sGYZqEj9Hg7TN86VsDKDu39fTHu
-	U3CT83eVCk6lxvVN0wBHfNiXmYcrzkHYw44qZOqKRncTZNgK5wwPA+VEwQz9Pw==
+	 references:references; bh=QD4vFggFMuOeGOcQhDOiteuemKWf4EcukV9nF7jSRjE=;
+	b=S//Em47hao2SiEu4HhbNJvmg7y21pNf1gaVLrhJjCcmZbZo071nDxTNXRELCYqZoPooIxF
+	ySg3zehiSqSGF/Zy/PoAZ0h0eWVHnK7p5NECvAG631LkvrKKpA02NnT8HJhQZpUPjjGdto
+	DxLzSxnTExD3XmpQxp/1w9NAA1kCPWdDRNW5/s+Ed7BI6inW+w0EztY5DPaQKDxXkxI25m
+	W2VKIMRifCPS/nvbDcv4t+ALLahmQ72ecuN0xD3h7xqOz54s2emMHzywywwyatoR89R+VO
+	HWXCuuqWv5QLlnqsJgwt24DUtrnfgD83c17QYqwpHiorT55OZe+4eLnlakdUyQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761137349;
+	s=2020e; t=1761137352;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 references:references; bh=MKNcUChSn/NfFd+dS8+uLnvvYuPvhQsaUPbuMoERc+Y=;
-	b=Ad5CWnRPgGiAM9amesSMP3EPFCura86UkqdaB4otezD1D4yBpXZCc6MwYvvX+osIXMIhow
-	Gu/Agcs2yZ8ttBDw==
+	 references:references; bh=QD4vFggFMuOeGOcQhDOiteuemKWf4EcukV9nF7jSRjE=;
+	b=jNKXbM8s9KXys2skLRaFhNaomPmHf3yWyLJ+u2hte0dUfgf8E6lPCUahh/LtI3X0E3G6xz
+	MQOaMMLQpwzewRAw==
 From: Thomas Gleixner <tglx@linutronix.de>
 To: LKML <linux-kernel@vger.kernel.org>
-Cc: Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- linux-s390@vger.kernel.org,
- kernel test robot <lkp@intel.com>,
+Subject: [patch V4 08/12] uaccess: Provide put/get_user_scoped()
+References: <20251022102427.400699796@linutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+cc: kernel test robot <lkp@intel.com>,
  Russell King <linux@armlinux.org.uk>,
  linux-arm-kernel@lists.infradead.org,
  Linus Torvalds <torvalds@linux-foundation.org>,
@@ -77,6 +77,10 @@ Cc: Heiko Carstens <hca@linux.ibm.com>,
  Paul Walmsley <pjw@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  linux-riscv@lists.infradead.org,
+ Heiko Carstens <hca@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ linux-s390@vger.kernel.org,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
  Andrew Cooper <andrew.cooper3@citrix.com>,
  David Laight <david.laight.linux@gmail.com>,
@@ -90,14 +94,10 @@ Cc: Heiko Carstens <hca@linux.ibm.com>,
  Christian Brauner <brauner@kernel.org>,
  Jan Kara <jack@suse.cz>,
  linux-fsdevel@vger.kernel.org
-Subject: [patch V4 06/12] s390/uaccess: Use unsafe wrappers for ASM GOTO
-References: <20251022102427.400699796@linutronix.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 22 Oct 2025 14:49:09 +0200 (CEST)
+Date: Wed, 22 Oct 2025 14:49:11 +0200 (CEST)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_125344_074057_2541D0C4 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20251022_125345_344377_72A8A34B 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,48 +112,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ASM GOTO is miscompiled by GCC when it is used inside a auto cleanup scope:
+Provide conveniance wrappers around scoped user access similiar to
+put/get_user(), which reduce the usage sites to:
 
-bool foo(u32 __user *p, u32 val)
-{
-	scoped_guard(pagefault)
-		unsafe_put_user(val, p, efault);
-	return true;
-efault:
-	return false;
-}
-
-It ends up leaking the pagefault disable counter in the fault path. clang
-at least fails the build.
-
-S390 is not affected for unsafe_*_user() as it uses it's own local label
-already, but __get/put_kernel_nofault() lack that.
-
-Rename them to arch_*_kernel_nofault() which makes the generic uaccess
-header wrap it with a local label that makes both compilers emit correct
-code.
+       if (!get_user_scoped(val, ptr))
+       		return -EFAULT;
 
 Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-Cc: Heiko Carstens <hca@linux.ibm.com>
-Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
-Cc: Sven Schnelle <svens@linux.ibm.com>
-Cc: linux-s390@vger.kernel.org
 ---
- arch/s390/include/asm/uaccess.h |    4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+V4: Rename to scoped
+---
+ include/linux/uaccess.h |   44 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
---- a/arch/s390/include/asm/uaccess.h
-+++ b/arch/s390/include/asm/uaccess.h
-@@ -468,8 +468,8 @@ do {									\
+--- a/include/linux/uaccess.h
++++ b/include/linux/uaccess.h
+@@ -825,6 +825,50 @@ for (bool done = false; !done; done = tr
+ #define scoped_user_rw_access(uptr, elbl)				\
+ 	scoped_user_rw_access_size(uptr, sizeof(*(uptr)), elbl)
  
- #endif /* CONFIG_CC_HAS_ASM_GOTO_OUTPUT && CONFIG_CC_HAS_ASM_AOR_FORMAT_FLAGS */
- 
--#define __get_kernel_nofault __mvc_kernel_nofault
--#define __put_kernel_nofault __mvc_kernel_nofault
-+#define arch_get_kernel_nofault __mvc_kernel_nofault
-+#define arch_put_kernel_nofault __mvc_kernel_nofault
- 
- void __cmpxchg_user_key_called_with_bad_pointer(void);
- 
++/**
++ * get_user_scoped - Read user data with scoped access
++ * @val:	The variable to store the value read from user memory
++ * @usrc:	Pointer to the user space memory to read from
++ *
++ * Return: true if successful, false when faulted
++ */
++#define get_user_scoped(val, usrc)				\
++({								\
++	__label__ efault;					\
++	typeof(usrc) _tmpsrc = usrc;				\
++	bool _ret = true;					\
++								\
++	scoped_user_read_access(_tmpsrc, efault)		\
++		unsafe_get_user(val, _tmpsrc, efault);		\
++	if (0) {						\
++	efault:							\
++		_ret = false;					\
++	}							\
++	_ret;							\
++})
++
++/**
++ * put_user_scoped - Write to user memory with scoped access
++ * @val:	The value to write
++ * @udst:	Pointer to the user space memory to write to
++ *
++ * Return: true if successful, false when faulted
++ */
++#define put_user_scoped(val, udst)				\
++({								\
++	__label__ efault;					\
++	typeof(udst) _tmpdst = udst;				\
++	bool _ret = true;					\
++								\
++	scoped_user_write_access(_tmpdst, efault)		\
++		unsafe_put_user(val, _tmpdst, efault);		\
++	if (0) {						\
++	efault:							\
++		_ret = false;					\
++	}							\
++	_ret;							\
++})
++
+ #ifdef CONFIG_HARDENED_USERCOPY
+ void __noreturn usercopy_abort(const char *name, const char *detail,
+ 			       bool to_user, unsigned long offset,
 
 
