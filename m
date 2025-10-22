@@ -4,95 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC8BCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 01:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA0F8CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 01:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LD0qWl5xilwc1SKYsjsXg5N2GPcM85/d8wvl37r2abw=; b=lLuRmR3YU9hhskgRA2V2G1VYqe
-	p33E1tCAL9XwGCYb7qeHqXs3Ei+vFq2dDCmAIoDO5wbeOrVhmcdgLqcgUqZvofTFMkb/tSkNQNT1R
-	AwVoaco60/BWAiboJcFkt9ZyprlDi7j7OlubS1d3hvZ3NHQyR4+aEBTaaCVvJ5YliwxShkmZI42pu
-	fP7SxI7ckQWnzYwTurNek3goaYL9g3EWTKAzHsbrXHIzpsO5pM5B4RXH09YJluwu9PxyYsdL8EImG
-	urTjLaNevtErMNLW4Nc3AH2/jR6v3X7L+pbXMhvioTc520x1G4WK1uq7FN3xkiFhT6WsSzNxcdTze
-	hQ3nCsXw==;
+	bh=8bcufayJBIfPbfOyGZacNgUaBrYqZKKmhv7AUiFc+ug=; b=Dyq7120PUrLIdtSjDT3rxXyU+l
+	bhjPNpwW9k3tZIl4jh6HsTPFUp6I9UleN6EQ/fPU6apM2f2Z5qgVLT82A79UZW6/7lp5Hn8/Z9MIl
+	maj7M4/xNhWiMKiRw/+3v0Jt3Su3hi7WhDehvCB66oHFa6kJ/3pa7UYeWxYt1J7fvm6jlsDOd+rd+
+	NXNNq8WRQeOZoZe9hwGMs203Vyf/yRRy9UYeR6mTQlIjNtTgbDfIPKVGlA13oaFBwSKy+H5Df2/zF
+	yCx113zW5Dxn2H6O6iFb2NvEJxZdirhE9/XvmhMxbU+3kMqrwHj5oOzKjYtnuC33WenkfzxFL9Gha
+	si1HqjVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBNmr-000000019l6-1nFX;
-	Wed, 22 Oct 2025 01:37:13 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1vBNzq-00000001B8T-3XDa;
+	Wed, 22 Oct 2025 01:50:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBNmo-000000019ih-0J80
+	id 1vBNzo-00000001B7y-3DS5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 01:37:12 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4crsFL14FyzYQtlh
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 09:36:06 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id A823E1A0ACF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 09:36:59 +0800 (CST)
-Received: from [10.67.111.176] (unknown [10.67.111.176])
-	by APP1 (Coremail) with SMTP id cCh0CgDnWk45NfhooJirBA--.61559S2;
-	Wed, 22 Oct 2025 09:36:59 +0800 (CST)
-Message-ID: <6d046d0a-30d4-429e-8ae3-f00b6149c397@huaweicloud.com>
-Date: Wed, 22 Oct 2025 09:36:56 +0800
+	Wed, 22 Oct 2025 01:50:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 18FD24538F;
+	Wed, 22 Oct 2025 01:50:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECABCC4CEF1;
+	Wed, 22 Oct 2025 01:50:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761097836;
+	bh=/eTy4JtMv/vr6iqZocb7lPKZoXLwzYl/RYQlWEEt4bQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=gITWc2OepTEpTH4QeVoo+w086E3kiGzcJG00wK8LBjY2B4lJptF5+B+uD+kE84QQx
+	 HpzOaME48fucUHFOuR2cS+JxAAd7rCvc7exS4onFB62gaqgLJ0wMy5wCs6cGyPCvVm
+	 9bG3cA7mMyI3FJhPoQgao/V80EL8ceQNGMiq6SSHb3fnbG+JNOC96kD8WRJMdzgX0+
+	 X3RHum0oDVWqfHVPPUarE97kpYjSjdw+CJsP1nxEYsd1g9TJqOE4ZrkHARCV4DVogY
+	 qVmJ3WJQVLAq/JPWwUi1J8vNKzokw+1aaXpmWYd/fLnXzngKJpWsH5T0ElbSrI+EFt
+	 8Dj6Y0ZPc821A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70DE03A55FAA;
+	Wed, 22 Oct 2025 01:50:18 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 13/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
-To: Waiman Long <llong@redhat.com>, Frederic Weisbecker
- <frederic@kernel.org>, LKML <linux-kernel@vger.kernel.org>
-Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
- <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
- Lai Jiangshan <jiangshanlai@gmail.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
- <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
- Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-14-frederic@kernel.org>
- <0e02915f-bde7-4b04-b760-89f34fb0a436@redhat.com>
-Content-Language: en-US
-From: Chen Ridong <chenridong@huaweicloud.com>
-In-Reply-To: <0e02915f-bde7-4b04-b760-89f34fb0a436@redhat.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: cCh0CgDnWk45NfhooJirBA--.61559S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAr1kGF15JryxWFy5KrWruFg_yoWrurW7pF
-	WkWFWxWFWUGwn3G3s8Jw1DZry5Wws7Cw1UGrn2ga15AF17WF1jq34j9rnIgr18Zw4xCr12
-	vFn0v39a93W7ArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvYb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8
-	Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
-	CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
-	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07
-	j6a0PUUUUU=
-X-CM-SenderInfo: hfkh02xlgr0w46kxt4xhlfz01xgou0bp/
+Subject: Re: [PATCH v2 net-next] net: stmmac: mdio: use phy_find_first to
+ simplify
+ stmmac_mdio_register
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <176109781700.1305042.6815334207593742023.git-patchwork-notify@kernel.org>
+Date: Wed, 22 Oct 2025 01:50:17 +0000
+References: <20ca4962-9588-40b8-b021-fb349a92e9e5@gmail.com>
+In-Reply-To: <20ca4962-9588-40b8-b021-fb349a92e9e5@gmail.com>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+Cc: andrew+netdev@lunn.ch, kuba@kernel.org, pabeni@redhat.com,
+ davem@davemloft.net, edumazet@google.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, netdev@vger.kernel.org, linux@armlinux.org.uk,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_183710_432266_D4CF867D 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20251021_185036_823641_FE683E2B 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,107 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-On 2025/10/21 12:10, Waiman Long wrote:
-> On 10/13/25 4:31 PM, Frederic Weisbecker wrote:
->> Until now, HK_TYPE_DOMAIN used to only include boot defined isolated
->> CPUs passed through isolcpus= boot option. Users interested in also
->> knowing the runtime defined isolated CPUs through cpuset must use
->> different APIs: cpuset_cpu_is_isolated(), cpu_is_isolated(), etc...
->>
->> There are many drawbacks to that approach:
->>
->> 1) Most interested subsystems want to know about all isolated CPUs, not
->>    just those defined on boot time.
->>
->> 2) cpuset_cpu_is_isolated() / cpu_is_isolated() are not synchronized with
->>    concurrent cpuset changes.
->>
->> 3) Further cpuset modifications are not propagated to subsystems
->>
->> Solve 1) and 2) and centralize all isolated CPUs within the
->> HK_TYPE_DOMAIN housekeeping cpumask.
->>
->> Subsystems can rely on RCU to synchronize against concurrent changes.
->>
->> The propagation mentioned in 3) will be handled in further patches.
->>
->> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
->> ---
->>   include/linux/sched/isolation.h |  2 +
->>   kernel/cgroup/cpuset.c          |  2 +
->>   kernel/sched/isolation.c        | 75 ++++++++++++++++++++++++++++++---
->>   kernel/sched/sched.h            |  1 +
->>   4 files changed, 74 insertions(+), 6 deletions(-)
->>
->> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
->> index da22b038942a..94d5c835121b 100644
->> --- a/include/linux/sched/isolation.h
->> +++ b/include/linux/sched/isolation.h
->> @@ -32,6 +32,7 @@ extern const struct cpumask *housekeeping_cpumask(enum hk_type type);
->>   extern bool housekeeping_enabled(enum hk_type type);
->>   extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
->>   extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
->> +extern int housekeeping_update(struct cpumask *mask, enum hk_type type);
->>   extern void __init housekeeping_init(void);
->>     #else
->> @@ -59,6 +60,7 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
->>       return true;
->>   }
->>   +static inline int housekeeping_update(struct cpumask *mask, enum hk_type type) { return 0; }
->>   static inline void housekeeping_init(void) { }
->>   #endif /* CONFIG_CPU_ISOLATION */
->>   diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
->> index aa1ac7bcf2ea..b04a4242f2fa 100644
->> --- a/kernel/cgroup/cpuset.c
->> +++ b/kernel/cgroup/cpuset.c
->> @@ -1403,6 +1403,8 @@ static void update_unbound_workqueue_cpumask(bool isolcpus_updated)
->>         ret = workqueue_unbound_exclude_cpumask(isolated_cpus);
->>       WARN_ON_ONCE(ret < 0);
->> +    ret = housekeeping_update(isolated_cpus, HK_TYPE_DOMAIN);
->> +    WARN_ON_ONCE(ret < 0);
->>   }
->>     /**
->> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
->> index b46c20b5437f..95d69c2102f6 100644
->> --- a/kernel/sched/isolation.c
->> +++ b/kernel/sched/isolation.c
->> @@ -29,18 +29,48 @@ static struct housekeeping housekeeping;
->>     bool housekeeping_enabled(enum hk_type type)
->>   {
->> -    return !!(housekeeping.flags & BIT(type));
->> +    return !!(READ_ONCE(housekeeping.flags) & BIT(type));
->>   }
->>   EXPORT_SYMBOL_GPL(housekeeping_enabled);
->>   +static bool housekeeping_dereference_check(enum hk_type type)
->> +{
->> +    if (IS_ENABLED(CONFIG_LOCKDEP) && type == HK_TYPE_DOMAIN) {
->> +        /* Cpuset isn't even writable yet? */
->> +        if (system_state <= SYSTEM_SCHEDULING)
->> +            return true;
->> +
->> +        /* CPU hotplug write locked, so cpuset partition can't be overwritten */
->> +        if (IS_ENABLED(CONFIG_HOTPLUG_CPU) && lockdep_is_cpus_write_held())
->> +            return true;
->> +
->> +        /* Cpuset lock held, partitions not writable */
->> +        if (IS_ENABLED(CONFIG_CPUSETS) && lockdep_is_cpuset_held())
->> +            return true;
+On Sat, 18 Oct 2025 20:48:07 +0200 you wrote:
+> Simplify the code by using phy_find_first().
 > 
-> I have some doubt about this condition as the cpuset_mutex may be held in the process of making
-> changes to an isolated partition that will impact HK_TYPE_DOMAIN cpumask.
+> Signed-off-by: Heiner Kallweit <hkallweit1@gmail.com>
+> ---
+> v2:
+> - remove variable addr and use phydev->mdio.addr
 > 
-> Cheers,
-> Longman
-> 
+> [...]
 
-+1
+Here is the summary with links:
+  - [v2,net-next] net: stmmac: mdio: use phy_find_first to simplify stmmac_mdio_register
+    https://git.kernel.org/netdev/net-next/c/4a107a0e8361
 
-ie. 'echo isolate > cpuset.cpus.partition'
-
+You are awesome, thank you!
 -- 
-Best regards,
-Ridong
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
