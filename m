@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 800D7CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:32:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DDACCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=krYQnTx4Ki4G9f7BbnETHpO08nM8jf7MsM7nR34vJH8=; b=wIxPVD9NuLyqK/T/dLu32JHso/
-	coIkiYuW4GvZxmPvWnrUIAaOfipALBERTkyFHY7gD+oZDluhJBY6HlPQvXf+dTCRLwDQJSeS8B/e5
-	KdknNOEcD//ttQRrqhfrp6/YWggPeRxLP/dQc+cbrDBvuevpFOi4QsCvcO+pPc28jw2CSFt6NA3WH
-	I1hVbUnaCUu0LS3oG4MEVEgtoFhdGx6fjpRypaYhpV9dP+RhmS/vWZP9UP1wkD0mI7eqKOKCZCrfZ
-	IXfUKuvdtvsqda3oz3xGDzsPAXF6g8IVgNlYNr6JA4Jr1tksAy709oUXF32PqvQTVOKqsuQLFwViQ
-	SvOzHbAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R95DGcQ4LYALHG8T4SNxi7BAAXg7er7ggzkRbLh42No=; b=ibK/8N+pbgCKWHhSMr6xESwnmm
+	ESpeo7m980Lnn8T0L1qWTSeOegEmhP0moOy7dIfwbQ+w0NgK5lbBBE3cwKj0cKAYiWsVcqB8YJOhw
+	JeLRBhxAc0WDJcqwZtfUud24ljjr7HEFx/nuktNx/pxOLsBF4Sdu6d4UANyMdP62viIK8joUfDF1C
+	z2EbEpIq9lFU3DceLd/G8RTqWSI6VPXqnJ9+A4jowfCLhqw4ZNTynZ6qnyYxSZQPyJ7TckfQkxRoI
+	4Vw/uclu9AGreXpfUbiYJppBjDuB5OU5oN4rg0X30TGR3mwFBHL3F4O17fxV4WaQFZeXVi94GX25n
+	ET+x2Nww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBY0R-00000002oEI-2GbZ;
-	Wed, 22 Oct 2025 12:31:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBY0O-00000002oDj-09gb
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 12:31:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7DA91063;
-	Wed, 22 Oct 2025 05:31:42 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0871B3F63F;
-	Wed, 22 Oct 2025 05:31:45 -0700 (PDT)
-Message-ID: <1a1a3522-313a-46e7-bc13-fcbbd9ccf81f@arm.com>
-Date: Wed, 22 Oct 2025 13:31:44 +0100
+	id 1vBY4K-00000002ori-23Zn;
+	Wed, 22 Oct 2025 12:35:56 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBY4H-00000002oqu-2aKb;
+	Wed, 22 Oct 2025 12:35:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=R95DGcQ4LYALHG8T4SNxi7BAAXg7er7ggzkRbLh42No=; b=QSk6D6ZIL39KWQjpQVXzyu/daU
+	CkHCg8qd7kd0YqSVIzxh2OYFZ1Gtf6Zy1PMvilS2ibzw5vrduZP1N74w4P6Tj1JfPOXck0ka2IkIN
+	G3R9KHuq/zrSWxPK36Hjw1+QvspeXZMa8vN0KtQZWpHSk2jPm3N1Cw59r3FE3Ov57v3Y=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vBY3w-00Bkxo-MY; Wed, 22 Oct 2025 14:35:32 +0200
+Date: Wed, 22 Oct 2025 14:35:32 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Sjoerd Simons <sjoerd@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Lee Jones <lee@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+	kernel@collabora.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-phy@lists.infradead.org, netdev@vger.kernel.org,
+	Daniel Golle <daniel@makrotopia.org>,
+	Bryan Hinton <bryan@bryanhinton.com>
+Subject: Re: [PATCH 15/15] arm64: dts: mediatek: mt7981b-openwrt-one: Enable
+ leds
+Message-ID: <9ecffb7f-839c-4e4d-bef1-f59747d020b2@lunn.ch>
+References: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
+ <20251016-openwrt-one-network-v1-15-de259719b6f2@collabora.com>
+ <d8077ee4-21c2-43c5-b130-7ff270b09791@lunn.ch>
+ <79d4a7379bce245d22b56c677fd7b3a263836239.camel@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 26/29] arm_mpam: Use long MBWU counters if supported
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
- Gavin Shan <gshan@redhat.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
- <20251017185645.26604-27-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20251017185645.26604-27-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <79d4a7379bce245d22b56c677fd7b3a263836239.camel@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_053152_488647_57C116A0 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20251022_053553_653835_19EA5E2D 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,104 +92,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-On 10/17/25 19:56, James Morse wrote:
-> From: Rohit Mathew <rohit.mathew@arm.com>
+On Wed, Oct 22, 2025 at 09:26:11AM +0200, Sjoerd Simons wrote:
+> Hey,
 > 
-> Now that the larger counter sizes are probed, make use of them.
+> On Fri, 2025-10-17 at 19:35 +0200, Andrew Lunn wrote:
+> > On Thu, Oct 16, 2025 at 12:08:51PM +0200, Sjoerd Simons wrote:
+> > > The Openwrt One has 3 status leds at the front (red, white, green) as
+> > > well as 2 software controlled leds for the LAN jack (amber, green).
+> > 
+> > A previous patch in this series added 2 PHY LEDs. Are they connected
+> > to a LAN jack? Are there multiple RJ45 connectors? Is it clear from
+> > /sys/class/leds what LED is what?
 > 
-> Callers of mpam_msmon_read() may not know (or care!) about the different
-> counter sizes. Allow them to specify mpam_feat_msmon_mbwu and have the
-> driver pick the counter to use.
+> Yeah there are two RJ45 jacks. One referred to as WAN in the openwrt one
+> documentation (2.5G), which uses phy integrated leds. One referred to as LAN,
+> which for some reason is using software controlled leds rather then the phy's
+> led controller, which this patch adds support for.
 > 
-> Only 32bit accesses to the MSC are required to be supported by the
-> spec, but these registers are 64bits. The lower half may overflow
-> into the higher half between two 32bit reads. To avoid this, use
-> a helper that reads the top half multiple times to check for overflow.
+> When applying this set you'll get:
+> ```
+> root@openwrt-debian:/sys/class/leds# ls -1                                     
+> amber:lan                                                                      
+> green:lan                                                                      
+> green:status                                                                   
+> mdio-bus:0f:amber:wan                                                          
+> mdio-bus:0f:green:wan                                                          
+> mt76-phy0                                                                      
+> mt76-phy1                                                                      
+> red:status                                                                     
+> white:status                       
+> ```
 > 
-> Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
-> [morse: merged multiple patches from Rohit, added explicit counter selection ]
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> ---
-> Changes since v2:
->  * Removed mpam_feat_msmon_mbwu as a top-level bit for explicit 31bit counter
->    selection.
->  * Allow callers of mpam_msmon_read() to specify mpam_feat_msmon_mbwu and have
->    the driver pick a supported counter size.
->  * Rephrased commit message.
-> 
-> Changes since v1:
->  * Only clear OFLOW_STATUS_L on MBWU counters.
-> 
-> Changes since RFC:
->  * Commit message wrangling.
->  * Refer to 31 bit counters as opposed to 32 bit (registers).
-> ---
->  drivers/resctrl/mpam_devices.c | 134 ++++++++++++++++++++++++++++-----
->  1 file changed, 116 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index f4d07234ce10..c207a6d2832c 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -897,6 +897,48 @@ struct mon_read {
-[...]
-> +static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
-> +{
-> +	mpam_mon_sel_lock_held(msc);
-> +
-> +	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
-> +	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
-> +
-> +	__mpam_write_reg(msc, MSMON_MBWU_L, 0);
-> +	__mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
-> +}
-> +
-[...]
-> @@ -978,10 +1027,15 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
->  		mpam_write_monsel_reg(msc, CSU, 0);
->  		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
->  		break;
-> -	case mpam_feat_msmon_mbwu:
-> +	case mpam_feat_msmon_mbwu_44counter:
-> +	case mpam_feat_msmon_mbwu_63counter:
-> +		mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
-> +		fallthrough;
-> +	case mpam_feat_msmon_mbwu_31counter:
->  		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
->  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
->  		mpam_write_monsel_reg(msc, MBWU, 0);
+> Which is hopefully clear enough
 
-Already zeroed if it's a long counter.
+You can also get to the LEDs associated to a MAC via
+/sys/class/net/eth42/leds, or a subdirectory.
 
-> +
->  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
->  
->  		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
-[...]
-> +static enum mpam_device_features mpam_msmon_choose_counter(struct mpam_class *class)
-> +{
-> +	struct mpam_props *cprops = &class->props;
-> +
-> +	if (mpam_has_feature(mpam_feat_msmon_mbwu_44counter, cprops))
-> +		return mpam_feat_msmon_mbwu_44counter;
+Please could you expand the commit message with more details of the
+different RJ45 connectors, and how the different LEDs map to them.
 
-This should check the longest counter first.
+Thanks
 
-> +	if (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, cprops))
-> +		return mpam_feat_msmon_mbwu_63counter;
-> +
-> +	return mpam_feat_msmon_mbwu_31counter;
-> +}
-> +
--- 
-Thanks,
-
-Ben
-
+	Andrew
 
