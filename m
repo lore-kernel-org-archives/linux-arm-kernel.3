@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 320C7CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:58:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3D8CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rjG53ExIK1WFjeDIAAZczTfr0kaW2lHML1A9qjZU6Y8=; b=ECE1Z+c5bmiYZFATICbUusfmK+
-	zT1NsschqjNv/exXgtvaRPJZixRh0yJ5fCCgFOdeyMqVUIBqPisbxBDV0LNrNH1O87QuxKpf13Gb/
-	ZGGVGWb4XSkoFcGrPLZvNYzc6G+NRDww6sTn3EZUwkceONf/h9tI1llv5QtfYPkfhpqfZ5QsZxIyr
-	IZmlg+2BA/zhzW+9PJhvyWyxAja2Dmx/TVD2eD57E0wkSyBFNwXz4gtQl4BR8ksxB3vlnKltG9fjt
-	pbr7O6xmj8yru7RiKCcZMz9ZYFGfKtiuOW8JjfivVyhbnGQY/q4hrU+0hqc5gFiLQTIdxjc53ufKS
-	drcq3MgA==;
+	bh=LqfpXhH8oikGFpnElT3hOnVI48sa1H9J9/n1+8f904w=; b=FS8g89VuCXnMAL7jYv/+WHLcIS
+	YbHznjJhBKHiu6vjzT5lGu8UGNXyqFcmAg7UB78ry0qbpkTrjrsxb8nRj4VSO995+V4MvHrJcB6ce
+	idl3PyaNh3JRTyyqifX4vlQ7cpm0ATozDJsT1SV1CE5Wav0OkRi2VRQ22ngBeNu5jvS+CpEdHWlk4
+	wV9j6u5m3vXfLVqf+lRoktHvwi45fM1wm5yKObgv/bEgRWuO23OKZtBE0A4CcP+J+pINCWqmCPC7M
+	u+P0UFr0vLRVQAsCWdaDgrcFthYzrXogQwtCAzYMhOgcdJTyivOL9u+2BGyZHka0qPAohlT133zYX
+	1KoOaujw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYQJ-00000002u8Z-0q1e;
-	Wed, 22 Oct 2025 12:58:39 +0000
-Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
+	id 1vBYQN-00000002uBF-11eR;
+	Wed, 22 Oct 2025 12:58:43 +0000
+Received: from mail-yx1-f43.google.com ([74.125.224.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYQG-00000002u7i-1NQM
+	id 1vBYQK-00000002u9O-3zYy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 12:58:37 +0000
-Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-6360397e8c7so6925435d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 05:58:35 -0700 (PDT)
+	Wed, 22 Oct 2025 12:58:42 +0000
+Received: by mail-yx1-f43.google.com with SMTP id 956f58d0204a3-63d97bcb898so1609032d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 05:58:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761137915; x=1761742715; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1761137919; x=1761742719; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=rjG53ExIK1WFjeDIAAZczTfr0kaW2lHML1A9qjZU6Y8=;
-        b=gtuia/PVmE3dPtabCubMfjsFrT6eSoS6KjX8PJPaqCLFEemNwfgSj0dHqvSSSTwrkQ
-         OHhCP3IhMp2NCAI2t42MjK/XfRqN409MzwiwjBSDfm9abiobJ6d+upt8ZhVWedP5Uaia
-         gRf3PtklpeDrJRlbr/1qxFz/nDiTje/9sQPvpq2KwEDD5xmRr2ICvZpMGKP4DSJwoXFt
-         /WHirjv1c2N0GI5EzV9b5QjRddBaKLD6MXJHVJRLDMazcBKhDcgGlrC01GXvvCyaMQEZ
-         Z/Ra2NSmepKgk3v+iudTm2fsdQ/em2Uyn0TQmoNKn45qwVd7gZXupEOL/3lyH9jT7yyV
-         Xi7w==
+        bh=LqfpXhH8oikGFpnElT3hOnVI48sa1H9J9/n1+8f904w=;
+        b=QWU/89x2yZ6iDU18TFH6Tz9cCxvTP0pdnW3dgSyNpM0sXC3jmjUd5t2CZGiJgA0a6w
+         deKSIq1Ev4Dw8LdvKgvEn2cEKpWL6vnI0kjS9WBkF2j4CzRghOLoPLqRW2g9aVRH4jmm
+         F9uFIY3eBvO83iobMvcmdtTkuI7QI+nCMW1HgOX288gN6EQF9sUWqrzQE/chsfcaAsV5
+         9dT6SLscrwLGfBUmf6HoRSZgZR9XLv5d/urSpWK+XD5wDKzKH057BYosorIyGTjNjwSq
+         dCLQsQqTVjRn6uhBH4u8l0tTbr+dO+PTi2rUNVZmFtMPCNgMvGxuX3pPoLCygvzZbsoq
+         D7lA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761137915; x=1761742715;
+        d=1e100.net; s=20230601; t=1761137919; x=1761742719;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rjG53ExIK1WFjeDIAAZczTfr0kaW2lHML1A9qjZU6Y8=;
-        b=jRboUWoxEwhaFm5pq1FhZko/V+dfh9R7YkmSnzIJoJsJZ0Q5bOMfHt5C8VwZq742Le
-         K0CawtQrJ9HiPWXYHBWOYBf9lqQRq2F6bdJPe40WBkb/Nrv6ES6GlSXypH0n8FzJKcHO
-         wxjtcCdADkcgqI8uPlIFDPhXprwEFk+VFcAqICkuuH+dyIFe/h6AYXePL5MDWp1xXQB9
-         TvkS0daYJfybLrEU64D9Obd8KHQU3CoxuCpopMZicObM39z2PAe2XXXPBWXhU+NSQNjO
-         jW1K31wxJnXyD4R0ycMPaxrPbgugSBnuHUETbRRUdEngsgAw/HVhIwibsU6Swf4t0STz
-         wxnA==
-X-Forwarded-Encrypted: i=1; AJvYcCXp1oOzPlSwW44GlW/DyLE+D3dTzvR3Bv+lljpSUMgTpHa2wgWNXjFMwhtOcHKybqkqlcQkvrW7k21TDfWzPAz5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1L4G5f+N+CbqI4O+wD0LhchjE9mXlyMxgLIe6x559ZzMTcRBD
-	r4D98K7j2R7y5dljCoFW/G+WDG1H5xXrG+wKDquA+DLhgg658282WVWx35wOeGuK9GydPL6eTmt
-	12d0YFMAWqbi8oBEwUdw+V/S7+3Q5if1aYq2Imm6N1A==
-X-Gm-Gg: ASbGncuOqT3sFIyE+RF5cTCmYDV9NsCnXr1UI+mxv++BRxX5JDCDmk4Pr0eolpp5IaH
-	HCmp2Iia34PaD4XmhoLOOLFrM7HXD6A8h3KTRN9plEI7BGYln0nEeU6VUvIBI6Reys95UZoJtFn
-	1JTYjnBiy1UWJ0Oohmcu6Kh3hxUvrgArH6hUFHePxqzlosfne/J7aAULMfMte5ZOHTHutzhk832
-	94zZ8DnqH2BN4XS+k0gHYZ1LQzb0K99RSUl5dwhkumoknwhc/Eti5YvVTRb3exi/VSD8SDx
-X-Google-Smtp-Source: AGHT+IEpKfqQAP/glDCUgAVJgatRBUGG4LJgEA2qJzeL/hKIAfZyo7XzIeJETd/S1CbVK1X+8E38/575DImRXb9n0+g=
-X-Received: by 2002:a05:690e:4182:b0:63c:da95:21a4 with SMTP id
- 956f58d0204a3-63e161b6c8bmr15719971d50.25.1761137915143; Wed, 22 Oct 2025
- 05:58:35 -0700 (PDT)
+        bh=LqfpXhH8oikGFpnElT3hOnVI48sa1H9J9/n1+8f904w=;
+        b=msNMbFZl2nNPSxtunqM/RBecpQuxyc6bSsKteVaMCKIPNXx/E9Fn2iVQY6PU7zYJmU
+         I3D0SG73RW68Esk7xbXpSThSDPqGm+yyc6gxlUgJz1F2HsAqRA5XtP3/R4DtN+oMLidD
+         xPABdndLjT08O5hP5dWA4pOi482hTkkjtSScHdgifAq6njzA7OW4n/VorniefPgufwed
+         4QiWHWLqen5HvXuv1MzJFJDcMDvGnHGujYObHnkoaG5y06U7RdPz4g4Rgcudw37aohL/
+         aD3pX3agatN7gn0nxqyRZOQnXO5+vfa2W1DnUfij1+ho940pMhZFxN917F9bUmNU6KxJ
+         9CYA==
+X-Forwarded-Encrypted: i=1; AJvYcCVksX7gyQ4/KDqGLQI8dyHvqZMHf7o9OY9sFpB2Groz1hecuAK9+DuJnmCz+l6qaGmm4WGqd7jtccT+72SNbxS/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWgId0V8Dm0cFc4oxjOnZER5hGkN9wFQCIu3a7NeCjMUbUWB71
+	CGbSCvYkER/b+dZfGw9WSaWtK+hKUTvKcWY0ojS79L1sxWOHyw4J1vUj3T/wgDw+i2FBe3HwTzi
+	8LMbFwzD9oig96KAlUHSN+e6iLcRM+9K90YIwpoDojg==
+X-Gm-Gg: ASbGncu6zhUm15G674MzM5+xyLN69eJJVLKNRIi+j4ncFWh9CHE0sE3NwnrQGf3Dj4r
+	XKlQCoVrvidh+96/VsG4UNrl4/pz2XZneRhZQxHWPjNrmdQcqfpGOkfihH9y5QqNg7i7VhvUE2w
+	veyFkK/dlr52jWVKdLaxEP5ki8Lx8FPX6EzqH+kqdM8eonAlPcRR6lV/WAZq6UPPz7Si97L5Jnu
+	gtq9MZOOi7Vr/PMS/7HEkDG0Emqzd2ZOakq3KnYq7W5M/JTo6IDHPXN5r0Zik0SA2DwRuDnrIPN
+	Km/a7Oc=
+X-Google-Smtp-Source: AGHT+IEjyOT6ZnWjtbuwKFmQbeLCXJvC9+ovHItNxLtceyMzt5RJXygROmaPW1mTzx718f9fX9ymVtGCF2aAo4JR26M=
+X-Received: by 2002:a53:da0d:0:b0:63c:f5a6:f2d0 with SMTP id
+ 956f58d0204a3-63f2833575dmr2112548d50.31.1761137919613; Wed, 22 Oct 2025
+ 05:58:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250925143122.39796-1-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250925143122.39796-1-angelogioacchino.delregno@collabora.com>
+References: <20251017093834.331998-1-finley.xiao@rock-chips.com>
+In-Reply-To: <20251017093834.331998-1-finley.xiao@rock-chips.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 22 Oct 2025 14:57:59 +0200
-X-Gm-Features: AS18NWBK_6SEKp0LPrIDEzZP10EAnrhsIWSa5DHPeYttYjGzKLOmquHgZnWl3Xc
-Message-ID: <CAPDyKFq9oxUfdfF-TOGLgi7b4aYay40H-VaEq-s=C3F2eVOBVw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] pmdomain: mediatek: Add HWVoter and MT8196 Support
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, nfraprado@collabora.com, fshao@chromium.org, 
-	y.oudjana@protonmail.com, wenst@chromium.org, mandyjh.liu@mediatek.com, 
-	mbrugger@suse.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, kernel@collabora.com
+Date: Wed, 22 Oct 2025 14:58:03 +0200
+X-Gm-Features: AS18NWCPlgQ2C3y-wODiJDQlKOeRdWjBY3paMVLSMS-IfDxCiXVh7nLiSG0YRnM
+Message-ID: <CAPDyKFrDAmfN16fQdf5en-Du=sG5U61NK7vRhd_CtiSz19rU_A@mail.gmail.com>
+Subject: Re: [PATCH v4 0/2] Add power-controller support for RV1126B
+To: Finley Xiao <finley.xiao@rock-chips.com>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, zhangqing@rock-chips.com, 
+	sugar.zhang@rock-chips.com, huangtao@rock-chips.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_055836_397072_1D5FB8AD 
-X-CRM114-Status: GOOD (  23.29  )
+X-CRM114-CacheID: sfid-20251022_055841_000414_3A664E0E 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,58 +97,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Sept 2025 at 16:31, AngeloGioacchino Del Regno
-<angelogioacchino.delregno@collabora.com> wrote:
+On Fri, 17 Oct 2025 at 11:38, Finley Xiao <finley.xiao@rock-chips.com> wrote:
 >
-> The initial series [1] was refactoring the bus protection regmap retrieval,
-> adding modem power sequences and support for the RTFF hardware found in newer
-> generation MediaTek SoCs - and adding support for Hardware Voter, HWCCF Infra
-> power on, and MT8196 domains.
+> Add support for the power domain controller on the RV1126B SoC.
 >
-> That series was doing a bit too much in one shot, and then a discussion about
-> the whole Hardware Voter started, so I decided to split that in two parts:
-> one dedicated only to the refactoring, modem and RTFF [2], and one that only
-> introduces MT8196-specific parts.
+> Finley Xiao (2):
+>   dt-bindings: power: rockchip: Add support for RV1126B
+>   pmdomain: rockchip: Add support for RV1126B
 >
-> Since the refactoring series [2] was merged upstream and the Hardware Voter
-> discussion came to an agreement on how to proceed (resulting in all of the
-> MT8196 clock drivers being also merged upstream), it is now time to send
-> the final piece of the Power Domains (MTCMOS) support for the MediaTek
-> Kompanio Ultra (MT8196) SoC.
->
-> So - this series finally adds support for handling the Hardware Voter type
-> of power domains in the MT8196 SoC, for secure infracfg power control, and
-> for all of the power domains found in the MT8196 SoC - using all of the
-> newly introduced support (HWV, RTFF, etc).
->
-> This series was tested on multiple MT8196 Chromebooks now for more than 3
-> months, and works just great; the last test was performed on the Collabora
-> MediaTek integration kernel tree based on next-20250909.
->
-> P.S.: This is a v2 because the initial series ([1] v1) contained patches
->       that I am sending in this series.
->
-> [1]: https://lore.kernel.org/all/20250623120154.109429-1-angelogioacchino.delregno@collabora.com/
-> [2]: https://lore.kernel.org/all/CAPDyKFoe9=4KgOsPUX6FOE+yPxdUqAxRec5yKY2h6uFOeUvvDQ@mail.gmail.com/
->
-> AngeloGioacchino Del Regno (5):
->   dt-bindings: power: Add support for MT8196 power controllers
->   pmdomain: mediatek: Add support for Hardware Voter power domains
->   pmdomain: mediatek: Add support for secure HWCCF infra power on
->   pmdomain: mediatek: Add support for MT8196 SCPSYS power domains
->   pmdomain: mediatek: Add support for MT8196 HFRPSYS power domains
->
->  .../power/mediatek,power-controller.yaml      |   4 +
->  drivers/pmdomain/mediatek/mt8196-pm-domains.h | 625 ++++++++++++++++++
->  drivers/pmdomain/mediatek/mtk-pm-domains.c    | 305 ++++++++-
->  drivers/pmdomain/mediatek/mtk-pm-domains.h    |  49 +-
->  .../dt-bindings/power/mediatek,mt8196-power.h |  58 ++
->  5 files changed, 1012 insertions(+), 29 deletions(-)
->  create mode 100644 drivers/pmdomain/mediatek/mt8196-pm-domains.h
->  create mode 100644 include/dt-bindings/power/mediatek,mt8196-power.h
+>  .../power/rockchip,power-controller.yaml      |  2 +
+>  drivers/pmdomain/rockchip/pm-domains.c        | 41 +++++++++++++++++++
+>  .../power/rockchip,rv1126b-power-controller.h | 17 ++++++++
+>  3 files changed, 60 insertions(+)
+>  create mode 100644 include/dt-bindings/power/rockchip,rv1126b-power-controller.h
 >
 > --
-> 2.51.0
+> 2.43.0
 >
 
 The series applied for next, thanks!
