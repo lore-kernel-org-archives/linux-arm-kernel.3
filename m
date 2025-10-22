@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B50CCD1BB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 630C1CCD1AB
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 17:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,54 +12,90 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IwwIW3BEI8nbvSzJkmoBQXNv8KNbBLMtxPFTZovswOk=; b=rueBs2FxHwxuWdwEh78E/PCxCh
-	ujROib+g/B7AMkaze4CxefhEuBziztPBM4NQcUCD0+jJa5UCLaOcUq3V3eVmpnHYX54Dtb0t5iLTO
-	wvHCJdyhn18CY1RUckxZkHsT2uIdr4FwRjhePcp0B3ANvFWtk6cItm3DvTct39p+owJHASglWF/ca
-	naKa9ONYMC/axPhLua7yPTYepVs6SLfs/7S3ljOLPQc+gbcJZPq76h6wSW+s2IT96n2FEsUucL+T/
-	9/CtB8aGLq7mVkjuklwDecjsUA3wrVnMis4nRYA4W5S/a+61DzL2X8Xokj4YCh44slu8t1leRhv9s
-	phWkqPbQ==;
+	bh=lG+JgNxp2ojMG4le/27P8V9WQcbi29JBwRJPKC4QVsQ=; b=bgcS1qK3+Q+awG2qUiBJO90VT7
+	1U+HKB5zOe4c6HZHoZkzkHPLOd7aTSKNxl3wtFvNWbgHJkm+he7c9iBPwzwxNnvoa4NEA/27p2Kar
+	vyPmoB/grzSCYGTub1WTL2zInC7r2irKd8ZInWLJH8pF1lsDywbLY5Dmijha0i5hPTcljHO27IDOP
+	9gLtvL0rJV/luiCRQHqC693zSlElfQgvV3C6IXs/euZIpIRqDQ8mvq12TxGYO2oPlrLtbsntOzvtD
+	ufn7epin1Yrq9ZAX1kPgbMLgGqjStu1Odp2HLzdCklJIWycDjgAnsKJQCKiWdLWuWSp+sm2YhXieW
+	tnSdemTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBcj8-00000003nuO-3xdG;
-	Wed, 22 Oct 2025 17:34:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vBcj5-00000003nsd-0WF9;
+	Wed, 22 Oct 2025 17:34:19 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBcj6-00000003ntC-3boA;
-	Wed, 22 Oct 2025 17:34:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2188F40B28;
-	Wed, 22 Oct 2025 17:34:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03F0CC4CEE7;
-	Wed, 22 Oct 2025 17:34:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761154455;
-	bh=IwwIW3BEI8nbvSzJkmoBQXNv8KNbBLMtxPFTZovswOk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zq80/uHD81ACUaIBjoDguxKIBaV0cx4h8HWWgxW7Va8n0CDRtWZxbo3IGQYQrqenF
-	 6x/cAj8ehd/sJAWa7QqSMFR4D2cx/M19Fs9Oed2+vIiWiAnWsRwC8Ci37r2+IUI7B7
-	 +A7MzQUXh276Z4eLnxW8+LnCWWrHfZ/lX/M/xyi2t2+ybq3miqDl3v/MgZzjCy+YBP
-	 5YvWmItjtIJiXK6xC2pEak0h1oTvfkp6a/Uhr9OJVsAvSxCmHZoG8Y96ALr8R+4ncP
-	 kat0ohAfogDwi079V5RtW6oIYRmDgD5wI938sOA79n47CIfxL2XgcvMAWponK/dN7C
-	 ZSe7QkVMHb1cA==
-Date: Wed, 22 Oct 2025 18:34:10 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: spi: spi-rockchip: Add RK3506 compatible
-Message-ID: <20251022-fifteen-jolliness-eeeaa5d74d58@spud>
-References: <20251022004200.204276-1-heiko@sntech.de>
+	id 1vBcj2-00000003nsC-1dCF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Oct 2025 17:34:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761154456; x=1792690456;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=dV+5NKwJdbhUSGEqeN+AL+dVtPcIoMxzkpXqx3wMka4=;
+  b=iEpl5QvagBe8QTi77Kos2/H0Rmqmq68hu6eaxCDXkCXdWgt9X5NQ9CrS
+   dbOYWAVNOPVg2N1y2AuKu15evlR6B5meW7fK/XVYpgQYkUlP1SK/cWe8F
+   BXveU2kmw/0ujkx9IadkeRA/CG+euedewavEBz8t1cJHm+60JnN0xS0Jj
+   gN5C5VFl0QVYZyfB/rD2svEYZBOFdNph9LQqgKjaDyMJX9a3JaHgcwFaY
+   If8RVdsCGOYn49Wp459fDvBJxOlu2rOwOuy9BThBJmM2rcil3zaO/Y2y6
+   j7doRg4iuHoQol18QN96b7PNq39awVlM/GAnV/I3cROciWyt3N7EIwWfO
+   A==;
+X-CSE-ConnectionGUID: gqLMTJkDTcS6Uw03NguBrA==
+X-CSE-MsgGUID: FPSo8lFVTC6+J7kW07LqAA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63408006"
+X-IronPort-AV: E=Sophos;i="6.19,247,1754982000"; 
+   d="scan'208";a="63408006"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 10:34:15 -0700
+X-CSE-ConnectionGUID: X7hpJLYNShiXzOXB9nCdEA==
+X-CSE-MsgGUID: jAZp2GJASS2/Swqf9D3Xmg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,247,1754982000"; 
+   d="scan'208";a="184326068"
+Received: from cpetruta-mobl1.ger.corp.intel.com (HELO ashevche-desk.local) ([10.245.244.83])
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 10:34:10 -0700
+Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1vBcit-00000001l1m-0V63;
+	Wed, 22 Oct 2025 20:34:07 +0300
+Date: Wed, 22 Oct 2025 20:34:06 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v2 03/10] gpiolib: implement low-level, shared GPIO
+ support
+Message-ID: <aPkVjoWkP04Q-2xP@smile.fi.intel.com>
+References: <20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org>
+ <20251022-gpio-shared-v2-3-d34aa1fbdf06@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="y33srT0fleC7re05"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251022004200.204276-1-heiko@sntech.de>
+In-Reply-To: <20251022-gpio-shared-v2-3-d34aa1fbdf06@linaro.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_103420_915948_1A894041 
-X-CRM114-Status: UNSURE (   7.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251022_103416_443551_AB1B1A6F 
+X-CRM114-Status: GOOD (  31.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,24 +110,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 22, 2025 at 03:10:42PM +0200, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> This module scans the device tree (for now only OF nodes are supported
+> but care is taken to make other fwnode implementations easy to
+> integrate) and determines which GPIO lines are shared by multiple users.
+> It stores that information in memory. When the GPIO chip exposing shared
+> lines is registered, the shared GPIO descriptors it exposes are marked
+> as shared and virtual "proxy" devices that mediate access to the shared
+> lines are created. When a consumer of a shared GPIO looks it up, its
+> fwnode lookup is redirected to a just-in-time machine lookup that points
+> to this proxy device.
+> 
+> This code can be compiled out on platforms which don't use shared GPIOs.
 
---y33srT0fleC7re05
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+...
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+> +		if (!strends(prop->name, "-gpios") &&
+> +		    !strends(prop->name, "-gpio") &&
 
---y33srT0fleC7re05
-Content-Type: application/pgp-signature; name="signature.asc"
+> +		    strcmp(prop->name, "gpios") != 0 &&
+> +		    strcmp(prop->name, "gpio") != 0)
 
------BEGIN PGP SIGNATURE-----
+We have gpio_suffixes for a reason (also refer to for_each_gpio_property_name()
+implementation, and yes I understand the difference, this is just a reference
+for an example of use of the existing list of suffixes).
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPkVkgAKCRB4tDGHoIJi
-0uv8AQCg+B7in0rxKZmiRavHVO1DhquZm9zLiamKC1Pj3BWsggEAi1FL15GdPWKm
-okez5gyKLRA+AIlysXTjHOUW+d7m6Qw=
-=LeqB
------END PGP SIGNATURE-----
+> +			continue;
 
---y33srT0fleC7re05--
+...
+
+> +			if (strends(prop->name, "gpios"))
+> +				suffix = "-gpios";
+> +			else if (strends(prop->name, "gpio"))
+> +				suffix = "-gpio";
+> +			else
+> +				suffix = NULL;
+> +			if (!suffix)
+> +				continue;
+
+In a similar way.
+
+> +			/* We only set con_id if there's actually one. */
+> +			if (strcmp(prop->name, "gpios") && strcmp(prop->name, "gpio")) {
+
+And again...
+
+> +				ref->con_id = kstrdup(prop->name, GFP_KERNEL);
+> +				if (!ref->con_id)
+> +					return -ENOMEM;
+> +
+> +				con_id_len = strlen(ref->con_id);
+> +				suffix_len = strlen(suffix);
+> +
+> +				ref->con_id[con_id_len - suffix_len] = '\0';
+> +			}
+
+...
+
+> +	adev->dev.parent = gdev->dev.parent;
+> +	/* No need to dev->release() anything. */
+
+And is it okay?
+
+See drivers/base/core.c:2567
+
+WARN(1, KERN_ERR "Device '%s' does not have a release() function, it is broken and must be fixed. See Documentation/core-api/kobject.rst.\n",
+
+...
+
+> +	pr_debug("Created an auxiliary GPIO proxy %s for GPIO device %s\n",
+> +		 dev_name(&adev->dev), gpio_device_get_label(gdev));
+
+Are you expecting dev_name() to be NULL in some cases? Otherwise why is this
+not a dev_dbg() call?
+
+
+> +	return 0;
+> +}
+
+...
+
+> +			char *key __free(kfree) =
+> +				kasprintf(GFP_KERNEL,
+> +					  KBUILD_MODNAME ".proxy.%u",
+> +					  ref->adev.id);
+
+This looks awful. Just allow a bit longer line
+
+> +			if (!key)
+> +				return -ENOMEM;
+
+...
+
+> +static void gpio_shared_remove_adev(struct auxiliary_device *adev)
+> +{
+> +	lockdep_assert_held(&gpio_shared_lock);
+> +
+> +	auxiliary_device_uninit(adev);
+> +	auxiliary_device_delete(adev);
+
+_destroy() ? Esp. taking into account the (wrong?) ordering.
+
+> +}
+
+...
+
+> +		set_bit(GPIOD_FLAG_SHARED, flags);
+
+Do you need this to be atomic?
+
+> +		/*
+> +		 * Shared GPIOs are not requested via the normal path. Make
+> +		 * them inaccessible to anyone even before we register the
+> +		 * chip.
+> +		 */
+> +		set_bit(GPIOD_FLAG_REQUESTED, flags);
+
+Ditto.
+
+...
+
+> +struct gpio_shared_desc *devm_gpiod_shared_get(struct device *dev)
+> +{
+> +	struct auxiliary_device *adev = to_auxiliary_dev(dev);
+> +	struct gpio_shared_desc *shared_desc;
+> +	struct gpio_shared_entry *entry;
+> +	struct gpio_shared_ref *ref;
+> +	struct gpio_device *gdev;
+> +	int ret;
+
+> + +	scoped_guard(mutex, &gpio_shared_lock) {
+
+Much better to split the below to a helper and make it run under a
+scoped_guard() here or call a guard()() there.
+
+> +		list_for_each_entry(entry, &gpio_shared_list, list) {
+> +			list_for_each_entry(ref, &entry->refs, list) {
+> +				if (adev != &ref->adev)
+> +					continue;
+> +
+> +				if (entry->shared_desc) {
+> +					kref_get(&entry->ref);
+> +					shared_desc = entry->shared_desc;
+> +					break;
+> +				}
+> +
+> +				shared_desc = kzalloc(sizeof(*shared_desc), GFP_KERNEL);
+> +				if (!shared_desc)
+> +					return ERR_PTR(-ENOMEM);
+> +
+> +				gdev = gpio_device_find_by_fwnode(entry->fwnode);
+> +				if (!gdev) {
+> +					kfree(shared_desc);
+> +					return ERR_PTR(-EPROBE_DEFER);
+> +				}
+> +
+> +				shared_desc->desc = &gdev->descs[entry->offset];
+> +				shared_desc->can_sleep = gpiod_cansleep(shared_desc->desc);
+> +				if (shared_desc->can_sleep)
+> +					mutex_init(&shared_desc->mutex);
+> +				else
+> +					spin_lock_init(&shared_desc->spinlock);
+> +
+> +				kref_init(&entry->ref);
+> +				entry->shared_desc = shared_desc;
+> +
+> +				pr_debug("Device %s acquired a reference to the shared GPIO %u owned by %s\n",
+> +					 dev_name(dev), desc_to_gpio(shared_desc->desc),
+> +					 gpio_device_get_label(gdev));
+> +				break;
+> +			}
+> +		}
+> +	}
+> +
+> +	ret = devm_add_action_or_reset(dev, gpiod_shared_put, entry);
+> +	if (ret)
+> +		return ERR_PTR(ret);
+> +
+> +	return shared_desc;
+> +}
+
+...
+
+> +/*
+> + * This is only called if gpio_shared_init() fails so it's in fact __init and
+> + * not __exit.
+> + */
+
+Fine. Have you checked if there are any section mismatch warnings during kernel
+(post)build?
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
