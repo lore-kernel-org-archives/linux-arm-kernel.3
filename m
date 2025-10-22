@@ -4,164 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EA13CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 17:13:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C2F6CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 17:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ek+jCZxQhzbjsE1wMxRi29Ac88OEtu6I9QS178o8CxU=; b=BtKsYEqOCUNsjeQJIK9s1xVX9O
-	Qo7i7GJGEux3LQPIMicSJlNAFXwTIoSiRld6eM1V+QmKQTxX2g3yvkqqb6s0bQUl2lNn+UxVwEXiM
-	UUynjhqH2YqklC1dGNPvXK8vrRAImXWDR7LZ+D8MKxSncMvrfvVP+cXLTYo7KkIs+1d/R7FGmKa7n
-	ggSV71J2XYUyMf7eRG99Nhximjw5VpbQeRA7z2/ERvf1ZRT3l8JSjYB/wbvYBZl88nwBEeK9xD2Bl
-	vP0FuKP5jdIV5N26ezvLYb0/UY8KoEJMHFlMthdEnGD/aApGCX62ppCgqPIulz838vHibuS67/vmL
-	pAKlRADA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EPP4wVPPUF3TysxbibtNWe6M149EJZiCu2ZRsWc1mP4=; b=P9pY6h57cNQYSSqc50Cla5OXZ/
+	316J6J43KQhkz9PsGGpwVYGXe/ReWr1M7J7zPgQRwWoXsn8z5fuUzKdugzkDvPxWK59bHbblhkyv6
+	69gfWT9RinEmTGHT3vk9grP/x03GhsYtIDJBxWPPW2MOP6HIoIl/YMwOsIP9YpdaQq1s+YK0q5RJu
+	RwexDox7EdUFjeqvrfwioKqlRkYBQqovHbbcvYfZnTxjEaCAuMk1baPvS9Pmtbvbt9OQKSMDIJjkE
+	v/NfX42Npfh3AyoP4UZK3tY7qYbvmgju58Yp+mbIqFnbuaTee75aZ0+4FDgJwDArcVwaS3VCzyyzo
+	MwieueRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBcOe-00000003k9H-2PI5;
-	Wed, 22 Oct 2025 17:13:12 +0000
-Received: from mail-westus3azon11011038.outbound.protection.outlook.com ([40.107.208.38] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vBcUH-00000003lWs-0HVt;
+	Wed, 22 Oct 2025 17:19:01 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBcOY-00000003jz9-0iEi;
-	Wed, 22 Oct 2025 17:13:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V3zMGqz550wRfXU/+spEay/qOaRDXsr0pcxaL6L8awiAtSnYzSVLCceFpANSek7wWRFpC+Aw6oDRv7rn2nd/yzDkZCnFd+ogMIZqq+BPzy/Mvy37dXKAeUIa2uGASyi+G/yrN9jHs72CNaZkdkK3r6iLS0bEPCgqNFdEuI7vUA7HyfQTDP6Ie9cefFmWIZB4MSY8kzn0tkToasNeRUHxXaLKu2nLNsHAfixQ81gv5YGqDpMGJDcUsMsioLViEe6HKMW8u3ruqZPIyWH+inOgRwoFrW40pJ6SBfzxJ5gbLQrgX6hnS4yG4Bo1tuYbUz4pne/go03uCCnzJn/WmKeBGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ek+jCZxQhzbjsE1wMxRi29Ac88OEtu6I9QS178o8CxU=;
- b=NRYNEa61Bp6C2kXZn0ibudJLYdtUFyMyK+1Q2D4iUCKj7HRyHP0Zm0x4WYnE0AOb/l9VIV9DWj5rEiIveV5vXJ3ERIdmABtIai83KXjQ1+DOpPJ8t+DJvRzEHyryZeZXGDh/569F3dZajoex0X9V1fRUAWy/9bDTOYjcOZ+IkHD0EjntLBfEdiPRqcDpaKGEoBscAmyUcDHujEZpOjFyB7r+nvBD4d7OniYCXSWUc38G4uO9HyofpbrZZ37Ev63+eZIEJ/5YCCLFuC+cUx4iIXECIH3zQ0Gihosoag2szU5EeYfhomUA3VuN1wBhanhm2j56hlVy8h6lDDQzqAKotg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ek+jCZxQhzbjsE1wMxRi29Ac88OEtu6I9QS178o8CxU=;
- b=JGqdO3M0IK9uluku+Xc87R9ltrBB5SULb0ftMGZvLocaGCubqBFvTmQll+dZLD0PZ6N9rOyr3GSTUCvGPKiaVzm6IDRvafhPVov9uFrSj/iByxnD58AVZWIo8LGUxnK2B3kEVxepSESZ3lmRrddNuEjyu/HOvbof+M0YDrlWeeCRPSAnj8sz/qQpfzuHd8BrvG/jLqDxFjRferIJ2h7IyZPj8QKnmVdgCqVTowq008JR9/R6VFr9nN5OTV85Azi5O//ysK1dn1KUnSuflpu3jRNek02rJilMaxfw5cTyQ43B9qFM1gcz7MI0Qf0k84R7Wt8li/opmKs17XgLXg8IwA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by MN2PR12MB4125.namprd12.prod.outlook.com (2603:10b6:208:1d9::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Wed, 22 Oct
- 2025 17:12:54 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9253.011; Wed, 22 Oct 2025
- 17:12:54 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Christian Benvenuti <benve@cisco.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Leon Romanovsky <leon@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-rdma@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Nelson Escobar <neescoba@cisco.com>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>,
-	Yong Wu <yong.wu@mediatek.com>
-Cc: patches@lists.linux.dev
-Subject: [PATCH 3/3] iommu: Allow drivers to say if they use report_iommu_fault()
-Date: Wed, 22 Oct 2025 14:12:52 -0300
-Message-ID: <3-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
-In-Reply-To: <0-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
-References: 
+	id 1vBcUE-00000003lVf-2431;
+	Wed, 22 Oct 2025 17:18:59 +0000
+X-UUID: 2ed228b0af6b11f09f706fa2197c6ceb-20251022
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=EPP4wVPPUF3TysxbibtNWe6M149EJZiCu2ZRsWc1mP4=;
+	b=Nfh8zFc29EJs6brAz5eNpWYsA9IHceeADS1ktIV5gsjhqbPX07AXcxdorqZubGMe0nJiSe5VFpksbxVjXjYD0OTOWT35+eIjEdyFZ4aeu9CejAB33bdHyKvg6AQywFZ01HTxGSzsg7qGvz53sve4vKZTvHFTPH0WDnA0ill2z/I=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:99a02ead-c8ef-42ca-9c0a-340ba60c58a0,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:43f23384-4124-4606-b51d-d5c9eec0e7b9,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:99|1,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 2ed228b0af6b11f09f706fa2197c6ceb-20251022
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 740815237; Wed, 22 Oct 2025 10:18:53 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Thu, 23 Oct 2025 01:18:49 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Thu, 23 Oct 2025 01:18:49 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Chun-Kuang Hu
+	<chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: Matthias Brugger <matthias.bgg@gmail.com>, Jason-JH Lin
+	<jason-jh.lin@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>, Singo Chang
+	<singo.chang@mediatek.com>, Paul-PL Chen <paul-pl.chen@mediatek.com>, Moudy
+ Ho <moudy.ho@mediatek.com>, Xiandong Wang <xiandong.wang@mediatek.com>,
+	Sirius Wang <sirius.wang@mediatek.com>, Fei Shao <fshao@chromium.org>,
+	Chen-yu Tsai <wenst@chromium.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+Subject: [PATCH] mailbox: mtk-cmdq: Refine DMA address handling for the command buffer
+Date: Thu, 23 Oct 2025 01:16:30 +0800
+Message-ID: <20251022171847.379470-1-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: MN2PR15CA0043.namprd15.prod.outlook.com
- (2603:10b6:208:237::12) To MN2PR12MB3613.namprd12.prod.outlook.com
- (2603:10b6:208:c1::17)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|MN2PR12MB4125:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4a5b4650-f624-4841-4bbc-08de118e3cb1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?l5aGC1tQ1I8vxTrRJDH/bbqcvfmDgZiVjRq/jnPAEZ+/57mfpD+8Ww1brHnN?=
- =?us-ascii?Q?3/RKm8bvpR4ktYuwoMqhK4C5a/sf0aKgWrU4zRYx2UCorJfyrhQGEPYVl0OT?=
- =?us-ascii?Q?/qMqMf6ZW1qyPjoPWN2jTqcP6mROsmFabOnfyVsb7/wJlfHDkOMnT/L2c81k?=
- =?us-ascii?Q?qPQNamM5io8+fhzS1WwgG2G1idEWiJTk7tD4P/ua/SiOdHO9PBQo9VnGzS9T?=
- =?us-ascii?Q?uWHIfZ2nsb5X3BXjo/HTyKzk+epqEnTjNDomV1y4/K4V0CQMIgdAWmugZNyF?=
- =?us-ascii?Q?mAWt/VMa5HvOEjCgMyhkMSuIooorguNXNQQK+g5O1GE9l3M5kj9IPavFn18n?=
- =?us-ascii?Q?6v3u9Yw6pdp7rnGj25DgKPeSk7aearC3Ai7FpgTJv0rkLYAO/v4G85mNel+U?=
- =?us-ascii?Q?qTbHfbi3GahinDmwWtcWsRroN8Zkv8W/mm/3QJry0DqTXvVvtljOa4vfhW5H?=
- =?us-ascii?Q?7iLBORA+8SZKLWGH93grCThfDMeVZqj0OHSy2jRxA3JPsJlnC25Ui2DZnCFc?=
- =?us-ascii?Q?GZXmXiGv00+u2hR8mOj+BP7QFTYfOrZGVcitGFdYUydEfOML2mKPST90seVM?=
- =?us-ascii?Q?Fs+nKgrTRLaDHdcPe8awEtnpQz/bDlRREK66NHb60NF2EU4YNvknuRRTFdZ2?=
- =?us-ascii?Q?Moi8GYh6a3mpAtR7iTvlYiMyDRgb8qsqNPkvpCv/4xvnGzIeltoUM0ONQbgo?=
- =?us-ascii?Q?t+9lO1UbIb2KjcN0h9u0Zk/w0l1aUhCDFWdT7TMfaQFfpA54CIwT73RHy6NE?=
- =?us-ascii?Q?6mc9vHu2CieA+fRzOocNNUW4mu7DzwOcHAjvH6Gy6H+TGxrChGeHAXSXoiox?=
- =?us-ascii?Q?rRdsSpl/EYj+NSaStc2FvkNfY/y116nbfOHhnxAnjXc5vx1zqVO2T+Efo0Fj?=
- =?us-ascii?Q?AsCJIJf1Cu9MBzFhGanD9DMf5wkTBmnCaKB5jkNQ/hRF1h+nwHD5elUk/va6?=
- =?us-ascii?Q?U5I7ZEOMwvT7uHIqJz8rCp2d6HjK4AjAK6gpFO83RGXw1lHwkkvrI9k+QPXe?=
- =?us-ascii?Q?SsAwfefUOmyUCocIeIESUw/YQLdgEgT4Dqv1kNhY5iKHKdgJeugTydPewzpO?=
- =?us-ascii?Q?N8dFvJG8oaPL0eqYF+h6aa/9vWeb9EQw8q2TNo7fwq3rDGojTx/i2vvQJk9l?=
- =?us-ascii?Q?1MJMR7i+ksgtZBC6ragxQ4FK1ENH99LcfMq56iX4fTPyPtHYho4pVXL8RUIZ?=
- =?us-ascii?Q?t9o2qI75RJD+zM2TSXqb+uJ0lAHTe8Zr1Vy8cc2ArecupD8P1zvKJ7Hwus9W?=
- =?us-ascii?Q?PVKf2aGSDHzZwKGHXN6ZagBTX7ke3cozBuvzXZnWNYkIGMkTV0TvbI2BmCSV?=
- =?us-ascii?Q?RDp1r2PK3fypwi2cG2yKslHpPKLS+Jm7Ah6oeGzfoftU7Kw/14oA+DaqUC0G?=
- =?us-ascii?Q?Yaab1vlgzeTYfMtfi23Msq8Y64ZMkqRrnQuzV4mSxU/Gr0haYChX5d0zb+xl?=
- =?us-ascii?Q?MdTNqxnpW6H42WilhqFFXJviZq8MzIlYFnQQ3YrPtaHeSsoHozRMc4a7gFlU?=
- =?us-ascii?Q?kp4BymhVPBrU7nM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rxB/RsMU2wGc18RiCmU05pspys2Zzm34wCOR/VRbnYsj2vCzjWUZXFwpu06x?=
- =?us-ascii?Q?b3DojHi2WfIoEL6QTUZJ/Guho79xW33OTr83CgiNiXohpUn8PSnRKpzoWnsS?=
- =?us-ascii?Q?I8gFXejRDxoO5Foa/lHSe5tnW6bRePIePQ672DT5+HvQCRzmYlj5lGpk0zYI?=
- =?us-ascii?Q?bKp3TRFdSHiiu5AqdWYLY/W4SSqEDCHTsAmFWevazdHjbPSq1vnLACE5jv4C?=
- =?us-ascii?Q?LZgaAIX38cq8AP2mK91GRyZBb3njjMr2AN3InOvXcNoUI3TzsXUzlleVhDAC?=
- =?us-ascii?Q?EfBnoHetmDH3couo5nWXveeRYbYrx78F4eHRMK481n+a+LuvTDKPKRGHsd1v?=
- =?us-ascii?Q?+1Pf5jRXwU5Ysz5eS9GCuNEPeGhjn3BV7zY4xECgo7lNZjg9PX+sK7H/cENJ?=
- =?us-ascii?Q?wG2vdHM2VmD53erURX8RlOrXhYntbCPaiFAY4CS81DVWeczmlwjOmim1HLzC?=
- =?us-ascii?Q?NTdIfJLTbV6BnGjUNvwlQxgRNY3ZqXZbQypM/+3eYh9KTacR0FWr+1lGDagO?=
- =?us-ascii?Q?SOi8vlf9tknX3+y/TNUT/pUDq1NvJCqcGgfmBPh0Owym6FOX5Lg8kMT0Ze0f?=
- =?us-ascii?Q?ltsS1dMjyTmSVFoNpIpW6AkJh82BkCuI67wk6FDnj/1qZjT6Yoohi/Gnq/0h?=
- =?us-ascii?Q?6JevoCNNsPYb0BzyYJJpt8R1kzxmVmWJjACXaHq1nrSBx9XzMNBfcFCtZbzY?=
- =?us-ascii?Q?Lmoluw1BUZTIoxNJzDYszxU9Z6BjRMmeeXqT8Ia0SAlin9JRInBq+0YaCj3K?=
- =?us-ascii?Q?wIy4LNKfFYzzupebHjVhoBc7sGEc/An9/mCpjsi6MF0hyoFSLVRqJWJyJoDu?=
- =?us-ascii?Q?oDvrHnt0e49B8/V9bkSMRwZ6IVtxAaeCTeLXV6w2kJDIs//pf3N8XR1Pvfql?=
- =?us-ascii?Q?DW65tmiDHwrsNEide20KuAzwJLWs090KqVNdOaE/o3DwuGFryrfB/mGkbG/L?=
- =?us-ascii?Q?SoMWBCrl0JxN8C0Dkuv2CkVEvyJZS4jtjf3PeE13fGqyxCeH5I4fQMMOgKQM?=
- =?us-ascii?Q?1HKSeE4xatvmdC0sF8MveZocDDqbTaI9DQhujmipQG8KhTWNIk2fyQEGhFwo?=
- =?us-ascii?Q?N2Ouybknmky3Gm+oWRcmuuuCINUNme47yg3I0wKLtZQYf4xNLakv9LznlwHd?=
- =?us-ascii?Q?PC1hQY3GNc65v1ejsZ+SPcI47eeO1LcCj8LK1CUVtqjFSw6PuW5CO29UJJKv?=
- =?us-ascii?Q?lw6cjyWGTvzrcWR5LwusEiKt2oPgMS7blgsJBSVxlOLjw/ZRVtJ7b5Sm2KKo?=
- =?us-ascii?Q?OWQm5HqFYEdpjWonPRrn0d5IIugD5w3yQmwGThi+5vUSnlcwnn0W/jqihH6p?=
- =?us-ascii?Q?oC7pP5oN37+DqcfmlxDlfdjg4rBL/ObWNOhr0JDZYQXb747AzKjfuto6c6hf?=
- =?us-ascii?Q?nb1s1e7JxiDM0hdo2glESpBqd1RRRLcvk06/w8NQCRicdg8vaFy6INPl67BF?=
- =?us-ascii?Q?O0ArbJuuV4EFJjOnd+z0jl5GmO5CJICSKF6FTiOpnv5Zv5p5fbzosOHJZzXo?=
- =?us-ascii?Q?TrBs9nPcYUa3ZL+EPoTEefzbjTPcQ4sM2FqL9x7w4hJIpNvqPR0rSm4HPQZ2?=
- =?us-ascii?Q?O4TpbSdhtMunbG75IfU=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4a5b4650-f624-4841-4bbc-08de118e3cb1
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 17:12:53.7381
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: avopQOXnISs8RTvITcLiI6C5wGVKP/gJc97eTbTMEDo/pUCftk7ZQmEu0pZHDQ91
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4125
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_101306_281550_BEBF08E8 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20251022_101858_557971_00BA698F 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,175 +92,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-report_iommu_fault() is an older API that has been superseded by
-iommu_report_device_fault() which is capable to support PRI.
+GCE can only fetch the command buffer address from a 32-bit register.
+Some SoCs support a 35-bit command buffer address for GCE, which
+requires a right shift of 3 bits before setting the address into
+the 32-bit register. A comment has been added to the header of
+cmdq_get_shift_pa() to explain this requirement.
 
-Only two external drivers consume this, drivers/remoteproc and
-drivers/gpu/drm/msm. Ideally they would move over to the new APIs, but for
-now protect against accidentally mix and matching the wrong components.
+To prevent the GCE command buffer address from being DMA mapped beyond
+its supported bit range, the DMA bit mask for the device is set during
+initialization.
 
-The iommu drivers support either the old iommu_set_fault_handler() via the
-driver calling report_iommu_fault(), or they are newer server focused
-drivers that call iommu_report_device_fault().
+Additionally, to ensure the correct shift is applied when setting or
+reading the register that stores the GCE command buffer address,
+new APIs, cmdq_convert_gce_addr() and cmdq_revert_gce_addr(), have
+been introduced for consistent operations on this register.
 
-Include a flag in the domain_ops if it calls report_iommu_fault() and
-block iommu_set_fault_handler() on iommu's that can't support it.
+The variable type for the command buffer address has been standardized
+to dma_addr_t to prevent handling issues caused by type mismatches.
 
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Fixes: 0858fde496f8 ("mailbox: cmdq: variablize address shift in platform")
+Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/iommu/arm/arm-smmu/arm-smmu.c   | 1 +
- drivers/iommu/arm/arm-smmu/qcom_iommu.c | 1 +
- drivers/iommu/iommu.c                   | 6 +++++-
- drivers/iommu/ipmmu-vmsa.c              | 1 +
- drivers/iommu/mtk_iommu.c               | 1 +
- drivers/iommu/mtk_iommu_v1.c            | 1 +
- drivers/iommu/omap-iommu.c              | 1 +
- drivers/iommu/rockchip-iommu.c          | 1 +
- drivers/iommu/sun50i-iommu.c            | 1 +
- include/linux/iommu.h                   | 3 +++
- 10 files changed, 16 insertions(+), 1 deletion(-)
+This patch is separated from series[1] because it is a fixes patch and
+it needs to be landed first.
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-index 4ced4b5bee4df3..5ce8f82ddb534b 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-@@ -1644,6 +1644,7 @@ static const struct iommu_ops arm_smmu_ops = {
- 	.def_domain_type	= arm_smmu_def_domain_type,
- 	.owner			= THIS_MODULE,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
-+		.report_iommu_fault_supported = true,
- 		.attach_dev		= arm_smmu_attach_dev,
- 		.map_pages		= arm_smmu_map_pages,
- 		.unmap_pages		= arm_smmu_unmap_pages,
-diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-index c5be95e560317e..3163a23fcbaa4f 100644
---- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-+++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-@@ -598,6 +598,7 @@ static const struct iommu_ops qcom_iommu_ops = {
- 	.device_group	= generic_device_group,
- 	.of_xlate	= qcom_iommu_of_xlate,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
-+		.report_iommu_fault_supported = true,
- 		.attach_dev	= qcom_iommu_attach_dev,
- 		.map_pages	= qcom_iommu_map,
- 		.unmap_pages	= qcom_iommu_unmap,
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 59244c744eabd2..34546a70fb5279 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -2005,6 +2005,9 @@ EXPORT_SYMBOL_GPL(iommu_group_has_isolated_msi);
-  * This function should be used by IOMMU users which want to be notified
-  * whenever an IOMMU fault happens.
-  *
-+ * This is a legacy API not supported by all drivers. New users should look
-+ * to using domain->iopf_handler for the modern API.
-+ *
-  * The fault handler itself should return 0 on success, and an appropriate
-  * error code otherwise.
-  */
-@@ -2012,7 +2015,8 @@ void iommu_set_fault_handler(struct iommu_domain *domain,
- 					iommu_fault_handler_t handler,
- 					void *token)
+[1] Add GCE support for MT8196
+- https://lore.kernel.org/all/20251017065028.1676930-1-jason-jh.lin@mediatek.com
+---
+ drivers/mailbox/mtk-cmdq-mailbox.c       | 45 ++++++++++++++++--------
+ include/linux/mailbox/mtk-cmdq-mailbox.h | 10 ++++++
+ 2 files changed, 41 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
+index 654a60f63756..5791f80f995a 100644
+--- a/drivers/mailbox/mtk-cmdq-mailbox.c
++++ b/drivers/mailbox/mtk-cmdq-mailbox.c
+@@ -92,6 +92,18 @@ struct gce_plat {
+ 	u32 gce_num;
+ };
+ 
++static inline u32 cmdq_convert_gce_addr(dma_addr_t addr, const struct gce_plat *pdata)
++{
++	/* Convert DMA addr (PA or IOVA) to GCE readable addr */
++	return addr >> pdata->shift;
++}
++
++static inline dma_addr_t cmdq_revert_gce_addr(u32 addr, const struct gce_plat *pdata)
++{
++	/* Revert GCE readable addr to DMA addr (PA or IOVA) */
++	return (dma_addr_t)addr << pdata->shift;
++}
++
+ u8 cmdq_get_shift_pa(struct mbox_chan *chan)
  {
--	if (WARN_ON(!domain || domain->cookie_type != IOMMU_COOKIE_NONE))
-+	if (WARN_ON(!domain || domain->cookie_type != IOMMU_COOKIE_NONE ||
-+		    !domain->ops->report_iommu_fault_supported))
+ 	struct cmdq *cmdq = container_of(chan->mbox, struct cmdq, mbox);
+@@ -188,13 +200,12 @@ static void cmdq_task_insert_into_thread(struct cmdq_task *task)
+ 	struct cmdq_task *prev_task = list_last_entry(
+ 			&thread->task_busy_list, typeof(*task), list_entry);
+ 	u64 *prev_task_base = prev_task->pkt->va_base;
++	u32 gce_addr = cmdq_convert_gce_addr(task->pa_base, task->cmdq->pdata);
+ 
+ 	/* let previous task jump to this task */
+ 	dma_sync_single_for_cpu(dev, prev_task->pa_base,
+ 				prev_task->pkt->cmd_buf_size, DMA_TO_DEVICE);
+-	prev_task_base[CMDQ_NUM_CMD(prev_task->pkt) - 1] =
+-		(u64)CMDQ_JUMP_BY_PA << 32 |
+-		(task->pa_base >> task->cmdq->pdata->shift);
++	prev_task_base[CMDQ_NUM_CMD(prev_task->pkt) - 1] = (u64)CMDQ_JUMP_BY_PA << 32 | gce_addr;
+ 	dma_sync_single_for_device(dev, prev_task->pa_base,
+ 				   prev_task->pkt->cmd_buf_size, DMA_TO_DEVICE);
+ 
+@@ -237,7 +248,8 @@ static void cmdq_thread_irq_handler(struct cmdq *cmdq,
+ 				    struct cmdq_thread *thread)
+ {
+ 	struct cmdq_task *task, *tmp, *curr_task = NULL;
+-	u32 curr_pa, irq_flag, task_end_pa;
++	u32 irq_flag, gce_addr;
++	dma_addr_t curr_pa, task_end_pa;
+ 	bool err;
+ 
+ 	irq_flag = readl(thread->base + CMDQ_THR_IRQ_STATUS);
+@@ -259,7 +271,8 @@ static void cmdq_thread_irq_handler(struct cmdq *cmdq,
+ 	else
  		return;
  
- 	domain->cookie_type = IOMMU_COOKIE_FAULT_HANDLER;
-diff --git a/drivers/iommu/ipmmu-vmsa.c b/drivers/iommu/ipmmu-vmsa.c
-index ffa892f6571406..770fa248e30477 100644
---- a/drivers/iommu/ipmmu-vmsa.c
-+++ b/drivers/iommu/ipmmu-vmsa.c
-@@ -885,6 +885,7 @@ static const struct iommu_ops ipmmu_ops = {
- 			? generic_device_group : generic_single_device_group,
- 	.of_xlate = ipmmu_of_xlate,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
-+		.report_iommu_fault_supported = true,
- 		.attach_dev	= ipmmu_attach_device,
- 		.map_pages	= ipmmu_map,
- 		.unmap_pages	= ipmmu_unmap,
-diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
-index 0e0285348d2b8e..0f44993eaadce3 100644
---- a/drivers/iommu/mtk_iommu.c
-+++ b/drivers/iommu/mtk_iommu.c
-@@ -1019,6 +1019,7 @@ static const struct iommu_ops mtk_iommu_ops = {
- 	.get_resv_regions = mtk_iommu_get_resv_regions,
- 	.owner		= THIS_MODULE,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
-+		.report_iommu_fault_supported = true,
- 		.attach_dev	= mtk_iommu_attach_device,
- 		.map_pages	= mtk_iommu_map,
- 		.unmap_pages	= mtk_iommu_unmap,
-diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
-index 10cc0b1197e801..279e7acfd5c6d3 100644
---- a/drivers/iommu/mtk_iommu_v1.c
-+++ b/drivers/iommu/mtk_iommu_v1.c
-@@ -582,6 +582,7 @@ static const struct iommu_ops mtk_iommu_v1_ops = {
- 	.device_group	= generic_device_group,
- 	.owner          = THIS_MODULE,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
-+		.report_iommu_fault_supported = true,
- 		.attach_dev	= mtk_iommu_v1_attach_device,
- 		.map_pages	= mtk_iommu_v1_map,
- 		.unmap_pages	= mtk_iommu_v1_unmap,
-diff --git a/drivers/iommu/omap-iommu.c b/drivers/iommu/omap-iommu.c
-index 5c6f5943f44b1f..3f3193de3ecd86 100644
---- a/drivers/iommu/omap-iommu.c
-+++ b/drivers/iommu/omap-iommu.c
-@@ -1724,6 +1724,7 @@ static const struct iommu_ops omap_iommu_ops = {
- 	.device_group	= generic_single_device_group,
- 	.of_xlate	= omap_iommu_of_xlate,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
-+		.report_iommu_fault_supported = true,
- 		.attach_dev	= omap_iommu_attach_dev,
- 		.map_pages	= omap_iommu_map,
- 		.unmap_pages	= omap_iommu_unmap,
-diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-index 0861dd469bd866..0053f5aa2cb781 100644
---- a/drivers/iommu/rockchip-iommu.c
-+++ b/drivers/iommu/rockchip-iommu.c
-@@ -1174,6 +1174,7 @@ static const struct iommu_ops rk_iommu_ops = {
- 	.device_group = generic_single_device_group,
- 	.of_xlate = rk_iommu_of_xlate,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
-+		.report_iommu_fault_supported = true,
- 		.attach_dev	= rk_iommu_attach_device,
- 		.map_pages	= rk_iommu_map,
- 		.unmap_pages	= rk_iommu_unmap,
-diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
-index de10b569d9a940..29b230050906a2 100644
---- a/drivers/iommu/sun50i-iommu.c
-+++ b/drivers/iommu/sun50i-iommu.c
-@@ -849,6 +849,7 @@ static const struct iommu_ops sun50i_iommu_ops = {
- 	.of_xlate	= sun50i_iommu_of_xlate,
- 	.probe_device	= sun50i_iommu_probe_device,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
-+		.report_iommu_fault_supported = true,
- 		.attach_dev	= sun50i_iommu_attach_device,
- 		.flush_iotlb_all = sun50i_iommu_flush_iotlb_all,
- 		.iotlb_sync_map = sun50i_iommu_iotlb_sync_map,
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index c30d12e16473df..e2bf7885287fac 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -714,6 +714,8 @@ struct iommu_ops {
+-	curr_pa = readl(thread->base + CMDQ_THR_CURR_ADDR) << cmdq->pdata->shift;
++	gce_addr = readl(thread->base + CMDQ_THR_CURR_ADDR);
++	curr_pa = cmdq_revert_gce_addr(gce_addr, cmdq->pdata);
  
- /**
-  * struct iommu_domain_ops - domain specific operations
-+ * @report_iommu_fault_supported: True if the domain supports
-+ *                                iommu_set_fault_handler()
-  * @attach_dev: attach an iommu domain to a device
-  *  Return:
-  * * 0		- success
-@@ -751,6 +753,7 @@ struct iommu_ops {
-  * @free: Release the domain after use.
-  */
- struct iommu_domain_ops {
-+	bool report_iommu_fault_supported : 1;
- 	int (*attach_dev)(struct iommu_domain *domain, struct device *dev);
- 	int (*set_dev_pasid)(struct iommu_domain *domain, struct device *dev,
- 			     ioasid_t pasid, struct iommu_domain *old);
+ 	list_for_each_entry_safe(task, tmp, &thread->task_busy_list,
+ 				 list_entry) {
+@@ -378,7 +391,8 @@ static int cmdq_mbox_send_data(struct mbox_chan *chan, void *data)
+ 	struct cmdq_thread *thread = (struct cmdq_thread *)chan->con_priv;
+ 	struct cmdq *cmdq = dev_get_drvdata(chan->mbox->dev);
+ 	struct cmdq_task *task;
+-	unsigned long curr_pa, end_pa;
++	u32 gce_addr;
++	dma_addr_t curr_pa, end_pa;
+ 
+ 	/* Client should not flush new tasks if suspended. */
+ 	WARN_ON(cmdq->suspended);
+@@ -402,20 +416,20 @@ static int cmdq_mbox_send_data(struct mbox_chan *chan, void *data)
+ 		 */
+ 		WARN_ON(cmdq_thread_reset(cmdq, thread) < 0);
+ 
+-		writel(task->pa_base >> cmdq->pdata->shift,
+-		       thread->base + CMDQ_THR_CURR_ADDR);
+-		writel((task->pa_base + pkt->cmd_buf_size) >> cmdq->pdata->shift,
+-		       thread->base + CMDQ_THR_END_ADDR);
++		gce_addr = cmdq_convert_gce_addr(task->pa_base, cmdq->pdata);
++		writel(gce_addr, thread->base + CMDQ_THR_CURR_ADDR);
++		gce_addr = cmdq_convert_gce_addr(task->pa_base + pkt->cmd_buf_size, cmdq->pdata);
++		writel(gce_addr, thread->base + CMDQ_THR_END_ADDR);
+ 
+ 		writel(thread->priority, thread->base + CMDQ_THR_PRIORITY);
+ 		writel(CMDQ_THR_IRQ_EN, thread->base + CMDQ_THR_IRQ_ENABLE);
+ 		writel(CMDQ_THR_ENABLED, thread->base + CMDQ_THR_ENABLE_TASK);
+ 	} else {
+ 		WARN_ON(cmdq_thread_suspend(cmdq, thread) < 0);
+-		curr_pa = readl(thread->base + CMDQ_THR_CURR_ADDR) <<
+-			cmdq->pdata->shift;
+-		end_pa = readl(thread->base + CMDQ_THR_END_ADDR) <<
+-			cmdq->pdata->shift;
++		gce_addr = readl(thread->base + CMDQ_THR_CURR_ADDR);
++		curr_pa = cmdq_revert_gce_addr(gce_addr, cmdq->pdata);
++		gce_addr = readl(thread->base + CMDQ_THR_END_ADDR);
++		end_pa = cmdq_revert_gce_addr(gce_addr, cmdq->pdata);
+ 		/* check boundary */
+ 		if (curr_pa == end_pa - CMDQ_INST_SIZE ||
+ 		    curr_pa == end_pa) {
+@@ -646,6 +660,9 @@ static int cmdq_probe(struct platform_device *pdev)
+ 	if (err)
+ 		return err;
+ 
++	dma_set_coherent_mask(dev,
++			      DMA_BIT_MASK(sizeof(u32) * BITS_PER_BYTE + cmdq->pdata->shift));
++
+ 	cmdq->mbox.dev = dev;
+ 	cmdq->mbox.chans = devm_kcalloc(dev, cmdq->pdata->thread_nr,
+ 					sizeof(*cmdq->mbox.chans), GFP_KERNEL);
+diff --git a/include/linux/mailbox/mtk-cmdq-mailbox.h b/include/linux/mailbox/mtk-cmdq-mailbox.h
+index 4c1a91b07de3..e1555e06e7e5 100644
+--- a/include/linux/mailbox/mtk-cmdq-mailbox.h
++++ b/include/linux/mailbox/mtk-cmdq-mailbox.h
+@@ -77,6 +77,16 @@ struct cmdq_pkt {
+ 	size_t			buf_size; /* real buffer size */
+ };
+ 
++/**
++ * cmdq_get_shift_pa() - get the shift bits of physical address
++ * @chan: mailbox channel
++ *
++ * GCE can only fetch the command buffer address from a 32-bit register.
++ * Some SOCs support more than 32-bit command buffer address for GCE, which
++ * requires some shift bits to make the address fit into the 32-bit register.
++ *
++ * Return: the shift bits of physical address
++ */
+ u8 cmdq_get_shift_pa(struct mbox_chan *chan);
+ 
+ #endif /* __MTK_CMDQ_MAILBOX_H__ */
 -- 
 2.43.0
 
