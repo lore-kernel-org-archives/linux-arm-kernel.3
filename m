@@ -4,81 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92EC6CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 18:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD0FCCF9E1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 19:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wp7PQxwpEUaf4NDF7jDHZA4RAc1DRUXdHx0e2Vlvfqo=; b=4BxKvow1tiSKzJTensek76XVoR
-	7lJCfs24+fXTqccAd3GYLWQTwipclKPOiC64EoVrV/StC1d8aT+4u+MyQNylyeuh8IPT8AVmI45yI
-	Dxw5hlPLAa3d8k3kOJdpf6icxApdL7WSaol9h/dq9euuJloPEJdXy4uBGN4wjbXpz4QNpuAuVG+1y
-	bMtQCABVfs7FLW1HOSeJ0zzdcAlxaCfUPWi3Q/pvZhMSD5eN/+To64NVSdY+8LYHrs9JsG/eSgH3A
-	KkCnThbqLrDQbOqWCcGLR6B42gGUvPX+7E/0Zxr7qyr3sKYtBkd1ezcJovOge4xCyhg+TQ+KPHzxv
-	6weQBb7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uLpi83YtaPPTf6HlkOIBuuGYuTWggmWH1mlBBal7Rv0=; b=P/R5r0DS+nwrq0AIXHi7ew9T9K
+	moYwBDDU0nbhYUr610cRT6QVn4x7IcCfbYbVNc/nSnFN1sECNyHHFv1Mrj3tCqIH7NlHbbkw0VX9V
+	vEak7d04xKalChHd2Syc14I9O7OCG+q1h5AH3g1pPwzHoUlhMJec3YQP7sAGDrFjrzqMU8FJfNgml
+	2Zu2SoB1YH14Oh4VPJhwjS2hOz7bHg1hYygeqw857pxdYRBC0qhtu1CAzONvT5F2owX6cCSwP1aIV
+	4Bm4uFoc/kgkR+Vo08wsjq/JbmobRC1xLmBSyxke0Msh8ZNTGHxVJ1gQHgwqdx40k37C/vDfZHYeT
+	hOGMOdEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBdkn-000000041an-2ih4;
-	Wed, 22 Oct 2025 18:40:09 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1vBe57-000000044gh-1vTu;
+	Wed, 22 Oct 2025 19:01:09 +0000
+Received: from mail-eastusazon11012048.outbound.protection.outlook.com ([52.101.53.48] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBdkg-000000041Uo-2dY0
+	id 1vBe51-000000044fQ-47Eq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 18:40:08 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251022183956euoutp013a8bcb2309734c825da9d6f1f6b2d665~w5Drz_rIl1219612196euoutp01_
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 18:39:56 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251022183956euoutp013a8bcb2309734c825da9d6f1f6b2d665~w5Drz_rIl1219612196euoutp01_
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1761158396;
-	bh=Wp7PQxwpEUaf4NDF7jDHZA4RAc1DRUXdHx0e2Vlvfqo=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=tNOgdzIWZtXNOZ/Hu/grKRy1A+gwmxnM47VoFiQiKQNuR9W0LmUvunUkvu9FtCdH3
-	 gnDY6SgHxgHT8ebCxqR8dvZpfTxBGDc67utnUy3I3tECih9j19xdbSF9Ec/8Yq1yAp
-	 l4ZiujU90fMBy4EJAgaVTe59N+5VAbU1bLmxYNEQ=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251022183955eucas1p23819de66a835c57747daa0136753c808~w5DrCgZAS0057800578eucas1p2Z;
-	Wed, 22 Oct 2025 18:39:55 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20251022183953eusmtip131c046506281f6642166831a3fe9c211~w5DpcncR60141601416eusmtip1Y;
-	Wed, 22 Oct 2025 18:39:53 +0000 (GMT)
-Message-ID: <57bacc06-8a5e-4284-a520-c5d2a56545e9@samsung.com>
-Date: Wed, 22 Oct 2025 20:39:53 +0200
-MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v3 08/10] pmdomain: samsung: selectively handle enforced
- sync_state
-To: Ulf Hansson <ulf.hansson@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
-	<andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
-	<alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Peter
-	Griffin <peter.griffin@linaro.org>, Tudor Ambarus
-	<tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>,
-	kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+	Wed, 22 Oct 2025 19:01:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CyJe84d91oUSDy/UvXUNheJZKkjox3PtdRJVeIfQ3J+3H2pGcdkCe7Lf71/lwGqoTXyDqJBobDkasNiG5eEV2f+/kRLtA36ypGJFa13yseFYYL98GxZWCFlx8XKcwncoVgJav9JgUoVu9hnSKfXjXrZM7FbckKwbN/3qlb8367J0xwgsAGtAKRHjDOAqy2wLIPyyd4QdS6Qja0kq0pEKzzAnxMRz0T64A+VXdTqMykXfIZK6NbF7rVivgpg0S/NRVgSy8VzS7hdfvo50Qg5aeDw7SaD5tFtNe67HMYYIkuHdcRsTZgDiOBMKwVqpxVgNhMAMbWKrrIVTipuI5D1JdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uLpi83YtaPPTf6HlkOIBuuGYuTWggmWH1mlBBal7Rv0=;
+ b=pQRzDeThKI/9qTcdSu1nxVQjaaz6oOllt4iJbUZ8/cJ5HQ5nECHtfa5uiuFojQ7/H7DJUq9fRql/qMXh1o0ZJwJhoTNvBCgwKzHMeNDKXoNaEYwwSMy7MsF7W4AM6hiBdrGoKT+bvmq+3hsEW7CcRI0F4Ykw8wD/0PlqrAEvtp1vR7P3RKBRV1gDp8RzQu1bu82JjMX+KrHswjhS7SnK64ngf3rb1YomrwlxyJArdBSqPgCHp5TjreaSwsm2VBWYevmBsEwF+KeFJ/vxp7voxMerqfwQvlZyVt9Mp/0zS12yLpcvN32Zg3LEswYDuQOtm2KxwIOkimBFXwZsFKUjTQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uLpi83YtaPPTf6HlkOIBuuGYuTWggmWH1mlBBal7Rv0=;
+ b=GYzw8crDst8pTC+Oc08GpeEUoeMSt3z3+sDIPvQcWDB6vtTMjd4/0BzP9w/BK5eZCYteN/VvmHsmmKT4v2CXPF43mDvK9au18tDpX26k//mwUGnq4gvz+wP5emLYx+/jmvZScrd4hwoeR0rheZs7m40iul1rHzjCp+QCyHtrryOgSjNauxIP1gPRv2gVN84H5CPng8nxsMBvn0eO5TxUMVMeh3qx+n2bI1h6TchNBZ5XxgashNpqQZrmMP2iditJyGg2/LxLwZ+prMEnUhaERfBNme31ROqptccL5kbVJ3btmMGYyqK6sCtr0ve8KaXd89Hl3yliRWAeI5fYCR6rfw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4186.namprd12.prod.outlook.com (2603:10b6:5:21b::11)
+ by SN7PR12MB7300.namprd12.prod.outlook.com (2603:10b6:806:298::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Wed, 22 Oct
+ 2025 19:00:51 +0000
+Received: from DM6PR12MB4186.namprd12.prod.outlook.com
+ ([fe80::af59:1fd0:6ccf:2086]) by DM6PR12MB4186.namprd12.prod.outlook.com
+ ([fe80::af59:1fd0:6ccf:2086%5]) with mapi id 15.20.9253.011; Wed, 22 Oct 2025
+ 19:00:51 +0000
+Message-ID: <183a54d5-0f07-4d37-915a-55ff9ab0e86d@nvidia.com>
+Date: Wed, 22 Oct 2025 14:00:46 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 07/29] arm_mpam: Add probe/remove for mpam msc driver
+ and kbuild boiler plate
+To: Fenghua Yu <fenghuay@nvidia.com>, James Morse <james.morse@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-8-james.morse@arm.com>
+ <fa5187f0-293e-48f0-ab75-6641e284e8b4@nvidia.com>
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <CAPDyKFq2esPos=D-eVz6w1VXq=4LYi6fx54K4TvsUi4JqUJOaQ@mail.gmail.com>
+From: Tushar Dave <tdave@nvidia.com>
+In-Reply-To: <fa5187f0-293e-48f0-ab75-6641e284e8b4@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251022183955eucas1p23819de66a835c57747daa0136753c808
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20251022110738eucas1p2cee28096ca5c9c6a802e2190d88ccf21
-X-EPHeader: CA
-X-CMS-RootMailID: 20251022110738eucas1p2cee28096ca5c9c6a802e2190d88ccf21
-References: <20251016-gs101-pd-v3-0-7b30797396e7@linaro.org>
-	<20251016-gs101-pd-v3-8-7b30797396e7@linaro.org>
-	<CGME20251022110738eucas1p2cee28096ca5c9c6a802e2190d88ccf21@eucas1p2.samsung.com>
-	<CAPDyKFq2esPos=D-eVz6w1VXq=4LYi6fx54K4TvsUi4JqUJOaQ@mail.gmail.com>
+X-ClientProxiedBy: BY3PR03CA0019.namprd03.prod.outlook.com
+ (2603:10b6:a03:39a::24) To DM6PR12MB4186.namprd12.prod.outlook.com
+ (2603:10b6:5:21b::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4186:EE_|SN7PR12MB7300:EE_
+X-MS-Office365-Filtering-Correlation-Id: e6b62aca-62d4-49d2-0f37-08de119d517d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dmFIM2pQOG41R24xcDVCRXA1REdEa1dURzNkOXU5bHdWeXpIQkF4RjNldmJt?=
+ =?utf-8?B?ZWtvS05Zclh4M1NlRDVkT0tNTnA1dll0cWozUjhLYjJ1Q0Uyek5CZXZwenEz?=
+ =?utf-8?B?anc5a0dZd1VWdUxkalphOUJlQUhaUVhQcU9Pa25lV0FDN1J2aGxDVU9XTXo0?=
+ =?utf-8?B?U1B0SjNnUis5QzQya3lnYjBoM2xIVDl0SzR6b3g0dnJHZDZ1S1BvUERpUWE0?=
+ =?utf-8?B?bFRQaDdHOWU4UGQ4QkMrNmMvN056K3pvYjBUV20xMGhNdGpUbm4rMHZ3emFF?=
+ =?utf-8?B?MXdHWlRZREp0c2VHbldEcW5kN3RiVEVtaW01ZjlHN0x3MUEvTTZKeGpqUGdZ?=
+ =?utf-8?B?ZjcwZlprZzQzZFFpNVdqbjF0Z29CNnJsbW1iS1ErK3diQnhMWko4ZzRKQjZH?=
+ =?utf-8?B?S2hUZm40eUQ3Zm14RGxKTDg2YlJwRndleE0wSUxQeGVhVUpXTjhaSkdtenIr?=
+ =?utf-8?B?M3EwRkdWSXlrM0owRmJBaml5eWtmQVhKeU9TellqL1hHTnBGd0pBaG91WmhN?=
+ =?utf-8?B?bURvQUw0MWZXY0RjQkNzYkZIUXNDZjdMYXJqNldhQlgxL0xnTVRWbFk0ZW5x?=
+ =?utf-8?B?MC9uSXBtMjViRDlBQ2N0ejZ5enFaMWZ2OG9zWTJ0djFRczBHMWdBMkxhSTBM?=
+ =?utf-8?B?WXdpMDRZNldzSjRYem9weDlqVEdsRmROa01FTUtER3I2b2lCakVTVHlpQ3Vt?=
+ =?utf-8?B?QzV2Ti8vL3JCS1pLa05HazZXdWFERUpDOTRkWmQxajcwOHNTaTJ2ck9na0d6?=
+ =?utf-8?B?YXNRN3pMQ2l0R21EQS9YWWMvNEszUmNWYTJuSTFUSHRveCtNVkM4QzZRc3BO?=
+ =?utf-8?B?bVdwb2IxLzZjSFVnRjR2M0IvWk5sUDdiQzJRaDRkRXFaeCsxV3prZEdLRGNY?=
+ =?utf-8?B?STdRWjU2K25oSzZIS3RNQkZsam56cG91NXdsRFpOR3REU3pXeld0MDZmQi9Y?=
+ =?utf-8?B?UXZqcDIyMGQrNi9BcWMxdDlpVjZTYVEyR2ZFdW1ISWkwNjJqY1hnR2JTWHlj?=
+ =?utf-8?B?eW1TTEY2cjdsOVVxMGxKWUxSYVU2NWwwcFJCeXNodXZKbC9UUXFpbG1FM1hD?=
+ =?utf-8?B?a3paZW51L25UTnVId3VQK1VqeEU3ekcvbG82Y3JJT3pSS3l6aFpobVFvRlBo?=
+ =?utf-8?B?a3JJNFpxTUQwVzBxOWhscDlKTlNteFczd0t1ZVNob3dSSlIydENhaHZucU9G?=
+ =?utf-8?B?b2VJLzQ0N3dWTm51ODBiOWNuR1BIVzdyNmEybjk2L2lhczRVR1FXWExpbzQw?=
+ =?utf-8?B?cjhHMjdncm9iWlk3R1p6enBzL2dpTFB4c21oSkwrL1d4Z1p4UjFEOGlkUjVF?=
+ =?utf-8?B?K1lSc0ZlQzl2NDlkYzQ4NlBHNGFHNzJsaHN0NVVRUmV6UU5Qbk82TG9JL25Z?=
+ =?utf-8?B?RXRZL2Jncmo4YkI5SUVycm9LMitEVklEN0kxN3dnYUc3RWxtY2ZLRElLZkFD?=
+ =?utf-8?B?cDBQNmhqRlpwTjk0aDlYV2hKSjJmQmdYQXBHbERXSnZMRENUenhSbll2dWpD?=
+ =?utf-8?B?YzluVW9XcUF5Y2I1dkg5cXg0YU8vWlNrZnAzQ3p0V25xeXFXcHVXZEJlSlN1?=
+ =?utf-8?B?alFtckg4UHc5T0NyWHNIWFBFbVVXVjhpWG9tRzNvbVU4ZVlPa1NJazgvaDJ2?=
+ =?utf-8?B?bEVlemxWODBOdGp2ZUJUTjB6b1FCd2U3bmRILzVMdlA3Vi9TYVI1Z2luTTNy?=
+ =?utf-8?B?L0VMNXlCZDA1dlQ3azR0V1N2R1k4eENtdndiTWY2NTI3OVZUQTBuSGJIcitl?=
+ =?utf-8?B?RkREUkMyQWFOOGNqL3BEd2daVFEwcFNUTitaV0lKQkJmVGFLbCt6QnBjVnFk?=
+ =?utf-8?B?cUE5NWlaVUhCVXFBdGdaM2Q4OXh4amMvN0hFTWUxZUViNDhjZ04wRlVpU0t1?=
+ =?utf-8?B?b21WVkhoM3dVOWx3U0pidFcxVkdjcXBnZ2p1NktxNTgwbHp4cXUxMnVnc3FS?=
+ =?utf-8?Q?QyR5ANbGzhcAgeS5R0OQskjS6SO7GosI?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4186.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UFZaVW90N2dsbXVhcUV4NzlGRXBpUEg0QkFFUlg5S3lBSWNSdXovOTF5MDlE?=
+ =?utf-8?B?SDhGaHd6UjlFUUpvMjZmdW9sdHZZV2owSklYbXhIWk5GVXBRWTlKdmN2MVpS?=
+ =?utf-8?B?MXYzb2NLdFN0bzZ6RlBsS1VNVWFoODl1Y0d0dUQzWlluRmxENkpFWnBRL1lr?=
+ =?utf-8?B?S2pJOUpUMis2WG9KUjlFVkdwNnZWQ09NTlg3b0FuZEdtTjk3N1ZBL0QrdkNY?=
+ =?utf-8?B?ZGwrdUoyako0YjNWS0lYWlZMdk1kQTRvV0s4YkMySEFuRkZSdUlUWUdvNDRL?=
+ =?utf-8?B?bkFKMElpcGNMbm1FenFMVk9QZXlnRStjUVNpSVprREU5MFhqUXNkY1N6VkFC?=
+ =?utf-8?B?cHVtSDRqWWNDN2tIdmtVRWJpN2I5Y012bGFYTWV3SEF3RUtncGo1dDdWMFJI?=
+ =?utf-8?B?TjA5RGQwNGlMRDBrUHp4SWlxVk5IYlJTSHR4a0J1TUY1S3JPeWNSYmYzaWMz?=
+ =?utf-8?B?enJWYkZwN1FKdlk0RXQrUWpYUlpBY3pkU0pDbHhvRk1PM1Q1Z0kyc0dENHZU?=
+ =?utf-8?B?ampvSm54OFNFOG1VSkJzeFVHR0pYL3VjclM4dlN5Qi9iYXRiZWRUd1hyTy9x?=
+ =?utf-8?B?ay9zRSs5aEhGYVZxVTkzUkNvakN3RkI0MDBHdlVSa0x0blRNNUcwcmVKVEc3?=
+ =?utf-8?B?elc2VFphMlpMNVZab21sUjl6a3N5dXcxcmlTd1lQM1BmdXMrdXFkMEJhNHRS?=
+ =?utf-8?B?T3A0WVpPNmp3K1FZc2JGcHRwUDlncDFIMnRBdlRDdmk2Wis5UTZ5SXpzQmlj?=
+ =?utf-8?B?bE9jSzZsSFhPOVVnNjAwZjNGRGhIaDRnSDhEcEIyZEZ2dEFkbkhOazJBbFB0?=
+ =?utf-8?B?Q3dVS3Ewc1o0c21yWllFU2ZSUjY0S0R3dlJQTDJ3OVlVK1RCbkN2S1lYbUYv?=
+ =?utf-8?B?bUhyd2xVdXM3YkhzejZNUlpRVjVOeVJKR2N3TzZZS0dSaWhWRHVZQ3NZUlV5?=
+ =?utf-8?B?SVAyUFI3NW9RbkNVL3k4ZlpWQ2NxS3hkTTRBWnZnWTJvRUdZbmpFdGUyUWQ2?=
+ =?utf-8?B?VFFWNW5kY2J0eVJ2VXhqT29vVTl5U2EyTnYzVTErL0N6MTRZN3NTdVFlL0Q4?=
+ =?utf-8?B?UGppY2lncUFVOXZGbGw1bnRPMjZlTkpwY0kvS2E3UXAwWGdPNTJlNE9VVkhE?=
+ =?utf-8?B?VzJ1SUZHdXB5UmRjYmNBd1VFSTJsdlNHVXJ2TnZvMmk1bnRuMlZFcTBZUFBj?=
+ =?utf-8?B?TzIxaVNONGVtZG9VTGtZUWhnTzZ5ZFhJV3NFdUtpMFdQU3VWZVU2TW5MUVhv?=
+ =?utf-8?B?aUZlZ25JMHlZUjFXZUpZY04yWEVIWlhIT01SZ3RCQzZ3WERCNnZFc1UyeGgy?=
+ =?utf-8?B?NjVZU0Q3TEZDSGsyS2RiYzh0WS9KMkhYRmxLV0ZJVjA3RTNrNTZuY0djVE5O?=
+ =?utf-8?B?NEk3Yll3UE9pdm1TTzd3TGZ3cytONkRUdERBTGY1VGt4eng5M1Jjd3BMN1Ny?=
+ =?utf-8?B?QWNWUHJnWmdJazZwUzhuYkpuc3BNamdEUUIvTVNQelRrYmJkOE1vUFRaT2tt?=
+ =?utf-8?B?clNxYkd4SU1QSTBjVXd4cDk5bEcxTkphcTlaWmo1MDR0eFRNU1MwdzQwMHhG?=
+ =?utf-8?B?aWZwVFVucW5GaXhEVjVjb2tuVkxQT2xSckhDSlFtcHBOT1pYZjVObFdCQUJs?=
+ =?utf-8?B?dHc3U0dmUWkxNHNMeDd4aWxSSEVkaXpLUjdvWlMzWnJPQVFyOXo1Ni9abXl0?=
+ =?utf-8?B?NlJHSHlrY21KRVZ1SlplNUJxMVhVSFAzZ3F0V3dRL1BSeEVUemdEQlc3L3la?=
+ =?utf-8?B?dE1kQTFucE0rWFV6ZS9CMUFrMW9wM1J5aGMvK1pmbDc5cWE1TFRHMlhDS0FP?=
+ =?utf-8?B?eDNMSyt3WXgrZDVaS0RoaWJYZ1FycEEzcHRkSU9jdmVCNE5tMHNrTWZrSEh2?=
+ =?utf-8?B?TVd6QTVRa1VGdUdUWE8wc2JUbGpiWkdldUhjWDEwNDlYcmpzUnFid3RTckkw?=
+ =?utf-8?B?SXNxbm1teDE1d2xjUUxwd08wRlJkcUFEUERUcVpDSU9STk5TelBiVzVsT1A3?=
+ =?utf-8?B?VGFubW5kYjFuMHlBbGxTQlZqWHhuUXlIODNWMFd6YkFidXhtVWRmcXo2Yjdt?=
+ =?utf-8?B?Z1diZW9zcktJTHI4RVZlWWY4MlYwM21CWnkrQVVJZXVsVVh4ZlBoU1hXaFk4?=
+ =?utf-8?Q?8+XCFtQLQjgeXwmmV7RB4LFuH?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e6b62aca-62d4-49d2-0f37-08de119d517d
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4186.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 19:00:51.0085
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: MjMsea/Hy17q5L1N7frZO7cfN0PuzP1+95Dmt1/XVWYwHd260Bt/WQUu1EwWbOMETysZu/YisZWgrNIXoIRxkA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7300
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_114004_107323_3452C85F 
-X-CRM114-Status: GOOD (  24.76  )
+X-CRM114-CacheID: sfid-20251022_120104_120950_1DCAE4AA 
+X-CRM114-Status: GOOD (  20.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,82 +195,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22.10.2025 13:06, Ulf Hansson wrote:
-> On Thu, 16 Oct 2025 at 17:58, André Draszik <andre.draszik@linaro.org> wrote:
->> Unconditionally calling of_genpd_sync_state() causes issues on
->> platforms with child domains as the parent domain will be turned off
->> before the child domain was even registered during boot.
->>
->> This in particular is an issue for the upcoming Google gs101 support -
->> all operations on child domains registered after the parent domain
->> misbehave.
->>
->> Add a flag to the probe data to be able to sync_state conditionally
->> only, and enable that flag on the two platforms currently supported by
->> this driver.
->>
->> Signed-off-by: André Draszik <andre.draszik@linaro.org>
->>
->> ---
->> v2:
->> * use bool for need_early_sync_state (Krzysztof)
->> ---
->>   drivers/pmdomain/samsung/exynos-pm-domains.c | 5 ++++-
->>   1 file changed, 4 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdomain/samsung/exynos-pm-domains.c
->> index 638d286b57f716140b2401092415644a6805870e..15a1582aa92103a07335eb681600d9415369fefd 100644
->> --- a/drivers/pmdomain/samsung/exynos-pm-domains.c
->> +++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
->> @@ -20,6 +20,7 @@
->>   struct exynos_pm_domain_config {
->>          /* Value for LOCAL_PWR_CFG and STATUS fields for each domain */
->>          u32 local_pwr_cfg;
->> +       bool need_early_sync_state;
->>   };
->>
->>   /*
->> @@ -69,10 +70,12 @@ static int exynos_pd_power_off(struct generic_pm_domain *domain)
->>
->>   static const struct exynos_pm_domain_config exynos4210_cfg = {
->>          .local_pwr_cfg          = 0x7,
->> +       .need_early_sync_state  = true,
->>   };
->>
->>   static const struct exynos_pm_domain_config exynos5433_cfg = {
->>          .local_pwr_cfg          = 0xf,
->> +       .need_early_sync_state  = true,
->>   };
->>
->>   static const struct of_device_id exynos_pm_domain_of_match[] = {
->> @@ -179,7 +182,7 @@ static int exynos_pd_probe(struct platform_device *pdev)
->>           * reset during boot. As a temporary hack to manage this, let's enforce
->>           * a sync_state.
->>           */
->> -       if (!ret)
->> +       if (pm_domain_cfg->need_early_sync_state && !ret)
->>                  of_genpd_sync_state(np);
-> The call to of_genpd_sync_state() was intended as a temporary solution here.
->
-> Potentially, if we would be able to distinguish what PM domain that is
-> causing the problem on the Exynos platforms, we could set
-> GENPD_FLAG_NO_STAY_ON for that genpd instead.
 
-Well, this of_genpd_sync_state() "workaround" has to be applied only to 
-the power domain of the display controller device. It can be replaced by 
-the following check on the legacy Exynos systems:
 
-if (IS_ENABLED(CONFIG_ARM) &&
-of_device_is_compatible(np, "samsung,exynos4210-pd") && 
-(strstr(pd->pd.name, "LCD") || strstr(pd->pd.name, "DISP"))) 
-pd->pd.flags = GENPD_FLAG_NO_STAY_ON;
+On 10/21/25 7:29 PM, Fenghua Yu wrote:
+> Hi, James,
+> 
+> On 10/17/25 11:56, James Morse wrote:
+>> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+>> only be accessible from those CPUs, and they may not be online.
+>> Touching the hardware early is pointless as MPAM can't be used until
+>> the system-wide common values for num_partid and num_pmg have been
+>> discovered.
+>>
+>> Start with driver probe/remove and mapping the MSC.
+>>
+>> CC: Carl Worth <carl@os.amperecomputing.com>
+>> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+> [SNIP]> +/*
+>> + * An MSC can control traffic from a set of CPUs, but may only be accessible
+>> + * from a (hopefully wider) set of CPUs. The common reason for this is power
+>> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
+>> + * corresponding cache may also be powered off. By making accesses from
+>> + * one of those CPUs, we ensure this isn't the case.
+>> + */
+>> +static int update_msc_accessibility(struct mpam_msc *msc)
+>> +{
+>> +    u32 affinity_id;
+>> +    int err;
+>> +
+>> +    err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
+>> +                       &affinity_id);
+>> +    if (err)
+>> +        cpumask_copy(&msc->accessibility, cpu_possible_mask);
+>> +    else
+>> +        acpi_pptt_get_cpus_from_container(affinity_id,
+>> +                          &msc->accessibility);
+>> +    return err;
+> 
+> The error is handled and there is no need to return the error to caller.
+> Returning the error causes probe failure and the mpam_msc driver cannot be 
+> installed.
 
-I assume that this information cannot be coded in device tree to make it 
-somehow generic...
+Ack. I see the probe failure too.
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+e.g.
+
+[    7.118297] mpam_msc mpam_msc.183: probe with driver mpam_msc failed with 
+error -22
+[    7.118383] mpam_msc mpam_msc.370: probe with driver mpam_msc failed with 
+error -22
+[   10.208127]     # Subtest: mpam_devices_test_suite
+[   10.208129]     # module: mpam
+[   10.208215]     ok 1 test_mpam_reset_msc_bitmap
+[   10.208275] mpam:__props_mismatch: __props_mismatch took the min cmax_wd
+[   10.208285] mpam:__props_mismatch: cleared cpor_part
+[   10.208287] mpam:__props_mismatch: cleared mbw_part
+[   10.208294] mpam:__props_mismatch: took the min bwa_wd
+[   10.208296] mpam:__props_mismatch: __props_mismatch took the min cmax_wd
+[   10.208310] mpam:__props_mismatch: __props_mismatch took the min cmax_wd
+[   10.208345]     ok 2 test_mpam_enable_merge_features
+[   10.208411] # mpam_devices_test_suite: pass:3 fail:0 skip:0 total:3
+[   10.208413] ok 1 mpam_devices_test_suite
+
+> 
+> s/return err;/return 0;/
+
+Yes, this resolve the probe failure.
+
+Tested-by: Tushar Dave <tdave@nvidia.com>
+
+> 
+>> +}
+>> +
+>> +static int fw_num_msc;
+>> +
+>> +static void mpam_msc_destroy(struct mpam_msc *msc)
+>> +{
+>> +    struct platform_device *pdev = msc->pdev;
+>> +
+>> +    lockdep_assert_held(&mpam_list_lock);
+>> +
+>> +    list_del_rcu(&msc->all_msc_list);
+>> +    platform_set_drvdata(pdev, NULL);
+>> +}
+>> +
+>> +static void mpam_msc_drv_remove(struct platform_device *pdev)
+>> +{
+>> +    struct mpam_msc *msc = platform_get_drvdata(pdev);
+>> +
+>> +    if (!msc)
+>> +        return;
+>> +
+>> +    mutex_lock(&mpam_list_lock);
+>> +    mpam_msc_destroy(msc);
+>> +    mutex_unlock(&mpam_list_lock);
+>> +
+>> +    synchronize_srcu(&mpam_srcu);
+>> +}
+>> +
+>> +static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>> +{
+>> +    int err;
+>> +    u32 tmp;
+>> +    struct mpam_msc *msc;
+>> +    struct resource *msc_res;
+>> +    struct device *dev = &pdev->dev;
+>> +
+>> +    lockdep_assert_held(&mpam_list_lock);
+>> +
+>> +    msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
+>> +    if (!msc)
+>> +        return ERR_PTR(-ENOMEM);
+>> +
+>> +    mutex_init(&msc->probe_lock);
+>> +    mutex_init(&msc->part_sel_lock);
+>> +    msc->id = pdev->id;
+>> +    msc->pdev = pdev;
+>> +    INIT_LIST_HEAD_RCU(&msc->all_msc_list);
+>> +    INIT_LIST_HEAD_RCU(&msc->ris);
+>> +
+>> +    err = update_msc_accessibility(msc);
+>> +    if (err)
+>> +        return ERR_PTR(err);
+> 
+> The returned error causes probe failure and the driver cannot be installed. 
+> Return 0 will make the probe succeed.
+> 
+> There is no probe failure in mpam/snapshot/v6.18-rc1 because its returned err=0.
+> 
+> [SNIP]
+> 
+> Thanks.
+> 
+> -Fenghua
+> 
 
 
