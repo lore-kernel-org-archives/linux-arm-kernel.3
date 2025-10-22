@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2578DCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61140CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:06:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D7sgCBTfR/C5p7zZIiaptFArrV/CiFPWvjAdAnJc6HU=; b=ibvUC0v5zp+7Mab5tf+V/GhH+v
-	NrkxftL6ZbryPC8HsW34WAhYzy3OBPYWDB6dgUHKt+W5eVBKgvnIlDNBwpkCJN1O0ecnySBjHgz9p
-	XYBupWlzRw88AtKkScFpHiraglujL1kci0yhw0BAFzZLa57PyrqVhqqWZt+Ui7ECG8VE/aaNLwGiX
-	4IOpZiKRxIfIJiWjNHdWsh/jesmZNo8oadbQb9wm2rQ3h912z8EDzuJlQH12NPrUkJ9fU/EIy9jUZ
-	/iD/+F6PcirmJFwD3BVZbXPgllLTbxeiaPa2kSkLT0xOHdmF4EnFRELEzg7oCohOynSEvaDeN4hOB
-	/0g2AN9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GiheuTVax4+hSuxolo9C8Og5sfrfQWWuqiehsxFJDm8=; b=P/3Vz1kMBf5ylq8dTmIMBqDAI3
+	aSKQCHDRdCWUNKLKSNXEmAVdn1KtwX1i9IFIWpK2oy50t/SppmgjtGeTUJDwjSeMEo157PBuAkmlG
+	smTERlU0OZmrFiueKiJZphKR411V5sEmQBmzr7BHKJrc1v4/b4Kgfr1K+r6mhJHV3GJLpkDK/NWSq
+	MquxJ+v5O5OGfqjCwQLiEZ/t+oKjlS+RF4KoROmISZL7rZnMamUbp0dQqzEUJcwsQnGWJF1G6NKJ9
+	fSCWO0JPpSnz0tDtcWxuR7s4wgVtMqedYCEPyGC8+uTSLnG+KtdUF0swya4KWvXtLu/zogTQU0oPn
+	T05s6Cwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZSr-000000038d0-2xQo;
-	Wed, 22 Oct 2025 14:05:21 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBZTR-000000038lT-0HfN;
+	Wed, 22 Oct 2025 14:05:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZSo-000000038b8-39YL
+	id 1vBZTM-000000038k6-1TN1
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 22 Oct 2025 14:05:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=GiheuTVax4+hSuxolo9C8Og5sfrfQWWuqiehsxFJDm8=; b=D4wj4yCFF/ova2aMv64pY4B+M5
+	8OPRkZp94GrtYbTlI4pBAt61LSFG+IcJJ/oLnSRapDbObgGPV8ioZ4RZibuh2mMSz6ADXjEDQCkca
+	OCV+XlyQWtqjWL0v2pziEgYF/STdz+Sfn3HbEF0ykQx6w0OeyfZe3eRVvZ4ugNHzz0LxXgrGD836q
+	goCGDoRp5o+H+rmLyADkE/eVpKZ5Ah1veF6dL7KK4/YA3ay8w5x3r5RAAFq4gPc8H++Dq3o2Ku+Bg
+	7Rkb8S5lfZwErK2nrx+dzTXdueBYXY+gtvQy5nUy7UaSk9Kc44IOiP+8BMfm+2yCFLcTTeWVyfPpS
+	PSgy6Fdw==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBYbd-00000000bwY-2E8H
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 14:05:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D72F143AEA;
-	Wed, 22 Oct 2025 14:05:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D67BC4CEF5;
-	Wed, 22 Oct 2025 14:05:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761141903;
-	bh=Z2fhMvuqsJ3srCnp+0oTmljFG+7/qaPNlbN0encLOvQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=STCa7qfpl6r6uM36aHFZSqIEcjThWmFFBHbZeEBZwFO8JG1xNRTCUnIFxQwB6AxUZ
-	 hFGYpNVAxqNd/I5p46l4Cy2SAgYZFO0TyIto+xhaTBnNIYsfvM/lV4ldsIP/iNifBq
-	 gE58Huk8mbgwiMyUZjii1IrxZV9ADPPrUHDNf9Y9C6QY8lTjbU3B0+w6cMcKIOu8Xa
-	 bEYRm1nNNEslseeSK3INJlTQ8i4LbnZT3sU3ZVCPUj+1muSl74dFB/aY2Q27r29DTd
-	 +kYcYEV9n/v4mMHuLHXl3qqCPIavBR6pW4a+gaAyKZDIdI3kb7suetdkM1v/xj4A3b
-	 Rwp0XZcyISUcg==
-Date: Wed, 22 Oct 2025 09:05:01 -0500
-From: Rob Herring <robh@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH v4 3/5] of/irq: Export of_msi_xlate() for module usage
-Message-ID: <20251022140501.GA3390144-robh@kernel.org>
-References: <20251021124103.198419-1-lpieralisi@kernel.org>
- <20251021124103.198419-4-lpieralisi@kernel.org>
+	Wed, 22 Oct 2025 13:10:23 +0000
+Received: from dude06.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::5c])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <f.pflug@pengutronix.de>)
+	id 1vBZTI-0000vR-CZ; Wed, 22 Oct 2025 16:05:48 +0200
+From: Fabian Pflug <f.pflug@pengutronix.de>
+Date: Wed, 22 Oct 2025 16:05:22 +0200
+Subject: [PATCH v3 1/2] dt-bindings: arm: fsl: add i.MX93 11x11 FRDM board
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251021124103.198419-4-lpieralisi@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251022-fpg-nxp-imx93-frdm-v3-1-03ec40a1ccc0@pengutronix.de>
+References: <20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de>
+In-Reply-To: <20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Fabian Pflug <f.pflug@pengutronix.de>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Daniel Baluta <daniel.baluta@nxp.com>
+X-Mailer: b4 0.14.3
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::5c
+X-SA-Exim-Mail-From: f.pflug@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_070518_806799_D47670B7 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20251022_141021_697522_102C3E8E 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,18 +88,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 02:41:01PM +0200, Lorenzo Pieralisi wrote:
-> of_msi_xlate() is required by drivers that can be configured
-> as modular, export the symbol.
-> 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Cc: Rob Herring <robh@kernel.org>
-> ---
->  drivers/of/irq.c | 1 +
->  1 file changed, 1 insertion(+)
+Add DT compatible string for NXP i.MX93 11x11 FRDM board.
 
-I guess just iproc needs this, so:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 00cdf490b0620..c47407640e995 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1416,6 +1416,7 @@ properties:
+           - enum:
+               - fsl,imx93-9x9-qsb         # i.MX93 9x9 QSB Board
+               - fsl,imx93-11x11-evk       # i.MX93 11x11 EVK Board
++              - fsl,imx93-11x11-frdm      # i.MX93 11x11 FRDM Board
+               - fsl,imx93-14x14-evk       # i.MX93 14x14 EVK Board
+           - const: fsl,imx93
+ 
+
+-- 
+2.47.3
+
 
