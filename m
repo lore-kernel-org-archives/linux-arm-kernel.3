@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA88CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 800D7CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:32:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vgC3n0OZ1bnLi7NXIKoKa5wMxZUzOLDPYVTIZbfJmj4=; b=E3xgU9Gntbj+E1hOurTF/rLTD9
-	6Rh5otCt3WVCXkkYDys4BcVK7B3zw8472X9sUPR7mUdesPFSUpCUPrNhZBZRR3cUPR2SwizOW7Jnv
-	A0tYaNoZbup1mhqdPxFaSIVdeEO730mXJDC0duHNA5r/zBy1dZxjF7F3TDgZyV3VEOpeFKEHOXW8Z
-	YIBxsLaaLCeU0clJqgaw2xk3j9YWNAN3GdzdaoA0bQHYoZuWnJtk8Fq6UavrDZMlywemA4Lm9NL8E
-	FiaiIQDN+mvReevMFx2rk4htJ6efYYbcVvXa+7RFjnTLDadPlNLUc1TxMRjY10ypd0VSWxQisyBHe
-	MTAWLjcA==;
+	bh=krYQnTx4Ki4G9f7BbnETHpO08nM8jf7MsM7nR34vJH8=; b=wIxPVD9NuLyqK/T/dLu32JHso/
+	coIkiYuW4GvZxmPvWnrUIAaOfipALBERTkyFHY7gD+oZDluhJBY6HlPQvXf+dTCRLwDQJSeS8B/e5
+	KdknNOEcD//ttQRrqhfrp6/YWggPeRxLP/dQc+cbrDBvuevpFOi4QsCvcO+pPc28jw2CSFt6NA3WH
+	I1hVbUnaCUu0LS3oG4MEVEgtoFhdGx6fjpRypaYhpV9dP+RhmS/vWZP9UP1wkD0mI7eqKOKCZCrfZ
+	IXfUKuvdtvsqda3oz3xGDzsPAXF6g8IVgNlYNr6JA4Jr1tksAy709oUXF32PqvQTVOKqsuQLFwViQ
+	SvOzHbAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBXyT-00000002nik-1Wq7;
-	Wed, 22 Oct 2025 12:29:53 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBXyQ-00000002ngx-0UQL
+	id 1vBY0R-00000002oEI-2GbZ;
+	Wed, 22 Oct 2025 12:31:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBY0O-00000002oDj-09gb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 12:29:51 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-33bb1701ca5so5904187a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 05:29:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761136189; x=1761740989; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vgC3n0OZ1bnLi7NXIKoKa5wMxZUzOLDPYVTIZbfJmj4=;
-        b=lONEyhTk4jGh33XLknirjLVtdG8ETh3IXrY283tqIhC8W1dw8d9fXfQb/aEKj+TMMA
-         j8RbvnwjG/m8iEH/4ilDi2KCgGFdqArZAm7zHjhjBY38YX31vaZToGUbyAMzP87RgjCA
-         z6cBzsCYOCaQXx/PYowEzOwaRC18L0EZfH9EyTLxdeCs14HoDMLu/KS7z7C9yDh6oCu9
-         fxSS1+fBO8pLBuAnxrioSkwrjkt0qoEYaqinfu632UZIkKepLNwETQVTSEFDg6QJbvCQ
-         ohxJB+8eewATgTDQyWGmHAPeGQIiaBa7vowWz40CWfIen0qgkpGL0CURd6rNR3mTufZb
-         bU+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761136189; x=1761740989;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vgC3n0OZ1bnLi7NXIKoKa5wMxZUzOLDPYVTIZbfJmj4=;
-        b=pEllGoHYfrRW1In6/IYuCzl3wigxnY7JExPZG1zbPo6d0VsE70bWSIK3LviOPPeuU5
-         WY3f8ZTepSrjF9Ne5O7bpGnPxellWYuRTWsX+TYk1gqLJwEunxcGrOrH6x8IMvBlqnog
-         7LTyJvdq1BE1wn6GgVVrBzSw+69bT1394/dTatpmD478XxXwXN20LYknBQZkMkw/GVOl
-         538fv1nCG4LJkNU+GFgCUrVT6+aV3qirVLme2UPvWXwYEzShNHvV8klxRTb7Q2q1zmWZ
-         i0E+ADJq7z7c/LHg5f195LQQoFXatRM7rol1Xm/L+S8PG9hm+lRueNaIpn4FCcvgeRlO
-         vAjg==
-X-Forwarded-Encrypted: i=1; AJvYcCUatpFpVaHKkgbbAbe2nIo4v0GjUcKSIRnxX252eD9VJkcY+g95hujyHfPziuaWcCgViaUsl1JaOUp2BUhfmEOY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTSfmLB5r9X+v9uosNdbYkGG+hnFbrd+gbvw4pLs8tA7QxxCIv
-	6Nzxo07FV8TZDB+X4GtKVrMcXodgCbjRawDKeBW8fex0mZWPlTtccAgB+au5XDYy+bnrZTscUgc
-	vUIZ2RvZhPaIGz6e4e5QNDcxV8r0OneE=
-X-Gm-Gg: ASbGnctnPOWPIn4dUJ/tqFhTLjF0IuJXYZc/Vpzf81k9NGsrGpnWwimWXf6gnLU6WEg
-	3rGwBi8dzgpYCJvDIL7wNimJm9G70NzS+UK8K3z94jOScbpyIs/NtfcLSUqqCw3ZBBWVrdNXTKH
-	2JHzDmTn8gYZVoaXS/DS1NE4rDmpfulnkF25ddlA6f4yoQ+yN28HV9KN/D5dEbdRGH0/W3IuGRc
-	zl7cKLtk8gu3z0C9hOIpbu0Hez/TsM/QN5UafmccI5HzaUkntnXieshX8uY
-X-Google-Smtp-Source: AGHT+IFk5lUB3XklutyN+j9IdIuo6/klqXs33Xtsaz01xAhHZvg8eDzK6DGwTKzo99rOs65RxDj4T2Swtuqtu02nU9M=
-X-Received: by 2002:a17:90a:e7d0:b0:32e:5d87:8abc with SMTP id
- 98e67ed59e1d1-33bcf9146e9mr23394414a91.36.1761136189075; Wed, 22 Oct 2025
- 05:29:49 -0700 (PDT)
+	Wed, 22 Oct 2025 12:31:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7DA91063;
+	Wed, 22 Oct 2025 05:31:42 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0871B3F63F;
+	Wed, 22 Oct 2025 05:31:45 -0700 (PDT)
+Message-ID: <1a1a3522-313a-46e7-bc13-fcbbd9ccf81f@arm.com>
+Date: Wed, 22 Oct 2025 13:31:44 +0100
 MIME-Version: 1.0
-References: <20251022072729.14820-1-xion.wang@mediatek.com> <CAFqZXNuPqwfqA23LH8NOG6KM1Nb7WvW77wnpp-vZ5omU40j_qQ@mail.gmail.com>
-In-Reply-To: <CAFqZXNuPqwfqA23LH8NOG6KM1Nb7WvW77wnpp-vZ5omU40j_qQ@mail.gmail.com>
-From: Stephen Smalley <stephen.smalley.work@gmail.com>
-Date: Wed, 22 Oct 2025 08:29:38 -0400
-X-Gm-Features: AS18NWDSicEYx03TrEtOYVQuMO2BdGJlpNak_oI6vlqZpLBKSoJCcwBSCBuNhu8
-Message-ID: <CAEjxPJ5BWjvDmQ37PPLHrmcTwRnOy6eW_uNoKG=ERZqRMAc3dw@mail.gmail.com>
-Subject: Re: [PATCH 0/1] selinux: export current_sid API for use in other
- kernel modules
-To: Ondrej Mosnacek <omosnace@redhat.com>
-Cc: xion.wang@mediatek.com, Paul Moore <paul@paul-moore.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, wsd_upstream@mediatek.com, 
-	huadian.liu@mediatek.com, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 26/29] arm_mpam: Use long MBWU counters if supported
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-27-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251017185645.26604-27-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_052950_156508_0132B2F0 
-X-CRM114-Status: GOOD (  32.31  )
+X-CRM114-CacheID: sfid-20251022_053152_488647_57C116A0 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,74 +82,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 4:08=E2=80=AFAM Ondrej Mosnacek <omosnace@redhat.co=
-m> wrote:
->
-> On Wed, Oct 22, 2025 at 9:43=E2=80=AFAM <xion.wang@mediatek.com> wrote:
-> >
-> > From: Xion Wang <xion.wang@mediatek.com>
-> >
-> > We have a kernel driver designed to monitor the status of the Android
-> > userspace watchdog. The implementation works as follows: we modify the
-> > Android userspace watchdog code to periodically send a "kick" signal to
-> > the kernel driver via ioctl, so that the kernel driver can determine
-> > whether the userspace is still responsive. If the kernel driver does no=
-t
-> > receive a kick signal from the userspace watchdog within a certain
-> > period, it infers that the userspace is stuck. In this case, the kernel
-> > driver will dump key process information at the kernel level and trigge=
-r
-> > a full system reboot.
-> >
-> > To ensure that only the legitimate Android userspace watchdog process c=
-an
-> > access the ioctl interface and perform the kick operation, and to preve=
-nt
-> > malicious or unauthorized processes from spoofing the kick action (whic=
-h
-> > could compromise system reliability), we want to identify the calling
-> > task by its security identifier (sid). By checking the sid, we can
-> > effectively prevent unauthorized processes from sending kick signals.
-> >
-> > Currently, the current_sid() function in the kernel is defined as
-> > static inline and cannot be directly called from modules or drivers. We
-> > propose to export this function, so that the kernel driver can call
-> > current_sid() to obtain the sid of the current process and decide wheth=
-er
-> > to allow the kick operation.
-> >
-> > This change will help enhance system security and robustness by
-> > preventing the watchdog mechanism from being bypassed or abused.
-> >
-> > I would like to ask the maintainers if there are any additional securit=
-y
-> > concerns regarding exporting current_sid() as a public API, or if there
-> > are any alternative or more recommended approaches to achieve this goal=
-.
-> > Any feedback or suggestions would be greatly appreciated.
->
-> Couldn't you just use security_cred_getsecid() or the new
-> security_cred_getlsmprop()?
->
-> Untested:
->
-> u32 sid;
-> security_cred_getsecid(current_cred(), &sid);
->
-> -- or --
->
-> lsm_prop prop;
-> security_cred_getlsmprop(current_cred(), &prop);
-> u32 sid =3D prop.selinux->secid;
->
+Hi James,
 
-I suppose the next logical question would be what will you do with the
-secid - you can't just compare it to a fixed value since they are
-dynamically assigned.
-Normally you would instead just pass it to a SELinux permission check
-to see if that SID is allowed the permission required to perform this
-operation.
-But this too would require using a LSM hook to perform the permission
-check (in which case you don't need to fetch the SID separately; it
-can all be done within the same hook).
+On 10/17/25 19:56, James Morse wrote:
+> From: Rohit Mathew <rohit.mathew@arm.com>
+> 
+> Now that the larger counter sizes are probed, make use of them.
+> 
+> Callers of mpam_msmon_read() may not know (or care!) about the different
+> counter sizes. Allow them to specify mpam_feat_msmon_mbwu and have the
+> driver pick the counter to use.
+> 
+> Only 32bit accesses to the MSC are required to be supported by the
+> spec, but these registers are 64bits. The lower half may overflow
+> into the higher half between two 32bit reads. To avoid this, use
+> a helper that reads the top half multiple times to check for overflow.
+> 
+> Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
+> [morse: merged multiple patches from Rohit, added explicit counter selection ]
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> ---
+> Changes since v2:
+>  * Removed mpam_feat_msmon_mbwu as a top-level bit for explicit 31bit counter
+>    selection.
+>  * Allow callers of mpam_msmon_read() to specify mpam_feat_msmon_mbwu and have
+>    the driver pick a supported counter size.
+>  * Rephrased commit message.
+> 
+> Changes since v1:
+>  * Only clear OFLOW_STATUS_L on MBWU counters.
+> 
+> Changes since RFC:
+>  * Commit message wrangling.
+>  * Refer to 31 bit counters as opposed to 32 bit (registers).
+> ---
+>  drivers/resctrl/mpam_devices.c | 134 ++++++++++++++++++++++++++++-----
+>  1 file changed, 116 insertions(+), 18 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index f4d07234ce10..c207a6d2832c 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -897,6 +897,48 @@ struct mon_read {
+[...]
+> +static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
+> +{
+> +	mpam_mon_sel_lock_held(msc);
+> +
+> +	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
+> +	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+> +
+> +	__mpam_write_reg(msc, MSMON_MBWU_L, 0);
+> +	__mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
+> +}
+> +
+[...]
+> @@ -978,10 +1027,15 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
+>  		mpam_write_monsel_reg(msc, CSU, 0);
+>  		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+>  		break;
+> -	case mpam_feat_msmon_mbwu:
+> +	case mpam_feat_msmon_mbwu_44counter:
+> +	case mpam_feat_msmon_mbwu_63counter:
+> +		mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
+> +		fallthrough;
+> +	case mpam_feat_msmon_mbwu_31counter:
+>  		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
+>  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
+>  		mpam_write_monsel_reg(msc, MBWU, 0);
+
+Already zeroed if it's a long counter.
+
+> +
+>  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+>  
+>  		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
+[...]
+> +static enum mpam_device_features mpam_msmon_choose_counter(struct mpam_class *class)
+> +{
+> +	struct mpam_props *cprops = &class->props;
+> +
+> +	if (mpam_has_feature(mpam_feat_msmon_mbwu_44counter, cprops))
+> +		return mpam_feat_msmon_mbwu_44counter;
+
+This should check the longest counter first.
+
+> +	if (mpam_has_feature(mpam_feat_msmon_mbwu_63counter, cprops))
+> +		return mpam_feat_msmon_mbwu_63counter;
+> +
+> +	return mpam_feat_msmon_mbwu_31counter;
+> +}
+> +
+-- 
+Thanks,
+
+Ben
+
 
