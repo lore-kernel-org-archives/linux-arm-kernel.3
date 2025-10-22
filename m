@@ -4,87 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE2ECCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 06:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0026CCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 06:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VrTdEMBjb9J8SLRrC3vLxTtsIJrVCIippWcA6vJQ+Sc=; b=AcqS7xuhzLEd2i9ifJPe+3+qow
-	BUOtXEVrSW2CNxJGI3LjkOTweGf704pX730H5IWLV7gQNDDzaDtxQVGLdLNaaiO6wu18E6mW73Be1
-	6mh81cUULmco/fOiYrracBdMhoaUYyWXj1c0svcmpOutJ0ZNFrHDesae1X6MkTQ7DMu+4NlLGboZ0
-	+JPMFbbkpfCQcRU/IxCMbDiURVkiNB7y7aP7sqF/fKuTcBriD0BAd9NMtxIMM1JfocsdkJoq46j9a
-	eDz9+7/RXdfyQpL9FRM1g+g8o8JU8T1qQln+lhLsKzGMPvMaZhRQWlgRE8M4e0B3bXRGq7XRQBlCk
-	U2lgIT1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Blztc9HHMHucT+cy0nx3zuiTMaYFTwkTZftIDciBVXk=; b=KchRKOKvf/RnnwnObsHwPErKmz
+	CMMGudHHEhqI3ad87dMlB9dtANTIvEmCynZM/SPxshxY2EOMn6QsRfcaezO5GTTCpCeyGtAXPIoWM
+	/xT5Tm9Rjti6PL4nImcZgUz6pEio5iX89k/9G5kPIWpNyLxISJRrtK0h6KGShHRwTZye7TOMGCvk6
+	qv8uTgXKVVhXN/8hPqjVkguaicV1lVAc4h51bxGhfzcHgVXOLs1sIc73Q9Gr2DTqtT5Jigm5vxCOy
+	4Gcu16BIwl5BK9TFH2RWvIoW6ebuuIf5kbvkSQcu4Z4Uiu/rkSVt6lPXX/bqjLhVDsUcwW2kYmOm5
+	suvQ4K0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSlv-00000001kUa-17X0;
-	Wed, 22 Oct 2025 06:56:35 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1vBSoL-00000001lAX-20hT;
+	Wed, 22 Oct 2025 06:59:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSlt-00000001kTP-1Y2g;
-	Wed, 22 Oct 2025 06:56:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761116176; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=YSmM6fHht8tI+Hs+g3L2P7wAvCYMuoBQzlDwjFWZUc/615269p6rktPjsz9WB8gsEUaznRxJERQb24bpRaDKzrdYcYK/BCP1fRoIYIkHbZNCFroSJYoM4xkKGX8PfngiOOsW0lddLPUDC1+owWVcPmBpreXcSajaAPpWDQig0LU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761116176; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=VrTdEMBjb9J8SLRrC3vLxTtsIJrVCIippWcA6vJQ+Sc=; 
-	b=YfK9QluAXmmxX9kSbNdrBDhfxEV3S7KtbwKeNmyucgOl6EReqAb680Mf1fsYYidgwmbXUaJa/snr9j3FJNMtpJ6W7cHRjv0HL6imBTobge1AE1HrufuX0SxByyu2DIYaZ8AbqYWpBNeNuuGnJ/OhK2oHeTPzGZcLBH8xvMlJ22A=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sjoerd@collabora.com;
-	dmarc=pass header.from=<sjoerd@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761116176;
-	s=zohomail; d=collabora.com; i=sjoerd@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=VrTdEMBjb9J8SLRrC3vLxTtsIJrVCIippWcA6vJQ+Sc=;
-	b=ab3jiVYYnku8HtA+3wdNILGqr/Nsdqmzhy2eGZ8glKkkzc7JF7u3I+5iDVjER+Bb
-	1DdPzxEQm91Xm/GFKyO5TQc1PulKRvfSCTQEK6kd9ql9kv13uKykLZYEgcU187WjO36
-	MjOUNnri8IEPm+Eg119HPZMSnnqIwv1mH6NjzZ8A=
-Received: by mx.zohomail.com with SMTPS id 17611161732831018.5532421915162;
-	Tue, 21 Oct 2025 23:56:13 -0700 (PDT)
-Message-ID: <9280864d0eba182d06d1e191fdc0aad1fb4ce5b3.camel@collabora.com>
-Subject: Re: [PATCH 12/15] arm64: dts: mediatek: mt7981b-openwrt-one: Enable
- Ethernet
-From: Sjoerd Simons <sjoerd@collabora.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Eric Woudstra <ericwouds@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>,
- Ryder Lee <ryder.lee@mediatek.com>,  Jianjun Wang
- <jianjun.wang@mediatek.com>, Bjorn Helgaas <bhelgaas@google.com>, Lorenzo
- Pieralisi	 <lpieralisi@kernel.org>, Krzysztof =?UTF-8?Q?Wilczy=C5=84ski?=	
- <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Chunfeng
- Yun	 <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, Kishon
- Vijay Abraham I <kishon@kernel.org>, Lee Jones <lee@kernel.org>, Andrew
- Lunn <andrew+netdev@lunn.ch>,  "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Lorenzo Bianconi <lorenzo@kernel.org>, Felix
- Fietkau <nbd@nbd.name>, 	kernel@collabora.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, 	linux-pci@vger.kernel.org,
- linux-phy@lists.infradead.org, netdev@vger.kernel.org,  Daniel Golle
- <daniel@makrotopia.org>, Bryan Hinton <bryan@bryanhinton.com>
-Date: Wed, 22 Oct 2025 08:56:06 +0200
-In-Reply-To: <fd52be11-ccff-4f34-b86b-9c2f9f485756@lunn.ch>
-References: <20251016-openwrt-one-network-v1-0-de259719b6f2@collabora.com>
-	 <20251016-openwrt-one-network-v1-12-de259719b6f2@collabora.com>
-	 <4f82aa17-1bf8-4d72-bc1f-b32f364e1cf6@lunn.ch>
-	 <8f5335a703905dea9d8d0c1840862a3478da1ca7.camel@collabora.com>
-	 <fd52be11-ccff-4f34-b86b-9c2f9f485756@lunn.ch>
-Organization: Collabora
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-5 
+	id 1vBSoJ-00000001l8t-1who;
+	Wed, 22 Oct 2025 06:59:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DE45962866;
+	Wed, 22 Oct 2025 06:59:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8AEC0C116B1;
+	Wed, 22 Oct 2025 06:59:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761116342;
+	bh=tz1GN08S5uBHLdjHa0/ozlnw2WRGrO+4LkQLFLPDiG8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=r9hurdRub6sjGdNeStvNxLamcg5Bb540sE3Ej4LbE+9a9CKMk7vEQmem67Aoy80vZ
+	 t0DNgRy3fMrNbD53L7H7QEgtAxv4d7dz4CsmqJYjZitDRXIfbJ3ZyrdeosV5lNqsVD
+	 QG0k8rEUoUsDoqJAnsYTIsf21RGjIJBC14+4h6UOsYzMEV2MRedVKHsRDtnpnxjXQg
+	 7SfRpc1mwq6zs+cL/WX1a8Y5jA1wT1kcToeTteC2njzVlIkm0vK8kRQjFaQWX9uhJt
+	 rG8yLaRsefFrhvB2WmucpJv3YVAiVhUafBRqZTdAFasf6rjaAVKx3W6nlMnkxe3OT7
+	 wGK3NrujhwxJg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 81C64CCF9E0;
+	Wed, 22 Oct 2025 06:59:02 +0000 (UTC)
+From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Date: Wed, 22 Oct 2025 14:58:53 +0800
+Subject: [PATCH 3/3] clk: amlogic: Correct l_detect bit control
 MIME-Version: 1.0
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_235633_488153_A41B8835 
-X-CRM114-Status: GOOD (  16.45  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251022-optimize_pll_driver-v1-3-a275722fb6f4@amlogic.com>
+References: <20251022-optimize_pll_driver-v1-0-a275722fb6f4@amlogic.com>
+In-Reply-To: <20251022-optimize_pll_driver-v1-0-a275722fb6f4@amlogic.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Chuan Liu <chuan.liu@amlogic.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761116340; l=2616;
+ i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
+ bh=Dv3cPzZdf9Puk7bgGlGkCfNCiEdGxmv1X3Nj/+D8POg=;
+ b=BHhN2TDgNFvv/uGPJJpyLvmLNfv+ZEmzL2S9sXilJFfhJvBFD6R+79Z2raY7XQiQGmLbIXNag
+ V96WVa094xKBAJKEsbT4Kw52S5AzhIJN0wziJopr6yAfXB1pIQvlO+K
+X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
+ pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
+X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
+ auth_id=203
+X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,48 +83,87 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-10-21 at 22:40 +0200, Andrew Lunn wrote:
-> On Tue, Oct 21, 2025 at 10:21:31PM +0200, Sjoerd Simons wrote:
-> > On Fri, 2025-10-17 at 19:31 +0200, Andrew Lunn wrote:
-> > > > +&mdio_bus {
-> > > > +	phy15: ethernet-phy@f {
-> > > > +		compatible =3D "ethernet-phy-id03a2.a411";
-> > > > +		reg =3D <0xf>;
-> > > > +		interrupt-parent =3D <&pio>;
-> > > > +		interrupts =3D <38 IRQ_TYPE_EDGE_FALLING>;
-> > >=20
-> > > This is probably wrong. PHY interrupts are generally level, not edge.
-> >=20
-> > Sadly i can't find a datasheet for the PHY, so can't really validate th=
-at
-> > easily.
->=20
-> What PHY is it? Look at the .handle_interrupt function in the
-> driver. If the hardware supports a single interrupt bit, it could in
-> theory support edge. However, as soon as you have multiple bits, you
-> need level, to avoid races where an interrupt happens while you are
-> clearing other interrupts.
+From: Chuan Liu <chuan.liu@amlogic.com>
 
-ethernet-phy-id03a2.a411 is Airoha EN8811H (air_en8811h driver). Handle
-interrupt there seems to just be a general interrupt clear followed by a
-`phy_trigger_machine`. It doesn't seem to read specific interrupt status.=
-=20
+l_detect controls the enable/disable of the PLL lock-detect module.
 
-Testing with IRQ_TYPE_LEVEL_LOW does seem to work as expected and results i=
-n
-detecting 4 interrupts rather then just 1 with edges when enabling the
-interface. However I'm not sure what can be concluded from that if anything=
- :)..
-=C2=A0
-I can stick a scope on the line in the coming days to see how the interrupt=
- line
-behaves if interrupts aren't cleared, which may clarify things.
-=20
+For A1, the l_detect signal is active-low:
+0 -> Enable lock-detect module;
+1 -> Disable lock-detect module.
 
---=20
-Sjoerd Simons
-Collabora
+Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+---
+ drivers/clk/meson/a1-pll.c  |  1 +
+ drivers/clk/meson/clk-pll.c | 16 ++++++++++++----
+ drivers/clk/meson/clk-pll.h |  2 ++
+ 3 files changed, 15 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/clk/meson/a1-pll.c b/drivers/clk/meson/a1-pll.c
+index 1f82e9c7c14e..bfe559c71402 100644
+--- a/drivers/clk/meson/a1-pll.c
++++ b/drivers/clk/meson/a1-pll.c
+@@ -137,6 +137,7 @@ static struct clk_regmap a1_hifi_pll = {
+ 		.range = &a1_hifi_pll_range,
+ 		.init_regs = a1_hifi_pll_init_regs,
+ 		.init_count = ARRAY_SIZE(a1_hifi_pll_init_regs),
++		.flags = CLK_MESON_PLL_L_DETECT_N
+ 	},
+ 	.hw.init = &(struct clk_init_data){
+ 		.name = "hifi_pll",
+diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
+index 26c83db487e8..602c93aba3cc 100644
+--- a/drivers/clk/meson/clk-pll.c
++++ b/drivers/clk/meson/clk-pll.c
+@@ -384,8 +384,12 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
+ 		meson_parm_write(clk->map, &pll->rst, 1);
+ 
+ 	/* Disable the PLL lock-detect module */
+-	if (MESON_PARM_APPLICABLE(&pll->l_detect))
+-		meson_parm_write(clk->map, &pll->l_detect, 1);
++	if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
++		if (pll->flags & CLK_MESON_PLL_L_DETECT_N)
++			meson_parm_write(clk->map, &pll->l_detect, 1);
++		else
++			meson_parm_write(clk->map, &pll->l_detect, 0);
++	}
+ 
+ 	/* Enable the pll */
+ 	meson_parm_write(clk->map, &pll->en, 1);
+@@ -413,8 +417,12 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
+ 	udelay(20);
+ 
+ 	/* Enable the lock-detect module */
+-	if (MESON_PARM_APPLICABLE(&pll->l_detect))
+-		meson_parm_write(clk->map, &pll->l_detect, 0);
++	if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
++		if (pll->flags & CLK_MESON_PLL_L_DETECT_N)
++			meson_parm_write(clk->map, &pll->l_detect, 0);
++		else
++			meson_parm_write(clk->map, &pll->l_detect, 1);
++	}
+ 
+ 	if (meson_clk_pll_wait_lock(hw)) {
+ 		/* disable PLL when PLL lock failed. */
+diff --git a/drivers/clk/meson/clk-pll.h b/drivers/clk/meson/clk-pll.h
+index 949157fb7bf5..83295a24721f 100644
+--- a/drivers/clk/meson/clk-pll.h
++++ b/drivers/clk/meson/clk-pll.h
+@@ -29,6 +29,8 @@ struct pll_mult_range {
+ 
+ #define CLK_MESON_PLL_ROUND_CLOSEST	BIT(0)
+ #define CLK_MESON_PLL_NOINIT_ENABLED	BIT(1)
++/* l_detect signal is active-low */
++#define CLK_MESON_PLL_L_DETECT_N	BIT(2)
+ 
+ struct meson_clk_pll_data {
+ 	struct parm en;
+
+-- 
+2.42.0
+
+
 
