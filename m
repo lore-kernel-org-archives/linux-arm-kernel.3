@@ -4,94 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0373CCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:01:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F5ECCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JyR5VW+NAmVdJ0hvRREYbhuTAh8CBmPExIybD/RpDM0=; b=zaj++k4V0KO7UFbddzQFNOquT1
-	gh9ckqPT1qxeDI1XFNQZKbo+TZGq1P5da5d/uBzepRvOvk41XXbq5EHqc2c9RWVCCVOmI80nnhk+x
-	pszC1+sz+mz4IVHDsDSlLoAJBH5rPpcDmcODvoAVQ2p5IJtJhdCdugs+UmtoBCGNvjYAGm5wf0pyx
-	hHniHEV7A2EwtkVcENYGa9Wvpe1QUYoUSNLY18MrCaZ1HQV16Gg9DOOuaxv7X4LwwTBgsFIpM8nlx
-	6f3FmGP7mcLZfxdwLn19vIaFpJh6Yi0cemCDVqmIHa3bdpn6MiuisgMxKCy6VIeCLEdwA5r0Fvmq9
-	CtYv1V9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EBT8mdGkZMhubx3+PF0HBbvtvo57PUFO+I9TYpkyhbw=; b=nDrDUe42DhjuJnqMpWmgt/TQZQ
+	03fC4yW2DHD2r2jsY/1QBo24hMgvDGfXpMvepHoht/RMkt0L54OVaX3y0Qen5eXaj7x198J3Gjd7P
+	zgbL2BPo8UaTZ+TOg4WK+v1/mJDrzhcX6czTRN6K7oSwJkDUAguB7XgXCYItarlPqHlOviFujMgri
+	y69U04NFi6HuSF730H2C2UppXCqpeIdJHay1/H9WSLGy7VU623DjzM589mk2vBGCIYdai3kMFWYrj
+	fR3macy7r/JlOKezAVKmkJlNvbg7+uTE6jBO4IsLQ7NDU+cS5N9jCo9WWhHvIU0UVAYQ2Qp/UAIiu
+	VPv53ocg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBXWi-00000002jhx-1iPe;
-	Wed, 22 Oct 2025 12:01:13 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1vBXZU-00000002kCj-3h1h;
+	Wed, 22 Oct 2025 12:04:04 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBXWe-00000002jgE-3BIP
+	id 1vBXZR-00000002kBi-2Gs3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 12:01:10 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3ecdf2b1751so4109853f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 05:01:08 -0700 (PDT)
+	Wed, 22 Oct 2025 12:04:03 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-427084a641aso3318078f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 05:04:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1761134467; x=1761739267; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JyR5VW+NAmVdJ0hvRREYbhuTAh8CBmPExIybD/RpDM0=;
-        b=hnJPX0iweU+zHBl1Ix1g9/LJWqwIgROgcdt7zjyh3Xb/y58QeykGXSeVQFA5ZiDUJE
-         7e9pORbDzPe1tRDzid4imi+QwyJFDD5zw+O6aGH64toLYj5p1JlAsniSZbXDFKnVIZ7e
-         meqmAmK3M+JxGYcjIZp4xknN07lDA/Iv1tK/JamRnbb45bgVaIzn0AHb6ZviE6VadH5R
-         +/5S5EdmVtLEdkHdRU9uKiHv87a2pJrDIOBQrWsDqWG6yjbcllQ2SApS+OzTa5H/meYg
-         NH6pGjSHntTShakqoigwHtFsxYy5Ewaym/Qlp6dSlEWIGprkSE+xUJC8MHYF1XpVT9LL
-         o6/w==
+        d=linaro.org; s=google; t=1761134639; x=1761739439; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=EBT8mdGkZMhubx3+PF0HBbvtvo57PUFO+I9TYpkyhbw=;
+        b=SxsSFhgG8NHU/WMmqdfXMq8owBnmbZTpq62L3gUmtyqM2JmyaLoBhahSGsVaacRXC4
+         4jrylU/+FJVdLnS9E4rw72bUVEsJs0yeQ2OmzQWp2hZfyMdlwsE8haCRK0gIEETPskRl
+         9KfU4HsJdxCDHoUchmoba2O8WnC4S7SzMCTWjrBkZG4gkkLAYKCpq58Unb0tVHzfrqMc
+         k0xVio/DqUT53wereu24kRRbnk8/lHetrdvSu8D7cEspGglsFNagIsnY1OdMnr87jsHJ
+         +rMrjk5Xbo0mPhdGt2yBUarfQ0Sk4qFW/O1B9ieGCjVGqOJaPDhdrCwK3S0iIe++5Cjd
+         Rb3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761134467; x=1761739267;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=JyR5VW+NAmVdJ0hvRREYbhuTAh8CBmPExIybD/RpDM0=;
-        b=p5JMYeuEBH7H2g5QT05iSXcoL47Rpgg2lWNSBYvqO6giD185Z4GP4x5B8E+s+TtCB0
-         1KFbmtPddoR0Z/fm0Y8WQYnYxqvwjxGH/fbIb0EOevmYpeBKvNmLQ9MgPJSiA/ZgTn1S
-         SkVNKMh78Wsyj7tn0w0VHZX7R3zbKcx0GG+FKKdUwppPNQwhVRuUpZ/VUJwVvhhKtd8k
-         wFV1MR/9KWvflQULfL9N5f7Q25fmj7PNjcY41wMPZAPn+Y5O9mKTZtq2u8/vLqLzynYS
-         z4VNfcW6k+/EzXju1pfTSwvSlYajHmwa7ilaMAUREIeWjgwf7VRmVcZpeQf5n1omFkg+
-         Em+A==
-X-Forwarded-Encrypted: i=1; AJvYcCWXSs1N7nArked4SWWmYy8nZIz14ngNIYBIiUXSCJHKzlRC4bxnnKc64AA8I/u6T4iJPqjSvXbJT1v1ohQvDVs/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrGOxETzVMoExHshjMbTOeFUPN6J04I+n4m/0xnQKOeTE7U7Oi
-	tW++7D5Pwq6CydlWTzPmPjWoEp2uUS34k3HTI4jfYJ0hbuywgMCbXVl813wv6gYOLqw=
-X-Gm-Gg: ASbGnct/G4c07pm7JslN8d8Kqf/UR7tDoUBQjL6T3+T0/MzCSv670DTzPiJaqMcn3TU
-	cTaaAQy5P9cwAs15p4Os7/zeC3s2Gr3eyXKWD3Rf+EkUV3zIG4ao55cXGUzfWJVOSkZHj2e4oYI
-	wDgGkoWRrl6RxjxDGerK7VXCPZB1qEOv6sLQOp/PKFPeT0mr6/d2yZWt7kgVyXxBdgaRE3joFDZ
-	+aFhHr2oKCrUkV1kxFT0pXpKIxbZd2mVZWFofltVXTJIY9m8iR5X2O4dQ+4MO+BBlHYljVjwz40
-	Iua/V43DNBJmXEcIpyxe+Udy4YW7q2YWKL1ZetVJB0ovGpu4hm5CxmUY1WNfr16wtPpIsBm0Kfz
-	pvKMSX3NWfK5LKglevUkiP4NLJP/tMVEM+2JF1tCOkVbPtkmoqUeIqySyHbWE1pscAMTtiDOXsT
-	c=
-X-Google-Smtp-Source: AGHT+IHbsKbAfuuLVLCAlwiAoOjeCSzSKz7jOyG6Tnh4cKgyrUKbbUqK56xJxiIvGc2SH5FLobbRRQ==
-X-Received: by 2002:a5d:5f94:0:b0:425:856f:70ff with SMTP id ffacd0b85a97d-42704d99cf6mr15941694f8f.45.1761134466809;
-        Wed, 22 Oct 2025 05:01:06 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:bdae:f4f4:58be:ea26])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-427f009a797sm24998630f8f.27.2025.10.22.05.01.06
+        d=1e100.net; s=20230601; t=1761134639; x=1761739439;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=EBT8mdGkZMhubx3+PF0HBbvtvo57PUFO+I9TYpkyhbw=;
+        b=u0g5hT/NnvSiAHx904kEt/nITJqOujSNj27DeYmhXPZcAFMWsGrHPDvBO311ARimiM
+         kg+A+xRK5x/iD+jSIz0Djq06KEjj2V++1QbioqSGmvjc/Ys6Rezqw/VOCr3lh96UA64H
+         776CPoFWTU+zcoxmGkf4H4IJgy0yczGwSS8HfM2hyxPNF6VKn3KZ/1A7P0vwGdCx3+3C
+         66rQRWY5Fd9/2oKo6EvxnxqwQe6s5zinCrYOEkB0rEZj7IZdSRXETPkaiq+9sWstincE
+         CelvarUQFRQbe6eY3LhyHYb6ptjhMAZFvGab/dwZw2SSOv2rFiFo4NjuybdQrlNFtzkc
+         2qyw==
+X-Forwarded-Encrypted: i=1; AJvYcCUxd3rYYO4AFBnoirzONgmcXzuIhaiMYtfquJpF/AP8tF/Roc7RSxDD1cz47XCP/1KEAQLoaV++2RhoXukLzmPH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVFBwbF6VANfeuMTjSH/OBIGX/TLVN3BNrf9R0aqkXukqmhnV3
+	VnQQBAm4c02sSSRH6Y4yaI+XmqwwVtSDUcUZ96ZWTafrQHXgn261bssV8v4k/uA0Wqs=
+X-Gm-Gg: ASbGncuwwtehihLEEUraBbm5l5b2hcbTE6JZFw8OjLFIW2nQCEEXGO4GJgnTrYYNZ+v
+	vixrGclWO9CZN63kka2Gz+sLZYP5TR6YjEOTuwqAlSAeARCVKbCt3vBHixt0gzPgvlnPeMtDypJ
+	WNCUprop8e6Z0lSgZyPDY3B0ESDug/hewAvM3MaHMJDPEpNHQYY9dSp2YWaa/SjyUJ7G3kM6f+L
+	ay9/IL44FWNLfulfadbUl8S9ZFkKdSfBl9nws/mz27oq8nMj+heNa09e9IfE/2gJKZWYH8rWW7q
+	SZVXqHQ/ygLQH8BnFhmMGtuIBdIH2gxRRoK7f7KUFg06oM9FWlD/SxS7VFZ+SpGoK9cOcD4k4B9
+	A/2MbYnFevARdKM6xO6pkQxzZqYNUUM5ZPWerYOXOOhouw9MmccQ6OU4Yohy9Uqnp5K8yxkcRAh
+	rSlQfRxw==
+X-Google-Smtp-Source: AGHT+IGK45Cu7R7RqMblJ0H20sOThyXTHE0mGsTieR9rpgEJC68Mu7KEhV/qc0jaopljgaHcbYAevQ==
+X-Received: by 2002:a05:6000:428a:b0:428:3cd7:a336 with SMTP id ffacd0b85a97d-4283cd7a3a7mr11330553f8f.63.1761134639094;
+        Wed, 22 Oct 2025 05:03:59 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-427f009a78csm25019851f8f.26.2025.10.22.05.03.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Oct 2025 05:01:06 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,  Michael Turquette
- <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,  Kevin Hilman
- <khilman@baylibre.com>,  Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,  chuan.liu@amlogic.com,
-  linux-amlogic@lists.infradead.org,  linux-clk@vger.kernel.org,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] clk: amlogic: Optimize PLL enable timing
-In-Reply-To: <20251022-optimize_pll_driver-v1-2-a275722fb6f4@amlogic.com>
-	(Chuan Liu via's message of "Wed, 22 Oct 2025 14:58:52 +0800")
-References: <20251022-optimize_pll_driver-v1-0-a275722fb6f4@amlogic.com>
-	<20251022-optimize_pll_driver-v1-2-a275722fb6f4@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Wed, 22 Oct 2025 14:01:05 +0200
-Message-ID: <1j347b403i.fsf@starbuckisacylon.baylibre.com>
+        Wed, 22 Oct 2025 05:03:58 -0700 (PDT)
+Date: Wed, 22 Oct 2025 14:05:28 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Bjorn Andersson <andersson@kernel.org>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel-janitors@vger.kernel.org
+Subject: [PATCH] remoteproc: mtk_scp:  remove unnecessary checking
+Message-ID: <aPi6eBlFLH43A4C0@stanley.mountain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_050109_661663_9B3E1435 
-X-CRM114-Status: GOOD (  27.19  )
+X-CRM114-CacheID: sfid-20251022_050401_609651_82AA0C60 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,148 +100,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed 22 Oct 2025 at 14:58, Chuan Liu via B4 Relay <devnull+chuan.liu.amlo=
-gic.com@kernel.org> wrote:
+The kernel implementation of snprintf() cannot return negative error
+codes.  Also these particular calls to snprintf() can't return zero
+and the code to handle a zero return is sort of questionable.  Just
+delete this impossible code.
 
-> From: Chuan Liu <chuan.liu@amlogic.com>
->
-> Amlogic PLL locking procedure shall follow this timing sequence:
-> 1 Assert reset signal: Ensures PLL circuits enter known initial state.
-> 2 Deassert lock-detect signal: Avoid lock signal false triggering.
-> 3 Assert enable signal: Powers up PLL supply.
-> 4 udelay(20): Wait for Bandgap and LDO to power up and stabilize.
-> 5 Enable self-adaptation current module (Optional).
-> 6 Deassert reset signal: Releases PLL to begin normal operation.
-> 7 udelay(20): Wait for PLL loop stabilization.
-> 8 Assert lock-detect signal: lock detection circuit starts to work.
-> 9 Monitor lock status signal: Wait for PLL lock completion.
-> 10 If the PLL fails to lock, it should be disabled, This makes the
-> logic more complete, and also helps save unnecessary power consumption
-> when the PLL is malfunctioning.
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/remoteproc/mtk_scp.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-Is this applicable to all supported SoC ? from meson8 to s4 ?
+diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
+index 10e3f9eb8cd2..9b624948a572 100644
+--- a/drivers/remoteproc/mtk_scp.c
++++ b/drivers/remoteproc/mtk_scp.c
+@@ -1127,11 +1127,9 @@ static const char *scp_get_default_fw_path(struct device *dev, int core_id)
+ 		return ERR_PTR(-EINVAL);
+ 
+ 	if (core_id >= 0)
+-		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id);
++		snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id);
+ 	else
+-		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp");
+-	if (ret <= 0)
+-		return ERR_PTR(ret);
++		snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp");
+ 
+ 	/* Not using strchr here, as strlen of a const gets optimized by compiler */
+ 	soc = &compatible[strlen("mediatek,")];
+-- 
+2.51.0
 
-What did you test ?
-
-
->
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-> ---
->  drivers/clk/meson/clk-pll.c | 68 ++++++++++++++++++++++++++-------------=
-------
->  1 file changed, 40 insertions(+), 28 deletions(-)
->
-> diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
-> index b07e1eb19d12..26c83db487e8 100644
-> --- a/drivers/clk/meson/clk-pll.c
-> +++ b/drivers/clk/meson/clk-pll.c
-> @@ -353,6 +353,23 @@ static int meson_clk_pcie_pll_enable(struct clk_hw *=
-hw)
->  	return -EIO;
->  }
->=20=20
-> +static void meson_clk_pll_disable(struct clk_hw *hw)
-> +{
-> +	struct clk_regmap *clk =3D to_clk_regmap(hw);
-> +	struct meson_clk_pll_data *pll =3D meson_clk_pll_data(clk);
-> +
-> +	/* Put the pll is in reset */
-> +	if (MESON_PARM_APPLICABLE(&pll->rst))
-> +		meson_parm_write(clk->map, &pll->rst, 1);
-> +
-> +	/* Disable the pll */
-> +	meson_parm_write(clk->map, &pll->en, 0);
-> +
-> +	/* Disable PLL internal self-adaption current module */
-> +	if (MESON_PARM_APPLICABLE(&pll->current_en))
-> +		meson_parm_write(clk->map, &pll->current_en, 0);
-> +}
-
-I don't get why you moved that code around and make the diff even harder
-to read
-
-> +
->  static int meson_clk_pll_enable(struct clk_hw *hw)
->  {
->  	struct clk_regmap *clk =3D to_clk_regmap(hw);
-> @@ -366,53 +383,48 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
->  	if (MESON_PARM_APPLICABLE(&pll->rst))
->  		meson_parm_write(clk->map, &pll->rst, 1);
->=20=20
-> +	/* Disable the PLL lock-detect module */
-> +	if (MESON_PARM_APPLICABLE(&pll->l_detect))
-> +		meson_parm_write(clk->map, &pll->l_detect, 1);
-> +
->  	/* Enable the pll */
->  	meson_parm_write(clk->map, &pll->en, 1);
-> -
-> -	/* Take the pll out reset */
-> -	if (MESON_PARM_APPLICABLE(&pll->rst))
-> -		meson_parm_write(clk->map, &pll->rst, 0);
-> +	/* Wait for Bandgap and LDO to power up and stabilize */
-> +	udelay(20);
->=20=20
->  	/*
->  	 * Compared with the previous SoCs, self-adaption current module
->  	 * is newly added for A1, keep the new power-on sequence to enable the
->  	 * PLL. The sequence is:
-> -	 * 1. enable the pll, delay for 10us
-> +	 * 1. enable the pll, ensure a minimum delay of 10=CE=BCs
->  	 * 2. enable the pll self-adaption current module, delay for 40us
->  	 * 3. enable the lock detect module
->  	 */
->  	if (MESON_PARM_APPLICABLE(&pll->current_en)) {
-> -		udelay(10);
->  		meson_parm_write(clk->map, &pll->current_en, 1);
-> -		udelay(40);
-> -	}
-> -
-> -	if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
-> -		meson_parm_write(clk->map, &pll->l_detect, 1);
-> -		meson_parm_write(clk->map, &pll->l_detect, 0);
-> +		udelay(20);
->  	}
->=20=20
-> -	if (meson_clk_pll_wait_lock(hw))
-> -		return -EIO;
-> +	/* Take the pll out reset */
-> +	if (MESON_PARM_APPLICABLE(&pll->rst))
-> +		meson_parm_write(clk->map, &pll->rst, 0);
->=20=20
-> -	return 0;
-> -}
-> +	/* Wait for PLL loop stabilization */
-> +	udelay(20);
->=20=20
-> -static void meson_clk_pll_disable(struct clk_hw *hw)
-> -{
-> -	struct clk_regmap *clk =3D to_clk_regmap(hw);
-> -	struct meson_clk_pll_data *pll =3D meson_clk_pll_data(clk);
-> +	/* Enable the lock-detect module */
-> +	if (MESON_PARM_APPLICABLE(&pll->l_detect))
-> +		meson_parm_write(clk->map, &pll->l_detect, 0);
->=20=20
-> -	/* Put the pll is in reset */
-> -	if (MESON_PARM_APPLICABLE(&pll->rst))
-> -		meson_parm_write(clk->map, &pll->rst, 1);
-> +	if (meson_clk_pll_wait_lock(hw)) {
-> +		/* disable PLL when PLL lock failed. */
-> +		meson_clk_pll_disable(hw);
-> +		pr_warn("%s: PLL lock failed!!!\n", clk_hw_get_name(hw));
->=20=20
-> -	/* Disable the pll */
-> -	meson_parm_write(clk->map, &pll->en, 0);
-> +		return -EIO;
-> +	}
->=20=20
-> -	/* Disable PLL internal self-adaption current module */
-> -	if (MESON_PARM_APPLICABLE(&pll->current_en))
-> -		meson_parm_write(clk->map, &pll->current_en, 0);
-> +	return 0;
->  }
->=20=20
->  static int meson_clk_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-
---=20
-Jerome
 
