@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D37F3CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71DB0CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=leTG8eQL2d1TJ+ZkjUXd68HfBJsD5TPizgYkX6kdZYY=; b=I/1xQqXdIwFqlSjccADPAsyr6v
-	VNOMVLfZNWx+QRpUx2kBqUivFNJXQU6l9uLqLP7kR9YHFGjJCShONhp3zUUMOqDG4hJtbLrmG1Q12
-	gMFp4t9iXIM6onjwnjBR4cXyV3Kd7HjhRCqeAeXS8konm749MXIeRe5NWTKMmH9X1usGaoVr5rrOT
-	Q2pUVi1kzMoxMyQE1RMDE3pLsB62El4uVTrBZp0fNzIBifvXzy/ABUUG/DK/dmjdHf4GYIMuxexdP
-	pjDeOcMExcsoT+62304SDMCZQKFKLdovgqndIx2r20sMvqOM6pkI1ZI6aSFI4n4s79N0beLfHyolj
-	m4DHBB2Q==;
+	bh=IRzW4TIfXqA8U8VyFhl4a5nR+JpRyPOHWAWMvoNSBog=; b=P8upCxUVRXEE0AI5Xsz4OG1Gzs
+	q0JU6597EAA/rhj3y9FfO4JjjkRnhiR07DQ6uFXabrvb+OWcJu2dkOMrGEQsqDocB0A4No8hnYWdB
+	KbtvH7fbp6LNtAbLYldMNud6KwHReFfw/Gp98Ad7Qi5YDhkEBLQURSgBdzS612/XLrUTLUSuiBR/g
+	BnBk08HW6Nb07lrO84dCM8phQ3XK+zrGPmYqx3INjQIb23u+LCBhHE6/232+vkWkOtH0F23tDWxVy
+	B9G1HX2WhgrxKLdrbPMfLeq/dzaf+AocIvxN5k7peK+zPTKci3vriQcnNhLytIZJTfPu5sfKYxA9X
+	AAziCBNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBVQq-00000002JXF-0ImI;
-	Wed, 22 Oct 2025 09:47:00 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1vBVW7-00000002K2M-3jbb;
+	Wed, 22 Oct 2025 09:52:27 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBVQk-00000002JVd-0cNA
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 09:46:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1761126411; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=leTG8eQL2d1TJ+ZkjUXd68HfBJsD5TPizgYkX6kdZYY=;
-	b=lejdTTWjyOeDXaFrUZDxnnE7kH6QxLl3cYZr0eXW5EMBo2grkiWY4tk8ys2I8E1XjS6WRG7GyZFFeybipzt3NGzOQZkpjjwduvpAHddyEuJkAIAnJvjEGKJTxI9N14WNIarmT/WJPbr7Q3iSV5FAZO+Q1tGy5bLNRxPFRuZOCdw=
-Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WqmS8Fc_1761126408 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 22 Oct 2025 17:46:49 +0800
-From: "Huang, Ying" <ying.huang@linux.alibaba.com>
-To: Barry Song <21cnbao@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
- <will@kernel.org>,  Andrew Morton <akpm@linux-foundation.org>,  David
- Hildenbrand <david@redhat.com>,  Lorenzo Stoakes
- <lorenzo.stoakes@oracle.com>,  Vlastimil Babka <vbabka@suse.cz>,  Zi Yan
- <ziy@nvidia.com>,  Baolin Wang <baolin.wang@linux.alibaba.com>,  Ryan
- Roberts <ryan.roberts@arm.com>,  Yang Shi <yang@os.amperecomputing.com>,
-  "Christoph Lameter (Ampere)" <cl@gentwo.org>,  Dev Jain
- <dev.jain@arm.com>,  Anshuman Khandual <anshuman.khandual@arm.com>,
-  Yicong Yang <yangyicong@hisilicon.com>,  Kefeng Wang
- <wangkefeng.wang@huawei.com>,  Kevin Brodsky <kevin.brodsky@arm.com>,  Yin
- Fengwei <fengwei_yin@linux.alibaba.com>,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  linux-mm@kvack.org
-Subject: Re: [PATCH -v2 2/2] arm64, tlbflush: don't TLBI broadcast if page
- reused in write fault
-In-Reply-To: <CAGsJ_4zKGS-Xd-58ufXGoyRfaZWd8wTgv0b6ibHJ2aS14mQqtw@mail.gmail.com>
-	(Barry Song's message of "Wed, 22 Oct 2025 22:37:54 +1300")
-References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
-	<20251013092038.6963-3-ying.huang@linux.alibaba.com>
-	<CAGsJ_4xaA8QRjP9H=n1hQfEfGop7vOd5Y=J+KQzuOyfa8GK-kQ@mail.gmail.com>
-	<87a51jfl44.fsf@DESKTOP-5N7EMDA>
-	<CAGsJ_4zPH0fwBOLQwh1y6jG3tCXHLGRCTyVVSCWb+NfLCEMV0Q@mail.gmail.com>
-	<871pmv9unr.fsf@DESKTOP-5N7EMDA>
-	<CAGsJ_4zW6ogVdi=t9JCuvGD9N21mA_ORXRCakw4Av68d9n+DDw@mail.gmail.com>
-	<875xc78es0.fsf@DESKTOP-5N7EMDA>
-	<CAGsJ_4zKGS-Xd-58ufXGoyRfaZWd8wTgv0b6ibHJ2aS14mQqtw@mail.gmail.com>
-Date: Wed, 22 Oct 2025 17:46:48 +0800
-Message-ID: <87a51j6zg7.fsf@DESKTOP-5N7EMDA>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1vBVW5-00000002K0A-0x92;
+	Wed, 22 Oct 2025 09:52:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=IRzW4TIfXqA8U8VyFhl4a5nR+JpRyPOHWAWMvoNSBog=; b=fA20BholhvJ7oFwc8aYVXE2OrK
+	QjmyiUqQbpuRqoxZ+ov/1s2x79Oq5rPYjUrhl9DPId2GhGLbZqtiykPQFIvR/6h5tHc58MyrJeV3T
+	8O3t0i8QBYjRFBJmTVw0E91OigGD6TNXcOoihDOeLxh7R3AYtgHPwRvj/J+bzH2ruAkf2WLUC+5/Z
+	1wcyMleDF0U1wMB7ysgv16Z0TPkayX3+cE4KSntcTzTnnGiuWNbTucD8PWCP8peCuyioOY9sf3DTp
+	UjAuzab7XyvRpTVIlzGqrQ9oojXWZ7iWnmWupjwZZ8I9f6XY9JgG8Y079cHBJJX8aTHKSiC+JVPG6
+	PKkkGKRg==;
+Received: from [141.76.253.241] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vBVVt-00027D-MX; Wed, 22 Oct 2025 11:52:13 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: mturquette@baylibre.com, sboyd@kernel.org, sugar.zhang@rock-chips.com,
+ robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+ zhangqing <zhangqing@rock-chips.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, huangtao@rock-chips.com,
+ finley.xiao@rock-chips.com, Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 2/7] dt-bindings: clock, reset: Add support for rv1126b
+Date: Wed, 22 Oct 2025 11:52:12 +0200
+Message-ID: <3346817.AJdgDx1Vlc@phil>
+In-Reply-To: <5a551943-141a-4842-a4d0-b66b32cf3e70@rock-chips.com>
+References: <20251021065232.2201500-1-zhangqing@rock-chips.com> <4463339.ejJDZkT8p0@phil>
+ <5a551943-141a-4842-a4d0-b66b32cf3e70@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ascii
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_024655_686966_19ACDA1C 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20251022_025225_307407_2814D866 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,67 +74,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Barry Song <21cnbao@gmail.com> writes:
+Hi Elaine,
 
->>
->> With PTL, this becomes
->>
->> CPU0:                           CPU1:
->>
->> page fault                      page fault
->> lock PTL
->> write PTE
->> do local tlbi
->> unlock PTL
->>                                 lock PTL        <- pte visible to CPU 1
->>                                 read PTE        <- new PTE
->>                                 do local tlbi   <- new PTE
->>                                 unlock PTL
->
-> I agree. Yet the ish barrier can still avoid the page faults during CPU0's PTL.
+Am Mittwoch, 22. Oktober 2025, 05:21:43 Mitteleurop=C3=A4ische Sommerzeit s=
+chrieb zhangqing:
+> =E5=9C=A8 2025/10/21 16:38, Heiko Stuebner =E5=86=99=E9=81=93:
+> > Am Dienstag, 21. Oktober 2025, 08:52:27 Mitteleurop=C3=A4ische Sommerze=
+it schrieb Elaine Zhang:
+> >> Add clock and reset ID defines for rv1126b.
+> >> Also add documentation for the rv1126b CRU core.
+> >>
+> >> Signed-off-by: Elaine Zhang <zhangqing@rock-chips.com>
+> >> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> >> ---
+> >>   .../bindings/clock/rockchip,rv1126b-cru.yaml  |  52 +++
+> >>   .../dt-bindings/clock/rockchip,rv1126b-cru.h  | 392 +++++++++++++++++
+> >>   .../dt-bindings/reset/rockchip,rv1126b-cru.h  | 405 ++++++++++++++++=
+++
+> >>   3 files changed, 849 insertions(+)
+> >>   create mode 100644 Documentation/devicetree/bindings/clock/rockchip,=
+rv1126b-cru.yaml
+> >>   create mode 100644 include/dt-bindings/clock/rockchip,rv1126b-cru.h
+> >>   create mode 100644 include/dt-bindings/reset/rockchip,rv1126b-cru.h
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/clock/rockchip,rv1126b-=
+cru.yaml b/Documentation/devicetree/bindings/clock/rockchip,rv1126b-cru.yaml
+> >> new file mode 100644
+> >> index 000000000000..04b0a5c51e4e
+> >> --- /dev/null
+> >> +++ b/Documentation/devicetree/bindings/clock/rockchip,rv1126b-cru.yaml
+> >> @@ -0,0 +1,52 @@
+> >> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> >> +%YAML 1.2
+> >> +---
+> >> +$id: http://devicetree.org/schemas/clock/rockchip,rv1126b-cru.yaml#
+> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >> +
+> >> +title: Rockchip RV1126B Clock and Reset Unit
+> >> +
+> >> +maintainers:
+> >> +  - Elaine Zhang <zhangqing@rock-chips.com>
+> >> +  - Heiko Stuebner <heiko@sntech.de>
+> >> +
+> >> +description:
+> >> +  The rv1126b clock controller generates the clock and also implement=
+s a
+> >> +  reset controller for SoC peripherals.
+> >> +
+> >> +properties:
+> >> +  compatible:
+> >> +    enum:
+> >> +      - rockchip,rv1126b-cru
+> >> +
+> >> +  reg:
+> >> +    maxItems: 1
+> >> +
+> >> +  "#clock-cells":
+> >> +    const: 1
+> >> +
+> >> +  "#reset-cells":
+> >> +    const: 1
+> >> +
+> >> +  clocks:
+> >> +    maxItems: 1
+> >> +
+> >> +  clock-names:
+> >> +    const: xin24m
+> > I think we're missing the optional
+> >
+> >     rockchip,grf:
+> >       $ref: /schemas/types.yaml#/definitions/phandle
+> >       description:
+> >         Phandle to the syscon managing the "general register files" (GR=
+=46),
+> >         if missing pll rates are not changeable, due to the missing pll
+> >         lock status.
+> >
+> >
+> > because RV1126B_GRF_SOC_STATUS0 contains the PLL lock status.
+> The pll lock truly uses bit10 of the PLL_CON1 register of CRU and does=20
+> not use grf. Does that mean there is no need to increase rockchip,grf=EF=
+=BC=9F
 
-IIUC, you think that dsb(ish) compared with dsb(nsh) can accelerate
-memory writing (visible to other CPUs).  TBH, I suspect that this is the
-case.
+correct ... in that case we don't need the GRF reference.
+As we're not accessing the GRF.
 
-> CPU0:                                                                  CPU1:
->
-> lock PTL
->
-> write pte;
-> Issue ish barrier
-> do local tlbi;
->
->
->     No page fault occurs if tlb misses
->
->
-> unlock PTL
->
->
-> Otherwise, it could be:
->
->
-> CPU0:                                                                  CPU1:
->
-> lock PTL
->
-> write pte;
-> Issue nsh barrier
-> do local tlbi;
->
->
->     page fault occurs if tlb misses
->
->
-> unlock PTL
->
->
-> Not quite sure if adding an ish right after the PTE modification has any
-> noticeable performance impact on the test? I assume the most expensive part
-> is still the tlbi broadcast dsb, not the PTE memory sync barrier?
+Please also drop the RV1126B_GRF_SOC_STATUS0 constant from the driver
+in that case.
 
----
-Best Regards,
-Huang, Ying
+Thanks
+Heiko
+
+
 
