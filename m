@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589C8CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 08:54:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC64CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:02:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UdkqHbshapC7nZY4/zFoditcNqEk/iGcG2EMytEmpUc=; b=GVnrPhrAlk9ZcAWRYAcc5e4Cs4
-	EhxrjotoE8Y4oxjNQSTExuNDuEDy3sLz7sGzGgWblB8EunQrjbVrxkEApEDBt4KpF+rkkYyh4h0WU
-	rickOBU0EdDZXbaci7ezZk5crG+Q1UzEaZmLPIbnvoxLVh1kQscsXv8lKsIY5plsfzfpurBCaHkap
-	ziyJ/hTeN+5QrvBg0Cxw6OFxoSqIdBSvsRoSWo77RPsHgSzw4jcM3dri8c4wBpP7UNq210hwWvOcV
-	/pr1R9zBgwUR49vpUWos0PH8ANLNX9K3rs6/A+MzEQ5NAxvys/PUAqyU7tRH04HX/WQ3wWeWjtiPv
-	+ZctuCPQ==;
+	bh=mcRDTEAbzquuDlXqMd0IqQmK0PoHGGByotq3KkqD9LA=; b=xdw+qnozf5wIJexd87wmcUYuRb
+	Z7tTMylzZ+wixX7DNVICA7RblURopA/es/NYG/4cpJoAAEGrPMXS3axxz89QvG7Cm253OYsYT98HX
+	14RDnbHz8LnJwoVZ5D3bLWKJYPPNaCU/cHsB40UzzTsV8jnXk8OCC0Jiaw+KQENHs90zRVWE3ZA6K
+	cHd9KWDre2V+xTf3sRy0vcKS7s1nFJDgQSbOcc0XnHiPcaZVS3ycxgSzdHm3TagkxOxrl/IfUD5hi
+	vELmM3hj8nEExvu6q063I/GKk3oXA7YhBb2BkNO91M82WX2TRkCNTuZ9Up5K72kcl2ac9f9h3gxv5
+	qioVy98A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUbt-000000029iz-2Ys3;
-	Wed, 22 Oct 2025 08:54:21 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vBUjQ-00000002ArB-2XGH;
+	Wed, 22 Oct 2025 09:02:08 +0000
+Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUbp-000000029hj-1mrT
+	id 1vBUjO-00000002Aqb-0yaX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 08:54:19 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 69BC5C0B8B2;
-	Wed, 22 Oct 2025 08:53:52 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0E381606DC;
-	Wed, 22 Oct 2025 08:54:12 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 557A8102F242F;
-	Wed, 22 Oct 2025 10:54:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761123251; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=UdkqHbshapC7nZY4/zFoditcNqEk/iGcG2EMytEmpUc=;
-	b=sz9Wv6lqYxBw+efub1O+67sRO5hj1GJKSrnQlOg8RP6sH79keyWGAzsK4Q+4n1BMEdB7VS
-	TYOlusTcal3NLBThus+SARMOan5OGVRHZIorH9GQCpJoigQOUA9yFIoEoNLMT3yx+Sjvdd
-	aWFll3rPZFjgq12I1YFpGxjlTEjVrsIAMG94T945WWTouRh4oilP/lVIsQ9J9DYlk3fS0D
-	RCns2kaBXugtb8nVvJoIciKphHOiT+lUAdK7dT+UZflZ4C4hdMp+ZOrBIv5J5MOX5exH06
-	3pUkH8Zf3TmQhgbiLKKoyN6L/DLMNpHiQDj1Jx5+laX7Shvkj31BB/uuvktcWg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Richard Genoud <richard.genoud@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Chen-Yu Tsai
- <wens@csie.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Samuel
- Holland <samuel@sholland.org>,  Uwe =?utf-8?Q?Kleine-K=C3=B6nig?=
- <u.kleine-koenig@baylibre.com>,  Wentao Liang <vulab@iscas.ac.cn>,  Johan
- Hovold <johan@kernel.org>,  Maxime Ripard <mripard@kernel.org>,  Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>,  linux-mtd@lists.infradead.org,
-  devicetree@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-sunxi@lists.linux.dev,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 04/15] mtd: rawnand: sunxi: introduce reg_user_data
- in sunxi_nfc_caps
-In-Reply-To: <20251020101311.256819-5-richard.genoud@bootlin.com> (Richard
-	Genoud's message of "Mon, 20 Oct 2025 12:13:00 +0200")
-References: <20251020101311.256819-1-richard.genoud@bootlin.com>
-	<20251020101311.256819-5-richard.genoud@bootlin.com>
-User-Agent: mu4e 1.12.7; emacs 30.2
-Date: Wed, 22 Oct 2025 10:54:02 +0200
-Message-ID: <87y0p3tiz9.fsf@bootlin.com>
+	Wed, 22 Oct 2025 09:02:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1761123724; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=mcRDTEAbzquuDlXqMd0IqQmK0PoHGGByotq3KkqD9LA=;
+	b=nqQHAVnBGfa83IiGGCHU0HOuH7EAaToIgZ6y1+wk0Iz1Utj43ybNWCMHG3Az8QE66YaGxzaZ0sik/EopUNuUGFpF0si1uKgMVXHeD3JXW6HwdQ0VQQOU8sJSviTpvI4KttOxU+geoWvoPJ9C4C4PnHXI+iwWMTiL6QIjfY5S1Xc=
+Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WqmBveP_1761123720 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 22 Oct 2025 17:02:01 +0800
+From: "Huang, Ying" <ying.huang@linux.alibaba.com>
+To: Barry Song <21cnbao@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
+ <will@kernel.org>,  Andrew Morton <akpm@linux-foundation.org>,  David
+ Hildenbrand <david@redhat.com>,  Lorenzo Stoakes
+ <lorenzo.stoakes@oracle.com>,  Vlastimil Babka <vbabka@suse.cz>,  Zi Yan
+ <ziy@nvidia.com>,  Baolin Wang <baolin.wang@linux.alibaba.com>,  Ryan
+ Roberts <ryan.roberts@arm.com>,  Yang Shi <yang@os.amperecomputing.com>,
+  "Christoph Lameter (Ampere)" <cl@gentwo.org>,  Dev Jain
+ <dev.jain@arm.com>,  Anshuman Khandual <anshuman.khandual@arm.com>,
+  Yicong Yang <yangyicong@hisilicon.com>,  Kefeng Wang
+ <wangkefeng.wang@huawei.com>,  Kevin Brodsky <kevin.brodsky@arm.com>,  Yin
+ Fengwei <fengwei_yin@linux.alibaba.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  linux-mm@kvack.org
+Subject: Re: [PATCH -v2 2/2] arm64, tlbflush: don't TLBI broadcast if page
+ reused in write fault
+In-Reply-To: <CAGsJ_4zPH0fwBOLQwh1y6jG3tCXHLGRCTyVVSCWb+NfLCEMV0Q@mail.gmail.com>
+	(Barry Song's message of "Wed, 22 Oct 2025 21:14:48 +1300")
+References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
+	<20251013092038.6963-3-ying.huang@linux.alibaba.com>
+	<CAGsJ_4xaA8QRjP9H=n1hQfEfGop7vOd5Y=J+KQzuOyfa8GK-kQ@mail.gmail.com>
+	<87a51jfl44.fsf@DESKTOP-5N7EMDA>
+	<CAGsJ_4zPH0fwBOLQwh1y6jG3tCXHLGRCTyVVSCWb+NfLCEMV0Q@mail.gmail.com>
+Date: Wed, 22 Oct 2025 17:02:00 +0800
+Message-ID: <871pmv9unr.fsf@DESKTOP-5N7EMDA>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_015417_716975_E0154195 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20251022_020206_456981_AC3F86E3 
+X-CRM114-Status: GOOD (  16.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,73 +82,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Richard,
+Barry Song <21cnbao@gmail.com> writes:
 
-On 20/10/2025 at 12:13:00 +02, Richard Genoud <richard.genoud@bootlin.com> =
-wrote:
-
-> The H6/H616 USER_DATA register is not at the same offset as the
-> A10/A23 one, so move its offset into sunxi_nfc_caps
+>> >
+>> > static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
+>> >                                            unsigned long uaddr)
+>> > {
+>> >         unsigned long addr;
+>> >
+>> >         dsb(ishst);
+>> >         addr =3D __TLBI_VADDR(uaddr, ASID(mm));
+>> >         __tlbi(vale1is, addr);
+>> >         __tlbi_user(vale1is, addr);
+>> >         mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_M=
+ASK,
+>> >                                                 (uaddr & PAGE_MASK) +
+>> > PAGE_SIZE);
+>> > }
+>>
+>> IIUC, _nosync() here means doesn't synchronize with the following code.
+>> It still synchronizes with the previous code, mainly the page table
+>> changing.  And, Yes.  There may be room to improve this.
+>>
+>> > On the other hand, __ptep_set_access_flags() doesn=E2=80=99t seem to u=
+se
+>> > set_ptes(), so there=E2=80=99s no guarantee the updated PTEs are visib=
+le to all
+>> > cores. If a remote CPU later encounters a page fault and performs a TLB
+>> > invalidation, will it still see a stable PTE?
+>>
+>> I don't think so.  We just flush local TLB in local_flush_tlb_page()
+>> family functions.  So, we only needs to guarantee the page table changes
+>> are available for the local page table walking.  If a page fault occurs
+>> on a remote CPU, we will call local_flush_tlb_page() on the remote CPU.
+>>
 >
-> No functional change.
+> My concern is that:
 >
-> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
-> ---
->  drivers/mtd/nand/raw/sunxi_nand.c | 13 +++++++++----
->  1 file changed, 9 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sun=
-xi_nand.c
-> index 0285e4d0ca7f..8f5d8df19e33 100644
-> --- a/drivers/mtd/nand/raw/sunxi_nand.c
-> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-> @@ -48,7 +48,8 @@
->  #define NFC_REG_DEBUG		0x003C
->  #define NFC_REG_A10_ECC_ERR_CNT	0x0040
->  #define NFC_REG_ECC_ERR_CNT(nfc, x)	((nfc->caps->reg_ecc_err_cnt + (x)) =
-& ~0x3)
-> -#define NFC_REG_USER_DATA(x)	(0x0050 + ((x) * 4))
-> +#define NFC_REG_A10_USER_DATA	0x0050
-> +#define NFC_REG_USER_DATA(nfc, x)	(nfc->caps->reg_user_data + ((x) * 4))
->  #define NFC_REG_SPARE_AREA	0x00A0
->  #define NFC_REG_PAT_ID		0x00A4
->  #define NFC_REG_MDMA_ADDR	0x00C0
-> @@ -214,6 +215,7 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(s=
-truct nand_chip *nand)
->   *			through MBUS on A23/A33 needs extra configuration.
->   * @reg_io_data:	I/O data register
->   * @reg_ecc_err_cnt:	ECC error counter register
-> + * @reg_user_data:	User data register
->   * @dma_maxburst:	DMA maxburst
->   * @ecc_strengths:	Available ECC strengths array
->   * @nstrengths:		Size of @ecc_strengths
-> @@ -222,6 +224,7 @@ struct sunxi_nfc_caps {
->  	bool has_mdma;
->  	unsigned int reg_io_data;
->  	unsigned int reg_ecc_err_cnt;
-> +	unsigned int reg_user_data;
->  	unsigned int dma_maxburst;
->  	const u8 *ecc_strengths;
->  	unsigned int nstrengths;
-> @@ -723,8 +726,8 @@ static void sunxi_nfc_hw_ecc_get_prot_oob_bytes(struc=
-t nand_chip *nand, u8 *oob,
->  {
->  	struct sunxi_nfc *nfc =3D to_sunxi_nfc(nand->controller);
->=20=20
-> -	sunxi_nfc_user_data_to_buf(readl(nfc->regs + NFC_REG_USER_DATA(step)),
-> -				   oob);
-> +	sunxi_nfc_user_data_to_buf(readl(nfc->regs +
-> +					 NFC_REG_USER_DATA(nfc, step)),
-> oob);
+> We don=E2=80=99t have a dsb(ish) to ensure the PTE page table is visible =
+to remote
+> CPUs, since you=E2=80=99re using dsb(nsh). So even if a remote CPU perfor=
+ms
+> local_flush_tlb_page(), the memory may not be synchronized yet, and it co=
+uld
+> still see the old PTE.
 
-Minor nit, column limit is 100 now, so typically for this kind of
-situation everything would fit on a single line.
+So, do you think that after the load/store unit of the remote CPU have
+seen the new PTE, the page table walker could still see the old PTE?  I
+doubt it.  Even if so, the worse case is one extra spurious page fault?
+If the possibility of the worst case is low enough, that should be OK.
 
-Don't respin just for that if there is nothing else later, but if a v4
-is needed you can change it.
+Additionally, the page table lock is held when writing PTE on this CPU
+and re-reading PTE on the remote CPU.  That provides some memory order
+guarantee too.
 
-Looks neat otherwise so far.
-
-Thanks,
-Miqu=C3=A8l
+---
+Best Regards,
+Huang, Ying
 
