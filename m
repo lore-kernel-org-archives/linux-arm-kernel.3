@@ -4,68 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECCB3CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB97FCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FXlrzBCMamjHmGtmAEIZStsfrt12b8LW2N5iogEp644=; b=qcBSYdh11jQ1C/ugwEBG8l/FWC
-	/g8txul92txVO4L3ORpMe+jMWO1RkXr635wDY9OV0ssYdbF8+HYs1yGEEgrXZGlIX6I5zzHH9Z+Ma
-	ZEBzuzF872x+gs/M2Ux/TCAjkAhtCkrktnp/dp7+DoEfHie/O4ZvAuOvmO67hu2hQbTf9IBfQqiZk
-	kIjsfg7NdgV2SSdDfczyO9HueXg9bo8yDvxCeTp5L025mjDSVuLq2og9XJdSr3LcMeFlXG9Ms/AKG
-	dghk5VMTTYKwx7hPzWs8UnCg5WR3jiocmour82hlZo40RtWP1kvp4KZjaI1MfCwT/tNXLlC89jmNz
-	c1E6TJiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yO34qPsn7QHCTVDfDKcQas0jsSh3wLko8YufcBfx8as=; b=JzG9Kefcs2yi5pZTtWlSwPkNu6
+	/w3USL7AZEgk8qpDyOn/2zXISzq25fzNjH/rRoaDZw53+IUgDCTeGQMugcL66VsrN3dVpbEJU701g
+	3Ffxr9VY/LhZWMNEPqfwp2rERFMn06ZmI3uPS6wQgnfkLwLiC/amqHB4uVltgdFA0UiQGMHNTO17I
+	qZx5Rd+FRq3ZGx1Tf6MmQs1hpwZGv3Woaa+VgobKB4uu+e1YNASROFE5+MQIHnKcMfg6W9CqTpo/9
+	nZRbvr5kAYr8TbmcnZGDvTA/1J2pg8K/zZnOFlbg9joCCOXJa5cNKPcg4VZGIxAb4Ql8dneukuncn
+	UlyM3uXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBX7L-00000002fPK-1KYc;
-	Wed, 22 Oct 2025 11:35:00 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vBX7Y-00000002fVM-2FND;
+	Wed, 22 Oct 2025 11:35:12 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBX7I-00000002fNc-2J5a
+	id 1vBX7Q-00000002fRD-2g7X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 11:34:57 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cs6Vf3z00z6K6kK;
-	Wed, 22 Oct 2025 19:33:30 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id BD332140157;
-	Wed, 22 Oct 2025 19:34:54 +0800 (CST)
-Received: from SecurePC-101-06.huawei.com (10.122.19.247) by
- dubpeml100005.china.huawei.com (7.214.146.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 22 Oct 2025 12:34:53 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Conor Dooley <conor@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, Dan Williams <dan.j.williams@intel.com>, "H . Peter
- Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, Andrew Morton
-	<akpm@linux-foundation.org>
-CC: <james.morse@arm.com>, Will Deacon <will@kernel.org>, Davidlohr Bueso
-	<dave@stgolabs.net>, <linuxarm@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
-	<luto@kernel.org>, Dave Jiang <dave.jiang@intel.com>
-Subject: [PATCH v4 2/6] memregion: Support fine grained invalidate by cpu_cache_invalidate_memregion()
-Date: Wed, 22 Oct 2025 12:33:45 +0100
-Message-ID: <20251022113349.1711388-3-Jonathan.Cameron@huawei.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
-References: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
+	Wed, 22 Oct 2025 11:35:07 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b5e19810703so1098919266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 04:35:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761132903; x=1761737703; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=yO34qPsn7QHCTVDfDKcQas0jsSh3wLko8YufcBfx8as=;
+        b=PrQ5zmIjkbY9LjbceJEt+mxQ+/cBFuwUzKZl9iYPm6tzBDUQbCHt5IxC7WJ5M5XtFj
+         DnsuPDin1zMGfz0jvMeIDGLQgSF6RGTpY1bnJMmAls+sCt/UvwjCjimPdTCJrTOR0HQB
+         lOZDXicFvFXYo8tR9VVzmj6e/1J4+PSOWco1lt9CXYozzvlMp421Fl4L+wy8xj+8VG4Q
+         0Lb7hW0uXqtw8WkZSwYUZ0U0YS5c1z0Yr7SPz5YZ8FOCri/3ypDQI/aE3wsyZKznQ9Zr
+         LufTBlSR3su0ItAL6sSRQcgwu0CE1sFOHGAn6Vqte9JtAXzL/M+NYcZbvoIl3Qo33I2J
+         rVCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761132903; x=1761737703;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=yO34qPsn7QHCTVDfDKcQas0jsSh3wLko8YufcBfx8as=;
+        b=m42cyUbfKi9FOVZf4BuhoyKDbXwfjl1LC7Ancr+bZ/D0RL1enTu+DA9udNoUknOs0p
+         zBG15mnyGwmNiLwY/kWUnoDv1Lfrl+7Mn637hoUxP/2MtA+EgbjypcDmwOcVtKo39qeV
+         XKgHmtHj1rzosWnQmFA1xfB+/Pf7ryI5LVt05AgCrPUVmdq4pXCX1gbGGEomQaWQrrpN
+         1OKT875oSnM7ldjyBRoU4taIy9L7l2hZKNNVGtjBtgWIaPtAGMMprUU4A7QDtEP00iVI
+         kL0JHZvhO9iK287crppm0iBuOHJxguOHIH838E/ObS+1tkNZUYigcz4UtNAXfhhJBKjR
+         WRig==
+X-Forwarded-Encrypted: i=1; AJvYcCXqOd3LaU7qDmn6O0swK1OzBsJ/dnXY9/iwGfS6SxJ1ohhRaIFovg2F7HYjXWNikYr9BZlXuWwJEcDlgxtd1F4s@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQYxH/XD6/rLvFzH9iWGBNY7TKT/GTGOU6fem5KlmIHeoXBq+n
+	i+jLvFMa5YS5UR900CV4E/uWQXNfdKtFkccEf3u8UCYDwn/Vxp1w4kLE
+X-Gm-Gg: ASbGncsZMGnCvBcpmUwmyFoD/f1bV5LZxvQfUK2beXfgSBedydOGkAKzjuGEXOBy7rf
+	aWaR6EDfrdQMhIe4UXFIUL9S2nNNke5KgeRebOTpv3InSR8DUDWIfGR9TRH+0uI3yTCxdqguY3p
+	On/yOBkVWpOJ99QNgwYdCibzohbh+aMC1NzSXWW730EgeN/eIMRg3F3JaJt4tSjqKc+gYuvQHtg
+	vH9tDjrTJnyGEfq5pHjTfZQNekCbkRIVUQnzHqcSeZ94ckhhxh1d1vTacIDRGJPxEsLLQzdzAkK
+	KKdZnx1A0Nh7JQchz6FLgIOT4UNEr9nJ9KEyzno+e2R9sdSIQmNk3+Eo/fj60t0oTPmJ3TiMjr2
+	WCVcS+inEpMEyWiKgrBolxrdAl/xFOZmdYYCwre9EqyOuSj9uARQPCVYFG+woiF/LiWXCEu7A/u
+	QMtrA3DYwgpQJZvw/rEfxL+4rBzrovJOIlx8QKxhkCt/A=
+X-Google-Smtp-Source: AGHT+IHfqiWBy7zfGoCqLQpI11jm6dwQ/WE7NiaPb8Gr8GzjB9HYaKJgVjiXf/jFs4wJwPRiCS9gYA==
+X-Received: by 2002:a17:907:1c82:b0:b4e:a47f:715d with SMTP id a640c23a62f3a-b6472a6a145mr2430377866b.17.1761132902443;
+        Wed, 22 Oct 2025 04:35:02 -0700 (PDT)
+Received: from [10.25.209.134] ([128.77.115.157])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65ebb4dcf2sm1303250766b.75.2025.10.22.04.35.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Oct 2025 04:35:02 -0700 (PDT)
+Message-ID: <804dd1f5-7e79-4bfa-b777-c97bb89a713a@gmail.com>
+Date: Wed, 22 Oct 2025 04:35:00 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/8] reset: imx8mp-audiomix: Switch to using regmap API
+To: Frank Li <Frank.li@nxp.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang
+ <shengjiu.wang@nxp.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
+References: <20251017112025.11997-1-laurentiumihalcea111@gmail.com>
+ <20251017112025.11997-6-laurentiumihalcea111@gmail.com>
+ <aPJXdPVrofYGQgIP@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <aPJXdPVrofYGQgIP@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.122.19.247]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_043456_871945_CC72FBA2 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20251022_043504_748930_3BE42947 
+X-CRM114-Status: GOOD (  32.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,133 +111,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
 
-Extend cpu_cache_invalidate_memregion() to support invalidate certain range
-of memory by introducing start and length parameters. Control of types of
-invalidation is left for when usecases turn up. For now everything is
-Clean and Invalidate.
+On 10/17/2025 7:49 AM, Frank Li wrote:
+> On Fri, Oct 17, 2025 at 04:20:22AM -0700, Laurentiu Mihalcea wrote:
+>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>>
+>> As far as the Linux kernel is concerned, block devices such as i.MX8MP's
+>> AUDIOMIX block control or i.MX8ULP's SIM LPAV can simultaneously act as
+>> clock controllers, reset controllers or mux controllers. Since these IPs
+>> offer different functionalities through different subsystem APIs, it's
+>> important to make sure that the register R-M-W cycles are performed under
+>> the same lock across all subsystem APIs. This will ensure that registers
+>> will not end up with the wrong values because of race conditions (e.g.
+>> clock consumer tries to update block control register A, while, at the
+>> same time, reset consumer tries to update the same block control register).
+>>
+>> However, the aforementioned race conditions will only impact block control
+>> IPs which use the same register for multiple functionalities. For example,
+>> i.MX8MP's AUDIOMIX block control IP provides clock gating functionalities
+>> and reset control functionalities through different registers. This is why
+>> the current approach (i.e. clock control and reset control work using
+>> different locks) has worked well so far.
+>>
+>> Since we want to extend this driver to be usable for i.MX8ULP's SIM LPAV
+>> block control IP, we need to make sure that clock control, reset control,
+>> and mux control APIs use the same lock since all of these functionalities
+>> are performed using the SYSCTRL0 register.
+>>
+>> To do so, we need to switch to the regmap API and, if possible, use the
+>> parent device's regmap, which, in the case of i.MX8ULP, will be the clock
+>> controller. This way, we can make sure that the clock gates and the reset
+>> controller will use the same lock to perform the register R-M-W cycles.
+>>
+>> This change will also work fine for cases where we don't really need to
+>> share the lock across multiple APIs (e.g. i.MX8MP's AUDIOMIX block
+>> control) since regmap will take care of the locking we were previously
+>> explicitly performing in the driver.
+>>
+>> The transition to the regmap API also involves some cleanup. Specifically,
+>> we can make use of devres to unmap the device's memory and get rid of the
+>> memory mapping-related error paths and the remove() function altogether.
+>>
+>> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>> ---
+>>  drivers/reset/reset-imx8mp-audiomix.c | 95 +++++++++++++++++----------
+>>  1 file changed, 61 insertions(+), 34 deletions(-)
+>>
+>> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
+>> index e9643365a62c..c74ce6e04177 100644
+>> --- a/drivers/reset/reset-imx8mp-audiomix.c
+>> +++ b/drivers/reset/reset-imx8mp-audiomix.c
+>> @@ -11,6 +11,7 @@
+>>  #include <linux/module.h>
+>>  #include <linux/of.h>
+>>  #include <linux/of_address.h>
+>> +#include <linux/regmap.h>
+>>  #include <linux/reset-controller.h>
+>>
+>>  #define IMX8MP_AUDIOMIX_EARC_RESET_OFFSET	0x200
+>> @@ -19,6 +20,7 @@
+>>  struct imx8mp_reset_map {
+>>  	unsigned int offset;
+>>  	unsigned int mask;
+>> +	unsigned int shift;
+>>  	bool active_low;
+>>  };
+>>
+>> @@ -26,24 +28,27 @@ static const struct imx8mp_reset_map reset_map[] = {
+>>  	[IMX8MP_AUDIOMIX_EARC_RESET] = {
+>>  		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
+>>  		.mask = BIT(0),
+>> +		.shift = 0,
+>>  		.active_low = true,
+>>  	},
+>>  	[IMX8MP_AUDIOMIX_EARC_PHY_RESET] = {
+>>  		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
+>>  		.mask = BIT(1),
+>> +		.shift = 1,
+>>  		.active_low = true,
+>>  	},
+>>  	[IMX8MP_AUDIOMIX_DSP_RUNSTALL] = {
+>>  		.offset	= IMX8MP_AUDIOMIX_DSP_RUNSTALL_OFFSET,
+>>  		.mask = BIT(5),
+>> +		.shift = 5,
+> why need shift?  you can use ffs(mask) to get shift.
+>
+>>  		.active_low = false,
+>>  	},
+>>  };
+>>
+>>  struct imx8mp_audiomix_reset {
+>>  	struct reset_controller_dev rcdev;
+>> -	spinlock_t lock; /* protect register read-modify-write cycle */
+>>  	void __iomem *base;
+>> +	struct regmap *regmap;
+>>  };
+>>
+>>  static struct imx8mp_audiomix_reset *to_imx8mp_audiomix_reset(struct reset_controller_dev *rcdev)
+>> @@ -55,26 +60,15 @@ static int imx8mp_audiomix_update(struct reset_controller_dev *rcdev,
+>>  				  unsigned long id, bool assert)
+>>  {
+>>  	struct imx8mp_audiomix_reset *priv = to_imx8mp_audiomix_reset(rcdev);
+>> -	void __iomem *reg_addr = priv->base;
+>> -	unsigned int mask, offset, active_low;
+>> -	unsigned long reg, flags;
+>> +	unsigned int mask, offset, active_low, shift, val;
+>>
+>>  	mask = reset_map[id].mask;
+>>  	offset = reset_map[id].offset;
+>>  	active_low = reset_map[id].active_low;
+>> +	shift = reset_map[id].shift;
+>> +	val = (active_low ^ assert) << shift;
+>>
+>> -	spin_lock_irqsave(&priv->lock, flags);
+>> -
+>> -	reg = readl(reg_addr + offset);
+>> -	if (active_low ^ assert)
+>> -		reg |= mask;
+>> -	else
+>> -		reg &= ~mask;
+>> -	writel(reg, reg_addr + offset);
+>> -
+>> -	spin_unlock_irqrestore(&priv->lock, flags);
+>> -
+>> -	return 0;
+>> +	return regmap_update_bits(priv->regmap, offset, mask, val);
+>>  }
+>>
+>>  static int imx8mp_audiomix_reset_assert(struct reset_controller_dev *rcdev,
+>> @@ -94,6 +88,50 @@ static const struct reset_control_ops imx8mp_audiomix_reset_ops = {
+>>  	.deassert = imx8mp_audiomix_reset_deassert,
+>>  };
+>>
+>> +static const struct regmap_config regmap_config = {
+>> +	.reg_bits = 32,
+>> +	.val_bits = 32,
+>> +	.reg_stride = 4,
+>> +};
+>> +
+>> +/* assumption: registered only if not using parent regmap */
+>> +static void imx8mp_audiomix_reset_iounmap(void *data)
+>> +{
+>> +	struct imx8mp_audiomix_reset *priv = dev_get_drvdata(data);
+>> +
+>> +	iounmap(priv->base);
+>> +}
+>> +
+>> +/* assumption: dev_set_drvdata() is called before this */
+>> +static int imx8mp_audiomix_reset_get_regmap(struct device *dev)
+>> +{
+>> +	struct imx8mp_audiomix_reset *priv;
+>> +	int ret;
+>> +
+>> +	priv = dev_get_drvdata(dev);
+>> +
+>> +	/* try to use the parent's regmap */
+>> +	priv->regmap = dev_get_regmap(dev->parent, NULL);
+>> +	if (priv->regmap)
+>> +		return 0;
+>> +
+>> +	/* ... if that's not possible then initialize the regmap right now */
+>> +	priv->base = of_iomap(dev->parent->of_node, 0);
+>> +	if (!priv->base)
+>> +		return dev_err_probe(dev, -ENOMEM, "failed to iomap address space\n");
+>> +
+>> +	ret = devm_add_action_or_reset(dev, imx8mp_audiomix_reset_iounmap, dev);
+>> +	if (ret)
+>> +		return dev_err_probe(dev, ret, "failed to register action\n");
+>> +
+>> +	priv->regmap = devm_regmap_init_mmio(dev, priv->base, &regmap_config);
+>> +	if (IS_ERR(priv->regmap))
+>> +		return dev_err_probe(dev, PTR_ERR(priv->regmap),
+>> +				     "failed to initialize regmap\n");
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>  static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
+>>  				       const struct auxiliary_device_id *id)
+>>  {
+>> @@ -105,36 +143,26 @@ static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
+>>  	if (!priv)
+>>  		return -ENOMEM;
+>>
+>> -	spin_lock_init(&priv->lock);
+>> -
+>>  	priv->rcdev.owner     = THIS_MODULE;
+>>  	priv->rcdev.nr_resets = ARRAY_SIZE(reset_map);
+>>  	priv->rcdev.ops       = &imx8mp_audiomix_reset_ops;
+>>  	priv->rcdev.of_node   = dev->parent->of_node;
+>>  	priv->rcdev.dev	      = dev;
+>>  	priv->rcdev.of_reset_n_cells = 1;
+>> -	priv->base            = of_iomap(dev->parent->of_node, 0);
+>> -	if (!priv->base)
+>> -		return -ENOMEM;
+>>
+>> +	/* keep before call to imx8mp_audiomix_reset_init_regmap() */
+>>  	dev_set_drvdata(dev, priv);
+>>
+>> +	ret = imx8mp_audiomix_reset_get_regmap(dev);
+>> +	if (ret)
+>> +		return dev_err_probe(dev, ret, "failed to get regmap\n");
+>> +
+>>  	ret = devm_reset_controller_register(dev, &priv->rcdev);
+>>  	if (ret)
+>> -		goto out_unmap;
+>> +		return dev_err_probe(dev, ret,
+>> +				     "failed to register reset controller\n");
+>>
+>>  	return 0;
+>> -
+>> -out_unmap:
+>> -	iounmap(priv->base);
+>> -	return ret;
+>> -}
+>> -
+>> -static void imx8mp_audiomix_reset_remove(struct auxiliary_device *adev)
+>> -{
+>> -	struct imx8mp_audiomix_reset *priv = dev_get_drvdata(&adev->dev);
+>> -
+>> -	iounmap(priv->base);
+>>  }
+>>
+>>  static const struct auxiliary_device_id imx8mp_audiomix_reset_ids[] = {
+>> @@ -147,7 +175,6 @@ MODULE_DEVICE_TABLE(auxiliary, imx8mp_audiomix_reset_ids);
+>>
+>>  static struct auxiliary_driver imx8mp_audiomix_reset_driver = {
+>>  	.probe		= imx8mp_audiomix_reset_probe,
+>> -	.remove		= imx8mp_audiomix_reset_remove,
+> cleanup imx8mp_audiomix_reset_remove need seperate patch.
 
-Where the range is unknown, use the provided cpu_cache_invalidate_all()
-helper to act as documentation of intent that is clearer than passing
-(0, -1) to cpu_cache_invalidate_memregion().
 
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-Reviewed-by: Dan Williams <dan.j.williams@intel.com>
-Acked-by: Davidlohr Bueso <dave@stgolabs.net>
-Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+as things stand now, this bit belongs in the same patch as the switch to the regmap
 
----
-v4: Add cpu_cache_invalidate_all() helper for the (0, -1) case that
-    applies when we don't have the invalidate range so just want to
-    invalidate all caches. - (Thanks to Dan Williams for this suggestion).
-v3: Rebase on top of previous patch that removed the IO_RESDESC_*
-    parameter.
----
- arch/x86/mm/pat/set_memory.c |  2 +-
- drivers/cxl/core/region.c    |  5 ++++-
- drivers/nvdimm/region.c      |  2 +-
- drivers/nvdimm/region_devs.c |  2 +-
- include/linux/memregion.h    | 13 +++++++++++--
- 5 files changed, 18 insertions(+), 6 deletions(-)
+API because of the introduction of imx8mp_audiomix_reset_get_regmap(), which
 
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index 0cfee2544ad4..05e7704f0128 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -368,7 +368,7 @@ bool cpu_cache_has_invalidate_memregion(void)
- }
- EXPORT_SYMBOL_NS_GPL(cpu_cache_has_invalidate_memregion, "DEVMEM");
- 
--int cpu_cache_invalidate_memregion(void)
-+int cpu_cache_invalidate_memregion(phys_addr_t start, size_t len)
- {
- 	if (WARN_ON_ONCE(!cpu_cache_has_invalidate_memregion()))
- 		return -ENXIO;
-diff --git a/drivers/cxl/core/region.c b/drivers/cxl/core/region.c
-index 36489cb086f3..7d0f6f07352f 100644
---- a/drivers/cxl/core/region.c
-+++ b/drivers/cxl/core/region.c
-@@ -236,7 +236,10 @@ static int cxl_region_invalidate_memregion(struct cxl_region *cxlr)
- 		return -ENXIO;
- 	}
- 
--	cpu_cache_invalidate_memregion();
-+	if (!cxlr->params.res)
-+		return -ENXIO;
-+	cpu_cache_invalidate_memregion(cxlr->params.res->start,
-+				       resource_size(cxlr->params.res));
- 	return 0;
- }
- 
-diff --git a/drivers/nvdimm/region.c b/drivers/nvdimm/region.c
-index 47e263ecedf7..53567f3ed427 100644
---- a/drivers/nvdimm/region.c
-+++ b/drivers/nvdimm/region.c
-@@ -110,7 +110,7 @@ static void nd_region_remove(struct device *dev)
- 	 * here is ok.
- 	 */
- 	if (cpu_cache_has_invalidate_memregion())
--		cpu_cache_invalidate_memregion();
-+		cpu_cache_invalidate_all();
- }
- 
- static int child_notify(struct device *dev, void *data)
-diff --git a/drivers/nvdimm/region_devs.c b/drivers/nvdimm/region_devs.c
-index c375b11aea6d..1220530a23b6 100644
---- a/drivers/nvdimm/region_devs.c
-+++ b/drivers/nvdimm/region_devs.c
-@@ -90,7 +90,7 @@ static int nd_region_invalidate_memregion(struct nd_region *nd_region)
- 		}
- 	}
- 
--	cpu_cache_invalidate_memregion();
-+	cpu_cache_invalidate_all();
- out:
- 	for (i = 0; i < nd_region->ndr_mappings; i++) {
- 		struct nd_mapping *nd_mapping = &nd_region->mapping[i];
-diff --git a/include/linux/memregion.h b/include/linux/memregion.h
-index 945646bde825..a55f62cc5266 100644
---- a/include/linux/memregion.h
-+++ b/include/linux/memregion.h
-@@ -27,6 +27,9 @@ static inline void memregion_free(int id)
- /**
-  * cpu_cache_invalidate_memregion - drop any CPU cached data for
-  *     memregion
-+ * @start: start physical address of the target memory region.
-+ * @len: length of the target memory region. -1 for all the regions of
-+ *       the target type.
-  *
-  * Perform cache maintenance after a memory event / operation that
-  * changes the contents of physical memory in a cache-incoherent manner.
-@@ -45,7 +48,7 @@ static inline void memregion_free(int id)
-  * the cache maintenance.
-  */
- #ifdef CONFIG_ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
--int cpu_cache_invalidate_memregion(void);
-+int cpu_cache_invalidate_memregion(phys_addr_t start, size_t len);
- bool cpu_cache_has_invalidate_memregion(void);
- #else
- static inline bool cpu_cache_has_invalidate_memregion(void)
-@@ -53,10 +56,16 @@ static inline bool cpu_cache_has_invalidate_memregion(void)
- 	return false;
- }
- 
--static inline int cpu_cache_invalidate_memregion(void)
-+static inline int cpu_cache_invalidate_memregion(phys_addr_t start, size_t len)
- {
- 	WARN_ON_ONCE("CPU cache invalidation required");
- 	return -ENXIO;
- }
- #endif
-+
-+static inline int cpu_cache_invalidate_all(void)
-+{
-+	return cpu_cache_invalidate_memregion(0, -1);
-+}
-+
- #endif /* _MEMREGION_H_ */
--- 
-2.48.1
+uses devres. This makes the remove() function incorrect and, thus, needs to be dropped.
 
+
+since the cleanup is quite trivial, I don't think this would justify purposely
+
+making imx8mp_audiomix_reset_get_regmap() not use devres in this patch
+
+and then transitioning to it in a subsequent patch.
+
+
+>
+> Frank
+>
+>>  	.id_table	= imx8mp_audiomix_reset_ids,
+>>  };
+>>
+>> --
+>> 2.43.0
+>>
 
