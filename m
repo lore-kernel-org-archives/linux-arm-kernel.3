@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A977BCCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:36:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABDC5CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=csw/aFut+Jkicky8EbGt5yyfxTSdGpum3xQE8RteYFc=; b=UWG/JhmAMk05jE+gTkKEBdIFiZ
-	YXYTa2z3/9r4RKPKRYGZtGXDozVavwhVDLFDJQvqwncpmNSVzF9aDqxJPAieDL90+Sbe9VJhKNOr4
-	CYtqbKtvNzWGAJFRbigjMmeSSjcwfi/kxky3G2LOI4Bi+8K5cSy4smR9hEX6wFfGWzwdXBKkMoeT3
-	OrfAq7V3DsTrcxBaAF5a3hDUHcVuNyGJdPwsT/K97QAbcfXUb98fDrcGxN235dObm0z6JINfnpNU6
-	dAw5AEfahZX4GhxWAn2cMT6JV6kv5hamuzSsOZ6chXWoD7U5fFIWwWDVcdY3gel1KlTCKg4y6c3/X
-	txILOuUw==;
+	bh=9hJzU76UWLSEHecEoTDWDljYi7i8+QRQpEBkRqVDe7k=; b=hZoBdOUkbW6K5wNaiDrUXN5TFh
+	/Zdw6ZMTMGVLAmATrpMup7RT8fHFjjjuG3agqxM6VO9VHydapqQ/ENWXfP20BtGAjABedZpS8v7Rr
+	C2FOJ5xIp81M6D71TQIht3cJoKMhOmIexZ+b2fxs2rYfjLh+VAHk0cSln3yRtHM/4pr/1jBIm0MU1
+	ev5yef4Ndcy4retv6Q6+c6ypZWvI64+qDR4IJD5nU9Azhs2Jz1BM23TSRJkx+AhbE884OjhiqJM7o
+	egKuKGKYmWHWrmnnGsEuns/tDCINLcSeP2YnPk/GUzIu04ZEqk0wS5c2Zm6Dw8aIQwAV3MnuNWVWm
+	tkeMzw4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBX8U-00000002ftZ-2XVl;
-	Wed, 22 Oct 2025 11:36:10 +0000
+	id 1vBX8u-00000002g3y-3cPO;
+	Wed, 22 Oct 2025 11:36:36 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBX8L-00000002foD-1pLp
+	id 1vBX8q-00000002g1V-2LHB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 11:36:06 +0000
+	Wed, 22 Oct 2025 11:36:36 +0000
 Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cs6Ws33H3z6K6p7;
-	Wed, 22 Oct 2025 19:34:33 +0800 (CST)
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cs6XS5yH3z6K5kg;
+	Wed, 22 Oct 2025 19:35:04 +0800 (CST)
 Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 9F1CA1400C8;
-	Wed, 22 Oct 2025 19:35:57 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 100031402FC;
+	Wed, 22 Oct 2025 19:36:29 +0800 (CST)
 Received: from SecurePC-101-06.huawei.com (10.122.19.247) by
  dubpeml100005.china.huawei.com (7.214.146.113) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 22 Oct 2025 12:35:56 +0100
+ 15.2.1544.11; Wed, 22 Oct 2025 12:36:27 +0100
 From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 To: Conor Dooley <conor@kernel.org>, Catalin Marinas
 	<catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
@@ -51,9 +51,9 @@ CC: <james.morse@arm.com>, Will Deacon <will@kernel.org>, Davidlohr Bueso
 	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
 	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
 	<luto@kernel.org>, Dave Jiang <dave.jiang@intel.com>
-Subject: [PATCH v4 4/6] arm64: Select GENERIC_CPU_CACHE_MAINTENANCE
-Date: Wed, 22 Oct 2025 12:33:47 +0100
-Message-ID: <20251022113349.1711388-5-Jonathan.Cameron@huawei.com>
+Subject: [PATCH v4 5/6] MAINTAINERS: Add Jonathan Cameron to drivers/cache and add lib/cache_maint.c + header
+Date: Wed, 22 Oct 2025 12:33:48 +0100
+Message-ID: <20251022113349.1711388-6-Jonathan.Cameron@huawei.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
 References: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
@@ -64,8 +64,8 @@ X-Originating-IP: [10.122.19.247]
 X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
  dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_043602_003083_B2B6F6ED 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20251022_043633_403428_74B1C835 
+X-CRM114-Status: GOOD (  13.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,34 +80,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic CPU cache maintenance framework provides a way to register
-drivers for devices implementing the underlying support for
-cpu_cache_has_invalidate_memregion(). Enable it for arm64 by selecting
-GENERIC_CPU_CACHE_MAINTENANCE which provides the implementation for,
-and in turn selects, ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION.
+Seems unfair to inflict the cache-coherency drivers on Conor with out also
+stepping up as a second maintainer for drivers/cache.
+
+Include the library support for cache-coherency maintenance drivers to the
+existing entry.
 
 Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-v4: Drop select ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION as that
-    is now selected by GENERIC_CPU_CACHE_MAINTENANCE (Catalin Marinas)
-    Picked up tag from Catalin. (thanks!)
+v4: Tag from Conor (thanks!)  Updated commit message to make it
+    reflect the added files.
+v3: Add lib/cache_maint.c and include/cache_coherency.h
+    Conor, do you mind those two being in this entry? Seems silly to spin
+    another MAINTAINERS entry for a few 10s of lines of simple code.
 ---
- arch/arm64/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+ MAINTAINERS | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 6663ffd23f25..893e0af0bc51 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -149,6 +149,7 @@ config ARM64
- 	select GENERIC_ARCH_TOPOLOGY
- 	select GENERIC_CLOCKEVENTS_BROADCAST
- 	select GENERIC_CPU_AUTOPROBE
-+	select GENERIC_CPU_CACHE_MAINTENANCE
- 	select GENERIC_CPU_DEVICES
- 	select GENERIC_CPU_VULNERABILITIES
- 	select GENERIC_EARLY_IOREMAP
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 46126ce2f968..b517f2703615 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -24417,10 +24417,13 @@ F:	drivers/staging/
+ 
+ STANDALONE CACHE CONTROLLER DRIVERS
+ M:	Conor Dooley <conor@kernel.org>
++M:	Jonathan Cameron <jonathan.cameron@huawei.com>
+ S:	Maintained
+ T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
+ F:	Documentation/devicetree/bindings/cache/
+ F:	drivers/cache
++F:	include/cache_coherency.h
++F:	lib/cache_maint.c
+ 
+ STARFIRE/DURALAN NETWORK DRIVER
+ M:	Ion Badulescu <ionut@badula.org>
 -- 
 2.48.1
 
