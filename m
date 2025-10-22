@@ -4,100 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47141CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 10:56:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE072CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 10:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o0A20oHPdwlwvYfXUnWJzAAzNbt9Wdmj/9G6WPspGzo=; b=LxAnH5FmbJRJt9OuFP8EN7wDNu
-	mieqbEUEd08TNYjOujYtmAZkyBkzVS3Kv+gtqByhc9j13ni0xVMDdVs5oQ9v+XW6RbUxNwex0f5IF
-	ASqMFv1BAudfJ4hXKL07e/audRCr3yjxYzfMcgl2MNsCcoQ3OjW9VB2Ipo1EDYGLnri8agxQqYW1N
-	VJPvTpXygeYSvEeRuWHZCdNm+WgylZtRdqIyrAxah5C+gNMYwHhyeA7AtyimOmJgSbMvcLDTMl9j7
-	1U6Vf0ShPO9eIAzdoPrL77BCkcMCHXWlG+6yKiSwmkhVaNhIz7zjY2ac0UU0HGwxDk9W2Ul3srfM/
-	hcEhrQrg==;
+	bh=T9jPryNlE+z+HyQn56DBn3kly7ollnl8TMgORbHcYVc=; b=m91vkAbt2yEFFqOPVTMiNTy/fh
+	gebEk4WdqsVm61lcoaG6orD4WYPC3PdZnsQtZ1ET3ryYlNytG1cFjITo/WnXYPm5R1zN0CQSNhDbB
+	KmalrHChdjAnFGKmd+MgTAVEdPaQNHYN0x4rL0O7XYafYdV3Vyrh3KLGpC8rR5B+byc4e8XbFn1l4
+	tZYeqYqnW3z09eMcn0SUiQHwgypvl1L8C5ELbMhgWwDMz8PTSYcRu6m7NgTxPC7/cAOXRvpvz+XyW
+	CiTe88vaiUKCCzRqCOXdfucAK3zyanEEFsubI/qjvKcT1NVeMB5hIfJIhrOPI4ojbqJLMCz2njA2K
+	qCpkU7zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBWW6-00000002YRJ-3Fgc;
-	Wed, 22 Oct 2025 10:56:30 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1vBWY1-00000002Yjz-1brN;
+	Wed, 22 Oct 2025 10:58:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBWW4-00000002YQw-2S6j
+	id 1vBWXz-00000002Yjr-475z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 10:56:29 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b3b27b50090so1243124366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 03:56:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761130586; x=1761735386; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=o0A20oHPdwlwvYfXUnWJzAAzNbt9Wdmj/9G6WPspGzo=;
-        b=Z835fkinxGHZz0DDysOTgmfMRrI10mOKPtH68K3aA2/HG0wcIgDUnIu9VQB+IX2Ips
-         Ov92d5CiCnflTDgxXldg0tERMs1vdKvESpP1K8o0vjOMBbQjKbLUQrGHJEV7eTuiI9C4
-         Z945C4TF8Gi/k64oALRhaTmZV5zttRRDpJBLMHaSqV1+AdZnt0vmTFaRbqX+DsWmnJ1W
-         UdD1D0VKrknAMVSfIy3VBd4xMFmrNGdhaqZW1y5eE9hWuzzexIOXbfZOub0anAlfxLcw
-         i/p+r1oN1RCb1PqsH+iR8JxrfgKeNzL+r2LgkK8iUxpDUZCsSJdpNJfPI2YM5jZ2pAfl
-         AjMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761130586; x=1761735386;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=o0A20oHPdwlwvYfXUnWJzAAzNbt9Wdmj/9G6WPspGzo=;
-        b=GbfKmwp8O9yxVp/ZPDtCj4Z/+OGR2iuk+2QIuxhshGal2uLU+6yY7rJAYjGTK0AzEx
-         5RK/POYIbbVIgkbFVdDIZc8pNMuJWl3yRTH/4bHz1g58xKCVhhApaAKP17eaf+j3KEIC
-         0Tazlpk9iS9PCZhlTm3jpaMrwQ/Kgxf7Z6ueuHFyjsksA63n9QkkDCtPI6FrnJNFmbGx
-         lHKPGgi6h5OXSS6jdLCeRFjz+C5mC7avzPYibj/uOpMZCSrsMLMT6bROB1AL/YjuwP+5
-         51Kg64ljyGA4KVzv09vxPKQhxR2plIYZOURrD8+fSiUhoead49j74a1uA6GlMd3JGuiZ
-         GzAw==
-X-Forwarded-Encrypted: i=1; AJvYcCUqd9rSv+PPstcpbiZnGgzt+ZeYW8EYQjJT5A9ctl5W8vrmBGtYX7lIdFsWut9aj3hPlNYwFibkZ0nE6uYrX37T@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkwWCtYM4d5HeAuNbthsSH3F2xniGOH+WgknNInu/+hm5kaLO1
-	VlWcdLFq1KNtvcqxd+kganzg67Wusug68oEJT26+9EP7ublpaIhej0Df
-X-Gm-Gg: ASbGnctOPbjkLJFwefq+/nOIRzH8Utg2+AY9/rAvqVxPoM4IjE9Ea5u9WR+3bX69gfz
-	E9LV91egjergaIK5MEAspftj9vlvDWdmqi5pT0YJJwqo/FbSY/hktXgtOvOB4noV+lpCpOSefge
-	Ed7wH/3d7EUHWigbkleey9yeD6yX8ROi62QIEi7DhCTOx9yuNglGmE29fZxJt9rI9VOn2R5l87F
-	ckzoxP2z/3CMthK6EEWZopW6sqK0rBt2hqK+M6Qtm63dfvlnnqqqtL0zh19Kfr8dkkTDVUMA08Z
-	/c3CfVd1qOmq4L8EoC/lTH0m3lv/awJ+dkhuSRGpFG12IrnVgjmDUvMUOrYFw6sWI2czb53BdA8
-	39AAsbw2aiLZnofrpafqGlEm4XlvZLtQ6RzSdWq2LuN/KaYNBGYtdF+ebGmFxhDfsv9QORVH2Vn
-	eedw+B24RgTHTXMd478aTZpDij7wz7gHhKxAP4w9MSObIdD/CDQCWwWe/IpMneNjmow0I6/f0=
-X-Google-Smtp-Source: AGHT+IEdGRi/hFagoGGgzKcGR3Q9DoSBThXuzMQp+xb2RQm2aipBLwQ9bktG/U+2WDFiA7eALZVStg==
-X-Received: by 2002:a17:906:da09:b0:b6b:a82a:bbbc with SMTP id a640c23a62f3a-b6ba82acfb4mr887771466b.33.1761130585840;
-        Wed, 22 Oct 2025 03:56:25 -0700 (PDT)
-Received: from alb3rt0-ThinkPad-P15-Gen-1 (host-79-17-196-24.retail.telecomitalia.it. [79.17.196.24])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b65eb526175sm1337364466b.56.2025.10.22.03.56.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Oct 2025 03:56:25 -0700 (PDT)
-Date: Wed, 22 Oct 2025 12:56:22 +0200
-From: Alberto Merciai <alb3rt0.m3rciai@gmail.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengfei Li <pengfei.li_1@nxp.com>,
-	Marco Felsch <m.felsch@pengutronix.de>, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	ye.li@nxp.com, joy.zou@nxp.com
-Subject: Re: [PATCH v7 3/3] arm64: dts: imx91: Add thermal-sensor and
- thermal-zone support
-Message-ID: <aPi4VqxIF/hltDC5@alb3rt0-ThinkPad-P15-Gen-1>
-References: <20251020-imx91tmu-v7-0-48d7d9f25055@nxp.com>
- <20251020-imx91tmu-v7-3-48d7d9f25055@nxp.com>
+	Wed, 22 Oct 2025 10:58:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B36662905;
+	Wed, 22 Oct 2025 10:58:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A21BFC4CEE7;
+	Wed, 22 Oct 2025 10:58:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761130706;
+	bh=uP7wmgWPNro5aHZPJ9Sbf+zUHTY0T4bM7DTfOvPzk6E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ElU56uLl53ecsF3fuxfxvkbzZD/3/bG7M9Z2Pi0n4KtvuGb11/0p/HaK2b+li95SZ
+	 mJrGkTUXILsjuOabDPcNJ/G9VD5Iqh+ExzVWiDpdQqtalVFL18cn3QCJ6Dqo5sfdFn
+	 /BuNRET3hcUjeyRVex2L44Le91VIE/MtFV03q6Dq4TMaxXzGLsBM72HtN2uj3+yy3D
+	 p7vEEjnS3r/285SA05pxpqce9DqiA2VFMwLqM3o+Kz7S3nSEmZ0RLecXVt+bRykRZH
+	 51bSXbACvsCR5BO3bdvgakU6FQKoBTd44N+BeWlezp8StzhQK0BOIuIAwBDVn2NfCR
+	 nlYRrQcx3B8DA==
+Date: Wed, 22 Oct 2025 16:28:08 +0530
+From: "mani@kernel.org" <mani@kernel.org>
+To: "Havalige, Thippeswamy" <thippeswamy.havalige@amd.com>
+Cc: Stefan Roese <stefan.roese@mailbox.org>, 
+	Bjorn Helgaas <helgaas@kernel.org>, "Bandi, Ravi Kumar" <ravib@amazon.com>, 
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>, 
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
+	"robh@kernel.org" <robh@kernel.org>, "Simek, Michal" <michal.simek@amd.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"stable@vger.kernel.org" <stable@vger.kernel.org>, Sean Anderson <sean.anderson@linux.dev>, 
+	"Yeleswarapu, Nagaradhesh" <nagaradhesh.yeleswarapu@amd.com>, "Musham, Sai Krishna" <sai.krishna.musham@amd.com>
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Message-ID: <zuj6puxpqgjmaa3y3wwyixlru7e7locplnjev37i5fnh6zummw@72t5prkfsrpk>
+References: <20251021212801.GA1224310@bhelgaas>
+ <ab1f7c51-bc41-4774-a0dc-850e53c412eb@mailbox.org>
+ <3it5l556vmfpuu6kz5yvulwosi4ecmcgfbzcizrc5wi7ifddkh@mpzfxf2v6v3f>
+ <72267a6c-13c7-40bd-babb-f73a28625ca4@mailbox.org>
+ <SN7PR12MB7201CF621AF0A38AA905799D8BF3A@SN7PR12MB7201.namprd12.prod.outlook.com>
+ <brekq5jmgnotwpshcksxefpg2adm4vlsbuncazdg32sdpxqjwj@annnvyzshrys>
+ <SN7PR12MB7201C6B5B64F8847DD6D816D8BF3A@SN7PR12MB7201.namprd12.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251020-imx91tmu-v7-3-48d7d9f25055@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_035628_658698_E02F5D52 
-X-CRM114-Status: GOOD (  17.85  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <SN7PR12MB7201C6B5B64F8847DD6D816D8BF3A@SN7PR12MB7201.namprd12.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,67 +81,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 20, 2025 at 03:00:42PM -0400, Frank Li wrote:
-> Add thermal-sensor and thermal-zone support.
+On Wed, Oct 22, 2025 at 10:36:28AM +0000, Havalige, Thippeswamy wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
 > 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> changes in v7
-> - new patch
-> ---
->  arch/arm64/boot/dts/freescale/imx91.dtsi | 58 ++++++++++++++++++++++++++++++++
->  1 file changed, 58 insertions(+)
+> Hi Mani,
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/imx91.dtsi b/arch/arm64/boot/dts/freescale/imx91.dtsi
-> index 4d8300b2a7bca33bd0613db9e79d2fba6b40c052..f075592bfc01f1eb94d2a2bd8eea907cc2aed090 100644
-> --- a/arch/arm64/boot/dts/freescale/imx91.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx91.dtsi
-> @@ -6,6 +6,54 @@
->  #include "imx91-pinfunc.h"
->  #include "imx91_93_common.dtsi"
->  
-> +/{
-> +	thermal-zones {
-> +		cpu-thermal {
-> +			polling-delay-passive = <250>;
-> +			polling-delay = <2000>;
-> +			thermal-sensors = <&tmu 0>;
-> +
-> +			trips {
-> +				cpu_alert: cpu-alert {
-> +					temperature = <80000>;
-> +					hysteresis = <2000>;
-> +					type = "passive";
-> +				};
-> +
-> +				cpu_crit: cpu-crit {
-> +					temperature = <90000>;
-> +					hysteresis = <2000>;
-> +					type = "critical";
-> +				};
-> +			};
-> +
-> +			cooling-maps {
-> +				map0 {
-> +					trip = <&cpu_alert>;
-> +					cooling-device =
-> +						<&A55_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +};
+> > -----Original Message-----
+> > From: mani@kernel.org <mani@kernel.org>
+> > Sent: Wednesday, October 22, 2025 4:02 PM
+> > To: Havalige, Thippeswamy <thippeswamy.havalige@amd.com>
+> > Cc: Stefan Roese <stefan.roese@mailbox.org>; Bjorn Helgaas
+> > <helgaas@kernel.org>; Bandi, Ravi Kumar <ravib@amazon.com>;
+> > lpieralisi@kernel.org; bhelgaas@google.com; linux-pci@vger.kernel.org;
+> > kwilczynski@kernel.org; robh@kernel.org; Simek, Michal
+> > <michal.simek@amd.com>; linux-arm-kernel@lists.infradead.org; linux-
+> > kernel@vger.kernel.org; stable@vger.kernel.org; Sean Anderson
+> > <sean.anderson@linux.dev>
+> > Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+> >
+> > On Wed, Oct 22, 2025 at 10:08:44AM +0000, Havalige, Thippeswamy wrote:
+> > > [AMD Official Use Only - AMD Internal Distribution Only]
+> > >
+> > > Hi Stefan,
+> > >
+> > > > -----Original Message-----
+> > > > From: Stefan Roese <stefan.roese@mailbox.org>
+> > > > Sent: Wednesday, October 22, 2025 3:29 PM
+> > > > To: mani@kernel.org
+> > > > Cc: Bjorn Helgaas <helgaas@kernel.org>; Bandi, Ravi Kumar
+> > > > <ravib@amazon.com>; Havalige, Thippeswamy
+> > > > <thippeswamy.havalige@amd.com>; lpieralisi@kernel.org;
+> > > > bhelgaas@google.com; linux-pci@vger.kernel.org;
+> > > > kwilczynski@kernel.org; robh@kernel.org; Simek, Michal
+> > > > <michal.simek@amd.com>; linux-arm- kernel@lists.infradead.org;
+> > > > linux-kernel@vger.kernel.org; stable@vger.kernel.org; Sean Anderson
+> > > > <sean.anderson@linux.dev>
+> > > > Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+> > > >
+> > > > On 10/22/25 11:55, mani@kernel.org wrote:
+> > > > > On Wed, Oct 22, 2025 at 08:59:19AM +0200, Stefan Roese wrote:
+> > > > >> Hi Bjorn,
+> > > > >> Hi Ravi,
+> > > > >>
+> > > > >> On 10/21/25 23:28, Bjorn Helgaas wrote:
+> > > > >>> On Tue, Oct 21, 2025 at 08:55:41PM +0000, Bandi, Ravi Kumar wrote:
+> > > > >>>>> On Tue, Oct 21, 2025 at 05:46:17PM +0000, Bandi, Ravi Kumar
+> > wrote:
+> > > > >>>>>>> On Oct 21, 2025, at 10:23 AM, Bjorn Helgaas
+> > > > >>>>>>> <helgaas@kernel.org>
+> > > > wrote:
+> > > > >>>>>>> On Sat, Sep 20, 2025 at 10:52:32PM +0000, Ravi Kumar Bandi
+> > > > wrote:
+> > > > >>>>>>>> The pcie-xilinx-dma-pl driver does not enable INTx
+> > > > >>>>>>>> interrupts after initializing the port, preventing INTx
+> > > > >>>>>>>> interrupts from PCIe endpoints from flowing through the
+> > > > >>>>>>>> Xilinx XDMA root port bridge. This issue affects kernel 6.6.0 and
+> > later versions.
+> > > > >>>>>>>>
+> > > > >>>>>>>> This patch allows INTx interrupts generated by PCIe
+> > > > >>>>>>>> endpoints to flow through the root port. Tested the fix on
+> > > > >>>>>>>> a board with two endpoints generating INTx interrupts.
+> > > > >>>>>>>> Interrupts are properly detected and serviced. The
+> > > > >>>>>>>> /proc/interrupts output
+> > > > >>>>>>>> shows:
+> > > > >>>>>>>>
+> > > > >>>>>>>> [...]
+> > > > >>>>>>>> 32:        320          0  pl_dma:RC-Event  16 Level     400000000.axi-
+> > pcie,
+> > > > azdrv
+> > > > >>>>>>>> 52:        470          0  pl_dma:RC-Event  16 Level     500000000.axi-
+> > pcie,
+> > > > azdrv
+> > > > >>>>>>>> [...]
+> > > > >>
+> > > > >> First a comment on this IRQ logging:
+> > > > >>
+> > > > >> These lines do NOT refer to the INTx IRQ(s) but the controller
+> > > > >> internal "events" (errors etc). Please see this log for INTx on
+> > > > >> my Versal platform with pci_irqd_intx_xlate added:
+> > > > >>
+> > > > >>   24:          0          0  pl_dma:RC-Event   0 Level     LINK_DOWN
+> > > > >>   25:          0          0  pl_dma:RC-Event   3 Level     HOT_RESET
+> > > > >>   26:          0          0  pl_dma:RC-Event   8 Level     CFG_TIMEOUT
+> > > > >>   27:          0          0  pl_dma:RC-Event   9 Level     CORRECTABLE
+> > > > >>   28:          0          0  pl_dma:RC-Event  10 Level     NONFATAL
+> > > > >>   29:          0          0  pl_dma:RC-Event  11 Level     FATAL
+> > > > >>   30:          0          0  pl_dma:RC-Event  20 Level     SLV_UNSUPP
+> > > > >>   31:          0          0  pl_dma:RC-Event  21 Level     SLV_UNEXP
+> > > > >>   32:          0          0  pl_dma:RC-Event  22 Level     SLV_COMPL
+> > > > >>   33:          0          0  pl_dma:RC-Event  23 Level     SLV_ERRP
+> > > > >>   34:          0          0  pl_dma:RC-Event  24 Level     SLV_CMPABT
+> > > > >>   35:          0          0  pl_dma:RC-Event  25 Level     SLV_ILLBUR
+> > > > >>   36:          0          0  pl_dma:RC-Event  26 Level     MST_DECERR
+> > > > >>   37:          0          0  pl_dma:RC-Event  27 Level     MST_SLVERR
+> > > > >>   38:         94          0  pl_dma:RC-Event  16 Level     84000000.axi-pcie
+> > > > >>   39:         94          0  pl_dma:INTx   0 Level     nvme0q0, nvme0q1
+> > > > >>
+> > > > >> The last line shows the INTx IRQs here ('pl_dma:INTx' vs
+> > > > >> 'pl_dma:RC- Event').
+> > > > >>
+> > > > >> More below...
+> > > > >>
+> > > > >>>>>>>>
+> > > > >>>>>>>> Changes since v1::
+> > > > >>>>>>>> - Fixed commit message per reviewer's comments
+> > > > >>>>>>>>
+> > > > >>>>>>>> Fixes: 8d786149d78c ("PCI: xilinx-xdma: Add Xilinx XDMA
+> > > > >>>>>>>> Root Port driver")
+> > > > >>>>>>>> Cc: stable@vger.kernel.org
+> > > > >>>>>>>> Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
+> > > > >>>>>>>
+> > > > >>>>>>> Hi Ravi, obviously you tested this, but I don't know how to
+> > > > >>>>>>> reconcile this with Stefan's INTx fix at
+> > > > >>>>>>> https://lore.kernel.org/r/20251021154322.973640-1-
+> > > > stefan.roese@m
+> > > > >>>>>>> ailbox.org
+> > > > >>>>>>>
+> > > > >>>>>>> Does Stefan's fix need to be squashed into this patch?
+> > > > >>>>>>
+> > > > >>>>>> Sure, we can squash Stefan’s fix into this.
+> > > > >>>>>
+> > > > >>>>> I know we *can* squash them.
+> > > > >>>>>
+> > > > >>>>> I want to know why things worked for you and Stefan when they
+> > > > >>>>> *weren't* squashed:
+> > > > >>>>>
+> > > > >>>>>    - Why did INTx work for you even without Stefan's patch.  Did you
+> > > > >>>>>      get INTx interrupts but not the right ones, e.g., did the device
+> > > > >>>>>      signal INTA but it was received as INTB?
+> > > > >>>>
+> > > > >>>> I saw that interrupts were being generated by the endpoint
+> > > > >>>> device, but I didn’t specifically check if they were correctly
+> > > > >>>> translated in the controller. I noticed that the new driver
+> > > > >>>> wasn't explicitly enabling the interrupts, so my first approach
+> > > > >>>> was to enable them, which helped the interrupts flow through.
+> > > > >>>
+> > > > >>> OK, I'll assume the interrupts happened but the driver might not
+> > > > >>> have been able to handle them correctly, e.g., it was prepared
+> > > > >>> for INTA but got INTB or similar.
+> > > > >>>
+> > > > >>>>>    - Why did Stefan's patch work for him even without your patch.
+> > How
+> > > > >>>>>      could Stefan's INTx work without the CSR writes to enable
+> > > > >>>>>      interrupts?
+> > > > >>>>
+> > > > >>>> I'm not entirely sure if there are any other dependencies in
+> > > > >>>> the FPGA bitstream. I'll investigate further and get back to you.
+> > > > >>>
+> > > > >>> Stefan clarified in a private message that he had applied your
+> > > > >>> patch first, so this mystery is solved.
+> > > > >>
+> > > > >> Yes. I applied Ravi's patch first and still got no INTx delivered
+> > > > >> to the nvme driver. That's what me triggered to dig deeper here
+> > > > >> and resulted in this v2 patch with pci_irqd_intx_xlate added.
+> > > > >>
+> > > > >> BTW:
+> > > > >> I re-tested just now w/o Ravi's patch and the INTx worked. Still
+> > > > >> I think Ravi's patch is valid and should be applied...
+> > > > >
+> > > > > How come INTx is working without the patch from Ravi which enabled
+> > > > > INTx routing in the controller? Was it enabled by default in the hardware?
+> > > >
+> > > > Yes, this is my best guess right now. I could double-check here, but
+> > > > IMHO it makes sense to enable it "manually" as done with Ravi's
+> > > > patch to not rely on this default setup at all.
+> > > Hardware doesn't enable this bits by default, INTx didn't work since there is a
+> > miss match in the DT property which doesn't require pci_irqd_intx_xlate.
+> > >
+> > > interrupt-map = <0 0 0 1 &pcie_intc_0 0>,
+> > > <0 0 0 2 &pcie_intc_0 1>,
+> > > <0 0 0 3 &pcie_intc_0 2>,
+> > > <0 0 0 4 &pcie_intc_0 3>;
+> > >
+> >
+> > Ok. This makes me believe that we do not need Stefan's patch [1] and need
+> > just this patch from Ravi.
+> >
+> > - Mani
+> >
+> > [1] https://lore.kernel.org/linux-pci/20251021154322.973640-1-
+> > stefan.roese@mailbox.org/
+> 
+> We even don’t need ravi patch, as we have tested this at our end it works fine by just updating interrupt-map
+> Property. We need to now understand the difference in design.
 
-Here you define cooling-maps with passive and critical trip points. 
+Ok, please let us know with your findings. In the meantime, I'll keep Ravi's
+patch in tree, as it seems to be required on his setup.
 
-I was trying test that by enabling CONFIG_THERMAL_EMULATION and setting
-the emulated temp via 
+- Mani
 
-echo 85000 > /sys/class/thermal/thermal_zone0/emul_temp
-
-By checking with mhz (from lmbench Yocto recipe) command I was expecting that the 91 start
-throttling but is not the case, Am I missing something?
-
-Thanks,
-Alberto
+-- 
+மணிவண்ணன் சதாசிவம்
 
