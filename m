@@ -4,175 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6321CCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 20:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D55CCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 20:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jqAjTUL+jdPl3bqD78ArxV60T7VMk0dbjFU6F2jBKcI=; b=EcOhg896mqC4/dekoNdV6hz8KY
-	/JW3BEHhBAJKcA+Vy+jRBtJhP3VYC6KwxjXycYqMOIvKbLRONFHNEH62tqPsQXkwwhKqgZU7E0qvo
-	SA0/kmOH8pxx958VuLmW96TmXk4cxTMTj/K8HR4ZCWmPuQTMG4GGMDn7T2RZib0YJibe2lhxYBSkD
-	673hMxgoCgRd7fh4shN/CJJvtlGEb461pmwPuyqsreLhJHPXH8YRt4GOdQRu6A5xGgipv04L3VZxT
-	GPUix0+Khz4isCVqkIMtBjIkRMDeVZhQmBV1hS0NZ6z70mgrXI22BOaFP585dQlal1lXwi3xbLBmw
-	i1TIWkVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6By88Zpn3m6uq4P5zQ8yb72SxI9R7gfGj/HM/rNU4uY=; b=B6PmnaEGY8QQR1giuE/KXvWsvf
+	hcNCTwJ6SwPPiRR9Gkmn8c4fUWhQG5mRy1QgtOI9ow2iaiIHog/SJuXlzA4dw8Rbc2cCwqJHP8OAY
+	r/licS1P1/DgYoBwjHaPqqhHmoF/uyZ32szI9WF/+QKwrbP7BBjz5Wwq42MpxO7BsRWjH3hHuTBd5
+	LFccA1hRPxh42P0c+Hxgd/lpbbwvTXWBJIXJW4fZ+5hQltVAG/2CKISxzsD5+iSpqtndxiZvlhiCN
+	Eikt4XcU+nvN9OEneSH0+bqUqsxuSJ43doSvaJGeDKh51ZNI99ClcCwBMkZmjI81nw6qX+QmEndVo
+	KDLdACsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBfgT-00000004GwL-3N6L;
-	Wed, 22 Oct 2025 20:43:49 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vBfgg-00000004H3l-3v3g;
+	Wed, 22 Oct 2025 20:44:02 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBfgN-00000004Grm-3muw
+	id 1vBfge-00000004H0l-1M59
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 20:43:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JOVBoL8t0XzH3Ny1RE3VyoHfv9xyN53wDQ9Jc3niNjPcjlsaGBGvxv4nBEW/3yzyUmnXbM6Dm+5PYvCU+4nBHEJGv/JgX1pGqQe2IXnQHtkmVzNm2S+13rYwFiHtzrAJ4+NKnDnsGTCo0WhW0JtOysMsm55eQuQ18UrAQlHV3S0me0ec7XKqiMXJrzOySVtiG3m+f0BlREjGvnUW/f13/p5hNddl7OdELt9clrXtUfteN8DfqXBBhYnYDtiXjTryGu7LX35wWdNbtEKj3Ayr9okb2atjEeLW8gqGeogG5ykIQLpAq0rgJmt7YOmHdY35TdBZBFGa2j9sVrDtu7KRxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jqAjTUL+jdPl3bqD78ArxV60T7VMk0dbjFU6F2jBKcI=;
- b=fifjGnrvYIPNDImGWSr2RhWqJ48OvKQBtmxTwgiQkbyZ91P4378N3UMmVgLQ2EsQ8X1Hf1Q2X4qmBVQQqxqADIV/EncvtzkkpDmno1PAumOdwywWOkK6yIaUDzSqSDbHrXR8NaJscYz8wydaKMy//hY9wpNEg2dNzsaLaPHn5VWC//29skLTCEFP5Hzy2/Tw1bMYgCUKgSBC/YHP7v02PsAR5bdruW/4MhtSevOX35UrlkIH7VDKJRhjx3gV5aANyeS9s3E5G7DKSZ7fm+K+KBXnZ6/kDDo/nyZdXyJDOJ3WoMxum/wuvpCp0BJPwy9Qm7vYegeA5fFsnynvLbQsAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jqAjTUL+jdPl3bqD78ArxV60T7VMk0dbjFU6F2jBKcI=;
- b=GpYH2dCIzMG6VeyrlZOxOTxBZ3ZNbufVxaVYdrLnJBwaFyO0PxVyQPAfW6u12wyv+6csppCmVJO1ASmllotmQfqBzpQug3WmDCQV1sLQ3tdImaEHdVrUQA3gMk9UPPBx8+AIk5QsUSPXW2EFdxVaLeIokZ1I9MR+vQGVvlEdbADRz1Zx8GB409l49LkLE1JNcXTy1GBQ3vz/2flkj5R00V5ZzoCksur5Ps1j3a+6C7Lx93u1D4S6spFU/CD0wZ8dt5v7II6ME2VeVsRVYrBGqOtkBxAgtO1TUe7MKVIM7tEC4yIth89N0R/ECJz24T5sAH/PYfMlU0jIUhHe4RxPaw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by PR3PR04MB7482.eurprd04.prod.outlook.com (2603:10a6:102:8f::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Wed, 22 Oct
- 2025 20:43:40 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9253.011; Wed, 22 Oct 2025
- 20:43:40 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 22 Oct 2025 16:43:21 -0400
-Subject: [PATCH 1/2] arm64: dts: imx8: add vdd-supply and vddio-supply for
- fsl,mpl3115
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251022-fsl-mpl3115-v1-1-93187d095efc@nxp.com>
-References: <20251022-fsl-mpl3115-v1-0-93187d095efc@nxp.com>
-In-Reply-To: <20251022-fsl-mpl3115-v1-0-93187d095efc@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- David Lechner <dlechner@baylibre.com>, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761165814; l=2410;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=BNGjdCnLRJz68xw9ZRO2bXEBvhKZ8+gxhb0scPIHnwA=;
- b=Ow4u8eVl3t4s+G12z+WGX0X1NgzWqy1Jq5+W/BErPOGtKVcd7cDYpS6KICyRkvOrXnZR/j9Yl
- YH7uk5CsXfJDGeOOEUjt15gMMgSWpGHNv6+ozBrC2yUYqhaDXfW/kV6
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: BYAPR04CA0022.namprd04.prod.outlook.com
- (2603:10b6:a03:40::35) To PAXSPRMB0053.eurprd04.prod.outlook.com
- (2603:10a6:102:23f::21)
+	Wed, 22 Oct 2025 20:44:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1761165837;
+ bh=6By88Zpn3m6uq4P5zQ8yb72SxI9R7gfGj/HM/rNU4uY=;
+ b=cL+1pa3r0CqocWb6wT8rm9WWH2Msx2jRhytaXQ4upFEoxBO3VsXEFDUcSzRwl0AROzg9g5xqy
+ vy+cGcRMAteQe2Oh8xvwth+53NOlRDODEVqOm1H/KVtjul7A78e56VZ2VJDox3MZkKUNo9Q+mSL
+ fkH9iaEwlEtf7QeEK/rz2lhWva6j8ks2r1EmbgBUamWvjy4j2wOSVwnjJnpevXX6NZLMiJDzhw6
+ LjUEHdWmI52IGaQy4rV8/carD7sFjoNfY/QjDHZNULSEcv8YqiBfxhdEocOXAosqwyqZasyx8zv
+ r2H1T+USYkFCNjGbHun/m3F4o8xXto7il8Bm1hjfhpdA==
+X-Forward-Email-ID: 68f94203b0b13797a645472d
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.3.0
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <fe54009a-ee39-43a0-a337-93c46cd7dabe@kwiboo.se>
+Date: Wed, 22 Oct 2025 22:43:41 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PR3PR04MB7482:EE_
-X-MS-Office365-Filtering-Correlation-Id: debbd52a-20a6-488b-c03c-08de11abaee0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|19092799006|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aThId0VSaGd6alBMRmVaNWgrRk8wc0lqaGljcXBvV1ZvVE5jaTVlRDViMmh5?=
- =?utf-8?B?UVN5cXBhaG5hYm1QdnlqY2V2NFVWbXZYTkx2VDBGUnV6QXZZVUVDdUM5T3Fh?=
- =?utf-8?B?bUpzUHEwWHFVdXpvSHNGM05HWVZINm12dUJ4a3ZuZU1sOHg4N203TEM1OVdT?=
- =?utf-8?B?cUkyNlhPTmhCUVNwUHpSVUFRaXppMlJUajlVSjlucUFUTVo1MlhnczNkcHJs?=
- =?utf-8?B?bGhxdTdacjlqbGdiYXVXWkx2U2l2ZFF6WFlBTU5INURZbW1UNnNQcUwrY3Vj?=
- =?utf-8?B?WXFnSkhocXNsQ21WZHMweXZCT0hFNlJkanRSaWlhL3ZQU3BGcXJVTFhTSXFF?=
- =?utf-8?B?THdjdjJlOE8raEhIL3dNTG1sankzSm5yN1hPMzVnK0E4MG1mSCt4eldBRVhk?=
- =?utf-8?B?ZCsyZWdLZCtUUllZeWJyR2QrbUZWNkplM2VxTndZOGd4b1hNaExjRnA4Z3g3?=
- =?utf-8?B?SFp1K09ZTG94QldMYzRiMzU0cWl3QzZ2aHdqMGlUZEY5bHVVTWJaVUIxaGFx?=
- =?utf-8?B?aXZTdXhGZi9nUVZwNWVNbk9ON2ZlaVY0Y3dneUgyalNoNVM3djFYYUI4Y0U3?=
- =?utf-8?B?TVBRWm8yNHA4Y1luYkl6UlorYmQ5Wi9pZGV5MEtJMlpuMFUyK2ExbDBra25m?=
- =?utf-8?B?V0JLd2cvQzdIY2RndlBxK1c4N01xZTU2UmdWazRsOU9xYTlJN2lZdHJiSkUy?=
- =?utf-8?B?M0tmeGlnUTdZeGVqMlMrOGlaSjFUVCszL091YVZIcWJRSlhWWFY4clhSQUtI?=
- =?utf-8?B?MGkrRVJDV3J5S200NnhaWXVUY0VpMmtnY1RVYmliVU1INXBSNFFsUkg4V09q?=
- =?utf-8?B?eVU3OTVRZGdOQ1hnUXhXanFWZ3NsM1ZwZEZRQm1keWEwRGdrRUtlakk3eXJm?=
- =?utf-8?B?d09VQWFoVUF6VWNxSFMwVlp1bUovT2RpZzhWcy9USk9SWGM1K1FSZzFoTzAz?=
- =?utf-8?B?Z2RYa1pYa3poZlc1WU9ZVmJWdGV0NnVZNVRWeXZ3RFp5MERCSmI5QnQwRlFS?=
- =?utf-8?B?aDVNQmpvMXJUMmZwTEpUTXJWWVNBSXE2TXBjV0dmUW9Bd05vMEV3ZG1aamNU?=
- =?utf-8?B?UUhjdnVrRVlZMTlMVHpFZWJLZmZXRjJUV21nS1FxcGpORmNPTE1EWmZCY1ly?=
- =?utf-8?B?SmVEeWg1UmVrd2lwOU1OVm5tWi85SFlvSHRNN25NWTNvV3BhS0cwSFdtakFY?=
- =?utf-8?B?Y2hCWUFxYWFWMGlTRXN0c0lzOTRSQmpET1A0TmNpa2tXclM0UmZDaE1mU2hR?=
- =?utf-8?B?dzlCbmV1b2hPNnd0aW14eFh6QmRTUUNkMmdlOTlMc2ExU21ZenRVZTYweFV3?=
- =?utf-8?B?Q3hlQXhxR1lQNWQ4eTYzOTJOMXY4YVc5TGhKcWYvZk4xTkxodjk2a3ZqaFRP?=
- =?utf-8?B?dlNlOHROTnRTbWNReWgvcVFiWW5IZWdUSnZsSXpsYlFic1IvUlNSOWRtbjVw?=
- =?utf-8?B?TERmWXUzVFhjR0twb2JObVVzRzRsMUkrTFRPTHluR1pXQTFnTHFQSURjMHRL?=
- =?utf-8?B?NFdvLzhIUUxQa0x0dE80aE1qWmNUbmtPdC9ZdlZGNXJoREdmUTdQa2M3aEVF?=
- =?utf-8?B?eEE5ZmIxdnYxc2FZeENDL2t4UTVlSzR0U0t5cU9rMTlFRHN5TVZkUUxLU2Qx?=
- =?utf-8?B?aFowR3I5TDl5WFVUVnZFM3JWN0U4V1loZ3R0SVBiYURNZGxnSDNlSDlhMW81?=
- =?utf-8?B?dWU0NUFTYWx1dXR6RFBFdW51azVlYThzUUtOZkR1QzNzdEVMTzB1emJjUnhR?=
- =?utf-8?B?dVN0QkZwcktKSXNwYWluMEtWKy92TUlzVmVBZzAzeUFONVkzTHNsanVtU2xC?=
- =?utf-8?B?U1R5U1ZOY2tya0VBTm5QYWt5SkxFRVI2UnhtVlZKZTJmKzVMS2d1VkN1c0Y0?=
- =?utf-8?B?RmFFdUJWc0xBY0kyT1pLWm9OUkZqaHZocEpBeU9VNEVvcG9RSDBhSmZVV255?=
- =?utf-8?B?ZVBjUmJZTEZjUEo4M2R2WGU0dWoyc2JhU0haSnJya0tvUmc1cUt2dFVOdWxU?=
- =?utf-8?B?UVdsYXdqOFN3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(19092799006)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WUJlTjhtQ1g1Mi9pZW9xb3RkemhyTUV2dmoxeGdHdm1kcGxnaW1xRFppSnVu?=
- =?utf-8?B?dnpVNXNPQ3drMW1Wb3RiVEJZN2MyaVBTYmpYNkNuZVU4VEw4bFg0ZmZGVC9q?=
- =?utf-8?B?RmN4QWU0OTRaYkVYdVc0Z0FWUmxxRU0xQUZ2UC8wL2RzcTNXdmpqS3h1bjVr?=
- =?utf-8?B?aEJuRHVmSit1eFZKU0xnUWlGM1FOcWpTaCtHUWlncEVmNmFoTEFsa29ueWll?=
- =?utf-8?B?cnQzdFBBck1hR0VaYjFVOENhbnFndlpCVTJrVmpkRUhKZGdKT1Q3UDZ1cUZB?=
- =?utf-8?B?b25zMkJSdWN5WmsyT3BTcVpPRklFM3ZEdXpLanFvYnYraUZQVnZCRUJJRnAw?=
- =?utf-8?B?MHoyYVd6UERBS0VjMGpUMkxRZExZMkVwN1pKSlVvMk1ITXZiNklwdTk3Vm9x?=
- =?utf-8?B?TjlqRW4xY1pqZjluekpmU2h6SDJ2TmxUQklXYkN1MitYMzhOOU9GRU5wK0Nq?=
- =?utf-8?B?VVNwUU8xTFlpOTY1SWU2T09SMkRscDdvTTJPRCt3bkE1dFJJNld6ekFWT1No?=
- =?utf-8?B?WVFISlU4Y2dneDNBQ2lwS3RXNDhTVW5oeHJwcDkwd1orU3JNajB3blMyTHFT?=
- =?utf-8?B?NnhIMlh6OUFsMG1uWFVDakJiWkFsNEtqNzZlMUNxb3ZPQXRDVXdDbldXMDVM?=
- =?utf-8?B?dmdtTDhqYUNrbEplaURVSVRiOWxRSnlpdVcwU3VUTlU4TmZmTjlhUXliS3hw?=
- =?utf-8?B?VjhPQkk3SG9yV3JDV0JZaFdkblgvMCtwQmEvT0tVOG92eFhtaHpjbGc5d1Rk?=
- =?utf-8?B?TXdiNnRDOWRJUWptNHFCNnBlZnQ3T2lUMmhuWE5IR2dTRzFpb1BSMlZxOWx6?=
- =?utf-8?B?YmxpbGk4VEdKVDhBelg3YzBtS0lsbXZLY3A5ZUlXQjRpcGZTN201SitURjZJ?=
- =?utf-8?B?cE8rZklaT2R4cy9HU01nQXk1YlgwZitEd1pURXlNR1oyK2VKcFlwd01iNFli?=
- =?utf-8?B?ZmNpR2kwRjd6Tm53aGZWTFhkNWdiUmxOZ3c1TWpBLzVrWkc5N3FZbWJVdlA0?=
- =?utf-8?B?Y1dpV08wZjcvbzlVUU5DalhiSkJzMlQ2bk5McVVBQ0VYNk9kRWREekxmRFZl?=
- =?utf-8?B?cWhlenFobXhzSmhmSjg2Wi9hdGlaU2NiWE51ZE95M0w1NVY5OUV1ZWtBbXBF?=
- =?utf-8?B?NkFoRHZGSXZSelVtRUx1MnBxcUpjRk1ZaWpLT0N5RENJK2Y3M3A3Y1lGeFNF?=
- =?utf-8?B?aTk5bStnRmZZd0NCY0VkeU5sTjgyZjJvWk0xOW1ZdHd4ZDVOYUdLSWgxQjhU?=
- =?utf-8?B?OURlWG9zbml3Y1dUd2s5WGJWRHRsc05CYnp0ZHBIdXNWczhoM0RpRGNobDhh?=
- =?utf-8?B?c3dwWVU5eDNZMlJNOXdCNzhkNWJKeVo0MXZNT3BueFVYK0lnRHQ1VkluOVBM?=
- =?utf-8?B?Zm5EZHh5OUJ1NHd1aDN4N1ppK1hZMkRtVWwraVNneVlJSFJtcnhMMHlweCtI?=
- =?utf-8?B?ZW9aczZsbE5EMmcyVHhLV3JXcVdyZnpmc244Q3d1YndhaTFmTjJycGZDSUZE?=
- =?utf-8?B?VjFPN0VJaUpDVWYwSG9zeWdyL3BabDcxYWFnbVFzeFpuQVlmVHpVQkljOEdu?=
- =?utf-8?B?UGVyc0N1TDE3dzVWWG10NkUxbUMrOElpUGU1STlnTk1lM3R4VlltRUFVa2RR?=
- =?utf-8?B?aWhYaVNnWWRBWUNuSUhmQ2YrMk1IS1pBQmp4MExFMTNLL2l2V3d5dlJQaVRV?=
- =?utf-8?B?NjNla0dIWWcrOXdMMlFWYVdJMStEUkcrQkkzZXpxL2Q4RjQrTVJEVU9adWlJ?=
- =?utf-8?B?RHNvRmdtSXBSNDZKWVVvZjd3bHhOT3NsY2lqVXdzMWo2S05EQzNHbGdhT1Aw?=
- =?utf-8?B?MldTR2srV0RJSkpaYkNZTStSVzVPbi9CdFZlYW1rK1IwWWRiMGlxVHczelNr?=
- =?utf-8?B?b3E1Y2prbjFIY1JlMHIxcWlxcDBtdFJMMnUvSW1rd2Q3MkhiNm9DZFdjM2NB?=
- =?utf-8?B?RWZ2VUZ5d1FEWGhOd20ybVpkZkRrL29VVy93Y2NJbm84THJ5L3NNVzFNYjdK?=
- =?utf-8?B?M2I2cmRFMTdqQTZPMmpHVXdGR2w5bWhSQ3BpSERlcmxsUVNVSk5KWFR3MjQv?=
- =?utf-8?B?YjJoajJuRVdoa0h1YU1GRHZGYVF5NUthbmRNRFJyYVpLSGNQL01mZll0SVNn?=
- =?utf-8?Q?046ddyqGSA7Tju8oCJf36GAcG?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: debbd52a-20a6-488b-c03c-08de11abaee0
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 20:43:40.5400
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zlLbt+/+TW4m+e5oL6yW5uqs0oiW96DbJpoXtI70swccl3r3aKOTWVoshpgcxUMJ/go26Ox9UViMYqW/T16kFA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7482
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] ethernet: stmmac: dwmac-rk: Add RK3506 GMAC support
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+ "davem@davemloft.net" <davem@davemloft.net>,
+ "edumazet@google.com" <edumazet@google.com>,
+ "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ David Wu <david.wu@rock-chips.com>
+References: <20251021224357.195015-1-heiko@sntech.de>
+ <20251021224357.195015-5-heiko@sntech.de>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20251021224357.195015-5-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_134344_004146_62C77098 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20251022_134400_708157_103166E7 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,75 +89,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add vdd-supply and vddio-supply for fsl,mpl3115 to fix CHECK_DTBS warning:
-arch/arm64/boot/dts/freescale/imx8qm-mek.dtb: pressure-sensor@60 (fsl,mpl3115): 'vdd-supply' is a required property
-  from schema $id: http://devicetree.org/schemas/iio/pressure/fsl,mpl3115.yaml#
+Hi Heiko,
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change dt-binding is not prefered
-https://lore.kernel.org/imx/0e00bb14-19c7-493a-9629-354bac3a273e@baylibre.com/T/#t
----
- arch/arm64/boot/dts/freescale/imx8qm-mek.dts  | 9 +++++++++
- arch/arm64/boot/dts/freescale/imx8qxp-mek.dts | 9 +++++++++
- 2 files changed, 18 insertions(+)
+On 10/22/2025 12:43 AM, Heiko Stuebner wrote:
+> From: David Wu <david.wu@rock-chips.com>
+> 
+> Add the needed glue blocks for the RK3506-specific setup.
+> 
+> The RK3506 dwmac only supports up to 100MBit with a RMII PHY,
+> but no RGMII.
+> 
+> Signed-off-by: David Wu <david.wu@rock-chips.com>
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>  .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 79 +++++++++++++++++++
+>  1 file changed, 79 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 51ea0caf16c1..e1e036e7163c 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> @@ -827,6 +827,84 @@ static const struct rk_gmac_ops rk3399_ops = {
+>  	.set_speed = rk3399_set_speed,
+>  };
+>  
+> +#define RK3506_GRF_SOC_CON8		0X0020
+> +#define RK3506_GRF_SOC_CON11		0X002c
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-index 202d5c67ac40b844ee38e8fb0f9caf2e186cfa9f..6a75ec612684e1e8e36346cdfdcc3d8ef490ace3 100644
---- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
-@@ -249,6 +249,13 @@ reg_2v8: regulator-2v8 {
- 		regulator-max-microvolt = <2800000>;
- 	};
- 
-+	reg_3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+	};
-+
- 	reg_usdhc2_vmmc: usdhc2-vmmc {
- 		compatible = "regulator-fixed";
- 		regulator-name = "SD1_SPWR";
-@@ -566,6 +573,8 @@ light-sensor@44 {
- 	pressure-sensor@60 {
- 		compatible = "fsl,mpl3115";
- 		reg = <0x60>;
-+		vdd-supply = <&reg_3v3>;
-+		vddio-supply = <&reg_3v3>;
- 	};
- 
- 	max7322: gpio@68 {
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-index 7b033744554105de6dbc4366f21e3c90f1768deb..f19350536bc919e31b539e0d63fbb8514040dfad 100644
---- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
-@@ -150,6 +150,13 @@ reg_2v8: regulator-2v8 {
- 		regulator-max-microvolt = <2800000>;
- 	};
- 
-+	reg_3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+	};
-+
- 	reg_pcieb: regulator-pcie {
- 		compatible = "regulator-fixed";
- 		regulator-max-microvolt = <3300000>;
-@@ -453,6 +460,8 @@ i2c@2 {
- 			pressure-sensor@60 {
- 				compatible = "fsl,mpl3115";
- 				reg = <0x60>;
-+				vdd-supply = <&reg_3v3>;
-+				vddio-supply = <&reg_3v3>;
- 			};
- 		};
- 
+Maybe 0x0020 and 0x002c (lower case x) ?
 
--- 
-2.34.1
+> +
+> +#define RK3506_GMAC_RMII_MODE		GRF_BIT(1)
+> +
+> +#define RK3506_GMAC_CLK_RMII_DIV2	GRF_BIT(3)
+> +#define RK3506_GMAC_CLK_RMII_DIV20	GRF_CLR_BIT(3)
+> +
+> +#define RK3506_GMAC_CLK_SELET_CRU	GRF_CLR_BIT(5)
+> +#define RK3506_GMAC_CLK_SELET_IO	GRF_BIT(5)
+
+s/SELET/SELECT/
+
+> +
+> +#define RK3506_GMAC_CLK_RMII_GATE	GRF_BIT(2)
+> +#define RK3506_GMAC_CLK_RMII_NOGATE	GRF_CLR_BIT(2)
+> +
+> +static void rk3506_set_to_rmii(struct rk_priv_data *bsp_priv)
+> +{
+> +	struct device *dev = bsp_priv->dev;
+> +	unsigned int id = bsp_priv->id, offset;
+> +
+> +	if (IS_ERR(bsp_priv->grf)) {
+> +		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
+> +		return;
+> +	}
+
+Please drop this, it is already checked in rk_gmac_setup().
+
+> +
+> +	offset = (id == 1) ? RK3506_GRF_SOC_CON11 : RK3506_GRF_SOC_CON8;
+> +	regmap_write(bsp_priv->grf, offset, RK3506_GMAC_RMII_MODE);
+> +}
+> +
+> +static int rk3506_set_speed(struct rk_priv_data *bsp_priv,
+> +			    phy_interface_t interface, int speed)
+> +{
+> +	struct device *dev = bsp_priv->dev;
+> +	unsigned int val, offset, id = bsp_priv->id;
+> +
+> +	switch (speed) {
+> +	case 10:
+> +		val = RK3506_GMAC_CLK_RMII_DIV20;
+> +		break;
+> +	case 100:
+> +		val = RK3506_GMAC_CLK_RMII_DIV2;
+> +		break;
+> +	default:
+> +		dev_err(dev, "unknown speed value for RMII! speed=%d", speed);
+> +		return -EINVAL;
+> +	}
+> +
+> +	offset = (id == 1) ? RK3506_GRF_SOC_CON11 : RK3506_GRF_SOC_CON8;
+> +	regmap_write(bsp_priv->grf, offset, val);
+> +
+> +	return 0;
+
+This should probably be converted to use rk_reg_speed_data with
+something like:
+
+static const struct rk_reg_speed_data rk3506_reg_speed_data = {
+	.rmii_10 = RK3506_GMAC_CLK_RMII_DIV20,
+	.rmii_100 = RK3506_GMAC_CLK_RMII_DIV2,
+};
+
+and:
+
+	return rk_set_reg_speed(bsp_priv, &rk3506_reg_speed_data,
+				offset, interface, speed);
+
+> +}
+> +
+> +static void rk3506_set_clock_selection(struct rk_priv_data *bsp_priv,
+> +				       bool input, bool enable)
+> +{
+> +	unsigned int value, offset, id = bsp_priv->id;
+> +
+> +	offset = (id == 1) ? RK3506_GRF_SOC_CON11 : RK3506_GRF_SOC_CON8;
+> +
+> +	value = input ? RK3506_GMAC_CLK_SELET_IO :
+> +			RK3506_GMAC_CLK_SELET_CRU;
+
+s/SELET/SELECT/
+
+Regards,
+Jonas
+
+> +	value |= enable ? RK3506_GMAC_CLK_RMII_NOGATE :
+> +			  RK3506_GMAC_CLK_RMII_GATE;
+> +	regmap_write(bsp_priv->grf, offset, value);
+> +}
+> +
+> +static const struct rk_gmac_ops rk3506_ops = {
+> +	.set_to_rmii = rk3506_set_to_rmii,
+> +	.set_speed = rk3506_set_speed,
+> +	.set_clock_selection = rk3506_set_clock_selection,
+> +	.regs_valid = true,
+> +	.regs = {
+> +		0xff4c8000, /* gmac0 */
+> +		0xff4d0000, /* gmac1 */
+> +		0x0, /* sentinel */
+> +	},
+> +};
+> +
+>  #define RK3528_VO_GRF_GMAC_CON		0x0018
+>  #define RK3528_VO_GRF_MACPHY_CON0	0x001c
+>  #define RK3528_VO_GRF_MACPHY_CON1	0x0020
+> @@ -1808,6 +1886,7 @@ static const struct of_device_id rk_gmac_dwmac_match[] = {
+>  	{ .compatible = "rockchip,rk3366-gmac", .data = &rk3366_ops },
+>  	{ .compatible = "rockchip,rk3368-gmac", .data = &rk3368_ops },
+>  	{ .compatible = "rockchip,rk3399-gmac", .data = &rk3399_ops },
+> +	{ .compatible = "rockchip,rk3506-gmac", .data = &rk3506_ops },
+>  	{ .compatible = "rockchip,rk3528-gmac", .data = &rk3528_ops },
+>  	{ .compatible = "rockchip,rk3568-gmac", .data = &rk3568_ops },
+>  	{ .compatible = "rockchip,rk3576-gmac", .data = &rk3576_ops },
 
 
