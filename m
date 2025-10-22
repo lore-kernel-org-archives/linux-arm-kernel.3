@@ -4,101 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB98ECCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 16:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10BDECCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 17:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GxBBtH7krL28Lf++0v/88mZKwfVrP+XMX16p/0JxW/w=; b=UKsHXGGoKQHdYQyxKPp6+Fe7a+
-	kgGYATECIBF+Miw/myquvScRfBr3owJLsWZpFv1gU0r5Uz7V2tEO+cJx/6kENO+eHfU8tUMb2Z0Mb
-	HFxVoWVlVbWd+36iV5B6JV2oI0K/rlWzCkCi/n1G+wuZsWf/puovNZElwhBKvz3jQjY9b9r/SDlRV
-	idatnwBEmkNBRi5lHVuxyFrNEXlw7E59FvfMW+TtXySXu/AnDQuyhYk3VdM+LXv5WrSpPfhXMeDen
-	rLX6gbB5mr0lczzYNvOBbN9+CjRgNU+WwKO737GwGTZLG05YTTpuip9VdgS/0dKcn6sgAsnSIYe+0
-	S1PemMEQ==;
+	bh=iGBTf3XkAmT7xymUXanCSmqa2ddnelKdkvFsNSOV+Is=; b=qr4EpUSNrR8jLKPOztQB0ymRKF
+	Liun3orvXUREU2pZgq0nnSKGx3hYVjDz6a9oxZgnMmZoCMGjGq2fVHs2PPq5bbbzHPpJf8gaImSzm
+	htIgikELGS25b5kfhe/XZmk5Xbi5Oa8QJWejtWYuIjfVBD0wkPplhokXJbRayL/s8HGYjCuu6MRNT
+	249FeTHKrIBdunAzIr3u6eqtdRvIuaZ+lVmIEFoFkoeZh74vIVQwl3kdSAMflVWEvVYnPMl1812mq
+	O68C+gX26UX4vcbKXY7b+3PabKlvSjni10XQjrEiO9J2ATbr6x9Ja60zvpvRRlW3lUqp6QIH/Jq+t
+	lV1kZ4qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBc9X-00000003hfP-2fH9;
-	Wed, 22 Oct 2025 16:57:35 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1vBcL8-00000003jIm-08Na;
+	Wed, 22 Oct 2025 17:09:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBc9U-00000003heM-2CHp;
-	Wed, 22 Oct 2025 16:57:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761152252; x=1792688252;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+nKmViPGEd5HHAvlkpd7KM0ge3MtmJeo7sJQU8Dwq/A=;
-  b=Jqq9FesMA9VPv/MX4JGGSdn4MNrBGEvHouiy6o1LKCC6rg4oPCo+Jhkh
-   +EwD6Xah5CY8Hz7YCOCK0mA6urQpcVYFi4NAeV7R58R3k+bzmet5wc2nC
-   OGNaldXiqMyI37K3nYsl0gMw+R4KbMRl4gQh89QBJoXaOcscvBmuOBPF4
-   ArS0dp8z1HmeuFmsdYNHA+BYgltikwL3mosNFHPgjvC44KY2BYK/lj41o
-   nnMDYX26yYYCr9uAFz/jQUarQvNQ99mI+lcOMVtNGwl79/0IGgEeVdReQ
-   fzvi7gWvGjvw84EMmwIyDWd5tYuoeDGeiHX9h5i93iWX8LPFGPsLPTesx
-   A==;
-X-CSE-ConnectionGUID: x/aiq0/rTpyd8PChhBBybw==
-X-CSE-MsgGUID: lLqAJjPHQr2DthG/UvGQGw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="66950974"
-X-IronPort-AV: E=Sophos;i="6.19,247,1754982000"; 
-   d="scan'208";a="66950974"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 09:57:31 -0700
-X-CSE-ConnectionGUID: KRwIK/DMT6WLjNYvUcxYAw==
-X-CSE-MsgGUID: gXpch7GKQ5y08FYg4WRk2Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,247,1754982000"; 
-   d="scan'208";a="184700187"
-Received: from egrumbac-mobl6.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.28])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 09:57:26 -0700
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 6B128121E5B;
-	Wed, 22 Oct 2025 19:57:23 +0300 (EEST)
-Date: Wed, 22 Oct 2025 19:57:23 +0300
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: michael.riesch@collabora.com
-Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Gerald Loacker <gerald.loacker@wolfvision.net>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Markus Elfring <Markus.Elfring@web.de>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
+	id 1vBcL6-00000003jIU-2qfc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Oct 2025 17:09:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DE2BE6054B;
+	Wed, 22 Oct 2025 17:09:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E728C4CEE7;
+	Wed, 22 Oct 2025 17:09:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761152970;
+	bh=DEV3f1qr4I/J6PFM8ig4H0L1KWQJuTXPz1S0HlQRAFk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Q0IwOI2FoPf81jk2UVHGMXtRwbk27NLpssxyrcg73JxP/henebG3qgsP/XDREXSgh
+	 9ySyZGkQk2SAqJW9Cbh10wutSIiVlOpgEIRQT9bR9QJEEOX9Ex6pcHPDvPBcRI2KtL
+	 sJzCiOt5IAa2A58RtlOiCSbwIrhUIGMLVAfu0RKrA2Ny55U66Ts+oUdatYY/UCtboZ
+	 OVaARFJEf7f2bQs0YaPtY86EefNAGXgrVvkaPfFAWmIPsB+wUeQE7gLKyUN38iK/KT
+	 n9j6vL4F03qIvcl5xZexi1HmMFCBPB/Jk4jms9UdzMkUEZjvEAIMzjP9Z1ZKgGZK9X
+	 uJ6ANgHi3SFeQ==
+Date: Wed, 22 Oct 2025 18:09:26 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Alexander Shiyan <eagle.alexander923@gmail.com>,
-	Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Mehdi Djait <mehdi.djait@bootlin.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Bryan O'Donoghue <bod@kernel.org>
-Subject: Re: [PATCH v13 00/18] media: rockchip: add a driver for the rockchip
- camera interface
-Message-ID: <aPkM8wD7rbFaeO2N@kekkonen.localdomain>
-References: <20240220-rk3568-vicap-v13-0-da164b4918fe@collabora.com>
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+	Punit Agrawal <punit1.agrawal@toshiba.co.jp>,
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: pinctrl: toshiba,visconti: Fix number
+ of items in groups
+Message-ID: <20251022-unblock-bolster-a68db7abea21@spud>
+References: <20251022133425.61988-3-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jEiR7/UvURY53tPu"
 Content-Disposition: inline
-In-Reply-To: <20240220-rk3568-vicap-v13-0-da164b4918fe@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_095733_094373_C1F24815 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251022133425.61988-3-krzysztof.kozlowski@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,17 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
 
-> The driver can be readily extended to provide support for the RK3588
-> VICAP variant. In order to keep things simple, however, this extension
-> shall be submitted separately.
+--jEiR7/UvURY53tPu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I can't recall whether you already did but -- can you provide a
-v4l2-compliance -m report on this version, please?
+On Wed, Oct 22, 2025 at 03:34:26PM +0200, Krzysztof Kozlowski wrote:
+> The "groups" property can hold multiple entries (e.g.
+> toshiba/tmpv7708-rm-mbrc.dts file), so allow that by dropping incorrect
+> type (pinmux-node.yaml schema already defines that as string-array) and
+> adding constraints for items.  This fixes dtbs_check warnings like:
+>=20
+>   toshiba/tmpv7708-rm-mbrc.dtb: pinctrl@24190000 (toshiba,tmpv7708-pinctr=
+l):
+>     pwm-pins:groups: ['pwm0_gpio16_grp', 'pwm1_gpio17_grp', 'pwm2_gpio18_=
+grp', 'pwm3_gpio19_grp'] is too long
+>=20
+> Fixes: 1825c1fe0057 ("pinctrl: Add DT bindings for Toshiba Visconti TMPV7=
+700 SoC")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
--- 
-Kind regards,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Sakari Ailus
+--jEiR7/UvURY53tPu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPkPxQAKCRB4tDGHoIJi
+0mHlAQCPnuNveKAFO8hQ6LEWORXLQB3dye0vywcucV2ehC2QfQD6AkB+iEzJLWkI
+RxnecE2XQiF/7bDTAoTsDon6zVWieQM=
+=LT1e
+-----END PGP SIGNATURE-----
+
+--jEiR7/UvURY53tPu--
 
