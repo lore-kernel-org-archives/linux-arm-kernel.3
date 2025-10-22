@@ -4,133 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC075CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 15:01:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 711E4CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 15:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xvzr1Y8dpMAUvoEFP57Gz835wHqBYze10hbyZJeYU3g=; b=wHojbENxPOkM4+Cd0Dnei4lyi3
-	Y9gPUrsbyMwjoGZLdwmRXb8UZZMDfvkdGbfGpTvc0l33sTF5Yv/HlD/D8WR4/gVr1ZGrJ6fyxSvJD
-	RaH0P0/ohJR1KZos56NAlUlTixrr+W0IUezNhuJAQ0JfXn0iGJaA44OSw9oxJhNDf1ySaorwyUjn8
-	iVAO2dk3G6i+V2FZSrbqclUq5zVZ5tt7uxSBMMllOF6YgiUT0T75zwY6H09pRGtcSkLWJ5lp5nNVN
-	u39vzJnZ9GQyEr9U6bIxXbFXLu3qkg1reom5uu5l8+2UJWeJldaJ7/2Gzc3QF5XbN+bEdBJPEtvuL
-	/suyC0YQ==;
+	bh=h5NTlC4IxBrqx0ARksxlgPf3/sqZgHI5JZczrMkgS3k=; b=V+Hj6blUxK6Elo0v+etbZBUvup
+	7l42xG7G/7XxR3b5MDfSE5XyMj/etkVbihSfu6xv7aM6EwG6vkb8Wqg5TY6womLIqzc9NgwmZt9ve
+	rUC2SUWv6qsq1qG6yXSgjTcRSMaIoHeLibwMZSzj8Jbo20Om1i49D7yidSJ0AMUQya4o15aKdG5b5
+	o92lKBo63bBbmBplhq+Da26f+DN1ztFjIoRPBRyx+1Xhpg6AI4rMpuZhc8vQEUdG2iLSIYBtvZcfh
+	B/uXlfxptL23Vw/sbqnCXGlrbzX/rnX68NYc1hEdlfwxPie+qQXA9CkFwRwSGVmAX6XUE9l1P2Yxm
+	LCcBiBNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBaLX-00000003Jcz-48oT;
-	Wed, 22 Oct 2025 15:01:53 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vBaM0-00000003JnM-1arm;
+	Wed, 22 Oct 2025 15:02:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBaLU-00000003JaI-15th;
-	Wed, 22 Oct 2025 15:01:50 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59M6xCmW014219;
-	Wed, 22 Oct 2025 15:00:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=xvzr1Y8dpMAUvoEFP57Gz835wHqBYz
-	e10hbyZJeYU3g=; b=p96rpe+8jnIvJcnNRSXnoAPg+2bPFvo3QYoRkE9XzhXOuf
-	zPU2HkzEcM1nDb3BKO3LYcNgZpWcrbVplnyT48p0FCkoweL8zrwPAlHB5CYbQm+x
-	HNS/LhTF//xKum9vf1Ddjh6D2+WHxMY+liq50P7+j32lWdYGNBWfdW5SHxC5hDcB
-	V8raLaY6GqWjC1UlIT8pdrRl3Z7fXa59vsnZeU3JQhoMYwSqKerwp8gyyf2ztLq6
-	StSUFLh4QdrGLaMAOjU/zguLq9XCZ7NAvPi5iMUMgpC5sYJB2DoYjpjZhl++qSpB
-	owKG4AFDsdS58ufnQkUH4OnqUUKl5DwfXesfF92g==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49v30vuxtj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 22 Oct 2025 15:00:25 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 59MEpIdh002378;
-	Wed, 22 Oct 2025 15:00:24 GMT
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49v30vuxta-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 22 Oct 2025 15:00:24 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59MES37T032103;
-	Wed, 22 Oct 2025 15:00:23 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 49vp7n0wah-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 22 Oct 2025 15:00:23 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59MF0JRG61211024
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 22 Oct 2025 15:00:19 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 33AEA2004B;
-	Wed, 22 Oct 2025 15:00:19 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8B81C2004D;
-	Wed, 22 Oct 2025 15:00:18 +0000 (GMT)
-Received: from osiris (unknown [9.155.211.25])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Wed, 22 Oct 2025 15:00:18 +0000 (GMT)
-Date: Wed, 22 Oct 2025 17:00:16 +0200
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org,
-        kernel test robot <lkp@intel.com>,
-        Russell King <linux@armlinux.org.uk>,
-        linux-arm-kernel@lists.infradead.org,
-        Linus Torvalds <torvalds@linux-foundation.org>, x86@kernel.org,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
-        Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-        Andrew Cooper <andrew.cooper3@citrix.com>,
-        David Laight <david.laight.linux@gmail.com>,
-        Julia Lawall <Julia.Lawall@inria.fr>,
-        Nicolas Palix <nicolas.palix@imag.fr>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Darren Hart <dvhart@infradead.org>,
-        Davidlohr Bueso <dave@stgolabs.net>,
-        =?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-        Alexander Viro <viro@zeniv.linux.org.uk>,
-        Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-        linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V4 06/12] s390/uaccess: Use unsafe wrappers for ASM GOTO
-Message-ID: <20251022150016.37430Aa6-hca@linux.ibm.com>
-References: <20251022102427.400699796@linutronix.de>
- <20251022103112.232389777@linutronix.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251022103112.232389777@linutronix.de>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 8rtbyt9zSskKlv_nEpWKeIuOG0eXKSER
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE4MDAyMiBTYWx0ZWRfX7mGSdj579bLq
- 8bxKzWQ1s8+btHn0jwgAP2J3vX/A4EDg/HYeBH4RsyA5X+zGAdGIwFDsszFuA+Rn1v01A0G6Yjs
- vO6A8wck2DPsUU69VTxABi+r3WoXEdameL5QVo/RksBPiR+jb6D+2UrRoVIg2Iq/O6AsFY3wYT5
- PNCbILR1buB2fxPv51m4yPgFagoOjPret48aJLEeRSls7plxINKeU5yrx6Yk/cvBYbkFpLuEv+2
- cC6SaFGy3Zn+mHF6qUaOg4lQzCotveGK2C59n1pbfL63Z+o6dqfDill8gmsksaHpgwTwW2wrpK9
- bs5ltJsCCgMlLBlcLq8bAga6P/bzqpPOPPxNDA9reMNdOvsKvMKrYr3xNsBpe4DhuMlrzQLF2L1
- QwLoubNXcqjQwkWg6G6TPxJxCDvB2g==
-X-Authority-Analysis: v=2.4 cv=MIJtWcZl c=1 sm=1 tr=0 ts=68f8f189 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VnNF1IyMAAAA:8 a=VwQbUJbxAAAA:8 a=l-w2ndfUCpChbJJzmvYA:9 a=CjuIK1q_8ugA:10
- a=nl4s5V0KI7Kw-pW0DWrs:22 a=pHzHmUro8NiASowvMSCR:22 a=xoEH_sTeL_Rfw54TyV31:22
-X-Proofpoint-ORIG-GUID: uK_G6Z0fHMdC8Ou7HEH28NKPmNT2Wfej
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-22_06,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 spamscore=0 phishscore=0 lowpriorityscore=0 adultscore=0
- clxscore=1011 impostorscore=0 bulkscore=0 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510180022
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_080148_471910_31E38D3B 
-X-CRM114-Status: GOOD (  19.20  )
+	id 1vBaLy-00000003JmQ-42d8
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Oct 2025 15:02:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5F5A563C75;
+	Wed, 22 Oct 2025 15:02:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05665C4CEE7;
+	Wed, 22 Oct 2025 15:02:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761145338;
+	bh=k3fJI9mIBTsdVJCA44WRE8AYW3GDEJaeAfXMOod7lh0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KJmSQyItxkvT/XA9gWGgFrfwAKV9G/owa2fPY1an14KOo3/4HYjA0PTE4WlNKY133
+	 k9Ygk3d45EI/bemx7jbH/QYMmZDGnS5aIs0YVyfkQO2ySoCcG+JBNLw9aMUkLKyASS
+	 1qy6aXOCNLtU/UmKhI+ypQ3UZGrSaKtC8TVByeX04pCsqyXQycMV2DCEXUzndJJK4j
+	 wktrpVjGUQUaCzXgqWrJnjBdPZhXIK16YC5+gzDp1w8dtOIECbX0QFKR0QYf2gVYGs
+	 Jq68LlQhDxhG9rxH1IUQRhHaIzsDBRei63puPkM/6JUHtoJrS9VWnAKnC8OfJ4Hz5R
+	 U4Va0WnxCraNg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vBaLw-0000000GEVa-0JQv;
+	Wed, 22 Oct 2025 15:02:16 +0000
+Date: Wed, 22 Oct 2025 16:02:15 +0100
+Message-ID: <861pmvvv2g.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] arm64: guard AMU register access with ARM64_HAS_AMU_EXTN
+In-Reply-To: <07391913-aab6-4d92-b75f-278506f51397@mailbox.org>
+References: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
+	<86347bvx0f.wl-maz@kernel.org>
+	<07391913-aab6-4d92-b75f-278506f51397@mailbox.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: marek.vasut@mailbox.org, marek.vasut+renesas@mailbox.org, linux-arm-kernel@lists.infradead.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, geert+renesas@glider.be, ryan.roberts@arm.com, will@kernel.org, yangyicong@hisilicon.com, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,36 +89,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 02:49:09PM +0200, Thomas Gleixner wrote:
-> ASM GOTO is miscompiled by GCC when it is used inside a auto cleanup scope:
+On Wed, 22 Oct 2025 15:33:38 +0100,
+Marek Vasut <marek.vasut@mailbox.org> wrote:
 > 
-> bool foo(u32 __user *p, u32 val)
-> {
-> 	scoped_guard(pagefault)
-> 		unsafe_put_user(val, p, efault);
-> 	return true;
-> efault:
-> 	return false;
-> }
-> 
-> It ends up leaking the pagefault disable counter in the fault path. clang
-> at least fails the build.
-> 
-> S390 is not affected for unsafe_*_user() as it uses it's own local label
-> already, but __get/put_kernel_nofault() lack that.
-> 
-> Rename them to arch_*_kernel_nofault() which makes the generic uaccess
-> header wrap it with a local label that makes both compilers emit correct
-> code.
-> 
-> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Heiko Carstens <hca@linux.ibm.com>
-> Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
-> Cc: Sven Schnelle <svens@linux.ibm.com>
-> Cc: linux-s390@vger.kernel.org
-> ---
->  arch/s390/include/asm/uaccess.h |    4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> On 10/22/25 4:20 PM, Marc Zyngier wrote:
+> > On Wed, 22 Oct 2025 14:35:28 +0100,
+> > Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
+> >> 
+> >> The AMU configuration register access may fault and prevent successful
+> >> kernel boot. This can occur for example in case the firmware does not
+> >> allow AMU counter access from EL1. Guard the AMU configuration register
+> >> access with ARM64_HAS_AMU_EXTN to prevent this fault if ARM64_HAS_AMU_EXTN
+> >> Kconfig option is explicitly disabled. Other interaction with the AMU is
+> >> already guarded by similar ifdeffery.
+> >> 
+> >> Fixes: 87a1f063464a ("arm64: trap to EL1 accesses to AMU counters from EL0")
+> >> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> >> ---
+> >> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> >> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> >> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> >> Cc: Marc Zyngier <maz@kernel.org>
+> >> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> >> Cc: Will Deacon <will@kernel.org>
+> >> Cc: Yicong Yang <yangyicong@hisilicon.com>
+> >> Cc: linux-arm-kernel@lists.infradead.org
+> >> Cc: linux-renesas-soc@vger.kernel.org
+> >> ---
+> >>   arch/arm64/mm/proc.S | 4 ++++
+> >>   1 file changed, 4 insertions(+)
+> >> 
+> >> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+> >> index 86818511962b6..123538ffeda6b 100644
+> >> --- a/arch/arm64/mm/proc.S
+> >> +++ b/arch/arm64/mm/proc.S
+> >> @@ -145,7 +145,9 @@ SYM_FUNC_START(cpu_do_resume)
+> >>   	ubfx	x11, x11, #1, #1
+> >>   	msr	oslar_el1, x11
+> >>   	reset_pmuserenr_el0 x0			// Disable PMU access from EL0
+> >> +alternative_if ARM64_HAS_AMU_EXTN
+> >>   	reset_amuserenr_el0 x0			// Disable AMU access from EL0
+> >> +alternative_else_nop_endif
+> > 
+> > Why?
+> > 
+> > We ensure that the AMU is available in the macro itself by checking
+> > for ID_AA64PFR0_EL1.AMU. If the AMu isn't present on this CPU, we skip
+> > the offending sysreg access. This is similar to what we do for the
+> > PMU.
+> > 
+> > Does your HW advertise an AMU, but doesn't actually have one?
+>
+> The hardware does have AMU, but it is currently blocked in old TFA
+> version and access to this AMU register here causes a fault. That's
+> why I have to disable ARM64_HAS_AMU_EXTN until the TFA is updated and
+> the AMU access is made available on this hardware. But even if I do
+> disable ARM64_HAS_AMU_EXTN=n , I get a fault.
 
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
+Well, I would tend to say that you are trying to update the wrong
+piece of SW here. Crashing kernels should be a good incentive for the
+board manufacturer to update their firmware pronto, specially when we
+are talking of code that has been in the tree for over 5 years...
+
+> This patch is mainly meant to prevent a surprise in case someone does
+> set ARM64_HAS_AMU_EXTN=n , and the system still faults on AMU register
+> access.
+
+But that doesn't really fix anything if you have a buggy firmware,
+because you can't tell which CPUs have been correctly configured, and
+which have not. I also don't really get why this hack works for you,
+because the feature will be set as soon as one CPU advertises the
+feature.
+
+In any case, this sort of terminally broken stuff should be handled as
+an IDreg override, for which we have a whole infrastructure already.
+There are countless examples in the tree already for similar purposes.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
