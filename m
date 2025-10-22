@@ -4,104 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4DBDCCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 13:36:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41987CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 13:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dmvGzByM5O4N9sfFvXRYfnFUo6WgQWqvYDajZ7pSaE4=; b=ltt1js+7HESO4TLwmGMF2lXx4e
-	ibWN8atPM9Ro+FcRpThtmktfhRzSNP4O5biy7ISBwusOQGnWZRHuWlGXSJSYaoNxVmj9KqgVbbhgr
-	g+LQ9cY1aqXtDoNvq1bvXnWWJ6LqxXeNIz20bH0y+gNRYXqzXmsWT/MAXrtA0luM2LrRMGlzrnZ9Q
-	uWyYYEIcc9i1BARrs6i9eXSlg+zVs5OolXGHUWbXpV7va0U7eMX9oQLvwKl2dSqv8iSW9q5PqJu/B
-	ZxBSQAkrbZXyBCAAH2tqHE5SOD8eGuXH5OVOmLw8rWWQzIpQ+ri2NoEuDPeQslmXIJkhvy+WtsUvF
-	DLqNqODg==;
+	bh=pSXvFHnsg3gE0TnhtI6deEWwdXcIUCjdU1iFuLYkx6E=; b=XTq4SK9KCNvMJC2JGElylW4atL
+	gV0tCdzTIAUP7RB5fo1eIu11Pfx7n2Pp4h6tU3Mx4akK6Bv5tYxo5ydC2ghujnP/cjAHS3JCjh16c
+	Oj6FcJGjoUmBt2aJgyUUhrgHxPKqsD1BanbD1HRsm6GZO5H+NUiLnt6TsmUEva01Am29fhNd0/8H8
+	cGijkmCJ3Vr1F47IecrfN6ia1GSs9N+zjVZCf1Geb0F35SlykCyssKw5/05gsGnCRPshx1W/8Sh87
+	8DgBRCGSZhJZ482oXP4gZ3JrG8c9jrscHQqqevhA+p5lsmhqlVC5PC7K0NRbmU1T8SFXXzo9Zxit1
+	24VQMEow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZ0u-000000031t7-2jmD;
-	Wed, 22 Oct 2025 13:36:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vBZ1F-000000031xg-47l0;
+	Wed, 22 Oct 2025 13:36:49 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZ0s-000000031sJ-39xG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 22 Oct 2025 13:36:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=dmvGzByM5O4N9sfFvXRYfnFUo6WgQWqvYDajZ7pSaE4=; b=apPrLswqzN4aNgmm7SXhpP9z5h
-	j70+TXJjPumabSjhbe6lJJOnYF4h5K0eucwJQt/KDmMU8UMwS9PSAbdaUlqFx1n57HimTtPrC4rAY
-	TL3LQq8Jg2X0WEhfOHfN0SD1SHotgMw0MK0y450s1pqjJtEeq8asuerbDFlPPCQ4euX+aecnmLbi4
-	WldrPGetZue0DPSoXKNnmk+JYXKCqLJGDEWSSSOwels9nG+0k+L3a+7d+QYixa+ZCW5gm60lot0hL
-	LjBIaMX/p5TCd4prWbxgbHsVi7AEsuOf1en8hLzoQJrmfM5Pzd0WS9ftdXBri6X0/wOKyibA31gLQ
-	m1fvqqzw==;
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBY97-00000000akX-1jtv
+	id 1vBZ1B-000000031wU-40g7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 12:40:57 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4710653ac03so2524815e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 06:36:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761140179; x=1761744979; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dmvGzByM5O4N9sfFvXRYfnFUo6WgQWqvYDajZ7pSaE4=;
-        b=ol8wbLmOpm0kDDryeoQHeOWa2VVBFgigxRugyzbMhE+6OUPqLbiM+TWfCxhs4x1xE4
-         VlVPfDP+BZ1UkBMOTGq8dr5cfU0eyG6brZZP3m63oqnkTCZ7Dxaz17FoJTmEpXEeypgS
-         6DZM0a219oU9ajJ7SJjUSrD3vmOxOckwyb9CvLhX6wJwwFJyk1Cy9ADuP8OjpH7/NcDr
-         Ooa9Y3mR9SGHqzgM2rle15ivk7eLYMBSGgBn/xxVVmGT+xWAWkVxkele0VlRnAlCuhit
-         yzVbaTYAOz1GQCPLtK4c+5ZrapVBr8dh/Mm6RRQp1FEwfo/T48mZvwMgTSvBht2+yaHr
-         um2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761140179; x=1761744979;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dmvGzByM5O4N9sfFvXRYfnFUo6WgQWqvYDajZ7pSaE4=;
-        b=MOQNoUrObdSg/Fc/q7vKSTNCq9ETXobVGy9+4y/Bw6VRpBBhCQR/lnKsrNc4gcTP+J
-         8Wwoz5bTQW75UGj/C6l2GTBiGIqGLx1XGFMVkKmrC09AeaOhPTcvxsoTTi+KyTDUgrYb
-         M4poE/CTFYfIj4z7xDHwz1dNOTAeVzOBXITPOreMIGqRp2cr89Pgsevpfkyn7WI4T4gq
-         UGHU9vPwFtakIpoHu2pS8HMMS6KVeqYaY2a7/Ei5hsr4ISj3f+dEi2x+1GjAQNjHbuux
-         dtaak2CuotyhkVHyvmV7JhQlHBtxmmX2N+l+/K6oqB8vCcTUkAZV/aZq0FJcl1yXOmuK
-         e70g==
-X-Forwarded-Encrypted: i=1; AJvYcCUnzILkvX3Dm61RcMYcwx2eqXkvuB2jDr2gJiBEfk3cjEPyTkv+jdM9XLniITPqxI1WofasEUlLiibw7WjBTiSZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVXNRQ+BUJeuE7efE6e8zzv/fPjwX2E5gzQwpDRv1XrMCFucVb
-	zBqdYlZ2unNiwXTtu3ZRaWVBcfOnAgeLoDdx6y5okgTwkBMytdd1SvOdVqNlq3KXgl0=
-X-Gm-Gg: ASbGncv/BAX/dyJhXdX3KnuGk4d6Cq4RMZG/48hLCx44+5NrpMuRij09w1CcgH1bK6+
-	EKO45OjKJkFNJWu5FlPlUvEE6Wpi2QChZbuWIgza9z9ev964lRDxQeYCzq7sSfBLjwevs83ENeD
-	Ml52WsrsyxLB2GBLN7kwq6dSEq8hBmOWtp0xboECXHFPEuXsCeAPagD7/g1VKJesLYjw8Eq4MiH
-	sN9ah+PWENPoIDx9AznW2SCR4gMxj0vGaA5e/ZK0bSG/jXCMDueT0QVtinvuihlGM7/g2vy66kq
-	sQduloseLUNSbhEtGJ3rV5Wr5lepa0wPZ3Z020hxXt3vPYThd0EXTF9AsQ1tvPqaQ7Iji31uG79
-	EQz3BBwKPt1Q2deQHmOyQP6SxKMcGSgaRIRfDqkn8LsEIWycyeddI3Ct84gGO9P9JcSLBEyznvj
-	vdk9eBYMmdDGk=
-X-Google-Smtp-Source: AGHT+IF11NRjqeuEZAE/OBiadKOc1mEMhPEL48ZpZiu16lUe5zj1hRs6GGA2fA/Q4luhxo1H23TAsw==
-X-Received: by 2002:a05:600c:3b0a:b0:46e:3c73:2f9d with SMTP id 5b1f17b1804b1-474943059b7mr31754245e9.6.1761140179357;
-        Wed, 22 Oct 2025 06:36:19 -0700 (PDT)
-Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475c427c3bfsm51915465e9.3.2025.10.22.06.36.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Oct 2025 06:36:18 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH] arm64: dts: toshiba: tmpv7708: Align node names with DT bindings
-Date: Wed, 22 Oct 2025 15:36:17 +0200
-Message-ID: <20251022133616.74492-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.48.1
+	Wed, 22 Oct 2025 13:36:49 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cs9Dn2s2sz9tTY;
+	Wed, 22 Oct 2025 15:36:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761140201;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=pSXvFHnsg3gE0TnhtI6deEWwdXcIUCjdU1iFuLYkx6E=;
+	b=QthS67NrFA51itYxmyCjrd13ia2jXXgjDANyNqjRbU+K6EzpWkG58KSMtL3VzSCZjNgeXG
+	0WCFQJT3G5LQ+xZSH4rWZwtoraurEAJkj9vRRyO8aBbjnAWy8EI1Z8wgd/UoiWbaY82DK/
+	Ph3naii/TvfhILosfDjG8zk4Kp4aSfr+nu7Hl28v1kiatWMFGSERVxodZJRwa6OgHjyY7k
+	sKGii8Jy+ktQmp/EcOVoCRlTLths6agdrYnJFKXFxVyTOpmq1oH2yIvtyFRbQdVj34O4ga
+	9tNkxkucjaX/ITvePg81gCmneOocz1RVOcRjhcJf+ICP+LOYbyuuunlRZ+agCg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=nuQQfQDw;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761140199;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=pSXvFHnsg3gE0TnhtI6deEWwdXcIUCjdU1iFuLYkx6E=;
+	b=nuQQfQDwRj0nrsG0sUOKFHzuJnTWCuDjRvrD4KzqURc/vnh5VedFlhmPlYJWXH1ABEPgcg
+	iYCo5IuCfNtImeBJVxGIG3Q2Wm9Gr6UyGRdAJLli4RN1l91U89dsR+SFIdQ8BJOcVmxmwh
+	gtBQPsCKMTi3+w9v+wzoR4BDqT0nJxnCThr0EaWaE+oO+JimrR4seuN5dvdi48akSHTM24
+	2q/F3q7q9GyJhCJl2QwxXEczB0zH1nVcL4tifgMaS3m82j6+9KRTZZp5Vk/Xfy5aKoYDWR
+	jEsDkEyYEj8SCJDu10fkZDPsWYURnxFc894FMKw3bBfiJEOP+0i60GNlVANxnQ==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Marc Zyngier <maz@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH] arm64: guard AMU register access with ARM64_HAS_AMU_EXTN
+Date: Wed, 22 Oct 2025 15:35:28 +0200
+Message-ID: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: 5qzjs5xwh74r54byqbt4ttz9b7joqbh8
+X-MBO-RS-ID: 88e9880ea370458bc62
+X-Rspamd-Queue-Id: 4cs9Dn2s2sz9tTY
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_134054_355860_A2E2EA18 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20251022_063646_820915_E6CC1B51 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,58 +95,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DT bindings expect node names to follow certain pattern, dtbs_check
-warnings:
+The AMU configuration register access may fault and prevent successful
+kernel boot. This can occur for example in case the firmware does not
+allow AMU counter access from EL1. Guard the AMU configuration register
+access with ARM64_HAS_AMU_EXTN to prevent this fault if ARM64_HAS_AMU_EXTN
+Kconfig option is explicitly disabled. Other interaction with the AMU is
+already guarded by similar ifdeffery.
 
-  tmpv7708-rm-mbrc.dtb: pmux@24190000 (toshiba,tmpv7708-pinctrl):
-    'pwm_mux' does not match any of the regexes: '-pins$', '^pinctrl-[0-9]+$'
-  tmpv7708-rm-mbrc.dtb pmux@24190000 (toshiba,tmpv7708-pinctrl):
-    $nodename:0: 'pmux@24190000' does not match '^(pinctrl|pinmux)(@[0-9a-f]+)?$'
-  tmpv7708-rm-mbrc.dtb: wdt@28330000 (toshiba,visconti-wdt):
-    $nodename:0: 'wdt@28330000' does not match '^(timer|watchdog)(@.*|-([0-9]|[1-9][0-9]+))?$'
-
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Fixes: 87a1f063464a ("arm64: trap to EL1 accesses to AMU counters from EL0")
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
- arch/arm64/boot/dts/toshiba/tmpv7708.dtsi      | 4 ++--
- arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yicong Yang <yangyicong@hisilicon.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/mm/proc.S | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
-index 9aa7b1872bd6..88e38d6efcaa 100644
---- a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
-+++ b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
-@@ -161,7 +161,7 @@ gic: interrupt-controller@24001000 {
- 			      <0 0x24006000 0 0x2000>;
- 		};
+diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+index 86818511962b6..123538ffeda6b 100644
+--- a/arch/arm64/mm/proc.S
++++ b/arch/arm64/mm/proc.S
+@@ -145,7 +145,9 @@ SYM_FUNC_START(cpu_do_resume)
+ 	ubfx	x11, x11, #1, #1
+ 	msr	oslar_el1, x11
+ 	reset_pmuserenr_el0 x0			// Disable PMU access from EL0
++alternative_if ARM64_HAS_AMU_EXTN
+ 	reset_amuserenr_el0 x0			// Disable AMU access from EL0
++alternative_else_nop_endif
  
--		pmux: pmux@24190000 {
-+		pmux: pinctrl@24190000 {
- 			compatible = "toshiba,tmpv7708-pinctrl";
- 			reg = <0 0x24190000 0 0x10000>;
- 		};
-@@ -463,7 +463,7 @@ piether: ethernet@28000000 {
- 			status = "disabled";
- 		};
+ alternative_if ARM64_HAS_RAS_EXTN
+ 	msr_s	SYS_DISR_EL1, xzr
+@@ -470,7 +472,9 @@ SYM_FUNC_START(__cpu_setup)
+ 	mov	x1, MDSCR_EL1_TDCC		// Reset mdscr_el1 and disable
+ 	msr	mdscr_el1, x1			// access to the DCC from EL0
+ 	reset_pmuserenr_el0 x1			// Disable PMU access from EL0
++alternative_if ARM64_HAS_AMU_EXTN
+ 	reset_amuserenr_el0 x1			// Disable AMU access from EL0
++alternative_else_nop_endif
  
--		wdt: wdt@28330000 {
-+		wdt: watchdog@28330000 {
- 			compatible = "toshiba,visconti-wdt";
- 			reg = <0 0x28330000 0 0x1000>;
- 			clocks = <&pismu TMPV770X_CLK_WDTCLK>;
-diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi b/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
-index a480c6ba5f5d..5ea835fe08a8 100644
---- a/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
-+++ b/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
-@@ -91,7 +91,7 @@ i2c8_pins: i2c8-pins {
- 		bias-pull-up;
- 	};
- 
--	pwm_mux: pwm_mux {
-+	pwm_mux: pwm-pins {
- 		function = "pwm";
- 	};
- 
+ 	/*
+ 	 * Default values for VMSA control registers. These will be adjusted
 -- 
-2.48.1
+2.51.0
 
 
