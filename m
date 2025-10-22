@@ -4,111 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B35FCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 08:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82320CCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 08:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BwnC3Bqy6j23CfEVxquYbD+mDh24UAgEuYDoagDRUdw=; b=0Wny6ibgf5hv1wBa45Lleq6lOF
-	zQ0sbiOSxXhENFm4C6plcy6UsDtj/COoWyu5j1QiqcVLAno5TnYuKAOUC330P7sfoe4XGjsmhm5cU
-	gQW0pR99/jAOUAzWUK6+0MoH15+ewCIesVqFFFF2K4aInkl7DTpVMQIOFhNwodS33MS4D3otYM+On
-	STmPFxcNs1KkPxe4HHRXV9M5C418B219GJYFmjySaf/hMDJx5odz0vYELQbfAYQ7xGn1cCxMLPLG/
-	Op1Q+NGRRMrcFDHGEj8z69FoIG9O+zlQ5TX5u7JdJBCrADFqMpys0gl/8gdKfzgRQoHvtKz4fRuM6
-	OoQPl1Tg==;
+	bh=qo1GdKEn3CCuaK6Y8fWzfgLn1TKUz0pavTTMmOLW4qw=; b=elwVDw3d1UO7Sd2fX0HGXwN6DO
+	ba76raKFyvORJYosMavGBAVekLQ+wa6DsDULuauOSUMVXsMffroRbK2bA1M5xih2RIK9r5jE5x8AV
+	btYOG+eHRc38EeLLFP0x9DwA20W7Es6JznGBxf6xgLY+iAqj9WsgeKEyHs8ukWe8DXbE4fQSAolO/
+	Y1QPNj7yViGglpKRrqosBijOAfhgFxQ2TMKJaSKBg9kdGEGPIMSyrjLD/hRa9+Jjkftn1gh1bKWyH
+	jcfsEBgOufzxhpfSWEvYKL3FVbz6AnEkDSh3ZTYdz+y/j6bnnriG2EqbQZz6be1pf2SN/2ceqTltQ
+	IItZ+kxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUFb-000000026Wg-3EQh;
-	Wed, 22 Oct 2025 08:31:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBUJn-000000027F6-3fqT;
+	Wed, 22 Oct 2025 08:35:39 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUFZ-000000026WB-1cmc
+	id 1vBUJk-000000027CY-3p64
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 08:31:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D113540165;
-	Wed, 22 Oct 2025 08:31:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B3A1C4CEE7;
-	Wed, 22 Oct 2025 08:31:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761121876;
-	bh=3+/HLrw1SCNs4U9DqgD5kDSKST1TFoMmIW77ansJP68=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dUN0WsRXikX9eLLYBlVZZ8BqxmRSlDoK6FwoVETQq/zyqsq2PTWiDPKpDjLFOJRgv
-	 WfF8V/0VOK51JiC0VNtKYqubMnTA3kEEln6qZZkxLX3dal2p/PJoKQmUDmZ+4Y6Wpc
-	 1L+wwjXXRSVChTe8KqfAGLhpWE2Od2fZix4IW/fHAyD9WnloFMF6Ba0edIuOMbyLtc
-	 3O9izHLg1in4qmkm1CUKCTKnkT0sc/GlUIR0aFpJmJHITQOX7mXMGhRBRqDlxLADRE
-	 qgOqvOJS7sY9keSk7/uZCKR6p1h7u2sVkKjAxqcDYVwRdcWM6Q0PSUl5ZrybIfZGdO
-	 VirjRMdMqu+Cw==
-Message-ID: <8b420cd2-9549-4033-b82f-a2bc145b7280@kernel.org>
-Date: Wed, 22 Oct 2025 10:31:11 +0200
+	Wed, 22 Oct 2025 08:35:39 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=qo1GdKEn3CCuaK6Y8fWzfgLn1TKUz0pavTTMmOLW4qw=;
+	b=glKVQn8wj18tptFHj8m6X5rYciJNYiahJQxQ+3zbj7Q4ExWpMvMroXlg3ZvPQXw6dxR/zXFFl
+	rRaPRt4O6Syb5VhyQSxmipNs6sZdz3hAeQgjoQ020iNkQ0m8bubRYe0CrapIFzfH/gbZ3cIKjGl
+	T97n9lWyswlVmYs5kri1Crs=
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4cs2XT3rwTz12LKG;
+	Wed, 22 Oct 2025 16:34:49 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id BA489180495;
+	Wed, 22 Oct 2025 16:35:30 +0800 (CST)
+Received: from kwepemq200011.china.huawei.com (7.202.195.155) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 22 Oct 2025 16:35:30 +0800
+Received: from [10.67.110.108] (10.67.110.108) by
+ kwepemq200011.china.huawei.com (7.202.195.155) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 22 Oct 2025 16:35:29 +0800
+Message-ID: <904828da-402f-499d-8904-250e78feafcf@huawei.com>
+Date: Wed, 22 Oct 2025 16:35:27 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/9] dt-bindings: media: nxp: Add Wave6 video codec
- device
-To: Nas Chung <nas.chung@chipsnmedia.com>, mchehab@kernel.org,
- hverkuil@xs4all.nl, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-imx@nxp.com,
- linux-arm-kernel@lists.infradead.org, jackson.lee@chipsnmedia.com,
- lafley.kim@chipsnmedia.com, marek.vasut@mailbox.org
-References: <20251022074710.575-1-nas.chung@chipsnmedia.com>
- <20251022074710.575-3-nas.chung@chipsnmedia.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251022074710.575-3-nas.chung@chipsnmedia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] arm64: Add kernel parameter to disable trap EL0 accesses
+ to IMPDEF regs
+To: Marc Zyngier <maz@kernel.org>
+CC: <corbet@lwn.net>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<akpm@linux-foundation.org>, <paulmck@kernel.org>,
+	<pawan.kumar.gupta@linux.intel.com>, <mingo@kernel.org>, <bp@alien8.de>,
+	<kees@kernel.org>, <arnd@arndb.de>, <fvdl@google.com>, <broonie@kernel.org>,
+	<oliver.upton@linux.dev>, <yeoreum.yun@arm.com>, <james.morse@arm.com>,
+	<ardb@kernel.org>, <hardevsinh.palaniya@siliconsignals.io>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20251021115428.557084-1-liaochang1@huawei.com>
+ <86ecqwwig3.wl-maz@kernel.org>
+ <a3663aaf-14c9-4601-90e2-49650af90d7a@huawei.com>
+ <867bwnwec8.wl-maz@kernel.org>
+From: "Liao, Chang" <liaochang1@huawei.com>
+In-Reply-To: <867bwnwec8.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.110.108]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemq200011.china.huawei.com (7.202.195.155)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_013117_505304_1B9E57A9 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251022_013537_579717_01B33E45 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,47 +91,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/10/2025 09:47, Nas Chung wrote:
-> Add documentation for the Chips&Media Wave6 video codec on
-> NXP i.MX SoCs.
+在 2025/10/22 16:05, Marc Zyngier 写道:
+> On Wed, 22 Oct 2025 02:35:02 +0100,
+> "Liao, Chang" <liaochang1@huawei.com> wrote:
+>>
+>> 在 2025/10/21 20:25, Marc Zyngier 写道:
+>>> On Tue, 21 Oct 2025 12:54:28 +0100,
+>>> Liao Chang <liaochang1@huawei.com> wrote:
+>>>>
+>>>> Add kernel parameter to allow system-wide EL0 access to IMPDEF system
+>>>> regregisters and instructions without trapping to EL1/EL2. Since trap
+>>>> overhead will compromises benefits, and it's even worse in
+>>>> virtualization on CPU where certain IMPDEF registers and instructions
+>>>> are designed for EL0 performance use.
+>>>
+>>> Since you mention virtualisation, I want to be clear: there is no way
+>>> I will consider anything like this for KVM. KVM will always trap and
+>>> UNDEF such register accesses, no matter where they come from (EL0 or
+>>> EL1).
+>>>
+>>> Allowing such registers to be accessed from within a guest would make
+>>> it impossible to context-switch or save/restore the guest correctly.
+>>
+>> You've got that right, it seems like both the guest and the host would
+>> need to save and restore those IMDDEF registers with the VM or task
+>> context.The only exception would be if the registers aren't for saving
+>> state or configuration, but instead just act as an interface to trigger
+>> a special CPU function, such as ICC_IAR1.
 > 
-> The Wave6 video codec functionality is split between a VPU
-> control region and VPU core regions.
-> The VPU control region is represented as the parent node and
-> manages shared resources such as firmware memory. Each VPU
-> core region is represented as a child node and provides the
-> actual encoding and decoding capabilities.
-> 
-> Both the control and core regions may be assigned IOMMU
-> stream IDs for DMA isolation.
+> Funny that you mention the IAR register. Because contrary to what you
+> seem to indicate, IAR does impact state outside of simply acknowledging
+> an interrupt. What do you think happens to PMR, APRs, and so on?
 
+Understood, acknowledging an interrupt will modify the active priority in
+APR and current running priority in RPR.
 
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+BR
+Liao, Chang
 
 > 
+> 	M.
+> 
 
-
-> +
-> +  ranges: true
-> +
-> +patternProperties:
-> +  "^video-core@[0-9a-f]+$":
-> +    type: object
-> +    description:
-> +      A VPU core region within the Chips&Media Wave6 codec IP.
-> +      Each core provides encoding and decoding capabilities and operates
-> +      under the control of the VPU control region.
-
-
-You explained more in previous email than in this description. Are these
-independent? Can they be independently used?
-
-But you also said there is one processing engine, so I do not understand
-why these are separate. If you have one engine, there is no such thing
-as separate cores.
-
-Best regards,
-Krzysztof
 
