@@ -4,80 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CADCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E05CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4TIZYbwqNyBKQPtN9RUr0YEpI/gqW7eYbko8Gi7UzJc=; b=P7HHsQqM4PcOAGgSRD4R54WH42
-	1jueKUy0L7ucSu6xAWtU0rONRaDQcuv8faJySCSpCpQT4kHx8u6yqdi9nP/UzbYX7JNLiFvSzp8S1
-	/Wd26LrzV0tMI0DvWt+PzPJrjDbpDZT++zN18jQgNaDXlJWZG4PZw/KUYIItH8Rr/C9m6CJgTfhEY
-	E2Knz4L847sOx3AHYIAR5L2QtI8FaaoKpMlEga026s4y2stP4HvK5ssKBNU1kAYpBUG4cc6h5RONQ
-	/vFpo6fB85eaJFf7CerKYQukgZ4TN7l6kpxeOzIcsuRLbD/5q9XULDFWkY0thaCO3tyQOuTqkmVQi
-	kRg3xluw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zhkH+62s9AhGNEt/gcdilWodKjE5uLzcv1BGhnCuNyc=; b=bkbAVB9qeB3Qe5SO24b0Crript
+	q9/ERC3eUSv4TAEMVs6rF46FRdo0hYQAYRqFSiGIJUr67+IMbuLDxEl2IRoB0wfTiIh4wAubHGqJQ
+	irWg+wbfuOmCg38RTkhfniGSzDOtnEoobY1EZdhxmNAGFb3NUml/MhT5lKy8CDap1EDz2B08U6mnf
+	VbDWPoHk5q3ul0GvByU0O+lvOe4Nhp1ZFsuTF+YKatDBjeN3QBu2DCTQ0znS71xu+kkOYFbncRQPX
+	9lDzhZ2lSOO2s4k4Ccb40TK3fkVaN9IgNu33CqgjsD3PYAAOwwFGTanVmWjNbepzWW5vJhrLO/+1D
+	ZJtE73Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUvm-00000002E1a-1wtF;
-	Wed, 22 Oct 2025 09:14:54 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1vBUyx-00000002Emm-3NJT;
+	Wed, 22 Oct 2025 09:18:11 +0000
+Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBUvg-00000002DzU-2zKm
+	id 1vBUyu-00000002Em5-3Mxt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 09:14:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1761124488; x=1792660488;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=1NSB5qjI3HdwTQRBQBnjuqJ4TpcqIKiTpLxKV/W6NhQ=;
-  b=MMvJ3O6Ace3i2hQ+5kAuSj6cHKsHXlD7rHazrlDV1pDlyJq8iRzWrwVg
-   ZaMLp4ljZFT1FN38JA1/oAjSA4ePcJh0PRv9Hzheks6aylYu+uoMn8MWB
-   FWiXsOazvmI6AIFv/6k7z6cS4LH2OD34knsJZ4MC651Gv7yiVTp3puea+
-   sfORet7HJKC/UnJuM2Od5QI06C040HTa2KwJWFABkKGC9KXkkOdCQEEX/
-   Hu57U4ox014HtyESwbfPo0Pcan7K3LjNcnZXkj7yDSQx+NJnYv0QG37/3
-   7zKUGZgfX/7exvvyZtCejUfdbK2KCk17mv2hYrrAut1kbV/es3R3Typ+P
-   w==;
-X-CSE-ConnectionGUID: SEdtYETcQTCEAf3r8pCwOw==
-X-CSE-MsgGUID: fQ+HAR6MQ4689wGfuJBdYw==
-X-IronPort-AV: E=Sophos;i="6.19,246,1754982000"; 
-   d="scan'208";a="54329616"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 22 Oct 2025 02:14:47 -0700
-Received: from chn-vm-ex3.mchp-main.com (10.10.87.32) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Wed, 22 Oct 2025 02:14:07 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.27; Wed, 22 Oct 2025 02:14:07 -0700
-Received: from che-lt-i67131.microchip.com (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Wed, 22 Oct 2025 02:14:01 -0700
-From: Manikandan Muralidharan <manikandan.m@microchip.com>
-To: <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
-	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <lee@kernel.org>,
-	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <manikandan.m@microchip.com>, <dharma.b@microchip.com>
-Subject: [PATCH v2 RESEND 2/3] mfd: atmel-hlcdc: fetch LVDS PLL clock for LVDS display
-Date: Wed, 22 Oct 2025 14:43:50 +0530
-Message-ID: <20251022091351.472331-3-manikandan.m@microchip.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20251022091351.472331-1-manikandan.m@microchip.com>
-References: <20251022091351.472331-1-manikandan.m@microchip.com>
+	Wed, 22 Oct 2025 09:18:10 +0000
+Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-85a4ceb4c3dso875409785a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 02:18:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761124687; x=1761729487; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zhkH+62s9AhGNEt/gcdilWodKjE5uLzcv1BGhnCuNyc=;
+        b=aiOLv60CJ1U6tMM7t/7VoqFM6nnAPIWEsiJ9hYP+81ExdEIh8UUM5ya7FbSwxT3IiM
+         IzM3SxMwaa1+DREQBj79SYCeFrpE2/eNXDEhQcs7AOGyXGMpeXE2RHJDFAilvay4xKyC
+         RgsT/AiQc/RBWRGH/f6dwzXWz5/PWYmreb8OaUFrH914CFMTKUviHu1CaM+3wJOvAfxl
+         cfQ/SRxZzojfxfds6D05zB7EQgXvZxmMGMShMspxIyuDOmkSxgcirjq05ANsHGKNcExg
+         8XCfJx/aYyxSLqr/IDB9V8PQik8cTde0kr1ADIX0jq7zACk+nh36qGy1GdQ1lABYxg2m
+         dcdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761124687; x=1761729487;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zhkH+62s9AhGNEt/gcdilWodKjE5uLzcv1BGhnCuNyc=;
+        b=h3v2HwwEerL+6nXmF7VbdDmVooBxomSwZSiCOSm4VO+ovrnzTWBVcc4BGgj12NlBU1
+         Jez2TVGKPozM45Bzkn/656HO53M6bVGiu66V3huB1f9VITi6ooAGSjg0VBQd8c7Ag/46
+         f48YT34qf7E/50cX1P6gGeaqa4CDLzSgfANnMDts1Dc34mYicoKKQC2+SdMehqqszRdH
+         uPb8IeFfzkshAiOeTa5gFbpgtLQYi/l7k6aoD6PJrhHm5Ef1r9E2AFrp7ocRHOU7pKhf
+         cg+amuqMwLBZ47ogP58Gv1wo6LY++dkoVaU4KBE6x3WYC0CRLxQMSoCtfzwOQt0pWoPV
+         fB4A==
+X-Forwarded-Encrypted: i=1; AJvYcCVdi1+BT9KER+q7Yq5L0Dih5FWyptBBvHe868T0bvMF4Mom4BxtYeQ0FlIgutQcwnGqAJJloDt+Flvsv8/MYCQ6@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywjd1ZKR/hlUPIeohxjVX56BE7n8fMxkqkoIaMqCo7CwNFhD6Ey
+	oLuyUV2Pby7TlnGpi+C3IcWoxnyCluydY9EiejTXBe/Bbxt9hNUOlM8Qo5B3n0YTBAMwY0TzKXG
+	8BKywWe4tRq25Fb8CINayEUxhbfKgh84=
+X-Gm-Gg: ASbGncvAzyT2bGt4WQW63UMrm7KjH/Y+2TfFTsrKvREHi9moEYChSMJj2MARPd2uXd9
+	HMrrVwF/YJg/btk65kSTSseYlX/k0DoNpsFxXjWfSF2SJ6RO/GLNlv1JeAS5DahvA/tn3o6uxO3
+	liEx2WpSK8y1E+O0Ii3S3qdlVA7Z4tp7yZ4gHMuPBUNN2aB/ze6Pqd3Bv2ZfhoDCi3IANgZqWgS
+	CSejXII87LZxfn5lD3bVsb6vhekpQlA/b0ZNXnIs1wwLGiSb/ZMAkhG76HxPgFtI9PBIyWX3//v
+	qbi4/iA4bYAdgNsD
+X-Google-Smtp-Source: AGHT+IF8ppZ20Wu/vkfm6iPYBWUkrNxb51/1c5/VT0XmJ/5FqE678G9roI4AMEu38Z7ygSJiTsaYJgwfrr18a9ZMw5I=
+X-Received: by 2002:a05:620a:4710:b0:892:501a:290 with SMTP id
+ af79cd13be357-892501a057amr1576601285a.86.1761124687335; Wed, 22 Oct 2025
+ 02:18:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
+ <20251013092038.6963-3-ying.huang@linux.alibaba.com> <CAGsJ_4xaA8QRjP9H=n1hQfEfGop7vOd5Y=J+KQzuOyfa8GK-kQ@mail.gmail.com>
+ <87a51jfl44.fsf@DESKTOP-5N7EMDA> <CAGsJ_4zPH0fwBOLQwh1y6jG3tCXHLGRCTyVVSCWb+NfLCEMV0Q@mail.gmail.com>
+ <871pmv9unr.fsf@DESKTOP-5N7EMDA>
+In-Reply-To: <871pmv9unr.fsf@DESKTOP-5N7EMDA>
+From: Barry Song <21cnbao@gmail.com>
+Date: Wed, 22 Oct 2025 22:17:56 +1300
+X-Gm-Features: AS18NWD3ObRkO5HEsMcrxUcjKoB8vtoXwTiGu2WDg5GLSA8-uJXsohVYB76Ay-4
+Message-ID: <CAGsJ_4zW6ogVdi=t9JCuvGD9N21mA_ORXRCakw4Av68d9n+DDw@mail.gmail.com>
+Subject: Re: [PATCH -v2 2/2] arm64, tlbflush: don't TLBI broadcast if page
+ reused in write fault
+To: "Huang, Ying" <ying.huang@linux.alibaba.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@redhat.com>, 
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Yang Shi <yang@os.amperecomputing.com>, "Christoph Lameter (Ampere)" <cl@gentwo.org>, Dev Jain <dev.jain@arm.com>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Yicong Yang <yangyicong@hisilicon.com>, 
+	Kefeng Wang <wangkefeng.wang@huawei.com>, Kevin Brodsky <kevin.brodsky@arm.com>, 
+	Yin Fengwei <fengwei_yin@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_021448_784310_8031527A 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20251022_021808_895775_2BFC78BF 
+X-CRM114-Status: GOOD (  24.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,69 +107,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The XLCDC IP supports parallel RGB, MIPI DSI and LVDS Display.
-The LCD Generic clock (sys_clk) is used for Parallel RGB and MIPI
-displays, while the LVDS PLL clock (lvds_pll_clk) is used for LVDS
-displays.Since both the clocks cannot co-exist together in the DT
-for a given display, this patch first attempts to retrieve sys_clk
-If that fails,it then tries to acquire lvds_pll_clk.
-
-Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
-Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
----
-changes in v2:
-- Rephrase the comments, commit message and err logs
-- Replace dev_err wwith dev_warn
-- Remove Initializing sys_clk and lvds_pll_clk to NULL post
-devm_kzalloc() call
-
----
- drivers/mfd/atmel-hlcdc.c       | 16 ++++++++++++++--
- include/linux/mfd/atmel-hlcdc.h |  1 +
- 2 files changed, 15 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/mfd/atmel-hlcdc.c b/drivers/mfd/atmel-hlcdc.c
-index 4c4e35d404f3..f680392b01ba 100644
---- a/drivers/mfd/atmel-hlcdc.c
-+++ b/drivers/mfd/atmel-hlcdc.c
-@@ -108,10 +108,22 @@ static int atmel_hlcdc_probe(struct platform_device *pdev)
- 		return PTR_ERR(hlcdc->periph_clk);
- 	}
- 
-+	/*
-+	 * Retrieve any one of the Main clk required by the LCD to operate:
-+	 *
-+	 * LCDC Generic Clock (sys_clk) - Parallel RGB and MIPI displays,
-+	 * LVDS PLL (lvds_pll_clk)      - LVDS display
-+	 */
- 	hlcdc->sys_clk = devm_clk_get(dev, "sys_clk");
- 	if (IS_ERR(hlcdc->sys_clk)) {
--		dev_err(dev, "failed to get system clock\n");
--		return PTR_ERR(hlcdc->sys_clk);
-+		dev_warn(dev,
-+			 "failed to get LCDC generic clock, trying for LVDS PLL clock instead\n");
+On Wed, Oct 22, 2025 at 10:02=E2=80=AFPM Huang, Ying
+<ying.huang@linux.alibaba.com> wrote:
+>
+> Barry Song <21cnbao@gmail.com> writes:
+>
+> >> >
+> >> > static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
+> >> >                                            unsigned long uaddr)
+> >> > {
+> >> >         unsigned long addr;
+> >> >
+> >> >         dsb(ishst);
+> >> >         addr =3D __TLBI_VADDR(uaddr, ASID(mm));
+> >> >         __tlbi(vale1is, addr);
+> >> >         __tlbi_user(vale1is, addr);
+> >> >         mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE=
+_MASK,
+> >> >                                                 (uaddr & PAGE_MASK) =
 +
-+		hlcdc->lvds_pll_clk = devm_clk_get(dev, "lvds_pll_clk");
-+		if (IS_ERR(hlcdc->lvds_pll_clk)) {
-+			dev_err(dev, "failed to get LVDS PLL clock\n");
-+			return PTR_ERR(hlcdc->lvds_pll_clk);
-+		}
- 	}
- 
- 	hlcdc->slow_clk = devm_clk_get(dev, "slow_clk");
-diff --git a/include/linux/mfd/atmel-hlcdc.h b/include/linux/mfd/atmel-hlcdc.h
-index 80d675a03b39..07c2081867fd 100644
---- a/include/linux/mfd/atmel-hlcdc.h
-+++ b/include/linux/mfd/atmel-hlcdc.h
-@@ -75,6 +75,7 @@
-  */
- struct atmel_hlcdc {
- 	struct regmap *regmap;
-+	struct clk *lvds_pll_clk;
- 	struct clk *periph_clk;
- 	struct clk *sys_clk;
- 	struct clk *slow_clk;
--- 
-2.25.1
+> >> > PAGE_SIZE);
+> >> > }
+> >>
+> >> IIUC, _nosync() here means doesn't synchronize with the following code=
+.
+> >> It still synchronizes with the previous code, mainly the page table
+> >> changing.  And, Yes.  There may be room to improve this.
+> >>
+> >> > On the other hand, __ptep_set_access_flags() doesn=E2=80=99t seem to=
+ use
+> >> > set_ptes(), so there=E2=80=99s no guarantee the updated PTEs are vis=
+ible to all
+> >> > cores. If a remote CPU later encounters a page fault and performs a =
+TLB
+> >> > invalidation, will it still see a stable PTE?
+> >>
+> >> I don't think so.  We just flush local TLB in local_flush_tlb_page()
+> >> family functions.  So, we only needs to guarantee the page table chang=
+es
+> >> are available for the local page table walking.  If a page fault occur=
+s
+> >> on a remote CPU, we will call local_flush_tlb_page() on the remote CPU=
+.
+> >>
+> >
+> > My concern is that:
+> >
+> > We don=E2=80=99t have a dsb(ish) to ensure the PTE page table is visibl=
+e to remote
+> > CPUs, since you=E2=80=99re using dsb(nsh). So even if a remote CPU perf=
+orms
+> > local_flush_tlb_page(), the memory may not be synchronized yet, and it =
+could
+> > still see the old PTE.
+>
+> So, do you think that after the load/store unit of the remote CPU have
+> seen the new PTE, the page table walker could still see the old PTE?  I
 
+Without a barrier in the ish domain, remote CPUs=E2=80=99 load/store units =
+may not
+see the new PTE written by the first CPU performing the reuse.
+
+That=E2=80=99s why we need a barrier in the ish domain to ensure the PTE is
+actually visible across the SMP domain. A store instruction doesn=E2=80=99t=
+ guarantee
+that the data is immediately visible to other CPUs =E2=80=94 at least not f=
+or load
+instructions.
+
+Though, I=E2=80=99m not entirely sure about the page table walker case.
+
+> doubt it.  Even if so, the worse case is one extra spurious page fault?
+> If the possibility of the worst case is low enough, that should be OK.
+
+CPU0:                    CPU1:
+
+write pte;
+
+do local tlbi;
+
+                                       page fault;
+                                       do local tlbi; -> still old PTE
+
+pte visible to CPU1
+
+>
+> Additionally, the page table lock is held when writing PTE on this CPU
+> and re-reading PTE on the remote CPU.  That provides some memory order
+> guarantee too.
+
+Right, the PTL might take care of it automatically.
+
+Thanks
+Barry
 
