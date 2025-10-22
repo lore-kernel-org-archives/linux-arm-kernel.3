@@ -4,105 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A394ACCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1237CCCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 11:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/T/x7HAWx7iB0lp5HpZ068PQTi7UotyqR4HqE7amHBc=; b=BPrk4Y+1nVC8LU
-	7SZsR9qn77K7MxnB3AuW/a3t+SBlZg/u+WP0vvOog2I2c3nYevGvFQ6dfTlScSbV0kxKSZ6JEfUr6
-	KhWGYNCZ2pzFQChs8bEhjaft5tS15/6z96XXGlGqRjsktAhcJsNgeypAb1cKTs6ohNpkWQRUJ/Yol
-	/HzW9zbQM7wmgaP+86iF0MXJYmrSXtLJU+qt1b+jaMohsjAXzfXjL2e2t8vWVnS1gXT5fDh/UWwG+
-	2CilHlnWgfb4WQzDlcZqJwHjCgmtdr/Ri490+72ReRamIpNQlP3f778R6I+eew5kikHfJJsZhKpmv
-	Fb2ic/lcWpzZOOwr0O5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SVhtjpnr0/Y2GnibzRRB6VUMWWpK6uqoS6H7zMi7GUY=; b=Vd2a2tRysW3/pXdyJtNt4xUbi0
+	2cRdV+aJmt8ouOoeXPnuJsVd/bonjwMTASOJ/JXMlD+aYKTTZ84dyUI8dmjWFIRTxOij7IeXwifHL
+	xcsYXT2geGy6zNkHQhVwmhQ563+Xu6WOYkSoOsONYOWnTNtDbLfkcsvNeFR+ifBaGEgI18MZfroNt
+	L+lQKcUF9xv5jnld1BOgoqRel8A+0pO36x3W7PLBZgDBQeRplU9vqxRYT+FxKTD3RrnPcmOO7Y+DQ
+	AX1E29mlBTit67/pLaSv8YCTUG/xymErKPfzrrIEuwV5YQNre9EULZChs0RDIi/oHhpi2gFZZ8OQq
+	7HOz79Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBWsh-00000002ctp-0f7j;
-	Wed, 22 Oct 2025 11:19:51 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBWsW-00000002cpS-1jhC
+	id 1vBWwd-00000002dui-33YO;
+	Wed, 22 Oct 2025 11:23:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBWwb-00000002dtq-0ISr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 11:19:43 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42421b1514fso4250763f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 04:19:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761131979; x=1761736779; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/T/x7HAWx7iB0lp5HpZ068PQTi7UotyqR4HqE7amHBc=;
-        b=AN1aLiDIiVoi1cjTIGhWFrEz7UJrnu85KhMGomS7d4ffff5uydO/3PCAsuT55Ik4vt
-         CXo9zOJDVaPMp+Glz1gI9RjDPQMn4Y7bnvZdwbCvbY32mhKEYEx5GWmEcwOcg8CkCGJq
-         +d5dtQU3MX4Tbtc5/A2Oo75p1MuaZIaUNTwtEXGk4GbIP1SPcbnvhN4I5UuZDPtD/bry
-         W3Ik1VKx/IMRJdMY3WXL24+7bRPsoQhbB5Kq5AwtRQ0RXAnS42YPusR6P5cU78oSz0Oj
-         WCiE+RBj23YNvVVcEiJSXw6kyHjgPssR3sh6RtVSYRoYo6YCMPyNu+HBBRZBaM3tgyku
-         BgMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761131979; x=1761736779;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/T/x7HAWx7iB0lp5HpZ068PQTi7UotyqR4HqE7amHBc=;
-        b=oV7IXdeIbmI2uK1xAGMDjaGgQ2cbRWTt1btoeLuZSww+qLQRhP2ITdEIP9YmCNnAYO
-         CYWLE0xh/7m+CD2kKb0t0nWgHMrhbg0HgZpEbM69a/8dTNlRwnhptYxy2t92UVBjk5qh
-         muyEuE1cb7DDqSh3WsF98dIRTV7ovQY+3uQG7V7SKmE4EY0dFcz5OdOnS39/nHmp1P64
-         JV0i0D+49TNwPOK/yTzxXa2zn7jc5ZgidO9O8002eU2TVeC0ywglVDI5vnwqNUwXaqe0
-         z9dq/wqVOvSUoFERCqRwAMCei5p+Z8RoshQ0RC/PCQA7ALUwaj+mTEgZj6F6xnyR/vUr
-         8HZg==
-X-Forwarded-Encrypted: i=1; AJvYcCXOEa82e7g8ITs/EcGqI5xn0/9hd3sJJnbB5qVu802oEcr7TWq/oLSo0ELxBfkOGfr8qrNsbSDtfQStubHSTt7y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6MB0vnIkdkQbV0ZxHFCfFdMyKSoGAsTUsoY+wxBpmiMxlf8vs
-	9tahvrHZNTCiApe8VeCbVdSrMYG3bM7WCVED+TSc9s1PYxUkqmNnreSz6BBwvka0D2A=
-X-Gm-Gg: ASbGncsA0wzHlevkFRF7rDR6KpcuQDY1bonkf68wXIwO1Iq/rSrHkqlwUVfX169/wNW
-	ARWY/OwDnGcZgiRUMLXU1vqrEs/DHKIiG9HS5s7uItb4rnDTh3bOG7mBoRe9hW0lUmvl+gcYtqT
-	+15MeiR4CKtSFHHjwBRK6qqJTzqCIJBwfy/gjnU8MvXRmqWGCe3h+AYR7mdifQqVmjxvDmeHsZs
-	aU2heY/9WEYmxm2pK7Q+MnCrWX149Tni8EMyC8/1vgfylKp0dQldT2gXBmrmplN7IhAIyyeRb7j
-	C9uIaaVgd92vz9WcGcFFNrfBRSxkIvIoPfZ9tlIGFE6e1e5gkjHgHL7qEMlLiH5pvKBZei1dLV4
-	gxbiKhtkVXnmeRQT1GK5p/ES8Q1txhpTQoireqeyJypSCFN0cFStkBg/4tCqInt6+mxL4/H/JAW
-	fdRPhIdYX+6p+Y1anWNXh581hKwBi+vxrxsmnckgrf3pJfflxrpPAN
-X-Google-Smtp-Source: AGHT+IGv86ynL42pHYdUKBw9RuU6yCngSbjdQh4SHsDnbLpVSdE137PiVhtffxXXGOOfiMwcQOf4Gg==
-X-Received: by 2002:a05:6000:24c9:b0:426:d549:5861 with SMTP id ffacd0b85a97d-42704e029bcmr15217601f8f.42.1761131978148;
-        Wed, 22 Oct 2025 04:19:38 -0700 (PDT)
-Received: from ta2.c.googlers.com (213.53.77.34.bc.googleusercontent.com. [34.77.53.213])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-427f009a78csm24820692f8f.26.2025.10.22.04.19.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Oct 2025 04:19:37 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Subject: [PATCH 0/2] hwrng: exynos: enable GS101 TRNG support
-Date: Wed, 22 Oct 2025 11:19:34 +0000
-Message-Id: <20251022-gs101-trng-v1-0-8817e2d7a6fc@linaro.org>
+	Wed, 22 Oct 2025 11:23:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E740A1063;
+	Wed, 22 Oct 2025 04:23:42 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B05A3F59E;
+	Wed, 22 Oct 2025 04:23:46 -0700 (PDT)
+Message-ID: <c33c16dc-a955-41f9-9fb2-1397f056cb00@arm.com>
+Date: Wed, 22 Oct 2025 12:23:15 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAMa9+GgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDAyMj3fRiQwND3ZKivHRdU5Mkc6CYoYWJkYkSUENBUWpaZgXYsOjY2lo
- ANfjsVVwAAAA=
-X-Change-ID: 20251022-gs101-trng-54b710218424
-To: =?utf-8?q?=C5=81ukasz_Stelmach?= <l.stelmach@samsung.com>, 
- Olivia Mackall <olivia@selenic.com>, 
- Herbert Xu <herbert@gondor.apana.org.au>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, semen.protsenko@linaro.org, 
- willmcvicker@google.com, kernel-team@android.com, 
- linux-samsung-soc@vger.kernel.org, linux-crypto@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761131977; l=2271;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=d06wTerR1sR2T4EONqcyBchEQMucKU4Nk79E8aTrujQ=;
- b=IayhEy+ddWFifvTeb3lqukHgT/sBVfIIGHwKHkGUx79QsEmrV9yt+ClYCAmmEUlOhpghFHU3G
- ur6VZXs4GzcCQwFr/ye1jOP0bndyBkeKexTNX8yhHUO+6Cu2vG0XAR7
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 25/29] arm_mpam: Probe for long/lwd mbwu counters
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-26-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251017185645.26604-26-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_041940_845060_AA445670 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20251022_042353_851962_2ADD4B83 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,73 +82,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi James,
 
-I propose the bindings to go through the Samsung tree as well so that we
-can match the compatible with the schema when pulling the DT patch.
+On 10/17/25 19:56, James Morse wrote:
+> From: Rohit Mathew <rohit.mathew@arm.com>
+> 
+> mpam v0.1 and versions above v1.0 support optional long counter for
+> memory bandwidth monitoring. The MPAMF_MBWUMON_IDR register has fields
+> indicating support for long counters.
+> 
+> Probe these feature bits.
+> 
+> The mpam_feat_msmon_mbwu feature is used to indicate that bandwidth
+> monitors are supported, instead of muddling this with which size of
+> bandwidth monitors, add an explicit 31 bit counter feature.
+> 
+> Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
+> [ morse: Added 31bit counter feature to simplify later logic ]
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> ---
+> Changes since v2:
+>  * Added 31 bit counter type feature.
+>  * Altered commit message.
+> ---
+>  drivers/resctrl/mpam_devices.c  | 13 +++++++++++--
+>  drivers/resctrl/mpam_internal.h |  3 +++
+>  2 files changed, 14 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index deb1dcc6f6b1..f4d07234ce10 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -777,16 +777,25 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+>  				dev_err_once(dev, "Counters are not usable because not-ready timeout was not provided by firmware.");
+>  		}
+>  		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_MBWU, msmon_features)) {
+> -			bool hw_managed;
+> +			bool has_long, hw_managed;
+>  			u32 mbwumon_idr = mpam_read_partsel_reg(msc, MBWUMON_IDR);
+>  
+>  			props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumon_idr);
+> -			if (props->num_mbwu_mon)
+> +			if (props->num_mbwu_mon) {
+>  				mpam_set_feature(mpam_feat_msmon_mbwu, props);
+> +				mpam_set_feature(mpam_feat_msmon_mbwu_31counter, props);
+> +			}
+>  
+>  			if (FIELD_GET(MPAMF_MBWUMON_IDR_HAS_RWBW, mbwumon_idr))
+>  				mpam_set_feature(mpam_feat_msmon_mbwu_rwbw, props);
+>  
+> +			has_long = FIELD_GET(MPAMF_MBWUMON_IDR_HAS_LONG, mbwumon_idr);
+> +			if (props->num_mbwu_mon && has_long) {
+> +				mpam_set_feature(mpam_feat_msmon_mbwu_44counter, props);
+> +				if (FIELD_GET(MPAMF_MBWUMON_IDR_LWD, mbwumon_idr))
+> +					mpam_set_feature(mpam_feat_msmon_mbwu_63counter, props);
+> +			}
+> +
 
-Thanks!
-ta
+I think it's clearer to set each mpam_feat_msmon_mbwu_XXcounter for just
+the size of counter the hardware supports rather than all XX up to that
+size.
 
----
-Enable GS101 TRNG support. It works well with the current Exynos850 TRNG
-support. Tested on pixel 6 like this:
+>  			/* Is NRDY hardware managed? */
+>  			hw_managed = mpam_ris_hw_probe_hw_nrdy(ris, MBWU);
+>  			if (hw_managed)
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index 28c475d18d86..ff38b4bbfc2b 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -158,6 +158,9 @@ enum mpam_device_features {
+>  	mpam_feat_msmon_csu_xcl,
+>  	mpam_feat_msmon_csu_hw_nrdy,
+>  	mpam_feat_msmon_mbwu,
+> +	mpam_feat_msmon_mbwu_31counter,
+> +	mpam_feat_msmon_mbwu_44counter,
+> +	mpam_feat_msmon_mbwu_63counter,
+>  	mpam_feat_msmon_mbwu_capture,
+>  	mpam_feat_msmon_mbwu_rwbw,
+>  	mpam_feat_msmon_mbwu_hw_nrdy,
 
-10141400.rng
-
-1+0 records in
-1+0 records out
-100000 bytes (100 kB, 98 KiB) copied, 2.03619 s, 49.1 kB/s
-
-rngtest 6.17
-...
-rngtest: starting FIPS tests...
-rngtest: bits received from input: 20000032
-rngtest: FIPS 140-2 successes: 1000
-rngtest: FIPS 140-2 failures: 0
-rngtest: FIPS 140-2(2001-10-10) Monobit: 0
-rngtest: FIPS 140-2(2001-10-10) Poker: 0
-rngtest: FIPS 140-2(2001-10-10) Runs: 0
-rngtest: FIPS 140-2(2001-10-10) Long run: 0
-rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
-rngtest: input channel speed: (min=380.570; avg=385.422; max=386.964)Kibits/s
-rngtest: FIPS tests speed: (min=75.092; avg=81.784; max=84.771)Mibits/s
-rngtest: Program run time: 50908949 microseconds
-
-To: Łukasz Stelmach <l.stelmach@samsung.com>
-To: Olivia Mackall <olivia@selenic.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Alim Akhtar <alim.akhtar@samsung.com>
-To: Peter Griffin <peter.griffin@linaro.org>
-To: André Draszik <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: semen.protsenko@linaro.org
-Cc: willmcvicker@google.com
-Cc: kernel-team@android.com
-Cc: linux-samsung-soc@vger.kernel.org
-Cc: linux-crypto@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-
----
-Tudor Ambarus (2):
-      dt-bindings: rng: add google,gs101-trng compatible
-      arm64: dts: exynos: gs101: add TRNG node
-
- .../devicetree/bindings/rng/samsung,exynos5250-trng.yaml       | 10 +++++++---
- arch/arm64/boot/dts/exynos/google/gs101.dtsi                   |  9 +++++++++
- 2 files changed, 16 insertions(+), 3 deletions(-)
----
-base-commit: 8ebc2add3e2d076adc5cc3e8c9bef268f7f1cb31
-change-id: 20251022-gs101-trng-54b710218424
-
-Best regards,
 -- 
-Tudor Ambarus <tudor.ambarus@linaro.org>
+Thanks,
+
+Ben
 
 
