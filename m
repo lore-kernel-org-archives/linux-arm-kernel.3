@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57BC5CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:19:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5360FCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 07:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M4vi+tv/alapT+lY35zJfhFktaqHLiIeRDfFJORz1cY=; b=DsORC1vkiwU/ovO/kScCBZByZx
-	w0uPSldYJMNyvTYYIg/8ZCoIe16TB9NGhEfQtyK3uathKZjICXuzqGSsfQSLLgD5Rg1XHZuYQdNj+
-	uwoTTzSxDV5Ik1I0xYnl79iXO6391WWZbTPD06lcSGi0gUHi6ScbSq30BPcnXj9lr0d/+tKNp2jmC
-	YxX35WfPI2Ai8s4JcWAwIKBwbvhdkrpoZQSRaxmEXQCSpgHKDhgH/9pFKoACZ0mup/1lxjL0nqckn
-	738EQzhGpyT54JbRZI4IWK5iSDFtjVOjLTcV5JyLXkYR/af3SVYvlLBMlCjRX422o6800WgknuwLe
-	ektiGkww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zxztkKpE42k8zJ4aXrwAgHucUFnCdD1EofmVt3vOcc0=; b=n5enbOeAsVpn9OUz1+bWgDEA99
+	h38G/DGMSrubOT9XDu0aruuWOb2yufJWRMgy5hox+qCvYKEPMV0YAHy/8fIOo+yDaQ4Th0j18qYyS
+	T4Y+MgJYfZopm4MKeYdEG1CNGYX2833MhjQHcn0EiizXJa7RlzoBI+cgOJx88MamlJbTlyvj9Ta32
+	rjPuF4PWS7JvUz1EytPgjbLob0d8gg4clYXuhoEMdEnNYNdrfN7LIukxr+G3b3l+AJLY4EPyjtguJ
+	cfrE5QGbVmYpahJzfpL3vPxmVcplgvAiz4KT6imeLuzVc3lf3hXGNYL0jQby5Gl4B7lVpscVDhOn3
+	T16JGMOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBT84-00000001qAS-1Ljv;
-	Wed, 22 Oct 2025 07:19:28 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1vBTBH-00000001qcv-3e2k;
+	Wed, 22 Oct 2025 07:22:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBT80-00000001q9T-11vE;
-	Wed, 22 Oct 2025 07:19:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761117564; x=1792653564;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=UiGPap5OuCArfvp0Rq7pyLVsVmVZWUW9e6oIXM/7mSs=;
-  b=Ewx+zRZSSfLLbkUITeq5HjzPuZl3txo2qrkQs2rq4/o2MgnhXiSNf1S0
-   sJmp/xWP07oa4NVg1nYaca7qYU7mgskA+2cGLMVy+r71wy82fRKbqhW2j
-   cr5sK4DqJp2tPsTn0u4fnnQT2RqidCzpPH/2ays2GfKgZDZ6RO8Ep8jrI
-   Hj9m+CR3tuGIi7I81Kg0WB3YFUmrczW+bn6jAzMo8I5GfNjGm38a8Em6X
-   oUmv9WtN16IGdBUYFsnMd/QB3c4HZIaOFEWOLe49XqfwAKiQVFzKjQ6yk
-   DZBX0w2zLqYWBaSPoePwRngns2/jxdqUiE9NIo3SskCC7oCp+v7ciRKHg
-   A==;
-X-CSE-ConnectionGUID: 7T8kXoufQiimmMaFl+46HQ==
-X-CSE-MsgGUID: yeQT0FK1RnuaeE9ZqlhT+w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="73926138"
-X-IronPort-AV: E=Sophos;i="6.19,246,1754982000"; 
-   d="scan'208";a="73926138"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 00:19:22 -0700
-X-CSE-ConnectionGUID: 7M7TzhqdR9KlUZ387HsP5Q==
-X-CSE-MsgGUID: 1tHd2Us/SE61EU8ZcZSO7g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,246,1754982000"; 
-   d="scan'208";a="188074733"
-Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
-  by orviesa004.jf.intel.com with ESMTP; 22 Oct 2025 00:19:18 -0700
-Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vBT7s-000C5h-1T;
-	Wed, 22 Oct 2025 07:19:16 +0000
-Date: Wed, 22 Oct 2025 15:18:28 +0800
-From: kernel test robot <lkp@intel.com>
-To: muhammed.efecetin.67@gmail.com, linux-rockchip@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, heiko@sntech.de,
-	neil.armstrong@linaro.org, lee@kernel.org, rafael@kernel.org,
-	efectn@protonmail.com, daniel.lezcano@linaro.org
-Subject: Re: [PATCH v3 3/5] mfd: add Khadas Edge 2 registers to khadas-mcu.
-Message-ID: <202510221512.9Ji8w2KZ-lkp@intel.com>
-References: <adbd6dd5e9ed938bab7927597b7f21eca3274b78.1761059314.git.efectn@protonmail.com>
+	id 1vBTBG-00000001qbG-0tjm
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 22 Oct 2025 07:22:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6388462886;
+	Wed, 22 Oct 2025 07:22:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 10019C116D0;
+	Wed, 22 Oct 2025 07:22:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761117765;
+	bh=izxrB0iIkALCEuK0MhFn6QQGAi6AHM2wmoVPmpy5zyc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Eopt23H8PCCDuOPnFpLfT58rGdZszdUNsxMlvH55lvdVrdwVxz/XH0hWRDmoJoHGv
+	 yYnviqKjCTofEB5BLrV1tGfQYLRzsXBugCDx8MimrdPNHKBVC8Teoh1Bjo4v/5B2gH
+	 c+aInTlIuwacztzfPBrvV8CqUZwqpvFBnPbiVp28m/fY6iHxdLUJuSx5AntRK6a/Ca
+	 Ym0YmPHW2Sxt6dgca81m61WAaSpf5LqudO+9UtDWBtAzEFQ8s9pPtf25PIkmAk16Jo
+	 v7FMkVb0WgQ9ebYibcvvAzh3YAzGAsEHKx7gtCSelLlpTZe6RQKNWoJW4d4L7wuPOw
+	 SF0gcZRfuVEDQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 08B52CCD195;
+	Wed, 22 Oct 2025 07:22:45 +0000 (UTC)
+From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
+Date: Wed, 22 Oct 2025 09:22:39 +0200
+Subject: [PATCH v2 3/5] arm64: dts: freescale: add Ka-Ro Electronics
+ tx8m-1610 COM
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <adbd6dd5e9ed938bab7927597b7f21eca3274b78.1761059314.git.efectn@protonmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_001924_425617_87C5F1D5 
-X-CRM114-Status: GOOD (  11.93  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251022-mini_iv-v2-3-20af8f9aac14@gocontroll.com>
+References: <20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com>
+In-Reply-To: <20251022-mini_iv-v2-0-20af8f9aac14@gocontroll.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Maud Spierings <maudspierings@gocontroll.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761117763; l=13973;
+ i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
+ bh=CXG0DfgWRVgQRg9Rvig0u/XKqRfpMihczfTdFlMGAVw=;
+ b=oxoBsaqnxg7sIUQmEZ6GNeVynYwQWOmSI2Gh9kMefeXPVmY/6cMMRlBomF0EtjHDiyu3RMkYc
+ Ka7tVLCwMtpDEUB8akdRT/tROarDcNnIXlpmZIVJj3M763l3Z2FiUVR
+X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
+ pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
+X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
+ with auth_id=341
+X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,68 +85,470 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Maud Spierings <maudspierings@gocontroll.com>
 
-kernel test robot noticed the following build warnings:
+The Ka-Ro Electronics tx8m-1610 is a COM based on the imx8mm SOC. It has
+1 GB of ram and 4 GB of eMMC storage on board.
 
-[auto build test WARNING on lee-mfd/for-mfd-next]
-[also build test WARNING on lee-mfd/for-mfd-fixes rockchip/for-next rafael-pm/thermal linus/master v6.18-rc2 next-20251022]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Add it to enable boards based on this module
 
-url:    https://github.com/intel-lab-lkp/linux/commits/muhammed-efecetin-67-gmail-com/dt-bindings-mfd-khadas-mcu-add-new-compatible-for-Khadas-Edge-2/20251021-232554
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git for-mfd-next
-patch link:    https://lore.kernel.org/r/adbd6dd5e9ed938bab7927597b7f21eca3274b78.1761059314.git.efectn%40protonmail.com
-patch subject: [PATCH v3 3/5] mfd: add Khadas Edge 2 registers to khadas-mcu.
-config: i386-buildonly-randconfig-002-20251022 (https://download.01.org/0day-ci/archive/20251022/202510221512.9Ji8w2KZ-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251022/202510221512.9Ji8w2KZ-lkp@intel.com/reproduce)
+Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+---
+ .../arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi | 439 +++++++++++++++++++++
+ 1 file changed, 439 insertions(+)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510221512.9Ji8w2KZ-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/mfd/khadas-mcu.c:93:35: warning: unused variable 'khadas_mcu_regmap_config' [-Wunused-const-variable]
-      93 | static const struct regmap_config khadas_mcu_regmap_config = {
-         |                                   ^~~~~~~~~~~~~~~~~~~~~~~~
->> drivers/mfd/khadas-mcu.c:103:35: warning: unused variable 'khadas_mcu_regmap_config_edge2' [-Wunused-const-variable]
-     103 | static const struct regmap_config khadas_mcu_regmap_config_edge2 = {
-         |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   2 warnings generated.
-
-
-vim +/khadas_mcu_regmap_config +93 drivers/mfd/khadas-mcu.c
-
-54c97b83897fb1 Muhammed Efe Cetin 2025-10-21   92  
-6c27219e349116 Neil Armstrong     2020-06-08  @93  static const struct regmap_config khadas_mcu_regmap_config = {
-6c27219e349116 Neil Armstrong     2020-06-08   94  	.reg_bits	= 8,
-6c27219e349116 Neil Armstrong     2020-06-08   95  	.reg_stride	= 1,
-6c27219e349116 Neil Armstrong     2020-06-08   96  	.val_bits	= 8,
-6c27219e349116 Neil Armstrong     2020-06-08   97  	.max_register	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
-6c27219e349116 Neil Armstrong     2020-06-08   98  	.volatile_reg	= khadas_mcu_reg_volatile,
-6c27219e349116 Neil Armstrong     2020-06-08   99  	.writeable_reg	= khadas_mcu_reg_writeable,
-14100f8e58564d Bo Liu             2024-02-06  100  	.cache_type	= REGCACHE_MAPLE,
-6c27219e349116 Neil Armstrong     2020-06-08  101  };
-6c27219e349116 Neil Armstrong     2020-06-08  102  
-54c97b83897fb1 Muhammed Efe Cetin 2025-10-21 @103  static const struct regmap_config khadas_mcu_regmap_config_edge2 = {
-54c97b83897fb1 Muhammed Efe Cetin 2025-10-21  104  	.reg_bits	= 8,
-54c97b83897fb1 Muhammed Efe Cetin 2025-10-21  105  	.reg_stride	= 1,
-54c97b83897fb1 Muhammed Efe Cetin 2025-10-21  106  	.val_bits	= 8,
-54c97b83897fb1 Muhammed Efe Cetin 2025-10-21  107  	.max_register	= KHADAS_MCU_EDGE2_SYS_RST_REG,
-54c97b83897fb1 Muhammed Efe Cetin 2025-10-21  108  	.volatile_reg	= khadas_mcu_reg_volatile_edge2,
-54c97b83897fb1 Muhammed Efe Cetin 2025-10-21  109  	.writeable_reg	= khadas_mcu_reg_writeable_edge2,
-54c97b83897fb1 Muhammed Efe Cetin 2025-10-21  110  	.cache_type	= REGCACHE_MAPLE,
-54c97b83897fb1 Muhammed Efe Cetin 2025-10-21  111  };
-54c97b83897fb1 Muhammed Efe Cetin 2025-10-21  112  
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi
+new file mode 100644
+index 0000000000000..46d3ad80942cc
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610.dtsi
+@@ -0,0 +1,439 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2021 Lothar Waßmann <LW@KARO-electronics.de>
++ * 2025 Maud Spierings <maudspierings@gocontroll.com>
++ */
++
++#include "imx8mm.dtsi"
++
++/ {
++	reg_3v3_etn: regulator-3v3-etn {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <&gpio1 23 GPIO_ACTIVE_HIGH>;
++		pinctrl-0 = <&pinctrl_reg_3v3_etn>;
++		pinctrl-names = "default";
++		regulator-boot-on;
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++		regulator-name = "3v3-etn";
++	};
++};
++
++&A53_0 {
++	cpu-supply = <&reg_vdd_arm>;
++};
++
++&A53_1 {
++	cpu-supply = <&reg_vdd_arm>;
++};
++
++&A53_2 {
++	cpu-supply = <&reg_vdd_arm>;
++};
++
++&A53_3 {
++	cpu-supply = <&reg_vdd_arm>;
++};
++
++&ddrc {
++	operating-points-v2 = <&ddrc_opp_table>;
++
++	ddrc_opp_table: opp-table {
++		compatible = "operating-points-v2";
++
++		opp-400000000 {
++			opp-hz = /bits/ 64 <400000000>;
++		};
++	};
++};
++
++&fec1 {
++	assigned-clocks = <&clk IMX8MM_CLK_ENET_AXI>,
++			  <&clk IMX8MM_CLK_ENET_TIMER>,
++			  <&clk IMX8MM_CLK_ENET_REF>,
++			  <&clk IMX8MM_CLK_ENET_REF>;
++	assigned-clock-parents = <&clk IMX8MM_SYS_PLL1_266M>,
++				 <&clk IMX8MM_SYS_PLL2_100M>,
++				 <&clk IMX8MM_SYS_PLL2_50M>,
++				 <&clk IMX8MM_SYS_PLL2_50M>;
++	assigned-clock-rates = <0>, <100000000>, <50000000>, <50000000>;
++	clocks = <&clk IMX8MM_CLK_ENET1_ROOT>,
++		 <&clk IMX8MM_CLK_ENET1_ROOT>,
++		 <&clk IMX8MM_CLK_ENET_TIMER>,
++		 <&clk IMX8MM_CLK_ENET_REF>;
++	phy-handle = <&ethphy0>;
++	phy-mode = "rmii";
++	phy-reset-duration = <25>;
++	phy-reset-gpios = <&gpio1 29 GPIO_ACTIVE_LOW>;
++	phy-reset-post-delay = <1>;
++	phy-supply = <&reg_3v3_etn>;
++	pinctrl-0 = <&pinctrl_fec1>, <&pinctrl_ethphy_rst>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	mdio {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		ethphy0: ethernet-phy@0 {
++			reg = <0>;
++			clocks = <&clk IMX8MM_CLK_ENET_REF>;
++			smsc,disable-energy-detect;
++		};
++	};
++};
++
++&gpio1 {
++	gpio-line-names = "SODIMM_152", "SODIMM_42", "SODIMM_153", "PMIC_IRQ_B",
++			  "SODIMM_154", "SODIMM_155", "SODIMM_156", "SODIMM_157",
++			  "SODIMM_158", "SODIMM_159", "SODIMM_161", "SODIMM_162",
++			  "SODIMM_34", "SODIMM_36", "SODIMM_27", "SODIMM_28",
++			  "", "", "", "",
++			  "", "", "", "ENET_POWER",
++			  "", "", "", "",
++			  "ENET_nINT", "ENET_nRST", "", "";
++};
++
++&gpio2 {
++	gpio-line-names = "", "", "", "",
++			  "", "", "", "",
++			  "", "", "", "",
++			  "SODIMM_51", "SODIMM_57", "SODIMM_56", "SODIMM_52",
++			  "SODIMM_53", "SODIMM_54", "SODIMM_55", "SODIMM_15",
++			  "SODIMM_45", "", "", "",
++			  "", "", "", "",
++			  "", "", "", "";
++};
++
++&gpio3 {
++	gpio-line-names = "SODIMM_103", "SODIMM_104", "SODIMM_105", "SODIMM_106",
++			  "SODIMM_107", "SODIMM_112", "SODIMM_108", "SODIMM_109",
++			  "SODIMM_95", "SODIMM_110", "SODIMM_96", "SODIMM_97",
++			  "SODIMM_98", "SODIMM_99", "SODIMM_113", "SODIMM_114",
++			  "SODIMM_115", "SODIMM_101", "SODIMM_100", "SODIMM_77",
++			  "SODIMM_72", "SODIMM_73", "SODIMM_74", "SODIMM_75",
++			  "SODIMM_76", "SODIMM_43", "", "",
++			  "", "", "", "";
++};
++
++&gpio4 {
++	gpio-line-names = "SODIMM_178", "SODIMM_180", "SODIMM_184", "SODIMM_185",
++			  "SODIMM_186", "SODIMM_187", "SODIMM_188", "SODIMM_189",
++			  "SODIMM_190", "SODIMM_191", "SODIMM_179", "SODIMM_181",
++			  "SODIMM_192", "SODIMM_193", "SODIMM_194", "SODIMM_195",
++			  "SODIMM_196", "SODIMM_197", "SODIMM_198", "SODIMM_199",
++			  "SODIMM_182", "SODIMM_79", "SODIMM_78", "SODIMM_84",
++			  "SODIMM_87", "SODIMM_86", "SODIMM_85", "SODIMM_83",
++			  "SODIMM_81", "SODIMM_80", "SODIMM_90", "SODIMM_93";
++};
++
++&gpio5 {
++	gpio-line-names = "SODIMM_92", "SODIMM_91", "SODIMM_89", "SODIMM_144",
++			  "SODIMM_143", "SODIMM_146", "SODIMM_68", "SODIMM_67",
++			  "SODIMM_70", "SODIMM_69", "SODIMM_48", "SODIMM_46",
++			  "SODIMM_47", "SODIMM_44", "PMIC_SCL", "PMIC_SDA",
++			  "SODIMM_41", "SODIMM_40", "SODIMM_148", "SODIMM_149",
++			  "SODIMM_150", "SODIMM_151", "SODIMM_60", "SODIMM_59",
++			  "SODIMM_64", "SODIMM_63", "SODIMM_62", "SODIMM_61",
++			  "SODIMM_66", "SODIMM_65", "", "";
++};
++
++&i2c1 {
++	clock-frequency = <400000>;
++	pinctrl-0 = <&pinctrl_i2c1>;
++	pinctrl-1 = <&pinctrl_i2c1_gpio>;
++	pinctrl-names = "default", "gpio";
++	scl-gpios = <&gpio5 14 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	sda-gpios = <&gpio5 15 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
++	status = "okay";
++
++	pmic: pmic@4b {
++		compatible = "rohm,bd71847";
++		reg = <0x4b>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-0 = <&pinctrl_pmic>;
++		pinctrl-names = "default";
++		rohm,reset-snvs-powered;
++
++		regulators {
++			reg_vdd_soc: BUCK1 {
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-max-microvolt = <900000>;
++				regulator-min-microvolt = <780000>;
++				regulator-name = "buck1";
++				regulator-ramp-delay = <1250>;
++			};
++
++			reg_vdd_arm: BUCK2 {
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-max-microvolt = <950000>;
++				regulator-min-microvolt = <805000>;
++				regulator-name = "buck2";
++				regulator-ramp-delay = <1250>;
++				rohm,dvs-run-voltage = <950000>;
++				rohm,dvs-idle-voltage = <810000>;
++			};
++
++			reg_vdd_dram: BUCK3 {
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-max-microvolt = <900000>;
++				regulator-min-microvolt = <805000>;
++				regulator-name = "buck3";
++			};
++
++			reg_vdd_3v3: BUCK4 {
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-max-microvolt = <3300000>;
++				regulator-min-microvolt = <3300000>;
++				regulator-name = "buck4";
++			};
++
++			reg_vdd_1v8: BUCK5 {
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-max-microvolt = <1950000>;
++				regulator-min-microvolt = <1700000>;
++				regulator-name = "buck5";
++			};
++
++			BUCK6 {
++				regulator-always-on;
++				regulator-boot-on;
++				/*
++				 * The default output voltage is 1.1V, bumped
++				 * to 1.35V in HW by a 499R/2.2K voltage divider in the
++				 * feedback path.
++				 */
++				regulator-max-microvolt = <1100000>;
++				regulator-min-microvolt = <1100000>;
++				regulator-name = "buck6";
++			};
++
++			reg_snvs_1v8: LDO1 {
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-max-microvolt = <1980000>;
++				regulator-min-microvolt = <1620000>;
++				regulator-name = "ldo1";
++			};
++
++			reg_snvs_0v8: LDO2 {
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-max-microvolt = <900000>;
++				regulator-min-microvolt = <760000>;
++				regulator-name = "ldo2";
++			};
++
++			reg_vdda_1v8: LDO3 {
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-max-microvolt = <1890000>;
++				regulator-min-microvolt = <1710000>;
++				regulator-name = "ldo3";
++			};
++
++			reg_vdd_phy_0v9: LDO4 {
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-max-microvolt = <1000000>;
++				regulator-min-microvolt = <855000>;
++				regulator-name = "ldo4";
++			};
++
++			ldo5_reg: LDO5 {
++				regulator-max-microvolt = <3300000>;
++				regulator-min-microvolt = <1800000>;
++				regulator-name = "ldo5";
++			};
++
++			reg_vdd_phy_1v2: LDO6 {
++				regulator-always-on;
++				regulator-boot-on;
++				regulator-max-microvolt = <1260000>;
++				regulator-min-microvolt = <1140000>;
++				regulator-name = "ldo6";
++			};
++		};
++	};
++};
++
++&iomuxc {
++	pinctrl_ethphy_int: etnphy-intgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_ENET_RD2_GPIO1_IO28
++				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT)
++		>;
++	};
++
++	pinctrl_ethphy_rst: etnphy-rstgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_ENET_RD3_GPIO1_IO29
++				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++		>;
++	};
++
++	pinctrl_fec1: fec1grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_ENET_MDC_ENET1_MDC
++				(MX8MM_DSE_X4 | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_ENET_MDIO_ENET1_MDIO
++				(MX8MM_DSE_X4 | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_ENET_TD2_ENET1_TX_CLK
++				(MX8MM_FSEL_FAST | MX8MM_SION)
++			MX8MM_IOMUXC_ENET_TD0_ENET1_RGMII_TD0
++				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST)
++			MX8MM_IOMUXC_ENET_TD1_ENET1_RGMII_TD1
++				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST)
++			MX8MM_IOMUXC_ENET_RD0_ENET1_RGMII_RD0
++				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT)
++			MX8MM_IOMUXC_ENET_RD1_ENET1_RGMII_RD1
++				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT)
++			MX8MM_IOMUXC_ENET_RXC_ENET1_RX_ER
++				MX8MM_FSEL_FAST
++			MX8MM_IOMUXC_ENET_RX_CTL_ENET1_RGMII_RX_CTL
++				MX8MM_FSEL_FAST
++			MX8MM_IOMUXC_ENET_TX_CTL_ENET1_RGMII_TX_CTL
++				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST)
++		>;
++	};
++
++	pinctrl_i2c1: i2c1grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_I2C1_SCL_I2C1_SCL
++				MX8MM_I2C_DEFAULT
++			MX8MM_IOMUXC_I2C1_SDA_I2C1_SDA
++				MX8MM_I2C_DEFAULT
++		>;
++	};
++
++	pinctrl_i2c1_gpio: i2c1-gpiogrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_I2C1_SCL_GPIO5_IO14
++				MX8MM_I2C_DEFAULT
++			MX8MM_IOMUXC_I2C1_SDA_GPIO5_IO15
++				MX8MM_I2C_DEFAULT
++		>;
++	};
++
++	pinctrl_pmic: pmicgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_GPIO1_IO03_GPIO1_IO3
++				(MX8MM_PULL_UP | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
++		>;
++	};
++
++	pinctrl_reg_3v3_etn: reg-3v3-etngrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_ENET_TXC_GPIO1_IO23
++				(MX8MM_DSE_X4 | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++		>;
++	};
++
++	pinctrl_usdhc1: usdhc1grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SD1_CLK_USDHC1_CLK
++				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SD1_CMD_USDHC1_CMD
++				MX8MM_USDHC_DATA_DEFAULT
++			MX8MM_IOMUXC_SD1_DATA0_USDHC1_DATA0
++				MX8MM_USDHC_DATA_DEFAULT
++			MX8MM_IOMUXC_SD1_DATA1_USDHC1_DATA1
++				MX8MM_USDHC_DATA_DEFAULT
++			MX8MM_IOMUXC_SD1_DATA2_USDHC1_DATA2
++				MX8MM_USDHC_DATA_DEFAULT
++			MX8MM_IOMUXC_SD1_DATA3_USDHC1_DATA3
++				MX8MM_USDHC_DATA_DEFAULT
++			MX8MM_IOMUXC_SD1_DATA4_USDHC1_DATA4
++				MX8MM_USDHC_DATA_DEFAULT
++			MX8MM_IOMUXC_SD1_DATA5_USDHC1_DATA5
++				MX8MM_USDHC_DATA_DEFAULT
++			MX8MM_IOMUXC_SD1_DATA6_USDHC1_DATA6
++				MX8MM_USDHC_DATA_DEFAULT
++			MX8MM_IOMUXC_SD1_DATA7_USDHC1_DATA7
++				MX8MM_USDHC_DATA_DEFAULT
++			MX8MM_IOMUXC_SD1_STROBE_USDHC1_STROBE
++				(MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SD1_RESET_B_USDHC1_RESET_B
++				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++		>;
++	};
++
++	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SD1_CLK_USDHC1_CLK
++				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SD1_CMD_USDHC1_CMD
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA0_USDHC1_DATA0
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA1_USDHC1_DATA1
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA2_USDHC1_DATA2
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA3_USDHC1_DATA3
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA4_USDHC1_DATA4
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA5_USDHC1_DATA5
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA6_USDHC1_DATA6
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA7_USDHC1_DATA7
++				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_STROBE_USDHC1_STROBE
++				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SD1_RESET_B_USDHC1_RESET_B
++				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++		>;
++	};
++
++	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_SD1_CLK_USDHC1_CLK
++				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SD1_CMD_USDHC1_CMD
++				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA0_USDHC1_DATA0
++				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA1_USDHC1_DATA1
++				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA2_USDHC1_DATA2
++				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA3_USDHC1_DATA3
++				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA4_USDHC1_DATA4
++				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA5_USDHC1_DATA5
++				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA6_USDHC1_DATA6
++				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_DATA7_USDHC1_DATA7
++				(MX8MM_DSE_X6 | MX8MM_USDHC_DATA_DEFAULT)
++			MX8MM_IOMUXC_SD1_STROBE_USDHC1_STROBE
++				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
++			MX8MM_IOMUXC_SD1_RESET_B_USDHC1_RESET_B
++				(MX8MM_DSE_X6 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
++		>;
++	};
++};
++
++&usdhc1 {
++	assigned-clocks = <&clk IMX8MM_CLK_USDHC1>;
++	assigned-clock-rates = <400000000>;
++	bus-width = <8>;
++	non-removable;
++	pinctrl-0 = <&pinctrl_usdhc1>;
++	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
++	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
++	pinctrl-names = "default", "state_100mhz", "state_200mhz";
++	vmmc-supply = <&reg_vdd_3v3>;
++	vqmmc-supply = <&reg_vdd_1v8>;
++	status = "okay";
++};
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.51.1
+
+
 
