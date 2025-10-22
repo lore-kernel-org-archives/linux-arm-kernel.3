@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA45CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 13:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3906CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 13:34:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rFXbojovxWliJMkNJdsF09HvmueXHOHMsMOPKrCfmZA=; b=suwiZf2UC0vrXTErD1c3aYQ2p0
-	jYx3idmk2ZazclCR7YoB9zyiuNF8x2Wm5dnuhUtAjFJDAzsBhW4zF8Dx8JNXnHFK9NeESdTPvV5zo
-	ZpRRMa6phu5G94FRhTihsjsUAiNQl1rQPHC4JCAbZj4vB1hNiGwwp96YFisq7fR2/aoQfWFRpGFZA
-	wS9oQ2Sp+EIu1euZCpc2CjC/pUNZt3NS9zQxlDxCE21srHyXL7kKhF18acAzdfiQhcvi2MoaF+RiX
-	G5vBj8K8P8z4r3tXD+gHyj6u9V89GD+zju64wG0F6kcmcVjlJWcG2Gj4b4Qa2JmfV+diPZA2COLDh
-	AjkrVX6w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X6bRIK7N0Lc6wOEz1pBT1Kkom/tSArzPgk5+y4nbPsU=; b=CP+9TbEy623AQmbZUWduymXZDi
+	pIFe1rdcf+/ooIsuZmfaYsJvDDLeqLIrRtIEQhvEJBEapWOgsKQkvdQOqEB/OgKyX0dFCsQcpco7T
+	lot/PkV07+CXsOvYoeF20xZMHqSMoILpOgrmscC2sFwAg0ANidTRBZuSvn7AiKElTQlbktXQyl5EO
+	dau7OnFQT+4RjPpthQefqSsZAMECPRYXWaZtaThHcIRg2z8xZkYTezz9jb8dIdGiqzNwoQJQZQdqC
+	gWELlRy+HrpW+iWNtRUcIvslx0YuahHWY15bfNc/Up/jRDaqHGXcaufar70r5JF5575ha0M3SvsFy
+	nqjrITYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYz2-000000031CG-3NZw;
-	Wed, 22 Oct 2025 13:34:32 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vBYz7-000000031Ew-0TlB;
+	Wed, 22 Oct 2025 13:34:37 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBYz0-000000031Ay-0ftX
+	id 1vBYz1-000000031B7-1AFa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 13:34:31 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3f4319b8c03so793444f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 06:34:29 -0700 (PDT)
+	Wed, 22 Oct 2025 13:34:32 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-427054641f0so1049251f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 06:34:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761140068; x=1761744868; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rFXbojovxWliJMkNJdsF09HvmueXHOHMsMOPKrCfmZA=;
-        b=NfUSz43EXOuCE1eRonSg+bNUxNbrQ+uHS9NqyzDdL4fW3vu1m5Fo00J5nGhf/5VOa0
-         YLhD3HDxuntNN0Ww7TRFpPTW0dPTllvUlSZ9bZFnYdXI1sD2AFGiU3CshiGWzSa6Gv87
-         +lJCmMInxa4E+asDjCDPWaLAC598oUA7xxpiMIwTaYzLQUwvyyOIdeW5+LU7VwMgYDlm
-         UchiQ2NWkngwLDPbqtnLYqHBIXCsbuRBk3sS2vTVYosTp+7njwaQYKeS1JpPSYTECPi8
-         R8js3TH2RHRLXw8gOIzLwt/zX3Tgc7xj5uFFyS3lZtzKoY89s6i/CsdMYyWzcm9hPyrm
-         RNJA==
+        d=linaro.org; s=google; t=1761140069; x=1761744869; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=X6bRIK7N0Lc6wOEz1pBT1Kkom/tSArzPgk5+y4nbPsU=;
+        b=xeZ5g7glTHQH7naU5Answ31IwLTHEUkC2BDWu6YqrVYFF56C9UNsVDTBBrh6UnM3N/
+         Ckld1rHhwXxm8O96t4/+dsDzHZQ6Eke1N3CvMIFi798X6uXuA8y/mjPufrTU8zhrB9Aw
+         q6BIIzDNcscazGb5i0Tmb/Zse/kotEimE9+Gm9fAIEAyS4QnKLQAvGN5iQenyd6l31UA
+         oI6SaFN1OK32lGBSVBW28DaiAm9rbaBeUsE7LoycB1FwDKHiFjJhuMkXe4pb9gvrCnpx
+         tiAHo80WBiUeJcqRnJpB9mo6LFAbF27RrPOE+zhwAFjBOw4qIzYICPSuMXAgFn8rPQUg
+         GSOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761140068; x=1761744868;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rFXbojovxWliJMkNJdsF09HvmueXHOHMsMOPKrCfmZA=;
-        b=mhFI0rLik03zQ/QCVG7oKu1RbFLcg4i/53VUSKy2dHBdwS8HfGEu+qshHF6O3OaAbw
-         5QLXSEj4N2ibrvtWSLJuxbZEabIFnQSBcE9/zD6MG0coyODv17DV9v9lNDR0Hy0XxAT4
-         z4pzW23homabp8YPUOISZPtd/fM9uRtjHMmK9QaNksh36nP2ANSgA+M+iEYAxEEm+IHK
-         CiEKis+m0g4TXbfJqHErVL3K/mV2EFhI/fJFQqDr1rsHqqfDJw421p9MEsYVGKiuXiqY
-         r79UGbG9mnC70gUI2igVGfcxVq+lFmmDNgeVbIXt0ysq6+GI9CFq6NfUGypE6AoeSmUD
-         /qOw==
-X-Forwarded-Encrypted: i=1; AJvYcCXSda3Z8azdveE2MxO8C5QSUPhWg9jlErITpWusCfNHjDc5ASv8h3/rmEMUDNTrUKNiXkbjhH3omehnaJ67dIe1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0KuJGmkOV82r5V6Sf2ePvvYRdiBuXSRc8Wn7j5O99UFd6mvjA
-	IfSNadm3Wd5rz7unxU2xb98E0cOaTYfUjZ2ztJn7I8KEoLiKjpFg/hxSyNVEIlDjPag=
-X-Gm-Gg: ASbGncvSxq/Kx0fZFx+qyoxUm71rp4DLj39tF7mxAMtIytJJefp8/gafCEHRGWCY2Yg
-	OPu62G0XtxeSmDisHcGQ9LT7TrRSCuAvLsdT6DcWHsaE2P31+wdSIiblHXWWjd7YRnvYmgqxLe9
-	FBeXe7IKeTINbNEI9F+cltO8CuxVIrkEQVK+LbRyUIH2cAmdf1Oku+nU3XxMCeOmolUYk3HpBci
-	hl9uCR070AKMDNCz89WxmATRA+PvtrS1TpvXlHRtXAQVD1+qkDlIYlo9YakBfJ3r8rJpNn5+Xi/
-	LX8Ogh0wq6l/ne1VgIZgLYSMerdWKvUqbXwJE/+MYlfUzPfCymwKFYtBhr9n/10JJ2//hUcjxQP
-	tIu89D05B1S306NhzKNZ4thVsslt08PBFPFTN5NDqzftN/vtgm+9AjiduG8SNIcAAajQpJOHEh8
-	D/T8UNUj+g0dP8kujQaMHUCg==
-X-Google-Smtp-Source: AGHT+IEWcnZIaP2wLBKfRqry0HILeS5KfSEJcKKwt34JV4PPLBebPsmgOhwbhA8EkzXLqs8P73MPpA==
-X-Received: by 2002:a5d:55d1:0:b0:426:fff3:5d0c with SMTP id ffacd0b85a97d-4284e531afamr2257012f8f.1.1761140068108;
-        Wed, 22 Oct 2025 06:34:28 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761140069; x=1761744869;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=X6bRIK7N0Lc6wOEz1pBT1Kkom/tSArzPgk5+y4nbPsU=;
+        b=leyn7xnUkcHi8eHMAfPNoTvjQ8N5jW4kW7Dutfoep9PMMxMO2w6NrKrNCqvF3LMq7U
+         Ol0WrBRcTAHTse1+iar7ALqPlVE+KPmNBGkjzod/dNudOtQd6nYDm2aSLlX3315oi7r6
+         9XN2Vypejkdtv+n12GBx/DTk8tWpvdc8Mj3pzJtnvUwl0DH+XUwX3Mw04YY/w2vvh8Ef
+         sEXb84pgCDjQKFwIQlHSNu1/W1G4nsSR7Tbiw4XJecMBrmtvT7VP6uVAu/NXXMbHo8tN
+         ssnl0yAh2LN5GD2gLpWcGumtvrx8eLQf5FS2z2MJcls1vhaLI78ZHqQg0BtGM5u4iPsk
+         ZIoA==
+X-Forwarded-Encrypted: i=1; AJvYcCVT0bQsEYiIvsSYw1jBKfeBJgKMiKrG/XmEHjeGQr/F/9VdulI02hJiCDtJFK15QBwhRzk6iRtwnOI3rDXw1FLp@lists.infradead.org
+X-Gm-Message-State: AOJu0YznvV/SgEHo2NwRqMV5SvM7/5jrUEDlVMjES3F7YZt8OFdJQ60V
+	whJ4rDGT2oR3a4ZVi14ms9E7SUFASFPB7BZO/GXpySibCc6ke1eIlVWcvQfUHhrLSqc=
+X-Gm-Gg: ASbGncuCiysn6keGPNXU/d3JahFXSRHyFc1YrEYZU84Lj7/eRFWim5g5zheUv0FX+9S
+	d7ULH/SN2DFRaoxNg9UDfDjOTib87A/RoLAX9uN9D2GsXmy3RiFMK3PTY9srMLOzy0AiqCor7s+
+	JxBdvFLfrByv9Sqa0YrPZ8OkQJnNV4G2RNLAybPFX9Fi3SrhhVZZ/epl/VkrJFup6+n/DhQHuBt
+	lCUdxfuVAmym3Yft0G2feDdJucfyJEaABhb9wDZ5vsTZbCDW0Pm1BKmW7IYNayYvALeKZmD+K+t
+	Ztoh5biXu8jAcaV/mhJdvFpqX95WJMThgWiw14pD1alX+tjHOwYzEuVF5P6D5788TOYOIq34a1A
+	SkY7oBA/8nN0k6X2puzEZ28gSrJPFgHjie7UrAVIG4Xraayvgs1pB/SaicUaXD+/GsF68WCvnYa
+	WdZ8k2LyaLWId3xomrRn/csg==
+X-Google-Smtp-Source: AGHT+IH/eS0bO2rVpOyBa4Ba5RIcrattnMm2FYtHvflh6MkB0GWk0k3OOmlqwAxRAezHhj8eTykIgA==
+X-Received: by 2002:a05:6000:184f:b0:425:86cf:43bb with SMTP id ffacd0b85a97d-4284e55735cmr2864362f8f.5.1761140069463;
+        Wed, 22 Oct 2025 06:34:29 -0700 (PDT)
 Received: from kuoka.. ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42855c2fb92sm2981201f8f.46.2025.10.22.06.34.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42855c2fb92sm2981201f8f.46.2025.10.22.06.34.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Oct 2025 06:34:27 -0700 (PDT)
+        Wed, 22 Oct 2025 06:34:29 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -80,17 +81,18 @@ To: Linus Walleij <linus.walleij@linaro.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	stable@vger.kernel.org
-Subject: [PATCH 1/2] dt-bindings: pinctrl: toshiba,visconti: Fix number of items in groups
-Date: Wed, 22 Oct 2025 15:34:26 +0200
-Message-ID: <20251022133425.61988-3-krzysztof.kozlowski@linaro.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 2/2] dt-bindings: pinctrl: toshiba,visconti: Drop redundant functions type
+Date: Wed, 22 Oct 2025 15:34:27 +0200
+Message-ID: <20251022133425.61988-4-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20251022133425.61988-3-krzysztof.kozlowski@linaro.org>
+References: <20251022133425.61988-3-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_063430_220970_F74C77C7 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20251022_063431_348881_B20FA688 
+X-CRM114-Status: GOOD (  10.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,58 +107,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "groups" property can hold multiple entries (e.g.
-toshiba/tmpv7708-rm-mbrc.dts file), so allow that by dropping incorrect
-type (pinmux-node.yaml schema already defines that as string-array) and
-adding constraints for items.  This fixes dtbs_check warnings like:
+Referenced pinmux-node.yaml schema already defines type for "functions"
+so $ref is redundant.
 
-  toshiba/tmpv7708-rm-mbrc.dtb: pinctrl@24190000 (toshiba,tmpv7708-pinctrl):
-    pwm-pins:groups: ['pwm0_gpio16_grp', 'pwm1_gpio17_grp', 'pwm2_gpio18_grp', 'pwm3_gpio19_grp'] is too long
-
-Fixes: 1825c1fe0057 ("pinctrl: Add DT bindings for Toshiba Visconti TMPV7700 SoC")
-Cc: <stable@vger.kernel.org>
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../pinctrl/toshiba,visconti-pinctrl.yaml     | 26 ++++++++++---------
- 1 file changed, 14 insertions(+), 12 deletions(-)
+ .../devicetree/bindings/pinctrl/toshiba,visconti-pinctrl.yaml    | 1 -
+ 1 file changed, 1 deletion(-)
 
 diff --git a/Documentation/devicetree/bindings/pinctrl/toshiba,visconti-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/toshiba,visconti-pinctrl.yaml
-index 19d47fd414bc..ce04d2eadec9 100644
+index ce04d2eadec9..0eff0a0ee9e9 100644
 --- a/Documentation/devicetree/bindings/pinctrl/toshiba,visconti-pinctrl.yaml
 +++ b/Documentation/devicetree/bindings/pinctrl/toshiba,visconti-pinctrl.yaml
-@@ -50,18 +50,20 @@ patternProperties:
-       groups:
+@@ -42,7 +42,6 @@ patternProperties:
+       function:
          description:
-           Name of the pin group to use for the functions.
+           Function to mux.
 -        $ref: /schemas/types.yaml#/definitions/string
--        enum: [i2c0_grp, i2c1_grp, i2c2_grp, i2c3_grp, i2c4_grp,
--               i2c5_grp, i2c6_grp, i2c7_grp, i2c8_grp,
--               spi0_grp, spi0_cs0_grp, spi0_cs1_grp, spi0_cs2_grp,
--               spi1_grp, spi2_grp, spi3_grp, spi4_grp, spi5_grp, spi6_grp,
--               uart0_grp, uart1_grp, uart2_grp, uart3_grp,
--               pwm0_gpio4_grp, pwm0_gpio8_grp, pwm0_gpio12_grp,
--               pwm0_gpio16_grp, pwm1_gpio5_grp, pwm1_gpio9_grp,
--               pwm1_gpio13_grp, pwm1_gpio17_grp, pwm2_gpio6_grp,
--               pwm2_gpio10_grp, pwm2_gpio14_grp, pwm2_gpio18_grp,
--               pwm3_gpio7_grp, pwm3_gpio11_grp, pwm3_gpio15_grp,
--               pwm3_gpio19_grp, pcmif_out_grp, pcmif_in_grp]
-+        items:
-+          enum: [i2c0_grp, i2c1_grp, i2c2_grp, i2c3_grp, i2c4_grp,
-+                 i2c5_grp, i2c6_grp, i2c7_grp, i2c8_grp,
-+                 spi0_grp, spi0_cs0_grp, spi0_cs1_grp, spi0_cs2_grp,
-+                 spi1_grp, spi2_grp, spi3_grp, spi4_grp, spi5_grp, spi6_grp,
-+                 uart0_grp, uart1_grp, uart2_grp, uart3_grp,
-+                 pwm0_gpio4_grp, pwm0_gpio8_grp, pwm0_gpio12_grp,
-+                 pwm0_gpio16_grp, pwm1_gpio5_grp, pwm1_gpio9_grp,
-+                 pwm1_gpio13_grp, pwm1_gpio17_grp, pwm2_gpio6_grp,
-+                 pwm2_gpio10_grp, pwm2_gpio14_grp, pwm2_gpio18_grp,
-+                 pwm3_gpio7_grp, pwm3_gpio11_grp, pwm3_gpio15_grp,
-+                 pwm3_gpio19_grp, pcmif_out_grp, pcmif_in_grp]
-+        minItems: 1
-+        maxItems: 8
- 
-       drive-strength:
-         enum: [2, 4, 6, 8, 16, 24, 32]
+         enum: [i2c0, i2c1, i2c2, i2c3, i2c4, i2c5, i2c6, i2c7, i2c8,
+                spi0, spi1, spi2, spi3, spi4, spi5, spi6,
+                uart0, uart1, uart2, uart3, pwm, pcmif_out, pcmif_in]
 -- 
 2.48.1
 
