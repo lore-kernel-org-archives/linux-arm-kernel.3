@@ -4,115 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E37CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 06:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2233DCCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 06:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z6VhFBR1qNjHBPabVw5CS8f0/+UbT/gc523yvke+1hg=; b=t48GgaEnHXp4cF7nUg5yqEAB2C
-	edL8W77jTb33ecKfZcL92kRZ++vjmpfe3T83Zxt+yXRyXvlI1hgGzXcK+Uc1Fz0vI4oSYaHbeR7xR
-	OKOZwKwKPWQ5KUuhbFspJ3BVk68j+XS0N9miX/+Ok2ucdHmxqd0tO5xvh8LPqrG7czoRgtKFvpCtJ
-	C83e1wsCJmMWcMnRyk5BH+VzRRAsyXbBOWyxFkPlTVElBm7IHQOdO6SOdfT8+arnHoF/Ugitrte4m
-	Ld6TkviibSWZlp7tNERYlf/+keHNQABLEAwmgqP7LvwG9Bakq8GPbQJLez5fUm8lY+dwG4NqfGmSO
-	YR2CjNRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iahSHX0sUCHfsmN2KqyjTCcp+AetzOSltt3B0RZrKnM=; b=Z6FxPAJEq286ANSycXpvI3BKDV
+	VTwSa+/ShgI/Gj/cunmgHsp6zXkMjOH2BKSqJuJIp3poPwyObq4dkGl2XG9jvJbdurIECRXbE0j2V
+	3Sik+eau0aIVHlCJsmCGKtsk4Xuq8LnDDAtbLdKZz320Yt1h2BUoMiX0Pl9mxyuGlWZKAn8buoWIS
+	NTERPvfJocMATzDONccp6E7JEi0cqosjInDLGD6Bo2zTyWa14N8wcBtTVI+4V6pBkmmgYQty9QcZY
+	FeaoG6cIUCOCsKxwa6P3HON9MIBEp2Mjryk0U/Vl+OQBQhroctaFwDoBtbKwXc4eHd8HTtU15TnR4
+	ZTeaFtJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSSb-00000001gap-2IfP;
-	Wed, 22 Oct 2025 06:36:37 +0000
+	id 1vBSVI-00000001h5p-1nRr;
+	Wed, 22 Oct 2025 06:39:24 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBSSY-00000001gaJ-3IE1
+	id 1vBSVF-00000001h5P-3RTN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 06:36:35 +0000
+	Wed, 22 Oct 2025 06:39:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 548EF454B5;
-	Wed, 22 Oct 2025 06:36:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6340AC4CEE7;
-	Wed, 22 Oct 2025 06:36:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C7D148B6D;
+	Wed, 22 Oct 2025 06:39:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACB49C4CEE7;
+	Wed, 22 Oct 2025 06:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761114994;
-	bh=9nhNfS/Sheuzl9OFAyP5Hmh5cehS4Wpyw3vKHynwEMQ=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=XkRrcJx6NE//8JDNzM3okq81fZ3E7eWNW5QamiibmWr7POK4OiHaIdyvYmGHVG0NO
-	 RuZbvnJGGpURJdJYx42w4rKcdKMHbbzMcCBB3KGmBvIpu36NZucyhwtnjcaMZW9oit
-	 LfntLxzSAfyQwSmviNaxZR7ECpoJByGgpRZXhIizf8MwU6imWWEa5yVJr7YNJy3l/F
-	 UN5b/vrP6nmcvaBKPRHZALIZjRuYUdhu9SxyOSU6CktYJIve9Zw6X8YaudQX3cqW75
-	 TgF+F9SQTaTuWG7Ep8dVh5Bmjni8+FoRIrVxGeS+lPETIcNdlgu1uQXwSN0k3JWnqD
-	 oyN0fZLqAw7Og==
-Message-ID: <3d9c4fe2-72c2-45b2-ad15-8cf5f825e53c@kernel.org>
-Date: Wed, 22 Oct 2025 08:36:27 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/10] dt-bindings: soc: samsung: exynos-pmu: move
- gs101-pmu into separate binding
+	s=k20201202; t=1761115161;
+	bh=cjz+4FLk0fJPFbORna7dS+dCkdfSE0IQ1LJUuc7G8xY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tA5kH5d8tnc4x0lWs6nncAVn4lcZFa6Ei/FUoLmKOibYiWV5QeEutr90QUpA9F0EC
+	 gEB7QE+Ll41XfqMiHtsehht+Jm3lk9mbkbWZgyO6JynnyklJQmCRNjue2qsqBofsw3
+	 2CL4Gb/NzJC7wKw+1o9yAKiV1enxChDt0U2J1YIE6ApiQWqPa9xM93ha/+KGp91+yJ
+	 1dL97UO/RrfOHbGzoWuZt9e3dGAG9KmB+bdsOy/lphn+j9PuPrsygutxdKxArro7h5
+	 bdd6NJDe4VCmQikvWUrFQJI2HZ4n6kwq0bgNVbydcOFC7HPMnpf8SZcWbfXiAgY65w
+	 1byX8U4PKuKtg==
+Date: Wed, 22 Oct 2025 08:39:18 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org
+To: =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH v3 03/10] dt-bindings: soc: samsung: gs101-pmu: allow
+ power domains as children
+Message-ID: <20251022-uncovered-soft-uakari-4b52e3@kuoka>
 References: <20251016-gs101-pd-v3-0-7b30797396e7@linaro.org>
- <20251016-gs101-pd-v3-2-7b30797396e7@linaro.org>
- <20251022-tremendous-literate-markhor-a7b98f@kuoka>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251022-tremendous-literate-markhor-a7b98f@kuoka>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+ <20251016-gs101-pd-v3-3-7b30797396e7@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20251016-gs101-pd-v3-3-7b30797396e7@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_233634_881863_2040E3AE 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20251021_233921_930398_11AD3DA5 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,31 +79,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/10/2025 08:34, Krzysztof Kozlowski wrote:
-> On Thu, Oct 16, 2025 at 04:58:35PM +0100, André Draszik wrote:
->> The gs101-pmu binding is going to acquire various additional (pattern)
->> properties that don't apply to other PMUs supported by this binding.
->>
->> To enable this, move google,gs101-pmu into a separate binding.
-> 
-> You did not copy all the properties which effectively drops certain
-> things from the binding, e.g. clocks, interrupt-controller and maybe
-> more. Please list them in commit msg and explain they are not applicable
-> to GS101.
-> 
->>
->> Signed-off-by: André Draszik <andre.draszik@linaro.org>
->>
->> ---
->> v3:
->> - use additionalProperties, not unevaluatedProperties
->> - fix path in $id (Rob)
->> - drop comment around 'select' (Rob)
+On Thu, Oct 16, 2025 at 04:58:36PM +0100, Andr=C3=A9 Draszik wrote:
+> The power domains are a property of / implemented in the PMU. As such,
+> they should be modelled as child nodes of the PMU.
+>=20
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+>=20
+> ---
+> Note: Ideally, the newly added properties (ranges, etc.) should only be
+> 'required' if "^power-domain@[0-9a-f]+$" exists as a patternProperty,
+> as they're needed only in that case. As-is, this patch now causes
+> warnings for existing DTs as they don't specify the new properties (and
+> they shouldn't need to). Only if DTs are updated to include
+> power-domains, such an update should also add the new properties.
+>=20
+> I've not been able to come up with the correct schema syntax to achieve
+> that. dependencies, dependentRequired, and dependentSchemas don't seem
+> to support patterns. Similarly,
+>   - if:
+>       required:
+>         - ...
+>     then:
+>       required:
+>         - ...
+>=20
+> doesn't allow patterns in the 'if' block (or I didn't get the syntax
+> right).
+>=20
+> Rob said in
+> https://lore.kernel.org/all/20251010141357.GA219719-robh@kernel.org/
+> that this is a known limitation in json-schema.
+> ---
+>  .../bindings/soc/google/google,gs101-pmu.yaml      | 40 ++++++++++++++++=
+++++++
+>  1 file changed, 40 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-pm=
+u.yaml b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
+> index f7119e7a39a3fe0a0a23d1faa251d356f83ba501..a24390f6d2a54afe1aa84935e=
+03f719a62f4fc8e 100644
+> --- a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
+> +++ b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
+> @@ -26,6 +26,14 @@ properties:
+>    reg:
+>      maxItems: 1
+> =20
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 1
+> +
+> +  ranges: true
+> +
+>    reboot-mode:
+>      $ref: /schemas/power/reset/syscon-reboot-mode.yaml
+>      type: object
+> @@ -49,9 +57,23 @@ properties:
+>      description:
+>        Phandle to PMU interrupt generation interface.
+> =20
+> +patternProperties:
+> +  "^power-domain@[0-9a-f]+$":
 
+Keep consistent quotes, ' or "
 
-Ah, and please make the example complete by adding
-syscon-reboot/poweroff nodes.
+The problem is that you mix children without and with unit address. I
+guess that's the limitation of syscon-xxx drivers because they could
+take the reg/unit-address, so it's fine.
 
 Best regards,
 Krzysztof
+
 
