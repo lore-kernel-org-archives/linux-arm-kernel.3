@@ -4,63 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D4FECCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 17:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B9C6CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 17:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=24OkgosBerV7T+lgYIYHuKbrujn61EaFVukeV2kjpwI=; b=PkxmV1ElrCnQcjyoiffj6bMOOP
-	izDNSxUSCIm4WO8Mswc3MN065YUHnIn2AH2bmhiEKqVexvz5d4mvtAwgHdBlsdqcQRpG8SA+HLqxa
-	4VgyfdSguz9db0Rdbe1b6tyvNGVYalNaEt+oO7106QW7oyEdrMB8Q35vuU6EXvTwaH9PyzRk9tO8T
-	HZhjPWxWspGAVgxwAmDpECi9GDpNza5uU0TuxBUOVUqfpGfpH1rREhlIB8S5i8H2Ne0cnE1ec2JOq
-	rrbtAgb5Fhtu+V7S51Cgbo/p4UASw7dLe7eEr4Pvkinye4oTU31tv8+vdit3rPWKy3fURca9Aqina
-	LuW7SKxQ==;
+	bh=H/yVbcNYBKxI7HZmam8giV90V8J7uwfsDvse/7ETWpU=; b=soMATOtjVWMNral0ugzlxP1TUZ
+	SJ5ctXXS+3ZfJfFSdHk9enYnsKMhtZ7e4/YQ8Fc1yK8a0lO6cgU7kH90X4REDMY48u9MIaJ5jpmO8
+	vfh0t74Pbe+uQ5ek/I9PKTxBW6yezs9TDEtdGSffLTW5L1ZZ85BxaWzV08LJILT7WHl62VFumfVSJ
+	IBUDrOJDl42hzAw6EX4EQT2S8oLTriQWJkiuKL91hVlEYcL0eX1fwAYAU5Z54yUVTL893/QA7YBiR
+	n/Rq/IyJJ4Zk5RFErqUsJUEi8QwrcarqmzkfZUh4Bw55jR0xlK+W3TvJrp3+jr0XN+/jooKwbjyBG
+	KHe2WUwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBcoC-00000003p0f-3DGp;
-	Wed, 22 Oct 2025 17:39:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBcq6-00000003pTh-17Y0;
+	Wed, 22 Oct 2025 17:41:34 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBcoB-00000003ozu-1v3s
+	id 1vBcq3-00000003pQs-3fCv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 17:39:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DABB663D73;
-	Wed, 22 Oct 2025 17:39:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D5DFC4CEE7;
-	Wed, 22 Oct 2025 17:39:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761154774;
-	bh=24OkgosBerV7T+lgYIYHuKbrujn61EaFVukeV2kjpwI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BNk+wK5/F5AARFiynLtMZjhIK0/T/uIjd66vNx6B9TgIlKTHJWNVpcEnYlevf/Wb0
-	 WqSJW45hV8z2EC4oTCKgxUUk+PmS4cHKStL6T8i3PFZGHJukcU1qwPh9EyjnvhxGf1
-	 RrFb3JPiGn/Z1+uI8JTdPNQe5vp5s4pRSVK4UaGYs4tCOsf63TBoWkru2riYNbyNU7
-	 0AUfrIDEyn3nN+vdxQZPzMccFMWL7yJCWGAWN8AxUgDevs6J2P5ks3ZXBOjf4pKlbf
-	 ZXxYF/9Zs98v+u2YFW+0wDtgZaz9u2OhWX1c1+9r/pbXDRNekzJHlydj04fwN06Pe8
-	 nBpsBHDsEHTAw==
-Date: Wed, 22 Oct 2025 18:39:29 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Wed, 22 Oct 2025 17:41:33 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-77f67ba775aso9171310b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 10:41:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761154891; x=1761759691; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=H/yVbcNYBKxI7HZmam8giV90V8J7uwfsDvse/7ETWpU=;
+        b=g5xoL/m7vlFsFjtbOCUjKZlbRwWstP0hsGOby7LPUypr0ALYJratFvFEUiJ4h44aqr
+         UVFfdrmtqhmaDdY02T2w3z+zz+GY2Gaeca7zmunchM/Ft9i8+Ese0hgvdZGdMDUhurvt
+         sewzoct8lX/9bgG0Tx3gd5WuAzMTD75Et1PEjVwP3IDBtNimOyU8VX+fnrnHLU7nwWj1
+         g7d3VRaLTO+LMnTdX5wRz43z3LdX45MOvS9UpFlXZcX8osrybOLT5s3QgmBK6SiFdUtd
+         NQfV3YVZVW+sd1UR/PKvbkIuoMZPzdXYKkF/VuZI7wBEjcpmMiphDgQLkhFZTyEi/fe6
+         XeTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761154891; x=1761759691;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=H/yVbcNYBKxI7HZmam8giV90V8J7uwfsDvse/7ETWpU=;
+        b=BtsFUhlSgsttCV5oXuD6lZaosFMrZ5iJPWKgng2takIJDoa7bXBRyP/ZyP32PcEjEN
+         N9aL1V3oXGvu6gV+9yVkiuO+PH1jsjCYvEKe1+RUCt2qnYXrfEnUadINOScY3dJ7FGy7
+         mNLeGYlhD+yDJ7L2fiZqbcPpKeAGliAAyj7xh7V/XZpYdIvj+20k6lkjvP56uk8EvG6O
+         o/wwCjNK4uzN3n/9YSpWPgi9PkKa2FPrtQaTlli13dDNKbctB8KHWBkHIRLopfsGFwh+
+         xfQiADSrJTyAsfxKzow67IJ8x1rapdT9+s703HDj0aFSXxidGyCDcpK7cgEITQszwQmh
+         KJjA==
+X-Forwarded-Encrypted: i=1; AJvYcCWUeQJliy019AOBHsMStNTFPw4B/xJQfBmbwJrzEh/sSRI83gaQAZn3gsCSEYQOMJOctaxIZ7Cjg6E9F5ZPG2T4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRzCMj2sqwM0GVMQGc8mDyRJ1IgPXGLu+Bf0bmu+YEUvx2SM7O
+	bdlPZy7CTSEMD716RZZCuO/06zMEMEbPKpoW+joKwHx/4KSya/8Yxz0e2RxuVE5rYNo=
+X-Gm-Gg: ASbGncvEXfwl+ICmGnAx1DBSYacHOb85YJtmWpzDYYRc9BkMyA5B9sh3bpVpqqnkwOb
+	p8lSzxd9oLaOoYZuIHoRpu394pyEdzuTGLaZn+QLFRv1t6RRxS4fwrN3ogBmQF1WThL9BSL3T5U
+	0cvbMzk9i1/Lrwr1SR3cCexbQ/dRJ2oTSZtEOeUeHk9I7+kFZ5F+XVFI6v9uscXX6pND/LEGgB7
+	sYPMhl3/tFb8lT9obvsalyh7uyMjDp1IYRiUIt2AUp05C5OZdJLTnJ3aOZkZxByZDoGFfCGWsZ/
+	GyczmEZzLTJYmm7fyv156HpfSQpYq0bOJws7HRY6df11eFzV/Ue8ujuWh+IaFw/JRfbGObp5j9E
+	L3tvdh1EQkh+PAN2lCjsmCm8UQ5jbxtKgFDvkqGvWM1Mv1hG/BFwrZous/Gf7TEy7D94bonagHc
+	1+H4s+psykeZaZyQ==
+X-Google-Smtp-Source: AGHT+IHjwdJFhyPffGM4FBkB+w0a69ezxil2LnB/hHwjzMGVo9Ioll+93XMe3fLrl1LPLka9UTkijg==
+X-Received: by 2002:a05:6a00:9a0:b0:771:ead8:dcdb with SMTP id d2e1a72fcca58-7a220a7e712mr26747780b3a.8.1761154890617;
+        Wed, 22 Oct 2025 10:41:30 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:7843:84f1:e4ca:d99d])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a22ff39654sm14983897b3a.31.2025.10.22.10.41.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Oct 2025 10:41:30 -0700 (PDT)
+Date: Wed, 22 Oct 2025 11:41:27 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <frank.li@nxp.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, upstream@lists.phytec.de
-Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: Add PHYTEC
- phyBOARD-Segin-i.MX91 board
-Message-ID: <20251022-eraser-latticed-6d0291a07589@spud>
-References: <20251021093704.690410-1-primoz.fiser@norik.com>
+	Fabio Estevam <festevam@gmail.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 5/5] MAINTAINERS: Add an entry for i.MX remoteproc
+ driver
+Message-ID: <aPkXRy7TsPCrq_s-@p14s>
+References: <20251015-imx-rproc-c3_1-v3-0-b4baa247358d@nxp.com>
+ <20251015-imx-rproc-c3_1-v3-5-b4baa247358d@nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kvtMwzI9nOsPH2Aq"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251021093704.690410-1-primoz.fiser@norik.com>
+In-Reply-To: <20251015-imx-rproc-c3_1-v3-5-b4baa247358d@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251022_104131_913815_3DE36EED 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,31 +107,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Oct 15, 2025 at 09:52:59PM +0800, Peng Fan wrote:
+> Add an entry for the i.MX remoteproc driver
+> 
+> Acked-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> Acked-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  MAINTAINERS | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index c9cdb95dc150a55df405adc3cb853c61f4c2b467..02dea709a5a5d591f156becd35640dfd93fe62e0 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -18610,6 +18610,15 @@ F:	Documentation/devicetree/bindings/clock/*imx*
+>  F:	drivers/clk/imx/
+>  F:	include/dt-bindings/clock/*imx*
+>  
+> +NXP i.MX REMOTEPROC DRIVERS
+> +M:	Peng Fan <peng.fan@nxp.com>
+> +M:	Daniel Baluta <daniel.baluta@nxp.com>
+> +M:	Shengjiu Wang <shengjiu.wang@nxp.com>
+> +L:	linux-remoteproc@vger.kernel.org
+> +L:	imx@lists.linux.dev
+> +S:	Maintained
+> +F:	drivers/remoteproc/imx*
+> +
 
---kvtMwzI9nOsPH2Aq
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Here I am suggesting:
 
-On Tue, Oct 21, 2025 at 11:37:03AM +0200, Primoz Fiser wrote:
-> Add device-tree bindings for PHYTEC phyBOARD-Segin-i.MX91 board based on
-> the PHYTEC phyCORE-i.MX91 SoM (System-on-Module).
->=20
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+M:	Daniel Baluta <daniel.baluta@nxp.com>
+R:	Peng Fan <peng.fan@nxp.com>
+R:	Shengjiu Wang <shengjiu.wang@nxp.com>
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
 
---kvtMwzI9nOsPH2Aq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPkW0QAKCRB4tDGHoIJi
-0pJqAP0RqklqLO4Tj2pIuOr/1kpPnRUHFAdHRi7L4FSO4wfjMwD+IHHxz9L47553
-PrSJhvtbBG2KwrOsGRDYOkUzyGz2Tw4=
-=ZqaT
------END PGP SIGNATURE-----
-
---kvtMwzI9nOsPH2Aq--
+>  NXP NETC TIMER PTP CLOCK DRIVER
+>  M:	Wei Fang <wei.fang@nxp.com>
+>  M:	Clark Wang <xiaoning.wang@nxp.com>
+> 
+> -- 
+> 2.37.1
+> 
 
