@@ -4,111 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28343CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 16:31:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62424CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 16:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sQF91hR8wudZSmdMZtgwJy+moq4F181DXPsgCrrdiqg=; b=ZSMPh6N2JaE2nN2v1ncrB+uSAf
-	zR8XrtiHqxVHiol/3BFJHsBIN4vxq1vWY5DuTIqfZtnep6OfS6rqE2GuYFHl1FPLRjFN+QYsb9iXZ
-	CfCnkI/0CJjnnmazglNozMPW9qg0AhzNKIrn8dKmiYXWs4ksw5o4xicHEXeIA8jl/WUj1e5Arru+d
-	VHOswaPRrqSUzUI2MEwiDQh283vV/OJQc6oyPXP6m8kQ1vqN6OOH7aRR7r3SO7057WMvU2jN7ugLL
-	3wdDLbRHCmE3JWNqXAIrTb/C0Sf1uSKQ8nV5ZKtajLZ1fALL/fGNA9X/ItNAfmxdL2Uj7b4Juo+cz
-	Ahs0ydYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:To:From:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V87oGT85aTQasUZiMJWRE9RqxAPo4aSgAPSUdDURqZQ=; b=Fh8/1HHsbdOKKi3sfItoBnhASa
+	Nn/Jz7wyC5WR8QoL5uvoO2AV6HKZeTTYg9R73GCEoDpvzEq4LBAhmRXVitJ1bCrrUZV5G1XgK+dbP
+	0/FOxt0j9YXQc8nRV+T6oBjZd/+vexWS0x1CjmGY2si77uTejs0uf3CTT21d9OmPKEjao50uLgEgD
+	NsNh8+94p3Cen10eWLdgvdWsZYGMpcSYeoiJvT2h/uQ18dSMBDG2VTeENVblZndN2GNY51DoIRyOG
+	hxAcR4hXDH8AAvORB+imQNJnKWo3oHONy0jRI5PMIxRFNl0gHji8boNOA/MLfPCAaUFOAMhly/DM2
+	Q9CXyMxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBbk0-00000003bKo-3MW6;
-	Wed, 22 Oct 2025 16:31:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBbqS-00000003cnO-3HX1;
+	Wed, 22 Oct 2025 16:37:52 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBbk0-00000003bK9-0Ov0
+	id 1vBbqQ-00000003clu-0bzz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 16:31:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7149960549;
-	Wed, 22 Oct 2025 16:31:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CA32C4CEE7;
-	Wed, 22 Oct 2025 16:31:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761150671;
-	bh=Cqctev3zr4r6SJScwYfCN1B9WhFCbP6FZYJ7toOtRRo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OhORvJvv4MPlrGFjrRKOoEtf/pc6bZ9lIsJ7YIuMA5Awo+jQz/T2cuvexWtDcP/+J
-	 KG9lChBZM8jWCE5+qSoukhEdJa8o0NBhLPzkds8VY3O6Kg4jKgIt+t+iVtIiqKrKV2
-	 rr/xW1ZTqhrSyfI0u5k6KZtPHVD+eMiACflDdrvxOVj2ud3bPL4QV23AehxoUGaRy2
-	 dieN/C3JdacxaYaaUeDknbZlVKROZ48Qklme70nUlYUAzBtQJylDPwFTSTD7nhIvhw
-	 VhcGuS5fOexBHUZ//B46j6UAJHo7S21PZiIhM98b1Kyk2LR7Iep/VuAVVV4oGIfe1/
-	 SRAAylvYzykDg==
-Message-ID: <113ee339-566a-4cc2-9786-89252ae072e0@kernel.org>
-Date: Wed, 22 Oct 2025 18:31:05 +0200
+	Wed, 22 Oct 2025 16:37:51 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1761151065;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V87oGT85aTQasUZiMJWRE9RqxAPo4aSgAPSUdDURqZQ=;
+	b=mPRAYTj5Dh5mX2LmMKeKOiWNLWNbqx80YIoWu0l7EoQ32Kfq6IKfmOFNuVWEl4sUCCQSI6
+	FfPLpQEkRP1itkSSSCc5OevgONypSd9l+dPPIxDdtquwcPyu7AHvo0L1MAmnBDG7ZbP/vy
+	9FRUyHeip4vpfBxyIdPWpbdi4PENYp/lX5rFO0I1YGs4/F1CE4C0pmYxCQJDzv3oxksXLa
+	gAAKGHSv1HGEgJSWWMcwNL6fRGTdpmvY9CChW36CMDmmsjN6TbID3MXK9vFwAcOwhULNGF
+	L4Hzaxig6uU6knf55KonxnE0Tmcazzn3/WufCXusTrNB4DDwCdPcifNb/GJN0A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1761151065;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V87oGT85aTQasUZiMJWRE9RqxAPo4aSgAPSUdDURqZQ=;
+	b=qbLYTF8r3Oq/U+GMSjoIWBCyfCVvQ4zGZBagssYSDLcjHGUUgAQJRgfPHtENijbJuGqtRp
+	7gjIWKyrtQEo6qDw==
+To: Ryan Chen <ryan_chen@aspeedtech.com>, ryan_chen
+ <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel
+ Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+ jk@codeconstruct.com.au, Kevin Chen <kevin_chen@aspeedtech.com>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org
+Subject: Re: [PATCH v5 2/3] Irqchip/ast2700-intc: add debugfs support for
+ routing/protection display
+In-Reply-To: <20251022065507.1152071-3-ryan_chen@aspeedtech.com>
+References: <20251022065507.1152071-1-ryan_chen@aspeedtech.com>
+ <20251022065507.1152071-3-ryan_chen@aspeedtech.com>
+Date: Wed, 22 Oct 2025 18:37:44 +0200
+Message-ID: <87h5vqyjs7.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: rng: add google,gs101-trng compatible
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
- =?UTF-8?Q?=C5=81ukasz_Stelmach?= <l.stelmach@samsung.com>,
- Olivia Mackall <olivia@selenic.com>, Herbert Xu
- <herbert@gondor.apana.org.au>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: semen.protsenko@linaro.org, willmcvicker@google.com,
- kernel-team@android.com, linux-samsung-soc@vger.kernel.org,
- linux-crypto@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251022-gs101-trng-v1-0-8817e2d7a6fc@linaro.org>
- <20251022-gs101-trng-v1-1-8817e2d7a6fc@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251022-gs101-trng-v1-1-8817e2d7a6fc@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251022_093750_319091_0FBFDBA1 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,21 +81,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/10/2025 13:19, Tudor Ambarus wrote:
-> Add support for the TRNG found on GS101. It works well with the current
-> exynos850 TRNG support.
-> 
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> ---
->  .../devicetree/bindings/rng/samsung,exynos5250-trng.yaml       | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
+On Wed, Oct 22 2025 at 14:55, Ryan Chen wrote:
 
+The prefix is: irqchip/ast....:
 
-No power domains here? I would prefer to see such additions together
-with the compatible, if that is possible.
+> AST2700 INTC0/INTC1 nodes ("aspeed,ast2700-intc0/1") not only
+> include the interrupt controller child node ("aspeed,ast2700-intc-ic"),
+> but also provide interrupt routing and register protection features.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Lacks a new line to open a new paragraph.
 
-Best regards,
-Krzysztof
+> Adds debugfs entries for interrupt routing and protection status for
+
+Add
+
+> AST2700 INTC0/INTC1.
+
+But what you are failing to explain is why this is required and
+useful. Just adding code because we can is not a real good reason.
+
+Thanks,
+
+        tglx
 
