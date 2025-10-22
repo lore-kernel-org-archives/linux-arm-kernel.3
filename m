@@ -4,147 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0453CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 18:31:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92EC6CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 18:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xI+rhvxEBxqKNkYgkKodZ5I5aGcum/RfIbS5GB+RU9o=; b=VUz6v5n73VCgiwIbx6nuvu2ECl
-	5DMWU3IdXJJy1AydcgQE4HKo5GesLO0mEYkiML3hg6pUT6OOlRX/KJ+qQx5OKmRimiy5s8969hi7D
-	OI+cCcHMWJolc95Zgo9yAiDrEFJ6D1nJDKZxkHYXqxMUV1JOxuoVLL2z7VphDAG3684I9nFowI0rl
-	3dpDs1zk5htHyHn+VICFNdZtH7/21WlE1PwXYeMzlHltyN3i3X2+1+KDDeuBIT6DifV2OdYJ5t47x
-	CtZgTLzRP17BzLkBL8WzLzHQF6hp9KxX2s0dLjBspkrmVMFebHbA8Dr8dkPWhfk4zyK9in1JoeGsI
-	AVKvaEKg==;
+	bh=Wp7PQxwpEUaf4NDF7jDHZA4RAc1DRUXdHx0e2Vlvfqo=; b=4BxKvow1tiSKzJTensek76XVoR
+	7lJCfs24+fXTqccAd3GYLWQTwipclKPOiC64EoVrV/StC1d8aT+4u+MyQNylyeuh8IPT8AVmI45yI
+	Dxw5hlPLAa3d8k3kOJdpf6icxApdL7WSaol9h/dq9euuJloPEJdXy4uBGN4wjbXpz4QNpuAuVG+1y
+	bMtQCABVfs7FLW1HOSeJ0zzdcAlxaCfUPWi3Q/pvZhMSD5eN/+To64NVSdY+8LYHrs9JsG/eSgH3A
+	KkCnThbqLrDQbOqWCcGLR6B42gGUvPX+7E/0Zxr7qyr3sKYtBkd1ezcJovOge4xCyhg+TQ+KPHzxv
+	6weQBb7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBdcT-000000040Fv-2lIC;
-	Wed, 22 Oct 2025 18:31:33 +0000
-Received: from mail-yw1-x1163.google.com ([2607:f8b0:4864:20::1163])
+	id 1vBdkn-000000041an-2ih4;
+	Wed, 22 Oct 2025 18:40:09 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBdcR-000000040Ek-0nx2
+	id 1vBdkg-000000041Uo-2dY0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 18:31:32 +0000
-Received: by mail-yw1-x1163.google.com with SMTP id 00721157ae682-783fa3af3bdso62855227b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 11:31:30 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761157889; x=1761762689;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xI+rhvxEBxqKNkYgkKodZ5I5aGcum/RfIbS5GB+RU9o=;
-        b=kFS4NtRAsbEwBumK2TBzXLYEcepxghGpneq83c57U63ynKYOZX+KR5OnQ8PQsgqhC2
-         VG37u5xxh8ho6Tb1/801EG3Y0YkgHV5/4KfGxnoE4StilF1mtCLx1AflJgdClbwwjBG8
-         3HGb3MRAvoI8nGPpeQlwXv2oJaspKL1MCKt/soOVVaFhUvXT1cCh+JTOOELy6p/bPo/K
-         J8QjfUQ3gFvl1NwSHWuMSv9c/mhz/x4A0aoi61j6qvrlwYXeJ2q1f20gAn88Z4mCuB3I
-         vlw7spbn8paofLI4OnjFFxsKmiGI6ZY2umpKldRF6oHxQL2ptFQjIB7T37c0X/hiJbXg
-         ZRGA==
-X-Forwarded-Encrypted: i=1; AJvYcCVvcL0Y+SMhYb5/1O1f8SPN08OlKoi0tBk0S/OBvzUj94gF52jBEw4mwXvtpLtAJnTsbswT0SaFBtG1lQ1l5Sn8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwOYkKiRuseJfm4ERSgjyUXXbGWtBCEAkGcqtrB75ic2gW15Zs
-	5bFi4G2vhjaCtFSfWNeEYxBTIBC+Y3Lx9PP13/NSrTOTLKKQs+sXvnf2zYt0OS0J3H9oIRggf5S
-	/KiX2C2h7HWVxkzhlHht793surKqv3IePKJRVzMwLZJBPf0JDPWmotfxV9OCLwdFTGWdabOlcyc
-	purwGFG1uc1UtJ5OjruereabbdchFd7asrBbaGnXmAE73EBbHJTHSE4FYQ+Uy35/joDQ844Ggmu
-	RnVqAi/DuCurkFLma6UxOUrQJpodiLZoj4=
-X-Gm-Gg: ASbGncuFj/YY710Dbc7imofUtSpR0WeUVA1tivMxgc2sXFJ9b3euJC75B6KYaKxkdG9
-	itKes36X5uighOmjv0dqfKfgKDnzWBB1hCM+p3UaZXHDRmART5C4Yv9qNjSaJDdFZUXGP7vdK2E
-	VITC7zqBKnd91yHjhZ6E3Nbq/eYKmxRzw2HK2POJ6+wCpltog1aWvEiYvNMIIxZDvrb6DapVyhE
-	ImTvw1+0VL0OyjTjhzF962vlmBLl7QhieTu0tGbOBqgb7s6BdXJp2yEbCQyJkTnVbRWm1y671QG
-	iyjMj4zmc3jgCUIU2ZOl4LPxXqXsqDpYulgcl1RJdAvIth5n37scqn8qbfe/Pr8cZp1CRb2qM1z
-	oJQmgCMXoUt02+cunvdRBST3K33W8HtEWFzdsEd7/fq4z4fiu2HtFy5mxPkYFN+KHGLKUkjrHPT
-	Lq/yA7l/Z3K3osPQ6RcL0XtAcglGIilacJN96LtAH2/g==
-X-Google-Smtp-Source: AGHT+IGrkYJ1n+cabrgpCJ1QaCa4F3LzG+PP1HuxhP1PE6uvG6i3liPliJKNDJwsgKreN5H+7iL1mWhWARZm
-X-Received: by 2002:a05:690c:6d86:b0:73c:d011:5769 with SMTP id 00721157ae682-7836d32682fmr201700747b3.52.1761157889157;
-        Wed, 22 Oct 2025 11:31:29 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-124.dlp.protect.broadcom.com. [144.49.247.124])
-        by smtp-relay.gmail.com with ESMTPS id 00721157ae682-784674d641dsm10862747b3.24.2025.10.22.11.31.28
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 22 Oct 2025 11:31:29 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-290ab8f5af6so53585765ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 11:31:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1761157888; x=1761762688; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=xI+rhvxEBxqKNkYgkKodZ5I5aGcum/RfIbS5GB+RU9o=;
-        b=ArbqA7QFiLqV6ggk16JAm1/nhBLg9/MI2/I9EhfjYlgkYZrgnNuB2XrbmJEv65j/j4
-         UZpMnfxLiUfAmo/FGVtHmStYixOn5rVZa0sXSpL9kk1RSQpw7e3vF2V/t7tUEuQrfwzd
-         P16CAejJEgZ8PpKyiMW/O9me/Rm1ZG7k0eIGQ=
-X-Forwarded-Encrypted: i=1; AJvYcCWq/QIHwsJEl1+g7FTuy3da9IYHnh6CS2d8LDGQ5AxOo0IMpXuOoTWM2hkKjFVMINiy0QIupi7k0KVqGiOlnxvh@lists.infradead.org
-X-Received: by 2002:a17:902:dac6:b0:25c:ae94:f49e with SMTP id d9443c01a7336-290ca30e40cmr257832385ad.37.1761157887704;
-        Wed, 22 Oct 2025 11:31:27 -0700 (PDT)
-X-Received: by 2002:a17:902:dac6:b0:25c:ae94:f49e with SMTP id d9443c01a7336-290ca30e40cmr257832015ad.37.1761157887301;
-        Wed, 22 Oct 2025 11:31:27 -0700 (PDT)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29246ebccf3sm145602945ad.1.2025.10.22.11.31.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Oct 2025 11:31:25 -0700 (PDT)
-Message-ID: <a6882bfa-866e-4079-b38a-ca2ed30609b9@broadcom.com>
-Date: Wed, 22 Oct 2025 11:31:24 -0700
+	Wed, 22 Oct 2025 18:40:08 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251022183956euoutp013a8bcb2309734c825da9d6f1f6b2d665~w5Drz_rIl1219612196euoutp01_
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 18:39:56 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251022183956euoutp013a8bcb2309734c825da9d6f1f6b2d665~w5Drz_rIl1219612196euoutp01_
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1761158396;
+	bh=Wp7PQxwpEUaf4NDF7jDHZA4RAc1DRUXdHx0e2Vlvfqo=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=tNOgdzIWZtXNOZ/Hu/grKRy1A+gwmxnM47VoFiQiKQNuR9W0LmUvunUkvu9FtCdH3
+	 gnDY6SgHxgHT8ebCxqR8dvZpfTxBGDc67utnUy3I3tECih9j19xdbSF9Ec/8Yq1yAp
+	 l4ZiujU90fMBy4EJAgaVTe59N+5VAbU1bLmxYNEQ=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20251022183955eucas1p23819de66a835c57747daa0136753c808~w5DrCgZAS0057800578eucas1p2Z;
+	Wed, 22 Oct 2025 18:39:55 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20251022183953eusmtip131c046506281f6642166831a3fe9c211~w5DpcncR60141601416eusmtip1Y;
+	Wed, 22 Oct 2025 18:39:53 +0000 (GMT)
+Message-ID: <57bacc06-8a5e-4284-a520-c5d2a56545e9@samsung.com>
+Date: Wed, 22 Oct 2025 20:39:53 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 2/6] net: phy: add phy_may_wakeup()
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-References: <aPIwqo9mCEOb7ZQu@shell.armlinux.org.uk>
- <E1v9jCO-0000000B2O4-1L3V@rmk-PC.armlinux.org.uk>
- <ad16837d-6a30-4b3d-ab9a-99e31523867f@bootlin.com>
- <aPkgeuOAX98aT-T7@shell.armlinux.org.uk>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <aPkgeuOAX98aT-T7@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v3 08/10] pmdomain: samsung: selectively handle enforced
+ sync_state
+To: Ulf Hansson <ulf.hansson@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+	<andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Peter
+	Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	<tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>,
+	kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <CAPDyKFq2esPos=D-eVz6w1VXq=4LYi6fx54K4TvsUi4JqUJOaQ@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20251022183955eucas1p23819de66a835c57747daa0136753c808
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20251022110738eucas1p2cee28096ca5c9c6a802e2190d88ccf21
+X-EPHeader: CA
+X-CMS-RootMailID: 20251022110738eucas1p2cee28096ca5c9c6a802e2190d88ccf21
+References: <20251016-gs101-pd-v3-0-7b30797396e7@linaro.org>
+	<20251016-gs101-pd-v3-8-7b30797396e7@linaro.org>
+	<CGME20251022110738eucas1p2cee28096ca5c9c6a802e2190d88ccf21@eucas1p2.samsung.com>
+	<CAPDyKFq2esPos=D-eVz6w1VXq=4LYi6fx54K4TvsUi4JqUJOaQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_113131_312792_0341807D 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20251022_114004_107323_3452C85F 
+X-CRM114-Status: GOOD (  24.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,35 +93,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/22/25 11:20, Russell King (Oracle) wrote:
-> On Wed, Oct 22, 2025 at 03:43:20PM +0200, Maxime Chevallier wrote:
->> Hi Russell,
+On 22.10.2025 13:06, Ulf Hansson wrote:
+> On Thu, 16 Oct 2025 at 17:58, André Draszik <andre.draszik@linaro.org> wrote:
+>> Unconditionally calling of_genpd_sync_state() causes issues on
+>> platforms with child domains as the parent domain will be turned off
+>> before the child domain was even registered during boot.
 >>
->> That's not exactly what's happening, this suggest this is merely a
->> wrapper around device_may_wakeup().
+>> This in particular is an issue for the upcoming Google gs101 support -
+>> all operations on child domains registered after the parent domain
+>> misbehave.
 >>
->> I don't think it's worth blocking the series though, but if you need to
->> respin maybe this could be reworded.
+>> Add a flag to the probe data to be able to sync_state conditionally
+>> only, and enable that flag on the two platforms currently supported by
+>> this driver.
 >>
->> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> 
-> I've updated the description as I think patch 4 needs a repost:
-> 
-> +/**
-> + * phy_may_wakeup() - indicate whether PHY has wakeup enabled
-> + * @phydev: The phy_device struct
-> + *
-> + * Returns: true/false depending on the PHY driver's device_set_wakeup_enabled()
-> + * setting if using the driver model, otherwise the legacy determination.
-> + */
-> +bool phy_may_wakeup(struct phy_device *phydev);
-> +
-> 
-> Do you want me to still add your r-b?
+>> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+>>
+>> ---
+>> v2:
+>> * use bool for need_early_sync_state (Krzysztof)
+>> ---
+>>   drivers/pmdomain/samsung/exynos-pm-domains.c | 5 ++++-
+>>   1 file changed, 4 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdomain/samsung/exynos-pm-domains.c
+>> index 638d286b57f716140b2401092415644a6805870e..15a1582aa92103a07335eb681600d9415369fefd 100644
+>> --- a/drivers/pmdomain/samsung/exynos-pm-domains.c
+>> +++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
+>> @@ -20,6 +20,7 @@
+>>   struct exynos_pm_domain_config {
+>>          /* Value for LOCAL_PWR_CFG and STATUS fields for each domain */
+>>          u32 local_pwr_cfg;
+>> +       bool need_early_sync_state;
+>>   };
+>>
+>>   /*
+>> @@ -69,10 +70,12 @@ static int exynos_pd_power_off(struct generic_pm_domain *domain)
+>>
+>>   static const struct exynos_pm_domain_config exynos4210_cfg = {
+>>          .local_pwr_cfg          = 0x7,
+>> +       .need_early_sync_state  = true,
+>>   };
+>>
+>>   static const struct exynos_pm_domain_config exynos5433_cfg = {
+>>          .local_pwr_cfg          = 0xf,
+>> +       .need_early_sync_state  = true,
+>>   };
+>>
+>>   static const struct of_device_id exynos_pm_domain_of_match[] = {
+>> @@ -179,7 +182,7 @@ static int exynos_pd_probe(struct platform_device *pdev)
+>>           * reset during boot. As a temporary hack to manage this, let's enforce
+>>           * a sync_state.
+>>           */
+>> -       if (!ret)
+>> +       if (pm_domain_cfg->need_early_sync_state && !ret)
+>>                  of_genpd_sync_state(np);
+> The call to of_genpd_sync_state() was intended as a temporary solution here.
+>
+> Potentially, if we would be able to distinguish what PM domain that is
+> causing the problem on the Exynos platforms, we could set
+> GENPD_FLAG_NO_STAY_ON for that genpd instead.
 
-Yes, I saw that comment, should have mentioned this applied to your 
-revision. Thanks!
+Well, this of_genpd_sync_state() "workaround" has to be applied only to 
+the power domain of the display controller device. It can be replaced by 
+the following check on the legacy Exynos systems:
+
+if (IS_ENABLED(CONFIG_ARM) &&
+of_device_is_compatible(np, "samsung,exynos4210-pd") && 
+(strstr(pd->pd.name, "LCD") || strstr(pd->pd.name, "DISP"))) 
+pd->pd.flags = GENPD_FLAG_NO_STAY_ON;
+
+I assume that this information cannot be coded in device tree to make it 
+somehow generic...
+
+Best regards
 -- 
-Florian
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
