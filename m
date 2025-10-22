@@ -4,72 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2624CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 19:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27EC8CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 19:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pgl9LQGCxPzHgk6b4gNBqLFR4/SpCMm4ck3nP+tebGk=; b=mKCwfakdbM6byQL/JViiTF85mg
-	OHVd4JzoRxVOS5agzqVU5hliX0H5JRyxc3w43+MoLbLSdFTtcJmlbWdgctuljWPwnzQzBHnm/5t4i
-	8t2rjr4VqQmDPjsvUR+KzCr78uoaBLnpR2rlrRNk6ZUsSGBQ6lNDiIbm3yrjXR6uJW9sHNXntvVfW
-	5rT4IQT4XAIkJPsOZIEBXkHMi8+zslkgXDp6i7Z5/uLRqZOliCsrV44n4wPfMmcNkUbfVKdwVq6pL
-	zbIC2qxO6I3wTHigAv5Em9vfCekMilPRlNPChYQvTGcPmPB5U/1QyMKbmKfZiN6Zh8+/9JbCE3KPs
-	vFXzPoBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wREzy7rE27X1qKmfXOWprRl7YFBX8aFkFx3LWlFCsNc=; b=CTQzXrojkiSB8DAwhOfEtA6CCF
+	kTz5WyBFRKOZjyFw34olQNNtRqSJXWUiQeLMNE09RAGv8xT40inJ6quLSYgQuEh6x48YXa0A6JIkC
+	+Zm7IuEOhZS/8sehGW+tife9MmdwbgwtiMNhAXO2XQzVBG8zwg3P8LAW+85DNqFEcQo9EeO6xAx6D
+	n1kp7aR1gyUiKsXZIQCGcR6uudcKZhfGYMSvlArS1nf5UfAKSZ0cqHSl7rOKwoAXhi5/Vft1xKalV
+	h0NPr7KlZ1be5vdTVbXG3GnTqhgE4oHlpRmpRatspcNRQfUaQCcvyu2U2eRHQUR/EiBcRwbJelrk7
+	jFPM2ODA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBeBj-000000045Uh-2bQP;
-	Wed, 22 Oct 2025 19:07:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vBeCX-000000045iI-3ZX9;
+	Wed, 22 Oct 2025 19:08:49 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBeBg-000000045Si-2ouX
+	id 1vBeCW-000000045h9-1N85
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 19:07:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 99D2244B14;
-	Wed, 22 Oct 2025 19:07:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50AB5C4CEE7;
-	Wed, 22 Oct 2025 19:07:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761160061;
-	bh=MhikHcHibevNQwj+BN+1cIYd/DKSbUvhjASlY7USh2I=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=F9miCQTQy14eYv+G7sJbojMRVwwyrJRzB0o2GZHQKS0qKMOyst/6rYHsNjj07SrzV
-	 Fb0dkWL7Zq0ov7ZxRcJOlIR/vf3Kggf3cGt7DTZ4cdsZS8ONKzkcVd9Jsz8Wrq4U5y
-	 0jaYNouJSYD4QSRM8Dv8E7uTfb4tf4011jX9NkUzrrxPi/QSZwPL63VpaOFJ/wrizq
-	 vwtojQKQ+xxRDWp/4jPX0sT1D4FrZo0KbKhJhj/DJSSGc7UTiSrZ2rN9TiX7THz1ZP
-	 b8uH7YcopmBnh+vGj/e+9Hum9RJNMb/FLvcoihktILJq+t44xxWhwHQBQVC9ui75o9
-	 dTajyQwN79FvQ==
-Received: from wens.tw (localhost [127.0.0.1])
-	by wens.tw (Postfix) with ESMTP id B91885FB54;
-	Thu, 23 Oct 2025 03:07:38 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Jernej Skrabec <jernej@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, Mark Brown <broonie@kernel.org>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
- Chen-Yu Tsai <wens@kernel.org>
-Cc: linux-sunxi@lists.linux.dev, linux-sound@vger.kernel.org, 
- linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, dmaengine@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20251020171059.2786070-1-wens@kernel.org>
-References: <20251020171059.2786070-1-wens@kernel.org>
-Subject: Re: (subset) [PATCH 00/11] allwinner: a523: Enable I2S and SPDIF
- TX
-Message-Id: <176116005873.3514774.12511738732010312757.b4-ty@kernel.org>
-Date: Thu, 23 Oct 2025 03:07:38 +0800
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
+	Wed, 22 Oct 2025 19:08:49 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b6cf3112d08so217106a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 12:08:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761160127; x=1761764927; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=wREzy7rE27X1qKmfXOWprRl7YFBX8aFkFx3LWlFCsNc=;
+        b=HXoKXPd4l5qSR0ItKfvY5LIc5Rr021zoJKEixb1FpwfIKGmxPZRR5bipukq24bvTMQ
+         azVx1VQWSa/QNvm66Yggs9/1OR5kvGwG6sn79tQsiIBdJqPdA8uHax8wqEaEj97IdCQO
+         JBeWcJRG7vZFuoBc7sa+5bI2we0raBOWLYQHIzfDgTMJMF4FaJucizE1nOIcwZLxlzer
+         8ImACy9Au89ghqGOWwVRP/ORLNr1QKh8YJv1aMbvsGEduXbENu/ZWhq0VJVYCfv4/vST
+         edaH83yTdU2Qf8tC4CDfjhPX1xCaPZizsIDJBqKUEoTtKRb33lsOtHpsZNEhVMLUV5x/
+         BoYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761160127; x=1761764927;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=wREzy7rE27X1qKmfXOWprRl7YFBX8aFkFx3LWlFCsNc=;
+        b=Ht38BR2+OhuTnzf9t4PtPFlauILsYCQbv8HBKjNuY5jjmW2X/xDyZCG5VZ4A4CTD7k
+         ORQFXIfFtusyEwr+e2os6GppNW/CY4lLwfoP+LrHgkpXw4d5R+X0UigU9XHR4kf9hXrh
+         HMhNoSoMcnsgRunZxW4CwO5BlGQ2A7a6o9ExJgoWtLLlTG26WpDaOlbWSJCXMJ/JPV21
+         Q9utqJZB/lQO32Q7QYjj93grKYnopQ14g823fe5WWnpU+IxDun5tCT5iipkSTqQKPP/U
+         ZUFOT6UKiB4R91yP+AawwgntlYvy4n9nA8j+I+4MPZHzRaoJTlqggYuhwOeCMZcFNMVc
+         NnZA==
+X-Forwarded-Encrypted: i=1; AJvYcCWvPnAQg/xKkkt04ztV4Z3rDq1rZP+1JN7tE55WJJwU+gikbRJhp6kOcVTVB0fsBumEq5gdPhtJbzwgjGZKItoC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyurJ/O6G+XNtzervribnw/eneMzepVHNOSuzXelUMKfOVOKUdK
+	5++SHah/BFSvG5hzVIehZ8Ri3FyNICKG/4RBPcqeDU5TBGaEG0fJ7JPNKeux+EkFRlZhG0jr1aD
+	ZWYzA0Q==
+X-Google-Smtp-Source: AGHT+IG7bMbvOV7PjecaO9CgeAeXZcwC+wb3hcO8vOg4iH6Jor9tS/5vQmEcVRzTkSnVuCY2g2HzBv4NWV8=
+X-Received: from pjbpc16.prod.google.com ([2002:a17:90b:3b90:b0:330:9870:9f18])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6300:218a:b0:2e5:c9ee:96fa
+ with SMTP id adf61e73a8af0-334a861743bmr28027967637.34.1761160127099; Wed, 22
+ Oct 2025 12:08:47 -0700 (PDT)
+Date: Wed, 22 Oct 2025 12:08:45 -0700
+In-Reply-To: <aPiZ2DEQ6qW5r5rY@yzhao56-desk.sh.intel.com>
+Mime-Version: 1.0
+References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-11-seanjc@google.com>
+ <aPiZ2DEQ6qW5r5rY@yzhao56-desk.sh.intel.com>
+Message-ID: <aPkrvWcm3JF9WlVd@google.com>
+Subject: Re: [PATCH v3 10/25] KVM: x86/mmu: Drop the return code from kvm_x86_ops.remove_external_spte()
+From: Sean Christopherson <seanjc@google.com>
+To: Yan Zhao <yan.y.zhao@intel.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
+	Michael Roth <michael.roth@amd.com>, Vishal Annapurve <vannapurve@google.com>, 
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Binbin Wu <binbin.wu@linux.intel.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_120756_744722_08D932F7 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251022_120848_365137_643B08EB 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,26 +103,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Oct 2025 01:10:46 +0800, Chen-Yu Tsai wrote:
-> This series enables the SPDIF and I2S hardware found on the Allwinner
-> A523/A527/T527 family SoCs. These SoCs have one SPDIF interface and
-> four I2S interfaces. All of them are capable of both playback and
-> capture, however the SPDIF driver only supports playback.
+On Wed, Oct 22, 2025, Yan Zhao wrote:
+> On Thu, Oct 16, 2025 at 05:32:28PM -0700, Sean Christopherson wrote:
+> > Opportunistically pass the spte instead of the pfn, as the API is clearly
+> > about removing an spte.
+> >From my perspective, "remove_external_spte" means removing an external SPTE (not
+> a mirror SPTE). So passing in pfn_for_gfn seems reasonable as well.
 > 
-> The series is organized by subsystem, so each maintainer can find the
-> patches they need to take.
-> 
-> [...]
+> Additionally, passing in the pfn eliminates potential concerns about incorrect
+> spte content.
 
-Applied to sunxi/clk-fixes-for-6.18 in local tree, thanks!
+No, it just makes bugs harder to debug.  E.g. it doesn't magically guarantee the
+@pfn matches the pfn that was mapped into the S-EPT.
 
-[05/11] clk: sunxi-ng: sun55i-a523-r-ccu: Mark bus-r-dma as critical
-        commit: 5888533c6011de319c5f23ae147f1f291ce81582
-[06/11] clk: sunxi-ng: sun55i-a523-ccu: Lower audio0 pll minimum rate
-        commit: 2050280a4bb660b47f8cccf75a69293ae7cbb087
+> > diff --git a/arch/x86/include/asm/kvm_host.h b/arch/x86/include/asm/kvm_host.h
+> > index 48598d017d6f..7e92aebd07e8 100644
+> > --- a/arch/x86/include/asm/kvm_host.h
+> > +++ b/arch/x86/include/asm/kvm_host.h
+> > @@ -1855,8 +1855,8 @@ struct kvm_x86_ops {
+> >  				 void *external_spt);
+> >  
+> >  	/* Update external page table from spte getting removed, and flush TLB. */
+> > -	int (*remove_external_spte)(struct kvm *kvm, gfn_t gfn, enum pg_level level,
+> > -				    kvm_pfn_t pfn_for_gfn);
+> > +	void (*remove_external_spte)(struct kvm *kvm, gfn_t gfn, enum pg_level level,
+> > +				     u64 spte);
 
-Best regards,
--- 
-Chen-Yu Tsai <wens@kernel.org>
+Thinking more about what "spte" actually tracks, I think I'll rename it to
+"mirror_spte".
 
+> Also update set_external_spte?
+
+Ooh, yeah, good call.  And we can use the mirror_spte information to assert that
+KVM expects full RWX permissions, e.g. that we aren't creation a security hole by
+letting the guest write memory that KVM thinks is read-only (extreme paranoia,
+more for documentation purposes).
 
