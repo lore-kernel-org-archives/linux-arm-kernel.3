@@ -4,92 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C5CCCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 18:13:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71157CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 18:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V5F7t24lC7jgleOK3FW+MwSMdfYKm48DJa8i0z/06to=; b=usvMa0Sj0AO9xdIEW4uQkrNu6U
-	MdCl5HT6hHE/dHvx0kcfJQ/6WmxAVvtm+7EsvvgNcEqJPs84wvZ4elzjd6Sh8ZT7MBSjXc+VQp0R+
-	qfR4gmLsRBwtxY+4wrRE8b66mbow/tyOU3ehMj6ONFYtt1BXQKbMXbXt/Y/ZfbPQLhW8LRNHEaS8j
-	hjIZJaJ1dpVOM2sRMg5sSG2M4fbtAiiq14a1Aas1OXX0hA/vsan0p8iJci8JFyd9DKCY4sYjvXo4T
-	rAhH4bgIvfUHHF5Y+MevZQRBgGHaUPi3iF4TY8fuTum2i6dVln/frN3roxAF6CxWuIdh0eGcDpKy9
-	1MHg8HVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jLJgKW63U3laQ8TNHosGYPDklPCsb+gg1+m7SNDlD30=; b=GLnzYi7IsVWN3YyS8xjeaFM4N7
+	k9ooZjET0K8oDZCJWU6AlWSIJytzj4gW3xpt9/P02/CKZ/jnemoRct6d7ihJ6VcMCvXlVC4gEktxF
+	WNhw4VinMrlATgHyL0yZ/IPja5TLeySOm4ONBbPv2ww0AIRJsGdsu7vA0gpwVaQRA0zaAcAEFdllL
+	MVG5w57qQLE5IFuWxcIT7zAw3ZT6ZJK/9NDp9O5EMdymFMNz+XPdVvD/mU8xyJCnf4wXoGUMdIUJX
+	NBHbmiTtATcncGoXlnflfNk97qcvT54N3pcgwYohWgNfaXKg1jAiVv2ZEYTCIjJNaBOuLivEVF41L
+	2QkRBsQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBdKS-00000003woQ-2e3i;
-	Wed, 22 Oct 2025 18:12:56 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vBdLQ-00000003x8k-0aHo;
+	Wed, 22 Oct 2025 18:13:56 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBdKO-00000003wlJ-3FVQ
+	id 1vBdLN-00000003x86-1p5v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 18:12:55 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33d75897745so3562760a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 11:12:51 -0700 (PDT)
+	Wed, 22 Oct 2025 18:13:55 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-26a0a694ea8so51302455ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 11:13:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761156771; x=1761761571; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=V5F7t24lC7jgleOK3FW+MwSMdfYKm48DJa8i0z/06to=;
-        b=IkiaQomjJ1GcTS+i657wYk0ZSodmFptRaZVhySLbsFlmWjpRsavTl/BuLa32a6BneO
-         EH+d/5jAZfMv0UVPBblxvrEZDM0z+Pxw0f8lod5i1ewR2FDdb8NTR5GWApuIS/uCLf6t
-         rcxTo9x44n31fLsRbwCdq87L+mmAxeLjr799V396H2o/KhIAuLPRsKwHMy41s7SlazBK
-         E2leXM45y4+IUPzB2pyLjX1p1hpH13iFBUGCDojhOL8HhhfhZoRuZJyjpduZquE56rUW
-         GX+nEmKnF6Yy8NrAPdqzKoDMMLNLemwubxuyvvn0Jsdxle31R1Qfx6wjPLSl1PgJKsw0
-         hBuA==
+        d=gmail.com; s=20230601; t=1761156832; x=1761761632; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jLJgKW63U3laQ8TNHosGYPDklPCsb+gg1+m7SNDlD30=;
+        b=CT55kFi8lx+9TGHir3uUQwEGYpjiMVrbjrlEnfoEsgrm/M00jcZ4SI1lSlRVHg/U9k
+         fVJ5wp7wQAtH39B+ylqVjnppuVv5fFRIDXWZpHaiRw0IEEb6h5MwXzFUx792t+kpxoIq
+         bzX7xWUOOJy8/PSYpDlyOXfJCIVwEHDNfxZexDbYK1XX3Zd//s2HNdvprmdwZKLgyOEb
+         54cX2x+G30R6H41st61JrkYD3V+7V2DEM6CQiM/vjsnqrhlcUq2Ho2hZ49GyZAVn06TC
+         jHpMXUcJEAL7tQVQ4xHO8zLq6BvWQv1LWtt0iorz+JuLBvikyacjKIIGm1fxnVMQYJHG
+         RL/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761156771; x=1761761571;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=V5F7t24lC7jgleOK3FW+MwSMdfYKm48DJa8i0z/06to=;
-        b=ZhM3d7BHl1/fEW9XiAtso5YlweiL2HKLJZ5+Rjl9YNb+JeprG+8OLyQ6755gdPMwIN
-         XfmAH5k1HQAJa6Npl9n/LF+Du90xsjWZX9n1lpoTR6LyKODAUC4STtHlzbB4wal4eWwp
-         ebEJz8ETVAlcWrc9BgPtImkhvClb6//Z33cpipti3FT7Dc2/FNPtmsWpeQXndJ0uMz5D
-         lfbhfcnIuBhvlkmsBTJ2x6Q14sjoJxrxnsgH3Cr2LUNHMazqmRBge219TNM73XVLm8au
-         7oi7Qt8CUNFsAWcPNsxPmPrU3fNI4MW7zmMvJwNbzoBgBINz5PKy4MVxNM4+LBOtPLkQ
-         dJGA==
-X-Forwarded-Encrypted: i=1; AJvYcCXNmFrHcVpqkOeTl4yNAftBrR3on9JR/xu5IRq/lor+wMYx+SscXxhGYSx2uJ/cx4rMLy/iz4vzkmOfXFkoF42V@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxoh8qcuSAALyIo+sDsglF7hUBiMARuj5JZSQJokhEG/kqlcCBT
-	gYmcT7qB8zXrOPY1xwp0rFYCjfxHKbXscoWpYPEpSSqvn1e4jGw7aLjH3BC2j1LRfWkp/PKVQHn
-	UwFEJ0g==
-X-Google-Smtp-Source: AGHT+IFAZr0wpbGx7b8wp6kFow05WwkzX+gl9q/tJGKoWGxIdF2WxHsL5OqcbuH+85tLuHrz8145UQS6wJM=
-X-Received: from pjbnm19.prod.google.com ([2002:a17:90b:19d3:b0:33d:cdb9:9adf])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3f8d:b0:33b:be31:8193
- with SMTP id 98e67ed59e1d1-33bcf85d59dmr30647063a91.6.1761156768896; Wed, 22
- Oct 2025 11:12:48 -0700 (PDT)
-Date: Wed, 22 Oct 2025 11:12:47 -0700
-In-Reply-To: <aPiQYBoDlUmrQxEw@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-5-seanjc@google.com>
- <aPcG3LMA0qX5H5YI@yzhao56-desk.sh.intel.com> <aPe2pDYSpVFxDRWv@google.com> <aPiQYBoDlUmrQxEw@yzhao56-desk.sh.intel.com>
-Message-ID: <aPken0s-0MfdSd5o@google.com>
-Subject: Re: [PATCH v3 04/25] KVM: x86/mmu: Add dedicated API to map
- guest_memfd pfn into TDP MMU
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Michael Roth <michael.roth@amd.com>, Vishal Annapurve <vannapurve@google.com>, 
-	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Binbin Wu <binbin.wu@linux.intel.com>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20230601; t=1761156832; x=1761761632;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jLJgKW63U3laQ8TNHosGYPDklPCsb+gg1+m7SNDlD30=;
+        b=i9SuiHq+fquW2GcwPQ6PzQtNukLihfGM6gzsZYN1RZ10cGWESJL+yasihQz8B1SHur
+         a8yNEXVimOP5p5mTlWnI2puz9OtBphtK00Ac0ldDc0o5mrZQYpIwIVvxKARQl6xiel/G
+         y+RAfsE+XyySqs7GX1/PzyCn8Aw++dmF8CkThHxNj8/WHNyf0KNUYVjLZLQ4eoOrj1oY
+         b3CELKMUMt9hrcuvtVPlTFVSEwB/YRqQI/LboroMPF2u1/B/UsgjM60kZ4ur8V5emlpf
+         lUvb8Q/xGxdvH64veYR8U5KdfcpcVzoryjfCplPVG0EJHHrxumvTx91ASP+vTr0Y0myc
+         VjBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWjuGnLqZxHGB0vxK8cY8aKRa1sXSiak7HIiwK1UmqdDS86qyONZgMaFfkQOPeTWPHoFOwx9HK7m/f1hRZ8xjgT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvcRO4UR/AKU0BL7L7SeTgOvbp+E0iKh+8wbP4W7TqTB7FudWw
+	DUWRY6p37anwyYrjb12vgSbxs28VPCS3/Q+KkNRL35eeTNUM9bmPgn1D
+X-Gm-Gg: ASbGncvWjDb6AMV7tCFH8T4fu35hm4JRM3PTSJZEGGQfu/qbgG8OEyrObGT/vpTSDMI
+	00ad6F0Fi3mPrJURAzgcKc20cOMAwVoOSHn2eDukde0LPRufDtBtRW0vFbm2IV7wQw4qDDjv8zQ
+	Jc2hJ9xhoK79A/ymcz8E3bI9XjVJpv+GxO3cvoRfu9IGb3aShBU5Yf0JZHYry4yCdfDyE4z1SCy
+	wx8lCWC1mR164dCzNZNeD0N6z72koB1MQ7dRNv7ICUs9qR3PXCAtpTmlj/ER9DB6o4pgwBJCTkd
+	XeKDJ5q1vvOHy80OHFgjAjyjSG5j3QXzHvsG53B2O4vp4Aa/6VWRjdkPATC7c29Fxoa1uqbv52f
+	yf7S0Phkriwp7/pIg/w1XRTXvEdahXBeiTP3ye7EjtwYHwkChxVoL/n1zMZuKEcvFSmcjpdzch4
+	9tPSAj0AruKTPv4n2V9yVwC4AeUMubSjMyoSvCmQ==
+X-Google-Smtp-Source: AGHT+IEKSvBBS8awXEhQRZuuE4/RFkGN+a9c8XIx/ZTqTS76us8OMEo2zvvCAOTGGDCXlFKP7uLGXg==
+X-Received: by 2002:a17:903:8c6:b0:28d:18fb:bb93 with SMTP id d9443c01a7336-290c9c8968cmr299698995ad.7.1761156832260;
+        Wed, 22 Oct 2025 11:13:52 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33e22428b1esm3212795a91.22.2025.10.22.11.13.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Oct 2025 11:13:51 -0700 (PDT)
+Message-ID: <82e4adab-73b0-4ac7-8c29-718b12a73468@gmail.com>
+Date: Wed, 22 Oct 2025 11:13:49 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 1/6] net: phy: add phy_can_wakeup()
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>
+References: <aPIwqo9mCEOb7ZQu@shell.armlinux.org.uk>
+ <E1v9jCJ-0000000B2NQ-0mhG@rmk-PC.armlinux.org.uk>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <f.fainelli@gmail.com>
+In-Reply-To: <E1v9jCJ-0000000B2NQ-0mhG@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_111252_816438_3E5C04B8 
-X-CRM114-Status: GOOD (  30.66  )
+X-CRM114-CacheID: sfid-20251022_111353_476945_AE398E54 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,126 +109,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025, Yan Zhao wrote:
-> On Tue, Oct 21, 2025 at 09:36:52AM -0700, Sean Christopherson wrote:
-> > On Tue, Oct 21, 2025, Yan Zhao wrote:
-> > > On Thu, Oct 16, 2025 at 05:32:22PM -0700, Sean Christopherson wrote:
-> > > > diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-> > > > index 18d69d48bc55..ba5cca825a7f 100644
-> > > > --- a/arch/x86/kvm/mmu/mmu.c
-> > > > +++ b/arch/x86/kvm/mmu/mmu.c
-> > > > @@ -5014,6 +5014,65 @@ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-> > > >  	return min(range->size, end - range->gpa);
-> > > >  }
-> > > >  
-> > > > +int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn)
-> > > > +{
-> > > > +	struct kvm_page_fault fault = {
-> > > > +		.addr = gfn_to_gpa(gfn),
-> > > > +		.error_code = PFERR_GUEST_FINAL_MASK | PFERR_PRIVATE_ACCESS,
-> > > > +		.prefetch = true,
-> > > > +		.is_tdp = true,
-> > > > +		.nx_huge_page_workaround_enabled = is_nx_huge_page_enabled(vcpu->kvm),
-> > > > +
-> > > > +		.max_level = PG_LEVEL_4K,
-> > > > +		.req_level = PG_LEVEL_4K,
-> > > > +		.goal_level = PG_LEVEL_4K,
-> > > > +		.is_private = true,
-> > > > +
-> > > > +		.gfn = gfn,
-> > > > +		.slot = kvm_vcpu_gfn_to_memslot(vcpu, gfn),
-> > > > +		.pfn = pfn,
-> > > > +		.map_writable = true,
-> > > > +	};
-> > > > +	struct kvm *kvm = vcpu->kvm;
-> > > > +	int r;
-> > > > +
-> > > > +	lockdep_assert_held(&kvm->slots_lock);
-> > > Do we need to assert that filemap_invalidate_lock() is held as well?
-> > 
-> > Hrm, a lockdep assertion would be nice to have, but it's obviously not strictly
-> > necessary, and I'm not sure it's worth the cost.  To safely assert, KVM would need
-> Not sure. Maybe just add a comment?
-> But even with kvm_assert_gmem_invalidate_lock_held() and
-> lockdep_assert_held(&kvm->slots_lock), it seems that
-> kvm_tdp_mmu_map_private_pfn() still can't guarantee that the pfn is not stale.
-
-At some point we have to assume correctness.  E.g. one could also argue that
-holding every locking in the universe still doesn't ensure the pfn is fresh,
-because theoretically guest_memfd could violate the locking scheme.
-
-Aha!  And to further harden and document this code, this API can be gated on
-CONFIG_KVM_GUEST_MEMFD=y, as pointed out by the amazing-as-always test bot:
-
-https://lore.kernel.org/all/202510221928.ikBXHGCf-lkp@intel.com
-
-We could go a step further and gate it on CONFIG_KVM_INTEL_TDX=y, but I don't
-like that idea as I think it'd would be a net negative in terms of documenation,
-compared to checking CONFIG_KVM_GUEST_MEMFD.  And in general I don't want to set
-a precedent of ifdef-ing common x86 based on what vendor code _currently_ needs
-an API.
-
-> e.g., if hypothetically those locks were released and re-acquired after getting
-> the pfn.
+On 10/17/25 05:04, Russell King (Oracle) wrote:
+> Add phy_can_wakeup() to report whether the PHY driver has marked the
+> PHY device as being wake-up capable as far as the driver model is
+> concerned.
 > 
-> > to first assert that the file refcount is elevated, e.g. to guard against
-> > guest_memfd _really_ screwing up and not grabbing a reference to the underlying
-> > file.
-> > 
-> > E.g. it'd have to be something like this:
-> > 
-> > diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
-> > index 94d7f32a03b6..5d46b2ac0292 100644
-> > --- a/arch/x86/kvm/mmu/mmu.c
-> > +++ b/arch/x86/kvm/mmu/mmu.c
-> > @@ -5014,6 +5014,18 @@ long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-> >         return min(range->size, end - range->gpa);
-> >  }
-> >  
-> > +static void kvm_assert_gmem_invalidate_lock_held(struct kvm_memory_slot *slot)
-> > +{
-> > +#ifdef CONFIG_PROVE_LOCKING
-> > +       if (WARN_ON_ONCE(!kvm_slot_has_gmem(slot)) ||
-> > +           WARN_ON_ONCE(!slot->gmem.file) ||
-> > +           WARN_ON_ONCE(!file_count(slot->gmem.file)))
-> > +               return;
-> > +
-> > +       lockdep_assert_held(file_inode(&slot->gmem.file)->i_mapping->invalidate_lock));
-> 	  lockdep_assert_held(&file_inode(slot->gmem.file)->i_mapping->invalidate_lock);
-> > +#endif
-> > +}
-> > +
-> >  int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn)
-> >  {
-> >         struct kvm_page_fault fault = {
-> > @@ -5038,6 +5050,8 @@ int kvm_tdp_mmu_map_private_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, kvm_pfn_t pfn)
-> >  
-> >         lockdep_assert_held(&kvm->slots_lock);
-> >  
-> > +       kvm_assert_gmem_invalidate_lock_held(fault.slot);
-> > +
-> >         if (KVM_BUG_ON(!tdp_mmu_enabled, kvm))
-> >                 return -EIO;
-> > --
-> > 
-> > Which I suppose isn't that terrible?
-> Is it good if we test is_page_fault_stale()? e.g.,
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-No, because it can only get false positives, e.g. if an mmu_notifier invalidation
-on shared, non-guest_memfd memory.  Though a sanity check would be nice to have;
-I believe we can simply do:
-
-diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
-index c5734ca5c17d..440fd8f80397 100644
---- a/arch/x86/kvm/mmu/tdp_mmu.c
-+++ b/arch/x86/kvm/mmu/tdp_mmu.c
-@@ -1273,6 +1273,8 @@ int kvm_tdp_mmu_map(struct kvm_vcpu *vcpu, struct kvm_page_fault *fault)
-        struct kvm_mmu_page *sp;
-        int ret = RET_PF_RETRY;
- 
-+       KVM_MMU_WARN_ON(!root || root->role.invalid);
-+
-        kvm_mmu_hugepage_adjust(vcpu, fault);
- 
-        trace_kvm_mmu_spte_requested(fault);
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
 
