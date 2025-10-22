@@ -4,82 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C34BCCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:18:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C381CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uw6/hzM0Va4fKQxWOcWodfV3dKIrVId8Rctb0V+ktgM=; b=jUadLnI1lA0w2FCrfSbVTX5zS9
-	4j+p2Nav4BZtq3HoeVqp0CmlaBisG2fHOmu800kUIKR331cAMEbh3cbewm1tNyAkdlqP+uuGkmyCp
-	34WIPJLtbetRrm7XpFo7YKUaX4UvPY2y0PpP0nrrDHFbC0vWNPY5bXVZjqZ39WtDHdzlB7duXbAHB
-	B/lvIiZy7GoAeVBQ7qYRJ4++8AToFvw8dD9g/rFJk4YSQM4y2o9ffhLHvrybIucKrNjeih1JluIB+
-	AzLZYSjronyieZcxqy5qNAkDUzo5vyVT+Sn5y9/4q1VVL4QgTb8dWA1IRr20xMn/sop4LNqsZA6dt
-	SaEKFpIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wcGPa9BZoRh/cXSf6MM7skWFc5+sWNLhhAzz4IrXMW8=; b=IBpwBnJE1ey04/ESIn1iVDe5dA
+	Yt8hoB853ezcCy7oiJIh0UzY2Zn8k1XtaTFUUUQK5hV9kMjk/+tlvKieCMXnPzG/KMYYo5iid4aAt
+	BpIemrpvAWIDUHc0kNZpxbu6SVsNGpggOZFRgeT49ulqcTvgPLfNrzZXbaJzs8c8bmUE+9RRfNZtJ
+	+nRqW/CUhyqfMabACr8DpTbHtoXt3l/TvReY93E6sBkvNHxShEWIbBKkyfhH1geze1Apj5Dy3q37i
+	NY0W1UQo5wWudqiIv4RTJS+eaaombPmMB3BHEVleibWMejieAb7u3LQ/QI9mBmKwDZNtXJ1YfZbV9
+	qFJXXkHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZfr-00000003B5I-348u;
-	Wed, 22 Oct 2025 14:18:47 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1vBZhH-00000003BIr-1rkU;
+	Wed, 22 Oct 2025 14:20:15 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZfp-00000003B4Y-1dAc
+	id 1vBZhD-00000003BGC-29yk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 14:18:46 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-783fa3af3bdso59253807b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 07:18:44 -0700 (PDT)
+	Wed, 22 Oct 2025 14:20:13 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4710022571cso58927545e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 07:20:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761142724; x=1761747524; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=uw6/hzM0Va4fKQxWOcWodfV3dKIrVId8Rctb0V+ktgM=;
-        b=Qu4ohxwnwroI26MvSBu6lww/XFBxSUWV27RFlts3EnXEAAAhk+43EdEcQBobAtWfSj
-         63UGUlyh5pVREN/2+Ohl/scbmOYkDca7sgk33vdiUSeovnGSEXpWENbf39kE6PjTPvdW
-         kaQLB+MBV2iMowqgzp5tZaaQlrZc0845Dz6MbCycmF9+HWKPaz8cEjrAPRcLBNReJTMM
-         UHBWOvHSR4P8WQTGBmMtZi6502NGXb3Ucu4H2iq8Irhv8VM3Ps3rhWSLG3XxtDL2aJja
-         U4vXKIPhPZ28/dLNiGUIa7KoCzNz0fTQRHkL6vjxUt8JFZE2ohrOOOYr7f5ui70Vr3r/
-         F3xg==
+        d=gmail.com; s=20230601; t=1761142809; x=1761747609; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wcGPa9BZoRh/cXSf6MM7skWFc5+sWNLhhAzz4IrXMW8=;
+        b=PItA0Opp8oulv3cN1VFj0nviiQC4wqw06sNYlvOTA5Kll8D6ZKu8cUfnkJxzPSGARS
+         oIDoAo9bianr/Lp11FvIRZdZHSHbTV27n5lcd762ifQplHFtdLn5L3Vu8TfPctx9MFKR
+         y0K61QdH9zifWk7zdV9FqjP35n5jUOaitULmJ1MJmZgrqlF6yzVBnXV7p1IapQR3Wl2a
+         EpN9fitADxB9WDcx8skPO4Jgu4nK48slbV90uGfPJmiURP2qBiAo9dMPAqBwbktA8QT9
+         P2dt8rt5+5WM0dsyPakTkm8Ryq388UnYAWaOlbIAzKhPiSsdbjFSa9JBSsNVfWZRUxlL
+         4+oA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761142724; x=1761747524;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uw6/hzM0Va4fKQxWOcWodfV3dKIrVId8Rctb0V+ktgM=;
-        b=VZuXj02f+jVeW8JJ92vNjPqBk86I3T00sY33yJ+GWrGft7hpKUqSOCPC32Mz+4FUaK
-         6rFr+ZXxTJyTcCmdm6tYWJHm620vn16A5flyxIxBKB2ce/mfK8edvUnMqAMoPpP15fo3
-         1Q8leK0wbsKy2QWEVDoA9H92jt3B6uEKOztdfTksuFBLBy/lx6hR9mqeXLLRTctkgYg9
-         DP3+rTRf0/9E9/hNuZlJfy9B6XZY5112wYV9UrQkzhTyR/byILcDFBvV6+U1tOJijfa0
-         5+59ZfBHtBTvPH+SqDJxG4T5qKXOGPsZS5kSTTPKIhkIVJnohj23KFWGQl5H/++JHZIS
-         ISuA==
-X-Gm-Message-State: AOJu0YxUOwuQUb04SV7fbGbMn3KBebVV13l8umdiSA0rSzbQPsG+qRgY
-	P6x9ApBeAAigsbuBiMLaSAQSlJLjC5ZW1A8y3QY67aGQcREQwbI6iy12yjn0FrYAYsC8A8xzDfj
-	Nnvn2j59jVHhbEbI9Avb8Os5ATrqmzc+FlZESRfYPDw==
-X-Gm-Gg: ASbGnctvZyO8qUgVpwTiXOJ6XmbVamP7kDQaG93N85gSXeRukP8VrZ7zuFrIsHVvcaH
-	ZU1D5ZInx/04B8D7Nf5z6KlQRuMVMKQPv8TtCG3npEm++tY091tt8SNpXnWWv83Da5/uDSs4OT6
-	Y03kNVvnxSjEJNCtWy5irTdOoUYJigVgRPp3UMcTwNps/yCsqt4PidYqX2i0afSMwA77O6KIAGm
-	ZtPd86jsofZ8Chru1O5bMcgWd257DddEYfx9kaTJbz+nwcKq+Uba2oGgVps1SIzpcObXjF4mhzl
-	4IA8zaA=
-X-Google-Smtp-Source: AGHT+IE/ssjKsgNbWyRTD56nEBKJW2asWvaLPOCHb8EEj54O1bJSDo+k8w+24YvVr2gUStMBX/PvLBOUj2GgxSU7iC4=
-X-Received: by 2002:a53:4c0c:0:b0:63e:15e1:9fd7 with SMTP id
- 956f58d0204a3-63e161f67e4mr12769934d50.61.1761142723672; Wed, 22 Oct 2025
- 07:18:43 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1761142809; x=1761747609;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wcGPa9BZoRh/cXSf6MM7skWFc5+sWNLhhAzz4IrXMW8=;
+        b=PEmhGsND30L2VGojD0Y9wR7P3R1JSJ/8pf8ciTLWtwTPa3rMyGd1u3wd6IEqaKv2Vc
+         1deHhLSbX516qEvJr80pc1dv7tAOPpm+PKBtTE4l8LEQyMJusNeqw3lyM3J3oiwSUT10
+         m0lp3YyvKhUZFqNnPCrHMvDtfDBVYDNxgtN2rshkvgPlkrA5SaJwunGyhCR1Nx9DbD9E
+         iWNsnwTRbxmDx1CSqKqnup+FxtZOP5OXXv8uMZXqkw3EuY+4M4evYCVcW81Z5NCdwtWD
+         rB5Uz1CmdcnNkeaj9w0ftdz1jPXv+agxcQ1717sDjE+zK/4cyf/0RvVobR+8FXtsZiHp
+         Qd3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUaN9UNI/xHy/BLaaws5HVRMoer9Lr5r6c0CyqukyfmFNx4aCfb7eW7QdQxaq4sfOSYIyJp9PRncRCxB2FJLUUt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTrC+8anBO9K5CTYvmu4zNV8TJXuiIYi31X1KYWW8vyJSrr4IN
+	dcOS7WsvZ2+RaYUmyhzKcLvxX4+bk25OeRSRmiIyXxC9BJ9zCXB9yrOl
+X-Gm-Gg: ASbGncv+FQ4v0PfKiUVU4KvBtMQC6pUm0yB0fvOZIfVaZ08lhMQPjg880oUsdm6n1CR
+	LTDhjOwdFhDhtxEkC2/PDJCry24pI1QGy5927VQcRt/4zpLxqTlFIAuuroOiVAi1H+jqffYQYfm
+	DIGBI154aWfj5c5U0w1SHmv6I1PZ9zJO8LezLiMBEHMKBg5UL6QaRVLeVMHrO7qyxTBMOAcsvhF
+	rtpA8vvAzP6PzSOxiEaFTRGQIBr2qmxbG4O4xYCx9TeGtRW1meJzXTB2s5k7RHWXnEJxJarwtjY
+	G9LTh/lX+pm8cLZDWEszxwvDDbAieu7mIz0YJ8w8PCAYxZVZRlQ8ZPhxobVemG9ecRvgXnCwqFl
+	3zknXf4NWI+9Rq/k8SvRZQUk/XzFS+aFVHmrbBI5uy2/qSoRBBX8UuRHGaak4dckw+rPug1sm7V
+	uOZNtsJMPFQTLRRyEOw2MoFdt62iPC3YFCGzs2AlgcDLb3mYuqOQCQ
+X-Google-Smtp-Source: AGHT+IHX7Sum1LYsRGk4yzm8MqGMXKVdeHe0F7N67aNpUhUFJkxVcT5YpUlblTfJtsz2LXnINVBACA==
+X-Received: by 2002:a05:600c:3e05:b0:471:16f3:e542 with SMTP id 5b1f17b1804b1-47117870720mr183174425e9.2.1761142809122;
+        Wed, 22 Oct 2025 07:20:09 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475c428c62fsm48753105e9.8.2025.10.22.07.20.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 22 Oct 2025 07:20:08 -0700 (PDT)
+Date: Wed, 22 Oct 2025 15:20:06 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: LKML <linux-kernel@vger.kernel.org>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Andrew Cooper
+ <andrew.cooper3@citrix.com>, Linus Torvalds
+ <torvalds@linux-foundation.org>, kernel test robot <lkp@intel.com>, Russell
+ King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ x86@kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Heiko
+ Carstens <hca@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ linux-s390@vger.kernel.org, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
+ Palix <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>,
+ Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ =?UTF-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>, Alexander Viro
+ <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara
+ <jack@suse.cz>, linux-fsdevel@vger.kernel.org
+Subject: Re: [patch V4 07/12] uaccess: Provide scoped user access regions
+Message-ID: <20251022152006.4d461c8b@pumpkin>
+In-Reply-To: <20251022103112.294959046@linutronix.de>
+References: <20251022102427.400699796@linutronix.de>
+	<20251022103112.294959046@linutronix.de>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-References: <20251017110320.1186555-1-sudeep.holla@arm.com>
-In-Reply-To: <20251017110320.1186555-1-sudeep.holla@arm.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 22 Oct 2025 16:18:07 +0200
-X-Gm-Features: AS18NWDV7BIC157b-gQVcJT7XzXiV0BN9XKqDRJKl4NksXyQ22QZCyn3B_TBLZQ
-Message-ID: <CAPDyKFq0FvfX3GcVTP3ZwTLT=9DVKwpLuWq-gm=_aFZd6jKLeA@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: arm: scmi: Fix genpd leak on provider
- registration failure
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org, 
-	Cristian Marussi <cristian.marussi@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_071845_462434_1F864829 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20251022_072011_575299_73C093D0 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,81 +117,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Oct 2025 at 13:03, Sudeep Holla <sudeep.holla@arm.com> wrote:
->
-> If of_genpd_add_provider_onecell() fails during probe, the previously
-> created generic power domains are not removed, leading to a memory leak
-> and potential kernel crash later in genpd_debug_add().
->
-> Add proper error handling to unwind the initialized domains before
-> returning from probe to ensure all resources are correctly released on
-> failure.
->
-> Example crash trace observed without this fix:
->
->   | Unable to handle kernel paging request at virtual address fffffffffffffc70
->   | CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.18.0-rc1 #405 PREEMPT
->   | Hardware name: ARM LTD ARM Juno Development Platform/ARM Juno Development Platform
->   | pstate: 00000005 (nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->   | pc : genpd_debug_add+0x2c/0x160
->   | lr : genpd_debug_init+0x74/0x98
->   | Call trace:
->   |  genpd_debug_add+0x2c/0x160 (P)
->   |  genpd_debug_init+0x74/0x98
->   |  do_one_initcall+0xd0/0x2d8
->   |  do_initcall_level+0xa0/0x140
->   |  do_initcalls+0x60/0xa8
->   |  do_basic_setup+0x28/0x40
->   |  kernel_init_freeable+0xe8/0x170
->   |  kernel_init+0x2c/0x140
->   |  ret_from_fork+0x10/0x20
->
-> Fixes: 898216c97ed2 ("firmware: arm_scmi: add device power domain support using genpd")
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+On Wed, 22 Oct 2025 14:49:10 +0200 (CEST)
+Thomas Gleixner <tglx@linutronix.de> wrote:
 
-Applied for fixes and by adding a stable tag, thanks!
+> User space access regions are tedious and require similar code patterns all
+> over the place:
+> 
+>      	if (!user_read_access_begin(from, sizeof(*from)))
+> 		return -EFAULT;
+> 	unsafe_get_user(val, from, Efault);
+> 	user_read_access_end();
+> 	return 0;
+> Efault:
+> 	user_read_access_end();
+> 	return -EFAULT;
+> 
+> This got worse with the recent addition of masked user access, which
+> optimizes the speculation prevention:
+> 
+> 	if (can_do_masked_user_access())
+> 		from = masked_user_read_access_begin((from));
+> 	else if (!user_read_access_begin(from, sizeof(*from)))
+> 		return -EFAULT;
+> 	unsafe_get_user(val, from, Efault);
+> 	user_read_access_end();
+> 	return 0;
+> Efault:
+> 	user_read_access_end();
+> 	return -EFAULT;
+> 
+> There have been issues with using the wrong user_*_access_end() variant in
+> the error path and other typical Copy&Pasta problems, e.g. using the wrong
+> fault label in the user accessor which ends up using the wrong accesss end
+> variant. 
+> 
+> These patterns beg for scopes with automatic cleanup. The resulting outcome
+> is:
+>     	scoped_user_read_access(from, Efault)
+> 		unsafe_get_user(val, from, Efault);
+> 	return 0;
+>   Efault:
+> 	return -EFAULT;
+> 
+> The scope guarantees the proper cleanup for the access mode is invoked both
+> in the success and the failure (fault) path.
+> 
+> The scoped_user_$MODE_access() macros are implemented as self terminating
+> nested for() loops. Thanks to Andrew Cooper for pointing me at them. The
+> scope can therefore be left with 'break', 'goto' and 'return'.  Even
+> 'continue' "works" due to the self termination mechanism.
 
-Kind regards
-Uffe
+I think that 'feature' should be marked as a 'bug', consider code like:
+	for (; len >= sizeof (*uaddr); uaddr++; len -= sizeof (*uaddr)) {
+		scoped_user_read_access(uaddr, Efault) {
+			int frag_len;
+			unsafe_get_user(frag_len, &uaddr->len, Efault);
+			if (!frag_len)
+				break;
+			...
+		}
+		...
+	}
 
-> ---
->  drivers/pmdomain/arm/scmi_pm_domain.c | 13 +++++++++++--
->  1 file changed, 11 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/scmi_pm_domain.c
-> index 8fe1c0a501c9..b5e2ffd5ea64 100644
-> --- a/drivers/pmdomain/arm/scmi_pm_domain.c
-> +++ b/drivers/pmdomain/arm/scmi_pm_domain.c
-> @@ -41,7 +41,7 @@ static int scmi_pd_power_off(struct generic_pm_domain *domain)
->
->  static int scmi_pm_domain_probe(struct scmi_device *sdev)
->  {
-> -       int num_domains, i;
-> +       int num_domains, i, ret;
->         struct device *dev = &sdev->dev;
->         struct device_node *np = dev->of_node;
->         struct scmi_pm_domain *scmi_pd;
-> @@ -108,9 +108,18 @@ static int scmi_pm_domain_probe(struct scmi_device *sdev)
->         scmi_pd_data->domains = domains;
->         scmi_pd_data->num_domains = num_domains;
->
-> +       ret = of_genpd_add_provider_onecell(np, scmi_pd_data);
-> +       if (ret)
-> +               goto err_rm_genpds;
-> +
->         dev_set_drvdata(dev, scmi_pd_data);
->
-> -       return of_genpd_add_provider_onecell(np, scmi_pd_data);
-> +       return 0;
-> +err_rm_genpds:
-> +       for (i = num_domains - 1; i >= 0; i--)
-> +               pm_genpd_remove(domains[i]);
-> +
-> +       return ret;
->  }
->
->  static void scmi_pm_domain_remove(struct scmi_device *sdev)
-> --
-> 2.34.1
->
+The expectation would be that the 'break' applies to the visible 'for' loop.
+But you need a 'goto' to escape from the visible loop.
+
+Someone who groks the static checkers might want to try to detect
+continue/break in those loops.
+
+	David
+
 
