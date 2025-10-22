@@ -4,105 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C381CCD1BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F232CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wcGPa9BZoRh/cXSf6MM7skWFc5+sWNLhhAzz4IrXMW8=; b=IBpwBnJE1ey04/ESIn1iVDe5dA
-	Yt8hoB853ezcCy7oiJIh0UzY2Zn8k1XtaTFUUUQK5hV9kMjk/+tlvKieCMXnPzG/KMYYo5iid4aAt
-	BpIemrpvAWIDUHc0kNZpxbu6SVsNGpggOZFRgeT49ulqcTvgPLfNrzZXbaJzs8c8bmUE+9RRfNZtJ
-	+nRqW/CUhyqfMabACr8DpTbHtoXt3l/TvReY93E6sBkvNHxShEWIbBKkyfhH1geze1Apj5Dy3q37i
-	NY0W1UQo5wWudqiIv4RTJS+eaaombPmMB3BHEVleibWMejieAb7u3LQ/QI9mBmKwDZNtXJ1YfZbV9
-	qFJXXkHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kcqQKxSEoQ14IsRS9sbvVuTvZwLMa12Nm40FaimG9ys=; b=tQLdO6SNSP+heyudX+TmLh+jMy
+	1Gxe+UoXtcnUri1EzYcMLZPs3Awx+v3Z1OcePdvCxzwilTk06rvK0k7bamiC6HuAllrqJB6s//4KT
+	OwA9EsTSckWzOTp5l5LMgT8ZBGMRlMN3my9y6w9gF89auoGvhNSt2C5jcPKQq3yJivPpkT2V5TWIf
+	Ypv+mxz3s2jXyE0RMJliXHATqjfjLg3FQIHjNPOho5UI8mFeavBIDhE9pf+SWJ42Vx/96REkx6V//
+	LGyktVouQKrtMdPguUut3+FDJYS18t09pPL5TXXqYvqYIqwRTUlxf4357IyF6+6CT1MHhXN8C+0C+
+	FRtp9dIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZhH-00000003BIr-1rkU;
-	Wed, 22 Oct 2025 14:20:15 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1vBZhR-00000003BOG-0zxY;
+	Wed, 22 Oct 2025 14:20:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZhD-00000003BGC-29yk
+	id 1vBZhM-00000003BLP-16NC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 14:20:13 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4710022571cso58927545e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 07:20:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761142809; x=1761747609; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wcGPa9BZoRh/cXSf6MM7skWFc5+sWNLhhAzz4IrXMW8=;
-        b=PItA0Opp8oulv3cN1VFj0nviiQC4wqw06sNYlvOTA5Kll8D6ZKu8cUfnkJxzPSGARS
-         oIDoAo9bianr/Lp11FvIRZdZHSHbTV27n5lcd762ifQplHFtdLn5L3Vu8TfPctx9MFKR
-         y0K61QdH9zifWk7zdV9FqjP35n5jUOaitULmJ1MJmZgrqlF6yzVBnXV7p1IapQR3Wl2a
-         EpN9fitADxB9WDcx8skPO4Jgu4nK48slbV90uGfPJmiURP2qBiAo9dMPAqBwbktA8QT9
-         P2dt8rt5+5WM0dsyPakTkm8Ryq388UnYAWaOlbIAzKhPiSsdbjFSa9JBSsNVfWZRUxlL
-         4+oA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761142809; x=1761747609;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wcGPa9BZoRh/cXSf6MM7skWFc5+sWNLhhAzz4IrXMW8=;
-        b=PEmhGsND30L2VGojD0Y9wR7P3R1JSJ/8pf8ciTLWtwTPa3rMyGd1u3wd6IEqaKv2Vc
-         1deHhLSbX516qEvJr80pc1dv7tAOPpm+PKBtTE4l8LEQyMJusNeqw3lyM3J3oiwSUT10
-         m0lp3YyvKhUZFqNnPCrHMvDtfDBVYDNxgtN2rshkvgPlkrA5SaJwunGyhCR1Nx9DbD9E
-         iWNsnwTRbxmDx1CSqKqnup+FxtZOP5OXXv8uMZXqkw3EuY+4M4evYCVcW81Z5NCdwtWD
-         rB5Uz1CmdcnNkeaj9w0ftdz1jPXv+agxcQ1717sDjE+zK/4cyf/0RvVobR+8FXtsZiHp
-         Qd3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUaN9UNI/xHy/BLaaws5HVRMoer9Lr5r6c0CyqukyfmFNx4aCfb7eW7QdQxaq4sfOSYIyJp9PRncRCxB2FJLUUt@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTrC+8anBO9K5CTYvmu4zNV8TJXuiIYi31X1KYWW8vyJSrr4IN
-	dcOS7WsvZ2+RaYUmyhzKcLvxX4+bk25OeRSRmiIyXxC9BJ9zCXB9yrOl
-X-Gm-Gg: ASbGncv+FQ4v0PfKiUVU4KvBtMQC6pUm0yB0fvOZIfVaZ08lhMQPjg880oUsdm6n1CR
-	LTDhjOwdFhDhtxEkC2/PDJCry24pI1QGy5927VQcRt/4zpLxqTlFIAuuroOiVAi1H+jqffYQYfm
-	DIGBI154aWfj5c5U0w1SHmv6I1PZ9zJO8LezLiMBEHMKBg5UL6QaRVLeVMHrO7qyxTBMOAcsvhF
-	rtpA8vvAzP6PzSOxiEaFTRGQIBr2qmxbG4O4xYCx9TeGtRW1meJzXTB2s5k7RHWXnEJxJarwtjY
-	G9LTh/lX+pm8cLZDWEszxwvDDbAieu7mIz0YJ8w8PCAYxZVZRlQ8ZPhxobVemG9ecRvgXnCwqFl
-	3zknXf4NWI+9Rq/k8SvRZQUk/XzFS+aFVHmrbBI5uy2/qSoRBBX8UuRHGaak4dckw+rPug1sm7V
-	uOZNtsJMPFQTLRRyEOw2MoFdt62iPC3YFCGzs2AlgcDLb3mYuqOQCQ
-X-Google-Smtp-Source: AGHT+IHX7Sum1LYsRGk4yzm8MqGMXKVdeHe0F7N67aNpUhUFJkxVcT5YpUlblTfJtsz2LXnINVBACA==
-X-Received: by 2002:a05:600c:3e05:b0:471:16f3:e542 with SMTP id 5b1f17b1804b1-47117870720mr183174425e9.2.1761142809122;
-        Wed, 22 Oct 2025 07:20:09 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475c428c62fsm48753105e9.8.2025.10.22.07.20.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Oct 2025 07:20:08 -0700 (PDT)
-Date: Wed, 22 Oct 2025 15:20:06 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Andrew Cooper
- <andrew.cooper3@citrix.com>, Linus Torvalds
- <torvalds@linux-foundation.org>, kernel test robot <lkp@intel.com>, Russell
- King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman
- <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, Heiko
- Carstens <hca@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
- linux-s390@vger.kernel.org, Julia Lawall <Julia.Lawall@inria.fr>, Nicolas
- Palix <nicolas.palix@imag.fr>, Peter Zijlstra <peterz@infradead.org>,
- Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
- =?UTF-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara
- <jack@suse.cz>, linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V4 07/12] uaccess: Provide scoped user access regions
-Message-ID: <20251022152006.4d461c8b@pumpkin>
-In-Reply-To: <20251022103112.294959046@linutronix.de>
-References: <20251022102427.400699796@linutronix.de>
-	<20251022103112.294959046@linutronix.de>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
-MIME-Version: 1.0
+	Wed, 22 Oct 2025 14:20:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AFECF604E8;
+	Wed, 22 Oct 2025 14:20:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 580B7C4CEF5;
+	Wed, 22 Oct 2025 14:20:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761142819;
+	bh=JhTwXK3F6zhty33hUA0ZGDjVjy9mQSxspooOOq1o4RY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=naklbOMT5pH+5/pK8mBmJqkMVFRruUFLTZW61aU4FC2KZRe6lw3qIj5+ECVRRKI67
+	 S5BCVcF+M6McBr4PS6+uZZHFfS6DlubgzDbS2nOIXWzmsUagXDTHbY66++ODH34mFo
+	 LuWYCCYrdgrDCBUL7Hy/4rb468NogYcH5CmtW65OrYmDsQkSbP3WbrtkP8dxqsEoeJ
+	 L60bskemykJGEkaXQ7rSmfbQ3pobpfi7Q7U0cpaqfcvj9xVo/P7ieiq6A0sEQ1VkY8
+	 GxyBRXgfAdjDkUc3vip4TDlnOUifEs8vhQgvlAMXr0jOhiJ9qDvlpTl3krpkCYH9NC
+	 tv4FqkWgUtohw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vBZhJ-0000000GDda-052k;
+	Wed, 22 Oct 2025 14:20:17 +0000
+Date: Wed, 22 Oct 2025 15:20:16 +0100
+Message-ID: <86347bvx0f.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] arm64: guard AMU register access with ARM64_HAS_AMU_EXTN
+In-Reply-To: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
+References: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_072011_575299_73C093D0 
-X-CRM114-Status: GOOD (  19.39  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: marek.vasut+renesas@mailbox.org, linux-arm-kernel@lists.infradead.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, geert+renesas@glider.be, ryan.roberts@arm.com, will@kernel.org, yangyicong@hisilicon.com, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,74 +86,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Oct 2025 14:49:10 +0200 (CEST)
-Thomas Gleixner <tglx@linutronix.de> wrote:
+On Wed, 22 Oct 2025 14:35:28 +0100,
+Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
+> 
+> The AMU configuration register access may fault and prevent successful
+> kernel boot. This can occur for example in case the firmware does not
+> allow AMU counter access from EL1. Guard the AMU configuration register
+> access with ARM64_HAS_AMU_EXTN to prevent this fault if ARM64_HAS_AMU_EXTN
+> Kconfig option is explicitly disabled. Other interaction with the AMU is
+> already guarded by similar ifdeffery.
+> 
+> Fixes: 87a1f063464a ("arm64: trap to EL1 accesses to AMU counters from EL0")
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> ---
+> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Yicong Yang <yangyicong@hisilicon.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+>  arch/arm64/mm/proc.S | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+> index 86818511962b6..123538ffeda6b 100644
+> --- a/arch/arm64/mm/proc.S
+> +++ b/arch/arm64/mm/proc.S
+> @@ -145,7 +145,9 @@ SYM_FUNC_START(cpu_do_resume)
+>  	ubfx	x11, x11, #1, #1
+>  	msr	oslar_el1, x11
+>  	reset_pmuserenr_el0 x0			// Disable PMU access from EL0
+> +alternative_if ARM64_HAS_AMU_EXTN
+>  	reset_amuserenr_el0 x0			// Disable AMU access from EL0
+> +alternative_else_nop_endif
 
-> User space access regions are tedious and require similar code patterns all
-> over the place:
-> 
->      	if (!user_read_access_begin(from, sizeof(*from)))
-> 		return -EFAULT;
-> 	unsafe_get_user(val, from, Efault);
-> 	user_read_access_end();
-> 	return 0;
-> Efault:
-> 	user_read_access_end();
-> 	return -EFAULT;
-> 
-> This got worse with the recent addition of masked user access, which
-> optimizes the speculation prevention:
-> 
-> 	if (can_do_masked_user_access())
-> 		from = masked_user_read_access_begin((from));
-> 	else if (!user_read_access_begin(from, sizeof(*from)))
-> 		return -EFAULT;
-> 	unsafe_get_user(val, from, Efault);
-> 	user_read_access_end();
-> 	return 0;
-> Efault:
-> 	user_read_access_end();
-> 	return -EFAULT;
-> 
-> There have been issues with using the wrong user_*_access_end() variant in
-> the error path and other typical Copy&Pasta problems, e.g. using the wrong
-> fault label in the user accessor which ends up using the wrong accesss end
-> variant. 
-> 
-> These patterns beg for scopes with automatic cleanup. The resulting outcome
-> is:
->     	scoped_user_read_access(from, Efault)
-> 		unsafe_get_user(val, from, Efault);
-> 	return 0;
->   Efault:
-> 	return -EFAULT;
-> 
-> The scope guarantees the proper cleanup for the access mode is invoked both
-> in the success and the failure (fault) path.
-> 
-> The scoped_user_$MODE_access() macros are implemented as self terminating
-> nested for() loops. Thanks to Andrew Cooper for pointing me at them. The
-> scope can therefore be left with 'break', 'goto' and 'return'.  Even
-> 'continue' "works" due to the self termination mechanism.
+Why?
 
-I think that 'feature' should be marked as a 'bug', consider code like:
-	for (; len >= sizeof (*uaddr); uaddr++; len -= sizeof (*uaddr)) {
-		scoped_user_read_access(uaddr, Efault) {
-			int frag_len;
-			unsafe_get_user(frag_len, &uaddr->len, Efault);
-			if (!frag_len)
-				break;
-			...
-		}
-		...
-	}
+We ensure that the AMU is available in the macro itself by checking
+for ID_AA64PFR0_EL1.AMU. If the AMu isn't present on this CPU, we skip
+the offending sysreg access. This is similar to what we do for the
+PMU.
 
-The expectation would be that the 'break' applies to the visible 'for' loop.
-But you need a 'goto' to escape from the visible loop.
+Does your HW advertise an AMU, but doesn't actually have one?
 
-Someone who groks the static checkers might want to try to detect
-continue/break in those loops.
+	M.
 
-	David
-
+-- 
+Without deviation from the norm, progress is not possible.
 
