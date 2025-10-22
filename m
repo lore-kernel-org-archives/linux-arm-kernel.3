@@ -4,93 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86767CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 21 Oct 2025 23:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47BE5CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 00:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OafmaFEEMiW3DYw/6kVfDpX+aIzCwIqDzz1UgpECPjI=; b=TkHktM81i7mmx149QYCyDvT2a2
-	a2bZioXwSzTioLDtqOxf3lxS/DO+t+7SfKGtZxrhklcktUcCnhJS8F04dOmGq5jUvxcBqhfUFcxmC
-	N7bI/C9Jkw96EGidrPB/YAFEx6T31WpjP1IB/st44EIzM+QATPSS49QTfYXZVvYcAJq7rElwFze8S
-	xoPxxm2IB4OMijHlq1dSRGmIFMmO9aUK8fKamJbC016iCKb0nMb1adO/lBHj+bW8aEgSQr9e7n4J2
-	ziiO/uaLrEvEpeb+AtJA8NBjI0Tz/ay0c4uR7rlQ2HF1lKOtqa55LIXRrrF7rVjE5XkQjQBaYjFvV
-	3dPY9HAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m7CFn3JgqNpTb9fH7UBGqn2RGEy2Qw1SF2jltO5f1x4=; b=JG9WLLrgqUBgIzmLGZ6Cro1q6t
+	wBpvd1El0YQaym5m/yAUUKTnyh9sg9PS2kvuTPKp+7ThOVuLA56RvNAYkruPsK3d6z0PrMVdXqcQJ
+	39Uif9boGLRaoe6iMBsd525sJMT7ZfoQ/acfLEuq3lHXsbq7yjkfVNAz/JWOzd7O5wi07PISTcPMa
+	4tdi8x2x4Yw768MtZAld2psc+U8hpcQ+nfRKsDYPq1UTAlI0OiQ044ehck9Uay+ReOJxIiAXzPpFX
+	L6xxoQA60T5SXw/uXNlQ26NtRhv4widEwI/0lt4U6aQDDfPHzF3aAln4jZjtU6zfoBUB6qIHYCGLI
+	IgznT/sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBM2s-00000000x9P-2s28;
-	Tue, 21 Oct 2025 23:45:38 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1vBMj4-000000012tW-1Vr7;
+	Wed, 22 Oct 2025 00:29:14 +0000
+Received: from mail-westus3azon11010004.outbound.protection.outlook.com ([52.101.201.4] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBM2n-00000000x7C-1SfP
+	id 1vBMj1-000000012sz-0LI8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 21 Oct 2025 23:45:34 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-427060bc0f5so2084926f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 21 Oct 2025 16:45:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761090332; x=1761695132; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OafmaFEEMiW3DYw/6kVfDpX+aIzCwIqDzz1UgpECPjI=;
-        b=z4sdI+nervAPFgUxcw0kz7WaCoQk05zU1kySfXxr+g5mbQBCUoynL38aarFpYVasaM
-         m/jRU8+B8fP5NzI7f2iHpChub71Yi290j3Rs1zbYYIlclHn7mdl0s7fay8sRBceC8lGy
-         e3PvY3teyPq5B/x3WwCbR4DL9NHX3yhI3kpH1bHzsBJWPHoak2FJVExNogs8vzTRdFt4
-         naa3g2qkuCEUSFJOooA0JVKD69b4BQGlso4yrKBi+sf58SvX4347ykq+RbKbYs9UM0/s
-         N6qKK0NfsJX5b1lUlHKIhHIjIW0wgs9fCVJsNdWMxIr369hKr9oiibh1vlVXtB3/rBAL
-         rdBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761090332; x=1761695132;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OafmaFEEMiW3DYw/6kVfDpX+aIzCwIqDzz1UgpECPjI=;
-        b=dmI1VEYPykmnBIJpd9NgzU7WN4V0wrgrChtnv1wSQsduOH3uJaaKjOjnhbFKZtLNTg
-         D4dnKet45lHAct0EN9EIWGEBmuwoM3imRVpcyUNwmk5v13m1iKx08bRZTuJqBqe8esHM
-         1wO2+tbgWwxS3T/4eg2esZ1zpgjEFXkUdqMpeRHbpgDXveovkjgOOq/XyjWsKtN09KV3
-         DuPxVtMVx7llaQUFVoc62nPPvSxT2PjOdwkraWq2OjRXKyAlNN0UHg2TiGVP5H3um9/F
-         6mjlWyIWMKXmd6HJl4LRmZPEllSWhdF1JmtNRmHCz1YeFoJgskHD9mWjGUrXUlDHUv8U
-         i05g==
-X-Forwarded-Encrypted: i=1; AJvYcCXHL+NSTMus14BQdE8ifywvXnrCfWLnbHglkVrucW5VFKfPagTDpwhCnBflyJ/bDgts5BAQLRpz4GIug/bCSG84@lists.infradead.org
-X-Gm-Message-State: AOJu0YwacFn4V9cS2Apo2AvozpCb5xceyRFmtqq60+sya4/AD1Db0yJL
-	OUT64Bv1ccCcoybu0w95f4mokFEh+4SVUn6fXXObEYjV/zlXQCk/Uk1ttk8dkhTEGlmdc6ww6HS
-	IgeoJ
-X-Gm-Gg: ASbGncvoTVYqbjQEypuxhzK7AzIRyKZ4tfxaA9y3oG0NaRnv23oZjPW28+2K7yWol+y
-	rAE5cflTQvCnlDN1IFmUoZIfGvuSboBlcMvSNJDWFekUWUib1l5C6WuG2dGOD3kziVIsAGy3v4Y
-	XvVP6zBXOzo4mPzBCb81w2pBOJSGaotvzLOphHe1WL/ddZ9d6yodmBk9eZ0B3rA/TUkArJl9Wu6
-	jca1uem6tl9EYA3E/i9fIPOWX86y3w2oKxne70hXpLqIABJ6acTG6W+FvVgURddyLzc/CjAGvWG
-	EBlaMphqFnEyKGYVb7aP32gWVIgVy09O057faNwRx7CpBJTPTVtTFKw92UN+N4sHJXDd0ub3gbO
-	fUR0Hs/VE0Q5xM6pMMFAPhmbklxkmJjzYZ12b6WcvqOaESb6i+l9cwBFukJfh9n9HQtQxoam6Qs
-	diqN5IoR/ywFJN+nRWg4BSxpW190LCwn4WoMDF1LLh/PMXIgrjtSFVpxOV8Fsf4SrCrl5OUpFzS
-	xTOEPDSicZx68tV+eN/7KwDYG9w
-X-Google-Smtp-Source: AGHT+IHDFi/uarH0TV/fP4fWWWvcBI7LxoChkgr58/si1RVzykVqlT2kD7TRyiAf+r5B+dX8qqG1Mw==
-X-Received: by 2002:a5d:5d02:0:b0:428:3fbb:83ff with SMTP id ffacd0b85a97d-4283fbb8dc6mr6439834f8f.7.1761090331776;
-        Tue, 21 Oct 2025 16:45:31 -0700 (PDT)
-Received: from linaro.org (host86-130-206-17.range86-130.btcentralplus.com. [86.130.206.17])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-427ea5a1056sm22247870f8f.2.2025.10.21.16.45.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 21 Oct 2025 16:45:30 -0700 (PDT)
-From: Mike Leach <mike.leach@linaro.org>
-To: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com,
-	leo.yan@arm.com,
-	james.clark@linaro.org,
-	Mike Leach <mike.leach@linaro.org>
-Subject: [PATCH 1/1] coresight: fix issue where coresight component has no claimtags
-Date: Wed, 22 Oct 2025 00:45:20 +0100
-Message-Id: <20251021234520.3355-2-mike.leach@linaro.org>
-X-Mailer: git-send-email 2.32.0
-In-Reply-To: <20251021234520.3355-1-mike.leach@linaro.org>
-References: <20251021234520.3355-1-mike.leach@linaro.org>
+	Wed, 22 Oct 2025 00:29:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KhGJOFyVy0ERVRl4OqgOptH5UfB3e4xZZllE9jqtdY0vTiUeGDi+K9+vfqzDArnYmISXhVfn5C5Ngof42JipXFbet3Sc3epR1a799GznyEsagXDbbAvH3BxNEwgF5tweUcWxLVokMvgbFyT57XbTG7Q73VKYnymQ2srgO31IZsigieu1hHYtvlvGgcH0aXeS+jhwlwZ7cVP6pKQawKQsdGxAwRBau2xun0tc3N99r1XQ246mwqWJg2PM4GEgaHQNLu6/nM9v9HCC38RLQdtmB656mbvlsnDvp3D9FDkxEj5bBppV15L2OCBSnTXXTDLEcE0u3/kS828a2GC1rnLTlQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=m7CFn3JgqNpTb9fH7UBGqn2RGEy2Qw1SF2jltO5f1x4=;
+ b=OrJWvQLuajMSfYmg6a0ciDG7OUqK6vXG3VLi7bjN+hFTAs2n0R4XSoP0Ufa5DkJKbB85ttxF16smZ5mTRB817jk4P8gwcvT72H5Ya/cSWSM8vlTweZ0THn25UY/NmrchsITU8RixYF9q7kXgdiQSaleT0Y54aUN5i0MueAyicOYZQY8wLNc+NjH2qHMwGjjNRJMBWHkZfjXOpmPsyYaQLXRVteL/ynWQTPT8If6MUGDP2xqjRTbVfebY7dD5R6QPzI+2Tl/hu3A2RvzGNx2e/6L2bWDVjipkuHjHoXMPWqO+XgbGpTMpV3KkKi04+kKJwlzbFv4ESwCdtDBCuOPcfg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=m7CFn3JgqNpTb9fH7UBGqn2RGEy2Qw1SF2jltO5f1x4=;
+ b=dupHr21swUnvvNZPWThbaQL0x8ojvsY/132+IEhGpGxUFZ7Q6aPcuG6k00OoxlYeaHlWXFqfpKUmxTziuOqAp9KlK0DYmhXFcEGs+Tyid+kaqJQ9nVMaEwEuQhmS6psA41EDBmQOn9+dBuTM9D16rK09az6zBcwllRfEuP7/dE7IUdH56kttp4IinAFRFmKjwkARMr0YERrvNohqV2kNYiX9EZ+5ON5YdaCz5Ww+9kTDWCpbSAPPIYiOy86+3VnDKJF85ttgJUsbLa2O131sSxFe2gfeicEhi15A21uqV+tmv3pgaLCWXI7dgoJgemvJKlll5JH8n6iF68OOLYWLgw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ SJ0PR12MB5609.namprd12.prod.outlook.com (2603:10b6:a03:42c::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.17; Wed, 22 Oct
+ 2025 00:29:04 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9228.016; Wed, 22 Oct 2025
+ 00:29:03 +0000
+Message-ID: <fa5187f0-293e-48f0-ab75-6641e284e8b4@nvidia.com>
+Date: Tue, 21 Oct 2025 17:29:00 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 07/29] arm_mpam: Add probe/remove for mpam msc driver
+ and kbuild boiler plate
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ Gavin Shan <gshan@redhat.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+ <20251017185645.26604-8-james.morse@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20251017185645.26604-8-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BYAPR08CA0027.namprd08.prod.outlook.com
+ (2603:10b6:a03:100::40) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|SJ0PR12MB5609:EE_
+X-MS-Office365-Filtering-Correlation-Id: 59e62d2a-b6ca-462a-afa2-08de11020083
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?empId20xSXBCZGFCci9MUkR2U3pReWI4YUFJNTEyR1BFcjVzWmhtQno3TmhY?=
+ =?utf-8?B?VUg2TjlBdVhYMklSYVB3elRoaEtTM1h5eTF6aU5PZHB1aC91VTFnSERQV2RI?=
+ =?utf-8?B?UkdVL0kwR2pXd3E0SHVzM09wc2w0MHQzVEhXUEdOWmZ3OXJXcHB2SUJUeXpM?=
+ =?utf-8?B?OEZKMjl3T2FsY0JpOGRUa2lTVVNldG8xSHVvcXlJajZXanJmb2QrazBpUG5i?=
+ =?utf-8?B?L1pwNDh3RXREblpkcFJpejJUZnUxc3c2U2padjdJTWg5YmY4ZG92OTZSMGM2?=
+ =?utf-8?B?UDNicU1ackxXRWs3Zzg1NEc5VHowMmFjRUdkRXBicGlOVTVUWTlxS3ArS2Nw?=
+ =?utf-8?B?ajlVUmx2dW41RzRGUkNHaStBSG5wNVd5NERmR3RoWmFVWDV1d3dSM1QrKzVs?=
+ =?utf-8?B?ZGZmWGVpMVdoZmJGUFVwNWplYjI0S3Rmb1M4YmNRNzFpMVBWa0JnMy9PdlJr?=
+ =?utf-8?B?WW02YlIyYTN5ck1PZEFjT0JRdW82THB3NzZrclpRSzNZbEdtMlI0VUhlSm1S?=
+ =?utf-8?B?Nkx2YVo2MmJaaVZLRDVLMnFyR2YxMk8wMy9Xb0E0VHNKSWEvYWU3cGJmRjdv?=
+ =?utf-8?B?YTNTcllaV2NOSFVvb2tBa1FySkkrS0t4RXZaQ0lCQWgzd3JNVEhxc0R0OFE0?=
+ =?utf-8?B?S3dPbU8yd091a3ZrQlpkQzFxZTdwODNKbnJKYStERUhsdXhmV3MrbkJTQW1p?=
+ =?utf-8?B?Tkg1Vm5ubGpnK2NBbkVkZ0txNkMvSlAveUF4MTBqRXVNdm42T0w0QWFDMEtj?=
+ =?utf-8?B?UTA2ODI5ZVVFTmMrLytrbzVITWU3d2xsU3pHTTRFSVlKTkJyb2VtOHNKOXZr?=
+ =?utf-8?B?TFppckl0cHA5RjV5MHBQNDIyQTFqU2twZytaQkVNMi9xZWRDbkJEZndENm0z?=
+ =?utf-8?B?cVFPaC9ORm8vNEtuV3Y4TG1CM1hOd3RQUTRCVWgzbWJ4QzlzdmVaaGdFWTJ2?=
+ =?utf-8?B?WHoyeUFma2N1Z3B2ZDlNRzZvZFBiamFCZWYrcHMzbGR6VUtoY1NESEJybFlQ?=
+ =?utf-8?B?YU8wY2QvSjZON1dsNlkycDMrSlh6RStUdk52UHdtSUVTSWVORDFZU1N6MHp6?=
+ =?utf-8?B?YkJDTU8vdnRvd2x4MkY2R3d2ZkxHeS9pQmxDdUFHZGgrdW5KR0VDV01nc0JK?=
+ =?utf-8?B?QlA2RUlTTDcxeWR4ZFdoaUFEZ1hva0NOcmJwZHZDL2JwSnBESDBhdXkwTGxj?=
+ =?utf-8?B?SjI2UVNBMmRzbnZZN0h5c0ZiZS9tMDFpcmJDamN6UzM5cE1zQTlYR2V5Mm1E?=
+ =?utf-8?B?NC9BUEZQSTM2VW8xc25rNHNydE0xM0NFMzhncTFxbTUwbWNzSE1IOURLUkND?=
+ =?utf-8?B?SG94Z3hISFJXWUNjTndnOVczY1VDb3JmT3VYV2IvOTJzVXdFZUhBeXkvUXpP?=
+ =?utf-8?B?cE9ROVp3YVRpcWx5akdYR2ZzMmNOcVdQM1ZPcHFBcWhQTUFycUtyTzNpN05u?=
+ =?utf-8?B?WUMwTFU0MG1oVmttaldvNjBHNUhUQTJKaFZ3bXArSzdMRkpZS25ONnN3Ny9i?=
+ =?utf-8?B?YzB2bHFRUTA0NXN5WXhkdXpya3RLWEErTUFrTVJXdUpGR3FwRjlvZSs1RDhC?=
+ =?utf-8?B?SmJwZVEzRGZQUFZ2M2ZxZk9rNmp6ZDlvNHVIY0EvbGk4bisyeS80OEJBZS9N?=
+ =?utf-8?B?MzlxM21kaFRRalhZRnRmZVdWZktkTnNIS3JwRStQL1BPSFA2Ujd5enVTYjNr?=
+ =?utf-8?B?OFlmMHRaY0E5RDdZUy9BUVdUZWdkZlFxMXVkbmJSWEtodFMvbC84T09sTmxh?=
+ =?utf-8?B?Sk1pcUVta1g1a0dFSkR1SU5FQnZvRDlLdjM3Ykp5ODdvQXN1N29tTEQvRHVB?=
+ =?utf-8?B?Z3dYMDBLUnZDQUtCang2WGFWbzU3Q0JNTmJlcUlFNkV1Z3hzR0h4a25vYkF0?=
+ =?utf-8?B?QnZ5YW1hTG9YYkFlS3RoSlVhZnRaT0xYRnlmTlpiYzJDTjJKSlRoTktYZVNS?=
+ =?utf-8?Q?9JGZixJ6cYHcjWzxuC0+4IvXSz6Ffp1g?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TEFFQ3Fmc3VpTEZmUlE2eURaMHM2M05qQWx0Y0FwNXZ6eEU4VHREcFJpS3BS?=
+ =?utf-8?B?TnN0NFZLM2pXRTVwMk9KY3QxVDRIVjNDbUN5ak9tanlHZU02YnVkckJmRUZD?=
+ =?utf-8?B?SU5rak0xZnZZODl1QUtEQjhHTlhGWDdBYUNhYnJkZjhmMklscWFkNTNXUVl6?=
+ =?utf-8?B?OWNNblRjMW9SbFRoSkJiZmx6M3dXQ1I0YTlOVWNyQ1hCT0RkdXROMzdGNnBv?=
+ =?utf-8?B?MkNabXVlcVNucStMbzQ2U1JEeEdZYmNhQzBzbWRmRTJqWDd0ZjBobUVhdVg0?=
+ =?utf-8?B?Wko0dnk3TGV6ZC9GRkhSdDV0bEp4UFVmV2s0N3NxWTlUMzJVOEp4N2RYNGQw?=
+ =?utf-8?B?ZE91djJHM3pTZk85Yy84WUZ6WlA3QVIreU5nRzZIMnJaL05tV0Z6S0x5M0Rv?=
+ =?utf-8?B?eW5BR2JXVndaNkJKT0tKYzFaOVVSMG1wZXFKZFhmMnczc2FkLzR4Ui9RZ21G?=
+ =?utf-8?B?YmhIdXlCcng4T292UHVmdW1JZHpmYmJNNDNscmlFbVNWdGY4WXVvKzVJcU1u?=
+ =?utf-8?B?T3cyUUNmRUo5dTRlcmVhMUdsUDJIK2kxbVJzcGU2eVgrcWozcmdOcVBncmRu?=
+ =?utf-8?B?RWZUKzgwbFFSTS8yUTQ3djRxallXOWg5RU0rTmJmVWJKUlVocTlrZTg1bGlI?=
+ =?utf-8?B?NWRBMDVVVUFEWU5KbWcxT2R5dWwrNy9VRTJFVGlnQlp4THFFVnZQZEdLaFBj?=
+ =?utf-8?B?YWJvdE8xLzAwenpwTGdML0lmMWhSQTRqaWJ1NXorK2ZYcC9DV0NCUS9IVTYy?=
+ =?utf-8?B?aW1QdjdrbGNvajRyby9Tcnc2ZUVXRVdvUlkyMUFEQnBIM2FqcUdrRlFlbzBH?=
+ =?utf-8?B?TVRvbjVidnlUUUJQRUtIRTNIY3NjQ3h4VTdVa2hPbURCZ1ZIUzNLaUkzMWZT?=
+ =?utf-8?B?VW5kaVQ3ZERVODhNVnJJd1lHUmpHelREMEt3V3liVlRJUVVRNXRMNnlNbFIr?=
+ =?utf-8?B?RW1pVWpxem9NYXZnRmdBWHV2SWYwZStWL3Y1a0VkYWNjQy9YaVZxTFdKYVdq?=
+ =?utf-8?B?ZHAwKytqWjVtM3FnYjVFS2pqdzR2alBjV01SR1l0ZmRtQjZ2RDUyajMyQkpt?=
+ =?utf-8?B?c1dueFVqNks4ZjNIaFJuQ0Jpa1MrYjNJdTVYblpBUnRJQWY2OTFMVzVvUWRr?=
+ =?utf-8?B?THlUeTlrcGtFb1FlVkdRcCtKOVBqM1ZQTEtnSjAyQTdESFJGd1o4SUxlVElI?=
+ =?utf-8?B?M2hrd2dXNEo0NkxYMVJuK0VGblVwcHd3VVJlNjJsaEw5ZjRnNlVCM21tcUZo?=
+ =?utf-8?B?b2dBNUp3QTYwQ1lPUHR0a1VkSStLSVhLVzhGRHA0Y3JBWG52YmtIZmxacUho?=
+ =?utf-8?B?TG9aeE1RdkwvTC90SktGcWtFWmM4T1VNUStkeHU2d0U3UCt5STRobkZZYSs4?=
+ =?utf-8?B?SUZsNmI5RXFQRGhiMHNSMTUzb1V2cnJxSGFhajhiWk9jTHFCZ1luQUdBSmFF?=
+ =?utf-8?B?U2QrVmhpa2c1cDVNY0JMRlZiUUQwZXdjaDRPY0cvcTh1MTBmTUdqSU0zWmd4?=
+ =?utf-8?B?d3Uvc2M3Nnd6UjFpVFo2am1mZmNCTmRIMGxOdVJZRWlUcXJCR3kzcjlGQjFN?=
+ =?utf-8?B?NFB6UWxjZHMrbXYxU3F3YnBxZWkra3c5RDYzTE5NZCt6NTlnWisycDJ2Sjh5?=
+ =?utf-8?B?b0p2ZHNWMDhZTlpNV2hZNzJpeG4rQ2c3a0hsZFJhU1VvdDJQa25zNHhKQnlp?=
+ =?utf-8?B?T3NCUXNMUTBQOFluNjY2OHF4MzFJM3ZKU2F2ai8xVkNvVTh5Z0F5NlVIWEl2?=
+ =?utf-8?B?ZmZqaEh5STVQRUtGS3FzV2dzY3M2d2NETGU3VDdNemlSTDFBbHdCaEJsS3RK?=
+ =?utf-8?B?Qk83c3BNbjM4KzJvL1B4RjFaMGhHY2ZhdWRXS0VoL3JMVzBHYnBPUUhJNnVv?=
+ =?utf-8?B?NjNDVFJXQ2xmMjBtTDlCOVZrTUE1MnJMdWp1cFlDbFgveTJQMXZMWCtINElQ?=
+ =?utf-8?B?V3ZLdEMxd0xhaFRUVmpMcklvYkliQkt5YjZJNVBQWEkxaWpPUC8wUE56RG5s?=
+ =?utf-8?B?MDN0UVZwaGx5dHlqcWVqT1lPZ1ZaaW45c0RxTlNFWHYyejliWmVuZzMxelpr?=
+ =?utf-8?B?N2FCS3ZNN0ZqYjJGZ1RDaFJiQ1lwMnAzV0NwK3h0UEQzY081MWlkMytTNysr?=
+ =?utf-8?Q?Sk939QvEiS24p8gR2YIVuGJyc?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 59e62d2a-b6ca-462a-afa2-08de11020083
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Oct 2025 00:29:03.4597
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: udAVV6Y7bAZZFAq97UBnP26vSkK4nfijVDdEvLbw/kEQ58XTBIlTi9QXfFy7wok1bj/hJkefOKJPjnJqCoYGqg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB5609
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251021_164533_407401_27A36ABB 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20251021_172911_160727_61098CEC 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,100 +193,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Coresight components have 0 to 8 claim tag bits. ARM recommends 4 and
-the implemented claim tag protocol uses two of these.
+Hi, James,
 
-If a component has insufficient claim tags then the protocol incorrectly
-returns an error when attempting to claim a component.
+On 10/17/25 11:56, James Morse wrote:
+> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+> only be accessible from those CPUs, and they may not be online.
+> Touching the hardware early is pointless as MPAM can't be used until
+> the system-wide common values for num_partid and num_pmg have been
+> discovered.
+> 
+> Start with driver probe/remove and mapping the MSC.
+> 
+> CC: Carl Worth <carl@os.amperecomputing.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+[SNIP]> +/*
+> + * An MSC can control traffic from a set of CPUs, but may only be accessible
+> + * from a (hopefully wider) set of CPUs. The common reason for this is power
+> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
+> + * corresponding cache may also be powered off. By making accesses from
+> + * one of those CPUs, we ensure this isn't the case.
+> + */
+> +static int update_msc_accessibility(struct mpam_msc *msc)
+> +{
+> +	u32 affinity_id;
+> +	int err;
+> +
+> +	err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
+> +				       &affinity_id);
+> +	if (err)
+> +		cpumask_copy(&msc->accessibility, cpu_possible_mask);
+> +	else
+> +		acpi_pptt_get_cpus_from_container(affinity_id,
+> +						  &msc->accessibility);
+> +	return err;
 
-Fix by reading CLAIMSET to establish then actual number of claim tags
-and return success when attempting to claim a component were there are
-insufficient tags to implement the protocol.
+The error is handled and there is no need to return the error to caller.
+Returning the error causes probe failure and the mpam_msc driver cannot 
+be installed.
 
-Signed-off-by: Mike Leach <mike.leach@linaro.org>
----
- drivers/hwtracing/coresight/coresight-core.c | 26 ++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-priv.h |  8 ++++++
- 2 files changed, 34 insertions(+)
+s/return err;/return 0;/
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 3267192f0c1c..ce4eade8a1e3 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -131,6 +131,22 @@ coresight_find_out_connection(struct coresight_device *csdev,
- 	return ERR_PTR(-ENODEV);
- }
- 
-+/*
-+ * Reading CLIAMSET returns  a bitfield representing the number of claim tags
-+ * implemented from bit 0 to bit nTag-1, valid bits set to 1.
-+ *
-+ * Claim protocol requires 2 bits so test for highest bit required,
-+ * bit 1 -  CORESIGHT_CLAIM_SELF_HOSTED_BIT
-+ *
-+ * return true if sufficient claim tags implemented for protocol
-+ */
-+static bool coresight_claim_tags_implemented_unlocked(struct csdev_access *csa)
-+{
-+	u32 claim_bits_impl = FIELD_GET(CORESIGHT_CLAIM_BITS_MAX_MASK,
-+			 csdev_access_relaxed_read32(csa, CORESIGHT_CLAIMSET));
-+	return ((claim_bits_impl & CORESIGHT_CLAIM_SELF_HOSTED_BIT) != 0);
-+}
-+
- static u32 coresight_read_claim_tags_unlocked(struct coresight_device *csdev)
- {
- 	return FIELD_GET(CORESIGHT_CLAIM_MASK,
-@@ -156,6 +172,9 @@ EXPORT_SYMBOL_GPL(coresight_clear_self_claim_tag);
- 
- void coresight_clear_self_claim_tag_unlocked(struct csdev_access *csa)
- {
-+	if (!coresight_claim_tags_implemented_unlocked(csa))
-+		return;
-+
- 	csdev_access_relaxed_write32(csa, CORESIGHT_CLAIM_SELF_HOSTED,
- 				     CORESIGHT_CLAIMCLR);
- 	isb();
-@@ -181,6 +200,10 @@ int coresight_claim_device_unlocked(struct coresight_device *csdev)
- 		return -EINVAL;
- 
- 	csa = &csdev->access;
-+
-+	if (!coresight_claim_tags_implemented_unlocked(csa))
-+		return 0;
-+
- 	tag = coresight_read_claim_tags_unlocked(csdev);
- 
- 	switch (tag) {
-@@ -237,6 +260,9 @@ void coresight_disclaim_device_unlocked(struct coresight_device *csdev)
- 	if (WARN_ON(!csdev))
- 		return;
- 
-+	if (!coresight_claim_tags_implemented_unlocked(&csdev->access))
-+		return;
-+
- 	if (coresight_read_claim_tags_unlocked(csdev) == CORESIGHT_CLAIM_SELF_HOSTED)
- 		coresight_clear_self_claim_tag_unlocked(&csdev->access);
- 	else
-diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index 33e22b1ba043..f93cbc9bb36a 100644
---- a/drivers/hwtracing/coresight/coresight-priv.h
-+++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -41,6 +41,14 @@ extern const struct device_type coresight_dev_type[];
- #define CORESIGHT_CLAIM_SELF_HOSTED	2
- #define CORESIGHT_CLAIM_INVALID		3
- 
-+/*
-+ * Coresight specification defines a maximum of 8 claim tag bits.
-+ * The precise number is implementation defined, and may be obtained by
-+ * reading the CLAIMSET register.
-+ */
-+#define CORESIGHT_CLAIM_BITS_MAX_MASK	GENMASK(7, 0)
-+#define CORESIGHT_CLAIM_SELF_HOSTED_BIT	BIT(1)
-+
- #define TIMEOUT_US		100
- #define BMVAL(val, lsb, msb)	((val & GENMASK(msb, lsb)) >> lsb)
- 
--- 
-2.32.0
+> +}
+> +
+> +static int fw_num_msc;
+> +
+> +static void mpam_msc_destroy(struct mpam_msc *msc)
+> +{
+> +	struct platform_device *pdev = msc->pdev;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	list_del_rcu(&msc->all_msc_list);
+> +	platform_set_drvdata(pdev, NULL);
+> +}
+> +
+> +static void mpam_msc_drv_remove(struct platform_device *pdev)
+> +{
+> +	struct mpam_msc *msc = platform_get_drvdata(pdev);
+> +
+> +	if (!msc)
+> +		return;
+> +
+> +	mutex_lock(&mpam_list_lock);
+> +	mpam_msc_destroy(msc);
+> +	mutex_unlock(&mpam_list_lock);
+> +
+> +	synchronize_srcu(&mpam_srcu);
+> +}
+> +
+> +static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+> +{
+> +	int err;
+> +	u32 tmp;
+> +	struct mpam_msc *msc;
+> +	struct resource *msc_res;
+> +	struct device *dev = &pdev->dev;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
+> +	if (!msc)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	mutex_init(&msc->probe_lock);
+> +	mutex_init(&msc->part_sel_lock);
+> +	msc->id = pdev->id;
+> +	msc->pdev = pdev;
+> +	INIT_LIST_HEAD_RCU(&msc->all_msc_list);
+> +	INIT_LIST_HEAD_RCU(&msc->ris);
+> +
+> +	err = update_msc_accessibility(msc);
+> +	if (err)
+> +		return ERR_PTR(err);
+
+The returned error causes probe failure and the driver cannot be 
+installed. Return 0 will make the probe succeed.
+
+There is no probe failure in mpam/snapshot/v6.18-rc1 because its 
+returned err=0.
+
+[SNIP]
+
+Thanks.
+
+-Fenghua
 
 
