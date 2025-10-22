@@ -4,97 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13C6BCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:55:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D875DCCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 09:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTt8+FqwI8Ns9wpiK4xWzSI+WicFqajXJHIJZoU9cx8=; b=zxZdkwF9pmT2V5nJ6Ohoj8HQd+
-	6sPzt5IhCFNonkLiS66aoiO5wmYCsdmYuKAI3aF47PzsqD0+A35gwdyRpUyvQMRPQomRnomngdBon
-	X1aQYcwqNadf4HdjbYgGYCWs4wsuF0KGoCW7pLoaaTw7vd17H0wX7Bm35XO33CKp9JUqyO4XTuNc6
-	1jW4/vWJ3leWqX38EU85CJYRbXb21IbmX4TZB78sbZLxIHGa3HPHKoQDTRoc9whcfaMr6IiDiOxlc
-	78xi2YOn1h7X724ifE0aqimGO/hdMVeqYM65QMS0ZB/v5cBbTeQu6S8bOedSuwErgcyFO2RZE64o5
-	ZSGM64Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wSFlpWkkfCYKfnBYhsgVreQwUxxyVKGEQhRSIcp2muk=; b=LwO1Bq8PWLQkbJfesItnEIZ3GQ
+	cf1WcH7R/uJ1HNmZaq2XJLV8vkYggObQ4u8q8WW/C7NU2eqrh/8+ipHso8TLdM7eaKuI4i3t+i0b8
+	aXcTI5Oq+EaUn80h3V27bGQhV1Lo0X8yJNVvcOmp3kjCq/rXUAdrpg14Ijfi/VN2gUGYQh1Ii8dJU
+	PyU3/MtZD2/ToE/k59HEn4z2BePKtpG0g3Iib2ef5yyi2DiGWldoGU8SiZkQjSobcykmljdfNR2ie
+	IgUqJUkeWzD09St/qTmjaoDKdMh62X8kDPNAqR23TUjzHq5I0CJ0qQ+ghaJviozt6sPY55jDq++tC
+	oIivjTUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBVYu-00000002KkX-2QqS;
-	Wed, 22 Oct 2025 09:55:20 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1vBVZA-00000002Kqq-08ug;
+	Wed, 22 Oct 2025 09:55:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBVYr-00000002KjA-3jCf
+	id 1vBVZ6-00000002KpI-2ILn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 09:55:19 +0000
-Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-88f27b67744so885842085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 02:55:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761126917; x=1761731717; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qTt8+FqwI8Ns9wpiK4xWzSI+WicFqajXJHIJZoU9cx8=;
-        b=WqvBoXBXD3biehLllThtKSddHNHFusDcZouqu0CH8HQK1BbMkPCsxdhzLFOavcmiyz
-         0GBeFCty5NU3HhBVIFyhePHamdiqWPPkR6JVcOajgV57OVj1JWwDG8E7/A5MDaQcg0U1
-         tNLGVSfrspmTD92ojX5karG7USfxngzFrEVv70iulJdEY5N+YCwi8e+Mi7y3uSBBAQPQ
-         hLb/hPOB2vwVPuk42ryXoBVX/Z9UjWoFOPANMObOPcW5OLGC9cWtPX9M7F+Qqw9MKNDD
-         F3KLa0TcKpTZCuKk4lRCYN+5zzUVHxTvXjbogmPmV/mSUSpgub+NIxO0Jft09JgNTEZA
-         rgYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761126917; x=1761731717;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qTt8+FqwI8Ns9wpiK4xWzSI+WicFqajXJHIJZoU9cx8=;
-        b=IqT5eXoTqfRLJ4JZV4t7PuJ56yQx+JcTZUJcliDM8onzPgxkzYroYnpNBVHN4rSgFY
-         b5W7wtZC7AM+oReHlMMX5oq5fGAoEZA28FMpWq3v4QKHDHZz9+8ruLAH0wjjZeqBtPqJ
-         Ts9q8xh/r/wD4tfIczeahqgu3yc8BCfo1/1zBQ54RXRzO1Q0IqWwa18YAFBvQbe4gcgl
-         HsPFmH7UvOLgq6EPYCa0wA8/+chFG3pSHPUuG8NZnLgxJnzXp6jLg/WthT5j/ndQWQSQ
-         4qyKW01KXA9Qw6Znt/YMh0LQUQHY6lkjM39cMtiaHk1xFvog9TUcZWBlj4XcZNi4qihM
-         hY6w==
-X-Forwarded-Encrypted: i=1; AJvYcCXJyGFVagVRcVIYp7ZlKvx0d+58b2Yaxsq0KAAu9PIZCoKiGU6MQkW7rDJ86FtbNH5KkqKFJFaczUGKyyFKmX6W@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0jpeGLjrfseunFs9VwryRTjBtwVKOzKFNG0Y3k4ZF7rtnMYR0
-	o94Yw34/IrQEiQt9E8go2zCJF95ePv6lG+8WSNo5N9yvoolslOoCY5Le/x4tpcqA+vqV5+1aKnB
-	HamegcNrK8Tf7m4vhplM6WkawLiKEjd0=
-X-Gm-Gg: ASbGncuV5ppaTD/nWCm6nFVZM6+yQjA9tBCPMJ+FG2Yww29Voahr4mTBkrx1HdnJEhB
-	STXPJPoEOe1dtlHJrGBe/VFj7rfHK/vuTHcx4adIfY2XdsTdFB1IqpXZFvFMXOrNv2e3Z/QyzSi
-	RauXFyhlVufnycz1PAVTbNZmDZkhDoLFif8tRJHTRGgrqnk8XLxUj17HS3xAs2ecEM5vhuEdkbR
-	B3qpRKwaD9Ng3oZ8xesIstxzaroAwk6ewceJ6X3TmE9kLJrZJMb3Jf9CpkWIsvZPnzjcJ1Zjt/f
-	U6+ZX6wY6yHdDaLE+QnHeCYZDr8=
-X-Google-Smtp-Source: AGHT+IFyP3YEd3jiEXUOevWyPggxevKHk8IGuxzG+Kc4aIoWgx3n9rH56kmrDHtPes/bm55BDKJ06bfA1HQys3hLS2I=
-X-Received: by 2002:a05:620a:1aa2:b0:84b:97c2:4f27 with SMTP id
- af79cd13be357-8906dfded57mr1887986085a.4.1761126916473; Wed, 22 Oct 2025
- 02:55:16 -0700 (PDT)
+	Wed, 22 Oct 2025 09:55:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C2EA14A3DD;
+	Wed, 22 Oct 2025 09:55:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 024E8C4CEF5;
+	Wed, 22 Oct 2025 09:55:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761126931;
+	bh=7i9Ez8UvNOZbo+rgVehka2n3g0H3oeOM4jQuNJXZ9tw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MaxRNrmvX8kuENhtIKpWYOiD8IYJc50VTb693B6lZsQQhq1R7zHk8kCq4zG9gutD1
+	 /FSAt9+/5BT+ThL+vsgBgL1GxfggbFjrQdUFVu8apPMoBTI+k3qnD9FCkk4CLdLDak
+	 miDXzFG9NyzP5PsDE8/pI3cq3S4S6bBa51N57kpkmYuT3/oixoLWOsIG+ElSgjtQt/
+	 Jif4GLloCeTU3oN/sKG6Puonep0VMUgwDV6DjPH3LVmcnu9vI4Ydc90re3LCMLv0UN
+	 +/GespTrv7m4ePZ0YcK4l9wRKFn4kbIu49Z+k/GFyWkRRG1nRDYxLtLLLWjmLvHYaA
+	 fwohulvdDBSbA==
+Date: Wed, 22 Oct 2025 15:25:13 +0530
+From: "mani@kernel.org" <mani@kernel.org>
+To: Stefan Roese <stefan.roese@mailbox.org>
+Cc: Bjorn Helgaas <helgaas@kernel.org>, 
+	"Bandi, Ravi Kumar" <ravib@amazon.com>, "thippeswamy.havalige@amd.com" <thippeswamy.havalige@amd.com>, 
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>, 
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
+	"robh@kernel.org" <robh@kernel.org>, "michal.simek@amd.com" <michal.simek@amd.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"stable@vger.kernel.org" <stable@vger.kernel.org>, Sean Anderson <sean.anderson@linux.dev>
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Message-ID: <3it5l556vmfpuu6kz5yvulwosi4ecmcgfbzcizrc5wi7ifddkh@mpzfxf2v6v3f>
+References: <20251021212801.GA1224310@bhelgaas>
+ <ab1f7c51-bc41-4774-a0dc-850e53c412eb@mailbox.org>
 MIME-Version: 1.0
-References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
- <20251013092038.6963-3-ying.huang@linux.alibaba.com> <CAGsJ_4xaA8QRjP9H=n1hQfEfGop7vOd5Y=J+KQzuOyfa8GK-kQ@mail.gmail.com>
- <87a51jfl44.fsf@DESKTOP-5N7EMDA> <CAGsJ_4zPH0fwBOLQwh1y6jG3tCXHLGRCTyVVSCWb+NfLCEMV0Q@mail.gmail.com>
- <871pmv9unr.fsf@DESKTOP-5N7EMDA> <CAGsJ_4zW6ogVdi=t9JCuvGD9N21mA_ORXRCakw4Av68d9n+DDw@mail.gmail.com>
- <875xc78es0.fsf@DESKTOP-5N7EMDA> <CAGsJ_4zKGS-Xd-58ufXGoyRfaZWd8wTgv0b6ibHJ2aS14mQqtw@mail.gmail.com>
- <87a51j6zg7.fsf@DESKTOP-5N7EMDA>
-In-Reply-To: <87a51j6zg7.fsf@DESKTOP-5N7EMDA>
-From: Barry Song <21cnbao@gmail.com>
-Date: Wed, 22 Oct 2025 22:55:05 +1300
-X-Gm-Features: AS18NWC0tC5R_nmZzildYKBiK0mP4MFijg1oZBWOAHCcOJkrnfuDN46LvjeO47c
-Message-ID: <CAGsJ_4y32i3aNYPum=8J3_Kt6vOSisr_jg6btB-YG1uQBqHG7Q@mail.gmail.com>
-Subject: Re: [PATCH -v2 2/2] arm64, tlbflush: don't TLBI broadcast if page
- reused in write fault
-To: "Huang, Ying" <ying.huang@linux.alibaba.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@redhat.com>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, Zi Yan <ziy@nvidia.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Yang Shi <yang@os.amperecomputing.com>, "Christoph Lameter (Ampere)" <cl@gentwo.org>, Dev Jain <dev.jain@arm.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Yicong Yang <yangyicong@hisilicon.com>, 
-	Kefeng Wang <wangkefeng.wang@huawei.com>, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	Yin Fengwei <fengwei_yin@linux.alibaba.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ab1f7c51-bc41-4774-a0dc-850e53c412eb@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_025517_933332_262E1F38 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20251022_025532_629984_E214D408 
+X-CRM114-Status: GOOD (  39.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,25 +78,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22, 2025 at 10:46=E2=80=AFPM Huang, Ying
-<ying.huang@linux.alibaba.com> wrote:
+On Wed, Oct 22, 2025 at 08:59:19AM +0200, Stefan Roese wrote:
+> Hi Bjorn,
+> Hi Ravi,
+> 
+> On 10/21/25 23:28, Bjorn Helgaas wrote:
+> > On Tue, Oct 21, 2025 at 08:55:41PM +0000, Bandi, Ravi Kumar wrote:
+> > > > On Tue, Oct 21, 2025 at 05:46:17PM +0000, Bandi, Ravi Kumar wrote:
+> > > > > > On Oct 21, 2025, at 10:23 AM, Bjorn Helgaas <helgaas@kernel.org> wrote:
+> > > > > > On Sat, Sep 20, 2025 at 10:52:32PM +0000, Ravi Kumar Bandi wrote:
+> > > > > > > The pcie-xilinx-dma-pl driver does not enable INTx interrupts
+> > > > > > > after initializing the port, preventing INTx interrupts from
+> > > > > > > PCIe endpoints from flowing through the Xilinx XDMA root port
+> > > > > > > bridge. This issue affects kernel 6.6.0 and later versions.
+> > > > > > > 
+> > > > > > > This patch allows INTx interrupts generated by PCIe endpoints
+> > > > > > > to flow through the root port. Tested the fix on a board with
+> > > > > > > two endpoints generating INTx interrupts. Interrupts are
+> > > > > > > properly detected and serviced. The /proc/interrupts output
+> > > > > > > shows:
+> > > > > > > 
+> > > > > > > [...]
+> > > > > > > 32:        320          0  pl_dma:RC-Event  16 Level     400000000.axi-pcie, azdrv
+> > > > > > > 52:        470          0  pl_dma:RC-Event  16 Level     500000000.axi-pcie, azdrv
+> > > > > > > [...]
+> 
+> First a comment on this IRQ logging:
+> 
+> These lines do NOT refer to the INTx IRQ(s) but the controller internal
+> "events" (errors etc). Please see this log for INTx on my Versal
+> platform with pci_irqd_intx_xlate added:
+> 
+>  24:          0          0  pl_dma:RC-Event   0 Level     LINK_DOWN
+>  25:          0          0  pl_dma:RC-Event   3 Level     HOT_RESET
+>  26:          0          0  pl_dma:RC-Event   8 Level     CFG_TIMEOUT
+>  27:          0          0  pl_dma:RC-Event   9 Level     CORRECTABLE
+>  28:          0          0  pl_dma:RC-Event  10 Level     NONFATAL
+>  29:          0          0  pl_dma:RC-Event  11 Level     FATAL
+>  30:          0          0  pl_dma:RC-Event  20 Level     SLV_UNSUPP
+>  31:          0          0  pl_dma:RC-Event  21 Level     SLV_UNEXP
+>  32:          0          0  pl_dma:RC-Event  22 Level     SLV_COMPL
+>  33:          0          0  pl_dma:RC-Event  23 Level     SLV_ERRP
+>  34:          0          0  pl_dma:RC-Event  24 Level     SLV_CMPABT
+>  35:          0          0  pl_dma:RC-Event  25 Level     SLV_ILLBUR
+>  36:          0          0  pl_dma:RC-Event  26 Level     MST_DECERR
+>  37:          0          0  pl_dma:RC-Event  27 Level     MST_SLVERR
+>  38:         94          0  pl_dma:RC-Event  16 Level     84000000.axi-pcie
+>  39:         94          0  pl_dma:INTx   0 Level     nvme0q0, nvme0q1
+> 
+> The last line shows the INTx IRQs here ('pl_dma:INTx' vs 'pl_dma:RC-
+> Event').
+> 
+> More below...
+> 
+> > > > > > > 
+> > > > > > > Changes since v1::
+> > > > > > > - Fixed commit message per reviewer's comments
+> > > > > > > 
+> > > > > > > Fixes: 8d786149d78c ("PCI: xilinx-xdma: Add Xilinx XDMA Root Port driver")
+> > > > > > > Cc: stable@vger.kernel.org
+> > > > > > > Signed-off-by: Ravi Kumar Bandi <ravib@amazon.com>
+> > > > > > 
+> > > > > > Hi Ravi, obviously you tested this, but I don't know how to reconcile
+> > > > > > this with Stefan's INTx fix at
+> > > > > > https://lore.kernel.org/r/20251021154322.973640-1-stefan.roese@mailbox.org
+> > > > > > 
+> > > > > > Does Stefan's fix need to be squashed into this patch?
+> > > > > 
+> > > > > Sure, we can squash Stefan’s fix into this.
+> > > > 
+> > > > I know we *can* squash them.
+> > > > 
+> > > > I want to know why things worked for you and Stefan when they
+> > > > *weren't* squashed:
+> > > > 
+> > > >   - Why did INTx work for you even without Stefan's patch.  Did you
+> > > >     get INTx interrupts but not the right ones, e.g., did the device
+> > > >     signal INTA but it was received as INTB?
+> > > 
+> > > I saw that interrupts were being generated by the endpoint device,
+> > > but I didn’t specifically check if they were correctly translated in
+> > > the controller. I noticed that the new driver wasn't explicitly
+> > > enabling the interrupts, so my first approach was to enable them,
+> > > which helped the interrupts flow through.
+> > 
+> > OK, I'll assume the interrupts happened but the driver might not have
+> > been able to handle them correctly, e.g., it was prepared for INTA but
+> > got INTB or similar.
+> > 
+> > > >   - Why did Stefan's patch work for him even without your patch.  How
+> > > >     could Stefan's INTx work without the CSR writes to enable
+> > > >     interrupts?
+> > > 
+> > > I'm not entirely sure if there are any other dependencies in the
+> > > FPGA bitstream. I'll investigate further and get back to you.
+> > 
+> > Stefan clarified in a private message that he had applied your patch
+> > first, so this mystery is solved.
+> 
+> Yes. I applied Ravi's patch first and still got no INTx delivered
+> to the nvme driver. That's what me triggered to dig deeper here and
+> resulted in this v2 patch with pci_irqd_intx_xlate added.
+> 
+> BTW:
+> I re-tested just now w/o Ravi's patch and the INTx worked. Still I think
+> Ravi's patch is valid and should be applied...
 
-> >
-> > I agree. Yet the ish barrier can still avoid the page faults during CPU=
-0's PTL.
->
-> IIUC, you think that dsb(ish) compared with dsb(nsh) can accelerate
-> memory writing (visible to other CPUs).  TBH, I suspect that this is the
-> case.
+How come INTx is working without the patch from Ravi which enabled INTx routing
+in the controller? Was it enabled by default in the hardware?
 
-Why? In any case, nsh is not a smp domain.
+- Mani
 
-I believe a dmb(ishst) is sufficient to ensure that the new PTE writes
-are visible
-to other CPUs. I=E2=80=99m not quite sure why the current flush code uses d=
-sb(ish);
-it seems like overkill.
-
-Thanks
-Barry
+-- 
+மணிவண்ணன் சதாசிவம்
 
