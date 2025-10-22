@@ -4,72 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B6B3CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F26CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rile4f14cDJIakjmIfK3sT/0p2MCzB68TdqYyaWZuXk=; b=vwMoTDgW0GMvjqBf624wj90Gju
-	PBMLIy3Xdd858VpPnZVs3762B2UsrP4d0/fiWb9GiHfYvtHV/YHH8oDlXsbvXSmFjoqIHm/DErn+/
-	zzQXdoAuTP2DzD3c4oBh5sO4joNxsiY94BYxVqhuapTJZ7K5thefMMFHswjkNqX3kPuOF5OaKg/z+
-	2laBdq4LuJ0/oCtCuJwrbWKeQq7AuERHkcGXRgXzc4/bc+or6G+geraHbcdJpZHZt9My761SHE9op
-	3+OrHG48fBW8gAT3DdwPM9sNamA0tk1HV508Urlx0hUT49uOLzKEPMF/I7sw+IRGvb2J+7v2SFLzf
-	PSU/Ls6A==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BO9B7XrcsbLTZBYYkoG9n50DYuVN9Mxnkq7TtWPsbFA=; b=ITKT1tQR3zg0K5Rybem1TQU4H+
+	QGz9C+9Gdk5hv6K7EjAjRVwlnUBGInnOlyDUhhUYN6Xdxu/JCkEfkqYMSiCxqZyIvqVNGJNvF8Cmb
+	Wa9p7kKeC2wEVeDB4oxx2XxZEm29PWVGMILnvyzAd6G6pC/3ImdRw5IG7ZIeNolQGPl+4M7w3w2AU
+	tWwN22mFhYIQxvOfUI9Rp/+RBBTEvQcxq8WWHSY9fHjnfvBfLOCixTFJHgbCQ6hHvN2UXyT27chDu
+	nOjXXrOL+KEpOKhcW6jEfXm1lwdJlakOcIm+do7Ul8kSKVuOfMd4/Yzm5+PMX9CdGQZup/v7fB4eD
+	UhoLMoug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZpM-00000003Dl0-0OPV;
-	Wed, 22 Oct 2025 14:28:36 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZpJ-00000003Djy-0s9W
+	id 1vBZpv-00000003Dt8-28do;
+	Wed, 22 Oct 2025 14:29:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBZps-00000003DsK-3O04
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 14:28:35 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 7EFCEC0AFF6;
-	Wed, 22 Oct 2025 14:28:10 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3D2A8606DC;
-	Wed, 22 Oct 2025 14:28:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ECA3C102F243E;
-	Wed, 22 Oct 2025 16:28:19 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761143309; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=Rile4f14cDJIakjmIfK3sT/0p2MCzB68TdqYyaWZuXk=;
-	b=EfUfHj6TGyD85vx69BNLmM9lTYrjeeIyiEMZC+be04ailGl2Q8ZdwxWyqvaufndbyYjWUe
-	ojVSXNeyQnT3Tl5zDP9APeAm1CcTdqL2qNBsUcKHuOiqpdYW+Xjy2b3vwMMZjJPGhfYC9X
-	+yfzDHBiRPH44Vxw4VW3sLphgBtACQNXX2Vb6MJ/OP1ntVUOkywzDRiXDhZSm7G9ozY+Zz
-	dMzKLxvBF/Tco4nJLoaCWhkcqwyX8EyLhFmjaJdvs48d/HDN533WWSx8kfoPGqNfcwMIE9
-	Z7DFASR+DWFtEKW7wx/HqgSeum/GPR680fiQqq4RABycvJDJwUQiynS0Yva5bA==
-Message-ID: <eb0d1b55-307b-4b51-953f-fdcc1a8fbe27@bootlin.com>
-Date: Wed, 22 Oct 2025 16:28:19 +0200
+	Wed, 22 Oct 2025 14:29:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A0511063;
+	Wed, 22 Oct 2025 07:28:59 -0700 (PDT)
+Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5BF293F59E;
+	Wed, 22 Oct 2025 07:29:05 -0700 (PDT)
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Cc: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH] perf cs-etm: Mute enumeration value warning
+Date: Wed, 22 Oct 2025 15:28:49 +0100
+Message-Id: <20251022142849.1537706-1-leo.yan@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 4/6] net: phylink: add phylink managed
- wake-on-lan PHY speed control
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>
-References: <aPIwqo9mCEOb7ZQu@shell.armlinux.org.uk>
- <E1v9jCZ-0000000B2PP-2cuM@rmk-PC.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <E1v9jCZ-0000000B2PP-2cuM@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_072833_452167_DE8BA025 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20251022_072908_972164_485859BC 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,53 +70,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+When the OpenCSD library introduces a new enumeration value (for example,
+in the v1.7.1 release), the perf build fails with an error:
 
-On 17/10/2025 14:04, Russell King (Oracle) wrote:
-> Some drivers, e.g. stmmac, use the speed_up()/speed_down() APIs to
-> gain additional power saving during Wake-on-LAN where the PHY is
-> managing the state.
-> 
-> Add support to phylink for this, which can be enabled by the MAC
-> driver. Only change the PHY speed if the PHY is configured for
-> wake-up, but without any wake-up on the MAC side, as MAC side
-> means changing the configuration once the negotiation has
-> completed.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/phy/phylink.c | 12 ++++++++++++
->  include/linux/phylink.h   |  2 ++
->  2 files changed, 14 insertions(+)
-> 
-> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-> index 939438a6d6f5..26bd4b7619dd 100644
-> --- a/drivers/net/phy/phylink.c
-> +++ b/drivers/net/phy/phylink.c
-> @@ -2576,6 +2576,12 @@ static bool phylink_phy_supports_wol(struct phylink *pl,
->  	return phydev && (pl->config->wol_phy_legacy || phy_can_wakeup(phydev));
->  }
->  
-> +static bool phylink_phy_pm_speed_ctrl(struct phylink *pl)
-> +{
-> +	return pl->config->wol_phy_speed_ctrl && !pl->wolopts_mac &&
-> +	       pl->phydev && phy_may_wakeup(pl->phydev);
-> +}
-> +
->  /**
->   * phylink_suspend() - handle a network device suspend event
->   * @pl: a pointer to a &struct phylink returned from phylink_create()
-> @@ -2625,6 +2631,9 @@ void phylink_suspend(struct phylink *pl, bool mac_wol)
->  	} else {
->  		phylink_stop(pl);
->  	}
-> +
-> +	if (phylink_phy_pm_speed_ctrl(pl))
-> +		phy_speed_down(pl->phydev, false);
+  util/cs-etm-decoder/cs-etm-decoder.c:600:10: error: enumeration value 'OCSD_GEN_TRC_ELEM_ITMTRACE' not explicitly handled in switch [-Werror, -Wswitch-enum]
+    600 |         switch (elem->elem_type) {
+	|                 ^~~~~~~~~~~~~~~
+  1 error generated.
 
-Should this rather be phylink_speed_down, to take into account the fact
- that the PHY might be on SFP ? either here or directly in
-phylink_phy_pm_speed_ctrl() above ?
+Convert to if-else sentences to mute the enumeration value warning,
+which can avoid build failures whenever the lib is updated.
 
-Maxime
+No functional change.
+
+Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ .../perf/util/cs-etm-decoder/cs-etm-decoder.c | 44 +++++--------------
+ 1 file changed, 11 insertions(+), 33 deletions(-)
+
+diff --git a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+index b85a8837bddc..3050fe212666 100644
+--- a/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
++++ b/tools/perf/util/cs-etm-decoder/cs-etm-decoder.c
+@@ -588,6 +588,7 @@ static ocsd_datapath_resp_t cs_etm_decoder__gen_trace_elem_printer(
+ 				const ocsd_generic_trace_elem *elem)
+ {
+ 	ocsd_datapath_resp_t resp = OCSD_RESP_CONT;
++	ocsd_gen_trc_elem_t type;
+ 	struct cs_etm_decoder *decoder = (struct cs_etm_decoder *) context;
+ 	struct cs_etm_queue *etmq = decoder->data;
+ 	struct cs_etm_packet_queue *packet_queue;
+@@ -597,52 +598,29 @@ static ocsd_datapath_resp_t cs_etm_decoder__gen_trace_elem_printer(
+ 	if (!packet_queue)
+ 		return OCSD_RESP_FATAL_SYS_ERR;
+ 
+-	switch (elem->elem_type) {
+-	case OCSD_GEN_TRC_ELEM_UNKNOWN:
+-		break;
+-	case OCSD_GEN_TRC_ELEM_EO_TRACE:
+-	case OCSD_GEN_TRC_ELEM_NO_SYNC:
+-	case OCSD_GEN_TRC_ELEM_TRACE_ON:
++	type = elem->elem_type;
++
++	if (type == OCSD_GEN_TRC_ELEM_EO_TRACE ||
++	    type == OCSD_GEN_TRC_ELEM_NO_SYNC ||
++	    type == OCSD_GEN_TRC_ELEM_TRACE_ON)
+ 		resp = cs_etm_decoder__buffer_discontinuity(etmq, packet_queue,
+ 							    trace_chan_id);
+-		break;
+-	case OCSD_GEN_TRC_ELEM_INSTR_RANGE:
++	else if (type == OCSD_GEN_TRC_ELEM_INSTR_RANGE)
+ 		resp = cs_etm_decoder__buffer_range(etmq, packet_queue, elem,
+ 						    trace_chan_id);
+-		break;
+-	case OCSD_GEN_TRC_ELEM_EXCEPTION:
++	else if (type == OCSD_GEN_TRC_ELEM_EXCEPTION)
+ 		resp = cs_etm_decoder__buffer_exception(etmq, packet_queue, elem,
+ 							trace_chan_id);
+-		break;
+-	case OCSD_GEN_TRC_ELEM_EXCEPTION_RET:
++	else if (type == OCSD_GEN_TRC_ELEM_EXCEPTION_RET)
+ 		resp = cs_etm_decoder__buffer_exception_ret(etmq, packet_queue,
+ 							    trace_chan_id);
+-		break;
+-	case OCSD_GEN_TRC_ELEM_TIMESTAMP:
++	else if (type == OCSD_GEN_TRC_ELEM_TIMESTAMP)
+ 		resp = cs_etm_decoder__do_hard_timestamp(etmq, elem,
+ 							 trace_chan_id,
+ 							 indx);
+-		break;
+-	case OCSD_GEN_TRC_ELEM_PE_CONTEXT:
++	else if (type == OCSD_GEN_TRC_ELEM_PE_CONTEXT)
+ 		resp = cs_etm_decoder__set_tid(etmq, packet_queue,
+ 					       elem, trace_chan_id);
+-		break;
+-	/* Unused packet types */
+-	case OCSD_GEN_TRC_ELEM_I_RANGE_NOPATH:
+-	case OCSD_GEN_TRC_ELEM_ADDR_NACC:
+-	case OCSD_GEN_TRC_ELEM_CYCLE_COUNT:
+-	case OCSD_GEN_TRC_ELEM_ADDR_UNKNOWN:
+-	case OCSD_GEN_TRC_ELEM_EVENT:
+-	case OCSD_GEN_TRC_ELEM_SWTRACE:
+-	case OCSD_GEN_TRC_ELEM_CUSTOM:
+-	case OCSD_GEN_TRC_ELEM_SYNC_MARKER:
+-	case OCSD_GEN_TRC_ELEM_MEMTRANS:
+-#if (OCSD_VER_NUM >= 0x010400)
+-	case OCSD_GEN_TRC_ELEM_INSTRUMENTATION:
+-#endif
+-	default:
+-		break;
+-	}
+ 
+ 	return resp;
+ }
+-- 
+2.34.1
+
 
