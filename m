@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F5ECCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B019CCD1BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 12:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EBT8mdGkZMhubx3+PF0HBbvtvo57PUFO+I9TYpkyhbw=; b=nDrDUe42DhjuJnqMpWmgt/TQZQ
-	03fC4yW2DHD2r2jsY/1QBo24hMgvDGfXpMvepHoht/RMkt0L54OVaX3y0Qen5eXaj7x198J3Gjd7P
-	zgbL2BPo8UaTZ+TOg4WK+v1/mJDrzhcX6czTRN6K7oSwJkDUAguB7XgXCYItarlPqHlOviFujMgri
-	y69U04NFi6HuSF730H2C2UppXCqpeIdJHay1/H9WSLGy7VU623DjzM589mk2vBGCIYdai3kMFWYrj
-	fR3macy7r/JlOKezAVKmkJlNvbg7+uTE6jBO4IsLQ7NDU+cS5N9jCo9WWhHvIU0UVAYQ2Qp/UAIiu
-	VPv53ocg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Im6PoCOaKHLn9fCxkHUqD0r00FkT7Hr9IrkbupO3vpM=; b=hGyl66Hq9T4f/wQdyWQ2CJSQv4
+	wGjTHjSNDMtAwL1gBRQflS6UQ53avQepjLb2xJYGZSB/2IyWn/jtZCpVKZc7ezZC4a/Ug1LY95UDy
+	mUqajE2+Age/gJ6Fpn63WJYAfjRElD7cE2euNDTQWtr4PJrIqFpjgEd9mp+mx3qAOD36c7jSG+d5r
+	1hQkEB2lKv+N9gCemIlwK5hP0nW6ujx07r3PpKSJe6wNU6Gg0Wf9uTs08AOHetzJ51VM1whJnXczr
+	TBPp7Yj7o9hxkVTr0vGxk0GB/7Ka187cSltPGcjBCmhbVIHwC1V0ypOir+bbIjJJxjMdCTk/Fx3tR
+	9r8j0E3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBXZU-00000002kCj-3h1h;
-	Wed, 22 Oct 2025 12:04:04 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1vBXi3-00000002lBJ-1oHz;
+	Wed, 22 Oct 2025 12:12:55 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBXZR-00000002kBi-2Gs3
+	id 1vBXhz-00000002l9L-48GU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 12:04:03 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-427084a641aso3318078f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 05:04:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761134639; x=1761739439; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=EBT8mdGkZMhubx3+PF0HBbvtvo57PUFO+I9TYpkyhbw=;
-        b=SxsSFhgG8NHU/WMmqdfXMq8owBnmbZTpq62L3gUmtyqM2JmyaLoBhahSGsVaacRXC4
-         4jrylU/+FJVdLnS9E4rw72bUVEsJs0yeQ2OmzQWp2hZfyMdlwsE8haCRK0gIEETPskRl
-         9KfU4HsJdxCDHoUchmoba2O8WnC4S7SzMCTWjrBkZG4gkkLAYKCpq58Unb0tVHzfrqMc
-         k0xVio/DqUT53wereu24kRRbnk8/lHetrdvSu8D7cEspGglsFNagIsnY1OdMnr87jsHJ
-         +rMrjk5Xbo0mPhdGt2yBUarfQ0Sk4qFW/O1B9ieGCjVGqOJaPDhdrCwK3S0iIe++5Cjd
-         Rb3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761134639; x=1761739439;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EBT8mdGkZMhubx3+PF0HBbvtvo57PUFO+I9TYpkyhbw=;
-        b=u0g5hT/NnvSiAHx904kEt/nITJqOujSNj27DeYmhXPZcAFMWsGrHPDvBO311ARimiM
-         kg+A+xRK5x/iD+jSIz0Djq06KEjj2V++1QbioqSGmvjc/Ys6Rezqw/VOCr3lh96UA64H
-         776CPoFWTU+zcoxmGkf4H4IJgy0yczGwSS8HfM2hyxPNF6VKn3KZ/1A7P0vwGdCx3+3C
-         66rQRWY5Fd9/2oKo6EvxnxqwQe6s5zinCrYOEkB0rEZj7IZdSRXETPkaiq+9sWstincE
-         CelvarUQFRQbe6eY3LhyHYb6ptjhMAZFvGab/dwZw2SSOv2rFiFo4NjuybdQrlNFtzkc
-         2qyw==
-X-Forwarded-Encrypted: i=1; AJvYcCUxd3rYYO4AFBnoirzONgmcXzuIhaiMYtfquJpF/AP8tF/Roc7RSxDD1cz47XCP/1KEAQLoaV++2RhoXukLzmPH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVFBwbF6VANfeuMTjSH/OBIGX/TLVN3BNrf9R0aqkXukqmhnV3
-	VnQQBAm4c02sSSRH6Y4yaI+XmqwwVtSDUcUZ96ZWTafrQHXgn261bssV8v4k/uA0Wqs=
-X-Gm-Gg: ASbGncuwwtehihLEEUraBbm5l5b2hcbTE6JZFw8OjLFIW2nQCEEXGO4GJgnTrYYNZ+v
-	vixrGclWO9CZN63kka2Gz+sLZYP5TR6YjEOTuwqAlSAeARCVKbCt3vBHixt0gzPgvlnPeMtDypJ
-	WNCUprop8e6Z0lSgZyPDY3B0ESDug/hewAvM3MaHMJDPEpNHQYY9dSp2YWaa/SjyUJ7G3kM6f+L
-	ay9/IL44FWNLfulfadbUl8S9ZFkKdSfBl9nws/mz27oq8nMj+heNa09e9IfE/2gJKZWYH8rWW7q
-	SZVXqHQ/ygLQH8BnFhmMGtuIBdIH2gxRRoK7f7KUFg06oM9FWlD/SxS7VFZ+SpGoK9cOcD4k4B9
-	A/2MbYnFevARdKM6xO6pkQxzZqYNUUM5ZPWerYOXOOhouw9MmccQ6OU4Yohy9Uqnp5K8yxkcRAh
-	rSlQfRxw==
-X-Google-Smtp-Source: AGHT+IGK45Cu7R7RqMblJ0H20sOThyXTHE0mGsTieR9rpgEJC68Mu7KEhV/qc0jaopljgaHcbYAevQ==
-X-Received: by 2002:a05:6000:428a:b0:428:3cd7:a336 with SMTP id ffacd0b85a97d-4283cd7a3a7mr11330553f8f.63.1761134639094;
-        Wed, 22 Oct 2025 05:03:59 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-427f009a78csm25019851f8f.26.2025.10.22.05.03.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Oct 2025 05:03:58 -0700 (PDT)
-Date: Wed, 22 Oct 2025 14:05:28 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, kernel-janitors@vger.kernel.org
-Subject: [PATCH] remoteproc: mtk_scp:  remove unnecessary checking
-Message-ID: <aPi6eBlFLH43A4C0@stanley.mountain>
+	Wed, 22 Oct 2025 12:12:53 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59MCCkDs1399372;
+	Wed, 22 Oct 2025 07:12:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1761135167;
+	bh=Im6PoCOaKHLn9fCxkHUqD0r00FkT7Hr9IrkbupO3vpM=;
+	h=From:To:CC:Subject:Date;
+	b=a348WHO29uGaUg9l2pXWuEP4jUns7kqu6kK+lFUN4VA+aXGzGQv33Kd/fhNPXOqDu
+	 XN4M+8+vqtNQBT303A46rPkxBGi3Ge5P/E26uXFvGUC3nbD15281JTuQdmD1WK3zKo
+	 ydIOcfeW6WfOEaBjukkA1Af+lRoMtYZ0mt4LiEW8=
+Received: from DLEE203.ent.ti.com (dlee203.ent.ti.com [157.170.170.78])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59MCCk5P1999166
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 22 Oct 2025 07:12:46 -0500
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 22 Oct
+ 2025 07:12:46 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 22 Oct 2025 07:12:46 -0500
+Received: from psdkl-workstation0.dhcp.ti.com (psdkl-workstation0.dhcp.ti.com [172.24.234.127])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59MCCgMU1176371;
+	Wed, 22 Oct 2025 07:12:43 -0500
+From: Aniket Limaye <a-limaye@ti.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>,
+        <gehariprasath@ti.com>, Aniket Limaye <a-limaye@ti.com>
+Subject: [PATCH v2] arm64: dts: ti: k3-j784s4: Fix I2C pinmux pull configuration
+Date: Wed, 22 Oct 2025 17:41:55 +0530
+Message-ID: <20251022121222.220113-1-a-limaye@ti.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_050401_609651_82AA0C60 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20251022_051252_322677_57EE378B 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,34 +86,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kernel implementation of snprintf() cannot return negative error
-codes.  Also these particular calls to snprintf() can't return zero
-and the code to handle a zero return is sort of questionable.  Just
-delete this impossible code.
+The I2C pins for some of the instances on J784S4/J742S2/AM69 are
+configured as PIN_INPUT_PULLUP while these pins are open-drain type and
+do not support internal pull-ups [0][1][2]. The pullup configuration
+bits in the corresponding padconfig registers are reserved and any
+writes to them have no effect and readback checks on those bits fail.
 
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+Update the pinmux settings to use PIN_INPUT instead of PIN_INPUT_PULLUP
+to reflect the correct hardware behaviour.
+
+[0]: https://www.ti.com/lit/gpn/tda4ah-q1 (J784S4 Datasheet: Table 5-1. Pin Attributes)
+[1]: https://www.ti.com/lit/gpn/tda4ape-q1 (J742S2 Datasheet: Table 5-1. Pin Attributes)
+[2]: https://www.ti.com/lit/gpn/am69a (AM69 Datasheet: Table 5-1. Pin Attributes)
+
+Fixes: e20a06aca5c9 ("arm64: dts: ti: Add support for J784S4 EVM board")
+Fixes: 635fb18ba008 ("arch: arm64: dts: Add support for AM69 Starter Kit")
+Fixes: 0ec1a48d99dd ("arm64: dts: ti: k3-am69-sk: Add pinmux for RPi Header")
+Signed-off-by: Aniket Limaye <a-limaye@ti.com>
 ---
- drivers/remoteproc/mtk_scp.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+v2:
+- Added Fixes tags
+---
+ arch/arm64/boot/dts/ti/k3-am69-sk.dts                   | 8 ++++----
+ arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi | 4 ++--
+ 2 files changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-index 10e3f9eb8cd2..9b624948a572 100644
---- a/drivers/remoteproc/mtk_scp.c
-+++ b/drivers/remoteproc/mtk_scp.c
-@@ -1127,11 +1127,9 @@ static const char *scp_get_default_fw_path(struct device *dev, int core_id)
- 		return ERR_PTR(-EINVAL);
+diff --git a/arch/arm64/boot/dts/ti/k3-am69-sk.dts b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
+index 5896e57b5b9e..0e2d12cb051d 100644
+--- a/arch/arm64/boot/dts/ti/k3-am69-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
+@@ -236,8 +236,8 @@ J784S4_IOPAD(0x0d4, PIN_OUTPUT, 11) /* (AN38) SPI0_CLK.UART8_TXD */
  
- 	if (core_id >= 0)
--		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id);
-+		snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id);
- 	else
--		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp");
--	if (ret <= 0)
--		return ERR_PTR(ret);
-+		snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp");
+ 	main_i2c0_pins_default: main-i2c0-default-pins {
+ 		pinctrl-single,pins = <
+-			J784S4_IOPAD(0x0e0, PIN_INPUT_PULLUP, 0) /* (AN36) I2C0_SCL */
+-			J784S4_IOPAD(0x0e4, PIN_INPUT_PULLUP, 0) /* (AP37) I2C0_SDA */
++			J784S4_IOPAD(0x0e0, PIN_INPUT, 0) /* (AN36) I2C0_SCL */
++			J784S4_IOPAD(0x0e4, PIN_INPUT, 0) /* (AP37) I2C0_SDA */
+ 		>;
+ 	};
  
- 	/* Not using strchr here, as strlen of a const gets optimized by compiler */
- 	soc = &compatible[strlen("mediatek,")];
+@@ -416,8 +416,8 @@ J784S4_WKUP_IOPAD(0x088, PIN_OUTPUT, 0) /* (J37) WKUP_GPIO0_12.MCU_UART0_TXD */
+ 
+ 	mcu_i2c0_pins_default: mcu-i2c0-default-pins {
+ 		pinctrl-single,pins = <
+-			J784S4_WKUP_IOPAD(0x0a0, PIN_INPUT_PULLUP, 0) /* (M35) MCU_I2C0_SCL */
+-			J784S4_WKUP_IOPAD(0x0a4, PIN_INPUT_PULLUP, 0) /* (G34) MCU_I2C0_SDA */
++			J784S4_WKUP_IOPAD(0x0a0, PIN_INPUT, 0) /* (M35) MCU_I2C0_SCL */
++			J784S4_WKUP_IOPAD(0x0a4, PIN_INPUT, 0) /* (G34) MCU_I2C0_SDA */
+ 		>;
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
+index 419c1a70e028..2834f0a8bbee 100644
+--- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
+@@ -270,8 +270,8 @@ J784S4_IOPAD(0x0d4, PIN_OUTPUT, 11) /* (AN38) SPI0_CLK.UART8_TXD */
+ 
+ 	main_i2c0_pins_default: main-i2c0-default-pins {
+ 		pinctrl-single,pins = <
+-			J784S4_IOPAD(0x0e0, PIN_INPUT_PULLUP, 0) /* (AN36) I2C0_SCL */
+-			J784S4_IOPAD(0x0e4, PIN_INPUT_PULLUP, 0) /* (AP37) I2C0_SDA */
++			J784S4_IOPAD(0x0e0, PIN_INPUT, 0) /* (AN36) I2C0_SCL */
++			J784S4_IOPAD(0x0e4, PIN_INPUT, 0) /* (AP37) I2C0_SDA */
+ 		>;
+ 	};
+ 
 -- 
 2.51.0
 
