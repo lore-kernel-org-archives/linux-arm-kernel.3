@@ -4,55 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E53CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2578DCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 14:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TFEkpBnXxxmtKA9A7NePAhbOQjlfQfUvDI05XZ9mOos=; b=cG/ZmZCADKZ9bvZqAmsWjyM/FR
-	nqYZ5fYVUWbtCXyx+iiLTjgtpG7yTHmQtLLF1Pk9PZE7hQEdB8PtqTt5DyYT6Yep483JqM5PEtf+9
-	l00NDmaI3/vHCmB/LQOHm30hawDuJHNDcUSvTaCDvqgXvdN9MJtEPElZtgPW/qxDL3/v+Ao0daJwN
-	ar7GyChWxrdWEum/AEJnclY6sV6CVy0RhjPJ/rmO8w4d9DAlR935+h62YNn81IB2BqrlwZi36aa9/
-	ZOJH7Vl+2OXmMTAoqpANbh9ys7sxkVYkTMJzvtspE/NQdV7RasxoZ3oWJ7EpHj7xDFqvV4FZN5VYi
-	6CHLFUGw==;
+	bh=D7sgCBTfR/C5p7zZIiaptFArrV/CiFPWvjAdAnJc6HU=; b=ibvUC0v5zp+7Mab5tf+V/GhH+v
+	NrkxftL6ZbryPC8HsW34WAhYzy3OBPYWDB6dgUHKt+W5eVBKgvnIlDNBwpkCJN1O0ecnySBjHgz9p
+	XYBupWlzRw88AtKkScFpHiraglujL1kci0yhw0BAFzZLa57PyrqVhqqWZt+Ui7ECG8VE/aaNLwGiX
+	4IOpZiKRxIfIJiWjNHdWsh/jesmZNo8oadbQb9wm2rQ3h912z8EDzuJlQH12NPrUkJ9fU/EIy9jUZ
+	/iD/+F6PcirmJFwD3BVZbXPgllLTbxeiaPa2kSkLT0xOHdmF4EnFRELEzg7oCohOynSEvaDeN4hOB
+	/0g2AN9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZRn-000000038OR-3NR4;
-	Wed, 22 Oct 2025 14:04:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBZRl-000000038N4-0Rjf
+	id 1vBZSr-000000038d0-2xQo;
+	Wed, 22 Oct 2025 14:05:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBZSo-000000038b8-39YL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 14:04:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7B6B61063;
-	Wed, 22 Oct 2025 07:04:03 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CF2633F59E;
-	Wed, 22 Oct 2025 07:04:10 -0700 (PDT)
-Date: Wed, 22 Oct 2025 15:04:09 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Mike Leach <mike.leach@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	james.clark@linaro.org
-Subject: Re: [PATCH 1/1] coresight: fix issue where coresight component has
- no claimtags
-Message-ID: <20251022140409.GR281971@e132581.arm.com>
-References: <20251021234520.3355-1-mike.leach@linaro.org>
- <20251021234520.3355-2-mike.leach@linaro.org>
- <20251022092958.GQ281971@e132581.arm.com>
- <CAJ9a7Vi+Oq3Zma0Cs+w8m0kRE0pG6ax3=26EQK=u7d=vQfNFQw@mail.gmail.com>
+	Wed, 22 Oct 2025 14:05:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D72F143AEA;
+	Wed, 22 Oct 2025 14:05:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D67BC4CEF5;
+	Wed, 22 Oct 2025 14:05:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761141903;
+	bh=Z2fhMvuqsJ3srCnp+0oTmljFG+7/qaPNlbN0encLOvQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=STCa7qfpl6r6uM36aHFZSqIEcjThWmFFBHbZeEBZwFO8JG1xNRTCUnIFxQwB6AxUZ
+	 hFGYpNVAxqNd/I5p46l4Cy2SAgYZFO0TyIto+xhaTBnNIYsfvM/lV4ldsIP/iNifBq
+	 gE58Huk8mbgwiMyUZjii1IrxZV9ADPPrUHDNf9Y9C6QY8lTjbU3B0+w6cMcKIOu8Xa
+	 bEYRm1nNNEslseeSK3INJlTQ8i4LbnZT3sU3ZVCPUj+1muSl74dFB/aY2Q27r29DTd
+	 +kYcYEV9n/v4mMHuLHXl3qqCPIavBR6pW4a+gaAyKZDIdI3kb7suetdkM1v/xj4A3b
+	 Rwp0XZcyISUcg==
+Date: Wed, 22 Oct 2025 09:05:01 -0500
+From: Rob Herring <robh@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH v4 3/5] of/irq: Export of_msi_xlate() for module usage
+Message-ID: <20251022140501.GA3390144-robh@kernel.org>
+References: <20251021124103.198419-1-lpieralisi@kernel.org>
+ <20251021124103.198419-4-lpieralisi@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAJ9a7Vi+Oq3Zma0Cs+w8m0kRE0pG6ax3=26EQK=u7d=vQfNFQw@mail.gmail.com>
+In-Reply-To: <20251021124103.198419-4-lpieralisi@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_070413_265658_A432B8C8 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20251022_070518_806799_D47670B7 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,62 +80,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
-
-On Wed, Oct 22, 2025 at 01:35:46PM +0100, Mike Leach wrote:
-
-[...]
-
-> > - We can add a new flag ("bool claim_impl" in the struct csdev_access),
-> >   by default the field will be zero.
-> >
+On Tue, Oct 21, 2025 at 02:41:01PM +0200, Lorenzo Pieralisi wrote:
+> of_msi_xlate() is required by drivers that can be configured
+> as modular, export the symbol.
 > 
-> I considered a bool - but the correct place for this would be
-> coresight_device - where we keep all the information about the
-> hardware features.
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Cc: Rob Herring <robh@kernel.org>
+> ---
+>  drivers/of/irq.c | 1 +
+>  1 file changed, 1 insertion(+)
 
-Maybe coresight_device is suitable. But this might require to update
-furthermore for claim function arguments (e.g., need to pass "csdev"
-rather than "csdev_access").
+I guess just iproc needs this, so:
 
-> > - The drivers support claim tags call coresight_clear_self_claim_tag()
-> >   in probe (see __catu_probe() as an example), we can call a new
-> >   function coresight_init_claim_tag() to replace it, this function sets
-> >   "claim_impl" properly and clear the tag if supported.
-> >
-> 
-> I considered moving this initialisation to the common coresight code
-> where we create the coresight_device.
-
-Seems to me, this is dangerous. If a module is not CoreSight compliant
-and claim registers are absent, when access we will get unknown values
-or even cause serious result (external abort or bus lockup).
-
-[...]
-
-> > > +/*
-> > > + * Coresight specification defines a maximum of 8 claim tag bits.
-> > > + * The precise number is implementation defined, and may be obtained by
-> > > + * reading the CLAIMSET register.
-> > > + */
-> > > +#define CORESIGHT_CLAIM_BITS_MAX_MASK        GENMASK(7, 0)
-> > > +#define CORESIGHT_CLAIM_SELF_HOSTED_BIT      BIT(1)
-> >
-> > Now we only care about the self-host bit. Can reuse existed macros ?
-> >
-> 
-> I feel that drivers should be written to match the specification - the
-> macros above are a correct mask value per specification and the
-> correct bitfield comparison for the MSBit of the protocol.
-> 
-> The ones below are a protocol masks field, and a specific protocol
-> value that is used in value rather than bit comparisons in the
-> claimtag code. I felt it clearer to differentiate between the uses
-> when reading the code.
-
-How about change CORESIGHT_CLAIM_EXTERNAL and
-CORESIGHT_CLAIM_SELF_HOSTED to MSBit ?
-
-Thanks,
-Leo
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
