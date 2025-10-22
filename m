@@ -4,90 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17717CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 10:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E360ACCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 10:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j9nsZS9cf0Yesyto3hqsvaV4sJKL6LJk8tudSlukngM=; b=sWw5m7dOiZA5MwV9bn/8h3upXq
-	hXCkVYJABXLpcZsN4nU80U6q2S6qdefFH6YBNJGdAzTrmnJcTAjB3nTZCuuB5QYMdGwYEOBaSkv+z
-	+26tdnPnxUR8z/nKkT/MizO7gLcFwOaamCbbNnNJ31NfnN8ohydqDHeqCkTPSepFSU3V/8BfwSPG/
-	PvfMSeQap/PQOYd/auLlA+AVo821wCI2Zv+AM1w43u2cdv/uX2+JVSL7mHrLBBiZKubiJ51QL8E/i
-	Hp0dXgpu2hZ3eAtJYMQ5+ZXi6yz89fvFD0j/h3l5eFC/Jg36L1dmkdPJ1Bf0XKizfXxUaBV3x29S/
-	3qCRihRw==;
+	bh=qpOx+Mxq0W5NCE1x02njRBGwxea/jl5UXEAb9ehbg30=; b=m+c5gc3w0kJ0iHvsbIxZXejvH2
+	lGkxQziPGcdzTKthihppcV7vE4yYiZohcSCdjqmXlLXgRHhUWguMqJtac5skNyP5D7TBB9pZb59Hu
+	vO/bP6+dSszsSXKgVpAHV+CY/F9+VVaxXtE+W2NFnk30qutMI7gEPJl15Kkcx5cyrPPh4srpn4juX
+	l6lqDJ1Kx/LL/UQw2S56++615Eh+LMzxal5zC375+mhjYQUdu+TALfgzwa6FbsJvzwN1dr3cWL+VJ
+	8LZZ+D+dIEpjC/pK9twn81M0DsFJhgZPwq+kpFI1UtIqMtwp2j0iofNhGB4QXMYdd2SSIrtxfdhtE
+	1Y9h15Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBVir-00000002OiO-0E94;
-	Wed, 22 Oct 2025 10:05:37 +0000
-Received: from mail-vs1-f41.google.com ([209.85.217.41])
+	id 1vBVjV-00000002Oqa-3pQR;
+	Wed, 22 Oct 2025 10:06:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBVio-00000002Ohh-0zc9
+	id 1vBVjU-00000002Oq3-3XSX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 10:05:36 +0000
-Received: by mail-vs1-f41.google.com with SMTP id ada2fe7eead31-5a46c3b3a5bso2946320137.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 03:05:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761127533; x=1761732333;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=j9nsZS9cf0Yesyto3hqsvaV4sJKL6LJk8tudSlukngM=;
-        b=g0TbM05gRJIAXxom4KZ/ax8yQYLOjL/N/anmRNYYrBepqQUyyboD08MoSINZDtqhat
-         6NBG2wyY5ZlVGEZCSh0SqgEuKkNfgZKL2GSTAyvHL3Di09Nw45rty9qTFk6d1fCBBcin
-         kSKwhymfcl9B9e8y40I4TCK2F9PAPiBP9MCxkA7lYPvshBGoAGhoA88+mUxbjS7iKrL+
-         Z/SXVXUpQ2JITdKm8P1KSU5WTKDQT+uSjWEUaTZC1+jN51dUlFEK6vyVi7/zuHesUaQf
-         xeabtDmMSJN5/DJNeVUtK5DVbQyYHQyoIO1IWReiCkQODv/OOL6F/owPa3ydKc0X6qA4
-         wgcA==
-X-Forwarded-Encrypted: i=1; AJvYcCU+i2oI8ApBOqHqOVjO/2ZIsnn7zmPrVtaV8cGDnaYio67AlcwlWJw/yBYCrcZFumD9l9LdqT+jDB7VAFiNWKhQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywnz6d1iPeziTQipWDoIyIuEEln0rvtNAxnJhOCHQhnNYPlGWMI
-	tlTwfSUZfMPy9ysEuOJEGCzf6PO+I2cY8yVhxGYvGlUIPd32AVjmijQkDXArBDY6
-X-Gm-Gg: ASbGncsXWa2NMz2fThgtPuBFxqDAxOTkbUYKCLjJINPMv4A5A3XRzt7GF82f4Jmzr6E
-	Oyd8vRH8eyhvVq5lBoDAg57Ld1uq9HSZur1rKSWgd8cFcPrPPuOXM4liArdhE7JHJ1VPj2DaiZY
-	ELV/cHpLeUCOZcVmd4YAi3PDkdvqPxsgRLrxQdHlxfuHaO2PC7P7bkhBRMXgoDG0lXLAS6uRvIh
-	ANviv3wcmVWiLLtfx1MsRBMlXafJ0432vsVAX42rfHMB2lenLKnTuyzM0vMA5NfGfi+rwkcm/sH
-	3AXEmyBO/UBLEvRfN4IeVvismNrJ1Z2m36nlL0gjBYzBeuOYWhRs2XhjQ7tQlAf3ir4zo7mWM1r
-	nlr4cnfZIUYUmFpTs2l/sQ/V9i8xm3mdBXbIxZZZdXN8WJdFVQnqj4X5kJKq6csdOxKyDcA3jmQ
-	YGtkFPq1MxAbokOcuuH2Ul44v7nxjVOpEHDOekDQ==
-X-Google-Smtp-Source: AGHT+IF58xKJKGCC32vW7eEUckeFecwqnLows0SMEupmp/cqI8bE7UjH2EaC4ryNajBRf2ycsLl4YQ==
-X-Received: by 2002:a05:6102:548c:b0:52a:1ff2:da15 with SMTP id ada2fe7eead31-5d7dd5a6916mr5334039137.15.1761127532765;
-        Wed, 22 Oct 2025 03:05:32 -0700 (PDT)
-Received: from mail-ua1-f47.google.com (mail-ua1-f47.google.com. [209.85.222.47])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-932c3e32dd3sm4320201241.11.2025.10.22.03.05.31
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Oct 2025 03:05:31 -0700 (PDT)
-Received: by mail-ua1-f47.google.com with SMTP id a1e0cc1a2514c-932cb562289so1149798241.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 03:05:31 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXfXbzEGd1T5bsJtn5XEw89uUJQIVIosMEISmEWmBADugzqJZhQSoiZqPf3+/N4wYgspC26FrN/Gb2Q8kDs9r0P@lists.infradead.org
-X-Received: by 2002:a05:6102:32d3:b0:5d6:fcd:dc86 with SMTP id
- ada2fe7eead31-5d7dd568745mr5376089137.4.1761127531051; Wed, 22 Oct 2025
- 03:05:31 -0700 (PDT)
+	Wed, 22 Oct 2025 10:06:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2CD5061D6C
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 10:06:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1982C4CEFF
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 10:06:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761127575;
+	bh=YjoTV+qcYnMvMR+XsIYNmyvY6Y1XWrBQdEZTQ1QtXaY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=lJ3RRgauYL2s1q2mrj02T4mhG/3jEuS3L47Y2Ptl8NII5BooZQVEual2l0fPnJnV/
+	 Ivbdm4cyPvZuGOIJ2X/NyLN7wAz1RSRUUfZgUxBBHXFyAsCMxx400RsrP8xdWd7XpM
+	 EDtq/sivF/R/BhCUYuW87jhA92jAd3Y+p0Os7nEe8EBDqOBZRmBZIb/gtwlHU48a4O
+	 7j7Q7umK4JwbokbOtCjigXyev8DnYEQ3hhTuJ1gLIC7lHVHq9bBchiUx6SM0jV8Qch
+	 nTDxQVrPB/S7TpBv6LBpE0cZSr7HZiJZ4xsa4fB17+4uAj61+puaDZitBj0OPkj10q
+	 dGQA1g9yKmysQ==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-592f29e273bso158994e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 03:06:15 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUfg+ODc/ig1Za5VdPelVYfSHiX2QIckfkFnA/UswUmcOAbhF5ac5W/Gj0mIZwfjd9QQ1EJzkJAK0aY4JE7Yuk6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUzklgizjMKOkr0jlghpxSas6OLfXK7Vi6vmeLV8GMj6tJv4oY
+	74AJLiiiKqohcmM3o9AzhCk++V/VwemuPnEZgojlsap7pTB4dWBs9hU2Bl2OmEAPlGCqn74UKRY
+	U0Bf4wPhBngx7afBht+SW1nNJHaFTr+8=
+X-Google-Smtp-Source: AGHT+IEz0x//kso/iNTS21v0xmTCFoU040wkVDk2FAWrns4i2WZvwnraWiRmT9a7dZUqlR2yjlPI5muBgbBSVJSiBMU=
+X-Received: by 2002:a05:6512:ea3:b0:592:ee1f:227a with SMTP id
+ 2adb3069b0e04-592ee1f25e8mr889209e87.43.1761127574241; Wed, 22 Oct 2025
+ 03:06:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251020101311.256819-1-richard.genoud@bootlin.com> <20251020101311.256819-6-richard.genoud@bootlin.com>
-In-Reply-To: <20251020101311.256819-6-richard.genoud@bootlin.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 22 Oct 2025 12:05:20 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUVf2dgWqsfVt9HCytJmmRLYiCkhzSJVp3drZ6KDq0Wwg@mail.gmail.com>
-X-Gm-Features: AS18NWDWB3ss9iz68cJvppf6RUhrU6v4v0GhpWefkhntn5szf5Osn3JvNoovQ3I
-Message-ID: <CAMuHMdUVf2dgWqsfVt9HCytJmmRLYiCkhzSJVp3drZ6KDq0Wwg@mail.gmail.com>
-Subject: Re: [PATCH v3 05/15] mtd: rawnand: sunxi: rework pattern found registers
-To: Richard Genoud <richard.genoud@bootlin.com>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Wentao Liang <vulab@iscas.ac.cn>, Johan Hovold <johan@kernel.org>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-mtd@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20251018043106.375964-1-ebiggers@kernel.org>
+In-Reply-To: <20251018043106.375964-1-ebiggers@kernel.org>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Wed, 22 Oct 2025 12:06:02 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXFNw73j2F2QQJQ8CDXj1qfpK-xE+TRnRZoak5OhVDPA3w@mail.gmail.com>
+X-Gm-Features: AS18NWBgd42L4tDl9i3Mf7M4zRNkrg9sTyvbPU9kg_gjKmxPKesRTrDlO8EAPyY
+Message-ID: <CAMj1kXFNw73j2F2QQJQ8CDXj1qfpK-xE+TRnRZoak5OhVDPA3w@mail.gmail.com>
+Subject: Re: [PATCH 00/10] BLAKE2b library API
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-btrfs@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	"Jason A . Donenfeld" <Jason@zx2c4.com>
 Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_030534_282067_C3E8D3EF 
-X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,27 +80,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Oct 2025 at 22:51, Richard Genoud <richard.genoud@bootlin.com> wrote:
-> On H6/H616, the register ECC_PAT_FOUND is at its own address, and not
-> part of ECC status register.
-> So, introduce the pattern found register offset in sunxi_nfc_caps, along
-> with its mask.
+On Sat, 18 Oct 2025 at 06:36, Eric Biggers <ebiggers@kernel.org> wrote:
 >
-> Also, introduce a non compile-time field_get() because FIELD_GET() and
-> u32_get_bits() don't work with non compile-time constant.
-> https://lore.kernel.org/lkml/cover.1739540679.git.geert+renesas@glider.be/
+> This series can also be retrieved from:
+>
+>     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git blake2b-lib-v1
+>
+> This series adds BLAKE2b support to lib/crypto/ and reimplements the
+> blake2b-* crypto_shash algorithms on top of it.
+>
+> To prepare for that, patches 1-4 clean up the BLAKE2s library code a
+> bit, and patch 5 adds some missing 64-bit byteorder helper functions.
+> Patches 6-8 add the BLAKE2b library API (closely mirroring the BLAKE2s
+> one), and patch 9 makes crypto_shash use it.  As usual, the library APIs
+> are documented (with kerneldoc) and tested (with KUnit).
+>
+> With that done, all of btrfs's checksum algorithms have library APIs.
+> So patch 10 converts btrfs to use the library APIs instead of shash.
+> This has quite a few benefits, as detailed in that patch.
+>
+> Patches 1-9 are targeting libcrypto-next for 6.19.  Patch 10 can go
+> through the btrfs tree later.
+>
+> Eric Biggers (10):
+>   lib/crypto: blake2s: Adjust parameter order of blake2s()
+>   lib/crypto: blake2s: Rename blake2s_state to blake2s_ctx
+>   lib/crypto: blake2s: Drop excessive const & rename block => data
+>   lib/crypto: blake2s: Document the BLAKE2s library API
+>   byteorder: Add le64_to_cpu_array() and cpu_to_le64_array()
+>   lib/crypto: blake2b: Add BLAKE2b library functions
+>   lib/crypto: arm/blake2b: Migrate optimized code into library
+>   lib/crypto: tests: Add KUnit tests for BLAKE2b
+>   crypto: blake2b - Reimplement using library API
+>   btrfs: switch to library APIs for checksums
+>
 
-FTR, v4 at
-https://lore.kernel.org/all/cover.1760696560.git.geert+renesas@glider.be
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 
