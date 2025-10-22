@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E1ECCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 21:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97583CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 22 Oct 2025 21:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wc5x1Gwl3C0XgAlO395LUopwk5B3TtKZafU21IA+ndQ=; b=krAgL8nHIf1Oj838iBO1fFvxnb
-	2kdCaIAKNOkaSdzMRpsX8GQyAXcOP0F/QJijfO14OtvFYJkKC2g7kOBUL9WFCNyl8boH4tAKqTKTf
-	HpmMV4gnUeezx7MiylaAhCXnYOXrOEeZqcjEAqlvQnv+B9NNzqYXD26yVTnNiANXp5Xc66IBdm+58
-	TnYiTIs7tZdXNgkbMEoF/132H/nWwcky0CzotVHmXyisHJpLYJvKnqm14fCgr2jayUVPaFtUw0Z/+
-	5PgNmujmveCGyTOMIVDTheYu2zZgYVCcJij6MIswF8VS44tITN1nrBb3IKoNoiQNHvDoUExseZsWt
-	eP9ctdcg==;
+	bh=RoLMA7YAWuosvmrIBLI8Zurj/FpRrXqerMkVboDNB+Y=; b=bduYgMHGQHZF+1gQaU8xtrMHjn
+	QHm8skV0wUSPnh2vpVCXd1741Ntck4I/DMPUWpirBAsfG7X5ONZsK9zClM97wXKweatyDjrvOh4VQ
+	XvYlx3VW6JR9Z32tuXxZTiUEUS7vAVP8X+SRVTXN/WT2UexZVmRsjVx0aDfPh0xgutDYjcZ7Ihn1L
+	26mNj1KLmPFgaZXh1OOvxNLKj1za4C9mU/Zn8XOgYmIEgNfMITwuzpJnkXb+Rm2fmNY06Rw17d2Pe
+	IpQCd3ezdNl/hGhstuc6iI6jZthd75vizat2rM1Dq6PqH35mcTJge0HJrCZXCOHZ/ymcHx9iOFtEY
+	JbK40dSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBgYT-00000004NUV-3W7Y;
-	Wed, 22 Oct 2025 21:39:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBgbR-00000004Nnw-22pt;
+	Wed, 22 Oct 2025 21:42:41 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBgYS-00000004NTy-1uxx
+	id 1vBgbN-00000004NmU-3jAm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 21:39:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C104663E1E;
-	Wed, 22 Oct 2025 21:39:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B0F7C4CEE7;
-	Wed, 22 Oct 2025 21:39:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761169175;
-	bh=fMnDUsh++hTRlW5dn4gfNo7HgWB7+StricBM3MTmevE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HNWwA7uT41H1QeC3nDJKzxGOAYopyZyz8wtaReHnMFNDClB7pEowhjPcwr/h555lQ
-	 jVxtk2LwgDfOBrV2C1kpcI5K4L/QQTXZdNgUl0O4FXSwDIIJZ6hxJeud2yNdpiq/+M
-	 8EJBosY1IHyBF2qbURoZ+X8CZjQ1U95UUYYKemkTqV1JzCIfJyset7oaAlrfKF4mF4
-	 WbVDphXvbnCpZ3IipJhwoV0ZsefssffeUcgsW59U02F+Q8u5G2n+rXOzbnD6+eMX57
-	 jtCI+BMlMh63VWOMWxICaIOtULATYu3+pTOojxsVyRsl+O/sHbxAPjROCsiuLpTAhk
-	 +aIwx9oysP7iA==
-Date: Wed, 22 Oct 2025 22:39:28 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-cxl@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arch@vger.kernel.org,
-	linux-mm@kvack.org, Dan Williams <dan.j.williams@intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Andrew Morton <akpm@linux-foundation.org>, james.morse@arm.com,
-	Will Deacon <will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	linuxarm@huawei.com, Yushan Wang <wangyushan12@huawei.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org, Andy Lutomirski <luto@kernel.org>,
-	Dave Jiang <dave.jiang@intel.com>
-Subject: Re: [PATCH v4 6/6] cache: Support cache maintenance for HiSilicon
- SoC Hydra Home Agent
-Message-ID: <20251022-kite-revert-2c2684054d05@spud>
-References: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
- <20251022113349.1711388-7-Jonathan.Cameron@huawei.com>
+	Wed, 22 Oct 2025 21:42:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=RoLMA7YAWuosvmrIBLI8Zurj/FpRrXqerMkVboDNB+Y=; b=2o0zIKaGyuU7jtl6xkuRA757+/
+	As1Ixp9TgpYCJDhpfUu1tGXwnnJp89Oxc92MQcKIqa1/B82750L/nqFG+MHAVGVbDX/ljYXwf4ptn
+	Mszwaf22Z0j5sZeu62hOivGPjEZMSXwueveV3YZbNwS/5syABoUZ7lmMIjcqFgBc2bLw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vBgbA-00Boc8-AG; Wed, 22 Oct 2025 23:42:24 +0200
+Date: Wed, 22 Oct 2025 23:42:24 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Subject: Re: [PATCH net-next v14 03/16] net: ethtool: Introduce
+ ETHTOOL_LINK_MEDIUM_* values
+Message-ID: <cb217bf8-763e-4c48-9233-e577b32b14a8@lunn.ch>
+References: <20251013143146.364919-1-maxime.chevallier@bootlin.com>
+ <20251013143146.364919-4-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Hs5fF3jxcDKPxATt"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251022113349.1711388-7-Jonathan.Cameron@huawei.com>
+In-Reply-To: <20251013143146.364919-4-maxime.chevallier@bootlin.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251022_144237_927574_A77DAA5C 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,161 +91,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Oct 13, 2025 at 04:31:29PM +0200, Maxime Chevallier wrote:
+> In an effort to have a better representation of Ethernet ports,
+> introduce enumeration values representing the various ethernet Mediums.
+> 
+> This is part of the 802.3 naming convention, for example :
+> 
+> 1000 Base T 4
+>  |    |   | |
+>  |    |   | \_ lanes (4)
+>  |    |   \___ Medium (T == Twisted Copper Pairs)
+>  |    \_______ Baseband transmission
+>  \____________ Speed
 
---Hs5fF3jxcDKPxATt
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Dumb question. Does 802.3 actually use the word lanes here?
 
-On Wed, Oct 22, 2025 at 12:33:49PM +0100, Jonathan Cameron wrote:
+I'm looking at the commit which added lanes:
 
-> +static int hisi_soc_hha_wbinv(struct cache_coherency_ops_inst *cci,
-> +			struct cc_inval_params *invp)
-> +{
-> +	struct hisi_soc_hha *soc_hha =3D
-> +		container_of(cci, struct hisi_soc_hha, cci);
-> +	phys_addr_t top, addr =3D invp->addr;
-> +	size_t size =3D invp->size;
-> +	u32 reg;
-> +
-> +	if (!size)
-> +		return -EINVAL;
-> +
-> +	addr =3D ALIGN_DOWN(addr, HISI_HHA_MAINT_ALIGN);
-> +	top =3D ALIGN(addr + size, HISI_HHA_MAINT_ALIGN);
-> +	size =3D top - addr;
-> +
-> +	guard(mutex)(&soc_hha->lock);
-> +
-> +	if (!hisi_hha_cache_maintain_wait_finished(soc_hha))
-> +		return -EBUSY;
-> +
-> +	/*
-> +	 * Hardware will search for addresses ranging [addr, addr + size - 1],
-> +	 * last byte included, and perform maintain in 128 byte granule
-> +	 * on those cachelines which contain the addresses.
-> +	 */
+commit 012ce4dd3102a0f4d80167de343e9d44b257c1b8
 
-Hmm, does this mean that the IP has some built-in handling for there
-being more than one "agent" in a system? IOW, if the address is not in
-its range, then the search will just fail into a NOP?
-If that's not the case, is this particular "agent" by design not suitable
-for a system like that? Or will a dual hydra home agent system come with
-a new ACPI ID that we can use to deal with that kind of situation?
-(Although I don't know enough about ACPI to know where you'd even get
-the information about what instance handles what range from...)
+    Add 'ETHTOOL_A_LINKMODES_LANES' attribute and expand 'struct
+    ethtool_link_settings' with lanes field in order to implement a new
+    lanes-selector that will enable the user to advertise a specific number
+    of lanes as well.
 
-> +	size -=3D 1;
-> +
-> +	writel(lower_32_bits(addr), soc_hha->base + HISI_HHA_START_L);
-> +	writel(upper_32_bits(addr), soc_hha->base + HISI_HHA_START_H);
-> +	writel(lower_32_bits(size), soc_hha->base + HISI_HHA_LEN_L);
-> +	writel(upper_32_bits(size), soc_hha->base + HISI_HHA_LEN_H);
-> +
-> +	reg =3D FIELD_PREP(HISI_HHA_CTRL_TYPE, 1); /* Clean Invalid */
-> +	reg |=3D HISI_HHA_CTRL_RANGE | HISI_HHA_CTRL_EN;
-> +	writel(reg, soc_hha->base + HISI_HHA_CTRL);
-> +
-> +	return 0;
-> +}
-> +
-> +static int hisi_soc_hha_done(struct cache_coherency_ops_inst *cci)
-> +{
-> +	struct hisi_soc_hha *soc_hha =3D
-> +		container_of(cci, struct hisi_soc_hha, cci);
-> +
-> +	guard(mutex)(&soc_hha->lock);
-> +	if (!hisi_hha_cache_maintain_wait_finished(soc_hha))
-> +		return -ETIMEDOUT;
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct cache_coherency_ops hha_ops =3D {
-> +	.wbinv =3D hisi_soc_hha_wbinv,
-> +	.done =3D hisi_soc_hha_done,
-> +};
-> +
-> +static int hisi_soc_hha_probe(struct platform_device *pdev)
-> +{
-> +	struct hisi_soc_hha *soc_hha;
-> +	struct resource *mem;
-> +	int ret;
-> +
-> +	soc_hha =3D cache_coherency_ops_instance_alloc(&hha_ops,
-> +						     struct hisi_soc_hha, cci);
-> +	if (!soc_hha)
-> +		return -ENOMEM;
-> +
-> +	platform_set_drvdata(pdev, soc_hha);
-> +
-> +	mutex_init(&soc_hha->lock);
-> +
-> +	mem =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	if (!mem) {
-> +		ret =3D -ENOMEM;
-> +		goto err_free_cci;
-> +	}
-> +
-> +	/*
-> +	 * HHA cache driver share the same register region with HHA uncore PMU
-> +	 * driver in hardware's perspective, none of them should reserve the
-> +	 * resource to itself only.  Here exclusive access verification is
-> +	 * avoided by calling devm_ioremap instead of devm_ioremap_resource to
+    $ ethtool -s swp1 lanes 4
+    $ ethtool swp1
+      Settings for swp1:
+            Supported ports: [ FIBRE ]
+            Supported link modes:   1000baseKX/Full
+                                    10000baseKR/Full
+                                    40000baseCR4/Full
+                                    40000baseSR4/Full
+                                    40000baseLR4/Full
+                                    25000baseCR/Full
+                                    25000baseSR/Full
+                                    50000baseCR2/Full
+                                    100000baseSR4/Full
+                                    100000baseCR4/Full
+            Supported pause frame use: Symmetric Receive-only
+            Supports auto-negotiation: Yes
+            Supported FEC modes: Not reported
+            Advertised link modes:  40000baseCR4/Full
+                                    40000baseSR4/Full
+                                    40000baseLR4/Full
+                                    100000baseSR4/Full
+                                    100000baseCR4/Full
 
-The comment here doesn't exactly match the code, dunno if you went away
-=66rom devm some reason and just forgot to to make the change or the other
-way around? Not a big deal obviously, but maybe you forgot to do
-something you intended doing. It's mentioned in the commit message too.
 
-Other than the question I have about the multi-"agent" stuff, this
-looks fine to me. I assume it's been thought about and is fine for w/e
-reason, but I'd like to know what that is.
+For these link modes we are talking about 4 PCS outputs feeding an
+SFP module. The module when has one fibre pair, the media.
 
-Cheers,
-Conor.
+For baseT4 what you call a lane is a twisted pair, the media.
 
-> +	 * allow both drivers to exist at the same time.
-> +	 */
-> +	soc_hha->base =3D ioremap(mem->start, resource_size(mem));
-> +	if (!soc_hha->base) {
-> +		ret =3D dev_err_probe(&pdev->dev, -ENOMEM,
-> +				    "failed to remap io memory");
-> +		goto err_free_cci;
-> +	}
-> +
-> +	ret =3D cache_coherency_ops_instance_register(&soc_hha->cci);
-> +	if (ret)
-> +		goto err_iounmap;
-> +
-> +	return 0;
-> +
-> +err_iounmap:
-> +	iounmap(soc_hha->base);
-> +err_free_cci:
-> +	cache_coherency_ops_instance_put(&soc_hha->cci);
-> +	return ret;
-> +}
-> +
-> +static void hisi_soc_hha_remove(struct platform_device *pdev)
-> +{
-> +	struct hisi_soc_hha *soc_hha =3D platform_get_drvdata(pdev);
-> +
-> +	cache_coherency_ops_instance_unregister(&soc_hha->cci);
-> +	iounmap(soc_hha->base);
-> +	cache_coherency_ops_instance_put(&soc_hha->cci);
-> +}
+These two definitions seem to contradict each other.
 
---Hs5fF3jxcDKPxATt
-Content-Type: application/pgp-signature; name="signature.asc"
+For SGMII, 1000BaseX, we have 1 PCS lane, feeding a PHY with 4 pairs.
 
------BEGIN PGP SIGNATURE-----
+It gets more confusing at 10G, where the MAC might have 4 lanes
+feeding 4 pairs, or 1 lane feeding 4 pairs.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPlPEAAKCRB4tDGHoIJi
-0n5pAQCCL4y7CHzVqNXyyDfhRrqw9BjDlYs8MpqKde1NNQMUgwEAqS1sE14/IdwM
-Du1yl5LVFN+kra14elaLoO7/NifKDQg=
-=PAly
------END PGP SIGNATURE-----
+Also, looking at the example above, if i have a MAC/PHY combination
+which can do 10/100/1G and i did:
 
---Hs5fF3jxcDKPxATt--
+    $ ethtool -s swp1 lanes 2
+
+would it then only advertise 10 and 100, since 1G need four 'lanes'?
+
+Is reusing lanes going to cause us problems in the future, and maybe
+we should add a pairs member, to represent the media? And we can
+ignore bidi fibre modules for the moment :-)
+
+       Andrew
 
