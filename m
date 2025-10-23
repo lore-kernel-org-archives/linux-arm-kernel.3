@@ -4,157 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA6D8CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:54:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6547CCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dqU7mjwQ9Tuv6viIvC+OdjC5AD/nKvbUFs66cknXclY=; b=Wm16h0Y2m6wTFKU1p7r2ZHyaUu
-	CnXdG+JwlH8bNypTlY5evIbew/ndLHpdDpOXP8c5/iqvsSeah98A7m152jbjbp7VKI3w3LYhSGDuR
-	AoucN96B5yYZu28al1iPuIsbp4FU5asPcRATD0lxxi1im+Rcc56mfh2QiYY4Fj+rAnWPKLGxFrL9W
-	+rO3WkjrSVX6mB/UClAp9xWofN8kEkjHJAvila8Hwi0j2P3Ow2MjRyIwbmA/FZ4L4SERNgf8clkLO
-	m/AbSE3KIZ7dIaNsxgp6tPOg131Ysdmlpt9ciiIhk1YGuuko36elfaIhpp+YIj+iSgkw91F/6cnli
-	pUBmRDSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OWoL1UZ/q1eqzSis7uaNsqbiHg0hktnmtvNBWCaQMdw=; b=2i0G6jukTdDL82wrrKDFZPSRAI
+	NUsXxs6SXvg0iDJi7IYWkyIF3QC13rmBPLlsaePo2Ml/8WDRuia5XjQCHa8S2BXrOT10hYFwkTRYK
+	LYKtb/mOnPVETm0Ehr0iHUsp0QI3acx0UJiUO1hyta0r54/kjm1DipYmirp9N1XyaRSJfXqOTnWrg
+	HFlTE1fnIdKUCbuiwdNMHSWZ/2O6lupjvwLcky/Obr+j2rPXLpLhNQWP273W4yZEoZwcF9kjCCgEp
+	RRRq4vDLG7aCuCAB+r988xw1XTRhk02uXzlrHzsvoa00Sk+oxDsRh4zYpBicROGvoVlf3dz2zhURr
+	iqxlog+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwiD-00000006eex-44Fv;
-	Thu, 23 Oct 2025 14:54:45 +0000
-Received: from mail-centralusazon11011010.outbound.protection.outlook.com ([52.101.62.10] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1vBwmT-00000006fXW-0Zek;
+	Thu, 23 Oct 2025 14:59:09 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwiA-00000006eeQ-2hm4;
-	Thu, 23 Oct 2025 14:54:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uxx6M8fwVAJviMfHmvkgHPF/9iHxr50K98BXYyLmobMpZs/gTeZUHbrAXDY0UeOojM2RVc+lNtZPdghLBNSzG64tBf9g/80l0xSzKma+WLicQwKRAEDnYrZUo3LobU4K4l/PsVMc6zPFC+iRCeY9OKpYJ4w3dTlx5u7d6dXgPF1ChAik95jrWDZ9wFVbK83/FeyR3ueFyMeMmDDT+gbKAw5EuBHhPmnMc0ifmLs46i42C+xXtu61hkDP3vl83lC47PwcoW72mtvyiZ9Gnpl+OHmiTBK4qrsel6qgj8wXKJJdKpjXi9VgPK3syYwWtwjtysds1xVhf5uG6qqT7q9REA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dqU7mjwQ9Tuv6viIvC+OdjC5AD/nKvbUFs66cknXclY=;
- b=BDWxwD2S8RJv2lyec+MaXrtoNDwkSD04juaRSgPrc6HKFqsirCozlMBmrPxeaHuvBi3vVKpuZTBf9yNT/Wqk/kWw47TWuaAwM9bleCH4TD//TgKHUF95Uq26xOWdMsb/gjxLRNraw92sNP7oCovkbHzIhWnjeTDvWmGG8UZSsk1w4FJ9o/i7FXZrMLhzokY0iKiGDqv67OUIKRQdyG8XY/0HfEX8/JIvJgDZr+AikpMyBvsdNkzXH7o3W3XjI1l8L1cJVXSdD736HJ8m+9CFL9EiQ1sq82za7j5h/VtYnlodRLKjdOJE6YZpfa5A8vSydxZRzimIrve6teGlw+1bQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dqU7mjwQ9Tuv6viIvC+OdjC5AD/nKvbUFs66cknXclY=;
- b=s5jfA7oW5xFSTQB2NljI80gVY11IYv/PdmkCxRCP3tU1GnxsCwntK2Kea0y1g5vqiwGE/Vi6RJ279T7aI42wXEEKI+X8pvoMmbHIaVzX7VLavxeNHnjwq9yqV7Cf9netElLKhHqJBqfQP3IM3CgdXgMlWUkK315DDCJBa7J+/SeUVEOK/24SrVpbA4M2J9Zpy8yXxe44unoIVP5wzSgA7XKnmEvtYtXK/IG9ep+m5sjMUJCZd3on1R0BnrTNQByHx5q/NJGVhM5DBiCfeX0GlyX6MGBKP3EP1wGSUIZjqQ2O0t/NHXcHzAPl/kM473igopZej1VIn++eiJImT30lZw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
- by DM6PR12MB4266.namprd12.prod.outlook.com (2603:10b6:5:21a::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Thu, 23 Oct
- 2025 14:54:36 +0000
-Received: from MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
- ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9253.011; Thu, 23 Oct 2025
- 14:54:35 +0000
-Date: Thu, 23 Oct 2025 11:54:34 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Christian Benvenuti <benve@cisco.com>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Joerg Roedel <joro@8bytes.org>, Leon Romanovsky <leon@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, linux-rdma@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Nelson Escobar <neescoba@cisco.com>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
-	Yong Wu <yong.wu@mediatek.com>, patches@lists.linux.dev
-Subject: Re: [PATCH 3/3] iommu: Allow drivers to say if they use
- report_iommu_fault()
-Message-ID: <20251023145434.GJ262900@nvidia.com>
-References: <3-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
- <d594cdf2-5aab-4539-8d44-f7e57770df72@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d594cdf2-5aab-4539-8d44-f7e57770df72@arm.com>
-X-ClientProxiedBy: MN2PR01CA0064.prod.exchangelabs.com (2603:10b6:208:23f::33)
- To MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
+	id 1vBwmQ-00000006fUj-1K0E
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Oct 2025 14:59:07 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-471bde1e8f8so5051595e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 07:59:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761231544; x=1761836344; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OWoL1UZ/q1eqzSis7uaNsqbiHg0hktnmtvNBWCaQMdw=;
+        b=A313K2YVI1Gq6eHsWtId1HqRlePGh4lqCLP+VZst1FtKzrwWt6q9ZeoFtMeVoHMtJb
+         ruN2xT+WnWzPxoKSvgEhOOhJmlLnmp6rx5YpQtjMJQ8vMwQcgRk4+oJVLaXopvuk73xB
+         kPH0pLPXKhuEAi4maigDiqR1TlmPUKSucsza8BDjxSlF5rfPvxLzsn+O7PRa8TlD4VYB
+         +9jpCKPQR2AbE5wJzmuJYSYW4oWVq6CjArEKNWlgzb0gC9DLGYOfxKOjQ4xyXwWR+Gc0
+         2Vx1//iU9qRm4vsxKeeCxhDdXloAKzOoYHx43/ZK8I7EejEZ1rlXbUfraQWuz2N/557k
+         q5iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761231544; x=1761836344;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OWoL1UZ/q1eqzSis7uaNsqbiHg0hktnmtvNBWCaQMdw=;
+        b=bfG22Jku2EpXHe/DVa0jpafn33yWhKVFHzxAdgz1o6lv2uIibDNycrL557SIO2ndIJ
+         TGzHJs58Y/qiChLj1yOFoUFhhhd2FfxTFeuuA5g/aakm0L28X4OPwuO/kuZjtbh9mzWv
+         O0aqQ2Tn+e7UEDSMppNJ7GTFhrmhwIYcMPFGu7LilaJWKRX4c7kLBdHn/RW9opQStMX6
+         95xmMmWHpWq9vrq+NVh1YF0a21jGO7AfEgPfQWIVvkJqpX08yNMiIkK0x3UkzoI2ViDf
+         Z9JtnKxdTpVdYNeVDv9LPAEyDXj38R2OnJf2Q9YCX8vqQMKsrlS8xytR69Z9ppik7b7b
+         FvyA==
+X-Forwarded-Encrypted: i=1; AJvYcCVrP9zrQf9mvwNE/fAg/YeEtnqmqLX3drPT5xGNFzPtBD2K956gWISQv5hW4kkk8AYDK8hzH/rEEdVsVMavBzzk@lists.infradead.org
+X-Gm-Message-State: AOJu0YzITn5vMDcx2rpGcdrlOs/zuKu2fX/KfjrvNVIser9TurYRE/69
+	kr7mBz8hgSPKcTVXbEUVq54fFQL5rcf5juPCpsJhVX4wNcBAcGtkFUQH
+X-Gm-Gg: ASbGnct2rHuVzzAsVHpGKgiPluPqeZnWgzHHhnU00I3mV9Lwh+A4n1WliH4e5WiOcB7
+	y/W826sKVbLutPAJh4ffqeeyyTaUjW5HHGVwpkO7D+dWheQX625ECbVChnjQpdvdtkQY5wkuaAn
+	Oy1UctV9BENVz/GHA8sdZ+nu8E8D3BYUv0liEtPGPVb/tgeZ+LumVznupbVjGFsRwMt13UtVrIe
+	DmOlBhBWtJ8mwDlptSGHfG9z9zqlvyZH1v9162yTr0hpZTxMWkM33fe1qOYcF+SQYyWwHmvZUiG
+	Vk/iL6tftMla/ZKWR8sJLuLes7OZy9YJrTm3G848kITgJjOWc5kQObkJVrJTeQGf//+8RSpQ2aA
+	1wAKWpFnGpdfPnB8IujwQstTMMLK09o1GjaRznR5EiFkYkbmeOBd2f+AIICYXbZ2aUDOhU4sPjN
+	c/Ik/0lYCOC2UvXlW2g9jMVVRKisZErWufipsPZkWM
+X-Google-Smtp-Source: AGHT+IHX3KE00pQn3aNP1QwDiE6EhD5Q3hRD8inmO43mr2wuZ5/VM7zYPzKmzGmrYwsAVd3vpyhaEw==
+X-Received: by 2002:a05:600c:4f89:b0:46e:3edc:2811 with SMTP id 5b1f17b1804b1-4711787750dmr167242385e9.14.1761231544110;
+        Thu, 23 Oct 2025 07:59:04 -0700 (PDT)
+Received: from Ansuel-XPS24 (93-34-90-37.ip49.fastwebnet.it. [93.34.90.37])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-475cae9f292sm39822325e9.5.2025.10.23.07.59.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Oct 2025 07:59:03 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Christian Marangi <ansuelsmth@gmail.com>
+Subject: [net-next PATCH v2 0/2] net: airoha: initial phylink support
+Date: Thu, 23 Oct 2025 16:58:47 +0200
+Message-ID: <20251023145850.28459-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|DM6PR12MB4266:EE_
-X-MS-Office365-Filtering-Correlation-Id: ecf5b08e-c5d5-409c-0366-08de12441541
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?94oQD/d7+HvV+q5LlVCKVCK4C5oFl/NbIU6GgBaBG8yDL3kfL/bk1oEgKE1g?=
- =?us-ascii?Q?98mZugHJDgQ7u8QWULMbWZWmH+O/NtamGcuBAPkhkcrzfm0WsgdcS009f0CR?=
- =?us-ascii?Q?2J9InKx39yy3pH0vETHHW84s6eUSpcnIgXj2hrVrlOuFXnnsxqWWtbNJK+Ty?=
- =?us-ascii?Q?YI4MMsSTQq4QtX8JsicfS5kA5dy0NujHaVO2+PimhHJCUf7pTv5iJtDRzKew?=
- =?us-ascii?Q?HEmCjbC7k33W4UUD1ZBn3UI8XddIp0A0sG+khpPGr/tUA6aaAHjTaJSxBOj0?=
- =?us-ascii?Q?BYTZygHCcbm+VvhsQxDBqfCJxqlTNBYsi8Y+ICjFtgvPHcJxueN2iOv73osX?=
- =?us-ascii?Q?csS6jvuomuNfYFrVyjbsRMOXBs+yg4XQ856KEP7VJ1hVLRvWtWmckzFPbkcQ?=
- =?us-ascii?Q?7Zijv/+XmeRW6zjZNoL0UZk0rrrwhijopJZaiatiOwXhcoLdJ8FFODLFKoW8?=
- =?us-ascii?Q?wVsbrSt9J4GUr81KT4pdv5c0ZFJP3KM/SYf/oECpDYMIonQAGBA3IO8MDg7c?=
- =?us-ascii?Q?VIbFJ1z5NFbwo4SHs1WNSiEtYGH280DiifhqEXUBImnPUw6SFBedfZgdurVt?=
- =?us-ascii?Q?TTyzUFSWMv+yVci8B3qwvLHIR57ESytfO06h6SGb2Ku5OtF64ddIs3dERugO?=
- =?us-ascii?Q?1YUkcpq2gqEQqMnUaXYx9mezGiJrYgNp3ESQuMFCZjmRfWBwBlTOpr3pvHGA?=
- =?us-ascii?Q?jDvW6y4GSzhDkw8h+BJ+qLApie1Wj7ZtiDRvEsL4ZqnBI8MTxwyosl4bB0YN?=
- =?us-ascii?Q?0hLrTHGJYR8ZfGYs1e3bpJEzpg6dVOK/WKjkxmblm6QKpHcFa2mkB7OULqNd?=
- =?us-ascii?Q?40KQjy2M5oh+mezwDD3PWw9L+WuFaLEXwxVua0UexQ6SHchDbjD2kK8VCB2v?=
- =?us-ascii?Q?M+BA4kRcBjQo+0+KpbDj+azXxBpSQTh1MdWhGQnYZ7pQlyDrTRTBmiu+0htz?=
- =?us-ascii?Q?CalZN3NBoPAiYApLwr88vkWFIXsRnaX3Voh7C09fw8JyF8aHNj4juQClx5Uf?=
- =?us-ascii?Q?Mt95ZQVbkAHpxDKgbvKENTiLjCOYCCoe+wcFBKU/J80jMER2FK73z+GJqG8D?=
- =?us-ascii?Q?Naxgq3/wTtROJumKfFvKuP53tPdtvHwk5FIaC7ymsYG07Fdqn+ugLmp+r6PS?=
- =?us-ascii?Q?0cemeRykbCUd74QD1RbX5DaNNp7DfnVuHrXz+xiP22XyuOvnfUoL+F97AngM?=
- =?us-ascii?Q?Qu0mw8iTKr3s/nYktOjZ4qsxz1mUBOhm9/km8lg8r3ZoJ6YgDuYOuh3glVBQ?=
- =?us-ascii?Q?bR2LLnNpTyDw3VeCUbHQckBJHPOu1/mrSYr+4Le74Bc0pMjrBejbdqE1tH7f?=
- =?us-ascii?Q?Xz3AFUDwC5X8Jgx8jHYGi1bI+aC9vVK5GLisblswNBzyj/2aExCVMwhOGZch?=
- =?us-ascii?Q?Y0I65XS4lHKceAnLDFwLfWfBqO+gJS7KuxzoQZX2GROLzQfBV/nIhX/rCBrA?=
- =?us-ascii?Q?xnwjdB90otNj7wnXmOq9QCmffUudpHZN?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?d3v36TDUSHZkWQqPEs+llBOCuhT8akovkIXjF/xPDJXhgFijAIULyDp4sTl8?=
- =?us-ascii?Q?5MaDs8j5j/cNetsZty69l4erkvxDbZKJP2Rh4TXRbxj4KVOsJPHCn/DPd0FP?=
- =?us-ascii?Q?PqaedyTmx6G9XCECpDvUI2OezIgyxgFEHExpyPfpugFiZn9w/Nu8WRVa5juY?=
- =?us-ascii?Q?VbO+CPPuq5j0USP5wNE8rE5x1dCfGihzh/sStC244XM/OWdTV51ljgCnxwyk?=
- =?us-ascii?Q?0MJKG8TqiOtFgUH0wTqKWiv2E+ahXtA8Y5fRTaLL0UHMAFZUT4O6Y24lK7nC?=
- =?us-ascii?Q?PgbktrC+H2S4bkfZaDinakk0mQhYp5PbA2ghQHjhTx26OAEFyWIlh0V2uHcv?=
- =?us-ascii?Q?Bt65XWnaxOUsJT1ITt5X7Ro5CZEkHQAVaXQ1oGMcHL8zODaSOf4EwuvLiM7Y?=
- =?us-ascii?Q?AcN12CYPvObdN2qiFyaMFH1OwfIqRLaJpxFO53Awe1Gib64VnMajGmqDMB89?=
- =?us-ascii?Q?LCDIQoL7PBdkkdnp0RpikLfQE5eK9dI47oy7euXcEvQ2VVtZmoe8F5JetYsA?=
- =?us-ascii?Q?3TinnwDIqcBR71yShmE7RMAFrW7CgRzc9tl4b6Z/U0d7SIk/8vBLqE3KPtoj?=
- =?us-ascii?Q?j1PYujQqE+R8CVRQflwOawYlPvkA4JBANEIsjH9WsSJ8Dxs93yBGy6s3RQ9X?=
- =?us-ascii?Q?+pAbNkS4H3qjr9iCzc/8A8vo+W+wz/gL5xmH3GIwkuzmAKUXamm60L/kEAZE?=
- =?us-ascii?Q?yTd+it8ElQnZHMCZdEdaWbIvhByqt1iJSbwRD9N/8yy36ay6q1nqByWu4PRO?=
- =?us-ascii?Q?FzqQ6h9TecdqcomXkZuNKMq1/0+ULPjxdOwo+mVYmSmkj7deKYTQpCGunvUU?=
- =?us-ascii?Q?0A24hIPJf4DLdldVyemWbouRRBDaOrmPokUKaRsxwbdBNLFAPvfZfbrVokEX?=
- =?us-ascii?Q?qFg83Sz53MSEJDJenyIiZaE3M0DSmL6SrisaxvUfPBz2l2BqnY0ejlkh4LAa?=
- =?us-ascii?Q?YhX6Ac4VbHROmoGJDnsr4OuHEe+MzwKI6xrOWfDzDbuHW9NfSr4XWyQ11Dbl?=
- =?us-ascii?Q?Qf9SUmbcfwD7ECECBFBBacqOTiykCrTkI8Gqkh4kt9HhOMUca1iP/2C6LUHh?=
- =?us-ascii?Q?tACCibY5xgMyTRghIWJqAT2EVkZTgYfAxtReSvp8wOcreoi5lJA86or/Ubbi?=
- =?us-ascii?Q?N4vWqMz1y3NSkxh48ViJgbj8pHg2d0N40rMdibaUmIMDZkXci7qyPNEJZXqU?=
- =?us-ascii?Q?f5j2NByEeO2aXWzKxD8IMAemZF9ok3E80xFzS9pys8I3OvfqL76ta95dVVvv?=
- =?us-ascii?Q?gUT9NJArsnD5IwoutruN//klfeJk9/BvA8PlcOdiqY8TaZpkvIvyPZixT+Lh?=
- =?us-ascii?Q?W3ekyEInWo2qFzjkOhDLrMsht7J02MQWVN3LAgSBqKYtnQuyiVLCmFhgYbu1?=
- =?us-ascii?Q?dRWg5HdWi2K36TsoBzz4FKwNkPSJEcPGOQTtgkOayDWzygANnbYri8iPi19L?=
- =?us-ascii?Q?MzmOhOdX9PV+nfxSc2ZKNTbIOpGoZ3fWUrcn9PSi/l6GWIf3jfis/o1BXXLh?=
- =?us-ascii?Q?ZeVNnAk02xqKH9/NYRbyBPygpJ4j0BkWpG0O7NSBd0oNtnwP353sDf5isrpU?=
- =?us-ascii?Q?/5d7V11C+4cIwh9libGNj4XN5Wxfqoxn7W7zov6Q?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ecf5b08e-c5d5-409c-0366-08de12441541
-X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2025 14:54:35.8465
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e+m8tgumpImimoCaMVbCCvLsQ+MFEpFp02TkvyZ+vorOd6Iv+Hz7n7QenP1vxL5Y
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4266
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_075442_811486_4DF1BFBA 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20251023_075906_351503_E54F27B2 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,38 +105,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025 at 12:24:01PM +0100, Robin Murphy wrote:
-> On 2025-10-22 6:12 pm, Jason Gunthorpe wrote:
-> > report_iommu_fault() is an older API that has been superseded by
-> > iommu_report_device_fault() which is capable to support PRI.
-> > 
-> > Only two external drivers consume this, drivers/remoteproc and
-> > drivers/gpu/drm/msm. Ideally they would move over to the new APIs, but for
-> > now protect against accidentally mix and matching the wrong components.
-> > 
-> > The iommu drivers support either the old iommu_set_fault_handler() via the
-> > driver calling report_iommu_fault(), or they are newer server focused
-> > drivers that call iommu_report_device_fault().
-> > 
-> > Include a flag in the domain_ops if it calls report_iommu_fault() and
-> > block iommu_set_fault_handler() on iommu's that can't support it.
-> 
-> This isn't a domain operation though; depending on how you look at it,
-> supporting a legacy fault_handler is either a capability of the IOMMU driver
-> (that would be reachable via domain->owner->capable) or a property of the
-> iommu_domain itself that the drivers can set at allocation time (basically
-> this same patch just with the lines in slightly different places).
+This trivial patch adds the initial phylink support. It's expected
+in the future to add the dedicated PCS for the other GDM port.
 
-That's right, the issue is:
+This is to give consistent data when running ethtool on the GDM1
+port instead of the "No Data"
 
-void iommu_set_fault_handler(struct iommu_domain *domain,
-					iommu_fault_handler_t handler,
-					void *token)
+Changes v2:
+- Move setup phylink to airoha_alloc_gdm_port
+- Better handle phylink_destroy on error path
+- Fix bug for device_get_phy_mode
 
-We can't get to the iommu instance starting from a domain pointer
+Christian Marangi (2):
+  net: airoha: use device_set_node helper to setup GDM node
+  net: airoha: add phylink support for GDM1
 
-Do you think we should change the above signature to include a
-struct device *?
+ drivers/net/ethernet/airoha/Kconfig      |  1 +
+ drivers/net/ethernet/airoha/airoha_eth.c | 79 +++++++++++++++++++++++-
+ drivers/net/ethernet/airoha/airoha_eth.h |  3 +
+ 3 files changed, 81 insertions(+), 2 deletions(-)
 
-Jason
+-- 
+2.51.0
+
 
