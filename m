@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A6FDCCD1BC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED65CCD193
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 09:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QlPj07c1tuo6xmCfdYNIdUpxfVil6ynTDn9Tr4o4XP8=; b=mrbFzvYFZX35MZGOl/tC+Z1Xh5
-	+8xoqzNOpfjqTbe48d6DEq1x+WX+IEFgAVVodnZALLvQSz5potfmry8WkykJKQOP+myIry7ovaiN5
-	ar2gK+VB0F7v1GcTHIohWZLzSMc7hKIhe1yw3/j3pHDlev+6VqZHxdKEwyhaVkJoJsjrsK7JhpdlM
-	Etizq8fWG3PPO4LA6We6TyPP9MsP0EdkKgjI0JT6KKELBdFM2hlx5DlVnGktlDh5HcZPLFN4V0+ea
-	IlCp3Cbh+bRPwe2NUyailUUhC+0ZJPzmOizPb7/zg8QuhVOQ7mHA72UQhuZX8+dkiBHeV2QuGQmyn
-	jVAbVXQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qH3+uJ+5ckmRvkLm5ESje4aJmgxtn4Pg8ZgByogvE4w=; b=REOjK0LNG0LV1ybTeIgBR4RkKz
+	XBHUOUZNTsUbbKTFTnfevlGUjdV1qPsUvM2hSECjGE+n/VlQ3A5Sp73kdFX5vyWdBgS5Fs13ZG1xP
+	BBGp22S6U6p6hFD27+Dda7RWbuxnBuEherQLfeA9eKdqrReIkQXXdQRoDlBqaAU6C2aBwqCYOIlVp
+	1g6NTrm2/H0jJ54aM2qnkjX/fNX+Rs10kVZda1B3mpdq6ElNTb1Qn7a1i1oJxL7UoCCTE9lvBDf5L
+	Jfr3Ws4ia7AtZgpTfW/yHX5K9UtdIEJ/G8kYEjkEsR8teLKFcH+shDG7gLbJhjDu3O4CjTySyIKoN
+	zzAg5R9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBroI-00000005lJN-24JB;
-	Thu, 23 Oct 2025 09:40:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vBroI-00000005lJn-3IhS;
+	Thu, 23 Oct 2025 09:40:43 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBro2-00000005l3u-1dZd
+	id 1vBro4-00000005l58-0HKP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 09:40:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CF0504ABC1;
-	Thu, 23 Oct 2025 09:40:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF390C4AF09;
-	Thu, 23 Oct 2025 09:40:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761212425;
-	bh=nJOnAXX5sRVFOgviHjMHBI/zr4WV3fKNmsk5kSsFjtQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=T4D2XouKlTdAaJXNLAB2DTxUcIAy1Cxw740vuAlenlseHGSG1GHpyuA+vpYtNq05o
-	 QOIhWRRvk49Gizl2n1iwQYmVDql5KMYNRpwDkiOAk0XB+5PaMZCh6gixKFX41f1b3x
-	 eODq72LXUIWDoN7rWi4S2N4WY9yhhfISiOR2iFbkUOjbJxzHX/iLBOBRJlp4AFjhLN
-	 eZ3JLdLA8Nblb5Gsu7RPUWIrbatsgEzzq29Ye55KOTu90oJ4zjnpgtyDvUZ0t92T0c
-	 o3Zh0M1mEbbPoW3PcdwzEKINGFwUzeq2gR/vbowKuEcS3VmNbT8y+Kg2IfsNCbIMK4
-	 xPAtuVQwubTwA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D063809A2D;
-	Thu, 23 Oct 2025 09:40:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Thu, 23 Oct 2025 09:40:29 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59N9dchG501630;
+	Thu, 23 Oct 2025 04:39:38 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1761212378;
+	bh=qH3+uJ+5ckmRvkLm5ESje4aJmgxtn4Pg8ZgByogvE4w=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=MyY39kXQeXOUJ2Hdo/ZLocer7T2NxqqZQcfy7/7yMVlF/MjB9Xm2YPsbNdGtYnvzt
+	 y666Ut9RR/r0WZJROft9t19+Hds3utvXJRSTd2teduk4e5XozxJlgMM6cGYr4mYfOg
+	 TiFX6rG43x7xdU5u7IkPvMF5yNlkkA9mShUj68Vs=
+Received: from DLEE214.ent.ti.com (dlee214.ent.ti.com [157.170.170.117])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59N9dbMZ3036304
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 23 Oct 2025 04:39:37 -0500
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Oct
+ 2025 04:39:37 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 23 Oct 2025 04:39:37 -0500
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59N9db4b2657733;
+	Thu, 23 Oct 2025 04:39:37 -0500
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 59N9daRt014013;
+	Thu, 23 Oct 2025 04:39:37 -0500
+From: Meghana Malladi <m-malladi@ti.com>
+To: <horms@kernel.org>, <namcao@linutronix.de>, <vadim.fedorenko@linux.dev>,
+        <jacob.e.keller@intel.com>, <m-malladi@ti.com>,
+        <christian.koenig@amd.com>, <sumit.semwal@linaro.org>,
+        <sdf@fomichev.me>, <john.fastabend@gmail.com>, <hawk@kernel.org>,
+        <daniel@iogearbox.net>, <ast@kernel.org>, <pabeni@redhat.com>,
+        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
+        <andrew+netdev@lunn.ch>
+CC: <linaro-mm-sig@lists.linaro.org>, <dri-devel@lists.freedesktop.org>,
+        <linux-media@vger.kernel.org>, <bpf@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net-next v4 1/6] net: ti: icssg-prueth: Add functions to create and destroy Rx/Tx queues
+Date: Thu, 23 Oct 2025 15:09:22 +0530
+Message-ID: <20251023093927.1878411-2-m-malladi@ti.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251023093927.1878411-1-m-malladi@ti.com>
+References: <20251023093927.1878411-1-m-malladi@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: ti: icssg-prueth: Omit a variable
- reassignment
- in prueth_netdev_init()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <176121240626.2969431.4409960503973897261.git-patchwork-notify@kernel.org>
-Date: Thu, 23 Oct 2025 09:40:06 +0000
-References: <71f7daa3-d4f4-4753-aae8-67040fc8297d@web.de>
-In-Reply-To: <71f7daa3-d4f4-4753-aae8-67040fc8297d@web.de>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- andrew+netdev@lunn.ch, byungchul@sk.com, davem@davemloft.net,
- diogo.ivo@siemens.com, edumazet@google.com, grygorii.strashko@ti.com,
- h-mittal1@ti.com, kuba@kernel.org, jan.kiszka@siemens.com,
- krzysztof.kozlowski@linaro.org, danishanwar@ti.com, m-malladi@ti.com,
- pabeni@redhat.com, r-gunasekaran@ti.com, rogerq@kernel.org, horms@kernel.org,
- vigneshr@ti.com, linux-kernel@vger.kernel.org, linux.amoon@gmail.com,
- christophe.jaillet@wanadoo.fr
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_024026_458538_E6189B75 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20251023_024028_228455_36AC7130 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +97,322 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Each port for a given ICSSG instance has their own set of
+Tx and Rx queues. Add functions to create and destroy these
+queues, which will be further used while performing ndo_bpf
+operations to set up XSK Tx/Rx queues for a given port.
 
-This patch was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+In the destroy Rx queue sequence add teardown wait to ensure
+that all the descriptors including the TDCM (teardown completion
+marker) have been serviced and freed to avoid any sort of descriptor
+leaks.
 
-On Mon, 20 Oct 2025 16:02:56 +0200 you wrote:
-> From: Markus Elfring <elfring@users.sourceforge.net>
-> Date: Mon, 20 Oct 2025 15:46:11 +0200
-> 
-> An error code was assigned to a variable and checked accordingly.
-> This value was passed to a dev_err_probe() call in an if branch.
-> This function is documented in the way that the same value is returned.
-> Thus delete two redundant variable reassignments.
-> 
-> [...]
+Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+---
+ drivers/net/ethernet/ti/icssg/icssg_common.c |  10 +-
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 177 ++++++++++++-------
+ drivers/net/ethernet/ti/icssg/icssg_prueth.h |   2 +
+ 3 files changed, 127 insertions(+), 62 deletions(-)
 
-Here is the summary with links:
-  - [net-next] net: ti: icssg-prueth: Omit a variable reassignment in prueth_netdev_init()
-    https://git.kernel.org/netdev/net-next/c/e0665df8c501
-
-You are awesome, thank you!
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+index 0eed29d6187a..94021751b6b7 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_common.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+@@ -719,8 +719,10 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, u32 *xdp_state)
+ 		return ret;
+ 	}
+ 
+-	if (cppi5_desc_is_tdcm(desc_dma)) /* Teardown ? */
++	if (cppi5_desc_is_tdcm(desc_dma)) {
++		complete(&emac->tdown_complete);
+ 		return 0;
++	}
+ 
+ 	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
+ 	swdata = cppi5_hdesc_get_swdata(desc_rx);
+@@ -804,7 +806,7 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, u32 *xdp_state)
+ 	return ret;
+ }
+ 
+-static void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
++void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
+ {
+ 	struct prueth_rx_chn *rx_chn = data;
+ 	struct cppi5_host_desc_t *desc_rx;
+@@ -822,6 +824,7 @@ static void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
+ 
+ 	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+ }
++EXPORT_SYMBOL_GPL(prueth_rx_cleanup);
+ 
+ static int prueth_tx_ts_cookie_get(struct prueth_emac *emac)
+ {
+@@ -1025,7 +1028,7 @@ enum netdev_tx icssg_ndo_start_xmit(struct sk_buff *skb, struct net_device *ndev
+ }
+ EXPORT_SYMBOL_GPL(icssg_ndo_start_xmit);
+ 
+-static void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
++void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
+ {
+ 	struct prueth_tx_chn *tx_chn = data;
+ 	struct cppi5_host_desc_t *desc_tx;
+@@ -1051,6 +1054,7 @@ static void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
+ 
+ 	prueth_xmit_free(tx_chn, desc_tx);
+ }
++EXPORT_SYMBOL_GPL(prueth_tx_cleanup);
+ 
+ irqreturn_t prueth_rx_irq(int irq, void *dev_id)
+ {
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 1c1f4394ff1f..fa2d0bd329ab 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -735,6 +735,114 @@ static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
+ 	return 0;
+ }
+ 
++static void prueth_destroy_txq(struct prueth_emac *emac)
++{
++	int ret, i;
++
++	atomic_set(&emac->tdown_cnt, emac->tx_ch_num);
++	/* ensure new tdown_cnt value is visible */
++	smp_mb__after_atomic();
++	/* tear down and disable UDMA channels */
++	reinit_completion(&emac->tdown_complete);
++	for (i = 0; i < emac->tx_ch_num; i++)
++		k3_udma_glue_tdown_tx_chn(emac->tx_chns[i].tx_chn, false);
++
++	ret = wait_for_completion_timeout(&emac->tdown_complete,
++					  msecs_to_jiffies(1000));
++	if (!ret)
++		netdev_err(emac->ndev, "tx teardown timeout\n");
++
++	for (i = 0; i < emac->tx_ch_num; i++) {
++		napi_disable(&emac->tx_chns[i].napi_tx);
++		hrtimer_cancel(&emac->tx_chns[i].tx_hrtimer);
++		k3_udma_glue_reset_tx_chn(emac->tx_chns[i].tx_chn,
++					  &emac->tx_chns[i],
++					  prueth_tx_cleanup);
++		k3_udma_glue_disable_tx_chn(emac->tx_chns[i].tx_chn);
++	}
++}
++
++static void prueth_destroy_rxq(struct prueth_emac *emac)
++{
++	int i, ret;
++
++	/* tear down and disable UDMA channels */
++	reinit_completion(&emac->tdown_complete);
++	k3_udma_glue_tdown_rx_chn(emac->rx_chns.rx_chn, true);
++
++	/* When RX DMA Channel Teardown is initiated, it will result in an
++	 * interrupt and a Teardown Completion Marker (TDCM) is queued into
++	 * the RX Completion queue. Acknowledging the interrupt involves
++	 * popping the TDCM descriptor from the RX Completion queue via the
++	 * RX NAPI Handler. To avoid timing out when waiting for the TDCM to
++	 * be popped, schedule the RX NAPI handler to run immediately.
++	 */
++	if (!napi_if_scheduled_mark_missed(&emac->napi_rx)) {
++		if (napi_schedule_prep(&emac->napi_rx))
++			__napi_schedule(&emac->napi_rx);
++	}
++
++	ret = wait_for_completion_timeout(&emac->tdown_complete,
++					  msecs_to_jiffies(1000));
++	if (!ret)
++		netdev_err(emac->ndev, "rx teardown timeout\n");
++
++	for (i = 0; i < PRUETH_MAX_RX_FLOWS; i++) {
++		napi_disable(&emac->napi_rx);
++		hrtimer_cancel(&emac->rx_hrtimer);
++		k3_udma_glue_reset_rx_chn(emac->rx_chns.rx_chn, i,
++					  &emac->rx_chns,
++					  prueth_rx_cleanup);
++	}
++
++	prueth_destroy_xdp_rxqs(emac);
++	k3_udma_glue_disable_rx_chn(emac->rx_chns.rx_chn);
++}
++
++static int prueth_create_txq(struct prueth_emac *emac)
++{
++	int ret, i;
++
++	for (i = 0; i < emac->tx_ch_num; i++) {
++		ret = k3_udma_glue_enable_tx_chn(emac->tx_chns[i].tx_chn);
++		if (ret)
++			goto reset_tx_chan;
++		napi_enable(&emac->tx_chns[i].napi_tx);
++	}
++	return 0;
++
++reset_tx_chan:
++	/* Since interface is not yet up, there is wouldn't be
++	 * any SKB for completion. So set false to free_skb
++	 */
++	prueth_reset_tx_chan(emac, i, false);
++	return ret;
++}
++
++static int prueth_create_rxq(struct prueth_emac *emac)
++{
++	int ret;
++
++	ret = prueth_prepare_rx_chan(emac, &emac->rx_chns, PRUETH_MAX_PKT_SIZE);
++	if (ret)
++		return ret;
++
++	ret = k3_udma_glue_enable_rx_chn(emac->rx_chns.rx_chn);
++	if (ret)
++		goto reset_rx_chn;
++
++	ret = prueth_create_xdp_rxqs(emac);
++	if (ret)
++		goto reset_rx_chn;
++
++	napi_enable(&emac->napi_rx);
++	return 0;
++
++reset_rx_chn:
++	prueth_reset_rx_chan(&emac->rx_chns, PRUETH_MAX_RX_FLOWS, false);
++	return ret;
++}
++
+ /**
+  * emac_ndo_open - EMAC device open
+  * @ndev: network adapter device
+@@ -746,7 +854,7 @@ static int icssg_update_vlan_mcast(struct net_device *vdev, int vid,
+ static int emac_ndo_open(struct net_device *ndev)
+ {
+ 	struct prueth_emac *emac = netdev_priv(ndev);
+-	int ret, i, num_data_chn = emac->tx_ch_num;
++	int ret, num_data_chn = emac->tx_ch_num;
+ 	struct icssg_flow_cfg __iomem *flow_cfg;
+ 	struct prueth *prueth = emac->prueth;
+ 	int slice = prueth_emac_slice(emac);
+@@ -819,28 +927,13 @@ static int emac_ndo_open(struct net_device *ndev)
+ 		goto stop;
+ 
+ 	/* Prepare RX */
+-	ret = prueth_prepare_rx_chan(emac, &emac->rx_chns, PRUETH_MAX_PKT_SIZE);
++	ret = prueth_create_rxq(emac);
+ 	if (ret)
+ 		goto free_tx_ts_irq;
+ 
+-	ret = prueth_create_xdp_rxqs(emac);
+-	if (ret)
+-		goto reset_rx_chn;
+-
+-	ret = k3_udma_glue_enable_rx_chn(emac->rx_chns.rx_chn);
++	ret = prueth_create_txq(emac);
+ 	if (ret)
+-		goto destroy_xdp_rxqs;
+-
+-	for (i = 0; i < emac->tx_ch_num; i++) {
+-		ret = k3_udma_glue_enable_tx_chn(emac->tx_chns[i].tx_chn);
+-		if (ret)
+-			goto reset_tx_chan;
+-	}
+-
+-	/* Enable NAPI in Tx and Rx direction */
+-	for (i = 0; i < emac->tx_ch_num; i++)
+-		napi_enable(&emac->tx_chns[i].napi_tx);
+-	napi_enable(&emac->napi_rx);
++		goto destroy_rxq;
+ 
+ 	/* start PHY */
+ 	phy_start(ndev->phydev);
+@@ -851,15 +944,8 @@ static int emac_ndo_open(struct net_device *ndev)
+ 
+ 	return 0;
+ 
+-reset_tx_chan:
+-	/* Since interface is not yet up, there is wouldn't be
+-	 * any SKB for completion. So set false to free_skb
+-	 */
+-	prueth_reset_tx_chan(emac, i, false);
+-destroy_xdp_rxqs:
+-	prueth_destroy_xdp_rxqs(emac);
+-reset_rx_chn:
+-	prueth_reset_rx_chan(&emac->rx_chns, max_rx_flows, false);
++destroy_rxq:
++	prueth_destroy_rxq(emac);
+ free_tx_ts_irq:
+ 	free_irq(emac->tx_ts_irq, emac);
+ stop:
+@@ -889,9 +975,6 @@ static int emac_ndo_stop(struct net_device *ndev)
+ {
+ 	struct prueth_emac *emac = netdev_priv(ndev);
+ 	struct prueth *prueth = emac->prueth;
+-	int rx_flow = PRUETH_RX_FLOW_DATA;
+-	int max_rx_flows;
+-	int ret, i;
+ 
+ 	/* inform the upper layers. */
+ 	netif_tx_stop_all_queues(ndev);
+@@ -905,32 +988,8 @@ static int emac_ndo_stop(struct net_device *ndev)
+ 	else
+ 		__dev_mc_unsync(ndev, icssg_prueth_del_mcast);
+ 
+-	atomic_set(&emac->tdown_cnt, emac->tx_ch_num);
+-	/* ensure new tdown_cnt value is visible */
+-	smp_mb__after_atomic();
+-	/* tear down and disable UDMA channels */
+-	reinit_completion(&emac->tdown_complete);
+-	for (i = 0; i < emac->tx_ch_num; i++)
+-		k3_udma_glue_tdown_tx_chn(emac->tx_chns[i].tx_chn, false);
+-
+-	ret = wait_for_completion_timeout(&emac->tdown_complete,
+-					  msecs_to_jiffies(1000));
+-	if (!ret)
+-		netdev_err(ndev, "tx teardown timeout\n");
+-
+-	prueth_reset_tx_chan(emac, emac->tx_ch_num, true);
+-	for (i = 0; i < emac->tx_ch_num; i++) {
+-		napi_disable(&emac->tx_chns[i].napi_tx);
+-		hrtimer_cancel(&emac->tx_chns[i].tx_hrtimer);
+-	}
+-
+-	max_rx_flows = PRUETH_MAX_RX_FLOWS;
+-	k3_udma_glue_tdown_rx_chn(emac->rx_chns.rx_chn, true);
+-
+-	prueth_reset_rx_chan(&emac->rx_chns, max_rx_flows, true);
+-	prueth_destroy_xdp_rxqs(emac);
+-	napi_disable(&emac->napi_rx);
+-	hrtimer_cancel(&emac->rx_hrtimer);
++	prueth_destroy_txq(emac);
++	prueth_destroy_rxq(emac);
+ 
+ 	cancel_work_sync(&emac->rx_mode_work);
+ 
+@@ -943,10 +1002,10 @@ static int emac_ndo_stop(struct net_device *ndev)
+ 
+ 	free_irq(emac->tx_ts_irq, emac);
+ 
+-	free_irq(emac->rx_chns.irq[rx_flow], emac);
++	free_irq(emac->rx_chns.irq[PRUETH_RX_FLOW_DATA], emac);
+ 	prueth_ndev_del_tx_napi(emac, emac->tx_ch_num);
+ 
+-	prueth_cleanup_rx_chns(emac, &emac->rx_chns, max_rx_flows);
++	prueth_cleanup_rx_chns(emac, &emac->rx_chns, PRUETH_MAX_RX_FLOWS);
+ 	prueth_cleanup_tx_chns(emac);
+ 
+ 	prueth->emacs_initialized--;
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+index f0fa9688d9a0..5cc90b66035a 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+@@ -501,5 +501,7 @@ u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
+ 			struct xdp_frame *xdpf,
+ 			struct page *page,
+ 			unsigned int q_idx);
++void prueth_rx_cleanup(void *data, dma_addr_t desc_dma);
++void prueth_tx_cleanup(void *data, dma_addr_t desc_dma);
+ 
+ #endif /* __NET_TI_ICSSG_PRUETH_H */
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.43.0
 
 
