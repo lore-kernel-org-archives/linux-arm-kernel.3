@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B61CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 13:58:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0221CCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 13:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JvDw3KVRz7KvchjxSHR2cOozGBUZnt7khP7Ju+BwHEs=; b=SzBGtB3fO1lMHBWnBOWcEnx7Q7
-	OPm/J17oIw9wF+iyrBil6N/sXzRZW3xf6LbqIaIQjOeGS5alwrP6OADRIf8tSSp3A+NYdM0fQuGw/
-	42MTnzozV8mGBfQnjrNnUdNhjFCNlAdJPZrKMLOlnDpz3m5hE25LZKxF3ZVCcRo1vunFwMrxZyQ1S
-	Go8ebr55FG8jiuAYb/+EgEgjiUxWHunp0WWAm8H4VG56Q3I+j9wwso57xEvvA7z34iSCppA84Fq/I
-	NEcqS7IyCdSGYTRPcg8Vd6eRBq+qWGUlNTHV4X4YNLJjeaG/LXcCsqv1dO/s0h0PaP+4M4TmxMANe
-	Mxgo2JFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LHznA4IxR0ryi2cJoCEHN+kBwQ2XKkkZXeR8LA/d1QU=; b=ojnkdG1S8A4j8wFtmj/vkpOZK+
+	ZVJLVHJNMK5OYGHGoms/DzU9kOtUvCyDcX3N1gVhHBrIoe3zkGRmNj4yo5BFW1QUrhONP32QgGWkX
+	WKsePdVu+ixgRE0+zAc8YgHpl4xeSCZ5x+wuXINNQAjATtJxEhE7nawIa1/CyReH/C71QeTMLmONA
+	uF9Ib8N351+Nlxd9kZOfHDjbbfjrwC/o7EObRI/rPc/tzog1S6EN1KpvZBn21VkrMGBDvoXu/ZHZH
+	9caxbxjX0OCvCdLMO0uikwnM4i1FLlXOZHtp/tOEvuPYKicJsnso5h33VeNULeFtuShtXhCnvAND+
+	Q6z7Ix0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvpJ-00000006UrP-2fce;
-	Thu, 23 Oct 2025 13:58:01 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1vBvq7-00000006V7K-00NB;
+	Thu, 23 Oct 2025 13:58:51 +0000
+Received: from mail-vk1-f176.google.com ([209.85.221.176])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvpH-00000006UqE-2xzL
+	id 1vBvq4-00000006V6T-3cGy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 13:58:01 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4csnfr3cgdz9slx;
-	Thu, 23 Oct 2025 15:57:56 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1761227876;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JvDw3KVRz7KvchjxSHR2cOozGBUZnt7khP7Ju+BwHEs=;
-	b=HaVABwHmhZOUxy8QugCfn+LoF0N0PRvzMLWoJZ4nggrZqO2Z630mpKgmMiie33/QvpWpRY
-	3pk2p45Bxhe3w4zKnrjwHqPxMQVo3YvAi03PZurgtocgJY+2cIGbqsNyId4d6DDLPIFrLi
-	I2+MlZ4Rxv71k+Zh6I8uT9fgtsq1yao7w+A60rhCh8/Oss36NQEYvbyawe2nyCG7awZa8j
-	dRxIyHn9L52N9H/jRrZZUUCWQbB6iCx+k4/K6paI862xs8n8LKgVF6CkTuJ/i2nNepU71F
-	T2j90/aklKGfqvBhzTna3TbGr3/qVLJ3oHeab/rXljrRXY2GlZgFg6sB7hHHfA==
-Message-ID: <98ce2726-ab58-447a-bcb5-23b6347fa4fb@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1761227874;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JvDw3KVRz7KvchjxSHR2cOozGBUZnt7khP7Ju+BwHEs=;
-	b=PEiveaMwtZEcej3rfaw7BGWVnPSXvrzU0PHYP2sM8/v2LF7DLswJgbgvzer/jQwpvWJLJc
-	JBrOk59mwKuf0lZU4aj2pU0NTIFPfmUEA4UBAwOqsKxSxSvfp7ZHyjHkojmIuiT6z7hfy6
-	jddWSdpleDdryGqnsFYuG/0mN6aepCiRdJOGlqAnFKlNMM9EO8d4B92wLMt/90NUzbvSjG
-	R3ynh161xa74jgFy49R1W3wRcpXsVgWosawDKZ3qBaoTZLq9GTlR56q4PPPNYXd0Ovj+B3
-	no65cQOxnU1U/fBAqcjJYHF5S6BUlyErdKDk/HyEgqcKDIbBrbJrigUbPl+OMg==
-Date: Thu, 23 Oct 2025 15:57:51 +0200
+	Thu, 23 Oct 2025 13:58:50 +0000
+Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-54aa5f70513so230445e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 06:58:48 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761227927; x=1761832727;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LHznA4IxR0ryi2cJoCEHN+kBwQ2XKkkZXeR8LA/d1QU=;
+        b=jNYRKV+eiuLxfwFlT6bu76Rc/yjHMUIeye8pRb0SJvTDktlQ28ZnTNNpURBUHHE2eF
+         haBQYIlrhn9DtFx6zYQKluug+zvSngcqvsVU2BoUmX/mBLwjPrKRR67yzA0NgPEN6UoX
+         jBt7Wknv4C96SNQLAkskFj5aJpGKsWLzeH7u0pL5/L1dXstZqQFHo5+pQdE7hrhh0/ut
+         6QVlenDTWjkAirqzoHSLyqqR5gklT/PpYvwFy+CyPYyOGYTDzq3HEESL1iBykrD3lffP
+         Gf6olyQIOV5PxG6fhUsmXzL0R3YI7VmFMipQ6Wg/ZOWhrisPNthkpuPEPrG3SQS377Xt
+         ZlQw==
+X-Forwarded-Encrypted: i=1; AJvYcCUQV/nR7WEVL0Xv26/KmkkPxIC3V+TA6A0jludQ9sibOKi21fPl2FtdvOjcfWeBYkDTWPOmKdOejmV+sjYYkqW1@lists.infradead.org
+X-Gm-Message-State: AOJu0YylxiVMwDPLctnOG/dR96jamq1BRO8a01D23ogqWjRBMIWk2+cJ
+	7AZJY7oxJ3vKHmyQYhSbvO54Nv/rMxEL1o70Fmevjw1aXRQAqPCVJXCIPbAKikg1
+X-Gm-Gg: ASbGncvQHP1O5teupgNMpLH/aVx+P/LcR1Y1WhpPk427eArUg5CTe1p6KyJl97M9wPH
+	eMpIjkP5e0U8x5akPvYCHdag7UgARMhm3dOCib/O6n6FzjtvEHyQdWznHBsHTZavYmNOdbJvZtx
+	zfixoQtWcX4o3JcPG0ffA4XVa4u8le1QSOz/5I2dlpk7lS5Ic2yXar0gVaHj9HRhVs1bqScc3VZ
+	CZSgXCBLT8O8qkxe4LLy6O+EWedu9XLMVNF+KOcov6PcsPxiyFrn6zLS9oXFr/oT9c+zmdH7aAu
+	HIBFBAcRIEjfKRvxhimdBJB8HLT8sbi1hYalT5HIUVEjdqoqDfQz+LwBslMbPfARfuBld03zA3r
+	h92UMWHmNE5OVcdPpHr6A9dO8E6l/V4Yi26mCoCvlq4UG5iC0OfayvHQeM9zHzmvgYsAgBW/Exe
+	tWgldu3ey+KHOIzZae/uCVaedtZinJM0r5k9H9LA==
+X-Google-Smtp-Source: AGHT+IFJk9fp2hhz64Syzbeavt8mdfTFZwSf4cG0+TKbLjn4j8k2y9f2rrXA4joIz2ogk2slIvyMAw==
+X-Received: by 2002:a05:6102:e11:b0:5d7:684b:cfe3 with SMTP id ada2fe7eead31-5d7dd6a5052mr7354218137.23.1761227927149;
+        Thu, 23 Oct 2025 06:58:47 -0700 (PDT)
+Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-557bd8e5e87sm775719e0c.11.2025.10.23.06.58.46
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Oct 2025 06:58:46 -0700 (PDT)
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-91bdf1a4875so285665241.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 06:58:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWrpyde0h5eOu6bYda3P/B+E90tZtstfHterK8TnwTSeRLTBmVgXcbZLCwc1USRyFVXZqmEHlgYTLuQcWv2GjFm@lists.infradead.org
+X-Received: by 2002:a05:6102:c09:b0:5db:3935:1636 with SMTP id
+ ada2fe7eead31-5db393518f0mr253967137.26.1761227926239; Thu, 23 Oct 2025
+ 06:58:46 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,poll-transport property
-To: Sudeep Holla <sudeep.holla@arm.com>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Cristian Marussi <cristian.marussi@arm.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-renesas-soc@vger.kernel.org
-References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
- <20251023-able-fervent-tortoise-e7a6df@sudeepholla>
- <20251023-active-blue-collie-2978ea@sudeepholla>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <20251023-active-blue-collie-2978ea@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: dusg5ipbwggidpzsepg36osiph8xjhnt
-X-MBO-RS-ID: 30b98b26cec28366837
+References: <20251009-clk-ssc-v5-1-v5-0-d6447d76171e@nxp.com> <20251009-clk-ssc-v5-1-v5-6-d6447d76171e@nxp.com>
+In-Reply-To: <20251009-clk-ssc-v5-1-v5-6-d6447d76171e@nxp.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 23 Oct 2025 15:58:35 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdU-UkzLnrPpBVyMH0DtgubxE_spUYbxtpO+5dmkFFqdcQ@mail.gmail.com>
+X-Gm-Features: AWmQ_bl-Wzz5qd5CCY2fSVugSIzDYGwiZQethxZEtHbYBjXjOaCfH3VbWwjwxpU
+Message-ID: <CAMuHMdU-UkzLnrPpBVyMH0DtgubxE_spUYbxtpO+5dmkFFqdcQ@mail.gmail.com>
+Subject: Re: [PATCH v5 6/6] clk: scmi: Add i.MX95 OEM extension support for
+ SCMI clock driver
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Sebin Francis <sebin.francis@ti.com>, Brian Masney <bmasney@redhat.com>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, linux-kernel@vger.kernel.org, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_065759_911441_7540E6A4 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20251023_065849_079660_98BB8C7D 
+X-CRM114-Status: GOOD (  25.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,44 +101,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/23/25 3:42 PM, Sudeep Holla wrote:
+Hi Peng,
 
-Hello Sudeep,
+On Thu, 9 Oct 2025 at 05:49, Peng Fan <peng.fan@nxp.com> wrote:
+>  - Introduce 'clk-scmi-oem.c' to support vendor-specific OEM extensions
+>    for the SCMI clock driver, allows clean integration of vendor-specific
+>    features without impacting the core SCMI clock driver logic.
+>  - Extend 'clk-scmi.h' with 'scmi_clk_oem' structure and related declarations.
+>  - Initialize OEM extensions via 'scmi_clk_oem_init()'.
+>  - Support querying OEM-specific features and setting spread spectrum.
+>  - Pass 'scmi_device' to 'scmi_clk_ops_select()' for OEM data access.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
->>> diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
->>> index be817fd9cc34b..b53754a318ea1 100644
->>> --- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
->>> +++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
->>> @@ -146,6 +146,13 @@ properties:
->>>         this platform. If set, the value should be non-zero.
->>>       minimum: 1
->>>   
->>> +  arm,poll-transport:
->>> +    type: boolean
->>> +    description:
->>> +      An optional property which unconditionally forces polling in all transports.
->>> +      This is mainly mean to work around uncooperative SCP, which does not generate
->>> +      completion interrupts.
->>> +
->>
->> Could you please clarify which platform and transport this change pertains to?
->>
->> Introducing a property that enforces unconditional polling across all
->> platforms is not ideal - particularly if this is intended as a workaround
->> for a platform- or firmware- specific issue. Such implementations often get
->> replicated across platforms without addressing the root cause, leading to
->> wider inconsistencies.
->>
-> 
-> Just to clarify what I mean by "enforces unconditional polling" is with the
-> added DT property only. I understand this is new property and it much be
-> present in DT to enforce polling, but it can be misused initially for testing
-> in absence of interrupt support and forgotten in DT. Hence my concern.
+Thanks for your patch!
 
-I would argue about the "mis" part of "misused" . It can be both "used" 
-and "misused". I can add stronger warning into the description ?
+> --- /dev/null
+> +++ b/drivers/clk/clk-scmi-oem.c
+> @@ -0,0 +1,103 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * The Vendor OEM extension for System Control and Power Interface (SCMI)
+> + * Protocol based clock driver
+> + *
+> + * Copyright 2025 NXP
+> + */
+> +
+> +#include <linux/clk-provider.h>
+> +#include <linux/of.h>
+> +#include <linux/scmi_imx_protocol.h>
+> +#include <linux/scmi_protocol.h>
+> +
+> +#include "clk-scmi.h"
+> +
+> +#define SCMI_CLOCK_CFG_IMX_SSC                 0x80
+> +#define SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK      GENMASK(7, 0)
+> +#define SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK                GENMASK(23, 8)
+> +#define SCMI_CLOCK_IMX_SS_ENABLE_MASK          BIT(24)
+> +
+> +struct scmi_clk_oem_info {
+> +       char *vendor_id;
+> +       char *sub_vendor_id;
+> +       char *compatible;
+> +       const void *data;
+> +};
+> +
+> +static int
+> +scmi_clk_imx_set_spread_spectrum(struct clk_hw *hw,
+> +                                const struct clk_spread_spectrum *ss_conf)
+> +{
+> +       struct scmi_clk *clk = to_scmi_clk(hw);
+> +       int ret;
+> +       u32 val;
+> +
+> +       /*
+> +        * extConfigValue[7:0]   - spread percentage (%)
+> +        * extConfigValue[23:8]  - Modulation Frequency
+
+What is the unit of this?
+According to the code below, it is in Hz, so it is limited to 65535 Hz.
+
+> +        * extConfigValue[24]    - Enable/Disable
+> +        * extConfigValue[31:25] - Reserved
+
+Center, up, down, could be stored here, I assume?
+
+> +        */
+> +       val = FIELD_PREP(SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK, ss_conf->spread_bp / 10000);
+> +       val |= FIELD_PREP(SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK, ss_conf->modfreq_hz);
+> +       if (ss_conf->method != CLK_SPREAD_NO)
+> +               val |= SCMI_CLOCK_IMX_SS_ENABLE_MASK;
+> +       ret = scmi_proto_clk_ops->config_oem_set(clk->ph, clk->id,
+> +                                                SCMI_CLOCK_CFG_IMX_SSC,
+> +                                                val, false);
+> +       if (ret)
+> +               dev_warn(clk->dev,
+> +                        "Failed to set spread spectrum(%u,%u,%u) for clock ID %d\n",
+> +                        ss_conf->modfreq_hz, ss_conf->spread_bp, ss_conf->method,
+> +                        clk->id);
+> +
+> +       return ret;
+> +}
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-Best regards,
-Marek Vasut
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
