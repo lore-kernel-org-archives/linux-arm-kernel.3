@@ -4,80 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F005CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 08:30:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2333CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 08:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r9GcjNdKx0l5qe7F9q2vo9g6zEhRHjHM5Fp6gH11pEQ=; b=rWbtKs3KyJSWXOtOBUbSNC8e2g
-	xxspPK5amnmyUmssHxhxaepTpL0oLnt/n8p61OTLUb/l/bzV3Fy+CzFIOAhnh9p08ka5jtJ8DEKeQ
-	RciR6z7UeL9ESfNV3oV8AueJgEjTWEPKUGngjS1HQWtzhcGkGMBDbtcFgPjF5uOiSAHxloY6TEcpd
-	oa9YDKOz8fLz7DrUMWE+Dbs8qJGB197k3s9WvP9qCxmsY5Y8CKZT2DVABh2jbZ+uVQUXGUjOwf4va
-	/uWL+77c3cbLcO6JPbz3T0d5lShdnIybFYA9xYA2S6YorMj2b3F9hb/B88EWAUgjQTNNUAMhxP/b2
-	yXdrNmkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MDPnol5k9sUN2ZAsl6zEedZ+Z/hOhaCzyGH2D4T8L54=; b=Zkw7wY9HVQ6dWpiHYNFlWv+ms5
+	ZhCydK7GDE/afiW+DlSEGISLGXEgYsnVXZ+Zz99UOSwwah+lYiy5e2eARkqcqsbuA02UWy0uWImHt
+	SztnVEGCQk46D7HWt4SHdBzIb1I35TKShuxKtXcY0FUvHQmGryYyF8h5F64Xa0p/0dI38Mg1G5oSQ
+	sHemz0WKIrWHcpAUR2kXzPQOO5Vu2SrWrRIn442KMT9hvbfr8geycdnhBSBe77vMpeUt0+eKU8sUz
+	sjTqJa6LyQpaZFzpBSgwJ8C1ErKizzr0LY8B6IPKEiNqDS3KEX/DbPyyDHdfIC7nKXY0gJcMJGNfo
+	da7omgBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBqho-00000005YXP-1hsF;
-	Thu, 23 Oct 2025 08:29:56 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vBqj1-00000005Yz7-2hsr;
+	Thu, 23 Oct 2025 08:31:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBqhl-00000005YV2-1IGF
+	id 1vBqiy-00000005YyD-20Dv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 08:29:55 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 2BD464E41298;
-	Thu, 23 Oct 2025 08:29:51 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F3BE86062C;
-	Thu, 23 Oct 2025 08:29:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BA200102F245F;
-	Thu, 23 Oct 2025 10:29:28 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761208190; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=r9GcjNdKx0l5qe7F9q2vo9g6zEhRHjHM5Fp6gH11pEQ=;
-	b=Z9EtBMWuXLdFsMpNL5Is/fGSdVkHMoU8On73jz/5/ppGCGeFA/s+BGs5fNBndHP/oE871A
-	Kwf77bbihCJTwF2SHIIloFW/npmFuSEW9T1aNCmWFlVk2urveiGjvVxKBzjOcUb1FuPTjc
-	N1UZY1+fzrl69/hREa0jTum9igth/ny1umb8LP1B7v+4PWW18Pc8iVnihuAgBElu6Zckg7
-	ZpqK34HeP6g3pp37DftoKuVKZpL/yre5EvwGMsncIEtc8X6Q9BvAHc+tTTVlK7g3aJqFTy
-	SL91odbrCbiLSoeyIKOUWZKhCaCe0ibxcolKfL2yT5j0H6Q1Gqr/UAJmto0eBA==
-Message-ID: <ac505a82-1a01-4c1d-8f9b-826133a07ecf@bootlin.com>
-Date: Thu, 23 Oct 2025 10:29:26 +0200
+	Thu, 23 Oct 2025 08:31:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EF93F455B5
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 08:31:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEA59C4CEFD
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 08:31:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761208267;
+	bh=bFoOFvqHEoQk620s/iyc0FwUv0/+PYvVS9nDEBN1DGc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=rczCHipRMct75wabc6EWWhjvu2ktMfl9mYmKrMiqQIIQlubasW4cUoHtKHTz7/wve
+	 pG9nEUVX6fmRC/G8TENPbCjQQkqrso7RdP4KASV+x2sn/jlzc+2uZXBoRvuniMzO/l
+	 j9le2fQ7PRa2o4/zt2EgB//1wGufYLWomuKJXy9KNbeLZkHtQ4pcH1VXjHzMbgz/ny
+	 fmMIfq/jT1FlwFQBSp+EcvLpMneHn0Jq7RNyN8hGD+l/Xikng6wyhVBEgVgw87vdQX
+	 CJIMXT8NZGSVqSp9cRhmPNGlQYUNn3egzh+0FdLZKkIecRmn+L1ftNYJ9bv+rbN29q
+	 5QaBPbov6LzdA==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-592f5fe03dcso492385e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 01:31:07 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXyVvuDrpdSVb5p1iaGBfHMRgTAajZQg4fI7ucvluqlXxdsQTTzpwrGCDgiNPLuQtQxCRvn4tuReBI5Y4sNxfvX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxA32+XU2AnacWTnLCzCAbiH8tzbJBWG79pUkc3F4MttJd3svpT
+	QeGXC7MN2/3Am205UVkeXOe+zQYYODk1vMpx/bf626tm40Ecimp1Bz4c0osP+nYTP404LvdxE1N
+	TgJVzsX5Hhd7AVA0ozAsRryZiqub98/E=
+X-Google-Smtp-Source: AGHT+IEhcLf5FIRwByJaSQnfDpZsBKep/9aXOLRRWcORJP4c6v5Nn9uvZ0mdqWItpwlkTlQdKxUgwjjzv9WgOvAqi9Q=
+X-Received: by 2002:a05:6512:3e18:b0:592:f315:843 with SMTP id
+ 2adb3069b0e04-592f3150ac3mr1217650e87.50.1761208266234; Thu, 23 Oct 2025
+ 01:31:06 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 2/3] net: stmmac: Allow supporting coarse
- adjustment mode
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <joabreu@synopsys.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Richard Cochran <richardcochran@gmail.com>,
- Russell King <linux@armlinux.org.uk>,
- =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
- =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251015102725.1297985-1-maxime.chevallier@bootlin.com>
- <20251015102725.1297985-3-maxime.chevallier@bootlin.com>
- <20251017182358.42f76387@kernel.org>
- <d40cbc17-22fa-4829-8eb0-e9fd26fc54b1@bootlin.com>
- <20251020180309.5e283d90@kernel.org>
- <911372f3-d941-44a8-bec2-dcc1c14d53dd@bootlin.com>
- <20251021160221.4021a302@kernel.org>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20251021160221.4021a302@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20251023082129.75612-1-maqianga@uniontech.com>
+In-Reply-To: <20251023082129.75612-1-maqianga@uniontech.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 23 Oct 2025 10:30:55 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXHs3vC4TEWg1ogG=N8Dd5L0rkQ=qAFLWKiAA5yi_He3GA@mail.gmail.com>
+X-Gm-Features: AS18NWAqPnAyqoEewao8d7Q2_zh3PAnOF7TqO_cE-DS3GzEfQDx2JtSNzXOLUjg
+Message-ID: <CAMj1kXHs3vC4TEWg1ogG=N8Dd5L0rkQ=qAFLWKiAA5yi_He3GA@mail.gmail.com>
+Subject: Re: [PATCH 1/2] ARM/efi: Remove duplicate permission settings
+To: Qiang Ma <maqianga@uniontech.com>
+Cc: linux@armlinux.org.uk, linux-efi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_012953_482347_057415D5 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20251023_013108_556376_4A386688 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,27 +82,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 23 Oct 2025 at 10:22, Qiang Ma <maqianga@uniontech.com> wrote:
+>
+> In the efi_virtmap_init(), permission settings have been applied:
+>
+> static bool __init efi_virtmap_init(void)
+> {
+>         ...
+>         for_each_efi_memory_desc(md)
+>                 ...
+>                 efi_create_mapping(&efi_mm, md);
+>         ...
+>         efi_memattr_apply_permissions(&efi_mm, efi_set_mapping_permissions);
+>         ...
+> }
+>
+> Therefore, there is no need to apply it again in the efi_create_mapping().
+>
+> Fixes: 9fc68b717c24 ("ARM/efi: Apply strict permissions for UEFI Runtime Services regions")
+>
+> Signed-off-by: Qiang Ma <maqianga@uniontech.com>
+
+No, efi_memattr_apply_permissions() uses the /optional/ memory
+attributes table, whereas efi_create_mapping() uses the permission
+attributes in the EFI memory map. The memory attributes table is
+optional, in which case any RO/XP attributes from the memory map
+should be used.
 
 
-On 22/10/2025 01:02, Jakub Kicinski wrote:
-> On Tue, 21 Oct 2025 10:02:01 +0200 Maxime Chevallier wrote:
->> Let me know if you need more clarifications on this
-> 
-> The explanation was excellent, thank you. I wonder why it's designed
-> in such an odd way, instead of just having current_time with some
-> extra/fractional bits not visible in the timestamp. Sigh.
-> 
-> In any case, I don't feel strongly but it definitely seems to me like
-> the crucial distinction here is not the precision of the timestamp but
-> whether the user intends to dial the frequency.
-
-Yes indeed. I don't have a clear view on wether this is something unique
-to stmmac or if this is common enough to justify using the tsconfig API.
-
-As we discuss this, I would tend to think devlink is the way, as this
-all boils down to how this particular HW works. Moreover, if we use a
-dedicated hwprov qualifier, where do we make it sit in the current
-hierarchy (precise > approx) that's used for the TS source selection ?
-
-Maxime
+> ---
+>  arch/arm/kernel/efi.c | 5 -----
+>  1 file changed, 5 deletions(-)
+>
+> diff --git a/arch/arm/kernel/efi.c b/arch/arm/kernel/efi.c
+> index 6f9ec7d28a71..d2fca20d912e 100644
+> --- a/arch/arm/kernel/efi.c
+> +++ b/arch/arm/kernel/efi.c
+> @@ -70,11 +70,6 @@ int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
+>
+>         create_mapping_late(mm, &desc, true);
+>
+> -       /*
+> -        * If stricter permissions were specified, apply them now.
+> -        */
+> -       if (md->attribute & (EFI_MEMORY_RO | EFI_MEMORY_XP))
+> -               return efi_set_mapping_permissions(mm, md, false);
+>         return 0;
+>  }
+>
+> --
+> 2.20.1
+>
 
