@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6ADFCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 22:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D24E6CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 23:49:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AG2rFEpBv1gq95qUgCmaFP4trd4HB0CSXHRiD4voN58=; b=riujQcKtVDwewtcdfLNJId/Nge
-	PWWCeFbu0V5QUJrGybpJE/CzI+cINgjSB/oKVjUTiCbxfJAqUFxXTOuMuevYaXfr0kw0VB0oIz9oK
-	QRy8HEbui77epf2CZZSFL19TaWFmFjCfTf3p/w25PvmQyFnFsMq6V2kBGcAV/BMD2su83mX/3tSEg
-	PjY0EAqcU6eXwVKxRvRSnbr/D2eQQNXIW8dOQ+vGm/wwV/PFo7meZV382a5FfZFPjc9ole6waeRPB
-	ozk2Z7NONrB/pXpq0c+/lYPhsTsQxlLx6dgXFU/w+LnVuy1fXV12xYGg9liHrYiT56sc8qkSQwsCq
-	VjJ4X9ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R9/3uo93dbTvAFjBA0VazM/vXR7CkHZ2fQvEyXpdbAg=; b=rs118HS40h2rU5tmW8TkUi3mKH
+	y2gXVr50A2mNsp5xnwDJpu652LLkwQg4V6TxyRuPQp7j/OSyTmWlrbnZCe4Ogi4Nxocef6P+blZFg
+	GP4sdnnGhJWHhk2ce8CtSaMwuVp89AFdAxObohMcZWjS/Ygv4trVL+JhTSxsB48zGqdehAl/H/hc2
+	N3a6SKv2ORK9y7UCy4SK8xC6iQ0pY4qH5mISj9BxFsbAUQb/IkA0Mr0rY42xfLU3KH7wxtLQbF3+j
+	lygLqgfWR04eofEVgpkAxvH8sArs17JAN+BbZcocAziMZyus77vIu6GhzfisTGYrE3BX3Va3paw2c
+	8/Bfbkjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC4Be-00000007m0f-0mBH;
-	Thu, 23 Oct 2025 22:53:38 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1vC53v-00000007qkR-3uSH;
+	Thu, 23 Oct 2025 23:49:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC4Bc-00000007lzv-2PkQ
+	id 1vC53s-00000007qk0-2iJu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 22:53:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1761260014;
- bh=AG2rFEpBv1gq95qUgCmaFP4trd4HB0CSXHRiD4voN58=;
- b=G/vf8Ns9a3OMz2HH8n5ueFjlUf0AbFUAL1LuYvDrMdTx4it9r3QCzaJMKas+vjmrRwMS48rYd
- 74wAnB2A49YFGuDnjx3b1mbQAUb61NoQE5OU80S/mJ7ReUwbUxgHVqJJp8WvvePVog3YNiF4OZ4
- mg7ZWe7wnmy3cOZkXItptCss5h6XcW8SzxgfcCpO/I+YTR9JGj9igvOqOUbNxi7ZlyGLZSXO5/c
- GcfnRGF7NswCqrULdUbS80UDKs24gKL8p9iwTFwPRoxOFfhqGgb2CSil63YV45LkKXZd3GdP00E
- jlTPIfGrVSc9DC9ljOsUHeKr43AxR7+L3SA4BfRx4rXg==
-X-Forward-Email-ID: 68fab1e82a3297951990cdf1
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.3.0
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <d28c81b0-3d50-46f7-876e-d634bcab2cd0@kwiboo.se>
-Date: Fri, 24 Oct 2025 00:53:20 +0200
+	Thu, 23 Oct 2025 23:49:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EC12941AB4;
+	Thu, 23 Oct 2025 23:49:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6B16C4CEE7;
+	Thu, 23 Oct 2025 23:49:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761263379;
+	bh=mlPjpupG6YFu3WZLIE4LsuGTPZmpesaS7fkVRKnB3lw=;
+	h=From:Date:Subject:To:Cc:From;
+	b=t0/l3WWYWLbBTQOHmNsyP23wB1Z5kdA1Je7bN6WcAXfXa3DXM2nBZi+kZ7/MGqcqs
+	 ZtbQYYT4BD5rCqJLmzFMYUULpnyNXGx12yGfKLt14jFzO++9+O2UZlWrW2wbkCuT98
+	 9afI+0ohwixDO2Z+f3b4nvBBzV5YdhKHjqgz2OCqZxuvxqb5GXoodOFTiFqeWn+IiP
+	 18ajZwl7+bgiYnwprfxHgGqtytnhISHpp1NE0uCNQ9n8aqVNgZztwY6agaATmQu4Rk
+	 qyxByaKbqEQV7NZYWDplCuruNvnbyOO/K6evKOgDHy3q2ensVTnaF3wUm2Afy2SLUd
+	 lDG/JVCoijDoA==
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 24 Oct 2025 00:43:39 +0100
+Subject: [PATCH] KVM: arm64: selftests: Filter ZCR_EL2 in get-reg-list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 12/15] media: rkvdec: Add H264 support for the VDPU381
- variant
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>, Ricardo Ribalda <ribalda@chromium.org>,
- Hans Verkuil <hverkuil@kernel.org>, Hans de Goede <hansg@kernel.org>,
- Yunke Cao <yunkec@google.com>, Jonathan Corbet <corbet@lwn.net>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- James Cowgill <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com, Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Diederik de Haas <didi.debian@cknow.org>, linux-kernel@vger.kernel.org
-References: <20251023214247.459931-1-detlev.casanova@collabora.com>
- <20251023214247.459931-13-detlev.casanova@collabora.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20251023214247.459931-13-detlev.casanova@collabora.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20251024-kvm-arm64-get-reg-list-zcr-el2-v1-1-0cd0ff75e22f@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAKq9+mgC/x3NQQqDMBBG4avIrPtDMlGhvYp0IekYh6qViUipe
+ PcGl9/mvYOymEqmR3WQya5ZP0uBv1UUx35JAn0VEztuvOOA9z6jt7mtkWSDScKkecMvGmRixDq
+ 4uxPvBw5UIqvJoN9r0D3P8w/+AbhYcAAAAA==
+X-Change-ID: 20251023-kvm-arm64-get-reg-list-zcr-el2-c43090e11f23
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-88d78
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1514; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=mlPjpupG6YFu3WZLIE4LsuGTPZmpesaS7fkVRKnB3lw=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBo+r8QxY2JcsLXKRY9i3x2+USWkDSHg3bd2J9tr
+ 4x4LkFf+W6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaPq/EAAKCRAk1otyXVSH
+ 0KCsB/4sY4EU2Z485tooicTVWlxHlXnwLdrbACENRpSPR8AbNunmliL3tXgWrtUwaY1HkI8dpox
+ OQV7mIl0CF1dNQVv94MyAum8RMJXHtzE/ecPLWToGYxAC6nNQrxlndg2NWqsa+poVrXpTdPbe3X
+ TCuitoGMhhLSMX0eQiS4MOQEJA/dKMWNVu33FeioSKBJbW5fkJsnE6cgYSpDYaio/B/7ltDkfrY
+ +9xmQPYzMNKdIJLUCcCpJWqKsQ/8VUTk4IKG9BkZQMSTYO6XykhzS97kEng26H1qDac+moC3+Jq
+ 87S+6fNn+tBG6QUWAKmsXaRQuXR+QV+uASWRNXKN1DUjaDOR
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_155336_854773_785E22D7 
-X-CRM114-Status: GOOD (  27.00  )
+X-CRM114-CacheID: sfid-20251023_164940_727859_46DC4233 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,96 +88,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Detlev,
+get-reg-list includes ZCR_EL2 in the list of EL2 registers that it looks
+for when NV is enabled but does not have any feature gate for this register,
+meaning that testing any combination of features that includes EL2 but does
+not include SVE will result in a test failure due to a missing register
+being reported:
 
-On 10/23/2025 11:42 PM, Detlev Casanova wrote:
-> This decoder variant is found in Rockchip RK3588 SoC family.
-> 
-> Like for rkvdec on rk3399, it supports the NV12, NV15, NV16 and NV20
-> output formats and level up to 5.1.
-> 
-> The maximum width and height have been significantly increased
-> supporting up to 65520 pixels for both.
-> 
-> Also make sure to only expose the first core and ignore the other
-> until mutli-core is supported.
-> 
-> Fluster score for JVT-AVC_V1 is 129/135.
-> 
-> Tested-by: Diederik de Haas <didi.debian@cknow.org>  # Rock 5B
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
->  .../media/platform/rockchip/rkvdec/Makefile   |   1 +
->  .../rockchip/rkvdec/rkvdec-h264-common.h      |   2 +
->  .../rockchip/rkvdec/rkvdec-vdpu381-h264.c     | 469 ++++++++++++++++++
->  .../rockchip/rkvdec/rkvdec-vdpu381-regs.h     | 427 ++++++++++++++++
->  .../media/platform/rockchip/rkvdec/rkvdec.c   | 127 +++++
->  .../media/platform/rockchip/rkvdec/rkvdec.h   |   4 +
->  6 files changed, 1030 insertions(+)
->  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c
->  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-regs.h
+| The following lines are missing registers:
+|
+|	ARM64_SYS_REG(3, 4, 1, 2, 0),
 
-[snip]
+Add ZCR_EL2 to feat_id_regs so that the test knows not to expect to see it
+without SVE being enabled.
 
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> index f043b07c8e7d..bc3e35b82a11 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+Fixes: 3a90b6f27964 ("KVM: arm64: selftests: get-reg-list: Add base EL2 registers")
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ tools/testing/selftests/kvm/arm64/get-reg-list.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-[snip]
+diff --git a/tools/testing/selftests/kvm/arm64/get-reg-list.c b/tools/testing/selftests/kvm/arm64/get-reg-list.c
+index c9b84eeaab6b..7ae26ce875ad 100644
+--- a/tools/testing/selftests/kvm/arm64/get-reg-list.c
++++ b/tools/testing/selftests/kvm/arm64/get-reg-list.c
+@@ -68,6 +68,7 @@ static struct feature_id_reg feat_id_regs[] = {
+ 	REG_FEAT(VNCR_EL2,	ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY),
+ 	REG_FEAT(CNTHV_CTL_EL2, ID_AA64MMFR1_EL1, VH, IMP),
+ 	REG_FEAT(CNTHV_CVAL_EL2,ID_AA64MMFR1_EL1, VH, IMP),
++	REG_FEAT(ZCR_EL2,	ID_AA64PFR0_EL1, SVE, IMP),
+ };
+ 
+ bool filter_reg(__u64 reg)
 
-> +/*
-> + * Some SoCs, like RK3588 have multiple identical VDPU cores, but the
-> + * kernel is currently missing support for multi-core handling. Exposing
-> + * separate devices for each core to userspace is bad, since that does
-> + * not allow scheduling tasks properly (and creates ABI). With this workaround
-> + * the driver will only probe for the first core and early exit for the other
-> + * cores. Once the driver gains multi-core support, the same technique
-> + * for detecting the first core can be used to cluster all cores together.
-> + */
-> +static int rkvdec_disable_multicore(struct rkvdec_dev *rkvdec)
-> +{
-> +	struct device_node *node = NULL;
-> +	const char *compatible;
-> +	bool is_first_core;
-> +	int ret;
-> +
-> +	/* Intentionally ignores the fallback strings */
-> +	ret = of_property_read_string(rkvdec->dev->of_node, "compatible", &compatible);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* The first compatible and available node found is considered the main core */
-> +	do {
-> +		node = of_find_compatible_node(node, NULL, compatible);
-> +		if (of_device_is_available(node))
-> +			break;
-> +	} while (node);
-> +
-> +	if (!node)
-> +		return -EINVAL;
-> +
-> +	is_first_core = (rkvdec->dev->of_node == node);
-> +
-> +	of_node_put(node);
-> +
-> +	if (!is_first_core) {
-> +		dev_info(rkvdec->dev, "missing multi-core support, ignoring this instance\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	return 0;
-> +}
+---
+base-commit: 211ddde0823f1442e4ad052a2f30f050145ccada
+change-id: 20251023-kvm-arm64-get-reg-list-zcr-el2-c43090e11f23
 
-The addition of rkvdec_disable_multicore should probably be split into a
-separate patch.
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
-Please leave some more time for review before sending next version. I
-will try to do a more in depth review of this series this weekend, more
-feedback will follow.
-
-Regards,
-Jonas
-
-[snip]
 
