@@ -4,162 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1EE8CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 20:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF02CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 20:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kR18xZLkIBD/v+YYlolu57R5lqheAjboSLyrb0PLlFA=; b=YIROOiaaDMfv1hn9SArPMVy80G
-	lNrO73upu+52/v5oAIzPjqLfO2Wom1/gRui8ndhpO38USwsVmvkx8U4uElGsfv821/CGZINl488Uo
-	DiCw50kLFElL7nf+m0KPQMc6KCX5zYZzPfgO5gWbPVn1F2oDzXFlQyBA52YStEs4ZT1wO6gJ1et1H
-	h2vsE+FgjkWAJ43arHIARVM6SgeEKFAnw3O/mpXrnh2sQAb2F9m7jPSyKof6lx5siHWubGTAC4yIl
-	BOUDhLUP/0oMZmQo/d9TQ04fzZMgtvbPPzQEtGAwr1evbv4jsKSt+49aQvXIvOH+2fRoI5UPttHBw
-	B3fXuLlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=scKTK7HmfSqvk+yCxz/18MERl7LT5+xEquhhRKcaSSw=; b=g5rgmgtk1wzbTwoJ+apqbWlYdp
+	Qvuk6+urWTttwKUqWwwNjqqCbkayifVRLa7JBXpsbAwMgcFWhVx5LhhW2mVXrc6HHrOJq/WEI3FL9
+	eJPGpZBRM9S535XHopBeW8S0/mkQZPnVGcGpfZyn8H2gLvcU2nfYcZUlv6yIApZP8rGrjqXaqch3T
+	2Y4lEmTqwUIBy/Q3SCmyQVQFBKjCuosCdt8guaPaA78NMdayn4DAPUw5+pvtjqWG85vPdGHoPXEIp
+	q7rX5UVP5YXRkCis7M0RLukISelwG2XIXVsuRDvs5tEd5Csw0lctSnRxwfYf6hZlTLcNH4pfm03pS
+	1vzUkvaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC1jo-00000007Vm1-1CuI;
-	Thu, 23 Oct 2025 20:16:44 +0000
+	id 1vC2B7-00000007YRo-1XKV;
+	Thu, 23 Oct 2025 20:44:57 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC1jm-00000007VlG-1leP
+	id 1vC2B5-00000007YRe-1kOV
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 23 Oct 2025 20:16:42 +0000
+	Thu, 23 Oct 2025 20:44:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=kR18xZLkIBD/v+YYlolu57R5lqheAjboSLyrb0PLlFA=; b=hDv+fsz+fHrsjODgDwSVIL8Yhj
-	wIK8x2/R5WjulCu2/JanQMcEjqvaT20BsXZRzwrVqBEDsSPjYeP5QqsWhvESjpJqgt1KHlSXxNScC
-	4S24Wd7jrtAzlvXQShis/z+pGaZoGOa+sjbPyT8uUfTrPsXqNwD6kHte5R/9oWm55fXDrX3f1kXN5
-	UcfVHoco3debcJHoJ6jmrAvUcOxREHMTZs/2zAdo7IUB6o2+pd72zCLbh1VFnN4uUNipNZMF6Cqrd
-	yESY2PfJCcj6R3AzLJHhU1J0LvhVAuDErEPRoFSu0KQfbhs+/532iCFDZSQCfGHe/YhUQREZsZAEL
-	E40OkGpg==;
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=scKTK7HmfSqvk+yCxz/18MERl7LT5+xEquhhRKcaSSw=; b=SrNMsRBFBrWHCAp+xGKKTyloIq
+	qg7Ctr6oXqdtCA5ZIaDqxHosgnyhn80n2/MKbDHNkOan5/IrkyqREjERTZTtKS3qz3vgKVNSPiUKC
+	kkgGejIpQAXmONpI6v8NQ3oU6GjDXh/zrId5N1lHBVOAxAd9L/4hsZwIS413/yLVBOCcDrxPUktD7
+	Y84MNDLJnyYaru8tJimFgohjkagtn8/ghbcSuxh8LnJw0mTl1UbQuqaL6KrqgUZAYwTdK+Ls91fvI
+	SjQtDDHTH1C++mPnUdgisktDK6526zzs7xXXr99fBoGKEWcsCT7q1y9Xc4hDJWyLYsnjrPVBEsljK
+	FXaasuBw==;
+Received: from mail-westcentralusazon11023143.outbound.protection.outlook.com ([40.93.201.143] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC0s4-00000001i25-1kEA
+	id 1vC1JN-00000001jbe-1GPL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 19:21:14 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-4270a072a0bso225237f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 13:16:38 -0700 (PDT)
+	Thu, 23 Oct 2025 19:49:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PYnYCfxHvdXCVN+zdY65sZv62Y3VR9uQxB8GtLzLRyvi3xo8jUiS7cSWZkY8P3I5Ru+tlLY40B9sFZpR2KJnlBqmtdrViAsVGtzNe3kmQPJNKja3Q6x3v3zczesl2BKif8CCWt2IuH+bFDn1b792HSX2qd9ItLXbXzqtA7f3wfOfrnZUNeFzUU8nISUIxF5lSALOdyMxLsqYfkJIa57owOS66ZSoZ3FLosi7B7rZ0vqJyaZZSPWVx1DVWmOKkVvn+0mY0mXqqOzAjTJ8jxVhb/K9UjPgyzTfs18mWbzVaMlzfFSs31XnwKViUWpwS3rnSePgUxgi8G3gbM/ZPJ/pdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=scKTK7HmfSqvk+yCxz/18MERl7LT5+xEquhhRKcaSSw=;
+ b=PcACM70tX+HT52xz5tH7j6PoNSrk1re8qWAROIQTf/pGNoEQrZ0RzsHLaWARBdtdv8cJ2J9yyxqNYc6RC4v71gfm+cecVq+GY9HtpTnnRCZLkuScxRcvOI+8wHpCi/v62qaV5TV9uAnyL6q9+hnK/Ttl68KsUkId1XjQWYaRU3d8wa8aD/vPtxRVcwncNTA7ZSUYdYUS9hzFOUdoHZ/V7SFwedME9IweM1pzeEhvyPcFI7okJmav4ha7utl18XfHSplbSHqUoOTu3bTTDFN98fUhr7679mFrGzPdllHnAvXobUJoMgU9JU9kP2c6Bv/KUbRkhTj4FokkQ3/NM0CtSg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761250597; x=1761855397; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=kR18xZLkIBD/v+YYlolu57R5lqheAjboSLyrb0PLlFA=;
-        b=X+jq/P05yWIz13Qd16Orp1LNLws60VfuVYPkLBJc5+e9D0qpaOjYXhW2mJYQdaFl63
-         5F8sEfuVVew5BhcpJds4N+NC+9FKqgk3XBgBbPuxWN9Iliwi2z1ONVqv0/bd/p6rziDF
-         DiaWc0WaBleBuP+DKQVWPIPBrNtUHLpXFk+xAjDf6htQLFQSsG6H5Nzud3PY7fNuE3Eq
-         i5DD1nFs9OUrund1Ye36VrJmuYlWqc6/IXHhstRkU1ShjgW1hg7bl8J4SQSFAV52qRBq
-         EBLH/lD7FUwp0Wnh5GdxOk+BRjRZ9goUQNOXUyd9sKlsN9KXnLLjaf/215DJ+60uIIhX
-         G4sQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761250597; x=1761855397;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kR18xZLkIBD/v+YYlolu57R5lqheAjboSLyrb0PLlFA=;
-        b=Q5H529tFDvqMf1Lt5lFEwt3tCB1dJbEkzhKLmQq+Ecde8AKtzVEIGpcVkvX9AyrvlJ
-         RmF7nuTjNAgf+PjNpfsDB3M4aTvasmUDFLqNix6V5m9j97ZA53cYWa0URoq7ph8mAM9P
-         2hwHR2v2SHRyZmtG2IsqorwTZKvsh1XcMtFvJLP8581RZ1p8UsM7GMgKxuFhYKZ3iLXR
-         WzC8Lbo64cfnD7zfKoojwmYNWoM3awIs5lnnfzwFxmDdni3hDhXGInjuRtQ2m1DZWQ6X
-         xUOGOs3QngMWjaqMQXMnPh84GSo3jyvZ3X/SnAddpr4q/uZPkwMKkZm758uz8IXHfv2R
-         QRBg==
-X-Forwarded-Encrypted: i=1; AJvYcCVvxEworabfS4QN0sqeU8XwGJ6KQPoDodSOL/kSj+vAUMaiXoDwfOcMr6pezJLs5pXzhB3xtydiVO4G+6txtoHI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYCwQ6Vi/3OjzmMffO1QRN57vNa0w7oPvnjvxwQde8s0Jfwjkw
-	BFOFC3vrGRa9RtXeYa/I5CQ1dBt0HiSbXkMCL3pOJzUiwpQAkvEeYg70yRpGHGkANlM=
-X-Gm-Gg: ASbGnctgqoO4PBGWvTy5ldM6pay/jvBu0V9rnC3CSAzAPzAOAiALyvZ6F1ZOIatfhWq
-	8RR4puh66b5Z7cx09wY9YcOqVk1PDcbkSfTFykj1X21VqVo7ozFDkLcZbjNLjoK3ECYPu3eZ1X6
-	X2aiQMACK1EN611fT5wXqtXCzPmzjENaoVkIJA3+/TZbPenu5+K8VSEaSiwbIJwPNok3iIkVtHn
-	8NPnVPr5zCa2xZ9NlIQB6CJPuEi8oFleUoFVzgrZl+871u0QDuAGRIwb9bhmkJ3fXCmMLeE2i/h
-	LEH5WKfZJpkiqMqzQ/QW4a9wB+3dmFzQk6VdHOefxqG2locxHdldplNMzt/Un2y2ztF4yz1uLK4
-	YRllQz1shp+8ihOKtFS7JCM6XAEPMq0p37gq5tR6FigYGy2qDqEk88gbJV+yAndngNsQG1+3rTz
-	sv6XSrJwwl+/F71x94xW2/
-X-Google-Smtp-Source: AGHT+IGDdj2clyde62LaWC85mqGvgAg4Mcphg+WaGFRuMk1QFzv1PKO3ZTThd0ZWB4kpfNj4J8wWgw==
-X-Received: by 2002:a05:6000:2681:b0:429:8c97:f9c2 with SMTP id ffacd0b85a97d-4298c97fb46mr917173f8f.10.1761250596713;
-        Thu, 23 Oct 2025 13:16:36 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429898ec1dfsm5702040f8f.43.2025.10.23.13.16.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Oct 2025 13:16:36 -0700 (PDT)
-Message-ID: <82770e98-a9f7-4a89-a076-01394cf6b880@linaro.org>
-Date: Thu, 23 Oct 2025 22:16:34 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64: defconfig: Enable i.MX95 configs for booting
- and Ethernet
-To: Marek Vasut <marek.vasut@mailbox.org>,
- Alexander Stein <alexander.stein@ew.tq-group.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Peng Fan <peng.fan@nxp.com>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>,
- =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>
-References: <20251023-upstream-imx95-smarc-defconfig-v1-1-62c6e6f5b315@toradex.com>
- <3381308.aeNJFYEL58@steina-w>
- <e6b282cf-e9de-43b7-a8d4-30e67cefe430@linaro.org>
- <5d042f21-274e-4b69-849a-3342d77942eb@mailbox.org>
- <00555ed7-1aee-459a-ae60-0242809d7b85@linaro.org>
- <07aba8d4-533d-40f7-bcd3-548704d7d228@mailbox.org>
- <f1bc82c0-8800-42e5-8a4d-aea209acd0f2@linaro.org>
- <656164be-5ce7-4f9e-b6cd-0eb1b9305132@mailbox.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <656164be-5ce7-4f9e-b6cd-0eb1b9305132@mailbox.org>
-Content-Type: text/plain; charset=UTF-8
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=scKTK7HmfSqvk+yCxz/18MERl7LT5+xEquhhRKcaSSw=;
+ b=m0toxKCec4zziHog68HAQudc0faEeUA8tDIaPJ7tb3kWsU0Xq9kIY0SLu6KJGPRxRixApUmfwILE25UiVwQTW+y7o9BC7x0hFglgM+rRr87fBWWONrAIxzr2pnzunbo317yfT+ODXEKCn/uofyR3FP2T4FfciCqsJX3jduflOAc=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ SA1PR01MB6733.prod.exchangelabs.com (2603:10b6:806:1a0::12) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9253.12; Thu, 23 Oct 2025 20:44:43 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9253.011; Thu, 23 Oct 2025
+ 20:44:43 +0000
+From: Yang Shi <yang@os.amperecomputing.com>
+To: ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	cl@gentwo.org,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: yang@os.amperecomputing.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [v2 PATCH] arm64: mm: make linear mapping permission update more robust for patial range
+Date: Thu, 23 Oct 2025 13:44:28 -0700
+Message-ID: <20251023204428.477531-1-yang@os.amperecomputing.com>
+X-Mailer: git-send-email 2.51.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: CYZPR05CA0023.namprd05.prod.outlook.com
+ (2603:10b6:930:89::9) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SA1PR01MB6733:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7216001b-944c-4129-aaba-08de1274feab
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5sqpSyYwWrXH83BCjUU78H7UYdUh1tuSXz6KKJp5yZLVuMa7rlIVLRW2zeev?=
+ =?us-ascii?Q?2nV7dHC+ud92CMsyPdBRgR4YLje1prCkvXjpx/vslhu+HJhxxI0Wfh8bt+qf?=
+ =?us-ascii?Q?uQoDr4xrirDLDT1PWm29gYFCkyFZRBSAhXxfP4lDDA8QM6z7S1/bpvyukx8x?=
+ =?us-ascii?Q?Pu4+cqgO5QixcuIjnsd+NGJjykqSs9KhX3PL/3xS9itY/DCBhr8ZglJKdfp5?=
+ =?us-ascii?Q?D2JHEdi9ZSUJpZyBws0N3y+a1fdrk4C+T+FaaZw6Uy3BPLG0edcDtWoTS6Nm?=
+ =?us-ascii?Q?c6JXNCZbIIw8j+MaXGYhGAH0n5iV6jeuLUTMoorojCRZMiXBz83w5O4h0qai?=
+ =?us-ascii?Q?GdyORe4nl9cpJQtUhqqrjHuPl6rYyb9BHhC4HKIQDhTy1Jfi3juqhoYF5Axv?=
+ =?us-ascii?Q?Y17ESPwY5NpCDt6rDQdHGOWfsLK3MA3fV6sp+NVu8uft9oLWr51MsLB2qTGZ?=
+ =?us-ascii?Q?HuyIHTJZXY/x18ZBvfE8tzdcZomUg9v6lgOPVJSK/Zul84bPXdBAY6TT7ASs?=
+ =?us-ascii?Q?2eixLgy/sOvG2rQNL8xSUAsFDE7SQ3CC0TW7HLv287xhOUvuvfpOzmcENERU?=
+ =?us-ascii?Q?/vRbj2KPd55rWN7T8BDJn5Mp46IQnMnec0oZXNfGoIdW8OWpR/wTmQOQdY4l?=
+ =?us-ascii?Q?6tVe7K/1cx11y6FaBRU5SfBSGHm9uOnUz8gE8uKbzL5PU/uda7Dh9o/jS74A?=
+ =?us-ascii?Q?pOlsYLRN1+Du9V0WLwQsFUlcNZ1nXFOtVVuSC1pwNNpOP7quNmvFLh54OzEz?=
+ =?us-ascii?Q?EwzlQMDcXE3yobZOp4xlttpItG54yCqvJX1lSzJNe7kkBkuvzByC7RqmsqAx?=
+ =?us-ascii?Q?b27mGIDnk/CwimBAdSZLEYATiJz78OJW0L565Wf0MKqc1ahEkRMiXGYNz34t?=
+ =?us-ascii?Q?81SZceDZCLnLZGL/cZ++9C2OR22YyJgTYtC99uCNLX1611V6gKzVAzHSTWod?=
+ =?us-ascii?Q?Qm3/xaAOzVXBIMeazmaN6vR7pJxskjkR8mcBqWpdSL5fGuOPwH8WRtn/AduF?=
+ =?us-ascii?Q?bSB9/Y44dw2d09kmYd3uQ1f4xnLueSeo2wxIj/emMxznx3928q44YBEs6HLw?=
+ =?us-ascii?Q?d+0qmrlAP3m7+yIPfUbTPX7T4aDacJ2megrRH/NPlZxhowxkKbpvVChQQktP?=
+ =?us-ascii?Q?RSy0F2xcMOCELe5NK1R/0HFTkxB7gTc9tKnFZpHuoGERoSeIguyLeJLABykP?=
+ =?us-ascii?Q?fB5GuwCKWNkAhSawpfiBtIGIQePbKa8qd4hVfL3W4q/sGYvddZyLFtwXDeqs?=
+ =?us-ascii?Q?kV4FBMt4NB7Cf06HF5kFx7p5gqQQmoIp1tbvEXU5CTLw1CSBgy0fM9IF1yoT?=
+ =?us-ascii?Q?21jicOlxzAOs6bNe9L6Rm3nwb+ijhAbCZ+WbvzYnym40rlctUoHrXB+txGT9?=
+ =?us-ascii?Q?kVR9g3PETcLXmZ7AMN9ms5IXSYNiw/v/u4iiGZIH3zYqvymksmDTL+t7NSBm?=
+ =?us-ascii?Q?A3PVscRqk2C3kIBtnSywQg4odGnvnLXn794y+Q2PkSQ/UONJ3IG85v3WX0rQ?=
+ =?us-ascii?Q?BMuOkaOHy16pCMtZkKeGptfaM691Lw1UKhbd?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(38350700014)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RkjRjpINZKKlCkm+2VbxjTf+a/XJml81Fq7KXFRuGFIN8WFa+rRewqHf7PUV?=
+ =?us-ascii?Q?KcG1uMB4gAAtHUxyCQ7TJZNTsspOGjCqWrOijfY0LoPQmyx+smH3YSwxHoOF?=
+ =?us-ascii?Q?jlTPbuuBkY3vd1a2WxQWYQOvgsomNdCLewBOPKnly1c+kf7E9jiGiu/6dSXQ?=
+ =?us-ascii?Q?LCdPmqdP6p9aw4BtCDBGFQVqsNtceUnFmngIRzM7/poxM+j2PpLIzA2T5Xcw?=
+ =?us-ascii?Q?P+d+FWMZgF4xQva2em3gDZ1hvGYDs+rnGb7rg301K0n91Y+C51+FVJIJvSOU?=
+ =?us-ascii?Q?hZKj1XL9R55sY/xmpWsfddbxgWRwyE//WdVRedZJM5SoI85TysLIHPqMxQp/?=
+ =?us-ascii?Q?hUaKHCPiVafFOHLL4r/Jzfhkn+Drsr0FHEddpP9sXe83V8s57pX8cMajc9rq?=
+ =?us-ascii?Q?tYi3yKeK7usc8SLYmGlpmHhFMPPuWODnRxTDvCBXlsAqcScIlQs38Q/WOpWW?=
+ =?us-ascii?Q?qwVJYx77TH0y3S87puUl9809pKtzRU0a3RfZgse4CMliCR4HiIiSS6080FHX?=
+ =?us-ascii?Q?Z80KYIB7nrekvuVFvOK7Qq4UtFReGM50vxX1YHb/Oprxww00/+xr83SMpNy9?=
+ =?us-ascii?Q?QuTuADZfXgik7jXuj/5QoSFR5o7o/5NONA07/5VMMeWUvI1dPwwrHG0AGZif?=
+ =?us-ascii?Q?daxJIEOR4K5FcLwaJLOMKV/1Vb4K/q7sq/iICtOgziATOeZbcYDwcL9D22mT?=
+ =?us-ascii?Q?9SrNbQezekcbIHLqTvVyHl9U9u09+YxG8nVkE4uM5z7a0ZdeV+5AF97tGSU+?=
+ =?us-ascii?Q?cEMl9tJ8kR+cd1FIDoV+41VttQOnam6iO10NWvQWoPqt9BPuv8VQnrxB4AdI?=
+ =?us-ascii?Q?3yA7DF1V5576q7eICrwrsYCPNJXlmkYZauLQyTWQpmvPYmXVQ0bYZf5jaKXF?=
+ =?us-ascii?Q?teA9+NzfKjklHK9aPTT104o0hptbjGyUvjrx+Qlo50iC5DI1axz3dpgIv83p?=
+ =?us-ascii?Q?ySgYjlDREBDdLRd4fjwQwK8e/wl3E0m7eA+U+s4KXp6dFNIZmERM1UCa2HWl?=
+ =?us-ascii?Q?Ym1q76Cjdlie8AAPlpMmEWm5dzlm2P0euzAxoNd70SJJrE2fyy7mrG9JsxBZ?=
+ =?us-ascii?Q?I7Qv5kJnaiEZYNDPjcruf97EMVwy4zfo/lfZ+B8P5scfQCVBf8e154vj7MLF?=
+ =?us-ascii?Q?sBfpDCVbkie54tBg26QfHIFOsSMhZIPSfS2QRd+GlIV18BgkOAQr0Nj9b7mO?=
+ =?us-ascii?Q?vNBP3RylO8G0TYJP6qf2TgHn9/ycr1BZGOnoIvO/qs6QLzFibGo3nzOOZgv+?=
+ =?us-ascii?Q?fnTc3URoJQ8wXn/LqrQSSz89OPWhh4VcUWlvcJhAf8elKe3/BvKVeq20rEd2?=
+ =?us-ascii?Q?kef6flT7CkCfR+SSc8YejjGdI/MBgXWj7YduDrB8X2XBHg0NGktYB7nu7yMQ?=
+ =?us-ascii?Q?lO80nY9L7o55Kn2mjnNMXNTFuIkvwpNmMTnSSJvRAzg+vTFFjXCEdAaDg6pi?=
+ =?us-ascii?Q?F0giat5iGxUjyqwTrm6gSfRgy1iU1cdecIMjhZD86BCttB6J9ONwIkIYQUVt?=
+ =?us-ascii?Q?yDl5N2EIzI0aConC8tq1gzKFTM+wMmyBJi7/qb82sUNnpFrWDxQO6bxr8p/4?=
+ =?us-ascii?Q?+DtDRcDP4rrqpY4VujmtxMnObL1bYvnJGmzygyv3J/+A/3Rb4Qtid2dzZOxm?=
+ =?us-ascii?Q?99LCEdQitI6K6+Fy60vkvMo=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7216001b-944c-4129-aaba-08de1274feab
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2025 20:44:43.3555
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jyt1M+Jz1gsTDzPghtbjHErv3Qi9SrVpVwXjMbLn8nzwj7SpbpAqoUW7XpnTeZeEGng21+6lssSawUq+k76bZSkmhffL7dIEdx5cu1QkMEc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB6733
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_202112_876996_32B40651 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20251023_204925_558008_ABDA6904 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,87 +178,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/2025 22:05, Marek Vasut wrote:
-> On 10/23/25 6:01 PM, Krzysztof Kozlowski wrote:
->> On 23/10/2025 17:53, Marek Vasut wrote:
->>> On 10/23/25 5:32 PM, Krzysztof Kozlowski wrote:
->>>> On 23/10/2025 17:27, Marek Vasut wrote:
->>>>> On 10/23/25 5:22 PM, Krzysztof Kozlowski wrote:
->>>>>> On 23/10/2025 16:03, Alexander Stein wrote:
->>>>>>> Hi,
->>>>>>>
->>>>>>> Am Donnerstag, 23. Oktober 2025, 14:19:15 CEST schrieb João Paulo Gonçalves:
->>>>>>>> From: João Paulo Gonçalves <joao.goncalves@toradex.com>
->>>>>>>>
->>>>>>>> Enable the necessary missing configs for the i.MX95 to boot and also
->>>>>>>> have Ethernet working:
->>>>>>>>
->>>>>>>> * CONFIG_NXP_ENETC4 for the network controller driver
->>>>>>>> * CONFIG_NXP_NETC_BLK_CTRL for the NETC hardware domain controller
->>>>>>>> * CONFIG_PINCTRL_IMX_SCMI for the pinctrl driver
->>>>>>>> * CONFIG_CLK_IMX95_BLK_CTL for the shared hardware domain controller
->>>>>>>>
->>>>>>>> Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
->>>>>>>> ---
->>>>>>>>     arch/arm64/configs/defconfig | 4 ++++
->>>>>>>>     1 file changed, 4 insertions(+)
->>>>>>>>
->>>>>>>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
->>>>>>>> index e3a2d37bd10423b028f59dc40d6e8ee1c610d6b8..787d3ae3f5afeac486a905e0943e7b0e1dcee3a9 100644
->>>>>>>> --- a/arch/arm64/configs/defconfig
->>>>>>>> +++ b/arch/arm64/configs/defconfig
->>>>>>>> @@ -354,8 +354,10 @@ CONFIG_FSL_FMAN=y
->>>>>>>>     CONFIG_FSL_DPAA_ETH=y
->>>>>>>>     CONFIG_FSL_DPAA2_ETH=y
->>>>>>>>     CONFIG_FSL_ENETC=y
->>>>>>>> +CONFIG_NXP_ENETC4=m
->>>>>>>>     CONFIG_FSL_ENETC_VF=y
->>>>>>>>     CONFIG_FSL_ENETC_QOS=y
->>>>>>>> +CONFIG_NXP_NETC_BLK_CTRL=m
->>>>>>>
->>>>>>> Are you sure this should be module? Shouldn't NFS boot be supported by
->>>>>>> default? I might be wring here though.
->>>>>>
->>>>>>
->>>>>> NFS root is supported already with this being module. Yes, it must be a
->>>>>> module, cannot be built in.
->>>>> It seems I am using it as built-in on MX95 Verdin (patch is posted on
->>>>> the ML), and yes, I do boot from NFS root without any initrd/initramfs.
->>>>> It has to be built-in for that use case to work.
->>>>
->>>>
->>>> Every arm64 platform is supposed to use initramfs and we already use all
->>>> over the place.
->>>
->>> Shouldn't the platform also be at least bootable with the defconfig ? If
->>> yes, then initramfs is a mandatory requirement for a NFS root boot (not
->>> a ... supposed to ... optional one), which does not seem to be the case
->>> until now.
->>
->> It always was a requirement, nothing new here.
-> 
-> Is this requirement documented anywhere then ?
+The commit fcf8dda8cc48 ("arm64: pageattr: Explicitly bail out when changing
+permissions for vmalloc_huge mappings") made permission update for
+partial range more robust. But the linear mapping permission update
+still assumes update the whole range by iterating from the first page
+all the way to the last page of the area.
 
+Make it more robust by updating the linear mapping permission from the
+page mapped by start address, and update the number of numpages.
 
-Dunno, just dozen of emails.
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Reviewed-by: Dev Jain <dev.jain@arm.com>
+Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+---
+v2: * Dropped the fixes tag per Ryan and Dev
+    * Simplified the loop per Dev
+    * Collected R-bs
 
-> 
->>> I would argue the ethernet MAC support should be built-in to achieve
->>> maximum utility with the defconfig.
->>
->> No, you missed my earlier point - all decent platforms already use
->> initramfs since it is really not complicated.
-> 
-> Is my understanding correct, that the in-kernel defconfig is not meant 
-> for practical use and is meant mainly for build-testing/build-coverage ?
+ arch/arm64/mm/pageattr.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
+diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+index 5135f2d66958..08ac96b9f846 100644
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -148,7 +148,6 @@ static int change_memory_common(unsigned long addr, int numpages,
+ 	unsigned long size = PAGE_SIZE * numpages;
+ 	unsigned long end = start + size;
+ 	struct vm_struct *area;
+-	int i;
+ 
+ 	if (!PAGE_ALIGNED(addr)) {
+ 		start &= PAGE_MASK;
+@@ -184,8 +183,9 @@ static int change_memory_common(unsigned long addr, int numpages,
+ 	 */
+ 	if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
+ 			    pgprot_val(clear_mask) == PTE_RDONLY)) {
+-		for (i = 0; i < area->nr_pages; i++) {
+-			__change_memory_common((u64)page_address(area->pages[i]),
++		unsigned long idx = (start - (unsigned long)area->addr) >> PAGE_SHIFT;
++		for (; numpages; idx++, numpages--) {
++			__change_memory_common((u64)page_address(area->pages[idx]),
+ 					       PAGE_SIZE, set_mask, clear_mask);
+ 		}
+ 	}
+-- 
+2.47.0
 
-It is 100% practical use - we all test our boards on defconfig. It is
-not build testing, but actual runtime usage and testing. And as
-mentioned many times - being able to only toggle KASAN for defconfig and
-still fit in boot partition size is pretty useful.
-
-
-Best regards,
-Krzysztof
 
