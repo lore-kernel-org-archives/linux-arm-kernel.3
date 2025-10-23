@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C581ECCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 21:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7547CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 21:43:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QWX3j8lpcW8XdONVbs8aknv+64UUzejtVFjmBch7rMc=; b=F/fi8endV8+rTqHwpxqYWLROat
-	nSrImGrk2ox5fX0TgyWW/Qm9IM6ton8w+jklibgVp7F0itbLOysVivjvNkw1aeFSOjvBToQ0YnQsJ
-	r57dGROg+TGr5+HJYjZIOiruwAlO5WtKLiKbKe9ZR05cieKgnw2IDUrb5f7Fjch5FAFW/PorSyNHL
-	B1+hnCgfPqyf0vjiE9Xc0H4cbaUYTya3iHRRPK1MyJAuLKDqUHd7cvxyd2uMNgW6fS7po0hwuv1sX
-	mxpb1b+9vFYyfiIVisPsgGhzOWjxG1Q3W/mXOpidQOwCucY4Mi5/EuHQrEdZCSM4xNL4SQxwuwwuG
-	H0Ws4vuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GGb7ewPMowg3FT+BGDQrm/FI7MT4UDZir+DLOMu+HwY=; b=sgWyBwM7+0gkeuBUT6u0G2qm2Y
+	GLjD8LToVYf4QXbV1bYQLrPTLd/nh/daJT4eVg8EsFadNQyL14DpTuhVA/8wsMYLny5SunWV8z3FP
+	bV9kgGHhvVtFDp11h9BkPVOwdv5xQqw/9sYEdCMZuEB7nCaGg6LrRkufiM3Uyw5HiZ37SRwGYZVTG
+	zCNQhjLTtYkDY2ctMVrcii+6QVX8w+aPHoltiNq78j4DFZ3RAxvvvphmvRSCZvfnzXhW8VhLDfskg
+	sV0+6mNA9A0VKSiiBoOYNWoHgNvme6UrGrEQ4zw5n8Wcg3Qw4xcEgUT2tvnBqM0QyximPuZfrm9hg
+	AUaCsiJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC32x-00000007emh-12b6;
-	Thu, 23 Oct 2025 21:40:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vC35J-00000007eyx-1IeZ;
+	Thu, 23 Oct 2025 21:43:01 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC32v-00000007emW-2S6E;
-	Thu, 23 Oct 2025 21:40:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=QWX3j8lpcW8XdONVbs8aknv+64UUzejtVFjmBch7rMc=; b=fMylW+jju5Xzwm4uIAB6haro8B
-	Z9kvpDRGYcwcdapjvhhr6zFqTfk+45Hbp8uUX6h7PM+1SG7ZvuH8luElEWpL92iyxohQqymzE2VVd
-	jI6rLbKqXZwRnkNRaESj77nX4vXJVUtMG+qz5Ynw8jMFamljgkbogt0XXT8wmrSV8QiV75cx28u+I
-	dAzd5N3FJFOF3YNzspTBAeyQiGzdIsYP8CoX9S38d5srxFaEmP2OBF++pV1WlLbMj7YWdU3R+Vy5H
-	ijxTdL5itF4YzBSvdpRuH0tW8n/AOrJpeXznj9qr+R1vkQCjOlQQ5mG1JBh9hXiVaf5H3zWDyaO0x
-	9dPy1e7g==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC2BD-00000001mlU-3MG7;
-	Thu, 23 Oct 2025 20:45:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CCA554434A;
-	Thu, 23 Oct 2025 21:40:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB27AC4CEE7;
-	Thu, 23 Oct 2025 21:40:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761255626;
-	bh=5qCzJg0hCt3HBb3QIW58eH+hgYTu6FwAxvg34Yv5VZo=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=hBJKwggNlS5Z/APUyqIyD/y3+ODXl8giHzG1gqnyTHY6Kx57RGM/6Bv+Q+hNMOJsx
-	 zDGzvBYt9sYkNhQoz9P7Mq5aoI1w5n+wbOLQhWlYJHlROaaHm0GwS2ZB1p9r46g6TF
-	 fVkqgs1y2mkXPHJWVeypsX5K8S5DlGCGpkBd2eFNn3JsD1f9CbVE4dKINgGj22vkWC
-	 4hQLBnrCMLX7UFvzJ4Y3cIr2y7g8XIuKEev3HUd2iDuK4QpaBqtNRagn/WuAlzeyqZ
-	 XlU+BzVIciG55ec82SLKs7S+ObDRCYdigBA275Spv2uU5gLCLWCEbZcPtNde9jMKCq
-	 55dNZJhb5ITzA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33B33380A960;
-	Thu, 23 Oct 2025 21:40:08 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1vC35H-00000007eyS-0vr8;
+	Thu, 23 Oct 2025 21:43:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761255775;
+	bh=GMQAiOsKVdbtk5UmF7s6maXJY9zTb8YiKRDRcXhX/SY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=C0MWr3K2AGq6lrze44w05GRc65Pe4/ghc4v/PfpsfOUMzeyBhs6qjH6c8NeTDJUIE
+	 /YyINXbj9m8OfBpqLDlfpyOYK5bDSrXK0syRnkb/h649PrnyjUM53ZWVWtY25hAp+w
+	 DKBFqrmtWCi8Lo5UaVgmWEyiSybRKRekl9yuYeFtEEYSHjKqhkG2f5plTvVMpb7YPc
+	 Nlys82xrvrbD2Y3KMQ/fnHwR7ame9yKDxPRokmcLvXGTrYyJ1Enp5gZ8EsR9Sb/FOG
+	 DuD31mQh5pUvykrg5kn0wWxdi7oX6ivPhseq2hNJtNN2kSGdKydOh9m7NznrP/a1kW
+	 cwZP0sCspbsLA==
+Received: from trenzalore (unknown [23.233.251.139])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1A80417E02B0;
+	Thu, 23 Oct 2025 23:42:52 +0200 (CEST)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Ricardo Ribalda <ribalda@chromium.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Hans de Goede <hansg@kernel.org>,
+	Yunke Cao <yunkec@google.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	James Cowgill <james.cowgill@blaize.com>,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: [PATCH v5 00/15] media: rkvdec: Add support for VDPU381 and VDPU383
+Date: Thu, 23 Oct 2025 17:42:31 -0400
+Message-ID: <20251023214247.459931-1-detlev.casanova@collabora.com>
+X-Mailer: git-send-email 2.51.1.dirty
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] Bluetooth: fix corruption in h4_recv_buf() after cleanup
-From: patchwork-bot+bluetooth@kernel.org
-Message-Id: <176125560702.3260295.10385824633115850837.git-patchwork-notify@kernel.org>
-Date: Thu, 23 Oct 2025 21:40:07 +0000
-References: <ab6fa50055fa0c39e5501c123c36e662eb48ae61.1761245114.git.calvin@wbinvd.org>
-In-Reply-To: <ab6fa50055fa0c39e5501c123c36e662eb48ae61.1761245114.git.calvin@wbinvd.org>
-To: Calvin Owens <calvin@wbinvd.org>
-Cc: linux-kernel@vger.kernel.org, marcel@holtmann.org, luiz.dentz@gmail.com,
- sean.wang@mediatek.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, amitkumar.karwar@nxp.com,
- neeraj.sanjaykale@nxp.com, yang.li@amlogic.com, pmenzel@molgen.mpg.de,
- linux-bluetooth@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- francesco@valla.it
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_214504_040216_A3176C78 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20251023_144259_446194_AA25E299 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,31 +85,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+These variants are found respectively in the RK3588 and RK3576 SoCs.
+This patch only adds support for H264 and H265 in both variants.
 
-This patch was applied to bluetooth/bluetooth-next.git (master)
-by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
+As there is a considerable part of the code that can be shared with the
+already supported rkvdec decoder driver, the support for these variants
+is added here rather than writing a new driver.
 
-On Thu, 23 Oct 2025 11:47:19 -0700 you wrote:
-> Thanks to Francesco Valla's investigation, the reason for the duplicate
-> code I recently cleaned up is finally clear: a different structure is
-> stored in drvdata for the drivers which used that duplicate function,
-> but h4_recv_buf() assumes drvdata is always an hci_uart structure.
-> 
-> Consequently, alignment and padding are now randomly corrupted for
-> btmtkuart, btnxpuart, and bpa10x in h4_recv_buf(), causing erratic
-> breakage.
-> 
-> [...]
+This patch set uses the newly introduced hevc_ext_sps_[ls]t_rps v4l2
+controls for HEVC.
+Therefore, a patched version of userpace tools is needed for HEVC
+support (added for GStreamer[1] and in an early stage for FFmpeg[2]).
 
-Here is the summary with links:
-  - Bluetooth: fix corruption in h4_recv_buf() after cleanup
-    https://git.kernel.org/bluetooth/bluetooth-next/c/1aaa18cc80c5
+The patchset is based on Kwiboo's HEVC support for rk3399[3].
 
-You are awesome, thank you!
+[1]: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/9355
+[2]: https://gitlab.collabora.com/detlev/ffmpeg
+[3]: https://lore.kernel.org/all/20250905161942.3759717-1-jonas@kwiboo.se/
+
+Changes since v4:
+ - Add basic ext_sps_[ls]t_rps validation (flags only)
+ - Add missing copyright in new common files
+ - Rename num_coded_fmts, rcb_num, clk_count
+ - Avoid allocating RCB config when not needed
+ - Merge rkvdec_config into rkvdec_variant
+ - Keep rkvdec_hevc_get_image_fmt per variant
+
+Changes since v3:
+ - Rebased on latest next (ea299a216426) + HEVC support for rk3399
+
+Changes since v2:
+ - Rebased on Kwiboo's HEVC support for rk3399
+ - Include hevc_ext_sps_[ls]t_rps v4l2 controls commits
+ - Remove empty lines at end of files
+ - Rename RKVDEC2_ALLOC_* to RKVDEC_ALLOC_*
+ - Set min_with and min_height to 64
+ - Remove vdpu38x_fill_pixfmt_mp() function
+ - Handle userspace not supporting hevc_ext_sps_[ls]t_rps
+ - Make all config structs static const
+
+Changes since v1:
+ - Add parsing of the short and long term ref frame sets from the new v4l2
+   controls
+ - Add RPS cache to avoid parsing the same data again
+ - Fix HEVC pixel formats selection
+ - Fix multiple indentation errors
+
+Detlev Casanova (15):
+  media: uapi: HEVC: Add v4l2_ctrl_hevc_ext_sps_[ls]t_rps controls
+  media: v4l2-ctrls: Add hevc_ext_sps_[ls]t_rps controls
+  media: rkvdec: Switch to using structs instead of writel
+  media: rkvdec: Move cabac tables to their own source file
+  media: rkvdec: Use structs to represent the HW RPS
+  media: rkvdec: Move h264 functions to common file
+  media: rkvdec: Move hevc functions to common file
+  media: rkvdec: Add variant specific coded formats list
+  media: rkvdec: Add RCB and SRAM support
+  media: rkvdec: Support per-variant interrupt handler
+  media: rkvdec: Enable all clocks without naming them
+  media: rkvdec: Add H264 support for the VDPU381 variant
+  media: rkvdec: Add H264 support for the VDPU383 variant
+  media: rkvdec: Add HEVC support for the VDPU381 variant
+  media: rkvdec: Add HEVC support for the VDPU383 variant
+
+ .../media/v4l/ext-ctrls-codec-stateless.rst   | 114 +++
+ .../media/v4l/videodev2.h.rst.exceptions      |   2 +
+ .../media/v4l/vidioc-queryctrl.rst            |  12 +
+ .../media/platform/rockchip/rkvdec/Kconfig    |   1 +
+ .../media/platform/rockchip/rkvdec/Makefile   |  14 +-
+ .../{rkvdec-hevc-data.c => rkvdec-cabac.c}    | 506 +++++++++-
+ .../rockchip/rkvdec/rkvdec-h264-common.c      | 258 +++++
+ .../rockchip/rkvdec/rkvdec-h264-common.h      |  89 ++
+ .../platform/rockchip/rkvdec/rkvdec-h264.c    | 891 ++----------------
+ .../rockchip/rkvdec/rkvdec-hevc-common.c      | 485 ++++++++++
+ .../rockchip/rkvdec/rkvdec-hevc-common.h      | 108 +++
+ .../platform/rockchip/rkvdec/rkvdec-hevc.c    | 257 +----
+ .../platform/rockchip/rkvdec/rkvdec-rcb.c     | 178 ++++
+ .../platform/rockchip/rkvdec/rkvdec-rcb.h     |  29 +
+ .../platform/rockchip/rkvdec/rkvdec-regs.h    | 571 +++++++----
+ .../rockchip/rkvdec/rkvdec-vdpu381-h264.c     | 469 +++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu381-hevc.c     | 641 +++++++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu381-regs.h     | 427 +++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu383-h264.c     | 582 ++++++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu383-hevc.c     | 736 +++++++++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu383-regs.h     | 284 ++++++
+ .../platform/rockchip/rkvdec/rkvdec-vp9.c     | 231 ++---
+ .../media/platform/rockchip/rkvdec/rkvdec.c   | 534 ++++++++++-
+ .../media/platform/rockchip/rkvdec/rkvdec.h   |  35 +
+ drivers/media/v4l2-core/v4l2-ctrls-core.c     |  28 +
+ drivers/media/v4l2-core/v4l2-ctrls-defs.c     |  10 +
+ include/uapi/linux/v4l2-controls.h            |  61 ++
+ include/uapi/linux/videodev2.h                |   2 +
+ 28 files changed, 6142 insertions(+), 1413 deletions(-)
+ rename drivers/media/platform/rockchip/rkvdec/{rkvdec-hevc-data.c => rkvdec-cabac.c} (86%)
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-regs.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.51.1.dirty
 
 
