@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B28CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 09:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD533CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 09:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hq8eSGJQR2tbu8Qfub5EGZF1AmodfN7Xb2wZ4KalfuA=; b=19PRCLPjGXcm1QTB44mGT/iAOJ
-	xQo1Q/gzG2ViDVtpEm3hLkpyUwLjS8W+Gc9M5zR71L3riQa4StDSPgpKbL9ZrtRQT5h6DGepBwGdx
-	VVb1nBFy1gKP92/0M+du20mYF2pO3W2Nxu1IYY2cQ/6S2TCcGILkEsHgr5ef8JTtL7rsLPuzmZ4kw
-	SRO8ZmyjBC6MJLl2lYl7Vm2BEWzRSzHQx9eUej8xN8PNuP8xtUqFp2fbSrp/gpXqDCqbdJp8c2mfa
-	AlDOLPFL501XjV07z59kV0xO4E6LrUFHrWurOtuZdDQJfcKEoWW3VtHsyVz92VyTMJw00YB07PsgO
-	UVsB4Bjw==;
+	bh=61fUCnPjR/ABE1wFOydhMi2E+9470AJphBO8jqHbD04=; b=0mCRrp+c5X6EjNVuGnSldWc9Tx
+	bNgAdGTwPbaaad/Yrc8CYozj4JQZI/tiTnrGoW+ZgtH1iiII+Ti4fhbE/EeRFB2JIvrC5CReAFRyq
+	+uEEGDLq++xRGWkr0+8aXZPtoZbXoIYKsNHBH2MVzX9Y4Z78Sgyb8J56OtXoU3IUWJxA69p7y/6VK
+	xssiTSRDOMQjTAiN7gA+J7XDLPUP3p9yLAaNGMlQL3cAArTND+DiU3rJs2pygmEtCHWX7MJ3t3Rcq
+	u1XOqHUn29jXDlYyR24PoI0hOEOTWabE2cyiRfhOPcEWnQtYUqEgom+8P8r6jeOYlnsEkQcEqqdCN
+	lftGIDQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBrRI-00000005fYa-0Qpf;
-	Thu, 23 Oct 2025 09:16:56 +0000
+	id 1vBrRO-00000005fcC-1p5Q;
+	Thu, 23 Oct 2025 09:17:02 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBrRD-00000005fUY-1f0W
+	id 1vBrRM-00000005fZF-1Du2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 09:16:53 +0000
+	Thu, 23 Oct 2025 09:17:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=hq8eSGJQR2tbu8Qfub5EGZF1AmodfN7Xb2wZ4KalfuA=; b=0XY4qFweMZLPy6RK1rcsklD0gZ
-	3coqbtgYdvuLJcAG/CbZuN2n68wX9qHkN+HSHzIWilmGId9/xFNEb2AFtz/IyXUZiCfRsoXgjDBRp
-	HsEuaCiZ+dqqmdjhM5FFEn5fg6/e/ur2s1k0frHqNpOpk8HYztQdc9Qtxq0tmUZXFvooAGvJchvlE
-	gaPLsW+dl32zDfqWMem6CCV5IIyctUpowu9TkVJUVNJTwy11UE+tH3gM2ZyPJ0UqnAT2/vU+3rHgo
-	AOsqrAJlniHr8CyJxyc3LYmyrizS4ibWiERq+r79D7t6JGq5HywZBpIgZ6Ukb7bk6ygpef2XyJQFJ
-	7MALslzg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:38296 helo=rmk-PC.armlinux.org.uk)
+	bh=61fUCnPjR/ABE1wFOydhMi2E+9470AJphBO8jqHbD04=; b=hZY4b8+sxU9NLCanLbj6aaP1le
+	ibQZFjSMwCgiuQ94RFk+4Bz9O0cyvDArev0xsxdBCRWc66rGeY5EgxCZb+SyomB2FJhIcIkB5lCV6
+	gaS7CbGfaufP8WvIhBxzLfGO/oAD/PiQQMNOYnN2WlMTZLysZcRMiY/VH8NG8a5jnA+2bsmdvOlbD
+	k8mOg12WsF5I4rVDjbKP1cN/o4ZpzCN5XDbiy38erLRVsyDt1chblS8PSZ1FcC6Sj5U2wpd9x8fAx
+	0RomoOz86S50uP3Nvvw1O/y0twHO0u+OBSDDKIxSXH/LGxenN3KFqWbc8aQYwftcu8Dkr4EQvyB65
+	PndrYpPQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:38306 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vBrR3-0000000061D-1zB1;
-	Thu, 23 Oct 2025 10:16:41 +0100
+	id 1vBrR8-0000000061Y-2am2;
+	Thu, 23 Oct 2025 10:16:46 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vBrR2-0000000BLzU-1xYL;
-	Thu, 23 Oct 2025 10:16:40 +0100
+	id 1vBrR7-0000000BLza-2PjK;
+	Thu, 23 Oct 2025 10:16:45 +0100
 In-Reply-To: <aPnyW54J80h9DmhB@shell.armlinux.org.uk>
 References: <aPnyW54J80h9DmhB@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -72,17 +72,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Rob Herring <robh@kernel.org>,
 	Simon Horman <horms@kernel.org>,
 	Tristram Ha <Tristram.Ha@microchip.com>
-Subject: [PATCH net-next v2 3/6] net: phylink: add phylink managed MAC
- Wake-on-Lan support
+Subject: [PATCH net-next v2 4/6] net: phylink: add phylink managed wake-on-lan
+ PHY speed control
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vBrR2-0000000BLzU-1xYL@rmk-PC.armlinux.org.uk>
-Date: Thu, 23 Oct 2025 10:16:40 +0100
+Message-Id: <E1vBrR7-0000000BLza-2PjK@rmk-PC.armlinux.org.uk>
+Date: Thu, 23 Oct 2025 10:16:45 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_021651_611100_41B340FF 
-X-CRM114-Status: GOOD (  28.52  )
+X-CRM114-CacheID: sfid-20251023_021700_336435_6DB9F954 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,237 +97,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add core phylink managed Wake-on-Lan support, which is enabled when the
-MAC driver fills in the new .mac_wol_set() method that this commit
-creates.
+Some drivers, e.g. stmmac, use the speed_up()/speed_down() APIs to
+gain additional power saving during Wake-on-LAN where the PHY is
+managing the state.
 
-When this feature is disabled, phylink acts as it has in the past,
-merely passing the ethtool WoL calls to phylib whenever a PHY exists.
-No other new functionality provided by this commit is enabled.
-
-When this feature is enabled, a more inteligent approach is used.
-Phylink will first pass WoL options to the PHY, read them back, and
-attempt to set any options that were not set at the PHY at the MAC.
-
-Since we have PHY drivers that report they support WoL, and accept WoL
-configuration even though they aren't wired up to be capable of waking
-the system, we need a way to differentiate between PHYs that think
-they support WoL and those which actually do. As PHY drivers do not
-make use of the driver model's wake-up infrastructure, but could, we
-use this to determine whether PHY drivers can participate. This gives
-a path forward where, as MAC drivers are converted to this, it
-encourages PHY drivers to also be converted.
-
-Phylink will also ignore the mac_wol argument to phylink_suspend() as
-it now knows the WoL state at the MAC.
-
-MAC drivers are expected to record/configure the Wake-on-Lan state in
-their .mac_set_wol() method, and deal appropriately with it in their
-suspend/resume methods. The driver model provides assistance to set the
-IRQ wake support which may assist driver authors in achieving the
-necessary configuration.
+Add support to phylink for this, which can be enabled by the MAC
+driver. Only change the PHY speed if the PHY is configured for
+wake-up, but without any wake-up on the MAC side, as MAC side
+means changing the configuration once the negotiation has
+completed.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-v2: initialise wolinfo in phylink_ethtool_set_wol().
+v2: use phylink_speed_up/down()
 ---
- drivers/net/phy/phylink.c | 80 +++++++++++++++++++++++++++++++++++++--
- include/linux/phylink.h   | 26 +++++++++++++
- 2 files changed, 102 insertions(+), 4 deletions(-)
+ drivers/net/phy/phylink.c | 12 ++++++++++++
+ include/linux/phylink.h   |  2 ++
+ 2 files changed, 14 insertions(+)
 
 diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 9d7799ea1c17..bec44ebdf80b 100644
+index bec44ebdf80b..6e1243bf68aa 100644
 --- a/drivers/net/phy/phylink.c
 +++ b/drivers/net/phy/phylink.c
-@@ -93,6 +93,9 @@ struct phylink {
- 	u8 sfp_port;
- 
- 	struct eee_config eee_cfg;
-+
-+	u32 wolopts_mac;
-+	u8 wol_sopass[SOPASS_MAX];
- };
- 
- #define phylink_printk(level, pl, fmt, ...) \
-@@ -2562,6 +2565,17 @@ void phylink_rx_clk_stop_unblock(struct phylink *pl)
+@@ -2576,6 +2576,12 @@ static bool phylink_phy_supports_wol(struct phylink *pl,
+ 	return phydev && (pl->config->wol_phy_legacy || phy_can_wakeup(phydev));
  }
- EXPORT_SYMBOL_GPL(phylink_rx_clk_stop_unblock);
  
-+static bool phylink_mac_supports_wol(struct phylink *pl)
++static bool phylink_phy_pm_speed_ctrl(struct phylink *pl)
 +{
-+	return !!pl->mac_ops->mac_wol_set;
-+}
-+
-+static bool phylink_phy_supports_wol(struct phylink *pl,
-+				     struct phy_device *phydev)
-+{
-+	return phydev && (pl->config->wol_phy_legacy || phy_can_wakeup(phydev));
++	return pl->config->wol_phy_speed_ctrl && !pl->wolopts_mac &&
++	       pl->phydev && phy_may_wakeup(pl->phydev);
 +}
 +
  /**
   * phylink_suspend() - handle a network device suspend event
   * @pl: a pointer to a &struct phylink returned from phylink_create()
-@@ -2575,11 +2589,17 @@ EXPORT_SYMBOL_GPL(phylink_rx_clk_stop_unblock);
-  *   can also bring down the link between the MAC and PHY.
-  * - If Wake-on-Lan is active, but being handled by the MAC, the MAC
-  *   still needs to receive packets, so we can not bring the link down.
-+ *
-+ * Note: when phylink managed Wake-on-Lan is in use, @mac_wol is ignored.
-+ * (struct phylink_mac_ops.mac_set_wol populated.)
-  */
- void phylink_suspend(struct phylink *pl, bool mac_wol)
+@@ -2625,6 +2631,9 @@ void phylink_suspend(struct phylink *pl, bool mac_wol)
+ 	} else {
+ 		phylink_stop(pl);
+ 	}
++
++	if (phylink_phy_pm_speed_ctrl(pl))
++		phylink_speed_down(pl, false);
+ }
+ EXPORT_SYMBOL_GPL(phylink_suspend);
+ 
+@@ -2664,6 +2673,9 @@ void phylink_resume(struct phylink *pl)
  {
  	ASSERT_RTNL();
  
-+	if (phylink_mac_supports_wol(pl))
-+		mac_wol = !!pl->wolopts_mac;
++	if (phylink_phy_pm_speed_ctrl(pl))
++		phylink_speed_up(pl);
 +
- 	if (mac_wol && (!pl->netdev || pl->netdev->ethtool->wol_enabled)) {
+ 	if (test_bit(PHYLINK_DISABLE_MAC_WOL, &pl->phylink_disable_state)) {
  		/* Wake-on-Lan enabled, MAC handling */
- 		mutex_lock(&pl->state_mutex);
-@@ -2689,8 +2709,24 @@ void phylink_ethtool_get_wol(struct phylink *pl, struct ethtool_wolinfo *wol)
- 	wol->supported = 0;
- 	wol->wolopts = 0;
  
--	if (pl->phydev)
--		phy_ethtool_get_wol(pl->phydev, wol);
-+	if (phylink_mac_supports_wol(pl)) {
-+		if (phylink_phy_supports_wol(pl, pl->phydev))
-+			phy_ethtool_get_wol(pl->phydev, wol);
-+
-+		/* Where the MAC augments the WoL support, merge its support and
-+		 * current configuration.
-+		 */
-+		if (~wol->wolopts & pl->wolopts_mac & WAKE_MAGICSECURE)
-+			memcpy(wol->sopass, pl->wol_sopass,
-+			       sizeof(wol->sopass));
-+
-+		wol->supported |= pl->config->wol_mac_support;
-+		wol->wolopts |= pl->wolopts_mac;
-+	} else {
-+		/* Legacy */
-+		if (pl->phydev)
-+			phy_ethtool_get_wol(pl->phydev, wol);
-+	}
- }
- EXPORT_SYMBOL_GPL(phylink_ethtool_get_wol);
- 
-@@ -2707,12 +2743,48 @@ EXPORT_SYMBOL_GPL(phylink_ethtool_get_wol);
-  */
- int phylink_ethtool_set_wol(struct phylink *pl, struct ethtool_wolinfo *wol)
- {
-+	struct ethtool_wolinfo w = { .cmd = ETHTOOL_GWOL };
- 	int ret = -EOPNOTSUPP;
-+	bool changed;
-+	u32 wolopts;
- 
- 	ASSERT_RTNL();
- 
--	if (pl->phydev)
--		ret = phy_ethtool_set_wol(pl->phydev, wol);
-+	if (phylink_mac_supports_wol(pl)) {
-+		wolopts = wol->wolopts;
-+
-+		if (phylink_phy_supports_wol(pl, pl->phydev)) {
-+			ret = phy_ethtool_set_wol(pl->phydev, wol);
-+			if (ret != 0 && ret != -EOPNOTSUPP)
-+				return ret;
-+
-+			phy_ethtool_get_wol(pl->phydev, &w);
-+
-+			/* Any Wake-on-Lan modes which the PHY is handling
-+			 * should not be passed on to the MAC.
-+			 */
-+			wolopts &= ~w.wolopts;
-+		}
-+
-+		wolopts &= pl->config->wol_mac_support;
-+		changed = pl->wolopts_mac != wolopts;
-+		if (wolopts & WAKE_MAGICSECURE)
-+			changed |= !!memcmp(wol->sopass, pl->wol_sopass,
-+					    sizeof(wol->sopass));
-+		memcpy(pl->wol_sopass, wol->sopass, sizeof(pl->wol_sopass));
-+
-+		if (changed) {
-+			ret = pl->mac_ops->mac_wol_set(pl->config, wolopts,
-+						       wol->sopass);
-+			if (!ret)
-+				pl->wolopts_mac = wolopts;
-+		} else {
-+			ret = 0;
-+		}
-+	} else {
-+		if (pl->phydev)
-+			ret = phy_ethtool_set_wol(pl->phydev, wol);
-+	}
- 
- 	return ret;
- }
 diff --git a/include/linux/phylink.h b/include/linux/phylink.h
-index 9af0411761d7..59cb58b29d1d 100644
+index 59cb58b29d1d..38363e566ac3 100644
 --- a/include/linux/phylink.h
 +++ b/include/linux/phylink.h
-@@ -156,6 +156,8 @@ enum phylink_op_type {
-  * @lpi_capabilities: MAC speeds which can support LPI signalling
+@@ -157,6 +157,7 @@ enum phylink_op_type {
   * @lpi_timer_default: Default EEE LPI timer setting.
   * @eee_enabled_default: If set, EEE will be enabled by phylink at creation time
-+ * @wol_phy_legacy: Use Wake-on-Lan with PHY even if phy_can_wakeup() is false
-+ * @wol_mac_support: Bitmask of MAC supported %WAKE_* options
+  * @wol_phy_legacy: Use Wake-on-Lan with PHY even if phy_can_wakeup() is false
++ * @wol_phy_speed_ctrl: Use phy speed control on suspend/resume
+  * @wol_mac_support: Bitmask of MAC supported %WAKE_* options
   */
  struct phylink_config {
- 	struct device *dev;
-@@ -173,6 +175,10 @@ struct phylink_config {
- 	unsigned long lpi_capabilities;
- 	u32 lpi_timer_default;
- 	bool eee_enabled_default;
-+
-+	/* Wake-on-Lan support */
-+	bool wol_phy_legacy;
-+	u32 wol_mac_support;
+@@ -178,6 +179,7 @@ struct phylink_config {
+ 
+ 	/* Wake-on-Lan support */
+ 	bool wol_phy_legacy;
++	bool wol_phy_speed_ctrl;
+ 	u32 wol_mac_support;
  };
  
- void phylink_limit_mac_speed(struct phylink_config *config, u32 max_speed);
-@@ -188,6 +194,7 @@ void phylink_limit_mac_speed(struct phylink_config *config, u32 max_speed);
-  * @mac_link_up: allow the link to come up.
-  * @mac_disable_tx_lpi: disable LPI.
-  * @mac_enable_tx_lpi: enable and configure LPI.
-+ * @mac_wol_set: configure Wake-on-Lan settings at the MAC.
-  *
-  * The individual methods are described more fully below.
-  */
-@@ -211,6 +218,9 @@ struct phylink_mac_ops {
- 	void (*mac_disable_tx_lpi)(struct phylink_config *config);
- 	int (*mac_enable_tx_lpi)(struct phylink_config *config, u32 timer,
- 				 bool tx_clk_stop);
-+
-+	int (*mac_wol_set)(struct phylink_config *config, u32 wolopts,
-+			   const u8 *sopass);
- };
- 
- #if 0 /* For kernel-doc purposes only. */
-@@ -440,6 +450,22 @@ void mac_disable_tx_lpi(struct phylink_config *config);
-  */
- int mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
- 		      bool tx_clk_stop);
-+
-+/**
-+ * mac_wol_set() - configure the Wake-on-Lan parameters
-+ * @config: a pointer to a &struct phylink_config.
-+ * @wolopts: Bitmask of %WAKE_* flags for enabled Wake-On-Lan modes.
-+ * @sopass: SecureOn(tm) password; meaningful only for %WAKE_MAGICSECURE
-+ *
-+ * Enable the specified Wake-on-Lan options at the MAC. Options that the
-+ * PHY can handle will have been removed from @wolopts.
-+ *
-+ * The presence of this method enables phylink-managed WoL support.
-+ *
-+ * Returns: 0 on success.
-+ */
-+int (*mac_wol_set)(struct phylink_config *config, u32 wolopts,
-+		   const u8 *sopass);
- #endif
- 
- struct phylink_pcs_ops;
 -- 
 2.47.3
 
