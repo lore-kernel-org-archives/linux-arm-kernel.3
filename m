@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48CCDCCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 18:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CDDFCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 18:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fck8LKgCheBTtzhirGZSgVYji9+4kt2G7PypWCpeZQ8=; b=JsxCRi0kQQrnP6c+Gjaz0aXd3x
-	q9oSkwP7py7jh6EduMWC3n4S/bLKYHkgHvAuzUbS6uEIq4wrGx0LP8rZedEFsi7ku0WdwsdoXsLYE
-	fIl3ZXxqLsoD3d+yYbFwibbhcLbYWO8jzKENlTBs5Lmb16JBuzLnuVd6av8ixoUqt6M9m703ndojv
-	tXF9BSZksPRAvr1u3ongiGiNNCaccLKQcnqG3vn2zUOcTwy8ILJkxIvn33X+2PKHvqSZ+p4gytup2
-	f6enEUkGQXCu+SBLXVAuSwrV4QWjrnQoAqiKnZyl8Rjl9MNE6uX6BsSM8cByl09abOD7PJsqi9oLp
-	8SR4vtxA==;
+	bh=CcG50dMMXSISlPBoCDniPpurycAsgd8gSy7s4DyCZOk=; b=AsrPBtWquG49QyH8N1Cm+LvUYR
+	jdZhm59QgiTv7+/FsXbP35WXS39NXzficsU0GL04X5csjVgLOsNy//pFI4ApdDQsIK2Fmy0coSQSt
+	GaNPBYlzp++JUOo3/tExu+AxmLqZ0XdEIWxkG3JNWCe2bdAItOrRbfVWrzhBRqNkHNUl75PkApwVh
+	KOtz/uexgOlx0f8dZS0VjJRa+jy2mZDQ3v4oOGd7WiFKTtAqE36XF9B/Dl4t9EcUB+ZjtXddadi76
+	geZ+fhG/1feJ8ZlILFVvKqqp260xqLUkamSnUoVuTpk/ATh/t5sE4U3Det4t+y/vtkHBaN6QrDqoM
+	nQaclyYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC0PP-00000007I1C-1IHU;
-	Thu, 23 Oct 2025 18:51:35 +0000
+	id 1vC0Q4-00000007IIt-0351;
+	Thu, 23 Oct 2025 18:52:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC0PO-00000007I0X-04QM
+	id 1vC0Q2-00000007IHv-2oMt
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 23 Oct 2025 18:51:34 +0000
+	Thu, 23 Oct 2025 18:52:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Fck8LKgCheBTtzhirGZSgVYji9+4kt2G7PypWCpeZQ8=; b=WtukfKEp/4rbKdrwzX8WlKE25K
-	vTHf/BkXlMkL6x0paVVCHLF7zFJkafaEjVXOitL6nGn4mE+iDwKOrqTAUHlnyQmPtA1eex4s/uARG
-	hDv2r9mqbOH8B7yDR8QZkYQ34U4ggxxIihksOm+OsEIh2DjmUti55drxJLasi7Hs+YjtanxpnLRPk
-	4rAumwrZ2LRnymSLE5QHI/19HxcSH5OG+fZa+r9/fya59iwbZaVN2vcSU7U/jsBqUHPLOgx9oBCDY
-	wHG7zMGxNqEyZmmoxbNgfaZDSkVpAslL8YSnAG+gNXFWypz2AvLLCrKwqBhg48k3f4XVAHvANTXTD
-	XyF+9DeQ==;
+	bh=CcG50dMMXSISlPBoCDniPpurycAsgd8gSy7s4DyCZOk=; b=XA930+oXygBM4yR3vNS/+EPPk7
+	ImZLcachg/hgk9eI2+kMEnxZPeQnqnluLcuGUS4kDoXSn4mQrzJSF7vvKSKmryajfuwwN/LoHoA91
+	S/IlmA+jpkWzlY6gr0oeQ9j7VYSdXxVpk12xJedHms6NGutbVLJ4Ez2dyzeALPM2Zrm9oBsXVC/96
+	+cqNEEq7SFC8v3waINzuw8pir3KdJoLTs/H6p+hQEbfcLWygmVoTQS0k1gaL5tuIDWKz1ImiyvCyE
+	yEhJil97AsWJi6NXxNSIJE9lcsXf0TnEhX8g2n4XU0aWgdJU92WJFmPcHwXCGNJhyfIPF5TXV93p/
+	AOti270g==;
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBzXg-00000001d3l-1L2t
+	id 1vBzYJ-00000001d8l-3yGG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 17:56:05 +0000
+	Thu, 23 Oct 2025 17:56:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Fck8LKgCheBTtzhirGZSgVYji9+4kt2G7PypWCpeZQ8=; b=o6QP+zM11VgjiUYwb3dDbDDxhB
-	itSVZWwvgs9DXykbevr1fDvhfNdpr7f4ev7J8vRWhAq35HLERa05sbIcrY2V8AgDHp7xzt3uQHxw8
-	03eN04bzBr4VbJkBKHOmVBLLLq0HOJc98EPj1sEQmJiMVQuv1Hemka56vt1skkpQcRyk=;
+	bh=CcG50dMMXSISlPBoCDniPpurycAsgd8gSy7s4DyCZOk=; b=4W7Ltb5zwkN/3ATliMvoPnipDN
+	J0g3vQ5GBsnTualcKGJnmKIZ2PsMPlUDlQlyfK1mjiNgfZEUxhaq08Yns3cKGW/8NpQcRY50Ga8RH
+	DZdtnVT28pIMF9kcje9UbVU13vDCX5aP/x5IcTuJCDdzqC1ZPK1iywCDWOsF0jLO6bYA=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1vC0PH-00Budg-KO; Thu, 23 Oct 2025 20:51:27 +0200
-Date: Thu, 23 Oct 2025 20:51:27 +0200
+	id 1vC0Pu-00BufO-UY; Thu, 23 Oct 2025 20:52:06 +0200
+Date: Thu, 23 Oct 2025 20:52:06 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
@@ -67,18 +67,17 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Richard Cochran <richardcochran@gmail.com>
-Subject: Re: [PATCH net-next 7/8] net: stmmac: use != rather than ^ for
- comparing dev_id
-Message-ID: <4dbb99c6-77da-49f3-bce3-5bfc297f2c21@lunn.ch>
+Subject: Re: [PATCH net-next 8/8] net: stmmac: reorganise stmmac_hwif_init()
+Message-ID: <d662bea8-2b16-4183-a2b9-e5946f83ae42@lunn.ch>
 References: <aPn3MSQvjUWBb92P@shell.armlinux.org.uk>
- <E1vBrla-0000000BMQM-462M@rmk-PC.armlinux.org.uk>
+ <E1vBrlg-0000000BMQS-0QYt@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1vBrla-0000000BMQM-462M@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1vBrlg-0000000BMQS-0QYt@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_185604_451653_2F267972 
-X-CRM114-Status: UNSURE (   6.28  )
+X-CRM114-CacheID: sfid-20251023_185644_026938_5B0C1DD9 
+X-CRM114-Status: UNSURE (   6.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,9 +93,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025 at 10:37:54AM +0100, Russell King (Oracle) wrote:
-> Use the more usual not-equals rather than exclusive-or operator when
-> comparing the dev_id in stmmac_hwif_find().
+On Thu, Oct 23, 2025 at 10:38:00AM +0100, Russell King (Oracle) wrote:
+> Reorganise stmmac_hwif_init() to handle the error case of
+> stmmac_hwif_find() in the indented block, which follows normal
+> programming pattern.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
