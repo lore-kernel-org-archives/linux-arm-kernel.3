@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC045CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 04:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3489DCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 04:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pv4ovTiooX+VPVafpuazkD95xgm4rFVM4MV3q2MpFaQ=; b=o05QiGvhr5gnpjsI6pU7MFe0xn
-	1lEZh+0o2MWXxeBY+aw9aBGxj9qlMygGlvelAqoTQkAZpeRuF0zXRkOUEmj8v0fx5l9GBS9whCqBC
-	z0ylEDlbHdykztExX9o9YfWASDTOxwTzdO7RGHkHxoUliUfwS4Rh7gHgPXrTh8cqp2Kv+Xg3g+Yld
-	RBn5QkGzclH/sMaxGW6VRx+yvMN8uSxs4bWTUM0Ovi15Rp2oUT3JAdaSDVmgPET3KlGYoq5xJKKaZ
-	wCfGXBgwMpXu3B+98BfDOfyorPMqrgUIoF7kazzIWhpDn2V1SuqkhLybmr0OGnRDye6QKuxCGM95I
-	FhLBD0iw==;
+	bh=dwgZDVKDRmfhAYHTqlXcWWPXhFwAOPJQl1VPP3sMcrM=; b=hboFIPCjg/GJJZCx6/oBoy06Fg
+	QMyExuBxpNIrW0HIpvrQVQOqjv+JQayn7W9F0k2LjbimbJHKPgSma/2LLu3R331jMvrcp1IpLjdrz
+	2S4NR8QgAtC6M6e9W4DTFSZlWlJRIdzuZTEJgIqu6otqV2pmWhgEz3xK+tdWvgKy6vkbxUkmkUflJ
+	jHjmiX4nDAcAs3iKEg/qgBXMtbFfYj5/BsmPc7zlHhmeOvYPpPQoKC53Ek6HF2S/SUindSyQi03Pd
+	JimIQzRM2WzN/iaOiqXpxSBX9lUu1qpDalgL+FJ1zAAozd7u43YnIbn4o+waqftuFAz3Cf3fth9PN
+	HMMfgttA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBnEC-0000000548k-1Tof;
-	Thu, 23 Oct 2025 04:47:08 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1vBnL8-000000054mN-1MD9;
+	Thu, 23 Oct 2025 04:54:18 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBnEA-0000000547Y-14sF;
-	Thu, 23 Oct 2025 04:47:07 +0000
+	id 1vBnL5-000000054lU-1R1s;
+	Thu, 23 Oct 2025 04:54:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761194827; x=1792730827;
+  t=1761195255; x=1792731255;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=toggoyR65FRMD2salpJRgrdbeLvnI/1Ai4wkilIe08M=;
-  b=KCvoaAU+SMb3mSAA/+AxYCMrz2PZnRF4oyaXxLhzMkjVvuzOaUsM3Pe4
-   +S6XpJ1xTMue91kKwZjDdEMoYOsm9gPkrtuZahyo/BU2a2Pz96LPCGgro
-   EeLhHlswv6nj3bky5RVV4tZSlTfiNrmN+F8isGfruPtUODQLgNB34fzNm
-   6aMJNEK2hOhJnYg6eJ7++U5Rt0DDeu0zfacoNg+JuPCbJQ+qb1hxTQHW6
-   FZ5+I8AY6/v2RgOzB7WxDV4iqNFDQ63NUossfKqt6Z+7gpLaEgdlnOBgk
-   gjnJNP5ssys3wPYRjkdZ3IjE2LQvcstQ0A70/QFYao0Vj3Ddj+/eEYhNG
-   A==;
-X-CSE-ConnectionGUID: LMSZM20lQ5u1HBV5dV7DsA==
-X-CSE-MsgGUID: 6ZbF3n4KSq6D73O1IFF2wQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="63276601"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="63276601"
+  bh=o/X8ig17zbEWg83ccAFqusXE4QA15fbF7lAl6rfU1tQ=;
+  b=Iv6ooUWU+iKmpePi+UBaWciHEcPAYHTdUwyeWtkZYKFWcNxHWcO4ieu9
+   ZGCbdP7sZBXeAJGhE8ewm5mGeNwE9s98y67gLEPbySIJ5W1qbZSLs99pR
+   v2cYTtQH1747h7v+ElBBIhlLcBr17PqB+SyGU1oGg4WOA5lDlP0DOfy7O
+   yJc8b73vGqAPszHPO3J733ZQiOHBuvKgrzdwJwYI5PZALa+l/n/F7iu8q
+   6OVObIW0bmnjbkDUKA7gSKvNcEj+8j2c6hyDj0u64XJTh+lTOufG4ITRu
+   iWCGxB/yGhIF6rYKs11xb30IW1a1c9lR1LyBMYbAAZ+scTWyifJr3oJjq
+   w==;
+X-CSE-ConnectionGUID: LRLJtLPQSruXxL27u2mgHw==
+X-CSE-MsgGUID: BfziioROQ/yqOpic6RVtcA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="88820545"
+X-IronPort-AV: E=Sophos;i="6.19,248,1754982000"; 
+   d="scan'208";a="88820545"
 Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 21:47:05 -0700
-X-CSE-ConnectionGUID: KCuFwfgeQhOOzq78NUB0nQ==
-X-CSE-MsgGUID: +WIDlni6TjybQawi0SaEdg==
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 21:54:15 -0700
+X-CSE-ConnectionGUID: HMCARIInQHW636C3OauOVA==
+X-CSE-MsgGUID: LmNg6KDHRqKFY/2EChkiAw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,248,1754982000"; 
-   d="scan'208";a="214984355"
+   d="scan'208";a="214985320"
 Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 21:46:56 -0700
-Message-ID: <99d27f65-4797-401f-a374-b3fccd67cdac@linux.intel.com>
-Date: Thu, 23 Oct 2025 12:43:02 +0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 21:54:06 -0700
+Message-ID: <47b5dfbe-dda7-419d-9032-d61bda44eb9f@linux.intel.com>
+Date: Thu, 23 Oct 2025 12:50:13 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/6] iommu: Generic support for RMRs during device
- release
+Subject: Re: [PATCH v2 5/6] iommu: Do not revert set_domain for the last gdev
 To: Nicolin Chen <nicolinc@nvidia.com>, joro@8bytes.org, jgg@nvidia.com,
  kevin.tian@intel.com
 Cc: suravee.suthikulpanit@amd.com, will@kernel.org, robin.murphy@arm.com,
@@ -79,15 +78,15 @@ Cc: suravee.suthikulpanit@amd.com, will@kernel.org, robin.murphy@arm.com,
  linux-tegra@vger.kernel.org, virtualization@lists.linux.dev,
  patches@lists.linux.dev
 References: <cover.1761017765.git.nicolinc@nvidia.com>
- <80bbe9125d90b001f3ce08429704aa4168b0a00b.1761017765.git.nicolinc@nvidia.com>
+ <276875013de662fe50f3fdd9e9a5bfbc0f12602e.1761017765.git.nicolinc@nvidia.com>
 Content-Language: en-US
 From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <80bbe9125d90b001f3ce08429704aa4168b0a00b.1761017765.git.nicolinc@nvidia.com>
+In-Reply-To: <276875013de662fe50f3fdd9e9a5bfbc0f12602e.1761017765.git.nicolinc@nvidia.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_214706_341275_9009F3B6 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20251022_215415_404918_F9DABB0D 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,31 +102,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 10/23/25 10:21, Nicolin Chen wrote:
-> From: Jason Gunthorpe<jgg@nvidia.com>
+> The last gdev is the device that failed the __iommu_device_set_domain().
+> So, it doesn't need to be reverted, given it's attached to group->domain
+> already.
 > 
-> Generally an IOMMU driver should leave the translation as BLOCKED until the
-> translation entry is probed onto a struct device. When the struct device is
-> removed, the translation should be put back to BLOCKED.
+> This is not a problem currently, since it's a simply re-attach. However,
+> the core will need to pass in the old domain to __iommu_device_set_domain
+> so the old domain pointers would be inconsistent between a failed device
+> and all its prior succeeded devices, as all the prior devices need to be
+> reverted.
 > 
-> Drivers that are able to work like this can set their release_domain to the
-> blocking domain, and the core code handles this work.
+> Avoid the re-attach for the last gdev, by breaking before the revert.
 > 
-> The exception is when the device has an IOMMU_RESV_DIRECT region, in which
-> case the OS should continuously allow translations for the given range. And
-> the core code generally prevents using a BLOCKED domain with this device.
-> 
-> Continue this logic for the device release and hoist some open coding from
-> drivers. If the device has dev->iommu->require_direct and the driver uses a
-> BLOCKED release_domain, override it to IDENTITY to preserve the semantics.
-> 
-> The only remaining required driver code for IOMMU_RESV_DIRECT should preset
-> an IDENTITY translation during early IOMMU startup for those devices.
-> 
-> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
+> Reviewed-by: Jason Gunthorpe<jgg@nvidia.com>
 > Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
 > ---
->   drivers/iommu/iommu.c | 16 ++++++++++++++--
->   1 file changed, 14 insertions(+), 2 deletions(-)
+>   drivers/iommu/iommu.c | 5 +++--
+>   1 file changed, 3 insertions(+), 2 deletions(-)
 
 Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
