@@ -4,63 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2241CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 15:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947CACCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 15:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4RqcITz/A0Wb+zQCM0axz78STZMKxI0+DTWDBH2AeM0=; b=S+r13cv6kn4g5iW4h2EQsLFknH
-	pfyQQLJ00XDE5odydxL49wqvu+tYIF94up/gmHOqI0kjnzguHftaeHtskmfTxPogE98oLghuom4fe
-	Zt9UZSeC2CfaJEDZ70e1KZDr+BctBKvPXYTTiA1gS+acXhsm72I35abC6p016i1gXcxt/4enJ4d/h
-	uk+Ms94n3T4q3z28Q1pDtpxF6TONVayj2FcaTs7afv3g1S8xKIui+UlloJ76Muz0Cq3HqBTocylig
-	Ajn2/J5QLLQZF2sYpy7UrqWDSBbBLIQIvh6HzNbYRrP00OaZzxHBIVPVlQwVhtgfmhke9TOauyN/Q
-	hRmcxKog==;
+	bh=eGj/4U8Cjm7Jzuo0N797IrKS+KWnd9Al6qyj+0gj5DU=; b=iNou3QuC8Qa/HQKkVZ7C0Ak1r2
+	LsStw/s78iKpFuk/TtFkiNEqoc/CklYdnIOUm0Z98dRr86oIl9P0ZCn2YDYQrbNJEWa7rhr8Y+tHH
+	DCmC0tW5SaxwKAicGNHlrX5ch8MIXk4zhfSFH9NWEcCgm2+ScPSt9Y0uft/5dy7vZAlwxt4h2ogRU
+	1P8Gv+7Y4A7nIAT2DfCRJW8nIgOPGmPsS3EB2xaoE8TIc6nle1tSIRXWCPR4nTe9OzpE2LTqHanWq
+	XcNe850gGwky0wNXZjALw6pvKZdyvpDiP5CEsFLuSMIRm64rL2g+uc1ZaWKQGwRPKdzITkr2HJJca
+	/fLF+Tfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwyB-00000006i5A-21dB;
-	Thu, 23 Oct 2025 15:11:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBx12-00000006iwK-3qGE;
+	Thu, 23 Oct 2025 15:14:12 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwy9-00000006i4i-346f;
-	Thu, 23 Oct 2025 15:11:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 26FF4640C2;
-	Thu, 23 Oct 2025 15:11:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74EE1C4CEE7;
-	Thu, 23 Oct 2025 15:11:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761232272;
-	bh=FqogIAnnyd1/hXRU6ygWHWPx68vkuiHwgBhzvU/xZ+s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s9dJRR4JBy4HMSnIgMV5KSXc84e82BWN3nrDVgb/ojTjVX6Oxy4BepWx11uvAtddF
-	 QdMFqODu0O6qaf9VgGxdvKMklmaQACUwbinfIwpqA76etpGXuT/9tD610jpd2G5kqC
-	 LMQFciKnOX2TmI8V1rOC0iCT8El9aBOL93xl5n9LatYIgE37Mia8dGfZLZrikr6+4l
-	 imF5XyUXPHxJvTSbRxfeG6rgbzbf9bZnOLrxSmEzRAkhQBWRbvgj+2bSJgdTUPmG+1
-	 sRH+u8OVFdC2Myr8aBrLJVPSil00KyAAqI4JdAm4+ZBjk9/wQ5DCrHGY5rganKBqNt
-	 IQfoxANng/GvQ==
-Date: Thu, 23 Oct 2025 17:11:10 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [net-next PATCH v2 2/2] net: airoha: add phylink support for GDM1
-Message-ID: <aPpFjvJTv1_CEMy6@lore-desk>
-References: <20251023145850.28459-1-ansuelsmth@gmail.com>
- <20251023145850.28459-3-ansuelsmth@gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="R0NsogCUtGj5e3sD"
-Content-Disposition: inline
-In-Reply-To: <20251023145850.28459-3-ansuelsmth@gmail.com>
+	id 1vBx0y-00000006iuW-0wjD
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Oct 2025 15:14:11 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33dadf7c5c0so1016357a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 08:14:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761232446; x=1761837246; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=eGj/4U8Cjm7Jzuo0N797IrKS+KWnd9Al6qyj+0gj5DU=;
+        b=etxsONN1RpZiTrf+VxD43bLWM1ygNaDp24NTSL93O/L1+GAu7pRWehjF24KOm9w4/I
+         xmgcsgBXM/rhWGZ+jd2Rirxk7q+HFVoA40OdhhkKIKBWw5tiXWG0yj195eBbJpBBgbHL
+         9L2DEww3IC36EwFIfUmTIE0Ow2RRCA930eskUNVO3P6w8pHA7k6UL5LKZC5ZmSoFCyr1
+         kA6gEyZGuCpez/j+Zu9trcdkKTIM21BUeesDiin1/sBwn6nMOZjQDpAkuwzlWtspyaQD
+         XkfDGq6Ik3bNYmgnYJRP9ayknyyKePa3NoaTSmH43AokVoXmzP91INyffOFfC0pj81E1
+         CyTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761232446; x=1761837246;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eGj/4U8Cjm7Jzuo0N797IrKS+KWnd9Al6qyj+0gj5DU=;
+        b=wl7rECQBUtisD0LgatpBHag2KpVhlD6G6Mgp9IETXGfU6bt+/fysA+wHdAQ6fEJ9ZI
+         rUtg6AEhTjQT523uR1C0oCbWspmYLxJlxQ2Vxt+ly4WEaAFotdWOE/L4FurGexgFiD6V
+         3bMtLd95borvB7p5LcHPk7ZGpNTbprMFZAu+ZM431XZpmxaIgZk75i6Yi2En1pPnLBEY
+         8VSG8dhZZ+Tyiz1cOJRgrkzxeaEy3DAK5Yc8P/hozIqNB0IQWcmOxUPTACnhf0+BYJuM
+         3smdFt6KoM1GMi+jd+oCLf4Dv/xQ/GtarrNt2YJDPbtHNZeyKp6ZBAP0YUCLk0vCRShT
+         p2Hg==
+X-Forwarded-Encrypted: i=1; AJvYcCWwPmx86lpXy9DpTyzC9U27/N/JKrkvWCHbKVFXQcx3aArUS1DgY+ve88loFO81MWYRrPR2berRq/WVSfs34AHY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxs09KcPHzW8MdnTd/vEJF5e5ckvb4QPLrI53CoJBM5+hcKGuuT
+	07nmJpSMEtqGsK4qZL5NNpJn+pCHdr+TjpSqBOxQAiLDjYuEehqvrdrbN61cr6VLt0c05VvUuPV
+	6Lu2m4Q==
+X-Google-Smtp-Source: AGHT+IGyk+8DKCi3tYCJowX0kgLUyc4PpyLVM16G5qza1KYeH4GEBaOP8pzea9wQFWKumE2t1taaAoPvn3M=
+X-Received: from pjbrm7.prod.google.com ([2002:a17:90b:3ec7:b0:330:6c04:207])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:570e:b0:32e:7ff6:6dbd
+ with SMTP id 98e67ed59e1d1-33e21dedc9fmr9424992a91.0.1761232446100; Thu, 23
+ Oct 2025 08:14:06 -0700 (PDT)
+Date: Thu, 23 Oct 2025 08:14:04 -0700
+In-Reply-To: <aPnbIDxGlcAyI9vy@yzhao56-desk.sh.intel.com>
+Mime-Version: 1.0
+References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-20-seanjc@google.com>
+ <aPnbIDxGlcAyI9vy@yzhao56-desk.sh.intel.com>
+Message-ID: <aPpGPF8McvI3-OO7@google.com>
+Subject: Re: [PATCH v3 19/25] KVM: TDX: Assert that mmu_lock is held for write
+ when removing S-EPT entries
+From: Sean Christopherson <seanjc@google.com>
+To: Yan Zhao <yan.y.zhao@intel.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
+	Michael Roth <michael.roth@amd.com>, Vishal Annapurve <vannapurve@google.com>, 
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Binbin Wu <binbin.wu@linux.intel.com>
+Content-Type: text/plain; charset="us-ascii"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251023_081408_267471_2A195868 
+X-CRM114-Status: GOOD (  25.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,196 +104,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 23, 2025, Yan Zhao wrote:
+> On Thu, Oct 16, 2025 at 05:32:37PM -0700, Sean Christopherson wrote:
+> > Unconditionally assert that mmu_lock is held for write when removing S-EPT
+> > entries, not just when removing S-EPT entries triggers certain conditions,
+> > e.g. needs to do TDH_MEM_TRACK or kick vCPUs out of the guest.
+> > Conditionally asserting implies that it's safe to hold mmu_lock for read
+> > when those paths aren't hit, which is simply not true, as KVM doesn't
+> > support removing S-EPT entries under read-lock.
+> > 
+> > Only two paths lead to remove_external_spte(), and both paths asserts that
+> > mmu_lock is held for write (tdp_mmu_set_spte() via lockdep, and
+> > handle_removed_pt() via KVM_BUG_ON()).
+> > 
+> > Deliberately leave lockdep assertions in the "no vCPUs" helpers to document
+> > that wait_for_sept_zap is guarded by holding mmu_lock for write.
+> > 
+> > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > ---
+> >  arch/x86/kvm/vmx/tdx.c | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+> > index e517ad3d5f4f..f6782b0ffa98 100644
+> > --- a/arch/x86/kvm/vmx/tdx.c
+> > +++ b/arch/x86/kvm/vmx/tdx.c
+> > @@ -1711,8 +1711,6 @@ static void tdx_track(struct kvm *kvm)
+> >  	if (unlikely(kvm_tdx->state != TD_STATE_RUNNABLE))
+> >  		return;
+> >  
+> > -	lockdep_assert_held_write(&kvm->mmu_lock);
+> Could we also deliberately leave lockdep assertion for tdx_track()?
 
---R0NsogCUtGj5e3sD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Can do.
 
-> In preparation for support of GDM2+ port, fill in phylink OPs for GDM1
-> that is an INTERNAL port for the Embedded Switch.
+> This is because if we allow removing S-EPT entries while holding mmu_lock for
+> read in future, tdx_track() needs to be protected by a separate spinlock to
+> ensure serialization of tdh_mem_track() and vCPUs kick-off (kicking off vCPUs
+> must follow each tdh_mem_track() to unblock the next tdh_mem_track()).
 
-Hi Christian,
+Does this look/sound right?
 
-just few nitpicks inline. Fixing them:
+From: Sean Christopherson <seanjc@google.com>
+Date: Thu, 28 Aug 2025 17:06:17 -0700
+Subject: [PATCH] KVM: TDX: Assert that mmu_lock is held for write when
+ removing S-EPT entries
 
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Unconditionally assert that mmu_lock is held for write when removing S-EPT
+entries, not just when removing S-EPT entries triggers certain conditions,
+e.g. needs to do TDH_MEM_TRACK or kick vCPUs out of the guest.
+Conditionally asserting implies that it's safe to hold mmu_lock for read
+when those paths aren't hit, which is simply not true, as KVM doesn't
+support removing S-EPT entries under read-lock.
 
->=20
-> Add all the phylink start/stop and fill in the MAC capabilities and the
-> internal interface as the supported interface.
->=20
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  drivers/net/ethernet/airoha/Kconfig      |  1 +
->  drivers/net/ethernet/airoha/airoha_eth.c | 77 +++++++++++++++++++++++-
->  drivers/net/ethernet/airoha/airoha_eth.h |  3 +
->  3 files changed, 80 insertions(+), 1 deletion(-)
->=20
+Only two paths lead to remove_external_spte(), and both paths asserts that
+mmu_lock is held for write (tdp_mmu_set_spte() via lockdep, and
+handle_removed_pt() via KVM_BUG_ON()).
 
-[...]
+Deliberately leave lockdep assertions in the "no vCPUs" helpers to document
+that wait_for_sept_zap is guarded by holding mmu_lock for write, and keep
+the conditional assert in tdx_track() as well, but with a comment to help
+explain why holding mmu_lock for write matters (above and beyond why
+tdx_sept_remove_private_spte()'s requirements).
 
-> @@ -2813,6 +2817,18 @@ static const struct ethtool_ops airoha_ethtool_ops=
- =3D {
->  	.get_link		=3D ethtool_op_get_link,
->  };
-> =20
-> +static struct phylink_pcs *airoha_phylink_mac_select_pcs(struct phylink_=
-config *config,
-> +							 phy_interface_t interface)
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/kvm/vmx/tdx.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-can you please do not go over 79 columns? (I still like it :))
+diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+index dca9e2561270..899051c64faa 100644
+--- a/arch/x86/kvm/vmx/tdx.c
++++ b/arch/x86/kvm/vmx/tdx.c
+@@ -1715,6 +1715,11 @@ static void tdx_track(struct kvm *kvm)
+ 	if (unlikely(kvm_tdx->state != TD_STATE_RUNNABLE))
+ 		return;
+ 
++	/*
++	 * The full sequence of TDH.MEM.TRACK and forcing vCPUs out of guest
++	 * mode must be serialized, as TDH.MEM.TRACK will fail if the previous
++	 * tracking epoch hasn't completed.
++	*/
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 
+ 	err = tdh_mem_track(&kvm_tdx->td);
+@@ -1762,6 +1767,8 @@ static void tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
+ 	gpa_t gpa = gfn_to_gpa(gfn);
+ 	u64 err, entry, level_state;
+ 
++	lockdep_assert_held_write(&kvm->mmu_lock);
++
+ 	/*
+ 	 * HKID is released after all private pages have been removed, and set
+ 	 * before any might be populated. Warn if zapping is attempted when
 
-static struct phylink_pcs *
-airoha_phylink_mac_select_pcs(struct phylink_config *config,
-			      phy_interface_t interface)
-{
-	return NULL;
-}
-
-> +{
-> +	return NULL;
-> +}
-> +
-> +static void airoha_mac_config(struct phylink_config *config,
-> +			      unsigned int mode,
-> +			      const struct phylink_link_state *state)
-> +{
-> +}
-> +
->  static int airoha_metadata_dst_alloc(struct airoha_gdm_port *port)
->  {
->  	int i;
-> @@ -2857,6 +2873,57 @@ bool airoha_is_valid_gdm_port(struct airoha_eth *e=
-th,
->  	return false;
->  }
-> =20
-> +static void airoha_mac_link_up(struct phylink_config *config,
-> +			       struct phy_device *phy, unsigned int mode,
-> +			       phy_interface_t interface, int speed,
-> +			       int duplex, bool tx_pause, bool rx_pause)
-> +{
-> +}
-> +
-> +static void airoha_mac_link_down(struct phylink_config *config,
-> +				 unsigned int mode, phy_interface_t interface)
-> +{
-> +}
-> +
-> +static const struct phylink_mac_ops airoha_phylink_ops =3D {
-> +	.mac_select_pcs =3D airoha_phylink_mac_select_pcs,
-> +	.mac_config =3D airoha_mac_config,
-> +	.mac_link_up =3D airoha_mac_link_up,
-> +	.mac_link_down =3D airoha_mac_link_down,
-> +};
-
-can you please align it like airoha_ethtool_ops or airoha_netdev_ops?
-
-> +
-> +static int airoha_setup_phylink(struct net_device *netdev)
-> +{
-> +	struct airoha_gdm_port *port =3D netdev_priv(netdev);
-> +	struct device *dev =3D &netdev->dev;
-> +	struct phylink *phylink;
-> +	int phy_mode;
-> +
-> +	phy_mode =3D device_get_phy_mode(dev);
-> +	if (phy_mode < 0) {
-> +		dev_err(dev, "incorrect phy-mode\n");
-> +		return phy_mode;
-> +	}
-> +
-> +	port->phylink_config.dev =3D dev;
-> +	port->phylink_config.type =3D PHYLINK_NETDEV;
-> +	port->phylink_config.mac_capabilities =3D MAC_ASYM_PAUSE |
-> +						MAC_SYM_PAUSE |
-> +						MAC_10000FD;
-> +
-> +	__set_bit(PHY_INTERFACE_MODE_INTERNAL,
-> +		  port->phylink_config.supported_interfaces);
-> +
-> +	phylink =3D phylink_create(&port->phylink_config, dev_fwnode(dev),
-> +				 phy_mode, &airoha_phylink_ops);
-> +	if (IS_ERR(phylink))
-> +		return PTR_ERR(phylink);
-> +
-> +	port->phylink =3D phylink;
-> +
-> +	return 0;
-> +}
-> +
->  static int airoha_alloc_gdm_port(struct airoha_eth *eth,
->  				 struct device_node *np, int index)
->  {
-> @@ -2935,12 +3002,18 @@ static int airoha_alloc_gdm_port(struct airoha_et=
-h *eth,
->  	if (err)
->  		return err;
-> =20
-> -	err =3D register_netdev(dev);
-> +	err =3D airoha_setup_phylink(port->dev);
->  	if (err)
->  		goto free_metadata_dst;
-> =20
-> +	err =3D register_netdev(dev);
-> +	if (err)
-> +		goto free_phylink;
-> +
->  	return 0;
-> =20
-> +free_phylink:
-> +	phylink_destroy(port->phylink);
->  free_metadata_dst:
->  	airoha_metadata_dst_free(port);
->  	return err;
-> @@ -3049,6 +3122,7 @@ static int airoha_probe(struct platform_device *pde=
-v)
-> =20
->  		if (port && port->dev->reg_state =3D=3D NETREG_REGISTERED) {
->  			unregister_netdev(port->dev);
-> +			phylink_destroy(port->phylink);
->  			airoha_metadata_dst_free(port);
->  		}
->  	}
-> @@ -3076,6 +3150,7 @@ static void airoha_remove(struct platform_device *p=
-dev)
-> =20
->  		airoha_dev_stop(port->dev);
->  		unregister_netdev(port->dev);
-> +		phylink_destroy(port->phylink);
->  		airoha_metadata_dst_free(port);
->  	}
->  	free_netdev(eth->napi_dev);
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index eb27a4ff5198..c144c1ece23b 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -531,6 +531,9 @@ struct airoha_gdm_port {
->  	struct net_device *dev;
->  	int id;
-> =20
-> +	struct phylink *phylink;
-> +	struct phylink_config phylink_config;
-> +
->  	struct airoha_hw_stats stats;
-> =20
->  	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
-> --=20
-> 2.51.0
->=20
-
---R0NsogCUtGj5e3sD
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaPpFjgAKCRA6cBh0uS2t
-rL2yAPwJ+sKCvxS7WnskEFkXW0ArW6kWm9QdRR7nw7/AaF0oswEAicDLHyIRsu6Z
-cd6vajttTttrfzyKaU85HnHQ3XtOcQU=
-=fV9Y
------END PGP SIGNATURE-----
-
---R0NsogCUtGj5e3sD--
+base-commit: 69564844a116861ebea4396894005c8b4e48f870
+--
 
