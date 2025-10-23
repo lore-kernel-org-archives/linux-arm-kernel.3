@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732F6CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 09:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5199CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 09:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQpp6e12o8o5ca/C4/8QrzOHzPoPBqTK/7krBrQ1u+c=; b=mMZ/Qas3fSzm5XY3r2JHEhYkYb
-	D1QiAz1Ee61894j1FhOVIdA+UyVAkQOaSkrblGYKiZ6oz13Eo0coC0D0IBu4D5FF24PJWr8XbkGLv
-	hS6b6ma3rRtbX30alLefdi+WEk0rbMJbUEZUjzhHmpxBzSIO5E4rTeuGwrrv4L0OeYfKQKTRlvPpx
-	mhe1UTVMt1mCgv0mQ8aY/HmtU5eU31GmT3PjWQjdc5C/11cLPgZxOkaelWC8NM+LWXn+CPa1TnVCI
-	kG89t9EXsO4J3+0nufKJOKWfCHHApieK4a9DnKaX/2LnfV8lrY43gaxRmv3OAYWUe6bvz21DVttEv
-	xD83Mb7g==;
+	bh=DKgvUFVBctlLYMwtQ/LsBxRzCiL9WjkZr3ppPZuy/1o=; b=00r+yY1Q/lLUiTX0D4ZDqphLc/
+	B4I2zHeCEOu0M5EVdGaLknIWMtBUys0SDM6ivQrD6kXGDOKtuLZ8yf9rVebnbyyWr77GdWYHr4NR5
+	1dBubfW3EpRvgexxA+WHGSrRCYp5ZdZHQDW+2zw0RmF4XKzUowXRtxn+vEKSdafNuJfZBl+THNn3T
+	K6jnBhDtftNSfndIt3+d6W0mnY4P5dAkTBpNHXbcx2aGY+d546KM6eApYR1PcVrpOKBJ61FC3zQgK
+	5ssftfGYbo5RM59bHW+Epu+Yxp3MRL+iPq2OJuDulv7HCOJUs6B31cb1ljUEyZZVV7Z18Bwo5NhFg
+	nU1QXBmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBrla-00000005k6J-2v6I;
-	Thu, 23 Oct 2025 09:37:54 +0000
+	id 1vBrlg-00000005kAe-05Lo;
+	Thu, 23 Oct 2025 09:38:00 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBrlX-00000005k3i-3URB
+	id 1vBrlc-00000005k6H-09vC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 09:37:52 +0000
+	Thu, 23 Oct 2025 09:37:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=XQpp6e12o8o5ca/C4/8QrzOHzPoPBqTK/7krBrQ1u+c=; b=spOAYPTmYdcCD1O9L6qeYTCkAB
-	LGOta14RwmzdNgChlKUtHMzU5a24jCcDkuLD24/XDmdHoo7U0+J9fYLsC0wLuN4Ne3yhKYsBN2eF4
-	J8UJZsDE0buCkreT0prTb+eZX3owwTf/kaS4BQFk66TOGJIff55dYHSEOun5sj1JO3djv7O/mlLER
-	zRN0nWghPt8FGJ4ABx4IaPAgfVI0aEN6fTDP0Xe7KGWPESdyDT7PgwBNEQal38HbYOUj4WcndXXjl
-	MBO5FmmFdTVHO2Z9JfBMKMjcMKt+hYTTjcLvkO+ZxjagC0hzZ1gbOfEw7038CjIQwNITdiIRm455m
-	edYiYuvQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53284 helo=rmk-PC.armlinux.org.uk)
+	bh=DKgvUFVBctlLYMwtQ/LsBxRzCiL9WjkZr3ppPZuy/1o=; b=e511UzWhGw9Z4YFHpA5AnwH1u2
+	aMJcrFr+CwvRXz7BEpVBcZvXID6yDG3MDKiDFY12WHjHR0FWCpuNgZ2WeCLr/2ucoOxoymTYkhbCJ
+	dsGQFRXE34tlAfA9kE0ZKVOiD21CN8iZMY6bUTtPaKaz3gizj00/CTYx0p3ElDN4Ni8g0F13yd66n
+	Sid9mxMDpAElTz28Q63AAb1euv+7D12/z6ttryJyDR1+hFRl54WGXW3dLnnNijZiJLPZYERVvlKtr
+	8vkXcxn0kOOtf5TGjedW6T/KailUTEu4Ei5gbWyd32NFmPHbUW8TC057cgnSN1N/19gRyNaNsMhXH
+	ojMy4IaQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50822 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vBrlR-0000000065s-2R6g;
-	Thu, 23 Oct 2025 10:37:45 +0100
+	id 1vBrlW-0000000066D-4AKK;
+	Thu, 23 Oct 2025 10:37:51 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vBrlQ-0000000BMQA-33N7;
-	Thu, 23 Oct 2025 10:37:44 +0100
+	id 1vBrlV-0000000BMQG-3WuD;
+	Thu, 23 Oct 2025 10:37:49 +0100
 In-Reply-To: <aPn3MSQvjUWBb92P@shell.armlinux.org.uk>
 References: <aPn3MSQvjUWBb92P@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -65,17 +65,16 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Richard Cochran <richardcochran@gmail.com>
-Subject: [PATCH net-next 5/8] net: stmmac: use FIELD_GET() for version
- register
+Subject: [PATCH net-next 6/8] net: stmmac: provide function to lookup hwif
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vBrlQ-0000000BMQA-33N7@rmk-PC.armlinux.org.uk>
-Date: Thu, 23 Oct 2025 10:37:44 +0100
+Message-Id: <E1vBrlV-0000000BMQG-3WuD@rmk-PC.armlinux.org.uk>
+Date: Thu, 23 Oct 2025 10:37:49 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_023751_891079_CAD20B62 
-X-CRM114-Status: GOOD (  10.74  )
+X-CRM114-CacheID: sfid-20251023_023756_107704_01020476 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,50 +89,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide field definitions in common.h, and use these with FIELD_GET()
-to extract the fields from the version register.
+Provide a function to lookup the hwif entry given the core type,
+Synopsys version, and device ID (used for XGMAC cores).
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/common.h | 3 +++
- drivers/net/ethernet/stmicro/stmmac/hwif.c   | 8 ++++----
- 2 files changed, 7 insertions(+), 4 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/hwif.c | 40 +++++++++++++++-------
+ 1 file changed, 28 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index 31254ba525d5..a89fe25f1837 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -26,6 +26,9 @@
- #include "hwif.h"
- #include "mmc.h"
- 
-+#define DWMAC_SNPSVER	GENMASK_U32(7, 0)
-+#define DWMAC_USERVER	GENMASK_U32(15, 8)
-+
- /* Synopsys Core versions */
- #define	DWMAC_CORE_3_40		0x34
- #define	DWMAC_CORE_3_50		0x35
 diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
-index c156edb54ae6..78362cf656f2 100644
+index 78362cf656f2..6c5429f37cae 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
-@@ -43,12 +43,12 @@ static void stmmac_get_version(struct stmmac_priv *priv,
- 	}
+@@ -299,6 +299,30 @@ static const struct stmmac_hwif_entry {
+ 	},
+ };
  
- 	dev_info(priv->device, "User ID: 0x%x, Synopsys ID: 0x%x\n",
--		 (unsigned int)(version & GENMASK(15, 8)) >> 8,
--		 (unsigned int)(version & GENMASK(7, 0)));
-+		 FIELD_GET(DWMAC_USERVER, version),
-+		 FIELD_GET(DWMAC_SNPSVER, version));
++static const struct stmmac_hwif_entry *
++stmmac_hwif_find(enum dwmac_core_type core_type, u8 snpsver, u8 dev_id)
++{
++	const struct stmmac_hwif_entry *entry;
++	int i;
++
++	for (i = ARRAY_SIZE(stmmac_hw) - 1; i >= 0; i--) {
++		entry = &stmmac_hw[i];
++
++		if (core_type != entry->core_type)
++			continue;
++		/* Use synopsys_id var because some setups can override this */
++		if (snpsver < entry->min_id)
++			continue;
++		if (core_type == DWMAC_CORE_XGMAC &&
++		    (dev_id ^ entry->dev_id))
++			continue;
++
++		return entry;
++	}
++
++	return NULL;
++}
++
+ int stmmac_hwif_init(struct stmmac_priv *priv)
+ {
+ 	enum dwmac_core_type core_type = priv->plat->core_type;
+@@ -306,7 +330,7 @@ int stmmac_hwif_init(struct stmmac_priv *priv)
+ 	struct stmmac_version version;
+ 	struct mac_device_info *mac;
+ 	bool needs_setup = true;
+-	int i, ret;
++	int ret;
  
--	ver->snpsver = version & GENMASK(7, 0);
-+	ver->snpsver = FIELD_GET(DWMAC_SNPSVER, version);
- 	if (core_type == DWMAC_CORE_XGMAC)
--		ver->dev_id = (version & GENMASK(15, 8)) >> 8;
-+		ver->dev_id = FIELD_GET(DWMAC_USERVER, version);
- }
+ 	stmmac_get_version(priv, &version);
  
- static void stmmac_dwmac_mode_quirk(struct stmmac_priv *priv)
+@@ -337,18 +361,10 @@ int stmmac_hwif_init(struct stmmac_priv *priv)
+ 		return -ENOMEM;
+ 
+ 	/* Fallback to generic HW */
+-	for (i = ARRAY_SIZE(stmmac_hw) - 1; i >= 0; i--) {
+-		entry = &stmmac_hw[i];
+-
+-		if (core_type != entry->core_type)
+-			continue;
+-		/* Use synopsys_id var because some setups can override this */
+-		if (priv->synopsys_id < entry->min_id)
+-			continue;
+-		if (core_type == DWMAC_CORE_XGMAC &&
+-		    (version.dev_id ^ entry->dev_id))
+-			continue;
+ 
++	/* Use synopsys_id var because some setups can override this */
++	entry = stmmac_hwif_find(core_type, priv->synopsys_id, version.dev_id);
++	if (entry) {
+ 		/* Only use generic HW helpers if needed */
+ 		mac->desc = mac->desc ? : entry->desc;
+ 		mac->dma = mac->dma ? : entry->dma;
 -- 
 2.47.3
 
