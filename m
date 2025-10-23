@@ -4,181 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F228CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 16:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02515CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 16:11:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IiQYlWzGxAzcmDxQx21R/s857ZIvlRsCxnCwp8B5EGA=; b=QvUrxROb+KX18KJFccKP3FR5QH
-	hCM+FZtCirRdoyg2YADiZUcols5y6oA+E2phnjYdKAsRdkbM0pizpgsJ6trNm+L4rZ55h2nRqW9ho
-	02ui/SJvZ4nAprWo7amlZSrJcefh0z35gwuP1jG++6y8omn0Fk7B/JCi1XtPhWv4sZNb69WLB2Jx5
-	jv3x3UmrSyOKSRFrKkvpV+P4owItyVm3qi58Bd98lJpz5D5okhCqKkV2xjqSErCwXHIkbdEWbILLc
-	X0Y3b3Yya6ENX9YLBa6ZCube/aLBktKyVjbGTXLIdToz5rTLMOIGWZ2fnKKNs+kECqgagfkZoo8WS
-	zDDCisuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=zfLELPelxeA3GiXUYZFoOHXmO5WyzT2zMVZmSMV6ntE=; b=TQE8CyNMZ+hmdnU+lQpKoogyzy
+	DM67iXAcbGb6zyq7v7uPpSq82kZGANAarolP4ODieR684x57iOSOlEduAPIuqMale28QJmzzkCYGq
+	UM2rMBEZsgwI548AirDag2X2lnCnHh7RoCIMBY3PaFLeEyu/YwZ52PngGKpBrY5m/xq/WL2LgUfr5
+	82mrpcDf4mQwJuJpgJpW41mOi3xsnMVH1cjQS4fxYSxjeswHNwRpnsrl5wA1udSrpSTt134WMLpmB
+	766qKZ+tDKKlXzh4CKRDKEM/A1cd9a3MFfsJ2LIL8jWiBfVjeKyU/U1HigHXxhB9H8Kt6UPllnzqP
+	wfvJ5qyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBxn1-00000006qLN-1QL1;
-	Thu, 23 Oct 2025 16:03:47 +0000
-Received: from mail-eastusazon11011005.outbound.protection.outlook.com ([52.101.52.5] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vBxu3-00000006rIS-2ZiC;
+	Thu, 23 Oct 2025 16:11:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBxmy-00000006qKN-22x4
+	id 1vBxu2-00000006rHx-1Lw5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 16:03:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N+GNETWHhOcVN7D91sUWSDwQDOa6La2vbmcMcMl7Mt8J9tFdXCxQkC0oticHpdYhrBurn6q86H5xwIWogGBd4Khx0UQ9qQFPjFHrdiqM2t5zIySGQD0rGdeOV+0lRt7bj2If5mnho/m14pyEIA9FLAKfcg8VUNnCnlVfr82l++Z1gqKLSNKCOLUkUEBLhXA4AQWj/6ph1vtoxlvFa9Kkh85Qsz3+UyerikNH9Ir8MSPERyvjKU9DUraA7NKNKtKV5qBHALy2JeG3s34Y4OSd00r7T5tleRqAjMsJsPF80Oh+jt+V67LzvQBT+Fzay1jzESPaGFjAj6hE+UaWf8vz8Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IiQYlWzGxAzcmDxQx21R/s857ZIvlRsCxnCwp8B5EGA=;
- b=tPXMPe9xvZNxxHZ96siw899xQbNWfUeB23TyuLW1BXA5pkeBxRWf+x9BbzxpFLLB51KZUmB3hOZFgjvdlDvFfLMuHpX/CIa5Buee7Y7CEK6FEhFOf2veIpgILS3RGVhl9ByHke2/4js8TgvTv2ZMQuRh8co/EO55Ai9MTTzO+cKggo1tU3+KJyTnN/Nr3F3NipHp1emmxYzj2CwbEnZcBqyvFj49MRZVNi5XufNiDSz5EnXN6EIelhlMFm30Tq466eON71mhzfYV4RQGJyUUijSxcgGqXx40QPHvSZNL0cmquOWC+wluMKmnKNV42nU/Tvrmdl1HlwCnxR2wz+Pv5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IiQYlWzGxAzcmDxQx21R/s857ZIvlRsCxnCwp8B5EGA=;
- b=UrjEPilYie9qGp/jqmGGWXmDrsP4H/8nbqb+cISOVMmPPLdQ0FkLEXnad2ClBhow1nCb3XcZTgzgaeY+ktoZC/EtbLSiC3Hc/iqDBubZeWJfqGnFPp90Cb8ShEKXk65SiXpBsrUehtEUlQ97YBtwBzQw6RZVt3IdfdbhId3gA+3x8LSL1Elyp2i0DqhhLj5F8Q3C3wpGN5QG5gvZOlEd8V0ScpXor5viaUXrBxBUvC7BqSt+vaiXqBQXGzm3Jxf54XX4BTkapMELI2y4uziuE49toRJdWuK+2DF+8Xdh/bHEMG8QUs4+LyNiXFMT/BAzwtGgA7qD25CNVOglt2T2jQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from CH2PR03MB5368.namprd03.prod.outlook.com (2603:10b6:610:9d::22)
- by SN7PR03MB7260.namprd03.prod.outlook.com (2603:10b6:806:2dd::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Thu, 23 Oct
- 2025 16:03:38 +0000
-Received: from CH2PR03MB5368.namprd03.prod.outlook.com
- ([fe80::ccdd:249f:7a8a:648]) by CH2PR03MB5368.namprd03.prod.outlook.com
- ([fe80::ccdd:249f:7a8a:648%6]) with mapi id 15.20.9253.011; Thu, 23 Oct 2025
- 16:03:37 +0000
-Message-ID: <e24d26a4-8c3d-4673-97a7-eed23f54c08c@altera.com>
-Date: Thu, 23 Oct 2025 21:33:26 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3 2/3] net: stmmac: Consider Tx VLAN offload tag
- length for maxSDU
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>,
- Rohan G Thomas <rohan.g.thomas@intel.com>,
- Boon Khai Ng <boon.khai.ng@altera.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Matthew Gerlach <matthew.gerlach@altera.com>
-References: <20251017-qbv-fixes-v3-0-d3a42e32646a@altera.com>
- <20251017-qbv-fixes-v3-2-d3a42e32646a@altera.com>
- <d7bbb7dd-ddc6-43d6-b234-53213bde71bd@altera.com>
- <83ffc316-6711-4ae4-ad10-917f678de331@linux.dev>
- <0d3a8abe-773c-4859-9d6f-d08c118ce610@altera.com>
- <aPoKiREmRurn-Mle@shell.armlinux.org.uk>
-Content-Language: en-US
-From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-In-Reply-To: <aPoKiREmRurn-Mle@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5P287CA0220.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1b4::12) To CH2PR03MB5368.namprd03.prod.outlook.com
- (2603:10b6:610:9d::22)
+	Thu, 23 Oct 2025 16:11:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B54B3640EE;
+	Thu, 23 Oct 2025 16:11:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37110C4CEE7;
+	Thu, 23 Oct 2025 16:11:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761235861;
+	bh=QoQ0G1vzfRKHWUkpNlMaZxVkeeSKpfz8eW4ukxGyOFI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=YXtsxzp9O3qmvAboQgiGhtU2a4kOVmoOZAF18a40K9jWaODby5Dr5KkClDRCmRecB
+	 5Kwhfe9OVtuVJwx7qlFIa1qenNEhOQdQBQeGgPvf3lk0m6+mNz10ONzXFOpFn1jjIr
+	 KnAfYrzBAregsG25fnWb4MgB0VgFPDZdM6xqlySUvRHmA1c3X80Sx1UtHUntoeJfu+
+	 AbKhx8Y8ctx3lE2ly7QbBlNrFLoOe/j/gTTqV+cP5JNhmdetJjk0b7qZhQ1wtwzhGN
+	 KpS+Yc1Tj4SG7JVI4fFMWtkkhO2QkT0pkvm1HJLRz6uJzE0GfUQPYIuHjzYITZin/R
+	 kW8LtX2vAFT+g==
+Date: Thu, 23 Oct 2025 11:11:00 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Stefan Roese <stefan.roese@mailbox.org>
+Cc: "Musham, Sai Krishna" <sai.krishna.musham@amd.com>,
+	"mani@kernel.org" <mani@kernel.org>,
+	"Havalige, Thippeswamy" <thippeswamy.havalige@amd.com>,
+	"Bandi, Ravi Kumar" <ravib@amazon.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"Simek, Michal" <michal.simek@amd.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	"Yeleswarapu, Nagaradhesh" <nagaradhesh.yeleswarapu@amd.com>
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+Message-ID: <20251023161100.GA1297651@bhelgaas>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR03MB5368:EE_|SN7PR03MB7260:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ab7bfe4-d2c7-424f-fbd0-08de124db9bd
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?KzVoSUgwSnVGMXdGZlNmODVXWnFINEFDTjZqNkE4TjY4Y3VHRmt4RStpbG95?=
- =?utf-8?B?VVovMGFFYWZRUXlZai9xdlYyV2ZWYVYxQjhlK1hyODhKUVk0YzZ3SURuTjZD?=
- =?utf-8?B?ZzF0Z2gzUDk0cVk0YUFERTRIRW8zcFRaTTZRcmNrTDNsT2t0TnRRa1JVVDly?=
- =?utf-8?B?L0R6V0ZxbXd4Ris3aDNHNGpBVHNLTkVJZHlSemhvSXVUQ2ZTNjhnVmRFY1FU?=
- =?utf-8?B?eVFTenpmWXRCZ3phVGtFaTdDVTNVNnBjQUtRMEZ0TlJicWo2RCs4dXRQY01L?=
- =?utf-8?B?dlo1dDN1RVRoRWkwVkMzdENNUWtyQ3hZTVNKNTBHK0lVZjJWZUJ5TlR2VkxT?=
- =?utf-8?B?dFhlQlR2ZFdIMExBcHMwTWQ0dTZOZ0dkdWs4cVpxSlRRQStOM2o0SkttNGFN?=
- =?utf-8?B?c1BKaVd4VmJBV0ZUQW9GNXR4MTVJY2dFOVUrcmo1VXN5cWIyMzBjRklML2JP?=
- =?utf-8?B?N3l4RjU4ZnFndTk5dTNFdHgyYTY4di9naUxyemdpSFRRZnZQT1padnNtTDJR?=
- =?utf-8?B?TFlXa0J5T3JMQ1dCdU5VbzNqVEhFd3NQbThFNnNKaXltUHJsREZiVWFld3Yx?=
- =?utf-8?B?N2UrWXorbEtKTnZ4Mk5ZUlRDaTd4S0lETzltZEs0TldvaHZ2L1ZCcWRZekc4?=
- =?utf-8?B?OWo1a2NjMmhjMmxiY0V2NitKY3ZFeVBIaERGU2twZXkvb25UM1hBZklFUUdC?=
- =?utf-8?B?L3RoQmNHZmc2eXlTejkvTUwwT05oeGxhVUswdFpuUmJJN2c1WTM5ZTh6RlRl?=
- =?utf-8?B?MVJyNTdXUmpGMk5saXVSUFpsY3VsZXUxdkRPTVovWElnS2hHS0I5WEZKeE1s?=
- =?utf-8?B?RHZPVW5JSzNVS1Q5aUUzNHpZK3hxOXAxNWwyR3h1RDRTbzMybVRDVTFIZGpx?=
- =?utf-8?B?NGxCazBKQUJEa2pMclgyNUtkSUg2b1lzVVEwTWdxaUF1VjRJSzlVZjU4NHVa?=
- =?utf-8?B?SmZsTGpKOWVuUjhhWVc5ejhETnRsV2l2QzZtTGxDbmpaeld2NjNab0k0QU1I?=
- =?utf-8?B?TFJLVHRra0UvR0RRY3E0MndCeGp4RFZtR2cydWhJVUphVlJ0OEFkcnNWL3RT?=
- =?utf-8?B?TUlBSkVXNitkVmlqTlNScnZSd1FKdlBqRWx1ZUx6NTNoQS9VaFhnbzJBa2dX?=
- =?utf-8?B?WWg1aDlSOHczM2JQWmJ4Wit6cEdLSkJLMkJsNHoxY2JteEFucndGM3VMcEpH?=
- =?utf-8?B?QUlyVWs5aithRGZFZ2hEb3VnbVZUdkptWnhsYXVPUVd3R2paZ29HTzZLbFZE?=
- =?utf-8?B?TUZ3aDRPMWNuaXArQmgwK3dpdE9wWTBmMUZ1cUdQRHdybnI3NkN5WmxFUW5t?=
- =?utf-8?B?Wm1xa2ZtRjFkN21hOTl6UTN1WW1XUDE1K1V0U3h2M2FVdWttdThZRk9YVjhW?=
- =?utf-8?B?MThNRERxTmRJRlFOVU5hTmdYaDdnZVBNVko5UkRCeHo1TFdsVC9DV1BHb0Z4?=
- =?utf-8?B?Rk9LR0ZqWmJKc09qcEw0V0ZoMWJmNWsrcWlGNkxqaW1YQjVSR1dWeVdORncx?=
- =?utf-8?B?eXNkL2ZTVmIyL1hqMzhMaURROSt3T0NldkE1V0g2OXhVVXhBVFlkTU12RjlE?=
- =?utf-8?B?a1JJdzJZQU9RSnRGNjhEbk5hNW8rWWQ2TUF2eTVMeHBPdUdYQjBQbENjRGg1?=
- =?utf-8?B?eHREMzd1dktRd3JVb3lXSWV3TFZVWGFxaSt0U1ZkbGxwcDJZMFBDTG9nRUZR?=
- =?utf-8?B?a0VjbHpUVHJlUWFCTlAxT2hIcUgvYzBLMDJUMFZmbFFmS28vRXZ3WlloUWJu?=
- =?utf-8?B?UVZXdWc1T0piSUd1dXpkWlJJRjU3YmhqTFpaUVZwTXN6OXJjWlExQnp1bG16?=
- =?utf-8?B?cmhkaUNnZ2M1L0Y4SjBCQlNubVdpYUhqSytyYXJtOUdYeUJMNW4zY2d4YmlG?=
- =?utf-8?B?ek9rT0NUMUs2NlovSGZHTHlIUVZBRVlPeUFtS0RvaXlYOVdmaTArS3lkVjgx?=
- =?utf-8?Q?lUU10KLEahlwake+fyyoqT6OXRb+mH5X?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR03MB5368.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UXMrRlBpY2k1WC9MVS80RE1oOUV4RnFGRHJzOTlXVVd4V1JtWk9GNWhQeTMv?=
- =?utf-8?B?NDJJZzYvanlZR01vbk1ndzc5d1cvRk5pMnZmWllWdEtBV3g3Q2QrRS9Od3E5?=
- =?utf-8?B?TnptK0hTWUkzai82UlZIMGtHWkVkb1dNTDNpYml4WmpMRnliMVNVek1OZ2Nh?=
- =?utf-8?B?K2pJdVNJQys1cnpmWFRVellBUXhyZmtzNkd6NHdSanl3TUkweXBBSzF1eFZp?=
- =?utf-8?B?K1ZGMXdocUNiUFpib1ZQRzAweUg3L1plMUw3b2xrakRVaytTOFJDdW94OENM?=
- =?utf-8?B?NDBqREFFS3Z2UjN3VkJWd091WGN1ZVcvZkl5TWhFcGpjRXhsSUJBa2VaWUhz?=
- =?utf-8?B?VmN3OVd2UnFuR01uN3UwcFZEOTFWTGNJNC9nK2IySW5zTjFrc203aG9maE5Q?=
- =?utf-8?B?NTNRRWlRSm1GRkVoUU1COW5SWFhseCtFS05VaTZlUlh2d3E5UDFzTFJLNUph?=
- =?utf-8?B?UjI0bTJWa3Z6NlFWR0NON3pGa1FqRkMzSVpGeEx4WUZ2K0Y4dE5RbkxVT1NW?=
- =?utf-8?B?STBjRHU4WE5LaHBHOGlHWXNTVW5EMWVpZ1lkdG9GVVNzS0ljdm5qa1RNTkxM?=
- =?utf-8?B?UmpjOTdMdmxTSVB3Wk5BRStOSGFvaDFOaUVicEZuS1NWbVYvcXdYSSt4Zlkz?=
- =?utf-8?B?SWxJM3BnSEVhME9sNVdGM1FHR2tEcGIreVNyWWRRdHVwWU92UXpHaVBobTVu?=
- =?utf-8?B?cmxROGxIWEpWSTZPYloweW10RmlpRW5vUnUxZVRGVUFTRk9xUnZ5MlgyM3Fz?=
- =?utf-8?B?V2NNOEw1U1VPUTRmOUdXdCtIcS9UZTdVRngySCtYTGF2WHFuZVJjS09KRGJk?=
- =?utf-8?B?OEJVUERvTWVvWmdvMnlEa1BmM1NSOWkyeHV3S0xOM0pXZHBGaGlkdGQvZUla?=
- =?utf-8?B?aVpNbXBNSHFuUWNiNEMyMm5iT0NvNVpWd3FnVVo4ZUNEQXlab012QmpYY3dL?=
- =?utf-8?B?WEc0ZWkvV1crZjh3ajI0aHNCblp2NFg4STREamJoK1hvTWJJTHZyNW5iM3h5?=
- =?utf-8?B?a0FHZmd3bmtxblV0TTlaWGx0ek1rdWlYR2dyclpYQjV6bVZJUTRONEQvMkxn?=
- =?utf-8?B?T2FsTlpPTC9aeEFUOWRrV0wvaGFyOG0wMlg5VFVSWnFDcTZ3VGdSNVd0dmNM?=
- =?utf-8?B?V2tGK1k2QjNrcWg5L2lRMFlXaVZGTVBhM1RMSExOaSsxL0M4ZFg5dU1SSkdh?=
- =?utf-8?B?UDF6ekMwd3crY1hEZG4xUlQwRkd4ajJJQ0JCMm1VSUlreDYxSkFEcS9iZ1NN?=
- =?utf-8?B?L1NjTmxnRnVVZ2V4Vmh2cERKbmNLclZmNWNlSzZ0TzJWQWg3R01rSDVzVVRk?=
- =?utf-8?B?VGVjdndBVVFQSHlMS2pvclNnTXE3cENpcVZnTUJyeFBna21LblBvYWd5VlFz?=
- =?utf-8?B?d0d1bkZ0VFBMelU1Z3hWRTBHdzdrYitSU2JRRjZITmpPR1VndEhKNTNHNE5p?=
- =?utf-8?B?MldweElOYmFveWhZL1g3emhGYnozMWlwdDE5dTZKdXBEcjZnOFhFSnR0dnV1?=
- =?utf-8?B?clg3dllWaElHVmpET3NJYnNWL1d2UU9FeG5Uc3MwTHJ3UmNwZC9lWDRXbDl1?=
- =?utf-8?B?SGxRYXhZT2RQWGVXSmlEVlJPUG9qajJocUU2YXRJWEEveENwdXdYK1lCL05j?=
- =?utf-8?B?aXNnK2hYajJJSldLamlMNU91cEJPYkk0REc2VzJiSFV6MFc0eGdDZi9JK3Y5?=
- =?utf-8?B?UlA1MVJvWGpnL0NSbHE5QUFyV0hpNmhxUmdCa0pZL0ZVcTVIQUREblQ3UERm?=
- =?utf-8?B?R09PWDJGS3dkVXFGaFJsQ3lseGdqTkR3ZVh0M05XZHN5V2pQdGZ0RnE2Zm96?=
- =?utf-8?B?SGd4dW1CK0hEZ1NnR0g0aW8wRGxDN2tLTEd6OHZyYU5zZkY1UGtidnVSMzZE?=
- =?utf-8?B?QnFyTnBOYTExaktFM1RtTFJpQ25hYnJxN25IZzZ4bTRGa3JWd04yenEzWU9R?=
- =?utf-8?B?NVh0TEcyRVpKcjVBMmc4TWFaTFpZaWh1aU9aWlh5MXJ5UmpZOHMwZE5uY0VW?=
- =?utf-8?B?a1ZHanhxT3hDR1BOTnFhbzdiZ3R5cVcxUHp3UFZLeTA5UmhaNmdTMEpaT0do?=
- =?utf-8?B?SXB5eGZWTTgzbk15QndUVzZ1Y2Q1S2FqQWoyeEc5OGc4SEx3b2k5Y2NhQVRx?=
- =?utf-8?B?TnJEdW9EWXdtWmdVemZSU093bU9ickIxSEhvSUk1T0RIZzd6R1RCK2lzVGxm?=
- =?utf-8?B?VHc9PQ==?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ab7bfe4-d2c7-424f-fbd0-08de124db9bd
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR03MB5368.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2025 16:03:37.7981
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: A86lRv6R1woUj9opZE/vWWX1jmoO+XrN4xKs4MRXfrgd24cN0bFwl8Y0+l+fFPNLILPBd3jc3+bRXjF9CP7Py4HzWcfq7g/GG1fHbQyKqTM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR03MB7260
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_090344_540544_EABD1DEC 
-X-CRM114-Status: GOOD (  18.63  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9c7e43c3-24e9-4b08-a6ce-2035b50226f4@mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,54 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+On Thu, Oct 23, 2025 at 09:03:07AM +0200, Stefan Roese wrote:
+> On 10/23/25 08:35, Musham, Sai Krishna wrote:
+> > > -----Original Message-----
+> > > From: Stefan Roese <stefan.roese@mailbox.org>
+> > > On 10/22/25 14:48, Musham, Sai Krishna wrote:
+> ...
 
-On 10/23/2025 4:29 PM, Russell King (Oracle) wrote:
-> On Sat, Oct 18, 2025 at 07:20:03AM +0530, G Thomas, Rohan wrote:
->> Hi Vadim,
->>
->> On 10/17/2025 5:51 PM, Vadim Fedorenko wrote:
->>> On 17/10/2025 08:36, G Thomas, Rohan wrote:
->>>> Hi All,
->>>>
->>>> On 10/17/2025 11:41 AM, Rohan G Thomas via B4 Relay wrote:
->>>>> +    sdu_len = skb->len;
->>>>>        /* Check if VLAN can be inserted by HW */
->>>>>        has_vlan = stmmac_vlan_insert(priv, skb, tx_q);
->>>>> +    if (has_vlan)
->>>>> +        sdu_len += VLAN_HLEN;
->>>>> +
->>>>> +    if (priv->est && priv->est->enable &&
->>>>> +        priv->est->max_sdu[queue] &&
->>>>> +        skb->len > priv->est->max_sdu[queue]){
->>>>
->>>> I just noticed an issue with the reworked fix after sending the patch.
->>>> The condition should be: sdu_len > priv->est->max_sdu[queue]
->>>>
->>>> I’ll send a corrected version, and will wait for any additional comments
->>>> in the meantime.
->>>
->>> Well, even though it's a copy of original code, it would be good to
->>> improve some formatting and add a space at the end of if statement to
->>> make it look like 'if () {'>
->>
->> Thanks for pointing this out. I'll fix the formatting in the next version.
+> > > > > > We even don’t need ravi patch, as we have tested this at
+> > > > > > our end it works fine by just updating interrupt-map
+> > > > > > Property. We need to now understand the difference in
+> > > > > > design.
+> > > > > 
+> > > > > Ok, please let us know with your findings. In the meantime,
+> > > > > I'll keep Ravi's patch in tree, as it seems to be required
+> > > > > on his setup.
+> > > > 
+> > > > We tested on Linux version 6.12.40 without applying either
+> > > > Stefan's or Ravi's patches.  Instead, we applied only the
+> > > > following interrupt-map property change (entries 0,1,2,3) and
+> > > > verified that legacy interrupts are working correctly.
+> > > > 
+> > > > interrupt-map = <0 0 0 1 &pcie_intc_0 0>,
+> > > > <0 0 0 2 &pcie_intc_0 1>,
+> > > > <0 0 0 3 &pcie_intc_0 2>,
+> > > > <0 0 0 4 &pcie_intc_0 3>;
+> > > > 
+> > > > 38:       1143          0  pl_dma:RC-Event  16 Level     80000000.axi-pcie
+> > > > 39:       1143          0  pl_dma:INTx   0 Level     nvme0q0, nvme0q1
+> > > 
+> > > Okay. Same here. I don't need Ravi's patch for the INTx bit
+> > > enabling.
+> > > 
+> > > I understand that you want us to change the interrupt map in the
+> > > auto- generated device-tree from Vivado. Which is IMHO a bit
+> > > "suboptimal".
+> > > 
+> > > I would prefer to have a solution which works out-of-the-box,
+> > > w/o the need to manually change DT properties. Is it planned to
+> > > change / fix this interrupt map in pl.dtsi generated with a
+> > > newer version of Vivado?
+> > 
+> > Yes Stefan, this will be fixed in the newer versions and the
+> > auto-generated device tree will include the correct interrupt-map
+> > property entries.
 > 
-> I suggest:
+> Understood. And thanks the update on this.
 > 
-> First patch - fix formatting.
-> Second patch - move the code.
-> 
-> We have a general rule that when code is moved, it should be moved with
-> no changes - otherwise it makes review much harder.
-> 
+> @Bjorn & Mani, this patch can be dropped then.
 
-Thanks for the suggestion. Will do it in separate patches.
+Just to confirm, we can drop both of these patches:
 
-> Thanks.
-> 
+  https://patch.msgid.link/20250920225232.18757-1-ravib@amazon.com
+  https://patch.msgid.link/20251021154322.973640-1-stefan.roese@mailbox.org
 
-Best Regards,
-Rohan
+AND there are no DTs in the field that will need to be updated for
+things to work?
 
+It's OK if you need to update internal DTs that haven't been shipped
+to users, but we do not want to force users to update DTs that have
+previously been working.
+
+Bjorn
 
