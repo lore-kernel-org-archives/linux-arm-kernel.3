@@ -4,86 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F9CCCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 11:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6787FCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 12:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bi64k3qXHXjDfrFSp4LnIwYgP+CHK7JhrlotvMo7IYE=; b=wHRUwGtzsPZJT2w9EG3xiP3THH
-	Csm2u60qM6pTkITg/XL653VZnCQvcVMdLbWyOifwUEjd27Soqj5ksnupqO/UXb6fk4TZp8xT5ieFG
-	NOVlDC5cXjzxi/AtBrPI3pUxKlFay1xlLUGitGwpw5mHSx+/T8Rxdu0m1VrNMubevpuQVSFjmgHYf
-	JTB4OSQP5UucR7Dld/Ti3mBRFVr9Wn8cYtzVLsTFH+Qt66/8s/P9V8/2qxZd3jy3rhZJAX9natNnP
-	wke7JEv+brWTAXoZpzrBZbx6NvNV2+fKq0oongvU2DTVenhbyS+fGLWbyNhpKC1VMxo234D77Tqwt
-	83F04Trw==;
+	bh=V5j2479e3gDOHLOBxdxP9rWH3tVwbPphYz6F17ZmNVM=; b=1bgwjPxX38f09ZzxUfH9WZYFMJ
+	H/ny9CWP/rbUl8i0J9u+QlXiMgUG+TQ/UhgxdF2wlPyvuTiI54PYkSiG1ksvQ7zeeMaSVYeP3Lh5E
+	SJbr4ydC+22V+G0jSYNMjXreUEO6gJSs7XzSMUdRSWkWc2ahM9QDqZFyC/5RDjjXabPRH7ipsudnO
+	M/Q3Si8QBi67RC0GMGjvaO25nfoCdvt+TiqD/2isxOB9MM9KpyieT9YNcAmmxtJ9zA4wwEOWfe6L1
+	gcgrLSVrNQQFGkvnjk5k/srYuEN9Xlzdmv3gdddXCoUrOMnOgYVt0NSZzyo1uLfD6h072X1CUvZtG
+	dcpWqrkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBtp6-000000068us-12Sg;
-	Thu, 23 Oct 2025 11:49:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vBu0e-00000006AFU-3bEY;
+	Thu, 23 Oct 2025 12:01:36 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBtp4-000000068tu-3i2T
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 23 Oct 2025 11:49:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Bi64k3qXHXjDfrFSp4LnIwYgP+CHK7JhrlotvMo7IYE=; b=fvr2gsWZM3n9/qAHPS6BM/qPb9
-	r9+OOE6DcR/tFZPMXZyLpnoti/h7t6MfI7pRFD3JUJUnU2lF4vboU7hB5EZVMCvqn3xTw/1fCLm6t
-	nUYpYH22xWUVIfM13RG/4Yd0K6WVqObSBw7HVXS6vIGTu2K36MXfn9pwkII1qklsVsYrXsniRgog2
-	bznewecubYA2oUvwywYyvjaG+o+t4u9TszYJ7z42evsBOYEYpoHhDnuLpC2/fq52gg40xdBAnuEXL
-	vRzHem5UjEWa8pObGpwclHiAGOLkR4SnZobOxGQUM56WuEdKe7c9iJi6zqi8e7kUhEg7QCyrQTcaW
-	7srR6b7g==;
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBsxM-00000001I0U-0BAl
+	id 1vBu0b-00000006AEi-2Qu2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 10:54:10 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cskkf1VNJz6HJgq;
-	Thu, 23 Oct 2025 19:46:02 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 876941402F3;
-	Thu, 23 Oct 2025 19:49:17 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 23 Oct
- 2025 12:49:16 +0100
-Date: Thu, 23 Oct 2025 12:49:14 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, Dan Williams <dan.j.williams@intel.com>, "H . Peter
- Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, "Andrew
- Morton" <akpm@linux-foundation.org>, <james.morse@arm.com>, Will Deacon
-	<will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	<linuxarm@huawei.com>, Yushan Wang <wangyushan12@huawei.com>, "Lorenzo
- Pieralisi" <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Dave
- Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	<x86@kernel.org>, Andy Lutomirski <luto@kernel.org>, "Dave Jiang"
-	<dave.jiang@intel.com>
-Subject: Re: [PATCH v4 6/6] cache: Support cache maintenance for HiSilicon
- SoC Hydra Home Agent
-Message-ID: <20251023124914.00001005@huawei.com>
-In-Reply-To: <20251022-kite-revert-2c2684054d05@spud>
-References: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
-	<20251022113349.1711388-7-Jonathan.Cameron@huawei.com>
-	<20251022-kite-revert-2c2684054d05@spud>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 23 Oct 2025 12:01:35 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1vBtzs-00057X-KQ; Thu, 23 Oct 2025 14:00:48 +0200
+Message-ID: <56075d3e-30ac-4501-bd77-2a84d0d124bd@pengutronix.de>
+Date: Thu, 23 Oct 2025 14:00:46 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: freescale: imx93-phy{core, board}: Add i2c
+ bus recovery
+To: Primoz Fiser <primoz.fiser@norik.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, upstream@lists.phytec.de,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev
+References: <20251023103426.3606647-1-primoz.fiser@norik.com>
+Content-Language: en-US, de-DE, de-BE
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <20251023103426.3606647-1-primoz.fiser@norik.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_115408_383973_3FAE56AE 
-X-CRM114-Status: GOOD (  43.33  )
+X-CRM114-CacheID: sfid-20251023_050133_644683_EE498290 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,203 +73,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Oct 2025 22:39:28 +0100
-Conor Dooley <conor@kernel.org> wrote:
+Hi,
 
-Hi Conor,
-
-> On Wed, Oct 22, 2025 at 12:33:49PM +0100, Jonathan Cameron wrote:
+On 10/23/25 12:34 PM, Primoz Fiser wrote:
+> Add bus recovery feature for I2C buses on the PHYTEC phyCORE-i.MX93 SoM
+> based boards (that is phyBOARD-Nash-i.MX93 and phyBOARD-Segin-i.MX93).
+> This enables the i2c-imx-lpi2c driver to recover the stuck I2C bus by
+> switching the SCL and SDA pinmuxing and do the I2C bus bit-banging.
 > 
-> > +static int hisi_soc_hha_wbinv(struct cache_coherency_ops_inst *cci,
-> > +			struct cc_inval_params *invp)
-> > +{
-> > +	struct hisi_soc_hha *soc_hha =
-> > +		container_of(cci, struct hisi_soc_hha, cci);
-> > +	phys_addr_t top, addr = invp->addr;
-> > +	size_t size = invp->size;
-> > +	u32 reg;
-> > +
-> > +	if (!size)
-> > +		return -EINVAL;
-> > +
-> > +	addr = ALIGN_DOWN(addr, HISI_HHA_MAINT_ALIGN);
-> > +	top = ALIGN(addr + size, HISI_HHA_MAINT_ALIGN);
-> > +	size = top - addr;
-> > +
-> > +	guard(mutex)(&soc_hha->lock);
-> > +
-> > +	if (!hisi_hha_cache_maintain_wait_finished(soc_hha))
-> > +		return -EBUSY;
-> > +
-> > +	/*
-> > +	 * Hardware will search for addresses ranging [addr, addr + size - 1],
-> > +	 * last byte included, and perform maintain in 128 byte granule
-> > +	 * on those cachelines which contain the addresses.
-> > +	 */  
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> ---
+>  .../arm64/boot/dts/freescale/imx93-phyboard-nash.dts | 12 +++++++++++-
+>  .../boot/dts/freescale/imx93-phyboard-segin.dts      | 12 +++++++++++-
+>  arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi | 12 +++++++++++-
+>  3 files changed, 33 insertions(+), 3 deletions(-)
 > 
-> Hmm, does this mean that the IP has some built-in handling for there
-> being more than one "agent" in a system? IOW, if the address is not in
-> its range, then the search will just fail into a NOP?
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
+> index 5599e296919f..96c58cf13754 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts
+> @@ -128,8 +128,11 @@ &flexcan1 {
+>  /* I2C2 */
+>  &lpi2c2 {
+>  	clock-frequency = <400000>;
+> -	pinctrl-names = "default";
+> +	pinctrl-names = "default", "gpio";
+>  	pinctrl-0 = <&pinctrl_lpi2c2>;
+> +	pinctrl-1 = <&pinctrl_lpi2c2_gpio>;
+> +	scl-gpios = <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	sda-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>  	status = "okay";
+>  
+>  	/* RTC */
+> @@ -253,6 +256,13 @@ MX93_PAD_I2C2_SDA__LPI2C2_SDA		0x40000b9e
+>  		>;
+>  	};
+>  
+> +	pinctrl_lpi2c2_gpio: lpi2c2gpiogrp {
+> +		fsl,pins = <
+> +			MX93_PAD_I2C2_SCL__GPIO1_IO02		0x31e
 
-Exactly that. NOP if nothing to do. The hardware is only tracking
-a subset of what it might contain (depending on which cachelines are
-actually in caches) so it's very much a 'clear this if you happen to
-have it' command.  Even if it is in the subset of PA being covered by
-an instance, many cases will be a 'miss' and hence a NOP.
+I haven't worked with imx93 myself yet, but does this not need the SION
+bit set?
 
-> If that's not the case, is this particular "agent" by design not suitable
-> for a system like that? Or will a dual hydra home agent system come with
-> a new ACPI ID that we can use to deal with that kind of situation?
+Cheers,
+Ahmad
 
-Existing systems have multiple instances of this hardware block.
+> +			MX93_PAD_I2C2_SDA__GPIO1_IO03		0x31e
+> +		>;
+> +	};
+> +
+>  	pinctrl_lpspi6: lpspi6grp {
+>  		fsl,pins = <
+>  			MX93_PAD_GPIO_IO00__GPIO2_IO00		0x386
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+> index 802d96b19e4c..1850a93dbaa4 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts
+> @@ -132,8 +132,11 @@ &flexcan1 {
+>  /* I2C2 */
+>  &lpi2c2 {
+>  	clock-frequency = <400000>;
+> -	pinctrl-names = "default";
+> +	pinctrl-names = "default", "gpio";
+>  	pinctrl-0 = <&pinctrl_lpi2c2>;
+> +	pinctrl-1 = <&pinctrl_lpi2c2_gpio>;
+> +	scl-gpios = <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	sda-gpios = <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>  	status = "okay";
+>  
+>  	/* Codec */
+> @@ -238,6 +241,13 @@ MX93_PAD_I2C2_SDA__LPI2C2_SDA		0x40000b9e
+>  		>;
+>  	};
+>  
+> +	pinctrl_lpi2c2_gpio: lpi2c2gpiogrp {
+> +		fsl,pins = <
+> +			MX93_PAD_I2C2_SCL__GPIO1_IO02		0x31e
+> +			MX93_PAD_I2C2_SDA__GPIO1_IO03		0x31e
+> +		>;
+> +	};
+> +
+>  	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
+>  		fsl,pins = <
+>  			MX93_PAD_SD2_RESET_B__GPIO3_IO07	0x31e
+> diff --git a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> index 3f069905cf0b..ebc57841f27f 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi
+> @@ -93,8 +93,11 @@ ethphy1: ethernet-phy@1 {
+>  /* I2C3 */
+>  &lpi2c3 {
+>  	clock-frequency = <400000>;
+> -	pinctrl-names = "default";
+> +	pinctrl-names = "default", "gpio";
+>  	pinctrl-0 = <&pinctrl_lpi2c3>;
+> +	pinctrl-1 = <&pinctrl_lpi2c3_gpio>;
+> +	scl-gpios = <&gpio2 29 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	sda-gpios = <&gpio2 28 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>  	status = "okay";
+>  
+>  	pmic@25 {
+> @@ -234,6 +237,13 @@ MX93_PAD_GPIO_IO29__LPI2C3_SCL		0x40000b9e
+>  		>;
+>  	};
+>  
+> +	pinctrl_lpi2c3_gpio: lpi2c3gpiogrp {
+> +		fsl,pins = <
+> +			MX93_PAD_GPIO_IO28__GPIO2_IO28		0x31e
+> +			MX93_PAD_GPIO_IO29__GPIO2_IO29		0x31e
+> +		>;
+> +	};
+> +
+>  	pinctrl_pmic: pmicgrp {
+>  		fsl,pins = <
+>  			MX93_PAD_ENET2_RD3__GPIO4_IO27		0x31e
 
-Simplifying things over reality just to make this explanation less
-messy.  (ignoring other levels of interleaving beyond the Point of
-Coherency etc).
-
-In servers the DRAM access are pretty much always interleaved 
-(usually at cache line granularity). That interleaving may go very
-different physical locations on a die or across multiple dies.
-
-Similarly the agent responsible for tracking the coherency state
-(easy to think of this as a complete directory but it's never that
-simple) is distributed so that it is on the path to the DRAM. Hence
-if we have N way interleave there maybe N separate agents responsible for
-different parts of the range 0..(64*N-1) (taking smallest possible
-flush that would have to go to all those agents).
- 
-> (Although I don't know enough about ACPI to know where you'd even get
-> the information about what instance handles what range from...)
-
-We don't today. It would be easy to encode that information
-as a resource and it may make sense for larger systems depending
-on exactly how the coherency fabric in a system works. I'd definitely
-expect to see some drivers doing this. Those drivers could then prefilter.
-
-Interleaving gets really complex so any description is likely to only
-provide a conservative superset of what is actually handled by a given
-agent.
-
-> 
-> > +	size -= 1;
-> > +
-> > +	writel(lower_32_bits(addr), soc_hha->base + HISI_HHA_START_L);
-> > +	writel(upper_32_bits(addr), soc_hha->base + HISI_HHA_START_H);
-> > +	writel(lower_32_bits(size), soc_hha->base + HISI_HHA_LEN_L);
-> > +	writel(upper_32_bits(size), soc_hha->base + HISI_HHA_LEN_H);
-> > +
-> > +	reg = FIELD_PREP(HISI_HHA_CTRL_TYPE, 1); /* Clean Invalid */
-> > +	reg |= HISI_HHA_CTRL_RANGE | HISI_HHA_CTRL_EN;
-> > +	writel(reg, soc_hha->base + HISI_HHA_CTRL);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int hisi_soc_hha_done(struct cache_coherency_ops_inst *cci)
-> > +{
-> > +	struct hisi_soc_hha *soc_hha =
-> > +		container_of(cci, struct hisi_soc_hha, cci);
-> > +
-> > +	guard(mutex)(&soc_hha->lock);
-> > +	if (!hisi_hha_cache_maintain_wait_finished(soc_hha))
-> > +		return -ETIMEDOUT;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static const struct cache_coherency_ops hha_ops = {
-> > +	.wbinv = hisi_soc_hha_wbinv,
-> > +	.done = hisi_soc_hha_done,
-> > +};
-> > +
-> > +static int hisi_soc_hha_probe(struct platform_device *pdev)
-> > +{
-> > +	struct hisi_soc_hha *soc_hha;
-> > +	struct resource *mem;
-> > +	int ret;
-> > +
-> > +	soc_hha = cache_coherency_ops_instance_alloc(&hha_ops,
-> > +						     struct hisi_soc_hha, cci);
-> > +	if (!soc_hha)
-> > +		return -ENOMEM;
-> > +
-> > +	platform_set_drvdata(pdev, soc_hha);
-> > +
-> > +	mutex_init(&soc_hha->lock);
-> > +
-> > +	mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> > +	if (!mem) {
-> > +		ret = -ENOMEM;
-> > +		goto err_free_cci;
-> > +	}
-> > +
-> > +	/*
-> > +	 * HHA cache driver share the same register region with HHA uncore PMU
-> > +	 * driver in hardware's perspective, none of them should reserve the
-> > +	 * resource to itself only.  Here exclusive access verification is
-> > +	 * avoided by calling devm_ioremap instead of devm_ioremap_resource to  
-> 
-> The comment here doesn't exactly match the code, dunno if you went away
-> from devm some reason and just forgot to to make the change or the other
-> way around? Not a big deal obviously, but maybe you forgot to do
-> something you intended doing. It's mentioned in the commit message too.
-
-Ah. Indeed stale comment, I'll drop that.
-
-Going away from devm was mostly a hang over from similar discussions in fwctl
-where I copied the pattern of embedded device(there)/kref(here) and reluctance
-to hide way the final put().
-
-> 
-> Other than the question I have about the multi-"agent" stuff, this
-> looks fine to me. I assume it's been thought about and is fine for w/e
-> reason, but I'd like to know what that is.
-
-I'll see if I can craft a short intro bit of documentation for the
-top of this driver file to state clearly that there are lots of instances
-of this in a system and that a requests to clear something that isn't 'theirs'
-results in a NOP.  Better to have that available so anyone writing
-a similar driver thinks about whether that applies to what they have or
-if they need to do in driver filtering.
-
-> 
-> Cheers,
-> Conor.
-
-Thanks!
-
-Jonathan
-> 
-> > +	 * allow both drivers to exist at the same time.
-> > +	 */
-> > +	soc_hha->base = ioremap(mem->start, resource_size(mem));
-> > +	if (!soc_hha->base) {
-> > +		ret = dev_err_probe(&pdev->dev, -ENOMEM,
-> > +				    "failed to remap io memory");
-> > +		goto err_free_cci;
-> > +	}
-> > +
-> > +	ret = cache_coherency_ops_instance_register(&soc_hha->cci);
-> > +	if (ret)
-> > +		goto err_iounmap;
-> > +
-> > +	return 0;
-> > +
-> > +err_iounmap:
-> > +	iounmap(soc_hha->base);
-> > +err_free_cci:
-> > +	cache_coherency_ops_instance_put(&soc_hha->cci);
-> > +	return ret;
-> > +}
-> > +
-> > +static void hisi_soc_hha_remove(struct platform_device *pdev)
-> > +{
-> > +	struct hisi_soc_hha *soc_hha = platform_get_drvdata(pdev);
-> > +
-> > +	cache_coherency_ops_instance_unregister(&soc_hha->cci);
-> > +	iounmap(soc_hha->base);
-> > +	cache_coherency_ops_instance_put(&soc_hha->cci);
-> > +}  
-> 
+-- 
+Pengutronix e.K.                  |                             |
+Steuerwalder Str. 21              | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
 
 
