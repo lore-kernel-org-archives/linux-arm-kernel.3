@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AF71CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 18:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3DB2CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 18:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dmrDaKJro0x6uhv0aX4t5TErGN6XmKXzJPQ4bv4O+kU=; b=haybwvGmbu6zNWA8gCYHo07iLi
-	mjZyzlaXYFkGJVfwO+ianvjDiEixhVIBobYezfJpyLBR0Cc96seUrT22WqfS54nz/VQfA+YNco2Ve
-	IIncvf9R+2+yWdbkB3a8Hbu9BJH4RnWOMCocDNINnto4GYl+Bdt/htF6l2jtAq48zrktEXyyVehYK
-	Rbd134fc5/Y8yF6uuFh8ifyVeZVQQtcvXQR1l5slh4FdmN7cVbI5+U287bTzT84IMhl/xraD8oPTa
-	/HuorPyHsVtbtAwkySL8Zlc3JO10au3YDebmYda8uN6VLma+EFvTTlMVC7sVRcAv1NLVG9VWclcIs
-	8bgbUQpg==;
+	bh=VIaigQ7/6IfjT7bJlbrU2VAYexO5JtBnAJREaaV5jvY=; b=HfrO+L3tqRujUj/EqrUppH2WZj
+	+5q8BbKbuq+wJsbWdb/XAXWUdJyggpoq1gN4zWy6oOlGmKArIrhmTXDM2Vc6hl2I1tDIRr/YniowB
+	b9w9xNqO0iW15SE+de77Atxk8SOG24qMbRF+iiaYWP4u/VprEaE40x7p1CRaMqB99MI6BayRWfg53
+	GQ0dILT1yr3vHBvQICw3eu53TqfAf8ZsRq5Fw7VkH30gICSbFnjGUIdAmebGyfWyK4gFofqLH+mmm
+	La29zz8Co2yU0WiZrUBXasC1A+gXxCTZFUJBlQCz81iOVzbSl0h5K1Qt1ewIvHojEOvXCYIc/9s9D
+	StegJf5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC0Mk-00000007HTP-3WD1;
-	Thu, 23 Oct 2025 18:48:50 +0000
+	id 1vC0NV-00000007Hau-18bS;
+	Thu, 23 Oct 2025 18:49:37 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC0Mi-00000007HSw-3tqu
+	id 1vC0NU-00000007Hai-1JNb
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 23 Oct 2025 18:48:49 +0000
+	Thu, 23 Oct 2025 18:49:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=dmrDaKJro0x6uhv0aX4t5TErGN6XmKXzJPQ4bv4O+kU=; b=aHaoU2vBPYLpWAwYYTJWnyWOaD
-	XdJ63rwtZ83gI2VgWBxaxM93+Abtv89IZaIuhADX15r8e7K3pbxmXeHws9r8/2XDUzOkh5wniPTL0
-	OHVtvGEvYOLNXpuwR10OCs+UMmXKqQGWGcYPYDQwSjTduN24wIBYpv3G1fF55m7KpRuhCEiZ7FS0v
-	DJcFWUVnRlvsfrRignxeyBnczQdYFlt7F8DGZF9w7XCoIpHsH0/oCzhMLt3eRphZu4yhC96Y3NaGq
-	ABSBjiVfUC7WSqrc0r4IVckd1WFne/US+SQd3f+ORGctChMcKTg6p1CAtQ1+t1P/kq/1OAHavXXXZ
-	DoulbFfQ==;
+	bh=VIaigQ7/6IfjT7bJlbrU2VAYexO5JtBnAJREaaV5jvY=; b=cU5uCo9VhRVe7QAkOfEzS0ZHEY
+	43nCWwg9wJNs1I+vzjNdPasR+bktJCO0s2g2SgpUxAd58WVkY/Yelo09Zr32A17WpStx+bQrJN6k5
+	zygNgW+wSPMMeIbObqKegyQmu1fdHsiEmCmy7ThsthmK+0O7eeYaXQe9+AvygKTIJMdnYnLtuRa/Z
+	NjN6RtubQgDmZpHBC5k0KFy0YUX1sKpGjoDwubz2vkjHXOY00/qxi8mTX5FQm3j1y2PHriIKnGGNk
+	1yRAVczdpUwusBwxJvdSJ5WhX4axMNf89//oje9s8qKzFviYahgL2EEvFqlRjd7oTppz9bctOOi7L
+	wT1zeQjA==;
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBzV1-00000001ctL-1ALI
+	id 1vBzVm-00000001cvS-0YKs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 17:53:20 +0000
+	Thu, 23 Oct 2025 17:54:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=dmrDaKJro0x6uhv0aX4t5TErGN6XmKXzJPQ4bv4O+kU=; b=SD0V44OwJuHyQEhu8AOl6G0Vjo
-	BovurPklLLT2nXo7An4OkfFG0n/DkebAT4QQZHtY01RUIjrt3nNhsOHdi/B1Bavw9iAeqF/22RXi1
-	4Mnbq2FDVc8dN88XolvvVZbsvoRYxQLXbiaBtwcMgKp9FdkXnKysM5npMifSmdZCIkaY=;
+	bh=VIaigQ7/6IfjT7bJlbrU2VAYexO5JtBnAJREaaV5jvY=; b=IqyaRhf4cmIszxYOyM9yBtN85u
+	LDFxbvGes0XBqmkA63lubojhq8MLB0zEAj74C9k5/NM2+ZbZoyatl6vcxTS8ATEFhEjRGkOeZGIrI
+	ApYNQuRpHTw2uuccyBDZe48SZNqtdOSYuTLxxsYxlli+dv+nWbydDchDBMgCZZv87Ysc=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1vC0Mc-00BuaX-FK; Thu, 23 Oct 2025 20:48:42 +0200
-Date: Thu, 23 Oct 2025 20:48:42 +0200
+	id 1vC0NM-00Bubj-W5; Thu, 23 Oct 2025 20:49:28 +0200
+Date: Thu, 23 Oct 2025 20:49:28 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 Cc: Heiner Kallweit <hkallweit1@gmail.com>,
@@ -67,18 +67,18 @@ Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Richard Cochran <richardcochran@gmail.com>
-Subject: Re: [PATCH net-next 4/8] net: stmmac: move stmmac_get_*id() into
- stmmac_get_version()
-Message-ID: <ea5b3aff-a145-488c-9da6-da4805ef1b84@lunn.ch>
+Subject: Re: [PATCH net-next 5/8] net: stmmac: use FIELD_GET() for version
+ register
+Message-ID: <c0874124-1526-46fe-a480-caf7f80aa7e9@lunn.ch>
 References: <aPn3MSQvjUWBb92P@shell.armlinux.org.uk>
- <E1vBrlL-0000000BMQ4-2Zlg@rmk-PC.armlinux.org.uk>
+ <E1vBrlQ-0000000BMQA-33N7@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1vBrlL-0000000BMQ4-2Zlg@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1vBrlQ-0000000BMQA-33N7@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_185319_456157_049796C7 
-X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-CacheID: sfid-20251023_185406_485174_546785BA 
+X-CRM114-Status: UNSURE (   6.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,10 +94,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025 at 10:37:39AM +0100, Russell King (Oracle) wrote:
-> Move the contents of both stmmac_get_id() and stmmac_get_dev_id() into
-> stmmac_get_version() as it no longer makes sense for these to be
-> separate functions.
+On Thu, Oct 23, 2025 at 10:37:44AM +0100, Russell King (Oracle) wrote:
+> Provide field definitions in common.h, and use these with FIELD_GET()
+> to extract the fields from the version register.
 > 
 > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
