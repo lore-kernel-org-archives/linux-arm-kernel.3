@@ -4,74 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C353FCCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 17:06:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E308CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 17:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=doFq+KAPnF9d8vUlzJpsUFF/6nlCw0llWQ17gnq+SwA=; b=eNEFHkfgRHJb2WO3QKtkpkvjpw
-	q54MlnZ0mxTfv89KkL720bPc9nPT9yrUR5CXKrSFuHncAKdBVrekui8jt4/zbOPtP+A0Xl8aOy65h
-	GWOI+9jcQ4Azu0Wb+qLahNl9zt9sqa/I4sUcN5nkX2/ligBt9MgaUOEzDoFX85+wZwSO59Ljd/xrB
-	RuoPEm31jZ7UJ+cuYZhQ4ZSxdkUp6YbFJzXGLad8tGqgOLsXe8Zv5t/wOyduLuiuTHB7Gws2Elm7Q
-	KN0YsPWWaIbWfQGhD5TA7wzKfilmFoli/uvbtgh6eGelaqtzt1m+M8s+S1QYZi5Wzr9fPZAyoy3bl
-	vJPQBy5A==;
+	bh=/DTN4f9sYvKKbqzH4zMTtt+lW5xHHb7Uewe/2Me0Lwc=; b=s2qaBAIlLt8+7PydctBg9pnQpR
+	HSnG5SLNFWA4ibtMIfwJlGunM3BEvloYNMiCRB8mzbV7G6o5Nlz/Sc1MDfHl8/vojYYoLjDOQAEWP
+	RV09EhPWxVidODWkqeWApT6vSxm9ph10mSVFIiRVof4dPhNmGZQveHihCyGzqJQnJPB9vatI2MZgz
+	tGRmFUhxZ9xjJx/fLYC4z6DAVqtPEVXuGid/IparY+7QGjyrAcKCA4FT6zAiu1lRGmLilPEQxrUSk
+	csI9GUDjGCHfhBTljuZr2tKRpPjbRGh0L78mJlh5g2Kf8rvvx+zAAkIsDVKovwZf1mvIsz7Zh8C/p
+	ZVaaHtSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vByl9-000000071wi-24kf;
-	Thu, 23 Oct 2025 17:05:55 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vByv8-000000073EZ-2I3f;
+	Thu, 23 Oct 2025 17:16:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vByl7-000000071vs-1tDS;
-	Thu, 23 Oct 2025 17:05:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761239142; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=B73QoxPD3VyOxVdGEzFNxx59VdD+bX0v1/HUGhLYrWLrFOgQ5ucBpwXQCqSCnEacfznyeTAfH4QIp8hdSsHjcy0PDEUcnWgSNc9ZZlp8LJNg14p5A7kGzUAn3ODpUds3CDkESMSTafr0f/s9D4PeDwNFgS03Yqtyq06aS8OLIGM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761239142; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=doFq+KAPnF9d8vUlzJpsUFF/6nlCw0llWQ17gnq+SwA=; 
-	b=C3Q3x17n5XrkRG4x7NWK36I+iDh6Tp9rYuqniXPmTfrEBN526Gnv5WNheXYCG0Trr3MdU70V7tqHxx2dex+bVvR++6UrKxCjx/Yaj3UdX+28OGoyBikX5tIl0+IMXipTiqAI/moBXii2VdLQogLHNMF5uxz7GnPKfyc9HBatRhc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761239142;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=doFq+KAPnF9d8vUlzJpsUFF/6nlCw0llWQ17gnq+SwA=;
-	b=lAoy7FAGFwNhyfn8q8DeaQz6wgUwvIOG+GI4W2e5sEcs6GV7TO/WaswT0eYu67U/
-	iZofSecg8lI+fn71L/TNJqerqjtkM7YGK/PU0XFE2KBloBjLExACJYigstlxCHOJSVw
-	0JalTZYeb1cIS5h5/Vfu4mHIb49MxND8bEUzTux8=
-Received: by mx.zohomail.com with SMTPS id 1761239140304964.1024061848422;
-	Thu, 23 Oct 2025 10:05:40 -0700 (PDT)
-Message-ID: <a55c9480da785a8618dd60c3f3e0ddc398c5d45f.camel@collabora.com>
-Subject: Re: [PATCH v11 05/11] drm/mediatek: mtk_hdmi_common: Make CEC
- support optional
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, David Airlie
- <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, CK Hu <ck.hu@mediatek.com>, 
-	kernel@collabora.com, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Thu, 23 Oct 2025 19:05:31 +0200
-In-Reply-To: <CAAOTY_8y6C5=jSjzBVVJ2vJq1L+Nf9U0tZvxzVX-e-3g91xEeQ@mail.gmail.com>
-References: <20251023-mediatek-drm-hdmi-v2-v11-0-7873ec4a1edf@collabora.com>
-	 <20251023-mediatek-drm-hdmi-v2-v11-5-7873ec4a1edf@collabora.com>
-	 <CAAOTY_8y6C5=jSjzBVVJ2vJq1L+Nf9U0tZvxzVX-e-3g91xEeQ@mail.gmail.com>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-MIME-Version: 1.0
-X-ZohoMailClient: External
+	id 1vByv7-000000073E4-0Vzf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Oct 2025 17:16:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=/DTN4f9sYvKKbqzH4zMTtt+lW5xHHb7Uewe/2Me0Lwc=; b=P8lxfE+B5ywSdHY6OBepU7JE+j
+	kcOdL9VPuao6y6Oooc2Mhymo1mm2FJ8d9CBZSfpTH22I2YNOBeAjhXuLKppQtTHu9gKiMJV0dAXQb
+	HIKrlIXm6fOAAxyhfl9lPZF35ZbHBerM/DNyaVVil+EtSFP4pQd5tpJRRzT/EamW2sjUB8RuKXiC9
+	6nlUcj2cqoBDZfADOSJz+FuZp+W1aWjotV+/mnkowsoVQ2O+dZGxBMe3yIa2ro1nZoEHCEmVaFGcX
+	Lq78mPCop+P6Ge/i1VwCRSTadrjL2oemSjz0A9clfDnyyH4xIbuc2vfo+0Sg7LA8bTwD1+3CV7nht
+	GjtX+0kQ==;
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBy3P-00000001X4S-1UDd
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Oct 2025 16:20:45 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2930e2e8e7fso9202705ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 10:16:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761239767; x=1761844567; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/DTN4f9sYvKKbqzH4zMTtt+lW5xHHb7Uewe/2Me0Lwc=;
+        b=h7siqR+E8qZGqBv+y675jMMXL+P0CbTSP7ZT55gfvO+CibABdXrZPBu+1ExIgIjyVI
+         Q4lct+JBAKr9r74fl0vtkd/6h/+kxO/2T9Y3MlUIDJoKRx+NJz57MJ2bYEMyuPAsh0Nn
+         LAEgU3zxR9a26daJTEn2ffpQvOBBCFobZBVw74sBOnsgL2MCQLhcjOhfY+Z7oJwly172
+         DWXf/Hp4lzD+OhryNOARX868HVDVSq9ZG9ZuQREDJMOMPgMq5PZ5TDlei0qlrryvdHLw
+         owRyWZh0pbbJp+1941hfccQPYDhknuCwlhL2hsYinVkq82rHlYwY9f2JMxi3Q7uhs24I
+         7YCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761239767; x=1761844567;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/DTN4f9sYvKKbqzH4zMTtt+lW5xHHb7Uewe/2Me0Lwc=;
+        b=wfWlZ9Xl8gbBNzGyHRtc47T3TAkEEMsW3H4jP/Wsm6IBADNWcKdTm1ruFTE1o9O/Rq
+         dLWpolhlcGJ/s5tFOvmXbs9BaNcFuASXFL8newUVeDIEsWsKnZK3C74Uw09HIAV/arwG
+         VtqMk3IhCNDabh9glxV7GXq8E7pEY50Fo4cAIYyV63OZByq+aEki0BXCPAVDojG4NgTp
+         x3zEn4Wi1iyS9glt7NVaRS/ryQILd6gtnL7Mtnl3aizADFMvkj/OsNi4atTPanl+8+B5
+         WBqmgFVFI6+YDvEUY/0HvKcWC17c1zp3yuBTw1y8Gklf6uA1iD30mgpCVPxPEOwEOlwt
+         CXPg==
+X-Forwarded-Encrypted: i=1; AJvYcCWPsG21p9snsYsvbqp87EMVFm1l4mCm2hZsAWfox8fwJBvhf3XbJtARI5CwwQ+NK3rgPD4zAns9oXy4DE4YYhJ6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy+nQwF3VV/+3xuNxV/Bm9CGtU8LbhYIJmHCTaCK7ggFgv2EjZ
+	oPvKMVKIHTa9BnQX3qbM8NTOy88hA+/0bW2JD09iCRgz2ALr25q52ARa14bUOGNGaGzUx41rBP+
+	uBhDEQg==
+X-Google-Smtp-Source: AGHT+IHWPgGmZKfo+3ImlZCUG7AewIscdCvWipQB1xDHXcjZQxceHYcdCY71wfIfELDOVuODkQ3p+Aq3kE8=
+X-Received: from pjkm11.prod.google.com ([2002:a17:90a:730b:b0:33b:e0b5:6112])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e88e:b0:267:da75:e0f
+ with SMTP id d9443c01a7336-290c9c897bbmr312407025ad.11.1761239766935; Thu, 23
+ Oct 2025 10:16:06 -0700 (PDT)
+Date: Thu, 23 Oct 2025 10:16:05 -0700
+In-Reply-To: <20251013151502.6679-3-jackabt.amazon@gmail.com>
+Mime-Version: 1.0
+References: <20251013151502.6679-1-jackabt.amazon@gmail.com> <20251013151502.6679-3-jackabt.amazon@gmail.com>
+Message-ID: <aPpi1c-8EpWuo87B@google.com>
+Subject: Re: [PATCH v2 2/4] KVM: selftests: Fix unaligned mmap allocations
+From: Sean Christopherson <seanjc@google.com>
+To: Jack Thomson <jackabt.amazon@gmail.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, pbonzini@redhat.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	isaku.yamahata@intel.com, roypat@amazon.co.uk, kalyazin@amazon.co.uk, 
+	jackabt@amazon.com
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_100553_569760_1126913A 
-X-CRM114-Status: GOOD (  33.47  )
+X-CRM114-CacheID: sfid-20251023_172043_513416_BD702DE7 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,134 +108,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, Oct 13, 2025, Jack Thomson wrote:
+> From: Jack Thomson <jackabt@amazon.com>
+> 
+> When creating a VM using mmap with huge pages, and the memory amount does
+> not align with the underlying page size. The stored mmap_size value does
+> not account for the fact that mmap will automatically align the length
+> to a multiple of the underlying page size. During the teardown of the
+> test, munmap is used. However, munmap requires the length to be a
+> multiple of the underlying page size.
 
-On Thu, 2025-10-23 at 15:59 +0000, Chun-Kuang Hu wrote:
-> Hi, Louis:
->=20
-> Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com> =E6=96=BC 2025=E5=
-=B9=B410=E6=9C=8823=E6=97=A5
-> =E9=80=B1=E5=9B=9B =E4=B8=8A=E5=8D=8810:32=E5=AF=AB=E9=81=93=EF=BC=9A
-> >=20
-> > From: AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com>
-> >=20
-> > In preparation for adding a new driver for HDMIv2, for which CEC
-> > is not strictly required, change the of_get_compatible_child()
-> > failure error to -ENOTSUPP to be able to differentiate between
-> > error conditions in mtk_hdmi_dt_parse_pdata().
-> >=20
-> > In that case, if -ENOTSUPP is returned, this driver will print
-> > an informative message saying that CEC support is unavailable,
-> > as the devicetree node for that was not found, but after that,
-> > function mtk_hdmi_dt_parse_pdata() will not return error to
-> > the caller.
-> >=20
-> > This will not change functionality of the mtk_hdmi (v1) driver
-> > as that is still checking whether CEC is present and, if not,
-> > will fail probing with an error saying that CEC is required
-> > by HDMIv1.
-> >=20
-> > Reviewed-by: CK Hu <ck.hu@mediatek.com>
-> > Signed-off-by: AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com>
-> > Signed-off-by: Louis-Alexis Eyraud
-> > <louisalexis.eyraud@collabora.com>
-> > ---
-> > =C2=A0drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 9 +++++----
-> > =C2=A01 file changed, 5 insertions(+), 4 deletions(-)
-> >=20
-> > diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
-> > b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
-> > index
-> > f28e63716d7c2e2c6bdf5b28d24789bc926d2beb..989479fdfe40952762a1b6379
-> > 7bf602b520dcac5 100644
-> > --- a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
-> > +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
-> > @@ -253,12 +253,11 @@ static int mtk_hdmi_get_cec_dev(struct
-> > mtk_hdmi *hdmi, struct device *dev, struc
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /* The CEC module handles HD=
-MI hotplug detection */
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cec_np =3D of_get_compatible=
-_child(np->parent,
-> > "mediatek,mt8173-cec");
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (!cec_np)
-> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 return dev_err_probe(dev, -EINVAL, "Failed to find
-> > CEC node\n");
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 return dev_err_probe(dev, -ENOTSUPP, "Failed to
-> > find CEC node\n");
->=20
-> The checkpatch show the warning:
->=20
-> WARNING: ENOTSUPP is not a SUSV4 error code, prefer EOPNOTSUPP
-> #40: FILE: drivers/gpu/drm/mediatek/mtk_hdmi_common.c:256:
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return dev_err_probe(dev, -EN=
-OTSUPP, "Failed to find CEC
-> node\n");
->=20
-> I find many driver use ENOTSUPP, so I'm not sure which one is better.
-> I really don't understand the description about these two error code
-> [1].
-> If you choose ENOTSUPP, please give me some explain.
->=20
-> [1] https://man7.org/linux/man-pages/man3/errno.3.html
->=20
-> Regards,
-> Chun-Kuang.
->=20
->=20
-I think ENOTSUPP can be replaced by EOPNOTSUPP in this patch safely.
+What happens when selftests use the wrong map_size?  E.g. is munmap() silently
+failing?  If so, then I should probably take this particular patch through
+kvm-x86/gmem, otherwise it means we'll start getting asserts due to:
 
-There is only a single call of the mtk_hdmi_get_cec_dev function in the
-driver and the code that checks this particular return code value in
-mtk_hdmi_dt_parse_pdata function is also added by this patch.
+  3223560c93eb ("KVM: selftests: Define wrappers for common syscalls to assert success")
 
-I also don't see no other occurrence of ENOTSUPP code in mediatek-drm
-and since checkpatch recommends to prefer EOPNOTSUPP over ENOTSUPP,
-let's replace it in this patch (both code and commit message).
+If munmap() isn't failing, then that begs the question of what this patch is
+actually doing :-)
 
-Do you want me to send a new version of the series for this change?
-
-Regards,
-Louis-Alexis=20
-
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cec_pdev =3D of_find_device_=
-by_node(cec_np);
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (!cec_pdev) {
-> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 dev_err(hdmi->dev, "Waiting for CEC device %pOF\n",
-> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 cec_np);
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 dev_err(hdmi->dev, "Waiting for CEC device %pOF\n",
-> > cec_np);
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 of_node_put(cec_np);
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 return -EPROBE_DEFER;
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
-> > @@ -319,7 +318,9 @@ static int mtk_hdmi_dt_parse_pdata(struct
-> > mtk_hdmi *hdmi, struct platform_device
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 return dev_err_probe(dev, -EINVAL, "Failed to get
-> > ddc i2c adapter by node\n");
-> >=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ret =3D mtk_hdmi_get_cec_dev=
-(hdmi, dev, np);
-> > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ret)
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ret =3D=3D -ENOTSUPP)
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 dev_info(dev, "CEC support unavailable: node not
-> > found\n");
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 else if (ret)
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 return ret;
-> >=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return 0;
-> >=20
-> > --
-> > 2.51.0
-> >=20
+> Update the vm_mem_add method to ensure the mmap_size is aligned to the
+> underlying page size.
+> 
+> Signed-off-by: Jack Thomson <jackabt@amazon.com>
+> ---
+>  tools/testing/selftests/kvm/lib/kvm_util.c | 12 +++++-------
+>  1 file changed, 5 insertions(+), 7 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+> index c3f5142b0a54..b106fbed999c 100644
+> --- a/tools/testing/selftests/kvm/lib/kvm_util.c
+> +++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+> @@ -1051,7 +1051,6 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
+>  	/* Allocate and initialize new mem region structure. */
+>  	region = calloc(1, sizeof(*region));
+>  	TEST_ASSERT(region != NULL, "Insufficient Memory");
+> -	region->mmap_size = mem_size;
+>  
+>  #ifdef __s390x__
+>  	/* On s390x, the host address must be aligned to 1M (due to PGSTEs) */
+> @@ -1060,6 +1059,11 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
+>  	alignment = 1;
+>  #endif
+>  
+> +	alignment = max(backing_src_pagesz, alignment);
+> +	region->mmap_size = align_up(mem_size, alignment);
+> +
+> +	TEST_ASSERT_EQ(guest_paddr, align_up(guest_paddr, backing_src_pagesz));
+> +
+>  	/*
+>  	 * When using THP mmap is not guaranteed to returned a hugepage aligned
+>  	 * address so we have to pad the mmap. Padding is not needed for HugeTLB
+> @@ -1067,12 +1071,6 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
+>  	 * page size.
+>  	 */
+>  	if (src_type == VM_MEM_SRC_ANONYMOUS_THP)
+> -		alignment = max(backing_src_pagesz, alignment);
+> -
+> -	TEST_ASSERT_EQ(guest_paddr, align_up(guest_paddr, backing_src_pagesz));
+> -
+> -	/* Add enough memory to align up if necessary */
+> -	if (alignment > 1)
+>  		region->mmap_size += alignment;
+>  
+>  	region->fd = -1;
+> -- 
+> 2.43.0
+> 
 
