@@ -4,95 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 028C2CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 12:19:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F671CCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 12:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=H2q0viC1oKDoybdxIdGnsDv0XEKPZJRHKvcrkOAaotk=; b=ZpiXHMExT8w4XSb/55IkgvEiQc
-	z+6VHfgRqssUmDhmOOu6bnbGLC1WnxVekuoE8NiuJQi4sednbk90nUYLaHbbFAY/Ya0ClxjjZKhL3
-	Qd8SriSwMALCs8sRwAGIcpboeI7FpEvRs7/WJyp1anR98Ju76ugrd4tkJzsGJj9LV1kz6SIb+v5u6
-	abM9Dh71VlfmQmrRi5x7ZoIfLnpM1GxZyrDFCkWVO8A8iaWjdI6UmvedG5MccoWziYKRfjkSbzhcj
-	24B9oSRxESftX7zEB8Bp+0yijUoRMyl6O8H0swHG7JKlMiqpF2I/i0LgVtjyMQd0yRCedF0CtL2aD
-	FbEq1h5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ng0p3rzhbCe/bm8WuWNgEWBVBz/1DYFIUGKbuqDxdLg=; b=uD4feuUth4BgjHf3gQt+Q5CG9v
+	ORC4AD0MhcP+sFB0Zs9KVWf8WKdJlHeoip/mFhksLBV9UBy55NK8cQ/rnKDKLs0BUPEgCki0QcVUO
+	oZftLyN1Q/6BsiLrFJ5MTXtrIiIYWciJ2PSGW8KyhjbFq6B5D1otl/9OlKGagHUFz8BFbwV7fnSJX
+	f3m4cDWsqg+H5+YUAXQAGeJziopUCukRtAjMMaMv2yR4drDg3Adek3ZBnDJ1nI69Tm5N01xD6cOY6
+	nUxVtl5WCXS3foxCmNJrsyF6sis6gGsqvEvUGSwSt3bBTSEtef43wJIRC1qfZxCGPOPfwBoTJYT+C
+	0DHzW2Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuHx-00000006Dpn-3Uoi;
-	Thu, 23 Oct 2025 12:19:29 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1vBuL9-00000006EHd-1pcA;
+	Thu, 23 Oct 2025 12:22:47 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuHv-00000006DpU-3vN1
+	id 1vBuL6-00000006EGv-3Nri
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 12:19:29 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-33d896debe5so957200a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 05:19:27 -0700 (PDT)
+	Thu, 23 Oct 2025 12:22:45 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-47107a9928cso400365e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 05:22:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761221967; x=1761826767; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=H2q0viC1oKDoybdxIdGnsDv0XEKPZJRHKvcrkOAaotk=;
-        b=T5ADAlIutJ8vBQbaOUXYGbawFmwS0lb/dxA+qViiXfJSwOPSYjTju+TBE+oZqU5idb
-         0BNx23m4ST1MYIeZNCtnhFjowyzxaNuT1KxDFTVuyLr1U6fn1gz3v9ET0v2EHxZA9j5D
-         m17OUH67nU5PMf9Wd1ikgWZq0ENMTzuMp8Y9pqXDstE2Nziz51B+a1kPymzYrvdn6Otf
-         8yIVO2AiziXyMoC9DVmtvxhjizoXNjMOmHULbc5DS02RKzjd0tEPBwTWkPDcV39nvsmx
-         BeIWHcPdkXV0klOF7wWGeAFwb7dmCu9XOCGjdfxU8NxehsDU7Jpa2c+1rcwk/+H519zs
-         0TqQ==
+        d=linaro.org; s=google; t=1761222163; x=1761826963; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ng0p3rzhbCe/bm8WuWNgEWBVBz/1DYFIUGKbuqDxdLg=;
+        b=l8aXpOizVAHDXqVbXCzgIK03vUu6NySfNqDRu3b3VlvV9SNMkR8j2RZDCcArECp3AQ
+         gBUK+67iQHQak7m2ydeo53J2Ac4wposcJFNJ0aiHWF8H412hNPvQeOSGLkf0P2IsXP7I
+         SyrkfmWkAIma1xJ6RiVeYkOleOW5eG6uGcfKOK8wD8MbQPSeMOtHCoNQ6Cj9DjYF1YAV
+         JuzguZkuJkYjjlklgJl30pCXjsGnb2ORf/f09TluAOA+9CYkGFYgUJCL1nsuFCZIO+xg
+         sjfr+My1SDqr6vzxbW3Mvm9BogWzYGSpfVz/02g5K/0hGZyHlEbLo6Rei1tRoFnuwlo3
+         Dkkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761221967; x=1761826767;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1761222163; x=1761826963;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=H2q0viC1oKDoybdxIdGnsDv0XEKPZJRHKvcrkOAaotk=;
-        b=i6K5v/I8I7HZpHfku5gDVOEBq6uUSAWYjQeCM0TCRt7306HR4ftoXPO6yMHxGH2tu2
-         x2xFQtPJLheRk1qeoMcribM8ko6HZsGEOJIcLI32lj/kfuBxtkNuBmpSz/2lzSSbFHQn
-         +PDvSsk5rBgm1hkoScvBKzwhpv5tHIRUtVmrMSj1TsdiLcQhyaOdrGn3lcOmRVRSI61O
-         s8eTW3FprLo8aL9GbJ/jfY8iWuB9DLQD95LX21bloux6eUjQSdsc8bAFK6/1X8WjF2WW
-         hCfXo+hkheMwZm5WSrom72jlyAvUaZQIkmufyMuP3F07OL0l6v+xBythVNBzeu7R8BZH
-         yMSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUfQYAQBmdYtGEwQ2PL7fveE1XQec7NhslQZomzDEiJUo/abZlpCmdne5fg6zI9vOMh4gi7yI+Krc3RzzS/kdIz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzp66kXhhpDUKnyQjaueyiK5NW1UrImXcDGa/ri18XNKS2KV5c5
-	rPkXTLr0BbUUG0Vfx/xFt/xIUSzWUQbXRkIFOMl6bqB9f8eq0zGRwJdfotBjKMw8kEo=
-X-Gm-Gg: ASbGnctVBTscu1Z+W/pQjOVC0n2DOYDfi05/AwmfIaP1sVC46IrMUtPaoS+Cg4LIC/c
-	/ZlITDyOvD8ASTMkia4AE/wlYYa8f3eu+J3SNlQvkrLeoVf7ndAcp4kgTj1YPAJNHlU4Ms8nwim
-	ixLG/FfGUxB9k0Q0SODmYLnUvxyLyZqzI8Jri3vrSyqDS2DUKJ5qyN3TGsT70KpJCO8g2IoX2fn
-	yr5AuFhUgDABMBKLeglK1NZL/Y+mZlMH4NFH6NQSPoYwyKutj9XAElmYn0ZcPokwMCGOjT46H+h
-	zmK3kmkgUODvGZlA9bMCkMnUnopU2QQgP95LBcSlSWzYmPst07mN0UdDwyVoRGRyDBZX6XqozV4
-	uIxFfefAJkdbD6wLtlW/c/X1C4mzA9ySOEg3iWmpR3JZg9TY34LpEq2U+lN8XMonGTMajkRSM4/
-	BtQ3U7xyv6CYmxSqzu77CMUI/is+d2cvPOjQ==
-X-Google-Smtp-Source: AGHT+IGJ23GsrNILCdW/8gbVtgjCsaLah5E0mTNdpSVoeuNI9VqG0QCaBp4Eb7N3Z7ssAPYGjAzlmA==
-X-Received: by 2002:a17:90b:2403:b0:33e:2d0f:478e with SMTP id 98e67ed59e1d1-33e2d0f5967mr4230135a91.3.1761221966488;
-        Thu, 23 Oct 2025 05:19:26 -0700 (PDT)
-Received: from joaog-nb.corp.toradex.com ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33faff37c14sm2277474a91.2.2025.10.23.05.19.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Oct 2025 05:19:25 -0700 (PDT)
-From: =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>
-Date: Thu, 23 Oct 2025 09:19:15 -0300
-Subject: [PATCH v1] arm64: defconfig: Enable i.MX95 configs for booting and
- Ethernet
+        bh=Ng0p3rzhbCe/bm8WuWNgEWBVBz/1DYFIUGKbuqDxdLg=;
+        b=JzTSkwnwRCXINNBotDG8J3+/8W+TPtj2lRDOyMDfb33hSYVClLuxKLZVsXAOjT/EuJ
+         1MDI7ukHtIpCGdP772BRvTmQxXh2iBu5IiJ0vK4AXufdTkMvHV31rHpoTcniR/O9qF3t
+         atJjh5y25zwbrgvh2Fy+qJaJ2c1UfGBcYEX1RmU2V515JcmqqKgnfaJwMgqcXTBSzJku
+         eAmPwuUoI2FNkQjByQRe6sQMknmpncm8VikZUry4zYCy2eYUIo7xAKddHJwc5Lr36P7B
+         kAgTs197zle8Wm9f7CrzSXaGAXzFPT5xR9aNiuGMD91LevuxaAL2jQ5yBIgTymuG9q35
+         z6/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWwCZtLiZcmC0de6zTfYv+z8WBVSdecR7jST4sHfvVBuHOhGcp2xfAUArIwg7qCd0Sy+wVFkQOOzhwYH5glGNL/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfFLvlawPG/AtpOIYkyuv1Aqyc5Ga/3m7fJKCvQ7+ipRpYmYfP
+	UCQswOPfPSH1aHzGyoneop8fo4DIdHKUQk7MXF5uxaZbcC1exzIeru6WKz89Tzvgf8E=
+X-Gm-Gg: ASbGnctJ0TsR/FzXGjEsNRwyci1PMlc+dzRMjZfIMh+BC6EjceWKKXOd49kcba4iqDm
+	M8RK5r6kFuSK7cgTx99EYAoshZeX9bLbsa8QqkbPIKFKCoCRQyU9ifCjQ9QT2+SHYfHsnpsHxGo
+	vDtEl6Q7leDs4SM6fo9fOOJNU91S0LbqHztGhiCp1J+N+kqT98cygbBDAjKqzgAZYsFanWSy6FW
+	BXdLcxkOnug+PiPvT58G4eeKzYUOiYtpFIaX2LMmbOFDeqDe4dMepqxLStS4aV+Ct+j30oHyjuS
+	k/znJ1XrhfSLbGqqhm+masCUrTkygO3Xa8/+kcWQRfQses4vcdYOyxaAjQ3t24yg265XFcdtGcV
+	USsb/d/8CQkSdAES5EyuAtfY9eaB3LJx9dRr3osKPkNvGO/nKcFymxZ/u8vVc2uk4DltbmJwwRZ
+	C6vi0DQvN2ZM5LDbeBrsQPYaIJRL68i24ZT/tdZx/FUA==
+X-Google-Smtp-Source: AGHT+IHn9Jc9tXr8TF9Sn6KIpzgp4yHxdt9b5RD5u8Yb6ZrVqAyZQpOL9VO2GV+WOPSTnrPzeUkpgA==
+X-Received: by 2002:a05:600c:1d25:b0:471:152a:e574 with SMTP id 5b1f17b1804b1-474942c4fa0mr55655555e9.2.1761222162514;
+        Thu, 23 Oct 2025 05:22:42 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429897e7622sm3705393f8f.8.2025.10.23.05.22.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Oct 2025 05:22:41 -0700 (PDT)
+Message-ID: <cacc9439-2cf0-42bd-b6c5-13d1e75642d8@linaro.org>
+Date: Thu, 23 Oct 2025 14:22:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64: defconfig: Enable i.MX95 configs for booting
+ and Ethernet
+To: =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?=
+ <jpaulo.silvagoncalves@gmail.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Marek Vasut <marex@denx.de>, Peng Fan <peng.fan@nxp.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?=
+ <joao.goncalves@toradex.com>
+References: <20251023-upstream-imx95-smarc-defconfig-v1-1-62c6e6f5b315@toradex.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20251023-upstream-imx95-smarc-defconfig-v1-1-62c6e6f5b315@toradex.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251023-upstream-imx95-smarc-defconfig-v1-1-62c6e6f5b315@toradex.com>
-X-B4-Tracking: v=1; b=H4sIAEId+mgC/x3NQQqDMBBA0avIrDtgIqHGq5Qu0mSis0iUmSqCe
- PeGLt/m/wuUhElh6i4QOlh5rQ3m0UFcQp0JOTWD7a0zvR1w3/QrFApyOb1DLUEiJspxrZlnHP3
- Tpo8bnDcjtMgmlPn8D15wGHjf9w9b8i5+dAAAAA==
-X-Change-ID: 20251023-upstream-imx95-smarc-defconfig-8972db535918
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>, 
- Peng Fan <peng.fan@nxp.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, 
- =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_051927_995559_D12586DC 
-X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-CacheID: sfid-20251023_052244_872727_F70CEFD7 
+X-CRM114-Status: UNSURE (   8.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,59 +153,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: João Paulo Gonçalves <joao.goncalves@toradex.com>
+On 23/10/2025 14:19, João Paulo Gonçalves wrote:
+> From: João Paulo Gonçalves <joao.goncalves@toradex.com>
+> 
+> Enable the necessary missing configs for the i.MX95 to boot and also
+> have Ethernet working:
+> 
+> * CONFIG_NXP_ENETC4 for the network controller driver
+> * CONFIG_NXP_NETC_BLK_CTRL for the NETC hardware domain controller
 
-Enable the necessary missing configs for the i.MX95 to boot and also
-have Ethernet working:
 
-* CONFIG_NXP_ENETC4 for the network controller driver
-* CONFIG_NXP_NETC_BLK_CTRL for the NETC hardware domain controller
-* CONFIG_PINCTRL_IMX_SCMI for the pinctrl driver
-* CONFIG_CLK_IMX95_BLK_CTL for the shared hardware domain controller
+These do not carry any IMX95 compatibles, so I have doubts you described
+the issue correctly. You claim that SoC needs them, not the board.
 
-Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
----
- arch/arm64/configs/defconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+> * CONFIG_PINCTRL_IMX_SCMI for the pinctrl driver> * CONFIG_CLK_IMX95_BLK_CTL for the shared hardware domain controller
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index e3a2d37bd10423b028f59dc40d6e8ee1c610d6b8..787d3ae3f5afeac486a905e0943e7b0e1dcee3a9 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -354,8 +354,10 @@ CONFIG_FSL_FMAN=y
- CONFIG_FSL_DPAA_ETH=y
- CONFIG_FSL_DPAA2_ETH=y
- CONFIG_FSL_ENETC=y
-+CONFIG_NXP_ENETC4=m
- CONFIG_FSL_ENETC_VF=y
- CONFIG_FSL_ENETC_QOS=y
-+CONFIG_NXP_NETC_BLK_CTRL=m
- CONFIG_HIX5HD2_GMAC=y
- CONFIG_HNS_DSAF=y
- CONFIG_HNS_ENET=y
-@@ -615,6 +617,7 @@ CONFIG_PINCTRL_IMX8DXL=y
- CONFIG_PINCTRL_IMX8ULP=y
- CONFIG_PINCTRL_IMX91=y
- CONFIG_PINCTRL_IMX93=y
-+CONFIG_PINCTRL_IMX_SCMI=y
- CONFIG_PINCTRL_MSM=y
- CONFIG_PINCTRL_IPQ5018=y
- CONFIG_PINCTRL_IPQ5332=y
-@@ -1349,6 +1352,7 @@ CONFIG_CLK_IMX8MQ=y
- CONFIG_CLK_IMX8QXP=y
- CONFIG_CLK_IMX8ULP=y
- CONFIG_CLK_IMX93=y
-+CONFIG_CLK_IMX95_BLK_CTL=y
- CONFIG_TI_SCI_CLK=y
- CONFIG_COMMON_CLK_MT8192_AUDSYS=y
- CONFIG_COMMON_CLK_MT8192_CAMSYS=y
 
----
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-change-id: 20251023-upstream-imx95-smarc-defconfig-8972db535918
+BTW standard comment applies - explain which upstream boards have all these.
 
 Best regards,
--- 
-João Paulo Gonçalves <joao.goncalves@toradex.com>
-
+Krzysztof
 
