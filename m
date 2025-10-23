@@ -4,83 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79404CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 09:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA3BCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 09:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3BZ/Pw5p7gUSP7C6Gq7z9L0Pemml3h4TZLYNOzw8Qhc=; b=M+yNGqFoJnIRZDnj+Q30s6ksZD
-	BmSGpDaRyYhkHKfk1lpMU0xfLFWl03vKzePJZERvNl78G0AnGlwmarHHO1t51kW7QP6ZK/1Kktdqf
-	O/HkKxZ4VM18k8pfQoeFpNWE4XP+eJ/2T0C6MxgllktLnkvEtumzo7CKT/eIDsOQamt2bALZxtjDU
-	MCAwfPbaPuKmx7hBWf5+QIB/zl8DBvU2Im6GYgbAS5F4WeRLjPNtkx/VACJUvQWBLVsc0aBfq3fnk
-	G1xlVJiz4gfbRWFVE6CFFLEetIl+1g55AXYCK5qEBnH2rgRY4tQL7kQFsJU6zj03VjIqwqc1vqr+M
-	9i0FA5wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6DCJK6uJnCbgD2d0vAbxfsTdaOAd3ysv1m0iG7pR4Mk=; b=0+cBxm9uxbHpTgnzqWnMn02ZDr
+	iMwvnBISJpFu+rXk3TycEgruDYEB8SXHEB8WDCZALPQNdkYISvH9LyV6+y1gyw03KWtAmvvZ90h1j
+	AnFSZYENUTvxgZPnOX5bAwUWeDT6f0F5KcEWY7eXB9+ODo4Px1wY+10Di9xK7hct/J1VGD1DoWY6L
+	mH+gLCjdu37mqR9zKUEdY1AFMNigUtXcixXSO09am3wWWWuNocLoUpHKjgZBC2hIee4wnegHVUqtw
+	Br0mdCBmIM/GtlutLG4CsZ5aRD3KGKyeqFOt/VFiEdLrUkmJSxM/BFWmk9uwa+q7wj9kqPQAqFK35
+	hSf1IL8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBrjh-00000005jWu-0xjZ;
-	Thu, 23 Oct 2025 09:35:57 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1vBrki-00000005jit-2PoG;
+	Thu, 23 Oct 2025 09:37:00 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBrjf-00000005jVn-0I2e
+	id 1vBrkg-00000005ji2-0vER
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 09:35:56 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59N9Z46O495866;
-	Thu, 23 Oct 2025 04:35:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1761212104;
-	bh=3BZ/Pw5p7gUSP7C6Gq7z9L0Pemml3h4TZLYNOzw8Qhc=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=ycYUtHe89cFtfiNd7ey6DVVPRMDmkAs6MWCSrsgUsC95kjqQ1Khj/QoZYRMzlQWYe
-	 OWBSfTgF9r5QvQwXvviTsfqfLg7U6o6gw+owt9LvLNNdtcr+oQrgQbBkA7RijWbS4d
-	 aCGVdMICWD7lKZblaBDoxtFInUJUIgiRNwUB+1Uc=
-Received: from DFLE203.ent.ti.com (dfle203.ent.ti.com [10.64.6.61])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59N9Z3XD2614512
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 23 Oct 2025 04:35:03 -0500
-Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Oct
- 2025 04:35:03 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 23 Oct 2025 04:35:03 -0500
-Received: from [172.24.18.185] (lt9560gk3.dhcp.ti.com [172.24.18.185])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59N9Yua52645085;
-	Thu, 23 Oct 2025 04:34:56 -0500
-Message-ID: <f8285b3a-fe38-4f7b-aada-abbae105ab98@ti.com>
-Date: Thu, 23 Oct 2025 15:04:55 +0530
+	Thu, 23 Oct 2025 09:36:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=6DCJK6uJnCbgD2d0vAbxfsTdaOAd3ysv1m0iG7pR4Mk=; b=KeHPk39NCTe+UtVT3YRRER4JIG
+	ka52phznonJX4IdnwDithKL2Yl/rPVwsYHzsAZtGL6GKI7ZuzCyxwHq2jitcX5d+iPPGJ1AMEJn35
+	/BxDqxz6sJtwIWv04JNnCybhECo4COpAAKGSbTU/7jIB6wu+jV3MchWFjJp4msrImUEeVbxdQNk5E
+	q8F7sT0b+yaLmxwQO/7+9qq+7YYQkJqDsc7S2QynYpT8E4CYttP4u6Wg8aJXaUvVsKH1n132K6U55
+	7rMXKLVK8/XCkH7f4yChe4z5z2fMGQ1BwPAuf7kNcYeR6QxFydWCi1zrhpUZnSYcBCW3y7GiOwVME
+	22pbPQFQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44934)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vBrka-0000000064O-1MLL;
+	Thu, 23 Oct 2025 10:36:52 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vBrkX-000000001ZH-3TwL;
+	Thu, 23 Oct 2025 10:36:49 +0100
+Date: Thu, 23 Oct 2025 10:36:49 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Richard Cochran <richardcochran@gmail.com>
+Subject: [PATCH net-next 0/8] net: stmmac: hwif.c cleanups
+Message-ID: <aPn3MSQvjUWBb92P@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 0/6] Add AF_XDP zero copy support
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <horms@kernel.org>, <namcao@linutronix.de>, <jacob.e.keller@intel.com>,
-        <christian.koenig@amd.com>, <sumit.semwal@linaro.org>,
-        <sdf@fomichev.me>, <john.fastabend@gmail.com>, <hawk@kernel.org>,
-        <daniel@iogearbox.net>, <ast@kernel.org>, <pabeni@redhat.com>,
-        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
-        <linaro-mm-sig@lists.linaro.org>, <dri-devel@lists.freedesktop.org>,
-        <linux-media@vger.kernel.org>, <bpf@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20251014105613.2808674-1-m-malladi@ti.com>
- <20251020174308.59b87130@kernel.org>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <20251020174308.59b87130@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_023555_144071_B9A7D041 
-X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-CacheID: sfid-20251023_023658_363288_321D25D0 
+X-CRM114-Status: UNSURE (   9.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,28 +85,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
+This series cleans up hwif.c:
 
-On 10/21/2025 6:13 AM, Jakub Kicinski wrote:
-> On Tue, 14 Oct 2025 16:26:06 +0530 Meghana Malladi wrote:
->> This series adds AF_XDP zero coppy support to icssg driver.
->>
->> Tests were performed on AM64x-EVM with xdpsock application [1].
->>
->> A clear improvement is seen Transmit (txonly) and receive (rxdrop)
->> for 64 byte packets. 1500 byte test seems to be limited by line
->> rate (1G link) so no improvement seen there in packet rate
->>
->> Having some issue with l2fwd as the benchmarking numbers show 0
->> for 64 byte packets after forwading first batch packets and I am
->> currently looking into it.
-> 
-> This series stopped applying, could you please respin?
+- move the reading of the version information out of stmmac_hwif_init()
+  into its own function, stmmac_get_version(), storing the result in a
+  new struct.
 
-Yes, Thanks for the heads up.
+- simplify stmmac_get_version().
 
+- read the version register once, passing it to stmmac_get_id() and
+  stmmac_get_dev_id().
+
+- move stmmac_get_id() and stmmac_get_dev_id() into
+  stmmac_get_version()
+
+- define version register fields and use FIELD_GET() to decode
+
+- start tackling the big loop in stmmac_hwif_init() - provide a
+  function, stmmac_hwif_find(), which looks up the hwif entry, thus
+  making a much smaller loop, which improves readability of this code.
+
+- change the use of '^' to '!=' when comparing the dev_id, which is
+  what is really meant here.
+
+- reorganise the test after calling stmmac_hwif_init() so that we
+  handle the error case in the indented code, and the success case
+  with no indent, which is the classical arrangement.
+
+ drivers/net/ethernet/stmicro/stmmac/common.h |   3 +
+ drivers/net/ethernet/stmicro/stmmac/hwif.c   | 166 +++++++++++++++------------
+ 2 files changed, 98 insertions(+), 71 deletions(-)
+ 
 -- 
-Thanks,
-Meghana Malladi
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
