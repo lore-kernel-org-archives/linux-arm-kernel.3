@@ -4,89 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DC2CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 11:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F9CCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 11:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qszteeIIfZdimRIQpgCn+/pEks4QjoflEtrgND3FgTs=; b=DSynmeU0tBrfPMk4aGeZw4DIVB
-	5upnHOSbsyHFIlYPzFnCJgkfsC7/6mFEEdf7J7tH0zwQjZGrUJVa9JRIC1FAZBSPgqQSry1DC1UM0
-	izNKrtRPP0iycFXbh2Qnbxxv7cf6iWAxXTKgMbPsSGBiG5lqdU6xdQr2WIgTKTO1D/7lW3a3Cq5cn
-	4euIYT+DOAJnp5OJm7NnenyZqe+XXz1tO67CrrvYNmzv+dV5jFNXkix/wPLqYV7sA7APXMDgidLVX
-	NJoZQQQrmCFVhrLE2giSjBcFuvW0saB3pJujVtiEmgkApkMCLYv/jk6RW20bEIntSG4pX1OWKvPAW
-	iUeMc1Zg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bi64k3qXHXjDfrFSp4LnIwYgP+CHK7JhrlotvMo7IYE=; b=wHRUwGtzsPZJT2w9EG3xiP3THH
+	Csm2u60qM6pTkITg/XL653VZnCQvcVMdLbWyOifwUEjd27Soqj5ksnupqO/UXb6fk4TZp8xT5ieFG
+	NOVlDC5cXjzxi/AtBrPI3pUxKlFay1xlLUGitGwpw5mHSx+/T8Rxdu0m1VrNMubevpuQVSFjmgHYf
+	JTB4OSQP5UucR7Dld/Ti3mBRFVr9Wn8cYtzVLsTFH+Qt66/8s/P9V8/2qxZd3jy3rhZJAX9natNnP
+	wke7JEv+brWTAXoZpzrBZbx6NvNV2+fKq0oongvU2DTVenhbyS+fGLWbyNhpKC1VMxo234D77Tqwt
+	83F04Trw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBtkM-0000000681Q-2NjV;
-	Thu, 23 Oct 2025 11:44:46 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1vBtp6-000000068us-12Sg;
+	Thu, 23 Oct 2025 11:49:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBtkJ-0000000680C-3oK3
+	id 1vBtp4-000000068tu-3i2T
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Oct 2025 11:49:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Bi64k3qXHXjDfrFSp4LnIwYgP+CHK7JhrlotvMo7IYE=; b=fvr2gsWZM3n9/qAHPS6BM/qPb9
+	r9+OOE6DcR/tFZPMXZyLpnoti/h7t6MfI7pRFD3JUJUnU2lF4vboU7hB5EZVMCvqn3xTw/1fCLm6t
+	nUYpYH22xWUVIfM13RG/4Yd0K6WVqObSBw7HVXS6vIGTu2K36MXfn9pwkII1qklsVsYrXsniRgog2
+	bznewecubYA2oUvwywYyvjaG+o+t4u9TszYJ7z42evsBOYEYpoHhDnuLpC2/fq52gg40xdBAnuEXL
+	vRzHem5UjEWa8pObGpwclHiAGOLkR4SnZobOxGQUM56WuEdKe7c9iJi6zqi8e7kUhEg7QCyrQTcaW
+	7srR6b7g==;
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBsxM-00000001I0U-0BAl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 11:44:45 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-58b025fce96so652951e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 04:44:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761219882; x=1761824682; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qszteeIIfZdimRIQpgCn+/pEks4QjoflEtrgND3FgTs=;
-        b=JmVAMdiDns9thKZjfa1u+Mxth+wWcN/qw3+TsVgVk7DBnN/Iy+cRuhE6FTXdh9f6e5
-         348glbRVp/Dk5oa6nDc4/8XUApG2dvadZE0bsOIrZmMO2CDpEH1kQvKTCAL/h3nw6ROU
-         tPTP8eUh8+nKvqYDRN1GCmS7KV3sQGohwjUvwNc+YHLOEsVJvT3JlHxMsMnvP+xXIvfm
-         qC6w35Hb09B+b/X68WBg5c0+inV5Tq70OC0K2EeZPIu3df4142BAy6XQkXm+FzxDjrqT
-         6quNz2DJmqrDUgBLxND5+TQVMPBOQ9ZaqVSqpPzW8pWnNXEI2aGajWhd4zwiORJ0/Lcr
-         0TCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761219882; x=1761824682;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qszteeIIfZdimRIQpgCn+/pEks4QjoflEtrgND3FgTs=;
-        b=QqzAQ99Jui8GPqBaEHONAcLzdZtl3/4Q0pxEdlzyE6bb8e39x3LMDb1bTMWnPjezbK
-         uXqY3Sk2ojMN/UpJW24npBApQmmMuUmph9I6878VY3S/A3x5l3KGYUDASAs25UH92ySn
-         czYqhOsObgbUHZfI5He0mYXdhSsD1e+reYYCv49fio0Hh/yn7t5cj2v+8eySmu4viWQ0
-         OOOixP1Dr4qv1EESfQ5XsezV6qcH02bpX8soakXFyWtwp8zO0llhff2umGvyJY0m/JMD
-         3UGpS+OijNR+L7kK3uM195q/IqIcClKSD9z68g3n+yQ7UQUvwr1HUwRQ2yCpCiyH3BRP
-         QdzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU7muDxdqpJPUdCgQCE0p4EXOVI1aEWCuxq0r9+n6NS+RCE73basu0ScFi1beG2lnOMnV7aW60uG9OdWJsDyfmO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFjdEW1054Yv8TlaEav3bo57LU7JrOveAorv+0w9Lczr4Xn9sP
-	W89/eqW+vMLCg4O0n8gqw3RgWL+pXn244j76lk9zxQP0J6yHDvl3IHpE7Eb2aQ5uCC8=
-X-Gm-Gg: ASbGncvqESuJv/0PPxLEudLMqVrCEH284eXwvTa9+m5DYJq3lqEIz9yZ/JRALtMGCe1
-	7yaM+kOK1ddY+KBUFrIB7qfqcJ/bUpBnakrtOdJb42xL4YIO/rCi2FftH6fI6bYoIxddRLzwvN1
-	VfwXy9RZMYm+EZwXw6ZcRhAyRwA9Jh0XJ6Bsqywt8SWSVreI0HLNFNVUFsPnbZmijCz8n7TAt8K
-	Nb21RJYdpgCBOgZ5QVztzvou/M7GB8uyY1KElBUMNxKbH3epAC/31yXJg8ivntp/E24cl//Yfub
-	Q8eOBlmXKuKx+XLUMc6m6DQq4YwWaP37ZbWkbEFbb8B5slHNXf53z+zgYNKeaD+GeTdS8DX5ZNH
-	hEpWXPgJUtPRSsgHGu1fjmhXlmcluTPvfzzcebrCdVwunMJRQ2tPcUzgkSJmrbn/rI1n96O6MVx
-	pdiNy/LTa0h86ow+L1L0slxXyOxIQdqFPZH03osmfM56uw+LYRTwM6htw3I6Vs
-X-Google-Smtp-Source: AGHT+IFbZ8ea+fRAWMZHdLU+mWJ2Ags/jNDklnyMrW7cZ1hIy3jawsjZE8i2C+6eDVs0jg2Q6h0Kww==
-X-Received: by 2002:a05:6512:3da8:b0:57e:f60:2327 with SMTP id 2adb3069b0e04-591d85665e1mr7456130e87.49.1761219881746;
-        Thu, 23 Oct 2025 04:44:41 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-592f4d1f26bsm687596e87.77.2025.10.23.04.44.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Oct 2025 04:44:40 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-pm@vger.kernel.org
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] pmdomain: mediatek: Fix build-errors
-Date: Thu, 23 Oct 2025 13:44:36 +0200
-Message-ID: <20251023114436.185320-1-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	Thu, 23 Oct 2025 10:54:10 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cskkf1VNJz6HJgq;
+	Thu, 23 Oct 2025 19:46:02 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 876941402F3;
+	Thu, 23 Oct 2025 19:49:17 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 23 Oct
+ 2025 12:49:16 +0100
+Date: Thu, 23 Oct 2025 12:49:14 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Conor Dooley <conor@kernel.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-arch@vger.kernel.org>,
+	<linux-mm@kvack.org>, Dan Williams <dan.j.williams@intel.com>, "H . Peter
+ Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, "Andrew
+ Morton" <akpm@linux-foundation.org>, <james.morse@arm.com>, Will Deacon
+	<will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+	<linuxarm@huawei.com>, Yushan Wang <wangyushan12@huawei.com>, "Lorenzo
+ Pieralisi" <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Dave
+ Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	<x86@kernel.org>, Andy Lutomirski <luto@kernel.org>, "Dave Jiang"
+	<dave.jiang@intel.com>
+Subject: Re: [PATCH v4 6/6] cache: Support cache maintenance for HiSilicon
+ SoC Hydra Home Agent
+Message-ID: <20251023124914.00001005@huawei.com>
+In-Reply-To: <20251022-kite-revert-2c2684054d05@spud>
+References: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
+	<20251022113349.1711388-7-Jonathan.Cameron@huawei.com>
+	<20251022-kite-revert-2c2684054d05@spud>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_044443_954415_28C863B9 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251023_115408_383973_3FAE56AE 
+X-CRM114-Status: GOOD (  43.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +98,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Let's add the missing header to fix the reported build-errors.
+On Wed, 22 Oct 2025 22:39:28 +0100
+Conor Dooley <conor@kernel.org> wrote:
 
-Fixes: df4e9ec1ed86 ("pmdomain: mediatek: Add support for secure HWCCF infra power on")
-Reported-by: Stephen Rothwell <sfr@canb.auug.org.au>
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202510231317.ZZxNaFG0-lkp@intel.com/
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
----
- drivers/pmdomain/mediatek/mtk-pm-domains.c | 1 +
- 1 file changed, 1 insertion(+)
+Hi Conor,
 
-diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-index ac144ab8fce0..164c6b519af3 100644
---- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-+++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-@@ -2,6 +2,7 @@
- /*
-  * Copyright (c) 2020 Collabora Ltd.
-  */
-+#include <linux/arm-smccc.h>
- #include <linux/clk.h>
- #include <linux/clk-provider.h>
- #include <linux/init.h>
--- 
-2.43.0
+> On Wed, Oct 22, 2025 at 12:33:49PM +0100, Jonathan Cameron wrote:
+> 
+> > +static int hisi_soc_hha_wbinv(struct cache_coherency_ops_inst *cci,
+> > +			struct cc_inval_params *invp)
+> > +{
+> > +	struct hisi_soc_hha *soc_hha =
+> > +		container_of(cci, struct hisi_soc_hha, cci);
+> > +	phys_addr_t top, addr = invp->addr;
+> > +	size_t size = invp->size;
+> > +	u32 reg;
+> > +
+> > +	if (!size)
+> > +		return -EINVAL;
+> > +
+> > +	addr = ALIGN_DOWN(addr, HISI_HHA_MAINT_ALIGN);
+> > +	top = ALIGN(addr + size, HISI_HHA_MAINT_ALIGN);
+> > +	size = top - addr;
+> > +
+> > +	guard(mutex)(&soc_hha->lock);
+> > +
+> > +	if (!hisi_hha_cache_maintain_wait_finished(soc_hha))
+> > +		return -EBUSY;
+> > +
+> > +	/*
+> > +	 * Hardware will search for addresses ranging [addr, addr + size - 1],
+> > +	 * last byte included, and perform maintain in 128 byte granule
+> > +	 * on those cachelines which contain the addresses.
+> > +	 */  
+> 
+> Hmm, does this mean that the IP has some built-in handling for there
+> being more than one "agent" in a system? IOW, if the address is not in
+> its range, then the search will just fail into a NOP?
+
+Exactly that. NOP if nothing to do. The hardware is only tracking
+a subset of what it might contain (depending on which cachelines are
+actually in caches) so it's very much a 'clear this if you happen to
+have it' command.  Even if it is in the subset of PA being covered by
+an instance, many cases will be a 'miss' and hence a NOP.
+
+> If that's not the case, is this particular "agent" by design not suitable
+> for a system like that? Or will a dual hydra home agent system come with
+> a new ACPI ID that we can use to deal with that kind of situation?
+
+Existing systems have multiple instances of this hardware block.
+
+Simplifying things over reality just to make this explanation less
+messy.  (ignoring other levels of interleaving beyond the Point of
+Coherency etc).
+
+In servers the DRAM access are pretty much always interleaved 
+(usually at cache line granularity). That interleaving may go very
+different physical locations on a die or across multiple dies.
+
+Similarly the agent responsible for tracking the coherency state
+(easy to think of this as a complete directory but it's never that
+simple) is distributed so that it is on the path to the DRAM. Hence
+if we have N way interleave there maybe N separate agents responsible for
+different parts of the range 0..(64*N-1) (taking smallest possible
+flush that would have to go to all those agents).
+ 
+> (Although I don't know enough about ACPI to know where you'd even get
+> the information about what instance handles what range from...)
+
+We don't today. It would be easy to encode that information
+as a resource and it may make sense for larger systems depending
+on exactly how the coherency fabric in a system works. I'd definitely
+expect to see some drivers doing this. Those drivers could then prefilter.
+
+Interleaving gets really complex so any description is likely to only
+provide a conservative superset of what is actually handled by a given
+agent.
+
+> 
+> > +	size -= 1;
+> > +
+> > +	writel(lower_32_bits(addr), soc_hha->base + HISI_HHA_START_L);
+> > +	writel(upper_32_bits(addr), soc_hha->base + HISI_HHA_START_H);
+> > +	writel(lower_32_bits(size), soc_hha->base + HISI_HHA_LEN_L);
+> > +	writel(upper_32_bits(size), soc_hha->base + HISI_HHA_LEN_H);
+> > +
+> > +	reg = FIELD_PREP(HISI_HHA_CTRL_TYPE, 1); /* Clean Invalid */
+> > +	reg |= HISI_HHA_CTRL_RANGE | HISI_HHA_CTRL_EN;
+> > +	writel(reg, soc_hha->base + HISI_HHA_CTRL);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static int hisi_soc_hha_done(struct cache_coherency_ops_inst *cci)
+> > +{
+> > +	struct hisi_soc_hha *soc_hha =
+> > +		container_of(cci, struct hisi_soc_hha, cci);
+> > +
+> > +	guard(mutex)(&soc_hha->lock);
+> > +	if (!hisi_hha_cache_maintain_wait_finished(soc_hha))
+> > +		return -ETIMEDOUT;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static const struct cache_coherency_ops hha_ops = {
+> > +	.wbinv = hisi_soc_hha_wbinv,
+> > +	.done = hisi_soc_hha_done,
+> > +};
+> > +
+> > +static int hisi_soc_hha_probe(struct platform_device *pdev)
+> > +{
+> > +	struct hisi_soc_hha *soc_hha;
+> > +	struct resource *mem;
+> > +	int ret;
+> > +
+> > +	soc_hha = cache_coherency_ops_instance_alloc(&hha_ops,
+> > +						     struct hisi_soc_hha, cci);
+> > +	if (!soc_hha)
+> > +		return -ENOMEM;
+> > +
+> > +	platform_set_drvdata(pdev, soc_hha);
+> > +
+> > +	mutex_init(&soc_hha->lock);
+> > +
+> > +	mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+> > +	if (!mem) {
+> > +		ret = -ENOMEM;
+> > +		goto err_free_cci;
+> > +	}
+> > +
+> > +	/*
+> > +	 * HHA cache driver share the same register region with HHA uncore PMU
+> > +	 * driver in hardware's perspective, none of them should reserve the
+> > +	 * resource to itself only.  Here exclusive access verification is
+> > +	 * avoided by calling devm_ioremap instead of devm_ioremap_resource to  
+> 
+> The comment here doesn't exactly match the code, dunno if you went away
+> from devm some reason and just forgot to to make the change or the other
+> way around? Not a big deal obviously, but maybe you forgot to do
+> something you intended doing. It's mentioned in the commit message too.
+
+Ah. Indeed stale comment, I'll drop that.
+
+Going away from devm was mostly a hang over from similar discussions in fwctl
+where I copied the pattern of embedded device(there)/kref(here) and reluctance
+to hide way the final put().
+
+> 
+> Other than the question I have about the multi-"agent" stuff, this
+> looks fine to me. I assume it's been thought about and is fine for w/e
+> reason, but I'd like to know what that is.
+
+I'll see if I can craft a short intro bit of documentation for the
+top of this driver file to state clearly that there are lots of instances
+of this in a system and that a requests to clear something that isn't 'theirs'
+results in a NOP.  Better to have that available so anyone writing
+a similar driver thinks about whether that applies to what they have or
+if they need to do in driver filtering.
+
+> 
+> Cheers,
+> Conor.
+
+Thanks!
+
+Jonathan
+> 
+> > +	 * allow both drivers to exist at the same time.
+> > +	 */
+> > +	soc_hha->base = ioremap(mem->start, resource_size(mem));
+> > +	if (!soc_hha->base) {
+> > +		ret = dev_err_probe(&pdev->dev, -ENOMEM,
+> > +				    "failed to remap io memory");
+> > +		goto err_free_cci;
+> > +	}
+> > +
+> > +	ret = cache_coherency_ops_instance_register(&soc_hha->cci);
+> > +	if (ret)
+> > +		goto err_iounmap;
+> > +
+> > +	return 0;
+> > +
+> > +err_iounmap:
+> > +	iounmap(soc_hha->base);
+> > +err_free_cci:
+> > +	cache_coherency_ops_instance_put(&soc_hha->cci);
+> > +	return ret;
+> > +}
+> > +
+> > +static void hisi_soc_hha_remove(struct platform_device *pdev)
+> > +{
+> > +	struct hisi_soc_hha *soc_hha = platform_get_drvdata(pdev);
+> > +
+> > +	cache_coherency_ops_instance_unregister(&soc_hha->cci);
+> > +	iounmap(soc_hha->base);
+> > +	cache_coherency_ops_instance_put(&soc_hha->cci);
+> > +}  
+> 
 
 
