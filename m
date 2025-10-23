@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90E8BCCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130D6CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:30:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RESlMDxT65A7qHuKGnbOMnFeEQhKdlIGLsQaG2/0rsM=; b=aIWxnzqJHxQnwgiCXR/clkuxXV
-	/7QfoLb6Sma93OvkUIXEf4j42EzhViHsq5UwA17bp1sE6EIdmR6P20+5kpT8IxkeEfsbHHe2s8i3u
-	5Gg9V5AChrpxGY42GIba5+9nGsUKTpSiWTdbCHvK8xtzjaNbbakm+Sau4G+U3iNLqcWQXmp9uF3PQ
-	f3sQ5EOqb085RruxPcU96V3pkXJyRKtfm+YNW7LaquY/Oo78xvFnq0ZAgowy/mMGmiw2J84DYMB/3
-	M1qEPETJnZz7cqKlRc0yNKvxKPrf5j8HSwBOpVyR9lcP6opia1dmwxGL20JHeNijL0QhWjkLWg8K9
-	ycHx7P5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2HlePpPozTZfJVZxFY5BSarP/C7SUxnyfyvVCip4BIU=; b=IqdoNfxP7rcJ/fY8cEFI4AZ5EX
+	aAd9MjZqPOj4cVgLn1TVhgcstnn7Y/xCAbmOWfdEUfYoXEtHzO/TIcsb0CXAvDPzj5jHAhNbefuch
+	piMWmtU/FoYHQY6eKjial6pjCs4hmrEmb2L4ut88Vi5beHQ0ZxdmgFi6KgzRvZq4II8HbfhYDzCGj
+	ocWHqIt4oenzqr3+JvOKjYCF0dQUdDif6ZZrdHc3aEu9LbzLqX2IhNuBRanOgsr0NZkkgToV4TKVN
+	zyYIJ1RN/u+W7IoUJKOzHQxgTEkzmZvyMuVKlcd+PpPue5fR76oP7W9gqb9Aw/YECZD+Yt9LHZzBB
+	K5xZGKIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwJv-00000006bCq-07r7;
-	Thu, 23 Oct 2025 14:29:39 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwJr-00000006bB8-25Zc
+	id 1vBwKg-00000006bOA-3cvM;
+	Thu, 23 Oct 2025 14:30:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBwKe-00000006bNh-3b6R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 14:29:37 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59NETOKW553075;
-	Thu, 23 Oct 2025 09:29:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1761229764;
-	bh=RESlMDxT65A7qHuKGnbOMnFeEQhKdlIGLsQaG2/0rsM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=MkSVaCD6l4TiiniawAUWAIsVt8TF7JIhHhoNFZXfsRvLPShts9WhPjeEWhUqjBTsI
-	 g7E+fwPhqfkPgQ5IDhk6LDin4rjqSr8yz9d6SZyd9s50gka3GfTvGx1Knf4qDdlQ0d
-	 mLbOTFpwoomyPRdksdKQorXY2doRobXNXo+glhMk=
-Received: from DLEE202.ent.ti.com (dlee202.ent.ti.com [157.170.170.77])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59NETOSB2771505
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 23 Oct 2025 09:29:24 -0500
-Received: from DLEE207.ent.ti.com (157.170.170.95) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Oct
- 2025 09:29:24 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 23 Oct 2025 09:29:24 -0500
-Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59NETLkf2989198;
-	Thu, 23 Oct 2025 09:29:21 -0500
-Message-ID: <da7e6f60-1c88-4882-a835-a4d8b46ddbe5@ti.com>
-Date: Thu, 23 Oct 2025 19:57:52 +0530
+	Thu, 23 Oct 2025 14:30:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D13C1516;
+	Thu, 23 Oct 2025 07:30:16 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C11683F59E;
+	Thu, 23 Oct 2025 07:30:21 -0700 (PDT)
+Date: Thu, 23 Oct 2025 15:30:18 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
+ arm,poll-transport property
+Message-ID: <aPo7-oQq6RskSZ96@pluto>
+References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
+ <20251023-able-fervent-tortoise-e7a6df@sudeepholla>
+ <066449c8-4bca-41f1-990e-53d7672e3c0a@mailbox.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/2] arm64: dts: ti: k3-j722s-main: fix the audio
- refclk source
-To: Michael Walle <mwalle@kernel.org>, "Kumar, Udit" <u-kumar1@ti.com>,
-        Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20251017102228.530517-1-mwalle@kernel.org>
- <20251017102228.530517-2-mwalle@kernel.org>
- <554df7d2-1809-42a8-b512-bde3fd284163@ti.com>
- <DDPRM9UCVZNA.HFRGLJW17PIP@kernel.org>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <DDPRM9UCVZNA.HFRGLJW17PIP@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <066449c8-4bca-41f1-990e-53d7672e3c0a@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_072935_644409_E3B1E357 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20251023_073025_010980_3556E318 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,60 +73,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 23/10/25 19:48, Michael Walle wrote:
-> On Thu Oct 23, 2025 at 3:50 PM CEST, Udit Kumar wrote:
->> Hi Michael,
->>
->> On 10/17/2025 3:52 PM, Michael Walle wrote:
->>> At the moment the clock parent of the audio extclk output is PLL1_HSDIV6
->>> of the main domain. This very clock output is also used among various IP
->>> cores, for example for the USB1 LPM clock. The audio extclock being an
->>> external clock output with a variable frequency, it is likely that a
->>> user of this clock will try to set it's frequency to a different value,
->>> i.e. an audio codec. Because that clock output is used also for other IP
->>> cores, bad things will happen.
->>>
->>> Instead of using PLL1_HSDIV6 use the PLL2_HSDIV8 as a sane default, as
->>> this output is exclusively used among other audio peripherals.
->>
->>
->> Thanks for this fix,
->>
->> Initial support for audio_refclkx was added in j722s and am62p soc 
->> specific files due
->>
->> to selection of different parent.
->>
->> Since these SOC share many common things, and this patch will make these 
->> nodes same as of am62p device
->>
->> https://elixir.bootlin.com/linux/v6.18-rc2/source/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi#L46 
->>
->>
->> So I suggest to move in common file 
->> https://elixir.bootlin.com/linux/v6.18-rc2/source/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi#L42 
->>
->>
->> and remove from SOC specific files.
+On Thu, Oct 23, 2025 at 03:42:02PM +0200, Marek Vasut wrote:
+> On 10/23/25 3:16 PM, Sudeep Holla wrote:
 > 
-> Ok, but to keep the information and to not conflate two different
-> things, I'd do the following:
->  - keep this patch as is
->  - add a second one, to move the (now) identical nodes into the
->    common-main.dtsi
-> 
-> Sounds good?
+> Hello Sudeep,
 
-Agree, this is better way to organize the change.
+Hi Marek,
 
 > 
-> -michael
+> > > +  arm,poll-transport:
+> > > +    type: boolean
+> > > +    description:
+> > > +      An optional property which unconditionally forces polling in all transports.
+> > > +      This is mainly mean to work around uncooperative SCP, which does not generate
+> > > +      completion interrupts.
+> > > +
+> > 
+> > Could you please clarify which platform and transport this change pertains to?
+> 
+> Renesas X5H with older SCP firmware , accessible via mailbox.
+> 
+> > Introducing a property that enforces unconditional polling across all
+> > platforms is not ideal - particularly if this is intended as a workaround
+> > for a platform- or firmware- specific issue. Such implementations often get
+> > replicated across platforms without addressing the root cause, leading to
+> > wider inconsistencies.
+> 
+> The root cause is being addressed already, this is meant to keep the older
+> SCP version operable.
+> 
 
--- 
-Regards
-Vignesh
-https://ti.com/opensource
+If this is the case, at first I would have tempted to say why not use the SCMI
+Quirk framework (with needed changes/evolutions), BUT then I realized that being
+the Quirk to be applied on the transport there is no way to gather SCMI
+Vendor info and versions from the platform, so you would have to match on the
+compatible, which is essentially similar approach of having a new DT
+prop...just less flexible so I understand the need of your new-prop approach...
 
+...BUT...(maybe a weird idea)...what if we think about enabling:
+
+ - one Quirk EARLY-ON based on the current potentially affected compatibles
+   with such a quirk forcing polling ONLY for the BASE Protocol SCMI queries
+   so that the SCMI core can gather Vendor Info and versions in any case..
+   (this would need the Quirk frmwk to be evolved to support such
+    'early-quirks' based on compatibles only)
+
+ - a second regular Quirk, filtered by the just retrieved Vendor INFO and FW
+   version to finally decide if the system needs force-polling to be really
+   enabled for all the following messages...
+
+... this was you dint even need to ship any new DT
+
+> > It would be preferable to scope this behavior using the platform’s compatible
+> > string. This approach ensures the workaround is applied only to the affected
+> > platform and prevents it from being inadvertently enabled elsewhere, unless
+> > another platform intentionally uses the same compatible string (which seems
+> > unlikely).
+> 
+> This is not platform-specific issue. SCMI provider which fails to generate
+> interrupts can appear on any platform, using either transport, that is why I
+> made the property generic.
+> 
+
+So the deployment scenario would be to update new machines with a fully
+working SCP FW with completion-IRQ while updating ONLY the DTBs with the
+new force-polling property in the older machines with the older
+poll-only SCP fw ? (to understand)
+
+Thanks,
+Cristian
 
