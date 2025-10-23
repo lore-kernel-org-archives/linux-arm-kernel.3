@@ -4,87 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59997CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CEDFCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:05:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z+ZZiNFpfo795JzyW1U+Amyk/9XvcQWSem6gcToDr+s=; b=kcn2LsGN4Wm7GFfas1LFcYsS7E
-	pSyeBRQ0P6iusz0pc9uCtVwZwfDXOmm1B6E2rsaZ/HCO2U/53ntNtwpUlSGOXAN89FLD8IXhJsb/h
-	MBcM4rJmfwtUhmNVLITFa5TxZfQqRwK86cGpzXkYSMyEeHr1YPAi7Fkc/AU3UOlGMZ7c6Sp9R4bXJ
-	H/iNT6YYmDdm8U+SmTFHVNEwYwgTpbOa3ulOrIYxpuTasmg660V9xF7hSl1A1+ruxyuPLEG0Qz8K1
-	iXfXVVBSdAOSl21wAHtzFGwoz6hwG34toZ8WUkCWgjcCCPQ9NtMQirAI/H4VpbmwnP610BZFGrPWu
-	9q9UOYkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3sTwvMaOD2KlqMJn2cmd2U+t/IC6uSpDaPUIgltSHNY=; b=EE9JvDAdtYAFNzac/PgMJ3SV44
+	B+mTCMLmE1cWeiN9wfKHa3oCxK7B3vTjvduuNTMjKpaAwl1Gd9bIPQj+rmlHblgy7enQMwsO6T+76
+	vuoKA0caXkoACvYxXmLxLMU5sgCdN7WwuqT4dmU//B1o2KP8BH0ccCwrDjOXbtzPpTiv3DKHVFvSB
+	StgZUCCOvjYE3ioQziP9y3QR87jCfQ5mBN/kemQVcHAkbHZEiMVfJTpyQdWODxjGQDrrqMzZKjG0v
+	M5eCiAdYHO1Bz3JFCVQlwx4GWUYuwQyvZrr55E83QGWTqNjChtkoBuGKr9jtee/+uAAfW0vnugjLQ
+	eK0V+Y0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvrn-00000006VRg-24NV;
-	Thu, 23 Oct 2025 14:00:35 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+	id 1vBvwH-00000006WSt-0zyd;
+	Thu, 23 Oct 2025 14:05:13 +0000
+Received: from mx-relay87-hz1.antispameurope.com ([94.100.132.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvrj-00000006VQj-3twu
+	id 1vBvwA-00000006WRr-0yeb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 14:00:34 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4csnjn6y8Lz9sWh;
-	Thu, 23 Oct 2025 16:00:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1761228030;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Z+ZZiNFpfo795JzyW1U+Amyk/9XvcQWSem6gcToDr+s=;
-	b=j4ynUv4c+hkeEzlSosmR194vZWb0Fdr0vD8ariJEQuViaQ2jbcsfyGrruvx2A9TijA6PYb
-	ZHDDAXA/ahvyEMf3UDaaHPQErvSvycVz3OV2oQ6D2TbnR9+7ANj6b1MPDHSBzbs8e4bpTg
-	4SYq/NQypjJLK385LZysbRcyTDQ6Uquu9i9c4AJxqrTRK6LF7FruskUxudUq8ZeAfUHGI+
-	6CW97s0HexEQMx1dWO4d3Ca2JN5pTh5JMSdmtq6H5/6BScpftK1GNRzPcfklW+8nRRQkHk
-	pJviiO9qcGpHxl34oJK5tUK6QI3ln8U/ljegOIv4Ag/w3OsKyTQX/0gX23HMHA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=g+S6XF76;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
-Message-ID: <70554674-7020-4582-a4e7-dbee34907096@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1761228028;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Z+ZZiNFpfo795JzyW1U+Amyk/9XvcQWSem6gcToDr+s=;
-	b=g+S6XF76RadfsTIRYoIuugAO45PbkGlYNXpuEd7ASeoTlGOBKBhay0nf37U/4TVEiOa8r+
-	rZOoibxEn7k26j2OfE8/3znmepCmeZojymvyyNVEXPrPM/4bHdInrDbY4eaWqUr6I6lKr2
-	DcJO1NeZv4qLsvPt4JisM7w+gmacYqySTdcp6vNkKyl2XoLguWTXiN5bHUleRpdmJ/Mlw0
-	gDw/V/LvZ3FbLRZ5q3iVpZ3E4L1A2k+CS3E45LTEv+HK6z0PloZoMsaEdqC6a506TfGUBn
-	4qnXfHrgCk/5RGoxdacf525cyI3iVFkZH4NeBbqOaeP8Y9ln4xnGrjKfLvPo7g==
-Date: Thu, 23 Oct 2025 16:00:18 +0200
+	Thu, 23 Oct 2025 14:05:12 +0000
+ARC-Authentication-Results: i=1; mx-gate87-hz1.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=3sTwvMaOD2KlqMJn2cmd2U+t/IC6uSpDaPUIgltSHNY=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1761228230;
+ b=nMLWBtAW45P8W7FFgMKLal4MqztIB6jlrcE78SUeWqX+F7EfjrpwhRgaBTWA2TMJ9m2kBhlm
+ gb2C3hyV/GbLEce34AJgFTXz0EUVF9TZtJJy3gRu0JFFBr/xi+GIVv874VzBZHKvO/ErBlrj5rO
+ HoktbNVqC7jupK0JbO5cHZ1lgOwEuJo5qdODddyr5jwnmuJuJrZGl2RcL+XMglOZ+XqId/lu77Y
+ Oj/WETn6XzDse1SCFiOVnF3f/5ukxmHcNb68f7dlK8Y+/hLyMkpBe3wwTSRilCb4TkrejMir4q8
+ 5cfFgZVMefVmda3REvX/ggjVq/K69JQfF+jDq/1sZRCdw==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1761228230;
+ b=s/MT+2iQkxVgO0CDBx/xlS75ptuNbAvChwy/pp31qsN4/y4Sthj7RIRmc5fsq9m2UPc20Cph
+ q50A9F4eKkMdLGSmYEKEnC/3RX0wgk3FBWDLa4C+AdPBr/TXWFi2z3yTy2gSDS6nTNbJnzTOc+o
+ XzHdMlBpqlv+LffXhnd0fNOzmD+PJadu8VBmvtIqQzKscUxLDtclfzqr4COzQCWgOSNtGjQznYU
+ RlpudkoZHB9sXvrBDJi1eFMNmu2fbP+sviN73TLFl1YjgyEfORHzTIClAhxAVLrXXFfo4wqWiZk
+ FvBGTxVrqn2HoFk6mS6O0P6gJCI9QHksxVzqqvqPIDJ5A==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay87-hz1.antispameurope.com;
+ Thu, 23 Oct 2025 16:03:50 +0200
+Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 81F9BCC0CC1;
+	Thu, 23 Oct 2025 16:03:37 +0200 (CEST)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Marek Vasut <marex@denx.de>, Peng Fan <peng.fan@nxp.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev,
+ =?ISO-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
+ =?ISO-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <jpaulo.silvagoncalves@gmail.com>
+Subject: Re: [PATCH v1] arm64: defconfig: Enable i.MX95 configs for booting and
+ Ethernet
+Date: Thu, 23 Oct 2025 16:03:37 +0200
+Message-ID: <3381308.aeNJFYEL58@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20251023-upstream-imx95-smarc-defconfig-v1-1-62c6e6f5b315@toradex.com>
+References: <20251023-upstream-imx95-smarc-defconfig-v1-1-62c6e6f5b315@toradex.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,poll-transport property
-To: Cristian Marussi <cristian.marussi@arm.com>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Sudeep Holla <sudeep.holla@arm.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
- <aPoxfH_TLrsMxMVQ@pluto>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aPoxfH_TLrsMxMVQ@pluto>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: jp916jjbwe3rtwcy3pk4agiykqi564ug
-X-MBO-RS-ID: eaba31ded376d5d287d
-X-Rspamd-Queue-Id: 4csnjn6y8Lz9sWh
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay87-hz1.antispameurope.com with 4csnnQ15tNz29l9Q
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: a7de4b4405587fa83fe7bed496fa611d
+X-cloud-security: scantime:1.783
+DKIM-Signature: a=rsa-sha256;
+ bh=3sTwvMaOD2KlqMJn2cmd2U+t/IC6uSpDaPUIgltSHNY=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1761228230; v=1;
+ b=PUby7rrK8Lvc1tn+p/kyKEh8kxixDEqTIrzDlSbwPLvMG4jCvBiDcn9OfSNlj32dxTW3RtDG
+ oScTCg/gDo8Muq+5SDyyN30isZd0qMDoTGDQMY19vuUwMJuN128k0KIxGsVDhISU0B3rZd4z59A
+ uMVYqYzvYxw2jKcHHjrCnqxEA0I9GZQID2TrU7u3G7P4xd/MM6nHXu3PzDquYcgExrK+1J/jeG1
+ /6PCit7ESFFnRVbV8XY6ve/S4QVZ9NTL6GOGWzaCZkKBmP4Sz90ieDaKjP6BRfKOQuBycNbSOoL
+ jyoj+uxW8HwDL0Fs9fUf+YmkBaf/mHg4TKkQO6FAuUBdw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_070032_302914_0670791C 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20251023_070506_757596_AE7D17E5 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,39 +111,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/23/25 3:45 PM, Cristian Marussi wrote:
+Hi,
 
-Hello Cristian,
+Am Donnerstag, 23. Oktober 2025, 14:19:15 CEST schrieb Jo=E3o Paulo Gon=E7a=
+lves:
+> From: Jo=E3o Paulo Gon=E7alves <joao.goncalves@toradex.com>
+>=20
+> Enable the necessary missing configs for the i.MX95 to boot and also
+> have Ethernet working:
+>=20
+> * CONFIG_NXP_ENETC4 for the network controller driver
+> * CONFIG_NXP_NETC_BLK_CTRL for the NETC hardware domain controller
+> * CONFIG_PINCTRL_IMX_SCMI for the pinctrl driver
+> * CONFIG_CLK_IMX95_BLK_CTL for the shared hardware domain controller
+>=20
+> Signed-off-by: Jo=E3o Paulo Gon=E7alves <joao.goncalves@toradex.com>
+> ---
+>  arch/arm64/configs/defconfig | 4 ++++
+>  1 file changed, 4 insertions(+)
+>=20
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index e3a2d37bd10423b028f59dc40d6e8ee1c610d6b8..787d3ae3f5afeac486a905e09=
+43e7b0e1dcee3a9 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -354,8 +354,10 @@ CONFIG_FSL_FMAN=3Dy
+>  CONFIG_FSL_DPAA_ETH=3Dy
+>  CONFIG_FSL_DPAA2_ETH=3Dy
+>  CONFIG_FSL_ENETC=3Dy
+> +CONFIG_NXP_ENETC4=3Dm
+>  CONFIG_FSL_ENETC_VF=3Dy
+>  CONFIG_FSL_ENETC_QOS=3Dy
+> +CONFIG_NXP_NETC_BLK_CTRL=3Dm
 
-> On Thu, Oct 23, 2025 at 02:35:57PM +0200, Marek Vasut wrote:
->> Document new property arm,poll-transport, which sets all SCMI operation into
->> poll mode. This is meant to work around uncooperative SCP implementations,
->> which do not generate completion interrupts. This applies primarily on mbox
->> based implementations, but does also cover SMC and VirtIO ones.
-> 
-> Hi,
-> 
-> ..indeed I was thinking a while ago about exposing the existing force-polling
-> switch but in my case it was purely a testing-scenario configuration, so a
-> no-no for the DT, things are different if you have to describe an HW that has
-> no completion IRQ also on the a2p channel...
+Are you sure this should be module? Shouldn't NFS boot be supported by
+default? I might be wring here though.
 
-Correct, at least until the SCP on this hardware is updated.
+Best regards
+Alexander
 
-> ...having said that, though, usually polling-mode is reserved to a few
-> selected commands in a few chosen scenarios (as you may have seen),
-> 'carpet-polling' non-for-testing for all the commands on A2P seems a lot
-> inefficient and heavy...is it really a viable solution ? or these
-> systems use such a low rate of SCMI messages that polling after each and
-> every message is negligible ?
-> 
-> ..just to understand the context...
+>  CONFIG_HIX5HD2_GMAC=3Dy
+>  CONFIG_HNS_DSAF=3Dy
+>  CONFIG_HNS_ENET=3Dy
+> @@ -615,6 +617,7 @@ CONFIG_PINCTRL_IMX8DXL=3Dy
+>  CONFIG_PINCTRL_IMX8ULP=3Dy
+>  CONFIG_PINCTRL_IMX91=3Dy
+>  CONFIG_PINCTRL_IMX93=3Dy
+> +CONFIG_PINCTRL_IMX_SCMI=3Dy
+>  CONFIG_PINCTRL_MSM=3Dy
+>  CONFIG_PINCTRL_IPQ5018=3Dy
+>  CONFIG_PINCTRL_IPQ5332=3Dy
+> @@ -1349,6 +1352,7 @@ CONFIG_CLK_IMX8MQ=3Dy
+>  CONFIG_CLK_IMX8QXP=3Dy
+>  CONFIG_CLK_IMX8ULP=3Dy
+>  CONFIG_CLK_IMX93=3Dy
+> +CONFIG_CLK_IMX95_BLK_CTL=3Dy
+>  CONFIG_TI_SCI_CLK=3Dy
+>  CONFIG_COMMON_CLK_MT8192_AUDSYS=3Dy
+>  CONFIG_COMMON_CLK_MT8192_CAMSYS=3Dy
+>=20
+> ---
+> base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+> change-id: 20251023-upstream-imx95-smarc-defconfig-8972db535918
+>=20
+> Best regards,
+>=20
 
-These systems are early in development and it is likely that the SCP 
-will be updated to generate interrupts properly. Currently, this is not 
-the case, hence the carpet-polling, until this is resolved.
 
--- 
-Best regards,
-Marek Vasut
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
