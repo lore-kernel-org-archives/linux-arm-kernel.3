@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DDD8CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 19:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66034CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 20:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lu8DXyr9e+174zCCLKyjaz62dq3PQM0ss4FpqXHktAg=; b=aUlMz8LHIsWvGFb0a+ekHRjR/8
-	EW6EEEE5L0SHeNjp+BQHv1fYwYM08AXWGaeVDxVo5OgjenjjE81AkNjuN2C2Mp/OsxZZL9e9Mnwrp
-	42kICGyB3NRRbOhrSjlF9ip+xB6drg7hnJjXWbVKIg58n/zFcKwir8afyM/yqU6diIgBg3sgDXeD9
-	5YIDMA+XQtyaiEHeLI1KIrRpBGy/WYZLL1W07Aly1wathmuEkASn6djSJ2lmTAOpESBXN/iTPVHg5
-	+9xkqj0Au+iNz812zxL2ELAU0XvSGWhXQ0Fp0VjPTi4ZycBOUU9ni/9cpxcpkfWy+nkr9n8AyYEuW
-	AXrSOUfw==;
+	bh=fgiDH3MpoD7uD2qK9rjnzvlUwoqe2VD6FKHIi7bhrcw=; b=ecx4ENYULUAAu1LUu2PaVOrCdx
+	C4fX7NjUfjH1PUvSedZ6qQmdyC0KSWxZ7fmuuJvDWkH8FvrbiMAElc8S9+s8Prcoan7haZ4KDm8Aj
+	6prib9t4OpdTdx3wWZeWwF80RfueoONyWqrEroLShLndikzTFTEHh6cQHzWzhWXMo4pxLfZpUs2jD
+	oSnH1XZmuMaN+VreJ5f4vKXXxZ2d6HnCD6cEe/ci8f2MKM7Y3xEYSwuzBMuD/ATPrW2ufQ7SuLe0G
+	c/MJy180X+MJt+hcIuKBfIduGJfTYibK9B9Rn/kRcxTfLITsF1qsILcZcRmFhhSJPw5Lik/2h2wH+
+	4XRXAdsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC1Mt-00000007Rrw-2JRQ;
-	Thu, 23 Oct 2025 19:53:03 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vC1UC-00000007Tip-0tH0;
+	Thu, 23 Oct 2025 20:00:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC1Mp-00000007Rkv-10f9
+	id 1vC1U8-00000007Ti6-2lmb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 19:53:00 +0000
+	Thu, 23 Oct 2025 20:00:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761249178;
+	s=mimecast20190719; t=1761249631;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=lu8DXyr9e+174zCCLKyjaz62dq3PQM0ss4FpqXHktAg=;
-	b=jAKbGxiCK+cvgwHBgB0iTAkYuZZbqjQ5rhZ4s8q9xvBbxiDZOAAjOgnfZN7folnl3jC0YL
-	E8tiiY3gc5InHQrw6GpQqV5kt8wuRA4ir/zzMQ4F/LzBek7LApdY/7X6pqXemVw/wLivst
-	LthOYgFuoffLumBJUJOuVOunNVCl21A=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=fgiDH3MpoD7uD2qK9rjnzvlUwoqe2VD6FKHIi7bhrcw=;
+	b=d00KWeufa3AKSa8FKCpowxH3XRbDbA5BHwPakkGVmrcC9krGonCZu1o+7WaWJo+HSJFgrJ
+	/gWrdOmzoElBEnJxHnDNJMMmQVgNPEbyrl9uVnhLBq/hsUjIFzKmcMvjsDoZl1G+MJuBJJ
+	LJlW96uwuS7/v56TWKVba6edZsmDSQI=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-529-5qCsSyvJMFy7iU2CtYlCkA-1; Thu, 23 Oct 2025 15:52:56 -0400
-X-MC-Unique: 5qCsSyvJMFy7iU2CtYlCkA-1
-X-Mimecast-MFC-AGG-ID: 5qCsSyvJMFy7iU2CtYlCkA_1761249175
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3ecdb10a612so710985f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 12:52:56 -0700 (PDT)
+ us-mta-154-VbcpmHT1Nq6WxrNtf_QycA-1; Thu, 23 Oct 2025 16:00:29 -0400
+X-MC-Unique: VbcpmHT1Nq6WxrNtf_QycA-1
+X-Mimecast-MFC-AGG-ID: VbcpmHT1Nq6WxrNtf_QycA_1761249627
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-4298da9fc21so140513f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 13:00:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761249175; x=1761853975;
+        d=1e100.net; s=20230601; t=1761249627; x=1761854427;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:cc:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=lu8DXyr9e+174zCCLKyjaz62dq3PQM0ss4FpqXHktAg=;
-        b=jfOhuebj4e7M2Sz2M0gagTA1VLvNT2/c5Y8Yww8oZFW6MC8UK0YVISfwsh1xx/PXgo
-         xk0soFhWcxMqvkJcMA26U9Y1oi5ktsjdOrCZKfwquhLMVvlo/omzLwf8y6X0E0oXAYjo
-         EEGGtE71HaLsigqCP2fQC8G3vUGhLBLn3zBEv0nTTLtWkL0ERkotQgnFvf/yV89dibn+
-         HXHfn4obyE2HtKBnXipIJGGyqj49nrLXDTg+IM2TukXTBJfKJvUDvVkXUyjIow8Trz2B
-         HpYfX1tkqcfMgSiG59AGkBxi0DGpLKGvdorIL0uh+aMN9np3yV6GQMMMSFnChzI/rhBb
-         hKzw==
-X-Forwarded-Encrypted: i=1; AJvYcCUKHpckjTZry0jVrePVWuewR6WBBWDzr81wH42iT0HnOd2VNTh8qPv8qopK7xTarfelVxPsBM3k82Wfl6GOM/od@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrTNpOHTUp6BCkYgqOO4i8IUrSImyX6Ojkg1UhhTpNw7QQ+SV/
-	kKpdgt2NlBuwAU099rlERFP/ngtO7xYqFi2A4euU53t2IrH+OVW73X1SMJ6fzKkZIfmQr5FW/F5
-	LARdfkpj5LRHFHh2QKEuXidJxDA6QBT0hdBovKQqPHfjr1VdmxiuBjUttDcpaq4bbcIMc/rtl71
-	z6
-X-Gm-Gg: ASbGncv1Esq5ix+HVXX7dwrWXbMkmnQ43psY4I4kx3fJmJr7GEjfKH/zc/OHUZs2qDO
-	Lf+UHWWTdX17Y8hua1h7F5j1oJlE9xFckpgwY0JDqICvvahitYb9sQd7Wu9gscCcyMzb17b7znd
-	lEebwueTB3fPaBLu1zVe3aLI5aTYzQ6f5CQXdEcYE8G4C6cxRvZOLeBcgGyBJCye2Pv4mUgyB7R
-	JaTH+judoQ3uKeUPDS2H9EZL7MZ355HqnlQV7jICs6WXC0cVi+BptYnwetH+L4SJQGzObC/GOhI
-	RxjQuMQrmWO1/aBwIk83Q9E5oAwXr5B986iI8OsEfEa+bG8Z5w4cMLO5eXtKo7H959Yd3LDplei
-	sAKKQ3jYxTasz3lwCbXnCo50muBaIpqM13DqzY16pHYMCDKs0IlACETiyO7L2n8YPwAtn5Tbcw2
-	MG5TbEv7ISduGYsC43up61wWcPZJg=
-X-Received: by 2002:a05:6000:2911:b0:3eb:df84:62e with SMTP id ffacd0b85a97d-42704d7e9f9mr18404395f8f.3.1761249174887;
-        Thu, 23 Oct 2025 12:52:54 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF7U9VemhLNzul4GpnpOHuDDlV+F0CKxszXYKlJ5dnYJh0XFPFjlnxCdm5Nc2+v3zIM+vRJGA==
-X-Received: by 2002:a05:6000:2911:b0:3eb:df84:62e with SMTP id ffacd0b85a97d-42704d7e9f9mr18404377f8f.3.1761249174285;
-        Thu, 23 Oct 2025 12:52:54 -0700 (PDT)
+        bh=fgiDH3MpoD7uD2qK9rjnzvlUwoqe2VD6FKHIi7bhrcw=;
+        b=bCOVd16927PFKmTRDScpccGsRqoZ+9svN4mXSCy3kfS6K+QllVEY+4c7h5DNVY2LGe
+         v7oVpWmXQMpMRG30am84nzXb6I3NmOdaSCoHYgjHe+zkyw7G1Xsq41HoXVkSQRF8WgTz
+         v2PW3wTE8MYFQkfeLw90uGIPJ7oGsEVJiOTNh0k857zzsduIZQPBXfl1Tm+17UcUw/i0
+         l57woSxBKBj8JGh64Bt5BUzIo4loJhOZbXWGaDRYbpo8nJkd719DkGoADzny3rxSgjPA
+         /AUMU+BQcRcFX94fLMsjZ2B6YYkY45Kd25pW0FsY96dDlP7x64u4au6CGoxGSJ6Va2ke
+         o4xg==
+X-Forwarded-Encrypted: i=1; AJvYcCV6AG/vl6iajj/1NnkFHhnSyXZ6V6RAuKkIZL4jlZwKLXu8+zJWhgbAt/4RFh5ZZlN0yswckZtMUhRzLp/aPREl@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbCjAS33JzR0atnAJLZ+V3ASYIT7dc8kB4QTZTt+hNnue+G0Xm
+	d/4IuWq0te1z72pCB+TIqrN1YY7FavhWbFVi9LWM/p+5Lx/cfPyTf9m0PJWbDtgJdSM+ASKeNUi
+	LKZxfGYUm5npEiYrknlHja0yj8hqWY9y/l1AqkYM9s0VWKxNIF7IQeTHEZf2iF7NcN8mrRHs2AI
+	s7
+X-Gm-Gg: ASbGncuPlwcnJzVMkxm/DPbd/UQw0UYgXJp2Q4TNXyEd7/aRX3luSYLRNCv1YZ4/bbn
+	Jc+c5zzho0lvKr5RJyxMF87SAsWPLvSPUGmbdQXmnbUhOh0qpzf+gba+V+ppT0XVZSeHkLhy7Xr
+	aaq2L/jF283aj9SZgVZwva0eQSIHOjQhxcDBVg76mahTK5Oe3bXq24Tml3Ony8uIvrzgVvKhr/J
+	ci1JU3J/MHi4Ea6W9RcXSW/0tJ99Rkf+9EfgXsuiYy0525rcciUHagY6HPOMNwILQ3N3x/EDSGJ
+	XXO1SWwWj4BAndFDzCoenbzIchGWFgwMQqPiDZGGvILAJt2oJujX8xAaYW3E1aS9mNbj8hBhYkO
+	cvAUYQWN/b5WiCkAWWuuMNQLsBVToWk4CiUgzxlb/ZQzw1YE80W6g/mZrXnDMIYUqV3OgwQIHFU
+	d4xaCnzaBifMM5+ssZFh0sPpfXNng=
+X-Received: by 2002:a05:6000:2507:b0:427:370:20a3 with SMTP id ffacd0b85a97d-42704d96174mr19941794f8f.38.1761249627236;
+        Thu, 23 Oct 2025 13:00:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG+rZmuEcRX9PJVwcjwDKugYlruYrunINiyEqNzleVVHplYzNJRNIG0mWVdUdIxUb84AVBP9w==
+X-Received: by 2002:a05:6000:2507:b0:427:370:20a3 with SMTP id ffacd0b85a97d-42704d96174mr19941727f8f.38.1761249626561;
+        Thu, 23 Oct 2025 13:00:26 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f4e:3200:c99d:a38b:3f3a:d4b3? (p200300d82f4e3200c99da38b3f3ad4b3.dip0.t-ipconnect.de. [2003:d8:2f4e:3200:c99d:a38b:3f3a:d4b3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429897ff3f5sm5656361f8f.22.2025.10.23.12.52.50
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429898ee8a9sm5476369f8f.46.2025.10.23.13.00.24
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Oct 2025 12:52:51 -0700 (PDT)
-Message-ID: <73b274b7-f419-4e2e-8620-d557bac30dc2@redhat.com>
-Date: Thu, 23 Oct 2025 21:52:49 +0200
+        Thu, 23 Oct 2025 13:00:26 -0700 (PDT)
+Message-ID: <2073294c-8003-451a-93e0-9aab81de4d22@redhat.com>
+Date: Thu, 23 Oct 2025 22:00:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/13] mm: introduce generic lazy_mmu helpers
+Subject: Re: [PATCH v3 07/13] mm: enable lazy_mmu sections to nest
 To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -106,7 +106,7 @@ Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
  linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
  sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
 References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
- <20251015082727.2395128-7-kevin.brodsky@arm.com>
+ <20251015082727.2395128-8-kevin.brodsky@arm.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -152,16 +152,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20251015082727.2395128-7-kevin.brodsky@arm.com>
+In-Reply-To: <20251015082727.2395128-8-kevin.brodsky@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 1lyHS5h6Twz3DerQp9eiY7t5tlMyi0KJUmWmI7XGN4s_1761249175
+X-Mimecast-MFC-PROC-ID: yZN4MjGT87FlMVU0vmQ8saFVRT-gR3XWsex5_CoQor0_1761249627
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_125259_378449_7F04E28E 
-X-CRM114-Status: GOOD (  28.40  )
+X-CRM114-CacheID: sfid-20251023_130032_865320_B3054606 
+X-CRM114-Status: GOOD (  32.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,106 +176,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15.10.25 10:27, Kevin Brodsky wrote:
-> The implementation of the lazy MMU mode is currently entirely
-> arch-specific; core code directly calls arch helpers:
-> arch_{enter,leave}_lazy_mmu_mode().
-> 
-> We are about to introduce support for nested lazy MMU sections.
-> As things stand we'd have to duplicate that logic in every arch
-> implementing lazy_mmu - adding to a fair amount of logic
-> already duplicated across lazy_mmu implementations.
-> 
-> This patch therefore introduces a new generic layer that calls the
-> existing arch_* helpers. Two pair of calls are introduced:
-> 
-> * lazy_mmu_mode_enable() ... lazy_mmu_mode_disable()
->      This is the standard case where the mode is enabled for a given
->      block of code by surrounding it with enable() and disable()
->      calls.
-> 
-> * lazy_mmu_mode_pause() ... lazy_mmu_mode_resume()
->      This is for situations where the mode is temporarily disabled
->      by first calling pause() and then resume() (e.g. to prevent any
->      batching from occurring in a critical section).
-> 
-> The documentation in <linux/pgtable.h> will be updated in a
-> subsequent patch.
-> 
-> No functional change should be introduced at this stage.
-> The implementation of enable()/resume() and disable()/pause() is
-> currently identical, but nesting support will change that.
-> 
-> Most of the call sites have been updated using the following
-> Coccinelle script:
-> 
-> @@
-> @@
-> {
-> ...
-> - arch_enter_lazy_mmu_mode();
-> + lazy_mmu_mode_enable();
-> ...
-> - arch_leave_lazy_mmu_mode();
-> + lazy_mmu_mode_disable();
-> ...
-> }
-> 
-> @@
-> @@
-> {
-> ...
-> - arch_leave_lazy_mmu_mode();
-> + lazy_mmu_mode_pause();
-> ...
-> - arch_enter_lazy_mmu_mode();
-> + lazy_mmu_mode_resume();
-> ...
-> }
-> 
-> A couple of cases are noteworthy:
-> 
-> * madvise_*_pte_range() call arch_leave() in multiple paths, some
->    followed by an immediate exit/rescheduling and some followed by a
->    conditional exit. These functions assume that they are called
->    with lazy MMU disabled and we cannot simply use pause()/resume()
->    to address that. This patch leaves the situation unchanged by
->    calling enable()/disable() in all cases.
+[...]
 
-I'm confused, the function simply does
-
-(a) enables lazy mmu
-(b) does something on the page table
-(c) disables lazy mmu
-(d) does something expensive (split folio -> take sleepable locks,
-     flushes tlb)
-(e) go to (a)
-
-Why would we use enable/disable instead?
 
 > 
-> * x86/Xen is currently the only case where explicit handling is
->    required for lazy MMU when context-switching. This is purely an
->    implementation detail and using the generic lazy_mmu_mode_*
->    functions would cause trouble when nesting support is introduced,
->    because the generic functions must be called from the current task.
->    For that reason we still use arch_leave() and arch_enter() there.
-
-How does this interact with patch #11?
-
+> In summary (count/enabled represent the values *after* the call):
 > 
-> Note: x86 calls arch_flush_lazy_mmu_mode() unconditionally in a few
-> places, but only defines it if PARAVIRT_XXL is selected, and we are
-> removing the fallback in <linux/pgtable.h>. Add a new fallback
-> definition to <asm/pgtable.h> to keep things building.
+> lazy_mmu_mode_enable()		-> arch_enter()	    count=1 enabled=1
+>      lazy_mmu_mode_enable()	-> ø		    count=2 enabled=1
+> 	lazy_mmu_mode_pause()	-> arch_leave()     count=2 enabled=0
 
-I can see a call in __kernel_map_pages() and 
-arch_kmap_local_post_map()/arch_kmap_local_post_unmap().
+The arch_leave..() is expected to do a flush itself, correct?
 
-I guess that is ... harmless/irrelevant in the context of this series?
+> 	lazy_mmu_mode_resume()	-> arch_enter()     count=2 enabled=1
+>      lazy_mmu_mode_disable()	-> arch_flush()     count=1 enabled=1
+> lazy_mmu_mode_disable()		-> arch_leave()     count=0 enabled=0
+> 
+> Note: in_lazy_mmu_mode() is added to <linux/sched.h> to allow arch
+> headers included by <linux/pgtable.h> to use it.
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+> Alexander Gordeev suggested that a future optimisation may need
+> lazy_mmu_mode_{pause,resume}() to call distinct arch callbacks [1]. For
+> now arch_{leave,enter}() are called directly, but introducing new arch
+> callbacks should be straightforward.
+> 
+> [1] https://lore.kernel.org/all/5a0818bb-75d4-47df-925c-0102f7d598f4-agordeev@linux.ibm.com/
+> ---
 
 [...]
 
+>   
+> +struct lazy_mmu_state {
+> +	u8 count;
+
+I would have called this "enabled_count" or "nesting_level".
+
+> +	bool enabled;
+
+"enabled" is a bit confusing when we have lazy_mmu_mode_enable().
+
+I'd have called this "active".
+
+> +};
+> +
+>   #endif /* _LINUX_MM_TYPES_TASK_H */
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 194b2c3e7576..269225a733de 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -228,28 +228,89 @@ static inline int pmd_dirty(pmd_t pmd)
+>    * of the lazy mode. So the implementation must assume preemption may be enabled
+>    * and cpu migration is possible; it must take steps to be robust against this.
+>    * (In practice, for user PTE updates, the appropriate page table lock(s) are
+> - * held, but for kernel PTE updates, no lock is held). Nesting is not permitted
+> - * and the mode cannot be used in interrupt context.
+> + * held, but for kernel PTE updates, no lock is held). The mode cannot be used
+> + * in interrupt context.
+> + *
+> + * The lazy MMU mode is enabled for a given block of code using:
+> + *
+> + *   lazy_mmu_mode_enable();
+> + *   <code>
+> + *   lazy_mmu_mode_disable();
+> + *
+> + * Nesting is permitted: <code> may itself use an enable()/disable() pair.
+> + * A nested call to enable() has no functional effect; however disable() causes
+> + * any batched architectural state to be flushed regardless of nesting. After a
+> + * call to disable(), the caller can therefore rely on all previous page table
+> + * modifications to have taken effect, but the lazy MMU mode may still be
+> + * enabled.
+> + *
+> + * In certain cases, it may be desirable to temporarily pause the lazy MMU mode.
+> + * This can be done using:
+> + *
+> + *   lazy_mmu_mode_pause();
+> + *   <code>
+> + *   lazy_mmu_mode_resume();
+> + *
+> + * This sequence must only be used if the lazy MMU mode is already enabled.
+> + * pause() ensures that the mode is exited regardless of the nesting level;
+> + * resume() re-enters the mode at the same nesting level. <code> must not modify
+> + * the lazy MMU state (i.e. it must not call any of the lazy_mmu_mode_*
+> + * helpers).
+> + *
+> + * in_lazy_mmu_mode() can be used to check whether the lazy MMU mode is
+> + * currently enabled.
+>    */
+>   #ifdef CONFIG_ARCH_LAZY_MMU
+>   static inline void lazy_mmu_mode_enable(void)
+>   {
+> -	arch_enter_lazy_mmu_mode();
+> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> +
+> +	VM_BUG_ON(state->count == U8_MAX);
+
+No VM_BUG_ON() please.
+
+> +	/* enable() must not be called while paused */
+> +	VM_WARN_ON(state->count > 0 && !state->enabled);
+> +
+> +	if (state->count == 0) {
+> +		arch_enter_lazy_mmu_mode();
+> +		state->enabled = true;
+> +	}
+> +	++state->count;
+
+Can do
+
+if (state->count++ == 0) {
+
+>   }
+>   
+>   static inline void lazy_mmu_mode_disable(void)
+>   {
+> -	arch_leave_lazy_mmu_mode();
+> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> +
+> +	VM_BUG_ON(state->count == 0);
+
+Dito.
+
+> +	VM_WARN_ON(!state->enabled);
+> +
+> +	--state->count;
+> +	if (state->count == 0) {
+
+Can do
+
+if (--state->count == 0) {
+
+> +		state->enabled = false;
+> +		arch_leave_lazy_mmu_mode();
+> +	} else {
+> +		/* Exiting a nested section */
+> +		arch_flush_lazy_mmu_mode();
+> +	}
+>   }
+>   
+>   static inline void lazy_mmu_mode_pause(void)
+>   {
+> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> +
+> +	VM_WARN_ON(state->count == 0 || !state->enabled);
+> +
+> +	state->enabled = false;
+>   	arch_leave_lazy_mmu_mode();
+>   }
+>   
+>   static inline void lazy_mmu_mode_resume(void)
+>   {
+> +	struct lazy_mmu_state *state = &current->lazy_mmu_state;
+> +
+> +	VM_WARN_ON(state->count == 0 || state->enabled);
+> +
+>   	arch_enter_lazy_mmu_mode();
+> +	state->enabled = true;
+>   }
+>   #else
+>   static inline void lazy_mmu_mode_enable(void) {}
+> diff --git a/include/linux/sched.h b/include/linux/sched.h
+> index cbb7340c5866..2862d8bf2160 100644
+> --- a/include/linux/sched.h
+> +++ b/include/linux/sched.h
+> @@ -1441,6 +1441,10 @@ struct task_struct {
+>   
+>   	struct page_frag		task_frag;
+>   
+> +#ifdef CONFIG_ARCH_LAZY_MMU
+> +	struct lazy_mmu_state		lazy_mmu_state;
+> +#endif
+> +
+>   #ifdef CONFIG_TASK_DELAY_ACCT
+>   	struct task_delay_info		*delays;
+>   #endif
+> @@ -1724,6 +1728,18 @@ static inline char task_state_to_char(struct task_struct *tsk)
+>   	return task_index_to_char(task_state_index(tsk));
+>   }
+>   
+> +#ifdef CONFIG_ARCH_LAZY_MMU
+> +static inline bool in_lazy_mmu_mode(void)
+
+So these functions will reveal the actual arch state, not whether
+_enabled() was called.
+
+As I can see in later patches, in interrupt context they are also
+return "not in lazy mmu mode".
 
 -- 
 Cheers
