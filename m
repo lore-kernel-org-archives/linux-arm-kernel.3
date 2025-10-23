@@ -4,125 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F2DCCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 10:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A6CCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 10:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UML1yqzrbQrPry4HepC8vV3t4zwpEH9yK9wTNqr1R0g=; b=LlCfOl8Qod1xk3xdt3hXjZxs9b
-	90ZR/KSsQmPcl+hx7M2g1h4ld8+RVFcWS3OebM4wvo7ChEBv8uHZ4DpI99K5DxUxxCqM147ctVSYx
-	GMqP6XG3iWNFXyY7dmKPbqcbtcI08eRE8g2MKcAJzhR2uKx0ylQEhnwZD9ArLJbl/QkIx0bqQEWV5
-	w8k1yoSpURseFftSIw6aFhYZMO91RnPzkuCHDRN1wMP0VHYZNZV7vvv2LlQWyPDi0xZ2v4Nc8ga5G
-	RltZy+XpsMrx7q2Zmqt6780TA09IeM70DC3j+fV3eQlI2o+J6a4S/6/5/SCrrkVaAYTEaO6dmJlGU
-	w7uS9xdw==;
+	bh=HtKNTZAO+ToteT9Mq7xDJXF2ZisO3XpMk8DFlcZUCjM=; b=leyOUlD6xRT1N61tTbics1q4lF
+	5747ffM7fDTyuPrXn2Ynd1is7KP/3El5pbR74ggd+hSWWDpXCQfxv5oEWZjVke4vbZVLeJ37rQC75
+	BrAd2mF7snV+Na2ZhAQsyuUrG+WpOFRjGhDFOFVvrG2oD4sYmWQqoqY536A8ZX7pCRo9SGR6PwBNU
+	XmXKJHD5mWjEm50Byjyqyc9eNBktJX9/lZ5LT34O5bmlgYbfWk8ilpzBwAwh46LIzmH9WQ/U22wIx
+	ya3OlqclShe166YZEvTwChXKnjnG4bUdYUEnebfS0vYmtJdrzBJQ4WzpTA/+KL7LFFA25woTlGZT6
+	YtvUzLJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBsHk-00000005pXC-0LnU;
-	Thu, 23 Oct 2025 10:11:08 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBsHh-00000005pWU-1jth
+	id 1vBsPR-00000005r7v-1tjY;
+	Thu, 23 Oct 2025 10:19:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBsPN-00000005r5p-3nR9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 10:11:06 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59N7Gpvs018571
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 10:11:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	UML1yqzrbQrPry4HepC8vV3t4zwpEH9yK9wTNqr1R0g=; b=PdmkTEjhYy74Piku
-	o/rzY2pZzaSnTfurWYJ+nMcD+Z2vSvrjfeWbD4+vNPJSsQoWkHb1imjoSeyPfnl5
-	f06t8xeTjJthYrgXjJW5Y2oMwqKVvH1dlT+3z0/llH9F+5ObN55oCURUAni5hd4w
-	fDl7g98uzQAGvqMzhFcFSIm2LFrqhFGI5kdKNFKOr1n4nufjciODTzfkQ37ioaUc
-	dWMAc6/JSX53oeo+AzNXxb5VmZiAFFDOg2snxx3hVVUpxykogKesbpHcfCM4YSDF
-	F5dmXoqOArVJMPvrvgTR6Saf1pmRHf05Vpzkis+de7/jvmuz59NZaj0F6iL6/kkZ
-	phdTnA==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49v08pr78u-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 10:11:03 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b62ebb4e7c7so507632a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 03:11:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761214262; x=1761819062;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UML1yqzrbQrPry4HepC8vV3t4zwpEH9yK9wTNqr1R0g=;
-        b=GRLns51u3CJxJdFOSzjXWCHSf+u5uxIcUzRe9jAo43wB7pEZaGReoregNoiNioIQFP
-         yc+MpckjpK3+IwvtMC/G8lp2JWqmCcqm/pQ4k3aceJH2YMMn38pJkkkjD/d+iPZeojGy
-         +1vkgT0ZadhquZgFKcE0kGr2KhxlORTWAaAn8p0UJ2Xmeg7+l+wBfpcEzk/yAj0+jfpt
-         v6AG/JcDj/Sjf02dqHtXUEzFACAh6F9vGt/vDm0ZOf2C8xB9++ViKvgWNsHu/zkoZ/Ar
-         Fi0R3i5VVwTaKE0wEgqjxROTCCyay58TKTPqZHnezQOPQ7XGwIyaOTVZgr6A35JXnsLO
-         XqJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVemG9Wfc4M621+o9zDzl+wSI/fPisv24y1Jmm43CfKHukXRMp0w26PaLPaJl18SBlL+MzyiuwtLKUen0r89Xne@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAP8ZJVUcG0hGuIaQYN3sJ51Jz7x3HblPpIiSZTHZqZdkg2vsn
-	Pyo4UFjejUhAJFqhftlEAlolNjWipgEiIDbPVRSXwlFv/X/gm2XjhjM2eREhNYFzW4O8AaWEtsX
-	E2hfKfavda2qqyj6wfNNnmiFj9Hm7TdYse+2VNAQ84Igjd5vsCHXaOdz1kcnx3A3jFagpXYY0ly
-	jzIQ==
-X-Gm-Gg: ASbGncspVSCW9fyn2a6RLYh1gL/+SN1rRzpEyQU6+GOQ7C7tDXNfMLw3vuVozqOPjKZ
-	EPdAhF8EHJoYcOvfIG6NwQlikpN7zAPeIj0lVIF08vOYwSSjLM+PSrTyKs7vIoyyGaaDaNmsSRO
-	YQb4vLnLprQRvB1a7P2UMBxY8++wZJvjiLspxkeFwLFUH/0+FXh8TDmqhB1ICb/OfMkgKF2Yrrb
-	gaK/5mkwa9nArO/51yeZ0SZMX8FoOWggOEDl+slQyprtU10A3on2AtMTC38heUw40jyHyGVj4dg
-	SYxmH8MIbjxUU9ZqPqPc+CaQr5344wFcRIpeqD1DT3HjT6/Y4LlWPY50LcvZHFx66jg4Txr82P+
-	QKUdTK13Dl3BEHYVcZLkpOEGtbArFN8dk4BmRodRntkgzkMvNeidi12No2GSWnoYVqQ==
-X-Received: by 2002:a05:6a20:9186:b0:334:7aae:c43b with SMTP id adf61e73a8af0-33c600ad4c9mr2446150637.20.1761214262561;
-        Thu, 23 Oct 2025 03:11:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEFy40H0MW5NZRQSkKA5Qh1AhBvaXks0B6kqhFazrM8IjeVicGOuL4gdISqwRAuDa2V1gGJ8w==
-X-Received: by 2002:a05:6a20:9186:b0:334:7aae:c43b with SMTP id adf61e73a8af0-33c600ad4c9mr2446115637.20.1761214262075;
-        Thu, 23 Oct 2025 03:11:02 -0700 (PDT)
-Received: from [10.133.33.151] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6cf4bb9c8asm1654060a12.9.2025.10.23.03.10.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Oct 2025 03:11:01 -0700 (PDT)
-Message-ID: <f8c315b9-acf8-4085-ab10-0d6e60ef7c39@oss.qualcomm.com>
-Date: Thu, 23 Oct 2025 18:10:56 +0800
+	Thu, 23 Oct 2025 10:19:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E50B1516;
+	Thu, 23 Oct 2025 03:18:50 -0700 (PDT)
+Received: from [10.1.31.176] (XHFQ2J9959.cambridge.arm.com [10.1.31.176])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A4BA3F59E;
+	Thu, 23 Oct 2025 03:18:54 -0700 (PDT)
+Message-ID: <bc8f62a8-8e9d-45a2-8d77-e193b12d465d@arm.com>
+Date: Thu, 23 Oct 2025 11:18:53 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] remoteproc: mtk_scp: remove unnecessary checking
-To: Dan Carpenter <dan.carpenter@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org, kernel-janitors@vger.kernel.org,
-        zhongqiu.han@oss.qualcomm.com
-References: <aPi6eBlFLH43A4C0@stanley.mountain>
-Content-Language: en-US
-From: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
-In-Reply-To: <aPi6eBlFLH43A4C0@stanley.mountain>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE4MDAwMCBTYWx0ZWRfX2lzxkTt1OBT2
- 8vZB1L7jjHKVMjimZGN4xt6OGoURXRiK+dykrcJ5Qw/DD/s0U+pTGzfCIuJSIfTbrGAYOpsCoqS
- TAD4sBlInNWG29IB6z3VOsjZuEDnYVvtqakqwE6Qg9njU4ikeHc/ySHkhygQdu5v4yG+8xNQ0TH
- iUa3GvDHaPlaibP0vpifaMF8SjnKg0xAygYsk00QuTQ3stl6FoAxH7DJMTynqPqnjQN31Lxj0sE
- Ft+FtkYWdFGFOTljCUkHW3A0v/V0+Kbo28PLkyEZjrI4TaPJ5jV8ofM/hHQ5A1jYQaRfpxylYZ3
- mlXC6zrwCO3a1MuDysXZv1g3YnPLovtaNQJfSKjTA1/EtqVwUl3ca0PhkZ8tU9wuFok7qIiWy5V
- Lp5YV58fyp/L3nAHxnM25XqQTP+kaA==
-X-Proofpoint-GUID: PeySYkneidYBazwtJ4553lYDtgL5yGvD
-X-Authority-Analysis: v=2.4 cv=Up1u9uwB c=1 sm=1 tr=0 ts=68f9ff37 cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=KKAkSRfTAAAA:8 a=IDcGV2vxZRipFm0qDp8A:9 a=QEXdDO2ut3YA:10
- a=_Vgx9l1VpLgwpw_dHYaR:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: PeySYkneidYBazwtJ4553lYDtgL5yGvD
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-22_08,2025-10-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 adultscore=0 suspectscore=0 malwarescore=0 clxscore=1011
- impostorscore=0 bulkscore=0 priorityscore=1501 spamscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510180000
+Subject: Re: [PATCH -v2 2/2] arm64, tlbflush: don't TLBI broadcast if page
+ reused in write fault
+Content-Language: en-GB
+To: Barry Song <21cnbao@gmail.com>, Huang Ying <ying.huang@linux.alibaba.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ "Christoph Lameter (Ampere)" <cl@gentwo.org>, Dev Jain <dev.jain@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Yicong Yang <yangyicong@hisilicon.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>,
+ Yin Fengwei <fengwei_yin@linux.alibaba.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org
+References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
+ <20251013092038.6963-3-ying.huang@linux.alibaba.com>
+ <CAGsJ_4xaA8QRjP9H=n1hQfEfGop7vOd5Y=J+KQzuOyfa8GK-kQ@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAGsJ_4xaA8QRjP9H=n1hQfEfGop7vOd5Y=J+KQzuOyfa8GK-kQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_031105_577417_6A31A9D0 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20251023_031902_046928_4E3D44E2 
+X-CRM114-Status: GOOD (  33.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,66 +80,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/22/2025 7:05 PM, Dan Carpenter wrote:
-> The kernel implementation of snprintf() cannot return negative error
-> codes.  Also these particular calls to snprintf() can't return zero
-> and the code to handle a zero return is sort of questionable.  Just
-> delete this impossible code.
+Hi Barry, Huang,
+
+
+On 22/10/2025 05:08, Barry Song wrote:
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index aa89c2e67ebc..35bae2e4bcfe 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -130,12 +130,16 @@ static inline void arch_leave_lazy_mmu_mode(void)
+>>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>>
+>>  /*
+>> - * Outside of a few very special situations (e.g. hibernation), we always
+>> - * use broadcast TLB invalidation instructions, therefore a spurious page
+>> - * fault on one CPU which has been handled concurrently by another CPU
+>> - * does not need to perform additional invalidation.
+>> + * We use local TLB invalidation instruction when reusing page in
+>> + * write protection fault handler to avoid TLBI broadcast in the hot
+>> + * path.  This will cause spurious page faults if stall read-only TLB
+>> + * entries exist.
+>>   */
+>> -#define flush_tlb_fix_spurious_fault(vma, address, ptep) do { } while (0)
+>> +#define flush_tlb_fix_spurious_fault(vma, address, ptep)       \
+>> +       local_flush_tlb_page_nonotify(vma, address)
+>> +
+>> +#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)   \
+>> +       local_flush_tlb_page_nonotify(vma, address)
+>>
+>>  /*
+>>   * ZERO_PAGE is a global shared page that is always zero: used
+>> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+>> index 18a5dc0c9a54..651b31fd18bb 100644
+>> --- a/arch/arm64/include/asm/tlbflush.h
+>> +++ b/arch/arm64/include/asm/tlbflush.h
+>> @@ -249,6 +249,18 @@ static inline unsigned long get_trans_granule(void)
+>>   *             cannot be easily determined, the value TLBI_TTL_UNKNOWN will
+>>   *             perform a non-hinted invalidation.
+>>   *
+>> + *     local_flush_tlb_page(vma, addr)
+>> + *             Local variant of flush_tlb_page().  Stale TLB entries may
+>> + *             remain in remote CPUs.
+>> + *
+>> + *     local_flush_tlb_page_nonotify(vma, addr)
+>> + *             Same as local_flush_tlb_page() except MMU notifier will not be
+>> + *             called.
+>> + *
+>> + *     local_flush_tlb_contpte_range(vma, start, end)
+>> + *             Invalidate the virtual-address range '[start, end)' mapped with
+>> + *             contpte on local CPU for the user address space corresponding
+>> + *             to 'vma->mm'.  Stale TLB entries may remain in remote CPUs.
+>>   *
+>>   *     Finally, take a look at asm/tlb.h to see how tlb_flush() is implemented
+>>   *     on top of these routines, since that is our interface to the mmu_gather
+>> @@ -282,6 +294,33 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
+>>         mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
+>>  }
+>>
+>> +static inline void __local_flush_tlb_page_nonotify_nosync(
+>> +       struct mm_struct *mm, unsigned long uaddr)
+>> +{
+>> +       unsigned long addr;
+>> +
+>> +       dsb(nshst);
+
+I've skimmed through this thread so appologies if I've missed some of the
+detail, but thought it might be useful to give my opinion as a summary...
+
+> We were issuing dsb(ishst) even for the nosync case, likely to ensure
+> PTE visibility across cores. 
+
+The leading dsb prior to issuing the tlbi is to ensure that the HW table
+walker(s) will always see the new pte immediately after the tlbi completes.
+Without it, you could end up with the old value immediately re-cached after the
+tlbi completes. So if you are broadcasting the tlbi, the dsb needs to be to ish.
+If you're doing local invalidation, then nsh is sufficient.
+
+"nosync" is just saying that we will not wait for the tlbi to complete. You
+still need to issue the leading dsb to ensure that the table walkers see the
+latest pte once the tlbi (eventually) completes.
+
+> However, since set_ptes already includes a
+> dsb(ishst) in __set_pte_complete(), does this mean we’re being overly
+> cautious in __flush_tlb_page_nosync() in many cases?
+
+We only issue a dsb in __set_pte_complete() for kernel ptes. We elide for user
+ptes becaue we can safely take a fault (for the case where we transition
+invalid->valid) for user mappings and that race will resolve itself with the
+help of the PTL. For valid->valid or valid->invalid, there will be an associated
+tlb flush, which has the barrier.
+
 > 
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->   drivers/remoteproc/mtk_scp.c | 6 ++----
->   1 file changed, 2 insertions(+), 4 deletions(-)
+> static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
+>                                            unsigned long uaddr)
+> {
+>         unsigned long addr;
 > 
-> diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-> index 10e3f9eb8cd2..9b624948a572 100644
-> --- a/drivers/remoteproc/mtk_scp.c
-> +++ b/drivers/remoteproc/mtk_scp.c
-> @@ -1127,11 +1127,9 @@ static const char *scp_get_default_fw_path(struct device *dev, int core_id)
->   		return ERR_PTR(-EINVAL);
->   
->   	if (core_id >= 0)
-> -		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id);
-> +		snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id);
+>         dsb(ishst);
+>         addr = __TLBI_VADDR(uaddr, ASID(mm));
+>         __tlbi(vale1is, addr);
+>         __tlbi_user(vale1is, addr);
+>         mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_MASK,
+>                                                 (uaddr & PAGE_MASK) +
+> PAGE_SIZE);
+> }
+> 
+> On the other hand, __ptep_set_access_flags() doesn’t seem to use
+> set_ptes(), so there’s no guarantee the updated PTEs are visible to all
+> cores. If a remote CPU later encounters a page fault and performs a TLB
+> invalidation, will it still see a stable PTE?
 
-Hello Dan Carpenter,
+Yes, because the reads and writes are done under the PTL; that synchonizes the
+memory for us.
 
-The patch looks fine to me functionally. However, one concern beyond the
-current scope: if core_id >= 10 in future extensions, the
-snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp_c%1d", core_id) may
-cause truncation.
+You were discussing the potential value of upgrading the leading dsb from nshst
+to ishst during the discussion. IMHO that's neither required nor desirable - the
+memory synchonization is handled by the PTL. Overall, this optimization relies
+on the premise that synchronizing with remote CPUs is expensive and races are
+rare, so we should keep everything local for as long as possible and not worry
+about micro-optimizing the efficiency of the race case.
 
-scp_add_multi_core
-       |
-       v
-scp_rproc_init
-       |
-       v
-scp_get_default_fw_path
-     char scp_fw_file[7];
+> 
+>> +       addr = __TLBI_VADDR(uaddr, ASID(mm));
+>> +       __tlbi(vale1, addr);
+>> +       __tlbi_user(vale1, addr);
+>> +}
+>> +
+>> +static inline void local_flush_tlb_page_nonotify(
+>> +       struct vm_area_struct *vma, unsigned long uaddr)
+>> +{
+>> +       __local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
+>> +       dsb(nsh);
+>> +}
+>> +
+>> +static inline void local_flush_tlb_page(struct vm_area_struct *vma,
+>> +                                       unsigned long uaddr)
+>> +{
+>> +       __local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
+>> +       mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, uaddr & PAGE_MASK,
+>> +                                               (uaddr & PAGE_MASK) + PAGE_SIZE);
+>> +       dsb(nsh);
+>> +}
+>> +
+>>  static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
+>>                                            unsigned long uaddr)
+>>  {
+>> @@ -472,6 +511,23 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
+>>         dsb(ish);
+>>  }
+>>
+> 
+> We already have functions like
+> __flush_tlb_page_nosync() and __flush_tlb_range_nosync().
+> Is there a way to factor out or extract their common parts?
+> 
+> Is it because of the differences in barriers that this extraction of
+> common code isn’t feasible?
 
+I've proposed re-working these functions to add indepednent flags for
+sync/nosync, local/broadcast and notify/nonotify. I think that will clean it up
+quite a bit. But I was going to wait for this to land first. And also, Will has
+an RFC for some other tlbflush API cleanup (converting it to C functions) so
+might want to wait for or incorporate that too.
 
-To guard against this, maybe should we consider adding:
+Thanks,
+Ryan
 
-if (ret >= ARRAY_SIZE(scp_fw_file))
-     return ERR_PTR(-ENAMETOOLONG);
+> 
+> Thanks
+> Barry
 
-or just expand the scp_fw_file[7] array?
-
-Thank you~
-
-
->   	else
-> -		ret = snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp");
-> -	if (ret <= 0)
-> -		return ERR_PTR(ret);
-> +		snprintf(scp_fw_file, ARRAY_SIZE(scp_fw_file), "scp");
->   
->   	/* Not using strchr here, as strlen of a const gets optimized by compiler */
->   	soc = &compatible[strlen("mediatek,")];
-
-
--- 
-Thx and BRs,
-Zhongqiu Han
 
