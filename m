@@ -4,101 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7F9CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 05:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24BE7CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 06:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EpLC/YIfU6yMLW4SxxDWNvKdV2xI4uQU1cRoBBYT5xM=; b=hYx6+uv2siKaQOoFNWbI8NdJ6m
-	hiNoT/NlumXaVcg03ruIhGxzUzdY+c3y8N6hj1WgL3Hu73C/DHUtmNrIbQeF3BTGTc5YxymbxE5J+
-	8Qz6HWU6i/TvAdTol5iMimtyNpObmvrUTJcbpSMvAT7UN7AjoYv2YlQxk6lBRkv13eATjmkH5mm7F
-	jJ1xLRXEAlRdHlR2d64tiMOyX0Y6rvKv6uYgeP50pIhEIhXqpwWU8UcbsquGtcRDIF6DfXOelmyHY
-	ZSAzdjwe9pJyIx+LWjrv7wu2NvM1UoY6ADGJztJHcdxoqKSko6daUZ7dLKzShCnxOijayXsYt3TSL
-	fwCBOoKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hhj1VLtSYO+AfqlDWQL1li1LYgXwZ69chK1m/bx772o=; b=0U0lv09lefdVJ8Fjpe+kyZkmzK
+	pVfgTMyIQc1mmeK9pno7ID3xfPrgTRBWMrInbDPkKSitIzU/Uktznokh6AH3hdf58IFSsPgrqesfk
+	ku2/rxRx07Fzj3OKBIpAtTyEEdymUrBjWJw+Aj6ulNsLuCF2pxRU1DN+ZBalei0oHR8R8cFWzrh75
+	KPY7j4LUfK8gI29kmDEN215MWYQ8+/gtWbcr0bDCBKv2gunLohmcHCRy0YhcPp3+deHVbi4hFXRJg
+	r/MGEnuVk/csNaWsT3xqdN1JqgpWpnCMqfK9gUWWf+gMFTM3w/L7nZJwLieOWFuT6CritVQTj7fie
+	dzORQ26g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBo6Y-000000059e3-1LRI;
-	Thu, 23 Oct 2025 05:43:18 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1vBocF-00000005CE8-3a6U;
+	Thu, 23 Oct 2025 06:16:03 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBo6W-000000059db-1L9I
+	id 1vBocC-00000005CDf-1yIo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 05:43:17 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b3d196b7eeeso92283266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 22:43:15 -0700 (PDT)
+	Thu, 23 Oct 2025 06:16:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1761198194; x=1761802994; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=EpLC/YIfU6yMLW4SxxDWNvKdV2xI4uQU1cRoBBYT5xM=;
-        b=BhUylp+4jjDeh61ydIWFrAOvFrULT5p5otCN6kyvQzP2HEGD5uf4OgN2jKxZ8CmXxr
-         m3MxXS6K37mUqJEJAysyxXiBsXBq6ecsAUB9OgjiZisT8A/JPFCK/zBpTPFvZmo/4viX
-         XmWz17oBkHByexEfyxgBlPk8cwjpezFYYsSUk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761198194; x=1761802994;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=EpLC/YIfU6yMLW4SxxDWNvKdV2xI4uQU1cRoBBYT5xM=;
-        b=Cu7TY1dvjmC18FI/lRKsdfbbmV26gNJaUONPtVaUSBQVIf+QLpHR9seXikk7Anv+al
-         yvyN0CpAhGookxjlxSSiSOrZIV/ApEVZRpVOdQFXniRw0/tsHrFo/LhW/ArH0QWwrdEo
-         PDR4FZjkx9h4moVMjyxPGOv80+c48MhhivrJApTwN6oZldQPZ4pem5BvDLA2Ix848aRX
-         i1vTYioi3Ect+qk00doZDK69tUtUj1BuRpFiWSHYLCrHEgngmFc+Bu2ckSflXVQJRCv5
-         VXiuVCB1TvI6MiBxKqmTxRmlfDEwZZ+ciEXyp5gHE3YReIsadt1VGQp82qDWuIk86Al/
-         0H/g==
-X-Forwarded-Encrypted: i=1; AJvYcCUccWSMPQlNfzgdmCkaPn5Sq0fbBe6jdKYbDBHHA91HE7C7bOzHg9Dz8u+4/60tYNwRFeinDWivgjYapKHA00q6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+N7eibPSyYmkj1qdOQMpd+QUUmg6bYJ08vdWFVMo7K0umFm5l
-	36TQjYHH1IARerY1TnxS3nxi0wActGVbz1hyFCTCvddxJQExwQahuCSO5dEjHHwcJxam8FyQFEu
-	c2OWYr7nTsg==
-X-Gm-Gg: ASbGnctFRS7029rUvwNxAtaOzNpZtC3iZb3FbUUeTaflOQEIdvLXRbsnjBKDWaf1myM
-	AE/MQEF6fPOHSBkzXgJSuosv0QaTMyMh1AKFYVDVLvPuRH3qjwx5mLPPpa5jUvHWx7Vr3tTe8VF
-	+cQgCq/4I7016q5TNH3p7Fp5EVbVuAWKKUVMTvBcefF8YH+SnX9b9EpinCh8fxIuGVlzcSYLqP6
-	P/o+v3fwa0qg4LrBoQ/OVBSX9yVhzALCfsd/otErftL9tBzi/6KXxI/AvCvv3Wf6o24c+60A1UI
-	ahNUOLBB8HZnaDcy93/UCWqNpz9IZ/qEDY952gUnElOMapQznZSAX+B/7hSbsod6eaVvCChY5P0
-	c1ce27njAvQxbhQBlZxT3hacS0uIFeThiZ/0fhzVPLrQdLmqBVCTpoKVw+Zw8jLWSw4Wrjs+cc/
-	ICS9iWKaFn27oPN0BJl8S+fug4xtfk0jD74f05dwjgmCfpf2ILqXVi1HE+0hYI
-X-Google-Smtp-Source: AGHT+IHjc4uvaBLLbErHml1RlAzz/UNoLmHvQUh/L5APS4yzJ4ZwGKFGgRdUDex2DN/v5bZzDea9WQ==
-X-Received: by 2002:a17:906:6a1d:b0:b45:8370:eefd with SMTP id a640c23a62f3a-b647254f631mr2592858666b.5.1761198194281;
-        Wed, 22 Oct 2025 22:43:14 -0700 (PDT)
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com. [209.85.221.42])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63e3f3349b3sm776962a12.37.2025.10.22.22.43.13
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 22 Oct 2025 22:43:14 -0700 (PDT)
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4270a3464bcso271846f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 22:43:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUQhGWLZungJ618avV/m+9btRUN/FUYnCKQ9vJWsFA2DdnQ2oYTgVrs2GR7HuBpNA4CTDaZURTrto0sClkO/w8A@lists.infradead.org
-X-Received: by 2002:a17:907:7ea6:b0:b41:c892:2c67 with SMTP id
- a640c23a62f3a-b6474940c41mr2905229266b.45.1761197863543; Wed, 22 Oct 2025
- 22:37:43 -0700 (PDT)
+	d=linux.alibaba.com; s=default;
+	t=1761200157; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=hhj1VLtSYO+AfqlDWQL1li1LYgXwZ69chK1m/bx772o=;
+	b=Oz7tDJwMASc/sBnzb8tuijEStdyfAngNV7W0jgMMEw5yZHgP4K8C2bo2rZXy3Pae18TIesBs/egYEa3HTkIleGO+WwTE0UV3w/QgDxvMneRVMNfABZjvRdePww0M2hw+odYE7Eq4hAUk8rvKYhPwK6ZcdiJWeUILpFm519+PKeM=
+Received: from DESKTOP-5N7EMDA(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0Wqq5ZkD_1761200155 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 23 Oct 2025 14:15:56 +0800
+From: "Huang, Ying" <ying.huang@linux.alibaba.com>
+To: Barry Song <21cnbao@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
+ <will@kernel.org>,  Andrew Morton <akpm@linux-foundation.org>,  David
+ Hildenbrand <david@redhat.com>,  Lorenzo Stoakes
+ <lorenzo.stoakes@oracle.com>,  Vlastimil Babka <vbabka@suse.cz>,  Zi Yan
+ <ziy@nvidia.com>,  Baolin Wang <baolin.wang@linux.alibaba.com>,  Ryan
+ Roberts <ryan.roberts@arm.com>,  Yang Shi <yang@os.amperecomputing.com>,
+  "Christoph Lameter (Ampere)" <cl@gentwo.org>,  Dev Jain
+ <dev.jain@arm.com>,  Anshuman Khandual <anshuman.khandual@arm.com>,
+  Yicong Yang <yangyicong@hisilicon.com>,  Kefeng Wang
+ <wangkefeng.wang@huawei.com>,  Kevin Brodsky <kevin.brodsky@arm.com>,  Yin
+ Fengwei <fengwei_yin@linux.alibaba.com>,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+  linux-mm@kvack.org
+Subject: Re: [PATCH -v2 2/2] arm64, tlbflush: don't TLBI broadcast if page
+ reused in write fault
+In-Reply-To: <CAGsJ_4z7SASir4gWThfePdnvw82TB8E6rXnzJ=CieaFnJpJt7g@mail.gmail.com>
+	(Barry Song's message of "Thu, 23 Oct 2025 18:39:39 +1300")
+References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
+	<20251013092038.6963-3-ying.huang@linux.alibaba.com>
+	<CAGsJ_4xaA8QRjP9H=n1hQfEfGop7vOd5Y=J+KQzuOyfa8GK-kQ@mail.gmail.com>
+	<87a51jfl44.fsf@DESKTOP-5N7EMDA>
+	<CAGsJ_4zPH0fwBOLQwh1y6jG3tCXHLGRCTyVVSCWb+NfLCEMV0Q@mail.gmail.com>
+	<871pmv9unr.fsf@DESKTOP-5N7EMDA>
+	<CAGsJ_4zW6ogVdi=t9JCuvGD9N21mA_ORXRCakw4Av68d9n+DDw@mail.gmail.com>
+	<875xc78es0.fsf@DESKTOP-5N7EMDA>
+	<CAGsJ_4zKGS-Xd-58ufXGoyRfaZWd8wTgv0b6ibHJ2aS14mQqtw@mail.gmail.com>
+	<87a51j6zg7.fsf@DESKTOP-5N7EMDA>
+	<CAGsJ_4y32i3aNYPum=8J3_Kt6vOSisr_jg6btB-YG1uQBqHG7Q@mail.gmail.com>
+	<87ms5j4444.fsf@DESKTOP-5N7EMDA>
+	<CAGsJ_4xhJSLnXOZy4kPmnif5Paq+OPN_Ww+rPk2WO4-ADSC0Yw@mail.gmail.com>
+	<87qzuu1kg2.fsf@DESKTOP-5N7EMDA>
+	<CAGsJ_4z7SASir4gWThfePdnvw82TB8E6rXnzJ=CieaFnJpJt7g@mail.gmail.com>
+Date: Thu, 23 Oct 2025 14:15:53 +0800
+Message-ID: <874irqywh2.fsf@DESKTOP-5N7EMDA>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-References: <20251023000535.2897002-1-kuniyu@google.com> <20251023000535.2897002-2-kuniyu@google.com>
-In-Reply-To: <20251023000535.2897002-2-kuniyu@google.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Wed, 22 Oct 2025 19:37:27 -1000
-X-Gmail-Original-Message-ID: <CAHk-=wjXGvUnmN5ZL3nhj_J0cbiVfeHsM9Z54A55rgHRUaVOfA@mail.gmail.com>
-X-Gm-Features: AWmQ_bk45WJyQfjQIDpRb59HoMm72eRtwroHiVS5YhkseklDQ1bsOMejpvZJz24
-Message-ID: <CAHk-=wjXGvUnmN5ZL3nhj_J0cbiVfeHsM9Z54A55rgHRUaVOfA@mail.gmail.com>
-Subject: Re: [PATCH v1 1/2] uaccess: Add __user_write_access_begin().
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, Jens Axboe <axboe@kernel.dk>, 
-	Christian Brauner <brauner@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Eric Dumazet <edumazet@google.com>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_224316_373451_1BE397E7 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20251022_231601_005531_86E30090 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,26 +92,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Oct 2025 at 14:05, Kuniyuki Iwashima <kuniyu@google.com> wrote:
+Barry Song <21cnbao@gmail.com> writes:
+
+>> >
+>> > A:
+>> > write pte
+>> > don't broadcast pte
+>> > tlbi
+>> > don't broadcast tlbi
+>> >
+>> > with
+>> >
+>> > B:
+>> > write pte
+>> > broadcast pte
+>>
+>> I suspect that pte will be broadcast, DVM broadcast isn't used for
+>> the memory coherency IIUC.
 >
-> unsafe_put_user() can be used to save a stac/clac pair, but
-> masked_user_access_begin() or user_access_begin() introduces
-> an unnecessary address masking or access_ok().
+> I guess you=E2=80=99re right. By =E2=80=9Cbroadcast,=E2=80=9D I actually =
+meant the PTE becoming visible
+> to other CPUs. With a dsb(ish) before tlbi, other cores=E2=80=99 TLBs can=
+ load the new
+> PTE after their TLB is shoot down. But as you said, if the hardware doesn=
+=E2=80=99t
+> propagate the updated PTE faster, it doesn=E2=80=99t seem to help reduce =
+page faults.
 >
-> Add a low-level helper for such a use case.
+> As a side note, I=E2=80=99m curious about the data between dsb(nsh) and d=
+sb(ish) on
+> your platform. Perhaps because the number of CPU cores is small, I didn=
+=E2=80=99t see
+> any noticeable difference between them on phones.
 
-I really suspect that you cannot actually measure the cost of the
-extra masking, and would be much happier if you just used a regular
-"user_access_begin()" (perhaps the "user_write_access_begin()"
-variant).
+Sure.  I can git it a try.  Can you share the test case?
 
-The masking is very cheap - literally just a couple of ALU
-instructions. And unless you can actually measure some real advantage
-of avoiding it, let's not add another helper to this area.
+>>
+>> > tlbi
+>> > don't broadcast tlbi
+>> >
+>> > I guess the gain comes from "don't broadcat tlbi" ?
+>> > With B, we should be able to share many existing code.
+>>
+>> Ryan has some plan to reduce the code duplication with the current
+>> solution.
+>
+> Ok.
 
-We spent a fair amount of time undoing years of "__get_user()" and
-"__put_user()" cases that didn't actually help, and sometimes only
-made it hard to see where the actual user pointer validation was done.
-
-               Linus
+---
+Best Regards,
+Huang, Ying
 
