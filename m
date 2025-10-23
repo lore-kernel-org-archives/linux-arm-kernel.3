@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 137F2CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 13:16:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21215CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 13:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fv8zQAQLpnE9vfoEon182ebZEDEElTVzasDUDqEY4gw=; b=WztO+sG0xIBImGWfEQ2z2SQJNF
-	h0CxuDt3dUSkNZM71M+QMObhkS69kxDH6opNBSCTl/6hXurduyiKLDrPtmwD7ILAuKoKSC14U8u8H
-	i64k5uWY6YAhCuMu5A+i50cBGFqGrpj5SVugH9z+9k1FLiFdE8VMFuLKJF+XLSNFa07B3Gi0MyzCt
-	tCZSHrsngTfHC7+RkSL75UjV0Gf55GJQ1X9/baCBtB4xIQarYFJodAQxY42TiJnlV73GDhB9S8znt
-	/7IqjkgMWjXgreebZY03PrcOyGMk2Mt3bTJjEJsHOxBF4f7CQAMgIdnxLJ1tgbFFYjk4cq1ZLVtVr
-	TBsyn4Cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jMer0xijIl2lTL04iKtshfq8Fg2YOiTXFJyKnSPzMUc=; b=DNxHd0ueCaKU8KLBaF3XxnvMyW
+	t6mSiP7AiCaHr1IdYveIcTpIZVzDqkfH0YojmZU0wfKCYPKE0ZRTmak35Yat8WlPF+6oRSndsAjIK
+	zUJ8QisWXGpQJ5b/IKztiAlUpsidCsNQ3sNBKmvIZeAqfbsBTEHXyA6fufO/i7xurpKwgrhuGnqJ7
+	c1Sq9ruEIsx3CghfyBpHfqA5kZEXqf8UaCfZzscTKm4dAGiBXojCyUBoU/fxx48Pnl+Km65V1oFr5
+	npzbvC9c9fn/Gn3Wv3ljT5DqmGz+lldj5CNSg51Ngwb+k2nSW9kgm4B7jSrNeDy3GkKplImYJLyKV
+	Z24fGbpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvAe-00000006Kyv-0Tc6;
-	Thu, 23 Oct 2025 13:16:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBvBG-00000006LCM-0X58;
+	Thu, 23 Oct 2025 13:16:38 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvAb-00000006Kxo-2Cu8;
-	Thu, 23 Oct 2025 13:15:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E031064024;
-	Thu, 23 Oct 2025 13:15:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37FFAC4CEE7;
-	Thu, 23 Oct 2025 13:15:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761225356;
-	bh=bpK6IFKSlWyr361lsyY7cF41HPTMFf1xoUoSL8UMu8Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fdpJCNYP49fX4xrvkRrTI6NYAIb2XjSMLFn4GRWD1qwY0y/P1swND08sCsrfKCZy/
-	 U/QN5Fg1s3jCbQG4YTMkN4g+dAtvNf3hW+TDkL7ZmWwBtVOE/jU8l2Xudjd8Vw8w7r
-	 84K8i4KH5zAKsrLxlTUqVvfG7ATeuYc6eAK4TtOUUdT1eamY0jzyFS0ZPmdxo1w1kT
-	 hwuZcdtC6g4LyBtap5kiwW7hymyz4bfNCaeRbKMmuTQdnGcd2QtY+MeHpopHhuso0R
-	 gdb0q8P2jdHtO+fS8WvXd1fHOTBBDjDnPZzQEaxtzTaA6kbjqevt5b7iMI5/N8PBee
-	 idrwh4k7baoxw==
-Date: Thu, 23 Oct 2025 15:15:54 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Rakuram Eswaran <rakuram.e96@gmail.com>
-Cc: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rex Lu <rex.lu@mediatek.com>, linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, david.hunter.linux@gmail.com,
-	khalid@kernel.org, skhan@linuxfoundation.org,
-	linux-kernel-mentees@lists.linux.dev,
-	kernel test robot <lkp@intel.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>
-Subject: Re: [PATCH] wifi: mt76: mt7996: remove redundant NULL check in
- mt7996_msdu_page_get_from_cache()
-Message-ID: <aPoqiioo6kUZ0kbY@lore-desk>
-References: <20251023-mt7996_mac_c-v1-1-580a3cbb2678@gmail.com>
+	id 1vBvBE-00000006LBh-1Sgu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Oct 2025 13:16:37 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4csml444B3z9t5M;
+	Thu, 23 Oct 2025 15:16:32 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761225392;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jMer0xijIl2lTL04iKtshfq8Fg2YOiTXFJyKnSPzMUc=;
+	b=E9V3DDoUbx5FyYIvx8G0YsATqH4+QGhWhoITs6hxMCrVxpIePSXEWX1IAeEtscxZ8/o3Vu
+	qc6QJLHcNQTyx1KcX9vWm28ws92IlFu5xHDlSYR74CvwqQdix6gemneKwmbVIcqAKFZs3A
+	/+LRBjFg1CqnH7UAZqWUOHhqDLtjcgRkqPR9WzZhWWr1VU9qCoFDUGW2aEy+NbJzZGaXEH
+	wfAuNoKpgAKNzWx0EMAihlpV905pbEkJOT9ZWh57WkF3wryBneMBz/cjktegXHncIwwCuw
+	E5Mf7T7VWp1d+6RNQbY2Rh495/kVz14Nek+o7SGWTdvlj/lxsQtO7u7CKCQOPA==
+Message-ID: <31e56a8b-bfc2-4516-9c3c-2377a8e316ce@mailbox.org>
+Date: Thu, 23 Oct 2025 15:16:28 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="n7nsxP8XhLbUIH3S"
-Content-Disposition: inline
-In-Reply-To: <20251023-mt7996_mac_c-v1-1-580a3cbb2678@gmail.com>
+Subject: Re: [PATCH] arm64: guard AMU register access with ARM64_HAS_AMU_EXTN
+To: Yicong Yang <yangyccccc@gmail.com>
+Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+ Yicong Yang <yangyicong@hisilicon.com>, linux-renesas-soc@vger.kernel.org
+References: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
+ <86347bvx0f.wl-maz@kernel.org>
+ <07391913-aab6-4d92-b75f-278506f51397@mailbox.org>
+ <632d6afe-40d3-4632-99c7-b098967bd649@gmail.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <632d6afe-40d3-4632-99c7-b098967bd649@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: a1aa58c112299b2b393
+X-MBO-RS-META: gynmh6oujheewxi6h5cfeo7xnzz34ci7
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251023_061636_548955_3CD0C7E7 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,80 +84,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/23/25 2:01 PM, Yicong Yang wrote:
 
---n7nsxP8XhLbUIH3S
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hello Yicong,
 
-> Smatch reported a warning that the NULL check on `p` in
-> `mt7996_msdu_page_get_from_cache()` is redundant:
->=20
->   drivers/net/wireless/mediatek/mt76/mt7996/mac.c:1651
->   mt7996_msdu_page_get_from_cache() warn: can 'p' even be NULL?
->=20
-> The function first checks `list_empty(&dev->wed_rro.page_cache)` before
-> calling `list_first_entry()`. When the list is not empty,
-> `list_first_entry()` always returns a valid pointer and can never be NULL.
->=20
-> Hence, the `if (p)` condition is unnecessary. Removing it cleans up the
-> code.
+>> This patch is mainly meant to prevent a surprise in case someone does set ARM64_HAS_AMU_EXTN=n , and the system still faults on AMU register access.
+>>
+> 
+> then I think it's more proper to guard it with CONFIG_ARM64_AMU_EXTN (I think you mean this above?)
+> rathter than the cpu cap. then with the patch kernel won't touch the AMU registers here if the kconfig is
+> disabled on you AMU supported hardware and AMU unsupported firmware.
+> 
+> move the guard into reset_amuserenr_el0 macro will be neater here (personally I think).
 
-Hi Rakuram,
+I can update the patch this way, sure.
 
-this issue has been already fixed here:
-https://patchwork.kernel.org/project/linux-wireless/patch/20251014-mt7996_m=
-sdu_page_get_from_cache-remove-null-ptr-check-v1-1-fbeb7881e192@kernel.org/
+If this is also OK with ARM people, I can send a V2 like that ?
 
-Regards,
-Lorenzo
-
->=20
-> Reported-by: kernel test robot <lkp@intel.com>
-> Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Closes: https://lore.kernel.org/r/202510100155.MS0IXhzm-lkp@intel.com/
-> Signed-off-by: Rakuram Eswaran <rakuram.e96@gmail.com>
-> ---
->  drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->=20
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/ne=
-t/wireless/mediatek/mt76/mt7996/mac.c
-> index 9501def3e0e3e20132fdbcfe0b1f489694afdc5f..284f2eea71e5bf0a34c7fe840=
-84d998164a31a05 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-> @@ -1681,8 +1681,7 @@ mt7996_msdu_page_get_from_cache(struct mt7996_dev *=
-dev)
->  	if (!list_empty(&dev->wed_rro.page_cache)) {
->  		p =3D list_first_entry(&dev->wed_rro.page_cache,
->  				     struct mt7996_msdu_page, list);
-> -		if (p)
-> -			list_del(&p->list);
-> +		list_del(&p->list);
->  	}
-> =20
->  	spin_unlock(&dev->wed_rro.lock);
->=20
-> ---
-> base-commit: 211ddde0823f1442e4ad052a2f30f050145ccada
-> change-id: 20251022-mt7996_mac_c-e10894b8bbb4
->=20
-> Best regards,
-> --=20
-> Rakuram Eswaran <rakuram.e96@gmail.com>
->=20
-
---n7nsxP8XhLbUIH3S
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaPoqigAKCRA6cBh0uS2t
-rD8eAPwLI8YuldWd9SqIobkdRoUsWzOX3OJ2ZueswhJHmsaS9AD/S8i//U2NX4+E
-xxZI8D6MmUYKGxiHF1XutDoE/AEFhgo=
-=fPpm
------END PGP SIGNATURE-----
-
---n7nsxP8XhLbUIH3S--
+-- 
+Best regards,
+Marek Vasut
 
