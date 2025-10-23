@@ -4,92 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947CACCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 15:14:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F91DCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 15:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eGj/4U8Cjm7Jzuo0N797IrKS+KWnd9Al6qyj+0gj5DU=; b=iNou3QuC8Qa/HQKkVZ7C0Ak1r2
-	LsStw/s78iKpFuk/TtFkiNEqoc/CklYdnIOUm0Z98dRr86oIl9P0ZCn2YDYQrbNJEWa7rhr8Y+tHH
-	DCmC0tW5SaxwKAicGNHlrX5ch8MIXk4zhfSFH9NWEcCgm2+ScPSt9Y0uft/5dy7vZAlwxt4h2ogRU
-	1P8Gv+7Y4A7nIAT2DfCRJW8nIgOPGmPsS3EB2xaoE8TIc6nle1tSIRXWCPR4nTe9OzpE2LTqHanWq
-	XcNe850gGwky0wNXZjALw6pvKZdyvpDiP5CEsFLuSMIRm64rL2g+uc1ZaWKQGwRPKdzITkr2HJJca
-	/fLF+Tfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c4Fx3qzFZWS/hy6emLnQdWr9PVk4yhndpp2ap1cUgH0=; b=kifW4AHA1cJAdMchbpPWeu7ZKF
+	G8cOUnk84gl8FQZq7JEPKybiW12N8kcj4kK5YimqpDAEdbqRSwafHNUmX8mhEpk4n5NQQhzQg4FmC
+	UTUn/R3ejFGSLpdQCZEfmzwqHZu0RBvtPyIYlQ4gDZecH5rF8sCPJfXpxnE/iqoIicgbJp8xwxr4Y
+	qyQV/BWKDVBx6RpLvEUhZsjAHty7K8sSUFacVTpj/oQziIwQEWMNc6Csg+Zk167iL+rY4CHECAYrj
+	HuyRxt1gIon0OHL6yeOvkopEmemOtErZJHREb6yYNt7XMYE45GYJGyIdeWnK9cITTFk7Ofi5Il7ja
+	4bOeivOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBx12-00000006iwK-3qGE;
-	Thu, 23 Oct 2025 15:14:12 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vBx8s-00000006kOM-0nnW;
+	Thu, 23 Oct 2025 15:22:18 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBx0y-00000006iuW-0wjD
+	id 1vBx8q-00000006kNM-0NzQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 15:14:11 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33dadf7c5c0so1016357a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 08:14:06 -0700 (PDT)
+	Thu, 23 Oct 2025 15:22:17 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-427054641f0so149560f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 08:22:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761232446; x=1761837246; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eGj/4U8Cjm7Jzuo0N797IrKS+KWnd9Al6qyj+0gj5DU=;
-        b=etxsONN1RpZiTrf+VxD43bLWM1ygNaDp24NTSL93O/L1+GAu7pRWehjF24KOm9w4/I
-         xmgcsgBXM/rhWGZ+jd2Rirxk7q+HFVoA40OdhhkKIKBWw5tiXWG0yj195eBbJpBBgbHL
-         9L2DEww3IC36EwFIfUmTIE0Ow2RRCA930eskUNVO3P6w8pHA7k6UL5LKZC5ZmSoFCyr1
-         kA6gEyZGuCpez/j+Zu9trcdkKTIM21BUeesDiin1/sBwn6nMOZjQDpAkuwzlWtspyaQD
-         XkfDGq6Ik3bNYmgnYJRP9ayknyyKePa3NoaTSmH43AokVoXmzP91INyffOFfC0pj81E1
-         CyTA==
+        d=linaro.org; s=google; t=1761232934; x=1761837734; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=c4Fx3qzFZWS/hy6emLnQdWr9PVk4yhndpp2ap1cUgH0=;
+        b=NZ2IAfPeRLMh+CP0p3OYJMqfcg/RiGC5iS0y1Xs91LTZCltS9MKPKDu+6eUn+er4Ux
+         NAmPjf7DgcFF2U2subO4RsbTp4bxGzNVY8sD8z69zR+tLbyB6jPhoaKZQEQyPLLmSUwn
+         4oSjQbAZUqTZjBfXq2pZigxka/fg1dEZbrZSRiEDeqKPkquXO0ybPCjuuQfgVP7Zilc3
+         zS2uYLebYg0qV8BKeH+j/QRqJtTpNSiDk7blN8wr1yzPODfmF0ZSvwA4dKuD0nig/ygJ
+         VbLWTwRE2fidM2KccmtTPZ2pVP4qZIPzqiRo9xRSpOhuW2Ffj7nL9SSnbmt4Zzu7iTVU
+         uZiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761232446; x=1761837246;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eGj/4U8Cjm7Jzuo0N797IrKS+KWnd9Al6qyj+0gj5DU=;
-        b=wl7rECQBUtisD0LgatpBHag2KpVhlD6G6Mgp9IETXGfU6bt+/fysA+wHdAQ6fEJ9ZI
-         rUtg6AEhTjQT523uR1C0oCbWspmYLxJlxQ2Vxt+ly4WEaAFotdWOE/L4FurGexgFiD6V
-         3bMtLd95borvB7p5LcHPk7ZGpNTbprMFZAu+ZM431XZpmxaIgZk75i6Yi2En1pPnLBEY
-         8VSG8dhZZ+Tyiz1cOJRgrkzxeaEy3DAK5Yc8P/hozIqNB0IQWcmOxUPTACnhf0+BYJuM
-         3smdFt6KoM1GMi+jd+oCLf4Dv/xQ/GtarrNt2YJDPbtHNZeyKp6ZBAP0YUCLk0vCRShT
-         p2Hg==
-X-Forwarded-Encrypted: i=1; AJvYcCWwPmx86lpXy9DpTyzC9U27/N/JKrkvWCHbKVFXQcx3aArUS1DgY+ve88loFO81MWYRrPR2berRq/WVSfs34AHY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxs09KcPHzW8MdnTd/vEJF5e5ckvb4QPLrI53CoJBM5+hcKGuuT
-	07nmJpSMEtqGsK4qZL5NNpJn+pCHdr+TjpSqBOxQAiLDjYuEehqvrdrbN61cr6VLt0c05VvUuPV
-	6Lu2m4Q==
-X-Google-Smtp-Source: AGHT+IGyk+8DKCi3tYCJowX0kgLUyc4PpyLVM16G5qza1KYeH4GEBaOP8pzea9wQFWKumE2t1taaAoPvn3M=
-X-Received: from pjbrm7.prod.google.com ([2002:a17:90b:3ec7:b0:330:6c04:207])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:570e:b0:32e:7ff6:6dbd
- with SMTP id 98e67ed59e1d1-33e21dedc9fmr9424992a91.0.1761232446100; Thu, 23
- Oct 2025 08:14:06 -0700 (PDT)
-Date: Thu, 23 Oct 2025 08:14:04 -0700
-In-Reply-To: <aPnbIDxGlcAyI9vy@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-20-seanjc@google.com>
- <aPnbIDxGlcAyI9vy@yzhao56-desk.sh.intel.com>
-Message-ID: <aPpGPF8McvI3-OO7@google.com>
-Subject: Re: [PATCH v3 19/25] KVM: TDX: Assert that mmu_lock is held for write
- when removing S-EPT entries
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Michael Roth <michael.roth@amd.com>, Vishal Annapurve <vannapurve@google.com>, 
-	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Binbin Wu <binbin.wu@linux.intel.com>
-Content-Type: text/plain; charset="us-ascii"
+        d=1e100.net; s=20230601; t=1761232934; x=1761837734;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=c4Fx3qzFZWS/hy6emLnQdWr9PVk4yhndpp2ap1cUgH0=;
+        b=k/c1xCYZL7Pyo6OsBQj3A51r797MsR324wjgTfQHXOx4ZnZlmw+/4S9OpWJ++TTYnK
+         tQPj1VzIRQVmV1uPCxm2H2zIKrYZBzMPeOwDB2u4fNQ9T4ZGvOIpvjGcB8ghh9OM2Zqg
+         ktoLh2MchSLYxYe+aCyqv6AM627pDxS8nrgStg8HTlRlo6YxAz/42nfVGzuVKzSmb07V
+         nJ7KN2QOJBjjstw5jwegkNFaz+dA5L4h2NzK4GoVuAGSVopiriW0dx5wLWJTZnngX/9j
+         XuXSDiDNT5luSwR855iy7UTy2JmK7RNG6yJFZgDAcgzTfjfpEoiL/5sx5oP3Xij16pNS
+         Y4Tw==
+X-Forwarded-Encrypted: i=1; AJvYcCWVdR2CdPAVFRAJf803+SwRIN4Q5ut9Bf7bbl1/ZDqfyMrLuXvqOW7ATUwWhwKO4pRlXLq8S8lH2GbQM0/0Z15n@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQ4d3P0NnequMKKrJzsdP9gN1RNknmtc3O+JvmSqQzGsU4cE29
+	osjGWMHGr9eSdquWiavZ9z41RAVvt2MW3IMyqe+HKBU68G90+Dsx8YKrKJiMbHdj1ok=
+X-Gm-Gg: ASbGnctdHWwxhMrWN43W5SZtS5djZR2Pse9fbpv+Xpx8LDU7BYs4alCsguft9NsAnBu
+	8ztOw59aSbR30nM3ALsNLFAXgg7EmdqvCtcTc6m0rtfMpw9mMupvyRlIT8EW6wYKPGTlGMSeibp
+	gBHgAFnN5TUT/IYQFAoXVrNiAGwC72wjldg/QDfh2ltkkcE2Wg8JD64/o3XMqyrbSj4hms2PySR
+	57XeEOkeRaabtYdDC5/ZrJMSy3vNFuFQWXC/OAyZCCeo1s3bqQE9u+oyWZyvPC9Yzl0FxKJJz6S
+	eJlmh3PIp4KKMefiNZ9Q87znaj1lJ1hmTej3VcLjwIEBh9AevBvRFPPaW+ZKCRistxafYBgKZTA
+	+Fr+r68b6Iyvx5hsc1BdGlQGwrVnOfUxJ4OEf+Y1YzcUGw+gv53VivEPMcbdWXhurHFKVpGlshB
+	5IIDE95SplEew2kiCZWT5u
+X-Google-Smtp-Source: AGHT+IH4MRezzpyNDvBnjBEHiXqkZH8hBBhFxBYhslQPq+4bBt4WGTJBKs3PqNGZn+t3+iXL+u675w==
+X-Received: by 2002:a05:600c:1e8b:b0:46e:36f9:c57e with SMTP id 5b1f17b1804b1-47494305991mr49817025e9.5.1761232933974;
+        Thu, 23 Oct 2025 08:22:13 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.219.123])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429898add96sm4452598f8f.30.2025.10.23.08.22.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 23 Oct 2025 08:22:13 -0700 (PDT)
+Message-ID: <e6b282cf-e9de-43b7-a8d4-30e67cefe430@linaro.org>
+Date: Thu, 23 Oct 2025 17:22:11 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64: defconfig: Enable i.MX95 configs for booting
+ and Ethernet
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Marek Vasut <marex@denx.de>, Peng Fan <peng.fan@nxp.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>,
+ =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>
+References: <20251023-upstream-imx95-smarc-defconfig-v1-1-62c6e6f5b315@toradex.com>
+ <3381308.aeNJFYEL58@steina-w>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <3381308.aeNJFYEL58@steina-w>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_081408_267471_2A195868 
-X-CRM114-Status: GOOD (  25.76  )
+X-CRM114-CacheID: sfid-20251023_082216_160416_0B5FB6A8 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,100 +153,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025, Yan Zhao wrote:
-> On Thu, Oct 16, 2025 at 05:32:37PM -0700, Sean Christopherson wrote:
-> > Unconditionally assert that mmu_lock is held for write when removing S-EPT
-> > entries, not just when removing S-EPT entries triggers certain conditions,
-> > e.g. needs to do TDH_MEM_TRACK or kick vCPUs out of the guest.
-> > Conditionally asserting implies that it's safe to hold mmu_lock for read
-> > when those paths aren't hit, which is simply not true, as KVM doesn't
-> > support removing S-EPT entries under read-lock.
-> > 
-> > Only two paths lead to remove_external_spte(), and both paths asserts that
-> > mmu_lock is held for write (tdp_mmu_set_spte() via lockdep, and
-> > handle_removed_pt() via KVM_BUG_ON()).
-> > 
-> > Deliberately leave lockdep assertions in the "no vCPUs" helpers to document
-> > that wait_for_sept_zap is guarded by holding mmu_lock for write.
-> > 
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  arch/x86/kvm/vmx/tdx.c | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-> > index e517ad3d5f4f..f6782b0ffa98 100644
-> > --- a/arch/x86/kvm/vmx/tdx.c
-> > +++ b/arch/x86/kvm/vmx/tdx.c
-> > @@ -1711,8 +1711,6 @@ static void tdx_track(struct kvm *kvm)
-> >  	if (unlikely(kvm_tdx->state != TD_STATE_RUNNABLE))
-> >  		return;
-> >  
-> > -	lockdep_assert_held_write(&kvm->mmu_lock);
-> Could we also deliberately leave lockdep assertion for tdx_track()?
+On 23/10/2025 16:03, Alexander Stein wrote:
+> Hi,
+> 
+> Am Donnerstag, 23. Oktober 2025, 14:19:15 CEST schrieb João Paulo Gonçalves:
+>> From: João Paulo Gonçalves <joao.goncalves@toradex.com>
+>>
+>> Enable the necessary missing configs for the i.MX95 to boot and also
+>> have Ethernet working:
+>>
+>> * CONFIG_NXP_ENETC4 for the network controller driver
+>> * CONFIG_NXP_NETC_BLK_CTRL for the NETC hardware domain controller
+>> * CONFIG_PINCTRL_IMX_SCMI for the pinctrl driver
+>> * CONFIG_CLK_IMX95_BLK_CTL for the shared hardware domain controller
+>>
+>> Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+>> ---
+>>  arch/arm64/configs/defconfig | 4 ++++
+>>  1 file changed, 4 insertions(+)
+>>
+>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+>> index e3a2d37bd10423b028f59dc40d6e8ee1c610d6b8..787d3ae3f5afeac486a905e0943e7b0e1dcee3a9 100644
+>> --- a/arch/arm64/configs/defconfig
+>> +++ b/arch/arm64/configs/defconfig
+>> @@ -354,8 +354,10 @@ CONFIG_FSL_FMAN=y
+>>  CONFIG_FSL_DPAA_ETH=y
+>>  CONFIG_FSL_DPAA2_ETH=y
+>>  CONFIG_FSL_ENETC=y
+>> +CONFIG_NXP_ENETC4=m
+>>  CONFIG_FSL_ENETC_VF=y
+>>  CONFIG_FSL_ENETC_QOS=y
+>> +CONFIG_NXP_NETC_BLK_CTRL=m
+> 
+> Are you sure this should be module? Shouldn't NFS boot be supported by
+> default? I might be wring here though.
 
-Can do.
 
-> This is because if we allow removing S-EPT entries while holding mmu_lock for
-> read in future, tdx_track() needs to be protected by a separate spinlock to
-> ensure serialization of tdh_mem_track() and vCPUs kick-off (kicking off vCPUs
-> must follow each tdh_mem_track() to unblock the next tdh_mem_track()).
+NFS root is supported already with this being module. Yes, it must be a
+module, cannot be built in.
 
-Does this look/sound right?
-
-From: Sean Christopherson <seanjc@google.com>
-Date: Thu, 28 Aug 2025 17:06:17 -0700
-Subject: [PATCH] KVM: TDX: Assert that mmu_lock is held for write when
- removing S-EPT entries
-
-Unconditionally assert that mmu_lock is held for write when removing S-EPT
-entries, not just when removing S-EPT entries triggers certain conditions,
-e.g. needs to do TDH_MEM_TRACK or kick vCPUs out of the guest.
-Conditionally asserting implies that it's safe to hold mmu_lock for read
-when those paths aren't hit, which is simply not true, as KVM doesn't
-support removing S-EPT entries under read-lock.
-
-Only two paths lead to remove_external_spte(), and both paths asserts that
-mmu_lock is held for write (tdp_mmu_set_spte() via lockdep, and
-handle_removed_pt() via KVM_BUG_ON()).
-
-Deliberately leave lockdep assertions in the "no vCPUs" helpers to document
-that wait_for_sept_zap is guarded by holding mmu_lock for write, and keep
-the conditional assert in tdx_track() as well, but with a comment to help
-explain why holding mmu_lock for write matters (above and beyond why
-tdx_sept_remove_private_spte()'s requirements).
-
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- arch/x86/kvm/vmx/tdx.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
-index dca9e2561270..899051c64faa 100644
---- a/arch/x86/kvm/vmx/tdx.c
-+++ b/arch/x86/kvm/vmx/tdx.c
-@@ -1715,6 +1715,11 @@ static void tdx_track(struct kvm *kvm)
- 	if (unlikely(kvm_tdx->state != TD_STATE_RUNNABLE))
- 		return;
- 
-+	/*
-+	 * The full sequence of TDH.MEM.TRACK and forcing vCPUs out of guest
-+	 * mode must be serialized, as TDH.MEM.TRACK will fail if the previous
-+	 * tracking epoch hasn't completed.
-+	*/
- 	lockdep_assert_held_write(&kvm->mmu_lock);
- 
- 	err = tdh_mem_track(&kvm_tdx->td);
-@@ -1762,6 +1767,8 @@ static void tdx_sept_remove_private_spte(struct kvm *kvm, gfn_t gfn,
- 	gpa_t gpa = gfn_to_gpa(gfn);
- 	u64 err, entry, level_state;
- 
-+	lockdep_assert_held_write(&kvm->mmu_lock);
-+
- 	/*
- 	 * HKID is released after all private pages have been removed, and set
- 	 * before any might be populated. Warn if zapping is attempted when
-
-base-commit: 69564844a116861ebea4396894005c8b4e48f870
---
+Best regards,
+Krzysztof
 
