@@ -4,45 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09E88CCF9EA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 21:43:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D71DCCF9EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 21:43:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y42raCWkNMOF2hi+V9i8P9p5dtOVsE/cKxvZpU4RsYM=; b=QkzZZHgncyoDwugoXfN6l+15f3
-	LqrLL1NDzEvEmcyMsPVpAXPOh2SlxyRYg4CCQh2cRyT1/Bk73JHszpvbJCwbloOCoouWavWTSp/z2
-	ut0CCc+/wmWMEdDuTq+VV7unk6h+SkzhAr+JjljxhTyldoOORwAQIawgYUMw8RJP3WYjd6cydQrr8
-	n1mx+D5Ky3isGnUjKIRJYFgWIDmaRtERsyM5CudiJDlMuiQgwBB7Ae/uG0j2TO3dqNKuAhoULWew3
-	foSZPrf+djCYYhA/a23WENDjpFzew/M5+2XzZWhuHqMhtoKiMzQL2/q8WSDMfz4+OnCbYWjV0B5hI
-	cbeP8f7w==;
+	bh=OiyurVssSUTlSk+ceSRnsH4BdKPUHP5BGFeWZyZX/xI=; b=0y0ED3JGKnw6rh4E5s+7GEaLT1
+	75DUR3ObxxuHqxJbvlq5uXxmc9k2wdCaprf6NpEB1LSp41AXKcwFM5dDE8/fl+L7Ye+bIaTOCc+Nq
+	CrGwl0XgKthBpEpmu7xRzMPQ1BdoVaRVcZ2IQGRSKFPaZQQJn8YCNaSZsqsnYQgDi7vFXJL61HVMe
+	2RE++jpcz/s2hLlX7v1ACdpxfNWcUTwLBg8sR/sGYL9GTOLkQ9//aUp6xRCHtpNOlqKSazD6RS4Ae
+	EnIAskya8bwCpeMe7Ahr5x+Lx4A80yUwmv16e9XqkXsYfbVsqbKttoqFXo9PzxUB8IEP2UW27UecJ
+	Wy/dGG2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC35j-00000007fMC-3Shn;
-	Thu, 23 Oct 2025 21:43:27 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vC35m-00000007fQO-1EaJ;
+	Thu, 23 Oct 2025 21:43:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC35T-00000007f2b-2Jrg;
-	Thu, 23 Oct 2025 21:43:13 +0000
+	id 1vC35e-00000007fFf-0LUl;
+	Thu, 23 Oct 2025 21:43:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=OiyurVssSUTlSk+ceSRnsH4BdKPUHP5BGFeWZyZX/xI=; b=fYM41M7kAaw+mSEZrJn2g4ahqu
+	BwLcz9AuLQ9AuyW8PiflmZaavIcUGoEh+Ei2mUjIIlBQEDH1YbfYtgHMd3+mC4zpmkV9TpKTFZJO1
+	qeYgT5HoFNG8zkPtO3IkOKn+iwZVtlKfLacoWIfqF1T0x0PPgdXA9SS3PSAlo5CNzLy6J5WRWjfNf
+	TZhi21vVt1CGCjPSp/jpxK2C1Rf9NVnFbsVQphvjtm9+iS1fxnbHc3kBl/ZYFL6rALboddYEAjv79
+	fJHm2tDcWwb6hcDDbZzqAYHCMY1yJRChXBnXzCnhL1ZMnenbSoQwS7GAyhpVadBq39A6p+TJqsrJC
+	7FdzX/Dg==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vC2Dw-00000001myj-31Zy;
+	Thu, 23 Oct 2025 20:47:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761255788;
-	bh=8LaPy/JUz4wYgtolV664kDTBF9UYYF/LY8IQ9qzL1kI=;
+	s=mail; t=1761255796;
+	bh=MyQnU+ziVxmDWlQNW8S0Z6G/yC/3e+Tz4JHVK6BWaos=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oNiDVsfHuX1OKvaFbEgc8NveF6lxGY2LSYIW7qxHxo8uOByTRGyyTWxO2hj9aiBzr
-	 3QUfGmDKTWDxbQFILqDH7kFaoGAr+J2wKUU6Q7xkdNJ8CxDQ7+oELC+tJ++alG0y6r
-	 wSkx3CglSSARe+pK1nKIIsRX/2lr3J2byp3OyIC/VMr2sfxwPaXSofCJY+/JJu0Dwx
-	 wSW3830VwCEI++Dc5Kk9+iKXNgUiykNVxjcoO6ivHyuv/HINQAc2EdtVGJUhFd+bES
-	 2WnahKUj1IE1rknyQn9vi3w9OCW77lvKlZKxtUSAAKHjYiSU/5faU5H+SMigr/JMuH
-	 LlMliMqGYk0/A==
+	b=QkyJMZDpRXcgKsyRSX72SAJi0spMkbrQQmU1xgjrsl0v/1lhl94UG4trBuTzKh0Fi
+	 s4tjQ2llOAMju/6QWd5lTnNAETHQVZjQaSh9qLG86c2Kaa4E5G+3W9v19g5P5cm6d2
+	 DFSWAC48Ij3RDVgMatUR6SMCGB2lXNEvg7o1vBEeS4vXOHttkSKJsV1MAmmDpX2uDH
+	 m0ResIzxscu4N9NqEtLkdITdpIwus+29J24y6xmLu4WdwpW2P3Y8e3qsG0QcLjW2Lw
+	 ZD+ulY8dE31zRLaBkmLRPa4/2c84ReXqmCpprtoghcp11tJWqgGfIpijGCpqem0Z2I
+	 xa345c0EBx9Ww==
 Received: from trenzalore (unknown [23.233.251.139])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7A45C17E02B0;
-	Thu, 23 Oct 2025 23:43:06 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8D96817E13DE;
+	Thu, 23 Oct 2025 23:43:14 +0200 (CEST)
 From: Detlev Casanova <detlev.casanova@collabora.com>
 To: linux-kernel@vger.kernel.org
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -63,17 +77,17 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	kernel@collabora.com,
 	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
 	Diederik de Haas <didi.debian@cknow.org>
-Subject: [PATCH v5 05/15] media: rkvdec: Use structs to represent the HW RPS
-Date: Thu, 23 Oct 2025 17:42:36 -0400
-Message-ID: <20251023214247.459931-6-detlev.casanova@collabora.com>
+Subject: [PATCH v5 08/15] media: rkvdec: Add variant specific coded formats list
+Date: Thu, 23 Oct 2025 17:42:39 -0400
+Message-ID: <20251023214247.459931-9-detlev.casanova@collabora.com>
 X-Mailer: git-send-email 2.51.1.dirty
 In-Reply-To: <20251023214247.459931-1-detlev.casanova@collabora.com>
 References: <20251023214247.459931-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_144312_284440_158A3175 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20251023_214752_834775_B64937A9 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,165 +102,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is in preparation to add support for other variants of the decoder.
-
-Moving to struct representation is mainly to prepare for multicore
-support that is present in e.g. rk3588.
+Prepare for adding new variants of the decoder and support specific
+formats and format ops per variant.
 
 Tested-by: Diederik de Haas <didi.debian@cknow.org>  # Rock 5B
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- .../platform/rockchip/rkvdec/rkvdec-h264.c    | 93 +++++++++++++++++--
- 1 file changed, 84 insertions(+), 9 deletions(-)
+ .../media/platform/rockchip/rkvdec/rkvdec.c   | 35 ++++++++++++-------
+ .../media/platform/rockchip/rkvdec/rkvdec.h   |  2 ++
+ 2 files changed, 24 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-index 989379ae3a73..cb17dfcae5ca 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264.c
-@@ -19,7 +19,6 @@ extern const s8 rkvdec_h264_cabac_table[4][464][2];
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 776149f871b0..968982f6e62c 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -373,15 +373,16 @@ static bool rkvdec_is_capable(struct rkvdec_ctx *ctx, unsigned int capability)
+ static const struct rkvdec_coded_fmt_desc *
+ rkvdec_enum_coded_fmt_desc(struct rkvdec_ctx *ctx, int index)
+ {
++	const struct rkvdec_variant *variant = ctx->dev->variant;
+ 	int fmt_idx = -1;
+ 	unsigned int i;
  
- /* Size with u32 units. */
- #define RKV_CABAC_INIT_BUFFER_SIZE	(3680 + 128)
--#define RKV_RPS_SIZE			((128 + 128) / 4)
- #define RKV_ERROR_INFO_SIZE		(256 * 144 * 4)
- 
- #define RKVDEC_NUM_REFLIST		3
-@@ -34,6 +33,40 @@ struct rkvdec_sps_pps_packet {
- 	u32 info[8];
- };
- 
-+struct rkvdec_rps_entry {
-+	u32 dpb_info0:          5;
-+	u32 bottom_flag0:       1;
-+	u32 view_index_off0:    1;
-+	u32 dpb_info1:          5;
-+	u32 bottom_flag1:       1;
-+	u32 view_index_off1:    1;
-+	u32 dpb_info2:          5;
-+	u32 bottom_flag2:       1;
-+	u32 view_index_off2:    1;
-+	u32 dpb_info3:          5;
-+	u32 bottom_flag3:       1;
-+	u32 view_index_off3:    1;
-+	u32 dpb_info4:          5;
-+	u32 bottom_flag4:       1;
-+	u32 view_index_off4:    1;
-+	u32 dpb_info5:          5;
-+	u32 bottom_flag5:       1;
-+	u32 view_index_off5:    1;
-+	u32 dpb_info6:          5;
-+	u32 bottom_flag6:       1;
-+	u32 view_index_off6:    1;
-+	u32 dpb_info7:          5;
-+	u32 bottom_flag7:       1;
-+	u32 view_index_off7:    1;
-+} __packed;
-+
-+struct rkvdec_rps {
-+	u16 frame_num[16];
-+	u32 reserved0;
-+	struct rkvdec_rps_entry entries[12];
-+	u32 reserved1[66];
-+} __packed;
-+
- struct rkvdec_ps_field {
- 	u16 offset;
- 	u8 len;
-@@ -94,7 +127,7 @@ struct rkvdec_ps_field {
- struct rkvdec_h264_priv_tbl {
- 	s8 cabac_table[4][464][2];
- 	struct rkvdec_h264_scaling_list scaling_list;
--	u32 rps[RKV_RPS_SIZE];
-+	struct rkvdec_rps rps;
- 	struct rkvdec_sps_pps_packet param_set[256];
- 	u8 err_info[RKV_ERROR_INFO_SIZE];
- };
-@@ -260,6 +293,51 @@ static void lookup_ref_buf_idx(struct rkvdec_ctx *ctx,
- 	}
- }
- 
-+static void set_dpb_info(struct rkvdec_rps_entry *entries,
-+			 u8 reflist,
-+			 u8 refnum,
-+			 u8 info,
-+			 bool bottom)
-+{
-+	struct rkvdec_rps_entry *entry = &entries[(reflist * 4) + refnum / 8];
-+	u8 idx = refnum % 8;
-+
-+	switch (idx) {
-+	case 0:
-+		entry->dpb_info0 = info;
-+		entry->bottom_flag0 = bottom;
-+		break;
-+	case 1:
-+		entry->dpb_info1 = info;
-+		entry->bottom_flag1 = bottom;
-+		break;
-+	case 2:
-+		entry->dpb_info2 = info;
-+		entry->bottom_flag2 = bottom;
-+		break;
-+	case 3:
-+		entry->dpb_info3 = info;
-+		entry->bottom_flag3 = bottom;
-+		break;
-+	case 4:
-+		entry->dpb_info4 = info;
-+		entry->bottom_flag4 = bottom;
-+		break;
-+	case 5:
-+		entry->dpb_info5 = info;
-+		entry->bottom_flag5 = bottom;
-+		break;
-+	case 6:
-+		entry->dpb_info6 = info;
-+		entry->bottom_flag6 = bottom;
-+		break;
-+	case 7:
-+		entry->dpb_info7 = info;
-+		entry->bottom_flag7 = bottom;
-+		break;
-+	}
-+}
-+
- static void assemble_hw_rps(struct rkvdec_ctx *ctx,
- 			    struct v4l2_h264_reflist_builder *builder,
- 			    struct rkvdec_h264_run *run)
-@@ -269,11 +347,10 @@ static void assemble_hw_rps(struct rkvdec_ctx *ctx,
- 	struct rkvdec_h264_ctx *h264_ctx = ctx->priv;
- 	struct rkvdec_h264_priv_tbl *priv_tbl = h264_ctx->priv_tbl.cpu;
- 
--	u32 *hw_rps = priv_tbl->rps;
-+	struct rkvdec_rps *hw_rps = &priv_tbl->rps;
- 	u32 i, j;
--	u16 *p = (u16 *)hw_rps;
- 
--	memset(hw_rps, 0, sizeof(priv_tbl->rps));
-+	memset(hw_rps, 0, sizeof(*hw_rps));
- 
- 	/*
- 	 * Assign an invalid pic_num if DPB entry at that position is inactive.
-@@ -285,7 +362,7 @@ static void assemble_hw_rps(struct rkvdec_ctx *ctx,
- 		if (!(dpb[i].flags & V4L2_H264_DPB_ENTRY_FLAG_ACTIVE))
+-	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+-		if (!rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
++	for (i = 0; i < variant->num_coded_fmts; i++) {
++		if (!rkvdec_is_capable(ctx, variant->coded_fmts[i].capability))
  			continue;
- 
--		p[i] = builder->refs[i].frame_num;
-+		hw_rps->frame_num[i] = builder->refs[i].frame_num;
+ 		fmt_idx++;
+ 		if (index == fmt_idx)
+-			return &rkvdec_coded_fmts[i];
++			return &variant->coded_fmts[i];
  	}
  
- 	for (j = 0; j < RKVDEC_NUM_REFLIST; j++) {
-@@ -312,9 +389,7 @@ static void assemble_hw_rps(struct rkvdec_ctx *ctx,
- 			dpb_valid = run->ref_buf[ref->index] != NULL;
- 			bottom = ref->fields == V4L2_H264_BOTTOM_FIELD_REF;
+ 	return NULL;
+@@ -390,12 +391,13 @@ rkvdec_enum_coded_fmt_desc(struct rkvdec_ctx *ctx, int index)
+ static const struct rkvdec_coded_fmt_desc *
+ rkvdec_find_coded_fmt_desc(struct rkvdec_ctx *ctx, u32 fourcc)
+ {
++	const struct rkvdec_variant *variant = ctx->dev->variant;
+ 	unsigned int i;
  
--			set_ps_field(hw_rps, DPB_INFO(i, j),
--				     ref->index | dpb_valid << 4);
--			set_ps_field(hw_rps, BOTTOM_FLAG(i, j), bottom);
-+			set_dpb_info(hw_rps->entries, j, i, ref->index | (dpb_valid << 4), bottom);
+-	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+-		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability) &&
+-		    rkvdec_coded_fmts[i].fourcc == fourcc)
+-			return &rkvdec_coded_fmts[i];
++	for (i = 0; i < variant->num_coded_fmts; i++) {
++		if (rkvdec_is_capable(ctx, variant->coded_fmts[i].capability) &&
++		    variant->coded_fmts[i].fourcc == fourcc)
++			return &variant->coded_fmts[i];
+ 	}
+ 
+ 	return NULL;
+@@ -1014,18 +1016,19 @@ static int rkvdec_add_ctrls(struct rkvdec_ctx *ctx,
+ 
+ static int rkvdec_init_ctrls(struct rkvdec_ctx *ctx)
+ {
++	const struct rkvdec_variant *variant = ctx->dev->variant;
+ 	unsigned int i, nctrls = 0;
+ 	int ret;
+ 
+-	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++)
+-		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
+-			nctrls += rkvdec_coded_fmts[i].ctrls->num_ctrls;
++	for (i = 0; i < variant->num_coded_fmts; i++)
++		if (rkvdec_is_capable(ctx, variant->coded_fmts[i].capability))
++			nctrls += variant->coded_fmts[i].ctrls->num_ctrls;
+ 
+ 	v4l2_ctrl_handler_init(&ctx->ctrl_hdl, nctrls);
+ 
+-	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+-		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability)) {
+-			ret = rkvdec_add_ctrls(ctx, rkvdec_coded_fmts[i].ctrls);
++	for (i = 0; i < variant->num_coded_fmts; i++) {
++		if (rkvdec_is_capable(ctx, variant->coded_fmts[i].capability)) {
++			ret = rkvdec_add_ctrls(ctx, variant->coded_fmts[i].ctrls);
+ 			if (ret)
+ 				goto err_free_handler;
  		}
- 	}
- }
+@@ -1242,11 +1245,15 @@ static void rkvdec_watchdog_func(struct work_struct *work)
+ 
+ static const struct rkvdec_variant rk3288_rkvdec_variant = {
+ 	.num_regs = 68,
++	.coded_fmts = rkvdec_coded_fmts,
++	.num_coded_fmts = ARRAY_SIZE(rkvdec_coded_fmts),
+ 	.capabilities = RKVDEC_CAPABILITY_HEVC,
+ };
+ 
+ static const struct rkvdec_variant rk3328_rkvdec_variant = {
+ 	.num_regs = 109,
++	.coded_fmts = rkvdec_coded_fmts,
++	.num_coded_fmts = ARRAY_SIZE(rkvdec_coded_fmts),
+ 	.capabilities = RKVDEC_CAPABILITY_HEVC |
+ 			RKVDEC_CAPABILITY_H264 |
+ 			RKVDEC_CAPABILITY_VP9,
+@@ -1255,6 +1262,8 @@ static const struct rkvdec_variant rk3328_rkvdec_variant = {
+ 
+ static const struct rkvdec_variant rk3399_rkvdec_variant = {
+ 	.num_regs = 78,
++	.coded_fmts = rkvdec_coded_fmts,
++	.num_coded_fmts = ARRAY_SIZE(rkvdec_coded_fmts),
+ 	.capabilities = RKVDEC_CAPABILITY_HEVC |
+ 			RKVDEC_CAPABILITY_H264 |
+ 			RKVDEC_CAPABILITY_VP9,
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+index f35f6e80ea2e..aac6cba4c623 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+@@ -71,6 +71,8 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
+ 
+ struct rkvdec_variant {
+ 	unsigned int num_regs;
++	const struct rkvdec_coded_fmt_desc *coded_fmts;
++	size_t num_coded_fmts;
+ 	unsigned int capabilities;
+ 	unsigned int quirks;
+ };
 -- 
 2.51.1.dirty
 
