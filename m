@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 812AACCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 18:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9E5CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 18:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gr+iTa6I2/obiorgX/iYvIq85HArhg0aBMc30DEux0I=; b=mIuQs8MG1yxTtXYO87Rzm8PRpV
-	9lyQYPBGZkndspCfInOhVsyKpxKewFVzaSHka35hOkjK6gNPA3MM5C5J/JsYZ0Nn1Ol6vlI0RYhdF
-	OmAJ1M5vRhE+D9XtfjafOI7Ilk6KKy/b/soGAbABkaVU5Ei8mTcSi++3uHr44ft+P/2kFmcoMmStg
-	ncp/yGC852VJMUssUvB1hg1zh8656J9tiy8SEvTQLzlmroysKQlAGTOIpR7GFoPR785fetU6u7CL2
-	MfPvgntQ0hPAhExKybBqoDdcGFJFdip6nDAwRzHbeclAz6zm/T/NCLGF6v7OUKl4MPldu6ByHJm2f
-	Q73titOw==;
+	bh=OgaCyEM7L/8mt3oUm8lfVeAvLdE1lAEXA9Vr4r1Qdh4=; b=SfIbt8Xn32zc87XvKrx5t/k6pY
+	vqZEeMCV2MTAd3PG5zB0u+uvKILqei6QcDg9W/PNbQ4l8wa4bD+EpfK1+uxYHrl1w7A446pb8lOEn
+	NhpELCk60tSmu+x1dHs9vjIyJR3WvVZh1xWQwvdpfQ1UKaM6t0sitwraDLbYHD58+FvBN/GMAD3/y
+	ACQ97W6zti76MjpaC8GeH9ggnUtwoO3YMhg5n5Dqd0Rz82sVoTulIt9Hyp4lUo9pVrzBkgRAkzQTb
+	ahfPc9JvYkljfpyHlRd8Rd2YwmFwLb6orsNYdPSwGpL7ecuBvjw/GSs1PC6RaLoB+H0XpjCCap38D
+	ytBIKhMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC0Ie-00000007GZ6-0bwu;
-	Thu, 23 Oct 2025 18:44:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vC0J7-00000007Gj1-1YPs;
+	Thu, 23 Oct 2025 18:45:05 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC0Id-00000007GYO-0HYr;
-	Thu, 23 Oct 2025 18:44:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=gr+iTa6I2/obiorgX/iYvIq85HArhg0aBMc30DEux0I=; b=e40IUSNu5q974NZDm0Py1ZNpAz
-	/1OLMkKUH3IJ0Mn1CK6yFzCmGpxefM0+t8qNqvj2NXUld9VeyPjHzafZjwXEgLeAKT9E/IntXUkti
-	pmzpN+Gte76PMKvAF74i6zKccltqJ0sMtl+NALMvcbcXoSkOx23Wyjiq/dgN0KGVz1B1lx/fbkgLM
-	NCwF+7PPZqmNKm+5HOXToiADhNGXngvggojJOdq1PXIkvbD/BRwcvw3OQbGNFJUgcxewE7B4h/Xem
-	63zVDWegGFB2WNY/I7HydGxHHeIGz9jDM75xuCM+/xENIfM4nHfjdRCwxH/ZIxJ2p0ioumgQ7LWbi
-	vWB4fMVw==;
-Received: from galois.linutronix.de ([193.142.43.55])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBzQu-00000001caT-3uSL;
-	Thu, 23 Oct 2025 17:49:07 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1761245054;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gr+iTa6I2/obiorgX/iYvIq85HArhg0aBMc30DEux0I=;
-	b=Z6JyVVvXaWOYv4K7XWupHxBpzZlYpgf5Va2pTz0xKoekHimqy8m9kpzWJR67k8NTSge6Pu
-	pj1eoQeYp8npSoNhcmRFl+wtklkvdSbntGU/+ZU+VkEYhATJ/2w67pfLl6NrKzFL8YkFBj
-	tz+RIae+Vg6+/gA7ZwvSAx8jyyfFhHWoerQNsfsX8vZwG++ZSmVquE3u5d9Qky5u/pWhfe
-	Z27mkNjesStYEnSIaLWsvH9GU2GdvVJ+/1wsaxCCyTnv7bk0dW7oyVKDPvU36ZH4tGdIz0
-	SAAZZgn3S2Kdp9w4d8AFHEvN5ZwXz+cPMrMK16HbkBELjB3xvZYnc/4yMJ00yA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1761245054;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gr+iTa6I2/obiorgX/iYvIq85HArhg0aBMc30DEux0I=;
-	b=k2PqTysZqIKK5wnAuNAF6YkOs1yYrSVeb86wNNECOCJRF4fnFtNx18Z5K79S+1+JpepjUk
-	+w4iQ08K50QRq8Bg==
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra
- <peterz@infradead.org>, Darren Hart <dvhart@infradead.org>, Davidlohr
- Bueso <dave@stgolabs.net>, =?utf-8?Q?Andr=C3=A9?= Almeida
- <andrealmeid@igalia.com>, kernel
- test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Nicholas
- Piggin <npiggin@gmail.com>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, linuxppc-dev@lists.ozlabs.org, Paul
- Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
- <svens@linux.ibm.com>, linux-s390@vger.kernel.org, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>, Andrew Cooper
- <andrew.cooper3@citrix.com>, David Laight <david.laight.linux@gmail.com>,
- Julia Lawall <Julia.Lawall@inria.fr>, Nicolas Palix
- <nicolas.palix@imag.fr>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V4 10/12] futex: Convert to scoped user access
-In-Reply-To: <CAHk-=wgLAJuJ8SP8NiSGbXJQMdxiPkBN32EvAy9R8kCnva4dfg@mail.gmail.com>
-References: <20251022102427.400699796@linutronix.de>
- <20251022103112.478876605@linutronix.de>
- <CAHk-=wgLAJuJ8SP8NiSGbXJQMdxiPkBN32EvAy9R8kCnva4dfg@mail.gmail.com>
-Date: Thu, 23 Oct 2025 20:44:13 +0200
-Message-ID: <873479xxtu.ffs@tglx>
+	id 1vC0J4-00000007Ghf-0emT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Oct 2025 18:45:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=OgaCyEM7L/8mt3oUm8lfVeAvLdE1lAEXA9Vr4r1Qdh4=; b=l0QietyS4aPXhRXiAtpuxntQKC
+	+XmNwjnh+r73qlDSI9EUWHZt9PAjzN8SQdrz7qcKVl04utM8tEpGonhF1e44G6CYcy4MOxkwlBASa
+	g8EN7Hl7+NVUTYGLA9QtFg+geW6vOljuZc1vyhUWb2bddevMOAKcEg8DQ7rktCYMjH8U=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vC0Ix-00BuWG-O0; Thu, 23 Oct 2025 20:44:55 +0200
+Date: Thu, 23 Oct 2025 20:44:55 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Richard Cochran <richardcochran@gmail.com>
+Subject: Re: [PATCH net-next 1/8] net: stmmac: move version handling into own
+ function
+Message-ID: <01330327-7a9d-48c8-a99f-a5ac064e0ced@lunn.ch>
+References: <aPn3MSQvjUWBb92P@shell.armlinux.org.uk>
+ <E1vBrl6-0000000BMPl-18ag@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1vBrl6-0000000BMPl-18ag@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_184905_083212_C50D324B 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20251023_114502_919244_5E21388D 
+X-CRM114-Status: UNSURE (   6.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,38 +79,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 22 2025 at 05:16, Linus Torvalds wrote:
-> On Wed, 22 Oct 2025 at 02:49, Thomas Gleixner <tglx@linutronix.de> wrote:
->>
->> From: Thomas Gleixner <tglx@linutronix.de>
->>
->> Replace the open coded implementation with the new get/put_user_scoped()
->> helpers.
->
-> Well, "scoped" here makes no sense in the name, since it isn't scoped
-> in any way, it just uses the scoped helpers.
+On Thu, Oct 23, 2025 at 10:37:24AM +0100, Russell King (Oracle) wrote:
+> Move the version handling out of stmmac_hwif_init() and into its own
+> function, returning the version information through a structure.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-I know. Did not come up with a sensible name so far.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-> I also wonder if we should just get rid of the futex_get/put_value()
-> macros entirely. I did those masked user access things them long ago
-> because that code used "__get_user()" and "__put_user()", and I was
-> removing those helpers and making it match the pattern elsewhere, but
-> I do wonder if there is any advantage left to them all.
->
-> On x86, just using "get_user()" and "put_user()" should work fine now.
-> Yes, they check the address, but these days *those* helpers use that
-> masked user address trick too, so there is no real cost to it.
->
-> The only cost would be the out-of-line function call, I think. Maybe
-> that is a sufficiently big cost here.
-
-I'll have a look at the usage sites.
-
-But as you said out-of-line function call it occured to me that these
-helpers might be just named get/put_user_inline(). Hmm?
-
-Thanks,
-
-        tglx
+    Andrew
 
