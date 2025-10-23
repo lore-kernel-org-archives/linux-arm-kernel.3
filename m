@@ -4,96 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E308CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 17:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B11FCCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 17:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/DTN4f9sYvKKbqzH4zMTtt+lW5xHHb7Uewe/2Me0Lwc=; b=s2qaBAIlLt8+7PydctBg9pnQpR
-	HSnG5SLNFWA4ibtMIfwJlGunM3BEvloYNMiCRB8mzbV7G6o5Nlz/Sc1MDfHl8/vojYYoLjDOQAEWP
-	RV09EhPWxVidODWkqeWApT6vSxm9ph10mSVFIiRVof4dPhNmGZQveHihCyGzqJQnJPB9vatI2MZgz
-	tGRmFUhxZ9xjJx/fLYC4z6DAVqtPEVXuGid/IparY+7QGjyrAcKCA4FT6zAiu1lRGmLilPEQxrUSk
-	csI9GUDjGCHfhBTljuZr2tKRpPjbRGh0L78mJlh5g2Kf8rvvx+zAAkIsDVKovwZf1mvIsz7Zh8C/p
-	ZVaaHtSA==;
+	bh=PMd4YohbYBDUY30TTRBHmO9DyPvx8MjhdR/tVFXtYYI=; b=sY5FO7iwzukg6I8G2YIobhUiHM
+	HAobjSmBVNG/N0PY9hh1WYRAcF2Y6iVhQaDIhH4e43LlvvRl26N4yHK4s7q8eSMP7m2yjaZ3AX+Iy
+	4IBr4DUVGiLHS5DvmV0dZF/3NC8dcghYfWndWK68LeIsC5q6ouY5jHgCb5mJyGsjPu3aszVK7H9Yi
+	hzbnB5zPu7aWo61Vra9KBLadCuAKcTodWDtJi81korpi3DokNGn4wAmSchuqUNofRTKwKltdqez5N
+	zjUgknqQQA+ewO7OtGEM9X90be1XRBtpQnogy8pL43XGUtRNyeGJRJT06YLXszecSHSxqf34eW2oO
+	Ve9tu6mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vByv8-000000073EZ-2I3f;
-	Thu, 23 Oct 2025 17:16:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vBz5t-000000074Lg-21Ls;
+	Thu, 23 Oct 2025 17:27:21 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vByv7-000000073E4-0Vzf
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 23 Oct 2025 17:16:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=/DTN4f9sYvKKbqzH4zMTtt+lW5xHHb7Uewe/2Me0Lwc=; b=P8lxfE+B5ywSdHY6OBepU7JE+j
-	kcOdL9VPuao6y6Oooc2Mhymo1mm2FJ8d9CBZSfpTH22I2YNOBeAjhXuLKppQtTHu9gKiMJV0dAXQb
-	HIKrlIXm6fOAAxyhfl9lPZF35ZbHBerM/DNyaVVil+EtSFP4pQd5tpJRRzT/EamW2sjUB8RuKXiC9
-	6nlUcj2cqoBDZfADOSJz+FuZp+W1aWjotV+/mnkowsoVQ2O+dZGxBMe3yIa2ro1nZoEHCEmVaFGcX
-	Lq78mPCop+P6Ge/i1VwCRSTadrjL2oemSjz0A9clfDnyyH4xIbuc2vfo+0Sg7LA8bTwD1+3CV7nht
-	GjtX+0kQ==;
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBy3P-00000001X4S-1UDd
+	id 1vBz5r-000000074Ko-0Lrl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 16:20:45 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2930e2e8e7fso9202705ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 10:16:08 -0700 (PDT)
+	Thu, 23 Oct 2025 17:27:20 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-28973df6a90so9564215ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 10:27:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761239767; x=1761844567; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/DTN4f9sYvKKbqzH4zMTtt+lW5xHHb7Uewe/2Me0Lwc=;
-        b=h7siqR+E8qZGqBv+y675jMMXL+P0CbTSP7ZT55gfvO+CibABdXrZPBu+1ExIgIjyVI
-         Q4lct+JBAKr9r74fl0vtkd/6h/+kxO/2T9Y3MlUIDJoKRx+NJz57MJ2bYEMyuPAsh0Nn
-         LAEgU3zxR9a26daJTEn2ffpQvOBBCFobZBVw74sBOnsgL2MCQLhcjOhfY+Z7oJwly172
-         DWXf/Hp4lzD+OhryNOARX868HVDVSq9ZG9ZuQREDJMOMPgMq5PZ5TDlei0qlrryvdHLw
-         owRyWZh0pbbJp+1941hfccQPYDhknuCwlhL2hsYinVkq82rHlYwY9f2JMxi3Q7uhs24I
-         7YCw==
+        d=google.com; s=20230601; t=1761240437; x=1761845237; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=PMd4YohbYBDUY30TTRBHmO9DyPvx8MjhdR/tVFXtYYI=;
+        b=KHA/adG+IcBFOsmsbEhv36qbaAIED+9Tsgl2OhqqmJXaecO8DHNOqS9r0/bw2jI/Pc
+         LDicPkN/j5u+yxf50fIttRGvAhfSFI3MiC5qGp75zZtHq99UlWl0SB6cw7qa6PCTP2MA
+         otUBHyfD5z0V7Mvz/Yxb2xrP0m2wJVQLQhZQ0iKZIHUYAwk+kghlo8DpubgxB1JvK8Mf
+         a5g+tsrd4X2uAM54GSnlRNbb8g4DBZoG3lk//83dx+USzmvklfNaP+qoEAWBoqHnjcRD
+         4Jbze3pjJkxPFxRZgKM/vs7btFF5jmND3DcxzxxO829wyscEumAb23TOw+2VGiKXbLRk
+         MeaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761239767; x=1761844567;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/DTN4f9sYvKKbqzH4zMTtt+lW5xHHb7Uewe/2Me0Lwc=;
-        b=wfWlZ9Xl8gbBNzGyHRtc47T3TAkEEMsW3H4jP/Wsm6IBADNWcKdTm1ruFTE1o9O/Rq
-         dLWpolhlcGJ/s5tFOvmXbs9BaNcFuASXFL8newUVeDIEsWsKnZK3C74Uw09HIAV/arwG
-         VtqMk3IhCNDabh9glxV7GXq8E7pEY50Fo4cAIYyV63OZByq+aEki0BXCPAVDojG4NgTp
-         x3zEn4Wi1iyS9glt7NVaRS/ryQILd6gtnL7Mtnl3aizADFMvkj/OsNi4atTPanl+8+B5
-         WBqmgFVFI6+YDvEUY/0HvKcWC17c1zp3yuBTw1y8Gklf6uA1iD30mgpCVPxPEOwEOlwt
-         CXPg==
-X-Forwarded-Encrypted: i=1; AJvYcCWPsG21p9snsYsvbqp87EMVFm1l4mCm2hZsAWfox8fwJBvhf3XbJtARI5CwwQ+NK3rgPD4zAns9oXy4DE4YYhJ6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzy+nQwF3VV/+3xuNxV/Bm9CGtU8LbhYIJmHCTaCK7ggFgv2EjZ
-	oPvKMVKIHTa9BnQX3qbM8NTOy88hA+/0bW2JD09iCRgz2ALr25q52ARa14bUOGNGaGzUx41rBP+
-	uBhDEQg==
-X-Google-Smtp-Source: AGHT+IHWPgGmZKfo+3ImlZCUG7AewIscdCvWipQB1xDHXcjZQxceHYcdCY71wfIfELDOVuODkQ3p+Aq3kE8=
-X-Received: from pjkm11.prod.google.com ([2002:a17:90a:730b:b0:33b:e0b5:6112])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e88e:b0:267:da75:e0f
- with SMTP id d9443c01a7336-290c9c897bbmr312407025ad.11.1761239766935; Thu, 23
- Oct 2025 10:16:06 -0700 (PDT)
-Date: Thu, 23 Oct 2025 10:16:05 -0700
-In-Reply-To: <20251013151502.6679-3-jackabt.amazon@gmail.com>
+        d=1e100.net; s=20230601; t=1761240437; x=1761845237;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=PMd4YohbYBDUY30TTRBHmO9DyPvx8MjhdR/tVFXtYYI=;
+        b=W1mE9VPNqEFfYb748AlcDOppy8AcNOl1+dpCEKEUIeCTJyIZ9NxRd4PAn8V/gcxjUj
+         gtru39Lg2LyP4Pfs/CX5TLH8gqjZ3Z2IA/9be180F7dqcIbUg2AkmztQ+prEtkW0WABH
+         70Qw/K/ubysPIX/I04XPckkIP6BZeS+f+z312czCvD813KDqZECg2ENAIh5DBafIUbLl
+         PbRacVx5sbgFNTnuBGJnt7csaylonvKdtv/tUZQm1lRkQhkJ8CBMPxY46/LWu3iHfKBi
+         LxaJlv5ZPYXwvgwZlgaGN94PXt2sA002m2K3vEQZW9I3qn5BNfTwPgtIdG+AUdgCdfaB
+         1cWw==
+X-Forwarded-Encrypted: i=1; AJvYcCUfBKb9iKs+qGx/URMgvTKfVvODyzsImRuUzGdkBEtqiYib9dEDwWzxOE851QnZgmUZepD5ry7u/3huvnJhQOEz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjRN7tCGhWvfM3d5vZ9sd2GICLFgtIjn/XvfcNqY3O3/J0HQe3
+	XVyhWhxjVjXkSzp191XpPcNmxuyim+r81lFQwQfaJ9jThJXSP3w3IB35G6HYJa23TxtKqsjobuS
+	+9UfaMw==
+X-Google-Smtp-Source: AGHT+IFjhG//1khxmFCKdE4+6wWu9+6PA/jOl4XyR0eCgR53v+ZECkEt8twGk0B4jVNQwQCsevpreYrKXxc=
+X-Received: from pjuj5.prod.google.com ([2002:a17:90a:d005:b0:33b:a35b:861])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:db11:b0:240:48f4:40f7
+ with SMTP id d9443c01a7336-290cba4efc9mr387536115ad.39.1761240437319; Thu, 23
+ Oct 2025 10:27:17 -0700 (PDT)
+Date: Thu, 23 Oct 2025 10:27:16 -0700
+In-Reply-To: <707a01ee36c28863bdc6a4444a5560e9a0b19597.camel@intel.com>
 Mime-Version: 1.0
-References: <20251013151502.6679-1-jackabt.amazon@gmail.com> <20251013151502.6679-3-jackabt.amazon@gmail.com>
-Message-ID: <aPpi1c-8EpWuo87B@google.com>
-Subject: Re: [PATCH v2 2/4] KVM: selftests: Fix unaligned mmap allocations
+References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-15-seanjc@google.com>
+ <707a01ee36c28863bdc6a4444a5560e9a0b19597.camel@intel.com>
+Message-ID: <aPpldKdiQYYnl4uC@google.com>
+Subject: Re: [PATCH v3 14/25] KVM: TDX: Bug the VM if extended the initial
+ measurement fails
 From: Sean Christopherson <seanjc@google.com>
-To: Jack Thomson <jackabt.amazon@gmail.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, pbonzini@redhat.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	isaku.yamahata@intel.com, roypat@amazon.co.uk, kalyazin@amazon.co.uk, 
-	jackabt@amazon.com
-Content-Type: text/plain; charset="us-ascii"
+To: Rick P Edgecombe <rick.p.edgecombe@intel.com>
+Cc: "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>, 
+	"maz@kernel.org" <maz@kernel.org>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, 
+	"pjw@kernel.org" <pjw@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
+	"kas@kernel.org" <kas@kernel.org>, "maobibo@loongson.cn" <maobibo@loongson.cn>, 
+	"pbonzini@redhat.com" <pbonzini@redhat.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>, 
+	"palmer@dabbelt.com" <palmer@dabbelt.com>, "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, 
+	"zhaotianrui@loongson.cn" <zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>, 
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
+	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>, Kai Huang <kai.huang@intel.com>, 
+	Yan Y Zhao <yan.y.zhao@intel.com>, "michael.roth@amd.com" <michael.roth@amd.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, 
+	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
+	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>, 
+	"ackerleytng@google.com" <ackerleytng@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+	Vishal Annapurve <vannapurve@google.com>, 
+	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, 
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_172043_513416_BD702DE7 
-X-CRM114-Status: GOOD (  22.18  )
+X-CRM114-CacheID: sfid-20251023_102719_119800_D7C03CF2 
+X-CRM114-Status: GOOD (  20.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,71 +111,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025, Jack Thomson wrote:
-> From: Jack Thomson <jackabt@amazon.com>
-> 
-> When creating a VM using mmap with huge pages, and the memory amount does
-> not align with the underlying page size. The stored mmap_size value does
-> not account for the fact that mmap will automatically align the length
-> to a multiple of the underlying page size. During the teardown of the
-> test, munmap is used. However, munmap requires the length to be a
-> multiple of the underlying page size.
+On Tue, Oct 21, 2025, Rick P Edgecombe wrote:
+> On Thu, 2025-10-16 at 17:32 -0700, Sean Christopherson wrote:
+> > WARN and terminate the VM if TDH_MR_EXTEND fails, as extending the
+> > measurement should fail if and only if there is a KVM bug, or if the S-=
+EPT
+> > mapping is invalid, and it should be impossible for the S-EPT mappings =
+to
+> > be removed between kvm_tdp_mmu_map_private_pfn() and tdh_mr_extend().
+> >=20
+> > Holding slots_lock prevents zaps due to memslot updates,
+> > filemap_invalidate_lock() prevents zaps due to guest_memfd PUNCH_HOLE,
+> > and all usage of kvm_zap_gfn_range() is mutually exclusive with S-EPT
+> > entries that can be used for the initial image.=C2=A0 The call from sev=
+.c is
+> > obviously mutually exclusive, TDX disallows KVM_X86_QUIRK_IGNORE_GUEST_=
+PAT
+> > so same goes for kvm_noncoherent_dma_assignment_start_or_stop, and whil=
+e
+> > __kvm_set_or_clear_apicv_inhibit() can likely be tripped while building=
+ the
+> > image, the APIC page has its own non-guest_memfd memslot and so can't b=
+e
+> > used for the initial image, which means that too is mutually exclusive.
+> >=20
+> > Opportunistically switch to "goto" to jump around the measurement code,
+> > partly to make it clear that KVM needs to bail entirely if extending th=
+e
+> > measurement fails, partly in anticipation of reworking how and when
+> > TDH_MEM_PAGE_ADD is done.
+> >=20
+> > Fixes: d789fa6efac9 ("KVM: TDX: Handle vCPU dissociation")
+> > Signed-off-by: Yan Zhao <yan.y.zhao@intel.com>
+> > Signed-off-by: Sean Christopherson <seanjc@google.com>
+> > ---
+>=20
+> Per the discussion in v2, shouldn't it go after patch 24 'KVM: TDX: Guard=
+ VM
+> state transitions with "all" the locks'? Otherwise it introduces a KVM_BU=
+G_ON()
+> that can be triggered from userspace. not a huge deal though.
 
-What happens when selftests use the wrong map_size?  E.g. is munmap() silently
-failing?  If so, then I should probably take this particular patch through
-kvm-x86/gmem, otherwise it means we'll start getting asserts due to:
-
-  3223560c93eb ("KVM: selftests: Define wrappers for common syscalls to assert success")
-
-If munmap() isn't failing, then that begs the question of what this patch is
-actually doing :-)
-
-> Update the vm_mem_add method to ensure the mmap_size is aligned to the
-> underlying page size.
-> 
-> Signed-off-by: Jack Thomson <jackabt@amazon.com>
-> ---
->  tools/testing/selftests/kvm/lib/kvm_util.c | 12 +++++-------
->  1 file changed, 5 insertions(+), 7 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-> index c3f5142b0a54..b106fbed999c 100644
-> --- a/tools/testing/selftests/kvm/lib/kvm_util.c
-> +++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-> @@ -1051,7 +1051,6 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
->  	/* Allocate and initialize new mem region structure. */
->  	region = calloc(1, sizeof(*region));
->  	TEST_ASSERT(region != NULL, "Insufficient Memory");
-> -	region->mmap_size = mem_size;
->  
->  #ifdef __s390x__
->  	/* On s390x, the host address must be aligned to 1M (due to PGSTEs) */
-> @@ -1060,6 +1059,11 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
->  	alignment = 1;
->  #endif
->  
-> +	alignment = max(backing_src_pagesz, alignment);
-> +	region->mmap_size = align_up(mem_size, alignment);
-> +
-> +	TEST_ASSERT_EQ(guest_paddr, align_up(guest_paddr, backing_src_pagesz));
-> +
->  	/*
->  	 * When using THP mmap is not guaranteed to returned a hugepage aligned
->  	 * address so we have to pad the mmap. Padding is not needed for HugeTLB
-> @@ -1067,12 +1071,6 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
->  	 * page size.
->  	 */
->  	if (src_type == VM_MEM_SRC_ANONYMOUS_THP)
-> -		alignment = max(backing_src_pagesz, alignment);
-> -
-> -	TEST_ASSERT_EQ(guest_paddr, align_up(guest_paddr, backing_src_pagesz));
-> -
-> -	/* Add enough memory to align up if necessary */
-> -	if (alignment > 1)
->  		region->mmap_size += alignment;
->  
->  	region->fd = -1;
-> -- 
-> 2.43.0
-> 
+Oh, right.  And then the changelog needs to be updated too.
 
