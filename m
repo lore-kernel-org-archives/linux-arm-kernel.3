@@ -4,112 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC48ECCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 06:58:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D69CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 07:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tktev3/zhLxCK3GVUzo9rk435gN9zqkT9BPDJc02P+A=; b=bDJetVwDdmq3qTXqtZ4jpXawyB
-	93IJo78KCRMcH6bx9fkySUU2mynN6Tv++tuicIwFKG6A3TrR7kEoTiC+hTmCaPuBzCzG6v3XBlvbF
-	H4L0AGfpo2sb7wNg7J0bVPw2wI+z9LD4DNjzz5z2VbeBea+aJLitYoyEv8fKlUEhvI8Wtu+LdtJIq
-	+R6ROW5Vzqf3WTwT72BUah8lcvN2ql/NTUIHgsqVygrE64n6/y6eIO6ZD37fW6NCJy1NeXRSKs4nD
-	wR4sDmqlE8uqMMXEz9VhDPXFyRQRKNTreJO1T5ARsoXApQaxA13Nf0Kt4l4+StymO5z4yw6XRWqsd
-	I9ukWW/A==;
+	bh=G6Ffq+ccXhdu6bXkIVnRfbSR16dvXJBwWlJvJBmc4C0=; b=h4IoQGZPvAfPM7eNVxqEfEPSbS
+	NIraLGPJ+r6KZQ9HLijhizKYR3FjYy3XEnwKNHS9g9wANlaAkt04CrhqEnvsAT9lziVUauDYbNYux
+	90de82po+Zuw+aQv5sLE8m9kW8rts9mDM8Zl9LwxNuaY4k4rSsB+dCQPzgbSL7VcT4stD0gFkKnc9
+	Ftci0zhisSIf9ksdHgKjC91lZOTGvxAHY22i9cfELsiM7aT5qFGnHyg+1lcb59kVLl15OVRvTGJLI
+	qABTWckv6+SeSdtni+ULSiktBASVcnXNqN3EpBP9jBZ2yRWq3vEbWCPY72Nk2ulhFkyDi9wJX7kCS
+	43YBaPZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBpGt-00000005HVH-0ocr;
-	Thu, 23 Oct 2025 06:58:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vBpM7-00000005I9P-1waC;
+	Thu, 23 Oct 2025 07:03:28 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBpGr-00000005HUO-3uPl;
-	Thu, 23 Oct 2025 06:58:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4F7CA63EA4;
-	Thu, 23 Oct 2025 06:58:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AC92C4CEE7;
-	Thu, 23 Oct 2025 06:57:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761202681;
-	bh=Bk8mkjow2SUlSxjCiPaDSHS2if6WZcJF6LTupPJO9Lg=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=YwOH8CUA1g9ZjTrRt8S/qb1Q3DHdjKzluiDFYeHpLVuGaohh7VOG2OGrBAcLeOlWs
-	 C40TQFde0pwYlDpr2/HKy0dG0ouwreMDd+jnkJjYr22RM05cEfFvM10L2CWG6tySP8
-	 gKZA4cMykWRNYPifPlo1rsti7VELpDv6T38DWPy7Nd59Ry68maQUUvsfmfhBAC14BG
-	 jw/Ajk9wAAnjRVhq1iNqRgHRVJpJBy+mq10zbkRDWYLnM1ICI42l4IorHuyK5D4ri8
-	 PIvT7YwVn3s7Zo5nOQUgaGACuU+x6YJ2UmZRvWs8zKj6ZpZThib+KD1xnSnWrVc6so
-	 D66n7jYnPapbg==
-Message-ID: <698ba0ea-3367-4fc0-bd4f-0177283c2e77@kernel.org>
-Date: Thu, 23 Oct 2025 08:57:55 +0200
+	id 1vBpM5-00000005I8o-0HJG
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Oct 2025 07:03:26 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cscSJ4tYYz9t4g;
+	Thu, 23 Oct 2025 09:03:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761202992;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=G6Ffq+ccXhdu6bXkIVnRfbSR16dvXJBwWlJvJBmc4C0=;
+	b=vu+Mc10bLXPpvhAqYk5bXxYTs1HTKafr6RVNerUH3+/USKTUzMsf+pd1rvIWl9QchACxgY
+	4zKKcupQrMnuvqwZI7y99Fci6+G7L5Tj1nJyEppAlzPlroaJnvnX4Fj7gRi3kCKFSoT2/H
+	uH01xiEk6xYbMxtHS50MrrVbQE8dW9nYZXhITofdse1xstTFfhADwldr64mub4LkhxyAdH
+	NniMIgcoPySC5PBH8r5adx8mqwK/9y+KDFVITyXqemq3caRUPBtPjmxjghvBY80hL12zjQ
+	6b6hWvtEjQtV/SnMlX3TSEQI9iFnql5jaDzi2unQD7+L0B8XGM3HypbE9GQJjQ==
+Message-ID: <9c7e43c3-24e9-4b08-a6ce-2035b50226f4@mailbox.org>
+Date: Thu, 23 Oct 2025 09:03:07 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB
- PHY
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Roy Luo <royluo@google.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>,
- Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20251017235159.2417576-1-royluo@google.com>
- <20251017235159.2417576-2-royluo@google.com>
- <20251023-collie-of-impossible-plenty-fc9382@kuoka>
+Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+To: "Musham, Sai Krishna" <sai.krishna.musham@amd.com>,
+ "mani@kernel.org" <mani@kernel.org>,
+ "Havalige, Thippeswamy" <thippeswamy.havalige@amd.com>
+Cc: Bjorn Helgaas <helgaas@kernel.org>, "Bandi, Ravi Kumar"
+ <ravib@amazon.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "stable@vger.kernel.org" <stable@vger.kernel.org>,
+ Sean Anderson <sean.anderson@linux.dev>,
+ "Yeleswarapu, Nagaradhesh" <nagaradhesh.yeleswarapu@amd.com>
+References: <20251021212801.GA1224310@bhelgaas>
+ <ab1f7c51-bc41-4774-a0dc-850e53c412eb@mailbox.org>
+ <3it5l556vmfpuu6kz5yvulwosi4ecmcgfbzcizrc5wi7ifddkh@mpzfxf2v6v3f>
+ <72267a6c-13c7-40bd-babb-f73a28625ca4@mailbox.org>
+ <SN7PR12MB7201CF621AF0A38AA905799D8BF3A@SN7PR12MB7201.namprd12.prod.outlook.com>
+ <brekq5jmgnotwpshcksxefpg2adm4vlsbuncazdg32sdpxqjwj@annnvyzshrys>
+ <SN7PR12MB7201C6B5B64F8847DD6D816D8BF3A@SN7PR12MB7201.namprd12.prod.outlook.com>
+ <zuj6puxpqgjmaa3y3wwyixlru7e7locplnjev37i5fnh6zummw@72t5prkfsrpk>
+ <DM4PR12MB6158ACBA7BCEDB99A55ACA03CDF3A@DM4PR12MB6158.namprd12.prod.outlook.com>
+ <29bc5e92-04c9-475a-ba3d-a5ea26f1c95a@mailbox.org>
+ <DM4PR12MB615855ADA4F81818418FD6EBCDF0A@DM4PR12MB6158.namprd12.prod.outlook.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251023-collie-of-impossible-plenty-fc9382@kuoka>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Stefan Roese <stefan.roese@mailbox.org>
+In-Reply-To: <DM4PR12MB615855ADA4F81818418FD6EBCDF0A@DM4PR12MB6158.namprd12.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 358144a9827ee41a4ee
+X-MBO-RS-META: g69ksoo1z1asa47yurzwt9fgrzr3uqh6
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251023_000325_271109_23B70ACD 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,64 +99,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/2025 08:43, Krzysztof Kozlowski wrote:
-> On Fri, Oct 17, 2025 at 11:51:58PM +0000, Roy Luo wrote:
->> Document the device tree bindings for the USB PHY interfaces integrated
->> with the DWC3 controller on Google Tensor SoCs, starting with G5
->> generation. The USB PHY on Tensor G5 includes two integrated Synopsys
->> PHY IPs: the eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo PHY IP.
->>
->> Due to a complete architectural overhaul in the Google Tensor G5, the
->> existing Samsung/Exynos USB PHY binding for older generations of Google
->> silicons such as gs101 are no longer compatible, necessitating this new
->> device tree binding.
->>
->> Signed-off-by: Roy Luo <royluo@google.com>
->> ---
->>  .../bindings/phy/google,gs5-usb-phy.yaml      | 104 ++++++++++++++++++
->>  1 file changed, 104 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
->> new file mode 100644
->> index 000000000000..c92c20eba1ea
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
->> @@ -0,0 +1,104 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +# Copyright (C) 2025, Google LLC
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/phy/google,gs5-usb-phy.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Google Tensor Series (G5+) USB PHY
->> +
->> +maintainers:
->> +  - Roy Luo <royluo@google.com>
->> +
->> +description: |
->> +  Describes the USB PHY interfaces integrated with the DWC3 USB controller on
->> +  Google Tensor SoCs, starting with the G5 generation.
->> +  Two specific PHY IPs from Synopsys are integrated, including eUSB 2.0 PHY IP
->> +  and USB 3.2/DisplayPort combo PHY IP.
->> +  The hardware can support three PHY interfaces, which are selected using the
->> +  first phandle argument in the PHY specifier::
+On 10/23/25 08:35, Musham, Sai Krishna wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
 > 
-> Just one ':', anyway this sentence and below does not belong to
-> description but to phy-cells. You describe the cells.
+>> -----Original Message-----
+>> From: Stefan Roese <stefan.roese@mailbox.org>
+>> Sent: Wednesday, October 22, 2025 7:08 PM
+>> To: Musham, Sai Krishna <sai.krishna.musham@amd.com>; mani@kernel.org;
+>> Havalige, Thippeswamy <thippeswamy.havalige@amd.com>
+>> Cc: Bjorn Helgaas <helgaas@kernel.org>; Bandi, Ravi Kumar
+>> <ravib@amazon.com>; lpieralisi@kernel.org; bhelgaas@google.com; linux-
+>> pci@vger.kernel.org; kwilczynski@kernel.org; robh@kernel.org; Simek, Michal
+>> <michal.simek@amd.com>; linux-arm-kernel@lists.infradead.org; linux-
+>> kernel@vger.kernel.org; stable@vger.kernel.org; Sean Anderson
+>> <sean.anderson@linux.dev>; Yeleswarapu, Nagaradhesh
+>> <nagaradhesh.yeleswarapu@amd.com>
+>> Subject: Re: [PATCH v2] PCI: xilinx-xdma: Enable INTx interrupts
+>>
+>> Caution: This message originated from an External Source. Use proper caution
+>> when opening attachments, clicking links, or responding.
+>>
+>>
+>> On 10/22/25 14:48, Musham, Sai Krishna wrote:
+>>> [AMD Official Use Only - AMD Internal Distribution Only]
+>>
+>> <snip>
+>>
+>>>>> We even don’t need ravi patch, as we have tested this at our end it
+>>>>> works fine by just updating interrupt-map Property. We need to now
+>>>>> understand the
+>>>> difference in design.
+>>>>
+>>>> Ok, please let us know with your findings. In the meantime, I'll keep
+>>>> Ravi's patch in tree, as it seems to be required on his setup.
+>>>>
+>>>
+>>> We tested on Linux version 6.12.40 without applying either Stefan's or Ravi's
+>> patches.
+>>> Instead, we applied only the following interrupt-map property change
+>>> (entries 0,1,2,3) and verified that legacy interrupts are working correctly.
+>>>
+>>> interrupt-map = <0 0 0 1 &pcie_intc_0 0>,
+>>> <0 0 0 2 &pcie_intc_0 1>,
+>>> <0 0 0 3 &pcie_intc_0 2>,
+>>> <0 0 0 4 &pcie_intc_0 3>;
+>>>
+>>> 38:       1143          0  pl_dma:RC-Event  16 Level     80000000.axi-pcie
+>>> 39:       1143          0  pl_dma:INTx   0 Level     nvme0q0, nvme0q1
+>>
+>> Okay. Same here. I don't need Ravi's patch for the INTx bit enabling.
+>>
+>> I understand that you want us to change the interrupt map in the auto- generated
+>> device-tree from Vivado. Which is IMHO a bit "suboptimal".
+>>
+>> I would prefer to have a solution which works out-of-the-box, w/o the need to
+>> manually change DT properties. Is it planned to change / fix this interrupt map in
+>> pl.dtsi generated with a newer version of Vivado?
+>>
 > 
-> Or just mention the header with IDs - here or in phy-cells.
+> Yes Stefan, this will be fixed in the newer versions and the auto-generated
+> device tree will include the correct interrupt-map property entries.
 
+Understood. And thanks the update on this.
 
-If you go with free-form text description in phy cells, then some
-example could be:
-renesas,rcar-gen2-usb-phy.yaml
+@Bjorn & Mani, this patch can be dropped then.
 
-For the header (in this case clocks):
-display/msm/dsi-phy-common.yaml
+Thanks,
+Stefan
 
-
-Best regards,
-Krzysztof
 
