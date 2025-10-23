@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D13CACCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:07:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D96CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zn87WStNUu8QnMPbdDiRsUi5A/QpkGCBEl8yDwMULUg=; b=SDALdaQRtFPIyIFtWkNxo84Ajt
-	X1zJ1zagKGLIadyeN6WN29enAnm5VMWnArphIJ9oZHbdgUdgCMrlHqjPQGRcAykgb/XAzgyyY6nB/
-	7MZ3FHlK+ZsblSF0bsbC0GpePSwynEC5wgF5NMZXiJ9LkH2eMIo88LLPbAIMbTVlCq2zsSkd2oGaV
-	xkUSRr7jOnXOy9PyutJYHRPN01ZFWuKC9DIU40HyfzpPC2eMspKvW0zUIfc0Ba6CzZ0/gup9glSJQ
-	r7t0HTmusb2E9O0KV6SC4ygWuCsASlDUKeHT/FYSuvnGZUoPYTR9d1UplxdeAtozhm1PuEYPJm3fa
-	Xtaqc78Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GCCeWjIO6/V0fuE5wLIQltMgO5ed5m3tGd8KS2cyWi0=; b=iW0VHtWv5/Q3OHJZ1lEVArsOF+
+	kxFYE5VGKvi7026Ghnw7EMD1xW0WKFF+NlrTamzB5IERjzMvIuO6g/rO3OM+h7m2q1LNs/taVlwfo
+	CFv8EiA+UISCA6NFyT63qEEceXUdFkm24n4x4HVPJUVmkfs2BR49yi5tiPJ1UfgNZ3p3Hh4uzA9z+
+	ivwaoh6g6ZYoxHd9TSkAlKv1ftjf7I/abqMjKo6ksWP2JVJPqtkWhrMvybLGa7ewA0c1WtfEC4wRc
+	BtfxxQPLzdtg+KpJMhaOnx01zqEHn1FtiJ1u8RBh3nygxmSRV/S1fnwQkvr+q00zTeuDu9DZuxG5H
+	PHsqE3Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvyq-00000006Wp8-0FjK;
-	Thu, 23 Oct 2025 14:07:52 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vBw9Z-00000006Yrd-2v2w;
+	Thu, 23 Oct 2025 14:18:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvyn-00000006Wo1-1n6L;
-	Thu, 23 Oct 2025 14:07:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761228452; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=QJTDz73q9ULElSJbe3UBcx+2Lh0bvt0HNsiJran5Vx51osYjS85rMDSnSIQ3D8wy4/5jWxUFB33nEv6gyOwj3VXh8p8BOzgzdIsQLkL2bgHCAcrqnBurjZdf9P7ar8l9Z18pFsADQr4gUEobSTfCMDZfk34f+CEs91kZGRTU20M=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761228452; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Zn87WStNUu8QnMPbdDiRsUi5A/QpkGCBEl8yDwMULUg=; 
-	b=LTpLW0BGhziv59wBl4U/yI/p/C7UWo1UnC0ZolcyfF7kM0SRjzxJpGPW1m0xAS/bNuMDSKdyjiqo5nCsc65riPiGB/oSsy7l4FaYkrsbgdOQgCq9fZwLMYyCAGU8hFgVW0XO/Zck5R2/XKbG1cEqQysrz3X3suS5DPMf8/a9JTg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761228452;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=Zn87WStNUu8QnMPbdDiRsUi5A/QpkGCBEl8yDwMULUg=;
-	b=AP8SnN0sy9jK6LmZJPJ5zgN9OdYE/1DvKHCdkQNCHLsPQ1DZN3s027C/aUb+l4Wd
-	UhbHHc0zrptRAa8zRgFvAy5gpjv1rdRrdNbyqHYsX3MK8TbMgjBaNvH8/40DNlqtZwy
-	ZyStghdS8G1krBgZ694sxhxkSAyL0v2DCAYevoVI=
-Received: by mx.zohomail.com with SMTPS id 1761228449352726.4571148367125;
-	Thu, 23 Oct 2025 07:07:29 -0700 (PDT)
-Message-ID: <c7ea2422-cff3-46ad-8c46-20aa651a18d4@collabora.com>
-Date: Thu, 23 Oct 2025 10:07:27 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 02/15] media: v4l2-ctrls: Add hevc_ext_sps_[ls]t_rps
- controls
-To: Hans Verkuil <hverkuil+cisco@kernel.org>, linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>, Ricardo Ribalda <ribalda@chromium.org>,
- Hans Verkuil <hverkuil@kernel.org>, Hans de Goede <hansg@kernel.org>,
- Yunke Cao <yunkec@google.com>, Jonathan Corbet <corbet@lwn.net>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- James Cowgill <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com, Nicolas Dufresne <nicolas.dufresne@collabora.com>
-References: <20251022174508.284929-1-detlev.casanova@collabora.com>
- <20251022174508.284929-3-detlev.casanova@collabora.com>
- <6eaa8b26-edab-4bfa-9c6a-1fbb54c36b4e@kernel.org>
-Content-Language: en-US
-From: Detlev Casanova <detlev.casanova@collabora.com>
-In-Reply-To: <6eaa8b26-edab-4bfa-9c6a-1fbb54c36b4e@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+	id 1vBw9X-00000006Yqs-36Q8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Oct 2025 14:18:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:To:From:Cc:
+	Subject:Message-Id:Date:Content-Type:Mime-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=GCCeWjIO6/V0fuE5wLIQltMgO5ed5m3tGd8KS2cyWi0=; b=DcGF3Okx2twde4nA5FqcqILLHB
+	mxjKPTImh9N54uaehDP950waFBbPOwdVRe9p3wSbyrFZxpuT0IE8kpq4UH4CSmbG7Ay8DlmsDvTm9
+	gQFhuvhR2a+KVKgarp0JdjbiC/Gtz7A9r/Yv4NMrMzLZ6CqdV2w2ZMmr6JyhiDV4u5F6sprvl0INa
+	ds7EZOUDsA30DkP2fb2VDs97YrIpe6OZocIDCGDPLn5lZmHW12k9NVqREmf2RJGelmMxO2MBeBuhj
+	yOcMsY+EMGF5AGbeT44KV8+cRw+Juy/e9FAbIAdlb6x6nujutrywga3tNehFloqsBztwrDpeGlWIT
+	cc0ObnCw==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBvHp-00000001P5D-13G9
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Oct 2025 13:23:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A894B453D5;
+	Thu, 23 Oct 2025 14:18:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B047C4CEF7;
+	Thu, 23 Oct 2025 14:18:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761229128;
+	bh=bJxweCGYFicDN8XJJqtvmSXX/oE1+rQFvpKIjeLyq2c=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To:From;
+	b=NifcWW7Qh2v4x/kLGCIpFeNvdnkhS+V9q2j8GvTnzHLKheB40XnFQmGWdNho73/oI
+	 oaJu22dbrmDgSIwevJzCLSqUwTJlficK7YpgG6zOcTuE3UMJG9nCfNDpDVevl4rsGO
+	 Abo1bSlW+gOYqhrhaqFeVoxWv6xCINmpFr/HO4czKmfsKVX7CXn1FUdm3M7iU4GIev
+	 syBdcO9lnUKTixM2TBbO2iwDDxxu1ZNjUxr/sBYdAde34GBq8/MfUoCvbSDOObSmT1
+	 MOTxnb4m8zDVFWKEqQDZsTRdL2FMr/wjR+RzeIaX8ff43/gw9N4VmmySy5qKubK2ls
+	 a6CpqR45AxyJg==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=b31e57130b0d78ca537571d43b9c56e4965516d92bed9fa6dfb1c4bc1f0c;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Thu, 23 Oct 2025 16:18:43 +0200
+Message-Id: <DDPRM9UCVZNA.HFRGLJW17PIP@kernel.org>
+Subject: Re: [PATCH v1 2/2] arm64: dts: ti: k3-j722s-main: fix the audio
+ refclk source
+Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Kumar, Udit" <u-kumar1@ti.com>, "Nishanth Menon" <nm@ti.com>, "Vignesh
+ Raghavendra" <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>
+X-Mailer: aerc 0.20.0
+References: <20251017102228.530517-1-mwalle@kernel.org>
+ <20251017102228.530517-2-mwalle@kernel.org>
+ <554df7d2-1809-42a8-b512-bde3fd284163@ti.com>
+In-Reply-To: <554df7d2-1809-42a8-b512-bde3fd284163@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_070749_533239_B3770555 
-X-CRM114-Status: GOOD (  30.06  )
+X-CRM114-CacheID: sfid-20251023_142325_730615_E1D3BB4B 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,221 +94,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hans,
+--b31e57130b0d78ca537571d43b9c56e4965516d92bed9fa6dfb1c4bc1f0c
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On 10/23/25 04:04, Hans Verkuil wrote:
-> On 22/10/2025 19:44, Detlev Casanova wrote:
->> The vdpu381 decoder found on newer Rockchip SoC need the information
->> from the long term and short term ref pic sets from the SPS.
->>
->> So far, it wasn't included in the v4l2 API, so add it with new dynamic
->> sized controls.
->>
->> Each element of the hevc_ext_sps_lt_rps array contains the long term ref
->> pic set at that index.
->> Each element of the hevc_ext_sps_st_rps contains the short term ref pic
->> set at that index, as the raw data.
->> It is the role of the drivers to calculate the reference sets values.
->>
->> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
->> ---
->>   drivers/media/v4l2-core/v4l2-ctrls-core.c | 18 +++++++
->>   drivers/media/v4l2-core/v4l2-ctrls-defs.c | 10 ++++
->>   include/uapi/linux/v4l2-controls.h        | 61 +++++++++++++++++++++++
->>   include/uapi/linux/videodev2.h            |  2 +
->>   4 files changed, 91 insertions(+)
->>
->> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4l2-core/v4l2-ctrls-core.c
->> index 7c660cd61e48..b330bd7719e9 100644
->> --- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
->> +++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
->> @@ -418,6 +418,12 @@ void v4l2_ctrl_type_op_log(const struct v4l2_ctrl *ctrl)
->>   	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
->>   		pr_cont("HEVC_SLICE_PARAMS");
->>   		break;
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS:
->> +		pr_cont("HEVC_EXT_SPS_ST_RPS");
->> +		break;
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS:
->> +		pr_cont("HEVC_EXT_SPS_LT_RPS");
->> +		break;
->>   	case V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX:
->>   		pr_cont("HEVC_SCALING_MATRIX");
->>   		break;
->> @@ -1248,6 +1254,12 @@ static int std_validate_compound(const struct v4l2_ctrl *ctrl, u32 idx,
->>   	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
->>   		break;
->>   
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS:
->> +		break;
->> +
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS:
->> +		break;
->> +
-> There is nothing to validate here? Any value is fine? Just checking...
-
-I don't think we can really validate anything here without more context: 
-e.g.: Cannot validate that a referenced frame is valid
-
-Even the num_negative_pics and num_positive_pics range ([0 16]) can't be 
-validated here without reconstructing the information, as it is done in 
-the driver (and I don't think that should be done twice).
-
-Maybe just the flags could be validated though.
-
-> Is this something that should be added to the visl driver so it is tested during regression
-> tests? Or does this not apply to visl?
-
-This could be added to visl indeed. Currently, the data is constructed 
-in the rkvdec driver as it is the only one using it, but if added to 
-visl, I'd add some v4l2 function to do the work and use it in rkvdec and 
-visl.
-
-Also, I think this should be part of another patchset, once this lands.
-
+On Thu Oct 23, 2025 at 3:50 PM CEST, Udit Kumar wrote:
+> Hi=C2=A0Michael,
 >
-> I haven't looked in-depth into this, but I wondered about it.
-Detlev.
+> On 10/17/2025 3:52 PM, Michael Walle wrote:
+>> At the moment the clock parent of the audio extclk output is PLL1_HSDIV6
+>> of the main domain. This very clock output is also used among various IP
+>> cores, for example for the USB1 LPM clock. The audio extclock being an
+>> external clock output with a variable frequency, it is likely that a
+>> user of this clock will try to set it's frequency to a different value,
+>> i.e. an audio codec. Because that clock output is used also for other IP
+>> cores, bad things will happen.
+>>
+>> Instead of using PLL1_HSDIV6 use the PLL2_HSDIV8 as a sane default, as
+>> this output is exclusively used among other audio peripherals.
 >
->>   	case V4L2_CTRL_TYPE_HDR10_CLL_INFO:
->>   		break;
->>   
->> @@ -2000,6 +2012,12 @@ static struct v4l2_ctrl *v4l2_ctrl_new(struct v4l2_ctrl_handler *hdl,
->>   	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
->>   		elem_size = sizeof(struct v4l2_ctrl_hevc_slice_params);
->>   		break;
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS:
->> +		elem_size = sizeof(struct v4l2_ctrl_hevc_ext_sps_st_rps);
->> +		break;
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS:
->> +		elem_size = sizeof(struct v4l2_ctrl_hevc_ext_sps_lt_rps);
->> +		break;
->>   	case V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX:
->>   		elem_size = sizeof(struct v4l2_ctrl_hevc_scaling_matrix);
->>   		break;
->> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-defs.c b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
->> index ad41f65374e2..167286c9e424 100644
->> --- a/drivers/media/v4l2-core/v4l2-ctrls-defs.c
->> +++ b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
->> @@ -1233,6 +1233,8 @@ const char *v4l2_ctrl_get_name(u32 id)
->>   	case V4L2_CID_STATELESS_HEVC_DECODE_MODE:		return "HEVC Decode Mode";
->>   	case V4L2_CID_STATELESS_HEVC_START_CODE:		return "HEVC Start Code";
->>   	case V4L2_CID_STATELESS_HEVC_ENTRY_POINT_OFFSETS:	return "HEVC Entry Point Offsets";
->> +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS:		return "HEVC Short Term Ref Sets";
->> +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS:		return "HEVC Long Term Ref Sets";
->>   	case V4L2_CID_STATELESS_AV1_SEQUENCE:			return "AV1 Sequence Parameters";
->>   	case V4L2_CID_STATELESS_AV1_TILE_GROUP_ENTRY:		return "AV1 Tile Group Entry";
->>   	case V4L2_CID_STATELESS_AV1_FRAME:			return "AV1 Frame Parameters";
->> @@ -1578,6 +1580,14 @@ void v4l2_ctrl_fill(u32 id, const char **name, enum v4l2_ctrl_type *type,
->>   		*type = V4L2_CTRL_TYPE_U32;
->>   		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY;
->>   		break;
->> +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS:
->> +		*type = V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS;
->> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY;
->> +		break;
->> +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS:
->> +		*type = V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS;
->> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY;
->> +		break;
->>   	case V4L2_CID_STATELESS_VP9_COMPRESSED_HDR:
->>   		*type = V4L2_CTRL_TYPE_VP9_COMPRESSED_HDR;
->>   		break;
->> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
->> index 2d30107e047e..dd9e29afa155 100644
->> --- a/include/uapi/linux/v4l2-controls.h
->> +++ b/include/uapi/linux/v4l2-controls.h
->> @@ -2093,6 +2093,8 @@ struct v4l2_ctrl_mpeg2_quantisation {
->>   #define V4L2_CID_STATELESS_HEVC_DECODE_MODE	(V4L2_CID_CODEC_STATELESS_BASE + 405)
->>   #define V4L2_CID_STATELESS_HEVC_START_CODE	(V4L2_CID_CODEC_STATELESS_BASE + 406)
->>   #define V4L2_CID_STATELESS_HEVC_ENTRY_POINT_OFFSETS (V4L2_CID_CODEC_STATELESS_BASE + 407)
->> +#define V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS  (V4L2_CID_CODEC_STATELESS_BASE + 408)
->> +#define V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS  (V4L2_CID_CODEC_STATELESS_BASE + 409)
->>   
->>   enum v4l2_stateless_hevc_decode_mode {
->>   	V4L2_STATELESS_HEVC_DECODE_MODE_SLICE_BASED,
->> @@ -2548,6 +2550,65 @@ struct v4l2_ctrl_hevc_scaling_matrix {
->>   	__u8	scaling_list_dc_coef_32x32[2];
->>   };
->>   
->> +#define V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_INTER_REF_PIC_SET_PRED	0x1
->> +
->> +/*
->> + * struct v4l2_ctrl_hevc_ext_sps_st_rps - HEVC short term RPS parameters
->> + *
->> + * Dynamic size 1-dimension array for short term RPS. The number of elements
->> + * is v4l2_ctrl_hevc_sps::num_short_term_ref_pic_sets. It can contain up to 65 elements.
->> + *
->> + * @delta_idx_minus1: Specifies the delta compare to the index. See details in section 7.4.8
->> + *                    "Short-term reference picture set semantics" of the specification.
->> + * @delta_rps_sign: Sign of the delta as specified in section 7.4.8 "Short-term reference picture
->> + *                  set semantics" of the specification.
->> + * @abs_delta_rps_minus1: Absolute delta RPS as specified in section 7.4.8 "Short-term reference
->> + *                        picture set semantics" of the specification.
->> + * @num_negative_pics: Number of short-term RPS entries that have picture order count values less
->> + *                     than the picture order count value of the current picture.
->> + * @num_positive_pics: Number of short-term RPS entries that have picture order count values
->> + *                     greater than the picture order count value of the current picture.
->> + * @used_by_curr_pic: Bit j specifies if short-term RPS j is used by the current picture.
->> + * @use_delta_flag: Bit j equals to 1 specifies that the j-th entry in the source candidate
->> + *                  short-term RPS is included in this candidate short-term RPS.
->> + * @delta_poc_s0_minus1: Specifies the negative picture order count delta for the i-th entry in
->> + *                       the short-term RPS. See details in section 7.4.8 "Short-term reference
->> + *                       picture set semantics" of the specification.
->> + * @delta_poc_s1_minus1: Specifies the positive picture order count delta for the i-th entry in
->> + *                       the short-term RPS. See details in section 7.4.8 "Short-term reference
->> + *                       picture set semantics" of the specification.
->> + * @flags: See V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_{}
->> + */
->> +struct v4l2_ctrl_hevc_ext_sps_st_rps {
->> +	__u8	delta_idx_minus1;
->> +	__u8	delta_rps_sign;
->> +	__u16	abs_delta_rps_minus1;
->> +	__u8	num_negative_pics;
->> +	__u8	num_positive_pics;
->> +	__u32	used_by_curr_pic;
->> +	__u32	use_delta_flag;
->> +	__u16	delta_poc_s0_minus1[16];
->> +	__u16	delta_poc_s1_minus1[16];
->> +	__u8	flags;
->> +};
->> +
->> +#define V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT		0x1
->> +
->> +/*
->> + * struct v4l2_ctrl_hevc_ext_sps_lt_rps - HEVC long term RPS parameters
->> + *
->> + * Dynamic size 1-dimension array for long term RPS. The number of elements
->> + * is v4l2_ctrl_hevc_sps::num_long_term_ref_pics_sps. It can contain up to 65 elements.
->> + *
->> + * @lt_ref_pic_poc_lsb_sps: picture order count modulo MaxPicOrderCntLsb of the i-th candidate
->> + *                          long-term reference picture.
->> + * @flags: See V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_{}
->> + */
->> +struct v4l2_ctrl_hevc_ext_sps_lt_rps {
->> +	__u16	lt_ref_pic_poc_lsb_sps;
->> +	__u8	flags;
->> +};
->> +
->>   /* Stateless VP9 controls */
->>   
->>   #define V4L2_VP9_LOOP_FILTER_FLAG_DELTA_ENABLED	0x1
->> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
->> index becd08fdbddb..ae1d33fd37b7 100644
->> --- a/include/uapi/linux/videodev2.h
->> +++ b/include/uapi/linux/videodev2.h
->> @@ -1981,6 +1981,8 @@ enum v4l2_ctrl_type {
->>   	V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS	= 0x0272,
->>   	V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX	= 0x0273,
->>   	V4L2_CTRL_TYPE_HEVC_DECODE_PARAMS	= 0x0274,
->> +	V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS	= 0x0275,
->> +	V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS	= 0x0276,
->>   
->>   	V4L2_CTRL_TYPE_AV1_SEQUENCE	    = 0x280,
->>   	V4L2_CTRL_TYPE_AV1_TILE_GROUP_ENTRY = 0x281,
 >
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+> Thanks for this fix,
+>
+> Initial support for audio_refclkx was added in j722s and am62p soc=20
+> specific files due
+>
+> to selection of different parent.
+>
+> Since these SOC share many common things, and this patch will make these=
+=20
+> nodes same as of am62p device
+>
+> https://elixir.bootlin.com/linux/v6.18-rc2/source/arch/arm64/boot/dts/ti/=
+k3-am62p-main.dtsi#L46=20
+>
+>
+> So I suggest to move in common file=20
+> https://elixir.bootlin.com/linux/v6.18-rc2/source/arch/arm64/boot/dts/ti/=
+k3-am62p-j722s-common-main.dtsi#L42=20
+>
+>
+> and remove from SOC specific files.
+
+Ok, but to keep the information and to not conflate two different
+things, I'd do the following:
+ - keep this patch as is
+ - add a second one, to move the (now) identical nodes into the
+   common-main.dtsi
+
+Sounds good?
+
+-michael
+
+--b31e57130b0d78ca537571d43b9c56e4965516d92bed9fa6dfb1c4bc1f0c
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaPo5RBIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/gCUAGA9Tu3/0BHusm+p7jGMd54B3ImM/u3QJ3r
+ZSwBtJZ52mr5+mzokC5OWhhScA4ykLUnAX4i/3RhUGrEc8x3Ozddhl10LCJ5y/5g
+p3uM4fOAngaRMIRZc0UFjEcoGpv/Z3wSh9M=
+=zxEV
+-----END PGP SIGNATURE-----
+
+--b31e57130b0d78ca537571d43b9c56e4965516d92bed9fa6dfb1c4bc1f0c--
 
