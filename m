@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A6CCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 10:19:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C77BCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 10:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HtKNTZAO+ToteT9Mq7xDJXF2ZisO3XpMk8DFlcZUCjM=; b=leyOUlD6xRT1N61tTbics1q4lF
-	5747ffM7fDTyuPrXn2Ynd1is7KP/3El5pbR74ggd+hSWWDpXCQfxv5oEWZjVke4vbZVLeJ37rQC75
-	BrAd2mF7snV+Na2ZhAQsyuUrG+WpOFRjGhDFOFVvrG2oD4sYmWQqoqY536A8ZX7pCRo9SGR6PwBNU
-	XmXKJHD5mWjEm50Byjyqyc9eNBktJX9/lZ5LT34O5bmlgYbfWk8ilpzBwAwh46LIzmH9WQ/U22wIx
-	ya3OlqclShe166YZEvTwChXKnjnG4bUdYUEnebfS0vYmtJdrzBJQ4WzpTA/+KL7LFFA25woTlGZT6
-	YtvUzLJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jj+Kif4dfrKe9mwz38YrsgAu4gm6A5BRFb4/J3K2e94=; b=XMwz7pDDY1+6aloCZn2UqcUW6X
+	LdB3l0iEVy+2guuggNRlVnzY6W6p7VdbDrRUTLOX346w9VrkbC4eH7mTGDNK9Fl4MxuTB8kvChwbl
+	LPE39F0eto/U4faZb3LOd3isY4lR3jFdbBnT73QXwyons0UZX53i8ByF+17qWrOGlFdtFwdMrELDz
+	Hpxp5ExAvfTRaISJFZTcuVSKqf9HK7U6tSyUtHXDZGD2/nmnrHGQpRnhpIrVj8g5pY8e4mJbDikKP
+	JOMQTxNRJCkKAxc1sESrvpfIUanW39GWwDzXQyYA2j4+XjaeOX5yH452V1+yA9qUp3pZKl2du6WKh
+	pLeCkFag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBsPR-00000005r7v-1tjY;
+	id 1vBsPR-00000005r8D-3qCw;
 	Thu, 23 Oct 2025 10:19:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBsPN-00000005r5p-3nR9
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBsPP-00000005r6c-1ZfX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 10:19:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E50B1516;
-	Thu, 23 Oct 2025 03:18:50 -0700 (PDT)
-Received: from [10.1.31.176] (XHFQ2J9959.cambridge.arm.com [10.1.31.176])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A4BA3F59E;
-	Thu, 23 Oct 2025 03:18:54 -0700 (PDT)
-Message-ID: <bc8f62a8-8e9d-45a2-8d77-e193b12d465d@arm.com>
-Date: Thu, 23 Oct 2025 11:18:53 +0100
+	Thu, 23 Oct 2025 10:19:04 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-87be45cba29so5772556d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 03:19:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761214742; x=1761819542; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Jj+Kif4dfrKe9mwz38YrsgAu4gm6A5BRFb4/J3K2e94=;
+        b=asWlB/QdotANyw+NRthab63SpHayJOIknmHz+oAoHnxP3F0HyxQ9Lt7KWvGhM6sa/Y
+         XWOjAYJKAmbJRWRrYtI6b6bm9YTv7awPmNeIQ4DVEK2NWn+cc8jz/ydEyP+kDDcaawp9
+         R/tUOYjjIAN4kHbhBAj9bjqsH0/7NxWG1n18lr2HFMqKQ2FEdMcSPujLj8bGehmYv9pG
+         udt/xPYi6XcWZvipTdoj736I8f6xq2n1G5yplUZYS8pIJOHCy06lyyXMGxI2lJUM5AYg
+         i7Eb/XcqzhHVMuESBXOepEkKPxNArLmKaDGXePBQZiCI5zEya04N+HdDH3cyOxyyyW2u
+         nABA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761214742; x=1761819542;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Jj+Kif4dfrKe9mwz38YrsgAu4gm6A5BRFb4/J3K2e94=;
+        b=dKfzWbPUdF4IeFPfvWIz9zLisePUy6qwNCOI7G/2zcbrmQDp+TKhYk3ec+M83c/e4e
+         oH46PdtHNXP2/bDQxaIAliSiKtKxV8HzPvTt1Dobhl/2N2NZV70P8PUBRKYYMQvAUJ2N
+         IOgQLw6hXGZlcOMfVoCMcAdA1TEPkBHn0M3cZe5Ut4iyeJxAFwPMMtemyGFJwxpsikoF
+         FHxqGk5CsVKtkWKXi+8N9KmhWtgJjeH2aTNe5s5s5NPayEXlASXkNXCbi29pq5pZNRqm
+         yrAol0/tbjm4IETpyI+IPKpeNscUCWtwFwIYK/Jlo4MYl4MHHYIE7ASic2Ez9CpiHlo5
+         6BTA==
+X-Forwarded-Encrypted: i=1; AJvYcCWadJrQ2Pd6zSivW4eonJfeGZLpKoWVWH4zekmYNkQmF+Xvr7qKUIjDwsSEDNbF9BeDztekmXdWkneZlRJ38GEB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjhBJScZjkRPuT2r+oMPVlVuloLNxoURBkwhQt4wY5n/YuZPEl
+	LLTLgALgam3C8uKs6CMM7Itj/ZmoG+Ckhd2oC7Llu6FBHp0rlGutyCuF1GBADXflWeub0TmkbcC
+	hPrBJrSDNQ+cLgyxJ0JCX1QmS95xjin2C90VE+sSAYA==
+X-Gm-Gg: ASbGncsJA7TeoGFCRrM57ccgoybFCQ2HLsXS9DH5Fvzu/ZyHSWS1leNI720E1dcj2DJ
+	HlgR5GRkIwXb2i4nedXs/N0NPYsQQTS7GGmoqAQtwlLzFtaTpLfyM/kHRxGhX9x9ScHmWl6Q1pC
+	9u2ijcVPh7c4hRf1nc9Vkp56RevyJ98DRmKkJ+/orGpNCNSuMzI79iGETo/sbXcO18kIkLaR26e
+	WLayUvIq6q+L7gv28Y7bRe1HyzOvol05HZ0ELsfeHtXuVyYg92v9Iv1XITM9hjUsFZ90MkSgoJe
+	S6YYRq0xmazQlPO0kg==
+X-Google-Smtp-Source: AGHT+IHNhmQID8BxdTuPqUD1UOIaCU7OEog3sKm0kstXbUtDfJdGdBhlg02NR752jpqHk1Bz3E77Jj7bDJWs5M5CGgM=
+X-Received: by 2002:a05:6214:2423:b0:87c:29c4:4bec with SMTP id
+ 6a1803df08f44-87c29c46f93mr338397966d6.54.1761214741816; Thu, 23 Oct 2025
+ 03:19:01 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -v2 2/2] arm64, tlbflush: don't TLBI broadcast if page
- reused in write fault
-Content-Language: en-GB
-To: Barry Song <21cnbao@gmail.com>, Huang Ying <ying.huang@linux.alibaba.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Vlastimil Babka <vbabka@suse.cz>, Zi Yan <ziy@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Yang Shi <yang@os.amperecomputing.com>,
- "Christoph Lameter (Ampere)" <cl@gentwo.org>, Dev Jain <dev.jain@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Yicong Yang <yangyicong@hisilicon.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Yin Fengwei <fengwei_yin@linux.alibaba.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
- <20251013092038.6963-3-ying.huang@linux.alibaba.com>
- <CAGsJ_4xaA8QRjP9H=n1hQfEfGop7vOd5Y=J+KQzuOyfa8GK-kQ@mail.gmail.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <CAGsJ_4xaA8QRjP9H=n1hQfEfGop7vOd5Y=J+KQzuOyfa8GK-kQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20251021234520.3355-1-mike.leach@linaro.org> <20251021234520.3355-2-mike.leach@linaro.org>
+ <20251022092958.GQ281971@e132581.arm.com> <CAJ9a7Vi+Oq3Zma0Cs+w8m0kRE0pG6ax3=26EQK=u7d=vQfNFQw@mail.gmail.com>
+ <20251022140409.GR281971@e132581.arm.com>
+In-Reply-To: <20251022140409.GR281971@e132581.arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 23 Oct 2025 11:18:50 +0100
+X-Gm-Features: AS18NWCeiUa4aE_71Sz4zTfIuX-f8RyEZqLdNWyWeqNAXjkOZBf7qdkAOeOtddc
+Message-ID: <CAJ9a7VggKoYdELcWTXxOg6-78TK2NAEE9uNo6cgpmx0x=0cwsQ@mail.gmail.com>
+Subject: Re: [PATCH 1/1] coresight: fix issue where coresight component has no claimtags
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, james.clark@linaro.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_031902_046928_4E3D44E2 
-X-CRM114-Status: GOOD (  33.28  )
+X-CRM114-CacheID: sfid-20251023_031903_424094_103D9AA3 
+X-CRM114-Status: GOOD (  31.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,174 +96,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Barry, Huang,
+Hi Leo
+
+On Wed, 22 Oct 2025 at 15:04, Leo Yan <leo.yan@arm.com> wrote:
+>
+> Hi Mike,
+>
+> On Wed, Oct 22, 2025 at 01:35:46PM +0100, Mike Leach wrote:
+>
+> [...]
+>
+> > > - We can add a new flag ("bool claim_impl" in the struct csdev_access),
+> > >   by default the field will be zero.
+> > >
+> >
+> > I considered a bool - but the correct place for this would be
+> > coresight_device - where we keep all the information about the
+> > hardware features.
+>
+> Maybe coresight_device is suitable. But this might require to update
+> furthermore for claim function arguments (e.g., need to pass "csdev"
+> rather than "csdev_access").
+>
+> > > - The drivers support claim tags call coresight_clear_self_claim_tag()
+> > >   in probe (see __catu_probe() as an example), we can call a new
+> > >   function coresight_init_claim_tag() to replace it, this function sets
+> > >   "claim_impl" properly and clear the tag if supported.
+> > >
+> >
+> > I considered moving this initialisation to the common coresight code
+> > where we create the coresight_device.
+>
+> Seems to me, this is dangerous. If a module is not CoreSight compliant
+> and claim registers are absent, when access we will get unknown values
+> or even cause serious result (external abort or bus lockup).
+>
+
+Currently all our drivers assume claim registers are compliant - so
+this makes no functional difference to the current situation.
+
+If the hardware is non-compliant, and is bound to the current drivers,
+then there will be an access to the registers that could cause the
+same issues.
+
+There is little sense in having a call in individual drivers to init
+claim tags which are regarded as common management structure.
+Any coresight component with no claim tags must still either have
+registers indicating no claim tags or as per the specification
+unimplemented register locations have to be  RAZ/WI - which amounts to
+the same thing.
 
 
-On 22/10/2025 05:08, Barry Song wrote:
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index aa89c2e67ebc..35bae2e4bcfe 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -130,12 +130,16 @@ static inline void arch_leave_lazy_mmu_mode(void)
->>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
->>
->>  /*
->> - * Outside of a few very special situations (e.g. hibernation), we always
->> - * use broadcast TLB invalidation instructions, therefore a spurious page
->> - * fault on one CPU which has been handled concurrently by another CPU
->> - * does not need to perform additional invalidation.
->> + * We use local TLB invalidation instruction when reusing page in
->> + * write protection fault handler to avoid TLBI broadcast in the hot
->> + * path.  This will cause spurious page faults if stall read-only TLB
->> + * entries exist.
->>   */
->> -#define flush_tlb_fix_spurious_fault(vma, address, ptep) do { } while (0)
->> +#define flush_tlb_fix_spurious_fault(vma, address, ptep)       \
->> +       local_flush_tlb_page_nonotify(vma, address)
->> +
->> +#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)   \
->> +       local_flush_tlb_page_nonotify(vma, address)
->>
->>  /*
->>   * ZERO_PAGE is a global shared page that is always zero: used
->> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
->> index 18a5dc0c9a54..651b31fd18bb 100644
->> --- a/arch/arm64/include/asm/tlbflush.h
->> +++ b/arch/arm64/include/asm/tlbflush.h
->> @@ -249,6 +249,18 @@ static inline unsigned long get_trans_granule(void)
->>   *             cannot be easily determined, the value TLBI_TTL_UNKNOWN will
->>   *             perform a non-hinted invalidation.
->>   *
->> + *     local_flush_tlb_page(vma, addr)
->> + *             Local variant of flush_tlb_page().  Stale TLB entries may
->> + *             remain in remote CPUs.
->> + *
->> + *     local_flush_tlb_page_nonotify(vma, addr)
->> + *             Same as local_flush_tlb_page() except MMU notifier will not be
->> + *             called.
->> + *
->> + *     local_flush_tlb_contpte_range(vma, start, end)
->> + *             Invalidate the virtual-address range '[start, end)' mapped with
->> + *             contpte on local CPU for the user address space corresponding
->> + *             to 'vma->mm'.  Stale TLB entries may remain in remote CPUs.
->>   *
->>   *     Finally, take a look at asm/tlb.h to see how tlb_flush() is implemented
->>   *     on top of these routines, since that is our interface to the mmu_gather
->> @@ -282,6 +294,33 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
->>         mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
->>  }
->>
->> +static inline void __local_flush_tlb_page_nonotify_nosync(
->> +       struct mm_struct *mm, unsigned long uaddr)
->> +{
->> +       unsigned long addr;
->> +
->> +       dsb(nshst);
 
-I've skimmed through this thread so appologies if I've missed some of the
-detail, but thought it might be useful to give my opinion as a summary...
 
-> We were issuing dsb(ishst) even for the nosync case, likely to ensure
-> PTE visibility across cores. 
 
-The leading dsb prior to issuing the tlbi is to ensure that the HW table
-walker(s) will always see the new pte immediately after the tlbi completes.
-Without it, you could end up with the old value immediately re-cached after the
-tlbi completes. So if you are broadcasting the tlbi, the dsb needs to be to ish.
-If you're doing local invalidation, then nsh is sufficient.
+> [...]
+>
+> > > > +/*
+> > > > + * Coresight specification defines a maximum of 8 claim tag bits.
+> > > > + * The precise number is implementation defined, and may be obtained by
+> > > > + * reading the CLAIMSET register.
+> > > > + */
+> > > > +#define CORESIGHT_CLAIM_BITS_MAX_MASK        GENMASK(7, 0)
+> > > > +#define CORESIGHT_CLAIM_SELF_HOSTED_BIT      BIT(1)
+> > >
+> > > Now we only care about the self-host bit. Can reuse existed macros ?
+> > >
+> >
+> > I feel that drivers should be written to match the specification - the
+> > macros above are a correct mask value per specification and the
+> > correct bitfield comparison for the MSBit of the protocol.
+> >
+> > The ones below are a protocol masks field, and a specific protocol
+> > value that is used in value rather than bit comparisons in the
+> > claimtag code. I felt it clearer to differentiate between the uses
+> > when reading the code.
+>
+> How about change CORESIGHT_CLAIM_EXTERNAL and
+> CORESIGHT_CLAIM_SELF_HOSTED to MSBit ?
+>
 
-"nosync" is just saying that we will not wait for the tlbi to complete. You
-still need to issue the leading dsb to ensure that the table walkers see the
-latest pte once the tlbi (eventually) completes.
+The checking code for the protocol does a value compare on the pair of
+bits, not individual bit checks.
 
-> However, since set_ptes already includes a
-> dsb(ishst) in __set_pte_complete(), does this mean we’re being overly
-> cautious in __flush_tlb_page_nosync() in many cases?
+Regards
 
-We only issue a dsb in __set_pte_complete() for kernel ptes. We elide for user
-ptes becaue we can safely take a fault (for the case where we transition
-invalid->valid) for user mappings and that race will resolve itself with the
-help of the PTL. For valid->valid or valid->invalid, there will be an associated
-tlb flush, which has the barrier.
 
-> 
-> static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
->                                            unsigned long uaddr)
-> {
->         unsigned long addr;
-> 
->         dsb(ishst);
->         addr = __TLBI_VADDR(uaddr, ASID(mm));
->         __tlbi(vale1is, addr);
->         __tlbi_user(vale1is, addr);
->         mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_MASK,
->                                                 (uaddr & PAGE_MASK) +
-> PAGE_SIZE);
-> }
-> 
-> On the other hand, __ptep_set_access_flags() doesn’t seem to use
-> set_ptes(), so there’s no guarantee the updated PTEs are visible to all
-> cores. If a remote CPU later encounters a page fault and performs a TLB
-> invalidation, will it still see a stable PTE?
+Mike
 
-Yes, because the reads and writes are done under the PTL; that synchonizes the
-memory for us.
 
-You were discussing the potential value of upgrading the leading dsb from nshst
-to ishst during the discussion. IMHO that's neither required nor desirable - the
-memory synchonization is handled by the PTL. Overall, this optimization relies
-on the premise that synchronizing with remote CPUs is expensive and races are
-rare, so we should keep everything local for as long as possible and not worry
-about micro-optimizing the efficiency of the race case.
+> Thanks,
+> Leo
 
-> 
->> +       addr = __TLBI_VADDR(uaddr, ASID(mm));
->> +       __tlbi(vale1, addr);
->> +       __tlbi_user(vale1, addr);
->> +}
->> +
->> +static inline void local_flush_tlb_page_nonotify(
->> +       struct vm_area_struct *vma, unsigned long uaddr)
->> +{
->> +       __local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
->> +       dsb(nsh);
->> +}
->> +
->> +static inline void local_flush_tlb_page(struct vm_area_struct *vma,
->> +                                       unsigned long uaddr)
->> +{
->> +       __local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
->> +       mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, uaddr & PAGE_MASK,
->> +                                               (uaddr & PAGE_MASK) + PAGE_SIZE);
->> +       dsb(nsh);
->> +}
->> +
->>  static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
->>                                            unsigned long uaddr)
->>  {
->> @@ -472,6 +511,23 @@ static inline void __flush_tlb_range(struct vm_area_struct *vma,
->>         dsb(ish);
->>  }
->>
-> 
-> We already have functions like
-> __flush_tlb_page_nosync() and __flush_tlb_range_nosync().
-> Is there a way to factor out or extract their common parts?
-> 
-> Is it because of the differences in barriers that this extraction of
-> common code isn’t feasible?
 
-I've proposed re-working these functions to add indepednent flags for
-sync/nosync, local/broadcast and notify/nonotify. I think that will clean it up
-quite a bit. But I was going to wait for this to land first. And also, Will has
-an RFC for some other tlbflush API cleanup (converting it to C functions) so
-might want to wait for or incorporate that too.
 
-Thanks,
-Ryan
-
-> 
-> Thanks
-> Barry
-
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
