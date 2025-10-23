@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DCA1CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 05:06:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E9F8CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 05:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HduW4/8dW6FdrYe8vG2Qnom2bAmwiuZMHEH152Z+N8Y=; b=xPh9D/CfshvZdlHcu0ty67vQxf
-	iwcZXWQqmG62G+OV4t3VGFWhJIVuCSibFz3JfEZIQNAbFW3oBK4Lmi5nmW8Jtgvq5WHNBiUZQKLrO
-	hp41fzaM3VONRUuf+dLCV3490V15ZbJztvGIPchX896fC+zXzEyJ/nrTyFjyxS3EZxvJANQh/TuN0
-	UbF8O+j04lSx9EqujBe34Bxv2duPZEGUw9MnGc+VlD32vUgUhgZGfgJFafyt5rcNFinK8WNOCnZIB
-	ZogvPlanGM5tmvoMjAm9HLQEOwzdqV1p9HxtR+p/c9lszKGLN9KWEyMbZ8volApna68S8FWXtgvW+
-	eDFwfhXA==;
+	bh=tVi+SMQpaF6yHsX8HGJ1IoRGDVppUsAV0LuGQp56B6g=; b=yTM7wPBMpc+fk3FxbNBkf+QdFX
+	WWiRrb5JuH9J4bvmxP8OOoDPt4AcDf3IavYfqz2DJ7qBtQwW1kUOSrgqCr7/xGzXDxl8M3Dkw4Hra
+	QbViC8T5h0JASzyxZOaV8qrmHlX52BirBbuykb2jAOroOY3aIL/ksIM3DarkagXzdlOq/G6ezodrM
+	NngbN5Xup+bk31eoqdRR0WW+Jh5+JE0EhUJOf/iASPYv3YN3KCHvRv73duOMF9jweqzjY88m02Ejz
+	DS9nyK2CD1/hIQAbFEgu/CnqdQDqUf8E0vjrGOInBTotNipequ4fs2xsnBVHzqFi1ZVD1oCL2WHMW
+	sIuXaahQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBnWw-000000056Oa-0u71;
-	Thu, 23 Oct 2025 05:06:30 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1vBnbE-000000056r8-2zw4;
+	Thu, 23 Oct 2025 05:10:56 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBnWt-000000056O6-3Lrm;
-	Thu, 23 Oct 2025 05:06:28 +0000
+	id 1vBnbB-000000056qb-10Xp;
+	Thu, 23 Oct 2025 05:10:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761195988; x=1792731988;
+  t=1761196253; x=1792732253;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=DCH/vfaxQEKOGMRXQjGl+NsvW2ShKX9ZTs4inc52yPY=;
-  b=Ahr+73b/YzqUnaD0Ia363n9M+8yT10rPqiTp5eHPlhBgRSpuDtgewbTF
-   Pha7K8fSoroUhzHpq0pnaZUuiqUKAiu2vpil+v1jxRsQiSUwkiLM5GUeB
-   lNRpVMGMem28a3AILeiE+23828ASOqna5y3svPjfnoOmVL+ennyfNXluK
-   4FajSm4BPdQh7QkhCysXBOLGnAK1e0uCFIjbfAQSBvjx8zwz/MxhdB0ud
-   IwlTFeJZsZBPie758bh/AKFy0iC6k+H7Md1svGB194D8Te3V50YMRIj5L
-   HkzX5iEzzszD7teimem5HpvUpu/MBJGrAZsjEbJUjB+02xPau+T3jYALW
-   g==;
-X-CSE-ConnectionGUID: OSE6t9SpSBK7n2sDotOpxA==
-X-CSE-MsgGUID: g17nwg5wQI+jFzdcVr5NBg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63264378"
+  bh=aKhXAgLHi9hmESNfGrTuSyyU3uGYkrJW93/qzCuJl3Y=;
+  b=XyUe4s64+b7dZcsClpFC1fa205noo/qwh3aN3L1RBLhOHJQcyG656Buz
+   yVubKU55OQHpWJuZuIsJkN/4yiruiXLu40vCHKGscXOzWi6Luddzfx7mi
+   kaiM0atmSkTE4A0OFMf6yd+C7nwzimVfJCywj9BDj7O90ulr85P9hOaRR
+   RP+0dFiERSuLYyI8bmApFtEqCxtaFiAu2OnGr8YmAEz2Osa8LUM99Cn9a
+   1s7TXhPQtB/USuaNqfD/YG4lCklz27wwodVP1L/eu6I6hKVw19UzFDuaE
+   fmr0ND7GNaiq7hN8Xd77wn5fc9QQ1qQGjb1qvgs/vwzHg1S8n7bZJkauW
+   w==;
+X-CSE-ConnectionGUID: Vf5ghi0tQQWGgIzwidoVaA==
+X-CSE-MsgGUID: Gm0cOGUAROuJKDK+q0y9Lg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63249084"
 X-IronPort-AV: E=Sophos;i="6.19,248,1754982000"; 
-   d="scan'208";a="63264378"
+   d="scan'208";a="63249084"
 Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 22:06:27 -0700
-X-CSE-ConnectionGUID: LwzQDDKwSZeu79Q3nOvXQA==
-X-CSE-MsgGUID: YHvnnbziRNqwuyb2sZq+xw==
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 22:10:52 -0700
+X-CSE-ConnectionGUID: Z+VhdaUHRuSq6XPL/6mgHA==
+X-CSE-MsgGUID: PVLbJFWUT5qWiIesV7OmAg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,248,1754982000"; 
-   d="scan'208";a="214987777"
+   d="scan'208";a="214988427"
 Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 22:06:22 -0700
-Message-ID: <a2ec4e64-329f-40a5-87d8-610dd4e91904@linux.intel.com>
-Date: Thu, 23 Oct 2025 13:02:29 +0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 22:10:47 -0700
+Message-ID: <9292db0f-74cd-4ce5-8797-cc2a88449768@linux.intel.com>
+Date: Thu, 23 Oct 2025 13:06:53 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] RDMA/usnic: Remove iommu_set_fault_handler()
+Subject: Re: [PATCH 3/3] iommu: Allow drivers to say if they use
+ report_iommu_fault()
 To: Jason Gunthorpe <jgg@nvidia.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
  Christian Benvenuti <benve@cisco.com>, Heiko Stuebner <heiko@sntech.de>,
@@ -74,16 +75,15 @@ To: Jason Gunthorpe <jgg@nvidia.com>,
  Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
  Yong Wu <yong.wu@mediatek.com>
 Cc: patches@lists.linux.dev
-References: <1-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
+References: <3-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
 Content-Language: en-US
 From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <1-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
+In-Reply-To: <3-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_220627_875868_6F1C736E 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251022_221053_496792_9376B476 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,15 +99,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 10/23/25 01:12, Jason Gunthorpe wrote:
-> The handler in usnic just prints a fault report message, the iommu drivers
-> all do a better job of that these days. Just remove the use of this old
-> API.
+> report_iommu_fault() is an older API that has been superseded by
+> iommu_report_device_fault() which is capable to support PRI.
 > 
-> Acked-by: Jason Gunthorpe<jgg@nvidia.com>
+> Only two external drivers consume this, drivers/remoteproc and
+> drivers/gpu/drm/msm. Ideally they would move over to the new APIs, but for
+> now protect against accidentally mix and matching the wrong components.
+> 
+> The iommu drivers support either the old iommu_set_fault_handler() via the
+> driver calling report_iommu_fault(), or they are newer server focused
+> drivers that call iommu_report_device_fault().
+> 
+> Include a flag in the domain_ops if it calls report_iommu_fault() and
+> block iommu_set_fault_handler() on iommu's that can't support it.
+> 
 > Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
 > ---
->   drivers/infiniband/hw/usnic/usnic_uiom.c | 13 -------------
->   1 file changed, 13 deletions(-)
+>   drivers/iommu/arm/arm-smmu/arm-smmu.c   | 1 +
+>   drivers/iommu/arm/arm-smmu/qcom_iommu.c | 1 +
+>   drivers/iommu/iommu.c                   | 6 +++++-
+>   drivers/iommu/ipmmu-vmsa.c              | 1 +
+>   drivers/iommu/mtk_iommu.c               | 1 +
+>   drivers/iommu/mtk_iommu_v1.c            | 1 +
+>   drivers/iommu/omap-iommu.c              | 1 +
+>   drivers/iommu/rockchip-iommu.c          | 1 +
+>   drivers/iommu/sun50i-iommu.c            | 1 +
+>   include/linux/iommu.h                   | 3 +++
+>   10 files changed, 16 insertions(+), 1 deletion(-)
 
 Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
