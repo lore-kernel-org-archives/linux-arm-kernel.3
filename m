@@ -4,106 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF74CCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 19:34:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A4FCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 19:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B+nka1o0UKTB6+YPro/AThdj4Pv3gE7VXwEkULP704E=; b=lNbejushOe1IlBHJTMjFQ0kHPi
-	j5HMob6T/KgU3FUYUnyndTtRNxY0VXthUB7q14l6HKqj0e7WdGj/dSl9fL7k0gGTELr8qMTt2jEPx
-	gyhyrk6yTGST+5wG6ym4akBzSUvDHGdwUmhqGtjhRe1vwZcPfCBzdoo3sNWbuLmKpFCF7B+3ITqEC
-	ZX+jzfulQcJnRbFTdlt7DO7bB/zmygxZ1nZwX5odJ3swscvDKwtlRHouNUzVJHFJoMP8uw4Sf/Hn+
-	+POo7FrNfkA5wVjCTrRBwfDug58lYVp5ifFjk9msBDqUhIyxiKGlZekKepYlMC2mHq7GjD9Ny+PxH
-	JlYF51xA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DoBeKc7k0tI/KT6rIVYw1QPBdWN+Yb/dqCkvda7xnq8=; b=q128rkoiPu21pzdMXxgosWTmNq
+	q4MXLUmsHEqkIsQX/9xGx/IWGLg6LwDXWW2EvFrObGNlNvLGpXmdzx5CVXYXS0ek3v89b5BQKDKWr
+	fI6RTT2V5PRz5MHO2ci3U5qZ2RtdKIsZxNHH31QS9vWI65O9Ojnz7/yNB6Wg1mPmfq3e5BFH3g/24
+	r4E4Usvz/5jk59TQb7zA0F4yLOh4AjMbP0Uwd3f81Q0zD5wNJs2igwPxCZNQeK4Bi/2nEokapVVfV
+	UNinoyejAwkej9gDdCHoIKdcHyqOD6Hce8/B9OwcgRDVFfnM8N9LVaYJ0tQ6jBbFPXrMr49Bv0ESi
+	oUH0yoIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC15B-00000007NeF-3YCs;
-	Thu, 23 Oct 2025 19:34:45 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1vC16C-00000007Nlm-2i0T;
+	Thu, 23 Oct 2025 19:35:48 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC159-00000007Ndn-27Ag
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 19:34:44 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b626a4cd9d6so262948266b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 12:34:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1761248081; x=1761852881; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=B+nka1o0UKTB6+YPro/AThdj4Pv3gE7VXwEkULP704E=;
-        b=R+HQvT9R1VllzUYxeZ5o7ANttIYLW/n+mQGATVDGT+22VQQ5NwcLMeWvQ7WzlTJ6X2
-         Xp1uqrpGtTAgP7e8Z5QdZxbkYvw3oTLWF5F9B6/DV0SP8twk/vHX+y3nt4Onht/Rs41P
-         Ptt3QXU6Ozbck/LTS9l9Q78HoxwXwI5YJ5iuk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761248081; x=1761852881;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=B+nka1o0UKTB6+YPro/AThdj4Pv3gE7VXwEkULP704E=;
-        b=krTeowPi0Nx1iIzmJvK9QJWkgucYKGVAzvzEup0Mc+4DPTKc7rw650N+GHZF5VQVOG
-         eu20v0toH4XnfjGGfRDVfWOwYIh+h39VRO98Zyhi3L9rtYn2GqH8MKIEeLqWu4oQa3qG
-         kYoA6jhqJ4VVAYXw5PFKfXj7Z8hjSRe5IhyltarHuyy/pTVAnQr7+jO34O4qx5U4QsHu
-         +1WbUEJ+innJmn1vEhyfBWWC9ZcjDTVZq1ionuz3/LV3ONkj7Se13inpSpUBZ4vPEQ9f
-         JoPrlHyaM1mAcvzuqMCBKq273/ITM8HQZK9rHB+OAU+C5NCr9zbdDi36DKFmRwJF5MJc
-         c+Uw==
-X-Forwarded-Encrypted: i=1; AJvYcCWDCEiNe+qX1HD1UjJSXnP0H5SFcmy/ygWsS8U6IY5DM6vukOI4+03ZvTrj3fswBbh01IXeVdJ29CD93byaexFr@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywkp/XvDAPr2JCCRgPjCk9PPCZe06UXzMCjGLB2eYSwq4pNyW1W
-	zAwn3UdYi581SW7HHCVky6j7hDCXirAoI3hV/QzhFwKrjvHKgqbnoKyoxsaAUP5x+X6AFrstOk3
-	qE8j1JjPIrQ==
-X-Gm-Gg: ASbGncus4ukMFBgBtVNLQUbOt9vtZt/qXz4tqDjqkiIzqoYFVV3a/f8E9+QiouEp26w
-	znnez/6PhJgDZSX67ZqQN6fKWEwfOoiypsQWL4f2mDILSwzeQ0NPdsNNmYp3+ZM/mNzJji4d7up
-	7sVpS7cazyHOq7PN4KnEIVo4Ih2loRjMKja5CLS1XC9QvB9v1+Ugcpq+OhewKMjAZrBBl0fObNM
-	hiip+Y783/u7mQrwt1UgaDoPfUsPJCTJY3ZDJSetP/VrZ39VMQuiSLk7Ag10EVn9c9dCwTxPoDP
-	MHQvJlWQnCMTquC71jguiXfUaeif9Rp4W/3yjT3zCGb9qBZj/hi9gg0fbVZ3ys31HX2yDJftXCc
-	kKng9uWM7Osda86HiQVTKXExycDgSwfu6z+fdrR+NnCOtnmw3UC6BFRYyWi8JlfzhkAscAI1t25
-	yyloPqg6gKsCDLbFVIV9q3xvYcI7+lfaH8YYf/NX86SS9wD+fvdA==
-X-Google-Smtp-Source: AGHT+IEnVb312mM0/ZUW/Cvgi9JZzdsiNzn4SI0vwox66FNvId5aPEr3WN55/5CiK8j/YPZ7IitF/A==
-X-Received: by 2002:a17:907:d08:b0:b60:18d5:429a with SMTP id a640c23a62f3a-b647323fac1mr2913897866b.22.1761248081406;
-        Thu, 23 Oct 2025 12:34:41 -0700 (PDT)
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com. [209.85.218.52])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b6d51417143sm307645866b.42.2025.10.23.12.34.41
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Oct 2025 12:34:41 -0700 (PDT)
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-b5c18993b73so218884766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 12:34:41 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWKZpWl3zJ+IzLxcC/bwfLfXNhXnDy0LrtuG1Xs4NZa4VLoNr1++5lbDtl/ISGxpkPanv8dcyKMKJFpKEKXBrJw@lists.infradead.org
-X-Received: by 2002:a05:6402:2681:b0:634:ba7e:f6c8 with SMTP id
- 4fb4d7f45d1cf-63c1f6d5e1bmr24956720a12.34.1761247589536; Thu, 23 Oct 2025
- 12:26:29 -0700 (PDT)
+	id 1vC168-00000007Nl2-3sZQ;
+	Thu, 23 Oct 2025 19:35:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761248119; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=nv18uc+SyKl+K8SnLLTWpAq0fbUpluuoZJju1MeUj+H/X9bt51/ldBG63PC0/4u4BK/AzaRiCVKegxqnTYGFW6sgeQcO1qcz6nhGgc6/R2rg2MbmYPWuHPDHOjh7RHokXe5zoZF+wi84/s/4JuRd/ojvFfJ82tSfefflm5xe3C8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1761248119; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=DoBeKc7k0tI/KT6rIVYw1QPBdWN+Yb/dqCkvda7xnq8=; 
+	b=lIKNEcyDva8gdJAeAtbnSr/3vdRnFgxZVz6Fxl5YVBbwLbulKabzGV8LWLUs0pEl64356H4Si+9zoI0J/j5KTR9ke9eCcQd+2lW4Pqy7FRMiUVc1JsfF4P+GMVwzq0oTQcAnflvVagNQggc4e/QbKq3UDPHmVJ10B4w8sUgcwd8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761248119;
+	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=DoBeKc7k0tI/KT6rIVYw1QPBdWN+Yb/dqCkvda7xnq8=;
+	b=eInEvmGEiPpCIw5+BSGE1S4LGFduLUjAMMsmQ9bPV9BCl8tZTEOEpuqUYqFl882L
+	okc8uQUclwD6wSqoR3A36tguk0pR/Owy6MJITrvJBgDWM7nl3k6Gd7aGURHkscaBiqM
+	FxT3cyYl3kxs/z2kGWsxqmU1+78vg8YhA3f+HIHI=
+Received: by mx.zohomail.com with SMTPS id 1761248113921586.062025324594;
+	Thu, 23 Oct 2025 12:35:13 -0700 (PDT)
+Message-ID: <174217e1-2ec5-42fe-bdc8-57b8a5f943c1@collabora.com>
+Date: Thu, 23 Oct 2025 15:35:11 -0400
 MIME-Version: 1.0
-References: <20251022102427.400699796@linutronix.de> <20251022103112.478876605@linutronix.de>
- <CAHk-=wgLAJuJ8SP8NiSGbXJQMdxiPkBN32EvAy9R8kCnva4dfg@mail.gmail.com> <873479xxtu.ffs@tglx>
-In-Reply-To: <873479xxtu.ffs@tglx>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Thu, 23 Oct 2025 09:26:12 -1000
-X-Gmail-Original-Message-ID: <CAHk-=wjoQvKpfB4X0ftqM0P0kzaZxor7C1JBC5PrLPY-ca=fnA@mail.gmail.com>
-X-Gm-Features: AWmQ_bmaCluDq9_Xyq5CJoakX9a-PwfYiYDMZ1KnC-jDJR9ceAw_ALWfx9Y5hW4
-Message-ID: <CAHk-=wjoQvKpfB4X0ftqM0P0kzaZxor7C1JBC5PrLPY-ca=fnA@mail.gmail.com>
-Subject: Re: [patch V4 10/12] futex: Convert to scoped user access
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
-	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
-	kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>, 
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	linuxppc-dev@lists.ozlabs.org, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, 
-	Heiko Carstens <hca@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Andrew Cooper <andrew.cooper3@citrix.com>, 
-	David Laight <david.laight.linux@gmail.com>, Julia Lawall <Julia.Lawall@inria.fr>, 
-	Nicolas Palix <nicolas.palix@imag.fr>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 08/15] media: rkvdec: Add generic configuration for
+ variants
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Heiko Stuebner <heiko@sntech.de>, Ricardo Ribalda <ribalda@chromium.org>,
+ Hans Verkuil <hverkuil@kernel.org>, Hans de Goede <hansg@kernel.org>,
+ Yunke Cao <yunkec@google.com>, Jonathan Corbet <corbet@lwn.net>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ James Cowgill <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com, Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Diederik de Haas <didi.debian@cknow.org>, linux-kernel@vger.kernel.org
+References: <20251022174508.284929-1-detlev.casanova@collabora.com>
+ <20251022174508.284929-9-detlev.casanova@collabora.com>
+ <5d2f3b9c-3d1a-47a5-93f1-1a6d6ce540f3@kwiboo.se>
+Content-Language: en-US
+From: Detlev Casanova <detlev.casanova@collabora.com>
+In-Reply-To: <5d2f3b9c-3d1a-47a5-93f1-1a6d6ce540f3@kwiboo.se>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_123443_554100_B187DD0A 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20251023_123545_000054_898513CA 
+X-CRM114-Status: GOOD (  23.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,14 +90,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Oct 2025 at 08:44, Thomas Gleixner <tglx@linutronix.de> wrote:
+Hi Jonas,
+
+On 10/22/25 16:57, Jonas Karlman wrote:
+> Hi Detlev,
 >
-> But as you said out-of-line function call it occured to me that these
-> helpers might be just named get/put_user_inline(). Hmm?
+> On 10/22/2025 7:45 PM, Detlev Casanova wrote:
+>> This is to prepare for adding new versions of the decoder and
+>> support specific formats and ops per version.
+>>
+>> Different rkvdec_variant instances will be able to share generic
+>> decoder configs.
+>>
+>> Tested-by: Diederik de Haas <didi.debian@cknow.org>  # Rock 5B
+>> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+>> ---
+>>   .../media/platform/rockchip/rkvdec/rkvdec.c   | 37 ++++++++++++-------
+>>   .../media/platform/rockchip/rkvdec/rkvdec.h   |  6 +++
+>>   2 files changed, 30 insertions(+), 13 deletions(-)
+>>
+>> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+>> index 776149f871b0..a7af1e3fdebd 100644
+>> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+>> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+>> @@ -373,15 +373,16 @@ static bool rkvdec_is_capable(struct rkvdec_ctx *ctx, unsigned int capability)
+>>   static const struct rkvdec_coded_fmt_desc *
+>>   rkvdec_enum_coded_fmt_desc(struct rkvdec_ctx *ctx, int index)
+>>   {
+>> +	const struct rkvdec_config *cfg = ctx->dev->variant->config;
+>>   	int fmt_idx = -1;
+>>   	unsigned int i;
+>>   
+>> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+>> -		if (!rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
+>> +	for (i = 0; i < cfg->coded_fmts_num; i++) {
+>> +		if (!rkvdec_is_capable(ctx, cfg->coded_fmts[i].capability))
+>>   			continue;
+>>   		fmt_idx++;
+>>   		if (index == fmt_idx)
+>> -			return &rkvdec_coded_fmts[i];
+>> +			return &cfg->coded_fmts[i];
+>>   	}
+>>   
+>>   	return NULL;
+>> @@ -390,12 +391,13 @@ rkvdec_enum_coded_fmt_desc(struct rkvdec_ctx *ctx, int index)
+>>   static const struct rkvdec_coded_fmt_desc *
+>>   rkvdec_find_coded_fmt_desc(struct rkvdec_ctx *ctx, u32 fourcc)
+>>   {
+>> +	const struct rkvdec_config *cfg = ctx->dev->variant->config;
+>>   	unsigned int i;
+>>   
+>> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+>> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability) &&
+>> -		    rkvdec_coded_fmts[i].fourcc == fourcc)
+>> -			return &rkvdec_coded_fmts[i];
+>> +	for (i = 0; i < cfg->coded_fmts_num; i++) {
+>> +		if (rkvdec_is_capable(ctx, cfg->coded_fmts[i].capability) &&
+>> +		    cfg->coded_fmts[i].fourcc == fourcc)
+>> +			return &cfg->coded_fmts[i];
+>>   	}
+>>   
+>>   	return NULL;
+>> @@ -1014,18 +1016,19 @@ static int rkvdec_add_ctrls(struct rkvdec_ctx *ctx,
+>>   
+>>   static int rkvdec_init_ctrls(struct rkvdec_ctx *ctx)
+>>   {
+>> +	const struct rkvdec_config *cfg = ctx->dev->variant->config;
+>>   	unsigned int i, nctrls = 0;
+>>   	int ret;
+>>   
+>> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++)
+>> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
+>> -			nctrls += rkvdec_coded_fmts[i].ctrls->num_ctrls;
+>> +	for (i = 0; i < cfg->coded_fmts_num; i++)
+>> +		if (rkvdec_is_capable(ctx, cfg->coded_fmts[i].capability))
+>> +			nctrls += cfg->coded_fmts[i].ctrls->num_ctrls;
+>>   
+>>   	v4l2_ctrl_handler_init(&ctx->ctrl_hdl, nctrls);
+>>   
+>> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+>> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability)) {
+>> -			ret = rkvdec_add_ctrls(ctx, rkvdec_coded_fmts[i].ctrls);
+>> +	for (i = 0; i < cfg->coded_fmts_num; i++) {
+>> +		if (rkvdec_is_capable(ctx, cfg->coded_fmts[i].capability)) {
+>> +			ret = rkvdec_add_ctrls(ctx, cfg->coded_fmts[i].ctrls);
+>>   			if (ret)
+>>   				goto err_free_handler;
+>>   		}
+>> @@ -1240,13 +1243,20 @@ static void rkvdec_watchdog_func(struct work_struct *work)
+>>   	}
+>>   }
+>>   
+>> +static const struct rkvdec_config config_rkvdec = {
+>> +	.coded_fmts = rkvdec_coded_fmts,
+>> +	.coded_fmts_num = ARRAY_SIZE(rkvdec_coded_fmts),
+>> +};
+>> +
+>>   static const struct rkvdec_variant rk3288_rkvdec_variant = {
+>>   	.num_regs = 68,
+>> +	.config = &config_rkvdec,
+>>   	.capabilities = RKVDEC_CAPABILITY_HEVC,
+>>   };
+>>   
+>>   static const struct rkvdec_variant rk3328_rkvdec_variant = {
+>>   	.num_regs = 109,
+>> +	.config = &config_rkvdec,
+>>   	.capabilities = RKVDEC_CAPABILITY_HEVC |
+>>   			RKVDEC_CAPABILITY_H264 |
+>>   			RKVDEC_CAPABILITY_VP9,
+>> @@ -1255,6 +1265,7 @@ static const struct rkvdec_variant rk3328_rkvdec_variant = {
+>>   
+>>   static const struct rkvdec_variant rk3399_rkvdec_variant = {
+>>   	.num_regs = 78,
+>> +	.config = &config_rkvdec,
+>>   	.capabilities = RKVDEC_CAPABILITY_HEVC |
+>>   			RKVDEC_CAPABILITY_H264 |
+>>   			RKVDEC_CAPABILITY_VP9,
+>> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+>> index f35f6e80ea2e..3b1cc511412e 100644
+>> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+>> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+>> @@ -71,6 +71,7 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
+>>   
+>>   struct rkvdec_variant {
+>>   	unsigned int num_regs;
+>> +	const struct rkvdec_config *config;
+>>   	unsigned int capabilities;
+>>   	unsigned int quirks;
+>>   };
+>> @@ -113,6 +114,11 @@ struct rkvdec_coded_fmt_desc {
+>>   	unsigned int capability;
+>>   };
+>>   
+>> +struct rkvdec_config {
+>> +	const struct rkvdec_coded_fmt_desc *coded_fmts;
+>> +	size_t coded_fmts_num;
+>> +};
+> Do we really need a separate config struct? This chould/should me merged
+> with the variant struct.
+>
+> Using a two layer variant/config mostly seem to complicate things based
+> on an initial review.
 
-Yeah, with a comment that clearly says "you need to have actual
-performance numbers for why this needs to be inlined" for people to
-use it.
+I've been wondering about that and decided to go this way because 
+multiple variants could use a common config and this makes less copy/paste.
 
-           Linus
+But I think you are right, it does complicate things unnecessarily, I'd 
+rather see all variants with all their parameters directly. I'll change 
+that :)
+
+> Regards,
+> Jonas
+>
+>> +
+>>   struct rkvdec_dev {
+>>   	struct v4l2_device v4l2_dev;
+>>   	struct media_device mdev;
+>
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
