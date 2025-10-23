@@ -4,229 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 269C7CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 22:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF40CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 22:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WIdEWNXS8v2m2QouRgmwZlY0R59t3YhEUuEmyXxF28g=; b=jZeeFOOL1d/C5Yqk6fKAqv7ksS
-	XH/djsnYb6or2TfiHRn65BPzxoHN4fFc41VqRGg87wWiWWCa25TCE8Ahn8Zufgb0VkAKB8sveqkNm
-	WWG6qaMp16XK3bf0wEolxxE9Nb+BObUu0M4KLB5f0raHk6VzCUmUoISpwh7tiz0wvfz8gnF/YRL1v
-	DLlD+FEm0ZEZIpR4pDPtUQnb9r9wnfTTBQZj3mHBqqgCpCjxQQX6HVjAlZmeRATIJHoQNDOtDM33i
-	N4LlLVzHXlL69+ZsKQF0taCNLxn07zo8Qbl4rtcN68091SVsk52koi+Po7eixK7LrkY8hqQx2RYrg
-	UlinXKfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a+oAqH47cRsHD+glZ5Q5KatVvZ4QYYjYdLprWcY98JU=; b=1tj6MoQcBs0HziNFvEq5nw11dd
+	W6Jq8ejEZCo2FGMVjxhaU8hPDYqopnZXgLk3/K1iToC1XX+4nohIj58xf6mlQLCm3OBYcoFVdYZ6g
+	fHoe/eU89aI/2RzxhdtVxHvpJ604I6SULfD0NhkMv/8mxg4BYrWoya2nCSdIcQi/kjRHA994DLi20
+	IWI3aGG5O+K5tT76hk3UnVp18kBBPFaWy5R4RB21JvXWva/9MIbCeJD3QkCkur1kf2X5jcahiDyey
+	BZ8uH8mcYGUUJ+ED4sLROEeJVqI3ggq14Z+FraNs4z0r6Mr+WlFq3WxlunOKTvwRgYzah6gyWZ3JK
+	300K7VhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC3gz-00000007jJd-4Arq;
-	Thu, 23 Oct 2025 22:21:57 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1vC3iE-00000007jbT-1oed;
+	Thu, 23 Oct 2025 22:23:14 +0000
+Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC3gw-00000007jIh-062f;
-	Thu, 23 Oct 2025 22:21:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761258114; x=1792794114;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=WIdEWNXS8v2m2QouRgmwZlY0R59t3YhEUuEmyXxF28g=;
-  b=Y8t7KadAgrmOmaVtrE3iCBHATuMhWIHbhqoVWUG+qVvObBC7dtqjmoUu
-   firvFfSTYUwOmmG7+IWsnkSyryNQnD82kESnKOMYIKI0K05ok/AzYSvMX
-   KqYMByIDU1EsB0D6X84mdkSfEejvB4nIwd67tJelxhwMt4CGXkTpH9Ky2
-   Fv+KXrfQs4Iw6Hvg8Sv4fP9sCH8d0oNOQbpZKJDfOIzBWkggM4ppwnExt
-   nwTEHhgr0oBXZ4XZGxnQuSAIP8M81TvNepSJI0kQIkuhDlokHEWFJSITj
-   NS327Bsw3KMVvrAbVsplSBo8SButzKMXzGgmWD/v1iN5YtQ4u4h31qvXy
-   A==;
-X-CSE-ConnectionGUID: TZkyYHqLROKiRnT/gmN4Mw==
-X-CSE-MsgGUID: OeJimCt+TpG4lR+/6yRdHA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="51018369"
-X-IronPort-AV: E=Sophos;i="6.19,250,1754982000"; 
-   d="scan'208";a="51018369"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2025 15:21:53 -0700
-X-CSE-ConnectionGUID: W52qiHJNTr+N10LUhWSHww==
-X-CSE-MsgGUID: Fo/2O6DbT5Wqx1/gBvm2bg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,250,1754982000"; 
-   d="scan'208";a="188334278"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2025 15:21:53 -0700
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Thu, 23 Oct 2025 15:21:52 -0700
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27 via Frontend Transport; Thu, 23 Oct 2025 15:21:52 -0700
-Received: from SA9PR02CU001.outbound.protection.outlook.com (40.93.196.53) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Thu, 23 Oct 2025 15:21:50 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jrBUlVp+WKjlnfjLx8os24BUC5gb9LFIeyDFqi501hyD2PoY0NJC7Q+NgAgX+ZydNhKKDK7eX1N1sS5dkv/+a+s4cewr8oeEpWryU3ZJvHwX70o6VkrkXzaBfz8CopsjTlHdPaHEaA8Y7IvJ3VVot0xW6K4QaQFvdJQzhafm7afJj9/2NiM+248NmQRNXakt/dvz2D5Xiwwc7M2OEIw7buWGa7SNZwLQikiw/QtL8wmw94DMmKePR/9tHALTzC8yZWLDgBfpwUqBajE0Ovh8ovYuXdMwolt2fb6oxK4faONte+zqCE2Syf+JjeXM71BtfA++P8pDrHFS95Y1baC++A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WIdEWNXS8v2m2QouRgmwZlY0R59t3YhEUuEmyXxF28g=;
- b=cpnOv9QNaVEvGQJ/7KGo4fEL4yhpv+uQ4OYeAU03n5vsAcwWMDtJycm2FadUFFrqW1aYqp9oPt/wpULU8hLpkagozKT54IK6ToeI9T/a3G2aR2MTQYaGMKz1sqll2ZhZ1RyP9/ukTAAYNI64zuFFHWILcRc7ijOWlMdjETtwi9v+lQzDaAeu5IKYPUjJL/H//OH/DGr+w4q5M8hU/+EIKlQZU35e10CD76ddE9P/6JvRIT95NX7IuJMQGHXeSO7wW4TFYuGSmtkfqiIN5oHydPRJIFfkB0eIncOLcMTOzgs3dmNUiSUSDRqxldRI8nX/4TpC1CNQ2MoqPcs8Gl7Rmg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BL1PR11MB5525.namprd11.prod.outlook.com (2603:10b6:208:31f::10)
- by CH3PR11MB8750.namprd11.prod.outlook.com (2603:10b6:610:1c7::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Thu, 23 Oct
- 2025 22:21:44 +0000
-Received: from BL1PR11MB5525.namprd11.prod.outlook.com
- ([fe80::1a2f:c489:24a5:da66]) by BL1PR11MB5525.namprd11.prod.outlook.com
- ([fe80::1a2f:c489:24a5:da66%6]) with mapi id 15.20.9253.011; Thu, 23 Oct 2025
- 22:21:44 +0000
-From: "Huang, Kai" <kai.huang@intel.com>
-To: "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "frankja@linux.ibm.com"
-	<frankja@linux.ibm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "pjw@kernel.org"
-	<pjw@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"kas@kernel.org" <kas@kernel.org>, "seanjc@google.com" <seanjc@google.com>,
-	"maobibo@loongson.cn" <maobibo@loongson.cn>, "pbonzini@redhat.com"
-	<pbonzini@redhat.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "imbrenda@linux.ibm.com"
-	<imbrenda@linux.ibm.com>, "zhaotianrui@loongson.cn"
-	<zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>
-CC: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>, "Zhao, Yan Y" <yan.y.zhao@intel.com>,
-	"michael.roth@amd.com" <michael.roth@amd.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "Weiny, Ira" <ira.weiny@intel.com>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>,
-	"ackerleytng@google.com" <ackerleytng@google.com>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm-riscv@lists.infradead.org"
-	<kvm-riscv@lists.infradead.org>, "Annapurve, Vishal" <vannapurve@google.com>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, "Edgecombe,
- Rick P" <rick.p.edgecombe@intel.com>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
-Subject: Re: [PATCH v3 11/25] KVM: TDX: Avoid a double-KVM_BUG_ON() in
- tdx_sept_zap_private_spte()
-Thread-Topic: [PATCH v3 11/25] KVM: TDX: Avoid a double-KVM_BUG_ON() in
- tdx_sept_zap_private_spte()
-Thread-Index: AQHcPv2kW3nEIamKR0CJVbn4fX3MRLTQWNSA
-Date: Thu, 23 Oct 2025 22:21:44 +0000
-Message-ID: <e92db81d74acf960741b4d2eeaa47639e5d76218.camel@intel.com>
-References: <20251017003244.186495-1-seanjc@google.com>
-	 <20251017003244.186495-12-seanjc@google.com>
-In-Reply-To: <20251017003244.186495-12-seanjc@google.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BL1PR11MB5525:EE_|CH3PR11MB8750:EE_
-x-ms-office365-filtering-correlation-id: 7f209c99-ab24-47e6-a9f3-08de12828c7e
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|921020|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?UytDTDdKNEJ5eldhT3R5RWkxb3FMQ2g5cnd3cytNc3pmRDRxVXhVakN1dVNj?=
- =?utf-8?B?a1gzZEJsQitzSGFSQW9mR1FTWTFQWmVXUEt4Q24xTnRPa1dMV2c2ajZ0Z1I4?=
- =?utf-8?B?a3laamZRdGIxOG9FdFI3WFBkdHVrdlQ2U0JyWksrU2F1dkNCZlVMNlF3T2Nr?=
- =?utf-8?B?dFlMTzNVSDAyV0NRM1FjbG5Ub09QVmJhNVJidlI3WkFnUk9YR3NqZUpLUjls?=
- =?utf-8?B?SDFqSWR4eDJYS0c5RjcyS2dHMGYyenhsNFF2S2xoZzhRR3dFS2dRRHRuWU9Z?=
- =?utf-8?B?OGRhRG9PMWJaekZyRmZhMkp2WFQvcHI1NlNYcVBmczJ0UTlETW0wVG94ZnBY?=
- =?utf-8?B?VFZOMFJFWnJ3QjRRSWk2UndUMnd0OEFORkNIeStNRStBNFE5S0t5aFRHcUo0?=
- =?utf-8?B?M0E4ZmdPekVJN21uQk41UFJ0UTY2TGkrZkhpOS9yeEhJSm1oQmFGSFMxMytW?=
- =?utf-8?B?NjdadW42VlY5SkRBeVVZVnRyRGcwYm9nUmlNckRTeEt6QjZkNlpGNkJyQU43?=
- =?utf-8?B?NE9LaHpoUzdNbUJqRnJ0V2l2dHM3U3BReEo0YTFENlFTRTBubkY4Q2xMeEd0?=
- =?utf-8?B?MU9NTkQyYWdQcG5NUlo3MHJiS1VXdXY2UGRIcE5zV0dlNVd2OTB4cTJDYmEz?=
- =?utf-8?B?UHhXRWdBdmFDS3orSEJBV3F6MnBWa0NCTUJraU1OekVGb1pTN2V0ZnE3UThS?=
- =?utf-8?B?bjZNSXZyYXpTZG1wanIwb083bE01dG93Z3lWazhZaGZnMU1CS1YxUWFmdUUw?=
- =?utf-8?B?a0FBWUZ1b2RXQVZsL1ZwRWtJMTFuZENTd3Q2ZnlBR3hBZmpjNHllTjJPbHRi?=
- =?utf-8?B?b1BBdnhUWTBiTGxCY0FLajBwYnV5U1pDZGRha2E2eS83RjNsRnFQWk9RcHI2?=
- =?utf-8?B?TFVXdE5oWDhzYnM4eGM2cVk2RnJCa1RhNS9Qa0crUmdFSEJ1d09RM3FsUy9B?=
- =?utf-8?B?Uy92Nk9DdkdwQWNybHJscEJZdUdUVExBUW5udm8xTEtuNDYwMVhoWTNvR3A5?=
- =?utf-8?B?czZBajkxblU3Mm82aFFReFBhYXc2aE1tNVMwTWRCTExkems0SkJVVXJ5KzVi?=
- =?utf-8?B?UnJrSk9nMk9mUC9za05ldFZtRmFFZ0V5T2xtL1U5TkNlU1BtZm5hRzNvY2tn?=
- =?utf-8?B?eFcwZTlLaEpmVUZ2UUhqOXZ3WWpwMVMvNTBYVVlMNjhRZFNiNE5MZ1F2akZB?=
- =?utf-8?B?aWlOTGNTSjhKc1RSellQZndGZ2JaOWdCZ2pjS2drYzJ4UmN3WXBqNUx6ZG1C?=
- =?utf-8?B?NWlQSncvYXR5VXIzT090cWtxejRJenRnUVYwczA4ckoxdlo1emhGSUpjem9L?=
- =?utf-8?B?bW5KK2k1TXJHWk81bG5sVXBKODJ3QUhxUHF2M2FsOTY4V01BZGVOL0J1SDJr?=
- =?utf-8?B?b3lhbTI2QXYrQXcvc05oS2RuTWxRclJEcDFxdWg1aWh4T0RadFlqYWphU3o1?=
- =?utf-8?B?Q2pMRmRPOGZsQ2ZaQlBubnppWnNMdEY4T0UvL2UwV3UwU3UrRWw1NVBXL0VY?=
- =?utf-8?B?ckhaZmdKN0hmV2FKbVI3NGNXQnNIMitvVk9QbjBMMmZQY3V1bnh4b2FBaDdQ?=
- =?utf-8?B?RjdwampMTHpldFZKOTVlTVYwQzd2QkZROTRCSVZ6Y0lzSFlNNlpRZlpzUFJy?=
- =?utf-8?B?VkEydVVCNUxWbHlMUlhCM003WVBSZDMwYlFxa3hHUjJQZjR6b1JUT0FkRGE4?=
- =?utf-8?B?UDR0L096RU9yR0ZSU3YrY1dXakNLbUJtUnJuUWM4dTFWZnV0ZTloNjMzSXR4?=
- =?utf-8?B?Z24vQjRqMmo3TkxjSnYxci9CQ0h6cGhwQll3S1ROTmhiL0VscjlWUVBDay9H?=
- =?utf-8?B?b3pDd0tXTU83bTkrTXd4R2lheU8zand1S0JCWkVYYUZVb1QxZGt0VjRlUy9Z?=
- =?utf-8?B?QXduRzRWRUQ5UWRCSTZOSGdpZ0JtM01xV216ZXpPRjFQRUpheWhQa0JtaWdh?=
- =?utf-8?B?djU2SXozQ2VxRXVIMWN4bUkyYlY0dlJ4bWRlWkN0TStHYm84Tmx2U0pIb0M1?=
- =?utf-8?B?dE9wTWFUY2hoNXcyMCsyQ3RXZHp2MFFrNmE3TzVJRlBZTVZkTTZyRjQ4NXpu?=
- =?utf-8?B?eVBvejI3SW1abzJjY1FJZFlDbmxlV1V3dHp5UT09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR11MB5525.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(921020)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eFdjNlJxTDZpalczazRpK1VFSWxEVTFNT2ZFK1JjbnNHL2MrYVFhb0k1WEFS?=
- =?utf-8?B?RCs2S0Jvd0hnT0RnYjhWck1HTko0RUk4WXFNTjFaOUhoSllZUVdVeXdQNzE0?=
- =?utf-8?B?YkgvQXhmV1YyQ01wOUszYWE3V3JJYjFFRWxPTXpNWG9UZVZhd21BTXhneDBW?=
- =?utf-8?B?Nm45RU1rOXI1WVlodWZyR3VIMTFOM0lrWUdoNkpjdFdpeTZtQVlTeEhQc0pU?=
- =?utf-8?B?TENnb3UzVTR0blpUQm1kVm1tWHdudWtyaTIrYlNOeWx0Y0dORDdYa1hXaVlr?=
- =?utf-8?B?VG5IL2hzRDJzYWRDU2VSSGtqU0pWR0tGdENHbU5ZNEpJS0Nham5VWDNMQmlH?=
- =?utf-8?B?TkdXMlU3REFjWXFLc2FnVlhUYjlZdU0rVk5qa3ptOEpscy9HUndvNlp1SU8y?=
- =?utf-8?B?bDNFMHlhbk5OamZ6eGlyWVFVa0x3OXV3cmdZRjZ0N25hNWVuMy9ObHVzUEFC?=
- =?utf-8?B?eENTY1JKN2JuREFsSjFRbEovd3RsaTFZcVBvQXB2TlJlbHd0VnpVVy9hMEdm?=
- =?utf-8?B?eEtIRjZZM0xhb3FJTFJ0ZnVEWmdieEovQ1dFdy92K2VHeStMbXdQeGRzakhO?=
- =?utf-8?B?QUVibzJFL0dycW96end3NzErUHR5c25BQzErSlRpb2R2REZSaHBOOXFCWDdC?=
- =?utf-8?B?OS9Ja2dGWHFQQWxWbTJYZnRuM2pqS3E2dmIyWG1rSG54dGt3ZXkyRFI2aHVx?=
- =?utf-8?B?Qzh3ZVFneVU1bEhKSmtKaFdxRlJ0Q2F2WTlhRmlMdVNqc09rNjREUkNpdTIv?=
- =?utf-8?B?eUdqVkNqZU1pVFljalhCYlovT2toaFFQemVueGo2YjJXZmN5c2xkRU9PQVJG?=
- =?utf-8?B?NjdFaVFOdjBtbEwxQ3llRU1LWXp4blRuUlMzVHZuSEgxYnZuOCtyK2llK0Ra?=
- =?utf-8?B?Ni9ueHlJSHNVV1ZzZXUwUGUrcVVwOCtTV3Z2Y1hWa1BrQlBuWnZ1U0tOVXp6?=
- =?utf-8?B?djJIWkdSOXVYcGt0cnlUeWNwdWQ0OWdaTTN2dEJSL0pZMkp0c1VHVEFJbzg2?=
- =?utf-8?B?OWkrMkNhcGRGK3hLQjkyRVkwM2x1cTZOcWxXdllGZC95K21oNmRSZi8vZkR3?=
- =?utf-8?B?QXRETnZYejA2azZOSCs0TnBhczVwKzdqdkxpR21QNmRZckZEcmRCR0c0d3pu?=
- =?utf-8?B?MTRIQVZmY3A4dGR3NTI2dlliaUQvaEgvM1VtTUgvZC9rUjNkb3lIQUxGcm0x?=
- =?utf-8?B?SURyNmhHMHdHbXQvOGNjczZuTmdkTFN3ZENvYW1MSU5ZVkxCRjV6cjRsTnhP?=
- =?utf-8?B?MVBFd1ZsaFgxbjJRRXRGZDI0NC84SFR5SlhJN21UdDRRYUxFQkNqaEtkazF2?=
- =?utf-8?B?eTBaQzBOTkRVbTRjVkRnNndONUt3c2Q2RHFWL3RRdkgrMHEyU0R6RHhWTmlU?=
- =?utf-8?B?S0JJMEl1YXBDOFNqRFQrN0tyZWNpNjR2aGhQWEhlOUwxNGpRUHZNbzZPTVhs?=
- =?utf-8?B?ZVJZTjcrNlpnNE9oQkpwbFdYeUNEYTJJaHdwYWFRUWhLMTNrNFJXQUsxOG03?=
- =?utf-8?B?TmFHZkJnWDJ1Z25qLytYdko3Qmw2cUt5V0VjREJuWUsya2pWN0J3VHFCVnhr?=
- =?utf-8?B?UGd0WExORUpqYzRzajJkWDhBR0RvNkVLS05ZekxUcUhtV0NDVjJuQkhTNWtK?=
- =?utf-8?B?dGRmTkw1YXZIdmpVSG01YWJ0VG1VWjgzVkVhckpZSG11dmhJN2pkS2F3WkEw?=
- =?utf-8?B?UkIxYXJ6ZExSV211ZmRlTE9SbHE4R3J0SWIvY3hyQ0w5eVprT2RkVEM0WEk1?=
- =?utf-8?B?Q1hQM2krYUFiV3Raa21PRzI1MmxBdUZyYUNyaStaUnJ1dWpOV0Y3NHIvbkNi?=
- =?utf-8?B?ekFJYXVNUjNoVk9xNHFGbnNFVXF0QndHT2FqYklhV1ZnN3ZLZFZ5UVp3RzZ1?=
- =?utf-8?B?VVRtdXhOQVF5SW04U3llbjlVTVV4NUxBLzF2a2phQmhTUUJmZkdrMVlHYjV3?=
- =?utf-8?B?N09Gd24wclF1dzlRa0NON081elVXeENVcWVSLzArVHhnbzc3KzNEUmxyaTVW?=
- =?utf-8?B?bDAxUVVrcXZBQ3B4YzZ4VUF5K0oycWJXQVV6VGlHbkNqRDFydjdCc1lCM09j?=
- =?utf-8?B?QjBWaFQvaFBFRkhxazUwYTdrTjdRckRYUUFmaUFXU0REb0d2T3J0Y3I0YVlV?=
- =?utf-8?Q?Ha++Csql+tvc2GthOXH8QdqNd?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <9E8CACE1E28AEA429C8B038046340DF9@namprd11.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1vC3iA-00000007jZv-36As
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Oct 2025 22:23:12 +0000
+Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-87de60d0e3eso13358116d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 15:23:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761258189; x=1761862989; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=a+oAqH47cRsHD+glZ5Q5KatVvZ4QYYjYdLprWcY98JU=;
+        b=0g8iYDzLIxgyAQJc71p7o/MSkkSZFYY9erhoa3Yo5hTa3QPjxFlXsDpWL6Mdvmcsja
+         noyfAQ68uKlYOdyKDR5+kmUWrx0ork2WuvhDAlZTvkGIKxVu3xHUcXlq8sqUpNiBQsat
+         0wRMd+jYHvobxnSMimNtql98yl0j/agsi6LkT+r07GE/FbxzQAcLFPZVZUvqqTafpWit
+         lmlxodbTG9oCf2flBlHJEp2T0mGYCVMS7WNgKRWVZnrsyvfxGT+LACWXin5SNL2KgfD6
+         q7D3SQHNxYfwEPuzMcUsatbILfDxI4B+GlOJFio3cgCeFQa53PPXY6JjHH4bYQFCtKXP
+         DtWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761258189; x=1761862989;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=a+oAqH47cRsHD+glZ5Q5KatVvZ4QYYjYdLprWcY98JU=;
+        b=TgXL7DvGM35+amCGELPmUEbOFynR0bXrdrvCYROvQ3KikLf4mDKlERjd0pszwEQSgJ
+         Y39Z1cFD5GVLdE96Ac3SiMyxBvulwO88EYA/kDG9vAIyASnb5DpKki/Q8ug9u69PrZyg
+         Fk+Qo2o84Lg7+sLsDhMwQeqI/Z7jm9SC99kbBpTOrMn1YXxHZZLxoGBpin8bHa54Kyz+
+         iliayqOcrDxIBvaQdtqKqwQ51MzPf1nr0k8ukGIy5YnxJyeAOfb2S+ifpMnDIpNDFKYw
+         6kVjuJz1VhNbXPRP6ezo/E7yHEpykGwyjlljVpZalBi/chcnh4cX/ZztkCxPk1r/Ep6v
+         ztAg==
+X-Forwarded-Encrypted: i=1; AJvYcCVYQiy7zKd0AyhZyeMDkzMukt6NBXd31NBRYLqv8PZWJrL3ykXhTb/3TZbWKXW0zm2WybzEERjIS3GDCP7zXlEp@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVBFJY9ET7IwACY3a/7pca2hgJrH8g5sfVCKI/sPOD4S0GD7ii
+	OGcrM20T+n72giWUvZd8mtreQgeaslibpeJro+cclp9B2KjLEicku3WMm5P3JA5zd59Tagoj3cO
+	KS44w/HentWQ+f/j1GKjxIm4OLp8wI0iaUs/Lpe1/
+X-Gm-Gg: ASbGncvmaHmgEtCbQNVjniRcU5FlvuUPOadOD70nScup6pZ46gHSYhOc4jrXcgcA3a1
+	CVSgUMaDZwPJfzq7YjfJh2xd/7RArnsjcbsm8qq+KfK6TO1XGuU4satz/3uXFBoKiu0le7bA2dW
+	rbGaxpkFscUJmpplI45671IyncFUiWKPLsrZp0lXb4I71QNSqniOX3ShYF9cFUznE4AXs331tsJ
+	9XwTYFXr1ciQn6ZAHvmcAsSysCcbGwW3mJ4S2N6dZQrqmk9S1cv/TpDHuIsbMmeP1zzZkC0Q3tJ
+	bTI6stlCd93uuiAMzo2C8Q3Wlg==
+X-Google-Smtp-Source: AGHT+IGuCtYibPzQqqrjGNwM0zHaChLdpzHrb0geAS9qmAdlqFhgbwbFHzP5YvFRilqFdVAT8PX1Hff+wlSfn57dinQ=
+X-Received: by 2002:ad4:4ea4:0:b0:81c:6455:ec77 with SMTP id
+ 6a1803df08f44-87f9ee7d0f6mr50574026d6.40.1761258188413; Thu, 23 Oct 2025
+ 15:23:08 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR11MB5525.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7f209c99-ab24-47e6-a9f3-08de12828c7e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Oct 2025 22:21:44.4855
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: XT6nu+7tBxEK9FZ6kgT3mc7pzOOJ+g2YmY5hu7YdY/cg6ywt5PzRPlNm1VuG6BztIijqLsYKsT4EvPZlCiCN9w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR11MB8750
-X-OriginatorOrg: intel.com
+References: <20251017235159.2417576-1-royluo@google.com> <20251017235159.2417576-2-royluo@google.com>
+ <20251023-collie-of-impossible-plenty-fc9382@kuoka>
+In-Reply-To: <20251023-collie-of-impossible-plenty-fc9382@kuoka>
+From: Roy Luo <royluo@google.com>
+Date: Thu, 23 Oct 2025 15:22:31 -0700
+X-Gm-Features: AWmQ_bmWas4lIuJKQxW2zSsbNKRRFte9quUEFbVLot4b-vV1AO7q94wTEgHcExg
+Message-ID: <CA+zupgwQTLEs8_7i-VsGbGV7O2Y3XFA1C3aV7iuv2HLOwKns3w@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB PHY
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Joy Chakraborty <joychakr@google.com>, 
+	Naveen Kumar <mnkumar@google.com>, Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_152154_071101_70515CFF 
-X-CRM114-Status: UNSURE (   8.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251023_152310_792069_863B9F75 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -241,16 +103,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDI1LTEwLTE2IGF0IDE3OjMyIC0wNzAwLCBTZWFuIENocmlzdG9waGVyc29uIHdy
-b3RlOg0KPiBSZXR1cm4gLUVJTyBpbW1lZGlhdGVseSBmcm9tIHRkeF9zZXB0X3phcF9wcml2YXRl
-X3NwdGUoKSBpZiB0aGUgbnVtYmVyIG9mDQo+IHRvLWJlLWFkZGVkIHBhZ2VzIHVuZGVyZmxvd3Ms
-IHNvIHRoYXQgdGhlIGZvbGxvd2luZyAiS1ZNX0JVR19PTihlcnIsIGt2bSkiDQo+IGlzbid0IGFs
-c28gdHJpZ2dlcmVkLiAgSXNvbGF0aW5nIHRoZSBjaGVjayBmcm9tIHRoZSAiaXMgcHJlbWFwIGVy
-cm9yIg0KPiBpZi1zdGF0ZW1lbnQgd2lsbCBhbHNvIGFsbG93IGFkZGluZyBhIGxvY2tkZXAgYXNz
-ZXJ0aW9uIHRoYXQgcHJlbWFwIGVycm9ycw0KPiBhcmUgZW5jb3VudGVyZWQgaWYgYW5kIG9ubHkg
-aWYgc2xvdHNfbG9jayBpcyBoZWxkLg0KPiANCj4gUmV2aWV3ZWQtYnk6IFJpY2sgRWRnZWNvbWJl
-IDxyaWNrLnAuZWRnZWNvbWJlQGludGVsLmNvbT4NCj4gUmV2aWV3ZWQtYnk6IEJpbmJpbiBXdSA8
-YmluYmluLnd1QGxpbnV4LmludGVsLmNvbT4NCj4gU2lnbmVkLW9mZi1ieTogU2VhbiBDaHJpc3Rv
-cGhlcnNvbiA8c2VhbmpjQGdvb2dsZS5jb20+DQo+IA0KDQpSZXZpZXdlZC1ieTogS2FpIEh1YW5n
-IDxrYWkuaHVhbmdAaW50ZWwuY29tPg0K
+On Wed, Oct 22, 2025 at 11:43=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+>
+> On Fri, Oct 17, 2025 at 11:51:58PM +0000, Roy Luo wrote:
+> > Document the device tree bindings for the USB PHY interfaces integrated
+> > with the DWC3 controller on Google Tensor SoCs, starting with G5
+> > generation. The USB PHY on Tensor G5 includes two integrated Synopsys
+> > PHY IPs: the eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo PHY IP.
+> >
+> > Due to a complete architectural overhaul in the Google Tensor G5, the
+> > existing Samsung/Exynos USB PHY binding for older generations of Google
+> > silicons such as gs101 are no longer compatible, necessitating this new
+> > device tree binding.
+> >
+> > Signed-off-by: Roy Luo <royluo@google.com>
+> > ---
+> >  .../bindings/phy/google,gs5-usb-phy.yaml      | 104 ++++++++++++++++++
+> >  1 file changed, 104 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/phy/google,gs5-us=
+b-phy.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.y=
+aml b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+> > new file mode 100644
+> > index 000000000000..c92c20eba1ea
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+> > @@ -0,0 +1,104 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +# Copyright (C) 2025, Google LLC
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/phy/google,gs5-usb-phy.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Google Tensor Series (G5+) USB PHY
+> > +
+> > +maintainers:
+> > +  - Roy Luo <royluo@google.com>
+> > +
+> > +description: |
+> > +  Describes the USB PHY interfaces integrated with the DWC3 USB contro=
+ller on
+> > +  Google Tensor SoCs, starting with the G5 generation.
+> > +  Two specific PHY IPs from Synopsys are integrated, including eUSB 2.=
+0 PHY IP
+> > +  and USB 3.2/DisplayPort combo PHY IP.
+> > +  The hardware can support three PHY interfaces, which are selected us=
+ing the
+> > +  first phandle argument in the PHY specifier::
+>
+> Just one ':', anyway this sentence and below does not belong to
+> description but to phy-cells. You describe the cells.
+>
+> Or just mention the header with IDs - here or in phy-cells.
+>
+> > +    0 - USB high-speed.
+> > +    1 - USB super-speed.
+> > +    2 - DisplayPort
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: google,gs5-usb-phy
+> > +
+> > +  reg:
+> > +    items:
+> > +      - description: USB2 PHY configuration registers.
+> > +      - description: USB 3.2/DisplayPort combo PHY top-level registers=
+.
+> > +
+> > +  reg-names:
+> > +    items:
+> > +      - const: u2phy_cfg
+> > +      - const: dp_top
+> > +
+> > +  "#phy-cells":
+> > +    const: 1
+> > +
+> > +  clocks:
+> > +    items:
+> > +      - description: USB2 PHY clock.
+> > +      - description: USB2 PHY APB clock.
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: usb2_phy
+>
+> core
+>
+> > +      - const: u2phy_apb
+>
+> apb
+>
+
+Just to provide the full context, these two clocks/resets
+(usb2_phy and u2phy_apb) are specifically for eUSB2 PHY.
+USB3/DP combo PHY has its own clock/reset that hasn't
+been added yet, we would have to differentiate them once
+USB3 support is added in the future.
+I'm fine with the suggested name change, and we can
+address the naming again when USB3 is ready for
+integration.
+
+Regards,
+Roy Luo
+
+> > +
+> > +  resets:
+> > +    items:
+> > +      - description: USB2 PHY reset.
+> > +      - description: USB2 PHY APB reset.
+> > +
+> > +  reset-names:
+> > +    items:
+> > +      - const: usb2_phy
+> > +      - const: u2phy_apb
+>
+> Same here
+>
+> > +
+> > +  power-domains:
+> > +    maxItems: 1
+>
+> Best regards,
+> Krzysztof
+>
 
