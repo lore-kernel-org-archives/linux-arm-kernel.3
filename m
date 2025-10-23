@@ -4,109 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31246CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 07:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99446CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 07:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xHyiABBlng1DG/OBXNCqmQfngVGXPslzfZF3jhZo2s=; b=448h8RfhlpPYNlE9cc2GbTJHSz
-	WEpRysN4VCKVkCKIYJ8BzwV2LeevLn/M/EB23ZPAuOxB0oFHAmWIc0eOl1Wp3tt5vQuCnIsseCQW5
-	B8YZEJ3jPSfg0Ax8zUCX3giES0WBuehswYFR2VWKQF3z555HEWqq5OFtJcH5P/yjGkDzNn5JzAoPt
-	0ExptodYRhvkg0WBCT6jHBQbEY0YbopB11/UFxpAJ0TWqNOUFSLI+z5D4F3Q/5sdLRh2T3WOf+Wdq
-	ft45M37Y8HwZM+w2VTNvzYModDt89HiLwPo5aqeBuDO5vqJyUlvRz/7hx3fhkHzi6zCVEcDzwoewJ
-	AMtwYAEw==;
+	bh=SF5pybulDBHW18c8HlGOwb18Vw0zJMzWb3/sOP7yWg4=; b=EgTzNYd/h8pIkdCgM6NWZX6e/s
+	lUmh2mjWSp+Oz2j+JgRk2K5NsmLKuVv0GIEton6x+AzJ62M139q7Whzit4KebbeujcnlwZSeQ4DdX
+	97lp+hnC8c9fWjQaCWl7qTFUiWXgpSTU3PqiprsJ48pWjIys5VBzGc5ehZXGg1beNmE+UaJTcQlvv
+	GFdr46qHqKc3UKMkvtB2Ica0NPvu9gOyvtN93f+ocOqfR4bGsEl+lTCufYc0YleFY72VVnSJbdc8L
+	Me6gVhYlsk6BagJzO4md2VsDpL6XxDGjuA1oLmQwt02YxCutSYJrQFu6TxAjNtKiDWOzkEA6A6Hp/
+	MgnfUBaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBpNT-00000005IRY-1elu;
-	Thu, 23 Oct 2025 07:04:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vBpbg-00000005KZ4-3MjK;
+	Thu, 23 Oct 2025 07:19:32 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBpNR-00000005IR8-3MWs
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 07:04:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C56163EAB;
-	Thu, 23 Oct 2025 07:04:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86654C4CEE7;
-	Thu, 23 Oct 2025 07:04:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761203088;
-	bh=k8U6qSlJM/fWtU7OiPvtfXvMhWe75vynGRggydWDHPI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HUCtRuLSGalwcocYtmOPNj5aRmJal9BaCq5d6wBC2iW/YNm8cz5hrQSUR5JXE7JBi
-	 ZgVmwfb9C7rDU0lfyqOOYYaso7n6O2+NEZ1R4cBZXvhZGNij9QJ9lx+laViLBIklA3
-	 /4hrQuL0SomnetZfrP03QiVYkit1JD76FxyR/sDvOpkcPppuzc6CVF+PZbmD8HLxx3
-	 GPX6PQRRR1wA6CBYt9EMDfFmFDxOJNHLuL5FpcjZF2LOASnatspcSz79k9Prfo85Kk
-	 RTsL+UzSV+xtqVW6zXny/bxpIcirDgra1mP+g6JeWj/kl39KP9svv/5vScajrTe/ft
-	 1vN3dYuVOtgRg==
-Message-ID: <a1c28952-d08f-4629-84f4-e17646f6e554@kernel.org>
-Date: Thu, 23 Oct 2025 09:04:44 +0200
+	id 1vBpbe-00000005KXf-2hfb;
+	Thu, 23 Oct 2025 07:19:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761203954; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=bsCzS5MDHjxtBJy/3QQFflmrjRjP7+ij7mjvcpmJiVSO9IBjSQQM5C+NSbK6yoChcyE93a8+bTAr7+kIVJWRULaFPG11IwMZ3WWzoX6SRUIHDMxK/i5cFrX6ehbezhmHibQdMECFR8H03JqtHlDHDKEbPztexGSzIGjf9oMA6nk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1761203954; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=SF5pybulDBHW18c8HlGOwb18Vw0zJMzWb3/sOP7yWg4=; 
+	b=K6gwCYSwTLEtYSOy4h2jFuHn+3XWcEyPbxPsb1wQlGLIbF5+/BgBuUMey41TiyBaXduGmi2nM8ks69qEK9ix1B5w2w2e+J3ILdm6WHoGf1PwON8jxd0fd0li8TCyDuIHDPiA8DlhlFW1pUeFUSkTQoNXINUVDOKyCp2tTWEgHdw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
+	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761203954;
+	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=SF5pybulDBHW18c8HlGOwb18Vw0zJMzWb3/sOP7yWg4=;
+	b=iKy0yYd5IOtoKBRwSPCKhVi9FFId6Ye3aOop8qPa2+O2cHYN3UWhjtdHh4X1+yjG
+	Q0AJNOmzRt4ophYTGgJDDO6C9IjCLulhIKjVwwj6tAxj0imhEVNGEc4Noq3KBRtoIqL
+	2Kp8ddw0qOQjca+mU5BsgLOAxGQn4mdxpS/Qhj0s=
+Received: by mx.zohomail.com with SMTPS id 1761203953036917.0062959568356;
+	Thu, 23 Oct 2025 00:19:13 -0700 (PDT)
+Message-ID: <40d18130-4aab-47ad-9ed4-00ff6f594cc3@collabora.com>
+Date: Thu, 23 Oct 2025 10:19:06 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: arm: aspeed: Add compatible for Facebook
- Anacapa BMC
-To: "Shen, Peter" <Peter.Shen@amd.com>,
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Joel Stanley <joel@jms.id.au>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <DS7PR12MB61187E5845B076BF7C7EFE0995F0A@DS7PR12MB6118.namprd12.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v1] drm/rockchip: Set VOP for the DRM DMA device
+To: Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>, Robin Murphy <robin.murphy@arm.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Daniel Stone <daniels@collabora.com>
+Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org
+References: <20251022161948.199731-1-dmitry.osipenko@collabora.com>
+ <3705026.LM0AJKV5NW@phil>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <DS7PR12MB61187E5845B076BF7C7EFE0995F0A@DS7PR12MB6118.namprd12.prod.outlook.com>
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+In-Reply-To: <3705026.LM0AJKV5NW@phil>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251023_001930_724196_1FB5C87D 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,28 +83,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/2025 08:52, Shen, Peter wrote:
-> [AMD Official Use Only - AMD Internal Distribution Only]
-
-
-No, you cannot send such headers. We don't care about your corporate rules.
-
-Also your patchset has completely broken threading.
-
+On 10/23/25 09:56, Heiko Stuebner wrote:
+> Hi Dmitry,
 > 
-> From 3129809145bd283bc52b4e105ea66d217166bb5c Mon Sep 17 00:00:00 2001
-> From: Peter Shen <peter.shen@amd.com>
-> Date: Thu, 23 Oct 2025 13:49:52 +0800
-> Subject: [PATCH 1/2] dt-bindings: arm: aspeed: Add compatible for Facebook
->  Anacapa BMC
+> Am Mittwoch, 22. Oktober 2025, 18:19:48 Mitteleuropäische Sommerzeit schrieb Dmitry Osipenko:
+>> Use VOP for DMA operations performed by DRM core. Rockchip DRM driver
+>> is backed by a virtual device that isn't IOMMU-capable, while VOP is the
+>> actual display controller device backed by IOMMU. Fixes "swiotlb buffer
+>> is full" warning messages originated from GEM prime code paths.
+>>
+>> Note, that backporting is non-trivial as this depends on 143ec8d3f9396
+>> ("drm/prime: Support dedicated DMA device for dma-buf imports"), which
+>> landed in v6.16 and 421be3ee36a4 ("drm/rockchip: Refactor IOMMU
+>> initialisation"), which landed in v5.19.
+>>
+>> Reported-by: Daniel Stone <daniels@collabora.com>
+>> Fixes: 2048e3286f34 ("drm: rockchip: Add basic drm driver")
+>> Cc: stable@vger.kernel.org # v6.16+
+>> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+>> Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 > 
-> This patch adds the compatible string for the Facebook Anacapa BMC
+> just a process remark for now. This v1 so it definitly shouldn't come
+> with any Reviewed-by-s pre-applied, because this should happen in public.
+> 
+> It's not a huge issue here, because I do trust the people involved (you,
+> Sebastian, Daniel) and the change is small enough, but please for future
+> changes, let Review happen on the list, not on private channels.
+> 
+> 
+> Will look at the change itself when back home.
 
-Please do not use "This commit/patch/change", but imperative mood. See
-longer explanation here:
-https://elixir.bootlin.com/linux/v6.16/source/Documentation/process/submitting-patches.rst#L94
+Thanks. I also felt uncomfortable adding r-b to v1. There was no much
+discussion on the change that you can find on [1] and the change is
+indeed small, so I just added the r-b. Should've linked it the patch.
 
+[1]
+https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/issues/50
 
+-- 
 Best regards,
-Krzysztof
+Dmitry
 
