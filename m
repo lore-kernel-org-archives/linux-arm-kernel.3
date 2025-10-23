@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7BBECCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 20:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BC63CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 20:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nOlNjzKGrmabtYpeYty40nfBQK9A/mPHc8f9qhi2ylg=; b=YrCXL2xJRY1tjJldRL/f3as7sI
-	oDpfOMVIGwocnlNnbdCei3pre2BuEBXHipZG1zw09Jna2zDrV0zx0Lw01iFu2xPbJH87KNvvI99lf
-	8e7mi5G3W/1W6GrEUG/L4RbA5fpJx6Nvrxj9AngEU1UkL6hiV2rffCHDl7mdLAHWQcTUKiWQtN8Ka
-	rbuXXkIpGyInq6C62Xdkz2YokiNXuhCiElCaO9nExWUeO5D4b664hh2AZ0xXOBhNCEDdTh9Hj6hNT
-	jraje5GXEcmY5PcAVtAqh/PM3A6AuZMCdIHX0UqMfGriwdHMG+DIe9OOMJ4oXoNsyRm5W5DvWVD4g
-	Jpf/eX5g==;
+	bh=GTNDlcC66j9mF3WCrjdhKpeenuKBiHXH6QybTCxkPhc=; b=rZRtnSVZPsR/kNnwMC/KJCLtNT
+	sf05E74prLDogmyG/aWZBegzSglAmOX1U5bLQFcLgXrtZnnNoGItZgkt5g/pGR6UTEKWhuHoBlExh
+	sdkWP0rXQ+9Uo/RQuG3mDcxxWwN9V6mvRl1XOel2BeBz86RwnI6P0EnXRetTBepALf2qMS0y7TbSm
+	SA79eieN6LVrAW0JU5prdpKfkl9eTdTfwGyl7p1Hc8Haukf0AoEmmAAz0UDQ6K15T/yATc5kYIKPs
+	+NNLBjTupC4rKxqnxQRyF/zuXKQtAIz0Gr/4FX/UMcGyjrqAZj22BKoeee/h/3u6Ca0NCWzK8Wbct
+	Q3TyXteg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC2J2-00000007aGD-3Xws;
-	Thu, 23 Oct 2025 20:53:08 +0000
-Received: from mail-pj1-f74.google.com ([209.85.216.74])
+	id 1vC2J8-00000007aIy-2yd5;
+	Thu, 23 Oct 2025 20:53:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC2J0-00000007aEr-3AxI
+	id 1vC2J6-00000007aHP-1jbu
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Oct 2025 20:53:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=GTNDlcC66j9mF3WCrjdhKpeenuKBiHXH6QybTCxkPhc=; b=UlFvrxsZL/QJYF0BYhyBS4caCC
+	qaaHywXyME0kue99QWOLe1IRUhJdSHyubB3lDj30c8Kk5kfh+txeitMQh2XE/PFiyuDwdmPhgpEBT
+	ZT4XNX5LJC4kL6gMwqG84JlTtqETHyebXl1gxS0ljiEjchf6/p6RXNchkQg8q4vzJeHXmkDVi2OuF
+	WZiArn6bfsMmq8x+8OR30vZz1xj5tR/w7RVmVOSOHBSGCMDQVXhqa5Rz6I9vK71kRNMisUtL8N39i
+	C4wGQAh85YOfYb/Hz1C/m48P1juscIr4XayQEHkyO42oln++ab8D2BJuAG3+MfDQn62L39MFiCP46
+	2jiUY32g==;
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vC1RL-00000001k7L-1kDV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 20:53:08 +0000
-Received: by mail-pj1-f74.google.com with SMTP id 98e67ed59e1d1-336b646768eso1330034a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 13:53:05 -0700 (PDT)
+	Thu, 23 Oct 2025 19:57:42 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-290c9724deeso11715505ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 13:53:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761252785; x=1761857585; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1761252783; x=1761857583; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nOlNjzKGrmabtYpeYty40nfBQK9A/mPHc8f9qhi2ylg=;
-        b=ge5VymPtAo1bN/2LUBav+y/mnN8vOa91kHn/lQFmSEMweWnX6DFbLpBKZ3NNQdDWzi
-         hXLnu1VA6ruOD6j1imSyn1qwBY9OGwvuLDrUy9CQlymd2HSzaUEYtap8A4PiIs1+K/JA
-         DalGR++Mi7GEuMBADSusBMTnzbqxJpk/aK6ozJa0Z3GX16Eh6VNhlh3RIefpNwRoZJvI
-         pWY4zVMW8vc15WRM94q6sw6If8+vRh4oaNh7HmGjdccgaOy8FamVuyhhn1bsyFmXD5pz
-         ol3xjONXORXbLFLX2b6y61KpAfVlIA541v/88K3qM1ecU3ABfaMqlOKisef+gjRZkfKW
-         na5w==
+        bh=GTNDlcC66j9mF3WCrjdhKpeenuKBiHXH6QybTCxkPhc=;
+        b=KhNsomWXkK428t1vkkyC0Plj8ywk8SLzwwg1/+bkPF6zaOGJDyUZk1fX3RGCDuNW0S
+         PMOUXBze2r8miwH4XmsRjrDGQLZ2J6mOeQVU1rBaTQqYFjuPJ4PrbCZP0fHQDfhYzwhN
+         EIyuokrS3h1GGvoKKLf8Pn1romELMb9vno81/fm8h4HVVKBjg5lHzJLkM/UiW7hGD6H2
+         osbMuQbp2NsXyHlZ6M93cxAmMlwT3aT7C65st4mrVxL20WQMBSmQZas/HOEUmO33ePX9
+         N+DPK8wERHvWMxPyeYYBs7W1VenHG4Og5O9NyWf7Tz1+OmoITn+QMhSh9T+j2JqKkZF/
+         lL/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761252785; x=1761857585;
+        d=1e100.net; s=20230601; t=1761252783; x=1761857583;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nOlNjzKGrmabtYpeYty40nfBQK9A/mPHc8f9qhi2ylg=;
-        b=XGh6HZ/XxxWnYg6qwwGY/VE6kDHiRix5wVHTL3G1xlwU9+U7+1xMCuHMao4y4KkfFP
-         yjXS5G31E0SkcxNobJVyOT7w0bnNkYaxn/Z6nl3u00j2AbxN++fy8b2rpsDKEVna+HxF
-         /z8UsSCMvS6fx9bQELUm/a9dNUoB9qylEuCzG+XogTDIZQhvXZP9+yj70QeyRrWHW3wj
-         aPfWRf3mZB+3JON7QrKvvf4A4q4wM5hNKMyrEzBWWDpbl4DoZSZvm5MjOb4Fj+1Zi4+X
-         VxbczNARjrmtRFIzIXCShGeEPPOPkqUwJTTzJm26CZAwIIM9M1n94dT60kD/3TP1hPYQ
-         Dvrw==
-X-Forwarded-Encrypted: i=1; AJvYcCUrrbNAbDhAeem6hjAi10Jc6IWcm//EFzEX1YjM2t87ooXjseRiC3hYHSluwJcjYowD+J63x0e+k9Lc+8nJNru2@lists.infradead.org
-X-Gm-Message-State: AOJu0YySs5YZe/SAlOM6px4xcz0i5j4qgS6ZzYBJyEHmbDbS744P1/8Z
-	mmatsNKnDPCxDBEs6UF3op7B0bFi2dwk2ElxABOC5zKmwap74UpxbyHVSP7Z5Sp77cl2wsLYzzV
-	exfhVv6g0KbALMNJInHi1kglQLXingQ==
-X-Google-Smtp-Source: AGHT+IFP81I1iyalJE6aYdlbb3aYFaFBB5LVK9Iwi6HZICalmHAgswwkY0DX0NqFtFW5Im4RHwVUP8KP+TPcn7qo9cA=
-X-Received: from pjxx4.prod.google.com ([2002:a17:90b:58c4:b0:33d:98cb:883b])
+        bh=GTNDlcC66j9mF3WCrjdhKpeenuKBiHXH6QybTCxkPhc=;
+        b=WL9RbVvsaGiR8DRckl980P/BqhnEVNj0qN8xPWnT+Rhi3bI80wU1S/Qu5y6T48caDi
+         ob7cHhxncFRsONR9zfDPSjWF/v7C0SjvNTUWTLPvbCoZQC0kvDa44BRd4U/YPyI2Jk65
+         SZscI/PNqH/mnF+eOg2QOPh+D2ZUHDR+0y49sscXuqigS3/yl90pJtdfBQXYZ7wkqwB+
+         VGuJ2QD2sccV3aLjSYJcuPyV2Jk6s8CGUCk/gtRDEBZNaSwUdFkyM5p95HuhbhUhD8gI
+         ISMLv6+YPkn8k+yqxpB02ClwfTTpSfArtH+8vjvOd933NR3JvgvgYBP9jDmO3C2n5x+k
+         hZSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWGadR9327spg8s2oxwnbxAJL7ZUlrrXCtJC+P6y9stCXT9GkhLI5eWCi7pjzG3t3lRahEb+YIWgePZDyug64Kf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwcOBondzq//JXOWt/DX+21pckZLueJLWvqJ+KWYkNjqEKqn3M
+	IF5HVwUempctqp5nf8BKISBqUALjDhncA8cICdlk5/nEB4svRw+Lt8zGigeL1x9qdRzpSbFol6I
+	I5HxygYaNnNMLPKftUCMIn7gPtjhYqg==
+X-Google-Smtp-Source: AGHT+IGZ8YUla39b6Z83W7WgxBQC43Iqqksh+N1ptF+fhn6Q2OrPyzQYe93BSwde0qjKCGwbnFHIHl9SHzvH0QPzRfM=
+X-Received: from plbjh6.prod.google.com ([2002:a17:903:3286:b0:290:b136:4f08])
  (user=willmcvicker job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90a:c2c3:b0:327:f216:4360 with SMTP id 98e67ed59e1d1-33bcf853706mr35210162a91.8.1761252785336;
- Thu, 23 Oct 2025 13:53:05 -0700 (PDT)
-Date: Thu, 23 Oct 2025 20:52:44 +0000
+ 2002:a17:902:d60d:b0:270:e595:a440 with SMTP id d9443c01a7336-290c9cd4b48mr299453355ad.25.1761252783163;
+ Thu, 23 Oct 2025 13:53:03 -0700 (PDT)
+Date: Thu, 23 Oct 2025 20:52:43 +0000
 In-Reply-To: <20251023205257.2029526-1-willmcvicker@google.com>
 Mime-Version: 1.0
 References: <20251023205257.2029526-1-willmcvicker@google.com>
 X-Mailer: git-send-email 2.51.1.821.gb6fe4d2222-goog
-Message-ID: <20251023205257.2029526-3-willmcvicker@google.com>
-Subject: [PATCH v5 2/7] clocksource/drivers/exynos_mct: Don't register as a
- sched_clock on arm64
+Message-ID: <20251023205257.2029526-2-willmcvicker@google.com>
+Subject: [PATCH v5 1/7] ARM: make register_current_timer_delay() accessible
+ after init
 From: Will McVicker <willmcvicker@google.com>
 To: Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Will Deacon <will@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
@@ -84,8 +99,8 @@ Cc: Donghoon Yu <hoony.yu@samsung.com>, Rob Herring <robh@kernel.org>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_135306_790617_14B2B716 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20251023_205740_735978_B8DE7CFD 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,74 +115,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Donghoon Yu <hoony.yu@samsung.com>
+The function register_current_timer_delay() is called from the
+exynos_mct clocksource driver at probe time. In the event that the
+exynos_mct driver is probed deferred or the platform manually unbinds
+and rebinds the driver we need this function available. So drop the
+__init tag.
 
-The MCT register is unfortunately very slow to access, but importantly
-does not halt in the c2 idle state. So for ARM64, we can improve
-performance by not registering the MCT for sched_clock, allowing the
-system to use the faster ARM architected timer for sched_clock instead.
-
-The MCT is still registered as a clocksource, and a clockevent in order
-to be a wakeup source for the arch_timer to exit the "c2" idle state.
-
-Since ARM32 SoCs don't have an architected timer, the MCT must continue
-to be used for sched_clock. Detailed discussion on this topic can be
-found at [1].
-
-[1] https://lore.kernel.org/linux-samsung-soc/1400188079-21832-1-git-send-email-chirantan@chromium.org/
-
-[Original commit from https://android.googlesource.com/kernel/gs/+/630817f7080e92c5e0216095ff52f6eb8dd00727
-
-Signed-off-by: Donghoon Yu <hoony.yu@samsung.com>
-Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
 Signed-off-by: Will McVicker <willmcvicker@google.com>
-Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
-Acked-by: John Stultz <jstultz@google.com>
-Tested-by: Youngmin Nam <youngmin.nam@samsung.com> # AOSP -> Linux port
-Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com> # AOSP -> Linux port
 ---
- drivers/clocksource/exynos_mct.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ arch/arm/lib/delay.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
-index da09f467a6bb..96361d5dc57d 100644
---- a/drivers/clocksource/exynos_mct.c
-+++ b/drivers/clocksource/exynos_mct.c
-@@ -219,12 +219,18 @@ static struct clocksource mct_frc = {
- 	.resume		= exynos4_frc_resume,
- };
+diff --git a/arch/arm/lib/delay.c b/arch/arm/lib/delay.c
+index b7fe84f68bf1..acfb87143f21 100644
+--- a/arch/arm/lib/delay.c
++++ b/arch/arm/lib/delay.c
+@@ -62,7 +62,7 @@ static void __timer_udelay(unsigned long usecs)
+ 	__timer_const_udelay(usecs * UDELAY_MULT);
+ }
  
-+/*
-+ * Since ARM devices do not have an architected timer, they need to continue
-+ * using the MCT as the main clocksource for timekeeping, sched_clock, and the
-+ * delay timer. For AARCH64 SoCs, the architected timer is the preferred
-+ * clocksource due to it's superior performance.
-+ */
-+#if defined(CONFIG_ARM)
- static u64 notrace exynos4_read_sched_clock(void)
+-void __init register_current_timer_delay(const struct delay_timer *timer)
++void register_current_timer_delay(const struct delay_timer *timer)
  {
- 	return exynos4_read_count_32();
- }
- 
--#if defined(CONFIG_ARM)
- static struct delay_timer exynos4_delay_timer;
- 
- static cycles_t exynos4_read_current_timer(void)
-@@ -250,12 +256,13 @@ static int __init exynos4_clocksource_init(bool frc_shared)
- 	exynos4_delay_timer.read_current_timer = &exynos4_read_current_timer;
- 	exynos4_delay_timer.freq = clk_rate;
- 	register_current_timer_delay(&exynos4_delay_timer);
-+
-+	sched_clock_register(exynos4_read_sched_clock, 32, clk_rate);
- #endif
- 
- 	if (clocksource_register_hz(&mct_frc, clk_rate))
- 		panic("%s: can't register clocksource\n", mct_frc.name);
- 
--	sched_clock_register(exynos4_read_sched_clock, 32, clk_rate);
- 
- 	return 0;
- }
+ 	u32 new_mult, new_shift;
+ 	u64 res;
 -- 
 2.51.1.821.gb6fe4d2222-goog
 
