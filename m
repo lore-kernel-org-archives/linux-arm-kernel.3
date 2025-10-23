@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817C3CCF9E4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 10:33:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1219CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 10:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/bZwQE1mDLxxBUztNfabbjy7cB4vdwWjP483jhBdGyk=; b=j7wscqduuFQ8Ka3YpeND8pZ2Lm
-	r3UQ5WS+5BzcE9JlXfE2Sk6qmpUL1z5Hz9ZFtyXAe2SK7JozMXlLV9S9AsbSqn54P1Vzce4Ev7CaY
-	wZkOZbBfPqOupbTc8INvTBeltPD0/mCJtcoBA7tDZUagozvZGVgHiShoxQNzyu1+UKBPJ5OSDB22I
-	IinubWjPKLg7mlMmEOCWjuRgajTg65b4tYQiUXGtyh2GTHmG5RRJ0jyuWD9tRJciwc30fqazKiBSq
-	wfpS0mddFoJ1l4fzQ3K2TT0/wZ2UcQuRkJGCOrxTCqjC5Cy3jU5Mq2PON3MmM0DI2WrJhIMVxPz7Q
-	0ompFiZw==;
+	bh=CCRBz4U/efTYTePaVU04fSzhbOFi9J8PLi+jgvbwvs0=; b=LA0nexscDpzR0XKBtFlbcWTOwF
+	j7KZMgMgVRXKgihscMbi34r1jN+accWMlnDCHNsf06s/vpmuE+GXDRcBO1e8lVnuWPjo+O9p3x+s9
+	WEkz2gPZY9bldGRCcurQyvYv5V5W32h1d6Nt9gMoeOJpggWhMg+oYyRAI4jwKsnNeUicd45Mtzwr9
+	X5Dgr5vOqYIyzfOxI0A+a0BuC+fm4EICqZVtsiUwpI2bVY+klv91wGR08BKYnIiGluxjaxoznDUvM
+	ErxbmlzIwJtECDI2PpnZ2Km0AFi+wePs3YSgBOyZb/TxWoGMvF01ajg5yRV0LqrQIJW0IU33W8t2+
+	x/5LjnbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBscr-00000005txM-3jN1;
-	Thu, 23 Oct 2025 10:32:57 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vBscu-00000005u2C-1hLW;
+	Thu, 23 Oct 2025 10:33:00 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBscd-00000005tfZ-0CWs;
-	Thu, 23 Oct 2025 10:32:45 +0000
+	id 1vBscg-00000005tiN-28QK;
+	Thu, 23 Oct 2025 10:32:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761215560;
-	bh=2TvyPNu5cV/JCHhXd+tdUMa2Nikg4o/N2eX/6kKMUgk=;
+	s=mail; t=1761215563;
+	bh=w4n9a/salkEEKluJYQOfyIQy0yuv7hx8mUa6k3VOwTQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=hTLoDbA530MyfqP/4CvgwzB3UJQV4u42GROKhiGJ2Y5BiUrpoQT17G2P4E25bBRZE
-	 NecbwTJbcmuRFlHLKADrclWIVC45hvGy5Z4112vllDkXKUgJ/SaxqwWj2W263mp/gR
-	 7/U33Ms17D7E/r40Aw6zfkft2LRiRjQm/wGfKXpOoZSfedgDLP/QAg4U2EMZt7MoQv
-	 ewGMKCETt95NVedCC/0lNUTvVt7hxXktdiiDd8S7nT3gblxZ6bgrXei6ZBKD68nFeI
-	 3daDv7VxDLTtcr3soHK2guCv3lOuNyI01N2eC99bAy/YqTb+q3QMnv0nxJXi/IAIye
-	 TlQQV3R7XVstg==
+	b=Mgg+BK/V64LlWD5QG1Ompp2iyNwg73uvWTmrcWtWGrz1AAkxsZSmIQ11D3C0IMv8Q
+	 Tth/AE02JKo/iTesUWJLmV07xJxHJNwMBRxwqbyXGIYcE0LamaHOCbfEpbzlY5twFS
+	 rE3PDSfXlQjMsRJxEPDB8mxElrbGHwMLPHzpJaC/M5svOJKnRQalLGt/xpJL4u9rQ6
+	 XDDan31Qe0WtfsxoMubutjmMqWnLeXA+7+MuWMXCkQJKndDeKgyFkX40lIumorEU83
+	 fZGgYtz2sufgoiHn3ZgNKzP2BPa1M3bc2qFEbFfD/SQzTZut3EhdCDwcnGNHE+Shjw
+	 7PZti7mB6Z+kA==
 Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 68A4E17E130E;
-	Thu, 23 Oct 2025 12:32:40 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3BC4F17E1418;
+	Thu, 23 Oct 2025 12:32:43 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 23 Oct 2025 12:32:29 +0200
-Subject: [PATCH v11 03/11] drm/mediatek: mtk_hdmi: Add HDMI IP version
- configuration to pdata
+Date: Thu, 23 Oct 2025 12:32:33 +0200
+Subject: [PATCH v11 07/11] drm/mediatek: mtk_hdmi_common: Add OP_HDMI if
+ helper funcs assigned
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251023-mediatek-drm-hdmi-v2-v11-3-7873ec4a1edf@collabora.com>
+Message-Id: <20251023-mediatek-drm-hdmi-v2-v11-7-7873ec4a1edf@collabora.com>
 References: <20251023-mediatek-drm-hdmi-v2-v11-0-7873ec4a1edf@collabora.com>
 In-Reply-To: <20251023-mediatek-drm-hdmi-v2-v11-0-7873ec4a1edf@collabora.com>
 To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
@@ -63,16 +63,16 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-arm-kernel@lists.infradead.org, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761215558; l=4617;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761215558; l=1902;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=CNzDQZUPfHkkGk9x3Fo653c/NXrVNJlS94gq9smHrvE=;
- b=RGr+Pmbu0/cLV1w6U8EuGSUewM9zFigYDZQX4DumOKkfv1OYz5TYBqmkSo1efjZttCe7Pskcm
- 5+/uZM0ljGTAdt1dMGtYYUUAojllNb+Glp/vXOasOwqwt3oYo5SA6sA
+ bh=MmtKKEPK3SAo1T3vitymGts9yNll1+ssz6BWi4wYaAA=;
+ b=g0mrAs0ZyzneTfRiB3MQVb0WMnrfMGm6tM1Nx4QLcfzYPqEE6pZ+HLrZO8kaboSnnf464hJ3c
+ gvfzNotS+jCBVwaCy3xGHjxqSa3O0qIUA1D5mELo62Ctjxm+Gy4Nyck
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_033243_237888_8D9178C5 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20251023_033246_723131_D2C6060B 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,131 +89,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-In preparation for adding a driver for the HDMIv2 IP and before
-moving the common bits out of this driver, add a new structure
-`mtk_hdmi_ver_conf`, holding pointers to HDMI IP version specific
-drm_bridge_funcs, hdmi_codec_ops and clock array used for probe,
-and nest it into the mtk_hdmi_conf platform data structure.
+In preparation for adding the HDMI TX v2 driver, and to allow
+a future modernization of the HDMI v1 one, perform changes
+that enable the usage of the HDMI Helpers provided by DRM.
 
-While at it, also convert all of the direct users of
-mtk_hdmi_bridge_funcs, mtk_hdmi_audio_codec_ops, mtk_hdmi_clk_names
-to use pointers from the ver_conf platform data.
+Check if the HDMI driver provides the function pointers to
+hdmi_{clear,write}_infoframe used by the HDMI Helper API and,
+if present, add DRM_BRIDGE_OP_HDMI to the drm_bridge ops,
+enabling the drm API to register the bridge as HDMI and to use
+the HDMI Helper functions.
 
-In order to do so, it was also necessary to fill a new version 1
-specific const `mtk_hdmi_v1_ver_conf` and assign it to all of the
-currently supported compatibles for this driver.
+If the hdmi_{write,clear}_infoframe pointers are not assigned,
+vendor and product strings and HDMI helpers will not be used,
+hence this commit brings no functional changes to drivers that
+have not been refactored to use the new helpers.
 
-This commit brings no functional change.
+This also means that, in the current state, there is effectively
+no functional change to mtk_hdmi and its other components.
 
 Reviewed-by: CK Hu <ck.hu@mediatek.com>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 45 ++++++++++++++++++++++++++++++-------
- 1 file changed, 37 insertions(+), 8 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index 691e0011a8f99093655270e214717d74d1ca7121..42edf9cffa88c3191df5163b98e4b320e348d69e 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -144,7 +144,15 @@ struct hdmi_audio_param {
- 	struct hdmi_codec_params codec_params;
- };
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+index 3b589706d61b1e0e4aa66d0c81253b8aeb70c0d3..be63f33d39bfd4625a5f1edd83c873cc20ac0018 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+@@ -413,6 +413,10 @@ struct mtk_hdmi *mtk_hdmi_common_probe(struct platform_device *pdev)
+ 	hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID
+ 			 | DRM_BRIDGE_OP_HPD;
  
-+struct mtk_hdmi_ver_conf {
-+	const struct drm_bridge_funcs *bridge_funcs;
-+	const struct hdmi_codec_ops *codec_ops;
-+	const char * const *mtk_hdmi_clock_names;
-+	int num_clocks;
-+};
++	if (ver_conf->bridge_funcs->hdmi_write_infoframe &&
++	    ver_conf->bridge_funcs->hdmi_clear_infoframe)
++		hdmi->bridge.ops |= DRM_BRIDGE_OP_HDMI;
 +
- struct mtk_hdmi_conf {
-+	const struct mtk_hdmi_ver_conf *ver_conf;
- 	bool tz_disabled;
- 	bool cea_modes_only;
- 	unsigned long max_mode_clock;
-@@ -1602,7 +1610,7 @@ static int mtk_hdmi_register_audio_driver(struct device *dev)
- 	struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
- 	struct hdmi_audio_param *aud_param = &hdmi->aud_param;
- 	struct hdmi_codec_pdata codec_data = {
--		.ops = &mtk_hdmi_audio_codec_ops,
-+		.ops = hdmi->conf->ver_conf->codec_ops,
- 		.max_i2s_channels = 2,
- 		.i2s = 1,
- 		.data = hdmi,
-@@ -1635,24 +1643,32 @@ static int mtk_hdmi_register_audio_driver(struct device *dev)
- 
- static int mtk_hdmi_probe(struct platform_device *pdev)
- {
-+	const struct mtk_hdmi_ver_conf *ver_conf;
-+	const struct mtk_hdmi_conf *hdmi_conf;
- 	struct mtk_hdmi *hdmi;
- 	struct device *dev = &pdev->dev;
--	const int num_clocks = MTK_HDMI_CLK_COUNT;
- 	int ret;
- 
-+	hdmi_conf = of_device_get_match_data(dev);
-+	if (!hdmi_conf)
-+		return -ENODEV;
-+
-+	ver_conf = hdmi_conf->ver_conf;
-+
- 	hdmi = devm_drm_bridge_alloc(dev, struct mtk_hdmi, bridge,
--				     &mtk_hdmi_bridge_funcs);
-+				     ver_conf->bridge_funcs);
- 	if (IS_ERR(hdmi))
- 		return PTR_ERR(hdmi);
- 
- 	hdmi->dev = dev;
--	hdmi->conf = of_device_get_match_data(dev);
-+	hdmi->conf = hdmi_conf;
- 
--	hdmi->clk = devm_kcalloc(dev, num_clocks, sizeof(*hdmi->clk), GFP_KERNEL);
-+	hdmi->clk = devm_kcalloc(dev, ver_conf->num_clocks, sizeof(*hdmi->clk), GFP_KERNEL);
- 	if (!hdmi->clk)
- 		return -ENOMEM;
- 
--	ret = mtk_hdmi_dt_parse_pdata(hdmi, pdev, mtk_hdmi_clk_names, num_clocks);
-+	ret = mtk_hdmi_dt_parse_pdata(hdmi, pdev, ver_conf->mtk_hdmi_clock_names,
-+				      ver_conf->num_clocks);
- 	if (ret)
- 		return ret;
- 
-@@ -1713,19 +1729,32 @@ static __maybe_unused int mtk_hdmi_resume(struct device *dev)
- 
- static SIMPLE_DEV_PM_OPS(mtk_hdmi_pm_ops, mtk_hdmi_suspend, mtk_hdmi_resume);
- 
-+static const struct mtk_hdmi_ver_conf mtk_hdmi_v1_ver_conf = {
-+	.bridge_funcs = &mtk_hdmi_bridge_funcs,
-+	.codec_ops = &mtk_hdmi_audio_codec_ops,
-+	.mtk_hdmi_clock_names = mtk_hdmi_clk_names,
-+	.num_clocks = ARRAY_SIZE(mtk_hdmi_clk_names)
-+};
-+
- static const struct mtk_hdmi_conf mtk_hdmi_conf_mt2701 = {
- 	.tz_disabled = true,
-+	.ver_conf = &mtk_hdmi_v1_ver_conf
- };
- 
- static const struct mtk_hdmi_conf mtk_hdmi_conf_mt8167 = {
--	.max_mode_clock = 148500,
- 	.cea_modes_only = true,
-+	.max_mode_clock = 148500,
-+	.ver_conf = &mtk_hdmi_v1_ver_conf
-+};
-+
-+static const struct mtk_hdmi_conf mtk_hdmi_conf_mt8173 = {
-+	.ver_conf = &mtk_hdmi_v1_ver_conf
- };
- 
- static const struct of_device_id mtk_hdmi_of_ids[] = {
- 	{ .compatible = "mediatek,mt2701-hdmi", .data = &mtk_hdmi_conf_mt2701 },
- 	{ .compatible = "mediatek,mt8167-hdmi", .data = &mtk_hdmi_conf_mt8167 },
--	{ .compatible = "mediatek,mt8173-hdmi" },
-+	{ .compatible = "mediatek,mt8173-hdmi", .data = &mtk_hdmi_conf_mt8173 },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, mtk_hdmi_of_ids);
+ 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+ 	hdmi->bridge.ddc = hdmi->ddc_adpt;
+ 	hdmi->bridge.vendor = "MediaTek";
 
 -- 
 2.51.0
