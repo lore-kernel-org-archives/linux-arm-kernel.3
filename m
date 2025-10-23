@@ -4,83 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ADFFCCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:22:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0812ACCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VbZSHBIT5GhfdL6WxWwpO/dLxPxmanmATkd5CF4DeeI=; b=JDmMoytsponDxfZ7fDI5IZ6KD/
-	yBMyAJb2g4qXsdLEj0IjsTzy7FjA2y89Fy7iQTJoeR/mNq3nwIJC6ULIgmfFADkmDPVXCHUMU54Q1
-	joPpC+dQAsJZ34AgxaEfpjSWuwP/CYhZvRvIJfcpWb0EWOa3DGtYTwBzhiSSv1kMS3M8OJEfrO9de
-	MI4Mo7Wfsb0ef7g4NJxcxdeFAOAUjLyfg9VKUSpKnUzWaIiLF5+yguQA+GirBfbQ2Uh0+ZKcM+5hO
-	aVCBMtF9apYxo5gKVWOwJDR3iUh1DuvX53yYIcywKZPtGaeHltHGuqKCiYQ95zn5rmc7OqozbbzQ6
-	eh3EqxJA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pf/H8hwwjXHOcfEd9IHK/0BwkuvQECWP59//+xIoOuY=; b=bsn2UXQ7cqHvKxeSA875xzEbX7
+	Hf+hF1YVmO70e0mzMS9OBkcm4DWe+BjfwuPqeitJdTtrW/eiEBuE5MiW6SrZXRwBL4bO7n4RVWO8V
+	Fzow4UN0idfinQIgU/PjD1MEvAsLc0uios4ObagXBHcd6Mxnodp+aoMnGBGr86xhacsZC/1yio+28
+	dyHkpWWh47gjq2Udygekco+bQLbmnL4wBE581HPJtbltpf6fcDJlI/qlx0ntJq+YjoPesYGpAdEAx
+	miGpTCK0uOJiNjhjTMdSpzDmEe/WGqirqjs4BAoFesi9u+143umgpBsfJ+481Uj3sLrNhEPDGx5h2
+	fzhlfKcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwCX-00000006ZiW-3Itf;
-	Thu, 23 Oct 2025 14:22:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBwFX-00000006aD9-1I1T;
+	Thu, 23 Oct 2025 14:25:07 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwCV-00000006ZhL-1bEP
+	id 1vBwFW-00000006aC7-3PCG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Oct 2025 14:25:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=pf/H8hwwjXHOcfEd9IHK/0BwkuvQECWP59//+xIoOuY=; b=O8HrgTP3jEOqR7OqEVSxronQwd
+	4lFgtuo4E5s5JPMOQYkaQg6uQPIiDDm2koL+INNIZ5RQVg1UsrTM9c1jwX7zCzv9HRu5eKlalxy9K
+	efDILwKCQC1zrK7D+4wnmHNin6AXC3i0hGyAivuZRJ+SGp3XpON2Njl9VUnpBOdnp4Ye7cUHv0EN0
+	Dq22CUzKNnpSluclUzVkiNXg91VM5R0P+3M6+hlneW64O2yogwCLqExYB76rF9sV0zgy+1wcvY1yC
+	q1Xie1sWSRANAl8WMN9g3dM99x1eFndhW76TjpraHfM+3Sl+SNQy5M6C8HRM3ArHKrPPY0M4YuKSY
+	R9/0sBwQ==;
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBvNo-00000001PVe-3XW6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 14:22:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 687444AEB3;
-	Thu, 23 Oct 2025 14:21:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 404DCC4CEE7;
-	Thu, 23 Oct 2025 14:21:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761229318;
-	bh=Cg8X9zCcHh0XZYuwWRJDuEQoaZUgfI3iONaxAqyi2xk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=S428L3Bk8p7+d0dpiXGJxlLFK2FjustCMjwWbOZNUHA2EC6tF4PVZKrQ2hoJOYYI4
-	 UqVS/AuFlK6GCdFnK1hTMIAWC0LnJ74usES2Y206HKYafzAiQFSHB4TJOKTV3sUBve
-	 O6vGcR1YGGHtEBz0Irw+VAp7g/FfFXmnQ/P5ScD8OA1pHfndffKxKj0MjiLm0jIafv
-	 hgCd3xJMqghAnXJFs86pb+B4gcQl1txnvEpkPsbwlbPdCdKnpDJBbwK+clK6nRlZHR
-	 /V1ahbx5T9XrhqDv2gpDhOD7JqL9NofvoHdYKuC079FGXhbC3eWd4d6HacAOSsSmfm
-	 kQwYSvSUjVoeA==
-Received: from 158.46.66.37.rev.sfr.net ([37.66.46.158] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vBwCR-0000000GYKV-3yGj;
-	Thu, 23 Oct 2025 14:21:56 +0000
-Date: Thu, 23 Oct 2025 15:21:55 +0100
-Message-ID: <87wm4l3dh8.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yicong Yang <yangyccccc@gmail.com>
-Cc: Marek Vasut <marek.vasut@mailbox.org>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Thu, 23 Oct 2025 13:29:38 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-33bda2306c5so898730a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 07:25:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761229501; x=1761834301; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pf/H8hwwjXHOcfEd9IHK/0BwkuvQECWP59//+xIoOuY=;
+        b=jr4Dt0ZkkDjOYze9zATZI54O0aHYSbfXQSEeVPM8cgNtHCt71w2A8hlDBJ7bGlEL1y
+         okfFxpNx2CQMe4cQhAgcOjpWFRZNbKlx1Edts99qWi3hEBekYTVeEBDgf/OaNEqPysyQ
+         2ZKS8Ow0uglqtBpFzPav6SB7LcGbtS/gLJqO6gV6XTbg8ZolNfzK3PzBfXaDy+1NsaDJ
+         63oaIH4y7qY3jP0FpO2AyPx+GGuyZ4pGi2nf1hkFtgEXSGwWLjFdCAHIIm+KF6FF4Q5w
+         hsb/zef739n8m2jd50DxNKKi86ZhhLH/SJVFnLzPNbZ7taFYWVXnSTdvll4udOyooUFT
+         RzSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761229501; x=1761834301;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pf/H8hwwjXHOcfEd9IHK/0BwkuvQECWP59//+xIoOuY=;
+        b=C1hKIIU5gpGTgE9NFCwZbkcLcc/p7bC/U5IqBz95bQEXaVInS9aSIKPAzAJzdgeC0b
+         RDCUF8X3Tq1dspKh0LRyf5drLyq5JZ2Fxfe1qpjaguLW+ocoVUEwOsVqKXiDMSAHlYc7
+         /6Bnsnf+SuKmTg5ka3/e9xIywyOUiy2JJT7PljrpOQ0x3Q63/hQ9BkNMSlsGX1w2T5oT
+         xdvAurU5V8qe6CjvEk22uGPBciORTmY6Q7/KayAE0w2IAH5SQSjNtgsAqp9Dk2eTxIiJ
+         x0Xhi0P38dbvwRwFqHSJS0k6kWS9q/bFtdalPx6C9tG1fXQWMXQpMQPlHGmlD8NVrNp7
+         ebyg==
+X-Forwarded-Encrypted: i=1; AJvYcCVW13ifPIpJjMFkGM4BIoBw51al0fqUO9Ssmt1jG5h53iauu4yxmqq6lfmA4w6Z6PkEqhRrDARr4c+aVRv/QpLr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwY0xWA8H00kywblpQNx9wiUBBg+wPrJhrxgYO3t+a076KaHS/l
+	A5s0+p0J3T49RdgVxQA2ybs4oLpkF2R8KN0q6g2FcmShhBPvZgDjBxSq
+X-Gm-Gg: ASbGnctwVwaaPaxv+Qc7BIFx9QyflXvUXKU+Td5IaBlZuYSgZ9Q+JqvQDb33NtbZHYP
+	gYDWt9tpafM/wseUgDvHDVievpVekiJroBhWFFpvXSaNr4mj3XYsqVMiZaEOV0MbnBv71iAKD0M
+	UDREVh45u9sptZq8npO1KM7Gf2I5fKFNzGFyhu+x7hKhuEuVkytElEygP+3Llczi8Rz8QylXLGT
+	LvCEbFqc9r4qwe+IO1qwcJrBnw5uBNYcT+GD7l9J2xfZQbjzGIiEv27bLLIBaBOclsdNPitAIHX
+	04RlEwS3U/BdZPA+gYvhkwQtFs/va9keEsu7SEz6nuaAN7NEefzGAogtqi1tjkLrKIwy/FkgfxU
+	u2PefS8MVmHR0wL3siBitWnvtjlx/NEq0sHUg44OALNDcih3f/BEX5VUdVaF31JRLVwKgJevKt8
+	Ul0sVQh/IY3yFbPpIg3Q==
+X-Google-Smtp-Source: AGHT+IGe4BeM9/pmyB243lXYseQKK0oQC2Kow3UQh2Om045EVbmJQKLCQhmwXMTvnHHyQoLOWJ+UeA==
+X-Received: by 2002:a17:90b:2d8b:b0:32e:d282:3672 with SMTP id 98e67ed59e1d1-33bcf8e4a07mr30935358a91.23.1761229500703;
+        Thu, 23 Oct 2025 07:25:00 -0700 (PDT)
+Received: from rakuram-MSI.. ([2409:40f4:2040:16ed:f15f:ed0a:f0b7:34d2])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33fb0191b1dsm2585682a91.18.2025.10.23.07.24.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Oct 2025 07:25:00 -0700 (PDT)
+From: Rakuram Eswaran <rakuram.e96@gmail.com>
+To: lorenzo@kernel.org
+Cc: angelogioacchino.delregno@collabora.com,
+	dan.carpenter@linaro.org,
+	david.hunter.linux@gmail.com,
+	khalid@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH] arm64: guard AMU register access with ARM64_HAS_AMU_EXTN
-In-Reply-To: <632d6afe-40d3-4632-99c7-b098967bd649@gmail.com>
-References: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
-	<86347bvx0f.wl-maz@kernel.org>
-	<07391913-aab6-4d92-b75f-278506f51397@mailbox.org>
-	<632d6afe-40d3-4632-99c7-b098967bd649@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	linux-kernel-mentees@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-wireless@vger.kernel.org,
+	lkp@intel.com,
+	matthias.bgg@gmail.com,
+	nbd@nbd.name,
+	rakuram.e96@gmail.com,
+	rex.lu@mediatek.com,
+	ryder.lee@mediatek.com,
+	sean.wang@mediatek.com,
+	shayne.chen@mediatek.com,
+	skhan@linuxfoundation.org
+Subject: Re: [PATCH] wifi: mt76: mt7996: remove redundant NULL check in mt7996_msdu_page_get_from_cache()
+Date: Thu, 23 Oct 2025 19:54:47 +0530
+Message-ID: <20251023142449.117936-1-rakuram.e96@gmail.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: aPoqiioo6kUZ0kbY@lore-desk
+References: <aPoqiioo6kUZ0kbY@lore-desk>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 37.66.46.158
-X-SA-Exim-Rcpt-To: yangyccccc@gmail.com, marek.vasut@mailbox.org, marek.vasut+renesas@mailbox.org, linux-arm-kernel@lists.infradead.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, geert+renesas@glider.be, ryan.roberts@arm.com, will@kernel.org, yangyicong@hisilicon.com, linux-renesas-soc@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_072159_476752_395D856A 
-X-CRM114-Status: GOOD (  30.17  )
+X-CRM114-CacheID: sfid-20251023_142936_997585_FEFAA1D5 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,88 +131,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Oct 2025 13:01:52 +0100,
-Yicong Yang <yangyccccc@gmail.com> wrote:
->=20
-> On 2025/10/22 22:33, Marek Vasut wrote:
-> > On 10/22/25 4:20 PM, Marc Zyngier wrote:
-> >> On Wed, 22 Oct 2025 14:35:28 +0100,
-> >> Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
-> >>>
-> >>> The AMU configuration register access may fault and prevent successful
-> >>> kernel boot. This can occur for example in case the firmware does not
-> >>> allow AMU counter access from EL1. Guard the AMU configuration regist=
-er
-> >>> access with ARM64_HAS_AMU_EXTN to prevent this fault if ARM64_HAS_AMU=
-_EXTN
-> >>> Kconfig option is explicitly disabled. Other interaction with the AMU=
- is
-> >>> already guarded by similar ifdeffery.
-> >>>
-> >>> Fixes: 87a1f063464a ("arm64: trap to EL1 accesses to AMU counters fro=
-m EL0")
-> >>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> >>> ---
-> >>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> >>> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> >>> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> >>> Cc: Marc Zyngier <maz@kernel.org>
-> >>> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> >>> Cc: Will Deacon <will@kernel.org>
-> >>> Cc: Yicong Yang <yangyicong@hisilicon.com>
-> >>> Cc: linux-arm-kernel@lists.infradead.org
-> >>> Cc: linux-renesas-soc@vger.kernel.org
-> >>> ---
-> >>> =C2=A0 arch/arm64/mm/proc.S | 4 ++++
-> >>> =C2=A0 1 file changed, 4 insertions(+)
-> >>>
-> >>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-> >>> index 86818511962b6..123538ffeda6b 100644
-> >>> --- a/arch/arm64/mm/proc.S
-> >>> +++ b/arch/arm64/mm/proc.S
-> >>> @@ -145,7 +145,9 @@ SYM_FUNC_START(cpu_do_resume)
-> >>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ubfx=C2=A0=C2=A0=C2=A0 x11, x11, #1, #1
-> >>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 msr=C2=A0=C2=A0=C2=A0 oslar_el1, x11
-> >>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset_pmuserenr_el0 x0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 // Disable PMU access f=
-rom EL0
-> >>> +alternative_if ARM64_HAS_AMU_EXTN
-> >>> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset_amuserenr_el0 x0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 // Disable AMU access f=
-rom EL0
-> >>> +alternative_else_nop_endif
-> >>
-> >> Why?
-> >>
-> >> We ensure that the AMU is available in the macro itself by checking
-> >> for ID_AA64PFR0_EL1.AMU. If the AMu isn't present on this CPU, we skip
-> >> the offending sysreg access. This is similar to what we do for the
-> >> PMU.
-> >>
-> >> Does your HW advertise an AMU, but doesn't actually have one?
-> > The hardware does have AMU, but it is currently blocked in old TFA vers=
-ion and access to this AMU register here causes a fault. That's why I have =
-to disable ARM64_HAS_AMU_EXTN until the TFA is updated and the AMU access i=
-s made available on this hardware. But even if I do disable ARM64_HAS_AMU_E=
-XTN=3Dn , I get a fault.
+On Thu, 23 Oct 2025 at 18:45, Lorenzo Bianconi <lorenzo@kernel.org> wrote:
+>
+> > Smatch reported a warning that the NULL check on `p` in
+> > `mt7996_msdu_page_get_from_cache()` is redundant:
 > >
-> > This patch is mainly meant to prevent a surprise in case someone does s=
-et ARM64_HAS_AMU_EXTN=3Dn , and the system still faults on AMU register acc=
-ess.
+> >   drivers/net/wireless/mediatek/mt76/mt7996/mac.c:1651
+> >   mt7996_msdu_page_get_from_cache() warn: can 'p' even be NULL?
 > >
->=20
-> then I think it's more proper to guard it with CONFIG_ARM64_AMU_EXTN
-> (I think you mean this above?)  rathter than the cpu cap. then with
-> the patch kernel won't touch the AMU registers here if the kconfig
-> is disabled on you AMU supported hardware and AMU unsupported
-> firmware.
+> > The function first checks `list_empty(&dev->wed_rro.page_cache)` before
+> > calling `list_first_entry()`. When the list is not empty,
+> > `list_first_entry()` always returns a valid pointer and can never be NULL.
+> >
+> > Hence, the `if (p)` condition is unnecessary. Removing it cleans up the
+> > code.
+>
+> Hi Rakuram,
+>
+> this issue has been already fixed here:
+> https://patchwork.kernel.org/project/linux-wireless/patch/20251014-mt7996_msdu_page_get_from_cache-remove-null-ptr-check-v1-1-fbeb7881e192@kernel.org/
+>
+> Regards,
+> Lorenzo
+>
 
-No. Not preventing EL0 from accessing the register is a data leak to
-userspace. This must be acted upon irrespective of the kernel being
-AMU-enabled or not.
+Hello Lorenzo,
 
-	M.
+Thank you for the information. I did check both linus-mainline and linux-next
+branches before sending the patch. 
 
---=20
-Jazz isn't dead. It just smells funny.
+From next time, I’ll make sure to also check the subsystem-specific branches as well.
+
+Thanks again for pointing it out.
+
+Best regards,
+Rakuram
 
