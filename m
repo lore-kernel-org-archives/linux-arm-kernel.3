@@ -4,75 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC3EFCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 08:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF05CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 08:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tg/YKzlukto5T/VCecBb8o8smKgleGn/xtMOGtkDGfk=; b=xov2BhNYvStpKGNEYztBVWZgLE
-	Vf4l2I0tovQvm3hth6KrfUPITT9l1hFu9JK4YdJUyJaA9OzaW0CEwwCkC7O/PRsEd2xk0eDz3cTqf
-	5PvrhsAttJaM+JBynPY37552anilONdm9YgPiXNflWb/vBWRP96IxIOYzWT2YOrQm9Z1YplbPtOXX
-	iU4MY06CJmHOHIlxc4nUeDQXeOmy5DnbOkEGQOcNGFHH9rzolTznep+VQaKg2QvlyDa2CGL6vS1n9
-	9I+RNGgGmTglXKobB4zCIxqYqbNPABWiTlKRSfWjnFkZFFcs1/E1Fm7b5KWcrxQnzwrh4vx+pDX/N
-	6wNPPEeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p2kXj8aGC44EIUcbiGIpbSl2QJL0LMRnenYznRKbBC4=; b=xHHuGOk5nzTeSmXZdf9GqSYkaR
+	C+ouJpp0cldoaFSnvMcmZ1HasKRJ6O4FHvNm6fnJQkDI6KKA3wt+wRaaM5I9A8ZsUoh2mdM8muznp
+	PdPZkQwXPjHr2CSMNgmtXUUs4u/dwUfDI5pLYaQOptaBLd6SwBfdoHdqii3uqtCOC4LpeDktToz0G
+	Rdj2QcquFnfHLKlc2JeUiMegqgJRxCb2I1sPZXHhhFjj9eJ7KPrLt1O75miuNtCZVmWddzBj9fe7m
+	vDfrnnSFxs/b0ZQR9IzICl71EQXE5YTgLi3aBW1FLeWNrMte1U7zUiLsTB6nNe2za99nk/PcgYuAw
+	bFo1MgtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBquk-00000005aFv-3api;
-	Thu, 23 Oct 2025 08:43:18 +0000
-Received: from mout.web.de ([212.227.15.14])
+	id 1vBqx5-00000005amK-0E6u;
+	Thu, 23 Oct 2025 08:45:43 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBqui-00000005aEQ-2RCB;
-	Thu, 23 Oct 2025 08:43:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1761208989; x=1761813789; i=markus.elfring@web.de;
-	bh=Tg/YKzlukto5T/VCecBb8o8smKgleGn/xtMOGtkDGfk=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=o1xgZHvbbWIVaEEpAHExuV88S4AgfCH5AUuIYRK5l3IWkqgPMqoBkrM+owDQx/0H
-	 sXQADk9mvbzU15M9bh2PMXLxkwzhEt1p6pwWlyPHN0Hn7/+8f8PhJw5wAc6y0pxgn
-	 F+g2z20pt0B5HBwq3YVC4C7XnZWURw3ZAJ77IUmqkvmW2sJ7qaJOajsSzmjw+92ls
-	 VxG1rd4otizxwoQpfxQ9RLZrFcueR+Toob+cG3f4ryrA87gwtZWAVAvSJUljjm0rZ
-	 diwMi9vduFf7LY3GLFVBRZT4gR39jr1Rz0DMkLyFgla7yl4YiuEhcdkaN6K9WNAvx
-	 3GhgD8HRtlX2Ec+65Q==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.92.227]) by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1N7QUL-1u6FrV3Kyz-017TdQ; Thu, 23
- Oct 2025 10:43:08 +0200
-Message-ID: <85643ee1-cd00-4192-90e9-d713fef50f6b@web.de>
-Date: Thu, 23 Oct 2025 10:43:06 +0200
+	id 1vBqx2-00000005alZ-3MPo;
+	Thu, 23 Oct 2025 08:45:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761209141; x=1792745141;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mska27xKT3EyztX10JDYKLSZS1LLb/NIROqYMNvXfP4=;
+  b=fx/E6O7DwTsa7kkOQKUHkKZYcmfeyB4u9tqVRoLZUSFdokAb+RvsjAfA
+   n1UPtnQ82PLf2WFeKyqKFpMfC0uYrjzZkMfMPY8UTRRePMadUzEbWsdUK
+   bPX2YDV009lXLLT1Fdyxwzpmci/5ikoiezi/P4l7lEOBu6rvKhuXx1YC8
+   ZNaH5Ta1vlvUygboqFZY8z2Clgiq3OylYm43AHtEbLPmJN5OAAhEx641K
+   kk0MD4FFqkv2RVLNhMJ+l92NjDx2DMbCfpkz4Wh++uGJSThLXWyWiG8tG
+   vO6Muf6mrIpUx+Pcdh+Yh1D5doDU0T86EqAEzJgljZniSjU1rNIsnX68h
+   Q==;
+X-CSE-ConnectionGUID: YlgD533LTeic30tncBzGyg==
+X-CSE-MsgGUID: PFq+OF2HSK+uOUBgkHMXHQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="63276404"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="63276404"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2025 01:45:40 -0700
+X-CSE-ConnectionGUID: Ucc0EPCqSiCBkTSZJ6NNCw==
+X-CSE-MsgGUID: M6DulzDDRF26JDQ0xCqgcQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,249,1754982000"; 
+   d="scan'208";a="183995303"
+Received: from bkammerd-mobl.amr.corp.intel.com (HELO kuha.fi.intel.com) ([10.124.221.165])
+  by orviesa007.jf.intel.com with SMTP; 23 Oct 2025 01:45:30 -0700
+Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Thu, 23 Oct 2025 11:45:29 +0300
+Date: Thu, 23 Oct 2025 11:45:28 +0300
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v7 2/9] drm/bridge: Implement generic USB Type-C DP HPD
+ bridge
+Message-ID: <aPnrKFWTvpuRTyhI@kuha.fi.intel.com>
+References: <20251023033009.90-1-kernel@airkyi.com>
+ <20251023033009.90-3-kernel@airkyi.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: linux-rockchip@lists.infradead.org, finley.xiao@rock-chips.com,
- huangtao@rock-chips.com, sugar.zhang@rock-chips.com, zhangqing@rock-chips.com
-Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Conor Dooley <conor+dt@kernel.org>, Conor Dooley
- <conor.dooley@microchip.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- Stephen Boyd <sboyd@kernel.org>
-References: <5a551943-141a-4842-a4d0-b66b32cf3e70@rock-chips.com>
-Subject: Re: [v4 2/7] dt-bindings: clock, reset: Add support for rv1126b
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <5a551943-141a-4842-a4d0-b66b32cf3e70@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:/oy3S9L6GeTKGz5YzyTSX53U3y+M7SgqrjD9KIpmhzECssF8h9D
- 47Lea/uAHzKHuJ7oBvdA9l6HjtlcKpcJwW+XT8SawGo0O8Se8gsRPdIdtt6WfP9de/JvJuv
- yT1WZvxb9W+XNO4QVLCOyOmwr17RJJmOGsFSacsLKnEsEJGTipCvwG87qLvq0ID55lcEw0E
- jQrPZfPSfVzywbQArw8yQ==
-UI-OutboundReport: notjunk:1;M01:P0:EWk4zlGOIhA=;uu4isQABIj8uqQdmHGpXM4Bpj/g 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 miCGQ==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251023033009.90-3-kernel@airkyi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_014316_969675_71E3559C 
-X-CRM114-Status: UNSURE (   3.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251023_014540_875361_F257F666 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,21 +111,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> IMPORTANT NOTICE: This email is from =E2=80=A6 Co., Ltd .
-> The contents of this email and any attachments may contain information t=
-hat is privileged, confidential and/or =E2=80=A6.
+On Thu, Oct 23, 2025 at 11:30:02AM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> Several USB-C controller drivers have already implemented the DP HPD
+> bridge function provided by aux-hpd-bridge.c, but there are still
+> some USB-C controller driver that have not yet implemented it.
+> 
+> This patch implements a generic DP HPD bridge based on aux-hpd-bridge.c,
+> so that other USB-C controller drivers don't need to implement it again.
+> 
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> ---
+>  drivers/gpu/drm/bridge/Kconfig                | 11 ++++
+>  drivers/gpu/drm/bridge/Makefile               |  1 +
+>  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  | 51 +++++++++++++++++++
+>  3 files changed, 63 insertions(+)
+>  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+> 
+> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
+> index b9e0ca85226a..9f31540d3ad8 100644
+> --- a/drivers/gpu/drm/bridge/Kconfig
+> +++ b/drivers/gpu/drm/bridge/Kconfig
+> @@ -33,6 +33,17 @@ config DRM_AUX_HPD_BRIDGE
+>  menu "Display Interface Bridges"
+>  	depends on DRM && DRM_BRIDGE
+>  
+> +config DRM_AUX_TYPEC_DP_HPD_BRIDGE
+> +	tristate "TypeC DP HPD bridge"
+> +	depends on DRM_BRIDGE && OF && TYPEC
+> +	select DRM_AUX_HPD_BRIDGE
+> +	help
+> +	  Simple USB Type-C DP bridge that terminates the bridge chain and
+> +	  provides HPD support.
+> +
+> +	  If the USB-C controller driver has not implemented this and you need
+> +	  the DP HPD support, say "Y" or "m" here.
 
-See also once more:
-https://subspace.kernel.org/etiquette.html#do-not-include-confidentiality-=
-disclaimers
+You don't need to depend on DRM_BRIDGE separately, but do you really
+need a separate module for this in the first place?
+
+>  config DRM_CHIPONE_ICN6211
+>  	tristate "Chipone ICN6211 MIPI-DSI/RGB Converter bridge"
+>  	depends on OF
+> diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
+> index 245e8a27e3fc..e91736829167 100644
+> --- a/drivers/gpu/drm/bridge/Makefile
+> +++ b/drivers/gpu/drm/bridge/Makefile
+> @@ -1,6 +1,7 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  obj-$(CONFIG_DRM_AUX_BRIDGE) += aux-bridge.o
+>  obj-$(CONFIG_DRM_AUX_HPD_BRIDGE) += aux-hpd-bridge.o
+> +obj-$(CONFIG_DRM_AUX_TYPEC_DP_HPD_BRIDGE) += aux-hpd-typec-dp-bridge.o
+
+Instead, why not just make that a part of aux-hpd-bridge
+conditionally:
+
+ifneq ($(CONFIG_TYPEC),)
+        aux-hpd-bridge-y        += aux-hpd-typec-dp-bridge.o
+endif
 
 
-> =E2=80=A6 Please immediately contact the sender as soon as possible and =
-destroy the material in its entirety in any format. =E2=80=A6
+thanks,
 
-Do you expect this action to happen more often with your information?
-
-Regards,
-Markus
+-- 
+heikki
 
