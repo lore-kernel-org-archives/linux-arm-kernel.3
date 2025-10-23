@@ -4,104 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0BB7CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 00:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8480BCCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 00:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lzZENSWUwrBhAA1CxL4i/AxbZEWI19mQXc700MJvOfI=; b=WCIx0A04SBLSaqmIPq/AGXC9wn
-	Q7Omts/5ZL4PmVX6dWMGSQC6Iw/QqvNavteZtFiDV7w7Hi/vI8XRZrxwZPUVooTzHbEUJ+YUfAecP
-	Gm44jfv3YUOSG9CgLXZUzc+D2UcFxSyrN9Nm7UBwQBf+vmoCl3O4LERL9a6xhVtD2lOLSD6iNMZQD
-	sZTzRnF/CMFxZ/7msO9r1uUk22KnGw/erUc0QXUMQILkBDsekc3/vGxW4THINhCyj2AOlgPU2DHJr
-	UxA+0nX9pwpF754C3IiTbidv5wE5ePMXL2S6feOJ5DY5B6cYZOfmYSmOul0WqoqRy/SiXF4ZnAyQi
-	X8NXc5rQ==;
+	bh=yvSWCxrKUJbxiEGLp8mxIlvTRSdbPu22PwQxi11EPoY=; b=XjrAnU8DhNkgrksLoRbM7+MJHW
+	wFnwj2QMAKX3on/8yEI25N9yEdOqU6LNdf03GdsBZQwqY0RtR8n7xSUhotor89RlOAcKHzLOfD8R0
+	pksD9fayPPcbJ1mLRhD7+CEZZhvPtuAQ+Kux8qekNC8XFoTV5aMnDrxXnR3uCHtS4vPM19IgwnC9f
+	nxPHQtLP3fI33Oy4um+lvK03zsVlDSmJOEYv96gBARv9ILWD+Z2LR+UHQ5dIMBR+0rEMYYmR2iR8k
+	aj9MqK0jA/7vT7dbuEwsVZwG7uTChsdu80pyU36lCeySaHM8IDSlNYUZXVt/vncYg/LZOdImrBhuZ
+	DvO7lm5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBiq2-00000004d8Q-2eUn;
-	Thu, 23 Oct 2025 00:05:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vBjL0-00000004gMi-04Hm;
+	Thu, 23 Oct 2025 00:37:54 +0000
+Received: from mo-csw1121.securemx.jp ([210.130.202.132] helo=mo-csw.securemx.jp)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBipv-00000004d2c-379s
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 23 Oct 2025 00:05:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=lzZENSWUwrBhAA1CxL4i/AxbZEWI19mQXc700MJvOfI=; b=j/5zBLue1pJHdvOSiXcjwDclE1
-	O4gP+tIdtUpuwuxj0ulot7SMGje33U36meOHvM/NOzj6Rm9SnM5DaXyaZy86qv2O0y+uFk2h14t4l
-	xBVoDhbDwY2i/IEMyyD1VIEy5p5GJUFqqPiqJdS/t0fBaQ33JRJ1a4csP/27FXuYy+/MWxCrv7SRf
-	QbGLXLDQICKgNytUDWxqjzZjdcfAL0Z6Ou0BVVp+dIWbOZApuW55vA+9w22fr82ckRUA+ezT7uHF6
-	SmXfrYJCd3ZKbStKV2fb/S3d8oRGpHkxM62m7IotcEn5WJbGLcuMSgT0NthbTqLiOcwQGKcZx7tci
-	0+O/152A==;
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBhyC-00000000vkd-0Gom
+	id 1vBjKx-00000004gMF-06in
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 22 Oct 2025 23:10:18 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3324538ceb0so335589a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 17:05:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761177941; x=1761782741; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lzZENSWUwrBhAA1CxL4i/AxbZEWI19mQXc700MJvOfI=;
-        b=B08GLFdpUb36vLNEWdJ+7T9UxKWH1XSRXgmRKpl2ZIIT6wg/rt17WmrFkSsePlUIzK
-         YalxCr9G6e6hP9SuoJwViLsMcpR4aIPBayZffmMejCBLZtkDxRDHQn+YTAOCKqz57QqL
-         gZ90da9RHoGyR7Ecf2pHQZUoVIpLq/8frpjNX0mLPq2o1l6ysPDQZV1kaJyPVRiOgxfs
-         7H+zx2RvwTlVl5MH2asGMaa33By0Yrxvv2fFoANtU7zMF2rn+g5fk0lUcbyRDcMzGgIA
-         IDV9eemyo062TR8/T3i3HhJw8t9uzcv50tDLeU+N+yGGEZFTMQ2ylSejAcJXzww0ZkhV
-         LHoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761177941; x=1761782741;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=lzZENSWUwrBhAA1CxL4i/AxbZEWI19mQXc700MJvOfI=;
-        b=Lt+2pct2/BhBeg1Ghqp4i5I5c+tG9yIhQBKPvHL3LkDPNUXoM9G0LGwnLWNu50C5Dq
-         RJ1wFi66pQyflZGIpE8o3OOZXHPWOkjTkRBfxzaCxo2lM6OMPvhkZ8EwaJY4eg9kTRWC
-         Xx8hNHsEFW/H+xfiiObaASgDwDK5eSzRHJOqo//GfLk5PTAWAa7VD1ZH++09SmXFCdlw
-         WuK7K1vPO8sUUAHTpk7FH/5HLaPotZfnQ4NmBPgG1m+ss+zppW3O4LRqCEQ/AWSWH3QR
-         lLSUBkohHHX2yb+3Gl0gSCtS3Xvh9Ur2QEyXLmeJ1Meo+jkIXoayjHY1ZH3TdgY6fh6w
-         Ys9g==
-X-Forwarded-Encrypted: i=1; AJvYcCX1rQOlNOdeRg4Lb9YQbg9mdS8uHFhtC78UwMDLTzDCGevGtmhXLDEk7upyLxJfO6E0twlK57o1DEn9g27TSsqz@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM5Ry1VP48WVYov9hfzbz/ChczeNKNZ6elPv0zhTYLS1hmt7ga
-	AAfolx+QLroQsg6eyGhDarckhBseNp7JZ7Z+b9XTq+k57mc3TXHGregwXWormVv6hNIxb+7mLRA
-	7CPvFVA==
-X-Google-Smtp-Source: AGHT+IGd6U9IlxxZkQUE9in6Tsw30xR2bnzy7O0+0w49jme5smP7pCaW5imecIRz7OgZNwNV7y77C8X4JZs=
-X-Received: from pjbco18.prod.google.com ([2002:a17:90a:fe92:b0:33b:51fe:1a83])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4c05:b0:339:ec9c:b275
- with SMTP id 98e67ed59e1d1-33bcf84e181mr33310671a91.6.1761177941265; Wed, 22
- Oct 2025 17:05:41 -0700 (PDT)
-Date: Thu, 23 Oct 2025 00:04:44 +0000
-In-Reply-To: <20251023000535.2897002-1-kuniyu@google.com>
-Mime-Version: 1.0
-References: <20251023000535.2897002-1-kuniyu@google.com>
-X-Mailer: git-send-email 2.51.1.814.gb8fa24458f-goog
-Message-ID: <20251023000535.2897002-3-kuniyu@google.com>
-Subject: [PATCH v1 2/2] epoll: Use __user_write_access_begin() and
- unsafe_put_user() in epoll_put_uevent().
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, Jens Axboe <axboe@kernel.dk>, 
-	Christian Brauner <brauner@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, "H. Peter Anvin" <hpa@zytor.com>, Eric Dumazet <edumazet@google.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, Kuniyuki Iwashima <kuni1840@gmail.com>, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 23 Oct 2025 00:37:52 +0000
+DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=mail.toshiba;h=From:To:
+	Subject:Date:Message-ID:References:In-Reply-To:Content-Type:
+	Content-Transfer-Encoding:MIME-Version;i=nobuhiro.iwamatsu.x90@mail.toshiba;
+	s=key1.smx;t=1761179850;x=1762389450;bh=6EPk/UqbZ1FRSs5fVYUGf9HNmPI7s8j27MAC1
+	hL3ULc=;b=wS7y02DBOPVGz3vKNyF1kx3UyOLZQVJL+2cywR1ZGvwPlUkXuBOR8KZ3oE7iNLRNaVT
+	qeb6QlLr1uqKLB+LExroRQWa2fTgG2HsU7j6AmfvmGirfjAGVrw/bh5xfRvJ/gPnwgEsVEZf0W0u7
+	1yGicMglQ4fEtSAUbMmI2JiIGxpfi0VNpOt80lzcYzfHUKxN4kVg3+Y6ibu1iu02tDRmE9WHlPj1O
+	zKhIkBysi7jGmjjLUMgYs1tDVrZ2tLw5xjbaR7MeFGfRWj/gK8UXmZjsOQZs5MvyDt3EZodetUmav
+	65JZAoY0XsJgEJTl605DocLwhuewBtC7RpMGG87hVm5g==;
+Received: by mo-csw.securemx.jp (mx-mo-csw1121) id 59N0bTSU2497160; Thu, 23 Oct 2025 09:37:29 +0900
+X-Iguazu-Qid: 2rWhqFKk8FCXHZF6Gs
+X-Iguazu-QSIG: v=2; s=0; t=1761179848; q=2rWhqFKk8FCXHZF6Gs; m=yU5Qw3XY8R3rI2mZLV2gFYF+vqx3S2VrNqGeQrDfo/A=
+Received: from imx12-a.toshiba.co.jp (unknown [38.106.60.135])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	 id 4csRvC5Q2cz4vyh; Thu, 23 Oct 2025 09:37:27 +0900 (JST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=g14h0BvaU3Q9Yd9nhVW9E65eJHCmfb3lgadIgpgeejNE26dlwm2syod4rMcXO/B4Dk2eydZNHSqvjUpLE/KtOfa7Hltvsd9XkAjz5rVvcOQdms5ukun3GwDJ/ytLSWLnDKXF9GkFbClPXCyXuiSFB7GNidZEj6uqDxTEAgHX8MA5IBvHRoxNEZrxuREywLK0NDWS2U5z87jbIv3KfrgqjOwaqCdayNFEl2StLI/sk/XNcp/Em7kQIvUkhdmETRl3O/rjT17p53PUWMwat2UdXZOCQVW+RD96GAFz9EGhIY91m3XdWCzdQDMoil07eek/zxCQqB1C8t3GRgWkUYB/3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yvSWCxrKUJbxiEGLp8mxIlvTRSdbPu22PwQxi11EPoY=;
+ b=cvTNzHKz4M/EU1dDtv0b5Vvo4/UB5OCSBzVhYzjhnoDEFXSx06wnMz2HN0BaL8qtl8CQHRP0h2uiJbkqC72FYm8XaPmfQSsmbY9sb3177ce0zf5qwkTar39b2EWH4OpDCrg3Mrz49yaTq2jrOBhU7p/lJD9EpgoJXC5DrLWn05rKjyuDEdeKvPrza52LFc+9UxfLnUdCweDDvfOrwljEzM5wi323G3KxOxiwsaO5F19C9tZ3dn8I6R/aK+HcYX2EK3qDP+l8rLumScwfnFDE3cxi0tEtmVXoKeDY+hiDGeOxDDCIyxozs9zVFrR/AM7/xg+XkcURQUvbY+fAndBbZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mail.toshiba; dmarc=pass action=none header.from=mail.toshiba;
+ dkim=pass header.d=mail.toshiba; arc=none
+From: <nobuhiro.iwamatsu.x90@mail.toshiba>
+To: <krzysztof.kozlowski@linaro.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] arm64: dts: toshiba: tmpv7708: Align node names with DT
+ bindings
+Thread-Topic: [PATCH] arm64: dts: toshiba: tmpv7708: Align node names with DT
+ bindings
+Thread-Index: AQHcQ1jhGap0CtwiZE2sd4AzlATOorTO4zPA
+Date: Thu, 23 Oct 2025 00:37:24 +0000
+X-TSB-HOP2: ON
+Message-ID: <TY7PR01MB14818346842A5155C5D82797DCDF0A@TY7PR01MB14818.jpnprd01.prod.outlook.com>
+References: <20251022133616.74492-2-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20251022133616.74492-2-krzysztof.kozlowski@linaro.org>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mail.toshiba;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY7PR01MB14818:EE_|OS7PR01MB15386:EE_
+x-ms-office365-filtering-correlation-id: 74c2f2a6-dad7-4dbf-8c89-08de11cc560a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?eWRVajJKdVlETG9VSlZRQTR2aGJSZkZiZjRSZGNRc3IyMGhPamZhZjBs?=
+ =?iso-2022-jp?B?Q3FHc2UydHJxRlVvbXNwWW0wdzZVSHFXTjMvZGtHYjVlelpER3puaTY4?=
+ =?iso-2022-jp?B?OFVGV3pLbXJxNE9ud3Y1Y2dtUUdmNFk4eENFZ1JhMHJSdXo4N21MbWZU?=
+ =?iso-2022-jp?B?aW40LzJpQ1NkRUJvTDJPa2puSWV3SU5mNWdiMTF4TTFsUkVLcDQvdzlM?=
+ =?iso-2022-jp?B?OVFUb0xKUDVFZjZIWmIyRWlXV0JNcCtFbzYyb3BUMFJZL2xpTW96NmVC?=
+ =?iso-2022-jp?B?Qm5CVW9kcFI5aUVYbTd4Q2VVVWlVb2Uvb2dCRmU1U05EREp3V2xIQ2dV?=
+ =?iso-2022-jp?B?RFlBY0VZRjhURjJoaktFVzJmS1F5V2pSc0VqQ2d6ay9EZnVDa2NFMDl6?=
+ =?iso-2022-jp?B?T0JjUEVVVEhwaU5PZ2hUbE84WjB3dzFjVlExVzRud0hZVlg2UEY2Zy9x?=
+ =?iso-2022-jp?B?SmVtWWt5QUVvcW5iWWtTSlYwbnJsR2hRYStUTklvRFZ2aUc1Z05PYWxr?=
+ =?iso-2022-jp?B?MVhTc3I1aEJTQkRXUDlJUDF3YjBTNGV0UTFNZjdSbkMrZGdtVmhtMGJ3?=
+ =?iso-2022-jp?B?b0FaZnhEYS9tUFVZMlNEa3k0V0pGNmQ3UVhKT3EzSWpTeHlGeWh3Uzcr?=
+ =?iso-2022-jp?B?enJ0TmduMHZVUWNpZENNNHR3eUhGcU12RDhKVzBXQU5MN21SZHExUUhn?=
+ =?iso-2022-jp?B?alNEMjB3VTZ5d0V5a1hLMDY2ekd5OHVXc20xcVM1d0M0SjM2VDRIVVZI?=
+ =?iso-2022-jp?B?N0V3MTlXa1JLSUJId0FLNlRweDlOZWpBRlA0YXkrTUkzTkRock5Tejln?=
+ =?iso-2022-jp?B?cGlYUzJSczBUWHlGTmNpWG0xV2JrTEU5WG1yUW1zZUJPUHFPSUtKM3A4?=
+ =?iso-2022-jp?B?cW10dTlTbzdPWGEwOG9jR0YwMllGNHc3bW1jcWdKdlR4L1dRbElGVVhs?=
+ =?iso-2022-jp?B?SzBRU1NYUnJzWElnQVZ0VnpPeWYvVC9iYm0rWTVpWWdGeTZoZ0EzU0ly?=
+ =?iso-2022-jp?B?eG5wS3dic21DbUg5akdGTk9IdnFRbEVFRnFFZ3kzZlY1WmltY2pZU29E?=
+ =?iso-2022-jp?B?Y1Qxamk1K2NpNGVXTWpRMVgzQmRxMTlFSEV2QXVDMTF0a01naDVJT2tJ?=
+ =?iso-2022-jp?B?YkVKUTV5UzNhZVJTM1k0aGYvOGtsb09teEpyc1hSKzhJeUJXSHIwUm9o?=
+ =?iso-2022-jp?B?cXV1Qlp5eitGeW9hdmt2aU9DZ1JMZUczSGhlR3pZc2ZKQXFmVG00TWhX?=
+ =?iso-2022-jp?B?UFNNbTBubllDbzZ3VEk1SVNVVnZ2RDFCREpFU1J4VXo5TllkbTAvK2lh?=
+ =?iso-2022-jp?B?enJ2NzV5TVgvWVFQcHFEVzFLak9PVHlpTlQ5M3NTRGsyUE1oa3RkUzJS?=
+ =?iso-2022-jp?B?eHhBTEQvb2huZHQ2M1hqT1BQQWVxa3pYOXg0ZFdIVEk2Vy9mbCsrMVNs?=
+ =?iso-2022-jp?B?aGlwY284Q29UNUNmVVZ3VkdxZ1B6NGU1WEo0amtiWUVjMDJsYWR0RVBL?=
+ =?iso-2022-jp?B?MzdHMmdGT3c3a0tYUm03aStGVlhyaEQ1R09jWTNoeGFDSVlYcTBERUIy?=
+ =?iso-2022-jp?B?SHp3YnYrMlRKRnVUR3c2b2pJM3pIL1BOeTkwUnJ1STRuc2lESkh0UWpZ?=
+ =?iso-2022-jp?B?UEpZMjdzcFl1QmptOHhvRXZhT2RHb3p0Qm1ITUlRT0Qvc29EL0hKbkpk?=
+ =?iso-2022-jp?B?aGR3SkVBbjVwY2gySWZKaktNQU0vRGhMZWlCY1ZzZVZNSEVFdHgvaSs2?=
+ =?iso-2022-jp?B?L1Q5ZzVtcVR5ZWNMV3dNODd2VHh2LzZtSmR1bmlSTHpxQ0pzS2VqZEY0?=
+ =?iso-2022-jp?B?OGo3Zk9xWTRDanRQREJsanVKMVlDQzdmOUlrZFI0RE9tdTJJS1NOajBR?=
+ =?iso-2022-jp?B?U1MwRGZiYjl5YUJvRzBsWnZXTHh1TTg0ZWNvY0ExOTlUVmRzSVY0a2Mv?=
+ =?iso-2022-jp?B?alVjZHJvblU3TWJUN0lzeXN5c2RBOE1YNERxZ3h6aHRURE51QzhyMmhu?=
+ =?iso-2022-jp?B?akpJTFQ4eTZ0SS9uRVlwa2REaytzNnIxcUVTNGhqLzlsN3lrRXBnYTU0?=
+ =?iso-2022-jp?B?REhsNitRUnFTU0x5cU92Q3hleWNURHFSTTNYNGY0d1JTbjZwTHZNQTlB?=
+ =?iso-2022-jp?B?SjVHSHZNSStOL25yWlc1c3hXZVM0Ym9TZ1BUNjNBbjVUQ29EdG9zM3Bm?=
+ =?iso-2022-jp?B?bzUzUGpXeTM0OGZwZS9OVmZzMlRMMEJp?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7PR01MB14818.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?NjgrVzRsOVFmMlBIcXA1L3NGOW45Y3FGc0NDT2wyMUtvcElJNHdDR2hZ?=
+ =?iso-2022-jp?B?bnpLTEdxbGlzOXRRcDROV0JBdlpHZVNYb05ZTmoreGRPTHBMV2hVRDA0?=
+ =?iso-2022-jp?B?ZDFJQWM5K3pRYUtGWExRN1VHUXZJN2lIS0ExTWIyWFZhYlJ5eUVhZnpL?=
+ =?iso-2022-jp?B?RkFGbGNMMzBkRThteDhnNWU0RERKZXhiMnl2Z3RIM0Y0MUcvVnFiVCs1?=
+ =?iso-2022-jp?B?VEhqY2tJYUhmRGJwT1hndWltcGorR0hWN0U2V0VrNDJNdmlUSHlORUZ1?=
+ =?iso-2022-jp?B?OHpXeWtSM2NubkMybk1rUzd3Smo1ZnRuOUc3UWhNVHBZTE1oUDhSaEdN?=
+ =?iso-2022-jp?B?a0tPSGdFek44dGRJOWVrcWJMOHIvSFRRUllRM1FsQ1FEdG9BOWFsalNW?=
+ =?iso-2022-jp?B?UWtUb1ZvNTIxS3ZoRkIxR0tlN2JHbGNqSDREMzdod2x6VGlRU2I3Rno3?=
+ =?iso-2022-jp?B?VGFVQndsVERUbWU4K01mendSR1Iyei9JNjRiZEV3b2RRdFBGWGhkbFpT?=
+ =?iso-2022-jp?B?d0I4MGVZZENoRnJJQXA1NDh3RWJFQkhQZDRmWmY1U1BNbjlvRmZYYTlP?=
+ =?iso-2022-jp?B?dzVDZkd5VVVUcXNwM092cm1oaTI5ZDZUYU5iOTdhcWdMaDJiSml4VFdB?=
+ =?iso-2022-jp?B?emF4bnhNWTIvc25hUXBMY0ZRdnlqZ1J6dEZza0JWZDZSb0YvQ0ZaN2Vp?=
+ =?iso-2022-jp?B?YytXSzhadGFYTzBLRXNobFJMd1F2THZOWjRlcmJtQ3VTdmp1elBhN25y?=
+ =?iso-2022-jp?B?Y21yOEVGV3EyWWVMd3o3OTg0R25Za3RWVkwvZFdVVHNvYk9GbzNrMUcw?=
+ =?iso-2022-jp?B?YzAwR0QrL3BiZitIZmY2c2JjZUUrNDA3THBEbW9POEFvMGczNWVuRW1j?=
+ =?iso-2022-jp?B?QnRXQWpzUlV3U2MyZ1A4TnNYK2lITEZJRmI1SmEzTXVrRkFockxhU0Fy?=
+ =?iso-2022-jp?B?ZmJZdnN5ci9vcTMycU13elZxalltU1phbWc5VXVkam92TU5lNFdXbzJ5?=
+ =?iso-2022-jp?B?YTgvTHpLckJKcVc4N05MSWhlWDVXazZ3clFaNmYyVzlXTWRPOHdQUnZL?=
+ =?iso-2022-jp?B?N3c0S0EwRlFFQ29WZ0NPNnp4cmxtb0hwMXltSHFTSlgzc3Vyb29yQzM3?=
+ =?iso-2022-jp?B?bk1xVVVRQVY5YjhsUncrajFjdm9weWZjbVJITXdCNFRGRlpCc292eStU?=
+ =?iso-2022-jp?B?MHg0YStkVURKam5GSXluMmFxQTdpQm83Y3dVSmtwMzAxcUEwSnI3L2pH?=
+ =?iso-2022-jp?B?ZXFOZGNEd1ZEMG1RbkErNVB4REk3cHJQcm5YL1A3a1NTUjdWRXZMblJo?=
+ =?iso-2022-jp?B?SENicTZpL3M5dmRzTW1hdUdBWHZPcldQOFVZYVFjaDVCbnFJYWZNbjFl?=
+ =?iso-2022-jp?B?NjFWU05BdkN2dWtEeG1ZMGFMSmtHdStJZ29LYU1uTHpxK3FrUmhhYmNs?=
+ =?iso-2022-jp?B?V21iM3g5cVZld0JiTTNGMnkyTm52VEdPV21YS1A0cjA0ZkcwYVIrUFJu?=
+ =?iso-2022-jp?B?UUlwQWY0QU9QVXdKWnEwb3ZEY0p3UWNpL2gvaXlQR3Q0Y2p0YlpQeHdi?=
+ =?iso-2022-jp?B?eS9YRDhGeSt2VGtSVlZaZGpyWk9XalBaNThVTWtmZXJ5TEMzM2luU25G?=
+ =?iso-2022-jp?B?KzhNZWhJMVhqTUJBamFxeGRsMEVZUUNEbVVGUXVRYjUwOTJ4aFpJekxI?=
+ =?iso-2022-jp?B?YTBqWmV0STNOMFRGT21TWEhxNkdiUlJ0eDNtd1BoK3o1cVZnR3JmZTlT?=
+ =?iso-2022-jp?B?S0dqRW56eHVtUmZrb3MwTDBsa054UFRNUC9FakVXOS95MU9MWlVjd2tx?=
+ =?iso-2022-jp?B?QmdpZ2MrNERYZEMrNWlDR1J1MXZZZ3VQRXV2S2IxM2k5RmNQK2ZkQmlw?=
+ =?iso-2022-jp?B?dXdyMVp4RkdLMUZMS3dZT3o3azhjN1NJSlVvd0RsVmdkWVJvSEVjVzJj?=
+ =?iso-2022-jp?B?dHc1VFNPNWQyTE9OU0Z1QzJFTzQ4WkJXMDJiS2U5MnoraU5pYjVJQTdp?=
+ =?iso-2022-jp?B?aVVrR0t6SFgxMDFJWUNhSElhSnVYMEtmeUhUQWloSENPWHNJT3hESlRa?=
+ =?iso-2022-jp?B?dmxZM0EvekcyL2RqUzJXMm5NSUlKUnhqdFJOR0FRRS9TZFByUnBldlNp?=
+ =?iso-2022-jp?B?b3JlYXNYM3hTcVdXb2pjRVBOYnpSaVJPaXJoU2dndmRWbUdJdVg1WU8w?=
+ =?iso-2022-jp?B?eDNJc1pxQkZ5b2hEeU16cEVCQ1RiZ1dTZUlqU0tRaSt6dkxvcGhvMmpZ?=
+ =?iso-2022-jp?B?UUE1amVlL0l3NWRNYmp6RHo5ZGxUWWJSNS9acVdDMFVwNEtyOGZha2pn?=
+ =?iso-2022-jp?B?ZVFtQS9LOGJRR0k4VG13RVc5K3EvV3lhY2c9PQ==?=
+Content-Type: text/plain; charset="iso-2022-jp"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: mail.toshiba
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY7PR01MB14818.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74c2f2a6-dad7-4dbf-8c89-08de11cc560a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Oct 2025 00:37:24.7323
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f109924e-fb71-4ba0-b2cc-65dcdf6fbe4f
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: NdbImZmn0R+ZIOLrWjQ/2M2BpYsFyliBOHHKCVpTxZnmjIZLBG9NcOAQyxi/fAnKfnxcKk9XE0JGresTXRfxvxZal2m86zkozO7pa+qd5Yv+ARrMokGIqsV24+t4/sKx
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS7PR01MB15386
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_001016_195225_DBF6B79A 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20251022_173751_676539_72CEC10D 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,77 +189,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-epoll_put_uevent() calls __put_user() twice, which are inlined
-to two calls of out-of-line functions, __put_user_nocheck_4()
-and __put_user_nocheck_8().
+Hi Krzysztof,
 
-Both functions wrap mov with a stac/clac pair, which is expensive
-on an AMD EPYC 7B12 64-Core Processor platform.
+Thanks for your patch.
 
-  __put_user_nocheck_4  /proc/kcore [Percent: local period]
-  Percent =E2=94=82
-    89.91 =E2=94=82      stac
-     0.19 =E2=94=82      mov  %eax,(%rcx)
-     0.15 =E2=94=82      xor  %ecx,%ecx
-     9.69 =E2=94=82      clac
-     0.06 =E2=94=82    =E2=86=90 retq
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Sent: Wednesday, October 22, 2025 10:36 PM
+> To: iwamatsu nobuhiro(=1B$B4d>>=1B(B =1B$B?.MN=1B(B =1B$B""#D#I#T#C!{#C#P=
+#T=1B(B)
+> <nobuhiro.iwamatsu.x90@mail.toshiba>; Rob Herring <robh@kernel.org>;
+> Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
+> <conor+dt@kernel.org>; linux-arm-kernel@lists.infradead.org;
+> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org
+> Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Subject: [PATCH] arm64: dts: toshiba: tmpv7708: Align node names with DT
+> bindings
+>=20
+> DT bindings expect node names to follow certain pattern, dtbs_check
+> warnings:
+>=20
+>   tmpv7708-rm-mbrc.dtb: pmux@24190000 (toshiba,tmpv7708-pinctrl):
+>     'pwm_mux' does not match any of the regexes: '-pins$', '^pinctrl-[0-9=
+]+$'
+>   tmpv7708-rm-mbrc.dtb pmux@24190000 (toshiba,tmpv7708-pinctrl):
+>     $nodename:0: 'pmux@24190000' does not match
+> '^(pinctrl|pinmux)(@[0-9a-f]+)?$'
+>   tmpv7708-rm-mbrc.dtb: wdt@28330000 (toshiba,visconti-wdt):
+>     $nodename:0: 'wdt@28330000' does not match
+> '^(timer|watchdog)(@.*|-([0-9]|[1-9][0-9]+))?$'
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-This was remarkable while testing neper/tcp_rr with 1000 flows per
-thread.
+Reviewed-by: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
 
-  Overhead  Shared O  Symbol
-    10.08%  [kernel]  [k] _copy_to_iter
-     7.12%  [kernel]  [k] ip6_output
-     6.40%  [kernel]  [k] sock_poll
-     5.71%  [kernel]  [k] move_addr_to_user
-     4.39%  [kernel]  [k] __put_user_nocheck_4
-     ...
-     1.06%  [kernel]  [k] ep_try_send_events
-     ...                  ^- epoll_put_uevent() was inlined
-     0.78%  [kernel]  [k] __put_user_nocheck_8
+Best regards,
+  Nobuhiro
 
-Use __user_write_access_begin() and unsafe_put_user() in
-epoll_put_uevent().
+> ---
+>  arch/arm64/boot/dts/toshiba/tmpv7708.dtsi      | 4 ++--
+>  arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi | 2 +-
+>  2 files changed, 3 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+> b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+> index 9aa7b1872bd6..88e38d6efcaa 100644
+> --- a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+> +++ b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+> @@ -161,7 +161,7 @@ gic: interrupt-controller@24001000 {
+>  			      <0 0x24006000 0 0x2000>;
+>  		};
+>=20
+> -		pmux: pmux@24190000 {
+> +		pmux: pinctrl@24190000 {
+>  			compatible =3D "toshiba,tmpv7708-pinctrl";
+>  			reg =3D <0 0x24190000 0 0x10000>;
+>  		};
+> @@ -463,7 +463,7 @@ piether: ethernet@28000000 {
+>  			status =3D "disabled";
+>  		};
+>=20
+> -		wdt: wdt@28330000 {
+> +		wdt: watchdog@28330000 {
+>  			compatible =3D "toshiba,visconti-wdt";
+>  			reg =3D <0 0x28330000 0 0x1000>;
+>  			clocks =3D <&pismu TMPV770X_CLK_WDTCLK>; diff
+> --git a/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
+> b/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
+> index a480c6ba5f5d..5ea835fe08a8 100644
+> --- a/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
+> +++ b/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
+> @@ -91,7 +91,7 @@ i2c8_pins: i2c8-pins {
+>  		bias-pull-up;
+>  	};
+>=20
+> -	pwm_mux: pwm_mux {
+> +	pwm_mux: pwm-pins {
+>  		function =3D "pwm";
+>  	};
+>=20
+> --
+> 2.48.1
 
-We see 1% improvement on tcp_rr throughput by just saving a single
-stac/clac pair.
-
-Another option would be to use can_do_masked_user_access()
-and masked_user_access_begin(), but we saw ~5% regression with
-unnecessary 3 operations for address masking, which is already
-checked by ep_check_params().
-
-Suggested-by: Eric Dumazet <edumazet@google.com>
-Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
----
- include/linux/eventpoll.h | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
-
-diff --git a/include/linux/eventpoll.h b/include/linux/eventpoll.h
-index ccb478eb174b..efc0aa2d496f 100644
---- a/include/linux/eventpoll.h
-+++ b/include/linux/eventpoll.h
-@@ -82,11 +82,14 @@ static inline struct epoll_event __user *
- epoll_put_uevent(__poll_t revents, __u64 data,
- 		 struct epoll_event __user *uevent)
- {
--	if (__put_user(revents, &uevent->events) ||
--	    __put_user(data, &uevent->data))
--		return NULL;
--
--	return uevent+1;
-+	__user_write_access_begin(uevent, sizeof(*uevent));
-+	unsafe_put_user(revents, &uevent->events, efault);
-+	unsafe_put_user(data, &uevent->data, efault);
-+	user_access_end();
-+	return uevent + 1;
-+efault:
-+	user_access_end();
-+	return NULL;
- }
- #endif
-=20
---=20
-2.51.1.814.gb8fa24458f-goog
 
 
