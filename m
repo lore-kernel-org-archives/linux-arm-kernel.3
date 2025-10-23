@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C77BCCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 10:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A5DCCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 10:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jj+Kif4dfrKe9mwz38YrsgAu4gm6A5BRFb4/J3K2e94=; b=XMwz7pDDY1+6aloCZn2UqcUW6X
-	LdB3l0iEVy+2guuggNRlVnzY6W6p7VdbDrRUTLOX346w9VrkbC4eH7mTGDNK9Fl4MxuTB8kvChwbl
-	LPE39F0eto/U4faZb3LOd3isY4lR3jFdbBnT73QXwyons0UZX53i8ByF+17qWrOGlFdtFwdMrELDz
-	Hpxp5ExAvfTRaISJFZTcuVSKqf9HK7U6tSyUtHXDZGD2/nmnrHGQpRnhpIrVj8g5pY8e4mJbDikKP
-	JOMQTxNRJCkKAxc1sESrvpfIUanW39GWwDzXQyYA2j4+XjaeOX5yH452V1+yA9qUp3pZKl2du6WKh
-	pLeCkFag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rDaarJu+1lMV7xrBDAmTOi1odQwoiS3QEl1ot3QDFr8=; b=TzAnu9yVZBj0fcYWBpZcdMMD4t
+	+UKNrFwXJA6E70gHZ+JKO7x9MN2xQ+yeKCv+nCwp/i0PfrtF1oJZMbhM6K7dAfsO63sq4vhHHavsX
+	X8jcmtSaJzJ2VKm7qgZj8OP5Oh+ptNGqyMTX3bxfE6oHoprdU1Nu/ebUYOH9I8UE3uHD3iq9pDkE6
+	tmjU2wRN07ZBNaTq3KJOr1BYznXt129K6ZU5zh/5g9JmAXP0LoENjPj4iNg67gO2IK2Sppak45e4b
+	eI5G7qHvPkyH4jep3zXXznAtRKb3B1ENuhJiemHY+s9HmTB6m2Xcer/eooY1SJs8v3UsPWcHaC55S
+	8ym205qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBsPR-00000005r8D-3qCw;
-	Thu, 23 Oct 2025 10:19:05 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	id 1vBsXc-00000005sJq-38xj;
+	Thu, 23 Oct 2025 10:27:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBsPP-00000005r6c-1ZfX
+	id 1vBsXZ-00000005sJQ-3C08
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 10:19:04 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-87be45cba29so5772556d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 03:19:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761214742; x=1761819542; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Jj+Kif4dfrKe9mwz38YrsgAu4gm6A5BRFb4/J3K2e94=;
-        b=asWlB/QdotANyw+NRthab63SpHayJOIknmHz+oAoHnxP3F0HyxQ9Lt7KWvGhM6sa/Y
-         XWOjAYJKAmbJRWRrYtI6b6bm9YTv7awPmNeIQ4DVEK2NWn+cc8jz/ydEyP+kDDcaawp9
-         R/tUOYjjIAN4kHbhBAj9bjqsH0/7NxWG1n18lr2HFMqKQ2FEdMcSPujLj8bGehmYv9pG
-         udt/xPYi6XcWZvipTdoj736I8f6xq2n1G5yplUZYS8pIJOHCy06lyyXMGxI2lJUM5AYg
-         i7Eb/XcqzhHVMuESBXOepEkKPxNArLmKaDGXePBQZiCI5zEya04N+HdDH3cyOxyyyW2u
-         nABA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761214742; x=1761819542;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Jj+Kif4dfrKe9mwz38YrsgAu4gm6A5BRFb4/J3K2e94=;
-        b=dKfzWbPUdF4IeFPfvWIz9zLisePUy6qwNCOI7G/2zcbrmQDp+TKhYk3ec+M83c/e4e
-         oH46PdtHNXP2/bDQxaIAliSiKtKxV8HzPvTt1Dobhl/2N2NZV70P8PUBRKYYMQvAUJ2N
-         IOgQLw6hXGZlcOMfVoCMcAdA1TEPkBHn0M3cZe5Ut4iyeJxAFwPMMtemyGFJwxpsikoF
-         FHxqGk5CsVKtkWKXi+8N9KmhWtgJjeH2aTNe5s5s5NPayEXlASXkNXCbi29pq5pZNRqm
-         yrAol0/tbjm4IETpyI+IPKpeNscUCWtwFwIYK/Jlo4MYl4MHHYIE7ASic2Ez9CpiHlo5
-         6BTA==
-X-Forwarded-Encrypted: i=1; AJvYcCWadJrQ2Pd6zSivW4eonJfeGZLpKoWVWH4zekmYNkQmF+Xvr7qKUIjDwsSEDNbF9BeDztekmXdWkneZlRJ38GEB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjhBJScZjkRPuT2r+oMPVlVuloLNxoURBkwhQt4wY5n/YuZPEl
-	LLTLgALgam3C8uKs6CMM7Itj/ZmoG+Ckhd2oC7Llu6FBHp0rlGutyCuF1GBADXflWeub0TmkbcC
-	hPrBJrSDNQ+cLgyxJ0JCX1QmS95xjin2C90VE+sSAYA==
-X-Gm-Gg: ASbGncsJA7TeoGFCRrM57ccgoybFCQ2HLsXS9DH5Fvzu/ZyHSWS1leNI720E1dcj2DJ
-	HlgR5GRkIwXb2i4nedXs/N0NPYsQQTS7GGmoqAQtwlLzFtaTpLfyM/kHRxGhX9x9ScHmWl6Q1pC
-	9u2ijcVPh7c4hRf1nc9Vkp56RevyJ98DRmKkJ+/orGpNCNSuMzI79iGETo/sbXcO18kIkLaR26e
-	WLayUvIq6q+L7gv28Y7bRe1HyzOvol05HZ0ELsfeHtXuVyYg92v9Iv1XITM9hjUsFZ90MkSgoJe
-	S6YYRq0xmazQlPO0kg==
-X-Google-Smtp-Source: AGHT+IHNhmQID8BxdTuPqUD1UOIaCU7OEog3sKm0kstXbUtDfJdGdBhlg02NR752jpqHk1Bz3E77Jj7bDJWs5M5CGgM=
-X-Received: by 2002:a05:6214:2423:b0:87c:29c4:4bec with SMTP id
- 6a1803df08f44-87c29c46f93mr338397966d6.54.1761214741816; Thu, 23 Oct 2025
- 03:19:01 -0700 (PDT)
+	Thu, 23 Oct 2025 10:27:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E2C10440B8;
+	Thu, 23 Oct 2025 10:27:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id B5F0BC4CEFB;
+	Thu, 23 Oct 2025 10:27:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761215248;
+	bh=9moM1zvWggM59ECkKTAgJYY6tGFpdNeypAAeKDaTrsc=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=KtZzY7+KK5fh0BsjWRQXOLlZcL8+4/Wrjg8izY1b9HxLlZtAtlFMrx2GPoFESdEgh
+	 ETw77KIaAUcLP1EqRIK5RGJuBUxJOwoHFTEhlzFj+E4UJYILRJiGsQsqh5Grt24xH+
+	 L8Qzrjx1SDCoHVqUWTc8WMU+dCPdS7nULcZoIHPbpYI6U1vJaw2Tw4V1mEqoUaKt42
+	 tXGDcoDYlBF3HriqpoZEpQbqP97SNUYpHUv1YUn6tzH3Jexv4G9rTOCz8MUbplUqY9
+	 kXSujti/0bFNyxLk3m5QlGnLr4W7mVB+a2Zze+Qx1guUCQE1srfgcIUdAK/Ebg1M4F
+	 GGhnds9rbNdrw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A1BF8CCD1BE;
+	Thu, 23 Oct 2025 10:27:28 +0000 (UTC)
+From: Alex Wang via B4 Relay <devnull+alex.ts.wang.fii-foxconn.com@kernel.org>
+Date: Thu, 23 Oct 2025 18:26:56 +0800
+Subject: [PATCH] dt: aspeed: clemente: move hdd_led to its own gpio-leds
+ group
 MIME-Version: 1.0
-References: <20251021234520.3355-1-mike.leach@linaro.org> <20251021234520.3355-2-mike.leach@linaro.org>
- <20251022092958.GQ281971@e132581.arm.com> <CAJ9a7Vi+Oq3Zma0Cs+w8m0kRE0pG6ax3=26EQK=u7d=vQfNFQw@mail.gmail.com>
- <20251022140409.GR281971@e132581.arm.com>
-In-Reply-To: <20251022140409.GR281971@e132581.arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 23 Oct 2025 11:18:50 +0100
-X-Gm-Features: AS18NWCeiUa4aE_71Sz4zTfIuX-f8RyEZqLdNWyWeqNAXjkOZBf7qdkAOeOtddc
-Message-ID: <CAJ9a7VggKoYdELcWTXxOg6-78TK2NAEE9uNo6cgpmx0x=0cwsQ@mail.gmail.com>
-Subject: Re: [PATCH 1/1] coresight: fix issue where coresight component has no claimtags
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com, james.clark@linaro.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251023-leo-dts-add-shunt-resistor-v1-1-5d9980aba308@fii-foxconn.com>
+X-B4-Tracking: v=1; b=H4sIAO8C+mgC/x3MQQqEMAxA0atI1gZqpYN4FXFRTEYDQytJFUG8u
+ 2WWDz7/BmMVNhibG5RPMcmpomsbWLaYVkahavDOh875Hn+ckYphJELbjlRQ2cRKVvRDLdwnBoo
+ MdbArf+X6z6f5eV6VPZlpbAAAAA==
+X-Change-ID: 20251023-leo-dts-add-shunt-resistor-2810206a5dae
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ george.kw.lee@fii-foxconn.com, Alex Wang <alex.ts.wang@fii-foxconn.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761215247; l=1426;
+ i=alex.ts.wang@fii-foxconn.com; s=20251023; h=from:subject:message-id;
+ bh=nhjdaQhGONa6qRe6C17O9kT3BPIniN47qBnafl7NHt8=;
+ b=un87bQXpomsn/0FLsOCFLiEpZ+BJAggKp/q9MiS5J3KjRJmifLf7SQcSV3kCAhfv3Qyd3/5/9
+ gX5dDcKJ9s/AEHQk5fY+7RY7xwxkO6/DDYnjudaSMejQr96SpfDXuRx
+X-Developer-Key: i=alex.ts.wang@fii-foxconn.com; a=ed25519;
+ pk=m/IrKXb14uSdDm4KGXemjNIxgL6TrqXCc9NX09SUJp0=
+X-Endpoint-Received: by B4 Relay for alex.ts.wang@fii-foxconn.com/20251023
+ with auth_id=551
+X-Original-From: Alex Wang <alex.ts.wang@fii-foxconn.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_031903_424094_103D9AA3 
-X-CRM114-Status: GOOD (  31.44  )
+X-CRM114-CacheID: sfid-20251023_032729_863161_4FFB0BD9 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,105 +88,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: alex.ts.wang@fii-foxconn.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo
+From: Alex Wang <alex.ts.wang@fii-foxconn.com>
 
-On Wed, 22 Oct 2025 at 15:04, Leo Yan <leo.yan@arm.com> wrote:
->
-> Hi Mike,
->
-> On Wed, Oct 22, 2025 at 01:35:46PM +0100, Mike Leach wrote:
->
-> [...]
->
-> > > - We can add a new flag ("bool claim_impl" in the struct csdev_access),
-> > >   by default the field will be zero.
-> > >
-> >
-> > I considered a bool - but the correct place for this would be
-> > coresight_device - where we keep all the information about the
-> > hardware features.
->
-> Maybe coresight_device is suitable. But this might require to update
-> furthermore for claim function arguments (e.g., need to pass "csdev"
-> rather than "csdev_access").
->
-> > > - The drivers support claim tags call coresight_clear_self_claim_tag()
-> > >   in probe (see __catu_probe() as an example), we can call a new
-> > >   function coresight_init_claim_tag() to replace it, this function sets
-> > >   "claim_impl" properly and clear the tag if supported.
-> > >
-> >
-> > I considered moving this initialisation to the common coresight code
-> > where we create the coresight_device.
->
-> Seems to me, this is dangerous. If a module is not CoreSight compliant
-> and claim registers are absent, when access we will get unknown values
-> or even cause serious result (external abort or bus lockup).
->
+The gpio-leds driver requires all GPIOs in a group to be available;
+if any GPIO in the group is missing the whole group will not be
+created. The hdd_led GPIO is only present after standby power is
+enabled, which can prevent other LEDs in the same group from being
+created and blocks properly setting 'bmc_ready_noled'.
 
-Currently all our drivers assume claim registers are compliant - so
-this makes no functional difference to the current situation.
+Move the 'hdd_led' node into a separate gpio-leds group so that other
+LEDs are not blocked and the 'bmc_ready_noled' flag can be set
+correctly.
 
-If the hardware is non-compliant, and is bound to the current drivers,
-then there will be an access to the registers that could cause the
-same issues.
+Signed-off-by: Alex Wang <alex.ts.wang@fii-foxconn.com>
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-There is little sense in having a call in individual drivers to init
-claim tags which are regarded as common management structure.
-Any coresight component with no claim tags must still either have
-registers indicating no claim tags or as per the specification
-unimplemented register locations have to be  RAZ/WI - which amounts to
-the same thing.
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
+index 450446913e36..c58922695f46 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
+@@ -96,7 +96,12 @@ led-3 {
+ 			gpios = <&gpio0 ASPEED_GPIO(P, 5) (GPIO_ACTIVE_HIGH|GPIO_TRANSITORY)>;
+ 		};
+ 
+-		led-hdd {
++	};
++
++	hdd-leds {
++		compatible = "gpio-leds";
++
++		led-0 {
+ 			label = "hdd_led";
+ 			gpios = <&io_expander13 1 GPIO_ACTIVE_LOW>;
+ 		};
+
+---
+base-commit: b5dd162282164dc202541ce6551cf705d345820e
+change-id: 20251023-leo-dts-add-shunt-resistor-2810206a5dae
+
+Best regards,
+-- 
+Alex Wang <alex.ts.wang@fii-foxconn.com>
 
 
-
-
-
-> [...]
->
-> > > > +/*
-> > > > + * Coresight specification defines a maximum of 8 claim tag bits.
-> > > > + * The precise number is implementation defined, and may be obtained by
-> > > > + * reading the CLAIMSET register.
-> > > > + */
-> > > > +#define CORESIGHT_CLAIM_BITS_MAX_MASK        GENMASK(7, 0)
-> > > > +#define CORESIGHT_CLAIM_SELF_HOSTED_BIT      BIT(1)
-> > >
-> > > Now we only care about the self-host bit. Can reuse existed macros ?
-> > >
-> >
-> > I feel that drivers should be written to match the specification - the
-> > macros above are a correct mask value per specification and the
-> > correct bitfield comparison for the MSBit of the protocol.
-> >
-> > The ones below are a protocol masks field, and a specific protocol
-> > value that is used in value rather than bit comparisons in the
-> > claimtag code. I felt it clearer to differentiate between the uses
-> > when reading the code.
->
-> How about change CORESIGHT_CLAIM_EXTERNAL and
-> CORESIGHT_CLAIM_SELF_HOSTED to MSBit ?
->
-
-The checking code for the protocol does a value compare on the pair of
-bits, not individual bit checks.
-
-Regards
-
-
-Mike
-
-
-> Thanks,
-> Leo
-
-
-
---
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
 
