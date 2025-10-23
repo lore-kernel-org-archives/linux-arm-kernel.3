@@ -4,150 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C1ACCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 21:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB7BCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 21:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=b+KNAnthWr8Lf+4iHm50bCobd9c8qnc11AC+zf7x/40=; b=XqLGBffWQCLECTYL6+zNK+XEyl
-	L7Ipih4xJd0k1WVC3z/tytW5stWEV9LnMtpIxkvKaV6WvQquRiCKOuc9LZaI1V9HxAOBJn2XmgB4W
-	Q6tj3NWiyvLOSMpWx+h86m7QtDvl/7l/ZhI+TBRM4MZOnc33Gpwo/2/WsWb93TeQFElfYhBG4x8rY
-	VwMicdnbS87Xop+7N6LUO8xKyPbxcrt2x6no7zbnufWNwDtykCJ6nQUJ7IK19/y5d6A+AK6cN0QKw
-	UXYCh6SFhF5Gdp+N6CMD0FoZbbsIz9TqBZLGsoBXXVzyee3rQx5GyLE+qysUSuvGlQuDb91vXVVUZ
-	0UFPiYkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wyDCy69Q/3azt6BaC0jOoV9WgJt8g3WAXELT1WMNnq8=; b=dTN7f9H/JGm5roxlkGZpy0Sv+p
+	E0uiJKZqtg7MSIa538uC41N8pc+fu3skqPmN4Omdz69oMDq0uP7XS8ik8TNo4z1QHzVoqLoSEmFmF
+	Tjb17T2H/o84+vpmKtfq3ETAE87H1mCWFuZoVvoM4Om3oo4dtjstd9kCiiSdd7yoWasVgfspdbjGW
+	UTawmM7y7mPaYA6igI3FV4EtL6RNVbe/xomcIyPgoe0GUVsYous5TeT5hv/x9J0qMrarjPoTDQ/Ks
+	ddo5l7vx1/Kq8r7CwfsAxG/HPex9mS4VDfdO2ANlkJdKWfcawZY+I3yxBr55d6MoZ+dqR/ANEW7KN
+	1Ago78VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC3EV-00000007hhK-49pM;
-	Thu, 23 Oct 2025 21:52:31 +0000
-Received: from mail-southcentralusazon11022111.outbound.protection.outlook.com ([40.93.195.111] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vC3Hc-00000007hss-06Ak;
+	Thu, 23 Oct 2025 21:55:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC3EU-00000007hgu-0Djv
+	id 1vC3Ha-00000007hsg-0HB8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Oct 2025 21:55:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=wyDCy69Q/3azt6BaC0jOoV9WgJt8g3WAXELT1WMNnq8=; b=jALsk8iEsA67Q9nH/Y5ufLkW7T
+	Eba6T1Luv0ERxXlkGNsF+THhEYT1xLRY7d5TqJJ6KquWF+kzf8lXSQVE+TE5bBgAvV+vZ6vfGYBpo
+	4SbYHKgw4l+uOiSkHeAhCgWalF1vVCx47UJIhL9h3JNp4JbmVNOTWVwlCw7ttAq1+pfyuR9x/IhKZ
+	afvTE9Ad7PrtsnjG1XFgWyCObAi4U5fekpYLGXAp5hfUDxLuSTE8uPV2BV8gmDUtz1GEkhsD12YnP
+	YKR50d5QXepCBb/ZjnPWz3WyIR1c4Jtux7kf+wkXd4cgAZcYocHpDXi2Hiy48j4HoWUvWVrWsvFu6
+	udRqRLOg==;
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vC2Ps-00000001nue-1O9f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 21:52:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mHYkx2HMm7k0aae70MRjyToORaKRZjgkBicKosldppFel6itDoCJX6ukt8lApG1wWSFs+bGliRvAW9jyJWiPGN4d7pp0b21Bnrs4/g3VrFfbIrncgpe/30xBRBIHPbyRbQTCo2GQ1ZvC/o9I2aH6hnx+PhsOJHrZ+ovXa6z6snNDPUunJqS2yK5BxCtXZ9BsH02LZ/kJT6Jns0liPF/kUrAnr/Uts6yWThuUjY13z8WHw5nJKRfDnWbKMGIMbeZlsAp4i66x5b/40sq2VZXS44CefW0OLs0Htl3w7Vv0FcTyyWRG5+uiMFZrIiikmmoaSlya4it9ghLzL6j2KM4q9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b+KNAnthWr8Lf+4iHm50bCobd9c8qnc11AC+zf7x/40=;
- b=IbPyWoux9kyUbU2Pf34Bwy51hzGnTVKXVLqoqVGXR1O4XLZC+xeLD3XKnB0pTi6bJI9H32q++U8l3eu0LXJ63NchkCGBY8ozGaseu8Lg4HdgIA2PFO02a8LoeADeFK6EvrvR01vKgokMpMHk9/ZMu9OPNJ5grN2aLvGdblsNGXF57BSVg5bBIWh+MqASuk0lTa6wOK1+owEiNg3LSy3BzuCftNmTUX6M9+CvNJH7D3ncyLcWjuUHKK4DbaOAoH2rOOcPLLBFCUVX22U+59LeKzxAd7db4WTI+nA0OBX6wvUlCYoXkW9D/Y+nazdlbMX3h0+Y55FUnR7yEB4NIGjeyA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Thu, 23 Oct 2025 21:00:14 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-b6329b6e3b0so2128775a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 14:55:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b+KNAnthWr8Lf+4iHm50bCobd9c8qnc11AC+zf7x/40=;
- b=UxxvxbVgZYu1C4Nx+Wc/LkWr983xBzyJQu/GeTgxR663wKrK5U53d9DfVu2yawfLVDW+XKELF7Z/1AIt+cXpQIZmDSwZzmV+HK82s5hoIq91AGEXiGbSX0CmltwEgVqCdnf3EwiZ524r7ZVypOP28+5O2rq9zLKhPKyxMPhjkZY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- SA1PR01MB7230.prod.exchangelabs.com (2603:10b6:806:1e5::19) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.13; Thu, 23 Oct 2025 21:52:24 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9253.011; Thu, 23 Oct 2025
- 21:52:24 +0000
-From: Yang Shi <yang@os.amperecomputing.com>
-To: ryan.roberts@arm.com,
-	cl@gentwo.org,
-	catalin.marinas@arm.com,
-	will@kernel.org
-Cc: yang@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [v2 PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-Date: Thu, 23 Oct 2025 14:52:10 -0700
-Message-ID: <20251023215210.501168-1-yang@os.amperecomputing.com>
-X-Mailer: git-send-email 2.51.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CY5P221CA0049.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:930:4::28) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+        d=google.com; s=20230601; t=1761256536; x=1761861336; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wyDCy69Q/3azt6BaC0jOoV9WgJt8g3WAXELT1WMNnq8=;
+        b=wLxdKlAKiczKD7ilU5JFWIlk+zUZoMVjGKnKWwlbk9RBsAV1ChbDCfXntUhkWmqaQ1
+         MdwTn4MeE/w1SkaZLHu1WxBDJ+u5n74lHJJ8w5urFcGnj93j/qMYXq70koGwQAM45RsQ
+         53AQk3ckqICdoh5ko6AfUYDyrWNNfg/CudVsLmIAE8iSckBPeC/qvzI/DG8gx1uMvTke
+         QIxq4/QgLfM0KIhYB+gv+7Ik9Lkcqxt1vINc7eK1u5gNYRE99Vvmt+TLNdpHtMvmRHH/
+         epuF9GRK4ptbJ159/UECyl96f3BCbnPh4ffVNNh/9eOpitP1PexU5QOLnCrNXgfX3o/t
+         +M9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761256536; x=1761861336;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wyDCy69Q/3azt6BaC0jOoV9WgJt8g3WAXELT1WMNnq8=;
+        b=cbYArhipcYrQcy/a/CKH1PI/VP+euBiU+E7hI9Z/J0T7a1ano21ePJAIBU5QXmfTEa
+         90uJaXAPzle3vXawHyOAHPJCHpt9wU7E3f4zGlco4AtN4g6DKM6LKRz8mcvFnUCoTVuP
+         aznM95wJiT83ErC3w04DgqhNR4iirICswTg/inwWPChqBycec+lxeHDfWXTNfnfHZyvu
+         RJQAptB0VGFm2wI2LBmDqkXRK0lwwVTYq3cYUYecQ7SkDrJugcL77qyHZYQX5es3no9h
+         E98GQjfnwLZrPcqCl5EVhNpvFYg8t28rjWBQQWt7iETGCCpKPlK1O2VeJ7vNYL+ekwxI
+         iavw==
+X-Forwarded-Encrypted: i=1; AJvYcCXZdqK4x5nCrnN4y7xQHGyQ+TN2Ba7cy838vaTjUkSBDYNZmqPyU0lAIR4uf1Q47G0piMCTW5MPH4k+RCu5PTR1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0WC6p6avwZGMgk8wwQXAzwKzHbVLOBI55xjsa8queKI2gL5Nl
+	LUjg4N6EhPEWcbNMw8uHE1+/IaGAwc2vwtRTUhu7R6lOJmJjRG0q+rrtAbLnTKYPqjfd7p/Qn3W
+	Q5K2Xt2HBtUVGY/we73vYWXp8WhuaF4uU9r9nFJG7
+X-Gm-Gg: ASbGncuILMAUxHtH/cnUVhoCkuAa595UGp+LVJ0whCPy7zjpNzEijlDF5avWcaXE91V
+	ROACHSnU2QB/qxG4sHXZGoFlS9uOSy/4AdcLSkpl11XZ+L2C33hzYQ4klGdTfBSihQOqPgu/X6a
+	B5JDqKgW9noHc6o+8LFXxVONJMYGe0DmbNylFxWaBs4YiT8jhv0ers96KS5jnpMFuodg1MkHeX5
+	tQ9Mha7xCmqQkGeMGWWHS7PdRVwN0QtfNA8bvY7sG5eH9158kn1vhGw+AibT2/ez/+PLxSfGtty
+	dQj7Isw1fsQny5rXPm3iOoyZZQ==
+X-Google-Smtp-Source: AGHT+IEqbJRbROlu/bm5j7ru2eVdv2x6DLq7HzQUwIw+dlex2w8ixWSRMneuISkc9NPo7yYqi/7YRgyhlNDhmAvraa4=
+X-Received: by 2002:a17:903:1ae4:b0:290:ad7a:bb50 with SMTP id
+ d9443c01a7336-29489e60c01mr3502165ad.27.1761256535858; Thu, 23 Oct 2025
+ 14:55:35 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SA1PR01MB7230:EE_
-X-MS-Office365-Filtering-Correlation-Id: f14ec18c-fc59-43d2-44d4-08de127e72f2
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?URt6rP+qEDfMlcFBlnNK1QJbzHh6jFmFaOb3ZaEjgXjwohLGR/yRUmDF6y7o?=
- =?us-ascii?Q?SMeuqNpJ/ARsiiAYR7Mklerz7nyJFc5xAgZJc9F9HnA2g+u1thgtjYy6S8l7?=
- =?us-ascii?Q?3Vvi0aFATBlNEjWnXc8zMoDlBQrupvD1S+pCMZ/2f9FX4TFaZLLgVajKI9rJ?=
- =?us-ascii?Q?T1hXYRfJ7/xc7uYYb35XmZO6NNXytppDJ+ONDgLopKcKoGgqIL11gkeHO3UI?=
- =?us-ascii?Q?16a8ldkvjFtL80Xv665ZuCRZBzpQ0pMZbnE0jUe6n/Vk0/5kHpkEBBWdkEp3?=
- =?us-ascii?Q?EaHJOWzJmdQ/Do7pEEA9i1drv7MsuS6PCVWX5rNymhs1bOlgAIN9HBqb/l8u?=
- =?us-ascii?Q?ZJOw2/yW1Y++S2WZS5KdeCw93elOO/o1kInUhA1V/iTT6vDlSAXg1e6eMf9G?=
- =?us-ascii?Q?pkkcUX9M+YZdqlK+IEE2h8Y+/T3lZH0s6WzBdyyvDlJ3pgAbB6e/6JTKusJ6?=
- =?us-ascii?Q?o425WhlmZaMnYtanBqekTFKwq5UMWmZs4XDFgUCwTRRCliWfqLXMPYjXcPuB?=
- =?us-ascii?Q?qKXl/8ELYEuSmZau32zemtlwi48a4rvXNFCgoSja6H592+Q3OC/6bVCtttf4?=
- =?us-ascii?Q?9oLs4rrY8K+VqvlO8N1b2eWpsxszgKcMNl5VX2pe1YVJG78RSXhQhqYmvBnc?=
- =?us-ascii?Q?do5Ptg56uBayMcQ/MzfV3QSYcUeLHpkiQGnAXHztQKammP6fm6YzQL0DbaJa?=
- =?us-ascii?Q?kteMmnGtThW9Rz6RmJQBCM3tHsUFSSwsm3PmHWC1dgXhl1fPMLaI+F6XBvqB?=
- =?us-ascii?Q?W9kgmuaBlz3k/rvFJAHMZBXutl5mU2sWSFuDitM1UVpOzxLRjvbghq3jD9Hv?=
- =?us-ascii?Q?gCmTvXnVoPjQdWdlaLX2H7wcWE1CLFAm/G/XOW4t/ptzP/kgQqWC5xnXll0F?=
- =?us-ascii?Q?MNtRHb1Jyh7emegwCZh+N5CGrH8IRkoN0zAzaKeksEFKN23Qs9n6WGkEaLa8?=
- =?us-ascii?Q?qfWhLfQ6pq1QXKj3gXyBx68N9F9FTTB7wqu11+0bnpHtBwf14996P0bCvsDV?=
- =?us-ascii?Q?dkCGxzkOhO/XHG4USgT6aF9STvniqdIisW44gQIB0lyiQO/DdG9sWRdvVjXJ?=
- =?us-ascii?Q?vwFQt3DFGLQZVH8do2xI6R2tsuccaS3VT7iP0gQGPIi9O7qpNF/r/vZgPIDh?=
- =?us-ascii?Q?fZpNByKVME0oxwvRrwFOtNG9Q9c8ebw/lnOPodgIiJSoGRGv08WKmw3k361q?=
- =?us-ascii?Q?V/C2aQtDZ4QKBoFtlQCoJz+o/0pHV6kUvcw3Br6nSGwCIKD+zT0+V2uD5TGT?=
- =?us-ascii?Q?EBWhyuci2OoIJmkREUdaORJrNtA2tCBZOWKzW/CZmyqLs8I/ehI7wOGVR4s+?=
- =?us-ascii?Q?8WT16ICsdBNCdSCuIZZd4Cp7flb3cUS9QeRSdMsVvm/F3ujaUyciwoKj7Lg2?=
- =?us-ascii?Q?ZZaOS3MKTcz4zw5Jl/O86ED1sYpiLUlfsghSWOJikQR9JcXGLMHtUAuk5+iJ?=
- =?us-ascii?Q?G0yYY2TVZ45pIAzG+391HEUT5RJY+WyPCdFZxk0YqSsmgSC2F9Dgo6pjlrdE?=
- =?us-ascii?Q?ZMVSAoJdQrhRhrWPz+VbQlYQGwrtPjf9AaiW?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(52116014)(366016)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dbkhWIdXAPD9FcYfWo6R3r7yR+Fexpp30CXWqY7n4qCL50GmE/Shcxxej3NG?=
- =?us-ascii?Q?4rsktSC3uRK8sb5mYC+VmZ18ceUG+3yXprLLYfif7SeBFqL74cmpPavSg/dd?=
- =?us-ascii?Q?Le3x6BXOfIKZa1xeFi4Y8vYlyeyW6APb195gNsasjK+ci5l1XfIjpAukWSLF?=
- =?us-ascii?Q?PKYQ5zzY6V96ULR/Jo+2AxSWwxxilS68mJQSsIuIFEF/nOsxZWK+8Bsl5NUB?=
- =?us-ascii?Q?DwE1Mcb2AegQ29roQ8QJELpcoAYLJCBd88jLhCXWtumjteol62SJEBeg0bcH?=
- =?us-ascii?Q?5+sRAKYrzKeQAmOhXjfo1qqvLVguu+0uv+FWoXpO8kSN1/BI2vs1bSoJ2hqB?=
- =?us-ascii?Q?LerSF+XeTDQreygILhgT3QFEnf52pghsHaQ8RaItItylYHfj5fI2oNZR31CU?=
- =?us-ascii?Q?UOrejMRoqLDlfIXcYN4eUbbKQu7cKb04HfXi2PY1qq2Xm2Kge11HC6mXk9SM?=
- =?us-ascii?Q?g+Vo+qs3ac1kI4d6Ll870u+2RkRWGT8u3FXYMTERqNqUThNChDT3oJDh44gX?=
- =?us-ascii?Q?P6K+NyN0FW20DoEjHwl/iq+ZM4AvknMDitsBItl4JwXrnC6505kv9EKdf2n5?=
- =?us-ascii?Q?RgI7xuWN5AAEBvHWEJlBBH/8yxhtJ+NPOb94gmNXU04roYPwwn98wM50usBm?=
- =?us-ascii?Q?Qn8qyYZ2uVocqzKr1B0FpeE7D/WR5f3D6svKWxR8p/7Vpwpr+dVOXYIEdf6B?=
- =?us-ascii?Q?MUP8kROmwVXJkZBB5UQ7cmqwaZ6Nx17ipsFRYbbKcnwPrciygoDzhLjV80tY?=
- =?us-ascii?Q?60jAgLOyAKIBzumLRR6mZFpOJoPA/Tsg9hxGMDNrDSWoR8EPEEIIPLOHT/lE?=
- =?us-ascii?Q?GPzqT3+bj4T8wYVkP66pzKA0mXCrwcLAg+y1Mgj2zzkQRE80i3QsWLV/kW1I?=
- =?us-ascii?Q?Qp27b8y2Oa48Z/7QEnZf+T84MVk65eXzJ4p5L++4l38Ys331cu3OjkLx0tYy?=
- =?us-ascii?Q?t8YdnUuTU6Tohh1VCXDNet05WO0fsLyfKxKzt6CUAqGwHUSBRJGltSNKTBss?=
- =?us-ascii?Q?hdRhjF+QwTzakBTCpNxZ8GqSK0LJjp6SpuvHLBhjQG6Tvcv38OIhifrX/bzw?=
- =?us-ascii?Q?CGwyp9szqrOOvtUv6w78z5FQmMphraOwMjGkB0T52ZZv2gKL2IHhufUTbj4G?=
- =?us-ascii?Q?49DFv3yZZq/veY6xMVXBBcKItj4wDuFBWNBjw9Qyegga2I2GJhJZMHO9S70H?=
- =?us-ascii?Q?ihqTlL3wBziiI6fqkQG/Jlc7tHR/qsFRiAC/lkf1QfG8226kiXBeTCjkdTge?=
- =?us-ascii?Q?6nbNOJHm12Tj2G1XzdvDlFdWda/NQJTXWKwN+7HwWeB+8WDyiSTmPFVmnkWR?=
- =?us-ascii?Q?WBnBHzPHpZR4uHgxXxGIdi/zjqW1fgrgn3zCaxgAQ2up+DP9poVvLYTnX/ZQ?=
- =?us-ascii?Q?a7ASELo2SvEHTAgjk6CnsfBfjOza27RCM7+ng1WsjIqVO0Ozj6U8F+OLVoLC?=
- =?us-ascii?Q?oF4ss7xdnoiQVraZNw+ElQOy5IS/7w1Z6WfJ4b4keSotVl8XyHJAK/t6RB6f?=
- =?us-ascii?Q?e8nP/61g8EZaVEzQSFyo2HC/rxtxUhyggo7KWQIVe0gMqwEEeu4mpKDBNftd?=
- =?us-ascii?Q?zxPfB8g8sRQ3FaDf3p//L6HJN3QTAkje9fRflB1+gg6PeFvECpkwTsesvMtQ?=
- =?us-ascii?Q?ES6SMb+hH+1H24p3nbj307c=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f14ec18c-fc59-43d2-44d4-08de127e72f2
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2025 21:52:23.9336
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 22GssGnHvSrQ+EJiFRYJ+8MCsP9/qYwtd0STs1VYI5MoQRCiJ3Ua22UYz4TxsM4h5fiihf0/nmAQyGjRwhM8FzMZu8a3rsQ8uYn2U03OKD8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB7230
+References: <20251017235159.2417576-1-royluo@google.com> <20251017235159.2417576-2-royluo@google.com>
+ <20251023-collie-of-impossible-plenty-fc9382@kuoka> <698ba0ea-3367-4fc0-bd4f-0177283c2e77@kernel.org>
+In-Reply-To: <698ba0ea-3367-4fc0-bd4f-0177283c2e77@kernel.org>
+From: Roy Luo <royluo@google.com>
+Date: Thu, 23 Oct 2025 14:54:59 -0700
+X-Gm-Features: AS18NWDaD_LUo2BMw-kgQvNid_X2lR-GtxBED31qsEqmuEgC28zy2xECKsvSUZI
+Message-ID: <CA+zupgxv9h1jOW=Jnx29yJJQBHOqBrY6tSBhoUaLb4eYuXhW7g@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB PHY
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Joy Chakraborty <joychakr@google.com>, 
+	Naveen Kumar <mnkumar@google.com>, Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_145230_171350_81BE3D45 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20251023_220012_483979_CCC92857 
+X-CRM114-Status: GOOD (  26.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,209 +118,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
-rodata=full"), the direct mapping may be split on some machines instead
-keeping static since boot. It makes more sense to show the direct mapping
-use in /proc/meminfo than before.
-This patch will make /proc/meminfo show the direct mapping use like the
-below (4K base page size):
-DirectMap4K:	   94792 kB
-DirectMap64K:	  134208 kB
-DirectMap2M:	 1173504 kB
-DirectMap32M:	 5636096 kB
-DirectMap1G:	529530880 kB
+On Wed, Oct 22, 2025 at 11:58=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+>
+> On 23/10/2025 08:43, Krzysztof Kozlowski wrote:
+> > On Fri, Oct 17, 2025 at 11:51:58PM +0000, Roy Luo wrote:
+> >> Document the device tree bindings for the USB PHY interfaces integrate=
+d
+> >> with the DWC3 controller on Google Tensor SoCs, starting with G5
+> >> generation. The USB PHY on Tensor G5 includes two integrated Synopsys
+> >> PHY IPs: the eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo PHY IP.
+> >>
+> >> Due to a complete architectural overhaul in the Google Tensor G5, the
+> >> existing Samsung/Exynos USB PHY binding for older generations of Googl=
+e
+> >> silicons such as gs101 are no longer compatible, necessitating this ne=
+w
+> >> device tree binding.
+> >>
+> >> Signed-off-by: Roy Luo <royluo@google.com>
+> >> ---
+> >>  .../bindings/phy/google,gs5-usb-phy.yaml      | 104 +++++++++++++++++=
++
+> >>  1 file changed, 104 insertions(+)
+> >>  create mode 100644 Documentation/devicetree/bindings/phy/google,gs5-u=
+sb-phy.yaml
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.=
+yaml b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+> >> new file mode 100644
+> >> index 000000000000..c92c20eba1ea
+> >> --- /dev/null
+> >> +++ b/Documentation/devicetree/bindings/phy/google,gs5-usb-phy.yaml
+> >> @@ -0,0 +1,104 @@
+> >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> >> +# Copyright (C) 2025, Google LLC
+> >> +%YAML 1.2
+> >> +---
+> >> +$id: http://devicetree.org/schemas/phy/google,gs5-usb-phy.yaml#
+> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> >> +
+> >> +title: Google Tensor Series (G5+) USB PHY
+> >> +
+> >> +maintainers:
+> >> +  - Roy Luo <royluo@google.com>
+> >> +
+> >> +description: |
+> >> +  Describes the USB PHY interfaces integrated with the DWC3 USB contr=
+oller on
+> >> +  Google Tensor SoCs, starting with the G5 generation.
+> >> +  Two specific PHY IPs from Synopsys are integrated, including eUSB 2=
+.0 PHY IP
+> >> +  and USB 3.2/DisplayPort combo PHY IP.
+> >> +  The hardware can support three PHY interfaces, which are selected u=
+sing the
+> >> +  first phandle argument in the PHY specifier::
+> >
+> > Just one ':', anyway this sentence and below does not belong to
+> > description but to phy-cells. You describe the cells.
+> >
+> > Or just mention the header with IDs - here or in phy-cells.
+>
+>
+> If you go with free-form text description in phy cells, then some
+> example could be:
+> renesas,rcar-gen2-usb-phy.yaml
+>
+> For the header (in this case clocks):
+> display/msm/dsi-phy-common.yaml
+>
+>
+> Best regards,
+> Krzysztof
 
-Although just the machines which support BBML2_NOABORT can split the
-direct mapping, show it on all machines regardless of BBML2_NOABORT so
-that the users have consistent view in order to avoid confusion.
+Krzysztof,
 
-Although ptdump also can tell the direct map use, but it needs to dump
-the whole kernel page table. It is costly and overkilling. It is also
-in debugfs which may not be enabled by all distros. So showing direct
-map use in /proc/meminfo seems more convenient and has less overhead.
+Thanks a lot for providing the reference!
+I will go with the free-form text description in phy cells following
+renesas,rcar-gen2-usb-phy.yaml in the next version.
 
-Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
----
- arch/arm64/mm/mmu.c | 86 +++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 86 insertions(+)
-
-v2: * Counted in size instead of the number of entries per Ryan
-    * Removed shift array per Ryan
-    * Use lower case "k" per Ryan
-    * Fixed a couple of build warnings reported by kernel test robot
-    * Fixed a couple of poential miscounts 
-
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index b8d37eb037fc..7207b55d0046 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -29,6 +29,7 @@
- #include <linux/mm_inline.h>
- #include <linux/pagewalk.h>
- #include <linux/stop_machine.h>
-+#include <linux/proc_fs.h>
- 
- #include <asm/barrier.h>
- #include <asm/cputype.h>
-@@ -51,6 +52,17 @@
- 
- DEFINE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
- 
-+enum direct_map_type {
-+	PTE,
-+	CONT_PTE,
-+	PMD,
-+	CONT_PMD,
-+	PUD,
-+	NR_DIRECT_MAP_TYPE,
-+};
-+
-+static unsigned long direct_map_size[NR_DIRECT_MAP_TYPE];
-+
- u64 kimage_voffset __ro_after_init;
- EXPORT_SYMBOL(kimage_voffset);
- 
-@@ -171,6 +183,45 @@ static void init_clear_pgtable(void *table)
- 	dsb(ishst);
- }
- 
-+#ifdef CONFIG_PROC_FS
-+void arch_report_meminfo(struct seq_file *m)
-+{
-+	char *size[NR_DIRECT_MAP_TYPE];
-+
-+#if defined(CONFIG_ARM64_4K_PAGES)
-+	size[PTE] = "4k";
-+	size[CONT_PTE] = "64k";
-+	size[PMD] = "2M";
-+	size[CONT_PMD] = "32M";
-+	size[PUD] = "1G";
-+#elif defined(CONFIG_ARM64_16K_PAGES)
-+	size[PTE] = "16k";
-+	size[CONT_PTE] = "2M";
-+	size[PMD] = "32M";
-+	size[CONT_PMD] = "1G";
-+#elif defined(CONFIG_ARM64_64K_PAGES)
-+	size[PTE] = "64k";
-+	size[CONT_PTE] = "2M";
-+	size[PMD] = "512M";
-+	size[CONT_PMD] = "16G";
-+#endif
-+
-+	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-+			size[PTE], direct_map_size[PTE] >> 10);
-+	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-+			size[CONT_PTE],
-+			direct_map_size[CONT_PTE] >> 10);
-+	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-+			size[PMD], direct_map_size[PMD] >> 10);
-+	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-+			size[CONT_PMD],
-+			direct_map_size[CONT_PMD] >> 10);
-+	if (pud_sect_supported())
-+		seq_printf(m, "DirectMap%s:	%8lu kB\n",
-+			size[PUD], direct_map_size[PUD] >> 10);
-+}
-+#endif
-+
- static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
- 		     phys_addr_t phys, pgprot_t prot)
- {
-@@ -234,6 +285,11 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 
- 		init_pte(ptep, addr, next, phys, __prot);
- 
-+		if (pgprot_val(__prot) & PTE_CONT)
-+			direct_map_size[CONT_PTE] += next - addr;
-+		else
-+			direct_map_size[PTE] += next - addr;
-+
- 		ptep += pte_index(next) - pte_index(addr);
- 		phys += next - addr;
- 	} while (addr = next, addr != end);
-@@ -262,6 +318,17 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
- 		    (flags & NO_BLOCK_MAPPINGS) == 0) {
- 			pmd_set_huge(pmdp, phys, prot);
- 
-+			/*
-+			 * It is possible to have mappings allow cont mapping
-+			 * but disallow block mapping. For example,
-+			 * map_entry_trampoline().
-+			 * So we have to increase CONT_PMD and PMD size here
-+			 * to avoid double counting.
-+			 */
-+			if (pgprot_val(prot) & PTE_CONT)
-+				direct_map_size[CONT_PMD] += next - addr;
-+			else
-+				direct_map_size[PMD] += next - addr;
- 			/*
- 			 * After the PMD entry has been populated once, we
- 			 * only allow updates to the permission attributes.
-@@ -368,6 +435,7 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 		    (flags & NO_BLOCK_MAPPINGS) == 0) {
- 			pud_set_huge(pudp, phys, prot);
- 
-+			direct_map_size[PUD] += next - addr;
- 			/*
- 			 * After the PUD entry has been populated once, we
- 			 * only allow updates to the permission attributes.
-@@ -532,9 +600,13 @@ static void split_contpte(pte_t *ptep)
- {
- 	int i;
- 
-+	direct_map_size[CONT_PTE] -= CONT_PTE_SIZE;
-+
- 	ptep = PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * CONT_PTES);
- 	for (i = 0; i < CONT_PTES; i++, ptep++)
- 		__set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
-+
-+	direct_map_size[PTE] += CONT_PTE_SIZE;
- }
- 
- static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
-@@ -559,8 +631,13 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
- 	if (to_cont)
- 		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
- 
-+	direct_map_size[PMD] -= PMD_SIZE;
- 	for (i = 0; i < PTRS_PER_PTE; i++, ptep++, pfn++)
- 		__set_pte(ptep, pfn_pte(pfn, prot));
-+	if (to_cont)
-+		direct_map_size[CONT_PTE] += PMD_SIZE;
-+	else
-+		direct_map_size[PTE] += PMD_SIZE;
- 
- 	/*
- 	 * Ensure the pte entries are visible to the table walker by the time
-@@ -576,9 +653,13 @@ static void split_contpmd(pmd_t *pmdp)
- {
- 	int i;
- 
-+	direct_map_size[CONT_PMD] -= CONT_PMD_SIZE;
-+
- 	pmdp = PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS);
- 	for (i = 0; i < CONT_PMDS; i++, pmdp++)
- 		set_pmd(pmdp, pmd_mknoncont(pmdp_get(pmdp)));
-+
-+	direct_map_size[PMD] += CONT_PMD_SIZE;
- }
- 
- static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
-@@ -604,8 +685,13 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
- 	if (to_cont)
- 		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
- 
-+	direct_map_size[PUD] -= PUD_SIZE;
- 	for (i = 0; i < PTRS_PER_PMD; i++, pmdp++, pfn += step)
- 		set_pmd(pmdp, pfn_pmd(pfn, prot));
-+	if (to_cont)
-+		direct_map_size[CONT_PMD] += PUD_SIZE;
-+	else
-+		direct_map_size[PMD] += PUD_SIZE;
- 
- 	/*
- 	 * Ensure the pmd entries are visible to the table walker by the time
--- 
-2.47.0
-
+Thanks,
+Roy Luo
 
