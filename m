@@ -4,93 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48908CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 06:56:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6860DCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 06:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uBL9lupI6VldWKtWDKOusMstyfxtbMzxrKyxN/4ZaQY=; b=zj358MrehRRkPfwxhMcOmIM+fr
-	5Lh6Bb0Pn4mlC/6bc8804SOI817iiR+UwYDA7gh9X3Xqf/IBhfKzyTplboRnHmCYYWmcWD5es/aGx
-	R1xHuf2EhbkpDBgGzcwCHFfeuXln6sy5qTYyRA8kaPA1cIA1vZwRZvXiGMY1rJxIhV3U0pQothZXR
-	tnFk43k0T6cXRdxBga2JUpHITfqEMFivb4ZjdNRTF/K2GZRp7tulUHK3/jm7G3TbAUWef2iPjWPWv
-	7wpwPLOiXMACx2XQtgVw/guT9QexdbQsMGJPbbvkMecp504uTPlFSpOz0+h0nWv18hE5fzVyVVlcS
-	CY2lnikA==;
+	bh=tuSX4OV274Em+3A2ShYqJ0GHD33iM3ViwyUtqB6pTnQ=; b=DbbqYEqCqy3rs5yfZQq8sxJA9/
+	BxCVZZEoDH7uv2Wx8KgmM9jv+ksCYUt17syriKIW/rWiQl4zuUAlb6B+WalNX9MnJVVtQoUuefmIk
+	Gy2rU12bz63XiLExg1+GqMvGqZQk21csuUqjrNGu8e3GEU2894nU8C0S9K3fIRiw5YLMDmYlfu5gT
+	593Rlkwcn1Ji3s9BbbhYRiNoHrEqZ/eHcCn6XoAT6gsiar3X3Cv4LieOft6F0tbpEiCn8y5q915Jr
+	/LAaEdCdBttu3W09YKViWGz1piga6XEj3RPxppWguD5gLGtl7qybCb+TOHjaqdl++7KAdzDKRVdQ3
+	3G4D2msA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBpFX-00000005Gxv-2fBa;
-	Thu, 23 Oct 2025 06:56:39 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vBpG8-00000005HBU-44Hp;
+	Thu, 23 Oct 2025 06:57:16 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBpFV-00000005Gw2-0OBP
+	id 1vBpG5-00000005H9F-0rJO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 06:56:38 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4711b95226dso4361215e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 23:56:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761202595; x=1761807395; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uBL9lupI6VldWKtWDKOusMstyfxtbMzxrKyxN/4ZaQY=;
-        b=teH2qO24wqfbXdxLJEWRmxoBw1EWH5icxSQtwyKJzFTo6IrKjMahFTgIS46Ips6fXd
-         Ah03y0AkcUuCiGmkYIMvJ/awq0aY0+GR+u9CaRtl46tio1vZrHuAxues/6sY0OBSS7dW
-         bxdWTtgKzIRG07ZROX8iMSgMqKDVxByPfEX3ZTGnC6MtFmeM/nFLEsN663hZHeEmoYeX
-         d6uS6r442C336HCJjXximhie+Z0xSSl3SuDRznL9GIwkksdxdmi1apvpUH7ZPEw0OzIz
-         T8vD1K0UNHbj6mkYujO4JlwdprWl2nSbg5Y0GtBbSnm/TDAkqNAXe1aLVY0x20LLXmOn
-         mNMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761202595; x=1761807395;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uBL9lupI6VldWKtWDKOusMstyfxtbMzxrKyxN/4ZaQY=;
-        b=XUzmLKZG17z70vT9Dj1UM/egmTUdzzq8thDHI8HV9Qzj6gXcz6NOFqXbB4Yg5xuckx
-         HgVLQf+hAiax9Pdod1KXcQIvQq2xFAbUaKH/FPtfloSqDB5dwAHmKfEa6sjBfWjRClUL
-         Avb1DdMOJiDHpNGUWYHmG5P5XktRl7zFF2sqCw2KZf2AUtD1iJ2NwOipkuDyGfXkM7ZW
-         Qg68HYSzDoQPWX6xvArMZK5XbpaGuhg5ztUz5nTITGrP7I+Hk9sm58cw8yG6NROPe1bN
-         HBiVaI6cTuHz3G+xlprrvceMYDwGdVP9kgwPosyrfMuAMn52P9v8J4vGUo96gMPMWOU9
-         KcRg==
-X-Forwarded-Encrypted: i=1; AJvYcCWoIveKCC0ml6bu0KttaeptPoqL8b6VvDh3INcYMOXIA3uJcOoJMVeHJZDexV0/dpL45aducWtR/nVcUkSrxhzN@lists.infradead.org
-X-Gm-Message-State: AOJu0YynHnmF5Qi5VZclF09FfNdW9vCT20iUxdpUfBn2paJ3XzmaKLd0
-	cDJ4/gl8Nvr8cTOjbjgj7d1MLfbCnnokflzuj2yptXDU7oAiWSKWpjXTvlR2T47ZWGw=
-X-Gm-Gg: ASbGnct+v/inBNJ7IzP1tIu9dubQjjviVN4rqRPhZcQK7YTUNv4Wg1TE9dhMScb4GtT
-	vveTI6JOI4JKsVL+3pdN9vUNunW4taSquVjVgYv6eOj1jIC9zp73EdC75tOxjvMVejtP6hXrQYr
-	4FJU0z53FetSqODft0tuG3WyWjnYdt6Fil/4OZZ9zwl0A4MbynxVk6MnScG0jbVgpHtvVgOCyFx
-	FTsuBaEy+M5hWtn1klI0Ak9l8Sv5fR81Ah0R1xmUBva0gs5Bo+nk92cyx7lwzUHzHNYXTNpIgmo
-	f4ioHqkLf6/bzLPSoMTB0rwrwVbgihTi3ESdzRlckLkwLxKkzvP2wLw8F/vBSOHyG7dEfu+kHfr
-	5gUuhwLfwX4aMpe0+FFPoaJ8wA/AkWRreCuny+x81kCvPK0Ui5eu+16ZIZa06obfG8ssj8S1HXd
-	5+2vC8seA=
-X-Google-Smtp-Source: AGHT+IGpQD/mtL5CvJA6o/mUd4UXTKshusdC3K11xj2LRMgyz3ANFxCnibnxcRJODpBqSTGDyYLPBA==
-X-Received: by 2002:a05:600c:1493:b0:471:1c48:7c5a with SMTP id 5b1f17b1804b1-4711c487d74mr115681885e9.9.1761202594902;
-        Wed, 22 Oct 2025 23:56:34 -0700 (PDT)
-Received: from linaro.org ([86.121.7.169])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47494ac30b4sm52576665e9.2.2025.10.22.23.56.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Oct 2025 23:56:34 -0700 (PDT)
-Date: Thu, 23 Oct 2025 09:56:31 +0300
-From: Abel Vesa <abel.vesa@linaro.org>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
-	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <frank.li@nxp.com>, linux-clk@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: imx: imx8mp-audiomix: Use the auxiliary device
- creation helper
-Message-ID: <4skca2rmh7pfasmptplp24uucst264idevjbjhid4uj3fbxelg@ap2mzqkmbqtl>
-References: <20251023-auxiliary-v1-1-0a16fa4c3cdd@nxp.com>
+	Thu, 23 Oct 2025 06:57:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WYnrERgFJEl1lHIWfHHumMh1tw/SAXsgFXTf+63uQmcg44twm/pn/ksu2E7M3dv6D+vGFVS0tSP6bID1K0Hk8WPlLeq9Fyx67icoAAMXRL0h7Vfof71fofiZbugZZ7Rhminnrlojp6IYKtkOOtd6p7QdyhbBfOFjoENPUtMUGoqLfgfFBeaAKTlVYtzgRknYfCjlLChV9GnpkQB85oZA10a5lag9dK3Mb4r4MAgWywbesaNr+6JysHGBFccha4X6suU4EvNlj81KZ0wWcATw+IM2huEs9mCgi9eN8FkhnOskp2G68gxs9W+cSXaVXkXJ48h165bK88iJoR+i4CGVcA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tuSX4OV274Em+3A2ShYqJ0GHD33iM3ViwyUtqB6pTnQ=;
+ b=rhaCQHjWsQpKfD9kIvBQ9J4PFJ4cz+bv6T0hrzpRYs8lXf9XLSRr2b5wRtHRo9Su9svqzDLbmurNqgZskmQOw6bEWPHeViTCuAKv2lJR5S9NnK73Is8cTkkndZ3qRNSuRNxvsVaBGXiM7ztd3FJBHXpilW9fRwrp5RP/tSsJ0g+EaHl7KyegHYPUjjtydqKm4ffoi7km72HzZ6v586S/GNC7EJze0i3I1d1tucofEv0Vk8YMRHkQSSwv9qDdDNAJTei4A25j1VwWa0h191P8gzKFqsjE/PAH5HERWa6pla60Kwtej7pgviU9aPjRQydclypxmo1lMULMIxiLXv1eeg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tuSX4OV274Em+3A2ShYqJ0GHD33iM3ViwyUtqB6pTnQ=;
+ b=p3EznfFenNYakLaVaMPzFu14wL/bTqG53aH6aa35sD3pw58T796FvNgPO90tLUTr5BGTOR5TYupk0O2g4J9YaDdFrFmcxiRCJNQYIkxXVknST2ksJX6w+bGfHH0ZiImrei5JGaBa+naoGv1Ftv7JfXGYSK0Y6ov0HVs/gUaDqUljVg3aCye4ABd0x+x/ZASR+yysd2Uqn/DqQLVdDTzxctrUPN2vCA5WPMb41vqeCyZ4lzH7OsqiwhEJ7LJzsai7HVnS03yGAzcq3PPtZFjisP7U999qwt8oaHvwGcku2soRejSDaR+acUUtRFtnfVnFgD8bhmhszKe8FFqw/XhsBw==
+Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com (2603:1096:408::791)
+ by JH0PR06MB6512.apcprd06.prod.outlook.com (2603:1096:990:3b::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Thu, 23 Oct
+ 2025 06:57:01 +0000
+Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+ ([fe80::df4f:b1a1:1825:4a80]) by TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+ ([fe80::df4f:b1a1:1825:4a80%7]) with mapi id 15.20.9253.011; Thu, 23 Oct 2025
+ 06:57:01 +0000
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: Rob Herring <robh@kernel.org>
+CC: Thomas Gleixner <tglx@linutronix.de>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"jk@codeconstruct.com.au" <jk@codeconstruct.com.au>, Kevin Chen
+	<kevin_chen@aspeedtech.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>
+Subject: RE: [PATCH v5 1/3] dt-bindings: interrupt-controller: aspeed,ast2700:
+ Add support for INTC hierarchy
+Thread-Topic: [PATCH v5 1/3] dt-bindings: interrupt-controller:
+ aspeed,ast2700: Add support for INTC hierarchy
+Thread-Index: AQHcQyDQYO/3l6vgwk2QRDf7VCK0I7TOL4uAgAEN90A=
+Date: Thu, 23 Oct 2025 06:57:01 +0000
+Message-ID: <TY2PPF5CB9A1BE674594566C13B8D8B2984F2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+References: <20251022065507.1152071-1-ryan_chen@aspeedtech.com>
+ <20251022065507.1152071-2-ryan_chen@aspeedtech.com>
+ <20251022135101.GA3349934-robh@kernel.org>
+In-Reply-To: <20251022135101.GA3349934-robh@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY2PPF5CB9A1BE6:EE_|JH0PR06MB6512:EE_
+x-ms-office365-filtering-correlation-id: f6cb6c70-944d-4866-405b-08de12015e12
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700021|13003099007;
+x-microsoft-antispam-message-info: =?us-ascii?Q?BlYKgJSpDR3xxgkJyujvnhUwHX3Z7nV1NRUAewEwkb+qAlEvyIzB/E/cNsCz?=
+ =?us-ascii?Q?HzyGxJDHQSKu4S5lRbotMQ1Pii9hQepHTUXKQW+k8eFvPNRD9i5Vz/Nff8Qq?=
+ =?us-ascii?Q?h4vBapSewq3N9OG641iWhDVhHO5m0IX/a6CLcT2Zmxljgpex8wQng9HquonF?=
+ =?us-ascii?Q?YuwVwkdkfEVT7V8D1beV8URyu0xCcG8CZlHAsgFto86u+3y+AgJNTixpuPa3?=
+ =?us-ascii?Q?zLGcExEXsYyHjnUqgCWyQJY1dXIG6lb7mBYWD3yyZGjicfSDj878SfbuJCMg?=
+ =?us-ascii?Q?LpwfDde61axmNzfJBfl5rGx4l7ugW6pyW4SwX0htXlWOzvOZ6NbQkmZYRUHW?=
+ =?us-ascii?Q?Lqew8J2MuF7Of3iEsTeXJVuMzejqSqDKl5iBwgUXGS1JWuZu2IAQE9MLoZCN?=
+ =?us-ascii?Q?xFlr4n+1map3Fl9Q/rlYk95OOgK/hRVN2JvdGBxD+RIM+Ga9CCNEFvFmBaLo?=
+ =?us-ascii?Q?86sjDFPr+yIaUNnB2hGoEbfG3Ft6WHtlIzgPdLP7TkgfVkmR0kmzaJLfFN+n?=
+ =?us-ascii?Q?5fuHApeDaziVXbKeOZ1vuVzz+y9dkGcyJUKnw+SrWG/oqqiqZgQz8S+PMKc0?=
+ =?us-ascii?Q?R8nv2c54M8s25Hmw44/Jp1Nc0M1uSQjE/UMm7PHuIytBakgvb56Fk6fLsTrm?=
+ =?us-ascii?Q?G3MwFziT16NxaZPF6IEQqs8XkRzLm9Z4QHM9yCIvF9TRizyiMFSpYirvMEZi?=
+ =?us-ascii?Q?Ta7yHKax9iC7RKvS7eJmxu32tGpELJHwc/7CffMK4QA2YCSvrz5jdM4lOAi7?=
+ =?us-ascii?Q?Tw8z0OI3mvaubjutySI1jakvx9Vgf3uisKRVlc15JZs1UnZla5lAnOop68zX?=
+ =?us-ascii?Q?fTIYZM3CETl4H4zq5bggzUJMXxzc2NKvafT1duCSF3yC4fwyfNGAg6GWSykx?=
+ =?us-ascii?Q?1jfCadnKL2F0g4Guvb6NQVfoeqzYSnsRDabYkplGvZSQ4BVlSXHm0wowvyJX?=
+ =?us-ascii?Q?B3taTerMLZvxxM1Di4itik89csFC+2yCPo+Qd2h3EZOfNUBXi55xGCyVyteq?=
+ =?us-ascii?Q?0MPgFbg6t/b1XKn06z5DNh/0l6ag6K1JfDn/mkmMgLY3kPwF8UWk9kCp3M1w?=
+ =?us-ascii?Q?WHL+uakiJI8xIV0aVCqgxMctZrN+qMVECfmIChwtQHUQrbJUfpDMHoU/ELHH?=
+ =?us-ascii?Q?IfBjgVrClhK08wftuYl2sYccXu1bv693VDfznG5clEll++d5DWL47I0RiaMu?=
+ =?us-ascii?Q?D/147iaMBpLIHbR7w1+PxkHr3Mk6DW8kADn96p2ImOl8nyaRCFWjhg11PI+o?=
+ =?us-ascii?Q?uEg5vKT/xoHOLTMvlEXe7A9Vpzue3EDJkAfPRNvlvWuPvKYhERcjs6Z9g2va?=
+ =?us-ascii?Q?jQ6Ur2XSq3PwO4aTMegsoeGY6N1xWj3AdB89OrX+l0URc+KEJsjl2Nxn/z8B?=
+ =?us-ascii?Q?QXh5mj6cRsmEBXuVED2L2Mrt0/hQ8jiBci0Jp9zyiN5OP0SvomPuqem8+sCv?=
+ =?us-ascii?Q?RF0CBBg7R/Rd3kpkBB+PV26967qyeQr+tJBQFecg32ioBJArdCsB6g=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700021)(13003099007);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?GID12oL2NRg/oFaL4H3jiqMMCoxtsisH0GxFbaDqmiMH0a0xSzPGCgmF52cg?=
+ =?us-ascii?Q?yQHAqO4Qw41oK4gXTsO+6qVjNgm/HOU26/RYeowNonF6Ef8OP8XVngycqcnY?=
+ =?us-ascii?Q?yhER8hsWTK0mA4U8GcgMuiTed9k+4/pSkwdCEf7cWaJwgHljqkMUaGwJP6Y9?=
+ =?us-ascii?Q?q54WAGV/YVaY1683qU595gNAbvfwSPCOUc+oX3l6bbbAcErfpRFrkf1D/Ndr?=
+ =?us-ascii?Q?+i1BbfLLtDkdc1YZ4gjq/El4q+eFjvoxMxW3SdYnbdkIm67iwxK0H/gPoV3q?=
+ =?us-ascii?Q?yYLfNjRfSDOnuDJCgHpNIYyeFeJ5QfojntyKUumchCenWfLWr4IP3SeIcDsO?=
+ =?us-ascii?Q?LCc9auZb4iX+J1GDfoG8gK6JtC+kqOL9HHJtPIDoOYoY4yD4wsVM6vaa6Lxe?=
+ =?us-ascii?Q?aQgZ4q4dEnDN6iCtxvcoxRhRMzpshFoh1FhWFTx/9OGjnsTQvOay+QcWakre?=
+ =?us-ascii?Q?gm9BBdl+OC7TRA13qbbOMmangM7KJ9FfsZu807Vt5zz8bcTI/FgOnvr2EsOE?=
+ =?us-ascii?Q?cZck+plRa+g6tDjuRVSq3K8HPt1TMY+Ji8KXQWnbwHOCz1VDVEO43nDhSvdA?=
+ =?us-ascii?Q?lJBmBBPdKrS0EJjLhKEtcscjSankiurv30v/DpOaPUXgwNRvtFGyiXSGy7QK?=
+ =?us-ascii?Q?hyuOF8VyEp9Du457NvgaIJJj1ByGDi8gEUBAPd2Rkw02buIz89LVABKi/19Z?=
+ =?us-ascii?Q?4/FBHG7Jl3OS0fp+EsoKyYbggcwNUOwFdIv30q8MfKUggivt8wdoVcl8G67W?=
+ =?us-ascii?Q?loiaV8hzYtnV0tPy8heNRlLlObm16wzLRefxVoX7zK3Ef0jmyT0aHPVLRFtF?=
+ =?us-ascii?Q?oQZfugCxe8RWtqAUv3sUGi8bnzEQcG1bULnIdKFyBvLQbdgbVC6hn0t4asMm?=
+ =?us-ascii?Q?hJ/Ycyas+XZtqg6Eyh4KSaiNVOHdHKhsP/pYskN21PieAlRPSJErBUqPnLvW?=
+ =?us-ascii?Q?zjcXST0NMLz7zsY6mubfgzP7fIwGRYzJQfRTFqto/nuSdISUaMHN4tzieunU?=
+ =?us-ascii?Q?cJCnHGBqY5y+dwOeOyEzaR4uA6lh/5GoaOYU8Licsgqav4ZbpXV3lNvJhT2B?=
+ =?us-ascii?Q?xva6hZw0CFAblnrW0gTYDbB+PPBusSZryzOf/lQWuH3RteQ4w2IINMMCafJw?=
+ =?us-ascii?Q?vdHrLsHW2n2CVJf3BLoMdldto2hIhOVqwHY2U/tZWsDfIsrinECKTwYZRDzE?=
+ =?us-ascii?Q?5VZQIUinpZUbQfdlC2RB3lfHXV+gsjiuXvpYGTCOvUn2LdzGetxv4MA4Bjsp?=
+ =?us-ascii?Q?nYLCP4s563GvQpOfxA5QshDwyVsRVtGMo+F7i2SId/TLB0d2e5ZIMqvs7XyB?=
+ =?us-ascii?Q?VTb5g5nlTF7fNrmo4Z4f+HVY+3BxUsxbEQXe5GexkOyC+mnqsvTSZbW7sqh5?=
+ =?us-ascii?Q?ZbGjcnufxBGwOvotLu5xvgKcIGjKobSqf+SHTROVweGOu1hn/J7U9DnBnltH?=
+ =?us-ascii?Q?uuwBB5VRDi4KCxgscockF3JYgD2m6crqNOzBk45BnlRxgQ9Z1LXhXb/zwMGx?=
+ =?us-ascii?Q?lvpStXRZRNy5Jn8hL44rkBaku/XApLnxMroLyW8eiRNAO5KnszKis73Ep8jY?=
+ =?us-ascii?Q?DZtBqV++zGaTzxZSZEhwwPsnwxpCLZAYf2s45h+B?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251023-auxiliary-v1-1-0a16fa4c3cdd@nxp.com>
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6cb6c70-944d-4866-405b-08de12015e12
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Oct 2025 06:57:01.5653
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: K/HnKV1FU3QwxAgXa/E5DwHEg5w+Wa1EbFapWgFYB5OloXHpQ32gP9H1+61vNmxNnEBh9qX6XmhFl6OBef55mAtCwH/g5BTG0S69hTCpaGc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB6512
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_235637_134023_23FDB1DA 
-X-CRM114-Status: UNSURE (   7.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251022_235713_371536_ACEFA492 
+X-CRM114-Status: GOOD (  26.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,12 +170,325 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-10-23 09:49:32, Peng Fan wrote:
-> Use the auxiliary device creation helper to remove some boilerplate code.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Hello Rob.
+	Thank you for your detailed review and comments.
 
-With Frank's suggestion in place, LGTM, so:
+> Subject: Re: [PATCH v5 1/3] dt-bindings: interrupt-controller: aspeed,ast=
+2700:
+> Add support for INTC hierarchy
+>=20
+> On Wed, Oct 22, 2025 at 02:55:05PM +0800, Ryan Chen wrote:
+> > AST2700 contains two-level interrupt controllers (INTC0 and INTC1),
+> > each with its own register space and handling different sets of
+> > peripherals.
+>=20
+> This is a mess!
+>=20
+> How does this relate to the existing "aspeed,ast2700-intc-ic"? Its schema=
+ has a
+> block diagram of connections which I can understand. This does not.
+>=20
+> The use of child nodes here is questionable. A variable number of interru=
+pt
+> banks is not a reason to have child nodes. I'm only guessing that's what'=
+s
+> happening here because you haven't explained it.
 
-Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
+Let me clarify the hardware structure and the purpose of these bindings.
+
+The AST2700 SoC includes two top-level interrupt controller modules,
+INTC0 and INTC1. (aspeed,ast2700-intc0, aspeed,ast2700-intc1)
+Each of them provides routing selection and register protection
+features.
+Within each INTCx block, there are multiple sub-blocks called
+intc-ic, each handling multi-interrupt sources.
+("aspeed,ast2700-intc0-ic", "aspeed,ast2700-intc1-ic")
+
+Cascading occurs between the child banks:
+Level 1 : intc0-ic have multi-interrupts connect to GIC (root)
+Level 2 : multi Intc1-ic# connect to intc0-ic
+The parent intc0/1 nodes expose register regions for routing and
+protection control, serving as containers for their intc-ic children.
+
+The following simplified diagram shows the hierarchy:
+
+
+                                 +----------+       +----------+
+                                 |  intc0   |       |  intc1   |
+- - - - - - - - - - - - - - - - -+---- -----+- -  - +------ - -+
+  +-----------------------+      |          |       |          |
+  | +-------+ +---------+ |      |          |       |          |
+  | |       | |         | |      |          |       |          |
+  | |  PSP  +-+ GIC     | |      |          |       |          |
+  | |       | |         | |      |          |       |          |
+  | +-------+ |         | |      |          |       |          |
+  |           |         | |      +----------+       |          |
+  |           | 192~201 <-|------+          <-------+ intc1-ic |
+  |           +---------+ |      |          |       |          |
+  +-----------------------+      | intc0-ic <-------+ intc1-ic |
+                                 |          |       |          |
+                                 | 			<-------+ intc1-ic |
+                                 +----------+		  .....
+
+
+>=20
+> >
+> > Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> > ---
+> >  .../aspeed,ast2700-intc0.yaml                 | 97
+> +++++++++++++++++++
+> >  .../aspeed,ast2700-intc1.yaml                 | 94
+> ++++++++++++++++++
+> >  2 files changed, 191 insertions(+)
+> >  create mode 100644
+> > Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-
+> > intc0.yaml  create mode 100644
+> > Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2700-
+> > intc1.yaml
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast270
+> > 0-intc0.yaml
+> > b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast270
+> > 0-intc0.yaml
+> > new file mode 100644
+> > index 000000000000..93a5b142b0a2
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,as
+> > +++ t2700-intc0.yaml
+> > @@ -0,0 +1,97 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
+> > +---
+> > +$id:
+> > +http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-int
+> > +c0.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +maintainers:
+> > +  - Ryan Chen <ryan_chen@aspeedtech.com>
+> > +
+> > +title: ASPEED AST2700 Interrupt Controller 0
+> > +
+> > +description:
+> > +  This interrupt controller hardware is first level interrupt
+> > +controller that
+> > +  is hooked to the GIC interrupt controller. It's useful to combine
+> > +multiple
+> > +  interrupt sources into 1 interrupt to GIC interrupt controller.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: aspeed,ast2700-intc0
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  '#address-cells':
+> > +    const: 1
+> > +
+> > +  '#size-cells':
+> > +    const: 1
+> > +
+> > +  ranges: true
+> > +
+> > +patternProperties:
+> > +  "^interrupt-controller@":
+> > +    type: object
+> > +    description: A child interrupt controller node
+> > +    additionalProperties: false
+> > +
+> > +    properties:
+> > +      compatible:
+> > +        enum:
+> > +          - aspeed,ast2700-intc0-ic
+> > +
+> > +      reg:
+> > +        maxItems: 1
+> > +
+> > +      '#interrupt-cells':
+> > +        const: 1
+> > +
+> > +      interrupt-controller: true
+> > +
+> > +      interrupts:
+> > +        minItems: 1
+> > +        maxItems: 10
+>=20
+> What are the 10 different interrupts? You have to define what each one is=
+.
+In currently design in level 1, intc0-ic connect 10 interrupts to CPU GIC.=
+=20
+So, should i use const:10 or I just use minItems: 1?
+
+>=20
+> > +
+> > +    required:
+> > +      - compatible
+> > +      - reg
+> > +      - interrupt-controller
+> > +      - '#interrupt-cells'
+> > +      - interrupts
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - '#address-cells'
+> > +  - '#size-cells'
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +
+> > +    intc0: interrupt-controller@12100000 {
+>=20
+> This node is not an interrupt-controller.
+
+If can't use the interrupt-controller here.
+What can I use? "intc0: controller@12100000" is ok ??
+
+>=20
+> > +        compatible =3D "aspeed,ast2700-intc0";
+> > +        reg =3D <0x12100000 0x4000>;
+> > +        #address-cells =3D <1>;
+> > +        #size-cells =3D <1>;
+> > +        ranges =3D <0x0 0x12100000 0x4000>;
+> > +
+> > +        intc0_11: interrupt-controller@1b00 {
+> > +            #interrupt-cells =3D <1>;
+> > +            interrupt-controller;
+> > +            compatible =3D "aspeed,ast2700-intc0-ic";
+> > +            reg =3D <0x1b00 0x10>;
+> > +            interrupts =3D <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
+> > +                         <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
+> > +                         <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
+> > +                         <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
+> > +                         <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
+> > +                         <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
+> > +                         <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
+> > +                         <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
+> > +                         <GIC_SPI 200 IRQ_TYPE_LEVEL_HIGH>,
+> > +                         <GIC_SPI 201 IRQ_TYPE_LEVEL_HIGH>;
+> > +        };
+> > +    };
+> > \ No newline at end of file
+>=20
+> Fix.
+
+Will fix it in next version.
+
+>=20
+> > diff --git
+> > a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast270
+> > 0-intc1.yaml
+> > b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast270
+> > 0-intc1.yaml
+> > new file mode 100644
+> > index 000000000000..2f807d074211
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,as
+> > +++ t2700-intc1.yaml
+> > @@ -0,0 +1,94 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
+> > +---
+> > +$id:
+> > +http://devicetree.org/schemas/interrupt-controller/aspeed,ast2700-int
+> > +c1.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +maintainers:
+> > +  - Ryan Chen <ryan_chen@aspeedtech.com>
+> > +
+> > +title: ASPEED AST2700 Interrupt Controller 1
+> > +
+> > +description:
+> > +  This interrupt controller hardware is second level interrupt
+> > +controller that
+> > +  is hooked to a parent interrupt controller. It's useful to combine
+> > +multiple
+> > +  interrupt sources into 1 interrupt to parent interrupt controller.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: aspeed,ast2700-intc1
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  '#address-cells':
+> > +    const: 1
+> > +
+> > +  '#size-cells':
+> > +    const: 1
+> > +
+> > +  ranges: true
+> > +
+> > +patternProperties:
+> > +  "^interrupt-controller@":
+> > +    type: object
+> > +    description: A child interrupt controller node
+> > +    additionalProperties: false
+> > +
+> > +    properties:
+> > +      compatible:
+> > +        enum:
+> > +          - aspeed,ast2700-intc1-ic
+> > +
+> > +      reg:
+> > +        maxItems: 1
+> > +
+> > +      '#interrupt-cells':
+> > +        const: 1
+> > +
+> > +      interrupt-controller: true
+> > +
+> > +      interrupts-extended:
+> > +        minItems: 1
+> > +        maxItems: 1
+> > +
+> > +    required:
+> > +      - compatible
+> > +      - reg
+> > +      - interrupt-controller
+> > +      - '#interrupt-cells'
+> > +      - interrupts-extended
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - '#address-cells'
+> > +  - '#size-cells'
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    intc1: interrupt-controller@14c18000 {
+> > +        compatible =3D "aspeed,ast2700-intc1";
+> > +        reg =3D <0x14c18000 0x400>;
+> > +        #address-cells =3D <1>;
+> > +        #size-cells =3D <1>;
+> > +        ranges =3D <0x0 0x14c18000 0x400>;
+> > +
+> > +        intc1_0: interrupt-controller@100 {
+> > +            compatible =3D "aspeed,ast2700-intc1-ic";
+> > +            reg =3D <0x100 0x10>;
+> > +            #interrupt-cells =3D <1>;
+> > +            interrupt-controller;
+> > +            interrupts-extended =3D <&intc0_11 0>;
+> > +        };
+> > +
+> > +        intc1_1: interrupt-controller@110 {
+> > +            compatible =3D "aspeed,ast2700-intc1-ic";
+> > +            reg =3D <0x110 0x10>;
+> > +            #interrupt-cells =3D <1>;
+> > +            interrupt-controller;
+> > +            interrupts-extended =3D <&intc0_11 1>;
+> > +        };
+> > +    };
+> > \ No newline at end of file
+> > --
+> > 2.34.1
+> >
 
