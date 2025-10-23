@@ -4,148 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEF3CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 15:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27854CCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 15:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oyYHstVcDj/SkrQCRCxmIIkIeLsDuJ8po4N2nL2Frfc=; b=uuHVhFyQDvSbcSVd3YcOjtxvZ0
-	eRw89OVRxQi+PgxaKrDczTktic5eaB/ggdeyqkIHEN8hWoEAikRTMZMnFmf5qc3GmJVLabbOQ3282
-	ReOGfKr6+2ToYgn1iXG7OTWDNl/NOTpSJuIR1xifo8CuHQA1Qst1lPuXXTrGDHzOImvX9GXXh8oki
-	FpxBsqfKZXf2zdwLWBA8Ue9HhRpkWxSoc86Lq+CkSsBvlR4HdBibyu7TcbCUhPzFqsXj0DaEwdRDf
-	vLTfz+YA7LCLrC6SmUzgGXwfQ8YrMleT+TCqjN78ZDBovgcXlxLUJSzbtQwbx+ArPm6X0di/h/dCK
-	82KIxpqQ==;
+	bh=gHlcPwsSfeGC7fQdzD88p9shunKAU1y1+oCm87rAKq4=; b=kiBF5FlLAZS8M1dKfayqjSNZEa
+	IsGxjDCEVxYs60kKzOIKunHanxFwbDa1jhvTK0rMMLNbZ4Sh4CJ4ZVIzScnDjpF4nUGHZ6rF91zQo
+	DS0t8mGhsYmJTG+CutZCYdUA437BH3YobkgXs1LgyY4J02W7bRBVHT3WCuMUaUlNJGMOMVGw2plQb
+	KVGzdpRAg02GIQP9IEoLyLbJk11jh7FdbohEDAPOkHaxSpkCAAAmpUUXqXRmqHedwOa8jzvu5amJ/
+	8DUcbapgeFDoqxpDBgUHYUZJpMqhIZnfV3gyY7pyHtOj+oC4UQHbA/fMlfXmxmhC564BBpCXt3p6i
+	n/w74flw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBxPs-00000006mjt-0er5;
-	Thu, 23 Oct 2025 15:39:52 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1vBxUW-00000006nSN-0SwZ;
+	Thu, 23 Oct 2025 15:44:40 +0000
+Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBxPp-00000006miv-1lJh
+	id 1vBxUS-00000006nRN-00AI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 15:39:51 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	Thu, 23 Oct 2025 15:44:38 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 4B1D940E0200;
+	Thu, 23 Oct 2025 15:44:31 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=fail (4096-bit key)
+	reason="fail (body has been altered)" header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id CM8NHk_6x3J3; Thu, 23 Oct 2025 15:44:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1761234264; bh=xm6fgzstB/ZMSe+0kYNwkV48B2KG+DhMAv57BfPYULQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WjTV2+REKidbHHyzw1OfHF4zQF34Rx/xasIxW6/h/E4JBY8M85nAxKfSMYwXlkw1G
+	 uWwoD5HgmmFJITuOJ2TpbUTkrAAXqi0BBVgdSq/+3BeqxEs0kM+u/bUutjQjoXG3WU
+	 382w6mk2fUOkSdIloOI5ybTQMQAzMLnWfCLBrewvgb+BlcMKf87PH9+NjC/38UR1Ve
+	 Qi34JrKron19uLcrVVtiDcII/gMkB8a9D/VZcDOU/V64xfZqCi6S0un9PZq4rzeA5P
+	 gUOrf3boMrUfgYwELsCUntaza720Ah+fUOtItyKzVsiCBKdUf8fnjFmqXkWNe3PbLf
+	 VKAgSw0fFkh7iXYPItgCtEByZFy6WPjmgADvIF2MOolClZ/iBbtEOQIb2s3NB292Ib
+	 09Gu7i0JomIePuvgjOgGdBVW7ny6B4x1Ino0S/pZ+f5AqaLpZGV9Rb1VvtYcW+vTd7
+	 yUHY5tBm+URDYcgHKUvoaTBytbwmu0JUgLs3EuVesu+Hi9z++iFBHnScydM5a7Yb8a
+	 td3eIlMdYGwlPxEM0p1DtfpSVYsDIYObPvDyHIfs+kw3m/0cF0oINshX9bNSXZCiUn
+	 wYR9XpBUg9z1e41k/9lVNiw5tuLGoJQZ5LeVWVFRg0cK35AQY8PrXszf9mGsZxTGho
+	 VPngnBss0LTXy0+XEeSZKOW8=
+Received: from zn.tnic (pd9530da1.dip0.t-ipconnect.de [217.83.13.161])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 38AC321187;
-	Thu, 23 Oct 2025 15:39:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1761233983; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=oyYHstVcDj/SkrQCRCxmIIkIeLsDuJ8po4N2nL2Frfc=;
-	b=rOOk+1L8Um5iOXXt85CJNrMgUxmzOVrAYvM+tfLETiCGLl2aiJttREq8V3mSKUpcxTqqdj
-	l7TViKhxC0xQVhT6iShwws/h5oGPMkztPOi078I6xr6Uteps0EYGkai+oRAVFx5nyFv6Vn
-	1O8pNJi3YSFsfXJDrweOYfqpid31cf4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1761233983;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=oyYHstVcDj/SkrQCRCxmIIkIeLsDuJ8po4N2nL2Frfc=;
-	b=mYDNeC298lzqFC8qoZuZk5pNwTUK0YntJyAJtllNJNwZ/toC8a4IZDW8Z6SgJA7xxU8H5k
-	fok4BvyFKK5MrzDw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1761233979; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=oyYHstVcDj/SkrQCRCxmIIkIeLsDuJ8po4N2nL2Frfc=;
-	b=DAlA3sZcZeuOjOFICW30MLLWNxNhjXDLqzmJqQrGX9qWDKTIWBN2A2EoFjI0emJdLEFFTa
-	Xy490TDIoI4lzA1jHkx2uCbfi4FN/0kAZSaNlYyg3DiH9kDtT987gwlO79m3H4UB4N/2Lj
-	XwXnnNWvs4GANBXdlNDc7KKSXmZGqLs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1761233979;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=oyYHstVcDj/SkrQCRCxmIIkIeLsDuJ8po4N2nL2Frfc=;
-	b=ySnrNCRC698xP5gkeFXzPyzRo9yOOVBWHgBM3q98Rk7ngacFmPwelNmhM99uFpvyvUArD1
-	eKLz4ieDlW08yWBw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8204A136CF;
-	Thu, 23 Oct 2025 15:39:38 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Z1hfHTpM+mihKQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 23 Oct 2025 15:39:38 +0000
-Message-ID: <38e59db5-eae2-4b6e-bdec-8205f1303d9b@suse.de>
-Date: Thu, 23 Oct 2025 17:39:37 +0200
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with UTF8SMTPSA id C89B540E00DE;
+	Thu, 23 Oct 2025 15:44:11 +0000 (UTC)
+Date: Thu, 23 Oct 2025 17:44:05 +0200
+From: Borislav Petkov <bp@alien8.de>
+To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+Cc: linux-edac@vger.kernel.org, git@amd.com, shubhrajyoti.datta@gmail.com,
+	dan.carpenter@linaro.org, Michal Simek <michal.simek@amd.com>,
+	Tony Luck <tony.luck@intel.com>, James Morse <james.morse@arm.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Robert Richter <rric@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] EDAC/versalnet: Refactor memory controller
+ initialization and cleanup
+Message-ID: <20251023154405.GRaPpNRQRyvfpZjfex@fat_crate.local>
+References: <20251016052839.2650517-1-shubhrajyoti.datta@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] drm/client: Add client free callback to unprepare
- fb_helper
-To: jfalempe@redhat.com, javierm@redhat.com, mripard@kernel.org,
- maarten.lankhorst@linux.intel.com
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, intel-gfx@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, linux-arm-msm@vger.kernel.org,
- freedreno@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
- linux-tegra@vger.kernel.org
-References: <20251009132006.45834-1-tzimmermann@suse.de>
- <20251009132006.45834-2-tzimmermann@suse.de>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20251009132006.45834-2-tzimmermann@suse.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_DN_NONE(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid]
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251016052839.2650517-1-shubhrajyoti.datta@amd.com>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_083949_785173_E44FF8F9 
-X-CRM114-Status: GOOD (  22.15  )
+X-CRM114-CacheID: sfid-20251023_084436_213237_6BB689E2 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,288 +91,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Thanks for doing this!
 
+On Thu, Oct 16, 2025 at 10:58:39AM +0530, Shubhrajyoti Datta wrote:
+> Simplify the initialization and cleanup flow for Versal Net DDRMC
+> controllers in the EDAC driver. Key changes include:
+>=20
+> * Introduced `init_single_versalnet()` for per-controller setup and
+>   `init_versalnet()` for looping through NUM_CONTROLLERS.
+> * Added proper rollback logic using `remove_single_versalnet()` when
+>   partial initialization fails.
+> * Improved readability and maintainability by reducing duplicated code =
+and
+>   consolidating error handling.
 
-Am 09.10.25 um 15:16 schrieb Thomas Zimmermann:
-> Add free callback to struct drm_client_funcs. Invoke function to
-> free the client memory as part of the release process. Implement
-> free for fbdev emulation.
->
-> Fbdev emulation allocates and prepares client memory in
-> drm_fbdev_client_setup(). The release happens in fb_destroy from
-> struct fb_ops. Multiple implementations of this callback exist in
-> the various drivers that provide fbdev implementation. Each of them
-> needs to follow the implementation details of the fbdev setup code.
->
-> Adding a free callback for the client puts the unprepare and release
-> of the fbdev client in a single place.
->
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+"Describe your changes in imperative mood, e.g. =E2=80=9Cmake xyzzy do fr=
+otz=E2=80=9D instead
+of =E2=80=9C[This patch] makes xyzzy do frotz=E2=80=9D or =E2=80=9C[I] ch=
+anged xyzzy to do frotz=E2=80=9D, as
+if you are giving orders to the codebase to change its behaviour."
 
-Acked-by: Alex Deucher <alexander.deucher@amd.com>
+IOW:
 
-via irc
+"Introduce per-controller setup and teardown functions..."
 
-https://people.freedesktop.org/~cbrill/dri-log/?channel=radeon&highlight_names=&date=2025-10-23&show_html=true
+and so on.
 
+> Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 > ---
->   drivers/gpu/drm/armada/armada_fbdev.c      |  2 --
->   drivers/gpu/drm/clients/drm_fbdev_client.c | 17 +++++++++++++++--
->   drivers/gpu/drm/drm_client.c               |  4 ++++
->   drivers/gpu/drm/drm_fbdev_dma.c            |  4 ----
->   drivers/gpu/drm/drm_fbdev_shmem.c          |  2 --
->   drivers/gpu/drm/drm_fbdev_ttm.c            |  2 --
->   drivers/gpu/drm/exynos/exynos_drm_fbdev.c  |  2 --
->   drivers/gpu/drm/gma500/fbdev.c             |  3 ---
->   drivers/gpu/drm/i915/display/intel_fbdev.c |  2 --
->   drivers/gpu/drm/msm/msm_fbdev.c            |  2 --
->   drivers/gpu/drm/omapdrm/omap_fbdev.c       |  2 --
->   drivers/gpu/drm/radeon/radeon_fbdev.c      |  2 --
->   drivers/gpu/drm/tegra/fbdev.c              |  2 --
->   include/drm/drm_client.h                   | 10 ++++++++++
->   14 files changed, 29 insertions(+), 27 deletions(-)
->
-> diff --git a/drivers/gpu/drm/armada/armada_fbdev.c b/drivers/gpu/drm/armada/armada_fbdev.c
-> index cb53cc91bafb..22e2081bfa04 100644
-> --- a/drivers/gpu/drm/armada/armada_fbdev.c
-> +++ b/drivers/gpu/drm/armada/armada_fbdev.c
-> @@ -28,8 +28,6 @@ static void armada_fbdev_fb_destroy(struct fb_info *info)
->   	fbh->fb->funcs->destroy(fbh->fb);
->   
->   	drm_client_release(&fbh->client);
-> -	drm_fb_helper_unprepare(fbh);
-> -	kfree(fbh);
->   }
->   
->   static const struct fb_ops armada_fb_ops = {
-> diff --git a/drivers/gpu/drm/clients/drm_fbdev_client.c b/drivers/gpu/drm/clients/drm_fbdev_client.c
-> index f894ba52bdb5..5336accab1b6 100644
-> --- a/drivers/gpu/drm/clients/drm_fbdev_client.c
-> +++ b/drivers/gpu/drm/clients/drm_fbdev_client.c
-> @@ -13,16 +13,28 @@
->    * struct drm_client_funcs
->    */
->   
-> +static void drm_fbdev_client_free(struct drm_client_dev *client)
+>=20
+>  drivers/edac/versalnet_edac.c | 158 +++++++++++++++++++---------------
+>  1 file changed, 87 insertions(+), 71 deletions(-)
+>=20
+> diff --git a/drivers/edac/versalnet_edac.c b/drivers/edac/versalnet_eda=
+c.c
+> index 1ded4c3f0213..fc7e4c43b387 100644
+> --- a/drivers/edac/versalnet_edac.c
+> +++ b/drivers/edac/versalnet_edac.c
+> @@ -758,92 +758,111 @@ static void versal_edac_release(struct device *d=
+ev)
+>  	kfree(dev);
+>  }
+> =20
+> -static int init_versalnet(struct mc_priv *priv, struct platform_device=
+ *pdev)
+> +static void  remove_single_versalnet(struct mc_priv *priv, int i)
+
+remove_mc(). You don't need to stick "versalnet" in static function names=
+.
+
 > +{
-> +	struct drm_fb_helper *fb_helper = drm_fb_helper_from_client(client);
+> +	struct mem_ctl_info *mci;
 > +
-> +	drm_fb_helper_unprepare(fb_helper);
-> +	kfree(fb_helper);
+> +	mci =3D priv->mci[i];
+> +	device_unregister(mci->pdev);
+> +	edac_mc_del_mc(mci->pdev);
+> +	edac_mc_free(mci);
 > +}
 > +
->   static void drm_fbdev_client_unregister(struct drm_client_dev *client)
->   {
->   	struct drm_fb_helper *fb_helper = drm_fb_helper_from_client(client);
->   
->   	if (fb_helper->info) {
-> +		/*
-> +		 * Fully probed framebuffer device
-> +		 */
->   		drm_fb_helper_unregister_info(fb_helper);
->   	} else {
-> +		/*
-> +		 * Partially initialized client, no framebuffer device yet
-> +		 */
->   		drm_client_release(&fb_helper->client);
-> -		drm_fb_helper_unprepare(fb_helper);
-> -		kfree(fb_helper);
->   	}
->   }
->   
-> @@ -88,6 +100,7 @@ static int drm_fbdev_client_resume(struct drm_client_dev *client, bool holds_con
->   
->   static const struct drm_client_funcs drm_fbdev_client_funcs = {
->   	.owner		= THIS_MODULE,
-> +	.free		= drm_fbdev_client_free,
->   	.unregister	= drm_fbdev_client_unregister,
->   	.restore	= drm_fbdev_client_restore,
->   	.hotplug	= drm_fbdev_client_hotplug,
-> diff --git a/drivers/gpu/drm/drm_client.c b/drivers/gpu/drm/drm_client.c
-> index 3fa38d4ac70b..fe9c6d7083ea 100644
-> --- a/drivers/gpu/drm/drm_client.c
-> +++ b/drivers/gpu/drm/drm_client.c
-> @@ -168,6 +168,10 @@ void drm_client_release(struct drm_client_dev *client)
->   
->   	drm_client_modeset_free(client);
->   	drm_client_close(client);
-> +
-> +	if (client->funcs && client->funcs->free)
-> +		client->funcs->free(client);
-> +
->   	drm_dev_put(dev);
->   }
->   EXPORT_SYMBOL(drm_client_release);
-> diff --git a/drivers/gpu/drm/drm_fbdev_dma.c b/drivers/gpu/drm/drm_fbdev_dma.c
-> index 8bd626ef16c7..c6196293e424 100644
-> --- a/drivers/gpu/drm/drm_fbdev_dma.c
-> +++ b/drivers/gpu/drm/drm_fbdev_dma.c
-> @@ -57,8 +57,6 @@ static void drm_fbdev_dma_fb_destroy(struct fb_info *info)
->   	drm_client_buffer_vunmap(fb_helper->buffer);
->   	drm_client_framebuffer_delete(fb_helper->buffer);
->   	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->   }
->   
->   static const struct fb_ops drm_fbdev_dma_fb_ops = {
-> @@ -92,8 +90,6 @@ static void drm_fbdev_dma_shadowed_fb_destroy(struct fb_info *info)
->   	drm_client_buffer_vunmap(fb_helper->buffer);
->   	drm_client_framebuffer_delete(fb_helper->buffer);
->   	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->   }
->   
->   static const struct fb_ops drm_fbdev_dma_shadowed_fb_ops = {
-> diff --git a/drivers/gpu/drm/drm_fbdev_shmem.c b/drivers/gpu/drm/drm_fbdev_shmem.c
-> index 1e827bf8b815..51573058df6f 100644
-> --- a/drivers/gpu/drm/drm_fbdev_shmem.c
-> +++ b/drivers/gpu/drm/drm_fbdev_shmem.c
-> @@ -65,8 +65,6 @@ static void drm_fbdev_shmem_fb_destroy(struct fb_info *info)
->   	drm_client_buffer_vunmap(fb_helper->buffer);
->   	drm_client_framebuffer_delete(fb_helper->buffer);
->   	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->   }
->   
->   static const struct fb_ops drm_fbdev_shmem_fb_ops = {
-> diff --git a/drivers/gpu/drm/drm_fbdev_ttm.c b/drivers/gpu/drm/drm_fbdev_ttm.c
-> index 85feb55bba11..ccf460fbc1f0 100644
-> --- a/drivers/gpu/drm/drm_fbdev_ttm.c
-> +++ b/drivers/gpu/drm/drm_fbdev_ttm.c
-> @@ -53,8 +53,6 @@ static void drm_fbdev_ttm_fb_destroy(struct fb_info *info)
->   	drm_client_framebuffer_delete(fb_helper->buffer);
->   
->   	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->   }
->   
->   static const struct fb_ops drm_fbdev_ttm_fb_ops = {
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-> index 93de25b77e68..a3bd21a827ad 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-> @@ -42,8 +42,6 @@ static void exynos_drm_fb_destroy(struct fb_info *info)
->   	drm_framebuffer_remove(fb);
->   
->   	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->   }
->   
->   static const struct fb_ops exynos_drm_fb_ops = {
-> diff --git a/drivers/gpu/drm/gma500/fbdev.c b/drivers/gpu/drm/gma500/fbdev.c
-> index a6af21514cff..bc92fa24a1e2 100644
-> --- a/drivers/gpu/drm/gma500/fbdev.c
-> +++ b/drivers/gpu/drm/gma500/fbdev.c
-> @@ -84,9 +84,6 @@ static void psb_fbdev_fb_destroy(struct fb_info *info)
->   	drm_gem_object_put(obj);
->   
->   	drm_client_release(&fb_helper->client);
+> +static int init_single_versalnet(struct mc_priv *priv, struct platform=
+_device *pdev, int i)
+
+init_mc() is fine.
+
+>  {
+>  	u32 num_chans, rank, dwidth, config;
+> -	struct edac_mc_layer layers[2];
+>  	struct mem_ctl_info *mci;
+> +	struct edac_mc_layer layers[2];
+>  	struct device *dev;
+>  	enum dev_type dt;
+>  	char *name;
+> -	int rc, i;
+> +	int rc;
+> =20
+> -	for (i =3D 0; i < NUM_CONTROLLERS; i++) {
+> -		config =3D priv->adec[CONF + i * ADEC_NUM];
+> -		num_chans =3D FIELD_GET(MC5_NUM_CHANS_MASK, config);
+> -		rank =3D 1 << FIELD_GET(MC5_RANK_MASK, config);
+> -		dwidth =3D FIELD_GET(MC5_BUS_WIDTH_MASK, config);
 > -
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->   }
->   
->   static const struct fb_ops psb_fbdev_fb_ops = {
-> diff --git a/drivers/gpu/drm/i915/display/intel_fbdev.c b/drivers/gpu/drm/i915/display/intel_fbdev.c
-> index 3fbdf75415cc..d5f26c8bb102 100644
-> --- a/drivers/gpu/drm/i915/display/intel_fbdev.c
-> +++ b/drivers/gpu/drm/i915/display/intel_fbdev.c
-> @@ -146,8 +146,6 @@ static void intel_fbdev_fb_destroy(struct fb_info *info)
->   	drm_framebuffer_remove(fb_helper->fb);
->   
->   	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->   }
->   
->   __diag_push();
-> diff --git a/drivers/gpu/drm/msm/msm_fbdev.c b/drivers/gpu/drm/msm/msm_fbdev.c
-> index b5969374d53f..aad6fb77f0de 100644
-> --- a/drivers/gpu/drm/msm/msm_fbdev.c
-> +++ b/drivers/gpu/drm/msm/msm_fbdev.c
-> @@ -52,8 +52,6 @@ static void msm_fbdev_fb_destroy(struct fb_info *info)
->   	drm_framebuffer_remove(fb);
->   
->   	drm_client_release(&helper->client);
-> -	drm_fb_helper_unprepare(helper);
-> -	kfree(helper);
->   }
->   
->   static const struct fb_ops msm_fb_ops = {
-> diff --git a/drivers/gpu/drm/omapdrm/omap_fbdev.c b/drivers/gpu/drm/omapdrm/omap_fbdev.c
-> index 948af7ec1130..b5df2923d2a6 100644
-> --- a/drivers/gpu/drm/omapdrm/omap_fbdev.c
-> +++ b/drivers/gpu/drm/omapdrm/omap_fbdev.c
-> @@ -103,8 +103,6 @@ static void omap_fbdev_fb_destroy(struct fb_info *info)
->   	drm_framebuffer_remove(fb);
->   
->   	drm_client_release(&helper->client);
-> -	drm_fb_helper_unprepare(helper);
-> -	kfree(helper);
->   }
->   
->   /*
-> diff --git a/drivers/gpu/drm/radeon/radeon_fbdev.c b/drivers/gpu/drm/radeon/radeon_fbdev.c
-> index dc81b0c2dbff..4df6c9167bf0 100644
-> --- a/drivers/gpu/drm/radeon/radeon_fbdev.c
-> +++ b/drivers/gpu/drm/radeon/radeon_fbdev.c
-> @@ -184,8 +184,6 @@ static void radeon_fbdev_fb_destroy(struct fb_info *info)
->   	radeon_fbdev_destroy_pinned_object(gobj);
->   
->   	drm_client_release(&fb_helper->client);
-> -	drm_fb_helper_unprepare(fb_helper);
-> -	kfree(fb_helper);
->   }
->   
->   static const struct fb_ops radeon_fbdev_fb_ops = {
-> diff --git a/drivers/gpu/drm/tegra/fbdev.c b/drivers/gpu/drm/tegra/fbdev.c
-> index 1b70f5e164af..91aece6f34e0 100644
-> --- a/drivers/gpu/drm/tegra/fbdev.c
-> +++ b/drivers/gpu/drm/tegra/fbdev.c
-> @@ -53,8 +53,6 @@ static void tegra_fbdev_fb_destroy(struct fb_info *info)
->   	drm_framebuffer_remove(fb);
->   
->   	drm_client_release(&helper->client);
-> -	drm_fb_helper_unprepare(helper);
-> -	kfree(helper);
->   }
->   
->   static const struct fb_ops tegra_fb_ops = {
-> diff --git a/include/drm/drm_client.h b/include/drm/drm_client.h
-> index bdd845e383ef..eecb8d6e15c7 100644
-> --- a/include/drm/drm_client.h
-> +++ b/include/drm/drm_client.h
-> @@ -28,6 +28,16 @@ struct drm_client_funcs {
->   	 */
->   	struct module *owner;
->   
-> +	/**
-> +	 * @free:
-> +	 *
-> +	 * Called when the client gets unregistered. Implementations should
-> +	 * release all client-specific data and free the memory.
-> +	 *
-> +	 * This callback is optional.
-> +	 */
-> +	void (*free)(struct drm_client_dev *client);
+> -		switch (dwidth) {
+> -		case XDDR5_BUS_WIDTH_16:
+> -			dt =3D DEV_X16;
+> -			break;
+> -		case XDDR5_BUS_WIDTH_32:
+> -			dt =3D DEV_X32;
+> -			break;
+> -		case XDDR5_BUS_WIDTH_64:
+> -			dt =3D DEV_X64;
+> -			break;
+> -		default:
+> -			dt =3D DEV_UNKNOWN;
+> -		}
+> +	config =3D priv->adec[CONF + i * ADEC_NUM];
+> +	num_chans =3D FIELD_GET(MC5_NUM_CHANS_MASK, config);
+> +	rank =3D 1 << FIELD_GET(MC5_RANK_MASK, config);
+> +	dwidth =3D FIELD_GET(MC5_BUS_WIDTH_MASK, config);
 > +
->   	/**
->   	 * @unregister:
->   	 *
+> +	switch (dwidth) {
+> +	case XDDR5_BUS_WIDTH_16:
+> +		dt =3D DEV_X16;
+> +		break;
+> +	case XDDR5_BUS_WIDTH_32:
+> +		dt =3D DEV_X32;
+> +		break;
+> +	case XDDR5_BUS_WIDTH_64:
+> +		dt =3D DEV_X64;
+> +		break;
+> +	default:
+> +		dt =3D DEV_UNKNOWN;
+> +	}
+> =20
+> -		if (dt =3D=3D DEV_UNKNOWN)
+> -			continue;
+> +	if (dt =3D=3D DEV_UNKNOWN)
+> +		return 0;
+> =20
+> -		/* Find the first enabled device and register that one. */
+> -		layers[0].type =3D EDAC_MC_LAYER_CHIP_SELECT;
+> -		layers[0].size =3D rank;
+> -		layers[0].is_virt_csrow =3D true;
+> -		layers[1].type =3D EDAC_MC_LAYER_CHANNEL;
+> -		layers[1].size =3D num_chans;
+> -		layers[1].is_virt_csrow =3D false;
+> +	/* Find the first enabled device and register that one. */
+> +	layers[0].type =3D EDAC_MC_LAYER_CHIP_SELECT;
+> +	layers[0].size =3D rank;
+> +	layers[0].is_virt_csrow =3D true;
+> +	layers[1].type =3D EDAC_MC_LAYER_CHANNEL;
+> +	layers[1].size =3D num_chans;
+> +	layers[1].is_virt_csrow =3D false;
+> +
+> +	rc =3D -ENOMEM;
+> +	mci =3D edac_mc_alloc(i, ARRAY_SIZE(layers), layers,
+> +			    sizeof(struct mc_priv));
+> +	if (!mci) {
+> +		edac_printk(KERN_ERR, EDAC_MC, "Failed memory allocation for MC%d\n"=
+, i);
+> +		return rc;
+> +	}
+> +	priv->mci[i] =3D mci;
+> +	priv->dwidth =3D dt;
+> +
+> +	dev =3D kzalloc(sizeof(*dev), GFP_KERNEL);
+> +	if (!dev)
+> +		return rc;
 
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstrasse 146, 90461 Nuernberg, Germany
-GF: Ivo Totev, Andrew Myers, Andrew McDonald, Boudien Moerman
-HRB 36809 (AG Nuernberg)
+No, do not return here but jump to the end of the function which unwinds
+everything that's been setup so far. In this case, it should do
+edac_mc_del_mc() what edac_mc_alloc() allocated.
 
+This makes the unwinding loop easier in the remove function, see below.
 
+> +	dev->release =3D versal_edac_release;
+> +	name =3D kmalloc(32, GFP_KERNEL);
+> +	sprintf(name, "versal-net-ddrmc5-edac-%d", i);
+> +	dev->init_name =3D name;
+> +	rc =3D device_register(dev);
+> +	if (rc)
+> +		goto err_mc_free;
+> =20
+> -		rc =3D -ENOMEM;
+> -		mci =3D edac_mc_alloc(i, ARRAY_SIZE(layers), layers,
+> -				    sizeof(struct mc_priv));
+> -		if (!mci) {
+> -			edac_printk(KERN_ERR, EDAC_MC, "Failed memory allocation for MC%d\n=
+", i);
+> -			goto err_alloc;
+> -		}
+> +	mci->pdev =3D dev;
+> =20
+> -		priv->mci[i] =3D mci;
+> -		priv->dwidth =3D dt;
+> +	platform_set_drvdata(pdev, priv);
+> =20
+> -		dev =3D kzalloc(sizeof(*dev), GFP_KERNEL);
+> -		dev->release =3D versal_edac_release;
+> -		name =3D kmalloc(32, GFP_KERNEL);
+> -		sprintf(name, "versal-net-ddrmc5-edac-%d", i);
+> -		dev->init_name =3D name;
+> -		rc =3D device_register(dev);
+> -		if (rc)
+> -			goto err_alloc;
+> +	mc_init(mci, dev);
+> +	rc =3D edac_mc_add_mc(mci);
+> +	if (rc) {
+> +		edac_printk(KERN_ERR, EDAC_MC, "Failed to register MC%d with EDAC co=
+re\n", i);
+> +		goto err_unreg;
+> +	}
+> +	return 0;
+> +err_unreg:
+> +	device_unregister(mci->pdev);
+> +err_mc_free:
+> +	edac_mc_free(mci);
+> +	return rc;
+> +}
+> =20
+> -		mci->pdev =3D dev;
+> =20
+> -		platform_set_drvdata(pdev, priv);
+> +static int init_versalnet(struct mc_priv *priv, struct platform_device=
+ *pdev)
+> +{
+> +	int rc, i;
+> =20
+> -		mc_init(mci, dev);
+> -		rc =3D edac_mc_add_mc(mci);
+> -		if (rc) {
+> -			edac_printk(KERN_ERR, EDAC_MC, "Failed to register MC%d with EDAC c=
+ore\n", i);
+> -			goto err_alloc;
+> -		}
+> +	for (i =3D 0; i < NUM_CONTROLLERS; i++) {
+> +		rc =3D init_single_versalnet(priv, pdev, i);
+> +		if (rc)
+> +			goto err_rm_versalnet;
+
+No need for that - just unwind here and drop the label.
+
+>  	}
+>  	return 0;
+> =20
+> -err_alloc:
+> -	while (i--) {
+> -		mci =3D priv->mci[i];
+> -		if (!mci)
+> -			continue;
+> -
+> -		if (mci->pdev) {
+> -			device_unregister(mci->pdev);
+> -			edac_mc_del_mc(mci->pdev);
+> -		}
+> -
+> -		edac_mc_free(mci);
+> +err_rm_versalnet:
+> +	while (i) {
+> +		i--;
+
+That should be:
+
+	while (i--)
+
+so that when you get to remove here, you remove only fully initialized me=
+mory
+controllers.
+
+> +		remove_single_versalnet(priv, i);
+>  	}
+> =20
+>  	return rc;
+
+In any case, yes, do you see how it all becomes a lot simpler this way?
+
+Thx.
+
+--=20
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
 
