@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C60CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 13:52:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDEC2CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 13:52:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kbpNvVy+b63/KYDAfcS3lUCg6yGCw43wggduk23vMV8=; b=L46kSCwMeKa4xlOTK7iwkdPpIa
-	RBMvSZddsB4rVw4r+AG2kr8/uPkXMxUz+qDrE/fagYdBxEI6wTQ9Xp+PiKxsf65HTWAoZyB1lLDTp
-	C4EkGtbuOSn+mX+DYmExhrUsn5B4ZeBXJ1wWDrQ12TXl2mWH6J/uSe1+I1QBwIbmIC9+R/9yMuVHe
-	pGxYfPh7WqRM0QHxFe6OZG5OpPDIkEw4ZA8LWdKR+VCt8EDlOVs7dh8wsfj8l6xjXS/pvtzdFg5fa
-	qJ010YKZe/nFIFNtde2dNXaPGz2mkhs2I5FxktvHYgS7yxtVzSN5upawWSS6+ZBJOJd0mU35uhiWL
-	A6fLuOxA==;
+	bh=1rlYyztoBATr5g/x/tqxZzk8w6YkKjaYSCHJiGcbgNc=; b=aLIf0xn4DD8mdOBNQufwNkvqLC
+	TU+dDiihws2RvTEj4kJTRuWLF/0YtBMmYT2bG8Zn+M1sgnmN/OVRVKi5jwuUJoq/zSpIdiLjAI3Fd
+	N73Xw/mxEUYacknSrWxLxU3K766wQJTjZUxFnoXfoSAaiAdlQkYhXrYrPE2+ZmoFUZfm/pUdSnpQ2
+	CzxbV4I96D9NQlGy8xXCwiYw77aBjJsmO8buNA80SVe16tRXKNOBbQCzCRYtA+sd6Vclnj/M48Ord
+	HMVaC58yBw8ku7N7JztunwAJtE72hlauQnHNh550Q5VnDS79WjJcirO6HrpVofuH3WBvQe5/c0+JL
+	u7lua81g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvjV-00000006TR9-1ayB;
-	Thu, 23 Oct 2025 13:52:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vBvjZ-00000006TTp-2tJ2;
+	Thu, 23 Oct 2025 13:52:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvjR-00000006TQ0-0ThH
+	id 1vBvjS-00000006TQG-2lg8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 13:51:59 +0000
+	Thu, 23 Oct 2025 13:52:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 72D7549F9E;
-	Thu, 23 Oct 2025 13:51:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 323C2C4CEE7;
-	Thu, 23 Oct 2025 13:51:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 39ED343B86;
+	Thu, 23 Oct 2025 13:51:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8300C4CEF7;
+	Thu, 23 Oct 2025 13:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761227516;
-	bh=DXeHBjKEeneTJZlQx6fpzgXCOREPFNRGyyrxXvEZiNk=;
+	s=k20201202; t=1761227518;
+	bh=T6Q2aEP5PbzrJSzaFyZjXRnYX5iQKPyJsLn+R8QxcLg=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=ezmCck8HjERzYtIbyeAk8k8JFFC7WAL+MzMBmlQHocwoefe7nXgZFuSEJV7oHoNys
-	 IJyxU4mnGm/kkFZMoj96m3/Cs8Z5GbcPhGHaqOBBgHWoSPpnHnqyNyFFDB68QmZttj
-	 I2fN+FSPIb4Zy/ld+mJyvpcCRiDJm+P67+lzeFGuqopXhAs5Jn7jPmCumUZMzViHnJ
-	 +CcYunoaVNrcd6BqZ+ajONsql5vxd3s8Y2G/gv5YDWXNU9ZJFEXoJ667oLAiiZn2Nm
-	 i1XYz/fp29FGwj+xFwLisKahgfuRoM454NpgEs0ef+fYwq/FozPmLCX7eBlMb9WUEd
-	 DFM6RI3YbNDzw==
-Date: Thu, 23 Oct 2025 08:51:54 -0500
+	b=t0Ghzo5qgQYwPXyP0oYkOO/O8+exGyUn//IoCTCfh9DNSzMI/nHti2h+v9O+FYjiA
+	 FYzc+3IPNFADvafz8atB6AuTDDH/mm7zlsoyXh65mgkTm+ia0/UAJZ45BPsZpXrmyz
+	 I+Wt9D7x2ziiwuVY7oZG+MmbgVDpAPyAiY103hrasBZ5R5dMLCnmPBeGPQG1Vw/5kC
+	 P4pHsOWhDI0lXHyUKRBnW6YGFrLqxG2Kstea6cV4lLuBZFcwbpDOzAgOrR5y3tYxIV
+	 rVOFFt/PFr/vfvFUoyxRBKLh2XShLaXyhClLDtoW3okHnojpVu8hdc0ihoAkf91f76
+	 63uioq58gMQgA==
+Date: Thu, 23 Oct 2025 08:51:56 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, 
- Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20251022133616.74492-2-krzysztof.kozlowski@linaro.org>
-References: <20251022133616.74492-2-krzysztof.kozlowski@linaro.org>
-Message-Id: <176122700613.2723214.10060174362415881339.robh@kernel.org>
-Subject: Re: [PATCH] arm64: dts: toshiba: tmpv7708: Align node names with
- DT bindings
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ linux-arm-kernel@lists.infradead.org, Lei Xu <lei.xu@nxp.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Daniel Baluta <daniel.baluta@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org, 
+ Danwei Luo <danwei.luo@nxp.com>, Conor Dooley <conor+dt@kernel.org>, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ Fabio Estevam <festevam@gmail.com>, Haidong Zheng <haidong.zheng@nxp.com>
+To: Fabian Pflug <f.pflug@pengutronix.de>
+In-Reply-To: <20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de>
+References: <20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de>
+Message-Id: <176122700666.2723251.16850924180146120380.robh@kernel.org>
+Subject: Re: [PATCH v3 0/2] Add devicetree for NXP i.MX93 FRDM board
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_065157_189140_4984A613 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20251023_065159_930298_F1B04CCE 
+X-CRM114-Status: GOOD (  24.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,22 +79,71 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 22 Oct 2025 15:36:17 +0200, Krzysztof Kozlowski wrote:
-> DT bindings expect node names to follow certain pattern, dtbs_check
-> warnings:
+On Wed, 22 Oct 2025 16:05:21 +0200, Fabian Pflug wrote:
+> I could not test all features of the board, therefore a lot of stuff is
+> omitted from the devicetree. but this is enough to have the board boot
+> via eMMC or SD-Card, debug via debug USB connector and have a network
+> connection.
 > 
->   tmpv7708-rm-mbrc.dtb: pmux@24190000 (toshiba,tmpv7708-pinctrl):
->     'pwm_mux' does not match any of the regexes: '-pins$', '^pinctrl-[0-9]+$'
->   tmpv7708-rm-mbrc.dtb pmux@24190000 (toshiba,tmpv7708-pinctrl):
->     $nodename:0: 'pmux@24190000' does not match '^(pinctrl|pinmux)(@[0-9a-f]+)?$'
->   tmpv7708-rm-mbrc.dtb: wdt@28330000 (toshiba,visconti-wdt):
->     $nodename:0: 'wdt@28330000' does not match '^(timer|watchdog)(@.*|-([0-9]|[1-9][0-9]+))?$'
+> The FRDM i.MX 93 development board is a low-cost and compact development
+> board featuring the i.MX93 applications processor.
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> It features:
+> - Dual Cortex-A55
+> - 2 GB LPDDR4X / LPDDR4
+> - 32 GB eMMC5.1
+> - MicroSD slot
+> - GbE RJ45 x 2
+> - USB2.0 1x Type C, 1x Type A
+> 
+> This file is based upon the one provided by nxp in their own kernel and
+> yocto meta layer for the device, but adapted for mainline.
+> 
+> Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
 > ---
->  arch/arm64/boot/dts/toshiba/tmpv7708.dtsi      | 4 ++--
->  arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi | 2 +-
->  2 files changed, 3 insertions(+), 3 deletions(-)
+> Changes in v3:
+> - Add Signed-off for original NXP contributors.
+> - Fixed whitespace errors (Thanks Francesco Valla)
+> - Added mu1 with status okay (Thanks Francesco Valla)
+> - Removed address cells from lpi2c3 (Thanks Frank Li)
+> - Configure pin for watchdog (Thanks Peng Fan)
+> - Updated regulator config
+> - Configure i2c0
+> - Link to v2: https://lore.kernel.org/r/20250526-fpg-nxp-imx93-frdm-v2-0-e5ad0efaec33@pengutronix.de
+> 
+> Changes in v2:
+> - 1/2: remove CAN node, as it has not been tested.
+> - 1/2: ran dt-format (Thanks Frank Li)
+> 	But also reordered some nodes afterwards again to have
+> 	regulator-min before regulator-max, have the pinmux at the end
+> 	of the file, and have the regulator-name as the first node
+> 	inside the regulators.
+> 	Re-added comments, that were deleted.
+> - 1/2: changes subjet to ar64:dts (Thanks Fabio Estevan)
+> - 1/2: removed reg_vdd_12v (Tanks Fabio Estevan)
+> - 1/2: added aliases for rtc, emmc, serial (Thanks Fabio Estevan)
+> - reordered the series to have documentation before dts. (Thanks
+>   Krzystof Kozlowski)
+> - Link to v1: https://lore.kernel.org/r/20250523-fpg-nxp-imx93-frdm-v1-0-546b2d342855@pengutronix.de
+> 
+> ---
+> Fabian Pflug (2):
+>       dt-bindings: arm: fsl: add i.MX93 11x11 FRDM board
+>       arm64: dts: freescale: add support for NXP i.MX93 FRDM
+> 
+>  Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
+>  arch/arm64/boot/dts/freescale/Makefile             |   1 +
+>  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 658 +++++++++++++++++++++
+>  3 files changed, 660 insertions(+)
+> ---
+> base-commit: 552c50713f273b494ac6c77052032a49bc9255e2
+> change-id: 20250523-fpg-nxp-imx93-frdm-5cc180a1fda9
+> 
+> Best regards,
+> --
+> Fabian Pflug <f.pflug@pengutronix.de>
+> 
+> 
 > 
 
 
@@ -109,23 +162,17 @@ make sure dt-schema is up to date:
 
 
 This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/v6.18-rc1-10-gc35cf4fe4b85 (exact match)
- Base: tags/v6.18-rc1-10-gc35cf4fe4b85 (use --merge-base to override)
+ Base: 552c50713f273b494ac6c77052032a49bc9255e2 (use --merge-base to override)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/toshiba/' for 20251022133616.74492-2-krzysztof.kozlowski@linaro.org:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de:
 
-arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dtb: pinctrl@24190000 (toshiba,tmpv7708-pinctrl): spi0-pins:groups: ['spi0_grp', 'spi0_cs0_grp'] is too long
-	from schema $id: http://devicetree.org/schemas/pinctrl/toshiba,visconti-pinctrl.yaml
-arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dtb: pinctrl@24190000 (toshiba,tmpv7708-pinctrl): spi0-pins:groups: ['spi0_grp', 'spi0_cs0_grp'] is too long
-	from schema $id: http://devicetree.org/schemas/pinctrl/toshiba,visconti-pinctrl.yaml
-arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dtb: pinctrl@24190000 (toshiba,tmpv7708-pinctrl): pwm-pins:groups: ['pwm0_gpio16_grp', 'pwm1_gpio17_grp', 'pwm2_gpio18_grp', 'pwm3_gpio19_grp'] is too long
-	from schema $id: http://devicetree.org/schemas/pinctrl/toshiba,visconti-pinctrl.yaml
-arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dtb: pinctrl@24190000 (toshiba,tmpv7708-pinctrl): pwm-pins:groups: ['pwm0_gpio16_grp', 'pwm1_gpio17_grp', 'pwm2_gpio18_grp', 'pwm3_gpio19_grp'] is too long
-	from schema $id: http://devicetree.org/schemas/pinctrl/toshiba,visconti-pinctrl.yaml
+arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dtb: hdmi@4c (ite,it6263): 'ports' is a required property
+	from schema $id: http://devicetree.org/schemas/display/bridge/ite,it6263.yaml
+arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dtb: hdmi@4c (ite,it6263): 'data-mapping' is a required property
+	from schema $id: http://devicetree.org/schemas/display/bridge/ite,it6263.yaml
 
 
 
