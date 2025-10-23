@@ -4,63 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF060CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 13:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA001CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 13:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvvOoDKgotkg7bQO5ROLVrbK9DViP/ZxtCVVSt+B39I=; b=gct4NN/WpRajZMmIxVLU1pTvmM
-	QH4/YSbpjpS5tW2uXGzF2Kbt+exIXTHlNrW/Jxmv23ap32mhDsSm5K/uiZ/SA2J6u2oyw4SkMTl68
-	HNzBtLvNsYlYQb8/iv/yV7vjDYvl9cWv0sLooKYtkcjqjuA7FswrrrPtKaLpPP8xSeegYRq2mdPFT
-	vgbX7pHpNEKh2M06E1hi4QR42B6FTo24cvl5aXgiBuH3li8ayDSJdpRzCimJV2v6EnUhISxYokKqy
-	WXZfiR9uiN07hR4qP939rfkaM8CHsL82kBPs30SLnsRPHCgitGb/O/ksH7E8NxXTkZAsMiwhzQMDw
-	ot++gh6g==;
+	bh=Sw5eX/s9ISTSxCGdea80srZ1/nbTXSHWHk4kIWK/aJk=; b=TBmAtCLdIPZJbWR/UfcP9i0IBF
+	ed/nM0g2mX07K3MzNyEEsrTZ8ABtl9mHmOhXwd/p8WX240MzJqVnB40zh78DDMKSzcdnUIeBkEv3Q
+	dRoh35ejZAab41ikLi+H2QRdLg9UrS/taBEOhlpMZ0YiH3JaiRMnr4sQEL9P+jhlWFGxZkb4r8xWM
+	qqsHzjKVpVjOf73BRuPNFCtwxAQyAN9qGZYCObpNNw1UEUrb3ZbOJhF9yVIQWPzhzx2+bPObZ81XH
+	PkaHOwp5eslvkQ7E4wNGJ/ZJ8NXjj00JQ71tb+OpWHYlLAGcyylYmqZNkMgXG3sUtIhYW7AFuOp6Q
+	Cf9XsLeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvjZ-00000006TUC-47T1;
-	Thu, 23 Oct 2025 13:52:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBvlZ-00000006UB9-272u;
+	Thu, 23 Oct 2025 13:54:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvjU-00000006TQa-0j6A
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 13:52:01 +0000
+	id 1vBvlY-00000006UAj-068w;
+	Thu, 23 Oct 2025 13:54:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Sw5eX/s9ISTSxCGdea80srZ1/nbTXSHWHk4kIWK/aJk=; b=Grs3dUEXHZ8Z2JvVV5Oh3MISJ1
+	hivRkul598Fz4XHve+BEIrYwdO/tXR/lT9OPZtNyMdsUmYRnDj6KGDXmDP65Mq9RuZv3gx9l2WTKn
+	vEatRZW36R9RjXKZeIKdMzk4nxC+iCG6tLnR9lNCsYvAoMF3znxWBo/CHRJ1D2KxbDhmAma81sAlE
+	S+/D+knyhi0rjA0s9UbSOLN7pCnSWQnR97n5TKOxLvrWbo20wC710pxSKz4QMEcZKFBj3tvAqwZr1
+	IpjCAoQ9yqXd2AlJ4Bi83mTETPHhKVGx5i3wgVsdFFDD7OM+awNmrSsskDTJb72ChPL6/f5sjYzua
+	zSPBlo1w==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vButo-00000001NOM-0GIu;
+	Thu, 23 Oct 2025 12:58:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DBEAB4ADF2;
-	Thu, 23 Oct 2025 13:51:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98D25C4CEE7;
-	Thu, 23 Oct 2025 13:51:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F1B8D4AE00;
+	Thu, 23 Oct 2025 13:53:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFA8FC4CEFF;
+	Thu, 23 Oct 2025 13:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761227519;
-	bh=+aURh5XSJ5XQcVDuus3rnZXEl2bPZX3zTBjzeKoakHc=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=C3vN6tmz64b32YiU9KV5tcYgLyT2HBEnKpNNHF1bUG79/0r/UxyZzaTZHd+DSxhYb
-	 bnZ8+IOrq/XlexDq8QYPlYVvvTDM0I4A3gHCWG4x0K8j/VLjb3p6gPwuKRB7+iV/yf
-	 CWExmGwSxFcFflbAE3puyOAVVZ+p35ABydHDGmZ2JTa/Y7UJonoQv2nGns4lM25HmJ
-	 pN8Gjv9czNRcNl84nWIM3UUZjee9iO+9xq3HBH8PFXp3TR9AvWvHvosHEjsk6ZHMpI
-	 /EDKLgoRHTFg0riEEFjQyZunPG5Kjvysegx6dICinCYL+uDxvk8qsfu531rjTG3iaP
-	 JdXjNHCcx/ssg==
-Date: Thu, 23 Oct 2025 08:51:58 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1761227637;
+	bh=Q08J0lo6XGpzui6uJHwKy8ROOSmn2gg75HcBXvBcwo8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZnRGDyRL9KumL5LY43iMaDRTjdGN1cvB+fCpvfZHgY3rZCtqrVTjyXD9zC47M9CI2
+	 f91Xqf7Bd0Y2HmKEhMSGB8Ad/cGSPm8xz9h9ARP5hdPlJX9Dr77OqRceejVkNOpYJO
+	 yAfrO2DsNKe4lKZip334rnE4CUGyH0i9AKzGMC9SejC1g41DjIg4YTEcx6+nMobwPp
+	 dku1kNqxH21XiG33bU3i8UNz6u/vEIZcmRy41MA9XnEGbv8JqjEGBA0g0O+dLcGVNR
+	 PBsTpN20/UImt36Iluccd0plVNpqrVzgu6I/kt+rkESTlqRk/ITPeFh0awXhjx0zsm
+	 XWi2fZoOl4URA==
+Date: Thu, 23 Oct 2025 14:53:52 +0100
+From: Lee Jones <lee@kernel.org>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, matthias.bgg@gmail.com, lgirdwood@gmail.com,
+	broonie@kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com, wenst@chromium.org,
+	igor.belwon@mentallysanemainliners.org,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>
+Subject: Re: [PATCH v8 9/9] drivers: mfd: Add support for MediaTek SPMI PMICs
+ and MT6363/73
+Message-ID: <20251023135352.GO475031@google.com>
+References: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
+ <20251003091158.26748-10-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Conor Dooley <conor+dt@kernel.org>, David Lechner <dlechner@baylibre.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
- Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org
-To: Frank Li <Frank.Li@nxp.com>
-In-Reply-To: <20251022-fsl-mpl3115-v1-0-93187d095efc@nxp.com>
-References: <20251022-fsl-mpl3115-v1-0-93187d095efc@nxp.com>
-Message-Id: <176122700723.2723267.1526103667842275891.robh@kernel.org>
-Subject: Re: [PATCH 0/2] dts: imx: cleanup warning cause by fsl,mpl3115
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251003091158.26748-10-angelogioacchino.delregno@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_065200_270993_5A6FF92A 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20251023_135837_465288_9FCD8F8F 
+X-CRM114-Status: GOOD (  53.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,98 +92,672 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Drop "drivers: " from the subject line.
 
-On Wed, 22 Oct 2025 16:43:20 -0400, Frank Li wrote:
-> After commit f11e4374b(dt-bindings: iio: pressure: add binding for mpl3115 )
-> vdd-supply and vddio-supply is required properties.
+> This driver adds support for the MediaTek SPMI PMICs and their
+> interrupt controller (which is present in 95% of the cases).
 > 
-> thread:
-> https://lore.kernel.org/imx/0e00bb14-19c7-493a-9629-354bac3a273e@baylibre.com/T/#t
-> not prefer change both to optional. So update dts to fix CHECK_DTB
-> warnings for both ARM and ARM64 platform.
+> Other than probing all of the sub-devices of a SPMI PMIC, this
+> sets up a regmap from the relevant SPMI bus and initializes an
+> interrupt controller with its irq domain and irqchip to handle
+> chained interrupts, with the SPMI bus itself being its parent
+> irq controller, and the PMIC being the outmost device.
 > 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> This driver hence holds all of the information about a specific
+> PMIC's interrupts and will properly handle them, calling the
+> ISR for any subdevice that requested an interrupt.
+> 
+> As for the interrupt spec, this driver wants 3 interrupt cells,
+> but ignores the first one: this is because of how this first
+> revision of the MediaTek SPMI 2.0 Controller works, which does
+> not hold irq number information in its register, but delegates
+> that to the SPMI device - it's possible that this will change
+> in the future with a newer revision of the controller IP, and
+> this is the main reason for that.
+> 
+> To make use of this implementation, this driver also adds the
+> required bits to support MediaTek MT6363 and MT6373 SPMI PMICs.
+> 
+> Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
-> Frank Li (2):
->       arm64: dts: imx8: add vdd-supply and vddio-supply for fsl,mpl3115
->       ARM: dts: imx: add vdd-supply and vddio-supply for fsl,mpl3115
+>  drivers/mfd/Kconfig         |  17 ++
+>  drivers/mfd/Makefile        |   1 +
+>  drivers/mfd/mtk-spmi-pmic.c | 410 ++++++++++++++++++++++++++++++++++++
+>  include/linux/mfd/mt6363.h  |  26 +++
+>  include/linux/mfd/mt6373.h  |  21 ++
+>  5 files changed, 475 insertions(+)
+>  create mode 100644 drivers/mfd/mtk-spmi-pmic.c
+>  create mode 100644 include/linux/mfd/mt6363.h
+>  create mode 100644 include/linux/mfd/mt6373.h
 > 
->  arch/arm/boot/dts/nxp/imx/imx53-ppd.dts         | 2 ++
->  arch/arm/boot/dts/nxp/imx/imx6dl-b1x5v2.dtsi    | 3 ++-
->  arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi     | 4 ++++
->  arch/arm/boot/dts/nxp/imx/imx6ul-pico-dwarf.dts | 2 ++
->  arch/arm/boot/dts/nxp/imx/imx7d-pico-dwarf.dts  | 2 ++
->  arch/arm/boot/dts/nxp/imx/imx7d-sdb.dts         | 2 ++
->  arch/arm/boot/dts/nxp/imx/imx7s-warp.dts        | 9 +++++++++
->  arch/arm64/boot/dts/freescale/imx8qm-mek.dts    | 9 +++++++++
->  arch/arm64/boot/dts/freescale/imx8qxp-mek.dts   | 9 +++++++++
->  9 files changed, 41 insertions(+), 1 deletion(-)
-> ---
-> base-commit: c31b21db1c04ba719c3889a57873f0f7eff54670
-> change-id: 20251022-fsl-mpl3115-3bb541a56122
+> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+> index 13c955d31309..339fcd37eab6 100644
+> --- a/drivers/mfd/Kconfig
+> +++ b/drivers/mfd/Kconfig
+> @@ -1120,6 +1120,23 @@ config MFD_MT6397
+>  	  accessing the device; additional drivers must be enabled in order
+>  	  to use the functionality of the device.
+>  
+> +config MFD_MTK_SPMI_PMIC
+> +	tristate "MediaTek SPMI PMICs"
+> +	depends on ARCH_MEDIATEK || COMPILE_TEST
+> +	depends on OF
+> +	depends on SPMI
+> +	select REGMAP_SPMI
+> +	default y if ARCH_MEDIATEK
+
+When would this be built as a module?
+
+> +	help
+> +	  Say yes here to enable support for MediaTek's SPMI PMICs.
+> +	  These PMICs made their first appearance in board designs using the
+> +          MediaTek Dimensity 9400 series of SoCs.
+
+Odd tabbing.
+
+> +	  Note that this will only be useful paired with descriptions of the
+
+"when paired"
+
+> +	  independent functions as children nodes in the device tree.
+
+"child nodes"
+
+> +
+> +	  Say M here if you want to include support for the MediaTek SPMI
+> +	  PMICs as a module. The module will be called "mtk-spmi-pmic".
+> +
+>  config MFD_MENF21BMC
+>  	tristate "MEN 14F021P00 Board Management Controller Support"
+>  	depends on I2C
+> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+> index d2720d496e07..8f33fd9519ac 100644
+> --- a/drivers/mfd/Makefile
+> +++ b/drivers/mfd/Makefile
+> @@ -187,6 +187,7 @@ obj-$(CONFIG_MFD_MT6360)	+= mt6360-core.o
+>  obj-$(CONFIG_MFD_MT6370)	+= mt6370.o
+>  mt6397-objs			:= mt6397-core.o mt6397-irq.o mt6358-irq.o
+>  obj-$(CONFIG_MFD_MT6397)	+= mt6397.o
+> +obj-$(CONFIG_MFD_MTK_SPMI_PMIC)	+= mtk-spmi-pmic.o
+>  
+>  obj-$(CONFIG_RZ_MTU3)		+= rz-mtu3.o
+>  obj-$(CONFIG_ABX500_CORE)	+= abx500-core.o
+> diff --git a/drivers/mfd/mtk-spmi-pmic.c b/drivers/mfd/mtk-spmi-pmic.c
+> new file mode 100644
+> index 000000000000..512b53bdb0d1
+> --- /dev/null
+> +++ b/drivers/mfd/mtk-spmi-pmic.c
+> @@ -0,0 +1,410 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2024 MediaTek Inc.
+> + * Copyright (c) 2025 Collabora Ltd
+> + *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+Put this in an Authors: section.
+
+> + */
+> +
+> +#include <linux/device.h>
+> +#include <linux/errno.h>
+> +#include <linux/gfp.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/spmi.h>
+> +#include <linux/types.h>
+> +#include <linux/regmap.h>
+> +#include <linux/irqchip/chained_irq.h>
+> +#include <linux/mfd/mt6363.h>
+> +#include <linux/mfd/mt6373.h>
+
+This whole section should be ordered.
+
+> +#define MTK_SPMI_PMIC_VAL_BITS		8
+> +#define MTK_SPMI_PMIC_CHIP_ID_REG_M	0xb
+
+What is "M"?
+
+> +#define MTK_SPMI_PMIC_RCS_IRQ_DONE	0x41b
+> +
+> +/**
+> + * mtk_spmi_pmic_irq_group - Group of interrupts in SPMI PMIC
+> + * @num_int_regs: Number of registers for this group of interrupts
+> + * @con_reg:      PMIC Interrupt Group Control 0 register
+> + * @sta_reg:      PMIC Interrupt Group Status 0 register
+> + * @group_num:    PMIC Interrupt Group number - also corresponds to the
+> + *                status bit in the global IRQ Control register
+> + */
+
+If you _really_ want to use kerneldoc, you must run W=1.
+
+> +struct mtk_spmi_pmic_irq_grp {
+> +	u8 hwirq_base;
+> +	u8 num_int_regs;
+> +	u16 con_reg;
+> +	u16 sta_reg;
+> +	u8 group_num;
+> +};
+> +
+> +/**
+> + * mtk_spmi_pmic_pdata - SPMI PMIC Platform Data
+> + * @pmic_irq:    Group of interrupts in SPMI PMIC
+> + * @num_groups:  Number of groups of interrupts
+> + * @con_reg_sz:  Size of Control registers, depends on existence
+
+"size" or "len" is nicer.
+
+> + *               of SET and CLR registers in the layout
+> + * @top_irq_reg: Global interrupt status register, explains which
+> + *               group needs attention because of a group irq
+> + * @chip_id_reg: Chip ID Register
+> + */
+> +struct mtk_spmi_pmic_pdata {
+> +	const struct mtk_spmi_pmic_irq_grp *pmic_irq;
+> +	u8 num_groups;
+> +	u8 con_reg_sz;
+> +	u8 top_irq_reg;
+> +	u8 chip_id_reg;
+> +};
+> +
+> +/**
+> + * mtk_spmi_pmic - Main driver structure
+> + * @pdata:    SPMI PMIC Platform data
+
+This already exists in 'dev'.
+
+In fact, I'm not sure this is platform data, per say.
+
+In the device driver model, platform data usually gets passed to a child
+device for consumption.  However, here the driver is feeding from it,
+which is not correct.
+
+I think just a rename is in order.  What does this actually describe?
+
+> + * @dev:      Handle to SPMI Device
+> + * @dom:      IRQ Domain of the PMIC's interrupt controller
+> + * @regmap:   Handle to PMIC regmap
+> + * @irq_lock: Lock for the PMIC's irqchip
+> + * @irq:      PMIC chained interrupt
+> + */
+> +struct mtk_spmi_pmic {
+> +	const struct mtk_spmi_pmic_pdata *pdata;
+> +	struct device *dev;
+> +	struct irq_domain *dom;
+> +	struct regmap *regmap;
+> +	struct mutex irq_lock;
+> +	int irq;
+> +};
+> +
+> +static void mtk_spmi_pmic_irq_set_unmasking(struct irq_data *d, bool unmask)
+> +{
+> +	struct mtk_spmi_pmic *pmic = irq_data_get_irq_chip_data(d);
+> +	const struct mtk_spmi_pmic_pdata *pdata = pmic->pdata;
+> +	struct regmap *regmap = pmic->regmap;
+> +	irq_hw_number_t hwirq = irqd_to_hwirq(d);
+> +	unsigned short i;
+> +
+> +	for (i = 0; i < pdata->num_groups; i++) {
+> +		const struct mtk_spmi_pmic_irq_grp *irq_grp = &pdata->pmic_irq[i];
+> +		u32 con_reg;
+> +		u8 irq_en_bit;
+> +
+> +		if (hwirq < irq_grp->hwirq_base)
+> +			continue;
+> +
+> +		con_reg = irq_grp->con_reg + (pdata->con_reg_sz * i);
+> +		irq_en_bit = hwirq - irq_grp->hwirq_base;
+> +
+> +		regmap_assign_bits(regmap, con_reg, BIT(irq_en_bit), unmask);
+> +
+> +		break;
+> +	}
+> +}
+> +
+> +static void mtk_spmi_pmic_irq_mask(struct irq_data *d)
+> +{
+> +	mtk_spmi_pmic_irq_set_unmasking(d, false);
+> +}
+> +
+> +static void mtk_spmi_pmic_irq_unmask(struct irq_data *d)
+> +{
+> +	mtk_spmi_pmic_irq_set_unmasking(d, true);
+> +}
+> +
+> +static void mtk_spmi_pmic_irq_lock(struct irq_data *d)
+> +{
+> +	struct mtk_spmi_pmic *pmic = irq_data_get_irq_chip_data(d);
+> +
+> +	mutex_lock(&pmic->irq_lock);
+> +}
+h> +
+> +static void mtk_spmi_pmic_irq_sync_unlock(struct irq_data *d)
+> +{
+> +	struct mtk_spmi_pmic *pmic = irq_data_get_irq_chip_data(d);
+> +
+> +	mutex_unlock(&pmic->irq_lock);
+> +}
+> +
+> +static struct irq_chip mtk_spmi_pmic_irq_chip = {
+> +	.name = "mtk-spmi-pmic",
+> +	.irq_mask = mtk_spmi_pmic_irq_mask,
+> +	.irq_unmask = mtk_spmi_pmic_irq_unmask,
+> +	.irq_bus_lock = mtk_spmi_pmic_irq_lock,
+> +	.irq_bus_sync_unlock = mtk_spmi_pmic_irq_sync_unlock,
+> +	.flags = IRQCHIP_SKIP_SET_WAKE,
+> +};
+> +
+> +static int mtk_spmi_pmic_irq_domain_map(struct irq_domain *d, unsigned int virq,
+> +					irq_hw_number_t hwirq)
+> +{
+> +	struct mtk_spmi_pmic *pmic = d->host_data;
+> +
+> +	irq_set_chip_data(virq, pmic);
+> +	irq_set_chip_and_handler(virq, &mtk_spmi_pmic_irq_chip, handle_level_irq);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_spmi_pmic_irq_xlate(struct irq_domain *d, struct device_node *ctrlr,
+> +				  const u32 *intspec, unsigned int intsize,
+> +				  unsigned long *out_hwirq, unsigned int *out_type)
+> +{
+> +	struct mtk_spmi_pmic *pmic = d->host_data;
+> +	struct device *dev = pmic->dev;
+> +	struct irq_fwspec fwspec;
+> +
+> +	of_phandle_args_to_fwspec(ctrlr, intspec, intsize, &fwspec);
+> +	if (WARN_ON(fwspec.param_count < 3))
+
+Let's not WARN if we don't have to.  This can crash the kernel.
+
+Simply print a dev_err() and return the error value.
+
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * The IRQ number in intspec[0] is ignored on purpose here!
+> +	 *
+> +	 * This is because of how at least the first revision of the SPMI 2.0
+> +	 * controller works in MediaTek SoCs: the controller will raise an
+> +	 * interrupt for each SID (but doesn't know the details!), and the
+
+Does the exclamation mark add anything here?
+
+> +	 * specific IRQ number that got raised must be read from the PMIC or
+> +	 * its sub-device driver.
+> +	 * It's possible that this will change in the future with a newer
+> +	 * revision of the SPMI controller, and this is why the devicetree
+
+"device tree".
+
+> +	 * holds the full intspec.
+
+In full please.  Some people might not know the abbreviations.
+
+> +	 */
+> +	*out_hwirq = intspec[1];
+
+Please #define what will be held in elements 0, 1 and 2.
+
+> +	*out_type = intspec[2] & IRQ_TYPE_SENSE_MASK;
+> +
+> +	dev_dbg(dev, "Found device IRQ %u chained from SPMI IRQ %x (map: 0x%lx)\n",
+> +		intspec[1], intspec[0], *out_hwirq);
+
+Who is going to find this useful now development is complete?
+
+Suggest removing this and subsequent debug prints.
+
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct irq_domain_ops mtk_spmi_pmic_irq_domain_ops = {
+> +	.map = mtk_spmi_pmic_irq_domain_map,
+> +	.xlate = mtk_spmi_pmic_irq_xlate,
+> +};
+> +
+> +static int mtk_spmi_pmic_handle_group_irq(struct mtk_spmi_pmic *pmic, int group)
+> +{
+> +	const struct mtk_spmi_pmic_irq_grp *irq_grp = &pmic->pdata->pmic_irq[group];
+> +	struct regmap *regmap = pmic->regmap;
+> +	struct device *dev = pmic->dev;
+> +	int i, ret;
+> +
+> +	for (i = 0; i < irq_grp->num_int_regs; i++) {
+
+You can use:
+
+  for (int i = 0; ...
+
+... if you want.
+
+> +		u32 status, saved_status;
+> +
+> +		ret = regmap_read(regmap, irq_grp->sta_reg + i, &status);
+> +		if (ret) {
+> +			dev_err(dev, "Could not read IRQ status register: %d", ret);
+> +			return ret;
+> +		}
+> +
+> +		if (status == 0)
+> +			continue;
+> +
+> +		saved_status = status;
+> +		do {
+> +			irq_hw_number_t hwirq;
+> +			u8 bit = __ffs(status);
+> +
+> +			/* Each reg has 8 bits: this is the first irq of this group */
+
+"register"
+"IRQ"
+
+> +			hwirq = MTK_SPMI_PMIC_VAL_BITS * i;
+> +
+> +			/* Offset by this group's start interrupt */
+> +			hwirq += irq_grp->hwirq_base;
+> +
+> +			/* Finally, offset by the fired irq's bit number */
+
+As above and throughout.
+
+> +			hwirq += bit;
+> +
+> +			status &= ~BIT(bit);
+> +
+> +			generic_handle_domain_irq(pmic->dom, hwirq);
+> +		} while (status);
+> +
+> +		/* Clear the interrupts by writing the previous status */
+> +		regmap_write(regmap, irq_grp->sta_reg + i, saved_status);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void mtk_spmi_pmic_handle_chained_irq(struct irq_desc *desc)
+> +{
+> +	struct mtk_spmi_pmic *pmic = irq_desc_get_handler_data(desc);
+> +	const struct mtk_spmi_pmic_pdata *pdata = pmic->pdata;
+> +	struct irq_chip *chip = irq_desc_get_chip(desc);
+> +	struct regmap *regmap = pmic->regmap;
+> +	bool irq_handled = false;
+> +	int i, ret;
+> +	u32 val;
+> +
+> +	chained_irq_enter(chip, desc);
+> +
+> +	ret = regmap_read(regmap, pdata->top_irq_reg, &val);
+> +	if (ret)
+> +		handle_bad_irq(desc);
+> +
+> +	dev_dbg(pmic->dev, "PMIC IRQ Status: %x\n", val);
+> +
+> +	/* This is very unlikely to happen */
+> +	if (val == 0) {
+> +		chained_irq_exit(chip, desc);
+> +		return;
+> +	}
+> +
+> +	for (i = 0; i < pdata->num_groups; i++) {
+> +		const struct mtk_spmi_pmic_irq_grp *irq_grp = &pdata->pmic_irq[i];
+> +		u8 group_bit = BIT(irq_grp[i].group_num);
+> +
+> +		if (val & group_bit) {
+> +			ret = mtk_spmi_pmic_handle_group_irq(pmic, i);
+> +			if (ret == 0)
+> +				irq_handled = true;
+> +		}
+> +	}
+> +
+> +	/* The RCS flag has to be cleared even if the IRQ was not handled. */
+> +	ret = regmap_write(regmap, MTK_SPMI_PMIC_RCS_IRQ_DONE, 1);
+> +	if (ret)
+> +		dev_warn(pmic->dev, "Could not clear RCS flag!\n");
+> +
+> +	if (!irq_handled)
+> +		handle_bad_irq(desc);
+> +
+> +	chained_irq_exit(chip, desc);
+> +}
+> +
+> +static void mtk_spmi_pmic_irq_remove(void *data)
+> +{
+> +	struct mtk_spmi_pmic *pmic = (struct mtk_spmi_pmic *)data;
+> +
+> +	irq_set_chained_handler_and_data(pmic->irq, NULL, NULL);
+> +	irq_domain_remove(pmic->dom);
+> +}
+> +
+> +static int mtk_spmi_pmic_irq_init(struct spmi_device *sdev, struct regmap *regmap,
+> +				  const struct mtk_spmi_pmic_pdata *pdata)
+> +{
+> +	struct mtk_spmi_pmic *pmic;
+> +	int ret;
+> +
+> +	pmic = devm_kzalloc(&sdev->dev, sizeof(*pmic), GFP_KERNEL);
+> +	if (!pmic)
+> +		return -ENOMEM;
+> +
+> +	pmic->irq = of_irq_get(sdev->dev.of_node, 0);
+> +	if (pmic->irq < 0)
+> +		return dev_err_probe(&sdev->dev, pmic->irq, "Cannot get IRQ\n");
+> +
+> +	pmic->dev = &sdev->dev;
+> +	pmic->regmap = regmap;
+> +	pmic->pdata = pdata;
+
+Where is this consumed?
+
+> +	mutex_init(&pmic->irq_lock);
+> +
+> +	pmic->dom = irq_domain_add_tree(sdev->dev.of_node,
+> +					&mtk_spmi_pmic_irq_domain_ops, pmic);
+
+Feel free to use 100-chars to prevent ugly line-breaks.
+
+> +	if (!pmic->dom)
+> +		return dev_err_probe(&sdev->dev, -ENOMEM, "Cannot create IRQ domain\n");
+> +
+> +	ret = devm_add_action_or_reset(&sdev->dev, mtk_spmi_pmic_irq_remove, pmic);
+> +	if (ret) {
+> +		irq_domain_remove(pmic->dom);
+> +		return ret;
+> +	}
+> +
+> +	irq_set_chained_handler_and_data(pmic->irq, mtk_spmi_pmic_handle_chained_irq, pmic);
+> +
+> +	return 0;
+> +}
+> +
+> +#define MTK_SPMI_PMIC_IRQ_GROUP(pmic, grp, gnum, first_irq, last_irq)	\
+
+grp = group_name
+gnum = group_index
+
+... or similar.
+
+> +{									\
+> +	.hwirq_base = first_irq,					\
+> +	.num_int_regs = ((last_irq - first_irq) /			\
+> +			 MTK_SPMI_PMIC_VAL_BITS) + 1,			\
+
+100-chars.
+
+> +	.con_reg = pmic##_##grp##_TOP_INT_CON0,				\
+> +	.sta_reg = pmic##_##grp##_TOP_INT_STATUS0,			\
+> +	.group_num = gnum,						\
+> +}
+> +
+> +static const struct mtk_spmi_pmic_irq_grp mt6363_irq_groups[] = {
+> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, BUCK, 0, 0, 9),
+> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, LDO, 1, 16, 40),
+> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, PSC, 2, 48, 57),
+> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, MISC, 3, 64, 79),
+> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, HK, 4, 80, 87),
+> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, BM, 6, 88, 107)
+
+Please tab out the numbers - straight lines make my OCD happy!
+
+> +};
+> +
+> +static const struct mtk_spmi_pmic_irq_grp mt6373_irq_groups[] = {
+> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, BUCK, 0, 0, 9),
+> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, LDO, 1, 16, 39),
+> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, MISC, 3, 56, 71),
+> +};
+> +
+> +static const struct mtk_spmi_pmic_pdata mt6363_pdata = {
+> +	.pmic_irq = mt6363_irq_groups,
+> +	.num_groups = ARRAY_SIZE(mt6363_irq_groups),
+> +	.con_reg_sz = 3,
+> +	.top_irq_reg = MT6363_TOP_INT_STATUS1,
+> +	.chip_id_reg = MTK_SPMI_PMIC_CHIP_ID_REG_M,
+> +};
+> +
+> +static const struct mtk_spmi_pmic_pdata mt6373_pdata = {
+> +	.pmic_irq = mt6373_irq_groups,
+> +	.num_groups = ARRAY_SIZE(mt6373_irq_groups),
+> +	.con_reg_sz = 3,
+> +	.top_irq_reg = MT6373_TOP_INT_STATUS1,
+> +	.chip_id_reg = MTK_SPMI_PMIC_CHIP_ID_REG_M,
+> +};
+> +
+> +static const struct regmap_config mtk_spmi_regmap_config = {
+> +	.reg_bits	= 16,
+> +	.val_bits	= MTK_SPMI_PMIC_VAL_BITS,
+> +	.max_register	= 0xffff,
+> +	.fast_io	= true,
+> +};
+> +
+> +static int mtk_spmi_pmic_probe(struct spmi_device *sdev)
+> +{
+> +	const struct mtk_spmi_pmic_pdata *pdata;
+> +	struct device *dev = &sdev->dev;
+> +	struct regmap *regmap;
+> +	int ret;
+> +
+> +	regmap = devm_regmap_init_spmi_ext(sdev, &mtk_spmi_regmap_config);
+> +	if (IS_ERR(regmap))
+> +		return PTR_ERR(regmap);
+> +
+> +	pdata = (const struct mtk_spmi_pmic_pdata *)device_get_match_data(&sdev->dev);
+
+"dev" here or remove the variable and use "sdev->dev" everywhere.
+
+> +	if (pdata && pdata->num_groups) {
+> +		ret = mtk_spmi_pmic_irq_init(sdev, regmap, pdata);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return devm_of_platform_populate(dev);
+> +}
+> +
+> +static const struct of_device_id mtk_pmic_spmi_id_table[] = {
+> +	{ .compatible = "mediatek,mt6363", .data = &mt6363_pdata },
+> +	{ .compatible = "mediatek,mt6373", .data = &mt6373_pdata },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, mtk_pmic_spmi_id_table);
+> +
+> +static struct spmi_driver mtk_spmi_pmic_driver = {
+> +	.probe = mtk_spmi_pmic_probe,
+> +	.driver = {
+> +		.name = "mtk-spmi-pmic",
+> +		.of_match_table = mtk_pmic_spmi_id_table,
+> +	},
+> +};
+> +module_spmi_driver(mtk_spmi_pmic_driver);
+> +
+> +MODULE_AUTHOR("AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>");
+> +MODULE_DESCRIPTION("MediaTek SPMI PMIC driver");
+> +MODULE_LICENSE("GPL");
+> diff --git a/include/linux/mfd/mt6363.h b/include/linux/mfd/mt6363.h
+> new file mode 100644
+> index 000000000000..2e13398f5af5
+> --- /dev/null
+> +++ b/include/linux/mfd/mt6363.h
+> @@ -0,0 +1,26 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (c) 2021 MediaTek Inc.
+> + * Copyright (c) 2025 Collabora Ltd
+> + *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> + */
+> +
+> +#ifndef __MFD_MT6363_H__
+> +#define __MFD_MT6363_H__
+> +
+> +/* PMIC Registers */
+> +#define MT6363_MISC_TOP_INT_CON0	0x37
+> +#define MT6363_MISC_TOP_INT_STATUS0	0x43
+> +#define MT6363_TOP_INT_STATUS1		0x4e
+> +#define MT6363_PSC_TOP_INT_CON0		0x90f
+> +#define MT6363_PSC_TOP_INT_STATUS0	0x91b
+> +#define MT6363_BM_TOP_INT_CON0		0xc24
+> +#define MT6363_BM_TOP_INT_STATUS0	0xc36
+> +#define MT6363_HK_TOP_INT_CON0		0xf92
+> +#define MT6363_HK_TOP_INT_STATUS0	0xf9e
+> +#define MT6363_BUCK_TOP_INT_CON0	0x1411
+> +#define MT6363_BUCK_TOP_INT_STATUS0	0x141d
+> +#define MT6363_LDO_TOP_INT_CON0		0x1b11
+> +#define MT6363_LDO_TOP_INT_STATUS0	0x1b29
+
+ MT6363_REG_ to disambiguate.
+
+> +#endif /* __MFD_MT6363_H__ */
+> diff --git a/include/linux/mfd/mt6373.h b/include/linux/mfd/mt6373.h
+
+You don't need a whole new file for this.
+
+Just create include/linux/mfd/mt63x3.h and roll with it.
+
+Ah wait!  The convention seems to have already been set:
+
+include/linux/mfd/mt63??/{core,registers}.h
+
+Please follow convention, but also be sensible - do we really need all
+of these tiny files?
+
+> new file mode 100644
+> index 000000000000..3509e46447bd
+> --- /dev/null
+> +++ b/include/linux/mfd/mt6373.h
+> @@ -0,0 +1,21 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (c) 2021 MediaTek Inc.
+> + * Copyright (c) 2025 Collabora Ltd
+> + *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> + */
+> +
+> +#ifndef __MFD_MT6373_H__
+> +#define __MFD_MT6373_H__
+> +
+> +/* PMIC Registers */
+> +#define MT6373_MISC_TOP_INT_CON0	0x3c
+> +#define MT6373_MISC_TOP_INT_STATUS0	0x48
+> +#define MT6373_TOP_INT_MASK_CON0	0x4c
+> +#define MT6373_TOP_INT_STATUS1		0x53
+> +#define MT6373_BUCK_TOP_INT_CON0	0x1411
+> +#define MT6373_BUCK_TOP_INT_STATUS0	0x141d
+> +#define MT6373_LDO_TOP_INT_CON0		0x1b10
+> +#define MT6373_LDO_TOP_INT_STATUS0	0x1b22
+> +
+> +#endif /* __MFD_MT6373_H__ */
+> -- 
+> 2.51.0
 > 
-> Best regards,
-> --
-> Frank Li <Frank.Li@nxp.com>
-> 
-> 
-> 
 
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: base-commit c31b21db1c04ba719c3889a57873f0f7eff54670 not known, ignoring
- Base: attempting to guess base-commit...
- Base: tags/v6.18-rc1-10-gc35cf4fe4b85 (exact match)
- Base: tags/v6.18-rc1-10-gc35cf4fe4b85 (use --merge-base to override)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/nxp/' for 20251022-fsl-mpl3115-v1-0-93187d095efc@nxp.com:
-
-arch/arm/boot/dts/nxp/imx/imx6ul-pico-dwarf.dtb: pressure-sensor@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx6dl-b155v2.dtb: pressure-sensor@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx7d-sdb.dtb: mpl3115@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dtb: mpl3115@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx6dl-b105v2.dtb: pressure-sensor@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dtb: mpl3115@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx7d-sdb-reva.dtb: mpl3115@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx7s-warp.dtb: mpl3115@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx7d-pico-dwarf.dtb: pressure-sensor@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx7d-sdb-sht11.dtb: mpl3115@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dtb: mpl3115@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx6dl-b125v2.dtb: pressure-sensor@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-arch/arm/boot/dts/nxp/imx/imx53-ppd.dtb: pressure-sensor@60 (fsl,mpl3115): 'vdd-supply', 'vddio-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/trivial-devices.yaml
-
-
-
-
-
+-- 
+Lee Jones [李琼斯]
 
