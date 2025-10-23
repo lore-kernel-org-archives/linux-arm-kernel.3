@@ -4,113 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87E88CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:45:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4824FCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z7A5STg+v7+M98RaWbVd1lgwgdjB6XtkDPplIdfPqWs=; b=eXCxSQWnLbLA2KfRQMvB5qGie/
-	e5PbOmFj3mjrzdyUw5gf1trjB4hJZzI+K7RONsT4FUM++JiCF8CGXlwEITwArq1Vxfttcd7xXphpo
-	9n3kAbV8GU3gIYNvh/ocD5EiNzFONhu60O86fk4EgVItN3yv8mVxAuKxWZI1tgyKmgdGyrPU5+bGe
-	1VSSpHdUu46CdJLHEtR4KLIdvs+jK99pUUw4vHbuaij97QDAVFm1U0Dmv6kE59XsYK85VFI/LPA3p
-	Zl/r2zKC02YV2RCxljrnF5bMCGI3rFkTias87Oj0C67k4U+WnisdUAT7m7ljZ67aXa2IpSSExQ/Ii
-	LejFmVGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iIsk5my5VCBFqIeaw4+t+afMYDUccpxiQ6jeb6JpX30=; b=UZQTX7jKx5PRLDA1LJqTIXXm0Q
+	aBoGJfGSEnxO9R0MtiLPdlova5PaeR+ixIfjv4vA0qBZqpV88P4tBwF7FTIAlMG6m1+RPg+K6GE6o
+	4ByAY0iRCJIjIlmXOQRbA4M4tnu1a645d1pssh7wZBiuk2O7g+IezXJFmn4QzlIemXF5fD5cCQCOX
+	b8/rvzrex+y+k+jB3YrAbZ+yQK2YU71TG34c8D1SLHrfm/qtKj4z37SxJg7s9/VmiMdKitNoy72B6
+	fPfOFZ2XImzcD+J/dXPYkSG+9CG7OUxqj1O1UwvTWzYQotefsCitS5xHTfV0XauOrY5vchTK4r8wv
+	yGWi2zvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwYl-00000006dSb-0qQO;
-	Thu, 23 Oct 2025 14:44:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vBwaX-00000006deV-2c82;
+	Thu, 23 Oct 2025 14:46:49 +0000
+Received: from mail-northeuropeazon11012065.outbound.protection.outlook.com ([52.101.66.65] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwYj-00000006dSQ-3qaC
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 23 Oct 2025 14:44:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=z7A5STg+v7+M98RaWbVd1lgwgdjB6XtkDPplIdfPqWs=; b=igB8UbZZ/jSlBOjgvs40DNh/+q
-	lfGKVbX4toIlzZ6LUInugYrg/E42p3MEH9RneVAJE7uEP9Hy3Iu6LtDoDIApxt8avtS6ECYlCp+g7
-	lDsjLbgaWAcozvZAD7ss4EIUj9r/R6faUa/Lm6OhPScTBxubOWr/wO4IJFjT3+RRW0yQCtmmTWBea
-	DmarTpQWKQheWrA/ssSbAJmqseqjoYQ7ljAxoYBuyhpVu1AsXeJWWjWLUYO6z6xZdk5s0539ZLEni
-	G17dNdNjoTIslRQFvcG1e4I7gVLQARJXJzVzqWpte62VD+tbxlytHrtuivReHg8JddABL4P1t4Iag
-	bjVQ51BQ==;
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvh2-00000001QJE-0Mar
+	id 1vBwaV-00000006ddw-3SQv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 13:49:29 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-7a27f2469b8so15089b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 07:44:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761230692; x=1761835492; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:to:subject:cc
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=z7A5STg+v7+M98RaWbVd1lgwgdjB6XtkDPplIdfPqWs=;
-        b=XJ/Ao4aI6f+1u9T9cDw07TLpTczsrv9g5J9/3bv47lcB85tZddIBpDKZ2HFJgDIdNH
-         hEt/TJ3Xnoxt7tk5MWafZWBhTn9lTLYr8KVyOYJnH8fdN7UUpwrzVwDNXph+LMV6LGWi
-         A8fRKJ1+OU6tOoI//aY9jW5VQntDP3Toemeo/YPzawlx2kuWr/65w6WwKAd8B8EDUFOZ
-         9xNmMHm+egwZVWZfpXYgXsK9jXZ84FzNXNrQZGZPXcalea4icZ8SbLcPXWJZEJuKXPmf
-         1S/evHyHAAfhwJPX7Jl8vcXP8sWaZO2F6uxnl0eO5BNNDleULDT5i7DNLXrlKunjhs5M
-         LDqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761230692; x=1761835492;
-        h=content-transfer-encoding:in-reply-to:from:references:to:subject:cc
-         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=z7A5STg+v7+M98RaWbVd1lgwgdjB6XtkDPplIdfPqWs=;
-        b=enu2UHi//5tgajSxO5cSNASRgbiS/7zWdvVqfxP2BHnux4sf7H3/9rorzVybzpXnvL
-         r9k9af2IPJ7sUe/K1TEX1CRqavtUCEwNpIBgEY+Wxp1jrkHPpPjwDg7krJKUKFORF10Z
-         CAikYEt6n/VQ6w6Lb7fpDrvB8wan/U6hI8loyOovOP3FpS7R939XlU0wXZR1M8NQbTmv
-         9X6BQdInzJO4eBLk3Dqf4ekCzEms8nO4cRy6stYbaCwNAAprUE67mIj1ld2R2F1UnVNW
-         T7pNG5t0gv4Cla3thOk1t8r4w3k1OqJTEHXbpQ2a4dlRtJBDblYkVWdqmwnyvcoPVlu9
-         /RrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU0djZZwErwSDjt49kRrCAySdVf7ubHXr0Z0ncJLYGSOEVlS5PAzlkmmXen9DbFSTPhfVaOi4JEIYUVXK9VVgyS@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywd972ZlGrJaSVH7/bdlKtmr8rdGYf2YSJvPeN0QuvsnOnrbv5i
-	gfmMxIPIv35oFBhfYSiYttkzCQrUAab0EUD3cIhaB6/m8FFRQBBb35/I
-X-Gm-Gg: ASbGncvgdSmg8+v7jyCPqeEbPK2DvzRflQcJUWKRClML5+lrfKVhXkpMT7fIIhQTyZG
-	yZxctMi5v8QZNU+OeuEeX9L8hzVTMlsNNC+PQR821wcc0GUic33iErtjSvpoDqkBbdw3VdIJ3Jc
-	ttcRnDcapwG1Ym+eU/7/gY8+bAl1OcEX8UeO2xlDogiIIkR977PUoC3dbkNlCTtXdfKLXMVeqRk
-	RyVPGXMVxZhtpqTDWOJbqDbhKNm1iygcM1iQIaU8esKrX1S3UAJGfwH7gs7jJIAhcYQb8XNMfm1
-	Sz/MsWCEVDiNh4MCE4q1g/RxDk5jm2WO6l4f3ndj2B4pKVhxGSAOTvXdyKhaSxXtKxijws1XFDY
-	rlCHhhPGOlA25yfAlC1ww3TElSyIlJlZj5jlRjj2hsWtLUZmgMD770MO4xzorI/mev5PFeuCb89
-	LnHll7ArAmNn0cCYcEA6msmZA18/nwY0fn
-X-Google-Smtp-Source: AGHT+IGug+cluxOUq0HAqc382+2RbJPtSE3MYuJbYfvni05jZVEd26sYnhBkfVlR88Cf13K3xjU5VA==
-X-Received: by 2002:a17:903:94e:b0:26a:3c75:5241 with SMTP id d9443c01a7336-292d3fcce91mr74013375ad.9.1761230692165;
-        Thu, 23 Oct 2025 07:44:52 -0700 (PDT)
-Received: from [192.168.0.100] ([163.125.181.95])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2946de15fc6sm26181005ad.42.2025.10.23.07.44.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Oct 2025 07:44:51 -0700 (PDT)
-Message-ID: <d092101f-76d4-439e-a17c-b92c46e99ce9@gmail.com>
-Date: Thu, 23 Oct 2025 22:44:35 +0800
+	Thu, 23 Oct 2025 14:46:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eAYWQ8gn8TES7nXoyNKIPNKh1L9vGJc9oy1WUgEoCygvZMrNCWfPIMW7/MxM5eZi/HQCRl8I9UIfPvPnnuN59S1bJCVNtozCDr4MIPhevxI5ZjpszV3GDoQjsYCXSYqvZl+b/aHYSBK+lf9MEwBf/dTxHVIKT5k8x+1M2BEh/HHztMa8g8Rj4hSi/vX73X/VzmKbwI6g66AfKf1sOqzQ4PVPb7tL019I7xWlHTn/zDIrL2nTn8WF1bjTG1ejYaSOE+pWLCV3D0dwXVVlgQTu/8PXyWXLp5VFhDGFHk4GpM1trducE0a51OjBES1AVgRt9rG5uxyDYwiyN2woKiZ35g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iIsk5my5VCBFqIeaw4+t+afMYDUccpxiQ6jeb6JpX30=;
+ b=Fm09i2cehZA9d2A4jkqU2C2J/Oeb/HMr0CcLX+IdJkHo8L/BBs9Vzi2IbUZhpz7BqfsO3zPa8UAgpgVBiSRueqPOvB1vFTkqolMVy/iLU6JVggFfYB+/dpaL2FSbLnS7SEKie7+qFYK9DG3k4ei/mOF6AozgQSBBvAwVkZEq8Rhb/lv+5jdPVu8THgsCK2mB/Ah1tA2ewJxJ1zmhR3MJX6mRoKnrwjMKpobXXo2naXGNq26b/rEjCHyzCR2s0Kwlp6cTu9p6ZoCeA8iMrw3DsyrJ8r/IsdW5lTWOVJpXZqJYtxIRGL3vDHtikZRKeUBccFFQ3v7uTKp7mKj6d6MiLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iIsk5my5VCBFqIeaw4+t+afMYDUccpxiQ6jeb6JpX30=;
+ b=PUReZj06MhZhA5656OubmdRwljuRlA6Imt3VrCpQsQdJFpcMXYkqaJZ6fXVFI4TDuiTtIE0/qutY/xhKKt9WieUSPkO+p6MZq8xt5q4Yi/FfNo36Okj/i9+EzNKbqBoak3cQNW3St4TopzXLwuaFDHeJsC+nFlcGsJpOFTZMlB8XQJeQvfOpfevEBylWJvTSAT/LY31QdGeFThRay4RM2C3riXSVavdTVWM81EajVv1NTdl0qyFsD0VLZ1nzpQ/rLFMiMmFHw4HDgC0oipQRRCxPmXTdI+4Fv6+FCWLIWrJURtDD8tbH1NjfBXtbUztDliThDc/s7YA1APfmN0Utdw==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PAXPR04MB8405.eurprd04.prod.outlook.com (2603:10a6:102:1c2::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Thu, 23 Oct
+ 2025 14:46:42 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9253.011; Thu, 23 Oct 2025
+ 14:46:36 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+CC: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sudeep Holla
+	<sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>, Sebin
+ Francis <sebin.francis@ti.com>, Brian Masney <bmasney@redhat.com>, Dan
+ Carpenter <dan.carpenter@linaro.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "arm-scmi@vger.kernel.org"
+	<arm-scmi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v5 6/6] clk: scmi: Add i.MX95 OEM extension support for
+ SCMI clock driver
+Thread-Topic: [PATCH v5 6/6] clk: scmi: Add i.MX95 OEM extension support for
+ SCMI clock driver
+Thread-Index: AQHcOM+l7sFcrdl8hEKQrktlH0f/Y7TP2KCAgAAK2lA=
+Date: Thu, 23 Oct 2025 14:46:36 +0000
+Message-ID: <PAXPR04MB8459BC290B855BFCA1C3D15E88F0A@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20251009-clk-ssc-v5-1-v5-0-d6447d76171e@nxp.com>
+ <20251009-clk-ssc-v5-1-v5-6-d6447d76171e@nxp.com>
+ <CAMuHMdU-UkzLnrPpBVyMH0DtgubxE_spUYbxtpO+5dmkFFqdcQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdU-UkzLnrPpBVyMH0DtgubxE_spUYbxtpO+5dmkFFqdcQ@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|PAXPR04MB8405:EE_
+x-ms-office365-filtering-correlation-id: 95bdb4b3-8b17-473e-ca9d-08de1242f7c9
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|19092799006|376014|1800799024|366016|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?U3JmQndpWFpweTg4UlA4bEkvREh4N0dLQXc5OGVvenlDWllIekZqdGsxRVcz?=
+ =?utf-8?B?SlNOcXdmVDdPTUx1UmZmc01tTFRJZ09ZL2NWMHNtNnZXeFZVREVCbU9oQVkx?=
+ =?utf-8?B?K3hueTZqLzN4UGJaMEx0bWZFeE5Ba1dhbXM3S1pIMnkyeG9TSFpKNlBiZnVJ?=
+ =?utf-8?B?NWEwa1B2TG1YTHdRS3FzWEVmMEVKYnc0VzRhQWc3enRBVjR3VmZJeXBRRnZV?=
+ =?utf-8?B?eWphM3ZkMjlrcW1IZElpQloyNk8xOGJkTmk5U09uYzhqWjRQMVZQbDBFUVBs?=
+ =?utf-8?B?bEpLd3ZFNG9KaEJNcWFqK1RVbktEVmNFNUxLRVFqek5EditHdXVVRGtkTFo1?=
+ =?utf-8?B?clg1aGY4VEdSTXpXK2o3N09wNWJ5RTI4dmpVVFVIT3k5N0hGTWkyRzdhRjVH?=
+ =?utf-8?B?QjBLMVlBNjNzM25IaFFlbGxMY2E5L2VNNFV6YTdDRU8vdjE5bGxpUVUxaXZ2?=
+ =?utf-8?B?MW1oSEZYRFUzOFBxQ094b2JiY3lZV2VFTVlqaDBjVy9YSEw5aUF3dlZsS3FQ?=
+ =?utf-8?B?WUN4Tm5kY2N1SmZUK3JqYnlnOVRDUG10Q0FVQ0RRdmUxMVJveStYbksybXVo?=
+ =?utf-8?B?dURzYWJxTnlwNGdUQkNSWGdMVUx1ZkZnNUZlUWZEakFiUjBsa1pjbEJqUWFL?=
+ =?utf-8?B?UUhQTlR3WEZwQ1UzcXc0N3g5eUJ5d0ZOV2NpRndZdHZtRVd2Z00yVmp0V2g3?=
+ =?utf-8?B?b1hXQXYyTS9qcHQyNHA4K29FZ1kvSGljTWtVU21UWHlrWitxaURQenFXd0p6?=
+ =?utf-8?B?WmFiaktwSlhyejEwajBBQ1lCQjZqOGZwN3ZkdHlqUElSeVdkL1ZlVElBc0xM?=
+ =?utf-8?B?NGxkdVJIVlI4cVE2Y2xFWkFGcGQwSmVhQWdJRFZjc0FlV0NCT2RQYzdOUDRy?=
+ =?utf-8?B?ZVRXMjV4NkhDeUlvbXRnSUF3dUhYOXVuL1pvNHJRUndicGJCR0VScTByaGRK?=
+ =?utf-8?B?OThVOG10VGRjMEp1Zk1MUkY4T2RsZ0kzSlN1YnJtS2xMYW8xUUVnMURubllW?=
+ =?utf-8?B?ZENWWHp5akZtcFRyakVLNUxINGVlU05PbW00MW9icjJjVExVeUlzYmczbjNv?=
+ =?utf-8?B?MmUvNVhvUkt2N3dzaWFYNXI1TFRFc2RyTmJBMzZjRy8wTVBPSWFDTTk4Smtz?=
+ =?utf-8?B?SVAxTUVtSTk4NXBuNlgxRFlhdi96Y3BVcUEybVBpVEwwYzllU2tRd1VqZ2RN?=
+ =?utf-8?B?N2lwMVVvWDRNQzV3T21iMzBnMzlPU241VWNTV1JabmNWV0FBbVgzNFhIK3Vy?=
+ =?utf-8?B?ZS9ieDZqUEtPcSthSnV5SDlUNjIxMktXamJXZVVwRUU1ZzM4dDRrdE0xV2Jn?=
+ =?utf-8?B?UStqRG44TDRDTjhrT0h4RlNSZ3BVSitwYytFZ1RtUDhOM0tCS0FmRnhNc0Vt?=
+ =?utf-8?B?MlNyWjVYZWVEVFZNRG1vZlBxMHF6NVJHRkVoT2N2RmlSeVhWc2xjV01FSWRY?=
+ =?utf-8?B?MXR4aiszc3NVRUxLWHF4dmNhSDJpa0dkeVFpSG5FdTJTVWJ2eG9pR1NKNGp0?=
+ =?utf-8?B?NldJWTVnME84b0FlbU1TYlJLa2tQUTgwRDc3azh6MFc5L0hBRjgrVGhzWTFG?=
+ =?utf-8?B?S2hidlZzTjBOSlV1QldPOVRkSWlLdXZjS0UwbTQ2S0xvSG8rMkU1QUE0ZnRW?=
+ =?utf-8?B?K3ZnakMyTUdIZ3J4T09tWHVYejVuWERnQTJ4RXhHWm1zcDF0VDczME1FZzhY?=
+ =?utf-8?B?bXdKQnRvT1V0YnpJdFFBRG5PYys1T2RlRm4xZnc4Y1E5MDljU0R1VitGc3RM?=
+ =?utf-8?B?MUZkaWVCaGI5c2N4WnFTcE0wcEtkblljZitoOHREdjJSQVd0UzY4bFhRa2t3?=
+ =?utf-8?B?N2VJc1pnbWd1Y2F5OHRpVmQ0dGlGMmJiUEQ0MmVVVk1oY2kxZlFleFpoRFRw?=
+ =?utf-8?B?TjVNYi9rcEpEc2hPMzZiaWwydjQwM2dWM1kxMUdpQUp1MllFM20vdUZhM2Ro?=
+ =?utf-8?B?Q2hzTmM4N1Z5UFcxYlZZaTR3S1hHd2FBYXo0OXZjT3NBRTB5Ym84RWJyRXhM?=
+ =?utf-8?B?cEVrNjIwRWxhdWJjUStkanFicnMxZEE1ME9wSUpvKzF3WFJlc1ZRR0pRVURF?=
+ =?utf-8?Q?bSa02i?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(376014)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bzNpWEk4ajNEeVRZOEJoRUlLc05aZDhSZTlvWlQ1MVJQMDdNcFpJaEVDUFFL?=
+ =?utf-8?B?Q0dUbDdzZjhCTE45SmtXS3RJc3Q2MG5MSnNvUXpmc3hHbDdPdjBwNTZhK25h?=
+ =?utf-8?B?amIzc0trY2tFYTJ3bmpyMnUrV0pJaGZKdXRlcFFHSHhZdWFlMTNXOSt4WXBa?=
+ =?utf-8?B?UjE4R0h4OHRCcUhMMnh3S3JhWEFEVklwblRhZzJLTnVsVnJHTldiaWt5ZzE2?=
+ =?utf-8?B?OWZ1Z0d3c2pCYjFsM0ZrSkNBM1hPNGM5NDZYQVF1ekNFZklqV1g5MHVkK3JD?=
+ =?utf-8?B?eER2ODY1MDMzbHozN3pRRGw2SkxSdWc2aEF1dTBVLzRIQXhDRlI1UDNjb2U2?=
+ =?utf-8?B?OExWRW9FRTRRMitIVmI2SlBIOHMxSCtJL3ZqalFzbVJZNEhQN3lGMUZrRlJq?=
+ =?utf-8?B?SWNqL251QUZMMlAxNHRvaFBDM2RxZk9DWEFudFFEamdOL1EvM0YzU3VVWmNE?=
+ =?utf-8?B?WkZuWk90ZEl4MkF3OHdFUXFsNXJUeHhCYjJoYzRiTWxBZnNDZElwVjFHeDRC?=
+ =?utf-8?B?VEhWWFh0MGVLbTlsVE9nV2d3clNTMDdoSXU2TC9KbW5qOU9oNm0yQ0kyV0dz?=
+ =?utf-8?B?clVjVGlkNVBNSTNEelJ3VE1Qa0xtbzhtMDQzVWRicnJ4RExCNGltT2RDYXZi?=
+ =?utf-8?B?QThLSFlsa1RPNmw4YnpPZUFhUlhKV0xUOGN5MXVLdFBuZXgyb3A4ZDNORHlU?=
+ =?utf-8?B?bVo5RXJLYjE2QVFjTHBDYVpHdHA2d2xJYWR4dkxveWxuemh0OGI2ejhHTkVo?=
+ =?utf-8?B?SHM1T1NpdVNqRytOdExoSTZOdldIZFFza1REMW9hdWVoZ3l2Z2NodC9xdnhU?=
+ =?utf-8?B?djdudmtqWHNPenFPbXRPdE43OUVjOWwweGNlUFlLZWp4OWRaQVNKTGFYYlRC?=
+ =?utf-8?B?YzB3d1BqY2ZIYjlsUG9xb1JIaXFRNVlxZnRwQm5yRUtTZmJOZjFYcG5Ta2Fr?=
+ =?utf-8?B?b2pDVG16NUREcWZVSTdBMUVhNDR6QlRtaEhmTGJkQytGV1VOTE1kS29KUlE0?=
+ =?utf-8?B?MkIrWU9jSjBLTFFQSEFONGZUL05pWmhMbXRKbzFDMDJIZVZTUzl1SUYwVFdt?=
+ =?utf-8?B?bFZvYTVaVXovRHRVOUp5dTJpL0gwZUlkZTRRVTJTVmRFd0x3aWFMY2plVVEy?=
+ =?utf-8?B?dTJhUG9zQ0xEZWh0dUcyRE9kUEhkdTZmWnRFYzljcm9CdnhUbTVDWCtoSjRl?=
+ =?utf-8?B?dHZ3VWdUcHlKRlRNUzhKdk45aEswdldNVG1iSWlaK3p6cnFmcVlRdTdnVDQx?=
+ =?utf-8?B?bmRPd29rcDQyM3N0elAwQmZ0V0NVZWlTQ0Z6ZHM5VTE2VTZCOFRpWHJOU2Rt?=
+ =?utf-8?B?Mnl0S3MwQWdOdDhzL2sxeHhPSUI1U1hia0I3OUIvN0J4SDJlcmJoK1ppaFdF?=
+ =?utf-8?B?RkY4RXZUTDFUVFZTQ0dOelVleEZHeDBLQmMrTDRsWjlFbDhTRGRiTjByU2dE?=
+ =?utf-8?B?Q0crVEdoVU9pTXVCOWJIWWtlNXlIQWNldExYZ1pCZzdza0h3RzE1VVRDbFpD?=
+ =?utf-8?B?T3E4OTBkQXJlVjZKTDNGbGNaYlU0SUlDSC93YUErUzNEcHVGU2xXSnJWdHY3?=
+ =?utf-8?B?b1puaEU0d052ZEdRZVJvYmwwVVdqSVFzKzhtdXVtL21DWG1vNmdIVEcvSFFm?=
+ =?utf-8?B?MnhPUU9uMlNieFVkTWdjOHVySThxaFFudzB4bDN3c3ZCWi8vNmkvL3RFQVlv?=
+ =?utf-8?B?VjlXSGpXYzFqRkxRQSsrcTA4bEl5VG1YWTJnbHF5bnlabFduWWd4cUNiTjVu?=
+ =?utf-8?B?aW5TTHRWYmJZaUZFYnVNZXZodDZsbytkR250WTBIY0h3c1BKQUdpb2o3YmhH?=
+ =?utf-8?B?cThGNXJtSURzM3ZWT21JUnR5Z1dWaVhLMGhscTI4KzB1RHNBcy8zcVp6RUlH?=
+ =?utf-8?B?bHJzNkN4OCtyaFUvYncvdVZFV0JZc0JwNi8wQlEydWFHcnlRM2hZSUJ6Z1RQ?=
+ =?utf-8?B?VFRGcndpN3dXb1JFQ0pmb2xNUGVMUHJJUmJ6QmovMkhiQ0J5NEdKa2twelZw?=
+ =?utf-8?B?SUYvZmV3OW5oRHdlRGtlS1pUeS9ibzVvVnF0RzEyRVhXeEQ5ckw0Zk5hckJF?=
+ =?utf-8?B?dTVuODM4K2NzYm1tRWNFb1ZWMGVOU0dKSjRQeUxOVEM4aHdJY3lKT1FrQkY2?=
+ =?utf-8?Q?+t2w=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: yangyccccc@gmail.com, Marek Vasut <marek.vasut@mailbox.org>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>,
- linux-arm-kernel@lists.infradead.org,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
- linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH] arm64: guard AMU register access with ARM64_HAS_AMU_EXTN
-To: Marc Zyngier <maz@kernel.org>
-References: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
- <86347bvx0f.wl-maz@kernel.org>
- <07391913-aab6-4d92-b75f-278506f51397@mailbox.org>
- <632d6afe-40d3-4632-99c7-b098967bd649@gmail.com>
- <87wm4l3dh8.wl-maz@kernel.org>
-From: Yicong Yang <yangyccccc@gmail.com>
-In-Reply-To: <87wm4l3dh8.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 95bdb4b3-8b17-473e-ca9d-08de1242f7c9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Oct 2025 14:46:36.6905
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: OrOdLLcq70As2bioEkxD+ydCCfnIAFk7k4gDZEQvS/oR+qqLfn/g3kazCV8bg4E/ujCMHDNX5BtgCkwxIRE+zA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8405
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_144928_157351_5C40E094 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20251023_074648_060901_2103FCAF 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,70 +190,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/10/23 22:21, Marc Zyngier wrote:
-> On Thu, 23 Oct 2025 13:01:52 +0100,
-> Yicong Yang <yangyccccc@gmail.com> wrote:
->> On 2025/10/22 22:33, Marek Vasut wrote:
->>> On 10/22/25 4:20 PM, Marc Zyngier wrote:
->>>> On Wed, 22 Oct 2025 14:35:28 +0100,
->>>> Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
->>>>> The AMU configuration register access may fault and prevent successful
->>>>> kernel boot. This can occur for example in case the firmware does not
->>>>> allow AMU counter access from EL1. Guard the AMU configuration register
->>>>> access with ARM64_HAS_AMU_EXTN to prevent this fault if ARM64_HAS_AMU_EXTN
->>>>> Kconfig option is explicitly disabled. Other interaction with the AMU is
->>>>> already guarded by similar ifdeffery.
->>>>>
->>>>> Fixes: 87a1f063464a ("arm64: trap to EL1 accesses to AMU counters from EL0")
->>>>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
->>>>> ---
->>>>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
->>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
->>>>> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
->>>>> Cc: Marc Zyngier <maz@kernel.org>
->>>>> Cc: Ryan Roberts <ryan.roberts@arm.com>
->>>>> Cc: Will Deacon <will@kernel.org>
->>>>> Cc: Yicong Yang <yangyicong@hisilicon.com>
->>>>> Cc: linux-arm-kernel@lists.infradead.org
->>>>> Cc: linux-renesas-soc@vger.kernel.org
->>>>> ---
->>>>>   arch/arm64/mm/proc.S | 4 ++++
->>>>>   1 file changed, 4 insertions(+)
->>>>>
->>>>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
->>>>> index 86818511962b6..123538ffeda6b 100644
->>>>> --- a/arch/arm64/mm/proc.S
->>>>> +++ b/arch/arm64/mm/proc.S
->>>>> @@ -145,7 +145,9 @@ SYM_FUNC_START(cpu_do_resume)
->>>>>       ubfx    x11, x11, #1, #1
->>>>>       msr    oslar_el1, x11
->>>>>       reset_pmuserenr_el0 x0            // Disable PMU access from EL0
->>>>> +alternative_if ARM64_HAS_AMU_EXTN
->>>>>       reset_amuserenr_el0 x0            // Disable AMU access from EL0
->>>>> +alternative_else_nop_endif
->>>> Why?
->>>>
->>>> We ensure that the AMU is available in the macro itself by checking
->>>> for ID_AA64PFR0_EL1.AMU. If the AMu isn't present on this CPU, we skip
->>>> the offending sysreg access. This is similar to what we do for the
->>>> PMU.
->>>>
->>>> Does your HW advertise an AMU, but doesn't actually have one?
->>> The hardware does have AMU, but it is currently blocked in old TFA version and access to this AMU register here causes a fault. That's why I have to disable ARM64_HAS_AMU_EXTN until the TFA is updated and the AMU access is made available on this hardware. But even if I do disable ARM64_HAS_AMU_EXTN=n , I get a fault.
->>>
->>> This patch is mainly meant to prevent a surprise in case someone does set ARM64_HAS_AMU_EXTN=n , and the system still faults on AMU register access.
->>>
->> then I think it's more proper to guard it with CONFIG_ARM64_AMU_EXTN
->> (I think you mean this above?)  rathter than the cpu cap. then with
->> the patch kernel won't touch the AMU registers here if the kconfig
->> is disabled on you AMU supported hardware and AMU unsupported
->> firmware.
-> No. Not preventing EL0 from accessing the register is a data leak to
-> userspace. This must be acted upon irrespective of the kernel being
-> AMU-enabled or not.
-ok got it. so this is a security concern to ensure EL0 access is disabled on AMU supported
-hardware even if the kernel support is not compiled in. thanks for the explanation.
-
-thanks.
-
+SGkgR2VlcnQNCg0KVGhhbmtzIGZvciB5b3VyIGZlZWRiYWNrLg0KDQo+IFN1YmplY3Q6IFJlOiBb
+UEFUQ0ggdjUgNi82XSBjbGs6IHNjbWk6IEFkZCBpLk1YOTUgT0VNIGV4dGVuc2lvbg0KPiBzdXBw
+b3J0IGZvciBTQ01JIGNsb2NrIGRyaXZlcg0KPiA+ICsNCj4gPiArICAgICAgIC8qDQo+ID4gKyAg
+ICAgICAgKiBleHRDb25maWdWYWx1ZVs3OjBdICAgLSBzcHJlYWQgcGVyY2VudGFnZSAoJSkNCj4g
+PiArICAgICAgICAqIGV4dENvbmZpZ1ZhbHVlWzIzOjhdICAtIE1vZHVsYXRpb24gRnJlcXVlbmN5
+DQo+IA0KPiBXaGF0IGlzIHRoZSB1bml0IG9mIHRoaXM/DQo+IEFjY29yZGluZyB0byB0aGUgY29k
+ZSBiZWxvdywgaXQgaXMgaW4gSHosIHNvIGl0IGlzIGxpbWl0ZWQgdG8gNjU1MzUgSHouDQoNCkl0
+IGlzIEh6LCB0aGUgbW9kdWxhdGlvbiBmcmVxIHRvIGkuTVg5NSBpcyBpbiByYW5nZSAzMEtIeiAt
+IDY0S0h6Lg0KDQo+IA0KPiA+ICsgICAgICAgICogZXh0Q29uZmlnVmFsdWVbMjRdICAgIC0gRW5h
+YmxlL0Rpc2FibGUNCj4gPiArICAgICAgICAqIGV4dENvbmZpZ1ZhbHVlWzMxOjI1XSAtIFJlc2Vy
+dmVkDQo+IA0KPiBDZW50ZXIsIHVwLCBkb3duLCBjb3VsZCBiZSBzdG9yZWQgaGVyZSwgSSBhc3N1
+bWU/DQoNCk91ciBmaXJtd2FyZSBkb2VzIG5vdCBwcm92aWRlIG1vZHVsYXRpb24gbWV0aG9kDQpo
+ZXJlLiBIZXJlIEkganVzdCBmb2xsb3cgd2hhdCBvdXIgZmlybXdhcmUgZGVmaW5lcy4NCkJpdFsz
+MToyNV0gaXMgcmVzZXJ2ZWQgaW4gY3VycmVudCBmaXJtd2FyZS4gSXQgbWF5DQpiZSBleHRlbmRl
+ZCB0byBzdXBwb3J0IG1vZHVsYXRpb24gbWV0aG9kLCBidXQgSSANCmFtIG5vdCBzdXJlLg0KDQpU
+aGFua3MNClBlbmcNCg==
 
