@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA56DCCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 15:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66AD8CCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 15:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DFJOfVdkWJHRulD8HfD61vkF8//SbVsJWE5Pa+v76dg=; b=lKIt9NMFqLHPwf0cS2iigFzR7X
-	GDiMTgWlK+JZHweM9a8HoETaaor9nOSkAz1Jmj+ROFYsDqXIS7Vqg/7DWHTu6NT3HZUA49g7lL63y
-	w9Mr89X9Ic6EewrH9ga7N2abmvtbTIeXItIqNZmlVoFjVwn448dJpgSV5ikSAAUmmw6gzUE+5hWVE
-	a2oZ3j1fLqH3Q+5EQ5h3rYNWRHBWcFG51YJ4MqWgQnShYDErFm1Z0O58h1CnvVTaO/NBFJqOf3kk/
-	xCgIQFm/DUqIQChf/TdSsI3SSbrcjnEFrAzMLiQWpb2MyTFrMwEFZ7tfgMs5nxaY8LVR33DG5Bj/d
-	O29vs4Cw==;
+	bh=TGXEqrpxuGhtSiEzqEbGWZIE6q4kkUxKyl23ZhAYOrg=; b=I4A1qpAUIP+jKnkeks30pN1gE9
+	Duuh9zs78Cz535NBn28G7Ym0oT2BsLRyAof0xnIYjSihEtuyvpDKdp6kgx8+QFd6KMpWliPKVX7Hr
+	vR9W6B5nGYDvHVExsQuY/KLkre/Vwq2sLl2nxndn43Yvn7PW51ktiu6rNz4Tck6B3+nyT8Mv4RIWU
+	fhFvnBhXrB8Wfgs8oDahQoeEmZBlsDKNM5Ci3S34UYIPdwQGV5b45gZVTDf26tpfTcbJsgcdl6wWs
+	RYKlr9WBGD4ExjDXamVFYZnKoklxjGdFWxBgZ76cw3dRi+ChpG65JBp49lPQGRCPzxj1Lf9cpe8fy
+	OQw43zPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBxiO-00000006pP7-02ko;
-	Thu, 23 Oct 2025 15:59:00 +0000
-Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
+	id 1vBxiv-00000006pTJ-1P2U;
+	Thu, 23 Oct 2025 15:59:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBxiL-00000006pOh-0vM3
+	id 1vBxis-00000006pSR-3qeR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 15:58:58 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4csrLP0GnTz9smP;
-	Thu, 23 Oct 2025 17:58:53 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1761235133;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DFJOfVdkWJHRulD8HfD61vkF8//SbVsJWE5Pa+v76dg=;
-	b=W5GrnDcbXg1dREAbAcjJ1Wt7/WmhgXyx+Hj+HHYDdcOpfiiiJhLIVMbe/C/sOR0XOHrqLl
-	0Z7TJG/FLOmH7PiW8JAY/9aqiuoAoXASwb2B/dMdU2V24HNZdUz37K5u3IhMegIpkZdIKB
-	YodUfnbAmanb0GDHUwMD+wmyJGQC3duu8ZQkLmgA6esRvo33HcgTIzXipi2aJDzXE1RDBP
-	LOKQ/bCaBy8GBEWdfvq2XVY/YHmiDXYwvGxx4Sw4naKwybeazhiFh6DO5i4oNPM4cH86si
-	xObNgqj9JWbvHUCYskpUz3YhafKn/90VTJyjEaS9PdMbjstDPOuOmTY5U3WuIQ==
-Message-ID: <adefdb3e-7a10-42a2-b2fc-8c1490762454@mailbox.org>
-Date: Thu, 23 Oct 2025 17:58:49 +0200
+	Thu, 23 Oct 2025 15:59:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3ECDC4A38E
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 15:59:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E5F7C113D0
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 15:59:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761235170;
+	bh=HNETIspV1pbV0Y7043vMBsmXaAMmB/3oT01AgEruh5o=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Iqm9YOj1nwjHauObiKeCKcztOyM7IDzlzvu7DqnfXoWrCbXW8LFQnOaNQwQXRS/vD
+	 G93NwnP0QcDAlRnItO34nCtCUky9f5sS8uIW06ELuZh/XCOzOm/HDb1MBsqjFSD1aj
+	 tUZsK+U0FhYJA2963vqqMBLycJQx6Y+A1Y7m8Cofj4McSrdU2ytBtGI7MC1J4jK3Hd
+	 mzx3D0bfz4oapjweIXnuUQKhb+BuvvR15B9uAYCoh6UoLCFVSpT8LzYnGRU9LK32iA
+	 J29QaMXqAP0qOIIA3RnPHS0tkvekxr7aTAvoWDw3Tmz2gp6M+QxSYKuCqRcd71pATw
+	 TSezQ+JvIMjNw==
+Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-b5a631b9c82so681536a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 08:59:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVL3jdA1kgddpYpv+yF9P5Uuto5uoZvGm0JXJYWWMdtDC7XdWEPi3oFHPRrl6QzpN5Nl2MPE403dobVsRKMQ2ZF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVoGDUChe2RNGw6sV7vPdLGkl2//hC7m0fuNEumi3ccHLXT/Hc
+	/LIChh3RSNuETunL+ZMj+bV0KcYLSsjo3s+1RMYTwP8aSGm/HCXR5xDMDxMco9bYaxXe15USJNt
+	mqDHquZ0ozWjqCcftjlLR39XIUHBiQw==
+X-Google-Smtp-Source: AGHT+IECkDSLnMI58q2z6cfhGJynJyGmcN+cdUTnJb3cy4ZottyIHIlB5uHCXuVcpJ10ENJOaHc75BD0rCg14pUbOyU=
+X-Received: by 2002:a17:902:d48b:b0:269:a2bc:799f with SMTP id
+ d9443c01a7336-2946e0ebfe2mr35532765ad.29.1761235169689; Thu, 23 Oct 2025
+ 08:59:29 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: guard AMU register access with ARM64_HAS_AMU_EXTN
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
- Yicong Yang <yangyicong@hisilicon.com>, linux-renesas-soc@vger.kernel.org
-References: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
- <86347bvx0f.wl-maz@kernel.org>
- <07391913-aab6-4d92-b75f-278506f51397@mailbox.org>
- <861pmvvv2g.wl-maz@kernel.org>
- <24c8da41-37db-4e69-b9aa-e33b2154acb0@mailbox.org>
- <87y0p13dlh.wl-maz@kernel.org>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <87y0p13dlh.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: c7wrdi8qspfi44q66t5f7171c9wa659k
-X-MBO-RS-ID: e2587fe32a5827e83b1
+References: <20251023-mediatek-drm-hdmi-v2-v11-0-7873ec4a1edf@collabora.com> <20251023-mediatek-drm-hdmi-v2-v11-5-7873ec4a1edf@collabora.com>
+In-Reply-To: <20251023-mediatek-drm-hdmi-v2-v11-5-7873ec4a1edf@collabora.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Thu, 23 Oct 2025 15:59:17 +0000
+X-Gmail-Original-Message-ID: <CAAOTY_8y6C5=jSjzBVVJ2vJq1L+Nf9U0tZvxzVX-e-3g91xEeQ@mail.gmail.com>
+X-Gm-Features: AS18NWBPNnpQTLl2v2M-LiIiRpHYJ2lBBGYEU56O8zLVvGRR7Usps46KfOInouI
+Message-ID: <CAAOTY_8y6C5=jSjzBVVJ2vJq1L+Nf9U0tZvxzVX-e-3g91xEeQ@mail.gmail.com>
+Subject: Re: [PATCH v11 05/11] drm/mediatek: mtk_hdmi_common: Make CEC support optional
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, CK Hu <ck.hu@mediatek.com>, 
+	kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_085857_656252_005E0DD1 
-X-CRM114-Status: GOOD (  21.90  )
+X-CRM114-CacheID: sfid-20251023_085930_996370_93DE9328 
+X-CRM114-Status: GOOD (  26.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,63 +88,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/23/25 4:19 PM, Marc Zyngier wrote:
+Hi, Louis:
 
-Hello Marc,
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com> =E6=96=BC 2025=E5=B9=
+=B410=E6=9C=8823=E6=97=A5
+=E9=80=B1=E5=9B=9B =E4=B8=8A=E5=8D=8810:32=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com=
+>
+>
+> In preparation for adding a new driver for HDMIv2, for which CEC
+> is not strictly required, change the of_get_compatible_child()
+> failure error to -ENOTSUPP to be able to differentiate between
+> error conditions in mtk_hdmi_dt_parse_pdata().
+>
+> In that case, if -ENOTSUPP is returned, this driver will print
+> an informative message saying that CEC support is unavailable,
+> as the devicetree node for that was not found, but after that,
+> function mtk_hdmi_dt_parse_pdata() will not return error to
+> the caller.
+>
+> This will not change functionality of the mtk_hdmi (v1) driver
+> as that is still checking whether CEC is present and, if not,
+> will fail probing with an error saying that CEC is required
+> by HDMIv1.
+>
+> Reviewed-by: CK Hu <ck.hu@mediatek.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+>  drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 9 +++++----
+>  1 file changed, 5 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c b/drivers/gpu/drm=
+/mediatek/mtk_hdmi_common.c
+> index f28e63716d7c2e2c6bdf5b28d24789bc926d2beb..989479fdfe40952762a1b6379=
+7bf602b520dcac5 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
+> @@ -253,12 +253,11 @@ static int mtk_hdmi_get_cec_dev(struct mtk_hdmi *hd=
+mi, struct device *dev, struc
+>         /* The CEC module handles HDMI hotplug detection */
+>         cec_np =3D of_get_compatible_child(np->parent, "mediatek,mt8173-c=
+ec");
+>         if (!cec_np)
+> -               return dev_err_probe(dev, -EINVAL, "Failed to find CEC no=
+de\n");
+> +               return dev_err_probe(dev, -ENOTSUPP, "Failed to find CEC =
+node\n");
 
->> Except right now, I still trigger the AMU faults even with
->> ARM64_HAS_AMU_EXTN=n , which I think should not happen ?
-> 
-> ARM64_HAS_AMU_EXTN is a *capability*, not a configuration.
-> CONFIG_ARM64_AMU_EXTN is the configuration. I have the feeling you're
-> mixing the two.
-> 
-> Irrespective of the configuration, we access the AMU registers
-> depending on the what is advertised, because we *must* make these
-> registers inaccessible from EL0, no matter what.
+The checkpatch show the warning:
 
-Ahhh, I was missing this part, thank you for clarifying.
+WARNING: ENOTSUPP is not a SUSV4 error code, prefer EOPNOTSUPP
+#40: FILE: drivers/gpu/drm/mediatek/mtk_hdmi_common.c:256:
++        return dev_err_probe(dev, -ENOTSUPP, "Failed to find CEC node\n");
 
->> I would much rather be able to disable ARM64_HAS_AMU_EXTN in kernel
->> config for the old devices with old firmware, without triggering the
->> faults ... and say that everything which is going to be upstream will
->> always use new firmware that has proper working AMU support.
-> 
-> No, that's the wrong approach. If you leave the AMU accessible to EL0,
-> you're leaking data to userspace, and that's pretty wrong, no matter
-> how you look at it.
-> 
-> I also think your hack works by pure luck, because at the point where
-> your CPUs are booting, the alternatives are yet not in place (the
-> kernel patching happens much later). In short, this breaks
-> *everything*.
-> 
-> As I indicated before, you have two options:
-> 
-> - either you update your firmware and leave the kernel alone
-> 
-> - or you implement the workaround as ID register override so that you
->    *must* pass something on the kernel command line to boot, and by
->    then accept that you will leak critical timing information to
->    userspace.
-> 
-> Any other option, including guarding the macro with a config option is
-> *not* acceptable.
+I find many driver use ENOTSUPP, so I'm not sure which one is better.
+I really don't understand the description about these two error code [1].
+If you choose ENOTSUPP, please give me some explain.
 
-Since I am getting an exception when I access the AMU register, would it 
-be possible to trap that exception, and report something to the user 
-instead of outright crashing with no output ?
+[1] https://man7.org/linux/man-pages/man3/errno.3.html
 
-Similar to what Linux already does on the various speculative execution 
-bugs on x86, something like this?
+Regards,
+Chun-Kuang.
 
-"
-MDS CPU bug present and SMT on, data leak possible. See 
-https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/mds.html for 
-more details.
-"
-
--- 
-Best regards,
-Marek Vasut
+>
+>         cec_pdev =3D of_find_device_by_node(cec_np);
+>         if (!cec_pdev) {
+> -               dev_err(hdmi->dev, "Waiting for CEC device %pOF\n",
+> -                       cec_np);
+> +               dev_err(hdmi->dev, "Waiting for CEC device %pOF\n", cec_n=
+p);
+>                 of_node_put(cec_np);
+>                 return -EPROBE_DEFER;
+>         }
+> @@ -319,7 +318,9 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *h=
+dmi, struct platform_device
+>                 return dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c=
+ adapter by node\n");
+>
+>         ret =3D mtk_hdmi_get_cec_dev(hdmi, dev, np);
+> -       if (ret)
+> +       if (ret =3D=3D -ENOTSUPP)
+> +               dev_info(dev, "CEC support unavailable: node not found\n"=
+);
+> +       else if (ret)
+>                 return ret;
+>
+>         return 0;
+>
+> --
+> 2.51.0
+>
 
