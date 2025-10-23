@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 883D0CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 11:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5A0CCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 11:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4BOW5hxTfLOmIVdIDox+jTV1yxmuQmFgSZvwUrdXBZ0=; b=kmbTbaZZ4HDgOin4JG8nS+tLLs
-	f8yS/X+fkGZ/aqnCNgQQ1KaEBjcncKH0Iid+uBkRWVyNBKao2/D2hIb0+4ophbLmnECNFe4OCN40+
-	vwnxnp+2+JolGjg5tG3CykiJYQZrDUZp7QFXQ+JgSDVrBZf6BxUJoqty/nBIOzdpon3FHdoeHVF42
-	7TiFe4tVJW2vSdOc9J2KWtrKZAQ1jieba8Xvhk0emdiCQ3Af9OPlh/BMTAA9hHs8X1Z36VSgr8APk
-	90AemmK4RB8gs2/frwMHen3T3JgBva+e4JKl2umb5A7ZlQ77dRH+N02LOTRyceY8iOHIzXdyLC8K9
-	ubSUXiRA==;
+	bh=Fden5q3cwJAtmjxOzXx/h9BbUz6DpV6vAF7TlM0CQGo=; b=lQqJ+uKPF5hqNgi3PrTNP2oJga
+	PiIaZ+P4YEv6uoY0vx0KW6IA5t9nCpH4u5CSJX2gaVgkfJ323S9USkGM4NXVXwSsy6YLupeeBu2Qt
+	uMY3pWbRISk0ozwXiTTAgiiRTEkT9fvVy3jDEP7HNoGykULbZ2UT9hoaPVKg51gYBtsXJmSlR1VsJ
+	Z7DmHsrsPKGYWtBP3mNgO7EXRDmhOqVSIU7ETpJFo0m51yQzGerrGzF6kWMNJhM3nULDycSSVxgLn
+	8o82NdoDA5kQjz4Nqhf7h7AWbArBZE3P2TDuykflrzMFAjk9SPQKlUh30RGLYxXBiV8dfOkKr+fFU
+	zn/8xzZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBtGS-000000062o3-3FQb;
-	Thu, 23 Oct 2025 11:13:52 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vBtO5-000000064Dd-41eK;
+	Thu, 23 Oct 2025 11:21:45 +0000
+Received: from mail-m15578.qiye.163.com ([101.71.155.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBtGP-000000062lN-3r5N
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 11:13:51 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4csjx65rM2z6M4gf;
-	Thu, 23 Oct 2025 19:10:02 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 42B8B140279;
-	Thu, 23 Oct 2025 19:13:44 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 23 Oct
- 2025 12:13:43 +0100
-Date: Thu, 23 Oct 2025 12:13:41 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Conor Dooley <conor@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, Dan Williams <dan.j.williams@intel.com>, "H . Peter
- Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, "Andrew
- Morton" <akpm@linux-foundation.org>, <james.morse@arm.com>, Will Deacon
-	<will@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	<linuxarm@huawei.com>, Yushan Wang <wangyushan12@huawei.com>, "Lorenzo
- Pieralisi" <lpieralisi@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Dave
- Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	<x86@kernel.org>, Andy Lutomirski <luto@kernel.org>, "Dave Jiang"
-	<dave.jiang@intel.com>
-Subject: Re: [PATCH v4 3/6] lib: Support
- ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-Message-ID: <20251023121341.0000765c@huawei.com>
-In-Reply-To: <20251022-tried-alright-752fa98ff086@spud>
-References: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
-	<20251022113349.1711388-4-Jonathan.Cameron@huawei.com>
-	<20251022-tried-alright-752fa98ff086@spud>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vBtO2-000000064Aq-0zoB;
+	Thu, 23 Oct 2025 11:21:43 +0000
+Received: from [172.16.12.149] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 26f1c34e0;
+	Thu, 23 Oct 2025 19:21:32 +0800 (GMT+08:00)
+Message-ID: <9c52db41-14f3-41a8-9423-3efe604361aa@rock-chips.com>
+Date: Thu, 23 Oct 2025 19:21:31 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 1/9] usb: typec: Add notifier functions
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20251023033009.90-1-kernel@airkyi.com>
+ <20251023033009.90-2-kernel@airkyi.com> <aPni4AeDaem_rfZH@kuha.fi.intel.com>
+ <aPnvoSRJefwDlpNO@kuha.fi.intel.com> <aPn4-S7upPOOtenr@kuha.fi.intel.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <aPn4-S7upPOOtenr@kuha.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+X-HM-Tid: 0a9a10cd794c03abkunmb71a32b21958ec
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk0ZS1ZMQklISUMZTxpNSUpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=WPP/CtMyWjsyonpX6WvCM4hzju69HTiJcibUlL0INhLheBqrQM9p7gBHu5od05BDZ6pM2Ukm7toh6d4/A+Fm6M7Yl0FM6QZa7mJzh7xdQAPZNhD/6oM7QLysGDEz2S54WNzl+ZeotjEgaxczFD8HlruoyNi7HkkWDnqtDTw3R7I=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=Fden5q3cwJAtmjxOzXx/h9BbUz6DpV6vAF7TlM0CQGo=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_041350_244298_6F59C15A 
-X-CRM114-Status: GOOD (  26.77  )
+X-CRM114-CacheID: sfid-20251023_042142_470474_87689964 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,58 +93,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Oct 2025 22:11:12 +0100
-Conor Dooley <conor@kernel.org> wrote:
+Hi Heikki,
 
-> On Wed, Oct 22, 2025 at 12:33:46PM +0100, Jonathan Cameron wrote:
-> > From: Yicong Yang <yangyicong@hisilicon.com>
-> > 
-> > ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION provides the mechanism for
-> > invalidating certain memory regions in a cache-incoherent manner. Currently
-> > this is used by NVDIMM and CXL memory drivers in cases where it is
-> > necessary to flush all data from caches by physical address range.
-> > 
-> > In some architectures these operations are supported by system components
-> > that may become available only later in boot as they are either present
-> > on a discoverable bus, or via a firmware description of an MMIO interface
-> > (e.g. ACPI DSDT). Provide a framework to handle this case.
-> > 
-> > Architectures can opt in for this support via
-> > CONFIG_GENERIC_CPU_CACHE_MAINTENANCE
-> > 
-> > Add a registration framework. Each driver provides an ops structure and
-> > the first op is Write Back and Invalidate by PA Range. The driver may
-> > over invalidate.
-> > 
-> > An optional completion check operation is also provided. If present
-> > that should be called to ensure that the action has finished.
-> > 
-> > When multiple agents are present in the system each should register with
-> > this framework and the core code will issue the invalidate to all of them
-> > before checking for completion on each. This is done to avoid need for
-> > filtering in the core code which can become complex when interleave,
-> > potentially across different cache coherency hardware is going on, so it
-> > is easier to tell everyone and let those who don't care do nothing.
-> > 
-> > Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> > Co-developed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-> > Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>  
-> 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> 
-> I'm fine with this stuff. I do wonder though, have you actually
-> encountered systems with the multiple "agents" or is that something
-> theoretical?
+On 10/23/2025 5:44 PM, Heikki Krogerus wrote:
+> On Thu, Oct 23, 2025 at 12:04:44PM +0300, Heikki Krogerus wrote:
+>> On Thu, Oct 23, 2025 at 11:10:20AM +0300, Heikki Krogerus wrote:
+>>> Hi,
+>>>
+>>>> diff --git a/include/linux/usb/typec_notify.h b/include/linux/usb/typec_notify.h
+>>>> new file mode 100644
+>>>> index 000000000000..a3f1f3b3ae47
+>>>> --- /dev/null
+>>>> +++ b/include/linux/usb/typec_notify.h
+>>>> @@ -0,0 +1,17 @@
+>>>> +/* SPDX-License-Identifier: GPL-2.0 */
+>>>> +
+>>>> +#ifndef __USB_TYPEC_NOTIFY
+>>>> +#define __USB_TYPEC_NOTIFY
+>>>> +
+>>>> +#include <linux/notifier.h>
+>>>> +
+>>>> +enum usb_typec_event {
+>>>> +	TYPEC_ALTMODE_REGISTERED
+>>>> +};
+>>> Don't you need to know when the altmode is removed?
+>> I noticed that you don't because drm_dp_hpd_bridge_register() is
+>> always resource managed. But I think you could still send an event
+>> also when the altmode is removed already now. That way it does not
+>> need to be separately added if and when it is needed.
+> Hold on! Every bus has already a notifier chain. That's the one that
+> we should also use. Sorry for not noticing that earlier.
+>
+> So let's just export the bus type in this patch - you can then use
+> bus_register_notifier() in your driver:
+>
+> diff --git a/drivers/usb/typec/bus.c b/drivers/usb/typec/bus.c
+> index a884cec9ab7e..65ded9e3cdaa 100644
+> --- a/drivers/usb/typec/bus.c
+> +++ b/drivers/usb/typec/bus.c
+> @@ -547,3 +547,4 @@ const struct bus_type typec_bus = {
+>          .probe = typec_probe,
+>          .remove = typec_remove,
+>   };
+> +EXPORT_SYMBOL_GPL(typec_bus);
+> diff --git a/drivers/usb/typec/bus.h b/drivers/usb/typec/bus.h
+> index 643b8c81786d..af9edb3db9d0 100644
+> --- a/drivers/usb/typec/bus.h
+> +++ b/drivers/usb/typec/bus.h
+> @@ -5,7 +5,6 @@
+>   
+>   #include <linux/usb/typec_altmode.h>
+>   
+> -struct bus_type;
+>   struct typec_mux;
+>   struct typec_retimer;
+>   
+> @@ -28,7 +27,6 @@ struct altmode {
+>   
+>   #define to_altmode(d) container_of(d, struct altmode, adev)
+>   
+> -extern const struct bus_type typec_bus;
+>   extern const struct device_type typec_altmode_dev_type;
+>   
+>   #define is_typec_altmode(_dev_) (_dev_->type == &typec_altmode_dev_type)
+> diff --git a/include/linux/usb/typec.h b/include/linux/usb/typec.h
+> index 309251572e2e..c6fd46902fce 100644
+> --- a/include/linux/usb/typec.h
+> +++ b/include/linux/usb/typec.h
+> @@ -20,12 +20,15 @@ struct typec_port;
+>   struct typec_altmode_ops;
+>   struct typec_cable_ops;
+>   
+> +struct bus_type;
+>   struct fwnode_handle;
+>   struct device;
+>   
+>   struct usb_power_delivery;
+>   struct usb_power_delivery_desc;
+>   
+> +extern const struct bus_type typec_bus;
+> +
+>   enum typec_port_type {
+>          TYPEC_PORT_SRC,
+>          TYPEC_PORT_SNK,
 
-Yes to multiple agents. There are a multiple instances in the HiSi platform.
-The multiple heterogeneous agents case is more theoretical today.  Similar
-components for other purposes are heterogeneous so I'd be surprised if it
-doesn't surface at some point. Our initial internal driver for the
-hisi_hha wrapped up the multiple instances in a fake front end, but it
-meant we ended up with multiple levels of registration and it was just
-simpler to relax assumption that they were all handled by one driver.
+Thank you for your detailed explanation. I noticed that there is a device_register() action in typec_register_altmode(), so we can just take advantage of this.
 
-Jonathan
 
+Another thing is that we need to distinguish between different devices in the notifier callback, as typec_register_altmode()/typec_register_partner()/typec_register_plug()/typec_register_cable() may all register devices. Since the data passed in bus_notify() is struct device *dev, I think we can distinguish them through `dev->type.name`? We may already have such names, "typec_alternate_mode", "typec_partner", "typec_plug" in class.c . And then extract these names as macros and put them in the typec header file.
+
+
+Or do you have any better ideas? Thank you.
+
+
+> thanks,
+>
+-- 
+Best,
+Chaoyi
 
 
