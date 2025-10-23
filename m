@@ -4,114 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E38D4CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 15:45:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B112CCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 15:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=50SfSxS4nKgs8hxb+bOC3hzEIaH0AgAoPcaR+jSb2yk=; b=w/+vKC068gk9heOPllTSJX4XqA
-	UKoHqT7DNdp37anoiMyZ6A+UN4bg7X1+za8dvbbhsgWg+Hkrg43h2oET9//+883bRSnb42bOa3BEY
-	DBJY/BzN6K7NFKsBAXwSyNAHwcTaczZeiCNmvFwajwFVKDwL+TEOr9HBLXev+B8Jy79nLg1RdcOh7
-	db6wDwRmHZ6cfnkCHf4cH71u/tbCzXeZTEHqCFCEzatsC2t/32hoJnwdBbssBB8+l9JNdhau0g70B
-	EcSk+JCfVyLaQutCak0HawWS5toaRBu62aUIXhIN40gxC5ck1WYuR0GwA6NfXodNaXkYKhOcKulUt
-	z/q1KAcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0atqt29j38GuBRhYc4ja9297alyKMui/08oB1QhWzH4=; b=1atnZmwRvQgh6KvsuJj3W/vs9B
+	nwvthbrFV9LcIvXLy8W2ji3umWAtOkXRGUs/FZYF8I+fLeLko2mR9UpWHyX+7j+ff9MCWUZaWokg2
+	G7IQgwBkLhTWUhuVhm6NhnZjKJhjhlV5Ro1HyqOlTB4NkAj5+cdXoOaNYuUOkt4ZNbRNGl0UHpDxF
+	4GmSIZDQLDVERIaFxeuQzTyKv7wMNW7XIXHDeSSGoTwbz6ZB3eEqPlAdeVzGR33/p6JGKDP+HBjxC
+	kYwOCTr2kn1OQDNKK4NyqojzAFVgWTVrCqcCj5MYfBMMl7zw8zJIIPs6PmE/6kYtRQHJGdM2mZHg9
+	1JGalA7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBxVf-00000006ndt-0YhM;
-	Thu, 23 Oct 2025 15:45:51 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vBxcq-00000006olw-1qLc;
+	Thu, 23 Oct 2025 15:53:16 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBxVc-00000006ncs-35LU
+	id 1vBxcn-00000006olX-2vTe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 15:45:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761234346;
+	Thu, 23 Oct 2025 15:53:14 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4csrCn2M3qz9tmt;
+	Thu, 23 Oct 2025 17:53:09 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761234789;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=50SfSxS4nKgs8hxb+bOC3hzEIaH0AgAoPcaR+jSb2yk=;
-	b=ZedjYDZp1IFEy1Azf72R8spjexepm0UyKY4hiC9MaNrUMfHkoT22XiR7QnTQHZ0yML1GQS
-	TQNQqFFCOqElgqs2xMEoLO8+rUnnYBzQ7+YydbSEECAsgkiMANjdSWLprEvyyJgToyqubI
-	BZ0LvoHvPRr4cSeV9LSKxhnHzfMonFY=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-534-5i4ZTAB-PgCy0O0aRO1xwA-1; Thu, 23 Oct 2025 11:45:45 -0400
-X-MC-Unique: 5i4ZTAB-PgCy0O0aRO1xwA-1
-X-Mimecast-MFC-AGG-ID: 5i4ZTAB-PgCy0O0aRO1xwA_1761234343
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-471125c8bc1so13218685e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 08:45:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761234343; x=1761839143;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=50SfSxS4nKgs8hxb+bOC3hzEIaH0AgAoPcaR+jSb2yk=;
-        b=eLb4jLgSd5ozp+XIpKtY5mLs1e9PU/kCTq3Cz6VD98gWBPdZmL+ylkpXgFQV6uFK0V
-         l7M6wU7SpJSUIijU4dkBUCEQgiUhTn+UEzLa+/4qWQvcRKyxcnSoB6MSXFJKIsDH2APo
-         1qgy8KB2APTa8c1Wojizce2m/infCbXBdeD1LMtVjCySCPgaWJ78rdf9Ndy7sQzmEU3X
-         Knu65WklyGG0hp+f44RYZq8hO3XwaE3w7yPWIdYxB22O0Ux/hGblY++a6CadFYQ+4Olc
-         U46S8HSVYkCv2kFsJyu449EjBDX9xpGeRQv2tQGP/DmblbFxblr2OPZs+WnAUtkiiccK
-         N8XA==
-X-Forwarded-Encrypted: i=1; AJvYcCX8oSyl5A9ZJqGLCmCwlm5vMFlwM3TOHMjxIuDKq2nFHYjJ7vJAvT0TwGkhAZeN8mFHEVV9BC8mlJP5gc6+ArdJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaF86hWOJ+DvCx62/BibOK/krSXSwuYc2QtOZE3Y0WbRb7tGmJ
-	P/7D1XfwvhCPkgunFu4zNlFPYtIATuTpNy+LnYXkFvJz0F3U/6vMuF+5P0jHhCIEGZvXlqqRtEL
-	5k3c9coLPdd4bOAVAdmMQoeu0ZBdKb090vIPFTrmXpV7AaBrr5hX5MlQ+YtGo/pn3EAvDrFMN8f
-	pK
-X-Gm-Gg: ASbGncv5avfc37SNJhqd30h2oBNXpa8Aoi4l2knl9ONee4V3+FG1Ew39tumgMQK9nhZ
-	lIb0gD8xCJ8y9mgBfd3jnHKbBf0GPfnQ+nmutkGFkZ1gMOfgd2jeiYu5jQZCnWuMuRQF0tg1uF2
-	FvQT6bYjvD9XwPf/mXio2Me7p7xc+6klBbDJqjhogczoMDrR0D79yFV0CZ1ih3F4EQNRhWarbFK
-	OpnKM4RkJNVqCLORxoaJWDUxkLa9zUluWOIH+VCl4bUk4kTw7fpLUega68D4P4fx9cK98q2xpnQ
-	n1jqxF1MXDw2hp+iSQnHIDnYqxs8ddgYFQfJ3Q/aO1jk/m3P8aPyDbaGuhQIPCbymdwAcQ3RR0J
-	O8Zk3ix8+r22csWGB7NhI5HZYLNQ1ZzdrLFrEg/pBCLq1X5xuFjNDrz6k4z0Z
-X-Received: by 2002:a05:600c:548a:b0:46e:6d5f:f68 with SMTP id 5b1f17b1804b1-4711787a2cdmr173963635e9.12.1761234342942;
-        Thu, 23 Oct 2025 08:45:42 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IENvjJfnRqlEPVbQJG/5+2SRFe/+XvUSWY4e9vS8wIYZ+gnFtpWxD3L8rMa8r5ek+Ptfbuv2w==
-X-Received: by 2002:a05:600c:548a:b0:46e:6d5f:f68 with SMTP id 5b1f17b1804b1-4711787a2cdmr173963305e9.12.1761234342435;
-        Thu, 23 Oct 2025 08:45:42 -0700 (PDT)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475cad4c81dsm44883515e9.0.2025.10.23.08.45.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Oct 2025 08:45:41 -0700 (PDT)
-From: Valentin Schneider <vschneid@redhat.com>
-To: Frederic Weisbecker <frederic@kernel.org>, LKML
- <linux-kernel@vger.kernel.org>
-Cc: Frederic Weisbecker <frederic@kernel.org>, Michal =?utf-8?Q?Koutn?=
- =?utf-8?Q?=C3=BD?=
- <mkoutny@suse.com>, Andrew Morton <akpm@linux-foundation.org>, Bjorn
- Helgaas <bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Danilo Krummrich <dakr@kernel.org>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Gabriele Monaco
- <gmonaco@redhat.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>, Jens
- Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>, Lai
- Jiangshan <jiangshanlai@gmail.com>, Marco Crivellari
- <marco.crivellari@suse.com>, Michal Hocko <mhocko@suse.com>, Muchun Song
- <muchun.song@linux.dev>, Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra
- <peterz@infradead.org>, Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki"
- <rafael@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, Shakeel
- Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>, Tejun Heo
- <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka
- <vbabka@suse.cz>, Waiman Long <longman@redhat.com>, Will Deacon
- <will@kernel.org>, cgroups@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
- linux-mm@kvack.org, linux-pci@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 05/33] sched/isolation: Save boot defined domain flags
-In-Reply-To: <20251013203146.10162-6-frederic@kernel.org>
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-6-frederic@kernel.org>
-Date: Thu, 23 Oct 2025 17:45:40 +0200
-Message-ID: <xhsmhecqtoc4b.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+	bh=0atqt29j38GuBRhYc4ja9297alyKMui/08oB1QhWzH4=;
+	b=tpKreE2pk3d1abCk9xBoUhAx3KcBuCEPhou7RMeHsY/gCziF+it/Zxb6HpWx7oLMicm334
+	qZj9V/ejXxjLEc+pMCgP5hk25Mp/fCZWuo8vIhfhSMfXDDa0Q2IqhlfQJ/nlkADMUQcP84
+	7/rAYUikJXdfXgtm+Tc1wN56vXixDqGzN3awO56vPe3kSChNjr/bXu7Z7mSgAI+SDENVvn
+	c3Gez2TZ+90utkr9tghsVhaWl26HkLsvZdE7HbMO12oH1e5tMrQT192zJ8DIrUomssNAjg
+	A8DOO2TAyqNrF+yiguUir6FYHFzZ2A6CunZnPMSn5a2L02yLwS4iXhuzMvbbnA==
+Message-ID: <07aba8d4-533d-40f7-bcd3-548704d7d228@mailbox.org>
+Date: Thu, 23 Oct 2025 17:53:06 +0200
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: _zZwnrRfIsDe186tkcsFD9kQS3fZXpNW9uTtVZYKi8E_1761234343
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain
+Subject: Re: [PATCH v1] arm64: defconfig: Enable i.MX95 configs for booting
+ and Ethernet
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Peng Fan <peng.fan@nxp.com>, linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>,
+ =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>
+References: <20251023-upstream-imx95-smarc-defconfig-v1-1-62c6e6f5b315@toradex.com>
+ <3381308.aeNJFYEL58@steina-w>
+ <e6b282cf-e9de-43b7-a8d4-30e67cefe430@linaro.org>
+ <5d042f21-274e-4b69-849a-3342d77942eb@mailbox.org>
+ <00555ed7-1aee-459a-ae60-0242809d7b85@linaro.org>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <00555ed7-1aee-459a-ae60-0242809d7b85@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: jdqggkk454ujny9h4p815r9kkre67smq
+X-MBO-RS-ID: fa5d91469f820ba399c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_084548_868572_6510CFCB 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20251023_085313_903102_22FCD9E6 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,87 +87,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/10/25 22:31, Frederic Weisbecker wrote:
-> HK_TYPE_DOMAIN will soon integrate not only boot defined isolcpus= CPUs
-> but also cpuset isolated partitions.
->
-> Housekeeping still needs a way to record what was initially passed
-> to isolcpus= in order to keep these CPUs isolated after a cpuset
-> isolated partition is modified or destroyed while containing some of
-> them.
->
-> Create a new HK_TYPE_DOMAIN_BOOT to keep track of those.
->
-> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> Reviewed-by: Phil Auld <pauld@redhat.com>
-> ---
->  include/linux/sched/isolation.h | 1 +
->  kernel/sched/isolation.c        | 5 +++--
->  2 files changed, 4 insertions(+), 2 deletions(-)
->
-> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
-> index d8501f4709b5..da22b038942a 100644
-> --- a/include/linux/sched/isolation.h
-> +++ b/include/linux/sched/isolation.h
-> @@ -7,6 +7,7 @@
->  #include <linux/tick.h>
->
->  enum hk_type {
-> +	HK_TYPE_DOMAIN_BOOT,
->       HK_TYPE_DOMAIN,
->       HK_TYPE_MANAGED_IRQ,
->       HK_TYPE_KERNEL_NOISE,
-> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-> index a4cf17b1fab0..8690fb705089 100644
-> --- a/kernel/sched/isolation.c
-> +++ b/kernel/sched/isolation.c
-> @@ -11,6 +11,7 @@
->  #include "sched.h"
->
->  enum hk_flags {
-> +	HK_FLAG_DOMAIN_BOOT	= BIT(HK_TYPE_DOMAIN_BOOT),
->       HK_FLAG_DOMAIN		= BIT(HK_TYPE_DOMAIN),
->       HK_FLAG_MANAGED_IRQ	= BIT(HK_TYPE_MANAGED_IRQ),
->       HK_FLAG_KERNEL_NOISE	= BIT(HK_TYPE_KERNEL_NOISE),
-> @@ -216,7 +217,7 @@ static int __init housekeeping_isolcpus_setup(char *str)
->
->               if (!strncmp(str, "domain,", 7)) {
->                       str += 7;
-> -			flags |= HK_FLAG_DOMAIN;
-> +			flags |= HK_FLAG_DOMAIN | HK_FLAG_DOMAIN_BOOT;
->                       continue;
->               }
->
-> @@ -246,7 +247,7 @@ static int __init housekeeping_isolcpus_setup(char *str)
->
->       /* Default behaviour for isolcpus without flags */
->       if (!flags)
-> -		flags |= HK_FLAG_DOMAIN;
-> +		flags |= HK_FLAG_DOMAIN | HK_FLAG_DOMAIN_BOOT;
+On 10/23/25 5:32 PM, Krzysztof Kozlowski wrote:
+> On 23/10/2025 17:27, Marek Vasut wrote:
+>> On 10/23/25 5:22 PM, Krzysztof Kozlowski wrote:
+>>> On 23/10/2025 16:03, Alexander Stein wrote:
+>>>> Hi,
+>>>>
+>>>> Am Donnerstag, 23. Oktober 2025, 14:19:15 CEST schrieb João Paulo Gonçalves:
+>>>>> From: João Paulo Gonçalves <joao.goncalves@toradex.com>
+>>>>>
+>>>>> Enable the necessary missing configs for the i.MX95 to boot and also
+>>>>> have Ethernet working:
+>>>>>
+>>>>> * CONFIG_NXP_ENETC4 for the network controller driver
+>>>>> * CONFIG_NXP_NETC_BLK_CTRL for the NETC hardware domain controller
+>>>>> * CONFIG_PINCTRL_IMX_SCMI for the pinctrl driver
+>>>>> * CONFIG_CLK_IMX95_BLK_CTL for the shared hardware domain controller
+>>>>>
+>>>>> Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+>>>>> ---
+>>>>>    arch/arm64/configs/defconfig | 4 ++++
+>>>>>    1 file changed, 4 insertions(+)
+>>>>>
+>>>>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+>>>>> index e3a2d37bd10423b028f59dc40d6e8ee1c610d6b8..787d3ae3f5afeac486a905e0943e7b0e1dcee3a9 100644
+>>>>> --- a/arch/arm64/configs/defconfig
+>>>>> +++ b/arch/arm64/configs/defconfig
+>>>>> @@ -354,8 +354,10 @@ CONFIG_FSL_FMAN=y
+>>>>>    CONFIG_FSL_DPAA_ETH=y
+>>>>>    CONFIG_FSL_DPAA2_ETH=y
+>>>>>    CONFIG_FSL_ENETC=y
+>>>>> +CONFIG_NXP_ENETC4=m
+>>>>>    CONFIG_FSL_ENETC_VF=y
+>>>>>    CONFIG_FSL_ENETC_QOS=y
+>>>>> +CONFIG_NXP_NETC_BLK_CTRL=m
+>>>>
+>>>> Are you sure this should be module? Shouldn't NFS boot be supported by
+>>>> default? I might be wring here though.
+>>>
+>>>
+>>> NFS root is supported already with this being module. Yes, it must be a
+>>> module, cannot be built in.
+>> It seems I am using it as built-in on MX95 Verdin (patch is posted on
+>> the ML), and yes, I do boot from NFS root without any initrd/initramfs.
+>> It has to be built-in for that use case to work.
+> 
+> 
+> Every arm64 platform is supposed to use initramfs and we already use all
+> over the place.
 
-I got stupidly confused by the cpumask_andnot() used later on since these
-are housekeeping cpumasks and not isolated ones; AFAICT HK_FLAG_DOMAIN_BOOT
-is meant to be a superset of HK_FLAG_DOMAIN - or, put in a way my brain
-comprehends, NOT(HK_FLAG_DOMAIN) (i.e. runtime isolated cpumask) is a
-superset of NOT(HK_FLAG_DOMAIN_BOOT) (i.e. boottime isolated cpumask),
-thus the final shape of cpu_is_isolated() makes sense:
+Shouldn't the platform also be at least bootable with the defconfig ? If 
+yes, then initramfs is a mandatory requirement for a NFS root boot (not 
+a ... supposed to ... optional one), which does not seem to be the case 
+until now.
 
-  static inline bool cpu_is_isolated(int cpu)
-  {
-          return !housekeeping_test_cpu(cpu, HK_TYPE_DOMAIN);
-  }
-
-Could we document that to make it a bit more explicit? Maybe something like
-
-  enum hk_type {
-        /* Set at boot-time via the isolcpus= cmdline argument */
-        HK_TYPE_DOMAIN_BOOT,
-        /*
-         * Updated at runtime via isolated cpusets; strict subset of
-         * HK_TYPE_DOMAIN_BOOT as it accounts for boot-time isolated CPUs.
-         */
-        HK_TYPE_DOMAIN,
-        ...
-  }
-
+I would argue the ethernet MAC support should be built-in to achieve 
+maximum utility with the defconfig.
 
