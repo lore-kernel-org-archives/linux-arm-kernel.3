@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B1CCCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 08:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3829CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 08:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ULH0iKccBdyyGfKIPE8SP4G7gUUCYwe77y7PIyw28Fg=; b=hX4Q45Oha07hJtk+IkSFYB2Tz8
-	ZYnlOCqjMOqwFvkdyzwt0xNZQnQFcWr51LYgXoiOwV6i1vipfttY0RpiDhB8FZd+q042tDaSjUE8K
-	GuUneKtpL/uc6Ruis3/D7rQhogwMg3nCCVgs6CtVidoKimKIMxRnLbvGDqbAmNOs2vU9qvxMMsatm
-	r/6FQ/qcmsJUk8yrAbsPunFttxFjdix/sgfzoWk2aN2FXrrJNpZQqbic+1p4jr0/B7iWG/QTwkT1k
-	Ba755ci+i6GFAl7vV6NJvGBlpaUWoyfdvh0P81fWO0yhElYsmpEZFLUBZTcsf1DeTwR5ox1PsxNL7
-	8SM7LYzg==;
+	bh=nuVu2NCjXz8jJvEP5g+aU1zoPZ/sRqG0jqru7JqmYI4=; b=Ezpj1ubQiBowL7DiKigQ6FRGvu
+	/OXKohu9zlSHMqysFMY0o423nw7Dn4rgyUnKsFA6dtp0q0G+UCAGrq2aBZxZca8/l7snLwC6oTjNy
+	G0+PfxkDVnp0l5AIqoQGOmgGPRCmKuR3nADnjZcDy5qpisTImxvxSEIAVEt1loTxVT7ZUyeK9bWVS
+	+3VFMJVQm42w9NaFoGqRh8H5OIoLgZg7trFPOWGowSUxcGLtZOxI65+ZSMshbStavqQHTemfwEEDq
+	JVqhqNmsLXX+9wEWa4FcdnrjohDqIznFwU/z6pq+4rQ5fGQJGDMWPbIrg6gJMVLGRdvmDkxWDyPd7
+	vHUcvJ0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBqan-00000005WeE-1ORy;
-	Thu, 23 Oct 2025 08:22:41 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1vBqbA-00000005WnV-2pL7;
+	Thu, 23 Oct 2025 08:23:04 +0000
+Received: from smtpbgjp3.qq.com ([54.92.39.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBqak-00000005WT9-41Bs
+	id 1vBqb7-00000005Wdp-3VcV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 08:22:40 +0000
+	Thu, 23 Oct 2025 08:23:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1761207687;
-	bh=ULH0iKccBdyyGfKIPE8SP4G7gUUCYwe77y7PIyw28Fg=;
+	s=onoh2408; t=1761207714;
+	bh=nuVu2NCjXz8jJvEP5g+aU1zoPZ/sRqG0jqru7JqmYI4=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=RMu8PuwNyWwVysi3GYFmcVSahB5oN9moyuTihwByGtDHXpY+VWx5YwLa9ho4Zqmju
-	 tjwRuotj9zbf2yf4mllBSM3oXd61bAx7O/atSB7X0uAFbfWw1gApInmGV5eDxgxw4H
-	 rlNMtLs65O/DkDV6IBIVo9gBqBpW2T9pAsZ5BiHU=
-X-QQ-mid: esmtpgz14t1761207669t0c42400f
-X-QQ-Originating-IP: e3alAhthGovW8qQgWjONEgVC26JHgxvMtn7tkZ6Ir2w=
+	b=e+xmSc6ppvLF3/VKA+x5CEzBloM18OPAaSzq1JM6JYle0QY+bpB4hFL/8qtZPjJkP
+	 3zFqizfiytQW3t2bHiagDpphH1tgPAhvdg5giOMIBsvOTKvpHmObTCjjQNlWasHFbE
+	 trdg0jf79LRHBKN4YeqLH8AvDCJ774I2ZXvw7QH4=
+X-QQ-mid: esmtpsz17t1761207696ta4c5843b
+X-QQ-Originating-IP: 3/MQeF6QIz9mC8m2fmz4QH6lhabTcyDLi834ZS1yOiU=
 Received: from localhost.localdomain ( [123.114.60.34])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 23 Oct 2025 16:21:07 +0800 (CST)
+	id ; Thu, 23 Oct 2025 16:21:35 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 15548364574209632140
+X-BIZMAIL-ID: 15809968397798270910
 EX-QQ-RecipientCnt: 6
 From: Qiang Ma <maqianga@uniontech.com>
 To: ardb@kernel.org,
@@ -50,35 +50,35 @@ Cc: linux-efi@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Qiang Ma <maqianga@uniontech.com>
-Subject: [PATCH 0/2] Remove duplicate function calls and useless message
-Date: Thu, 23 Oct 2025 16:20:51 +0800
-Message-Id: <20251023082051.75183-1-maqianga@uniontech.com>
+Subject: [PATCH 1/2] ARM/efi: Remove duplicate permission settings
+Date: Thu, 23 Oct 2025 16:21:28 +0800
+Message-Id: <20251023082129.75612-1-maqianga@uniontech.com>
 X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-1
-X-QQ-XMAILINFO: NlWvLSkfVnGcnCndnoah1DKaYHvTUYsnQRFyON0Cg2sXiKIeOARTbw+g
-	Kvg0gezSHv69PiNOktscNoSPLV7qmDyXa4Yn3oDzcuZlnDMGcrc6MsyezB2aGpZvF0A0iaK
-	hf3QlldP+tKkFO2laQQiaowy+S8Ka/JOWGTWERLq3YexkekjGBpCLsmulxLBnwUDxDBBNfX
-	1LcKPzmK3xyMIjbPo41Hr+sdygm7eaNy2CV+tVlEKMo49IOIOpWKwxL6tPCN7o0awt4/O3p
-	KERnPVl4pFaLjlROpljizSnxJSxa+xqzURrXQCIvvGgdTIE28xnF1mrPtdzerk6KvNZdAC6
-	xGThdYEcA26W+jkdnxtPIa2zrNl6q8yZihmyRO9xGbOVSb6CXiNvETSvDsV5RbG8S17EVBb
-	JbRdifc/mO2L5YTz1zRkYy1RQJOX/JlR7r/m9ww4kbRLArG1keemKwoE3aaI0HSNB+QCtkf
-	rA5nkOX8lHbFSFGm2gDi7EcGOT1sq52XB8LAbCZt00Ua60Xz20U7zfeD7gQAJqamLhK0K9l
-	uZFkn6qmMVeoc8wGWemU0fLJ6WPnItlgxUyyNaG4P1wPKfeQjdYuYdmv7wFG7kno/Shq5+F
-	QjUPUHrCCE6LKHvI3DHhYBgNAq4iZIeNefTWXicKnd1CoP8eI+t9SEiwebwsbBNK9ge9xJC
-	BAxxhHOa7LH2qhysk5QgVxr1f/Aqf5c9TYi4rWMXmNZS4VgPViQeMO48VBV9OzLCJcCB/ZC
-	Vz4EANCo88iiGBvNRCfqsEUauKjP8qHcaRTl+t5eJUaSm20Ifgy4QCNC9rNnEJVaD78tWiM
-	Qr3vd10Cxb3l+OH2WNdp6HtUiHRxY+Y6JraJpMk+XeCpwvfOQsYoivL0miXmPzDv2wzE/3Q
-	a9HVyvlfrnfvXPk84EP6seZriqqd0JRt/Gctcmo+YCnrUkvFoeJfQT9EiYvad3S57wqADqQ
-	SLOexmLrBw8yPL46QEKzh5BGW6togFKYU8ZRf5DShjAWSf7qlLNkz+nhIjl8Mb3yYHq4XQJ
-	aZorEGBg==
-X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: MQPu5pFEJFN4FC2AxXnYnFS0c+i/12zWXtVC++pynRPaul1YR/aSHjog
+	V7wYG4Siaxxh7IHCvFd7INhHxNBkEVl6i0RkcProFRYetQH4jx4iYgxdhzh4hau4zF6W4MV
+	/PMTVrmrsyy2qhbmWVB8eawBF0dNlJea7YL0im+V9UbYAv3ugz2jA/kTl5sapKOOskoQ8NP
+	2SIfKt9+7pixdG3ABms/7sU+PpK6ea2H3D3LQZp7W6/qRouLXAZ+edRjWQDrkw9vREmSEUd
+	u1O4Xdc6Z6FjqdxcbrGvjs1fPfY3eAoX9m4B7nWPL7/ib8niEIowmDhddjgGQICmMuExSZD
+	FFWQMpTqKNFZ+W3aTY2IA0Es1Bt8XM4OE2l9ROzSYUnMmEdWcoMFkuNfss/Y1KE6rYw1jIk
+	16eg3m9gc0ICARdYuihrjZgzpRqVrH74ff9OfnO+y5eNsjkphOtFrjAS/JBJNYyThL8fmtw
+	zpxKGDiGkzCtmf2G/1t+NO0uVTA8qmnMziVmhpWwW9Y7o8DxspGd16kCQZH/KruUDAEVTRc
+	TPlfvnpTAwprWTRw2XAhz/JmD1FeBYuhDlhCC27AmdKbhMYNNrtkZiB4UYRLuQGhBUhC7OT
+	Xwg8Ix8DZ3OdSLiwBq4co/5g1kMb05yms4uq78vhddo4fTLHQtHW9QNxIdNiqelNLYewX2v
+	qy3iNJOqTKRJyGLxp+Te9QPP66Ubc6I/SnbH8ArJPWkMreinIpekdF7XTsw//6b3eIYk4KY
+	Ki/QQUtY36mf7QJqTkUxIEMHV3odno3zZ+VYZO1w/N34CkLKHOlLhIiAP5mehmVyoik8tP7
+	H2RdADQc+3qfjWb/1xakxB4EJSpoGKsQHvt0pkVJ4tQYXp5EUSdF7Uhv6Sn4Dk2luTmn5rJ
+	SwMG87Z1pdvAYfvsnK455/3I05I/eqe2c30pBi0XrpZNeogWjLpeSBpilhvPxpoFmZHMR+U
+	OY5D77ze5MMWHEbADzbOE834SHnyUkICIaab5awVLmqVzVGEwlq7nYrdr7zIVQnu39HKFQS
+	jPBeoB+Cpqx7M9zauRSO6xwPwx90q69ucKdEbNFg==
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_012239_536780_831F63E6 
-X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-CacheID: sfid-20251023_012302_163620_DE993D4A 
+X-CRM114-Status: UNSURE (   8.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,31 +94,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Qiang Ma <maqianga@uniontech.com>
+In the efi_virtmap_init(), permission settings have been applied:
 
-This patchset removes duplicate function calls and useless debug message
+static bool __init efi_virtmap_init(void)
+{
+	...
+	for_each_efi_memory_desc(md)
+		...
+                efi_create_mapping(&efi_mm, md);
+	...
+	efi_memattr_apply_permissions(&efi_mm, efi_set_mapping_permissions);
+	...
+}
 
-1. The efi_set_mapping_permissions() does not need to be called in
-efi_create_mapping(), because efi_memattr_apply_permissions() will be invoked.
+Therefore, there is no need to apply it again in the efi_create_mapping().
 
-The calling relationship is as follows:
+Fixes: 9fc68b717c24 ("ARM/efi: Apply strict permissions for UEFI Runtime Services regions")
 
-==>efi_create_mapping()
-   ==>efi_set_mapping_permissions()
-==>efi_memattr_apply_permissions()
-   ==>efi_set_mapping_permissions()
+Signed-off-by: Qiang Ma <maqianga@uniontech.com>
+---
+ arch/arm/kernel/efi.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
-2. Based on the first point, efi_create_mapping() always returns 0,
-so there is no need to print the failure return message.
-
-Qiang Ma (2):
-  ARM/efi: Remove duplicate permission settings
-  efi/arm*: Remove the useless failure return message print
-
- arch/arm/kernel/efi.c              | 5 -----
- drivers/firmware/efi/arm-runtime.c | 7 +------
- 2 files changed, 1 insertion(+), 11 deletions(-)
-
+diff --git a/arch/arm/kernel/efi.c b/arch/arm/kernel/efi.c
+index 6f9ec7d28a71..d2fca20d912e 100644
+--- a/arch/arm/kernel/efi.c
++++ b/arch/arm/kernel/efi.c
+@@ -70,11 +70,6 @@ int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
+ 
+ 	create_mapping_late(mm, &desc, true);
+ 
+-	/*
+-	 * If stricter permissions were specified, apply them now.
+-	 */
+-	if (md->attribute & (EFI_MEMORY_RO | EFI_MEMORY_XP))
+-		return efi_set_mapping_permissions(mm, md, false);
+ 	return 0;
+ }
+ 
 -- 
 2.20.1
 
