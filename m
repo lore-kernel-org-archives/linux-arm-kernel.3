@@ -4,96 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B0ECCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 12:02:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF981CCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 12:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3DlOhhfNjZ+nPO/20Hbn4j7kk5m4g2legRGVqTDqEk0=; b=MzH3z979htXdCJm57WztouVfKw
-	R4o8GC3/B2e9b8t9q1rrBcm+pohfJkoMAN/X3OSWAZadL3NGiNxvi0uCdPp1qr7yXGF0vsSjEhK60
-	x8H6kWq7fGnJ19y1RXCkK4thqj95fUyPimDcwQyeL5GLAUmfRqPaCOTb+224EZ26C4043av1ruVn3
-	nnYvQnfFun+py2Wc335+TX7HxrdtLiBm8JGDv9QIRbOnXHlyxzkhFJDpKVt9aPlHkayS9rY3I1E1g
-	WwBrDT6RvQeRErvre0fILKn277kDrcF4H/4SbDQln/v+g7cFfFfgYHmCx/e7Ni/0NoXtUSnulPAn5
-	L27StHpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9WbVAR04+x7nYj1BFoL7bhHaK6uibbNFkPNPwBbDH4E=; b=Ov0BPiKRAmRpOVJY+UIiozDs/q
+	rhoXZ1rgAGoTQm4Q66JVmfs6XwGkHzF7uNIg48b8PW7/bUEbGLQP1ZyXI2xNSF2aFTkdTPgMX1QFl
+	E+GIl7tOe8WPLMd2AU5Qso3Q11dtn8tZJ3fHpioqEvjg9Uj7YEELq6tZJjYSez5OuyRvFt45yj6YJ
+	7kADkbfNG5BlUKZlXGmksSyxb9MXOAFnUbtwjCt6K5/J2X4CxqeLx4GTxtnWGxg5OEc5boREpgvwH
+	kkiEP1b7hh5XpR12gCZjmxNfVawcuNqEtL8DbdCm0XdQ+RHcJZP2I9HAGcU6aN3jVrYApDwmTPM7k
+	7LAp+u8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBu1B-00000006ANC-0jkI;
-	Thu, 23 Oct 2025 12:02:09 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1vBu2U-00000006Aii-2TZy;
+	Thu, 23 Oct 2025 12:03:30 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBu17-00000006ALw-4AjW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 12:02:07 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b5509894ee9so40914a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 05:02:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761220925; x=1761825725; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:to:subject:cc
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3DlOhhfNjZ+nPO/20Hbn4j7kk5m4g2legRGVqTDqEk0=;
-        b=KCf7OzSQ9ZALJib3y+SF5Bid2cfOnF3w3QT+v9jyuJqZerHOjgmqDxMfodPx4qPAMj
-         TVGdlbGEirBPLnGMM8YeUmXXF28W41o0sKtHtoNvXI3xMp/7Vww1WVbMdsgqx6kX9L2T
-         NkJoJk8w5jj800RoIuImHSmGoHltGIZHur3HF2tiSJxbVcxff+ynlcxunozvZs3/P5yT
-         JRtyu1gewXy6Jg4QSwwRCrmr6Ppmhg2nYOqlRoixmnxWhL1z8UjYJ7WortB7Ni211Noe
-         58SROh0Zz97ICUXT4yZm/r3LKJDo8RDWzRmoL6AGvYEIuWCC7HhjLz9csSvBexkPGx1G
-         mu9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761220925; x=1761825725;
-        h=content-transfer-encoding:in-reply-to:from:references:to:subject:cc
-         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=3DlOhhfNjZ+nPO/20Hbn4j7kk5m4g2legRGVqTDqEk0=;
-        b=PXE5wom2GZ/FL7qSgDrjMqAHFvofHgkvB+ZppJe7sjvZp81TuwAUifS+n9l+pfinl6
-         9UsJtKZVJjeeSevWh7wXviWkvOsRtnCcGrZE+l9mhVloj6BP7440xtDhR+NVh6Et9PEX
-         TKngW8jXJHODZQJdn+wVGbplf9rLW3ruzyThNFveWDbNQ/JWNtnHLiQwZZh+OBAlXeyT
-         Mo9fbPW22dL57eDkmNYERB9wIgl0ImrBsrKZ8zWS6WQtY8vCN3RyCIc2ROn5vNBBAjZa
-         X/d6/q1QHdYPxTV2y8zWKyOXxxqQFPxEP6kjtaSnSqHvvG1PmeKtbnbbbAlVB/ZDW6wF
-         xjnA==
-X-Forwarded-Encrypted: i=1; AJvYcCXd4Lhi1HBiSZVu9gAb1YTJwYvPt5LgugYra0/eMUIrEgES3ZMX5/5p1oIfBoNdVu75QlhSM4tG9dXz3BaPsSv3@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWiNgDjaI1W11CN7ADOEIXOAqqQvAn3jcBNfkrc6xrLKNNTwDC
-	3qtwo54zw19TK3h5y+uLREMPAJuQcQe3FpUvkgZKYQSXsEaijLD+gMZx
-X-Gm-Gg: ASbGncsx6l+/0cKGCUfwdgxMyf50SbabTiQW4CHLK9BIIRw3j3JOq7i6pRzeedPG8HD
-	D1jPl26Qaev1l+/5W+tzKOJA7kZj86FXVHLmicAjkNcy3cZnAnu1GA1rrrzS9RUjxPDaQwzggmj
-	Hi+drxEpIPLoDpBPw/qvrsvxmCeYmY+rdIpUxJr1H05JnVXfzYKR2XdyV6GyuNiCi1s0d8hTB8c
-	tXnsxRMx/OUAWzVCWa5gtmEPf9/ebalDiroBeJTMDP12s8h/bCD7viKhTE9jP8ybqAwh+fjPwWx
-	aZk3+3AxJKfAizX2gvgSM1XLCs1IGy1WKCu5Lnst5Pv6aiOL43tA06ataReBES7Xijj16MsSZbH
-	HPo5DUR3SkJaT5MYtdpk103g17LQrX7o4I+068pachSNNg0sz5QSGjPp5xGbd9v5tFdG8vhm5Vd
-	CUjJ7xi5l478AqHbGIV3QJZ8mzSgy/Tk9o
-X-Google-Smtp-Source: AGHT+IHq6bd9gl/stamR7hfnmvxDsick6ogXHg2q2acLJHm09xdoPxZjtSABhl8QQBartTnrKfYtUg==
-X-Received: by 2002:a17:902:cec2:b0:261:500a:5742 with SMTP id d9443c01a7336-292d3fd9a38mr80551165ad.10.1761220923090;
-        Thu, 23 Oct 2025 05:02:03 -0700 (PDT)
-Received: from [192.168.0.100] ([163.125.181.95])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2946e1224f7sm21332775ad.94.2025.10.23.05.01.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Oct 2025 05:02:02 -0700 (PDT)
-Message-ID: <632d6afe-40d3-4632-99c7-b098967bd649@gmail.com>
-Date: Thu, 23 Oct 2025 20:01:52 +0800
+	id 1vBu2S-00000006Ahc-3Bbt;
+	Thu, 23 Oct 2025 12:03:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761221009; x=1792757009;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=erXucVQ3CkO8W6iJDjYjGvHlpSCK37tkrL/+XPfgexM=;
+  b=eTKpM4SeCbfURLv1TfLgdcYkMZVl2apKXHJTW0JrQv4uSBW99K7UeOkv
+   0H6XrwUIvvFL08btDhFURtJ8P0qIB57MJG6suiXdXvmw6VBSo+sDXuozh
+   k6yA7vPgwmS+Mob+UCNxvXeFkvI6rPThPS4numDSLUyfKjS068KhPstXQ
+   jzIAEkNuz300SuHaIGQmgBR+LNEYVzM1N7Dp9H0B7ClBTMfPnUfX6Cni0
+   De8Be8v9aAa1j9A9iAuMiyQzwCnOAhtGSuia1+BCQtkfu6c5xWfoAZo/Y
+   sadAGzS7GJEy75ECPLmvN0cPqYp0Ip6sqRVSlTZ4W7umDQCz7HaIRxg4E
+   Q==;
+X-CSE-ConnectionGUID: 04VgCj5KQg23VpV/Hxe/iQ==
+X-CSE-MsgGUID: PgCqLhVtQJyCIT0LpLLIgw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="81013295"
+X-IronPort-AV: E=Sophos;i="6.19,249,1754982000"; 
+   d="scan'208";a="81013295"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2025 05:03:28 -0700
+X-CSE-ConnectionGUID: 7DIzW9o6S2WE7ZvtBcvVQQ==
+X-CSE-MsgGUID: uCa4JL9CTiShx2sG80Yh6A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,249,1754982000"; 
+   d="scan'208";a="184033253"
+Received: from bkammerd-mobl.amr.corp.intel.com (HELO kuha.fi.intel.com) ([10.124.221.165])
+  by orviesa007.jf.intel.com with SMTP; 23 Oct 2025 05:03:17 -0700
+Received: by kuha.fi.intel.com (sSMTP sendmail emulation); Thu, 23 Oct 2025 15:03:16 +0300
+Date: Thu, 23 Oct 2025 15:03:16 +0300
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v7 2/9] drm/bridge: Implement generic USB Type-C DP HPD
+ bridge
+Message-ID: <aPoZhBdc1M6Qgfae@kuha.fi.intel.com>
+References: <20251023033009.90-1-kernel@airkyi.com>
+ <20251023033009.90-3-kernel@airkyi.com>
+ <aPnrKFWTvpuRTyhI@kuha.fi.intel.com>
+ <14b8ac71-489b-4192-92d6-5f228ff3881d@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: Marc Zyngier <maz@kernel.org>, yangyccccc@gmail.com,
- linux-arm-kernel@lists.infradead.org,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
- Yicong Yang <yangyicong@hisilicon.com>, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH] arm64: guard AMU register access with ARM64_HAS_AMU_EXTN
-To: Marek Vasut <marek.vasut@mailbox.org>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>
-References: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
- <86347bvx0f.wl-maz@kernel.org>
- <07391913-aab6-4d92-b75f-278506f51397@mailbox.org>
-From: Yicong Yang <yangyccccc@gmail.com>
-In-Reply-To: <07391913-aab6-4d92-b75f-278506f51397@mailbox.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <14b8ac71-489b-4192-92d6-5f228ff3881d@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_050206_036473_7AEE774E 
-X-CRM114-Status: GOOD (  19.32  )
+X-CRM114-CacheID: sfid-20251023_050328_809015_621DEC95 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,65 +112,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/10/22 22:33, Marek Vasut wrote:
-> On 10/22/25 4:20 PM, Marc Zyngier wrote:
->> On Wed, 22 Oct 2025 14:35:28 +0100,
->> Marek Vasut <marek.vasut+renesas@mailbox.org> wrote:
->>>
->>> The AMU configuration register access may fault and prevent successful
->>> kernel boot. This can occur for example in case the firmware does not
->>> allow AMU counter access from EL1. Guard the AMU configuration register
->>> access with ARM64_HAS_AMU_EXTN to prevent this fault if ARM64_HAS_AMU_EXTN
->>> Kconfig option is explicitly disabled. Other interaction with the AMU is
->>> already guarded by similar ifdeffery.
->>>
->>> Fixes: 87a1f063464a ("arm64: trap to EL1 accesses to AMU counters from EL0")
->>> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
->>> ---
->>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
->>> Cc: Catalin Marinas <catalin.marinas@arm.com>
->>> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
->>> Cc: Marc Zyngier <maz@kernel.org>
->>> Cc: Ryan Roberts <ryan.roberts@arm.com>
->>> Cc: Will Deacon <will@kernel.org>
->>> Cc: Yicong Yang <yangyicong@hisilicon.com>
->>> Cc: linux-arm-kernel@lists.infradead.org
->>> Cc: linux-renesas-soc@vger.kernel.org
->>> ---
->>>   arch/arm64/mm/proc.S | 4 ++++
->>>   1 file changed, 4 insertions(+)
->>>
->>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
->>> index 86818511962b6..123538ffeda6b 100644
->>> --- a/arch/arm64/mm/proc.S
->>> +++ b/arch/arm64/mm/proc.S
->>> @@ -145,7 +145,9 @@ SYM_FUNC_START(cpu_do_resume)
->>>       ubfx    x11, x11, #1, #1
->>>       msr    oslar_el1, x11
->>>       reset_pmuserenr_el0 x0            // Disable PMU access from EL0
->>> +alternative_if ARM64_HAS_AMU_EXTN
->>>       reset_amuserenr_el0 x0            // Disable AMU access from EL0
->>> +alternative_else_nop_endif
->>
->> Why?
->>
->> We ensure that the AMU is available in the macro itself by checking
->> for ID_AA64PFR0_EL1.AMU. If the AMu isn't present on this CPU, we skip
->> the offending sysreg access. This is similar to what we do for the
->> PMU.
->>
->> Does your HW advertise an AMU, but doesn't actually have one?
-> The hardware does have AMU, but it is currently blocked in old TFA version and access to this AMU register here causes a fault. That's why I have to disable ARM64_HAS_AMU_EXTN until the TFA is updated and the AMU access is made available on this hardware. But even if I do disable ARM64_HAS_AMU_EXTN=n , I get a fault.
->
-> This patch is mainly meant to prevent a surprise in case someone does set ARM64_HAS_AMU_EXTN=n , and the system still faults on AMU register access.
->
+> > > diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
+> > > index 245e8a27e3fc..e91736829167 100644
+> > > --- a/drivers/gpu/drm/bridge/Makefile
+> > > +++ b/drivers/gpu/drm/bridge/Makefile
+> > > @@ -1,6 +1,7 @@
+> > >   # SPDX-License-Identifier: GPL-2.0
+> > >   obj-$(CONFIG_DRM_AUX_BRIDGE) += aux-bridge.o
+> > >   obj-$(CONFIG_DRM_AUX_HPD_BRIDGE) += aux-hpd-bridge.o
+> > > +obj-$(CONFIG_DRM_AUX_TYPEC_DP_HPD_BRIDGE) += aux-hpd-typec-dp-bridge.o
+> > Instead, why not just make that a part of aux-hpd-bridge
+> > conditionally:
+> > 
+> > ifneq ($(CONFIG_TYPEC),)
+> >          aux-hpd-bridge-y        += aux-hpd-typec-dp-bridge.o
+> > endif
+> 
+> Oh, I did consider that! But I noticed that aux-hpd-bridge.c contains the
+> following statement module_auxiliary_driver(drm_aux_hpd_bridge_drv), which
+> already includes a module_init. In the newly added file, in order to call the
+> register function, another module_init was also added. If the two files are
+> each made into a module separately, would there be a problem?
 
-then I think it's more proper to guard it with CONFIG_ARM64_AMU_EXTN (I think you mean this above?)
-rathter than the cpu cap. then with the patch kernel won't touch the AMU registers here if the kconfig is
-disabled on you AMU supported hardware and AMU unsupported firmware.
+You would not call module_init() from the new file. Instead you would
+call drm_aux_hpd_typec_dp_bridge_init() and what ever directly from
+aux-hpd-bridge.c:
 
-move the guard into reset_amuserenr_el0 macro will be neater here (personally I think).
+diff --git a/drivers/gpu/drm/bridge/aux-bridge.h b/drivers/gpu/drm/bridge/aux-bridge.h
+new file mode 100644
+index 000000000000..ae689a7778fa
+--- /dev/null
++++ b/drivers/gpu/drm/bridge/aux-hpd-bridge.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef AUX_HPD_BRIDGE_H
++#define AUX_HPD_BRIDGE_H
++
++#if IS_ENABLED(CONFIG_TYPEC)
++int drm_aux_hpd_typec_dp_bridge_init(void);
++void drm_aux_hpd_typec_dp_bridge_exit(void);
++#else
++static inline int drm_aux_hpd_typec_dp_bridge_init(void) { return 0; }
++static inline void drm_aux_hpd_typec_dp_bridge_exit(void) { }
++#endif /* IS_ENABLED(CONFIG_TYPEC) */
++
++#endif /* AUX_HPD_BRIDGE_H */
+diff --git a/drivers/gpu/drm/bridge/aux-hpd-bridge.c b/drivers/gpu/drm/bridge/aux-hpd-bridge.c
+index 2e9c702c7087..3578df1df78a 100644
+--- a/drivers/gpu/drm/bridge/aux-hpd-bridge.c
++++ b/drivers/gpu/drm/bridge/aux-hpd-bridge.c
+@@ -12,6 +12,8 @@
+ #include <drm/drm_bridge.h>
+ #include <drm/bridge/aux-bridge.h>
+ 
++#include "aux-hpd-bridge.h"
++
+ static DEFINE_IDA(drm_aux_hpd_bridge_ida);
+ 
+ struct drm_aux_hpd_bridge_data {
+@@ -190,9 +192,16 @@ static int drm_aux_hpd_bridge_probe(struct auxiliary_device *auxdev,
+ 
+        auxiliary_set_drvdata(auxdev, data);
+ 
++       drm_aux_hpd_typec_dp_bridge_init();
++
+        return devm_drm_bridge_add(data->dev, &data->bridge);
+ }
+ 
++static void drm_aux_hpd_bridge_remove(struct auxiliary_device *auxdev)
++{
++       drm_aux_hpd_typec_dp_bridge_exit();
++}
++
+ static const struct auxiliary_device_id drm_aux_hpd_bridge_table[] = {
+        { .name = KBUILD_MODNAME ".dp_hpd_bridge", .driver_data = DRM_MODE_CONNECTOR_DisplayPort, },
+        {},
+@@ -203,6 +212,7 @@ static struct auxiliary_driver drm_aux_hpd_bridge_drv = {
+        .name = "aux_hpd_bridge",
+        .id_table = drm_aux_hpd_bridge_table,
+        .probe = drm_aux_hpd_bridge_probe,
++       .remove = drm_aux_hpd_bridge_remove,
+ };
+ module_auxiliary_driver(drm_aux_hpd_bridge_drv);
 
-thanks.
 
+-- 
+heikki
 
