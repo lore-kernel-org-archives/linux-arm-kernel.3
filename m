@@ -4,189 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A2B1CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 20:11:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A94CCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 20:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vF8Hb3hnoXfLSdgr9uXEesJUum0OfpN/YlQIs62F7QU=; b=HAoG2gBbHGMHCdpUD6GlzN6Y7n
-	5tlbcfXgXV44qcDVLDQWsQIMQZWtaXkrajR0NPcrgFdHiuLnQwNvaRUAAJ3gOaho/rycng69WYdbc
-	+Ox9wJ0ef84lK+AVD2ils8NgB3qpsSvz/d+BGBxlrEZy1I1ftI2H4JRRC2lL17uI3ZtGKG9WvoxZW
-	07Rf1LHnJv6H4+hsJppl4Dpa1vd5xw+TImvqGs6Tt19seWUTgShGjhLL2ufmMqjUvCXAnZaenRi9l
-	3FWu3pih4kztF5I79RlwdmhfKPF6Okd5BT6jYJwed8EGwfVLGNPSYO++awDqdKG+vBoyfrno1qMFw
-	IohQUj7Q==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:To:From:Date:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uOtdIBBvO4Ujse60vki69gfDQAEcTBuUnWSLTKLCpJ8=; b=W8lXVtImJfsD+URG+NJdMBu2YV
+	kmqNOSUf8nveaT547YGds9/VSgoYSWWoaf5X6e70Cndm+tCN5ijMHSnMBa/+zl/bF4pPGyc7WoZIR
+	Wq4bhXJxF+gYdOQZDJ+AyZEGSUVbt4zDU93fpCDwbVkGKOCoYq5infcCeRqI+aWs2X6yo0jjhS1Ih
+	RPSvcCHQtg+ur1/gYGJydnoxRuWK46MOxNxffAmKmSJs+g4mwNN2emFoR9+0YEn7AJKPgxgPJIU/m
+	SS8G3L54IoShHyXnmU0OH3jTb+M1LI2aWVZ5nnJVUd/Ig20ZyEW46HpdgVUjZjSnvneWV2s7cUszd
+	w6cwxL1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC1eE-00000007VA6-2MIm;
-	Thu, 23 Oct 2025 20:10:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vC1eq-00000007VEn-19Mg;
+	Thu, 23 Oct 2025 20:11:36 +0000
+Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC1eB-00000007V94-3cME
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 23 Oct 2025 20:10:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=vF8Hb3hnoXfLSdgr9uXEesJUum0OfpN/YlQIs62F7QU=; b=ahQ+GK/jR88lABgivh3dqu+0Or
-	NjRAPAojxaSls8UravP+1oiGgmr2uY0LD88OSevp6z2sZpYnQ1M7fDr2bwNhjpfvXEdsBx26fJs+8
-	XUCLZv8RLQupEKbU8nhm/0UzT2y+aKgv0i2UK6UX0pLDboid4tNnunaMtrI35VGgzmigwtCK+3Jbn
-	vW76VCxUphwR7LOPRXIx3tR/s2M9Zo3VmEqh9TBQjqw5irI7QL6qU8Mz1JVZ2zrLsCXkRSCJXXUXj
-	cw118dXS39OuLVkJDczVkh21iIKkEwjgE7HScTkMc09g6SwjfLvrdv49cWj67HFjPKc+wYRXoT0Y6
-	GbIBq5xw==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC0mP-00000001heg-3WxU
+	id 1vC1en-00000007VEF-2gge
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 19:15:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761250246;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=vF8Hb3hnoXfLSdgr9uXEesJUum0OfpN/YlQIs62F7QU=;
-	b=h/LiE1VLs76LoKbFzr32dVFOaHAicbQTFrMx7VjHQvFzjSLnZZlN3mCT7kVMnKE+2Ji+6Q
-	Zk8ofKlt4iffiKUoeL8WbmY5j9rEe1mqHBeG5regsDPXCfT/Rs14xBgZMTCK7Ihlc7xOPE
-	E92aNOSvYX1DuHMegPx3Es8RSpikEQY=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761250246;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=vF8Hb3hnoXfLSdgr9uXEesJUum0OfpN/YlQIs62F7QU=;
-	b=h/LiE1VLs76LoKbFzr32dVFOaHAicbQTFrMx7VjHQvFzjSLnZZlN3mCT7kVMnKE+2Ji+6Q
-	Zk8ofKlt4iffiKUoeL8WbmY5j9rEe1mqHBeG5regsDPXCfT/Rs14xBgZMTCK7Ihlc7xOPE
-	E92aNOSvYX1DuHMegPx3Es8RSpikEQY=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-120-6pfSVT-KPBm-mmc94MF6Ug-1; Thu, 23 Oct 2025 16:10:44 -0400
-X-MC-Unique: 6pfSVT-KPBm-mmc94MF6Ug-1
-X-Mimecast-MFC-AGG-ID: 6pfSVT-KPBm-mmc94MF6Ug_1761250243
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4256fae4b46so770851f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 13:10:44 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761250243; x=1761855043;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vF8Hb3hnoXfLSdgr9uXEesJUum0OfpN/YlQIs62F7QU=;
-        b=ObvGyH2zmaA/k73OBdu4qB7Ai26W0SqeC2c4A4ponTaMAjqZqaDhpauCrJFYiI9VWs
-         CgHJW1PiEY7rt+1H5eumWmJptYW/yum5YAiKO/jDOZFXD02omvKmLVpsWDLo+rI6hd//
-         9I0ibvM8re8jPJBN94Ms6R/AyL7efwD8RW1Wvd3zRYlzxsCnRhNgf36SlFO9WyG2IC8C
-         3PhUlzRzHSD7cJV1aB8Fnt2nvvx8HaQmixOrVC/bIXvKlTsJIe/xi+6eA3C+R46D2rBm
-         +CM3CDUy1NZxLjSh1sisX3kkQn+c0dHQHycCQiwHHl2Em/81QM0pMMqfu+BlJG185yIO
-         gJcg==
-X-Forwarded-Encrypted: i=1; AJvYcCXVvCsaZUtJpfUND2t+SjW149Cj4uAXDc1Vs960f1yGgOXHGRW/35ZPiC2JkFpJ7YwgMyiqOYEpLlOU0khoi13K@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHpxTa2AeRgNQ4FdsU7QcokFmKPqfBBV4xRrUH/KpdzGek7Si6
-	0zTbVcYU16xkVsrcIrfVrjREX4ecPrOOTqMuDMdieG1/7boNMdWhjpq8DfWQCHBaXI3ey3uTioJ
-	+2u9aDS2eIaMBt/J3gCWrzYBqDtWqtIbd4SwrXMvWvgjO6bw21CNQrV2V0GqVS2/pC72nNWCwHS
-	Pv
-X-Gm-Gg: ASbGncvMA4SNHfG3xUugeT+7qtezuhPXFq6KYY0jIs74rBvx3J7a32u13Tqq6BSptCU
-	e1Ki58Y8b6YMNi4OVHEH6D1CUTqd+Fw/+IZ6jxrJvTaep45R3q20eEL/i5OXmlQnYP2GRJrPM9i
-	psNjPV21XDZI873ob3cBl+zC9CTDdChxJCfdvBoybXXUY+0IIHI+fdiwc1IV9k6v4IVLrOct6aL
-	8nszW520PyFGtGW024987YRL5yR5UZbHAi1XVoV6OSj4uIdMmUVyf4NuYdlvNcJ5TSAelKmlJTo
-	KM025C0cnWA6RaoG8jzFBE/Y4SW2457KE6RKa/ZDTcnhYzSzagdc416Wj1G4T0ivGr0rKw64KWK
-	2eYZMU/zQ9BANjc/Zt3yCMD3qBwJF69g4kHBXeQ+KE+031Z67nyZM94/6vb75VSIzJBG7rC/hn5
-	NSYe1TKDg+yFuYOdgnisTiGN2rpto=
-X-Received: by 2002:a05:600c:6291:b0:471:a43:123f with SMTP id 5b1f17b1804b1-471178a6882mr200628605e9.9.1761250243304;
-        Thu, 23 Oct 2025 13:10:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEznsO/mZG7bXXGeVpf9lUsRK7DtoSEnI7rqyr8WVIAgGuBjLQ7Sb3p9c9Pj2m7/SEml5RHBQ==
-X-Received: by 2002:a05:600c:6291:b0:471:a43:123f with SMTP id 5b1f17b1804b1-471178a6882mr200628295e9.9.1761250242917;
-        Thu, 23 Oct 2025 13:10:42 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f4e:3200:c99d:a38b:3f3a:d4b3? (p200300d82f4e3200c99da38b3f3ad4b3.dip0.t-ipconnect.de. [2003:d8:2f4e:3200:c99d:a38b:3f3a:d4b3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429898cceebsm5532934f8f.37.2025.10.23.13.10.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Oct 2025 13:10:42 -0700 (PDT)
-Message-ID: <3d6bba2d-9739-41d0-8f3a-f8b11620c33f@redhat.com>
-Date: Thu, 23 Oct 2025 22:10:39 +0200
+	Thu, 23 Oct 2025 20:11:35 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 45C167A003A;
+	Thu, 23 Oct 2025 16:11:31 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Thu, 23 Oct 2025 16:11:31 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1761250291;
+	 x=1761336691; bh=uOtdIBBvO4Ujse60vki69gfDQAEcTBuUnWSLTKLCpJ8=; b=
+	VlWF0jqCIMQ6JHgD75hGpuWKuO2BWc/R8TVTYFsR894nKb+F4+YUs3FqsFGc7uQf
+	Wzpd/oRWRo2QpHIYp0fAKO+nhXJrocVlEoAvaTYfCPLESY+aizrxZLD73ceERqm9
+	T3ck8LXtCRF7+oy6+FdwY7alaJFGBYbCtQ5XxYMfMT9rD/vwn11t13e/YgZ+NEVK
+	rF38LBNXT7g5Iz4y2r4Svd8+uQYgUk+CPbLv//SbDbn5x646KSkLDgYTomolc15k
+	rUIzH4jxyphye65iNNA7mWzePskzrmw46C7rvW4oZeT2PdExvPxq576Oq+vh+GnX
+	aXYPI5OqXwb25wPxrhsoFQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:content-transfer-encoding:content-type
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm2; t=1761250291; x=1761336691; bh=u
+	OtdIBBvO4Ujse60vki69gfDQAEcTBuUnWSLTKLCpJ8=; b=kOqzGkGYPMqjB4uHP
+	zXcffmF54QCYlB53Bptup3D+wO9KLsgtmHyZa7/KJvAMMLuNxzWWtlZ83+7NJnuq
+	8EFXp/hG/b4jHOwfmVP3C6OmbD1k+KNIRQ4mYxWBmC9X1lt6Aa8O/dWpc2rQd//d
+	VKuWNs2hi2cckvBurbtlzQK7JdUyaBHzaz5cFxuY+JLtRPSe+GDDWaTk3ntTg6QP
+	nE3C2nM9R3CS9RKdNkgp6I24hsAzrHFhWtUUpqUIHuVBE/8Rf9aoFcRBELezXK9t
+	Fn/CvumnkUw92aNHiQsxUKCR0PG/4yRhOIyTfU5QW7INWNu3bOUlD1MMhKa1y1Vo
+	rLh2Q==
+X-ME-Sender: <xms:74v6aAbe_DwmhGMJG53C6jW140c11inxjy5RxYnYFvb5_QRaO2P_Ag>
+    <xme:74v6aGPAOuTnDmbdIkMBttLRDcHfH24WNzAOJewXmAncY4L8c6d9pTMQDNHbB1f16
+    gskQ5mxDHpunROpwNiiNMth3xhMqPsmfAKSpWxLfPdPyn5D-9AR-GA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddugeejfeelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvffkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpedutddtfffhfeehfeegvdfflefhgeegfefhvdeuhfeuffehjefhueeitddttdekleen
+    ucffohhmrghinhepghhithhhuhgsrdgtohhmpdhlfihnrdhnvghtnecuvehluhhsthgvrh
+    fuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdgu
+    vgdpnhgspghrtghpthhtohepvdefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhope
+    gtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepsghmtgdq
+    shifsegrshhpvggvughtvggthhdrtghomhdprhgtphhtthhopehrhigrnhgptghhvghnse
+    grshhpvggvughtvggthhdrtghomhdprhgtphhtthhopehprhgrsghhrghkrghrrdhmrghh
+    rgguvghvqdhlrggurdhrjhessghprdhrvghnvghsrghsrdgtohhmpdhrtghpthhtoheprg
+    hnughrvgifsegtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgtphhtthhopehj
+    khestghouggvtghonhhsthhruhgtthdrtghomhdrrghupdhrtghpthhtohepnhhfrhgrph
+    hrrgguohestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopehjohgvlhesjhhmshdr
+    ihgurdgruhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:74v6aNz9Pv7pk8lbFJEkMAOTx4K8eA6k_u48jDljbJJNKwZ6n8T3tw>
+    <xmx:74v6aJbtVwBmGAByqauon98-IvQkP7upRMQz3zhqgGiHcw_-jd4Urw>
+    <xmx:74v6aDI5d2dDUWbqUYfz156HA-I5s1wavJEvP9WokWH2XbiPq0aPiQ>
+    <xmx:74v6aI3hmtTp9iZM2_WYyKde4a63tzgl5bkTBhouA5a9JfdYRYdadg>
+    <xmx:84v6aDknT2cJSxKMQoFrJUJ4d5-n5TaMrBQriloDjrQFpv3sTaieodpF>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id AFAB7700054; Thu, 23 Oct 2025 16:11:27 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 13/13] mm: introduce arch_wants_lazy_mmu_mode()
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
- <20251015082727.2395128-14-kevin.brodsky@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20251015082727.2395128-14-kevin.brodsky@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 9PGCphcxZsEPUmTJKiWGYiXMM-n28RhL5uLlXfuZQQc_1761250243
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-ThreadId: AMptcG-LwCSF
+Date: Thu, 23 Oct 2025 22:11:06 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ryan Chen" <ryan_chen@aspeedtech.com>, BMC-SW <BMC-SW@aspeedtech.com>,
+ "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Joel Stanley" <joel@jms.id.au>,
+ "Andrew Jeffery" <andrew@codeconstruct.com.au>,
+ "Jeremy Kerr" <jk@codeconstruct.com.au>, "Lee Jones" <lee@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>,
+ "Bjorn Andersson" <bjorn.andersson@oss.qualcomm.com>,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Nishanth Menon" <nm@ti.com>,
+ =?UTF-8?Q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>,
+ "Taniya Das" <quic_tdas@quicinc.com>, "Lad,
+ Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ "Kuninori Morimoto" <kuninori.morimoto.gx@renesas.com>,
+ "Eric Biggers" <ebiggers@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Message-Id: <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com>
+In-Reply-To: <TY2PPF5CB9A1BE626A2F0F6307461D8F64BF2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
+ <20251022070543.1169173-5-ryan_chen@aspeedtech.com>
+ <b5441728-06a7-44ea-8876-3a9fc3cf55be@app.fastmail.com>
+ <TY2PPF5CB9A1BE626A2F0F6307461D8F64BF2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC device tree
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_201526_393774_6F64D16E 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20251023_131133_739042_6E442562 
+X-CRM114-Status: GOOD (  39.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,28 +136,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15.10.25 10:27, Kevin Brodsky wrote:
-> powerpc decides at runtime whether the lazy MMU mode should be used.
-> 
-> To avoid the overhead associated with managing
-> task_struct::lazy_mmu_state if the mode isn't used, introduce
-> arch_wants_lazy_mmu_mode() and bail out of lazy_mmu_mode_* if it
-> returns false. Add a default definition returning true, and an
-> appropriate implementation for powerpc.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
-> This patch seemed like a good idea to start with, but now I'm not so
-> sure that the churn added to the generic layer is worth it.
+On Thu, Oct 23, 2025, at 09:37, Ryan Chen wrote:
+>
+>> > +	aliases {
+>> > +		serial0 = &uart0;
+>> > +		serial1 = &uart1;
+>> > +		serial2 = &uart2;
+>> > +		serial3 = &uart3;
+>> > +		serial4 = &uart4;
+>> > +		serial5 = &uart5;
+>> > +		serial6 = &uart6;
+>> > +		serial7 = &uart7;
+>> > +		serial8 = &uart8;
+>> > +		serial9 = &uart9;
+>> > +		serial10 = &uart10;
+>> > +		serial11 = &uart11;
+>> > +		serial12 = &uart12;
+>> > +		serial13 = &uart13;
+>> > +		serial14 = &uart14;
+>> > +	};
+>> 
+>> This looks like you just list all the uarts that are present on the chip, which is
+>> not how the aliases are meant to be used. Move this block into the board
+>> specific file and only list the ones that are actually enabled on that particular
+>> board.
+>> 
+>> In particular, the alias names are meant to be local to the board and don't
+>> usually correspond to the numbering inside of the chip. In the defconfig, we
+>> currently set CONFIG_SERIAL_8250_NR_UARTS=8, which is enough for any
+>> board we support so far, but that means only the first
+>> 8 aliases in the list will actually work.
+>
+> Understood. I'll move the aliases block from the SoC dtsi into the
+> EVB board dts. For the EVB, UART12 is used as the default console,
+> and the board labels match the SoC numbering, so I plan to keep:
+>
+> Does that look acceptable?
+> ast2700-evb.dts
+> 	aliases {
+> 		serial0 = &uart0;
+> 		serial1 = &uart1;
+> 		serial2 = &uart2;
+> 		serial3 = &uart3;
+> 		serial4 = &uart4;
+> 		serial5 = &uart5;
+> 		serial6 = &uart6;
+> 		serial7 = &uart7;
+> 		serial8 = &uart8;
+> 		serial9 = &uart9;
+> 		serial10 = &uart10;
+> 		serial11 = &uart11;
+> 		serial12 = &uart12;
+> 		serial13 = &uart13;
+> 		serial14 = &uart14;
+> }
 
-Exactly my thoughts :)
+I think this would be broken for the defconfig if the consol is
+on serial12. I would recommend using serial0 as the console, like
 
-I think we need evidence that this is really worth it for optimizing out 
-basically a counter update on powerpc.
+aliases {
+       serial0 = &uart12;
+}
 
--- 
-Cheers
+in this case. If additional uarts are enabled, add those as
+further aliases.
 
-David / dhildenb
+>> 
+>> > +	soc1: soc@14000000 {
+>> > +		compatible = "simple-bus";
+>> > +		#address-cells = <2>;
+>> > +		#size-cells = <2>;
+>> > +		ranges = <0x0 0x0 0x0 0x14000000 0x0 0x10000000>;
+>> 
+>> This probably needs some explanation: why are there two 'soc@...'
+>> devices? Is this literally two chips in the system, or are you describing two
+>> buses inside of the same SoC?
+>
+> The AST2700 is two soc connection with a property bus.
+> Sharing some decode registers. Each have it own ahb bus.
 
+I don't understand your explanation, 
+
+>> 
+>> > +
+>> > +		mdio0: mdio@14040000 {
+>> > +			compatible = "aspeed,ast2600-mdio";
+>> > +			reg = <0 0x14040000 0 0x8>;
+>> > +			resets = <&syscon1 SCU1_RESET_MII>;
+>> > +			status = "disabled";
+>> > +		};
+>> 
+>> I see that you use the old compatible="aspeed,ast2600-mdio" string exclusively
+>> here. While this works, I would suggest you list both a more specific
+>> "aspeed,ast2700-mdio" string to refer to the version in this chip as well as the
+>> fallback "aspeed,ast2600-mdio" string as the generic identifier.
+>> 
+>> The binding obviously has to describe both in that case, but the driver does not
+>> need to be modified as long as both behave the same way.
+>
+> Thanks, will submit ast2700-mdio. 
+> Question, should I add in here patch series?
+> Or go for another patch thread?
+
+Since there is no corresponding driver change, I would keep the binding
+change as a patch in this series.
+
+>> > +
+>> > +		syscon1: syscon@14c02000 {
+>> > +			compatible = "aspeed,ast2700-scu1", "syscon", "simple-mfd";
+>> > +			reg = <0x0 0x14c02000 0x0 0x1000>;
+>> > +			ranges = <0x0 0x0 0x14c02000 0x1000>;
+>> > +			#address-cells = <1>;
+>> > +			#size-cells = <1>;
+>> > +			#clock-cells = <1>;
+>> > +			#reset-cells = <1>;
+>> > +
+>> > +			scu_ic2: interrupt-controller@100 {
+>> > +				compatible = "aspeed,ast2700-scu-ic2";
+>> > +				reg = <0x100 0x8>;
+>> > +				#interrupt-cells = <1>;
+>> > +				interrupts-extended = <&intc1_5 0>;
+>> > +				interrupt-controller;
+>> > +			};
+>> > +
+>> > +			scu_ic3: interrupt-controller@108 {
+>> > +				compatible = "aspeed,ast2700-scu-ic3";
+>> > +				reg = <0x108 0x8>;
+>> > +				#interrupt-cells = <1>;
+>> > +				interrupts-extended = <&intc1_5 26>;
+>> > +				interrupt-controller;
+>> > +			};
+>> 
+>> This looks a bit silly to be honest: you have two separate devices that each have
+>> a single register and a different compatible string?
+>
+> Yes, it have difference register define in each scu-ic#. That is 
+> compatible with design.
+> https://github.com/torvalds/linux/blob/master/drivers/irqchip/irq-aspeed-scu-ic.c#L45-L48
+
+Right, if the driver already has this design, it does make sense to
+not change it for the new generation. For a newly added driver I would
+probably do it differently.
+
+>> Also you claim to be compatible with "syscon" but nothing actually refers to the
+>> syscon node in that form?
+>
+> There is another submit ongoing in pinctrl which will use syscon. 
+> https://lwn.net/ml/all/20250829073030.2749482-2-billy_tsai@aspeedtech.com/
+>
+> Could I keep it? or I should remove it?
+
+The version of the driver you are linking does not appear to use
+syscon, maybe this is an artifact from a previous version?
+
+If so, you can drop it. On the other hand, this does seem to
+be a classic syscon device and keeping it marked that way is not
+harmful, just redundant if you actually use the more specific
+compatible string.
+
+
+     Arnd
 
