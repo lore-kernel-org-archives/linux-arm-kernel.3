@@ -4,63 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88731CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 12:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 865C2CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 12:37:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fg/D4PQz7ORc/1gIr+qblX/iL6/NOg0Keo710yXxNfQ=; b=BfexZaKa3SaHGMCKS637DgvK6b
-	2yrvuE8gn9TSK+cbSmLSoociVww9tnFWy2chPF9hhE9ZdDsuNWJZ036SWy3qDpzW0XtNez3oO3kMM
-	SU9Fp62SXOSIufySjqiuAv/xqm3cDFWvqpmHT7WKoJrw1m0/N1cKeEqi9/eJiI08f0KbFyb0AvVAs
-	DLweuNc6IQvP/bvT8OkFQ8rHVmyk1jHPg2ZLOtr7Ouvma2FTwg0qdF89w2j3FzWN2C6zxDB2wErwl
-	rCXNuiTXjKJtZQKIK7z4turYbqi2zn93qB+BMAitHE+2kohIKOIi7YXcE730xRGbCJFJKakCqN1pY
-	ZvXtNmSA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6WkBUEsZXrdSrWtDBY0p0szZixzCZ3r/xfDV1TsjmXc=; b=1w70xUWa7mTPy9zj4qPYB2hOXd
+	8rf5seObx6IJ9HXDIsqP/hQVH2JJ/Kc5m6GNhZucnVhMxmH3uYQmeWsjgWe9ybwRI47S1IlykPpgm
+	EEkmdki6KJtXztrh8aACzOJiDxQ5HiWTFsw8qaesFsg6Xqo37Ely2kt4h4YHLZ2IMOSV3M87UUuf2
+	WA9qM4cPyNhK6SJsX3V6i+/H8nn2irtA1eiXbqL0b1UBicMtbcsp9T+tUmoqNcBwC3Q6eGACmGbJc
+	bpYaLje406n0zIPHAOBDytK4dHl+GXIeUiOn6rFsrMAAXhv/YnDsom//aM0LTlCt48jMlDRVLcAG4
+	NXDGx+Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuWV-00000006GIw-1pqY;
-	Thu, 23 Oct 2025 12:34:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuWS-00000006GIQ-3PFM;
-	Thu, 23 Oct 2025 12:34:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 397E11516;
-	Thu, 23 Oct 2025 05:34:19 -0700 (PDT)
-Received: from [10.57.36.157] (unknown [10.57.36.157])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D67773F59E;
-	Thu, 23 Oct 2025 05:34:23 -0700 (PDT)
-Message-ID: <579bdc4e-ab71-4120-8991-34400d4bbf8d@arm.com>
-Date: Thu, 23 Oct 2025 13:34:21 +0100
+	id 1vBuZ8-00000006GgT-23Uw;
+	Thu, 23 Oct 2025 12:37:14 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBuZ5-00000006Gf0-09Q2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Oct 2025 12:37:12 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4cslsY3Nthz9sqg;
+	Thu, 23 Oct 2025 14:37:05 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761223025;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6WkBUEsZXrdSrWtDBY0p0szZixzCZ3r/xfDV1TsjmXc=;
+	b=f7S/AOfUym2WSQJD+wd5aCNm4AcP9LB01v9Bhh58ON7xu620sLvUk5ROwnxbwmbLhN1Z2+
+	uBKqjPaqP6E/0fLu5zEEqrzO1NTJL9dQCffwu6oeCeKaT7B5aflKzAVxujWNjk/vLa3d6N
+	JvSp20fGFIlPFVwuj4qeenp8qfF7l8Xp4YfTI0DIQ1swq/yyQPf+wR54F/h7zrE7CLLvMH
+	GseK5unRSS1qw1gy1npHN7x9ojq1YT1pjYTJduGGBJ4VBhIdpdOVXqIhFyoUZ4t3inBk8M
+	WVTxFLE4zcZTaIaEcO4TcEZXZBPwHw2v1W0DgJDZpMB3IxqYPjTi1uLyACnrhA==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761223023;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=6WkBUEsZXrdSrWtDBY0p0szZixzCZ3r/xfDV1TsjmXc=;
+	b=Wn5Nl7G6hP6vmCoD+qRaXIEZCLFqbYiHMmh50h/DCfCsq0FFf77PcNErjp1nsPCPWtK0bD
+	60bl5kL+31jADa0JwZOhQJNr3xg/aw0oBdNPn8eUocT2IPmjsw+3XuzxJ2In4m9AqpIqsc
+	DxAITUnhaly7YVw9rEQELxPUWmtYChtKxEW7sHbtjWO7cO9mnYARLYsQEKFWtII/hHLab9
+	0L5bF7OrZ3XjrGmTbLVTyrlHVXvYx1C1FlzAQeMOZ020fOuhz2iZwyroE8FiA7cm6HhdAB
+	hnApM0vnLoHJulQXoP/lP3Z9mQgTPLqBQ/XFfBQIxx33WLjNAD1/Mn+qzbAz4g==
+To: arm-scmi@vger.kernel.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document arm,poll-transport property
+Date: Thu, 23 Oct 2025 14:35:57 +0200
+Message-ID: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] iommu/amd: Don't call report_iommu_fault()
-To: Jason Gunthorpe <jgg@nvidia.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Christian Benvenuti <benve@cisco.com>, Heiko Stuebner <heiko@sntech.de>,
- iommu@lists.linux.dev, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Joerg Roedel <joro@8bytes.org>, Leon Romanovsky <leon@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-rdma@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Nelson Escobar <neescoba@cisco.com>, Rob Clark
- <robin.clark@oss.qualcomm.com>, Samuel Holland <samuel@sholland.org>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
- Yong Wu <yong.wu@mediatek.com>
-Cc: patches@lists.linux.dev
-References: <2-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <2-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: ur38htuptdf9d77rhncyiu8mnbh67gm1
+X-MBO-RS-ID: 946e3c1781cf93a3546
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_053428_901033_DB08C4BF 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20251023_053711_217218_75504E0C 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,67 +92,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-22 6:12 pm, Jason Gunthorpe wrote:
-> This old style API is only used by drivers/gpu/drm/msm and
-> drivers/remoteproc, neither are used on x86 HW. Remove the dead code to
-> discourage new users.
+Document new property arm,poll-transport, which sets all SCMI operation into
+poll mode. This is meant to work around uncooperative SCP implementations,
+which do not generate completion interrupts. This applies primarily on mbox
+based implementations, but does also cover SMC and VirtIO ones.
 
-I'd be almost certain there's somebody somewhere using remoteproc on x86 
-with some FPGA/bespoke PCI device/on-board MCU/etc. - whether they're 
-doing it on AMD *and* care about its fault reporting mechanism is really 
-the question.
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->   drivers/iommu/amd/iommu.c | 24 ------------------------
->   1 file changed, 24 deletions(-)
-> 
-> diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
-> index 2e1865daa1cee8..072c80bb2c2b3a 100644
-> --- a/drivers/iommu/amd/iommu.c
-> +++ b/drivers/iommu/amd/iommu.c
-> @@ -840,29 +840,6 @@ static void amd_iommu_report_page_fault(struct amd_iommu *iommu,
->   		dev_data = dev_iommu_priv_get(&pdev->dev);
->   
->   	if (dev_data) {
-> -		/*
-> -		 * If this is a DMA fault (for which the I(nterrupt)
-> -		 * bit will be unset), allow report_iommu_fault() to
-> -		 * prevent logging it.
-> -		 */
-> -		if (IS_IOMMU_MEM_TRANSACTION(flags)) {
-> -			/* Device not attached to domain properly */
-> -			if (dev_data->domain == NULL) {
-> -				pr_err_ratelimited("Event logged [Device not attached to domain properly]\n");
-> -				pr_err_ratelimited("  device=%04x:%02x:%02x.%x domain=0x%04x\n",
-> -						   iommu->pci_seg->id, PCI_BUS_NUM(devid), PCI_SLOT(devid),
-> -						   PCI_FUNC(devid), domain_id);
-> -				goto out;
-> -			}
-This part is unrelated to the report_iommu_fault() call - in fact it was 
-specifically added even more recently.
+With this property set, such implementations which do not generate interrupts
+can be interacted with, until they are fixed to generate interrupts properly.
 
-Thanks,
-Robin.
+Note that, because the original base protocol exchange also requires some
+sort of completion mechanism, it is not possible to query SCMI itself for
+this property and it must be described in DT. While this does look a bit
+like policy, the SCMI provider is part of the hardware, hence DT.
 
-> -
-> -			if (!report_iommu_fault(&dev_data->domain->domain,
-> -						&pdev->dev, address,
-> -						IS_WRITE_REQUEST(flags) ?
-> -							IOMMU_FAULT_WRITE :
-> -							IOMMU_FAULT_READ))
-> -				goto out;
-> -		}
-> -
->   		if (__ratelimit(&dev_data->rs)) {
->   			pci_err(pdev, "Event logged [IO_PAGE_FAULT domain=0x%04x address=0x%llx flags=0x%04x]\n",
->   				domain_id, address, flags);
-> @@ -873,7 +850,6 @@ static void amd_iommu_report_page_fault(struct amd_iommu *iommu,
->   			domain_id, address, flags);
->   	}
->   
-> -out:
->   	if (pdev)
->   		pci_dev_put(pdev);
->   }
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>
+Cc: arm-scmi@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+index be817fd9cc34b..b53754a318ea1 100644
+--- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
++++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+@@ -146,6 +146,13 @@ properties:
+       this platform. If set, the value should be non-zero.
+     minimum: 1
+ 
++  arm,poll-transport:
++    type: boolean
++    description:
++      An optional property which unconditionally forces polling in all transports.
++      This is mainly mean to work around uncooperative SCP, which does not generate
++      completion interrupts.
++
+   arm,smc-id:
+     $ref: /schemas/types.yaml#/definitions/uint32
+     description:
+-- 
+2.51.0
 
 
