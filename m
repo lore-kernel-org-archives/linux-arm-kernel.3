@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5A0CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 11:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AACFCCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 11:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fden5q3cwJAtmjxOzXx/h9BbUz6DpV6vAF7TlM0CQGo=; b=lQqJ+uKPF5hqNgi3PrTNP2oJga
-	PiIaZ+P4YEv6uoY0vx0KW6IA5t9nCpH4u5CSJX2gaVgkfJ323S9USkGM4NXVXwSsy6YLupeeBu2Qt
-	uMY3pWbRISk0ozwXiTTAgiiRTEkT9fvVy3jDEP7HNoGykULbZ2UT9hoaPVKg51gYBtsXJmSlR1VsJ
-	Z7DmHsrsPKGYWtBP3mNgO7EXRDmhOqVSIU7ETpJFo0m51yQzGerrGzF6kWMNJhM3nULDycSSVxgLn
-	8o82NdoDA5kQjz4Nqhf7h7AWbArBZE3P2TDuykflrzMFAjk9SPQKlUh30RGLYxXBiV8dfOkKr+fFU
-	zn/8xzZA==;
+	bh=W5YmQwWJk3Qgo+/GyIGBufgNDE7itOMKNlYxi+cxfTA=; b=q7Tp8EwRDq15sItQAg3+ql+thK
+	aDaW4BbI7aU1ay4OrZFrBjz1U3BhBdOVe7ia+hADyYmi9vul+iGtk9eBy3oHkZ+tcDenMzNse09I/
+	2WNL7BJme6Tq214ticy9gzjgy2ZBRJBT1sSm0DdTEt9hkCW+gE9Oai1wnBtV0lecqrqG8Rw4/I+Yc
+	KOnh20lJkfGNjurcfFx4gJ3XLHc13vlSoJ/OXRv8QUu5g9b434ehvXgvG3xaCMaxCb8UXC4Jh0viD
+	tVyJI28Goq2HTbpuFWXSDV2HZNsWIvbeLSXv9x6sfbzGeypEitoR7J5lg4bdVDUKSxSGfOMovcrY5
+	NX0c6wRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBtO5-000000064Dd-41eK;
-	Thu, 23 Oct 2025 11:21:45 +0000
-Received: from mail-m15578.qiye.163.com ([101.71.155.78])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBtO2-000000064Aq-0zoB;
-	Thu, 23 Oct 2025 11:21:43 +0000
-Received: from [172.16.12.149] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 26f1c34e0;
-	Thu, 23 Oct 2025 19:21:32 +0800 (GMT+08:00)
-Message-ID: <9c52db41-14f3-41a8-9423-3efe604361aa@rock-chips.com>
-Date: Thu, 23 Oct 2025 19:21:31 +0800
+	id 1vBtQS-000000064bD-3wCO;
+	Thu, 23 Oct 2025 11:24:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBtQQ-000000064ak-1wXf;
+	Thu, 23 Oct 2025 11:24:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDFE31516;
+	Thu, 23 Oct 2025 04:23:59 -0700 (PDT)
+Received: from [10.57.36.157] (unknown [10.57.36.157])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 30F673F63F;
+	Thu, 23 Oct 2025 04:24:04 -0700 (PDT)
+Message-ID: <d594cdf2-5aab-4539-8d44-f7e57770df72@arm.com>
+Date: Thu, 23 Oct 2025 12:24:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/9] usb: typec: Add notifier functions
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-References: <20251023033009.90-1-kernel@airkyi.com>
- <20251023033009.90-2-kernel@airkyi.com> <aPni4AeDaem_rfZH@kuha.fi.intel.com>
- <aPnvoSRJefwDlpNO@kuha.fi.intel.com> <aPn4-S7upPOOtenr@kuha.fi.intel.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <aPn4-S7upPOOtenr@kuha.fi.intel.com>
+Subject: Re: [PATCH 3/3] iommu: Allow drivers to say if they use
+ report_iommu_fault()
+To: Jason Gunthorpe <jgg@nvidia.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Christian Benvenuti <benve@cisco.com>, Heiko Stuebner <heiko@sntech.de>,
+ iommu@lists.linux.dev, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Joerg Roedel <joro@8bytes.org>, Leon Romanovsky <leon@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-rdma@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Nelson Escobar <neescoba@cisco.com>, Rob Clark
+ <robin.clark@oss.qualcomm.com>, Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
+ Yong Wu <yong.wu@mediatek.com>
+Cc: patches@lists.linux.dev
+References: <3-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <3-v1-391058a85f30+14b-iommu_set_fault_jgg@nvidia.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9a10cd794c03abkunmb71a32b21958ec
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk0ZS1ZMQklISUMZTxpNSUpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
-	xVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=WPP/CtMyWjsyonpX6WvCM4hzju69HTiJcibUlL0INhLheBqrQM9p7gBHu5od05BDZ6pM2Ukm7toh6d4/A+Fm6M7Yl0FM6QZa7mJzh7xdQAPZNhD/6oM7QLysGDEz2S54WNzl+ZeotjEgaxczFD8HlruoyNi7HkkWDnqtDTw3R7I=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=Fden5q3cwJAtmjxOzXx/h9BbUz6DpV6vAF7TlM0CQGo=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_042142_470474_87689964 
-X-CRM114-Status: GOOD (  22.50  )
+X-CRM114-CacheID: sfid-20251023_042410_601983_5B4081C2 
+X-CRM114-Status: GOOD (  25.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,103 +76,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heikki,
+On 2025-10-22 6:12 pm, Jason Gunthorpe wrote:
+> report_iommu_fault() is an older API that has been superseded by
+> iommu_report_device_fault() which is capable to support PRI.
+> 
+> Only two external drivers consume this, drivers/remoteproc and
+> drivers/gpu/drm/msm. Ideally they would move over to the new APIs, but for
+> now protect against accidentally mix and matching the wrong components.
+> 
+> The iommu drivers support either the old iommu_set_fault_handler() via the
+> driver calling report_iommu_fault(), or they are newer server focused
+> drivers that call iommu_report_device_fault().
+> 
+> Include a flag in the domain_ops if it calls report_iommu_fault() and
+> block iommu_set_fault_handler() on iommu's that can't support it.
 
-On 10/23/2025 5:44 PM, Heikki Krogerus wrote:
-> On Thu, Oct 23, 2025 at 12:04:44PM +0300, Heikki Krogerus wrote:
->> On Thu, Oct 23, 2025 at 11:10:20AM +0300, Heikki Krogerus wrote:
->>> Hi,
->>>
->>>> diff --git a/include/linux/usb/typec_notify.h b/include/linux/usb/typec_notify.h
->>>> new file mode 100644
->>>> index 000000000000..a3f1f3b3ae47
->>>> --- /dev/null
->>>> +++ b/include/linux/usb/typec_notify.h
->>>> @@ -0,0 +1,17 @@
->>>> +/* SPDX-License-Identifier: GPL-2.0 */
->>>> +
->>>> +#ifndef __USB_TYPEC_NOTIFY
->>>> +#define __USB_TYPEC_NOTIFY
->>>> +
->>>> +#include <linux/notifier.h>
->>>> +
->>>> +enum usb_typec_event {
->>>> +	TYPEC_ALTMODE_REGISTERED
->>>> +};
->>> Don't you need to know when the altmode is removed?
->> I noticed that you don't because drm_dp_hpd_bridge_register() is
->> always resource managed. But I think you could still send an event
->> also when the altmode is removed already now. That way it does not
->> need to be separately added if and when it is needed.
-> Hold on! Every bus has already a notifier chain. That's the one that
-> we should also use. Sorry for not noticing that earlier.
->
-> So let's just export the bus type in this patch - you can then use
-> bus_register_notifier() in your driver:
->
-> diff --git a/drivers/usb/typec/bus.c b/drivers/usb/typec/bus.c
-> index a884cec9ab7e..65ded9e3cdaa 100644
-> --- a/drivers/usb/typec/bus.c
-> +++ b/drivers/usb/typec/bus.c
-> @@ -547,3 +547,4 @@ const struct bus_type typec_bus = {
->          .probe = typec_probe,
->          .remove = typec_remove,
->   };
-> +EXPORT_SYMBOL_GPL(typec_bus);
-> diff --git a/drivers/usb/typec/bus.h b/drivers/usb/typec/bus.h
-> index 643b8c81786d..af9edb3db9d0 100644
-> --- a/drivers/usb/typec/bus.h
-> +++ b/drivers/usb/typec/bus.h
-> @@ -5,7 +5,6 @@
->   
->   #include <linux/usb/typec_altmode.h>
->   
-> -struct bus_type;
->   struct typec_mux;
->   struct typec_retimer;
->   
-> @@ -28,7 +27,6 @@ struct altmode {
->   
->   #define to_altmode(d) container_of(d, struct altmode, adev)
->   
-> -extern const struct bus_type typec_bus;
->   extern const struct device_type typec_altmode_dev_type;
->   
->   #define is_typec_altmode(_dev_) (_dev_->type == &typec_altmode_dev_type)
-> diff --git a/include/linux/usb/typec.h b/include/linux/usb/typec.h
-> index 309251572e2e..c6fd46902fce 100644
-> --- a/include/linux/usb/typec.h
-> +++ b/include/linux/usb/typec.h
-> @@ -20,12 +20,15 @@ struct typec_port;
->   struct typec_altmode_ops;
->   struct typec_cable_ops;
->   
-> +struct bus_type;
->   struct fwnode_handle;
->   struct device;
->   
->   struct usb_power_delivery;
->   struct usb_power_delivery_desc;
->   
-> +extern const struct bus_type typec_bus;
-> +
->   enum typec_port_type {
->          TYPEC_PORT_SRC,
->          TYPEC_PORT_SNK,
+This isn't a domain operation though; depending on how you look at it, 
+supporting a legacy fault_handler is either a capability of the IOMMU 
+driver (that would be reachable via domain->owner->capable) or a 
+property of the iommu_domain itself that the drivers can set at 
+allocation time (basically this same patch just with the lines in 
+slightly different places).
 
-Thank you for your detailed explanation. I noticed that there is a device_register() action in typec_register_altmode(), so we can just take advantage of this.
-
-
-Another thing is that we need to distinguish between different devices in the notifier callback, as typec_register_altmode()/typec_register_partner()/typec_register_plug()/typec_register_cable() may all register devices. Since the data passed in bus_notify() is struct device *dev, I think we can distinguish them through `dev->type.name`? We may already have such names, "typec_alternate_mode", "typec_partner", "typec_plug" in class.c . And then extract these names as macros and put them in the typec header file.
-
-
-Or do you have any better ideas? Thank you.
-
-
-> thanks,
->
--- 
-Best,
-Chaoyi
-
+Thanks,
+Robin.
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>   drivers/iommu/arm/arm-smmu/arm-smmu.c   | 1 +
+>   drivers/iommu/arm/arm-smmu/qcom_iommu.c | 1 +
+>   drivers/iommu/iommu.c                   | 6 +++++-
+>   drivers/iommu/ipmmu-vmsa.c              | 1 +
+>   drivers/iommu/mtk_iommu.c               | 1 +
+>   drivers/iommu/mtk_iommu_v1.c            | 1 +
+>   drivers/iommu/omap-iommu.c              | 1 +
+>   drivers/iommu/rockchip-iommu.c          | 1 +
+>   drivers/iommu/sun50i-iommu.c            | 1 +
+>   include/linux/iommu.h                   | 3 +++
+>   10 files changed, 16 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> index 4ced4b5bee4df3..5ce8f82ddb534b 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> @@ -1644,6 +1644,7 @@ static const struct iommu_ops arm_smmu_ops = {
+>   	.def_domain_type	= arm_smmu_def_domain_type,
+>   	.owner			= THIS_MODULE,
+>   	.default_domain_ops = &(const struct iommu_domain_ops) {
+> +		.report_iommu_fault_supported = true,
+>   		.attach_dev		= arm_smmu_attach_dev,
+>   		.map_pages		= arm_smmu_map_pages,
+>   		.unmap_pages		= arm_smmu_unmap_pages,
+> diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+> index c5be95e560317e..3163a23fcbaa4f 100644
+> --- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+> +++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+> @@ -598,6 +598,7 @@ static const struct iommu_ops qcom_iommu_ops = {
+>   	.device_group	= generic_device_group,
+>   	.of_xlate	= qcom_iommu_of_xlate,
+>   	.default_domain_ops = &(const struct iommu_domain_ops) {
+> +		.report_iommu_fault_supported = true,
+>   		.attach_dev	= qcom_iommu_attach_dev,
+>   		.map_pages	= qcom_iommu_map,
+>   		.unmap_pages	= qcom_iommu_unmap,
+> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+> index 59244c744eabd2..34546a70fb5279 100644
+> --- a/drivers/iommu/iommu.c
+> +++ b/drivers/iommu/iommu.c
+> @@ -2005,6 +2005,9 @@ EXPORT_SYMBOL_GPL(iommu_group_has_isolated_msi);
+>    * This function should be used by IOMMU users which want to be notified
+>    * whenever an IOMMU fault happens.
+>    *
+> + * This is a legacy API not supported by all drivers. New users should look
+> + * to using domain->iopf_handler for the modern API.
+> + *
+>    * The fault handler itself should return 0 on success, and an appropriate
+>    * error code otherwise.
+>    */
+> @@ -2012,7 +2015,8 @@ void iommu_set_fault_handler(struct iommu_domain *domain,
+>   					iommu_fault_handler_t handler,
+>   					void *token)
+>   {
+> -	if (WARN_ON(!domain || domain->cookie_type != IOMMU_COOKIE_NONE))
+> +	if (WARN_ON(!domain || domain->cookie_type != IOMMU_COOKIE_NONE ||
+> +		    !domain->ops->report_iommu_fault_supported))
+>   		return;
+>   
+>   	domain->cookie_type = IOMMU_COOKIE_FAULT_HANDLER;
+> diff --git a/drivers/iommu/ipmmu-vmsa.c b/drivers/iommu/ipmmu-vmsa.c
+> index ffa892f6571406..770fa248e30477 100644
+> --- a/drivers/iommu/ipmmu-vmsa.c
+> +++ b/drivers/iommu/ipmmu-vmsa.c
+> @@ -885,6 +885,7 @@ static const struct iommu_ops ipmmu_ops = {
+>   			? generic_device_group : generic_single_device_group,
+>   	.of_xlate = ipmmu_of_xlate,
+>   	.default_domain_ops = &(const struct iommu_domain_ops) {
+> +		.report_iommu_fault_supported = true,
+>   		.attach_dev	= ipmmu_attach_device,
+>   		.map_pages	= ipmmu_map,
+>   		.unmap_pages	= ipmmu_unmap,
+> diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
+> index 0e0285348d2b8e..0f44993eaadce3 100644
+> --- a/drivers/iommu/mtk_iommu.c
+> +++ b/drivers/iommu/mtk_iommu.c
+> @@ -1019,6 +1019,7 @@ static const struct iommu_ops mtk_iommu_ops = {
+>   	.get_resv_regions = mtk_iommu_get_resv_regions,
+>   	.owner		= THIS_MODULE,
+>   	.default_domain_ops = &(const struct iommu_domain_ops) {
+> +		.report_iommu_fault_supported = true,
+>   		.attach_dev	= mtk_iommu_attach_device,
+>   		.map_pages	= mtk_iommu_map,
+>   		.unmap_pages	= mtk_iommu_unmap,
+> diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
+> index 10cc0b1197e801..279e7acfd5c6d3 100644
+> --- a/drivers/iommu/mtk_iommu_v1.c
+> +++ b/drivers/iommu/mtk_iommu_v1.c
+> @@ -582,6 +582,7 @@ static const struct iommu_ops mtk_iommu_v1_ops = {
+>   	.device_group	= generic_device_group,
+>   	.owner          = THIS_MODULE,
+>   	.default_domain_ops = &(const struct iommu_domain_ops) {
+> +		.report_iommu_fault_supported = true,
+>   		.attach_dev	= mtk_iommu_v1_attach_device,
+>   		.map_pages	= mtk_iommu_v1_map,
+>   		.unmap_pages	= mtk_iommu_v1_unmap,
+> diff --git a/drivers/iommu/omap-iommu.c b/drivers/iommu/omap-iommu.c
+> index 5c6f5943f44b1f..3f3193de3ecd86 100644
+> --- a/drivers/iommu/omap-iommu.c
+> +++ b/drivers/iommu/omap-iommu.c
+> @@ -1724,6 +1724,7 @@ static const struct iommu_ops omap_iommu_ops = {
+>   	.device_group	= generic_single_device_group,
+>   	.of_xlate	= omap_iommu_of_xlate,
+>   	.default_domain_ops = &(const struct iommu_domain_ops) {
+> +		.report_iommu_fault_supported = true,
+>   		.attach_dev	= omap_iommu_attach_dev,
+>   		.map_pages	= omap_iommu_map,
+>   		.unmap_pages	= omap_iommu_unmap,
+> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+> index 0861dd469bd866..0053f5aa2cb781 100644
+> --- a/drivers/iommu/rockchip-iommu.c
+> +++ b/drivers/iommu/rockchip-iommu.c
+> @@ -1174,6 +1174,7 @@ static const struct iommu_ops rk_iommu_ops = {
+>   	.device_group = generic_single_device_group,
+>   	.of_xlate = rk_iommu_of_xlate,
+>   	.default_domain_ops = &(const struct iommu_domain_ops) {
+> +		.report_iommu_fault_supported = true,
+>   		.attach_dev	= rk_iommu_attach_device,
+>   		.map_pages	= rk_iommu_map,
+>   		.unmap_pages	= rk_iommu_unmap,
+> diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
+> index de10b569d9a940..29b230050906a2 100644
+> --- a/drivers/iommu/sun50i-iommu.c
+> +++ b/drivers/iommu/sun50i-iommu.c
+> @@ -849,6 +849,7 @@ static const struct iommu_ops sun50i_iommu_ops = {
+>   	.of_xlate	= sun50i_iommu_of_xlate,
+>   	.probe_device	= sun50i_iommu_probe_device,
+>   	.default_domain_ops = &(const struct iommu_domain_ops) {
+> +		.report_iommu_fault_supported = true,
+>   		.attach_dev	= sun50i_iommu_attach_device,
+>   		.flush_iotlb_all = sun50i_iommu_flush_iotlb_all,
+>   		.iotlb_sync_map = sun50i_iommu_iotlb_sync_map,
+> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> index c30d12e16473df..e2bf7885287fac 100644
+> --- a/include/linux/iommu.h
+> +++ b/include/linux/iommu.h
+> @@ -714,6 +714,8 @@ struct iommu_ops {
+>   
+>   /**
+>    * struct iommu_domain_ops - domain specific operations
+> + * @report_iommu_fault_supported: True if the domain supports
+> + *                                iommu_set_fault_handler()
+>    * @attach_dev: attach an iommu domain to a device
+>    *  Return:
+>    * * 0		- success
+> @@ -751,6 +753,7 @@ struct iommu_ops {
+>    * @free: Release the domain after use.
+>    */
+>   struct iommu_domain_ops {
+> +	bool report_iommu_fault_supported : 1;
+>   	int (*attach_dev)(struct iommu_domain *domain, struct device *dev);
+>   	int (*set_dev_pasid)(struct iommu_domain *domain, struct device *dev,
+>   			     ioasid_t pasid, struct iommu_domain *old);
 
