@@ -4,85 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E9ACCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 20:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C37CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 20:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xEk7uZCFAnf2fCrMP41kRvRzNCAghPwQmRf+38mmwD0=; b=AHhGgrH0TdHxglYsIrohjZoK7H
-	4JOE/HNx9PXdO2WmmJfAA7XAD11kpkrUN8SwTdirPogFjy+xz2l2WG3LMrnSPYKMQ2xneRLutpAok
-	tVc1QSVEwD9yZDOns/vGFoBOF4L/qbaTZgRNuUD+dB+NEftD2zEJUwL7ORo8Qm0VllaLNXl0LkdWa
-	pdKJLi0LmPMkxwX32u/9XDxoGGaBECfcbPzOekcLkXrl96SAeBnn33RPdL4WrsU0DR5Myl7Fs2awE
-	gHMyCFcNDYPfsh1PuMKcxyAsHA/GRFAQrMBI4b4PcjafeqwsBP+DcTalNpBNjpV8jNKzN+lvGkUdv
-	OM38CxXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q2PlpbC6DOPQ9Ag/NqmWzOb39YBV/wCJHBS+fST6+60=; b=cqyfwQnslylMTQVOQwJH49gZ9M
+	OfVK4m9ORM1yojbNnEroj+zBULuSW5B4H1fi14wKMLdxFXjlYmNxxHmbjnMxrEGsqubLXs2N4Pay+
+	pLV00d5l5x6U92glbb7uBCqhQTvYswjrADPbLm9hvgNFZtHUtIrwPMgtESLpD1POuCT8c7NyYiqbe
+	c3Eb3IrRufVO+wHDrt89QFLrJDdg0h7HG85pVIKDck35EiGLN8ddDBMr9AC9AH+cBYUnzgK9831d2
+	1sZbRcOL8RK8qS/5egFPGk/Scn9427KX8LXchy/yl3cKAm+loZxiQ8k+Jd/nOqI+Qj0jg05KOpZ5T
+	XOypDRqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC2Dp-00000007Yom-30bs;
-	Thu, 23 Oct 2025 20:47:45 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1vC2FE-00000007YzE-0LSx;
+	Thu, 23 Oct 2025 20:49:12 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC2Dn-00000007YoQ-1aEE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 20:47:44 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-586883eb9fbso1502912e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 13:47:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761252461; x=1761857261; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xEk7uZCFAnf2fCrMP41kRvRzNCAghPwQmRf+38mmwD0=;
-        b=jMX2KCKArnQK96PfM7IXZQDvrte1fQRimiTEiKpu+MmjEIKuPQaq1zdEEyGq/vG8Eu
-         xb2cOtx4O1IyVyo7apBAhQ/wtASPQH+ZDisFF/rH8z+JAiOd9XLPyabQfRJHFwtaaNdb
-         n4wCi+yYLEOXWfJG1yyivhskyEL/nu2ph1Hodfjl2Z9g1+cIaRlUhDcI4oyjDfrYvjUj
-         rSE73vxi+lmYSo419c+IWYGeY7Yb1yOwdBK8DOkGiI+0bFbCmyflrsnDg5+H72GBNcY/
-         mbawYcC8gTIFIdYJjg7lAb5XktEqUWbFEgZzeCgOmRzH7siiriD31AtCV5l4KkS6LTmz
-         160Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761252461; x=1761857261;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xEk7uZCFAnf2fCrMP41kRvRzNCAghPwQmRf+38mmwD0=;
-        b=aPrfmRaZbBQsvggaZaHfXfpE2zYUUkeao15Bn2qkFceTahjmFD/z/jlc9k6+TZAEnP
-         Iw6ydzlCtdS3GiMZudF1Tyberpo6uwhSx2+yw2kHPEcY14ZuUx7wA0Ri6UujHVj7PKhP
-         Knpcci+SSXJq9UHDof4xcUYbr4/KkdLamOhtK9srX+r66OuTUeNyYLQwQvAiv8dMdnez
-         9tgE0C+4pV2/JQTwhKcy0w6Q8S9wBXXTMxQzxv6BqHA8AakIoa+RON0co2MwMDF3Irod
-         L4kbTJn+0IIoFJstd88okWCYD+jj02tZOVPSyExpXswenu/IxALRUN8eL/Ppd7WUQt2T
-         0iGQ==
-X-Gm-Message-State: AOJu0Yy3Bc9ULoSEK8BqwaYAis0NJM3ieXYJjOh6Lbmwn76Z+ksr87cx
-	yWlUKldCH2Lm1+7bIHFwwvwsFquYzuPXFrH4WNGaA8hZwk+Vbmv+AKVF2dl8C03PlDE=
-X-Gm-Gg: ASbGncvLi0R6ewckwRs1AAkKFuR6SR6FejV3PZhQKq8qg3DS/zJEqqcGcHK3zG1HmBG
-	WIjOUE9Ndn1qnYWneWXNW14qSjwVfcOzKDl/1p8DsgA+YI5h+tV889p5u+m92kJJ5X+XaCZPEOO
-	QJaURzhO1Y/qiEuQuPLBjx1UeV6LNWxPu1t0UBa87RnyMI2/qZ6faUWtMOTypQgSVQDIoMR6MXQ
-	POAVlerjLemA5mdcjuDx1CpoT8uEQv2Os8DlmRPQHNIvgAW3DmGosfXP0bAvu9Z/Pd7xM0K44CX
-	Zh91GpUpYr7aRGfC5pKSF9fbeBHg9LU5WUg3TypIK/tUohK2GThLkLfnmHN8djbnx/k5ntEgA4J
-	+3Za3+NvCJyg99B5zMOTW5Z40qLFUpfaLt8xPybCdgEVJY8KZTGGMR7Tbop8yAFJ2XrDf9iF9/s
-	tGDt1ghwDUI8yp00Syio4ENnrDWmJKoBefIR9gj1iQRfHDFBT1A74z
-X-Google-Smtp-Source: AGHT+IGwMXfXE5hsO4xGJFgsfpmTmf3rqNSdzlSbMAQn2rllgBG9um9BMBNyoSRoIN9+Fl8DD+8JTw==
-X-Received: by 2002:a05:651c:988:b0:36d:1f0e:1be7 with SMTP id 38308e7fff4ca-37797958af5mr76613181fa.22.1761252461080;
-        Thu, 23 Oct 2025 13:47:41 -0700 (PDT)
-Received: from Fecusia.lan (c-92-34-217-190.bbcust.telenor.se. [92.34.217.190])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-378d67dc34bsm6575461fa.42.2025.10.23.13.47.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Oct 2025 13:47:40 -0700 (PDT)
-From: Linus Walleij <linus.walleij@linaro.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	Julia Lawall <Julia.Lawall@inria.fr>,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: [PATCH] ARM: gemini: fix typos in comments
-Date: Thu, 23 Oct 2025 22:47:37 +0200
-Message-ID: <20251023204737.2716443-1-linus.walleij@linaro.org>
-X-Mailer: git-send-email 2.51.0
+	id 1vC2FB-00000007Yyp-2a6W;
+	Thu, 23 Oct 2025 20:49:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=q2PlpbC6DOPQ9Ag/NqmWzOb39YBV/wCJHBS+fST6+60=; b=zCYlvIKkaYPMPFlwDGw2mH+kHy
+	ji2uFpc/zpY93YkSDpu9FoEHpcDKIgoLk3d1IJTG/hzYq/5XO3MmKUS6f9fNoEikBVPAWc5Vl+lzi
+	3KhZBG2O91EzgXVm5p5so1G2MAY6t1oR5MkW/QY7Q+PkYFd1kqWnH7pSywWjMkvdujQQA/Plf79ZQ
+	s8/pC2lPPs0WO2E9So/gzntHoL0cOf1DvFa/GswS6M03aMshumLFP2Rg20GIgpDkmUlsfJMQVKeT2
+	EEjPhtFv8LuUNwN3Mpyt/p9Ic1TzdZuGW2dLOV41Xqm5dFDtBS8sJvd3R9ulA+lEZn/3nY1h0MZwH
+	H48fS6tw==;
+Received: from i53875a07.versanet.de ([83.135.90.7] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vC2Ey-00069O-2v; Thu, 23 Oct 2025 22:48:56 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, jonas@kwiboo.se
+Subject: Re: [PATCH v2 5/5] MAINTAINERS: add dwmac-rk glue driver to the main Rockchip
+ entry
+Date: Thu, 23 Oct 2025 22:48:55 +0200
+Message-ID: <4664419.8F6SAcFxjW@phil>
+In-Reply-To: <35567cda-0f49-4784-b873-97e378fcee16@lunn.ch>
+References: <20251023111213.298860-1-heiko@sntech.de>
+ <20251023111213.298860-6-heiko@sntech.de>
+ <35567cda-0f49-4784-b873-97e378fcee16@lunn.ch>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_134743_614919_7E61E024 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20251023_134909_672585_0D356FE8 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,34 +75,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Julia Lawall <Julia.Lawall@inria.fr>
+Hi Andrew,
 
-Various spelling mistakes in comments.
-Detected with the help of Coccinelle.
+Am Donnerstag, 23. Oktober 2025, 20:57:50 Mitteleurop=C3=A4ische Sommerzeit=
+ schrieb Andrew Lunn:
+> On Thu, Oct 23, 2025 at 01:12:12PM +0200, Heiko Stuebner wrote:
+> > The dwmac-rk glue driver is currently not caught by the general maintai=
+ner
+> > entry for Rockchip SoCs, so add it explicitly, similar to the i2c drive=
+r.
+> >=20
+> > The binding document in net/rockchip-dwmac.yaml already gets caught by
+> > the wildcard match.
+> >=20
+> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+>=20
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-Signed-off-by: Julia Lawall <Julia.Lawall@inria.fr>
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
----
-Hi SoC folks, please apply this patch directly for
-non-urgent fixes.
----
- arch/arm/mach-gemini/board-dt.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+just mentioning, I wasn't sure if your review for patch4 was still
+valid after I adapted the change to Jonas' suggestions, so only added
+the R-b's from v1 to patches 1-3 .
 
-diff --git a/arch/arm/mach-gemini/board-dt.c b/arch/arm/mach-gemini/board-dt.c
-index fbafe7475c02..2bba617e4d54 100644
---- a/arch/arm/mach-gemini/board-dt.c
-+++ b/arch/arm/mach-gemini/board-dt.c
-@@ -34,7 +34,7 @@ static void gemini_idle(void)
- {
- 	/*
- 	 * Because of broken hardware we have to enable interrupts or the CPU
--	 * will never wakeup... Acctualy it is not very good to enable
-+	 * will never wakeup... Actually it is not very good to enable
- 	 * interrupts first since scheduler can miss a tick, but there is
- 	 * no other way around this. Platforms that needs it for power saving
- 	 * should enable it in init code, since by default it is
--- 
-2.51.0
+Heiko
+
 
 
