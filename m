@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F98CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 08:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B1CCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 08:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mq7wTbaDVrxT5aUwhMPrXpPQYEJ56iNmucEbpajeaW4=; b=f4Pv5bHTk69A7mHJjAh8L2ZoYL
-	Oyq/Zhcy0aNyrI1fRcFTKC5O6GaYNcC3cba4GczYdpTAJyja4DNEt1MQLIja/Nkc6Sl1J0lfpwych
-	aPmq9pb6XhCtk6grydN23cK3NSzJ+RBDn3yBmAUIMoWTvlzXWqkS8qvR2OOxcaBUFBkArpnGgail3
-	SQo7EoL94SAa6Soht3s1NKyaJSR7gdn6lJXUdL4iz+7JPaQgKH62Tnebv1kpS8Z5FBVOOB5FM67v9
-	09+9YdmgE9b511mojGR6EtqlVeV1X551kYlwYX/MCIVArFhcFf7MfIxlU4FPUX2iOXwr6mRFb8gpu
-	4QmGE5dg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ULH0iKccBdyyGfKIPE8SP4G7gUUCYwe77y7PIyw28Fg=; b=hX4Q45Oha07hJtk+IkSFYB2Tz8
+	ZYnlOCqjMOqwFvkdyzwt0xNZQnQFcWr51LYgXoiOwV6i1vipfttY0RpiDhB8FZd+q042tDaSjUE8K
+	GuUneKtpL/uc6Ruis3/D7rQhogwMg3nCCVgs6CtVidoKimKIMxRnLbvGDqbAmNOs2vU9qvxMMsatm
+	r/6FQ/qcmsJUk8yrAbsPunFttxFjdix/sgfzoWk2aN2FXrrJNpZQqbic+1p4jr0/B7iWG/QTwkT1k
+	Ba755ci+i6GFAl7vV6NJvGBlpaUWoyfdvh0P81fWO0yhElYsmpEZFLUBZTcsf1DeTwR5ox1PsxNL7
+	8SM7LYzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBqa4-00000005WOP-007I;
-	Thu, 23 Oct 2025 08:21:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBqan-00000005WeE-1ORy;
+	Thu, 23 Oct 2025 08:22:41 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBqa2-00000005WNi-0jPq
+	id 1vBqak-00000005WT9-41Bs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 08:21:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D1F2A4AAF5
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 08:21:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5081C4CEFD
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 08:21:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761207713;
-	bh=Mq7wTbaDVrxT5aUwhMPrXpPQYEJ56iNmucEbpajeaW4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=bYb/5IzAiRYC+or/Q8dBd12Jn6lz/LZcxJEms7PXqNQjIZPbIl/TZkioFwLPQFXr5
-	 ubOPwq+pvakPSbgPE0V8MA053A8LvvijWONqHCfLrQSMLiniBfemwM8JtdgobJhLil
-	 damyu+Tox2rPfSL7dB+Lo1MBBjogPnN9Rg8qA5YxdiVH7eKXIicrnfE7f57G6Ib0+P
-	 O0UqbBhkqiOeNJ684Sf5mk10I/nQyoENN9NLAqzWsh+TX75L5skzIzXo/evGyvpNzn
-	 hLD3jsGJR6uAZsh7DpJyPZOIStyI4aQLo22WvU2JUPTC3ew2PkhU1g7buNK4A7I0LN
-	 FgBcY4aBLWRZw==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-591c98ebe90so481622e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 01:21:53 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUV+HAvakbCOZBIO2xXB9vTD8BzDeNsA8WlV/V5su6UZ476Qi8b9aidNh5lxJEeFWFaqwkz+sNEqd0sofY5cwfc@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUyWmDZhn9D6OI0mIQDXHSjYq5hbevnxqZOGiE5IWUV+Va0D0n
-	HuxI4Dn3jycwSTq6+PrRoQtySVA1VghOJUC15UVKbd5zF7S3DjPOaV+lUlG9ecETQTcR4xvISnn
-	OY8uuHmEOdJa/DRUtJ6WdzTsKERH1U/E=
-X-Google-Smtp-Source: AGHT+IGXuEQHrmcpO18jgiQje5gxecX+jQhPRhIZD8/umfhj/iVRHLDn4WDCLHjK5/dO5vBUN3lPnOpu+1uaOPX8hXA=
-X-Received: by 2002:a05:6512:3a90:b0:579:f4b3:bd2d with SMTP id
- 2adb3069b0e04-591d8591713mr8820336e87.57.1761207712093; Thu, 23 Oct 2025
- 01:21:52 -0700 (PDT)
+	Thu, 23 Oct 2025 08:22:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1761207687;
+	bh=ULH0iKccBdyyGfKIPE8SP4G7gUUCYwe77y7PIyw28Fg=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=RMu8PuwNyWwVysi3GYFmcVSahB5oN9moyuTihwByGtDHXpY+VWx5YwLa9ho4Zqmju
+	 tjwRuotj9zbf2yf4mllBSM3oXd61bAx7O/atSB7X0uAFbfWw1gApInmGV5eDxgxw4H
+	 rlNMtLs65O/DkDV6IBIVo9gBqBpW2T9pAsZ5BiHU=
+X-QQ-mid: esmtpgz14t1761207669t0c42400f
+X-QQ-Originating-IP: e3alAhthGovW8qQgWjONEgVC26JHgxvMtn7tkZ6Ir2w=
+Received: from localhost.localdomain ( [123.114.60.34])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 23 Oct 2025 16:21:07 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 15548364574209632140
+EX-QQ-RecipientCnt: 6
+From: Qiang Ma <maqianga@uniontech.com>
+To: ardb@kernel.org,
+	linux@armlinux.org.uk
+Cc: linux-efi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Qiang Ma <maqianga@uniontech.com>
+Subject: [PATCH 0/2] Remove duplicate function calls and useless message
+Date: Thu, 23 Oct 2025 16:20:51 +0800
+Message-Id: <20251023082051.75183-1-maqianga@uniontech.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-References: <0f006338-e69b-4b3f-b91f-0cc683544011@kernel.org>
- <20251022114527.618908-1-adriana@arista.com> <20251022201953.GA206947-robh@kernel.org>
- <CAERbo5z6BzHqQxXdxPxmxE_eDR7GGGbt3A8kB0gQiWFBE-28Ug@mail.gmail.com>
-In-Reply-To: <CAERbo5z6BzHqQxXdxPxmxE_eDR7GGGbt3A8kB0gQiWFBE-28Ug@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 23 Oct 2025 10:21:40 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXGYinTKiyYhNYWJvoJeUJScCGnyq=ozLgjKAm7_wzG8QA@mail.gmail.com>
-X-Gm-Features: AS18NWAyqpmDp3gFCmfLNnMi4KMri802uIuHk78GHsmKD8sw7K_d0CMpt3v68sU
-Message-ID: <CAMj1kXGYinTKiyYhNYWJvoJeUJScCGnyq=ozLgjKAm7_wzG8QA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] DMI: Scan for DMI table from DTS info
-To: Adriana Nicolae <adriana@arista.com>
-Cc: Rob Herring <robh@kernel.org>, krzk@kernel.org, jdelvare@suse.com, 
-	frowand.list@gmail.com, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, vasilykh@arista.com, arm.ebbr-discuss@arm.com, 
-	boot-architecture@lists.linaro.org, linux-efi@vger.kernel.org, 
-	uefi-discuss@lists.uefi.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: NlWvLSkfVnGcnCndnoah1DKaYHvTUYsnQRFyON0Cg2sXiKIeOARTbw+g
+	Kvg0gezSHv69PiNOktscNoSPLV7qmDyXa4Yn3oDzcuZlnDMGcrc6MsyezB2aGpZvF0A0iaK
+	hf3QlldP+tKkFO2laQQiaowy+S8Ka/JOWGTWERLq3YexkekjGBpCLsmulxLBnwUDxDBBNfX
+	1LcKPzmK3xyMIjbPo41Hr+sdygm7eaNy2CV+tVlEKMo49IOIOpWKwxL6tPCN7o0awt4/O3p
+	KERnPVl4pFaLjlROpljizSnxJSxa+xqzURrXQCIvvGgdTIE28xnF1mrPtdzerk6KvNZdAC6
+	xGThdYEcA26W+jkdnxtPIa2zrNl6q8yZihmyRO9xGbOVSb6CXiNvETSvDsV5RbG8S17EVBb
+	JbRdifc/mO2L5YTz1zRkYy1RQJOX/JlR7r/m9ww4kbRLArG1keemKwoE3aaI0HSNB+QCtkf
+	rA5nkOX8lHbFSFGm2gDi7EcGOT1sq52XB8LAbCZt00Ua60Xz20U7zfeD7gQAJqamLhK0K9l
+	uZFkn6qmMVeoc8wGWemU0fLJ6WPnItlgxUyyNaG4P1wPKfeQjdYuYdmv7wFG7kno/Shq5+F
+	QjUPUHrCCE6LKHvI3DHhYBgNAq4iZIeNefTWXicKnd1CoP8eI+t9SEiwebwsbBNK9ge9xJC
+	BAxxhHOa7LH2qhysk5QgVxr1f/Aqf5c9TYi4rWMXmNZS4VgPViQeMO48VBV9OzLCJcCB/ZC
+	Vz4EANCo88iiGBvNRCfqsEUauKjP8qHcaRTl+t5eJUaSm20Ifgy4QCNC9rNnEJVaD78tWiM
+	Qr3vd10Cxb3l+OH2WNdp6HtUiHRxY+Y6JraJpMk+XeCpwvfOQsYoivL0miXmPzDv2wzE/3Q
+	a9HVyvlfrnfvXPk84EP6seZriqqd0JRt/Gctcmo+YCnrUkvFoeJfQT9EiYvad3S57wqADqQ
+	SLOexmLrBw8yPL46QEKzh5BGW6togFKYU8ZRf5DShjAWSf7qlLNkz+nhIjl8Mb3yYHq4XQJ
+	aZorEGBg==
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_012154_251541_AD7F7F4E 
-X-CRM114-Status: GOOD (  26.99  )
+X-CRM114-CacheID: sfid-20251023_012239_536780_831F63E6 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,69 +94,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Oct 2025 at 04:21, Adriana Nicolae <adriana@arista.com> wrote:
->
-> On Wed, Oct 22, 2025 at 11:19=E2=80=AFPM Rob Herring <robh@kernel.org> wr=
-ote:
-> >
-> > On Wed, Oct 22, 2025 at 04:45:25AM -0700, adriana wrote:
-> > > Some bootloaders like U-boot, particularly for the ARM architecture,
-> > > provide SMBIOS/DMI tables at a specific memory address. However, thes=
-e
-> > > systems often do not boot using a full UEFI environment, which means =
-the
-> > > kernel's standard EFI DMI scanner cannot find these tables.
-> >
-> > I thought u-boot is a pretty complete UEFI implementation now. If
-> > there's standard way for UEFI to provide this, then that's what we
-> > should be using. I know supporting this has been discussed in context o=
-f
-> > EBBR spec, but no one involved in that has been CC'ed here.
->
-> Regarding the use of UEFI, the non UEFI boot is used on Broadcom iProc wh=
-ich
-> boots initially into a Hardware Security Module which validates U-boot an=
-d then
-> loads it. This specific path does not utilize U-Boot's UEFI
-> implementation or the
-> standard UEFI boot services to pass tables like SMBIOS.
->
+From: Qiang Ma <maqianga@uniontech.com>
 
-What prevents this HSM validated copy of u-boot from loading the kernel via=
- EFI?
+This patchset removes duplicate function calls and useless debug message
 
-> Because there's no UEFI configuration table available in this boot mode, =
-we need
-> an alternative mechanism to pass the SMBIOS table address to the kernel. =
-The
-> /chosen node seemed like the most straightforward way for the bootloader =
-to
-> communicate this non-discoverable information.
->
-> I wasn't aware of the EBBR discussions covering this. I've added the
-> boot-architecture and arm.ebbr-discuss lists to the Cc. If there's a pref=
-erred
-> EBBR-compliant way to handle this for non-UEFI boots, I'm happy to adapt
-> the approach.
->
+1. The efi_set_mapping_permissions() does not need to be called in
+efi_create_mapping(), because efi_memattr_apply_permissions() will be invoked.
 
-For the record, I don't see a huge problem with accepting SMBIOS
-tables in this manner, but it would be better if a description of this
-method was contributed to the DMTF spec, which currently states that
-the only way to discover SMBIOS tables on non-x86 systems is via the
-SMBIOS/SMBIOS3 EFI configuration tables. Doing so should prevent other
-folks from inventing their own methods for their own vertically
-integrated systems. (Other OSes exist, and from a boot arch PoV, we
-try to avoid these Linux-only shortcuts)
+The calling relationship is as follows:
 
-However, the DT method should *only* be used when not booting via
-UEFI, to avoid future surprises, and to ensure that existing OSes
-(including older Linux) can always find the SMBIOS tables when booting
-via UEFI.
+==>efi_create_mapping()
+   ==>efi_set_mapping_permissions()
+==>efi_memattr_apply_permissions()
+   ==>efi_set_mapping_permissions()
 
-Also, I would suggest to pull the entire entrypoint into DT, rather
-than the address in memory of either/both entrypoint(s). Both just
-carry some version fields, and the address of the actual SMBIOS data
-in memory, and the only difference between SMBIOS and SMBIOS3 is the
-size of the address field (32 vs 64 bits)
+2. Based on the first point, efi_create_mapping() always returns 0,
+so there is no need to print the failure return message.
+
+Qiang Ma (2):
+  ARM/efi: Remove duplicate permission settings
+  efi/arm*: Remove the useless failure return message print
+
+ arch/arm/kernel/efi.c              | 5 -----
+ drivers/firmware/efi/arm-runtime.c | 7 +------
+ 2 files changed, 1 insertion(+), 11 deletions(-)
+
+-- 
+2.20.1
+
 
