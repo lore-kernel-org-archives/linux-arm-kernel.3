@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862BCCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 19:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3252CCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 19:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T8IO34R0JKJXQ+IBz9tFNngJ2MQyQjiOHTpva5wqLo0=; b=FWj4fVDMulkiqMuTKMAEOgVHg0
-	dWf1IrQQwKNLlxXGelZGGDm46HL2nHBEKxIvqZXS9lalWo7qhIKuSapwoXcK0tRcLLBEm6WntogJ6
-	6FvdIvbrxkkhc7c68PGiNLVfxLZwErIU9EivXc+jizdNzSr2F0KtQlR57nGZxcCNQcSvwTcteMFu1
-	gfyh0Akng6+jjUVTuxhwFknbiYNMrsQDSOLsn8HI9oyQm/2245ICq0Zf1rRcLU7h3l6bTi37a124n
-	aH/EQHemg8+k6j+ASXrP2jgotb3XbP/OT+H4XiuqH5ZUDF6lRjCLTOG4Mnn/WKckgb21WJbOqppq5
-	FOB3GkLw==;
+	bh=SBR6EfxFFk1L7wve5twIcSXii79qBsppsVH73aPiyUs=; b=TrEZU7pxFgE9PNEmmQ/t1HbSfv
+	t9RWz++mecokAe0w0YZvb9amIZeiKYDFM+D6k0H85mw7HYM3Hc/dUz+KK9f63Hm0XbV/uGjnqwbnC
+	PPChH+O7X54onrBpUZz888KUm8rOblLTJc29iDbboLNMY3j/SD1EGqRq1mJHygl8Fo9T0REU8mcRv
+	4cXd+UCc2JkubW9QRVaWk60XqyXjedinQjxX4CB8aS4Mvo7v8Sf9qJCLaXIW6SDd508vN/5CuddlI
+	Ci/Af6V9BnAxvGfMJhY8n6pscAVtvmsSIeOlyLBpOOCpq+lfGznavYIlJYjbMPIb3grA0lq8XMi7m
+	AvV8fAig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC1Ka-00000007PaB-3ck4;
-	Thu, 23 Oct 2025 19:50:40 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vC1Kq-00000007PgM-0kfi;
+	Thu, 23 Oct 2025 19:50:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC1KU-00000007PUe-1OsR;
-	Thu, 23 Oct 2025 19:50:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761249020; cv=none; 
+	id 1vC1Km-00000007PeU-3Ojt;
+	Thu, 23 Oct 2025 19:50:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=SBR6EfxFFk1L7wve5twIcSXii79qBsppsVH73aPiyUs=; b=LG+hJxqZrfE97kIX3E9bAc35z7
+	QABm//mcSuzvIgXcq9OrMp9bhsCsmABiLOZDVzNIDUdke/WmaGILXJqgHlT6KGZ8+Gnbhu6H6/vMN
+	nn9oGFyKkybW6wbImZoucJsphtaNFJNwX/QEUf/Ior6IfOOPt8q2CnIZ8VKZhCGRYlEsCD2l01f3F
+	q6h1YfqBsZ8ePhRXgGVjrZspUlB17boiGHTGSL8rRKiwattILm0tic+5j/kdRa+1z4REAa/gqS6oj
+	QgAJbPJI/zjh1cA4GUAcWf3gcM7xcwgRvcVrL1uaK+rZytH/iMW1KHu4zVEV1s56OLWdjNsGa/g6W
+	saRyUSRw==;
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vC0T4-00000001g6c-3j1G;
+	Thu, 23 Oct 2025 18:55:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761249034; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=W3BUB7khhifPpZWDA7eK0J/bWerErbID1PcQ6BtjXrA4rrrFHZW9hwOi7cBQ+WJlbhBDCCpLHzb3CpSZukR3noLUFuoFOfatqviE4rjuGAGCw5Qgx4pkKVkuuyrU8MonRMxJK9PVFuxMt3vrPxCPKLg5kFtapaLCBTKFHg9Yoso=
+	b=iaxsZINZ9V/nmFPYEInr5GCpXiUH+3eOngcyKCoIxXHasb0XDkkXyh+CdHNbZqDe2Sgd9ZNzEklbGmyrE4vMNb/NKkVvCkmEfbdXTiiq04fCfpNQyZhnTFP0/GFs5OpOUXVeCek/1yRLHKm46LkOzm4E45jXa2/L6N8WLjNJlSo=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761249020; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=T8IO34R0JKJXQ+IBz9tFNngJ2MQyQjiOHTpva5wqLo0=; 
-	b=AbAXck/Mi8yQLGMVGsbIw1WHvNXKcxlba/3N7Y7sySHmS+XdtCHJc2koM02SH4t/M9IEzg2xN+/ruONlEmZBSZidYFWVZZBnwHtvs28a/GD3PxzpcPd7X91oSWWCrGXuvY3vrmFkB2sATyISYBAVaqwfDvOvDVPE1Gvel+T/EyY=
+	t=1761249034; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=SBR6EfxFFk1L7wve5twIcSXii79qBsppsVH73aPiyUs=; 
+	b=ijtYgxRvBVuPldMyfpApl/CDJtKydMmb6XmqLGbpFsDXwOABaCFn0mrwLNUtlSbvlUzHRprHGUo7TBG7hLsI/QrSxYAY6XYR41xm1SATCRixQnH+P1K66bPCJ/6C4ptE9wPjHHvNAp4mdUMkiXx2vH79M2wfLR8zPOgyCPaERMg=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761249020;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761249034;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=T8IO34R0JKJXQ+IBz9tFNngJ2MQyQjiOHTpva5wqLo0=;
-	b=T4XaKuCvP2OOJa1VFRAIKPpKORA7rONGcGSdI33bAU2PzyOQxyF3b9HC0rWOs9XB
-	2ovUvMNeOV3Opp8oLQW9o3caDC45lPCKPtha493tJgsqjjP2YJb8GD4XolTKliLSzVG
-	3FW2/LrlN3teBqiwFAC5SHlVqHAnZVqJx24fBpfk=
-Received: by mx.zohomail.com with SMTPS id 1761249019669371.3549099959822;
-	Thu, 23 Oct 2025 12:50:19 -0700 (PDT)
+	bh=SBR6EfxFFk1L7wve5twIcSXii79qBsppsVH73aPiyUs=;
+	b=XafQMa2rkiNBfgCvwOX1uWbGUEOs2TQr8IqD1enCGGWO0bl1CDkpHBzkGs7BHL9F
+	ImLu5Rn0O6mm5CmNBYeYd1NBQk9IJEpto7SISS5YSQtQHnqLOrmIE8UGIBDbVotJL+j
+	xp1jgURj1j2vUQJzlp0wlgew7q8GntooYZDjRlnU=
+Received: by mx.zohomail.com with SMTPS id 1761249032125413.17962652903566;
+	Thu, 23 Oct 2025 12:50:32 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 23 Oct 2025 21:49:19 +0200
-Subject: [PATCH v3 01/24] dt-bindings: phy: Add mediatek,mt8196-ufsphy
+Date: Thu, 23 Oct 2025 21:49:21 +0200
+Subject: [PATCH v3 03/24] dt-bindings: ufs: mediatek,ufs: Add mt8196
  variant
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251023-mt8196-ufs-v3-1-0f04b4a795ff@collabora.com>
+Message-Id: <20251023-mt8196-ufs-v3-3-0f04b4a795ff@collabora.com>
 References: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
 In-Reply-To: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
 To: Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -77,9 +91,8 @@ Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_125034_428210_E6D74250 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251023_195523_165759_C07157F3 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,61 +107,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MediaTek MT8196 SoC includes an M-PHY compatible with the already
-existing mt8183 binding.
+The MediaTek MT8196 SoC's UFS controller uses three additional clocks
+compared to the MT8195, and a different set of supplies. It is therefore
+not compatible with the MT8195.
 
-However, one omission from the original binding was that all of these
-variants may have an optional reset.
+While it does have a AVDD09_UFS_1 pin in addition to the AVDD09_UFS pin,
+it appears that these two pins are commoned together, as the board
+schematic I have access to uses the same supply for both, and the
+downstream driver does not distinguish between the two supplies either.
 
-Add the new compatible, and also the resets property, with an example.
+The pin that vcc-supply goes to is unknown; this is because the only
+schematic I have access to is incomplete in this regard. However, from
+experiments, I do know that the vemc supply must be turned on for UFS to
+work.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+Add a compatible for it, and modify the binding correspondingly.
+
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- .../devicetree/bindings/phy/mediatek,ufs-phy.yaml        | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ .../devicetree/bindings/ufs/mediatek,ufs.yaml      | 83 +++++++++++++++++++++-
+ 1 file changed, 82 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
-index 3e62b5d4da61..f414aaa18997 100644
---- a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
-@@ -26,6 +26,7 @@ properties:
-       - items:
-           - enum:
-               - mediatek,mt8195-ufsphy
-+              - mediatek,mt8196-ufsphy
-           - const: mediatek,mt8183-ufsphy
-       - const: mediatek,mt8183-ufsphy
+diff --git a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
+index 364672bc65b1..57c944fd0318 100644
+--- a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
++++ b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
+@@ -15,10 +15,11 @@ properties:
+       - mediatek,mt8183-ufshci
+       - mediatek,mt8192-ufshci
+       - mediatek,mt8195-ufshci
++      - mediatek,mt8196-ufshci
  
-@@ -42,6 +43,10 @@ properties:
-       - const: unipro
-       - const: mp
+   clocks:
+     minItems: 1
+-    maxItems: 13
++    maxItems: 16
  
-+  resets:
-+    items:
-+      - description: Optional UFS M-PHY reset.
-+
-   "#phy-cells":
-     const: 0
+   clock-names:
+     minItems: 1
+@@ -36,6 +37,9 @@ properties:
+       - const: crypt_perf
+       - const: ufs_rx_symbol0
+       - const: ufs_rx_symbol1
++      - const: ufs_sel
++      - const: ufs_sel_min_src
++      - const: ufs_sel_max_src
  
-@@ -65,5 +70,16 @@ examples:
-         clock-names = "unipro", "mp";
-         #phy-cells = <0>;
+   operating-points-v2: true
+ 
+@@ -127,9 +131,28 @@ allOf:
+       properties:
+         clocks:
+           minItems: 13
++          maxItems: 13
+         clock-names:
+           minItems: 13
++          maxItems: 13
+         avdd09-supply: false
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8196-ufshci
++    then:
++      properties:
++        clocks:
++          minItems: 16
++          maxItems: 16
++        clock-names:
++          minItems: 16
++          maxItems: 16
++        vcc-supply:
++          description: Must point to a "vemc" supply, unknown which pin it feeds
++      required:
++        - operating-points-v2
+ 
+ examples:
+   - |
+@@ -178,3 +201,61 @@ examples:
+         vccq2-supply = <&mt6359_vbbck_ldo_reg>;
+         mediatek,ufs-disable-mcq;
      };
 +  - |
 +    #include <dt-bindings/reset/mediatek,mt8196-resets.h>
-+    ufs-phy@16800000 {
-+        compatible = "mediatek,mt8196-ufsphy", "mediatek,mt8183-ufsphy";
-+        reg = <0x16800000 0x10000>;
-+        clocks = <&ufs_ao_clk 3>,
-+                 <&ufs_ao_clk 5>;
-+        clock-names = "unipro", "mp";
-+        resets = <&ufs_ao_clk MT8196_UFSAO_RST0_UFS_MPHY>;
-+        #phy-cells = <0>;
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    ufshci@16810000 {
++        compatible = "mediatek,mt8196-ufshci";
++        reg = <0x16810000 0x2a00>;
++        interrupts = <GIC_SPI 320 IRQ_TYPE_LEVEL_HIGH>;
++
++        clocks = <&ufs_ao_clk 6>,
++                 <&ufs_ao_clk 7>,
++                 <&clk26m>,
++                 <&ufs_ao_clk 3>,
++                 <&clk26m>,
++                 <&ufs_ao_clk 4>,
++                 <&ufs_ao_clk 0>,
++                 <&topckgen 7>,
++                 <&topckgen 41>,
++                 <&topckgen 105>,
++                 <&topckgen 83>,
++                 <&ufs_ao_clk 1>,
++                 <&ufs_ao_clk 2>,
++                 <&topckgen 42>,
++                 <&topckgen 84>,
++                 <&topckgen 102>;
++        clock-names = "ufs",
++                      "ufs_aes",
++                      "ufs_tick",
++                      "unipro_sysclk",
++                      "unipro_tick",
++                      "unipro_mp_bclk",
++                      "ufs_tx_symbol",
++                      "ufs_mem_sub",
++                      "crypt_mux",
++                      "crypt_lp",
++                      "crypt_perf",
++                      "ufs_rx_symbol0",
++                      "ufs_rx_symbol1",
++                      "ufs_sel",
++                      "ufs_sel_min_src",
++                      "ufs_sel_max_src";
++
++        operating-points-v2 = <&ufs_opp_table>;
++
++        phys = <&ufsphy>;
++
++        avdd09-supply = <&mt6363_vsram_modem>;
++        vcc-supply = <&mt6363_vemc>;
++        vcc-supply-1p8;
++        vccq-supply = <&mt6363_va12_2>;
++        vccq2-supply = <&mt6363_vufs12>;
++
++        resets = <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_UNIPRO>,
++                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_CRYPTO>,
++                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFSHCI>;
++        reset-names = "unipro", "crypto", "hci";
++        mediatek,ufs-disable-mcq;
 +    };
- 
- ...
 
 -- 
 2.51.1.dirty
