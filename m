@@ -4,61 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130D6CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:30:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3E71CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2HlePpPozTZfJVZxFY5BSarP/C7SUxnyfyvVCip4BIU=; b=IqdoNfxP7rcJ/fY8cEFI4AZ5EX
-	aAd9MjZqPOj4cVgLn1TVhgcstnn7Y/xCAbmOWfdEUfYoXEtHzO/TIcsb0CXAvDPzj5jHAhNbefuch
-	piMWmtU/FoYHQY6eKjial6pjCs4hmrEmb2L4ut88Vi5beHQ0ZxdmgFi6KgzRvZq4II8HbfhYDzCGj
-	ocWHqIt4oenzqr3+JvOKjYCF0dQUdDif6ZZrdHc3aEu9LbzLqX2IhNuBRanOgsr0NZkkgToV4TKVN
-	zyYIJ1RN/u+W7IoUJKOzHQxgTEkzmZvyMuVKlcd+PpPue5fR76oP7W9gqb9Aw/YECZD+Yt9LHZzBB
-	K5xZGKIQ==;
+	bh=pj+b2B/I1D7Zc9xBJhCg+SZOEwrnSNKI+hQso12voGE=; b=zu7gZyp5F3vBbnqPl2Y4y7VHNb
+	+n1zHEhT+hqtjbFgEIfejO/zb9qevyOt3tmmTVWxArPK5Qcfa2rKG0VUXMwrwtp8tTESbOMVeWK6y
+	JAn5emS2TZt51m0szQJA+izD/cSJycUQID65h3d44ABM0kMOHoUBDPeH1EQTQJn5vnFqjI0ZlxFI7
+	36gxIjrzzhdJohfG8DXHHS9OQlzMcXBKwYlp6kESVQ6OlMXlBrsJVob3fLM4wDt3C6XBI0WJY4cde
+	5YoD4F/TgsrLsjfiEknIcYYoaFgs36SXrUnH8EPLGqfO0YqO/g5JURq2lGKvaFYcuSnfoPSnLKdep
+	MR3jLSsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwKg-00000006bOA-3cvM;
-	Thu, 23 Oct 2025 14:30:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBwKe-00000006bNh-3b6R
+	id 1vBwPs-00000006c38-2nlD;
+	Thu, 23 Oct 2025 14:35:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBwPq-00000006c2x-3V5K
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Oct 2025 14:35:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=pj+b2B/I1D7Zc9xBJhCg+SZOEwrnSNKI+hQso12voGE=; b=TUMWNnz5+LBV2qIqaIDj7N9CYt
+	5OoMQy4KGz4IuSKllnjuAkYznf7Jft1y9eMnXvpykqVU2f3VicMtJ1LUrgNp079s/Qnl4N51U/+OG
+	Z0OPpQvF0oCUpS/yjr6XqcPr3waZVYN+GwY/t7K5xQ+hU/FpnVQwcpamWzI5iCVpBCkMXvvEXukRO
+	oTQxh4QSbjWyiML8nKubsHhvUCcpC6KOndjhv7wLjFbysdlobd6X/Qy9lk+LDlpdeJam/ybORLUGn
+	hZOfMgjTthjlm1siv9XmcAdLzdkx3h0b6hlpafknjv+W59d3onvXM6LXZTr40nrSOSp3ap372BzaQ
+	W9io/gLg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBvY8-00000001Pwy-1EcG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 14:30:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D13C1516;
-	Thu, 23 Oct 2025 07:30:16 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C11683F59E;
-	Thu, 23 Oct 2025 07:30:21 -0700 (PDT)
-Date: Thu, 23 Oct 2025 15:30:18 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,poll-transport property
-Message-ID: <aPo7-oQq6RskSZ96@pluto>
-References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
- <20251023-able-fervent-tortoise-e7a6df@sudeepholla>
- <066449c8-4bca-41f1-990e-53d7672e3c0a@mailbox.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <066449c8-4bca-41f1-990e-53d7672e3c0a@mailbox.org>
+	Thu, 23 Oct 2025 13:40:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C697F41776;
+	Thu, 23 Oct 2025 14:35:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 803C4C4CEE7;
+	Thu, 23 Oct 2025 14:35:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761230141;
+	bh=W31ee+LSPBc48JwInpTAkFf3rkzG6FkIJHsCP3f6pzU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Kc8JF6X5AeHh5taU5sSIj7fyuy99Tl51HER5dtnx1q1INETG51kIQie4LiG9EYj36
+	 yqkeF+sYrdqoLAXKabUnFYaWXrSXfiKDThIn8MYQ9+WutleklGr/i5wVSxwbYnyYOh
+	 JsGhf2BCWv/WL8qwSsB/7zQMtrvPeFpvVY2NhR0KDFjOPP1Y/op+2c1b+/beaUJI6f
+	 q9ot6MK7w3OAPbVOo9mlGPyzXUTvCGdR1Bs53VUmraSNXh4il4dCkHs3vY8TXHopyF
+	 UtAK63QbbK6gCZ5Eq6cTzAUWCkkTfYQ2Vjwg0sTQEhJ4psMElgXrkfhEoHCM2eqASm
+	 jvvFGlEHGYKsQ==
+Received: from 158.46.66.37.rev.sfr.net ([37.66.46.158] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vBwPj-0000000GYfH-1GQw;
+	Thu, 23 Oct 2025 14:35:39 +0000
+Date: Thu, 23 Oct 2025 15:35:38 +0100
+Message-ID: <87v7k53cud.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	suzuki.poulose@arm.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	cl@gentwo.org,
+	scott@os.amperecomputing.com,
+	gklkml16@gmail.com
+Subject: Re: [PATCH v2] KVM: arm64: nv: Optimize unmapping of shadow S2-MMU tables
+In-Reply-To: <0345c510-5db4-462f-95fb-591e71468aca@os.amperecomputing.com>
+References: <20251013065125.767779-1-gankulkarni@os.amperecomputing.com>
+	<0345c510-5db4-462f-95fb-591e71468aca@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 37.66.46.158
+X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, will@kernel.org, catalin.marinas@arm.com, suzuki.poulose@arm.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, cl@gentwo.org, scott@os.amperecomputing.com, gklkml16@gmail.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_073025_010980_3556E318 
-X-CRM114-Status: GOOD (  25.23  )
+X-CRM114-CacheID: sfid-20251023_144016_918132_0AB389CA 
+X-CRM114-Status: GOOD (  42.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,73 +110,316 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025 at 03:42:02PM +0200, Marek Vasut wrote:
-> On 10/23/25 3:16 PM, Sudeep Holla wrote:
+On Thu, 23 Oct 2025 12:11:42 +0100,
+Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
 > 
-> Hello Sudeep,
-
-Hi Marek,
-
 > 
-> > > +  arm,poll-transport:
-> > > +    type: boolean
-> > > +    description:
-> > > +      An optional property which unconditionally forces polling in all transports.
-> > > +      This is mainly mean to work around uncooperative SCP, which does not generate
-> > > +      completion interrupts.
-> > > +
+> Hi Marc, Oliver,
+> 
+> On 10/13/2025 12:21 PM, Ganapatrao Kulkarni wrote:
+> > As of commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow
+> > stage 2 page tables"), an unmap of a canonical IPA range mapped at L1
+> > triggers invalidation in L1 S2-MMU and in all active shadow (L2) S2-MMU
+> > tables. Because there is no direct mapping to locate the corresponding
+> > shadow IPAs, the code falls back to a full S2-MMU page-table walk and
+> > invalidation across the entire L1 address space.
 > > 
-> > Could you please clarify which platform and transport this change pertains to?
+> > For 4K pages this causes roughly 256K loop iterations (about 8M for
+> > 64K pages) per unmap, which can severely impact performance on large
+> > systems and even cause soft lockups during NV (L1/L2) boots with many
+> > CPUs and large memory. It also causes long delays during L1 reboot.
+> > 
+> > This patch adds a maple-tree-based lookup that records canonical-IPA to
+> > shadow-IPA mappings whenever a page is mapped into any shadow (L2)
+> > table. On unmap, the lookup is used to target only those shadow IPAs
+> > which are fully or partially mapped in shadow S2-MMU tables, avoiding
+> > a full-address-space walk and unnecessary unmap/flush operations.
+> > 
+> > The lookup is updated on map/unmap operations so entries remain
+> > consistent with shadow table state. Use it during unmap to invalidate
+> > only affected shadow IPAs, avoiding unnecessary CPU work and reducing
+> > latency when shadow mappings are sparse.
+> > 
+> > Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+> > Signed-off-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+> > ---
+> > 
+> > Changes since v1:
+> > 		Rebased to 6.18-rc1.
+> > 		Fixed alignment issue while adding the shadow ipa range
+> > 		to lookup.	
+> > 
+> > Changes since RFC v1:
+> > 		Added maple tree based lookup and updated with review
+> > 		comments from [1].
+> > 
+> > [1] https://lkml.indiana.edu/2403.0/03801.html
+> > 
+> >   arch/arm64/include/asm/kvm_host.h   |   3 +
+> >   arch/arm64/include/asm/kvm_nested.h |   9 +++
+> >   arch/arm64/kvm/mmu.c                |  17 ++--
+> >   arch/arm64/kvm/nested.c             | 120 ++++++++++++++++++++++++++--
+> >   4 files changed, 138 insertions(+), 11 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index b763293281c8..e774681c6ba4 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -227,6 +227,9 @@ struct kvm_s2_mmu {
+> >   	 * >0: Somebody is actively using this.
+> >   	 */
+> >   	atomic_t refcnt;
+> > +
+> > +	/* For IPA to shadow IPA lookup */
+> > +	struct maple_tree nested_mmu_mt;
+> >   };
+> >     struct kvm_arch_memory_slot {
+> > diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+> > index f7c06a840963..5b7c4e7ed18f 100644
+> > --- a/arch/arm64/include/asm/kvm_nested.h
+> > +++ b/arch/arm64/include/asm/kvm_nested.h
+> > @@ -69,6 +69,8 @@ extern void kvm_init_nested(struct kvm *kvm);
+> >   extern int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu);
+> >   extern void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu);
+> >   extern struct kvm_s2_mmu *lookup_s2_mmu(struct kvm_vcpu *vcpu);
+> > +extern int add_to_shadow_ipa_lookup(struct kvm_pgtable *pgt, u64 shadow_ipa, u64 ipa,
+> > +		u64 size);
+> >     union tlbi_info;
+> >   @@ -95,6 +97,12 @@ struct kvm_s2_trans {
+> >   	u64 desc;
+> >   };
+> >   +struct shadow_ipa_map {
+> > +	u64 shadow_ipa;
+> > +	u64 ipa;
+> > +	u64 size;
+> > +};
+> > +
+> >   static inline phys_addr_t kvm_s2_trans_output(struct kvm_s2_trans *trans)
+> >   {
+> >   	return trans->output;
+> > @@ -132,6 +140,7 @@ extern int kvm_s2_handle_perm_fault(struct kvm_vcpu *vcpu,
+> >   extern int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2);
+> >   extern void kvm_nested_s2_wp(struct kvm *kvm);
+> >   extern void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block);
+> > +extern void kvm_nested_s2_unmap_range(struct kvm *kvm, u64 ipa, u64 size, bool may_block);
+> >   extern void kvm_nested_s2_flush(struct kvm *kvm);
+> >     unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu,
+> > u64 val);
+> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > index 7cc964af8d30..27c120556e1b 100644
+> > --- a/arch/arm64/kvm/mmu.c
+> > +++ b/arch/arm64/kvm/mmu.c
+> > @@ -1872,6 +1872,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+> >   		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
+> >   					     __pfn_to_phys(pfn), prot,
+> >   					     memcache, flags);
+> > +
+> > +		/* Add to lookup, if canonical IPA range mapped to shadow mmu */
+> > +		if (nested)
+> > +			add_to_shadow_ipa_lookup(pgt, fault_ipa, ipa, vma_pagesize);
+> >   	}
+> >     out_unlock:
+> > @@ -2094,14 +2098,15 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+> >     bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range
+> > *range)
+> >   {
+> > +	gpa_t start = range->start << PAGE_SHIFT;
+> > +	gpa_t end = (range->end - range->start) << PAGE_SHIFT;
+> > +	bool may_block = range->may_block;
+> > +
+> >   	if (!kvm->arch.mmu.pgt)
+> >   		return false;
+> >   -	__unmap_stage2_range(&kvm->arch.mmu, range->start <<
+> > PAGE_SHIFT,
+> > -			     (range->end - range->start) << PAGE_SHIFT,
+> > -			     range->may_block);
+> > -
+> > -	kvm_nested_s2_unmap(kvm, range->may_block);
+> > +	__unmap_stage2_range(&kvm->arch.mmu, start, end, may_block);
+> > +	kvm_nested_s2_unmap_range(kvm, start, end, may_block);
+> >   	return false;
+> >   }
+> >   @@ -2386,7 +2391,7 @@ void kvm_arch_flush_shadow_memslot(struct
+> > kvm *kvm,
+> >     	write_lock(&kvm->mmu_lock);
+> >   	kvm_stage2_unmap_range(&kvm->arch.mmu, gpa, size, true);
+> > -	kvm_nested_s2_unmap(kvm, true);
+> > +	kvm_nested_s2_unmap_range(kvm, gpa, size, true);
+> >   	write_unlock(&kvm->mmu_lock);
+> >   }
+> >   diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 7a045cad6bdf..3a7035e7526a 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -7,6 +7,7 @@
+> >   #include <linux/bitfield.h>
+> >   #include <linux/kvm.h>
+> >   #include <linux/kvm_host.h>
+> > +#include <linux/maple_tree.h>
+> >     #include <asm/fixmap.h>
+> >   #include <asm/kvm_arm.h>
+> > @@ -725,6 +726,7 @@ void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
+> >   	mmu->tlb_vttbr = VTTBR_CNP_BIT;
+> >   	mmu->nested_stage2_enabled = false;
+> >   	atomic_set(&mmu->refcnt, 0);
+> > +	mt_init_flags(&mmu->nested_mmu_mt, MM_MT_FLAGS);
+> >   }
+> >     void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
+> > @@ -1067,6 +1069,99 @@ void kvm_nested_s2_wp(struct kvm *kvm)
+> >   	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+> >   }
+> >   +/*
+> > + * Store range of canonical IPA mapped to a nested stage 2 mmu table.
+> > + * Canonical IPA used as pivot in maple tree for the lookup later
+> > + * while IPA unmap/flush.
+> > + */
+> > +int add_to_shadow_ipa_lookup(struct kvm_pgtable *pgt, u64 shadow_ipa,
+> > +		u64 ipa, u64 size)
+> > +{
+> > +	struct kvm_s2_mmu *mmu;
+> > +	struct shadow_ipa_map *entry;
+> > +	unsigned long start, end;
+> > +	int ret;
+> > +
+> > +	start = ALIGN_DOWN(ipa, size);
+> > +	end = start + size;
+> > +	mmu = pgt->mmu;
+> > +
+> > +	entry = kzalloc(sizeof(struct shadow_ipa_map), GFP_KERNEL_ACCOUNT);
+> > +
+> > +	if (!entry)
+> > +		return -ENOMEM;
+> > +
+> > +	entry->ipa = start;
+> > +	entry->shadow_ipa = ALIGN_DOWN(shadow_ipa, size);
+> > +	entry->size = size;
+> > +	ret = mtree_store_range(&mmu->nested_mmu_mt, start, end - 1, entry,
+> > +			  GFP_KERNEL_ACCOUNT);
+> > +	if (ret) {
+> > +		kfree(entry);
+> > +		WARN_ON(ret);
+> > +	}
+> > +
+> > +	return ret;
+> > +}
+> > +
+> > +static void nested_mtree_erase(struct maple_tree *mt, unsigned long start,
+> > +		unsigned long size)
+> > +{
+> > +	void *entry = NULL;
+> > +
+> > +	MA_STATE(mas, mt, start, start + size - 1);
+> > +
+> > +	mtree_lock(mt);
+> > +	entry = mas_erase(&mas);
+> > +	mtree_unlock(mt);
+> > +	kfree(entry);
+> > +}
+> > +
+> > +static void nested_mtree_erase_and_unmap_all(struct kvm_s2_mmu *mmu,
+> > +		unsigned long start, unsigned long end, bool may_block)
+> > +{
+> > +	struct shadow_ipa_map *entry;
+> > +
+> > +	mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu)) {
+> > +		kvm_stage2_unmap_range(mmu, entry->shadow_ipa, entry->size,
+> > +				may_block);
+> > +		kfree(entry);
+> > +	}
+> > +
+> > +	mtree_destroy(&mmu->nested_mmu_mt);
+> > +	mt_init_flags(&mmu->nested_mmu_mt, MM_MT_FLAGS);
+> > +}
+> > +
+> > +void kvm_nested_s2_unmap_range(struct kvm *kvm, u64 ipa, u64 size,
+> > +		bool may_block)
+> > +{
+> > +	int i;
+> > +	struct shadow_ipa_map *entry;
+> > +
+> > +	lockdep_assert_held_write(&kvm->mmu_lock);
+> > +
+> > +	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> > +		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> > +		unsigned long start = ipa;
+> > +		unsigned long end = ipa + size;
+> > +
+> > +		if (!kvm_s2_mmu_valid(mmu))
+> > +			continue;
+> > +
+> > +		do {
+> > +			entry = mt_find(&mmu->nested_mmu_mt, &start, end - 1);
+> > +			if (!entry)
+> > +				break;
+> > +
+> > +			kvm_stage2_unmap_range(mmu, entry->shadow_ipa,
+> > +							entry->size, may_block);
+> > +			start = entry->ipa + entry->size;
+> > +			nested_mtree_erase(&mmu->nested_mmu_mt, entry->ipa,
+> > +							entry->size);
+> > +		} while (start < end);
+> > +	}
+> > +}
+> > +
+> >   void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+> >   {
+> >   	int i;
+> > @@ -1076,8 +1171,10 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+> >   	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> >   		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> >   -		if (kvm_s2_mmu_valid(mmu))
+> > -			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> > +		if (!kvm_s2_mmu_valid(mmu))
+> > +			continue;
+> > +
+> > +		nested_mtree_erase_and_unmap_all(mmu, 0, kvm_phys_size(mmu), may_block);
+> >   	}
+> >     	kvm_invalidate_vncr_ipa(kvm, 0,
+> > BIT(kvm->arch.mmu.pgt->ia_bits));
+> > @@ -1091,9 +1188,14 @@ void kvm_nested_s2_flush(struct kvm *kvm)
+> >     	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> >   		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> > +		struct shadow_ipa_map *entry;
+> > +		unsigned long start = 0;
+> >   -		if (kvm_s2_mmu_valid(mmu))
+> > -			kvm_stage2_flush_range(mmu, 0, kvm_phys_size(mmu));
+> > +		if (!kvm_s2_mmu_valid(mmu))
+> > +			continue;
+> > +
+> > +		mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu))
+> > +			kvm_stage2_flush_range(mmu, entry->shadow_ipa, entry->size);
+> >   	}
+> >   }
+> >   @@ -1104,8 +1206,16 @@ void kvm_arch_flush_shadow_all(struct kvm
+> > *kvm)
+> >   	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> >   		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> >   -		if (!WARN_ON(atomic_read(&mmu->refcnt)))
+> > +		if (!WARN_ON(atomic_read(&mmu->refcnt))) {
+> > +			struct shadow_ipa_map *entry;
+> > +			unsigned long start = 0;
+> > +
+> >   			kvm_free_stage2_pgd(mmu);
+> > +
+> > +			mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu))
+> > +				kfree(entry);
+> > +			mtree_destroy(&mmu->nested_mmu_mt);
+> > +		}
+> >   	}
+> >   	kvfree(kvm->arch.nested_mmus);
+> >   	kvm->arch.nested_mmus = NULL;
 > 
-> Renesas X5H with older SCP firmware , accessible via mailbox.
-> 
-> > Introducing a property that enforces unconditional polling across all
-> > platforms is not ideal - particularly if this is intended as a workaround
-> > for a platform- or firmware- specific issue. Such implementations often get
-> > replicated across platforms without addressing the root cause, leading to
-> > wider inconsistencies.
-> 
-> The root cause is being addressed already, this is meant to keep the older
-> SCP version operable.
-> 
+> Any review comments or suggestions for this patch?
 
-If this is the case, at first I would have tempted to say why not use the SCMI
-Quirk framework (with needed changes/evolutions), BUT then I realized that being
-the Quirk to be applied on the transport there is no way to gather SCMI
-Vendor info and versions from the platform, so you would have to match on the
-compatible, which is essentially similar approach of having a new DT
-prop...just less flexible so I understand the need of your new-prop approach...
+None. This patch is obviously lacking the basic requirements that such
+an "optimisation" should handle, such as dealing with multiple
+mappings to the same IPA in the shadow S2, hence will happily fail to
+correctly unmap stuff. There is no documentation, and no test.
 
-...BUT...(maybe a weird idea)...what if we think about enabling:
+I'm sorry, but I can't take this effort very seriously.
 
- - one Quirk EARLY-ON based on the current potentially affected compatibles
-   with such a quirk forcing polling ONLY for the BASE Protocol SCMI queries
-   so that the SCMI core can gather Vendor Info and versions in any case..
-   (this would need the Quirk frmwk to be evolved to support such
-    'early-quirks' based on compatibles only)
+	M.
 
- - a second regular Quirk, filtered by the just retrieved Vendor INFO and FW
-   version to finally decide if the system needs force-polling to be really
-   enabled for all the following messages...
-
-... this was you dint even need to ship any new DT
-
-> > It would be preferable to scope this behavior using the platform’s compatible
-> > string. This approach ensures the workaround is applied only to the affected
-> > platform and prevents it from being inadvertently enabled elsewhere, unless
-> > another platform intentionally uses the same compatible string (which seems
-> > unlikely).
-> 
-> This is not platform-specific issue. SCMI provider which fails to generate
-> interrupts can appear on any platform, using either transport, that is why I
-> made the property generic.
-> 
-
-So the deployment scenario would be to update new machines with a fully
-working SCP FW with completion-IRQ while updating ONLY the DTBs with the
-new force-polling property in the older machines with the older
-poll-only SCP fw ? (to understand)
-
-Thanks,
-Cristian
+-- 
+Jazz isn't dead. It just smells funny.
 
