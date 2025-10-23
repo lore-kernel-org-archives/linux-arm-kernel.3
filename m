@@ -4,156 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5A2CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3340BCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=twrMFMzUHlwWHmGhDEuhAJ2vxIzV1lEqXJIVNkFeL5E=; b=VYSlLD8ALVtmPQgbW8H1IUXj7k
-	1EbP6L9Ci1ePWYnaBpTy3Exu+6AS6a/xT7D/XLkM79iBSWcDMfzyjszCvrLhUmVoxyc3RiNdSi60B
-	xnHTYMOgdzQ0ZW/pSEsVx6dQOXTAC6Vqoe7bksg7BuRaNVviC/u7GDPxzFnaq4dPQ0mZlYC87sIfT
-	H2ghX+SdevGWuoNgX6nlZ2BEXb24Sa6JkSZMF0CVL3BF+CuAv7Bca+aR7yQGRr5bSKgDlFT2Ns8kq
-	q5PO5mcGRB6Ao49F2lITyk42TnZ7L3S/qPT+WHo0om/9qpZh+ZNZPTz5eH/EYOSo6gUCUAOi5Zdl6
-	dMtT3kzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jUWd527bKci2ulZiUipHRLHYEjyHAXAdnaoLZsUKeu8=; b=fsYfdh3Ig5HE8+S0mryKpBWvnG
+	BH04dn33Em4Gm+uJPU+tUs67A3tafTt8QkYR7sNi6hp718UG2wQpeCXJSBWec8FWG6s53NFpho/ro
+	0jrMhLeSqO6K+/RrxVGUm2nkwBhcWjajegCPGTrrLQL8YKQ7a3+wbdfD6bSCXBAYNjxoZMCDvfADZ
+	lgrtFwrGpEPIfwkgQAyS+ZbtoQjkF2MAzMJu5sWDh7BzPfiZFO8AA2ZuLGtVMxjUc/v99ywvsKgST
+	As3j/B+mtLWv3V1HIpjp2ZshRzEpS24vsQBFZK/fJzQ8x7INon9MDIktg1aI3wrRHyyd+fSqNjP69
+	J8uJAHKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBw9x-00000006Yye-2O1P;
-	Thu, 23 Oct 2025 14:19:21 +0000
-Received: from mail-northeuropeazon11022082.outbound.protection.outlook.com ([52.101.66.82] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vBwAH-00000006Z5P-0hWq;
+	Thu, 23 Oct 2025 14:19:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBw9s-00000006YwE-3mdd
+	id 1vBwAG-00000006Z51-1kEe
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Oct 2025 14:19:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=jUWd527bKci2ulZiUipHRLHYEjyHAXAdnaoLZsUKeu8=; b=OsoQXOEK4acURHQge7em+mxX/F
+	cQkn9q6nISOdP7dI/52RasSJQSqUKarZcvOV2yXJkMDW554UEW05N2/aKOfieId4aw7uC421H+bxs
+	KPZfDQvQ1OeIwvFq4Xf8BLEpIYkTOlOWCGAlsVdoi40ul6Aa07Omp7mOSQoLeKetBY+IVdFnFk9yA
+	5oXMq70P7aevWge+5zb/XtRmqTVxdIUrdwDlTHf1cRHi3+nV42CK9xMJJTgrRUGLrMuwawTXfgy0V
+	/CDxIrOYB6/gCkmnx9fG9y1h1+avgNWgMvsMDvtcr0DsA789XmXqYX1vBJw7qDbfGTW7XAiOPwMgA
+	vXa8Q3Cg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBvIW-00000001PC3-01ob
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 14:19:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Rj72Q4PZt3oAs6XR7+hkZMjHR/LA56axsAXiADjx3CO59Qv9gAN+Lh2Nlp+TMyvWjQuXgUtVRtMomCYr5C705MJ//JipAIJMmFOrj5294eR5tedylHuquPPYd5pJ/w3U1P5HczCCczmnHXlk4gVcACUqobudx+C9okQFLPNTUFlY1B2wy6YuCxrIfX16mHer+Vz/+GbGzYEwbnr4xSskFcMZShJitBEXCHwPDN79JRjLul+36nS67tkMFK9mv+SkTETIlupIn0NLg/LCSchvqqkQuSNLJUPDUAmeiAEYCSv1uov+pv8Jn13PTpN8yNW4Eg2sdUjFggxr9wN9EBqpgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=twrMFMzUHlwWHmGhDEuhAJ2vxIzV1lEqXJIVNkFeL5E=;
- b=SmCbv52McJ6oPRyubrFsbxSqStB05ib/ao2fPnIaUL/3JGqGXSKyyXHwUasThWVWkVA4uteJBUf1MgPUbUzh70xxfY3WkiKKDUvt8aDNhM4MHTZIMrJUwT+oG0mZVSGySMAiIBIfKaR48DvIwnP326swgM++z5l7YudZ87sS1Y496dh9KxepTFwJ4LIy3K5HLYHfMIkTv41qOMmfgC21t9z5cb6zlzAcdUkx50g9VZrnJICeEcd0ji6S8B2UtG9JVMwePx7hS3+Qd+4OLpw1GhOsWnpx6DfmwGIPH+2T/3VCvfAApbiPMcJIwnwpZhcEcookReUXG0WmRQAPToIxxw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=gmail.com smtp.mailfrom=phytec.de;
- dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=phytec.de; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=twrMFMzUHlwWHmGhDEuhAJ2vxIzV1lEqXJIVNkFeL5E=;
- b=eYa+S+Ub1xk6B8Co5ryciTH8iW/nh9F3zLNbBqArFbDZh5CM2TrbSGiETYjEN9//3y31T7HpsBGbON5gXOqOCSJea/2VRQwFc2DtMZvOOUTwhidT58kWqQZMhTh5Yj7b7NV2scH2zalh+o5Igkz6A1IdpjYaMa24neRrKEsc3ridf/mA26cE+gUMzDfyzozHgND4jGB0xmMAysrLMEvcgARfk6C4HTS+yLybEVRNvMv8rHFlXYAOkiYtDsZVCUrJ5Kw9L9K73gndtWQLcmQLnPXV8x9zymdkvHQbpQMdcVJGEZZOugzAmIIWTQu/DOwL7r68SgIIf2YyGLhgytyFbQ==
-Received: from AM0PR06CA0134.eurprd06.prod.outlook.com (2603:10a6:208:ab::39)
- by AMBP195MB2858.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:6ae::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.12; Thu, 23 Oct
- 2025 14:19:10 +0000
-Received: from AM4PEPF00027A5D.eurprd04.prod.outlook.com
- (2603:10a6:208:ab:cafe::9b) by AM0PR06CA0134.outlook.office365.com
- (2603:10a6:208:ab::39) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.13 via Frontend Transport; Thu,
- 23 Oct 2025 14:19:10 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Postix.phytec.de (91.26.50.189) by
- AM4PEPF00027A5D.mail.protection.outlook.com (10.167.16.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.7 via Frontend Transport; Thu, 23 Oct 2025 14:19:10 +0000
-Received: from llp-jremmet.phytec.de (172.25.39.81) by Postix.phytec.de
- (172.25.0.11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Thu, 23 Oct
- 2025 16:19:09 +0200
-From: Jan Remmet <j.remmet@phytec.de>
-Date: Thu, 23 Oct 2025 16:18:48 +0200
-Subject: [PATCH v2] drm/bridge: ti-sn65dsi83: move clk setup to enable
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20251023-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v2-1-10d79d13ea4a@phytec.de>
-X-B4-Tracking: v=1; b=H4sIAEc5+mgC/62OWwqDMBREtyL57i1Janz0q/soIjFe6y1EQyJRE
- fdea7fQzzMwc2ZjAT1hYPdkYx4jBRqHA+QlYabXwwuB2oOZ5FLxUiqYycEbPFqLE7h+ndBAi9A
- ER3YpLNwKLmqHDegIgtczTX2tjeQlcFXoBos0z03Gjn3nsaPldD+rg3sK0+jX80oU3/Qf1iiAQ
- 5l2ZZfnCjGTj1/92iKr9n3/AAQP5mICAQAA
-X-Change-ID: 20250925-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-058abe8477c6
-To: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent Pinchart
-	<Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Inki Dae <inki.dae@samsung.com>, Jagan Teki
-	<jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
-	Aradhya Bhatia <a-bhatia1@ti.com>, Aradhya Bhatia <aradhya.bhatia@linux.dev>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Devarsh Thakkar
-	<devarsht@ti.com>, Dmitry Baryshkov <lumag@kernel.org>, Alexander Sverdlin
-	<alexander.sverdlin@gmail.com>
-CC: <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<upstream@lists.phytec.de>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [172.25.39.81]
-X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
- (172.25.0.11)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM4PEPF00027A5D:EE_|AMBP195MB2858:EE_
-X-MS-Office365-Filtering-Correlation-Id: 450cad4e-6791-47f0-0683-08de123f2295
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|7416014|1800799024|376014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aVpEeXVha2xhTit3YUh0ZFBlUnJqQzJhZkRKUVp4MUNPbEtXVEpYNVZybHFG?=
- =?utf-8?B?OVVndUxEM055eVh0WDdyTFNuM0l2WC9EWjVjdU4rSFNwSmNaeUpQb0R6WEYr?=
- =?utf-8?B?Q3FHcDNqaklydG9KTnUvK0JhVlJQV3VYS1NJQTg4TFJuWTlNQkltdjBPOFIz?=
- =?utf-8?B?WUkyTmVuNVJGUnVUZVFoaTN2QUtBZnpYb3ZweGxGQ1FkVW9JTEtDWG9tSy9Q?=
- =?utf-8?B?SkFUazFpMkFZUThWTE9jbHNXRmVKOGhoOCt2bUYyUWRNWUw2K0QweVJPVzRG?=
- =?utf-8?B?QlhqRFU5MDI5VU53cWQzY3JCd1VCd2xsOUUxN3g4VGcwWHZoeDVVWnFjcmpj?=
- =?utf-8?B?dUVYRy8vdW1lVEtUSXY1Y1NHbWZQSUVxcmY0dmkvYWpkd1FZWWlyWkJpK1pG?=
- =?utf-8?B?WnN6YThGK0xHZ3Q5Y3NGRGNXM1Z5NTlhelpta2htOGRZdE5QMmZ3ZWttanJ0?=
- =?utf-8?B?T25WdS9VVmNKbDhpZmxhcm5PaEsvRGRpcndQekVOaEVVSExRUkQyY0h0Vmxx?=
- =?utf-8?B?aHkrc0VxaDM0RVNrN1hscElCTEtlUmhReTR2b0cvam1jeXdOMzY1NDBhN3I2?=
- =?utf-8?B?NG5acXNoQjJnNDk1bTJ4UzROSlFJSFpqdWtuQklZT1VvdHI5a2VreTFsdDFw?=
- =?utf-8?B?dUxGeEFPWllrWEd3dURsZndyT05xMUsxWHhkSXNrd0xweTRqSUU5RlFTZk5Q?=
- =?utf-8?B?UW5GU1c1dmV4anlTRzU4cFdXamo2QnhlUUtCNFIzQVQ4Z3NYZmVrak5kN0JR?=
- =?utf-8?B?dXRTVUVIWXo4dmRFV0FBYUpYeWhyQ2V4M0sxZ1VMTGhZT0NUVjh4RWVIanB0?=
- =?utf-8?B?OFZYa0d1NnFrWkRYaitycnN1YkFsMWp1cHo2bDNiNGRWSWxaaW9JZEcxUHBJ?=
- =?utf-8?B?bDRaTUhDc2Q2ZnZHN0xJRGxXY3F6UzB2alVhNzl0elRmTHdGTEFzSXE0Q2xn?=
- =?utf-8?B?T09hQ3ZCejJiQTN5aWkwZVhEMnVwd1F0MWE1M2YyUjRiT0VvcWNRb0w3SlQy?=
- =?utf-8?B?VVdLZGR3TUU3ZUFkaG1WWG9tTEpXUy9TNW1FbStobnNjQmpxSHk3Y2lsaUJG?=
- =?utf-8?B?UEtDMG5jclhwSk1TVjZadWRaNHdra0tvRUdIOS9pVk5QcEptNG9YbCs5N1ZN?=
- =?utf-8?B?N0svSjlLYk82bUpQbGQ5M3hQa0t2elpiNmFLYko1QStScnB3S1VPc3ROUDhR?=
- =?utf-8?B?dnNPdGpka2F2RThxZWZhUmFaTlloR0JweXphSHd4ZW94WWpMRno1Y1c0WjFB?=
- =?utf-8?B?K3RFRGxCak1RcU1zQ0t6SW85Y3dwL0NDWDZTd2FtWWtvLzhOemN6b3lrK2VJ?=
- =?utf-8?B?Q3plSkZxM0x6ZmlqdjJEclNFUkc1bjk3S2Foc3RvSFFQL2FqYjQrNVVycXhu?=
- =?utf-8?B?OCtKNDNRWWhkeDdBMWp6VkdUbk0zcG90NE1jM1NyakNtMXMyY3ZlcHZqTGJV?=
- =?utf-8?B?SWRXRExiUER0bVVpV1JPb0xWUFRmUGpwa0hhby9FMDRaOEN4bDRiTVpqWXpF?=
- =?utf-8?B?dVpQMXlic2tpNDBoUWlxelM1UkNLREZxSlFZMUdsdGczQWhNcno1TEhZS21v?=
- =?utf-8?B?NGwxcUppdHlPZFlDRlJLM0JSVDRXcEx3WUExeDVGdVhwK0UzdE9lSG0vT01z?=
- =?utf-8?B?M0tNTm1EaVFrVzBiUCtUNmprNlpyVkNWemlXY2U0N2R5RmhBclEybHdwWVFl?=
- =?utf-8?B?djA0UE03NTFOQ1hKQ1dEdnZoUnE3alZEYmlyQ3R1ZHUwdFhWY2xrd0xhdXZo?=
- =?utf-8?B?MDJDNDVxb0tOR3ZJSDFzMEYwN0R4QjdGTG5pa29NVXhuZFlFWllUTjYrbjNv?=
- =?utf-8?B?ZGpaelRzdlBCd1pYa0d0QzZJZUdIeDUxaHNPUzFSbWVyTmJoWXE2MGhDQmI2?=
- =?utf-8?B?bEszMnJvY0xhcTR5dVg3VzBpVXVrOGxtOWxYcHVKNjNFazlOdVc4YVBXWEdD?=
- =?utf-8?B?ZUVvUFhRaURvdEtpMUYrbzhUQ2wwY1JqenBqOEF4WDNLMTNNLzJKajZpM09D?=
- =?utf-8?B?ejByVm1JMkpEaHMwaHVERzkzTWlRdEhFV2tJbHV6YkxTTC9HdStZZDgvaHpS?=
- =?utf-8?B?dDRQWXhOKzVEdUVITXE1bWdFYjBiUEVxSmlSdXQzQVFndWdOSzM3TWp5TmNV?=
- =?utf-8?B?a2FVQWFXa3JncThoNm1HNSsvK0gxakdWNm8yUDRITVRuS0pKL21JdkxyaHJ1?=
- =?utf-8?B?TUE9PQ==?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(7416014)(1800799024)(376014)(921020);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Oct 2025 14:19:10.5191
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 450cad4e-6791-47f0-0683-08de123f2295
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A5D.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBP195MB2858
+	Thu, 23 Oct 2025 13:24:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5FA7E40672;
+	Thu, 23 Oct 2025 14:19:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38645C4CEE7;
+	Thu, 23 Oct 2025 14:19:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761229171;
+	bh=ohcVgQwUVBiVR8Z7bhBKhH0NsN3EdMIF8XRJoa13eW4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=JR9qfntoK3AV0wTJ86NGDv0xTgMfnsuda9kjOKTBQTPoBmWd9MHI/WymV9k3S0wGW
+	 Ip5FgPuHV8ioW2YVY7jIiD+D2KNgSt9PsbgTN01hAgydAXdFInOfJfG/Y+oYQ2RTBZ
+	 OMHB9uXB2Dly9mKcWYCK/ki/Om7TnxvBXWQ8a0o4pQIbf/pP38ase6sHsViRm4pLXU
+	 e5WSMgYfaipitFtti6gBvUaPtnLEaEs7WaIwJiCsulXli+0Qryo5SnmUKerqzPLQ6J
+	 UzzJoVQBauKhng0z96GwUGSDDtmtSYAcrZ0KVCLlA/giT2CrzmSgtcbFAgRREeyViX
+	 6sgvX1xotvR4Q==
+Received: from 158.46.66.37.rev.sfr.net ([37.66.46.158] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vBwA4-0000000GYEE-3gqS;
+	Thu, 23 Oct 2025 14:19:29 +0000
+Date: Thu, 23 Oct 2025 15:19:22 +0100
+Message-ID: <87y0p13dlh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] arm64: guard AMU register access with ARM64_HAS_AMU_EXTN
+In-Reply-To: <24c8da41-37db-4e69-b9aa-e33b2154acb0@mailbox.org>
+References: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
+	<86347bvx0f.wl-maz@kernel.org>
+	<07391913-aab6-4d92-b75f-278506f51397@mailbox.org>
+	<861pmvvv2g.wl-maz@kernel.org>
+	<24c8da41-37db-4e69-b9aa-e33b2154acb0@mailbox.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 37.66.46.158
+X-SA-Exim-Rcpt-To: marek.vasut@mailbox.org, linux-arm-kernel@lists.infradead.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, geert+renesas@glider.be, ryan.roberts@arm.com, will@kernel.org, yangyicong@hisilicon.com, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_071917_255277_3F59D81F 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20251023_142408_556408_D14D105D 
+X-CRM114-Status: GOOD (  44.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,103 +108,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move enable PLL from pre_enable to sn65dsi83_atomic_pre_enable.
+On Wed, 22 Oct 2025 16:29:55 +0100,
+Marek Vasut <marek.vasut@mailbox.org> wrote:
+> 
+> On 10/22/25 5:02 PM, Marc Zyngier wrote:
+> 
+> Hello Marc,
+> 
+> >>> We ensure that the AMU is available in the macro itself by checking
+> >>> for ID_AA64PFR0_EL1.AMU. If the AMu isn't present on this CPU, we skip
+> >>> the offending sysreg access. This is similar to what we do for the
+> >>> PMU.
+> >>> 
+> >>> Does your HW advertise an AMU, but doesn't actually have one?
+> >> 
+> >> The hardware does have AMU, but it is currently blocked in old TFA
+> >> version and access to this AMU register here causes a fault. That's
+> >> why I have to disable ARM64_HAS_AMU_EXTN until the TFA is updated and
+> >> the AMU access is made available on this hardware. But even if I do
+> >> disable ARM64_HAS_AMU_EXTN=n , I get a fault.
+> > 
+> > Well, I would tend to say that you are trying to update the wrong
+> > piece of SW here. Crashing kernels should be a good incentive for the
+> > board manufacturer to update their firmware pronto, specially when we
+> > are talking of code that has been in the tree for over 5 years...
+> 
+> I do agree with this, and the update already exists. The upstream TFA
+> MR for this platform also has this fixed.
+> 
+> >> This patch is mainly meant to prevent a surprise in case someone does
+> >> set ARM64_HAS_AMU_EXTN=n , and the system still faults on AMU register
+> >> access.
+> > 
+> > But that doesn't really fix anything if you have a buggy firmware,
+> > because you can't tell which CPUs have been correctly configured, and
+> > which have not.
+> 
+> I also agree.
+> 
+> > I also don't really get why this hack works for you,
+> > because the feature will be set as soon as one CPU advertises the
+> > feature.
+> 
+> For this old firmware, during development, ARM64_HAS_AMU_EXTN is
+> disabled in kernel config to avoid triggering the AMU faults.
+> 
+> Except right now, I still trigger the AMU faults even with
+> ARM64_HAS_AMU_EXTN=n , which I think should not happen ?
 
-The base clocks may not be ready when pre_enable is called.
+ARM64_HAS_AMU_EXTN is a *capability*, not a configuration.
+CONFIG_ARM64_AMU_EXTN is the configuration. I have the feeling you're
+mixing the two.
 
-commit c9b1150a68d9 ("drm/atomic-helper: Re-order bridge chain pre-enable
-		and post-disable") points out that pre_enable hook definition says that
-"The display pipe (i.e. clocks and timing signals) feeding this bridge
-will not yet be running when this callback is called".
+Irrespective of the configuration, we access the AMU registers
+depending on the what is advertised, because we *must* make these
+registers inaccessible from EL0, no matter what.
 
-Signed-off-by: Jan Remmet <j.remmet@phytec.de>
----
-commit c9b1150a68d9 ("drm/atomic-helper: Re-order bridge chain pre-enable
-and post-disable") caused our display [1] to flicker constantly.
+> > In any case, this sort of terminally broken stuff should be handled as
+> > an IDreg override, for which we have a whole infrastructure already.
+> > There are countless examples in the tree already for similar purposes.
+> 
+> I would much rather not support the old firmware for this new platform
+> in upstream and pollute the kernel with unnecessary workarounds.
+>
+> I would much rather be able to disable ARM64_HAS_AMU_EXTN in kernel
+> config for the old devices with old firmware, without triggering the
+> faults ... and say that everything which is going to be upstream will
+> always use new firmware that has proper working AMU support.
 
-Our setup is
-i.MX8MM mxsfb -> samsung_dsim ->
- sn65dsi83 (MIPI to LVDS) -> ETML1010G3DRA (display)
+No, that's the wrong approach. If you leave the AMU accessible to EL0,
+you're leaking data to userspace, and that's pretty wrong, no matter
+how you look at it.
 
-Reverting the commit [2] let the display work again.
-Only difference in clk_summary is the change of
-dsi_phy_ref from 72400000 (flickering) to 18100000 (working)
+I also think your hack works by pure luck, because at the point where
+your CPUs are booting, the alternatives are yet not in place (the
+kernel patching happens much later). In short, this breaks
+*everything*.
 
-The same behavior can be seen with a ph128800t006-zhc01 display
-and dsi_phy_ref from 66500000 (flickering) to 16625000 (working)
+As I indicated before, you have two options:
 
-The root cause seems to be that mxsfb_crtc_atomic_enable is called after
-samsung_dsim_atomic_pre_enable. This changes the parent clock after
-the PLL is already configured.
+- either you update your firmware and leave the kernel alone
 
-According to the commit [2] pre_enable hooks should not rely on clocks.
-Both drivers used in our setup work with clocks in pre_enable.
+- or you implement the workaround as ID register override so that you
+  *must* pass something on the kernel command line to boot, and by
+  then accept that you will leak critical timing information to
+  userspace.
 
-Moving the clock setup from pre_enable to enable fix the issue for
-our setup.
+Any other option, including guarding the macro with a config option is
+*not* acceptable.
 
-Please note that I am not deeply familiar with the DRM subsystem internals,
-and there might be side effects of this change that I haven't considered.
+Thanks,
 
-[1] arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
-[2] https://lore.kernel.org/all/20250605171524.27222-4-aradhya.bhatia@linux.dev/
----
-Changes in v2:
-- remove samsung_dsim patch
-- tested on top of https://lore.kernel.org/all/20250619-samsung-dsim-fix-v1-1-6b5de68fb115@ideasonboard.com/
-- Link to v1: https://lore.kernel.org/r/20250925-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-0-94f9f775ee62@phytec.de
----
- drivers/gpu/drm/bridge/ti-sn65dsi83.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+	M.
 
-diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi83.c b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-index 033c44326552ab167d4e8d9b74957c585e4c6fb7..4cbdbafc3e85821ef6fcd9f74bf07faf6b9f84ff 100644
---- a/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-+++ b/drivers/gpu/drm/bridge/ti-sn65dsi83.c
-@@ -474,7 +474,6 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
- 	struct drm_crtc *crtc;
- 	bool lvds_format_24bpp;
- 	bool lvds_format_jeida;
--	unsigned int pval;
- 	__le16 le16val;
- 	u16 val;
- 	int ret;
-@@ -614,6 +613,14 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
- 	regmap_write(ctx->regmap, REG_VID_CHA_VERTICAL_FRONT_PORCH,
- 		     mode->vsync_start - mode->vdisplay);
- 	regmap_write(ctx->regmap, REG_VID_CHA_TEST_PATTERN, 0x00);
-+}
-+
-+static void sn65dsi83_atomic_enable(struct drm_bridge *bridge,
-+				    struct drm_atomic_state *state)
-+{
-+	struct sn65dsi83 *ctx = bridge_to_sn65dsi83(bridge);
-+	unsigned int pval;
-+	int ret;
- 
- 	/* Enable PLL */
- 	regmap_write(ctx->regmap, REG_RC_PLL_EN, REG_RC_PLL_EN_PLL_EN);
-@@ -633,13 +640,6 @@ static void sn65dsi83_atomic_pre_enable(struct drm_bridge *bridge,
- 
- 	/* Wait for 10ms after soft reset as specified in datasheet */
- 	usleep_range(10000, 12000);
--}
--
--static void sn65dsi83_atomic_enable(struct drm_bridge *bridge,
--				    struct drm_atomic_state *state)
--{
--	struct sn65dsi83 *ctx = bridge_to_sn65dsi83(bridge);
--	unsigned int pval;
- 
- 	/* Clear all errors that got asserted during initialization. */
- 	regmap_read(ctx->regmap, REG_IRQ_STAT, &pval);
-
----
-base-commit: 93213d0743010ac6a6a21e97e75c695a423b81b3
-change-id: 20250925-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-058abe8477c6
-
-Best regards,
 -- 
-Jan Remmet <j.remmet@phytec.de>
-
+Jazz isn't dead. It just smells funny.
 
