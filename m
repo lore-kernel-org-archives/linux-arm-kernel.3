@@ -4,87 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4DADCCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 12:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CF4ACCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 13:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cUEq6RcBull/ifTwaW/9nwH/7Wp6ZcVLJhxbPx8UOdM=; b=lK30cjDug7bWz70YsqJZcKalzQ
-	XPxnJjHG6tdISYov9wPT+nB1MUDl6kzgzDngLmuyLV2u/Ipt/6+oKNKhbtoO2KlmgQTTb2EIYMHQE
-	UCG5eMM/MZDHfxyMBFb9SNuZ4CuJ9CaEQ1ZgpnS7uEtrS++cN0ejnW8fcjbIKR4hZABJI6yszS53f
-	OFIcVAnhFkzNlZ/dSCrmeJWbJjsyNg/dNqFWsIeIvUkX9n2WP4NDYjfp8J708bUxapcAnvmYVceI7
-	SleVCYuGx6ORo9UKOpLTyp6M32O5Q9zweMmccEXa7dr9RO/O+Z51n+RyiFAOtapr5NPOjsQTisqdl
-	PUo2LGMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=id+wIYbTFy4GJ5sovEHifiUi3WKFfS9SlpVUAwl/jlY=; b=LJwWgibjguU2uNYgI5wZlVN8fm
+	RLIue9NX1u0wksIO719UeyJVrLMiayzQmMsuZ2pELy87eX9JzFZtRdWtkTmMcIr5aqolj65kiv74E
+	/SqSUQMSlYJ8WjTNRvt6+W2dmjlF27sqjQRw4ptq+iGNb6njuniEDH6MEFoHXK9gvJznaqAhY6Zom
+	IUxeb1P9CKjzIbq7eDwqSHw6Ly6x3dryqjNf6c40e66e9TRq6FzXOYYXM5GXocSSJYGMqkIbe7Uky
+	6JRO8tfIOyf4NF6zabQJ/lxt82TAYRXRRfthYBWDsBeSW2jn6PIBqph46lJEVdbM20SDTgYi7IuHr
+	NSTcgBgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuZC-00000006GhM-3NTa;
-	Thu, 23 Oct 2025 12:37:18 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	id 1vBuzu-00000006JCJ-3NC1;
+	Thu, 23 Oct 2025 13:04:54 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuZ6-00000006Gf5-3s2c
+	id 1vBuzr-00000006JBd-33g1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 12:37:14 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4cslsc23bsz9v7B;
-	Thu, 23 Oct 2025 14:37:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1761223028;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cUEq6RcBull/ifTwaW/9nwH/7Wp6ZcVLJhxbPx8UOdM=;
-	b=veccFRIkToJfX8y40KMHb5BiKmUwtqvyUz7rOZ04WEABQXng1Zonv7CZca9i9Ul7APNFIV
-	nIlGm76JGl0pW6FRy5EVDV8bZsYKSTVEDfYtR0MWZrswo7z7c8gS6KVp+eR6myaEQ+KA/h
-	O1x1g3Xaw3E2KUaag+S58N/zSiZ4KKJvegrvc9Ag5Y5ERVoAqu+QKDO68PMqN8VK5mzGMb
-	BrIbVbbJQ4mwAU0pIEzDXWh2GCk6m3Y7HyS+WBIS2B1hgffNJke0sZB9uCtbhICO3wu8by
-	xkCY2JlZkA8t2nduJoeXCFJ+/f4omtQSSxiyCsVXA1avjbzMIwQl0xfW4zqYkQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b="Gj/YYY8O";
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1761223026;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=cUEq6RcBull/ifTwaW/9nwH/7Wp6ZcVLJhxbPx8UOdM=;
-	b=Gj/YYY8O8vtWy8wwezsfQTYQuW9119m6jWJKZelGuxZ1OgbLqVx06DWDRTSrUrvg4BH3rm
-	qMXu+KepFL1cKaelxO/vRXaC/zoE1TQ/gE2j92u6AyAQUQR8lbTlUn7R5K0BKSIKM2fGhx
-	q+WT+/OvPlR556k0D3TWn18FLj/hzqpeE1SFixUS6wWn/NSiZ1ExJtXOdxZ3AIpHo8TkXA
-	Gbq6GItSOmuPyyrOGtL96UEIHIkZslJh0PIxqm5gvSLMs0ZP+kPEThfB1qla6zaWpTTu25
-	vY4658q6+pzyH8Fdyrgl6wEqhvgnR9r34k8mPUPZmL7DtgM1Lz2h3yGvOqv7zg==
-To: arm-scmi@vger.kernel.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 2/2] firmware: arm_scmi: Implement arm,poll-transport property
-Date: Thu, 23 Oct 2025 14:35:58 +0200
-Message-ID: <20251023123644.8730-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
-References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
+	Thu, 23 Oct 2025 13:04:53 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7833765433cso1040914b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 06:04:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761224691; x=1761829491; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=id+wIYbTFy4GJ5sovEHifiUi3WKFfS9SlpVUAwl/jlY=;
+        b=nAdw2DFPg6E3GmYq5ZGd9608zy+AUwmK7wTkeAT/44lVlxVvLBH1PfQ8UyLtszZV3m
+         4mB9N59LnSJO9izKr6WLRitk92gl3A4ujtj2I7pNq7LYwODT6Mwxei8X1O8AecptypDD
+         kg6phqBigE8RYvz2OH9X57gaiZ5IgIOQzF5L9Qw2b/YXM+N/yWxeMhzdxOTLU2dDaA06
+         LOl1xJqkjgCmzUk9oJzDQ2qSzFWYWBSoI14S83Z0pFMroOzF5Tm1QO/U1XX0Dy19jj9N
+         aO4hvw7W4KtiasA0vtBjuMJytetK+6ZMiCvifJBqRFoVtj57uvxV0jFBdVLQMzMdIwq7
+         sECw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761224691; x=1761829491;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=id+wIYbTFy4GJ5sovEHifiUi3WKFfS9SlpVUAwl/jlY=;
+        b=m2vdYJtT1rnXU+meB+eLyFE/w1xWSapQJ4Bf4Lg6n1m1b0Mq9TmCGLM/y9DMLmeu2V
+         sZJmZF7OolvC138/61BKnUCclXnE1L665rXK5fp1e7eoDDzxxdukWBo4H18CmpaIh1Sc
+         l3jaWDcE37Coyi7liTNeL6RE/hnz9mG/vvSbTLtz92DMwnRbVgdaCJfcWaxvSjiZElhj
+         g6ebEn57oAU4WkclT8FfW242IO57OF1xYqAHKxrPVQvbF1uEF2rfODNFQMDZKbxnatPY
+         0sFPbN3+Xp3Q4DhBdPKK236mwVwoPjKmZD58du8mQzPCr2X9Dp84Ne6V2kayXAxCG+OY
+         1THA==
+X-Forwarded-Encrypted: i=1; AJvYcCVaYTdc2aDx2RyQb/pw13onYqKZzQhZ6J5Xk1IxO4a2tcz3ByeT9DssH3l1TYAXEvagfCZJxJa5Mih4Fu2gPCej@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQcgjGdab/SGm4AN1iQL3F+NV9kZHsxwdtXVfiI3WAA1KrRTvg
+	2EvtciIeZMb/Z/Ztf2otvvPm6Mo8ByEWk6F4mh10xsd9fbk6UIIVKWIV
+X-Gm-Gg: ASbGncupsf6E6RG5iRU6Mwks4tkPrU0LJZle3X8U91Gr32d1f90c8DpJPZw1lXAyGxl
+	Ayq6gGZH5XHtEVhavqWHSXAvW3iKxeTkzF1Xe51awo5UnI+nRrU1mJVwzlxXj+2OADhoizuEijY
+	Br9M8NDaZoNUNLCVTKqysw/dT6QdyasUd9QyrCuZDaMf/1Ubp5F4k/U1Z/02ocq05C6tjWsR+n9
+	t02+93PI1s9vNb2cfI8zh+7kdgcIVZd98x6G60KAl8mE7+nRvuUn2E7syFJwZJneb7ARc6VzgDD
+	NlAHU3TMknE0PRj5O1C/NleLpinoyuV6ujTnsKSPG8JDZKfhNEaTtidnPX0779J+dZNNUlUxNpM
+	FwJ9J3H33u/rY43RcTPlEPIoVBsgYhP0lBkJIc/jqv7TZF9RQ1SDR1j2PmwBmdrwZ01ci/Taxh8
+	lqaHJgaCI6
+X-Google-Smtp-Source: AGHT+IEcdM7hV7nizE7lspbXruEQ0gaeKJxvv0wIeUknnaa/wTQkABYZuABFdsJHbIclfJ2CGnpjFQ==
+X-Received: by 2002:a05:6a00:4f81:b0:7a1:373f:c216 with SMTP id d2e1a72fcca58-7a220a9ded3mr30485012b3a.14.1761224674688;
+        Thu, 23 Oct 2025 06:04:34 -0700 (PDT)
+Received: from [10.248.7.103] ([2409:40f4:2040:16ed:f15f:ed0a:f0b7:34d2])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7a274b8b291sm2509346b3a.42.2025.10.23.06.04.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Oct 2025 06:04:34 -0700 (PDT)
+From: Rakuram Eswaran <rakuram.e96@gmail.com>
+Date: Thu, 23 Oct 2025 18:34:13 +0530
+Subject: [PATCH] wifi: mt76: mt7996: remove redundant NULL check in
+ mt7996_msdu_page_get_from_cache()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: dbe5eedace6910ad7e8
-X-MBO-RS-META: xycoz5xf7zpasbqw5mb4s1gwgb6s5hbw
-X-Rspamd-Queue-Id: 4cslsc23bsz9v7B
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251023-mt7996_mac_c-v1-1-580a3cbb2678@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAMwn+mgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDAyMj3dwSc0tLs/jcxOT4ZN1UQwMLS5Mki6SkJBMloJaCotS0zAqwcdG
+ xtbUA48HPY14AAAA=
+X-Change-ID: 20251022-mt7996_mac_c-e10894b8bbb4
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rex Lu <rex.lu@mediatek.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ david.hunter.linux@gmail.com, khalid@kernel.org, skhan@linuxfoundation.org, 
+ linux-kernel-mentees@lists.linux.dev, kernel test robot <lkp@intel.com>, 
+ Dan Carpenter <dan.carpenter@linaro.org>, 
+ Rakuram Eswaran <rakuram.e96@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761224666; l=1686;
+ i=rakuram.e96@gmail.com; s=20251022; h=from:subject:message-id;
+ bh=MZntrYzYxpIKR4lTEuQ8vg90cnWJfjxVo3eqGMp0mdI=;
+ b=jgYbQsrBeTw7tVtVJy36z0p2uDhIq4lvHZ86UI3xTp4Zr4APqXvIxFrHqF4MZMKViKRawY9Ky
+ POX/j+CfAclAH0ZtDNhHsqHPK1379DlAhezZtod7if6PDUPry4Wh5CG
+X-Developer-Key: i=rakuram.e96@gmail.com; a=ed25519;
+ pk=swrXGNLB3jH+d6pqdVOCwq0slsYH5rn9IkMak1fIfgA=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_053713_122421_03B4FE18 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20251023_060451_776577_8758FFCB 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,113 +118,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement new property arm,poll-transport, which sets all SCMI operation into
-poll mode. This is meant to work around uncooperative SCP implementations,
-which do not generate completion interrupts. This applies primarily on mbox
-based implementations, but does also cover SMC and VirtIO ones.
+Smatch reported a warning that the NULL check on `p` in
+`mt7996_msdu_page_get_from_cache()` is redundant:
 
-With this property set, such implementations which do not generate interrupts
-can be interacted with, until they are fixed to generate interrupts properly.
+  drivers/net/wireless/mediatek/mt76/mt7996/mac.c:1651
+  mt7996_msdu_page_get_from_cache() warn: can 'p' even be NULL?
 
-The SMC transport is modified such, that it ignores interrupts described in
-DT in case this property is set. This is an edge case, where the SMC transport
-may use this property to ignore broken interrupts too.
+The function first checks `list_empty(&dev->wed_rro.page_cache)` before
+calling `list_first_entry()`. When the list is not empty,
+`list_first_entry()` always returns a valid pointer and can never be NULL.
 
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Hence, the `if (p)` condition is unnecessary. Removing it cleans up the
+code.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+Closes: https://lore.kernel.org/r/202510100155.MS0IXhzm-lkp@intel.com/
+Signed-off-by: Rakuram Eswaran <rakuram.e96@gmail.com>
 ---
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>
-Cc: arm-scmi@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- drivers/firmware/arm_scmi/common.h         |  4 ++++
- drivers/firmware/arm_scmi/driver.c         |  4 ++++
- drivers/firmware/arm_scmi/transports/smc.c | 20 +++++++++++---------
- 3 files changed, 19 insertions(+), 9 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index 7c35c95fddbaf..7c9617d080a02 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -235,6 +235,9 @@ struct scmi_transport_ops {
-  *		      to have an execution latency lesser-equal to the threshold
-  *		      should be considered for atomic mode operation: such
-  *		      decision is finally left up to the SCMI drivers.
-+ * @no_completion_irq: Flag to indicate that this transport has no completion
-+ *		       interrupt and has to be polled. This is similar to the
-+ *		       force_polling below, except this is set via DT property.
-  * @force_polling: Flag to force this whole transport to use SCMI core polling
-  *		   mechanism instead of completion interrupts even if available.
-  * @sync_cmds_completed_on_ret: Flag to indicate that the transport assures
-@@ -254,6 +257,7 @@ struct scmi_desc {
- 	int max_msg;
- 	int max_msg_size;
- 	unsigned int atomic_threshold;
-+	bool no_completion_irq;
- 	const bool force_polling;
- 	const bool sync_cmds_completed_on_ret;
- 	const bool atomic_enabled;
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 5caa9191a8d1a..1079c84608a2c 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2677,6 +2677,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 	cinfo->is_p2a = !tx;
- 	cinfo->rx_timeout_ms = info->desc->max_rx_timeout_ms;
- 	cinfo->max_msg_size = info->desc->max_msg_size;
-+	cinfo->no_completion_irq = info->desc->no_completion_irq;
- 
- 	/* Create a unique name for this transport device */
- 	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
-@@ -3092,6 +3093,9 @@ static const struct scmi_desc *scmi_transport_setup(struct device *dev)
- 	if (ret && ret != -EINVAL)
- 		dev_err(dev, "Malformed arm,max-msg DT property.\n");
- 
-+	trans->desc.no_completion_irq = of_property_read_bool(dev->of_node,
-+							      "arm,poll-transport");
-+
- 	dev_info(dev,
- 		 "SCMI max-rx-timeout: %dms / max-msg-size: %dbytes / max-msg: %d\n",
- 		 trans->desc.max_rx_timeout_ms, trans->desc.max_msg_size,
-diff --git a/drivers/firmware/arm_scmi/transports/smc.c b/drivers/firmware/arm_scmi/transports/smc.c
-index 21abb571e4f2f..85bfab650f100 100644
---- a/drivers/firmware/arm_scmi/transports/smc.c
-+++ b/drivers/firmware/arm_scmi/transports/smc.c
-@@ -177,16 +177,18 @@ static int smc_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
- 	 * completion of a message is signaled by an interrupt rather than by
- 	 * the return of the SMC call.
- 	 */
--	scmi_info->irq = of_irq_get_byname(cdev->of_node, "a2p");
--	if (scmi_info->irq > 0) {
--		ret = request_irq(scmi_info->irq, smc_msg_done_isr,
--				  IRQF_NO_SUSPEND, dev_name(dev), scmi_info);
--		if (ret) {
--			dev_err(dev, "failed to setup SCMI smc irq\n");
--			return ret;
-+	if (!cinfo->no_completion_irq) {
-+		scmi_info->irq = of_irq_get_byname(cdev->of_node, "a2p");
-+		if (scmi_info->irq > 0) {
-+			ret = request_irq(scmi_info->irq, smc_msg_done_isr,
-+					  IRQF_NO_SUSPEND, dev_name(dev), scmi_info);
-+			if (ret) {
-+				dev_err(dev, "failed to setup SCMI smc irq\n");
-+				return ret;
-+			}
-+		} else {
-+			cinfo->no_completion_irq = true;
- 		}
--	} else {
--		cinfo->no_completion_irq = true;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+index 9501def3e0e3e20132fdbcfe0b1f489694afdc5f..284f2eea71e5bf0a34c7fe84084d998164a31a05 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+@@ -1681,8 +1681,7 @@ mt7996_msdu_page_get_from_cache(struct mt7996_dev *dev)
+ 	if (!list_empty(&dev->wed_rro.page_cache)) {
+ 		p = list_first_entry(&dev->wed_rro.page_cache,
+ 				     struct mt7996_msdu_page, list);
+-		if (p)
+-			list_del(&p->list);
++		list_del(&p->list);
  	}
  
- 	scmi_info->func_id = func_id;
+ 	spin_unlock(&dev->wed_rro.lock);
+
+---
+base-commit: 211ddde0823f1442e4ad052a2f30f050145ccada
+change-id: 20251022-mt7996_mac_c-e10894b8bbb4
+
+Best regards,
 -- 
-2.51.0
+Rakuram Eswaran <rakuram.e96@gmail.com>
 
 
