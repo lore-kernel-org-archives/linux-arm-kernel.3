@@ -4,70 +4,206 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A349FCCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 01:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BC0CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 01:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=coTGbCOnn82yD3SC9CFm+0aCscvZEVrA7rCNfjW8hV4=; b=nYbXT7IvYhe0Ao1udeQTaf1agI
-	hr/KnPhVThBc688fCXzrbwstS6sfRRzTXKxeOvVi+JLB2h2Fqjo+/uU7/FxiIkshk9cD/2vfZ9fxf
-	fM1wgwMIFWaEj8EdfNY7GrzABIynAt3vBcWgPDozi5EttJO+qeuwnT9wTv4UCfbptxOXtD4jWCyY2
-	0TR9vNYBdYmywmv3Tjj5IRIaej3aBBsN+ZrCErngpYHH6v7baeBaJkgpaHw9HHQoVqEh9snU11beX
-	Llrnw7a4CHdSWyYcQlJhOkGkVMnt3gRHyTdyhsQupW+PxXtWu6PNda9h9+X0AxKQYwndgAZhfFNEj
-	UTg2J29w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2lqSHeOWwbZDU/2cb8c+ULNZLr1XhiqIYGsfHEFlNZg=; b=k1BAtQEQvuOuQo20GNr7tV2pQW
+	DK7X08fME3nUhRh4fLgEy/ArVXtbgOCoyhffIilrIZ3SZBOsmgMJ6onu0+KeDt35iU31x1O4FoH5R
+	JVVvWDgj0sepDpeV/257SFDY9H79H4+ykquDi8wnzkobcBeY2pqUXLvYOG9bh9Iu7ycHKHvGbYoEa
+	c1x0KCHMXMTDoMSpfj8LW/K1zhEdMKVQ67ov3wY62j9/l3I/UFy18+Oq+C7D+TNr2kedVeQpF1XVV
+	TWW1gcYTdArjXN414iENviMBVU/KayzK5QxFJYQ0uz7oOXz2MFd8sYXpYHL8kA5VcNtFsfYw6wQOW
+	ALWfA7AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBkFF-00000004lkW-0Cbx;
-	Thu, 23 Oct 2025 01:36:01 +0000
-Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
+	id 1vBkIl-00000004mB0-2KB9;
+	Thu, 23 Oct 2025 01:39:39 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBkFA-00000004liH-1UW0
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 01:35:58 +0000
+	id 1vBkIi-00000004mAB-3fCu;
+	Thu, 23 Oct 2025 01:39:38 +0000
+X-UUID: 2029a84cafb111f09f706fa2197c6ceb-20251022
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=2lqSHeOWwbZDU/2cb8c+ULNZLr1XhiqIYGsfHEFlNZg=;
+	b=b4YM8B5mCLKx7ByUyjc+6XrPgI1hSp4qeZyCrzFhIqe59oKDsdYdcWkhvUMO18paYP7l3uAi1MoSG8PPP9f7crBCq+DNN7Gy1ikWRqKl3gYdmG5TJK7YWcPRolz1cYSRghi1Hkg6RcFtmIrh3MSlRsVjYFuCT/hAg0taYbhjwR4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:e91606b2-9da6-4f84-9031-0a25d85c6f49,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:159d3684-4124-4606-b51d-d5c9eec0e7b9,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,
+	BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 2029a84cafb111f09f706fa2197c6ceb-20251022
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+	(envelope-from <xion.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 412578477; Wed, 22 Oct 2025 18:39:33 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Thu, 23 Oct 2025 09:39:29 +0800
+Received: from SG2PR04CU010.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Thu, 23 Oct 2025 09:39:29 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GMWuR7heP8mECplibAJximM3LIhpvxntW/CIjt+bPDl2tvEWuvl2bDWnynHADJsJLDydMZSVxpW8z11dxkTUoMJf3Mon9MfUi97F1gLkEAksE/VO6UVeojo64NwQO15+0aqoiDByr1gUzl7u//0dDNtvbpfxSUM5lFjTvIZ5WfcJEDR1C6r5qHBN3oCDQ0UnwjL/5z25e++jsqtnM5vqeo8RWi0vTeftRPwG//VWP+0AOIF5PhBh4gUjUC6SiOJp93+i1gj18oK3vmjcO2n5MV8jSt72XJSIug64cblr7gYwq6yhCYX9FDyX+iE1RXOG0t6Caz1Yh6yzjNDhbp0Hvg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2lqSHeOWwbZDU/2cb8c+ULNZLr1XhiqIYGsfHEFlNZg=;
+ b=oZ4DsizH04ZTfK3qznH9t7fMROSY+AQQs+e61qdEVne8YeeWdUSr4HqStk2oXB89XMW8etnXWCCdvrhQClEFNB9Lf7FSwQcLQoeO6TuUJE6cgSpHwkP8+TJDavWDd5DA9vek5mr3+yFL7ZEEz3nsxdodYzjU6Xp+FwNEsAbe2inBpfBY0V0ZrFCaz1omxWQxViC8SenCCyUJiN5XM09Aar6fI9C1d5tNEItptU5UI9fslIkk2bGLG2fhdKdG63PT0wjb6eY9+Mmhc9IriVlwCAZ1mlC5hwTWWi9voCIS3o9qtH1VfX2+v6oPqRUA1eGvmjq0eJfTXL56+443czptQw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1761183354; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=coTGbCOnn82yD3SC9CFm+0aCscvZEVrA7rCNfjW8hV4=;
-	b=nxmpV1E3P08/x4j0ICL6I7U89XWsWrGYaGhAOm8ysdhf4zW3F8NujRuMvZgmYnn109gnYCunfx425OVCmICyx4FyCcChzE90Jwx61Yy2jB/pcGMpEiFkbrdBFi7fTjfbri1esa4ovckerQqk3Jw+uGeeU7K4qUERDZRbcpfqMU4=
-Received: from localhost.localdomain(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WqogSi6_1761183350 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 23 Oct 2025 09:35:50 +0800
-From: Huang Ying <ying.huang@linux.alibaba.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@redhat.com>
-Cc: Huang Ying <ying.huang@linux.alibaba.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Zi Yan <ziy@nvidia.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
-	Dev Jain <dev.jain@arm.com>,
-	Barry Song <baohua@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Yin Fengwei <fengwei_yin@linux.alibaba.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: [PATCH -v3 1/2] mm: add spurious fault fixing support for huge pmd
-Date: Thu, 23 Oct 2025 09:35:23 +0800
-Message-Id: <20251023013524.100517-2-ying.huang@linux.alibaba.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20251023013524.100517-1-ying.huang@linux.alibaba.com>
-References: <20251023013524.100517-1-ying.huang@linux.alibaba.com>
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2lqSHeOWwbZDU/2cb8c+ULNZLr1XhiqIYGsfHEFlNZg=;
+ b=QINaZq+oygZXU+Rad6pwvQf9V5v4kM5EoQm/of7BG837Hmdbee6MsNow53NmXXD3reziZeyGyu9NdgkFlXvxkzITlTg2R1tntn9lCL/ihY6Uag0g/NzWUQ9wWmFG8AHheknwGG/gZXyobDZe/FbKxGpKfCbsDQ5etT7bYonvKeg=
+Received: from SEZPR03MB8122.apcprd03.prod.outlook.com (2603:1096:101:183::7)
+ by KL1PR03MB7040.apcprd03.prod.outlook.com (2603:1096:820:dd::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Thu, 23 Oct
+ 2025 01:39:27 +0000
+Received: from SEZPR03MB8122.apcprd03.prod.outlook.com
+ ([fe80::e130:f417:b0bb:f2b7]) by SEZPR03MB8122.apcprd03.prod.outlook.com
+ ([fe80::e130:f417:b0bb:f2b7%6]) with mapi id 15.20.9253.011; Thu, 23 Oct 2025
+ 01:39:27 +0000
+From: =?utf-8?B?WGlvbiBXYW5nICjnjovpkasp?= <Xion.Wang@mediatek.com>
+To: "omosnace@redhat.com" <omosnace@redhat.com>,
+	"stephen.smalley.work@gmail.com" <stephen.smalley.work@gmail.com>
+CC: "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, wsd_upstream
+	<wsd_upstream@mediatek.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	=?utf-8?B?SHVhZGlhbiBMaXUgKOWImOWNjuWFuCk=?= <huadian.liu@mediatek.com>,
+	"paul@paul-moore.com" <paul@paul-moore.com>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH 0/1] selinux: export current_sid API for use in other
+ kernel modules
+Thread-Topic: [PATCH 0/1] selinux: export current_sid API for use in other
+ kernel modules
+Thread-Index: AQHcQyVZqEcKDmFbPU2Gdikj+ke3erTNz7AAgABJFQCAANyqgA==
+Date: Thu, 23 Oct 2025 01:39:26 +0000
+Message-ID: <f85fc1bc2bc72d13dd45f97d3014bd307e481e31.camel@mediatek.com>
+References: <20251022072729.14820-1-xion.wang@mediatek.com>
+	 <CAFqZXNuPqwfqA23LH8NOG6KM1Nb7WvW77wnpp-vZ5omU40j_qQ@mail.gmail.com>
+	 <CAEjxPJ5BWjvDmQ37PPLHrmcTwRnOy6eW_uNoKG=ERZqRMAc3dw@mail.gmail.com>
+In-Reply-To: <CAEjxPJ5BWjvDmQ37PPLHrmcTwRnOy6eW_uNoKG=ERZqRMAc3dw@mail.gmail.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEZPR03MB8122:EE_|KL1PR03MB7040:EE_
+x-ms-office365-filtering-correlation-id: aa2fdb2b-b7c7-4b4b-1f8a-08de11d500e1
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?WlZ6OVRzZnEyY1FMT3RSQmpVVVJGVjBTeXhsU2dWNDJhY0tWWjBhd2tyME1m?=
+ =?utf-8?B?ZzdpVVg0ZUZpVkpDajBzUlFKTVI4Y0cyc1ZpYzh0Q1cxM2gvTTkwQ2E0UFM2?=
+ =?utf-8?B?K3kwUTYrNS9aWXVhSkFWbytOQmpEVVRQWjVLdVNsL3EzZ0dWSUlFV1N1MmJo?=
+ =?utf-8?B?ZnYxT045NTBPVEpETFZuV3JHOFprSlJWaDUrQWtFM1QrcFFoa3RHQTczckpW?=
+ =?utf-8?B?V1duZHNHQU93UTFJYkRlazIxcHBZVFFWNFFLOFVma0tRS0ZlSENJRXJZVTlm?=
+ =?utf-8?B?N3B3bmdBRDFMUitZYytPeFBjelNqUzRVbStNSVRodTdxcDVzMFc4MFQvcTdI?=
+ =?utf-8?B?SW9QL0tIT0EwMXVENlBVMTVSOGlRMHVha2piaW04RVpSTkNhaFlFZ3luZEhE?=
+ =?utf-8?B?SFdTeDhDQmVMVTk0akNIRjRTT1VZZkp1MkhubkE2T3BiVWZTczdDR0UwTGJw?=
+ =?utf-8?B?RTl5VFhSSk9MT1pUd3FMZ2NIN2pBck5CcFV1SEp0cU43ZEFZZ3IvMnlqcnZH?=
+ =?utf-8?B?ZG9IY2V2TVd6WUJ5YzUrSnBIMXpVZDF1a2JabUhJOUVSOXNNU24wT3dMWmxR?=
+ =?utf-8?B?cnYwNEVYaXZ0bFVUdG9mQ0hoeUdBVkxETUNjODYxN3BLSjYyYWh4dlBwTkk3?=
+ =?utf-8?B?YjVJU2daeXJJdE9NRWV0cmxJZzNOSVZlOXkyZ3lKNlZVR3BNL3M1c1NmRWdJ?=
+ =?utf-8?B?SFI0d1RvMDRsU2EzT0oyUnVMNjY4cUpXSUdkVVdEcy9IR2VTdWZXWk1qTWpr?=
+ =?utf-8?B?T1pWYVR3eTFVaG9RMTNuZnQ0RWF5bGhHUlVmWTVZUUVDSmFwVlRkZzNZWmRX?=
+ =?utf-8?B?Z1dnQkF1QmZYTFF0eUVWSSt3KzNONTdBUTU1K2xaSUJpYWY4cTV3dUV0Nkc4?=
+ =?utf-8?B?NEF3aGVDVWVicFd1bFpGUUxCNE5ndmROd1g4WUtmRjE4ZVpPbHVPSnJNampT?=
+ =?utf-8?B?TzJEcDViZUV4elZSWnU2Z0FPYXZTL296dDhaZEcweDVLNU5HMW01MFA1TndF?=
+ =?utf-8?B?c2JTSkNXb0FiTFR1cXluSlhjKzQydEZVU3E3TzgrWXBqdk04V3V1RnNaMXUr?=
+ =?utf-8?B?dlZ4VDdYMzlOVE5HL0tWcHZTelJ3bmxxcEZIeXFabkx4RkNRU0lIdGZiZlox?=
+ =?utf-8?B?b3ZnNGtXaUp6b1NZRVpBZERGL3E0bmRPN3RrY1FKU0NNOEw4c0pQd1A4SWpT?=
+ =?utf-8?B?QjBOT2RwME9ickRjWVduT2Z6NjFtdlRCQ2V3azNJSjJWeWRWZVlxbVZMaFpQ?=
+ =?utf-8?B?MUdueVltYmd6QS9lUmlSSzdnWERZSDE0am12Y1U0K3ZySUIwMk9iZmZvcWtC?=
+ =?utf-8?B?SG5hZGszblFpUGRiQXN5bU5FYTVmc1U1RlZQZU92cUVUc0Z5eVU5Ukd3eEZH?=
+ =?utf-8?B?eHRyT0I1aWFQOEVEYXpwcEZRMUJYSm1KTmNJZ1IyUXREOTNhclUzWDIrTGNV?=
+ =?utf-8?B?N2FBbnQvSzJBWlBVOHlXNXc1ckJFcDQ4ZzltSnVMb0JSTEphNXRFampDY1ly?=
+ =?utf-8?B?U1BUMGdWWFBvc3p6ZmM0dUg1VFdvWWxrK2J6TXVVcTlZQTNwVmNqU0NHVzhW?=
+ =?utf-8?B?UjNjK1cvbngvYjdUZXN3RGtsZldGaUJ1Zkt6WlRXTDJERGRjMlp6ei9wbEdv?=
+ =?utf-8?B?N05VU3dFRmY3dWRqY1RRUVJ3WUw0Q3RHQmRhK08zSCtTd1VHNHBaOXUyUUNU?=
+ =?utf-8?B?WmVBSUlFamNDbmtkTGllODh0MGFjeEtobXRJc1kwUDYrZldOQUxkWE9tUzEv?=
+ =?utf-8?B?YUlmVWhFbW5jWVVyRlducm51VDFvS0ovdVZuVVNwN3dwR0d6b1NmaWZRdTRM?=
+ =?utf-8?B?eHRwMHg1SEV3c0ZpNy9xeW1yeVIyMlFoU3Q1bmsvWTJwVDAvOWp4eHBzbks1?=
+ =?utf-8?B?R1VBNzRHbGpJNHpOaTlWdVdxNzRzaFJvVFZHUkxMOUpzRTBiZ05EREtYZndp?=
+ =?utf-8?B?RWFqUWpud1ZEWDdqcWtJZzhRaVpVd2xxK1JGaG5PcVhodkJ6bVVIbE5hM0ly?=
+ =?utf-8?B?enR1K0pjbzhXbU1oNkt0MXNRMFBDbnhHbEwxMnhnakovSUJUMXFhZjM3RnQy?=
+ =?utf-8?Q?3F3BIK?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR03MB8122.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?V0xRRWtUeGhHVSs4MG1mbGFnelZvaXNVWTJBM2tuUENFeHlISWFJUXhCcXht?=
+ =?utf-8?B?NFo4eHh5SDE5M01VOUluaDhjdnhwTUR2ZkxjNzV0M2F0RzVxNTdYZTVNbGhr?=
+ =?utf-8?B?aFFna0xXQVh3NWsxVFVwVVcyM3dkeE1UbU04RzlWaExFaGdHQXRIUTZFcXpv?=
+ =?utf-8?B?SVNsV3lQR3BxWTg3K21uUlIrZzd6cHVTSENkOUpUZmlCcy9mNmhlRE5HWmRE?=
+ =?utf-8?B?YkIwMC9qUDJnSzFKME50R0hRSXZsaDN4T3p3RjhjL0VVY25aRXNQbk1MRGc1?=
+ =?utf-8?B?Mms4ZUxaVDdTc3pjVVFsVmhIY3c5dGFVSExxV3RnVkZjUjRFdnl3QjE4WVda?=
+ =?utf-8?B?cXBHQjBrbkJZVUtRQmZ2UU03OEFwbVNwcDVLRkcyVlhscnc1eDFWL3NYQjRi?=
+ =?utf-8?B?VVBFS2tmZU5RNTEyVXVPQzlSbWJSMmpJWHNneW1YKzF1Rnh6Nm1lZ2FJa0VN?=
+ =?utf-8?B?NlJyZFF0cHAyL1FFMVpWOEV2bllnZjJjZ0ttbnRMdjRJdkZRYzB0anQ3NG5p?=
+ =?utf-8?B?SXRGVkUzTDhPeFVrZXJUOUpBQmhxYU9MVnpDYTBRL01Ed2FPeU0zY3ErUDhQ?=
+ =?utf-8?B?RlM5VURzWDhzMjNNZi9qbmdzUExvSkkzbkwyMVBuTUN3Y1FZN0RFSUpTdlBE?=
+ =?utf-8?B?NnBIb2piMmgyT1p4d3ZHMnNWd2JTYWhhd3ptTmZ4dFQ2aTREY1VCOWtCM1dI?=
+ =?utf-8?B?R1U0T2h3UFpmaEdRcEtZYjh0M25qSmsrTUtpVkJUY3A3YWxEeFZyYnl3cmEv?=
+ =?utf-8?B?ekx6M21IRk9UZURFZlFRR0g3eGlxU29lRzhvOGlZOHpNckQ1LzA4aS9wZmdy?=
+ =?utf-8?B?bURmZmhpQ3kzUEpsZ084eGJTUUNSdzN5U2NkRU1QMi84WFRGVXIyQjNCOEk3?=
+ =?utf-8?B?Wk16eCsrYzhjdVF4WFg4R1ppeGFyR0xpYVRDU1ovWWk1TnhTYUNmTEtvNC9z?=
+ =?utf-8?B?ekFmN2hqdXB4cVNUcmNHbnNEeVViYnk5UmF3Rnk5eW1ZUmVWZ0V5NlkvNHRo?=
+ =?utf-8?B?YWYwN25FZ0VxSndCU3F4YnM2SWZrTG5GQ1l3d1NNbDN6MTVXbVNBNDJSeEFP?=
+ =?utf-8?B?Z0RESmlCUXo2a1RNV3V5OW10akFZYy9QQU5jQnV0eGdsKzNNT2RaWmNnK0ZI?=
+ =?utf-8?B?ejAyYWw4OVpZWkdMWWw2ZFNRR0RIcWhOTWFxRHRoc05xR2ZwMG1EaWh5Vk1Z?=
+ =?utf-8?B?bmIwNU9KNHcvZGJRcm1Dc0ZXdXpuS2VEOGxMT1ViSlRCaHlYTEZSSnZ5dTkw?=
+ =?utf-8?B?OFFTcUhnQW5jN203YkZiRUI4bW5tR291cFdYTlhZZnhXak1tcUZCZmg1c3lI?=
+ =?utf-8?B?RjdpbDFMZU1PdTRxRk0zTHh2T285ZFFDRFdRams5alNYb2E2STRmMm1wOUxK?=
+ =?utf-8?B?QXJzYklITk1Kcm5oN3RJS0hlZWM0RUtpT2Y1N3A3OEtsU1RHZVhtRFlCVTF3?=
+ =?utf-8?B?NGJnV3lhTFpKL3JWKzdYRTMxR2JnMUtWSWNTUmdTY3lxMnNFUUpvamFSMUF1?=
+ =?utf-8?B?VTVlMDA0UzdUSm5DdEpyQTFURk92VE1oQmFFeUdQTlNvYzgzYXNCRDFtM0lt?=
+ =?utf-8?B?UGZrQkVLcXl5emUza2tWbzhaKzZVRlFkalpGTTRmMkdTQlFyUEtZY1UraG1S?=
+ =?utf-8?B?WDJxUUNoRU5XeVBBY1pyTDJzUk8yc0dhbUIzSWNqdHk1YytIcVhFTmpmczla?=
+ =?utf-8?B?ZjU2SFRYdm4wbDZwVDAvZzhEWU44diswQ0FRT1o0TDZFVlVhTWpVallpbGpM?=
+ =?utf-8?B?ejE3RWdWVjVaaG1qTXhFcFo3RmdURm5ONzJ5dk5LSnJmRXZpMlhXOEZ4SUo5?=
+ =?utf-8?B?OXVmVkYyNXYwclZ4NzlZbXNuUUdQakdJdVlJZndsQ1VGcHl2dVFpN28wbUFD?=
+ =?utf-8?B?NFVkbTBBVHo4S2JTOHFYOVBzK2ZSemxZMUZ4ZzFkV1BCU3BUb2JmUUkvUUhq?=
+ =?utf-8?B?ZnlMRCtTNlVIeDNPamducysvOGZIdFFkWk9nd1lMTjVFS0EyQWhtOGkxSmdI?=
+ =?utf-8?B?ZldFU093M2tVU0hQN1lSZXNkeXVvTjZHVHVlS2trTnZ2VzZVK2w2UXV4TWFF?=
+ =?utf-8?B?YVRJV0R6UUVrTmZWQTJUYU9IeTl2dVQ3YUYySXltaytBK016b25kc0lwWFBy?=
+ =?utf-8?B?WXdPM2JEeGIxQ0ZvL0QrdEFZbkpaQnNGUk5pOFY1WjA3TGVyNmNxQlhlV3pJ?=
+ =?utf-8?B?bXc9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <2F9BADC28A960442991D6274FFBB0965@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR03MB8122.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa2fdb2b-b7c7-4b4b-1f8a-08de11d500e1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Oct 2025 01:39:27.3104
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: NCy1wBvInlUTb1iiFHYzQFGePbAIv3vszf9Pr/6lSWHlOQ4OjeZYELqj8hxbp3hph6nGYZrv0I+90Wt1U7AeEQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB7040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_183556_887424_256423CE 
-X-CRM114-Status: GOOD (  28.01  )
+X-CRM114-CacheID: sfid-20251022_183936_931141_7015FC5F 
+X-CRM114-Status: GOOD (  27.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,246 +218,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The page faults may be spurious because of the racy access to the page
-table.  For example, a non-populated virtual page is accessed on 2
-CPUs simultaneously, thus the page faults are triggered on both CPUs.
-However, it's possible that one CPU (say CPU A) cannot find the reason
-for the page fault if the other CPU (say CPU B) has changed the page
-table before the PTE is checked on CPU A.  Most of the time, the
-spurious page faults can be ignored safely.  However, if the page
-fault is for the write access, it's possible that a stale read-only
-TLB entry exists in the local CPU and needs to be flushed on some
-architectures.  This is called the spurious page fault fixing.
-
-In the current kernel, there is spurious fault fixing support for pte,
-but not for huge pmd because no architectures need it. But in the
-next patch in the series, we will change the write protection fault
-handling logic on arm64, so that some stale huge pmd entries may
-remain in the TLB. These entries need to be flushed via the huge pmd
-spurious fault fixing mechanism.
-
-Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: David Hildenbrand <david@redhat.com>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Vlastimil Babka <vbabka@suse.cz>
-Cc: Zi Yan <ziy@nvidia.com>
-Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Yang Shi <yang@os.amperecomputing.com>
-Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-Cc: Dev Jain <dev.jain@arm.com>
-Cc: Barry Song <baohua@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Yin Fengwei <fengwei_yin@linux.alibaba.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-mm@kvack.org
----
- include/linux/huge_mm.h |  2 +-
- include/linux/pgtable.h |  4 +++
- mm/huge_memory.c        | 33 ++++++++++++++--------
- mm/internal.h           |  2 +-
- mm/memory.c             | 62 ++++++++++++++++++++++++++++++-----------
- 5 files changed, 73 insertions(+), 30 deletions(-)
-
-diff --git a/include/linux/huge_mm.h b/include/linux/huge_mm.h
-index f327d62fc985..887a632ce7a0 100644
---- a/include/linux/huge_mm.h
-+++ b/include/linux/huge_mm.h
-@@ -11,7 +11,7 @@ vm_fault_t do_huge_pmd_anonymous_page(struct vm_fault *vmf);
- int copy_huge_pmd(struct mm_struct *dst_mm, struct mm_struct *src_mm,
- 		  pmd_t *dst_pmd, pmd_t *src_pmd, unsigned long addr,
- 		  struct vm_area_struct *dst_vma, struct vm_area_struct *src_vma);
--void huge_pmd_set_accessed(struct vm_fault *vmf);
-+bool huge_pmd_set_accessed(struct vm_fault *vmf);
- int copy_huge_pud(struct mm_struct *dst_mm, struct mm_struct *src_mm,
- 		  pud_t *dst_pud, pud_t *src_pud, unsigned long addr,
- 		  struct vm_area_struct *vma);
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 32e8457ad535..ee3148ef87f6 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1232,6 +1232,10 @@ static inline void arch_swap_restore(swp_entry_t entry, struct folio *folio)
- #define flush_tlb_fix_spurious_fault(vma, address, ptep) flush_tlb_page(vma, address)
- #endif
- 
-+#ifndef flush_tlb_fix_spurious_fault_pmd
-+#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp) do { } while (0)
-+#endif
-+
- /*
-  * When walking page tables, get the address of the next boundary,
-  * or the end address of the range if that comes earlier.  Although no
-diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-index 1b81680b4225..6a8679907eaa 100644
---- a/mm/huge_memory.c
-+++ b/mm/huge_memory.c
-@@ -1641,17 +1641,30 @@ vm_fault_t vmf_insert_folio_pud(struct vm_fault *vmf, struct folio *folio,
- EXPORT_SYMBOL_GPL(vmf_insert_folio_pud);
- #endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
- 
--void touch_pmd(struct vm_area_struct *vma, unsigned long addr,
-+/**
-+ * touch_pmd - Mark page table pmd entry as accessed and dirty (for write)
-+ * @vma: The VMA covering @addr
-+ * @addr: The virtual address
-+ * @pmd: pmd pointer into the page table mapping @addr
-+ * @write: Whether it's a write access
-+ *
-+ * Return: whether the pmd entry is changed
-+ */
-+bool touch_pmd(struct vm_area_struct *vma, unsigned long addr,
- 	       pmd_t *pmd, bool write)
- {
--	pmd_t _pmd;
-+	pmd_t entry;
- 
--	_pmd = pmd_mkyoung(*pmd);
-+	entry = pmd_mkyoung(*pmd);
- 	if (write)
--		_pmd = pmd_mkdirty(_pmd);
-+		entry = pmd_mkdirty(entry);
- 	if (pmdp_set_access_flags(vma, addr & HPAGE_PMD_MASK,
--				  pmd, _pmd, write))
-+				  pmd, entry, write)) {
- 		update_mmu_cache_pmd(vma, addr, pmd);
-+		return true;
-+	}
-+
-+	return false;
- }
- 
- int copy_huge_pmd(struct mm_struct *dst_mm, struct mm_struct *src_mm,
-@@ -1841,18 +1854,14 @@ void huge_pud_set_accessed(struct vm_fault *vmf, pud_t orig_pud)
- }
- #endif /* CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE_PUD */
- 
--void huge_pmd_set_accessed(struct vm_fault *vmf)
-+bool huge_pmd_set_accessed(struct vm_fault *vmf)
- {
- 	bool write = vmf->flags & FAULT_FLAG_WRITE;
- 
--	vmf->ptl = pmd_lock(vmf->vma->vm_mm, vmf->pmd);
- 	if (unlikely(!pmd_same(*vmf->pmd, vmf->orig_pmd)))
--		goto unlock;
--
--	touch_pmd(vmf->vma, vmf->address, vmf->pmd, write);
-+		return false;
- 
--unlock:
--	spin_unlock(vmf->ptl);
-+	return touch_pmd(vmf->vma, vmf->address, vmf->pmd, write);
- }
- 
- static vm_fault_t do_huge_zero_wp_pmd(struct vm_fault *vmf)
-diff --git a/mm/internal.h b/mm/internal.h
-index 1561fc2ff5b8..27ad37a41868 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -1402,7 +1402,7 @@ int __must_check try_grab_folio(struct folio *folio, int refs,
-  */
- void touch_pud(struct vm_area_struct *vma, unsigned long addr,
- 	       pud_t *pud, bool write);
--void touch_pmd(struct vm_area_struct *vma, unsigned long addr,
-+bool touch_pmd(struct vm_area_struct *vma, unsigned long addr,
- 	       pmd_t *pmd, bool write);
- 
- /*
-diff --git a/mm/memory.c b/mm/memory.c
-index 74b45e258323..6e5a08c4fd2e 100644
---- a/mm/memory.c
-+++ b/mm/memory.c
-@@ -6115,6 +6115,45 @@ static vm_fault_t wp_huge_pud(struct vm_fault *vmf, pud_t orig_pud)
- 	return VM_FAULT_FALLBACK;
- }
- 
-+/*
-+ * The page faults may be spurious because of the racy access to the
-+ * page table.  For example, a non-populated virtual page is accessed
-+ * on 2 CPUs simultaneously, thus the page faults are triggered on
-+ * both CPUs.  However, it's possible that one CPU (say CPU A) cannot
-+ * find the reason for the page fault if the other CPU (say CPU B) has
-+ * changed the page table before the PTE is checked on CPU A.  Most of
-+ * the time, the spurious page faults can be ignored safely.  However,
-+ * if the page fault is for the write access, it's possible that a
-+ * stale read-only TLB entry exists in the local CPU and needs to be
-+ * flushed on some architectures.  This is called the spurious page
-+ * fault fixing.
-+ *
-+ * Note: flush_tlb_fix_spurious_fault() is defined as flush_tlb_page()
-+ * by default and used as such on most architectures, while
-+ * flush_tlb_fix_spurious_fault_pmd() is defined as NOP by default and
-+ * used as such on most architectures.
-+ */
-+static void fix_spurious_fault(struct vm_fault *vmf,
-+			       enum pgtable_level ptlevel)
-+{
-+	/* Skip spurious TLB flush for retried page fault */
-+	if (vmf->flags & FAULT_FLAG_TRIED)
-+		return;
-+	/*
-+	 * This is needed only for protection faults but the arch code
-+	 * is not yet telling us if this is a protection fault or not.
-+	 * This still avoids useless tlb flushes for .text page faults
-+	 * with threads.
-+	 */
-+	if (vmf->flags & FAULT_FLAG_WRITE) {
-+		if (ptlevel == PGTABLE_LEVEL_PTE)
-+			flush_tlb_fix_spurious_fault(vmf->vma, vmf->address,
-+						     vmf->pte);
-+		else
-+			flush_tlb_fix_spurious_fault_pmd(vmf->vma, vmf->address,
-+							 vmf->pmd);
-+	}
-+}
- /*
-  * These routines also need to handle stuff like marking pages dirty
-  * and/or accessed for architectures that don't do it in hardware (most
-@@ -6196,23 +6235,11 @@ static vm_fault_t handle_pte_fault(struct vm_fault *vmf)
- 	}
- 	entry = pte_mkyoung(entry);
- 	if (ptep_set_access_flags(vmf->vma, vmf->address, vmf->pte, entry,
--				vmf->flags & FAULT_FLAG_WRITE)) {
-+				vmf->flags & FAULT_FLAG_WRITE))
- 		update_mmu_cache_range(vmf, vmf->vma, vmf->address,
- 				vmf->pte, 1);
--	} else {
--		/* Skip spurious TLB flush for retried page fault */
--		if (vmf->flags & FAULT_FLAG_TRIED)
--			goto unlock;
--		/*
--		 * This is needed only for protection faults but the arch code
--		 * is not yet telling us if this is a protection fault or not.
--		 * This still avoids useless tlb flushes for .text page faults
--		 * with threads.
--		 */
--		if (vmf->flags & FAULT_FLAG_WRITE)
--			flush_tlb_fix_spurious_fault(vmf->vma, vmf->address,
--						     vmf->pte);
--	}
-+	else
-+		fix_spurious_fault(vmf, PGTABLE_LEVEL_PTE);
- unlock:
- 	pte_unmap_unlock(vmf->pte, vmf->ptl);
- 	return 0;
-@@ -6309,7 +6336,10 @@ static vm_fault_t __handle_mm_fault(struct vm_area_struct *vma,
- 				if (!(ret & VM_FAULT_FALLBACK))
- 					return ret;
- 			} else {
--				huge_pmd_set_accessed(&vmf);
-+				vmf.ptl = pmd_lock(mm, vmf.pmd);
-+				if (!huge_pmd_set_accessed(&vmf))
-+					fix_spurious_fault(&vmf, PGTABLE_LEVEL_PMD);
-+				spin_unlock(vmf.ptl);
- 				return 0;
- 			}
- 		}
--- 
-2.39.5
-
+T24gV2VkLCAyMDI1LTEwLTIyIGF0IDA4OjI5IC0wNDAwLCBTdGVwaGVuIFNtYWxsZXkgd3JvdGU6
+DQo+IEV4dGVybmFsIGVtYWlsIDogUGxlYXNlIGRvIG5vdCBjbGljayBsaW5rcyBvciBvcGVuIGF0
+dGFjaG1lbnRzIHVudGlsDQo+IHlvdSBoYXZlIHZlcmlmaWVkIHRoZSBzZW5kZXIgb3IgdGhlIGNv
+bnRlbnQuDQo+IA0KPiANCj4gT24gV2VkLCBPY3QgMjIsIDIwMjUgYXQgNDowOOKAr0FNIE9uZHJl
+aiBNb3NuYWNlayA8b21vc25hY2VAcmVkaGF0LmNvbT4NCj4gd3JvdGU6DQo+ID4gDQo+ID4gT24g
+V2VkLCBPY3QgMjIsIDIwMjUgYXQgOTo0M+KAr0FNIDx4aW9uLndhbmdAbWVkaWF0ZWsuY29tPiB3
+cm90ZToNCj4gPiA+IA0KPiA+ID4gRnJvbTogWGlvbiBXYW5nIDx4aW9uLndhbmdAbWVkaWF0ZWsu
+Y29tPg0KPiA+ID4gDQo+ID4gPiBXZSBoYXZlIGEga2VybmVsIGRyaXZlciBkZXNpZ25lZCB0byBt
+b25pdG9yIHRoZSBzdGF0dXMgb2YgdGhlDQo+ID4gPiBBbmRyb2lkDQo+ID4gPiB1c2Vyc3BhY2Ug
+d2F0Y2hkb2cuIFRoZSBpbXBsZW1lbnRhdGlvbiB3b3JrcyBhcyBmb2xsb3dzOiB3ZQ0KPiA+ID4g
+bW9kaWZ5IHRoZQ0KPiA+ID4gQW5kcm9pZCB1c2Vyc3BhY2Ugd2F0Y2hkb2cgY29kZSB0byBwZXJp
+b2RpY2FsbHkgc2VuZCBhICJraWNrIg0KPiA+ID4gc2lnbmFsIHRvDQo+ID4gPiB0aGUga2VybmVs
+IGRyaXZlciB2aWEgaW9jdGwsIHNvIHRoYXQgdGhlIGtlcm5lbCBkcml2ZXIgY2FuDQo+ID4gPiBk
+ZXRlcm1pbmUNCj4gPiA+IHdoZXRoZXIgdGhlIHVzZXJzcGFjZSBpcyBzdGlsbCByZXNwb25zaXZl
+LiBJZiB0aGUga2VybmVsIGRyaXZlcg0KPiA+ID4gZG9lcyBub3QNCj4gPiA+IHJlY2VpdmUgYSBr
+aWNrIHNpZ25hbCBmcm9tIHRoZSB1c2Vyc3BhY2Ugd2F0Y2hkb2cgd2l0aGluIGENCj4gPiA+IGNl
+cnRhaW4NCj4gPiA+IHBlcmlvZCwgaXQgaW5mZXJzIHRoYXQgdGhlIHVzZXJzcGFjZSBpcyBzdHVj
+ay4gSW4gdGhpcyBjYXNlLCB0aGUNCj4gPiA+IGtlcm5lbA0KPiA+ID4gZHJpdmVyIHdpbGwgZHVt
+cCBrZXkgcHJvY2VzcyBpbmZvcm1hdGlvbiBhdCB0aGUga2VybmVsIGxldmVsIGFuZA0KPiA+ID4g
+dHJpZ2dlcg0KPiA+ID4gYSBmdWxsIHN5c3RlbSByZWJvb3QuDQo+ID4gPiANCj4gPiA+IFRvIGVu
+c3VyZSB0aGF0IG9ubHkgdGhlIGxlZ2l0aW1hdGUgQW5kcm9pZCB1c2Vyc3BhY2Ugd2F0Y2hkb2cN
+Cj4gPiA+IHByb2Nlc3MgY2FuDQo+ID4gPiBhY2Nlc3MgdGhlIGlvY3RsIGludGVyZmFjZSBhbmQg
+cGVyZm9ybSB0aGUga2ljayBvcGVyYXRpb24sIGFuZCB0bw0KPiA+ID4gcHJldmVudA0KPiA+ID4g
+bWFsaWNpb3VzIG9yIHVuYXV0aG9yaXplZCBwcm9jZXNzZXMgZnJvbSBzcG9vZmluZyB0aGUga2lj
+ayBhY3Rpb24NCj4gPiA+ICh3aGljaA0KPiA+ID4gY291bGQgY29tcHJvbWlzZSBzeXN0ZW0gcmVs
+aWFiaWxpdHkpLCB3ZSB3YW50IHRvIGlkZW50aWZ5IHRoZQ0KPiA+ID4gY2FsbGluZw0KPiA+ID4g
+dGFzayBieSBpdHMgc2VjdXJpdHkgaWRlbnRpZmllciAoc2lkKS4gQnkgY2hlY2tpbmcgdGhlIHNp
+ZCwgd2UNCj4gPiA+IGNhbg0KPiA+ID4gZWZmZWN0aXZlbHkgcHJldmVudCB1bmF1dGhvcml6ZWQg
+cHJvY2Vzc2VzIGZyb20gc2VuZGluZyBraWNrDQo+ID4gPiBzaWduYWxzLg0KPiA+ID4gDQo+ID4g
+PiBDdXJyZW50bHksIHRoZSBjdXJyZW50X3NpZCgpIGZ1bmN0aW9uIGluIHRoZSBrZXJuZWwgaXMg
+ZGVmaW5lZCBhcw0KPiA+ID4gc3RhdGljIGlubGluZSBhbmQgY2Fubm90IGJlIGRpcmVjdGx5IGNh
+bGxlZCBmcm9tIG1vZHVsZXMgb3INCj4gPiA+IGRyaXZlcnMuIFdlDQo+ID4gPiBwcm9wb3NlIHRv
+IGV4cG9ydCB0aGlzIGZ1bmN0aW9uLCBzbyB0aGF0IHRoZSBrZXJuZWwgZHJpdmVyIGNhbg0KPiA+
+ID4gY2FsbA0KPiA+ID4gY3VycmVudF9zaWQoKSB0byBvYnRhaW4gdGhlIHNpZCBvZiB0aGUgY3Vy
+cmVudCBwcm9jZXNzIGFuZCBkZWNpZGUNCj4gPiA+IHdoZXRoZXINCj4gPiA+IHRvIGFsbG93IHRo
+ZSBraWNrIG9wZXJhdGlvbi4NCj4gPiA+IA0KPiA+ID4gVGhpcyBjaGFuZ2Ugd2lsbCBoZWxwIGVu
+aGFuY2Ugc3lzdGVtIHNlY3VyaXR5IGFuZCByb2J1c3RuZXNzIGJ5DQo+ID4gPiBwcmV2ZW50aW5n
+IHRoZSB3YXRjaGRvZyBtZWNoYW5pc20gZnJvbSBiZWluZyBieXBhc3NlZCBvciBhYnVzZWQuDQo+
+ID4gPiANCj4gPiA+IEkgd291bGQgbGlrZSB0byBhc2sgdGhlIG1haW50YWluZXJzIGlmIHRoZXJl
+IGFyZSBhbnkgYWRkaXRpb25hbA0KPiA+ID4gc2VjdXJpdHkNCj4gPiA+IGNvbmNlcm5zIHJlZ2Fy
+ZGluZyBleHBvcnRpbmcgY3VycmVudF9zaWQoKSBhcyBhIHB1YmxpYyBBUEksIG9yIGlmDQo+ID4g
+PiB0aGVyZQ0KPiA+ID4gYXJlIGFueSBhbHRlcm5hdGl2ZSBvciBtb3JlIHJlY29tbWVuZGVkIGFw
+cHJvYWNoZXMgdG8gYWNoaWV2ZQ0KPiA+ID4gdGhpcyBnb2FsLg0KPiA+ID4gQW55IGZlZWRiYWNr
+IG9yIHN1Z2dlc3Rpb25zIHdvdWxkIGJlIGdyZWF0bHkgYXBwcmVjaWF0ZWQuDQo+ID4gDQo+ID4g
+Q291bGRuJ3QgeW91IGp1c3QgdXNlIHNlY3VyaXR5X2NyZWRfZ2V0c2VjaWQoKSBvciB0aGUgbmV3
+DQo+ID4gc2VjdXJpdHlfY3JlZF9nZXRsc21wcm9wKCk/DQo+ID4gDQo+ID4gVW50ZXN0ZWQ6DQo+
+ID4gDQo+ID4gdTMyIHNpZDsNCj4gPiBzZWN1cml0eV9jcmVkX2dldHNlY2lkKGN1cnJlbnRfY3Jl
+ZCgpLCAmc2lkKTsNCj4gPiANCj4gPiAtLSBvciAtLQ0KPiA+IA0KPiA+IGxzbV9wcm9wIHByb3A7
+DQo+ID4gc2VjdXJpdHlfY3JlZF9nZXRsc21wcm9wKGN1cnJlbnRfY3JlZCgpLCAmcHJvcCk7DQo+
+ID4gdTMyIHNpZCA9IHByb3Auc2VsaW51eC0+c2VjaWQ7DQo+ID4gDQo+IA0KPiBJIHN1cHBvc2Ug
+dGhlIG5leHQgbG9naWNhbCBxdWVzdGlvbiB3b3VsZCBiZSB3aGF0IHdpbGwgeW91IGRvIHdpdGgN
+Cj4gdGhlDQo+IHNlY2lkIC0geW91IGNhbid0IGp1c3QgY29tcGFyZSBpdCB0byBhIGZpeGVkIHZh
+bHVlIHNpbmNlIHRoZXkgYXJlDQo+IGR5bmFtaWNhbGx5IGFzc2lnbmVkLg0KPiBOb3JtYWxseSB5
+b3Ugd291bGQgaW5zdGVhZCBqdXN0IHBhc3MgaXQgdG8gYSBTRUxpbnV4IHBlcm1pc3Npb24gY2hl
+Y2sNCj4gdG8gc2VlIGlmIHRoYXQgU0lEIGlzIGFsbG93ZWQgdGhlIHBlcm1pc3Npb24gcmVxdWly
+ZWQgdG8gcGVyZm9ybSB0aGlzDQo+IG9wZXJhdGlvbi4NCj4gQnV0IHRoaXMgdG9vIHdvdWxkIHJl
+cXVpcmUgdXNpbmcgYSBMU00gaG9vayB0byBwZXJmb3JtIHRoZSBwZXJtaXNzaW9uDQo+IGNoZWNr
+IChpbiB3aGljaCBjYXNlIHlvdSBkb24ndCBuZWVkIHRvIGZldGNoIHRoZSBTSUQgc2VwYXJhdGVs
+eTsgaXQNCj4gY2FuIGFsbCBiZSBkb25lIHdpdGhpbiB0aGUgc2FtZSBob29rKS4NCg0KDQpUaGUg
+U0lEIG9mIGEgcHJvY2VzcyBjb3JyZXNwb25kcyB0byBpdHMgU0VMaW51eCBsYWJlbC4gQnkgcmVj
+b3JkaW5nIHRoZQ0KU0lEIGFzc29jaWF0ZWQgd2l0aCBhIHRydXN0ZWQgU0VMaW51eCBsYWJlbCBh
+dCBib290IHRpbWUsIHdlIGNhbiBsYXRlcg0KY2hlY2sgaWYgb3RoZXIgcHJvY2Vzc2VzIGhhdmUg
+dGhlIHNhbWUgU0lEIGJlZm9yZSBncmFudGluZyBhY2Nlc3MgdG8NCnNlbnNpdGl2ZSBkcml2ZXIg
+bm9kZXMuIFNpbmNlIHRoZSBTSUQgZm9yIGEgU0VMaW51eCBsYWJlbCByZW1haW5zDQpjb25zdGFu
+dCBkdXJpbmcgYSBzaW5nbGUgYm9vdCwgdGhpcyBhcHByb2FjaCBlbnN1cmVzIHRoYXQgb25seQ0K
+cHJvY2Vzc2VzIHdpdGggc3BlY2lmaWMgU0VMaW51eCBsYWJlbHMgY2FuIGFjY2VzcyB0aGUgbm9k
+ZSwgZXZlbiBhZnRlcg0KdXNlci1zcGFjZSByZXN0YXJ0cy4NCg0KDQpUaGlzIEFQSSwNCnNlY3Vy
+aXR5X2NyZWRfZ2V0c2VjaWQoY3VycmVudF9jcmVkKCksICZzaWQpOw0KY2FuIGNvcnJlY3RseSBv
+YnRhaW4gdGhlIFNJRCBvZiB0aGUgY3VycmVudCBwcm9jZXNzIGluIGxvY2FsIHRlc3RpbmcuDQoN
+Cg==
 
