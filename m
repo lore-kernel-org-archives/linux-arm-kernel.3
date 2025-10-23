@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4684CCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 08:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A9EDCCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 08:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VysN6EHYkdOUpoEuRAyXlfItg/cHXm73ASmOEB5VMaw=; b=ofUvWs9UQ6Efct4zB68Rvf7VYL
-	dsbgJQ771GbpfYSXz4TWbHitqh3BPzI0NrvRjODy4iERmFZhO/kLM4zDTdB7sRQOKiriN6ih7Tebi
-	sXPVALCKbmDkdvomoWmpddTqbtZvg79HHY3q9BYDQ4MB9Qwgk+qxCh3+8SBWUWK9q1Iige1KGi69s
-	sG0kv0d83/AOc1XI7IzuWI9TcfRtCddA6ZYxtCHsDK7yghM6BsXML5O7MF/vDp4YgzLpuRBgfUrp4
-	M/QSgMI/+zSEst3aZYp4BeduDTjtdGkcE9GktTV3RkXsX/pei060WlGRfELfqj6xdadrCsJbl3Xzc
-	UrsaYtxw==;
+	bh=mvitnbkjcLAPoCX0wHi6huodXxXSf+n5ic/epN0KCNA=; b=SN3LlhJXWwi2b7nlvt0QYz/eJl
+	1a7+c54hWnN+mWrMdbC+cS7o8Fg8swlA/yXxNFsLPG8FBFn2lNMAlYZhkQnzCcKLGGV+avfYWlEjy
+	E3BdC1EM3eCCbAss3XViwGdgKB4JFD2p8NDjY084s/bhDueSjRZOUYN7JVaIR6rYHNdH0pk8quFrS
+	NI4x6eCkmdwWPtOet9P8i9hj35Aa7OiICRVAGf7vWUS4BrwRYYeCCNGjrcWgqMELLTbC8NosiF32z
+	MriOanHfL5gY+BzFdsRJeyAmhSOFHTwlbzZbYdb7C7Xs43SlJBkqvUqdrUKmYXKuLjoN5I3PE4W/1
+	TfZjg5xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBqLq-00000005TFt-0Urt;
-	Thu, 23 Oct 2025 08:07:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vBqPV-00000005U5m-3Kb8;
+	Thu, 23 Oct 2025 08:11:01 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBqLm-00000005TEk-3m2x
+	id 1vBqPT-00000005U4j-2MgO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 08:07:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EAA4544468
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 08:07:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7555C4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 08:07:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761206829;
-	bh=VysN6EHYkdOUpoEuRAyXlfItg/cHXm73ASmOEB5VMaw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fpCxyfcxWolccjVuj+7ltJnTVlv9CldLMHV7ZNavYsxW82P1lUZ7eu5RIQMU1r+0z
-	 Q3xnepx2lNUunvzZwfJFUOJxd0kx9eQBXPIwycYoC4rzTpRt4bwwhKpiQgAWDn8XEF
-	 2r6OTz3xOYCAvs/iJOSTNcC3xU0yXsUPUwQCv8BtFXd9qBVT25rO1LjKq8+/3y173E
-	 8XXuZL2HWIFV0I9aE2zabqYfwMVfljAoRdly3c3X/Qg8thLDjNDORjENu973pfSO34
-	 2D7+P7SyQyXJoNBUHy4sAQuwQKVAJktid2w0h072k+rwxGw3hvZu1SDWuFKoYQLvzE
-	 kBX1tiFV19OTA==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-592f7733dd6so320368e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 01:07:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX1OFPawAUEIGnQtMeTLEBYRrjyEkrMK1YSYE4oN17BFTOxpxoNI52iZTX+fBkCImx+I91sEiusMBH7+SsBVeFn@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywcr0cSJwDYJmrLBgEMCVL1aYhhd5z7Yh2tK9IITHqhkdkEa9qB
-	t7aw8IpTVfDMMjFfeopNdi+XVxx1ef/n6BUQICcWNuhAq5tETJVkKgxq9tNlAwiZToO8ikfw2zk
-	HCrFGrsn79b2hVbz3tYzpK0kDXG9jVr4=
-X-Google-Smtp-Source: AGHT+IH2k0BakTqpQ5lQqnKMRD6Z7aVcR5hL4BYeIHS6Ze64OfFlym0sW70AuM9NoMi3ufQme1oL95mzMLwh7Wx0wW8=
-X-Received: by 2002:a05:6512:b1e:b0:58a:92cc:5819 with SMTP id
- 2adb3069b0e04-591d853543dmr8192834e87.36.1761206828188; Thu, 23 Oct 2025
- 01:07:08 -0700 (PDT)
+	Thu, 23 Oct 2025 08:11:01 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59N8Am9X483021;
+	Thu, 23 Oct 2025 03:10:48 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1761207048;
+	bh=mvitnbkjcLAPoCX0wHi6huodXxXSf+n5ic/epN0KCNA=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=E/ncisCbT+ddeWJ5/EgdoFSv4WoQmsskRT5yFbVikwmLxKdAHccYOY/o98GEtNicz
+	 Vy2rxVeOPKQL2jEMm0RJ/F+1v1nFjGUwA/2SDoRqfIYl9J27uMxqB3XxjgZdKXcVfH
+	 8/sVEp0xtQXwBNM/COesSQUlu6h8oeQJCLGSvFzo=
+Received: from DLEE210.ent.ti.com (dlee210.ent.ti.com [157.170.170.112])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59N8AmKN2247619
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 23 Oct 2025 03:10:48 -0500
+Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 23 Oct
+ 2025 03:10:48 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE203.ent.ti.com
+ (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 23 Oct 2025 03:10:48 -0500
+Received: from [172.24.233.103] (uda0132425.dhcp.ti.com [172.24.233.103])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59N8AiYh2549946;
+	Thu, 23 Oct 2025 03:10:45 -0500
+Message-ID: <3c131320-7be9-4223-b3c2-11beb435abd5@ti.com>
+Date: Thu, 23 Oct 2025 13:39:16 +0530
 MIME-Version: 1.0
-References: <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
- <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
- <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
- <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
- <CAMj1kXF+hDJy0vRWNgwoijHxvA-scvhGODMj9A3dv19v3jf2yw@mail.gmail.com>
- <lgyzruqczm7uti2lfbhfhr5hyzpnm7wtvgffa2o7nigx76g6i3@wlffltvmhhez>
- <CAMj1kXFDquPxCYSBWgjikS=209pSJ_kth67M0RDeuetV9CPYAw@mail.gmail.com>
- <wlx6pt5crtfdwtop4w5vjznjfarrwitq44wdbufncjdvtsx647@tgobruak66yb>
- <CAMj1kXFfEBkcc-aiwGrRR-pKg4LBbS7weK0pEpZJsKOk5pbkuA@mail.gmail.com>
- <jxfb5a2c2qber623l2gwewirwod54bbgfnvt7t7f3jah2ea33g@2uyhy3auzmpx>
- <d9f3352a-1c1f-464a-a8fd-741cd96b5f8e@loongson.cn> <CAAhV-H6m5vszCyiF3qi94cpHBPVuqM2xH93D=gfsQqOSYvC-sA@mail.gmail.com>
- <33612d85-e70b-26da-8460-ea6b9064ce08@loongson.cn> <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com>
-In-Reply-To: <CAAhV-H5ZSTFDxvm-W1CrgEoQ5d_jw5yVsfetQ_J_qL5pqLtzgg@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 23 Oct 2025 10:06:57 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
-X-Gm-Features: AS18NWDF5CVCCcvajdSpES8CkYD2Jn1SbZ6xM-qrHn3BdntYv4P4IHkWBRJpQ1c
-Message-ID: <CAMj1kXGk0udgM67wrWqahqK8H0uE8emQj51SmJey+7fE-FTjdA@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-am642-tqma64xxl: add boot phase tags
+To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
+        Nishanth Menon
+	<nm@ti.com>, Tero Kristo <kristo@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux@ew.tq-group.com>
+References: <20251006095036.16367-1-matthias.schiffer@ew.tq-group.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <20251006095036.16367-1-matthias.schiffer@ew.tq-group.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_010710_980396_1D1D427B 
-X-CRM114-Status: GOOD (  22.46  )
+X-CRM114-CacheID: sfid-20251023_011059_699540_1A2C5277 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,49 +88,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Oct 2025 at 10:01, Huacai Chen <chenhuacai@kernel.org> wrote:
->
-> On Thu, Oct 23, 2025 at 2:55=E2=80=AFPM Tiezhu Yang <yangtiezhu@loongson.=
-cn> wrote:
-> >
-> > Hi Josh and Ard,
-> >
-> > On 2025/10/20 =E4=B8=8B=E5=8D=882:55, Huacai Chen wrote:
-> > > On Mon, Oct 20, 2025 at 9:24=E2=80=AFAM Tiezhu Yang <yangtiezhu@loong=
-son.cn> wrote:
-> > >>
-> > >> Hi Josh, Ard and Huacai,
-> > >>
-> > >> On 2025/10/18 =E4=B8=8A=E5=8D=881:05, Josh Poimboeuf wrote:
-> > >>
-> > >> ...
-> > >>
-> > >>> But IIUC, the libstub code runs *very* early, and wouldn't show up =
-in a
-> > >>> stack trace anyway, because there are no traces of it on the stack =
-once
-> > >>> it branches to head.S code (which doesn't save the link register).
-> > >>
-> > >> Thanks for your discussions.
-> > >>
-> > >> Are you OK with this current patch?
-> > > For me the current patch is just OK.
-> >
-> > We have discussed this a few times but there is almost no consensus
-> > of what should happen next and nothing changes.
-> >
-> > Could you please give me a clear reply? Then I can make progress for
-> > the following series:
-> >
-> > https://lore.kernel.org/loongarch/20250917112716.24415-1-yangtiezhu@loo=
-ngson.cn/
-> For me, this patch is OK, ignore __efistub_ prefix in objtool is also
-> OK [1]. But I cannot accept the way that modifying the efistub part
-> only for LoongArch.
->
-> Clear enough?
->
+Hi Matthias,
 
-LoongArch is the only architecture which has the problem, so I don't
-see a reason to modify other architectures.
+On 06/10/25 15:20, Matthias Schiffer wrote:
+> Similar to other AM64x-based boards, add boot phase tags to make the
+> Device Trees usable for firmware/bootloaders without modification.
+> 
+> Supported boot devices are eMMC/SD card, SPI-NOR and USB (both mass
+> storage and DFU). The I2C EEPROM is included to allow the firmware to
+> select the correct RAM configuration for different TQMa64xxL variants.
+> 
+> Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+> ---
+>  .../dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts     | 18 ++++++++++++++++++
+>  arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi | 12 ++++++++++++
+>  2 files changed, 30 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
+> index 8f64d6272b1ba..81e9e047281fd 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
+> @@ -167,6 +167,7 @@ reg_pwm_fan: regulator-pwm-fan {
+>  	};
+>  
+>  	reg_sd: regulator-sd {
+> +		bootph-all;
+
+Here and elsewhere:
+
+Per [1] boot-phase tags would need to go just after all the std/common
+properties and just before vendor properties
+
+[1] https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
+
+>  		compatible = "regulator-fixed";
+>  		pinctrl-names = "default";
+>  		pinctrl-0 = <&main_mmc1_reg_pins>;
+> @@ -245,6 +246,7 @@ icssg1_phy0c: ethernet-phy@c {
+>  
+>  
+>  &main_gpio0 {
+> +	bootph-all;
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&main_gpio0_digital_pins>,
+>  		    <&main_gpio0_hog_pins>;
+> @@ -263,6 +265,7 @@ &main_gpio0 {
+>  };
+
+ [...]
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
+
 
