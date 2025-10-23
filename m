@@ -4,58 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5048FCCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 01:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4857ECCD1BE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 01:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k56G06VhL+ssT5s3ZmRHxfaTb3QLLEmJ82I6TIL5buo=; b=42dgzsgzra8yqn9laPW30IXHTL
-	g+mUMT/1bUq3niy8AHjFvUlB4OKNRH8z523KnoVDuATBTqQoHMzrA1ch/z6H7AmEeJni0sl+kMx/n
-	H2Xs368h6I9/sftLlXa4RqPZRWWCyCrqQ4HRGqDzz21KwYfZ6D4+e6GyL8A1Kj5SUBZ3Iz/YF2TNq
-	N69ofyPvqcRoE3sNkYZ0dvXlLRCLoh+odAciDshETbrbrZM1HBgu6j3YQWDuHl3+fnHeN0kCtNEOt
-	v4iRST+yKEq7Ur70jSuaBupu37SkoIlEOXKfjybp8p25ogqd2HTvjqKPX0s7F97KywBT4TGFgZTpg
-	leK6ha2g==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Brz/1d/5e1prPBNasD9kS+bWyfr9ZaOpRkHybD/Zb1o=; b=OZ29N6YSgFIrVbFIDvEK5zwPLp
+	+7QeOfZhTbN5wx37KJ450RU02vIKN26tT1S/aRrnKR+4p5s5GM2BdG7nNeNfg8rXf5C3RVFnfXv97
+	LGB2DxtYI4x0vR/GGtKmtcmqGdlldIkCKr2ISMFY1eCNE66yKD5j/FUiQOu85yIQEIVgJJJ5b5VcM
+	6zqiCPNGRsxdzHpC+UKLE/LyFZB3B3T3EMiI3WVAEu0/Ey0wF28NsRQavOXWVXOIJbc/WwvI2gehX
+	OPd03tm96f9OhO2Za8t97Q6uodKh4qZwcZ2fEvBU2OO7BJZi6I3yDPZnHG1Ti8y0UTXsZqPXQRBSB
+	bgFu9MXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBk69-00000004kvj-1VH0;
-	Thu, 23 Oct 2025 01:26:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vBkFB-00000004liz-3CEu;
+	Thu, 23 Oct 2025 01:35:57 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBk68-00000004kvX-0Fsn;
-	Thu, 23 Oct 2025 01:26:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C4316052D;
-	Thu, 23 Oct 2025 01:26:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DF45C4CEE7;
-	Thu, 23 Oct 2025 01:26:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761182795;
-	bh=tWLpPoCH5+m0T9D8bTmmZrdgyYAjQrhj1vJe92xH2V4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kPHi4rNsjNNgojJZjnHJvM3QdbWDXlEWQIABex9ix1ehpdbfQoaV1JqeGOKz7gQYg
-	 qzqewwiU8PN6M2/zcosndWhepuJ0vFVm1bk9yiJYNhYANfnKhbLNoUK5WY57YI8kgO
-	 zu/hkaKnx/m7BBWFlwWtq3VQoh4wObPDFJ2rNsdhHX0Nkf4Ou3Ajzt7qQF4HMJdOd3
-	 EjrMtpd5+cl6JA6a0pH73A9C3kHafjDr2574dhtDaXb+9oVUfX8pB/kaR1bFnwHgxE
-	 W6Y6H81pEqBJWJ7QyTvgAiWu35e9Nngojr0aLXiO7lcGZkpN5exjfEBONZ4NkCwP2M
-	 rHVqc247ZGMMQ==
-Date: Wed, 22 Oct 2025 18:26:33 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Jonas Karlman <jonas@kwiboo.se>
-Subject: Re: [PATCH 0/4] DWMAC support for Rockchip RK3506
-Message-ID: <20251022182633.77f2cbce@kernel.org>
-In-Reply-To: <20251021224357.195015-1-heiko@sntech.de>
-References: <20251021224357.195015-1-heiko@sntech.de>
+	id 1vBkF8-00000004li1-1nHZ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 23 Oct 2025 01:35:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1761183351; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=Brz/1d/5e1prPBNasD9kS+bWyfr9ZaOpRkHybD/Zb1o=;
+	b=MTWt++jcz69iJaR/85Kwie21VQWVO2eOSXMXhwTLEqDBIECzCbl2jD1nOeIOJoD7x/AMtwbLDnfK1j5xzkbT511bjyE+LgXh6lfh+PZHm5nooYic/1oQZVR4jUTm872AflLiL3MSfhFPTTHkHIVpr3D3T+J4fvrAI3GQkdgtTwY=
+Received: from localhost.localdomain(mailfrom:ying.huang@linux.alibaba.com fp:SMTPD_---0WqogSeW_1761183336 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 23 Oct 2025 09:35:49 +0800
+From: Huang Ying <ying.huang@linux.alibaba.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@redhat.com>
+Cc: Huang Ying <ying.huang@linux.alibaba.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Zi Yan <ziy@nvidia.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
+	Dev Jain <dev.jain@arm.com>,
+	Barry Song <baohua@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Yin Fengwei <fengwei_yin@linux.alibaba.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: [PATCH -v3 0/2] arm, tlbflush: avoid TLBI broadcast if page reused in write fault
+Date: Thu, 23 Oct 2025 09:35:22 +0800
+Message-Id: <20251023013524.100517-1-ying.huang@linux.alibaba.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251022_183554_636551_E8598EC8 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,14 +81,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Oct 2025 00:43:53 +0200 Heiko Stuebner wrote:
-> Some cleanups to the DT binding for Rockchip variants of the dwmac
-> and adding the RK3506 support on top.
-> 
-> As well as the driver-glue needed for setting up the correct RMII
-> speed seitings.
+This series is to optimize the system performance via avoiding TLBI
+broadcast if page is reused in the write protect fault handler.  More
+details of the background and the test results can be found in [2/2].
 
-Looks like its not your first contribution, feel free to add yourself
-as the maintainer for stmmac/dwmac-rk.c (anyone else who wants to be
-listed please raise a hand, Jonas?)
+Changelog:
+
+v3:
+
+- Various code cleanup and improved design and document in [1/2],
+  Thanks Lorenzo and David's comments!
+- Fixed a typo and improved function interface in [2/2], Thanks Ryan's
+  comments!
+
+v2:
+
+- Various code cleanup in [1/2], Thanks David's comments!
+- Remove unnecessary __local_flush_tlb_page_nosync() in [2/2], Thanks Ryan's comments!
+- Add missing contpte processing, Thanks Rayn and Catalin's comments!
+
+Huang Ying (2):
+  mm: add spurious fault fixing support for huge pmd
+  arm64, tlbflush: don't TLBI broadcast if page reused in write fault
+
+ arch/arm64/include/asm/pgtable.h  | 14 ++++---
+ arch/arm64/include/asm/tlbflush.h | 56 ++++++++++++++++++++++++++++
+ arch/arm64/mm/contpte.c           |  3 +-
+ arch/arm64/mm/fault.c             |  2 +-
+ include/linux/huge_mm.h           |  2 +-
+ include/linux/pgtable.h           |  4 ++
+ mm/huge_memory.c                  | 33 ++++++++++------
+ mm/internal.h                     |  2 +-
+ mm/memory.c                       | 62 +++++++++++++++++++++++--------
+ 9 files changed, 140 insertions(+), 38 deletions(-)
+
+Best Regards,
+Huang, Ying
 
