@@ -4,229 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B367CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 10:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1021CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 10:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r9awAYsiu9/wABGon29grvFjMQTFKocdXM8qsqZB4kY=; b=dUkGJ/V6OhZMIYZoYKqgJJDT5J
-	2YCwi8drktVMWvDvk9Z7xhZMZs0fSbxTx+6KAUws/gBwrXfadSTY1/8BL4KnhBcU43bzVO+BactXK
-	EUU0mDzejUwdkMJTeyn/HfaSapev9eiXsYE/T8UMUEWYhzUy6HK5a5jk4cvyyFt7NsYPBdJz5Dqql
-	al3vOOskmZKxnK0vy6AfYV7dcmdyTwjMX5BwLraPUQsSvjvalo4aY1EPB2CU7c3otrnUy3MKTvcIF
-	JGYkxDlCYFpgwWX5oYBmx3FLUvIFFE7yzg1UcmqYYhy0XpxS9exE3PLQFPw1pLHnSDNtG1CKrj94P
-	kVDbdcZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=R/h4AjLLr7W7AGhkpWJK94q0SgM+oewmnnPymv0ksv4=; b=mcrrV6TWkHZjio
+	XObkj5R6t08yB1/rbg2dQ7B3q8FbnZ+JmPXBgtU03OYDFRaP0aa3PvSEp6C4GH+I+rguHnpuWVcDj
+	OVZrYIClb6RT0u9Tdex+FMldqftCfe1NroND+bj/FQNRsqik521x2ba22etk4DgYRHpSQ055VF0Cl
+	i3flV1UBoldp6Tm8dDTNOQ0PEwbpW66xB/rjPVaPSAM41xvsGXTA4GmmADwjmpaKCabLwV9g/rbT0
+	qe5BzgqyTfwIqAP5TmCh1+lCk4QYPUQwki0xqTW6ss7GGDpmGTrwoF2VmpOU8iL16+isFOOUDgxLw
+	u7tP2zjicWOovvBqBBog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBsaQ-00000005t6r-0x1E;
-	Thu, 23 Oct 2025 10:30:26 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vBscf-00000005til-0nQ4;
+	Thu, 23 Oct 2025 10:32:45 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBsaM-00000005t5T-3OE0;
-	Thu, 23 Oct 2025 10:30:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761215423; x=1792751423;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=r9awAYsiu9/wABGon29grvFjMQTFKocdXM8qsqZB4kY=;
-  b=PB6stxyFM+lfaV1uMrcCYB2nwHn6CWqT3KveD9bmSKFQSYn8tXa0nEx1
-   SFeUtkdOVjNkmVPIN5mijhF+dBVjRzrkcNygjUEMKj8GhHokucRmqvWCL
-   E5HhPYz1G0kArmYRhMUUuARVRwr9+rY5FhV6CMS+vmy9itzOp8g3U7clo
-   OEVD6PLgJgbu22+CDR6cGuZo+Hh3nZ5YkKA2K68aMzUBU2l7njBpMvVHt
-   0mOhRUTnw7S6Ha3L8s5XBAd/35HZaDnYZhOHWEZhsovUrz2Eff9BIF91U
-   p5yn0dGWk3AA4EeH1MxvLpLp4OJS5aujDcX8uAw7gd6dVdxMOBOlPICeW
-   Q==;
-X-CSE-ConnectionGUID: cVz9SYB8T5W/yBz6piWcjg==
-X-CSE-MsgGUID: Cv0JunDvSx2bdal6wndfXw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63274377"
-X-IronPort-AV: E=Sophos;i="6.19,249,1754982000"; 
-   d="scan'208";a="63274377"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2025 03:30:23 -0700
-X-CSE-ConnectionGUID: WnJjAlTMQfO4BTOdQ+oZHA==
-X-CSE-MsgGUID: lcv4mrADS+2NG56SvhXxQQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,249,1754982000"; 
-   d="scan'208";a="189255163"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2025 03:30:22 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Thu, 23 Oct 2025 03:30:22 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27 via Frontend Transport; Thu, 23 Oct 2025 03:30:22 -0700
-Received: from CY3PR05CU001.outbound.protection.outlook.com (40.93.201.1) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Thu, 23 Oct 2025 03:30:21 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ITE8Xjz6ZmLUOhrAl9XNH03bUoc8yLknxBjGKYPsftsEjBX5r4YDt1WwGuT8271ba+j6Xf56lMIkGYzzuaGrIOWX+g+V1EpOlpbsWanLWX1ibHxfOlaOFRBulnCmw7soL3QsGOqKiXEcSFqm7K6M4urc1Ixxcxz53wRgj2LzacM011r4eY00bqDBk1WGGOPnR3hZRDMU3sgT8xLwHnWOb+7Q5NerqPHadt0jrZxuSG+qbWRWTNlUvKXbgbWbF8I0/FVjQvDRHa5mPoMWIV2HM7BTRlNP43BZhqSAaAhVC0e40k0r4WfmQdb6EWAKFX5BOUjSdb3U7WEYYnvdeqkFQQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r9awAYsiu9/wABGon29grvFjMQTFKocdXM8qsqZB4kY=;
- b=y+a3OsGHFtwRnL8ykHvnP1L6w4DcvBtv+k5SvufQLhemPBqmWv3Fql68+baUejKOFt/zOYNCFzGWPa1uoa6nX/of42TbI9P0bN7e/Y0BQSHeyfHjG2MMOJ7C+8VIXphXL1clnFKvLI10iX3rsWGura52zJanoeYbBAr6wCU2yq+sGxahOD+dXCsAWCXciP4NLq8/XCVa8IoVZhe1SzWbO83KdimX1o2Y3VJlBHtErxwNT143m5TAxqcm5xa/Mv66Q3VFDzAAyXK4Fq0Zy68K9aJyGQmcyN7O/zON2ZjYSq/6WUUdeUBbotZSxzgFDQmJ9S72vr9wRQ2oSWMYVYxQPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from BL1PR11MB5525.namprd11.prod.outlook.com (2603:10b6:208:31f::10)
- by SJ0PR11MB5150.namprd11.prod.outlook.com (2603:10b6:a03:2d4::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Thu, 23 Oct
- 2025 10:30:19 +0000
-Received: from BL1PR11MB5525.namprd11.prod.outlook.com
- ([fe80::1a2f:c489:24a5:da66]) by BL1PR11MB5525.namprd11.prod.outlook.com
- ([fe80::1a2f:c489:24a5:da66%6]) with mapi id 15.20.9253.011; Thu, 23 Oct 2025
- 10:30:19 +0000
-From: "Huang, Kai" <kai.huang@intel.com>
-To: "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "frankja@linux.ibm.com"
-	<frankja@linux.ibm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, "pjw@kernel.org"
-	<pjw@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"kas@kernel.org" <kas@kernel.org>, "seanjc@google.com" <seanjc@google.com>,
-	"maobibo@loongson.cn" <maobibo@loongson.cn>, "pbonzini@redhat.com"
-	<pbonzini@redhat.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "imbrenda@linux.ibm.com"
-	<imbrenda@linux.ibm.com>, "zhaotianrui@loongson.cn"
-	<zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>
-CC: "kvm@vger.kernel.org" <kvm@vger.kernel.org>, "linux-coco@lists.linux.dev"
-	<linux-coco@lists.linux.dev>, "Zhao, Yan Y" <yan.y.zhao@intel.com>,
-	"michael.roth@amd.com" <michael.roth@amd.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "Weiny, Ira" <ira.weiny@intel.com>,
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>,
-	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>,
-	"ackerleytng@google.com" <ackerleytng@google.com>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm-riscv@lists.infradead.org"
-	<kvm-riscv@lists.infradead.org>, "Annapurve, Vishal" <vannapurve@google.com>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, "Edgecombe,
- Rick P" <rick.p.edgecombe@intel.com>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
-Subject: Re: [PATCH v3 05/25] Revert "KVM: x86/tdp_mmu: Add a helper function
- to walk down the TDP MMU"
-Thread-Topic: [PATCH v3 05/25] Revert "KVM: x86/tdp_mmu: Add a helper function
- to walk down the TDP MMU"
-Thread-Index: AQHcPv2cWamolJ3kgkumajqyHzUuybTPkhAA
-Date: Thu, 23 Oct 2025 10:30:19 +0000
-Message-ID: <dd731d3a96f2e506a5784b6db02dd4dedc80488d.camel@intel.com>
-References: <20251017003244.186495-1-seanjc@google.com>
-	 <20251017003244.186495-6-seanjc@google.com>
-In-Reply-To: <20251017003244.186495-6-seanjc@google.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BL1PR11MB5525:EE_|SJ0PR11MB5150:EE_
-x-ms-office365-filtering-correlation-id: 15ed6cd9-0e28-4339-a8ed-08de121f2a0e
-x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|921020|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?Nmc1VHd3UWxpTWlEWnNENlYwMmNhejhRd3FDYWtuck9uWWw5cGdnaWlXTGZz?=
- =?utf-8?B?SkxXcTdMd004WU5JT2VrSm9VOXVOTnVsU3o4bjNBMDdnWGVrc2xVRHNvNG4w?=
- =?utf-8?B?KzZ4d3VzQmUxdjNpYzlkejdWdU10V3lBa0lWNDhNZWhhRk9JQi81M2tQODIw?=
- =?utf-8?B?N1NCbXNNdE85c2xWVzhudFZJUWxLSUpFMTRoRkN3UmRSc20wMHIzQW5OVlMw?=
- =?utf-8?B?WUx0UkpNRE1tY2k0cE1PT25vVFlZZTA5Q2FIMmhGM2JsWHBicHp3WmxhTHhl?=
- =?utf-8?B?d1gxUXllWkVaMzdRVWxrUGtGSjlBNVZDY0JlUzlWREQ4YWcvLzlLTHJTb1B2?=
- =?utf-8?B?TFNCbThBK1VicXJnWlBVQmlsb0pqNWsvWGlRZHp6elk5WmpQRFViYlhncVE3?=
- =?utf-8?B?akprTzZtL05ySkpsVVBIeTdkVjU3UFN4aEFpZHU3emZkSWFPQ2gyU0c2aGgv?=
- =?utf-8?B?ZHRaVlF0SkVSRDdaRE13M09lRno1c2JrMjFnRjJUMXFuUHRudjVhYWQ2RFVs?=
- =?utf-8?B?SUtURlo3YjZPZEZ0c0pLWTZZN2JiTUVGUVUycTRuWi8vTHl1dHF0TGJ6cFRO?=
- =?utf-8?B?ZEloVTJXTDRFSVFESWVsOFF0YVN5SDQ5Nml0ejV6eUJQelBQKzY1NUZ2MUJP?=
- =?utf-8?B?U1MxVmY4TE5iVHBRUnl2ZE1mRzBGQWE3eUYva0xncVMzd0x6S3RPK0ZkbVlD?=
- =?utf-8?B?THpEZE1wRWFESHpIazlFblVhbTArZldyL3BHU0pFVWRRYzhGeE1NUmdZQzds?=
- =?utf-8?B?VHI2MEs5dUQxajhnWkhPNHROOEIwbUtmbzdRM1Fick9xcFI5K0ZqeHlNY3pr?=
- =?utf-8?B?RityK2xVcnZhaXdnaXp6aEZOcFNGTVllMUFEQldRRmJ6YkE5NlJBNDE1RVJN?=
- =?utf-8?B?WkRUaXF6ZnZTQjRGVWNJUldnaWQ0Y1hNMkxCOG9jQ1pxaVhpV0swdnBPZ1E5?=
- =?utf-8?B?STVHNTBkQVlJNVdSTUdiOGFsMHRaZXAvS0hxdTAwZkh3V3hEMjUyaXA5TXhT?=
- =?utf-8?B?QkRxSXFKanJxRStNYjBRR2RDVlExWWV2N2UwOFZQTmlWWU9qVWp1YkZieUVk?=
- =?utf-8?B?cnBHVU4rV2dBL0RrMHQ2YXp6OHZwc1RUTU16Q3lwZ095Z3FyUU5SczRWMDRB?=
- =?utf-8?B?Y3VqR01haFl6bGRFNS9jRGpkajJ2cittTFduZytPWFJRUmlZYlZ1WmpoMmVF?=
- =?utf-8?B?eEZHbFlTd1FxWlA2MHJkbStGeDRsNlFVUC9MaUZHYlAyMUxqZGxKaUZFRys2?=
- =?utf-8?B?VU1YMEg1RDcvY2RMc1dZSWJ6M0VHNytjSkY2b1o4VXBTOFJzalRrTDJINmhL?=
- =?utf-8?B?QlRvL3dzZjFxeUt2R0RWK2FkdllRRnkxeU9ybHpRU3RzbzZxTEVnWUhZSGdD?=
- =?utf-8?B?dmJhZm9uTlBzWnhLTXhaSTZOTlFUZEQ4ZUxHci9HZS8vN3MrL0plbzE2R1k2?=
- =?utf-8?B?TVIxV2VxRWNlR2VUT2Jod3FxSm1mUnN6dUw5U1kyVWpkN2VpN3MrQUVBTDda?=
- =?utf-8?B?RXhNSGRUMDlQLyttNExCQ20rNnRSdFgzV2JweGRtc0lwVFJnWXZPM0Q4NUZa?=
- =?utf-8?B?R0VUV2J4Y3FXVFRIa0phbjBqMk04TDBudXJEQnlMbjllY2dkTnZvM21WZ1Bm?=
- =?utf-8?B?UUZlK3NlRnBwRDNJTmp5RFdIbjFvOElDbmdlVmgwalI3NCtWZ2dWUzZ4QmR4?=
- =?utf-8?B?WDVaTlhRV3NDNGVOUUdHcEZhRTl6YVQxSXEvRG55aXVzNWExaEhLNHVqcmhw?=
- =?utf-8?B?SXE1OGI0czQ0RTJWUjQ3ekdxbEQ0VURXOWcxaUVTKzdmTEF4blE5czVMZVc0?=
- =?utf-8?B?ZkU1RUJBQnVaRzhnaWIxZWVvdE5wZ1ZNU3RybTh5Vk1ZaDJrRUZlTlE4MWJY?=
- =?utf-8?B?YkNkVnlpL1BUVVFObTdmT1lNZWZCZnlwdDRjeW5kcVA2bW5ocGE3Y0p1NjVB?=
- =?utf-8?B?clJJUlVJbDRXTnRQMzhKeTNBYmZlTWs3ak5KbUQvL2RaQ3ViVG5kUk9sUmZ6?=
- =?utf-8?B?Z21BMzlmUE8raU0wdmtRNi83ekJQN2VaUFpFejhlY0FYbEVyekdGNm9BSGxs?=
- =?utf-8?B?dXVNRlNCYTBZRkFlQVg5UkNVV1dmOUFGSFcxUT09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR11MB5525.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(921020)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NnhsNGUwQnFKaW9NZ1ZEV3o1NlBYZ0UzOUFvNGg4MitEbWJwb2l0OW1KUzlj?=
- =?utf-8?B?MEhMVXJ4NWFBZ2w5SE85SEN4QndZeUJsZFRCcGJoaWtNTHNscVNGV24rRWdS?=
- =?utf-8?B?MVo1WjJBbUZaQS9TcFVkbFc0cFh1M3pvQlJYL3FQRlI2djN6d2MxZTFhb0ha?=
- =?utf-8?B?cnd1ZFVqZWFwb3A2T3JIZlpuUHNqU2lXeU12NGpUVnVidG04WkUrNFNnL2Jk?=
- =?utf-8?B?eHpTb0JyOVBxMVd6ZEVWb3hwMEpsMzBwcGpDdFpZU0R0RmRsWitaSUJCdVhR?=
- =?utf-8?B?eEdCS09UUEcwdjFreExsOHZvN1JTZXE5QWd3SER0VDk0RHViWEhDaER0MGV3?=
- =?utf-8?B?alB5ZmQyMTQrK1BIYlF6RmFTZ01kREc2WGtKVEh0RWw0Y2EyZzllM2pON3d4?=
- =?utf-8?B?MnlueTVlNmxjamdiODRDV25mZHhreXBMa3dhc1RFYlBMK09FOUoxdjdxZURv?=
- =?utf-8?B?WUxqOUtGWXVDYVIweHRkSW9sQlZVWW0zRXorT0d3VFR0aUUydFRzUWIxc29U?=
- =?utf-8?B?RVZRMWNvNUdCU0ZsclI4WjFqRjdDcUNpS0VPa0JDcUJRRzh6SFRTZFM0VXFk?=
- =?utf-8?B?cGlqSmR2K3hBNGZQc2F6NjF4WjVOaHpreFJHNXdCdzRINktNd0dpVkpyRndE?=
- =?utf-8?B?YWwwT2pqVWZRNi91a2kwSGFXM25PYzBWSUZMU0hZNlNlbXNiNG4xV3FoSEZW?=
- =?utf-8?B?VC83aW5UUGJEUWl2SDVUK0Nwa2JwQWhYNkxoaXFteTFCYWFMWHZWS1BrakFG?=
- =?utf-8?B?Y3BMOWo3SVNFZ1FOaURqSTBsUXh6TDU4QldteFB3MDkvaVh5RjZ3UnRkZnho?=
- =?utf-8?B?ZzZaMEw1TEdXNW5ralBWRG5vWVdyUndwZnJLMEk5MFJSOFJDaklvNkxDVE44?=
- =?utf-8?B?bVQrZG1KbmwwYndUQjErTCsvNyt0MUM0NmJ3S0dJeThLSUhaSEEwOEx4MDRK?=
- =?utf-8?B?ZlU2WkM0MG5lYm5vMnQ4b2wxUXVSbmtaanQxQnRDRnFOeWQvTmxtdndyRzZ5?=
- =?utf-8?B?RzlzOHI1VnQ1U1dIV3UvWGVkTExkcWswUGJuWmxJMXhRVjNjcDZKQTBwM0VP?=
- =?utf-8?B?b2EwRlBQTVNuU1VhTG1qN0NBKzd0WE5tVGtRZ25NVzduaXZhNjFROGd4Ukg1?=
- =?utf-8?B?NW54bExmYmZZMUd1Vm5hNktHTXBseUp5N2Mxc045V1BHYWtUTWFwMXluaTFs?=
- =?utf-8?B?NU1kM0xkSWJoWEt1emxFL28yRTlKQkxNelNOeUNFbkp4eE50a01maFdFeTV1?=
- =?utf-8?B?TDhYYXlnSi9UeVBoY0pldXpIZjgvbXZXbllWSFZKaUovU0dDdjU3NHhlOEVH?=
- =?utf-8?B?bGJUVmJpVDYxQzVSa2t6KytwR1lzRm1tNHBkVFU5UHdBNU1SMEgxdXVmMENk?=
- =?utf-8?B?ZU1Jczhpa1lqcDdid21weUo4Vk5keHZaSk1tcngwQzRucVBONFNaYjRtNXJT?=
- =?utf-8?B?ZjdVNXdFRlFRbXZBaHpUc0Y2czcrQmhHb0hEQWJyUzlGcm5xQXNoTmZuRTU2?=
- =?utf-8?B?cEF1ZUJPZG8rYXNTeUFWcVB6RkRQYjVNQWpPOEZaSTJWWGd2TnJLYXRHTzla?=
- =?utf-8?B?RlBucHFaUTZnSWRuRHNOSHZNMGZmaFkzd0ZBS1YwNGt2OFZKdnJwVlFjUEdF?=
- =?utf-8?B?K0NHWDI1aXZvNk95eEEydmxmdDhFVHJ1RWU1SkhIOW9sMXFmTEpNcTkxMkpY?=
- =?utf-8?B?UG9hdkYxVWNiYzdQTnFnSE5Md0w1Q3hXK1RNUjE5V1YydHMwTU5RK3FoVlky?=
- =?utf-8?B?ME9kaThFN0N1Y3hncTlqcVVwQmdmUEJsNjRKUDJuRTYxb1hzTDZkVmtkaXNx?=
- =?utf-8?B?TENHRXZ0VDVlUUJqNEl3ZEVrYi9jaStpRjBRN2k0aTJHUXdJenFUNU1ZN0pv?=
- =?utf-8?B?My9ibkxJOURDNkU3eFVlM0RQU2NtK05rcnBsTmRMTG5LYmpoNWQ4ZXRDSjE5?=
- =?utf-8?B?Y3FleG55dG1QQ0VSYzNnaG5kcVoyNTZaWFB3UmEvRG9DMlVTWE5KQWh6NjMy?=
- =?utf-8?B?ODB1VG9FVkpVWlIzcEQyYTZEQk1WVGVtYTVMeWI2R2h3cmRpcWRTcGk3UTEv?=
- =?utf-8?B?Wk1QZEg4K0pCcDJKNVgvS1FWRUFVNkpNdlUySXlwMFlHQ1JEN3p4WUx1RFpW?=
- =?utf-8?Q?T4O99eAXttbhh6/Ksg7JeFxYM?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <51820BFE6638F94D9EB3790058EBE9B8@namprd11.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1vBscb-00000005tf1-48zx;
+	Thu, 23 Oct 2025 10:32:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761215558;
+	bh=vZu1LLKF4a95t1p0RNphIUcu61Qm7JvYq4UIKqpTqQY=;
+	h=From:Subject:Date:To:Cc:From;
+	b=mA8ZWCBbYTbTvk6psal9OxsbjfhwtKqe/ps2c5KNcFeixdf8NUmaTfaq04oZFP1px
+	 96OwAfgPw21epBiqewf2MkdoHMHgvG4XJ5Sr3j6VzTAotf29y1/kVnrsOvy+HBy0KQ
+	 PsHeRoyTBlA3ZZGnfoRHYDlXtU1n21wVq2tb+3s276djM8E85aARiZ0zRmMt+7EMJj
+	 Rj1c9ATr5ExX7QMu2vx6npLqj1m6ywfaN2nZlu45ryz507Bn5U8YpgV0JLEWRnFUro
+	 kwQ1AUgGFMG4avIg8G6r0V3sMFNVNJsZx+JAGslyZ3ITh2nnIinEvSgstfEXGvY2jL
+	 IFfVLq/igA3hw==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 47D9E17E0CF8;
+	Thu, 23 Oct 2025 12:32:38 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Subject: [PATCH v11 00/11] Add support for MT8195/88 HDMIv2 and DDCv2
+Date: Thu, 23 Oct 2025 12:32:26 +0200
+Message-Id: <20251023-mediatek-drm-hdmi-v2-v11-0-7873ec4a1edf@collabora.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR11MB5525.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 15ed6cd9-0e28-4339-a8ed-08de121f2a0e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Oct 2025 10:30:19.1700
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: +4YkwKSAIp40KMtMIZzt6GSAJGFvL7SJLS8K3lmQ6fGJKIbS+LG7GDA99FWfBi2HmVGEPcV/R86lQKcv+IsQmA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB5150
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADoE+mgC/22PzU7DMBCEXyXymY28blKZnngP1IPjrOMVcQy2i
+ YqqvDtOqISEOO7PzDdzF5kSUxaX5i4SrZw5LnVAfGqE9WaZCHisC6Gk6qWWZwg0sin0BmMK4Mf
+ AsCqwTmvX46C7XosqfU/k+Hb4vl7r7FIMUHwi82vWYY+yOylse8TuGRB23BwnjsZaz0tsR5oTT
+ Ut8sXGezRCTaW0MD0Cij8+at/xQxGAyQb0GLpdmoVuBnYJSncSewHMuMX0dRVeUh+TRSf/fqX6
+ BBIVktCKy6M5/Yly3bfsGB6hQCEEBAAA=
+X-Change-ID: 20250806-mediatek-drm-hdmi-v2-cf88f51b8458
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ CK Hu <ck.hu@mediatek.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+ Sjoerd Simons <sjoerd@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761215558; l=10674;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=vZu1LLKF4a95t1p0RNphIUcu61Qm7JvYq4UIKqpTqQY=;
+ b=PKB2+1OLyoT0WW1yIFFfxMK2ZsOqyZFIBXB0xIElu792FOfVxjrz+ONAQFBOmJtMRaGbG5mov
+ uMQxzgz577JDT+iwqjeRJm6TujStGNWW2ZGSjK/Ak+bimFLiFwqyvYc
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_033022_886526_26CAD4FC 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251023_033242_196941_81689126 
+X-CRM114-Status: GOOD (  34.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -241,14 +91,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDI1LTEwLTE2IGF0IDE3OjMyIC0wNzAwLCBTZWFuIENocmlzdG9waGVyc29uIHdy
-b3RlOg0KPiBSZW1vdmUgdGhlIGhlbHBlciBhbmQgZXhwb3J0cyB0aGF0IHdlcmUgYWRkZWQgdG8g
-YWxsb3cgVERYIGNvZGUgdG8gcmV1c2UNCj4ga3ZtX3RkcF9tYXBfcGFnZSgpIGZvciBpdHMgZ21l
-bSBwb3N0LXBvcHVsYXRlIGZsb3cgbm93IHRoYXQgYSBkZWRpY2F0ZWQNCj4gVERQIE1NVSBBUEkg
-aXMgcHJvdmlkZWQgdG8gaW5zdGFsbCBhIG1hcHBpbmcgZ2l2ZW4gYSBnZm4rcGZuIHBhaXIuDQo+
-IA0KPiBUaGlzIHJldmVydHMgY29tbWl0IDI2MDhmMTA1NzYwMTE1ZTk0YTAzZWZkOWYxMmY4ZmJm
-ZDFmOWFmNGIuDQo+IA0KPiBSZXZpZXdlZC1ieTogUmljayBFZGdlY29tYmUgPHJpY2sucC5lZGdl
-Y29tYmVAaW50ZWwuY29tPg0KPiBTaWduZWQtb2ZmLWJ5OiBTZWFuIENocmlzdG9waGVyc29uIDxz
-ZWFuamNAZ29vZ2xlLmNvbT4NCj4gDQoNClJldmlld2VkLWJ5OiBLYWkgSHVhbmcgPGthaS5odWFu
-Z0BpbnRlbC5jb20+DQo=
+This is a respin of AngeloGioacchino Del Regno's patch series, that adds
+the support of HDMIv2 and DDCv2 for MT8188 and MT8195 in mediatek-drm.
+
+Changes in v11:
+ - Rebased over next-20251023
+ - Resolved merge issues with next-20251023 for patch 4
+ - Added new "drm/mediatek: mtk_hdmi_common: Defer probe when ddc i2c bus
+   isn't available yet" to fix a probe issue when mtk_hdmi_v2 driver is
+   is enabled and built as module.
+ - Added new reviewed-by trailers
+ - Link to v10: https://lore.kernel.org/r/20250808-mediatek-drm-hdmi-v2-v10-0-21ea82eec1f6@collabora.com
+
+Changes in v10:
+ - Rebased over next-20250807
+ - Dropped patches from v9 that have been already merged in a previous
+   merge window (1 to 14)
+ - Resolved merge issues with next-20250807 for patches 3, 4 and 9
+ - Added new "drm/mediatek: mtk_hdmi: Drop redundant clock retrieval in
+   mtk_hdmi_get_cec_dev" patch to fix an issue introduced by a previously
+   merged patch from this series
+ - Deleted mtk_hdmi.c.orig file added by "drm/mediatek: mtk_hdmi: Split driver
+   and add common probe function" patch
+ - Fixed in "drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188" patch
+   a bug about EDID reading not properly working in mtk_hdmi_ddc_v2 driver,
+   due to extra byte sent on i2c bus by mtk_ddc_wr_one function when the 
+   payload length is equal to 0
+ - Fixed format issues detected by checkpatch in "drm/mediatek: Introduce
+   HDMI/DDC v2 for MT8195/MT8188" patch
+ - Tested on Mediatek Genio 350, 510 and 1200-EVK boards
+ - Link to v9: https://lore.kernel.org/dri-devel/20250415104321.51149-1-angelogioacchino.delregno@collabora.com/
+
+Changes in v9:
+ - Reordered patch from krzk as first as requested by CK
+
+Changes in v8:
+ - Dropped DPI patches as those have been applied in the previous merge window
+ - Changed description in mediatek,mt8195-hdmi.yaml as requested by CK
+ - Refactored function mtk_hdmi_v2_hw_gcp_avmute() to include contents
+   of, and delete, mtk_hdmi_v2_hw_reset_av_mute_regs() as requested by CK
+ - Expanded comment before enablement of HDCP reauthentication interrupt
+   to explain that the HW uses this internally as requested by CK
+ - Added comment in mtk_hdmi_v2_hpd_pord_status() explaining why there
+   are three states for cable detection as requested by CK
+ - Moved extra interrupts clearing from ISR to probe function and added
+   comments explaining the reason why those are being cleaned at probe
+   time, as requested by CK.
+ - Added support (and tested on MT8395/8195 and MT8390/8188) for output
+   in both YUV422 and YUV444 colorspaces other than RGB; please note that
+   RGB is still the default, and that the request for using any of the
+   YUV output formats depends on previous component(s) of the display
+   pipeline declaring support for those; should none of them declare any
+   support for YUV formats, only RGB will be available (no errors, the
+   additional ones will be simply ignored).
+
+Changes in v7:
+ - Split more patches as requested by CK
+ - Changed the order of the interlaced variable addition as requested
+ - Cleanups in DDCv2 as requested by CK
+ - Removed comment from
+   drm/mediatek: mtk_hdmi: Move output init to mtk_hdmi_register_audio_driver()
+   as that was forgotten from reintroduction of print in v5
+ - Some more small nitpicks as pointed out by CK here and there
+
+Changes in v6:
+ - Split the TVD clock enable/disable calls in a different commit
+ - Changed `is_internal_hdmi` to two different variables, one for
+   DPI input clock from HDMI, and one for AFIFO 1T1P output and
+   conversion (mtk_dpi)
+   - Clarified why MT8195/88 HDMI-reserved DPI1 is different
+ - Moved `input_2p_en` bit to platform data to cleanup DPI vs DPINTF
+   - 1T2P enable bit is different between DPI and DPINTF, but usage
+     is actually the same
+ - Cleaned up headers inclusion in mtk_hdmi_v2.c, mtk_hdmi_ddc_v2.c
+   - Removed some unused headers, added missing bitfield.h header
+ - Split some prints cleanup commits as requested by CK
+ - Split the introduction of mtk_hdmi_conf as requested by CK
+ - Split commit to make CEC optional as requested by CK
+ - Reintroduced forgotten no_capture_mute in codec_pdata (mtk_hdmi_common)
+ - Reintroduced error print for audio clocks enablement failure (mtk_hdmi)
+ - Added cleanup syscon_regmap_lookup_by_phandle commit from Krzysztof K
+
+Changes in v5:
+ - Rebased over next-20250113
+ - Resolved merge issues with next-20250113
+ - Added bitfield.h inclusion in mtk_dpi in commit [02/33] to resolve
+   build issue from 0day CI
+ - Removed .atomic_check callback from mtk_hdmi_v2 as it is now part
+   of drm_bridge_connector as pointed out by Dmitry B
+ - Removed call to pm_runtime_disable() as the driver uses devm
+ - Tested again :-)
+
+Changes in v4:
+ - DDCv2 binding erroneously dropped in v3 is included again (oops!)
+ - Added reference to dai-common.yaml in HDMIv2 binding
+ - Dropped pinctrl entries from HDMIv2 binding
+ - Fixed required list in HDMIv2 binding and changed node name to
+   'hdmi' instead of 'hdmi-tx'
+ - Fixed issue in mtk_hdmi derived from wrong commit splitting action
+   from version 3
+ - Exported necessary symbols and added namespaces for those
+ - Fixed module build for both HDMIv1 and HDMIv2
+ - Other cleanups
+
+Changes in v3:
+ - Added hpd_enable() and hpd_disable() callbacks as suggested by Dmitry B
+ - Removed audio mute call in bridge_enable() as suggested by CK
+ - Reworked commonization commits for mtk_hdmi/mtk_hdmi_common and split
+   out debugfs/abist implementation as suggested by CK
+ - Removed .mode_valid() callback as it is now provided by the bridge
+   API in drm_bridge_connector_helper_funcs
+ - A bit of cleanups here and there
+ - Tested again on HW especially for new hpd_enable/disable callbacks.
+
+Changes in v2:
+ - Merged series "Add support for MT8195/8188 and Pattern Generator"
+   and "drm/mediatek: Add support for HDMIv2 and DDCv2 IPs" in one
+   as they are directly related, as requested by CK Hu
+ - More commonization: moved some audio functions to mtk_hdmi_common
+ - Fixed a bug in DDCv2 driver to allow sending a message with len=1
+ - Renamed some functions in HDMIv2 to consistently use the prefix
+   mtk_hdmi_v2_ across the driver
+ - Added .mode_valid() callback to HDMIv2
+ - Added .atomic_check() callback to HDMIv2
+ - Reordered drm_bridge_funcs in HDMIv2 driver
+ - Rewritten .edid_read() callback in HDMIv2 to move checking audio
+   availability to bridge_pre_enable() stage, and to stop using the
+   drm_edid_read_ddc() in favor of drm_edid_read()
+ - Added support for API provided HDMI Helpers
+ - Added .tmds_char_rate_valid() callback to HDMIv2 for HDMI helpers
+ - Added .hdmi_{read,write}_infoframe() callback to HDMIv2 for helpers
+ - Added support for Vendor infoframes in HDMIv2
+ - Added missing audio-dai-cells to HDMIv2 binding to fix check error
+ - Added more information to the HDMIv2 binding for clocks and PHY
+ - Added some comments to the HDMIv2 code to clarify why the controller
+   is preconfigured in bridge_pre_enable() instead of bridge_enable()
+ - Added a mention of the differences in HPD between v1 and v2 to the
+   commit introducing the v2 driver (v2 is not using CEC for HPD)
+ - ...and tested again on HW! :-)
+
+This series adds support for the HDMI-TX v2 Encoder and DDCv2, and for
+the direct connection DPI as found in MT8195, MT8188 and their variants.
+
+Tested on Genio 700 EVK:
+ - ABIST ON: ok, pattern generated internally from HDMI is shown on
+   HDMI screen at the correct resolution;
+ - ABIST OFF + DPI Pattern Generator ON: ok, pattern coming from DPI is
+   shown on HDMI screen at the correct resolution;
+ - Can negotiate up to 4k60
+
+and on MT8395 Radxa NIO 12L:
+ - ABIST ON: ok, pattern generated internally from HDMI is shown on
+   HDMI screen at the correct resolution;
+ - ABIST OFF + DPI Pattern Generator ON: ok, pattern coming from DPI is
+   shown on HDMI screen at the correct resolution;
+ - Dual screen usecase validated (DSI + HDMI 3840x2160p 60Hz)
+ - Can negotiate up to 4k60
+
+Please note that this submission does *not* include support for HDCP
+nor for CECv2, as I want this to be upstream before implementing
+additional features which are not strictly required for simple
+HDMI output.
+
+Bonus in this series is the addition of support for the Pattern Generator
+found in the DPI HW: since I needed this for debugging during development,
+I had to code in the actual support bits and it looked like a waste of
+time to just remove it.
+I instead decided to clean it up and upstream it, as this will anyway come
+handy for multiple things, of which the most important (imo) are:
+ - Adding support for new SoCs in the future will be less time consuming
+   as this driver already has the pattern generator in;
+ - CI Testing might be able to make use of this to validate that the
+   data that comes out is not garbled (so, to help testing display
+   support in an automated manner).
+
+--
+2.49.0
+
+---
+AngeloGioacchino Del Regno (9):
+      drm/mediatek: mtk_hdmi: Improve mtk_hdmi_get_all_clk() flexibility
+      drm/mediatek: mtk_hdmi: Add HDMI IP version configuration to pdata
+      drm/mediatek: mtk_hdmi: Split driver and add common probe function
+      drm/mediatek: mtk_hdmi_common: Make CEC support optional
+      drm/mediatek: mtk_hdmi_common: Assign DDC adapter pointer to bridge
+      drm/mediatek: mtk_hdmi_common: Add OP_HDMI if helper funcs assigned
+      drm/mediatek: mtk_hdmi_common: Add var to enable interlaced modes
+      drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188
+      drm/mediatek: mtk_hdmi_v2: Add debugfs ops and implement ABIST
+
+Louis-Alexis Eyraud (1):
+      drm/mediatek: mtk_hdmi: Drop redundant clock retrieval in mtk_hdmi_get_cec_dev
+
+Sjoerd Simons (1):
+      drm/mediatek: mtk_hdmi_common: Defer probe when ddc i2c bus isn't available yet
+
+ drivers/gpu/drm/mediatek/Kconfig            |   18 +-
+ drivers/gpu/drm/mediatek/Makefile           |    3 +
+ drivers/gpu/drm/mediatek/mtk_hdmi.c         |  539 +---------
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.c  |  440 ++++++++
+ drivers/gpu/drm/mediatek/mtk_hdmi_common.h  |  198 ++++
+ drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c  |  395 +++++++
+ drivers/gpu/drm/mediatek/mtk_hdmi_regs_v2.h |  263 +++++
+ drivers/gpu/drm/mediatek/mtk_hdmi_v2.c      | 1521 +++++++++++++++++++++++++++
+ 8 files changed, 2858 insertions(+), 519 deletions(-)
+---
+base-commit: a92c761bcac3d5042559107fa7679470727a4bcb
+change-id: 20250806-mediatek-drm-hdmi-v2-cf88f51b8458
+
+Best regards,
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
