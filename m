@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0221CCCD1BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 13:58:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59997CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 14:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LHznA4IxR0ryi2cJoCEHN+kBwQ2XKkkZXeR8LA/d1QU=; b=ojnkdG1S8A4j8wFtmj/vkpOZK+
-	ZVJLVHJNMK5OYGHGoms/DzU9kOtUvCyDcX3N1gVhHBrIoe3zkGRmNj4yo5BFW1QUrhONP32QgGWkX
-	WKsePdVu+ixgRE0+zAc8YgHpl4xeSCZ5x+wuXINNQAjATtJxEhE7nawIa1/CyReH/C71QeTMLmONA
-	uF9Ib8N351+Nlxd9kZOfHDjbbfjrwC/o7EObRI/rPc/tzog1S6EN1KpvZBn21VkrMGBDvoXu/ZHZH
-	9caxbxjX0OCvCdLMO0uikwnM4i1FLlXOZHtp/tOEvuPYKicJsnso5h33VeNULeFtuShtXhCnvAND+
-	Q6z7Ix0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z+ZZiNFpfo795JzyW1U+Amyk/9XvcQWSem6gcToDr+s=; b=kcn2LsGN4Wm7GFfas1LFcYsS7E
+	pSyeBRQ0P6iusz0pc9uCtVwZwfDXOmm1B6E2rsaZ/HCO2U/53ntNtwpUlSGOXAN89FLD8IXhJsb/h
+	MBcM4rJmfwtUhmNVLITFa5TxZfQqRwK86cGpzXkYSMyEeHr1YPAi7Fkc/AU3UOlGMZ7c6Sp9R4bXJ
+	H/iNT6YYmDdm8U+SmTFHVNEwYwgTpbOa3ulOrIYxpuTasmg660V9xF7hSl1A1+ruxyuPLEG0Qz8K1
+	iXfXVVBSdAOSl21wAHtzFGwoz6hwG34toZ8WUkCWgjcCCPQ9NtMQirAI/H4VpbmwnP610BZFGrPWu
+	9q9UOYkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvq7-00000006V7K-00NB;
-	Thu, 23 Oct 2025 13:58:51 +0000
-Received: from mail-vk1-f176.google.com ([209.85.221.176])
+	id 1vBvrn-00000006VRg-24NV;
+	Thu, 23 Oct 2025 14:00:35 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBvq4-00000006V6T-3cGy
+	id 1vBvrj-00000006VQj-3twu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 13:58:50 +0000
-Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-54aa5f70513so230445e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 06:58:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761227927; x=1761832727;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LHznA4IxR0ryi2cJoCEHN+kBwQ2XKkkZXeR8LA/d1QU=;
-        b=jNYRKV+eiuLxfwFlT6bu76Rc/yjHMUIeye8pRb0SJvTDktlQ28ZnTNNpURBUHHE2eF
-         haBQYIlrhn9DtFx6zYQKluug+zvSngcqvsVU2BoUmX/mBLwjPrKRR67yzA0NgPEN6UoX
-         jBt7Wknv4C96SNQLAkskFj5aJpGKsWLzeH7u0pL5/L1dXstZqQFHo5+pQdE7hrhh0/ut
-         6QVlenDTWjkAirqzoHSLyqqR5gklT/PpYvwFy+CyPYyOGYTDzq3HEESL1iBykrD3lffP
-         Gf6olyQIOV5PxG6fhUsmXzL0R3YI7VmFMipQ6Wg/ZOWhrisPNthkpuPEPrG3SQS377Xt
-         ZlQw==
-X-Forwarded-Encrypted: i=1; AJvYcCUQV/nR7WEVL0Xv26/KmkkPxIC3V+TA6A0jludQ9sibOKi21fPl2FtdvOjcfWeBYkDTWPOmKdOejmV+sjYYkqW1@lists.infradead.org
-X-Gm-Message-State: AOJu0YylxiVMwDPLctnOG/dR96jamq1BRO8a01D23ogqWjRBMIWk2+cJ
-	7AZJY7oxJ3vKHmyQYhSbvO54Nv/rMxEL1o70Fmevjw1aXRQAqPCVJXCIPbAKikg1
-X-Gm-Gg: ASbGncvQHP1O5teupgNMpLH/aVx+P/LcR1Y1WhpPk427eArUg5CTe1p6KyJl97M9wPH
-	eMpIjkP5e0U8x5akPvYCHdag7UgARMhm3dOCib/O6n6FzjtvEHyQdWznHBsHTZavYmNOdbJvZtx
-	zfixoQtWcX4o3JcPG0ffA4XVa4u8le1QSOz/5I2dlpk7lS5Ic2yXar0gVaHj9HRhVs1bqScc3VZ
-	CZSgXCBLT8O8qkxe4LLy6O+EWedu9XLMVNF+KOcov6PcsPxiyFrn6zLS9oXFr/oT9c+zmdH7aAu
-	HIBFBAcRIEjfKRvxhimdBJB8HLT8sbi1hYalT5HIUVEjdqoqDfQz+LwBslMbPfARfuBld03zA3r
-	h92UMWHmNE5OVcdPpHr6A9dO8E6l/V4Yi26mCoCvlq4UG5iC0OfayvHQeM9zHzmvgYsAgBW/Exe
-	tWgldu3ey+KHOIzZae/uCVaedtZinJM0r5k9H9LA==
-X-Google-Smtp-Source: AGHT+IFJk9fp2hhz64Syzbeavt8mdfTFZwSf4cG0+TKbLjn4j8k2y9f2rrXA4joIz2ogk2slIvyMAw==
-X-Received: by 2002:a05:6102:e11:b0:5d7:684b:cfe3 with SMTP id ada2fe7eead31-5d7dd6a5052mr7354218137.23.1761227927149;
-        Thu, 23 Oct 2025 06:58:47 -0700 (PDT)
-Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-557bd8e5e87sm775719e0c.11.2025.10.23.06.58.46
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Oct 2025 06:58:46 -0700 (PDT)
-Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-91bdf1a4875so285665241.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 06:58:46 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWrpyde0h5eOu6bYda3P/B+E90tZtstfHterK8TnwTSeRLTBmVgXcbZLCwc1USRyFVXZqmEHlgYTLuQcWv2GjFm@lists.infradead.org
-X-Received: by 2002:a05:6102:c09:b0:5db:3935:1636 with SMTP id
- ada2fe7eead31-5db393518f0mr253967137.26.1761227926239; Thu, 23 Oct 2025
- 06:58:46 -0700 (PDT)
+	Thu, 23 Oct 2025 14:00:34 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4csnjn6y8Lz9sWh;
+	Thu, 23 Oct 2025 16:00:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761228030;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Z+ZZiNFpfo795JzyW1U+Amyk/9XvcQWSem6gcToDr+s=;
+	b=j4ynUv4c+hkeEzlSosmR194vZWb0Fdr0vD8ariJEQuViaQ2jbcsfyGrruvx2A9TijA6PYb
+	ZHDDAXA/ahvyEMf3UDaaHPQErvSvycVz3OV2oQ6D2TbnR9+7ANj6b1MPDHSBzbs8e4bpTg
+	4SYq/NQypjJLK385LZysbRcyTDQ6Uquu9i9c4AJxqrTRK6LF7FruskUxudUq8ZeAfUHGI+
+	6CW97s0HexEQMx1dWO4d3Ca2JN5pTh5JMSdmtq6H5/6BScpftK1GNRzPcfklW+8nRRQkHk
+	pJviiO9qcGpHxl34oJK5tUK6QI3ln8U/ljegOIv4Ag/w3OsKyTQX/0gX23HMHA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=g+S6XF76;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+Message-ID: <70554674-7020-4582-a4e7-dbee34907096@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1761228028;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Z+ZZiNFpfo795JzyW1U+Amyk/9XvcQWSem6gcToDr+s=;
+	b=g+S6XF76RadfsTIRYoIuugAO45PbkGlYNXpuEd7ASeoTlGOBKBhay0nf37U/4TVEiOa8r+
+	rZOoibxEn7k26j2OfE8/3znmepCmeZojymvyyNVEXPrPM/4bHdInrDbY4eaWqUr6I6lKr2
+	DcJO1NeZv4qLsvPt4JisM7w+gmacYqySTdcp6vNkKyl2XoLguWTXiN5bHUleRpdmJ/Mlw0
+	gDw/V/LvZ3FbLRZ5q3iVpZ3E4L1A2k+CS3E45LTEv+HK6z0PloZoMsaEdqC6a506TfGUBn
+	4qnXfHrgCk/5RGoxdacf525cyI3iVFkZH4NeBbqOaeP8Y9ln4xnGrjKfLvPo7g==
+Date: Thu, 23 Oct 2025 16:00:18 +0200
 MIME-Version: 1.0
-References: <20251009-clk-ssc-v5-1-v5-0-d6447d76171e@nxp.com> <20251009-clk-ssc-v5-1-v5-6-d6447d76171e@nxp.com>
-In-Reply-To: <20251009-clk-ssc-v5-1-v5-6-d6447d76171e@nxp.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 23 Oct 2025 15:58:35 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdU-UkzLnrPpBVyMH0DtgubxE_spUYbxtpO+5dmkFFqdcQ@mail.gmail.com>
-X-Gm-Features: AWmQ_bl-Wzz5qd5CCY2fSVugSIzDYGwiZQethxZEtHbYBjXjOaCfH3VbWwjwxpU
-Message-ID: <CAMuHMdU-UkzLnrPpBVyMH0DtgubxE_spUYbxtpO+5dmkFFqdcQ@mail.gmail.com>
-Subject: Re: [PATCH v5 6/6] clk: scmi: Add i.MX95 OEM extension support for
- SCMI clock driver
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Sebin Francis <sebin.francis@ti.com>, Brian Masney <bmasney@redhat.com>, 
-	Dan Carpenter <dan.carpenter@linaro.org>, linux-kernel@vger.kernel.org, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
+ arm,poll-transport property
+To: Cristian Marussi <cristian.marussi@arm.com>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Sudeep Holla <sudeep.holla@arm.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
+References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
+ <aPoxfH_TLrsMxMVQ@pluto>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <aPoxfH_TLrsMxMVQ@pluto>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: jp916jjbwe3rtwcy3pk4agiykqi564ug
+X-MBO-RS-ID: eaba31ded376d5d287d
+X-Rspamd-Queue-Id: 4csnjn6y8Lz9sWh
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_065849_079660_98BB8C7D 
-X-CRM114-Status: GOOD (  25.90  )
+X-CRM114-CacheID: sfid-20251023_070032_302914_0670791C 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,96 +99,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+On 10/23/25 3:45 PM, Cristian Marussi wrote:
 
-On Thu, 9 Oct 2025 at 05:49, Peng Fan <peng.fan@nxp.com> wrote:
->  - Introduce 'clk-scmi-oem.c' to support vendor-specific OEM extensions
->    for the SCMI clock driver, allows clean integration of vendor-specific
->    features without impacting the core SCMI clock driver logic.
->  - Extend 'clk-scmi.h' with 'scmi_clk_oem' structure and related declarations.
->  - Initialize OEM extensions via 'scmi_clk_oem_init()'.
->  - Support querying OEM-specific features and setting spread spectrum.
->  - Pass 'scmi_device' to 'scmi_clk_ops_select()' for OEM data access.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Hello Cristian,
 
-Thanks for your patch!
+> On Thu, Oct 23, 2025 at 02:35:57PM +0200, Marek Vasut wrote:
+>> Document new property arm,poll-transport, which sets all SCMI operation into
+>> poll mode. This is meant to work around uncooperative SCP implementations,
+>> which do not generate completion interrupts. This applies primarily on mbox
+>> based implementations, but does also cover SMC and VirtIO ones.
+> 
+> Hi,
+> 
+> ..indeed I was thinking a while ago about exposing the existing force-polling
+> switch but in my case it was purely a testing-scenario configuration, so a
+> no-no for the DT, things are different if you have to describe an HW that has
+> no completion IRQ also on the a2p channel...
 
-> --- /dev/null
-> +++ b/drivers/clk/clk-scmi-oem.c
-> @@ -0,0 +1,103 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * The Vendor OEM extension for System Control and Power Interface (SCMI)
-> + * Protocol based clock driver
-> + *
-> + * Copyright 2025 NXP
-> + */
-> +
-> +#include <linux/clk-provider.h>
-> +#include <linux/of.h>
-> +#include <linux/scmi_imx_protocol.h>
-> +#include <linux/scmi_protocol.h>
-> +
-> +#include "clk-scmi.h"
-> +
-> +#define SCMI_CLOCK_CFG_IMX_SSC                 0x80
-> +#define SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK      GENMASK(7, 0)
-> +#define SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK                GENMASK(23, 8)
-> +#define SCMI_CLOCK_IMX_SS_ENABLE_MASK          BIT(24)
-> +
-> +struct scmi_clk_oem_info {
-> +       char *vendor_id;
-> +       char *sub_vendor_id;
-> +       char *compatible;
-> +       const void *data;
-> +};
-> +
-> +static int
-> +scmi_clk_imx_set_spread_spectrum(struct clk_hw *hw,
-> +                                const struct clk_spread_spectrum *ss_conf)
-> +{
-> +       struct scmi_clk *clk = to_scmi_clk(hw);
-> +       int ret;
-> +       u32 val;
-> +
-> +       /*
-> +        * extConfigValue[7:0]   - spread percentage (%)
-> +        * extConfigValue[23:8]  - Modulation Frequency
+Correct, at least until the SCP on this hardware is updated.
 
-What is the unit of this?
-According to the code below, it is in Hz, so it is limited to 65535 Hz.
+> ...having said that, though, usually polling-mode is reserved to a few
+> selected commands in a few chosen scenarios (as you may have seen),
+> 'carpet-polling' non-for-testing for all the commands on A2P seems a lot
+> inefficient and heavy...is it really a viable solution ? or these
+> systems use such a low rate of SCMI messages that polling after each and
+> every message is negligible ?
+> 
+> ..just to understand the context...
 
-> +        * extConfigValue[24]    - Enable/Disable
-> +        * extConfigValue[31:25] - Reserved
-
-Center, up, down, could be stored here, I assume?
-
-> +        */
-> +       val = FIELD_PREP(SCMI_CLOCK_IMX_SS_PERCENTAGE_MASK, ss_conf->spread_bp / 10000);
-> +       val |= FIELD_PREP(SCMI_CLOCK_IMX_SS_MOD_FREQ_MASK, ss_conf->modfreq_hz);
-> +       if (ss_conf->method != CLK_SPREAD_NO)
-> +               val |= SCMI_CLOCK_IMX_SS_ENABLE_MASK;
-> +       ret = scmi_proto_clk_ops->config_oem_set(clk->ph, clk->id,
-> +                                                SCMI_CLOCK_CFG_IMX_SSC,
-> +                                                val, false);
-> +       if (ret)
-> +               dev_warn(clk->dev,
-> +                        "Failed to set spread spectrum(%u,%u,%u) for clock ID %d\n",
-> +                        ss_conf->modfreq_hz, ss_conf->spread_bp, ss_conf->method,
-> +                        clk->id);
-> +
-> +       return ret;
-> +}
-
-Gr{oetje,eeting}s,
-
-                        Geert
+These systems are early in development and it is likely that the SCP 
+will be updated to generate interrupts properly. Currently, this is not 
+the case, hence the carpet-polling, until this is resolved.
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Marek Vasut
 
