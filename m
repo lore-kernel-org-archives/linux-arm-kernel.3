@@ -4,141 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F671CCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 12:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB356CCD1BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 12:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ng0p3rzhbCe/bm8WuWNgEWBVBz/1DYFIUGKbuqDxdLg=; b=uD4feuUth4BgjHf3gQt+Q5CG9v
-	ORC4AD0MhcP+sFB0Zs9KVWf8WKdJlHeoip/mFhksLBV9UBy55NK8cQ/rnKDKLs0BUPEgCki0QcVUO
-	oZftLyN1Q/6BsiLrFJ5MTXtrIiIYWciJ2PSGW8KyhjbFq6B5D1otl/9OlKGagHUFz8BFbwV7fnSJX
-	f3m4cDWsqg+H5+YUAXQAGeJziopUCukRtAjMMaMv2yR4drDg3Adek3ZBnDJ1nI69Tm5N01xD6cOY6
-	nUxVtl5WCXS3foxCmNJrsyF6sis6gGsqvEvUGSwSt3bBTSEtef43wJIRC1qfZxCGPOPfwBoTJYT+C
-	0DHzW2Gg==;
+	bh=gmxER2wpKvZxNR6XtOG/BjQc52jijuK0vpZ63oumtJg=; b=wmeOpj7n80aO0Uuw5SkZXR4I6D
+	uBKs5NfOQYJ766wltAWjwMJQoYcgBIRBs9hzAKidh5tCtJGoRmMKx50Jc8TEl8e4k9ZYnWLRtq5yB
+	1jZ0M3kzkXO7L6H+L8un2+DoQyfXeWJnMbLi5SEXsPtRSYx1JpvK1rYsdHbLxFt0/TosIoFNgsBMd
+	U97qfQxbKEWMnyG6cQKT2B7X0OxlDM4C3uvLN6HNGznS39GXBRu0cP9syHvmlTeEB7be4CoBmlJ3M
+	+Z02MatM0i3xYdV3MhAER7N85dusgbseWd0yOC45nvHp2yNkE5QbQ+KjolQPEXvWcmCZK3DXkvAnu
+	ZiMI8oWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuL9-00000006EHd-1pcA;
-	Thu, 23 Oct 2025 12:22:47 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vBuTr-00000006Fzx-2qcd;
+	Thu, 23 Oct 2025 12:31:47 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBuL6-00000006EGv-3Nri
+	id 1vBuTn-00000006Fyb-24ug
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 12:22:45 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-47107a9928cso400365e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 05:22:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761222163; x=1761826963; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ng0p3rzhbCe/bm8WuWNgEWBVBz/1DYFIUGKbuqDxdLg=;
-        b=l8aXpOizVAHDXqVbXCzgIK03vUu6NySfNqDRu3b3VlvV9SNMkR8j2RZDCcArECp3AQ
-         gBUK+67iQHQak7m2ydeo53J2Ac4wposcJFNJ0aiHWF8H412hNPvQeOSGLkf0P2IsXP7I
-         SyrkfmWkAIma1xJ6RiVeYkOleOW5eG6uGcfKOK8wD8MbQPSeMOtHCoNQ6Cj9DjYF1YAV
-         JuzguZkuJkYjjlklgJl30pCXjsGnb2ORf/f09TluAOA+9CYkGFYgUJCL1nsuFCZIO+xg
-         sjfr+My1SDqr6vzxbW3Mvm9BogWzYGSpfVz/02g5K/0hGZyHlEbLo6Rei1tRoFnuwlo3
-         Dkkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761222163; x=1761826963;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ng0p3rzhbCe/bm8WuWNgEWBVBz/1DYFIUGKbuqDxdLg=;
-        b=JzTSkwnwRCXINNBotDG8J3+/8W+TPtj2lRDOyMDfb33hSYVClLuxKLZVsXAOjT/EuJ
-         1MDI7ukHtIpCGdP772BRvTmQxXh2iBu5IiJ0vK4AXufdTkMvHV31rHpoTcniR/O9qF3t
-         atJjh5y25zwbrgvh2Fy+qJaJ2c1UfGBcYEX1RmU2V515JcmqqKgnfaJwMgqcXTBSzJku
-         eAmPwuUoI2FNkQjByQRe6sQMknmpncm8VikZUry4zYCy2eYUIo7xAKddHJwc5Lr36P7B
-         kAgTs197zle8Wm9f7CrzSXaGAXzFPT5xR9aNiuGMD91LevuxaAL2jQ5yBIgTymuG9q35
-         z6/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWwCZtLiZcmC0de6zTfYv+z8WBVSdecR7jST4sHfvVBuHOhGcp2xfAUArIwg7qCd0Sy+wVFkQOOzhwYH5glGNL/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfFLvlawPG/AtpOIYkyuv1Aqyc5Ga/3m7fJKCvQ7+ipRpYmYfP
-	UCQswOPfPSH1aHzGyoneop8fo4DIdHKUQk7MXF5uxaZbcC1exzIeru6WKz89Tzvgf8E=
-X-Gm-Gg: ASbGnctJ0TsR/FzXGjEsNRwyci1PMlc+dzRMjZfIMh+BC6EjceWKKXOd49kcba4iqDm
-	M8RK5r6kFuSK7cgTx99EYAoshZeX9bLbsa8QqkbPIKFKCoCRQyU9ifCjQ9QT2+SHYfHsnpsHxGo
-	vDtEl6Q7leDs4SM6fo9fOOJNU91S0LbqHztGhiCp1J+N+kqT98cygbBDAjKqzgAZYsFanWSy6FW
-	BXdLcxkOnug+PiPvT58G4eeKzYUOiYtpFIaX2LMmbOFDeqDe4dMepqxLStS4aV+Ct+j30oHyjuS
-	k/znJ1XrhfSLbGqqhm+masCUrTkygO3Xa8/+kcWQRfQses4vcdYOyxaAjQ3t24yg265XFcdtGcV
-	USsb/d/8CQkSdAES5EyuAtfY9eaB3LJx9dRr3osKPkNvGO/nKcFymxZ/u8vVc2uk4DltbmJwwRZ
-	C6vi0DQvN2ZM5LDbeBrsQPYaIJRL68i24ZT/tdZx/FUA==
-X-Google-Smtp-Source: AGHT+IHn9Jc9tXr8TF9Sn6KIpzgp4yHxdt9b5RD5u8Yb6ZrVqAyZQpOL9VO2GV+WOPSTnrPzeUkpgA==
-X-Received: by 2002:a05:600c:1d25:b0:471:152a:e574 with SMTP id 5b1f17b1804b1-474942c4fa0mr55655555e9.2.1761222162514;
-        Thu, 23 Oct 2025 05:22:42 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429897e7622sm3705393f8f.8.2025.10.23.05.22.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 23 Oct 2025 05:22:41 -0700 (PDT)
-Message-ID: <cacc9439-2cf0-42bd-b6c5-13d1e75642d8@linaro.org>
-Date: Thu, 23 Oct 2025 14:22:40 +0200
+	Thu, 23 Oct 2025 12:31:45 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4csljb4ypmz6L4tf;
+	Thu, 23 Oct 2025 20:30:11 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3A77814010C;
+	Thu, 23 Oct 2025 20:31:39 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 23 Oct
+ 2025 13:31:38 +0100
+Date: Thu, 23 Oct 2025 13:31:36 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+CC: Conor Dooley <conor@kernel.org>, Catalin Marinas
+	<catalin.marinas@arm.com>, <linux-cxl@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-arch@vger.kernel.org>,
+	<linux-mm@kvack.org>, Dan Williams <dan.j.williams@intel.com>, "H . Peter
+ Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>,
+	<james.morse@arm.com>, Will Deacon <will@kernel.org>, Davidlohr Bueso
+	<dave@stgolabs.net>, <linuxarm@huawei.com>, Yushan Wang
+	<wangyushan12@huawei.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, "Mark
+ Rutland" <mark.rutland@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski
+	<luto@kernel.org>, Dave Jiang <dave.jiang@intel.com>
+Subject: Re: [PATCH v4 0/6] Cache coherency management subsystem
+Message-ID: <20251023133136.00006cdd@huawei.com>
+In-Reply-To: <20251022122241.d2aa0d7864f67112aa7691bf@linux-foundation.org>
+References: <20251022113349.1711388-1-Jonathan.Cameron@huawei.com>
+	<20251022122241.d2aa0d7864f67112aa7691bf@linux-foundation.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64: defconfig: Enable i.MX95 configs for booting
- and Ethernet
-To: =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?=
- <jpaulo.silvagoncalves@gmail.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Marek Vasut <marex@denx.de>, Peng Fan <peng.fan@nxp.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, =?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?=
- <joao.goncalves@toradex.com>
-References: <20251023-upstream-imx95-smarc-defconfig-v1-1-62c6e6f5b315@toradex.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzTRLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+wsGUBBMBCgA+AhsD
- BQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmgXUEoF
- CRaWdJoACgkQG5NDfTtBYpudig/+Inb3Kjx1B7w2IpPKmpCT20QQQstx14Wi+rh2FcnV6+/9
- tyHtYwdirraBGGerrNY1c14MX0Tsmzqu9NyZ43heQB2uJuQb35rmI4dn1G+ZH0BD7cwR+M9m
- lSV9YlF7z3Ycz2zHjxL1QXBVvwJRyE0sCIoe+0O9AW9Xj8L/dmvmRfDdtRhYVGyU7fze+lsH
- 1pXaq9fdef8QsAETCg5q0zxD+VS+OoZFx4ZtFqvzmhCs0eFvM7gNqiyczeVGUciVlO3+1ZUn
- eqQnxTXnqfJHptZTtK05uXGBwxjTHJrlSKnDslhZNkzv4JfTQhmERyx8BPHDkzpuPjfZ5Jp3
- INcYsxgttyeDS4prv+XWlT7DUjIzcKih0tFDoW5/k6OZeFPba5PATHO78rcWFcduN8xB23B4
- WFQAt5jpsP7/ngKQR9drMXfQGcEmqBq+aoVHobwOfEJTErdku05zjFmm1VnD55CzFJvG7Ll9
- OsRfZD/1MKbl0k39NiRuf8IYFOxVCKrMSgnqED1eacLgj3AWnmfPlyB3Xka0FimVu5Q7r1H/
- 9CCfHiOjjPsTAjE+Woh+/8Q0IyHzr+2sCe4g9w2tlsMQJhixykXC1KvzqMdUYKuE00CT+wdK
- nXj0hlNnThRfcA9VPYzKlx3W6GLlyB6umd6WBGGKyiOmOcPqUK3GIvnLzfTXR5DOwU0EVUNc
- NAEQAM2StBhJERQvgPcbCzjokShn0cRA4q2SvCOvOXD+0KapXMRFE+/PZeDyfv4dEKuCqeh0
- hihSHlaxTzg3TcqUu54w2xYskG8Fq5tg3gm4kh1Gvh1LijIXX99ABA8eHxOGmLPRIBkXHqJY
- oHtCvPc6sYKNM9xbp6I4yF56xVLmHGJ61KaWKf5KKWYgA9kfHufbja7qR0c6H79LIsiYqf92
- H1HNq1WlQpu/fh4/XAAaV1axHFt/dY/2kU05tLMj8GjeQDz1fHas7augL4argt4e+jum3Nwt
- yupodQBxncKAUbzwKcDrPqUFmfRbJ7ARw8491xQHZDsP82JRj4cOJX32sBg8nO2N5OsFJOcd
- 5IE9v6qfllkZDAh1Rb1h6DFYq9dcdPAHl4zOj9EHq99/CpyccOh7SrtWDNFFknCmLpowhct9
- 5ZnlavBrDbOV0W47gO33WkXMFI4il4y1+Bv89979rVYn8aBohEgET41SpyQz7fMkcaZU+ok/
- +HYjC/qfDxT7tjKXqBQEscVODaFicsUkjheOD4BfWEcVUqa+XdUEciwG/SgNyxBZepj41oVq
- FPSVE+Ni2tNrW/e16b8mgXNngHSnbsr6pAIXZH3qFW+4TKPMGZ2rZ6zITrMip+12jgw4mGjy
- 5y06JZvA02rZT2k9aa7i9dUUFggaanI09jNGbRA/ABEBAAHCwXwEGAEKACYCGwwWIQSb0H4O
- DFH41ZZ3t1Qbk0N9O0FimwUCaBdQXwUJFpZbKgAKCRAbk0N9O0Fim07TD/92Vcmzn/jaEBcq
- yT48ODfDIQVvg2nIDW+qbHtJ8DOT0d/qVbBTU7oBuo0xuHo+MTBp0pSTWbThLsSN1AuyP8wF
- KChC0JPcwOZZRS0dl3lFgg+c+rdZUHjsa247r+7fvm2zGG1/u+33lBJgnAIH5lSCjhP4VXiG
- q5ngCxGRuBq+0jNCKyAOC/vq2cS/dgdXwmf2aL8G7QVREX7mSl0x+CjWyrpFc1D/9NV/zIWB
- G1NR1fFb+oeOVhRGubYfiS62htUQjGLK7qbTmrd715kH9Noww1U5HH7WQzePt/SvC0RhQXNj
- XKBB+lwwM+XulFigmMF1KybRm7MNoLBrGDa3yGpAkHMkJ7NM4iSMdSxYAr60RtThnhKc2kLI
- zd8GqyBh0nGPIL+1ZVMBDXw1Eu0/Du0rWt1zAKXQYVAfBLCTmkOnPU0fjR7qVT41xdJ6KqQM
- NGQeV+0o9X91X6VBeK6Na3zt5y4eWkve65DRlk1aoeBmhAteioLZlXkqu0pZv+PKIVf+zFKu
- h0At/TN/618e/QVlZPbMeNSp3S3ieMP9Q6y4gw5CfgiDRJ2K9g99m6Rvlx1qwom6QbU06ltb
- vJE2K9oKd9nPp1NrBfBdEhX8oOwdCLJXEq83vdtOEqE42RxfYta4P3by0BHpcwzYbmi/Et7T
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <20251023-upstream-imx95-smarc-defconfig-v1-1-62c6e6f5b315@toradex.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_052244_872727_F70CEFD7 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251023_053143_844921_968A22C9 
+X-CRM114-Status: GOOD (  41.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,24 +81,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/2025 14:19, João Paulo Gonçalves wrote:
-> From: João Paulo Gonçalves <joao.goncalves@toradex.com>
+On Wed, 22 Oct 2025 12:22:41 -0700
+Andrew Morton <akpm@linux-foundation.org> wrote:
+
+> On Wed, 22 Oct 2025 12:33:43 +0100 Jonathan Cameron <Jonathan.Cameron@huawei.com> wrote:
 > 
-> Enable the necessary missing configs for the i.MX95 to boot and also
-> have Ethernet working:
+> > Support system level interfaces for cache maintenance as found on some
+> > ARM64 systems. This is needed for correct functionality during various
+> > forms of memory hotplug (e.g. CXL). Typical hardware has MMIO interface
+> > found via ACPI DSDT.
+> > 
+> > Includes parameter changes to cpu_cache_invalidate_memregion() but no
+> > functional changes for architectures that already support this call.  
+
+Hi Andrew,
+
 > 
-> * CONFIG_NXP_ENETC4 for the network controller driver
-> * CONFIG_NXP_NETC_BLK_CTRL for the NETC hardware domain controller
+> I see additions to lib/ so presumably there is an expectation that
+> other architectures might use this.
 
+Absolutely. It's not ARM specific in any way. Given, in at least some
+implementations, it is part of the coherency fabric and there are
+examples in the past of people mixing and matching those with CPU
+architectures, it's more than possible a given driver might be applicable
+across different CPU architectures.
 
-These do not carry any IMX95 compatibles, so I have doubts you described
-the issue correctly. You claim that SoC needs them, not the board.
+> 
+> Please expand on this.  Any particular architectures in mind?  Any
+> words of wisdom which maintainers of those architectures might benefit
+> from?
 
-> * CONFIG_PINCTRL_IMX_SCMI for the pinctrl driver> * CONFIG_CLK_IMX95_BLK_CTL for the shared hardware domain controller
+My initial guess for a second architecture using it would be RiscV
+but I don't know if anyone yet cares about the any of the use cases.
 
+The short answer is that it depends on whether the architecture
+requires 'one solution' or leaves it as a system problem where
+a driver needs to be loaded to suit the particular implementation.
 
-BTW standard comment applies - explain which upstream boards have all these.
+Longer answer follows:
 
-Best regards,
-Krzysztof
+There are two aspects to when people might find this useful to
+consider
+
+A) The use case.  For it to apply to an architecture you need to have
+   a requirement to support the case of content of memory presented
+   at a PA to change without the host explicitly writing it.  That
+   can happen for various reasons.
+   - Late exposure of memory - security keys for pmem for instance.
+     Until those are programmed any prefetchers will fill caches
+     with garbage that needs clearing out.
+   - Reprogramming of address decoders beyond the edge of where the
+     Host Physical Addresses define what goes on.  This is the CXL
+     case where there is a translation from Host Physical Address
+     to Device Physical address which can change at runtime.
+   - (not yet enabled) Interhost sharing without hw coherency. Necessary
+     to flush local caches because someone changed the data under the
+     hood. Because this happened beyond the scope of the local host
+     normal cache flushing instructions might not do the job.
+     Hopefully we will have lighter weight solutions for this.
+So upshot today is that it is likely to only apply to server architectures.
+
+B) Is there an architected solution for that architecture. (i.e. is it
+   in the CPU architecture spec) If there is 'one solution', then
+   registering the arch callbacks directly is sufficient. This is
+   true for x86 as there is a CPU instruction that performances the
+   relevant operations.
+
+Arm decided (for now) to not go down the path of architecting this
+in one of their architecture specs that licensees would then have
+to comply with (I'll let James / others add more on that if they want).
+There were already being multiple hardware IPs out there that providing
+this feature as part of the coherency fabrics.  Earlier versions of
+this series mentioned an attempt to provide a firmware interface to
+hide away the complexity but that also turned out to be unnecessary
+as everyone with a usecase had memory mapped devices the kernel can
+directly control.
+
+So there will be multiple different implementations on ARM servers.
+I doubt we'll even keep it completely consistent across different
+HiSilicon CPU generations. As per the discussion with Conor, there
+are multiple agents each of which registers separately and has
+no knowledge of the other instances. For now the ones I know of
+are homogeneous for a given server, but it made no difference to
+allow for heterogeneous cases (I emulated those to check).
+
+So for other architectures, it is a case of which path do they want to
+follow?  If they don't have existing instructions defined that work
+for this, and have more than one implementer, then the approach seen
+here should be useful. I think RiscV doesn't have such an instruction
+so I'd expect this to be useful to them.  Not sure on other server
+architectures as most of them today are much less diverse than ARM / RiscV
+so a "one true solution" in an architecture spec is perhaps more likely.
+
+In the various review rounds, we've had some discussion of the requirements
+implied by the current simple interface (no ordering, single operation in
+flight).  So I'd not be surprised if we have to make things a little
+cleverer in the long run.  The HiSilicon HHA hardware interface is very simple
+so I've supported what that (and the PSCI spec with sane options - see v3)
+for now.
+
+> 
+> > How to merge?  When this is ready to proceed (so subject to review
+> > feedback on this version), I'm not sure what the best route into the
+> > kernel is. Conor could take the lot via his tree for drivers/cache but
+> > the generic changes perhaps suggest it might be better if Andrew
+> > handles this?  Any merge conflicts in drivers/cache will be trivial
+> > build file stuff. Or maybe even take it throug one of the affected
+> > trees such as CXL.  
+> 
+> Let's not split the series up.  Either CXL or COnor's tree is fine my
+> me.
+
+Thanks,
+
+Jonathan
+> 
+> 
+
 
