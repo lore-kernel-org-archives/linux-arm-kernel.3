@@ -4,88 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1411BCCD1BE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 00:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA136CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 23 Oct 2025 00:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+BzUm9JmA2mCRf/KGS8HyJCgaS2vPaXa6bP7oAZwWOg=; b=p6Gnyy4v2syobcJuYR3t6J037V
-	0D0wDN/VUw6+XHG+A5ngubL578sEOWl2JUDjh4OqrV6y4FPjamKAl+XROJYtZ+b1qxCqMMiHwf444
-	cGsLelEqCb1iOtlYEMF/Uedu+eKLXl9haKkptY+ZUyJtHL7uuClcbqZ+CL6VYZ7yCmAblBvvyxj1r
-	Lne0Agl2iwdxqnrZzcOHhe44rHZE6vnWWddcS9utRg1uiNpNv+Uica9m2u0ecp0zPgH+M6AINbbd1
-	8sroPQV7tPuyJrkM5OLhjWwUB487cS0t26mFawPUmWIzsWH6xRHFUiqrFZbgxCvTGqNR2gIQEbI/S
-	+qvGunow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YMUWYl+RTsVCov/vsPtkBuHUA9Ssu9g/aMZ+rIBItRU=; b=SNIWqtS0lfN2mx4JG2spnd+t1n
+	NCMREwTCLZQsGLTvUTZjfkn7LZMgKCcBi1Tbm2sSaUz2Y/zv51el7QlY+h2GQZO9Bc2sEtqEOE0E6
+	GaieRhQR200ddyYWxWl1lJiIZdBWvGnZswoFAnQawjdGM6pFTVo0XS7nADHZWqSWfmoGQ5aKddOOO
+	1/CEoBktsbLH2ooxJDAj6amZIoLXpY9hlJ8NA+mXsvitx5x9Ofg0uP7NpjeIWEICEL4JeM431DDp4
+	mNJJuWJ/UB+ZvZrBX4elKQ434SSTTjlsqREw1toUZcYx+vjdClyBACapAfCEEYhfPdizqKNQVwc3j
+	37rEa1pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBiom-00000004ceU-1hLq;
-	Thu, 23 Oct 2025 00:04:36 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1vBipw-00000004d2s-0jxj;
+	Thu, 23 Oct 2025 00:05:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vBioj-00000004cdp-2cXD
+	id 1vBipu-00000004d28-1b57
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 23 Oct 2025 00:05:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=YMUWYl+RTsVCov/vsPtkBuHUA9Ssu9g/aMZ+rIBItRU=; b=j5WxyGzOOgrcQS6QDfqyl1iMGH
+	p76INzRn0do952wlpSmFZJkYE0reKfU4w88gfzEk909U6ihml6v1uxgYxedjIZ2mxoVkVBUnN31F7
+	7i0Bw8CeRCZL9+OKCKxd9aRXMu5Hs5SMKdNESa7j6NPCEdGi1Pgtz1iah4Ldc7Bz51mGNvItQMhdw
+	nYUt3dEfwR9u0dGGXt14n78IuXGGKB9kCwn7ncStQXkZXhCKclnl2bnAvximhc/mDI9oW9zHf16kq
+	3sR0nCagnXxaA/OHGx0qsRb0JS2JRspdbC2JuVTPfMhHeSttMoHC9FL5KqiWhAliyuwqKUxUigNVc
+	rnTKgNwg==;
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vBhy9-00000000vjh-2k89
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 23 Oct 2025 00:04:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761177874; x=1792713874;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=R7sNaw4y/sEBbeMQ9YD6iGrdQApY+snp9f5pwr/so7s=;
-  b=X42mms2f7+cCXJHgIPaahyDLBaix+duTiNIXk012QoX+MoWW3GSMy6WP
-   9+6ekSeqAEGbshmtmu0vLFNuXOgsRE+tYsD/pPE03I1t9pH7eI/Pcnz42
-   g0FvpJpnAFhJ2Re/jQtPWW2vOXzgG4A/s+OD7L3ycKSQIetEKnPnX5QKa
-   UNnqCnf79yvFqrcbx6BfVDTAy7Gt/JgBp9lz98sCe8SLLR/FYISR8roAJ
-   dpLYqCBDkKhTBZXI5rB7K6wgk9/T3K+yLrKr4GIkB4D4BKRQSsZhGZHR2
-   B7qO1fXDv9U5o0RnHVQ0F8cmc2PRacE0c8M5Gn8eL23g/7qxclx+3DoXd
-   Q==;
-X-CSE-ConnectionGUID: 5VfejwaISluS4BbeCr7vOA==
-X-CSE-MsgGUID: NFbyZQmCSZeLNjVJ6dkvOQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="63242434"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="63242434"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Oct 2025 17:04:33 -0700
-X-CSE-ConnectionGUID: RQ5X8IvDSJW+shKWJ/XzaQ==
-X-CSE-MsgGUID: SUBhFPknQIWpRfmqleoJzg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,248,1754982000"; 
-   d="scan'208";a="183179024"
-Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
-  by orviesa006.jf.intel.com with ESMTP; 22 Oct 2025 17:04:27 -0700
-Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vBiob-000CqZ-2B;
-	Thu, 23 Oct 2025 00:04:25 +0000
-Date: Thu, 23 Oct 2025 08:03:41 +0800
-From: kernel test robot <lkp@intel.com>
-To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, quic_yingdeng@quicinc.com,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-	Jinlong Mao <jinlong.mao@oss.qualcomm.com>
-Subject: Re: [PATCH v3] stm: class: Add MIPI OST protocol support
-Message-ID: <202510230717.u8tTLt9x-lkp@intel.com>
-References: <20251022071834.1658684-1-yingchao.deng@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251022071834.1658684-1-yingchao.deng@oss.qualcomm.com>
+	Wed, 22 Oct 2025 23:10:17 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-32eb864fe90so400629a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 22 Oct 2025 17:05:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1761177938; x=1761782738; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YMUWYl+RTsVCov/vsPtkBuHUA9Ssu9g/aMZ+rIBItRU=;
+        b=2po47XVoFIW+1ioT5ibyUSjYyIX+x/+RpsE6gnzJBjxAihpM4N2bNwLwtQnbt6D+B2
+         BN5E6heYimteIkzaXrViUr5bYfrFIuBhb1g+Y09OlqPVna5n6ok6p+3/e9iZnq5lWqAo
+         g7ISDeAeHF6+u6T64sTqdlMvA9Vpwqwz8rl0AgiAU0EVmnEUdkVxa47Pn9c8Ke+gUU8P
+         sEXYyUcDatoxitEEqAkV8exgPCMnPfk6svIHG0Ckf0v/lCk9sgM/ahe/C0ERy8Slalnv
+         ojGwwNpjqNlOw8kWaRbBXpj1Nsii6XeQXCSi6lDiZO7nMb+qJhE1tAR6ABz0pAGiH9Tx
+         gygw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761177938; x=1761782738;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YMUWYl+RTsVCov/vsPtkBuHUA9Ssu9g/aMZ+rIBItRU=;
+        b=rkyrIroEs6bq6rHaa9FmP3SeVm1rT8ABJRX3x6kTcm+BJnwFuBHiCva2d/eyY5z4IJ
+         uaMDvAeExq2BqfUIfMNtiztz7EstR/UDZ3nMt5MN+AkM174kIvegoIMI+IdMudSrSyCw
+         +8XJ+g6tqZLlu5XqWxsJzL71ENy4LNJOAjJgfjgIc6w7FMX2gjtOcE76fZYKSMYNHf/a
+         PfNdc+Pp1LUe/Msf3Mptz4jgPVbN6AoIPumlgRdQnuB+TKoaGEyYGIaVFYnGt4X/oiBf
+         sdrJM3KuwusU7vVlaEkKbPRpOnZBO4VjrbnPcEwmwCESTloY20P33g3StfHm/ThK5hSa
+         xE4w==
+X-Forwarded-Encrypted: i=1; AJvYcCVLg23RSBebxgfBX1tl5Vnh6aK3MBgIHUl707CcJqlDMR2RnSUexQ+EiowNxCqHB6J/lfooizZoDsy4KIQwNLEE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzzmoHjgUFUC+Lk++J9fGLewU5Iw2ney04eKIL1qf16OD2PGjv
+	H47n48LjSQEVbwFnh2wT+Kg1qlAqR81tFhLJeFTLWRF2/bA+ogJqtQNFdruFUIxDiouOFMLGIA7
+	lIZjYtQ==
+X-Google-Smtp-Source: AGHT+IF6lSdbdtyS+/t/fGvEsbBKEiGOc0L8/NdAr9Cp2dQPW0iljcBuf5Kq/IEP9uj1boUHsE/v/xDHW1g=
+X-Received: from pjih1.prod.google.com ([2002:a17:90a:5801:b0:33e:28eb:7df2])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:55cb:b0:339:9f7d:92d4
+ with SMTP id 98e67ed59e1d1-33bcf87b8a5mr30997233a91.9.1761177937783; Wed, 22
+ Oct 2025 17:05:37 -0700 (PDT)
+Date: Thu, 23 Oct 2025 00:04:42 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.51.1.814.gb8fa24458f-goog
+Message-ID: <20251023000535.2897002-1-kuniyu@google.com>
+Subject: [PATCH v1 0/2] epoll: Save one stac/clac pair in epoll_put_uevent().
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, Jens Axboe <axboe@kernel.dk>, 
+	Christian Brauner <brauner@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, "H. Peter Anvin" <hpa@zytor.com>, Eric Dumazet <edumazet@google.com>, 
+	Kuniyuki Iwashima <kuniyu@google.com>, Kuniyuki Iwashima <kuni1840@gmail.com>, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251022_170433_711850_0155EA9B 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20251023_001013_838903_A5655EB3 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,106 +113,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yingchao,
+epoll_put_uevent() calls __put_user() twice, which are inlined
+to two calls of out-of-line functions, __put_user_nocheck_4()
+and __put_user_nocheck_8().
 
-kernel test robot noticed the following build errors:
+Both functions wrap mov with a stac/clac pair, which is expensive
+on an AMD EPYC 7B12 64-Core Processor platform.
 
-[auto build test ERROR on atorgue-stm32/stm32-next]
-[also build test ERROR on linus/master v6.18-rc2 next-20251022]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+  __put_user_nocheck_4  /proc/kcore [Percent: local period]
+  Percent =E2=94=82
+    89.91 =E2=94=82      stac
+     0.19 =E2=94=82      mov  %eax,(%rcx)
+     0.15 =E2=94=82      xor  %ecx,%ecx
+     9.69 =E2=94=82      clac
+     0.06 =E2=94=82    =E2=86=90 retq
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Yingchao-Deng/stm-class-Add-MIPI-OST-protocol-support/20251022-152642
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/atorgue/stm32.git stm32-next
-patch link:    https://lore.kernel.org/r/20251022071834.1658684-1-yingchao.deng%40oss.qualcomm.com
-patch subject: [PATCH v3] stm: class: Add MIPI OST protocol support
-config: i386-randconfig-013-20251023 (https://download.01.org/0day-ci/archive/20251023/202510230717.u8tTLt9x-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251023/202510230717.u8tTLt9x-lkp@intel.com/reproduce)
+This was remarkable while testing neper/tcp_rr with 1000 flows per
+thread.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510230717.u8tTLt9x-lkp@intel.com/
+  Overhead  Shared O  Symbol
+    10.08%  [kernel]  [k] _copy_to_iter
+     7.12%  [kernel]  [k] ip6_output
+     6.40%  [kernel]  [k] sock_poll
+     5.71%  [kernel]  [k] move_addr_to_user
+     4.39%  [kernel]  [k] __put_user_nocheck_4
+     ...
+     1.06%  [kernel]  [k] ep_try_send_events
+     ...                  ^- epoll_put_uevent() was inlined
+     0.78%  [kernel]  [k] __put_user_nocheck_8
 
-All errors (new ones prefixed by >>):
+Patch 1 adds a new uaccess helper that is inlined to a bare stac
+without address masking or uaccess_ok(), which is already checked
+in ep_check_params().
 
->> drivers/hwtracing/stm/p_ost.c:201:13: error: call to undeclared function 'task_tgid_nr'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     201 |         hdr.tgid        = task_tgid_nr(current);
-         |                           ^
-   drivers/hwtracing/stm/p_ost.c:172:6: warning: unused variable 'i' [-Wunused-variable]
-     172 |         int i;
-         |             ^
-   1 warning and 1 error generated.
+Patch 2 uses the helper and unsafe_put_user() in epoll_put_uevent().
 
 
-vim +/task_tgid_nr +201 drivers/hwtracing/stm/p_ost.c
+Kuniyuki Iwashima (2):
+  uaccess: Add __user_write_access_begin().
+  epoll: Use __user_write_access_begin() and unsafe_put_user() in
+    epoll_put_uevent().
 
-   154	
-   155	static ssize_t
-   156	notrace ost_write(struct stm_data *data, struct stm_output *output,
-   157			  unsigned int chan, const char *buf, size_t count,
-   158			  struct stm_source_data *source)
-   159	{
-   160		unsigned int c = output->channel + chan;
-   161		unsigned int m = output->master;
-   162		const unsigned char nil = 0;
-   163		u32 header = DATA_HEADER;
-   164		struct trc_hdr {
-   165			u16 version;
-   166			u16 magic;
-   167			u32 cpu;
-   168			u64 timestamp;
-   169			u64 tgid;
-   170		} hdr;
-   171		ssize_t sz;
-   172		int i;
-   173		struct ost_output *op = output->pdrv_private;
-   174	
-   175		/*
-   176		 * Identify the source by entity type.
-   177		 * If entity type is not set, return error value.
-   178		 */
-   179		if (op->node.entity_type)
-   180			header |= ost_entity_value[op->node.entity_type];
-   181		else
-   182			return -EINVAL;
-   183	
-   184		/*
-   185		 * STP framing rules for OST frames:
-   186		 *   * the first packet of the OST frame is marked;
-   187		 *   * the last packet is a FLAG with timestamped tag.
-   188		 */
-   189		/* Message layout: HEADER / DATA / TAIL */
-   190		/* HEADER */
-   191		sz = data->packet(data, m, c, STP_PACKET_DATA, STP_PACKET_MARKED,
-   192				  4, (u8 *)&header);
-   193		if (sz <= 0)
-   194			return sz;
-   195	
-   196		/* DATA */
-   197		hdr.version	= STM_MAKE_VERSION(0, 3);
-   198		hdr.magic	= STM_HEADER_MAGIC;
-   199		hdr.cpu		= raw_smp_processor_id();
-   200		hdr.timestamp = sched_clock();
- > 201		hdr.tgid	= task_tgid_nr(current);
-   202		sz = stm_data_write(data, m, c, false, &hdr, sizeof(hdr));
-   203		if (sz <= 0)
-   204			return sz;
-   205	
-   206		sz = stm_data_write(data, m, c, false, buf, count);
-   207	
-   208		/* TAIL */
-   209		if (sz > 0)
-   210			data->packet(data, m, c, STP_PACKET_FLAG,
-   211				STP_PACKET_TIMESTAMPED, 0, &nil);
-   212	
-   213		return sz;
-   214	}
-   215	
+ arch/arm64/include/asm/uaccess.h   |  1 +
+ arch/powerpc/include/asm/uaccess.h | 13 ++++++++++---
+ arch/riscv/include/asm/uaccess.h   |  1 +
+ arch/x86/include/asm/uaccess.h     |  1 +
+ include/linux/eventpoll.h          | 13 ++++++++-----
+ include/linux/uaccess.h            |  1 +
+ 6 files changed, 22 insertions(+), 8 deletions(-)
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--=20
+2.51.1.814.gb8fa24458f-goog
+
 
