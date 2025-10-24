@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884F9CCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 13:14:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4DA3CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 13:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DA/0xI9XuzSTt1Z04u/yEWZyQXZYqt/97+Wy6DIq3e8=; b=JHZd31KCvcQVbqlWbUPhMEEi3E
-	p7baoYKs7IN9d0lRQeE3tY2POJyGwUqzbtcktkbFzcrL4mTHiMQJ73RPDwd8dD9pSdXlkx/BPPf0N
-	EJ+LtCyXKa8HzxbrFNWOS7st2i+ZX0ZCMdPUM3Ar/1MgsPdpjD/b2v2otgQE3S1UE41Cqr7b4cVtX
-	1ddFBGz5UI6y0DSfpd/wIo5sbvcEYgnAtLXOMKe22vyOMq+t0Q2JkTOLgERIDll94yInQT6M0xFhm
-	7pDRwpsehXVEisVvyrD37mnSCBK49C450bmlmWhOBAqCWs2OYqh2U3IPW6hO4r9cw+tGt+Yvsq6gG
-	TzG6+uog==;
+	bh=z97N0nvig8VQv1fl07JtA/y5utH7Z66UA6NeoFpj+7Y=; b=JcPt+TdKzm4RitQZNHbncsaVhe
+	ds9YYHMNYcXvI7Q0ckTciSbEDOss94SbfYx6iuNFWpn6RwlqrhPcQp3Ch4/zKVUmyK86/0/6bs3Es
+	3nNbSy1FowBk9D29kO2F9kWAIudEhGThke0UXyyZz0S5lgaYc6zp3/CAFI10vIfZEF4vVe4yRIy3k
+	qmDsJuUv3xM3TNQ+LlmyAR9ELjL/n6MsXZ8GAHBJAst2B+B/rfZ0uHMRp7uYpa3x/U7N8TziAtLOG
+	0mFii6EnJ5khwpCdJzDHo6Xk0Ym9dvS34xHXHBLvZGBm0tS0gTyWMWQwssJT8d4kNcdPOzlSkjpvB
+	RwCvqNXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCHcU-00000009VFb-12ec;
-	Fri, 24 Oct 2025 13:14:14 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1vCHfO-00000009VeC-2icP;
+	Fri, 24 Oct 2025 13:17:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCHcR-00000009VED-1HNm
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 13:14:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1761311639;
-	bh=DA/0xI9XuzSTt1Z04u/yEWZyQXZYqt/97+Wy6DIq3e8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AqgzCm1dd0k/aUIcEdl0Hm9L6+HrivMtdltLfAdJ2V/UI101YRpopWMxclWZUsxIi
-	 fdEz5ofPGQuugnuX06FonSsV3olkpSXMfKhfM7uc7Eu9G1KCURvO2lTOhSotyM/lbK
-	 RQHU40m2L2xgkYBRaQ04HyxImQISWA1MEdNEuqEXdI5u3e65SGrQNdHYA4HvJn7cE3
-	 rz6caVpUMvGwUJYT9M7C9vj6+LJc1grMs42vuG+HwMqgDt9VenQSzV69+AtinBJ55+
-	 s3lhGGE2m3GZmBY2PByLJgrrEwe6bMTwzd4gtr0rqlYG/S6ftJgD9xuIyYDOJqzgSQ
-	 Gpdu1qonxkVbg==
-Received: from sparky.lan (unknown [159.196.93.152])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id B9FB37561D;
-	Fri, 24 Oct 2025 21:13:56 +0800 (AWST)
-Message-ID: <9c0252401fca51549cef2586e9171fa167cc0c53.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v20 1/4] dt-bindings: i2c: Split AST2600 binding into a
- new YAML
-From: Jeremy Kerr <jk@codeconstruct.com.au>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Krzysztof Kozlowski
- <krzk@kernel.org>
-Cc: "benh@kernel.crashing.org" <benh@kernel.crashing.org>, "joel@jms.id.au"
- <joel@jms.id.au>, "andi.shyti@kernel.org" <andi.shyti@kernel.org>, 
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>,  "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, 
- "andriy.shevchenko@linux.intel.com" <andriy.shevchenko@linux.intel.com>,
- "naresh.solanki@9elements.com" <naresh.solanki@9elements.com>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
- <linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>
-Date: Fri, 24 Oct 2025 21:13:56 +0800
-In-Reply-To: <TY2PPF5CB9A1BE6E6E8FA67CDC03A55A439F2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-References: <20251021013548.2375190-1-ryan_chen@aspeedtech.com>
-	 <20251021013548.2375190-2-ryan_chen@aspeedtech.com>
-	 <20251024-dark-ringtail-of-defiance-1daabd@kuoka>
-	 <2939cae6-2e8a-4528-8e27-8c932e2f82de@kernel.org>
-	 <bf3d6690b9124ecf74df6c0f9f1c0f72ae1db9f7.camel@codeconstruct.com.au>
-	 <8341a903-639b-471a-8425-a98c473f5ab0@kernel.org>
-	 <7a650d60cabcbd33b65c954b0c9c5918dfcabb09.camel@codeconstruct.com.au>
-	 <563d6efb-966e-41e7-aade-ddec2abc7568@kernel.org>
-	 <TY2PPF5CB9A1BE6E6E8FA67CDC03A55A439F2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	id 1vCHfM-00000009Vdg-40M1;
+	Fri, 24 Oct 2025 13:17:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5F90960496;
+	Fri, 24 Oct 2025 13:17:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA46BC4CEF1;
+	Fri, 24 Oct 2025 13:17:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761311832;
+	bh=A2BnR2YHSryVqsKA9P+YQyFmh/9l8BRKmmWfe/NlsaE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aZtXvucm/CfsW7ZEu9pDdtzSjZjO5nS5yODdFkvQeRrlKFUKNtzshAe7d0sflUwTy
+	 wmMAsC3Q/5aspelec9kXuFJC8WY8P1zDgKS8uNTWZFIKGPBatu1IjmhEt6oBILk1cu
+	 CR1ZubmRc6Frirymaa1FDOREXiQXlH/67KI4Iyt+UF7e6Ay0F0H1I4VOyM2kkMGCzX
+	 WIYBVY7gi5SQdBo4v/6kTn5ut0Siw6V84sdLKa6GnP9W/SF3RPT2v6d8yKkgseEn3L
+	 QUyeXJxcDbLwlwse1OvnqYF/2F5ThD7UID+ak3DWfxbhkw0G2MIh8AH6gsXb93oDLq
+	 4yeu1u+XB2H4Q==
+Date: Fri, 24 Oct 2025 08:17:10 -0500
+From: Rob Herring <robh@kernel.org>
+To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+Cc: andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com,
+	conor+dt@kernel.org, houlong.wei@mediatek.com, krzk+dt@kernel.org,
+	matthias.bgg@gmail.com, mchehab@kernel.org,
+	minghsiu.tsai@mediatek.com, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	kernel@collabora.com
+Subject: Re: [PATCH v3] dt-bindings: media: Convert MediaTek mt8173-mdp
+ bindings to DT schema
+Message-ID: <20251024131710.GA1563195-robh@kernel.org>
+References: <20251001183115.83111-1-ariel.dalessandro@collabora.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_061411_558255_5DEA8B0B 
-X-CRM114-Status: UNSURE (   5.32  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251001183115.83111-1-ariel.dalessandro@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,29 +73,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+On Wed, Oct 01, 2025 at 03:31:15PM -0300, Ariel D'Alessandro wrote:
+> Convert the existing text-based DT bindings for MediaTek MT8173 Media Data
+> Path to a DT schema.
+> 
+> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../bindings/media/mediatek,mt8173-mdp.yaml   | 169 ++++++++++++++++++
+>  .../bindings/media/mediatek-mdp.txt           |  96 ----------
+>  2 files changed, 169 insertions(+), 96 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8173-mdp.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/media/mediatek-mdp.txt
 
-> I will modify with following.
-> if:
-> =C2=A0 properties:
-> =C2=A0=C2=A0=C2=A0 compatible:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enum:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - aspeed,ast2600-i=
-2c-bus
-> then:
-> =C2=A0 required:
-> =C2=A0=C2=A0=C2=A0 - aspeed,global-regs
-> else:
-> =C2=A0 properties:
-> =C2=A0=C2=A0=C2=A0 aspeed,transfer-mode: false
-> =C2=A0=C2=A0=C2=A0 aspeed,global-regs: false
+Since the media folks haven't picked this up yet, I applied it.
 
-I think Krzysztof was fine with your approach of the new binding file,
-just with the improved commit message.
+I hope to see some more Mediatek fixes this cycle.
 
-Cheers,
-
-
-Jeremy
+Rob
 
