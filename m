@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E5DBCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 12:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 855B1CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 12:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1DBVmkORiObKi/mtbHrI6pyrFSaGIBlKIWc0uf+aGHI=; b=mG7fdbQBD4zC4gPjESfJ/Vg31S
-	3rzqS2CM0m1MEhADnv7QRq+85dPmIyj3HH97IaLql/SppOYkaBZal2l20wer+91IkwEc1z+vJEL0g
-	sNMHA2PCapN2p9ukzZ56GfJdgnHiVFhe2P3crAUpFljDa6HybJnRqovPGAaL+KXOrAnSI6VIZ85Dt
-	JGAhwDiqHZTMHziSPNvpeHQfID/LvTQHqfooj5MlA+ahRcn+cDNbSKRBDvUBpbvhVZcXGNTJivsSF
-	wSaozWpk8O26CnhkTfhpZwkQYiDq/aLdCfEpPHZLQ1d+ITiDNtjQ0fLVT/XzCtIdmA/rSsGuHN+X0
-	Lh2RK/jA==;
+	bh=LSUmh1jpI9zBrymiusXEbO1vxH7E1qauVBHlErgl6Kw=; b=3ADz1U8TJ9iPGgucIRwBJVqCsq
+	VJIDrFeds/kyl7ER322N5bTVlePUoB2HPRZzyL3vSkEqxOyACRtk2XL9xwa9CRSxmHshNgmmRbYVK
+	X3VOde4lE0+V69kyHmx/1bJOjHFw6dSMCUgoR8feIckMfwFe7GPdrHDuWlcJzmzu8UWGflZSislFi
+	HBMAt+a2oTJ0beZ0qtkir/vpL+ACWOEYRxAIO/VQSxOYTyMaqs4c8XeCmcAmF9PmNiX3acHVD2a7Y
+	ktwqzIzI0UIPHybNnxLZIXalLXNTiF254bBYdvATYYjebNRhj1S8koLNzRVo41wsTB50geuXlcgS6
+	ZO0uwekw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCHEO-00000009PTU-0yIS;
-	Fri, 24 Oct 2025 12:49:20 +0000
+	id 1vCHES-00000009PVU-2EG7;
+	Fri, 24 Oct 2025 12:49:24 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCHEJ-00000009PRj-2KpN
+	id 1vCHEO-00000009PTA-2v25
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 12:49:17 +0000
+	Fri, 24 Oct 2025 12:49:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=1DBVmkORiObKi/mtbHrI6pyrFSaGIBlKIWc0uf+aGHI=; b=I2ygWatt8YcqRGUlS+/BI4KZbj
-	ccP9fCaqRn44FKDb3Za9yM62VoOU/b1u9JebulZZXMztRD/YWrIgzkYNnsi8Gt/GQjIce8EAhXwvD
-	Vp/CsxEM5tmVwQ4kNnTyX9bq26D+OF614EOEAgk545kr2QIWrWphWf3HzpML0I7n++oMtjTPP0xS+
-	6LEMOFK9Q4Xcck92TmKok8B7IIhiBwOfBqXIH5EMWMO1hfJDXbVKpyn6uMF3R7uVI/x5b7fPvbrgC
-	CYc6sQUSiRNDLC9PR1KJiK+5m6dnPvz/9ErlfCWVLlu/Dj/p9uJxYrSY35szxIuTFeZWNt3MS8Fkb
-	H+jpYxMg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51294 helo=rmk-PC.armlinux.org.uk)
+	bh=LSUmh1jpI9zBrymiusXEbO1vxH7E1qauVBHlErgl6Kw=; b=oHMgLBVrg5KBb2fU69311Vqy0l
+	w+HeOIWpqQ7I17VsKLY6Xv7aJSZzRXxebS7Ln5YV5QrtIyDGbE2bgBx4/9sIFrFUfO5Mg1T4BKKux
+	m5ve0ouUDp0hHM4M3ofHmkNUvV4S5Z5SsmsgaRv7XzUVtgmzlimGJp9/bWn7h+PqsMb8za2yrTxHU
+	G0KSeRyte6gorOOjteyNhYTudj8wBfmsdaTEABA+jMsGDTlWTr/l+4a/ZzNAuBBLUxa7iISXGjd5s
+	graFyTF4Ezchy1PkF8EnM3fosGL9FZJBDafT6UFemUqTI4jT+r0y6QolV09qzjzQMnRHn4Kk+kzmv
+	DTUfgVcw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51300 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1vCHEF-000000007Zz-0Ck9;
-	Fri, 24 Oct 2025 13:49:11 +0100
+	id 1vCHEK-000000007aF-14PD;
+	Fri, 24 Oct 2025 13:49:16 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1vCHEE-0000000BPTm-1CTA;
-	Fri, 24 Oct 2025 13:49:10 +0100
+	id 1vCHEJ-0000000BPTs-1fkA;
+	Fri, 24 Oct 2025 13:49:15 +0100
 In-Reply-To: <aPt1l6ocBCg4YlyS@shell.armlinux.org.uk>
 References: <aPt1l6ocBCg4YlyS@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -65,16 +65,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>,
 	Richard Cochran <richardcochran@gmail.com>
-Subject: [PATCH net-next v2 2/8] net: stmmac: simplify stmmac_get_version()
+Subject: [PATCH net-next v2 3/8] net: stmmac: consolidate version reading and
+ validation
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1vCHEE-0000000BPTm-1CTA@rmk-PC.armlinux.org.uk>
-Date: Fri, 24 Oct 2025 13:49:10 +0100
+Message-Id: <E1vCHEJ-0000000BPTs-1fkA@rmk-PC.armlinux.org.uk>
+Date: Fri, 24 Oct 2025 13:49:15 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_054915_595481_963ED0DF 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20251024_054920_742904_6FF440EE 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,53 +90,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We can simplify stmmac_get_version() by pre-initialising the version
-members to zero, detecting the MAC100 core and returning, otherwise
-determining the version register offset separately from calling
-stmmac_get_id() and stmmac_get_dev_id(). Do this.
+There is no need to read the version register twice, once in
+stmmac_get_id() and then again in stmmac_get_dev_id(). Consolidate
+this into stmmac_get_version() and pass each of these this value.
+
+As both functions unnecessarily issue the same warning for a zero
+register value, also move this into stmmac_get_version().
 
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
---
-v2: fix "verison" -> "version" typo (and subsequent patches)
 ---
- drivers/net/ethernet/stmicro/stmmac/hwif.c | 22 +++++++++++++---------
- 1 file changed, 13 insertions(+), 9 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/hwif.c | 29 ++++++++--------------
+ 1 file changed, 11 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
-index 44e34b6ab90a..6b001d3f57c6 100644
+index 6b001d3f57c6..699c94acfeff 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
-@@ -49,18 +49,22 @@ static void stmmac_get_version(struct stmmac_priv *priv,
- 			       struct stmmac_version *ver)
+@@ -18,30 +18,16 @@ struct stmmac_version {
+ 	u8 dev_id;
+ };
+ 
+-static u32 stmmac_get_id(struct stmmac_priv *priv, u32 id_reg)
++static u32 stmmac_get_id(struct stmmac_priv *priv, u32 reg)
+ {
+-	u32 reg = readl(priv->ioaddr + id_reg);
+-
+-	if (!reg) {
+-		dev_info(priv->device, "Version ID not available\n");
+-		return 0x0;
+-	}
+-
+ 	dev_info(priv->device, "User ID: 0x%x, Synopsys ID: 0x%x\n",
+ 			(unsigned int)(reg & GENMASK(15, 8)) >> 8,
+ 			(unsigned int)(reg & GENMASK(7, 0)));
+ 	return reg & GENMASK(7, 0);
+ }
+ 
+-static u32 stmmac_get_dev_id(struct stmmac_priv *priv, u32 id_reg)
++static u32 stmmac_get_dev_id(struct stmmac_priv *priv, u32 reg)
+ {
+-	u32 reg = readl(priv->ioaddr + id_reg);
+-
+-	if (!reg) {
+-		dev_info(priv->device, "Version ID not available\n");
+-		return 0x0;
+-	}
+-
+ 	return (reg & GENMASK(15, 8)) >> 8;
+ }
+ 
+@@ -50,6 +36,7 @@ static void stmmac_get_version(struct stmmac_priv *priv,
  {
  	enum dwmac_core_type core_type = priv->plat->core_type;
-+	unsigned int version_offset;
+ 	unsigned int version_offset;
++	u32 version;
  
-+	ver->snpsver = 0;
+ 	ver->snpsver = 0;
  	ver->dev_id = 0;
+@@ -62,9 +49,15 @@ static void stmmac_get_version(struct stmmac_priv *priv,
+ 	else
+ 		version_offset = GMAC4_VERSION;
  
--	if (core_type == DWMAC_CORE_GMAC) {
--		ver->snpsver = stmmac_get_id(priv, GMAC_VERSION);
--	} else if (dwmac_is_xmac(core_type)) {
--		ver->snpsver = stmmac_get_id(priv, GMAC4_VERSION);
--		if (core_type == DWMAC_CORE_XGMAC)
--			ver->dev_id = stmmac_get_dev_id(priv, GMAC4_VERSION);
--	} else {
--		ver->snpsver = 0;
--	}
-+	if (core_type == DWMAC_CORE_MAC100)
+-	ver->snpsver = stmmac_get_id(priv, version_offset);
++	version = readl(priv->ioaddr + version_offset);
++	if (version == 0) {
++		dev_info(priv->device, "Version ID not available\n");
 +		return;
++	}
 +
-+	if (core_type == DWMAC_CORE_GMAC)
-+		version_offset = GMAC_VERSION;
-+	else
-+		version_offset = GMAC4_VERSION;
-+
-+	ver->snpsver = stmmac_get_id(priv, version_offset);
-+	if (core_type == DWMAC_CORE_XGMAC)
-+		ver->dev_id = stmmac_get_dev_id(priv, version_offset);
++	ver->snpsver = stmmac_get_id(priv, version);
+ 	if (core_type == DWMAC_CORE_XGMAC)
+-		ver->dev_id = stmmac_get_dev_id(priv, version_offset);
++		ver->dev_id = stmmac_get_dev_id(priv, version);
  }
  
  static void stmmac_dwmac_mode_quirk(struct stmmac_priv *priv)
