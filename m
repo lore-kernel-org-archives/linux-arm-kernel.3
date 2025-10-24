@@ -4,55 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F555CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 14:38:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B880CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 14:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F86qHzfSNyyr7ljnRqTcoUSyZ4OAM8WiMExGqRcfYRI=; b=OzDiEcZ/oP0q55Pj6goEcJsxYe
-	O3qEM0OOBbCSd8m4NWZbiRb45EAXg4idSjQSDM2HeoCsACu5tEGZBtyOBMRFK/RawHZjJ+93uGxlZ
-	1SJkqcoFxNJcgrcqqDXEUdsH4+lGcnTq/huIPxK1LZeGV0PyzYD3nJ82AV5RegbC7AsBfj/RaDMCn
-	OOrqQEpJBSwrY9twEHoBKe8I92NtYE5xB7cNyeu7noRT5i5NJVtRoHHX5Av0HmACYxSCfnabI9TjO
-	dGKCItn5NUwVpFAyLy1evMmPNqA/Ci2hr3kzNP800seu/bIVHl44sxf5Vq02V/oHpX/WhGwSOETtq
-	VGtWuncg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zuMO3Gm17MlJedQR/JASyV8PKolk4umw1nTXePw16OU=; b=CCEC1FEJ5J9O2XoOhdaL3XXSRt
+	tGBSkc4+qTaS2dUELfr5DtNdhe7VORyb7gx1gW2+kpPsQk/2gnGFw/dVp1Omuloq6cA5hHLD6GCZv
+	FVbyv0fjLGYQgi+SyzbWHZ2+zyPZmcyiykzfKbiff2lOlxdZOfAriLhjWBwFo8IEjyiDfRfbHHXHt
+	ZeJJMkkinC1ccRTYDxe2g3IE8rQ/CshbSpb8xWoga0xLumDOyKOGSnrhx/vQHZ6Kt8X0/+hvvWgac
+	TJXSfKetdqVoe2vcMZeEGkIyuFslYQSmWFJs4P+haZ3Bq01yUIFkzSZgAfCyKCmnOXedalXQ7Qg0M
+	F1VsTgww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIwJ-00000009gaG-0xua;
-	Fri, 24 Oct 2025 14:38:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIwG-00000009gZf-4AbB
+	id 1vCIzi-00000009gv5-4C4P;
+	Fri, 24 Oct 2025 14:42:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vCIzg-00000009guO-1oFu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 14:38:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 11AF91516;
-	Fri, 24 Oct 2025 07:38:36 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A16A3F66E;
-	Fri, 24 Oct 2025 07:38:43 -0700 (PDT)
-Date: Fri, 24 Oct 2025 15:38:41 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: tanze <tanze@kylinos.cn>
-Cc: adrian.hunter@intel.com, namhyung@kernel.org, mingo@redhat.com,
-	graham.woodward@arm.com, irogers@google.com, james.clark@linaro.org,
-	john.g.garry@oracle.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	mike.leach@linaro.org
-Subject: Re: [PATCH v3] perf auxtrace: Add auxtrace_synth_id_range_start()
- helper
-Message-ID: <20251024143841.GU281971@e132581.arm.com>
-References: <20251024085625.175688-1-tanze@kylinos.cn>
+	Fri, 24 Oct 2025 14:42:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1761316935;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=zuMO3Gm17MlJedQR/JASyV8PKolk4umw1nTXePw16OU=;
+	b=Us5hQ5Aj0zt8Bz5eplCn6W+LI12qKspoYeQOfqWrQ0ckXO1pBMwFC9LRdYxKDp1jvkcvyK
+	jxD0mXmHc5DHDGW3qRUFiFe/rSLCPGVqI1NlmA/plAEV9ITa57WXAs+3xA67Nae5jadivI
+	72HjbMXMbxELVfFj/mO5YtXgwCVKlLY=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-515-Z61J96xIPGyOsB4J8QWmbg-1; Fri, 24 Oct 2025 10:42:14 -0400
+X-MC-Unique: Z61J96xIPGyOsB4J8QWmbg-1
+X-Mimecast-MFC-AGG-ID: Z61J96xIPGyOsB4J8QWmbg_1761316932
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-472ce95ed1dso13921345e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 07:42:12 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761316932; x=1761921732;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zuMO3Gm17MlJedQR/JASyV8PKolk4umw1nTXePw16OU=;
+        b=ok2gREB1Lv6x1/AaNnaOuU7RxUtG7xyoeWkRJ1HOIAsTTwGMjon/YOZPmIi4B7HY/+
+         n/G+6jeotmrFPNbFbSSd5QuP5dT75hsA1EMAUl+7qQ8GcRQuadaAguIdJTSXkLpKhVfd
+         7olO7ucwq5m5Met5LYiB9CoNmwnTfxyUHBT4f6STOlAKDmx0HBTwd/RcZg/np+Ctnhr4
+         lHhmcnbpz9pp/tY0tHAh9ShhWa2z9XwD0PWppkAIHNwP4xMvjexB5ekH7wZTgefsKg1R
+         b93yM3P3ISRDKuevxBnQNoFPq1o67sxTKpzA9hOPAbWuL+tW2oYZBFmc4ZvZwdRs4PF/
+         eriQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXKV7UPP8NhieTFZEvM5hfmSADv15M94HM/BCv96HTscW+qZj9JapwH8+iY6sWQA32iHCQe/Hptb8wvXWQoflc7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTixuG2bt909j5b5PFek+QpzP9o/Hqgxla5vC0aKccjYVoCkY2
+	NXHI5ueSAU4GWpy9dzNJugfEgbJS5NgN+aEFkPRf01Drj7NrDCV3f4OBrtOHdwTNzoBy1b73Ze8
+	zXhpl16OOv8cVLAAixhv0w6PeSRwm1CqrLgl9jxPDWI4uKDKmbxqyhNLm4BM4CsMCBTOk6vIBxg
+	lz
+X-Gm-Gg: ASbGncs/RPGr13kJaPkyU7r8DAVacXKbMBM3UXfYJFrUp9sVsdjchNNlBx1bqJNhlFz
+	LmDMRkhWojBi6pxlbGZ0Uj+semcAexR5wf7DjH+1SZM8cA3T2BHMjE2P+oHPRfe8rqavYAYrbfe
+	xhXwAkZNwz0IoGJtNLQthUq6tx+tQtQ/n1IR5tg55iQQr7bfveuRuzfUTzNT3R1Dqx19uJctvCN
+	f9XoEHrpyJqSR3w3YqcWAmX32AM5Vhwm+++rTJYm4jFzhtQQ7kbZO473u1xLHSmTMVa/zDOqZ+k
+	6dbZuGRELnrAt1emCjOdcgV7P+CNLNBQCc8FHELF8P8vAOFhYtvMNXHD84cM8VAVgXr3cNc5VxP
+	/kC6mYJJWorDlNyK0Jv6uPqWKQioEv8PhVXcTx5Dt1UaDIvMx7Mf1xWa8AHWvEr/CylLVe7bZYb
+	bYr/qgn4QFWgj7SNr4iRG3e2wImDc=
+X-Received: by 2002:a05:600c:a4e:b0:46e:711c:efeb with SMTP id 5b1f17b1804b1-475cb02f5b9mr48174335e9.25.1761316931746;
+        Fri, 24 Oct 2025 07:42:11 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHVhLeriCo5qSkw1pxItKV2BmVweLyKW9vHw/E1IK25wn/MrmDSTPV2yNrI2gB0tW1RttofMw==
+X-Received: by 2002:a05:600c:a4e:b0:46e:711c:efeb with SMTP id 5b1f17b1804b1-475cb02f5b9mr48173845e9.25.1761316931347;
+        Fri, 24 Oct 2025 07:42:11 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f4e:3200:c99d:a38b:3f3a:d4b3? (p200300d82f4e3200c99da38b3f3ad4b3.dip0.t-ipconnect.de. [2003:d8:2f4e:3200:c99d:a38b:3f3a:d4b3])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475caf152absm113608615e9.9.2025.10.24.07.42.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 24 Oct 2025 07:42:10 -0700 (PDT)
+Message-ID: <5d5a85ec-0213-4af3-92a9-c02bb13da073@redhat.com>
+Date: Fri, 24 Oct 2025 16:42:08 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251024085625.175688-1-tanze@kylinos.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 03/13] powerpc/mm: implement arch_flush_lazy_mmu_mode()
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
+ <20251015082727.2395128-4-kevin.brodsky@arm.com>
+ <60c55686-87dd-46d0-884e-80f7d423663b@redhat.com>
+ <604f26cb-46c6-4533-8110-0b174eed821d@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <604f26cb-46c6-4533-8110-0b174eed821d@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 5Ud33Xt3PrPLj5EqoyJTikF9nYz9w0d8jHfvWfGZ8s8_1761316932
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_073845_066511_45741827 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_074216_566572_41267D22 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,15 +178,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025 at 04:56:25PM +0800, tanze wrote:
-> To avoid hardcoding the offset value for synthetic event IDs 
-> in multiple auxtrace modules (arm-spe, cs-etm, intel-pt, etc.), 
-> and to improve code reusability, this patch unifies 
-> the handling of the ID offset via a dedicated helper function.
+On 24.10.25 14:09, Kevin Brodsky wrote:
+> On 23/10/2025 21:36, David Hildenbrand wrote:
+>> On 15.10.25 10:27, Kevin Brodsky wrote:
+>>> [...]
+>>>
+>>> diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+>>> b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+>>> index 146287d9580f..7704dbe8e88d 100644
+>>> --- a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+>>> +++ b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
+>>> @@ -41,6 +41,16 @@ static inline void arch_enter_lazy_mmu_mode(void)
+>>>        batch->active = 1;
+>>>    }
+>>>    +static inline void arch_flush_lazy_mmu_mode(void)
+>>> +{
+>>> +    struct ppc64_tlb_batch *batch;
+>>> +
+>>> +    batch = this_cpu_ptr(&ppc64_tlb_batch);
+>>
+>> The downside is the double this_cpu_ptr() now on the
+>> arch_leave_lazy_mmu_mode() path.
 > 
-> Signed-off-by: tanze <tanze@kylinos.cn>
+> This is only temporary, patch 9 removes it from arch_enter(). I don't
+> think having a redundant this_cpu_ptr() for a few commits is really a
+> concern?
 
-I built perf successfully with this patch:
+Oh, right. Consider mentioning in the patch description
 
-Tested-by: Leo Yan <leo.yan@arm.com>
+"Note that follow-up patches will remove the double this_cpu_ptr() on 
+the arch_leave_lazy_mmu_mode() path again."
+
+-- 
+Cheers
+
+David / dhildenb
+
 
