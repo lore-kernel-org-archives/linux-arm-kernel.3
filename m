@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87DCECCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 11:50:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12BE8CCF9EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 11:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KFJWGDgE/ONiPJjB6PW9J+W1w3KIzVHfRz+EQhIuySs=; b=LWot4S6w+O18m2VYG1Qa1j7HAN
-	kxhWnlJaJvY6A5XCqnexZ+JA3VkvOaYdmBex/OvT/jX6YFmBdI7J9kFY9V0gCxTS7vNDCLFucEut+
-	Wcfljz0ppLOyd1wO95pk/eOeTTaFGu9msiioyDmKOP/4OUiYewKTUVmtTMI71C2Hs9E9yQ+XlKRb9
-	W0oHpcQUbAf/FJMuNRrQb50wYKzypC6zOs8n1Oz3wfAVLWyQmBRbtfXb9Fs9WI+/lL7MftIyKlJHt
-	rDdi9jteQvgvPFIE0ItvyF2C5ANF86UxhxXZg/I9wAqgbWhV21rnhQi216RCdmR6T7srOUh7GiGZN
-	EDhcX3qw==;
+	bh=+IYs9ww2ceiurKm+FIqAzpXDFAmKEwAVl0WdAVV02wA=; b=Ovx8b8R3OEm3b8qlSDyTsWXkun
+	nd2nGrQDSFhuAAd/CNhIBJneb7G0/4A4Pqgi2fMjaPn6dv2EYlcLvO8qBT38GrWTZ9HYTkVuxC5u9
+	X84diGbeXinR93z8biBFtHYudsFrMbrWsP1uyPDe7j+r6R9oeaTwFnXSPGBUM9RH0JPSOxk5alwTc
+	GmCZyLEYNOY2IumrehF1mOhCGOUqYl+RM2Jn/ChWYVpAGVzMZUiIIubhRq4s1uS6priE4oltoW8t3
+	QRu8flaFcSi9TlvI8Bx9sAYJT/7L61mcHbaEZMYHGTF+fZjBeM1yh4N0Vy7B2w10oQi5QztwcVDq7
+	4uVGIHhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGJW-00000009GJ0-3Urw;
-	Fri, 24 Oct 2025 11:50:34 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([185.203.201.7])
+	id 1vCGJY-00000009GKH-0UBy;
+	Fri, 24 Oct 2025 11:50:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGJO-00000009GFX-0xjT
+	id 1vCGJT-00000009GI1-1irC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 24 Oct 2025 11:50:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=+IYs9ww2ceiurKm+FIqAzpXDFAmKEwAVl0WdAVV02wA=; b=K74+57ejDxTz/s8xWGPKRhFTbi
+	VDbCHYH7cvHv98XbWxODQ6moiJhu26LgnRcTimaJLz8Pu0AFLsxDm9fBbteUdzjCZEyhVxDuEgo64
+	EYHcZzxXGi/d3GHQq5Cq+dN0dzHHV6zXBnfme3oFVAureMQK6if2FtiECy1tKalbcmDfLagL5BUEY
+	jLaD1h/TUIUpETLofxotaeHeeEVvyUnhp4uk32q+c5mW2vADKtaRh02P51msY8i2dgYVshnc8J1hq
+	8Eb9BIYuS9RB/J3XHotylhyVFIoAfun+oDi2EWBrIsHRyQoFG7rr4GWq8TPMVrMaeCKxzQaZSrMOm
+	dxb0N6QQ==;
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vCFRk-00000002FSE-45nr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 11:50:28 +0000
+	Fri, 24 Oct 2025 10:55:04 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1vCGJ7-0002FG-Id; Fri, 24 Oct 2025 13:50:09 +0200
+	id 1vCGJ8-0002FG-Nj; Fri, 24 Oct 2025 13:50:10 +0200
 From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Fri, 24 Oct 2025 13:49:58 +0200
-Subject: [PATCH v5 06/10] arm64: dts: socfpga: agilex5: add dwxgmac
- compatible
+Date: Fri, 24 Oct 2025 13:49:59 +0200
+Subject: [PATCH v5 07/10] dt-bindings: net: altr,socfpga-stmmac: allow
+ dma-coherent property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251024-v6-12-topic-socfpga-agilex5-v5-6-4c4a51159eeb@pengutronix.de>
+Message-Id: <20251024-v6-12-topic-socfpga-agilex5-v5-7-4c4a51159eeb@pengutronix.de>
 References: <20251024-v6-12-topic-socfpga-agilex5-v5-0-4c4a51159eeb@pengutronix.de>
 In-Reply-To: <20251024-v6-12-topic-socfpga-agilex5-v5-0-4c4a51159eeb@pengutronix.de>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -61,8 +76,8 @@ X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_045026_276047_8B599EE1 
-X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-CacheID: sfid-20251024_115501_029036_753547D1 
+X-CRM114-Status: UNSURE (   8.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,49 +93,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The gmac0/1/2 are also compatible to the more generic "snps,dwxgmac"
-compatible. The platform code checks this to decide if it is a GMAC or
-GMAC4 compatible IP core.
+The DMA operations on the SoCFPGA stmmac can be dma-coherent. Add as
+optional property.
 
 Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
 ---
- arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-index 4ccfebfd9d322..d0c139f03541e 100644
---- a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-+++ b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-@@ -536,7 +536,8 @@ qspi: spi@108d2000 {
+diff --git a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+index b53847a2d9536..c34f2ef0cf001 100644
+--- a/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
++++ b/Documentation/devicetree/bindings/net/altr,socfpga-stmmac.yaml
+@@ -109,6 +109,9 @@ properties:
+   txen-skew-ps:
+     description: Skew control of TXC pad
  
- 		gmac0: ethernet@10810000 {
- 			compatible = "altr,socfpga-stmmac-agilex5",
--				     "snps,dwxgmac-2.10";
-+				     "snps,dwxgmac-2.10",
-+				     "snps,dwxgmac";
- 			reg = <0x10810000 0x3500>;
- 			interrupts = <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
-@@ -649,7 +650,8 @@ queue7 {
- 
- 		gmac1: ethernet@10820000 {
- 			compatible = "altr,socfpga-stmmac-agilex5",
--				     "snps,dwxgmac-2.10";
-+				     "snps,dwxgmac-2.10",
-+				     "snps,dwxgmac";
- 			reg = <0x10820000 0x3500>;
- 			interrupts = <GIC_SPI 207 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
-@@ -762,7 +764,8 @@ queue7 {
- 
- 		gmac2: ethernet@10830000 {
- 			compatible = "altr,socfpga-stmmac-agilex5",
--				     "snps,dwxgmac-2.10";
-+				     "snps,dwxgmac-2.10",
-+				     "snps,dwxgmac";
- 			reg = <0x10830000 0x3500>;
- 			interrupts = <GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
++  dma-coherent:
++    description: Present if dma operations are coherent
++
+   altr,emac-splitter:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description:
 
 -- 
 2.51.0
