@@ -4,119 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A799BCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 14:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA912CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 14:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Message-ID:References:In-Reply-To:
-	Subject:Cc:To:From:Date:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QTv5l8HYsmXSaBkMSL5ZDaSrsBFiVYOpAyIiO0ly0rU=; b=m+TVCKUKyt5hBs
-	Op2xdNpBbcjj5T9Tyj8idI2l+QCxMuhC4yrS6M0KOMRtUyRseFR8xxNsCHR5QySfATEPrsm3wB79A
-	4aO6vG3BjEzxt8V6cea+Vn5ELXAOfugDgsdDvGiPE+K0rDoytNOidy5bdxlRlILfn9nUTe7aejWIc
-	xIztk5MK/qlUj7pfLLcY0FCj3QaHmuV+pwVRbpY2l7uZsKVLOgRIWbLKMGH0f51C0v7M3h9Gig+Ix
-	I6P9EIax10LNQhNbwr+DhOecY72pgvD/pKR7C5lr+mhH409KVnMishm/B9cTR44ByDMADtNpmOs6y
-	4efO379RsiRWef0l9jmA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9jOpAJme9DuMAmtZlIRWeuJwP51wNjY5mc3K702Yvm4=; b=hQUTRGYgJG3CPjpRsh2D5qEiOS
+	pwYXgRgf7NtkT7dcnqL0qd6s/xFES7RYR1jrrHbWQA0V+QMtqFvv2VTk+U00P9RB4B+6EkpZe6nuh
+	lrZKUncc3rprd1CD4NNhZ1z76S8vZBIVTK78DR+O7jg/pr09Galmo2uCLCvIThlPHVxPctMEmspK/
+	Jk3p6G1k+AoLeia15ubvgYeEYwhLHBmCOUTngcGiXxAb2Ok1KzGJx9E/aQOnYO+yjq0iD2Wj/xmRc
+	qOsVAl4cDVXeIvKvM1nwkx+X2HAFN0vscXFA3HIkv4oZfvaapqTmdTl0KPymXjUCoLdx4Eddhzlhn
+	9UAdJmhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIi9-00000009edd-28Nf;
-	Fri, 24 Oct 2025 14:24:09 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1vCIld-00000009f0L-113g;
+	Fri, 24 Oct 2025 14:27:45 +0000
+Received: from smtp15.bhosted.nl ([2a02:9e0:8000::26])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIi6-00000009ecZ-0Of1
+	id 1vCIla-00000009ezm-2Jov
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 14:24:07 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59OA2nCk023244;
-	Fri, 24 Oct 2025 14:24:02 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:to; s=pp1;
-	 bh=QTv5l8HYsmXSaBkMSL5ZDaSrsBFiVYOpAyIiO0ly0rU=; b=U+z7lKKKbjXr
-	HLDG3Zc7L9QsfRKFx06zgpP6WhgYwkk94lFm02+yTgixgWacf0+bMFZNW9cReS8V
-	zz0Yff4Wuqzd53o1xMhsKkckW4RcC2lypY1T5oy9VHjTcbUsBXlHAD/KZp0OwCOn
-	01z36FmXyqrw6KJb0P1U+Fkrx/W523iKOTciKVA+tSSBz9dKZudRPyU+GxAAQ4wn
-	KkGFKqe46z4FBgNxzI7zsw5e9BBYhsonlhlRet0HP9KdSRnLuRuk87bnV+Z+PW9j
-	0ItC6cNvJllKH9Vvvyw/A8icsd+CJXvep7/aBi1My9XnnkbqAhEjAQkCRSECv/Y6
-	vJ8O7ddaeg==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49v3277rhh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 24 Oct 2025 14:24:02 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59OAkYeV011015;
-	Fri, 24 Oct 2025 14:24:01 GMT
-Received: from smtprelay02.dal12v.mail.ibm.com ([172.16.1.4])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 49vqx1k6gp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 24 Oct 2025 14:24:01 +0000
-Received: from smtpav04.dal12v.mail.ibm.com (smtpav04.dal12v.mail.ibm.com [10.241.53.103])
-	by smtprelay02.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59OEO1vH26673758
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 24 Oct 2025 14:24:01 GMT
-Received: from smtpav04.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3AD3358056;
-	Fri, 24 Oct 2025 14:24:01 +0000 (GMT)
-Received: from smtpav04.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C57CF58052;
-	Fri, 24 Oct 2025 14:24:00 +0000 (GMT)
-Received: from ltc.linux.ibm.com (unknown [9.5.196.140])
-	by smtpav04.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 24 Oct 2025 14:24:00 +0000 (GMT)
+	Fri, 24 Oct 2025 14:27:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=zanders.be; s=202002;
+	h=content-transfer-encoding:mime-version:message-id:date:subject:cc:to:from:
+	 from;
+	bh=9jOpAJme9DuMAmtZlIRWeuJwP51wNjY5mc3K702Yvm4=;
+	b=ef2wfPPe0x/vZCMzVbqoYMZ3YGbc8+qSj0ro1fh7vCLrw2Y1vwlII5SquYEZHsmveAPgiMJzrwLKq
+	 msfzBRXCKNKVqrW2jJHW7TO4wn1glYLbp6MK+iH+Ak2orNOd6ycIKVWqAujuvx8UEunbaLaD0TTQPf
+	 UOnZyR/cCPo4Xo5YQ2zRCHg6kCcgpNG9KV28kc+qYKk1XsRUDI4+cCCM6o5r0xhYCY5ImEwaEQLAEu
+	 hItpJNfKanS5LgC3y4lfDENAG80GgpBkXZNTbXIdtTGdek9Ji/xFUNmg74kJz0JhnjxgPTuN3xrb9k
+	 f68xpJkw/0hKPpxfIMDNj6rIyB98bsA==
+X-MSG-ID: 95a6f307-b0e5-11f0-8e1f-00505681446f
+From: Maarten Zanders <maarten@zanders.be>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	=?UTF-8?q?Lothar=20Wa=C3=9Fmann?= <LW@KARO-electronics.de>
+Cc: Maarten Zanders <maarten@zanders.be>,
+	stable@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: dts: nxp: imx6ul: correct SAI3 interrupt line
+Date: Fri, 24 Oct 2025 16:21:06 +0200
+Message-ID: <20251024142106.608225-1-maarten@zanders.be>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Date: Fri, 24 Oct 2025 16:24:00 +0200
-From: Harald Freudenberger <freude@linux.ibm.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Holger Dengler <dengler@linux.ibm.com>,
-        David Howells
- <dhowells@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
-        "Jason A .
- Donenfeld" <Jason@zx2c4.com>, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
-        linux-crypto@vger.kernel.org
-Subject: Re: [PATCH 15/17] lib/crypto: s390/sha3: Migrate optimized code into
- library
-Mail-Reply-To: freude@linux.ibm.com
-In-Reply-To: <20251021154906.GB83624@google.com>
-References: <20251020005038.661542-1-ebiggers@kernel.org>
- <20251020005038.661542-16-ebiggers@kernel.org>
- <51fc91b6-3a6e-44f7-ae93-aef0bcb48964@linux.ibm.com>
- <20251020175736.GC1644@sol>
- <29e766ca-54e4-453d-9dfc-ea47e2a1f860@linux.ibm.com>
- <5895ed68-dd6e-4f3d-9e6f-c27459556ff7@linux.ibm.com>
- <20251021154906.GB83624@google.com>
-Message-ID: <b9094694cb5bc3ec0f479f3c6df909c9@linux.ibm.com>
-X-Sender: freude@linux.ibm.com
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=EJELElZC c=1 sm=1 tr=0 ts=68fb8c02 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=_Sl0zld_v68khJEgkSQA:9 a=CjuIK1q_8ugA:10
- a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE4MDAyMiBTYWx0ZWRfX/7qZ6wKRafKZ
- mK/7ISmrSIyR9IBlUhFX14cubGLJSW4l1mNog/XzaYNg9VJBvgUceJCtyF3hemj0Cc+0OmCCjO6
- v0Mbwi/cm0IauQI4PXp66wOM0la49kM2giHe334oaCU92VgQaU4yqNgyUmvuvIKYhL7yHfQu1q1
- XuI+2wAK5AC1RmK0WR8YnSmsjMztB99IKqbe80TxZXBBSxglbUbqeyz6q8Bd/lPoPMSvBvrietL
- remlo8xYOWdyu9Qd4C9iDYkZc5lK+cD47CotJ2cHKKZqjXcwpiR8xCt0BCep0qBrcm9+glWcQ9j
- rrWEN0SOrehzh5SbmG1gldwlGQaNkhdLkJKJsa0EfFQ3MyG7Dj+jeelslCZefpCOEDh6eZMZjNV
- 91fbD2VkqnhjsIZqg2qhNQXdTXleag==
-X-Proofpoint-GUID: pafbIPS1SsUnA0ap6FIduDkkgGpA_N8g
-X-Proofpoint-ORIG-GUID: pafbIPS1SsUnA0ap6FIduDkkgGpA_N8g
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-24_02,2025-10-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 suspectscore=0 bulkscore=0 spamscore=0
- malwarescore=0 phishscore=0 adultscore=0 lowpriorityscore=0 clxscore=1011
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510180022
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_072406_145494_A4A2E98B 
-X-CRM114-Status: GOOD (  25.87  )
+X-CRM114-CacheID: sfid-20251024_072742_724964_11430955 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,82 +74,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: freude@linux.ibm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-21 17:49, Eric Biggers wrote:
-> On Tue, Oct 21, 2025 at 10:43:00AM +0200, Holger Dengler wrote:
->> Hi Eric,
->> 
->> On 21/10/2025 09:24, Holger Dengler wrote:
->> > On 20/10/2025 19:57, Eric Biggers wrote:
->> [...]>> - Risk of bugs.  QEMU doesn't support the s390 SHA-3 
->> instructions, so no
->> >>   one except the s390 folks can test the code.  I can try to write code
->> >>   for you, but I can't test it.  And the s390 SHA-3 code has had bugs;
->> >>   see commits 992b7066800f, 68279380266a5, 73c2437109c3.
->> >>
->> >>   The first priority should be correctness.
->> >
->> > Let me figure out, if me and my colleagues can do the testing for you.
->> > Unfortunately, I'll be unavailable for the next two weeks. But I'll come back
->> > with a solution for the testing.
->> 
->> I talked to Harald: we can do the testing for you on our development 
->> machines.
->> Please send new series to us or provide them in your git repo.
-> 
-> Thanks!  I'll Cc both of you on v2 when I send it later.  For now, this
-> series (v1) can be found in lore at
-> https://lore.kernel.org/linux-crypto/20251020005038.661542-1-ebiggers@kernel.org/T/#u
-> And as mentioned in the cover letter it's also retrievable from git:
-> 
->     git fetch
-> https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git
-> sha3-lib-v1
-> 
-> v1 already has the s390 optimized implementations of
-> sha3_absorb_blocks() and sha3_keccakf().  If you could enable the
-> following:
-> 
->     CONFIG_CRYPTO_LIB_SHA3_KUNIT_TEST=y
->     CONFIG_CRYPTO_LIB_BENCHMARK=y
-> 
-> ... and then show the results for sha3_kunit before and after the 
-> commit
-> "lib/crypto: s390/sha3: Migrate optimized code into library", that 
-> would
-> be helpful.
-> 
-> In v2, I'll look into providing overrides for the one-shot functions
-> sha3_{224,256,384,512}() too.  If it works out, I'll ask you to re-test
-> with that additional change as well.
-> 
-> - Eric
+The i.MX6UL reference manual lists two possible interrupt lines for
+SAI3 (56 and 57, offset +32). The current device tree entry uses
+the first one (24), which prevents IRQs from being handled properly.
 
-I pulled your repository and checked out the branch sha3-lib-v1 and
-while the kernel build runs I get link errors:
+Use the second interrupt line (25), which does allow interrupts
+to work as expected.
 
-ld: crypto/sha3.o: in function `crypto_sha3_512_digest':
-/root/ebiggers-linux/crypto/sha3.c:80:(.text+0xaa): undefined reference 
-to `sha3_512'
-ld: crypto/sha3.o: in function `crypto_sha3_384_digest':
-/root/ebiggers-linux/crypto/sha3.c:73:(.text+0xea): undefined reference 
-to `sha3_384'
-ld: crypto/sha3.o: in function `crypto_sha3_256_digest':
-/root/ebiggers-linux/crypto/sha3.c:66:(.text+0x12a): undefined reference 
-to `sha3_256'
-ld: crypto/sha3.o: in function `crypto_sha3_224_digest':
-/root/ebiggers-linux/crypto/sha3.c:59:(.text+0x1aa): undefined reference 
-to `sha3_224'
-ld: crypto/sha3.o: in function `sha3_final':
-/root/ebiggers-linux/./include/crypto/sha3.h:188:(.text+0x1f0): 
-undefined reference to `__sha3_squeeze'
-ld: crypto/sha3.o: in function `sha3_update':
-/root/ebiggers-linux/./include/crypto/sha3.h:172:(.text+0x232): 
-undefined reference to `__sha3_update'
+Fixes: 36e2edf6ac07 ("ARM: dts: imx6ul: add sai support")
+Signed-off-by: Maarten Zanders <maarten@zanders.be>
+Cc: stable@vger.kernel.org
+---
+ arch/arm/boot/dts/nxp/imx/imx6ul.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-with a s390 defconfig kernel configuration an a s390 debug_defconfig 
-kernel configuration.
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi
+index 6de224dd2bb9..6eb80f867f50 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul.dtsi
+@@ -339,7 +339,7 @@ sai3: sai@2030000 {
+ 					#sound-dai-cells = <0>;
+ 					compatible = "fsl,imx6ul-sai", "fsl,imx6sx-sai";
+ 					reg = <0x02030000 0x4000>;
+-					interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
++					interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
+ 					clocks = <&clks IMX6UL_CLK_SAI3_IPG>,
+ 						 <&clks IMX6UL_CLK_SAI3>,
+ 						 <&clks IMX6UL_CLK_DUMMY>, <&clks IMX6UL_CLK_DUMMY>;
+-- 
+2.51.0
+
 
