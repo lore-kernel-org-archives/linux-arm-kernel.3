@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A434CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 18:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C45CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 19:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ma5RnhfBXxstn3+ECQF56pVas/GNfRyve1sRM2daeac=; b=VNVAbkkLBipUNFYaKP16udJFHn
-	6uOQ5nNN5B9V73M3NS7IxB+HzcdPMMYVhBmUDGqJF4zDgKVcjrUD8VtLSfzGuLppIBD5pbgm1UKFH
-	EwCfQSTGC/MpA72wDRsQbeFCPAVdAozEVvdM7jucrPjU3kIxMY5uP/V7v7ogRYRjgMuryTJB0yHaT
-	ftW/ARnZxu4fT/Ixx8AZn9pweks9X+17BN6C3EEQxjPqb3BfRbvcQlhwVgnGUF1PYH8DPNPqmSglW
-	Vm/+PvEVoiwJZVzkJOU0kR9PqKWbt3MCJeRp9dG2RyMZwEc9NDeiNAKGM+mW/0OCw+LEMfa4Sxmo5
-	SPtSjUlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EnUCkv62qPwSMgb1KD2wO6R62/uHFt+x7zIjrYIocjs=; b=dvOs+styi11t/lc3TfSQYmNjUc
+	M7PXGE9bfNAZYdZXSizli5HsAqrL4YBZD0uMAoaWXzQsIIkGCO4Nod58JVcuI1xr1oOAaUmwBGHsk
+	VtwZmTepksuTGXv8V/vip2k4gQ9uJ3+zMZZr86M2mEZGR3ALgc7BeTMaB72MixYa5XBdPEVt81a6T
+	jRCmFBKGjzjrjs8Fr3Fptwf9q/7cMzpNyNWBTobFrM1Yx3cf/H7qd8rx+TWpTHKZxtcNdbK1VExsq
+	ZgdpotDG9ro/yByjTczeKAw0GJgTHNB4YUN8e1fyN2hQJyx7wQn1QZDMDifNdQT492kNvQdAapNPj
+	cH8TmUEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCMyW-0000000AJEY-2tJq;
-	Fri, 24 Oct 2025 18:57:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vCNCB-0000000AKcN-1wyd;
+	Fri, 24 Oct 2025 19:11:27 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCMyO-0000000AJCx-0Yqz
+	id 1vCNC9-0000000AKc3-005Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 18:57:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86E1B44D86;
-	Fri, 24 Oct 2025 18:57:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBE61C4CEF7;
-	Fri, 24 Oct 2025 18:57:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761332231;
-	bh=F6sAvOGHNl4pLZVKMsc1wcVztQ8yBEOvaYtnPjPeRCA=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=XXeYOarkIdMzTofm5V401CY0ZT+c+I2DajCJRNOsDOm/nMqTBDB2T6EgDePxNSPYs
-	 cQO+//UCkwZ1MbT/0qdOLGvLCfjTZwQNWNZTyUfFK4oaqyvJ7tWTCf8o0v2DEX32H5
-	 8FfEJWt5A3oxAiJxCaTf2IQC0j9Cinb88CYdYOEp8XjK71pUXX3mbBZ/HoFTIqRHP2
-	 olNQkHmse/hoOcmhxNNDnM0o+9Hy90T29I+EXX/1QBWTtxCbnMKIJxJtOSaPQAAJvq
-	 Fk98zjhGFInRv9KbLKdYslWicA/dqSyF3VsMGjnWaHcvOygbo3MzBbC44UnilGw1FA
-	 Rm8YovR5Whlsw==
-From: Namhyung Kim <namhyung@kernel.org>
-To: Adrian Hunter <adrian.hunter@intel.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, Ian Rogers <irogers@google.com>, 
- Ingo Molnar <mingo@redhat.com>, James Clark <james.clark@linaro.org>, 
- Jiri Olsa <jolsa@kernel.org>, John Garry <john.g.garry@oracle.com>, 
- Leo Yan <leo.yan@linux.dev>, Mark Rutland <mark.rutland@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, Peter Zijlstra <peterz@infradead.org>, 
- Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-In-Reply-To: <877bwnyh6f.wl-kuninori.morimoto.gx@renesas.com>
-References: <877bwnyh6f.wl-kuninori.morimoto.gx@renesas.com>
-Subject: Re: [resend][PATCH] tools: arm64: Add Cortex-A720AE definitions
-Message-Id: <176133223085.3710582.9720560648208610370.b4-ty@kernel.org>
-Date: Fri, 24 Oct 2025 11:57:10 -0700
+	Fri, 24 Oct 2025 19:11:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761333085; x=1792869085;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=huTDz8f81rALXhF6I8LCkj0hTPSr9oc3eKFwWicKBEw=;
+  b=MI3f7HiyZKdzZ6EJOTixKpyz9JQkzr8fTipmyQwvW6vg1s8AKn/HzaC1
+   X37dt8f1+IDCorXhedmtKCGOt6dsYZ9y7tjtaXggNqmH6Fbon5axV4zub
+   Z+lW5yGsu8uNy1grZxXYx1oc2tWai6eMGQIoH7jWnsg3ZC2cKSggwIeSV
+   i5/jgZra3Lt7OVl3js/rlfw5ugNVUcUjT1acjRcaOfl3DWb0hop1Guqv8
+   JkgBCeFzTm1MbybsYUlvC9r6AKdgenyRo3aXmwniyF6i9tK30W+bXNF7L
+   ZeiVcp6/xu0ZH083pcGmwgwogv+Cs4ckUFVLhy7e0T2Cw97xJymtE4m+P
+   Q==;
+X-CSE-ConnectionGUID: zivPwFY1TJWkybtHbbvmWQ==
+X-CSE-MsgGUID: Gc92KweaTjO4jab+xV9uhQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63613603"
+X-IronPort-AV: E=Sophos;i="6.19,253,1754982000"; 
+   d="scan'208";a="63613603"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 12:11:23 -0700
+X-CSE-ConnectionGUID: ULWw6uP7Q6OENcghUUggQQ==
+X-CSE-MsgGUID: 512bIhasTR6Wyqiuwp2MJQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,253,1754982000"; 
+   d="scan'208";a="184403689"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa007.jf.intel.com with ESMTP; 24 Oct 2025 12:11:21 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vCNBy-000Enx-1X;
+	Fri, 24 Oct 2025 19:11:16 +0000
+Date: Sat, 25 Oct 2025 03:11:12 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [linusw-nomadik:ux500-janice-v6.18-rc1 9/11]
+ drivers/input/misc/isa1200.c:423:3: error: field designator 'probe_new' does
+ not refer to any field in type 'struct i2c_driver'
+Message-ID: <202510250319.9WqUFHAz-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c04d2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_115712_198761_C248F4FE 
-X-CRM114-Status: UNSURE (   7.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_121125_096548_10DFD8B4 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,19 +86,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 21 Oct 2025 23:21:48 +0000, Kuninori Morimoto wrote:
-> Add cputype definitions for Cortex-A720AE. These will be used for errata
-> detection in subsequent patches.
-> 
-> These values can be found in the Cortex-A720AE TRM:
-> 
-> https://developer.arm.com/documentation/102828/0001/
-> 
-> [...]
-Applied to perf-tools-next, thanks!
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git ux500-janice-v6.18-rc1
+head:   ccd3929e54f44ccae885d803cc472204f661c886
+commit: 5e4f8e741997d1d027479597bf5265607888bcb1 [9/11] Input: isa1200 - new driver for Immersion ISA1200
+config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20251025/202510250319.9WqUFHAz-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251025/202510250319.9WqUFHAz-lkp@intel.com/reproduce)
 
-Best regards,
-Namhyung
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510250319.9WqUFHAz-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/input/misc/isa1200.c:423:3: error: field designator 'probe_new' does not refer to any field in type 'struct i2c_driver'
+     423 |         .probe_new = isa1200_probe,
+         |         ~^~~~~~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
 
 
+vim +423 drivers/input/misc/isa1200.c
+
+   416	
+   417	static struct i2c_driver isa1200_i2c_driver = {
+   418		.driver = {
+   419			.name = "isa1200",
+   420			.of_match_table = isa1200_of_match,
+   421			.pm = &isa1200_pm,
+   422		},
+ > 423		.probe_new = isa1200_probe,
+   424	};
+   425	module_i2c_driver(isa1200_i2c_driver);
+   426	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
