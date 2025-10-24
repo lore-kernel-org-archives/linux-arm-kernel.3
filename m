@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2EDCCD1AB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4EA5CCF9EC
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 11:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,48 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HYbyt2QVvWK0yfYfpwd+l+UaKa0wzEpSNEDN1sJoHOc=; b=pRsF1OQFJJOmLz4WjhmplVJbvK
-	r9T366Xx/S3mj//nO2qbfC3pbUEffgDIwhI68Wap5Aht7LRo2nYDUXEbkjKB5ApVkveqyjLtIJHKq
-	i/g3t1SkVHwZo4cxLH4f0CRcBbofDRhyq7ZcUoj7VifQfv8ap32v3m3HJ9Pb6F+9IG1T1gczlphVD
-	+w3mRcjYMp/yfZ2+Inkj2VB3j5x24RcPDNGLSNSYeuebHGxr+gXaVbzJYSXdKvvX4BoX4JC/8pDov
-	k7JOYXmaerauoGzYfzu+s1fxNdOmzVAh89um5UknVO3WpiuiTMXwe5DMXPoSD8aPOiZ75+3ArhGGJ
-	zOpzyIHg==;
+	bh=I01gilt597ssbstG3/Wac7ngYgWIq9bxKRTcwDQ6Hvw=; b=yl3gYe13UdUaisLcLnjv4qk9UR
+	WwCoIS1/fNNEwhBSsCIxQGjG8U9yNj4sBOWywa0eZ+mBCFtyShv+Va7dj4LbPSMA9l0JWcRUlGeVg
+	gwNFn6G8j32WgmQRSMKKepR9gYa8vfLcenHoAwExx5VhAcZswROT3d2gsUmXslzqKMwyYTvVxWTa4
+	+1J6PC7ebwrLQChdEM8uykctsle6KGSXRF9DkKcM7NpK3pOhwUFeSPD96Yf/wF/zo7aEaNIkABaHg
+	GyqT00QWhiNta4B26trM76EIxhr3i48iotTEAbbfn8tC9HIMxMr9DL3+2FvNxhaxQfe1KgLlFKY1y
+	v4KPd9Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGJY-00000009GLY-3GOH;
-	Fri, 24 Oct 2025 11:50:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGJT-00000009GI4-2BFO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 24 Oct 2025 11:50:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=HYbyt2QVvWK0yfYfpwd+l+UaKa0wzEpSNEDN1sJoHOc=; b=ZRCKFAd7F+LIqt1lmeHaFGt8Xa
-	UMCsvOumctevBwGU+bmLZm+UVm2qSSPuANA2D0MYa7Emq3w92Owymn+4EOvwZxodj67Ql69YeBDrC
-	dm6EAUgjpb/HIJSRSMGql7ozdLT1Lm4ldAiC6ooLIr05wPva5qQTFhsnRu81JuOrgQfud+RA6SraJ
-	AcFw3Jo2mfi9qW2uUtcwfSsR1qBAOh3+zGXGMOaw5MR6wbL0wEBNK2EgAgAWv8CX2RXcDwDZJWAmS
-	GiLIDNtUe49+WIS/mo2H5JcY9rtAix8nA38V3R9g7APg3/KmL3yWjEVw+0ctyJ4SpC2vfZWXeVvkA
-	UcF2nTfQ==;
+	id 1vCGJZ-00000009GMV-0VRb;
+	Fri, 24 Oct 2025 11:50:37 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCFRm-00000002FTN-3OOK
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vCGJS-00000009GH3-1Lap
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 10:55:04 +0000
+	Fri, 24 Oct 2025 11:50:31 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1vCGJA-0002FG-0S; Fri, 24 Oct 2025 13:50:12 +0200
+	id 1vCGJB-0002FG-DJ; Fri, 24 Oct 2025 13:50:13 +0200
 From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Fri, 24 Oct 2025 13:50:00 +0200
-Subject: [PATCH v5 08/10] arm64: dts: socfpga: agilex5: dma coherent
- enablement for XGMACs
+Date: Fri, 24 Oct 2025 13:50:02 +0200
+Subject: [PATCH v5 10/10] arm64: dts: socfpga: agilex5: initial support for
+ Arrow AXE5-Eagle
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251024-v6-12-topic-socfpga-agilex5-v5-8-4c4a51159eeb@pengutronix.de>
+Message-Id: <20251024-v6-12-topic-socfpga-agilex5-v5-10-4c4a51159eeb@pengutronix.de>
 References: <20251024-v6-12-topic-socfpga-agilex5-v5-0-4c4a51159eeb@pengutronix.de>
 In-Reply-To: <20251024-v6-12-topic-socfpga-agilex5-v5-0-4c4a51159eeb@pengutronix.de>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -70,16 +55,15 @@ Cc: kernel@pengutronix.de, netdev@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com, 
  linux-arm-kernel@lists.infradead.org, 
  Steffen Trumtrar <s.trumtrar@pengutronix.de>, 
- "Tham, Mun Yew" <mun.yew.tham@intel.com>
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.3
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_115502_919146_D70BBDCA 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_045030_366945_E0EA7A9F 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,45 +78,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Tham, Mun Yew" <mun.yew.tham@intel.com>
+The Arrow AXE5-Eagle is an Intel Agilex5 SoCFPGA based board with:
 
-Add dma-coherent property to device tree for XGMACs to resolve kernel
-panic error on dcache_inval_poc for XGMACs.
+   - 1x PCIe Gen4.0 edge connector
+   - 4-port USB HUB
+   - 2x 1Gb Ethernet
+   - microSD
+   - HDMI output
+   - 2x 10Gb SFP+ cages
 
-Signed-off-by: Tham, Mun Yew <mun.yew.tham@intel.com>
+As most devices aren't supported mainline yet, this is only the initial
+support for the board: leds, gpios, gmac2, i2c, uart and qspi. Although
+gmac1 is equipped on the board, it doesn't work yet as it needs
+additional pinctrl settings in the bootloader to work.
+
 Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/intel/Makefile                 |   1 +
+ .../boot/dts/intel/socfpga_agilex5_axe5_eagle.dts  | 146 +++++++++++++++++++++
+ 2 files changed, 147 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-index d0c139f03541e..63c0aa8550313 100644
---- a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-+++ b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-@@ -558,6 +558,7 @@ gmac0: ethernet@10810000 {
- 			snps,tso;
- 			altr,sysmgr-syscon = <&sysmgr 0x44 0>;
- 			snps,clk-csr = <0>;
-+			dma-coherent;
- 			iommus = <&smmu 1>;
- 			status = "disabled";
- 
-@@ -672,6 +673,7 @@ gmac1: ethernet@10820000 {
- 			snps,tso;
- 			altr,sysmgr-syscon = <&sysmgr 0x48 0>;
- 			snps,clk-csr = <0>;
-+			dma-coherent;
- 			iommus = <&smmu 2>;
- 			status = "disabled";
- 
-@@ -786,6 +788,7 @@ gmac2: ethernet@10830000 {
- 			snps,tso;
- 			altr,sysmgr-syscon = <&sysmgr 0x4c 0>;
- 			snps,clk-csr = <0>;
-+			dma-coherent;
- 			iommus = <&smmu 3>;
- 			status = "disabled";
- 
+diff --git a/arch/arm64/boot/dts/intel/Makefile b/arch/arm64/boot/dts/intel/Makefile
+index 33f6d01266b1a..0a18ca306054b 100644
+--- a/arch/arm64/boot/dts/intel/Makefile
++++ b/arch/arm64/boot/dts/intel/Makefile
+@@ -2,6 +2,7 @@
+ dtb-$(CONFIG_ARCH_INTEL_SOCFPGA) += socfpga_agilex_n6000.dtb \
+ 				socfpga_agilex_socdk.dtb \
+ 				socfpga_agilex_socdk_nand.dtb \
++				socfpga_agilex5_axe5_eagle.dtb \
+ 				socfpga_agilex5_socdk.dtb \
+ 				socfpga_agilex5_socdk_nand.dtb \
+ 				socfpga_n5x_socdk.dtb
+diff --git a/arch/arm64/boot/dts/intel/socfpga_agilex5_axe5_eagle.dts b/arch/arm64/boot/dts/intel/socfpga_agilex5_axe5_eagle.dts
+new file mode 100644
+index 0000000000000..a2a262f3d07c6
+--- /dev/null
++++ b/arch/arm64/boot/dts/intel/socfpga_agilex5_axe5_eagle.dts
+@@ -0,0 +1,146 @@
++// SPDX-License-Identifier:     GPL-2.0
++/*
++ * Copyright (C) 2024, Arrow Electronics, Inc.
++ */
++#include "socfpga_agilex5.dtsi"
++
++/ {
++	model = "SoCFPGA Agilex5 Arrow AXE5-Eagle";
++	compatible = "arrow,socfpga-agilex5-axe5-eagle", "intel,socfpga-agilex5";
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-0 {
++			label = "hps_led0";
++			gpios = <&porta 6 GPIO_ACTIVE_HIGH>;
++		};
++
++		led-1 {
++			label = "hps_led1";
++			gpios = <&porta 7 GPIO_ACTIVE_HIGH>;
++		};
++	};
++
++	gpio-keys {
++		compatible = "gpio-keys";
++
++		key-0 {
++			label = "hps_sw0";
++			gpios = <&porta 10 0>;
++			linux,input-type = <5>;	/* EV_SW */
++			linux,code = <0x0>;
++		};
++
++		key-1 {
++			label = "hps_sw1";
++			gpios = <&porta 1 0>;
++			linux,input-type = <5>;	/* EV_SW */
++			linux,code = <0x0>;
++		};
++
++		key-2 {
++			label = "hps_pb0";
++			gpios = <&porta 8 1>;
++			linux,code = <187>;		/* KEY_F17 */
++		};
++
++		key-3 {
++			label = "hps_pb1";
++			gpios = <&porta 9 1>;
++			linux,code = <188>;		/* KEY_F18 */
++		};
++	};
++
++	vdd: regulator-vdd {
++		compatible = "regulator-fixed";
++		regulator-name = "fixed-supply";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-always-on;
++	};
++
++	vdd_3_3: regulator-vdd {
++		compatible = "regulator-fixed";
++		regulator-name = "fixed-supply";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++	};
++};
++
++&gmac2 {
++	status = "okay";
++	phy-mode = "rgmii-id";
++	phy-handle = <&emac2_phy0>;
++
++	mdio0 {
++		compatible = "snps,dwmac-mdio";
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		emac2_phy0: ethernet-phy@1 {
++			compatible = "ethernet-phy-ieee802.3-c22";
++			reg = <0x1>;
++		};
++	};
++};
++
++&gpio0 {
++	status = "okay";
++};
++
++&i2c0 {
++	status = "okay";
++};
++
++&i2c1 {
++	status = "okay";
++
++	i2c-mux@70 {
++		compatible = "nxp,pca9544";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0x70>;
++		status = "okay";
++	};
++};
++
++&osc1 {
++	clock-frequency = <25000000>;
++};
++
++&qspi {
++	status = "okay";
++
++	flash@0 {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		compatible = "micron,mt25qu02g", "jedec,spi-nor";
++		reg = <0>;
++		spi-max-frequency = <100000000>;
++
++		m25p,fast-read;
++		cdns,read-delay = <2>;
++		cdns,tshsl-ns = <50>;
++		cdns,tsd2d-ns = <50>;
++		cdns,tchsh-ns = <4>;
++		cdns,tslch-ns = <4>;
++	};
++};
++
++&smmu {
++	status = "okay";
++};
++
++&uart0 {
++	status = "okay";
++};
 
 -- 
 2.51.0
