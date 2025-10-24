@@ -4,69 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D754CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 19:21:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EFBCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 19:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pCS3u+p5/mBX/+ng03ATa6a8JxRz1+ui4UK+ezTN610=; b=C2uqwlaNUgbi4e3qAs7bnJuRS0
-	5Ooko2bj9RBcqASih6jYcLbATkNK1wh7F08RftVpqcpmyP0fqqdcx05tYoQqOSR+RDxAE2zNNeiry
-	ex4XNwSLn/SvhNUi//bPdXUzGr47+SLt61l7Jid8szHD8nosmdL9LcxW0DRa2OGrQKRCnMMV1f02m
-	H57y+8QWFuo8QF+h01kVnqyi/yLjEQLBJuClGLbrx1mJhc4g640NWaqf16oW4EPpmb0y5NodBP1TG
-	HAjjhs9SyvNT0Olq8lWCN7IlEvFLYS+84wJuUuYu8ODMoMYOz3sR65t9/xEUSH9wckVkDERksiNft
-	zTYuHsTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xZd0XM9nodjf0xY3dLKmqwVSLidBysE2v03Z3OAAOHE=; b=wDjRbWrpFYhZIqmaFdN+gxLYXL
+	M278fz8cP3oxgk6Hkw70KKVXyDzrHXhP7T+LcfZn7GN/QWM3nZFMu57wV6fQom/BNrT7vNqlZHfEq
+	O/ZKtK6+LmhFSzRZTdfQt8JeKDyWCYqAdtzxfyLdIM/9rQgeyq+1bEIqND7DR1QF7UQYYpp2oAJX7
+	XJVXr90G/KXUlK24CqK835zxLYFW6ju0ONTY3JwkkGwZ5sbUr8oD35QfyXQwTBnT+iI1+1cUkRrXg
+	ONb0yk5X5BRSk8fvkuMWHXL8BAjiMpSZ/5TWjSe1ZSaTg0WOj57JCc2CTYwo6AO1LWvLOmNPtY1Ea
+	ZdaDdbIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCNLX-0000000AMkf-3dBq;
-	Fri, 24 Oct 2025 19:21:07 +0000
-Received: from out-180.mta1.migadu.com ([95.215.58.180])
+	id 1vCNMK-0000000AMtT-1xZw;
+	Fri, 24 Oct 2025 19:21:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCNLS-0000000AMkH-44Wq
+	id 1vCNMJ-0000000AMtG-23Ik
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 19:21:06 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1761333658;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pCS3u+p5/mBX/+ng03ATa6a8JxRz1+ui4UK+ezTN610=;
-	b=SsLORBQ//u6ocJ1PZbfaCSFlOEa1lQEQISN/T6O5M8v5zAaO8wNToSmTGA8ITDWaGKCn+h
-	q5bH5cBBlrinNwDIo6go56m9JI/JdcNHj5ZVFTxIaihBCyoZBXDdGpur+ZyheGWtVZWum7
-	/FvAlHrmPVvM7blAbflY76Ig7XXIl0z5/d7WTIoh+xEt4ND+JKbbGYVZj81sfxzVToGFzW
-	9rkwwVLEkSPiZpsC9ioZ0bghwtPBeXVU8LOgBpHCLPpl4PMVw5kWNuv4m9dBytuct258YW
-	cXKx2G/zhKG/1dO7QBuyLcl50TEzPN+SxJ9eYv+NLdwTO3Aabo+eyXgYRpRX+w==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 24 Oct 2025 21:20:45 +0200
-Message-Id: <DDQSO2HR1BFU.2JONNHRBR0LR5@cknow-tech.com>
-Cc: "Heiko Stuebner" <heiko@sntech.de>, "Shawn Lin"
- <shawn.lin@rock-chips.com>, "Kever Yang" <kever.yang@rock-chips.com>,
- "Chukun Pan" <amadeus@jmu.edu.cn>, "Alexander Shiyan"
- <eagle.alexander923@gmail.com>, <kernel@collabora.com>, "Dragan Simic"
- <dsimic@manjaro.org>, "Rob Herring" <robh@kernel.org>, "Sebastian Reichel"
- <sebastian.reichel@collabora.com>, <linux-rockchip@lists.infradead.org>,
- <devicetree@vger.kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Damon
- Ding" <damon.ding@rock-chips.com>, "Chris Morgan"
- <macromorgan@hotmail.com>, <linux-arm-kernel@lists.infradead.org>, "Patrick
- Wildt" <patrick@blueri.se>, "Alexey Charkov" <alchark@gmail.com>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Nicolas Frattaroli"
- <nicolas.frattaroli@collabora.com>, "Tomeu Vizoso" <tomeu@tomeuvizoso.net>
-Subject: Re: [PATCH v3 0/2] arm64: dts: rockchip: Add vdpu 381 and 383 nodes
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Detlev Casanova" <detlev.casanova@collabora.com>,
- <linux-kernel@vger.kernel.org>
-References: <20251020212009.8852-1-detlev.casanova@collabora.com>
-In-Reply-To: <20251020212009.8852-1-detlev.casanova@collabora.com>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_122103_489586_0650E35F 
-X-CRM114-Status: GOOD (  17.36  )
+	Fri, 24 Oct 2025 19:21:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D95926028B;
+	Fri, 24 Oct 2025 19:21:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40D9DC4CEF1;
+	Fri, 24 Oct 2025 19:21:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761333714;
+	bh=zajPlJnvLIMbpj18tt9XU5F6klgXeRifknETT3f00Yw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gYE4+xI7/IgZhpd7y0gND/WB2m9og01WSNl8xqVgmsKloP8wozlAsva8mAXNLOLhj
+	 +n06GmuvHtqMxpASGF78jb6nC8nF7fzU0gO7d1tWMFPBsjv7LPSa9L2vbzLPfDbACz
+	 zNjm/0XNRz0G7Pk2+YW8tMZRevxOYMhFXzG4txrul0hxn4ITKe0+hvMY2u0zDiCKme
+	 I6lc9edBxfmWJuX9hOL1lUnMOsAmIUdgdGJfRACwha5AjkgcrUFjCfDUFZR8wlRi29
+	 MPbqftOf51ATChWK2hvnE7Zed+gIcFXlVGCjwiKcDgZc3AQu1gb8g86XbRfs/Am7uf
+	 TAdNdCZD9JRMQ==
+Date: Fri, 24 Oct 2025 12:21:52 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-btrfs@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>
+Subject: Re: [PATCH 00/10] BLAKE2b library API
+Message-ID: <20251024192152.GB2068@quark>
+References: <20251018043106.375964-1-ebiggers@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251018043106.375964-1-ebiggers@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,71 +70,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Detlev,
+On Fri, Oct 17, 2025 at 09:30:56PM -0700, Eric Biggers wrote:
+> This series can also be retrieved from:
+> 
+>     git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git blake2b-lib-v1
+> 
+> This series adds BLAKE2b support to lib/crypto/ and reimplements the
+> blake2b-* crypto_shash algorithms on top of it.
+> 
+> To prepare for that, patches 1-4 clean up the BLAKE2s library code a
+> bit, and patch 5 adds some missing 64-bit byteorder helper functions.
+> Patches 6-8 add the BLAKE2b library API (closely mirroring the BLAKE2s
+> one), and patch 9 makes crypto_shash use it.  As usual, the library APIs
+> are documented (with kerneldoc) and tested (with KUnit).
+> 
+> With that done, all of btrfs's checksum algorithms have library APIs.
+> So patch 10 converts btrfs to use the library APIs instead of shash.
+> This has quite a few benefits, as detailed in that patch.
+> 
+> Patches 1-9 are targeting libcrypto-next for 6.19.  Patch 10 can go
+> through the btrfs tree later.
+> 
+> Eric Biggers (10):
+>   lib/crypto: blake2s: Adjust parameter order of blake2s()
+>   lib/crypto: blake2s: Rename blake2s_state to blake2s_ctx
+>   lib/crypto: blake2s: Drop excessive const & rename block => data
+>   lib/crypto: blake2s: Document the BLAKE2s library API
+>   byteorder: Add le64_to_cpu_array() and cpu_to_le64_array()
+>   lib/crypto: blake2b: Add BLAKE2b library functions
+>   lib/crypto: arm/blake2b: Migrate optimized code into library
+>   lib/crypto: tests: Add KUnit tests for BLAKE2b
+>   crypto: blake2b - Reimplement using library API
+>   btrfs: switch to library APIs for checksums
 
-On Mon Oct 20, 2025 at 11:20 PM CEST, Detlev Casanova wrote:
-> Add the nodes for vdpu 381 and 383, respectively RK3588 and RK3576.
-> To keep compatibility with older variants, the reg ranges order is not
-> in register order so that the function reg range is kept first.
+Applied patches 1-9 (i.e., all except the btrfs patch) to
+https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
 
-This is a great comment, which I'd have preferred to have seen in the
-commit messages themselves.
+I folded the following fixup into patch 7 to address
+https://lore.kernel.org/r/20251019163249.GD1604@sol/ and
+https://lore.kernel.org/r/202510221007.WnlC6PmP-lkp@intel.com/
 
-Especially since I'm getting DTB validation warnings:
-
-  DTC [C] arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb
-arch/arm64/boot/dts/rockchip/rk3576.dtsi:1292.30-1314.5: Warning (simple_bu=
-s_reg):
-/soc/video-codec@27b00000: simple-bus unit address format error, expected "=
-27b00100"
-  DTC [C] arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dtb
-arch/arm64/boot/dts/rockchip/rk3576.dtsi:1292.30-1314.5: Warning (simple_bu=
-s_reg):
-/soc/video-codec@27b00000: simple-bus unit address format error, expected "=
-27b00100"
-
-
-For some reason I'm not getting that for rk3588, which I need to
-investigate further. Technically, I ran my DTB validation script on your
-'add-vdpu381-and-383-to-rkvdec-v3-on-next' branch, but I don't see how
-that would/could change the outcome.
-
-My validation script does essentially this:
-``make CHECK_DTBS=3Dy W=3D1 $(get_my_dtbs)``
-
-('get_my_dtbs' returns a list of dtb files I want to check)
-
-So it looks like the DTB validation tool is not happy that the
-reg ranges are not sorted in 'proper' order.
-
-Note that the ``W=3D1`` is essential to see the warning, it does not show
-up when ``W=3D0`` is used.
-I'll leave it up to you and the maintainers to judge whether this is
-problematic or not, but wanted to mention it.
-
-Cheers,
-  Diederik
-
-> Also adds the corresponding iommu nodes.
->
-> Note that on RK3588, both cores are added as it represents the hardware,
-> but the driver, later will only register the first one.
->
-> Regards,
-> Detlev.
->
-> Changes since v2:
->  - Set the correct IRQ number for the second rk3588 core
->
-> Changes since v1:
->  - Set node name to match first reg range
->
-> Detlev Casanova (2):
->   arm64: dts: rockchip: Add the vdpu381 Video Decoders on RK3588
->   arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576
->
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 36 +++++++++
->  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 74 +++++++++++++++++++
->  2 files changed, 110 insertions(+)
-
+diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
+index 5c9a933928188..bc26777d08e97 100644
+--- a/lib/crypto/Makefile
++++ b/lib/crypto/Makefile
+@@ -37,5 +37,5 @@ CFLAGS_blake2b.o := -Wframe-larger-than=4096 #  https://gcc.gnu.org/bugzilla/sho
+ ifeq ($(CONFIG_CRYPTO_LIB_BLAKE2B_ARCH),y)
+ CFLAGS_blake2b.o += -I$(src)/$(SRCARCH)
+-obj-$(CONFIG_ARM) += arm/blake2b-neon-core.o
++libblake2b-$(CONFIG_ARM) += arm/blake2b-neon-core.o
+ endif # CONFIG_CRYPTO_LIB_BLAKE2B_ARCH
+ 
 
