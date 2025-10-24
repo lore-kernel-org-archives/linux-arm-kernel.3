@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D67ECCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 20:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 242B7CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 20:30:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vOr8Rrr+mnTgf6ee9RR/hGBWYF0gos8pVivXS5bthXk=; b=jjmtdcRiSoUp72hUNNZ7ucR9O3
-	uytNtBDQFiQO0vOwLDZHKhE9Lzo12G+3o+BsUNeJWU9uPJnSyTyexj4Uc05vO1dLASIX643hnPEbs
-	7BYmA5owGkS7EXUv2DNYrsLzSucieQFdXPtDY9RF4orH7vsRP9PV1XdXYamirsNgAuegAp9I7iLdm
-	sBHSUpaDX7Km+t7q70E7KRLcYaTIqHh8hPkRIL6A3JUFvOWU0dQiTwjF0TNuF3cHuAnoyz3xCsnBj
-	cMVeWBJZU7S/R2ua6csL263iVWHaMenDUJz7cd38pbDb9ygu9Q/A8L2BoAXSXzThrOPiF+W6Tcv7n
-	8k2RuBug==;
+	bh=9qgJ4HN1RznqBFb2N7wKojZjpvfNVcsrVWtysKzknts=; b=Pk2bg6tjami7ocbFrChAYpCWko
+	vFDIBUhbUzam2int0h0jxOVoVgaOglxOuSLLBemck5+WOjKsmTTU33M9BVOpUAUyjT/cT3kfWhGah
+	h6aqdpHXGoOTBNj76w4gcLeLgXi8f/0aYX/yusPIDBQdaV8S1jwh4V0fTkMk2Sb+BnCBtKhIeURpL
+	AuDRn7g/KPrdPlDVWQkjDw6FFJxAPaZ8W6jje12HaYHAnqfrbZ3tl5C1SCfy1lMVwWp5Pv/ysNRlx
+	nVpgX82/xMxxuaE+UDOInLce+aVWmmCGPIG9pT6OJrnXs65hQfRmkXn991IxaAfv9i+yFbmt/rpIm
+	7+seG3eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCOOg-0000000ATK2-1NTY;
-	Fri, 24 Oct 2025 20:28:26 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vCOQb-0000000ATZs-3H8F;
+	Fri, 24 Oct 2025 20:30:25 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCOOd-0000000ATIh-31Tp;
-	Fri, 24 Oct 2025 20:28:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761337688; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=SEArvOlfH74vbjfMVG1sMPtbC93q5M1zvlCuU2xI0VJgmLY6aMI1AYvVBIj98RnkZU+WOFV9hFzb+uTGmZBGDA2vt7VAx3K+WhGbYTV3n+h+xTikesZtPOkl6z/8VZUphMxnIT0kfHsFgxJjRKKee2Y+8T4T7A17VCfS+NghSyY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761337688; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=vOr8Rrr+mnTgf6ee9RR/hGBWYF0gos8pVivXS5bthXk=; 
-	b=e/yWhpTf2ghOdv+R0yhXNxrmu4PZ0YDPf9t1/YlklAawpyi9fa2/UbbrcSz0PC8Ik3jyf1kbcOFI0A8nq4MxLb7V9I+YvJbP4TRMa9H7hJzwmfZZaytCKeLFnqR6IlGEXPs/VOng0q1nD+g1pHz9hK+iDkVyzMnrnlGT0Ixt0dA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761337688;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=vOr8Rrr+mnTgf6ee9RR/hGBWYF0gos8pVivXS5bthXk=;
-	b=QqwrA7/+ngNK0OlEGLSZVwKegylTw5G5SwQBuhL6vhvuPu2OtdKmcWcSTag4gY5R
-	FZiYfRrdTFyhIRZq0Ivlj5yClWpjbnhy+/ROBgCYEr2Rs1OnvNKD6ROVVwxzmfM4xHf
-	VbFtapebmfdacOZCa0lAfgIy1LGY/rCN2dAfwX/c=
-Received: by mx.zohomail.com with SMTPS id 1761337687432824.4758348720163;
-	Fri, 24 Oct 2025 13:28:07 -0700 (PDT)
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-To: chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	greenjustin@chromium.org,
-	sjoerd@collabora.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Subject: [PATCH] drm/mediatek: Disable AFBC support on Mediatek DRM driver
-Date: Fri, 24 Oct 2025 17:27:56 -0300
-Message-ID: <20251024202756.811425-1-ariel.dalessandro@collabora.com>
-X-Mailer: git-send-email 2.51.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+	id 1vCOQY-0000000ATZC-3ZLm
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Oct 2025 20:30:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761337823; x=1792873823;
+  h=date:from:to:cc:subject:message-id;
+  bh=lojzuRfo765RzL+KpyOys4N3TXLxh8bDeCCqey2w7RY=;
+  b=U4Zu7VS9bd6/HOOyHfCcbAMN0FGRZDp5/1kWNtMlT6W+nP0G/0J/h6RN
+   6PsQdotry9D/FNUulve/mWLLuFNN1pxkDhbhTWYRfYjwk6FRO86eCKlUU
+   iKBkqKUUIj/m98zROO5VeFM2RRgIwDzYS6iE8qfELTM4oQJla1bGOQVSU
+   aCbPfKgHwoJX9kNoku6Oj+XMEU40finKS2n3VBvYFxX5Zy6ewWggqm7No
+   h5V5G0XWFfRXzDwgny82kOJUUjVj/y/3puTq4C6VxTH62e9kpRPOKZ7BL
+   xRLMyVlYRcJoaVxM8/9ekT89JNV/1uejPemHNL/8M8ZmV1wZQfg/Mj8It
+   g==;
+X-CSE-ConnectionGUID: k1/GfWTzQUCEn2m+qdtX/A==
+X-CSE-MsgGUID: 0JPgjzCOSOW9DdSi4XnU8g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="86154391"
+X-IronPort-AV: E=Sophos;i="6.19,253,1754982000"; 
+   d="scan'208";a="86154391"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 13:30:22 -0700
+X-CSE-ConnectionGUID: OTuJiU7HTAC2Ff8P4KmuXA==
+X-CSE-MsgGUID: 7U/rP1ADTMuEVA2OMHJEsQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,253,1754982000"; 
+   d="scan'208";a="188578970"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa003.jf.intel.com with ESMTP; 24 Oct 2025 13:30:20 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vCOQT-000ErN-12;
+	Fri, 24 Oct 2025 20:30:17 +0000
+Date: Sat, 25 Oct 2025 04:29:55 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: [linusw-nomadik:ux500-gavini-v6.18-rc1] BUILD SUCCESS
+ 6b43386e37379fa354a562356b64a7eef8e30195
+Message-ID: <202510250449.QV8NVCrU-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_132823_818352_8DC0E340 
-X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-CacheID: sfid-20251024_133022_965639_6BFAAD3C 
+X-CRM114-Status: UNSURE (   5.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,96 +83,251 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit c410fa9b07c32 ("drm/mediatek: Add AFBC support to Mediatek DRM
-driver") added AFBC support to Mediatek DRM and enabled the
-32x8/split/sparse modifier.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git ux500-gavini-v6.18-rc1
+branch HEAD: 6b43386e37379fa354a562356b64a7eef8e30195  DB7430 MTP readout hack
 
-However, this is currently broken on Mediatek MT8188 (Genio 700 EVK
-platform); tested using upstream Kernel and Mesa (v25.2.1), AFBC is used by
-default since Mesa v25.0.
+elapsed time: 1280m
 
-Kernel trace reports vblank timeouts constantly, and the render is garbled:
+configs tested: 231
+configs skipped: 4
 
-```
-[CRTC:62:crtc-0] vblank wait timed out
-WARNING: CPU: 7 PID: 70 at drivers/gpu/drm/drm_atomic_helper.c:1835 drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c
-[...]
-Hardware name: MediaTek Genio-700 EVK (DT)
-Workqueue: events_unbound commit_work
-pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-pc : drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c
-lr : drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c
-sp : ffff80008337bca0
-x29: ffff80008337bcd0 x28: 0000000000000061 x27: 0000000000000000
-x26: 0000000000000001 x25: 0000000000000000 x24: ffff0000c9dcc000
-x23: 0000000000000001 x22: 0000000000000000 x21: ffff0000c66f2f80
-x20: ffff0000c0d7d880 x19: 0000000000000000 x18: 000000000000000a
-x17: 000000040044ffff x16: 005000f2b5503510 x15: 0000000000000000
-x14: 0000000000000000 x13: 74756f2064656d69 x12: 742074696177206b
-x11: 0000000000000058 x10: 0000000000000018 x9 : ffff800082396a70
-x8 : 0000000000057fa8 x7 : 0000000000000cce x6 : ffff8000823eea70
-x5 : ffff0001fef5f408 x4 : ffff80017ccee000 x3 : ffff0000c12cb480
-x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0000c12cb480
-Call trace:
- drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c (P)
- drm_atomic_helper_commit_tail_rpm+0x64/0x80
- commit_tail+0xa4/0x1a4
- commit_work+0x14/0x20
- process_one_work+0x150/0x290
- worker_thread+0x2d0/0x3ec
- kthread+0x12c/0x210
- ret_from_fork+0x10/0x20
----[ end trace 0000000000000000 ]---
-```
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Until this gets fixed upstream, disable AFBC support on this platform, as
-it's currently broken with upstream Mesa.
+tested configs:
+alpha                             allnoconfig    clang-22
+alpha                            allyesconfig    clang-19
+alpha                            allyesconfig    gcc-15.1.0
+alpha                               defconfig    clang-19
+arc                              allmodconfig    clang-19
+arc                               allnoconfig    clang-22
+arc                              allyesconfig    clang-19
+arc                                 defconfig    clang-19
+arc                   randconfig-001-20251024    clang-22
+arc                   randconfig-001-20251024    gcc-8.5.0
+arc                   randconfig-002-20251024    clang-22
+arc                   randconfig-002-20251024    gcc-14.3.0
+arm                              allmodconfig    clang-19
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    clang-19
+arm                        clps711x_defconfig    gcc-15.1.0
+arm                                 defconfig    clang-19
+arm                          pxa168_defconfig    gcc-15.1.0
+arm                   randconfig-001-20251024    clang-20
+arm                   randconfig-001-20251024    clang-22
+arm                   randconfig-002-20251024    clang-22
+arm                   randconfig-002-20251024    gcc-15.1.0
+arm                   randconfig-003-20251024    clang-22
+arm                   randconfig-004-20251024    clang-22
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    clang-22
+arm64                            allyesconfig    gcc-15.1.0
+arm64                               defconfig    clang-19
+arm64                 randconfig-001-20251024    clang-22
+arm64                 randconfig-001-20251024    gcc-8.5.0
+arm64                 randconfig-002-20251024    clang-16
+arm64                 randconfig-002-20251024    clang-22
+arm64                 randconfig-003-20251024    clang-22
+arm64                 randconfig-003-20251024    gcc-13.4.0
+arm64                 randconfig-004-20251024    clang-17
+arm64                 randconfig-004-20251024    clang-22
+csky                             allmodconfig    gcc-15.1.0
+csky                              allnoconfig    clang-22
+csky                             allyesconfig    gcc-15.1.0
+csky                                defconfig    clang-19
+csky                  randconfig-001-20251024    gcc-14.3.0
+csky                  randconfig-001-20251024    gcc-8.5.0
+csky                  randconfig-002-20251024    gcc-11.5.0
+csky                  randconfig-002-20251024    gcc-8.5.0
+hexagon                          allmodconfig    clang-17
+hexagon                          allmodconfig    clang-19
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-19
+hexagon                          allyesconfig    clang-22
+hexagon                             defconfig    clang-19
+hexagon               randconfig-001-20251024    clang-22
+hexagon               randconfig-001-20251024    gcc-8.5.0
+hexagon               randconfig-002-20251024    clang-22
+hexagon               randconfig-002-20251024    gcc-8.5.0
+i386                             allmodconfig    clang-20
+i386                              allnoconfig    clang-20
+i386                             allyesconfig    clang-20
+i386        buildonly-randconfig-001-20251024    clang-20
+i386        buildonly-randconfig-001-20251024    gcc-14
+i386        buildonly-randconfig-002-20251024    gcc-14
+i386        buildonly-randconfig-003-20251024    clang-20
+i386        buildonly-randconfig-003-20251024    gcc-14
+i386        buildonly-randconfig-004-20251024    gcc-14
+i386        buildonly-randconfig-005-20251024    gcc-14
+i386        buildonly-randconfig-006-20251024    gcc-14
+i386                                defconfig    clang-20
+i386                  randconfig-001-20251024    clang-20
+i386                  randconfig-002-20251024    clang-20
+i386                  randconfig-003-20251024    clang-20
+i386                  randconfig-004-20251024    clang-20
+i386                  randconfig-005-20251024    clang-20
+i386                  randconfig-006-20251024    clang-20
+i386                  randconfig-007-20251024    clang-20
+i386                  randconfig-011-20251024    clang-20
+i386                  randconfig-012-20251024    clang-20
+i386                  randconfig-013-20251024    clang-20
+i386                  randconfig-014-20251024    clang-20
+i386                  randconfig-015-20251024    clang-20
+i386                  randconfig-016-20251024    clang-20
+i386                  randconfig-017-20251024    clang-20
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch                        allyesconfig    gcc-15.1.0
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20251024    gcc-15.1.0
+loongarch             randconfig-001-20251024    gcc-8.5.0
+loongarch             randconfig-002-20251024    gcc-15.1.0
+loongarch             randconfig-002-20251024    gcc-8.5.0
+m68k                             alldefconfig    gcc-15.1.0
+m68k                             allmodconfig    clang-19
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    clang-19
+m68k                             allyesconfig    gcc-15.1.0
+m68k                         amcore_defconfig    gcc-15.1.0
+m68k                                defconfig    clang-19
+m68k                       m5208evb_defconfig    gcc-15.1.0
+m68k                            mac_defconfig    gcc-15.1.0
+microblaze                       allmodconfig    clang-19
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    clang-19
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                             allmodconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+mips                             allyesconfig    gcc-15.1.0
+mips                         bigsur_defconfig    gcc-15.1.0
+mips                          rb532_defconfig    gcc-15.1.0
+nios2                             allnoconfig    gcc-15.1.0
+nios2                               defconfig    gcc-15.1.0
+nios2                 randconfig-001-20251024    gcc-11.5.0
+nios2                 randconfig-001-20251024    gcc-8.5.0
+nios2                 randconfig-002-20251024    gcc-11.5.0
+nios2                 randconfig-002-20251024    gcc-8.5.0
+openrisc                          allnoconfig    clang-22
+openrisc                         allyesconfig    gcc-15.1.0
+openrisc                            defconfig    gcc-14
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    clang-22
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20251024    gcc-8.5.0
+parisc                randconfig-001-20251024    gcc-9.5.0
+parisc                randconfig-002-20251024    gcc-13.4.0
+parisc                randconfig-002-20251024    gcc-8.5.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    clang-22
+powerpc                          allyesconfig    gcc-15.1.0
+powerpc                   bluestone_defconfig    gcc-15.1.0
+powerpc               mpc834x_itxgp_defconfig    gcc-15.1.0
+powerpc               randconfig-001-20251024    gcc-8.5.0
+powerpc               randconfig-002-20251024    clang-17
+powerpc               randconfig-002-20251024    gcc-8.5.0
+powerpc               randconfig-003-20251024    clang-16
+powerpc               randconfig-003-20251024    gcc-8.5.0
+powerpc64             randconfig-001-20251024    gcc-12.5.0
+powerpc64             randconfig-001-20251024    gcc-8.5.0
+powerpc64             randconfig-002-20251024    gcc-14.3.0
+powerpc64             randconfig-002-20251024    gcc-8.5.0
+powerpc64             randconfig-003-20251024    gcc-8.5.0
+riscv                            allmodconfig    gcc-15.1.0
+riscv                             allnoconfig    clang-22
+riscv                            allyesconfig    gcc-15.1.0
+riscv                               defconfig    gcc-14
+riscv                 randconfig-001-20251024    clang-22
+riscv                 randconfig-002-20251024    clang-22
+s390                             allmodconfig    gcc-15.1.0
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                                defconfig    gcc-14
+s390                  randconfig-001-20251024    clang-22
+s390                  randconfig-001-20251024    gcc-13.4.0
+s390                  randconfig-002-20251024    clang-22
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                                  defconfig    gcc-14
+sh                            migor_defconfig    gcc-15.1.0
+sh                          r7785rp_defconfig    gcc-15.1.0
+sh                    randconfig-001-20251024    clang-22
+sh                    randconfig-001-20251024    gcc-12.5.0
+sh                    randconfig-002-20251024    clang-22
+sh                    randconfig-002-20251024    gcc-14.3.0
+sh                           se7619_defconfig    gcc-15.1.0
+sh                             shx3_defconfig    gcc-15.1.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20251024    clang-22
+sparc                 randconfig-001-20251024    gcc-12.5.0
+sparc                 randconfig-002-20251024    clang-22
+sparc                 randconfig-002-20251024    gcc-8.5.0
+sparc                       sparc32_defconfig    gcc-15.1.0
+sparc64                             defconfig    gcc-14
+sparc64               randconfig-001-20251024    clang-20
+sparc64               randconfig-001-20251024    clang-22
+sparc64               randconfig-002-20251024    clang-22
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    clang-19
+um                               allyesconfig    gcc-14
+um                                  defconfig    gcc-14
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20251024    clang-22
+um                    randconfig-001-20251024    gcc-14
+um                    randconfig-002-20251024    clang-22
+um                           x86_64_defconfig    gcc-14
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20251024    clang-20
+x86_64      buildonly-randconfig-001-20251024    gcc-14
+x86_64      buildonly-randconfig-002-20251024    clang-20
+x86_64      buildonly-randconfig-002-20251024    gcc-14
+x86_64      buildonly-randconfig-003-20251024    clang-20
+x86_64      buildonly-randconfig-003-20251024    gcc-14
+x86_64      buildonly-randconfig-004-20251024    gcc-14
+x86_64      buildonly-randconfig-005-20251024    gcc-14
+x86_64      buildonly-randconfig-006-20251024    clang-20
+x86_64      buildonly-randconfig-006-20251024    gcc-14
+x86_64                              defconfig    clang-20
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20251024    gcc-14
+x86_64                randconfig-002-20251024    gcc-14
+x86_64                randconfig-003-20251024    gcc-14
+x86_64                randconfig-004-20251024    gcc-14
+x86_64                randconfig-005-20251024    gcc-14
+x86_64                randconfig-006-20251024    gcc-14
+x86_64                randconfig-007-20251024    gcc-14
+x86_64                randconfig-008-20251024    gcc-14
+x86_64                randconfig-071-20251024    clang-20
+x86_64                randconfig-072-20251024    clang-20
+x86_64                randconfig-073-20251024    clang-20
+x86_64                randconfig-074-20251024    clang-20
+x86_64                randconfig-075-20251024    clang-20
+x86_64                randconfig-076-20251024    clang-20
+x86_64                randconfig-077-20251024    clang-20
+x86_64                randconfig-078-20251024    clang-20
+x86_64                               rhel-9.4    clang-20
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20251024    clang-22
+xtensa                randconfig-001-20251024    gcc-11.5.0
+xtensa                randconfig-002-20251024    clang-22
+xtensa                randconfig-002-20251024    gcc-13.4.0
 
-Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_plane.c | 24 +-----------------------
- 1 file changed, 1 insertion(+), 23 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_plane.c b/drivers/gpu/drm/mediatek/mtk_plane.c
-index 02349bd440017..788b52c1d10c5 100644
---- a/drivers/gpu/drm/mediatek/mtk_plane.c
-+++ b/drivers/gpu/drm/mediatek/mtk_plane.c
-@@ -21,9 +21,6 @@
- 
- static const u64 modifiers[] = {
- 	DRM_FORMAT_MOD_LINEAR,
--	DRM_FORMAT_MOD_ARM_AFBC(AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
--				AFBC_FORMAT_MOD_SPLIT |
--				AFBC_FORMAT_MOD_SPARSE),
- 	DRM_FORMAT_MOD_INVALID,
- };
- 
-@@ -71,26 +68,7 @@ static bool mtk_plane_format_mod_supported(struct drm_plane *plane,
- 					   uint32_t format,
- 					   uint64_t modifier)
- {
--	if (modifier == DRM_FORMAT_MOD_LINEAR)
--		return true;
--
--	if (modifier != DRM_FORMAT_MOD_ARM_AFBC(
--				AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
--				AFBC_FORMAT_MOD_SPLIT |
--				AFBC_FORMAT_MOD_SPARSE))
--		return false;
--
--	if (format != DRM_FORMAT_XRGB8888 &&
--	    format != DRM_FORMAT_ARGB8888 &&
--	    format != DRM_FORMAT_BGRX8888 &&
--	    format != DRM_FORMAT_BGRA8888 &&
--	    format != DRM_FORMAT_ABGR8888 &&
--	    format != DRM_FORMAT_XBGR8888 &&
--	    format != DRM_FORMAT_RGB888 &&
--	    format != DRM_FORMAT_BGR888)
--		return false;
--
--	return true;
-+	return modifier == DRM_FORMAT_MOD_LINEAR;
- }
- 
- static void mtk_plane_destroy_state(struct drm_plane *plane,
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
