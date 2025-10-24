@@ -4,83 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F9CCCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 13:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C89CCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 13:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5A3LnFV1JXMiV8IKs93nnFfYiQF51ex2SRQx85q3Ewc=; b=fU/BiC5mHLayGjTyKyKnoXYhk5
-	ZEFxmUFKTBxHoOkAbeFCLaByvv7CHYpFXxbJDJUVqgX/XPF8rSO8AGhevJNDUeoCGJ4zQp4P0Ko9f
-	4TAjSePk3DJF5EdEUAn62+VK23li9pdJ8A3kf1LLxXkAZ6acwBRg3agMT8NMglqkQ1O0NglAXOG4K
-	K70LD7OJI+Hilm4XC3eSmDluEhBqpf/vqSzbEheqZQYzgVnwaYmKV0d9cTYlpWAXeWnXSUhWmjoIZ
-	B91QkDOjSy1pbMBtAjhtMuGNXMWxUIhpg94RvdVk43IUUaYGlytRmZAgJD3ec8/4s0Nf+zE5q6oKo
-	P8b3ZqBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RQIPN8wp4yofNlPncUoWtaO5B6WuzvOcNITYR8csPjE=; b=LboM651jSrYpIygkBcMxOOqJtM
+	mPiDy2UZGoXHif66BhNDDfNzzfIdQ26dQmbvL08VX1bs0iuWVMDv9XA54VnzJRcHps0NVy8HZ7okX
+	ZoheqGtTlebnzKG3MBPMl/9V+l8YIEiyrHBGQscN2FPldgSjeOqJgEn6G64Yneo8VkcoOECi84pcO
+	MBx6PVXeTzudzZ/U5pk5ejr3rShu+Fg5mb5frRYQvFIDM03jXsgzenFoAAcyhJwToq+/N0l2oJBKV
+	Wz2PWTQLJ/sQ5HQbVAgVmZx7R3YrS9eMLCIpb9gVtRnhcOhEDxDJH5PN5CN3A4q431qrRZH2eZ9zK
+	/h6I/GrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCHus-00000009YJw-3eRi;
-	Fri, 24 Oct 2025 13:33:14 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1vCHw7-00000009Ydf-176e;
+	Fri, 24 Oct 2025 13:34:31 +0000
+Received: from mail-westeuropeazon11013031.outbound.protection.outlook.com ([52.101.72.31] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCHup-00000009YJG-2H1S
+	id 1vCHw4-00000009YcT-3zs8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 13:33:13 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59ODX5eD757492;
-	Fri, 24 Oct 2025 08:33:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1761312785;
-	bh=5A3LnFV1JXMiV8IKs93nnFfYiQF51ex2SRQx85q3Ewc=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=fSHvfpicgo8vRenVuPaiPUFCmHm+D5vtN/ASrCSSjjOLobWm5Z7QYOoG0LKpG2Op0
-	 MXGPvopueyeRr8mwxxJnTd2+GIB79n9OaNvo/rVwLctIiL+qU0oLi7oW3oDN1fWDi6
-	 +xfndGPCGLQT2UsMB/c2OBHS6ujF0zoAhVhCVGy8=
-Received: from DFLE205.ent.ti.com (dfle205.ent.ti.com [10.64.6.63])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59ODX4ou3608351
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 24 Oct 2025 08:33:04 -0500
-Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE205.ent.ti.com
- (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 24 Oct
- 2025 08:33:04 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 24 Oct 2025 08:33:04 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59ODX1N7391117;
-	Fri, 24 Oct 2025 08:33:01 -0500
-Message-ID: <a1a8f585-9650-49e6-9dfc-89c5ecb7d9ea@ti.com>
-Date: Fri, 24 Oct 2025 19:03:00 +0530
+	Fri, 24 Oct 2025 13:34:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Bb+giRC+PegmMdTqo4rkg6lN3eySoI906lNJoLmYOdX2+nzDxvk3P3kLVIhno0LA/8sd4ZaGRxY/Xmgc0m96OXsXVbAd2b3UnrJKdA1FLdfeA8cPyvn6Ow0zV1R5BpIqwVo7PqtDdhBq9epkXOHQBGRy38Q5ia1mj2Xy6WKkuuGnO4zb/ecdV/tQ/VYlZ7XPXHSVOp9N9YwJwHtEPDdgNrrK4qpiAZ15GamosvDl5cqDapPYi0d52eOA5yn6W8rrVkLKfSwIkx/Er/eq/pzZdpRRD4FmL5WBO1DkuE25EiqpQpyZhLk98MBsPy86P/pLWupeyTi4JksPmFms3G36Cg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RQIPN8wp4yofNlPncUoWtaO5B6WuzvOcNITYR8csPjE=;
+ b=mfvMlCLufYOPF9d9ilP+WzJMGV4bhow97x/C4Lh+MYTUmTe6lLDft9DcwFbxvY6OOWxYk/La41JOl/Z/ZXVYQUBLXu2mIKS5nx7y7P322cxWtfjGLF6kahETfxnTqlO/SwZxfKC3vxZD4YdzHsApya2TJQwsiQ5Twz1tzD2hBRj4+i0b7y+7y9yNAXoV1BXE4HP9ZBP+1nlRRzdGJ39jqJ8mpa35IbdFv8GmRz5iCE/wifKm8Lb5YADYb/6s1JldglZx0VlvgzQPS+p7eo6uEN1Wt70iA0wEDmrjDPIageOb4CYGILdOY+tKczpK0u1zYZWwl/zrggcrUdjxDoKLVA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RQIPN8wp4yofNlPncUoWtaO5B6WuzvOcNITYR8csPjE=;
+ b=RvZ9iAxxX93+IEoGknmxz9NIfaoprtagmBuMV+46tzSkeCD1XJLpPaoe61GhZlHRDb9lRA4y+s/EcgCkWxyuyupyfMartKoiE6dMf0W6N5n3z4VqNABpmkDm/KKIhRyTdb9e/m3ZPteVJ2JWp5d0BU2NhiBqh6MbpeKTBamfYn25+TjoFZWDJtCTUlGodIKn1Pt4Rgtj/vJ+ib60z/KH6KEowISRGbY6mySzWpsQKL3vlUUg9A575tetl6Xy7wPoAzn5KBOlJCu2g0/gK3jajEmZ0xNrI81kEwGXqca6/iYwcEnROb1HNKJQ6l8H9huiTakh6cVAPrNI8pkx918Gqw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by DB9PR04MB8331.eurprd04.prod.outlook.com (2603:10a6:10:244::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
+ 2025 13:34:24 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9253.011; Fri, 24 Oct 2025
+ 13:34:21 +0000
+Date: Fri, 24 Oct 2025 09:34:14 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH 1/3] media: dt-bindings: nxp,imx8-isi: Add i.MX95 ISI
+ compatible string
+Message-ID: <aPuAVqVUHjrPCbIH@lizhi-Precision-Tower-5810>
+References: <20251024-isi_imx95-v1-0-3ad1af7c3d61@nxp.com>
+ <20251024-isi_imx95-v1-1-3ad1af7c3d61@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251024-isi_imx95-v1-1-3ad1af7c3d61@nxp.com>
+X-ClientProxiedBy: PH8P221CA0034.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:346::27) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] arm64: dts: ti: Add support for Kontron
- SMARC-sAM67
-To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
-        Vignesh
- Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-References: <20251017135116.548236-1-mwalle@kernel.org>
- <20251017135116.548236-3-mwalle@kernel.org>
- <9da776bc-3156-4f4b-9e64-6ada5b47fab3@ti.com>
- <DDQCQPRRVOHB.1ENJWEGUOSBTR@kernel.org>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <DDQCQPRRVOHB.1ENJWEGUOSBTR@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DB9PR04MB8331:EE_
+X-MS-Office365-Filtering-Correlation-Id: d33aacf2-8cff-45a6-00f6-08de13020a4a
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|7416014|376014|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wDW9tlWSzbvhdw9KfWv5dsIpfi0SHkMurTiIy6sCZlHHkOUWLch8civxhCnv?=
+ =?us-ascii?Q?Sbf8ISLtjZ/Tt7Ote0BqkmNea7/VBzfoWFXHTlkNxAPRMSaIFh2DzH9JBmsN?=
+ =?us-ascii?Q?J/h95R2PtTX2TCA+ryoP/r7RhDNVJn2O1KYyGm+22uVgXZVqvUJCevsyCxVF?=
+ =?us-ascii?Q?pmjZ3z9CuO4ZNjPgRHbeNnXd55b+Y7c800LpuZ/re3g/Gv+s5qg/ZRFNUgLN?=
+ =?us-ascii?Q?dAYt82Lz0p9gKRFFCXD9N94w4rbnYnf6k6PPF8VuZFt+D3JP+TeeOIdiIgMI?=
+ =?us-ascii?Q?pvfwmziHmr3MFacjkbMoCJnhUYkTjygpIpNOkpP9DPSahFDWo8IiK50+dIb8?=
+ =?us-ascii?Q?y1QUgBzIhi+qgCygAp1bXZ6c2ZmDymE5zJt6KNNjiAHieIoMImJdE4H5o7OM?=
+ =?us-ascii?Q?SGYlqn1RRAOCkklau5RdjhKQBpoJ1KYyqoOo8x0a7bB2XMmiJOkvEEr/cRMD?=
+ =?us-ascii?Q?rSaW0oFX8mPzvpvxa8MRMDgZo02+HCD5tFrlIipBH5z0ijYZSNyfYVf0JAk7?=
+ =?us-ascii?Q?nzjMBQauGzVv9Vv3F/4mxV7fk8n0Co6rT+xPYmqizYbEPM6XjHg6pYgN5cO7?=
+ =?us-ascii?Q?IT1c2kmrqc1f0741Wlen8fiaaRPhLgeQGwKWFJzqQE9tpG0j94M/vTklle9i?=
+ =?us-ascii?Q?pYKMpMlPIReN/T7un/1mC584QRWvEBqsCrPSqHOYdJjl1QOn4yNxP7tvWaAu?=
+ =?us-ascii?Q?ywPjksDFEYLMQP+MsCMgGBVY2G+t1QTjH4UtW+FXNIFkjBYVZ/25n/zkuptn?=
+ =?us-ascii?Q?oEQTzRJvjWpPj2Q7V/0j8bkXzez7+DS5zPaYiBl5ClxfR5TAdZoQc9RkhsZp?=
+ =?us-ascii?Q?Y//qLwFYJBxh7b7HshN0ZPkNBFRjaDuY7Y6AbN9rlAKfovO/853iIdud3e6+?=
+ =?us-ascii?Q?Vdv1ChqNZEDS9+be4T2Fglpp7E0Ri4tUom/MjmBmiFeclkYz3AnJIHaQ+eMT?=
+ =?us-ascii?Q?uGviaCfQVkmaZs4mJ9gId1JtM/+BaiqjEdYkRMwDdXz2/8bfn3wTxNTEkCpf?=
+ =?us-ascii?Q?kBXClX+ngOfMTWqZ10QL1/BfRK683M2ORUxHb3cWjauURMD76QaGVDKgYmR4?=
+ =?us-ascii?Q?0BK6nbQXuWmIiEzdASKe5nxbJJA1CmKC6TJ9i1QzJ3F86JsnXZMUKImYCqDZ?=
+ =?us-ascii?Q?F94D7RDA4DzVubRJPTGV7PKFCHdtABn5yRbqkY91nKn9A4+NuIT+oYh9VlOr?=
+ =?us-ascii?Q?l/OYhHtQkuGpwghMkSOz+qyorIke1oXEjv2pbt7yPfbK1tXOsRkfaUhPt3ze?=
+ =?us-ascii?Q?wsS/Y/4COXWJZabl+RvH3XXCjrI2QMEnhH/2Rjd0dBjaJYQhL7ENoFj6VGDw?=
+ =?us-ascii?Q?CEivRIgx9/JF8zpOxBpxzgmj8v59X+1bRCGogbmu9rqh8KSOKSG2nqrhvWzk?=
+ =?us-ascii?Q?10Of0IrdziaUkv0YDAEVqN88OyY0VcEzUWGfHOs5rTy2n9CdcnrMD5Tq0Agx?=
+ =?us-ascii?Q?HZVSWOknjyjj0KeCoEmZCLPugOYbYBee0LyqWfx7x7Icmdy4uozn20BT7jFq?=
+ =?us-ascii?Q?5Esj3lJVn+rkJLwBIY42uNNC2CYrL7/v6ejd?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(7416014)(376014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+RMvyYbvu5FHheioQkmuB43SIDtEs6YiAzYdCOZ5RX3dwaTPAUekVTHAvbKv?=
+ =?us-ascii?Q?95onj/uQexX46mxqvqVPv2xT7pg7a/et+uj8+MFTCVlwdr21PG42ePtTVlKk?=
+ =?us-ascii?Q?liPc6O2BTOB+w+a5mjN7Gc8SJj7hmwG1lPqodInt2b71nk5W703f5fO7qro/?=
+ =?us-ascii?Q?ZPPpZoswxio5B1KwCWCiAc7wBCkrG1JG7KQPJfiFQjEzVDXMSRsj6gyP4BM5?=
+ =?us-ascii?Q?ePfDNUEl/BjQsC304wOYbdb9Y5cvzDpy4MvKlSTbDryOoA3JE891k+S+o7g0?=
+ =?us-ascii?Q?zXxNHJDF1oteSiY2ddBzwQRlBZSHPJU+IjzH4OoPDpWLc1Ym9+l1csel743W?=
+ =?us-ascii?Q?jYnQhNP9CU8Z0SeiA0hqA5cltWG73jkc/3ZH+D+hmXz+3eZgGZpPzY5Lu2Ni?=
+ =?us-ascii?Q?t04Ilxt5RFhPgrsTdFDvU/sbFMx8WPdJU0wWuNnOEnRA6NEeC+JDf6D+9Cvx?=
+ =?us-ascii?Q?j+Iab4kOJ8qawLCExMrp3h1X8ULjD3c2PN8XU/odqZ5pGijssf/hBTw1wIpv?=
+ =?us-ascii?Q?sH6+W8NKNDn/3UQ8ODPvyrE4uuGm1+1BaNAEYkHdEPxSncCz4kAPrLobzTbS?=
+ =?us-ascii?Q?pH0Wf0UFGopCRCmHU9gKph7ukj/8xQGfi67AXzeTx95//FTJ2EaxsAWNtjO0?=
+ =?us-ascii?Q?TzZs/s9Ya8Orz3SZ93K7tEg7vk/PfJ7Y15csT13s9g3qobCP7181Obm5kM/Q?=
+ =?us-ascii?Q?vJsnFNaYrejWVmpmOuspvGwiTi21ZVrY2d2fWRzO+ZfSDTN5ohagdjYtr8ak?=
+ =?us-ascii?Q?W6OzpBy+FvAMnb3EIZ6jzn13PDkRE7NQXpSx8zkhQnmJ7SssBm3ulsHok6oo?=
+ =?us-ascii?Q?8W8PnHumGtF1Aff8n+nnyXmBEhRgnUZChfGLt1TjVl0emwUB1zmuQWShwNZv?=
+ =?us-ascii?Q?KL9ohRa1uO3zEWAqbQYNjGsELEatMnFIwBbjfDDiX+iK07KEYxrY2zPRjGEV?=
+ =?us-ascii?Q?giU/FS7I4nRoUcKpEHsUo1xtTSCOjLWxfqO/xnFxZ/pNNIx5ngTyHwZyUCKE?=
+ =?us-ascii?Q?sRsBJ5wc7yN+ta5dC1sB6d6S8z5vA8MwvuDyOAh2SwBfN7GCmvG/l3CVItEY?=
+ =?us-ascii?Q?J8eLunFG4vcaahojgaDJRnjyWELNjN4vhAhBMAVnBn/ES6WvGXM5/im0QvcI?=
+ =?us-ascii?Q?ovUZasXLL9MRAr3mb+tE1CUFXRfPINJqziZMYOh3v9tEyZ0fKN5LhQlOQpfI?=
+ =?us-ascii?Q?6baa0eqc1Qv55LY2xKGsQiMuCHKgx0PLsQf+z789178+D+ptC6PoSFB8hk24?=
+ =?us-ascii?Q?xhfY19BMmEonyg2L5t9h9C+KKKgwdi/vQ43PxlXZ5pKQr3jOweXUrgjeR979?=
+ =?us-ascii?Q?X9vL0Qm7kcsj/XTkJHZvqRNx4UFNZIVKhld/QHAhV6a3r8NMmnGAICN2jh28?=
+ =?us-ascii?Q?a86QTtoSO94G6hlTlxNDe2zNRmIZe9l2YdDya8pddnxeJjr9uIetSg+KOlL5?=
+ =?us-ascii?Q?wKLzl0psrB4t/BnyuLo/bv0IVeo+CBfcLZbIhC/NY+MrI/Z1Opx6SxSwqtY0?=
+ =?us-ascii?Q?n2vIDX4QdRWwv8BDi398wmR0UgInwBluJPHSzvV/vU+nkrpP2WrrunMNZedl?=
+ =?us-ascii?Q?IdPQleSzAe4anraB/8V0bPC6YfZ2qCXHXDGm2Mdi?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d33aacf2-8cff-45a6-00f6-08de13020a4a
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2025 13:34:21.8226
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mLz174NaY+tS6CzzEr/Tpqbsgd0xNWmQcQCLsAmHkf9am3nGeEZsIqPax1FGX/jrkYfx6xh6/xIcBwc81DS4NA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8331
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_063311_765781_22A0DA78 
-X-CRM114-Status: GOOD (  26.37  )
+X-CRM114-CacheID: sfid-20251024_063428_990506_48D15219 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,171 +168,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
-
-On 10/24/2025 12:21 PM, Michael Walle wrote:
-> Hi Udit,
+On Fri, Oct 24, 2025 at 05:46:52PM +0800, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
 >
-> thanks for the thorough review!
+> The ISI module on i.MX95 supports up to eight channels and four link
+> sources to obtain the image data for processing in its pipelines. It
+> can process up to eight image sources at the same time.
 >
-> On Fri Oct 24, 2025 at 7:13 AM CEST, Udit Kumar wrote:
->> On 10/17/2025 7:20 PM, Michael Walle wrote:
->>> Add device tree support for the Kontron SMARC-sAM67 module, which is
->>> based on a TI AM67A SoC.
->>>
->>> The module features:
->>>    * Quad-core AM67A94 at 1.4GHz with 8 GiB RAM
->>>    * 64 GiB eMMC, 4 MiB SPI flash for failsafe booting
->>>    * Dedicated RTC
->>>    * Multiple interfaces: 4x UART, 2x USB 2.0/USB 3.2, 2x GBE, QSPI,
->>>           7x I2C,
->>>    * Display support: 2x LVDS, 1x DSI (*), 1x DP (*)
->>>    * Camera support: 4x CSI (*)
->>>    * Onboard microcontroller for boot control, failsafe booting and
->>>      external watchdog
->>>
->>> (*) not yet supported by the kernel
->>>
->>> There is a base device tree and overlays which will add optional
->>> features. At the moment there is one full featured variant of that
->>> board whose device tree is generated during build by merging all the
->>> device tree overlays.
->>>
->>> Signed-off-by: Michael Walle <mwalle@kernel.org>
->>> ---
->>>    arch/arm64/boot/dts/ti/Makefile               |    7 +
->>>    .../dts/ti/k3-am67a-kontron-sa67-base.dts     | 1091 +++++++++++++++++
->>>    .../dts/ti/k3-am67a-kontron-sa67-gbe1.dtso    |   26 +
->>>    .../dts/ti/k3-am67a-kontron-sa67-gpios.dtso   |   61 +
->>>    .../ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso  |   31 +
->>>    5 files changed, 1216 insertions(+)
->>>    create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
->>>    create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gbe1.dtso
->>>    create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gpios.dtso
->>>    create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso
->>>
->>> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
->>> index 743115b849a7..d2a40ea642c4 100644
->>> --- a/arch/arm64/boot/dts/ti/Makefile
->>> +++ b/arch/arm64/boot/dts/ti/Makefile
->>> @@ -137,7 +137,14 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
->>>    dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-usb0-type-a.dtbo
->>>    
->>>    # Boards with J722s SoC
->>> +k3-am67a-kontron-sa67-dtbs := k3-am67a-kontron-sa67-base.dtb \
->>> +	k3-am67a-kontron-sa67-rtc-rv8263.dtbo k3-am67a-kontron-sa67-gbe1.dtbo
->>>    dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
->>> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67.dtb
->>> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-base.dtb
->>> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-gbe1.dtbo
->>> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-gpios.dtbo
->>> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-rtc-rv8263.dtbo
->>>    dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
->>>    dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
->>>    dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
->>> diff --git a/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts b/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
->>> new file mode 100644
->>> index 000000000000..7169d934adac
->>> --- /dev/null
->>> +++ b/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
->>> @@ -0,0 +1,1091 @@
->>> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
->>> +/*
->>> + * Kontron SMARC-sAM67 module
->>> + *
->>> + * Copyright (c) 2025 Kontron Europe GmbH
->>> + */
->>> +
->>> +/dts-v1/;
->>> +
->>> +#include <dt-bindings/gpio/gpio.h>
->>> +#include <dt-bindings/interrupt-controller/irq.h>
->>> +#include <dt-bindings/phy/phy.h>
->>> +#include "k3-j722s.dtsi"
->>> +#include "k3-serdes.h"
->>> +
->>> [..]+
->>> +	ospi0_pins_default: ospi0-default-pins {
->>> +		pinctrl-single,pins = <
->>> +			J722S_IOPAD(0x000, PIN_OUTPUT, 0)	/* (L24) OSPI0_CLK */
->>> +			J722S_IOPAD(0x02c, PIN_OUTPUT, 0)	/* (K26) OSPI0_CSn0 */
->>> +			J722S_IOPAD(0x030, PIN_OUTPUT, 0)	/* (K23) OSPI0_CSn1 */
->>> +			J722S_IOPAD(0x034, PIN_OUTPUT, 0)	/* (K22) OSPI0_CSn2 */
->> I am not sure, which flash device is being used , could you check once
->> if all three CS are supported.
-> Yes, all three are used. This board has one 4MiB on-board flash
-> W25Q32 (or similar) and the two others CS are routed to the edge
-> connector. They aren't multi purpose, so we can already set them
-> to the CS function.
-
-
-Thanks for details.  Just want to make sure, pins are not used for multi 
-purpose.
-
-Please use
-
-Reviewed-by: Udit Kumar <u-kumar1@ti.com>
-
-
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+>  .../devicetree/bindings/media/nxp,imx8-isi.yaml    | 26 +++++++++++++++++++++-
+>  1 file changed, 25 insertions(+), 1 deletion(-)
 >
->>> +			J722S_IOPAD(0x00c, PIN_INPUT, 0)	/* (K27) OSPI0_D0 */
->>> +			J722S_IOPAD(0x010, PIN_INPUT, 0)	/* (L27) OSPI0_D1 */
->>> +			J722S_IOPAD(0x014, PIN_INPUT, 0)	/* (L26) OSPI0_D2 */
->>> +			J722S_IOPAD(0x018, PIN_INPUT, 0)	/* (L25) OSPI0_D3 */
->>> +		>;
->>> +		bootph-all;
->>> +	};
->>> +
->>> +	pcie0_rc_pins_default: pcie0-rc-default-pins {
->>> +		pinctrl-single,pins = <
->>> +			J722S_IOPAD(0x2ac, PIN_OUTPUT, 0)	/* (F25) PCIE0_CLKREQn */
->>> +			J722S_IOPAD(0x1b4, PIN_OUTPUT, 7)	/* (B20) SPI0_CS0.GPIO1_15 */
->>> +		>;
->>> +	};
->>> +
->>> +	pmic_irq_pins_default: pmic-irq-default-pins {
->>> +		pinctrl-single,pins = <
->>> +			J722S_IOPAD(0x090, PIN_INPUT, 7)	/* (P27) GPMC0_BE0n_CLE.GPIO0_35 */
->>> +		>;
->>> +	};
->>> +
->>> [..]
->>> +/* I2C_PM */
->>> +&wkup_i2c0 {
->>> +	pinctrl-names = "default";
->>> +	pinctrl-0 = <&wkup_i2c0_pins_default>;
->>> +	clock-frequency = <100000>;
->>> +	status = "okay";
->>
->> This is more a question, I see all i2c controller you want to run at
->> 100Kz, but most of devices are supporting 400Khz
->>
->> like tps652g1 over main_i2c0 ,  pca9546 over main_i2c1 , is there
->> specific reason for this
-> Actually yes and it was at 400kHz at first. But it wont work with
-> the onboard management controller at that bus. Although it supports
-> 400kHz, the mode in which we are using it, doesn't. In short, we
-> aren't using clock stretching as this might cause the whole bus to
-> hang without being able to recover it from the SoC. Therefore, the
-> i2c reply bytes have to be prepared just-in-time and it turn out
-> that 400kHz is too fast for that.
-
-Understood.
-
-
+> diff --git a/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml b/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> index f43b91984f0152fbbcf80db3b3bbad7e8ad6c11e..eaab98ecf343a2cd3620f7469c016c3955d37406 100644
+> --- a/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> +++ b/Documentation/devicetree/bindings/media/nxp,imx8-isi.yaml
+> @@ -23,6 +23,7 @@ properties:
+>        - fsl,imx8mp-isi
+>        - fsl,imx8ulp-isi
+>        - fsl,imx93-isi
+> +      - fsl,imx95-isi
 >
-> -michael
+>    reg:
+>      maxItems: 1
+> @@ -49,7 +50,7 @@ properties:
+>    interrupts:
+>      description: Processing pipeline interrupts, one per pipeline
+>      minItems: 1
+> -    maxItems: 2
+> +    maxItems: 8
 >
->>> +};
->>> +
->>> +/* SER3 */
->>> +&wkup_uart0 {
->>> +	/* WKUP UART0 is used by Device Manager firmware */
->>> +	pinctrl-names = "default";
->>> +	pinctrl-0 = <&wkup_uart0_pins_default>;
->>> +	bootph-all;
->>> +	status = "reserved";
->>> +};
->> [..]
+>    power-domains:
+>      maxItems: 1
+> @@ -109,6 +110,29 @@ allOf:
+>              - port@0
+>              - port@1
+>
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx95-isi
+> +    then:
+> +      properties:
+> +        interrupts:
+> +          maxItems: 8
+
+should minItems: 8 because you already limit maxItems at top;
+
+> +        ports:
+> +          properties:
+> +            port@0:
+> +              description: Pixel Link Slave 0
+> +            port@1:
+> +              description: Pixel Link Slave 1
+> +            port@2:
+> +              description: MIPI CSI-2 RX 0
+> +            port@3:
+> +              description: MIPI CSI-2 RX 1
+> +          required:
+> +            - port@2
+> +            - port@3
+> +
+
+     else
+       properties:
+         interrupts:
+           maxItem: 2
+
+to keep the same restriction for existed compatible string.
+
+Frank
+
+
+>  additionalProperties: false
+>
+>  examples:
+>
+> --
+> 2.34.1
 >
 
