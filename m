@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E77CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 12:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51931CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 12:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LldKNRMDIA0oFHKotBN+p6AKp3pFp9D3fQrq2hH17y8=; b=TB3Rleg2/AKTt2aZGgodXiQmIF
-	lzt9nHXQmw2xc9y85BMX9oajHnGI2hlT4TSi3FdGUhdUitC+5ESg5bPBDzQD6lVo+XkkbWs8SnUyX
-	0AxO2rhlYUaMrCQtaLmajl+UAzyBJqyEVIQ/oishGrjYe3oiFZpPCHZ7QxhdLFtLgDY2bR3ZpSeH0
-	Hm0kqRsF2WdjXUgLrdhPCBqry8hjaQyPyOC6Bn9a1xvlfGm0AZmiu1KBVWpUDGbDs40Rdl2Q56Z/E
-	kb5drWSkstfZbGE/g3/0udCJTNOVQgrCrHmZ1+UoEhu2CURsYGTw7bxuxlMShjyuQaI9ccqmnLqHi
-	pOI5EVNw==;
+	bh=bLpiuHTkVYJeeQyf1nxnU5c82uk7vYrn+Np6jyjJloc=; b=EmIScGEhanmYxsc8fDdq4d9eM+
+	lI6KakWh5lxKJtAF0PDU/lkRi/qHwUx5ZmhPWd9jtxNZe5Isef4VLgBuTvbWwoidI/+Gx1R5yYpBh
+	J3aBJx7FiyaYwiXNLv1Gy4tgknxAcqzxBIdYE2HG8dqrlnL7XbT4iJvRRE+uvvKJQhIP3GT8coQWi
+	3m/t1PTYRjty2HuE2GQFyNZAW3T6mDHXvIp8oHzijccZmDHJrmXAl+E+GoWvRObYBI94tt35ddmvl
+	uRKOVFlxc2BE21IxRQ/cNzEJFdJpdvwBjdn4TfXsRkd2CvxnINJSApge6ztDuoHFfq2RojGJkhhFj
+	VUlAwrkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGoc-00000009M5I-0nsK;
-	Fri, 24 Oct 2025 12:22:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vCGuf-00000009Mnb-2PEa;
+	Fri, 24 Oct 2025 12:28:57 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGoa-00000009M4O-04Qr;
-	Fri, 24 Oct 2025 12:22:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4FB6941A87;
-	Fri, 24 Oct 2025 12:22:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A89CCC4CEF1;
-	Fri, 24 Oct 2025 12:22:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761308559;
-	bh=qTx04iEbOhzfAAE0oGbIBuQx0pHVs8rGV9hEwJGbdr0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kZZwMPoI4s/dkfoY7KAucgUs/9klMClinqSNfZ+lPbew2rPPkkTZkcpwCsq4iEwSr
-	 GU7a4I/9UE+bWIb3ZWgiZqbskXRY+DfPUO4pAiIyQ+EpAdHUnPcSm1Y/QWWFSN9IlP
-	 guli5OJ9WNAF5ENb/zGrkG+J6g3a3A/wufa+MqBAQPQBUL8L/dYoBLjSfQQXNdI9zM
-	 6/squULZR4gVKo5ZBftSemMSq8dtlN8GL4P1rTvlq4PB73Lk5u09iQc3iFCvTFhZkS
-	 SMOr+80cTM6WlMF86IGL2Lh8Fb+XOz7cfBeljLJyvkQi1u4dVCOvNG2SufSislaEIt
-	 ZvOQSGGnuLEEA==
-Date: Fri, 24 Oct 2025 14:22:35 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Fix a copy and paste bug in probe()
-Message-ID: <aPtvi1hwDKOZH3vB@lore-desk>
-References: <aPtht6y5DRokn9zv@stanley.mountain>
+	id 1vCGuc-00000009Mmt-3oJX
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Oct 2025 12:28:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=bLpiuHTkVYJeeQyf1nxnU5c82uk7vYrn+Np6jyjJloc=; b=uogF3IuRHG65F4F/hUsAqYa5bv
+	5bsEVw1N/nJ5cZ5HPwcZYOW/3aWpoNIZAMC/mgFUSrbwJIbB9xWFXoHv5GOUgsHFBY4vIbbu8qtEO
+	Mv3EUx/1xB9l12UKduwnjXRhTIt7Dt2X8IJzQcM/ctu9HTVb2THqkYrI3S3QCdwG/jdo=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vCGuA-00Bzil-7X; Fri, 24 Oct 2025 14:28:26 +0200
+Date: Fri, 24 Oct 2025 14:28:26 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, BMC-SW <BMC-SW@aspeedtech.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Jeremy Kerr <jk@codeconstruct.com.au>, Lee Jones <lee@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Nishanth Menon <nm@ti.com>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Taniya Das <quic_tdas@quicinc.com>,
+	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC
+ device tree
+Message-ID: <71df9bdf-53b2-45e2-a9e3-5b00a556f957@lunn.ch>
+References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
+ <20251022070543.1169173-5-ryan_chen@aspeedtech.com>
+ <b5441728-06a7-44ea-8876-3a9fc3cf55be@app.fastmail.com>
+ <TY2PPF5CB9A1BE626A2F0F6307461D8F64BF2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com>
+ <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="azbuYC81tseTLIZm"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aPtht6y5DRokn9zv@stanley.mountain>
+In-Reply-To: <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_052240_071327_5A1851C0 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20251024_052854_967125_63517FC6 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +91,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> > >> This probably needs some explanation: why are there two 'soc@...'
+> > >> devices? Is this literally two chips in the system, or are you
+> > >> describing two buses inside of the same SoC?
+> > >
+> > > The AST2700 is two soc connection with a property bus.
+> > > Sharing some decode registers. Each have it own ahb bus.
+> > 
+> > I don't understand your explanation,
+> 
+> Let me clarify more clearly:
+> The AST2700 is a dual-SoC architecture, consisting of two interconnected SoCs,
+> referred to as SoC0 and SoC1. Each SoC has its own clock/reset domains. 
+> They are connected through an internal "property bus", 
+> which is Aspeed's internal interconnect providing shared
+> address decoding and communication between the two SoCs.
 
---azbuYC81tseTLIZm
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+By SoC are you just referring to peripherals? Or are there two sets of
+CPUs as well?
 
-> This code has a copy and paste bug where it accidentally checks "if (err)"
-> instead of checking if "xsi_rsts" is NULL.  Also, as a free bonus, I
-> changed the allocation from kzalloc() to  kcalloc() which is a kernel
-> hardening measure to protect against integer overflows.
->=20
-> Fixes: 5863b4e065e2 ("net: airoha: Add airoha_eth_soc_data struct")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+If it is just peripherals, this has been done before by Marvell.
 
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+See armada-cp11x.dtsi. Marvell calls it a CP, they are identical, so
+there is one description of it, which then gets included twice.
 
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index 8483ea02603e..d0ef64a87396 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -2985,11 +2985,11 @@ static int airoha_probe(struct platform_device *p=
-dev)
->  		return err;
->  	}
-> =20
-> -	xsi_rsts =3D devm_kzalloc(eth->dev,
-> -				eth->soc->num_xsi_rsts * sizeof(*xsi_rsts),
-> +	xsi_rsts =3D devm_kcalloc(eth->dev,
-> +				eth->soc->num_xsi_rsts, sizeof(*xsi_rsts),
->  				GFP_KERNEL);
-> -	if (err)
-> -		return err;
-> +	if (!xsi_rsts)
-> +		return -ENOMEM;
-> =20
->  	eth->xsi_rsts =3D xsi_rsts;
->  	for (i =3D 0; i < eth->soc->num_xsi_rsts; i++)
-> --=20
-> 2.51.0
->=20
-
---azbuYC81tseTLIZm
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaPtviwAKCRA6cBh0uS2t
-rPipAP9ULxOBgv2wFtLbEDmV13eMnbOkkxwrAX135INBNPEm7gD/RJ5HNXgRC5fa
-73KCPBdoSt5hEOBCmw1Rf7+x2TR7TAM=
-=ScI+
------END PGP SIGNATURE-----
-
---azbuYC81tseTLIZm--
+	Andrew
 
