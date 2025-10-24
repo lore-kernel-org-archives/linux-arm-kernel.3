@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98041CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 08:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920EACCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 09:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WwR+dvfgSMAZWEHh7yQ8pLB6NDhC7XQAflzUG46bX78=; b=vVLe4+Xs3XTbD21B+OCShg8PYU
-	5iN7eOAv9XnH/fk+BzOlwx1RHCrQXcbPMQteyCaqgNB2lIQOkGkPtTbq+0yIDrKV0hfSRrcoFsWEH
-	fLOeECKbk8SvrEPLAyQIHg6EtJKOQhyZ6AIfGPw6UBK9nw+sXPHEqCRhb4P5R5LNBIKygrrTHx5OA
-	SKScqcddKpUWi5cU9+Q1+74KEGQjisT0q8EO6yFo0cYEx19MOghWiZ0eekYQwg+0UgwT1KeA+ebtZ
-	GJHKVcx+27Um+4nuD3BLWdlx5Ta6xdqqgINyicTN/jW4CqitYj9sf3T0y7YTjy4ab56kOUYmGk1dF
-	mEWsoyUQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S3KucEpEWr4MToMSs6CzUKDTe9X2PHQh1yKd6odfsIE=; b=Bla4WCroAvhTmjYHS17ycXHksB
+	B7DrGai4Hkaybf+/qVTImOxZEXXsOZ/oAwWOQfDNlxcHiZ2b0vBwoqcJkcsWqdof8AOF3gHl6qVxG
+	YtV+tVRasNTs/zd8C/5ApBaennbTiJlaoBg79l7pfu332rbblXlGRhaJjF2VYOIu7MI16qjbD082/
+	uOSLKyUUQSGC1zMdn4AuTMmX0wSguvnztzpgrq2D4gz0TBXFf5CPVKgflQDGMZUy3oz5GIPfeNVOk
+	BrXhYUdlTV+1DIHZtqReoANzslQCgFJQbxfkB1vNNtVakTNgoIFJIosA5P1qHEDwEd6/QFotBtqaa
+	p3QYFZ+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDbL-00000008n9R-0ez5;
-	Fri, 24 Oct 2025 08:56:47 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1vCDeg-00000008nex-0laS;
+	Fri, 24 Oct 2025 09:00:14 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDbH-00000008n7E-2kwW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 08:56:46 +0000
-X-UUID: 5533045ab0b711f0a38c85956e01ac42-20251024
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:e88689e8-884b-4a02-8c6c-73facf1312d1,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:a9d874c,CLOUDID:3487dba6b5cd38bbae0950f70bca160f,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
-	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5533045ab0b711f0a38c85956e01ac42-20251024
-X-User: tanze@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <tanze@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 498110973; Fri, 24 Oct 2025 16:56:30 +0800
-From: tanze <tanze@kylinos.cn>
-To: leo.yan@arm.com,
-	adrian.hunter@intel.com,
-	namhyung@kernel.org,
-	mingo@redhat.com
-Cc: graham.woodward@arm.com,
-	irogers@google.com,
-	james.clark@linaro.org,
-	john.g.garry@oracle.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	mike.leach@linaro.org,
-	tanze <tanze@kylinos.cn>
-Subject: [PATCH v3] perf auxtrace: Add auxtrace_synth_id_range_start() helper
-Date: Fri, 24 Oct 2025 16:56:25 +0800
-Message-Id: <20251024085625.175688-1-tanze@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1vCDee-00000008neT-0L3t;
+	Fri, 24 Oct 2025 09:00:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761296409;
+	bh=2pMVFWg8Y6Z3M92SWEe9ppFW6tJnoGWLUlAABysjQQk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Z+Ih01GlT6BodeX3GlGgwYg6VLTjgEpcqYwyjvEiVWQizs287I2ZJqyz+QgwB+qz1
+	 kVQYm/rtyMAiU3u8+oMr+VOzWiTw/qIagpFzrY1gluVx9lgoFZyiJYtF2MPlmdL7tP
+	 +72OtL2qF5CloRaxNlJ0+djuz/A6GbuApoSS0E6a/Bg9IZSDFuHz4nRdawkouzpEZs
+	 v//qEcehVBI0ku9LgqzuJOK1QmVsO7RWgNFOrkHzoCYBSxIholKwQy+9oVRzPFlu6a
+	 Ip0tcmR9mk4D//bKKN68q8BN4tRRwCpkXxFU2dS8TafQ38dC1QiC6yaVc310c0cEMD
+	 ICif9p0Al3FRA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 856A917E00AC;
+	Fri, 24 Oct 2025 11:00:08 +0200 (CEST)
+Message-ID: <66066ad6-0501-4f56-833b-16f63d06c9dc@collabora.com>
+Date: Fri, 24 Oct 2025 11:00:07 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/24] MediaTek UFS Cleanup and MT8196 Enablement
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
+ Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ kernel@collabora.com, linux-scsi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-phy@lists.infradead.org
+References: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_015644_533539_C47C97E8 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20251024_020012_329945_141DBEA1 
+X-CRM114-Status: GOOD (  29.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,162 +88,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To avoid hardcoding the offset value for synthetic event IDs 
-in multiple auxtrace modules (arm-spe, cs-etm, intel-pt, etc.), 
-and to improve code reusability, this patch unifies 
-the handling of the ID offset via a dedicated helper function.
+Il 23/10/25 21:49, Nicolas Frattaroli ha scritto:
+> In this series, the existing MediaTek UFS binding is expanded and
+> completed to correctly describe not just the existing compatibles, but
+> also to introduce a new compatible in the from of the MT8196 SoC.
+> 
+> The resets, which until now were completely absent from both the UFS
+> host controller binding and the UFS PHY binding, are introduced to both.
+> This also means the driver's undocumented and, in mainline, unused reset
+> logic is reworked. In particular, the PHY reset is no longer a reset of
+> the host controller node, but of the PHY node.
+> 
+> This means the host controller can reset the PHY through the common PHY
+> framework.
+> 
+> The resets remain optional.
+> 
+> Additionally, a massive number of driver cleanups are introduced. These
+> were prompted by me inspecting the driver more closely as I was
+> adjusting it to correspond to the binding.
+> 
+> The driver still implements vendor properties that are undocumented in
+> the binding. I did not touch most of those, as I neither want to
+> convince the bindings maintainers that they are needed without knowing
+> precisely what they're for, nor do I want to argue with the driver
+> authors when removing them.
+> 
+> Due to the "Marie Kondo with a chainsaw" nature of the driver cleanup
+> patches, I humbly request that reviewers do not comment on displeasing
+> code they see in the context portion of a patch before they've read the
+> whole patch series, as that displeasing code may in fact be reworked in
+> a subsequent patch of this series. Please keep comments focused on the
+> changed lines of the diff; I know there's more that can be done, but it
+> doesn't necessarily need to be part of this series.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Signed-off-by: tanze <tanze@kylinos.cn>
----
+On all of the new commits that don't have the tag:
 
-Hi Leo Yan, Adrian Hunter,
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Thank you for your valuable comments. I have modified my code according to your suggestions.
+Thanks for finally doing a partial refactor of this driver - this finally brings
+it to entirely different quality standards.
 
-Best regards,
-Ze Tan 
----
-Changes in v3: 
- - Removed PERF_SYNTH_EVENT_ID_OFFSET from synthetic-events.h
- - Added AUXTRACE_SYNTH_EVENT_ID_OFFSET macro in auxtrace.c
- - Introduced auxtrace_synth_id_range_start() helper function in auxtrace.c 
-   to unify ID calculation
- - Updated all auxtrace modules to use the new helper function
+For all that you've done, MT8196 enablement is "just a plus". The very important
+and fun part here is the whole refactoring.
 
-Changes in v2: 
- - Migrated the macro definitions to the synthetic-events.h file
- - Added modifications to other source files that use the offset value
+Well done!
 
-v2:
- -patch: https://lore.kernel.org/all/20251017021540.45930-1-tanze@kylinos.cn/
+Cheers,
+Angelo
 
----
- tools/perf/util/arm-spe.c        |  5 +----
- tools/perf/util/auxtrace.c       | 16 ++++++++++++++++
- tools/perf/util/auxtrace.h       |  1 +
- tools/perf/util/cs-etm.c         |  5 +----
- tools/perf/util/intel-bts.c      |  4 +---
- tools/perf/util/intel-pt.c       |  4 +---
- tools/perf/util/powerpc-vpadtl.c |  4 +---
- 7 files changed, 22 insertions(+), 17 deletions(-)
-
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 71be979f5077..4fd47600d9e4 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -1732,10 +1732,7 @@ arm_spe_synth_events(struct arm_spe *spe, struct perf_session *session)
- 	attr.sample_period = spe->synth_opts.period;
- 
- 	/* create new id val to be a fixed offset from evsel id */
--	id = evsel->core.id[0] + 1000000000;
--
--	if (!id)
--		id = 1;
-+	id = auxtrace_synth_id_range_start(evsel);
- 
- 	if (spe->synth_opts.flc) {
- 		spe->sample_flc = true;
-diff --git a/tools/perf/util/auxtrace.c b/tools/perf/util/auxtrace.c
-index 1539c1dc823c..35f4745f6b2b 100644
---- a/tools/perf/util/auxtrace.c
-+++ b/tools/perf/util/auxtrace.c
-@@ -62,6 +62,22 @@
- #include <internal/lib.h>
- #include "util/sample.h"
- 
-+#define AUXTRACE_SYNTH_EVENT_ID_OFFSET	1000000000ULL
-+
-+/*
-+ * Event IDs are allocated sequentially, so a big offset from any
-+ * existing ID will reach a unused range.
-+ */
-+u64 auxtrace_synth_id_range_start(struct evsel *evsel)
-+{
-+	u64 id = evsel->core.id[0] + AUXTRACE_SYNTH_EVENT_ID_OFFSET;
-+
-+	if (!id)
-+		id = 1;
-+
-+	return id;
-+}
-+
- /*
-  * Make a group from 'leader' to 'last', requiring that the events were not
-  * already grouped to a different leader.
-diff --git a/tools/perf/util/auxtrace.h b/tools/perf/util/auxtrace.h
-index e0a5b39fed12..ed3a1aaaf5d9 100644
---- a/tools/perf/util/auxtrace.h
-+++ b/tools/perf/util/auxtrace.h
-@@ -648,6 +648,7 @@ void auxtrace__free_events(struct perf_session *session);
- void auxtrace__free(struct perf_session *session);
- bool auxtrace__evsel_is_auxtrace(struct perf_session *session,
- 				 struct evsel *evsel);
-+u64 auxtrace_synth_id_range_start(struct evsel *evsel);
- 
- #define ITRACE_HELP \
- "				i[period]:    		synthesize instructions events\n" \
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 30f4bb3e7fa3..62812bef1edf 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -1726,10 +1726,7 @@ static int cs_etm__synth_events(struct cs_etm_auxtrace *etm,
- 	attr.read_format = evsel->core.attr.read_format;
- 
- 	/* create new id val to be a fixed offset from evsel id */
--	id = evsel->core.id[0] + 1000000000;
--
--	if (!id)
--		id = 1;
-+	id = auxtrace_synth_id_range_start(evsel);
- 
- 	if (etm->synth_opts.branches) {
- 		attr.config = PERF_COUNT_HW_BRANCH_INSTRUCTIONS;
-diff --git a/tools/perf/util/intel-bts.c b/tools/perf/util/intel-bts.c
-index 3625c6224750..382255393fb3 100644
---- a/tools/perf/util/intel-bts.c
-+++ b/tools/perf/util/intel-bts.c
-@@ -777,9 +777,7 @@ static int intel_bts_synth_events(struct intel_bts *bts,
- 	attr.sample_id_all = evsel->core.attr.sample_id_all;
- 	attr.read_format = evsel->core.attr.read_format;
- 
--	id = evsel->core.id[0] + 1000000000;
--	if (!id)
--		id = 1;
-+	id = auxtrace_synth_id_range_start(evsel);
- 
- 	if (bts->synth_opts.branches) {
- 		attr.config = PERF_COUNT_HW_BRANCH_INSTRUCTIONS;
-diff --git a/tools/perf/util/intel-pt.c b/tools/perf/util/intel-pt.c
-index 9b1011fe4826..fc9eec8b54b8 100644
---- a/tools/perf/util/intel-pt.c
-+++ b/tools/perf/util/intel-pt.c
-@@ -3987,9 +3987,7 @@ static int intel_pt_synth_events(struct intel_pt *pt,
- 	attr.sample_id_all = evsel->core.attr.sample_id_all;
- 	attr.read_format = evsel->core.attr.read_format;
- 
--	id = evsel->core.id[0] + 1000000000;
--	if (!id)
--		id = 1;
-+	id = auxtrace_synth_id_range_start(evsel);
- 
- 	if (pt->synth_opts.branches) {
- 		attr.config = PERF_COUNT_HW_BRANCH_INSTRUCTIONS;
-diff --git a/tools/perf/util/powerpc-vpadtl.c b/tools/perf/util/powerpc-vpadtl.c
-index 39a3fb3f1330..bfa4156d7a97 100644
---- a/tools/perf/util/powerpc-vpadtl.c
-+++ b/tools/perf/util/powerpc-vpadtl.c
-@@ -656,9 +656,7 @@ powerpc_vpadtl_synth_events(struct powerpc_vpadtl *vpa, struct perf_session *ses
- 	attr.config = PERF_SYNTH_POWERPC_VPA_DTL;
- 
- 	/* create new id val to be a fixed offset from evsel id */
--	id = evsel->core.id[0] + 1000000000;
--	if (!id)
--		id = 1;
-+	id = auxtrace_synth_id_range_start(evsel);
- 
- 	err = perf_session__deliver_synth_attr_event(session, &attr, id);
- 	if (err)
--- 
-2.25.1
+> ---
+> Changes in v3:
+> - Split mediatek,ufs bindings change into two patches, one for
+>    completing the existing binding, one for the MT8196
+> - Add over a dozen driver cleanup patches
+> - Add explicit support for the MT8196 compatible to the driver
+> - Note: next-20251023, on which I based this, currently has a broken
+>    build due to an unrelated OPP core change that was merged with no
+>    build testing. I can't use next-20251022 either, as that lacks the
+>    recent mediatek UFS changes. It is what it is.
+> - Link to v2: https://lore.kernel.org/r/20251016-mt8196-ufs-v2-0-c373834c4e7a@collabora.com
+> 
+> Changes in v2:
+> - Reorder define in mtk_sip_svc.h
+> - Use bulk reset APIs in UFS host driver
+> - Link to v1: https://lore.kernel.org/r/20251014-mt8196-ufs-v1-0-195dceb83bc8@collabora.com
+> 
+> ---
+> Nicolas Frattaroli (24):
+>        dt-bindings: phy: Add mediatek,mt8196-ufsphy variant
+>        dt-bindings: ufs: mediatek,ufs: Complete the binding
+>        dt-bindings: ufs: mediatek,ufs: Add mt8196 variant
+>        scsi: ufs: mediatek: Move MTK_SIP_UFS_CONTROL to mtk_sip_svc.h
+>        phy: mediatek: ufs: Add support for resets
+>        scsi: ufs: mediatek: Rework resets
+>        scsi: ufs: mediatek: Rework 0.9V regulator
+>        scsi: ufs: mediatek: Rework init function
+>        scsi: ufs: mediatek: Rework the crypt-boost stuff
+>        scsi: ufs: mediatek: Rework probe function
+>        scsi: ufs: mediatek: Remove vendor kernel quirks cruft
+>        scsi: ufs: mediatek: Use the common PHY framework
+>        scsi: ufs: mediatek: Switch to newer PM ops helpers
+>        scsi: ufs: mediatek: Remove mediatek,ufs-broken-rtc property
+>        scsi: ufs: mediatek: Rework _ufs_mtk_clk_scale error paths
+>        scsi: ufs: mediatek: Add vendor prefix to clk-scale-up-vcore-min
+>        scsi: ufs: mediatek: Clean up logging prints
+>        scsi: ufs: mediatek: Rework ufs_mtk_wait_idle_state
+>        scsi: ufs: mediatek: Don't acquire dvfsrc-vcore twice
+>        scsi: ufs: mediatek: Rework hardware version reading
+>        scsi: ufs: mediatek: Back up idle timer in per-instance struct
+>        scsi: ufs: mediatek: Make scale_us in setup_clk_gating const
+>        scsi: ufs: mediatek: Remove ret local from link_startup_notify
+>        scsi: ufs: mediatek: Add MT8196 compatible, update copyright
+> 
+>   .../devicetree/bindings/phy/mediatek,ufs-phy.yaml  |  16 +
+>   .../devicetree/bindings/ufs/mediatek,ufs.yaml      | 196 ++++-
+>   drivers/phy/mediatek/phy-mtk-ufs.c                 |  71 ++
+>   drivers/ufs/host/ufs-mediatek-sip.h                |   9 -
+>   drivers/ufs/host/ufs-mediatek.c                    | 935 +++++++++------------
+>   drivers/ufs/host/ufs-mediatek.h                    |  17 +-
+>   include/linux/soc/mediatek/mtk_sip_svc.h           |   3 +
+>   7 files changed, 650 insertions(+), 597 deletions(-)
+> ---
+> base-commit: a92c761bcac3d5042559107fa7679470727a4bcb
+> change-id: 20251014-mt8196-ufs-cec4b9a97e53
+> 
+> Best regards,
 
 
