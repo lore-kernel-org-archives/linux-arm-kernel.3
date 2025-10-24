@@ -4,67 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD61CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4C1ACCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gzCAW7Zwf6xDfQSyxPUmlwZZUk4YE6Eytp6Ef7icSYA=; b=fDWrRy62gwqkYOfdlj7gLKtQHS
-	7q7WjrhXm8Dxi5ibntVB9npT9P4Q+s/IJSIih9VrbTjJVtda2lGaptk800m0CqRfL/Z9tKFHJozRz
-	SYcACqJT9+0PPU+xCIhbqX4hvG0B/xQNYZ4YJ0WnPimNzN3nq4BKttUAIAx/zIzQeBKHcekBUaJBR
-	Y4ZxLBZhWtDqYvMNft7E2ED1WQJPWZnjYQlBg+bj8wJPadXtKHkfqaOLiIlSUy1lNEw3Zu0CwnX/H
-	MABm3U1rThqbU4R1xFIgYNrZqHLxfU7JP9qcFVVr8TAoWYkzyyuH2Ad+tHtiYQC+gVUYwQyqVZ7hz
-	0lgTyqjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WOuNrW310/87AuysnVn8f56bmg1dUBIWWmh8D5BQhSw=; b=LzrS3tAsLtHbs02+TX97hdURIN
+	ACUpSM9YvBpkTIlRXjnuy2xnfkVXHjAJuwwspPnNw+zGX2+FwBYHswr4mXubkfBqNUP5ePtM+J7I5
+	RFRIvTVHBwgPlgM7zq/JrH+h/yOc5Ck2pzXHalw1i1yumcSzR15JSYvWZAdAqYje96n7xXcgHoSL7
+	hnQ3MgAIEH2NgiKUKUDEcdznbz3ogUrTYmb8tIFUDcI/2VSNcZt+eBLq8dPwmMBxVg5ikP/hq59hb
+	05TmYVGbNOGDycSHv+0Fb5B41O1/8PWoSR8haf3OrNxyV4sIHroIAe48NfEEjnEQnXr+nhAWrV/Sk
+	/57l4/fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLFb-0000000A4Uf-3u8C;
-	Fri, 24 Oct 2025 17:06:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vCLHH-0000000A4mQ-1KiU;
+	Fri, 24 Oct 2025 17:08:35 +0000
+Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLFZ-0000000A4UK-36bY
+	id 1vCLHD-0000000A4lS-2fLR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 17:06:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E13340990;
-	Fri, 24 Oct 2025 17:06:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8883C4CEFB;
-	Fri, 24 Oct 2025 17:06:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761325609;
-	bh=Ury8HZVn+UOCZQaBhNOWpNwaBpO6odlNFuHtT24PBy0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bcUygfWuhpmiNMIMzxAEmZzKLgnXJlJaUEmIbEohiaIh9SrtftsiBAQxlcMw95MKu
-	 i4GjX5+yhFZxdw83YlRwWEGHWhV8DeFrmk1DazVUQ/E8ha1U2zu2dO3JM7zD2U4fUv
-	 ARCD28C47ovhLur4SbW1WKItzR5rU3o4nhgoRjtXwxebIJcxy/tXaf/qRnaS3XlcNE
-	 jAhdkkgVTFlhmLXfQz7fZVM/ndeIuU6SlXgrkulzNDwhLBytBUrglScCVozQh6F7+P
-	 WqVzVuWvlgojyvfavFTDyHM0C7CDm/UElVnWCjFcNfEhyJ1qh7U5+EjA6tbDzxyHLU
-	 f/ymsROZchy2Q==
-Date: Fri, 24 Oct 2025 18:06:43 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	bhelgaas@google.com, frank.li@nxp.com, l.stach@pengutronix.de,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 2/3] dt-bindings: PCI: pci-imx6: Add external
- reference clock input
-Message-ID: <20251024-unburned-lip-6f142d83ed76@spud>
-References: <20251024024013.775836-1-hongxing.zhu@nxp.com>
- <20251024024013.775836-3-hongxing.zhu@nxp.com>
+	Fri, 24 Oct 2025 17:08:33 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id BB6C11D001A4;
+	Fri, 24 Oct 2025 13:08:29 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Fri, 24 Oct 2025 13:08:29 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm2; t=1761325709; x=1761412109; bh=WO
+	uNrW310/87AuysnVn8f56bmg1dUBIWWmh8D5BQhSw=; b=cDycCcnTveLKfv1w1x
+	Xkv+qnoZBCS+B1c/CeVxcJ8vIJMhayLgHrOYLrW7/u0MAjfPxcG62fmI4uPs7Y5P
+	cVczG+g8wjcgDQY4c6GJlyLluA8oYMsgrJr9b4WSN1sUD0CH6EDd1V1TviU+9Wzl
+	c3OqKY+hAC5I1GaBQeBHzYbtH0NZt6vC5WSZwz2Cf0ORqaKggRph4gn7kiNGp3yK
+	IiS/ap0bHyTezdGlZ2DTXJQCqfD2n4291a+l6E8ioxox0DHLK+GE5N3kbCbw9F1e
+	j9DqUWJ5b+sFznKK4OM1nXO3YF5nOHUAxvyiq9o615fI2F5XMsCzwN4sxf1p7Z78
+	rLNQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1761325709; x=1761412109; bh=WOuNrW310/87AuysnVn8f56bmg1d
+	UBIWWmh8D5BQhSw=; b=gJyRWPD6+oGVY21VPy8PjdK4Dbg5lgU14jSYxp0YcjUH
+	5PeSLcrv/qB+18HwIbPPga8pWag1uWlpJFfjyvVugTz7jCkuXHzMDh7WY/hzDwWj
+	ZSRi21Nl053CbEMPXTScu8EVrsHEShrwxapl3SxzRgvkaFVDhTveuKexGHOdhCGG
+	kLfOb5QwrtRa864ZdZGm4GSiZCfC4n7KmU7UldDfuPka6lmYoABNUgZ8q5uya4t8
+	vVkiYbVqZ+MYSWbolW4hEvywpSMUWUOk/3tyxbFePhV6MEDF3ugLM+PRtq1Y6obW
+	a77uWJczOY57LAGit1beflm/IO/JMOkn1JdcCtEQ8Q==
+X-ME-Sender: <xms:jLL7aMNxLqujDZs0DRQxDY8glzgBegewYb7Vs3yQ4wryvGCzPHSkpg>
+    <xme:jLL7aNx1TnKODg7qudhJxda0jwkUIp-1RWMdfD-55unCw20HcnP-6ZY3MtZx7O25I
+    IGTNrEIo5qJ8HRR5lxtYLMR75b99dLfcNR0o3AQ6j3Bx5PzzL69Ubo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddugeelledtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkffutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
+    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
+    epudfgfeeuheelheehfeeigeeigeeiveevheelteelleeijeeikeekvddthfejieffnecu
+    ffhomhgrihhnpehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmnecuvehluhhsth
+    gvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggs
+    rdguvgdpnhgspghrtghpthhtohepkedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoh
+    eprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdprhgtphht
+    thhopehfuhhsthhinhhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikheskh
+    gvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgr
+    rhhordhorhhgpdhrtghpthhtohepthhorhhvrghlughssehlihhnuhigqdhfohhunhgurg
+    htihhonhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhi
+    shhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehsohgtsehlihhsthhsrd
+    hlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdr
+    khgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:jbL7aA-cUy09bl4q7zOl26a3hICbbw3yEDZOXVG2fqa58xGeYjkRQw>
+    <xmx:jbL7aLTMVn34Eoq1e8cwii0SbZ17f3dDoLrbGpdTPD62XTeWuk3Eyg>
+    <xmx:jbL7aJq17K67lAffy5_jbJ98Ij0P_lvWqgGVJPmhqtlXnw7k1LLmrw>
+    <xmx:jbL7aAlkdikE5Q0TU5KGYBVzfwu3ctKQ5WwQWM0ipUflI5geuzUz8Q>
+    <xmx:jbL7aEFVULMdq-1_XLE-oZWZ5thWPLTKsYIsNLLlc2KO_vmmekcXkv9G>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id DC0C9700063; Fri, 24 Oct 2025 13:08:28 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="XcZSjLvU49YOzPxG"
-Content-Disposition: inline
-In-Reply-To: <20251024024013.775836-3-hongxing.zhu@nxp.com>
+Date: Fri, 24 Oct 2025 19:08:08 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ soc@lists.linux.dev, "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Drew Fustini" <fustini@kernel.org>
+Message-Id: <a51522e4-61d3-4d8d-8850-678f7fc410db@app.fastmail.com>
+Subject: [GIT PULL] soc: fixes for 6.18, part 2
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_100649_817444_69DC92EE 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20251024_100831_736360_ECDC3925 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,105 +114,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 
---XcZSjLvU49YOzPxG
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+  Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 
-On Fri, Oct 24, 2025 at 10:40:12AM +0800, Richard Zhu wrote:
-> i.MX95 PCIes have two reference clock inputs: one from internal PLL, the
-> other from off chip crystal oscillator. The "extref" clock refers to a
-> reference clock from an external crystal oscillator.
->=20
-> Add external reference clock input for i.MX95 PCIes.
->=20
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 3 +++
->  1 file changed, 3 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/=
-Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> index ca5f2970f217c..b4c40d0573dce 100644
-> --- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-> @@ -212,14 +212,17 @@ allOf:
->      then:
->        properties:
->          clocks:
-> +          minItems: 4
->            maxItems: 5
->          clock-names:
-> +          minItems: 4
->            items:
->              - const: pcie
+are available in the Git repository at:
 
-1
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.18-2
 
->              - const: pcie_bus
+for you to fetch changes up to b0cd17fd31a86b55dcec3eb64b9d2a17c1c01e6a:
 
-2
+  soc: officially expand maintainership team (2025-10-23 22:30:48 +0200)
 
->              - const: pcie_phy
+----------------------------------------------------------------
+soc: fixes for 6.18, part 2
 
-3
+The main change this time is an update to the MAINTAINERS file,
+listing Krzysztof Kozlowski, Alexandre Belloni, and Linus Walleij as
+additional maintainers for the SoC tree, in order to go back to a group
+maintainership.  Drew Fustini joins as an additional reviewer for the
+SoC tree.
 
->              - const: pcie_aux
+Thanks to all of you for volunteering to help out.
 
-4
+On the actual bugfixes, we have a few correctness changes for firmware
+drivers (qtee, arm-ffa, scmi) and two devicetree fixes for Raspberry Pi.
 
->              - const: ref
+----------------------------------------------------------------
+Arnd Bergmann (6):
+      Merge tag 'tee-qcomtee-fixes-for-v6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee into arm/fixes
+      Merge tag 'ffa-fix-6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
+      Merge tag 'scmi-fixes-6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
+      Merge tag 'arm-soc/for-6.18/devicetree-fixes' of https://github.com/Broadcom/stblinux into arm/fixes
+      Merge tag 'arm-soc/for-6.18/devicetree-arm64-fixes' of https://github.com/Broadcom/stblinux into arm/fixes
+      soc: officially expand maintainership team
 
-5
+Artem Shimko (1):
+      firmware: arm_scmi: Fix premature SCMI_XFER_FLAG_IS_RAW clearing in raw mode
 
-> +            - const: extref  # Optional
+Cristian Marussi (3):
+      firmware: arm_scmi: Account for failed debug initialization
+      include: trace: Fix inflight count helper on failed initialization
+      firmware: arm_scmi: Skip RAW initialization on failure
 
-6
+Dan Carpenter (2):
+      tee: qcom: prevent potential off by one read
+      tee: qcom: return -EFAULT instead of -EINVAL if copy_from_user() fails
 
-There are 6 clocks here, but clocks and clock-names in this binding do
-not permit 6:
-|  clocks:
-|    minItems: 3
-|    items:
-|      - description: PCIe bridge clock.
-|      - description: PCIe bus clock.
-|      - description: PCIe PHY clock.
-|      - description: Additional required clock entry for imx6sx-pcie,
-|           imx6sx-pcie-ep, imx8mq-pcie, imx8mq-pcie-ep.
-|      - description: PCIe reference clock.
-|
-|  clock-names:
-|    minItems: 3
-|    maxItems: 5
+Geert Uytterhoeven (1):
+      tee: QCOMTEE should depend on ARCH_QCOM
 
-AFAICT, what this patch actually did is make "ref" an optional clock,
-but the claim in the patch is that extref is optional. With this patch
-applied, you can have a) no reference clocks or b) only "ref". "extref"
-is never allowed.
+Peter Robinson (1):
+      arm64: dts: broadcom: bcm2712: Define VGIC interrupt
 
-Is it supposed to be possible to have "ref" and "extref"?
-Or "extref" without "ref"?
-Neither "ref" or "extref"?
-I don't know the answer to that question because you're doing things
-that are contradictory in your patch and the commit message isn't clear.
+Stefan Wahren (1):
+      ARM: dts: broadcom: rpi: Switch to V3D firmware clock
 
-I don't see how this can have been successfully tested.
+Sudeep Holla (1):
+      firmware: arm_ffa: Add support for IMPDEF value in the memory access descriptor
 
-pw-bot: changes-requested
-
-
---XcZSjLvU49YOzPxG
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPuyIwAKCRB4tDGHoIJi
-0qmAAP43Y5c5EpXWguFo8pYVr2jdc1RmVmgslABpylj0GDLEawEAjzc9MPMpxAcT
-3CM8pI7Q006oqHCJD34NB+JJATROLw4=
-=XZe8
------END PGP SIGNATURE-----
-
---XcZSjLvU49YOzPxG--
+ MAINTAINERS                                        |  4 ++
+ arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi        |  8 +++
+ arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi |  9 ++++
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi          |  2 +
+ drivers/firmware/arm_ffa/driver.c                  | 37 ++++++++++----
+ drivers/firmware/arm_scmi/common.h                 | 32 +++++++++---
+ drivers/firmware/arm_scmi/driver.c                 | 59 ++++++++--------------
+ drivers/tee/qcomtee/Kconfig                        |  1 +
+ drivers/tee/qcomtee/call.c                         |  2 +-
+ drivers/tee/qcomtee/core.c                         |  2 +-
+ include/linux/arm_ffa.h                            | 21 +++++++-
+ 11 files changed, 119 insertions(+), 58 deletions(-)
 
