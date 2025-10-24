@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B14CCF9E9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E37ACCF9E3
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 09:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KT/vT59UJNcHFzS3p3Nzx2sx0hc7LWtfsRuQCglwGCQ=; b=zKeKSQwAx4pSNangWTbuAoxycw
-	QhLeFAmvuR3oJfbdyWlIFIpAW1KfRPNb4ClVEpOb8FwVlAFZcucHV+7cDleCzoXSaNuikcFae8lWo
-	U0e2L0FPaVi2RoB/q0bAxYMsBFSFKcpM9d7dmPW8rgPqTTFCpvaMvqMHJDAX5g9ZnszkzlVT3fT9I
-	Phnr0QVmHzBMlw56mskDc3DD9yoIuYKYw5X4jsgyIWApbrvUXFvC3YMjtjevB1BSycxZL/JYVsAUC
-	MBr4reLWyn3EUnh7sKQMnO9iVopJJmaAksPIfHnw6T0tUL4YJ8w6frwuMjmJNJNu1Na7pvUYv63Kr
-	YU/Vhe5w==;
+	bh=I1Rmr1g23DUtCVc+SA1Ppe21TNHSR3SWg03ahxdQDv8=; b=s9/JvIdeSxjcgt+P1NyJwh/sQW
+	WPDbMlwJoL4iVKK33TXdmpF9LDDE84EElvH43gVXcSwshaWnh706sV6+GR2ZPULvD1yEvvp1uSiX8
+	xy0b7eY+0FJOgBJbX4A3zeDOmjfuWMwfQ/34A3sMOG4ZtjoPxOrw+4J5xdpcdZ7VqNShq+qC+bCYi
+	y+EZLsJ03V9kTX7uXPBuGt3+ERjQoujMXFSVlJRXojS/srp2lSnhba+k/98G4hfwxOE6RFX1zXeba
+	yCxPqbJUMru7/Qj3Sbq4j/rZNuyST14CCqOC7YmEZowLZsdKjCzzc5PHYfI3Uiqu8trtH89YrMWYq
+	bJpTLKkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDn0-00000008ozQ-0jtM;
-	Fri, 24 Oct 2025 09:08:50 +0000
+	id 1vCDn1-00000008p18-0SsD;
+	Fri, 24 Oct 2025 09:08:51 +0000
 Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDmt-00000008otf-0Z04
+	id 1vCDmw-00000008otj-0wTL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 09:08:45 +0000
+	Fri, 24 Oct 2025 09:08:48 +0000
 Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4ctH5f29fyz2TTGp;
-	Fri, 24 Oct 2025 17:04:22 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 014A6140143;
-	Fri, 24 Oct 2025 17:08:35 +0800 (CST)
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4ctH4t2bvgz2CgnP;
+	Fri, 24 Oct 2025 17:03:42 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 7EA63140143;
+	Fri, 24 Oct 2025 17:08:34 +0800 (CST)
 Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.1544.11; Fri, 24 Oct 2025 17:08:34 +0800
 Received: from huawei.com (10.90.31.46) by kwepemq200004.china.huawei.com
  (7.202.195.237) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 24 Oct
- 2025 17:08:34 +0800
+ 2025 17:08:33 +0800
 From: Zhou Wang <wangzhou1@hisilicon.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
 	<oliver.upton@linux.dev>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
 	<yuzenghui@huawei.com>
 CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
 	<yangyccccc@gmail.com>, <prime.zeng@hisilicon.com>, <xuwei5@huawei.com>
-Subject: [PATCH v6 3/7] KVM: arm64: Handle DABT caused by LS64* instructions on unsupported memory
-Date: Fri, 24 Oct 2025 17:08:15 +0800
-Message-ID: <20251024090819.4097819-4-wangzhou1@hisilicon.com>
+Subject: [PATCH v6 2/7] KVM: arm64: Add documentation for KVM_EXIT_ARM_LDST64B
+Date: Fri, 24 Oct 2025 17:08:14 +0800
+Message-ID: <20251024090819.4097819-3-wangzhou1@hisilicon.com>
 X-Mailer: git-send-email 2.30.0
 In-Reply-To: <20251024090819.4097819-1-wangzhou1@hisilicon.com>
 References: <20251024090819.4097819-1-wangzhou1@hisilicon.com>
@@ -60,8 +60,8 @@ X-Originating-IP: [10.90.31.46]
 X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
  kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_020843_492432_647F2136 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20251024_020846_605690_AD5C5D3D 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,131 +76,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+From: Marc Zyngier <maz@kernel.org>
 
-If FEAT_LS64WB not supported, FEAT_LS64* instructions only support
-to access Device/Uncacheable memory, otherwise a data abort for
-unsupported Exclusive or atomic access (0x35, UAoEF) is generated
-per spec. It's implementation defined whether the target exception
-level is routed and is possible to implemented as route to EL2 on a
-VHE VM according to DDI0487L.b Section C3.2.6 Single-copy atomic
-64-byte load/store.
+Add a bit of documentation for KVM_EXIT_ARM_LDST64B so that userspace
+knows what to expect.
 
-If it's implemented as generate the DABT to the final enabled stage
-(stage-2), inject the UAoEF back to the guest after checking the
-memslot is valid.
-
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- arch/arm64/include/asm/esr.h         |  8 ++++++++
- arch/arm64/include/asm/kvm_emulate.h |  1 +
- arch/arm64/kvm/inject_fault.c        | 22 ++++++++++++++++++++++
- arch/arm64/kvm/mmu.c                 | 14 +++++++++++++-
- 4 files changed, 44 insertions(+), 1 deletion(-)
+ Documentation/virt/kvm/api.rst | 43 ++++++++++++++++++++++++++++------
+ 1 file changed, 36 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index e1deed824464..63cd17f830da 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -124,6 +124,7 @@
- #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
- #define ESR_ELx_FSC_SECC	(0x18)
- #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
-+#define ESR_ELx_FSC_EXCL_ATOMIC	(0x35)
- #define ESR_ELx_FSC_ADDRSZ	(0x00)
+diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+index 57061fa29e6a..b4af2a04b51a 100644
+--- a/Documentation/virt/kvm/api.rst
++++ b/Documentation/virt/kvm/api.rst
+@@ -1303,12 +1303,13 @@ userspace, for example because of missing instruction syndrome decode
+ information or because there is no device mapped at the accessed IPA, then
+ userspace can ask the kernel to inject an external abort using the address
+ from the exiting fault on the VCPU. It is a programming error to set
+-ext_dabt_pending after an exit which was not either KVM_EXIT_MMIO or
+-KVM_EXIT_ARM_NISV. This feature is only available if the system supports
+-KVM_CAP_ARM_INJECT_EXT_DABT. This is a helper which provides commonality in
+-how userspace reports accesses for the above cases to guests, across different
+-userspace implementations. Nevertheless, userspace can still emulate all Arm
+-exceptions by manipulating individual registers using the KVM_SET_ONE_REG API.
++ext_dabt_pending after an exit which was not either KVM_EXIT_MMIO,
++KVM_EXIT_ARM_NISV, or KVM_EXIT_ARM_LDST64B. This feature is only available if
++the system supports KVM_CAP_ARM_INJECT_EXT_DABT. This is a helper which
++provides commonality in how userspace reports accesses for the above cases to
++guests, across different userspace implementations. Nevertheless, userspace
++can still emulate all Arm exceptions by manipulating individual registers
++using the KVM_SET_ONE_REG API.
  
- /*
-@@ -488,6 +489,13 @@ static inline bool esr_fsc_is_access_flag_fault(unsigned long esr)
- 	       (esr == ESR_ELx_FSC_ACCESS_L(0));
- }
+ See KVM_GET_VCPU_EVENTS for the data structure.
  
-+static inline bool esr_fsc_is_excl_atomic_fault(unsigned long esr)
-+{
-+	esr = esr & ESR_ELx_FSC;
-+
-+	return esr == ESR_ELx_FSC_EXCL_ATOMIC;
-+}
-+
- static inline bool esr_fsc_is_addr_sz_fault(unsigned long esr)
- {
- 	esr &= ESR_ELx_FSC;
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index c9eab316398e..759d8c45684d 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -47,6 +47,7 @@ void kvm_skip_instr32(struct kvm_vcpu *vcpu);
- void kvm_inject_undefined(struct kvm_vcpu *vcpu);
- int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
-+void kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr);
- void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
+@@ -7050,12 +7051,14 @@ in send_page or recv a buffer to recv_page).
  
- static inline int kvm_inject_sea_dabt(struct kvm_vcpu *vcpu, u64 addr)
-diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-index dfcd66c65517..e431151412e5 100644
---- a/arch/arm64/kvm/inject_fault.c
-+++ b/arch/arm64/kvm/inject_fault.c
-@@ -253,6 +253,28 @@ int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
- 	return 1;
- }
+ ::
  
-+/**
-+ * kvm_inject_dabt_excl_atomic - inject a data abort for unsupported exclusive
-+ *				 or atomic access
-+ * @vcpu: The VCPU to receive the data abort
-+ * @addr: The address to report in the DFAR
-+ *
-+ * It is assumed that this code is called from the VCPU thread and that the
-+ * VCPU therefore is not currently executing guest code.
-+ */
-+void kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr)
-+{
-+	u64 esr;
-+
-+	/* Reuse the general DABT injection routine and modify the DFSC */
-+	kvm_inject_sea(vcpu, false, addr);
-+
-+	esr = vcpu_read_sys_reg(vcpu, exception_esr_elx(vcpu));
-+	esr &= ~ESR_ELx_FSC;
-+	esr |= ESR_ELx_FSC_EXCL_ATOMIC;
-+	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
-+}
-+
- void kvm_inject_size_fault(struct kvm_vcpu *vcpu)
- {
- 	unsigned long addr, esr;
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 7cc964af8d30..06cec9070ea6 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1802,6 +1802,17 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		return ret;
- 	}
+-		/* KVM_EXIT_ARM_NISV */
++		/* KVM_EXIT_ARM_NISV / KVM_EXIT_ARM_LDST64B */
+ 		struct {
+ 			__u64 esr_iss;
+ 			__u64 fault_ipa;
+ 		} arm_nisv;
  
-+	/*
-+	 * Guest performs atomic/exclusive operations on memory with unsupported
-+	 * attributes (e.g. ld64b/st64b on normal memory when no FEAT_LS64WB)
-+	 * and trigger the exception here. Since the memslot is valid, inject
-+	 * the fault back to the guest.
-+	 */
-+	if (esr_fsc_is_excl_atomic_fault(kvm_vcpu_get_esr(vcpu))) {
-+		kvm_inject_dabt_excl_atomic(vcpu, kvm_vcpu_get_hfar(vcpu));
-+		return 1;
-+	}
++- KVM_EXIT_ARM_NISV:
 +
- 	if (nested)
- 		adjust_nested_fault_perms(nested, &prot, &writable);
+ Used on arm64 systems. If a guest accesses memory not in a memslot,
+ KVM will typically return to userspace and ask it to do MMIO emulation on its
+ behalf. However, for certain classes of instructions, no instruction decode
+@@ -7089,6 +7092,32 @@ Note that although KVM_CAP_ARM_NISV_TO_USER will be reported if
+ queried outside of a protected VM context, the feature will not be
+ exposed if queried on a protected VM file descriptor.
  
-@@ -1971,7 +1982,8 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
- 	/* Check the stage-2 fault is trans. fault or write fault */
- 	if (!esr_fsc_is_translation_fault(esr) &&
- 	    !esr_fsc_is_permission_fault(esr) &&
--	    !esr_fsc_is_access_flag_fault(esr)) {
-+	    !esr_fsc_is_access_flag_fault(esr) &&
-+	    !esr_fsc_is_excl_atomic_fault(esr)) {
- 		kvm_err("Unsupported FSC: EC=%#x xFSC=%#lx ESR_EL2=%#lx\n",
- 			kvm_vcpu_trap_get_class(vcpu),
- 			(unsigned long)kvm_vcpu_trap_get_fault(vcpu),
++- KVM_EXIT_ARM_LDST64B:
++
++Used on arm64 systems. When a guest using a LD64B, ST64B, ST64BV, ST64BV0,
++outside of a memslot, KVM will return to userspace with KVM_EXIT_ARM_LDST64B,
++exposing the relevant ESR_EL2 information and faulting IPA, similarly to
++KVM_EXIT_ARM_NISV.
++
++Userspace is supposed to fully emulate the instructions, which includes:
++
++	- fetch of the operands for a store, including ACCDATA_EL1 in the case
++	  of a ST64BV0 instruction
++	- deal with the endianness if the guest is big-endian
++	- emulate the access, including the delivery of an exception if the
++	  access didn't succeed
++	- provide a return value in the case of ST64BV/ST64BV0
++	- return the data in the case of a load
++	- increment PC if the instruction was successfully executed
++
++Note that there is no expectation of performance for this emulation, as it
++involves a large number of interaction with the guest state. It is, however,
++expected that the instruction's semantics are preserved, specially the
++single-copy atomicity property of the 64 byte access.
++
++This exit reason must be handled if userspace sets ID_AA64ISAR1_EL1.LS64 to a
++non-zero value, indicating that FEAT_LS64* is enabled.
++
+ ::
+ 
+ 		/* KVM_EXIT_X86_RDMSR / KVM_EXIT_X86_WRMSR */
 -- 
 2.33.0
 
