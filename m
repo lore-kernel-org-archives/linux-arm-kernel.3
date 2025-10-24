@@ -4,89 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FC9CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 02:16:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F18ACCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 02:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BI0Vwi2MFtORL9n5J5tJUkBs2QczZqahhbzv7dm+XZ4=; b=odR/DjYOq3PiFKlXzL3ZcSqMDs
-	uJMhVGtFAxnRFQVF8j3qC4lPJNLOHDl32JFrt/MQQah9wggAwA7MPeWpTNNq9+O5hnm4Y+FoAocYO
-	wrv1pAEQMc/QU92jZOcWyod14vuQxDDXT1dBVhJCxZ4Fkfjp1Sk4PPS5x+mvjWIZ/rO8MM2dFk6+c
-	anJpA1EfaSaa6a+VzEQfpGzBnTdpFIfUwDOe1pfAAvXwROL2nDLkCC75epAAgT4kKQsvZ6InD+QRB
-	WGumKJuv/iCyJftJT7ngy/T+ClJ3kKhlZWrbIyMN4rt3a+a3/ndgjGspkrgXo6Ylluw7GIhQh0KFv
-	FGTewVXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Lqlun311Zg6fbAmzKK53ljythP4dGd6xJNvsj33m7WY=; b=haPjJnciDySNAWzj84FuuvwgJc
+	pblPxw13ZfHJ3Rbe3nzz5CveCfc+sqyuOuvaa8NKyn6soYTqrYM4T8m4FgsxkFM2017HTTyzRu5vq
+	xKntfDPZTmaUAr5JN+O1I77JiJB/Bo+n3kLQkoycvgfC4clBBQdNDGOooCyYBM7RJt1krWYUZc05H
+	JxaaEHxtECcA7JFH77sOhee7xdahHqviLUVKi62Wqxp0jGAVviad2OncDGTgLB+lxos3kUT6b81Gu
+	Ct8+Dus7y66iwyDt+2fUUxn4YaarkgZjc4xUp67Sby3Ci54bvu+grpRoEL6CPB/fyrnpjDtdAicM0
+	HdoiIo0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC7LY-000000081Wf-0KQ2;
-	Fri, 24 Oct 2025 02:16:04 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1vC7jd-000000083T6-25DF;
+	Fri, 24 Oct 2025 02:40:57 +0000
+Received: from mail-northeuropeazon11012041.outbound.protection.outlook.com ([52.101.66.41] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC7LW-000000081WI-08mG
+	id 1vC7ja-000000083Rj-3P9Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 02:16:03 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-33e0008d3b3so1613687a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 19:16:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761272161; x=1761876961; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BI0Vwi2MFtORL9n5J5tJUkBs2QczZqahhbzv7dm+XZ4=;
-        b=levNMH+Wwxi/8tKwKmNzaqhSPm0+nbB4XJONxp/sCkiRgaYKh+bNea0Yk49UJX2u4Z
-         X/OTxuYLNQcfa3IhA4+aptBQCDCuZrR8QLDMkM/4yoD6DenJ0u0hZeOdSNE7LEAnwb+3
-         6+T48Iug+t1pdPtjiJHrqeBPldD1UhbnpIzASbatVeRGvOmve7kISKVxSMp1fc2EEtb3
-         S/UPHYIvdlybIGbyKPVOvJmnUeokpNUCZScr5u5v6St5z96YkO41gleWq82XSNeekZm+
-         QGjLG/MbRMfC7mLh7h6tjLVfG4LScTKV8G1onA/YgMfSob3x8zdbC7VMH/wbQhdnvvJu
-         iqDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761272161; x=1761876961;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BI0Vwi2MFtORL9n5J5tJUkBs2QczZqahhbzv7dm+XZ4=;
-        b=u3rKPVv+nb2ighnlXP9/BiXqOOHeglBWEx7MIZV7he5INIi7lr1DI76WIZJp1vrggo
-         51+hpKjethxoch9TT4ItqbC6c09iCBS3dxXegrec8mmUkh0sxuHoLEg7N4HU8pfij92g
-         yZvPKgg1eRUcNoOBQEn6GsjaY1OBYZ2Vm9XKHKP7DpXgBvrqLGFjaqVpb8nAwWAzzIiK
-         J7oUMV+C5PQFFdKk0nounfz+tjsWQmaHBgDyi5sBE/Dy5OF0lIAoIjyRH/rEaB5CD17k
-         AoI4kyKmrqxB0dF3veHYW2b83uA6HdJ78doD454STniXy8DpjqOAmAuN7Z5eGduoCNuU
-         pdmw==
-X-Forwarded-Encrypted: i=1; AJvYcCUzpIXBBDUbMB8I4lxD85xm5etk2w7l2776bpYQWFOjCi04Ucs2f0cgk2bziFYHmZIpnWN3HZhl/Urzh2gBO/yt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzx90NzH/laclEGskOUpBqHPGWF2jBOArIFgzIrfgWl/tBr18ax
-	eEqydLQO3kAw1+TkrBgmrz7azRIdziEML8TXfYXLnLBBpIYH+iAvG//5TdbgzoqLP3bs5wGi59L
-	d5j1XbNTX7dQWEy7kolTZsJ8cZN4lN9Y=
-X-Gm-Gg: ASbGnctys2v9J501yoazDT/KSQkAN/0wi9W7pby/NoykuqMnKtObdb2+4CbUwOk2RCK
-	eG9ijJtOY+Uuq8xKuQUyW0RibLKpehbzy+snVrGTjNuHavwuVK629lSY3Fd49krLqiV9N9jKfCW
-	MQ2Aoe7+o3PGb8lhXQKs0jyNdVwfaW65JDSyzrHxDlfVlnQ2QYhOjWKEQ7JKVceuMjzr3JPQeg5
-	Kqbk3aYRnbTJa1RutorEgj2CZ8aPGltA9oHnk2NWj7Mn9Eo5tkEOX7zIxMl5XP9MhaHXNY=
-X-Google-Smtp-Source: AGHT+IElNfoS47SY7t+lKBFv7+5KrhLxG98q130ySpWKzXc0GkoN0tmuT6t9nFhyiYXpfSO3SfnNJSOMNthXNwS/NDA=
-X-Received: by 2002:a17:90b:1b50:b0:33b:d371:1131 with SMTP id
- 98e67ed59e1d1-33fd66f565amr743481a91.34.1761272160901; Thu, 23 Oct 2025
- 19:16:00 -0700 (PDT)
+	Fri, 24 Oct 2025 02:40:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jYVSPJu47eDZa3gsukgwRKFx20e2YZtkw8JdzjWUX+K3e4QUcDHbKLsFDDJ5gpwA7A3DOTB2cgQ+yylyZpusL72srsi3eI+TfmXl+dQe4vT1SftTQVIXlcagNCbSMxYiFISjx9SLsCF9q1bkp+HPR7P7Bh2c2w+F2duyBO3WpC6r7lzshaswwBbeAGcMaB3v0AHud/Dw7KMBTfDXhsCxyBNARyjV50E9Y8+9qN1164r/RacgP21D6l6/a8KfaV1izMUKID6Z759R8he2h2EO5l856K7gi5R/llTeQfBs8uF6UAnSJK115lp9k+WGtPiH+sJ7MO+Z+lt/Jn7XEuwbtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Lqlun311Zg6fbAmzKK53ljythP4dGd6xJNvsj33m7WY=;
+ b=ACKnL8PcS6D7DYRwMztIa48zyBIdGhVh101eRavkE6/WE7CMFb5Ic6g53ykVc8OiGbnBuQnCQwVojMNxgz0tRzAWgOvmtQ9ldWEHLKPBkoJ9ilfZDnNt0IqlOJnXL4YpP3W83tLRZwUdRP0TCYrO6LLZSBD8FgwRbkgvqiRIhUk6LTW1zz0wOO+4etOWwEFc6SESq3KV3TR7ddjjPtKx4g/8F7gOWnCDhOJr5h8SZloz6KzVYsfmkvmvThy6kYZ1CTBh6b8x3z+uVMOBJTCW3f061NQLW6MFF7VJpVgXK7boZDPAkgZ0sEFRier4E7gB1K5x8Qx7WrcYoFKX9paAwQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Lqlun311Zg6fbAmzKK53ljythP4dGd6xJNvsj33m7WY=;
+ b=Wrr5hGOwSI69D23opy4lmwGhsjlV8JYEC/PymDCfI+z2aMfJcHlUlO16iikTuyeQmOSqdOiqGfzHcys2t4urNC6hWc4e2OtvbKJXUcisfrVsV4hOMVQ2sn62ZhEY3AwaBpLyZG72D5IaR+5tzTJoDZZqe2klnV7H/3KmX320I9GIaiufBuTwtR1Qt8pHL/ZCUGtfGHg2h7ERwgjM8IBUp1ufoeh42BF5beOJXCkNJ57iBZbtxws3U72YwPHri0IVMF0aVMpKFXhWjrjIg16EF9I5LGkA1q3nv0y9a7tushOgxdB6ZHpI2Lp3MVlSFzkXc9aHLNJcU8YboCWg7Wju8Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by DU4PR04MB10624.eurprd04.prod.outlook.com (2603:10a6:10:592::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
+ 2025 02:40:49 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%7]) with mapi id 15.20.9253.011; Fri, 24 Oct 2025
+ 02:40:48 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	bhelgaas@google.com,
+	frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v8 0/3] PCI: imx6: Add external reference clock mode support
+Date: Fri, 24 Oct 2025 10:40:10 +0800
+Message-Id: <20251024024013.775836-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SGBP274CA0008.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b0::20)
+ To AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
 MIME-Version: 1.0
-References: <20251024-auxiliary-v2-1-a353dc9e6b1a@nxp.com>
-In-Reply-To: <20251024-auxiliary-v2-1-a353dc9e6b1a@nxp.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Fri, 24 Oct 2025 10:15:49 +0800
-X-Gm-Features: AS18NWDZ9oaK7UwbUVQe-rbcE0CXdttwjA1LC6T8fVyGVAC_wDzugHZZMraTOl0
-Message-ID: <CAA+D8AOF+3he6nV6yDRnept2Epo1yTZgJnn+P4H8hkktec5wEw@mail.gmail.com>
-Subject: Re: [PATCH v2] clk: imx: imx8mp-audiomix: use devm_auxiliary_device_create()
- to simple code
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
-	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <frank.li@nxp.com>, linux-clk@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Abel Vesa <abel.vesa@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|DU4PR04MB10624:EE_
+X-MS-Office365-Filtering-Correlation-Id: d20aa89b-baad-4c3d-e3e9-08de12a6baa7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|1800799024|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YaB6c2jYaagOFLikTndaDrD4jZnsn1Wcre6RwxTzhhKmXSoFmlgfdYb4pzuO?=
+ =?us-ascii?Q?Eq/j+TDuMQ4SWxOsXyv7new0tUYEsI75QG8Xd8Wq5P02KtiJ8kUCKSCJkmPW?=
+ =?us-ascii?Q?VOR443oFM7PcGKFS3FxqA66TyKkMmlAwJUVqHMmIVmIcHV5Pmx23tunW8lqW?=
+ =?us-ascii?Q?iCA3lTtmWp5UmlcyAeF1c/Qh933z5AeFEcmi7uzGR4l/GXkmXtHCK0gQkN18?=
+ =?us-ascii?Q?walOPIACgJG4L+q+CCDjx4HKMdKGKeH322B+AVzm9ag809IVMMrQ4xuIYuWJ?=
+ =?us-ascii?Q?y6I9CG9hZ60HXrKOy/194tphtzjiGwJZss5ry6Wsr7298owQqbYxVdUmIIo6?=
+ =?us-ascii?Q?QiDdnL7NG589WPrkQUdDy6Or0vUuahrYt42B/PL/guEszot4E95EYpA+Cvik?=
+ =?us-ascii?Q?EJc9ZZZRH9/r1inEI9DwDJZzdNqVuvMawPDqhr5PpxJCTf1t7Tik7Qb4BKcL?=
+ =?us-ascii?Q?mMmIs/NfLl07SZBpLijeGbwGAQUv+Zue/p3wYMbYACOD2wP60YdTCMVBcNuO?=
+ =?us-ascii?Q?pyZsBcezVRDjivOP6DTOTvpT3ZiHsIXabfKdtPgJbZ3cUl3Z0/sVFgRkniPe?=
+ =?us-ascii?Q?L3VbGwsfu3/SCgH8nFyXV6oB2IdH8VB5krX0+bGgx3rAKHhZDjYJezlpaiK5?=
+ =?us-ascii?Q?XI4wRbnzGu9DytUhCkcq5514vUbcMxtFh2VjgEg4TkI8VIuoa+JWLf8dRWVN?=
+ =?us-ascii?Q?r7JoTro4EUkqBnSm6Aq+gMBwqTmTX9v2oohHiUzaUwmBEm0e4VQI6tagj/T1?=
+ =?us-ascii?Q?4sFvVpF/i2KVqbMh+poO8cyBx+lQEHRWoN7Z2XYuEVAP/lUfGmk6xuHbS3Qf?=
+ =?us-ascii?Q?lQCuTL+T15Vtz95kk1afIMWlqlF5r0W62PnsM3IIiWd7NKo8Rd86ypTd1eL2?=
+ =?us-ascii?Q?/3oNnNAJCQyOKscjuJgsuGz2trcu/DPTrUNnUrv6iW7tmB2ALmWQwPfxXLYS?=
+ =?us-ascii?Q?FFY/74SsS7UAm/kQBmjny5fga+5R/3LO43GJOV+NExgY4VqKCUqJoBF4u1Z9?=
+ =?us-ascii?Q?9nLvwRKfo2VURY2Xqr3mODBnoOkcplL2kt1yC8LovlD3JNGnobSUvWq45OC3?=
+ =?us-ascii?Q?UgGpfw50WjM2ghfnuuWZKiLsSBsleHwzKu1RPhZ2SU/yCb3htPGuNaoeNByA?=
+ =?us-ascii?Q?11JHaYd4CUCGtoQlZbHH6Xf2BXZAXwPOY173zL4drD0qo24GUxZRg4Tdswne?=
+ =?us-ascii?Q?RI0ay+p4SEPa+vDxGMmXIHdmJnFaMk7RS0ftzaUkkIUiAtr8Ll6kow1XH6Gz?=
+ =?us-ascii?Q?1+6MoL7am/uSD+8sFtDLJ5H1ZUXbTnIEdxi27kMYnJtWviJUXnf8OZkoluBt?=
+ =?us-ascii?Q?+o0XbEEk5xjgqmgIUtvNMsQACYyYNFoclfr1oBp4pKzHO+RU74ZQ9uEjKHs8?=
+ =?us-ascii?Q?cyalouyEx3Z5DvAOx9Zv4ObIn6lqLsBCSYXmZoSJyN8Y8MB/c9Fxm30BDQj7?=
+ =?us-ascii?Q?w9MsNYyqAZDPVnmPMB+yPuBE4JG/f633TE7lQcG5zoHAaBMaKXrdVYNij3tf?=
+ =?us-ascii?Q?FbEwurRUPsV2u3oU74k+7ycDM6PAB2uZi/yb4SP7WDOcDKl/779cd7dfHg?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?f/HQsxiYAkLASxmC1/DeUc7aG8yehQKQsecR5n5F+WcW140OrYh+RdZd8uVE?=
+ =?us-ascii?Q?2JlUV9u3tcIzNLZXgrMUDq9jf2lJaPjOFdeWLUiIvnoACZzgIJ8QMljqjUnh?=
+ =?us-ascii?Q?M9msTp+GzNNBHZM2S8F7S7yBcNI2pnz+f+LhItrKSGxxaqxae5DnLknQfUgZ?=
+ =?us-ascii?Q?WZR0jPsXUThYimT1t36JsTmaT5pGw08wnragx5wCXCYSiR5+grrmdr5VdXZk?=
+ =?us-ascii?Q?zjt9N3rIQeslT3r5AffOhZ7BykWp5H3GaKOaXAruHdxU9lRQFfEeuF02lsRx?=
+ =?us-ascii?Q?JnCMomHDDk/DUo5IAhfd83KHw5EUxZXpfhpzjKAWujOmUmvQqU1GW2wkpYIl?=
+ =?us-ascii?Q?5OcfvyCrIyyYzzMCHZUZXOwkmXxIJWQaez/JEjbQFUzTjDGUrF4dGFQyZomU?=
+ =?us-ascii?Q?5cMTt/RVuHmj9j1HjwE3ylIvbSvIbG/dPNuSu8D0sMuH70pruhBKdx2dtM4G?=
+ =?us-ascii?Q?LNBHUJaVxF5a03xaL5tmYerca+udWJB+mEP2N+1ky9/2q8eGg2RVnZ1GfV7j?=
+ =?us-ascii?Q?Ko5zTyHAO6DXTljnCLWPvNso04l/1erXODmf5rPfv/Ci34+uKp2BAayCtuhE?=
+ =?us-ascii?Q?yCMz74nd+yX+5pDpiH0UqlrUTkKt9h4pFuGr+GwpmUlJkQ5gMnIpFjDcDoEJ?=
+ =?us-ascii?Q?Bc+PZMzNvV9xBGeC0WIm/aLmCp/HxEGOhGAlRMzhOh+ZKS1k39JJlaImKJnD?=
+ =?us-ascii?Q?zxRaFANYaCo5TLZG/5t4YKHHwV/8vtQ8TmN5zy4lVqlGuC6TG4wy+w2lqWI6?=
+ =?us-ascii?Q?WPp1Gx+6BqV5kI/ZPyM7DDqp3Sp6uB94Wlc0BWPOcL4rhRfYGRSDPolvnkuK?=
+ =?us-ascii?Q?INMaNRvcFQdqNxwPB1SKzRin5OvqzVp088aFd6aQgt+mLA/hDk5JusUb0VKO?=
+ =?us-ascii?Q?Sh9z7ShNIkV4TjVMi0uDDrUFtJBlZCWWhb0XNyIFhS3MO4c1AdMGhOIJW4bW?=
+ =?us-ascii?Q?yQgGKQ8XxJB1V+TlJelO/0rTjZHLqxn4QJH824ke/uefeJMkvww2jO82arOu?=
+ =?us-ascii?Q?I9vxQH00hMib8AZPmIUByP5WjNKRBOnp2DyEwhHMgQvjCYYqJxkA+pbV1XoY?=
+ =?us-ascii?Q?nYKEUz1Vi5cSkRe02ux1fjvmj41eP2aB+JgbIw7UdCP3j9oz14HRkz3WZVaN?=
+ =?us-ascii?Q?3Wa3OvcqHBMk5y0lNVf+nepNIEY3MDLqeBl+TP30iVkoFyVRZv1uRu6m2AgT?=
+ =?us-ascii?Q?6g0pLoWNt8VQLrm6juRAAqgwkKLOyvl2PkuiB/LYdsOlvAJHPe9kLqQlA58/?=
+ =?us-ascii?Q?OHdP3PPmZFeddOi5IRqtHULPSzKSjf6tTO8GB15HK6h2ob7r72P+XgRjk63A?=
+ =?us-ascii?Q?amiRS4vOddONm+FrbD3KXLZG66NLdaSLxBwGI6qola2xzaAkiqtmsmpVLxmK?=
+ =?us-ascii?Q?YNnFdwR/4asmUt1qv3NVoRL46NNqS/JDr78aA5Edg0uuTUNolToT+semyuXQ?=
+ =?us-ascii?Q?PZ9R7y2UJ7ngtuS/g+nIDeSk8U1WEAo5gICDuRt4tYQzUmQJ9I9jxVkJDbaD?=
+ =?us-ascii?Q?UvRH0p7VhW288M9irpWf6CIrLi4XohC0eLVHWbyQLXS44wS+Daz26hbFRjkU?=
+ =?us-ascii?Q?MzBhi5wtln7l9jZgd1YBS7XkgtZ8J0RacMOzREFO?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d20aa89b-baad-4c3d-e3e9-08de12a6baa7
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2025 02:40:48.8718
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XGJfCDBJ2mAOB+0x44FTpjDPQ6dquZyRUboNUhTJkFO/ZtGZ8jG61RqmnMd3nwPlVUmH4lJGNOhXL7AEiOwxQw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10624
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_191602_097709_D893B27D 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20251023_194054_848966_95FBCEF8 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,102 +170,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025 at 9:46=E2=80=AFAM Peng Fan <peng.fan@nxp.com> wrote:
->
-> Use helper function devm_auxiliary_device_create() to remove some
-> boilerplate code.
->
-> Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+i.MX95 PCIes have two reference clock inputs: one from internal PLL, the
+other from off chip crystal oscillator. The "extref" clock refers to a
+reference clock from an external crystal oscillator.
 
-Reviewed-by: Shengjiu Wang <shengjiu.wang@gmail.com>
+Add external reference clock input mode support for i.MX95 PCIes.
 
-Best regards
-Shengjiu wang
-> ---
-> Changes in v2:
-> - Update commit log per Frank
-> - Add R-b from Frank and Abel
-> - Link to v1: https://lore.kernel.org/r/20251023-auxiliary-v1-1-0a16fa4c3=
-cdd@nxp.com
-> ---
->  drivers/clk/imx/clk-imx8mp-audiomix.c | 39 ++++-------------------------=
-------
->  1 file changed, 4 insertions(+), 35 deletions(-)
->
-> diff --git a/drivers/clk/imx/clk-imx8mp-audiomix.c b/drivers/clk/imx/clk-=
-imx8mp-audiomix.c
-> index 775f62dddb11d8cfd17a4ebf7a677ef399c5e617..131702f2c9ecfd693af47094f=
-e61b486ae6e8f6d 100644
-> --- a/drivers/clk/imx/clk-imx8mp-audiomix.c
-> +++ b/drivers/clk/imx/clk-imx8mp-audiomix.c
-> @@ -230,50 +230,19 @@ struct clk_imx8mp_audiomix_priv {
->
->  #if IS_ENABLED(CONFIG_RESET_CONTROLLER)
->
-> -static void clk_imx8mp_audiomix_reset_unregister_adev(void *_adev)
-> -{
-> -       struct auxiliary_device *adev =3D _adev;
-> -
-> -       auxiliary_device_delete(adev);
-> -       auxiliary_device_uninit(adev);
-> -}
-> -
-> -static void clk_imx8mp_audiomix_reset_adev_release(struct device *dev)
-> -{
-> -       struct auxiliary_device *adev =3D to_auxiliary_dev(dev);
-> -
-> -       kfree(adev);
-> -}
-> -
->  static int clk_imx8mp_audiomix_reset_controller_register(struct device *=
-dev,
->                                                          struct clk_imx8m=
-p_audiomix_priv *priv)
->  {
-> -       struct auxiliary_device *adev __free(kfree) =3D NULL;
-> -       int ret;
-> +       struct auxiliary_device *adev;
->
->         if (!of_property_present(dev->of_node, "#reset-cells"))
->                 return 0;
->
-> -       adev =3D kzalloc(sizeof(*adev), GFP_KERNEL);
-> +       adev =3D devm_auxiliary_device_create(dev, "reset", NULL);
->         if (!adev)
-> -               return -ENOMEM;
-> -
-> -       adev->name =3D "reset";
-> -       adev->dev.parent =3D dev;
-> -       adev->dev.release =3D clk_imx8mp_audiomix_reset_adev_release;
-> -
-> -       ret =3D auxiliary_device_init(adev);
-> -       if (ret)
-> -               return ret;
-> +               return -ENODEV;
->
-> -       ret =3D auxiliary_device_add(adev);
-> -       if (ret) {
-> -               auxiliary_device_uninit(adev);
-> -               return ret;
-> -       }
-> -
-> -       return devm_add_action_or_reset(dev, clk_imx8mp_audiomix_reset_un=
-register_adev,
-> -                                       no_free_ptr(adev));
-> +       return 0;
->  }
->
->  #else /* !CONFIG_RESET_CONTROLLER */
->
-> ---
-> base-commit: aaa9c3550b60d6259d6ea8b1175ade8d1242444e
-> change-id: 20251023-auxiliary-3998bced9cb9
->
-> Best regards,
-> --
-> Peng Fan <peng.fan@nxp.com>
->
->
+Main change in v8:
+- Rebase to v6.18-rc1.
+- No need to initialize bool parameter to the deault value "false" refer
+  to Mani' comments in v7
+
+Main change in v7:
+- Refine the subjects and commit message refer to Bjorn's comments.
+https://lore.kernel.org/imx/20250918032555.3987157-1-hongxing.zhu@nxp.com/
+
+Main change in v6:
+- Refer to Krzysztof's comments, let i.MX95 PCIes has the "ref" clock
+  since it is wired actually, and add one more optional "extref" clock
+  for i.MX95 PCIes.
+https://lore.kernel.org/imx/20250917045238.1048484-1-hongxing.zhu@nxp.com/
+
+Main change in v5:
+- Update the commit message of first patch refer to Bjorn's comments.
+- Correct the typo error and update the description of property in the
+  first patch.
+https://lore.kernel.org/imx/20250915035348.3252353-1-hongxing.zhu@nxp.com/
+
+Main change in v4:
+- Add one more reference clock "extref" to be onhalf the reference clock
+  that comes from external crystal oscillator.
+https://lore.kernel.org/imx/20250626073804.3113757-1-hongxing.zhu@nxp.com/
+
+Main change in v3:
+- Update the logic check external reference clock mode is enabled or
+  not in the driver codes.
+https://lore.kernel.org/imx/20250620031350.674442-1-hongxing.zhu@nxp.com/
+
+Main change in v2:
+- Fix yamllint warning.
+- Refine the driver codes.
+https://lore.kernel.org/imx/20250619091004.338419-1-hongxing.zhu@nxp.com/
+
+[PATCH v8 1/3] dt-bindings: PCI: dwc: Add external reference clock
+[PATCH v8 2/3] dt-bindings: PCI: pci-imx6: Add external reference
+[PATCH v8 3/3] PCI: imx6: Add external reference clock input mode
+
+Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml      |  3 +++
+Documentation/devicetree/bindings/pci/snps,dw-pcie-common.yaml |  6 ++++++
+drivers/pci/controller/dwc/pci-imx6.c                          | 19 ++++++++++++-------
+3 files changed, 21 insertions(+), 7 deletions(-)
+
 
