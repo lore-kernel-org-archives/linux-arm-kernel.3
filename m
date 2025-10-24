@@ -4,65 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E248CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 06:45:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44666CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 06:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DvwlF6aMjt/ctYUuBL3JPfNBkTxCTujVNJ6VU6bSGDo=; b=2NctKTaHVUgQ1cglyXC9f9xeng
-	JcCHqN6XL47RJ6YseQnH+vxVyQq0ndYs3oOi5lOb7LzIxzphxJeWzwqJBM1ONLh+jcqfJn6/Xh5lm
-	f7GaEJmzsvt2iiaNYcXerrFLSxM4x+DBUBBveCTqAGiK7pt2nIoWyQeeFLTFkzqwbTpFyctg953bo
-	FunfyH59ssNZJM89wavPRPk/PBc4jsYUhHWXKDYS7JORXveuBNSBXysz+43nnfuo0atqkoZ39kkcd
-	tw1e9FVmIPjQNehMRCCZ6RDsfZLC7gkohDi7ECPA3P8V+yzcBMxwdH/b9JUhKqDUYaBQDUtR9fzxo
-	YfzQhYtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sptouhCwCpWubkT+ScG20SKCXRdpde57cH4aD0r85+Q=; b=Jq8beqsEuATkTXbV0ISXN0x5FP
+	djRgeppg+lkvgx+8NXoiwtu3UGDhGaAQlcxpGMBxW/sEWsWH856zm3tt9LSUcqyoP4hCFp/8zMDpn
+	enQTuVxh3a9YkO/Ts2LeM8s8JSIGcw/NNVkAxByD9Wxy6TENQQHPiaIDk1HAUWUGgYaL3OWNRRW4w
+	iedSbMI/+GUnYYV9ErYYVMc/UPZYhHj6GjM38WtdwqeaFXl13yi8WKlaMVufPWkXPjhkeu27UlDyO
+	v1XkHPZ4sMkvh3PlmE9eHV7B7l2Z9BIcaz4DSnfg//9XpPK3klsZBWPqu23iBiKYrA19kSc3/QEUr
+	L8lo23kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBYE-00000008NKM-2vqv;
-	Fri, 24 Oct 2025 06:45:26 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vCBdF-00000008NqO-1qjO;
+	Fri, 24 Oct 2025 06:50:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBYD-00000008NJo-02Bi
+	id 1vCBdE-00000008Nq1-18LY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 06:45:26 +0000
+	Fri, 24 Oct 2025 06:50:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A2C543E01;
-	Fri, 24 Oct 2025 06:45:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4902C4CEFF;
-	Fri, 24 Oct 2025 06:45:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6123C60261;
+	Fri, 24 Oct 2025 06:50:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35271C4CEF1;
+	Fri, 24 Oct 2025 06:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761288324;
-	bh=UUhpDadZzBT4RrPvzIdECya0GjjCWyOzHQkuKftuzQ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ivnGSX9DduM/MQ3ZCnpNc62OnWb6W1h9IiDDP6dsfVjSgb3jOLPa0VNNzruUqf5pS
-	 qhmliyRhoRe269hJZp5+YDDOXrtig4fQViL/rfmkqETX14BeTLZ+nPnQ6T8lF4dveM
-	 SEOIUhC8wTQ/V6yEtA30ijB80qUwyN0LhUES2BGTO5MWs2i20z7xJ5yE6b3+EwiYav
-	 S2HiYVRBLW1LRSyeZdeRRo8LsL/+kBul/V/7kJ4UPQaP4W58RJ/r8sRG061ecw60sR
-	 4uaJWGTcXUxD2sdbCdO8bSUlWf5gKjkeJstNRnwyN6e24SqUA0FeR2z8DpMtxKmLhM
-	 Gyw7h+Znj9EbA==
-Date: Fri, 24 Oct 2025 08:45:21 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org, 
-	jk@codeconstruct.com.au, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	andrew@codeconstruct.com.au, p.zabel@pengutronix.de, andriy.shevchenko@linux.intel.com, 
-	naresh.solanki@9elements.com, linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+	s=k20201202; t=1761288635;
+	bh=hYEnbcOJYjrtPHsdgzonyGHvHkZXHzA2RgBGxgo1qmA=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=Jo+eQ3hMzJeyo0I4DyY9O3gc9vris5Cz+NHyYdQaTOByTRvcSTQrMfutiqRnVG3dM
+	 TkCcHhs9iJSHEqErQuQ9DlxEUHLPtzjWBGxb7kJDqzTkdONPqG+/EB2Tat0H7uDc69
+	 u0IkjwZIq4hhtPlIQBZSWCiYMYESmlBCHd4+Y+3GCBFx+E+FejU2JqboSmp3wnaF9m
+	 3y2A7VEoSZJcuE1GWb09q5DoGsOLJ5dXFv201k62l/BaHqV5OIczojzzymMTLuIZGh
+	 14Ku9XXIeBwr7VnNNkuNLdIykb29ByymePEc8gx+Qr64B2OmMTR2tEWyjvw657ZdBN
+	 gBQE4urb4khCA==
+Message-ID: <2939cae6-2e8a-4528-8e27-8c932e2f82de@kernel.org>
+Date: Fri, 24 Oct 2025 08:50:29 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v20 1/4] dt-bindings: i2c: Split AST2600 binding into a
  new YAML
-Message-ID: <20251024-dark-ringtail-of-defiance-1daabd@kuoka>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org,
+ jk@codeconstruct.com.au, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrew@codeconstruct.com.au, p.zabel@pengutronix.de,
+ andriy.shevchenko@linux.intel.com, naresh.solanki@9elements.com,
+ linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
 References: <20251021013548.2375190-1-ryan_chen@aspeedtech.com>
  <20251021013548.2375190-2-ryan_chen@aspeedtech.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251021013548.2375190-2-ryan_chen@aspeedtech.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_234525_065237_2FFFA67A 
-X-CRM114-Status: GOOD (  10.27  )
+ <20251024-dark-ringtail-of-defiance-1daabd@kuoka>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251024-dark-ringtail-of-defiance-1daabd@kuoka>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,26 +121,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 21, 2025 at 09:35:45AM +0800, Ryan Chen wrote:
-> The AST2600 I2C controller is a new hardware design compared to the
-> I2C controllers in previous ASPEED SoCs (e.g., AST2400, AST2500).
+On 24/10/2025 08:45, Krzysztof Kozlowski wrote:
+> On Tue, Oct 21, 2025 at 09:35:45AM +0800, Ryan Chen wrote:
+>> The AST2600 I2C controller is a new hardware design compared to the
+>> I2C controllers in previous ASPEED SoCs (e.g., AST2400, AST2500).
+>>
+>> It introduces new features such as:
+>>  - A redesigned register layout
+>>  - Separation between controller and target mode registers
+>>  - Transfer mode selection (byte, buffer, DMA)
+>>  - Support for a shared global register block for configuration
+>>
+>> Due to these fundamental differences, maintaining a separate
+>> devicetree binding file for AST2600 helps to clearly distinguish
 > 
-> It introduces new features such as:
->  - A redesigned register layout
->  - Separation between controller and target mode registers
->  - Transfer mode selection (byte, buffer, DMA)
->  - Support for a shared global register block for configuration
+> No, that's not a valid reason. You just moved the compatible and are
+> still 100% identical, at least according to this commit msg, so there is
+> no point in this patch.
 > 
-> Due to these fundamental differences, maintaining a separate
-> devicetree binding file for AST2600 helps to clearly distinguish
 
-No, that's not a valid reason. You just moved the compatible and are
-still 100% identical, at least according to this commit msg, so there is
-no point in this patch.
+Although now I saw next patch, so clearly this commit is incomplete. You
+mention here almost insufficient arguments which should not make you
+make the split, instead of making the actual argument - bindings are
+completely different.
 
-NAK
+... and then we see that bindings are not completely different and there
+is no problem in this one file serving all devices just like for many
+other cases. You just need allOf:if:then: section to narrow the
+constraints/presence of properties. Just like we do for all of the other
+devices, really, just look at other bindings.
 
 Best regards,
 Krzysztof
-
 
