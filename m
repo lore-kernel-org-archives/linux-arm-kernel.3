@@ -4,54 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC553CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 10:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33ACCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 10:24:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FoCWptqhjUMBw+EVo6M96V6t3lA98gNWnvfVatz++T4=; b=fL9t/IYxe/p/3PRZK43BpADRp7
-	j8eRE0EE8Oyul4uqkLpImacxCHlje4pWrqnwzDX7wWl0FKlxEFHTDUqzRoQ1OgBpTkdVsAPfJpr3L
-	VPqvitICj4vsvqVrsX03kxApuOwN4Jf2FsYjtrvqqxexzYPumGm+gC3oSwM4fV0P/SiRUeDcA2yyq
-	fJiKKoCFz9TyMJTC62yrs0ECtQ0IkYiJMSXIuNgYVIyp1yNuPBu2LJS/6dPuAXLTeXO/Lx35thHJO
-	4IK4kyDrxvD82epqn+V1aEIP1LzvwNUhFUXQGvTYM7zJX7Q8qJ/qhSRlUOZ/e0RKPiHSCgPb1yBAu
-	cbcA1pLw==;
+	bh=RlMf4+mpawnuMtbDhQjVx7fs2kIdk89H4dSjhUqA4DM=; b=MNLw/Iy7sjzMwYPe/rqp9Z2ssV
+	UdxG1jQtKxaAZBqNDg36uhAu4darnBKv5L2eYELmC5g1mFX1tEuv8ALpIHgnc3TKbF0wuAPCFArdC
+	g21QKERtDC5GtKwDtFTEoYq6jWRGVSz8B/jFAhAFSybe76y+f3ep1r+BsOLOk9YrEUgG1/ciPTmQK
+	fpwtr03iNYUhxe+CrKNTX/Fon4apdbmceMEzNfGPq7iVsDwpolHAbZQY82p9IpTfKn7FFNeDsDgKH
+	OYc04uq8XrBVJdqIVJW8gRxWnxhJR3ihWAnGQLult7/4X5leY1rLw/M0cfHYTBmFjixFKelFWxdqQ
+	ZKSAJnvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCEuh-000000090jl-0r0T;
-	Fri, 24 Oct 2025 10:20:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCEue-000000090iq-3Bs8
+	id 1vCExz-000000091Ap-3UK1;
+	Fri, 24 Oct 2025 10:24:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vCExy-000000091AC-0nGe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 10:20:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4EF9C175A;
-	Fri, 24 Oct 2025 03:20:39 -0700 (PDT)
-Received: from [10.57.33.202] (unknown [10.57.33.202])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 158A83F66E;
-	Fri, 24 Oct 2025 03:20:45 -0700 (PDT)
-Message-ID: <8a75e90f-596e-407b-976f-e8a509c9065d@arm.com>
-Date: Fri, 24 Oct 2025 11:20:33 +0100
+	Fri, 24 Oct 2025 10:24:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9ABBF60576;
+	Fri, 24 Oct 2025 10:24:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AE23C4CEF1;
+	Fri, 24 Oct 2025 10:24:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761301453;
+	bh=mP6SmCP7woCF8wcDSk+2F5q73XTTlR0r8Zgwb35TMho=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=MRDUWkaZavqJ8zqtZrN8TV+fbecejBQ6lfljI8HBEI5ozMc9cDeHm+Imy9BNGtmbi
+	 QvJmOk1jPfARrhjR8RcuhKHZxCcArwZDFjKtKBaYI278DpExcwQ8RGurp0lq7oN9TE
+	 alfagv9VzcQSzlK/WJr3FjD30zNCda9PiX1xPHIfwZTspN0mgnUdZmvEQC5njCWZYQ
+	 5gLINhyXbo8FRwx+doWTZz4Kem6Gca+vhAGY0cZxFyDGwAkBmObRim4YtjI1hRTD3f
+	 LxTbFtFnHYLDx7Fpz1kSeVyb54KMoqacr8w35rBTpSIzvicn9kZO1zPmpZk4xJctu7
+	 G61H8R3sQwZsw==
+From: Mark Brown <broonie@kernel.org>
+To: devicetree@vger.kernel.org, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Chen-Yu Tsai <wens@csie.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Fabrice Gasnier <fabrice.gasnier@foss.st.com>, 
+ Gatien Chevallier <gatien.chevallier@foss.st.com>, imx@lists.linux.dev, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org, 
+ linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-sunxi@lists.linux.dev, Liu Ying <victor.liu@nxp.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Rob Herring <robh@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Srinivas Kandagatla <srini@kernel.org>
+In-Reply-To: <20251020060951.30776-6-wsa+renesas@sang-engineering.com>
+References: <20251020060951.30776-6-wsa+renesas@sang-engineering.com>
+Subject: Re: (subset) [PATCH 0/4] dt-bindings: treewide: don't check node
+ names
+Message-Id: <176130144489.10577.5538260652511597774.b4-ty@kernel.org>
+Date: Fri, 24 Oct 2025 11:24:04 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu-v3: fix probe device bug due to duplicated
- stream IDS.
-To: Jason Gunthorpe <jgg@ziepe.ca>, Reaper Li <reaperlioc@glenfly.com>
-Cc: will@kernel.org, joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20251011023003.159922-1-reaperlioc@glenfly.com>
- <20251023181235.GH21554@ziepe.ca>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20251023181235.GH21554@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_032048_865614_90A24FD4 
-X-CRM114-Status: GOOD (  13.87  )
+X-Mailer: b4 0.15-dev-88d78
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,40 +86,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-10-23 7:12 pm, Jason Gunthorpe wrote:
-> On Sat, Oct 11, 2025 at 10:30:03AM +0800, Reaper Li wrote:
->> From: Reaper <reaperlioc@glenfly.com>
->>
->> Commit 9246b487ab3c ("PCI: Add function 0 DMA alias quirk for Glenfly Arise
->> chip ") add quirk to fix hda dma request issue, but IORT logic populaties
->> two identical IDs into the fwspec->ids array via DMA aliasing in
->> iort_pci_iommu_init() called by pci_for_each_dma_alias().
+On Mon, 20 Oct 2025 08:09:49 +0200, Wolfram Sang wrote:
+> Node names are already and properly checked by the core schema. No need
+> to do it again.
 > 
-> I'd rather we not have duplicate IDs in the same fwspec, can we avoid
-> that at the source?
+> These are all occurrences I found in linux-next as of 20251015. I did
+> run dt_bindings_check successfully. I haven't done a way to run
+> dtbs_check yet because I would need to identify the proper architecture
+> first, right? Is there some tool which tests all DTs of a certain
+> binding? At least build bot is happy, I don't know if it checks DTs as
+> well, though.
+> 
+> [...]
 
-The original reason for not doing that is that there are multiple 
-sources - the drivers' own .of_xlate routines for DT, but the 
-IORT/VIOT/RIMT/whatever code for ACPI. Yes, iommu_fwspec_add_ids() is in 
-a common path there, but that's only responsible for appending an opaque 
-block of data to another opaque block of data - only the producer or 
-consumer of that data know how to interpret it (e.g. for SMMUv2, 
-[0x00000002, 0x00000003] may or may not be considered equivalent to 
-[0x00010002]).
+Applied to
 
-Anyway, this patch is wrong regardless, and it is definitely not fixing 
-any bug. SMMUv3 has explicitly never supported StreamID aliasing between 
-*different* devices, because doing that correctly is a challenge. It 
-needs custom group assignment based on StreamID-to-group lookup (like 
-SMMUv2) - we can't just assume it's OK for PCI devices, since as soon as 
-we allow aliasing at all then we also allow it outside the PCI hierarchy 
-where pci_device_group() can't see it (like on the Arm Juno platform). 
-These days we do have arm_smmu_find_master() which makes *that* 
-feasible, but conversely means we now also have to be concerned with 
-disallowing ATS/PRI and working out what to do with anything else that 
-is subtly broken by no longer having the assumed 1:1 correspondence of 
-StreamID:device.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+
+Thanks!
+
+[4/4] dt-bindings: spi: don't check node names
+      commit: 7c69694cec869e3bf7c810fd94f860253aeb8053
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-Robin.
+Mark
+
 
