@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA722CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 08:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 446FDCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 08:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1sdUkVyuBwycwSEw+9J3aHeyMgVzVVE7BXpeQtOuDac=; b=z7TtnwyKyWRZnaxVt1uc1gr+bC
-	qEF+pdHosi15bKV3GHrT165xRSM5K9pLqxeJ7eIwGAWTuR9GcYpHjfrlx4KhINE+xaevVyLLvSrgW
-	mB/RUVEejYMz6veip0q/Y8bohTSscdDH/WHSC5nNV24sbgSn7NkaFKjAmY9ezzR9YCqJsVDvFtH2k
-	MVKf9RA2rnajgRDsTfY9Wukftl7ShlwlQWFIjJAxNks9Wj3KzEpH21E2PakPa4NFuuUO/guO3177F
-	LPz+plOFILCmz5qJSWIFcgC1FmeF0cZQhQ0OG3uBSCftUhpboOLJVN/m4B6UNkMG1trdA1JOPCuaE
-	um0PoAug==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CGL8GAWaaLOedHf3UhL1aLTVvYBZSCkBGEnCJ+zN+L0=; b=Cz7KO/MzK8dd7WSndg2X6BSHFl
+	WvX4XHWJpTY71GoYgXmVyM8GE3WNGpNNoPwbfNk9xuRJcBnC+jtD2GXwfZQr5Gq6eXOwcg+oANPxg
+	D5G7ZN1+4RPCbbn/bc2gBpNI3ziz7nfbjsTc66i0cleMX2f0JVa2g1aVGtuFCYzQAyZswPFd/fq4w
+	YI4E6gZC0CqdivUeqqMH/4DXSA8sh0MM2nLCR2t1nUYEfC8KiBhS6G59yV9rwTNxaLBbYCxZLt8ZA
+	rgU52Rb5VtVq4fqk33oMFdW2Q1eVZzSFFGb4Dsb6zR8TOrnj5Xh6WBNHMPKVl0FBuZhwK8KPmIcqa
+	FSBzHHiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDEy-00000008hW3-4AxT;
-	Fri, 24 Oct 2025 08:33:41 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vCDF3-00000008hbv-3DWf;
+	Fri, 24 Oct 2025 08:33:45 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDEW-00000008gn6-0iqB;
-	Fri, 24 Oct 2025 08:33:13 +0000
+	id 1vCDEY-00000008gqj-13Zv;
+	Fri, 24 Oct 2025 08:33:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761294790;
-	bh=vOWEWKdi3bjK7LjRlKsISvl3DrortAGk12XkW77HR2I=;
-	h=From:To:Cc:Subject:Date:From;
-	b=MQtolijM30FxuWvoBD+kf27lrR8xCebGpeYNnqaFJo4qyFxQYikFsp4DUCGVCR7UX
-	 YTBmSS74ztjJSgIiYpCR86uiVd5UZSGS1bZcrCeCUYa435yvipynsOIOrI+pdJmD+2
-	 +8gFfEcqNFGkJaoySPOGrwYaNONUXZ1ucMA9uP6/LTbP6Kof1JJHShaPWLZ49rXOOy
-	 aiueRpvKrPs0u84C0zy+Pmz0juqAXKFhi1OnOURxSHuhzMYUL9E4LNVG92I7bSEsjt
-	 bw703QbAh+uscn1yy+U2ZZyZeRyq3o32sQAsVis98wt4FmSnYDD+mNoeBFizG/Q7jE
-	 eyNcOqmhpKQFg==
+	s=mail; t=1761294791;
+	bh=uMNDlVMiY8eMGT5nLR/6G4iE8k9njF/IX52KNy0kIlQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=o17l6bt8HzrdePhSth7Sivre7iSSR6dEnqk/IVSTX6qcmrK+V8eeEsXwu6WZLndh6
+	 4eytEGp4w8rAPWAbAoOdo4OLX3D5MEBULH6mPNB/f2WC2wh2dBSWXdFVs7fKthl3es
+	 EMdDqus1x4FGNim6W39Iy9uyRzHn5HGAcxxKCIApOWt1GNwgNZg+0qTANOjPR/+Fvb
+	 WsqCgnpX8vkkHaOU70yV7cNj0aVXnkqCM+Ucwj1IY8xvpRDtrKQgfoctVpMfWNfu9/
+	 QJOkUO+Xhu8Fteuq/OC7OFrkLt6uN7WOLVe/BXt+QiEbtvKpNtMWftp09Q5uVVD16w
+	 KJC65X8m3k6mw==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7DE4917E00A6;
-	Fri, 24 Oct 2025 10:33:09 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0E4AC17E0CA1;
+	Fri, 24 Oct 2025 10:33:11 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: sboyd@kernel.org
 Cc: mturquette@baylibre.com,
@@ -61,16 +61,17 @@ Cc: mturquette@baylibre.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	kernel@collabora.com
-Subject: [PATCH v1 0/7] clk: mediatek: Add support for SPMI Clock Controllers
-Date: Fri, 24 Oct 2025 10:32:54 +0200
-Message-ID: <20251024083301.25845-1-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v1 2/7] clk: mediatek: clk-gate: Simplify and optimize registration iter
+Date: Fri, 24 Oct 2025 10:32:56 +0200
+Message-ID: <20251024083301.25845-3-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.51.1
+In-Reply-To: <20251024083301.25845-1-angelogioacchino.delregno@collabora.com>
+References: <20251024083301.25845-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_013312_448238_847105CA 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_013314_501060_ADDA2E1E 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,48 +86,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some new PMICs, Clock IC and combos are complex SPMI 2.0 devices that
-contain multiple IPs, including clock controllers.
+Simplify and optimize mtk_clk_register_all_gates() by removing and
+replacing the function-local clk_hw pointer assignment and check
+and as last step the consequent assignment to the array containing
+handles to the registered clocks with... just the last step.
 
-This series expands the MediaTek clock helpers to allow registering
-clock controllers over SPMI, and adds a clock driver for the MT6685
-SCK_TOP clock controller.
+This removes a bunch of useless assignments, and in case any error
+happens, the tear down iterator will still do its job without any
+change required, effectively bringing no functional change, and a
+a small optimization.
 
-For now, only gate clocks are supported to reduce the complexity of
-this change.
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/clk/mediatek/clk-gate.c | 17 +++++++----------
+ 1 file changed, 7 insertions(+), 10 deletions(-)
 
-NOTE: This series depends on series [1] "SPMI: Implement sub-devices
-and migrate drivers"
-
-[1]: https://lore.kernel.org/all/20251021083219.17382-1-angelogioacchino.delregno@collabora.com
-
-AngeloGioacchino Del Regno (7):
-  clk: mediatek: Split out registration from mtk_clk_register_gates()
-  clk: mediatek: clk-gate: Simplify and optimize registration iter
-  clk: mediatek: clk-mtk: Split and rename __mtk_clk_simple_probe()
-  clk: mediatek: Add and wire up mtk_spmi_clk_register_gates()
-  clk: mediatek: Add support to register SPMI Clock Controllers
-  dt-bindings: clock: Describe MT6685 PM/Clock IC Clock Controller
-  clk: mediatek: Add support for MT6685 PM/Clock IC Clock Controller
-
- .../bindings/clock/mediatek,mt6685-clock.yaml | 37 ++++++++++
- drivers/clk/mediatek/Kconfig                  | 15 ++++
- drivers/clk/mediatek/Makefile                 |  7 +-
- drivers/clk/mediatek/clk-gate.c               | 70 ++++++++++++-------
- drivers/clk/mediatek/clk-gate.h               |  6 ++
- drivers/clk/mediatek/clk-mt6685.c             | 70 +++++++++++++++++++
- drivers/clk/mediatek/clk-mtk-spmi.c           | 62 ++++++++++++++++
- drivers/clk/mediatek/clk-mtk-spmi.h           | 31 ++++++++
- drivers/clk/mediatek/clk-mtk.c                | 66 ++++++++++++-----
- drivers/clk/mediatek/clk-mtk.h                |  5 ++
- .../dt-bindings/clock/mediatek,mt6685-clock.h | 17 +++++
- 11 files changed, 339 insertions(+), 47 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt6685-clock.yaml
- create mode 100644 drivers/clk/mediatek/clk-mt6685.c
- create mode 100644 drivers/clk/mediatek/clk-mtk-spmi.c
- create mode 100644 drivers/clk/mediatek/clk-mtk-spmi.h
- create mode 100644 include/dt-bindings/clock/mediatek,mt6685-clock.h
-
+diff --git a/drivers/clk/mediatek/clk-gate.c b/drivers/clk/mediatek/clk-gate.c
+index fd8cec95cd8d..8d1cc6a98a5f 100644
+--- a/drivers/clk/mediatek/clk-gate.c
++++ b/drivers/clk/mediatek/clk-gate.c
+@@ -257,8 +257,7 @@ static int mtk_clk_register_all_gates(struct device *dev, struct device_node *no
+ 				      const struct mtk_gate *clks, int num,
+ 				      struct clk_hw_onecell_data *clk_data)
+ {
+-	int i;
+-	struct clk_hw *hw;
++	int i, ret;
+ 
+ 	if (!clk_data)
+ 		return -ENOMEM;
+@@ -272,21 +271,19 @@ static int mtk_clk_register_all_gates(struct device *dev, struct device_node *no
+ 			continue;
+ 		}
+ 
+-		hw = mtk_clk_register_gate(dev, gate, regmap, regmap_hwv);
+-
+-		if (IS_ERR(hw)) {
++		clk_data->hws[gate->id] = mtk_clk_register_gate(dev, gate, regmap, hwv_regmap);
++		if (IS_ERR(clk_data->hws[gate->id])) {
+ 			pr_err("Failed to register clk %s: %pe\n", gate->name,
+-			       hw);
++			       clk_data->hws[gate->id]);
++			ret = PTR_ERR(clk_data->hws[gate->id]);
+ 			goto err;
+ 		}
+-
+-		clk_data->hws[gate->id] = hw;
+ 	}
+ 
+ 	return 0;
+ 
+ err:
+-	while (--i >= 0) {
++	while (i-- >= 0) {
+ 		const struct mtk_gate *gate = &clks[i];
+ 
+ 		if (IS_ERR_OR_NULL(clk_data->hws[gate->id]))
+@@ -296,7 +293,7 @@ static int mtk_clk_register_all_gates(struct device *dev, struct device_node *no
+ 		clk_data->hws[gate->id] = ERR_PTR(-ENOENT);
+ 	}
+ 
+-	return PTR_ERR(hw);
++	return ret;
+ }
+ 
+ int mtk_clk_register_gates(struct device *dev, struct device_node *node,
 -- 
 2.51.1
 
