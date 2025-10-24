@@ -4,101 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81668CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA126CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EPclhePQWxj+2BhRxh2hSF55/wc3/lRint7vbJECuNM=; b=MM9eqmhoD0IrP+ZtUFwjiXhqG5
-	K25aX66lHr3dxZb2ErHSxfCB0Dm8GzlWBNzlZo+7NoULBz7K+8Dk6PxINmfmOJk+y+pffkm9ADPl9
-	omMcEGZqBQPPTen1ee2v37a4m4VtfjhSDEiSa+yvPXRtIZCCrrBb02vIZxk8DRb+4U//Qj1MVloij
-	G2zm8Kvw4qw1Q1JTU6fA49lr7I3pqtHkyDQQIpcMci1JuM76SCOm/pTFUtI/W3M6TVF4JCVn3hasK
-	aneh/B+ih0wrfbD5bqkyUCN2aOypi1CalT13Dc480/i8Q2IcwGmtJvZIjP5qZf2DqRk9szOQX4fyz
-	/6KHziog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bbT+em5Wmy6gqI/mZFQzb6f62lPBs2rD+5s9CRiNCN0=; b=i4M07TrD+31uPosmIHbkTpr1mx
+	rMytg3mXuk40Ch/S3vZKQkGkKzqIjlIIWzW5pVPMrVmKWzzh+r1yyygA8tjCo6S4zRIkQTIHagM+J
+	Kzf1rdIBERXnxmRDGqOcqkVWmQ0eo/ub5/yj3Ou8aCh0SYDl4I0QCgA6E6OA5KQMbYiBizc9N97+z
+	0upef6UokiJSJJXnV+LmD2aJhkt3TTM5hLg/GX1pOHehQ/j5KFLJoUafmKeciRJo1PoQ/iw8EKuvo
+	uiqrpkX3hZhMhu3NkYVlXvSh9gapontyHU56CurHQF9zanSPA37nSIQZnPtpuGnjAOy1hke3SQe1z
+	nOeZ06rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBvr-00000008Qh5-03bf;
-	Fri, 24 Oct 2025 07:09:51 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1vCBwV-00000008QqU-1PTx;
+	Fri, 24 Oct 2025 07:10:31 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBvo-00000008QgT-1WSJ
+	id 1vCBwR-00000008Qpd-3seH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 07:09:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761289788; x=1792825788;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=tjcvyfpnT2ROqnMDp39g2+93M2zfzww2SQf/zXN/Nc4=;
-  b=HUpsfKRoGGDXomUFeT+3xyqF9M2JzqeWgBxdXxTzqh4b593uQx/03cOr
-   osmFoSwpxKehVZX0fRm/OjmQR2zssCfCu4k43xFRX4NCiqnAhlLJbjWh5
-   GghlSzTSUejLzSqV9gM7rpNO5Npow2pXgA85h2BbbHmWTCtk6Jcf3S0n8
-   +VwOXmq8dgYjllaRzq+5pbESLebpnDMfNhGIN/BmnBLc04V5bbjFUdgJZ
-   n1dv/wD2PY1N+E0nlohokNexBmfvIWV94TX9xydsem1PVIDovbnO3MzX4
-   +GAtGi++hCibo2oA07DPFfWQW1eNqNXiqZoLR2G4V8ePSLep8CZ/VeHRI
-   A==;
-X-CSE-ConnectionGUID: 963fks6vTMK8l/ig7pdzPA==
-X-CSE-MsgGUID: 8jZoCY23Q2+A6TXPQZBsOQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="51046647"
-X-IronPort-AV: E=Sophos;i="6.19,251,1754982000"; 
-   d="scan'208";a="51046647"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 00:09:47 -0700
-X-CSE-ConnectionGUID: sOxUcsTpTrCd9fBR4DsQ/g==
-X-CSE-MsgGUID: G1OmBVBdTf6OxtSNV8gUnQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,251,1754982000"; 
-   d="scan'208";a="184077348"
-Received: from opintica-mobl1 (HELO ashevche-desk.local) ([10.245.245.60])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 00:09:42 -0700
-Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@intel.com>)
-	id 1vCBve-0000000257C-2kRs;
-	Fri, 24 Oct 2025 10:09:38 +0300
-Date: Fri, 24 Oct 2025 10:09:38 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v2 03/10] gpiolib: implement low-level, shared GPIO
- support
-Message-ID: <aPsmMruDxOil_wYQ@smile.fi.intel.com>
-References: <20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org>
- <20251022-gpio-shared-v2-3-d34aa1fbdf06@linaro.org>
- <aPkVjoWkP04Q-2xP@smile.fi.intel.com>
- <CAMRc=Mc165HSLdug1F+t3qcOoE52mR1e_zEh=rSTUKN_-dB5NA@mail.gmail.com>
+	Fri, 24 Oct 2025 07:10:29 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59O7AMTl700650;
+	Fri, 24 Oct 2025 02:10:22 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1761289822;
+	bh=bbT+em5Wmy6gqI/mZFQzb6f62lPBs2rD+5s9CRiNCN0=;
+	h=From:To:CC:Subject:Date;
+	b=alumUWzkxvH1XgSoDg+SiuUZcerxks041MBgC555uwyJ8bITnWeOjUrTuK57K73ht
+	 EkF9CRDxFNzx/GzH9XO6YAcgx/7b1qmiNJ8gn5/VJ1F6oEjIzkdYklGljzoTo3n5Tl
+	 F50liMaVfNzCp2IFw/fFVSyuf/eG2jPlVsmiLwN4=
+Received: from DFLE203.ent.ti.com (dfle203.ent.ti.com [10.64.6.61])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59O7AM4T3286329
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 24 Oct 2025 02:10:22 -0500
+Received: from DFLE208.ent.ti.com (10.64.6.66) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 24 Oct
+ 2025 02:10:22 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 24 Oct 2025 02:10:22 -0500
+Received: from toolbox.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.73.74])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59O7AIZx4148604;
+	Fri, 24 Oct 2025 02:10:19 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: [PATCH] arm64: dts: ti: k3-am642-evm: Add onboard clock overlay for PCIe and SERDES
+Date: Fri, 24 Oct 2025 12:40:26 +0530
+Message-ID: <20251024071027.1605638-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=Mc165HSLdug1F+t3qcOoE52mR1e_zEh=rSTUKN_-dB5NA@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_000948_414213_52CB6909 
-X-CRM114-Status: GOOD (  32.91  )
+X-CRM114-CacheID: sfid-20251024_001028_135358_F4B9D5FB 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,180 +83,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025 at 08:55:27PM +0200, Bartosz Golaszewski wrote:
-> On Wed, Oct 22, 2025 at 7:34 PM Andy Shevchenko
-> <andriy.shevchenko@intel.com> wrote:
-> > On Wed, Oct 22, 2025 at 03:10:42PM +0200, Bartosz Golaszewski wrote:
+On certain variants of the AM642 EVMs, there is an onboard clock generator
+named 'PCIe Clock HCSL (100MHz)' that outputs two 100 MHz differential
+clock pair signals:
+- One differential clock pair signal is fed to the PCIe Connector to serve
+  as the PCIe reference clock output.
+- The other differential clock pair signal is input to the SERDES as the
+  reference clock for the SERDES.
 
-...
+In such a configuration, the SERDES should not output the PCIe reference
+clock (avoid clock contention), and, the SERDES should use the onboard
+clock generator as its reference clock.
 
-> > > +             if (!strends(prop->name, "-gpios") &&
-> > > +                 !strends(prop->name, "-gpio") &&
-> >
-> > > +                 strcmp(prop->name, "gpios") != 0 &&
-> > > +                 strcmp(prop->name, "gpio") != 0)
-> >
-> > We have gpio_suffixes for a reason (also refer to for_each_gpio_property_name()
-> > implementation, and yes I understand the difference, this is just a reference
-> > for an example of use of the existing list of suffixes).
-> 
-> And how would you use them here - when you also need the hyphen -
-> without multiple dynamic allocations instead of static strings?
+Add a device-tree overlay to enable this.
 
-Something like
+Co-developed-by: Bin Liu <b-liu@ti.com>
+Signed-off-by: Bin Liu <b-liu@ti.com>
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
 
-	char suffix[6];
-	bool found = false;
+Hello,
 
-	for_each_gpio_property_name(suffix, "")
-		found = found || strends();
-	for_each_gpio_property_name(suffix, NULL)
-		found = found || (strcmp() == 0);
-	if (!found)
-		continue;
+This patch is based on linux-next tagged next-20251024.
 
-Of course with more thinking this may be optimized to avoid snprintf()
-(probably with a new helper macro or so).
+Patch has been tested on an AM642-EVM variant that has the onboard clock
+generator by applying the device-tree overlay at the Bootloader stage to
+update the device-tree file 'k3-am642-evm.dtb'. An NVMe SSD was connected
+to the PCIe Connector and the NVMe SSD has been verified to be functional
+implying that both PCIe and SERDES are functional.
+Test Logs:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/1ca4c28d7db5a0ee3f884508dd2aa348
 
-But see my next reply, I found something more interesting.
+Regards,
+Siddharth.
 
-...
+ arch/arm64/boot/dts/ti/Makefile               |  4 ++
+ ...-am642-evm-onboard-clkgen-pcie-serdes.dtso | 38 +++++++++++++++++++
+ 2 files changed, 42 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am642-evm-onboard-clkgen-pcie-serdes.dtso
 
-> > > +     /* No need to dev->release() anything. */
-> >
-> > And is it okay?
-> >
-> > See drivers/base/core.c:2567
-> >
-> > WARN(1, KERN_ERR "Device '%s' does not have a release() function, it is broken and must be fixed. See Documentation/core-api/kobject.rst.\n",
-> 
-> Huh... you're not wrong but I haven't seen this warning. Do people
-> just use empty functions in this case?
-
-I dunno. Maybe something applies a default release in you case? Can you
-investigate that?
-
-...
-
-> > > +     pr_debug("Created an auxiliary GPIO proxy %s for GPIO device %s\n",
-> > > +              dev_name(&adev->dev), gpio_device_get_label(gdev));
-> >
-> > Are you expecting dev_name() to be NULL in some cases? Otherwise why is this
-> > not a dev_dbg() call?
-> 
-> It's the low-level code saying: "I created device X for Y", not "Hey,
-> here's X, I'm here for Y".
-
-OK.
-
-> > > +     return 0;
-> > > +}
-
-...
-
-> > > +static void gpio_shared_remove_adev(struct auxiliary_device *adev)
-> > > +{
-> > > +     lockdep_assert_held(&gpio_shared_lock);
-> > > +
-> > > +     auxiliary_device_uninit(adev);
-> > > +     auxiliary_device_delete(adev);
-> >
-> > _destroy() ? Esp. taking into account the (wrong?) ordering.
-> >
-> 
-> You're right about the order but if you _add() then you should
-> _delete(). You typically _destroy() if you earlier _create().
-
-Maybe, but as we noticed above my suggestion would make the code less error
-prone to begin with.
-
-> > > +}
-
-...
-
-> > > +     struct auxiliary_device *adev = to_auxiliary_dev(dev);
-> > > +     struct gpio_shared_desc *shared_desc;
-> > > +     struct gpio_shared_entry *entry;
-> > > +     struct gpio_shared_ref *ref;
-> > > +     struct gpio_device *gdev;
-> > > +     int ret;
-> >
-> > > + +   scoped_guard(mutex, &gpio_shared_lock) {
-> >
-> > Much better to split the below to a helper and make it run under a
-> > scoped_guard() here or call a guard()() there.
-> 
-> I'm not following, please rephrase.
-
-	scoped_guard() {
-		call_my_new_helper_which_is_easier to read();
-	}
-
-	ret = devm_add_...
-
-OR
-
-call_my_new_helper_which_is_easier to read()
-{
-	guard()()
-
-	...
-}
-
-	call_my_new_helper_which_is_easier to read();
-
-	ret = devm_add_...
-
-
-> > > +             list_for_each_entry(entry, &gpio_shared_list, list) {
-> > > +                     list_for_each_entry(ref, &entry->refs, list) {
-> > > +                             if (adev != &ref->adev)
-> > > +                                     continue;
-> > > +
-> > > +                             if (entry->shared_desc) {
-> > > +                                     kref_get(&entry->ref);
-> > > +                                     shared_desc = entry->shared_desc;
-> > > +                                     break;
-> > > +                             }
-> > > +
-> > > +                             shared_desc = kzalloc(sizeof(*shared_desc), GFP_KERNEL);
-> > > +                             if (!shared_desc)
-> > > +                                     return ERR_PTR(-ENOMEM);
-> > > +
-> > > +                             gdev = gpio_device_find_by_fwnode(entry->fwnode);
-> > > +                             if (!gdev) {
-> > > +                                     kfree(shared_desc);
-> > > +                                     return ERR_PTR(-EPROBE_DEFER);
-> > > +                             }
-> > > +
-> > > +                             shared_desc->desc = &gdev->descs[entry->offset];
-> > > +                             shared_desc->can_sleep = gpiod_cansleep(shared_desc->desc);
-> > > +                             if (shared_desc->can_sleep)
-> > > +                                     mutex_init(&shared_desc->mutex);
-> > > +                             else
-> > > +                                     spin_lock_init(&shared_desc->spinlock);
-> > > +
-> > > +                             kref_init(&entry->ref);
-> > > +                             entry->shared_desc = shared_desc;
-> > > +
-> > > +                             pr_debug("Device %s acquired a reference to the shared GPIO %u owned by %s\n",
-> > > +                                      dev_name(dev), desc_to_gpio(shared_desc->desc),
-> > > +                                      gpio_device_get_label(gdev));
-> > > +                             break;
-> > > +                     }
-> > > +             }
-> > > +     }
-> > > +
-> > > +     ret = devm_add_action_or_reset(dev, gpiod_shared_put, entry);
-> > > +     if (ret)
-> > > +             return ERR_PTR(ret);
-> > > +
-> > > +     return shared_desc;
-> > > +}
-
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index 743115b849a7..bdc1307cac90 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -61,6 +61,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62x-sk-hdmi-audio.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-dualemac.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-icssg1-dualemac-mii.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-onboard-clkgen-pcie-serdes.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-evm-pcie0-ep.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-hummingboard-t.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am642-hummingboard-t-pcie.dtb
+@@ -194,6 +195,8 @@ k3-am642-evm-icssg1-dualemac-dtbs := \
+ 	k3-am642-evm.dtb k3-am642-evm-icssg1-dualemac.dtbo
+ k3-am642-evm-icssg1-dualemac-mii-dtbs := \
+ 	k3-am642-evm.dtb k3-am642-evm-icssg1-dualemac-mii.dtbo
++k3-am642-evm-onboard-clkgen-pcie-serdes-dtbs := \
++	k3-am642-evm.dtb k3-am642-evm-onboard-clkgen-pcie-serdes.dtbo
+ k3-am642-evm-pcie0-ep-dtbs := \
+ 	k3-am642-evm.dtb k3-am642-evm-pcie0-ep.dtbo
+ k3-am642-phyboard-electra-disable-eth-phy-dtbs := \
+@@ -267,6 +270,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-am62p5-sk-csi2-tevi-ov5640.dtb \
+ 	k3-am642-evm-icssg1-dualemac.dtb \
+ 	k3-am642-evm-icssg1-dualemac-mii.dtb \
++	k3-am642-evm-onboard-clkgen-pcie-serdes.dtb \
+ 	k3-am642-evm-pcie0-ep.dtb \
+ 	k3-am642-tqma64xxl-mbax4xxl-sdcard.dtb \
+ 	k3-am642-tqma64xxl-mbax4xxl-wlan.dtb \
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm-onboard-clkgen-pcie-serdes.dtso b/arch/arm64/boot/dts/ti/k3-am642-evm-onboard-clkgen-pcie-serdes.dtso
+new file mode 100644
+index 000000000000..d04c92033c7b
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am642-evm-onboard-clkgen-pcie-serdes.dtso
+@@ -0,0 +1,38 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/**
++ * DT Overlay for utilizing the "PCIe Clock HCSL (100MHz)" onboard clock
++ * generator. The clock generator outputs two 100 MHz differential clock
++ * pair signals for the purpose of:
++ * 1) Supplying the PCIe reference clock to the PCIe connector
++ * 2) Supplying the Reference clock to SERDES0
++ *
++ * AM642 EVM Product Link: https://www.ti.com/tool/TMDS64EVM
++ *
++ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/phy/phy-ti.h>
++
++/* Onboard clock generator provides 100 MHz reference clock to SERDES0 */
++&serdes_refclk {
++	clock-frequency = <100000000>;
++};
++
++&serdes0 {
++	/*
++	 * Remove 'phy_en_refclk' clock since SERDES0 doesn't have to generate the
++	 * PCIe reference clock (provided by the onboard clock generator).
++	 */
++	clocks = <&serdes_wiz0 TI_WIZ_PLL0_REFCLK>;
++	clock-names = "refclk";
++	assigned-clocks = <&serdes_wiz0 TI_WIZ_PLL0_REFCLK>,
++			  <&serdes_wiz0 TI_WIZ_PLL1_REFCLK>,
++			  <&serdes_wiz0 TI_WIZ_REFCLK_DIG>;
++	/* Use onboard clock generator as SERDES0 reference clock */
++	assigned-clock-parents = <&serdes_refclk>,
++				 <&serdes_refclk>,
++				 <&serdes_refclk>;
++};
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.51.0
 
 
