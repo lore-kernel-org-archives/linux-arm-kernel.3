@@ -4,78 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A12E6CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 02:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FC9CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 02:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zusOc2ByHXPI5/AMyXickr+y8fs5/EFbaniQERKaFOo=; b=d+/igl3pvXQTQpSNkUNFIzq8Vu
-	k8W72rpQ1gMb2mPASXFE1Hndz3UrPu7gBrIQR0hp1NUDp/h6/cuQ8sq2Yu95qvAIG97HXXEJCMetj
-	LJmGBqhTheORsttwBBRF6CD/fDrzDiK29+gwhpWdir5WCaNL07BSLSwZm+ksQ+JLD1siw4LxlF9jP
-	Fb8vCW7d26gUQKkdFVI56y4BXBEaF5Vuizgdqh68ZweLJxSz6woyGdM/O9xfC20/BNDFcBffa8Yla
-	sOk+ytw7zs25gRxboPnIsQ2//5zR6JrtyOkY4BCgsjxMT4Ev9c49jbUmRNP/dTFUFuamIS3n2lAyX
-	L2hXpD/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BI0Vwi2MFtORL9n5J5tJUkBs2QczZqahhbzv7dm+XZ4=; b=odR/DjYOq3PiFKlXzL3ZcSqMDs
+	uJMhVGtFAxnRFQVF8j3qC4lPJNLOHDl32JFrt/MQQah9wggAwA7MPeWpTNNq9+O5hnm4Y+FoAocYO
+	wrv1pAEQMc/QU92jZOcWyod14vuQxDDXT1dBVhJCxZ4Fkfjp1Sk4PPS5x+mvjWIZ/rO8MM2dFk6+c
+	anJpA1EfaSaa6a+VzEQfpGzBnTdpFIfUwDOe1pfAAvXwROL2nDLkCC75epAAgT4kKQsvZ6InD+QRB
+	WGumKJuv/iCyJftJT7ngy/T+ClJ3kKhlZWrbIyMN4rt3a+a3/ndgjGspkrgXo6Ylluw7GIhQh0KFv
+	FGTewVXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC77W-0000000802C-448i;
-	Fri, 24 Oct 2025 02:01:34 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1vC7LY-000000081Wf-0KQ2;
+	Fri, 24 Oct 2025 02:16:04 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC77U-0000000801j-3hrT
+	id 1vC7LW-000000081WI-08mG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 02:01:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761271292; x=1792807292;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5pwkoiBgdK2A6PK3Fa1FU55/2aVLhOmwvVBgWWXu0Ec=;
-  b=WI0/Hv9LJqhNmnU6Rmp5FigC4LA8dvBeGj3vLlvnmjqyBkdQtG1vxAGr
-   9jUJG95kxbPdszmmEs1peKCh0ZqHo5sf7bHqR4uf1TsyA8XU7c3vWmJ1H
-   g2SzX6tFknX09HMeFqGUNwyhoIzFzVcMpc/CpGeFqMw732ka5les8/4WL
-   gdSHsA04dRR4dDqPvr2+PBOEmsgDaPETLHCICP7ggIABRq1rvo/M+vcyY
-   +04tvrMkDAVqxwdk3jBzQXwKYtzxz/19fd4w3HdHdc9lPATtGJXo0dH8I
-   j5QIFSfJ7J8yWtmADkC4KM/E9X6UbOuhu9eUb0aJxTWhSJGIP88NTlkfM
-   g==;
-X-CSE-ConnectionGUID: ejHtMXMwTBiXGOhyhqMBrQ==
-X-CSE-MsgGUID: dAYOzge5SrOTMsfXOkxwBg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="74122851"
-X-IronPort-AV: E=Sophos;i="6.19,251,1754982000"; 
-   d="scan'208";a="74122851"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2025 19:01:31 -0700
-X-CSE-ConnectionGUID: zmw9kKYaQUyvy5/SdWeQwA==
-X-CSE-MsgGUID: IZTmjtlYQNu3Pkpb2yJCJg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,251,1754982000"; 
-   d="scan'208";a="189439272"
-Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
-  by orviesa005.jf.intel.com with ESMTP; 23 Oct 2025 19:01:29 -0700
-Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1vC77O-000E5J-2l;
-	Fri, 24 Oct 2025 02:01:26 +0000
-Date: Fri, 24 Oct 2025 10:00:52 +0800
-From: kernel test robot <lkp@intel.com>
-To: Qiang Ma <maqianga@uniontech.com>, ardb@kernel.org,
-	linux@armlinux.org.uk
-Cc: oe-kbuild-all@lists.linux.dev, linux-efi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Qiang Ma <maqianga@uniontech.com>
-Subject: Re: [PATCH 2/2] efi/arm*: Remove the useless failure return message
- print
-Message-ID: <202510240949.NKb4ca96-lkp@intel.com>
-References: <20251023082129.75612-2-maqianga@uniontech.com>
+	Fri, 24 Oct 2025 02:16:03 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-33e0008d3b3so1613687a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 19:16:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761272161; x=1761876961; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BI0Vwi2MFtORL9n5J5tJUkBs2QczZqahhbzv7dm+XZ4=;
+        b=levNMH+Wwxi/8tKwKmNzaqhSPm0+nbB4XJONxp/sCkiRgaYKh+bNea0Yk49UJX2u4Z
+         X/OTxuYLNQcfa3IhA4+aptBQCDCuZrR8QLDMkM/4yoD6DenJ0u0hZeOdSNE7LEAnwb+3
+         6+T48Iug+t1pdPtjiJHrqeBPldD1UhbnpIzASbatVeRGvOmve7kISKVxSMp1fc2EEtb3
+         S/UPHYIvdlybIGbyKPVOvJmnUeokpNUCZScr5u5v6St5z96YkO41gleWq82XSNeekZm+
+         QGjLG/MbRMfC7mLh7h6tjLVfG4LScTKV8G1onA/YgMfSob3x8zdbC7VMH/wbQhdnvvJu
+         iqDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761272161; x=1761876961;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BI0Vwi2MFtORL9n5J5tJUkBs2QczZqahhbzv7dm+XZ4=;
+        b=u3rKPVv+nb2ighnlXP9/BiXqOOHeglBWEx7MIZV7he5INIi7lr1DI76WIZJp1vrggo
+         51+hpKjethxoch9TT4ItqbC6c09iCBS3dxXegrec8mmUkh0sxuHoLEg7N4HU8pfij92g
+         yZvPKgg1eRUcNoOBQEn6GsjaY1OBYZ2Vm9XKHKP7DpXgBvrqLGFjaqVpb8nAwWAzzIiK
+         J7oUMV+C5PQFFdKk0nounfz+tjsWQmaHBgDyi5sBE/Dy5OF0lIAoIjyRH/rEaB5CD17k
+         AoI4kyKmrqxB0dF3veHYW2b83uA6HdJ78doD454STniXy8DpjqOAmAuN7Z5eGduoCNuU
+         pdmw==
+X-Forwarded-Encrypted: i=1; AJvYcCUzpIXBBDUbMB8I4lxD85xm5etk2w7l2776bpYQWFOjCi04Ucs2f0cgk2bziFYHmZIpnWN3HZhl/Urzh2gBO/yt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzx90NzH/laclEGskOUpBqHPGWF2jBOArIFgzIrfgWl/tBr18ax
+	eEqydLQO3kAw1+TkrBgmrz7azRIdziEML8TXfYXLnLBBpIYH+iAvG//5TdbgzoqLP3bs5wGi59L
+	d5j1XbNTX7dQWEy7kolTZsJ8cZN4lN9Y=
+X-Gm-Gg: ASbGnctys2v9J501yoazDT/KSQkAN/0wi9W7pby/NoykuqMnKtObdb2+4CbUwOk2RCK
+	eG9ijJtOY+Uuq8xKuQUyW0RibLKpehbzy+snVrGTjNuHavwuVK629lSY3Fd49krLqiV9N9jKfCW
+	MQ2Aoe7+o3PGb8lhXQKs0jyNdVwfaW65JDSyzrHxDlfVlnQ2QYhOjWKEQ7JKVceuMjzr3JPQeg5
+	Kqbk3aYRnbTJa1RutorEgj2CZ8aPGltA9oHnk2NWj7Mn9Eo5tkEOX7zIxMl5XP9MhaHXNY=
+X-Google-Smtp-Source: AGHT+IElNfoS47SY7t+lKBFv7+5KrhLxG98q130ySpWKzXc0GkoN0tmuT6t9nFhyiYXpfSO3SfnNJSOMNthXNwS/NDA=
+X-Received: by 2002:a17:90b:1b50:b0:33b:d371:1131 with SMTP id
+ 98e67ed59e1d1-33fd66f565amr743481a91.34.1761272160901; Thu, 23 Oct 2025
+ 19:16:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251023082129.75612-2-maqianga@uniontech.com>
+References: <20251024-auxiliary-v2-1-a353dc9e6b1a@nxp.com>
+In-Reply-To: <20251024-auxiliary-v2-1-a353dc9e6b1a@nxp.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Fri, 24 Oct 2025 10:15:49 +0800
+X-Gm-Features: AS18NWDZ9oaK7UwbUVQe-rbcE0CXdttwjA1LC6T8fVyGVAC_wDzugHZZMraTOl0
+Message-ID: <CAA+D8AOF+3he6nV6yDRnept2Epo1yTZgJnn+P4H8hkktec5wEw@mail.gmail.com>
+Subject: Re: [PATCH v2] clk: imx: imx8mp-audiomix: use devm_auxiliary_device_create()
+ to simple code
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
+	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <frank.li@nxp.com>, linux-clk@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Abel Vesa <abel.vesa@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_190132_962794_9CF8F6B1 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20251023_191602_097709_D893B27D 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,71 +101,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Qiang,
+On Fri, Oct 24, 2025 at 9:46=E2=80=AFAM Peng Fan <peng.fan@nxp.com> wrote:
+>
+> Use helper function devm_auxiliary_device_create() to remove some
+> boilerplate code.
+>
+> Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-kernel test robot noticed the following build warnings:
+Reviewed-by: Shengjiu Wang <shengjiu.wang@gmail.com>
 
-[auto build test WARNING on efi/next]
-[also build test WARNING on linus/master v6.18-rc2 next-20251023]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Qiang-Ma/efi-arm-Remove-the-useless-failure-return-message-print/20251023-162558
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/efi/efi.git next
-patch link:    https://lore.kernel.org/r/20251023082129.75612-2-maqianga%40uniontech.com
-patch subject: [PATCH 2/2] efi/arm*: Remove the useless failure return message print
-config: arm64-randconfig-001-20251024 (https://download.01.org/0day-ci/archive/20251024/202510240949.NKb4ca96-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251024/202510240949.NKb4ca96-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510240949.NKb4ca96-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/firmware/efi/arm-runtime.c: In function 'efi_virtmap_init':
->> drivers/firmware/efi/arm-runtime.c:62:7: warning: unused variable 'ret' [-Wunused-variable]
-      int ret;
-          ^~~
->> drivers/firmware/efi/arm-runtime.c:61:15: warning: unused variable 'phys' [-Wunused-variable]
-      phys_addr_t phys = md->phys_addr;
-                  ^~~~
-
-
-vim +/ret +62 drivers/firmware/efi/arm-runtime.c
-
-9d80448ac92b720 Ard Biesheuvel 2016-08-16  51  
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  52  static bool __init efi_virtmap_init(void)
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  53  {
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  54  	efi_memory_desc_t *md;
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  55  
-f7d924894265794 Ard Biesheuvel 2015-11-30  56  	efi_mm.pgd = pgd_alloc(&efi_mm);
-d1eb98143c56f24 Ard Biesheuvel 2017-03-01  57  	mm_init_cpumask(&efi_mm);
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  58  	init_new_context(NULL, &efi_mm);
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  59  
-78ce248faa3c46e Matt Fleming   2016-04-25  60  	for_each_efi_memory_desc(md) {
-f7d924894265794 Ard Biesheuvel 2015-11-30 @61  		phys_addr_t phys = md->phys_addr;
-f7d924894265794 Ard Biesheuvel 2015-11-30 @62  		int ret;
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  63  
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  64  		if (!(md->attribute & EFI_MEMORY_RUNTIME))
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  65  			continue;
-37926f96302d8b6 Ard Biesheuvel 2022-10-20  66  		if (md->virt_addr == U64_MAX)
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  67  			return false;
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  68  
-73fefd7f81521c6 Qiang Ma       2025-10-23  69  		efi_create_mapping(&efi_mm, md);
-789957ef72f976c Ard Biesheuvel 2016-04-25  70  	}
-789957ef72f976c Ard Biesheuvel 2016-04-25  71  
-789957ef72f976c Ard Biesheuvel 2016-04-25  72  	if (efi_memattr_apply_permissions(&efi_mm, efi_set_mapping_permissions))
-789957ef72f976c Ard Biesheuvel 2016-04-25  73  		return false;
-789957ef72f976c Ard Biesheuvel 2016-04-25  74  
-789957ef72f976c Ard Biesheuvel 2016-04-25  75  	return true;
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  76  }
-e5bc22a42e4d46c Ard Biesheuvel 2015-11-30  77  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards
+Shengjiu wang
+> ---
+> Changes in v2:
+> - Update commit log per Frank
+> - Add R-b from Frank and Abel
+> - Link to v1: https://lore.kernel.org/r/20251023-auxiliary-v1-1-0a16fa4c3=
+cdd@nxp.com
+> ---
+>  drivers/clk/imx/clk-imx8mp-audiomix.c | 39 ++++-------------------------=
+------
+>  1 file changed, 4 insertions(+), 35 deletions(-)
+>
+> diff --git a/drivers/clk/imx/clk-imx8mp-audiomix.c b/drivers/clk/imx/clk-=
+imx8mp-audiomix.c
+> index 775f62dddb11d8cfd17a4ebf7a677ef399c5e617..131702f2c9ecfd693af47094f=
+e61b486ae6e8f6d 100644
+> --- a/drivers/clk/imx/clk-imx8mp-audiomix.c
+> +++ b/drivers/clk/imx/clk-imx8mp-audiomix.c
+> @@ -230,50 +230,19 @@ struct clk_imx8mp_audiomix_priv {
+>
+>  #if IS_ENABLED(CONFIG_RESET_CONTROLLER)
+>
+> -static void clk_imx8mp_audiomix_reset_unregister_adev(void *_adev)
+> -{
+> -       struct auxiliary_device *adev =3D _adev;
+> -
+> -       auxiliary_device_delete(adev);
+> -       auxiliary_device_uninit(adev);
+> -}
+> -
+> -static void clk_imx8mp_audiomix_reset_adev_release(struct device *dev)
+> -{
+> -       struct auxiliary_device *adev =3D to_auxiliary_dev(dev);
+> -
+> -       kfree(adev);
+> -}
+> -
+>  static int clk_imx8mp_audiomix_reset_controller_register(struct device *=
+dev,
+>                                                          struct clk_imx8m=
+p_audiomix_priv *priv)
+>  {
+> -       struct auxiliary_device *adev __free(kfree) =3D NULL;
+> -       int ret;
+> +       struct auxiliary_device *adev;
+>
+>         if (!of_property_present(dev->of_node, "#reset-cells"))
+>                 return 0;
+>
+> -       adev =3D kzalloc(sizeof(*adev), GFP_KERNEL);
+> +       adev =3D devm_auxiliary_device_create(dev, "reset", NULL);
+>         if (!adev)
+> -               return -ENOMEM;
+> -
+> -       adev->name =3D "reset";
+> -       adev->dev.parent =3D dev;
+> -       adev->dev.release =3D clk_imx8mp_audiomix_reset_adev_release;
+> -
+> -       ret =3D auxiliary_device_init(adev);
+> -       if (ret)
+> -               return ret;
+> +               return -ENODEV;
+>
+> -       ret =3D auxiliary_device_add(adev);
+> -       if (ret) {
+> -               auxiliary_device_uninit(adev);
+> -               return ret;
+> -       }
+> -
+> -       return devm_add_action_or_reset(dev, clk_imx8mp_audiomix_reset_un=
+register_adev,
+> -                                       no_free_ptr(adev));
+> +       return 0;
+>  }
+>
+>  #else /* !CONFIG_RESET_CONTROLLER */
+>
+> ---
+> base-commit: aaa9c3550b60d6259d6ea8b1175ade8d1242444e
+> change-id: 20251023-auxiliary-3998bced9cb9
+>
+> Best regards,
+> --
+> Peng Fan <peng.fan@nxp.com>
+>
+>
 
