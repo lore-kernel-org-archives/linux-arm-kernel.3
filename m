@@ -4,78 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D164CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81668CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A1EtqRzxIfYahVpLg5Nn8CrI/7ldhsFWV8dKenQuIrM=; b=FO5YSKawxGVSaNrdeLeD3ehsbW
-	442985zCzCMx4UVaH0Tjn8UWz0w/NosRiNvvU4h5bjUn3OjIoGhTbleIKQ0dxcUUuT/UfgWkLvOFM
-	UE8y+9W0Jm4t+grbLMGLQQ96HB0DlAHd3hDjlJsACltIOpLxEvDfgBXRz/Ggw7b75x9LHuNK+AFGM
-	yZaDIJYzn+KvTEfSq7ZkUbu+/nipFSXjX/bqCg5C0jGTSOkjuLHEzGGnQ/fuDWGNwGffQTwxNTn13
-	YAFf/nzikFxln3WYJtH6nMRZ3mOfObktNsbzTQRcICKS/Xsv6cXmLfpSL4lgvQl0sCotsz80uVIim
-	JfYVwSzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EPclhePQWxj+2BhRxh2hSF55/wc3/lRint7vbJECuNM=; b=MM9eqmhoD0IrP+ZtUFwjiXhqG5
+	K25aX66lHr3dxZb2ErHSxfCB0Dm8GzlWBNzlZo+7NoULBz7K+8Dk6PxINmfmOJk+y+pffkm9ADPl9
+	omMcEGZqBQPPTen1ee2v37a4m4VtfjhSDEiSa+yvPXRtIZCCrrBb02vIZxk8DRb+4U//Qj1MVloij
+	G2zm8Kvw4qw1Q1JTU6fA49lr7I3pqtHkyDQQIpcMci1JuM76SCOm/pTFUtI/W3M6TVF4JCVn3hasK
+	aneh/B+ih0wrfbD5bqkyUCN2aOypi1CalT13Dc480/i8Q2IcwGmtJvZIjP5qZf2DqRk9szOQX4fyz
+	/6KHziog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBtt-00000008Q64-1bys;
-	Fri, 24 Oct 2025 07:07:49 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vCBvr-00000008Qh5-03bf;
+	Fri, 24 Oct 2025 07:09:51 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBto-00000008Q3f-1axZ
+	id 1vCBvo-00000008QgT-1WSJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 07:07:46 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id A9F81C0C41D;
-	Fri, 24 Oct 2025 07:07:22 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 80FE760703;
-	Fri, 24 Oct 2025 07:07:42 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E251F102F2479;
-	Fri, 24 Oct 2025 09:07:39 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761289661; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=A1EtqRzxIfYahVpLg5Nn8CrI/7ldhsFWV8dKenQuIrM=;
-	b=qrO2aJcuzI4rhlflKWADJQMxOtGalPJgJ1S6XY+0XAnemmmjLbzx/tCoJJdE370Ru5u2on
-	pp16p2rijdILG1tL40aT+jCoNyIxWzGoQwodjLK1J6Q2MHtXE4HPRBTUg6byh/N1XNGdCg
-	F+1jrissekCSDWkzrtzibmbYOURV4krfbDcK+9HRvuDjhBGHVkNGsy1MA6V2Rkz8h8cdUl
-	CJCTlj9vJmYXgyN9Khn6cghXUVI1ZH0ufqApkXdcSkJLFACZ/0CLIIF7bDFdC9q+Sf/Yj8
-	K2PGJ+JSwGM+dqMxCT07PKfuIhj7/ZLwGhvrMDSl86JgiHoc8ar6cVOEXDtn3A==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 2/2] net: stmmac: Add a devlink attribute to control timestamping mode
-Date: Fri, 24 Oct 2025 09:07:18 +0200
-Message-ID: <20251024070720.71174-3-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251024070720.71174-1-maxime.chevallier@bootlin.com>
-References: <20251024070720.71174-1-maxime.chevallier@bootlin.com>
+	Fri, 24 Oct 2025 07:09:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761289788; x=1792825788;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=tjcvyfpnT2ROqnMDp39g2+93M2zfzww2SQf/zXN/Nc4=;
+  b=HUpsfKRoGGDXomUFeT+3xyqF9M2JzqeWgBxdXxTzqh4b593uQx/03cOr
+   osmFoSwpxKehVZX0fRm/OjmQR2zssCfCu4k43xFRX4NCiqnAhlLJbjWh5
+   GghlSzTSUejLzSqV9gM7rpNO5Npow2pXgA85h2BbbHmWTCtk6Jcf3S0n8
+   +VwOXmq8dgYjllaRzq+5pbESLebpnDMfNhGIN/BmnBLc04V5bbjFUdgJZ
+   n1dv/wD2PY1N+E0nlohokNexBmfvIWV94TX9xydsem1PVIDovbnO3MzX4
+   +GAtGi++hCibo2oA07DPFfWQW1eNqNXiqZoLR2G4V8ePSLep8CZ/VeHRI
+   A==;
+X-CSE-ConnectionGUID: 963fks6vTMK8l/ig7pdzPA==
+X-CSE-MsgGUID: 8jZoCY23Q2+A6TXPQZBsOQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="51046647"
+X-IronPort-AV: E=Sophos;i="6.19,251,1754982000"; 
+   d="scan'208";a="51046647"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 00:09:47 -0700
+X-CSE-ConnectionGUID: sOxUcsTpTrCd9fBR4DsQ/g==
+X-CSE-MsgGUID: G1OmBVBdTf6OxtSNV8gUnQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,251,1754982000"; 
+   d="scan'208";a="184077348"
+Received: from opintica-mobl1 (HELO ashevche-desk.local) ([10.245.245.60])
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 00:09:42 -0700
+Received: from andy by ashevche-desk.local with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@intel.com>)
+	id 1vCBve-0000000257C-2kRs;
+	Fri, 24 Oct 2025 10:09:38 +0300
+Date: Fri, 24 Oct 2025 10:09:38 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH v2 03/10] gpiolib: implement low-level, shared GPIO
+ support
+Message-ID: <aPsmMruDxOil_wYQ@smile.fi.intel.com>
+References: <20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org>
+ <20251022-gpio-shared-v2-3-d34aa1fbdf06@linaro.org>
+ <aPkVjoWkP04Q-2xP@smile.fi.intel.com>
+ <CAMRc=Mc165HSLdug1F+t3qcOoE52mR1e_zEh=rSTUKN_-dB5NA@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <CAMRc=Mc165HSLdug1F+t3qcOoE52mR1e_zEh=rSTUKN_-dB5NA@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_000744_619158_A648BB90 
-X-CRM114-Status: GOOD (  31.95  )
+X-CRM114-CacheID: sfid-20251024_000948_414213_52CB6909 
+X-CRM114-Status: GOOD (  32.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,317 +113,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DWMAC1000 supports 2 timestamping configurations to configure how
-frequency adjustments are made to the ptp_clock, as well as the reported
-timestamp values.
+On Thu, Oct 23, 2025 at 08:55:27PM +0200, Bartosz Golaszewski wrote:
+> On Wed, Oct 22, 2025 at 7:34 PM Andy Shevchenko
+> <andriy.shevchenko@intel.com> wrote:
+> > On Wed, Oct 22, 2025 at 03:10:42PM +0200, Bartosz Golaszewski wrote:
 
-There was a previous attempt at upstreaming support for configuring this
-mode by Olivier Dautricourt and Julien Beraud a few years back [1]
+...
 
-In a nutshell, the timestamping can be either set in fine mode or in
-coarse mode.
+> > > +             if (!strends(prop->name, "-gpios") &&
+> > > +                 !strends(prop->name, "-gpio") &&
+> >
+> > > +                 strcmp(prop->name, "gpios") != 0 &&
+> > > +                 strcmp(prop->name, "gpio") != 0)
+> >
+> > We have gpio_suffixes for a reason (also refer to for_each_gpio_property_name()
+> > implementation, and yes I understand the difference, this is just a reference
+> > for an example of use of the existing list of suffixes).
+> 
+> And how would you use them here - when you also need the hyphen -
+> without multiple dynamic allocations instead of static strings?
 
-In fine mode, which is the default, we use the overflow of an accumulator to
-trigger frequency adjustments, but by doing so we lose precision on the
-timetamps that are produced by the timestamping unit. The main drawback
-is that the sub-second increment value, used to generate timestamps, can't be
-set to lower than (2 / ptp_clock_freq).
+Something like
 
-The "fine" qualification comes from the frequent frequency adjustments we are
-able to do, which is perfect for a PTP follower usecase.
+	char suffix[6];
+	bool found = false;
 
-In Coarse mode, we don't do frequency adjustments based on an
-accumulator overflow. We can therefore have very fine subsecond
-increment values, allowing for better timestamping precision. However
-this mode works best when the ptp clock frequency is adjusted based on
-an external signal, such as a PPS input produced by a GPS clock. This
-mode is therefore perfect for a Grand-master usecase.
+	for_each_gpio_property_name(suffix, "")
+		found = found || strends();
+	for_each_gpio_property_name(suffix, NULL)
+		found = found || (strcmp() == 0);
+	if (!found)
+		continue;
 
-Introduce a driver-specific devlink parameter "ts_coarse" to enable or
-disable coarse mode, keeping the "fine" mode as a default.
+Of course with more thinking this may be optimized to avoid snprintf()
+(probably with a new helper macro or so).
 
-This can then be changed with:
+But see my next reply, I found something more interesting.
 
-  devlink dev param set <dev> name ts_coarse value true cmode runtime
+...
 
-The associated documentation is also added.
+> > > +     /* No need to dev->release() anything. */
+> >
+> > And is it okay?
+> >
+> > See drivers/base/core.c:2567
+> >
+> > WARN(1, KERN_ERR "Device '%s' does not have a release() function, it is broken and must be fixed. See Documentation/core-api/kobject.rst.\n",
+> 
+> Huh... you're not wrong but I haven't seen this warning. Do people
+> just use empty functions in this case?
 
-[1] : https://lore.kernel.org/netdev/20200514102808.31163-1-olivier.dautricourt@orolia.com/
+I dunno. Maybe something applies a default release in you case? Can you
+investigate that?
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- Documentation/networking/devlink/index.rst    |   1 +
- Documentation/networking/devlink/stmmac.rst   |  31 +++++
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |   3 +
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 115 +++++++++++++++++-
- 5 files changed, 148 insertions(+), 3 deletions(-)
- create mode 100644 Documentation/networking/devlink/stmmac.rst
+...
 
-diff --git a/Documentation/networking/devlink/index.rst b/Documentation/networking/devlink/index.rst
-index 0c58e5c729d9..35b12a2bfeba 100644
---- a/Documentation/networking/devlink/index.rst
-+++ b/Documentation/networking/devlink/index.rst
-@@ -99,5 +99,6 @@ parameters, info versions, and other features it supports.
-    prestera
-    qed
-    sfc
-+   stmmac
-    ti-cpsw-switch
-    zl3073x
-diff --git a/Documentation/networking/devlink/stmmac.rst b/Documentation/networking/devlink/stmmac.rst
-new file mode 100644
-index 000000000000..e8e33d1c7baf
---- /dev/null
-+++ b/Documentation/networking/devlink/stmmac.rst
-@@ -0,0 +1,31 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+=======================================
-+stmmac (synopsys dwmac) devlink support
-+=======================================
-+
-+This document describes the devlink features implemented by the ``stmmac``
-+device driver.
-+
-+Parameters
-+==========
-+
-+The ``stmmac`` driver implements the following driver-specific parameters.
-+
-+.. list-table:: Driver-specific parameters implemented
-+   :widths: 5 5 5 85
-+
-+   * - Name
-+     - Type
-+     - Mode
-+     - Description
-+   * - ``ts_coarse``
-+     - Boolean
-+     - runtime
-+     - Enable the Coarse timestamping mode. In Coarse mode, the ptp clock is
-+       expected to be updated through an external PPS input, but the subsecond
-+       increment used for timestamping is set to 1/ptp_clock_rate. In Fine mode
-+       (i.e. Coarse mode == false), the ptp clock frequency is adjusted more
-+       frequently, but the subsecond increment is set to 2/ptp_clock_rate.
-+       Coarse mode is suitable for PTP Grand Master operation. If unsure, leave
-+       the parameter to False.
-diff --git a/drivers/net/ethernet/stmicro/stmmac/Kconfig b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-index 716daa51df7e..87c5bea6c2a2 100644
---- a/drivers/net/ethernet/stmicro/stmmac/Kconfig
-+++ b/drivers/net/ethernet/stmicro/stmmac/Kconfig
-@@ -10,6 +10,7 @@ config STMMAC_ETH
- 	select PHYLINK
- 	select CRC32
- 	select RESET_CONTROLLER
-+	select NET_DEVLINK
- 	help
- 	  This is the driver for the Ethernet IPs built around a
- 	  Synopsys IP Core.
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index aaeaf42084f0..bea0ce86c718 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -259,6 +259,7 @@ struct stmmac_priv {
- 	u32 sarc_type;
- 	u32 rx_riwt[MTL_MAX_RX_QUEUES];
- 	int hwts_rx_en;
-+	bool tsfupdt_coarse;
- 
- 	void __iomem *ioaddr;
- 	struct net_device *dev;
-@@ -368,6 +369,8 @@ struct stmmac_priv {
- 	/* XDP BPF Program */
- 	unsigned long *af_xdp_zc_qps;
- 	struct bpf_prog *xdp_prog;
-+
-+	struct devlink *devlink;
- };
- 
- enum stmmac_state {
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 8922c660cefa..0b15c90b67f7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -40,6 +40,7 @@
- #include <linux/phylink.h>
- #include <linux/udp.h>
- #include <linux/bpf_trace.h>
-+#include <net/devlink.h>
- #include <net/page_pool/helpers.h>
- #include <net/pkt_cls.h>
- #include <net/xdp_sock_drv.h>
-@@ -58,8 +59,7 @@
-  * with fine resolution and binary rollover. This avoid non-monotonic behavior
-  * (clock jumps) when changing timestamping settings at runtime.
-  */
--#define STMMAC_HWTS_ACTIVE	(PTP_TCR_TSENA | PTP_TCR_TSCFUPDT | \
--				 PTP_TCR_TSCTRLSSR)
-+#define STMMAC_HWTS_ACTIVE	(PTP_TCR_TSENA | PTP_TCR_TSCTRLSSR)
- 
- #define	STMMAC_ALIGN(x)		ALIGN(ALIGN(x, SMP_CACHE_BYTES), 16)
- #define	TSO_MAX_BUFF_SIZE	(SZ_16K - 1)
-@@ -148,6 +148,15 @@ static void stmmac_exit_fs(struct net_device *dev);
- 
- #define STMMAC_COAL_TIMER(x) (ns_to_ktime((x) * NSEC_PER_USEC))
- 
-+struct stmmac_devlink_priv {
-+	struct stmmac_priv *stmmac_priv;
-+};
-+
-+enum stmmac_dl_param_id {
-+	STMMAC_DEVLINK_PARAM_ID_BASE = DEVLINK_PARAM_GENERIC_ID_MAX,
-+	STMMAC_DEVLINK_PARAM_ID_TS_COARSE,
-+};
-+
- /**
-  * stmmac_set_clk_tx_rate() - set the clock rate for the MAC transmit clock
-  * @bsp_priv: BSP private data structure (unused)
-@@ -675,6 +684,8 @@ static int stmmac_hwtstamp_set(struct net_device *dev,
- 	priv->hwts_tx_en = config->tx_type == HWTSTAMP_TX_ON;
- 
- 	priv->systime_flags = STMMAC_HWTS_ACTIVE;
-+	if (!priv->tsfupdt_coarse)
-+		priv->systime_flags |= PTP_TCR_TSCFUPDT;
- 
- 	if (priv->hwts_tx_en || priv->hwts_rx_en) {
- 		priv->systime_flags |= tstamp_all | ptp_v2 |
-@@ -765,7 +776,8 @@ static int stmmac_init_timestamping(struct stmmac_priv *priv)
- 		return -EOPNOTSUPP;
- 	}
- 
--	ret = stmmac_init_tstamp_counter(priv, STMMAC_HWTS_ACTIVE);
-+	ret = stmmac_init_tstamp_counter(priv, STMMAC_HWTS_ACTIVE |
-+					       PTP_TCR_TSCFUPDT);
- 	if (ret) {
- 		netdev_warn(priv->dev, "PTP init failed\n");
- 		return ret;
-@@ -7383,6 +7395,95 @@ static const struct xdp_metadata_ops stmmac_xdp_metadata_ops = {
- 	.xmo_rx_timestamp		= stmmac_xdp_rx_timestamp,
- };
- 
-+static int stmmac_dl_ts_coarse_set(struct devlink *dl, u32 id,
-+				   struct devlink_param_gset_ctx *ctx,
-+				   struct netlink_ext_ack *extack)
-+{
-+	struct stmmac_devlink_priv *dl_priv = devlink_priv(dl);
-+	struct stmmac_priv *priv = dl_priv->stmmac_priv;
-+
-+	priv->tsfupdt_coarse = ctx->val.vbool;
-+
-+	if (priv->tsfupdt_coarse)
-+		priv->systime_flags &= ~PTP_TCR_TSCFUPDT;
-+	else
-+		priv->systime_flags |= PTP_TCR_TSCFUPDT;
-+
-+	/* In Coarse mode, we can use a smaller subsecond increment, let's
-+	 * reconfigure the systime, subsecond increment and addend.
-+	 */
-+	stmmac_update_subsecond_increment(priv);
-+
-+	return 0;
-+}
-+
-+static int stmmac_dl_ts_coarse_get(struct devlink *dl, u32 id,
-+				   struct devlink_param_gset_ctx *ctx)
-+{
-+	struct stmmac_devlink_priv *dl_priv = devlink_priv(dl);
-+	struct stmmac_priv *priv = dl_priv->stmmac_priv;
-+
-+	ctx->val.vbool = priv->tsfupdt_coarse;
-+
-+	return 0;
-+}
-+
-+static const struct devlink_param stmmac_devlink_params[] = {
-+	DEVLINK_PARAM_DRIVER(STMMAC_DEVLINK_PARAM_ID_TS_COARSE, "ts_coarse",
-+			     DEVLINK_PARAM_TYPE_BOOL,
-+			     BIT(DEVLINK_PARAM_CMODE_RUNTIME),
-+			     stmmac_dl_ts_coarse_get,
-+			     stmmac_dl_ts_coarse_set, NULL),
-+};
-+
-+/* None of the generic devlink parameters are implemented */
-+static const struct devlink_ops stmmac_devlink_ops = {};
-+
-+static int stmmac_register_devlink(struct stmmac_priv *priv)
-+{
-+	struct stmmac_devlink_priv *dl_priv;
-+	int ret;
-+
-+	/* For now, what is exposed over devlink is only relevant when
-+	 * timestamping is available and we have a valid ptp clock rate
-+	 */
-+	if (!(priv->dma_cap.time_stamp || priv->dma_cap.atime_stamp) ||
-+	    !priv->plat->clk_ptp_rate)
-+		return 0;
-+
-+	priv->devlink = devlink_alloc(&stmmac_devlink_ops, sizeof(*dl_priv),
-+				      priv->device);
-+	if (!priv->devlink)
-+		return -ENOMEM;
-+
-+	dl_priv = devlink_priv(priv->devlink);
-+	dl_priv->stmmac_priv = priv;
-+
-+	ret = devlink_params_register(priv->devlink, stmmac_devlink_params,
-+				      ARRAY_SIZE(stmmac_devlink_params));
-+	if (ret)
-+		goto dl_free;
-+
-+	devlink_register(priv->devlink);
-+	return 0;
-+
-+dl_free:
-+	devlink_free(priv->devlink);
-+
-+	return ret;
-+}
-+
-+static void stmmac_unregister_devlink(struct stmmac_priv *priv)
-+{
-+	if (!priv->devlink)
-+		return;
-+
-+	devlink_unregister(priv->devlink);
-+	devlink_params_unregister(priv->devlink, stmmac_devlink_params,
-+				  ARRAY_SIZE(stmmac_devlink_params));
-+	devlink_free(priv->devlink);
-+}
-+
- /**
-  * stmmac_dvr_probe
-  * @device: device pointer
-@@ -7656,6 +7757,10 @@ int stmmac_dvr_probe(struct device *device,
- 		goto error_phy_setup;
- 	}
- 
-+	ret = stmmac_register_devlink(priv);
-+	if (ret)
-+		goto error_devlink_setup;
-+
- 	ret = register_netdev(ndev);
- 	if (ret) {
- 		dev_err(priv->device, "%s: ERROR %i registering the device\n",
-@@ -7678,6 +7783,8 @@ int stmmac_dvr_probe(struct device *device,
- 	return ret;
- 
- error_netdev_register:
-+	stmmac_unregister_devlink(priv);
-+error_devlink_setup:
- 	phylink_destroy(priv->phylink);
- error_phy_setup:
- 	stmmac_pcs_clean(ndev);
-@@ -7714,6 +7821,8 @@ void stmmac_dvr_remove(struct device *dev)
- #ifdef CONFIG_DEBUG_FS
- 	stmmac_exit_fs(ndev);
- #endif
-+	stmmac_unregister_devlink(priv);
-+
- 	phylink_destroy(priv->phylink);
- 	if (priv->plat->stmmac_rst)
- 		reset_control_assert(priv->plat->stmmac_rst);
+> > > +     pr_debug("Created an auxiliary GPIO proxy %s for GPIO device %s\n",
+> > > +              dev_name(&adev->dev), gpio_device_get_label(gdev));
+> >
+> > Are you expecting dev_name() to be NULL in some cases? Otherwise why is this
+> > not a dev_dbg() call?
+> 
+> It's the low-level code saying: "I created device X for Y", not "Hey,
+> here's X, I'm here for Y".
+
+OK.
+
+> > > +     return 0;
+> > > +}
+
+...
+
+> > > +static void gpio_shared_remove_adev(struct auxiliary_device *adev)
+> > > +{
+> > > +     lockdep_assert_held(&gpio_shared_lock);
+> > > +
+> > > +     auxiliary_device_uninit(adev);
+> > > +     auxiliary_device_delete(adev);
+> >
+> > _destroy() ? Esp. taking into account the (wrong?) ordering.
+> >
+> 
+> You're right about the order but if you _add() then you should
+> _delete(). You typically _destroy() if you earlier _create().
+
+Maybe, but as we noticed above my suggestion would make the code less error
+prone to begin with.
+
+> > > +}
+
+...
+
+> > > +     struct auxiliary_device *adev = to_auxiliary_dev(dev);
+> > > +     struct gpio_shared_desc *shared_desc;
+> > > +     struct gpio_shared_entry *entry;
+> > > +     struct gpio_shared_ref *ref;
+> > > +     struct gpio_device *gdev;
+> > > +     int ret;
+> >
+> > > + +   scoped_guard(mutex, &gpio_shared_lock) {
+> >
+> > Much better to split the below to a helper and make it run under a
+> > scoped_guard() here or call a guard()() there.
+> 
+> I'm not following, please rephrase.
+
+	scoped_guard() {
+		call_my_new_helper_which_is_easier to read();
+	}
+
+	ret = devm_add_...
+
+OR
+
+call_my_new_helper_which_is_easier to read()
+{
+	guard()()
+
+	...
+}
+
+	call_my_new_helper_which_is_easier to read();
+
+	ret = devm_add_...
+
+
+> > > +             list_for_each_entry(entry, &gpio_shared_list, list) {
+> > > +                     list_for_each_entry(ref, &entry->refs, list) {
+> > > +                             if (adev != &ref->adev)
+> > > +                                     continue;
+> > > +
+> > > +                             if (entry->shared_desc) {
+> > > +                                     kref_get(&entry->ref);
+> > > +                                     shared_desc = entry->shared_desc;
+> > > +                                     break;
+> > > +                             }
+> > > +
+> > > +                             shared_desc = kzalloc(sizeof(*shared_desc), GFP_KERNEL);
+> > > +                             if (!shared_desc)
+> > > +                                     return ERR_PTR(-ENOMEM);
+> > > +
+> > > +                             gdev = gpio_device_find_by_fwnode(entry->fwnode);
+> > > +                             if (!gdev) {
+> > > +                                     kfree(shared_desc);
+> > > +                                     return ERR_PTR(-EPROBE_DEFER);
+> > > +                             }
+> > > +
+> > > +                             shared_desc->desc = &gdev->descs[entry->offset];
+> > > +                             shared_desc->can_sleep = gpiod_cansleep(shared_desc->desc);
+> > > +                             if (shared_desc->can_sleep)
+> > > +                                     mutex_init(&shared_desc->mutex);
+> > > +                             else
+> > > +                                     spin_lock_init(&shared_desc->spinlock);
+> > > +
+> > > +                             kref_init(&entry->ref);
+> > > +                             entry->shared_desc = shared_desc;
+> > > +
+> > > +                             pr_debug("Device %s acquired a reference to the shared GPIO %u owned by %s\n",
+> > > +                                      dev_name(dev), desc_to_gpio(shared_desc->desc),
+> > > +                                      gpio_device_get_label(gdev));
+> > > +                             break;
+> > > +                     }
+> > > +             }
+> > > +     }
+> > > +
+> > > +     ret = devm_add_action_or_reset(dev, gpiod_shared_put, entry);
+> > > +     if (ret)
+> > > +             return ERR_PTR(ret);
+> > > +
+> > > +     return shared_desc;
+> > > +}
+
 -- 
-2.49.0
+With Best Regards,
+Andy Shevchenko
+
 
 
