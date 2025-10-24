@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8EB3CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 15:46:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26036CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 15:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9PHQQmN7U58dEYd/jGpL7q3Dd+5cmWnn8PKw2g9U1rE=; b=Jrxc9wqX4mPncHpePqxMZU5qBe
-	sRk/tGl02ol835zdKJGfU7uWgHeMTEvyaqg8xUxmkk5Dwz9SEm0o4L06b0joGrrXJAu3thbmRwjh4
-	+U5djc6HEkI/LzfVJ4YSoF69sVaWGEzO6UKhgJqi5Q+8pND/dDWTGHxhptUwPAQrqyNgbhYyBzXWr
-	npPaW2n4O5BXxu4YZM71lESJXY04JTS2YunNJ5DEThJKE2BqfDQLatuA8pTIH5IfKxwcnC/ocjBJe
-	MDgjt74Qstwi4wb2l9wfmefwF3m3IDqycOnVdgjQorXcIkmOeLedw1jW5JnlbW5FUR3Z8JqLjJOXn
-	Nx0Cu6fQ==;
+	bh=zvtebLkkuQCoQo0QjrHJUw9NfExlupM4hl8VmlJ0P1U=; b=qmXemVjxE5fJBVDJWzcw7Ahtj/
+	IXruXkXbSV1JbpUkGnHUvFovOECZDoWKGQNBBjpX8BHelZnI4lMZOob9FbLXnLvlOqvdOA85QTNeK
+	PAU31UHJD7+T7RNCuVo+8krZFjPQWwCrJqfRmx9BnGLGAil2l0Ldq5j8OehCb12AZXV9myoqawCyG
+	GCH5JUHNAyf+Bvxmcs1Coeyzw/ltXzqqM/Xb9VV7Wkp7seRSbSuEz6jBk0k0Fspv9PUtiVg+NhNJd
+	WgNagOOlO6LFjWVpS8z0wVoCBhnL3PbVJhDHatxZp4fYsuAQeLm4qihq1bwDqbwd1QgqieEoA5/P+
+	thVjDolA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCJzm-00000009qMj-2IHi;
-	Fri, 24 Oct 2025 15:46:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vCK08-00000009qQ4-0rgl;
+	Fri, 24 Oct 2025 15:46:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCJzj-00000009qMP-3LJq
+	id 1vCK07-00000009qPo-25rV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 15:46:24 +0000
+	Fri, 24 Oct 2025 15:46:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 17598461DC;
-	Fri, 24 Oct 2025 15:46:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45F18C4CEF1;
-	Fri, 24 Oct 2025 15:46:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8590A61DFB;
+	Fri, 24 Oct 2025 15:46:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E90DC4CEF5;
+	Fri, 24 Oct 2025 15:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761320782;
-	bh=9PHQQmN7U58dEYd/jGpL7q3Dd+5cmWnn8PKw2g9U1rE=;
+	s=k20201202; t=1761320806;
+	bh=zvtebLkkuQCoQo0QjrHJUw9NfExlupM4hl8VmlJ0P1U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MKRl59ZM8rvoik8ee2+FejsEO+8k2Pws6sZbZJr3HGruy4UjMw41/4LjEEaTlAZdZ
-	 2eYiUbjTZaC5lG3bVsFWss/d75BmaJRrEc2cxa0JfrHKJAK+dXzB73AGN6GRkrYRhJ
-	 eGcfcCCYwaC57ghc6HookvgrtC+jZF35r70CBLf3kvLcg5vx77KspeXbW/k5Alz8JS
-	 bpUIWd+d4T+CBs1nd2DClhQNuP9MG5OHfR74Ozy2Of2Fl49kJrMrtEHffrnxWVyfqU
-	 6AbtxMu0tElxF4Op0ohB5nlsSYTM3xDSrn0S83C6eDdFcVAnVxBzgZRRqF59rmINZs
-	 uRU9qJZc/Wy2w==
-Date: Fri, 24 Oct 2025 16:46:18 +0100
+	b=FED6PRF0FA8+nlr/HlLEfF43LNsWs0QIg8r/QjIBGhoIAyWihajGtMu0JKKWtHxH+
+	 e4l7iiKcQU+oZMoYTX6dCA5qpzH5rEQKZdCBstaCvvkbC8me+bU1z/V6p0Rczkme19
+	 /EG1ohoCeUdv/6oTg1PqcAa/0QLo/m9IEM79oa975Go0Nnozw7KyQCSGgobvUrTI0Y
+	 0Fia0LJIiS7mtkKd0S+zwSwXFcuHQ7AQ0J4Mj/IwldDvhmC8HuHKx3Rd8m/rzwTWmS
+	 cU5yDaAzGhK9wzlOnfIFNWiR7JtgMor9H36djMVo8ZGVJeyxJ9y5D/9t7+AhqhhjZY
+	 0coJmUKg1gQDw==
+Date: Fri, 24 Oct 2025 16:46:43 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Bartosz Golaszewski <brgl@bgdev.pl>
 Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
@@ -65,20 +65,17 @@ Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
 	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
 	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH v2 08/10] ASoC: wsa881x: drop
+Subject: Re: [PATCH v2 09/10] ASoC: wsa883x: drop
  GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO lookup
-Message-ID: <aPufSoALA--iJeVn@finisterre.sirena.org.uk>
+Message-ID: <aPufYwKl9tO-CpYA@finisterre.sirena.org.uk>
 References: <20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org>
- <20251022-gpio-shared-v2-8-d34aa1fbdf06@linaro.org>
+ <20251022-gpio-shared-v2-9-d34aa1fbdf06@linaro.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="wsyROlqG9veSnDyd"
+	protocol="application/pgp-signature"; boundary="ZBvVvXfbmyXlx32a"
 Content-Disposition: inline
-In-Reply-To: <20251022-gpio-shared-v2-8-d34aa1fbdf06@linaro.org>
+In-Reply-To: <20251022-gpio-shared-v2-9-d34aa1fbdf06@linaro.org>
 X-Cookie: If in doubt, mumble.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_084623_876541_6B3A21D3 
-X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,12 +91,12 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---wsyROlqG9veSnDyd
+--ZBvVvXfbmyXlx32a
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Oct 22, 2025 at 03:10:47PM +0200, Bartosz Golaszewski wrote:
+On Wed, Oct 22, 2025 at 03:10:48PM +0200, Bartosz Golaszewski wrote:
 > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 >=20
 > This driver is only used on Qualcomm platforms which now select
@@ -107,20 +104,20 @@ On Wed, Oct 22, 2025 at 03:10:47PM +0200, Bartosz Golaszewski wrote:
 
 Acked-by: Mark Brown <broonie@kernel.org>
 
---wsyROlqG9veSnDyd
+--ZBvVvXfbmyXlx32a
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmj7n0kACgkQJNaLcl1U
-h9A69wf/QahGbiw/YMV7UmAmFOQctvV/QPY8gXkwyoIILpibLbN8jzinWqQcLI4Y
-de3G0ouRnd6psYaxcoqdvmoSgcFRvdM3NH8egptFL4ZcJgKcrgLfh5Xv7oxXLTTe
-SSW6pYCv1+7tTttECErVE9y3UlTCj4iBgWeOkyUcidGg3iWSWDRXQMEhTD0CbxRx
-vHHHv4MincZyu88gM3aqZP001FrXnlAk3mh5tZ/qDntF6x+7EdBfTeZDs05SxXhM
-RwatgXTeynPOhxRrK05leI9bTXzkv5OOcNXU5Zt9AKhP4XvPHIBQp85TKA4fbvAT
-nUmf4H4/9/7OUkguARLdScin2yPciA==
-=5Wuo
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmj7n2IACgkQJNaLcl1U
+h9D+zAf/bHPneBO59HMxvTqSA7qwe5d18hYIFoClJQyzpVYO40IIpgW7KGAMyuSJ
+ZN1w2OW/c17eYWwNHthbQsypcLB2T0myY672FEjYBtli0WV2DInFSDYi+lTu4oEF
+0dMt2bGGyXwEWZDwqrM2BNcGPd/4hdQMOnmTntTKz6zDvh33yMozXDdFJegd3x+e
+x4y0BpGe1AOPFOTjqg823dFa4EY8i1BWOEj77aR4YmFtAad83mxxxZtB2PwfYDhd
+fs3g4W4JTr+6zGsi9KvGsyN9Dzl7uU72wOJZphF4YJe/WW+Ngmy927zfloUeLrth
+EGmRsRYyBdElapMKBv9y1Il+ub7mcQ==
+=zYnL
 -----END PGP SIGNATURE-----
 
---wsyROlqG9veSnDyd--
+--ZBvVvXfbmyXlx32a--
 
