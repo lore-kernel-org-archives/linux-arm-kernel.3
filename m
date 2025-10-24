@@ -4,96 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED8FCCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 16:35:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE3BCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 16:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cu0gmfEAQ+U9vhoL2h/iCeG4Q5kdgS/ChdUsj5vfglQ=; b=KoqFYbn4JRo72vK3Chx4d9ExOC
-	lhiBkmT1FC5+l/23uvQoDDwHjMgS1L+FRF6AyD4cE7p5h5gOe0mxtaLcPu2QyjKCKPTOBMvrd+N3E
-	b20z8eHqKJ2O70tvayekdRTNLy/GV+EkTYfWZHCy6JSB1uuENQKjjpFcpvkLsPTkYK2AgwtdIyLT7
-	0SXg8cRhoFMr1CwMR4mBQmoxNNwyNNqEqYvN8u9TRY80Fz0UY8Gn9KJaXYM7LqaTVVQjyPvXOoHE1
-	+Up/9GnvMZG9iyvp3PJ4Epg/XN1U0f5ZkAfbAd5afdCL/HSulcBpsY5lhzn9VHD0l6fGCbRu4aSgW
-	nonufBrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=X7IZXhvIDj/W+D1gIQEAgoTNTahaPQFugZ1MfUL5228=; b=glppKFXFtb4FU6
+	XkSm80jFQ/sYKo9ZSqmH6o2JGEYJ9UZSS2GTa5JQhnNBf8AL/omi15iYULzsRYZs2zURlDaNnOK77
+	1PxYc2IH4/j52OgNaMV8j621kRqySXB5FNm+/jHiG+Fipy+hXG+uhT5uj3Rx5AwDXfdiuxCmzP0vK
+	TEddaAoGjil0efCbYsLf7EBIeOQSd05zNsa3C7wS+sWHCCNodfpIZ6S2JE9M2/vnzJAgQ2aMDeTFs
+	PQ1rS94XncGKfKG+ebZwu4w387Sa8U4h9Lcl2sR5Ir95TUNMqwoYSKJATpXktl/RvGHRpME0J5rGa
+	1FiRP1bnyiZdYVWdbxiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCKlY-00000009zaT-1fx1;
-	Fri, 24 Oct 2025 16:35:48 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCKlV-00000009zZ3-2njO
+	id 1vCKvt-0000000A0og-3WLP;
+	Fri, 24 Oct 2025 16:46:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vCKvq-0000000A0mV-3DHN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 16:35:47 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2909e6471a9so16544055ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 09:35:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761323744; x=1761928544; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cu0gmfEAQ+U9vhoL2h/iCeG4Q5kdgS/ChdUsj5vfglQ=;
-        b=n6wRqoYVp2wZI8y7HVTFemsH/sm7lQyMOG/U6IQLFHJZYYahUwiyiDAFaroe4u5YtH
-         z1q6XJVbpu2G0EnXFfRebj87AWobSFSybQHYiWEpcmCRC4wyX13ubZEBbKJuf+vSAN7G
-         PQFvqlZGOmkokTQPkP2oXihgfjoNkzR2hBYz6Cf525kBPGWc+BDicRncDxh90Dah7m6J
-         eDzILFO1BPYvwv3nXCLL9FzlzK7bbBVqGgIWnXElOWsznVBPQ9/BRVIwt+3f6lBr1N/z
-         FgyxzlPWlafGUFaAzeZotV4J36XqfPvE/KbqQp9GYg3L6pVFMssKLjs33897ec2l4pmb
-         7TWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761323744; x=1761928544;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cu0gmfEAQ+U9vhoL2h/iCeG4Q5kdgS/ChdUsj5vfglQ=;
-        b=cu9rozQ8T8tTZuC54JBZ9h0Ul2FhH40eohfxmR/v5/pYqeZ/Me8gdESWfiugydv2WH
-         rMKgnwHSHix1+ug3LnZnL6ldiu0cRnexT01+216siiaUdQoK/ZummMj88K7yLBiBD+Qz
-         l0Ie/dpU4pZ3LCsi2C/y1paC3KwsH8E9h4EkVdRHMhIWRPvWDS6PBMI+h4eAcn88+Xw3
-         LRC0iPt72oNGGxWjWS1orqR01rTreCH6jg3eYxbZvDj8wLPqPq4r36RhVAJ9FCvSUNT3
-         iV3cID0OZxI9HgxA0Hl08DnJMuKZ+b9fPAqUBayn9fEfsOuzsDePkkipeT1IJD/CALQ6
-         2ZCw==
-X-Forwarded-Encrypted: i=1; AJvYcCUbo6Auf7H/TcJ691oh6HptLHgCCCpMheZWgxlDj89aWPuC2BMefKm8dBWCrd8qXdhb3ojeiRzxtki0a6SiJc00@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCkknS9gu/wryGx6TLNmmJ6mhQ7IRXoTY8EdSPWxhezeetNyE5
-	Er2/b5Zf4Qv2/YBdKcfS6/mtGJreiG+A5CsbxnvuwiIe+BE5gF6Znxhfo1dEmA1la5jcyBswT+R
-	euRp17Q==
-X-Google-Smtp-Source: AGHT+IHEqEX/8GwSPDTtO9R4g/+ZtFO0C94Pe4ULgHF/AbXONvqtNga/vyT3hE3hD5zVd0KE3EnoXL2eWbI=
-X-Received: from pjyj8.prod.google.com ([2002:a17:90a:e608:b0:33b:51fe:1a8b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:db05:b0:24e:3cf2:2450
- with SMTP id d9443c01a7336-290c9c8a5e6mr368813165ad.2.1761323744332; Fri, 24
- Oct 2025 09:35:44 -0700 (PDT)
-Date: Fri, 24 Oct 2025 09:35:43 -0700
-In-Reply-To: <442f5488e4a66f6a1517082df3d2ae47316be010.camel@intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-15-seanjc@google.com>
- <442f5488e4a66f6a1517082df3d2ae47316be010.camel@intel.com>
-Message-ID: <aPuq33-qEJsDhdgG@google.com>
-Subject: Re: [PATCH v3 14/25] KVM: TDX: Bug the VM if extended the initial
- measurement fails
-From: Sean Christopherson <seanjc@google.com>
-To: Kai Huang <kai.huang@intel.com>
-Cc: "chenhuacai@kernel.org" <chenhuacai@kernel.org>, "frankja@linux.ibm.com" <frankja@linux.ibm.com>, 
-	"maz@kernel.org" <maz@kernel.org>, "borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>, 
-	"pjw@kernel.org" <pjw@kernel.org>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
-	"kas@kernel.org" <kas@kernel.org>, "maobibo@loongson.cn" <maobibo@loongson.cn>, 
-	"pbonzini@redhat.com" <pbonzini@redhat.com>, "maddy@linux.ibm.com" <maddy@linux.ibm.com>, 
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "imbrenda@linux.ibm.com" <imbrenda@linux.ibm.com>, 
-	"zhaotianrui@loongson.cn" <zhaotianrui@loongson.cn>, "anup@brainfault.org" <anup@brainfault.org>, 
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>, 
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>, Yan Y Zhao <yan.y.zhao@intel.com>, 
-	"michael.roth@amd.com" <michael.roth@amd.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Ira Weiny <ira.weiny@intel.com>, 
-	"loongarch@lists.linux.dev" <loongarch@lists.linux.dev>, 
-	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>, 
-	"ackerleytng@google.com" <ackerleytng@google.com>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-	"kvm-riscv@lists.infradead.org" <kvm-riscv@lists.infradead.org>, Vishal Annapurve <vannapurve@google.com>, 
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>, 
-	Rick P Edgecombe <rick.p.edgecombe@intel.com>, 
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "x86@kernel.org" <x86@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
+	Fri, 24 Oct 2025 16:46:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEEB0175A;
+	Fri, 24 Oct 2025 09:46:15 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E9AE83F66E;
+	Fri, 24 Oct 2025 09:46:21 -0700 (PDT)
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v4 00/11] CoreSight: Refactor power management for ETMv3/4
+Date: Fri, 24 Oct 2025 17:45:48 +0100
+Message-Id: <20251024-arm_coresight_power_management_fix-v4-0-690e69ae6977@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIADyt+2gC/42NSwrCMBRFt1Le2Eh+xcaR+5ASQnxtM0hSXkpVS
+ vduLC7A4Tlwz92gIAUscG02IFxDCTlV0KcG/OTSiCw8KoPksuWGG+YoWp8JSxinxc75iWSjS27
+ EiGmxQ3gxoUx3UYPREjuooZmw6uPk3leeQlkyvY/PVX3tLy/af/KrYpyh0waNEFKjv9XR2ecI/
+ b7vH6cOnv3SAAAA
+X-Change-ID: 20250909-arm_coresight_power_management_fix-139873f942e8
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Yeoreum Yun <yeoreum.yun@arm.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>, 
+ Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761324381; l=2996;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=v2twuYXG+/3NDpCUxYNOeH7MKLTh4SP2uo5QFgLwyqc=;
+ b=Klr6XLGKNPEuBBNbbR/b1JkCdZmww3rNfqfEnAGJLmTCKKxONDhvuClZogITKopSjnsvjLz+f
+ DgXf2XWTE3TBRM0wf5Q9VplYPzJsAJGRd/LxhhnFLGjLk2A7FJiCW30
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_093545_706617_F3B8C336 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20251024_094626_933453_A3F363CA 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,35 +79,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025, Kai Huang wrote:
-> On Thu, 2025-10-16 at 17:32 -0700, Sean Christopherson wrote:
-> > WARN and terminate the VM if TDH_MR_EXTEND fails, as extending the
-> > measurement should fail if and only if there is a KVM bug, or if the S-EPT
-> > mapping is invalid, and it should be impossible for the S-EPT mappings to
-> > be removed between kvm_tdp_mmu_map_private_pfn() and tdh_mr_extend().
-> > 
-> > Holding slots_lock prevents zaps due to memslot updates,
-> > filemap_invalidate_lock() prevents zaps due to guest_memfd PUNCH_HOLE,
-> > and all usage of kvm_zap_gfn_range() is mutually exclusive with S-EPT
-> > entries that can be used for the initial image.  The call from sev.c is
-> > obviously mutually exclusive, TDX disallows KVM_X86_QUIRK_IGNORE_GUEST_PAT
-> > so same goes for kvm_noncoherent_dma_assignment_start_or_stop, and while
-> > __kvm_set_or_clear_apicv_inhibit() can likely be tripped while building the
-> > image, the APIC page has its own non-guest_memfd memslot and so can't be
-> > used for the initial image, which means that too is mutually exclusive.
-> > 
-> > Opportunistically switch to "goto" to jump around the measurement code,
-> > partly to make it clear that KVM needs to bail entirely if extending the
-> > measurement fails, partly in anticipation of reworking how and when
-> > TDH_MEM_PAGE_ADD is done.
-> > 
-> > Fixes: d789fa6efac9 ("KVM: TDX: Handle vCPU dissociation")
-> 
-> So IIUC this patch only adds a KVM_BUG_ON() when TDH.MR.EXTEND fails.  How
-> does this fix anything?
+This series is extracted from the CoreSight power management fixes and
+refactoring [1], focusing on ETMv3/4 power management.  The remaining
+parts will be sent out separately. Hopefully, this makes things easier
+for us to review and merge.
 
-Hmm, yeah, I'll drop the Fixes.  It made more sense when I thought it was
-impossible for tdh_mr_extend() to fail, as returning an error and not explicitly
-terminating the VM was "wrong".  But I agree it does far more harm than good,
-even when relocated to the end of the series.
+Compared to the previous version, only one new patch has been added — to
+retain the sequencer state for ETMv4. No other changes are included.
+
+This series has been verified on Juno-r2 platform.
+
+[1] https://lore.kernel.org/linux-arm-kernel/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com/
+
+---
+Changes in v4:
+- Added patch 10 for retaining sequencer state in ETMv4 driver (Mike).
+- Added Mike's review tags.
+- Added James' test tags.
+- Link to v3: https://lore.kernel.org/r/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com
+
+Changes in v3:
+- Fixed building failure in ETMv3 driver (kernel test robot).
+- Refactoring ETMv3 change for checking CPU ID (Levi).
+- Fixed NULL pointer issue during CPU idle (James).
+- Fixed lockdep complaint for HARDIRQ-safe and HARDIRA-unsafe (James).
+- Fixed acquiring mutex in atomic context (James).
+- Rebased on the latest coresight-next branch.
+- Link to v2: https://lore.kernel.org/r/20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com
+
+Changes in v2:
+- Refactored ETMv4 suspend and resume for reusing the normal enabling
+  and disabling flows (James).
+- Used a per-CPU structure to maintain path pointers (James).
+- Supported helpers in CPU PM flows (James).
+- Fixed the SMP-safe access to device mode.
+- Fixed the context synchronization in ETMv4x driver.
+- Link to v1: https://lore.kernel.org/linux-arm-kernel/20250516160742.1200904-1-leo.yan@arm.com/
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+
+---
+Leo Yan (11):
+      coresight: Change device mode to atomic type
+      coresight: etm4x: Always set tracer's device mode on target CPU
+      coresight: etm3x: Always set tracer's device mode on target CPU
+      coresight: etm4x: Correct polling IDLE bit
+      coresight: etm4x: Ensure context synchronization is not ignored
+      coresight: etm4x: Add context synchronization before enabling trace
+      coresight: etm4x: Properly control filter in CPU idle with FEAT_TRF
+      coresight: etm4x: Remove the state_needs_restore flag
+      coresight: etm4x: Add flag to control single-shot restart
+      coresight: etm4x: Retain sequencer state
+      coresight: etm4x: Reuse normal enable and disable logic in CPU idle
+
+ drivers/hwtracing/coresight/coresight-etm3x-core.c |  59 ++--
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 372 +++++++--------------
+ drivers/hwtracing/coresight/coresight-etm4x.h      |  62 ----
+ include/linux/coresight.h                          |  25 +-
+ 4 files changed, 175 insertions(+), 343 deletions(-)
+---
+base-commit: 6fab32bb6508abbb8b7b1c5498e44f0c32320ed5
+change-id: 20250909-arm_coresight_power_management_fix-139873f942e8
+
+Best regards,
+-- 
+Leo Yan <leo.yan@arm.com>
+
 
