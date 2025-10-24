@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D09C3CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:13:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EFFCCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eWHa0BMJQ+qq1CnBwyGKZSlSoUHzAXIAH1td5ml1nqk=; b=3Ne2IQLOhSolxR95Pmws3ja1LH
-	wpIBM59PWeq1ml+1B+pUOVpBklr4zelCMOKW2RbabTIu6FJSvvpwTE0mOkaPtUMGmb4ITBKQ4Zgl1
-	goAGCJ4ahzH/VNu60Oihn3E7XsrPy4SXuQv/+T/iDf0Y0IXsWR8bcuTKdYPCeEhGtJ6K0bEpP+eCo
-	2m8VRx78xnuGIQ6aLXlPGen83aP4RxiuITwdhAmjXZmkz8x2ikt7K7pU38oI43DsvIoljZvsHDAzK
-	6q7ndP9bb7U7ddTJJZDfPt9E+LoWPJ3vEaFj0hNZSk1Oz/aRLoWhqisBOgq5p9/95LDmDgWx/kBUN
-	ry5d1WQg==;
+	bh=I28tj+5p1lYh91jL3bRG2Q0tjvvTsVTFnIaEJgJIkyo=; b=XM8xBObEbytX2xTB17au4OAr9p
+	1kobMOk++9BS7gnBDe+pkLMos0WhJW6vZncx7ZYpGvtdV4/shBlADy2qlVJM3QmRveq4Lij5u+vgL
+	5TZb1Iwmcnl28PfBahjdTyZFy6LSvaeI89TSy7Kc3o0pOkmOmeEj9UYBEj34IxygtUc3zvVD0o4pa
+	BoZLTOu7xpy7Uw/gIHwwXmNF39WllJsweJqFx/SvF2k5xxhRuWmwHCBwdCVhG7ju3CIMXtrmheFz9
+	fnS8EWz769nVqy9m4YJLvT+yh9IcGX96+Nj70Kp/KbYySm9+AaPhsoj8B6nMA561ZN51TXJOu0xOm
+	lY9w1GzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLMG-0000000A5ro-3tj8;
-	Fri, 24 Oct 2025 17:13:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vCLUY-0000000A6jZ-0tRq;
+	Fri, 24 Oct 2025 17:22:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLMG-0000000A5rX-1pQD;
-	Fri, 24 Oct 2025 17:13:44 +0000
+	id 1vCLUV-0000000A6j7-3wIG;
+	Fri, 24 Oct 2025 17:22:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A91F6023A;
-	Fri, 24 Oct 2025 17:13:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DF70C4CEF1;
-	Fri, 24 Oct 2025 17:13:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 92CA5450CB;
+	Fri, 24 Oct 2025 17:22:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4763C4CEF1;
+	Fri, 24 Oct 2025 17:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761326023;
-	bh=R8ei2+rtTjBZldNo1xDWoXq5kwYHchpeiJ1vuqrotkA=;
+	s=k20201202; t=1761326535;
+	bh=I28tj+5p1lYh91jL3bRG2Q0tjvvTsVTFnIaEJgJIkyo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kKN/xz/QtGADSPG/LXyoKlY+GTmbeYUFWlyLfHB/2pBk8eLYD2VW41jr381YkANwt
-	 UjnW42UbfSQgX1Cjx8mvTsAOOynRRM2Yr+JK8HN59mvwnfmF+BdHZug9Db8Yop+Pko
-	 TXifJM4opjWBFXM7gtFtX8Ut0XB4ImdLBc4q7OzRsZUr5T7KqWuUioXb3vGrB7foOM
-	 Nph1xeIyWi+0w5itXmn8s7t1Untza2OpaR25IyKttkF4ctHMzEtd/w+q9/Gz3e5N3j
-	 KV7t/rgEEoiWL/XgUYQWy3FOMg/l0ctqMtxENbx/jrc3gNGUr6klToMJESA6+LrVUx
-	 G4Q2ZrZ0cSBtQ==
-Date: Fri, 24 Oct 2025 18:13:36 +0100
+	b=KUa1CnrtPNrwbyc9xwjIax/HdQ2x3NsIhO7pb6nClIhH1HYrZm/pecefHnbdI/AFE
+	 XKmg9qW7lAVps/bhq52idx/TMs+BGBtjNRp6IxGiDR2JyfhTvs/gNQAnq+LFXHzg5J
+	 kEp2wtLF0ScSk5v1GHouz8Y3snLJ3eGlWDChCPUPr3e3ESzAattpK7p3g0QhxZ80z7
+	 Agsmaq/4rxfXSUymVOSxXkXtki/JOutcZ773KHCWNQX5b6CbgtNRN3McR2floLh3Uh
+	 LPSgSMrnxFvHSlnIFQKmaKJkYXHYPUjxif1yqFkNNsLgw99QoZTbDDOAtFDLtBQzik
+	 0/d9q29YuIRoQ==
+Date: Fri, 24 Oct 2025 18:22:08 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Cc: Alim Akhtar <alim.akhtar@samsung.com>,
@@ -66,16 +66,17 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH v3 03/24] dt-bindings: ufs: mediatek,ufs: Add mt8196
- variant
-Message-ID: <20251024-thrash-amid-d5af186c4319@spud>
+Subject: Re: [PATCH v3 00/24] MediaTek UFS Cleanup and MT8196 Enablement
+Message-ID: <20251024-startup-glimmer-64480e02bd26@spud>
 References: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
- <20251023-mt8196-ufs-v3-3-0f04b4a795ff@collabora.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jr8TZfrxyC1RMH9a"
+	protocol="application/pgp-signature"; boundary="neMgzJxl9Udqmnxf"
 Content-Disposition: inline
-In-Reply-To: <20251023-mt8196-ufs-v3-3-0f04b4a795ff@collabora.com>
+In-Reply-To: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251024_102216_035820_73882B09 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,94 +92,67 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---jr8TZfrxyC1RMH9a
+--neMgzJxl9Udqmnxf
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Oct 23, 2025 at 09:49:21PM +0200, Nicolas Frattaroli wrote:
-
->      };
-> +  - |
-> +    #include <dt-bindings/reset/mediatek,mt8196-resets.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +    ufshci@16810000 {
-> +        compatible =3D "mediatek,mt8196-ufshci";
-> +        reg =3D <0x16810000 0x2a00>;
-> +        interrupts =3D <GIC_SPI 320 IRQ_TYPE_LEVEL_HIGH>;
-> +
-> +        clocks =3D <&ufs_ao_clk 6>,
-> +                 <&ufs_ao_clk 7>,
-> +                 <&clk26m>,
-> +                 <&ufs_ao_clk 3>,
-> +                 <&clk26m>,
-> +                 <&ufs_ao_clk 4>,
-> +                 <&ufs_ao_clk 0>,
-> +                 <&topckgen 7>,
-> +                 <&topckgen 41>,
-> +                 <&topckgen 105>,
-> +                 <&topckgen 83>,
-> +                 <&ufs_ao_clk 1>,
-> +                 <&ufs_ao_clk 2>,
-> +                 <&topckgen 42>,
-> +                 <&topckgen 84>,
-> +                 <&topckgen 102>;
-
-This is absolutely a nitpick thing, but if you end up resubmitting, can
-you pick a consistent format between the two examples your series adds
-for the clocks/clock names?
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
-
-> +        clock-names =3D "ufs",
-> +                      "ufs_aes",
-> +                      "ufs_tick",
-> +                      "unipro_sysclk",
-> +                      "unipro_tick",
-> +                      "unipro_mp_bclk",
-> +                      "ufs_tx_symbol",
-> +                      "ufs_mem_sub",
-> +                      "crypt_mux",
-> +                      "crypt_lp",
-> +                      "crypt_perf",
-> +                      "ufs_rx_symbol0",
-> +                      "ufs_rx_symbol1",
-> +                      "ufs_sel",
-> +                      "ufs_sel_min_src",
-> +                      "ufs_sel_max_src";
-> +
-> +        operating-points-v2 =3D <&ufs_opp_table>;
-> +
-> +        phys =3D <&ufsphy>;
-> +
-> +        avdd09-supply =3D <&mt6363_vsram_modem>;
-> +        vcc-supply =3D <&mt6363_vemc>;
-> +        vcc-supply-1p8;
-> +        vccq-supply =3D <&mt6363_va12_2>;
-> +        vccq2-supply =3D <&mt6363_vufs12>;
-> +
-> +        resets =3D <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_UNIPRO>,
-> +                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_CRYPTO>,
-> +                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFSHCI>;
-> +        reset-names =3D "unipro", "crypto", "hci";
-> +        mediatek,ufs-disable-mcq;
-> +    };
+On Thu, Oct 23, 2025 at 09:49:18PM +0200, Nicolas Frattaroli wrote:
+> In this series, the existing MediaTek UFS binding is expanded and
+> completed to correctly describe not just the existing compatibles, but
+> also to introduce a new compatible in the from of the MT8196 SoC.
 >=20
-> --=20
-> 2.51.1.dirty
+> The resets, which until now were completely absent from both the UFS
+> host controller binding and the UFS PHY binding, are introduced to both.
+> This also means the driver's undocumented and, in mainline, unused reset
+> logic is reworked. In particular, the PHY reset is no longer a reset of
+> the host controller node, but of the PHY node.
 >=20
+> This means the host controller can reset the PHY through the common PHY
+> framework.
+>=20
+> The resets remain optional.
+>=20
+> Additionally, a massive number of driver cleanups are introduced. These
+> were prompted by me inspecting the driver more closely as I was
+> adjusting it to correspond to the binding.
+>=20
+> The driver still implements vendor properties that are undocumented in
+> the binding. I did not touch most of those, as I neither want to
+> convince the bindings maintainers that they are needed without knowing
+> precisely what they're for, nor do I want to argue with the driver
+> authors when removing them.
 
---jr8TZfrxyC1RMH9a
+Some of these are pretty recent too, it would be /wonderful/ if the ufs
+maintainers would do what everyone else does and require that these new
+devicetree properties come with binding changes.
+
+I had a skim of them, and on the surface at least some of them some
+reasonable, but it is difficult to ascertain whether the information
+could be gathered from another source. Others though (the supply stuff)
+seem bogus at first glance.
+
+>=20
+> Due to the "Marie Kondo with a chainsaw" nature of the driver cleanup
+> patches, I humbly request that reviewers do not comment on displeasing
+> code they see in the context portion of a patch before they've read the
+> whole patch series, as that displeasing code may in fact be reworked in
+> a subsequent patch of this series. Please keep comments focused on the
+> changed lines of the diff; I know there's more that can be done, but it
+> doesn't necessarily need to be part of this series.
+>=20
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
+--neMgzJxl9Udqmnxf
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPuzwAAKCRB4tDGHoIJi
-0hLaAP4uJxkdce4PNxbIp4Rzr4024f32v9vwcNnDRCl9lOghRgEA/GmQKqp/HFtv
-vmFIaYAOVAPddZvh3zO1MoucBgMwww0=
-=WOoe
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPu1wAAKCRB4tDGHoIJi
+0vj7AQD/qMUfkmvkG5iyPjCXcZDX8DMNZCwnz8m5hn6oc9PBqgEAn3C/Eixdj5+2
+V5Ordm3MjSUlMvxa4MDfaFftrECzpwE=
+=dTaQ
 -----END PGP SIGNATURE-----
 
---jr8TZfrxyC1RMH9a--
+--neMgzJxl9Udqmnxf--
 
