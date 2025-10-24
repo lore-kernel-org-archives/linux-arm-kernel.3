@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DDA4CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 20:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704ABCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 21:26:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=P3RYXR2L1oBhDp5vwIgi1ePSClVagAAxd1wPIRRoemQ=; b=KxAS5iYP/WzCTDgkCwJudde/DR
-	QFbR4exW+PtCc4pEjtUl0YwGuLOLZTHbAuZjW0Fy+LC01koFMFCO+nkC6bqkQhzCPv1zKmhAgpjuT
-	uTi1p/O9XH3zcIj+rnmCnC11i1gKRpy0/NwxEgFd9USNgeDUgQsa29yp72xNuopIWQttVwN8Xjh9C
-	SwAAdKy+5dHh2y/bAUefszW0maWz5l1P4g5mH8GvYWoSWZJ+RiVEyAlcGPTbRufoMYRWOd2m5HloG
-	mp/exYgHG4yx0c3zkqPk01hVsh16zeevjEfrNcd0PV8Ev51AlAi8KRJMX42jACvbQU2AypFdNJ962
-	kf+JB+rg==;
+	bh=wjrz2b705fwQCHpU1G05h50dzuN50SGvOat3qETxAMw=; b=LLhlkbPeoWF7uZTWR/o0DN4RUe
+	71rTiqQ1lZgmk8tUTEiuW44TCOaFYkiv5Hdyf6aNoZH9pQe3c1luSbez6GJpdl+J3TSkw8QnRMpHo
+	EFupe4jQvaji0otiZLNa8XMtpkyPrjMEhKmoLNxOsOM0rnMZjvxRyRcqtqjZnP3Zdd5QMEJkKsExa
+	+cwBwZDMZDIkKnlKWSG8SUBHFI0qct0cCmJmM1Y4vXauWGXYng3EV7/MI+dwBJ2eiA2EeINYmKNtM
+	kZObxR31h2L0z02c8FacpdPWHW4Ym9TJ5WKNHLxnDZ/4GYjh7MnB1oPF68RektjFDqKJK8Fob3g0p
+	qD6hI70w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCOoN-0000000AVm5-0QUE;
-	Fri, 24 Oct 2025 20:54:59 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1vCPIO-0000000AY2W-1yzS;
+	Fri, 24 Oct 2025 21:26:00 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCOoK-0000000AVln-2QH3
+	id 1vCPIM-0000000AY22-1JWJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 20:54:58 +0000
+	Fri, 24 Oct 2025 21:25:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1761339296; x=1792875296;
-  h=date:from:to:cc:subject:message-id;
-  bh=L6dVO5JQ6SYgzNagQlWxFQDZ0XBgITPohKjqKDgV7rg=;
-  b=IGUoE4GN2qLcDXbWSzloifRK4l7jhpl3qpwWbfp7FQRPQyPY5fcRdv/9
-   AGYnPiwzfkjSRLUp3z0eQqS8i+abuMCBSXz36Iqxnw7L/Dlkd5ZG56EB0
-   tQ+1BQ+neP97aB86g8r57vvj8jnMHRENHQkk9Dd5MlIs7fup7ry+etR7x
-   A/7la1kWvX8m/7bIeknR7UN9wH+vdpeUDbGTPvKHh748MdKZhbKqlDlFu
-   bIXq4yICOVY8fbHNvZQSFQBDC/xFwlRSINj8U+7hqhVu2kO0c3BrVFrKa
-   s5ECbZOoTF5wau48OkfmoatKaAQd2FxxD/Hoj/p5sLQSzJ7drW6Rs+vv/
-   Q==;
-X-CSE-ConnectionGUID: Es4gCsFZQLuiK7ROhN7yVg==
-X-CSE-MsgGUID: M81r2uLjSO2ZKBsVL+piqg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="88996441"
+  t=1761341158; x=1792877158;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=3zPOh5wqxEgbCEXKKEbH5sl3BiF2Gmtq2XYoDsNEfQc=;
+  b=PL6EcOe6yXKBMLrq1A99BmFxqREow63l4+MwwbcIS3G+JtRIgBz7HQ70
+   FqfHNtr6gUo9EAN+qUYHVD7RzrABQvXE2D/+EO3MoHN0c8RqW/cW4j37Y
+   gUpqbdiICpZkHZNwfoLt+wgjVDsoMoecIQW4MOR0AEY9XLwNLxoxjYjqW
+   WgesE8onQW1Y4aDLvh0fbpL0BC6JfcWaUAqhfBzWSS1eQTI4ePrVQARBJ
+   xcMHNnNqDsc2JvOm/NkfYj8BRlfXIB2EWvMJtlAg3N9fdcQYju+UrfqJi
+   2NSWcqVVkUGB8KpfH4S/altQdtfesW7wvWF9CADE6v7HXI+hwxQ5wv16x
+   g==;
+X-CSE-ConnectionGUID: hNmI7WivRtaZe4mUYtTTiQ==
+X-CSE-MsgGUID: lzEd1aBaReuP3qUKWrV5dw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63620752"
 X-IronPort-AV: E=Sophos;i="6.19,253,1754982000"; 
-   d="scan'208";a="88996441"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 13:54:56 -0700
-X-CSE-ConnectionGUID: QB29cNReTByfimbcM2Nbyw==
-X-CSE-MsgGUID: SWF5JweeSy6GnlLkSTcyYQ==
+   d="scan'208";a="63620752"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 14:25:57 -0700
+X-CSE-ConnectionGUID: CqL5zGUgSpazFxb3BTqu7A==
+X-CSE-MsgGUID: NsbYYu+PQ32Jf62A7c7GkA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.19,253,1754982000"; 
-   d="scan'208";a="184588965"
+   d="scan'208";a="215182989"
 Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
-  by orviesa008.jf.intel.com with ESMTP; 24 Oct 2025 13:54:55 -0700
+  by orviesa002.jf.intel.com with ESMTP; 24 Oct 2025 14:25:57 -0700
 Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
 	(envelope-from <lkp@intel.com>)
-	id 1vCOoG-000EtH-1l;
-	Fri, 24 Oct 2025 20:54:52 +0000
-Date: Sat, 25 Oct 2025 04:53:56 +0800
+	id 1vCPII-000Etp-1V;
+	Fri, 24 Oct 2025 21:25:54 +0000
+Date: Sat, 25 Oct 2025 05:25:42 +0800
 From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:arm/fixes] BUILD SUCCESS
- b0cd17fd31a86b55dcec3eb64b9d2a17c1c01e6a
-Message-ID: <202510250450.Monsnwi2-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: [linusw-nomadik:ux500-janice-v6.18-rc1 9/11]
+ drivers/input/misc/isa1200.c:423:10: error: 'struct i2c_driver' has no
+ member named 'probe_new'
+Message-ID: <202510250509.rKlq3ySg-lkp@intel.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_135456_674411_133AAAF0 
-X-CRM114-Status: UNSURE (   5.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_142558_370457_14AA6FE9 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,243 +85,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
-branch HEAD: b0cd17fd31a86b55dcec3eb64b9d2a17c1c01e6a  soc: officially expand maintainership team
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git ux500-janice-v6.18-rc1
+head:   ccd3929e54f44ccae885d803cc472204f661c886
+commit: 5e4f8e741997d1d027479597bf5265607888bcb1 [9/11] Input: isa1200 - new driver for Immersion ISA1200
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20251025/202510250509.rKlq3ySg-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251025/202510250509.rKlq3ySg-lkp@intel.com/reproduce)
 
-elapsed time: 1450m
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510250509.rKlq3ySg-lkp@intel.com/
 
-configs tested: 223
-configs skipped: 3
+All errors (new ones prefixed by >>):
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+>> drivers/input/misc/isa1200.c:423:10: error: 'struct i2c_driver' has no member named 'probe_new'
+     423 |         .probe_new = isa1200_probe,
+         |          ^~~~~~~~~
+>> drivers/input/misc/isa1200.c:423:22: error: initialization of 'const struct i2c_device_id *' from incompatible pointer type 'int (*)(struct i2c_client *)' [-Wincompatible-pointer-types]
+     423 |         .probe_new = isa1200_probe,
+         |                      ^~~~~~~~~~~~~
+   drivers/input/misc/isa1200.c:423:22: note: (near initialization for 'isa1200_i2c_driver.id_table')
+   drivers/input/misc/isa1200.c:283:12: note: 'isa1200_probe' declared here
+     283 | static int isa1200_probe(struct i2c_client *client)
+         |            ^~~~~~~~~~~~~
 
-tested configs:
-alpha                             allnoconfig    clang-22
-alpha                            allyesconfig    gcc-15.1.0
-alpha                               defconfig    clang-19
-arc                              allmodconfig    clang-19
-arc                              allmodconfig    gcc-15.1.0
-arc                               allnoconfig    clang-22
-arc                              allyesconfig    clang-19
-arc                              allyesconfig    gcc-15.1.0
-arc                                 defconfig    clang-19
-arc                   randconfig-001-20251024    clang-22
-arc                   randconfig-001-20251024    gcc-8.5.0
-arc                   randconfig-002-20251024    clang-22
-arc                   randconfig-002-20251024    gcc-14.3.0
-arm                              allmodconfig    clang-19
-arm                               allnoconfig    clang-22
-arm                              allyesconfig    clang-19
-arm                                 defconfig    clang-19
-arm                   randconfig-001-20251024    clang-20
-arm                   randconfig-001-20251024    clang-22
-arm                   randconfig-002-20251024    clang-22
-arm                   randconfig-002-20251024    gcc-15.1.0
-arm                   randconfig-003-20251024    clang-22
-arm                   randconfig-004-20251024    clang-22
-arm64                            allmodconfig    clang-19
-arm64                             allnoconfig    clang-22
-arm64                            allyesconfig    gcc-15.1.0
-arm64                               defconfig    clang-19
-arm64                 randconfig-001-20251024    clang-22
-arm64                 randconfig-001-20251024    gcc-8.5.0
-arm64                 randconfig-002-20251024    clang-16
-arm64                 randconfig-002-20251024    clang-22
-arm64                 randconfig-003-20251024    clang-22
-arm64                 randconfig-003-20251024    gcc-13.4.0
-arm64                 randconfig-004-20251024    clang-17
-arm64                 randconfig-004-20251024    clang-22
-csky                             allmodconfig    gcc-15.1.0
-csky                              allnoconfig    clang-22
-csky                             allyesconfig    gcc-15.1.0
-csky                                defconfig    clang-19
-csky                  randconfig-001-20251024    gcc-14.3.0
-csky                  randconfig-001-20251024    gcc-8.5.0
-csky                  randconfig-002-20251024    gcc-11.5.0
-csky                  randconfig-002-20251024    gcc-8.5.0
-hexagon                          allmodconfig    clang-17
-hexagon                           allnoconfig    clang-22
-hexagon                          allyesconfig    clang-22
-hexagon                             defconfig    clang-19
-hexagon               randconfig-001-20251024    clang-22
-hexagon               randconfig-001-20251024    gcc-8.5.0
-hexagon               randconfig-002-20251024    clang-22
-hexagon               randconfig-002-20251024    gcc-8.5.0
-i386                             allmodconfig    clang-20
-i386                             allmodconfig    gcc-14
-i386                              allnoconfig    clang-20
-i386                              allnoconfig    gcc-14
-i386                             allyesconfig    clang-20
-i386                             allyesconfig    gcc-14
-i386        buildonly-randconfig-001-20251024    clang-20
-i386        buildonly-randconfig-001-20251024    gcc-14
-i386        buildonly-randconfig-002-20251024    gcc-14
-i386        buildonly-randconfig-003-20251024    clang-20
-i386        buildonly-randconfig-003-20251024    gcc-14
-i386        buildonly-randconfig-004-20251024    gcc-14
-i386        buildonly-randconfig-005-20251024    gcc-14
-i386        buildonly-randconfig-006-20251024    gcc-14
-i386                                defconfig    clang-20
-i386                  randconfig-001-20251024    clang-20
-i386                  randconfig-002-20251024    clang-20
-i386                  randconfig-003-20251024    clang-20
-i386                  randconfig-004-20251024    clang-20
-i386                  randconfig-005-20251024    clang-20
-i386                  randconfig-006-20251024    clang-20
-i386                  randconfig-007-20251024    clang-20
-i386                  randconfig-011-20251024    clang-20
-i386                  randconfig-012-20251024    clang-20
-i386                  randconfig-013-20251024    clang-20
-i386                  randconfig-014-20251024    clang-20
-i386                  randconfig-015-20251024    clang-20
-i386                  randconfig-016-20251024    clang-20
-i386                  randconfig-017-20251024    clang-20
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-22
-loongarch                        allyesconfig    gcc-15.1.0
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20251024    gcc-15.1.0
-loongarch             randconfig-001-20251024    gcc-8.5.0
-loongarch             randconfig-002-20251024    gcc-15.1.0
-loongarch             randconfig-002-20251024    gcc-8.5.0
-m68k                             allmodconfig    clang-19
-m68k                             allmodconfig    gcc-15.1.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                             allyesconfig    clang-19
-m68k                             allyesconfig    gcc-15.1.0
-m68k                                defconfig    clang-19
-microblaze                       allmodconfig    clang-19
-microblaze                       allmodconfig    gcc-15.1.0
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                       allyesconfig    clang-19
-microblaze                       allyesconfig    gcc-15.1.0
-microblaze                          defconfig    gcc-15.1.0
-mips                             allmodconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-mips                             allyesconfig    gcc-15.1.0
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    gcc-15.1.0
-nios2                 randconfig-001-20251024    gcc-11.5.0
-nios2                 randconfig-001-20251024    gcc-8.5.0
-nios2                 randconfig-002-20251024    gcc-11.5.0
-nios2                 randconfig-002-20251024    gcc-8.5.0
-openrisc                          allnoconfig    clang-22
-openrisc                          allnoconfig    gcc-15.1.0
-openrisc                         allyesconfig    gcc-15.1.0
-openrisc                            defconfig    gcc-14
-parisc                           allmodconfig    gcc-15.1.0
-parisc                            allnoconfig    clang-22
-parisc                            allnoconfig    gcc-15.1.0
-parisc                           allyesconfig    gcc-15.1.0
-parisc                              defconfig    gcc-15.1.0
-parisc                randconfig-001-20251024    gcc-8.5.0
-parisc                randconfig-001-20251024    gcc-9.5.0
-parisc                randconfig-002-20251024    gcc-13.4.0
-parisc                randconfig-002-20251024    gcc-8.5.0
-parisc64                            defconfig    gcc-15.1.0
-powerpc                          allmodconfig    gcc-15.1.0
-powerpc                           allnoconfig    clang-22
-powerpc                           allnoconfig    gcc-15.1.0
-powerpc                          allyesconfig    gcc-15.1.0
-powerpc               randconfig-001-20251024    gcc-8.5.0
-powerpc               randconfig-002-20251024    clang-17
-powerpc               randconfig-002-20251024    gcc-8.5.0
-powerpc               randconfig-003-20251024    clang-16
-powerpc               randconfig-003-20251024    gcc-8.5.0
-powerpc64             randconfig-001-20251024    gcc-12.5.0
-powerpc64             randconfig-001-20251024    gcc-8.5.0
-powerpc64             randconfig-002-20251024    gcc-14.3.0
-powerpc64             randconfig-002-20251024    gcc-8.5.0
-powerpc64             randconfig-003-20251024    gcc-8.5.0
-riscv                            allmodconfig    gcc-15.1.0
-riscv                             allnoconfig    clang-22
-riscv                             allnoconfig    gcc-15.1.0
-riscv                            allyesconfig    gcc-15.1.0
-riscv                               defconfig    gcc-14
-riscv                 randconfig-001-20251024    clang-22
-riscv                 randconfig-002-20251024    clang-22
-s390                             allmodconfig    clang-18
-s390                             allmodconfig    gcc-15.1.0
-s390                              allnoconfig    clang-22
-s390                             allyesconfig    gcc-15.1.0
-s390                                defconfig    gcc-14
-s390                  randconfig-001-20251024    clang-22
-s390                  randconfig-001-20251024    gcc-13.4.0
-s390                  randconfig-002-20251024    clang-22
-sh                               allmodconfig    gcc-15.1.0
-sh                                allnoconfig    gcc-15.1.0
-sh                               allyesconfig    gcc-15.1.0
-sh                                  defconfig    gcc-14
-sh                    randconfig-001-20251024    clang-22
-sh                    randconfig-001-20251024    gcc-12.5.0
-sh                    randconfig-002-20251024    clang-22
-sh                    randconfig-002-20251024    gcc-14.3.0
-sparc                            allmodconfig    gcc-15.1.0
-sparc                             allnoconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc                 randconfig-001-20251024    clang-22
-sparc                 randconfig-001-20251024    gcc-12.5.0
-sparc                 randconfig-002-20251024    clang-22
-sparc                 randconfig-002-20251024    gcc-8.5.0
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20251024    clang-20
-sparc64               randconfig-001-20251024    clang-22
-sparc64               randconfig-002-20251024    clang-22
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-22
-um                               allyesconfig    gcc-14
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20251024    clang-22
-um                    randconfig-001-20251024    gcc-14
-um                    randconfig-002-20251024    clang-22
-um                           x86_64_defconfig    gcc-14
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20251024    clang-20
-x86_64      buildonly-randconfig-001-20251024    gcc-14
-x86_64      buildonly-randconfig-002-20251024    clang-20
-x86_64      buildonly-randconfig-002-20251024    gcc-14
-x86_64      buildonly-randconfig-003-20251024    clang-20
-x86_64      buildonly-randconfig-003-20251024    gcc-14
-x86_64      buildonly-randconfig-004-20251024    gcc-14
-x86_64      buildonly-randconfig-005-20251024    gcc-14
-x86_64      buildonly-randconfig-006-20251024    clang-20
-x86_64      buildonly-randconfig-006-20251024    gcc-14
-x86_64                              defconfig    clang-20
-x86_64                              defconfig    gcc-14
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20251024    gcc-14
-x86_64                randconfig-002-20251024    gcc-14
-x86_64                randconfig-003-20251024    gcc-14
-x86_64                randconfig-004-20251024    gcc-14
-x86_64                randconfig-005-20251024    gcc-14
-x86_64                randconfig-006-20251024    gcc-14
-x86_64                randconfig-007-20251024    gcc-14
-x86_64                randconfig-008-20251024    gcc-14
-x86_64                randconfig-071-20251024    clang-20
-x86_64                randconfig-072-20251024    clang-20
-x86_64                randconfig-073-20251024    clang-20
-x86_64                randconfig-074-20251024    clang-20
-x86_64                randconfig-075-20251024    clang-20
-x86_64                randconfig-076-20251024    clang-20
-x86_64                randconfig-077-20251024    clang-20
-x86_64                randconfig-078-20251024    clang-20
-x86_64                               rhel-9.4    clang-20
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                          rhel-9.4-func    clang-20
-x86_64                    rhel-9.4-kselftests    clang-20
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                randconfig-001-20251024    clang-22
-xtensa                randconfig-001-20251024    gcc-11.5.0
-xtensa                randconfig-002-20251024    clang-22
-xtensa                randconfig-002-20251024    gcc-13.4.0
 
---
+vim +423 drivers/input/misc/isa1200.c
+
+   416	
+   417	static struct i2c_driver isa1200_i2c_driver = {
+   418		.driver = {
+   419			.name = "isa1200",
+   420			.of_match_table = isa1200_of_match,
+   421			.pm = &isa1200_pm,
+   422		},
+ > 423		.probe_new = isa1200_probe,
+   424	};
+   425	module_i2c_driver(isa1200_i2c_driver);
+   426	
+
+-- 
 0-DAY CI Kernel Test Service
 https://github.com/intel/lkp-tests/wiki
 
