@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9CECCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 18:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B348DCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 18:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4eFh/avHhstYhgrnUCtrqBEG0Y1fzzQrwFde9zNZ83k=; b=FQB59Oulmjf5IgXzODCZ9I6+nJ
-	fsekwBuc6IM5JPTs37teAdhR1am5kzk/GEOcf0i6z7+5/XaaVONultUPBBc/FxmsHCyUDf5KH3sqJ
-	HzoSJcEp8m8eRI2uPoZCH/Ea+ZeDhOaX7XkB8bRZqjthZ5f56XsZgBm9CHtvC0qWATybEPC974BW3
-	tnSre2sREzeEM/JPFpad+OKqJs+3TFgjpC4fte2MKS4linvT4/SrNzWNSVmVC7/+SaGZX4Dz+zm3T
-	xBs78ZSLq3F+CVE/Z46rqTIA854gjs+1cPFpPPgVhmassXQiAxinIfr5sjji6S2EEaiAQvL5DxMdL
-	oEl/f6/A==;
+	bh=QHyn8i1vCnorrPEflCS3LnO1VwITmo9fwGid6jjNKDY=; b=pUt73bJ+mQbRSqnP3pp800l7Xm
+	TEtw8gM8mxkVTjWzWbkgGPsvUhwrwTdOG/DdymT2XcfMZWZ678ujlskRvkEVHel8RZ/bRaW6qwUn+
+	gEsqNuynT7m+yQYjonXTJ5HJrLwyXHwVuVz2xKE22Mgf2LY2c7XhLY0Co2tH3ic4S10sMI1CP+UVo
+	TdUPTDM2WF/YhzKKu/LUih75VVCQxjGN9wYcxjdrEh41uNUm5X4q5w8vWf3IXIrO21HXqPYhe998H
+	VsZLEo8CP6YCgLogDYznuC8EJ6MUDmBWDH4jNhZVEIbna817CPg5NWkpLBCEOGZPwC4br+w2fq0ey
+	o+RfhvpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCMYB-0000000AH3z-2lSb;
-	Fri, 24 Oct 2025 18:30:07 +0000
+	id 1vCMcR-0000000AHNB-1NS8;
+	Fri, 24 Oct 2025 18:34:31 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCMY9-0000000AH3W-0QQO
+	id 1vCMcO-0000000AHMi-2IhM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 18:30:06 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ctWZT4jLXz6GD6Y;
-	Sat, 25 Oct 2025 02:26:41 +0800 (CST)
+	Fri, 24 Oct 2025 18:34:29 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ctWg63GFRz6M4f9;
+	Sat, 25 Oct 2025 02:30:42 +0800 (CST)
 Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 982EB140276;
-	Sat, 25 Oct 2025 02:30:00 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id D958E14010C;
+	Sat, 25 Oct 2025 02:34:25 +0800 (CST)
 Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
  (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 24 Oct
- 2025 19:29:59 +0100
-Date: Fri, 24 Oct 2025 19:29:57 +0100
+ 2025 19:34:24 +0100
+Date: Fri, 24 Oct 2025 19:34:22 +0100
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: James Morse <james.morse@arm.com>
 CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -56,12 +56,12 @@ CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
  Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
-	Gavin Shan <gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>
-Subject: Re: [PATCH v3 26/29] arm_mpam: Use long MBWU counters if supported
-Message-ID: <20251024192957.00000d55@huawei.com>
-In-Reply-To: <20251017185645.26604-27-james.morse@arm.com>
+	Gavin Shan <gshan@redhat.com>, Fenghua Yu <fenghuay@nvdia.com>
+Subject: Re: [PATCH v3 27/29] arm_mpam: Add helper to reset saved mbwu state
+Message-ID: <20251024193422.00000bc5@huawei.com>
+In-Reply-To: <20251017185645.26604-28-james.morse@arm.com>
 References: <20251017185645.26604-1-james.morse@arm.com>
-	<20251017185645.26604-27-james.morse@arm.com>
+	<20251017185645.26604-28-james.morse@arm.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -70,8 +70,8 @@ X-Originating-IP: [10.203.177.15]
 X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
  dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_113005_433055_CC463AE4 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20251024_113428_873761_33E497C3 
+X-CRM114-Status: GOOD (  24.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,83 +86,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Oct 2025 18:56:42 +0000
+On Fri, 17 Oct 2025 18:56:43 +0000
 James Morse <james.morse@arm.com> wrote:
 
-> From: Rohit Mathew <rohit.mathew@arm.com>
+> resctrl expects to reset the bandwidth counters when the filesystem
+> is mounted.
 > 
-> Now that the larger counter sizes are probed, make use of them.
+> To allow this, add a helper that clears the saved mbwu state. Instead
+> of cross calling to each CPU that can access the component MSC to
+> write to the counter, set a flag that causes it to be zero'd on the
+> the next read. This is easily done by forcing a configuration update.
 > 
-> Callers of mpam_msmon_read() may not know (or care!) about the different
-> counter sizes. Allow them to specify mpam_feat_msmon_mbwu and have the
-> driver pick the counter to use.
-> 
-> Only 32bit accesses to the MSC are required to be supported by the
-> spec, but these registers are 64bits. The lower half may overflow
-> into the higher half between two 32bit reads. To avoid this, use
-> a helper that reads the top half multiple times to check for overflow.
-> 
-> Signed-off-by: Rohit Mathew <rohit.mathew@arm.com>
-> [morse: merged multiple patches from Rohit, added explicit counter selection ]
 > Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+> Reviewed-by: Fenghua Yu <fenghuay@nvdia.com>
 > Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+A couple of little places in here where I think moving things back to earlier
+patches would reduce churn a little which is always nice for reviewers.
 
-A few tiny things on a fresh look.
+Either way
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-> +static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
-> +{
-> +	int retry = 3;
-> +	u32 mbwu_l_low;
-> +	u64 mbwu_l_high1, mbwu_l_high2;
-> +
-> +	mpam_mon_sel_lock_held(msc);
-> +
-> +	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
-> +	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
-> +
-> +	mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
-> +	do {
-> +		mbwu_l_high1 = mbwu_l_high2;
-> +		mbwu_l_low = __mpam_read_reg(msc, MSMON_MBWU_L);
-> +		mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
-> +
-> +		retry--;
-> +	} while (mbwu_l_high1 != mbwu_l_high2 && retry > 0);
+> ---
+> Changes since v2:
+>  * Switched to guard and fixed non _srcu list walker.
+>  * Made a comment about what is proteted by which lock a list.
+> ---
+>  drivers/resctrl/mpam_devices.c  | 46 ++++++++++++++++++++++++++++++++-
+>  drivers/resctrl/mpam_internal.h |  7 ++++-
+>  2 files changed, 51 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index c207a6d2832c..89d4f42168ed 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
 
-Just carrying on if it tore repeatedly without screaming seems unwise...
-I can't see it actually happening more than once but still seems like
-we'd want to know if it did.
+>  	/*
+>  	 * Read the existing configuration to avoid re-writing the same values.
+>  	 * This saves waiting for 'nrdy' on subsequent reads.
+> @@ -1090,7 +1100,10 @@ static void __ris_msmon_read(void *arg)
+>  	read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
+>  	clean_msmon_ctl_val(&cur_ctl);
+>  	gen_msmon_ctl_flt_vals(m, &ctl_val, &flt_val);
+> -	if (cur_flt != flt_val || cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN))
+> +	config_mismatch = cur_flt != flt_val ||
+> +			  cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
+
+Push back to earlier patch perhaps?  I guess someone might ask why you don't do it
+inline, but to me it seems complex enough that I doubt they will.
+Nice to reduce the churn where it is easy to do.
 
 > +
-> +	if (mbwu_l_high1 == mbwu_l_high2)
-> +		return (mbwu_l_high1 << 32) | mbwu_l_low;
-> +	return MSMON___NRDY_L;
-> +}
-
->  static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
-> @@ -978,10 +1027,15 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
->  		mpam_write_monsel_reg(msc, CSU, 0);
->  		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
->  		break;
-> -	case mpam_feat_msmon_mbwu:
-> +	case mpam_feat_msmon_mbwu_44counter:
-> +	case mpam_feat_msmon_mbwu_63counter:
-> +		mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
-> +		fallthrough;
-> +	case mpam_feat_msmon_mbwu_31counter:
->  		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
->  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
->  		mpam_write_monsel_reg(msc, MBWU, 0);
-> +
-Stray change to clean up (push to original patch).
->  		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
+> +	if (config_mismatch || reset_on_next_read)
+>  		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
 >  
->  		mbwu_state = &m->ris->mbwu_state[m->ctx->mon];
-> @@ -993,10 +1047,19 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
->  	}
+>  	switch (m->type) {
+> @@ -1242,6 +1255,37 @@ int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+>  	return err;
 >  }
+
+
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index ff38b4bbfc2b..6632699ae814 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -204,10 +204,14 @@ struct mon_cfg {
+>  
+>  /*
+>   * Changes to enabled and cfg are protected by the msc->lock.
+> - * Changes to prev_val and correction are protected by the msc's mon_sel_lock.
+> + * The msc's mon_sel_lock protects:
+Nice to push this formatting change back to earlier patch so this
+becomes a one line change.
+
+> + * - reset_on_next_read
+> + * - prev_val
+> + * - correction
+>   */
+>  struct msmon_mbwu_state {
+>  	bool		enabled;
+> +	bool		reset_on_next_read;
+>  	struct mon_cfg	cfg;
 
 
