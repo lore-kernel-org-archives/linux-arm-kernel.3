@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD7EDCCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:07:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE5DCCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=u7DpE+oTDsmY9vOfVzLTFJGa7kcYvBVKQHh8iIY9BgE=; b=2yrXHaVK9sENtnwdz/yM8/7BiX
-	KdU5Mh129kZxiIaIrzCS1QqwhwWKCCUHqm1v5jpXvThkichscYgTBEHCBckWKaT2Hm1iJ5/YGF6+u
-	WgTemqJkZJQpi3048CSNLda1ZYZTWQKmH+3hFRRjClbvZpIZQegMfw4nLlsn+DgfrCvTJ53bn+/Rr
-	gQWC32uMXEMoaWrq9UvsgSldplC1wM8pBO4yu+xNSVIbMDlWgs3HkGf+ye+mr8nab97JpvrJ9NThO
-	paiJXnt8fAZ5W1L3lckxpRt6nleciY//lsfCOGU+hpR46vOM5gkXl5/ivnSGzOXdKe3XykspTx68r
-	FHat0LNQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0YlOsdwhlsQqRvD5FlSOf1VoJU/ilXKcwWly87pRk0g=; b=dmsHW3jKVM/ix4SfhxNCojLJBL
+	GvKdDDREoXKVzA+qCv7Ekbj61Eluffr3EnuCr+T7kR2H8a6tvJxfqhy9bhxOf2bv1ZkZMPewZ/vHE
+	XT603zexd/d3FIHRfWYjZCBa6uiPyHGTX+JdJr4Z7ksW2JXNXqiPaRlStEMVAA8tmo6iLefA+pJOw
+	zVkYrIK1zVzT95B94QcVvwTKwzJAkOxl9WoN/3YRm+nJcjDh5hUrEuIf7DEZmHY4tg/KLZ126+you
+	z342AvxGv6JOcbKGRAgJu9pDVCpyX81A+kYpSQK02k+Dje1fs/CBzTUmNhoquVWN28sj/RL99079E
+	1sLiSUnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBtn-00000008Q3h-35Xp;
-	Fri, 24 Oct 2025 07:07:43 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vCBtt-00000008Q5i-0CIk;
+	Fri, 24 Oct 2025 07:07:49 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBtk-00000008Q2a-2w99
+	id 1vCBtn-00000008Q3P-2ksL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 07:07:42 +0000
+	Fri, 24 Oct 2025 07:07:45 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 81B2FC0C41B;
-	Fri, 24 Oct 2025 07:07:18 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 958C24E412CD;
+	Fri, 24 Oct 2025 07:07:40 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 47E5160703;
-	Fri, 24 Oct 2025 07:07:38 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 04012102F247E;
-	Fri, 24 Oct 2025 09:07:21 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6AB7D60703;
+	Fri, 24 Oct 2025 07:07:40 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B8A48102F244A;
+	Fri, 24 Oct 2025 09:07:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1761289657; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=u7DpE+oTDsmY9vOfVzLTFJGa7kcYvBVKQHh8iIY9BgE=;
-	b=Y6h9b4sgm0ErZAY1zT16Ddploj6AH9IjTzMSk1AmziZtMqj5HUH0GMq/IYTmjFZc1ZmRSY
-	ja31HDlO4852i38mcagx27mP/GEFv/0Yk8d1MXR8lk703cMWR4Gscwngc39zroGx/l2gQs
-	Jsi5FcL5hosjtr8sF9yOU4UR/loVx4y+Ln4Clj3wwktxdVDPABEVuao2e/Hyy3yiJF8Oz8
-	7YxQNSmbjK7uD6J2WHdjeX0jxsH9JG3HVUNfPWdE7XmBwB6rrJf+O3BmVLgHOiYnwwaF1q
-	WMqQmNDla5fBXh0KoUfo0Eilb49R41MtqzzIVKpI24kxXPrp2jGJ29HNVsDmbw==
+	t=1761289659; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=0YlOsdwhlsQqRvD5FlSOf1VoJU/ilXKcwWly87pRk0g=;
+	b=xpORE1kSOYrISctR2B47Fii+8K6j4xEcwXAlsloKZH+zRiQ78d+AA4I2E0T4uAU8qKpsew
+	/H4aHE5/IUEghR8BFrwF2LGmymv2ajke/uDFJHff2XXal3TTojsqffWeQABzmfbtiHcUkI
+	lVMqOaal3xfGXAU68mvBkeB6mVpS5upmnl9Kz2aDpZMf8Z2+OoSW63sBeHGXHP3+DE9ypz
+	xKKT2gMeADz2IQjhPme9EuQ7g2NRqqJxTMVhAg6Ekif8VftVVm+8b4edwJ97oaBh00TKRB
+	HboE/z5mc0/WYk8KcfmbXeI6TTRbtYFVZOfuH2JtEvwcL9mjQTfY0COMSDe4rQ==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Jose Abreu <joabreu@synopsys.com>,
@@ -63,17 +64,18 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 0/2] net: stmmac: Add support for coarse timestamping
-Date: Fri, 24 Oct 2025 09:07:16 +0200
-Message-ID: <20251024070720.71174-1-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v2 1/2] net: stmmac: Move subsecond increment configuration in dedicated helper
+Date: Fri, 24 Oct 2025 09:07:17 +0200
+Message-ID: <20251024070720.71174-2-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20251024070720.71174-1-maxime.chevallier@bootlin.com>
+References: <20251024070720.71174-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_000740_914202_0A407965 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_000743_845310_763EC509 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,36 +90,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello everyone,
+In preparation for fine/coarse support, let's move the subsecond increment
+and addend configuration in a dedicated helper.
 
-This is V2 for coarse timetamping support in stmmac. This version uses a
-dedicated devlink param "ts_coarse" to control this mode.
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 48 +++++++++++--------
+ 1 file changed, 28 insertions(+), 20 deletions(-)
 
-This doesn't conflict with Russell's cleanup of hwif.
-
-Maxime
-
-[1] : https://lore.kernel.org/netdev/20200514102808.31163-1-olivier.dautricourt@orolia.com/
-
-Changes in V2:
- - Use devlink intead of tsconfig
- - Rebase on top of Russell's rework of has_xxx flags
-
-V1: https://lore.kernel.org/netdev/20251015102725.1297985-1-maxime.chevallier@bootlin.com/
-
-Maxime Chevallier (2):
-  net: stmmac: Move subsecond increment configuration in dedicated
-    helper
-  net: stmmac: Add a devlink attribute to control timestamping mode
-
- Documentation/networking/devlink/index.rst    |   1 +
- Documentation/networking/devlink/stmmac.rst   |  31 ++++
- drivers/net/ethernet/stmicro/stmmac/Kconfig   |   1 +
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  |   3 +
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 163 +++++++++++++++---
- 5 files changed, 176 insertions(+), 23 deletions(-)
- create mode 100644 Documentation/networking/devlink/stmmac.rst
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 9fa3c221a0c3..8922c660cefa 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -464,6 +464,33 @@ static void stmmac_get_rx_hwtstamp(struct stmmac_priv *priv, struct dma_desc *p,
+ 	}
+ }
+ 
++static void stmmac_update_subsecond_increment(struct stmmac_priv *priv)
++{
++	bool xmac = dwmac_is_xmac(priv->plat->core_type);
++	u32 sec_inc = 0;
++	u64 temp = 0;
++
++	stmmac_config_hw_tstamping(priv, priv->ptpaddr, priv->systime_flags);
++
++	/* program Sub Second Increment reg */
++	stmmac_config_sub_second_increment(priv, priv->ptpaddr,
++					   priv->plat->clk_ptp_rate,
++					   xmac, &sec_inc);
++	temp = div_u64(1000000000ULL, sec_inc);
++
++	/* Store sub second increment for later use */
++	priv->sub_second_inc = sec_inc;
++
++	/* calculate default added value:
++	 * formula is :
++	 * addend = (2^32)/freq_div_ratio;
++	 * where, freq_div_ratio = 1e9ns/sec_inc
++	 */
++	temp = (u64)(temp << 32);
++	priv->default_addend = div_u64(temp, priv->plat->clk_ptp_rate);
++	stmmac_config_addend(priv, priv->ptpaddr, priv->default_addend);
++}
++
+ /**
+  *  stmmac_hwtstamp_set - control hardware timestamping.
+  *  @dev: device pointer.
+@@ -697,10 +724,7 @@ static int stmmac_hwtstamp_get(struct net_device *dev,
+ static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
+ 				      u32 systime_flags)
+ {
+-	bool xmac = dwmac_is_xmac(priv->plat->core_type);
+ 	struct timespec64 now;
+-	u32 sec_inc = 0;
+-	u64 temp = 0;
+ 
+ 	if (!priv->plat->clk_ptp_rate) {
+ 		netdev_err(priv->dev, "Invalid PTP clock rate");
+@@ -710,23 +734,7 @@ static int stmmac_init_tstamp_counter(struct stmmac_priv *priv,
+ 	stmmac_config_hw_tstamping(priv, priv->ptpaddr, systime_flags);
+ 	priv->systime_flags = systime_flags;
+ 
+-	/* program Sub Second Increment reg */
+-	stmmac_config_sub_second_increment(priv, priv->ptpaddr,
+-					   priv->plat->clk_ptp_rate,
+-					   xmac, &sec_inc);
+-	temp = div_u64(1000000000ULL, sec_inc);
+-
+-	/* Store sub second increment for later use */
+-	priv->sub_second_inc = sec_inc;
+-
+-	/* calculate default added value:
+-	 * formula is :
+-	 * addend = (2^32)/freq_div_ratio;
+-	 * where, freq_div_ratio = 1e9ns/sec_inc
+-	 */
+-	temp = (u64)(temp << 32);
+-	priv->default_addend = div_u64(temp, priv->plat->clk_ptp_rate);
+-	stmmac_config_addend(priv, priv->ptpaddr, priv->default_addend);
++	stmmac_update_subsecond_increment(priv);
+ 
+ 	/* initialize system time */
+ 	ktime_get_real_ts64(&now);
 -- 
 2.49.0
 
