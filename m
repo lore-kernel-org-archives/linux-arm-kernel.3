@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979F5CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 09:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63AACCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 09:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ytPbw8HG61h/4DFqHZ/NLAyfZrCPaaPQmHK4j2DI+tA=; b=ABD+93y5wozgPTB/G2K3n9wCWx
-	MJ9X44+frfY9pNFxe84IbQdsRFLsO4voZeoZFKM4JLYN92xLyx9xf82gQIz3YaSu0yLMa9lNz7Uuq
-	7X2p5YQXXv7vs+s65pqGGNG4Pwxg0T9og5RSMnjq/lyaJODaCBUf0nvjfuluDtj0NcxgPDcX52Owy
-	oADAbcbKq8QYF+rPZ6HdHvz442EHDBfR0VVKUhs0UrVWJLCyOjIL61JHaz0tegZZjk3bCR68aZWZm
-	VhUbkaNX9pV+QSY2HYO9fnU0vuaMqnAIGq/6ThHw8tArBT5z/jIz+9mVjTfUP4tfU0qvBhtfXbgff
-	N7g/J25A==;
+	bh=/m9ixj4S2QMBO+ufdKlPRD6iVbNviAoHkCUWXiYie38=; b=w/wGepb4SMyGIjqfuEDNpzvhek
+	rTa4mVS7V8Q8cFPUCjjZaOXncJC/C7iF+mrk9/c5+Htn32OPpjOf/0sRx+nIr8FgrIFhP3qwz1fUu
+	djVPFngdGz4JJrMSvap+ReHBNi/QcX2n+LCKazht0f5bj1Wfs+CbnMjd/3IaxIpoqW6F4B908Bll5
+	bLXb+vgwxwL0SsXgHlmyQnO05j1Rv5iMnh6uI/FN2PiluZGIoI15CdJt7VmN7b5fsPva7ERTAsUSf
+	Jx9XYQCQrHZtmw5NlV9veQldIheuW6fCQvAUY5hzpHlKPB1X1OGya3e6TXRS2hnK/ryTGM6fTqLhr
+	xSGes+1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDm7-00000008ogt-3eUq;
-	Fri, 24 Oct 2025 09:07:55 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vCDmv-00000008ovu-15aj;
+	Fri, 24 Oct 2025 09:08:45 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDm3-00000008oe3-15Hh
+	id 1vCDmt-00000008oti-0FgV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 09:07:54 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vCDl3-0007sx-6E; Fri, 24 Oct 2025 11:06:49 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vCDl0-005CLv-1Y;
-	Fri, 24 Oct 2025 11:06:46 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1vCDl0-000000004N3-1aFM;
-	Fri, 24 Oct 2025 11:06:46 +0200
-Message-ID: <6915fde3171d0e063b931abbe04e3216375af8fd.camel@pengutronix.de>
-Subject: Re: [PATCH v3 05/24] phy: mediatek: ufs: Add support for resets
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Alim Akhtar	
- <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>, Bart Van
- Assche	 <bvanassche@acm.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger	 <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Chunfeng Yun	
- <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, Kishon Vijay
- Abraham I <kishon@kernel.org>, Peter Wang <peter.wang@mediatek.com>,
- Stanley Jhu <chu.stanley@gmail.com>,  "James E.J. Bottomley"
- <James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
- <martin.petersen@oracle.com>, Liam Girdwood <lgirdwood@gmail.com>, Mark
- Brown <broonie@kernel.org>
-Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
-	kernel@collabora.com, linux-scsi@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org,
- linux-phy@lists.infradead.org
-Date: Fri, 24 Oct 2025 11:06:46 +0200
-In-Reply-To: <20251023-mt8196-ufs-v3-5-0f04b4a795ff@collabora.com>
-References: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
-	 <20251023-mt8196-ufs-v3-5-0f04b4a795ff@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.1-1 
+	Fri, 24 Oct 2025 09:08:44 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4ctH5g72wzz2TTGl;
+	Fri, 24 Oct 2025 17:04:23 +0800 (CST)
+Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
+	by mail.maildlp.com (Postfix) with ESMTPS id A896D1A016C;
+	Fri, 24 Oct 2025 17:08:36 +0800 (CST)
+Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
+ dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 24 Oct 2025 17:08:36 +0800
+Received: from huawei.com (10.90.31.46) by kwepemq200004.china.huawei.com
+ (7.202.195.237) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 24 Oct
+ 2025 17:08:35 +0800
+From: Zhou Wang <wangzhou1@hisilicon.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
+	<oliver.upton@linux.dev>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<yangyccccc@gmail.com>, <prime.zeng@hisilicon.com>, <xuwei5@huawei.com>
+Subject: [PATCH v6 6/7] KVM: arm64: Enable FEAT_{LS64, LS64_V} in the supported guest
+Date: Fri, 24 Oct 2025 17:08:18 +0800
+Message-ID: <20251024090819.4097819-7-wangzhou1@hisilicon.com>
+X-Mailer: git-send-email 2.30.0
+In-Reply-To: <20251024090819.4097819-1-wangzhou1@hisilicon.com>
+References: <20251024090819.4097819-1-wangzhou1@hisilicon.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_020751_298275_2628C0B8 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20251024_020843_255283_147AA733 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,48 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-On Do, 2025-10-23 at 21:49 +0200, Nicolas Frattaroli wrote:
-> The MediaTek UFS PHY supports PHY resets. Until now, they've been
-> implemented in the UFS host driver. Since they were never documented in
-> the UFS HCI node's DT bindings, and no mainline DT uses it, it's fine if
-> it's moved to the correct location, which is the PHY driver.
->=20
-> Implement the MPHY reset logic in this driver and expose it through the
-> phy subsystem's reset op. The reset itself is optional, as judging by
-> other mainline devices that use this hardware, it's not required for the
-> device to function.
->=20
-> If no reset is present, the reset op returns -EOPNOTSUPP, which means
-> that the ufshci driver can detect it's present and not double sleep in
-> its own reset function, where it will call the phy reset.
->=20
-> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  drivers/phy/mediatek/phy-mtk-ufs.c | 71 ++++++++++++++++++++++++++++++++=
-++++++
->  1 file changed, 71 insertions(+)
->=20
-> diff --git a/drivers/phy/mediatek/phy-mtk-ufs.c b/drivers/phy/mediatek/ph=
-y-mtk-ufs.c
-> index 0cb5a25b1b7a..d77ba689ebc8 100644
-> --- a/drivers/phy/mediatek/phy-mtk-ufs.c
-> +++ b/drivers/phy/mediatek/phy-mtk-ufs.c
-[...]
-> @@ -163,8 +224,18 @@ static int ufs_mtk_phy_probe(struct platform_device =
-*pdev)
->  	if (IS_ERR(phy->mmio))
->  		return PTR_ERR(phy->mmio);
-> =20
-> +	phy->reset =3D devm_reset_control_get_optional(dev, NULL);
+Using FEAT_{LS64, LS64_V} instructions in a guest is also controlled
+by HCRX_EL2.{EnALS, EnASR}. Enable it if guest has related feature.
 
-Please use devm_reset_control_get_optional_exclusive() directly.
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ arch/arm64/include/asm/kvm_emulate.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-regards
-Philipp
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 759d8c45684d..754ce9896249 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -695,6 +695,12 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+ 
+ 		if (kvm_has_sctlr2(kvm))
+ 			vcpu->arch.hcrx_el2 |= HCRX_EL2_SCTLR2En;
++
++		if (kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64))
++			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnALS;
++
++		if (kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V))
++			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
+ 	}
+ }
+ #endif /* __ARM64_KVM_EMULATE_H__ */
+-- 
+2.33.0
+
 
