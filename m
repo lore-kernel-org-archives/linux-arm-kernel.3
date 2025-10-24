@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31594CCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 18:19:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F3F8CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 18:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OMlOynCf/q0FYY2vK8xs7kH8F19prcp+6Ge0S1+Jt3Q=; b=QvpyLa9fjQryPvIipfpH4GEMMf
-	LJCQNX/pQnAZBstQzVvvCp1GT5ZU0RzPc99BjgZ9860Av/X9P+uIVD4ecHfAopyw8D2wXb40yOhSc
-	kjZJhu7vYJb+uZKMShfsmjWM9e9lOks6BoqsAXos/qOWBhnPy4mN7eOa0o3lF0RCKcVFZyxpEDin+
-	S/lqGWXh928j3QvEyMzhEF3j2Vt3gK6JNKEnD/XZmDjcDfY8bKzmJ2fUSBbuOY5ejaEHnQDvFA+kF
-	1cy8vR8WWQDQCl2HNdXiqBwd/vExFvMF/nj8gEzGU3NMvU5z8yW6zbS8tY3Ng9M3AoY2D8h1wAELf
-	GvQcHbyg==;
+	bh=1Fa5mCjht3rF9YtnWDoLFM7IVfXbtHmgtB36f6Yo64U=; b=OWBSLoYGP/ztsCcwYdSrZQBw3g
+	H++RTJttWjaTFnLWUJHzCnS2i3TtC+yUf+QkE9pmViFbLYCwcgZtRF52qJKpzs1zk9umWFIGDm58P
+	soejZfiA5GNNTAjB/a054YeVKoXq+AXFRRoInOYLjCxtdHPyfAntYFQN88dvGzUHg6+Fovs3prwus
+	N/Y3Fr7YQhjsmenTGesxjV4mhemouerV3Ca9+W4SumWp/Ppg5xoiJmgSJIs12Or5C+K/B5sThZU7K
+	H1uOgwQoUdtE0Pg47m6tjhq4snORp7xDDTNAbiHowdnSj9xAQ5ajAHo1FdPSIWJ9zYlFxlOKR6muZ
+	Mhiw5VOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCMNO-0000000AF2e-1kzV;
-	Fri, 24 Oct 2025 18:18:58 +0000
+	id 1vCMRJ-0000000AFoL-0OTD;
+	Fri, 24 Oct 2025 18:23:01 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCMNL-0000000AF0d-1S6j
+	id 1vCMRG-0000000AFmS-2dIE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 18:18:57 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ctWKc3PZ5z6GDCt;
-	Sat, 25 Oct 2025 02:15:32 +0800 (CST)
+	Fri, 24 Oct 2025 18:23:00 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ctWSN3cJpz6L515;
+	Sat, 25 Oct 2025 02:21:24 +0800 (CST)
 Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 669201400CB;
-	Sat, 25 Oct 2025 02:18:51 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 0A30414010C;
+	Sat, 25 Oct 2025 02:22:56 +0800 (CST)
 Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
  (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 24 Oct
- 2025 19:18:50 +0100
-Date: Fri, 24 Oct 2025 19:18:48 +0100
+ 2025 19:22:54 +0100
+Date: Fri, 24 Oct 2025 19:22:52 +0100
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: James Morse <james.morse@arm.com>
 CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -57,12 +57,12 @@ CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
  Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
 	Gavin Shan <gshan@redhat.com>
-Subject: Re: [PATCH v3 23/29] arm_mpam: Add mpam_msmon_read() to read
- monitor value
-Message-ID: <20251024191848.00007331@huawei.com>
-In-Reply-To: <20251017185645.26604-24-james.morse@arm.com>
+Subject: Re: [PATCH v3 24/29] arm_mpam: Track bandwidth counter state for
+ overflow and power management
+Message-ID: <20251024192252.00005168@huawei.com>
+In-Reply-To: <20251017185645.26604-25-james.morse@arm.com>
 References: <20251017185645.26604-1-james.morse@arm.com>
-	<20251017185645.26604-24-james.morse@arm.com>
+	<20251017185645.26604-25-james.morse@arm.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -71,9 +71,8 @@ X-Originating-IP: [10.203.177.15]
 X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
  dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_111855_535119_188E65DD 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_112258_955334_67C9B656 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +87,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Oct 2025 18:56:39 +0000
+On Fri, 17 Oct 2025 18:56:40 +0000
 James Morse <james.morse@arm.com> wrote:
 
-> Reading a monitor involves configuring what you want to monitor, and
-> reading the value. Components made up of multiple MSC may need values
-> from each MSC. MSCs may take time to configure, returning 'not ready'.
-> The maximum 'not ready' time should have been provided by firmware.
+> Bandwidth counters need to run continuously to correctly reflect the
+> bandwidth.
 > 
-> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
-> not ready, then wait the full timeout value before trying again.
+> The value read may be lower than the previous value read in the case
+> of overflow and when the hardware is reset due to CPU hotplug.
 > 
-> CC: Shanker Donthineni <sdonthineni@nvidia.com>
+> Add struct mbwu_state to track the bandwidth counter to allow overflow
+> and power management to be handled.
+> 
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
 > Signed-off-by: James Morse <james.morse@arm.com>
+Just one trivial thing from me. I'll take another look once the
+questions from others are resolved.
 
-Seems fine. Just the trivial comment below.
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
-
-
-> +static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
+> +/* Call with MSC lock and held */
+> +static int mpam_save_mbwu_state(void *arg)
 > +{
-> +	int err,  any_err = 0;
-extra space after ,
+> +	int i;
+> +	u64 val;
+> +	struct mon_cfg *cfg;
+> +	u32 cur_flt, cur_ctl, mon_sel;
+> +	struct mpam_msc_ris *ris = arg;
+> +	struct msmon_mbwu_state *mbwu_state;
+> +	struct mpam_msc *msc = ris->vmsc->msc;
+> +
+> +	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+> +		mbwu_state = &ris->mbwu_state[i];
+> +		cfg = &mbwu_state->cfg;
 
-> +	struct mpam_vmsc *vmsc;
+Could pull some of the local variable declarations in here to make
+their scope clear.
 
+> +
+> +		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
+> +			return -EIO;
+> +
+> +		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
+> +			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+> +		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+> +
+> +		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
+> +		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
+> +		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+> +
+> +		val = mpam_read_monsel_reg(msc, MBWU);
+> +		mpam_write_monsel_reg(msc, MBWU, 0);
+> +
+> +		cfg->mon = i;
+> +		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
+> +		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
+> +		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
+> +		mbwu_state->correction += val;
+> +		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
+> +		mpam_mon_sel_unlock(msc);
+> +	}
+> +
+> +	return 0;
+> +}
 
 
 
