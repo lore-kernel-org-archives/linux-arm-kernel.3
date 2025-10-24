@@ -4,169 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FBF3CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 03:55:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6392CCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 04:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U30u3fnqAkWRz7sM/tFWQXrcvsFbHIwUMNYsgDz34to=; b=E3MOEFBkEJ+3LNkMfDt83MBUz4
-	8K2778CU1SvJyx/c9MIiavPCoNTXRuspywhCdWTtCOS+vECHK8EIMcwg8HWKyx2W3UC85Xy9LGrHC
-	LTLEhJblifOm2NPjdhxu0EeIG756OcEjaOK3DrmlRX8a9DWtJq9662FbyuuS9hwxmdlAWJuNookbs
-	ub3annpQB79vkQW/NqqnH4TQ4MnD1qWM3iLWSkH+F1GqYXsG8mhxNwEX8MsgEXPtYqTO73FLcG1bp
-	ldKagmVOiKGBkGdbLanb6L5WHLDc0hb+iOzolwM8B2wDMCBQGf9Nfyr80wL3xX+ajLOVjbCiTQnax
-	jU20y6uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ghmrnfvpmdVficormzFtjrdFed2w8rPM+q7JEBeD1F8=; b=eZWLS2dWR/YYZ8Gkca1/EWMRz+
+	oEv6GTHlR3WGPKMrv2VQOKLFoVMszj1sXD7Jp47iqTE675+lWObwCFbAFz6+NAIlx+uxbdXxFfKeh
+	s/SO7rbvB8JCZdckxCjHcv53aX2t9cHZ2qpbboflqXCRWOtA2R8yUWUDooUFikzvBAMj2RSASA5Jq
+	d50bSilcYmRVi7YRZEVXXJdD4iP0LeYfbALujSe3+ei6n0+Cxt+bNoOdTVI1Ubrnw3VgkwhqvR0DP
+	Gn9OIAD3/EwpyIZCub+PHW1gRsApKHMCXyl5RXXMu6H/m80I4uJbRtEIDhtJ0UPMueQ8YMQXg7l6n
+	7Lsf1M2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC8tN-00000008BbL-2Oxg;
-	Fri, 24 Oct 2025 03:55:05 +0000
-Received: from mail-koreacentralazon11023135.outbound.protection.outlook.com ([40.107.44.135] helo=SEYPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC8tK-00000008Bao-2lZ9
+	id 1vC90V-00000008C4e-3zoe;
+	Fri, 24 Oct 2025 04:02:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vC90S-00000008C3e-1Jgd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 03:55:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J64LXWuhS12HAgwlVmzMCOOTXOkDL3vdqQw4TUy7vYuEzSn4B67yCZR9U8XqFF3+aEghTE/vdwitsY26Z7utLQtTe4edEjrOI41H1rG4s7UrnUQwRbuuYsT7qQo6O/Mt2PIlcA+2KDWVY7cLMtznwh4gFeLxXuL9GFdLJqGeDr17dSW0HNQQsnvxxNehr36quvEwE2FtJQQNQXJl2+SWBzeSzFs8ek5rUvW5506UbmCfcZfDjsLfPRQh+7UXk2Zy70LULbis0jujpSaXU8iy9Eiv/oUSkqEHbVYnNk7y+mDyitldksYQj4mOXvzHqh2mhL9aurMT2cFi25xorBIAyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U30u3fnqAkWRz7sM/tFWQXrcvsFbHIwUMNYsgDz34to=;
- b=wRDH7nShAgKrY2h7SEym/HskIqF344lEKl0jOqdJsrNMSyeYFefVq3jjVw8PsTSmaL1/IcgBfHB4K0++NYc0n5+B6bFAg/rLjlxNTH2+KIHztEJe/kVZ1TD47WXG96VSkIlr685PtIIAgANjxMY9227YZoyAtHBlk2HWqhEZmyPNFX42XYjbNuZ/8v6UrpQtjnJncd2P9OkA2/jd5Cr2v6XarVETxQiIzK349pL43Skz3c8mDCM3dWZbDSDH0cLGBucwAG8s7P9z1UnEPms5D6t6orGtetPPYsKi6wYwNgNKOYVxJxikStofKcGdNlAzr9l0BBvuTmzhNEfOuD9qqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U30u3fnqAkWRz7sM/tFWQXrcvsFbHIwUMNYsgDz34to=;
- b=cj5fyM6e6oNWdMwSjkfVMToJutzf2AkK9xZcoXNGzpxanPM5+Y6ZuwmqgfB2sWc5GTFRiTo6iypxiJaAGwId3hZxCeXRDwBGLAv/Jw0Nahj0P1j34gPI9w7WBMk2pgXsIOuLpc/OsfIhdchSyDF4l4J4/sT3JfO2vXZExMDh/ZboB1oTC6gBgzcIeSDpeyTPkd8iXKvrJOT9QVm5cGM7C8tRBL/9V3y4S0ugWJCsWDdkaGc8ah9JDSS4ErL7A5pmE17moQCuebl4BhyUTbhDSc5a8AYj/yDD5NFIiydm8OadxQXspvzK+z9mYgh4Am2X8PhM30zFGq9Qgz14v/go5w==
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com (2603:1096:408::791)
- by TYZPR06MB6463.apcprd06.prod.outlook.com (2603:1096:400:464::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
- 2025 03:54:56 +0000
-Received: from TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::df4f:b1a1:1825:4a80]) by TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
- ([fe80::df4f:b1a1:1825:4a80%7]) with mapi id 15.20.9253.011; Fri, 24 Oct 2025
- 03:54:56 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Arnd Bergmann <arnd@arndb.de>, BMC-SW <BMC-SW@aspeedtech.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>, Jeremy Kerr <jk@codeconstruct.com.au>, Lee
- Jones <lee@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>, Nishanth Menon <nm@ti.com>,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>,
-	Taniya Das <quic_tdas@quicinc.com>, "Lad, Prabhakar"
-	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Kuninori Morimoto
-	<kuninori.morimoto.gx@renesas.com>, Eric Biggers <ebiggers@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC device
- tree
-Thread-Topic: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC
- device tree
-Thread-Index: AQHcQyJQr8Cg3wF4TE29hMu8e6S4P7TOr5mAgACf3YCAANyZAIAAeR6A
-Date: Fri, 24 Oct 2025 03:54:55 +0000
-Message-ID: <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
- <20251022070543.1169173-5-ryan_chen@aspeedtech.com>
- <b5441728-06a7-44ea-8876-3a9fc3cf55be@app.fastmail.com>
- <TY2PPF5CB9A1BE626A2F0F6307461D8F64BF2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com>
-In-Reply-To: <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TY2PPF5CB9A1BE6:EE_|TYZPR06MB6463:EE_
-x-ms-office365-filtering-correlation-id: 2c07fdd1-48b4-463f-3b0c-08de12b11857
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|921020|38070700021;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?xmYGqASTRKsk7VXyA62NVMWcXdLQdWAY4CbPGyZ9SNJIgs3iFfTlfORwHx?=
- =?iso-8859-1?Q?6QAh7zYtOODYOaGLgC+B3Tv5Q8v+P7OSZaFD+2QpJZJY84fpYCuPB1npAh?=
- =?iso-8859-1?Q?pN+AGXSBIYEAHLrJb2jDqE7Ewi0um/hdYe+/p6RBDafMpuodmOFEF/ylKh?=
- =?iso-8859-1?Q?9uEECYshhMyhLJUzHTKR4b7MzyJJ4zz4F14GILNtuaH9EwXrAjpzZ6FwlB?=
- =?iso-8859-1?Q?M2Yt80OOsGmV8hy7xqOEjFCDVBqpoO7oA/i0xltfg4VAdg9HSV0LmExnyA?=
- =?iso-8859-1?Q?5jeAQ4QMcDIgxF14On0ZATIuqsDY6JiOyKBhoRyhXyOOmy9DHA4TKill7z?=
- =?iso-8859-1?Q?HRmSKDZWvyCv+KuqM2rS+hL7FxInEbJRthFaVtNLdDm8bs1Eps3KNrdUXZ?=
- =?iso-8859-1?Q?THHFyKgwMUm4+0WNDntMdZf3eULw996U91gg4hfCcifzvQntwJZoe3ryui?=
- =?iso-8859-1?Q?KLSwin8lxGD0qMCzUjo7+0jTB8qfjaOfBim/6jCuwCi2+iohRE7swLU0iT?=
- =?iso-8859-1?Q?QQID458mFEBdY1789WMaw3im+LKeemK89r9HdVYfXlbU5ruLnWsUXQbLbG?=
- =?iso-8859-1?Q?TcKCHbjDfX4Ml6xP+zkTGmVpS8z5v9LzX2mcpdXaVBQ9EAbWUrREvT1bYr?=
- =?iso-8859-1?Q?WhkrERqT67ldiRg5PJfyQImcoY1qKMU7BxpPYQX4AhmGz5/G28+hoAGt4s?=
- =?iso-8859-1?Q?c0nJ850piwzt+VPHDPMxw3k6THXAwor8gq9ChVlsje5/ysIobnGdx0L+Oh?=
- =?iso-8859-1?Q?vE5Zc/PpezHRbaPasxNYIshsyC+PPVY5pQoQa8Pgpp2oOzVKZFoDbo2PLV?=
- =?iso-8859-1?Q?TYSfKNA4O+cJDG1BV1f9O9six19TIeDDpwo893+WDvN20RnuxnA5gUQ0JH?=
- =?iso-8859-1?Q?G9HCS0itZnbsPRs1ks2olExFGMWCCaFBR8m1MsTzM8b10iSADNgJd4BCMx?=
- =?iso-8859-1?Q?xwvs1MdyaKuYs0TKnLvbTsh7gt0u7OsG9PMpbHDlgmAZ2a6Av4MXJAdroM?=
- =?iso-8859-1?Q?EOCJ3BwpeoPZkSeIBP9SAG5nmOOnGSkACeCaAOaJnwgNXYs9ZSzMH8gN1W?=
- =?iso-8859-1?Q?mmaxaIy0WAENH52xHRQlT+1f59GdzkR2kq62x535vwJJeS/wohA3+8lkAw?=
- =?iso-8859-1?Q?fbvuCNVDKkcyDduMCZE6cPDWHZVqb9shcJf5MEtuUhV3pKEJrltAEC23VB?=
- =?iso-8859-1?Q?k+T6JWaDXjYSRYfdjaYA0o4LNK4twnMYE/7H0kaW4TFYsMleRpZA9ycQ/t?=
- =?iso-8859-1?Q?3xj2MxcTHaH6XDuvuUifK2W0ZC95HiBvSDzzyLqRshUZP/uHTkPSkx1Hap?=
- =?iso-8859-1?Q?JtnjS7K4YRx7NKhi+yRz5OB3SNm5M18/4NoHpNRkaYCI3aMlFT4XEB57wd?=
- =?iso-8859-1?Q?xVM4PqGaaiOMWjyR21d2pkwBbvwViqd8tPrynhv48klI3FBTgtNiJvvYYT?=
- =?iso-8859-1?Q?ukgBXSs04BrYL6G045FqRrhd6VJY6s1Xd1vTSiKqZmA/5t0gwfe2rPqMbH?=
- =?iso-8859-1?Q?wUzZGPKsDJZentGtf9KjXXKngy5jdnl5y0MjpigUOwn2mwe2u1BoeCM6ES?=
- =?iso-8859-1?Q?ZfloCJlXc2zT7wCGeqIBw1gsz5EBjzxnP+0KJNtN9KjKS9pklA=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(921020)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?YJZsilyEH9uNxB70TPvLpHENUktQQ4WpGl42k2QI+FNKq1pUowTSDIitHM?=
- =?iso-8859-1?Q?b66SqFGiywZsgwHnXvFe7VbAjiXKR3+qM2h02GTU+uq6eJYwpgoCOV+gKT?=
- =?iso-8859-1?Q?18IIZoOaCzZ+be2Y2Go/agwTWgPcU70vR/OwRcEb1AtQkvbRruIiUGvCSw?=
- =?iso-8859-1?Q?oMRbtCJ5y5q578wurrM84Oo+qH0u6ZFaEHS/INiQaVhKpazkxlyH9S46ij?=
- =?iso-8859-1?Q?IpWh4eL7qkZTZ8h+M70ZaC2NKZ4502uxaEBCe1nDlivA+38pcejlXzYI0Q?=
- =?iso-8859-1?Q?NJyiT7w1H+QXjLQpWrQWHDdOasRGg7rfJDHrMyWVbuXspU1eR8vQxuds7D?=
- =?iso-8859-1?Q?VvstHiYZfVt+OwTIJGAcTW1ZPeMKg9mYi1PleusFcrTJQOv7IaoA8/2cmX?=
- =?iso-8859-1?Q?Ak8UoyLf0eRlcmtNqbsX32jMvo/kLcdSRq5XDRTTkCEbWoR0X2UxWTzOVg?=
- =?iso-8859-1?Q?YPKaHRXZs1FXj3C1oXd16bf09o9rrFQTQzjPtm5CLorCkZaCRGv//pMJqW?=
- =?iso-8859-1?Q?ilSnm097BBgVk4wmyTxhaGsfuUJhG6+47TvjXCDtqdMAKGk/R/7TEY0O8w?=
- =?iso-8859-1?Q?La3SoOwNEpjHkDd/hpLLTvLY4JBU64Gnzwry36XSJVDy+n1RYzrYKXVYZW?=
- =?iso-8859-1?Q?Ap/yuh10pFwG0Yd3dy25iwSPKl75E5khSXgsfIYHlXYt5SA7RMWTaifyOq?=
- =?iso-8859-1?Q?LJS1naWwWWSOdiV+BCv4PQ7EE/kPP4r7rqLsKQeDArFwonY/WaqqF77/xv?=
- =?iso-8859-1?Q?Nt9tW3wQm/INMJcC8n8Q37xYt+5hwHsYZXAk8mXNi5uZFp+Wv6Obl4T2NX?=
- =?iso-8859-1?Q?m5RX+OiPc0JBB1ElO3+0w1sH+wq2F2XrR1AE+EHRvYNxLMgHeBCx327UFx?=
- =?iso-8859-1?Q?KWMF5X5eBWph7FDsHx0OIlE6OkBtbUWujowCO8J/6SEU/iGDt47dlzBnxO?=
- =?iso-8859-1?Q?lW1BZDkMYNoqEQg6MjTOXv8UMuyF85EjOH7qhGryQQk9awUtq1VRXD3YMZ?=
- =?iso-8859-1?Q?C0TSeyi5IlHh1L9ASn5DIih8fRYPIbLLptUvkrVTkO4YsSDgMCeiprUMHe?=
- =?iso-8859-1?Q?qmjKzOP0ICH6bTfMfkDithg83Et73yn6zXlvrCwITWxENIfX/1toQPPtdG?=
- =?iso-8859-1?Q?4dM+MePs6XMmswvSF2im1BxCJ2vPYoJc7r6LYA7ennaqZp+FMJHJXai+dX?=
- =?iso-8859-1?Q?UomodTPHnNGUnX27YFqdRMF8TUFDKRicbtT0SuOrFdw3TUCO5YVaFWuFWs?=
- =?iso-8859-1?Q?n8eKgdouHYgCqRbHUh2dBofR/YI076Lk+QTgNMs5kSkMZ5XhkFDaJ947Kt?=
- =?iso-8859-1?Q?GC4eGeneJ8t2SXhAppa56ViQSDtL7iHPD67VlKCA1yhUxMopX6vpRYV/oE?=
- =?iso-8859-1?Q?/2Y5WxjoL9OVsHAgb3by4fx6LtkzDtvaTLE8Q2ZrQZpj7eMBls8pAMQDdr?=
- =?iso-8859-1?Q?VeFanOYi3b27uYQE1b1O87XIkOI0d7mSrkFdBXCNB+kNufVrLydEA6FMkR?=
- =?iso-8859-1?Q?14r6wbNyMh2rm0r59/Iw5cDB68MLY8lE8OB/4MP9ZbG8sa7acfRRPUH8Vo?=
- =?iso-8859-1?Q?6sjbiYE6OAzEi+6yAg3phYhnPCMZqlwVk8BgOzm+ykm5G/LpjLKEKCX0Bq?=
- =?iso-8859-1?Q?7Z2r0608Y4ymG+s+c4BOa2296AHEE4oNc+?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 24 Oct 2025 04:02:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27A281CDD;
+	Thu, 23 Oct 2025 21:02:15 -0700 (PDT)
+Received: from ergosum.cambridge.arm.com (ergosum.cambridge.arm.com [10.1.196.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 615E73F59E;
+	Thu, 23 Oct 2025 21:02:21 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: ben.horgan@arm.com,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: [PATCH V2 1/2] arm64/mm: Drop redundant 'level' range trimming in __tlbi_level()
+Date: Fri, 24 Oct 2025 05:02:06 +0100
+Message-Id: <20251024040207.137480-2-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20251024040207.137480-1-anshuman.khandual@arm.com>
+References: <20251024040207.137480-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2c07fdd1-48b4-463f-3b0c-08de12b11857
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Oct 2025 03:54:56.0013
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: uCsGyAhuQSvlQZLWRUQ4Tdr/Ksqwbdb8ob3Hsz1wUebxtud0lj9m2memr1b9VQ51xYtR4KrLiTvMNydeo2/hs1XD60QewP2YeAtD3vo7jcg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB6463
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_205502_847283_0477D43E 
-X-CRM114-Status: GOOD (  39.01  )
+X-CRM114-CacheID: sfid-20251023_210224_394861_146D62AC 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,209 +68,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC d=
-evice
-> tree
->=20
-> On Thu, Oct 23, 2025, at 09:37, Ryan Chen wrote:
-> >
-> >> > +	aliases {
-> >> > +		serial0 =3D &uart0;
-> >> > +		serial1 =3D &uart1;
-> >> > +		serial2 =3D &uart2;
-> >> > +		serial3 =3D &uart3;
-> >> > +		serial4 =3D &uart4;
-> >> > +		serial5 =3D &uart5;
-> >> > +		serial6 =3D &uart6;
-> >> > +		serial7 =3D &uart7;
-> >> > +		serial8 =3D &uart8;
-> >> > +		serial9 =3D &uart9;
-> >> > +		serial10 =3D &uart10;
-> >> > +		serial11 =3D &uart11;
-> >> > +		serial12 =3D &uart12;
-> >> > +		serial13 =3D &uart13;
-> >> > +		serial14 =3D &uart14;
-> >> > +	};
-> >>
-> >> This looks like you just list all the uarts that are present on the
-> >> chip, which is not how the aliases are meant to be used. Move this
-> >> block into the board specific file and only list the ones that are
-> >> actually enabled on that particular board.
-> >>
-> >> In particular, the alias names are meant to be local to the board and
-> >> don't usually correspond to the numbering inside of the chip. In the
-> >> defconfig, we currently set CONFIG_SERIAL_8250_NR_UARTS=3D8, which is
-> >> enough for any board we support so far, but that means only the first
-> >> 8 aliases in the list will actually work.
-> >
-> > Understood. I'll move the aliases block from the SoC dtsi into the EVB
-> > board dts. For the EVB, UART12 is used as the default console, and the
-> > board labels match the SoC numbering, so I plan to keep:
-> >
-> > Does that look acceptable?
-> > ast2700-evb.dts
-> > 	aliases {
-> > 		serial0 =3D &uart0;
-> > 		serial1 =3D &uart1;
-> > 		serial2 =3D &uart2;
-> > 		serial3 =3D &uart3;
-> > 		serial4 =3D &uart4;
-> > 		serial5 =3D &uart5;
-> > 		serial6 =3D &uart6;
-> > 		serial7 =3D &uart7;
-> > 		serial8 =3D &uart8;
-> > 		serial9 =3D &uart9;
-> > 		serial10 =3D &uart10;
-> > 		serial11 =3D &uart11;
-> > 		serial12 =3D &uart12;
-> > 		serial13 =3D &uart13;
-> > 		serial14 =3D &uart14;
-> > }
->=20
-> I think this would be broken for the defconfig if the consol is on serial=
-12. I
-> would recommend using serial0 as the console, like
->=20
-> aliases {
->        serial0 =3D &uart12;
-> }
->=20
-> in this case. If additional uarts are enabled, add those as further alias=
-es.
+Page table level value has already known to be in the range [0..3] before
+entering inside the conditional 'if' loop. Hence any subsequent trimming
+is just redundant and can be dropped off.
 
-Understood, I will update.
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+ arch/arm64/include/asm/tlbflush.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->=20
-> >>
-> >> > +	soc1: soc@14000000 {
-> >> > +		compatible =3D "simple-bus";
-> >> > +		#address-cells =3D <2>;
-> >> > +		#size-cells =3D <2>;
-> >> > +		ranges =3D <0x0 0x0 0x0 0x14000000 0x0 0x10000000>;
-> >>
-> >> This probably needs some explanation: why are there two 'soc@...'
-> >> devices? Is this literally two chips in the system, or are you
-> >> describing two buses inside of the same SoC?
-> >
-> > The AST2700 is two soc connection with a property bus.
-> > Sharing some decode registers. Each have it own ahb bus.
->=20
-> I don't understand your explanation,
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 18a5dc0c9a54..131096094f5b 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -110,7 +110,7 @@ static inline unsigned long get_trans_granule(void)
+ 									\
+ 	if (alternative_has_cap_unlikely(ARM64_HAS_ARMv8_4_TTL) &&	\
+ 	    level >= 0 && level <= 3) {					\
+-		u64 ttl = level & 3;					\
++		u64 ttl = level;					\
+ 		ttl |= get_trans_granule() << 2;			\
+ 		arg &= ~TLBI_TTL_MASK;					\
+ 		arg |= FIELD_PREP(TLBI_TTL_MASK, ttl);			\
+-- 
+2.30.2
 
-Let me clarify more clearly:
-The AST2700 is a dual-SoC architecture, consisting of two interconnected So=
-Cs,
-referred to as SoC0 and SoC1. Each SoC has its own clock/reset domains.=20
-They are connected through an internal "property bus",=20
-which is Aspeed's internal interconnect providing shared
-address decoding and communication between the two SoCs.
-
-
->=20
-> >>
-> >> > +
-> >> > +		mdio0: mdio@14040000 {
-> >> > +			compatible =3D "aspeed,ast2600-mdio";
-> >> > +			reg =3D <0 0x14040000 0 0x8>;
-> >> > +			resets =3D <&syscon1 SCU1_RESET_MII>;
-> >> > +			status =3D "disabled";
-> >> > +		};
-> >>
-> >> I see that you use the old compatible=3D"aspeed,ast2600-mdio" string
-> >> exclusively here. While this works, I would suggest you list both a
-> >> more specific "aspeed,ast2700-mdio" string to refer to the version in
-> >> this chip as well as the fallback "aspeed,ast2600-mdio" string as the =
-generic
-> identifier.
-> >>
-> >> The binding obviously has to describe both in that case, but the
-> >> driver does not need to be modified as long as both behave the same wa=
-y.
-> >
-> > Thanks, will submit ast2700-mdio.
-> > Question, should I add in here patch series?
-> > Or go for another patch thread?
->=20
-> Since there is no corresponding driver change, I would keep the binding c=
-hange
-> as a patch in this series.
-
-Sorry, I am wondering, I will follow Andrew advice.=20
-Submit ast2700-mdio to net-next go out another thread.
-And put submit link in cover-letter in next version.
-Is it ok?
-
->=20
-> >> > +
-> >> > +		syscon1: syscon@14c02000 {
-> >> > +			compatible =3D "aspeed,ast2700-scu1", "syscon",
-> "simple-mfd";
-> >> > +			reg =3D <0x0 0x14c02000 0x0 0x1000>;
-> >> > +			ranges =3D <0x0 0x0 0x14c02000 0x1000>;
-> >> > +			#address-cells =3D <1>;
-> >> > +			#size-cells =3D <1>;
-> >> > +			#clock-cells =3D <1>;
-> >> > +			#reset-cells =3D <1>;
-> >> > +
-> >> > +			scu_ic2: interrupt-controller@100 {
-> >> > +				compatible =3D "aspeed,ast2700-scu-ic2";
-> >> > +				reg =3D <0x100 0x8>;
-> >> > +				#interrupt-cells =3D <1>;
-> >> > +				interrupts-extended =3D <&intc1_5 0>;
-> >> > +				interrupt-controller;
-> >> > +			};
-> >> > +
-> >> > +			scu_ic3: interrupt-controller@108 {
-> >> > +				compatible =3D "aspeed,ast2700-scu-ic3";
-> >> > +				reg =3D <0x108 0x8>;
-> >> > +				#interrupt-cells =3D <1>;
-> >> > +				interrupts-extended =3D <&intc1_5 26>;
-> >> > +				interrupt-controller;
-> >> > +			};
-> >>
-> >> This looks a bit silly to be honest: you have two separate devices
-> >> that each have a single register and a different compatible string?
-> >
-> > Yes, it have difference register define in each scu-ic#. That is
-> > compatible with design.
-> > https://github.com/torvalds/linux/blob/master/drivers/irqchip/irq-aspe
-> > ed-scu-ic.c#L45-L48
->=20
-> Right, if the driver already has this design, it does make sense to not c=
-hange it
-> for the new generation. For a newly added driver I would probably do it
-> differently.
-
-Thanks
->=20
-> >> Also you claim to be compatible with "syscon" but nothing actually
-> >> refers to the syscon node in that form?
-> >
-> > There is another submit ongoing in pinctrl which will use syscon.
-> > https://lwn.net/ml/all/20250829073030.2749482-2-billy_tsai@aspeedtech.
-> > com/
-> >
-> > Could I keep it? or I should remove it?
->=20
-> The version of the driver you are linking does not appear to use syscon, =
-maybe
-> this is an artifact from a previous version?
->=20
-> If so, you can drop it. On the other hand, this does seem to be a classic=
- syscon
-> device and keeping it marked that way is not harmful, just redundant if y=
-ou
-> actually use the more specific compatible string.
-
-Sorry, I may not point right link
-https://patchwork.ozlabs.org/project/linux-aspeed/patch/20250829073030.2749=
-482-4-billy_tsai@aspeedtech.com/
-aspeed_g7_soc0_pinctrl_probe -> aspeed_pinctrl_probe
-https://github.com/torvalds/linux/blob/master/drivers/pinctrl/aspeed/pinctr=
-l-aspeed.c#L456
-
-That will use syscon to regmap.
->=20
->=20
->      Arnd
 
