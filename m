@@ -4,79 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0621BCCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:51:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11777CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sCRi+ao+Y0H2VTsuR8VLPC8s6tkLiQZtynG9CySW2MU=; b=DFCazaeJeOU/CCL0Y9vuSbHDey
-	i/iGD1aSjU46RVBNgHxUq9IZveZJGsNrNcUFu1iRWmHB9NbgHXBAXMuhVXmn/F6o2/nAHA/JhZinE
-	sp8fR/jkcSubKsUmRJB5Ex0SHEfAPSQRM9T5TkbxwHE3fY6uRM3VELvjy7lrGPfLjn2osdX2Er1mA
-	LN5z+oC8CMt57TXKXxZszxUIX4IoELviNJlYLhfuowMm8P9Tb/hd/GNTsI2VqWGmvCsT5u9qW59u/
-	hPNGCKDcmlmkUfwXy3wcno2vzzuJYN59PS7ychUXlDSdudI+1WEyQjlGZE+3nVhoiCsEUEpf+ny01
-	ohsDGtdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cTe7l+ykqiC2pY6IKn55JK7m+iHRgEoOiLCedQMrTSY=; b=eVmLu1dObsp8jHeOZvynaWIod5
+	AL5W9BPi5QUBE3Fj0Ua14uW2BihiuTw8mC4AM/kbG/AfRMsUtUzOMIRa+HpoABnaNlUSeWAMes54Q
+	7l3RgGAu0/7q6DSawD3AR0+AX7l0+SNlboYbgLcitHNWcyJXKcVvx/ET8mLog1bNtnuwb3S3mxlP/
+	bsPXzPq2v7DvcSMsY568XDPkYl2fc3Nta6/SQ8ctSb4qbhfrzkeSFvAADQLnpziU25ZgAotl2UZxs
+	nyg4U68gHwnMfx8fx5vkpqmqGfJYkjlJE8Ritl7aKUZeRrBATHggBweiB5CadHFqCrIDu3spQSVdk
+	MjDX/ryw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLx0-0000000A9cg-3yZu;
-	Fri, 24 Oct 2025 17:51:42 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vCLyA-0000000A9ye-1sfy;
+	Fri, 24 Oct 2025 17:52:54 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLwy-0000000A9bt-3Sao;
-	Fri, 24 Oct 2025 17:51:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1761328287; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=DiUyK8tdAupooswC4Sh2gsaGJwEarJ2aZRUjtIhDMxmxjnPCwSJRknW6FK7e104M3g/ENmJma3JrEma6BSWM8iTXHD3hRonO4QsrI45TwsKHlCiM2j5zsjTAMxTG2UycJQA8ITep5QRzANzyo1CGE3vSPesoum/GwvGkgdodCVw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1761328287; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=sCRi+ao+Y0H2VTsuR8VLPC8s6tkLiQZtynG9CySW2MU=; 
-	b=RThPz6TkUJ2jhE7s8OufEirmiTtnvWIxDI0UBi+jed1zfOjgC7eRCNTISyyxzyX62b8PwegmUaIsDgWYJT725GLk4M5aLHylcuWtS7dXik1RTvVlYTWOBI6CqtxT3bz9VYRimiKSd2TbHgmqc4Q6v+RECoH2PcPIlsnlozP48qY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761328287;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=sCRi+ao+Y0H2VTsuR8VLPC8s6tkLiQZtynG9CySW2MU=;
-	b=ZKb2rdBffh4am/tRZLfrrSU3VWPizGpeEqiF3S7so4peQ3+FCRThFZJdvv8pSRFn
-	F0ikOoMjV24bWKPNFk4CoB5X+7yzxzwNZRWepd08Gj1lW5Su8OBONpJbXcc0s8JHWrY
-	yAaoi+kd4UPzNeYm8j+C5+cIzhfvtYqsBkAwnI2Y=
-Received: by mx.zohomail.com with SMTPS id 1761328284052701.9623815285279;
-	Fri, 24 Oct 2025 10:51:24 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
- Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, kernel@collabora.com,
- linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH v3 03/24] dt-bindings: ufs: mediatek,ufs: Add mt8196 variant
-Date: Fri, 24 Oct 2025 19:51:11 +0200
-Message-ID: <5617400.31r3eYUQgx@workhorse>
-In-Reply-To: <20251024-thrash-amid-d5af186c4319@spud>
-References: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
- <20251023-mt8196-ufs-v3-3-0f04b4a795ff@collabora.com>
- <20251024-thrash-amid-d5af186c4319@spud>
+	id 1vCLy7-0000000A9yG-1K9N
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Oct 2025 17:52:52 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ctVlT0TySz6GD8s;
+	Sat, 25 Oct 2025 01:49:25 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id E8D2F14027A;
+	Sat, 25 Oct 2025 01:52:43 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 24 Oct
+ 2025 18:52:42 +0100
+Date: Fri, 24 Oct 2025 18:52:41 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
+	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
+	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
+	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
+	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
+	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
+	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
+ Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
+	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
+	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+	Gavin Shan <gshan@redhat.com>
+Subject: Re: [PATCH v3 15/29] arm_mpam: Reset MSC controls from cpuhp
+ callbacks
+Message-ID: <20251024185241.0000206e@huawei.com>
+In-Reply-To: <20251017185645.26604-16-james.morse@arm.com>
+References: <20251017185645.26604-1-james.morse@arm.com>
+	<20251017185645.26604-16-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_105140_926252_C86B7C77 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20251024_105251_499862_7CCF2C19 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,103 +87,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 24 October 2025 19:13:36 Central European Summer Time Conor Dooley wrote:
-> On Thu, Oct 23, 2025 at 09:49:21PM +0200, Nicolas Frattaroli wrote:
+On Fri, 17 Oct 2025 18:56:31 +0000
+James Morse <james.morse@arm.com> wrote:
+
+> When a CPU comes online, it may bring a newly accessible MSC with
+> it. Only the default partid has its value reset by hardware, and
+> even then the MSC might not have been reset since its config was
+> previously dirtied. e.g. Kexec.
 > 
-> >      };
-> > +  - |
-> > +    #include <dt-bindings/reset/mediatek,mt8196-resets.h>
-> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +
-> > +    ufshci@16810000 {
-> > +        compatible = "mediatek,mt8196-ufshci";
-> > +        reg = <0x16810000 0x2a00>;
-> > +        interrupts = <GIC_SPI 320 IRQ_TYPE_LEVEL_HIGH>;
-> > +
-> > +        clocks = <&ufs_ao_clk 6>,
-> > +                 <&ufs_ao_clk 7>,
-> > +                 <&clk26m>,
-> > +                 <&ufs_ao_clk 3>,
-> > +                 <&clk26m>,
-> > +                 <&ufs_ao_clk 4>,
-> > +                 <&ufs_ao_clk 0>,
-> > +                 <&topckgen 7>,
-> > +                 <&topckgen 41>,
-> > +                 <&topckgen 105>,
-> > +                 <&topckgen 83>,
-> > +                 <&ufs_ao_clk 1>,
-> > +                 <&ufs_ao_clk 2>,
-> > +                 <&topckgen 42>,
-> > +                 <&topckgen 84>,
-> > +                 <&topckgen 102>;
+> Any in-use partid must have its configuration restored, or reset.
+> In-use partids may be held in caches and evicted later.
 > 
-> This is absolutely a nitpick thing, but if you end up resubmitting, can
-> you pick a consistent format between the two examples your series adds
-> for the clocks/clock names?
-
-No problem, will do. IIRC I kept them as a list like this so I could
-easily reorder things, but now that I'm fairly sure this order is the
-correct one, it's probably best to make this more compact.
-
-Also sorry for the numbers as clock IDs, but MediaTek clock headers
-have conflicting symbols and the dt schema example extractor dumps
-all examples into one dts file. :(
-
-Since this has bugged me in the past, and many schemas may rely on
-the concat behaviour now: would a patch in the distant future that
-prefixes all MediaTek clock binding headers with the SoC name be
-acceptable if it keeps the old names intact as aliases to them with
-a #ifndef guard?
-
-I should also think about some way we can avoid similar bindings
-symbol naming mishaps in the future.
-
-Thank you for pointing me in the right direction with regards to
-the binding!
-
-Kind regards,
-Nicolas Frattaroli
-
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> pw-bot: not-applicable
+> MSC are also reset when CPUs are taken offline to cover cases where
+> firmware doesn't reset the MSC over reboot using UEFI, or kexec
+> where there is no firmware involvement.
 > 
-> > +        clock-names = "ufs",
-> > +                      "ufs_aes",
-> > +                      "ufs_tick",
-> > +                      "unipro_sysclk",
-> > +                      "unipro_tick",
-> > +                      "unipro_mp_bclk",
-> > +                      "ufs_tx_symbol",
-> > +                      "ufs_mem_sub",
-> > +                      "crypt_mux",
-> > +                      "crypt_lp",
-> > +                      "crypt_perf",
-> > +                      "ufs_rx_symbol0",
-> > +                      "ufs_rx_symbol1",
-> > +                      "ufs_sel",
-> > +                      "ufs_sel_min_src",
-> > +                      "ufs_sel_max_src";
-> > +
-> > +        operating-points-v2 = <&ufs_opp_table>;
-> > +
-> > +        phys = <&ufsphy>;
-> > +
-> > +        avdd09-supply = <&mt6363_vsram_modem>;
-> > +        vcc-supply = <&mt6363_vemc>;
-> > +        vcc-supply-1p8;
-> > +        vccq-supply = <&mt6363_va12_2>;
-> > +        vccq2-supply = <&mt6363_vufs12>;
-> > +
-> > +        resets = <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_UNIPRO>,
-> > +                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_CRYPTO>,
-> > +                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFSHCI>;
-> > +        reset-names = "unipro", "crypto", "hci";
-> > +        mediatek,ufs-disable-mcq;
-> > +    };
-> > 
+> If the configuration for a RIS has not been touched since it was
+> brought online, it does not need resetting again.
 > 
-
-
+> To reset, write the maximum values for all discovered controls.
+> 
+> CC: Rohit Mathew <Rohit.Mathew@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
 
 
