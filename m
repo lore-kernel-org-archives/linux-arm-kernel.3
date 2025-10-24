@@ -4,158 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20268CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 15:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 242F1CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 16:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xSaGAotvonegYqDLipdghoRR3gYmFE63MavmMNvHheo=; b=mce+z+U3i3SURH2Q2bGsykBmqK
-	ocZ5T458tVACzuU/adgWKoJF/3E4b3B1+n5Q5ZESCZPhOQRkQHVJOSXbpu+ZgMucC+gPqffkmSpW0
-	oWlJPWXv+lFlno+wt20hsJcZ8tpphDdES1yXQJwaE0v1csN9yzsEPIYA7A0tfl57hQjkC0Zc7ookK
-	s+ciDBJxKoPl0pWEvedRYNHlkqgCYIEMjEhycR5vEwztLzx48AyjZ4Dof1ylVqMEJ5trYJDz57Wwu
-	PM4g6Eq09okqNgaMv4SIX3cN7pIAaCiChQb+30JI+9dlhQPBt99TC1QiRCvfxw7suzg+r/0EpmTHT
-	Ywo1Nd9A==;
+	bh=Z2YCwLGa2MhaukmLh5mLstroKMu1Oe9RmJGj54Raf4U=; b=daK6QGADPx3hCnpvBALBrON0lh
+	69ExV7tM92S7/eIQHpsdWllkcjYNx7mfukQ7mgLwpjXIV2MFPpnOqU1QcjlYXqdcVk5X5QvBuoA6n
+	WRTg8m/MfGnJL5KWgrJm2LzGZxDUwc9/Fi2Xw0vY8ndFBMJ+aCy1evNvDb4xEDSk4TMXcVxJOxbcI
+	pGh6ZqCgkoILGsz66tTwAvEQCOPhqelRkCDvSCF8+duHhHKnA0aEIxddRv0Xhkm/EiYQUyoKWWW6G
+	ybQekEpdHUxS1WjzF+h85to2MNgr3OZTGmy1gDQpoC4E+y8zKqssNSjcSNB26dKdPhvQF++lRDeza
+	kU/6/5TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCKAY-00000009soN-46nB;
-	Fri, 24 Oct 2025 15:57:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vCKEu-00000009tNE-3W40;
+	Fri, 24 Oct 2025 16:02:04 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCKAW-00000009smC-3QJs
+	id 1vCKEr-00000009tMV-0Lmh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 15:57:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761321451;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=xSaGAotvonegYqDLipdghoRR3gYmFE63MavmMNvHheo=;
-	b=ivg05hk9fKBEMdIVqIv0ydUivoN7Ivgdk32H+r0bgtcMN1T/WyhuxN1mfkZxv7Pcs/yiPJ
-	EZ7WE4cdBIU1x9LnOz7KHZntoPXb7tRS2h9gCLJp/5T1GWho+z5bLenfcE1a7p+4JZUHmf
-	g4H/Nk2rd0QgurEHV3n0ZeC/YFQCfC4=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-135-YzqpZBV0PoCxlbe2_JB4EA-1; Fri, 24 Oct 2025 11:57:27 -0400
-X-MC-Unique: YzqpZBV0PoCxlbe2_JB4EA-1
-X-Mimecast-MFC-AGG-ID: YzqpZBV0PoCxlbe2_JB4EA_1761321447
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-47106a388cfso14916465e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 08:57:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761321446; x=1761926246;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xSaGAotvonegYqDLipdghoRR3gYmFE63MavmMNvHheo=;
-        b=ZerP9ynNuXzk7L8c0o5/jI2wC3UdQmOFr3Hw5bX9HghNmCyZJVRbJ0UcGQRrHQot6j
-         c65N0f4ApNn71Hv3UrakBD/8AqAX3rx7Zh6ekBF4KhPKJdS4cTzQqU8uvEiXtOZoQYFY
-         gy1yxWLxnnRU72l8VRITSyqXPwSKLPjPwgErnZdkFfQzm2okt1RurnXcCK2dRM+uWUVp
-         wJSZcrEcHEjuh06Qhe0Su/y0qzNNdqmRAT3B2213HIGSpNvvPKZy6OEGWAs5teP8qFcC
-         uN5RvllS/Aqh3ZFaxhbnKiiKpiRLnSIlhSQsPuDMAMlz+i+FwQ/SkX9nz9Yu2G+hgIK6
-         jbAA==
-X-Forwarded-Encrypted: i=1; AJvYcCV+ra8ZAAsmjREo4wKn/mGeDVCuCC/naLlchcAPNH1c17YnOeZi+3EHr3kq4hBoDePQMJraktdJhzvG0gztREbz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhmTxC2UecWyMNxrmnErGrxZX2dQTdWbxBwrIIdQRqb+QbQA1S
-	IZQghkT8UCOaqQdJluxIhe3Otq+CcmioTHUuq6zq7vE7fZ8FGPHD3cc4khtCdtULIcq+vetWlQw
-	0vPbACCxRvPk7UqfddJ5S9RWAmDVVqw5GS6ChV+y5ywn2eOjv03Iy3H2sdJ6doVb4QNTzwVyo6c
-	8O
-X-Gm-Gg: ASbGncsautf1ivu1GXfwsDZYRa+i/VFYYYH40Sz+KdC1bbePD5IkHnVmk9P00ZRhGtn
-	p74gb4MROBbbRDNdPQlHkxENFFx6ZSz60fed4OT2pglQTUeQApO+D0Wl//0nKea0oCvONTU34vU
-	9ibIeP7n/3PoucL+htihHU6HsDJq1fQB6yYNy95kXgsf3zLXeo04BplSPgI8ai/zgEqnwPlRUae
-	tSBGLJ/Zs1g5wYGyxrw8WNFiDk3+/9wWs/iisu6PkT9uPlSKUCMGbarOVf9UEZ58XNmOWbdBcTY
-	ptS60jIYgfXIfVjuKIqufxKWBQg7jK+p8xCk7bvbAomiZ6P+5cekBpl2GE4Ma4lvHxlX9UqyjB1
-	mx5SLdwUpMbp1HLcRD0OenQ4kPYAiAGfVwp74I9vIOMRj/H4XaUYniLVWBvxtTm0L378dzTyjo9
-	DKWDShVMYhJgG6a+7tnIjmyiPPz+s=
-X-Received: by 2002:a05:600c:4e89:b0:46f:b42e:e392 with SMTP id 5b1f17b1804b1-47117931c1dmr203634055e9.39.1761321446463;
-        Fri, 24 Oct 2025 08:57:26 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHA4A2hoyfYF06ELU1f5lK86/4VDaYOE4+LD8w0cVkXBoJRLb76v9U0hz/4ouS4xKx4zUaOIQ==
-X-Received: by 2002:a05:600c:4e89:b0:46f:b42e:e392 with SMTP id 5b1f17b1804b1-47117931c1dmr203633615e9.39.1761321445993;
-        Fri, 24 Oct 2025 08:57:25 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f4e:3200:c99d:a38b:3f3a:d4b3? (p200300d82f4e3200c99da38b3f3ad4b3.dip0.t-ipconnect.de. [2003:d8:2f4e:3200:c99d:a38b:3f3a:d4b3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475c4281314sm158156125e9.4.2025.10.24.08.57.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 24 Oct 2025 08:57:25 -0700 (PDT)
-Message-ID: <ff869b97-22bb-48af-b109-ca096afed7b7@redhat.com>
-Date: Fri, 24 Oct 2025 17:57:23 +0200
+	Fri, 24 Oct 2025 16:02:03 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251024160155euoutp02bbdc98d1f425dcd36e61a35e6c3253a0~xeMTHxQhN1699716997euoutp02J
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 16:01:55 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251024160155euoutp02bbdc98d1f425dcd36e61a35e6c3253a0~xeMTHxQhN1699716997euoutp02J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1761321715;
+	bh=Z2YCwLGa2MhaukmLh5mLstroKMu1Oe9RmJGj54Raf4U=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=V/mLSGd+PNgYjzt8A8U4GzwRVcjLqZGhmZ3I7otCWaIKsf/ympw+J2E9+CZUg+Z2H
+	 n302pwdFA1NYz0fqMnzH7p2JW1HvlpeEvg/7Ut6E04D8buEGqmne87BSClR+urERtu
+	 l7qkn1xTBVkPG6xaRRMgccIzKCwjqAgoGBLWeP2I=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20251024160155eucas1p22cf28a5bc04ac9ea6bd32260abf32112~xeMSctpLS0527105271eucas1p24;
+	Fri, 24 Oct 2025 16:01:55 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20251024160153eusmtip2ce7463592396f996413bf3cd359e5ae4~xeMRY8Nyc1017610176eusmtip2B;
+	Fri, 24 Oct 2025 16:01:53 +0000 (GMT)
+Message-ID: <6fc8731e-6e8c-4c45-9b3b-509a1fb71a1a@samsung.com>
+Date: Fri, 24 Oct 2025 18:01:53 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -v3 1/2] mm: add spurious fault fixing support for huge
- pmd
-To: Huang Ying <ying.huang@linux.alibaba.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Vlastimil Babka <vbabka@suse.cz>, Zi Yan <ziy@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
- "Christoph Lameter (Ampere)" <cl@gentwo.org>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Anshuman Khandual
- <anshuman.khandual@arm.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Yin Fengwei <fengwei_yin@linux.alibaba.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20251023013524.100517-1-ying.huang@linux.alibaba.com>
- <20251023013524.100517-2-ying.huang@linux.alibaba.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20251023013524.100517-2-ying.huang@linux.alibaba.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: om7seKHfDVSsfG4p-B8XuMMPnUNWi6NnbMgvbvKkMlA_1761321447
-X-Mimecast-Originator: redhat.com
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v5 6/7] clocksource/drivers/exynos_mct: Add module
+ support
+To: William McVicker <willmcvicker@google.com>
+Cc: Russell King <linux@armlinux.org.uk>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Krzysztof
+	Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Ingo
+	Molnar <mingo@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+	Youngmin Nam <youngmin.nam@samsung.com>, Donghoon Yu <hoony.yu@samsung.com>,
+	Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, John
+	Stultz <jstultz@google.com>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, Conor Dooley
+	<conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org,
+	kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <aPuhDFKINM9iXOKb@google.com>
 Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20251024160155eucas1p22cf28a5bc04ac9ea6bd32260abf32112
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20251023205319eucas1p24eb9821bbcb2d59e2cb1e01c4366faab
+X-EPHeader: CA
+X-CMS-RootMailID: 20251023205319eucas1p24eb9821bbcb2d59e2cb1e01c4366faab
+References: <20251023205257.2029526-1-willmcvicker@google.com>
+	<CGME20251023205319eucas1p24eb9821bbcb2d59e2cb1e01c4366faab@eucas1p2.samsung.com>
+	<20251023205257.2029526-7-willmcvicker@google.com>
+	<40d3f3c9-7526-440b-9dbd-7ead22c8562a@samsung.com>
+	<aPuhDFKINM9iXOKb@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_085732_933354_7D0673C5 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20251024_090201_752114_267A4A80 
+X-CRM114-Status: GOOD (  30.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,53 +97,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23.10.25 03:35, Huang Ying wrote:
-> The page faults may be spurious because of the racy access to the page
-> table.  For example, a non-populated virtual page is accessed on 2
-> CPUs simultaneously, thus the page faults are triggered on both CPUs.
-> However, it's possible that one CPU (say CPU A) cannot find the reason
-> for the page fault if the other CPU (say CPU B) has changed the page
-> table before the PTE is checked on CPU A.  Most of the time, the
-> spurious page faults can be ignored safely.  However, if the page
-> fault is for the write access, it's possible that a stale read-only
-> TLB entry exists in the local CPU and needs to be flushed on some
-> architectures.  This is called the spurious page fault fixing.
-> 
-> In the current kernel, there is spurious fault fixing support for pte,
-> but not for huge pmd because no architectures need it. But in the
-> next patch in the series, we will change the write protection fault
-> handling logic on arm64, so that some stale huge pmd entries may
-> remain in the TLB. These entries need to be flushed via the huge pmd
-> spurious fault fixing mechanism.
-> 
-> Signed-off-by: Huang Ying <ying.huang@linux.alibaba.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: David Hildenbrand <david@redhat.com>
-> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> Cc: Vlastimil Babka <vbabka@suse.cz>
-> Cc: Zi Yan <ziy@nvidia.com>
-> Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Yang Shi <yang@os.amperecomputing.com>
-> Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-> Cc: Dev Jain <dev.jain@arm.com>
-> Cc: Barry Song <baohua@kernel.org>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Kefeng Wang <wangkefeng.wang@huawei.com>
-> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
-> Cc: Yin Fengwei <fengwei_yin@linux.alibaba.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> ---
+On 24.10.2025 17:53, William McVicker wrote:
+> On 10/24/2025, Marek Szyprowski wrote:
+>> On 23.10.2025 22:52, Will McVicker wrote:
+>>> From: Donghoon Yu <hoony.yu@samsung.com>
+>>>
+>>> On Arm64 platforms the Exynos MCT driver can be built as a module. On
+>>> boot (and even after boot) the arch_timer is used as the clocksource and
+>>> tick timer. Once the MCT driver is loaded, it can be used as the wakeup
+>>> source for the arch_timer.
+>>>
+>>> Signed-off-by: Donghoon Yu <hoony.yu@samsung.com>
+>>> Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
+>>> Signed-off-by: Will McVicker <willmcvicker@google.com>
+>>> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+>>> [original commit from https://android.googlesource.com/kernel/gs/+/8a52a8288ec7d88ff78f0b37480dbb0e9c65bbfd]
+>>> Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com> # AOSP -> Linux port
+>>> Tested-by: Youngmin Nam <youngmin.nam@samsung.com> # AOSP -> Linux port
+>>> ---
+>>>    drivers/clocksource/Kconfig      |  3 +-
+>>>    drivers/clocksource/exynos_mct.c | 56 +++++++++++++++++++++++++++-----
+>>>    2 files changed, 49 insertions(+), 10 deletions(-)
+>>>
+>>> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+>>> index ffcd23668763..9450cfaf982f 100644
+>>> --- a/drivers/clocksource/Kconfig
+>>> +++ b/drivers/clocksource/Kconfig
+>>> @@ -451,7 +451,8 @@ config ATMEL_TCB_CLKSRC
+>>>    	  Support for Timer Counter Blocks on Atmel SoCs.
+>>>    
+>>>    config CLKSRC_EXYNOS_MCT
+>>> -	bool "Exynos multi core timer driver" if COMPILE_TEST
+>>> +	tristate "Exynos multi core timer driver" if ARM64
+>>> +	default y if ARCH_EXYNOS || COMPILE_TEST
+>>>    	depends on ARM || ARM64
+>>>    	depends on ARCH_ARTPEC || ARCH_EXYNOS || COMPILE_TEST
+>>>    	help
+>>> diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
+>>> index fece6bbc190e..a87caf3928ef 100644
+>>> --- a/drivers/clocksource/exynos_mct.c
+>>> +++ b/drivers/clocksource/exynos_mct.c
+>>> @@ -15,9 +15,11 @@
+>>>    #include <linux/cpu.h>
+>>>    #include <linux/delay.h>
+>>>    #include <linux/percpu.h>
+>>> +#include <linux/module.h>
+>>>    #include <linux/of.h>
+>>>    #include <linux/of_irq.h>
+>>>    #include <linux/of_address.h>
+>>> +#include <linux/platform_device.h>
+>>>    #include <linux/clocksource.h>
+>>>    #include <linux/sched_clock.h>
+>>>    
+>>> @@ -217,6 +219,7 @@ static struct clocksource mct_frc = {
+>>>    	.mask		= CLOCKSOURCE_MASK(32),
+>>>    	.flags		= CLOCK_SOURCE_IS_CONTINUOUS,
+>>>    	.resume		= exynos4_frc_resume,
+>>> +	.owner		= THIS_MODULE,
+>>>    };
+>>>    
+>>>    /*
+>>> @@ -241,7 +244,7 @@ static cycles_t exynos4_read_current_timer(void)
+>>>    }
+>>>    #endif
+>>>    
+>>> -static int __init exynos4_clocksource_init(bool frc_shared)
+>>> +static int exynos4_clocksource_init(bool frc_shared)
+>>>    {
+>>>    	/*
+>>>    	 * When the frc is shared, the main processor should have already
+>>> @@ -336,6 +339,7 @@ static struct clock_event_device mct_comp_device = {
+>>>    	.set_state_oneshot	= mct_set_state_shutdown,
+>>>    	.set_state_oneshot_stopped = mct_set_state_shutdown,
+>>>    	.tick_resume		= mct_set_state_shutdown,
+>>> +	.owner			= THIS_MODULE,
+>>>    };
+>>>    
+>>>    static irqreturn_t exynos4_mct_comp_isr(int irq, void *dev_id)
+>>> @@ -476,6 +480,7 @@ static int exynos4_mct_starting_cpu(unsigned int cpu)
+>>>    	evt->features = CLOCK_EVT_FEAT_PERIODIC | CLOCK_EVT_FEAT_ONESHOT |
+>>>    			CLOCK_EVT_FEAT_PERCPU;
+>>>    	evt->rating = MCT_CLKEVENTS_RATING;
+>>> +	evt->owner = THIS_MODULE;
+>>>    
+>>>    	exynos4_mct_write(TICK_BASE_CNT, mevt->base + MCT_L_TCNTB_OFFSET);
+>>>    
+>>> @@ -511,7 +516,7 @@ static int exynos4_mct_dying_cpu(unsigned int cpu)
+>>>    	return 0;
+>>>    }
+>>>    
+>>> -static int __init exynos4_timer_resources(struct device_node *np)
+>>> +static int exynos4_timer_resources(struct device_node *np)
+>>>    {
+>>>    	struct clk *mct_clk, *tick_clk;
+>>>    
+>>> @@ -539,7 +544,7 @@ static int __init exynos4_timer_resources(struct device_node *np)
+>>>     * @local_idx: array mapping CPU numbers to local timer indices
+>>>     * @nr_local: size of @local_idx array
+>>>     */
+>>> -static int __init exynos4_timer_interrupts(struct device_node *np,
+>>> +static int exynos4_timer_interrupts(struct device_node *np,
+>>>    					   unsigned int int_type,
+>>>    					   const u32 *local_idx,
+>>>    					   size_t nr_local)
+>>> @@ -653,7 +658,7 @@ static int __init exynos4_timer_interrupts(struct device_node *np,
+>>>    	return err;
+>>>    }
+>>>    
+>>> -static int __init mct_init_dt(struct device_node *np, unsigned int int_type)
+>>> +static int mct_init_dt(struct device_node *np, unsigned int int_type)
+>>>    {
+>>>    	bool frc_shared = of_property_read_bool(np, "samsung,frc-shared");
+>>>    	u32 local_idx[MCT_NR_LOCAL] = {0};
+>>> @@ -701,15 +706,48 @@ static int __init mct_init_dt(struct device_node *np, unsigned int int_type)
+>>>    	return exynos4_clockevent_init();
+>>>    }
+>>>    
+>>> -
+>>> -static int __init mct_init_spi(struct device_node *np)
+>>> +static int mct_init_spi(struct device_node *np)
+>>>    {
+>>>    	return mct_init_dt(np, MCT_INT_SPI);
+>>>    }
+>>>    
+>>> -static int __init mct_init_ppi(struct device_node *np)
+>>> +static int mct_init_ppi(struct device_node *np)
+>>>    {
+>>>    	return mct_init_dt(np, MCT_INT_PPI);
+>>>    }
+>>> -TIMER_OF_DECLARE(exynos4210, "samsung,exynos4210-mct", mct_init_spi);
+>>> -TIMER_OF_DECLARE(exynos4412, "samsung,exynos4412-mct", mct_init_ppi);
+>>> +
+>>> +static int exynos4_mct_probe(struct platform_device *pdev)
+>>> +{
+>>> +	struct device *dev = &pdev->dev;
+>>> +	int (*mct_init)(struct device_node *np);
+>>> +
+>>> +	mct_init = of_device_get_match_data(dev);
+>>> +	if (!mct_init)
+>>> +		return -EINVAL;
+>>> +
+>>> +	return mct_init(dev->of_node);
+>>> +}
+>>> +
+>>> +static const struct of_device_id exynos4_mct_match_table[] = {
+>>> +	{ .compatible = "samsung,exynos4210-mct", .data = &mct_init_spi, },
+>>> +	{ .compatible = "samsung,exynos4412-mct", .data = &mct_init_ppi, },
+>>> +	{}
+>>> +};
+>>> +MODULE_DEVICE_TABLE(of, exynos4_mct_match_table);
+>>> +
+>>> +static struct platform_driver exynos4_mct_driver = {
+>>> +	.probe		= exynos4_mct_probe,
+>>> +	.driver		= {
+>>> +		.name	= "exynos-mct",
+>>> +		.of_match_table = exynos4_mct_match_table,
+>>> +	},
+>>> +};
+>>> +
+>>> +static __init int exynos_mct_init(void)
+>>> +{
+>>> +  return platform_driver_register(&exynos4_mct_driver);
+>>> +}
+>>> +module_init(exynos_mct_init);
+>>> +
+>>> +MODULE_DESCRIPTION("Exynos Multi Core Timer Driver");
+>>> +MODULE_LICENSE("GPL");
+>> Sorry, but this still won't work on legacy ARM 32bit systems with MCT as
+>> the only clocksource, which needs a driver available very early (that's
+>> why it used TIMER_OF_DECLAREmacro). You need to make it conditional
+>> under CONFIG_ARM:
+> Can we rely on the bootloader to setup the MCT timer and then hand-off at boot
+> once the driver is initialized?
 
-Acked-by: David Hildenbrand <david@redhat.com>
+I'm not sure if we can expect anything from the legacy bootloaders and 
+kernel requires timer quite early during boot, much earlier than kernel 
+modules get initialized.
 
+
+> Daniel was working on a solution to transparently handle calling
+> TIMER_OF_DECLARE() when a timer driver can be configured as both a module or
+> built-in here:
+>
+>    https://lore.kernel.org/all/20250625085715.889837-1-daniel.lezcano@linaro.org/
+>
+> Daniel, do you have plans to finish that? In the meantime, can we go with the
+> `#if CONFIG_ARM` solution?
+>
+> Thanks,
+> Will
+>
+> <snip>
+>
+Best regards
 -- 
-Cheers
-
-David / dhildenb
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
