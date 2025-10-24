@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1459ECCF9E9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 23:12:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB10CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 23:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v696+d7bEKIHP2KzhVvsY2xM2Oejqt840Bj3nBovTiM=; b=rjHEy3WkLhqlir/gGANqys9IgA
-	fREWQu6P8DLwlCEjWlBbu4jab3h8iswjZUQSofzMFPxBPftGz0k0d41yujj8SnnfyWLwBolMM5Agr
-	ekErXilzuLeWr6wmwjs8qxuk6s1pPUjT7ccSNctuP69pItaeF6Yt4Qg9SoRPJwikQmPEc2DJowsNo
-	xVqq1AENRRaEQ4Sd44lZF+Xr6EEwwGu2NLhfBGyhHu5agud/VdHlc5UVRCnpb5Ar5pNcdAGimgjW8
-	JdKopknj1HhwS4OQjwKrUvL8UAHAxDu6cuZYQ0yxvnWP0WXf6BbvxgyWYqaEYbgANMYM7X9Q5g8h4
-	FBUoviwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=i5wHHF6pKl4aiyOonU4tAuibUzUI7sktx9B3dzq6OwI=; b=N9cKQaOlVzVHBYlxp5axv6bBJ5
+	Dknc8d/e7HhdgYMbu2v58eL9esAe+jCtCEN/IywQRvhSLVxA9H6OkjzYX4hW8Tz9HeflwnECIkTwE
+	N3Gq6sAUJi7LSM2DoSWV/AoD9EX2kj/BSlvwkaHqjmVYy7EjscxkX0Zln/111onEUoYtA4EfreoV/
+	w0JzOU8Ty7NrnYXMx0LDINGH46aCo+mYRG7Y/6NMrzz+mX3YKq2v3G1N+yqiGPwkNf+5TrF8SflpE
+	w6AQ4mqF1Gle3J8gup7L8x25IRMQy3KhIujTK3wpagnNbEehIKLK/cBxZNsSR7XclHmQdu9TF/oCK
+	eMBCUH5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCQww-0000000AdGo-3BoD;
-	Fri, 24 Oct 2025 23:11:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vCR19-0000000Adn9-2siO;
+	Fri, 24 Oct 2025 23:16:19 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCQwv-0000000AdGR-3k9e
+	id 1vCR16-0000000Adml-46iX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 23:11:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 00E4A601A7;
-	Fri, 24 Oct 2025 23:11:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72E58C4CEF1;
-	Fri, 24 Oct 2025 23:11:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761347516;
-	bh=F1LhiwGp0x3wM8SAKbj7UnEIjjud2a8/8+rDH/aYbsk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vMc8uwQa2ZrwjDbFF6Ktnl5l6b3YVFOifLfJacDlgvv45EyGN3Y6vPdMmdK2BrXsK
-	 TiBckurBINKotx8ovqoOOPI0fnqJVuVhO8YOdPW8TSaySjdDMzuWxcuc7wNk/kVPsA
-	 5N/yiuZvGf9TKL4dFHeNX0PtjsF+lZKSi+uU0JkK5LwpUGassFriVhIqO8Sp42MLdR
-	 X03nJP9dqgLarDzc4Mh3tXRP3Eb7pU2YqiYW+ig73LkP9XGIhABgXfL9+6rWojAguE
-	 OwAL6gnIeuecSfwRAT3vMeZjGTVJE5/x/RjVcBdJNTSV2vOjIDb8Xk7ILwlgo/qJdu
-	 mbg0SpRIpe76w==
-Date: Fri, 24 Oct 2025 18:11:54 -0500
-From: Rob Herring <robh@kernel.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	"jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
-	Kevin Chen <kevin_chen@aspeedtech.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>
-Subject: Re: [PATCH v5 1/3] dt-bindings: interrupt-controller:
- aspeed,ast2700: Add support for INTC hierarchy
-Message-ID: <20251024231154.GA2962687-robh@kernel.org>
-References: <20251022065507.1152071-1-ryan_chen@aspeedtech.com>
- <20251022065507.1152071-2-ryan_chen@aspeedtech.com>
- <20251022135101.GA3349934-robh@kernel.org>
- <TY2PPF5CB9A1BE674594566C13B8D8B2984F2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <TY2PPF5CB9A1BE674594566C13B8D8B2984F2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+	Fri, 24 Oct 2025 23:16:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761347777; x=1792883777;
+  h=date:from:to:cc:subject:message-id;
+  bh=I/Y9DdBB5LpncN91WKyjl/685Hc8oeqxP61/EERFWG0=;
+  b=HHgZPxEINyNnLbTfzzvNm+kt5GiqnXgGtGKXDNvoHjlJw/vWhMpn+k02
+   NNzG+dCtoFyYNoe0xokFLHu8VemswKQ9337NdkzVMX7wjimoabwnfaqhh
+   eX4AKziTGwCbYMjJricMH21iAxUmQwW+r684+xDSjzUOdhAqhAMrBrmNT
+   TfdpvmNDUs359bL5gHpoZ+Xul3MHnKqFY09J/GOw18RQ2A4hSvjvGEH1V
+   zy4ll50FxyPi98KJluX4gFS7QgoGoyX7nyIXdeHHKkFSFDqQmS8pprKt8
+   3KJqZQr4qfcIWH5DH0N+UWPhUH2oTPhFs8mrnrHUDS0jXzQ8gxtciUgw2
+   A==;
+X-CSE-ConnectionGUID: mK43R4hDTk+Dj8eaBZQ3nA==
+X-CSE-MsgGUID: +6hdMc+HRP651QwablrAFQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11586"; a="63570701"
+X-IronPort-AV: E=Sophos;i="6.19,253,1754982000"; 
+   d="scan'208";a="63570701"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Oct 2025 16:16:16 -0700
+X-CSE-ConnectionGUID: FiF5SmGGTYqYOdUJN/bjPg==
+X-CSE-MsgGUID: pMUFiDspQm2rMtLnvW7O1Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,253,1754982000"; 
+   d="scan'208";a="184447994"
+Received: from lkp-server02.sh.intel.com (HELO 66d7546c76b2) ([10.239.97.151])
+  by orviesa007.jf.intel.com with ESMTP; 24 Oct 2025 16:16:16 -0700
+Received: from kbuild by 66d7546c76b2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1vCR13-000EwX-0G;
+	Fri, 24 Oct 2025 23:16:13 +0000
+Date: Sat, 25 Oct 2025 07:16:10 +0800
+From: kernel test robot <lkp@intel.com>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Subject: [linusw-nomadik:b4/fix-mcde-drm-regression] BUILD SUCCESS
+ 72dc3d484e034b263406d9cb2cd192eca0673770
+Message-ID: <202510250704.hnqWcQOq-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251024_161617_057973_B4CFC5AE 
+X-CRM114-Status: UNSURE (   5.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,83 +83,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 23, 2025 at 06:57:01AM +0000, Ryan Chen wrote:
-> Hello Rob.
-> 	Thank you for your detailed review and comments.
-> 
-> > Subject: Re: [PATCH v5 1/3] dt-bindings: interrupt-controller: aspeed,ast2700:
-> > Add support for INTC hierarchy
-> > 
-> > On Wed, Oct 22, 2025 at 02:55:05PM +0800, Ryan Chen wrote:
-> > > AST2700 contains two-level interrupt controllers (INTC0 and INTC1),
-> > > each with its own register space and handling different sets of
-> > > peripherals.
-> > 
-> > This is a mess!
-> > 
-> > How does this relate to the existing "aspeed,ast2700-intc-ic"? Its schema has a
-> > block diagram of connections which I can understand. This does not.
-> > 
-> > The use of child nodes here is questionable. A variable number of interrupt
-> > banks is not a reason to have child nodes. I'm only guessing that's what's
-> > happening here because you haven't explained it.
-> 
-> Let me clarify the hardware structure and the purpose of these bindings.
-> 
-> The AST2700 SoC includes two top-level interrupt controller modules,
-> INTC0 and INTC1. (aspeed,ast2700-intc0, aspeed,ast2700-intc1)
-> Each of them provides routing selection and register protection
-> features.
-> Within each INTCx block, there are multiple sub-blocks called
-> intc-ic, each handling multi-interrupt sources.
-> ("aspeed,ast2700-intc0-ic", "aspeed,ast2700-intc1-ic")
-> 
-> Cascading occurs between the child banks:
-> Level 1 : intc0-ic have multi-interrupts connect to GIC (root)
-> Level 2 : multi Intc1-ic# connect to intc0-ic
-> The parent intc0/1 nodes expose register regions for routing and
-> protection control, serving as containers for their intc-ic children.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git b4/fix-mcde-drm-regression
+branch HEAD: 72dc3d484e034b263406d9cb2cd192eca0673770  drm: panel: s6e63m0: Move DSI commands to enable/disable
 
-Being a 2nd vs. 3rd level interrupt controller is not a reason for 
-different compatibles. The programming model is obviously the same for 
-both as you essentially have 0 driver changes. Having N banks of 32 
-interrupts vs. 1 bank of 32 interrupts is not a reason to have multiple 
-intcN-ic nodes. That is a very common difference between instances of 
-the same interrupt controller such as the GIC.
+elapsed time: 1447m
 
-What you need to do is simply extend your driver to support N banks of 
-32 interrupts. That's what almost every other irqchip driver with more 
-than 32 interrupts does. If you are lucky, then the offset to each 
-bank's registers is just hwirq/32 * <bank stride> and the number of 
-banks can be calculated from the length of 'reg'. If you are not 
-lucky, then you could put 1 'reg' entry for each bank.
+configs tested: 107
+configs skipped: 3
 
-AFAICT, the existing binding in aspeed,ast2700-intc.yaml should work for 
-you.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-> 
-> The following simplified diagram shows the hierarchy:
-> 
-> 
->                                  +----------+       +----------+
->                                  |  intc0   |       |  intc1   |
-> - - - - - - - - - - - - - - - - -+---- -----+- -  - +------ - -+
->   +-----------------------+      |          |       |          |
->   | +-------+ +---------+ |      |          |       |          |
->   | |       | |         | |      |          |       |          |
->   | |  PSP  +-+ GIC     | |      |          |       |          |
->   | |       | |         | |      |          |       |          |
->   | +-------+ |         | |      |          |       |          |
->   |           |         | |      +----------+       |          |
->   |           | 192~201 <-|------+          <-------+ intc1-ic |
->   |           +---------+ |      |          |       |          |
->   +-----------------------+      | intc0-ic <-------+ intc1-ic |
->                                  |          |       |          |
->                                  | 			<-------+ intc1-ic |
->                                  +----------+		  .....
+tested configs:
+alpha                             allnoconfig    gcc-15.1.0
+alpha                            allyesconfig    gcc-15.1.0
+arc                              allmodconfig    gcc-15.1.0
+arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    gcc-15.1.0
+arc                   randconfig-001-20251024    gcc-8.5.0
+arc                   randconfig-002-20251024    gcc-14.3.0
+arm                              allmodconfig    gcc-15.1.0
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    gcc-15.1.0
+arm                   randconfig-001-20251024    clang-20
+arm                   randconfig-002-20251024    gcc-15.1.0
+arm                   randconfig-003-20251024    clang-22
+arm                   randconfig-004-20251024    clang-22
+arm64                             allnoconfig    gcc-15.1.0
+arm64                 randconfig-001-20251024    gcc-8.5.0
+arm64                 randconfig-002-20251024    clang-16
+arm64                 randconfig-003-20251024    gcc-13.4.0
+arm64                 randconfig-004-20251024    clang-17
+csky                              allnoconfig    gcc-15.1.0
+csky                  randconfig-001-20251024    gcc-14.3.0
+csky                  randconfig-002-20251024    gcc-11.5.0
+hexagon                          allmodconfig    clang-17
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-22
+hexagon               randconfig-001-20251024    clang-22
+hexagon               randconfig-002-20251024    clang-22
+i386                             allmodconfig    gcc-14
+i386                              allnoconfig    gcc-14
+i386        buildonly-randconfig-001-20251024    clang-20
+i386        buildonly-randconfig-002-20251024    gcc-14
+i386        buildonly-randconfig-003-20251024    clang-20
+i386        buildonly-randconfig-004-20251024    gcc-14
+i386        buildonly-randconfig-005-20251024    gcc-14
+i386        buildonly-randconfig-006-20251024    gcc-14
+i386                                defconfig    clang-20
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch             randconfig-001-20251024    gcc-15.1.0
+loongarch             randconfig-002-20251024    gcc-15.1.0
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    gcc-15.1.0
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    gcc-11.5.0
+nios2                 randconfig-001-20251024    gcc-11.5.0
+nios2                 randconfig-002-20251024    gcc-11.5.0
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                         allyesconfig    gcc-15.1.0
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    gcc-15.1.0
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20251024    gcc-9.5.0
+parisc                randconfig-002-20251024    gcc-13.4.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    gcc-15.1.0
+powerpc               randconfig-001-20251024    gcc-8.5.0
+powerpc               randconfig-002-20251024    clang-17
+powerpc               randconfig-003-20251024    clang-16
+powerpc64             randconfig-001-20251024    gcc-12.5.0
+powerpc64             randconfig-002-20251024    gcc-14.3.0
+powerpc64             randconfig-003-20251024    gcc-8.5.0
+riscv                             allnoconfig    gcc-15.1.0
+riscv                 randconfig-001-20251024    clang-22
+riscv                 randconfig-002-20251024    clang-22
+s390                             allmodconfig    clang-18
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                  randconfig-001-20251024    gcc-13.4.0
+s390                  randconfig-002-20251024    clang-22
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                    randconfig-001-20251024    gcc-12.5.0
+sh                    randconfig-002-20251024    gcc-14.3.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20251024    gcc-12.5.0
+sparc                 randconfig-002-20251024    gcc-8.5.0
+sparc64               randconfig-001-20251024    clang-20
+sparc64               randconfig-002-20251024    clang-22
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    gcc-14
+um                    randconfig-001-20251024    gcc-14
+um                    randconfig-002-20251024    clang-22
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20251024    clang-20
+x86_64      buildonly-randconfig-002-20251024    clang-20
+x86_64      buildonly-randconfig-003-20251024    clang-20
+x86_64      buildonly-randconfig-004-20251024    gcc-14
+x86_64      buildonly-randconfig-005-20251024    gcc-14
+x86_64      buildonly-randconfig-006-20251024    clang-20
+x86_64                              defconfig    gcc-14
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20251024    gcc-11.5.0
+xtensa                randconfig-002-20251024    gcc-13.4.0
 
-You already match on intc0 and handle 32 interrupts. Now you are adding 
-intc0-ic to match on and handling the same 32 interrupts?
-
-Rob
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
