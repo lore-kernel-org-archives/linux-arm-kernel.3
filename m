@@ -4,70 +4,205 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F85CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 06:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3142CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 06:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TdJgSb6p48vna/r1Za3w4izzmxrtTvtaqoLGNbNAPqw=; b=EwIzC1HpB7msx0r93bkzLMsoFe
-	fiO2k6vIH5t/s9H/rR2sUb98ydP+hIm6feaQtfqrNeW8kaslbklvXL03IWvP9UrGNu7S1OmJhEx91
-	K7FKRg2XgNAJwjWu7smU3090+0fWtG6EavPcMamOC6w5w6ZAXmNFZ4cEMDKJiBqkVd8ydzVScLrYE
-	dqrIjeF4Fh2OHKtVHaSUqhPhsj39A/QmS1uQhfZlI6+N4cTiO8MvkBOuy/PwifR8uVZUlQSRtnQO0
-	FeWzhhpHw+AaeN9XJayw4T1WDZ2w7Rddq47suhQ8VRrldd0jLZ/5IAdH0VuMG14WykPqOOknGV5rq
-	Fyhc7e7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vH1DfstfVLBPA+ro/2/uh2z9wln5mohoDRnyTm3neMc=; b=sWWG2ovLAZE3sLe0iYzRNfW0gJ
+	dZVJkBCX6lYR+rZ+9mf2Gyd/kCGjPXtloQ96IabKuBgCZzGR9FWjiekoS5YCwlJUfBrphmbp29krm
+	JgmCukunI54+7XxKU+jImnBl+h/pc0p0DBZdToBZ24QQwUYAyGpZmVa7OqUYEyYCzynDy8erSPTm7
+	rDbUQlXgXCvorY5cwr336CmmmP85IVVacwjdXdHPc5VqvmQ/lpgewF67wGheHjI6p8Bx4wdmX5/JV
+	uR/MGHvWHX4EvBGMT8Bv1GQKiR/vATUmJ0PNqlpx9uGiYYUmlk5N+t4UZODLUic+APKtfdZCvcTI3
+	z+4hk25Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCAtX-00000008JjF-2NOB;
-	Fri, 24 Oct 2025 06:03:23 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vCBGz-00000008LcS-1sgs;
+	Fri, 24 Oct 2025 06:27:37 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCAtU-00000008Jip-0iiM;
-	Fri, 24 Oct 2025 06:03:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761285796;
-	bh=zq8RMGOgchEbfC/Jw6SWw6+vzn2D/qxBSjph98dFA94=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bnOpI31PP4JJj/4YAzrABxi1QC5HO5+LdyQm3SUHj8q7udJAJ/uWfPOrBM23pMngx
-	 YUFBPX0flLz4pXA4IjjW5Yazsh1yNiVI/q4NOF/yc7DPJaJlIwEjVx2v7mBYelQK+Y
-	 rzSowuMKexoSF2aNYcuIhxBV1NlXqw74a8zA+ADI0ddlfycqY565AbWqaerMDBDiDZ
-	 2NGX07qTVjFsH0vaoZFMMYBj5HJdLjXGO4ZFr2JxbCoZLwCElH4afeXN2Qg5AmpmfP
-	 Y67yxH+9F2F+sxH3NRJCvin68+GBz2WJlHAgdLnYOWeOvLjaLaqWqc+K5S3nz3F/5O
-	 zZtlo+H5a2q5g==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DCBAA17E1310;
-	Fri, 24 Oct 2025 08:03:15 +0200 (CEST)
-Message-ID: <5e7c84bf-64df-4a10-83a1-03d2b3a9548b@collabora.com>
-Date: Fri, 24 Oct 2025 08:03:15 +0200
-MIME-Version: 1.0
+	id 1vCBGw-00000008Lc3-3jE5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Oct 2025 06:27:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1761287255; x=1792823255;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=cqusTmCdb7QIuIAl0QfmegO7uuR1nxeni+Wrgr+ei28=;
+  b=MBNVtgO9n+3fl73dTEK3P+gXF8XrSVhNqujjUcaOEkpKpurngffB67Ln
+   U7AwPb0eXljLFu6haM9LlPjO6TPfHFDE5/N5fkLPFVRqeqBkbM5J1JnRn
+   Aqc+ZJXV8yvWYw49A7z4p1NbTNdNqaQL7Upzn0xbSrnMpQUd5Rrmmtblt
+   pUInwd77xIE0jw0+kQvNBiTNLe+0t99moCb2JBw7JqO8hdOxYuJ2MEx4q
+   plcy/lJkEU/JUWEXYwnu9Sn60Aj7HLsYln61JeKDtpdjYwgjA0Go/nSWJ
+   /s9hBUJxBGCHJGahmD1GS5daL7gYK7CTg4/wLx33HjA/2wtoJvIvck6Pl
+   A==;
+X-CSE-ConnectionGUID: HFmF+h/cTQKKe3SwUN43xw==
+X-CSE-MsgGUID: eTU0PRT2SXeYAohfjQus9g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="63389290"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="63389290"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2025 23:27:35 -0700
+X-CSE-ConnectionGUID: TDpOYWAUQHaeHKl24/ZURA==
+X-CSE-MsgGUID: z+v3ik0dQCWoe4iwhh14EA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,251,1754982000"; 
+   d="scan'208";a="183579882"
+Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
+  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Oct 2025 23:27:34 -0700
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Thu, 23 Oct 2025 23:27:33 -0700
+Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27 via Frontend Transport; Thu, 23 Oct 2025 23:27:33 -0700
+Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.32) by
+ edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Thu, 23 Oct 2025 23:27:33 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K0+7UYUDsLXqR8oFb8P5vCPZMjb5yooqllJ4Vk8h72Uytc9mbaXmhBPvdbISzvXX6fz2zuvyFz+ZmMj1Ezht+rv7UjDnajbcKXuIGzeN1XJr+VhOE2nmRL4QtGdLYqAgH+0L6ugCCegVEtMBm3HMONtXvX/lL6vpFlbWE0Kp2oanrw/8Kp2lKdLDymairpeDjMXm11pAZynW/lwTaB73tXF6KYXhMrHm5LB/ckAAlUVhjoiBLEB7eXOCUM96uBIEeOSxJAdgfBZSMo/AkNLXeg3rEHErzGX+Di3gMnSzMKlOHUjpr8WjfxxHWu1aFLOPKypZWXg9R4gW8OhOItzgtA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vH1DfstfVLBPA+ro/2/uh2z9wln5mohoDRnyTm3neMc=;
+ b=ZkNGP6XzxXgHsfRzesjMhA3XzzUTZhc1cD7Aix3oCPrj4iKrZHGnlV+SWIer0T14el2H/0qHavrQCGKD6sg7r0NcS0KEOqoywa9x/NCyR99omr/W7F9rfmHnJfQ8CDmU9W+FaT1fgCTskaSlUjEuaei3wl0ATxrhOEtCNlRDFMAKM7R7mlhlmFHsJFbPC7DOOZ13AWLynit/oua8W/XKiUT8dXMJPgjO0gqkVX8JAk5HrYFKHrGUPiPGiDFqH/r34ddltWbhh0Ned5FI5lLLvOGzfMvfIsibb/lFDnuies5c3z3ZTBuzS+zzleicLAzgx8bayIlXtBgne24Hj+rdeg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by SA1PR11MB6734.namprd11.prod.outlook.com (2603:10b6:806:25d::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
+ 2025 06:27:31 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::eeac:69b0:1990:4905]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::eeac:69b0:1990:4905%7]) with mapi id 15.20.9253.011; Fri, 24 Oct 2025
+ 06:27:30 +0000
+Message-ID: <22b7b11e-b1fe-4d9d-8749-afe57ea1c35c@intel.com>
+Date: Fri, 24 Oct 2025 09:27:25 +0300
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 9/9] drivers: mfd: Add support for MediaTek SPMI PMICs
- and MT6363/73
-To: Lee Jones <lee@kernel.org>
-Cc: linux-mediatek@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, matthias.bgg@gmail.com, lgirdwood@gmail.com,
- broonie@kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com, wenst@chromium.org,
- igor.belwon@mentallysanemainliners.org,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
-References: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
- <20251003091158.26748-10-angelogioacchino.delregno@collabora.com>
- <20251023135352.GO475031@google.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v2] perf arm_spe: Add a macro definition to handle offset
+ value
+To: tanze <tanze@kylinos.cn>, <james.clark@linaro.org>, <leo.yan@linux.dev>,
+	<irogers@google.com>, <john.g.garry@oracle.com>
+CC: <linux-arm-kernel@lists.infradead.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<graham.woodward@arm.com>, <mike.leach@linaro.org>
+References: <20251016083019.27935-1-tanze@kylinos.cn>
+ <20251017021540.45930-1-tanze@kylinos.cn>
 Content-Language: en-US
-In-Reply-To: <20251023135352.GO475031@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20251017021540.45930-1-tanze@kylinos.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DU2PR04CA0081.eurprd04.prod.outlook.com
+ (2603:10a6:10:232::26) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|SA1PR11MB6734:EE_
+X-MS-Office365-Filtering-Correlation-Id: abbe1022-970a-4840-a39c-08de12c668bf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OHJxMStHZVBnRlBITnI1RlBpMXJVOExtVEkvSHU1NWd1Vnd2UmRRVHV2QWpT?=
+ =?utf-8?B?dElxSGJFU2oxTmkwR2FnYzVJRGxjZEU2MGJaWE94ZXFobzJ6bEdoVGtQQk8w?=
+ =?utf-8?B?VXQzZFVqTnNBbFIwdkVMbGs3cDMxWkNscm84SUdpRE82M2JteUVESURZblN6?=
+ =?utf-8?B?ZXd4aFZaUU52dmQ0UVFMQldBcHRGcHdCOXpYYTlSNEY5U3J6NThkQXF4bTNL?=
+ =?utf-8?B?QW54bWc4U3ZGWUdQTWdWZmxoQk1sVzVnSjdSSlA2Qm1tSDBYRDJNTWgwTjdj?=
+ =?utf-8?B?SlJVZXNpYk52eVBSOWd5YjAwS0R6WWdrSmQraTZmUXBIWTlPTEs0M0tJK1Rx?=
+ =?utf-8?B?M1ZWc0VCcVZNdE5HL1ZvZmxNbnVCMjRRbjJtQklqdUwwQXM3Mk5Ma3BIa2Nv?=
+ =?utf-8?B?TGRBR0tyR2FFUThnb01WZ1BtejhuUnF0YjJYY2s5c1NveENDN252VnBwZk51?=
+ =?utf-8?B?TUthRE5jbnd5K2dPa2wrNmZUcndPL2M3VTlaSXNTbnE5Syt4ayt1TVdyVGtK?=
+ =?utf-8?B?bHhRRUNwUnpuelBERDBQbUQwUFhiS0Nhblh6NUV3b29mcFdPZS9OYUYrYXor?=
+ =?utf-8?B?elBHbHQ0eUwyc0padmUrWkcyNkdxYXdDQUFPOUFvcDc0LzdpOXl2aEkzTmVo?=
+ =?utf-8?B?ZlR4MzJOVnRGK3dNbkplVjlPZU5TR3JHNEdwakkrK1RsZVl3V2Nva2szN2x4?=
+ =?utf-8?B?VUtvR25jM212ZFVhWkY0MGtCc0M5YTlMVjBZb05NaVk5R0ZLVGlOaVdJZWtF?=
+ =?utf-8?B?cUFnZDR1SGoxbEx5WE4xVjdXK3R1NFBRMU5QeXRvVjYyUzduZ3ZmWmtQaG16?=
+ =?utf-8?B?dlgrQlViNjhtMXg4c1hTbHR3NjZ1UlJubHJmZ3UvZ25wRzJJTHdob3Z2V1pl?=
+ =?utf-8?B?TE5rcHZQR2FJNzRjQk1lYWJWQ2xTZVpPRjkvdFFJUUYzK0RxUXlGWmY1dFFj?=
+ =?utf-8?B?Vk02b1JsSVJkU21jQ25QK2tNZlQwR21US255ak96b1dqeVVJRGR3U2U2TEhB?=
+ =?utf-8?B?WWFMVy8vT3d2WHpTS3REMy92R3RIR0EzSjlwZncvNXpaMVhhakFvYVM0bDFx?=
+ =?utf-8?B?R0lKR3FBaENqMTZid0ovS1kydDMza3JvOXlvR0ZycDZmN1JlM3B0eVlJN0w1?=
+ =?utf-8?B?UGQzaGl1cFYxVW8wdXdWOXFuS1NYMzB1MzNOeUNWOENBd2twS3pTa1ZBYjAy?=
+ =?utf-8?B?MTJuZ1ZXU212d3FKREl6SndiZWZkdjY1QlBnbTJJaE9OYTNiaWNZRkFVOGlL?=
+ =?utf-8?B?TVYxRDExdUNBWWU0azc5dFU5UFlDeHVLY0k5YTliS3dTa3BIWVpHbHlkakFZ?=
+ =?utf-8?B?bU51Smo1THhVcTBQYlBlN0Y2QzhJZVRDSVd4RHh4NXhFSlJ6d0ZCbEVZSFR4?=
+ =?utf-8?B?dUdkR1FLaU1HOE1VMFVWNmNxMXlEU1AyNnpNcTZxaGZuVU1YenFidGtBQTdX?=
+ =?utf-8?B?ZFgzdFNYZzFsZXlOSjZ2N3kycTVQaFVVdHY0YVZYRytSL0I2ME0yL3RwUnll?=
+ =?utf-8?B?cUVqNWJ3RFpDZHdlZkdIeVNENjlWaW50UHo3K1BwZGplK3ZVNVZEbGowOUdk?=
+ =?utf-8?B?MHR2WjZrZ0F4czdDMVBxL2szOHR5dDlVOGlwcjlhU0N6ck5MckFVenZnbXZG?=
+ =?utf-8?B?MnFTaDBOa05wQ2djUnMwTVlUUTExYTBGWXl1cE5LRkJ0MlhKaWhOK1RBL1NR?=
+ =?utf-8?B?VTZFWjhRMkhTc1pBU293Q1duTUM3dkMxZWdlaGE0MEYrb1VVdlJ1UnJsWm9v?=
+ =?utf-8?B?R3FxYWJMTEdKSk1ZaGk5SDZXNFhNN3R0WHViS3ZNdUNKS3BtWDlOQmprWklw?=
+ =?utf-8?B?THBybGVoZStDVkhleWRGMEtOY3g4aVZQR3BFSkdXSDg1VWZydHBKUFIxVi9P?=
+ =?utf-8?B?QlZkVytSb1FJcGZOdXpMaElGSmJMQm8rNmRGOXoxRFhoemdvZHNiRDdsMWNr?=
+ =?utf-8?Q?npind0FW+EozwUuzaRzrfFKnHD4UHAW6?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TUlxRHdFaTlBSGhIcWxteEhBZ0xsMHk4MkNYK2M5NTF4NUFOdHUycDN2RVhh?=
+ =?utf-8?B?eDJNY250MHV5T2UzaXVuOWVIOVN1cDBXdEpnczNCaStRNjk4ZktWL0ZtbkRG?=
+ =?utf-8?B?WmFDbU5BbDdqNjBzeWZ4NWNOVEVkdU1Wb0hEdVpXaFJrVVBHaHF3d09oNmtj?=
+ =?utf-8?B?M3JQMHBUNmxnSXUydDM3MjZ0bGw5UHYyM3FnZjlrcmRwL3kxQU5rcWozUkRt?=
+ =?utf-8?B?YWFUempLTUZDTzRUNnl4UGNDaWVqSDlGUGNLSHFYNTAzYURCZGVVNEJoN2ty?=
+ =?utf-8?B?NkU3UGdaWk5DaWZLMDBudXVQZjZVcDRkbkVtbDJKcWxoUE5meUs2YWhkZWtk?=
+ =?utf-8?B?aGQ1clpxQ3dWbzJjNFRIWDA5UzVEUlB2M0lsV0c0aDY0TGhxYXhwalhBTnI3?=
+ =?utf-8?B?dEpQOEo4MWNCMDdON3dkY2VvcW5WcEVOdU51U3doMnJBMXVndEpiZkVTUndR?=
+ =?utf-8?B?YVkzMUlIYWhBSm4xemhjQVdOeHlmUGlNb2dtWklOZ2dkdXNLb0JMODllU1lk?=
+ =?utf-8?B?c3d5dE1tKytuYkI0Skw1VjU0dmphNUFKZzFKTXFHTFlQRjhnekZQTEFXaGZi?=
+ =?utf-8?B?OGNUMEVzOUdrK1JObm9pZExZeUtVMTdiRU5wRklkTGZIRUJUY1Fva0xxNXYw?=
+ =?utf-8?B?S0V1d1NtM2ZQcDI0TlpXQmFZaWZyV0dzdWJaQ215SGdCOTBPRHZnNmYxOUll?=
+ =?utf-8?B?NmttSnFvK0VSdHV1UUtXY0t4bDd5RXVvODhLSmsvZFVpa2ZqU0pnY3JkdzJP?=
+ =?utf-8?B?bXNaU2FOeXZMZ1ViQ0lNakJuWXQ3U2lnaThwdnpRbUJERlgrL2dJcURJejcr?=
+ =?utf-8?B?aVNZc3czRHhXZnJYTVNSYkhOUVZSQWpmRkdOYm92NXY5MlpHMHZDNjdaSTg3?=
+ =?utf-8?B?VkpDNGwxTVJGeWJINVN2OUtYSlRXV2pWc2F2d0F2RWVsYWx6cGVXRWdTcDJR?=
+ =?utf-8?B?d2dQNk5nTDZERjA1OElad1BGaDdBaGxIOWJ1Y0Y0MW4rSVZlc2dQMHNmc1Jz?=
+ =?utf-8?B?QldrS3pCUlF3c1B5RU1COU9PTFgrL2NJZVFJeGZXUTVOdEF4VXpiN0RXaTB4?=
+ =?utf-8?B?eitBQzl3NmNielMrdzZqQzd3RGNvczQ1MjdzQ2wybHlRWHhjbStzWm16S2du?=
+ =?utf-8?B?ci9wSTRNWTdZUFZrRjI2bWhzLzFrYThJNnJ2bEdCSU41N0NLd0g2T0lNOUVW?=
+ =?utf-8?B?cFpqMW0reC85VnowWUxudU50ZWlrRnFqQzNlK2lkdmh2WHVzNWtaZmFIc2xm?=
+ =?utf-8?B?eGlycGp2ZXlpUFNCWldGQWxpMTRSZktLV1FKRzhjOWNYdDJHRk5RWlVhbk9C?=
+ =?utf-8?B?TGtPYUNtTlpnbm5qcjh2aGc2eW9tQTVtekJNUjEwUkZmSW5FRUtKUVNlamFY?=
+ =?utf-8?B?bWV5NzZQZTBiNGMrZGFQNzFrSVBNSEVRSlJHMXl6ay9Jck1DNjFXcDdxMXJO?=
+ =?utf-8?B?S0g5YXJiVm1aZW1vSmFZMUhnbXJQNHhCSit6RGViZnNjL1hrNmNiNklUQUQx?=
+ =?utf-8?B?Nnl1bkI2THVzcVRFUitZRTc2SXhZaENXckczMVB6MVF2SFRpUkJadjdHbDJt?=
+ =?utf-8?B?a0pDOWY4SFVXOFE5eXpQZGVHVXlhMTloL01FOUFTc0g3aE5qaEk4cXpHNE80?=
+ =?utf-8?B?SjN5K2tBNFExRzFXcUtYU3hHSXpvM3d0QzNFUFJ0aE9lb2IxT29pSzVIUVpP?=
+ =?utf-8?B?b0RKbThUSGxnR3VUVzRpYWt5Ui9ua2RicW1Xc2JndVNubWlnclJ3ZlBHeTF0?=
+ =?utf-8?B?WWRBQTVTR0oxTzRiN29vdnY3a2FxYnprU3hGdHdsYWpYL0dpZkJXa05QUDVy?=
+ =?utf-8?B?L3hsZmI5YlVsYmJtQ3YwUEE3cEF0cHA0U3AxTUdtQTYyTklGaWtYL1ZnQUU5?=
+ =?utf-8?B?VlRIUWFELzMwb1hRMWc2L2tnTjRYM1BMMW82VXFHY29nVHZpVy81Uy9vT2M3?=
+ =?utf-8?B?MndvWEw0d1ZzNFJZL3NFZWRtelF2TGxFdkFNY25jQkpuQm1vN1FUK0RRK2RC?=
+ =?utf-8?B?cnFhNnpRejRCSWZoWWlzL2dEaEFnUFZOcFR2NEZYckFTbUZ3d081a0dSbDlG?=
+ =?utf-8?B?ZE5iQk9hdy9lRFFjbHRQUWpCZUlMb0V1dXQzOWROdkQxRk5wMDI5c2FPN0d1?=
+ =?utf-8?B?TnZmNFpqem12STczSFltdm9PR2NDbnBCZVJ5WkZ1UmNYb0l3aTh3ODFhTllP?=
+ =?utf-8?B?M0E9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: abbe1022-970a-4840-a39c-08de12c668bf
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2025 06:27:30.8918
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zyL1XFkSbxPAwo4xmmmvxQSGCe0st8jmSJKgomyXZs5Zm+IOZTsZNQ/vdCrSi4oobY7EkP9OIlclK8GWpDEbqg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB6734
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_230320_565189_45A88F5E 
-X-CRM114-Status: GOOD (  52.23  )
+X-CRM114-CacheID: sfid-20251023_232735_037844_66C5B4DA 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,687 +217,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 23/10/25 15:53, Lee Jones ha scritto:
-> Drop "drivers: " from the subject line.
-> 
->> This driver adds support for the MediaTek SPMI PMICs and their
->> interrupt controller (which is present in 95% of the cases).
->>
->> Other than probing all of the sub-devices of a SPMI PMIC, this
->> sets up a regmap from the relevant SPMI bus and initializes an
->> interrupt controller with its irq domain and irqchip to handle
->> chained interrupts, with the SPMI bus itself being its parent
->> irq controller, and the PMIC being the outmost device.
->>
->> This driver hence holds all of the information about a specific
->> PMIC's interrupts and will properly handle them, calling the
->> ISR for any subdevice that requested an interrupt.
->>
->> As for the interrupt spec, this driver wants 3 interrupt cells,
->> but ignores the first one: this is because of how this first
->> revision of the MediaTek SPMI 2.0 Controller works, which does
->> not hold irq number information in its register, but delegates
->> that to the SPMI device - it's possible that this will change
->> in the future with a newer revision of the controller IP, and
->> this is the main reason for that.
->>
->> To make use of this implementation, this driver also adds the
->> required bits to support MediaTek MT6363 and MT6373 SPMI PMICs.
->>
->> Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/mfd/Kconfig         |  17 ++
->>   drivers/mfd/Makefile        |   1 +
->>   drivers/mfd/mtk-spmi-pmic.c | 410 ++++++++++++++++++++++++++++++++++++
->>   include/linux/mfd/mt6363.h  |  26 +++
->>   include/linux/mfd/mt6373.h  |  21 ++
->>   5 files changed, 475 insertions(+)
->>   create mode 100644 drivers/mfd/mtk-spmi-pmic.c
->>   create mode 100644 include/linux/mfd/mt6363.h
->>   create mode 100644 include/linux/mfd/mt6373.h
->>
->> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
->> index 13c955d31309..339fcd37eab6 100644
->> --- a/drivers/mfd/Kconfig
->> +++ b/drivers/mfd/Kconfig
->> @@ -1120,6 +1120,23 @@ config MFD_MT6397
->>   	  accessing the device; additional drivers must be enabled in order
->>   	  to use the functionality of the device.
->>   
->> +config MFD_MTK_SPMI_PMIC
->> +	tristate "MediaTek SPMI PMICs"
->> +	depends on ARCH_MEDIATEK || COMPILE_TEST
->> +	depends on OF
->> +	depends on SPMI
->> +	select REGMAP_SPMI
->> +	default y if ARCH_MEDIATEK
-> 
-> When would this be built as a module?
-> 
->> +	help
->> +	  Say yes here to enable support for MediaTek's SPMI PMICs.
->> +	  These PMICs made their first appearance in board designs using the
->> +          MediaTek Dimensity 9400 series of SoCs.
-> 
-> Odd tabbing.
-> 
->> +	  Note that this will only be useful paired with descriptions of the
-> 
-> "when paired"
-> 
->> +	  independent functions as children nodes in the device tree.
-> 
-> "child nodes"
-> 
->> +
->> +	  Say M here if you want to include support for the MediaTek SPMI
->> +	  PMICs as a module. The module will be called "mtk-spmi-pmic".
->> +
->>   config MFD_MENF21BMC
->>   	tristate "MEN 14F021P00 Board Management Controller Support"
->>   	depends on I2C
->> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
->> index d2720d496e07..8f33fd9519ac 100644
->> --- a/drivers/mfd/Makefile
->> +++ b/drivers/mfd/Makefile
->> @@ -187,6 +187,7 @@ obj-$(CONFIG_MFD_MT6360)	+= mt6360-core.o
->>   obj-$(CONFIG_MFD_MT6370)	+= mt6370.o
->>   mt6397-objs			:= mt6397-core.o mt6397-irq.o mt6358-irq.o
->>   obj-$(CONFIG_MFD_MT6397)	+= mt6397.o
->> +obj-$(CONFIG_MFD_MTK_SPMI_PMIC)	+= mtk-spmi-pmic.o
->>   
->>   obj-$(CONFIG_RZ_MTU3)		+= rz-mtu3.o
->>   obj-$(CONFIG_ABX500_CORE)	+= abx500-core.o
->> diff --git a/drivers/mfd/mtk-spmi-pmic.c b/drivers/mfd/mtk-spmi-pmic.c
->> new file mode 100644
->> index 000000000000..512b53bdb0d1
->> --- /dev/null
->> +++ b/drivers/mfd/mtk-spmi-pmic.c
->> @@ -0,0 +1,410 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright (c) 2024 MediaTek Inc.
->> + * Copyright (c) 2025 Collabora Ltd
->> + *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> 
-> Put this in an Authors: section.
-> 
->> + */
->> +
->> +#include <linux/device.h>
->> +#include <linux/errno.h>
->> +#include <linux/gfp.h>
->> +#include <linux/irq.h>
->> +#include <linux/irqdomain.h>
->> +#include <linux/kernel.h>
->> +#include <linux/module.h>
->> +#include <linux/of.h>
->> +#include <linux/of_device.h>
->> +#include <linux/of_irq.h>
->> +#include <linux/of_platform.h>
->> +#include <linux/spmi.h>
->> +#include <linux/types.h>
->> +#include <linux/regmap.h>
->> +#include <linux/irqchip/chained_irq.h>
->> +#include <linux/mfd/mt6363.h>
->> +#include <linux/mfd/mt6373.h>
-> 
-> This whole section should be ordered.
-> 
->> +#define MTK_SPMI_PMIC_VAL_BITS		8
->> +#define MTK_SPMI_PMIC_CHIP_ID_REG_M	0xb
-> 
-> What is "M"?
-> 
->> +#define MTK_SPMI_PMIC_RCS_IRQ_DONE	0x41b
->> +
->> +/**
->> + * mtk_spmi_pmic_irq_group - Group of interrupts in SPMI PMIC
->> + * @num_int_regs: Number of registers for this group of interrupts
->> + * @con_reg:      PMIC Interrupt Group Control 0 register
->> + * @sta_reg:      PMIC Interrupt Group Status 0 register
->> + * @group_num:    PMIC Interrupt Group number - also corresponds to the
->> + *                status bit in the global IRQ Control register
->> + */
-> 
-> If you _really_ want to use kerneldoc, you must run W=1.
-> 
->> +struct mtk_spmi_pmic_irq_grp {
->> +	u8 hwirq_base;
->> +	u8 num_int_regs;
->> +	u16 con_reg;
->> +	u16 sta_reg;
->> +	u8 group_num;
->> +};
->> +
->> +/**
->> + * mtk_spmi_pmic_pdata - SPMI PMIC Platform Data
->> + * @pmic_irq:    Group of interrupts in SPMI PMIC
->> + * @num_groups:  Number of groups of interrupts
->> + * @con_reg_sz:  Size of Control registers, depends on existence
-> 
-> "size" or "len" is nicer.
-> 
->> + *               of SET and CLR registers in the layout
->> + * @top_irq_reg: Global interrupt status register, explains which
->> + *               group needs attention because of a group irq
->> + * @chip_id_reg: Chip ID Register
->> + */
->> +struct mtk_spmi_pmic_pdata {
->> +	const struct mtk_spmi_pmic_irq_grp *pmic_irq;
->> +	u8 num_groups;
->> +	u8 con_reg_sz;
->> +	u8 top_irq_reg;
->> +	u8 chip_id_reg;
->> +};
->> +
->> +/**
->> + * mtk_spmi_pmic - Main driver structure
->> + * @pdata:    SPMI PMIC Platform data
-> 
-> This already exists in 'dev'.
-> 
-> In fact, I'm not sure this is platform data, per say.
-> 
-> In the device driver model, platform data usually gets passed to a child
-> device for consumption.  However, here the driver is feeding from it,
-> which is not correct.
-> 
-> I think just a rename is in order.  What does this actually describe?
-> 
->> + * @dev:      Handle to SPMI Device
->> + * @dom:      IRQ Domain of the PMIC's interrupt controller
->> + * @regmap:   Handle to PMIC regmap
->> + * @irq_lock: Lock for the PMIC's irqchip
->> + * @irq:      PMIC chained interrupt
->> + */
->> +struct mtk_spmi_pmic {
->> +	const struct mtk_spmi_pmic_pdata *pdata;
->> +	struct device *dev;
->> +	struct irq_domain *dom;
->> +	struct regmap *regmap;
->> +	struct mutex irq_lock;
->> +	int irq;
->> +};
->> +
->> +static void mtk_spmi_pmic_irq_set_unmasking(struct irq_data *d, bool unmask)
->> +{
->> +	struct mtk_spmi_pmic *pmic = irq_data_get_irq_chip_data(d);
->> +	const struct mtk_spmi_pmic_pdata *pdata = pmic->pdata;
->> +	struct regmap *regmap = pmic->regmap;
->> +	irq_hw_number_t hwirq = irqd_to_hwirq(d);
->> +	unsigned short i;
->> +
->> +	for (i = 0; i < pdata->num_groups; i++) {
->> +		const struct mtk_spmi_pmic_irq_grp *irq_grp = &pdata->pmic_irq[i];
->> +		u32 con_reg;
->> +		u8 irq_en_bit;
->> +
->> +		if (hwirq < irq_grp->hwirq_base)
->> +			continue;
->> +
->> +		con_reg = irq_grp->con_reg + (pdata->con_reg_sz * i);
->> +		irq_en_bit = hwirq - irq_grp->hwirq_base;
->> +
->> +		regmap_assign_bits(regmap, con_reg, BIT(irq_en_bit), unmask);
->> +
->> +		break;
->> +	}
->> +}
->> +
->> +static void mtk_spmi_pmic_irq_mask(struct irq_data *d)
->> +{
->> +	mtk_spmi_pmic_irq_set_unmasking(d, false);
->> +}
->> +
->> +static void mtk_spmi_pmic_irq_unmask(struct irq_data *d)
->> +{
->> +	mtk_spmi_pmic_irq_set_unmasking(d, true);
->> +}
->> +
->> +static void mtk_spmi_pmic_irq_lock(struct irq_data *d)
->> +{
->> +	struct mtk_spmi_pmic *pmic = irq_data_get_irq_chip_data(d);
->> +
->> +	mutex_lock(&pmic->irq_lock);
->> +}
-> h> +
->> +static void mtk_spmi_pmic_irq_sync_unlock(struct irq_data *d)
->> +{
->> +	struct mtk_spmi_pmic *pmic = irq_data_get_irq_chip_data(d);
->> +
->> +	mutex_unlock(&pmic->irq_lock);
->> +}
->> +
->> +static struct irq_chip mtk_spmi_pmic_irq_chip = {
->> +	.name = "mtk-spmi-pmic",
->> +	.irq_mask = mtk_spmi_pmic_irq_mask,
->> +	.irq_unmask = mtk_spmi_pmic_irq_unmask,
->> +	.irq_bus_lock = mtk_spmi_pmic_irq_lock,
->> +	.irq_bus_sync_unlock = mtk_spmi_pmic_irq_sync_unlock,
->> +	.flags = IRQCHIP_SKIP_SET_WAKE,
->> +};
->> +
->> +static int mtk_spmi_pmic_irq_domain_map(struct irq_domain *d, unsigned int virq,
->> +					irq_hw_number_t hwirq)
->> +{
->> +	struct mtk_spmi_pmic *pmic = d->host_data;
->> +
->> +	irq_set_chip_data(virq, pmic);
->> +	irq_set_chip_and_handler(virq, &mtk_spmi_pmic_irq_chip, handle_level_irq);
->> +
->> +	return 0;
->> +}
->> +
->> +static int mtk_spmi_pmic_irq_xlate(struct irq_domain *d, struct device_node *ctrlr,
->> +				  const u32 *intspec, unsigned int intsize,
->> +				  unsigned long *out_hwirq, unsigned int *out_type)
->> +{
->> +	struct mtk_spmi_pmic *pmic = d->host_data;
->> +	struct device *dev = pmic->dev;
->> +	struct irq_fwspec fwspec;
->> +
->> +	of_phandle_args_to_fwspec(ctrlr, intspec, intsize, &fwspec);
->> +	if (WARN_ON(fwspec.param_count < 3))
-> 
-> Let's not WARN if we don't have to.  This can crash the kernel.
-> 
-> Simply print a dev_err() and return the error value.
-> 
->> +		return -EINVAL;
->> +
->> +	/*
->> +	 * The IRQ number in intspec[0] is ignored on purpose here!
->> +	 *
->> +	 * This is because of how at least the first revision of the SPMI 2.0
->> +	 * controller works in MediaTek SoCs: the controller will raise an
->> +	 * interrupt for each SID (but doesn't know the details!), and the
-> 
-> Does the exclamation mark add anything here?
-> 
->> +	 * specific IRQ number that got raised must be read from the PMIC or
->> +	 * its sub-device driver.
->> +	 * It's possible that this will change in the future with a newer
->> +	 * revision of the SPMI controller, and this is why the devicetree
-> 
-> "device tree".
-> 
->> +	 * holds the full intspec.
-> 
-> In full please.  Some people might not know the abbreviations.
-> 
->> +	 */
->> +	*out_hwirq = intspec[1];
-> 
-> Please #define what will be held in elements 0, 1 and 2.
-> 
->> +	*out_type = intspec[2] & IRQ_TYPE_SENSE_MASK;
->> +
->> +	dev_dbg(dev, "Found device IRQ %u chained from SPMI IRQ %x (map: 0x%lx)\n",
->> +		intspec[1], intspec[0], *out_hwirq);
-> 
-> Who is going to find this useful now development is complete?
-> 
-> Suggest removing this and subsequent debug prints.
-> 
->> +
->> +	return 0;
->> +}
->> +
->> +static const struct irq_domain_ops mtk_spmi_pmic_irq_domain_ops = {
->> +	.map = mtk_spmi_pmic_irq_domain_map,
->> +	.xlate = mtk_spmi_pmic_irq_xlate,
->> +};
->> +
->> +static int mtk_spmi_pmic_handle_group_irq(struct mtk_spmi_pmic *pmic, int group)
->> +{
->> +	const struct mtk_spmi_pmic_irq_grp *irq_grp = &pmic->pdata->pmic_irq[group];
->> +	struct regmap *regmap = pmic->regmap;
->> +	struct device *dev = pmic->dev;
->> +	int i, ret;
->> +
->> +	for (i = 0; i < irq_grp->num_int_regs; i++) {
-> 
-> You can use:
-> 
->    for (int i = 0; ...
-> 
-> ... if you want.
-> 
->> +		u32 status, saved_status;
->> +
->> +		ret = regmap_read(regmap, irq_grp->sta_reg + i, &status);
->> +		if (ret) {
->> +			dev_err(dev, "Could not read IRQ status register: %d", ret);
->> +			return ret;
->> +		}
->> +
->> +		if (status == 0)
->> +			continue;
->> +
->> +		saved_status = status;
->> +		do {
->> +			irq_hw_number_t hwirq;
->> +			u8 bit = __ffs(status);
->> +
->> +			/* Each reg has 8 bits: this is the first irq of this group */
-> 
-> "register"
-> "IRQ"
-> 
->> +			hwirq = MTK_SPMI_PMIC_VAL_BITS * i;
->> +
->> +			/* Offset by this group's start interrupt */
->> +			hwirq += irq_grp->hwirq_base;
->> +
->> +			/* Finally, offset by the fired irq's bit number */
-> 
-> As above and throughout.
-> 
->> +			hwirq += bit;
->> +
->> +			status &= ~BIT(bit);
->> +
->> +			generic_handle_domain_irq(pmic->dom, hwirq);
->> +		} while (status);
->> +
->> +		/* Clear the interrupts by writing the previous status */
->> +		regmap_write(regmap, irq_grp->sta_reg + i, saved_status);
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static void mtk_spmi_pmic_handle_chained_irq(struct irq_desc *desc)
->> +{
->> +	struct mtk_spmi_pmic *pmic = irq_desc_get_handler_data(desc);
->> +	const struct mtk_spmi_pmic_pdata *pdata = pmic->pdata;
->> +	struct irq_chip *chip = irq_desc_get_chip(desc);
->> +	struct regmap *regmap = pmic->regmap;
->> +	bool irq_handled = false;
->> +	int i, ret;
->> +	u32 val;
->> +
->> +	chained_irq_enter(chip, desc);
->> +
->> +	ret = regmap_read(regmap, pdata->top_irq_reg, &val);
->> +	if (ret)
->> +		handle_bad_irq(desc);
->> +
->> +	dev_dbg(pmic->dev, "PMIC IRQ Status: %x\n", val);
->> +
->> +	/* This is very unlikely to happen */
->> +	if (val == 0) {
->> +		chained_irq_exit(chip, desc);
->> +		return;
->> +	}
->> +
->> +	for (i = 0; i < pdata->num_groups; i++) {
->> +		const struct mtk_spmi_pmic_irq_grp *irq_grp = &pdata->pmic_irq[i];
->> +		u8 group_bit = BIT(irq_grp[i].group_num);
->> +
->> +		if (val & group_bit) {
->> +			ret = mtk_spmi_pmic_handle_group_irq(pmic, i);
->> +			if (ret == 0)
->> +				irq_handled = true;
->> +		}
->> +	}
->> +
->> +	/* The RCS flag has to be cleared even if the IRQ was not handled. */
->> +	ret = regmap_write(regmap, MTK_SPMI_PMIC_RCS_IRQ_DONE, 1);
->> +	if (ret)
->> +		dev_warn(pmic->dev, "Could not clear RCS flag!\n");
->> +
->> +	if (!irq_handled)
->> +		handle_bad_irq(desc);
->> +
->> +	chained_irq_exit(chip, desc);
->> +}
->> +
->> +static void mtk_spmi_pmic_irq_remove(void *data)
->> +{
->> +	struct mtk_spmi_pmic *pmic = (struct mtk_spmi_pmic *)data;
->> +
->> +	irq_set_chained_handler_and_data(pmic->irq, NULL, NULL);
->> +	irq_domain_remove(pmic->dom);
->> +}
->> +
->> +static int mtk_spmi_pmic_irq_init(struct spmi_device *sdev, struct regmap *regmap,
->> +				  const struct mtk_spmi_pmic_pdata *pdata)
->> +{
->> +	struct mtk_spmi_pmic *pmic;
->> +	int ret;
->> +
->> +	pmic = devm_kzalloc(&sdev->dev, sizeof(*pmic), GFP_KERNEL);
->> +	if (!pmic)
->> +		return -ENOMEM;
->> +
->> +	pmic->irq = of_irq_get(sdev->dev.of_node, 0);
->> +	if (pmic->irq < 0)
->> +		return dev_err_probe(&sdev->dev, pmic->irq, "Cannot get IRQ\n");
->> +
->> +	pmic->dev = &sdev->dev;
->> +	pmic->regmap = regmap;
->> +	pmic->pdata = pdata;
-> 
-> Where is this consumed?
-> 
->> +	mutex_init(&pmic->irq_lock);
->> +
->> +	pmic->dom = irq_domain_add_tree(sdev->dev.of_node,
->> +					&mtk_spmi_pmic_irq_domain_ops, pmic);
-> 
-> Feel free to use 100-chars to prevent ugly line-breaks.
-> 
->> +	if (!pmic->dom)
->> +		return dev_err_probe(&sdev->dev, -ENOMEM, "Cannot create IRQ domain\n");
->> +
->> +	ret = devm_add_action_or_reset(&sdev->dev, mtk_spmi_pmic_irq_remove, pmic);
->> +	if (ret) {
->> +		irq_domain_remove(pmic->dom);
->> +		return ret;
->> +	}
->> +
->> +	irq_set_chained_handler_and_data(pmic->irq, mtk_spmi_pmic_handle_chained_irq, pmic);
->> +
->> +	return 0;
->> +}
->> +
->> +#define MTK_SPMI_PMIC_IRQ_GROUP(pmic, grp, gnum, first_irq, last_irq)	\
-> 
-> grp = group_name
-> gnum = group_index
-> 
-> ... or similar.
-> 
->> +{									\
->> +	.hwirq_base = first_irq,					\
->> +	.num_int_regs = ((last_irq - first_irq) /			\
->> +			 MTK_SPMI_PMIC_VAL_BITS) + 1,			\
-> 
-> 100-chars.
-> 
->> +	.con_reg = pmic##_##grp##_TOP_INT_CON0,				\
->> +	.sta_reg = pmic##_##grp##_TOP_INT_STATUS0,			\
->> +	.group_num = gnum,						\
->> +}
->> +
->> +static const struct mtk_spmi_pmic_irq_grp mt6363_irq_groups[] = {
->> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, BUCK, 0, 0, 9),
->> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, LDO, 1, 16, 40),
->> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, PSC, 2, 48, 57),
->> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, MISC, 3, 64, 79),
->> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, HK, 4, 80, 87),
->> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6363, BM, 6, 88, 107)
-> 
-> Please tab out the numbers - straight lines make my OCD happy!
-> 
->> +};
->> +
->> +static const struct mtk_spmi_pmic_irq_grp mt6373_irq_groups[] = {
->> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, BUCK, 0, 0, 9),
->> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, LDO, 1, 16, 39),
->> +	MTK_SPMI_PMIC_IRQ_GROUP(MT6373, MISC, 3, 56, 71),
->> +};
->> +
->> +static const struct mtk_spmi_pmic_pdata mt6363_pdata = {
->> +	.pmic_irq = mt6363_irq_groups,
->> +	.num_groups = ARRAY_SIZE(mt6363_irq_groups),
->> +	.con_reg_sz = 3,
->> +	.top_irq_reg = MT6363_TOP_INT_STATUS1,
->> +	.chip_id_reg = MTK_SPMI_PMIC_CHIP_ID_REG_M,
->> +};
->> +
->> +static const struct mtk_spmi_pmic_pdata mt6373_pdata = {
->> +	.pmic_irq = mt6373_irq_groups,
->> +	.num_groups = ARRAY_SIZE(mt6373_irq_groups),
->> +	.con_reg_sz = 3,
->> +	.top_irq_reg = MT6373_TOP_INT_STATUS1,
->> +	.chip_id_reg = MTK_SPMI_PMIC_CHIP_ID_REG_M,
->> +};
->> +
->> +static const struct regmap_config mtk_spmi_regmap_config = {
->> +	.reg_bits	= 16,
->> +	.val_bits	= MTK_SPMI_PMIC_VAL_BITS,
->> +	.max_register	= 0xffff,
->> +	.fast_io	= true,
->> +};
->> +
->> +static int mtk_spmi_pmic_probe(struct spmi_device *sdev)
->> +{
->> +	const struct mtk_spmi_pmic_pdata *pdata;
->> +	struct device *dev = &sdev->dev;
->> +	struct regmap *regmap;
->> +	int ret;
->> +
->> +	regmap = devm_regmap_init_spmi_ext(sdev, &mtk_spmi_regmap_config);
->> +	if (IS_ERR(regmap))
->> +		return PTR_ERR(regmap);
->> +
->> +	pdata = (const struct mtk_spmi_pmic_pdata *)device_get_match_data(&sdev->dev);
-> 
-> "dev" here or remove the variable and use "sdev->dev" everywhere.
-> 
->> +	if (pdata && pdata->num_groups) {
->> +		ret = mtk_spmi_pmic_irq_init(sdev, regmap, pdata);
->> +		if (ret)
->> +			return ret;
->> +	}
->> +
->> +	return devm_of_platform_populate(dev);
->> +}
->> +
->> +static const struct of_device_id mtk_pmic_spmi_id_table[] = {
->> +	{ .compatible = "mediatek,mt6363", .data = &mt6363_pdata },
->> +	{ .compatible = "mediatek,mt6373", .data = &mt6373_pdata },
->> +	{ /* sentinel */ }
->> +};
->> +MODULE_DEVICE_TABLE(of, mtk_pmic_spmi_id_table);
->> +
->> +static struct spmi_driver mtk_spmi_pmic_driver = {
->> +	.probe = mtk_spmi_pmic_probe,
->> +	.driver = {
->> +		.name = "mtk-spmi-pmic",
->> +		.of_match_table = mtk_pmic_spmi_id_table,
->> +	},
->> +};
->> +module_spmi_driver(mtk_spmi_pmic_driver);
->> +
->> +MODULE_AUTHOR("AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>");
->> +MODULE_DESCRIPTION("MediaTek SPMI PMIC driver");
->> +MODULE_LICENSE("GPL");
->> diff --git a/include/linux/mfd/mt6363.h b/include/linux/mfd/mt6363.h
->> new file mode 100644
->> index 000000000000..2e13398f5af5
->> --- /dev/null
->> +++ b/include/linux/mfd/mt6363.h
->> @@ -0,0 +1,26 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * Copyright (c) 2021 MediaTek Inc.
->> + * Copyright (c) 2025 Collabora Ltd
->> + *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> + */
->> +
->> +#ifndef __MFD_MT6363_H__
->> +#define __MFD_MT6363_H__
->> +
->> +/* PMIC Registers */
->> +#define MT6363_MISC_TOP_INT_CON0	0x37
->> +#define MT6363_MISC_TOP_INT_STATUS0	0x43
->> +#define MT6363_TOP_INT_STATUS1		0x4e
->> +#define MT6363_PSC_TOP_INT_CON0		0x90f
->> +#define MT6363_PSC_TOP_INT_STATUS0	0x91b
->> +#define MT6363_BM_TOP_INT_CON0		0xc24
->> +#define MT6363_BM_TOP_INT_STATUS0	0xc36
->> +#define MT6363_HK_TOP_INT_CON0		0xf92
->> +#define MT6363_HK_TOP_INT_STATUS0	0xf9e
->> +#define MT6363_BUCK_TOP_INT_CON0	0x1411
->> +#define MT6363_BUCK_TOP_INT_STATUS0	0x141d
->> +#define MT6363_LDO_TOP_INT_CON0		0x1b11
->> +#define MT6363_LDO_TOP_INT_STATUS0	0x1b29
-> 
->   MT6363_REG_ to disambiguate.
-> 
->> +#endif /* __MFD_MT6363_H__ */
->> diff --git a/include/linux/mfd/mt6373.h b/include/linux/mfd/mt6373.h
-> 
-> You don't need a whole new file for this.
-> 
-> Just create include/linux/mfd/mt63x3.h and roll with it.
-> 
-> Ah wait!  The convention seems to have already been set:
-> 
-> include/linux/mfd/mt63??/{core,registers}.h
-> 
-> Please follow convention, but also be sensible - do we really need all
-> of these tiny files?
-> 
+On 17/10/2025 05:15, tanze wrote:
+> Add a macro definition SPE_SYNTH_ID_OFFSET to handle the offset value
+> and improve readability.
+> 
+> Signed-off-by: tanze <tanze@kylinos.cn>
+> ---
+> Hi, Leo Yan
+> 
+> Thank you for your guidance and suggestions. I have made revisions according to your requirements. 
+> Do you have any further suggestions?
+> ---
+> Changes in v2:
+> - Migrate the macro definitions to the synthetic-events.h file
+> - Add modifications to other source files that use the offset value
+> ---
+>  tools/perf/util/arm-spe.c          | 2 +-
+>  tools/perf/util/cs-etm.c           | 2 +-
+>  tools/perf/util/intel-bts.c        | 2 +-
+>  tools/perf/util/intel-pt.c         | 2 +-
+>  tools/perf/util/powerpc-vpadtl.c   | 3 ++-
+>  tools/perf/util/synthetic-events.h | 2 ++
+>  6 files changed, 8 insertions(+), 5 deletions(-)
+> 
+> diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
+> index 71be979f5077..b082cb1666a6 100644
+> --- a/tools/perf/util/arm-spe.c
+> +++ b/tools/perf/util/arm-spe.c
+> @@ -1732,7 +1732,7 @@ arm_spe_synth_events(struct arm_spe *spe, struct perf_session *session)
+>  	attr.sample_period = spe->synth_opts.period;
+>  
+>  	/* create new id val to be a fixed offset from evsel id */
+> -	id = evsel->core.id[0] + 1000000000;
+> +	id = evsel->core.id[0] + PERF_SYNTH_EVENT_ID_OFFSET;
+>  
+>  	if (!id)
+>  		id = 1;
 
-Thanks for the review!
+Functionally this is to find a free range of IDs for synthesized events,
+but also the range can only have one user e.g. in this case auxtrace
 
-The convention being include/linux/mfd/mt63??/{core,registers}.h is not the
-best anymore for the new PMICs: those need just some little definitions and
-will not see lengthy headers like the older ones anymore.
+So add to auxtrace.c
 
-I also don't like wildcards, but it's either that or small headers, so let's
-go with mt63x3.h I guess.
+#define AUXTRACE_SYNTH_EVENT_ID_OFFSET	1000000000ULL
 
-For all of the comments in the review: will be fixed in v9. Thanks again!
+/*
+ * Event IDs are allocated sequentially, so a big offset from any
+ * existing ID will reach a unused range.
+ */
+u64 auxtrace_synth_id_range_start(struct evsel *evsel)
+{
+	u64 id = evsel->core.id[0] + AUXTRACE_SYNTH_EVENT_ID_OFFSET;
 
-Cheers,
-Angelo
+  	if (!id)
+  		id = 1;
 
->> new file mode 100644
->> index 000000000000..3509e46447bd
->> --- /dev/null
->> +++ b/include/linux/mfd/mt6373.h
->> @@ -0,0 +1,21 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * Copyright (c) 2021 MediaTek Inc.
->> + * Copyright (c) 2025 Collabora Ltd
->> + *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> + */
->> +
->> +#ifndef __MFD_MT6373_H__
->> +#define __MFD_MT6373_H__
->> +
->> +/* PMIC Registers */
->> +#define MT6373_MISC_TOP_INT_CON0	0x3c
->> +#define MT6373_MISC_TOP_INT_STATUS0	0x48
->> +#define MT6373_TOP_INT_MASK_CON0	0x4c
->> +#define MT6373_TOP_INT_STATUS1		0x53
->> +#define MT6373_BUCK_TOP_INT_CON0	0x1411
->> +#define MT6373_BUCK_TOP_INT_STATUS0	0x141d
->> +#define MT6373_LDO_TOP_INT_CON0		0x1b10
->> +#define MT6373_LDO_TOP_INT_STATUS0	0x1b22
->> +
->> +#endif /* __MFD_MT6373_H__ */
->> -- 
->> 2.51.0
->>
-> 
+	return id;
+}
+
+And then use that:
+
+- 	/* create new id val to be a fixed offset from evsel id */
+-	id = evsel->core.id[0] + 1000000000;
++	id = auxtrace_synth_id_range_start(evsel);
+-
+-	if (!id)
+-		id = 1;
+
+> diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+> index 30f4bb3e7fa3..46902f7b69f1 100644
+> --- a/tools/perf/util/cs-etm.c
+> +++ b/tools/perf/util/cs-etm.c
+> @@ -1726,7 +1726,7 @@ static int cs_etm__synth_events(struct cs_etm_auxtrace *etm,
+>  	attr.read_format = evsel->core.attr.read_format;
+>  
+>  	/* create new id val to be a fixed offset from evsel id */
+> -	id = evsel->core.id[0] + 1000000000;
+> +	id = evsel->core.id[0] + PERF_SYNTH_EVENT_ID_OFFSET;
+>  
+>  	if (!id)
+>  		id = 1;
+> diff --git a/tools/perf/util/intel-bts.c b/tools/perf/util/intel-bts.c
+> index 3625c6224750..98b928eca724 100644
+> --- a/tools/perf/util/intel-bts.c
+> +++ b/tools/perf/util/intel-bts.c
+> @@ -777,7 +777,7 @@ static int intel_bts_synth_events(struct intel_bts *bts,
+>  	attr.sample_id_all = evsel->core.attr.sample_id_all;
+>  	attr.read_format = evsel->core.attr.read_format;
+>  
+> -	id = evsel->core.id[0] + 1000000000;
+> +	id = evsel->core.id[0] + PERF_SYNTH_EVENT_ID_OFFSET;
+>  	if (!id)
+>  		id = 1;
+>  
+> diff --git a/tools/perf/util/intel-pt.c b/tools/perf/util/intel-pt.c
+> index 9b1011fe4826..4fb9600a7369 100644
+> --- a/tools/perf/util/intel-pt.c
+> +++ b/tools/perf/util/intel-pt.c
+> @@ -3987,7 +3987,7 @@ static int intel_pt_synth_events(struct intel_pt *pt,
+>  	attr.sample_id_all = evsel->core.attr.sample_id_all;
+>  	attr.read_format = evsel->core.attr.read_format;
+>  
+> -	id = evsel->core.id[0] + 1000000000;
+> +	id = evsel->core.id[0] + PERF_SYNTH_EVENT_ID_OFFSET;
+>  	if (!id)
+>  		id = 1;
+>  
+> diff --git a/tools/perf/util/powerpc-vpadtl.c b/tools/perf/util/powerpc-vpadtl.c
+> index 39a3fb3f1330..5ce5d2bf4c6c 100644
+> --- a/tools/perf/util/powerpc-vpadtl.c
+> +++ b/tools/perf/util/powerpc-vpadtl.c
+> @@ -15,6 +15,7 @@
+>  #include "powerpc-vpadtl.h"
+>  #include "sample.h"
+>  #include "tool.h"
+> +#include "util/synthetic-events.h"
+>  
+>  /*
+>   * Structure to save the auxtrace queue
+> @@ -656,7 +657,7 @@ powerpc_vpadtl_synth_events(struct powerpc_vpadtl *vpa, struct perf_session *ses
+>  	attr.config = PERF_SYNTH_POWERPC_VPA_DTL;
+>  
+>  	/* create new id val to be a fixed offset from evsel id */
+> -	id = evsel->core.id[0] + 1000000000;
+> +	id = evsel->core.id[0] + PERF_SYNTH_EVENT_ID_OFFSET;
+>  	if (!id)
+>  		id = 1;
+>  
+> diff --git a/tools/perf/util/synthetic-events.h b/tools/perf/util/synthetic-events.h
+> index ee29615d68e5..c8a1fe7a3fa4 100644
+> --- a/tools/perf/util/synthetic-events.h
+> +++ b/tools/perf/util/synthetic-events.h
+> @@ -39,6 +39,8 @@ enum perf_record_synth {
+>  };
+>  #define PERF_SYNTH_ALL  (PERF_SYNTH_MAX - 1)
+>  
+> +#define PERF_SYNTH_EVENT_ID_OFFSET	(1000000000ULL)
+> +
+>  int parse_synth_opt(char *str);
+>  
+>  typedef int (*perf_event__handler_t)(const struct perf_tool *tool, union perf_event *event,
 
 
