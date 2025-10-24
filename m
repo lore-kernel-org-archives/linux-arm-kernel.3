@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A80B8CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D09C3CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HY2q1+xJKg4azQuMAYEYuLlJhhn5b+ALxExQmfB3kYg=; b=poNezYdmVUnSZ/+oQgbVwPPJ0Q
-	KL0TRMy743ZGB5+IEmOhE2SCsdam0zc1Rrbke+lqSdJZ8sQxwFHTwb+jBvvmK0wMCbBl/Hh4DZ5eA
-	ytU0AJia8p40sooBAO8gmjSmn8v46UyHGBCKAscaWO1HCBy0sp+N+zt2ZnXqfPRsTZlwL4Lk4/ogt
-	qgdxAp8QaXHr9Yl10tZG2q6TOfUBgYytCCdYY4NR6DrURb7Gg7a8t/8CIdxEgkIVhIHe0trt2mqRS
-	nCKHC+vtT0RsNzaiCDhy6dP7Y+wP6p+xPcSalIxTYOb2wLtP0tpIB7gUeZinT6uUpyRE9q6PFcwHR
-	QTNoVo0g==;
+	bh=eWHa0BMJQ+qq1CnBwyGKZSlSoUHzAXIAH1td5ml1nqk=; b=3Ne2IQLOhSolxR95Pmws3ja1LH
+	wpIBM59PWeq1ml+1B+pUOVpBklr4zelCMOKW2RbabTIu6FJSvvpwTE0mOkaPtUMGmb4ITBKQ4Zgl1
+	goAGCJ4ahzH/VNu60Oihn3E7XsrPy4SXuQv/+T/iDf0Y0IXsWR8bcuTKdYPCeEhGtJ6K0bEpP+eCo
+	2m8VRx78xnuGIQ6aLXlPGen83aP4RxiuITwdhAmjXZmkz8x2ikt7K7pU38oI43DsvIoljZvsHDAzK
+	6q7ndP9bb7U7ddTJJZDfPt9E+LoWPJ3vEaFj0hNZSk1Oz/aRLoWhqisBOgq5p9/95LDmDgWx/kBUN
+	ry5d1WQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLHp-0000000A4tL-2mhn;
-	Fri, 24 Oct 2025 17:09:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vCLMG-0000000A5ro-3tj8;
+	Fri, 24 Oct 2025 17:13:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLHo-0000000A4sZ-2pOT;
-	Fri, 24 Oct 2025 17:09:08 +0000
+	id 1vCLMG-0000000A5rX-1pQD;
+	Fri, 24 Oct 2025 17:13:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D768B6023A;
-	Fri, 24 Oct 2025 17:09:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B69DAC4CEF1;
-	Fri, 24 Oct 2025 17:09:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9A91F6023A;
+	Fri, 24 Oct 2025 17:13:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DF70C4CEF1;
+	Fri, 24 Oct 2025 17:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761325747;
-	bh=nEsdPzi/tI01PeUgGVuo2zqDEcBVeBbnMqQ68PWLzVQ=;
+	s=k20201202; t=1761326023;
+	bh=R8ei2+rtTjBZldNo1xDWoXq5kwYHchpeiJ1vuqrotkA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QamugzSLBu5WaDeDpKXu4OBuo2iT0CBGV4gsQNQieHyIBXMKIEoRrJoeARLexzznd
-	 s0Jv5aVIYnZUz+9cX6dEIlPuyltqWfS85b0qGIAMbS/29Jvpd3zhro6HTjRyjC0ALl
-	 /FEhzqwZ9g/P4xNmU0baHCs8viygjcFDwnYx81rEinu0bfEs3ZeXJq5gi6dTGRv8js
-	 xHWAS8qqJwYsxi6B3Pv8dRR4bAyW6UGBIPAHA8AQgwnwIma+suj9Upc9ZTrXkI/Wlx
-	 nfx9mW+0t5M+h/NdkjyPFxEoodFuQABjnPlbXrRXO+gt86g63Pr2r/QIFib8KfWOGw
-	 vWzsgrucEU6HA==
-Date: Fri, 24 Oct 2025 18:09:00 +0100
+	b=kKN/xz/QtGADSPG/LXyoKlY+GTmbeYUFWlyLfHB/2pBk8eLYD2VW41jr381YkANwt
+	 UjnW42UbfSQgX1Cjx8mvTsAOOynRRM2Yr+JK8HN59mvwnfmF+BdHZug9Db8Yop+Pko
+	 TXifJM4opjWBFXM7gtFtX8Ut0XB4ImdLBc4q7OzRsZUr5T7KqWuUioXb3vGrB7foOM
+	 Nph1xeIyWi+0w5itXmn8s7t1Untza2OpaR25IyKttkF4ctHMzEtd/w+q9/Gz3e5N3j
+	 KV7t/rgEEoiWL/XgUYQWy3FOMg/l0ctqMtxENbx/jrc3gNGUr6klToMJESA6+LrVUx
+	 G4Q2ZrZ0cSBtQ==
+Date: Fri, 24 Oct 2025 18:13:36 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Cc: Alim Akhtar <alim.akhtar@samsung.com>,
@@ -66,16 +66,16 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH v3 01/24] dt-bindings: phy: Add mediatek,mt8196-ufsphy
+Subject: Re: [PATCH v3 03/24] dt-bindings: ufs: mediatek,ufs: Add mt8196
  variant
-Message-ID: <20251024-spilt-deviate-e3f6bfd3642c@spud>
+Message-ID: <20251024-thrash-amid-d5af186c4319@spud>
 References: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
- <20251023-mt8196-ufs-v3-1-0f04b4a795ff@collabora.com>
+ <20251023-mt8196-ufs-v3-3-0f04b4a795ff@collabora.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="w3wlVB5ViarihM4q"
+	protocol="application/pgp-signature"; boundary="jr8TZfrxyC1RMH9a"
 Content-Disposition: inline
-In-Reply-To: <20251023-mt8196-ufs-v3-1-0f04b4a795ff@collabora.com>
+In-Reply-To: <20251023-mt8196-ufs-v3-3-0f04b4a795ff@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,90 +91,94 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---w3wlVB5ViarihM4q
+--jr8TZfrxyC1RMH9a
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Thu, Oct 23, 2025 at 09:49:19PM +0200, Nicolas Frattaroli wrote:
-> The MediaTek MT8196 SoC includes an M-PHY compatible with the already
-> existing mt8183 binding.
->=20
-> However, one omission from the original binding was that all of these
-> variants may have an optional reset.
->=20
-> Add the new compatible, and also the resets property, with an example.
->=20
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
-> Reviewed-by: Peter Wang <peter.wang@mediatek.com>
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+On Thu, Oct 23, 2025 at 09:49:21PM +0200, Nicolas Frattaroli wrote:
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
-
-> ---
->  .../devicetree/bindings/phy/mediatek,ufs-phy.yaml        | 16 ++++++++++=
-++++++
->  1 file changed, 16 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml =
-b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
-> index 3e62b5d4da61..f414aaa18997 100644
-> --- a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
-> @@ -26,6 +26,7 @@ properties:
->        - items:
->            - enum:
->                - mediatek,mt8195-ufsphy
-> +              - mediatek,mt8196-ufsphy
->            - const: mediatek,mt8183-ufsphy
->        - const: mediatek,mt8183-ufsphy
-> =20
-> @@ -42,6 +43,10 @@ properties:
->        - const: unipro
->        - const: mp
-> =20
-> +  resets:
-> +    items:
-> +      - description: Optional UFS M-PHY reset.
-> +
->    "#phy-cells":
->      const: 0
-> =20
-> @@ -65,5 +70,16 @@ examples:
->          clock-names =3D "unipro", "mp";
->          #phy-cells =3D <0>;
 >      };
 > +  - |
 > +    #include <dt-bindings/reset/mediatek,mt8196-resets.h>
-> +    ufs-phy@16800000 {
-> +        compatible =3D "mediatek,mt8196-ufsphy", "mediatek,mt8183-ufsphy=
-";
-> +        reg =3D <0x16800000 0x10000>;
-> +        clocks =3D <&ufs_ao_clk 3>,
-> +                 <&ufs_ao_clk 5>;
-> +        clock-names =3D "unipro", "mp";
-> +        resets =3D <&ufs_ao_clk MT8196_UFSAO_RST0_UFS_MPHY>;
-> +        #phy-cells =3D <0>;
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    ufshci@16810000 {
+> +        compatible =3D "mediatek,mt8196-ufshci";
+> +        reg =3D <0x16810000 0x2a00>;
+> +        interrupts =3D <GIC_SPI 320 IRQ_TYPE_LEVEL_HIGH>;
+> +
+> +        clocks =3D <&ufs_ao_clk 6>,
+> +                 <&ufs_ao_clk 7>,
+> +                 <&clk26m>,
+> +                 <&ufs_ao_clk 3>,
+> +                 <&clk26m>,
+> +                 <&ufs_ao_clk 4>,
+> +                 <&ufs_ao_clk 0>,
+> +                 <&topckgen 7>,
+> +                 <&topckgen 41>,
+> +                 <&topckgen 105>,
+> +                 <&topckgen 83>,
+> +                 <&ufs_ao_clk 1>,
+> +                 <&ufs_ao_clk 2>,
+> +                 <&topckgen 42>,
+> +                 <&topckgen 84>,
+> +                 <&topckgen 102>;
+
+This is absolutely a nitpick thing, but if you end up resubmitting, can
+you pick a consistent format between the two examples your series adds
+for the clocks/clock names?
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
+
+> +        clock-names =3D "ufs",
+> +                      "ufs_aes",
+> +                      "ufs_tick",
+> +                      "unipro_sysclk",
+> +                      "unipro_tick",
+> +                      "unipro_mp_bclk",
+> +                      "ufs_tx_symbol",
+> +                      "ufs_mem_sub",
+> +                      "crypt_mux",
+> +                      "crypt_lp",
+> +                      "crypt_perf",
+> +                      "ufs_rx_symbol0",
+> +                      "ufs_rx_symbol1",
+> +                      "ufs_sel",
+> +                      "ufs_sel_min_src",
+> +                      "ufs_sel_max_src";
+> +
+> +        operating-points-v2 =3D <&ufs_opp_table>;
+> +
+> +        phys =3D <&ufsphy>;
+> +
+> +        avdd09-supply =3D <&mt6363_vsram_modem>;
+> +        vcc-supply =3D <&mt6363_vemc>;
+> +        vcc-supply-1p8;
+> +        vccq-supply =3D <&mt6363_va12_2>;
+> +        vccq2-supply =3D <&mt6363_vufs12>;
+> +
+> +        resets =3D <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_UNIPRO>,
+> +                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_CRYPTO>,
+> +                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFSHCI>;
+> +        reset-names =3D "unipro", "crypto", "hci";
+> +        mediatek,ufs-disable-mcq;
 > +    };
-> =20
->  ...
 >=20
 > --=20
 > 2.51.1.dirty
 >=20
 
---w3wlVB5ViarihM4q
+--jr8TZfrxyC1RMH9a
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPuyrAAKCRB4tDGHoIJi
-0n3qAQDuISPZivWMxQqyWT7hptpBU8VJakYcV1f/3Uook67DEgD9Fuw/t0xI+buQ
-vy1+kgKQvO/lTUze9oKFvo5TZQgdYAI=
-=ts27
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPuzwAAKCRB4tDGHoIJi
+0hLaAP4uJxkdce4PNxbIp4Rzr4024f32v9vwcNnDRCl9lOghRgEA/GmQKqp/HFtv
+vmFIaYAOVAPddZvh3zO1MoucBgMwww0=
+=WOoe
 -----END PGP SIGNATURE-----
 
---w3wlVB5ViarihM4q--
+--jr8TZfrxyC1RMH9a--
 
