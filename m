@@ -4,69 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FAE8CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 08:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B86DCCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 08:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d9r8W7vHG+WdZ0M1E4JYlDBTkKRxJkUsob7sa37USHI=; b=vw96LOcaM8vULfLNc0zOIQD+s5
-	VBXrDVxPBRv/Gapa0sV2D7Z7pWeCjem21d+uc2wPhYc/7LLCYO39li0Bu5r2AYA5RWh3VqXDs7+Sq
-	Ego5COHYNGAC5bHvzYYBsl6Bz6n0tIGWVVtS+pxEO2Z+L+aUgbA67Yk3tk+b3EyDNUNBT6C3dyZrw
-	XiRQzsneENpatsMVirEp0wFRtrAvOJBJB6MDC8mJgDZP+aT/ShCtlVQaicmcLreuHMk+t/UfrM7K8
-	Y87T5iow9drTkizfOQOOLDRsIRhhA57VF8KHUQXnEzPkM9FoC7puvQH/SrXjbeYolA/1O7lx6gJel
-	cJ5TxSog==;
+	bh=d4hP86pHAKiAHjY5JAsdalWxneUFhwWkoxXq/D0fVao=; b=LYD+p89E8Xg3sfCFBCQG8NAGuC
+	4Y88C4x/cQDQuDxLgghUBn8g0vmlnQHNBhq6GQxYEyqqwUjsxiIp+/AgkUn3BnFN96d45bbc2h7xE
+	227YpU3JSkc+8TBuuFQex9G0cvAlHricRzGq6gO7H7jL0zacKqc//UDdIcfU2Y9aWTR3yRzesEyMe
+	+sNWsub5tHh9lnRkGVRBJCfg2WiPmTUM2ZIEXfaEUffZwQxnBAKh1ayoHwb0T1EE6WG2rSxhR7wvg
+	Z9ImGYXjU7Q7XC9BMBNCsdeJdhTSokwS69YafMIXuObv3BM/Pn1t0uiRKZRZRkHK7b3qoUI4xguEZ
+	Da+CttpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDFk-00000008iSA-3PmA;
-	Fri, 24 Oct 2025 08:34:28 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vCDH0-00000008jN6-13KV;
+	Fri, 24 Oct 2025 08:35:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDEq-00000008hIs-3fhU;
-	Fri, 24 Oct 2025 08:33:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1761294809;
-	bh=tka2SvgXGZkC1/tSrX0XrtcfbAkqAvDWRfldZUFzQmI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G0USCoXgMdScDG3b2URfaBBOtrb8u17Vt9f8h0WcnyU8WSmdNChb06Iz/KpOhTB5n
-	 1+Yn3yBiIL6Ap+Ch1L5ZzLrQqUKZIoqJETr/eqRz/IUej2Eyn9QHgkkNjBk9rOd5FL
-	 Jo3bEro+uNJi+c9jinWhMKCKS8hQnjW1y+VWEHSaEPfZtUxu1tHvBxIjJfBaogsSko
-	 s0giOlvqb/2ISHR4sp9b0hjsvIkydb8J8PUrL9N7MM473FXVLcxZPG5YaffS2/Nlbe
-	 XjB08VtktoFKC1qq1yF/Ju2gbdbB/GxOkbvXjOQxuv6ID1hZm2WYRLKLIyYo9qkNu0
-	 Rcm+x/3mOhsBw==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 156AF17E1315;
-	Fri, 24 Oct 2025 10:33:29 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: alexandre.belloni@bootlin.com
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH v1 2/2] rtc: Add support for MT6685 Clock IC's RTC over SPMI
-Date: Fri, 24 Oct 2025 10:33:18 +0200
-Message-ID: <20251024083318.25890-3-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20251024083318.25890-1-angelogioacchino.delregno@collabora.com>
-References: <20251024083318.25890-1-angelogioacchino.delregno@collabora.com>
+	id 1vCDGz-00000008jMq-2Sht
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 24 Oct 2025 08:35:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C308864295;
+	Fri, 24 Oct 2025 08:35:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AA94C4CEF1;
+	Fri, 24 Oct 2025 08:35:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761294944;
+	bh=9c2iRB5neiNVOA3946Sm/qhXa8txadLCyBjjks59Ijc=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=DogRfu03hCRd5Qkw3C7tdCB0tWuK2TpzQHz2KU1PHJbzPqtjDK3HVNHkhFJMwY5XU
+	 WjrRvzslo/IDNPJXfx71ILowf7e5YWczKqA8H9LmfmlWfbP0meUo4CA68z1zEihAwl
+	 22t5Ex86O8NFvLIp2BMz8c12RR0dZpinXKT6aoUrC3GcfI8Xnx3MBBIhbpnjyfgILw
+	 Ni8NUl1kxmFqYXrZh8++ZcV/RHV/31P3h16qyorEKQvUepCPu7tDFQXvauuyOcigGk
+	 7O6rBS10D9ZLIChw6hpgaErUKxbbupXQV0JZl82Kqr5PjJj8f4mzBTBMc/hqMkB+Cl
+	 tU7bZT8MtT15Q==
+Message-ID: <c20e0b8a-ec59-4359-ba5e-1a616fde9894@kernel.org>
+Date: Fri, 24 Oct 2025 10:35:38 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_013333_693094_C2312537 
-X-CRM114-Status: GOOD (  27.70  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v20 1/4] dt-bindings: i2c: Split AST2600 binding into a
+ new YAML
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jeremy Kerr <jk@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: benh@kernel.crashing.org, joel@jms.id.au, andi.shyti@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrew@codeconstruct.com.au, p.zabel@pengutronix.de,
+ andriy.shevchenko@linux.intel.com, naresh.solanki@9elements.com,
+ linux-i2c@vger.kernel.org, openbmc@lists.ozlabs.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20251021013548.2375190-1-ryan_chen@aspeedtech.com>
+ <20251021013548.2375190-2-ryan_chen@aspeedtech.com>
+ <20251024-dark-ringtail-of-defiance-1daabd@kuoka>
+ <2939cae6-2e8a-4528-8e27-8c932e2f82de@kernel.org>
+ <bf3d6690b9124ecf74df6c0f9f1c0f72ae1db9f7.camel@codeconstruct.com.au>
+ <8341a903-639b-471a-8425-a98c473f5ab0@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <8341a903-639b-471a-8425-a98c473f5ab0@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,537 +125,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT6685 Clock IC is connected over the SPMI bus and includes a
-Real Time Clock (RTC) IP.
+On 24/10/2025 10:06, Krzysztof Kozlowski wrote:
+> On 24/10/2025 09:56, Jeremy Kerr wrote:
+>> Hi Krzysztof,
+>>
+>>> Although now I saw next patch, so clearly this commit is incomplete.
+>>
+>> The split that Ryan has done here - by shifting to an identical separate
+>> binding, then making the changes explicit - allows us to review the
+>> actual changes without losing them in the move. Sounds like a benefit to
+>> me?
+> 
+> Not related. I commented that rationale is incomplete. We do not move
+> parts of bindings because new device is someway different. There are
+> hundreds of bindings which cover different devices. We move them because
+> the binding is different.
+> 
+>>
+>>> You just need allOf:if:then: section to narrow the
+>>> constraints/presence of properties.
+>>
+>> That seems like a more complex approach. This is separate IP from the
+>> 2500 controllers, wouldn't that warrant a new binding spec?
+>>
+> 
+> Not much different than every other soc. All of them are separate IPs.
+> Look at any Samsung, NXP or Qualcomm binding. Separate IPs.
 
-Like the IP found in the MT6323/57/58/97 PMICs, this RTC ranges
-from year 1900 to 2027: for this reason, in this driver the start
-date is set to 2/1/1968 instead, matching the intepretation that
-is found in most MediaTek bootloaders (which, in too many cases,
-cannot be replaced due to OEM signing) and in downstream drivers.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/rtc/Kconfig      |  12 +
- drivers/rtc/Makefile     |   1 +
- drivers/rtc/rtc-mt6685.c | 472 +++++++++++++++++++++++++++++++++++++++
- 3 files changed, 485 insertions(+)
- create mode 100644 drivers/rtc/rtc-mt6685.c
+So let the move happen, but please explain in the commit msg that
+devices are completely different - nothing in common - and thus the
+binding will be different. We indeed do not keep completely different
+devices in one binding, but based on commit msg I had impression this
+was just major block upgrade.
 
-diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-index 2933c41c77c8..5d14948b3abc 100644
---- a/drivers/rtc/Kconfig
-+++ b/drivers/rtc/Kconfig
-@@ -1937,6 +1937,18 @@ config RTC_DRV_MT6397
- 
- 	  If you want to use MediaTek(R) RTC interface, select Y or M here.
- 
-+config RTC_DRV_MT6685
-+	tristate "MediaTek MT6685 Clock IC based RTC"
-+	depends on ARCH_MEDIATEK || COMPILE_TEST
-+	depends on SPMI
-+	select IRQ_DOMAIN
-+	help
-+	  Say yes here to enable support for the Real Time Clock found
-+	  in the MediaTek MT6685 Clock IC communicating over SPMI.
-+
-+	  This driver can also be built as a module. If so, the module
-+	  will be called rtc-mt6685.
-+
- config RTC_DRV_MT7622
- 	tristate "MediaTek SoC based RTC"
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
-diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-index 8221bda6e6dc..5ccfb1e02e51 100644
---- a/drivers/rtc/Makefile
-+++ b/drivers/rtc/Makefile
-@@ -113,6 +113,7 @@ obj-$(CONFIG_RTC_DRV_SSD202D)	+= rtc-ssd202d.o
- obj-$(CONFIG_RTC_DRV_MSM6242)	+= rtc-msm6242.o
- obj-$(CONFIG_RTC_DRV_MT2712)	+= rtc-mt2712.o
- obj-$(CONFIG_RTC_DRV_MT6397)	+= rtc-mt6397.o
-+obj-$(CONFIG_RTC_DRV_MT6685)	+= rtc-mt6685.o
- obj-$(CONFIG_RTC_DRV_MT7622)	+= rtc-mt7622.o
- obj-$(CONFIG_RTC_DRV_MV)	+= rtc-mv.o
- obj-$(CONFIG_RTC_DRV_MXC)	+= rtc-mxc.o
-diff --git a/drivers/rtc/rtc-mt6685.c b/drivers/rtc/rtc-mt6685.c
-new file mode 100644
-index 000000000000..3e632a3edbb6
---- /dev/null
-+++ b/drivers/rtc/rtc-mt6685.c
-@@ -0,0 +1,472 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * MediaTek MT6685 Clock IC - Real Time Clock IP driver
-+ *
-+ * Copyright (C) 2020 MediaTek Inc.
-+ * Copyright (C) 2025 Collabora Ltd.
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/device.h>
-+#include <linux/bitfield.h>
-+#include <linux/err.h>
-+#include <linux/interrupt.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/of_device.h>
-+#include <linux/of_irq.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/rtc.h>
-+#include <linux/spmi.h>
-+
-+#define RTC_REG_BBPU			0x8
-+#define  RTC_BBPU_PWREN			BIT(0)
-+#define  RTC_BBPU_CLR			BIT(1)
-+#define  RTC_BBPU_RESET_AL		BIT(3)
-+#define  RTC_BBPU_RELOAD		BIT(5)
-+#define  RTC_BBPU_CBUSY			BIT(6)
-+#define  RTC_BBPU_WR_UNLOCK_KEY		0x4300
-+
-+#define RTC_REG_IRQ_STA			0xa
-+#define RTC_REG_IRQ_EN			0xc
-+#define  RTC_IRQ_AL			BIT(0)
-+#define  RTC_IRQ_ONESHOT		BIT(2)
-+#define  RTC_IRQ_LP			BIT(3)
-+
-+#define RTC_REG_AL_MASK			0x10
-+#define  RTC_AL_MASK_DOW		BIT(4)
-+
-+#define RTC_REG_TC_SEC			0x12
-+#define RTC_REG_AL_SEC			0x20
-+#define  RTC_AL_TC_YEAR			GENMASK(6, 0)
-+#define  RTC_AL_TC_SEC_MIN		GENMASK(5, 0)
-+#define  RTC_AL_TC_HOUR_DOM		GENMASK(4, 0)
-+#define  RTC_AL_TC_MON			GENMASK(3, 0)
-+#define  RTC_AL_TC_DOW			GENMASK(2, 0)
-+
-+#define RTC_REG_PDN2			0x36
-+#define  RTC_PDN2_PWRON_ALARM		BIT(4)
-+
-+#define MT6685_RTC_REG_WRTGR		0x42
-+
-+#define MT6685_RTC_POLL_DELAY_US	10
-+#define MT6685_RTC_POLL_TIMEOUT_US	2500
-+
-+/**
-+ * struct mt6885_rtc - Main driver structure
-+ * @rdev:     Pointer to RTC device
-+ * @regmap:   Regmap (SPMI) Handle
-+ * @mclk:     RTC MCLK clock for register write
-+ * @irq:      Alarm interrupt number
-+ */
-+struct mt6685_rtc {
-+	struct rtc_device *rdev;
-+	struct regmap *regmap;
-+	struct clk *mclk;
-+	int irq;
-+};
-+
-+/* HW time registers index - please do *not* add or remove indices! */
-+enum mt6685_timereg_index {
-+	RTC_AL_TC_REGIDX_SEC,
-+	RTC_AL_TC_REGIDX_MIN,
-+	RTC_AL_TC_REGIDX_HOUR,
-+	RTC_AL_TC_REGIDX_DOM,
-+	RTC_AL_TC_REGIDX_DOW,
-+	RTC_AL_TC_REGIDX_MON,
-+	RTC_AL_TC_REGIDX_YEAR,
-+	RTC_AL_TC_REGIDX_MAX
-+};
-+
-+/**
-+ * rtc_mt6685_write_trigger() - Synchronize registers to the HW
-+ * @rtc: Main driver structure
-+ *
-+ * Writes to the Write Trigger (WRTGR) RTC register to start synchronizing
-+ * all of the previous register writes to the hardware.
-+ * This is done in order to avoid race conditions in case an alarm fires
-+ * during the writing of time registers.
-+ *
-+ * Context: Mutex lock must be held before calling this function.
-+ *          Apart from interrupt handlers inside of this driver, that is
-+ *          already taken care of by the RTC API's ops_lock.
-+ * Return:  Zero for success or negative error number.
-+ */
-+static int rtc_mt6685_write_trigger(struct mt6685_rtc *rtc)
-+{
-+	const u16 val = 1;
-+	u32 data;
-+	int ret;
-+
-+	ret = regmap_bulk_write(rtc->regmap, MT6685_RTC_REG_WRTGR, &val, sizeof(val));
-+	if (ret)
-+		return ret;
-+
-+	/* The RTC usually takes 7-9uS to update: wait a bit before reading */
-+	usleep_range(MT6685_RTC_POLL_DELAY_US, MT6685_RTC_POLL_DELAY_US + 10);
-+
-+	return regmap_read_poll_timeout(rtc->regmap, RTC_REG_BBPU, data,
-+					!(data & RTC_BBPU_CBUSY),
-+					MT6685_RTC_POLL_DELAY_US,
-+					MT6685_RTC_POLL_TIMEOUT_US);
-+}
-+
-+static irqreturn_t rtc_mt6685_irq_handler_thread(int irq, void *data)
-+{
-+	u16 irqsta, irqen = 0, bbpu = RTC_BBPU_WR_UNLOCK_KEY | RTC_BBPU_PWREN;
-+	struct mt6685_rtc *rtc = data;
-+	struct device *dev = &rtc->rdev->dev;
-+	int ret;
-+
-+	ret = clk_prepare_enable(rtc->mclk);
-+	if (ret)
-+		return IRQ_NONE;
-+
-+	ret = regmap_bulk_read(rtc->regmap, RTC_REG_IRQ_STA, &irqsta, sizeof(irqsta));
-+	if (ret)
-+		goto end;
-+
-+	/* Only alarm interrupts are supported for now */
-+	if (!(irqsta & RTC_IRQ_AL)) {
-+		ret = -EINVAL;
-+		goto end;
-+	}
-+
-+	rtc_lock(rtc->rdev);
-+
-+	/* Enable BBPU power and clear the interrupt */
-+	ret = regmap_bulk_write(rtc->regmap, RTC_REG_BBPU, &bbpu, sizeof(bbpu));
-+	if (ret)
-+		goto end;
-+
-+	ret = regmap_bulk_write(rtc->regmap, RTC_REG_IRQ_EN, &irqen, sizeof(irqen));
-+	if (ret)
-+		goto end;
-+
-+	/* Trigger reset of the RTC BBPU Alarm */
-+	bbpu |= RTC_BBPU_RESET_AL;
-+	ret = regmap_bulk_write(rtc->regmap, RTC_REG_BBPU, &bbpu, sizeof(bbpu));
-+	if (ret) {
-+		dev_err(dev, "Cannot reset alarm: %d\n", ret);
-+		goto end;
-+	}
-+
-+	/* Trigger write synchronization */
-+	ret = rtc_mt6685_write_trigger(rtc);
-+	if (ret) {
-+		dev_err(dev, "Cannot synchronize write to RTC: %d\n", ret);
-+		goto end;
-+	}
-+	rtc_update_irq(rtc->rdev, 1, RTC_IRQF | RTC_AF);
-+end:
-+	rtc_unlock(rtc->rdev);
-+	clk_disable_unprepare(rtc->mclk);
-+	return ret ? IRQ_NONE : IRQ_HANDLED;
-+}
-+
-+static void rtc_mt6685_reload_bbpu(struct mt6685_rtc *rtc)
-+{
-+	u16 reload;
-+
-+	regmap_bulk_read(rtc->regmap, RTC_REG_BBPU, &reload, sizeof(reload));
-+	reload |= RTC_BBPU_WR_UNLOCK_KEY | RTC_BBPU_RELOAD;
-+	regmap_bulk_write(rtc->regmap, RTC_REG_BBPU, &reload, sizeof(reload));
-+
-+	rtc_mt6685_write_trigger(rtc);
-+}
-+
-+static int rtc_mt6685_read_time_regs(struct mt6685_rtc *rtc, struct rtc_time *tm, u16 reg)
-+{
-+	u16 data[RTC_AL_TC_REGIDX_MAX];
-+	int ret;
-+
-+	ret = regmap_bulk_read(rtc->regmap, reg, &data,
-+			       RTC_AL_TC_REGIDX_MAX * sizeof(data[0]));
-+	if (ret) {
-+		dev_err(&rtc->rdev->dev, "Cannot read time regs\n");
-+		return ret;
-+	}
-+
-+	tm->tm_sec  = FIELD_GET(RTC_AL_TC_SEC_MIN, data[RTC_AL_TC_REGIDX_SEC]);
-+	tm->tm_min  = FIELD_GET(RTC_AL_TC_SEC_MIN, data[RTC_AL_TC_REGIDX_MIN]);
-+	tm->tm_hour = FIELD_GET(RTC_AL_TC_HOUR_DOM, data[RTC_AL_TC_REGIDX_HOUR]);
-+	tm->tm_mday = FIELD_GET(RTC_AL_TC_HOUR_DOM, data[RTC_AL_TC_REGIDX_DOM]);
-+	tm->tm_wday = FIELD_GET(RTC_AL_TC_DOW, data[RTC_AL_TC_REGIDX_DOW]);
-+	tm->tm_mon  = FIELD_GET(RTC_AL_TC_MON, data[RTC_AL_TC_REGIDX_MON]);
-+	tm->tm_year = FIELD_GET(RTC_AL_TC_YEAR, data[RTC_AL_TC_REGIDX_YEAR]);
-+
-+	/* HW register start mon/wday from one, but tm_mon/tm_wday start from zero. */
-+	tm->tm_mon--;
-+	tm->tm_wday--;
-+
-+	return 0;
-+}
-+
-+static int rtc_mt6685_read_time(struct device *dev, struct rtc_time *tm)
-+{
-+	struct mt6685_rtc *rtc = dev_get_drvdata(dev);
-+	u16 sec;
-+	int ret;
-+
-+	ret = clk_prepare_enable(rtc->mclk);
-+	if (ret)
-+		return ret;
-+
-+	do {
-+		rtc_mt6685_reload_bbpu(rtc);
-+
-+		ret = rtc_mt6685_read_time_regs(rtc, tm, RTC_REG_TC_SEC);
-+		if (ret)
-+			goto end;
-+
-+		ret = regmap_bulk_read(rtc->regmap, RTC_REG_TC_SEC, &sec, sizeof(sec));
-+		if (ret)
-+			goto end;
-+	} while ((sec & RTC_AL_TC_SEC_MIN) < tm->tm_sec);
-+
-+end:
-+	clk_disable_unprepare(rtc->mclk);
-+	return ret;
-+}
-+
-+static int rtc_mt6685_set_time(struct device *dev, struct rtc_time *tm)
-+{
-+	struct mt6685_rtc *rtc = dev_get_drvdata(dev);
-+	u16 data[RTC_AL_TC_REGIDX_MAX];
-+	int ret;
-+
-+	ret = clk_prepare_enable(rtc->mclk);
-+	if (ret)
-+		return ret;
-+
-+	tm->tm_mon++;
-+	tm->tm_wday++;
-+
-+	data[RTC_AL_TC_REGIDX_SEC] = FIELD_PREP(RTC_AL_TC_SEC_MIN, tm->tm_sec);
-+	data[RTC_AL_TC_REGIDX_MIN] = FIELD_PREP(RTC_AL_TC_SEC_MIN, tm->tm_min);
-+	data[RTC_AL_TC_REGIDX_HOUR] = FIELD_PREP(RTC_AL_TC_HOUR_DOM, tm->tm_hour);
-+	data[RTC_AL_TC_REGIDX_DOM] = FIELD_PREP(RTC_AL_TC_HOUR_DOM, tm->tm_mday);
-+	data[RTC_AL_TC_REGIDX_DOW] = FIELD_PREP(RTC_AL_TC_DOW, tm->tm_wday);
-+	data[RTC_AL_TC_REGIDX_MON] = FIELD_PREP(RTC_AL_TC_MON, tm->tm_mon);
-+	data[RTC_AL_TC_REGIDX_YEAR] = FIELD_PREP(RTC_AL_TC_YEAR, tm->tm_year);
-+
-+	ret = regmap_bulk_write(rtc->regmap, RTC_REG_TC_SEC, data,
-+				RTC_AL_TC_REGIDX_MAX * sizeof(data[0]));
-+	if (ret)
-+		goto end;
-+
-+	/* Wait until write is synchronized (means time was set in HW) */
-+	ret = rtc_mt6685_write_trigger(rtc);
-+end:
-+	clk_disable_unprepare(rtc->mclk);
-+	return ret;
-+}
-+
-+static int rtc_mt6685_read_alarm(struct device *dev, struct rtc_wkalrm *alm)
-+{
-+	struct mt6685_rtc *rtc = dev_get_drvdata(dev);
-+	struct rtc_time *tm = &alm->time;
-+	u16 irqen, pdn2;
-+	int ret;
-+
-+	ret = regmap_bulk_read(rtc->regmap, RTC_REG_IRQ_EN, &irqen, sizeof(irqen));
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_bulk_read(rtc->regmap, RTC_REG_PDN2, &pdn2, sizeof(pdn2));
-+	if (ret)
-+		return ret;
-+
-+	ret = rtc_mt6685_read_time_regs(rtc, tm, RTC_REG_AL_SEC);
-+	if (ret)
-+		return ret;
-+
-+	alm->enabled = FIELD_GET(RTC_IRQ_AL, irqen);
-+	alm->pending = FIELD_GET(RTC_PDN2_PWRON_ALARM, pdn2);
-+	return 0;
-+}
-+
-+static int rtc_mt6685_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
-+{
-+	struct mt6685_rtc *rtc = dev_get_drvdata(dev);
-+	struct rtc_time *tm = &alm->time;
-+	u16 data[RTC_AL_TC_REGIDX_MAX];
-+	u16 irqen;
-+	int ret;
-+
-+	/*
-+	 * Clocks must be enabled when writing and, if that cannot be done,
-+	 * reading fields is pointless as the alarm cannot finally be set.
-+	 */
-+	ret = clk_prepare_enable(rtc->mclk);
-+	if (ret)
-+		return ret;
-+
-+	tm->tm_mon++;
-+	tm->tm_wday++;
-+
-+	ret = regmap_bulk_read(rtc->regmap, RTC_REG_IRQ_EN, &irqen, sizeof(irqen));
-+	if (ret)
-+		goto end;
-+
-+	ret = regmap_bulk_read(rtc->regmap, RTC_REG_AL_SEC, data,
-+			       RTC_AL_TC_REGIDX_MAX * sizeof(data[0]));
-+	if (ret)
-+		goto end;
-+
-+	FIELD_MODIFY(RTC_IRQ_AL, &irqen, alm->enabled);
-+	FIELD_MODIFY(RTC_AL_TC_SEC_MIN, &data[RTC_AL_TC_REGIDX_SEC], tm->tm_sec);
-+	FIELD_MODIFY(RTC_AL_TC_SEC_MIN, &data[RTC_AL_TC_REGIDX_MIN], tm->tm_min);
-+	FIELD_MODIFY(RTC_AL_TC_HOUR_DOM, &data[RTC_AL_TC_REGIDX_HOUR], tm->tm_hour);
-+	FIELD_MODIFY(RTC_AL_TC_HOUR_DOM, &data[RTC_AL_TC_REGIDX_DOM], tm->tm_mday);
-+	FIELD_MODIFY(RTC_AL_TC_DOW, &data[RTC_AL_TC_REGIDX_DOW], tm->tm_wday);
-+	FIELD_MODIFY(RTC_AL_TC_MON, &data[RTC_AL_TC_REGIDX_MON], tm->tm_mon);
-+	FIELD_MODIFY(RTC_AL_TC_YEAR, &data[RTC_AL_TC_REGIDX_YEAR], tm->tm_year);
-+
-+	if (alm->enabled) {
-+		u16 val = RTC_AL_MASK_DOW;
-+
-+		ret = regmap_bulk_write(rtc->regmap, RTC_REG_AL_SEC, data,
-+					RTC_AL_TC_REGIDX_MAX * sizeof(data[0]));
-+		if (ret)
-+			goto end;
-+
-+		ret = regmap_bulk_write(rtc->regmap,
-+					RTC_REG_AL_MASK, &val, sizeof(val));
-+		if (ret)
-+			goto end;
-+	}
-+
-+	ret = regmap_bulk_write(rtc->regmap, RTC_REG_IRQ_EN, &irqen, sizeof(irqen));
-+	if (ret)
-+		goto end;
-+
-+	ret = rtc_mt6685_write_trigger(rtc);
-+end:
-+	clk_disable_unprepare(rtc->mclk);
-+	return ret;
-+}
-+
-+static const struct rtc_class_ops rtc_mt6685_ops = {
-+	.read_time  = rtc_mt6685_read_time,
-+	.set_time   = rtc_mt6685_set_time,
-+	.read_alarm = rtc_mt6685_read_alarm,
-+	.set_alarm  = rtc_mt6685_set_alarm,
-+};
-+
-+static int rtc_mt6685_probe(struct platform_device *pdev)
-+{
-+	struct regmap_config mt6685_rtc_regmap_config = {
-+		.reg_bits = 16,
-+		.val_bits = 8,
-+		.max_register = 0x60,
-+		.fast_io = true,
-+		.use_single_read = true,
-+		.use_single_write = true,
-+	};
-+	struct device *dev = &pdev->dev;
-+	struct spmi_subdevice *sub_sdev;
-+	struct spmi_device *sparent;
-+	struct mt6685_rtc *rtc;
-+	int ret;
-+
-+	rtc = devm_kzalloc(dev, sizeof(struct mt6685_rtc), GFP_KERNEL);
-+	if (!rtc)
-+		return -ENOMEM;
-+
-+	sparent = to_spmi_device(dev->parent);
-+	sub_sdev = devm_spmi_subdevice_alloc_and_add(dev, sparent);
-+	if (IS_ERR(sub_sdev))
-+		return PTR_ERR(sub_sdev);
-+
-+	ret = of_property_read_u32(pdev->dev.of_node, "reg",
-+				   &mt6685_rtc_regmap_config.reg_base);
-+	if (ret)
-+		return ret;
-+
-+	rtc->irq = platform_get_irq(pdev, 0);
-+	if (rtc->irq < 0)
-+		return rtc->irq;
-+
-+	rtc->mclk = devm_clk_get(dev, 0);
-+	if (IS_ERR(rtc->mclk))
-+		return PTR_ERR(rtc->mclk);
-+
-+	rtc->regmap = devm_regmap_init_spmi_ext(&sub_sdev->sdev, &mt6685_rtc_regmap_config);
-+	if (IS_ERR(rtc->regmap))
-+		return PTR_ERR(rtc->regmap);
-+
-+	rtc->rdev = devm_rtc_allocate_device(dev);
-+	if (IS_ERR(rtc->rdev))
-+		return PTR_ERR(rtc->rdev);
-+
-+	platform_set_drvdata(pdev, rtc);
-+
-+	/* Clock is required to auto-synchronize IRQ enable to RTC */
-+	ret = clk_prepare_enable(rtc->mclk);
-+	if (ret)
-+		return ret;
-+
-+	ret = devm_request_threaded_irq(&pdev->dev, rtc->irq, NULL,
-+					rtc_mt6685_irq_handler_thread,
-+					IRQF_ONESHOT | IRQF_TRIGGER_HIGH,
-+					"mt6685-rtc", rtc);
-+	clk_disable_unprepare(rtc->mclk);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "Cannot request alarm IRQ");
-+
-+	device_init_wakeup(&pdev->dev, true);
-+
-+	rtc->rdev->ops = &rtc_mt6685_ops;
-+	rtc->rdev->range_min = RTC_TIMESTAMP_BEGIN_1900;
-+	rtc->rdev->range_max = mktime64(2027, 12, 31, 23, 59, 59);
-+	rtc->rdev->start_secs = mktime64(1968, 1, 1, 0, 0, 0);
-+	rtc->rdev->set_start_time = true;
-+
-+	return devm_rtc_register_device(rtc->rdev);
-+}
-+
-+static int __maybe_unused rtc_mt6685_suspend(struct device *dev)
-+{
-+	struct mt6685_rtc *rtc = dev_get_drvdata(dev);
-+
-+	if (device_may_wakeup(dev))
-+		enable_irq_wake(rtc->irq);
-+
-+	return 0;
-+}
-+
-+static int __maybe_unused rtc_mt6685_resume(struct device *dev)
-+{
-+	struct mt6685_rtc *rtc = dev_get_drvdata(dev);
-+
-+	if (device_may_wakeup(dev))
-+		disable_irq_wake(rtc->irq);
-+
-+	return 0;
-+}
-+
-+static SIMPLE_DEV_PM_OPS(rtc_mt6685_pm_ops, rtc_mt6685_suspend, rtc_mt6685_resume);
-+
-+static const struct of_device_id rtc_mt6685_of_match[] = {
-+	{ .compatible = "mediatek,mt6685-rtc" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, rtc_mt6685_of_match);
-+
-+static struct platform_driver rtc_mt6685_driver = {
-+	.driver = {
-+		.name = "rtc-mt6685",
-+		.of_match_table = rtc_mt6685_of_match,
-+		.pm = &rtc_mt6685_pm_ops,
-+	},
-+	.probe	= rtc_mt6685_probe,
-+};
-+module_platform_driver(rtc_mt6685_driver);
-+
-+MODULE_AUTHOR("AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>");
-+MODULE_DESCRIPTION("MediaTek MT6685 Clock IC RTC driver");
-+MODULE_LICENSE("GPL");
-+MODULE_IMPORT_NS("SPMI");
--- 
-2.51.1
-
+Best regards,
+Krzysztof
 
