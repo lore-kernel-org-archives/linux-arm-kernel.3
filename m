@@ -4,150 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438FBCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 13:30:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F9CCCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 13:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2XJTqkxjD21FCS8sxEADTsaMDGEwgVkTmaCWHEQlm0=; b=46HIsjqEaqPFBc8ZZnpMFlleZQ
-	fo+FbztCc7ggppmj5wFG7bOXvajLPOXWQ6I4NOh0m92jbyQUP/tvtAiLMY/bFOBGjcRNuAyQv/NwZ
-	8tJkf6f+5QI0GyasP9vGnpWSgKoBxcjAE5CC6LySMPOoYVmKQ2YNUnWxWu4TOJmlIZcrrlsRp+ohV
-	5+IFpD82pTJZTUAoSTW46EFbYmrTETY9v2ozzSIcnhFFp9KialnOwKlLQQAW0W37RhehhBCRC68sZ
-	ENqyLeUgShX2FvQbXpWkEWs+k/nKkFdCJSqWPDwnp7Pw3ysYhRP54G1ANzb9KY2oQptVs46U0Z4c6
-	EcdF547Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5A3LnFV1JXMiV8IKs93nnFfYiQF51ex2SRQx85q3Ewc=; b=fU/BiC5mHLayGjTyKyKnoXYhk5
+	ZEFxmUFKTBxHoOkAbeFCLaByvv7CHYpFXxbJDJUVqgX/XPF8rSO8AGhevJNDUeoCGJ4zQp4P0Ko9f
+	4TAjSePk3DJF5EdEUAn62+VK23li9pdJ8A3kf1LLxXkAZ6acwBRg3agMT8NMglqkQ1O0NglAXOG4K
+	K70LD7OJI+Hilm4XC3eSmDluEhBqpf/vqSzbEheqZQYzgVnwaYmKV0d9cTYlpWAXeWnXSUhWmjoIZ
+	B91QkDOjSy1pbMBtAjhtMuGNXMWxUIhpg94RvdVk43IUUaYGlytRmZAgJD3ec8/4s0Nf+zE5q6oKo
+	P8b3ZqBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCHsW-00000009Xt3-0NHO;
-	Fri, 24 Oct 2025 13:30:48 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vCHus-00000009YJw-3eRi;
+	Fri, 24 Oct 2025 13:33:14 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCHsT-00000009Xsj-3VrZ
+	id 1vCHup-00000009YJG-2H1S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 13:30:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vjlVb6JuZbOSQb7yqqJ/kZgJOWkQnylPh+KU3I3Cv49ssNOoXhlNmTyNo2M8O0OKtVLwfmyZ4Ru2ctX871MuLanDCCD+o0LmcJ/1AlTU5LxRqkNIJj/843YUOo45Slf3jZK8OoOAR12sJ1Ocfbz4gKdT9owMOswrMufR59s8FykIhdcvDQRhlkl95yDHmO3FPMCjkC2RhDh0uLXe/Mip4XnltKDusyvnqB5mMMd9mXrSIVvcWeq0q0NKcIu/O2B0JbTDPfZnG1aRZQYb3AkkeKtIPA3r+cEV12F1/QLYk9/Ec573Ttolxi/hc/3UbOYf+j8/1enXweaGIC/5biPthg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p2XJTqkxjD21FCS8sxEADTsaMDGEwgVkTmaCWHEQlm0=;
- b=fZXKA5em2AdWh/FJ1xrZ8PDl196HO1Ox85g6K+Q25M7Ciw5JKLSCgmwySZCQHJdRO7rzAYdovZhOUVCZlDAE1x4mleOW5bNZU1z5x9D/ymJhpMud8pUmVmXBLstrQx0gJcg+djkFvsxw8Bqi6gDYkgoLTSahY6SYoheShbUhtU4qoxzBMZe6nVjQqlyzuTTYL6sXyZwMauOpIAKijKk/wJP1zFmGksOsa5fqU9HBzd5Zzn70J0ScRNCUhrfEJAhhbfSnCXVyIsYi3I/gyjR0fdFOwmyAbmuztPpK4aZd+bSbAwbhaYNtX/CVC7oEhLKl5hxa8cAfqWQqnFvYXsc0uQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p2XJTqkxjD21FCS8sxEADTsaMDGEwgVkTmaCWHEQlm0=;
- b=C8DfRHoTbp8ueXTUmNe/rmN0XFqdwDKQdHKxhUa6WPi9kqCuL90qoYlWvgzkBkjm4UUKJS1iUEmFsNM1/gnGuR/UFqMhgZeZUi36ztmsjYnTnYVPXMLgQLBN6wg/gIAs2Yfr2t75uuJu/iHrTh00bo2o+MUlak3RLQZ1Ep47RRKBEUDbXM+NP2HGAsRM1hTqBk+AwcvXKguzP8kETqav9yslFK9xExo4Alccocwg7HHzNJOX/3gMFT8QyNHLZ3xeyONtxmDPibrcNe4DnYG+BIKPDAgbgZf7Rh8DpPYRV970bHwK7ABINJKF2xTK509S0kly8HojmHJJRNm/mDcDyg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by GV1PR04MB10249.eurprd04.prod.outlook.com (2603:10a6:150:1a4::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
- 2025 13:30:39 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::55ef:fa41:b021:b5dd%4]) with mapi id 15.20.9253.011; Fri, 24 Oct 2025
- 13:30:39 +0000
-Date: Fri, 24 Oct 2025 09:30:31 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
-Subject: Re: [PATCH 1/2] arm64: dts: freescale: imx93-phyboard-nash: Add jtag
- overlay
-Message-ID: <aPt/d9svTeUIRljW@lizhi-Precision-Tower-5810>
-References: <20251007084028.1125185-1-primoz.fiser@norik.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251007084028.1125185-1-primoz.fiser@norik.com>
-X-ClientProxiedBy: BYAPR06CA0027.namprd06.prod.outlook.com
- (2603:10b6:a03:d4::40) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Fri, 24 Oct 2025 13:33:13 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59ODX5eD757492;
+	Fri, 24 Oct 2025 08:33:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1761312785;
+	bh=5A3LnFV1JXMiV8IKs93nnFfYiQF51ex2SRQx85q3Ewc=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=fSHvfpicgo8vRenVuPaiPUFCmHm+D5vtN/ASrCSSjjOLobWm5Z7QYOoG0LKpG2Op0
+	 MXGPvopueyeRr8mwxxJnTd2+GIB79n9OaNvo/rVwLctIiL+qU0oLi7oW3oDN1fWDi6
+	 +xfndGPCGLQT2UsMB/c2OBHS6ujF0zoAhVhCVGy8=
+Received: from DFLE205.ent.ti.com (dfle205.ent.ti.com [10.64.6.63])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59ODX4ou3608351
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 24 Oct 2025 08:33:04 -0500
+Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE205.ent.ti.com
+ (10.64.6.63) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 24 Oct
+ 2025 08:33:04 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 24 Oct 2025 08:33:04 -0500
+Received: from [10.249.141.75] ([10.249.141.75])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59ODX1N7391117;
+	Fri, 24 Oct 2025 08:33:01 -0500
+Message-ID: <a1a8f585-9650-49e6-9dfc-89c5ecb7d9ea@ti.com>
+Date: Fri, 24 Oct 2025 19:03:00 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|GV1PR04MB10249:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c31a857-69f6-4f6d-1ed4-08de130185b1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|19092799006|1800799024|366016|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?k4NqQEwwPGQNBQWaRAddI/Xs2QT4Wyfxwy+MWdM86OzOYOgEY8zAmbmSaWBH?=
- =?us-ascii?Q?TJrHFgVeE48J4LhK1ftxCCdGRdfxKZlghOqvHqghayqwa7euZ16+288YOK47?=
- =?us-ascii?Q?W9VQDusMRsDaTMTxlqn286cgll4s/6dyxyG7Af3FBrQofOM7Hdq/OSDY/R93?=
- =?us-ascii?Q?QZxvJ6TVH6yJFZ6E2SN3DCCnQaf4ba9wdU0BTzjXJ2Dt5MKemPdjrJltoc4M?=
- =?us-ascii?Q?gSfBWqofTbEdYFFoBmsB7IVjwPKX03wBf+bGrsldqBDMly4brvLHhnP1tJwj?=
- =?us-ascii?Q?HP9DC3RvyEz/MrTlFZ/tvXKd9qJ/Pf7xxCiyH9SjH0MVCqnJmH0jwK9+t5iD?=
- =?us-ascii?Q?oPgSVsPmkk1fInkj88KDz1vaOu7GVhs4eMzeTMdpLOMZkLJW2GYl5TtPCcSO?=
- =?us-ascii?Q?AfXhnpB1tbcf1xbN0jixptn8qzf8E6CrZKyVf5cq43BQETnnyibkmxxthUDo?=
- =?us-ascii?Q?Hmwk8UxPCo90l7Ckxtzdw651t40bJEr6na1Y8MUmMqhiNdpkfUrX0+1hri9h?=
- =?us-ascii?Q?z4GvC/CsB2mkFbzDiZIFQ+Sa+/D05vRlduWo8TexDzP78YycheMpTk/Ygdsv?=
- =?us-ascii?Q?4SH9+dEaU+wZ5J6hBjdNxk8ldSD1MzFju8w8VLJ8pI6rcV9QODxyJThq7OLJ?=
- =?us-ascii?Q?fQDvLHY3RBNQLSHndRJ030WrODrju5HWLhKJxn9SybkkaHBnqP9aburLe2k2?=
- =?us-ascii?Q?CjEgBI2XvvBkJPRdc3x/eEaBBWpuX6ujp/W6N7gsDGRNEdQQEnZAD3JRNWC5?=
- =?us-ascii?Q?gzIkYl5c9kovA4n4X5JiAOWucop72YXuhCYzLxPXG+zC0CDEJweqVISn4RA4?=
- =?us-ascii?Q?xC3s+6xioRMbfobpC/MzFyK9bcXpQDZFIrzXlfu7tp/c+qMshFqlcYHRZTtT?=
- =?us-ascii?Q?ZZ2HbFqPt89ePskmgnk8ut5mJjGzfuM9TJdvTpb2OYnuImp6quoFs6szxA4z?=
- =?us-ascii?Q?T3Dvnf+k31sBCdyN7iZuunY3QMF6HHs8ocdM7BRP6O278jbU9of+AehKuhIh?=
- =?us-ascii?Q?+pTT9BDyE3m7zPtKvVF64+GDY1XAOKcu+eHh8ffrs67vmHY4ChBDeb9Pjkg1?=
- =?us-ascii?Q?p1Ocv/PXKI/YAdDejSqHt823reGEik5VwaWqeeao1IR4B8zTpJQmXJDSH27t?=
- =?us-ascii?Q?ejcw3IyYF9mNevYCsqzrcTHOSvAs1kWV+ozSr5/SRa4J1MRztAUnj5jEIAiE?=
- =?us-ascii?Q?6oKfzLryQYxo4RGyIjCakoIHiq09lRHf7kis5MmjD172C/jLBOmFT3AWbOVk?=
- =?us-ascii?Q?4Juxv1mq53ELp4RSbfFqHrqgsn8VEEO5gfksa9oj3JR/oMCHdBt86kJCjujt?=
- =?us-ascii?Q?rEe737Ami3EbubuC5KsJ6KAENPNOelPPyueXNqXT+rE2LXePDwUI+KmCYV51?=
- =?us-ascii?Q?Ougo7g9/0WbOhPoQcR0xKOQH2ntN43BHYcBOQNkkCknXzWjfS344NRC53CvU?=
- =?us-ascii?Q?MyNLKXAxo6Pb7YBcPdedOjKqW0uSAUlK0DO1G9xYYaSKg2MCOV8mkL+hET/3?=
- =?us-ascii?Q?/9NQvRiiP++6SxsPtjrFB0fTsFpa4SQ2W1L/?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(19092799006)(1800799024)(366016)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QPYcWXe1527rjvIG8bSLf2G3R9pjfoD8hZGluYb8uasku46aCgF1729jGVgH?=
- =?us-ascii?Q?kkmxBQfjuo4rF6nViU78g1+MKokmiP6mYcIPxXJGotL2mc+8ea95y/wa9kCd?=
- =?us-ascii?Q?KzPEogtItchsoaZG5GDfA2Qi8ZvgaHIWZyZcJsfA5/Ojzw1GPi6g+efQDslx?=
- =?us-ascii?Q?Dtdd3E4lPqmyrH+kVIhmxqf45rd1WYzRVAO8CHJ0T+WfgCktmfQT/zq8BpWQ?=
- =?us-ascii?Q?wnCDabJTiVe8Ge989vJv7zxI95bunec+/GkqOSRJ+OwQTllEcgMgNYvoExII?=
- =?us-ascii?Q?+lB205ZG6rUbRuPb6K2WL8aPAIo7q8KPUC9HaRZx+VO7YxTNTKNGX4a6+97h?=
- =?us-ascii?Q?25lcoOylQFIe7ilUeYcKHW++vdnYMeR1DtyQUMpM0kSO++FrPWUlTsfteYaw?=
- =?us-ascii?Q?pcI+cITx5f5zic5voVR7hoIzay47e2XUn/UNS1rp1JQ3Hd7gmPS309WJGXFY?=
- =?us-ascii?Q?ZPKU/3STkmaUNEoap3SFOGxC/k+BshjP8ItljLtOY2P4SNtkax8bUfgc294y?=
- =?us-ascii?Q?lJe6Usv2rltQl1r5LdV1J/C3zsdLopyhN7TQQ0fl9qJwEekrsCoSaOxf+i0N?=
- =?us-ascii?Q?Ow9YFWQnnSze7+HM8bVKkqmAoM4lcxJWKIHcPI9dNyDQzAzi7rXx3BzGVbPv?=
- =?us-ascii?Q?7WOVMZQQFRl3AlSz0LFvRysqOci7fCBf/EzSscuieAFBQPc4Q/D/+aNu/NV/?=
- =?us-ascii?Q?hcca3276Kecz+k38Vt8zR8BxsFq00vCiY26jUp4Ov6z5zQJife9xf7st5Ewj?=
- =?us-ascii?Q?N5ZRS7lPRxS+jdI8pVvQbegK30sDlLnC1ng9+WYf0PxFPHEvJpgli20z8EBs?=
- =?us-ascii?Q?+85ECqO/DSeBMjiXi3bhxYtjx+Xqi3P4ksaCDHbshIDdm+fTM1S//jo+7Fh2?=
- =?us-ascii?Q?Fz1WKCuz2+d0goQY5JjZC5VTZGqzXE59/wq7KWYmMfcIvPry3q/TFf4Mj8Cm?=
- =?us-ascii?Q?U3jUd4exzHNABYfNLoCnQ7yX1clHmJEPA49mTdM6oww21Kt6vQOb7SaWwbJb?=
- =?us-ascii?Q?4Dskh0m+zgBg685s5+hTDTB3pidpXbW59dRLm9dJAZ/yE0Xemw58iS4nUu7i?=
- =?us-ascii?Q?VqJtr7ftd8IH+CXhcgzE1mBEVP/umFxx9n6u5dN0XtaombUiHkKuIagGMeag?=
- =?us-ascii?Q?FmzMevG34daGzlyd3i+q0S+Es/OVWY35tNP/qImWxOIZLf6rAk0hyrrtc4EC?=
- =?us-ascii?Q?v0guWXq9DrO4ugTqAS/WakXKQUKrgIPBKNhnlaChu+X31ufvq+Fp9Z5a1Obp?=
- =?us-ascii?Q?jJRQElP1+OHmhJqkS3ga/vINq8L6HZzzuIs2T8RL81QSjnyacoGUGtrXAGFa?=
- =?us-ascii?Q?8ISoq1vDTAHVDCjq8++WNeHEgAfM/kyWsbWWR1giYXJQQny/N2Ja4UpT/0T9?=
- =?us-ascii?Q?m8r5RTjF8ZNMQFDvq5NayzKV8RUrqD3xfqQlS68BlWR9ukuvd0HDmtEPM6uz?=
- =?us-ascii?Q?6bMlq0bEqdiir4DzWUF9FuJ3QhMS4d5P5n5r7/zRXgRRj4u/QrKl4ThJPEtq?=
- =?us-ascii?Q?ue1EiLPCmD5cDbWZ7eC4I9Gq4rkrRedrlH6jB2dtq4yTUhHFxxq6V0fQEYks?=
- =?us-ascii?Q?MM0JkWrP9SywD39EDOYulCa1F+GGbCZ17WoTVVEI?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c31a857-69f6-4f6d-1ed4-08de130185b1
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2025 13:30:39.4080
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QqB02/i6UKpV/eRwbdJ/zAGj6hsufApG7zjosYS5NEcGc89/uBamGNt1apH6MiocUAbAQ8at/A6XKGZTME+XIg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10249
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] arm64: dts: ti: Add support for Kontron
+ SMARC-sAM67
+To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20251017135116.548236-1-mwalle@kernel.org>
+ <20251017135116.548236-3-mwalle@kernel.org>
+ <9da776bc-3156-4f4b-9e64-6ada5b47fab3@ti.com>
+ <DDQCQPRRVOHB.1ENJWEGUOSBTR@kernel.org>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <DDQCQPRRVOHB.1ENJWEGUOSBTR@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_063045_877112_CF5A835F 
-X-CRM114-Status: GOOD (  18.70  )
+X-CRM114-CacheID: sfid-20251024_063311_765781_22A0DA78 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,71 +95,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 07, 2025 at 10:40:27AM +0200, Primoz Fiser wrote:
-> Add overlay to enable JTAG pins on the board's JTAG (X41) connector.
->
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> ---
->  arch/arm64/boot/dts/freescale/Makefile        |  2 ++
->  .../freescale/imx93-phyboard-nash-jtag.dtso   | 26 +++++++++++++++++++
->  2 files changed, 28 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index 525ef180481d..c72a6fdc5412 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -356,10 +356,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
->
-> +imx93-phyboard-nash-jtag-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-jtag.dtbo
->  imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
->  imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
->  imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
->  imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
-> +dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-jtag.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso
-> new file mode 100644
-> index 000000000000..4744eabf95f3
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso
-> @@ -0,0 +1,26 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-> + * Author: Primoz Fiser <primoz.fiser@norik.com>
-> + */
-> +
-> +#include "imx93-pinfunc.h"
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +&gpio2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_jtag>;
-> +};
+Hi Michael,
 
-Use gpio to set pinctrl to no-gpio mode is strange. I am not sure if there
-are better method, but at need comments here to show why have to do that.
+On 10/24/2025 12:21 PM, Michael Walle wrote:
+> Hi Udit,
+>
+> thanks for the thorough review!
+>
+> On Fri Oct 24, 2025 at 7:13 AM CEST, Udit Kumar wrote:
+>> On 10/17/2025 7:20 PM, Michael Walle wrote:
+>>> Add device tree support for the Kontron SMARC-sAM67 module, which is
+>>> based on a TI AM67A SoC.
+>>>
+>>> The module features:
+>>>    * Quad-core AM67A94 at 1.4GHz with 8 GiB RAM
+>>>    * 64 GiB eMMC, 4 MiB SPI flash for failsafe booting
+>>>    * Dedicated RTC
+>>>    * Multiple interfaces: 4x UART, 2x USB 2.0/USB 3.2, 2x GBE, QSPI,
+>>>           7x I2C,
+>>>    * Display support: 2x LVDS, 1x DSI (*), 1x DP (*)
+>>>    * Camera support: 4x CSI (*)
+>>>    * Onboard microcontroller for boot control, failsafe booting and
+>>>      external watchdog
+>>>
+>>> (*) not yet supported by the kernel
+>>>
+>>> There is a base device tree and overlays which will add optional
+>>> features. At the moment there is one full featured variant of that
+>>> board whose device tree is generated during build by merging all the
+>>> device tree overlays.
+>>>
+>>> Signed-off-by: Michael Walle <mwalle@kernel.org>
+>>> ---
+>>>    arch/arm64/boot/dts/ti/Makefile               |    7 +
+>>>    .../dts/ti/k3-am67a-kontron-sa67-base.dts     | 1091 +++++++++++++++++
+>>>    .../dts/ti/k3-am67a-kontron-sa67-gbe1.dtso    |   26 +
+>>>    .../dts/ti/k3-am67a-kontron-sa67-gpios.dtso   |   61 +
+>>>    .../ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso  |   31 +
+>>>    5 files changed, 1216 insertions(+)
+>>>    create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
+>>>    create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gbe1.dtso
+>>>    create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gpios.dtso
+>>>    create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso
+>>>
+>>> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+>>> index 743115b849a7..d2a40ea642c4 100644
+>>> --- a/arch/arm64/boot/dts/ti/Makefile
+>>> +++ b/arch/arm64/boot/dts/ti/Makefile
+>>> @@ -137,7 +137,14 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
+>>>    dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-usb0-type-a.dtbo
+>>>    
+>>>    # Boards with J722s SoC
+>>> +k3-am67a-kontron-sa67-dtbs := k3-am67a-kontron-sa67-base.dtb \
+>>> +	k3-am67a-kontron-sa67-rtc-rv8263.dtbo k3-am67a-kontron-sa67-gbe1.dtbo
+>>>    dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
+>>> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67.dtb
+>>> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-base.dtb
+>>> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-gbe1.dtbo
+>>> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-gpios.dtbo
+>>> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-rtc-rv8263.dtbo
+>>>    dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
+>>>    dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
+>>>    dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
+>>> diff --git a/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts b/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
+>>> new file mode 100644
+>>> index 000000000000..7169d934adac
+>>> --- /dev/null
+>>> +++ b/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
+>>> @@ -0,0 +1,1091 @@
+>>> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+>>> +/*
+>>> + * Kontron SMARC-sAM67 module
+>>> + *
+>>> + * Copyright (c) 2025 Kontron Europe GmbH
+>>> + */
+>>> +
+>>> +/dts-v1/;
+>>> +
+>>> +#include <dt-bindings/gpio/gpio.h>
+>>> +#include <dt-bindings/interrupt-controller/irq.h>
+>>> +#include <dt-bindings/phy/phy.h>
+>>> +#include "k3-j722s.dtsi"
+>>> +#include "k3-serdes.h"
+>>> +
+>>> [..]+
+>>> +	ospi0_pins_default: ospi0-default-pins {
+>>> +		pinctrl-single,pins = <
+>>> +			J722S_IOPAD(0x000, PIN_OUTPUT, 0)	/* (L24) OSPI0_CLK */
+>>> +			J722S_IOPAD(0x02c, PIN_OUTPUT, 0)	/* (K26) OSPI0_CSn0 */
+>>> +			J722S_IOPAD(0x030, PIN_OUTPUT, 0)	/* (K23) OSPI0_CSn1 */
+>>> +			J722S_IOPAD(0x034, PIN_OUTPUT, 0)	/* (K22) OSPI0_CSn2 */
+>> I am not sure, which flash device is being used , could you check once
+>> if all three CS are supported.
+> Yes, all three are used. This board has one 4MiB on-board flash
+> W25Q32 (or similar) and the two others CS are routed to the edge
+> connector. They aren't multi purpose, so we can already set them
+> to the CS function.
 
-Frank
-> +
-> +&iomuxc {
-> +	pinctrl_jtag: jtaggrp {
-> +		fsl,pins = <
-> +			MX93_PAD_GPIO_IO24__JTAG_MUX_TDO	0x31e
-> +			MX93_PAD_GPIO_IO25__JTAG_MUX_TCK	0x31e
-> +			MX93_PAD_GPIO_IO26__JTAG_MUX_TDI	0x31e
-> +			MX93_PAD_GPIO_IO27__JTAG_MUX_TMS	0x31e
-> +		>;
-> +	};
-> +};
-> --
-> 2.34.1
+
+Thanks for details.  Just want to make sure, pins are not used for multi 
+purpose.
+
+Please use
+
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+
+
+>
+>>> +			J722S_IOPAD(0x00c, PIN_INPUT, 0)	/* (K27) OSPI0_D0 */
+>>> +			J722S_IOPAD(0x010, PIN_INPUT, 0)	/* (L27) OSPI0_D1 */
+>>> +			J722S_IOPAD(0x014, PIN_INPUT, 0)	/* (L26) OSPI0_D2 */
+>>> +			J722S_IOPAD(0x018, PIN_INPUT, 0)	/* (L25) OSPI0_D3 */
+>>> +		>;
+>>> +		bootph-all;
+>>> +	};
+>>> +
+>>> +	pcie0_rc_pins_default: pcie0-rc-default-pins {
+>>> +		pinctrl-single,pins = <
+>>> +			J722S_IOPAD(0x2ac, PIN_OUTPUT, 0)	/* (F25) PCIE0_CLKREQn */
+>>> +			J722S_IOPAD(0x1b4, PIN_OUTPUT, 7)	/* (B20) SPI0_CS0.GPIO1_15 */
+>>> +		>;
+>>> +	};
+>>> +
+>>> +	pmic_irq_pins_default: pmic-irq-default-pins {
+>>> +		pinctrl-single,pins = <
+>>> +			J722S_IOPAD(0x090, PIN_INPUT, 7)	/* (P27) GPMC0_BE0n_CLE.GPIO0_35 */
+>>> +		>;
+>>> +	};
+>>> +
+>>> [..]
+>>> +/* I2C_PM */
+>>> +&wkup_i2c0 {
+>>> +	pinctrl-names = "default";
+>>> +	pinctrl-0 = <&wkup_i2c0_pins_default>;
+>>> +	clock-frequency = <100000>;
+>>> +	status = "okay";
+>>
+>> This is more a question, I see all i2c controller you want to run at
+>> 100Kz, but most of devices are supporting 400Khz
+>>
+>> like tps652g1 over main_i2c0 ,  pca9546 over main_i2c1 , is there
+>> specific reason for this
+> Actually yes and it was at 400kHz at first. But it wont work with
+> the onboard management controller at that bus. Although it supports
+> 400kHz, the mode in which we are using it, doesn't. In short, we
+> aren't using clock stretching as this might cause the whole bus to
+> hang without being able to recover it from the SoC. Therefore, the
+> i2c reply bytes have to be prepared just-in-time and it turn out
+> that 400kHz is too fast for that.
+
+Understood.
+
+
+>
+> -michael
+>
+>>> +};
+>>> +
+>>> +/* SER3 */
+>>> +&wkup_uart0 {
+>>> +	/* WKUP UART0 is used by Device Manager firmware */
+>>> +	pinctrl-names = "default";
+>>> +	pinctrl-0 = <&wkup_uart0_pins_default>;
+>>> +	bootph-all;
+>>> +	status = "reserved";
+>>> +};
+>> [..]
 >
 
