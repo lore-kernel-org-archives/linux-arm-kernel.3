@@ -4,47 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE3BCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 16:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B00ECCF9EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 16:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=X7IZXhvIDj/W+D1gIQEAgoTNTahaPQFugZ1MfUL5228=; b=glppKFXFtb4FU6
-	XkSm80jFQ/sYKo9ZSqmH6o2JGEYJ9UZSS2GTa5JQhnNBf8AL/omi15iYULzsRYZs2zURlDaNnOK77
-	1PxYc2IH4/j52OgNaMV8j621kRqySXB5FNm+/jHiG+Fipy+hXG+uhT5uj3Rx5AwDXfdiuxCmzP0vK
-	TEddaAoGjil0efCbYsLf7EBIeOQSd05zNsa3C7wS+sWHCCNodfpIZ6S2JE9M2/vnzJAgQ2aMDeTFs
-	PQ1rS94XncGKfKG+ebZwu4w387Sa8U4h9Lcl2sR5Ir95TUNMqwoYSKJATpXktl/RvGHRpME0J5rGa
-	1FiRP1bnyiZdYVWdbxiw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bY5x2BZHtanelPaxr0HiZA8hVGJAmh0MLFlTP8ScS/0=; b=duTgTcJ9khFu6dbCo5fEABBpRe
+	XDvBoitx13MOmk1GuOMb0sP4xdxIL/iPol0K7FXquJem0EgAzkY/4w4NJJJOQlWyCQIB6ve+oDfHW
+	A7w+FLsFzttA1WoOaJ0BG5YgclrbrH19WGQG1vzLRV1+IbPqeGyfVIHm+EbHDS7dz80Lmf+u72kH4
+	ChIQKIGcJvFlu6E/0CimAbCm4tZuCsueupKllVmO78MW3E0fyBzWrDP4m/8CODsP7BjOmJh6F8+IB
+	xciGNS8z5t2PjYlBiAj/CkkNUfQshn+b4+v6XnH/TH6S+O97iuNbar/QKVdo6yAZVRqtyw8EWWUjU
+	a45W2hFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCKvt-0000000A0og-3WLP;
-	Fri, 24 Oct 2025 16:46:29 +0000
+	id 1vCKvv-0000000A0qN-40K7;
+	Fri, 24 Oct 2025 16:46:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCKvq-0000000A0mV-3DHN
+	id 1vCKvs-0000000A0nE-1RPc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 16:46:28 +0000
+	Fri, 24 Oct 2025 16:46:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEEB0175A;
-	Fri, 24 Oct 2025 09:46:15 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95A601D34;
+	Fri, 24 Oct 2025 09:46:17 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E9AE83F66E;
-	Fri, 24 Oct 2025 09:46:21 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D35013F66E;
+	Fri, 24 Oct 2025 09:46:23 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v4 00/11] CoreSight: Refactor power management for ETMv3/4
-Date: Fri, 24 Oct 2025 17:45:48 +0100
-Message-Id: <20251024-arm_coresight_power_management_fix-v4-0-690e69ae6977@arm.com>
+Date: Fri, 24 Oct 2025 17:45:49 +0100
+Subject: [PATCH v4 01/11] coresight: Change device mode to atomic type
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIADyt+2gC/42NSwrCMBRFt1Le2Eh+xcaR+5ASQnxtM0hSXkpVS
- vduLC7A4Tlwz92gIAUscG02IFxDCTlV0KcG/OTSiCw8KoPksuWGG+YoWp8JSxinxc75iWSjS27
- EiGmxQ3gxoUx3UYPREjuooZmw6uPk3leeQlkyvY/PVX3tLy/af/KrYpyh0waNEFKjv9XR2ecI/
- b7vH6cOnv3SAAAA
-X-Change-ID: 20250909-arm_coresight_power_management_fix-139873f942e8
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251024-arm_coresight_power_management_fix-v4-1-690e69ae6977@arm.com>
+References: <20251024-arm_coresight_power_management_fix-v4-0-690e69ae6977@arm.com>
+In-Reply-To: <20251024-arm_coresight_power_management_fix-v4-0-690e69ae6977@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
  Yeoreum Yun <yeoreum.yun@arm.com>, 
@@ -55,16 +52,16 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761324381; l=2996;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1761324381; l=3449;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=v2twuYXG+/3NDpCUxYNOeH7MKLTh4SP2uo5QFgLwyqc=;
- b=Klr6XLGKNPEuBBNbbR/b1JkCdZmww3rNfqfEnAGJLmTCKKxONDhvuClZogITKopSjnsvjLz+f
- DgXf2XWTE3TBRM0wf5Q9VplYPzJsAJGRd/LxhhnFLGjLk2A7FJiCW30
+ bh=njT1arqt9y/ppF1Y1b9+nQQ7D98iaPw8ctOVzzqlofs=;
+ b=jVnJFtDbpR5Vxq/HhU3QnELXce2Ca9e+QGsWw6BqQ+tKb3W1ZmbFn3AizvebA36UsY0PjFWEu
+ BCBfqEu3jQCAC23cxfQVKbFnYfxwIBO0Hf/QDYiv36z2pkkI+XA6eO1
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_094626_933453_A3F363CA 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20251024_094628_503196_46FB32C7 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +76,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series is extracted from the CoreSight power management fixes and
-refactoring [1], focusing on ETMv3/4 power management.  The remaining
-parts will be sent out separately. Hopefully, this makes things easier
-for us to review and merge.
+The device mode is defined as local type. This type cannot promise
+SMP-safe access.
 
-Compared to the previous version, only one new patch has been added — to
-retain the sequencer state for ETMv4. No other changes are included.
+Change to atomic type and impose relax ordering, which ensures the
+SMP-safe synchronisation and the ordering between the mode setting and
+relevant operations.
 
-This series has been verified on Juno-r2 platform.
-
-[1] https://lore.kernel.org/linux-arm-kernel/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com/
-
----
-Changes in v4:
-- Added patch 10 for retaining sequencer state in ETMv4 driver (Mike).
-- Added Mike's review tags.
-- Added James' test tags.
-- Link to v3: https://lore.kernel.org/r/20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com
-
-Changes in v3:
-- Fixed building failure in ETMv3 driver (kernel test robot).
-- Refactoring ETMv3 change for checking CPU ID (Levi).
-- Fixed NULL pointer issue during CPU idle (James).
-- Fixed lockdep complaint for HARDIRQ-safe and HARDIRA-unsafe (James).
-- Fixed acquiring mutex in atomic context (James).
-- Rebased on the latest coresight-next branch.
-- Link to v2: https://lore.kernel.org/r/20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com
-
-Changes in v2:
-- Refactored ETMv4 suspend and resume for reusing the normal enabling
-  and disabling flows (James).
-- Used a per-CPU structure to maintain path pointers (James).
-- Supported helpers in CPU PM flows (James).
-- Fixed the SMP-safe access to device mode.
-- Fixed the context synchronization in ETMv4x driver.
-- Link to v1: https://lore.kernel.org/linux-arm-kernel/20250516160742.1200904-1-leo.yan@arm.com/
-
+Fixes: 22fd532eaa0c ("coresight: etm3x: adding operation mode for etm_enable()")
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+Tested-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
-
 ---
-Leo Yan (11):
-      coresight: Change device mode to atomic type
-      coresight: etm4x: Always set tracer's device mode on target CPU
-      coresight: etm3x: Always set tracer's device mode on target CPU
-      coresight: etm4x: Correct polling IDLE bit
-      coresight: etm4x: Ensure context synchronization is not ignored
-      coresight: etm4x: Add context synchronization before enabling trace
-      coresight: etm4x: Properly control filter in CPU idle with FEAT_TRF
-      coresight: etm4x: Remove the state_needs_restore flag
-      coresight: etm4x: Add flag to control single-shot restart
-      coresight: etm4x: Retain sequencer state
-      coresight: etm4x: Reuse normal enable and disable logic in CPU idle
+ include/linux/coresight.h | 25 +++++++++++--------------
+ 1 file changed, 11 insertions(+), 14 deletions(-)
 
- drivers/hwtracing/coresight/coresight-etm3x-core.c |  59 ++--
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 372 +++++++--------------
- drivers/hwtracing/coresight/coresight-etm4x.h      |  62 ----
- include/linux/coresight.h                          |  25 +-
- 4 files changed, 175 insertions(+), 343 deletions(-)
----
-base-commit: 6fab32bb6508abbb8b7b1c5498e44f0c32320ed5
-change-id: 20250909-arm_coresight_power_management_fix-139873f942e8
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index 6de59ce8ef8ca45c29e2f09c1b979eb7686b685f..3e5e5acd0c7fcde7d312d440da4355faaf682c7b 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -251,15 +251,11 @@ struct coresight_trace_id_map {
+  *		by @coresight_ops.
+  * @access:	Device i/o access abstraction for this device.
+  * @dev:	The device entity associated to this component.
+- * @mode:	This tracer's mode, i.e sysFS, Perf or disabled. This is
+- *		actually an 'enum cs_mode', but is stored in an atomic type.
+- *		This is always accessed through local_read() and local_set(),
+- *		but wherever it's done from within the Coresight device's lock,
+- *		a non-atomic read would also work. This is the main point of
+- *		synchronisation between code happening inside the sysfs mode's
+- *		coresight_mutex and outside when running in Perf mode. A compare
+- *		and exchange swap is done to atomically claim one mode or the
+- *		other.
++ * @mode:	The device mode, i.e sysFS, Perf or disabled. This is actually
++ *		an 'enum cs_mode' but stored in an atomic type. Access is always
++ *		through atomic APIs, ensuring SMP-safe synchronisation between
++ *		racing from sysFS and Perf mode. A compare-and-exchange
++ *		operation is done to atomically claim one mode or the other.
+  * @refcnt:	keep track of what is in use. Only access this outside of the
+  *		device's spinlock when the coresight_mutex held and mode ==
+  *		CS_MODE_SYSFS. Otherwise it must be accessed from inside the
+@@ -288,7 +284,7 @@ struct coresight_device {
+ 	const struct coresight_ops *ops;
+ 	struct csdev_access access;
+ 	struct device dev;
+-	local_t	mode;
++	atomic_t mode;
+ 	int refcnt;
+ 	bool orphan;
+ 	/* sink specific fields */
+@@ -621,13 +617,14 @@ static inline bool coresight_is_percpu_sink(struct coresight_device *csdev)
+ static inline bool coresight_take_mode(struct coresight_device *csdev,
+ 				       enum cs_mode new_mode)
+ {
+-	return local_cmpxchg(&csdev->mode, CS_MODE_DISABLED, new_mode) ==
+-	       CS_MODE_DISABLED;
++	int curr = CS_MODE_DISABLED;
++
++	return atomic_try_cmpxchg_acquire(&csdev->mode, &curr, new_mode);
+ }
+ 
+ static inline enum cs_mode coresight_get_mode(struct coresight_device *csdev)
+ {
+-	return local_read(&csdev->mode);
++	return atomic_read_acquire(&csdev->mode);
+ }
+ 
+ static inline void coresight_set_mode(struct coresight_device *csdev,
+@@ -643,7 +640,7 @@ static inline void coresight_set_mode(struct coresight_device *csdev,
+ 	WARN(new_mode != CS_MODE_DISABLED && current_mode != CS_MODE_DISABLED &&
+ 	     current_mode != new_mode, "Device already in use\n");
+ 
+-	local_set(&csdev->mode, new_mode);
++	atomic_set_release(&csdev->mode, new_mode);
+ }
+ 
+ struct coresight_device *coresight_register(struct coresight_desc *desc);
 
-Best regards,
 -- 
-Leo Yan <leo.yan@arm.com>
+2.34.1
 
 
