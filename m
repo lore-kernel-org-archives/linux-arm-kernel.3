@@ -4,76 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D9CCCF9E3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 14:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A799BCCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 14:24:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fhw+3uyt8HSw+DQepyxp0VsaFLCqiYPLpFpWsLoqwEA=; b=Rn+aq9/j4JL9eFurvR5sE4l8cR
-	+c9OL0d4wkNhjFGhxWOlzO7LSIUuKviXI8v6rM2/Cz+xdgGUq/PUxGEKhLrZnC9xY3tj571aCbeos
-	jrm5uc1fEZ5+Zyn/Zj1mVCObCi8srJTVDKYserXZ/YBSn7OEPA1WzHEOT+xc5jOR+G1DCifTA7MLV
-	K3iCxZ/dyFBDHP/S/3OKwYIV6K7xv4LWS6m9wQ2Skn07Q9Pvhz0Za94s7Um5WbM8X6sZ33V0B5pla
-	ECt5mcB/qix5fyLlGJ9j0qKuT8txxaaYLaqjEoKsaDbIh81qJNdNcwq3PDUwQx17XSJxcOHHxS0Ac
-	IgxrQ3PQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Message-ID:References:In-Reply-To:
+	Subject:Cc:To:From:Date:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QTv5l8HYsmXSaBkMSL5ZDaSrsBFiVYOpAyIiO0ly0rU=; b=m+TVCKUKyt5hBs
+	Op2xdNpBbcjj5T9Tyj8idI2l+QCxMuhC4yrS6M0KOMRtUyRseFR8xxNsCHR5QySfATEPrsm3wB79A
+	4aO6vG3BjEzxt8V6cea+Vn5ELXAOfugDgsdDvGiPE+K0rDoytNOidy5bdxlRlILfn9nUTe7aejWIc
+	xIztk5MK/qlUj7pfLLcY0FCj3QaHmuV+pwVRbpY2l7uZsKVLOgRIWbLKMGH0f51C0v7M3h9Gig+Ix
+	I6P9EIax10LNQhNbwr+DhOecY72pgvD/pKR7C5lr+mhH409KVnMishm/B9cTR44ByDMADtNpmOs6y
+	4efO379RsiRWef0l9jmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIh6-00000009eRW-2L6C;
-	Fri, 24 Oct 2025 14:23:04 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vCIi9-00000009edd-28Nf;
+	Fri, 24 Oct 2025 14:24:09 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIh4-00000009eQm-1xmt
+	id 1vCIi6-00000009ecZ-0Of1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 14:23:03 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ctQ5T0ylQz6GDFX;
-	Fri, 24 Oct 2025 22:19:41 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 95D0314014C;
-	Fri, 24 Oct 2025 22:22:59 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 24 Oct
- 2025 15:22:58 +0100
-Date: Fri, 24 Oct 2025 15:22:56 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Jeremy Linton <jeremy.linton@arm.com>
-CC: James Morse <james.morse@arm.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-acpi@vger.kernel.org>, "D
- Scott Phillips OS" <scott@os.amperecomputing.com>,
-	<carl@os.amperecomputing.com>, <lcherian@marvell.com>,
-	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
- Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
-	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
-	<david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba Ko
-	<kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
-	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
-	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>, Gavin Shan <gshan@redhat.com>
-Subject: Re: [PATCH v3 04/29] ACPI / PPTT: Add a helper to fill a cpumask
- from a cache_id
-Message-ID: <20251024152256.00003f8e@huawei.com>
-In-Reply-To: <50a8cc38-810b-4bea-9a73-2463a6160b9f@arm.com>
-References: <20251017185645.26604-1-james.morse@arm.com>
-	<20251017185645.26604-5-james.morse@arm.com>
-	<50a8cc38-810b-4bea-9a73-2463a6160b9f@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 24 Oct 2025 14:24:07 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59OA2nCk023244;
+	Fri, 24 Oct 2025 14:24:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:to; s=pp1;
+	 bh=QTv5l8HYsmXSaBkMSL5ZDaSrsBFiVYOpAyIiO0ly0rU=; b=U+z7lKKKbjXr
+	HLDG3Zc7L9QsfRKFx06zgpP6WhgYwkk94lFm02+yTgixgWacf0+bMFZNW9cReS8V
+	zz0Yff4Wuqzd53o1xMhsKkckW4RcC2lypY1T5oy9VHjTcbUsBXlHAD/KZp0OwCOn
+	01z36FmXyqrw6KJb0P1U+Fkrx/W523iKOTciKVA+tSSBz9dKZudRPyU+GxAAQ4wn
+	KkGFKqe46z4FBgNxzI7zsw5e9BBYhsonlhlRet0HP9KdSRnLuRuk87bnV+Z+PW9j
+	0ItC6cNvJllKH9Vvvyw/A8icsd+CJXvep7/aBi1My9XnnkbqAhEjAQkCRSECv/Y6
+	vJ8O7ddaeg==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 49v3277rhh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 24 Oct 2025 14:24:02 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 59OAkYeV011015;
+	Fri, 24 Oct 2025 14:24:01 GMT
+Received: from smtprelay02.dal12v.mail.ibm.com ([172.16.1.4])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 49vqx1k6gp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 24 Oct 2025 14:24:01 +0000
+Received: from smtpav04.dal12v.mail.ibm.com (smtpav04.dal12v.mail.ibm.com [10.241.53.103])
+	by smtprelay02.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 59OEO1vH26673758
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 24 Oct 2025 14:24:01 GMT
+Received: from smtpav04.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3AD3358056;
+	Fri, 24 Oct 2025 14:24:01 +0000 (GMT)
+Received: from smtpav04.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C57CF58052;
+	Fri, 24 Oct 2025 14:24:00 +0000 (GMT)
+Received: from ltc.linux.ibm.com (unknown [9.5.196.140])
+	by smtpav04.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 24 Oct 2025 14:24:00 +0000 (GMT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+Date: Fri, 24 Oct 2025 16:24:00 +0200
+From: Harald Freudenberger <freude@linux.ibm.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Holger Dengler <dengler@linux.ibm.com>,
+        David Howells
+ <dhowells@redhat.com>, Ard Biesheuvel <ardb@kernel.org>,
+        "Jason A .
+ Donenfeld" <Jason@zx2c4.com>, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-crypto@vger.kernel.org
+Subject: Re: [PATCH 15/17] lib/crypto: s390/sha3: Migrate optimized code into
+ library
+Mail-Reply-To: freude@linux.ibm.com
+In-Reply-To: <20251021154906.GB83624@google.com>
+References: <20251020005038.661542-1-ebiggers@kernel.org>
+ <20251020005038.661542-16-ebiggers@kernel.org>
+ <51fc91b6-3a6e-44f7-ae93-aef0bcb48964@linux.ibm.com>
+ <20251020175736.GC1644@sol>
+ <29e766ca-54e4-453d-9dfc-ea47e2a1f860@linux.ibm.com>
+ <5895ed68-dd6e-4f3d-9e6f-c27459556ff7@linux.ibm.com>
+ <20251021154906.GB83624@google.com>
+Message-ID: <b9094694cb5bc3ec0f479f3c6df909c9@linux.ibm.com>
+X-Sender: freude@linux.ibm.com
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=EJELElZC c=1 sm=1 tr=0 ts=68fb8c02 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=kj9zAlcOel0A:10 a=x6icFKpwvdMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=_Sl0zld_v68khJEgkSQA:9 a=CjuIK1q_8ugA:10
+ a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDE4MDAyMiBTYWx0ZWRfX/7qZ6wKRafKZ
+ mK/7ISmrSIyR9IBlUhFX14cubGLJSW4l1mNog/XzaYNg9VJBvgUceJCtyF3hemj0Cc+0OmCCjO6
+ v0Mbwi/cm0IauQI4PXp66wOM0la49kM2giHe334oaCU92VgQaU4yqNgyUmvuvIKYhL7yHfQu1q1
+ XuI+2wAK5AC1RmK0WR8YnSmsjMztB99IKqbe80TxZXBBSxglbUbqeyz6q8Bd/lPoPMSvBvrietL
+ remlo8xYOWdyu9Qd4C9iDYkZc5lK+cD47CotJ2cHKKZqjXcwpiR8xCt0BCep0qBrcm9+glWcQ9j
+ rrWEN0SOrehzh5SbmG1gldwlGQaNkhdLkJKJsa0EfFQ3MyG7Dj+jeelslCZefpCOEDh6eZMZjNV
+ 91fbD2VkqnhjsIZqg2qhNQXdTXleag==
+X-Proofpoint-GUID: pafbIPS1SsUnA0ap6FIduDkkgGpA_N8g
+X-Proofpoint-ORIG-GUID: pafbIPS1SsUnA0ap6FIduDkkgGpA_N8g
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-24_02,2025-10-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 priorityscore=1501 suspectscore=0 bulkscore=0 spamscore=0
+ malwarescore=0 phishscore=0 adultscore=0 lowpriorityscore=0 clxscore=1011
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510180022
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_072302_795990_DFE3102A 
-X-CRM114-Status: GOOD (  34.66  )
+X-CRM114-CacheID: sfid-20251024_072406_145494_A4A2E98B 
+X-CRM114-Status: GOOD (  25.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,191 +128,82 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: freude@linux.ibm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Oct 2025 07:58:36 -0500
-Jeremy Linton <jeremy.linton@arm.com> wrote:
+On 2025-10-21 17:49, Eric Biggers wrote:
+> On Tue, Oct 21, 2025 at 10:43:00AM +0200, Holger Dengler wrote:
+>> Hi Eric,
+>> 
+>> On 21/10/2025 09:24, Holger Dengler wrote:
+>> > On 20/10/2025 19:57, Eric Biggers wrote:
+>> [...]>> - Risk of bugs.  QEMU doesn't support the s390 SHA-3 
+>> instructions, so no
+>> >>   one except the s390 folks can test the code.  I can try to write code
+>> >>   for you, but I can't test it.  And the s390 SHA-3 code has had bugs;
+>> >>   see commits 992b7066800f, 68279380266a5, 73c2437109c3.
+>> >>
+>> >>   The first priority should be correctness.
+>> >
+>> > Let me figure out, if me and my colleagues can do the testing for you.
+>> > Unfortunately, I'll be unavailable for the next two weeks. But I'll come back
+>> > with a solution for the testing.
+>> 
+>> I talked to Harald: we can do the testing for you on our development 
+>> machines.
+>> Please send new series to us or provide them in your git repo.
+> 
+> Thanks!  I'll Cc both of you on v2 when I send it later.  For now, this
+> series (v1) can be found in lore at
+> https://lore.kernel.org/linux-crypto/20251020005038.661542-1-ebiggers@kernel.org/T/#u
+> And as mentioned in the cover letter it's also retrievable from git:
+> 
+>     git fetch
+> https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git
+> sha3-lib-v1
+> 
+> v1 already has the s390 optimized implementations of
+> sha3_absorb_blocks() and sha3_keccakf().  If you could enable the
+> following:
+> 
+>     CONFIG_CRYPTO_LIB_SHA3_KUNIT_TEST=y
+>     CONFIG_CRYPTO_LIB_BENCHMARK=y
+> 
+> ... and then show the results for sha3_kunit before and after the 
+> commit
+> "lib/crypto: s390/sha3: Migrate optimized code into library", that 
+> would
+> be helpful.
+> 
+> In v2, I'll look into providing overrides for the one-shot functions
+> sha3_{224,256,384,512}() too.  If it works out, I'll ask you to re-test
+> with that additional change as well.
+> 
+> - Eric
 
-> Hi,
-> 
-> This is largely looking pretty solid, but..
-> 
-> 
-> On 10/17/25 1:56 PM, James Morse wrote:
-> > MPAM identifies CPUs by the cache_id in the PPTT cache structure.
-> > 
-> > The driver needs to know which CPUs are associated with the cache.
-> > The CPUs may not all be online, so cacheinfo does not have the
-> > information.
-> > 
-> > Add a helper to pull this information out of the PPTT.
-> > 
-> > CC: Rohit Mathew <Rohit.Mathew@arm.com>
-> > Signed-off-by: James Morse <james.morse@arm.com>
-> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> > Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> > ---
-> > Changes since v2:
-> >   * Removed stray cleanup useage in preference for acpi_get_pptt().
-> >   * Removed WARN_ON_ONCE() for symmetry with other helpers.
-> >   * Dropped restriction on unified caches.
-> > 
-> > Changes since v1:
-> >   * Added punctuation to the commit message.
-> >   * Removed a comment about an alternative implementaion.
-> >   * Made the loop continue with a warning if a CPU is missing from the PPTT.
-> > 
-> > Changes since RFC:
-> >   * acpi_count_levels() now returns a value.
-> >   * Converted the table-get stuff to use Jonathan's cleanup helper.
-> >   * Dropped Sudeep's Review tag due to the cleanup change.
-> > ---
-> >   drivers/acpi/pptt.c  | 64 ++++++++++++++++++++++++++++++++++++++++++++
-> >   include/linux/acpi.h |  6 +++++
-> >   2 files changed, 70 insertions(+)
-> > 
-> > diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> > index 50c8f2a3c927..2f86f58699a6 100644
-> > --- a/drivers/acpi/pptt.c
-> > +++ b/drivers/acpi/pptt.c
-> > @@ -985,3 +985,67 @@ int find_acpi_cache_level_from_id(u32 cache_id)
-> >   
-> >   	return -ENOENT;
-> >   }
-> > +
-> > +/**
-> > + * acpi_pptt_get_cpumask_from_cache_id() - Get the cpus associated with the
-> > + *					   specified cache
-> > + * @cache_id: The id field of the cache
-> > + * @cpus: Where to build the cpumask
-> > + *
-> > + * Determine which CPUs are below this cache in the PPTT. This allows the property
-> > + * to be found even if the CPUs are offline.
-> > + *
-> > + * The PPTT table must be rev 3 or later,
-> > + *
-> > + * Return: -ENOENT if the PPTT doesn't exist, or the cache cannot be found.
-> > + * Otherwise returns 0 and sets the cpus in the provided cpumask.
-> > + */
-> > +int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus)
-> > +{
-> > +	int level, cpu;
-> > +	u32 acpi_cpu_id;
-> > +	struct acpi_pptt_cache *cache;
-> > +	struct acpi_table_header *table;
-> > +	struct acpi_pptt_cache_v1 *cache_v1;
-> > +	struct acpi_pptt_processor *cpu_node;
-> > +
-> > +	cpumask_clear(cpus);
-> > +
-> > +	table = acpi_get_pptt();
-> > +	if (!table)
-> > +		return -ENOENT;
-> > +
-> > +	if (table->revision < 3)
-> > +		return -ENOENT;
-> > +
-> > +	for_each_possible_cpu(cpu) {
-> > +		acpi_cpu_id = get_acpi_id_for_cpu(cpu);
-> > +		cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
-> > +		if (!cpu_node)
-> > +			continue;
-> > +
-> > +		/* Start at 1 for L1 */
-> > +		level = 1;
-> > +		cache = acpi_find_any_type_cache_node(table, acpi_cpu_id, level,
-> > +						      &cpu_node);
-> > +		while (cache) {
-> > +			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
-> > +						cache, sizeof(*cache));  
-> 
-> Is the core acpi definition in actbl2.h correct? Shouldn't it be 
-> something along the lines of:
-> 
-> struct acpi_pptt_cache_v1 {
->   struct acpi_subtable_header header;
->   u16 reservedd;
->   u32 flags;
->   u32 next_level_of_cache;
->   u32 size;
->   u32 number_of_sets;
->   u8 associativity;
->   u8 attributes;
->   u16 lines_size;
->   u32 cache_id;
-> }
-> 
-> 
-> Then that solves the detection of the additional field problem correctly 
-> because the length (24 vs 28) of the subtable then tells you which 
-> version your dealing with. (and goes back to why much of this is coded 
-> to use ACPI_ADD_PTR rather than structure+ logic.)
-> 
+I pulled your repository and checked out the branch sha3-lib-v1 and
+while the kernel build runs I get link errors:
 
-Do we want to deal with arguing the change in ACPICA? 
-I fully agree that it would be much nicer if that didn't use this weird
-bits of structures approach :(  
+ld: crypto/sha3.o: in function `crypto_sha3_512_digest':
+/root/ebiggers-linux/crypto/sha3.c:80:(.text+0xaa): undefined reference 
+to `sha3_512'
+ld: crypto/sha3.o: in function `crypto_sha3_384_digest':
+/root/ebiggers-linux/crypto/sha3.c:73:(.text+0xea): undefined reference 
+to `sha3_384'
+ld: crypto/sha3.o: in function `crypto_sha3_256_digest':
+/root/ebiggers-linux/crypto/sha3.c:66:(.text+0x12a): undefined reference 
+to `sha3_256'
+ld: crypto/sha3.o: in function `crypto_sha3_224_digest':
+/root/ebiggers-linux/crypto/sha3.c:59:(.text+0x1aa): undefined reference 
+to `sha3_224'
+ld: crypto/sha3.o: in function `sha3_final':
+/root/ebiggers-linux/./include/crypto/sha3.h:188:(.text+0x1f0): 
+undefined reference to `__sha3_squeeze'
+ld: crypto/sha3.o: in function `sha3_update':
+/root/ebiggers-linux/./include/crypto/sha3.h:172:(.text+0x232): 
+undefined reference to `__sha3_update'
 
-https://github.com/acpica/acpica/blob/master/source/include/actbl2.h#L3497
-is where this is coming from.
-
-Maybe can do it in parallel. Rafael, what do you think is best way forwards
-with this?
-
-Jonathan
-
-> 
-> Thanks,
-> 
-> 
-> 
-> 
-> 
-> 
-> > +			if (!cache)
-> > +				continue;
-> > +
-> > +			cache_v1 = ACPI_ADD_PTR(struct acpi_pptt_cache_v1,
-> > +						cache, sizeof(*cache));
-> > +
-> > +			if (cache->flags & ACPI_PPTT_CACHE_ID_VALID &&
-> > +			    cache_v1->cache_id == cache_id)
-> > +				cpumask_set_cpu(cpu, cpus);
-> > +
-> > +			level++;
-> > +			cache = acpi_find_any_type_cache_node(table, acpi_cpu_id,
-> > +							      level, &cpu_node);
-> > +		}
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-> > index be074bdfd4d1..a9dbacabdf89 100644
-> > --- a/include/linux/acpi.h
-> > +++ b/include/linux/acpi.h
-> > @@ -1543,6 +1543,7 @@ int find_acpi_cpu_topology_package(unsigned int cpu);
-> >   int find_acpi_cpu_topology_hetero_id(unsigned int cpu);
-> >   void acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus);
-> >   int find_acpi_cache_level_from_id(u32 cache_id);
-> > +int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id, cpumask_t *cpus);
-> >   #else
-> >   static inline int acpi_pptt_cpu_is_thread(unsigned int cpu)
-> >   {
-> > @@ -1570,6 +1571,11 @@ static inline int find_acpi_cache_level_from_id(u32 cache_id)
-> >   {
-> >   	return -ENOENT;
-> >   }
-> > +static inline int acpi_pptt_get_cpumask_from_cache_id(u32 cache_id,
-> > +						      cpumask_t *cpus)
-> > +{
-> > +	return -ENOENT;
-> > +}
-> >   #endif
-> >   
-> >   void acpi_arch_init(void);  
-> 
-> 
-
+with a s390 defconfig kernel configuration an a s390 debug_defconfig 
+kernel configuration.
 
