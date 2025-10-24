@@ -4,166 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B880CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 14:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA47CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 14:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zuMO3Gm17MlJedQR/JASyV8PKolk4umw1nTXePw16OU=; b=CCEC1FEJ5J9O2XoOhdaL3XXSRt
-	tGBSkc4+qTaS2dUELfr5DtNdhe7VORyb7gx1gW2+kpPsQk/2gnGFw/dVp1Omuloq6cA5hHLD6GCZv
-	FVbyv0fjLGYQgi+SyzbWHZ2+zyPZmcyiykzfKbiff2lOlxdZOfAriLhjWBwFo8IEjyiDfRfbHHXHt
-	ZeJJMkkinC1ccRTYDxe2g3IE8rQ/CshbSpb8xWoga0xLumDOyKOGSnrhx/vQHZ6Kt8X0/+hvvWgac
-	TJXSfKetdqVoe2vcMZeEGkIyuFslYQSmWFJs4P+haZ3Bq01yUIFkzSZgAfCyKCmnOXedalXQ7Qg0M
-	F1VsTgww==;
+	bh=JU+wnuo2Z/1XtZ6g63nPnwv0VWCw8ghGKwTmMdWFqpg=; b=RG/7wZixDwZoH97ExC88xxkZti
+	qE6L0UDEw5fX/UDsOgRoJ7EObFM0bCDfooKU9Xw1OW5/X41vXlmHi63tWfd4dMMGbgZiVsaUTWdUT
+	P7hIMnRz5w5wBenbgqQTqP8xq/8vk8rNF99Su4Wmaw2Z1TsQaAPXdGND3QQa0BcAu9JkvTu1/KMM4
+	KReBRvxnReL680TAqJWPF8HTF6rqHw6d/VAu+HuKmRqqOMGmVot5X38BHSuEPgPx7j5oPgXPWA61r
+	DJ22cL2U5C5JImYryy445Ib5+vILQGVjAWBQjGi5hTQ0YHJQF0PIqWOEsIz7Rjb58E+G1YFFzYLLf
+	nnVcxq2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIzi-00000009gv5-4C4P;
-	Fri, 24 Oct 2025 14:42:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vCJ4e-00000009hVl-2aDa;
+	Fri, 24 Oct 2025 14:47:24 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIzg-00000009guO-1oFu
+	id 1vCJ4c-00000009hUQ-29E1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 14:42:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1761316935;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=zuMO3Gm17MlJedQR/JASyV8PKolk4umw1nTXePw16OU=;
-	b=Us5hQ5Aj0zt8Bz5eplCn6W+LI12qKspoYeQOfqWrQ0ckXO1pBMwFC9LRdYxKDp1jvkcvyK
-	jxD0mXmHc5DHDGW3qRUFiFe/rSLCPGVqI1NlmA/plAEV9ITa57WXAs+3xA67Nae5jadivI
-	72HjbMXMbxELVfFj/mO5YtXgwCVKlLY=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-515-Z61J96xIPGyOsB4J8QWmbg-1; Fri, 24 Oct 2025 10:42:14 -0400
-X-MC-Unique: Z61J96xIPGyOsB4J8QWmbg-1
-X-Mimecast-MFC-AGG-ID: Z61J96xIPGyOsB4J8QWmbg_1761316932
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-472ce95ed1dso13921345e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 07:42:12 -0700 (PDT)
+	Fri, 24 Oct 2025 14:47:23 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-4270491e9easo1602696f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 07:47:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761317241; x=1761922041; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JU+wnuo2Z/1XtZ6g63nPnwv0VWCw8ghGKwTmMdWFqpg=;
+        b=UvSky8xDQrQvkOuQ19bRryibQcuZtF9FFmn65yfaQZiIWv7FggceOuPQbQTYzNnE3W
+         IYT3SZ+jBulRzPaETjcTx3bxQyxPy/BJ8gPAXlqFImJ5hrR0rrKXQK5nBlPbLNw0vK2v
+         rF0xeaPI2CQFClo58rncpqJ5NRykcETYbM+nmWdfo76uJCtEtgHyFT6lwMi3EITVrva+
+         clEig3Jb9ysX93VkXwOSI7KPdsdm2vObBpekZgLYA5VQGLBwSmu6skGD/g4ZP/kvhE/H
+         T1a8SIp2SUSgQ941rFOyN/sgkOpODpkCIiUDXEgQ1RLErkA+0Z5joo3XmRZ49gsXj2XP
+         56cQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761316932; x=1761921732;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zuMO3Gm17MlJedQR/JASyV8PKolk4umw1nTXePw16OU=;
-        b=ok2gREB1Lv6x1/AaNnaOuU7RxUtG7xyoeWkRJ1HOIAsTTwGMjon/YOZPmIi4B7HY/+
-         n/G+6jeotmrFPNbFbSSd5QuP5dT75hsA1EMAUl+7qQ8GcRQuadaAguIdJTSXkLpKhVfd
-         7olO7ucwq5m5Met5LYiB9CoNmwnTfxyUHBT4f6STOlAKDmx0HBTwd/RcZg/np+Ctnhr4
-         lHhmcnbpz9pp/tY0tHAh9ShhWa2z9XwD0PWppkAIHNwP4xMvjexB5ekH7wZTgefsKg1R
-         b93yM3P3ISRDKuevxBnQNoFPq1o67sxTKpzA9hOPAbWuL+tW2oYZBFmc4ZvZwdRs4PF/
-         eriQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXKV7UPP8NhieTFZEvM5hfmSADv15M94HM/BCv96HTscW+qZj9JapwH8+iY6sWQA32iHCQe/Hptb8wvXWQoflc7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTixuG2bt909j5b5PFek+QpzP9o/Hqgxla5vC0aKccjYVoCkY2
-	NXHI5ueSAU4GWpy9dzNJugfEgbJS5NgN+aEFkPRf01Drj7NrDCV3f4OBrtOHdwTNzoBy1b73Ze8
-	zXhpl16OOv8cVLAAixhv0w6PeSRwm1CqrLgl9jxPDWI4uKDKmbxqyhNLm4BM4CsMCBTOk6vIBxg
-	lz
-X-Gm-Gg: ASbGncs/RPGr13kJaPkyU7r8DAVacXKbMBM3UXfYJFrUp9sVsdjchNNlBx1bqJNhlFz
-	LmDMRkhWojBi6pxlbGZ0Uj+semcAexR5wf7DjH+1SZM8cA3T2BHMjE2P+oHPRfe8rqavYAYrbfe
-	xhXwAkZNwz0IoGJtNLQthUq6tx+tQtQ/n1IR5tg55iQQr7bfveuRuzfUTzNT3R1Dqx19uJctvCN
-	f9XoEHrpyJqSR3w3YqcWAmX32AM5Vhwm+++rTJYm4jFzhtQQ7kbZO473u1xLHSmTMVa/zDOqZ+k
-	6dbZuGRELnrAt1emCjOdcgV7P+CNLNBQCc8FHELF8P8vAOFhYtvMNXHD84cM8VAVgXr3cNc5VxP
-	/kC6mYJJWorDlNyK0Jv6uPqWKQioEv8PhVXcTx5Dt1UaDIvMx7Mf1xWa8AHWvEr/CylLVe7bZYb
-	bYr/qgn4QFWgj7SNr4iRG3e2wImDc=
-X-Received: by 2002:a05:600c:a4e:b0:46e:711c:efeb with SMTP id 5b1f17b1804b1-475cb02f5b9mr48174335e9.25.1761316931746;
-        Fri, 24 Oct 2025 07:42:11 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHVhLeriCo5qSkw1pxItKV2BmVweLyKW9vHw/E1IK25wn/MrmDSTPV2yNrI2gB0tW1RttofMw==
-X-Received: by 2002:a05:600c:a4e:b0:46e:711c:efeb with SMTP id 5b1f17b1804b1-475cb02f5b9mr48173845e9.25.1761316931347;
-        Fri, 24 Oct 2025 07:42:11 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f4e:3200:c99d:a38b:3f3a:d4b3? (p200300d82f4e3200c99da38b3f3ad4b3.dip0.t-ipconnect.de. [2003:d8:2f4e:3200:c99d:a38b:3f3a:d4b3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-475caf152absm113608615e9.9.2025.10.24.07.42.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 24 Oct 2025 07:42:10 -0700 (PDT)
-Message-ID: <5d5a85ec-0213-4af3-92a9-c02bb13da073@redhat.com>
-Date: Fri, 24 Oct 2025 16:42:08 +0200
+        d=1e100.net; s=20230601; t=1761317241; x=1761922041;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JU+wnuo2Z/1XtZ6g63nPnwv0VWCw8ghGKwTmMdWFqpg=;
+        b=UbGDQ/PDS7K5AgjBfC2Ok45ecUY9QGqtHC2f3rcysFhY4J6fnbbSQ5yDqO2i9VFHXU
+         8ZU4+i9lMAzHL20vyGY8CB5ik7y2nd9+dm/u9tMfHfZAh6PqLkhAnOhYJzfaC90wU+oh
+         juAOBC7NHnjHslzUZfw6SI0o+7ULzmSlc93sX9id1vIKd/7H6WBbVa1hM5jaBFQ6rbZg
+         tEGY0u/kk8rOx5jy4EJLOAB/yNwOIQAE8vaxXvT2/XDZ5HGC1y04cQSN4ChcDiAbpdAv
+         QS2qeoOgWmSE+fBAWHRHqQ80m1GcL6gA4vcHWSRTvZVAOEEvq9FaPUma8pJ0T5ILOUht
+         TV0A==
+X-Forwarded-Encrypted: i=1; AJvYcCVrGKuaFdN5StjTWIgUPRZQhvo3B9nKvk54ykniVq1df3O5nYOj2MTiEoWCb5vwmCe5GDqHGpLQdSF3HxcAM56g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz31T/7U9MN0UvREhsm139LtNm8mHnDg/uGBVEaAn6AneZdPqRU
+	RkWy3J4tvAxBmiRL4cHo+xhOYDk4K68yZgZfAmByjTljel9ycWprlZEH0tEagA==
+X-Gm-Gg: ASbGncstu/XekBnyx3twNPyiE7swUrjdJsmoq7Io7BTp/lKoTkKu+qKzzgUXy5AL7nS
+	WAlzsp3x1CEGjt7BLulY6YoL0B1X4DuCt9seXug6/vE2xCujLi8QRY/WrL5gUJ75qOZAjUaUMP2
+	9oroZT3kbAy/oCThtky8zRRlPItPFsCz1ZySSGdLKjb0FER5Ktd7NWQqOmmu4ZNT5EcwpQk3txK
+	CZXbSXWTMolgow5L3i7pEyb3jY6H1HV9BHHZ5B3HgiSPlGfhKk4N77tBwZOMWNNsFVYY9ikYB6Y
+	c8JypXVpxDWM0EdygK/4WxmmphFkNpVjSHHO5oAuTArS0NL4183DQF8nw4tM7xv85BDgcoJJsTh
+	WLweh6CWXAz/bZrX1AHvw0Aad4k8sfTSGbVZAO/I0GiU6D/dPOXbaXgffq41Ydvk/8GfSLN8lPU
+	suk6iCq650XO/aCJANqT9Wrzrv2zLh4lCfrBQ35+K00zdyurUl/W5k
+X-Google-Smtp-Source: AGHT+IHTEaO13+9fHR05oni62pNnB6SFZLHntJBdSUcQjV2Scfibpu0XNA7qJvhSpMY2WZf1fNFglQ==
+X-Received: by 2002:a5d:584f:0:b0:428:52d8:9680 with SMTP id ffacd0b85a97d-42852d89820mr8617704f8f.18.1761317240510;
+        Fri, 24 Oct 2025 07:47:20 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429932cbbb0sm514747f8f.35.2025.10.24.07.47.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Oct 2025 07:47:19 -0700 (PDT)
+Date: Fri, 24 Oct 2025 15:47:15 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Dave Hansen <dave.hansen@intel.com>
+Cc: Kuniyuki Iwashima <kuniyu@google.com>, alex@ghiti.fr,
+ aou@eecs.berkeley.edu, axboe@kernel.dk, bp@alien8.de, brauner@kernel.org,
+ catalin.marinas@arm.com, christophe.leroy@csgroup.eu,
+ dave.hansen@linux.intel.com, edumazet@google.com, hpa@zytor.com,
+ kuni1840@gmail.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, maddy@linux.ibm.com, mingo@redhat.com,
+ mpe@ellerman.id.au, npiggin@gmail.com, palmer@dabbelt.com, pjw@kernel.org,
+ tglx@linutronix.de, torvalds@linux-foundation.org, will@kernel.org,
+ x86@kernel.org
+Subject: Re: [PATCH v1 2/2] epoll: Use __user_write_access_begin() and
+ unsafe_put_user() in epoll_put_uevent().
+Message-ID: <20251024154715.577258ef@pumpkin>
+In-Reply-To: <ea7552f1-842c-4bb8-b19e-0410bf18c305@intel.com>
+References: <0bfa4895-727b-407b-90d2-7d54b9bd4910@intel.com>
+	<20251024051653.66329-1-kuniyu@google.com>
+	<ea7552f1-842c-4bb8-b19e-0410bf18c305@intel.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 03/13] powerpc/mm: implement arch_flush_lazy_mmu_mode()
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
- <20251015082727.2395128-4-kevin.brodsky@arm.com>
- <60c55686-87dd-46d0-884e-80f7d423663b@redhat.com>
- <604f26cb-46c6-4533-8110-0b174eed821d@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <604f26cb-46c6-4533-8110-0b174eed821d@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5Ud33Xt3PrPLj5EqoyJTikF9nYz9w0d8jHfvWfGZ8s8_1761316932
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_074216_566572_41267D22 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20251024_074722_569788_D7C4B657 
+X-CRM114-Status: GOOD (  23.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,40 +111,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24.10.25 14:09, Kevin Brodsky wrote:
-> On 23/10/2025 21:36, David Hildenbrand wrote:
->> On 15.10.25 10:27, Kevin Brodsky wrote:
->>> [...]
->>>
->>> diff --git a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
->>> b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
->>> index 146287d9580f..7704dbe8e88d 100644
->>> --- a/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
->>> +++ b/arch/powerpc/include/asm/book3s/64/tlbflush-hash.h
->>> @@ -41,6 +41,16 @@ static inline void arch_enter_lazy_mmu_mode(void)
->>>        batch->active = 1;
->>>    }
->>>    +static inline void arch_flush_lazy_mmu_mode(void)
->>> +{
->>> +    struct ppc64_tlb_batch *batch;
->>> +
->>> +    batch = this_cpu_ptr(&ppc64_tlb_batch);
->>
->> The downside is the double this_cpu_ptr() now on the
->> arch_leave_lazy_mmu_mode() path.
+On Fri, 24 Oct 2025 07:05:50 -0700
+Dave Hansen <dave.hansen@intel.com> wrote:
+
+> On 10/23/25 22:16, Kuniyuki Iwashima wrote:
+> >> This makes me nervous. The access_ok() check is quite a distance away.
+> >> I'd kinda want to see some performance numbers before doing this. Is
+> >> removing a single access_ok() even measurable?  
+> > I noticed I made a typo in commit message, s/tcp_rr/udp_rr/.
+> > 
+> > epoll_put_uevent() can be called multiple times in a single
+> > epoll_wait(), and we can see 1.7% more pps on UDP even when
+> > 1 thread has 1000 sockets only:
+> > 
+> > server: $ udp_rr --nolog -6 -F 1000 -T 1 -l 3600
+> > client: $ udp_rr --nolog -6 -F 1000 -T 256 -l 3600 -c -H $SERVER
+> > server: $ nstat > /dev/null; sleep 10; nstat | grep -i udp
+> > 
+> > Without patch (2 stac/clac):
+> > Udp6InDatagrams                 2205209            0.0
+> > 
+> > With patch (1 stac/clac):
+> > Udp6InDatagrams                 2242602            0.0  
 > 
-> This is only temporary, patch 9 removes it from arch_enter(). I don't
-> think having a redundant this_cpu_ptr() for a few commits is really a
-> concern?
+> I'm totally with you about removing a stac/clac:
+> 
+> 	https://lore.kernel.org/lkml/20250228203722.CAEB63AC@davehans-spike.ostc.intel.com/
+> 
+> The thing I'm worried about is having the access_ok() so distant
+> from the unsafe_put_user(). I'm wondering if this:
+> 
+> -	__user_write_access_begin(uevent, sizeof(*uevent));
+> +	if (!user_write_access_begin(uevent, sizeof(*uevent))
+> +		return NULL;
+> 	unsafe_put_user(revents, &uevent->events, efault);
+> 	unsafe_put_user(data, &uevent->data, efault);
+> 	user_access_end();
+> 
+> is measurably slower than what was in your series. If it is
+> not measurably slower, then the series gets simpler because it
+> does not need to refactor user_write_access_begin(). It also ends
+> up more obviously correct because the access check is closer to
+> the unsafe_put_user() calls.
+> 
+> Also, the extra access_ok() is *much* cheaper than stac/clac.
 
-Oh, right. Consider mentioning in the patch description
+access_ok() does contain a conditional branch
+- just waiting for the misprediction penalty (say 20 clocks).
+OTOH you shouldn't get that more that twice for the loop.
 
-"Note that follow-up patches will remove the double this_cpu_ptr() on 
-the arch_leave_lazy_mmu_mode() path again."
+I'm pretty sure access_ok() itself contains an lfence - needed for reads.
+But that ought to be absent from user_write_access_begin().
 
--- 
-Cheers
+The 'masked' version uses alu operations (on x86-64) and don't need
+lfence (or anything else) and don't contain a mispredictable branch.
+They should be faster than the above - unless the code has serious
+register pressure and too much gets spilled to stack.
 
-David / dhildenb
+The timings may also depend on the cpu you are using.
+I'm sure I remember some of the very recent ones having much faster
+stac/clac and/or lfence.
+
+	David
+
+> 
 
 
