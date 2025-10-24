@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CE70CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 12:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 200A4CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 12:18:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0pqn941rf59LOhvD/M25wUPoVRtPWVt8BoEPjLcQaZk=; b=vw/+yLOq9QgWGKpyVlgjVelPTI
-	IwZCX06+ERu54fLH0wbPZoWGr7436LacLZ8DVEETt1tLaUpWvBXwLWKO1RIhWKHqiV9T4s6LXS9Qe
-	xbZUyhIlNObRzwiuWvgXHay8wNoQizTi/sue0XxI2kPUlBSfI7vst5sig8u0ys20ikRKIyY07XpgY
-	LEwEDr3qFoNBkuhYRBkYBjoVhIYaeRCo4/QU5JviFYN6IL3eM6vQAOmNTrleGTx5SlqGfjbcwL7cV
-	wozNt0C9RNkUAzefqfUq1zYry6wzYhnMZg9nMfB46ckqkLUiUylfqxFx1Tmmejr7QuKi/axPrsfdT
-	ENjy1bPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yKXPvcbxAyAMhsZyBIqTadLJUeVql53VaL6WxHGA0QI=; b=xWkVd3OVTQ3KVXV0rhN9VD42ic
+	cnWZLg1Lices/Q+xRcXpsLpVyZhfdMnJ4C+alJjt6XHA5U4GIfHV06ZwuHDd6c/421xQ/DtCo6480
+	qyRY4Ki0tGcKG+CWLrLLSKNdMiakDe8KVANRh++pVCTflEBie+GLinlyedNzYTTGNXISfqoBdEtNP
+	0YvuQXRHDO4lZfVmJHDAf6t9tc8iaLTSGFNJm0spFJndwRM60S+A7UG3wqPR54/3ZIOu6ZrXynfN5
+	BcOb2n8uRsO2gEtwv1Ifjg39nH1ngS8/hHU4wfR+Z/9ETyG9iEzb+Jod4U7c0hnScceAeVw5cw+Vg
+	GWGG4qyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGje-00000009L7O-0yQH;
-	Fri, 24 Oct 2025 12:17:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCGjb-00000009L5S-1FVM
+	id 1vCGjx-00000009LJJ-45fB;
+	Fri, 24 Oct 2025 12:17:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vCGju-00000009LH5-25I3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 12:17:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA3FF1515;
-	Fri, 24 Oct 2025 05:17:22 -0700 (PDT)
-Received: from [10.44.160.74] (e126510-lin.lund.arm.com [10.44.160.74])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 38C343F66E;
-	Fri, 24 Oct 2025 05:17:23 -0700 (PDT)
-Message-ID: <35df96ba-a004-4eb4-8d26-5935892a852c@arm.com>
-Date: Fri, 24 Oct 2025 14:17:20 +0200
+	Fri, 24 Oct 2025 12:17:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C8BE3405E0;
+	Fri, 24 Oct 2025 12:17:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B71FC4CEF1;
+	Fri, 24 Oct 2025 12:17:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761308269;
+	bh=xycYvgv55zjJ+/ptA/lKdbtAAXXDhPEaqEymo84QQzA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=Torm9VM04gKI1mkDVARb43oL9vwvVx+JPTo8xSD36ka6LuxNYgyu7CKZZv1s82UBi
+	 DSRtVFKSzTrbcvku9q9+b+Hf/Y3wy3WxH3xS+kRx3N/KPAy64deYm1F5chLTg0UecA
+	 XszyIzo+bC2iP4ouJlYz5keD0PN1wNiAJfv5VXGnWZFbLe306TcPyHm8tLcpM0++Pq
+	 YRwIH5E5Fp1ncITHAv1+rMnGWnHtqLA8RtVW4OWRhlqK8H9z7s1XEqzjh9uF/EhQ3f
+	 6aUpNf0vNEquc+mx7nqV6knMiqzyejrBcuvn5+pGzHqvd6tqjUpstB53A2+oZxdvU/
+	 inxEievyyauMw==
+Date: Fri, 24 Oct 2025 07:17:47 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 13/13] mm: introduce arch_wants_lazy_mmu_mode()
-To: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, "H. Peter Anvin" <hpa@zytor.com>,
- Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
- Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
- <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
- Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
- <20251015082727.2395128-14-kevin.brodsky@arm.com>
- <3d6bba2d-9739-41d0-8f3a-f8b11620c33f@redhat.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <3d6bba2d-9739-41d0-8f3a-f8b11620c33f@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
+ Xu Yang <xu.yang_2@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+ linux-perf-users@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Frank Li <frank.li@nxp.com>, 
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+ Joakim Zhang <qiangqing.zhang@nxp.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Jacky Bai <ping.bai@nxp.com>, Frank Li <Frank.li@nxp.com>, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Frank Li <Frank.Li@nxp.com>
+In-Reply-To: <20251023-qm_dts-v1-0-9830d6a45939@nxp.com>
+References: <20251023-qm_dts-v1-0-9830d6a45939@nxp.com>
+Message-Id: <176130816644.1464192.1518129756905015635.robh@kernel.org>
+Subject: Re: [PATCH 0/6] perf/imx_ddr: Add i.MX8QM and pmu in DB (system
+ interconnects)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_051731_402358_3FB93A14 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20251024_051751_092105_0BD99409 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +80,420 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/10/2025 22:10, David Hildenbrand wrote:
-> On 15.10.25 10:27, Kevin Brodsky wrote:
->> powerpc decides at runtime whether the lazy MMU mode should be used.
->>
->> To avoid the overhead associated with managing
->> task_struct::lazy_mmu_state if the mode isn't used, introduce
->> arch_wants_lazy_mmu_mode() and bail out of lazy_mmu_mode_* if it
->> returns false. Add a default definition returning true, and an
->> appropriate implementation for powerpc.
->>
->> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
->> ---
->> This patch seemed like a good idea to start with, but now I'm not so
->> sure that the churn added to the generic layer is worth it.
->
-> Exactly my thoughts :)
->
-> I think we need evidence that this is really worth it for optimizing
-> out basically a counter update on powerpc.
 
-Ack, I'll drop that patch in v4 unless someone sees a better
-justification for it.
+On Thu, 23 Oct 2025 14:56:40 -0400, Frank Li wrote:
+> dts: add soc specific compatible string for imx8qm, imx8qxp, imx8dxl in db.
+> driver:
+>  - did some cleanup
+>  - add support for pmu in imx8dxl DB
+> binding:
+>  - add compatible string for imx8qm, imx8qxp, imx8dxl in db
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Frank Li (4):
+>       dt-bindings: perf: fsl-imx-ddr: Add compatible string for i.MX8QM, i.MX8QXP and i.MX8DXL
+>       perf/imx_ddr: Move ida_alloc() from ddr_perf_init() to ddr_perf_probe()
+>       perf/imx_ddr: Get and enable optional clks
+>       arm64: dts: imx8qm: add ddr perf device node
+> 
+> Jacky Bai (1):
+>       arm64: dts: imx8dxl-ss-ddr: Add DB (system interconnects) pmu support for i.MX8DXL
+> 
+> Joakim Zhang (1):
+>       perf/imx_ddr: Add support for PMU in DB (system interconnects)
+> 
+>  .../devicetree/bindings/perf/fsl-imx-ddr.yaml      | 26 +++++++
+>  arch/arm64/boot/dts/freescale/imx8-ss-ddr.dtsi     |  2 +-
+>  arch/arm64/boot/dts/freescale/imx8dxl-ss-ddr.dtsi  | 30 +++++++
+>  arch/arm64/boot/dts/freescale/imx8qm-ss-ddr.dtsi   | 19 +++++
+>  arch/arm64/boot/dts/freescale/imx8qm.dtsi          |  2 +
+>  drivers/perf/fsl_imx8_ddr_perf.c                   | 91 ++++++++++++++++++----
+>  6 files changed, 152 insertions(+), 18 deletions(-)
+> ---
+> base-commit: c31b21db1c04ba719c3889a57873f0f7eff54670
+> change-id: 20251022-qm_dts-60145802537d
+> 
+> Best regards,
+> --
+> Frank Li <Frank.Li@nxp.com>
+> 
+> 
+> 
 
-- Kevin
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: base-commit c31b21db1c04ba719c3889a57873f0f7eff54670 not known, ignoring
+ Base: attempting to guess base-commit...
+ Base: tags/v6.18-rc2-24-gfda2253ceb14 (exact match)
+ Base: tags/v6.18-rc2-24-gfda2253ceb14 (use --merge-base to override)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20251023-qm_dts-v1-0-9830d6a45939@nxp.com:
+
+arch/arm64/boot/dts/freescale/imx8dx-colibri-eval-v3.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qxp-tqma8xqp-mba8xx.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8dx-colibri-iris-v2.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1-eval.dtb: ddr-pmu@5c020000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1-eval.dtb: ddr-pmu@5c120000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qxp-ai_ml.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qxp-colibri-iris.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8dx-colibri-aster.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8dxl-evk.dtb: bus@5c000000 (simple-bus): clock-db-ipg: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml
+arch/arm64/boot/dts/freescale/imx8dxl-evk.dtb: ddr-pmu@5c020000 (fsl,imx8dxl-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8dxl-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8dxl-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8dxl-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8dxl-evk.dtb: db-pmu@5ca40000 (fsl,imx8dxl-db-pmu): 'power-domains' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qxp-tqma8xqps-mb-smarc-2.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8dx-colibri-iris.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1-ixora-v1.2.dtb: ddr-pmu@5c020000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1-ixora-v1.2.dtb: ddr-pmu@5c120000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1-eval-v1.2.dtb: ddr-pmu@5c020000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1-eval-v1.2.dtb: ddr-pmu@5c120000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-eval.dtb: ddr-pmu@5c020000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-eval.dtb: ddr-pmu@5c120000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8dxp-tqma8xdps-mb-smarc-2.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-mek.dtb: ddr-pmu@5c020000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-mek.dtb: ddr-pmu@5c120000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-ixora-v1.1.dtb: ddr-pmu@5c020000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-ixora-v1.1.dtb: ddr-pmu@5c120000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1-ixora-v1.1.dtb: ddr-pmu@5c020000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-v1.1-ixora-v1.1.dtb: ddr-pmu@5c120000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qxp-colibri-iris-v2.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-eval-v1.2.dtb: ddr-pmu@5c020000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qm-apalis-eval-v1.2.dtb: ddr-pmu@5c120000 (fsl,imx8qm-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qm-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8dxp-tqma8xdp-mba8xx.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qxp-colibri-eval-v3.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qxp-colibri-aster.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+arch/arm64/boot/dts/freescale/imx8qxp-mek.dtb: ddr-pmu@5c020000 (fsl,imx8qxp-ddr-pmu): compatible: 'oneOf' conditional failed, one must be fixed:
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too long
+	['fsl,imx8qxp-ddr-pmu', 'fsl,imx8-ddr-pmu'] is too short
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8-ddr-pmu', 'fsl,imx8dxl-db-pmu', 'fsl,imx8m-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mp-ddr-pmu', 'fsl,imx93-ddr-pmu']
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx8mm-ddr-pmu', 'fsl,imx8mn-ddr-pmu', 'fsl,imx8mq-ddr-pmu', 'fsl,imx8mp-ddr-pmu']
+	'fsl,imx8dxl-ddr-pmu' was expected
+	'fsl,imx8qxp-ddr-pmu' is not one of ['fsl,imx91-ddr-pmu', 'fsl,imx94-ddr-pmu', 'fsl,imx95-ddr-pmu']
+	'fsl,imx8m-ddr-pmu' was expected
+	'fsl,imx8qm-ddr-pmu' was expected
+	'fsl,imx93-ddr-pmu' was expected
+	from schema $id: http://devicetree.org/schemas/perf/fsl-imx-ddr.yaml
+
+
+
+
+
 
