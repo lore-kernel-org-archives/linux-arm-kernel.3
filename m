@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 242F1CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 16:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C36CCF9E0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 16:10:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z2YCwLGa2MhaukmLh5mLstroKMu1Oe9RmJGj54Raf4U=; b=daK6QGADPx3hCnpvBALBrON0lh
-	69ExV7tM92S7/eIQHpsdWllkcjYNx7mfukQ7mgLwpjXIV2MFPpnOqU1QcjlYXqdcVk5X5QvBuoA6n
-	WRTg8m/MfGnJL5KWgrJm2LzGZxDUwc9/Fi2Xw0vY8ndFBMJ+aCy1evNvDb4xEDSk4TMXcVxJOxbcI
-	pGh6ZqCgkoILGsz66tTwAvEQCOPhqelRkCDvSCF8+duHhHKnA0aEIxddRv0Xhkm/EiYQUyoKWWW6G
-	ybQekEpdHUxS1WjzF+h85to2MNgr3OZTGmy1gDQpoC4E+y8zKqssNSjcSNB26dKdPhvQF++lRDeza
-	kU/6/5TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jDY0YanhdTPBYVehJnziBlfJN/Uu32aoSpKdRXBk4+g=; b=N76/DAcxj93Z9NyucfzYXwb59H
+	G2/oqI2HxiOt4rO42233H6lXXX+eiRkq2vijn2IPB43M7bseT0H7UY6kraqV3rBVKpBaX1TdusRst
+	qUE+LMBuiIs2uqSE6EPuALrMv6ShYBGTppYLj4ByCfYCubIWbPHm6WcI1FhvofEbtTHcoD5Cssi1B
+	PMXpf1vR90hRHfxdKhF+ro8UZX/3KT4EnwKucf6u+npB4Kt3GYWp1NNYJgE66c8s7/h43r1Kj7C1W
+	o5tVCH7VfbHNs4vLqwS/z2G4TwfHLTP1VxwioTHcISQMSAjwzLl3zrUu8mseQC3vO0GmxTTP9RZmB
+	tdI3s2Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCKEu-00000009tNE-3W40;
-	Fri, 24 Oct 2025 16:02:04 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1vCKNG-00000009uic-08EN;
+	Fri, 24 Oct 2025 16:10:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCKEr-00000009tMV-0Lmh
+	id 1vCKND-00000009uhT-4B5y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 16:02:03 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251024160155euoutp02bbdc98d1f425dcd36e61a35e6c3253a0~xeMTHxQhN1699716997euoutp02J
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 16:01:55 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251024160155euoutp02bbdc98d1f425dcd36e61a35e6c3253a0~xeMTHxQhN1699716997euoutp02J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1761321715;
-	bh=Z2YCwLGa2MhaukmLh5mLstroKMu1Oe9RmJGj54Raf4U=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=V/mLSGd+PNgYjzt8A8U4GzwRVcjLqZGhmZ3I7otCWaIKsf/ympw+J2E9+CZUg+Z2H
-	 n302pwdFA1NYz0fqMnzH7p2JW1HvlpeEvg/7Ut6E04D8buEGqmne87BSClR+urERtu
-	 l7qkn1xTBVkPG6xaRRMgccIzKCwjqAgoGBLWeP2I=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251024160155eucas1p22cf28a5bc04ac9ea6bd32260abf32112~xeMSctpLS0527105271eucas1p24;
-	Fri, 24 Oct 2025 16:01:55 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251024160153eusmtip2ce7463592396f996413bf3cd359e5ae4~xeMRY8Nyc1017610176eusmtip2B;
-	Fri, 24 Oct 2025 16:01:53 +0000 (GMT)
-Message-ID: <6fc8731e-6e8c-4c45-9b3b-509a1fb71a1a@samsung.com>
-Date: Fri, 24 Oct 2025 18:01:53 +0200
+	Fri, 24 Oct 2025 16:10:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6FC4B491BE;
+	Fri, 24 Oct 2025 16:10:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29727C4CEF1;
+	Fri, 24 Oct 2025 16:10:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761322239;
+	bh=4SoTri5W3H54+3tKwwPWDSe9QCJbhHeD6Hnf3WTJiIY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=D8OKaKExojQJsNa3/9XyDn/+qFCxUG4IW3oOapovBVahDQXpSGGiUn/3TY8C3U8Qj
+	 yjAsT0gYQja4onOmMGtoUHTuJ09qyX8rRJtRdrnF4jAk3j07yIjC7jxegqXF2wkw2r
+	 8Z1Ww/kgAB0hk5FZPZ9MTdqSCxMGf/RZDvS0aUnI0AQ8XnjonowgkyU8tmJPLK3+/b
+	 ESx8BtMI9RTPuj7nSWTCJnxGD1EnHET4MuaSDgmS7YAQQaKlwqbp4arphUtbHi2mQk
+	 AJWSzXWXo/Y8byU3465DdeUlLGrayDqWqJq09G9lusDJfdjAb6mZgJ2CRGb8qM3Fej
+	 jNVRjCyg8tp6g==
+Date: Fri, 24 Oct 2025 17:10:33 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"Kirill A. Shutemov" <kas@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: Re: [PATCH v1 1/2] dt-bindings: arm: fsl: add Toradex SMARC iMX95
+Message-ID: <20251024-stardom-salsa-8e52d241fbf2@spud>
+References: <20251024144921.77714-1-francesco@dolcini.it>
+ <20251024144921.77714-2-francesco@dolcini.it>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v5 6/7] clocksource/drivers/exynos_mct: Add module
- support
-To: William McVicker <willmcvicker@google.com>
-Cc: Russell King <linux@armlinux.org.uk>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Daniel Lezcano
-	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Krzysztof
-	Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Ingo
-	Molnar <mingo@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
-	Youngmin Nam <youngmin.nam@samsung.com>, Donghoon Yu <hoony.yu@samsung.com>,
-	Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, John
-	Stultz <jstultz@google.com>, Tudor Ambarus <tudor.ambarus@linaro.org>,
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, Conor Dooley
-	<conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org,
-	kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <aPuhDFKINM9iXOKb@google.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20251024160155eucas1p22cf28a5bc04ac9ea6bd32260abf32112
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20251023205319eucas1p24eb9821bbcb2d59e2cb1e01c4366faab
-X-EPHeader: CA
-X-CMS-RootMailID: 20251023205319eucas1p24eb9821bbcb2d59e2cb1e01c4366faab
-References: <20251023205257.2029526-1-willmcvicker@google.com>
-	<CGME20251023205319eucas1p24eb9821bbcb2d59e2cb1e01c4366faab@eucas1p2.samsung.com>
-	<20251023205257.2029526-7-willmcvicker@google.com>
-	<40d3f3c9-7526-440b-9dbd-7ead22c8562a@samsung.com>
-	<aPuhDFKINM9iXOKb@google.com>
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="UrG/VOuGoe/anPA6"
+Content-Disposition: inline
+In-Reply-To: <20251024144921.77714-2-francesco@dolcini.it>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_090201_752114_267A4A80 
-X-CRM114-Status: GOOD (  30.69  )
+X-CRM114-CacheID: sfid-20251024_091040_158206_02B97BE7 
+X-CRM114-Status: GOOD (  13.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,201 +83,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24.10.2025 17:53, William McVicker wrote:
-> On 10/24/2025, Marek Szyprowski wrote:
->> On 23.10.2025 22:52, Will McVicker wrote:
->>> From: Donghoon Yu <hoony.yu@samsung.com>
->>>
->>> On Arm64 platforms the Exynos MCT driver can be built as a module. On
->>> boot (and even after boot) the arch_timer is used as the clocksource and
->>> tick timer. Once the MCT driver is loaded, it can be used as the wakeup
->>> source for the arch_timer.
->>>
->>> Signed-off-by: Donghoon Yu <hoony.yu@samsung.com>
->>> Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
->>> Signed-off-by: Will McVicker <willmcvicker@google.com>
->>> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
->>> [original commit from https://android.googlesource.com/kernel/gs/+/8a52a8288ec7d88ff78f0b37480dbb0e9c65bbfd]
->>> Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com> # AOSP -> Linux port
->>> Tested-by: Youngmin Nam <youngmin.nam@samsung.com> # AOSP -> Linux port
->>> ---
->>>    drivers/clocksource/Kconfig      |  3 +-
->>>    drivers/clocksource/exynos_mct.c | 56 +++++++++++++++++++++++++++-----
->>>    2 files changed, 49 insertions(+), 10 deletions(-)
->>>
->>> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
->>> index ffcd23668763..9450cfaf982f 100644
->>> --- a/drivers/clocksource/Kconfig
->>> +++ b/drivers/clocksource/Kconfig
->>> @@ -451,7 +451,8 @@ config ATMEL_TCB_CLKSRC
->>>    	  Support for Timer Counter Blocks on Atmel SoCs.
->>>    
->>>    config CLKSRC_EXYNOS_MCT
->>> -	bool "Exynos multi core timer driver" if COMPILE_TEST
->>> +	tristate "Exynos multi core timer driver" if ARM64
->>> +	default y if ARCH_EXYNOS || COMPILE_TEST
->>>    	depends on ARM || ARM64
->>>    	depends on ARCH_ARTPEC || ARCH_EXYNOS || COMPILE_TEST
->>>    	help
->>> diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
->>> index fece6bbc190e..a87caf3928ef 100644
->>> --- a/drivers/clocksource/exynos_mct.c
->>> +++ b/drivers/clocksource/exynos_mct.c
->>> @@ -15,9 +15,11 @@
->>>    #include <linux/cpu.h>
->>>    #include <linux/delay.h>
->>>    #include <linux/percpu.h>
->>> +#include <linux/module.h>
->>>    #include <linux/of.h>
->>>    #include <linux/of_irq.h>
->>>    #include <linux/of_address.h>
->>> +#include <linux/platform_device.h>
->>>    #include <linux/clocksource.h>
->>>    #include <linux/sched_clock.h>
->>>    
->>> @@ -217,6 +219,7 @@ static struct clocksource mct_frc = {
->>>    	.mask		= CLOCKSOURCE_MASK(32),
->>>    	.flags		= CLOCK_SOURCE_IS_CONTINUOUS,
->>>    	.resume		= exynos4_frc_resume,
->>> +	.owner		= THIS_MODULE,
->>>    };
->>>    
->>>    /*
->>> @@ -241,7 +244,7 @@ static cycles_t exynos4_read_current_timer(void)
->>>    }
->>>    #endif
->>>    
->>> -static int __init exynos4_clocksource_init(bool frc_shared)
->>> +static int exynos4_clocksource_init(bool frc_shared)
->>>    {
->>>    	/*
->>>    	 * When the frc is shared, the main processor should have already
->>> @@ -336,6 +339,7 @@ static struct clock_event_device mct_comp_device = {
->>>    	.set_state_oneshot	= mct_set_state_shutdown,
->>>    	.set_state_oneshot_stopped = mct_set_state_shutdown,
->>>    	.tick_resume		= mct_set_state_shutdown,
->>> +	.owner			= THIS_MODULE,
->>>    };
->>>    
->>>    static irqreturn_t exynos4_mct_comp_isr(int irq, void *dev_id)
->>> @@ -476,6 +480,7 @@ static int exynos4_mct_starting_cpu(unsigned int cpu)
->>>    	evt->features = CLOCK_EVT_FEAT_PERIODIC | CLOCK_EVT_FEAT_ONESHOT |
->>>    			CLOCK_EVT_FEAT_PERCPU;
->>>    	evt->rating = MCT_CLKEVENTS_RATING;
->>> +	evt->owner = THIS_MODULE;
->>>    
->>>    	exynos4_mct_write(TICK_BASE_CNT, mevt->base + MCT_L_TCNTB_OFFSET);
->>>    
->>> @@ -511,7 +516,7 @@ static int exynos4_mct_dying_cpu(unsigned int cpu)
->>>    	return 0;
->>>    }
->>>    
->>> -static int __init exynos4_timer_resources(struct device_node *np)
->>> +static int exynos4_timer_resources(struct device_node *np)
->>>    {
->>>    	struct clk *mct_clk, *tick_clk;
->>>    
->>> @@ -539,7 +544,7 @@ static int __init exynos4_timer_resources(struct device_node *np)
->>>     * @local_idx: array mapping CPU numbers to local timer indices
->>>     * @nr_local: size of @local_idx array
->>>     */
->>> -static int __init exynos4_timer_interrupts(struct device_node *np,
->>> +static int exynos4_timer_interrupts(struct device_node *np,
->>>    					   unsigned int int_type,
->>>    					   const u32 *local_idx,
->>>    					   size_t nr_local)
->>> @@ -653,7 +658,7 @@ static int __init exynos4_timer_interrupts(struct device_node *np,
->>>    	return err;
->>>    }
->>>    
->>> -static int __init mct_init_dt(struct device_node *np, unsigned int int_type)
->>> +static int mct_init_dt(struct device_node *np, unsigned int int_type)
->>>    {
->>>    	bool frc_shared = of_property_read_bool(np, "samsung,frc-shared");
->>>    	u32 local_idx[MCT_NR_LOCAL] = {0};
->>> @@ -701,15 +706,48 @@ static int __init mct_init_dt(struct device_node *np, unsigned int int_type)
->>>    	return exynos4_clockevent_init();
->>>    }
->>>    
->>> -
->>> -static int __init mct_init_spi(struct device_node *np)
->>> +static int mct_init_spi(struct device_node *np)
->>>    {
->>>    	return mct_init_dt(np, MCT_INT_SPI);
->>>    }
->>>    
->>> -static int __init mct_init_ppi(struct device_node *np)
->>> +static int mct_init_ppi(struct device_node *np)
->>>    {
->>>    	return mct_init_dt(np, MCT_INT_PPI);
->>>    }
->>> -TIMER_OF_DECLARE(exynos4210, "samsung,exynos4210-mct", mct_init_spi);
->>> -TIMER_OF_DECLARE(exynos4412, "samsung,exynos4412-mct", mct_init_ppi);
->>> +
->>> +static int exynos4_mct_probe(struct platform_device *pdev)
->>> +{
->>> +	struct device *dev = &pdev->dev;
->>> +	int (*mct_init)(struct device_node *np);
->>> +
->>> +	mct_init = of_device_get_match_data(dev);
->>> +	if (!mct_init)
->>> +		return -EINVAL;
->>> +
->>> +	return mct_init(dev->of_node);
->>> +}
->>> +
->>> +static const struct of_device_id exynos4_mct_match_table[] = {
->>> +	{ .compatible = "samsung,exynos4210-mct", .data = &mct_init_spi, },
->>> +	{ .compatible = "samsung,exynos4412-mct", .data = &mct_init_ppi, },
->>> +	{}
->>> +};
->>> +MODULE_DEVICE_TABLE(of, exynos4_mct_match_table);
->>> +
->>> +static struct platform_driver exynos4_mct_driver = {
->>> +	.probe		= exynos4_mct_probe,
->>> +	.driver		= {
->>> +		.name	= "exynos-mct",
->>> +		.of_match_table = exynos4_mct_match_table,
->>> +	},
->>> +};
->>> +
->>> +static __init int exynos_mct_init(void)
->>> +{
->>> +  return platform_driver_register(&exynos4_mct_driver);
->>> +}
->>> +module_init(exynos_mct_init);
->>> +
->>> +MODULE_DESCRIPTION("Exynos Multi Core Timer Driver");
->>> +MODULE_LICENSE("GPL");
->> Sorry, but this still won't work on legacy ARM 32bit systems with MCT as
->> the only clocksource, which needs a driver available very early (that's
->> why it used TIMER_OF_DECLAREmacro). You need to make it conditional
->> under CONFIG_ARM:
-> Can we rely on the bootloader to setup the MCT timer and then hand-off at boot
-> once the driver is initialized?
 
-I'm not sure if we can expect anything from the legacy bootloaders and 
-kernel requires timer quite early during boot, much earlier than kernel 
-modules get initialized.
+--UrG/VOuGoe/anPA6
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
+On Fri, Oct 24, 2025 at 04:49:20PM +0200, Francesco Dolcini wrote:
+> From: Jo=E3o Paulo Gon=E7alves <joao.goncalves@toradex.com>
+>=20
+> Add DT compatible strings for Toradex SMARC iMX95 SoM and
+> Toradex SMARC Development carrier board.
+>=20
+> Link: https://www.toradex.com/computer-on-modules/smarc-arm-family/nxp-im=
+x95
+> Link: https://www.toradex.com/products/carrier-board/smarc-development-bo=
+ard-kit
+> Signed-off-by: Jo=E3o Paulo Gon=E7alves <joao.goncalves@toradex.com>
+> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-> Daniel was working on a solution to transparently handle calling
-> TIMER_OF_DECLARE() when a timer driver can be configured as both a module or
-> built-in here:
->
->    https://lore.kernel.org/all/20250625085715.889837-1-daniel.lezcano@linaro.org/
->
-> Daniel, do you have plans to finish that? In the meantime, can we go with the
-> `#if CONFIG_ARM` solution?
->
-> Thanks,
-> Will
->
-> <snip>
->
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
+> ---
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentati=
+on/devicetree/bindings/arm/fsl.yaml
+> index 00cdf490b062..44dd93f1c674 100644
+> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
+> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+> @@ -1439,6 +1439,12 @@ properties:
+>            - const: phytec,imx95-phycore-fpsc  # phyCORE-i.MX 95 FPSC
+>            - const: fsl,imx95
+> =20
+> +      - description: Toradex Boards with SMARC iMX95 Modules
+> +        items:
+> +          - const: toradex,smarc-imx95-dev # Toradex SMARC iMX95 on Tora=
+dex SMARC Development Board
+> +          - const: toradex,smarc-imx95     # Toradex SMARC iMX95 Module
+> +          - const: fsl,imx95
+> +
+>        - description: i.MXRT1050 based Boards
+>          items:
+>            - enum:
+> --=20
+> 2.39.5
+>=20
+
+--UrG/VOuGoe/anPA6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaPuk9gAKCRB4tDGHoIJi
+0oZGAP9MOTTaex3xtSgbAsqJCkx1oR8NC4KeZ1bRCfJdAhnhvQEAknH3HKjjcz1m
+37Ble1U8GN0RBpbqJOzKd/5m34WT0gU=
+=w/oi
+-----END PGP SIGNATURE-----
+
+--UrG/VOuGoe/anPA6--
 
