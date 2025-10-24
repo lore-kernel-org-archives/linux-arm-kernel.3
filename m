@@ -4,57 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A153CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 06:52:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F097CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 06:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Cc:Subject:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HCL0Rx0W3iI63zmPRqUcYncVa5PzWhfu/HGITZfWxNU=; b=ZR+jtTUKgbrbOknxl+RgQdTzcv
-	ajkkQkNaVHqfJPGGp9fAXGASag7lytW5C5pdrZJ52qxfRNmYCPHK/j4ihr+xnfKY83H4YMLmezNtX
-	Dtv5oDuBHKCGBW7BagEZAUvFEVYUR3Zi2oJFzU5cHgZvdEFy2/f4+S1wcY7mZsLbJHfPGOgjg7G8z
-	XH9KNiqb10M06j3TH0owQB/iZStp+7vdbheoLs+e8AcsqKxNe64QA9zBS+XgSSsRxqpWUpft3u4LM
-	HsItGMStJ7r3MZxMKY4vTx7N8k/E0cGLeAAkCwiTL1wzOJoEW/tQwA6YkputkJNjqXrosvRTAI2Td
-	UXOfLM4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WMjeoGIMKtEWNnXB/CjmVbk4HJSTNx2NuB6HTj+1Gts=; b=AlWC80u4WEjgR8nxqHhZk1WagA
+	mcHHTB9eY70rY13nALnPZRuiohDs/fPDznvPwZkHMAVa2V7zCQbf4qf427hLoOt7kh5eCZzR28Ryu
+	SbFOeFS7GQinZGMb73sdk37VwUiRI43EQ2/Unw/vFXuFf20ZeZXVAwfmCGXOcvxy18jirVKBarhNB
+	qt7RGn8+RTQiSLhEaE5jlYZArO/ogMkFMl1C2pWKeTv50kmv+C03QPkyWMmAiJA7NvILES/n/+I2Z
+	ZFt2VbuJ/3azuwvbTAg8MySp4ESav3o14+9uLs81/A6MEFwTURumRDus5oNW3SVXXlvv4Y8kzU2VD
+	RqA8gCPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBen-00000008OIG-1akk;
-	Fri, 24 Oct 2025 06:52:13 +0000
-Received: from 0001.3ffe.de ([2a01:4f8:c0c:9d57::1] helo=mail.3ffe.de)
+	id 1vCBgk-00000008Oap-3xxO;
+	Fri, 24 Oct 2025 06:54:14 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBej-00000008OE7-46Zu
+	id 1vCBgi-00000008OaT-1KfG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 06:52:11 +0000
-Received: from localhost (ip-109-43-112-130.web.vodafone.de [109.43.112.130])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.3ffe.de (Postfix) with ESMTPSA id 4342B10C;
-	Fri, 24 Oct 2025 08:51:56 +0200 (CEST)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 24 Oct 2025 08:51:55 +0200
-Message-Id: <DDQCQPRRVOHB.1ENJWEGUOSBTR@kernel.org>
-To: "Kumar, Udit" <u-kumar1@ti.com>, "Nishanth Menon" <nm@ti.com>, "Vignesh
- Raghavendra" <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>
-Subject: Re: [PATCH v3 2/3] arm64: dts: ti: Add support for Kontron
- SMARC-sAM67
-Cc: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-From: "Michael Walle" <mwalle@kernel.org>
-X-Mailer: aerc 0.20.0
-References: <20251017135116.548236-1-mwalle@kernel.org>
- <20251017135116.548236-3-mwalle@kernel.org>
- <9da776bc-3156-4f4b-9e64-6ada5b47fab3@ti.com>
-In-Reply-To: <9da776bc-3156-4f4b-9e64-6ada5b47fab3@ti.com>
+	Fri, 24 Oct 2025 06:54:13 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-63c3d913b3bso2931602a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 23:54:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1761288850; x=1761893650; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=WMjeoGIMKtEWNnXB/CjmVbk4HJSTNx2NuB6HTj+1Gts=;
+        b=LDq4o3bH3/YehNRESzZmStuhBWe/Ey66dkpQY8CJpbqYqTIRGuD85LfbYcNSBGktdh
+         7fhSPUNdhz8rGiiWFFuOJoSOte5QnQlseh/JKO2lDKpYjgsmrl7PWkZ+C+XF+6lsVRRt
+         VDJdB1gv/2V8gV3C6UP5LZ1rtulY7dbnzCZYFNehYE0wnpn6oknk+MWsHASpfRaRpeaL
+         WJAaQyadn4D+gfKKiWUlN6ez1v8vXaHgkFWj+R1gMbLLwB6eiBBNlPsc0vZLXurNNYX1
+         4qevst+Z0OU9KaJ3sPkUvVbL975UIvSUV1XVnAAu5ynCzBffgu+PkjL3dWJTFvtqTRCs
+         omXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761288850; x=1761893650;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WMjeoGIMKtEWNnXB/CjmVbk4HJSTNx2NuB6HTj+1Gts=;
+        b=ULCqnDQgp/nbo6D3n+MZyOS/EDDHNbQ6qTyDw13Lv9pnVNy47igdu6VN/+X6fVEPnJ
+         bfbI9vry61hcbjVEJp5xhCma5627H6FvFnyMVzru05zCRQ3uopx9KLOP1Hj5/7SjwJ/c
+         afiz/yzWudzDVPD2juk27AP3Hxdp8BpoB9njnSdWuXtP8nCTUaAxZupA5+MHnhOmdZR0
+         tFspeRcToaKVIb335xzifraZvvjokN6Tb/kx2Xylm2NpLrz01jkiY6K+Mov+ypAgYKaj
+         QuqEgBL2ffnvMBwe8NQgqBbvvZSkmDdUW37arhz2+hXdukOy3nXhqX8dTvL8W9AOnrNS
+         ZlRA==
+X-Forwarded-Encrypted: i=1; AJvYcCXvpd/9OLTJ77JkhbVHmRREYs1OnZ09nds6J2Kmu8DAZBt4TWYWjqYJSVa8OnxFI+NsjzIlgmj8+kDhJJllBgvq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDXm5lEkWYR3Jit0mypTjjSKho61OrJZ/s50gC9MDVK0qlHaTB
+	R37ZrjN3acLf9Ers6GkS6UrgdQqzrVU35mQF49Q7xBuqDJYEvzdhBWl3Zh5ssCJqwgYCyyTxi7q
+	XMJCiQEMwXfW+pkXtbvGwxySuKzgIJhZ8laTtZapbhw==
+X-Gm-Gg: ASbGncvMVdk2a7h31++m22EYfX8I99/OV9l5rjCJ0inR8/SDOzsRocFaFiAZs1qtt/p
+	0i0jNWkAxmcD92iRejxojnqmZDOvVqq6KERFJ4eTsPyw8FotPUGHFEQXzBlhl/NPbExj8lmq/cW
+	qdT7TDxXv5/FeynmqHGT/yb6+fhpd1+WM1enlAlz3Qx5xB2DBz5um8hwXXifJUXIMmP8ILNsziV
+	sjeeqYf0nhuH1WFqfGILfeplTRN6/WGz2zETXPzv3nY+cQ/9drzo4dMKXX4mQoRY7xvvkX78Mpr
+	CWDsig8Cd8b0WQ==
+X-Google-Smtp-Source: AGHT+IEYLEAvh2AW/Wkqzr4Q7W6XcS9w8mCGRfwopLY9yVKV4Q1YZw5mR9m4A7lrv3S6nFH6IjA+1NPOrAgWcGlEyeQ=
+X-Received: by 2002:a05:6402:350e:b0:63b:f4b4:a005 with SMTP id
+ 4fb4d7f45d1cf-63e3e10b947mr4857679a12.10.1761288850199; Thu, 23 Oct 2025
+ 23:54:10 -0700 (PDT)
+MIME-Version: 1.0
+References: <20251022174309.1180931-1-vincent.guittot@linaro.org>
+ <20251022174309.1180931-4-vincent.guittot@linaro.org> <aPk0ANXxF4cU9nfm@lizhi-Precision-Tower-5810>
+In-Reply-To: <aPk0ANXxF4cU9nfm@lizhi-Precision-Tower-5810>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Fri, 24 Oct 2025 08:53:58 +0200
+X-Gm-Features: AS18NWDq4TPEy3JuweIb-xkFMieOKaDde0U8PWP2Rf4HNWuKsCmHx3rhIw-2CoE
+Message-ID: <CAKfTPtBYXZi59WRm-8r4OtB1a-CQjEFFLTkuWuCXJYGxAHYqiQ@mail.gmail.com>
+Subject: Re: [PATCH 3/4 v3] PCI: s32g: Add initial PCIe support (RC)
+To: Frank Li <Frank.li@nxp.com>
+Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
+	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
+	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, 
+	bogdan.hamciuc@nxp.com, linux-arm-kernel@lists.infradead.org, 
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, cassel@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_235210_167782_074E1B09 
-X-CRM114-Status: GOOD (  23.25  )
+X-CRM114-CacheID: sfid-20251023_235412_545593_99226DFC 
+X-CRM114-Status: GOOD (  39.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,165 +101,599 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Udit,
-
-thanks for the thorough review!
-
-On Fri Oct 24, 2025 at 7:13 AM CEST, Udit Kumar wrote:
-> On 10/17/2025 7:20 PM, Michael Walle wrote:
->> Add device tree support for the Kontron SMARC-sAM67 module, which is
->> based on a TI AM67A SoC.
->>
->> The module features:
->>   * Quad-core AM67A94 at 1.4GHz with 8 GiB RAM
->>   * 64 GiB eMMC, 4 MiB SPI flash for failsafe booting
->>   * Dedicated RTC
->>   * Multiple interfaces: 4x UART, 2x USB 2.0/USB 3.2, 2x GBE, QSPI,
->>          7x I2C,
->>   * Display support: 2x LVDS, 1x DSI (*), 1x DP (*)
->>   * Camera support: 4x CSI (*)
->>   * Onboard microcontroller for boot control, failsafe booting and
->>     external watchdog
->>
->> (*) not yet supported by the kernel
->>
->> There is a base device tree and overlays which will add optional
->> features. At the moment there is one full featured variant of that
->> board whose device tree is generated during build by merging all the
->> device tree overlays.
->>
->> Signed-off-by: Michael Walle <mwalle@kernel.org>
->> ---
->>   arch/arm64/boot/dts/ti/Makefile               |    7 +
->>   .../dts/ti/k3-am67a-kontron-sa67-base.dts     | 1091 +++++++++++++++++
->>   .../dts/ti/k3-am67a-kontron-sa67-gbe1.dtso    |   26 +
->>   .../dts/ti/k3-am67a-kontron-sa67-gpios.dtso   |   61 +
->>   .../ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso  |   31 +
->>   5 files changed, 1216 insertions(+)
->>   create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.d=
-ts
->>   create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gbe1.d=
-tso
->>   create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gpios.=
-dtso
->>   create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-rtc-rv=
-8263.dtso
->>
->> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Ma=
-kefile
->> index 743115b849a7..d2a40ea642c4 100644
->> --- a/arch/arm64/boot/dts/ti/Makefile
->> +++ b/arch/arm64/boot/dts/ti/Makefile
->> @@ -137,7 +137,14 @@ dtb-$(CONFIG_ARCH_K3) +=3D k3-j721s2-evm-pcie1-ep.d=
-tbo
->>   dtb-$(CONFIG_ARCH_K3) +=3D k3-j721s2-evm-usb0-type-a.dtbo
->>  =20
->>   # Boards with J722s SoC
->> +k3-am67a-kontron-sa67-dtbs :=3D k3-am67a-kontron-sa67-base.dtb \
->> +	k3-am67a-kontron-sa67-rtc-rv8263.dtbo k3-am67a-kontron-sa67-gbe1.dtbo
->>   dtb-$(CONFIG_ARCH_K3) +=3D k3-am67a-beagley-ai.dtb
->> +dtb-$(CONFIG_ARCH_K3) +=3D k3-am67a-kontron-sa67.dtb
->> +dtb-$(CONFIG_ARCH_K3) +=3D k3-am67a-kontron-sa67-base.dtb
->> +dtb-$(CONFIG_ARCH_K3) +=3D k3-am67a-kontron-sa67-gbe1.dtbo
->> +dtb-$(CONFIG_ARCH_K3) +=3D k3-am67a-kontron-sa67-gpios.dtbo
->> +dtb-$(CONFIG_ARCH_K3) +=3D k3-am67a-kontron-sa67-rtc-rv8263.dtbo
->>   dtb-$(CONFIG_ARCH_K3) +=3D k3-j722s-evm.dtb
->>   dtb-$(CONFIG_ARCH_K3) +=3D k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
->>   dtb-$(CONFIG_ARCH_K3) +=3D k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
->> diff --git a/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts b/arc=
-h/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
->> new file mode 100644
->> index 000000000000..7169d934adac
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
->> @@ -0,0 +1,1091 @@
->> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
->> +/*
->> + * Kontron SMARC-sAM67 module
->> + *
->> + * Copyright (c) 2025 Kontron Europe GmbH
->> + */
->> +
->> +/dts-v1/;
->> +
->> +#include <dt-bindings/gpio/gpio.h>
->> +#include <dt-bindings/interrupt-controller/irq.h>
->> +#include <dt-bindings/phy/phy.h>
->> +#include "k3-j722s.dtsi"
->> +#include "k3-serdes.h"
->> +
->> [..]+
->> +	ospi0_pins_default: ospi0-default-pins {
->> +		pinctrl-single,pins =3D <
->> +			J722S_IOPAD(0x000, PIN_OUTPUT, 0)	/* (L24) OSPI0_CLK */
->> +			J722S_IOPAD(0x02c, PIN_OUTPUT, 0)	/* (K26) OSPI0_CSn0 */
->> +			J722S_IOPAD(0x030, PIN_OUTPUT, 0)	/* (K23) OSPI0_CSn1 */
->> +			J722S_IOPAD(0x034, PIN_OUTPUT, 0)	/* (K22) OSPI0_CSn2 */
+On Wed, 22 Oct 2025 at 21:44, Frank Li <Frank.li@nxp.com> wrote:
 >
-> I am not sure, which flash device is being used , could you check once=20
-> if all three CS are supported.
-
-Yes, all three are used. This board has one 4MiB on-board flash
-W25Q32 (or similar) and the two others CS are routed to the edge
-connector. They aren't multi purpose, so we can already set them
-to the CS function.
-
->> +			J722S_IOPAD(0x00c, PIN_INPUT, 0)	/* (K27) OSPI0_D0 */
->> +			J722S_IOPAD(0x010, PIN_INPUT, 0)	/* (L27) OSPI0_D1 */
->> +			J722S_IOPAD(0x014, PIN_INPUT, 0)	/* (L26) OSPI0_D2 */
->> +			J722S_IOPAD(0x018, PIN_INPUT, 0)	/* (L25) OSPI0_D3 */
->> +		>;
->> +		bootph-all;
->> +	};
->> +
->> +	pcie0_rc_pins_default: pcie0-rc-default-pins {
->> +		pinctrl-single,pins =3D <
->> +			J722S_IOPAD(0x2ac, PIN_OUTPUT, 0)	/* (F25) PCIE0_CLKREQn */
->> +			J722S_IOPAD(0x1b4, PIN_OUTPUT, 7)	/* (B20) SPI0_CS0.GPIO1_15 */
->> +		>;
->> +	};
->> +
->> +	pmic_irq_pins_default: pmic-irq-default-pins {
->> +		pinctrl-single,pins =3D <
->> +			J722S_IOPAD(0x090, PIN_INPUT, 7)	/* (P27) GPMC0_BE0n_CLE.GPIO0_35 */
->> +		>;
->> +	};
->> +
->> [..]
->> +/* I2C_PM */
->> +&wkup_i2c0 {
->> +	pinctrl-names =3D "default";
->> +	pinctrl-0 =3D <&wkup_i2c0_pins_default>;
->> +	clock-frequency =3D <100000>;
->> +	status =3D "okay";
+> On Wed, Oct 22, 2025 at 07:43:08PM +0200, Vincent Guittot wrote:
+> > Add initial support of the PCIe controller for S32G Soc family. Only
+> > host mode is supported.
+> >
+> > Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> > Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
+> > Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
+> > Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> > Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+> > Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
+> > Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
+> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
+> > ---
+> >  drivers/pci/controller/dwc/Kconfig            |  10 +
+> >  drivers/pci/controller/dwc/Makefile           |   1 +
+> >  .../pci/controller/dwc/pcie-nxp-s32g-regs.h   |  37 ++
+> >  drivers/pci/controller/dwc/pcie-nxp-s32g.c    | 439 ++++++++++++++++++
+> >  4 files changed, 487 insertions(+)
+> >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
+> >  create mode 100644 drivers/pci/controller/dwc/pcie-nxp-s32g.c
+> >
+> > diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+> > index 349d4657393c..3f3172a0cd95 100644
+> > --- a/drivers/pci/controller/dwc/Kconfig
+> > +++ b/drivers/pci/controller/dwc/Kconfig
+> > @@ -406,6 +406,16 @@ config PCIE_UNIPHIER_EP
+> >         Say Y here if you want PCIe endpoint controller support on
+> >         UniPhier SoCs. This driver supports Pro5 SoC.
+> >
+> > +config PCIE_NXP_S32G
+> > +     tristate "NXP S32G PCIe controller (host mode)"
+> > +     depends on ARCH_S32 || COMPILE_TEST
+> > +     select PCIE_DW_HOST
+> > +     help
+> > +       Enable support for the PCIe controller in NXP S32G based boards to
+> > +       work in Host mode. The controller is based on DesignWare IP and
+> > +       can work either as RC or EP. In order to enable host-specific
+> > +       features PCIE_S32G must be selected.
+> > +
+> >  config PCIE_SOPHGO_DW
+> >       bool "Sophgo DesignWare PCIe controller (host mode)"
+> >       depends on ARCH_SOPHGO || COMPILE_TEST
+> > diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
+> > index 7ae28f3b0fb3..3301bbbad78c 100644
+> > --- a/drivers/pci/controller/dwc/Makefile
+> > +++ b/drivers/pci/controller/dwc/Makefile
+> > @@ -10,6 +10,7 @@ obj-$(CONFIG_PCI_DRA7XX) += pci-dra7xx.o
+> >  obj-$(CONFIG_PCI_EXYNOS) += pci-exynos.o
+> >  obj-$(CONFIG_PCIE_FU740) += pcie-fu740.o
+> >  obj-$(CONFIG_PCI_IMX6) += pci-imx6.o
+> > +obj-$(CONFIG_PCIE_NXP_S32G) += pcie-nxp-s32g.o
+> >  obj-$(CONFIG_PCIE_SPEAR13XX) += pcie-spear13xx.o
+> >  obj-$(CONFIG_PCI_KEYSTONE) += pci-keystone.o
+> >  obj-$(CONFIG_PCI_LAYERSCAPE) += pci-layerscape.o
+> > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
+> > new file mode 100644
+> > index 000000000000..6f04204054dd
+> > --- /dev/null
+> > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g-regs.h
+> > @@ -0,0 +1,37 @@
+> > +/* SPDX-License-Identifier: GPL-2.0+ */
+> > +/*
+> > + * Copyright 2015-2016 Freescale Semiconductor, Inc.
+> > + * Copyright 2016-2023, 2025 NXP
+> > + */
+> > +
+> > +#ifndef PCIE_S32G_REGS_H
+> > +#define PCIE_S32G_REGS_H
+> > +
+> > +/* PCIe controller Sub-System */
+> > +
+> > +/* Link Interrupt Control And Status */
+> > +#define PCIE_S32G_LINK_INT_CTRL_STS          0x40
+> > +#define LINK_REQ_RST_NOT_INT_EN                      BIT(1)
+> > +#define LINK_REQ_RST_NOT_CLR                 BIT(2)
+> > +
+> > +/* PCIe controller 0 General Control 1 */
+> > +#define PCIE_S32G_PE0_GEN_CTRL_1             0x50
+> > +#define DEVICE_TYPE_MASK                     GENMASK(3, 0)
+> > +#define DEVICE_TYPE(x)                               FIELD_PREP(DEVICE_TYPE_MASK, x)
+> > +#define SRIS_MODE                            BIT(8)
+> > +
+> > +/* PCIe controller 0 General Control 3 */
+> > +#define PCIE_S32G_PE0_GEN_CTRL_3             0x58
+> > +#define LTSSM_EN                             BIT(0)
 >
+> Need S32G prefix for register field to avoid name collision.
+
+I have followed what others were also doing for define ltssm_en
+
 >
-> This is more a question, I see all i2c controller you want to run at=20
-> 100Kz, but most of devices are supporting 400Khz
+> > +
+> > +/* PCIe Controller 0 Transmit Message Request */
+> > +#define PCIE_S32G_PE0_TX_MSG_REQ             0x80
+> > +#define PME_TURN_OFF_REQ                     BIT(19)
 >
-> like tps652g1 over main_i2c0 , =C2=A0pca9546 over main_i2c1 , is there=20
-> specific reason for this
+> I think needn't use customized pme_turn_off. You can use common
+> dw_pcie_pme_turn_off(), which use iatu map a windows to send out pcie msg.
+> That's fit all new version dwc controller. I think s32 should be new enough.
 
-Actually yes and it was at 400kHz at first. But it wont work with
-the onboard management controller at that bus. Although it supports
-400kHz, the mode in which we are using it, doesn't. In short, we
-aren't using clock stretching as this might cause the whole bus to
-hang without being able to recover it from the SoC. Therefore, the
-i2c reply bytes have to be prepared just-in-time and it turn out
-that 400kHz is too fast for that.
+RM said to use this and last time that I test it failed but I will
+test with the latest changes and after enabling use_atu_msg which I
+didn't do last time
 
--michael
+>
+> > +
+> > +/* PCIe Controller 0 Link Debug 2 */
+> > +#define PCIE_S32G_PE0_LINK_DBG_2             0xB4
+> > +#define SMLH_LTSSM_STATE_MASK                        GENMASK(5, 0)
+> > +#define SMLH_LINK_UP                         BIT(6)
+> > +#define RDLH_LINK_UP                         BIT(7)
+> > +
+> > +#endif  /* PCI_S32G_REGS_H */
+> > diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
+> > new file mode 100644
+> > index 000000000000..53529f63c555
+> > --- /dev/null
+> > +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
+> > @@ -0,0 +1,439 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * PCIe host controller driver for NXP S32G SoCs
+> > + *
+> > + * Copyright 2019-2025 NXP
+> > + */
+> > +
+> > +#include <linux/interrupt.h>
+> > +#include <linux/io.h>
+> > +#include <linux/memblock.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of_device.h>
+> > +#include <linux/of_address.h>
+> > +#include <linux/pci.h>
+> > +#include <linux/phy/phy.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/pm_runtime.h>
+> > +#include <linux/sizes.h>
+> > +#include <linux/types.h>
+> > +
+> > +#include "pcie-designware.h"
+> > +#include "pcie-nxp-s32g-regs.h"
+> > +
+> > +struct s32g_pcie {
+> > +     struct dw_pcie  pci;
+> > +     void __iomem *ctrl_base;
+> > +     struct phy *phy;
+> > +};
+> > +
+> > +#define to_s32g_from_dw_pcie(x) \
+> > +     container_of(x, struct s32g_pcie, pci)
+> > +
+> > +static void s32g_pcie_writel_ctrl(struct s32g_pcie *s32g_pp, u32 reg, u32 val)
+> > +{
+> > +     writel(val, s32g_pp->ctrl_base + reg);
+> > +}
+> > +
+> > +static u32 s32g_pcie_readl_ctrl(struct s32g_pcie *s32g_pp, u32 reg)
+> > +{
+> > +     return readl(s32g_pp->ctrl_base + reg);
+> > +}
+> > +
+> > +static void s32g_pcie_enable_ltssm(struct s32g_pcie *s32g_pp)
+> > +{
+> > +     u32 reg;
+> > +
+> > +     reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3);
+> > +     reg |= LTSSM_EN;
+> > +     s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3, reg);
+> > +}
+> > +
+> > +static void s32g_pcie_disable_ltssm(struct s32g_pcie *s32g_pp)
+> > +{
+> > +     u32 reg;
+> > +
+> > +     reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3);
+> > +     reg &= ~LTSSM_EN;
+> > +     s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3, reg);
+> > +}
+> > +
+> > +static bool is_s32g_pcie_ltssm_enabled(struct s32g_pcie *s32g_pp)
+> > +{
+> > +     return (s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_3) & LTSSM_EN);
+> > +}
+> > +
+> > +static enum dw_pcie_ltssm s32g_pcie_get_ltssm(struct dw_pcie *pci)
+> > +{
+> > +     struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
+> > +     u32 reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_LINK_DBG_2);
+> > +
+> > +     return (enum dw_pcie_ltssm)FIELD_GET(SMLH_LTSSM_STATE_MASK, reg);
+> > +}
+>
+> Does dw_pcie_readl_dbi(pci, PCIE_PORT_DEBUG0); work for s32?
 
->> +};
->> +
->> +/* SER3 */
->> +&wkup_uart0 {
->> +	/* WKUP UART0 is used by Device Manager firmware */
->> +	pinctrl-names =3D "default";
->> +	pinctrl-0 =3D <&wkup_uart0_pins_default>;
->> +	bootph-all;
->> +	status =3D "reserved";
->> +};
-> [..]
+ I reused what has been used internally. I will check but RM only
+mentioned an opaque cxpl_debug_info[31:0].
 
+>
+> > +
+> > +#define PCIE_LINKUP  (SMLH_LINK_UP | RDLH_LINK_UP)
+> > +
+> > +static bool s32g_has_data_phy_link(struct s32g_pcie *s32g_pp)
+> > +{
+> > +     u32 reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_LINK_DBG_2);
+> > +
+> > +     if ((reg & PCIE_LINKUP) == PCIE_LINKUP) {
+> > +             switch (FIELD_GET(SMLH_LTSSM_STATE_MASK, reg)) {
+> > +             case DW_PCIE_LTSSM_L0:
+> > +             case DW_PCIE_LTSSM_L0S:
+> > +             case DW_PCIE_LTSSM_L1_IDLE:
+> > +                     return true;
+> > +             default:
+> > +                     return false;
+> > +             }
+> > +     }
+> > +
+> > +     return false;
+> > +}
+> > +
+> > +static bool s32g_pcie_link_up(struct dw_pcie *pci)
+> > +{
+> > +     struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
+> > +
+> > +     if (!is_s32g_pcie_ltssm_enabled(s32g_pp))
+> > +             return false;
+> > +
+> > +     return s32g_has_data_phy_link(s32g_pp);
+> > +}
+> > +
+> > +static int s32g_pcie_start_link(struct dw_pcie *pci)
+> > +{
+> > +     struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
+> > +
+> > +     s32g_pcie_enable_ltssm(s32g_pp);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static void s32g_pcie_stop_link(struct dw_pcie *pci)
+> > +{
+> > +     struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
+> > +
+> > +     s32g_pcie_disable_ltssm(s32g_pp);
+> > +}
+> > +
+> > +static struct dw_pcie_ops s32g_pcie_ops = {
+> > +     .get_ltssm = s32g_pcie_get_ltssm,
+> > +     .link_up = s32g_pcie_link_up,
+> > +     .start_link = s32g_pcie_start_link,
+> > +     .stop_link = s32g_pcie_stop_link,
+> > +};
+> > +
+> > +static void s32g_pcie_pme_turn_off(struct dw_pcie_rp *pp)
+> > +{
+> > +     struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> > +     struct s32g_pcie *s32g_pp = to_s32g_from_dw_pcie(pci);
+> > +     u32 reg;
+> > +
+> > +     reg = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_TX_MSG_REQ);
+> > +     reg |= PME_TURN_OFF_REQ;
+> > +     s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_TX_MSG_REQ, reg);
+> > +}
+> > +
+> > +static const struct dw_pcie_host_ops s32g_pcie_host_ops = {
+> > +     .pme_turn_off = s32g_pcie_pme_turn_off,
+> > +};
+>
+> See above comments, I think common dwc pme_turn_off() should work for s32g.
+>
+> > +
+> > +static void s32g_pcie_disable_equalization(struct dw_pcie *pci)
+> > +{
+> > +     u32 reg;
+> > +
+> > +     reg = dw_pcie_readl_dbi(pci, GEN3_EQ_CONTROL_OFF);
+> > +     reg &= ~(GEN3_EQ_CONTROL_OFF_FB_MODE |
+> > +              GEN3_EQ_CONTROL_OFF_PSET_REQ_VEC);
+> > +     reg |= FIELD_PREP(GEN3_EQ_CONTROL_OFF_FB_MODE, 1) |
+> > +            FIELD_PREP(GEN3_EQ_CONTROL_OFF_PSET_REQ_VEC, 0x84);
+> > +
+> > +     dw_pcie_dbi_ro_wr_en(pci);
+> > +     dw_pcie_writel_dbi(pci, GEN3_EQ_CONTROL_OFF, reg);
+> > +     dw_pcie_dbi_ro_wr_dis(pci);
+> > +}
+> > +
+> > +/* Configure the AMBA AXI Coherency Extensions (ACE) interface */
+> > +static void s32g_pcie_reset_mstr_ace(struct dw_pcie *pci, u64 ddr_base_addr)
+> > +{
+> > +     u32 ddr_base_low = lower_32_bits(ddr_base_addr);
+> > +     u32 ddr_base_high = upper_32_bits(ddr_base_addr);
+> > +
+> > +     dw_pcie_dbi_ro_wr_en(pci);
+> > +     dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_3_OFF, 0x0);
+> > +
+> > +     /*
+> > +      * Ncore is a cache-coherent interconnect module that enables the
+> > +      * integration of heterogeneous coherent and non-coherent agents in
+> > +      * the chip. Ncore Transactions to peripheral should be non-coherent
+> > +      * or it might drop them.
+> > +      * One example where this is needed are PCIe MSIs, which use NoSnoop=0
+> > +      * and might end up routed to Ncore.
+> > +      * Define the start of DDR as seen by Linux as the boundary between
+> > +      * "memory" and "peripherals", with peripherals being below.
+> > +      */
+> > +     dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_1_OFF,
+> > +                        (ddr_base_low & CFG_MEMTYPE_BOUNDARY_LOW_ADDR_MASK));
+> > +     dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_2_OFF, ddr_base_high);
+> > +     dw_pcie_dbi_ro_wr_dis(pci);
+> > +}
+> > +
+> > +static void s32g_init_pcie_controller(struct s32g_pcie *s32g_pp)
+> > +{
+> > +     struct dw_pcie *pci = &s32g_pp->pci;
+> > +     u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+> > +     u32 val;
+> > +
+> > +     /* Set RP mode */
+> > +     val = s32g_pcie_readl_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_1);
+> > +     val &= ~DEVICE_TYPE_MASK;
+> > +     val |= DEVICE_TYPE(PCI_EXP_TYPE_ROOT_PORT);
+> > +
+> > +     /* Use default CRNS */
+> > +     val &= ~SRIS_MODE;
+> > +
+> > +     s32g_pcie_writel_ctrl(s32g_pp, PCIE_S32G_PE0_GEN_CTRL_1, val);
+> > +
+> > +     /* Disable phase 2,3 equalization */
+> > +     s32g_pcie_disable_equalization(pci);
+> > +
+> > +     /*
+> > +      * Make sure we use the coherency defaults (just in case the settings
+> > +      * have been changed from their reset values)
+> > +      */
+> > +     s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
+> > +
+> > +     dw_pcie_dbi_ro_wr_en(pci);
+> > +
+> > +     val = dw_pcie_readl_dbi(pci, PCIE_PORT_FORCE);
+> > +     val |= PORT_FORCE_DO_DESKEW_FOR_SRIS;
+> > +     dw_pcie_writel_dbi(pci, PCIE_PORT_FORCE, val);
+> > +
+> > +     /*
+> > +      * Set max payload supported, 256 bytes and
+> > +      * relaxed ordering.
+> > +      */
+> > +     val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
+> > +     val &= ~(PCI_EXP_DEVCTL_RELAX_EN |
+> > +              PCI_EXP_DEVCTL_PAYLOAD |
+> > +              PCI_EXP_DEVCTL_READRQ);
+> > +     val |= PCI_EXP_DEVCTL_RELAX_EN |
+> > +            PCI_EXP_DEVCTL_PAYLOAD_256B |
+> > +            PCI_EXP_DEVCTL_READRQ_256B;
+> > +     dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
+> > +
+> > +     /* Enable errors */
+> > +     val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
+> > +     val |= PCI_EXP_DEVCTL_CERE |
+> > +            PCI_EXP_DEVCTL_NFERE |
+> > +            PCI_EXP_DEVCTL_FERE |
+> > +            PCI_EXP_DEVCTL_URRE;
+> > +     dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
+> > +
+> > +     val = dw_pcie_readl_dbi(pci, GEN3_RELATED_OFF);
+> > +     val |= GEN3_RELATED_OFF_EQ_PHASE_2_3;
+> > +     dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
+> > +
+> > +     dw_pcie_dbi_ro_wr_dis(pci);
+> > +}
+> > +
+> > +static int s32g_init_pcie_phy(struct s32g_pcie *s32g_pp)
+> > +{
+> > +     struct dw_pcie *pci = &s32g_pp->pci;
+> > +     struct device *dev = pci->dev;
+> > +     int ret;
+> > +
+> > +     ret = phy_init(s32g_pp->phy);
+> > +     if (ret) {
+> > +             dev_err(dev, "Failed to init serdes PHY\n");
+> > +             return ret;
+> > +     }
+> > +
+> > +     ret = phy_set_mode_ext(s32g_pp->phy, PHY_MODE_PCIE, 0);
+>
+> 0 use PHY_MODE_PCIE_RC
+
+This is not PHY_MODE_PCIE_EP vs PHY_MODE_PCIE_RC which is set by this
+driver but clock mode which is the default crns for now until we get a
+generic wait to define the different
+
+>
+> > +     if (ret) {
+> > +             dev_err(dev, "Failed to set mode on serdes PHY\n");
+> > +             goto err_phy_exit;
+> > +     }
+> > +
+> > +     ret = phy_power_on(s32g_pp->phy);
+> > +     if (ret) {
+> > +             dev_err(dev, "Failed to power on serdes PHY\n");
+> > +             goto err_phy_exit;
+> > +     }
+> > +
+> > +     return 0;
+> > +
+> > +err_phy_exit:
+> > +     phy_exit(s32g_pp->phy);
+> > +     return ret;
+> > +}
+> > +
+> > +static int s32g_deinit_pcie_phy(struct s32g_pcie *s32g_pp)
+> > +{
+> > +     struct dw_pcie *pci = &s32g_pp->pci;
+> > +     struct device *dev = pci->dev;
+> > +     int ret;
+> > +
+> > +     ret = phy_power_off(s32g_pp->phy);
+> > +     if (ret) {
+> > +             dev_err(dev, "Failed to power off serdes PHY\n");
+> > +             return ret;
+> > +     }
+> > +
+> > +     ret = phy_exit(s32g_pp->phy);
+> > +     if (ret) {
+> > +             dev_err(dev, "Failed to exit serdes PHY\n");
+> > +             return ret;
+> > +     }
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int s32g_pcie_init(struct device *dev,
+> > +                       struct s32g_pcie *s32g_pp)
+> > +{
+> > +     int ret;
+> > +
+> > +     s32g_pcie_disable_ltssm(s32g_pp);
+> > +
+> > +     ret = s32g_init_pcie_phy(s32g_pp);
+> > +     if (ret)
+> > +             return ret;
+> > +
+> > +     s32g_init_pcie_controller(s32g_pp);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static void s32g_pcie_deinit(struct s32g_pcie *s32g_pp)
+> > +{
+> > +     s32g_pcie_disable_ltssm(s32g_pp);
+> > +     s32g_deinit_pcie_phy(s32g_pp);
+> > +}
+> > +
+> > +static int s32g_pcie_host_init(struct s32g_pcie *s32g_pp)
+> > +{
+> > +     struct dw_pcie *pci = &s32g_pp->pci;
+> > +     struct dw_pcie_rp *pp = &pci->pp;
+> > +     int ret;
+> > +
+> > +     pp->ops = &s32g_pcie_host_ops;
+> > +
+> > +     ret = dw_pcie_host_init(pp);
+> > +
+> > +     return ret;
+> > +}
+> > +
+> > +static int s32g_pcie_get_resources(struct platform_device *pdev,
+> > +                                struct s32g_pcie *s32g_pp)
+> > +{
+> > +     struct device *dev = &pdev->dev;
+> > +     struct dw_pcie *pci = &s32g_pp->pci;
+> > +
+> > +     s32g_pp->phy = devm_phy_get(dev, NULL);
+> > +     if (IS_ERR(s32g_pp->phy))
+> > +             return dev_err_probe(dev, PTR_ERR(s32g_pp->phy),
+> > +                             "Failed to get serdes PHY\n");
+> > +     s32g_pp->ctrl_base = devm_platform_ioremap_resource_byname(pdev, "ctrl");
+> > +     if (IS_ERR(s32g_pp->ctrl_base))
+> > +             return PTR_ERR(s32g_pp->ctrl_base);
+> > +
+> > +     pci->dbi_base = devm_platform_ioremap_resource_byname(pdev, "dbi");
+> > +     if (IS_ERR(pci->dbi_base))
+> > +             return PTR_ERR(pci->dbi_base);
+>
+> suppose dw_pcie_get_resources() already fetch dbi resource for you.
+
+it will be the case now with ops->init()
+
+
+
+>
+> > +
+> > +     pci->dev = dev;
+> > +     pci->ops = &s32g_pcie_ops;
+> > +
+> > +     platform_set_drvdata(pdev, s32g_pp);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int s32g_pcie_probe(struct platform_device *pdev)
+> > +{
+> > +     struct device *dev = &pdev->dev;
+> > +     struct s32g_pcie *s32g_pp;
+> > +     int ret;
+> > +
+> > +     s32g_pp = devm_kzalloc(dev, sizeof(*s32g_pp), GFP_KERNEL);
+> > +     if (!s32g_pp)
+> > +             return -ENOMEM;
+> > +
+> > +     ret = s32g_pcie_get_resources(pdev, s32g_pp);
+> > +     if (ret)
+> > +             return ret;
+> > +
+> > +     pm_runtime_no_callbacks(dev);
+> > +     devm_pm_runtime_enable(dev);
+> > +     ret = pm_runtime_get_sync(dev);
+> > +     if (ret < 0)
+> > +             goto err_pm_runtime_put;
+> > +
+> > +     ret = s32g_pcie_init(dev, s32g_pp);
+> > +     if (ret)
+> > +             goto err_pm_runtime_put;
+> > +
+> > +     ret = s32g_pcie_host_init(s32g_pp);
+> > +     if (ret)
+> > +             goto err_pcie_deinit;
+> > +
+> > +     return 0;
+> > +
+> > +err_pcie_deinit:
+> > +     s32g_pcie_deinit(s32g_pp);
+> > +err_pm_runtime_put:
+> > +     pm_runtime_put(dev);
+> > +
+> > +     return ret;
+> > +}
+> > +
+> > +static int s32g_pcie_suspend_noirq(struct device *dev)
+> > +{
+> > +     struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
+> > +     struct dw_pcie *pci = &s32g_pp->pci;
+> > +
+> > +     if (!dw_pcie_link_up(pci))
+> > +             return 0;
+> > +
+> > +     return dw_pcie_suspend_noirq(pci);
+> > +}
+> > +
+> > +static int s32g_pcie_resume_noirq(struct device *dev)
+> > +{
+> > +     struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
+> > +     struct dw_pcie *pci = &s32g_pp->pci;
+> > +
+> > +     s32g_init_pcie_controller(s32g_pp);
+>
+> I think it should belong to host_init();
+>
+> Frank
+>
+> > +
+> > +     return dw_pcie_resume_noirq(pci);
+> > +}
+> > +
+> > +static const struct dev_pm_ops s32g_pcie_pm_ops = {
+> > +     NOIRQ_SYSTEM_SLEEP_PM_OPS(s32g_pcie_suspend_noirq,
+> > +                               s32g_pcie_resume_noirq)
+> > +};
+> > +
+> > +static const struct of_device_id s32g_pcie_of_match[] = {
+> > +     { .compatible = "nxp,s32g2-pcie"},
+> > +     { /* sentinel */ },
+> > +};
+> > +MODULE_DEVICE_TABLE(of, s32g_pcie_of_match);
+> > +
+> > +static struct platform_driver s32g_pcie_driver = {
+> > +     .driver = {
+> > +             .name   = "s32g-pcie",
+> > +             .of_match_table = s32g_pcie_of_match,
+> > +             .suppress_bind_attrs = true,
+> > +             .pm = pm_sleep_ptr(&s32g_pcie_pm_ops),
+> > +             .probe_type = PROBE_PREFER_ASYNCHRONOUS,
+> > +     },
+> > +     .probe = s32g_pcie_probe,
+> > +};
+> > +
+> > +module_platform_driver(s32g_pcie_driver);
+> > +
+> > +MODULE_AUTHOR("Ionut Vicovan <Ionut.Vicovan@nxp.com>");
+> > +MODULE_DESCRIPTION("NXP S32G PCIe Host controller driver");
+> > +MODULE_LICENSE("GPL");
+> > --
+> > 2.43.0
+> >
 
