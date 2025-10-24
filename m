@@ -4,105 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B43CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0621BCCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 17:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S1HvYCNLV5CI0boyLI+MOBTwgyqBxpYEqfcX5SoAEoA=; b=pu9rPYgwi8cQQJzUTi6RBGx89l
-	bzODejCOSKkRkaUXrOaILGsGiMNWLcaLXbdSn28cBY+dYwWeNem35pfsSN8GSyJSD8QuQFp4fcbCn
-	CaDMz5Q3BKAEzHleZXNngECUGbIjEr/S00s++35hjcZaMAhEwLuRIeOwKAFWxNvp5CndW+qEmWCjQ
-	CXHnde98GIZP5145LujoaA+iH5/kSnugbUPtk7qg9pW3f8OL3s9f0G0Azp7UaAy0GgBV6MK5i1Ho1
-	XcL/P7D+ZPbk/xgYAH0NahDwHfiNV4+gkthDP2zeKEo1eyv63MXH2OUw6BLRJHlD2BQS1Tf/81CmK
-	TqvtWCeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sCRi+ao+Y0H2VTsuR8VLPC8s6tkLiQZtynG9CySW2MU=; b=DFCazaeJeOU/CCL0Y9vuSbHDey
+	i/iGD1aSjU46RVBNgHxUq9IZveZJGsNrNcUFu1iRWmHB9NbgHXBAXMuhVXmn/F6o2/nAHA/JhZinE
+	sp8fR/jkcSubKsUmRJB5Ex0SHEfAPSQRM9T5TkbxwHE3fY6uRM3VELvjy7lrGPfLjn2osdX2Er1mA
+	LN5z+oC8CMt57TXKXxZszxUIX4IoELviNJlYLhfuowMm8P9Tb/hd/GNTsI2VqWGmvCsT5u9qW59u/
+	hPNGCKDcmlmkUfwXy3wcno2vzzuJYN59PS7ychUXlDSdudI+1WEyQjlGZE+3nVhoiCsEUEpf+ny01
+	ohsDGtdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLwb-0000000A9U7-2g3d;
-	Fri, 24 Oct 2025 17:51:17 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1vCLx0-0000000A9cg-3yZu;
+	Fri, 24 Oct 2025 17:51:42 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCLwR-0000000A9Q2-2BpZ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 17:51:09 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-427060bc0f5so1323508f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 10:51:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761328266; x=1761933066; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=S1HvYCNLV5CI0boyLI+MOBTwgyqBxpYEqfcX5SoAEoA=;
-        b=EX91mNQAe/h3hdcReTiB3WwLZgt+bQUKiZ3+k5BG2AzaZcUNT2dOOjHGGQ1xB7NnXr
-         15CuyLQ3ymQO1JoUUr1m1pBCauOhZ5Z2vzi5qKtl28yp1jykUMaxHWUnAr2zNHKYmIkE
-         HTO9aK5pxOV3au3cfFlxeUZhDlLw5cnl+5QHVrlCT+65py3X/CfthlenkL0TDgWaowU3
-         DzpGXHK6q4odit6QEWFUHqUQSruCZC9WhQ9cPG+90/3nCA5nzUpxpORd9p+2gBD+hYLz
-         cULMLeNdKKETDjAmQGINdPi2DXEMR2k4DcDjYNQ3NFSfGTQqVKrxd1EGdwEcC8mrOvct
-         uMrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761328266; x=1761933066;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=S1HvYCNLV5CI0boyLI+MOBTwgyqBxpYEqfcX5SoAEoA=;
-        b=F4a3hSCwHuNC3z3/7OsYD1mAWQ/D7FB59pTI4+IHEQ4mY5DZzvPK3o/KpAHVMTIM6m
-         DumXyABrcEYL5GSxivYfrx/o2Q+6NFpWhq+JZy7TCW/Ov7P2Jg4E5RtyTAICZmS06+0U
-         HwDjvncyPBW7qtGnmzvFrKntHuomDjp/1ggHq8Q+6IPmozXHcmA+qTeeQrh6SVotaFfK
-         uTdsWchRXwa6XfvwOl0qtTur5jTCwtWufMKca/lLAH/TVoKgTa/wraBaNlW0v+iff7Cs
-         vC4aHsV5768AdPlqDJWap0MWqjfH69DiyPdKHq9guRONhwBht22eJk3pgnf6ij3AG22l
-         vxQg==
-X-Forwarded-Encrypted: i=1; AJvYcCV2jpTIjWZnVutH2RQLYen/YWfs99OKFQV7x6sNMvh623AYSrgQDYsouJ5LkUMaDvD2n5+aGiNapPLV9R+dp+Eb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEGWWuhtzI6T0E/C3mcUeWA9lmC4GoSAdL4q1ys24JSTKmRVxk
-	1SiWnfGTqRsEW23kVRjALWn5FZrVLbrJz/p7euYyrTyZsqvm35d/TNLUYuYRBIVaP7Y=
-X-Gm-Gg: ASbGncvG/TFMVZxjeRcGryPl5RVzKkRNZGep66YAdZBhBIVUNTKakvMbWL9kYw6MZfa
-	+ZsHkiy6A0fGJHmc5deRTk500YzeSEOrdy2+qCiPFRrh/lOKURo71+gae1URp96KiS1y8MikGvh
-	MCfwW7CEwIquvrGlDaB2TJ2bGbzMl5eiM+3QUInX1YPpwXaZeEy/gj0RDl026d0dk+qi4uNTgi1
-	HOEoz/skc+2BgT9TITJKyoordy3q0GupafDRmBUUlxoZ4sMgJbE/SXVP/YvKWErZHy17tzqbUEe
-	wZ1JX8jkP28I3wRX41a3oRC15kxc5gcaF7bOn3IPJ/N11Kx6uDGMY0ID4VfQY7sRClohk+aFJ19
-	9H/7Bd0h7eTy85D4PrbFuziDZLM58Ggrp4V33NunHY/XU52t8zPFqZ5kauuNtdJ5mb4PL7hKx9r
-	7HYAuJaCDk+ocI0Ux+F2pTT8PsL7coSje6LFrjlZ9t+5sMWAOmlPvRdNRItbL/ENU=
-X-Google-Smtp-Source: AGHT+IG+eLRf8YPCXCIvX1Icim3foq9BCM0qVymaKl3/VkViHXuuqGJB+jB3dPU4X7R8xwku0ueZeA==
-X-Received: by 2002:a05:6000:2f85:b0:428:3bf5:b3b8 with SMTP id ffacd0b85a97d-429907467e1mr3127739f8f.44.1761328265663;
-        Fri, 24 Oct 2025 10:51:05 -0700 (PDT)
-Received: from ta2.c.googlers.com (213.53.77.34.bc.googleusercontent.com. [34.77.53.213])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-429897e7622sm10321900f8f.8.2025.10.24.10.51.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 24 Oct 2025 10:51:05 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Fri, 24 Oct 2025 17:51:01 +0000
-Subject: [PATCH v2 2/2] arm64: dts: exynos: gs101: add TRNG node
+	id 1vCLwy-0000000A9bt-3Sao;
+	Fri, 24 Oct 2025 17:51:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761328287; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=DiUyK8tdAupooswC4Sh2gsaGJwEarJ2aZRUjtIhDMxmxjnPCwSJRknW6FK7e104M3g/ENmJma3JrEma6BSWM8iTXHD3hRonO4QsrI45TwsKHlCiM2j5zsjTAMxTG2UycJQA8ITep5QRzANzyo1CGE3vSPesoum/GwvGkgdodCVw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1761328287; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=sCRi+ao+Y0H2VTsuR8VLPC8s6tkLiQZtynG9CySW2MU=; 
+	b=RThPz6TkUJ2jhE7s8OufEirmiTtnvWIxDI0UBi+jed1zfOjgC7eRCNTISyyxzyX62b8PwegmUaIsDgWYJT725GLk4M5aLHylcuWtS7dXik1RTvVlYTWOBI6CqtxT3bz9VYRimiKSd2TbHgmqc4Q6v+RECoH2PcPIlsnlozP48qY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761328287;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=sCRi+ao+Y0H2VTsuR8VLPC8s6tkLiQZtynG9CySW2MU=;
+	b=ZKb2rdBffh4am/tRZLfrrSU3VWPizGpeEqiF3S7so4peQ3+FCRThFZJdvv8pSRFn
+	F0ikOoMjV24bWKPNFk4CoB5X+7yzxzwNZRWepd08Gj1lW5Su8OBONpJbXcc0s8JHWrY
+	yAaoi+kd4UPzNeYm8j+C5+cIzhfvtYqsBkAwnI2Y=
+Received: by mx.zohomail.com with SMTPS id 1761328284052701.9623815285279;
+	Fri, 24 Oct 2025 10:51:24 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
+ Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, kernel@collabora.com,
+ linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org
+Subject: Re: [PATCH v3 03/24] dt-bindings: ufs: mediatek,ufs: Add mt8196 variant
+Date: Fri, 24 Oct 2025 19:51:11 +0200
+Message-ID: <5617400.31r3eYUQgx@workhorse>
+In-Reply-To: <20251024-thrash-amid-d5af186c4319@spud>
+References: <20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com>
+ <20251023-mt8196-ufs-v3-3-0f04b4a795ff@collabora.com>
+ <20251024-thrash-amid-d5af186c4319@spud>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251024-gs101-trng-v2-2-c2bb81322da4@linaro.org>
-References: <20251024-gs101-trng-v2-0-c2bb81322da4@linaro.org>
-In-Reply-To: <20251024-gs101-trng-v2-0-c2bb81322da4@linaro.org>
-To: =?utf-8?q?=C5=81ukasz_Stelmach?= <l.stelmach@samsung.com>, 
- Olivia Mackall <olivia@selenic.com>, 
- Herbert Xu <herbert@gondor.apana.org.au>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, semen.protsenko@linaro.org, 
- willmcvicker@google.com, kernel-team@android.com, 
- linux-samsung-soc@vger.kernel.org, linux-crypto@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1761328263; l=1126;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=raBiU2TNdnYW5GXBQGKlY34qsI95KKrr7UkG+dolrPs=;
- b=e1UEZMWe5ikZ+mjOHJ6zxj4LdozzJBMXJBQkXRXZTR6davdh/DgSzg4n+2rpnv8ebPSQH3L5u
- GH+sVbHAu/sBN1oTyQY44OWkPjPvlcgeWGZUXH/mWGz27nhPuprVPia
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_105107_578686_31224D27 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251024_105140_926252_C86B7C77 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,37 +91,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define the TRNG node. GS101 TRNG works well with the current
-Exynos850 TRNG support. Specify the Google specific compatible
-in front of the Exynos one.
+On Friday, 24 October 2025 19:13:36 Central European Summer Time Conor Dooley wrote:
+> On Thu, Oct 23, 2025 at 09:49:21PM +0200, Nicolas Frattaroli wrote:
+> 
+> >      };
+> > +  - |
+> > +    #include <dt-bindings/reset/mediatek,mt8196-resets.h>
+> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +
+> > +    ufshci@16810000 {
+> > +        compatible = "mediatek,mt8196-ufshci";
+> > +        reg = <0x16810000 0x2a00>;
+> > +        interrupts = <GIC_SPI 320 IRQ_TYPE_LEVEL_HIGH>;
+> > +
+> > +        clocks = <&ufs_ao_clk 6>,
+> > +                 <&ufs_ao_clk 7>,
+> > +                 <&clk26m>,
+> > +                 <&ufs_ao_clk 3>,
+> > +                 <&clk26m>,
+> > +                 <&ufs_ao_clk 4>,
+> > +                 <&ufs_ao_clk 0>,
+> > +                 <&topckgen 7>,
+> > +                 <&topckgen 41>,
+> > +                 <&topckgen 105>,
+> > +                 <&topckgen 83>,
+> > +                 <&ufs_ao_clk 1>,
+> > +                 <&ufs_ao_clk 2>,
+> > +                 <&topckgen 42>,
+> > +                 <&topckgen 84>,
+> > +                 <&topckgen 102>;
+> 
+> This is absolutely a nitpick thing, but if you end up resubmitting, can
+> you pick a consistent format between the two examples your series adds
+> for the clocks/clock names?
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
----
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
+No problem, will do. IIRC I kept them as a list like this so I could
+easily reorder things, but now that I'm fairly sure this order is the
+correct one, it's probably best to make this more compact.
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index d06d1d05f36408137a8acd98e43d48ea7d4f4292..380f7e70910ab8bcc28690782532fff87ca7e30b 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -630,6 +630,15 @@ watchdog_cl1: watchdog@10070000 {
- 			status = "disabled";
- 		};
- 
-+		trng: rng@10141400 {
-+			compatible = "google,gs101-trng",
-+				     "samsung,exynos850-trng";
-+			reg = <0x10141400 0x100>;
-+			clocks = <&cmu_misc CLK_GOUT_MISC_SSS_I_ACLK>,
-+				 <&cmu_misc CLK_GOUT_MISC_SSS_I_PCLK>;
-+			clock-names = "secss", "pclk";
-+		};
-+
- 		gic: interrupt-controller@10400000 {
- 			compatible = "arm,gic-v3";
- 			#address-cells = <0>;
+Also sorry for the numbers as clock IDs, but MediaTek clock headers
+have conflicting symbols and the dt schema example extractor dumps
+all examples into one dts file. :(
 
--- 
-2.51.1.851.g4ebd6896fd-goog
+Since this has bugged me in the past, and many schemas may rely on
+the concat behaviour now: would a patch in the distant future that
+prefixes all MediaTek clock binding headers with the SoC name be
+acceptable if it keeps the old names intact as aliases to them with
+a #ifndef guard?
+
+I should also think about some way we can avoid similar bindings
+symbol naming mishaps in the future.
+
+Thank you for pointing me in the right direction with regards to
+the binding!
+
+Kind regards,
+Nicolas Frattaroli
+
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> pw-bot: not-applicable
+> 
+> > +        clock-names = "ufs",
+> > +                      "ufs_aes",
+> > +                      "ufs_tick",
+> > +                      "unipro_sysclk",
+> > +                      "unipro_tick",
+> > +                      "unipro_mp_bclk",
+> > +                      "ufs_tx_symbol",
+> > +                      "ufs_mem_sub",
+> > +                      "crypt_mux",
+> > +                      "crypt_lp",
+> > +                      "crypt_perf",
+> > +                      "ufs_rx_symbol0",
+> > +                      "ufs_rx_symbol1",
+> > +                      "ufs_sel",
+> > +                      "ufs_sel_min_src",
+> > +                      "ufs_sel_max_src";
+> > +
+> > +        operating-points-v2 = <&ufs_opp_table>;
+> > +
+> > +        phys = <&ufsphy>;
+> > +
+> > +        avdd09-supply = <&mt6363_vsram_modem>;
+> > +        vcc-supply = <&mt6363_vemc>;
+> > +        vcc-supply-1p8;
+> > +        vccq-supply = <&mt6363_va12_2>;
+> > +        vccq2-supply = <&mt6363_vufs12>;
+> > +
+> > +        resets = <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_UNIPRO>,
+> > +                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_CRYPTO>,
+> > +                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFSHCI>;
+> > +        reset-names = "unipro", "crypto", "hci";
+> > +        mediatek,ufs-disable-mcq;
+> > +    };
+> > 
+> 
+
+
+
 
 
