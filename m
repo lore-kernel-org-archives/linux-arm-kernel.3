@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C471CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 12:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D421CCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 12:45:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qdXNkcQjzCNEHwtxMUsJMjryZy0SRyjlhMAU8fqcfII=; b=4fpe1/M7g60G/SaYZvNH0wsBqB
-	6sS3B+B1gZSMKh1D3HPvzP/UuwEmHYQ4nbPXhaJiXY5fKGVeyTAjUhkpvqmTh8+zVXfZc+xnJqGTt
-	+1DlrQk9PtI2z3b+7dzylo+jNE+q5RE4fQ9u5FxD7TMFEELEflkv2Fv1oEDBgnNAkRYhcwwTie7Kh
-	nz0LPOL/SU71m6giiRBihVQme/37DLfI/3mWZ4Oazq5N1skf7zi1OdLytbNyVw9fCg5rJ5X/3wmNT
-	4MvM5RBfD/OEpmQ1t8b3djzWT9EOOriWYCqspwUwxqhMfo4jq+pxJIOTNk8vrS1ZW/S0QIb80M17+
-	Lv/tACzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fHLFk8P7vx3fkmMAD0Z+yzWnvmAZmlIEgYDTY3u8mmw=; b=BAd1WkCdxhUqXVd2N16LF+tHnv
+	iLtGwQYQ6vABvRXRXg5MWiivTp/EvfMaRc86figd57osh0rYrGSVGZxzFhgQ7UamNoGbYsoa6KqIS
+	A5P/ejycezXt9/HYiH7zwEiJVvES0XPk5mYuGs4dJ/e3EZFBHU/QlUqFC3N0D3NDlcUV1C+fha2ba
+	tScHFY6Mkv9LqbEtODQnjO/leKCP2tufoK+Rre6sbQMFIzmpkh+dyv4q1UFT/JpDhza82D6SyNci0
+	j4TNYKzqcOoe2ISSe7Ugj7cdQm2kz5RJ1qBPGo6ruawgC4gqHzTR2mPRBGm6rgyr31C2aMehj2h/H
+	DwsmTFZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCH97-00000009Oiy-1rqo;
-	Fri, 24 Oct 2025 12:43:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vCHAJ-00000009P03-3Xw5;
+	Fri, 24 Oct 2025 12:45:08 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCH94-00000009Oh6-3RZ8
+	id 1vCHAH-00000009OzR-1Tyz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 12:43:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 72F494537C
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 12:43:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 535D1C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 12:43:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1761309830;
-	bh=OQJRTxbLkUJSG6Hfj2aAMLp/CQvFmEMNU2nFsDW8/O8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=mfCVHAVopZMSe5zGbZ7DqcXCJxa26UWCs9cnJYJIS8/ZfVKoEmbITymqnbZp13Rmb
-	 SKXsOkiuvT2pufWs0wyCCT10nrtYmnr8bn0WAbXaibCgDVgaWxpTYsrOOlXyIutW/Y
-	 BDFd0r9LXGWVDCYMPoQl4B8oBfqOP+Tpbv9bGDjZEbjcfZTpvlS3RpvhBtyKAkWPrL
-	 vtdTPyXUqe+wpqbRyE2JiEXzYUmsjfa2Fyjlu4YA1XURxLE2vSCBaukH2D3211hZyS
-	 pQ3EREfiU0k2d+Uxh5Ae8DrczsY6IUqrC3KlTS8BNgwZIKifHR/klhFJAlhFwqbdyH
-	 9EcaMn7voKNdA==
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-b3b3a6f4dd4so409701266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 05:43:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXHL5XGuW9roceVY1RzfEJ/NpeowqQEc6TrBjvFLS3Okdk+Lt1zb1B3zGdCk+pXvmmUUJgh5Cu0+QZ/2ZujIRVm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/4faHy61a4RG10MLZFiVyTpOu2GblbDss/rN6qxaWjQhvkrhS
-	Nl+yF94qSlTKGk9/7Tc1A6F20YX0qwt8nf8D6Mr4AGAWgfmef+D8UPjv8soFSG7rIxdONEf3TZ5
-	/GCyNSBkt7KWoNWOdbfzFEYhOPbfOCg==
-X-Google-Smtp-Source: AGHT+IGaCIdcHozNq55y6tCOTnaSA8JKLNglQntYyplKKBr4Kfb/fniPDz4m4msgsNYHeZxxULr+Js+tkAFFxxxkJ0s=
-X-Received: by 2002:a17:907:9701:b0:b3c:a161:6843 with SMTP id
- a640c23a62f3a-b6d6fe01905mr270557266b.4.1761309828886; Fri, 24 Oct 2025
- 05:43:48 -0700 (PDT)
+	Fri, 24 Oct 2025 12:45:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=fHLFk8P7vx3fkmMAD0Z+yzWnvmAZmlIEgYDTY3u8mmw=; b=Jn76CtehcFg/oN1IzztvatWZPh
+	P3S/YEByWcAAh/kueIpYfffc4kv18iK0tvFMSMR3cqsG9kyuzexr4uLiZutXMgdnfoerSNGgaGVxX
+	LrrhOKq2YL8yiEXiNPPa0rbqISLOWlLHK0U75KAZAK/zgzZV9r3qjNf8dDKjrweDgAOoRg+3PNuJ2
+	oatiT/E08t+H7dr/kSj1YQVNrQEx58OI7/N+489J+E8T68qu7UFYZbGUt8ElKzN1mp3gnQ1st9GYI
+	mB1VaitqQl16cESVOfv2gHEiljpFmMC0rGGhb5KBcwb+Z7ZazicRoeJiwDfFprulozfvGohwxuPZv
+	3GI2wXBA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53056)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vCHA7-000000007Yw-2tBo;
+	Fri, 24 Oct 2025 13:44:55 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vCHA5-000000002iF-1zR7;
+	Fri, 24 Oct 2025 13:44:53 +0100
+Date: Fri, 24 Oct 2025 13:44:53 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 2/2] net: stmmac: Add a devlink attribute to
+ control timestamping mode
+Message-ID: <aPt0xYNh9qzmesWM@shell.armlinux.org.uk>
+References: <20251024070720.71174-1-maxime.chevallier@bootlin.com>
+ <20251024070720.71174-3-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-References: <20251021124103.198419-1-lpieralisi@kernel.org>
- <20251022140545.GB3390144-robh@kernel.org> <87v7k4ws58.ffs@tglx>
-In-Reply-To: <87v7k4ws58.ffs@tglx>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 24 Oct 2025 07:43:37 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqL5f4_qQ=YmQcYpaxsUx8vZDkuquK=G3YTw9qC1QibVrg@mail.gmail.com>
-X-Gm-Features: AWmQ_bms1S4lGlWI8WRswebTFx9muu0IxPjIPVEgFBEKLoJV1JkaFYbmMfNU7gQ
-Message-ID: <CAL_JsqL5f4_qQ=YmQcYpaxsUx8vZDkuquK=G3YTw9qC1QibVrg@mail.gmail.com>
-Subject: Re: [PATCH v4 0/5] of/irq: Misc msi-parent handling fixes/clean-ups
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-pci@vger.kernel.org, Sascha Bischoff <sascha.bischoff@arm.com>, 
-	Scott Branden <sbranden@broadcom.com>, Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>, 
-	Frank Li <Frank.Li@nxp.com>, Manivannan Sadhasivam <mani@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251024070720.71174-3-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_054350_886275_EEC5C5C9 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20251024_054505_390737_FE852712 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,28 +91,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025 at 4:44=E2=80=AFAM Thomas Gleixner <tglx@linutronix.de=
-> wrote:
->
-> Rob!
->
-> On Wed, Oct 22 2025 at 09:05, Rob Herring wrote:
-> > On Tue, Oct 21, 2025 at 02:40:58PM +0200, Lorenzo Pieralisi wrote:
-> >> Lorenzo Pieralisi (5):
-> >>   of/irq: Add msi-parent check to of_msi_xlate()
-> >>   of/irq: Fix OF node refcount in of_msi_get_domain()
-> >
-> > I've applied these 2 for 6.18.
->
-> The rest of this depends on those two.
->
-> >>   of/irq: Export of_msi_xlate() for module usage
->
-> Can you pick the three of/irq ones up and put them into a seperate
-> branch based on rc1 so that I can pull that and apply the rest:
+On Fri, Oct 24, 2025 at 09:07:18AM +0200, Maxime Chevallier wrote:
+> The DWMAC1000 supports 2 timestamping configurations to configure how
+> frequency adjustments are made to the ptp_clock, as well as the reported
+> timestamp values.
+> 
+> There was a previous attempt at upstreaming support for configuring this
+> mode by Olivier Dautricourt and Julien Beraud a few years back [1]
+> 
+> In a nutshell, the timestamping can be either set in fine mode or in
+> coarse mode.
+> 
+> In fine mode, which is the default, we use the overflow of an accumulator to
+> trigger frequency adjustments, but by doing so we lose precision on the
+> timetamps that are produced by the timestamping unit. The main drawback
+> is that the sub-second increment value, used to generate timestamps, can't be
+> set to lower than (2 / ptp_clock_freq).
+> 
+> The "fine" qualification comes from the frequent frequency adjustments we are
+> able to do, which is perfect for a PTP follower usecase.
+> 
+> In Coarse mode, we don't do frequency adjustments based on an
+> accumulator overflow. We can therefore have very fine subsecond
+> increment values, allowing for better timestamping precision. However
+> this mode works best when the ptp clock frequency is adjusted based on
+> an external signal, such as a PPS input produced by a GPS clock. This
+> mode is therefore perfect for a Grand-master usecase.
+> 
+> Introduce a driver-specific devlink parameter "ts_coarse" to enable or
+> disable coarse mode, keeping the "fine" mode as a default.
+> 
+> This can then be changed with:
+> 
+>   devlink dev param set <dev> name ts_coarse value true cmode runtime
+> 
+> The associated documentation is also added.
+> 
+> [1] : https://lore.kernel.org/netdev/20200514102808.31163-1-olivier.dautricourt@orolia.com/
+> 
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-Yes. This series is the only thing I have queued for 6.18 fixes so
-far, so I'll add the 3rd patch and Cc you on my PR to Linus.
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Rob
+Thanks!
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
