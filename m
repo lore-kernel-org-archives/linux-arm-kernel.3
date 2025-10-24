@@ -4,138 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE6ACCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 04:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF4DCCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 05:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=igk99e5q+WjHX4XTlg/Ng8KvRoXcTPbI4U404/ERv10=; b=DScyE4/kFGbCTQ0hVcMemOVNxQ
-	S5FH2tyuVsCtXAqW2KZFgEkcx2Cks/hWPPUSHdyvC7RDeDDtsdOGn7fHUyqYWlebBkeHVdkp1QNau
-	JmDLjpeUpX5gmbNbcu3H6VsZCJ5eaATlEI2dfyK1+toDhiwFwTQtlhyKOuCXIgHWE4o/yDDseNQyO
-	PqHqoHFAiZV2Bj4TZPanNB7MGurw+NF/u0SUYcGdPiU99I84lynx+Xb+VybaFKejE6RxA+ZV8jey1
-	uTtqC++m7yU6Fgr8Tvh6it1/aYqfKqEqflS9v9YrYxkr3q8jmqLmxvE2BRfBHwjhpkd3xZ/N5gvYS
-	/CUqwGYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B/skm0UaW3KF3UHKou99L8O5DCPGnOOskv0SohMxpmU=; b=1ytf5IVKQnaeTJdIa/wPse5m0m
+	BSEv+YUmqWSQ3RcH6xLBNSI9mrsiFKxts81plEsgCC3sogxNZVuALrqD2jiCR+7zI/6Wk9P1ICm4p
+	F04S9n440f6DzmC7EM92TzVFgs2RUgCwGbcdMt/dBfyaI49nPiAJ4r9o519qwzDJ1gLE4cpk/8D/B
+	5nUVfRM5HCfp9LCTiZJ408eCznGzYcPfdcgPjSlEkEIywRF78HPcc0zqHviaesY1T5ckIeTX4dOnR
+	d+OdwNAd62nAGeUNLiW6QxoywdeiVbC3d0/YqB9F5ZHh22c0SEdqC6jrZDwNYjggbIlo3IgUPyizN
+	V/7rSZ3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC94T-00000008CeE-0Mfv;
-	Fri, 24 Oct 2025 04:06:33 +0000
-Received: from mail-centralusazon11011060.outbound.protection.outlook.com ([52.101.62.60] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1vCA7s-00000008Fzo-2hiM;
+	Fri, 24 Oct 2025 05:14:08 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC94P-00000008Cdb-2LJe
+	id 1vCA7q-00000008FyN-1vho
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 04:06:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gwi8/7DUj1cpgRi58Qr53z+G63pPkQEDt0hlLafAlr/9DBd1UeG8O2+I5lEyv2BCrUeEnR7BMZN3GuaOpvc8bFYvcA5bSfRfhclKC04HCHaN7Bji+t5n+lEWtzGMnLqiBTAhASGiqMyFNFrPKKoh7a8peG0YR6K21PyJkAXKqSSKc6SGSOotYs6Jme1tJlKOQXRBE+ZeZ9lfjdBhz3f2iCMeBd1xDEWVQcnq/ux1+AVRKvbf7jgvZ+2WLWCiuVNMh8lVtGGWSIJU3NN3LTx7PvvnvBE38Qd5euRQSy/aG8gRosS47LYn5fk7JGlJ/wPif+ibXQhI3m/NloMHlIYPCA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=igk99e5q+WjHX4XTlg/Ng8KvRoXcTPbI4U404/ERv10=;
- b=v9nWvK31bUSGj1n8lW4zophHdFNYBXYfj2aWHXhb9aTKooM5UWPd6CTC4at9qqa2owm0Mi6ZDYYAoccgZzJ3jqjiNq/W/PrP1JlWr878vu/G2oEvV6VDE+NEmIpykQj6MepVmpt0hOcEDGwfBLfSn/QVK6LetsSQb19j8mdCOi0W6iVhqdlU1GPaasFuQbIpvTdAK3vEpa94s9uTpmZdbxBLoqTfKe3QgLwMozLaNV/QrFGP40GdMbAxF5h2SLLlfGaMRU6ioVlHFnZdPcOXCOMr9SRXEevoGfNKy1F0BpCddw1ftGCxBTgJ59UPmaV4KTKQjb9Nsw2FYOFCuwIYiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=igk99e5q+WjHX4XTlg/Ng8KvRoXcTPbI4U404/ERv10=;
- b=gmE7KVuC1pgGz2DnZxJ8Rg7g6zLQQmEFL7BW+QpTeO66b0YhzeL3Mln1B2JKrDc0S8sTOeQNbTyWx3NFtzGvKsG0w/9nhvMAfh792PwzkPC0sGkEK0WT4wLb2Rr55dCv9o+af3TnXjbq9Etd7s2w6rg8lhgRPVy0L5Aeiym/WgXDe7c7w0+1cLkb8FTrmKniYMy0Xttm75Aux/czvfoHFi1zsjlxtWXZ9osiAVawdhTrRr0qKRgIe2GmTRbCv71Ol303vlWUqXB3tcr0mbP1UytH8dWysl//33vWtt0MRDYaWDtgB/ZiHC95UqUU3LYW78LWhDrZzG2f8YmltBMe7w==
-Received: from BL6PEPF00016418.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:22e:400:0:1004:0:7) by PH0PR12MB8100.namprd12.prod.outlook.com
- (2603:10b6:510:29b::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
- 2025 04:06:20 +0000
-Received: from BN3PEPF0000B077.namprd04.prod.outlook.com
- (2a01:111:f403:f908::1) by BL6PEPF00016418.outlook.office365.com
- (2603:1036:903:4::a) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9253.13 via Frontend Transport; Fri,
- 24 Oct 2025 04:06:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BN3PEPF0000B077.mail.protection.outlook.com (10.167.243.122) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9253.7 via Frontend Transport; Fri, 24 Oct 2025 04:06:19 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Thu, 23 Oct
- 2025 21:05:55 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Thu, 23 Oct 2025 21:05:54 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Thu, 23 Oct 2025 21:05:54 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <will@kernel.org>
-CC: <robin.murphy@arm.com>, <joro@8bytes.org>, <kevin.tian@intel.com>,
-	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<skolothumtho@nvidia.com>
-Subject: [PATCH] iommu/arm-smmu-v3-iommufd: Allow attaching nested domain for GBPA cases
-Date: Thu, 23 Oct 2025 21:05:51 -0700
-Message-ID: <20251024040551.1711281-1-nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 24 Oct 2025 05:14:07 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59O5E0aN690420;
+	Fri, 24 Oct 2025 00:14:00 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1761282840;
+	bh=B/skm0UaW3KF3UHKou99L8O5DCPGnOOskv0SohMxpmU=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=GU6Hef9X2H80KkhNHfSv9NXBExe1nvzLDZFY7HHDy6IOTwXQlSuT/jfwr/Hdmd2ww
+	 BTHDvkJxJTNJhGletO8Qia0CRXPW27Z/e3fsbVauYrGHMWqQIRZ0eSR7UBDkMfplz0
+	 H+l7cvv+OOrfivw5HKRzEFA2cerTyd3xpEevDGpk=
+Received: from DLEE210.ent.ti.com (dlee210.ent.ti.com [157.170.170.112])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59O5Dx753227887
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 24 Oct 2025 00:13:59 -0500
+Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE210.ent.ti.com
+ (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 24 Oct
+ 2025 00:13:59 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE215.ent.ti.com
+ (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 24 Oct 2025 00:13:59 -0500
+Received: from [172.24.26.46] (lt5cd2489kgj.dhcp.ti.com [172.24.26.46])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59O5Dudq4018814;
+	Fri, 24 Oct 2025 00:13:56 -0500
+Message-ID: <9da776bc-3156-4f4b-9e64-6ada5b47fab3@ti.com>
+Date: Fri, 24 Oct 2025 10:43:55 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] arm64: dts: ti: Add support for Kontron
+ SMARC-sAM67
+To: Michael Walle <mwalle@kernel.org>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20251017135116.548236-1-mwalle@kernel.org>
+ <20251017135116.548236-3-mwalle@kernel.org>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20251017135116.548236-3-mwalle@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B077:EE_|PH0PR12MB8100:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8407674e-7c2e-402a-aa8b-08de12b2afe7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WzG+LN2RqHGaeCUH+pGxGCtUQNRDG62ma4iFSedf78SUvYwE/T597OWFOsCQ?=
- =?us-ascii?Q?ASbo6XnVTIV+HXMDKAELewzaf/iZ3qQpcCkY5zYpCQCBPLXMOUqt04yLxlTm?=
- =?us-ascii?Q?IDUYjjBd6MlrG4EAlLCRDXkqRPaNKuM00EXcDBgB4QXhz89LD5UyLgoGLbdQ?=
- =?us-ascii?Q?YLR3hLJYjztBYyciuyU1l2lwyy+QlxUltfb7AdQYFTRjP6lQrnXsJpINkscS?=
- =?us-ascii?Q?7zP55clG3qsOVwpFnm9i4x4j+Yf8j3P3HjI1ddVNOcF8I4SZD9Zg4AOhDhom?=
- =?us-ascii?Q?rS4GnwJjC0F1kERoBieIixxEF1hq2giuhGMekrskRm2KHdMD/Mog74QGJwXC?=
- =?us-ascii?Q?mNhoJhcPUpvcyZjfFR1sXxLyyy8GNZAkFivVXLR5IoRg+5ajRc9UDY310b/b?=
- =?us-ascii?Q?oDAcl4Pxgp3JS/e7f4oEVOtVdSAd+s34NsJF30HFqnbDhBiaiUs62fdzPckb?=
- =?us-ascii?Q?qpUHRiYdBlbeLqhXmjllO4U2CsIB+Ct9CnMYdhv1UNrh1Xrp+D5+ErO5HGCv?=
- =?us-ascii?Q?cqaqXxS0lLMOOxxVdNEgDD6xQMvLREsSTD0494Nz6zANQWXIFZuHHWBoPx6F?=
- =?us-ascii?Q?7LuBpMk2d7bSpt4taxTm05g8ogeEmZrGYytjhdbx0Przx3Dyq/8x2KXSd9bl?=
- =?us-ascii?Q?gN74BYhCw8oDW898dKu+8/+9g9UqFt9gM+BVzIelqp450c8pOXtjuuA3WN/P?=
- =?us-ascii?Q?W7lkcxxIPcevBLTAb7hnEbjLGzZB0r2dtFaIFwTLvJNWkoOBjFYz/dmKtdhL?=
- =?us-ascii?Q?35ckOMerjre/vwVIFifjYpN+9EaNQU6F3JB1EuFElGQwSQRBAnPOGj6WE6Vn?=
- =?us-ascii?Q?tspE+sHSFz75Qh+rdKCz+Es9ShG8yOEi2lYM/hJ04x74rbz6pOefeX1lh+AQ?=
- =?us-ascii?Q?c2QiVyte0tyeVmTAG5puDVG5qMR3WgxxdAybZDgYoOElmLYPYkrX/3SpOXDX?=
- =?us-ascii?Q?LmuX6AzC6lKXjI3qV86CmBYmSfnC51Dg8XfBhNDXKpDGT98/m0NvzlZ7qPT5?=
- =?us-ascii?Q?llhj2ldT+OstvF85To6j/quvdJ/W+WW1bHDj8Hm2YCQUupaNU2OFMLRe5xLx?=
- =?us-ascii?Q?qfHqeblcraiH60SzhI/HptcLqu9mFaanqNXUYn8t/HIGA4sLhkxnn6/9Hift?=
- =?us-ascii?Q?KjlaHgVMVE3f4B3w9Ph9PMDTt7RH4OrIBOd7tXPy7LbaAlJb8K7hdVdLXU+H?=
- =?us-ascii?Q?jXjnkD6Pklp1FECWXuVX5D6q+hipCoiFMNw4gD1Vstnj42CQN7SNCrgdHsiX?=
- =?us-ascii?Q?xUG5EU6/x+NQ0evCWtM9sb07tIUD18bCvuu6rksgAPG4ypUAIFF65VBanGSB?=
- =?us-ascii?Q?xhgzDk7ORLQloqToywR8mDu5g6P9X23lHyn5aKv9DHdP2QboicQqFC9Cg90M?=
- =?us-ascii?Q?xEGMmtEKfG9TUcs7ssJfGU3K57utGBHdmp2TVW/cq81jnNsWuS4FQGsGxqTH?=
- =?us-ascii?Q?ceObLgI2RZQ9hgwVNBfma7DiIg93lG6AJm4dux/DK8Kk1yBL1KAv1HsXdbP3?=
- =?us-ascii?Q?EEoy2tMOintQSRjuDzPl+lA963khjOksQI2AgUBz9zRCBgWRJt0ErE0sbyWI?=
- =?us-ascii?Q?wL2Dr4GsdN+KPg/7lOc=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2025 04:06:19.6045
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8407674e-7c2e-402a-aa8b-08de12b2afe7
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B077.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8100
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_210629_617203_466B073F 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20251023_221406_594845_D5EFBD32 
+X-CRM114-Status: GOOD (  25.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,86 +93,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A vDEVICE has been a hard requirement for attaching a nested domain to the
-device. This makes sense when installing a guest STE, since a vSID must be
-present and given to the kernel during the vDEVICE allocation.
+Hi Michael
 
-But, when CR0.SMMUEN is disabled, VM doesn't really need a vSID to program
-the vSMMU behavior as GBPA will take effect, in which case the vSTE in the
-nested domain could have carried the bypass or abort configuration in GBPA
-register. Thus, having such a hard requirement doesn't work well for GBPA.
+On 10/17/2025 7:20 PM, Michael Walle wrote:
+> Add device tree support for the Kontron SMARC-sAM67 module, which is
+> based on a TI AM67A SoC.
+>
+> The module features:
+>   * Quad-core AM67A94 at 1.4GHz with 8 GiB RAM
+>   * 64 GiB eMMC, 4 MiB SPI flash for failsafe booting
+>   * Dedicated RTC
+>   * Multiple interfaces: 4x UART, 2x USB 2.0/USB 3.2, 2x GBE, QSPI,
+>          7x I2C,
+>   * Display support: 2x LVDS, 1x DSI (*), 1x DP (*)
+>   * Camera support: 4x CSI (*)
+>   * Onboard microcontroller for boot control, failsafe booting and
+>     external watchdog
+>
+> (*) not yet supported by the kernel
+>
+> There is a base device tree and overlays which will add optional
+> features. At the moment there is one full featured variant of that
+> board whose device tree is generated during build by merging all the
+> device tree overlays.
+>
+> Signed-off-by: Michael Walle <mwalle@kernel.org>
+> ---
+>   arch/arm64/boot/dts/ti/Makefile               |    7 +
+>   .../dts/ti/k3-am67a-kontron-sa67-base.dts     | 1091 +++++++++++++++++
+>   .../dts/ti/k3-am67a-kontron-sa67-gbe1.dtso    |   26 +
+>   .../dts/ti/k3-am67a-kontron-sa67-gpios.dtso   |   61 +
+>   .../ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso  |   31 +
+>   5 files changed, 1216 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
+>   create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gbe1.dtso
+>   create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-gpios.dtso
+>   create mode 100644 arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-rtc-rv8263.dtso
+>
+> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+> index 743115b849a7..d2a40ea642c4 100644
+> --- a/arch/arm64/boot/dts/ti/Makefile
+> +++ b/arch/arm64/boot/dts/ti/Makefile
+> @@ -137,7 +137,14 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
+>   dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-usb0-type-a.dtbo
+>   
+>   # Boards with J722s SoC
+> +k3-am67a-kontron-sa67-dtbs := k3-am67a-kontron-sa67-base.dtb \
+> +	k3-am67a-kontron-sa67-rtc-rv8263.dtbo k3-am67a-kontron-sa67-gbe1.dtbo
+>   dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
+> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67.dtb
+> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-base.dtb
+> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-gbe1.dtbo
+> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-gpios.dtbo
+> +dtb-$(CONFIG_ARCH_K3) += k3-am67a-kontron-sa67-rtc-rv8263.dtbo
+>   dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
+>   dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
+>   dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
+> diff --git a/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts b/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
+> new file mode 100644
+> index 000000000000..7169d934adac
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
+> @@ -0,0 +1,1091 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/*
+> + * Kontron SMARC-sAM67 module
+> + *
+> + * Copyright (c) 2025 Kontron Europe GmbH
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include <dt-bindings/phy/phy.h>
+> +#include "k3-j722s.dtsi"
+> +#include "k3-serdes.h"
+> +
+> [..]+
+> +	ospi0_pins_default: ospi0-default-pins {
+> +		pinctrl-single,pins = <
+> +			J722S_IOPAD(0x000, PIN_OUTPUT, 0)	/* (L24) OSPI0_CLK */
+> +			J722S_IOPAD(0x02c, PIN_OUTPUT, 0)	/* (K26) OSPI0_CSn0 */
+> +			J722S_IOPAD(0x030, PIN_OUTPUT, 0)	/* (K23) OSPI0_CSn1 */
+> +			J722S_IOPAD(0x034, PIN_OUTPUT, 0)	/* (K22) OSPI0_CSn2 */
 
-Add an additional condition in arm_smmu_attach_prepare_vmaster(), to allow
-a bypass or abort vSTE working for a GBPA setup. And do not forget to skip
-vsid=0 when reporting vevents, since the guest SMMU in this setup will not
-report event anyway.
+I am not sure, which flash device is being used , could you check once 
+if all three CS are supported.
 
-Update the uAPI doc accordingly.
 
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c    | 14 ++++++++++++--
- include/uapi/linux/iommufd.h                       |  7 +++++++
- 2 files changed, 19 insertions(+), 2 deletions(-)
+> +			J722S_IOPAD(0x00c, PIN_INPUT, 0)	/* (K27) OSPI0_D0 */
+> +			J722S_IOPAD(0x010, PIN_INPUT, 0)	/* (L27) OSPI0_D1 */
+> +			J722S_IOPAD(0x014, PIN_INPUT, 0)	/* (L26) OSPI0_D2 */
+> +			J722S_IOPAD(0x018, PIN_INPUT, 0)	/* (L25) OSPI0_D3 */
+> +		>;
+> +		bootph-all;
+> +	};
+> +
+> +	pcie0_rc_pins_default: pcie0-rc-default-pins {
+> +		pinctrl-single,pins = <
+> +			J722S_IOPAD(0x2ac, PIN_OUTPUT, 0)	/* (F25) PCIE0_CLKREQn */
+> +			J722S_IOPAD(0x1b4, PIN_OUTPUT, 7)	/* (B20) SPI0_CS0.GPIO1_15 */
+> +		>;
+> +	};
+> +
+> +	pmic_irq_pins_default: pmic-irq-default-pins {
+> +		pinctrl-single,pins = <
+> +			J722S_IOPAD(0x090, PIN_INPUT, 7)	/* (P27) GPMC0_BE0n_CLE.GPIO0_35 */
+> +		>;
+> +	};
+> +
+> [..]
+> +/* I2C_PM */
+> +&wkup_i2c0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&wkup_i2c0_pins_default>;
+> +	clock-frequency = <100000>;
+> +	status = "okay";
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index 8cd8929bbfdf8..7d13b9f55512e 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -99,15 +99,22 @@ static void arm_smmu_make_nested_domain_ste(
- int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
- 				    struct arm_smmu_nested_domain *nested_domain)
- {
-+	unsigned int cfg =
-+		FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(nested_domain->ste[0]));
- 	struct arm_smmu_vmaster *vmaster;
--	unsigned long vsid;
-+	unsigned long vsid = 0;
- 	int ret;
- 
- 	iommu_group_mutex_assert(state->master->dev);
- 
- 	ret = iommufd_viommu_get_vdev_id(&nested_domain->vsmmu->core,
- 					 state->master->dev, &vsid);
--	if (ret)
-+	/*
-+	 * Attaching to a translate nested domain must allocate a vDEVICE prior,
-+	 * as CD/ATS invalidations and vevents require a vSID to work properly.
-+	 * A bypass/abort domain is allowed to attach with vsid=0 for GBPA case.
-+	 */
-+	if (ret && cfg == STRTAB_STE_0_CFG_S1_TRANS)
- 		return ret;
- 
- 	vmaster = kzalloc(sizeof(*vmaster), GFP_KERNEL);
-@@ -460,6 +467,9 @@ int arm_vmaster_report_event(struct arm_smmu_vmaster *vmaster, u64 *evt)
- 
- 	lockdep_assert_held(&vmaster->vsmmu->smmu->streams_mutex);
- 
-+	if (!vmaster->vsid)
-+		return -ENOENT;
-+
- 	vevt.evt[0] = cpu_to_le64((evt[0] & ~EVTQ_0_SID) |
- 				  FIELD_PREP(EVTQ_0_SID, vmaster->vsid));
- 	for (i = 1; i < EVTQ_ENT_DWORDS; i++)
-diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
-index c218c89e0e2eb..a2527425f398b 100644
---- a/include/uapi/linux/iommufd.h
-+++ b/include/uapi/linux/iommufd.h
-@@ -450,6 +450,13 @@ struct iommu_hwpt_vtd_s1 {
-  * nested domain will translate the same as the nesting parent. The S1 will
-  * install a Context Descriptor Table pointing at userspace memory translated
-  * by the nesting parent.
-+ *
-+ * Notes
-+ * - when Cfg=translate, a vdevice must be allocated prior to attaching to the
-+ *   allocated nested domain, as CD/ATS invalidations and vevents need a vSID.
-+ * - when Cfg=bypass/abort, vdevice is not required to attach to the allocated
-+ *   nested domain. This particularly works for a GBPA case, when CR0.SMMUEN=0
-+ *   in the guest VM.
-  */
- struct iommu_hwpt_arm_smmuv3 {
- 	__aligned_le64 ste[2];
--- 
-2.43.0
 
+This is more a question, I see all i2c controller you want to run at 
+100Kz, but most of devices are supporting 400Khz
+
+like tps652g1 over main_i2c0 ,  pca9546 over main_i2c1 , is there 
+specific reason for this
+
+
+> +};
+> +
+> +/* SER3 */
+> +&wkup_uart0 {
+> +	/* WKUP UART0 is used by Device Manager firmware */
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&wkup_uart0_pins_default>;
+> +	bootph-all;
+> +	status = "reserved";
+> +};
+[..]
 
