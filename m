@@ -4,89 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649D3CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 06:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C3CCCD1AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:To:From:Date:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Ugqv1s44lLqcX4JmETo9JSdUQjRGtApJwylkT2MhNI=; b=hYH+UqN1K3lnS4t19TvJeYjJH1
-	ELzSOX/sfX9MaxzUAGhYRyyMIkOrHAQgvK3ijOcdyIuIdnI7ys7Y6tfeKkvk9AYlctMH827x1CJDL
-	IvLSPR9QdIsWjg7+BKPNsCNkzhs3nTSK8mKlwJZthOUaIRlJO36A7r8HgFpD2/3D0VxqjDfhIqaAb
-	/AqxIVT4JMGLZp2DnNv+hCD42cIkVjEDEzjq/9gQtI8149qXGkbTrHYa4Pspx5+wF1xk+9LGNRZVe
-	jn92RhLgjpUHTjIHiJU8UO28qzs/Sg9EtxQ5Ru1FnwvjNLeqfD9Hkz7LvxiW+bRC8Q/GTHCILYCH0
-	HsTJ4u6A==;
+	bh=mac9tPA7fjXsKMTZ5o0W5XcYjwuuhxgWlzIaSPBWgTk=; b=T1WdvN3talzFLJjZkmwYWUuSZD
+	y27Jv7tTpKDMGXFltwggcV1fMMh3Q4N0etAmhlHaviKN631RM82RxGFupuyvplv51WKLB+lQDpvx2
+	d7L/CxS9BGb6iDd9tCKoiaS0x8NJ+EQN+NibtKxKVC3ulLyxNIK3wlLnyftSDIirL6y63Q1y7/a2p
+	6m1tBsPoiDFQwIhsfiyvWK1OKF1yV5R9NAwzMP+RBWrFpgpnsaaXtKtDSZD9Mzv193OjPHxVo8dqb
+	AA4bg+xJlxEeaMjq4jW2bXDt1+E3CbTqWjjF1SValNdkEhqvrL0AOiVeMvyCA0JuQ2ik//Et5adWX
+	+Z4m78tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBlZ-00000008P2W-38Vk;
-	Fri, 24 Oct 2025 06:59:13 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1vCBpI-00000008PLb-3dMT;
+	Fri, 24 Oct 2025 07:03:04 +0000
+Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBlW-00000008P1z-1oZa
+	id 1vCBpF-00000008PKu-3LOC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 06:59:11 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-63c09ff13aeso2868736a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 23 Oct 2025 23:59:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1761289148; x=1761893948; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=/Ugqv1s44lLqcX4JmETo9JSdUQjRGtApJwylkT2MhNI=;
-        b=Oam3KK9CpuZvliwq6CkaROOyd//CHGO2PHRkZAqtSRNbu1Qx4eDgbOt3ia8tU0UAMk
-         JPoqt91m5K6SyID8UKxMfrBzpfyndMiGusKBGShlC0cTw5Q4QHCER0zw7vExDJFkMJtN
-         GYBp2GED9rW2riT3pcxjYMDI5c4NhTuPcqRDlwZ15rbiUSqZ5/202BMGvsMh1lDb05r4
-         QQRWE7Wx0/rJ3Wq4cyL2oyr4DZFsL6ll6l2o/5fSnS4+kc6onp3UAYjroHpliARMud6f
-         n+GfPk+P5l25m5hxO6agMG1WzX46SO8mwc+XUW6qf/+uYQ0Y8HxJ+7NRiv8IQviPVzvk
-         sDig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761289148; x=1761893948;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/Ugqv1s44lLqcX4JmETo9JSdUQjRGtApJwylkT2MhNI=;
-        b=juTHsIvW50cecb7fH92fu6pqxpJ/SPUV7O3m8aRw8GrjnV8S4M5pE11wACEMuQKuOK
-         A2UOpuUzkbWiUO0Ys2rb8Yr8O9GRvTPVr1Z8JKYlI70WTGnf0eTNebSmKqR0aAXrffOn
-         4MIWFmkD7kWD6L13dImqrBhM/5gVxQ9njCxlfNAWxIX31evVtLIWrP5JKSciFENmmfYW
-         zrKh07gUEPoAkBay+tcSyLNu080gKpF4016oSoa4GH353G1phoWArQ9cCW7fUkWVP278
-         D9tFUoEcQ1vAzU8MmJgYbc4gWlcgvQ/ApN+wOg0mS3XeOq01RjBgREpVEv3T+koStvkD
-         ylLA==
-X-Forwarded-Encrypted: i=1; AJvYcCWNBtIDM5xw/KMgdGYsDMDLNjR+hj0uOGQV/kq5puxEZXnm+2LbbQyz/qTwPDU9LGIyKVqBZNppbs9OYGMfpueN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8LwVl6E+kUkPXPMMr0yKFzfLmVwfIOs6R97D8XDtD5U9NKmv8
-	XV4SWngALEh0IxLFkmZtTXpHfMTWHL02wo+S7DD9hGYICpIy35pYvgXSas4m06lbk80tUZTWth0
-	CRtk5dNZAMoOo87uIZ4d3OeeJ4sBdjehTnhwZhyH4LA==
-X-Gm-Gg: ASbGncs2sNQms0shXr0KRZ47PJPy/s2+wsOaweKgHFo8Z6uB6fu1bDTOjoEICmoORyh
-	byJfTUn7hTThoDgvmQVIJ6/IDBC+9+VSOUTWX1nA+GbXZ265fdibo+I6a+3tFg7O1r4CY5rm4Sv
-	J9YJYJjrug59MURcSjRU5s+1ReZsU6KLj0+20bodAPBTz7jAfsXR2D2cuQKyIV++7PNEw2Dlxse
-	IvmVpweHrMiHDlcz1Pb4ZUURlIhb0SdKCoFX8jFHoIG0/lzyWnmuhaqM/5/Ku3b9TKegXPhL1c1
-	v6Fj/AONMtQSc3dcdLLQO7Gt
-X-Google-Smtp-Source: AGHT+IFAhTtwkuQJ8tJVRO47CmkrlfK4n6utip+dcl9Wbc27L/1MyGaOtTTrwRtxBRNLnwzLIx8auf00o2MEwmZjM6I=
-X-Received: by 2002:a05:6402:304a:20b0:638:3f72:1266 with SMTP id
- 4fb4d7f45d1cf-63c1f640163mr23343462a12.16.1761289148308; Thu, 23 Oct 2025
- 23:59:08 -0700 (PDT)
+	Fri, 24 Oct 2025 07:03:03 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id D0BBF1D0016C;
+	Fri, 24 Oct 2025 03:02:57 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Fri, 24 Oct 2025 03:02:58 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1761289377;
+	 x=1761375777; bh=mac9tPA7fjXsKMTZ5o0W5XcYjwuuhxgWlzIaSPBWgTk=; b=
+	Z5mXZSF3chz/arWSZEIPGf+rfgYMBabszFcm0EoBuebIAyZgnuldhbmd3wVyJBT4
+	7fjVGgOtJu8xCJXD3Isa+gWn4TFjblgFvbs5HwBrDz0A99uSdzb2k0z7hBuK07ec
+	QIrDGu/I+S/eSsfSF9wAAl6k2mjp+7XgqfaRWISfmdsM20xXY9dMVBsU9dMId+r0
+	ZMD4UU3NRyugd4T7i2bffrUbtXONDtNtGWoyI6OSD1s5I53cfgIBKtTowoaB0ye9
+	RTSUEDkMPZHTI5tPiQdYTCwNVhB8nq+uXzaONeutekDvZ5fVX7mbepaB2lTg7+E9
+	YxH2QoA7fu/kTR7wo0wqXQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:content-transfer-encoding:content-type
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm2; t=1761289377; x=1761375777; bh=m
+	ac9tPA7fjXsKMTZ5o0W5XcYjwuuhxgWlzIaSPBWgTk=; b=zAbPRISGYs04ZgTVZ
+	els+9gdDIme18GEHUlNsuJztgHJetc999YVCvrq/PNrn7PVL1mvytGyLWFn5uIDB
+	vJzlEjFLBGAzAyrbRUQY2EQbroq9iVU78quJoKch7O38TlJaOymjhpcNr6DWX/7x
+	sME9HpPhb3oILSHGMeA1tEy/MVyh3AdI8SygN4AQmH1e+z3XUF5obXqC8UOKAll+
+	D/T/HOfp4fayovs4vfsAKzvfNW5vsi+H3LTDAMNYhDaBdI9+4gxJIS6HWR44sFMn
+	orrD7O+m3+uwBCuZOr+aptyTSeauXNdo4f+4c+bAfu+SYMZ2efySZLXTDkkM4d/6
+	/whyw==
+X-ME-Sender: <xms:niT7aNORl5OLs4fICcMOsJBHp8xqXwmEEd3y7gWTnmBrfeQCgYsvvQ>
+    <xme:niT7aKx8n0jC-0EeZgnAMNBykaU7uZwvkdPQn9ds6p_3UuA_hW1youPJTHqmmcTfp
+    3f8gXcJylAENNlmnIFQz2YupLFTvpnBSRWpR4ZGvU_XgaSXMWmzgZs>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddugeekieelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvffkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpeehiefgudefheffieetudeikeehueeffedtheelteeuhffggfeihfelheettdevffen
+    ucffohhmrghinhepohiilhgrsghsrdhorhhgpdhgihhthhhusgdrtghomhenucevlhhush
+    htvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgu
+    sgdruggvpdhnsggprhgtphhtthhopedvfedpmhhouggvpehsmhhtphhouhhtpdhrtghpth
+    htoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopegs
+    mhgtqdhsfiesrghsphgvvgguthgvtghhrdgtohhmpdhrtghpthhtoheprhihrghnpggthh
+    gvnhesrghsphgvvgguthgvtghhrdgtohhmpdhrtghpthhtohepphhrrggshhgrkhgrrhdr
+    mhgrhhgruggvvhdqlhgrugdrrhhjsegsphdrrhgvnhgvshgrshdrtghomhdprhgtphhtth
+    hopegrnhgurhgvfiestghouggvtghonhhsthhruhgtthdrtghomhdrrghupdhrtghpthht
+    ohepjhhksegtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgtphhtthhopehnfh
+    hrrghprhgrughosegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohepjhhovghlsehj
+    mhhsrdhiugdrrghupdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:niT7aCHoTkH26y4HM0ap__KxzaoaaM1csgLdSkGRihkbg2o24M8xuA>
+    <xmx:niT7aPeqNKheIO1FTDxgLABGSHquDcvscBghb1Hggsy528lGU-uoYA>
+    <xmx:niT7aH8BBeY3n72QZvz7wQUQpC5otuUkz-xGTbthO0GpJJ9rP4-NnA>
+    <xmx:niT7aFZY6oU1lW4ltrcsZ62bMXuDjj---pt4fvPunstPkitM2p7lAg>
+    <xmx:oST7aFyotp38mE_UVArEvtRzxSdLeT9WZZ-t8kzbfLTzojk62SAN2Wwv>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id B2295700054; Fri, 24 Oct 2025 03:02:54 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20251022174309.1180931-1-vincent.guittot@linaro.org>
- <20251022174309.1180931-2-vincent.guittot@linaro.org> <aPkt5sigtL/EN0A3@lizhi-Precision-Tower-5810>
-In-Reply-To: <aPkt5sigtL/EN0A3@lizhi-Precision-Tower-5810>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Fri, 24 Oct 2025 08:58:57 +0200
-X-Gm-Features: AWmQ_bk6VPRIEAG_QafjLl74cCVYdfxYgbB6ZD71K263u0GS0jqTcUigkEeIqKs
-Message-ID: <CAKfTPtAz_joc4KFnxypFXJQTPeRF5y5UKhRyoW6kcMrwQgu+7g@mail.gmail.com>
-Subject: Re: [PATCH 1/4 v3] dt-bindings: PCI: s32g: Add NXP PCIe controller
-To: Frank Li <Frank.li@nxp.com>
-Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
-	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, 
-	bogdan.hamciuc@nxp.com, linux-arm-kernel@lists.infradead.org, 
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, cassel@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-ThreadId: AMptcG-LwCSF
+Date: Fri, 24 Oct 2025 09:02:34 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ryan Chen" <ryan_chen@aspeedtech.com>, BMC-SW <BMC-SW@aspeedtech.com>,
+ "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Joel Stanley" <joel@jms.id.au>,
+ "Andrew Jeffery" <andrew@codeconstruct.com.au>,
+ "Jeremy Kerr" <jk@codeconstruct.com.au>, "Lee Jones" <lee@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>,
+ "Bjorn Andersson" <bjorn.andersson@oss.qualcomm.com>,
+ "Geert Uytterhoeven" <geert@linux-m68k.org>,
+ "Nishanth Menon" <nm@ti.com>,
+ =?UTF-8?Q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>,
+ "Taniya Das" <quic_tdas@quicinc.com>, "Lad,
+ Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ "Kuninori Morimoto" <kuninori.morimoto.gx@renesas.com>,
+ "Eric Biggers" <ebiggers@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Message-Id: <66d0dc8f-553a-41b0-a9af-e058bc39dd94@app.fastmail.com>
+In-Reply-To: <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
+ <20251022070543.1169173-5-ryan_chen@aspeedtech.com>
+ <b5441728-06a7-44ea-8876-3a9fc3cf55be@app.fastmail.com>
+ <TY2PPF5CB9A1BE626A2F0F6307461D8F64BF2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+ <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com>
+ <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
+Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC device tree
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_235910_502676_874466E1 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20251024_000302_180666_E5296AFF 
+X-CRM114-Status: GOOD (  25.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,157 +138,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Oct 2025 at 21:18, Frank Li <Frank.li@nxp.com> wrote:
+On Fri, Oct 24, 2025, at 05:54, Ryan Chen wrote:
+>> Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC device
+>> tree
+>> On Thu, Oct 23, 2025, at 09:37, Ryan Chen wrote:
+>> >> > +	soc1: soc@14000000 {
+>> >> > +		compatible = "simple-bus";
+>> >> > +		#address-cells = <2>;
+>> >> > +		#size-cells = <2>;
+>> >> > +		ranges = <0x0 0x0 0x0 0x14000000 0x0 0x10000000>;
+>> >>
+>> >> This probably needs some explanation: why are there two 'soc@...'
+>> >> devices? Is this literally two chips in the system, or are you
+>> >> describing two buses inside of the same SoC?
+>> >
+>> > The AST2700 is two soc connection with a property bus.
+>> > Sharing some decode registers. Each have it own ahb bus.
+>> 
+>> I don't understand your explanation,
 >
-> On Wed, Oct 22, 2025 at 07:43:06PM +0200, Vincent Guittot wrote:
-> > Describe the PCIe host controller available on the S32G platforms.
-> >
-> > Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> > Co-developed-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
-> > Signed-off-by: Bogdan-Gabriel Roman <bogdan-gabriel.roman@nxp.com>
-> > Co-developed-by: Larisa Grigore <larisa.grigore@nxp.com>
-> > Signed-off-by: Larisa Grigore <larisa.grigore@nxp.com>
-> > Co-developed-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> > Signed-off-by: Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-> > Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> > Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@nxp.com>
-> > Co-developed-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> > Signed-off-by: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> > Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> > ---
-> >  .../bindings/pci/nxp,s32g-pcie.yaml           | 102 ++++++++++++++++++
-> >  1 file changed, 102 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-> > new file mode 100644
-> > index 000000000000..2d8f7ad67651
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/pci/nxp,s32g-pcie.yaml
-> > @@ -0,0 +1,102 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/pci/nxp,s32g-pcie.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: NXP S32G2xxx/S32G3xxx PCIe Root Complex controller
-> > +
-> > +maintainers:
-> > +  - Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
-> > +  - Ionut Vicovan <ionut.vicovan@nxp.com>
-> > +
-> > +description:
-> > +  This PCIe controller is based on the Synopsys DesignWare PCIe IP.
-> > +  The S32G SoC family has two PCIe controllers, which can be configured as
-> > +  either Root Complex or Endpoint.
-> > +
-> > +allOf:
-> > +  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    oneOf:
-> > +      - enum:
-> > +          - nxp,s32g2-pcie
-> > +      - items:
-> > +          - const: nxp,s32g3-pcie
-> > +          - const: nxp,s32g2-pcie
-> > +
-> > +  reg:
-> > +    maxItems: 6
-> > +
-> > +  reg-names:
-> > +    items:
-> > +      - const: dbi
-> > +      - const: dbi2
-> > +      - const: atu
-> > +      - const: dma
-> > +      - const: ctrl
-> > +      - const: config
-> > +
-> > +  interrupts:
-> > +    maxItems: 2
-> > +
-> > +  interrupt-names:
-> > +    items:
-> > +      - const: dma
-> > +      - const: msi
->
-> Most likely dma irq is optional irq, seldom use built-in edma in RC mode.
-> so put msi to the first.
->
-> interrupt-names:
->   items:
->     - const: msi
->     - const: dma
->   minItems: 1
->
-> missed phys
->
-> phys:
->   maxItems: 1
+> Let me clarify more clearly:
+> The AST2700 is a dual-SoC architecture, consisting of two interconnected SoCs,
+> referred to as SoC0 and SoC1. Each SoC has its own clock/reset domains. 
+> They are connected through an internal "property bus", 
+> which is Aspeed's internal interconnect providing shared
+> address decoding and communication between the two SoCs.
 
-okay
+Makes sense. Since this is a fairly unusual design, I would suggest
+you add that explanation into the patch description for this
+patch as well, so readers have a chance to find it when they look
+at the file in the git history at a later point.
 
+>> Since there is no corresponding driver change, I would keep the binding change
+>> as a patch in this series.
 >
-> Frank
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - reg-names
-> > +  - interrupts
-> > +  - interrupt-names
-> > +  - ranges
-> > +  - phys
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +    #include <dt-bindings/phy/phy.h>
-> > +
-> > +    bus {
-> > +        #address-cells = <2>;
-> > +        #size-cells = <2>;
-> > +
-> > +        pcie@40400000 {
-> > +            compatible = "nxp,s32g3-pcie",
-> > +                         "nxp,s32g2-pcie";
-> > +            reg = <0x00 0x40400000 0x0 0x00001000>,   /* dbi registers */
-> > +                  <0x00 0x40420000 0x0 0x00001000>,   /* dbi2 registers */
-> > +                  <0x00 0x40460000 0x0 0x00001000>,   /* atu registers */
-> > +                  <0x00 0x40470000 0x0 0x00001000>,   /* dma registers */
-> > +                  <0x00 0x40481000 0x0 0x000000f8>,   /* ctrl registers */
-> > +                  <0x5f 0xffffe000 0x0 0x00002000>;  /* config space */
-> > +            reg-names = "dbi", "dbi2", "atu", "dma", "ctrl", "config";
-> > +            dma-coherent;
-> > +            #address-cells = <3>;
-> > +            #size-cells = <2>;
-> > +            device_type = "pci";
-> > +            ranges =
-> > +                     <0x81000000 0x0 0x00000000 0x5f 0xfffe0000 0x0 0x00010000>,
-> > +                     <0x82000000 0x0 0x00000000 0x58 0x00000000 0x0 0x80000000>,
-> > +                     <0x82000000 0x1 0x00000000 0x59 0x00000000 0x6 0xfffe0000>;
-> > +
-> > +            bus-range = <0x0 0xff>;
-> > +            interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>,
-> > +                         <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>;
-> > +            interrupt-names = "dma", "msi";
-> > +            #interrupt-cells = <1>;
-> > +            interrupt-map-mask = <0 0 0 0x7>;
-> > +            interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>,
-> > +                            <0 0 0 2 &gic 0 0 GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>,
-> > +                            <0 0 0 3 &gic 0 0 GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
-> > +                            <0 0 0 4 &gic 0 0 GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
-> > +
-> > +            phys = <&serdes0 PHY_TYPE_PCIE 0 0>;
-> > +        };
-> > +    };
-> > --
-> > 2.43.0
-> >
+> Sorry, I am wondering, I will follow Andrew advice. 
+> Submit ast2700-mdio to net-next go out another thread.
+> And put submit link in cover-letter in next version.
+> Is it ok?
+
+Yes
+
+>> The version of the driver you are linking does not appear to use syscon, maybe
+>> this is an artifact from a previous version?
+>> 
+>> If so, you can drop it. On the other hand, this does seem to be a classic syscon
+>> device and keeping it marked that way is not harmful, just redundant if you
+>> actually use the more specific compatible string.
+>
+> Sorry, I may not point right link
+> https://patchwork.ozlabs.org/project/linux-aspeed/patch/20250829073030.2749482-4-billy_tsai@aspeedtech.com/
+> aspeed_g7_soc0_pinctrl_probe -> aspeed_pinctrl_probe
+> https://github.com/torvalds/linux/blob/master/drivers/pinctrl/aspeed/pinctrl-aspeed.c#L456
+>
+> That will use syscon to regmap.
+
+Right, if that is the documented binding, I think keeping syscon in
+the compatible list makes sense.
+
+      Arnd
 
