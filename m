@@ -4,171 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5103CCF9E0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 20:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D67ECCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 20:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=da/vp8eeliiDiGabUSBWs64bDnYuD0tVtkwkLUeNOiQ=; b=OcLDdv4HnM/Hle9s2q61r8I36p
-	T/E61QC9FpNS5mkMYnXqU1oBefbCKDzBKyakpKvgcRunXpRW2bVfIs09NKC2N5LAPfp+m8daFw79J
-	zNf3oYUJ7SXCiG5dSOHNujvmYHu9I1x9CTpLTi5+iZ/SkjvLoqQQCvYwsFMTjGPg3hpLCLGkMJNdF
-	FEHBjOoRICFB+KjjwpajZm2jn4m+6soOjhvRmP7g54QJBZ3zYo9a9D/Fdrys8rDXQUU9VuScacH9c
-	0/EFjy74I7pH2SBcUpEEHXEz2dxaAJpwQME9HOKNIcgCR0GyVaeK1OqLHsMKrEXeBdBNGBMayEpuu
-	j2dhNhCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vOr8Rrr+mnTgf6ee9RR/hGBWYF0gos8pVivXS5bthXk=; b=jjmtdcRiSoUp72hUNNZ7ucR9O3
+	uytNtBDQFiQO0vOwLDZHKhE9Lzo12G+3o+BsUNeJWU9uPJnSyTyexj4Uc05vO1dLASIX643hnPEbs
+	7BYmA5owGkS7EXUv2DNYrsLzSucieQFdXPtDY9RF4orH7vsRP9PV1XdXYamirsNgAuegAp9I7iLdm
+	sBHSUpaDX7Km+t7q70E7KRLcYaTIqHh8hPkRIL6A3JUFvOWU0dQiTwjF0TNuF3cHuAnoyz3xCsnBj
+	cMVeWBJZU7S/R2ua6csL263iVWHaMenDUJz7cd38pbDb9ygu9Q/A8L2BoAXSXzThrOPiF+W6Tcv7n
+	8k2RuBug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCOKK-0000000ASkl-3Wbg;
-	Fri, 24 Oct 2025 20:23:56 +0000
-Received: from mail-germanywestcentralazon11022080.outbound.protection.outlook.com ([40.107.149.80] helo=FR5P281CU006.outbound.protection.outlook.com)
+	id 1vCOOg-0000000ATK2-1NTY;
+	Fri, 24 Oct 2025 20:28:26 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCOKI-0000000ASjj-1Bt9
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 20:23:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jVGl4ckwl8Qk0Nuvy7azByeWffTKC2WTLeKWt93LkVSeoR0RpaNIbR9XjhVCt7O0w23hBERlArNU3aw+TBXHwp04Ifc+YyCcHAN6TrjGNunVHS4i8UZLqS+lvFezv/WQip66l1zlb7pbLRf4pICpipm4XF1wU4DjGxk6PRBujF7/50NznlSeLyZiMiO85JXSl+n3ADh4OX9SUgMr8aH29nmutOIFC4wS2Bkg/nb2NycxGbApmFg/oWOhUWJbPZCN3gML0eb1lJk7rAEg9KzxGjPfyyjVHxIBhjlIJ86k6aQRsoUIJs4zlcfZ7rMSEhSsZ60lwbemFXq9GQv7p/EoZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=da/vp8eeliiDiGabUSBWs64bDnYuD0tVtkwkLUeNOiQ=;
- b=fRapUk07fhFV9NrRLmLcYRm3ZWMtMziv/6ISuB8xHuXD3LePAcFU8gBe/esxo58/D8O+iogroQ2wMeafc9SQyika378LPIOnEBk+oY+VOdGeegdR9k4DEZST8P6dTVtu7HKCpKbpDdkuIBdpAzNWrjavxAICOdLai0JHu/ZfNWvAHKpI591RwCmpVonMqIMJtqR5rkeZf4iihEDnvQGR9V3/ehab2wX5GuZYOujrZg59dEroLbozdr16WsewRibCavI7r08geY9BnjziKZghUusR8c0PbqeliMFFLNws3wuq2W3m8vVmIcKB2+qb8mL/sm8y26zA4l2TtgjHc2gJRw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=siewert.io; dmarc=pass action=none header.from=siewert.io;
- dkim=pass header.d=siewert.io; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=siewert.io;
-Received: from FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d18:2::182)
- by FR4P281MB4104.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d10:fc::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
- 2025 20:23:47 +0000
-Received: from FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
- ([fe80::ac8:ee5e:7e24:98a9]) by FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
- ([fe80::ac8:ee5e:7e24:98a9%8]) with mapi id 15.20.9253.011; Fri, 24 Oct 2025
- 20:23:47 +0000
-Message-ID: <5f596af8-950c-41aa-a7df-3a62339392ce@siewert.io>
-Date: Fri, 24 Oct 2025 22:23:45 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] ARM: dts: aspeed: add asrock x470d4u bmc
-Content-Language: en-GB
-To: Zev Weiss <zev@bewilderbeest.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20251011112124.17588-1-tan@siewert.io>
- <20251011112124.17588-3-tan@siewert.io>
- <c6ee0814-1d36-45b5-8598-2a30efeee5a5@hatter.bewilderbeest.net>
-From: Tan Siewert <tan@siewert.io>
-Autocrypt: addr=tan@siewert.io; keydata=
- xjMEXY4MwBYJKwYBBAHaRw8BAQdAdDPxHO4UUyhKcZXkztTv4iVAbjk/+F8ayCYnegO4q4zN
- HFRhbiBTaWV3ZXJ0IDx0YW5Ac2lld2VydC5pbz7ClAQTFgoAPBYhBJ1bd8XzFb0F9Kx5LnjQ
- kBYSrhG1BQJnqiY3AhsDBQkSJuqzBAsJCAcEFQoJCAUWAgMBAAIeBQIXgAAKCRB40JAWEq4R
- tbtDAQDyPybWLk2EYMeY+vv/WID8hk18+jp3fZCNp9aJp9GkJwD9GeQNvCO1LPDUjkMQqf8d
- DgMM9pmsvbJUFfViYbflbQ7OOARdjgzAEgorBgEEAZdVAQUBAQdAjtzTYeMaO9yG3M1uBtQy
- JB57UJXf+m+mNDhWkOY69DADAQgHwn4EGBYKACYCGwwWIQSdW3fF8xW9BfSseS540JAWEq4R
- tQUCZk72AwUJEibqwwAKCRB40JAWEq4RtUkGAP0R8RmddZqdGdqdod1MkVXpw/z5OOptToXf
- za1W8nsGmgEA5gvQzkN1LJ8oP9LB8YGAmJt82tPvJCmi4WzesI53kQY=
-In-Reply-To: <c6ee0814-1d36-45b5-8598-2a30efeee5a5@hatter.bewilderbeest.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BE1P281CA0143.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:b10:7c::17) To FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d18:2::182)
+	id 1vCOOd-0000000ATIh-31Tp;
+	Fri, 24 Oct 2025 20:28:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1761337688; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SEArvOlfH74vbjfMVG1sMPtbC93q5M1zvlCuU2xI0VJgmLY6aMI1AYvVBIj98RnkZU+WOFV9hFzb+uTGmZBGDA2vt7VAx3K+WhGbYTV3n+h+xTikesZtPOkl6z/8VZUphMxnIT0kfHsFgxJjRKKee2Y+8T4T7A17VCfS+NghSyY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1761337688; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=vOr8Rrr+mnTgf6ee9RR/hGBWYF0gos8pVivXS5bthXk=; 
+	b=e/yWhpTf2ghOdv+R0yhXNxrmu4PZ0YDPf9t1/YlklAawpyi9fa2/UbbrcSz0PC8Ik3jyf1kbcOFI0A8nq4MxLb7V9I+YvJbP4TRMa9H7hJzwmfZZaytCKeLFnqR6IlGEXPs/VOng0q1nD+g1pHz9hK+iDkVyzMnrnlGT0Ixt0dA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
+	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1761337688;
+	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=vOr8Rrr+mnTgf6ee9RR/hGBWYF0gos8pVivXS5bthXk=;
+	b=QqwrA7/+ngNK0OlEGLSZVwKegylTw5G5SwQBuhL6vhvuPu2OtdKmcWcSTag4gY5R
+	FZiYfRrdTFyhIRZq0Ivlj5yClWpjbnhy+/ROBgCYEr2Rs1OnvNKD6ROVVwxzmfM4xHf
+	VbFtapebmfdacOZCa0lAfgIy1LGY/rCN2dAfwX/c=
+Received: by mx.zohomail.com with SMTPS id 1761337687432824.4758348720163;
+	Fri, 24 Oct 2025 13:28:07 -0700 (PDT)
+From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+To: chunkuang.hu@kernel.org,
+	p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	greenjustin@chromium.org,
+	sjoerd@collabora.com
+Cc: dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+Subject: [PATCH] drm/mediatek: Disable AFBC support on Mediatek DRM driver
+Date: Fri, 24 Oct 2025 17:27:56 -0300
+Message-ID: <20251024202756.811425-1-ariel.dalessandro@collabora.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: FR3PPFB3D0CF1D2:EE_|FR4P281MB4104:EE_
-X-MS-Office365-Filtering-Correlation-Id: 900da838-e037-427b-537e-08de133b3c8d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RmVKTlpCODljNmpSblVOZmdycGgwZjFyc2dQTVFpOVp3UGpKanRvU0o0dFhS?=
- =?utf-8?B?Tk5UblBKV0lzeVBLUk5taFFpYmZ5ZlJPWU1ZSmFxVUc2L1FDUitMVkdzZmly?=
- =?utf-8?B?NldMSU10Tkt5VDc3VVhsTk9kOWRzbXdCRnBsdGtlUmZUQkkyTVI0SVkyOWsx?=
- =?utf-8?B?VkdTYTBLa0ttSi9CWHdqS0J0L1g2QUU5U2dCMFYzQUR5d1NxbysraElBQjF6?=
- =?utf-8?B?Y20yRlF0YTlTdTVnT24xYit2UGpjczdLWEd3eWhESFh6WitjZkV2dTJaRXRn?=
- =?utf-8?B?VkFKa1VLMmVmeWZOOXp0QU1NTExRSzlvVWRUelFrNnlzSEFISDdDVHUrOHVB?=
- =?utf-8?B?Skh3QXRXS09yVVJXQ2JRWG5RTTZycm16M3d6UXZmYkFUTVl0WktYc09COHJm?=
- =?utf-8?B?alM1dEFHa3V2L00vWkYyV2psRjZad3Fwa2FKdmhrRWRySTZFK3VWRDZZTzY0?=
- =?utf-8?B?MDc0by9GVDU0NUprYnBFTlJUTE9saEhEdTExTVRORmlhU3N2UmRHbVJzVnpo?=
- =?utf-8?B?OW52dEpYemRLa0RXdUhydTVZcXoxc1JwaFVCUFVaMm40R3BqQWpDdVhNSVVB?=
- =?utf-8?B?UTNvbWxMK2pjd2VQeDkwVEo0eXRXYzA1N3pDTHJ6OWFlZ3pDVS8yK3pIZkk2?=
- =?utf-8?B?cjczTXpIR3VMY1lvamN0NGlCRndlYm5mU3BCQXpGdUVuRUFlV1pSUlJYbVpD?=
- =?utf-8?B?N1M3VXMrVzRTcldEZnlhcVZSN3NsSGsraDFRNnVzRGpYM1Q4M2hhK1Y0ZXJF?=
- =?utf-8?B?elFHajI2MEYzNEo3LzNydER6eU1pbGh4MFJiRmwvbGt2VC9PTksrTWlmZ2Ez?=
- =?utf-8?B?Y1R4SFVieHY4eU5OdDdmbm1uaDlvcHJ0RDUrdHR4VzYrdnpVNzF4QlVmTCsz?=
- =?utf-8?B?YUQ1MTJWNDZERE45by8wNGsyZUNvVW1HdU50M3AwdmZnZUExTDRSMnc3TVRv?=
- =?utf-8?B?VjBPY3l0TFJjZVFWM2s1N3lJanRCbzJFR2RkdEw5bU80UmVUYTZYbnZUN3dY?=
- =?utf-8?B?bEoxejVlaHdOeVNNMWZJMDZ6eTNCWUZDWm1wbytsMmFRLzc5NmxiWHFCVkpj?=
- =?utf-8?B?TVAxOUpaVzBWcmNTc0ZDOGh5d2FPdVdpOXNGZWVZM2VuR1JsOHZadkNVSUVy?=
- =?utf-8?B?WGZISEM0VzlrVkY0R2s2Q293WUFxSkxQN1NVWEVHeEV0V2U5SW43MFVkdUJX?=
- =?utf-8?B?alFMaC9ISGJYa3JHOE5LcmtLZDRTNVUyVTQvQzFnd0UwN2xqdVJtaUlXNnV0?=
- =?utf-8?B?SVVaMDNBUzlZUlFZaVZYZC80c0VSKytaMHpKOXBMeGVjTEtIcFB3YkpHTThG?=
- =?utf-8?B?SUJmSFE3UTFmdHVveFNWWGVaMG5CZFlRTStsS0xOU3FoSXZrN3lhQ05BRmdr?=
- =?utf-8?B?R1pUa3FReFJHdStJMVdpVXpTRlJBbFM0eFFRZllrc1VhTVRBWHJ6WjBDMElu?=
- =?utf-8?B?NWFQRytDNkdSaTVzWjlTSHozTVhXT3gvbkd5RmowWU5Uc3VkaW56TEwxQllD?=
- =?utf-8?B?R0JVWSsvMTJpaUNWQm9RdmtCNjllYThySVEwdmQrSzNqa1BtOHNwK3JIUVpt?=
- =?utf-8?B?UmRGWkRMemlNSFNhZGs0Mm90cjc3Sld3VkRYQ0J3UllzSXkvbXA4bUJOTkxj?=
- =?utf-8?B?SGgxam1LTnZGQzgxMC9CUFJBcVlwQlhiSVcreVRJUFZjSzd5T2g1NDlxZXpS?=
- =?utf-8?B?WHQ0WjIzMTVpMHNQaVB6MlhTUTc3akhISElKVW5UK1NyZXQ0SWltWXZ3RkhS?=
- =?utf-8?B?VVVtSHpBK1d2bjRzcE9TMHFDSC9mTmFEN3VjTWg5d1E0TmVPakJvL25nYjZF?=
- =?utf-8?B?a0RCVDBKMy9JbWVVUkJhUDRvdGhIMU01MHdSLzRMSTh3bTNsZS9qRmpXa2VN?=
- =?utf-8?B?SDJaRFZQejI4U0dCMm53algrTlRkcXNld3pqNTFSSDZNdGc9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YjQ5aXVQQTBsNzlkUDlVL3R3Qm1LTlVkclhBTTFiRjBSL0ZFNng5T0NWWkdT?=
- =?utf-8?B?U1IwZnBJdjZ2Yy91VGJXRXNhMXUwWVBaMGhmVFQxZjFqdzNBSndZRlFUcVFO?=
- =?utf-8?B?U3EyNy9hdE1rNEpuaEczQUoramVETklORFlWS0g2Tm5WbXgwYjlSdTdDMW1w?=
- =?utf-8?B?ek9jZkNEdUIrQ0hnalZwcWIxb2RYd0FDOTVUbWVXWElXem81ZFg1ai9qb1JO?=
- =?utf-8?B?TU9DQUxLOGQ0a2ZEeUEzLzJlNEQ0OElWS3NvSnBORkNXK3BSVGQwMnR0OXdU?=
- =?utf-8?B?Q2dXOXFmaFZsK3RMaEppZC85OUJoZUFWWnExQmx3VzRGYVUyOENtMnVLRitU?=
- =?utf-8?B?T1pjdFVPVUo3M1BBOEpQYmQ2QkhJZytYVk9HSjRJaWVCTTJBZkJLTXp6V253?=
- =?utf-8?B?aUN5WFpwMkVOcjdZaWNSZldHZVBlTXlJQklRM1ArZmh3M0tOVnllTDAvTyt0?=
- =?utf-8?B?QXlvYWJRNXFlTkQ4Z2gyNGk3eE5mV0l1MTVTVHZxcWFXTWpqYTkxREZ2dGJz?=
- =?utf-8?B?ZXZqYXdCZGpDRGRyaHowWVFCRndQdDI5aTVVUzFGM2NIWFN4aWROVDJyVHBz?=
- =?utf-8?B?RDZiSU4wYVRkRkJBY0FiSmhkd1hCMFMyUjdtYUdlU1psWXJQeGI0YkNXK1hS?=
- =?utf-8?B?emtOQ3paN3h1ZWJLK3V6a2FRRnZyN3NOdHlqUEs3SzdBK3VpNVhUWktnR0dI?=
- =?utf-8?B?QWlZMFBRK3ZaNHJ5ZmxLZ1B4ZWFmc3lIbFN0RXB0VUVCUStnRnFzQnlGRTlk?=
- =?utf-8?B?N1NORFRHWDkyWmcxYU5FYVpRcVROL1p3OTN3SnlGY3VrcUdYSFhjT2lnSjRW?=
- =?utf-8?B?T1NsbmtuUnJnZ3BhVndTUC9KNGY1SHR2MWVZRzlKeEt0Z3EyTHFuZThGTlE0?=
- =?utf-8?B?QkdwTEVoZ2QyZXZjSEkwU3NKcW5tL1dPRTh1c3NCbHJxbEc2SmxsdWZYajdB?=
- =?utf-8?B?WUljNzJ0TU5DMmMxOFgwNkphVnBxMFFSZlllREtqTk5wZDEzZnVza0xQN2hu?=
- =?utf-8?B?eGF4ZkN0cXcvb1ZlZ3F2TFF2SHJLR2VJWWtTQjVyNU1ydCtBZHpkK0NiMkZw?=
- =?utf-8?B?emhaZEdPYWx1R2p1aXNPaG5OZVdMK0Z3QlF6eDR1YjhMRXpiWmQvTm4yalZJ?=
- =?utf-8?B?dkhHb2lhWHB3Y09hMWs0WmRiSlJlME5EeVlkOWdEVlJ1L3NTM2pMRmF4Vzlj?=
- =?utf-8?B?a3ZjWUIwUkJ4bGxOQm5rT0NKS1pQcFgrbXliYW1KM29kTzhMYzhIc2JLNW1O?=
- =?utf-8?B?b1dVSS83K1VVUnY5Yk05QjFGMnVpdTFtTE15QUNjb2N6L05EanZPTXpTNFl5?=
- =?utf-8?B?TDlzSTdERFpaNmJYaVRuNVFDTk9oWEs3UUhWWWJ5Z2daRTYzSzUzdVJDSnE1?=
- =?utf-8?B?OHBLZmN1UWZNM3d1TnpGcG5BaEV3NTB6OWRyTXdhbDZ3NWVaaG9rM3lxZHpY?=
- =?utf-8?B?U3d3V0w5bzg4bEF5bGVkVlR3QzdKQWhtSUczU1BocGdReXlSRnBYQkVkcEtM?=
- =?utf-8?B?OHFOZmpnN2tEZXppU2NzcjdQQ1JwS1dnNE5uNUtpdmcrUm9RQTZCUmxqbnQ0?=
- =?utf-8?B?eGhyY0dxYms0M0h6RWpjRDhlNmdJd0lhc3cvZmxwc3hRZzJnY2FqVUNkR3Jh?=
- =?utf-8?B?L3JBK3BUTktkdG9kSW5EekhxVlpVckJDRmt4SzhjOXhWdnpFNkt4NDdjNkFF?=
- =?utf-8?B?Z0JqOWFaanBQVWZ6N2IweERBRnZjamRzcVRncjFIWlJiWTBEMGg3c2VFS1lC?=
- =?utf-8?B?Rk90WFpXZmlaYnQvc2pmbE9mZWtySGdUYlVaZjQrTXZJRlBZbDdkZTJ4bnVZ?=
- =?utf-8?B?Ty9pWWhvditFWjFOQXljOHBvZVB2by95Ukx1ajRxY3dGZER6SEdZTHR6Nm94?=
- =?utf-8?B?WUdRZFVLZGptSHBYTHBQZFMvSEV3cXdaUnA4M3BkOXEwZ2Zsc2liV1gwTFpS?=
- =?utf-8?B?aWphMGo0RHlva0xtaGd4SW5kdURkaG9EV1k2ckxNS0tQMVVkQ3IwREZWWEND?=
- =?utf-8?B?N1ZmQXQ1b2tkVTBxZWdwMG5ZYVpzS0FlK21TM3JYN091ODBMS05qUlZURWF0?=
- =?utf-8?B?OG9EMmZxSy9nUW1oOXZzNm1hZ24rRTZPZzBhRVA4MmZpd1h5VTVkOVMybWow?=
- =?utf-8?Q?dhNs=3D?=
-X-OriginatorOrg: siewert.io
-X-MS-Exchange-CrossTenant-Network-Message-Id: 900da838-e037-427b-537e-08de133b3c8d
-X-MS-Exchange-CrossTenant-AuthSource: FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2025 20:23:47.4736
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e8b4abbe-444b-4835-b8fd-87ac97451a7e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qbKmPrMvTDFG5Im7+++X4raSvI3efvj/Y8KNgWh6q2Pdy7Z6X4y/O9Wf6xQvfYa5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FR4P281MB4104
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_132354_342405_2DF3FCAB 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20251024_132823_818352_8DC0E340 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,43 +86,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20.10.25 11:40, Zev Weiss wrote:
-> On Sat, Oct 11, 2025 at 04:21:20AM PDT, Tan Siewert wrote:
->> The ASRock Rack X470D4U X470D4U is a single-socket X470-based microATX
->> motherboard for Ryzen processors with an AST2500 BMC and either 32MB or
->> 64MB SPI flash.
->>
->> This mainboard exists in three known "flavors" which only differ in the
->> used host NIC, the BMC SPI size and some parts that may be un-populated.
->>
->> To keep the complexity low with the BMC SPI, use the 32MB layout
->> regardless of the used SPI or mainboard flavor.
+Commit c410fa9b07c32 ("drm/mediatek: Add AFBC support to Mediatek DRM
+driver") added AFBC support to Mediatek DRM and enabled the
+32x8/split/sparse modifier.
 
-*snip*
+However, this is currently broken on Mediatek MT8188 (Genio 700 EVK
+platform); tested using upstream Kernel and Mesa (v25.2.1), AFBC is used by
+default since Mesa v25.0.
 
-> Hmm -- I can see the simplicity argument, but it seems a bit of a shame 
-> to let the other 32MB go to waste on boards with 64MB chips (especially 
-> given how tight a fit OpenBMC is getting in 32MB these days).
+Kernel trace reports vblank timeouts constantly, and the render is garbled:
 
-Agreed.
+```
+[CRTC:62:crtc-0] vblank wait timed out
+WARNING: CPU: 7 PID: 70 at drivers/gpu/drm/drm_atomic_helper.c:1835 drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c
+[...]
+Hardware name: MediaTek Genio-700 EVK (DT)
+Workqueue: events_unbound commit_work
+pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c
+lr : drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c
+sp : ffff80008337bca0
+x29: ffff80008337bcd0 x28: 0000000000000061 x27: 0000000000000000
+x26: 0000000000000001 x25: 0000000000000000 x24: ffff0000c9dcc000
+x23: 0000000000000001 x22: 0000000000000000 x21: ffff0000c66f2f80
+x20: ffff0000c0d7d880 x19: 0000000000000000 x18: 000000000000000a
+x17: 000000040044ffff x16: 005000f2b5503510 x15: 0000000000000000
+x14: 0000000000000000 x13: 74756f2064656d69 x12: 742074696177206b
+x11: 0000000000000058 x10: 0000000000000018 x9 : ffff800082396a70
+x8 : 0000000000057fa8 x7 : 0000000000000cce x6 : ffff8000823eea70
+x5 : ffff0001fef5f408 x4 : ffff80017ccee000 x3 : ffff0000c12cb480
+x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0000c12cb480
+Call trace:
+ drm_atomic_helper_wait_for_vblanks.part.0+0x24c/0x27c (P)
+ drm_atomic_helper_commit_tail_rpm+0x64/0x80
+ commit_tail+0xa4/0x1a4
+ commit_work+0x14/0x20
+ process_one_work+0x150/0x290
+ worker_thread+0x2d0/0x3ec
+ kthread+0x12c/0x210
+ ret_from_fork+0x10/0x20
+---[ end trace 0000000000000000 ]---
+```
 
-> Could we maybe have an aspeed-bmc-asrock-x470d4u-64.dts alongside this 
-> one that #includes it and then drops in the 64M layout over the default 
-> 32?  You could then arrange for a flag in the OpenBMC bitbake recipes to 
-> opt in to using that dts if you want to.
+Until this gets fixed upstream, disable AFBC support on this platform, as
+it's currently broken with upstream Mesa.
 
-I implemented this idea in one of my first drafts [1], but there were 
-questions on the OpenBMC Discord if the additional 32MB of space are 
-really needed, given that the 64MB SPI is only available on an ODM 
-variant by default.
+Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_plane.c | 24 +-----------------------
+ 1 file changed, 1 insertion(+), 23 deletions(-)
 
-[1] https://gerrit.openbmc.org/c/openbmc/openbmc/+/82262/4
-
-Cheers,
-Tan
-
-> 
-> 
-> Zev
-> 
+diff --git a/drivers/gpu/drm/mediatek/mtk_plane.c b/drivers/gpu/drm/mediatek/mtk_plane.c
+index 02349bd440017..788b52c1d10c5 100644
+--- a/drivers/gpu/drm/mediatek/mtk_plane.c
++++ b/drivers/gpu/drm/mediatek/mtk_plane.c
+@@ -21,9 +21,6 @@
+ 
+ static const u64 modifiers[] = {
+ 	DRM_FORMAT_MOD_LINEAR,
+-	DRM_FORMAT_MOD_ARM_AFBC(AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
+-				AFBC_FORMAT_MOD_SPLIT |
+-				AFBC_FORMAT_MOD_SPARSE),
+ 	DRM_FORMAT_MOD_INVALID,
+ };
+ 
+@@ -71,26 +68,7 @@ static bool mtk_plane_format_mod_supported(struct drm_plane *plane,
+ 					   uint32_t format,
+ 					   uint64_t modifier)
+ {
+-	if (modifier == DRM_FORMAT_MOD_LINEAR)
+-		return true;
+-
+-	if (modifier != DRM_FORMAT_MOD_ARM_AFBC(
+-				AFBC_FORMAT_MOD_BLOCK_SIZE_32x8 |
+-				AFBC_FORMAT_MOD_SPLIT |
+-				AFBC_FORMAT_MOD_SPARSE))
+-		return false;
+-
+-	if (format != DRM_FORMAT_XRGB8888 &&
+-	    format != DRM_FORMAT_ARGB8888 &&
+-	    format != DRM_FORMAT_BGRX8888 &&
+-	    format != DRM_FORMAT_BGRA8888 &&
+-	    format != DRM_FORMAT_ABGR8888 &&
+-	    format != DRM_FORMAT_XBGR8888 &&
+-	    format != DRM_FORMAT_RGB888 &&
+-	    format != DRM_FORMAT_BGR888)
+-		return false;
+-
+-	return true;
++	return modifier == DRM_FORMAT_MOD_LINEAR;
+ }
+ 
+ static void mtk_plane_destroy_state(struct drm_plane *plane,
 
