@@ -4,78 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 864E3CCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 09:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37297CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 09:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ckwd49jYJbZJlSP55GshI+aFNobeJwdz0Kh7cY8e4GE=; b=L9ZBUj1WcygUlVa88b527nGayy
-	wEHBtAOPq1xcuv+7DUUc0IcSGIynKkf1uf9gm3KCsTIWU1VQxHO3lAfLPktGzYjQnourcRWYl2Pko
-	jFPZCiJ8Cub0akINLB92ZOjjbeUxC+vRdANZqYxuhZNw0FPNDIKm309qQVOiqNwhYjghkhTnIUs1Y
-	fSDhmxYKZSjo+4Xn1Ne0FYqCkCvxDWzf3pmHkOZOTLUZpvqRpKwQHuIXeePd++ccM9N7tvbSe/u+u
-	yeE9EzQ90iLIBzWpR7PaDYmRQbn+WTjsEU8h9YPyihyVM3cUqCeMPbLqz/2cIv4tk6b4j4ugtOn5u
-	1iMRSbrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NY5PIARKbpIdf6CoFhX2UEn3hHI/O9Hdjy4EAS5mHE4=; b=eg9ci80PiJzLh5k1sFPKiYqLay
+	VFnfDH3Ejx3AmJE02BNPHDa1lmmR/JdceIo3UNaFwrmqDmYMPtGcJhdbE+5J7OWiiXpxVwQbMgbki
+	VMGy0oiRzLvgwPWApO/aWL/qY2xY8SfD9jJxWrX6QVQKNXz0X/UEkGiXyZZ1qiSPN6w3RlQ49Yn1y
+	k7ty+1ac8sDPnqf6g7KSnZIXkvOtfYNwVeUIf9Wa1zi92ZBqJusRjEXlLILWKfN1T39rgcxCw4vPe
+	lDZbp12Px2Kh/q3LIaFNdert2IID+CE80JdLe2DHrkosxrkl0Q4UKkRIAsUrabblJogG0ePQDrMI/
+	5shqC/sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDwF-00000008rOA-2MTp;
-	Fri, 24 Oct 2025 09:18:23 +0000
-Received: from mail.thorsis.com ([2003:a:e28:26e4::10])
+	id 1vCDzI-00000008rnB-0ews;
+	Fri, 24 Oct 2025 09:21:32 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDwC-00000008rN6-0Skv
+	id 1vCDzF-00000008rmm-1Py0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 09:18:21 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 438A714894D0;
-	Fri, 24 Oct 2025 11:18:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1761297493; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=Ckwd49jYJbZJlSP55GshI+aFNobeJwdz0Kh7cY8e4GE=;
-	b=TEU/zPnV4c8AEBQz3MYoLSoN10mHgvhAEYUSFXvLwHE8dIxLF7KDDY67si78n/UFfDcgdj
-	AALhGtb0kKPBZ6qJkiyy9loEmLvd5pgXvM1l8ZJGvsgwgLv5anadMYgvLxOcVv82VxNuFr
-	C27y5PEZucslpDMLOvSaexj9e4G7F1USgzEQNIgV2K5QkQEiUlwok7c/3UKXO78HQJiiIf
-	AGojkwl5qJuO1hvFD4N0jTSVxFT4K7+tOHMERjkLY4JDpbJibZYwetgHSA4kfu0nCl0r8n
-	AcNRZG5oc9XpPrBqeSLM9CVp7wWVXNoFx342VUCX/zgHZ3W5yMJjJGHYJzO/Ow==
-Date: Fri, 24 Oct 2025 11:18:03 +0200
-From: Alexander Dahl <ada@thorsis.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, Josua Mayer <josua@solid-run.com>
-Subject: Re: [PATCH 2/8] arm64: dts: imx8dxl-ss-conn: swap interrupts number
- of eqos
-Message-ID: <20251024-backhand-disallow-75be98bbeea3@thorsis.com>
-Mail-Followup-To: Frank Li <Frank.Li@nxp.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shenwei Wang <shenwei.wang@nxp.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, Josua Mayer <josua@solid-run.com>
-References: <20251022-dxl_dts-v1-0-8159dfdef8c5@nxp.com>
- <20251022-dxl_dts-v1-2-8159dfdef8c5@nxp.com>
+	Fri, 24 Oct 2025 09:21:30 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47112edf9f7so10479065e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 02:21:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1761297687; x=1761902487; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NY5PIARKbpIdf6CoFhX2UEn3hHI/O9Hdjy4EAS5mHE4=;
+        b=Nx41I1UOr5r/gOsXEfeax53xhB8bX/G566Mypjz78SGhOZocTcBYHe0OUToyWkx2dU
+         /9aqC3uK5eTyGajZR4JSbw4rV5yHrtw8y8poxBVP4sHSQGBdas+uU82pWBoJuKe1MLt3
+         3CzBNEkx0wNzowsC1denFpn6ryDWEPIpUZdRQ8XbvKYT8v9cAe1LXd3PR7X268fbsD20
+         w31if9W9ug4sB+LsxY3JSxcQftDonn/NSjVCXtMR3nfo9U52Dm450DR56GnDJcJXuzjd
+         jmwyjbt0tV+1JfmUKPsxtBdKP8dji86K0jezpgVflEdBQ3hGBoDjtNaTckpTCbX9raXj
+         M7YA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761297687; x=1761902487;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NY5PIARKbpIdf6CoFhX2UEn3hHI/O9Hdjy4EAS5mHE4=;
+        b=ZqPuYW/kGAZDC9XPW0v7Kj+2p2Js2aPTg2V/szzNeavcugHJqZ+bJ/nlVcPzo78aFO
+         vvbh6VYvgw4Y+G1A3ZUrzicy/ITRdW2IdyrEOJObQr7nwU/4Aj/ucSkuyzRWCE8gsoyx
+         TTNgFxHW+X2J+l9zyzaU6lhXY50Jmlr92ZhpYf8eUvlPEnWMpg6mAXvyiiTIaMR0I3ja
+         7RPnI4MjaHOdKAd/Gpchp3eU5MABYwxSNb195h+MTi1LaPNEA4FBnoPWfFYPhdpZxzn5
+         ZhunEZtiUFButWOd8JAIfoBnALzRz0m0TM+PRNWD1ZTj4poRLAXpo3rKZ1B8v3alO8Ps
+         7TUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWPEcheKOyCNdAR1YRHSUuxEIRmIqli4ULCUqivQ1OAmHkt12RKaOwFCBMQzP9xFldzuufc11j71D74t/FpMM0T@lists.infradead.org
+X-Gm-Message-State: AOJu0YzggXvnCm8GAmZ5yFFSAZnrwUBCrirCnTHJy7XZugPErV5Ybm7j
+	/epZLHYH3l8X78D70YUuCE/aHMiBmp16fS5axYz/K0DLRLIh4BGPK2Bf
+X-Gm-Gg: ASbGncvsrwzsnHgvcLGz/f2ozT3grHq92wV85jCwq4zUV/YEakvQcnGItF/juFtKZ2G
+	1g46UffpHwp72/3lBr0ZjfvZe0I+6rl1petUYUPeQgYF1Nu9i0rXvP/oSTXyQ2kbPvhfyCa3G53
+	7Js9R+QQgDGXoTgCTkJt5wypsdCmzELA38OWHrRxMdVJLZAXxX6w8Wcao5axHpqZ3C240MB6d5N
+	cuch9PudH8GKAb6riPIQHfSyhY8MXYiDCoFXDp09NjmoxPTAY2AzDnMXvoF9cthCi6j/XphC5M5
+	oF0yH5tpFjiV1v9D1eTWrM8U8rzuegptN3DVbmyeY7aG/yFZFuXMyQ/6TUy6ejuYXFq33YhP2G3
+	DLQc8MV+pLuj5UMDGkTSfBqURFFA9/dlnFeBqypx2u/MTiIR0H8C8eaa/pBxw0w7E7+BYkopsQX
+	S9wIACHzF035qJwgdq/zMEm0HmZZfyJxco0ZsD2uxCIuLTEj7XtFILG/JEk/GlFIRryYI37KQs/
+	YvvN4zD4pT0RWsY6QShSWBtjTFDFVMfiULPqiqkLfOs
+X-Google-Smtp-Source: AGHT+IFN2t4M6Qoj3pIFSsEj3r77vKyY565/HfDPakReHx4yAtJAuSEBAgmRyjYHNwXMg0iJVqrMIw==
+X-Received: by 2002:a05:600c:4f08:b0:46c:e3df:529e with SMTP id 5b1f17b1804b1-475cb03021dmr42329985e9.19.1761297687076;
+        Fri, 24 Oct 2025 02:21:27 -0700 (PDT)
+Received: from ?IPV6:2a02:8440:7132:30ef:ba02:7a36:289:dc72? (2a02-8440-7132-30ef-ba02-7a36-0289-dc72.rev.sfr.net. [2a02:8440:7132:30ef:ba02:7a36:289:dc72])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47494b02475sm81213955e9.4.2025.10.24.02.21.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 24 Oct 2025 02:21:26 -0700 (PDT)
+Message-ID: <b3accac0-d02a-4b92-848c-ada62377e440@gmail.com>
+Date: Fri, 24 Oct 2025 11:21:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251022-dxl_dts-v1-2-8159dfdef8c5@nxp.com>
-User-Agent: Mutt/2.2.12 (2023-09-09)
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 2/7] dt-bindings: memory: introduce DDR4
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Julius Werner <jwerner@chromium.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org,
+ =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+References: <20250930-b4-ddr-bindings-v8-0-fe4d8c015a50@gmail.com>
+ <20250930-b4-ddr-bindings-v8-2-fe4d8c015a50@gmail.com>
+ <1877f731-1599-414d-a40e-38aec05a33c0@kernel.org>
+Content-Language: en-US
+From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+In-Reply-To: <1877f731-1599-414d-a40e-38aec05a33c0@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_021820_607705_22CD2734 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20251024_022129_389910_71BCB009 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,62 +110,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Frank,
-
-Am Wed, Oct 22, 2025 at 12:50:22PM -0400 schrieb Frank Li:
-> Swap interrupt numbers of eqos because the below commit just swap
-> interrupt-names and missed swap interrupts also.
-> 
-> The driver (drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c) use
-> interrupt-names to get irq numbers.
-
-This catched my eye, because we are using a SolidRun i.MX 8XLite
-System-on-Module on a custom baseboard which uses that SoC.
-
-I had problems with one CPU core stalling when doing network traffic
-over the 'end1' interface, which is that eqos interface here.  All I
-could see so far were an excessive number of hardware interrupts in
-/proc/interrupts for end1.  With this patch this behaviour is gone, I
-could not reproduce those lock-up anymore.  Thank you and FWIW:
-
-Tested-by: Alexander Dahl <ada@thorsis.com>
-
-Note: I applied this to v6.12.  The patch has a Fixes: tag, so I
-assume it hits stable once it got merged without further action,
-right?
-
-Adding Josua Mayer to Cc because it might affect other users of that
-SoM.  Josua, would it be possible to upstream the dts/dtsi files for
-that SoM? O:-)
-
-Greets
-Alex
-
-> 
-> Fixes: f29c19a6e488 ("arm64: dts: imx8dxl-ss-conn: Fix Ethernet interrupt-names order")
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx8dxl-ss-conn.dtsi | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8dxl-ss-conn.dtsi b/arch/arm64/boot/dts/freescale/imx8dxl-ss-conn.dtsi
-> index a66ba6d0a8c05646320dc45e460662ab0ae2aa3b..da33a35c6d4660ebf0fa3f7afcf7f7a289c3c419 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8dxl-ss-conn.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8dxl-ss-conn.dtsi
-> @@ -29,8 +29,8 @@ eqos: ethernet@5b050000 {
->  		compatible = "nxp,imx8dxl-dwmac-eqos", "snps,dwmac-5.10a";
->  		reg = <0x5b050000 0x10000>;
->  		interrupt-parent = <&gic>;
-> -		interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>,
-> -			     <GIC_SPI 162 IRQ_TYPE_LEVEL_HIGH>;
-> +		interrupts = <GIC_SPI 162 IRQ_TYPE_LEVEL_HIGH>,
-> +			     <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
->  		interrupt-names = "macirq", "eth_wake_irq";
->  		clocks = <&eqos_lpcg IMX_LPCG_CLK_4>,
->  			 <&eqos_lpcg IMX_LPCG_CLK_6>,
-> 
-> -- 
-> 2.34.1
+On 10/23/25 15:21, Krzysztof Kozlowski wrote:
+> On 30/09/2025 10:46, Clément Le Goffic wrote:
+>> From: Clément Le Goffic <clement.legoffic@foss.st.com>
+>>
+>> Introduce JEDEC compliant DDR bindings, that use new memory-props binding.
 > 
 > 
+> If there is going to be resend, then please repeat here applicable part
+> of compatible format, e.g. why it's like that.
+
+Hi Krzysztof, ok
+
+> 
+>>
+>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
+>> ---
+>>   .../memory-controllers/ddr/jedec,ddr4.yaml         | 34 ++++++++++++++++++++++
+>>   1 file changed, 34 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
+>> new file mode 100644
+>> index 000000000000..a2eb6f63c0ce
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
+>> @@ -0,0 +1,34 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,ddr4.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: DDR4 SDRAM compliant to JEDEC JESD79-4D
+>> +
+>> +maintainers:
+>> +  - Krzysztof Kozlowski <krzk@kernel.org>
+>> +
+>> +allOf:
+>> +  - $ref: jedec,sdram-props.yaml#
+>> +
+>> +properties:
+>> +  compatible:
+>> +    items:
+>> +      - pattern: "^ddr4-[0-9a-f]{4},[a-z]{1,20},[0-9a-f]{2}$"
+> 
+> Why double ','? I would imagine last ',' to be '-':
+> ddrX-YYYY,AAAA...-ZZ
+> 
+> Sorry if we discuss that already, but then please remind me and this
+> would need addressing in commit msg.
+
+I do not see anything against that.
+I'll wait Julius's review, if any, and I will send the next version with 
+this changes.
+
+> 
+>> +      - const: jedec,ddr4
+> 
+> 
+> Best regards,
+> Krzysztof
+
 
