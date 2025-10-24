@@ -4,126 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C3CCCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AF0FCCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:To:From:Date:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mac9tPA7fjXsKMTZ5o0W5XcYjwuuhxgWlzIaSPBWgTk=; b=T1WdvN3talzFLJjZkmwYWUuSZD
-	y27Jv7tTpKDMGXFltwggcV1fMMh3Q4N0etAmhlHaviKN631RM82RxGFupuyvplv51WKLB+lQDpvx2
-	d7L/CxS9BGb6iDd9tCKoiaS0x8NJ+EQN+NibtKxKVC3ulLyxNIK3wlLnyftSDIirL6y63Q1y7/a2p
-	6m1tBsPoiDFQwIhsfiyvWK1OKF1yV5R9NAwzMP+RBWrFpgpnsaaXtKtDSZD9Mzv193OjPHxVo8dqb
-	AA4bg+xJlxEeaMjq4jW2bXDt1+E3CbTqWjjF1SValNdkEhqvrL0AOiVeMvyCA0JuQ2ik//Et5adWX
-	+Z4m78tw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jOlB0kPMPcikcykh5NXoFKFdbJH0a3Am29BYJ5NIg8A=; b=CnOHVwsbOboJEkh4xAQQ53u2zT
+	9kvmPed6oVkIwdY1s6KTTdwGI0m8gEd3mu8CEs11WIISy6vWCThYSooZzMYY3fbizm9xQerB87WW/
+	waEEbzOkS7YDNS8qUHSzaZAV9WqU3mcV+YIYTG6HvJb9OkWa01YTqYoJavCgQOuarJ9sO1+s5gmZp
+	oCGIWavvmg0p9aF9LqhzVOg5sgwjaJHaVsvH3vN4DBbkoGp19ozSYJYKsC50OOJJ+GWzp3i0Anmyq
+	IMtPxHFcc2AmvPSWHNVQsDke9lVEKxIKTm4aFHtz1nikphvAoclRAxuk4Fz2hPpvanJfkbaMxs/qa
+	StBASkgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBpI-00000008PLb-3dMT;
-	Fri, 24 Oct 2025 07:03:04 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
+	id 1vCBpk-00000008PRC-0n6G;
+	Fri, 24 Oct 2025 07:03:32 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCBpF-00000008PKu-3LOC
+	id 1vCBph-00000008PQa-1eqd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 07:03:03 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfout.stl.internal (Postfix) with ESMTP id D0BBF1D0016C;
-	Fri, 24 Oct 2025 03:02:57 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Fri, 24 Oct 2025 03:02:58 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1761289377;
-	 x=1761375777; bh=mac9tPA7fjXsKMTZ5o0W5XcYjwuuhxgWlzIaSPBWgTk=; b=
-	Z5mXZSF3chz/arWSZEIPGf+rfgYMBabszFcm0EoBuebIAyZgnuldhbmd3wVyJBT4
-	7fjVGgOtJu8xCJXD3Isa+gWn4TFjblgFvbs5HwBrDz0A99uSdzb2k0z7hBuK07ec
-	QIrDGu/I+S/eSsfSF9wAAl6k2mjp+7XgqfaRWISfmdsM20xXY9dMVBsU9dMId+r0
-	ZMD4UU3NRyugd4T7i2bffrUbtXONDtNtGWoyI6OSD1s5I53cfgIBKtTowoaB0ye9
-	RTSUEDkMPZHTI5tPiQdYTCwNVhB8nq+uXzaONeutekDvZ5fVX7mbepaB2lTg7+E9
-	YxH2QoA7fu/kTR7wo0wqXQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-transfer-encoding:content-type
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1761289377; x=1761375777; bh=m
-	ac9tPA7fjXsKMTZ5o0W5XcYjwuuhxgWlzIaSPBWgTk=; b=zAbPRISGYs04ZgTVZ
-	els+9gdDIme18GEHUlNsuJztgHJetc999YVCvrq/PNrn7PVL1mvytGyLWFn5uIDB
-	vJzlEjFLBGAzAyrbRUQY2EQbroq9iVU78quJoKch7O38TlJaOymjhpcNr6DWX/7x
-	sME9HpPhb3oILSHGMeA1tEy/MVyh3AdI8SygN4AQmH1e+z3XUF5obXqC8UOKAll+
-	D/T/HOfp4fayovs4vfsAKzvfNW5vsi+H3LTDAMNYhDaBdI9+4gxJIS6HWR44sFMn
-	orrD7O+m3+uwBCuZOr+aptyTSeauXNdo4f+4c+bAfu+SYMZ2efySZLXTDkkM4d/6
-	/whyw==
-X-ME-Sender: <xms:niT7aNORl5OLs4fICcMOsJBHp8xqXwmEEd3y7gWTnmBrfeQCgYsvvQ>
-    <xme:niT7aKx8n0jC-0EeZgnAMNBykaU7uZwvkdPQn9ds6p_3UuA_hW1youPJTHqmmcTfp
-    3f8gXcJylAENNlmnIFQz2YupLFTvpnBSRWpR4ZGvU_XgaSXMWmzgZs>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddugeekieelucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvffkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpeehiefgudefheffieetudeikeehueeffedtheelteeuhffggfeihfelheettdevffen
-    ucffohhmrghinhepohiilhgrsghsrdhorhhgpdhgihhthhhusgdrtghomhenucevlhhush
-    htvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgu
-    sgdruggvpdhnsggprhgtphhtthhopedvfedpmhhouggvpehsmhhtphhouhhtpdhrtghpth
-    htoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopegs
-    mhgtqdhsfiesrghsphgvvgguthgvtghhrdgtohhmpdhrtghpthhtoheprhihrghnpggthh
-    gvnhesrghsphgvvgguthgvtghhrdgtohhmpdhrtghpthhtohepphhrrggshhgrkhgrrhdr
-    mhgrhhgruggvvhdqlhgrugdrrhhjsegsphdrrhgvnhgvshgrshdrtghomhdprhgtphhtth
-    hopegrnhgurhgvfiestghouggvtghonhhsthhruhgtthdrtghomhdrrghupdhrtghpthht
-    ohepjhhksegtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgtphhtthhopehnfh
-    hrrghprhgrughosegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohepjhhovghlsehj
-    mhhsrdhiugdrrghupdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:niT7aCHoTkH26y4HM0ap__KxzaoaaM1csgLdSkGRihkbg2o24M8xuA>
-    <xmx:niT7aPeqNKheIO1FTDxgLABGSHquDcvscBghb1Hggsy528lGU-uoYA>
-    <xmx:niT7aH8BBeY3n72QZvz7wQUQpC5otuUkz-xGTbthO0GpJJ9rP4-NnA>
-    <xmx:niT7aFZY6oU1lW4ltrcsZ62bMXuDjj---pt4fvPunstPkitM2p7lAg>
-    <xmx:oST7aFyotp38mE_UVArEvtRzxSdLeT9WZZ-t8kzbfLTzojk62SAN2Wwv>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id B2295700054; Fri, 24 Oct 2025 03:02:54 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 24 Oct 2025 07:03:30 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-592ee9a16adso2794537e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 00:03:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1761289407; x=1761894207; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jOlB0kPMPcikcykh5NXoFKFdbJH0a3Am29BYJ5NIg8A=;
+        b=WLkJac/I2pBsLWbjp2ofVzR0D3YgM62L+7qhk8NeeyHVmW8R7Cu6BVh9lYv9WrFNuS
+         IXTuh1ep4dqQAwWfLGlHTyIPPd3Aw0KbYxi/4pq3TJG5xYKR5twKtgyHo0ePloIx7iHm
+         yQgrfajbjGJujLRGCCsXFrKpeEwY4lxl/uNHh7TLZrppyXRrV73pe6JPtEw81KHDy1yP
+         j1A2zw0epHfiuzG0xThBX85UbmwZNz5VEjo6X2husmLjmjwEC/TFcpcaYcxTEbY1CkIc
+         FrV1kn+OnXky/0/7cdhmwMTuUn8b8x4N6b7o3+itz0IYyMbkYOI2tZ/TbrHU0hzUmtNh
+         vztw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1761289407; x=1761894207;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jOlB0kPMPcikcykh5NXoFKFdbJH0a3Am29BYJ5NIg8A=;
+        b=lGj7k3G/H7vx0fFId6dpOHgjzj3xpeyrnO+Si9Hh9JSHBIfG6TbtQIBtQPFYU4Guyb
+         fz7EjjgHf93RfdH2xPM1GgOvNk5q71dUEiLWqh2OFtF0I524XOe4cXWMBNN8qWDu292a
+         7SE908+BOjZg0lSQ/szfPI2lCXpLeUTuV16lZfc4XUx7T7s6N1X1aQI1t6NdsP+ktT3K
+         AMTfmU8mokuu2ZO2uCYSyDo69Mf/wElkGv0uLll2axvh7T9TwKsgDfGntVKbUZQ16vDl
+         pKOGB3iaBABpWYQrOaV/Ao12c+xgGiuAkPFTX6VItZktnJunF5pTh3eoYmSajwJiyxS7
+         SvaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWo7bD/mnD5XIPuIm9WlBHL4kH67IlmUou5NbZlJ3yx/qRWn95CdHh/L1rdMJ6v2PI/IEXHAFXkX9bg06D27DAF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhnTjagyooe1iDoIyslbv5qQ6GvEi94i5Hk28L+ZWSh4q6hu8u
+	8X3hW/0ynHgaE5MG6FYL7qoJkhInfgGwzzNhnAmKsZKinkCZTVRO6V3+aHSwY7I4Ee8EOJlGyH0
+	+ewt/ROclPihraY50dHRHgvtJz6nh0daBl8v5bkckPg==
+X-Gm-Gg: ASbGnctdLvl0+4i7m0KV9TnovlP/UFHhTHCfEuf5sT0Q4uhOm0VtdmxlZmt4Yd1xgmH
+	epET8hTNPkq9wxBkZRG0J1Nwzw2C+SE9NRzhtec6lE0qpSjhqXW3PGhuKykkc4nMzlCx+QirzIe
+	H73DFY7xNmWyQB7xRt0o2y4ZwwmvoDJyqDVtg5EtffYnkWQE+kmYYz/p1U0WiIGGZMwmK+82oST
+	h7NniuHS7EXDDJ2nEdyjCiAi/XUMLfbdaJGAgS+vx3D1wB6sCUT7Z5/TBAt+JElxUFZoOn+RT+x
+	tA/e5CA0TFCw+iDM7WH68KOGtQ==
+X-Google-Smtp-Source: AGHT+IGot33eiQ+BcQWl6UG0zv+FNQnQnMAkHHpWuHdoQFvVpdE10kN9LM8Ma75zpPJb50O7ebN6pjI2myaknhddpuQ=
+X-Received: by 2002:a05:6512:31c2:b0:591:c6c0:9afb with SMTP id
+ 2adb3069b0e04-591d8546211mr8882195e87.34.1761289407199; Fri, 24 Oct 2025
+ 00:03:27 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: AMptcG-LwCSF
-Date: Fri, 24 Oct 2025 09:02:34 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ryan Chen" <ryan_chen@aspeedtech.com>, BMC-SW <BMC-SW@aspeedtech.com>,
- "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Joel Stanley" <joel@jms.id.au>,
- "Andrew Jeffery" <andrew@codeconstruct.com.au>,
- "Jeremy Kerr" <jk@codeconstruct.com.au>, "Lee Jones" <lee@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>,
- "Bjorn Andersson" <bjorn.andersson@oss.qualcomm.com>,
- "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Nishanth Menon" <nm@ti.com>,
- =?UTF-8?Q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>,
- "Taniya Das" <quic_tdas@quicinc.com>, "Lad,
- Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "Kuninori Morimoto" <kuninori.morimoto.gx@renesas.com>,
- "Eric Biggers" <ebiggers@kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Message-Id: <66d0dc8f-553a-41b0-a9af-e058bc39dd94@app.fastmail.com>
-In-Reply-To: <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-References: <20251022070543.1169173-1-ryan_chen@aspeedtech.com>
- <20251022070543.1169173-5-ryan_chen@aspeedtech.com>
- <b5441728-06a7-44ea-8876-3a9fc3cf55be@app.fastmail.com>
- <TY2PPF5CB9A1BE626A2F0F6307461D8F64BF2F0A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
- <6a97fbb4-19c2-4ffa-9c73-26aea02c27e4@app.fastmail.com>
- <TY2PPF5CB9A1BE6CF8336D211641A18E2DEF2F1A@TY2PPF5CB9A1BE6.apcprd06.prod.outlook.com>
-Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC device tree
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20251022-gpio-shared-v2-0-d34aa1fbdf06@linaro.org>
+ <20251022-gpio-shared-v2-4-d34aa1fbdf06@linaro.org> <aPkcpTWfTb0HOF51@smile.fi.intel.com>
+In-Reply-To: <aPkcpTWfTb0HOF51@smile.fi.intel.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Fri, 24 Oct 2025 09:03:15 +0200
+X-Gm-Features: AS18NWBS-Jd3edts4iMIfdLC_kiOaNMJiYsAVBHOjeSjhFk4sOt2_3x0nM3hP4c
+Message-ID: <CAMRc=MduywsSKrN08_4F2xEjZrdnV--_3LZNmxwRHH=_QtceHA@mail.gmail.com>
+Subject: Re: [PATCH v2 04/10] gpio: shared-proxy: implement the shared GPIO
+ proxy driver
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_000302_180666_E5296AFF 
-X-CRM114-Status: GOOD (  25.93  )
+X-CRM114-CacheID: sfid-20251024_000329_569789_4537DA49 
+X-CRM114-Status: GOOD (  28.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,63 +108,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025, at 05:54, Ryan Chen wrote:
->> Subject: Re: [PATCH v6 4/6] arm64: dts: aspeed: Add initial AST2700 SoC device
->> tree
->> On Thu, Oct 23, 2025, at 09:37, Ryan Chen wrote:
->> >> > +	soc1: soc@14000000 {
->> >> > +		compatible = "simple-bus";
->> >> > +		#address-cells = <2>;
->> >> > +		#size-cells = <2>;
->> >> > +		ranges = <0x0 0x0 0x0 0x14000000 0x0 0x10000000>;
->> >>
->> >> This probably needs some explanation: why are there two 'soc@...'
->> >> devices? Is this literally two chips in the system, or are you
->> >> describing two buses inside of the same SoC?
->> >
->> > The AST2700 is two soc connection with a property bus.
->> > Sharing some decode registers. Each have it own ahb bus.
->> 
->> I don't understand your explanation,
+On Wed, Oct 22, 2025 at 8:04=E2=80=AFPM Andy Shevchenko
+<andriy.shevchenko@intel.com> wrote:
 >
-> Let me clarify more clearly:
-> The AST2700 is a dual-SoC architecture, consisting of two interconnected SoCs,
-> referred to as SoC0 and SoC1. Each SoC has its own clock/reset domains. 
-> They are connected through an internal "property bus", 
-> which is Aspeed's internal interconnect providing shared
-> address decoding and communication between the two SoCs.
-
-Makes sense. Since this is a fairly unusual design, I would suggest
-you add that explanation into the patch description for this
-patch as well, so readers have a chance to find it when they look
-at the file in the git history at a later point.
-
->> Since there is no corresponding driver change, I would keep the binding change
->> as a patch in this series.
+> On Wed, Oct 22, 2025 at 03:10:43PM +0200, Bartosz Golaszewski wrote:
+> >
+> > Add a virtual GPIO proxy driver which arbitrates access to a single
+> > shared GPIO by multiple users. It works together with the core shared
+> > GPIO support from GPIOLIB and functions by acquiring a reference to a
+> > shared GPIO descriptor exposed by gpiolib-shared and making sure that
+> > the state of the GPIO stays consistent.
+> >
+> > In general: if there's only one user at the moment: allow it to do
+> > anything as if this was a normal GPIO (in essence: just propagate calls
+> > to the underlying real hardware driver). If there are more users: don't
+> > allow to change the direction set by the initial user, allow to change
+> > configuration options but warn about possible conflicts and finally:
+> > treat the output-high value as a reference counted, logical "GPIO
+> > enabled" setting, meaning: the GPIO value is set to high when the first
+> > user requests it to be high and back to low once the last user stops
+> > "voting" for high.
 >
-> Sorry, I am wondering, I will follow Andrew advice. 
-> Submit ast2700-mdio to net-next go out another thread.
-> And put submit link in cover-letter in next version.
-> Is it ok?
+> I have two Q:s about the design:
+> 1) why can't the value be counted on the struct gpio_desc level?
 
-Yes
+No, I specifically tried to limit the impact on users not needing this
+to a minimum.
 
->> The version of the driver you are linking does not appear to use syscon, maybe
->> this is an artifact from a previous version?
->> 
->> If so, you can drop it. On the other hand, this does seem to be a classic syscon
->> device and keeping it marked that way is not harmful, just redundant if you
->> actually use the more specific compatible string.
+> 2) can gpio-aggregator facilities be reused (to some extent)?
+
+I don't see how but if you have a precise idea, let me know.
+
 >
-> Sorry, I may not point right link
-> https://patchwork.ozlabs.org/project/linux-aspeed/patch/20250829073030.2749482-4-billy_tsai@aspeedtech.com/
-> aspeed_g7_soc0_pinctrl_probe -> aspeed_pinctrl_probe
-> https://github.com/torvalds/linux/blob/master/drivers/pinctrl/aspeed/pinctrl-aspeed.c#L456
+> ...
 >
-> That will use syscon to regmap.
+> > +#include <linux/auxiliary_bus.h>
+> > +#include <linux/cleanup.h>
+> > +#include <linux/device.h>
+> > +#include <linux/gpio/consumer.h>
+> > +#include <linux/gpio/driver.h>
+> > +#include <linux/module.h>
+>
+> + types.h
+>
+> > +#include "gpiolib-shared.h"
+>
+> ...
+>
+> > +out:
+> > +     if (shared_desc->highcnt)
+> > +             dev_dbg(proxy->dev,
+> > +                     "Voted for value '%s', effective value is 'high',=
+ number of votes for 'high': %u\n",
+> > +                     value ? "high" : "low", shared_desc->highcnt);
+> > +     else
+> > +             dev_dbg(proxy->dev, "Voted for value 'low', effective val=
+ue is 'low'\n");
+>
+> You can unify and maybe save a few bytes here and there by doing somethin=
+g like
+> this:
+>
+>         const char *tmp; // name is a placeholder
+>
+>         tmp =3D str_high_low(shared_desc->highcnt);
+>         dev_dbg(proxy->dev,
+>                 "Voted for value '%s', effective value is '%s', number of=
+ votes for '%s': %u\n",
+>                 str_high_low(value), tmp, tmp, shared_desc->highcnt);
+>
 
-Right, if that is the documented binding, I think keeping syscon in
-the compatible list makes sense.
+This doesn't make sense, we don't "vote for low". We only vote for
+high. It's not: which option gets the most votes, it's: if there's at
+least one vote for high, then we go high.
 
-      Arnd
+Bart
 
