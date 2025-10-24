@@ -4,184 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9761CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 03:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68E1CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 03:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gjflppvYtpVdjqfddYua0zLtAmdtGv+i7XvnBLTp1BY=; b=f9qUpBIuCpb6oNDEXCoGWf3zk7
-	/LTykV7eDAtVn7ZrKpX+fi2+YQKyP10XQXW1m+EN0/jjLSqYJyuWP3SR21xrDYgpHmBZtaJpGj1ym
-	I8iV3mMddHUlD+fO+bec0wfrW9oz2IhARG4lPgcVlHHHJOJ6Vyf/aT+3+1l3z/kJACOhIydUtBZCk
-	voHl27OZFUn1vNpIL+tilkg8DW4FXyoX9CTm3Y2ESA9DUYsbwODVDdBh6W59VE67qcyNWzNlyhDrM
-	yrCimBQYVw0Y36DUJw6H5B7A8a14WQ9kA5OhTs4NLQAszF0zuRmqteKdwHPvppg1qLvcMsCHk8pUE
-	nJY7eS4g==;
+	bh=cLatmwC5DOTCzklJj+UKIGFCark+KyCO2ajmI0Q8jXs=; b=p9gF35sMn0h91AOAfuH/IUS75K
+	sGlSOPsKPdrLMGhl1FEpdVmlCve6gi5ZI1+vHf1PTwe5FMsNfclWv5+Hxk7CPTMCR1KBoG8CnKARY
+	QYvaf7kSHGw5pvw8P5ZrAcVg2Bf4fLVC0jW0KagLoOCuDx8KomJ1bVCc+m1Wyjno9aCgOmxPXQC5X
+	DE9pJt/EUmU92XOqUpOsbJBHtMbfMyjHwfjnAr/i+a/Xfzxx/a4vQ/lBKXcelZCYOIaQDlPqSZ+in
+	Ryv3J3/85vEBMmhacBVhEDhgKYaUbElAV02zoOVHKrLYbdlnevowQKdre/NxaNE1s5UhlGVTqewZ6
+	czUTcdpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC85b-000000086q0-0fLI;
-	Fri, 24 Oct 2025 03:03:39 +0000
-Received: from mail-westusazon11010039.outbound.protection.outlook.com ([52.101.85.39] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1vC8Ou-000000088o1-18Hg;
+	Fri, 24 Oct 2025 03:23:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vC85Y-000000086pa-1ipF
+	id 1vC8Os-000000088nt-1WAb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 03:03:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sZyso59T3HjcCBMtvFSMoZD/UaLuGe3aU5LrA9Ir2SuiiZOmLgqRKeT34GWbh7me3ISnEDOFlUOfTsELqrHWsXNYccOWRyQhpGsa+iFyB6i5y1bUCFAqxoh19Om10nssa0ca4EVuViDVRAfn4lI5O7NACnZ+K78sKGiCHNCGxRvS2mkgNet5M6KmwxETK+fi65u1QxqzrHt4hzNQBOBzIiGlWnQJQkSex3lhFqBgtx6Hm9UFyL1OXj1cK/owZ1FOW5z9mWcjN+PKXNAhKTrdS9f+G3tQiDJzucyc8DJOZF11kQAxr/Ly3sstfSNaXkeTRSdFwgURdIqVH6ffq45lYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gjflppvYtpVdjqfddYua0zLtAmdtGv+i7XvnBLTp1BY=;
- b=Io1bWKZ/jgACvvmeQsAxjo9pF/4fa14+ujNl1nCsGa8/633wiyeOx0ryCd2Hho49y8NJwS3M7hszA347r0gjCRQWETYaPlHC+XSRZXMN0fu5uBSVu6ZdE36EF/M1R77DPIClbCvcbuAfOanvmSd+pPAG1wFgJwbkE7xUq5hY1V+RgPd1ywsO3H/SsCUPBkgL73L+YXazm0Vg0jNYRubmBikU/eILSlBtcBMzujPwXeZkishk8UlVb16kFxYvZdDlVm1R44Idh5O5HDYIxgYatnmL5VnLrD4SklNDkvToIaiC7hrjyQhUFvsoQVqpdlE6e8VjzrkLM5QI9V4mW+Zokw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gjflppvYtpVdjqfddYua0zLtAmdtGv+i7XvnBLTp1BY=;
- b=AYMfmZX1a+4Qumfke7w0L9u4hYYnRuXPk67bJBo/eS10Pv0ZbHnLreprf7lAIjG4TUdC28cYv1m3MY5svk6oV3q2RQuPzxy4eXAN4+nnPYMn6/xGavBmPsW2DmmX5BB6G0x/UW6hTc4j7EYZtNFj999G3SZuA9WDwJ7BUvRM36D8tFnQm05utb0+axIxaPfump2cgaHtVduSSVN+dZNg4KnpB+DO9NZAKcIGSG5ffqVx4IeKoMouhDlp4OwNe0djxZp0prpKTkCe1C3dwX3SJEaxF1ULspu3QaJd195bhfCTtgrcOXEPcoTm3zJ6rik75/UtMBCV59yoKDpLwKN9gw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
- by LV3PR03MB7453.namprd03.prod.outlook.com (2603:10b6:408:1a6::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
- 2025 03:03:30 +0000
-Received: from DM6PR03MB5371.namprd03.prod.outlook.com
- ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
- ([fe80::8d3c:c90d:40c:7076%4]) with mapi id 15.20.9228.014; Fri, 24 Oct 2025
- 03:03:30 +0000
-Message-ID: <12fa7c65-c257-4013-baf9-695ff4c2a4bd@altera.com>
-Date: Fri, 24 Oct 2025 08:33:20 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3 1/3] net: stmmac: vlan: Disable 802.1AD tag
- insertion offload
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>,
- Rohan G Thomas <rohan.g.thomas@intel.com>,
- "Ng, Boon Khai" <boon.khai.ng@altera.com>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-stm32@st-md-mailman.stormreply.com"
- <linux-stm32@st-md-mailman.stormreply.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20251017-qbv-fixes-v3-0-d3a42e32646a@altera.com>
- <20251017-qbv-fixes-v3-1-d3a42e32646a@altera.com>
- <aPI5pBXnh5X7OXtG@shell.armlinux.org.uk>
- <e45a8124-ace8-40bf-b55f-56dc8fbe6987@altera.com>
- <1abbcd93-6144-440c-90d9-439d0f18383b@altera.com>
- <aPoJVOUe-ASx1GmV@shell.armlinux.org.uk>
-Content-Language: en-US
-From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-In-Reply-To: <aPoJVOUe-ASx1GmV@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Fri, 24 Oct 2025 03:23:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4CFA9601DE;
+	Fri, 24 Oct 2025 03:23:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A10ABC4CEE7;
+	Fri, 24 Oct 2025 03:23:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761276212;
+	bh=CNwnT8O4JG4Ottnhbl1cNUX0P6pAoK8TTMrHAWFkULg=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=PAZW1d9nE4BKbSDO5YSLJIHFY7fvvq7/qb+KsjUsGRLmxi56jdxvmOARnYJv4d2ld
+	 Ic/xOGBjxwDNwmiwJ7cwI4V+apON+qMOt3p6cSvOAfiZ8jtjp0hXvhPBg0AM77I1zp
+	 g6i8gpSAFD7DosiR9Fi+RdTt41wplPyJOLqBMx3xzyWe4tOmA43TExpxPsd4IS8kb2
+	 ffQAI4FNvAT46dKsdBSkShyj3Tac9+wpugnoPlwOkCefGTwchZzYXux2HTezbtbDFb
+	 cD2F6SLTQmqfuVuj5vCgghi+8YZx5WXGvZntDmaWeqh9aFw3ZihEuSB6O7yksVD5ou
+	 igWnqilxSCITA==
+Date: Thu, 23 Oct 2025 22:23:30 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5P287CA0148.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1d7::18) To DM6PR03MB5371.namprd03.prod.outlook.com
- (2603:10b6:5:24c::21)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|LV3PR03MB7453:EE_
-X-MS-Office365-Filtering-Correlation-Id: dc298d12-a793-41fa-3dc0-08de12a9e920
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Mm1xQWU1czJzQUdhdENldmFlcnRPRXQ4VHYxN1o4Z0p3RmdoSVdGOUhRTjE1?=
- =?utf-8?B?c1hFYXdJQkV6OGp4ZEV5VkFwMkxETDUrQzZSK2pWdk94R2l6NlI3aU5Ua2E3?=
- =?utf-8?B?dDg1RUxLQ2d4WkUzYWZubzloTVBiTVVJUEdNeGhhUHYxaVFOYXQwUU83dDFQ?=
- =?utf-8?B?QXllSDFIRnh6MHk4bVVoQTZ5MzQvWjYremFQTjFNblpYRGQzRWdSbXg0UHFM?=
- =?utf-8?B?Z2Y2eE01OVRnSnk1Y2RUOXVIblAzcTJldXp2dHZjUWJUamJ2RU52S21ZRzYy?=
- =?utf-8?B?WUpVNHRXN3Y5Qmk2bUhabmgzQXZyTzBPWnBhT0hra0UvanVud25kTlVBWXNz?=
- =?utf-8?B?YjZuRUl6QjhSeWZUcG84WUdHeFd0VC9OZGtWUklWZFBZcTdERlp3NFpldmh6?=
- =?utf-8?B?WWFlenFpRzh5aG5BeFZVM0w4YnN0U2JUZWwvSlVOSC9VM3F6SnBFRVF4QWNy?=
- =?utf-8?B?RjZ2T3dubVA3NjUzd3VtSGFlNVRoYkpTcnpyQkhGazd6b0xDS0U0Q25WTUZ3?=
- =?utf-8?B?cmZuN2xmOW1iTG5PU3pCU3UyMUdJSXhmZkExZUtyT1ZKa1lpRHJOa0ZWT1Yy?=
- =?utf-8?B?MHQxRE12V250Vjl4UXFvM3dPdDlEenZTdDg1WW1hRWVHY0JUTExCYWJuWWE4?=
- =?utf-8?B?SkhhZHV6NlJ0RVRuMjU0SXNBNzVvWnF6a1V2VDg4ZTZwVjZlUXpEUGp2SmZJ?=
- =?utf-8?B?MDlGWGZWdWRWNjg0NG9yR2xyaWg5ZUZLa2lKVENKUkJGYVJTMzBIejBsYUdx?=
- =?utf-8?B?RStEY2c1eGh0MGV2ZkdWRXVNbGdBZEt6cGEyUUdqVTBqeXAzQjZraW5FbHVQ?=
- =?utf-8?B?UlIwQXhLa3lES2xBNXpVUGFiZ01oLzc5dWdvbitXV2xFNkp1NnVzdzdsWFhT?=
- =?utf-8?B?RHE1TnRuazFoZTZWVHJiYXBoYjNMd2xvRzhKRmVXb0tzaUFYNTB3dzJySXJO?=
- =?utf-8?B?UDB1cmFQMW1JUkRkdEkyUElyMTNKWURCcTFwM1B0aldWN1BFZnhiTzY5VTZq?=
- =?utf-8?B?VnVuemhjcTZ6c29ENUh3bE9DSGpiWVQ4SDhOc21xbW96QzBqaXNrekZEMXBa?=
- =?utf-8?B?QmNITzh3dEdETGxNTm9lMFBCY29BemtrVUZRMFZBRkZOaG5FNjBEZlA5bmg4?=
- =?utf-8?B?dWVBUytHZnBmd3BHNHRmT25vUUtVVlBkcW8vVmpnSG5TdWgrc1FuVFp6Nm9j?=
- =?utf-8?B?Zmc4K3djbkhNczJCRUY4bStJdTNqcGVQa3VHenkyUlVPTTBlQS9GTko2eUpQ?=
- =?utf-8?B?TjVoK0NSOGc5OEMrd2dnMDRYeTd5NWxtUmZUblVHb2xRYzRYYzVoZmo0SEVp?=
- =?utf-8?B?MEVBM1M2ZmhkOStOUkpaS3Y3WHkxeEpabGVHeXBCM1JnZ1pXczlXSjB2VEZw?=
- =?utf-8?B?R20xalpNTndHMmIwK01BbUZwdzlsUDB1VG1IUlUxQU9YVHkycUtRdGdyUDQ2?=
- =?utf-8?B?RXUzMGNzZVl6MENubkZrVkcvZjBIVnFVaWFCb1pxWlFESWR2VXF5MHlYM0Fx?=
- =?utf-8?B?WDBwc1RyMGFTWk9ObGRzb0xuRXpTSFVaRWJlL2Q4REFGazJsalhtL2JicnBs?=
- =?utf-8?B?UUtPM3FJT1dOOFowVU9VMFFLMFpjakpVWkszVG01a1pLRU5zM2s4OENzbnhi?=
- =?utf-8?B?MmRGc2JPSXNTaVUrSDRFNnV2UmZkL1JoK1A4a3kycmFGQ0JvWms1RlNBZUo2?=
- =?utf-8?B?QUNJanZka1dKWkVoeDU5N3RQRUJLemVqQTJwd3Y5TUZpRmgrVHFrQ0NrcTky?=
- =?utf-8?B?YkdaTDNtUE56eEFxTW92OHltL2JBcXppUHJEdXFhaHVCNlowYms4c2g5KzJz?=
- =?utf-8?B?cWhoUERvZkhRNnd0QW56ME9mcG4rZ2RuMmRlNFlhQ0I2cDlyWk5qNk5sZVJ1?=
- =?utf-8?B?dEdtUFJsRWhGdnNlZlVpWUROVmFZaU52KzhsQyt4SG04RnJndG00TURHcmQ1?=
- =?utf-8?B?Mk5VVThtSU82SUhqeURIbHlWNm85TU9ab0FUckR1WEpUbWVsOU1jbEQxZyti?=
- =?utf-8?B?c2k0V3dqcjd3PT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bmZla0VHN0tRZnJuMy9pRlIya2NSQjlPYm5XZ25wNTR1aGRLYWZnWTdoSkxB?=
- =?utf-8?B?WEhsNmprV3NDQXVNQm9HNER5N05RUSs2cThXL09Ja1pUejcwdmd4bWNsb2d5?=
- =?utf-8?B?Qk9BVUpnQkNBZ1BWWDQxQ1JlMTN6enRzcmd0ZUdHUjJpSTE4QURjTkhpTnhz?=
- =?utf-8?B?bVRKYkxzSlZMU25icEhIaTd0YUZIbDNCRytVckNNcUpiaUJVdHpXMUZMdTBS?=
- =?utf-8?B?TE5pYSt3ZGROSVhvcmF0YlMwMElVd0lYTk5GWUsxMnhoQm81WGFPTWFvaEx2?=
- =?utf-8?B?eTFtQ0wwUTVLNmFDN2d5blp1Ym50SW00K1kvZThtNHZZdnJUcDhxaS8zNi80?=
- =?utf-8?B?Wk9xQUdwaTA5MW83Q0pFbHdqNkQ1TkxhelRKNFlCemdUK3dUTENMcnJaNkZZ?=
- =?utf-8?B?ZVFiU0VZR2cvcWxZUHh2aW9Qa0YyMzR0bi9lcVMzMFluYTVZMmhjWVVrT3pP?=
- =?utf-8?B?VlBrbFhIVUNiNTd5L0F3Z1ZoeGloS3pmRmwwUkI5a2JtckxjM1lqZUg2cUtI?=
- =?utf-8?B?VmJPM0xYbUh1Qmx3dDdLMlVtbktCcjVnMkZnUUVaL0JKVi9US1FVbFRNU3dp?=
- =?utf-8?B?dUw1dFVreGlhcXdaQUkrR3NoRjF5Ympwem1veVhpeld3VG05cmoxZ0taeFha?=
- =?utf-8?B?ZkJMcm5DK2d3dkJhUkNhZ1JQOTZZV0FydzlHWjExV3BtSW1tbk96K0xvZGdF?=
- =?utf-8?B?WUc3alQwS3NmdnUzNW1HbVJqczRYNnpXQWRuQUxySElVdlFmZHhtbExmZlFQ?=
- =?utf-8?B?WjE3ZHVRYzlSd2k0Tjk5Q0pwYmhlejlQTkZmQ2o2cUF2d3V0S3FBbXN4bG8x?=
- =?utf-8?B?N0o2RVBzUmdjQTZHNjRFMzQ3dDQ2NDNjZWE1dnMzeWlhcm44NG5CL3hFOVJ2?=
- =?utf-8?B?RVJFQmpLSkk2ZUx0OCtjbnJnN0ltcjhLSmdjNWJMZldwSk0rMWR4MS9KQjgv?=
- =?utf-8?B?S0EvVHM1RmJGODJBcERoL041b0JUU2Q0emdyUzhyQ09RTXErVG5FYkthMG41?=
- =?utf-8?B?WEw0dVhXbkg4THBkbkFtTXduZUVnWm5sQmxwNVlYdjZseERtSnVHZ2FrdUNp?=
- =?utf-8?B?ckNvM0cwYnVwVlBlTGZML09ucnJJRG9KQmJKYmJLeHNBNWo5aDFwYnpHSnpy?=
- =?utf-8?B?MU0vSEE2V0pIUWpUTEZXdDdLSTYyNVA3dHp3OTFoZFdvR1V4cFFIWkR4Nnlr?=
- =?utf-8?B?WHA1cDR5b1BFNStpa09jVzY2QjE4VFJDYzd6MUExV0VDTWNMSjIyaEFLZVZo?=
- =?utf-8?B?UHM5cFZrZmxPZ29JVUxqbjNGUFNLRyt5VTNXcWR6MXdNL043K1NrZzRqUTNR?=
- =?utf-8?B?RDZHdXdnWmdPQ3F6VUcrZU9saHh2QisreHhnOE95TmwzeHdma2wzREg1SHBH?=
- =?utf-8?B?T0Y1VEZ1aEgrZlJkcklINjJ3QUw5SHJ5d0FzYlEzNmtiOFlGdzd0Nld2SzFn?=
- =?utf-8?B?TGZzazFBVDBYbDBQQ0M4Y1NJNGlQV1VGMENKRkFxaEN6SWZKOUZYa3Bod3pB?=
- =?utf-8?B?R3RwZm81a2tCeGd0U3czNC9VUHpQdnRKSGR1ZW95Q2FjbVBOOXo0blFwemYy?=
- =?utf-8?B?bW9hS0hqUlRiVVNRcDZQSlVCK2xXRHYrNG1kcGtERHFBektKSllHMXVYTzhB?=
- =?utf-8?B?R1EvNXZyS3A0K2dnUXJMR3Y3WjdYYjRiS2lXZ2tyeHNaMVdpaVNNN2RLc05z?=
- =?utf-8?B?TklUelZBSjF4QVlVVmJZRUp4cS93TDhPYjNabVVMeTFBbzkzT0JQbm44MEk5?=
- =?utf-8?B?NW5LNkpWQVpjdGVxSjZjRkN4eklaaFdGQkQ4bXVNUlRNN3JERHpMd0lESTdm?=
- =?utf-8?B?Ri90UUUveG01MHlLeWVHNVZkWEI4VTBqMmlIL28zVEFrMElMQ2xIOG1hdnVY?=
- =?utf-8?B?YkF4cXJ1ajZ5aWhrKzZEcVdYRmxSMWhLRllKVzIwYXhRKy80N2lMYjkxY2Fh?=
- =?utf-8?B?YThTVi85RjkrdWw1UEplcTMzQUc4aklKQTRiN3NUZUdNM0xsOUg0SHpqWlRo?=
- =?utf-8?B?eXd1d3VvdTNDWERyZFhPQ3ZzZSt2VHhlUzhPMENXa1JXejdqZXdDMWpYQjNW?=
- =?utf-8?B?UlRLQUMwTjVlN0VDczNpa0libFBqUyt4cW5ONFBybnFxWlJQT2l2SStIUjhM?=
- =?utf-8?B?OElubzE5eXdsemNGUHlGcXRuUzhsTGE4ZWJCTmswaXIvbW90Ky9TaU5MS0ZH?=
- =?utf-8?B?R1E9PQ==?=
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dc298d12-a793-41fa-3dc0-08de12a9e920
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2025 03:03:30.7105
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fayfnmCrJDDvQYaK3T3enRAeIlZjBHCzbHa/mpRFW3KrXAuyqKp7Dzq2wDmBJzAEclHIBRw3WW7qwi5vN37ENRPTM+gc9eRZe/SWCJ5/Vuo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR03MB7453
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_200336_467493_9C3CDEA2 
-X-CRM114-Status: GOOD (  15.62  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org, 
+ Jakub Kicinski <kuba@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+ Icenowy Zheng <uwu@icenowy.me>, Vivian Wang <wangruikang@iscas.ac.cn>, 
+ Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Eric Dumazet <edumazet@google.com>, Chen Wang <unicorn_wang@outlook.com>, 
+ Yao Zi <ziyao@disroot.org>, linux-stm32@st-md-mailman.stormreply.com, 
+ Longbin Li <looong.bin@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Paolo Abeni <pabeni@redhat.com>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
+ sophgo@lists.linux.dev, Han Gao <rabenda.cn@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+In-Reply-To: <20251024015524.291013-2-inochiama@gmail.com>
+References: <20251024015524.291013-1-inochiama@gmail.com>
+ <20251024015524.291013-2-inochiama@gmail.com>
+Message-Id: <176127621096.199631.1552825919177332173.robh@kernel.org>
+Subject: Re: [PATCH v3 1/3] dt-bindings: net: sophgo,sg2044-dwmac: add phy
+ mode restriction
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,58 +83,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
 
-On 10/23/2025 4:24 PM, Russell King (Oracle) wrote:
-> On Thu, Oct 23, 2025 at 09:01:20AM +0530, G Thomas, Rohan wrote:
->> Hi Russell,
->>
->> On 10/18/2025 7:26 AM, G Thomas, Rohan wrote:
->>> Hi Russell,
->>>
->>> On 10/17/2025 6:12 PM, Russell King (Oracle) wrote:
->>>> On Fri, Oct 17, 2025 at 02:11:19PM +0800, Rohan G Thomas via B4 Relay wrote:
->>>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->>>>> index 650d75b73e0b0ecd02d35dd5d6a8742d45188c47..dedaaef3208bfadc105961029f79d0d26c3289d8 100644
->>>>> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->>>>> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
->>>>> @@ -4089,18 +4089,11 @@ static int stmmac_release(struct net_device *dev)
->>>>>     static bool stmmac_vlan_insert(struct stmmac_priv *priv, struct sk_buff *skb,
->>>>>     			       struct stmmac_tx_queue *tx_q)
->>>>>     {
->>>>> -	u16 tag = 0x0, inner_tag = 0x0;
->>>>> -	u32 inner_type = 0x0;
->>>>> +	u16 tag = 0x0;
->>>>>     	struct dma_desc *p;
->>>>
->>>> #include <stdnetdevcodeformat.h> - Please maintain reverse christmas-
->>>> tree order.
->>>
->>> Thanks for pointing this out. I'll fix the declaration order in the next
->>> revision.
->>>
->>>>
->>>> I haven't yet referred to the databook, so there may be more comments
->>>> coming next week.
->>>>
->>>
->>> Sure! Will wait for your feedback before sending the next revision.
->>
->> Just checking in — have you had a chance to review the patch further? Or
->> would it be okay for me to go ahead and send the next revision for
->> review?
+On Fri, 24 Oct 2025 09:55:22 +0800, Inochi Amaoto wrote:
+> As the ethernet controller of SG2044 and SG2042 only supports
+> RGMII phy. Add phy-mode property to restrict the value.
 > 
-> I've checked my version of the databook, and the core version that has
-> VLINS/DVLAN and my databook doesn't cover this. So I'm afraid I can't
-> review further.
+> Also, since SG2042 has internal rx delay in its mac, make
+> only "rgmii-txid" and "rgmii-id" valid for phy-mode.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  .../bindings/net/sophgo,sg2044-dwmac.yaml       | 17 +++++++++++++++++
+>  1 file changed, 17 insertions(+)
 > 
 
-Thanks for checking. Understood.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Following public document appears to include the DWMAC QoS IP databook.
-Section 44 of the following user manual might be a useful reference.
-https://www.infineon.com/row/public/documents/10/44/infineon-aurix-tc3xx-part2-usermanual-en.pdf
+yamllint warnings/errors:
 
-Best Regards,
-Rohan
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml: allOf:1:then: 'anyOf' conditional failed, one must be fixed:
+	'phy-mode' is not one of ['$ref', 'additionalItems', 'additionalProperties', 'allOf', 'anyOf', 'const', 'contains', 'default', 'dependencies', 'dependentRequired', 'dependentSchemas', 'deprecated', 'description', 'else', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'items', 'if', 'minItems', 'minimum', 'maxItems', 'maximum', 'multipleOf', 'not', 'oneOf', 'pattern', 'patternProperties', 'properties', 'required', 'then', 'typeSize', 'unevaluatedProperties', 'uniqueItems']
+	'type' was expected
+	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251024015524.291013-2-inochiama@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
