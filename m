@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C80ACCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 14:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E838DCCF9E3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 14:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fj3ap4gb/dH/jt4Kw1Iocq3iQjPpRmaLvXvbN2t9MVY=; b=BPpJb1fll1sz+mS5c8vfy4kg3u
-	r/huUnXvD/1iDYRkFumyslwsrRSFQ8Pjjd9PWeJHBgEtQbFyJbNAtZr28iAQEnQqbsVYYBc9cmPdU
-	v5r76KdRNB90xfeGSjRyTjZcJghV7uJxRyUj6dySBC67sJLZNTv5M9Hou0hjOGNicegcCBQjDsS0R
-	clugDTeX6f6WLBroCYq/86bvrXS/IXGNp/+krcAxoawI8v5fZiSCkY5K0ZZsediUUHz7Hoz8Ip20n
-	xDuA9ScT0xpQW8+6J20OfBQq1FrLLM91IMyt5abQMp82i9TW1Wtbz+YJK2UKC1u6dFjCkBrNRoJpc
-	KOgqOsoQ==;
+	bh=a+NzFcJxTQ88UObe6RCiomPcPFxCGLX+axvPSVA7A04=; b=dII3eHChS6aQd20hzIJ9nt5Mvw
+	SSdAF3t3J9+jxOKCPjEqZAGOX0CjGCdnQsLf3gDRIIudQQIdpEClqrwgt+P7IJIlfx1ucIn71Opf2
+	VIcwIfjfoJ++8DMJcd59z4iY5n3GNoNjwYuDX76/xyYP0LXC+Mj/+xZghWuoEPRKgVQ9ivjBosUfH
+	nn7PkVwPI7zmMpjBkcwamWDifjteXneICjcHtRgt9lN+w3CECtTxY7ewjKlKgHOhpsz9gZXuMNhB+
+	4OMQUJlvGkZbc5PosvwswfNq/VhdKhffSxRihrjK9GYVx9ujaTbLXF1vkIZUTXwRJCoTDrxIGGHZq
+	Vi5QGI9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIqc-00000009fQp-05La;
-	Fri, 24 Oct 2025 14:32:54 +0000
+	id 1vCIrK-00000009fY6-2A1A;
+	Fri, 24 Oct 2025 14:33:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCIqY-00000009fPs-3oJf
+	id 1vCIrH-00000009fXK-2vdO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 14:32:52 +0000
+	Fri, 24 Oct 2025 14:33:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDD53175A;
-	Fri, 24 Oct 2025 07:32:41 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66B1C1516;
+	Fri, 24 Oct 2025 07:33:26 -0700 (PDT)
 Received: from [10.44.160.74] (e126510-lin.lund.arm.com [10.44.160.74])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3F9233F66E;
-	Fri, 24 Oct 2025 07:32:42 -0700 (PDT)
-Message-ID: <28bf77c0-3aa9-4c41-aa2b-368321355dbb@arm.com>
-Date: Fri, 24 Oct 2025 16:32:39 +0200
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D7FEF3F66E;
+	Fri, 24 Oct 2025 07:33:25 -0700 (PDT)
+Message-ID: <f458fbed-266b-48a5-a6e0-745dc2893a34@arm.com>
+Date: Fri, 24 Oct 2025 16:33:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/13] mm: introduce generic lazy_mmu helpers
+Subject: Re: [PATCH v3 07/13] mm: enable lazy_mmu sections to nest
 To: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
  Andreas Larsson <andreas@gaisler.com>,
@@ -60,18 +60,18 @@ Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
  linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
  sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
 References: <20251015082727.2395128-1-kevin.brodsky@arm.com>
- <20251015082727.2395128-7-kevin.brodsky@arm.com>
- <73b274b7-f419-4e2e-8620-d557bac30dc2@redhat.com>
- <390e41ae-4b66-40c1-935f-7a1794ba0b71@arm.com>
- <f8d22ae0-4e36-4537-903f-28164c850fdb@redhat.com>
+ <20251015082727.2395128-8-kevin.brodsky@arm.com>
+ <2073294c-8003-451a-93e0-9aab81de4d22@redhat.com>
+ <7a4e136b-66a5-4244-ab07-f0bcc3a26a83@arm.com>
+ <af4414b6-617c-4dc8-bddc-3ea00d1f6f3b@redhat.com>
 Content-Language: en-GB
 From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <f8d22ae0-4e36-4537-903f-28164c850fdb@redhat.com>
+In-Reply-To: <af4414b6-617c-4dc8-bddc-3ea00d1f6f3b@redhat.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_073251_043407_DD143AB5 
-X-CRM114-Status: GOOD (  32.52  )
+X-CRM114-CacheID: sfid-20251024_073335_852920_2DDEA085 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,129 +86,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/10/2025 15:27, David Hildenbrand wrote:
-> On 24.10.25 14:13, Kevin Brodsky wrote:
->> On 23/10/2025 21:52, David Hildenbrand wrote:
->>> On 15.10.25 10:27, Kevin Brodsky wrote:
->>>> [...]
->>>>
->>>> * madvise_*_pte_range() call arch_leave() in multiple paths, some
->>>>     followed by an immediate exit/rescheduling and some followed by a
->>>>     conditional exit. These functions assume that they are called
->>>>     with lazy MMU disabled and we cannot simply use pause()/resume()
->>>>     to address that. This patch leaves the situation unchanged by
->>>>     calling enable()/disable() in all cases.
+On 24/10/2025 15:23, David Hildenbrand wrote:
+>>>> + * currently enabled.
+>>>>     */
+>>>>    #ifdef CONFIG_ARCH_LAZY_MMU
+>>>>    static inline void lazy_mmu_mode_enable(void)
+>>>>    {
+>>>> -    arch_enter_lazy_mmu_mode();
+>>>> +    struct lazy_mmu_state *state = &current->lazy_mmu_state;
+>>>> +
+>>>> +    VM_BUG_ON(state->count == U8_MAX);
 >>>
->>> I'm confused, the function simply does
->>>
->>> (a) enables lazy mmu
->>> (b) does something on the page table
->>> (c) disables lazy mmu
->>> (d) does something expensive (split folio -> take sleepable locks,
->>>      flushes tlb)
->>> (e) go to (a)
+>>> No VM_BUG_ON() please.
 >>
->> That step is conditional: we exit right away if pte_offset_map_lock()
->> fails. The fundamental issue is that pause() must always be matched with
->> resume(), but as those functions look today there is no situation where
->> a pause() would always be matched with a resume().
+>> I did wonder if this would be acceptable!
 >
-> We have matches enable/disable, so my question is rather "why" you are
-> even thinking about using pause/resume?
+> Use VM_WARN_ON_ONCE() and let early testing find any such issues.
 >
-> What would be the benefit of that? If there is no benefit then just
-> drop this from the patch description as it's more confusing than just
-> ... doing what the existing code does :)
+> VM_* is active in debug kernels only either way! :)
 
-Ah sorry I misunderstood, I guess you originally meant: why would we use
-pause()/resume()?
-
-The issue is the one I mentioned in the commit message: using
-enable()/disable(), we assume that the functions are called with lazy
-MMU mode is disabled. Consider:
-
-  lazy_mmu_mode_enable()
-  madvise_cold_or_pageout_pte_range():
-    lazy_mmu_mode_enable()
-    ...
-    if (need_resched()) {
-      lazy_mmu_mode_disable()
-      cond_resched() // lazy MMU still enabled
-    }
-
-This will explode on architectures that do not allow sleeping while in
-lazy MMU mode. I'm not saying this is an actual problem - I don't see
-why those functions would be called with lazy MMU mode enabled. But it
-does go against the notion that nesting works everywhere.
+That was my intention - I don't think the checking overhead is justified
+in production.
 
 >
->>>
->>> Why would we use enable/disable instead?
->>>
->>>>
->>>> * x86/Xen is currently the only case where explicit handling is
->>>>     required for lazy MMU when context-switching. This is purely an
->>>>     implementation detail and using the generic lazy_mmu_mode_*
->>>>     functions would cause trouble when nesting support is introduced,
->>>>     because the generic functions must be called from the current
->>>> task.
->>>>     For that reason we still use arch_leave() and arch_enter() there.
->>>
->>> How does this interact with patch #11?
->>
->> It is a requirement for patch 11, in fact. If we called disable() when
->> switching out a task, then lazy_mmu_state.enabled would (most likely) be
->> false when scheduling it again.
->>
->> By calling the arch_* helpers when context-switching, we ensure
->> lazy_mmu_state remains unchanged. This is consistent with what happens
->> on all other architectures (which don't do anything about lazy_mmu when
->> context-switching). lazy_mmu_state is the lazy MMU status *when the task
->> is scheduled*, and should be preserved on a context-switch.
+> If you'd want to handle this in production kernels you'd need
 >
-> Okay, thanks for clarifying. That whole XEN stuff here is rather horrible.
+> if (WARN_ON_ONCE()) {
+>     /* Try to recover */
+> }
+>
+> And that seems unnecessary/overly-complicated for something that
+> should never happen, and if it happens, can be found early during testing.
 
-Can't say I disagree... I tried to simplify it further, but the
-Xen-specific "LAZY_CPU" mode makes it just too difficult.
+Got it. Then I guess I'll go for a VM_WARN_ON_ONCE() (because indeed
+once the overflow/underflow occurs it'll go wrong on every
+enable/disable pair).
 
 >
 >>
->>>
->>>>
->>>> Note: x86 calls arch_flush_lazy_mmu_mode() unconditionally in a few
->>>> places, but only defines it if PARAVIRT_XXL is selected, and we are
->>>> removing the fallback in <linux/pgtable.h>. Add a new fallback
->>>> definition to <asm/pgtable.h> to keep things building.
->>>
->>> I can see a call in __kernel_map_pages() and
->>> arch_kmap_local_post_map()/arch_kmap_local_post_unmap().
->>>
->>> I guess that is ... harmless/irrelevant in the context of this series?
+>> What should we do in case of underflow/overflow then? Saturate or just
+>> let it wrap around? If an overflow occurs we're probably in some
+>> infinite recursion and we'll crash anyway, but an underflow is likely
+>> due to a double disable() and saturating would probably allow to
+>> recover.
 >>
->> It should be. arch_flush_lazy_mmu_mode() was only used by x86 before
->> this series; we're adding new calls to it from the generic layer, but
->> existing x86 calls shouldn't be affected.
+>>>
+>>>> +    /* enable() must not be called while paused */
+>>>> +    VM_WARN_ON(state->count > 0 && !state->enabled);
+>>>> +
+>>>> +    if (state->count == 0) {
+>>>> +        arch_enter_lazy_mmu_mode();
+>>>> +        state->enabled = true;
+>>>> +    }
+>>>> +    ++state->count;
+>>>
+>>> Can do
+>>>
+>>> if (state->count++ == 0) {
+>>
+>> My idea here was to have exactly the reverse order between enable() and
+>> disable(), so that arch_enter() is called before lazy_mmu_state is
+>> updated, and arch_leave() afterwards. arch_* probably shouldn't rely on
+>> this (or care), but I liked the symmetry.
 >
-> Okay, I'd like to understand the rules when arch_flush_lazy_mmu_mode()
-> would actually be required in such arch code, but that's outside of
-> the scope of your patch series. 
+> I see, but really the arch callback should never have to care about that
+> value -- unless something is messed up :)
 
-Not too sure either. A little archaeology shows that the calls were
-added by [1][2]. Chances are [1] is no longer relevant since lazy_mmu
-isn't directly used in copy_page_range(). 
-
-I think [2] is still required - __kernel_map_pages() can be called while
-lazy MMU is already enabled, and AIUI the mapping changes should take
-effect by the time __kernel_map_pages() returns. On arm64 we shouldn't
-have this problem by virtue of __kernel_map_pages() using lazy_mmu
-itself, meaning that the nested call to disable() will trigger a flush.
-(This case is in fact the original motivation for supporting nesting.)
+Fair enough, then I can fold those increments/decrements ;)
 
 - Kevin
-
-[1]
-https://lore.kernel.org/all/1319573279-13867-2-git-send-email-konrad.wilk@oracle.com/
-[2]
-https://lore.kernel.org/all/1365703192-2089-1-git-send-email-boris.ostrovsky@oracle.com/
-
 
