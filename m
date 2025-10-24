@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BDA7CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72F48CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 07:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7yB2KodaRhciphXuq2O+NOyS/E2Vfs6dFfv6IdrrMO8=; b=Eo+sbeSoj6Emc16tMxl9rF8k17
-	WcWcrdve5J80Zun4d7Nzx/KMcXNT2CDh1vR780CLRt9bGMhbmS0qRXj7WkBCKtqwZViHMvwynaMOh
-	VqAIzl/IOPLJ1n6CRGCA2b4TZUaE1KSObRMDurOpRpncZfsYAlfqVMS+tOHwig5robHBWt+JDdrJH
-	YcwLZeRYKlqCfkmT08PUoZTUwqP1z5Q/fFVzAr6rpljFsPTu5CtZuhn4057zOg+4DTPw5hkd17H5q
-	biOdClH2zKrdOvsZ7biB65b7AlMizIkxATxFX86OB7wGjQx2go3PQa11wOpoIKkM3RptbAgm0s2MC
-	+Yldsqpw==;
+	bh=PzbSQtw+riqKdYRhmIJe1RVzfTmj8edMFUK3NGuCHeg=; b=QtvutH2ahIIBXF0J9zxhFUrdng
+	LIgZU6PhoaSIwNVaITK6INULD9BhQyZ4n7tYhDjrZDAAUMPvFvVF0nDU5XKvpH5Jz5Lz127M+EIJg
+	N0xcneLdPXBcsHu1DGumZ2bBAOuAfnUJXwo8w76m4lZgocdO4xE9Rap/xDg0JA4iW50GVi8X0iHp7
+	shENCseQNIZaa6FhNFxPB5u6Y/EcgbLhKgKEa4hjuey3tbFPae8Bl+8wirgJEvHCr+BcOCBtQXUMu
+	gAq2fRLCuqZcbTQUfYDJ9P34QwGxwWaEmaoftYQ5quef7tVHHyvrFufJqYPp71ahzfZRHeMu/6oKn
+	85W90N1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCByl-00000008RGV-3gsm;
-	Fri, 24 Oct 2025 07:12:51 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vCC03-00000008RXv-10TF;
+	Fri, 24 Oct 2025 07:14:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCByi-00000008REo-09uO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 07:12:49 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vCByY-0005JQ-SP; Fri, 24 Oct 2025 09:12:38 +0200
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vCByY-005BdX-1J;
-	Fri, 24 Oct 2025 09:12:38 +0200
-Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 1041448E766;
-	Fri, 24 Oct 2025 07:12:38 +0000 (UTC)
-Date: Fri, 24 Oct 2025 09:12:36 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: carlos.song@nxp.com
-Cc: frank.li@nxp.com, broonie@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org
-Subject: Re: [PATCH] spi: imx: add 16/32 bits per word support for target mode
-Message-ID: <20251024-berserk-stirring-copperhead-3783be-mkl@pengutronix.de>
-References: <20251024054952.408393-1-carlos.song@nxp.com>
+	id 1vCC01-00000008RWx-1PiJ;
+	Fri, 24 Oct 2025 07:14:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DEC92404A3;
+	Fri, 24 Oct 2025 07:14:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30551C4CEF1;
+	Fri, 24 Oct 2025 07:14:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761290048;
+	bh=tixsbOhPpx+6hLtcafF4AhfrtkXskRGuW6voP6ka0TU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ex1t4OPx1GNhOGgxZG9mfTnTw6vg7QdtA/sCWg+iWh3jsuMYZI9yMUgqkPiIElcTp
+	 qb6WczdXr4o3U9dAaNA5iG2HH1NfR16Ork7l3Il5Zta32w7HUou1h+s5ROTuFB1zAZ
+	 TgZ8sYNWK60atK1vpk1vYQhxqwmgv/YHigW3PEYOBkNTMZzHD4preROzq6TB1w+QvX
+	 taPyrRNHrs7o4UKI8Z/TqDPTTtlRHvf30sttXdLnsT1UVoPLFqTKXHW0V/5AKBqakB
+	 777b+6NHPduvK/0TGOPWMTStTjCfsgOTZ2k4+VHN/5hPGL0VDcmWxRscQVMy4rcRtn
+	 /zsWNUNhuc6Gg==
+Date: Fri, 24 Oct 2025 09:14:05 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Elaine Zhang <zhangqing@rock-chips.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, sugar.zhang@rock-chips.com, 
+	heiko@sntech.de, robh@kernel.org, krzysztof.kozlowski+dt@linaro.org, 
+	conor+dt@kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	huangtao@rock-chips.com, finley.xiao@rock-chips.com
+Subject: Re: [PATCH v4 6/7] dt-bindings: clock: rockchip: Add RK3506 clock
+ and reset unit
+Message-ID: <20251024-wonderful-banana-bumblebee-273c8f@kuoka>
+References: <20251021065232.2201500-1-zhangqing@rock-chips.com>
+ <20251021065232.2201500-7-zhangqing@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="r54bjczvnfs4avxi"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251024054952.408393-1-carlos.song@nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20251021065232.2201500-7-zhangqing@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_001248_096270_0B5EF187 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20251024_001409_392974_04989C43 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,81 +75,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Oct 21, 2025 at 02:52:31PM +0800, Elaine Zhang wrote:
+> diff --git a/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml b/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
+> new file mode 100644
+> index 000000000000..43e192d9b2af
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/rockchip,rk3506-cru.yaml
+> @@ -0,0 +1,45 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/rockchip,rk3506-cru.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip RK3506 Clock and Reset Unit (CRU)
+> +
+> +maintainers:
+> +  - Finley Xiao <finley.xiao@rock-chips.com>
+> +  - Heiko Stuebner <heiko@sntech.de>
+> +
+> +description: |
 
---r54bjczvnfs4avxi
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] spi: imx: add 16/32 bits per word support for target mode
-MIME-Version: 1.0
+Do not need '|' unless you need to preserve formatting.
 
-On 24.10.2025 13:49:52, carlos.song@nxp.com wrote:
-> From: Clark Wang <xiaoning.wang@nxp.com>
->=20
-> Now for ECSPI only support 8 bits per word in target mode.
-> Enable 16/32 bits per word support for spi-imx target mode.
->=20
-> Signed-off-by: Carlos Song <carlos.song@nxp.com>
-> Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
-> ---
->  drivers/spi/spi-imx.c | 12 ++++++++++--
->  1 file changed, 10 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-> index 155ddeb8fcd4..4ffee6c5d5c4 100644
-> --- a/drivers/spi/spi-imx.c
-> +++ b/drivers/spi/spi-imx.c
-> @@ -424,8 +424,12 @@ static void spi_imx_buf_tx_swap(struct spi_imx_data =
-*spi_imx)
-> =20
->  static void mx53_ecspi_rx_target(struct spi_imx_data *spi_imx)
->  {
-> -	u32 val =3D ioread32be(spi_imx->base + MXC_CSPIRXDATA);
-> +	u32 val =3D readl(spi_imx->base + MXC_CSPIRXDATA);
-> =20
-> +	if (spi_imx->bits_per_word <=3D 8)
-> +		val =3D be32_to_cpu(val);
-> +	else if (spi_imx->bits_per_word <=3D 16)
-> +		val =3D (val << 16) | (val >> 16);
+> +  The RK3506 CRU generates the clock and also implements reset for SoC
+> +  peripherals.
+> +
 
-You can use swahw32() here and below.
+...
 
->  	if (spi_imx->rx_buf) {
->  		int n_bytes =3D spi_imx->target_burst % sizeof(val);
-> =20
-> @@ -453,12 +457,16 @@ static void mx53_ecspi_tx_target(struct spi_imx_dat=
-a *spi_imx)
->  	if (spi_imx->tx_buf) {
->  		memcpy(((u8 *)&val) + sizeof(val) - n_bytes,
->  		       spi_imx->tx_buf, n_bytes);
-> +		if (spi_imx->bits_per_word <=3D 8)
-> +			val =3D cpu_to_be32(val);
-> +		else if (spi_imx->bits_per_word <=3D 16)
-> +			val =3D (val << 16) | (val >> 16);
+> diff --git a/include/dt-bindings/clock/rockchip,rk3506-cru.h b/include/dt-bindings/clock/rockchip,rk3506-cru.h
+> new file mode 100644
+> index 000000000000..f629b6fa75c3
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/rockchip,rk3506-cru.h
+> @@ -0,0 +1,285 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright (c) 2023-2025 Rockchip Electronics Co., Ltd.
+> + * Author: Finley Xiao <finley.xiao@rock-chips.com>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLK_ROCKCHIP_RK3506_H
+> +#define _DT_BINDINGS_CLK_ROCKCHIP_RK3506_H
+> +
+> +/* cru plls */
+> +#define PLL_GPLL			1
 
-regards,
-Marc
+Other binding starts from 0, so be consistent.
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+> +#define PLL_V0PLL			2
+> +#define PLL_V1PLL			3
+> +
+> +/* cru-clocks indices */
 
---r54bjczvnfs4avxi
-Content-Type: application/pgp-signature; name="signature.asc"
+You should not have holes in indices. These are abstract numbers, not
+hardware values.
 
------BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmj7JuAACgkQDHRl3/mQ
-kZywGAf9EpnxKyFm5zj7bBWinIhgEplzFTJ/FDZo4dWMpa7KbrErAahd0sf0RQrF
-BsYkuTMSHcJXJM1K3CEjMEE2ncXu88IRBysNvUD4Y0upyBYB4i8Agrlskcj51FKa
-XuCFiyQqrAcHMgCBb0BrmL2t0Rkgu12TsUXWrqkANVSGVU5040XYwGVwNdlWOITX
-9Rt9t5BP6Z8NPbdBt/1El4A/gspDIwmVzBVHR5TWFEwvSgtr8aU6v4AGkK0NoTtN
-3kIYfHPkcA+CuFoeDdFi3lmWBu2XgV8+hEulBub/q5cKq0NBP9MvTzx1JXJ0i3MI
-AN/MSFZDKRiNhAI0gzPa6bu/B49fxA==
-=hn10
------END PGP SIGNATURE-----
+> +#define ARMCLK				15
 
---r54bjczvnfs4avxi--
+...
+
+
+> +#ifndef _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
+> +#define _DT_BINDINGS_REST_ROCKCHIP_RK3506_H
+> +
+> +/* CRU-->SOFTRST_CON00 */
+> +#define SRST_NCOREPORESET0_AC		0
+
+Here ^^^ starts with 0, not 1.
+
+Best regards,
+Krzysztof
+
 
