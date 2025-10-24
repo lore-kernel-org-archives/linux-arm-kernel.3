@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EBC7CCD1BF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 16:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B587CCD1BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 16:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kCSFoTED+bN9czctrBnViFjaUxjZI+PzjY/BcjiPyhU=; b=fh687mUOO+uGCA6JIYYZ8f0yEd
-	/361kUY9Sq47qDGb83Zg2G8JzSMY8+c3ICDW44uoH3VIKyvGSp6tIJawPRvwDsuJvB+dfeKEJ4t5h
-	7tLG8NeTM3nf/VnJrfPvcSZJxB2UV2Ps5TuNTMkF2Xlvx7GBbN00bolo83AhqLDXRigr/9YREiL9n
-	VTDcdrZtmL2DKGsKA9JXLShpTbfGo42D0XeUEp0a+r9SPQfaLaZ3AoTsT2rSJHEgJlvibVEaLyCrx
-	nWImBPRYVpg2lDPt/Q7lr9vf2MYpl5BqUpcGjZ6Q4VvNslgXI4xyPvLWfKEnc3HP+Krw/7JWGpGFD
-	ydyhAMAw==;
+	bh=sMNMqi+dQwgEga2JU8+eIZcHWe2tCsXFoy2cvWMNiGQ=; b=dfNBWE6OXhrdesgh6vc8S9+xyX
+	JtfWlTthTvUg7gjpN5VfbhNFa5rEy+/03OoY7vDdZ6unyzmkmfaTSxGTcyQGVFcKEfAITjLg8NK4L
+	qLyiX87op95pith9mCKBEP3niohkUrmFYth8JISwWp/Db5iaAOEAu281cbzv0qe7k4wWzLGahZhV+
+	cpcUftw8yZkrEhXODvQvf61i9QKtNqtSIptuJefN9RcSbdsQ+X8B95KGzaQFZXY8Bsk7Z2ZlA1wAu
+	I19kGSpXGYBa/XcwgtBZXZqaUbnQ0iGB3rQBi3NbgcNkpU7ihSz8DvQtNQgvZYA1GgYOcN1EVVCel
+	hBNy7BRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCL6U-0000000A2uz-24WQ;
-	Fri, 24 Oct 2025 16:57:26 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1vCL6k-0000000A30x-0H8q;
+	Fri, 24 Oct 2025 16:57:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCL6R-0000000A2tQ-0l3N
+	id 1vCL6j-0000000A308-0ZpV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 16:57:25 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-33bcb779733so2075951a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 09:57:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1761325042; x=1761929842; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kCSFoTED+bN9czctrBnViFjaUxjZI+PzjY/BcjiPyhU=;
-        b=qFOeZvctdOKcD2AAWySIZhv7DJL8i//PoRxtG0hYHDe37gRLGWMwquh7+DN6coIIrq
-         VgSE9+Hf+0bz0lPRzLIbiiNqmSQ9dzcH8aOTWrn1/k3DzZALggrwCcd4/bttyWVC2Es+
-         BX0O5a22R/m5xMSAtGZ/qYCRSeax5N1ycX6xEmhIRO51veoKHPfaOZ0R4tXNfVZ51auX
-         f+hOyFV04ARKklgwG1l5DIGWVodCkxe0fDlHWCw8+xvJ8slZMd2is6TkuOzV3wWnc40j
-         DVeUDfILvoR/dw7S5si7xEGPJSnW3bSIcmDfmlvElDBr9sBYi+fhnClMPsvoKK31KlpT
-         +IiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761325042; x=1761929842;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kCSFoTED+bN9czctrBnViFjaUxjZI+PzjY/BcjiPyhU=;
-        b=tejrAJz0OSKf/ZFKZPJRaQoTod1+/XxVW9tPrzYMfdijYQRpan3au7QytnqOovWt/E
-         S8tdf3fURQDZycpjVzpkG5rV4+Ryo9DMukwr9Omz03ZKicfa4P8zJCQ9UimHLrqVQToW
-         H7mvB4hJTauxDGzOEjjB488IzdzCfl7/Cz1mzo98O79nmVo3ogdoeLwYdc6J6QvheKUk
-         q0Hkb1Xq649QXfgZYXpebqx/HXLiAoL3T4Xs+QFnx2dQUgjEp/oqQEr7BIVZ3URZxK7r
-         XX0Nxv3DFBNBVDXY0mkb4hSk8vfz79jRpk27erGYGLOxBR0v0vAuPHFp7k2dnAc50zLa
-         Gx/g==
-X-Forwarded-Encrypted: i=1; AJvYcCXgn0fu6U3MZrcjZTQ7OeorkPGrRmoDIUuojJCTOC0ejCgTcyEiQvtFOVJ/bCOamYXnaPcWQ908DaXUe643WOF/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzd8wbUzgDZvcvUJ6cxvNa6d4jzLnz3HhbTjHUj0Xxtx6iTv4wM
-	j/2shL1kBXB2Nc7g4RNX8R2FzHOMJXIq8y2fy6lgxOUzkOVligEW+EJxFO/jWhr7LEsPCussXVM
-	MeglsVQ==
-X-Google-Smtp-Source: AGHT+IHXmSeD3kNK6POSE1hGR7Jvio0RnirzUH7WSrLaKZ09lPaFZJIUb09S/aBT/hnx0ZxmJITFzdMKVRo=
-X-Received: from pjnu4.prod.google.com ([2002:a17:90a:8904:b0:339:dc19:ae5d])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:48c8:b0:33b:ba55:f5dd
- with SMTP id 98e67ed59e1d1-33bcf93ab88mr32766320a91.37.1761325041555; Fri, 24
- Oct 2025 09:57:21 -0700 (PDT)
-Date: Fri, 24 Oct 2025 09:57:20 -0700
-In-Reply-To: <aPtOtzGLigbY0Vqw@yzhao56-desk.sh.intel.com>
-Mime-Version: 1.0
-References: <20251017003244.186495-1-seanjc@google.com> <20251017003244.186495-25-seanjc@google.com>
- <aPtOtzGLigbY0Vqw@yzhao56-desk.sh.intel.com>
-Message-ID: <aPuv8F8iDp3SLb9q@google.com>
-Subject: Re: [PATCH v3 24/25] KVM: TDX: Guard VM state transitions with "all"
- the locks
-From: Sean Christopherson <seanjc@google.com>
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	"Kirill A. Shutemov" <kas@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	x86@kernel.org, linux-coco@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Ira Weiny <ira.weiny@intel.com>, Kai Huang <kai.huang@intel.com>, 
-	Michael Roth <michael.roth@amd.com>, Vishal Annapurve <vannapurve@google.com>, 
-	Rick Edgecombe <rick.p.edgecombe@intel.com>, Ackerley Tng <ackerleytng@google.com>, 
-	Binbin Wu <binbin.wu@linux.intel.com>
-Content-Type: text/plain; charset="us-ascii"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_095723_217589_4BA1BCEA 
-X-CRM114-Status: GOOD (  23.14  )
+	Fri, 24 Oct 2025 16:57:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B16A6049F;
+	Fri, 24 Oct 2025 16:57:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 356DAC4CEF7;
+	Fri, 24 Oct 2025 16:57:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761325060;
+	bh=DJwgWQV6LS0y1HCZdTukbp7eZ5b2oG/b60BU6bAySRA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bDeNgxpxlfWKCDa5lCi+7eDV6CLbBTSTQ0BI8fCL4g3akCIqJee7S0pfUG+TKpkb1
+	 EO1iPBo5W+rlWfRyhW4bdyKJUH6YS3FvDWnPCzgrQy9UjzouQzSTyp4RgzV4+IKpeu
+	 oXj119hem00USE8NLX6A+mqmmg8RhiW5+J/VzwiU7TtI6O4IiYctQBbvj4WLqJjvHI
+	 fhfbIO8fESHwCfSxtXXu6p3rJrNKhhlQBgLSAVx9BzhTJHJj2x//XVoMOzy37z3V7O
+	 mzk3OzVCJT7mkghK3wt4fjeMC8Y9SeOkvcDZt1UKOEBcav6XVkq6AngqfHHKz0VKRx
+	 +LHUfZaSgpkYw==
+Date: Fri, 24 Oct 2025 17:57:34 +0100
+From: Simon Horman <horms@kernel.org>
+To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Matthew Gerlach <matthew.gerlach@altera.com>, kernel@pengutronix.de,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Austin Zhang <austin.zhang@intel.com>,
+	Adrian Ng Ho Yin <adrian.ho.yin.ng@intel.com>
+Subject: Re: [PATCH v5 04/10] arm64: dts: socfpga: agilex5: smmu enablement
+Message-ID: <aPuv_q3beG7kEj9N@horms.kernel.org>
+References: <20251024-v6-12-topic-socfpga-agilex5-v5-0-4c4a51159eeb@pengutronix.de>
+ <20251024-v6-12-topic-socfpga-agilex5-v5-4-4c4a51159eeb@pengutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251024-v6-12-topic-socfpga-agilex5-v5-4-4c4a51159eeb@pengutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,70 +85,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 24, 2025, Yan Zhao wrote:
-> On Thu, Oct 16, 2025 at 05:32:42PM -0700, Sean Christopherson wrote:
-> > Acquire kvm->lock, kvm->slots_lock, and all vcpu->mutex locks when
-> > servicing ioctls that (a) transition the TD to a new state, i.e. when
-> > doing INIT or FINALIZE or (b) are only valid if the TD is in a specific
-> > state, i.e. when initializing a vCPU or memory region.  Acquiring "all"
-> > the locks fixes several KVM_BUG_ON() situations where a SEAMCALL can fail
-> > due to racing actions, e.g. if tdh_vp_create() contends with either
-> > tdh_mr_extend() or tdh_mr_finalize().
-> > 
-> > For all intents and purposes, the paths in question are fully serialized,
-> > i.e. there's no reason to try and allow anything remotely interesting to
-> > happen.  Smack 'em with a big hammer instead of trying to be "nice".
-> > 
-> > Acquire kvm->lock to prevent VM-wide things from happening, slots_lock to
-> > prevent kvm_mmu_zap_all_fast(), and _all_ vCPU mutexes to prevent vCPUs
-> slots_lock to prevent kvm_mmu_zap_memslot()?
-> kvm_mmu_zap_all_fast() does not operate on the mirror root.
-
-Oh, right.
-
-> We may have missed a zap in the guest_memfd punch hole path:
+On Fri, Oct 24, 2025 at 01:49:56PM +0200, Steffen Trumtrar wrote:
+> From: Austin Zhang <austin.zhang@intel.com>
 > 
-> The SEAMCALLs tdh_mem_range_block(), tdh_mem_track() tdh_mem_page_remove()
-> in the guest_memfd punch hole path are only protected by the filemap invaliate
-> lock and mmu_lock, so they could contend with v1 version of tdh_vp_init().
->
-> (I'm writing a selftest to verify this, haven't been able to reproduce
-> tdh_vp_init(v1) returning BUSY yet. However, this race condition should be
-> theoretically possible.)
+> Add iommu property for peripherals connected to TBU.
 > 
-> Resources              SHARED  users              EXCLUSIVE users
-> ------------------------------------------------------------------------
-> (1) TDR                tdh_mng_rdwr               tdh_mng_create
->                        tdh_vp_create              tdh_mng_add_cx
->                        tdh_vp_addcx               tdh_mng_init
->                        tdh_vp_init(v0)            tdh_mng_vpflushdone
->                        tdh_vp_enter               tdh_mng_key_config
->                        tdh_vp_flush               tdh_mng_key_freeid
->                        tdh_vp_rd_wr               tdh_mr_extend
->                        tdh_mem_sept_add           tdh_mr_finalize
->                        tdh_mem_sept_remove        tdh_vp_init(v1)
->                        tdh_mem_page_aug           tdh_mem_page_add
->                        tdh_mem_page_remove
->                        tdh_mem_range_block
->                        tdh_mem_track
->                        tdh_mem_range_unblock
->                        tdh_phymem_page_reclaim
-> 
-> Do you think we can acquire the mmu_lock for cmd KVM_TDX_INIT_VCPU?
+> Signed-off-by: Adrian Ng Ho Yin <adrian.ho.yin.ng@intel.com>
+> Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
 
-Ugh, I'd rather not?  Refresh me, what's the story with "v1"?  Are we now on v2?
-If this is effectively limited to deprecated TDX modules, my vote would be to
-ignore the flaw and avoid even more complexity in KVM.
+As Austin Zhang is the author (as listed in the from line),
+their Signed-off-by is needed.
 
-> > @@ -3155,12 +3198,13 @@ int tdx_vcpu_unlocked_ioctl(struct kvm_vcpu *vcpu, void __user *argp)
-> >  	if (r)
-> >  		return r;
-> >  
-> > +	CLASS(tdx_vm_state_guard, guard)(kvm);
-> Should we move the guard to inside each cmd? Then there's no need to acquire the
-> locks in the default cases. 
-
-No, I don't think it's a good tradeoff.  We'd also need to move vcpu_{load,put}()
-into the cmd helpers, and theoretically slowing down a bad ioctl invocation due
-to taking extra locks is a complete non-issue.
+...
 
