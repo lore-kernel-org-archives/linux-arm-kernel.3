@@ -4,98 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37297CCD1A5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 09:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3951CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 09:28:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NY5PIARKbpIdf6CoFhX2UEn3hHI/O9Hdjy4EAS5mHE4=; b=eg9ci80PiJzLh5k1sFPKiYqLay
-	VFnfDH3Ejx3AmJE02BNPHDa1lmmR/JdceIo3UNaFwrmqDmYMPtGcJhdbE+5J7OWiiXpxVwQbMgbki
-	VMGy0oiRzLvgwPWApO/aWL/qY2xY8SfD9jJxWrX6QVQKNXz0X/UEkGiXyZZ1qiSPN6w3RlQ49Yn1y
-	k7ty+1ac8sDPnqf6g7KSnZIXkvOtfYNwVeUIf9Wa1zi92ZBqJusRjEXlLILWKfN1T39rgcxCw4vPe
-	lDZbp12Px2Kh/q3LIaFNdert2IID+CE80JdLe2DHrkosxrkl0Q4UKkRIAsUrabblJogG0ePQDrMI/
-	5shqC/sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QQFQRJvEiH06gWesK5n+Kt8/iZJeKmlgrzvqirZz5Dc=; b=SQkLVYLx9obEeQd0Lm4OYOJuCj
+	O0Rfg/JPWjwwlZRfuJSv44i/Pi8iIkcVRvLbNQofcwo0ZKL0tyKWJnG+TSpgtcoAtW255hoqdGUUo
+	0gu6jPeeoyJlLdQPA5hMx/gIhXtGNK/wY3PI78GFKGD3mGsOvocDsZ7E0nPhnb5IVNIyDAkBIqzP8
+	WCfW5eQhKJEk3KVvvC/LDG88qKzs+HAruylyyC3wUAcbV6NKYf2GTn9OsJokphyzMzqAF0i6+8OqU
+	xwQMKpGIMioHBwt+MC1OwV2OLSP9j2mmkec7pPoPKgUoHBhtCakP9bm1WFnfPoqX9Qrq4EAEsKbnM
+	S3GwNW1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDzI-00000008rnB-0ews;
-	Fri, 24 Oct 2025 09:21:32 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vCE5U-00000008sT0-2dGb;
+	Fri, 24 Oct 2025 09:27:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCDzF-00000008rmm-1Py0
+	id 1vCE5S-00000008sSC-2Xes
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 09:21:30 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47112edf9f7so10479065e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 24 Oct 2025 02:21:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1761297687; x=1761902487; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NY5PIARKbpIdf6CoFhX2UEn3hHI/O9Hdjy4EAS5mHE4=;
-        b=Nx41I1UOr5r/gOsXEfeax53xhB8bX/G566Mypjz78SGhOZocTcBYHe0OUToyWkx2dU
-         /9aqC3uK5eTyGajZR4JSbw4rV5yHrtw8y8poxBVP4sHSQGBdas+uU82pWBoJuKe1MLt3
-         3CzBNEkx0wNzowsC1denFpn6ryDWEPIpUZdRQ8XbvKYT8v9cAe1LXd3PR7X268fbsD20
-         w31if9W9ug4sB+LsxY3JSxcQftDonn/NSjVCXtMR3nfo9U52Dm450DR56GnDJcJXuzjd
-         jmwyjbt0tV+1JfmUKPsxtBdKP8dji86K0jezpgVflEdBQ3hGBoDjtNaTckpTCbX9raXj
-         M7YA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1761297687; x=1761902487;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NY5PIARKbpIdf6CoFhX2UEn3hHI/O9Hdjy4EAS5mHE4=;
-        b=ZqPuYW/kGAZDC9XPW0v7Kj+2p2Js2aPTg2V/szzNeavcugHJqZ+bJ/nlVcPzo78aFO
-         vvbh6VYvgw4Y+G1A3ZUrzicy/ITRdW2IdyrEOJObQr7nwU/4Aj/ucSkuyzRWCE8gsoyx
-         TTNgFxHW+X2J+l9zyzaU6lhXY50Jmlr92ZhpYf8eUvlPEnWMpg6mAXvyiiTIaMR0I3ja
-         7RPnI4MjaHOdKAd/Gpchp3eU5MABYwxSNb195h+MTi1LaPNEA4FBnoPWfFYPhdpZxzn5
-         ZhunEZtiUFButWOd8JAIfoBnALzRz0m0TM+PRNWD1ZTj4poRLAXpo3rKZ1B8v3alO8Ps
-         7TUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWPEcheKOyCNdAR1YRHSUuxEIRmIqli4ULCUqivQ1OAmHkt12RKaOwFCBMQzP9xFldzuufc11j71D74t/FpMM0T@lists.infradead.org
-X-Gm-Message-State: AOJu0YzggXvnCm8GAmZ5yFFSAZnrwUBCrirCnTHJy7XZugPErV5Ybm7j
-	/epZLHYH3l8X78D70YUuCE/aHMiBmp16fS5axYz/K0DLRLIh4BGPK2Bf
-X-Gm-Gg: ASbGncvsrwzsnHgvcLGz/f2ozT3grHq92wV85jCwq4zUV/YEakvQcnGItF/juFtKZ2G
-	1g46UffpHwp72/3lBr0ZjfvZe0I+6rl1petUYUPeQgYF1Nu9i0rXvP/oSTXyQ2kbPvhfyCa3G53
-	7Js9R+QQgDGXoTgCTkJt5wypsdCmzELA38OWHrRxMdVJLZAXxX6w8Wcao5axHpqZ3C240MB6d5N
-	cuch9PudH8GKAb6riPIQHfSyhY8MXYiDCoFXDp09NjmoxPTAY2AzDnMXvoF9cthCi6j/XphC5M5
-	oF0yH5tpFjiV1v9D1eTWrM8U8rzuegptN3DVbmyeY7aG/yFZFuXMyQ/6TUy6ejuYXFq33YhP2G3
-	DLQc8MV+pLuj5UMDGkTSfBqURFFA9/dlnFeBqypx2u/MTiIR0H8C8eaa/pBxw0w7E7+BYkopsQX
-	S9wIACHzF035qJwgdq/zMEm0HmZZfyJxco0ZsD2uxCIuLTEj7XtFILG/JEk/GlFIRryYI37KQs/
-	YvvN4zD4pT0RWsY6QShSWBtjTFDFVMfiULPqiqkLfOs
-X-Google-Smtp-Source: AGHT+IFN2t4M6Qoj3pIFSsEj3r77vKyY565/HfDPakReHx4yAtJAuSEBAgmRyjYHNwXMg0iJVqrMIw==
-X-Received: by 2002:a05:600c:4f08:b0:46c:e3df:529e with SMTP id 5b1f17b1804b1-475cb03021dmr42329985e9.19.1761297687076;
-        Fri, 24 Oct 2025 02:21:27 -0700 (PDT)
-Received: from ?IPV6:2a02:8440:7132:30ef:ba02:7a36:289:dc72? (2a02-8440-7132-30ef-ba02-7a36-0289-dc72.rev.sfr.net. [2a02:8440:7132:30ef:ba02:7a36:289:dc72])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47494b02475sm81213955e9.4.2025.10.24.02.21.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 24 Oct 2025 02:21:26 -0700 (PDT)
-Message-ID: <b3accac0-d02a-4b92-848c-ada62377e440@gmail.com>
-Date: Fri, 24 Oct 2025 11:21:25 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/7] dt-bindings: memory: introduce DDR4
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Julius Werner <jwerner@chromium.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-References: <20250930-b4-ddr-bindings-v8-0-fe4d8c015a50@gmail.com>
- <20250930-b4-ddr-bindings-v8-2-fe4d8c015a50@gmail.com>
- <1877f731-1599-414d-a40e-38aec05a33c0@kernel.org>
-Content-Language: en-US
-From: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
-In-Reply-To: <1877f731-1599-414d-a40e-38aec05a33c0@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251024_022129_389910_71BCB009 
-X-CRM114-Status: GOOD (  15.34  )
+	Fri, 24 Oct 2025 09:27:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A81466031A;
+	Fri, 24 Oct 2025 09:27:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F7B8C4CEF1;
+	Fri, 24 Oct 2025 09:27:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1761298073;
+	bh=JtAgQYabJoYpbAKikJiDKcmhcEvLDKqLOeVG9wlYeU8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lEV6Vnqlk63vvYBY5YiNwCxLV2t046WuVTH0bJu7v0NPJTvyR5bdMD+46tN94eZs7
+	 E9i6wVfS/wnke+C7L5ar3jT+19O+7l60IXYUQLIi+AAMHINtBAatKW1sXvCCeiVJjq
+	 JcJ8uu+/YM9j8WmVMNTGQGl1Pk9sR8bLRHY1XoQEvedObLFXLnWTVkFv6aH7nKuwJ5
+	 TqS4v10GhIDA5tJoQ3vA1s2WyW+mENZwQw0Yqvfv3wjVXSblIPlZI3ddacF/OqYoLa
+	 GAVYXGOUtOnadjlx9UKQvvNNfvHkP+jBJ26GBkUxZM53y53ddjS2wJ63VMQvr9TV3p
+	 fXEr7mt+9mLQg==
+Received: from 91-165-189-16.subs.proxad.net ([91.165.189.16] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vCE5O-0000000GnSj-3WVw;
+	Fri, 24 Oct 2025 09:27:51 +0000
+Date: Fri, 24 Oct 2025 10:27:50 +0100
+Message-ID: <87sef83azt.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] arm64: guard AMU register access with ARM64_HAS_AMU_EXTN
+In-Reply-To: <adefdb3e-7a10-42a2-b2fc-8c1490762454@mailbox.org>
+References: <20251022133621.178546-1-marek.vasut+renesas@mailbox.org>
+	<86347bvx0f.wl-maz@kernel.org>
+	<07391913-aab6-4d92-b75f-278506f51397@mailbox.org>
+	<861pmvvv2g.wl-maz@kernel.org>
+	<24c8da41-37db-4e69-b9aa-e33b2154acb0@mailbox.org>
+	<87y0p13dlh.wl-maz@kernel.org>
+	<adefdb3e-7a10-42a2-b2fc-8c1490762454@mailbox.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 91.165.189.16
+X-SA-Exim-Rcpt-To: marek.vasut@mailbox.org, linux-arm-kernel@lists.infradead.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, geert+renesas@glider.be, ryan.roberts@arm.com, will@kernel.org, yangyicong@hisilicon.com, linux-renesas-soc@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,66 +92,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/23/25 15:21, Krzysztof Kozlowski wrote:
-> On 30/09/2025 10:46, Clément Le Goffic wrote:
->> From: Clément Le Goffic <clement.legoffic@foss.st.com>
->>
->> Introduce JEDEC compliant DDR bindings, that use new memory-props binding.
+On Thu, 23 Oct 2025 16:58:49 +0100,
+Marek Vasut <marek.vasut@mailbox.org> wrote:
 > 
+> On 10/23/25 4:19 PM, Marc Zyngier wrote:
 > 
-> If there is going to be resend, then please repeat here applicable part
-> of compatible format, e.g. why it's like that.
+> Hello Marc,
+> 
+> >> Except right now, I still trigger the AMU faults even with
+> >> ARM64_HAS_AMU_EXTN=n , which I think should not happen ?
+> > 
+> > ARM64_HAS_AMU_EXTN is a *capability*, not a configuration.
+> > CONFIG_ARM64_AMU_EXTN is the configuration. I have the feeling you're
+> > mixing the two.
+> > 
+> > Irrespective of the configuration, we access the AMU registers
+> > depending on the what is advertised, because we *must* make these
+> > registers inaccessible from EL0, no matter what.
+> 
+> Ahhh, I was missing this part, thank you for clarifying.
+> 
+> >> I would much rather be able to disable ARM64_HAS_AMU_EXTN in kernel
+> >> config for the old devices with old firmware, without triggering the
+> >> faults ... and say that everything which is going to be upstream will
+> >> always use new firmware that has proper working AMU support.
+> > 
+> > No, that's the wrong approach. If you leave the AMU accessible to EL0,
+> > you're leaking data to userspace, and that's pretty wrong, no matter
+> > how you look at it.
+> > 
+> > I also think your hack works by pure luck, because at the point where
+> > your CPUs are booting, the alternatives are yet not in place (the
+> > kernel patching happens much later). In short, this breaks
+> > *everything*.
+> > 
+> > As I indicated before, you have two options:
+> > 
+> > - either you update your firmware and leave the kernel alone
+> > 
+> > - or you implement the workaround as ID register override so that you
+> >    *must* pass something on the kernel command line to boot, and by
+> >    then accept that you will leak critical timing information to
+> >    userspace.
+> > 
+> > Any other option, including guarding the macro with a config option is
+> > *not* acceptable.
+> 
+> Since I am getting an exception when I access the AMU register, would
+> it be possible to trap that exception, and report something to the
+> user instead of outright crashing with no output ?
 
-Hi Krzysztof, ok
+The trap exists, and the exception is being routed to EL3. There is
+nothing you can do about that if running at EL2, and if at EL1, you'd
+need to take the trap to EL2 to handle it. And if you can do that,
+what do you do?  Not doing anything is wrong, and doing something will
+nuke your machine.
 
+> Similar to what Linux already does on the various speculative
+> execution bugs on x86, something like this?
 > 
->>
->> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->> Signed-off-by: Clément Le Goffic <legoffic.clement@gmail.com>
->> ---
->>   .../memory-controllers/ddr/jedec,ddr4.yaml         | 34 ++++++++++++++++++++++
->>   1 file changed, 34 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
->> new file mode 100644
->> index 000000000000..a2eb6f63c0ce
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
->> @@ -0,0 +1,34 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,ddr4.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: DDR4 SDRAM compliant to JEDEC JESD79-4D
->> +
->> +maintainers:
->> +  - Krzysztof Kozlowski <krzk@kernel.org>
->> +
->> +allOf:
->> +  - $ref: jedec,sdram-props.yaml#
->> +
->> +properties:
->> +  compatible:
->> +    items:
->> +      - pattern: "^ddr4-[0-9a-f]{4},[a-z]{1,20},[0-9a-f]{2}$"
-> 
-> Why double ','? I would imagine last ',' to be '-':
-> ddrX-YYYY,AAAA...-ZZ
-> 
-> Sorry if we discuss that already, but then please remind me and this
-> would need addressing in commit msg.
+> "
+> MDS CPU bug present and SMT on, data leak possible. See
+> https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/mds.html
+> for more details.
+> "
 
-I do not see anything against that.
-I'll wait Julius's review, if any, and I will send the next version with 
-this changes.
+You're completely off base. The problem at hand has nothing to do with
+speculation, and everything to do with access permission to counter
+registers.
 
-> 
->> +      - const: jedec,ddr4
-> 
-> 
-> Best regards,
-> Krzysztof
+I also wouldn't be surprised if you could take your whole machine down
+from userspace just by ticking some of the AM*_EL0 registers (the
+pseudocode clearly shows that there is a route to EL3 in this case).
 
+Honestly, I think you should stop trying to papering over this issue
+behind the user's back. If you want this addressed, do it so that the
+user knows their machine is fsck'd, and that they are OK with that. Do
+it by implementing an ID register override that requires a kernel
+command-line argument.
+
+Do I sound like a stuck record? Probably. But that's IMO the only
+acceptable solution for what you have. I'm looking forward to
+reviewing a patch implementing that suggestion, but I'll stop even
+thinking of how to paper over this in the way you suggest.
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
