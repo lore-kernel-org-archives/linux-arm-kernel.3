@@ -4,150 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1514ECCD1AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 05:53:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B24CCD1A5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 24 Oct 2025 05:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v9Jcwnf70VuS+E93GK0rKdIwK8HAXx0eXQ6TsOBg+Mo=; b=NiRCiexE7BkhdR4SXhOXUSUDVv
-	IZlUc0hnxOdHcD7YakfD/CAz42zAYqMsOxQWK/t8RmJZvtuiEgZXfFq/Cjeh6/FhhoXsRTBSdlQMW
-	SeZlxLlRgXrjuYOTESvI5sVg7C/XV34R5VbBEPK04dchB6phHS6ACyM7UrnEqdbv/o7i6q2MoLskv
-	+7eS0JD4fYCFG4DVS80V+Iviw001nH1+LyHqkLIDhejYnpaOtf1zNkDNciOdhIz503sQAf0L2xNnA
-	dr1D3Zs9/viORlCRUq1UArvkmsAKU7kay8VTYN4bgHO207RqdqDRUEqRUna9quKIvZkVqRnCpWxFk
-	USvzK8EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rAmnAjO1nr88md/m88lIz4kguoI+md30Yr9oFyb7DN0=; b=BNMDAts1r4/z11zb4Q0P5UQM96
+	PSYaA5DMhheQgnbygx5wK37tN9NBH033OX6+PQrebrd2cSCHTJ9fm+xHo18vVO5mczX2U1252+xpf
+	kkYhpxYmWJdTcAHhsVsReysMK4hQdwItI8O7dX6AMueAK8YI33l1IoJ6ZIaKKvadiU56pdr10i4rs
+	4glOY9/UYvVmtXBbAi+i7l8uOP8Z9WWl6J6sdZb7ffpkfbcVlzyYe8dM4t8dgTOnNFZdAp1atUhsk
+	i/OgWfX/gQ8LX4wLgg4zcn9veGU0RheEiy47iBN+xiJRgCMgjGG9qRlGBTY1PNBkClOWbK82KiGSB
+	twQWApQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCAjf-00000008IqK-2tMv;
-	Fri, 24 Oct 2025 05:53:11 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vCAjs-00000008IvO-0Dnq;
+	Fri, 24 Oct 2025 05:53:24 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vCAjd-00000008Ipm-1jbb
+	id 1vCAjo-00000008Ish-24A9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 24 Oct 2025 05:53:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=p3b+aoh/x/jTDgCa7zrkqHcgeA0StBs7Ht1HfPkDY3vZL7yFIgkwJTVscugzOFIfvERvSmiNqtIdr8w39etjgg6KfsrCPHkdG90jJEp1mJs2/xBS4+zb3nPc9jIRAHvowvkWNydsgEiUOZOJXK+oFJljxaMHE2eLJ74Bgag68yXLVG9/Yo7sBVqUgYiWFwqhphw1o0k/KMAa9q6VCbKUwx6CdzaWDj3D5/FdzmQzbxUAvMQoEbrrm5c4lyUVO96d9GSUnCl3Tr9S9GZRtJH2FNTZ7nCMSRHqQ073+awU6QDkwGc9MYTfdOG+YvQ+MA+j79Nwza4d1UfcJiPlsOZ0Bg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=v9Jcwnf70VuS+E93GK0rKdIwK8HAXx0eXQ6TsOBg+Mo=;
- b=xGVZLEj6NQnLOYWvk8438iWv1rtN8Rdop2xb9M+QyBm6G0rZY2j38HQI0i9o0ReNeEwRnQRqbE6JF98Dx9VauPSO+1cAtf+bkNjQmCOzT8mCLhAu+9LiWktke89+RWZBNkXUdOOz88T5Xy3TONGXFV65KpwQGZAydTkrkSpGy/eSutEhF4Sc+uDjDc2w1/lXjHO1VfgNu4c5qiq/KCHyoohTkFecRfAeHfS6+8x4hOZaw/9ZPdzGn+MlMjYHLotZT+PkqyK+BvI1arm9oEc2e497Dx7sNLVgaE6hpL7vsGnX5nFHjqRGjgVnwL2cadY5jErFJ5oAXUEhUhRtbljuMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=v9Jcwnf70VuS+E93GK0rKdIwK8HAXx0eXQ6TsOBg+Mo=;
- b=ShMGs6+1rFHye5PwuFff+wMrWlCVzcV+D/XEH99UZcCthZ9CRhQgQj5d4B9/8TDCAxvhnE4QOviwLaP6YH887ZZSpMRkidWMutLYGWG3AehUOY/vimw0Hyb/MSLu0yzMTfl7xMa+BI29eTaJCdYl4uBHTM2ZI4QOWT/XxMJXbqNumuBozOvOW6Ocm16mjH6h8gLuORerDTiugrjsAvuuSvrznMtugOQT5diKMZt9KsWdF7rC9IOF3j5SrbTJVe/1WgoMBgBuo2ZdfA4suYrQOXtYSeEM1VqrbEYhtwEKTPo0tNgDNg8kf7plR51SXsr784ZJ6q1u9maGJXtYw3f5aw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14) by GVXPR04MB9758.eurprd04.prod.outlook.com
- (2603:10a6:150:110::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9253.13; Fri, 24 Oct
- 2025 05:53:03 +0000
-Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
- ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9253.011; Fri, 24 Oct 2025
- 05:53:03 +0000
-From: carlos.song@nxp.com
-To: frank.li@nxp.com,
-	broonie@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-spi@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] spi: imx: support SPI target PIO mode for IMX51_ECSPI
-Date: Fri, 24 Oct 2025 13:52:43 +0800
-Message-Id: <20251024055243.408461-1-carlos.song@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AS4P192CA0034.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:658::13) To VI2PR04MB11147.eurprd04.prod.outlook.com
- (2603:10a6:800:293::14)
+	Fri, 24 Oct 2025 05:53:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1761285196;
+	bh=CX/6xNCkWzoa/34JQHAzp6QuK8mm/NivX3nU1pFQYJs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RNO34UjuD8cmIPiDKUA2FqjCJfJeIR+S9mPQsOFXWdl4aWhGvn795QH8kzbKJkJoU
+	 B//1D8lqvlSAKaqB/svEhNPUyB74YjpgfXRNgfpt510BthEz3xe0YprHX6CiyK7y7j
+	 EkzsbWkFjujZ8VNcIsYdbjH0eYhQHS99N+njLtvszDK+BHOMDn0Z9WnEYvXpA7lE2D
+	 8xKY7HpeXZOHYLWFZNgnQ8wBUSlaCMMeE0vUfvLChg+b3Ld0v7PUtD58KrLux+IHGd
+	 W/CUtNvn+gO4xn2gtfzj9wRSO1ZHPf/5AnUPt9hOCpTqq5AcdLpwcRFSmHE/rbpWxp
+	 4NiHgUd9Xij/g==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C461C17E0CA1;
+	Fri, 24 Oct 2025 07:53:15 +0200 (CEST)
+Message-ID: <1d69e292-f0c6-48de-a70c-ff2223e40fa6@collabora.com>
+Date: Fri, 24 Oct 2025 07:53:15 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|GVXPR04MB9758:EE_
-X-MS-Office365-Filtering-Correlation-Id: 914ccb6e-55d5-4cf3-2527-08de12c1985c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|52116014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4tY7OpLBzCIYGlPGuIxljNNXWav/J/8lUzsURCPjw8wXMi6TufRW6Qnwn6Mj?=
- =?us-ascii?Q?YUroXsGRXI5SUEoXyi2HWuGDnC0FBJqgOFNjHu4MvovI2sn3fT7RDnN3KLX3?=
- =?us-ascii?Q?VjIM7eGDHi1sNP4/8yOovYsI8kF2rhqrH2FWoqMnAXpO1iId9ZDim3M1S+tH?=
- =?us-ascii?Q?FB5z6ph2ADa+Kn2xGYS4mYv3jYEQNoHfWrsGG4cC2UszeyWZDAFP+URH6DF5?=
- =?us-ascii?Q?DQLaVKDIxcJ4qt94LrCAbpnXZ12zImtI8SULXCUPbwBvfwzfwLxPcHbUVyAT?=
- =?us-ascii?Q?5NA1QavrnURbbCVNjpN91SXL5hMwK9YdQ5F4bBkl4icgPkrIOvriQArpRPLj?=
- =?us-ascii?Q?kkm2hFBMxnbbu++Ksj3F/tAZ7VzqldlxbtZku43wncjvOXaXPvCDc9O8waJH?=
- =?us-ascii?Q?uQzHrwmybfxCwI5RSPV8MCH9pWg09+1uj3pU03Ik3ezsRwZzrZJ9tQ3SLOCz?=
- =?us-ascii?Q?hGrj2hK/GBuHr7IpNH92emUAclWMjzi0NW6wpr4qP+038fS8d4Jjwk4BAsSZ?=
- =?us-ascii?Q?+xmhNMeox9Kjp57aUzcZn1Afx+HyTQDrQhFI/r//L28yxlXkchZyS7d5flll?=
- =?us-ascii?Q?J7aQjMNozEbaLVm1SCWs/HEvYphkSLKbthKEEnAEJKSaXZMTuu1j/TK3wUDE?=
- =?us-ascii?Q?HTJRotakuAp1Y4Oa020jLUrbSnpqEU7fGschitqAzyivamHyeXb+MIpAlX/E?=
- =?us-ascii?Q?PdM4q2CjjdE94QF1XAhfcfkAta6yUJX0BFf/s7lr6zXArbuL4kR12QvlW13c?=
- =?us-ascii?Q?TKos7Q866oQgeC54HcXn9ZGZyKU1EMMxVfZPqyOKwv78YqjF7TxkFap6fsOi?=
- =?us-ascii?Q?qDtGcMxhvYFj75gt5CUGY54HvKu3Z2g+tJ/tnMRAZSSmd1RI9EIdCjY6jsl6?=
- =?us-ascii?Q?YagbF6MahcJovVDNEWmKIWMeNAgiC1c2MH/YZZ4T9IJKPVxfXfrRrgfKpheh?=
- =?us-ascii?Q?GW1FO5e2KqVU50hwKKiqDLo2qGRhp5aZBpEtJmsZgvVfUGU+lcrPY488ofKt?=
- =?us-ascii?Q?56gpgGx6QMwcBxDN0681haUgJl1+P1tbnsI2wHRoReRnt4Bo2DZVlJ9ZGrQ8?=
- =?us-ascii?Q?Ih1kTr4FD9HZYpuDIi4rPvEqioqak6ydU6V/nuWIrRhb/VC2oEFl9PBeROxt?=
- =?us-ascii?Q?new+DBGsfId6hWrAnY4AIdw2gpim7giT+1m0mhsUHSEbaxL9W34kmnWU7GTz?=
- =?us-ascii?Q?IJYomYgNwWjq57ZEjG228D9/Zia+eUOsb4wZkvG4bMwoUGCowJuim65U/lef?=
- =?us-ascii?Q?SbqoW53dH+VAw9UpyC1+367cj8HHoD4yfbr2siQnwEB+1ir+OkOzhxoARkdC?=
- =?us-ascii?Q?Dtm0bLzh0x6ZPIRbfHR2hkr+V9iLJhIf3Z35cYWm/XyZWb/JAq2Di4aAvQ/Y?=
- =?us-ascii?Q?UPoQ0wVxh9vpYL9a4wMlDUkf45KDaBzfoKHo++p4TbORFmvalkP2JwGvnJ+0?=
- =?us-ascii?Q?5EyRtkMg3Z61hUiq2BN5FspmuJsVnFEspw8m2bi5pnScZw+8xsQrO1F83H27?=
- =?us-ascii?Q?yCg5Uf2kMof0xjx6Vxc60yRKul0DFKGnUEIz?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(52116014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hdNFVvktDwCfpJyZ0vyIVlsDR0mV8pTBNxfbtdgrPiwbOpRcHJ/ymgsD5syH?=
- =?us-ascii?Q?lxAjTOt7gpmNK2SQl4yAP2xk419osDN5xO56C+Pb2hASEQHEOeHnHwoltYuV?=
- =?us-ascii?Q?ziUUtVvMWAupqfyAIQUIIvZtuDEUoesMSPqiM0igzfHGS4ccqPYsO/rTxu+M?=
- =?us-ascii?Q?sag4OhTTJBKBBE5oP+OIEAOFu6g85XujKkgyScv4MIcacV/UhgMbadmaywGx?=
- =?us-ascii?Q?0CprP9P8TID8FBaaFP/58ufBFaMjRhXUD6z7UfgFajXIp3irPm2AdR0y2FCo?=
- =?us-ascii?Q?lkbWPlj+uZYxRwpOhl4l8JP29TKE3stygUW3IWudRejzJOcVf+nr5VlpWrLU?=
- =?us-ascii?Q?tviBzW2zlzKaLBgLd96No/1gS0IV/mQIvTrGskd0VXsjEgm3iuqUKFwOtdPW?=
- =?us-ascii?Q?u9IYN2it0YbSXX47Hp6wSfmynXAofCxz7ZyBoNnXztsDmDfWN3D2DKz91NYr?=
- =?us-ascii?Q?waUPq/dj67wPQKTyQ/VJWzi1H7kEd8s3JSJFgOAmVrTjILBLdF78XJ2+9YfA?=
- =?us-ascii?Q?s4uv7SPLEausKEtLvfSwWY6FIZmRv+r878bAsTXlMq9WpH2p9vZIGzNQMELV?=
- =?us-ascii?Q?Vmhxb5lHuiyiIN8urdPSxhgTFo1lqXcZbluAGtVAGWuOe7hQsf4CYtBnLvR2?=
- =?us-ascii?Q?NoqZrxtYHlLJb2hR4M4Gs93RlSbxI9gIBWqndyqMoCkHmFXzp8g1mhD+dPjS?=
- =?us-ascii?Q?VBhFTfGDXSitY2DmVGj7h7d5i6OtAYcq02KxlQkUzNeIW9hdcLYZl37mUdUW?=
- =?us-ascii?Q?649mXVJWOWTa+TKODFB2HHO0pDC/LQk0bz3clNODW+CM1LDY+X69f3MU6xH8?=
- =?us-ascii?Q?fXF3DEpgRCdZ2Y8QIVIZg08A2znHCeqMzQ7uxyRWuqM4f8VA8hqMIlPDKMn9?=
- =?us-ascii?Q?b3/vsEqi51mm/e6AnKLKr5O2hfc+lWWl614guGK1XAWFUPbz6pr39Dvszipk?=
- =?us-ascii?Q?HOXs5UNjnxRBLNHfofTnttdOwANMyw9G5Qi2Xk5sVjKuqtCpWxgv+nhzMefp?=
- =?us-ascii?Q?xcIuVyG7G1SNPUItxtCoryakHYuSkk0M+yi7SUzSAOARHnuqgfz7fn9rwXUz?=
- =?us-ascii?Q?Wztb3Vxhk1U59thRPlaH1lKU/JmtRFPCFztLYFAw4x1yWkoM7zrDBr4tkmlm?=
- =?us-ascii?Q?eOrVSKL61VfFV4qteikRLXmD+Kj0wr2NKrcZPpME6tIxthikRkmiNM6Ti98j?=
- =?us-ascii?Q?f1ayaHFIGRIpjZWl8VoGgkO28BxZ90UeSd4wqCe6m/d1FTwWbvUfwVjgTsD9?=
- =?us-ascii?Q?jbUtqjU9Md2nZt1Ux1bk+7fzSXX0ak5xn1lBWR4qKfqttbl8zuu6UGL6QWeE?=
- =?us-ascii?Q?FyfsL/UMMd/52hGRpMaVKB0+hcGOZDnl7C9xOAyv2s9La/+XnNjyPvUMIK+7?=
- =?us-ascii?Q?Eg7PfLxnlBLnQIBhjyP6G+NW8wW3y4gPhbCErJH4yG2leA48UScPLGThtpaJ?=
- =?us-ascii?Q?504oevVQxYu3Q8TV9fWc37I+trUSuMK8fuJtBnhTSfPnCgG8j0AgTuDELKI3?=
- =?us-ascii?Q?DDRFeSkAAoaMWgIDSDURZOFtbNwUeazmjR8gWnw1NXeGK5w4ORbpyjgCVFGV?=
- =?us-ascii?Q?lQ4wD+J8wkADHsCc5Ppk0OTbqIX6mc1IHsmEMlwl?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 914ccb6e-55d5-4cf3-2527-08de12c1985c
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2025 05:53:03.1314
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zzWs/fFRHv2wVTVc8DFYrMhWO11+oTeYd6myh3/uwSVty+K4BkDQlCB3vpG+1Vhzm5blEMfh1ZgrVs0NEnO8Ew==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9758
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pmdomain: mediatek: Fix build-errors
+To: Ulf Hansson <ulf.hansson@linaro.org>, linux-pm@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Stephen Rothwell <sfr@canb.auug.org.au>, kernel test robot <lkp@intel.com>
+References: <20251023114436.185320-1-ulf.hansson@linaro.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251023114436.185320-1-ulf.hansson@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251023_225309_454254_791237B4 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20251023_225320_705756_77DF436C 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,96 +75,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Carlos Song <carlos.song@nxp.com>
+Il 23/10/25 13:44, Ulf Hansson ha scritto:
+> Let's add the missing header to fix the reported build-errors.
+> 
 
-IMX51_ECSPI and IMX53_ECSPI both has target mode, but now PIO target mode
-is only supported for IMX53_ECSPI.
+Ouch. Sorry about that.
 
-Support target PIO mode for IMX51_ECSPI. It can share the same functions
-for data transmission and reception in target mode with IMX53_ECSPI. So
-remove target mode restriction only for IMX53_ECSPI and move target max
-transfer len to devtype_data of IMX53_ECSPI and IMX51_ECSPI to improve
-readability.
 
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
----
- drivers/spi/spi-imx.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-index 6eb4bfb7be4a..cd40db61d8d1 100644
---- a/drivers/spi/spi-imx.c
-+++ b/drivers/spi/spi-imx.c
-@@ -85,6 +85,7 @@ struct spi_imx_devtype_data {
- 	void (*disable)(struct spi_imx_data *spi_imx);
- 	bool has_dmamode;
- 	bool has_targetmode;
-+	int target_max_transfer_bytes;
- 	unsigned int fifo_size;
- 	bool dynamic_burst;
- 	/*
-@@ -594,7 +595,7 @@ static int mx51_ecspi_prepare_message(struct spi_imx_data *spi_imx,
- 	 * is not functional for imx53 Soc, config SPI burst completed when
- 	 * BURST_LENGTH + 1 bits are received
- 	 */
--	if (spi_imx->target_mode && is_imx53_ecspi(spi_imx))
-+	if (spi_imx->target_mode)
- 		cfg &= ~MX51_ECSPI_CONFIG_SBBCTRL(channel);
- 	else
- 		cfg |= MX51_ECSPI_CONFIG_SBBCTRL(channel);
-@@ -682,7 +683,7 @@ static int mx51_ecspi_prepare_transfer(struct spi_imx_data *spi_imx,
- 
- 	/* Clear BL field and set the right value */
- 	ctrl &= ~MX51_ECSPI_CTRL_BL_MASK;
--	if (spi_imx->target_mode && is_imx53_ecspi(spi_imx))
-+	if (spi_imx->target_mode)
- 		ctrl |= (spi_imx->target_burst * 8 - 1)
- 			<< MX51_ECSPI_CTRL_BL_OFFSET;
- 	else {
-@@ -1140,6 +1141,7 @@ static struct spi_imx_devtype_data imx51_ecspi_devtype_data = {
- 	.has_dmamode = true,
- 	.dynamic_burst = true,
- 	.has_targetmode = true,
-+	.target_max_transfer_bytes = MX53_MAX_TRANSFER_BYTES,
- 	.disable = mx51_ecspi_disable,
- 	.devtype = IMX51_ECSPI,
- };
-@@ -1154,6 +1156,7 @@ static struct spi_imx_devtype_data imx53_ecspi_devtype_data = {
- 	.fifo_size = 64,
- 	.has_dmamode = true,
- 	.has_targetmode = true,
-+	.target_max_transfer_bytes = MX53_MAX_TRANSFER_BYTES,
- 	.disable = mx51_ecspi_disable,
- 	.devtype = IMX53_ECSPI,
- };
-@@ -1170,6 +1173,7 @@ static struct spi_imx_devtype_data imx6ul_ecspi_devtype_data = {
- 	.has_dmamode = true,
- 	.dynamic_burst = true,
- 	.has_targetmode = true,
-+	.target_max_transfer_bytes = MX53_MAX_TRANSFER_BYTES,
- 	.tx_glitch_fixed = true,
- 	.disable = mx51_ecspi_disable,
- 	.devtype = IMX51_ECSPI,
-@@ -1375,7 +1379,7 @@ static int spi_imx_setupxfer(struct spi_device *spi,
- 	spi_imx->rx_only = ((t->tx_buf == NULL)
- 			|| (t->tx_buf == spi->controller->dummy_tx));
- 
--	if (is_imx53_ecspi(spi_imx) && spi_imx->target_mode) {
-+	if (spi_imx->target_mode) {
- 		spi_imx->rx = mx53_ecspi_rx_target;
- 		spi_imx->tx = mx53_ecspi_tx_target;
- 		spi_imx->target_burst = t->len;
-@@ -1649,8 +1653,7 @@ static int spi_imx_pio_transfer_target(struct spi_device *spi,
- 	struct spi_imx_data *spi_imx = spi_controller_get_devdata(spi->controller);
- 	int ret = 0;
- 
--	if (is_imx53_ecspi(spi_imx) &&
--	    transfer->len > MX53_MAX_TRANSFER_BYTES) {
-+	if (transfer->len > spi_imx->devtype_data->target_max_transfer_bytes) {
- 		dev_err(&spi->dev, "Transaction too big, max size is %d bytes\n",
- 			MX53_MAX_TRANSFER_BYTES);
- 		return -EMSGSIZE;
--- 
-2.34.1
+> Fixes: df4e9ec1ed86 ("pmdomain: mediatek: Add support for secure HWCCF infra power on")
+> Reported-by: Stephen Rothwell <sfr@canb.auug.org.au>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202510231317.ZZxNaFG0-lkp@intel.com/
+> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> ---
+>   drivers/pmdomain/mediatek/mtk-pm-domains.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> index ac144ab8fce0..164c6b519af3 100644
+> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> @@ -2,6 +2,7 @@
+>   /*
+>    * Copyright (c) 2020 Collabora Ltd.
+>    */
+> +#include <linux/arm-smccc.h>
+>   #include <linux/clk.h>
+>   #include <linux/clk-provider.h>
+>   #include <linux/init.h>
+
 
 
